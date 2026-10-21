@@ -12,7 +12,7 @@ def number(value):
  if not valid:raise ValueError('Overlay requires finite numeric input')
  return list(struct.unpack('<II',struct.pack('<d',float(value))))
 
-def compile_payload(patterns,*,camera_mask=0,element_codes=(),code_tags=None,charge_hold_mask=0,actor_pools=False):
+def compile_payload(patterns,*,camera_mask=0,element_codes=(),code_tags=None,charge_hold_mask=0,actor_pools=False,named_refs=None):
  if not 1<=len(patterns)<=32:raise ValueError('World overlay node capacity exceeded')
  if type(camera_mask) is not int or not 0<=camera_mask<=31:raise ValueError('Invalid static camera mask')
  if element_codes and (len(element_codes)!=5 or any(x not in range(6) for x in element_codes)):raise ValueError('Invalid roster element codes')
@@ -20,12 +20,17 @@ def compile_payload(patterns,*,camera_mask=0,element_codes=(),code_tags=None,cha
  words=[MAGIC]+[0]*527;words[1]=camera_mask;words[7]=0x48410000|charge_hold_mask if charge_hold_mask else 0
  if element_codes:words[2:7]=element_codes
  code_tags=code_tags or {}
+ named_refs=named_refs or {}
  for p in patterns:
   at=16+p.idx*16
   if p.kind in ('idle','groggy','attack') or actor_pools and p.kind in ('parts','summon'):continue
   if p.kind=='buff':
    value=p.enemy_effect['fixed_value'] if p.enemy_effect else 0
    words[at:at+10]=[1,int(p.irremovable),*number(p.def_mult),*number(p.def_add),*number(value),0,0]
+   if p.enemy_effect and p.enemy_effect.get('name') in named_refs:
+    name=named_refs[p.enemy_effect['name']]
+    if type(name) is not int or not 1<=name<=256:raise ValueError('Invalid named overlay reference')
+    words[at+11]=name
   elif p.kind=='core':
    if p.core_px>100000000:raise ValueError('Overlay core diameter exceeds literal geometry bound')
    words[at]=2;words[at+8:at+10]=number(p.core_px)

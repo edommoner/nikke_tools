@@ -28,8 +28,8 @@ bool validPendingDefinition(inout Runtime s, uint row)
 void enqueuePendingBurst(inout Runtime s, uint row, uint64_t when)
 {
     Definition d = readDefinition(s.inputBase,row);
-    uint64_t coefficient = d.value; // plain bonus coefficient is not a DoT stack multiplier
-    if (f64Zero(coefficient)) return;
+    if (f64Zero(d.value)) return;
+    uint64_t coefficient = namedDamageCoefficient(s,row,d.value,when); // capture before deferral
     if (!f64Finite(coefficient)) { s.error = 16; return; }
     if (s.pendingCount == P_PENDING) { s.error = 64; return; }
     if (s.pendingEnqueued == 0x7fffffff) { s.error = 2; return; }
@@ -62,6 +62,16 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
         { s.pendingAmount[index] = s.pendingAmount[index-1]; continue; }
 #endif
         uint64_t coefficient=s.pendingCoefficient[index];
+        if(f64Zero(coefficient))
+        {
+            // Native queries buffs before skipping a zero captured coefficient.
+            uint target=s.target;s.target=0;s.damageExclusion=row+1;
+            WORLD_PENDING_SCOPE_BEGIN(s)
+            uint64_t ignored[64];collectStats(s,d.owner,when,ignored);
+            uint64_t enemy[3];collectEnemyModifiers(s,d.owner,0,when,enemy);
+            WORLD_PENDING_SCOPE_END(s)
+            s.damageExclusion=0;s.target=target;s.pendingAmount[index]=0;continue;
+        }
         uint reference=s.inputBase+P_REFERENCE_DEFINITION_BASE+row*4;
         if((commands[reference]&3)==1)
         {

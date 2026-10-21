@@ -1,0 +1,390 @@
+{
+  "package": {
+    "package_id": "20c48e24abe8c9c4c041d32a92b82314a26bc419ff9b398600407cecb2ba3457",
+    "files": 1796,
+    "bytes": 4477490,
+    "archive_sha256": "d331a92667c8f13847bc4e18b919eb504e64b59629214f509d2cf37b2fdb5cd5",
+    "source_commit": "a9acb7187884f706dae7eff758baaf726e0d2509"
+  },
+  "capture": "/tmp/nikke-named-magnitude-development-metal",
+  "result": {
+    "sealed": false,
+    "purpose": "development",
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "passed": false,
+    "containment_verified": true,
+    "comparison_error": null,
+    "first_difference": {
+      "index": 4,
+      "name": "named-mag-damage-value--100",
+      "reason": "AssertionError: named-mag-damage-value--100"
+    },
+    "phase": {
+      "events": 6,
+      "last_event": {
+        "monotonic_ns": 699885071084125,
+        "pid": 11087,
+        "stage": "shared_native_compare",
+        "state": "returned",
+        "wall_time_ns": 1792600735212304000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0
+  },
+  "comparison": {
+    "calculation_verified": false,
+    "entries": [
+      {
+        "name": "named-mag-damage-baseline",
+        "input_sha256": "19006f0eb20bb1530bdc8807e66025b2f12d2e8e2d285d46cef5abf32436854f",
+        "output_sha256": "2ca07564fb6bc557f914fe851972fbb2fe281b3611da7d3e6282ddba72082059",
+        "native_sha256": "01e497e3f9d54f30947067de8a932800a6bd244b0175a874b82b82f6485e4f3e"
+      },
+      {
+        "name": "named-mag-damage-value-0",
+        "input_sha256": "a58855a20887ef5912da1e5c4005653ae2de64546b686594575e5fec93b0d8e1",
+        "output_sha256": "f1ff9507740c3113bf7bd601adb6b956f76ab47755b86948a5bb88847695b373",
+        "native_sha256": "3706798a0a8b9148c066d302e86c972aff086a6747a11834529496e4b6a9429a"
+      },
+      {
+        "name": "named-mag-damage-value-50",
+        "input_sha256": "3ee2a0a597182bb703c550ac9e06117f9adb6852106b91e3d2941a10b3a4c9b4",
+        "output_sha256": "627fbaadb166223b64a7eb79dbcbba33a7ce8b3a773173f9e01d1f7f78994cc6",
+        "native_sha256": "d90e9b33dd3ec4425dd45e24ffc6604ada32eb81e82bbf3fb130d2dccacf00d9"
+      },
+      {
+        "name": "named-mag-damage-value--50",
+        "input_sha256": "4ba022b41d141fbb0700eb19917c4d360bcccf35593c13f63746595a96273c21",
+        "output_sha256": "153fa59662865175b6f48a1b81ba39cfd1cf876330d5c2b8a6a83c4c778f3a6a",
+        "native_sha256": "fe51189486a09c2335141fa4a4158886b56ffca6665f2b9c8d1dc677caf4a2cc"
+      },
+      {
+        "name": "named-mag-damage-value--150",
+        "input_sha256": "0eec03699497215b3dcb9c970968501dea4cd7f5b40e947788d20a3c014ed6ad",
+        "output_sha256": "4b8fd1b964ddd1a4d4c0a840fa87ff30a53376f62a9dfdaf15a626d6f660b6dc",
+        "native_sha256": "f529aab14550b8cdd0a3228b9b06f3e3de8ae9e12015eabf86685adc947a4bdd"
+      },
+      {
+        "name": "named-mag-damage-wrong-name",
+        "input_sha256": "b35ad89fb0159818310f9d99aff480dc21de50e887f1b7075579b73c197b9d91",
+        "output_sha256": "f1ff9507740c3113bf7bd601adb6b956f76ab47755b86948a5bb88847695b373",
+        "native_sha256": "3706798a0a8b9148c066d302e86c972aff086a6747a11834529496e4b6a9429a"
+      },
+      {
+        "name": "named-mag-damage-other-caster",
+        "input_sha256": "528b33c13421f1d3c5d0fe8abc0d8899af29bf76318cb242da0f943344b7b3c5",
+        "output_sha256": "95be99c9f1d01d9ba8bbe9c1661ae63965472645dfe45e44950dce03075b36fd",
+        "native_sha256": "62275d1c4ddf6545e944f251831f26f2a1afc88c00d9e0fd0450240e02e618a2"
+      },
+      {
+        "name": "named-mag-damage-other-recipient-still-applies",
+        "input_sha256": "dc9fd00b2f492b3a63fbd5a93f1414ac4b45c23e5e423853c8e1a6ab291a409e",
+        "output_sha256": "c72f21dcb9eb19fdd3f1535b481c701217c32003bd75ef0b61b1df0cc7fcebf9",
+        "native_sha256": "d5f0c65974e1ae26a3fd635cf7b144db115b13e6f08e1b1c0a8e1cf7ba07d3ab"
+      },
+      {
+        "name": "named-mag-damage-enemy-carrier-still-applies",
+        "input_sha256": "4535addffed5e1486ae827e14b4c884b8d9381c4b8ff9253c975418271d37a7e",
+        "output_sha256": "d1f881ca29bf6da1d6c763dbc20aa71c4622b6e36bacf23cbc42e898e88491a4",
+        "native_sha256": "2b31177edfd9aa580a691a5363cb54e71f922012817a6886adf1ae5357887300"
+      },
+      {
+        "name": "named-mag-damage-runtime-false-direct-carrier",
+        "input_sha256": "df61b03278af70887b3bc71aa834c507e8f5d7d4610959578e7907ab2f9d38bb",
+        "output_sha256": "627fbaadb166223b64a7eb79dbcbba33a7ce8b3a773173f9e01d1f7f78994cc6",
+        "native_sha256": "d90e9b33dd3ec4425dd45e24ffc6604ada32eb81e82bbf3fb130d2dccacf00d9"
+      },
+      {
+        "name": "named-mag-damage-finite-condition-no-carrier",
+        "input_sha256": "4aed096fe72d76dbe9e281fb45076d098f8d6385905be01f10abbf5c3aadd32e",
+        "output_sha256": "e99ed25d448f9c1e055c07e4de2a685a3b6b4dc29f1c8d486a3a7b00f014f40f",
+        "native_sha256": "0d3b5e05d9920b3f859730cfcef10bee0312ed63cd8a0953409e36fc2216a5de"
+      },
+      {
+        "name": "named-mag-damage-expiry",
+        "input_sha256": "585f4de1342fdb14267ef9f5faea4db4842e86c7c43e45fe3d0a203be9257f65",
+        "output_sha256": "d6029d3c1850ecb8ce9f97c1f17ac009b6ac6b05a1bf0c444dac4fe12843915b",
+        "native_sha256": "3bec3b1d36d426faf4e8cced5059f76a0cb94216b6892c078b9908fb0a138ebd"
+      },
+      {
+        "name": "named-mag-damage-stacked",
+        "input_sha256": "18c246d67ab89db106e081915c360a6acd8af6e06ef6a9902a40b457762f269d",
+        "output_sha256": "5571b98678d41a83bb6ff96237d9b4844a982b5736ca8607a23d50c2da1cd247",
+        "native_sha256": "c77bb061421dced10eedde5124880113b9817c4f2bfd8146780cd85fa41cacee"
+      },
+      {
+        "name": "named-mag-damage-two-multipliers",
+        "input_sha256": "f79c4cace35a4d59fbec5c594505e4e4facc160f69acb6ab08febebe7fa23a19",
+        "output_sha256": "497111190e98307b8aea38b56a983bb1c00303ef47677050daedff7946dbd52b",
+        "native_sha256": "1db215dec541e8013552f82476ad1979ae152588e8ba9aec6b6b232171e0d134"
+      },
+      {
+        "name": "named-mag-damage-named-child",
+        "input_sha256": "876fc4ec50cbff49a5d62bdfd7e69ac45a8b64d6295809216a468bea04119ed8",
+        "output_sha256": "e6d66c48ff0463ef141fb6b5cee38ed089508d0bc166ebc7612b6f784d7e03f7",
+        "native_sha256": "d03e11c1b7528c2da36d4e49ba2447c8bf80f8f55c42f1db50984a7c18705c05"
+      },
+      {
+        "name": "named-mag-damage-expiry-child",
+        "input_sha256": "946b485630595c9eedc8fdb5afe20bd52d2c1738bfa0035c610318feaef282f7",
+        "output_sha256": "68133a52f10bfd353251dfcd0dd8133be6b82026d145882f7de5688cb4f1a3b2",
+        "native_sha256": "528431ac9f79c01e9e3d294f360e4835dcca9919204331c89e65b3833ebc47a5"
+      },
+      {
+        "name": "named-mag-damage-gear",
+        "input_sha256": "1ec1951e3099a731c8d7c3fd146a1a7bbcc391372b8b7b8d4eeeb354a4442270",
+        "output_sha256": "627fbaadb166223b64a7eb79dbcbba33a7ce8b3a773173f9e01d1f7f78994cc6",
+        "native_sha256": "d90e9b33dd3ec4425dd45e24ffc6604ada32eb81e82bbf3fb130d2dccacf00d9"
+      },
+      {
+        "name": "named-mag-damage-scaling-ref",
+        "input_sha256": "7e9365699142f7afa1f0aeaa3826121c4edf2f81eb69515ce85919620f919912",
+        "output_sha256": "777d584f4d725ee8f9f3c8d14d35a790ac7295562ebff7317c839a8e395b6cd3",
+        "native_sha256": "af7d450daa77835399c993e11c5b2a1adf305565817e034bd5ffe67d4dd6efb1"
+      },
+      {
+        "name": "named-mag-damage-dot",
+        "input_sha256": "5d2941fa3a6e5155f0d2b1ae3be33f4ace300d2fd58286c4551071f4b5b037d0",
+        "output_sha256": "a125eab5a7da33be859c723b8881c1df9af43647f73f4178a4915ed10e14a64c",
+        "native_sha256": "d90e9b33dd3ec4425dd45e24ffc6604ada32eb81e82bbf3fb130d2dccacf00d9"
+      },
+      {
+        "name": "named-mag-received-baseline",
+        "input_sha256": "546fa199c8a817fe934e3cdf139c0f503804a3c0214beb3165437d7d340bc04a",
+        "output_sha256": "632125327e21972d3732c16b476ae69e043218d534dbb1a554e296d67a9b6de0",
+        "native_sha256": "f4a30bf4a0f5e224af3541f273bb4d5bd9ab0af155af3aa9b326d0d2f467e3e7"
+      },
+      {
+        "name": "named-mag-received-amplified",
+        "input_sha256": "28831f20bd9878e4023bff40d4b7af34d9a17f75853a8557da3e052574d80149",
+        "output_sha256": "e8a9ec1f4fc3ce2a610959eea5756fa21cd0bbb03e2ec784f00e43f4dcab1d03",
+        "native_sha256": "e020dba014e985b5d36eeb07f6ca66ffa0cb6a46421c7efc26c7fcca7b7498a4"
+      },
+      {
+        "name": "named-mag-received-wrong-name",
+        "input_sha256": "24820c431a4bb8c2d3c7f82e821bd15308e1d5f179a142d2d298be0198f4cec7",
+        "output_sha256": "8dbb99924f6dba2d4f23e280b07ca072bac724328ba41e0fdae1bfe8874661ed",
+        "native_sha256": "f3a731c041fdab196a75567887d8ce6328f28b870e25609963518de81c2cb148"
+      },
+      {
+        "name": "named-mag-received-other-owner-allowed",
+        "input_sha256": "b4ac97e18ed0b605d92bc94c9bebfa180ce089a80a0fd874e436a0347b276525",
+        "output_sha256": "82dbcaa0fca1b090ed1157363281b0769673f5c406655eeabb3868c372e786bd",
+        "native_sha256": "6f119f3a8ae5d4414a4764f873c2da78cb50b846aed49933d7aa772511813c22"
+      },
+      {
+        "name": "named-mag-received-multiple-base",
+        "input_sha256": "c41b53e37c99d6c2b2311d07c56657f0003321e2b609ecf8412d46d6b22f2626",
+        "output_sha256": "02846b4c30cd1975f39a700be6ff441f17690fc301f60dfba314623ad67a87fc",
+        "native_sha256": "9012ab7f556429af0d20d57d31fa446896d61cdcd341dfd5fdd24948b19c52de"
+      },
+      {
+        "name": "named-mag-received-two-additive-increments",
+        "input_sha256": "f5b10e3d1410f7cd0bc7492c99056a13ebc0c5a4ca3c50234fb4f0f5444ca64f",
+        "output_sha256": "0be0940f5d24ec41ee951fc1e9f94d365ef8145f2ee89c071dac9f686af6448c",
+        "native_sha256": "b0f830c0e906edd952c43d5500a94ed8cf2df94f38da94230b2c15c226335999"
+      },
+      {
+        "name": "named-mag-received-runtime-false",
+        "input_sha256": "82f6e34df5868e40d698d21e976bf6b31e7c500bd92852379168a7e069274f92",
+        "output_sha256": "8dbb99924f6dba2d4f23e280b07ca072bac724328ba41e0fdae1bfe8874661ed",
+        "native_sha256": "f3a731c041fdab196a75567887d8ce6328f28b870e25609963518de81c2cb148"
+      },
+      {
+        "name": "named-mag-received-base-runtime-false",
+        "input_sha256": "2c754727e1eecefaf20318dad4572122f06f0898aaded6c8a98970e301e34a02",
+        "output_sha256": "f1c5463abe75cbb6c99944c4e64045c6882a676c9c47a4e748f9e12693398c29",
+        "native_sha256": "8f4cb1459993ad35a95371a487cd94f5a81c452dcaa53ca6f345f96b20c06d07"
+      },
+      {
+        "name": "named-mag-received-expiry",
+        "input_sha256": "efc34b81c433dc3f0e2591d3a8a60b935d08d17409801d2ec744c943c1b56da7",
+        "output_sha256": "27c254325ce4cb40487a100bdc7de04db0404010a52d2516bef0c93776e04969",
+        "native_sha256": "546bb577ac131b5e3e04df40a1f4a826be38cb7ed8dcb75fee443599dd7db08c"
+      },
+      {
+        "name": "named-mag-received-base-expiry",
+        "input_sha256": "3fbcb380fb5d7d83c36c7e67e63ff917c3cc14df45d8dcd7e17b2ee08432f795",
+        "output_sha256": "ce756e49d3b3f7106df8cea9ecc228bffef8fa89586df2a7a58a344152d1c271",
+        "native_sha256": "afdd119defa3ef59416a74364a60af899ece3b33727b75d1732ab5b7acdbbd9e"
+      },
+      {
+        "name": "named-mag-received-stacks",
+        "input_sha256": "76cf3251ecb99d25d2e1ac120387bbfc1bf211355297ef393ee8f721e3b91f14",
+        "output_sha256": "6ffbe56442c233babd2155e066e7344efe3eaea27e50ea6ddf6f9ac444c8e2c0",
+        "native_sha256": "11320235921acade0a0e042cd25ca5c1298cea41b49cca529656d89290744650"
+      },
+      {
+        "name": "named-mag-received-ally-amplifier-does-not-match",
+        "input_sha256": "e9858db8b02c67af670c47144d6661660354973527cd03880872605baeba56e2",
+        "output_sha256": "ef6089aa359ef08ec2446c0af9f1ea9bcf843c0d743c2ed5b6a073576ab75b91",
+        "native_sha256": "e28736d13b4728df6f8cc7825e15e80e61db8797cb95398b3602dfa1b9edcd8b"
+      },
+      {
+        "name": "named-mag-received-ally-incoming-unmagnified",
+        "input_sha256": "357399099d79314b8115814e49aa10215e86c867b8c7b340173e03df21ef8e72",
+        "output_sha256": "e7fb7cb977f31320b6d1fa1b9b03a8431580284942b4b7f17a257d06f3b6f447",
+        "native_sha256": "8facbce98bb9d5181bb9f1376ead98aec3a270cb659b620f3306db6d984f6204"
+      },
+      {
+        "name": "named-mag-received-enemy-generation",
+        "input_sha256": "bf64bd35bfc5402d56e8fd2680d3df1c8bfae213ecfbe968e601fd40ef290f0e",
+        "output_sha256": "4b41d7870f38f4e87a68423ada6c47876294078901e0948ee94eda8b39b2497c",
+        "native_sha256": "32d8646e5227ee173ef9765343481079ee14104432cb6a09e466d62b2d588873"
+      },
+      {
+        "name": "named-mag-received-late-add",
+        "input_sha256": "2c3a86bf3afe94d324c66c36eaa312ad9bcea52d22c92443edff5a1e64e81bbd",
+        "output_sha256": "c0e7cd543fbad3d27107aa538e2c15928310133c7449328058769726818ead23",
+        "native_sha256": "5a1a5f60deef45ca9dc275db912b2ef79b30c0723d0711ded602d51b02e39491"
+      },
+      {
+        "name": "named-mag-received-boss-base-early",
+        "input_sha256": "5cd1af3fa0d5f328141395d0226d82476b7c53ab83be23550185eb3b778b66bd",
+        "output_sha256": "b52b1a8eb9a2931517824f35330f4983d637cc86db025b63750f0598a1f1eb99",
+        "native_sha256": "86ce4f03ad828a5463149e77663c2ca5f3441b10e174ba073c8b0ea9c2d320cf"
+      },
+      {
+        "name": "named-mag-received-boss-base-late",
+        "input_sha256": "51bc733434899fd6966b10549d16e7333ccd4b00c4017094d26c09c9c540b504",
+        "output_sha256": "d1c4d25774af6041a34bebce63c65a1181fe0482db17b3ba9df651a7f18603f7",
+        "native_sha256": "2bdbcbae7fdee4af2b9047ecf7d5ec082d444cd54eb29d3965d53a111f01a1dd"
+      },
+      {
+        "name": "named-mag-received-boss-and-authored-base-order",
+        "input_sha256": "40b7fc9a740606d1e9bc8cf402d0332a9820078308f9b44a7fe63ac7fa8564f4",
+        "output_sha256": "155cf760f34373d2023c3f4824dc592d4a044db9f7f98a2034c1a5866485f3ee",
+        "native_sha256": "f977d71d5ed7491db30bfeead0498270b06921119f5f7a5a39c58a509d89b371"
+      },
+      {
+        "name": "reject/named-mag-kind",
+        "input_sha256": "6734a3d2b5f4cd066186c7cdb4d2dbcd7ac1f37108b531175fc0682543a7cf46",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/named-mag-unported-atk-magnitude",
+        "input_sha256": "fed57766147cd5e155e61c05e4b84fc675e8eb63bc3a6dfeeec267a42aa6b49d",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/named-mag-reference-overflow",
+        "input_sha256": "b5876bca9fbb34f6b0b045f42b8910fee3e4dd0c9ef63345845874f66674ea1c",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/named-mag-reference-negative",
+        "input_sha256": "e12a9fcc5d72483e35ef7e0518c20e1cf71bd515fc21b6efd91e285c2b85049f",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/named-mag-no-combat",
+        "input_sha256": "8e53ac8bf62b1e46f3252f5c6ca78b6013a7f980d4b6be293b332f03f00e7b7a",
+        "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/named-mag-nan",
+        "input_sha256": "f816e038232618c61cc5087731d4585e419890460540ef27f2d603b606c0de42",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/named-mag-persona-flag",
+        "input_sha256": "6d4a0bd99109afbf61a91b71f37e20ab1b4f2760f991f2e2334c5fce8604e63b",
+        "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/named-mag-allied-health",
+        "input_sha256": "003eeefde1575351c519a9219cb1c40fe8143f940d9b9fa2e542c570e98c95a0",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/named-mag-overlay-name-overflow",
+        "input_sha256": "e97532bd4752dd31c704a5ce711283fe8136d96135c0b6d427eaaf465e853f33",
+        "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/named-mag-overlay-extra",
+        "input_sha256": "8271bc632935d9d43c71a6c8ffe00ed885804397a4a7521126fe06b10ae0b41a",
+        "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/named-mag-overlay-wrong-kind",
+        "input_sha256": "d1448795baa5a26260b34c4eb6183f734178393b61c9612c5d9661e0a140f352",
+        "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      }
+    ],
+    "mismatches": [
+      {
+        "index": 4,
+        "name": "named-mag-damage-value--100",
+        "reason": "AssertionError: named-mag-damage-value--100"
+      },
+      {
+        "index": 38,
+        "name": "named-mag-pending-early",
+        "reason": "KeyError: 'pending_burst'"
+      },
+      {
+        "index": 39,
+        "name": "named-mag-pending-late",
+        "reason": "KeyError: 'pending_burst'"
+      },
+      {
+        "index": 40,
+        "name": "named-mag-pending-expired",
+        "reason": "KeyError: 'pending_burst'"
+      }
+    ],
+    "input_count": 52,
+    "native_oracles": 41,
+    "input_sha256": "07b17c302460c2d754599c77f16a47d598d6be292625eb7a224d3008a79d7283",
+    "output_sha256": "518edda23f35198ba95c7afaf3fa21109c3b15cf42342aded70d43562d6df918",
+    "generated_normalized": {
+      "cuda": "b73a9b5704d56b0051758a8466a9dda3aa1715b2efdd6cd435251bba587e602c",
+      "metal": "0a077012cde08bdf6d6d5d1d38a0bf931b96be50e016c28b2513441e790b4418"
+    },
+    "audit_gpu_calls": 0
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 52,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "gpu_seconds": 0.026889625005424023,
+    "input_bytes": 21715204,
+    "library_compile_seconds": 1.118064045906067,
+    "output_bytes": 163577856,
+    "pipeline_compile_seconds": 9.994264960289001,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "gpu_retry_count": 0,
+  "full_goal_complete": false,
+  "diagnosis": {
+    "coefficient_zero": "Original native checks coefficient before magnitude multiplication. Magnified zero ordinary skill still lands minimum1; shared frame skipped zero after multiplication.",
+    "pending_observation": "Existing projectile decoder omitted pending_burst while native observe included it. Preserve full comparison and connect the existing3-word observer."
+  }
+}

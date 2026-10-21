@@ -1,3 +1,5 @@
+現在の実装・Metal588検証は[portable-named-magnitude.md](portable-named-magnitude.md)を参照してください。以下は実装前の参照確認と計画の履歴です。
+
 # 次候補：名前付き効果の倍率変更
 
 これは参照確認と移植計画で、共通GPUへの受付はまだ追加していません。現在の未対応106分類のうち、dmg_scale_mag_pctはブレイディ／イブ、received_dmg_buff_mag_pctはエマ：タクティカル・アップの定義を阻みます。静的packing199/266や全キャラ認定0をこの準備で変更しません。projectile_dmg_pct／shield_dmg_pctはtaxonomyにありますが、この調査では参照側consumerを特定できていないため、無効果として受付へ追加しません。

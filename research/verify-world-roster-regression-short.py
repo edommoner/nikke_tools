@@ -26,6 +26,7 @@ PROFILES += [('이사벨',0)]
 PROFILES += [('에이다',0)]
 PROFILES += [('길티',0), ('신',0), ('퀀시',0)]
 PROFILES += [('퀸(마코토)',0), ('유키코',0), ('아이기스',0)]
+PROFILES += [('브래디',0), ('엠마 : 택티컬 업',0)]
 DURATIONS = (3,30)
 suite = SimpleNamespace(INPUT=real.INPUT_WORDS, OUTPUT=real.OUTPUT_WORDS,
                         inspect_native=lambda case: real.native_reference(case['body']))

@@ -19,7 +19,11 @@ def decoded(block,meta,case,bindings):
  for i in range(block[head+1]):
   at=TRACE+i*16;assert block[at]<5 and block[at+1]<3 and block[at+7]==0 and not any(block[at+10:at+16])
   events.append(dict(owner=block[at],mode=block[at+1],time=number(at+2),pellets=block[at+4],muzzles=block[at+5],reach=block[at+6],damage=number(at+8)))
- r['projectile_shots']=events;return r
+ r['projectile_shots']=events
+ if case.get('observe_pending_skills'):
+  from world_pending_state import pending_state
+  r['pending_burst']=pending_state(block)
+ return r
 
 def prepare():
  rows=fixtures();programs=[compile_case(c) for c in rows];seed=programs[0][0];bad=[]

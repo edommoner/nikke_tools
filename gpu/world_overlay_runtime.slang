@@ -33,7 +33,17 @@ bool initializeWorldOverlays(inout Runtime s)
         uint p=woNode(s,n),kind=commands[p],flags=commands[p+1];
         if(n>=count || kind==0) { for(uint i=0;i<16;i++) if(commands[p+i]!=0) return false;continue; }
         if(kind>6 || flags>1 || kind!=1 && flags!=0) return false;
-        for(uint i=11;i<16;i++) if(commands[p+i]!=0) return false;
+        for(uint i=12;i<16;i++) if(commands[p+i]!=0) return false;
+        uint named=commands[p+11];
+#ifndef PORTABLE_WORLD_PROJECTILE
+        if(named!=0) return false;
+#else
+        if(named!=0)
+        {
+            if(kind!=1 || named>P_DEFINITIONS || f64Zero(loadNumber(p+6))) return false;
+            s.quantityMask|=65536;
+        }
+#endif
         for(uint i=2;i<10;i+=2) if(!f64Finite(loadNumber(p+i))) return false;
         if(kind==1)
         { if(f64Less(loadNumber(p+2),0) || !f64Zero(loadNumber(p+8)) || commands[p+10]!=0) return false; }

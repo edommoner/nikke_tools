@@ -40,6 +40,9 @@ def double_words(value):
 
 
 def validate_effect(eff, *, combat=None, world_frame=False):
+    from portable_named_magnitude_specs import validate as validate_named_magnitude
+    try:validate_named_magnitude(eff,combat=combat,world_frame=world_frame)
+    except ValueError as error:raise UnsupportedPortable(str(error),reason='effect') from error
     from portable_persona_specs import validate as validate_persona
     try:validate_persona(eff,combat=combat,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason='effect' if eff.get('stat')=='persona_state' else 'recipient') from error

@@ -904,6 +904,7 @@ bool excludedDamageBuff(inout Runtime s, uint resident, uint who)
 #include "bullet_runtime.slang"
 #include "rank_runtime.slang"
 #include "lazy_runtime.slang"
+#include "named_magnitude_runtime.slang"
 #include "enemy_buff_runtime.slang"
 #ifdef PORTABLE_WORLD_ENEMY_ATTACK
 #include "world_enemy_attack_runtime.slang"
@@ -1347,7 +1348,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (f.mode == 10)
         {
             Definition damage = readDefinition(s.inputBase,uint(f.argument)); damage.damageHits=f.repeatLeft;
-            if (f.cursor >= damage.damageHits || f64Zero(f.healthValue))
+            if (f.cursor >= damage.damageHits)
             {
                 depth--;
                 if (s.combat != 0 && f.value != 0)
@@ -1945,8 +1946,9 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (d.damagePending != 0) enqueuePendingBurst(s,row,f.time);
             else
             {
-                uint64_t coefficient=activationDamageCoefficient(s,row);
-                uint hits=f64Zero(coefficient) ? 0 : activationHitCount(s,row);
+                uint64_t originalCoefficient=activationDamageCoefficient(s,row);
+                uint64_t coefficient=namedDamageCoefficient(s,row,originalCoefficient,f.time);
+                uint hits=f64Zero(originalCoefficient) ? 0 : activationHitCount(s,row);
                 if (s.error==0) pushFrame(s,frames,depth,10,0,d.owner,int(row),f.time);
                 if (s.error==0)
                 {
@@ -2211,7 +2213,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     PROJECTILE_ADMIT_STAGE(s,12) if(!validEnemyTargeting(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,13) if(!validProtection(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,14) if (!validStatusDefinitions(s)) { results[output]=64;return; }
-    PROJECTILE_ADMIT_STAGE(s,15) if (!validBaseCopies(s) || !validSkillIntervals(s) || !validTriggerReductions(s) || !validStackDefinitions(s)) { results[output]=64;return; }
+    PROJECTILE_ADMIT_STAGE(s,15) if (!validNamedMagnitudes(s) || !validBaseCopies(s) || !validSkillIntervals(s) || !validTriggerReductions(s) || !validStackDefinitions(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,16) if (!validEventCandidates(s)) { results[output] = 64; return; }
     PROJECTILE_ADMIT_STAGE(s,17) for (uint row = 0; row < s.count; row++) if (!validPendingDefinition(s,row)) { results[output] = 64; return; }
     PROJECTILE_ADMIT_STAGE(s,18) if (!validateDurationGroups(s)) { results[output] = 64; return; }

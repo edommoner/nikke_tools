@@ -1,3 +1,13 @@
+<!-- named-magnitude-current -->
+## 名前付き係数／被ダメージ倍率とMetal588
+
+現在の通常CLIはregression588（native459／拒否129）、goldenはportable-world-named-magnitude-regression-short-expected.jsonです。canonical78／80を共通Slangへ接続し、独立54（正43／拒否11）とブレイディ／エマの全定義実編成3秒／30秒を追加しました。Metal588全件一致、旧530・独立54の全input／raw／native保持、全588のlazy scratchゼロ、GPU禁止sealを確認済みです。CPU711件・Windows専用1skip・失敗0。詳細docs/portable-named-magnitude.md、research/portable-named-magnitude-retention.json、development checkpoint。
+
+初回52は48一致・4失敗で原captureを保持。倍率後0の通常スキルを最小1ダメージのヒットとして残し、保留0係数はbuff query後にスキップする正本の差を修正。保留3件はdecoder未接続のため、既存3カウンタreadを共有し、原rawでも全native一致を診断しました。原失敗は成功へ書き換えていません。追加実編成4件の物理履歴省略は0ですが、過去persona等の省略制約は残ります。
+
+静的packing201/266・base142/203・104分類、通常UI CPU・全キャラGPU認定0・新版CUDA数値一致未確認・最終目標未完了。stat79のATK倍率、random／code対象（イブ等）は未対応です。CUDA v115 cold compilerのallocation failureは未解決で、今回の機能でWindowsの追加実行は0です。v117 CPU53件成功は以前のcache/controller検証であり、CUDA計算一致ではありません。次のcompiler変更には、同条件再試行でなく新しい仮説・計測・停止条件が必要です。以下は履歴です。
+<!-- /named-magnitude-current -->
+
 <!-- persona-current -->
 ## ペルソナ状態・B3対象とMetal530
 

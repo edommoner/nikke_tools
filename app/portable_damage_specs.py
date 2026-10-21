@@ -61,3 +61,8 @@ STATS['skill_cooldown_pct']=EXTRA_STAT['skill_cooldown_pct']
 # Base copies own carrier snapshots outside the64-value numeric vector.
 BUFFS=BUFFS | {'atk_copy','hp_copy'}
 STATS.update({name:EXTRA_STAT[name] for name in ('atk_copy','hp_copy')})
+
+# Canonical named operators never index the64-entry numeric damage vector.
+from portable_named_magnitude_specs import STATS as NAMED_MAGNITUDE_STATS
+BUFFS=BUFFS | NAMED_MAGNITUDE_STATS.keys()
+STATS.update(NAMED_MAGNITUDE_STATS)

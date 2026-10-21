@@ -100,7 +100,7 @@ def compile_world_battle(prepared, *, trace='burst'):
             if p.kind == 'shield' and p.code in meta['states'] and words[L['WORLD_META_BASE']+1] != 0}
     words.extend(compile_payload(patterns, camera_mask=camera_mask,
         element_codes=[CODES.get(c['_weapon'].get('element_code', ''), 0) for c in chars] if any(p.kind == 'shield' for p in patterns) else (),
-        code_tags=tags, charge_hold_mask=sum(1 << i for i,n in enumerate(names) if n == '스노우 화이트 : 헤비암즈'), actor_pools=True))
+        code_tags=tags, named_refs={e['target_effect']:meta['states'][e['target_effect']]+1 for e,_ in original if e.get('stat')=='received_dmg_buff_mag_pct'}, charge_hold_mask=sum(1 << i for i,n in enumerate(names) if n == '스노우 화이트 : 헤비암즈'), actor_pools=True))
     pack_cleanse_flags(words, [e for e, _ in bound], L)
     pack_skill_mode_flags(words, [e for e, _ in bound], L)
     words.extend(registry)

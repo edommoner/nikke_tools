@@ -49,6 +49,7 @@ void collectEnemyModifiers(inout Runtime s, uint who, uint target, uint64_t when
         values[key] = f64Add(values[key],value);
         if (!f64Finite(value) || !f64Finite(values[key])) { s.error = 16; return; }
     } WORLD_ENEMY_FINISH(s,target,values)
+    amplifyNamedReceived(s,target,when,values[2]);
 }
 
 #undef WORLD_ENEMY_EMPTY

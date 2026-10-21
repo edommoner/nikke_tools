@@ -25,6 +25,7 @@ ADAPTERS={
     'lazy-bank':module('regression_lazy_bank','research/verify-world-lazy-bank-short.py'),
     'base-copy':module('regression_base_copy','research/verify-world-base-copy-short.py'),
     'persona':module('regression_persona','research/verify-world-persona-short.py'),
+    'named-magnitude':module('regression_named_magnitude','research/verify-world-named-magnitude-short.py'),
 }
 cross=ADAPTERS['readiness'].cross
 suite=SimpleNamespace(INPUT=104400,OUTPUT=786432)
