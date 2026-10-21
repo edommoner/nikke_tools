@@ -272,6 +272,8 @@ def compile_cuda_artifact(lib, source, compiler_files, *, artifact_kind=None):
             check(get_size(program,C.byref(size)))
             if size.value==0:raise RuntimeError('NVRTC returned an empty '+artifact_kind+' artifact')
             artifact=C.create_string_buffer(size.value);check(get_data(program,artifact))
+            if artifact_kind=='cubin' and not artifact.raw.startswith(b'\x7fELF'):
+                raise RuntimeError('NVRTC CUBIN artifact is not a native ELF binary')
             return artifact.raw
         finally:
             if program: lib.nvrtcDestroyProgram(C.byref(program))

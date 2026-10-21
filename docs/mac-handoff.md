@@ -987,3 +987,13 @@ Windows PCは他作業に影響が出ているため、常時のCUDAテストや
 上記v89依頼は完了・Mac監査成功です。固定61c7a884のCUDA32はCPU13＋GPU禁止のnative10/48段階照合後、独立180秒/BelowNormalの1回で92.3588146秒、exit0。3JSON計50092bytesを取得し、source/name/bytes/SHAと共通監査器の全fingerprint・50 phase・元環境保持・残存0を確認しました。旧590/通常4682再実行0、GPU retry0です。Windows turn01a15b67-4fba-7982-b0ad-033e5cf20c5aはcompleted、cursor130、idle。再実行依頼は不要です。
 
 現在の10ケースはbody0/gen1にcounterをbindするliteral resource/event検証です。他Actorへのbind、実着弾、target条件/child contextは次の段階で実証します。実戦測定ではbody/part/addの全てでcounter通知がlifesteal前でした。以前のbody/partをlifesteal後とした記録は誤りです。addのclipped damage、body/partの元damage、part全体のHP更新と個別callbackの順を検証してください。全変種0/203・通常CPU/public false・legacy unexplained Metal14c8e2e finding OPENを維持します。
+
+## 2026-10-21 Claudeレビュー反映・再突入接続
+
+最新の開発手順は`docs/gpu-development-cli.md`、根拠は`research/portable-review-development-checkpoint.json`を参照してください。共通CLIの開発package・保存Metal replay・sealを使用しています。recipient6は元のrawを再比較して成功（GPU再実行0、原失敗保持）、再突入/instant対象13は修正版Metalでnative完全一致、readiness v4は81（native60・拒否21）で成功しました。旧75のinput/native/output指紋と全raw byteも完全一致です。CPU共通テスト610件が成功しています。
+
+味方全体表記のburst_reentryを発動者に一度だけ記録する規約でworld受付へ接続しました。literal名・B3発動済み対象のbuff/instantには、存在・不在・重複・コロン付き名・発動前後の共通ケースがあります。静的packingは173/266、base122/203へ進みましたが、全キャラ実戦認定0と通常画面CPUは維持します。未対応分類はstatとrecipientを構造化reasonで分離しました。
+
+Windows v105はPTX生成後のmodule load、v106はCUBIN生成前のNVRTCで180秒に到達し、どちらもkernel0です。v106のmissing14の原因は不明で、元の失敗判定は変更しません。終了監査はJobを明示終了→子/子孫終了を5秒以内で待機→post観測→handle closeへ修正し、ピークメモリを記録します。Macの故障注入は成功していますが、実WindowsのGPU0 timeout/smoke検査が次です。追加の重いCUDAコンパイルは先行させません。CUBINはELF確認前にキャッシュへ書かないよう修正しました。coldコンパイルと実機キャッシュ効果は未解決です。
+
+次は短いWindows制御検査、CUDA coldコンパイルの資源/設定切り分け、stun/target_stunned等の未対応効果、対応済み実編成の通常結果への接続です。全面的な実行器再実装や、時間枠を増やしたWindows再試行は行いません。

@@ -1,0 +1,87 @@
+{
+  "review_date": "2026-10-21",
+  "reviewed_head": "3918e68a07f299382c10bda1cbab50afc9eb016c",
+  "includes_uncommitted_recipient_and_replay_work": true,
+  "external_reviewer": "Claude Code",
+  "review_skill": "claude-code-reviewer",
+  "external_review_completed": true,
+  "review_gpu_calls": 0,
+  "review_windows_runs": 0,
+  "conclusion": "共通Slangと薄いバックエンドの方向は継続する。開発順序は、Windows制御の修正・短時間コンパイルの成立・正確な未対応分類・限定した実編成の製品経路接続へ寄せる。全面的な実行器の書き直しは現時点では根拠不足。",
+  "current_scope": {
+    "static_packed_profiles": 168,
+    "total_profiles": 266,
+    "static_packed_base_characters": 118,
+    "total_base_characters": 203,
+    "full_character_certification": 0,
+    "static_packing_is_battle_certification": false,
+    "normal_ui": "CPU",
+    "full_goal_complete": false
+  },
+  "confirmed_findings": [
+    {
+      "priority": "high",
+      "title": "Windowsのpost_waitはJob終了前の観測",
+      "evidence": ["research/run-world-bounded.py:99", "research/windows_validation_observer.py:128"],
+      "impact": "タイムアウトで生存している検証子を終了前に観測し、終了後の空Jobの証拠として扱っている。falseの報告は維持し、既存結果を成功へ書き換えない。",
+      "independent_verification": {
+        "method": "既存observe_jobへ模擬Jobとreaderを注入。実Windows・GPUは使用しない。",
+        "observed_order": ["inspect_live_job", "inspect_live_job", "terminate_by_close"],
+        "post_wait_members": [7]
+      },
+      "next_action": "所有Jobを明示終了し、既存5秒のcleanup予算内で子とJob全体の終了を観測してからhandleを閉じる。偽readerが終了と無関係に空配列を返すテストを、状態連動する故障注入へ改める。"
+    },
+    {
+      "priority": "medium",
+      "title": "未対応statとrecipientが同じ例外になりinventoryの分類がずれる",
+      "evidence": ["app/portable_runtime.py:121", "app/portable_runtime.py:136", "app/portable_readiness.py:15"],
+      "impact": "実際にはstatが未対応でもrecipientカテゴリとなる。stat/target座標と原文は保持されるため、現在の全優先順位が無効になったわけではない。",
+      "next_action": "stat・selector・runtime前提の理由を分離し、可能なら文面判定ではなく構造化した理由コードを使う。inventoryを再生成する。"
+    },
+    {
+      "priority": "medium",
+      "title": "新しい対象受付に対するinstantの意味検証が不足",
+      "evidence": ["app/portable_recipient_specs.py:9", "app/portable_runtime.py:133", "research/portable_recipient_extension_cases.py:10"],
+      "impact": "literal名とB3発動済み対象の受付拡張はinstantにも及ぶが、追加fixtureはatk_pct buffである。これは検証範囲の不足であり、instantの計算不具合が確認できたという意味ではない。",
+      "next_action": "回復・ゲージ等のinstantについて、存在/不在・重複/順序・B3発動前後を共通fixtureで追加する。"
+    },
+    {
+      "priority": "low",
+      "title": "未sealのrecipientsを通常suiteとして登録している",
+      "evidence": ["scripts/nikke_gpu.py:31"],
+      "impact": "参照goldenがまだ存在しないため、通常package作成はFileNotFoundErrorとなる。開発途中の入口整合性の問題。",
+      "next_action": "seal完了までdevelopment_onlyにするか、goldenが未作成であることを明示して拒否する。"
+    }
+  ],
+  "architecture_assessment": [
+    "CUDA/Metalの計算本体は共通Slangから生成しており、現時点で別言語への全面再実装は不要。",
+    "validate_effect・各specのpacking・GPU op実行の複数箇所に知識が分散している。まず受付とpackingの対応表を小さく共通化し、意味の異なるGPU処理まで単一の汎用表へ無理に押し込めない。",
+    "通常evaluate経路はsim.executeを使用し、共通world executorへの通常計算接続は未完了。対応済み1編成から静的準備→共通GPU→通常結果形式の縦の接続を別の完了条件として設ける。未対応の通常受付は開かない。",
+    "効果単位のMetal差分検証と固定した実編成回帰を基本にし、同じsource/input/runtimeの再実行を減らす。保存rawの再比較は出所と不変条件を検証し、原失敗を残す。",
+    "replayの旧側だけから作るcritical一覧は、新旧の和集合での検査へ強化できる。ただしGPU sourceとgoldenの一致検査も存在するため、現状の計算誤りの実証ではない。"
+  ],
+  "windows_assessment": {
+    "v105": "PTXコンパイル44.609秒後、module load未完了で180秒予算を消費。kernel0。",
+    "v106": "CUBINコンパイル未完了で180秒予算を消費。module load/context/kernel0。",
+    "missing_processes_v106": 14,
+    "missing_process_cause": "unknown",
+    "compilation_bottleneck": "コンパイル/ロード段階の停滞は確認済み。ptxasが主因か、最適化やメモリ量のどれが支配的かは未確定。",
+    "cache_limitation": "成功したCUBINがまだないため、キャッシュ追加だけでは今回のcold停滞を解消できない。",
+    "next_action": "終了観測の修正とCPU故障注入・GPU0 smokeを先に行う。Job peak memory等を記録し、小さな構成と明示したコンパイル設定で原因を切り分ける。コンパイルだけのコマンドにも同じ短時間・低優先度・資源制限を課し、予算延長の迂回路にしない。"
+  },
+  "external_suggestions_not_adopted_as_stated": [
+    "別枠の長時間コンパイルでWindowsの180秒制約を迂回する案。",
+    "共通Slangや生成コード指紋だけを根拠にCUDA固有リスクがほぼ消えたとする評価。実機のABI・数値・実行順と読み戻しの共通テストは必要。",
+    "v105/v106を計算まで到達したGPU実行の失敗と数える説明。いずれもkernel未到達。",
+    "v105のmodule loadを135秒以上とする値。保存記録は約122.433秒で未完了。",
+    "編成に存在しない実在キャラ名のmask0を直ちに不具合とする評価。不在対象は既存意味の一部であり、表記揺れの誤解決は未実証。",
+    "指摘ごとの約30/60/80行という工数見積もり。故障処理・テスト・互換性を含む根拠がなく予定には用いない。"
+  ],
+  "recommended_sequence": [
+    "Windowsの終了観測と状態連動テストを修正し、資源観測を整える。追加の重いCUDA実行は先行させない。",
+    "未対応分類を正し、対象受付のinstant・コロン付き実名などの境界検証を補う。",
+    "短時間で完了するCUDAコンパイル設定/構成を特定し、成功artifactのキャッシュと短い共通readback検証を成立させる。",
+    "burst_reentry/all_allies、stunとtarget_stunned等を、依存関係のまとまり単位で共通実行器へ接続する。静的件数を解除予測として扱わない。",
+    "対応済み実編成を共通実行器から通常結果へ接続する小さな経路を実証し、機能追加と製品接続を並行して評価する。"
+  ]
+}

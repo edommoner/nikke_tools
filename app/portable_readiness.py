@@ -11,7 +11,8 @@ import json
 def issue(error, effect=None, *, phase='effect'):
     effect = effect or {}
     message = str(error)
-    if 'field' in message.lower(): category = 'fields'
+    if getattr(error, 'reason', None) is not None: category = error.reason
+    elif 'field' in message.lower(): category = 'fields'
     elif any(word in message.lower() for word in ('recipient', 'selector', 'target:')): category = 'recipient'
     elif any(word in message.lower() for word in ('trigger', 'event', 'predicate', 'condition')): category = 'trigger'
     elif any(word in message.lower() for word in ('capacity', 'overflow')): category = 'capacity'

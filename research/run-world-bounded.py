@@ -19,6 +19,10 @@ from portable_phase_audit import Journal, observe, summarize
 class WindowsJob:
     """Kill only this validation tree, including pipe-holding descendants."""
     def __init__(self, process):
+        self.process = process
+        self.termination_waited = False
+        self.termination_attempted = False
+        self.assigned = False
         from ctypes import wintypes as W
         class Basic(C.Structure):
             _fields_ = [('process_time', C.c_int64), ('job_time', C.c_int64),
@@ -30,11 +34,14 @@ class WindowsJob:
         class Extended(C.Structure):
             _fields_ = [('basic', Basic), ('io', IO), ('process_mem', C.c_size_t),
                         ('job_mem', C.c_size_t), ('peak_process', C.c_size_t), ('peak_job', C.c_size_t)]
+        self.limit_info_type = Extended
         self.dll = C.WinDLL('kernel32', use_last_error=True)
         signatures = dict(CreateJobObjectW=([C.c_void_p, W.LPCWSTR], W.HANDLE),
                           SetInformationJobObject=([W.HANDLE, C.c_int, C.c_void_p, W.DWORD], W.BOOL),
                           AssignProcessToJobObject=([W.HANDLE, W.HANDLE], W.BOOL),
                           OpenProcess=([W.DWORD, W.BOOL, W.DWORD], W.HANDLE),
+                          TerminateJobObject=([W.HANDLE, W.UINT], W.BOOL),
+                          QueryInformationJobObject=([W.HANDLE, C.c_int, C.c_void_p, W.DWORD, C.POINTER(W.DWORD)], W.BOOL),
                           CloseHandle=([W.HANDLE], W.BOOL))
         for name, (args, result) in signatures.items():
             fn = getattr(self.dll, name); fn.argtypes = args; fn.restype = result
@@ -51,17 +58,46 @@ class WindowsJob:
             try:
                 if not self.dll.AssignProcessToJobObject(self.handle, handle):
                     raise C.WinError(C.get_last_error())
+                self.assigned = True
             finally:
                 self.dll.CloseHandle(handle)
         except BaseException:
             self.close()
             raise
 
+    def terminate_and_wait(self, timeout=5):
+        """End only the owned validation tree, retaining its queryable handle."""
+        if not self.handle or self.termination_waited:
+            return
+        deadline = time.monotonic()+timeout
+        self.termination_attempted = True
+        if not self.dll.TerminateJobObject(self.handle, 1):
+            raise C.WinError(C.get_last_error())
+        if getattr(self, 'assigned', True):
+            self.process.wait(timeout=max(.001, deadline-time.monotonic()))
+        # Query the process-list header; ERROR_MORE_DATA still returns a count.
+        while True:
+            buffer = C.create_string_buffer(8+64*C.sizeof(C.c_size_t))
+            returned = C.c_ulong()
+            success = self.dll.QueryInformationJobObject(self.handle, 3, buffer, len(buffer), C.byref(returned))
+            if not success and C.get_last_error()!=234:
+                raise C.WinError(C.get_last_error())
+            if int.from_bytes(buffer.raw[4:8], 'little')==0:
+                self.termination_waited = True
+                return
+            if time.monotonic()>=deadline:
+                raise RuntimeError('Validation Job did not empty within cleanup budget')
+            time.sleep(min(.01, max(0, deadline-time.monotonic())))
+
     def close(self):
         if self.handle:
-            handle, self.handle = self.handle, None
-            if not self.dll.CloseHandle(handle):
-                raise C.WinError(C.get_last_error())
+            try:
+                if not self.termination_attempted:
+                    self.terminate_and_wait()
+            finally:
+                handle, self.handle = self.handle, None
+                if not self.dll.CloseHandle(handle):
+                    raise C.WinError(C.get_last_error())
 
 
 def run_bounded(command, folder, timeout, *, cwd=None, env=None, before_gate=None, after_wait=None):
@@ -108,7 +144,8 @@ def run_bounded(command, folder, timeout, *, cwd=None, env=None, before_gate=Non
                 if process is not None:
                     if process.poll() is None:
                         process.kill()
-                    process.wait(timeout=5)
+                    # The Job cleanup already consumed its one five-second budget.
+                    process.wait(timeout=0 if job is not None else 5)
             except BaseException as error:
                 cleanup_error = type(error).__name__+': '+str(error)
             finally:

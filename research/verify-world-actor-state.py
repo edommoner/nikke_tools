@@ -25,7 +25,11 @@ def decoded(block,meta,c,bindings):
   if not block[at+4]&1:continue
   if meta['enemy_buff_definitions'][definition]:members.append(bool(block[at+2]&32));continue
   if c['effects'][definition].get('type')!='buff':continue
-  allies.append(dict(name=c['effects'][definition].get('name',''),owner=c['owners'][definition],recipients=None if block[at+4]&2 else [i for i in range(5) if block[at+2]&(1<<i)],stack=block[at+3],activated=number(at+7),end=number(at+5)))
+  recipients=[i for i in range(5) if block[at+2]&(1<<i)]
+  if meta.get('ordered_recipients'):
+   pos=L['RECIPIENT_ORDER_BASE']+slot*2;order=block[pos]|(block[pos+1]<<32)
+   recipients=[((order>>(i*3))&7)-1 for i in range(21) if (order>>(i*3))&7 and block[at+2]&(1<<(((order>>(i*3))&7)-1))]
+  allies.append(dict(name=c['effects'][definition].get('name',''),owner=c['owners'][definition],recipients=None if block[at+4]&2 else recipients,stack=block[at+3],activated=number(at+7),end=number(at+5)))
  head=L['WORLD_ACTOR_FIELDS_BASE'];actual['named_state']=dict(queries=queries,allied_carriers=allies,enemy_memberships=members,context_restored=list(block[head+3:head+6])==[0]*3,pending_gone=list(block[head+8:head+12]));return actual
 
 def negative_inputs(programs):

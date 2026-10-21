@@ -15,6 +15,17 @@ spec=importlib.util.spec_from_file_location('readiness_cli',ROOT/'scripts/nikke_
 cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 class ReadinessTests(unittest.TestCase):
+    def test_stat_and_recipient_failures_have_independent_structured_reasons(self):
+        for effect,category in [
+            (dict(type='buff',stat='missing',target='all_allies'),'effect'),
+            (dict(type='buff',stat='atk_pct',target='not-a-selector'),'recipient'),
+            (dict(type='instant',stat='missing',target='self'),'effect'),
+            (dict(type='instant',stat='burst_reentry',target='all_allies_excl_self'),'recipient')]:
+            effect.update(trigger=dict(timing=['battle_start'],condition=[]),fixed_value=1)
+            with self.assertRaises(UnsupportedPortable) as caught:validate_effect(effect,combat={})
+            self.assertEqual(issue(caught.exception,effect)['category'],category)
+        self.assertEqual(issue(UnsupportedPortable('wording may contain recipient',reason='effect'))['category'],'effect')
+
     def test_each_definition_is_inspected_without_mutation(self):
         effects=[dict(type='buff',stat='not-a-stat',target='self'),
                  dict(type='instant',stat='another-missing-op',target='self')]

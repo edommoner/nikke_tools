@@ -1,0 +1,117 @@
+{
+  "review_ref": "research/portable-architecture-review-20261021.json",
+  "passed": false,
+  "metal_verified": true,
+  "cuda_verified": false,
+  "windows_control_fix_verified_on_windows": false,
+  "metal_readiness": {
+    "package_id": "d2cde2415a29d7aff241447c3a3121d77c041838245dfdd913c19a5ae23320d5",
+    "calculation_verified": true,
+    "input_count": 81,
+    "gpu_verified": true,
+    "device": "Apple M5",
+    "input_sha256": "d9742cac8fd3ebb345ae85a1a3fdb740462230ecdeae0ee8e742c41ae819b272",
+    "output_sha256": "07e45468313f381a9341174421d76bdbc8905ff373fb944e6049d1db6696e9a8",
+    "generated_normalized": {
+      "cuda": "89b0b79104351cf548e038aaec764882aaff4a5eec9f4c92a971581b34ed5fef",
+      "metal": "fa8917e4a7f29508dc15e3aa9ca5c7ff7ca8e86e38b361cca267ff51faa603c5"
+    },
+    "timing": {
+      "backend": "metal",
+      "cases": 81,
+      "command_status": "completed",
+      "configured_max_threads_per_threadgroup": 1,
+      "device": "Apple M5",
+      "gpu_seconds": 0.03880258335266262,
+      "input_bytes": 33825604,
+      "library_compile_seconds": 0.0015259981155395508,
+      "output_bytes": 254803968,
+      "pipeline_compile_seconds": 0.002236008644104004,
+      "pipeline_lock_wait_seconds": 1.9073486328125e-06,
+      "pipeline_max_threads_per_threadgroup": 1,
+      "registry_id": "4294968313",
+      "threads_per_threadgroup": 1,
+      "compile_timeout_seconds": 300,
+      "gpu_timeout_seconds": 120
+    }
+  },
+  "metal_burst_recipients": {
+    "package_id": "49582756080416a7305a95f444a7890005e87a893cf04db94c627b4f98b79843",
+    "calculation_verified": true,
+    "input_count": 13,
+    "gpu_verified": true,
+    "device": "Apple M5",
+    "input_sha256": "d4cf6805c930db25f9b53019da06367388845d2d2b9f429522ba0539c8b40233",
+    "output_sha256": "073a6622ed10e7c8d86a61d60f98f8560bb31a4b245432b5aa331dc94adf541c",
+    "generated_normalized": {
+      "cuda": "89b0b79104351cf548e038aaec764882aaff4a5eec9f4c92a971581b34ed5fef",
+      "metal": "fa8917e4a7f29508dc15e3aa9ca5c7ff7ca8e86e38b361cca267ff51faa603c5"
+    },
+    "timing": {
+      "backend": "metal",
+      "cases": 13,
+      "command_status": "completed",
+      "configured_max_threads_per_threadgroup": 1,
+      "device": "Apple M5",
+      "gpu_seconds": 0.04915950004942715,
+      "input_bytes": 5428804,
+      "library_compile_seconds": 1.0256739854812622,
+      "output_bytes": 40894464,
+      "pipeline_compile_seconds": 10.929473996162415,
+      "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+      "pipeline_max_threads_per_threadgroup": 1,
+      "registry_id": "4294968313",
+      "threads_per_threadgroup": 1,
+      "compile_timeout_seconds": 300,
+      "gpu_timeout_seconds": 120
+    }
+  },
+  "prior75_entries_preserved": true,
+  "prior75_raw_bytes_preserved": true,
+  "recipient_replay": {
+    "passed": true,
+    "input_count": 6,
+    "source_execution_passed": false,
+    "original_failure_preserved": true,
+    "gpu_calls": 0,
+    "source_gpu_dispatches": 1,
+    "source_package_id": "bf47f2d5ea0789e9062b22e01a43ac87675fb2e3e597723083c17b85734df2fb"
+  },
+  "static_packing": {
+    "profiles": 173,
+    "total": 266,
+    "base": 122,
+    "base_total": 203,
+    "cpu_battle_calls": 0,
+    "gpu_calls": 0
+  },
+  "cpu_tests": {
+    "passed": true,
+    "total": 610,
+    "seconds": 24.573,
+    "log_sha256": "194f2b3374cf179e13ee9b32699d94f871924b8a2d7a45dacef512b22c90fa94",
+    "windows_only_timeout_test": "added afterwards; Mac skipped; actual Windows verification pending"
+  },
+  "saved_failures": {
+    "original_recipient_decoder_failure_retained": true,
+    "replay_scratch_failure_retained": true,
+    "burst13_admission_failure_retained": true,
+    "diagnostic_runs": 2,
+    "diagnostic_inputs_per_run": 1,
+    "diagnostic_sources_differ": true,
+    "old_windows_v105_v106_unchanged": true
+  },
+  "numerical_contract_changed": false,
+  "strict_normalizer_changed": false,
+  "canonical_reference_changed": false,
+  "normal_ui": "CPU",
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "remaining": [
+    "Windows CPU-only Job timeout/smoke validation",
+    "CUDA cold compiler bottleneck and bounded resource investigation",
+    "CUDA common result comparison for new features",
+    "Remaining unsupported effects and real-world certification",
+    "Production shared world execution connection"
+  ]
+}

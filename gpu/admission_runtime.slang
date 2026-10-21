@@ -24,7 +24,13 @@ void admitDefinitions(inout Runtime s,uint input)
     }
     for (uint j = 0; j < s.count; j++)
     {
-        Definition d=readDefinition(input,j); PROJECTILE_ADMIT_ROW(s,j,d)
+        Definition d;loadDefinition(input,j,d); PROJECTILE_ADMIT_ROW(s,j,d)
+        if(d.kind==25)
+        {
+            uint plan=input+P_RECIPIENT_BASE+j*8;
+            if(s.combat==0 || d.stat!=0 || d.enemyBuff!=0 || !f64Finite(d.value) || f64Zero(d.value) ||
+               commands[plan]>1 || !validRecipientPlan(plan,false,input)) { s.error=64;break; }
+        }
         if(d.stat==S_pierce_enabled || d.stat==S_armor_break_enabled || d.stat==S_burst_charge_speed_pct)
         {
             if(d.kind!=0 || d.enemyBuff!=0 || !f64Finite(d.value) || d.damageFlags!=0) { s.error=64;break; }
@@ -43,6 +49,7 @@ void admitDefinitions(inout Runtime s,uint input)
             s.quantityMask|=256;
         }
         uint entry=s.inputBase+P_MODE_BASE+j*P_MODE_WORDS+28;
+        PROJECTILE_ADMIT_STAGE(s,401)
         uint64_t entryDelay=loadNumber(entry);
         if(d.kind==2)
         {
@@ -51,6 +58,7 @@ void admitDefinitions(inout Runtime s,uint input)
         }
         else if(commands[entry]!=0 || commands[entry+1]!=0 || commands[entry+2]!=0 || commands[entry+3]!=0) { s.error=64;break; }
         if (d.owner >= 5 || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; }
+        PROJECTILE_ADMIT_STAGE(s,402)
         for(uint slot=0;slot<d.conditionCount;slot++)
         {
             uint at=input+P_CONDITION_BASE+j*P_CONDITION_WORDS+slot*4;
@@ -73,6 +81,7 @@ void admitDefinitions(inout Runtime s,uint input)
         for (uint slot = 0; slot < d.triggerCount; slot++)
             if (commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8] == 9) s.stackEventOwners |= 1U << d.owner;
         if ((d.kind == 2 || d.kind == 13 || d.kind == 14) && (d.target > 1 || !f64Finite(d.value))) { s.error = 64; break; }
+        PROJECTILE_ADMIT_STAGE(s,403)
          s.lazyEnabled |= uint(d.lazyGroup != 0);
         if ((WORLD_RELOAD_FORCE_KIND(d.kind) || d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8,d.enemyBuff != 0,input)) { s.error = 64; break; }
         if (d.lazyGroup != 0)
@@ -91,6 +100,7 @@ void admitDefinitions(inout Runtime s,uint input)
         }
         if((d.stat==S_optimal_range_min || d.stat==S_optimal_range_max_pct) && (d.kind!=0 || d.enemyBuff!=0 || !hasRangeGeometry(s))) { s.error=64;break; }
         uint packet = input+P_DAMAGE_DEFINITION_BASE+j*P_DAMAGE_DEFINITION_WORDS;
+        PROJECTILE_ADMIT_STAGE(s,404)
         if(d.stat==S_element_code_override)
         {
             elementDefinitions++;
@@ -110,6 +120,7 @@ void admitDefinitions(inout Runtime s,uint input)
             for (uint target = 1; target < s.targetCount; target++) if (!f64Zero(s.targetDefense[target])) { s.error = 64; break; }
         if(!validDurationExtension(input,s.count,s.combat,j)) { s.error=64;break; }
         if(!validRemovalDefinition(input,s.combat,j)) { s.error=64;break; }
+        PROJECTILE_ADMIT_STAGE(s,405)
         uint bullet = input+P_BULLET_DEFINITION_BASE+j*2;
         if (d.bulletDuration > 0x7fffffff || d.bulletBound > 1 || d.bulletDuration == 0 && d.bulletBound != 0 || d.bulletDuration != 0 && (s.combat == 0 || d.kind != 0 && d.kind != 4)) { s.error = 64; break; }
         uint extra = input+P_DEFINITION_EXTRA_BASE+j*P_DEFINITION_EXTRA_WORDS;
@@ -130,6 +141,7 @@ void admitDefinitions(inout Runtime s,uint input)
         if (d.enemyBuff > 1 || d.kind != 0 && d.kind != 4 && d.buffEvent != 0 ||
             statNotice > P_DEFINITIONS || statNotice != 0 && (d.kind != 0 || d.stat != S_dot_dmg_pct && d.stat != S_split_dmg_pct)) { s.error = 64; break; }
         if (d.healthScaling > 1) { s.error = 64; break; }
+        PROJECTILE_ADMIT_STAGE(s,406)
         if (d.kind == 0 && d.stat == S_cover_hp_pct) s.coverMask |= 1;
         if ((d.kind == 7 || d.kind == 30) && (f64Less(d.value,0) || d.kind == 30 && f64Zero(d.value))) { s.error = 64; break; }
         if (d.kind == 7 || d.kind == 30) s.coverMask |= 2;
@@ -140,6 +152,7 @@ void admitDefinitions(inout Runtime s,uint input)
         if (d.kind == 0 && d.stat == S_lifesteal_pct) s.healthMask |= 64;
         if (d.kind == 6 || d.kind == 8) s.healthMask |= 16;
         if (d.group >= s.count || d.alias >= int(j)) { s.error = 64; break; }
+        PROJECTILE_ADMIT_STAGE(s,407)
         if (d.kind == 0 && d.stat == S_invincible) s.incomingMask |= 1;
         if (d.kind == 0 && d.stat == S_undying) s.incomingMask |= 2;
         if (d.kind == 0 && d.stat == S_received_dmg_pct) s.incomingMask |= 4;

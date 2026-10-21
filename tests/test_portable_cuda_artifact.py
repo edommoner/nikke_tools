@@ -54,4 +54,13 @@ class ArtifactTests(unittest.TestCase):
             compile_cuda_artifact(lib,b'cuda',[],artifact_kind='cubin')
         self.assertEqual(lib.calls[-1],'destroy')
 
+    def test_invalid_native_artifact_is_not_published_to_cache(self):
+        lib=NVRTC();lib.payload=b'not an ELF object'
+        with tempfile.TemporaryDirectory() as folder,patch.dict(os.environ,{'NIKKE_CUDA_COMPILE_CACHE':folder}):
+            dll=Path(folder)/'nvrtc.dll';dll.write_bytes(b'compiler')
+            with self.assertRaisesRegex(RuntimeError,'native ELF'):
+                compile_cuda_artifact(lib,b'cuda',[dll],artifact_kind='cubin')
+            self.assertEqual(list(Path(folder).glob('*.json')),[])
+            self.assertEqual(lib.calls[-1],'destroy')
+
 if __name__=='__main__':unittest.main()

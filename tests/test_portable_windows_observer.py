@@ -23,20 +23,25 @@ class WindowsEvidence(unittest.TestCase):
  def test_snapshot_does_not_report_its_own_short_lived_observer_as_lost_work(self):
   before=normalize_snapshot([self.row(pid=os.getpid(),command='python C:/preflight.py'),self.row(pid=123,command='venv-python C:/preflight.py')],[],'C:/original/nikke','C:/isolated/v102',observer_script='C:/preflight.py');after=self.snapshot([]);self.assertEqual([r['role'] for r in before['processes']],['observer','observer']);self.assertTrue(compare_snapshots(before,after)['all_monitored_processes_preserved'])
  def job(self):
-  state=dict(closed=0)
+  state=dict(closed=0,terminated=False,events=[])
   class Job:
    def __init__(self,process):self.handle=123
+   def terminate_and_wait(self,timeout=5):
+    state['events'].append('terminated');state['terminated']=True;self.termination_waited=True
    def close(self):
     if self.handle:state['closed']+=1;self.handle=None
   return types.SimpleNamespace(WindowsJob=Job),state
  def test_single_fresh_child_is_saved_before_gate_and_close_always_occurs(self):
   module,state=self.job();counter=[]
-  def read(job,process):counter.append(1);return dict(child_pid=7,child_ppid=os.getpid(),child_creation_filetime_ticks='12345',job_members=[7] if len(counter)==1 else [])
+  def read(job,process):
+   counter.append(1);state['events'].append('inspect')
+   return dict(child_pid=7,child_ppid=os.getpid(),child_creation_filetime_ticks='12345',job_members=[] if state['terminated'] else [7])
   with tempfile.TemporaryDirectory() as folder:
    path=Path(folder)/'job.json'
    with observe_job(module,path,read):
     job=module.WindowsJob(types.SimpleNamespace(pid=7));self.assertTrue(json.loads(path.read_text())['records'][0]['pre_gate_verified']);job.close()
    r=json.loads(path.read_text());self.assertFalse(r['observer_assigns_processes']);self.assertEqual(r['records'][0]['post_wait']['job_members'],[]);self.assertEqual(state['closed'],1)
+   self.assertEqual(state['events'],['inspect','terminated','inspect'])
  def test_foreign_member_prevents_gate_proof_and_closes_only_owned_job(self):
   module,state=self.job()
   with tempfile.TemporaryDirectory() as folder:

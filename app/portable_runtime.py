@@ -18,7 +18,9 @@ from portable_specs import ABI, LIMITS as L, FIELDS as F, check_schema
 
 
 class UnsupportedPortable(ValueError):
-    pass
+    def __init__(self, message, *, reason=None):
+        self.reason = reason
+        super().__init__(message)
 
 
 class PortableExecutionError(RuntimeError):
@@ -118,8 +120,10 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     if 'event_scope' in eff and eff['event_scope'] not in ('squad','recipients'):
         raise UnsupportedPortable('Invalid named event audience')
     if kind=='buff':
-        if (stat not in BUFFS and stat not in (None,'','stack_change_immune') and not immunity(eff) and not protection and stack is None and resource_op not in (4,5) and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat))) or not (recipient_admitted(target) or enemy_buff_plan(eff) is not None or stack is not None):
-            raise UnsupportedPortable('Unported buff or recipient selector')
+        if stat not in BUFFS and stat not in (None,'','stack_change_immune') and not immunity(eff) and not protection and stack is None and resource_op not in (4,5) and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat)):
+            raise UnsupportedPortable('Unported buff stat', reason='effect')
+        if not (recipient_admitted(target) or enemy_buff_plan(eff) is not None or stack is not None):
+            raise UnsupportedPortable('Unported buff recipient selector', reason='recipient')
         if enemy_buff_plan(eff) is not None:
             if combat is None:raise UnsupportedPortable('Enemy buff requires combat-owned targets')
             if eff.get('duration_bullets',-1)!=-1:raise UnsupportedPortable('Enemy buff finite bullet recipient clocks are not ported')
@@ -133,13 +137,21 @@ def validate_effect(eff, *, combat=None, world_frame=False):
         elif stat in ('force_reload','ammo_charge_pct','ammo_charge_flat','heal_hp_pct','cover_heal_pct','cover_revive','current_hp_reduce','burst_cooldown_reduce','burst_charge_pct'):
             if not recipient_admitted(target,instant=True):raise UnsupportedPortable('Unported health recipient selector')
             if eff.get('scaling') not in (None,'max_hp') or stat not in ('heal_hp_pct','cover_heal_pct','current_hp_reduce') and eff.get('scaling') is not None:raise UnsupportedPortable('Unported healing basis')
-        elif stat not in ('remove_named_buff','force_skill_use','burst_reentry') or target!='self':
-            raise UnsupportedPortable('Unported instant or recipient selector')
+        elif stat not in ('remove_named_buff','force_skill_use','burst_reentry'):
+            raise UnsupportedPortable('Unported instant stat', reason='effect')
+        elif target!='self' and not (stat=='burst_reentry' and target=='all_allies'):
+            raise UnsupportedPortable('Unported instant recipient selector', reason='recipient')
     elif kind=='weapon_change':
         if combat is None or target!='self':raise UnsupportedPortable('Weapon mode requires combat and self recipient')
         if eff.get('tick_interval'):raise UnsupportedPortable('Periodic weapon-mode activation is not ported')
     else:raise UnsupportedPortable('Unported effect kind')
-    if (stat=='burst_reentry' or isinstance(stat,str) and stat.startswith('burst_stage_override:')) and (combat is None or target!='self'):
+    # Native burst_reentry records one pending request on its caster; the
+    # authored all_allies wording describes a squad-wide gauge, not five casts.
+    if stat=='burst_reentry' and (combat is None or target not in ('self','all_allies')):
+        raise UnsupportedPortable('Burst reentry requires combat and self/all_allies target', reason='recipient')
+    if stat=='burst_reentry' and (type(eff.get('fixed_value')) not in (int,float) or not math.isfinite(eff['fixed_value']) or eff['fixed_value']==0):
+        raise UnsupportedPortable('Burst reentry requires a nonzero finite authored stage', reason='effect')
+    if isinstance(stat,str) and stat.startswith('burst_stage_override:') and (combat is None or target!='self'):
         raise UnsupportedPortable('Burst stage state requires combat and self recipient')
     if eff.get('_source_tag') is not None and not isinstance(eff['_source_tag'],str):raise UnsupportedPortable('Invalid quantity source tag')
     if eff.get('_quant_group') is not None and type(eff['_quant_group']) not in (str,int):raise UnsupportedPortable('Invalid quantity group')

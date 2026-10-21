@@ -17,7 +17,7 @@ def admitted(target, *, instant=False):
     if not isinstance(target, str):
         return False
     if re.fullmatch(r'allies_lowest_cover_hp:[1-5]',target):return True
-    if target in ('self', 'all_allies', 'all_allies_excl_self', 'allies_squad', 'allies_burst3'):
+    if target in ('self', 'all_allies', 'all_allies_excl_self', 'allies_squad', 'allies_burst3', 'allies_burst_casted_burst3'):
         return True
     static = (r'allies_(?:right|adjacent):[1-5]', r'allies:[0-5]',
               r'allies_class:[^:]+(?::[0-5])?',
@@ -28,10 +28,13 @@ def admitted(target, *, instant=False):
         return True
     if target in ('all_allies_burst_casted','all_allies_burst_not_casted') or re.fullmatch(r'allies_burst_casted_weapon:[^:]+',target) or re.fullmatch(r'allies_(?:with|without)_buff:.*',target):
         return True
-    return (target in ('all_allies_burst_casted', 'all_allies_burst_not_casted') or
-            bool(re.fullmatch(r'allies_burst_casted_weapon:[^:]+', target)) or
-            bool(re.fullmatch(r'allies_(?:top_atk(?:_excl)?|lowest_hp(?:_excl)?|top_def|lowest_atk_burst3):[1-5]', target)) or
-            bool(re.fullmatch(r'allies_weapon_top_atk:[^:]+:[1-5]', target)))
+    if (re.fullmatch(r'allies_(?:top_atk(?:_excl)?|lowest_hp(?:_excl)?|top_def|lowest_atk_burst3):[1-5]', target) or
+        re.fullmatch(r'allies_weapon_top_atk:[^:]+:[1-5]', target)):
+        return True
+    # The canonical compiler already lowers literal identities to selector8.
+    # Keep catalog validation here; execution consumes the same static mask.
+    from calculator.buff_manager import _NIKKE
+    return target in _NIKKE
 
 
 def pack(words, index, row, limits, effect, stat_key, merge_search, lazy_group):
