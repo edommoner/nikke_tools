@@ -1,3 +1,19 @@
+<!-- world-reload-v102 -->
+## 2026-10-21 固定再装填時間と強制再装填を共通実行器へ接続、Metal65実証
+
+計算source76344c05940db2c8059af149482bdf6802f5ddcf・private ABI0x5045568b/mode22で、reload_time_fixedとforce_reloadを共通carrier/recipient/weapon loopへ接続しました。固定値の最大値、値なしmarkerと0秒の区別、レベル別values、開始後の期限保持、nativeの直接active query、stack/alias、物理武器コールバックの文脈を保持します。強制再装填はreload_until>0なら何もせず、そうでなければ弾薬0と充填・保持の取消を共通beginReloadで行います。full_reloadの同期子処理、クリップ継続、再装填中のpost_delay、通常ammo percent/flatも同じ本体です。
+
+Metal65＝full native46＋拒否19が成功しました。M5 command completed、GPU0.031416秒、library1.001秒、pipeline25.511秒。input27144004/readback204472320bytesを判定前に保存し、全battle/state/notice/skill queueとforce/start/finish traceを完全照合。CPU523（GPU source時点512＋Windows観測11）、旧19入口CUDA/MSL厳密生成一致、旧58/native31の入力・ネイティブ指紋保持、保存raw/Git/nativeの独立監査が成功しました。同じsource/inputのGPU再試行0です。実データのMilk Blooming Bunny/Jillの再装填2定義ずつも含みますが、全キャラ戦闘認証の数ではありません。
+
+27216abはhostの出力上限検査でGPU前に停止、入力と失敗を保存しました。dff1086の初回GPU62は41/43 nativeと拒否19が一致し、再装填中のphase保持と通常ammoの許可不足2件を保存。76344c0で修正し、通常ammo3件を追加して全65成功。初回の変更対象以外41ケースと拒否19は最終全出力wordと一致しました。3計算コミット・GPU実行2回です。
+
+入力104400word（旧104136＋WRL1 header8＋定義256flags）、出力786432wordです。655360にheader16と5人の最終reload_until、655376から4096×16wordの履歴、終端720912です。共有transportとMetal入口は新サイズだけを明示追加し、隙間サイズは拒否します。固定値は64要素damage vectorの外のidentity90で扱います。明示max_trigger:-1はネイティブでは発動しないため、共通packerでbudget0へ正規化し、キー欠落の無制限sentinelと区別しました。canonical compiler/CPU referenceは変更していません。詳細はportable-world-reload.md、portable-world-reload-validation.json、seal-world-reload-metal.pyを参照。
+
+Windows v102は固定51aa3399961c408889a599e1a265057469ff1bb6（25ファイル432154bytes）、codex/cuda-world-v102-sourceで計算検証に成功しました。CPU137・GPU禁止65入力/native46・base Pythonでの再照合後、CPUだけの実Job smokeは0.106619秒/GPU0。本番はBelowNormal/JobObject/start gate/180秒＋cleanup5秒でCUDA1回・121.898908秒、全65入力/output/native/generated指紋とAPI50段階が一致しました。新しい観測器のSHA、PID77560/親2448、作成時刻、pre所属[77560]、post所属空、全50段階PID77560、残留0/retry0、元HEAD/status保持を独立監査済みです。保存3JSON180500bytesはSHA一致で取得しました。ただし既存MCP等7件の欠落とNIKKEサービス識別未確定は残り、原preservation flagと総合passedはfalse、calculation_verifiedはtrueです。欠落7件は本番子より前に作成され、検証Jobの所属に含まれませんでした。終了原因は不明のままです。通常4682・旧1063以下の再実行0。summaryの旧958件カウンタ名をold965と転記したミスも監査が検出し、元JSONを変えず、明示receiptのold958=0と固定65入力・単一dispatchから検証しました。今後のreporterは修正済み、故障注入2件を加えた最終CPU525が成功しています。portable-world-v102-cuda-validation.json、seal-world-v102-cuda.py、portable-world-v102-summary-counter-finding.jsonを参照。
+
+実203＋21お気に入り段階1/2/3＝266プロファイルのPython own定義事前検査はbase105→107、全145→148（Milk/JillとExia favorite3）です。CPU battle/GPU呼出し0で、GPU admissionや全効果の戦闘認証の数ではありません。通常画面CPU・public world false・全キャラ戦闘認証0・legacy unexplained Metal14c8e2e OPEN・全ゴール未完了です。tap/anchor/cover/reload/aim/burst/focus操作、他buff/selector、明示parts/interrupt/source攻撃、復活、全組合せ/容量/長時間/全変種認証、その後の効率化が残っています。GitHub共有はゴール達成まで利用者許可済みです。
+<!-- /world-reload-v102 -->
+
 <!-- world-charge-control-v101 -->
 ## 2026-10-21 手動チャージ保持を共通実行器へ接続、Metal58実証
 

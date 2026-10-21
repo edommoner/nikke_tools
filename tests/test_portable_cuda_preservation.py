@@ -53,4 +53,11 @@ class PreservationProof(unittest.TestCase):
  def test_strict_preserved_execution_passes_without_diagnostic_exception(self):
   self.receipt['existing_gpu_service_preserved']=True;result=self.run_proof();self.assertTrue(result['passed']);self.assertTrue(result['original_windows_work_and_service_preserved']);self.assertNotIn('calculation_verified',result)
 
+ def missing_summary_counter(self,count):
+  self.kw.update(old_replays=['old958'],single_suite_command='python fixture.py',summary_omission_counts={'old958':958});self.receipt['old958_execution_count']=count;self.receipt['bounded_driver']=dict(shared_gpu_command='python fixture.py')
+ def test_omitted_summary_counter_needs_explicit_zero_receipt_and_fixed_dispatch(self):
+  self.missing_summary_counter(0);r=self.run_proof(True);self.assertFalse(r['passed']);self.assertTrue(r['calculation_verified']);self.assertEqual(r['old958_reexecutions'],0);self.assertEqual(r['summary_omissions_verified_from_receipt_and_frozen_dispatch'],['old958'])
+ def test_omitted_summary_counter_cannot_hide_a_recorded_reexecution(self):
+  self.missing_summary_counter(1)
+  with self.assertRaises(AssertionError):self.run_proof(True)
 if __name__=='__main__':unittest.main()
