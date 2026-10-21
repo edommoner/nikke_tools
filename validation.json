@@ -1,0 +1,14 @@
+{
+  "source_commit": "ee0756fb76bce0e3c5036c4ab1a027111e1449a5",
+  "package_id": "077415fb4aa2720300720db1c5503f9e48fc0ccf1d9eeff69f36a2194c148e23",
+  "archive_bytes": 4529996,
+  "archive_sha256": "bf9299943b4454fe2c2afbf061b2c4bf18c255827096676a13e1ca90936ff0b9",
+  "bootstrap_bytes": 64573,
+  "bootstrap_sha256": "466226ce3909d7ba0ab42d03441795002c34a4432c6cd9faadcd0e7d4e00fb8b",
+  "purpose": "CPU-only controller smoke and automatic dedicated TEMP; no native battle or compiler/GPU",
+  "cpu_tests": 29,
+  "job_timeout_seconds": 30,
+  "whole_command_timeout_seconds": 60,
+  "gpu_calls_allowed": 0,
+  "nvrtc_compile_calls_allowed": 0
+}
