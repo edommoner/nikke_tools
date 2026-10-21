@@ -3,8 +3,8 @@
   "catalog_characters": 203,
   "base_and_favorite_profiles": 266,
   "all_favorite_item_characters": 21,
-  "base_own_effect_preflight_passed": 100,
-  "all_profile_own_effect_preflight_passed": 140,
+  "base_own_effect_preflight_passed": 102,
+  "all_profile_own_effect_preflight_passed": 142,
   "issues": {
     "Unported buff or recipient selector": 113,
     "Unported instant or recipient selector": 21,
@@ -12,7 +12,6 @@
     "Unported trigger timing: charge_hold:1": 11,
     "Unported trigger timing: charge_hold:0.5": 6,
     "Unported effect fields: scaling": 6,
-    "Unported trigger timing: part_hit_count:1": 5,
     "Unported trigger timing: non_full_charge_fire_count:3": 4,
     "Unported trigger timing: charge_hold_count:1:3": 4,
     "Unported effect fields: hits_parts": 3,
@@ -35,13 +34,11 @@
     "Stack operation has the wrong effect kind": 1,
     "Unported trigger timing: weapon_hit:부착형 유탄 4": 1,
     "Unported predicate: self_stun_immune": 1,
-    "Unported trigger timing: body_hit_count:1": 1,
     "Unported effect fields: entry_reload": 1,
     "Unported effect fields: max_ammo_scaling_ref": 1,
     "Unported predicate: not_core": 1,
     "Unported trigger timing: event:ally_burst_cast": 1,
     "Unported effect fields: skill_damage": 1,
-    "Unported trigger timing: part_hit_count:5": 1,
     "Unported predicate: self_stat_above:accuracy_pct:0": 1,
     "Unported trigger timing: multi_hit:2": 1,
     "Unported duration extension recipient selector": 1,
@@ -10655,7 +10652,7 @@
       "character": "D : 킬러 와이프",
       "favorite_stage": 0,
       "own_effect_count": 17,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "캄 스나이핑",
@@ -10821,8 +10818,8 @@
           "conditions": [
             "target_state:타겟 섬멸"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: part_hit_count:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "타겟 섬멸 ATK",
@@ -10848,8 +10845,8 @@
           "conditions": [
             "target_state:타겟 섬멸"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: body_hit_count:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "장비 옵션",
@@ -22107,8 +22104,8 @@
             "part_hit_count:1"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: part_hit_count:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "라플라스 버스터",
@@ -22524,8 +22521,8 @@
             "part_hit_count:1"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: part_hit_count:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "라플라스 버스터",
@@ -23037,8 +23034,8 @@
             "part_hit_count:1"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: part_hit_count:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "라플라스 버스터",
@@ -23584,8 +23581,8 @@
             "part_hit_count:1"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: part_hit_count:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "라플라스 버스터",
@@ -61181,7 +61178,7 @@
       "character": "루마니",
       "favorite_stage": 0,
       "own_effect_count": 15,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "머슬 업",
@@ -61257,8 +61254,8 @@
             "part_hit_count:5"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: part_hit_count:5"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "머슬 올마이티",
@@ -125095,17 +125092,18 @@
     "app/portable_resource_decode.py": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
     "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
     "app/portable_roster_input.py": "cf569da9faababe07f9c1c16111da2f64936d5da562b123ea0ed67b7847bd024",
-    "app/portable_runtime.py": "a87b6c8139e42099706827cabdc1375ef5bb89de833658a57882eab01ca90988",
+    "app/portable_runtime.py": "2dd2255191c3ceb83564d2ecbc536d96dd13c9e310d65a9b037a079111f6c777",
     "app/portable_runtime_layout.py": "1a882b22eef68f04633c2a0fcdc542b188669e50f283dc88bf241af33c7ca0f1",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "b6aa6d719f8984d86d293cfd9b1b0c789067ed2ffb513ac8799ba9b489d39a9b",
+    "app/portable_specs.py": "6145d338d42da767a42aa4fc7b77f1dce364193b86f60610d62d9a0b3db94357",
     "app/portable_stack_specs.py": "c2aae86773e268fbd375217028f140af335bb8d4704c8567881464e650c7bc32",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
     "app/portable_status_specs.py": "387618cb8e46f8db81be2b9f83e7a70c167abc877868aefa21d0ebccb5d2fc2a",
-    "app/portable_target_counter_program.py": "156697da81a96bafc3ed72ba71df8bbc5f6e0c7bd9715c5ca2dbdc2025ca21a6",
+    "app/portable_target_counter_program.py": "089b52d9208da3d4e13f29f17a554658f90f520d5d3545d51324af0fb8e8bc0c",
     "app/portable_target_counter_specs.py": "1ac50a166b634999faad967ca04f56b1b538f5708d0b5131aa6626455c796e6b",
     "app/portable_target_state_specs.py": "b85bc65b10cd396b1c4ed19a095d3c657fd2862b395cd7be1172e5d89596adb1",
-    "app/portable_trigger_specs.py": "16b78f67cc202bdb1eaa9efe9ede32c4e9f9bff7f6efd588932177daf2759cbd",
+    "app/portable_team_hit_specs.py": "ee5bf86b82294d0f0d037c164877f2665c176692f261450cd15c77ee97c0f0b1",
+    "app/portable_trigger_specs.py": "e031b39714a66949a6928520936466c60368bb57d575355c38ecf60d469d2a26",
     "app/portable_weapon_input.py": "f5b6a332f60bde4382f7579eb32bbf8df2e93116de443c824b8826390136e43b",
     "app/portable_world_attack_specs.py": "8944e5278002603fd3fba2a7bc9a7623d0eda1a48bc2883b9257e45e6c1603fd",
     "app/portable_world_overlay_specs.py": "4fc34af16ca9c4c3f448284b34027874d99bca61f6b00d21b8f448d55af23085",

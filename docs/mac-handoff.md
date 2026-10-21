@@ -1,3 +1,19 @@
+<!-- world-team-v100 -->
+## 2026-10-21 部隊part/body命中を共通実行器へ接続、Metal47実証
+
+計算source725f020・private ABI0x50455689/mode19で、part_hit_count/body_hit_countを既存コンパイラの5人分bindingへ接続しました。条件は元のeffect owner、発動casterとtarget:self・caster-based数量は実attackerです。部隊のglobal count、max_trigger、確率accumulatorは攻撃者をまたいで共有します。scalar・carrier・recipient・health・gauge・damage子処理は共通dispatchを使用し、CUDA/Metalに別実装やCPU算出済みcredit入力はありません。通常のpellet通知とchargeの弾数buff期限前というnative順、1−coreのbinary64蓄積、source owner downを保持します。
+
+Metal47＝native29実戦＋拒否18が成功しました。Apple M5 command completed、GPU0.036294秒、library 1.089秒、pipeline 8.318秒。input18424004/readback123207680bytesを保存し、全数量・状態・通知時刻・小数・実accumulator・skill queueを照合しました。共有budget/prob、3pellet×2muzzle、core0/小数/1、HP条件と戦闘不能、caster-based量、heal/gauge、child damage、normal/skill charge、add消滅とtarget state、重複timingのnative通知indexを含みます。CPU460検査・旧17入口CUDA/MSL生成厳密一致、保存raw/Git/nativeの独立監査が成功。同じsource/inputのGPU再試行0です。
+
+29be064/f1465b2/373ad77はpipeline生成300秒でGPU実行前に停止し、各input・失敗を保存しました。専用入口でcounter marker/mode19をGPU上で先に検査して旧モード分岐を定数化し、pipeline生成を約8秒へ削減しました。旧入口の生成物の余白差も原型を保持して解消し、正規化は拡張していません。277af2bでの初回GPU47は46一致・gauge1拒否を保存。既存共通kind24がteam初期検査に無かったため追加し、725f020で全47成功。修正対象以外46入力の全出力wordも初回と一致しました。stage計5ソース、GPU実行2回です。
+
+入力98000word（従来fraction97480＋WTH1 header8＋256binding×2）、出力655360wordです。644936から5×4wordの部隊小数、644956に12word head、644968に1024×8word traceを置きます。bindingのsource owner/shared budget/実attacker順と未使用語をGPU検査します。mixed/periodic/weapon-change team listenerは既存コンパイラで拒否します。詳細はportable-world-team-hits.md、portable-world-team-validation.json、seal-world-team-metal.pyを参照。
+
+Windows v100へ固定a61136f1db638b7cd16f5174b08fa13dffbe0bb1（23ファイル387656bytes）、codex/cuda-world-v100-sourceの共通47入力だけを依頼中です。CPU78＋GPU禁止packing/oracle29に成功した場合だけ、BelowNormal/JobObject/start gate/180秒＋cleanup5秒でCUDA1回。旧958以下/通常4682は再実行しません。MacではCPU460・Metal47が成功済みですが、CUDA v100の結果はまだ認証していません。
+
+実203＋21お気に入り段階1/2/3＝266プロファイルのown定義Python事前検査はbase100→102、全140→142（D : 킬러 와이프、루마니）です。CPU battle/GPU build/execute禁止・呼出し0で、GPU kind admissionや全キャラ戦闘認証の数ではありません。通常画面CPU・public world false・全キャラ戦闘認証0・legacy unexplained Metal14c8e2e OPEN・全ゴール未完了です。charge_holdの手動control・充填latch・一度判定、他buff/selector、明示parts/interrupt/source攻撃、動的操作/復活、全組合せ/容量/長時間/全変種認証を続けます。GitHub共有はゴール達成まで利用者許可済みです。
+<!-- /world-team-v100 -->
+
 ## 2026-10-21 クリティカル・コア小数通知をMetal35・CUDA35で実証
 
 計算source7cb937878bd642ccf448cd5f4c7b33feafe993a5・private ABI88/mode17で、crit_hit/core_hitと各countを共通実行器へ接続しました。物理damageValueから一発分の確率を捕捉し、既存binary64でowner別の小数を蓄積、1を超えたら共通dispatchを呼びます。確率0/1では新しいaccumulatorを作らず、既存の残り値を保持します。CUDA/Metal別実装やCPU算出済みcredit入力はありません。

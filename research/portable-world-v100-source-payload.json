@@ -1,0 +1,131 @@
+{
+  "source_commit": "a61136f1db638b7cd16f5174b08fa13dffbe0bb1",
+  "branch": "codex/cuda-world-v100-source",
+  "base": "158e8b7a81e0af470af7cfe06e5d8809b48690ba",
+  "file_count": 23,
+  "files": [
+    {
+      "path": "app/portable_runtime.py",
+      "bytes": 64893,
+      "sha256": "2dd2255191c3ceb83564d2ecbc536d96dd13c9e310d65a9b037a079111f6c777"
+    },
+    {
+      "path": "app/portable_specs.py",
+      "bytes": 20156,
+      "sha256": "6145d338d42da767a42aa4fc7b77f1dce364193b86f60610d62d9a0b3db94357"
+    },
+    {
+      "path": "app/portable_target_counter_program.py",
+      "bytes": 2699,
+      "sha256": "089b52d9208da3d4e13f29f17a554658f90f520d5d3545d51324af0fb8e8bc0c"
+    },
+    {
+      "path": "app/portable_team_hit_specs.py",
+      "bytes": 1657,
+      "sha256": "ee5bf86b82294d0f0d037c164877f2665c176692f261450cd15c77ee97c0f0b1"
+    },
+    {
+      "path": "app/portable_trigger_specs.py",
+      "bytes": 8642,
+      "sha256": "e031b39714a66949a6928520936466c60368bb57d575355c38ecf60d469d2a26"
+    },
+    {
+      "path": "gpu/admission_runtime.slang",
+      "bytes": 12694,
+      "sha256": "57daf6cc33cf2926a31fb610232a485c4927dcd2a2c52ba4875af281e76210db"
+    },
+    {
+      "path": "gpu/combat_runtime.slang",
+      "bytes": 25590,
+      "sha256": "cb1dc76f401434afcebcdf712f6770096ab8bffb213233eef8b94f8662aff5f7"
+    },
+    {
+      "path": "gpu/event_runtime.slang",
+      "bytes": 137371,
+      "sha256": "1e75a68ffac8167c0e1fd6e00a82d567cb6f20061a6f2843fd75adf753617d8d"
+    },
+    {
+      "path": "gpu/portable_schema.slang",
+      "bytes": 22582,
+      "sha256": "5bfbc67c087204979ac0a01e604f356667fbf6e086853c11a99fe687ae51a71f"
+    },
+    {
+      "path": "gpu/target_counter_runtime.slang",
+      "bytes": 13014,
+      "sha256": "a094433ece42c29e4b9accfd00fd104a120237196a80ee8cf3b0cf986409dcf9"
+    },
+    {
+      "path": "gpu/world_actor_fields.slang",
+      "bytes": 9383,
+      "sha256": "4bd76a541c0f015645bb81d4509796276ef440668bdf181a796332df40c641c4"
+    },
+    {
+      "path": "gpu/world_fraction_runtime.slang",
+      "bytes": 2248,
+      "sha256": "de0ca8a1781e2b6bd51a0f79aa23fc035d8944cdecb8c5347e8064eed89f4374"
+    },
+    {
+      "path": "gpu/world_skill_runtime.slang",
+      "bytes": 7485,
+      "sha256": "8b98dd52caf922124ac948e484c8e6c7cd4ca83febef3f13df500eff1f08962d"
+    },
+    {
+      "path": "gpu/world_team_entry.slang",
+      "bytes": 66,
+      "sha256": "8ff8496183d9e146d6fb69a8b4e39ebc696e6ced1a72cb2e3e8bacf39e7c1951"
+    },
+    {
+      "path": "gpu/world_team_runtime.slang",
+      "bytes": 5011,
+      "sha256": "c7a5487862601644631fd7495144462f5333009b44ba25a133271adea092d3eb"
+    },
+    {
+      "path": "tests/test_portable_world_team.py",
+      "bytes": 5544,
+      "sha256": "17bff0c2263ac5ffcce693f62bb7960d5633a3a17c651df9e19243b4293fc25e"
+    },
+    {
+      "path": "research/world_fraction_native.py",
+      "bytes": 1240,
+      "sha256": "80ae70029e2b644bd5c8072b4b35dbc0f9e16bb9db2d28b77b0b131c62e36250"
+    },
+    {
+      "path": "research/characterize-world-team-hit-ownership.py",
+      "bytes": 3557,
+      "sha256": "16d10281dc36d773f8cd5f518bdbd9f1b9630707d2bcc14ad461592d780a3bed"
+    },
+    {
+      "path": "research/world_team_native.py",
+      "bytes": 1507,
+      "sha256": "e86f3a679dfdce7bc83cbc35bbd8fc7cc56b947e968e394399f8c05be3ed5644"
+    },
+    {
+      "path": "research/world_team_cases.py",
+      "bytes": 3728,
+      "sha256": "4495fb9610103e4f4b79d935264b73dc15db1063670b989a6e3795261bed4052"
+    },
+    {
+      "path": "research/verify-world-team.py",
+      "bytes": 7971,
+      "sha256": "14325898790b6b6ed62fa787ea95e233bd419eb0de010b4bc570cd57bb31b31d"
+    },
+    {
+      "path": "research/verify-world-team-short.py",
+      "bytes": 5744,
+      "sha256": "81b9045294721d2e502a01e8eaed93dc02f4f9d1cf48ed24201178ab74499f0a"
+    },
+    {
+      "path": "research/portable-world-team-short-expected.json",
+      "bytes": 24874,
+      "sha256": "9d1b8a03b6d8a21eb439a80680f6fb1f65698b15bbf9f5a9c7a5555c337ceb6d"
+    }
+  ],
+  "bytes": 387656,
+  "private_settings": false,
+  "raw": false,
+  "large_reports": false,
+  "authorization": "User permits GitHub sharing until current goal achieved",
+  "windows_input_count": 47,
+  "windows_native_oracles": 29,
+  "old958_reexecutions": 0
+}
