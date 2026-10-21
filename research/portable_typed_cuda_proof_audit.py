@@ -3,7 +3,7 @@ import hashlib,json,re,subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def sha(b):return hashlib.sha256(b).hexdigest()
-def audit(*,version,source,expected_file,inputs,native_oracles,test_counts,phase_suite,old_replays,payload_files,payload_bytes,single_suite_replay_names=(),single_suite_command=None,summary_omission_counts=None):
+def audit(*,version,source,expected_file,inputs,native_oracles,test_counts,phase_suite,old_replays,payload_files,payload_bytes,single_suite_replay_names=(),single_suite_command=None,summary_omission_counts=None,preservation_diagnostic=False):
  def load(p):return json.loads((ROOT/'research'/p).read_text())
  def blob(p):return subprocess.check_output(['git','show',source+':'+p],cwd=ROOT)
  summary_name=f'windows-portable-world-v{version}-summary.json';execution_name=f'portable-world-v{version}-execution.json';receipt_name=f'portable-cross-v{version}-receipt.json'
@@ -19,7 +19,10 @@ def audit(*,version,source,expected_file,inputs,native_oracles,test_counts,phase
  for a in receipt['artifacts']:
   data=(ROOT/'research'/a['local_name']).read_bytes();assert len(data)==a['bytes'] and sha(data)==a['sha256']
  assert e['passed'] and not e['timed_out'] and e['child_exit_code']==e['final_child_exit_code']==0 and e['error'] is None and e['cleanup_error'] is None and e['below_normal_priority'] and e['timeout_seconds']==180 and e['cleanup_wait_seconds']==5 and e['elapsed_seconds']<180
- assert r['passed'] and r['original_head_equal'] and r['original_status_equal'] and r['existing_gpu_service_preserved'] and r['residual_verification_process_count']==0 and r['actual_gpu_execution_count']==1
+ assert r['passed'] and r['original_head_equal'] and r['original_status_equal'] and r['residual_verification_process_count']==0 and r['actual_gpu_execution_count']==1
+ assert type(r['existing_gpu_service_preserved']) is bool
+ preservation=r['existing_gpu_service_preserved']
+ if not preservation_diagnostic:assert preservation
  assert r['gpu_retry_count']==e['gpu_retry_count']==0
  derived=[];summary_derived=[];allowed_summary_omissions=summary_omission_counts or {}
  for n in old_replays:
@@ -48,8 +51,9 @@ def audit(*,version,source,expected_file,inputs,native_oracles,test_counts,phase
   hits=[(i,p) for i,p in enumerate(phases) if p['stage']==stage];assert len(hits)==2 and hits[0][1]['state']=='entered' and hits[1][1]['state']=='returned' and hits[1][1]['return_code']==0 and hits[0][0]>last;last=hits[1][0]
  assert phases[-1]['stage']==phase_suite and phases[-1]['state']=='returned'
  assert all(e['phase'][k] for k in ['nvrtc_compile_returned_success','cuda_launch_returned_success','cuda_synchronize_returned_success','cuda_readback_returned_success'])
- result=dict(passed=True,source_commit=source,inputs=inputs,all_input_output_bytes_native_and_generated_fingerprints_equal=True,actual_cuda_executions=1,cuda_elapsed_seconds=e['elapsed_seconds'],cpu_tests=sum(n for _,n in test_counts),cpu_native_oracles=native_oracles,cpu_gpu_calls=0,phase_events=50,**{n+'_reexecutions':0 for n in old_replays},gpu_retries=0,residual_processes=0,original_windows_work_and_service_preserved=True,imported_bytes=sum(a['bytes'] for a in receipt['artifacts']),source_payload_bytes=payload_bytes,audit_gpu_calls=0,full_character_verified=0,canonical_world_admission=False,normal_ui='CPU',full_goal_complete=False)
+ result=dict(passed=preservation,source_commit=source,inputs=inputs,all_input_output_bytes_native_and_generated_fingerprints_equal=True,actual_cuda_executions=1,cuda_elapsed_seconds=e['elapsed_seconds'],cpu_tests=sum(n for _,n in test_counts),cpu_native_oracles=native_oracles,cpu_gpu_calls=0,phase_events=50,**{n+'_reexecutions':0 for n in old_replays},gpu_retries=0,residual_processes=0,original_windows_work_and_service_preserved=preservation,imported_bytes=sum(a['bytes'] for a in receipt['artifacts']),source_payload_bytes=payload_bytes,audit_gpu_calls=0,full_character_verified=0,canonical_world_admission=False,normal_ui='CPU',full_goal_complete=False)
 
+ if preservation_diagnostic:result.update(calculation_verified=True,preservation_verified=preservation,preservation_findings=[] if preservation else ['Existing process identity was not preserved; strict environment audit remains unsuccessful.'])
  if derived:result['reexecution_absence_derived_from_single_dispatch']=derived
  if summary_derived:result['summary_omissions_verified_from_receipt_and_frozen_dispatch']=summary_derived
  return result

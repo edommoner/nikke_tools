@@ -3,17 +3,14 @@
   "catalog_characters": 203,
   "base_and_favorite_profiles": 266,
   "all_favorite_item_characters": 21,
-  "base_own_effect_preflight_passed": 102,
-  "all_profile_own_effect_preflight_passed": 142,
+  "base_own_effect_preflight_passed": 105,
+  "all_profile_own_effect_preflight_passed": 145,
   "issues": {
-    "Unported buff or recipient selector": 113,
-    "Unported instant or recipient selector": 21,
+    "Unported buff or recipient selector": 114,
+    "Unported instant or recipient selector": 22,
     "Unported enemy damage selector": 16,
-    "Unported trigger timing: charge_hold:1": 11,
-    "Unported trigger timing: charge_hold:0.5": 6,
     "Unported effect fields: scaling": 6,
     "Unported trigger timing: non_full_charge_fire_count:3": 4,
-    "Unported trigger timing: charge_hold_count:1:3": 4,
     "Unported effect fields: hits_parts": 3,
     "Unported predicate: trigger_hit_crit": 3,
     "Unported health recipient selector": 3,
@@ -39552,8 +39549,8 @@
             "not_self_state:부끄러움",
             "not_self_state:구경났냐 짜식들아!!"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:0.5"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "부끄러움 3",
@@ -39578,8 +39575,8 @@
             "not_self_state:부끄러움",
             "not_self_state:구경났냐 짜식들아!!"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:0.5"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "부끄러움 4",
@@ -39608,7 +39605,7 @@
             "not_self_state:구경났냐 짜식들아!!"
           ],
           "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:0.5"
+          "issue": "Unported buff or recipient selector"
         },
         {
           "name": "부끄러움 5",
@@ -39632,7 +39629,7 @@
             "not_self_state:구경났냐 짜식들아!!"
           ],
           "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:0.5"
+          "issue": "Unported instant or recipient selector"
         },
         {
           "name": "부끄러움 6",
@@ -39659,8 +39656,8 @@
             "not_self_state:부끄러움",
             "not_self_state:구경났냐 짜식들아!!"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:0.5"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "부끄러움",
@@ -39686,8 +39683,8 @@
             "not_self_state:부끄러움",
             "not_self_state:구경났냐 짜식들아!!"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:0.5"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "부끄러움 재장전고정 해제",
@@ -58605,7 +58602,7 @@
       "character": "라푼젤 : 퓨어 그레이스",
       "favorite_stage": 0,
       "own_effect_count": 16,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "생츄어리",
@@ -58656,8 +58653,8 @@
           "conditions": [
             "during_shield"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "프레이",
@@ -58705,8 +58702,8 @@
           "conditions": [
             "during_shield"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "프레이 3",
@@ -58732,8 +58729,8 @@
           "conditions": [
             "during_shield"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "가든 오브 유토피아",
@@ -90147,7 +90144,7 @@
       "character": "길티 : 마이티 바니",
       "favorite_stage": 0,
       "own_effect_count": 28,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "어떻게 하는 게 좋아…?",
@@ -90199,8 +90196,8 @@
             "not_self_state:마이티 스톰프",
             "not_self_state:바니 모드 : 스탠스"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "바니 모드 : 인게이지",
@@ -90228,8 +90225,8 @@
             "not_self_state:마이티 스톰프",
             "self_state:바니 모드 : 스탠스"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "바니 모드 : 스탠스",
@@ -90257,8 +90254,8 @@
             "not_self_state:마이티 스톰프",
             "not_self_state:바니 모드 : 인게이지"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "어떻게 하는 게 좋아…? (스탠스 해제)",
@@ -90284,8 +90281,8 @@
             "not_self_state:마이티 스톰프",
             "self_state:바니 모드 : 인게이지"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "어떻게 하는 게 좋아…? (동기화 스탠스 해제)",
@@ -90883,7 +90880,7 @@
       "character": "신 : 스위프트 바니",
       "favorite_stage": 0,
       "own_effect_count": 31,
-      "all_own_definitions_preflight_passed": false,
+      "all_own_definitions_preflight_passed": true,
       "definitions": [
         {
           "name": "바니 시프트",
@@ -90991,8 +90988,8 @@
           "conditions": [
             "not_self_state:바니 모드 : 스탠스"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "바니 모드 : 인게이지",
@@ -91019,8 +91016,8 @@
           "conditions": [
             "self_state:바니 모드 : 스탠스"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "바니 모드 : 스탠스",
@@ -91047,8 +91044,8 @@
           "conditions": [
             "not_self_state:바니 모드 : 인게이지"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "바니 시프트 (스탠스 해제)",
@@ -91073,8 +91070,8 @@
           "conditions": [
             "self_state:바니 모드 : 인게이지"
           ],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold:1"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "바니 시프트 (동기화 스탠스 해제)",
@@ -102727,8 +102724,8 @@
             "charge_hold_count:1:3"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold_count:1:3"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "굽고, 데치고 4",
@@ -102750,8 +102747,8 @@
             "charge_hold_count:1:3"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold_count:1:3"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "든든한 요리 2",
@@ -102821,8 +102818,8 @@
             "charge_hold_count:1:3"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold_count:1:3"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "든든한 요리",
@@ -102847,8 +102844,8 @@
             "charge_hold_count:1:3"
           ],
           "conditions": [],
-          "preflight_passed": false,
-          "issue": "Unported trigger timing: charge_hold_count:1:3"
+          "preflight_passed": true,
+          "issue": null
         },
         {
           "name": "든든한 요리 4",
@@ -125073,6 +125070,7 @@
     "app/portable_burst_charge_specs.py": "e0a845ee4e494c726c49ff3dd366ed105d2d1e144d2f1a2352d158703c3c6bd1",
     "app/portable_catalog.py": "23f5b8c356e236901d1a5792a5e79de6c44d7cb6ce5b3d55832f04e1c4723ab7",
     "app/portable_charge_clock_specs.py": "1e0362d9f0d0d92ad998587c21a8e277f995c40f942ba7d05791cbe0dc430857",
+    "app/portable_charge_control_specs.py": "3e7ac3c2e96c7eb3f93017bee2a37cfb55220d285297d2bf9bb539e06ec422da",
     "app/portable_code_specs.py": "b53cd9cee83bf1cf6442c72db6a1fd65cc4408f2471c9fd504de54cb42cd86ab",
     "app/portable_combat.py": "a45776909229a03a8a7e50132507e4f6dc7bd6970cffbe28d0a84bbc515302b1",
     "app/portable_damage_specs.py": "d969bbf4e827e098b07df8a7813f6a9804d7f578a1009bc15b9849f730ab9546",
@@ -125093,9 +125091,9 @@
     "app/portable_resource_specs.py": "35ddafab4f51b1bc777afa87403be062050edeb0767846304c62ad95f35da073",
     "app/portable_roster_input.py": "cf569da9faababe07f9c1c16111da2f64936d5da562b123ea0ed67b7847bd024",
     "app/portable_runtime.py": "2dd2255191c3ceb83564d2ecbc536d96dd13c9e310d65a9b037a079111f6c777",
-    "app/portable_runtime_layout.py": "1a882b22eef68f04633c2a0fcdc542b188669e50f283dc88bf241af33c7ca0f1",
+    "app/portable_runtime_layout.py": "1516111fffd0db13875d88ed6fa5e835c7e79b04915803b518037a12575d1601",
     "app/portable_source_specs.py": "caafc4df57ffb6b7c1f5585956b491ab69d5ddae91ba242b1c46601cd214c975",
-    "app/portable_specs.py": "6145d338d42da767a42aa4fc7b77f1dce364193b86f60610d62d9a0b3db94357",
+    "app/portable_specs.py": "1ec63e73389a8f5e37e8d826620b37a44affcb71834aee315236191cc9013c0d",
     "app/portable_stack_specs.py": "c2aae86773e268fbd375217028f140af335bb8d4704c8567881464e650c7bc32",
     "app/portable_staged_specs.py": "6be56d51621b47c41bdfd96e251ab87a87ce7a0cdb09f3f49b8ffc32fff60794",
     "app/portable_status_specs.py": "387618cb8e46f8db81be2b9f83e7a70c167abc877868aefa21d0ebccb5d2fc2a",
@@ -125103,7 +125101,7 @@
     "app/portable_target_counter_specs.py": "1ac50a166b634999faad967ca04f56b1b538f5708d0b5131aa6626455c796e6b",
     "app/portable_target_state_specs.py": "b85bc65b10cd396b1c4ed19a095d3c657fd2862b395cd7be1172e5d89596adb1",
     "app/portable_team_hit_specs.py": "ee5bf86b82294d0f0d037c164877f2665c176692f261450cd15c77ee97c0f0b1",
-    "app/portable_trigger_specs.py": "e031b39714a66949a6928520936466c60368bb57d575355c38ecf60d469d2a26",
+    "app/portable_trigger_specs.py": "91629bf6747d863397d6d2364c7aef004262843c1b01fe312ef13b6bda09a48f",
     "app/portable_weapon_input.py": "f5b6a332f60bde4382f7579eb32bbf8df2e93116de443c824b8826390136e43b",
     "app/portable_world_attack_specs.py": "8944e5278002603fd3fba2a7bc9a7623d0eda1a48bc2883b9257e45e6c1603fd",
     "app/portable_world_overlay_specs.py": "4fc34af16ca9c4c3f448284b34027874d99bca61f6b00d21b8f448d55af23085",

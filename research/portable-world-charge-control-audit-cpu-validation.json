@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "tests": 492,
+  "command": ".venv/bin/python -m unittest discover -s tests -p 'test_portable*.py'",
+  "output": "............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................\n----------------------------------------------------------------------\nRan 492 tests in 18.829s\n\nOK\n",
+  "output_sha256": "368fab46c96db7c11cb82d2102729088eb717ff3a1bafcab91865aa9242d2244",
+  "added_failure_injection_tests": 4,
+  "strict_audit_still_rejects_preservation_failure": true,
+  "diagnostic_keeps_overall_failure": true,
+  "diagnostic_rejects_failed_cuda_sync": true,
+  "gpu_calls": 0,
+  "source_sha256": {
+    "research/portable_typed_cuda_proof_audit.py": "295bc515cf7eaedb0cda38f84c054177e73f76c47d9921734dcf1f59244343d2",
+    "tests/test_portable_cuda_preservation.py": "b73ec8615a6c023e142e553f5d98e06038c685fff739059345835f382dd82653"
+  }
+}

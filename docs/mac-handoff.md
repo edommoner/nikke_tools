@@ -1,3 +1,21 @@
+<!-- world-charge-control-v101 -->
+## 2026-10-21 手動チャージ保持を共通実行器へ接続、Metal58実証
+
+計算source2a585cfab7b15bedc6a591433ee4bf3edbc49df6・private ABI0x5045568a/mode21で、charge_hold:N/count:M、手動hold、hold_until_close、hold_judge、明示holdシーケンスを共通実行器へ接続しました。完了を実観測時刻でラッチし、生の0.1/0.10を別通知として閾値順に処理、条件より前に一度消費します。カメラの優先度/新規要求/部隊順、先取り解除、同一burstアンカーの再入1回、本人full burstと終了後の判定、動的chain窓、戦闘不能、武器session復帰順を扱います。CUDA/Metal別の計算実装、CPU算出済み射撃・充填時刻・通知・所有者入力はありません。
+
+Metal58＝native31実戦＋拒否27が成功しました。Apple M5 command completed、GPU0.089250秒、library1.028秒、pipeline11.503秒。input24159556/readback152043520bytesを判定前に保存し、全battle・状態・通知・小数・skill queueとカメラtraceを完全照合しました。CPU全488検査、旧18入口CUDA/MSL厳密生成一致、旧47入力/native29の指紋保持、保存raw/Git/nativeの独立監査も成功。同一source/inputのGPU再試行は0です。
+
+a9b7c2aの初回Metalは28/31一致、弾薬kind13/14の許可不足2件と武器終了後の保持解除1件を保存しました。既存の共通弾薬演算子をcontrol通知の定義に限って許可。f077cbeは30/31一致でしたが、保持解除がカメラ判定より1フレーム早い差を保存しました。2a585cfで論理失効→カメラ判定→物理武器復帰のnative順へ接続し、全31成功。初回の変更対象以外28ケース、2回目の変更対象以外30ケースは最終全出力wordと一致しました。3固定ソース・GPU実行3回です。
+
+CPU生成器が前段階のprivate teamEvent宣言を共通fieldとして解釈できなかった3件も発見・保存しました。正確な条件付き宣言だけを明示して扱い、共通initializerのbytesを変えず、未知のdirectiveは拒否します。専用入口のteamEvent初期化は従来どおりです。最終488件は成功しています。
+
+入力は104136word（従来98000＋WCH1の6136）、出力655360wordです。653160からowner5×32、653320からheader16、653336から閾値1280bit、653376からowner5×16アンカー、653536から220×8trace、終端655296です。未使用/予約語、raw event名と秒数、有限値、DOWN_Charge制約などをGPUで検査します。trace/履歴容量超過は失敗扱いです。詳細はportable-world-charge-control.md、portable-world-charge-control-validation.json、seal-world-charge-control-metal.pyを参照。
+
+Windows v101は固定784762d0f9cb809958107c040dcac7c219889c4c（22ファイル341461bytes）、codex/cuda-world-v101-sourceで計算検証に成功しました。CPU106・GPU禁止58入力/native31・全source SHA照合後、BelowNormal/JobObject/start gate/180秒＋cleanup5秒でCUDA1回・118.622770秒。保存3JSON121370bytesのinput/output/native/generated指紋とAPI50段階は一致、元HEAD/status保持・residual0/retry0、通常4682・旧1005以下の再実行0です。ただし既存Node/Python7件（Codex cua_node3、Blender MCP2、generic uv Python2）のPID保持を確認できず、元receiptのexisting_gpu_service_preservedはfalseです。追加の読取専用調査12543bytesも取得しましたが、終了原因と元NIKKEサービスの同一性は不明です。検証JobObjectは新規子プロセスだけを割り当てる実装で、7件への直接割り当て記録はありません。GPU再実行・サービス操作は行っていません。strict監査は拒否したまま、全計算/API/source検査を最後まで行う診断ではcalculation_verified=true、preservation_verified=false、総合passed=falseです。4件の故障注入を含む最終CPU492が成功。次のWindows実行前にはサービスの明示識別と子PID/PPID/creation/Job所属のbaseline保存を改善します。portable-world-v101-cuda-validation.jsonとportable-world-v101-preservation-finding.jsonを参照。
+
+実203＋21お気に入り段階1/2/3＝266プロファイルのPython own定義事前検査はbase102→105、全142→145（라푼젤 : 퓨어 그레이스、길티 : 마이티 바니、신 : 스위프트 바니）です。CPU battle/GPU呼出し0で、GPU admissionや全キャラ戦闘認証の数ではありません。通常画面CPU・public world false・全キャラ戦闘認証0・legacy unexplained Metal14c8e2e OPEN・全ゴール未完了です。tap/anchor/cover/reload/aim/burst/focus操作、他buff/selector、明示parts/interrupt/source攻撃、復活、全組合せ/容量/長時間/全変種認証と、その後の効率化が残っています。GitHub共有はゴール達成まで利用者許可済みです。
+<!-- /world-charge-control-v101 -->
+
 <!-- world-team-v100 -->
 ## 2026-10-21 部隊part/body命中を共通実行器へ接続、Metal47実証
 
