@@ -1,0 +1,25 @@
+{
+  "package_id": "e34c315879abfa22ef8e75a3ee59f6153ddcd99904c2f81dbf68a3781f041be8",
+  "files": 1791,
+  "bytes": 4579010,
+  "archive_sha256": "62da90b2e2daf604aca332eb97a169f5a78bf256800ad0d49f4c169e061c850b",
+  "source_commit": "d5ccaf51b99e1a8337f9acf7062152fa64634e46",
+  "bootstrap_bytes": 66680,
+  "bootstrap_sha256": "dd036a9525b6b23f9b83f47e95fd632a63fa2d31c1dc0b5471c529f49e977055",
+  "purpose": "Corrected direct-base-Python fake workers; CPU-only common CLI smoke:53 controller/cache/artifact tests plus fresh Job marker. No full native preflight or real compiler.",
+  "outer_timeout_seconds": 120,
+  "job_timeout_seconds": 30,
+  "cleanup_seconds": 5,
+  "gpu_calls_allowed": 0,
+  "nvrtc_calls_allowed": 0,
+  "slang_calls_allowed": 0,
+  "attempt_limit": 1,
+  "smoke_tests": 53,
+  "test_patterns": [
+    "test_portable_windows_cleanup.py",
+    "test_portable_gpu_cli.py",
+    "test_portable_compile_cache.py",
+    "test_portable_cuda_artifact.py"
+  ],
+  "ref": "refs/heads/codex/cuda-cache-v117-source"
+}
