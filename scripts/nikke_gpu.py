@@ -955,6 +955,7 @@ def main(argv=None):
     a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('reference');a.add_argument('--suite',choices=('revive',),required=True);a.add_argument('--out',type=Path,required=True)
     for storage_command in ('archive-raw','restore-raw'):
         a=sub.add_parser(storage_command);a.add_argument('--capture',type=Path,required=True);a.add_argument('--archive',type=Path,required=True)
         if storage_command=='archive-raw':a.add_argument('--remove-original',action='store_true')
@@ -999,6 +1000,9 @@ def main(argv=None):
         inventory=module(ROOT/'research/audit-world-roster-input.py').main(destination=str(a.out.resolve()),quiet=True)
         result={k:inventory[k] for k in ('profile_count','packed_profiles','packed_base','forbidden_calls','classification')}
         result['report']=str(a.out.resolve());result['priority_categories']=len(inventory['priorities'])
+    elif a.command=='reference':
+        from portable_reference import run_reference
+        result=run_reference(a.suite,a.out,write=write,forbid_gpu=forbid_gpu)
     elif a.command=='archive-raw':
         from portable_capture_storage import archive_raw
         result=archive_raw(a.capture,a.archive,check_records,remove_original=a.remove_original)

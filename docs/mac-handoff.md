@@ -1,3 +1,13 @@
+<!-- revive-reference-current -->
+## 蘇生のCPU正本契約：GPU接続は未完了
+
+共通CLIに`reference --suite revive --out /tmp/revive-reference.json`を追加しました。packing／GPUを禁止し、18 literalケースで23 down・15 reviveの実処理と共有carrier／HP／行動／通知／クラスrandomの契約を確認します。失敗も保存し、同名出力への再実行を拒否。GPU監査器と既存full-native observerを再利用し、GPU source／goldenは要求しません。native参照約1.4秒、専用CPU5検査と既存CLI28検査が成功しました。
+
+全18の既存battle／skill traceは観測器の有無で一致。クラスrandomは敵専用RNGと別のPython global RNGで、空集合は無消費、1候補のsampleは消費します。GPU移植時は状態を混同しないでください。約1.9MBの詳細はローカル、小さな指紋・契約・source identityだけを共有します。
+
+今回GPU source変更・GPU実行・Windows実行は0、sealed Metal718・静的210/266・通常UI CPU・全キャラGPU認定0のままです。次は失われた永続効果のdefinition順序を保持するledger、shared対象の再追加、復帰中HP同期抑止と満弾行動resetを通知DFSへ接続します。revive／persist／down-only selectorのGPU受付は未実装です。詳細docs/portable-revive-next.md、research/portable-revive-reference-checkpoint.json。以下は履歴です。
+<!-- /revive-reference-current -->
+
 <!-- attack-magnitude-current -->
 ## 名前付きATK倍率79とMetal718
 

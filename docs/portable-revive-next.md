@@ -21,3 +21,20 @@ ATK倍率79の次候補として、静的inventoryで複数プロファイルを
 4. 独立fixture→Metal immutable package→実編成→旧集約保持→GPU0 sealの順に進める。既存履歴省略・容量上限・通常UI CPUは明記したままにする。
 
 CUDAのcold compiler allocation failureは別の未解決課題です。蘇生追加を理由に同条件のWindows再試行は行わず、新しいcompiler仮説と成功／停止条件が成立した時だけ短く検証します。
+
+## 2026-10-22 CPU参照段階を共通CLIへ接続
+
+```sh
+.venv/bin/python scripts/nikke_gpu.py reference --suite revive --out /tmp/revive-reference.json
+.venv/bin/python -m unittest discover -s tests -p test_portable_revive_reference.py
+```
+
+出力先は新規ファイルが必要です。失敗も記録し、同名での再実行は拒否します。この経路はGPU source／goldenを要求せず、portable packingとGPUのbuild／executeを禁止します。`cpu_reference_verified`と`gpu_supported=false`／`calculation_verified=false`を分けます。対応するMetal／CUDAの実行経路をまだ認定していないためです。既存の`verify_cpu_gpu_calls`、全戦闘native observerとproof CLIの原子的記録を再利用します。
+
+18のliteral fixtureで23回のdown・15回のreviveを確認しました。共有carrierのidentity／対象順／stack維持、persist、永続passiveだけの復帰、有限／bullet passiveの非復帰、倒れたcasterの除外、補正後HP、満弾、charge／reload／cover解除、同フレーム通知順、遅延復帰、回数制限、生存者noop、クラスrandomの空集合・自己蘇生を含みます。全18ケースで観測器の有無による既存battle／skill traceの完全一致を検査します。初回のcontrollerはsourceファイルの配置を誤りCPU参照前に停止した記録を保持し、パスを修正しました。
+
+クラスrandomの蘇生は`buff_manager`からPythonグローバルrandomを使い、`simulate(seed=19)`がseedを設定します。expectedモードのBossScriptは別の`Random(_EXPECTED_BOSS_SEED)`です。空集合ではglobal RNGを消費せず、単一候補でもsampleは消費します。これは敵対象用の既存MT状態をそのまま共用してよいという意味ではありません。選択呼出しの前後の実RNG全stateを、追加抽選なしでローカル詳細へ記録しています。
+
+次のGPU実装では、downで失われた永続carrierのdefinition identityと順序を、既存の再利用可能resident slotの番号から分離して保持する必要があります。現在のknockDownは対象を除いた後にslotを再利用でき、これだけでは元の効果を復元できません。共有carrierへの再追加と消滅したcarrierの再発動、復帰中のHP遷移抑止、行動resetを通知DFSへ接続してください。`persist_on_revive`の表現と新selectorの受付も未実装のままです。既存rawの512 flag拒否等を流用して意味を変えず、新しい表現と拒否契約を明示します。
+
+現在のGPU認定は前版Metal718のままで、今回GPU source変更・GPU実行・Windows追加実行は0です。詳細はローカルcapture、共有する小さな指紋とsource identityは`research/portable-revive-reference-checkpoint.json`です。全キャラ／全特殊効果対応の目標は未完了です。
