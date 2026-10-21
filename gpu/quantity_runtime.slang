@@ -143,6 +143,7 @@ uint rawFullCapacity(inout Runtime s, uint who, uint base, bool applyBuffs, uint
     if (total > 0x7fffffff) { s.error = 2; return 0; }
     return uint(total);
 }
+[noinline]
 uint64_t rawEffectiveCharge(inout Runtime s, uint who, uint64_t base, uint64_t when)
 {
     if ((s.quantityMask & 42) == 0) return base;

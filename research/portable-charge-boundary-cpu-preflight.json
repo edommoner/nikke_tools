@@ -1,0 +1,47 @@
+[
+  {
+    "pattern": "test_portable_regression_adapter.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.8174714170163497
+  },
+  {
+    "pattern": "test_portable_roster_regression.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.021113791037351
+  },
+  {
+    "pattern": "test_portable_readiness.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.1957479590782896
+  },
+  {
+    "pattern": "test_portable_stun.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.3930426669539884
+  },
+  {
+    "pattern": "test_portable_typed_recipient_delegation.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.05129270802717656
+  },
+  {
+    "pattern": "test_portable_skill_cooldown.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.832977292011492
+  },
+  {
+    "pattern": "test_portable_healing_storage.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.285572374938056
+  },
+  {
+    "pattern": "test_portable_trigger_reduction.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.5601509580155835
+  },
+  {
+    "pattern": "test_portable_skill_critical.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.186051500029862
+  }
+]

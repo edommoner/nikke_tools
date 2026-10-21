@@ -59,7 +59,7 @@ SUITES['skill-cooldown']=dict(script='research/verify-world-skill-cooldown-short
     source='gpu/world_projectile_entry.slang',inputs=25,native=21,
     tests=['test_portable_skill_cooldown.py','test_portable_typed_recipient_delegation.py'])
 SUITES['regression']=dict(script='research/verify-world-regression-short.py',
-    golden='research/portable-world-critical-regression-short-expected.json',
+    golden='research/portable-world-charge-boundary-regression-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=327,native=262,
     tests=['test_portable_regression_adapter.py','test_portable_roster_regression.py',
            'test_portable_readiness.py','test_portable_stun.py','test_portable_typed_recipient_delegation.py',
