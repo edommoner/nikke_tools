@@ -18,6 +18,7 @@ ADAPTERS={
     'roster':module('regression_roster','research/verify-world-roster-regression-short.py'),
     'skill-cooldown':module('regression_skill_clock','research/verify-world-skill-cooldown-short.py'),
     'healing-storage':module('regression_healing_storage','research/verify-world-healing-storage-short.py'),
+    'trigger-reduction':module('regression_trigger_reduction','research/verify-world-trigger-reduction-short.py'),
 }
 cross=ADAPTERS['readiness'].cross
 suite=SimpleNamespace(INPUT=104400,OUTPUT=786432)

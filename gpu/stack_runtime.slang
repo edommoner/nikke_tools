@@ -158,7 +158,8 @@ bool validStackDefinitions(inout Runtime s)
         if(d.kind!=18 && selected!=0 || selected>s.count) return false;
         uint runtime=uint(commands[meta+1]!=0 && duration==F64_INF && (d.flags&2)!=0);
         if(commands[meta+5]!=runtime) return false;
-        for(uint field=6;field<P_MODE_WORDS;field++) if(commands[meta+field]!=0) return false;
+        for(uint field=6;field<P_MODE_WORDS;field++)
+            if(!(triggerReducer(s,row)&&field<P_TRIGGER_REDUCTION_END) && commands[meta+field]!=0) return false;
         if(d.kind==18)
         {
             uint expected=0;

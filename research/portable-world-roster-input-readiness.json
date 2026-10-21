@@ -28,25 +28,6 @@
     {
       "issue": {
         "phase": "effect",
-        "category": "effect",
-        "kind": "buff",
-        "stat": "trigger_count_reduce",
-        "target": "self",
-        "scaling": null,
-        "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"trigger_count_reduce\", \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      },
-      "messages": [
-        "Unported buff stat"
-      ],
-      "affected_profiles": 3,
-      "blocked_definitions": 3,
-      "single_observed_category_profiles": 2
-    },
-    {
-      "issue": {
-        "phase": "effect",
         "category": "trigger",
         "kind": "damage",
         "stat": "bonus_damage",
@@ -2513,22 +2494,6 @@
             "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"weapon_hit:부착형 유탄 4\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"projectile_explosion_damage\", \"target\": \"target\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: weapon_hit:부착형 유탄 4"
-          }
-        },
-        {
-          "index": 20,
-          "owner": "라피 : 레드 후드",
-          "name": "계승되는 힘 7",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "trigger_count_reduce",
-            "target": "self",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"trigger_count_reduce\", \"target\": \"self\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
           }
         }
       ],
@@ -5462,78 +5427,40 @@
     {
       "character": "스노우 화이트 : 이노센트 데이즈",
       "favorite_stage": 0,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 4,
-          "owner": "스노우 화이트 : 이노센트 데이즈",
-          "name": "세븐스 드워프 III",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "trigger_count_reduce",
-            "target": "self",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"trigger_count_reduce\", \"target\": \"self\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "5e33473e2913b4de4ef073c015332deeaf4205886f6e3e57426cb7d01d40df1f",
+      "squad": [
+        "스노우 화이트 : 이노센트 데이즈",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported buff stat",
-      "program_issue": {
-        "phase": "program",
-        "category": "effect",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported buff stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported buff stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      }
+      "prepared_effects": 73,
+      "bound_effects": 73,
+      "input_words": 104400
     },
     {
       "character": "홍련 : 흑영",
       "favorite_stage": 0,
-      "input_packed": false,
+      "input_packed": true,
       "gpu_admission_verified": false,
       "full_character_verified": false,
-      "effect_blockers": [
-        {
-          "index": 7,
-          "owner": "홍련 : 흑영",
-          "name": "화무십일홍 · 만개",
-          "issue": {
-            "phase": "effect",
-            "category": "effect",
-            "kind": "buff",
-            "stat": "trigger_count_reduce",
-            "target": "self",
-            "scaling": null,
-            "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"trigger_count_reduce\", \"target\": \"self\"}",
-            "error_type": "UnsupportedPortable",
-            "message": "Unported buff stat"
-          }
-        }
+      "effect_blockers": [],
+      "input_sha256": "84a24df525a1813a821882ff9f96f05a0e3fa357613266c39d5d127ec2001ce5",
+      "squad": [
+        "홍련 : 흑영",
+        "미란다",
+        "도라",
+        "N102",
+        "메어리"
       ],
-      "error": "Unported buff stat",
-      "program_issue": {
-        "phase": "program",
-        "category": "effect",
-        "kind": null,
-        "stat": null,
-        "target": "self",
-        "scaling": null,
-        "reason": "Unported buff stat",
-        "code": "{\"category\": \"effect\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported buff stat\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported buff stat"
-      }
+      "prepared_effects": 76,
+      "bound_effects": 76,
+      "input_words": 104400
     },
     {
       "character": "라푼젤 : 퓨어 그레이스",
@@ -10197,10 +10124,10 @@
   ],
   "profile_count": 266,
   "base_count": 203,
-  "packed_profiles": 187,
-  "packed_base": 130,
+  "packed_profiles": 189,
+  "packed_base": 132,
   "issues": {
-    "Unported buff stat": 31,
+    "Unported buff stat": 29,
     "Unported enemy damage selector": 8,
     "Unported buff recipient selector": 6,
     "Unported predicate: trigger_hit_crit": 3,

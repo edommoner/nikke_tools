@@ -39,6 +39,9 @@ def double_words(value):
 
 
 def validate_effect(eff, *, combat=None, world_frame=False):
+    from portable_trigger_reduction_specs import validate as validate_trigger_reduction
+    try:validate_trigger_reduction(eff,combat=combat,world_frame=world_frame)
+    except ValueError as error:raise UnsupportedPortable(str(error),reason='effect') from error
     if isinstance(eff.get('target'),list):
         for target in eff['target']:
             if target!=[]:validate_effect(dict(eff,target=target),combat=combat,world_frame=world_frame)
@@ -129,7 +132,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     if 'event_scope' in eff and eff['event_scope'] not in ('squad','recipients'):
         raise UnsupportedPortable('Invalid named event audience')
     if kind=='buff':
-        if stat not in BUFFS and stat not in (None,'','stack_change_immune','stun_immune') and not immunity(eff) and not protection and stack is None and resource_op not in (4,5) and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat)):
+        if stat not in BUFFS and stat not in (None,'','stack_change_immune','stun_immune','trigger_count_reduce') and not immunity(eff) and not protection and stack is None and resource_op not in (4,5) and not (isinstance(stat,str) and re.fullmatch(r'burst_stage_override:(?:[123A]|reenter[123])',stat)):
             raise UnsupportedPortable('Unported buff stat', reason='effect')
         if not (recipient_admitted(target) or enemy_buff_plan(eff) is not None or stack is not None):
             raise UnsupportedPortable('Unported buff recipient selector', reason='recipient')
@@ -420,6 +423,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         pack_burst_references(words,burst_references,L,double_words)
     elif burst_references is not None:raise UnsupportedPortable('Burst references require a charge-speed effect')
     pack_stack_metadata(words,L,effects,double_words)
+    from portable_trigger_reduction_specs import pack as pack_trigger_reduction
+    pack_trigger_reduction(words,L,effects,program['effects'],legacy,double_words)
     from portable_staged_specs import pack_index
     pack_index(words,staged,L)
     combat_meta = None

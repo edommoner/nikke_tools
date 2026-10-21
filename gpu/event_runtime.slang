@@ -1122,6 +1122,7 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
 #include "periodic_runtime.slang"
 #include "removal_runtime.slang"
 #include "duration_extend_runtime.slang"
+#include "trigger_reduction_runtime.slang"
 #include "stack_runtime.slang"
 #include "status_runtime.slang"
 #ifdef PORTABLE_WORLD_OVERLAYS
@@ -1651,7 +1652,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                         uint64_t threshold64 = f64ToI64(loadNumber(at+1),1,status);
                         if (status != 0 || threshold64 == 0 || threshold64 > 0x7fffffff || s.counters[counter] == 0x7fffffff) { s.error = 2; break; }
                         uint count = WORLD_TEAM_COUNTER(s,f.event,counter), threshold = uint(threshold64);
-                        ok = mode == 2 ? count >= threshold : mode == 3 ? count == threshold : count % threshold == 0;
+                        if(stage==1 && triggerReductionEvent(event) && (s.quantityMask&1024)!=0) ok=triggerReductionCountMatches(s,j,count,threshold64,mode,f.time);
+                        else ok = mode == 2 ? count >= threshold : mode == 3 ? count == threshold : count % threshold == 0;
                     }
                     if (stage == 2 && event != 4) ok = false;
                     if (ok && !matched) { matched = true; passive = commands[at+6]; }
@@ -2166,7 +2168,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     PROJECTILE_ADMIT_STAGE(s,12) if(!validEnemyTargeting(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,13) if(!validProtection(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,14) if (!validStatusDefinitions(s)) { results[output]=64;return; }
-    PROJECTILE_ADMIT_STAGE(s,15) if (!validStackDefinitions(s)) { results[output]=64;return; }
+    PROJECTILE_ADMIT_STAGE(s,15) if (!validTriggerReductions(s) || !validStackDefinitions(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,16) if (!validEventCandidates(s)) { results[output] = 64; return; }
     PROJECTILE_ADMIT_STAGE(s,17) for (uint row = 0; row < s.count; row++) if (!validPendingDefinition(s,row)) { results[output] = 64; return; }
     PROJECTILE_ADMIT_STAGE(s,18) if (!validateDurationGroups(s)) { results[output] = 64; return; }

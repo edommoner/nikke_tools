@@ -1031,3 +1031,9 @@ Windows v110はCPU20件成功後、修正argvでO1 compilerを1回だけ実行�
 共通CLIに`compiler-stats`と`ptx-stats`を追加しました。保存byte／既存receiptを検査するCPU解析で、NVRTC・GPU0。PTXの仮想register／local宣言を実レジスタ数やcompilerメモリ原因へ換算しません。旧Windows解析器が拒否した`%`なしregister名を含む正負例をCPU検査しました。原解析失敗は別JSONへ保持しています。新版CUDAの数値一致は未確認で、同じ巨大compileは再実行していません。次の未対応上位はprojectile_dmg_pct・trigger_count_reduce・trigger_hit_critです。
 
 保存済みv105 PTXのWindows解析は共通CLIで成功しました。CPU3件成功、解析約1.16秒、BelowNormal・5秒上限、NVRTC／driver／context／GPU0、原PTX・cache・旧失敗保持。188関数の仮想宣言を集計し、entryのlocal宣言164,296byte、dispatch9,496byte、weaponFrameBodyは仮想register28,295でした。物理register／compilerメモリ原因の証明ではありません。`research/portable-v105-saved-ptx-stats-sanitized.json`はWindowsの構造化報告であり、Macへ原PTXを転送して独立監査したものではありません。次のCUDA比較仮説は武器frameの共通関数境界やRuntimeのprivate状態量を対象にし、同じ巨大compileの再実行はしません。
+
+## 発動回数減少とregression287
+
+`docs/portable-trigger-reduction.md`と`research/portable-trigger-reduction-development-checkpoint.json`を参照してください。buff版trigger_count_reduceはcanonical REDUCER_MASKの転置を使い、caster・生timingの一致と、resident順の固定値合計→整数化→閾値最小1を共通Slangで処理します。スタック／受益者／runtime条件による再フィルターを入れません。非武器MODEのtagged unionを使いstrideは維持、既存status／stack metadataとの共存も検査しています。
+
+最初の287で見つけたフルチャージ2入力の時計不整合は、native静的正規化へ入力各3wordを合わせて修正しました。native全指紋・計算本体・比較器は不変、元失敗は保持。修正版287（native232＋拒否55）がMetal全件一致し、旧235と原失敗中の成功285は入力・全raw・native同一です。新goldenを明示sealし、現在の通常CLI入口はregression287です。新しい2キャラの全定義実編成を各3／30秒で追加。CPU665成功・Windows専用1skip、静的189/266・base132/203・分類114、通常CPU・全キャラ認定0。今回はWindows実行0で、CUDA数値一致は未確認です。次はtrigger_hit_crit等と、projectile_dmg_pctのCPU基準にも欠ける意味定義、および保存PTXに基づく共通関数境界のコンパイル診断を進めます。
