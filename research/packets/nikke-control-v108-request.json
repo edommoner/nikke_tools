@@ -1,0 +1,27 @@
+{
+  "version": 108,
+  "purpose": "GPU0 corrected Windows direct-Python timeout test and smoke; v107 originals retained",
+  "archive_path": "research/packets/nikke-control-v108.zip",
+  "archive_bytes": 4388397,
+  "archive_sha256": "1b23d30c5c285c906dfaa3439e7466450b786b415c0ba1c4a11a86f6f491a2cc",
+  "package_id": "acc2a43157c22d79188c89309898dc93d466e4379cb2c549ab9596b40c728275",
+  "bootstrap_sha256": "ac541852f8e236635f004ccf14f9140914020da4a34cb5f3ab3651a5302d6534",
+  "packaged_baseline_commit": "933a7d3ea7271dfb1e49d63069dc208766186bb8",
+  "implementation_checkpoint": "933a7d3ea7271dfb1e49d63069dc208766186bb8",
+  "immutable_worktree_bytes": true,
+  "mac_cpu_preflight_passed": null,
+  "metal_inputs": 81,
+  "windows_plan": [
+    "Validate archive and bootstrap bytes before unpacking into a fresh directory",
+    "Use existing Python environment; no dependency install or update",
+    "Run bundled readiness CLI --backend cuda --smoke --timeout 30 with explicit original-workspace; CPU tests include actual 2-second owned Job timeout with descendant and peak memory plus other fault injection",
+    "Return sanitized summary privately; retain original process snapshots locally; no raw environment report push"
+  ],
+  "gpu_calls_allowed": 0,
+  "nvrtc_compile_calls_allowed": 0,
+  "driver_load_allowed": false,
+  "smoke_budget_seconds": 30,
+  "cleanup_budget_seconds": 5,
+  "retry_count": 0,
+  "service_restart_allowed": false
+}
