@@ -20242,12 +20242,12 @@
             },
             "family": 1,
             "outcome": 2,
-            "damage": 242,
+            "damage": 511,
             "credit": 1,
             "attack_id": 0
           },
           "hp": [
-            596.8,
+            704.2,
             1000.0,
             1000.0,
             1000.0,
@@ -21105,7 +21105,7 @@
           ]
         ],
         "damage": [
-          242,
+          511,
           1,
           1,
           1,
@@ -21113,9 +21113,9 @@
         ],
         "allies": [
           {
-            "hp": 621.0,
+            "hp": 755.3000000000001,
             "max_hp": 1000.0,
-            "hp_pct": 62.1,
+            "hp_pct": 75.53,
             "defense": 30.0,
             "down": false,
             "received_damage": 0,
@@ -21981,7 +21981,7 @@
               "time": 0.0,
               "owner": 0,
               "hp": [
-                596.8,
+                704.2,
                 1000.0,
                 1000.0,
                 1000.0,
@@ -21994,7 +21994,7 @@
               "time": 0.0,
               "owner": 0,
               "hp": [
-                596.8,
+                704.2,
                 1000.0,
                 1000.0,
                 1000.0,
@@ -22018,7 +22018,7 @@
                 "attack_id": 0
               },
               "hp": [
-                596.8,
+                704.2,
                 1000.0,
                 1000.0,
                 1000.0,
@@ -22042,7 +22042,7 @@
                 "attack_id": 0
               },
               "hp": [
-                596.8,
+                704.2,
                 1000.0,
                 1000.0,
                 1000.0,
@@ -22066,7 +22066,7 @@
                 "attack_id": 0
               },
               "hp": [
-                596.8,
+                704.2,
                 1000.0,
                 1000.0,
                 1000.0,
@@ -22090,7 +22090,7 @@
                 "attack_id": 0
               },
               "hp": [
-                596.8,
+                704.2,
                 1000.0,
                 1000.0,
                 1000.0,
@@ -22114,7 +22114,7 @@
                 "attack_id": 0
               },
               "hp": [
-                596.8,
+                704.2,
                 1000.0,
                 1000.0,
                 1000.0,
@@ -22138,7 +22138,7 @@
                 "attack_id": 0
               },
               "hp": [
-                596.8,
+                704.2,
                 1000.0,
                 1000.0,
                 1000.0,
@@ -22162,7 +22162,7 @@
                 "attack_id": 0
               },
               "hp": [
-                596.8,
+                704.2,
                 1000.0,
                 1000.0,
                 1000.0,
@@ -22186,7 +22186,7 @@
                 "attack_id": 0
               },
               "hp": [
-                596.8,
+                704.2,
                 1000.0,
                 1000.0,
                 1000.0,
@@ -22205,12 +22205,12 @@
                 },
                 "family": 1,
                 "outcome": 2,
-                "damage": 242,
+                "damage": 511,
                 "credit": 1,
                 "attack_id": 0
               },
               "hp": [
-                596.8,
+                704.2,
                 1000.0,
                 1000.0,
                 1000.0,
@@ -22229,12 +22229,12 @@
                 },
                 "family": 1,
                 "outcome": 2,
-                "damage": 242,
+                "damage": 511,
                 "credit": 1,
                 "attack_id": 0
               },
               "hp": [
-                596.8,
+                704.2,
                 1000.0,
                 1000.0,
                 1000.0,
@@ -22247,7 +22247,7 @@
               "time": 0.01,
               "owner": 0,
               "hp": [
-                621.0,
+                755.3000000000001,
                 1000.0,
                 1000.0,
                 1000.0,
@@ -22260,7 +22260,7 @@
               "time": 0.01,
               "owner": 0,
               "hp": [
-                621.0,
+                755.3000000000001,
                 1000.0,
                 1000.0,
                 1000.0,
@@ -22277,9 +22277,9 @@
               0,
               5,
               0,
-              1080999936,
+              1082136576,
               0,
-              1080999936,
+              1082136576,
               0,
               0,
               0,
@@ -22310,7 +22310,7 @@
           ],
           "score": 0,
           "spawned": 1,
-          "overkill": 918.0,
+          "overkill": 1992.0,
           "notice_counts": [
             0,
             0,
@@ -24444,11 +24444,28 @@
   "gpu_calls": 0,
   "typed_damage_gpu_connected": false,
   "native_query_scope_finding": {
-    "status": "OPEN",
-    "without_enemy_field_damage": 242,
+    "status": "RESOLVED",
+    "without_enemy_field_damage": 511,
     "with_neutral_enemy_field_damage": 511,
-    "cause": "enemy_recipient_runtime.buffs only pushes explicit body query scope when enemy_recipient_fields is nonempty; allied runtime target predicates otherwise inherit the parent completion target",
-    "resolution_required_before_typed_skill_admission": true
+    "before_without_enemy_field_damage": 242,
+    "before_with_neutral_enemy_field_damage": 511,
+    "unchanged_native_cases": [
+      "body-completion-versus-lifesteal-order-damage-child-duration-0.01",
+      "body-completion-versus-lifesteal-order-damage-child-duration-0.15",
+      "add-completion-versus-lifesteal-order-damage-child-duration-0.01",
+      "add-completion-versus-lifesteal-order-damage-child-duration-0.15",
+      "add-survives-completion-versus-lifesteal-order-damage-child-duration-0.01",
+      "add-survives-completion-versus-lifesteal-order-damage-child-duration-0.15",
+      "completion-damage-body-basis-field-boss",
+      "completion-damage-body-basis-field-target",
+      "named-skill-hit-child-inherits-lethal-add-completion-target",
+      "queued-skill-body-query-with-neutral-enemy-field"
+    ],
+    "cause": "Explicit enemy query scope is now pushed independently of enemy field resources; allied runtime target predicates obey the requested target"
+  },
+  "source_sha256": {
+    "app/enemy_recipient_runtime.py": "2fed5285830bd151d939ad6e7ba98b6435435ab46cd916f6fdcd873f6afcf6b2",
+    "research/characterize-world-counter-damage-queue.py": "ed6dfcd1919b57a3fca646ad51f1c30b6b5d10df77ace0010d28d9818f9d5b3b"
   },
   "findings": [
     "Completion predicates and enemy field recipients retain the immutable Actor",
@@ -24456,7 +24473,7 @@
     "Direct skill amounts query body modifiers once; recipient routing occurs later",
     "A lethal add completion can enqueue a target skill that later lands on current body aim",
     "Named hit_count child notifications inherit completion targets; compiler wire49 must be included for the skill phase",
-    "Neutral enemy field changes explicit body-query runtime predicates in native; resolve sparse query adapter inconsistency before porting"
+    "Explicit body queries govern allied runtime target predicates with or without enemy fields"
   ],
   "full_goal_complete": false
 }
