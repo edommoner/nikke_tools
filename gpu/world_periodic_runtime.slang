@@ -15,7 +15,7 @@ bool periodicSnapshotMember(inout Runtime s,uint at,uint slot)
 { return slot<128&&(results[at+2+slot/32]&(1U<<(slot%32)))!=0&&periodicSnapshotGeneration(s,at,slot); }
 void initializeWorldPeriodic(inout Runtime s)
 {
-    if(!worldPeriodicEnabled(s)) return;
+    WORLD_INITIAL_SPAWN_INIT(s) if(!worldPeriodicEnabled(s)) return;
     for(uint i=P_WORLD_PERIODIC_DEFINITION_BASE;i<P_WORLD_PERIODIC_HEAD_BASE+16;i++) results[s.resourceOutput+i]=0;
     results[s.resourceOutput+P_WORLD_PERIODIC_HEAD_BASE]=0x57504331;
 }

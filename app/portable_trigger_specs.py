@@ -38,7 +38,7 @@ def validate_input(eff,*,world_frame=False):
         if not isinstance(timing,str):raise ValueError('Invalid timing')
         if timing.startswith('event:'):
             from detail_gpu import EVENT
-            if timing in EVENT and EVENT[timing] not in (EVENTS|frozenset((33,34,35)) if world_frame else EVENTS):raise ValueError('Unported trigger timing: '+timing)
+            if timing in EVENT and EVENT[timing] not in (EVENTS|frozenset((5,33,34,35)) if world_frame else EVENTS):raise ValueError('Unported trigger timing: '+timing)
         if timing.startswith('every:'):
             if not timing.endswith('s'):raise ValueError('Periodic timing requires native seconds suffix')
             try:period=float(timing[6:].removesuffix('s'))
@@ -54,7 +54,7 @@ def pack_descriptors(words,index,row,L,F,double_words,*,effect=None,states=None,
     if not 1<=n<=8 or not 0<=nc<=3:raise ValueError('Descriptor capacity exceeded')
     for slot in range(n):
         event,threshold,mode,tag,value,passive,stage=row[145+slot*7:152+slot*7]
-        if event not in (EVENTS|frozenset((33,34,35)) if world_frame else EVENTS) or mode not in (0,1,2,3):raise ValueError('Unported compiled trigger')
+        if event not in (EVENTS|frozenset((5,33,34,35)) if world_frame else EVENTS) or mode not in (0,1,2,3):raise ValueError('Unported compiled trigger')
         if event!=6 and (threshold!=int(threshold) or not 0<=threshold<=2**31-1):raise ValueError('Invalid discrete trigger threshold')
         if (mode or event in (7,8,30)) and threshold<=0:raise ValueError('Trigger threshold must be positive')
         if event==6 and (not math.isfinite(threshold) or threshold<=0):raise ValueError('Invalid compiled period')
