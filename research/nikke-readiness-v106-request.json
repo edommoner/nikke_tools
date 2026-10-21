@@ -1,0 +1,31 @@
+{
+  "version": 106,
+  "source_commit": "3918e68a07f299382c10bda1cbab50afc9eb016c",
+  "archive_path": "research/nikke-readiness-v106-package.zip",
+  "archive_bytes": 4375014,
+  "archive_sha256": "ec60878d02363c58d3d03e05564d147079afa24e345721824cbb52e7b715895a",
+  "package_id": "58dd0f6caf70b06092085763c31e33809d6700ce04a7c28b436dfa18ca58d2e3",
+  "bootstrap_path": "scripts/nikke_gpu.py",
+  "bootstrap_sha256": "061888787d1554ed62eee7016751f800926206f0a4db6f6b49f743a4b27d216a",
+  "suite": "readiness",
+  "inputs": 75,
+  "native": 60,
+  "rejections": 15,
+  "input_sha256": "beb2648a35badfc16580e5cb9b1f36ca6743952913d6ad8298e1e660e90fc166",
+  "output_sha256": "0b9264727d9138bf2ca0068d543c4edd00606a0be703ff700ac9a89bdf613856",
+  "artifact": "cubin",
+  "architecture": "sm_86",
+  "fmad": false,
+  "line_directives": "none",
+  "cuda_attempts": 1,
+  "maximum_seconds": 180,
+  "warm_check_gpu_calls": 0,
+  "warm_check_nvrtc_calls": 0,
+  "source_payload_excludes": [
+    "personal settings",
+    "raw input/readback",
+    "PTX/CUBIN",
+    "compiler distributions",
+    "venv"
+  ]
+}
