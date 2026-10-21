@@ -1,20 +1,17 @@
 // Native team-hit lowering supplies immutable attacker-bound definitions.
 // This adapter owns only team counters, source-owner predicates and fractions.
-uint teamBindingOwner(inout Runtime s,uint row)
-{ return worldTeamEnabled(s)&&row<s.count ? commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+8+row*2] : 0; }
-uint teamBudgetRow(inout Runtime s,uint row)
-{ uint key=worldTeamEnabled(s)&&row<s.count ? commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+9+row*2] : 0;return key==0?row:key-1; }
-bool teamActivationContext(inout Runtime s,uint row,bool runtime)
-{
-    uint event=worldTeamEnabled(s)?results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+6]:0;
-    return !runtime&&teamBindingOwner(s,row)!=0&&(event==44||event==45);
-}
-uint teamConditionOwner(inout Runtime s,uint row,bool runtime,uint fallback)
-{ return teamActivationContext(s,row,runtime)?teamBindingOwner(s,row)-1:fallback; }
+uint teamBindingOwner(uint input,uint row)
+{ return commands[input+P_WORLD_TEAM_INPUT_BASE+8+row*2]; }
+uint teamBudgetRow(uint input,uint row)
+{ uint key=commands[input+P_WORLD_TEAM_INPUT_BASE+9+row*2];return key==0?row:key-1; }
+bool teamActivationContext(uint input,uint row,bool runtime,uint event)
+{ return !runtime&&teamBindingOwner(input,row)!=0&&(event==44||event==45); }
+uint teamConditionOwner(uint input,uint row,bool runtime,uint event,uint fallback)
+{ return teamActivationContext(input,row,runtime,event)?teamBindingOwner(input,row)-1:fallback; }
 [noinline]
 uint64_t teamConditionTarget(inout Runtime s,uint row,int name,out bool present)
 {
-    uint previous=actorStatePushQuery(s,actorPhysicalTarget(s,teamBindingOwner(s,row)-1,0));uint64_t count=actorNamedTargetStack(s,name,present);actorStatePopQuery(s,previous);return count;
+    uint previous=actorStatePushQuery(s,actorPhysicalTarget(s,teamBindingOwner(s.inputBase,row)-1,0));uint64_t count=actorNamedTargetStack(s,name,present);actorStatePopQuery(s,previous);return count;
 }
 bool teamAdditionalCondition(uint kind)
 { return kind==C_HP_ABOVE||kind==C_HP_BELOW||kind==C_HP_MAX||kind==C_PROB||kind==C_FULL||kind==C_NOT_FULL; }
@@ -28,7 +25,7 @@ bool validTeamAdditionalCondition(uint at,uint kind,uint64_t arg)
 [noinline]
 void initializeWorldTeam(inout Runtime s)
 {
-    if(!worldTeamEnabled(s)) return;
+    s.teamEvent=0;if(!worldTeamEnabled(s)) { s.error=64;return; }
     uint input=s.inputBase+P_WORLD_TEAM_INPUT_BASE;
     if(commands[input]!=0x57544831||commands[input+1]!=1||commands[input+2]!=s.count||commands[input+3]>1) { s.error=64;return; }
     for(uint j=4;j<8;j++) if(commands[input+j]!=0) { s.error=64;return; }

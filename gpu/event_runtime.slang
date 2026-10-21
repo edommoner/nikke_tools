@@ -42,6 +42,9 @@ struct Frame
 };
 struct Runtime
 {
+#ifdef PORTABLE_WORLD_TEAM
+    uint teamEvent;
+#endif
     uint sourceEnabled; uint64_t sourceTime;
     uint stagedEnabled,stagedScopeRow,stagedScopeGeneration,stagedScopeEntry,stagedScopeStack;
     uint resourceCount, resourceAmmoObserved, resourceTraceCount, resourceTraceTotal, resourceOutput;
@@ -104,19 +107,19 @@ struct Runtime
 bool worldTeamEnabled(inout Runtime s) { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==19; }
 #define WORLD_TEAM_MODE(s) worldTeamEnabled(s)
 #define WORLD_TEAM_INIT(s) initializeWorldTeam(s);
-#define WORLD_TEAM_BUDGET(s,row) teamBudgetRow(s,row)
-#define WORLD_TEAM_OWNER(s,row,runtime,legacy) teamConditionOwner(s,row,runtime,legacy)
-#define WORLD_TEAM_TARGET(s,row,runtime,name,when,present,legacy) (teamActivationContext(s,row,runtime) ? teamConditionTarget(s,row,name,present) : (legacy))
+#define WORLD_TEAM_BUDGET(s,row) teamBudgetRow(s.inputBase,row)
+#define WORLD_TEAM_OWNER(s,row,runtime,legacy) teamConditionOwner(s.inputBase,row,runtime,s.teamEvent,legacy)
+#define WORLD_TEAM_TARGET(s,row,runtime,name,when,present,legacy) (teamActivationContext(s.inputBase,row,runtime,s.teamEvent) ? teamConditionTarget(s,row,name,present) : (legacy))
 #define WORLD_TEAM_COUNTER(s,event,counter) ((worldTeamEnabled(s)&&(event==44||event==45)) ? results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+2+event-44] : ++s.counters[counter])
-#define WORLD_TEAM_FRAME(s,f) if(worldTeamEnabled(s)) results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+6]=f.mode==0&&(f.event==44||f.event==45) ? f.event : 0;
-#define WORLD_TEAM_BEGIN(s) uint savedTeamEvent=worldTeamEnabled(s)?results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+6]:0;
-#define WORLD_TEAM_END(s) if(worldTeamEnabled(s)) results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+6]=savedTeamEvent;
-#define WORLD_TEAM_GUARD(s,row,f) if(worldTeamEnabled(s)&&(f.event==44||f.event==45)&&teamBindingOwner(s,row)!=0&&(s.downMask&(1U<<(teamBindingOwner(s,row)-1)))!=0) continue;
+#define WORLD_TEAM_FRAME(s,f) if(worldTeamEnabled(s)) s.teamEvent=f.mode==0&&(f.event==44||f.event==45) ? f.event : 0;
+#define WORLD_TEAM_BEGIN(s) uint savedTeamEvent=worldTeamEnabled(s)?s.teamEvent:0;
+#define WORLD_TEAM_END(s) if(worldTeamEnabled(s)) s.teamEvent=savedTeamEvent;
+#define WORLD_TEAM_GUARD(s,row,f) if(worldTeamEnabled(s)&&(f.event==44||f.event==45)&&teamBindingOwner(s.inputBase,row)!=0&&(s.downMask&(1U<<(teamBindingOwner(s.inputBase,row)-1)))!=0) continue;
 #define WORLD_TEAM_PELLET(s,w,who,when,output) if(worldTeamEnabled(s)&&w.mode!=1) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_CHARGE(s,w,who,count,when,output) if(worldTeamEnabled(s)&&w.mode==1) for(uint teamHit=0;teamHit<count;teamHit++) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_VALIDATE(s,d,input,j) for(uint teamSlot=0;teamSlot<d.triggerCount;teamSlot++) { uint teamEvent=commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+teamSlot*8];if((teamEvent==44||teamEvent==45)&&!worldTeamEnabled(s)) { s.error=64;break; } } if(s.error!=0) break;
-#define WORLD_TEAM_KIND(s,d,legacy) (worldTeamEnabled(s)&&teamBindingOwner(s,row)!=0&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8) ? false : (legacy))
-#define WORLD_TEAM_CONDITION(s,d,at,kind,arg) if(worldTeamEnabled(s)&&teamBindingOwner(s,row)!=0&&teamAdditionalCondition(kind)) { if(!validTeamAdditionalCondition(at,kind,arg)) return false;continue; }
+#define WORLD_TEAM_KIND(s,d,legacy) (worldTeamEnabled(s)&&teamBindingOwner(s.inputBase,row)!=0&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8) ? false : (legacy))
+#define WORLD_TEAM_CONDITION(s,d,at,kind,arg) if(worldTeamEnabled(s)&&teamBindingOwner(s.inputBase,row)!=0&&teamAdditionalCondition(kind)) { if(!validTeamAdditionalCondition(at,kind,arg)) return false;continue; }
 #else
 #define WORLD_TEAM_MODE(s) false
 #define WORLD_TEAM_INIT(s)
