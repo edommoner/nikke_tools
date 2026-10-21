@@ -17,9 +17,18 @@ def prepare():
   cases.append((dict(name=f'{last}-{duration}-{grown}',body=b),p,w,m))
  return cases
 
+def negative_inputs(cases):
+ from portable_specs import LIMITS as L,FIELDS as F
+ changes=[('old-reload-abi',0,L['WORLD_RELOAD_ABI']),('old-reload-mode',L['TARGET_COUNTER_INPUT_BASE']+6,22),('unknown-kind',L['DEFINITION_BASE']+F['KIND'],99),('reload-reserved',L['WORLD_RELOAD_INPUT_BASE']+3,1)]
+ bad=[]
+ for name,at,value in changes:
+  w=list(cases[0][2]);w[at]=value;bad.append((name,w))
+ return bad
+
 def run(backend='metal',replay=None,cpu_only=False):
- cases=prepare();packed=array.array('I',[len(cases)])
+ cases=prepare();bad=negative_inputs(cases);packed=array.array('I',[len(cases)+len(bad)])
  for _,_,w,_ in cases:packed.extend(w)
+ for _,w in bad:packed.extend(w)
  if sys.byteorder!='little':packed.byteswap()
  data=packed.tobytes();hashes=source_hashes(SOURCE)
  if cpu_only:
@@ -33,7 +42,7 @@ def run(backend='metal',replay=None,cpu_only=False):
   try:raw,e=execute(SOURCE,'portableEvents',data,INPUT_WORDS,OUTPUT_WORDS,backend)
   except Exception as error:(folder/'failure.json').write_text(json.dumps(dict(error=repr(error),source_sha256=hashes),indent=2)+'\n');raise
   (folder/'readback.bin').write_bytes(raw);(folder/'evidence.json').write_text(json.dumps(e,indent=2)+'\n')
- assert len(raw)==len(cases)*OUTPUT_WORDS*4
+ assert len(raw)==(len(cases)+len(bad))*OUTPUT_WORDS*4
  rows=[]
  for i,(c,p,w,m) in enumerate(cases):
   block=array.array('I');block.frombytes(raw[i*OUTPUT_WORDS*4:(i+1)*OUTPUT_WORDS*4])
@@ -45,7 +54,9 @@ def run(backend='metal',replay=None,cpu_only=False):
   from portable_specs import LIMITS as L
   row['diagnostic_history'] = {kind: dict(retained=block[L['WORLD_'+kind.upper()+'_HEAD_BASE']+1],omitted=block[L['WORLD_'+kind.upper()+'_HEAD_BASE']+offset]) for kind,offset in [('team',5),('fraction',3)]}
   rows.append(row)
- report=dict(passed=all(x['passed'] for x in rows),cases=rows,evidence=e,captured=str(folder),input_sha256=hashlib.sha256(data).hexdigest(),readback_sha256=hashlib.sha256(raw).hexdigest(),source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),full_character_verified=0,canonical_world_admission=False,normal_ui='CPU',full_goal_complete=False,cpu_trace_used_as_gpu_input=False,unchanged_gpu_retries=0,scope='Six complete real five-member simple-boss squads at 3/30/180 seconds including real growth/skill levels; no full catalog/variant certification')
+ rejected=[dict(name=name,status=int.from_bytes(raw[(len(cases)+i)*OUTPUT_WORDS*4:(len(cases)+i)*OUTPUT_WORDS*4+4],'little')) for i,(name,_) in enumerate(bad)]
+ for r in rejected:r['passed']=r['status']==64
+ report=dict(passed=all(x['passed'] for x in rows+rejected),cases=rows,rejected_cases=rejected,evidence=e,captured=str(folder),input_sha256=hashlib.sha256(data).hexdigest(),readback_sha256=hashlib.sha256(raw).hexdigest(),source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),full_character_verified=0,canonical_world_admission=False,normal_ui='CPU',full_goal_complete=False,cpu_trace_used_as_gpu_input=False,unchanged_gpu_retries=0,scope='Six complete real five-member simple-boss squads at 3/30/180 seconds including real growth/skill levels; no full catalog/variant certification')
  (ROOT/f'research/portable-world-roster-{backend}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');print([(x['name'],x['status'],x['passed'],len(x.get('differences',[])),x.get('error')) for x in rows]);assert report['passed']
 if __name__=='__main__':
  a=argparse.ArgumentParser();a.add_argument('--backend',choices=('metal','cuda'),default='metal');a.add_argument('--replay');a.add_argument('--cpu-only',action='store_true');o=a.parse_args();run(o.backend,o.replay,o.cpu_only)

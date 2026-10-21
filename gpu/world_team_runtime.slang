@@ -67,21 +67,10 @@ void notifyWorldTeam(inout Runtime s,uint who,uint64_t when,uint output)
         if(!f64Less(value,ONE)) { value=f64Add(value,ONE^F64_SIGN);fired=true; }
         storeNumber(state+kind*2,value);
     }
-    uint count=results[head+1];
-#ifdef PORTABLE_WORLD_ROSTER
-    // A bounded diagnostic history must not stop the real battle. Keep an
-    // explicit omitted count; all accumulators, counters and dispatch continue.
-    if(count>=P_WORLD_TEAM_TRACE_COUNT) results[head+5]++;
-    else {
-#else
-    if(count>=P_WORLD_TEAM_TRACE_COUNT) { s.error=64;return; }
-#endif
+    uint count=results[head+1];WORLD_ROSTER_TRACE_BEGIN(s,head,count,P_WORLD_TEAM_TRACE_COUNT,5)
     uint at=s.resourceOutput+P_WORLD_TEAM_TRACE_BASE+count*8;results[head+1]=count+1;
     results[at]=44+kind;results[at+1]=who|(uint(fired)<<3)|(((results[head+4]>>(who*2+kind))&1U)<<4);
-    storeNumber(at+2,when);storeNumber(at+4,frac);storeNumber(at+6,value);
-#ifdef PORTABLE_WORLD_ROSTER
-    }
-#endif
+    storeNumber(at+2,when);storeNumber(at+4,frac);storeNumber(at+6,value);WORLD_ROSTER_TRACE_END
     if(fired)
     {
         if(results[head+2+kind]==0x7fffffff) { s.error=2;return; }

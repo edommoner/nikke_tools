@@ -103,6 +103,14 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_WORLD_ROSTER
+// Diagnostic omission is explicit; never skip accumulation or dispatch.
+#define WORLD_ROSTER_TRACE_BEGIN(s,head,count,limit,slot) if(count>=limit) results[head+slot]++;else {
+#define WORLD_ROSTER_TRACE_END }
+#else
+#define WORLD_ROSTER_TRACE_BEGIN(s,head,count,limit,slot) if(count>=limit) { s.error=64;return; }
+#define WORLD_ROSTER_TRACE_END
+#endif
 #ifdef PORTABLE_WORLD_RELOAD
 #define WORLD_RELOAD_FORCE_KIND(kind) (kind==23)
 #define WORLD_RELOAD_KIND(d,legacy) (d.kind==23||d.kind==13||d.kind==14 ? false : (legacy))
