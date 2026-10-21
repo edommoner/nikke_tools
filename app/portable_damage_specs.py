@@ -40,3 +40,8 @@ STATS.update({name:{**DETAIL_STAT,**EXTRA_STAT}[name] for name in ('stealth','ta
 from portable_reload_specs import STAT as RELOAD_FIXED_STAT
 BUFFS=BUFFS | {'reload_time_fixed'}
 STATS['reload_time_fixed']=RELOAD_FIXED_STAT
+
+# Physical weapon modifiers; explosion range never indexes the64-value vector.
+from portable_projectile_specs import STATS as PROJECTILE_STATS
+BUFFS=BUFFS | PROJECTILE_STATS.keys()
+STATS.update(PROJECTILE_STATS)

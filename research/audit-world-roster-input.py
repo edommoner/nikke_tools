@@ -16,7 +16,7 @@ def roster_for(name):
  if stage not in fillers:raise ValueError('No complete roster policy for stage '+stage)
  return [name]+[n for n in fillers[stage] if n!=name][:4]
 
-def main():
+def main(*,compiler=compile_world_battle,destination='portable-world-roster-input-readiness.json'):
  rows=[];errors=Counter();calls=dict(cpu_battle=0,gpu=0)
  def stop(kind):
   def forbidden(*a,**k):calls[kind]+=1;raise AssertionError('Static inventory forbidden '+kind)
@@ -29,7 +29,7 @@ def main():
     try:
      body=dict(body_for(roster_for(name),30),burst_gauge_mode='accumulate');body['profile']['chars'][name]['favorite_stage']=stage
      if stage:body['profile']['chars'][name]['collection_stage']='SR15'
-     p=adapter.evaluate(dict(body,_portable_static_inputs=True));w,m=compile_world_battle(p)
+     p=adapter.evaluate(dict(body,_portable_static_inputs=True));w,m=compiler(p)
      import array
      b=array.array('I',w)
      if sys.byteorder!='little':b.byteswap()
@@ -38,5 +38,5 @@ def main():
     rows.append(r)
  assert len(rows)==266 and calls==dict(cpu_battle=0,gpu=0)
  result=dict(passed=True,profiles=rows,profile_count=266,base_count=203,packed_profiles=sum(r['input_packed'] for r in rows),packed_base=sum(r['input_packed'] and r['favorite_stage']==0 for r in rows),issues=dict(errors.most_common()),forbidden_calls=calls,full_character_verified=0,canonical_world_admission=False,normal_ui='CPU',full_goal_complete=False,scope='Complete real 30-second all-effect five-member input packing, default growth/no cube and all favorite stages; GPU admission and battle certification remain unproven.')
- (ROOT/'research/portable-world-roster-input-readiness.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(json.dumps({k:v for k,v in result.items() if k not in ('profiles','issues')},ensure_ascii=False));print('Top issues:',dict(errors.most_common(6)))
+ (ROOT/'research'/destination).write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(json.dumps({k:v for k,v in result.items() if k not in ('profiles','issues')},ensure_ascii=False));print('Top issues:',dict(errors.most_common(6)))
 if __name__=='__main__':main()

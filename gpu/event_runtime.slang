@@ -103,6 +103,17 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_WORLD_PROJECTILE
+#define WORLD_PROJECTILE_INIT(s) initializeProjectiles(s);
+#define WORLD_PROJECTILE_SAMPLE(s,w,who,when) sampleProjectilePellets(s,who,when,w.pellets);if(s.error!=0) return;
+#define WORLD_PROJECTILE_REACH(s,who,flags,when,legacy) projectileReach(s,who,flags,when,legacy)
+#define WORLD_PROJECTILE_RECORD(s,w,who,when,amount) recordProjectileShot(s,who,w.mode,w.pellets,w.muzzles,when,amount);
+#else
+#define WORLD_PROJECTILE_INIT(s)
+#define WORLD_PROJECTILE_SAMPLE(s,w,who,when)
+#define WORLD_PROJECTILE_REACH(s,who,flags,when,legacy) legacy
+#define WORLD_PROJECTILE_RECORD(s,w,who,when,amount)
+#endif
 #ifdef PORTABLE_WORLD_ROSTER
 // Diagnostic omission is explicit; never skip accumulation or dispatch.
 #define WORLD_ROSTER_TRACE_BEGIN(s,head,count,limit,slot) if(count>=limit) results[head+slot]++;else {
@@ -115,7 +126,7 @@ struct Runtime
 #define WORLD_RELOAD_FORCE_KIND(kind) (kind==23)
 #define WORLD_RELOAD_KIND(d,legacy) (d.kind==23||d.kind==13||d.kind==14 ? false : (legacy))
 #define WORLD_RELOAD_ORIGIN(input,row,legacy) ((legacy)||definition_kind(input,row)==23||definition_kind(input,row)==13||definition_kind(input,row)==14||definition_stat(input,row)==S_reload_time_fixed)
-#define WORLD_RELOAD_INIT(s) initializeWorldReload(s);
+#define WORLD_RELOAD_INIT(s) initializeWorldReload(s); WORLD_PROJECTILE_INIT(s)
 #define WORLD_RELOAD_DURATION(s,w,who,when) uint64_t reloadFixed;if(fixedReloadDuration(s,who,when,reloadFixed)) return reloadFixed;
 #define WORLD_RELOAD_RECORD(s,who,when,kind) recordWorldReload(s,who,when,kind);
 #define WORLD_RELOAD_ACTIVE(s,who,legacy) f64Less(0,s.reloadUntil[who])
@@ -141,7 +152,9 @@ struct Runtime
 #define WORLD_RELOAD_FINAL(s)
 #endif
 #ifdef PORTABLE_WORLD_CHARGE_CONTROL
-#ifdef PORTABLE_WORLD_ROSTER
+#ifdef PORTABLE_WORLD_PROJECTILE
+#define WORLD_CONTROL_WIRE_MODE 24
+#elif defined(PORTABLE_WORLD_ROSTER)
 #define WORLD_CONTROL_WIRE_MODE 23
 #elif defined(PORTABLE_WORLD_RELOAD)
 #define WORLD_CONTROL_WIRE_MODE 22
@@ -2018,6 +2031,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "world_actor_stacks.slang"
 #ifdef PORTABLE_TARGET_COUNTERS
 #include "target_counter_runtime.slang"
+#ifdef PORTABLE_WORLD_PROJECTILE
+#include "world_projectile_runtime.slang"
+#endif
 #ifdef PORTABLE_COUNTER_LANDINGS
 #include "counter_landing_runtime.slang"
 #ifdef PORTABLE_COUNTER_CONTEXT

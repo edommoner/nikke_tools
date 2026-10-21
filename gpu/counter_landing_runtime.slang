@@ -48,7 +48,7 @@ void sampleCounterPartShot(inout Runtime s,uint who,uint64_t coefficient,bool no
     if(!counterLandingsEnabled(s)) return;
     uint out=s.resourceOutput+P_COUNTER_LANDING_SHOT_BASE+who*8;results[out]=0;storeNumber(out+2,0);
     uint64_t b[64];collectStats(s,who,when,b);
-    uint reach=(flags&H_EXPLOSION)!=0 ? 3U : !f64Zero(b[S_pierce_enabled]) ? 1U : 0U;
+    uint reach=WORLD_PROJECTILE_REACH(s,who,flags,when,((flags&H_EXPLOSION)!=0 ? 3U : !f64Zero(b[S_pierce_enabled]) ? 1U : 0U));
     if(reach==0) return;
     bool any=false;
     for(uint slot=1;slot<actorPoolCount(s);slot++)
