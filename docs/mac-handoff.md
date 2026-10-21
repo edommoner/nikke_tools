@@ -3,7 +3,7 @@
 
 独立37（native31／拒否6）と集約796（native633／拒否163）がMetalで一致しました。CPU35契約のうちcover操作4件は既存control adapterが拒否するため未対応です。毎実tickのreloadDuration照会、元武器時間、fixed負値、明示delay0、待機latch、弾倉・charge開始を共有実行器へ接続し、照会owner／時刻／値の全順序を独立CPUと比較しました。Runtimeは247 fields／138952byte／align8。詳細はdocs/portable-entry-reload-gpu.md、checkpointと保持検査を参照してください。以下の旧759は履歴です。
 
-全portable CPU784件中783成功・Windows専用1skip・失敗0。静的packing214/266（base154）は入力受付で、全キャラGPU認定ではありません。通常UI CPU、全キャラ認定0、新版CUDA計算未確認、目標未完了です。Windowsのv126最終JSONは接続断で未取得。明示JITレベル1の検証コードは固定6b1a15eにあり、新sourceで既存v125 cacheを照合したことにはしません。Windowsの同条件再実行は依頼していません。
+全portable CPU784件中783成功・Windows専用1skip・失敗0。静的packing214/266（base154）は入力受付で、全キャラGPU認定ではありません。通常UI CPU、全キャラ認定0、新版CUDA計算未確認、目標未完了です。接続復旧後にv126最終報告を取得し、既定JITのmodule失敗（CUDA218、メモリ確保失敗）・context破棄0・post Job空・missing0を記録しました。Macの原capture独立監査ではありません。明示JITレベル1の検証コードは固定6b1a15eにあり、新sourceで既存v125 cacheを照合したことにはしません。固定6b1a15eのv127はCPU smoke86・PTX hit・JIT level1実引数照合まで成功しましたがmodule loadがCUDA218／メモリ確保失敗でした。context破棄0・post Job空・missing0・service未識別、kernel0／計算未確認です。同条件再実行は行いません。
 <!-- /entry-reload-current -->
 
 <!-- entry-reference-nvrtc-current -->

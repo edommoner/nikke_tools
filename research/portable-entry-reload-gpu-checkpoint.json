@@ -208,7 +208,7 @@
   "remaining": {
     "entry_reload_cover_controls": 4,
     "cuda_new_source_calculation": "unverified",
-    "cuda_jit_level1": "not run; previous fixed6b1a15e pending Windows connection",
+    "cuda_jit_level1": "v127 at fixed6b1a15e completed: cache hit and native level1 verified, module failed CUDA218/ptxas allocation; no calculation",
     "full_character_gpu": 0
   },
   "gpu_retries": 0,
@@ -269,5 +269,7 @@
       "new independent golden",
       "package manifest"
     ]
-  }
+  },
+  "windows_v126_final_report": "research/portable-world-v126-module-sanitized.json",
+  "windows_v127_final_report": "research/portable-world-v127-jit-level1-sanitized.json"
 }

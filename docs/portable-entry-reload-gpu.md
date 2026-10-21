@@ -13,3 +13,7 @@ Metal初回37は正例31・負例5が一致し、負例reservedが失敗しま�
 集約796は旧759＋新37を同じ共有実行器へ通す回帰suiteです。旧759全input／raw／native保持、新37の独立結果保持、lazy bankゼロは集約captureから確認しました。旧759の全raw SHAはe9284ab0b1afb99a3d9969ec8ee2ff43d8e333608a59240ab446c323d1bc0481のまま、新37も全input／raw／nativeが独立captureと一致し、全796のlazy bankはゼロでした。GPU禁止の独立sealも成功しました。構造化checkpoint・実captureを参照してください。CUDAの新版計算一致は未確認、通常UI CPU、全キャラGPU認定0、ゴール未完了です。Windowsの既存JIT検証6b1a15eを別のsourceへすり替えません。
 
 現在のsealed CLIは`package --suite entry-reload-regression --out <新規ZIP>`、独立suiteは`--suite entry-reload`です。旧regression／regression-residentのgoldenは歴史として残し、source不一致を自動追従させません。保持検査は既存retain-resident-runtime.pyへ明示的な`--expanded-candidate`／`--candidate-offset`／`--name-prefix`を加えて再利用しました。比較範囲のズレは拒否し、部分保持を全captureの計算認定とは扱いません。
+
+Windows接続復旧後、v126最終報告を取得しました。既定module loadは18.537秒でCUDA error218／ptxas Memory allocation failure。必須PTX hit、context破棄0、post Job空、missing0。cap2147483648byte／観測peak2147930112byte、module_verified=false／calculation=false／service未識別のpreservation=falseです。原captureをMacで独立監査した結果とは区別します。明示レベル1は固定6b1a15eの別条件v127として依頼し、この新entry_reload sourceを混ぜません。
+
+固定6b1a15eのWindows v127も完了し、レベル1の実引数照合と同じPTX cache hitは成功しましたが、module loadはCUDA218／メモリ確保失敗でした。kernel0・計算未確認。新entry_reloadのCUDAが実行できたという証拠ではありません。詳細portable-module-check.md、v126／v127構造化報告を参照してください。

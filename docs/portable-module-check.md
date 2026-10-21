@@ -42,3 +42,13 @@ CPU故障注入14検査で、cache miss、codegen drift、JITエラー、ABI不�
 Windows v126から受信した途中報告では、81 CPU smoke成功、PTX cache hit、driver／context作成成功の後、moduleロードがCUDA error218と`ptxas fatal: Memory allocation failure`で失敗しています。context破棄戻り値0・Job終了後空との報告ですが、接続断で最終保存JSONを未取得のため、独立監査済み結果とは扱いません。同条件の再実行は依頼しません。明示レベル1は別条件の候補で、CPU確認後もWindowsでの成功は未確認です。
 
 明示JIT追加後の固定パッケージではportable系781件中779成功・Windows専用1skip・ps権限による1errorでした。同じ展開先の監査5件をプロセス観測権限付きで検証し全成功。元errorは保存しています。追加後のmodule故障注入は19件です。結果はportable-jit-level-development-checkpoint.jsonを参照してください。Windowsの明示JIT実行はまだありません。
+
+## Windows v126／v127の最終報告
+
+接続復旧後に最終報告を取得しました。元captureはWindowsに保存されており、以下はチャットから得た最終報告で、Macでの原capture独立監査ではありません。原途中報告も上書きせず残します。
+
+- v126（98f79f3）：CPU smoke81成功、必須PTX hit、既定cuModuleLoadDataはCUDA218／ptxas Memory allocation failure。全体18.537秒、Job cap2147483648byte／観測peak2147930112byte。
+- v127（固定6b1a15e）：CPU smoke86成功、同じ必須PTX hit。CU_JIT_OPTIMIZATION_LEVEL=7/value1がnative引数と一致し、cuModuleLoadDataExを1回だけ実行。CUDA218／同じメモリ確保失敗。全体18.272秒、cap2147483648byte／観測peak2148020224byte。既定loader呼出し0。
+- 両方context破棄0、fresh Jobのpost空、missing0、NVRTC compile／NVRTC DLLロード／kernel／戦闘buffer／転送／同期0。service未識別はpreservation=falseのままです。module・entry・ABI・計算の成功ではありません。
+
+PTX cacheの再利用は成立しましたが、明示レベル1でdriver assemblerのメモリ問題は解消しませんでした。同条件retry、既定fallback、上限拡大、無根拠な別level試行は行いません。次はv125保存PTX統計で大きいweaponFrameBodyを中心に、共有Slangの分割候補をCPUで準備します。バーチャルレジスタ数を実レジスタやメモリ失敗の原因と断定しません。新しいentry_reloadのRuntime247／138952byteはこの検証へ混ぜておらず、旧Runtime246／138928byteのPTXについての結果です。
