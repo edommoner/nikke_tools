@@ -1,0 +1,111 @@
+{
+  "version": 109,
+  "source_commit": "4f1021ff17f6e5bfc82395ddafe35c36694d1933",
+  "package_id": "adce7d335be977f1e828f478768df9a1eb647b0b4840040b09e7781f8af5d7a8",
+  "archive": {
+    "bytes": 4400092,
+    "sha256": "d3112596da03f3e60e4322d517cb8fcbda6f96ff61bb35777b7bd87f9126c8e9",
+    "verified": true
+  },
+  "bootstrap_verified": true,
+  "manifest_verified": true,
+  "cpu_tests": [
+    {
+      "suite": "windows_cleanup",
+      "tests": 4,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "compile_cli",
+      "tests": 7,
+      "skip": 0,
+      "exit": 0
+    },
+    {
+      "suite": "cuda_artifact",
+      "tests": 8,
+      "skip": 0,
+      "exit": 0
+    }
+  ],
+  "cpu_total": 19,
+  "real_windows_job_memory_cap_test": {
+    "passed": true,
+    "verified_limit_bytes": 268435456
+  },
+  "compile": {
+    "attempts": 1,
+    "retries": 0,
+    "budget_seconds": 60,
+    "elapsed_seconds": 9.949182499665767,
+    "timed_out": false,
+    "child_exit_code": 1,
+    "final_child_exit_code": 1,
+    "nvrtc_compile_calls": 1,
+    "nvrtc_compile_seconds_at_journal_resolution": 0,
+    "nvrtc_compile_return_code": 5,
+    "failure": "nvrtc: error: unrecognized option --ptxas-options=-O1 found",
+    "last_api_return": {
+      "stage": "nvrtcDestroyProgram",
+      "return_code": 0
+    },
+    "last_phase": {
+      "stage": "shared_cuda_compile_only",
+      "state": "raised",
+      "exception": "RuntimeError"
+    }
+  },
+  "artifact": {
+    "requested_kind": "cubin",
+    "ptxas_level": 1,
+    "completed": false,
+    "bytes": 0,
+    "sha256": null
+  },
+  "cache": {
+    "initially_empty": true,
+    "miss": true,
+    "hit": false,
+    "completed_artifacts": 0,
+    "check_executed": false,
+    "check_gpu_calls": 0,
+    "check_nvrtc_compile_calls": 0
+  },
+  "job": {
+    "pre_single_verified": true,
+    "post_empty_verified": true,
+    "pre_memory_limit_bytes": 2147483648,
+    "post_memory_limit_bytes": 2147483648,
+    "pre_peak_memory_bytes": 5795840,
+    "post_peak_memory_bytes": 470294528,
+    "inspection_error": null,
+    "cleanup_error": null,
+    "observation_error": null,
+    "cleanup_budget_seconds": 5
+  },
+  "environment": {
+    "missing_count": 0,
+    "termination_cause": null,
+    "all_monitored_processes_preserved": true,
+    "service_status_before": "unverified",
+    "service_status_after": "unverified",
+    "service_preservation_verified": false,
+    "after_observation_delay_seconds": 2.1353476,
+    "original_head_status_preserved": true
+  },
+  "compiler_verified": false,
+  "containment_verified": true,
+  "preservation_verified": false,
+  "calculation_verified": false,
+  "gpu_dispatch_calls": 0,
+  "driver_load_calls": 0,
+  "context_create_calls": 0,
+  "prior_records_retained": true,
+  "results_saved_locally": true,
+  "results_archive": {
+    "bytes": 8180,
+    "sha256": "cb07d7a2507507744d58a33f5d758b8f2078c92a8802fd504a177ef69d7125f8"
+  },
+  "github_push": false
+}

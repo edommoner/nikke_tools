@@ -18,8 +18,9 @@ from portable_specs import ABI, LIMITS as L, FIELDS as F, check_schema
 
 
 class UnsupportedPortable(ValueError):
-    def __init__(self, message, *, reason=None):
+    def __init__(self, message, *, reason=None, operator=None):
         self.reason = reason
+        self.operator = operator
         super().__init__(message)
 
 
@@ -91,7 +92,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
         raise UnsupportedPortable('Unported effect fields: '+', '.join(sorted(set(eff)-effect_allowed)))
     from portable_trigger_specs import validate_input
     try:validate_input(eff,world_frame=world_frame)
-    except ValueError as error:raise UnsupportedPortable(str(error)) from error
+    except ValueError as error:raise UnsupportedPortable(str(error),reason=getattr(error,'reason',None),operator=getattr(error,'operator',None)) from error
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
     if stat in ('stun','stun_immune') and (combat is None or not world_frame):
         raise UnsupportedPortable('Stun state requires private combat-owned status', reason='effect')

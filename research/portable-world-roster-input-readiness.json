@@ -18,6 +18,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 5,
       "blocked_definitions": 5,
       "single_observed_category_profiles": 3
@@ -34,6 +37,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported instant stat"
       },
+      "messages": [
+        "Unported instant stat"
+      ],
       "affected_profiles": 4,
       "blocked_definitions": 4,
       "single_observed_category_profiles": 2
@@ -50,6 +56,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 3,
       "blocked_definitions": 3,
       "single_observed_category_profiles": 2
@@ -66,6 +75,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 3,
       "blocked_definitions": 3,
       "single_observed_category_profiles": 2
@@ -78,10 +90,17 @@
         "stat": "bonus_damage",
         "target": "same_target",
         "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
+        "operator": {
+          "domain": "condition",
+          "descriptor": "trigger_hit_crit"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"trigger_hit_crit\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported predicate: trigger_hit_crit"
       },
+      "messages": [
+        "Unported predicate: trigger_hit_crit"
+      ],
       "affected_profiles": 3,
       "blocked_definitions": 3,
       "single_observed_category_profiles": 2
@@ -98,6 +117,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 2,
       "blocked_definitions": 2,
       "single_observed_category_profiles": 2
@@ -114,6 +136,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 2,
       "blocked_definitions": 2,
       "single_observed_category_profiles": 2
@@ -130,6 +155,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported instant stat"
       },
+      "messages": [
+        "Unported instant stat"
+      ],
       "affected_profiles": 2,
       "blocked_definitions": 2,
       "single_observed_category_profiles": 2
@@ -149,6 +177,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: copy_from"
       },
+      "messages": [
+        "Unported effect fields: copy_from"
+      ],
       "affected_profiles": 2,
       "blocked_definitions": 2,
       "single_observed_category_profiles": 2
@@ -165,6 +196,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 3,
       "blocked_definitions": 3,
       "single_observed_category_profiles": 1
@@ -181,6 +215,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
+      "messages": [
+        "Unported enemy damage selector"
+      ],
       "affected_profiles": 3,
       "blocked_definitions": 3,
       "single_observed_category_profiles": 1
@@ -197,6 +234,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 2,
       "blocked_definitions": 2,
       "single_observed_category_profiles": 1
@@ -213,6 +253,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 2,
       "blocked_definitions": 4,
       "single_observed_category_profiles": 1
@@ -229,38 +272,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
-      "affected_profiles": 2,
-      "blocked_definitions": 2,
-      "single_observed_category_profiles": 1
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "trigger",
-        "kind": "buff",
-        "stat": "heal_received_pct",
-        "target": "self",
-        "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_received_pct\", \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported predicate: self_undying"
-      },
-      "affected_profiles": 2,
-      "blocked_definitions": 2,
-      "single_observed_category_profiles": 1
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "trigger",
-        "kind": "damage",
-        "stat": "bonus_damage",
-        "target": "target",
-        "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"target\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported trigger timing: multi_hit:2"
-      },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 2,
       "blocked_definitions": 2,
       "single_observed_category_profiles": 1
@@ -277,6 +291,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -293,6 +310,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -309,6 +329,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -325,6 +348,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -341,6 +367,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -360,6 +389,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: copy_from"
       },
+      "messages": [
+        "Unported effect fields: copy_from"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -379,6 +411,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: entry_reload"
       },
+      "messages": [
+        "Unported effect fields: entry_reload"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -398,6 +433,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: hits_parts"
       },
+      "messages": [
+        "Unported effect fields: hits_parts"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -417,6 +455,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: hits_parts"
       },
+      "messages": [
+        "Unported effect fields: hits_parts"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -436,6 +477,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: max_ammo_scaling_ref"
       },
+      "messages": [
+        "Unported effect fields: max_ammo_scaling_ref"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -455,6 +499,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: persist_on_revive"
       },
+      "messages": [
+        "Unported effect fields: persist_on_revive"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 2,
       "single_observed_category_profiles": 1
@@ -475,6 +522,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: scaling, scaling_hp_pct"
       },
+      "messages": [
+        "Unported effect fields: scaling, scaling_hp_pct"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -495,6 +545,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: scaling, scaling_hp_pct"
       },
+      "messages": [
+        "Unported effect fields: scaling, scaling_hp_pct"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -511,6 +564,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Lost HP defense requires combat and self recipient"
       },
+      "messages": [
+        "Lost HP defense requires combat and self recipient"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -527,6 +583,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
+      "messages": [
+        "Unported enemy damage selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -543,6 +602,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
+      "messages": [
+        "Unported enemy damage selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -559,6 +621,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
+      "messages": [
+        "Unported enemy damage selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -575,6 +640,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
+      "messages": [
+        "Unported enemy damage selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -591,6 +659,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported health recipient selector"
       },
+      "messages": [
+        "Unported health recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -607,6 +678,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported health recipient selector"
       },
+      "messages": [
+        "Unported health recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -623,22 +697,9 @@
         "error_type": "ValueError",
         "message": "Unported cleanse recipient selector"
       },
-      "affected_profiles": 1,
-      "blocked_definitions": 1,
-      "single_observed_category_profiles": 1
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "trigger",
-        "kind": "buff",
-        "stat": "atk_pct",
-        "target": "self",
-        "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_pct\", \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported predicate: self_stat_above:accuracy_pct:0"
-      },
+      "messages": [
+        "Unported cleanse recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -651,10 +712,17 @@
         "stat": "def_pct",
         "target": "all_allies",
         "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"def_pct\", \"target\": \"all_allies\"}",
+        "operator": {
+          "domain": "timing",
+          "descriptor": "event:ally_burst_cast"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"event:ally_burst_cast\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"def_pct\", \"target\": \"all_allies\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported trigger timing: event:ally_burst_cast"
       },
+      "messages": [
+        "Unported trigger timing: event:ally_burst_cast"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -667,10 +735,86 @@
         "stat": "reload_speed_pct",
         "target": "self",
         "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"reload_speed_pct\", \"target\": \"self\"}",
+        "operator": {
+          "domain": "timing",
+          "descriptor": "pellet_hit_in_shot:5"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"pellet_hit_in_shot:5\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"reload_speed_pct\", \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported trigger timing: pellet_hit_in_shot:5"
       },
+      "messages": [
+        "Unported trigger timing: pellet_hit_in_shot:5"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 1
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "buff",
+        "stat": "atk_pct",
+        "target": "self",
+        "scaling": null,
+        "operator": {
+          "domain": "condition",
+          "descriptor": "self_stat_above:accuracy_pct:0"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"self_stat_above:accuracy_pct:0\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_pct\", \"target\": \"self\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported predicate: self_stat_above:accuracy_pct:0"
+      },
+      "messages": [
+        "Unported predicate: self_stat_above:accuracy_pct:0"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 1
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "buff",
+        "stat": "heal_received_pct",
+        "target": "self",
+        "scaling": null,
+        "operator": {
+          "domain": "condition",
+          "descriptor": "self_undying"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"self_undying\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_received_pct\", \"target\": \"self\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported predicate: self_undying"
+      },
+      "messages": [
+        "Unported predicate: self_undying"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 1
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "damage",
+        "stat": "bonus_damage",
+        "target": "target",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "multi_hit:2"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"multi_hit:2\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"target\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: multi_hit:2"
+      },
+      "messages": [
+        "Unported trigger timing: multi_hit:2"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -683,10 +827,17 @@
         "stat": "gauge_charge",
         "target": "self",
         "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"gauge_charge\", \"target\": \"self\"}",
+        "operator": {
+          "domain": "condition",
+          "descriptor": "not_core"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"not_core\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"gauge_charge\", \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported predicate: not_core"
       },
+      "messages": [
+        "Unported predicate: not_core"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 1
@@ -703,6 +854,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 4,
       "blocked_definitions": 4,
       "single_observed_category_profiles": 0
@@ -719,6 +873,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 4,
       "blocked_definitions": 4,
       "single_observed_category_profiles": 0
@@ -735,22 +892,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
-      "affected_profiles": 2,
-      "blocked_definitions": 2,
-      "single_observed_category_profiles": 0
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "trigger",
-        "kind": "buff",
-        "stat": "atk_caster_based_pct",
-        "target": "all_allies",
-        "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_caster_based_pct\", \"target\": \"all_allies\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported trigger timing: non_full_charge_fire_count:3"
-      },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 2,
       "blocked_definitions": 2,
       "single_observed_category_profiles": 0
@@ -767,6 +911,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -783,6 +930,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -799,6 +949,9 @@
         "error_type": "ValueError",
         "message": "Stack operation has the wrong effect kind"
       },
+      "messages": [
+        "Stack operation has the wrong effect kind"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -815,6 +968,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -831,6 +987,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -847,6 +1006,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -863,6 +1025,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -879,6 +1044,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -895,6 +1063,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -911,6 +1082,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -927,6 +1101,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -946,6 +1123,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -962,6 +1142,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -978,6 +1161,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -994,6 +1180,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff stat"
       },
+      "messages": [
+        "Unported buff stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1010,6 +1199,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported damage family"
       },
+      "messages": [
+        "Unported damage family"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1026,6 +1218,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported damage family"
       },
+      "messages": [
+        "Unported damage family"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1042,6 +1237,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported instant stat"
       },
+      "messages": [
+        "Unported instant stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1058,6 +1256,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported instant stat"
       },
+      "messages": [
+        "Unported instant stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1074,6 +1275,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported instant stat"
       },
+      "messages": [
+        "Unported instant stat"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1094,6 +1298,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: duration_scaling, duration_scaling_ref"
       },
+      "messages": [
+        "Unported effect fields: duration_scaling, duration_scaling_ref"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1114,6 +1321,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: duration_scaling, duration_scaling_ref"
       },
+      "messages": [
+        "Unported effect fields: duration_scaling, duration_scaling_ref"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1133,6 +1343,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: hits_parts"
       },
+      "messages": [
+        "Unported effect fields: hits_parts"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1152,6 +1365,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: land_in_full_burst"
       },
+      "messages": [
+        "Unported effect fields: land_in_full_burst"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1171,6 +1387,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: land_in_full_burst"
       },
+      "messages": [
+        "Unported effect fields: land_in_full_burst"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1190,6 +1409,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: scaling"
       },
+      "messages": [
+        "Unported effect fields: scaling"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1209,6 +1431,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: weapon_type"
       },
+      "messages": [
+        "Unported effect fields: weapon_type"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1228,6 +1453,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported effect fields: weapon_type"
       },
+      "messages": [
+        "Unported effect fields: weapon_type"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1244,6 +1472,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1260,6 +1491,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1276,6 +1510,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1292,6 +1529,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1308,6 +1548,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1324,6 +1567,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1340,6 +1586,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1359,6 +1608,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1375,6 +1627,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1391,6 +1646,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1407,6 +1665,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1423,6 +1684,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1439,6 +1703,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1455,6 +1722,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1471,6 +1741,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported buff recipient selector"
       },
+      "messages": [
+        "Unported buff recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1487,6 +1760,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
+      "messages": [
+        "Unported enemy damage selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1503,6 +1779,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
+      "messages": [
+        "Unported enemy damage selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1519,6 +1798,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
+      "messages": [
+        "Unported enemy damage selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1535,6 +1817,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
+      "messages": [
+        "Unported enemy damage selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1551,6 +1836,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
+      "messages": [
+        "Unported enemy damage selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1567,6 +1855,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
+      "messages": [
+        "Unported enemy damage selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1583,6 +1874,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
+      "messages": [
+        "Unported enemy damage selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1599,6 +1893,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
+      "messages": [
+        "Unported enemy damage selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1615,6 +1912,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported enemy damage selector"
       },
+      "messages": [
+        "Unported enemy damage selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1631,6 +1931,9 @@
         "error_type": "UnsupportedPortable",
         "message": "Unported health recipient selector"
       },
+      "messages": [
+        "Unported health recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1647,70 +1950,9 @@
         "error_type": "ValueError",
         "message": "Unported duration extension recipient selector"
       },
-      "affected_profiles": 1,
-      "blocked_definitions": 1,
-      "single_observed_category_profiles": 0
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "trigger",
-        "kind": "buff",
-        "stat": "atk_caster_based_pct",
-        "target": "allies_random:1",
-        "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_caster_based_pct\", \"target\": \"allies_random:1\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported predicate: no_broken_cover_ally"
-      },
-      "affected_profiles": 1,
-      "blocked_definitions": 1,
-      "single_observed_category_profiles": 0
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "trigger",
-        "kind": "buff",
-        "stat": "charge_speed_pct",
-        "target": "self",
-        "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"charge_speed_pct\", \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported trigger timing: squad_burst_cast:3"
-      },
-      "affected_profiles": 1,
-      "blocked_definitions": 1,
-      "single_observed_category_profiles": 0
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "trigger",
-        "kind": "buff",
-        "stat": "def_caster_based_pct",
-        "target": "allies_without_buff:든든한 요리",
-        "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"def_caster_based_pct\", \"target\": \"allies_without_buff:든든한 요리\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported trigger timing: non_full_charge_fire_count:3"
-      },
-      "affected_profiles": 1,
-      "blocked_definitions": 1,
-      "single_observed_category_profiles": 0
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "trigger",
-        "kind": "buff",
-        "stat": "def_pct",
-        "target": "target",
-        "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"def_pct\", \"target\": \"target\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported trigger timing: multi_hit:4"
-      },
+      "messages": [
+        "Unported duration extension recipient selector"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1723,10 +1965,17 @@
         "stat": "focus_fire",
         "target": "all_allies",
         "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"focus_fire\", \"target\": \"all_allies\"}",
+        "operator": {
+          "domain": "condition",
+          "descriptor": "focusing"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"focusing\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"focus_fire\", \"target\": \"all_allies\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported predicate: focusing"
       },
+      "messages": [
+        "Unported predicate: focusing"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1736,13 +1985,135 @@
         "phase": "effect",
         "category": "trigger",
         "kind": "buff",
-        "stat": "pierce_range",
+        "stat": "def_pct",
+        "target": "target",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "multi_hit:4"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"multi_hit:4\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"def_pct\", \"target\": \"target\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: multi_hit:4"
+      },
+      "messages": [
+        "Unported trigger timing: multi_hit:4"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 0
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "buff",
+        "stat": "atk_caster_based_pct",
+        "target": "allies_random:1",
+        "scaling": null,
+        "operator": {
+          "domain": "condition",
+          "descriptor": "no_broken_cover_ally"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"no_broken_cover_ally\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_caster_based_pct\", \"target\": \"allies_random:1\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported predicate: no_broken_cover_ally"
+      },
+      "messages": [
+        "Unported predicate: no_broken_cover_ally"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 0
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "buff",
+        "stat": "atk_caster_based_pct",
+        "target": "all_allies",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "non_full_charge_fire_count:3"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"non_full_charge_fire_count:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_caster_based_pct\", \"target\": \"all_allies\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: non_full_charge_fire_count:3"
+      },
+      "messages": [
+        "Unported trigger timing: non_full_charge_fire_count:3"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 0
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "buff",
+        "stat": "def_caster_based_pct",
+        "target": "allies_without_buff:든든한 요리",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "non_full_charge_fire_count:3"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"non_full_charge_fire_count:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"def_caster_based_pct\", \"target\": \"allies_without_buff:든든한 요리\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: non_full_charge_fire_count:3"
+      },
+      "messages": [
+        "Unported trigger timing: non_full_charge_fire_count:3"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 0
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "buff",
+        "stat": "atk_caster_based_pct",
+        "target": "all_allies",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "squad_burst_cast:1"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"squad_burst_cast:1\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_caster_based_pct\", \"target\": \"all_allies\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: squad_burst_cast:1"
+      },
+      "messages": [
+        "Unported trigger timing: squad_burst_cast:1"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 0
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "buff",
+        "stat": "heal_received_pct",
         "target": "self",
         "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"pierce_range\", \"target\": \"self\"}",
+        "operator": {
+          "domain": "timing",
+          "descriptor": "squad_burst_cast:2"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"squad_burst_cast:2\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_received_pct\", \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
-        "message": "Unported trigger timing: squad_burst_cast:3"
+        "message": "Unported trigger timing: squad_burst_cast:2"
       },
+      "messages": [
+        "Unported trigger timing: squad_burst_cast:2"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1755,10 +2126,63 @@
         "stat": "taunt",
         "target": "self",
         "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"taunt\", \"target\": \"self\"}",
+        "operator": {
+          "domain": "timing",
+          "descriptor": "squad_burst_cast:2"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"squad_burst_cast:2\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"taunt\", \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported trigger timing: squad_burst_cast:2"
       },
+      "messages": [
+        "Unported trigger timing: squad_burst_cast:2"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 0
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "buff",
+        "stat": "charge_speed_pct",
+        "target": "self",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "squad_burst_cast:3"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"squad_burst_cast:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"charge_speed_pct\", \"target\": \"self\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: squad_burst_cast:3"
+      },
+      "messages": [
+        "Unported trigger timing: squad_burst_cast:3"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 0
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "buff",
+        "stat": "pierce_range",
+        "target": "self",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "squad_burst_cast:3"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"squad_burst_cast:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"pierce_range\", \"target\": \"self\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: squad_burst_cast:3"
+      },
+      "messages": [
+        "Unported trigger timing: squad_burst_cast:3"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1771,10 +2195,40 @@
         "stat": "accum_split_damage",
         "target": "enemies_in_range",
         "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"accum_split_damage\", \"target\": \"enemies_in_range\"}",
+        "operator": {
+          "domain": "timing",
+          "descriptor": "event:accum_full:누적 폭발 스킬"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"event:accum_full:누적 폭발 스킬\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"accum_split_damage\", \"target\": \"enemies_in_range\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported trigger timing: event:accum_full:누적 폭발 스킬"
       },
+      "messages": [
+        "Unported trigger timing: event:accum_full:누적 폭발 스킬"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 0
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "damage",
+        "stat": "bonus_damage",
+        "target": "target",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "multi_hit:4"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"multi_hit:4\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"target\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: multi_hit:4"
+      },
+      "messages": [
+        "Unported trigger timing: multi_hit:4"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1787,58 +2241,17 @@
         "stat": "projectile_explosion_damage",
         "target": "target",
         "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"projectile_explosion_damage\", \"target\": \"target\"}",
+        "operator": {
+          "domain": "timing",
+          "descriptor": "weapon_hit:부착형 유탄 4"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"weapon_hit:부착형 유탄 4\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"projectile_explosion_damage\", \"target\": \"target\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported trigger timing: weapon_hit:부착형 유탄 4"
       },
-      "affected_profiles": 1,
-      "blocked_definitions": 1,
-      "single_observed_category_profiles": 0
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "trigger",
-        "kind": "instant",
-        "stat": "burst_cooldown_reduce",
-        "target": "self",
-        "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"burst_cooldown_reduce\", \"target\": \"self\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported trigger timing: squad_burst_cast:2"
-      },
-      "affected_profiles": 1,
-      "blocked_definitions": 2,
-      "single_observed_category_profiles": 0
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "trigger",
-        "kind": "instant",
-        "stat": "debuff_cleanse",
-        "target": "allies_without_buff:든든한 요리",
-        "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"debuff_cleanse\", \"target\": \"allies_without_buff:든든한 요리\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported trigger timing: non_full_charge_fire_count:3"
-      },
-      "affected_profiles": 1,
-      "blocked_definitions": 1,
-      "single_observed_category_profiles": 0
-    },
-    {
-      "issue": {
-        "phase": "effect",
-        "category": "trigger",
-        "kind": "instant",
-        "stat": "remove_named_buff",
-        "target": "all_allies",
-        "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"remove_named_buff\", \"target\": \"all_allies\"}",
-        "error_type": "UnsupportedPortable",
-        "message": "Unported trigger timing: non_full_charge_fire_count:3"
-      },
+      "messages": [
+        "Unported trigger timing: weapon_hit:부착형 유탄 4"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1851,10 +2264,109 @@
         "stat": "remove_named_buff",
         "target": "target",
         "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"remove_named_buff\", \"target\": \"target\"}",
+        "operator": {
+          "domain": "timing",
+          "descriptor": "event:accum_full:누적 폭발 스킬"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"event:accum_full:누적 폭발 스킬\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"remove_named_buff\", \"target\": \"target\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported trigger timing: event:accum_full:누적 폭발 스킬"
       },
+      "messages": [
+        "Unported trigger timing: event:accum_full:누적 폭발 스킬"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 0
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "instant",
+        "stat": "debuff_cleanse",
+        "target": "allies_without_buff:든든한 요리",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "non_full_charge_fire_count:3"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"non_full_charge_fire_count:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"debuff_cleanse\", \"target\": \"allies_without_buff:든든한 요리\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: non_full_charge_fire_count:3"
+      },
+      "messages": [
+        "Unported trigger timing: non_full_charge_fire_count:3"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 0
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "instant",
+        "stat": "remove_named_buff",
+        "target": "all_allies",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "non_full_charge_fire_count:3"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"non_full_charge_fire_count:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"remove_named_buff\", \"target\": \"all_allies\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: non_full_charge_fire_count:3"
+      },
+      "messages": [
+        "Unported trigger timing: non_full_charge_fire_count:3"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 0
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "instant",
+        "stat": "burst_cooldown_reduce",
+        "target": "self",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "squad_burst_cast:1"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"squad_burst_cast:1\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"burst_cooldown_reduce\", \"target\": \"self\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: squad_burst_cast:1"
+      },
+      "messages": [
+        "Unported trigger timing: squad_burst_cast:1"
+      ],
+      "affected_profiles": 1,
+      "blocked_definitions": 1,
+      "single_observed_category_profiles": 0
+    },
+    {
+      "issue": {
+        "phase": "effect",
+        "category": "trigger",
+        "kind": "instant",
+        "stat": "burst_cooldown_reduce",
+        "target": "self",
+        "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "squad_burst_cast:2"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"squad_burst_cast:2\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"burst_cooldown_reduce\", \"target\": \"self\"}",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported trigger timing: squad_burst_cast:2"
+      },
+      "messages": [
+        "Unported trigger timing: squad_burst_cast:2"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -1867,10 +2379,17 @@
         "stat": null,
         "target": "self",
         "scaling": null,
-        "code": "{\"category\": \"trigger\", \"kind\": \"weapon_change\", \"phase\": \"effect\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "operator": {
+          "domain": "timing",
+          "descriptor": "squad_burst_cast:3"
+        },
+        "code": "{\"category\": \"trigger\", \"kind\": \"weapon_change\", \"operator\": {\"descriptor\": \"squad_burst_cast:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported trigger timing: squad_burst_cast:3"
       },
+      "messages": [
+        "Unported trigger timing: squad_burst_cast:3"
+      ],
       "affected_profiles": 1,
       "blocked_definitions": 1,
       "single_observed_category_profiles": 0
@@ -2025,7 +2544,11 @@
             "stat": "projectile_explosion_damage",
             "target": "target",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"projectile_explosion_damage\", \"target\": \"target\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "weapon_hit:부착형 유탄 4"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"weapon_hit:부착형 유탄 4\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"projectile_explosion_damage\", \"target\": \"target\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: weapon_hit:부착형 유탄 4"
           }
@@ -2497,7 +3020,11 @@
             "stat": "def_pct",
             "target": "target",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"def_pct\", \"target\": \"target\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "multi_hit:4"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"multi_hit:4\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"def_pct\", \"target\": \"target\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: multi_hit:4"
           }
@@ -2513,7 +3040,11 @@
             "stat": "bonus_damage",
             "target": "target",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"target\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "multi_hit:4"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"multi_hit:4\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"target\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: multi_hit:4"
           }
@@ -2527,8 +3058,12 @@
         "stat": null,
         "target": "self",
         "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "multi_hit:4"
+        },
         "reason": "Unported trigger timing: multi_hit:4",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported trigger timing: multi_hit:4\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"multi_hit:4\", \"domain\": \"timing\"}, \"phase\": \"program\", \"reason\": \"Unported trigger timing: multi_hit:4\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported trigger timing: multi_hit:4"
       }
@@ -4074,7 +4609,11 @@
             "stat": "bonus_damage",
             "target": "same_target",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
+            "operator": {
+              "domain": "condition",
+              "descriptor": "trigger_hit_crit"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"trigger_hit_crit\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported predicate: trigger_hit_crit"
           }
@@ -4088,8 +4627,12 @@
         "stat": null,
         "target": "self",
         "scaling": null,
+        "operator": {
+          "domain": "condition",
+          "descriptor": "trigger_hit_crit"
+        },
         "reason": "Unported predicate: trigger_hit_crit",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported predicate: trigger_hit_crit\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"trigger_hit_crit\", \"domain\": \"condition\"}, \"phase\": \"program\", \"reason\": \"Unported predicate: trigger_hit_crit\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported predicate: trigger_hit_crit"
       }
@@ -4112,7 +4655,11 @@
             "stat": "bonus_damage",
             "target": "same_target",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
+            "operator": {
+              "domain": "condition",
+              "descriptor": "trigger_hit_crit"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"trigger_hit_crit\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported predicate: trigger_hit_crit"
           }
@@ -4126,8 +4673,12 @@
         "stat": null,
         "target": "self",
         "scaling": null,
+        "operator": {
+          "domain": "condition",
+          "descriptor": "trigger_hit_crit"
+        },
         "reason": "Unported predicate: trigger_hit_crit",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported predicate: trigger_hit_crit\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"trigger_hit_crit\", \"domain\": \"condition\"}, \"phase\": \"program\", \"reason\": \"Unported predicate: trigger_hit_crit\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported predicate: trigger_hit_crit"
       }
@@ -4150,7 +4701,11 @@
             "stat": "bonus_damage",
             "target": "same_target",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
+            "operator": {
+              "domain": "condition",
+              "descriptor": "trigger_hit_crit"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"trigger_hit_crit\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"same_target\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported predicate: trigger_hit_crit"
           }
@@ -4180,8 +4735,12 @@
         "stat": null,
         "target": "self",
         "scaling": null,
+        "operator": {
+          "domain": "condition",
+          "descriptor": "trigger_hit_crit"
+        },
         "reason": "Unported predicate: trigger_hit_crit",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported predicate: trigger_hit_crit\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"trigger_hit_crit\", \"domain\": \"condition\"}, \"phase\": \"program\", \"reason\": \"Unported predicate: trigger_hit_crit\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported predicate: trigger_hit_crit"
       }
@@ -4470,7 +5029,11 @@
             "stat": "gauge_charge",
             "target": "self",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"gauge_charge\", \"target\": \"self\"}",
+            "operator": {
+              "domain": "condition",
+              "descriptor": "not_core"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"not_core\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"gauge_charge\", \"target\": \"self\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported predicate: not_core"
           }
@@ -4484,8 +5047,12 @@
         "stat": null,
         "target": "self",
         "scaling": null,
+        "operator": {
+          "domain": "condition",
+          "descriptor": "not_core"
+        },
         "reason": "Unported predicate: not_core",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported predicate: not_core\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"not_core\", \"domain\": \"condition\"}, \"phase\": \"program\", \"reason\": \"Unported predicate: not_core\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported predicate: not_core"
       }
@@ -4801,7 +5368,11 @@
             "stat": "def_pct",
             "target": "all_allies",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"def_pct\", \"target\": \"all_allies\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "event:ally_burst_cast"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"event:ally_burst_cast\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"def_pct\", \"target\": \"all_allies\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: event:ally_burst_cast"
           }
@@ -4815,8 +5386,12 @@
         "stat": null,
         "target": "self",
         "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "event:ally_burst_cast"
+        },
         "reason": "Unported trigger timing: event:ally_burst_cast",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported trigger timing: event:ally_burst_cast\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"event:ally_burst_cast\", \"domain\": \"timing\"}, \"phase\": \"program\", \"reason\": \"Unported trigger timing: event:ally_burst_cast\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported trigger timing: event:ally_burst_cast"
       }
@@ -5346,7 +5921,11 @@
             "stat": "atk_pct",
             "target": "self",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_pct\", \"target\": \"self\"}",
+            "operator": {
+              "domain": "condition",
+              "descriptor": "self_stat_above:accuracy_pct:0"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"self_stat_above:accuracy_pct:0\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_pct\", \"target\": \"self\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported predicate: self_stat_above:accuracy_pct:0"
           }
@@ -5360,8 +5939,12 @@
         "stat": null,
         "target": "self",
         "scaling": null,
+        "operator": {
+          "domain": "condition",
+          "descriptor": "self_stat_above:accuracy_pct:0"
+        },
         "reason": "Unported predicate: self_stat_above:accuracy_pct:0",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported predicate: self_stat_above:accuracy_pct:0\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"self_stat_above:accuracy_pct:0\", \"domain\": \"condition\"}, \"phase\": \"program\", \"reason\": \"Unported predicate: self_stat_above:accuracy_pct:0\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported predicate: self_stat_above:accuracy_pct:0"
       }
@@ -5384,7 +5967,11 @@
             "stat": "bonus_damage",
             "target": "target",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"target\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "multi_hit:2"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"multi_hit:2\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"bonus_damage\", \"target\": \"target\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: multi_hit:2"
           }
@@ -5398,8 +5985,12 @@
         "stat": null,
         "target": "self",
         "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "multi_hit:2"
+        },
         "reason": "Unported trigger timing: multi_hit:2",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported trigger timing: multi_hit:2\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"multi_hit:2\", \"domain\": \"timing\"}, \"phase\": \"program\", \"reason\": \"Unported trigger timing: multi_hit:2\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported trigger timing: multi_hit:2"
       }
@@ -6119,7 +6710,11 @@
             "stat": "reload_speed_pct",
             "target": "self",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"reload_speed_pct\", \"target\": \"self\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "pellet_hit_in_shot:5"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"pellet_hit_in_shot:5\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"reload_speed_pct\", \"target\": \"self\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: pellet_hit_in_shot:5"
           }
@@ -6133,8 +6728,12 @@
         "stat": null,
         "target": "self",
         "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "pellet_hit_in_shot:5"
+        },
         "reason": "Unported trigger timing: pellet_hit_in_shot:5",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported trigger timing: pellet_hit_in_shot:5\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"pellet_hit_in_shot:5\", \"domain\": \"timing\"}, \"phase\": \"program\", \"reason\": \"Unported trigger timing: pellet_hit_in_shot:5\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported trigger timing: pellet_hit_in_shot:5"
       }
@@ -7311,7 +7910,11 @@
             "stat": "atk_caster_based_pct",
             "target": "all_allies",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_caster_based_pct\", \"target\": \"all_allies\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "squad_burst_cast:1"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"squad_burst_cast:1\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_caster_based_pct\", \"target\": \"all_allies\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: squad_burst_cast:1"
           }
@@ -7327,7 +7930,11 @@
             "stat": "burst_cooldown_reduce",
             "target": "self",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"burst_cooldown_reduce\", \"target\": \"self\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "squad_burst_cast:1"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"squad_burst_cast:1\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"burst_cooldown_reduce\", \"target\": \"self\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: squad_burst_cast:1"
           }
@@ -7343,7 +7950,11 @@
             "stat": "taunt",
             "target": "self",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"taunt\", \"target\": \"self\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "squad_burst_cast:2"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"squad_burst_cast:2\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"taunt\", \"target\": \"self\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: squad_burst_cast:2"
           }
@@ -7359,7 +7970,11 @@
             "stat": "heal_received_pct",
             "target": "self",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_received_pct\", \"target\": \"self\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "squad_burst_cast:2"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"squad_burst_cast:2\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_received_pct\", \"target\": \"self\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: squad_burst_cast:2"
           }
@@ -7375,7 +7990,11 @@
             "stat": "burst_cooldown_reduce",
             "target": "self",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"burst_cooldown_reduce\", \"target\": \"self\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "squad_burst_cast:2"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"squad_burst_cast:2\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"burst_cooldown_reduce\", \"target\": \"self\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: squad_burst_cast:2"
           }
@@ -7391,7 +8010,11 @@
             "stat": null,
             "target": "self",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"weapon_change\", \"phase\": \"effect\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "squad_burst_cast:3"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"weapon_change\", \"operator\": {\"descriptor\": \"squad_burst_cast:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: squad_burst_cast:3"
           }
@@ -7407,7 +8030,11 @@
             "stat": "pierce_range",
             "target": "self",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"pierce_range\", \"target\": \"self\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "squad_burst_cast:3"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"squad_burst_cast:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"pierce_range\", \"target\": \"self\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: squad_burst_cast:3"
           }
@@ -7423,7 +8050,11 @@
             "stat": "charge_speed_pct",
             "target": "self",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"charge_speed_pct\", \"target\": \"self\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "squad_burst_cast:3"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"squad_burst_cast:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"charge_speed_pct\", \"target\": \"self\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: squad_burst_cast:3"
           }
@@ -7437,8 +8068,12 @@
         "stat": null,
         "target": "self",
         "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "squad_burst_cast:1"
+        },
         "reason": "Unported trigger timing: squad_burst_cast:1",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported trigger timing: squad_burst_cast:1\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"squad_burst_cast:1\", \"domain\": \"timing\"}, \"phase\": \"program\", \"reason\": \"Unported trigger timing: squad_burst_cast:1\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported trigger timing: squad_burst_cast:1"
       }
@@ -7633,7 +8268,11 @@
             "stat": "accum_split_damage",
             "target": "enemies_in_range",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"accum_split_damage\", \"target\": \"enemies_in_range\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "event:accum_full:누적 폭발 스킬"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"damage\", \"operator\": {\"descriptor\": \"event:accum_full:누적 폭발 스킬\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"accum_split_damage\", \"target\": \"enemies_in_range\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: event:accum_full:누적 폭발 스킬"
           }
@@ -7649,7 +8288,11 @@
             "stat": "remove_named_buff",
             "target": "target",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"remove_named_buff\", \"target\": \"target\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "event:accum_full:누적 폭발 스킬"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"event:accum_full:누적 폭발 스킬\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"remove_named_buff\", \"target\": \"target\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: event:accum_full:누적 폭발 스킬"
           }
@@ -7833,7 +8476,11 @@
             "stat": "focus_fire",
             "target": "all_allies",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"focus_fire\", \"target\": \"all_allies\"}",
+            "operator": {
+              "domain": "condition",
+              "descriptor": "focusing"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"focusing\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"focus_fire\", \"target\": \"all_allies\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported predicate: focusing"
           }
@@ -7879,8 +8526,12 @@
         "stat": null,
         "target": "self",
         "scaling": null,
+        "operator": {
+          "domain": "condition",
+          "descriptor": "focusing"
+        },
         "reason": "Unported predicate: focusing",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported predicate: focusing\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"focusing\", \"domain\": \"condition\"}, \"phase\": \"program\", \"reason\": \"Unported predicate: focusing\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported predicate: focusing"
       }
@@ -8017,7 +8668,11 @@
             "stat": "atk_caster_based_pct",
             "target": "all_allies",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_caster_based_pct\", \"target\": \"all_allies\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "non_full_charge_fire_count:3"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"non_full_charge_fire_count:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_caster_based_pct\", \"target\": \"all_allies\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: non_full_charge_fire_count:3"
           }
@@ -8033,7 +8688,11 @@
             "stat": "remove_named_buff",
             "target": "all_allies",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"remove_named_buff\", \"target\": \"all_allies\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "non_full_charge_fire_count:3"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"non_full_charge_fire_count:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"remove_named_buff\", \"target\": \"all_allies\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: non_full_charge_fire_count:3"
           }
@@ -8049,7 +8708,11 @@
             "stat": "debuff_cleanse",
             "target": "allies_without_buff:든든한 요리",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"debuff_cleanse\", \"target\": \"allies_without_buff:든든한 요리\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "non_full_charge_fire_count:3"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"non_full_charge_fire_count:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"debuff_cleanse\", \"target\": \"allies_without_buff:든든한 요리\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: non_full_charge_fire_count:3"
           }
@@ -8065,7 +8728,11 @@
             "stat": "def_caster_based_pct",
             "target": "allies_without_buff:든든한 요리",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"def_caster_based_pct\", \"target\": \"allies_without_buff:든든한 요리\"}",
+            "operator": {
+              "domain": "timing",
+              "descriptor": "non_full_charge_fire_count:3"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"non_full_charge_fire_count:3\", \"domain\": \"timing\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"def_caster_based_pct\", \"target\": \"allies_without_buff:든든한 요리\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported trigger timing: non_full_charge_fire_count:3"
           }
@@ -8079,8 +8746,12 @@
         "stat": null,
         "target": "self",
         "scaling": null,
+        "operator": {
+          "domain": "timing",
+          "descriptor": "non_full_charge_fire_count:3"
+        },
         "reason": "Unported trigger timing: non_full_charge_fire_count:3",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported trigger timing: non_full_charge_fire_count:3\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"non_full_charge_fire_count:3\", \"domain\": \"timing\"}, \"phase\": \"program\", \"reason\": \"Unported trigger timing: non_full_charge_fire_count:3\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported trigger timing: non_full_charge_fire_count:3"
       }
@@ -8689,7 +9360,11 @@
             "stat": "heal_received_pct",
             "target": "self",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_received_pct\", \"target\": \"self\"}",
+            "operator": {
+              "domain": "condition",
+              "descriptor": "self_undying"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"self_undying\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_received_pct\", \"target\": \"self\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported predicate: self_undying"
           }
@@ -8703,8 +9378,12 @@
         "stat": null,
         "target": "self",
         "scaling": null,
+        "operator": {
+          "domain": "condition",
+          "descriptor": "self_undying"
+        },
         "reason": "Unported predicate: self_undying",
-        "code": "{\"category\": \"trigger\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported predicate: self_undying\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+        "code": "{\"category\": \"trigger\", \"kind\": null, \"operator\": {\"descriptor\": \"self_undying\", \"domain\": \"condition\"}, \"phase\": \"program\", \"reason\": \"Unported predicate: self_undying\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
         "error_type": "UnsupportedPortable",
         "message": "Unported predicate: self_undying"
       }
@@ -9459,7 +10138,11 @@
             "stat": "atk_caster_based_pct",
             "target": "allies_random:1",
             "scaling": null,
-            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_caster_based_pct\", \"target\": \"allies_random:1\"}",
+            "operator": {
+              "domain": "condition",
+              "descriptor": "no_broken_cover_ally"
+            },
+            "code": "{\"category\": \"trigger\", \"kind\": \"buff\", \"operator\": {\"descriptor\": \"no_broken_cover_ally\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"atk_caster_based_pct\", \"target\": \"allies_random:1\"}",
             "error_type": "UnsupportedPortable",
             "message": "Unported predicate: no_broken_cover_ally"
           }

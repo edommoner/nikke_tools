@@ -12,6 +12,7 @@ import struct
 import subprocess
 import tempfile
 import selectors
+import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -246,7 +247,12 @@ def execute_cuda_batches(source, entry, batches, output_sizes, counts):
             results.append(output.raw);transports.append(dict(backend='cuda',device=name.value.decode(),cases=count,command_status='completed',host_dispatch_seconds=elapsed,compile_artifact=compile_receipt))
         return results,transports
     finally:
-        if context:call('cuCtxDestroy_v2',context)
+        if context:
+            primary = sys.exc_info()[1]
+            try:call('cuCtxDestroy_v2',context)
+            except Exception as cleanup_error:
+                if primary is None:raise
+                primary.add_note('CUDA context cleanup also failed: '+str(cleanup_error))
 
 
 def cuda_artifact_kind():
@@ -260,7 +266,9 @@ def cuda_compile_options(kind, ptxas_level=None):
     if ptxas_level is not None and (kind!='cubin' or type(ptxas_level) is not int or ptxas_level not in range(4)):
         raise ValueError('ptxas optimization level requires CUBIN and integer0..3')
     options=['--std=c++17','--gpu-architecture='+('sm_86' if kind=='cubin' else 'compute_86'),'--fmad=false']
-    if ptxas_level is not None:options.append('--ptxas-options=-O'+str(ptxas_level))
+    # NVRTC11.3 accepts the forwarding option and payload as separate argv
+    # strings. Its parser rejects the joined '= -O' form before compilation.
+    if ptxas_level is not None:options.extend(['--ptxas-options','-O'+str(ptxas_level)])
     return options
 
 

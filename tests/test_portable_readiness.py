@@ -43,6 +43,42 @@ class ReadinessTests(unittest.TestCase):
         b=issue(ValueError('Unported effect fields: scaling'),dict(type='buff',stat='def_pct',scaling='other'))
         self.assertNotEqual(a['code'],b['code']);self.assertEqual(a['fields'],['scaling'])
 
+    def test_missing_trigger_operator_survives_application_adapter(self):
+        codes=[]
+        for domain,descriptor in [('timing','multi_hit:2'),('timing','multi_hit:4'),
+                                  ('condition','self_undying'),('timing','squad_burst_cast:2')]:
+            effect=dict(type='buff',stat='atk_pct',target='self',fixed_value=1,
+                        trigger=dict(timing=['battle_start'],condition=[]))
+            effect['trigger'][domain if domain=='timing' else 'condition']=[descriptor]
+            with self.assertRaises(UnsupportedPortable) as caught:
+                validate_effect(effect,combat={},world_frame=True)
+            diagnostic=issue(caught.exception,effect)
+            self.assertEqual(diagnostic['category'],'trigger')
+            self.assertEqual(diagnostic['operator'],dict(domain=domain,descriptor=descriptor))
+            codes.append(diagnostic['code'])
+        self.assertEqual(len(set(codes)),4)
+
+    def test_trigger_grouping_ignores_wording_and_unrelated_valid_descriptors(self):
+        from portable_trigger_specs import UnsupportedTrigger
+        effect=dict(type='buff',stat='atk_pct',target='self')
+        rows=[]
+        for text in ('old diagnostic','new wording with recipient'):
+            error=UnsupportedTrigger(text,domain='condition',descriptor='self_undying')
+            rows.append(dict(issue=issue(error,effect)))
+        self.assertEqual(rows[0]['issue']['code'],rows[1]['issue']['code'])
+        profiles=[dict(character='a',favorite_stage=0,effect_blockers=rows)]
+        ranked=summarize(profiles)
+        self.assertEqual(ranked[0]['messages'],['new wording with recipient','old diagnostic'])
+        self.assertEqual(ranked[0]['single_observed_category_profiles'],1)
+        other=UnsupportedTrigger('other',domain='timing',descriptor='squad_burst_cast:2')
+        rows.append(dict(issue=issue(other,effect)))
+        self.assertTrue(all(r['single_observed_category_profiles']==0 for r in summarize(profiles)))
+        # Validators without structured diagnostics also fail separately, rather
+        # than collapsing all missing predicates into one speculative unlock.
+        a=issue(ValueError('Unported predicate: a'),effect)
+        b=issue(ValueError('Unported predicate: b'),effect)
+        self.assertNotEqual(a['code'],b['code'])
+
     def test_development_selection_is_explicit_and_repacked(self):
         class Adapter:
             def prepare(self):return [('a',[1,2],None)],b'original'

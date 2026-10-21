@@ -6,6 +6,15 @@ import re
 from world_condition_specs import ENEMY_COUNT_ABOVE,ENEMY_COUNT_BELOW,TARGET_IS_BOSS,TARGET_IS_ADD
 from portable_code_specs import TARGET_CODE,PREFIX as CODE_PREFIX,condition_id
 
+
+class UnsupportedTrigger(ValueError):
+    """An actionable missing descriptor, independent of diagnostic wording."""
+    reason = 'trigger'
+
+    def __init__(self, message, *, domain, descriptor):
+        self.operator = dict(domain=domain, descriptor=descriptor)
+        super().__init__(message)
+
 CONDITIONS=dict(TARGET_STUNNED=23,SELF_STUN_IMMUNE=24,TARGET_STATE=16,NOT_TARGET_STATE=17,TARGET_STACK=6,CORE=35,OPTIMAL_RANGE=33,PROB=26,SHIELD=12,GAUGE_ABOVE=18,GAUGE_BELOW=19,GAUGE_EQ=20,GAUGE_MOD=21,COVER_ALIVE=36,COVER_BROKEN=37,FULL=1,NOT_FULL=2,SELF_STATE=3,NOT_SELF_STATE=4,SELF_STACK=5,
                 BACK_ROW=7,STAT_ABOVE=8,HP_ABOVE=9,HP_BELOW=10,HP_MAX=11,NOT_SELF_HEAL=13,CAST=14,NOT_CAST=15,STATIC=25,CHARGING=29,
                 BURST1_ALLY=31,NO_BURST1_ALLY=32,ALLY_HP_BELOW=34,TARGET_CODE=TARGET_CODE,ENEMIES_ABOVE=ENEMY_COUNT_ABOVE,
@@ -38,7 +47,7 @@ def validate_input(eff,*,world_frame=False):
         if not isinstance(timing,str):raise ValueError('Invalid timing')
         if timing.startswith('event:'):
             from detail_gpu import EVENT
-            if timing in EVENT and EVENT[timing] not in (EVENTS|frozenset((5,22,23,33,34,35,39,44,45)) if world_frame else EVENTS):raise ValueError('Unported trigger timing: '+timing)
+            if timing in EVENT and EVENT[timing] not in (EVENTS|frozenset((5,22,23,33,34,35,39,44,45)) if world_frame else EVENTS):raise UnsupportedTrigger('Unported trigger timing: '+timing,domain='timing',descriptor=timing)
         from portable_charge_control_specs import parse_hold
         if world_frame and parse_hold(timing) is not None:continue
         if timing.startswith('every:'):
@@ -46,10 +55,10 @@ def validate_input(eff,*,world_frame=False):
             try:period=float(timing[6:].removesuffix('s'))
             except ValueError:raise ValueError('Invalid periodic timing') from None
             if not math.isfinite(period) or period<=0:raise ValueError('Periodic timing must be positive and finite')
-        elif not re.fullmatch(TIMING,timing) and not (world_frame and timing in ('enemy_death','crit_hit','core_hit')):raise ValueError('Unported trigger timing: '+timing)
+        elif not re.fullmatch(TIMING,timing) and not (world_frame and timing in ('enemy_death','crit_hit','core_hit')):raise UnsupportedTrigger('Unported trigger timing: '+timing,domain='timing',descriptor=timing)
     for condition in conditions:
         if condition in ('target_stunned','self_stun_immune') and not world_frame:raise ValueError('Stun predicate requires private combat world')
-        if not isinstance(condition,str) or not re.fullmatch(CONDITION,condition):raise ValueError('Unported predicate: '+str(condition))
+        if not isinstance(condition,str) or not re.fullmatch(CONDITION,condition):raise UnsupportedTrigger('Unported predicate: '+str(condition),domain='condition',descriptor=condition)
 
 
 def pack_descriptors(words,index,row,L,F,double_words,*,effect=None,states=None,world_frame=False):

@@ -22,6 +22,11 @@ def issue(error, effect=None, *, phase='effect'):
     signature = dict(phase=phase, category=category, kind=effect.get('type'),
                      stat=effect.get('stat'), target=effect.get('target', 'self'),
                      scaling=effect.get('scaling'))
+    if category == 'trigger':
+        operator = getattr(error, 'operator', None)
+        # Preserve exact descriptor parameters and opaque event names. Only the
+        # failing descriptor belongs here, never the effect's unrelated triggers.
+        signature['operator'] = operator if operator is not None else dict(diagnostic=message)
     if phase=='program':signature['reason']=message
     if message.startswith('Unported effect fields: '):
         signature['fields'] = message.split(': ', 1)[1].split(', ')
@@ -46,7 +51,7 @@ def inspect_effects(prepared):
 
 
 def summarize(rows):
-    groups = defaultdict(lambda: dict(profiles=set(), definitions=0, sole=set(), sample=None))
+    groups = defaultdict(lambda: dict(profiles=set(), definitions=0, sole=set(), sample=None, messages=set()))
     for row in rows:
         blockers=row.get('effect_blockers', [])
         if not blockers and row.get('program_issue'):blockers=[dict(issue=row['program_issue'])]
@@ -54,9 +59,11 @@ def summarize(rows):
         for entry in blockers:
             i = entry['issue']; group = groups[i['code']]
             identity = (row['character'], row['favorite_stage'])
-            group['profiles'].add(identity); group['definitions'] += 1; group['sample'] = i
+            group['profiles'].add(identity); group['definitions'] += 1
+            group['messages'].add(i['message'])
+            if group['sample'] is None or i['message'] < group['sample']['message']:group['sample'] = i
             if len(codes) == 1: group['sole'].add(identity)
-    ranked = [dict(issue=g['sample'], affected_profiles=len(g['profiles']),
+    ranked = [dict(issue=g['sample'], messages=sorted(g['messages']), affected_profiles=len(g['profiles']),
                    blocked_definitions=g['definitions'],
                    single_observed_category_profiles=len(g['sole'])) for g in groups.values()]
     return sorted(ranked, key=lambda r:(-r['single_observed_category_profiles'], -r['affected_profiles'], r['issue']['code']))

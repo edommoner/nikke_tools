@@ -1007,3 +1007,11 @@ v107はCPU81/native60の後、テスト用の子起動直後に失敗し、smoke
 最新根拠は`research/portable-stun-cache-development-checkpoint.json`です。stun/免疫/対象条件の36正例＋拒否10は修正版Metalでnative完全一致。readiness v5の81も旧81と全input/native/output・raw一致です。CPU631件成功（Windows専用1件はMacでskip）。初回stun46ではrankの早期消費とenemy倍率への混入を発見し、原失敗を保持したまま、状態presenceを数値バフ集計から分離して解消しました。B1/B2の既定候補はstun中も保持して待機し、typed敵の条件は現在対象の文脈・世代を使います。既存canonical参照とbinary64/normalizerは変更していません。静的packing180/266、base126/203ですが通常CPU・全キャラ認定0です。
 
 新しい`compile` CLIは同じNVRTC/compiler cacheを使い、sealed sourceと生成指紋を検査後、driver/kernelを禁止して最大60秒・既定2GiBのJob上限で実行します。異なるptxasレベルはcache keyを分け、後続`run --require-cache`はmissでNVRTC program作成前に停止します。CUBIN速度・実CUDA数値は未検証です。次のWindows依頼は、メモリ上限の実WinAPI CPUテストとcompiler/CLIのCPU故障注入を先に行い、成功時だけO1のGPU0コンパイルを1回に限ります。以前のv105/106/107の失敗は変更せず、同条件retryやtimeout延長は行いません。
+
+## レビュー後の分類・実編成CLI・NVRTC引数
+
+未対応triggerのvalidatorはtiming/conditionと不成立のdescriptorを構造化して返します。inventoryは117分類となり、旧113分類で混在した演算を分離しました。全266profileのpacking可否・入力SHAは以前と同じで、180/266、base126/203です。同じcodeの診断文集合も保持します。
+
+共通CLIの`roster-regression`は実編成18入力を全定義のままMetal/native比較し、完全一致後にsealしました。初回のsandboxによるSwift module cache拒否はGPU起動前の原失敗として保持し、transport修正後の別package/captureで検証しています。通常画面CPU・全キャラ認定0は維持します。
+
+Windows v109はCPU19件と実Jobメモリ上限検査に成功し、本体compilerは結合形式の`--ptxas-options=-O1`を受け付けず約9.95秒で終了、kernel0でした。実DLLの`nvrtcVersion`は11.3です。その後、tiny kernelで別文字列の長名/短名2構文を各1回だけ確認し、約4.74秒、driver/context/kernel0、missing0で成功しました。共通compilerは`["--ptxas-options","-O1"]`へ修正しました。本体O1の速度・CUDA数値一致は未確認です。CUDA context破棄失敗は、本来の実行失敗へnoteとして付け、原因を隠さないようにしました。詳細は`docs/claude-architecture-review-2026-10-21.md`と`research/portable-review-followup-checkpoint.json`を参照してください。

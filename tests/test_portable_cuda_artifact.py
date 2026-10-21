@@ -51,7 +51,7 @@ class ArtifactTests(unittest.TestCase):
             _,original=compile_cuda_artifact(lib,b'cuda',[dll],artifact_kind='cubin')
             with patch.dict(os.environ,{'NIKKE_CUDA_PTXAS_OPT_LEVEL':'1'}):
                 a,lower=compile_cuda_artifact(lib,b'cuda',[dll],artifact_kind='cubin')
-                self.assertNotEqual(original['key'],lower['key']);self.assertIn(b'--ptxas-options=-O1',lib.options)
+                self.assertNotEqual(original['key'],lower['key']);self.assertEqual(lib.options[-2:],[b'--ptxas-options',b'-O1'])
                 with patch.dict(os.environ,{'NIKKE_CUDA_CACHE_REQUIRED':'1'}):
                     b,hit=compile_cuda_artifact(lib,b'cuda',[dll],artifact_kind='cubin')
                     self.assertEqual(a,b);self.assertTrue(hit['hit']);self.assertEqual(lib.calls.count('compile'),2)
@@ -98,5 +98,21 @@ class ArtifactTests(unittest.TestCase):
                 compile_cuda_artifact(lib,b'cuda',[dll],artifact_kind='cubin')
             self.assertEqual(list(Path(folder).glob('*.json')),[])
             self.assertEqual(lib.calls[-1],'destroy')
+
+    def test_context_cleanup_error_keeps_the_original_module_failure(self):
+        import portable_backend as backend
+        def create(out,*args):C.cast(out,C.POINTER(C.c_void_p))[0]=C.c_void_p(1);return 0
+        functions=('cuInit','cuDeviceGet','cuDeviceGetName','cuDeviceComputeCapability','cuCtxCreate_v2',
+            'cuCtxDestroy_v2','cuModuleLoadData','cuModuleGetFunction','cuModuleGetGlobal_v2',
+            'cuMemAlloc_v2','cuMemcpyHtoD_v2','cuMemcpyDtoH_v2','cuCtxSynchronize','cuLaunchKernel')
+        driver=types.SimpleNamespace(**{name:Mock(return_value=0) for name in functions})
+        driver.cuCtxCreate_v2.side_effect=create
+        driver.cuModuleLoadData.return_value=77;driver.cuCtxDestroy_v2.return_value=55
+        fake_os=types.SimpleNamespace(name='nt',environ={'NIKKE_CUDA_ARTIFACT':'ptx'})
+        with patch.object(backend,'os',fake_os),patch.object(backend,'compile_cuda_source',return_value=(b'ptx',{})),patch.object(C,'WinDLL',return_value=driver,create=True):
+            with self.assertRaisesRegex(RuntimeError,'cuModuleLoadData: CUDA error 77') as caught:
+                backend.execute_cuda_batches(Path('unused'), 'entry',[bytes.fromhex('01000000')],[4],[1])
+        self.assertIn('cuCtxDestroy_v2: CUDA error 55',caught.exception.__notes__[0])
+        driver.cuCtxDestroy_v2.assert_called_once()
 
 if __name__=='__main__':unittest.main()
