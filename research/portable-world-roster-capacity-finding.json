@@ -1,0 +1,38 @@
+{
+  "initial_source": "5aea8cceec2ce9a249ba463ab76bd807ce3fb7df",
+  "passed": false,
+  "initial_native_passed": 1,
+  "failure": "Diagnostic team1024/fraction2048 history overflow stopped five long real battles with status64; original buffers preserved",
+  "correction": "Private real-roster entry records explicit omitted counts while retaining all accumulation/counter/dispatch; prior diagnostic entry behavior unchanged",
+  "canonical_reference_modified": false,
+  "gpu_retries_same_source_and_input": 0,
+  "final_source": "76dc4de",
+  "final_native_cases": 6,
+  "final_rejections": 4,
+  "captures": [
+    {
+      "path": "research/portable-build/world-roster-20261021T054444200895Z",
+      "gpu_readback_saved": false,
+      "failure_saved": true,
+      "input_bytes": 2505604
+    },
+    {
+      "path": "research/portable-build/world-roster-20261021T054457118965Z",
+      "gpu_readback_saved": true,
+      "failure_saved": false,
+      "input_bytes": 2505604
+    },
+    {
+      "path": "research/portable-build/world-roster-20261021T054616997964Z",
+      "gpu_readback_saved": true,
+      "failure_saved": false,
+      "input_bytes": 2505604
+    },
+    {
+      "path": "research/portable-build/world-roster-20261021T054856726013Z",
+      "gpu_readback_saved": true,
+      "failure_saved": false,
+      "input_bytes": 4176004
+    }
+  ]
+}

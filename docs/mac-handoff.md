@@ -1,3 +1,17 @@
+<!-- world-real-roster-v103 -->
+## 2026-10-21 実編成の全効果を共通world入力へ接続、Metal10実証
+
+計算source76dc4de・private ABI0x5045568c/mode23で、実準備結果を最新の共通world実行器へ接続しました。app/portable_world_roster_input.pyが各編成70〜91の全効果、成長・装備・スキルレベル、武器・カメラ・敵パターン・操作方針を既存sidecarへ渡します。研究用の効果/武器/基礎値差替えや効果フィルタはありません。静的CharState以外のCPU計算済み射撃時刻・数量・対象・生死は入力しません。通常の回復・HP減少・遮蔽物回復・待機短縮と既存条件を共通演算子へ接続し、canonical compiler/referenceは変更していません。
+
+Metal10＝実5人編成6＋拒否4が成功。3/30/180秒と実成長差分を含み、全員damage/HP/maxHP/def/遮蔽物/弾薬/射撃数/各待機/phase/gauge/cooldown/burst履歴が元CPUと完全一致しました。M5 command completed、GPU17.433928秒、library1.053856秒、pipeline0.004912秒、input4176004/readback31457280bytesを判定前に保存。CPU531＋監査故障注入2＝最終533検査、旧20入口CUDA/MSL厳密生成一致、保存raw・Git固定source・native6・以前の6全出力word保持のGPU禁止監査に成功。詳細portable-world-real-roster.md、portable-world-roster-validation.json、seal-world-roster-metal.py。
+
+5aea8ccの初回6入力は1件だけ一致、5件はteam1024/fraction2048の診断履歴上限でstatus64停止。903fc97は全6成功。76dc4deは旧入口の生成物まで保持する共通macroへ整理し、不正4件を追加しました。実編成専用入口は履歴上限後も累積/counter/dispatchを継続し、team head+5/fraction head+3に省略数を記録します。180秒でteam7965/fraction15930件を省略し、全通知履歴は主張しません。旧入口の容量超過拒否は保持。計3固定source・GPU3回、同一source/input retry0。Swift sandbox初回停止はGPU実行前で、失敗記録も保持。正規化規則は拡張していません。
+
+実203＋お気に入り込み266プロファイルを実5人編成の全入力としてCPU battle/tick/GPU build/execute禁止で検査しました。入力変換成功はbase108/全152、未対応114も理由を保持。own定義事前検査148とは別指標で、GPU admissionや全キャラ戦闘認証ではありません。通常画面CPU・public world false・全キャラ戦闘認証0・legacy Metal14c8e2e OPEN・全ゴール未完了。未接続buff/selector、source攻撃/interrupt、操作/復活、全変種・組合せ・容量/長時間、最後の効率化が残ります。
+
+Windows v103は固定767f4f4274b5840da44cc48687572580f030d07a、codex/cuda-world-v103-source（12ファイル238622bytes）で計算検証に成功しました。CPU17・10入力/native6のGPU禁止照合、実base Python再照合とCPU Job smoke0.110550秒の後、BelowNormal/JobObject/start gate/180秒＋cleanup5でCUDA1回・176.942747秒。保存3JSON194699bytesをSHA一致で取得し、全input/output/native/generated指紋、API50段階PID22056/親39616、作成時刻、pre所属[22056]/post空、残留0/retry0、元HEAD/status保持を共通監査で確認しました。旧65/1063以下/通常4682再実行0。既存14プロセスの欠落とサービス識別未確定は残り、原因unknown、検証Job所属外・本番子より前の作成を確認。calculation_verified=true、preservation_verified=false、総合passed=falseを維持し、v102の既存7件も解消扱いにしません。GPU再実行は不要、turn01a15d03-a9b4-7ba1-92f2-1db1d530ba9f completed/idle、cursor223。詳細portable-world-v103-cuda-validation.jsonとseal-world-v103-cuda.py。上限まで約3秒しか余裕がなかったため、次回Windowsは変更対象の最小入力に限定します。GitHub共有は利用者からゴール達成まで許可済みです。
+<!-- /world-real-roster-v103 -->
+
 <!-- world-reload-v102 -->
 ## 2026-10-21 固定再装填時間と強制再装填を共通実行器へ接続、Metal65実証
 

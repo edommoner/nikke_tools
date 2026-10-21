@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "tests": 531,
+  "seconds": 20.881,
+  "command": ".venv/bin/python -m unittest discover -s tests -p 'test_portable*.py'",
+  "process_read_escalated": true,
+  "total_tests_after_report_audit": 533,
+  "added_audit_fault_tests": 2,
+  "audit_module_tests": 8,
+  "previous_v102_saved_proof_reaudited": true
+}
