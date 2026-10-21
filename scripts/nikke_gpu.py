@@ -124,7 +124,7 @@ SUITES['revive']=dict(script='research/verify-world-revive-short.py',golden='res
 SUITES['revive-diagnostic']=dict(SUITES['revive'],source='gpu/world_projectile_admission_entry.slang',require_rejection_stage=True)
 
 SCHEMA = 1
-SUITES['regression-resident']=dict(SUITES['regression'],source='gpu/world_projectile_resident_entry.slang',golden='research/portable-world-resident-regression-short-expected.json',development_only=False,tests=SUITES['regression']['tests']+['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py'])
+SUITES['regression-resident']=dict(SUITES['regression'],source='gpu/world_projectile_resident_entry.slang',golden='research/portable-world-push-frame-resident-regression-short-expected.json',development_only=False,tests=SUITES['regression']['tests']+['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py'])
 SUITES['resident-binding']=dict(script='research/verify-resident-binding-short.py',golden='research/portable-resident-binding-short-expected.json',source='gpu/resident_runtime_binding_probe.slang',inputs=4,native=4,development_only=False,tests=['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py'])
 
 # Controller validation has no numeric program to execute. Keep its CPU work
@@ -174,6 +174,20 @@ def check_records(root, records):
     names = [safe_name(r['path']) for r in records]
     if len(names) != len(set(names)) or file_records(root, names) != sorted(records, key=lambda r:r['path']):
         raise ValueError('Artifact bytes/SHA/size mismatch')
+
+
+def capture_status(capture):
+    """Display saved progress without inferring process liveness or success."""
+    observations={}
+    summarize=module(ROOT/'research/portable_phase_audit.py').summarize
+    for name in ('phases.jsonl','audit-phases.jsonl'):
+        path=capture/name
+        if path.exists():
+            summary=summarize(path)
+            observations[name]=dict(events=summary['events'],last_event=summary['last_event'])
+    return dict(run=load(capture/'run.json'),result=load(capture/'result.json') if (capture/'result.json').exists() else None,
+                observations=observations,liveness_verified=False,journal_integrity_verified=False,
+                scope='Saved journal observations only; entered/returned events do not establish current liveness or calculation success')
 
 
 def package_id(manifest):
@@ -1042,7 +1056,7 @@ def main(argv=None):
         # Generated source copies are captured before comparison, including a mismatch.
         child(a.capture,a.backend,a.smoke,a.compile_only);return
     elif a.command=='audit':result=audit_capture(a.capture)
-    elif a.command=='status':result=dict(run=load(a.capture/'run.json'),result=load(a.capture/'result.json') if (a.capture/'result.json').exists() else None)
+    elif a.command=='status':result=capture_status(a.capture)
     elif a.command=='collect':result=collect(a.capture,a.out)
     elif a.command=='export':result=export_results(a.capture,a.out)
     elif a.command=='import':result=import_results(a.archive,a.dest)

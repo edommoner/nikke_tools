@@ -1134,6 +1134,7 @@ void clearMode(inout Runtime s, uint who, uint64_t when)
     s.charging[who] = 0; s.nextShot[who] = when; s.modeShots[who] = 0; s.postReloadUntil[who] = F64_SIGN | ONE;
 }
 
+[noinline]
 void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mode, uint event, uint owner, int argument, uint64_t when, uint64_t value = 0)
 {
     if (depth == 31) { s.error = 1; return; }

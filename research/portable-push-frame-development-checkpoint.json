@@ -1,0 +1,265 @@
+{
+  "schema": 1,
+  "stage": "metal_verified_cuda_pending",
+  "package": {
+    "package_id": "28c9eadf44aa7f4796366cc8b5b3dea9b44c626f17c6ccc6d07794b36ca52dfc",
+    "files": 1833,
+    "bytes": 4681056,
+    "archive_sha256": "b8ef76364b29c9c48abf9ba0d4e3c2eca01271de29ca0b6799bfae01b3232e8b",
+    "source_commit": "be59f9f6a730eb06c1d79861a52bc9449de5f23f"
+  },
+  "result": {
+    "sealed": false,
+    "purpose": "development",
+    "calculation_verified": true,
+    "preservation_verified": null,
+    "passed": true,
+    "containment_verified": true,
+    "comparison_error": null,
+    "first_difference": null,
+    "phase": {
+      "events": 4,
+      "last_event": {
+        "monotonic_ns": 718201648436625,
+        "pid": 37560,
+        "stage": "shared_gpu_execute",
+        "state": "returned",
+        "wall_time_ns": 1792619051884575000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0
+  },
+  "seal": {
+    "sealed": true,
+    "gpu_calls": 0,
+    "package_id": "28c9eadf44aa7f4796366cc8b5b3dea9b44c626f17c6ccc6d07794b36ca52dfc",
+    "input_count": 759,
+    "golden": "/private/tmp/nikke-push-frame-sealed-golden.json"
+  },
+  "retention": {
+    "passed": true,
+    "gpu_calls": 0,
+    "scope": "Byte retention against a previously verified immutable golden; not a new GPU dispatch or standalone calculation certification",
+    "inputs": 759,
+    "all_input_raw_native_fingerprints_equal": true,
+    "all_raw_words_equal": true,
+    "lazy_banks_zero": true,
+    "output_bytes": 2387607552,
+    "output_sha256": "e9284ab0b1afb99a3d9969ec8ee2ff43d8e333608a59240ab446c323d1bc0481",
+    "baseline_golden_sha256": "bde3d16b826206c7781abb87f124d976cd5d8e1dec2205fca4581eeea4cf2205",
+    "elapsed_seconds": 2.7046650419943035
+  },
+  "storage_precheck": {
+    "passed": true,
+    "required_bytes": 2810014224,
+    "reserve_bytes": 1073741824,
+    "free_bytes": 112626057216,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "archive_storage_checked": false
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 759,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "gpu_seconds": 14.06596787495073,
+    "input_bytes": 316958404,
+    "library_compile_seconds": 1.1649829149246216,
+    "output_bytes": 2387607552,
+    "pipeline_compile_seconds": 8.654953956604004,
+    "pipeline_lock_wait_seconds": 1.9073486328125e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "runtime_buffer_bytes": 105446352,
+    "runtime_element_capacity": 759,
+    "runtime_physical_stride_verified": true,
+    "runtime_stride_bytes": 138928,
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "cpu_preflight": {
+    "passed": true,
+    "input_count": 759,
+    "native_oracles": 602,
+    "input_sha256": "db9fb85007f54240479494253eb0d3d82e92eb2bcf70677476b85a4a67f4a6ab",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 43.56757866602857
+  },
+  "registered_tests": {
+    "suites": 29,
+    "count": 170,
+    "patterns": [
+      {
+        "pattern": "test_portable_gpu_cli.py",
+        "count": 34,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_gpu_replay.py",
+        "count": 6,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_phase_audit.py",
+        "count": 5,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_regression_adapter.py",
+        "count": 2,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_roster_regression.py",
+        "count": 2,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_readiness.py",
+        "count": 14,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_stun.py",
+        "count": 9,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_typed_recipient_delegation.py",
+        "count": 2,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_skill_cooldown.py",
+        "count": 5,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_healing_storage.py",
+        "count": 9,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_trigger_reduction.py",
+        "count": 6,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_skill_critical.py",
+        "count": 5,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_skill_interval.py",
+        "count": 4,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_skill_interval_flat.py",
+        "count": 5,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_lazy_bank.py",
+        "count": 4,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_compiler_stats.py",
+        "count": 4,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_base_copy.py",
+        "count": 4,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_seal.py",
+        "count": 3,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_persona.py",
+        "count": 4,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_compile_cache.py",
+        "count": 12,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_named_magnitude.py",
+        "count": 3,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_enemy_selection.py",
+        "count": 4,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_capture_storage.py",
+        "count": 4,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_attack_magnitude.py",
+        "count": 3,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_revive_reference.py",
+        "count": 5,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_revival.py",
+        "count": 2,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_resident_layout.py",
+        "count": 3,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_resident_transport.py",
+        "count": 3,
+        "passed": true
+      },
+      {
+        "pattern": "test_portable_resident_build.py",
+        "count": 4,
+        "passed": true
+      }
+    ]
+  },
+  "status_cli_tests": {
+    "count": 36,
+    "passed": true,
+    "scope": "CPU tests after progress observation display change; no GPU or comparison changes"
+  },
+  "windows": {
+    "status": "not_run",
+    "compiler_improvement_verified": false,
+    "calculation_verified": false
+  },
+  "normal_ui": "CPU",
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

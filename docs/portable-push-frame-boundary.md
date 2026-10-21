@@ -1,0 +1,21 @@
+# 共通DFS pushFrameの関数境界候補
+
+Windows v122はGPU常駐Runtimeを使っても、CUBIN O1が31.719秒のNVRTC処理後にptxas Memory allocation failureで終了しました。原失敗と2GiB／60秒の上限を保持し、次の候補を共通DFSのpushFrame一箇所に絞りました。dispatchの生成CUDAには47の呼出箇所があります。この数は字句上の観測で、メモリ原因の証明ではありません。
+
+pushFrameは深さ上限、Frame初期化、継承context、最大深さを処理します。共有Slangの既存関数にnoinlineだけを付け、CUDAでは__noinline__、Metalでは同じ関数のnoinline属性として出力します。変更前の生成byteへ該当属性を一つ挿入したものが、新生成物と完全一致しました。数値演算・実行順・効果・容量・比較器・normalizerは変更していません。詳細はportable-push-frame-boundary-codegen.jsonです。
+
+## Metalの確認
+
+固定development package28c9eadfの759入力（native602／拒否157）は、実行前の全入力／native指紋を保持しました。登録CPU29群170検査、CPU preflight、Apple M5の実GPU1回、親の独立比較がすべて成功し、さらにGPU0の独立sealを行いました。新しいgoldenはportable-world-push-frame-resident-regression-short-expected.jsonとして明示登録し、以前のgoldenは履歴として保持しています。
+
+以前の保存captureと全入力／全native／raw全word／lazy bankゼロを検査し、全2,387,607,552byteが一致しました。SHAはe9284ab0b1afb99a3d9969ec8ee2ff43d8e333608a59240ab446c323d1bc0481です。runtime stride138,928と追加scratch105,446,352byteは同じです。単発cold観測はGPU14.066秒、library1.165秒、pipeline8.655秒で、性能改善率とは扱いません。rawはローカルに保持し、GitHubへ含めません。
+
+## CLIの観測表示
+
+statusは旧run.jsonのstatusだけでなく、既存phases.jsonlとaudit-phases.jsonlの最後の完結した観測を表示します。実際には子が完了して親比較へ進んでも、run.jsonがpreflightのままの期間がありました。既存journalの集約器を再利用し、途中の最終appendは無視します。表示から生存・停止・計算成功を推定せず、liveness_verifiedとjournal_integrity_verifiedはfalseです。監査と結果判定は既存経路のままです。CPU故障注入を含むCLI36検査で確認しました。
+
+## 次のWindows確認
+
+固定したsealed packageでCPU検査後、CUBIN O1・60秒／2GiB・fresh BelowNormal Jobのcompiler-onlyを1回だけ行います。生成指紋をMetal証拠と照合し、driver／context／kernelを禁止します。成功した場合だけ必須cacheのCPU読み取り検査を行い、missではNVRTCを呼びません。同条件retry・上限拡大・fallbackはしません。コンパイル成功とCUDAの計算一致は別に確認します。
+
+通常UI CPU、全キャラGPU認定0、entry_reloadはCPU契約32件まで、全目標未完了を維持します。通常regressionとresident-bindingの以前のgoldenはsource staleを明示して保持し、無検証で更新しません。

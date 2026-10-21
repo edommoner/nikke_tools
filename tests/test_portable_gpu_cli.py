@@ -16,6 +16,30 @@ cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class PacketTests(unittest.TestCase):
+    def test_status_shows_child_and_parent_journals_without_promoting_stale_run_status(self):
+        with tempfile.TemporaryDirectory() as folder:
+            capture=Path(folder);cli.write(capture/'run.json',dict(status='preflight'))
+            child=dict(stage='shared_gpu_execute',state='returned',pid=123)
+            parent=dict(stage='shared_native_compare',state='entered',pid=456)
+            (capture/'phases.jsonl').write_text(json.dumps(child)+'\n')
+            (capture/'audit-phases.jsonl').write_text(json.dumps(parent)+'\n{"incomplete":')
+            with cli.forbid_gpu():status=cli.capture_status(capture)
+            self.assertEqual(status['run']['status'],'preflight')
+            self.assertEqual(status['observations']['phases.jsonl']['last_event'],child)
+            self.assertEqual(status['observations']['audit-phases.jsonl']['last_event'],parent)
+            self.assertIsNone(status['result']);self.assertFalse(status['liveness_verified'])
+            self.assertFalse(status['journal_integrity_verified'])
+            failed=dict(calculation_verified=False,passed=False)
+            cli.write(capture/'result.json',failed)
+            self.assertEqual(cli.capture_status(capture)['result'],failed)
+
+    def test_status_with_missing_journals_never_infers_a_stopped_or_successful_run(self):
+        with tempfile.TemporaryDirectory() as folder:
+            capture=Path(folder);cli.write(capture/'run.json',dict(status='preflight'))
+            with cli.forbid_gpu():status=cli.capture_status(capture)
+            self.assertEqual(status['observations'],{});self.assertIsNone(status['result'])
+            self.assertFalse(status['liveness_verified'])
+
     def test_child_saves_transport_bytes_without_running_native_comparison(self):
         from types import SimpleNamespace
         import portable_backend
