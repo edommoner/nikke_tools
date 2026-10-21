@@ -100,8 +100,24 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_WORLD_INITIAL_SPAWN
+bool worldInitialSpawnEnabled(inout Runtime s) { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==15; }
+#define WORLD_INITIAL_SPAWN_MODE(s) worldInitialSpawnEnabled(s)
+#define WORLD_INITIAL_SPAWN_INIT(s) initializeWorldSpawn(s);
+#define WORLD_INITIAL_SPAWN_START(s,when,output) if(worldInitialSpawnEnabled(s)) { results[s.resourceOutput+P_WORLD_SPAWN_HEAD_BASE+2]++;teamNotify(s,5,when,output); }
+#define WORLD_INITIAL_SPAWN_OBSERVE(s,mode,event,owner,when) if(worldInitialSpawnEnabled(s)&&mode==0&&event==5) recordWorldSpawn(s,owner,when);
+#define WORLD_INITIAL_SPAWN_ADMIT(s,at) if(commands[at]==5&&!worldInitialSpawnEnabled(s)) { s.error=64;break; }
+#define WORLD_INITIAL_SPAWN_VALIDATE(s,d,input,j) for(uint spawnSlot=0;spawnSlot<d.triggerCount;spawnSlot++) { uint spawnAt=input+P_EVENT_BASE+j*P_EVENT_WORDS+spawnSlot*8; WORLD_INITIAL_SPAWN_ADMIT(s,spawnAt) } if(s.error!=0) break;
+#else
+#define WORLD_INITIAL_SPAWN_MODE(s) false
+#define WORLD_INITIAL_SPAWN_INIT(s)
+#define WORLD_INITIAL_SPAWN_START(s,when,output)
+#define WORLD_INITIAL_SPAWN_OBSERVE(s,mode,event,owner,when)
+#define WORLD_INITIAL_SPAWN_ADMIT(s,at)
+#define WORLD_INITIAL_SPAWN_VALIDATE(s,d,input,j)
+#endif
 #ifdef PORTABLE_WORLD_ENEMY_ATTACK
-bool worldEnemyAttackEnabled(inout Runtime s) { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==13; }
+bool worldEnemyAttackEnabled(inout Runtime s) { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==13||WORLD_INITIAL_SPAWN_MODE(s); }
 #define WORLD_ENEMY_ATTACK_INVALID(s,d,legacy) ((legacy)&&!(worldEnemyAttackEnabled(s)&&(d.stat==S_atk_pct||d.stat==S_atk_caster_based_pct)))
 #define WORLD_ENEMY_ATTACK_ADMIT(s,d,at,kind,arg) if(worldEnemyAttackEnabled(s)&&d.enemyBuff!=0&&(d.stat==S_atk_pct||d.stat==S_atk_caster_based_pct)&&(kind==C_HP_ABOVE||kind==C_HP_BELOW||kind==C_HP_MAX)) { if(commands[at+1]!=0||!f64Finite(arg)||kind==C_HP_MAX&&!f64Zero(arg)) return false;continue; }
 #define WORLD_ENEMY_ATTACK_DAMAGE_MEMBER(s,row,who,when,legacy) ((legacy)||worldEnemyAttackDamageMember(s,row,who,when))
@@ -1025,7 +1041,7 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
 void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, uint64_t when, uint output, uint64_t landingAmount = 0)
 {
     if (owner >= 5) { s.error = 64; return; }
-    s.sourceTime=when; syncHealth(s,when);
+    WORLD_INITIAL_SPAWN_OBSERVE(s,mode,event,owner,when) s.sourceTime=when; syncHealth(s,when);
     COUNTER_CONTEXT_BEGIN(s) WORLD_STATE_DISPATCH_BEGIN(s) uint entryTarget = s.target;
     Frame frames[32]; int depth = -1;
     if ((s.healthMask&32)!=0) pushFrame(s,frames,depth,16,0,0,0,when);
@@ -1960,7 +1976,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
         uint at = input+P_COMMAND_BASE+step*8, op = commands[at]; uint64_t when = loadNumber(at+1);
         if (s.combat == 0 || op == 4) { beginLazyRoot(s,when); sampleWorld(s); }
         if (op == 4 && s.combat != 0 && s.combatStarted == 0)
-        { s.combatStarted = 1; teamNotify(s,0,when,output); initializeMagazines(s,when); }
+        { s.combatStarted = 1; teamNotify(s,0,when,output); WORLD_INITIAL_SPAWN_START(s,when,output) initializeMagazines(s,when); }
         if (s.combat == 0 || op == 4) tick(s,when,output);
         if (s.error != 0) break;
         if (op == 0)

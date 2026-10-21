@@ -382,7 +382,7 @@ void advanceCombat(inout Runtime s, uint64_t through, uint output)
 {
     sampleWorld(s);
     if (s.combatStarted == 0)
-    { worldFrameBegin(s,0);if(s.error!=0) return;s.combatStarted = 1; teamNotify(s,0,0,output); initializeMagazines(s,0); }
+    { worldFrameBegin(s,0);if(s.error!=0) return;s.combatStarted = 1; teamNotify(s,0,0,output); WORLD_INITIAL_SPAWN_START(s,0,output) initializeMagazines(s,0); }
     for (uint work = 0; work <= 10800 && s.error == 0; work++)
     {
         if (s.nextFrame > 10800) return;

@@ -68,7 +68,7 @@ void admitDefinitions(inout Runtime s,uint input)
             if(commands[at]==C_TARGET_CODE && (commands[at+1]==0 || commands[at+1]>codeNames || !f64Zero(loadNumber(at+2)))) { s.error=64;break; }
         }
         if(s.error!=0) break;
-        for (uint slot = 0; slot < d.triggerCount; slot++)
+        WORLD_INITIAL_SPAWN_VALIDATE(s,d,input,j) for (uint slot = 0; slot < d.triggerCount; slot++)
             if (commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8] == 31) s.namedEventOwners |= 1U << d.owner;
         for (uint slot = 0; slot < d.triggerCount; slot++)
             if (commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8] == 9) s.stackEventOwners |= 1U << d.owner;

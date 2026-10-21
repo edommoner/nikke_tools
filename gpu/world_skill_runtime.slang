@@ -113,6 +113,9 @@ void landWorldPending(inout Runtime s,Definition d,uint row,uint index,uint hit,
 
 #ifdef PORTABLE_WORLD_PERIODIC
 #include "world_periodic_runtime.slang"
+#ifdef PORTABLE_WORLD_INITIAL_SPAWN
+#include "world_spawn_runtime.slang"
+#endif
 #else
 bool worldPeriodicClock(inout Runtime s,Definition d) { return false; }
 #endif
