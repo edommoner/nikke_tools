@@ -11,6 +11,13 @@ void initializeProjectiles(inout Runtime s)
         if(d.kind!=0||d.enemyBuff!=0||!f64Finite(d.value)||s.combat==0) { s.error=64;return; }
     }
 }
+void snapshotProjectileParts(inout Runtime s)
+{
+    uint parts=commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+3];
+    for(uint slot=1;slot<actorPoolCount(s)&&parts==0;slot++)
+        if(commands[actorBinding(s,slot)]==1&&results[actorPoolAt(s,slot)+1]!=0) parts=1;
+    results[s.resourceOutput+720912+3]=parts;
+}
 void sampleProjectilePellets(inout Runtime s,uint who,uint64_t when,inout uint pellets)
 {
     uint64_t fixed=plainQuantity(s,who,S_pellet_count_fixed,when);

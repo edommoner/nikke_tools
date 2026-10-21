@@ -17,7 +17,7 @@ void worldFrameBegin(inout Runtime s,uint64_t when)
     if(s.error==0) applyWorldOverlays(s,when);
 #endif
 #ifdef PORTABLE_WORLD_ACTORS
-    if(s.error==0) worldActorsApply(s);
+    if(s.error==0) worldActorsApply(s); WORLD_PROJECTILE_FRAME(s)
 #endif
 }
 [noinline]

@@ -56,7 +56,7 @@ void initializeWorldTeam(inout Runtime s)
 [noinline]
 void notifyWorldTeam(inout Runtime s,uint who,uint64_t when,uint output)
 {
-    uint kind=commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+3]==1?0:1;
+    uint kind=WORLD_PROJECTILE_PARTS(s,commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+3])==1?0:1;
     uint state=s.resourceOutput+P_WORLD_TEAM_STATE_BASE+who*4,head=s.resourceOutput+P_WORLD_TEAM_HEAD_BASE;
     uint64_t frac=f64Add(ONE,actorNumber(s.resourceOutput+P_WORLD_FRACTION_STATE_BASE+who*8+6)^F64_SIGN),value=actorNumber(state+kind*2);bool fired=false;
     if(!f64Finite(frac)||f64Less(frac,0)||f64Less(ONE,frac)) { s.error=16;return; }

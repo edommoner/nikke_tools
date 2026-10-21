@@ -21,6 +21,9 @@ def fixtures():
  c=add('finite-expiry',[buff('pellet_count',2,duration=.2),witness()])
  c=add('ammo-callback-before-auto-snapshot',[buff('pellet_count',1,timing='squad_ammo_consume',max_stack=3),witness()])
  c=add('counted-ammo-before-auto-snapshot',[buff('pellet_count',1,timing='squad_ammo_consume:1',max_stack=3),field('infinite_ammo',1,'all_allies_excl_self','other-infinite'),witness()])
+ for suffixes in (['squad_ammo_consume','squad_ammo_consume:4'],['squad_ammo_consume','squad_ammo_consume:1','squad_ammo_consume:3'],['squad_ammo_consume','on_attack']):
+  e=buff('pellet_count',1,max_stack=10);e['trigger']['timing']=suffixes
+  c=add('mixed-ammo-'+str(len(suffixes))+'-'+suffixes[-1],[e,field('infinite_ammo',1,'all_allies_excl_self','other-infinite'),witness()])
  c=add('last-bullet-before-auto-snapshot',[buff('pellet_count_fixed',2,timing='last_bullet_fire'),witness()]);c['combat']['weapons'][0]['capacity']=2
  c=add('child-cannot-resplit-current-shot',[buff('pellet_count',1,timing='pellet_hit_count:1',max_stack=3),witness()])
  for timing in ('full_charge','squad_ammo_consume','on_attack'):
@@ -34,7 +37,7 @@ def fixtures():
    c=add('range-'+family+'-'+value.hex() if isinstance(value,float) else 'range-'+family+'-'+str(value),e)
    c['patterns']=[dict(id='parts',kind='parts',targets=[dict(name='part'+str(i),hp=1e8,reach=i) for i in range(1,6)])]
    if family!='pierce':
-    c['combat']['weapons'][0].update(mode='charge',base_weapon_type='RL',charge=.1,interval=.2,min_cycle=.1,full_charge_mult=100,gauge_mult=100);c['post_fire_delays'][0]=.1
+    c['combat']['weapons'][0].update(mode='charge',base_weapon_type='RL',charge=.1,interval=.315,min_cycle=.1,full_charge_mult=100,gauge_mult=100);c['post_fire_delays'][0]=.215
  c=add('range-expiry-next-shot',[buff('pierce_range',100,duration=.2),buff('pierce_enabled',1,'pierce'),witness()]);c['patterns']=[dict(id='parts',kind='parts',targets=[dict(name='part2',hp=1e8,reach=2)])]
  c=add('range-pellet-child-frozen',[buff('pierce_range',100,timing='pellet_hit_count:1'),buff('pierce_enabled',1,'pierce'),witness()]);c['patterns']=[dict(id='parts',kind='parts',targets=[dict(name='part2',hp=1e8,reach=2)])]
  return rows

@@ -105,11 +105,15 @@ struct Runtime
 #include "definition_runtime.slang"
 #ifdef PORTABLE_WORLD_PROJECTILE
 #define WORLD_PROJECTILE_INIT(s) initializeProjectiles(s);
+#define WORLD_PROJECTILE_FRAME(s) if(s.error==0) snapshotProjectileParts(s);
+#define WORLD_PROJECTILE_PARTS(s,legacy) results[s.resourceOutput+720912+3]
 #define WORLD_PROJECTILE_SAMPLE(s,w,who,when) sampleProjectilePellets(s,who,when,w.pellets);if(s.error!=0) return;
 #define WORLD_PROJECTILE_REACH(s,who,flags,when,legacy) projectileReach(s,who,flags,when,legacy)
 #define WORLD_PROJECTILE_RECORD(s,w,who,when,amount) recordProjectileShot(s,who,w.mode,w.pellets,w.muzzles,when,amount);
 #else
 #define WORLD_PROJECTILE_INIT(s)
+#define WORLD_PROJECTILE_FRAME(s)
+#define WORLD_PROJECTILE_PARTS(s,legacy) legacy
 #define WORLD_PROJECTILE_SAMPLE(s,w,who,when)
 #define WORLD_PROJECTILE_REACH(s,who,flags,when,legacy) legacy
 #define WORLD_PROJECTILE_RECORD(s,w,who,when,amount)

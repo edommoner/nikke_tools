@@ -35,6 +35,11 @@ class ProjectileContracts(unittest.TestCase):
   self.assertEqual(self.shots('counted-ammo-before-auto-snapshot')[0]['pellets'],4)
   self.assertEqual([s['pellets'] for s in self.shots('counted-ammo-after-charge-snapshot')],[3,4])
   self.assertEqual(self.shots('charge-snapshot-full_charge')[0]['pellets'],4)
+ def test_bare_squad_index_is_inactive_alone_but_matches_inside_counted_effect(self):
+  self.assertEqual(self.shots('ammo-callback-before-auto-snapshot')[0]['pellets'],3)
+  self.assertEqual(self.shots('mixed-ammo-2-squad_ammo_consume:4')[0]['pellets'],4)
+  self.assertEqual(self.shots('mixed-ammo-3-squad_ammo_consume:3')[0]['pellets'],5)
+  self.assertEqual([x['pellets'] for x in self.shots('mixed-ammo-2-on_attack')][:2],[3,4])
  def test_exact_reach_threshold_and_explosion_priority(self):
   for family,low,high in [('pierce',1,2),('explosion',3,4),('both',3,4)]:
    value=100-1e-9;below=math.nextafter(value,-math.inf)

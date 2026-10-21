@@ -4,17 +4,17 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','scripts','research')]
 from portable_backend import execute,source_hashes
 from portable_specs import LIMITS as L,FIELDS as F
-from portable_projectile_specs import ABI,MODE,HEAD,TRACE,TRACE_COUNT
+from portable_projectile_specs import ABI,MODE,HEAD,TRACE,TRACE_COUNT,finalize_program
 from world_projectile_cases import fixtures
 from world_projectile_native import observe as inspect_native
 s=importlib.util.spec_from_file_location('projectile_reload','research/verify-world-reload.py');reload=importlib.util.module_from_spec(s);s.loader.exec_module(reload)
 SOURCE='gpu/world_projectile_entry.slang';INPUT=104400;OUTPUT=786432
 
 def compile_case(c):
- w,m,b=reload.compile_case(c);w[0]=ABI;w[L['TARGET_COUNTER_INPUT_BASE']+6]=MODE;return w,m,b
+ w,m,b=reload.compile_case(c);finalize_program(w);return w,m,b
 
 def decoded(block,meta,case,bindings):
- r=reload.decoded(block,meta,case,bindings);head=HEAD;assert block[head]==0x57505231 and block[head+1]<=TRACE_COUNT and not any(block[head+2:head+16]);events=[]
+ r=reload.decoded(block,meta,case,bindings);head=HEAD;assert block[head]==0x57505231 and block[head+1]<=TRACE_COUNT and block[head+2]==0 and block[head+3]<=1 and not any(block[head+4:head+16]);events=[]
  number=lambda at:struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
  for i in range(block[head+1]):
   at=TRACE+i*16;assert block[at]<5 and block[at+1]<3 and block[at+7]==0 and not any(block[at+10:at+16])
