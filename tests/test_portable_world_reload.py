@@ -55,6 +55,19 @@ class ReloadContracts(unittest.TestCase):
  def test_all_authored_cases_pack_consistently(self):
   for c in self.rows.values():
    w,m,b=suite.compile_case(c);self.assertEqual(len(w),L['WORLD_RELOAD_INPUT_WORDS'])
+ def test_new_output_layout_reaches_build_without_a_gpu_execution(self):
+  import struct
+  data=struct.pack('<I',1)+bytes(L['WORLD_RELOAD_INPUT_WORDS']*4)
+  for size in (655360,786432):
+   with patch.object(portable_backend,'build',side_effect=RuntimeError('build stopped before GPU')) as build:
+    with self.assertRaisesRegex(RuntimeError,'build stopped before GPU'):portable_backend.execute(suite.SOURCE,'portableEvents',data,L['WORLD_RELOAD_INPUT_WORDS'],size)
+    build.assert_called_once()
+ def test_gap_output_layouts_still_reject_before_build(self):
+  import struct
+  for size in (524289,655359,655361,786431,786433):
+   with patch.object(portable_backend,'build',side_effect=AssertionError('must not build')) as build:
+    with self.assertRaisesRegex(ValueError,'word strides'):portable_backend.execute(suite.SOURCE,'portableEvents',struct.pack('<I',1),L['WORLD_RELOAD_INPUT_WORDS'],size)
+    build.assert_not_called()
  def test_capacity_fails_instead_of_truncating_definitions(self):
   with self.assertRaises(ValueError):pack([{}]*257)
 if __name__=='__main__':unittest.main()
