@@ -1,0 +1,1140 @@
+{
+  "source_commit": "ea1eccc0e23d22f7cfede3437fd76dedf6dec0fe",
+  "passed": true,
+  "cpu_preflight": {
+    "source_commit": "ea1eccc0e23d22f7cfede3437fd76dedf6dec0fe",
+    "original_head_before": "61a43e91301841c272badce519e4d8984bb5efae",
+    "original_status_before": [],
+    "existing_gpu_service_preserved": true,
+    "environment": {
+      "PYTHONPATH": "C:/Users/owner/Documents/Codex/nikke-cuda-world-ea1eccc/app;C:/Users/owner/Documents/Codex/nikke-cuda-world-ea1eccc/scripts;C:/Users/owner/Documents/Codex/nikke-cuda-world-ea1eccc/research;C:/Users/owner/Documents/Codex/nikke-cuda-world-ea1eccc/research/upstream/nikke-calc-master",
+      "TEMP": "C:/Users/owner/Documents/Codex/nikke-cuda-world-ea1eccc/research/portable-build/v95-cpu-temp",
+      "TMP": "C:/Users/owner/Documents/Codex/nikke-cuda-world-ea1eccc/research/portable-build/v95-cpu-temp",
+      "PYTHONUTF8": "1",
+      "PYTHONIOENCODING": "utf-8",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "cpu_tests": [
+      {
+        "pattern": "test_portable_phase_audit.py",
+        "expected_count": 5,
+        "exit_code": 0,
+        "elapsed_seconds": 1.541862000245601,
+        "stdout": "",
+        "stderr": "test_containment_failure_never_releases_gpu_gate (test_portable_phase_audit.AuditTests.test_containment_failure_never_releases_gpu_gate) ... ok\ntest_exception_keeps_last_actual_stage_and_observer_restores_backend (test_portable_phase_audit.AuditTests.test_exception_keeps_last_actual_stage_and_observer_restores_backend) ... ok\ntest_native_proxy_preserves_signature_arguments_result_and_failed_launch (test_portable_phase_audit.AuditTests.test_native_proxy_preserves_signature_arguments_result_and_failed_launch) ... ok\ntest_successful_launch_alone_does_not_prove_sync_or_readback (test_portable_phase_audit.AuditTests.test_successful_launch_alone_does_not_prove_sync_or_readback) ... ok\ntest_timeout_preserves_phase_and_elapsed_and_terminates_descendants (test_portable_phase_audit.AuditTests.test_timeout_preserves_phase_and_elapsed_and_terminates_descendants) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 1.083s\n\nOK\n",
+        "log_sha256": "50a6bb0eeeff455936fd3cfd3d3684e1b131124b5cc65b6c88515ab5e9e2576b"
+      },
+      {
+        "pattern": "test_portable_target_counters.py",
+        "expected_count": 8,
+        "exit_code": 0,
+        "elapsed_seconds": 4.741517100017518,
+        "stdout": "",
+        "stderr": "test_all_shared_stimuli_have_lossless_canonical_impact_encoding (test_portable_target_counters.CounterInputContracts.test_all_shared_stimuli_have_lossless_canonical_impact_encoding) ... ok\ntest_exact_unknown_actor_and_fractional_credit_are_not_body_or_damage (test_portable_target_counters.CounterInputContracts.test_exact_unknown_actor_and_fractional_credit_are_not_body_or_damage) ... ok\ntest_invalid_literal_time_quantity_enum_and_capacity_rejected_before_gpu (test_portable_target_counters.CounterInputContracts.test_invalid_literal_time_quantity_enum_and_capacity_rejected_before_gpu) ... ok\ntest_named_policy_conflicts_and_all_stack_operations_fail_closed (test_portable_target_counters.CounterInputContracts.test_named_policy_conflicts_and_all_stack_operations_fail_closed) ... ok\ntest_private_compiler_uses_literal_table_and_separate_nonnumeric_carriers (test_portable_target_counters.CounterInputContracts.test_private_compiler_uses_literal_table_and_separate_nonnumeric_carriers) ... ok\ntest_public_gpu_admission_remains_closed (test_portable_target_counters.CounterInputContracts.test_public_gpu_admission_remains_closed) ... ok\ntest_resource_is_ready_before_named_activation_children (test_portable_target_counters.CounterInputContracts.test_resource_is_ready_before_named_activation_children) ... ok\ntest_symbol_aliases_and_wrong_carrier_scope_cannot_merge_progress (test_portable_target_counters.CounterInputContracts.test_symbol_aliases_and_wrong_carrier_scope_cannot_merge_progress) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 2.439s\n\nOK\n",
+        "log_sha256": "a8b83891fcab59459d481aee0a053ab558f78cbe4bf1537de976431a10d7ab47"
+      },
+      {
+        "pattern": "test_portable_counter_landings.py",
+        "expected_count": 5,
+        "exit_code": 0,
+        "elapsed_seconds": 2.952203399967402,
+        "stdout": "",
+        "stderr": "test_counter_callback_changes_same_hit_lifesteal_before_heal_and_damage_is_clipped_only_for_add (test_portable_counter_landings.PhysicalCounterContracts.test_counter_callback_changes_same_hit_lifesteal_before_heal_and_damage_is_clipped_only_for_add) ... ok\ntest_mode_damage_formula_cannot_select_the_counter_credit_family (test_portable_counter_landings.PhysicalCounterContracts.test_mode_damage_formula_cannot_select_the_counter_credit_family) ... ok\ntest_non_sentinel_world_binding_rejects_before_gpu_and_counter_never_merges_with_defense_buff (test_portable_counter_landings.PhysicalCounterContracts.test_non_sentinel_world_binding_rejects_before_gpu_and_counter_never_merges_with_defense_buff) ... ok\ntest_unbreakable_extra_part_has_credit_without_direct_hit_or_hp_dealt (test_portable_counter_landings.PhysicalCounterContracts.test_unbreakable_extra_part_has_credit_without_direct_hit_or_hp_dealt) ... ok\ntest_world_input_uses_authored_bindings_and_reach_without_cpu_observations (test_portable_counter_landings.PhysicalCounterContracts.test_world_input_uses_authored_bindings_and_reach_without_cpu_observations) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.688s\n\nOK\n",
+        "log_sha256": "e028282ffe4bfa9b748a35c66a4ab64293332a1fe97578dbc257008ce5c1aec9"
+      },
+      {
+        "pattern": "test_portable_counter_context.py",
+        "expected_count": 5,
+        "exit_code": 0,
+        "elapsed_seconds": 2.812825399916619,
+        "stdout": "",
+        "stderr": "test_death_without_impact_keeps_the_completion_actor (test_portable_counter_context.CounterContextContracts.test_death_without_impact_keeps_the_completion_actor) ... ok\ntest_enemy_counter_is_not_self_state_but_its_stack_is_visible_to_owner (test_portable_counter_context.CounterContextContracts.test_enemy_counter_is_not_self_state_but_its_stack_is_visible_to_owner) ... ok\ntest_fatal_add_completion_retains_target_but_generic_named_child_clears_it (test_portable_counter_context.CounterContextContracts.test_fatal_add_completion_retains_target_but_generic_named_child_clears_it) ... ok\ntest_finite_condition_latches_while_permanent_condition_rechecks_after_retirement (test_portable_counter_context.CounterContextContracts.test_finite_condition_latches_while_permanent_condition_rechecks_after_retirement) ... ok\ntest_shared_counter_compiler_keeps_previous_41_literal_inputs_exact (test_portable_counter_context.CounterContextContracts.test_shared_counter_compiler_keeps_previous_41_literal_inputs_exact) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.524s\n\nOK\n",
+        "log_sha256": "b7dea7fd1431d69d0cc99674f4db53e6cb94b8b35cb81845b390b3ee5cbf2d78"
+      },
+      {
+        "pattern": "test_portable_counter_fields.py",
+        "expected_count": 5,
+        "exit_code": 0,
+        "elapsed_seconds": 2.461861599702388,
+        "stdout": "",
+        "stderr": "test_all128_receivers_complete_before_counter_marker_retires (test_portable_counter_fields.CounterFieldContracts.test_all128_receivers_complete_before_counter_marker_retires) ... ok\ntest_fatal_completion_field_keeps_dead_actor_without_aliasing_next_add (test_portable_counter_fields.CounterFieldContracts.test_fatal_completion_field_keeps_dead_actor_without_aliasing_next_add) ... ok\ntest_nested_generic_field_child_uses_new_current_add (test_portable_counter_fields.CounterFieldContracts.test_nested_generic_field_child_uses_new_current_add) ... ok\ntest_part_credit_uses_captured_part_damage_before_field_mutation (test_portable_counter_fields.CounterFieldContracts.test_part_credit_uses_captured_part_damage_before_field_mutation) ... ok\ntest_refresh_inside_completion_preserves_new_counter_epoch (test_portable_counter_fields.CounterFieldContracts.test_refresh_inside_completion_preserves_new_counter_epoch) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.305s\n\nOK\n",
+        "log_sha256": "09e0e72b638af338e82d4139949388f1b3256f0aba8f0f1b5592d439883d22b3"
+      },
+      {
+        "pattern": "test_portable_enemy_query_scope.py",
+        "expected_count": 4,
+        "exit_code": 0,
+        "elapsed_seconds": 2.288120400160551,
+        "stdout": "",
+        "stderr": "test_empty_enemy_fields_still_respect_explicit_body_query_and_restore_parent (test_portable_enemy_query_scope.EnemyQueryScopeContracts.test_empty_enemy_fields_still_respect_explicit_body_query_and_restore_parent) ... ok\ntest_nested_explicit_queries_restore_each_scope_without_enemy_carriers (test_portable_enemy_query_scope.EnemyQueryScopeContracts.test_nested_explicit_queries_restore_each_scope_without_enemy_carriers) ... ok\ntest_neutral_enemy_field_cannot_change_explicit_body_damage_query (test_portable_enemy_query_scope.EnemyQueryScopeContracts.test_neutral_enemy_field_cannot_change_explicit_body_damage_query) ... ok\ntest_query_exception_restores_parent_even_without_enemy_fields (test_portable_enemy_query_scope.EnemyQueryScopeContracts.test_query_exception_restores_parent_even_without_enemy_fields) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.261s\n\nOK\n",
+        "log_sha256": "6e11de2d798bbe539818accb7ff29011bc0b9eee6f5c995a0f11dd7bb3456b92"
+      },
+      {
+        "pattern": "test_portable_world_skills.py",
+        "expected_count": 7,
+        "exit_code": 0,
+        "elapsed_seconds": 2.9261433999054134,
+        "stdout": "",
+        "stderr": "test_authored_skill_inputs_ignore_cpu_observations (test_portable_world_skills.WorldSkillContracts.test_authored_skill_inputs_ignore_cpu_observations) ... ok\ntest_core_tag_is_weapon_but_normal_formula_overrides_to_skill (test_portable_world_skills.WorldSkillContracts.test_core_tag_is_weapon_but_normal_formula_overrides_to_skill) ... ok\ntest_counter_free_world_uses_authored_input_without_a_synthetic_counter (test_portable_world_skills.WorldSkillContracts.test_counter_free_world_uses_authored_input_without_a_synthetic_counter) ... ok\ntest_late_all_routing_includes_an_add_born_after_creation (test_portable_world_skills.WorldSkillContracts.test_late_all_routing_includes_an_add_born_after_creation) ... ok\ntest_multihit_amount_is_captured_before_named_attack_buff (test_portable_world_skills.WorldSkillContracts.test_multihit_amount_is_captured_before_named_attack_buff) ... ok\ntest_normal_formula_admission_is_world_only_and_explicit (test_portable_world_skills.WorldSkillContracts.test_normal_formula_admission_is_world_only_and_explicit) ... ok\ntest_split_zero_damage_keeps_independent_positive_skill_credit (test_portable_world_skills.WorldSkillContracts.test_split_zero_damage_keeps_independent_positive_skill_credit) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.465s\n\nOK\n",
+        "log_sha256": "bba3a5007f6d8aacd37e08c5ec79cc41cad4ab9661a9d5de2f65023f3f3149d0"
+      },
+      {
+        "pattern": "test_portable_world_skill_formulas.py",
+        "expected_count": 3,
+        "exit_code": 0,
+        "elapsed_seconds": 2.9595623002387583,
+        "stdout": "",
+        "stderr": "test_native_auto_ignores_normal_bonus_but_explicit_normal_formula_uses_it (test_portable_world_skill_formulas.WorldSkillFormulaContracts.test_native_auto_ignores_normal_bonus_but_explicit_normal_formula_uses_it) ... ok\ntest_native_auto_uses_skill_critical_modifiers (test_portable_world_skill_formulas.WorldSkillFormulaContracts.test_native_auto_uses_skill_critical_modifiers) ... ok\ntest_world_packed_formula_matches_the_author_not_auto_family_name (test_portable_world_skill_formulas.WorldSkillFormulaContracts.test_world_packed_formula_matches_the_author_not_auto_family_name) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.462s\n\nOK\n",
+        "log_sha256": "f3fd1a081de4634ce163bef82318bb41eb85711781c2eea3d5854dd9d623e060"
+      },
+      {
+        "pattern": "test_portable_world_pending.py",
+        "expected_count": 6,
+        "exit_code": 0,
+        "elapsed_seconds": 3.0241725998930633,
+        "stdout": "",
+        "stderr": "test_pending_all128_and_counter_free_are_literal_inputs (test_portable_world_pending.PendingContracts.test_pending_all128_and_counter_free_are_literal_inputs) ... ok\ntest_pending_does_not_drain_ordinary_children_early (test_portable_world_pending.PendingContracts.test_pending_does_not_drain_ordinary_children_early) ... ok\ntest_pending_lands_on_creation_frame (test_portable_world_pending.PendingContracts.test_pending_lands_on_creation_frame) ... ok\ntest_pending_overrides_normal_formula_in_authored_packing (test_portable_world_pending.PendingContracts.test_pending_overrides_normal_formula_in_authored_packing) ... ok\ntest_pending_quantities_precede_counter_field_changes (test_portable_world_pending.PendingContracts.test_pending_quantities_precede_counter_field_changes) ... ok\ntest_pending_snapshot_excludes_later_cast_buff (test_portable_world_pending.PendingContracts.test_pending_snapshot_excludes_later_cast_buff) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.559s\n\nOK\n",
+        "log_sha256": "1d7ce07388d5eddd714735a13477a4efbd6f1d7ef9d352b51b5eecbdfbe8894c"
+      }
+    ],
+    "cpu_short": {
+      "exit_code": 0,
+      "elapsed_seconds": 4.672885099891573,
+      "stdout": "CPU37 inputs/native26 full battles exact;GPU build/execute0\n",
+      "stderr": ""
+    },
+    "passed": true,
+    "existing_processes_before": [
+      {
+        "ProcessId": 50280,
+        "ParentProcessId": 37152,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Program Files\\Adobe\\Adobe Creative Cloud Experience\\libs\\node.exe"
+      },
+      {
+        "ProcessId": 22352,
+        "ParentProcessId": 49432,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 52368,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 48552,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 88460,
+        "ParentProcessId": 52368,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 78480,
+        "ParentProcessId": 21248,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 82656,
+        "ParentProcessId": 16548,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 79388,
+        "ParentProcessId": 43740,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 30948,
+        "ParentProcessId": 79388,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      },
+      {
+        "ProcessId": 85912,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 41916,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 81864,
+        "ParentProcessId": 85912,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 49332,
+        "ParentProcessId": 89372,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 52272,
+        "ParentProcessId": 82076,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 34260,
+        "ParentProcessId": 38076,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 65636,
+        "ParentProcessId": 34260,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      },
+      {
+        "ProcessId": 88488,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 94564,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 108984,
+        "ParentProcessId": 99436,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 52072,
+        "ParentProcessId": 94564,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 30096,
+        "ParentProcessId": 52284,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 89084,
+        "ParentProcessId": 1856,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 97460,
+        "ParentProcessId": 89084,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      },
+      {
+        "ProcessId": 45700,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 25116,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 98012,
+        "ParentProcessId": 45700,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 20276,
+        "ParentProcessId": 47180,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 100380,
+        "ParentProcessId": 52156,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 99260,
+        "ParentProcessId": 81148,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 41076,
+        "ParentProcessId": 99260,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      },
+      {
+        "ProcessId": 29416,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 108740,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 73004,
+        "ParentProcessId": 12156,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 75572,
+        "ParentProcessId": 108740,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 109200,
+        "ParentProcessId": 108732,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 45456,
+        "ParentProcessId": 61172,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 95808,
+        "ParentProcessId": 45456,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      },
+      {
+        "ProcessId": 83896,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 91724,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 88888,
+        "ParentProcessId": 43088,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 88848,
+        "ParentProcessId": 91724,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 74616,
+        "ParentProcessId": 75528,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 69100,
+        "ParentProcessId": 55324,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 69872,
+        "ParentProcessId": 69100,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      }
+    ],
+    "cpu_short_report": {
+      "passed": true,
+      "input_count": 37,
+      "native_oracles": 26,
+      "input_sha256": "d82c389e4e8eeb6e483b15b25136e1c723bdc99f4c1c754516cda20d8eb1d5b4",
+      "source_sha256": {
+        "gpu/world_pending_entry.slang": "d1043328c670ac3a4837414eeb871edf94a1afac2de95d42b646b0d358ba931c",
+        "gpu/world_skill_entry.slang": "433216610c518f8c2c3f122eb1aa886ae53e197d72b4307ded1cb90dfa278a98",
+        "gpu/counter_field_entry.slang": "1147bde65aa343ceb5d3473efb43f86f0a0f0225c6ae3ffa118b62d11ec14745",
+        "gpu/counter_context_entry.slang": "7387fc06a72bc9b984f8b29d46655a549ab56e154cd9f0924dc0533b9f787073",
+        "gpu/counter_landing_entry.slang": "695560a33534df60e9f31359622f6a197d14d2eb4b072371520955c9eacde7bf",
+        "gpu/target_counter_entry.slang": "af78f0f0cc55734578c0a86f48d5cd36750dd3ae4589be405d81d962293a4666",
+        "gpu/event_runtime.slang": "a7ef05380c66765e66d824b46d1b78f710465ddfeaefc657523e973894c1ba31",
+        "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+        "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+        "gpu/portable_schema.slang": "beb3ffb727f8529423eeeb91ee5c4da441ed3f5025791afb0ddff636a6ac7c48",
+        "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
+        "gpu/runtime_init.slang": "54ad60a47e8c25a48c9e3640d7610e34d5dc968b2136a4944a753d676423a123",
+        "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+        "gpu/world_overlay_runtime.slang": "c212ded55ab5047ffbb7c30b2e6195c467482eb82109b37373b7f483a3fcac6b",
+        "gpu/geometry_runtime.slang": "8e8018af3959fde2f794c147aff2387464d4f486be17088cf260da41d48f8ef5",
+        "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+        "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+        "gpu/reference_runtime.slang": "3ea6e2b3d617728568a4455097ae2f139466127729026b3011dbb3d930b72a05",
+        "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+        "gpu/bullet_runtime.slang": "2cda4cfed0e7ffd31076ea48050b7be71cd8312779483b13d7c150c4ccd5d23a",
+        "gpu/rank_runtime.slang": "6862c849997a111e228286b553b9043a6035fbf150b9c831130da6171d271526",
+        "gpu/lazy_runtime.slang": "b85b0adbd024b0284e9d87528e353456cb02edcc92ee2b39fb0f50193bd21310",
+        "gpu/enemy_buff_runtime.slang": "2792634ce3d474f994842c0b9307270fad52bfb2f3b1c1ada7a30649c383bc9c",
+        "gpu/carrier_runtime.slang": "d9c747c32c02bc1cd4acce3a1fdc648dc1060f9edc16607146e06ae7b279da09",
+        "gpu/quantity_runtime.slang": "273b41c41a1ba5600f2bbe996e620089354d12fd861a6e0df15a57cd8788549e",
+        "gpu/health_runtime.slang": "b2e1dbe1d77dc87fecbd3fe177c853eb49121a2386dfa437804c7047908312b0",
+        "gpu/lifesteal_runtime.slang": "625056b08a41d3856c862f2d5aef42fd8ec3f1cbef492b15d503ab1eaf03f596",
+        "gpu/cover_runtime.slang": "eb1b4a4e7c9683b615a160f3010e0e50a5da9d9a7f0425b471c83b1d625dffe6",
+        "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+        "gpu/hp_attack_runtime.slang": "2bb2bdcca7a86353ad8cff2de5908037fd344e4091e07eb92abcaac9093e1a21",
+        "gpu/recipient_runtime.slang": "c9a5acde13e4a7f43dcb3b5ebebdafdce5c6b730e848eeb49e26e35d1cb051bf",
+        "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+        "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+        "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
+        "gpu/damage_runtime.slang": "4eddaa1ce1041839a8d54fc89375a386562c3ac3065daa72aa3035b81899adc5",
+        "gpu/incoming_runtime.slang": "3d32bee084317b63a3c00e8b94a9397196f4a8a39efc6a78a8efd74d90f1985c",
+        "gpu/burst_runtime.slang": "0f924f0b48008d41979119ae61e5a3cb9432f8e862ff84532990d6b86d5301f4",
+        "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+        "gpu/enemy_damage_runtime.slang": "94110711ef4f94cf0590b3ac097daaa6f3a8cc5a16ddfc92607a37234b95f82d",
+        "gpu/landing_runtime.slang": "36a22364895381973fb9910b0ebd947c333bc936006e6817dd1d8406a8b8323e",
+        "gpu/periodic_runtime.slang": "574670587e48ff1bfc0498e2ba7b71a86c1285b2281649e46bd9e5ef877f21b9",
+        "gpu/removal_runtime.slang": "3ceef53de6428a10ac764a5d65e6f3ea9f9fdee12003a0f4d7a9a4189d73381b",
+        "gpu/duration_extend_runtime.slang": "028445e661b12f54a8dc48da3b3438b0c4df7b1da833a4b63a54c84ac18a1081",
+        "gpu/stack_runtime.slang": "6fc751bf2eed141b8ef99beb1e38d923a3e2f29dd0c33320ab9857c9cdcd5fc0",
+        "gpu/status_runtime.slang": "6646639edfbfda07d2ef4d2b32183aa617d447621b1b17bf548f3e2b3233b6f7",
+        "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+        "gpu/pending_burst_runtime.slang": "123a5cc65a66f4e18cda0fc36b3aa1a95c832c7c157c6a8ecb63d55290ec6fcd",
+        "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+        "gpu/world_frame_addresses.slang": "d1606c64d97393118479cb0c4e75edb84d0a79c37e6f7dbbbdb80107915ec6ae",
+        "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+        "gpu/protection_runtime.slang": "768eefaec94ee16a561a471c0400506f2b9c13ac3b8756693be1bbbcafc4bdd2",
+        "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+        "gpu/world_actor_pools.slang": "854ac5e7485113d385f9fc086449f74f4a6228c63426fe12c4bda43c8d6a98f0",
+        "gpu/world_actor_fields.slang": "57486d1c8b30ec31ab1e1dfb066cc3a739210516eef3020b37f6f808f974b8ef",
+        "gpu/world_actor_state.slang": "ae247dffff4e82346679563fce5108b0580b14738552302f9256fff4d4117d89",
+        "gpu/world_actor_mutation.slang": "e866d0145e275dffd0ec17577d04177471c2d360bed0d493f6c93a2d9c12151c",
+        "gpu/world_actor_recipients.slang": "f7eb33cbe737cd6e6c729f6ca8c15d015256c2844f9d9a44fd1f6c646e34cab7",
+        "gpu/world_actor_status.slang": "296fac14e47b7ee42668d3fd2d044d05bef18fe7e4c68441d0eb0333ad5eb1b8",
+        "gpu/world_actor_stacks.slang": "38864ac1f81c3f9591f8273b318e37ee31b76a5ddf2de8a2c2a711db29323e8f",
+        "gpu/target_counter_runtime.slang": "333fb70b70f3009948221887075a873ea844b20ea1a0d53977f61272cee5a92f",
+        "gpu/counter_landing_runtime.slang": "67b6865c3e72beb2861c85493778e5a9a628f303e39d652b05c0e9754ff7bcbe",
+        "gpu/counter_context_runtime.slang": "aa3e9cf52e85feb2146467496954fcb6dd4f4eac8ebf9c1cdacdcaf38b1ea21b",
+        "gpu/counter_field_runtime.slang": "d972af3f7f9fd596a4c3732c79e344ce547532471374066c72dfeba3012153aa",
+        "gpu/world_skill_runtime.slang": "0500244591491f0fb79bc95f7966c278aa47ed6656971782d47669ad60c63748",
+        "gpu/world_actor_registry.slang": "f803ee00db756eed3edd48586e3fcc94b4f750f0990f97c9ff8732da07f08477",
+        "gpu/world_frame_runtime.slang": "8738d3d4b1dc75ac918c608e8320ed62e5afe979bc4f152a4856d7dc1c5c496f",
+        "gpu/combat_runtime.slang": "3e6f0cfbf7be5545441ab6fa6a32256cd8a7c95fd552511209867d62341d9d32",
+        "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+        "gpu/weapon_runtime.slang": "feed269a352ccbb822b3d36659e3a701d0db4d7623bff421ad136bc2f23212f7",
+        "gpu/world_overlay_weapon.slang": "111d2f3569a5347e8c61752591fe0e3081be5050a521e549d1956c61e0c056f7",
+        "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+        "gpu/admission_runtime.slang": "c9f16fd54e0c81b4a5de0bbe8d44bf2ef1718d7d0e4a1306d0bc6be3ed4a9b47",
+        "gpu/portable_mt19937.slang": "116f6a7ee3cf8e069db171aace0c06a1b160c3d25b0975451125929b68dd3b61",
+        "gpu/enemy_target_runtime.slang": "bb88cf05d475109cf34e6fca4099ce71096cecc8ba03c72995cce8de15a0b730"
+      },
+      "gpu_calls": {
+        "build": 0,
+        "execute": 0
+      }
+    }
+  },
+  "original_head_equal": true,
+  "original_status_equal": true,
+  "existing_gpu_service_preserved": true,
+  "residual_verification_process_count": 0,
+  "actual_gpu_execution_count": 1,
+  "normal4682_execution_count": 0,
+  "old208_execution_count": 0,
+  "old285_execution_count": 0,
+  "old357_execution_count": 0,
+  "old424_execution_count": 0,
+  "old461_execution_count": 0,
+  "old484_execution_count": 0,
+  "old529_execution_count": 0,
+  "old590_execution_count": 0,
+  "old622_execution_count": 0,
+  "old663_execution_count": 0,
+  "old721_execution_count": 0,
+  "old783_execution_count": 0,
+  "old833_execution_count": 0,
+  "old841_execution_count": 0,
+  "gpu_retry_count": 0,
+  "phase_rows": [
+    {
+      "monotonic_ns": 2373683500000000,
+      "pid": 109648,
+      "stage": "shared_world_pending_short",
+      "state": "entered",
+      "wall_time_ns": 1792544258700083700
+    },
+    {
+      "monotonic_ns": 2373686031000000,
+      "pid": 109648,
+      "stage": "slang_build",
+      "state": "entered",
+      "wall_time_ns": 1792544261245326600
+    },
+    {
+      "monotonic_ns": 2373690515000000,
+      "pid": 109648,
+      "stage": "slang_build",
+      "state": "returned",
+      "wall_time_ns": 1792544265720499300
+    },
+    {
+      "monotonic_ns": 2373690531000000,
+      "pid": 109648,
+      "stage": "nvrtcCreateProgram",
+      "state": "entered",
+      "wall_time_ns": 1792544265740718700
+    },
+    {
+      "monotonic_ns": 2373690531000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "nvrtcCreateProgram",
+      "state": "returned",
+      "wall_time_ns": 1792544265742255700
+    },
+    {
+      "monotonic_ns": 2373690531000000,
+      "pid": 109648,
+      "stage": "nvrtcCompileProgram",
+      "state": "entered",
+      "wall_time_ns": 1792544265743763000
+    },
+    {
+      "monotonic_ns": 2373709906000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "nvrtcCompileProgram",
+      "state": "returned",
+      "wall_time_ns": 1792544285109106700
+    },
+    {
+      "monotonic_ns": 2373709906000000,
+      "pid": 109648,
+      "stage": "nvrtcGetProgramLogSize",
+      "state": "entered",
+      "wall_time_ns": 1792544285110117900
+    },
+    {
+      "monotonic_ns": 2373709906000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "nvrtcGetProgramLogSize",
+      "state": "returned",
+      "wall_time_ns": 1792544285111134400
+    },
+    {
+      "monotonic_ns": 2373709906000000,
+      "pid": 109648,
+      "stage": "nvrtcGetProgramLog",
+      "state": "entered",
+      "wall_time_ns": 1792544285111651500
+    },
+    {
+      "monotonic_ns": 2373709906000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "nvrtcGetProgramLog",
+      "state": "returned",
+      "wall_time_ns": 1792544285111651500
+    },
+    {
+      "monotonic_ns": 2373709906000000,
+      "pid": 109648,
+      "stage": "nvrtcGetPTXSize",
+      "state": "entered",
+      "wall_time_ns": 1792544285112655500
+    },
+    {
+      "monotonic_ns": 2373709906000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "nvrtcGetPTXSize",
+      "state": "returned",
+      "wall_time_ns": 1792544285113159600
+    },
+    {
+      "monotonic_ns": 2373709906000000,
+      "pid": 109648,
+      "stage": "nvrtcGetPTX",
+      "state": "entered",
+      "wall_time_ns": 1792544285115711400
+    },
+    {
+      "monotonic_ns": 2373709906000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "nvrtcGetPTX",
+      "state": "returned",
+      "wall_time_ns": 1792544285117228700
+    },
+    {
+      "monotonic_ns": 2373709906000000,
+      "pid": 109648,
+      "stage": "nvrtcDestroyProgram",
+      "state": "entered",
+      "wall_time_ns": 1792544285117228700
+    },
+    {
+      "monotonic_ns": 2373709906000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "nvrtcDestroyProgram",
+      "state": "returned",
+      "wall_time_ns": 1792544285118771800
+    },
+    {
+      "monotonic_ns": 2373709921000000,
+      "pid": 109648,
+      "stage": "cuInit",
+      "state": "entered",
+      "wall_time_ns": 1792544285120839300
+    },
+    {
+      "monotonic_ns": 2373709937000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuInit",
+      "state": "returned",
+      "wall_time_ns": 1792544285146298000
+    },
+    {
+      "monotonic_ns": 2373709937000000,
+      "pid": 109648,
+      "stage": "cuDeviceGet",
+      "state": "entered",
+      "wall_time_ns": 1792544285146298000
+    },
+    {
+      "monotonic_ns": 2373709937000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuDeviceGet",
+      "state": "returned",
+      "wall_time_ns": 1792544285147810500
+    },
+    {
+      "monotonic_ns": 2373709937000000,
+      "pid": 109648,
+      "stage": "cuDeviceGetName",
+      "state": "entered",
+      "wall_time_ns": 1792544285148819300
+    },
+    {
+      "monotonic_ns": 2373709937000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuDeviceGetName",
+      "state": "returned",
+      "wall_time_ns": 1792544285148819300
+    },
+    {
+      "monotonic_ns": 2373709937000000,
+      "pid": 109648,
+      "stage": "cuCtxCreate_v2",
+      "state": "entered",
+      "wall_time_ns": 1792544285149825200
+    },
+    {
+      "monotonic_ns": 2373710031000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuCtxCreate_v2",
+      "state": "returned",
+      "wall_time_ns": 1792544285230262200
+    },
+    {
+      "monotonic_ns": 2373710031000000,
+      "pid": 109648,
+      "stage": "cuModuleLoadData",
+      "state": "entered",
+      "wall_time_ns": 1792544285232300700
+    },
+    {
+      "monotonic_ns": 2373783593000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuModuleLoadData",
+      "state": "returned",
+      "wall_time_ns": 1792544358803035900
+    },
+    {
+      "monotonic_ns": 2373783593000000,
+      "pid": 109648,
+      "stage": "cuModuleGetFunction",
+      "state": "entered",
+      "wall_time_ns": 1792544358804561200
+    },
+    {
+      "monotonic_ns": 2373783593000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuModuleGetFunction",
+      "state": "returned",
+      "wall_time_ns": 1792544358806099300
+    },
+    {
+      "monotonic_ns": 2373783593000000,
+      "pid": 109648,
+      "stage": "cuMemAlloc_v2",
+      "state": "entered",
+      "wall_time_ns": 1792544358807634700
+    },
+    {
+      "monotonic_ns": 2373783609000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuMemAlloc_v2",
+      "state": "returned",
+      "wall_time_ns": 1792544358808637400
+    },
+    {
+      "monotonic_ns": 2373783609000000,
+      "pid": 109648,
+      "stage": "cuMemAlloc_v2",
+      "state": "entered",
+      "wall_time_ns": 1792544358809140300
+    },
+    {
+      "monotonic_ns": 2373783609000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuMemAlloc_v2",
+      "state": "returned",
+      "wall_time_ns": 1792544358809140300
+    },
+    {
+      "monotonic_ns": 2373783609000000,
+      "pid": 109648,
+      "stage": "cuModuleGetGlobal_v2",
+      "state": "entered",
+      "wall_time_ns": 1792544358810645700
+    },
+    {
+      "monotonic_ns": 2373783609000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuModuleGetGlobal_v2",
+      "state": "returned",
+      "wall_time_ns": 1792544358810645700
+    },
+    {
+      "monotonic_ns": 2373783609000000,
+      "pid": 109648,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "entered",
+      "wall_time_ns": 1792544358811650000
+    },
+    {
+      "monotonic_ns": 2373783609000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "returned",
+      "wall_time_ns": 1792544358813662600
+    },
+    {
+      "monotonic_ns": 2373783625000000,
+      "pid": 109648,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "entered",
+      "wall_time_ns": 1792544358828681100
+    },
+    {
+      "monotonic_ns": 2373783625000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "returned",
+      "wall_time_ns": 1792544358837462100
+    },
+    {
+      "monotonic_ns": 2373783625000000,
+      "pid": 109648,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "entered",
+      "wall_time_ns": 1792544358837462100
+    },
+    {
+      "monotonic_ns": 2373783625000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "returned",
+      "wall_time_ns": 1792544358838979200
+    },
+    {
+      "monotonic_ns": 2373783625000000,
+      "pid": 109648,
+      "stage": "cuLaunchKernel",
+      "state": "entered",
+      "wall_time_ns": 1792544358838979200
+    },
+    {
+      "monotonic_ns": 2373783656000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuLaunchKernel",
+      "state": "returned",
+      "wall_time_ns": 1792544358857834400
+    },
+    {
+      "monotonic_ns": 2373783656000000,
+      "pid": 109648,
+      "stage": "cuCtxSynchronize",
+      "state": "entered",
+      "wall_time_ns": 1792544358859340800
+    },
+    {
+      "monotonic_ns": 2373789859000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuCtxSynchronize",
+      "state": "returned",
+      "wall_time_ns": 1792544365059474000
+    },
+    {
+      "monotonic_ns": 2373789890000000,
+      "pid": 109648,
+      "stage": "cuMemcpyDtoH_v2",
+      "state": "entered",
+      "wall_time_ns": 1792544365092040900
+    },
+    {
+      "monotonic_ns": 2373789890000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuMemcpyDtoH_v2",
+      "state": "returned",
+      "wall_time_ns": 1792544365099640900
+    },
+    {
+      "monotonic_ns": 2373789906000000,
+      "pid": 109648,
+      "stage": "cuCtxDestroy_v2",
+      "state": "entered",
+      "wall_time_ns": 1792544365118765100
+    },
+    {
+      "monotonic_ns": 2373790828000000,
+      "pid": 109648,
+      "return_code": 0,
+      "stage": "cuCtxDestroy_v2",
+      "state": "returned",
+      "wall_time_ns": 1792544366037645900
+    },
+    {
+      "monotonic_ns": 2373792265000000,
+      "pid": 109648,
+      "stage": "shared_world_pending_short",
+      "state": "returned",
+      "wall_time_ns": 1792544367467137000
+    }
+  ],
+  "stdout": "CUDA/Metal37 input/output/native26/generated exact\n",
+  "stderr": "",
+  "capture_directory": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-world-ea1eccc\\research\\portable-build\\v95-cuda-once",
+  "raw_directory": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-world-ea1eccc\\research\\portable-build\\world-pending-cuda-short",
+  "bounded_driver": {
+    "path": "C:/Users/owner/Documents/Codex/v95-bounded-local.py",
+    "sha256": "d0da5cd6633eb5851ceeb39f25ddbf7e05338c872d25a44619a5b68a73243e41",
+    "shared_containment": "research/run-world-bounded.py",
+    "shared_phase_audit": "research/portable_phase_audit.py",
+    "shared_gpu_command": "python research/verify-world-pending-short.py --backend cuda"
+  },
+  "postcheck": {
+    "residual_verification_process_count": 0,
+    "existing_gpu_service_preserved": true,
+    "original_head": "61a43e91301841c272badce519e4d8984bb5efae",
+    "original_status": [],
+    "existing_processes_missing": [],
+    "existing_processes_after": [
+      {
+        "ProcessId": 50280,
+        "ParentProcessId": 37152,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Program Files\\Adobe\\Adobe Creative Cloud Experience\\libs\\node.exe"
+      },
+      {
+        "ProcessId": 22352,
+        "ParentProcessId": 49432,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 52368,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 48552,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 88460,
+        "ParentProcessId": 52368,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 78480,
+        "ParentProcessId": 21248,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 82656,
+        "ParentProcessId": 16548,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 79388,
+        "ParentProcessId": 43740,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 30948,
+        "ParentProcessId": 79388,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      },
+      {
+        "ProcessId": 85912,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 41916,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 81864,
+        "ParentProcessId": 85912,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 49332,
+        "ParentProcessId": 89372,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 52272,
+        "ParentProcessId": 82076,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 34260,
+        "ParentProcessId": 38076,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 65636,
+        "ParentProcessId": 34260,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      },
+      {
+        "ProcessId": 88488,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 94564,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 108984,
+        "ParentProcessId": 99436,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 52072,
+        "ParentProcessId": 94564,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 30096,
+        "ParentProcessId": 52284,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 89084,
+        "ParentProcessId": 1856,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 97460,
+        "ParentProcessId": 89084,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      },
+      {
+        "ProcessId": 45700,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 25116,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 98012,
+        "ParentProcessId": 45700,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 20276,
+        "ParentProcessId": 47180,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 100380,
+        "ParentProcessId": 52156,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 99260,
+        "ParentProcessId": 81148,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 41076,
+        "ParentProcessId": 99260,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      },
+      {
+        "ProcessId": 29416,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 108740,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 73004,
+        "ParentProcessId": 12156,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 75572,
+        "ParentProcessId": 108740,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 109200,
+        "ParentProcessId": 108732,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 45456,
+        "ParentProcessId": 61172,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 95808,
+        "ParentProcessId": 45456,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      },
+      {
+        "ProcessId": 83896,
+        "ParentProcessId": 38128,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 91724,
+        "ParentProcessId": 38128,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\Documents\\Blender\\blender_mcp\\mcp\\.venv-py310\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 88888,
+        "ParentProcessId": 43088,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 88848,
+        "ParentProcessId": 91724,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "ProcessId": 74616,
+        "ParentProcessId": 75528,
+        "Name": "node.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\OpenAI\\Codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe"
+      },
+      {
+        "ProcessId": 69100,
+        "ParentProcessId": 55324,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Local\\uv\\cache\\archive-v0\\ou9TlD4je5kO7WAw\\Scripts\\python.exe"
+      },
+      {
+        "ProcessId": 69872,
+        "ParentProcessId": 69100,
+        "Name": "python.exe",
+        "ExecutablePath": "C:\\Users\\owner\\AppData\\Roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe"
+      }
+    ]
+  }
+}

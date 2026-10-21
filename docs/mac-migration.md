@@ -1,3 +1,19 @@
+## 2026-10-21 pendingを共通Actor着弾へ接続しMetal878・CUDA37で実証
+
+計算source6bd7ab48095984d76ebdd5b291f56e0c99a5032e・private ABI83/mode9で、B3 pendingを128Actorの共通着弾helperへ接続しました。通常skillとpendingは同じ選択・世代検査・HP/counter/lifestealを使い、既存のソフトウェアbinary64・reference・後続buff除外・全数量を先に捕捉する二段階を保持します。pendingだけ同フレームで着弾し、full_burst_startやcounter子が作った通常skillは次フレームまで通常queueに残ります。明示normal_attack式よりB3 plain bonus pendingが優先するnative契約を共通packerへ反映しました。
+
+Metal878＝native26実戦＋不正11＋旧841（833＋8）全524288word一致が初回成功しました。Apple M5でcommand completed、GPU 0.924025秒、全input/readbackを保存済み。CPU399検査、旧11entryのCUDA/MSL生成物厳密一致、保存raw/Git source/native/着弾trace/実際のpending容器から観測したenqueued・fired・countのGPU禁止監査にも成功。128対象、7rank、reference欠落/0/2、名前付き3hits、buff順序、counterが変える前の一括数量、add死亡、回復を含みます。通常画面の全キャラ認証ではありません。
+
+直接skill入口はActor着弾本体の共通helperへの切り出しで生成コードが変わりました。これを旧12entry厳密一致と誤記しないでください。旧11entryは厳密一致、直接skillを含む旧841は全出力word保持です。生成測定はportable-world-pending-refactor-generation.json、実証と監査はportable-world-pending-validation.jsonとseal-world-pending-metal.pyです。CUDA/Metal別実装やCPU計算済み数量の入力はありません。GPU計1回、同一source/input retry0。
+
+Windows v95は固定ea1eccc0e23d22f7cfede3437fd76dedf6dec0fe（15ファイル297084bytes）で成功しました。CPU48検査・GPU禁止37入力/native26・source SHA74照合後、BelowNormal/JobObject/start gate/180秒/cleanup5秒でCUDA1回、109.304244秒・exit0。保存3JSON計76674bytesだけを取得し、全input/output/native/trace/generated fingerprint・API50phase・元HEAD/status/service保持・残存0・retry0・旧841以下/通常4682再実行0を共通監査器で確認しました。portable-world-v95-cuda-validation.json、seal-world-v95-cuda.py。turn01a15bf5-799c-7bb1-a476-b5948bbaf2f6はcompleted、cursor164、idle。再実行依頼は不要です。
+
+次のDoTはCPU11実戦を固定しました。通常timer tickはBM更新で作成され同フレームのqueue drainへ入り、射撃counterで適用したimmediate DoTは次のtimer更新で初めて生成されます（作成0→次フレーム着弾の通常skillとは数量捕捉時刻も異なる）。後続buffをその最初のtickが読む対照も保存しました。適用時の対象membershipは後から出現したwaveを含まず、tickごとに現在の数値を読み、refresh/own stacks/expiryを保持します。portable-world-dot-skill-native-contract.jsonと初回CPU観測を参照。初回は観測値の生成時刻を通常skillと同一視したassertが不正で、実測を残して修正しました。DoTのGPU受付は未接続のままです。
+
+次は既存periodic timer/stack/数量計算を使い、8bitのperiodic対象maskを128Actorの捕捉membership・世代へ接続する必要があります。liveなlate-routingの直接skillと混同しないでください。timers→通常queue drain→burst/射撃のnative順序を保持し、DoTだから常に即時着弾とする別経路は作りません。
+
+通常画面CPU・public world false・全203変種認証0、legacy unexplained Metal14c8e2e OPEN、全ゴール未完了を維持します。DoT/source攻撃/interrupt・skill追加part到達、動的操作/復活、全効果組合せ、容量/長時間/全変種認証、nativeの永続条件付き味方HP/防御とhit-only max-HP rankの不整合が残ります。計算処理の効率化は必要な検証後。GitHub共有はゴール達成まで利用者許可済みです。
+
 ## 2026-10-21 auto_damageの数値契約をMetal8・CUDA8で実証
 
 計算sourceef12e0940259d64bb48ed252ef1836b52ef4bfa7で、world入力のauto_damageは明示normal_attack式がある場合だけ通常攻撃計算を使うよう共通packerを修正しました。通常攻撃専用damage/critical補正と全攻撃critical補正、1hit/3hitsをnative8実戦で区別し、Metal8のbattle・着弾traceが完全一致しました。default242、normal専用damage50でも242、明示normal式なら363、全攻撃critical50なら298です。CPU393検査に成功し、従来のnon-world auto契約は保持します。
