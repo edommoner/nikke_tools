@@ -20,7 +20,7 @@ def prepare_static_inputs(prepared, stats):
                 allies=[dict(base_hp=base[c['name']]['hp'],base_defense=base[c['name']]['def']) for c in chars],
                 weapons=[normalize_static_weapon(c,base[c['name']]['atk'],enemy) for c in chars],
                 enemy=copy.deepcopy(enemy),policies=dict(config=copy.deepcopy(prepared.config),
-                    controls={c['name']:copy.deepcopy(c.get('control',{})) for c in chars},auto=prepared.auto,expected=prepared.expected),
+                    controls={c['name']:copy.deepcopy(c.get('control',{})) for c in chars},auto=prepared.auto,expected=prepared.expected,seed=prepared.seed),
                 cpu_battle_executed=False,full_battle_connected=False,all_character_effects_included=True)
 
 

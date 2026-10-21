@@ -107,6 +107,10 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     if stack is not None and stack[0] in (20,21):allowed |= {'scaling','scaling_ref'}
     if resource_op in (2,3):allowed |= {'minimum_remaining'}
     if eff.get('type')=='buff':allowed=allowed | {'duration_bullets','event_scope'}
+    from portable_revival_specs import validate as validate_revival
+    try:validate_revival(eff,combat=combat,world_frame=world_frame)
+    except ValueError as error:raise UnsupportedPortable(str(error),reason='effect') from error
+    if 'persist_on_revive' in eff:allowed |= {'persist_on_revive'}
     effect_allowed=allowed | ({'scaling'} if eff.get('stat') in ('heal_hp_pct','cover_heal_pct','cover_hp_pct','shield_heal_pct','decoy_heal_pct') or eff.get('type')=='damage' and eff.get('stat')=='dot_damage' else set()) | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','cover_during_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
     if set(eff)-effect_allowed:
         fields=sorted(set(eff)-effect_allowed)
@@ -166,7 +170,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
         except ValueError as error:raise UnsupportedPortable(str(error)) from error
     elif kind=='instant':
         if protection or cleansing is not None or stack is not None or removal is not None or extension is not None or source_spec or resource_op in (1,2,3):pass
-        elif stat in ('skill_cooldown_reduce_pct','force_reload','ammo_charge_pct','ammo_charge_flat','heal_hp_pct','cover_heal_pct','cover_revive','current_hp_reduce','burst_cooldown_reduce','burst_charge_pct'):
+        elif stat in ('revive','skill_cooldown_reduce_pct','force_reload','ammo_charge_pct','ammo_charge_flat','heal_hp_pct','cover_heal_pct','cover_revive','current_hp_reduce','burst_cooldown_reduce','burst_charge_pct'):
             if not recipient_admitted(target,instant=True):raise UnsupportedPortable('Unported health recipient selector')
             if eff.get('scaling') not in (None,'max_hp') or stat not in ('heal_hp_pct','cover_heal_pct','current_hp_reduce') and eff.get('scaling') is not None:raise UnsupportedPortable('Unported healing basis')
         elif stat not in ('remove_named_buff','force_skill_use','burst_reentry'):
@@ -199,7 +203,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
             raise UnsupportedPortable('Invalid '+key,reason='bounds')
 
 
-def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None, enemy_targeting=None, world_frame=False, world_notice_names=()):
+def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None, enemy_targeting=None, world_frame=False, world_notice_names=(), allied_seed=19):
     import detail_gpu as legacy
     from portable_stack_specs import plan as stack_plan,operation as stack_operation,value as stack_value,pack_metadata as pack_stack_metadata
     check_schema()
@@ -301,6 +305,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         scratch=[0]*8;pack_node(scratch,0,node,dict(L,RECIPIENT_BASE=0),{'type':'buff','target':'self'},0,False,0)
         at=L['RECIPIENT_NODE_BASE']+index*8;words[at:at+8]=scratch
     words[L['RECIPIENT_META_BASE']]=len(nodes)
+    revival_ordered=any(e.get('stat')=='revive' or e.get('persist_on_revive') for e,_ in effects)
+    words[L['RECIPIENT_META_BASE']+1]=int(revival_ordered)
     def target_key(target):return tuple(target_key(x) for x in target) if isinstance(target,list) else target
     recipient_limits=dict(L,_AUTHORED_DEFINITIONS=len(effects))
     lazy_groups={}
@@ -340,7 +346,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if removal is not None and removal[0]==1:pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
         if removal is not None and removal[0]==2:
             packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS'];words[packet:packet+8]=[*removal[1],0,0,0,0,0,0]
-        if row[1] in (0,4,5,6,7,8,12,13,14,22,23,24,27,30,31):pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],target_key(effects[index][0].get('target'))),0) if effects[index][0].get('type')=='buff' else 0)
+        if row[1] in (0,4,5,6,7,8,12,13,14,22,23,24,27,29,30,31):pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],target_key(effects[index][0].get('target'))),0) if effects[index][0].get('type')=='buff' else 0)
         if effects[index][0].get('type')=='damage':
             route,count,hits=damage_plan(effects[index][0])
             from portable_reference_specs import hit_reference
@@ -440,6 +446,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if row[1]==2:
             from portable_combat import pack_mode
             pack_mode(words,index,row,double_words)
+    from portable_revival_specs import pack as pack_revival
+    pack_revival(words,L,effects,program['effects'],allied_seed)
     from portable_geometry_specs import pack as pack_geometry
     pack_geometry(words,geometry,effects,program['effects'],chars,L,double_words)
     from portable_burst_charge_specs import required as needs_burst_references,from_roster as burst_references_from_roster,pack as pack_burst_references
@@ -572,7 +580,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         from reference_health_runtime import enabled as reference_health_sync
         if not reference_health_sync(SimpleNamespace(_effects=effects)):
             words[L['HP_UNCLAMP_POLICY']]=1
-    return words,dict(**binding_metadata,enemy_targeting=target_metadata,mode_entry_enabled=any(words[L['MODE_BASE']+j*L['MODE_WORDS']+30] for j in range(len(effects))),probability_definitions=probability_definitions(effects),ordered_recipients=bool(nodes),protection_enabled=bool(words[L['PROTECTION_META_BASE']] or any(c[1] in (31,32) for c in script)),status_policy=words[L['STATUS_META_BASE']],status_names=program['states'],stack_operators=any(stack_operation(e) for e,_ in effects),enemy_buff_definitions=[enemy_buff_plan(e) is not None for e,_ in effects],native_landing=native_landing,source_definitions=[dict(name=next((k for k,v in program['states'].items() if v==int(row[304])),None),owner=int(row[0]),legacy=bool(row[137])) if int(row[1])==35 else None for row in program['effects']],source_query_indices=source_query_indices,resource_names=list(resource_keys),resource_query_indices=sorted(resource_query_indices),states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
+    return words,dict(**binding_metadata,enemy_targeting=target_metadata,mode_entry_enabled=any(words[L['MODE_BASE']+j*L['MODE_WORDS']+30] for j in range(len(effects))),probability_definitions=probability_definitions(effects),ordered_recipients=bool(nodes) or revival_ordered,protection_enabled=bool(words[L['PROTECTION_META_BASE']] or any(c[1] in (31,32) for c in script)),status_policy=words[L['STATUS_META_BASE']],status_names=program['states'],stack_operators=any(stack_operation(e) for e,_ in effects),enemy_buff_definitions=[enemy_buff_plan(e) is not None for e,_ in effects],native_landing=native_landing,source_definitions=[dict(name=next((k for k,v in program['states'].items() if v==int(row[304])),None),owner=int(row[0]),legacy=bool(row[137])) if int(row[1])==35 else None for row in program['effects']],source_query_indices=source_query_indices,resource_names=list(resource_keys),resource_query_indices=sorted(resource_query_indices),states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
 
 
 def decode(words,metadata):

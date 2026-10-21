@@ -49,12 +49,14 @@ uint64_t effectiveDefense(inout Runtime s, uint who, uint64_t when)
 void syncHealthActor(inout Runtime s, uint who, uint64_t when)
 {
     if ((s.downMask & (1U << who)) != 0) { s.hp[who] = 0; s.hpPct[who] = 0; return; }
+    bool nullPrevious=revivalNullHP(s,who);
     uint64_t previous = s.hpPct[who], maximum = effectiveMaxHP(s,who,when);
     if (s.error != 0) return;
     s.hp[who] = larger(0,commands[s.inputBase+P_HP_UNCLAMP_POLICY]!=0 ? s.hp[who] : smaller(maximum,s.hp[who]));
     s.hpPct[who] = f64Mul(f64Div(s.hp[who],maximum),HUNDRED);
     if (!f64Finite(s.hpPct[who])) { s.error = 16; return; }
-    if (s.hpWatchCount != 0 && s.hpEdgeGuard == 0 && !f64Equal(previous,s.hpPct[who]))
+    revivalClearNull(s,who);
+    if (!nullPrevious && s.hpWatchCount != 0 && s.hpEdgeGuard == 0 && !f64Equal(previous,s.hpPct[who]))
     {
         if ((s.hpPendingMask & (1U << who)) != 0) { s.error = 64; return; }
         s.hpPrevious[who] = previous; s.hpNext[who] = s.hpPct[who]; s.hpPendingMask |= 1U << who;

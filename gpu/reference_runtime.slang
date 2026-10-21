@@ -121,7 +121,7 @@ bool validateReferences(inout Runtime s)
             if (key==0 || key>s.resourceCount || name!=commands[s.inputBase+P_RESOURCE_NAME_BASE+key-1]) return false;
         }
         Definition d=readDefinition(s.inputBase,row);
-        if ((d.flags&~511U)!=0 || uint((d.flags&4)!=0)!=uint(scale!=0)) return false;
+        if ((d.flags&~3583U)!=0 || uint((d.flags&4)!=0)!=uint(scale!=0)) return false;
         bool directHealth=(d.alliedFlags&1)!=0 || d.stat==S_def_caster_based_pct || (d.stat>=S_max_hp_pct&&d.stat<=S_max_hp_only_pct) || d.stat==S_max_hp_from_max_hp_pct;
         if ((d.flags&256U)!=0 && (d.kind!=0 || d.enemyBuff!=0 || s.combat==0 || !directHealth || (d.flags&2)==0 || !f64Less(d.duration,0))) return false;
         if ((d.flags&128U)!=0 && (d.kind!=0 || d.stat!=S_enemy_def_down_pct || d.alliedFlags!=1 || d.enemyBuff!=0 || s.combat==0 || scale!=0 || commands[s.inputBase+P_RECIPIENT_BASE+row*8]!=0)) return false;

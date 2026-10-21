@@ -51,6 +51,8 @@ def read_result(block,meta,case):
  logs=[];query_pattern={};plan=[];down_by_query={}
  for i in range(block[head+2]):
   at=head+2832+i*6;kind,node,arg=block[at:at+3];time=num(at+3)
+  if kind==6:
+   plan.append(dict(revive_after_downs=arg,time=time));continue
   if kind==3:
    if block[at+5]!=0:query=block[at+5]-1
    elif block[0]!=0 and i==block[head+5]-1 and block[head+7]!=0:query=block[head+8]
@@ -62,9 +64,17 @@ def read_result(block,meta,case):
   at=WF_HITS+i*16;tag,flags=block[at+2:at+4];assert tag&1
   hits.append(dict(time=num(at),pattern=query_pattern[tag>>5],owner=(flags>>3)&7,damage=num(at+4),pierce=bool(flags&1),shield=num(at+6),cover=num(at+8),decoy=num(at+10),hp=num(at+12),hp_after=num(at+14),down=bool(flags&4)))
   if flags&4:down_by_query.setdefault(tag>>5,[]).append(dict(time=num(at),pattern=query_pattern[tag>>5],event='down',outcome=''))
+ pending=[];delivered_downs=0
+ def drain(limit=None):
+  nonlocal delivered_downs
+  while pending and (limit is None or delivered_downs<limit):logs.append(pending.pop(0));delivered_downs+=1
  for item in plan:
-  if isinstance(item,dict):logs.append(item)
-  else:logs.extend(down_by_query.get(item,[]))
+  if not isinstance(item,dict):pending.extend(down_by_query.get(item,[]));continue
+  if 'revive_after_downs' in item:
+   drain(item['revive_after_downs']);assert delivered_downs==item['revive_after_downs']
+   logs.append(dict(time=item['time'],pattern='',event='revive',outcome=''))
+  else:drain();logs.append(item)
+ drain()
  q=ordinary['queries'][-1] if ordinary['queries'] else dict(damage=[],allies=ordinary['allies'],covers=ordinary['covers'],combat=dict(weapons=[]))
  return dict(graph_states=[list(block[head+16+i*24:head+16+(i+1)*24]) for i in range(32)],graph_history=[list(block[head+784+i*4:head+784+(i+1)*4]) for i in range(block[head+1])],status=ordinary['status'],damage=q['damage'],allies=[{k:a[k] for k in ('hp','max_hp','hp_pct','defense','down','received_damage','received_hits')} for a in q['allies']],covers=[{k:a[k] for k in ('hp','max_hp','effective_max_hp')} for a in q['covers']],shots=[w['shots'] for w in q['combat']['weapons']],ammo=[w['ammo'] for w in q['combat']['weapons']],hits=hits,boss_log=logs,rng=ordinary['enemy_rng'],target_queries=[list(block[WF_TARGETS+i*8:WF_TARGETS+(i+1)*8]) for i in range(block[head+7])],ordinary=ordinary)
 def main():

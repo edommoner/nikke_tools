@@ -47,8 +47,20 @@ class RealWorldInputTests(unittest.TestCase):
         self.assertEqual(w[L['WORLD_ACTOR_INPUT_BASE']+1],3)
 
     def test_unsupported_effect_never_filtered(self):
-        p=prepared();p['effects'].append(dict(owner=NAMES[0],effect=dict(name='unconnected',type='instant',stat='revive',fixed_value=50,target='all_allies',trigger=dict(timing=['battle_start'],condition=[]))))
+        p=prepared();p['effects'].append(dict(owner=NAMES[0],effect=dict(name='unconnected',type='instant',stat='unknown_unconnected_instant',fixed_value=50,target='all_allies',trigger=dict(timing=['battle_start'],condition=[]))))
         with self.assertRaises(ValueError):compile_world_battle(p)
+
+    def test_real_seed_is_preserved_and_packed_for_revival_without_battle(self):
+        from portable_revival_specs import MAGIC
+        p=engine_worker.evaluate(dict(body_for(NAMES,3,grown=True),seed=42,burst_gauge_mode='accumulate',_portable_static_inputs=True))
+        self.assertEqual(p['policies']['seed'],42)
+        p['effects'].append(dict(owner=NAMES[0],effect=dict(name='revive-seed',type='instant',stat='revive',fixed_value=50,target='all_allies',trigger=dict(timing=['battle_start'],condition=[]))))
+        with patch.object(timeline,'simulate',side_effect=AssertionError('No CPU battle')),patch.object(portable_backend,'execute',side_effect=AssertionError('No GPU')):
+            words,_=compile_world_battle(p)
+        rows=[i for i in range(words[1]) if words[L['DEFINITION_BASE']+i*L['DEFINITION_WORDS']+F['KIND']]==29]
+        self.assertTrue(rows)
+        for i in rows:
+            at=L['MODE_BASE']+i*L['MODE_WORDS'];self.assertEqual(words[at:at+4],[MAGIC,42,0,0])
 
     def test_unmodeled_policy_rejected(self):
         for field,value in [('burst_gauge_mode','time'),('aim_interrupt',True),('unknown',1)]:

@@ -2,8 +2,9 @@ bool validRecipientLeaf(uint at, bool enemy = false)
 {
     uint kind = commands[at], count = commands[at+1], mask = commands[at+2];
     if (enemy) return kind == 4 && count == 0 && mask == 0 && commands[at+3] == 0 && commands[at+4] == 0 && commands[at+5] == 0 && commands[at+6] < P_DEFINITIONS && (commands[at+7] & ~7U) == 0;
-    if (kind > 21 || (kind == 17 || kind == 19 || kind == 20) || kind == 4 || kind == 14 || count > 5 || mask > 31 || commands[at+3] > (kind == 12 || kind == 13 ? 2 : 1)) return false;
+    if (kind > 23 || (kind == 17 || kind == 19 || kind == 20) || kind == 4 || kind == 14 || count > 5 || mask > 31 || commands[at+3] > (kind == 12 || kind == 13 ? 2 : 1)) return false;
     if ((kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16 || kind == 21) && count == 0) return false;
+    if((kind==22 || kind==23) && (count==0 || commands[at+3]!=0 || commands[at+4]!=0 || commands[at+5]!=0 || (commands[at+7]>>4)!=0)) return false;
     if(kind==18 && (count!=0 || commands[at+3]!=0 || commands[at+4]!=0 || commands[at+5]!=0 || (commands[at+7]>>4)!=0)) return false;
     uint order = commands[at+4], seen = 0; bool ended = false;
     if (order >> 15 != 0 || commands[at+6] >= P_DEFINITIONS || (commands[at+7] & 8) != 0 || (commands[at+7] >> 4) > P_DEFINITIONS) return false;
@@ -21,7 +22,8 @@ bool validRecipientPlan(uint at,bool enemy,uint input)
     if(commands[at]!=17) return validRecipientLeaf(at,enemy);
     uint total=commands[input+P_RECIPIENT_META_BASE],count=commands[at+1],first=commands[at+2];
     if(enemy || total>P_RECIPIENT_NODES || count==0 || count>21 || first>total || count>total-first || commands[at+3]!=0 || commands[at+4]!=0 || commands[at+5]!=0 || commands[at+6]>=P_DEFINITIONS || (commands[at+7]&~7U)!=0) return false;
-    for(uint word=1;word<8;word++) if(commands[input+P_RECIPIENT_META_BASE+word]!=0) return false;
+    if(commands[input+P_RECIPIENT_META_BASE+1]>1) { return false; }
+    for(uint word=2;word<8;word++) if(commands[input+P_RECIPIENT_META_BASE+word]!=0) return false;
     for(uint node=0;node<count;node++) if(!validRecipientLeaf(input+P_RECIPIENT_NODE_BASE+(first+node)*8)) return false;
     return true;
 }
@@ -33,7 +35,20 @@ uint selectRecipientLeaf(inout Runtime s, uint row, uint at, uint64_t when, out 
     Definition d = readDefinition(s.inputBase,row);
     uint kind = commands[at], count = commands[at+1], candidates = commands[at+2];
     uint exclude = commands[at+3], authoredOrder = commands[at+4];
-    if (kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16) return rankedRecipientsAt(s,row,at,when,order);
+    if (kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16 || kind==22) return rankedRecipientsAt(s,row,at,when,order);
+    if(kind==23)
+    {
+#ifdef PORTABLE_WORLD_PROJECTILE
+        if(!revivalEnabled(s)) { s.error=64;order=0;return 0; }
+        uint pool[5],size=0;for(uint who=0;who<5;who++) if((candidates&s.downMask&(1U<<who))!=0) pool[size++]=who;
+        if(size==0) { order=0;return 0; }
+        uint ignored,mask=0;uint sampled=mtSampleFive(s.resourceOutput+P_REVIVAL_RNG_BASE,size,min(count,size),ignored);order=0;
+        for(uint i=0;i<min(count,size);i++) { uint who=pool[((sampled>>(i*3))&7)-1];mask|=1U<<who;order|=uint64_t(who+1)<<(i*3); }
+        return mask;
+#else
+        s.error=64;order=0;return 0;
+#endif
+    }
     if (kind == 21) return coverRecipients(s,count,order);
     if (kind == 0)
     {

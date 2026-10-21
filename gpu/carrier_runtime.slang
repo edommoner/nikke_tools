@@ -4,7 +4,7 @@
 uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t when,uint incomingGeneration,uint64_t incomingOrder)
 {
     Definition incoming = readDefinition(s.inputBase,definition);
-    bool ordered=commands[s.inputBase+P_RECIPIENT_META_BASE]!=0 && incoming.enemyBuff==0 && incoming.lazyGroup==0 && incoming.bulletDuration==0;
+    bool ordered=(commands[s.inputBase+P_RECIPIENT_META_BASE]!=0 || commands[s.inputBase+P_RECIPIENT_META_BASE+1]!=0) && incoming.enemyBuff==0 && incoming.lazyGroup==0 && incoming.bulletDuration==0;
 #ifndef PORTABLE_CARRIER_SCAN_REFERENCE
     // Most real definitions have one carrier and no compatible name aliases.
     // Avoid a growing resident scan on first activation and ordinary refresh.

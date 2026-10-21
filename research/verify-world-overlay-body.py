@@ -64,12 +64,12 @@ def read_overlay_result(block,meta,case):
  original=[];patched=array.array('I',block);head=L['WORLD_FRAME_OUTPUT_BASE']
  for i in range(block[head+2]):
   at=head+2832+i*6;kind=block[at]
-  if kind==3:continue
+  if kind in (3,6):continue
   original.append(kind)
   if kind==4:patched[at]=1
  actual=f.read_result(patched,meta,case);index=0
  for item in actual['boss_log']:
-  if item['event']=='down':continue
+  if item['event'] in ('down','revive'):continue
   kind=original[index];index+=1
   if kind==4:item['event']='dispel'
  assert index==len(original)

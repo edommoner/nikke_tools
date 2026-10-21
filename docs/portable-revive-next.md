@@ -1,3 +1,5 @@
+現在の実装と検証は`docs/portable-revival.md`を参照してください。以下は着手前の契約と履歴です。
+
 # 蘇生を共通実行器へ接続する次の範囲
 
 ATK倍率79の次候補として、静的inventoryで複数プロファイルを止めている`revive`を調査しました。まだGPU受付・native同値の認定は行っていません。`projectile_dmg_pct`／`shield_dmg_pct`／`heal_split`はpinned calculator内のconsumerを確認できないため、無効果受付によるpacking件数の増加は行いません。

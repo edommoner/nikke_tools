@@ -26,7 +26,7 @@ uint rankedRecipientsAt(inout Runtime s, uint definition, uint at, uint64_t when
     uint kind = commands[at], count = commands[at+1], owner = definition_owner(s.inputBase,definition);
     uint pool = kind == 15 || kind == 16 ? commands[at+2] : 31;
     if (commands[at+3] != 0) pool &= ~(1U << owner);
-    pool &= ~s.downMask;
+    if(kind==22) pool &= s.downMask & ~(1U<<owner);else pool &= ~s.downMask;
     uint slots[5], size = 0; uint64_t keys[5];
     for (uint who = 0; who < 5; who++) if ((pool & (1U << who)) != 0)
     {

@@ -52,18 +52,18 @@ SUITES['stun']=dict(script='research/verify-world-stun-short.py',golden='researc
 SUITES['burst-recipients-diagnostic']=dict(SUITES['burst-recipients'],source='gpu/world_projectile_admission_entry.slang',development_only=True)
 SUITES['roster-regression']=dict(script='research/verify-world-roster-regression-short.py',
     golden='research/portable-world-roster-regression-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=80,native=80,
+    source='gpu/world_projectile_entry.slang',inputs=86,native=86,
     tests=['test_portable_roster_regression.py','test_portable_real_binding_proof.py'])
 SUITES['skill-cooldown']=dict(script='research/verify-world-skill-cooldown-short.py',
     golden='research/portable-world-skill-cooldown-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=25,native=21,
     tests=['test_portable_skill_cooldown.py','test_portable_typed_recipient_delegation.py'])
 SUITES['regression']=dict(script='research/verify-world-regression-short.py',
-    golden='research/portable-world-attack-magnitude-regression-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=718,native=570,
+    golden='research/portable-world-revival-notify-regression-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=759,native=602,
     tests=['test_portable_regression_adapter.py','test_portable_roster_regression.py',
            'test_portable_readiness.py','test_portable_stun.py','test_portable_typed_recipient_delegation.py',
-           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py','test_portable_skill_interval_flat.py','test_portable_lazy_bank.py','test_portable_compiler_stats.py','test_portable_base_copy.py','test_portable_seal.py','test_portable_persona.py','test_portable_compile_cache.py','test_portable_named_magnitude.py','test_portable_enemy_selection.py','test_portable_capture_storage.py','test_portable_attack_magnitude.py'])
+           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py','test_portable_skill_interval_flat.py','test_portable_lazy_bank.py','test_portable_compiler_stats.py','test_portable_base_copy.py','test_portable_seal.py','test_portable_persona.py','test_portable_compile_cache.py','test_portable_named_magnitude.py','test_portable_enemy_selection.py','test_portable_capture_storage.py','test_portable_attack_magnitude.py','test_portable_revive_reference.py','test_portable_revival.py'])
 SUITES['healing-storage']=dict(script='research/verify-world-healing-storage-short.py',
     golden='research/portable-world-healing-storage-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=51,native=39,development_only=True,
@@ -119,6 +119,9 @@ SUITES['enemy-selection']=dict(script='research/verify-world-enemy-selection-sho
 
 SUITES['enemy-selection-diagnostic']=dict(SUITES['enemy-selection'],source='gpu/world_projectile_admission_entry.slang',require_rejection_stage=True)
 SUITES['roster-skill-diagnostic']=dict(SUITES['roster-admission-diagnostic'],source='gpu/world_projectile_skill_diagnostic_entry.slang')
+
+SUITES['revive']=dict(script='research/verify-world-revive-short.py',golden='research/portable-world-revive-short-expected.json',source='gpu/world_projectile_entry.slang',inputs=35,native=26,development_only=True,tests=['test_portable_revive_reference.py','test_portable_revival.py'])
+SUITES['revive-diagnostic']=dict(SUITES['revive'],source='gpu/world_projectile_admission_entry.slang',require_rejection_stage=True)
 
 SCHEMA = 1
 # Controller validation has no numeric program to execute. Keep its CPU work

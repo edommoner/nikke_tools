@@ -58,9 +58,9 @@ def decoded(block,meta,c,bindings):
   if block[at]==5:patched[at]=1;destroy.append(i)
  actual=body.read_overlay_result(patched,meta,c);index=0
  for item in actual['boss_log']:
-  if item['event']=='down':continue
+  if item['event'] in ('down','revive'):continue
   # Attack records do not appear in boss_log.
-  while block[head+2832+index*6]==3:index+=1
+  while block[head+2832+index*6] in (3,6):index+=1
   if index in destroy:item.update(event='destroy',outcome='')
   index+=1
  def number(at):return struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]

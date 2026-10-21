@@ -34,12 +34,16 @@ void knockDown(inout Runtime s, uint who, uint64_t when)
     for (uint key = 0; key < s.resourceCount; key++) setResourceValue(s,who*P_RESOURCE_KEYS+key,0);
     uint bit = 1U << who; s.downMask |= bit; s.hp[who] = 0; s.hpPct[who] = 0;
     s.hpPendingMask &= ~bit; s.hpDirtyMask &= ~bit;
-    for (uint row = 0; row < s.carrierCount; row++)
+    if(revivalEnabled(s)) results[revivalAt(s)+who]=0;
+    for (uint pass = 0; pass < (revivalEnabled(s) ? s.orderedCount : s.carrierCount); pass++)
     {
+        uint row=revivalEnabled(s) ? s.orderedRows[pass] : pass;
         Definition d = residentDefinition(s,row);
-        if ((d.kind == 0 || d.kind == 4) && s.alive[row] != 0 && s.lazyPending[row] == 0)
+        if ((d.kind == 0 || d.kind == 4) && s.alive[row] != 0 && s.lazyPending[row] == 0 && (d.flags&1024U)==0 && (!revivalEnabled(s) || (s.activeRecipients[row]&bit)!=0))
         {
+            revivalRemember(s,who,row);
             s.activeRecipients[row] &= ~bit;
+            if(revivalEnabled(s)) storeCarrierOrder(s,row,filterRemovalOrder(carrierOrder(s,row),s.activeRecipients[row]&31,3,21));
             if (d.bulletDuration != 0) { s.recipientBullets[row*5+who] = 0; s.recipientStacks[row*5+who] = 0; }
             if (s.activeRecipients[row] == 0) { unlinkBulletCarrier(s,row); s.alive[row] = 0; s.stacks[row] = 0; }
         }
@@ -56,6 +60,7 @@ void knockDown(inout Runtime s, uint who, uint64_t when)
     s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who]; s.modeEntryUntil[who] = F64_SIGN | ONE;
     s.charging[who] = 0; s.reloadUntil[who] = F64_SIGN | ONE; s.postReloadUntil[who] = F64_SIGN | ONE; s.pendingAutoReload[who] = 0; WORLD_CONTROL_RELOAD(s,who)
     syncHealth(s,when);
+    revivalRecord(s,1,who,when,0);
 }
 void writeIncoming(inout Runtime s, uint output)
 {

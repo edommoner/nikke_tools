@@ -34,11 +34,19 @@ def fixtures():
     c['patterns'].insert(0,dict(id='caster-down',kind='attack',delay=.2,spec=dict(atk=1e8,coeff=100,target='slot:3',pierce=True,hits=1)))
     c=add('finite-passive');c['effects'].append(field('max_hp_pct',25,'self','finite-passive',timing='passive',duration=.8));c['owners'].append(0)
     c=add('bullet-passive');c['effects'].append(field('atk_pct',25,'self','bullet-passive',timing='passive',duration_bullets=100));c['owners'].append(0)
-    c=add('charge-reset');c['combat']['weapons'][0].update(mode='charge',charge=.5,full_charge_mult=250,capacity=3)
+    c=add('charge-reset');c['combat']['weapons'][0].update(mode='charge',charge=.5,interval=.6,min_cycle=.6,full_charge_mult=250,capacity=3)
     c=add('restored-max-ammo');c['effects'].append(field('max_ammo_flat',7,'self','extra-ammo',timing='passive'));c['owners'].append(0)
     from calculator import timeline
     role=timeline._NIKKE[names[0]]['class']
     c=add('class-random');c['effects'][-1]['target']='allies_down_class_random:'+role+':1'
     c=add('class-random-self');c['effects'][-1].update(target='allies_down_class_random:'+role+':1');c['effects'][-1]['trigger']['timing']=['event:self_down'];c['owners'][-1]=0
     c=add('class-random-empty');c['effects'][-1]['target']='allies_down_class_random:'+timeline._NIKKE[names[1]]['class']+':1'
+    for label,target,persist in [('marker-self','self',False),('marker-shared','all_allies',False),('preserved-marker','self',True)]:
+        c=add(label);c['effects'].append(field('persona_state',0,target,'persona-marker',timing='passive',persist_on_revive=persist));c['owners'].append(0)
+    c=add('self-down-broadcast');c['effects'][-1]['target']='allies_down_class_random:'+role+':1';c['effects'][-1]['trigger']['timing']=['event:self_down'];c['owners'][-1]=0
+    c['effects'].append(field('atk_pct',11,'all_allies','notified-after-self-revive',timing='event:ally_down'));c['owners'].append(0)
+    for seed in (0,42):
+        c=copy.deepcopy(next(c for c in rows if c['name']=='revive-class-random'));c.update(name='revive-class-random-seed-'+str(seed),seed=seed);c['environment']['allied_seed']=seed;rows.append(c)
+    for label,parent in [('shared-no-renotify','shared-permanent'),('own-renotify','own-permanent')]:
+        c=add(label);c['effects'].append(field('atk_pct',13,'all_allies','named-child',timing='event:'+parent,max_stack=10));c['owners'].append(0)
     return rows

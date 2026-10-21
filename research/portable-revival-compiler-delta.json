@@ -1,0 +1,17 @@
+{
+  "baseline_source_sha256": "d725459d88367578e6c4721636e9025627d2a0011aefc1cd28982ca1aedb8b89",
+  "candidate_source_sha256": "2a87b95802c138cbe1802a8fb3f98761a0093d492b540a842fecce8fb9253e13",
+  "delta": {
+    "source_bytes": 30670,
+    "functions": 12,
+    "noinline_functions": 0
+  },
+  "runtime_declared_fields_identical": true,
+  "runtime_size_estimate_bytes": 138928,
+  "actorSetCapture_noinline": true,
+  "gpu_calls": 0,
+  "nvrtc_compile_calls": 0,
+  "compiler_memory_improvement_verified": false,
+  "scope": "Generated CUDA lexical measurements only; not physical CUDA ABI, register allocation, compiler peak or speed.",
+  "explanation": "Revival continuation and immutable definition ledger, distinct global MT bank, no extra shared-carrier named notification. No new Runtime arrays."
+}

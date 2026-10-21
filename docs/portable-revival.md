@@ -1,0 +1,37 @@
+# 蘇生の共通GPU実行器
+
+`revive`を共通Slangの通知DFSへ接続しました。CUDA／Metalで効果・数値・fixture・比較器を共有し、backend別の蘇生計算は追加していません。今回の実機検証はMetalで、最新版CUDAの計算一致を意味しません。
+
+## 状態と実行順
+
+失われた永続効果は、再利用可能なresident slotではなくimmutable definition番号の登録順で保持します。一人512個・5人分の一覧、HPの未同期状態、味方選択用MTと128件の復帰traceを、既存出力strideの未使用域766752以降へ配置しました。Runtime配列は追加していません。容量を超えた場合は成功にしません。
+
+戦闘不能時は通常の対象除去・資源／個人counter／行動resetを行い、`persist_on_revive`を残します。数値buffとmarker buffの元typeを区別し、instantを永続buffとして復活させません。共有carrierが残る場合はそのidentityとstackを保って対象を末尾へ戻し、消滅したcarrierはstartup passive／battle_start・無限持続・無限bullet・生存casterの規約を調べて再発動します。新しいbuffを作る処理は既存のactivation子フレームへ渡します。
+
+復帰途中のHP比率は未同期として扱い、補正後の最大HP×指定％から最終HPを決めます。最初の同期からHP閾値イベントを捏造しません。満弾・即時射撃時刻・charge／reload／cover解除は同じフレームで戻します。自己蘇生はself_downの完了後に生存者を確定してally_downを配信し、復帰した本人の通知も落としません。
+
+`allies_down_top_atk_excl:N`と`allies_down_class_random:class:N`は生存者filterとは別の対象規約です。クラスrandomは敵パターンの専用RNGと別のMT状態を持ち、CPUが使うglobal seedをMODEのliteral metadataから初期化します。基本fixtureはseed19、追加ケースはseed0／42です。実編成はRunPlan.seedを保持して転送します。回数上限は抽選前に検査し、正本が行う事前対象照会のsampleを捨ててから実対象をsampleします。1候補でも抽選し、空集合では消費しません。
+
+蘇生ログは既存の敵破壊kind5を保ち、新kind6を使用します。GPUが記録した累計down数を使い、同じ攻撃で5人が倒れる場合も正しいdown→revive→残りdown順にdecoderで戻します。共有対象順はcompositeでない入力でも外部order planeへ保存します。既存の未定義512 flag拒否は維持し、1024をpersist、2048をmarker buffの元typeとして個別に検査します。
+
+## 検証と原失敗
+
+CPU正本契約26ケース、GPUの独立31入力（native22／拒否9）と、追加seed0／42の2入力、共有再追加／新規再生成の通知対照2入力を共有します。正本の全戦闘・skill trace、HP・射撃・再装填・named stateと対象順、復帰trace、global RNG全624語＋位置を比較し、負例は意図したstage403／26も検査します。期待値や比較項目を緩めていません。
+
+初回27の対象packing漏れ、修正版27の対象順／ログ出力、ログkind5衝突、30入力のcharge最低周期とglobal RNG事前抽選の差分を、それぞれ失敗のまま保持しています。charge fixtureはintervalだけでなくmin_cycleも静的metadataと一致させました。CPU負例の「reviveは未対応」は、対応に伴い未知instantへ移し、不明な効果が取り除かれない検査を維持しました。
+
+独立31はMetal全件一致です。実編成には新規3プロファイル（ディーゼル：ウィンタースイーツ／ラプンツェル／マナ）の全定義・3秒／30秒を追加しました。静的packing213/266・base153/203・83分類は入力変換の範囲で、実戦や全キャラの認定数ではありません。過去の物理履歴省略・容量制約は残ります。
+
+## 続く範囲
+
+通常UIはCPU、全キャラGPU認定0、最新版CUDA数値一致未確認です。Windows追加実行は0で、cold compiler allocation failureの同条件再試行や上限拡大はしません。生成CUDAの規模とRuntime宣言の差分は測りますが、compilerメモリや速度の改善量には換算しません。
+
+HP条件付きpassiveの一部には、pinned CPUが復帰中のNone比率を比較してTypeErrorにする既知の参照制約があります。過去のAlice／Solinのprobeは成功と読み替えず、今回26fixtureの範囲と区別します。全組合せ・反復・容量境界の認定ではありません。projectile_dmg_pct／shield_dmg_pct／heal_splitは参照consumer未確認で無効果受付しません。cover_def_pctと敵移動効果もpinned calculator内のconsumerを確認できていません。次の候補は正本consumerを確認したweapon_changeのentry_reloadと、damageの最大HP basisです。entry_reloadはentry_delay省略時だけreload_timeへfallbackし、初弾前の同じ待機処理へ入ります。
+
+## seed転送と確定した集約検証
+
+初期755は全計算が一致してsealしましたが、実編成のstatic preparationがRunPlan.seedを保持せず、fixture既定19が使われていました。新規6実編成はglobal RNG抽選0回だったため検出できていませんでした。この結果とfindingを保持し、real seedをpoliciesへ保持してMODEへ渡し、seed42のpackingをGPU禁止で検査しました。さらにseed0／42で実際の蘇生抽選を行う2ケースを追加しました。
+
+最終Metal759（native602／拒否157）は全件一致し、GPU0の独立sealを行いました。旧718の全input／raw／nativeは、無損失archiveの全展開SHAを再検査しながら保持確認しました。独立31は診断tailとpeak／total work2語の明示的減少を除く全raw、全759のlazy bankゼロも一致。新規6実編成の物理履歴省略はすべて0です。旧ミハラ／persona等の履歴省略は残り、そのpacket個別一致までの認定ではありません。最終CPU731件中730成功・Windows専用1skip・失敗0です。
+
+共有carrier再追加で名前付き通知を再発火しない正本規約を修正し、再追加／新規再生成の対照2ケースを追加しました。初期757の限定成功結果とfindingを保持しています。生成CUDAの差分はcompiler-delta記録を参照してください。Runtime全fieldは同一で推定138,928byteです。compiler peak／速度／実CUDA ABIの実証ではありません。詳細は`research/portable-revival-development-checkpoint.json`、`portable-revival-notify-retention.json`、`portable-revival-compiler-delta.json`を参照してください。

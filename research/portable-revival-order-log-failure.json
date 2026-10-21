@@ -1,0 +1,121 @@
+{
+  "package": {
+    "package_id": "54a1621c5f4758ba30e310381b3bc7cd4a38964fa71606913baf939d9089bff7",
+    "files": 1817,
+    "bytes": 4512066,
+    "archive_sha256": "0310252b8ceed83f493bd6605c980deba20a4ae42346c6040e6ca5956826936b",
+    "source_commit": "47cfbd4b7d4af51de77d1369cc5b27f38fdc41de"
+  },
+  "result": {
+    "sealed": false,
+    "purpose": "development",
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "passed": false,
+    "containment_verified": true,
+    "comparison_error": null,
+    "first_difference": {
+      "index": 1,
+      "name": "revive-synchronous",
+      "reason": "AssertionError: ('revive-synchronous', 'boss_log')"
+    },
+    "phase": {
+      "events": 6,
+      "last_event": {
+        "monotonic_ns": 707977549039416,
+        "pid": 26424,
+        "stage": "shared_native_compare",
+        "state": "returned",
+        "wall_time_ns": 1792608827767321000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0
+  },
+  "mismatches": [
+    {
+      "index": 1,
+      "name": "revive-synchronous",
+      "reason": "AssertionError: ('revive-synchronous', 'boss_log')"
+    },
+    {
+      "index": 2,
+      "name": "revive-preserved",
+      "reason": "AssertionError: ('revive-preserved', 'boss_log')"
+    },
+    {
+      "index": 3,
+      "name": "revive-passive-not-periodic",
+      "reason": "AssertionError: ('revive-passive-not-periodic', 'boss_log')"
+    },
+    {
+      "index": 4,
+      "name": "revive-shared-no-double-stack",
+      "reason": "AssertionError: ('revive-shared-no-double-stack', 'boss_log')"
+    },
+    {
+      "index": 5,
+      "name": "revive-once-only",
+      "reason": "AssertionError: ('revive-once-only', 'boss_log')"
+    },
+    {
+      "index": 6,
+      "name": "revive-no-hp-threshold",
+      "reason": "AssertionError: ('revive-no-hp-threshold', 'boss_log')"
+    },
+    {
+      "index": 7,
+      "name": "revive-whole-squad",
+      "reason": "AssertionError: ('revive-whole-squad', 'boss_log')"
+    },
+    {
+      "index": 8,
+      "name": "revive-delayed",
+      "reason": "AssertionError: ('revive-delayed', 'boss_log')"
+    },
+    {
+      "index": 10,
+      "name": "revive-caster-down",
+      "reason": "AssertionError: ('revive-caster-down', 'boss_log')"
+    },
+    {
+      "index": 11,
+      "name": "revive-finite-passive",
+      "reason": "AssertionError: ('revive-finite-passive', 'boss_log')"
+    },
+    {
+      "index": 12,
+      "name": "revive-bullet-passive",
+      "reason": "AssertionError: ('revive-bullet-passive', 'boss_log')"
+    },
+    {
+      "index": 13,
+      "name": "revive-charge-reset",
+      "reason": "AssertionError: ('revive-charge-reset', 'boss_log')"
+    },
+    {
+      "index": 14,
+      "name": "revive-restored-max-ammo",
+      "reason": "AssertionError: ('revive-restored-max-ammo', 'boss_log')"
+    },
+    {
+      "index": 15,
+      "name": "revive-class-random",
+      "reason": "AssertionError: ('revive-class-random', 'boss_log')"
+    },
+    {
+      "index": 16,
+      "name": "revive-class-random-self",
+      "reason": "AssertionError: ('revive-class-random-self', 'boss_log')"
+    }
+  ],
+  "failure_analysis": "Recipient order now matches. Revival log kind5 collided with the existing Actor destruction log kind5; the higher decoder classified it as destroy. Keep existing kind5; introduce distinct revival kind6 and update all decoder layers. Original package/raw retained.",
+  "gpu_retries": 0,
+  "full_goal_complete": false
+}

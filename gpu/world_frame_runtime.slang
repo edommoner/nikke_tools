@@ -81,3 +81,6 @@ void worldFrameFinish(inout Runtime s)
 void worldDispelLog(inout Runtime s,uint node,uint64_t when)
 { WorldSchedule w=frameSchedule(s);wsLog(w,4,node,0,when);s.error=w.error; }
 #endif
+
+void worldReviveLog(inout Runtime s,uint who,uint downs,uint64_t when)
+{ WorldSchedule w=frameSchedule(s);wsLog(w,6,who,downs,when);s.error=w.error; }

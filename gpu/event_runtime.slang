@@ -126,7 +126,7 @@ struct Runtime
 #endif
 #ifdef PORTABLE_WORLD_PROJECTILE
 #define WORLD_PROJECTILE_INIT(s) initializeProjectiles(s);
-#define WORLD_PROJECTILE_KIND(d,legacy) (d.kind==1||d.kind==9||d.kind==10 ? false : (legacy))
+#define WORLD_PROJECTILE_KIND(d,legacy) (d.kind==1||d.kind==9||d.kind==10||d.kind==29 ? false : (legacy))
 #define WORLD_PROJECTILE_CONDITION(s,at,kind,arg) if(kind>=C_GAUGE_ABOVE&&kind<=C_GAUGE_MOD) { if(!validProjectileResourceCondition(s,at,kind,arg)) return false;continue; }
 #define WORLD_PROJECTILE_SKIP_SLOT(event,stage) if(event==26&&stage==2) continue;
 #define WORLD_PROJECTILE_FRAME(s) if(s.error==0) snapshotProjectileParts(s);
@@ -739,7 +739,7 @@ Definition residentDefinition(inout Runtime s, uint slot) { return readDefinitio
 
 uint64_t carrierOrder(inout Runtime s,uint slot)
 {
-    if(commands[s.inputBase+P_RECIPIENT_META_BASE]==0) return s.carrierRecipientOrder[slot];
+    if(commands[s.inputBase+P_RECIPIENT_META_BASE]==0 && commands[s.inputBase+P_RECIPIENT_META_BASE+1]==0) return s.carrierRecipientOrder[slot];
     uint at=s.resourceOutput+P_RECIPIENT_ORDER_BASE+slot*2;
     return uint64_t(results[at])|(uint64_t(results[at+1])<<32);
 }
@@ -752,7 +752,7 @@ uint64_t visibleCarrierOrder(inout Runtime s,uint slot)
 void storeCarrierOrder(inout Runtime s,uint slot,uint64_t order)
 {
     s.carrierRecipientOrder[slot]=uint(order);
-    if(commands[s.inputBase+P_RECIPIENT_META_BASE]!=0) storeNumber(s.resourceOutput+P_RECIPIENT_ORDER_BASE+slot*2,order);
+    if(commands[s.inputBase+P_RECIPIENT_META_BASE]!=0 || commands[s.inputBase+P_RECIPIENT_META_BASE+1]!=0) storeNumber(s.resourceOutput+P_RECIPIENT_ORDER_BASE+slot*2,order);
 }
 struct Sum { uint64_t total; uint64_t correction; };
 void addSum(inout Sum sum, uint64_t term)
@@ -1147,6 +1147,7 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
 #include "skill_critical_runtime.slang"
 #include "damage_runtime.slang"
 #include "incoming_runtime.slang"
+#include "revival_runtime.slang"
 #include "burst_runtime.slang"
 #include "enemy_attack_rank_runtime.slang"
 #include "enemy_damage_runtime.slang"
@@ -1307,6 +1308,15 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
         { depth--; continue; }
+        if(f.mode==30)
+        {
+            if(f.event==0) { frames[depth].value=31U&~s.downMask;frames[depth].event=1; }
+            uint i=frames[depth].cursor++;
+            if(i==5) { depth--;continue; }
+            if((uint(frames[depth].value)&(1U<<i))!=0) pushFrame(s,frames,depth,0,46,i,0,f.time);
+            continue;
+        }
+        if(f.mode==28 || f.mode==29) { advanceRevival(s,frames,depth);continue; }
         if(f.mode==20) { advanceProtectionHit(s,frames,depth);continue; }
         if(f.mode==21)
         {
@@ -1587,7 +1597,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (f.value != 0 && (s.downMask & (1U << f.owner)) == 0)
             {
                 knockDown(s,f.owner,f.time);
-                for (int observer = 4; observer >= 0; observer--) if ((s.downMask & (1U << observer)) == 0) pushFrame(s,frames,depth,0,46,uint(observer),0,f.time);
+                if(revivalEnabled(s)) pushFrame(s,frames,depth,30,0,f.owner,0,f.time);
+                else for (int observer = 4; observer >= 0; observer--) if ((s.downMask & (1U << observer)) == 0) pushFrame(s,frames,depth,0,46,uint(observer),0,f.time);
                 pushFrame(s,frames,depth,0,38,f.owner,0,f.time);
             }
             continue;
@@ -1729,6 +1740,13 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if(s.activations[WORLD_TEAM_BUDGET(s,row)]>=uint(d.budget)) continue;
             WORLD_RANDOM_DISCARD(s,row) if(s.error!=0) break;
         }
+        if(d.kind==29 && d.budget>=0)
+        {
+            if(s.activations[WORLD_TEAM_BUDGET(s,row)]>=uint(d.budget)) continue;
+            uint64_t discardedOrder;
+            if(selectRecipients(s,row,f.time,discardedOrder)==0) continue;
+            if(s.error!=0) break;
+        }
         if(d.kind==15 && f.event!=28 && d.budget>=0 && s.activations[WORLD_TEAM_BUDGET(s,row)]>=uint(d.budget)) continue;
         uint64_t recipientOrder=0;uint recipientMask=f.mode==19 ? uint(f.value) : d.recipients,enemyOrder=0;
         if(stackOperation(d.kind))
@@ -1739,7 +1757,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         }
         if (f.mode!=19 && d.kind==22)
             recipientMask=f64Zero(d.value) ? 0 : selectRecipients(s,row,f.time,recipientOrder);
-        if (f.mode!=19 && (WORLD_RELOAD_FORCE_KIND(d.kind) || d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30 || d.kind==15 || d.kind==26))
+        if (f.mode!=19 && (WORLD_RELOAD_FORCE_KIND(d.kind) || d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30 || d.kind==29 || d.kind==15 || d.kind==26))
         {
             if(d.kind==15 && d.budget<0 && !hasDurationExtensionMembers(s,row)) recipientMask=0;
             else if (d.enemyBuff != 0 || (d.kind==15 || d.kind==26) && d.target==2)
@@ -1859,6 +1877,8 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 healProtection(s,who,kind,amount,f.time);
             }
         }
+        else if(d.kind==29)
+        { pushFrame(s,frames,depth,28,0,d.owner,int(row),f.time,recipientOrder);if(s.error==0) frames[depth].healthValue=d.value; }
         else if (d.kind == 7 || d.kind == 30)
         {
             pushFrame(s,frames,depth,11,0,d.owner,int(row),f.time);
@@ -2250,6 +2270,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     for(uint row=0;row<s.count;row++)
         if(definition_kind(input,row)==0 && !validPortableBuffStat(definition_stat(input,row)))
         { PROJECTILE_ADMIT_STAGE(s,25) results[output]=64;return; }
+    PROJECTILE_ADMIT_STAGE(s,26) if(!initializeRevival(s)) { results[output]=64;return; }
     initializeSkillCritical(s);
     for(uint word=0;word<P_PROBABILITY_STATE_WORDS;word++) results[output+P_PROBABILITY_STATE_BASE+word]=0;
     if(commands[input+P_ENEMY_TARGET_META_BASE]!=0) mtSeed(output+P_ENEMY_RNG_BASE,uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+1])|(uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+2])<<32));

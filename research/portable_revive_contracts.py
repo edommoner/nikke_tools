@@ -24,6 +24,9 @@ def verify(case,native):
         shared=present('shared-permanent');assert len(shared)==1 and shared[0]['stack']==1 and shared[0]['recipients']==([1,3,4,0] if name=='revive-caster-down' else [1,2,3,4,0]),(name,'shared identity/order/stack')
         before=next(e for e in events if e['kind']=='before-down' and e['owner']==0)['state']['active']
         assert shared[0]['identity']==next(a['identity'] for a in before if a['name']=='shared-permanent'),(name,'shared carrier reused')
+        if name in ('revive-marker-self','revive-marker-shared','revive-preserved-marker'):
+            marker=present('persona-marker');assert len(marker)==1 and marker[0]['stack']==1
+            assert marker[0]['recipients']==([1,2,3,4,0] if name=='revive-marker-shared' else [0])
         if name=='revive-preserved':
             marker=present('preserved')[0];after_down=next(e for e in downs if e['owner']==0)['state']['active']
             assert marker['identity']==next(a['identity'] for a in after_down if a['name']=='preserved' and 0 in a['recipients'])
@@ -32,6 +35,12 @@ def verify(case,native):
     if name=='revive-no-hp-threshold':assert not any(e['kind']=='notify' and e['event'].startswith('hp_below:') for e in events)
     if name in ('revive-synchronous','revive-class-random'):
         assert [e['owner'] for e in events if e['kind']=='notify' and e['event']=='event:ally_down']==[1,2,3,4]
+    if name in ('revive-shared-no-renotify','revive-own-renotify'):
+        children=[a for a in native['named_state']['allied_carriers'] if a['name']=='named-child']
+        assert children and any(0 in (a['recipients'] or []) for a in children)==(name=='revive-own-renotify'),(name,'existing versus recreated parent notification')
+    if name=='revive-self-down-broadcast':
+        assert [e['owner'] for e in events if e['kind']=='notify' and e['event']=='event:ally_down']==[0,1,2,3,4]
+        assert any(a['name']=='notified-after-self-revive' for a in native['named_state']['allied_carriers'])
     if name=='revive-once-only':assert native['allies'][0]['down'] and native['allies'][0]['hp']==0
     if name=='revive-delayed':assert ups[0]['time']>downs[0]['time']
     if name=='revive-caster-down':assert native['allies'][2]['down'] and not native['allies'][0]['down']

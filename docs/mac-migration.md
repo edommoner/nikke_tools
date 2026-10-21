@@ -1,3 +1,15 @@
+<!-- revival-notify-current -->
+## seedと通知規約を反映した蘇生の共通実行器とMetal759
+
+現在のsealed CLIはregression759（native602／拒否157）、goldenはportable-world-revival-notify-regression-short-expected.jsonです。reviveの永続definition保持、数値／markerパッシブの復元、persist、共有carrier対象の再追加、HP同期・満弾行動resetと自己蘇生後の通知を共通Slangへ接続しました。味方class randomは敵RNGと別のMT bankを使い、budget前照会で捨てる抽選も含め正本の全stateと位置を一致させています。Runtime配列は追加していません。
+
+独立31（native22／拒否9）に加え、seed0／42で抽選を発火する2入力と、共有再追加／新規再生成の通知対照2入力を集約へ追加しました。実編成のRunPlan.seedもstatic preparationで保持してMODEへ渡します。初期755では実編成6入力が抽選0回だったためfixture既定19の転送漏れを検出できず、成功結果とseed findingを保持しました。実ディーゼル：ウィンタースイーツ／ラプンツェル／マナの全定義3秒／30秒を含む最終759全件一致・GPU0 sealを確認済みです。
+
+旧718全input／raw／nativeはarchive全展開SHAも確認して保持。独立31は診断tailとpeak／total work2語の明示的減少を除くrawと全759のlazy bankゼロも一致。新規6実編成の物理履歴省略は0、既存ミハラ／persona等の省略制約は残ります。途中の対象packing漏れ、対象順／ログ出力、破壊ログkind5衝突、charge最低周期／global RNG事前照会の失敗も保持しています。CPUの旧revive未対応負例は未知instantへ移行。最終CPU731件中730成功・Windows専用1skip・失敗0です。
+
+静的packing213/266・base153/203・83分類、通常UI CPU・全キャラGPU認定0・新版CUDA数値一致未確認・最終目標未完了。Windows追加実行0。共有carrierへの再追加は名前付き通知を再発火せず、新規再生成だけが通常のactivation通知を行う対照2ケースも追加しました。生成CUDA差分は記録を参照。Runtime全field同一・推定138,928byteで、compiler改善ではありません。HP条件付きpassiveの一部でpinned CPUが復帰中None比較のTypeErrorになる参照制約は残し、26fixtureで全組合せを認定したとは扱いません。次は正本consumerがあるentry_reload／damage HP basis等を検討します。詳細docs/portable-revival.mdとdevelopment checkpoint。以下は履歴です。
+<!-- /revival-notify-current -->
+
 <!-- attack-magnitude-current -->
 ## 名前付きATK倍率79とMetal718
 

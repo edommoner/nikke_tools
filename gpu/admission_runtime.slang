@@ -13,7 +13,8 @@ void admitDefinitions(inout Runtime s,uint input)
 #endif
     for(uint word=4;word<P_WORLD_META_WORDS;word++) if(commands[world+word]!=0) { s.error=64;return; }
     if(commands[input+P_RECIPIENT_META_BASE]>P_RECIPIENT_NODES) { s.error=64;return; }
-    for(uint word=1;word<8;word++) if(commands[input+P_RECIPIENT_META_BASE+word]!=0) { s.error=64;return; }
+    if(commands[input+P_RECIPIENT_META_BASE+1]>1) { s.error=64;return; }
+    for(uint word=2;word<8;word++) if(commands[input+P_RECIPIENT_META_BASE+word]!=0) { s.error=64;return; }
     uint refs=input+P_BURST_REFERENCE_BASE;
     if(commands[refs]>1 || commands[refs+1]>31 || commands[refs]!=0 && s.combat==0) { s.error=64;return; }
     for(uint word=2;word<8;word++) if(commands[refs+word]!=0) { s.error=64;return; }
@@ -129,7 +130,7 @@ void admitDefinitions(inout Runtime s,uint input)
         if ((d.kind == 2 || d.kind == 13 || d.kind == 14) && (d.target > 1 || !f64Finite(d.value))) { s.error = 64; break; }
         PROJECTILE_ADMIT_STAGE(s,403)
          s.lazyEnabled |= uint(d.lazyGroup != 0);
-        if ((WORLD_RELOAD_FORCE_KIND(d.kind) || d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 22 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8,d.enemyBuff != 0,input)) { s.error = 64; break; }
+        if ((WORLD_RELOAD_FORCE_KIND(d.kind) || d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 22 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30 || d.kind==29) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8,d.enemyBuff != 0,input)) { s.error = 64; break; }
         if (d.lazyGroup != 0)
         {
             uint plan = input+P_RECIPIENT_BASE+j*8, selector = commands[plan];

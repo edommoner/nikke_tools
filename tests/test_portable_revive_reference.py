@@ -17,7 +17,7 @@ class RevivalReferenceTests(unittest.TestCase):
         from calculator import timeline
         def forbidden(*a,**kw):raise AssertionError('Native/GPU work forbidden in literal construction')
         with patch.object(timeline,'simulate',forbidden),patch.object(portable_runtime,'compile_program',forbidden),patch.object(portable_backend,'execute',forbidden):cases=fixtures()
-        self.assertEqual(len(cases),18);before=copy.deepcopy(cases)
+        self.assertEqual(len(cases),26);before=copy.deepcopy(cases)
         with cli.forbid_gpu(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
             for c in cases:
                 with self.subTest(c['name']):

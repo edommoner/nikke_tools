@@ -141,7 +141,7 @@ def observe(case):
   config=dict(duration=case['duration'],rng_mode='expected',burst_gauge_mode='accumulate',cover_hp=1000,camera_mode=case.get('camera_mode','single'),camera=case.get('camera',[]))
   for key in ('control_mode','sequence'):
    if key in case:config[key]=copy.deepcopy(case[key])
-  try:result=timeline.simulate(squad,config=config,enemy=enemy,seed=19)
+  try:result=timeline.simulate(squad,config=config,enemy=enemy,seed=case.get('seed',19))
   finally:
    if case.get('observe_periodic_skills'):sys.setprofile(previous_profile)
  state=capture['state'];bm=capture['bm'];rng=capture['boss']._rng
