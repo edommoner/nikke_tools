@@ -11,12 +11,12 @@ s=importlib.util.spec_from_file_location('counter_battle_stack','research/verify
 import world_target_counter_battle_cases as cases
 PHYSICAL_ABI=L['COUNTER_LANDING_ABI'];PENDING_ABI=PHYSICAL_ABI
 def fixtures():return cases.fixtures(stack)
-def compile_case(case):
+def compile_case(case, *, allow_no_counter=False):
  c=copy.deepcopy(case);c['effects']=compiler_effects(case['effects']);words,meta,bindings=stack.compile_case(c)
  names=roster_names(case);metadata=authored_metadata(case);chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=metadata[n]) for n in names]
  patch_program(words,meta,chars,[(e,names[o]) for e,o in zip(case['effects'],case['owners'])])
  _,patterns=compile_schedule(dict(patterns=case['patterns'],clock='accumulated',duration=case['duration']),notice_payload=True)
- words[0]=PENDING_ABI;words.extend(pack_battle([(e,o) for e,o in zip(case['effects'],case['owners'])],words[2],names,meta['states'],bindings,patterns))
+ words[0]=PENDING_ABI;words.extend(pack_battle([(e,o) for e,o in zip(case['effects'],case['owners'])],words[2],names,meta['states'],bindings,patterns,allow_no_counter=allow_no_counter))
  assert len(words)==97464;return words,meta,bindings
 if __name__=='__main__':
  for c in fixtures():compile_case(c)

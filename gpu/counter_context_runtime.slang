@@ -19,7 +19,7 @@ void pushCounterContext(inout Runtime s,uint depth,uint mode,uint event)
     if(!counterContextEnabled(s)||s.error!=0) return;
     uint h=counterContextHead(s);
     uint parent=depth==0 ? results[h+8+(results[h]-1)*2] : results[counterContextFrameAt(s,depth-1)];
-    results[counterContextFrameAt(s,depth)]=mode!=0||event==8||event==58 ? parent : 0;
+    results[counterContextFrameAt(s,depth)]=WORLD_SKILL_INHERITS(s,event,mode!=0||event==8||event==58) ? parent : 0;
 }
 void setCounterCompletionContext(inout Runtime s,uint depth,uint ready)
 { if(counterContextEnabled(s)&&s.error==0) results[counterContextFrameAt(s,depth)]=ready+1; }

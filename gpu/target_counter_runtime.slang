@@ -146,7 +146,7 @@ bool initializeTargetCounters(inout Runtime s)
         }
         definitions++;
     }
-    if(definitions==0) return false;
+    if(WORLD_SKILL_EMPTY_COUNTERS(s,definitions==0)) return false;
     // Physical/skill landing integration is a subsequent gate. This literal
     // resource stage cannot silently admit a damage child with no impact hook.
     for(uint row=0;row<s.count;row++)

@@ -2,7 +2,9 @@
 #if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)
 #error World and wide-landing diagnostic layouts cannot be combined.
 #endif
-#ifdef PORTABLE_COUNTER_FIELDS
+#ifdef PORTABLE_WORLD_SKILLS
+static const uint PORTABLE_ABI = 1346721410U;
+#elif defined(PORTABLE_COUNTER_FIELDS)
 static const uint PORTABLE_ABI = 1346721409U;
 #elif defined(PORTABLE_COUNTER_CONTEXT)
 static const uint PORTABLE_ABI = 1346721408U;
@@ -259,6 +261,9 @@ static const uint P_WORLD_ACTOR_INPUT_WORDS = 90536U;
 static const uint P_WORLD_ACTOR_STATE_BASE = 216192U;
 static const uint P_WORLD_ACTOR_QUERY_BASE = 217224U;
 static const uint P_WORLD_ACTOR_STATE_WORDS = 1544U;
+static const uint P_WORLD_SKILL_ABI = 1346721410U;
+static const uint P_WORLD_SKILL_HEAD_BASE = 512184U;
+static const uint P_WORLD_SKILL_TRACE_BASE = 512192U;
 static const uint P_COUNTER_FIELD_ABI = 1346721409U;
 static const uint P_COUNTER_FIELD_WORK_BASE = 512176U;
 static const uint P_COUNTER_CONTEXT_ABI = 1346721408U;

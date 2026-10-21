@@ -82,7 +82,7 @@ def action_words(time, action, names):
     return row
 
 
-def pack(effects, actions, names, state_names):
+def pack(effects, actions, names, state_names, *, allow_no_counter=False):
     """Return a fixed sidecar; definition indexes match the common compiler.
 
     effects contains (authored effect, owner index), not active carriers. Name
@@ -90,6 +90,8 @@ def pack(effects, actions, names, state_names):
     execution and runtime quantities are deliberately absent from this input.
     """
     _squad(names)
+    if type(allow_no_counter) is not bool:
+        raise ValueError('Explicit boolean required for counter-free world inputs')
     if not 0 < len(effects) <= DEFINITIONS or not 0 < len(actions) <= COMMANDS:
         raise ValueError('Counter input capacity exceeded')
     if not isinstance(state_names, dict) or len(state_names) > 256 or any(not isinstance(n, str) or type(i) is not int or not 0 <= i < 256 for n, i in state_names.items()) or len(set(state_names.values())) != len(state_names):
@@ -110,7 +112,7 @@ def pack(effects, actions, names, state_names):
             raise ValueError('Counter name missing from common compiler symbols')
         at = POLICY_BASE + i * POLICY_WORDS
         words[at:at + POLICY_WORDS] = policy_words(effect, owner, state_names[effect['name']])
-    if not definitions:
+    if not definitions and not allow_no_counter:
         raise ValueError('Counter sidecar requires a counter definition')
     for effect, owner in effects:
         if effect.get('stat') in ('buff_stack_add', 'buff_stack_remove', 'buff_stack_init', 'buff_max_stack_add', 'debuff_stack_add', 'debuff_stack_remove') and (owner, effect.get('target_effect')) in definitions:
@@ -126,7 +128,7 @@ def pack(effects, actions, names, state_names):
     return words
 
 
-def pack_battle(effects, command_count, names, state_names, bindings, patterns):
+def pack_battle(effects, command_count, names, state_names, bindings, patterns, *, allow_no_counter=False):
     """Physical-world sidecar: authored policies and static part reach.
 
     Mode1 is rejected by the existing literal-only GPU entry. This encoder
@@ -137,7 +139,7 @@ def pack_battle(effects, command_count, names, state_names, bindings, patterns):
     for effect, owner in effects:
         if specification(effect) is not None and effect.get('target') != 'boss':
             raise ValueError('World counter carrier must explicitly bind the boss sentinel')
-    words = pack(effects, [(0, ('activate',))] * command_count, names, state_names)
+    words = pack(effects, [(0, ('activate',))] * command_count, names, state_names, allow_no_counter=allow_no_counter)
     words[6] = 1
     words[ACTION_BASE:] = [0] * (COMMANDS * ACTION_WORDS)
     if not 1 <= len(bindings) <= 128:
