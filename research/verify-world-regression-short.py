@@ -23,6 +23,7 @@ ADAPTERS={
     'skill-interval':module('regression_skill_interval','research/verify-world-skill-interval-short.py'),
     'skill-interval-flat':module('regression_skill_interval_flat','research/verify-world-skill-interval-flat-short.py'),
     'lazy-bank':module('regression_lazy_bank','research/verify-world-lazy-bank-short.py'),
+    'base-copy':module('regression_base_copy','research/verify-world-base-copy-short.py'),
 }
 cross=ADAPTERS['readiness'].cross
 suite=SimpleNamespace(INPUT=104400,OUTPUT=786432)

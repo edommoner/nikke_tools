@@ -80,6 +80,9 @@ def observe(case):
    if case.get('observe_healing_storage'):
     from world_healing_storage_native import before_finish
     capture['healing_storage']=before_finish(capture['bm'],NAMES)
+   if case.get('observe_base_copies'):
+    from world_base_copy_native import before_finish
+    capture['base_copies']=before_finish(capture['bm'],NAMES)
    if case.get('observe_skill_critical'):
     from world_skill_critical_native import before_finish
     capture['skill_critical']=before_finish(capture['bm'],NAMES)
@@ -150,6 +153,7 @@ def observe(case):
  if case.get('observe_periodic_skills'):answer['periodic_runtime']=capture['periodic_runtime']
  if case.get('observe_skill_clocks'):answer['skill_clocks']=capture['skill_clocks']
  if case.get('observe_skill_critical'):answer['skill_critical']=capture['skill_critical']
+ if case.get('observe_base_copies'):answer['base_copies']=capture['base_copies']
  if case.get('observe_healing_storage'):answer['healing_storage']=capture['healing_storage']
  if case.get('observe_pending_skills'):
   answer['pending_burst']=dict(count=len(capture['burst_controller']._pending_burst_dmg),enqueued=capture.get('pending_enqueued',0),fired=capture.get('pending_fired',0))

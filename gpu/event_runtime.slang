@@ -911,6 +911,7 @@ bool excludedDamageBuff(inout Runtime s, uint resident, uint who)
 #include "carrier_runtime.slang"
 #include "skill_interval_runtime.slang"
 #include "quantity_runtime.slang"
+#include "base_copy_runtime.slang"
 #include "health_runtime.slang"
 #include "lifesteal_runtime.slang"
 #include "cover_runtime.slang"
@@ -943,7 +944,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
 #endif
         if((s.quantityMask & 256)!=0 && d.stat==S_atk_caster_based_pct) continue;
         if(d.stat==S_stun) continue; // Presence must not consume a pending rank as a numeric buff.
-        if (d.alliedFlags != 0 || d.kind != 0 || d.stat >= 64 || d.stat == S_infinite_ammo || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
+        if (d.alliedFlags != 0 || d.kind != 0 || (d.stat >= 64 && d.stat != S_atk_copy) || d.stat == S_infinite_ammo || s.alive[selected] == 0 || !f64Less(when,s.end[selected]) ||
             !WORLD_ENEMY_ATTACK_DAMAGE_MEMBER(s,selected,who,when,queryRecipient(s,selected,who,when))) continue;
         // Native boolean flags ignore their numeric value and stack scaling.
         // Reuse their existing slots in the64-value vector, with no new query.
@@ -957,6 +958,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
         }
         else if (d.stat == S_crit_dmg || d.stat == S_normal_atk_crit_dmg)
         { addSum(critical,value); if (d.stat == S_crit_dmg) addSum(skillCritical,value); }
+        else if (d.stat == S_atk_copy) values[S_atk_flat] = f64Add(values[S_atk_flat],baseCopyContribution(s,selected,who));
         else if (d.stat == S_atk_caster_based_pct) values[S_atk_flat] = f64Add(values[S_atk_flat],f64Mul(s.baseAttack[d.owner],f64Div(value,HUNDRED)));
         else if(d.stat==S_burst_charge_speed_pct)
         {
@@ -1228,6 +1230,14 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
                 if(order!=0 && s.error==0) pushFrame(s,frames,depth,21,0,buff.owner,0,f.time,order);
                 return;
             }
+            if(buff.stat==S_hp_copy && buff.kind==0)
+            {
+                if(s.alive[slot]==0 || s.entryOrder[slot]!=f.repeatPassive || s.carrierDefinition[slot]!=f.repeatRow) return;
+                uint64_t grant=prepareCopyGrant(s,slot);uint64_t order=carrierOrder(s,slot);
+                if(s.hpWatchCount!=0) { pushFrame(s,frames,depth,5,0,buff.owner,int(slot),f.time,order);if(s.error==0) frames[depth].healthValue=grant; }
+                else { for(uint who=0;who<5;who++) if((s.activeRecipients[slot]&(1U<<who))!=0 && f64Less(0,grant)) s.hp[who]=smaller(f64Add(s.hp[who],grant),effectiveMaxHP(s,who,f.time));syncHealth(s,f.time); }
+                return;
+            }
             // CPU health postprocessing finds the still-active effect after all
             // notifications; cancellation can remove it or reinstall a carrier.
             if (buff.lazyGroup != 0 || f.value == 0 || !(buff.stat >= S_max_hp_pct && buff.stat <= S_max_hp_only_pct || buff.stat == S_max_hp_from_max_hp_pct)) return;
@@ -1413,6 +1423,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (f.cursor == f.repeatLeft) { s.removalCount = f.value; depth--; continue; }
             uint payload=loadRemovalNotice(s,f.value+f.cursor);frames[depth].cursor++;
             uint index=f.value+f.cursor,stack=loadStackNoticeValue(s,index);
+            if((payload&16384)!=0) { pushFrame(s,frames,depth,27,0,0,0,f.time,stack);continue; }
             pushFrame(s,frames,depth,0,(payload&32768)!=0 ? 9 : 29,payload&7,int((payload>>3)&255),f.time,stack);continue;
         }
         if(f.mode==24)
@@ -1588,6 +1599,14 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (delivered) continue;
             if (f.event == 0) { frames[depth].event = 1; frames[depth].cursor = 0; continue; }
             s.hpEdgeGuard = 0; depth--; continue;
+        }
+        if(f.mode==27)
+        {
+            if(f.cursor==5) { depth--;continue; }
+            uint who=frames[depth].cursor++;
+            if((uint(f.value)&(1U<<who))!=0 && (s.downMask&(1U<<who))==0)
+            { s.hp[who]=smaller(s.hp[who],effectiveMaxHP(s,who,f.time));syncHealthActor(s,who,f.time); }
+            continue;
         }
         if (f.mode == 5 || f.mode == 6)
         {
@@ -1770,6 +1789,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                 uint object=protectionObject(s,row);
                 if(object!=PROTECTION_NONE) results[protectionAddress(s,object)+22]|=STORAGE_PENDING;
             }
+            prepareBaseCopy(s,row,!live);
             COUNTER_PREPARE(s,row,f.time) if (d.enemyBuff != 0) s.enemyCaptureGeneration[row] = capturedGeneration;
             if (d.bulletDuration != 0) prepareBulletActivation(s,row,recipientMask,live,activationLazy,previousStack);
             bool namedCandidate = (d.buffEvent & 1) != 0 && (!live || d.maxStack != 1) && s.namedEventOwners != 0;
@@ -1781,7 +1801,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             bool namedNotice = namedCandidate && (s.namedEventOwners & packedRecipientMask(audienceOrder)) != 0;
             bool stackNotice = (d.buffEvent & 1) != 0 && previousStack != s.stacks[row] && (s.stackEventOwners & (1U << d.owner)) != 0;
             if (live && !namedNotice && !stackNotice) captureBuffReference(s,row,sourceRow);
-            if (namedNotice || stackNotice || (d.buffEvent >> 2) != 0 || immunityPolicy(s.inputBase,sourceRow)==3 || (protectionPolicy(s,sourceRow)&255)==1 || (protectionPolicy(s,sourceRow)&255)==2 || (protectionPolicy(s,sourceRow)&255)==9)
+            if (namedNotice || stackNotice || (d.buffEvent >> 2) != 0 || baseCopyStat(d.stat) || immunityPolicy(s.inputBase,sourceRow)==3 || (protectionPolicy(s,sourceRow)&255)==1 || (protectionPolicy(s,sourceRow)&255)==2 || (protectionPolicy(s,sourceRow)&255)==9)
             {
                 pushFrame(s,frames,depth,13,0,d.owner,int(row),f.time,d.enemyBuff!=0 ? uint64_t(recipientMask&~31U)<<16 : recipientOrder);
                 if (s.error == 0)
@@ -2044,7 +2064,13 @@ void tick(inout Runtime s, uint64_t when, uint output)
     for (uint pass = 0; pass < s.orderedCount && s.error == 0; pass++)
     {
         uint slot = s.orderedRows[pass];
-        if (s.alive[slot] != 0 && !f64Less(when,s.end[slot])) queueCarrierEnd(s,slot);
+        if (s.alive[slot] != 0 && !f64Less(when,s.end[slot]))
+        {
+            Definition expired=residentDefinition(s,slot);uint mask=s.activeRecipients[slot];
+            queueCarrierEnd(s,slot);
+            if((s.quantityMask&8192)!=0 && commands[s.inputBase+P_HP_UNCLAMP_POLICY]!=0 && expired.kind==0 &&
+               (expired.stat==S_hp_copy || expired.stat==S_hp_caster_based_pct || expired.stat==S_hp_only_caster_based_pct || expired.stat==S_max_hp_from_max_hp_pct)) queueHealthCapNotice(s,mask);
+        }
     }
     if (s.removalCount > begin) { syncHealth(s,when); dispatch(s,9,0,0,int(begin),when,output); }
     if (s.combat != 0) for (uint who = 0; who < 5 && s.error == 0; who++)
@@ -2185,7 +2211,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     PROJECTILE_ADMIT_STAGE(s,12) if(!validEnemyTargeting(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,13) if(!validProtection(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,14) if (!validStatusDefinitions(s)) { results[output]=64;return; }
-    PROJECTILE_ADMIT_STAGE(s,15) if (!validSkillIntervals(s) || !validTriggerReductions(s) || !validStackDefinitions(s)) { results[output]=64;return; }
+    PROJECTILE_ADMIT_STAGE(s,15) if (!validBaseCopies(s) || !validSkillIntervals(s) || !validTriggerReductions(s) || !validStackDefinitions(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,16) if (!validEventCandidates(s)) { results[output] = 64; return; }
     PROJECTILE_ADMIT_STAGE(s,17) for (uint row = 0; row < s.count; row++) if (!validPendingDefinition(s,row)) { results[output] = 64; return; }
     PROJECTILE_ADMIT_STAGE(s,18) if (!validateDurationGroups(s)) { results[output] = 64; return; }

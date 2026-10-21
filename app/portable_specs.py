@@ -81,6 +81,9 @@ LIMITS['SKILL_CRITICAL_STATE_WORDS']=5*LIMITS['DEFINITIONS']*3
 assert LIMITS['SKILL_CRITICAL_STATE_BASE']+LIMITS['SKILL_CRITICAL_STATE_WORDS']<=786416
 from portable_lazy_bank_specs import allocate as _allocate_lazy_bank
 _allocate_lazy_bank(LIMITS)
+from portable_base_copy_specs import FLAG as _copy_flag,MAGIC as _copy_magic,OFFSET as _copy_offset,END as _copy_end,STATE_BASE as _copy_base,STATE_WORDS as _copy_words
+LIMITS.update(BASE_COPY_FLAG=_copy_flag,BASE_COPY_MAGIC=_copy_magic,BASE_COPY_OFFSET=_copy_offset,BASE_COPY_END=_copy_end,BASE_COPY_STATE_BASE=_copy_base,BASE_COPY_STATE_WORDS=_copy_words)
+assert _copy_base>=LIMITS['LAZY_BANK_BASE']+LIMITS['LAZY_BANK_WORDS'] and _copy_words==LIMITS['CARRIERS']*6
 assert LIMITS['MODE_ENTRY_STATE_BASE']+LIMITS['MODE_ENTRY_STATE_WORDS']<=LIMITS['OUTPUT_WORDS']
 
 # GPU-owned enemy victim rules and MT state use existing input/output alignment gaps.

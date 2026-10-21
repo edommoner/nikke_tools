@@ -266,11 +266,11 @@ void writeProtection(inout Runtime s,uint output)
 [noinline]
 bool validProtection(inout Runtime s)
 {
-    uint enabled=0;bool negativeDrain=false;
+    uint enabled=0;bool negativeHealth=false;
     for(uint row=0;row<s.count;row++)
     {
         uint policy=protectionPolicy(s,row),kind=policy&255;Definition d=readDefinition(s.inputBase,row);
-        if(d.kind==8 && f64Less(d.value,0)) negativeDrain=true;
+        if(d.kind==8 && f64Less(d.value,0) || d.kind==0 && d.stat==S_hp_copy && baseCopyDefinition(s,row)) negativeHealth=true;
         if(kind==0) { if(policy!=0 || d.kind==27 || d.kind==31 || d.kind==0 && (d.stat==45 || d.stat==72 || d.stat==71 || d.stat==69 || d.stat==S_heal_overcharge_store)) return false;continue; }
         enabled|=1U|(kind==4 ? 2U : 0U)|(kind==7 ? 4U : 0U)|(kind==3 ? 8U : 0U)|(kind==8 ? 16U : 0U)|(kind==9 ? 32U : 0U);
         if(d.quantityFlags!=(kind==4 ? 4U : 0U) || (d.flags&120U)!=0) return false;
@@ -287,7 +287,7 @@ bool validProtection(inout Runtime s)
             for(uint i=0;i<d.conditionCount;i++) if(commands[s.inputBase+P_CONDITION_BASE+row*P_CONDITION_WORDS+i*4]==C_SHIELD) s.healthMask|=32;
     }
     uint hpPolicy=commands[s.inputBase+P_HP_UNCLAMP_POLICY];
-    if(hpPolicy>1 || hpPolicy!=0 && !negativeDrain) return false;
+    if(hpPolicy>1 || hpPolicy!=0 && !negativeHealth) return false;
     for(uint word=2;word<8;word++) if(commands[s.inputBase+P_PROTECTION_META_BASE+word]!=0) return false;
     return commands[s.inputBase+P_PROTECTION_META_BASE]==enabled;
 }

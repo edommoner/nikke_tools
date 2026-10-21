@@ -1,5 +1,7 @@
 # 次の高優先機能：基礎ATK／HPコピー
 
+この文書は接続前の計画です。その後の共通実装・Metal481の結果は`docs/portable-base-copy.md`に記録しています。
+
 2026-10-22のinventoryは266profile中193packing、基本134/203、110分類です。projectile_dmg_pctとshield_dmg_pctの上位分類は、参照側の実consumerを確認できておらず、効果なしでの受付はしません。次の接続候補は、単独の観測分類が2profileにあるhp_copyと、同じlifecycleを共有するatk_copyです。GPU対応はまだありません。
 
 ## 再利用する参照

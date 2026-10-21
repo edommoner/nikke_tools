@@ -28,6 +28,7 @@ uint64_t nativeAttackMaxHP(inout Runtime s,uint who,uint64_t when)
         else if(d.stat==S_hp_caster_based_pct || d.stat==S_hp_only_caster_based_pct)
             flat=f64Add(flat,f64Div(f64Mul(s.baseHP[d.owner],scalarValue(s,row,who)),HUNDRED));
         else if(d.stat==S_max_hp_from_max_hp_pct) flat=f64Add(flat,s.hpSnapshot[row]);
+        else if(d.stat==S_hp_copy) flat=f64Add(flat,baseCopyContribution(s,row,who));
     }
     return f64Add(f64Mul(s.baseHP[who],f64Add(ONE,f64Div(percent,HUNDRED))),flat);
 }

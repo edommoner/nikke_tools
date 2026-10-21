@@ -52,25 +52,25 @@ SUITES['stun']=dict(script='research/verify-world-stun-short.py',golden='researc
 SUITES['burst-recipients-diagnostic']=dict(SUITES['burst-recipients'],source='gpu/world_projectile_admission_entry.slang',development_only=True)
 SUITES['roster-regression']=dict(script='research/verify-world-roster-regression-short.py',
     golden='research/portable-world-roster-regression-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=44,native=44,
+    source='gpu/world_projectile_entry.slang',inputs=50,native=50,
     tests=['test_portable_roster_regression.py','test_portable_real_binding_proof.py'])
 SUITES['skill-cooldown']=dict(script='research/verify-world-skill-cooldown-short.py',
     golden='research/portable-world-skill-cooldown-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=25,native=21,
     tests=['test_portable_skill_cooldown.py','test_portable_typed_recipient_delegation.py'])
 SUITES['regression']=dict(script='research/verify-world-regression-short.py',
-    golden='research/portable-world-lazy-bank-regression-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=428,native=341,
+    golden='research/portable-world-base-copy-regression-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=481,native=379,
     tests=['test_portable_regression_adapter.py','test_portable_roster_regression.py',
            'test_portable_readiness.py','test_portable_stun.py','test_portable_typed_recipient_delegation.py',
-           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py','test_portable_skill_interval_flat.py','test_portable_lazy_bank.py','test_portable_compiler_stats.py'])
+           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py','test_portable_skill_interval_flat.py','test_portable_lazy_bank.py','test_portable_compiler_stats.py','test_portable_base_copy.py','test_portable_seal.py'])
 SUITES['healing-storage']=dict(script='research/verify-world-healing-storage-short.py',
     golden='research/portable-world-healing-storage-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=51,native=39,development_only=True,
     tests=['test_portable_healing_storage.py'])
 SUITES['roster-admission-diagnostic']=dict(script='research/verify-world-roster-regression-short.py',
     golden='research/portable-world-roster-regression-short-expected.json',
-    source='gpu/world_projectile_admission_entry.slang',inputs=44,native=44,development_only=True,
+    source='gpu/world_projectile_admission_entry.slang',inputs=50,native=50,development_only=True,
     tests=['test_portable_real_binding_proof.py'])
 SUITES['trigger-reduction']=dict(script='research/verify-world-trigger-reduction-short.py',
     golden='research/portable-world-trigger-reduction-short-expected.json',
@@ -92,6 +92,10 @@ SUITES['lazy-bank']=dict(script='research/verify-world-lazy-bank-short.py',
     golden='research/portable-world-lazy-bank-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=8,native=7,development_only=True,
     tests=['test_portable_lazy_bank.py','test_portable_compiler_stats.py'])
+SUITES['base-copy']=dict(script='research/verify-world-base-copy-short.py',
+    golden='research/portable-world-base-copy-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=47,native=32,development_only=True,
+    tests=['test_portable_base_copy.py','test_portable_readiness.py'])
 
 SCHEMA = 1
 # Controller validation has no numeric program to execute. Keep its CPU work
@@ -562,23 +566,38 @@ def check_compile_cache(capture, output):
     return result
 
 
+def audited_comparison(module, capture):
+    """Use the original comparator's result from this fresh independent audit."""
+    observed=[]
+    original=module.compare_readback
+    def compare(*args,**kwargs):
+        result=original(*args,**kwargs)
+        observed.append(result)
+        return result
+    with patch.object(module,'compare_readback',compare):
+        audit=module.audit_capture(capture)
+    if not audit['calculation_verified'] or len(observed)!=1:
+        raise ValueError('Seal requires exactly one successful independent comparison')
+    return audit,observed[0]
+
+
 def seal_development(package_root, capture, output):
     """Explicit GPU0 seal of a successful immutable Metal development capture."""
     # Use the package's own imports and auditors in a fresh process. Its files
     # are verified before native work; never patch a consumed package in place.
     script = """import importlib.util,json,sys,pathlib
 root=pathlib.Path(sys.argv[1]);capture=pathlib.Path(sys.argv[2])
+s=importlib.util.spec_from_file_location('seal_controller',sys.argv[3])
+controller=importlib.util.module_from_spec(s);s.loader.exec_module(controller)
 s=importlib.util.spec_from_file_location('seal_cli',root/'scripts/nikke_gpu.py')
 m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
 p=m.verify_package(root)
 if not m.is_development(p) or m.load(capture/'run.json')['backend']!='metal':raise ValueError('Metal development capture required')
-a=m.audit_capture(capture)
-if not a['calculation_verified']:raise ValueError('Failed development capture cannot be sealed')
-r=m.compare_readback(p,capture)
+a,r=controller.audited_comparison(m,capture)
 g=dict(input_sha256=r['input_sha256'],output_sha256=r['output_sha256'],source_sha256=p['golden']['source_sha256'],entries=r['entries'],generated_normalized=r['generated_normalized'])
 print(json.dumps(dict(golden=g,package_id=p['package_id'],audit=a)))
 """
-    completed=subprocess.run([sys.executable,'-c',script,str(package_root.resolve()),str(capture.resolve())],
+    completed=subprocess.run([sys.executable,'-c',script,str(package_root.resolve()),str(capture.resolve()),str(Path(__file__).resolve())],
                              capture_output=True,text=True,check=True,timeout=60)
     result=json.loads(completed.stdout)
     for name,digest in result['golden']['source_sha256'].items():

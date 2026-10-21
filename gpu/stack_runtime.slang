@@ -138,7 +138,7 @@ uint initializeStack(inout Runtime s,uint row,uint target,uint64_t when)
     { uint64_t order;s.activeRecipients[slot]=selectRecipients(s,definition,when,order);storeCarrierOrder(s,slot,order); }
     storeReferenceCapture(s,slot,0,0);captureBuffReference(s,slot,definition);
     if(commands[stackMeta(s,definition)+5]!=0) storeReferenceCapture(s,slot,referenceCaptureFlags(s,slot)|4,referenceCaptureValue(s,slot));
-    s.alive[slot]=1;markEntry(s,slot);
+    s.alive[slot]=1;markEntry(s,slot);prepareBaseCopy(s,slot,true);
     return slot;
 }
 [noinline]
@@ -148,7 +148,7 @@ bool validStackDefinitions(inout Runtime s)
     for(uint row=0;row<s.count;row++)
     {
         Definition d=readDefinition(s.inputBase,row);
-        if(enabled && d.kind==0 && (d.stat>=S_max_hp_pct && d.stat<=S_max_hp_only_pct)) s.healthMask|=32;
+        if(enabled && d.kind==0 && (d.stat>=S_max_hp_pct && d.stat<=S_max_hp_only_pct || d.stat==S_hp_copy)) s.healthMask|=32;
         if((d.flags&8)!=0 && d.kind!=4) return false;
         if(!enabled || d.kind==2) continue;
         uint meta=stackMeta(s,row);
@@ -159,7 +159,7 @@ bool validStackDefinitions(inout Runtime s)
         uint runtime=uint(commands[meta+1]!=0 && duration==F64_INF && (d.flags&2)!=0);
         if(commands[meta+5]!=runtime) return false;
         for(uint field=6;field<P_MODE_WORDS;field++)
-            if(!(triggerReducer(s,row)&&field<P_TRIGGER_REDUCTION_END) && !(namedSkillInterval(s,row)&&field<P_SKILL_INTERVAL_END) && commands[meta+field]!=0) return false;
+            if(!(triggerReducer(s,row)&&field<P_TRIGGER_REDUCTION_END) && !(namedSkillInterval(s,row)&&field<P_SKILL_INTERVAL_END) && !(baseCopyDefinition(s,row)&&field<P_BASE_COPY_END) && commands[meta+field]!=0) return false;
         if(d.kind==18)
         {
             uint expected=0;

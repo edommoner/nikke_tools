@@ -1,3 +1,12 @@
+<!-- base-copy-current -->
+## 基礎ATK／HPコピーと集約481
+
+通常CLIはregression481（native379／拒否102）、goldenはportable-world-base-copy-regression-short-expected.jsonへ明示seal済みです。stat85／86、MODE tagged union、carrier別basis／gift／source／generationを共通Slangへ接続しました。自己／味方、stack初期化、named子イベント、親削除→slot再利用、refresh、負値、失効のHP cap、source戦闘不能後の再選択を47入力で確認。ギルティ／シン／クエンシーの全定義実編成を各3秒／30秒で追加し、Metal481が全件一致しました。
+
+旧428と新47は保存baselineと全input／raw／native同一。初期の受付・HP同期・policy受付の3失敗は元package／rawと別JSONへ保持。CPU695・Windows専用1skip・失敗0、その後のseal改善はCPU3＋CLI26成功と実481のGPU禁止sealで確認しています。sealは元packageの独立監査内の比較を1回だけ再利用し、同じnative全体の二度目の実行を省きます。
+
+静的packing196/266、base137/203、108分類。通常画面CPU、全キャラ認定0、新版CUDA数値一致未確認、最終目標未完了。この機能でWindows実行は0です。v115のcold compiler失敗から同条件再試行しません。詳細はdocs/portable-base-copy.md、research/portable-base-copy-retention.jsonと開発checkpointを参照してください。以下は履歴です。
+
 <!-- lazy-bank-current -->
 Windows v115は終了済み・idleです。固定4312287、CPU21成功後のCUBIN O1は42.99秒／NVRTC30.422秒でMemory allocation failure、compiler改善未証明、artifact0、GPU0／retry0。Job post空、missing7／原因unknown／service未識別で環境保持falseを維持します。同条件を再依頼せず、次の変更仮説を先に固定してください。詳細はresearch/portable-world-v115-compiler-sanitized.json。
 

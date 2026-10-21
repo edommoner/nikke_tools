@@ -1,0 +1,429 @@
+{
+  "package_id": "bf6c2bde929a31cb40c3da668ed642b215ee193bbafdbd6d130ca7e7058be948",
+  "comparison": {
+    "calculation_verified": false,
+    "entries": [
+      {
+        "name": "base-copy-atk_copy-0",
+        "input_sha256": "487517f03f38f11e553638d708b103842925ed6800df6495fe52fd095e858cb8",
+        "output_sha256": "67a64fde85c6c8012c3fcca9cfd2265f1048744c89fd7e4b4572bf2f2863f619",
+        "native_sha256": "194af7dc434b1aac2664dc05eb6bbbe529af1dec4c39d74b2ea6f9aacfe4f044"
+      },
+      {
+        "name": "base-copy-atk_copy-20",
+        "input_sha256": "548298297668a8f7f6275197c86dd4f5028809db4b425d005fffdb994a07a9a2",
+        "output_sha256": "7d5dcc267ce12f4f6efe7308920d59931c7bbb803eb43cc471e6f1df914397f8",
+        "native_sha256": "413edd116996ee6a1fdcc1e938003b83e9af5d31ef3358a8034389a5937d6418"
+      },
+      {
+        "name": "base-copy-atk_copy-50",
+        "input_sha256": "9b773f47e5d7be2a7a4b780dccdc0e2a04c00ee21eacbe294acd9f966dd03c26",
+        "output_sha256": "e528d580613862a0377734ceadc993d9f63b06033193f2092cb5b5f5fcdf41f6",
+        "native_sha256": "c5c2bc9d2b915bc0e5eb46b63d7e1be60ab074cea9f781f9f5456424bf6e7580"
+      },
+      {
+        "name": "base-copy-atk_copy--10",
+        "input_sha256": "27bd4056bf758b53e9603b77f9ed7169d6461752a461b125b5794a19ccb377d3",
+        "output_sha256": "f1ad32ac352c5ff1013ec7c92a38f210fe47439e57ac987bdbb230a5d8625768",
+        "native_sha256": "66b8b3f58df984419bb8b77923b0c4a67cbed57b58f7911a373bb5dff268bf87"
+      },
+      {
+        "name": "base-copy-atk_copy-reverse-final-rank",
+        "input_sha256": "ce66239d48f99895899b3a8007c54d53eff2902312f6cf7b40421d99fae22377",
+        "output_sha256": "bea3b461ce33f4838be9e2d987e28cef9ef97961363a66e388d0b3136d1958f0",
+        "native_sha256": "9d9be9f0b1530cbad34eef4f4f33382fa0b1fc1b288fcff812fedf34eda093c1"
+      },
+      {
+        "name": "base-copy-atk_copy-expire",
+        "input_sha256": "7241544052d685033549f56e7ce1760054620a619fc10022abf653cc8d864ebe",
+        "output_sha256": "83346d251b0cb3750f4f7a26cbf65731aeca1e57e1ae309054bd75219ebd49d9",
+        "native_sha256": "8d38fd3523c5b3b0e97713cbe036533e031e374cffc5af45947d7f89a005d580"
+      },
+      {
+        "name": "base-copy-atk_copy-refresh",
+        "input_sha256": "c2349de1dcdc492fa1da042963371e5768aada7de42337635e20af1c9b861769",
+        "output_sha256": "7f62b43bb2411e197e2a1c391c61bc5179735d1585c635ef9ca6eed45bcffbd0",
+        "native_sha256": "440a49ae01340be0a8cb55bf0977fbad695ffe6033836792c8f51de89502e3be"
+      },
+      {
+        "name": "base-copy-atk_copy-stacked",
+        "input_sha256": "2a3cbdd187144765c5e4001964445129bcead6b0de2f8e139c8d4beb98a6b8c6",
+        "output_sha256": "7f93a4200df07266e26143d593a4159c08d24666b5dcfd9c125dab0b3807abc8",
+        "native_sha256": "ef5a4064645e8632b454d142326911412ffa87fd0211d9950d0c5d21177017f6"
+      },
+      {
+        "name": "base-copy-atk_copy-tie",
+        "input_sha256": "8e53b61586514154ac6057344f0d53290ab686e88d6bbe2c38d2fe5f2f372fc2",
+        "output_sha256": "1cf9f89d9e945ac221a1b8eca5063f839ef50a2c5ef7b6e980f85c68cd2bf216",
+        "native_sha256": "bfa7a0590781aa0b626490fd0c1d4672196a333bb14a64d4a4629e6a3b9b925d"
+      },
+      {
+        "name": "base-copy-atk_copy-allies",
+        "input_sha256": "a23ea4864b95bda2d31c2a0afef59b7e8dfdf1c81f85fa00f0e7a5741f6d0fed",
+        "output_sha256": "c2357545913a1fff336fc4cf019198e5b64d9eba5e88d1590492eb9e956dd4f0",
+        "native_sha256": "6cc87017d5a6e97257fd553edbf1c76a840919c0c6e91e370c6126af0ac9823b"
+      },
+      {
+        "name": "base-copy-atk_copy-initial-stacks",
+        "input_sha256": "57e65c8ffb9d7cc9390d00912748c1c723fb70089ac36fc12227eb74d56eb553",
+        "output_sha256": "c90c1ca86dfd57d79e5f99735559035c4a04773d0c1e1a9e3ed4778b4eb0bf69",
+        "native_sha256": "951f6be3662b9dac3752f96bc1b58d216c13b6b5cdbc1af9a4baf4f776840e88"
+      },
+      {
+        "name": "base-copy-hp_copy-0",
+        "input_sha256": "faf91cbdd89d0f50651f2936bf37821edb232927e7a69523c5b64b06ed1ec898",
+        "output_sha256": "67a64fde85c6c8012c3fcca9cfd2265f1048744c89fd7e4b4572bf2f2863f619",
+        "native_sha256": "dc07279f46e97b78a1edfb85c05725fb49080efae2462b0fa438d2b222e44956"
+      },
+      {
+        "name": "base-copy-hp_copy-20",
+        "input_sha256": "a18ffc09da32c409b0a725806a4885e75be948fbe2ba37b8f3f271d440100b7d",
+        "output_sha256": "e08ef9e48b4747878e74e74fdbdd4d2c033086a528031222dcd2e92e1a8e7aed",
+        "native_sha256": "8f5cd263f02bdd85ecf7e511455f687544bfaa5f1def92d7c7f9a532170d1f82"
+      },
+      {
+        "name": "base-copy-hp_copy-50",
+        "input_sha256": "882a60ad2f4eadc1bfb9a199c76c6d44d2d7b1cacc535b3edda19880237246fb",
+        "output_sha256": "9576bbba3884bab9b04992cdf5342b086f01d5a9054d62ea77b410f4517f387b",
+        "native_sha256": "4cb775bcab040faecb3c85099faa33433440a308d1ab6b6baec4706e24d3af09"
+      },
+      {
+        "name": "base-copy-hp_copy-reverse-final-rank",
+        "input_sha256": "845c9f6ac68b8bfeab1ba22e0dbb2bfc7f15e967bcf6d424943a558c10a3caf7",
+        "output_sha256": "7b25d3480f90f6ca987192470ddd9b802534ce8df3705190791122d428edfd24",
+        "native_sha256": "81540f74ebef3e9e47196debbad50d46944af955e5322c6dba6d19396e967f1b"
+      },
+      {
+        "name": "base-copy-hp_copy-expire",
+        "input_sha256": "7d7425b62663f8b632564f401f5a5cc15266922bdcf2a7d31bbd616b4bbc3ce7",
+        "output_sha256": "9a8076240b8557720d1e6b0586aeaf5d585ec6f09ea847002a8f4cfe0a4a2f61",
+        "native_sha256": "59b2212c473c1f6792e4b8dcaaa05cc9babc49a1f3aa7855f171febc8b4c9b84"
+      },
+      {
+        "name": "base-copy-hp_copy-refresh",
+        "input_sha256": "dabf73c0c7f6378dafa3ae9fef9c099c41179207f364ed6d6cbbfb8e1727db70",
+        "output_sha256": "e0e7ef3364e3c913a8a965c5f65c20f246dc94c4b4098149c0dfad23cc957fd2",
+        "native_sha256": "39a0da14fb1f8973a236bb3dc9672a2d5e872d296dc66f4929fe78223fa1fee9"
+      },
+      {
+        "name": "base-copy-hp_copy-stacked",
+        "input_sha256": "8f4a630fffd587821249c7afc9afa0d3f8801b21c71d3cc2871c9977e33c4cb0",
+        "output_sha256": "3ba27a4a56bc3972d8e88f0c4f319040dde116b4ce86b2c3472ce53abb2d7de2",
+        "native_sha256": "8f06166221bf1a87165e90e7aec7b81041c30f15030b71f19921c3da132bb9ec"
+      },
+      {
+        "name": "base-copy-hp_copy-tie",
+        "input_sha256": "4c08ffc1c018a6ef713a160071898c41fdcc0ed628f2087a48902f56d8bc9691",
+        "output_sha256": "a429918a35ea33b7d3a861547d2abc10558f7321f5e5e7db5f7396adf43dc9ad",
+        "native_sha256": "03809e5431d1d46d3234d927073c7356a714c05fdd73841fa5f68cb2a1af884a"
+      },
+      {
+        "name": "base-copy-hp_copy-allies",
+        "input_sha256": "97ab088f9f7641583585f4c6e63956ba265bbd99c5af3d9aaed326069fdcda09",
+        "output_sha256": "c6e6c494f899e5c8f02b074a6759d48683c33fa8a64f9700b322b5fa456a0c72",
+        "native_sha256": "b2f7ac46856a04e4b4731e946325f18b2003bc2274de111fb47d47d30f802189"
+      },
+      {
+        "name": "base-copy-hp_copy-initial-stacks",
+        "input_sha256": "1109dc3bf025b1d9d7f3b68c8f93973b28fdb3feb15013c4dded9db4b4d5f588",
+        "output_sha256": "eb188afd391c0ca0a426f15d114cbe3c7a041d5d3f9700c82acc114eddd9f36a",
+        "native_sha256": "ae6860f07760b871a10aeaf735059adcbc0f9ea2fbb38455267fd768fd6fe72f"
+      },
+      {
+        "name": "base-copy-no-refresh-heal",
+        "input_sha256": "8794b6ffd768dd5eb706af2565d3f0af7e792426a1d94457e0cc7359b1873935",
+        "output_sha256": "53a8814917aebfc3f994fe10ada939b6a4d6e1f2664933e989cbf19c803f9c7b",
+        "native_sha256": "6ef475b5e95226c6a18a3dfd0db142cf3d72945054fa70024a32749cf0644b9a"
+      },
+      {
+        "name": "base-copy-gift-is-not-healing",
+        "input_sha256": "96f20a2e143c91e5b9f1e50326e02a8d5157e1a2b5125448b357a94995be404c",
+        "output_sha256": "3b461db4654becd3a22fdfd9fb2dd4859ae3a6892d7bdd1e17bc2fbb7a60a419",
+        "native_sha256": "800056caaef82c11f992a6e58216feaf89929f6ebcfcc987a94a586bf9963886"
+      },
+      {
+        "name": "base-copy-child-damage-sees-basis",
+        "input_sha256": "6a69466e384c73413af713cbf53afa497c64a43443372c72fa11b1626da770f9",
+        "output_sha256": "d5c68baf656d5b9ac6f9422ab21ff3824a922fdfa4b0887426ee48907b18e665",
+        "native_sha256": "ea3970057253713db76b24e8e3f5f2fc2c341563e8d1ae98463734e60b8a7628"
+      },
+      {
+        "name": "base-copy-removed-parent",
+        "input_sha256": "00ab060ce5b5742bdc78584b589d6b574dfbf514632fd27f49bff8ef796ed306",
+        "output_sha256": "67dfdaa661a22d261ee427f28e15512db63ea8c0dcefccced6a4e518a84c9523",
+        "native_sha256": "59b2212c473c1f6792e4b8dcaaa05cc9babc49a1f3aa7855f171febc8b4c9b84"
+      },
+      {
+        "name": "base-copy-removed-recipient",
+        "input_sha256": "c4177bbdc5ffeca03bb3220b3e632c710dfaff46e551b24a2672fc0fb85b5183",
+        "output_sha256": "c1c533897af36b8fb4edf0ea7905576d5cef41012a3bdffeffab30696f8f9007",
+        "native_sha256": "c321e397a82a045c967915ce106e8f7afe3d059e13cbb1ce13c55b8b2e7da9b0"
+      },
+      {
+        "name": "base-copy-removed-parent-reinstalled",
+        "input_sha256": "33804d6c59a83960f938f76a01928b77d78e1c5260598690adefdae9a17961ab",
+        "output_sha256": "71f8f6a011f264edce696d20532df2701a6d8dec1e2d63572f7528701fbdb0dc",
+        "native_sha256": "82828d203a52f12572f298e6cc74dd4884164dad8adf21d0444230d365429832"
+      },
+      {
+        "name": "reject/base-copy-no-combat",
+        "input_sha256": "e02db4af4e7fb66c58a0e75fb7de47ba28f22a66923efe02791ccc0582b0296e",
+        "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/base-copy-kind",
+        "input_sha256": "b2c5fbb0bb3497d04104d498a90432dde266b6d68bc2e707078a1e101d3d1173",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/base-copy-stat",
+        "input_sha256": "91cf4a72a09d1759f33192217b55b85d8c98865450c80fad3fecc066e0a36bf6",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/base-copy-nan",
+        "input_sha256": "d665c5347fdbccc0e20fc046f19a69a2b0de904486bd4491450759bf2828142a",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/base-copy-magic",
+        "input_sha256": "3b5c000cdfd7acaba8441acd4544dfe7d552f0df4b32b44fc2e252d4599d0b75",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/base-copy-axis",
+        "input_sha256": "a5a693ddb99c1c6ef3ab29e4b67410a40cf095ac1a750248fc3ba5fa57fe8647",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/base-copy-identity",
+        "input_sha256": "eb775e64107f7f0c4a7e801c2a1c7302c7e0630c12aa3e335b9706485d874d2a",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/base-copy-unused",
+        "input_sha256": "80961fce273721242db81374e3ac3f537181c92d9f86a39b6d303f14e02d78c6",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/base-copy-tail",
+        "input_sha256": "93b4ff3b713aed2b609aa19266fa4ec36bd089848bc856ceeeebeaa771a07d77",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/base-copy-missing-tag",
+        "input_sha256": "d85a8786f60c621c3d9aafe93c4b1abb0246116473e0f2fc9727953f2b9802a9",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/base-copy-mixed-tag",
+        "input_sha256": "cd387cbdc9473ee591aa72d0c78962351f9fed38b85c6b0cdfe8fb7e5fe1bc1e",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/base-copy-bullet",
+        "input_sha256": "2f4e957ac0667535db7c7dc45ee87ee44805f840cc5c03df5f0fa70fdd6fe169",
+        "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/base-copy-enemy",
+        "input_sha256": "275e9295aa4ea4b86cfcd6ac2131d37b3161cf991a80a5283dba074149640dc0",
+        "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      }
+    ],
+    "mismatches": [
+      {
+        "index": 14,
+        "name": "base-copy-hp_copy--10",
+        "reason": "ValueError: {'status': 0, 'changed': ['allies'], 'copies': [{'name': 'copied', 'stat': 'hp_copy', 'owner': 0, 'recipients': [0], 'stacks': 1, 'basis': 2000.0, 'source': 1, 'gift': -200.0}], 'expected': [{'name': 'copied', 'stat': 'hp_copy', 'owner': 0, 'recipients': [0], 'stacks': 1, 'basis': 2000, 'source': 1, 'gift': -200.0}]}"
+      }
+    ],
+    "input_count": 41,
+    "native_oracles": 28,
+    "input_sha256": "e4545274df284edafd365d59966365ea6665338e76cfc93d4944715f14aac5c0",
+    "output_sha256": "e22d1cc14d0a1343138e3a71e6a1fbceaa9291f5115b4a5ed41517f5999988ff",
+    "generated_normalized": {
+      "cuda": "231e831d55e5d136e12509279fd303ba9d65251acd11152c391ddf0c80aff482",
+      "metal": "aeb513ca334710c0b565f66afc1b6414d3dc04f5e4501cce6d1684e4ec5340a5"
+    },
+    "audit_gpu_calls": 0
+  },
+  "result": {
+    "sealed": false,
+    "purpose": "development",
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "passed": false,
+    "containment_verified": true,
+    "comparison_error": null,
+    "first_difference": {
+      "index": 14,
+      "name": "base-copy-hp_copy--10",
+      "reason": "ValueError: {'status': 0, 'changed': ['allies'], 'copies': [{'name': 'copied', 'stat': 'hp_copy', 'owner': 0, 'recipients': [0], 'stacks': 1, 'basis': 2000.0, 'source': 1, 'gift': -200.0}], 'expected': [{'name': 'copied', 'stat': 'hp_copy', 'owner': 0, 'recipients': [0], 'stacks': 1, 'basis': 2000, 'source': 1, 'gift': -200.0}]}"
+    },
+    "phase": {
+      "events": 6,
+      "last_event": {
+        "monotonic_ns": 695804787595166,
+        "pid": 5438,
+        "stage": "shared_native_compare",
+        "state": "returned",
+        "wall_time_ns": 1792596654856024000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0
+  },
+  "evidence": {
+    "transport": {
+      "backend": "metal",
+      "cases": 41,
+      "command_status": "completed",
+      "configured_max_threads_per_threadgroup": 1,
+      "device": "Apple M5",
+      "gpu_seconds": 0.04494074999820441,
+      "input_bytes": 17121604,
+      "library_compile_seconds": 1.0633920431137085,
+      "output_bytes": 128974848,
+      "pipeline_compile_seconds": 9.500297904014587,
+      "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+      "pipeline_max_threads_per_threadgroup": 1,
+      "registry_id": "4294968313",
+      "threads_per_threadgroup": 1,
+      "compile_timeout_seconds": 300,
+      "gpu_timeout_seconds": 120
+    },
+    "source_sha256": {
+      "gpu/world_projectile_entry.slang": "a78c90523a37f973207265c83c7d62c2cabdf1c99023f9e36f8a30e0c1cb3c65",
+      "gpu/world_roster_entry.slang": "7d78135536c330b19acf05b458748e3236450d1281a9c5ac81fb8351c57dbbf4",
+      "gpu/world_reload_entry.slang": "fd7e2e3d64811ee2aecb5e3e517870898104712b4bb719d0b4f543e2d70085f8",
+      "gpu/world_charge_control_entry.slang": "50291edf53d64bfb866c54dfe23e454b6cb45422f4961f56d20c18d125021316",
+      "gpu/world_team_entry.slang": "8ff8496183d9e146d6fb69a8b4e39ebc696e6ced1a72cb2e3e8bacf39e7c1951",
+      "gpu/world_fraction_entry.slang": "d5837bd9edd180433d29aaba476e953d10809b86d6e6850e825d907f9f6f1b76",
+      "gpu/world_spawn_entry.slang": "1b433e98fd906fa7c9af0f100175535e0d669301a174c9df06c2d87f8b644caf",
+      "gpu/world_enemy_attack_entry.slang": "4f86e4b5e616e8149cc47245c5aa31492bcd9f3a739a49501fd7a548bd75740a",
+      "gpu/world_periodic_entry.slang": "87abe82e2142dcd58c4ebab9109efe738800200eae04ed4b72e37f375c0ec7a0",
+      "gpu/world_pending_entry.slang": "d1043328c670ac3a4837414eeb871edf94a1afac2de95d42b646b0d358ba931c",
+      "gpu/world_skill_entry.slang": "433216610c518f8c2c3f122eb1aa886ae53e197d72b4307ded1cb90dfa278a98",
+      "gpu/counter_field_entry.slang": "1147bde65aa343ceb5d3473efb43f86f0a0f0225c6ae3ffa118b62d11ec14745",
+      "gpu/counter_context_entry.slang": "7387fc06a72bc9b984f8b29d46655a549ab56e154cd9f0924dc0533b9f787073",
+      "gpu/counter_landing_entry.slang": "695560a33534df60e9f31359622f6a197d14d2eb4b072371520955c9eacde7bf",
+      "gpu/target_counter_entry.slang": "af78f0f0cc55734578c0a86f48d5cd36750dd3ae4589be405d81d962293a4666",
+      "gpu/event_runtime.slang": "9217ce5b14cc72f0c9ab78fd62b91cbc83558c34d999c2228648ffd7168f69f7",
+      "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+      "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+      "gpu/portable_schema.slang": "e64761f53ee5d0105be2cd7b2c079eceb59626414b0b72630c056dea84c3751f",
+      "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
+      "gpu/runtime_init.slang": "a422bdf14b5199862bde6263e26bac696f5d905c0d7383038541c52010278200",
+      "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+      "gpu/lazy_bank_storage.slang": "f319580696bf1a68792e243bfb39ff64c56d6361d9327d15bb32ebdbaa1733a5",
+      "gpu/world_overlay_runtime.slang": "c212ded55ab5047ffbb7c30b2e6195c467482eb82109b37373b7f483a3fcac6b",
+      "gpu/geometry_runtime.slang": "8e8018af3959fde2f794c147aff2387464d4f486be17088cf260da41d48f8ef5",
+      "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+      "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+      "gpu/reference_runtime.slang": "319105218c669bc9147ed809fa9ba35d2d536404c37beb050db721d56b51c0c4",
+      "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+      "gpu/bullet_runtime.slang": "2cda4cfed0e7ffd31076ea48050b7be71cd8312779483b13d7c150c4ccd5d23a",
+      "gpu/rank_runtime.slang": "6862c849997a111e228286b553b9043a6035fbf150b9c831130da6171d271526",
+      "gpu/lazy_runtime.slang": "99ab03b157d00faba5ccc6849acff5be0674f930b983ab12af77425af726880c",
+      "gpu/enemy_buff_runtime.slang": "7411bf1897ccd937e579ab3cf893e30d5f6d83fdfb2ff557d704faa5f249e0a6",
+      "gpu/world_enemy_attack_runtime.slang": "c4e8223169c1ae6f88903d05ebd271d2622c329283f029fed24e05d6d64ba09e",
+      "gpu/carrier_runtime.slang": "d9c747c32c02bc1cd4acce3a1fdc648dc1060f9edc16607146e06ae7b279da09",
+      "gpu/skill_interval_runtime.slang": "cf91792f6f0e0a8e5b5af0abe53273446d4ea88c9d19747035988d60591fa544",
+      "gpu/quantity_runtime.slang": "7add6ff2fd9b7f132c62e044c930c28c5dda355b3582d0a53ea686d871d84516",
+      "gpu/base_copy_runtime.slang": "547a45abece616872b49f523e257f9c59e48ce5d04b051dd7ec8561bf2f27f4a",
+      "gpu/health_runtime.slang": "49b508efb93a69724bf316d6f7d97a38343a95f936f36e9bae035a9ca241caf0",
+      "gpu/lifesteal_runtime.slang": "63981f07b431ef4d2821ae513ced232629681c0f21f0ee91ad3b5dd4818fe5e2",
+      "gpu/cover_runtime.slang": "eb1b4a4e7c9683b615a160f3010e0e50a5da9d9a7f0425b471c83b1d625dffe6",
+      "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+      "gpu/hp_attack_runtime.slang": "9610c474b33d498035fa9c6d6a56da0eb33403667367a8afa51e10b4e0aba8d5",
+      "gpu/recipient_runtime.slang": "c9a5acde13e4a7f43dcb3b5ebebdafdce5c6b730e848eeb49e26e35d1cb051bf",
+      "gpu/skill_clock_runtime.slang": "b7bfcd4457d9e1ac2f11650fe47fabe8c3f196fb7ca2c7dadff3c0d77e0684e4",
+      "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+      "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+      "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
+      "gpu/skill_critical_runtime.slang": "ffab45b7bc55c3d1bbe472d9b590320183281e6aa11370e212c84e56ab218417",
+      "gpu/damage_runtime.slang": "4cd960b9b0d3bd42490e71794ae60077095d41a0c1ca9b88312aad389468170f",
+      "gpu/incoming_runtime.slang": "8ec389c1a9ed4b487620cfe3345673c5272f2f3e5d735028041a51bf35a22b65",
+      "gpu/burst_runtime.slang": "0f924f0b48008d41979119ae61e5a3cb9432f8e862ff84532990d6b86d5301f4",
+      "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+      "gpu/enemy_damage_runtime.slang": "94110711ef4f94cf0590b3ac097daaa6f3a8cc5a16ddfc92607a37234b95f82d",
+      "gpu/landing_runtime.slang": "36a22364895381973fb9910b0ebd947c333bc936006e6817dd1d8406a8b8323e",
+      "gpu/periodic_runtime.slang": "7ad1d6961cea83521702000a050ba70f73b57673bf2ae40837a57dce0f36d278",
+      "gpu/removal_runtime.slang": "3ceef53de6428a10ac764a5d65e6f3ea9f9fdee12003a0f4d7a9a4189d73381b",
+      "gpu/duration_extend_runtime.slang": "028445e661b12f54a8dc48da3b3438b0c4df7b1da833a4b63a54c84ac18a1081",
+      "gpu/trigger_reduction_runtime.slang": "fd1e8a18a66cce0a9884aed9be42f125c9afb56ad662efecedad21ac6b7124ef",
+      "gpu/stack_runtime.slang": "e0e3e68064182f582ab9927244db71ab387b92dd6cf74e43794342263d8e4ac3",
+      "gpu/status_runtime.slang": "aca9ad04e3328aeecd4eb7a2add070a93f76ae0cc429611319e9e10ecee4daf7",
+      "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+      "gpu/pending_burst_runtime.slang": "123a5cc65a66f4e18cda0fc36b3aa1a95c832c7c157c6a8ecb63d55290ec6fcd",
+      "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+      "gpu/world_frame_addresses.slang": "d1606c64d97393118479cb0c4e75edb84d0a79c37e6f7dbbbdb80107915ec6ae",
+      "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+      "gpu/protection_runtime.slang": "8ffe318d7c6ee5b800aaa7e9ec3870d811568cab81a87d136bc44e2cf7e0db35",
+      "gpu/healing_storage_runtime.slang": "2b34608820115d98133cb7e8048604262cd024ec86897e5cf4f50acccb28d3dc",
+      "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+      "gpu/world_actor_pools.slang": "d27c86b85e3f54f8f5f2bb1582d1d879de90898b611b7fd7cc8b864bce0bb60e",
+      "gpu/world_actor_fields.slang": "2969ce079a22b505c7a071f5ed2903faed2f91f01e052384b975cf7d962f4b7f",
+      "gpu/world_actor_state.slang": "ee5a0c960c6e7892a76ad4608a520ba5cc194f7b484bcb3588f816ca43358414",
+      "gpu/world_actor_mutation.slang": "e866d0145e275dffd0ec17577d04177471c2d360bed0d493f6c93a2d9c12151c",
+      "gpu/world_actor_recipients.slang": "f7eb33cbe737cd6e6c729f6ca8c15d015256c2844f9d9a44fd1f6c646e34cab7",
+      "gpu/world_actor_status.slang": "aeaa6071bd08762c2445ca4d1798bfe98870bd19cdd00a6079ba3126115975ed",
+      "gpu/world_actor_stacks.slang": "38864ac1f81c3f9591f8273b318e37ee31b76a5ddf2de8a2c2a711db29323e8f",
+      "gpu/target_counter_runtime.slang": "5a1605e713aa86f5901fc5e7e6a7a723b5ee902ae4a812c5833084542849c898",
+      "gpu/world_projectile_runtime.slang": "3d3d498386038746f671007d5522ece05c7b82dd09d9d6fee9704aeff0af9e18",
+      "gpu/counter_landing_runtime.slang": "291026ca86263d74124dfbc756d41c45dc6062000335314ede7c637f26580e09",
+      "gpu/counter_context_runtime.slang": "aa3e9cf52e85feb2146467496954fcb6dd4f4eac8ebf9c1cdacdcaf38b1ea21b",
+      "gpu/counter_field_runtime.slang": "d972af3f7f9fd596a4c3732c79e344ce547532471374066c72dfeba3012153aa",
+      "gpu/world_skill_runtime.slang": "5833e4f5b5d5ecc1de9d5214b89ae3270fc1f7e98322624b8e452fef98436bcf",
+      "gpu/world_periodic_runtime.slang": "0754b7da78ebb303f4e2f911aa95e0b6421ceea6d94ebc96c8e99652d8978d1b",
+      "gpu/world_spawn_runtime.slang": "6da41aa26d47d47ebb54b6d742f62592f2fbcae50ea2e38a3a7d571771b7a8c3",
+      "gpu/world_fraction_runtime.slang": "6ee8371cee6f0ab559cbfb4c7fe2feb07b126270be9a87339893ea0f55bb3644",
+      "gpu/world_team_runtime.slang": "7425ce2e6f2546972c14c4efd3a680b4ebc4747b7ceecf597b3bdb8e6522ca34",
+      "gpu/world_charge_control_runtime.slang": "2c9339c35e4a48eecf16fb4168ed99d829f0bbc11e187cf1e26396c564f48b99",
+      "gpu/world_actor_registry.slang": "f803ee00db756eed3edd48586e3fcc94b4f750f0990f97c9ff8732da07f08477",
+      "gpu/world_frame_runtime.slang": "6be913eee371dd3652b47229813b9e0751d08ae8b82d81aa0b85cf82a545ff2c",
+      "gpu/combat_runtime.slang": "c7c6b3f139f939b326e84e4d8619a849962f8323a818a8719b709ef6aeb18642",
+      "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+      "gpu/weapon_runtime.slang": "10f77c5be03282ff8e6ea89f50cc49db90fc29ab902b815ae45cc30e0ccf0fe8",
+      "gpu/world_reload_runtime.slang": "335c78cb91c0cc319a0fdfba1736281ebee733de4758b01036e90feefb68664c",
+      "gpu/world_overlay_weapon.slang": "f9f33dcafbdd8f8dbea5acede13461b19a08e7084b7e5aa8f1f14c1959b4d370",
+      "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+      "gpu/admission_runtime.slang": "25ce155fc8c886bf41c2a903ba620fd54945582e7c75e07b8bc869f6e1ead79c",
+      "gpu/portable_mt19937.slang": "116f6a7ee3cf8e069db171aace0c06a1b160c3d25b0975451125929b68dd3b61",
+      "gpu/enemy_target_runtime.slang": "830fd22f28d105ea6b4e0ad4d334e774e36eebab698c1096a163cfdb712d9d1f"
+    },
+    "generated_sha256": {
+      "cuda": "6222137cdafd7f2c8b26c1d03bc5e3e98a43c5e17ec1106e2c2d4105abba22d8",
+      "metal": "aeb513ca334710c0b565f66afc1b6414d3dc04f5e4501cce6d1684e4ec5340a5"
+    },
+    "input_sha256": "e4545274df284edafd365d59966365ea6665338e76cfc93d4944715f14aac5c0",
+    "output_sha256": "e22d1cc14d0a1343138e3a71e6a1fbceaa9291f5115b4a5ed41517f5999988ff",
+    "gpu_execution_verified": true,
+    "backend": "metal"
+  },
+  "cause": "Negative hp_copy retains native HP1000/max800=125 percent when static reference-health synchronization is disabled; GPU generic sync clamped it to800. Existing static unclamp policy must cover this operator, with explicit expiration caps after state-end children.",
+  "original_capture": "/tmp/nikke-base-copy-admission-fixed-metal",
+  "original_failures_preserved": true,
+  "gpu_retry_count": 0,
+  "full_goal_complete": false
+}

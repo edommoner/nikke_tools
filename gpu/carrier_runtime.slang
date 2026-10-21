@@ -78,3 +78,13 @@ void queueCarrierEnd(inout Runtime s,uint slot,uint repeats=0)
     unlinkBulletCarrier(s,slot);discardLazy(s,slot);s.alive[slot]=0;s.stacks[slot]=0;
     queueRemovalNotice(s,definition_owner(s.inputBase,definition),definition_name(s.inputBase,definition),repeats);
 }
+
+// Native HP-copy expiration caps only after its state-end children finish.
+void queueHealthCapNotice(inout Runtime s,uint mask)
+{
+    if(mask==0) return;
+    if(s.removalCount==P_REMOVALS) { s.error=64;return; }
+    uint index=s.removalCount++,at=s.resourceOutput+P_REMOVAL_QUEUE_BASE+index/2,shift=(index&1)*16;
+    results[at]=(results[at]&~(65535U<<shift))|(16384U<<shift);
+    results[s.resourceOutput+P_STACK_NOTICE_VALUE_BASE+index]=mask;
+}

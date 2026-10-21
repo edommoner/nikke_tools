@@ -16,7 +16,7 @@ cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 class ReadinessTests(unittest.TestCase):
     def test_missing_fields_are_structured_and_wording_independent(self):
-        effect=dict(type='buff',stat='hp_copy',target='self',copy_from='allies_top_hp:1',
+        effect=dict(type='buff',stat='atk_pct',target='self',future_copy_from='allies_top_hp:1',
                     trigger=dict(timing=['battle_start'],condition=[]),fixed_value=1)
         before=copy.deepcopy(effect)
         with self.assertRaises(UnsupportedPortable) as caught:
@@ -24,9 +24,9 @@ class ReadinessTests(unittest.TestCase):
         self.assertEqual(effect,before)
         observed=issue(caught.exception,effect)
         self.assertEqual(observed['diagnostic_source'],'structured_reason')
-        self.assertEqual(observed['fields'],['copy_from'])
-        renamed=issue(UnsupportedPortable('different wording with trigger',reason='fields',fields=['copy_from']),effect)
-        fallback=issue(ValueError('Unported effect fields: copy_from'),effect)
+        self.assertEqual(observed['fields'],['future_copy_from'])
+        renamed=issue(UnsupportedPortable('different wording with trigger',reason='fields',fields=['future_copy_from']),effect)
+        fallback=issue(ValueError('Unported effect fields: future_copy_from'),effect)
         self.assertEqual(observed['code'],renamed['code'])
         self.assertEqual(observed['code'],fallback['code'])
 

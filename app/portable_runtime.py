@@ -40,6 +40,9 @@ def double_words(value):
 
 
 def validate_effect(eff, *, combat=None, world_frame=False):
+    from portable_base_copy_specs import validate as validate_base_copy,enabled as base_copy
+    try:validate_base_copy(eff,combat=combat,world_frame=world_frame)
+    except ValueError as error:raise UnsupportedPortable(str(error),reason="effect") from error
     from portable_trigger_reduction_specs import validate as validate_trigger_reduction
     try:validate_trigger_reduction(eff,combat=combat,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason='effect') from error
@@ -70,6 +73,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
                'target','trigger','note','polarity','favorite','_source_tag','_quant_group','max_ammo_reduction_exclusive','trigger_values','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
     if eff.get('type')=='damage' and eff.get('stat')=='dot_damage':allowed |= {'ramp_interval','ramp_damage_stack','post_ramp_tick_delay'}
     if element_override(eff):allowed |= {'target_code'}
+    if base_copy(eff):allowed |= {'copy_from'}
     if removal is not None:allowed |= {'remove_scope'}
     if protection&255==1:allowed |= {'end_on_shield_consumed'}
     if source_spec:allowed |= {'periodic_source','feather_id','feather_slots','feather_interval_base','feather_interval_step_pct'}
@@ -390,7 +394,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if eff.get('scaling')=='lost_hp_pct':words[at+F['FLAGS']] |= 128
         # Native world health helpers read active membership directly, whereas
         # get_buffs rechecks infinite-duration runtime predicates. Keep both paths.
-        direct_health=eff.get('stat') in ('def_pct','def_caster_based_pct','max_hp_pct','max_hp_only_pct','hp_caster_based_pct','hp_only_caster_based_pct','max_hp_from_max_hp_pct')
+        direct_health=eff.get('stat') in ('def_pct','def_caster_based_pct','max_hp_pct','max_hp_only_pct','hp_caster_based_pct','hp_only_caster_based_pct','max_hp_from_max_hp_pct','hp_copy')
         if world_frame and eff.get('type')=='buff' and enemy_buff_plan(eff) is None and direct_health and words[at+F['FLAGS']]&2 and row[7]<0:
             words[at+F['FLAGS']] |= 256
         if effects[index][0].get('stat')=='stack_change_immune':words[at+F['FLAGS']] |= 8
@@ -439,6 +443,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     pack_trigger_reduction(words,L,effects,program['effects'],legacy,double_words)
     from portable_skill_interval_specs import pack as pack_skill_interval
     pack_skill_interval(words,L,effects,program['effects'])
+    from portable_base_copy_specs import pack as pack_base_copy
+    pack_base_copy(words,L,effects,program['effects'])
     from portable_staged_specs import pack_index
     pack_index(words,staged,L)
     combat_meta = None
@@ -549,10 +555,10 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     from portable_trigger_specs import pack_event_candidates
     pack_event_candidates(words,L)
     from portable_probability_specs import definitions as probability_definitions
-    # A negative drain may intentionally leave native HP above its maximum.
+    # A negative drain or a changed HP-copy basis can leave native HP above its maximum.
     # Preserve that only when the native static synchronization policy is off.
     # No runtime HP or CPU battle state is supplied to this descriptor.
-    if any(row[1]==8 and row[6]<0 for row in program['effects']):
+    if any(row[1]==8 and row[6]<0 or row[1]==0 and row[2]==86 for row in program['effects']):
         from types import SimpleNamespace
         from reference_health_runtime import enabled as reference_health_sync
         if not reference_health_sync(SimpleNamespace(_effects=effects)):
