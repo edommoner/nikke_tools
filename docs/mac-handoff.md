@@ -1,3 +1,23 @@
+## 2026-10-21 クリティカル・コア小数通知をMetal35・CUDA35で実証
+
+計算source7cb937878bd642ccf448cd5f4c7b33feafe993a5・private ABI88/mode17で、crit_hit/core_hitと各countを共通実行器へ接続しました。物理damageValueから一発分の確率を捕捉し、既存binary64でowner別の小数を蓄積、1を超えたら共通dispatchを呼びます。確率0/1では新しいaccumulatorを作らず、既存の残り値を保持します。CUDA/Metal別実装やCPU算出済みcredit入力はありません。
+
+通常射撃はpellet_hit→critical→coreを弾片ごと、チャージはon_attack/full_charge/hit_count等→弾数buff消費→全critical→全core→last_bulletというnative順を保持します。同じ散弾中のcallbackで確率を取り直しません。normal専用criticalはskill modeへ入れず、pinned nativeがaddへの最終routingでもcore確率を維持する契約も観測のまま保持します（明示parts/interrupt照準とは別です）。
+
+Metal35＝native24実戦＋拒否11が成功しました。M5 command completed、GPU0.039672秒、input13647204bytes/readback91750400bytesを保存。0/1clamp、15%の7発目、unit率への変更時の残り値、3pellet×2muzzle、callback/charge/skill mode/normal限定補正/弾数期限/core出現変化/add経路を完全nativeの数量・状態・通知時刻・小数値・実accumulator keyで照合しました。CPU442検査、旧16入口CUDA/MSL生成物厳密一致、保存raw/Git source/nativeのGPU禁止監査も成功。旧923以下・通常4682のGPU再実行はありません。
+
+初回ee14e40（ABI87/input97464）の29入力を保持しています。全24の数量・最終小数値は一致しましたが、charge6件の通知が1frame早い差を発見しました。literal base charge入力のinterval.4−charge.2が実native SRのpost_fire_delay.215を表しておらず、さらに一般にcharge+delayからdelayを復元してもbinary64値が保存されないため、独立したstatic時計入力へ接続しました。初回raw・initial-metal・findingを保存し、同一source/input retry0です。異なる固定source2種でMetal計2回。
+
+新入口だけ入力を97480wordへ拡張し、97464から16word（WFC1/version1/5owner/予約0＋各post-fire delayのbinary64＋予約0）を追加しました。native静的CharStateから読み出すnormalize_static_clockと厳密packerを共通化し、CPU battleは禁止して検査。weapon modeは既存descriptorのraw post_fire_delayを直接読みます。NaN/負値/nonchargeへの非0/予約語をGPUで拒否。旧入口のinput幅と生成結果は保持します。出力655360wordは同じで、628504に5×8wordの小数/shot snapshot、628544に8word head、628552に2048×8wordの観測を置き、過去のbankと重なりません。
+
+Windows v99は固定158e8b7a81e0af470af7cfe06e5d8809b48690ba（19ファイル293289bytes）、codex/cuda-world-v99-sourceで成功しました。CPU60検査・GPU禁止35入力/native24・source SHA82・input97480照合後、BelowNormal/JobObject/start gate/180秒＋cleanup5秒でCUDA1回・116.380413秒・exit0。保存3JSON計71749bytesを取得し、全input/output/native/generated fingerprint・API50phase・元HEAD/status/service保持・residual0・retry0・旧923以下/通常4682再実行0を共通監査器で照合済みです。portable-world-v99-cuda-validation.json、seal-world-v99-cuda.pyを参照。turn01a15c58-b163-7190-8fd9-bed75504179aはcompleted、cursor187、idleで、再依頼は不要です。
+
+実203＋21お気に入り段階1/2/3＝266プロファイルの静的監査では、own定義のPython事前検査通過がbase97→100、全137→140になりました（K、루드밀라 : 윈터 오너、마스트）。CPU battle/GPU build/executeは禁止・呼出し0。これはGPU kind admission・real roster/world配線・容量・全キャラ戦闘認証を示す数字ではありません。
+
+次のpart/body通知はnative6実戦を固定しました。条件はeffect owner、発動casterとtarget:selfは実attackerであり、team counterはattackers間で共有されます。owner4だけ被弾させる条件対照と、3pellet/2muzzleの全体N=3対照も確認。portable-world-team-hit-native-contract.json、characterize-world-team-hit-ownership.pyを参照。このGPU bridgeはまだ拒否します。charge_holdも手動control・充填完了のlatch・閾値ごとの一度判定・キャンセル/カメラの接続が必要です。
+
+通常画面CPU・public world false・全キャラ戦闘認証0・legacy unexplained Metal14c8e2e OPEN・全ゴール未完了です。部隊命中/保持・他buff/selector・source攻撃/interrupt・skill追加part到達・動的操作/復活・全効果組合せ・容量/長時間/全変種認証、nativeの永続条件付き味方HP/防御とhit-only max-HP rankの不整合も残ります。効率化は必要な検証後。GitHub共有はゴール達成まで利用者許可済みです。
+
 ## 2026-10-21 初期敵出現通知をMetal27・CUDA27で実証
 
 計算sourcecb4400977032fdac69621c9f1fa5a6dff34e8c31・private ABI86/mode15で、event:enemy_spawn（元のevent5）をworld定義の受付と共通startupへ接続しました。全員のbattle_start→全員の初期enemy_spawn→初期magazineの順で一度だけ実行し、召喚敵1体ごとの既存通知は同じdispatchを使います。CUDA/Metalに別のイベント実行器・数量計算・効果定義は追加していません。new入口のevent5定義は旧mode13では拒否します。
