@@ -2,7 +2,9 @@
 #if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)
 #error World and wide-landing diagnostic layouts cannot be combined.
 #endif
-#ifdef PORTABLE_WORLD_RELOAD
+#ifdef PORTABLE_WORLD_ROSTER
+static const uint PORTABLE_ABI = 1346721420U;
+#elif defined(PORTABLE_WORLD_RELOAD)
 static const uint PORTABLE_ABI = 1346721419U;
 #elif defined(PORTABLE_WORLD_CHARGE_CONTROL)
 static const uint PORTABLE_ABI = 1346721418U;
