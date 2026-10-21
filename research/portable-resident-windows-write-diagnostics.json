@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "evidence_scope": "Derived Windows structured chat reports; original probe artifacts not independently audited on Mac.",
+  "reports": [
+    {
+      "turn": "01a16061-ea0a-78c3-a08d-8c0b4f57c0cd",
+      "report": {
+        "condition": "B_OS_temp",
+        "temp_method": "GetTempPathW",
+        "output_and_cwd_outside_Documents": true,
+        "python_write_verified": true,
+        "slang_exit": 0,
+        "elapsed_seconds": 0.18910179985687137,
+        "output_exists": true,
+        "reflection_exists": true,
+        "files": [
+          {
+            "name": "probe.cu",
+            "bytes": 686,
+            "sha256": "6aa0004c712aee7249774a5597571fb3cfe7fe3fcfacf36cb6c4f94b76ec8eef"
+          },
+          {
+            "name": "probe.reflection.json",
+            "bytes": 5821,
+            "sha256": "7164eef0b2ee227fbd9acddbd41b7dcf99ea9af0957f6f244e44cc0caea5f933"
+          }
+        ],
+        "reflection_excerpt": {
+          "entry": "main",
+          "threadGroupSize": [
+            1,
+            1,
+            1
+          ],
+          "resource": "values",
+          "access": "readWrite",
+          "struct": "Probe",
+          "size": 16,
+          "alignment": 8,
+          "fields": [
+            {
+              "name": "a",
+              "offset": 0,
+              "size": 4
+            },
+            {
+              "name": "b",
+              "offset": 8,
+              "size": 8
+            }
+          ]
+        },
+        "conclusion": "Same tiny B condition succeeds in OS Temp; location-dependent write behavior is supported, but the specific security mechanism is unconfirmed",
+        "parent_environment_preserved": true,
+        "security_settings_modified": false,
+        "attempts": 1,
+        "retries": 0,
+        "nvrtc_calls": 0,
+        "gpu_calls": 0,
+        "full_shader_calls": 0,
+        "original_failures_preserved": true
+      }
+    },
+    {
+      "turn": "01a16061-40fb-78f0-9921-310b15e47ea7",
+      "report": {
+        "condition": "B_outside_sandbox",
+        "require_escalated_executed": true,
+        "source_sha256": "f080e77c67dbdc81440f5520f90fb99db12eef32d5f899ee2e1bc99bf286a5cb",
+        "directory_exists": true,
+        "python_write_verified": true,
+        "slang_exit": 4294967295,
+        "stderr": "error[E00004]: cannot write output file '[redacted]/probe.cu'",
+        "output_exists": false,
+        "reflection_exists": false,
+        "elapsed_seconds": 0.1866474999114871,
+        "conclusion": "Write failure also occurred with require_escalated; default sandbox alone is not established as the cause",
+        "below_normal": true,
+        "timeout_seconds": 15,
+        "attempts": 1,
+        "retries": 0,
+        "nvrtc_calls": 0,
+        "gpu_calls": 0,
+        "full_shader_regeneration_calls": 0,
+        "previous_failure_preserved": true
+      }
+    },
+    {
+      "turn": "01a16060-4a11-7e20-97db-f76c242cd137",
+      "report": {
+        "probe": "tiny_struct_reflection_output",
+        "source_sha256": "f080e77c67dbdc81440f5520f90fb99db12eef32d5f899ee2e1bc99bf286a5cb",
+        "conditions": [
+          {
+            "condition": "A",
+            "mode": "stdout + absolute reflection path",
+            "exit": 0,
+            "stdout_bytes": 686,
+            "reflection_exists": false,
+            "stderr": "warning[E40100]: entry point 'main' renamed to 'main_0'; error[E52004]: unable to write file",
+            "elapsed_seconds": 0.19388239970430732
+          },
+          {
+            "condition": "B",
+            "mode": "absolute -o + absolute reflection path",
+            "exit": 4294967295,
+            "output_exists": false,
+            "reflection_exists": false,
+            "stderr": "error[E00004]: cannot write output file '[redacted]/probe.cu'",
+            "elapsed_seconds": 0.1854190002195537
+          },
+          {
+            "condition": "C",
+            "mode": "relative -o + relative reflection path",
+            "exit": 4294967295,
+            "output_exists": false,
+            "reflection_exists": false,
+            "stderr": "error[E00004]: cannot write output file 'probe.cu'",
+            "elapsed_seconds": 0.18412219965830445
+          }
+        ],
+        "conclusion": "All conditions reported file-write errors; output-method differences remain unconfirmed",
+        "execution_context": "Default sandbox",
+        "write_failure_root_cause": "unconfirmed",
+        "elapsed_seconds": 0.5684102000668645,
+        "below_normal": true,
+        "attempts_per_condition": 1,
+        "retries": 0,
+        "stdout_stderr_and_source_saved": true,
+        "full_shader_regeneration_calls": 0,
+        "nvrtc_calls": 0,
+        "driver_calls": 0,
+        "gpu_calls": 0,
+        "original_capture_package_modified": false
+      }
+    }
+  ]
+}

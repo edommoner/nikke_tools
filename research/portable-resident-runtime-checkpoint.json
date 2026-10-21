@@ -156,10 +156,38 @@
     "private_runtime_declaration_in_candidate_generated_code": false
   },
   "windows": {
-    "status": "not_run",
+    "status": "v121_stopped_before_nvrtc",
+    "report": "research/portable-world-v121-compiler-sanitized.json",
     "compiler_improvement_verified": false,
-    "calculation_verified": false
+    "calculation_verified": false,
+    "cpu_tests_passed": 30,
+    "nvrtc_calls": 0,
+    "gpu_calls": 0,
+    "next": "Fresh compiler-only package with validated OS-temp staging; no GPU retry",
+    "write_diagnostics": "research/portable-resident-windows-write-diagnostics.json"
   },
   "full_character_verified": 0,
-  "full_goal_complete": false
+  "full_goal_complete": false,
+  "clean_package_transfer": {
+    "source_commit": "6f5b47c87c004fb75e084ef4b90161d143eed1d2",
+    "package_id": "0fec968e69be5592bc6cf0d877f0418a356ab893d8d18ab8fd588f21c477ee64",
+    "files": 1832,
+    "working_tree_dirty": false,
+    "mac_zip_sha256": "5cdbe56542fdff5334e81470a13d2e0c2e9cdea7b72c52fb94f03a11806c96f4",
+    "old_dirty_package_id": "5b6370bb901c6f965d406123e44eb1d322b571f11e1283700d887de430eda67a",
+    "all_file_records_and_golden_identical": true,
+    "original_mismatch_preserved": true
+  },
+  "resident_build_revision": {
+    "cpu_tests_passed": 37,
+    "tests": {
+      "resident": 10,
+      "cuda_artifact": 12,
+      "compile_cli": 8,
+      "sources": 7
+    },
+    "gpu_calls": 0,
+    "generated_retention": "research/portable-resident-build-retention.json",
+    "scope": "Targeted CPU checks for fresh paired output publication; not a new GPU proof"
+  }
 }

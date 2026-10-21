@@ -42,12 +42,14 @@ def build(source, entry):
     resident=any(re.search(rb'^\s*#define\s+PORTABLE_RESIDENT_RUNTIME(?:\s|$)',(ROOT/name).read_bytes(),re.M) for name in hashes)
     directory = ROOT/'research/portable-build'
     directory.mkdir(parents=True, exist_ok=True)
+    if resident:
+        return _build_resident(compiler, source, entry, hashes, directory)
     outputs = {}
     for target, suffix in [('cuda', 'cu'), ('metal', 'metal')]:
         output = directory/f'{Path(source).stem}.{suffix}'
         process = subprocess.run([str(compiler), str(ROOT/source), '-entry', entry,
                                   '-target', target, '-fp-mode', 'precise', '-line-directive-mode', 'none',
-                                  *(['-reflection-json',str(output)+'.reflection.json'] if resident else [])], capture_output=True, timeout=90)
+                                  ], capture_output=True, timeout=90)
         if process.returncode:
             raise RuntimeError(process.stderr.decode('utf-8', 'replace'))
         # Multiple application requests may build the same immutable shader.
@@ -56,16 +58,54 @@ def build(source, entry):
             temporary.write(process.stdout);temporary_path=Path(temporary.name)
         temporary_path.replace(output)
         outputs[target] = output
-    if resident:
-        from portable_resident_layout import reflection_plan,cuda_layout_assertions
-        plan=reflection_plan(outputs,entry)
-        raw=cuda_layout_assertions(outputs['cuda'].read_bytes(),plan)
-        with tempfile.NamedTemporaryFile(dir=directory,delete=False) as temporary:
-            temporary.write(raw);temporary_path=Path(temporary.name)
-        temporary_path.replace(outputs['cuda'])
     if source_hashes(source) != hashes:
         raise RuntimeError('GPU sources changed during build; discard generated outputs')
     return outputs, hashes
+
+
+def _build_resident(compiler, source, entry, hashes, directory):
+    """Validate fresh paired code/reflection before publishing any resident output."""
+    from portable_resident_layout import reflection_plan,cuda_layout_assertions
+    temporary_root=None
+    if platform.system()=='Windows':
+        # The bounded child intentionally redirects TEMP into its capture. Slang
+        # can be denied native writes in Documents even when Python can publish
+        # there. Keep compiler scratch in the user's OS temp, without changing
+        # the child/parent environment or Windows security settings.
+        local=os.environ.get('LOCALAPPDATA')
+        if not local or not Path(local).is_absolute():raise ValueError('Missing absolute LOCALAPPDATA for Slang scratch')
+        temporary_root=Path(local)/'Temp'
+        if not temporary_root.is_dir():raise ValueError('Windows Slang scratch directory missing')
+    with tempfile.TemporaryDirectory(prefix='nikke-resident-build-', dir=temporary_root) as tmp:
+        staged={}
+        for target,suffix in [('cuda','cu'),('metal','metal')]:
+            output=Path(tmp)/(Path(source).stem+'.'+suffix)
+            reflection=Path(str(output)+'.reflection.json')
+            process=subprocess.run([str(compiler),str(ROOT/source),'-entry',entry,
+                '-target',target,'-fp-mode','precise','-line-directive-mode','none',
+                '-o',str(output),'-reflection-json',str(reflection)],capture_output=True,timeout=90)
+            diagnostic=process.stderr.decode('utf-8','replace').strip()
+            if process.returncode:
+                raise RuntimeError('Slang resident '+target+' generation failed: '+diagnostic)
+            for path in (output,reflection):
+                if not path.is_file() or not path.stat().st_size:
+                    raise RuntimeError('Slang resident '+target+' artifact missing or empty: '+path.name+'; '+diagnostic)
+            staged[target]=output
+        plan=reflection_plan(staged,entry)
+        staged['cuda'].write_bytes(cuda_layout_assertions(staged['cuda'].read_bytes(),plan))
+        if source_hashes(source)!=hashes:
+            raise RuntimeError('GPU sources changed during build; discard generated outputs')
+        outputs={}
+        for target,path in staged.items():
+            output=directory/path.name
+            # Python publishes on the destination filesystem, including when
+            # the checkout and OS temp are on different volumes.
+            for candidate,destination in ((Path(str(path)+'.reflection.json'),Path(str(output)+'.reflection.json')),(path,output)):
+                with tempfile.NamedTemporaryFile(dir=directory,delete=False) as temporary:
+                    temporary.write(candidate.read_bytes());temporary_path=Path(temporary.name)
+                temporary_path.replace(destination)
+            outputs[target]=output
+    return outputs,hashes
 
 
 def run_metal_command(command, *, compile_timeout=300, gpu_timeout=120):
