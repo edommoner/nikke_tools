@@ -60,6 +60,7 @@ s=importlib.util.spec_from_file_location('team_fraction_decode','research/verify
 def prepare():
  rows=fixtures();programs=[compile_case(c) for c in rows];seed=programs[0][0];bad=[]
  for name,at,value in [
+  ('team-counter-marker-zero',L['TARGET_COUNTER_INPUT_BASE'],0),('team-counter-marker-invalid',L['TARGET_COUNTER_INPUT_BASE'],1),('team-old-mode17',L['TARGET_COUNTER_INPUT_BASE']+6,17),
   ('team-unknown-mode20',L['TARGET_COUNTER_INPUT_BASE']+6,20),('team-without-landings',L['LANDING_META_BASE'],0),
   ('team-header-magic',L['WORLD_TEAM_INPUT_BASE'],0),('team-header-version',L['WORLD_TEAM_INPUT_BASE']+1,2),
   ('team-binding-count',L['WORLD_TEAM_INPUT_BASE']+2,4),('team-parts-boolean',L['WORLD_TEAM_INPUT_BASE']+3,2),

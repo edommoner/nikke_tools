@@ -104,7 +104,8 @@ struct Runtime
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
 #ifdef PORTABLE_WORLD_TEAM
-bool worldTeamEnabled(inout Runtime s) { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==19; }
+// This private ABI admits only mode19; portableEvents validates its marker first.
+bool worldTeamEnabled(inout Runtime s) { return true; }
 #define WORLD_TEAM_MODE(s) worldTeamEnabled(s)
 #define WORLD_TEAM_INIT(s) initializeWorldTeam(s);
 #define WORLD_TEAM_BUDGET(s,row) teamBudgetRow(s.inputBase,row)
@@ -1972,6 +1973,9 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
 {
     if (id.x >= commands[0]) return;
     uint input = 1 + id.x*P_INPUT_WORDS, output = id.x*P_OUTPUT_WORDS;
+#ifdef PORTABLE_WORLD_TEAM
+    if(commands[input+P_TARGET_COUNTER_INPUT_BASE]!=0x57433031||commands[input+P_TARGET_COUNTER_INPUT_BASE+6]!=19) { results[output]=64;return; }
+#endif
     #ifdef PORTABLE_AGGREGATE_INIT_REFERENCE
     Runtime s = {};
 #else
