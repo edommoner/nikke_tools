@@ -56,9 +56,12 @@ child=subprocess.Popen([sys.executable,'-c','import time;time.sleep(30)'])
 time.sleep(30)
 """
             with observe_job(bounded,root/'job.json'):
-                facts=bounded.run_bounded([sys.executable,'-c',code,str(root)],root,2)
-            self.assertTrue((root/'descendant.pid').exists())
-            self.assertTrue(facts['timed_out']);self.assertFalse(facts['passed'])
+                interpreter=getattr(sys,'_base_executable',sys.executable)
+                env=os.environ.copy();env.pop('__PYVENV_LAUNCHER__',None)
+                facts=bounded.run_bounded([interpreter,'-c',code,str(root)],root,2,env=env)
+            diagnostic=json.dumps(dict(execution=facts,job=json.loads((root/'job.json').read_text()),stderr=(root/'stderr.log').read_text(errors='replace')))
+            self.assertTrue(facts['timed_out'],diagnostic);self.assertFalse(facts['passed'])
+            self.assertTrue((root/'descendant.pid').exists(),diagnostic)
             self.assertIsNone(facts['cleanup_error']);self.assertIsNotNone(facts['final_child_exit_code'])
             row=json.loads((root/'job.json').read_text())['records'][0]
             self.assertTrue(row['pre_gate_verified']);self.assertIsNone(row['inspection_error'])
