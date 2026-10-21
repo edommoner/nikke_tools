@@ -16,6 +16,41 @@ cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class PacketTests(unittest.TestCase):
+    def test_controller_smoke_never_prepares_native_battles_or_runs_numeric_groups(self):
+        from types import SimpleNamespace
+        with tempfile.TemporaryDirectory() as folder:
+            capture=Path(folder)/'smoke'
+            def job(capture,*args,**kwargs):
+                cli.write(capture/'smoke.json',dict(pid=123,ppid=12,gpu_calls=0))
+                return dict(passed=True)
+            with patch.object(cli,'verify_package',return_value=dict(suite='regression',purpose='sealed',package_id='smoke-test')),\
+                 patch.object(cli,'os',SimpleNamespace(**dict(vars(os),name='posix'))),\
+                 patch.object(cli,'cpu_preflight',side_effect=AssertionError('Native battle forbidden')) as native,\
+                 patch.object(cli.subprocess,'run',return_value=SimpleNamespace(returncode=0,stdout=b'',stderr=b'')) as tests,\
+                 patch.object(cli,'run_job',side_effect=job):
+                result=cli.run_capture(capture,'cuda',30,smoke=True)
+            native.assert_not_called()
+            self.assertTrue(result['smoke_verified']);self.assertFalse(result['calculation_verified'])
+            self.assertEqual([c.args[0][-1] for c in tests.call_args_list],cli.SMOKE_TESTS)
+            self.assertEqual(cli.load(capture/'cpu.json')['native_oracles'],0)
+
+    def test_windows_temporary_environment_reaches_child_without_changing_parent(self):
+        from types import SimpleNamespace
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);parent=dict(os.environ,TEMP='unwritable-default',TMP='unwritable-default',
+                                        TMPDIR='unwritable-default',__PYVENV_LAUNCHER__='stale')
+            before=dict(parent)
+            with patch.object(cli,'os',SimpleNamespace(name='nt',environ=parent)):
+                env=cli.validation_environment(root)
+                self.assertEqual(cli.validation_environment(root),env)
+            self.assertEqual(parent,before);self.assertNotIn('__PYVENV_LAUNCHER__',env)
+            temporary=(root/'temporary').resolve()
+            self.assertTrue(temporary.is_dir())
+            self.assertTrue(all(env[k]==str(temporary) for k in ('TEMP','TMP','TMPDIR')))
+            child=subprocess.run([sys.executable,'-c','import pathlib,tempfile;print(pathlib.Path(tempfile.gettempdir()).resolve())'],
+                                 env=env,capture_output=True,text=True,check=True)
+            self.assertEqual(child.stdout.strip(),str(temporary))
+
     def test_required_shared_auditor_helpers_are_available_before_native_work(self):
         from portable_typed_cuda_proof_audit import verify_cpu_gpu_calls
         from portable_phase_audit import verify_cuda_trace

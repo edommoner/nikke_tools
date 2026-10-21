@@ -42,6 +42,10 @@ LIMITS.update(TRIGGER_REDUCTION_FLAG=_reduce_flag,TRIGGER_REDUCTION_MAGIC=_reduc
               TRIGGER_REDUCTION_OFFSET=_reduce_offset,TRIGGER_REDUCTION_MASK=_reduce_mask,
               TRIGGER_REDUCTION_END=_reduce_end)
 assert _reduce_offset+3==_reduce_mask and _reduce_end==_reduce_mask+LIMITS['MASK_WORDS'] and _reduce_end<=28
+from portable_skill_interval_specs import FLAG as _interval_flag,MAGIC as _interval_magic,OFFSET as _interval_offset,END as _interval_end
+LIMITS.update(SKILL_INTERVAL_FLAG=_interval_flag,SKILL_INTERVAL_MAGIC=_interval_magic,
+              SKILL_INTERVAL_OFFSET=_interval_offset,SKILL_INTERVAL_END=_interval_end)
+assert _interval_offset==_reduce_offset and _interval_end<=_reduce_end
 # Seven previously zero alignment words following the one-word aim policy.
 assert LIMITS['PERIODIC_DEFINITION_BASE']==LIMITS['AIM_POLICY_BASE']+8
 LIMITS['WORLD_META_BASE']=LIMITS['AIM_POLICY_BASE']+1

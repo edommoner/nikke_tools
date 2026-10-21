@@ -1,3 +1,11 @@
+<!-- skill-flat-current -->
+## 2026-10-21 名前付き周期秒数補正と制御smokeの効率化
+
+通常CLIはregression420（native334／拒否86）、goldenはportable-world-skill-flat-regression-short-expected.jsonです。effect_interval／skill_cooldownを共通時計へ接続し、個別57入力と実에이다3秒／30秒を追加。Metal420全一致、旧361と初回415の成功414のinput／全raw／native維持を確認して明示sealしました。初回1拒否はC34の対象別受付漏れで、原失敗を保持し、既存HP条件評価器へ接続。CPU684検査・1skip・失敗0です。
+
+受付マクロのrowを明示引数にし、Windows子の専用TEMPを自動設定。run --smokeは制御CPU29件とfresh Jobだけでnative全編成を省きます。Windowsではこの制御確認だけを短く行い、失敗した本体コンパイルを再実行しません。静的packing193/266、base134/203、分類110。通常UI CPU・全キャラ実戦認定0・新版CUDA数値未確認・最終目標未完了です。詳細portable-skill-interval-flat.md、portable-skill-flat-development-checkpoint.json。GitHub共有はゴール中利用者許可済みです。
+<!-- /skill-flat-current -->
+
 <!-- skill-interval-current -->
 ## 2026-10-21 周期割合補正・分類の観測・NVRTC読込み省略
 

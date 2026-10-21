@@ -52,25 +52,25 @@ SUITES['stun']=dict(script='research/verify-world-stun-short.py',golden='researc
 SUITES['burst-recipients-diagnostic']=dict(SUITES['burst-recipients'],source='gpu/world_projectile_admission_entry.slang',development_only=True)
 SUITES['roster-regression']=dict(script='research/verify-world-roster-regression-short.py',
     golden='research/portable-world-roster-regression-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=42,native=42,
+    source='gpu/world_projectile_entry.slang',inputs=44,native=44,
     tests=['test_portable_roster_regression.py','test_portable_real_binding_proof.py'])
 SUITES['skill-cooldown']=dict(script='research/verify-world-skill-cooldown-short.py',
     golden='research/portable-world-skill-cooldown-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=25,native=21,
     tests=['test_portable_skill_cooldown.py','test_portable_typed_recipient_delegation.py'])
 SUITES['regression']=dict(script='research/verify-world-regression-short.py',
-    golden='research/portable-world-skill-interval-regression-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=361,native=292,
+    golden='research/portable-world-skill-flat-regression-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=420,native=334,
     tests=['test_portable_regression_adapter.py','test_portable_roster_regression.py',
            'test_portable_readiness.py','test_portable_stun.py','test_portable_typed_recipient_delegation.py',
-           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py'])
+           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py','test_portable_skill_interval_flat.py'])
 SUITES['healing-storage']=dict(script='research/verify-world-healing-storage-short.py',
     golden='research/portable-world-healing-storage-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=51,native=39,development_only=True,
     tests=['test_portable_healing_storage.py'])
 SUITES['roster-admission-diagnostic']=dict(script='research/verify-world-roster-regression-short.py',
     golden='research/portable-world-roster-regression-short-expected.json',
-    source='gpu/world_projectile_admission_entry.slang',inputs=42,native=42,development_only=True,
+    source='gpu/world_projectile_admission_entry.slang',inputs=44,native=44,development_only=True,
     tests=['test_portable_real_binding_proof.py'])
 SUITES['trigger-reduction']=dict(script='research/verify-world-trigger-reduction-short.py',
     golden='research/portable-world-trigger-reduction-short-expected.json',
@@ -84,8 +84,15 @@ SUITES['skill-interval']=dict(script='research/verify-world-skill-interval-short
     golden='research/portable-world-skill-interval-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=32,native=28,development_only=True,
     tests=['test_portable_skill_interval.py'])
+SUITES['skill-interval-flat']=dict(script='research/verify-world-skill-interval-flat-short.py',
+    golden='research/portable-world-skill-interval-flat-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=57,native=40,development_only=True,
+    tests=['test_portable_skill_interval_flat.py'])
 
 SCHEMA = 1
+# Controller validation has no numeric program to execute. Keep its CPU work
+# separate from a selected suite's battle/native preflight.
+SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py']
 
 
 def sha(data):
@@ -592,9 +599,18 @@ def bounded_module():
     return module(ROOT/'research/run-world-bounded.py')
 
 
+def validation_environment(capture):
+    """Keep owned Windows tests/compiler scratch out of a sandbox default TEMP."""
+    env=os.environ.copy();env.pop('__PYVENV_LAUNCHER__',None)
+    if os.name=='nt':
+        temporary=(capture/'temporary').resolve();temporary.mkdir(exist_ok=True)
+        for key in ('TEMP','TMP','TMPDIR'):env[key]=str(temporary)
+    return env
+
+
 def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_only=False):
     bounded=bounded_module()
-    env=os.environ.copy();env.pop('__PYVENV_LAUNCHER__',None)
+    env=validation_environment(capture)
     env['PYTHONPATH']=os.pathsep.join([*site.getsitepackages(),env.get('PYTHONPATH','')])
     interpreter=getattr(sys,'_base_executable',sys.executable) if os.name=='nt' else sys.executable
     command=[interpreter,str(Path(__file__).resolve()),'_child','--capture',str(capture),'--backend',backend]
@@ -627,11 +643,14 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
     write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend=backend,
                                 mode='cpu-only' if cpu_only else 'smoke' if smoke else 'gpu',status='preflight',gpu_retry_count=0))
     try:
-        pre=cpu_preflight(m);write(capture/'cpu.json',pre)
+        pre=(dict(passed=True,controller_only=True,input_count=0,native_oracles=0,gpu_calls=0)
+             if smoke else cpu_preflight(m))
+        write(capture/'cpu.json',pre)
         test_results=[]
-        for pattern in SUITES[m['suite']]['tests']:
+        test_env=validation_environment(capture)
+        for pattern in (SMOKE_TESTS if smoke else SUITES[m['suite']]['tests']):
             started=time.perf_counter()
-            completed=subprocess.run([sys.executable,'-m','unittest','discover','-s',str(ROOT/'tests'),'-p',pattern],cwd=ROOT,capture_output=True,timeout=60)
+            completed=subprocess.run([sys.executable,'-m','unittest','discover','-s',str(ROOT/'tests'),'-p',pattern],cwd=ROOT,capture_output=True,timeout=60,env=test_env)
             (capture/(pattern+'.stdout.log')).write_bytes(completed.stdout)
             (capture/(pattern+'.stderr.log')).write_bytes(completed.stderr)
             test_results.append(dict(pattern=pattern,exit_code=completed.returncode,elapsed_seconds=time.perf_counter()-started))

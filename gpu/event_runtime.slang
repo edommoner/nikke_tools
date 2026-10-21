@@ -249,8 +249,8 @@ bool worldTeamEnabled(inout Runtime s) { return true; }
 #define WORLD_TEAM_PELLET(s,w,who,when,output) if(worldTeamEnabled(s)&&w.mode!=1) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_CHARGE(s,w,who,count,when,output) if(worldTeamEnabled(s)&&w.mode==1) for(uint teamHit=0;teamHit<count;teamHit++) notifyWorldTeam(s,who,when,output);
 #define WORLD_TEAM_VALIDATE(s,d,input,j) for(uint teamSlot=0;teamSlot<d.triggerCount;teamSlot++) { uint teamEvent=commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+teamSlot*8];if((teamEvent==44||teamEvent==45)&&!worldTeamEnabled(s)) { s.error=64;break; } } if(s.error!=0) break;
-#define WORLD_TEAM_KIND(s,d,legacy) (worldTeamEnabled(s)&&(d.kind==25||d.kind==22) ? false : WORLD_PROJECTILE_KIND(d,WORLD_RELOAD_KIND(d,(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||d.kind==33||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy)))))
-#define WORLD_TEAM_CONDITION(s,d,at,kind,arg) WORLD_PROJECTILE_CONDITION(s,at,kind,arg) if(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&WORLD_CONTROL_CONDITION_KIND(kind,teamAdditionalCondition(kind))) { if(!WORLD_CONTROL_CONDITION_VALID(at,kind,arg,validTeamAdditionalCondition(at,kind,arg))) return false;continue; }
+#define WORLD_TEAM_KIND(s,row,d,legacy) (worldTeamEnabled(s)&&(d.kind==25||d.kind==22) ? false : WORLD_PROJECTILE_KIND(d,WORLD_RELOAD_KIND(d,(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||d.kind==33||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy)))))
+#define WORLD_TEAM_CONDITION(s,row,d,at,kind,arg) WORLD_PROJECTILE_CONDITION(s,at,kind,arg) if(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&WORLD_CONTROL_CONDITION_KIND(kind,teamAdditionalCondition(kind))) { if(!WORLD_CONTROL_CONDITION_VALID(at,kind,arg,validTeamAdditionalCondition(at,kind,arg))) return false;continue; }
 #else
 #define WORLD_TEAM_INPUT(input,output)
 #define WORLD_TEAM_MODE(s) false
@@ -267,8 +267,8 @@ bool worldTeamEnabled(inout Runtime s) { return true; }
 #define WORLD_TEAM_PELLET(s,w,who,when,output)
 #define WORLD_TEAM_CHARGE(s,w,who,count,when,output)
 #define WORLD_TEAM_VALIDATE(s,d,input,j)
-#define WORLD_TEAM_KIND(s,d,legacy) legacy
-#define WORLD_TEAM_CONDITION(s,d,at,kind,arg)
+#define WORLD_TEAM_KIND(s,row,d,legacy) legacy
+#define WORLD_TEAM_CONDITION(s,row,d,at,kind,arg)
 #endif
 #ifdef PORTABLE_WORLD_FRACTION
 bool worldFractionEnabled(inout Runtime s) { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==17||WORLD_TEAM_MODE(s); }
@@ -370,8 +370,8 @@ bool worldPeriodicEnabled(inout Runtime s) { return WORLD_PERIODIC_ENABLED(s); }
 bool worldPendingEnabled(inout Runtime s) { return WORLD_PENDING_ENABLED(s); }
 #ifdef PORTABLE_WORLD_SKILLS
 #define WORLD_SKILL_FIELDS(s,legacy) ((legacy)||worldSkillsEnabled(s))
-#define WORLD_SKILL_KIND(s,d,legacy) WORLD_TEAM_KIND(s,d,((legacy)&&!(worldSkillsEnabled(s)&&d.kind==3)&&!WORLD_PENDING_KIND(s,d)))
-#define WORLD_SKILL_DEFINITION(s,row,d,legacy) WORLD_TEAM_KIND(s,d,(worldSkillsEnabled(s)&&d.kind==3 ? !validWorldSkillDefinition(s,row,d) : WORLD_PENDING_KIND(s,d) ? false : (legacy)))
+#define WORLD_SKILL_KIND(s,row,d,legacy) WORLD_TEAM_KIND(s,row,d,((legacy)&&!(worldSkillsEnabled(s)&&d.kind==3)&&!WORLD_PENDING_KIND(s,d)))
+#define WORLD_SKILL_DEFINITION(s,row,d,legacy) WORLD_TEAM_KIND(s,row,d,(worldSkillsEnabled(s)&&d.kind==3 ? !validWorldSkillDefinition(s,row,d) : WORLD_PENDING_KIND(s,d) ? false : (legacy)))
 #define WORLD_SKILL_INHERITS(s,event,legacy) ((legacy)||(worldSkillsEnabled(s)&&event==49))
 #define WORLD_SKILL_BASIS(s,legacy) (worldSkillsEnabled(s) ? 0U : (legacy))
 #define WORLD_SKILL_SCOPE_BEGIN(s) uint skillQueryScope=0;if(worldSkillsEnabled(s)) skillQueryScope=actorStatePushQuery(s,0);
@@ -385,7 +385,7 @@ bool worldPendingEnabled(inout Runtime s) { return WORLD_PENDING_ENABLED(s); }
 #define WORLD_SKILL_EMPTY_COUNTERS(s,legacy) ((legacy)&&!worldSkillsEnabled(s))
 #else
 #define WORLD_SKILL_FIELDS(s,legacy) legacy
-#define WORLD_SKILL_KIND(s,d,legacy) legacy
+#define WORLD_SKILL_KIND(s,row,d,legacy) legacy
 #define WORLD_SKILL_DEFINITION(s,row,d,legacy) legacy
 #define WORLD_SKILL_INHERITS(s,event,legacy) legacy
 #define WORLD_SKILL_BASIS(s,legacy) legacy
@@ -903,6 +903,7 @@ bool excludedDamageBuff(inout Runtime s, uint resident, uint who)
 #include "world_enemy_attack_runtime.slang"
 #endif
 #include "carrier_runtime.slang"
+#include "skill_interval_runtime.slang"
 #include "quantity_runtime.slang"
 #include "health_runtime.slang"
 #include "lifesteal_runtime.slang"
@@ -2177,7 +2178,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     PROJECTILE_ADMIT_STAGE(s,12) if(!validEnemyTargeting(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,13) if(!validProtection(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,14) if (!validStatusDefinitions(s)) { results[output]=64;return; }
-    PROJECTILE_ADMIT_STAGE(s,15) if (!validTriggerReductions(s) || !validStackDefinitions(s)) { results[output]=64;return; }
+    PROJECTILE_ADMIT_STAGE(s,15) if (!validSkillIntervals(s) || !validTriggerReductions(s) || !validStackDefinitions(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,16) if (!validEventCandidates(s)) { results[output] = 64; return; }
     PROJECTILE_ADMIT_STAGE(s,17) for (uint row = 0; row < s.count; row++) if (!validPendingDefinition(s,row)) { results[output] = 64; return; }
     PROJECTILE_ADMIT_STAGE(s,18) if (!validateDurationGroups(s)) { results[output] = 64; return; }

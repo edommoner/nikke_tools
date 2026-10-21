@@ -21,6 +21,7 @@ ADAPTERS={
     'trigger-reduction':module('regression_trigger_reduction','research/verify-world-trigger-reduction-short.py'),
     'skill-critical':module('regression_skill_critical','research/verify-world-skill-critical-short.py'),
     'skill-interval':module('regression_skill_interval','research/verify-world-skill-interval-short.py'),
+    'skill-interval-flat':module('regression_skill_interval_flat','research/verify-world-skill-interval-flat-short.py'),
 }
 cross=ADAPTERS['readiness'].cross
 suite=SimpleNamespace(INPUT=104400,OUTPUT=786432)

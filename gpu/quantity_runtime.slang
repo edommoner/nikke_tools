@@ -118,7 +118,7 @@ uint64_t plainQuantity(inout Runtime s, uint who, uint key, uint64_t when)
 [noinline]
 uint64_t periodicSkillInterval(inout Runtime s,uint definition,uint64_t base,uint64_t when)
 {
-    if((s.quantityMask&2048)==0) return base;
+    if((s.quantityMask&6144)==0) return base;
     uint who=definition_owner(s.inputBase,definition);Sum sum={};
     for(uint pass=0;pass<s.orderedCount;pass++)
     {
@@ -136,7 +136,25 @@ uint64_t periodicSkillInterval(inout Runtime s,uint definition,uint64_t base,uin
     uint64_t percent=sum.total;
     if(f64Finite(sum.correction) && !f64Zero(sum.correction)) percent=f64Add(percent,sum.correction);
     uint64_t factor=larger(0,f64Add(ONE,f64Div(percent,HUNDRED)));
-    return larger(f64Mul(base,factor),f64Mul(base,f64Div(f64FromI64(5),HUNDRED)));
+    uint64_t flat=0;
+    if((s.quantityMask&4096)!=0)
+    {
+        Sum adjustment={};uint name=definition_name(s.inputBase,definition);
+        // Native concatenates the two stat indices in this order, rather
+        // than summing all interval operators in global activation order.
+        for(uint kind=1;kind<=2;kind++) for(uint pass=0;pass<s.orderedCount;pass++)
+        {
+            uint row=s.orderedRows[pass],source=s.carrierDefinition[row];
+            if(!namedSkillInterval(s,source) || s.alive[row]==0 || !f64Less(when,s.end[row])) continue;
+            uint meta=skillIntervalMeta(s,source);
+            if(commands[meta+1]!=kind || commands[meta+3]==0 || commands[meta+2]!=name ||
+               s.lazyPending[row]==0 && (s.activeRecipients[row]&(1U<<who))==0 || !basicConditions(s,row,when,true,who)) continue;
+            addSum(adjustment,scalarValue(s,row,who));
+        }
+        flat=adjustment.total;
+        if(f64Finite(adjustment.correction) && !f64Zero(adjustment.correction)) flat=f64Add(flat,adjustment.correction);
+    }
+    return larger(f64Mul(larger(0,f64Add(base,flat)),factor),f64Mul(base,f64Div(f64FromI64(5),HUNDRED)));
 }
 uint64_t chargeOverflow(inout Runtime s, uint who, uint64_t when)
 {

@@ -16,7 +16,7 @@ bool validTriggerReductions(inout Runtime s)
         if(d.kind==2) { if(triggerReducer(s,row)) return false;continue; }
         uint meta=triggerReductionMeta(s,row);
         if(!triggerReducer(s,row))
-        { for(uint field=P_TRIGGER_REDUCTION_OFFSET;field<P_TRIGGER_REDUCTION_END;field++) if(commands[meta+field]!=0) return false;continue; }
+        { for(uint field=P_TRIGGER_REDUCTION_OFFSET;field<P_TRIGGER_REDUCTION_END;field++) if(!(namedSkillInterval(s,row)&&field<P_SKILL_INTERVAL_END) && commands[meta+field]!=0) return false;continue; }
 #ifndef PORTABLE_WORLD_ROSTER
         return false;
 #else
