@@ -117,6 +117,9 @@ void landWorldPending(inout Runtime s,Definition d,uint row,uint index,uint hit,
 #include "world_spawn_runtime.slang"
 #ifdef PORTABLE_WORLD_FRACTION
 #include "world_fraction_runtime.slang"
+#ifdef PORTABLE_WORLD_TEAM
+#include "world_team_runtime.slang"
+#endif
 #endif
 #endif
 #else

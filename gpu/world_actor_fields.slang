@@ -30,7 +30,7 @@ bool actorFieldsDefinitionValid(inout Runtime s,uint row,Definition d)
     for(uint i=0;i<d.conditionCount;i++)
     {
         uint at=s.inputBase+P_CONDITION_BASE+row*P_CONDITION_WORDS+i*4,kind=commands[at];uint64_t arg=loadNumber(at+2);
-        WORLD_ENEMY_ATTACK_ADMIT(s,d,at,kind,arg) WORLD_STATE_ADMIT_CONDITION(s,at,kind,arg) if(kind!=C_ENEMIES_ABOVE&&kind!=C_ENEMIES_BELOW&&kind!=C_TARGET_BOSS&&kind!=C_TARGET_ADD || commands[at+1]!=0 || !f64Finite(arg)) return false;
+        WORLD_TEAM_CONDITION(s,d,at,kind,arg) WORLD_ENEMY_ATTACK_ADMIT(s,d,at,kind,arg) WORLD_STATE_ADMIT_CONDITION(s,at,kind,arg) if(kind!=C_ENEMIES_ABOVE&&kind!=C_ENEMIES_BELOW&&kind!=C_TARGET_BOSS&&kind!=C_TARGET_ADD || commands[at+1]!=0 || !f64Finite(arg)) return false;
         if(kind==C_TARGET_BOSS||kind==C_TARGET_ADD) { if(!f64Zero(arg)) return false; }
         else { uint status;uint64_t value=f64ToI64(arg,1,status);if(status!=0||!f64Equal(arg,f64FromI64(value))||f64Less(f64FromI64(2147483647),f64Abs(arg))) return false; }
     }

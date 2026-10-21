@@ -100,8 +100,42 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_WORLD_TEAM
+bool worldTeamEnabled(inout Runtime s) { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==19; }
+#define WORLD_TEAM_MODE(s) worldTeamEnabled(s)
+#define WORLD_TEAM_INIT(s) initializeWorldTeam(s);
+#define WORLD_TEAM_BUDGET(s,row) teamBudgetRow(s,row)
+#define WORLD_TEAM_OWNER(s,row,runtime,legacy) teamConditionOwner(s,row,runtime,legacy)
+#define WORLD_TEAM_TARGET(s,row,runtime,name,when,present,legacy) teamConditionTarget(s,row,runtime,name,present,legacy)
+#define WORLD_TEAM_COUNTER(s,event,counter) ((worldTeamEnabled(s)&&(event==44||event==45)) ? results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+2+event-44] : ++s.counters[counter])
+#define WORLD_TEAM_FRAME(s,f) if(worldTeamEnabled(s)) results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+6]=f.mode==0&&(f.event==44||f.event==45) ? f.event : 0;
+#define WORLD_TEAM_BEGIN(s) uint savedTeamEvent=worldTeamEnabled(s)?results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+6]:0;
+#define WORLD_TEAM_END(s) if(worldTeamEnabled(s)) results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE+6]=savedTeamEvent;
+#define WORLD_TEAM_GUARD(s,row,f) if(worldTeamEnabled(s)&&(f.event==44||f.event==45)&&teamBindingOwner(s,row)!=0&&(s.downMask&(1U<<(teamBindingOwner(s,row)-1)))!=0) continue;
+#define WORLD_TEAM_PELLET(s,w,who,when,output) if(worldTeamEnabled(s)&&w.mode!=1) notifyWorldTeam(s,who,when,output);
+#define WORLD_TEAM_CHARGE(s,w,who,count,when,output) if(worldTeamEnabled(s)&&w.mode==1) for(uint teamHit=0;teamHit<count;teamHit++) notifyWorldTeam(s,who,when,output);
+#define WORLD_TEAM_VALIDATE(s,d,input,j) for(uint teamSlot=0;teamSlot<d.triggerCount;teamSlot++) { uint teamEvent=commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+teamSlot*8];if((teamEvent==44||teamEvent==45)&&!worldTeamEnabled(s)) { s.error=64;break; } } if(s.error!=0) break;
+#define WORLD_TEAM_KIND(s,d,legacy) (worldTeamEnabled(s)&&teamBindingOwner(s,row)!=0&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8) ? false : (legacy))
+#define WORLD_TEAM_CONDITION(s,d,at,kind,arg) if(worldTeamEnabled(s)&&teamBindingOwner(s,row)!=0&&teamAdditionalCondition(kind)) { if(!validTeamAdditionalCondition(at,kind,arg)) return false;continue; }
+#else
+#define WORLD_TEAM_MODE(s) false
+#define WORLD_TEAM_INIT(s)
+#define WORLD_TEAM_BUDGET(s,row) row
+#define WORLD_TEAM_OWNER(s,row,runtime,legacy) legacy
+#define WORLD_TEAM_TARGET(s,row,runtime,name,when,present,legacy) legacy
+#define WORLD_TEAM_COUNTER(s,event,counter) ++s.counters[counter]
+#define WORLD_TEAM_FRAME(s,f)
+#define WORLD_TEAM_BEGIN(s)
+#define WORLD_TEAM_END(s)
+#define WORLD_TEAM_GUARD(s,row,f)
+#define WORLD_TEAM_PELLET(s,w,who,when,output)
+#define WORLD_TEAM_CHARGE(s,w,who,count,when,output)
+#define WORLD_TEAM_VALIDATE(s,d,input,j)
+#define WORLD_TEAM_KIND(s,d,legacy) legacy
+#define WORLD_TEAM_CONDITION(s,d,at,kind,arg)
+#endif
 #ifdef PORTABLE_WORLD_FRACTION
-bool worldFractionEnabled(inout Runtime s) { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==17; }
+bool worldFractionEnabled(inout Runtime s) { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==17||WORLD_TEAM_MODE(s); }
 #define WORLD_FRACTION_MODE(s) worldFractionEnabled(s)
 #define WORLD_FRACTION_POST_DELAY(s,who,mode,legacy) (worldFractionEnabled(s) ? loadNumber(mode>=0 ? s.inputBase+P_MODE_BASE+uint(mode)*P_MODE_WORDS+18 : s.inputBase+P_WORLD_FRACTION_CLOCK_BASE+4+who*2) : (legacy))
 #define WORLD_FRACTION_INIT(s) initializeWorldFraction(s);
@@ -200,8 +234,8 @@ bool worldPeriodicEnabled(inout Runtime s) { return WORLD_PERIODIC_ENABLED(s); }
 bool worldPendingEnabled(inout Runtime s) { return WORLD_PENDING_ENABLED(s); }
 #ifdef PORTABLE_WORLD_SKILLS
 #define WORLD_SKILL_FIELDS(s,legacy) ((legacy)||worldSkillsEnabled(s))
-#define WORLD_SKILL_KIND(s,d,legacy) ((legacy)&&!(worldSkillsEnabled(s)&&d.kind==3)&&!WORLD_PENDING_KIND(s,d))
-#define WORLD_SKILL_DEFINITION(s,row,d,legacy) (worldSkillsEnabled(s)&&d.kind==3 ? !validWorldSkillDefinition(s,row,d) : WORLD_PENDING_KIND(s,d) ? false : (legacy))
+#define WORLD_SKILL_KIND(s,d,legacy) WORLD_TEAM_KIND(s,d,((legacy)&&!(worldSkillsEnabled(s)&&d.kind==3)&&!WORLD_PENDING_KIND(s,d)))
+#define WORLD_SKILL_DEFINITION(s,row,d,legacy) WORLD_TEAM_KIND(s,d,(worldSkillsEnabled(s)&&d.kind==3 ? !validWorldSkillDefinition(s,row,d) : WORLD_PENDING_KIND(s,d) ? false : (legacy)))
 #define WORLD_SKILL_INHERITS(s,event,legacy) ((legacy)||(worldSkillsEnabled(s)&&event==49))
 #define WORLD_SKILL_BASIS(s,legacy) (worldSkillsEnabled(s) ? 0U : (legacy))
 #define WORLD_SKILL_SCOPE_BEGIN(s) uint skillQueryScope=0;if(worldSkillsEnabled(s)) skillQueryScope=actorStatePushQuery(s,0);
@@ -610,7 +644,7 @@ uint64_t targetStateStack(inout Runtime s,int name,uint64_t when,out bool presen
 [noinline]
 bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uint recipient = 0xffffffff, uint conditionSlot = 0xffffffff)
 {
-    uint definition = s.carrierDefinition[row], owner = definition_owner(s.inputBase,definition);
+    uint definition = s.carrierDefinition[row], owner = WORLD_TEAM_OWNER(s,definition,runtime,definition_owner(s.inputBase,definition));
     if (runtime && (referenceCaptureFlags(s,row)&4)==0 && (!f64Less(definition_duration(s.inputBase,definition),0) || (definition_flags(s.inputBase,definition) & 2) == 0)) return true;
     uint first=conditionSlot==0xffffffff ? 0 : conditionSlot;
     uint last=conditionSlot==0xffffffff ? definition_conditionCount(s.inputBase,definition) : conditionSlot+1;
@@ -620,7 +654,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
         uint kind = commands[at]; int name = int(commands[at+1]); uint64_t arg = loadNumber(at+2);
         if(kind==C_TARGET_STATE || kind==C_NOT_TARGET_STATE || kind==C_TARGET_STACK && !runtime)
         {
-            bool present;uint64_t count=WORLD_STATE_TARGET_STACK(s,name,when,present,targetStateStack(s,name,when,present));
+            bool present;uint64_t count=WORLD_TEAM_TARGET(s,definition,runtime,name,when,present,WORLD_STATE_TARGET_STACK(s,name,when,present,targetStateStack(s,name,when,present)));
             if(kind==C_TARGET_STATE && !present || kind==C_NOT_TARGET_STATE && present || kind==C_TARGET_STACK && f64Less(count,arg)) return false;
             continue;
         }
@@ -808,7 +842,7 @@ uint64_t readStat(inout Runtime s, uint who, uint key, uint64_t when)
 [noinline]
 bool activationConditions(inout Runtime s, uint row, uint64_t when)
 {
-    uint owner=definition_owner(s.inputBase,row);
+    uint owner=WORLD_TEAM_OWNER(s,row,false,definition_owner(s.inputBase,row));
     for (uint i = 0; i < definition_conditionCount(s.inputBase,row); i++)
     {
         uint at = s.inputBase+P_CONDITION_BASE+row*P_CONDITION_WORDS+i*4;
@@ -825,7 +859,7 @@ bool activationConditions(inout Runtime s, uint row, uint64_t when)
         }
         else if(commands[at] == C_PROB)
         {
-            uint address=s.resourceOutput+P_PROBABILITY_STATE_BASE+(row*5+owner)*2;
+            uint address=s.resourceOutput+P_PROBABILITY_STATE_BASE+(WORLD_TEAM_BUDGET(s,row)*5+owner)*2;
             uint64_t value=uint64_t(results[address]) | uint64_t(results[address+1])<<32;
             value=f64Add(value,loadNumber(at+2));
             bool passed=!f64Less(value,ONE);
@@ -1060,7 +1094,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
 {
     if (owner >= 5) { s.error = 64; return; }
     WORLD_INITIAL_SPAWN_OBSERVE(s,mode,event,owner,when) s.sourceTime=when; syncHealth(s,when);
-    COUNTER_CONTEXT_BEGIN(s) WORLD_STATE_DISPATCH_BEGIN(s) uint entryTarget = s.target;
+    WORLD_TEAM_BEGIN(s) COUNTER_CONTEXT_BEGIN(s) WORLD_STATE_DISPATCH_BEGIN(s) uint entryTarget = s.target;
     Frame frames[32]; int depth = -1;
     if ((s.healthMask&32)!=0) pushFrame(s,frames,depth,16,0,0,0,when);
     pushFrame(s,frames,depth,mode,event,owner,argument,when);
@@ -1083,7 +1117,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint who = 0; while ((s.hpDirtyMask & (1U << who)) == 0) who++;
             s.hpDirtyMask &= ~(1U << who); syncHealthActor(s,who,frames[depth].time); continue;
         }
-        COUNTER_FRAME(s,frames,depth) COUNTER_CONTEXT_SAMPLE(s,depth) WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; uint row = s.count, passive = 0;
+        COUNTER_FRAME(s,frames,depth) COUNTER_CONTEXT_SAMPLE(s,depth) WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; uint row = s.count, passive = 0; WORLD_TEAM_FRAME(s,f)
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
         { depth--; continue; }
@@ -1471,7 +1505,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
                         uint counter = j*8+slot, status;
                         uint64_t threshold64 = f64ToI64(loadNumber(at+1),1,status);
                         if (status != 0 || threshold64 == 0 || threshold64 > 0x7fffffff || s.counters[counter] == 0x7fffffff) { s.error = 2; break; }
-                        uint count = ++s.counters[counter], threshold = uint(threshold64);
+                        uint count = WORLD_TEAM_COUNTER(s,f.event,counter), threshold = uint(threshold64);
                         ok = mode == 2 ? count >= threshold : mode == 3 ? count == threshold : count % threshold == 0;
                     }
                     if (stage == 2 && event != 4) ok = false;
@@ -1485,11 +1519,11 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             }
         }
         if (row == s.count) { depth--; continue; }
-        Definition d = readDefinition(s.inputBase,row);
+        Definition d = readDefinition(s.inputBase,row); WORLD_TEAM_GUARD(s,row,f)
         if (f.mode == 2)
         { pushFrame(s,frames,depth,1,47,d.owner,int(row),f.time); continue; }
         if (f.mode == 0 && !activationConditions(s,row,f.time) && !(f.event == 0 && f64Less(d.duration,0) && passive != 0)) continue;
-        if(d.kind==15 && f.event!=28 && d.budget>=0 && s.activations[row]>=uint(d.budget)) continue;
+        if(d.kind==15 && f.event!=28 && d.budget>=0 && s.activations[WORLD_TEAM_BUDGET(s,row)]>=uint(d.budget)) continue;
         uint64_t recipientOrder=0;uint recipientMask=f.mode==19 ? uint(f.value) : d.recipients,enemyOrder=0;
         if(stackOperation(d.kind))
         {
@@ -1513,9 +1547,9 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if(stageRegister) { stagedTotal=stagedCount(s,row);if(s.error!=0) break;if(stagedTotal==0) continue; }
         if (f.mode!=19 && (f.event != 28 || (d.flags & 1) != 0 && ((s.stagedEnabled==0 || !isStaged(s,row)) || stageRegister)))
         {
-            if (d.budget >= 0 && s.activations[row] >= uint(d.budget)) continue;
-            if (s.activations[row] == 0x7fffffff) { s.error = 2; break; }
-            s.activations[row]++;
+            if (d.budget >= 0 && s.activations[WORLD_TEAM_BUDGET(s,row)] >= uint(d.budget)) continue;
+            if (s.activations[WORLD_TEAM_BUDGET(s,row)] == 0x7fffffff) { s.error = 2; break; }
+            s.activations[WORLD_TEAM_BUDGET(s,row)]++;
         }
         bool staged=s.stagedEnabled!=0 && isStaged(s,row);
         bool registering=f.event!=28 || staged && (d.flags&1)!=0 && s.alive[row]==0;
@@ -1740,7 +1774,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (d.kind == 1 && (s.healthMask&32)==0) syncHealth(s,f.time);
 #endif
     }
-    COUNTER_FIELDS_WORK_RECORD(s,work) COUNTER_CONTEXT_END(s) WORLD_STATE_DISPATCH_END(s) s.target = entryTarget;
+    COUNTER_FIELDS_WORK_RECORD(s,work) WORLD_TEAM_END(s) COUNTER_CONTEXT_END(s) WORLD_STATE_DISPATCH_END(s) s.target = entryTarget;
 }
 
 void timerPass(inout Runtime s, uint64_t when, bool damagePass, uint output)

@@ -31,6 +31,8 @@ def patch_program(words, metadata, chars, effects):
     allocate_names(effects, original['states'])
     if original['states'] != metadata['states']:
         raise ValueError('Private counter compiler name symbols changed')
+    from portable_team_hit_specs import bound_effects
+    effects=bound_effects(effects,metadata,[c['name'] for c in chars])
     def identity(effect):
         return effect.get('type'), effect.get('stat') if effect.get('type') == 'buff' else effect.get('stat', '')
     # A real def_pct carrier must not merge with the private counter recipe.

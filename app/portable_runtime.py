@@ -162,7 +162,6 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     from portable_source_specs import validate_sources,pack as pack_source
     validate_sources(effects)
     from portable_staged_specs import descriptors as staged_descriptors,pack as pack_staged
-    staged=staged_descriptors(effects)
     from portable_element_specs import enabled as element_override,STAT as ELEMENT_OVERRIDE_STAT,code_tag,legacy_effect
     from portable_hp_attack_specs import enabled as hp_attack,STAT as HP_ATTACK_STAT
     from portable_geometry_specs import compiler_chars,required as geometry_required
@@ -170,6 +169,9 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     geometry_chars=compiler_chars(chars,geometry)
     from portable_target_state_specs import compiler_effect as target_compiler_effect
     program=legacy.compile_effects(geometry_chars,[(target_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e)),owner) for e,owner in effects])
+    from portable_team_hit_specs import bind_compiled
+    effects,binding_metadata=bind_compiled(effects,program,[c['name'] for c in chars])
+    staged=staged_descriptors(effects)
     from portable_target_state_specs import allocate_names as target_state_names
     target_state_names(effects,program['states'])
     for name in world_notice_names:program['states'].setdefault(name,len(program['states']))
@@ -493,7 +495,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     from portable_trigger_specs import pack_event_candidates
     pack_event_candidates(words,L)
     from portable_probability_specs import definitions as probability_definitions
-    return words,dict(enemy_targeting=target_metadata,mode_entry_enabled=any(words[L['MODE_BASE']+j*L['MODE_WORDS']+30] for j in range(len(effects))),probability_definitions=probability_definitions(effects),ordered_recipients=bool(nodes),protection_enabled=bool(words[L['PROTECTION_META_BASE']] or any(c[1] in (31,32) for c in script)),status_policy=words[L['STATUS_META_BASE']],status_names=program['states'],stack_operators=any(stack_operation(e) for e,_ in effects),enemy_buff_definitions=[enemy_buff_plan(e) is not None for e,_ in effects],native_landing=native_landing,source_definitions=[dict(name=next((k for k,v in program['states'].items() if v==int(row[304])),None),owner=int(row[0]),legacy=bool(row[137])) if int(row[1])==35 else None for row in program['effects']],source_query_indices=source_query_indices,resource_names=list(resource_keys),resource_query_indices=sorted(resource_query_indices),states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
+    return words,dict(**binding_metadata,enemy_targeting=target_metadata,mode_entry_enabled=any(words[L['MODE_BASE']+j*L['MODE_WORDS']+30] for j in range(len(effects))),probability_definitions=probability_definitions(effects),ordered_recipients=bool(nodes),protection_enabled=bool(words[L['PROTECTION_META_BASE']] or any(c[1] in (31,32) for c in script)),status_policy=words[L['STATUS_META_BASE']],status_names=program['states'],stack_operators=any(stack_operation(e) for e,_ in effects),enemy_buff_definitions=[enemy_buff_plan(e) is not None for e,_ in effects],native_landing=native_landing,source_definitions=[dict(name=next((k for k,v in program['states'].items() if v==int(row[304])),None),owner=int(row[0]),legacy=bool(row[137])) if int(row[1])==35 else None for row in program['effects']],source_query_indices=source_query_indices,resource_names=list(resource_keys),resource_query_indices=sorted(resource_query_indices),states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
 
 
 def decode(words,metadata):
