@@ -4,7 +4,12 @@ uint counterHead(inout Runtime s) { return s.resourceOutput+P_TARGET_COUNTER_HEA
 uint counterPolicy(inout Runtime s,uint definition) { return s.inputBase+P_TARGET_COUNTER_INPUT_BASE+8+definition*16; }
 uint counterResource(inout Runtime s,uint slot) { return s.resourceOutput+P_TARGET_COUNTER_RESOURCE_BASE+slot*16; }
 uint counterReady(inout Runtime s,uint index) { return s.resourceOutput+P_TARGET_COUNTER_READY_BASE+index*20; }
+#ifdef PORTABLE_WORLD_TEAM
+// The entry has already rejected every other marker and mode.
+bool targetCountersEnabled(inout Runtime s) { return true; }
+#else
 bool targetCountersEnabled(inout Runtime s) { return commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE]==0x57433031; }
+#endif
 bool targetCounterLiteralRoot(inout Runtime s,uint64_t through,bool autonomousReached)
 {
     if(autonomousReached) return true;

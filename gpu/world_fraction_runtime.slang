@@ -2,7 +2,7 @@
 // Per-shot rates are captured by the common physical damage calculation.
 void initializeWorldFraction(inout Runtime s)
 {
-    if(!worldFractionEnabled(s)) return;
+    WORLD_TEAM_INIT(s) if(!worldFractionEnabled(s)) return;
     uint clock=s.inputBase+P_WORLD_FRACTION_CLOCK_BASE;
     if(commands[clock]!=0x57464331||commands[clock+1]!=1||commands[clock+2]!=5||commands[clock+3]!=0||commands[clock+14]!=0||commands[clock+15]!=0) { s.error=64;return; }
     for(uint who=0;who<5;who++)

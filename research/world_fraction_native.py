@@ -14,4 +14,4 @@ def observe_fractional(capture,names):
  with patch.object(timeline,'_notify_frac',observed):yield
 
 def accumulators(manager,names):
- return [dict(event=22 if key=='crit_hit' else 23,owner=names.index(name),value=value) for (key,name),value in sorted(manager.state['rng_acc'].items(),key=lambda item:(names.index(item[0][1]),item[0][0])) if key in ('crit_hit','core_hit')]
+ return [dict(event=22 if key=='crit_hit' else 23,owner=names.index(name),value=value) for (key,name),value in sorted(((k,v) for k,v in manager.state['rng_acc'].items() if k[0] in ('crit_hit','core_hit')),key=lambda item:(names.index(item[0][1]),item[0][0])) if key in ('crit_hit','core_hit')]
