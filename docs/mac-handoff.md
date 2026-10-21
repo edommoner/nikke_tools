@@ -1,3 +1,7 @@
+<!-- parent-audit-current -->
+CLIのchild／親とreplayの重複CPU比較を整理しました。計算本体・goldenは変更せず、保存Metal759を新しい親監査器で再照合しています。詳細と検証記録は[親監査の変更](portable-parent-audit.md)を参照してください。次はCUDAのコンパイル成立の仮説とentry_reloadのCPU正本契約を優先します。
+<!-- /parent-audit-current -->
+
 <!-- revival-notify-current -->
 ## seedと通知規約を反映した蘇生の共通実行器とMetal759
 

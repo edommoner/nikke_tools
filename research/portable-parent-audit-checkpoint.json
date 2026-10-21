@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "change": "Move child native comparison to parent independent audit; reuse replay comparison once",
+  "base_commit": "309e305f4d07c36c1b2a9dd7dd3cc5c19da0beda",
+  "gpu_source_changed": false,
+  "golden_changed": false,
+  "comparison_fields_reduced": false,
+  "saved_metal_759": {
+    "package_id": "64cdfdb1376386ab552b2a27128a41e5a5889cdbd57fab8ce49b694192c4b5d0",
+    "input_count": 759,
+    "native_oracles": 602,
+    "audit": {
+      "sealed": false,
+      "purpose": "development",
+      "calculation_verified": true,
+      "preservation_verified": null,
+      "passed": true,
+      "containment_verified": true,
+      "comparison_error": null,
+      "first_difference": null,
+      "phase": {
+        "events": 6,
+        "last_event": {
+          "monotonic_ns": 709652963784875,
+          "pid": 27726,
+          "stage": "shared_native_compare",
+          "state": "returned",
+          "wall_time_ns": 1792610503167776000
+        },
+        "nvrtc_compile_returned_success": false,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_launch_returned_success": false,
+        "cuda_synchronize_returned_success": false,
+        "cuda_readback_returned_success": false,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retries": 0,
+      "audit_gpu_calls": 0
+    },
+    "elapsed_seconds": 47.18380804208573,
+    "original_capture_records_unchanged": true,
+    "gpu_calls": 0,
+    "comparison_calls": 1,
+    "scope": "Updated parent auditor against immutable saved Metal759; no transport rerun or end-to-end speedup measurement"
+  },
+  "storage": {
+    "schema": 1,
+    "capture": "/private/tmp/nikke-revival-notify-regression-metal",
+    "raw_bytes": 2387607552,
+    "raw_sha256": "e9284ab0b1afb99a3d9969ec8ee2ff43d8e333608a59240ab446c323d1bc0481",
+    "evidence_sha256": "e2e9cd46699d3a7c60d5f34b7596ca76669f385ec0b3253c319e1306a26beb12",
+    "archive_bytes": 6881269,
+    "archive_sha256": "29daba8c240020663098ad737dbdf9f444d4fff8ab20a74e52cb73167c6e6260",
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "archive": "/private/tmp/nikke-revival-final-759-readback.bin.gz",
+    "original_removed": true
+  },
+  "cpu": {
+    "discovered": 738,
+    "passed": 737,
+    "skipped": 1,
+    "failed": 0,
+    "elapsed_seconds": 50.782,
+    "log_sha256": "9d5a752b5ff64081d8029a2be96a035dddf7e6f14741d6059849c27b533d5a8a",
+    "scope": "All test_portable_*.py; Windows-only skip"
+  },
+  "targeted_cpu": {
+    "cli": 34,
+    "replay": 6,
+    "phase": 5,
+    "seal": 3,
+    "compile_cli": 7,
+    "cache": 12,
+    "artifact": 10
+  },
+  "windows": {
+    "status": "pending",
+    "compiler_calls": 0,
+    "gpu_calls": 0
+  },
+  "cuda_cold_compile_improved": false,
+  "cuda_latest_calculation_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "next_priorities": [
+    "CUDA compiler feasibility hypothesis from saved evidence",
+    "entry_reload independent native contracts before Slang integration"
+  ]
+}

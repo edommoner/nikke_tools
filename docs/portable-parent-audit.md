@@ -1,0 +1,27 @@
+# 共通CLIの親監査とCPU比較の重複解消
+
+Claudeの全体レビューを反映し、GPU子プロセスはinput／raw／evidence／生成コードの保存までで終了するようにしました。親プロセスが保存byteを既存compare_readbackで一度照合し、comparison.jsonとresult.jsonを記録します。計算本体、共通効果、native oracle、厳密normalizer、goldenは変更していません。
+
+## 保証の境界
+
+子のexit0は転送工程の正常終了であり、計算成功ではありません。親は従来どおり全input／readback／native／生成コード、CUDA API順序、Job PID／時刻、環境観測を監査します。比較不一致、比較器例外、raw欠落は成功になりません。元rawとexecutionを保持し、計算結果とcontainment／環境保持の結果を分けます。
+
+親の比較はaudit-phases.jsonlに記録します。子のphases.jsonlへ親PIDのイベントを追加せず、CUDAのPID検証を維持します。独立auditとsealは比較JSONを信用せず、その都度既存比較器を呼びます。通常auditは記録を上書きしません。seal内部はこれまでどおり新しい比較を1回だけ使います。
+
+保存結果replayも、audit_replay_captureが得た同じ比較をcomparison.jsonへ保存し、直後の2回目の比較を除きました。元の失敗記録とsource-executionは変更しません。regressionのCPU必須群へCLI・replay・phase検査を登録しました。
+
+## 検証と時間
+
+新しい親監査器で、固定Metal759（native602／拒否157）の全件を保存rawから再照合しました。比較1回、GPU0、47.184秒、原captureのJSON／JSONLはbyte同一です。既存成功記録・goldenはそのまま保持します。これは新しい輸送経路のGPU実行や全体速度改善率の測定ではありません。
+
+元のchild内shared_native_compareは保存phase上48.189秒でした。この段階の比較を除きましたが、preflight・親の独立比較・明示sealは残るため、その時間全部を開発全体の短縮と見積もりません。CPU故障注入で子の比較0回、親の比較1回、古い成功JSONの無視、不一致／例外／raw欠落の失敗、元trace／raw保持を確認しました。cache12／artifact10／compile CLI7とseal3も成功しています。phase検査はsandboxのps拒否を保持し、許可された環境で5件成功しました。
+
+全CPU回帰とWindows制御smokeの確定結果はresearch/portable-parent-audit-checkpoint.jsonへ記録します。WindowsではCPUとfresh Jobのみを短く検証し、NVRTC／driver／kernelは呼びません。新版CUDAのcold compiler失敗・数値一致未確認は解消していません。
+
+## 保存領域と次の優先順位
+
+監査完了後、759rawの2,387,607,552byteを既存archive-rawで6,881,269byteへ無損失退避しました。全展開SHAを確認して非圧縮コピーを除き、gzip＋receiptと元JSONを保存しました。復元は共通restore-rawを使います。archiveは計算成功の追加証明ではありません。
+
+CUDAは保存v105 PTXのCPU解析成功とv115 CUBIN allocation failureを区別します。最新PTXだけの追加成功もCUBIN／driver JIT／計算成立にはならないため、同条件再試行の代替として無目的に実行しません。次は既存生成コードからcompiler改善の仮説を固定し、entry_reloadはまずCPU正本契約から進めます。未対応consumerを無効果として受付しません。
+
+通常UI CPU、静的packing213/266、全キャラGPU認定0、最終目標未完了です。領域の保守検査としてrevivalの5×512語とLIMITS.CARRIERSの対応も明示assertしました。現在の配置・生成GPUコードは変わりません。

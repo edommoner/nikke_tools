@@ -16,6 +16,44 @@ cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class PacketTests(unittest.TestCase):
+    def test_child_saves_transport_bytes_without_running_native_comparison(self):
+        from types import SimpleNamespace
+        import portable_backend
+        with tempfile.TemporaryDirectory() as folder:
+            capture=Path(folder);cli.write(capture/'start.json',{})
+            data=b'literal packed input';raw=b'fake transport bytes'
+            adapter=SimpleNamespace(suite=SimpleNamespace(INPUT=1))
+            manifest=dict(suite='projectile',golden=dict(input_sha256=cli.sha(data)))
+            def copied(*args,**kwargs):
+                self.assertEqual((capture/'readback.bin').read_bytes(),raw)
+                self.assertEqual(cli.load(capture/'evidence.json'),dict(transport='fixture'))
+            with patch.object(cli,'verify_package',return_value=manifest),patch.object(cli,'open_suite',return_value=adapter),\
+                 patch.object(cli,'prepare_entries',return_value=([],data)),patch.object(cli,'copy_generated',side_effect=copied),\
+                 patch.object(cli,'compare_readback',side_effect=AssertionError('Child native comparison forbidden')) as compare,\
+                 patch.object(portable_backend,'execute',return_value=(raw,dict(transport='fixture'))) as execute:
+                cli.child(capture,'metal')
+            execute.assert_called_once();compare.assert_not_called()
+            self.assertFalse((capture/'comparison.json').exists())
+            rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
+            self.assertEqual([(r['stage'],r['state']) for r in rows],[('shared_gpu_execute','entered'),('shared_gpu_execute','returned')])
+
+    def test_run_uses_one_parent_audit_and_preserves_failed_calculation(self):
+        from types import SimpleNamespace
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);capture=root/'capture'
+            failed=dict(passed=False,calculation_verified=False,first_difference=dict(reason='Native differs'))
+            with patch.object(cli,'ROOT',root),patch.object(cli,'verify_package',return_value=dict(suite='projectile',package_id='transport-test')),\
+                 patch.object(cli,'SUITES',dict(projectile=dict(tests=[]))),patch.object(cli,'cpu_preflight',return_value=dict(passed=True)),\
+                 patch.object(cli,'os',SimpleNamespace(**dict(vars(os),name='nt'))),\
+                 patch.object(cli,'run_job',return_value=dict(passed=True)) as job,patch.object(cli,'copy_generated'),\
+                 patch.object(cli,'audit_capture',return_value=failed) as audit:
+                result=cli.run_capture(capture,'cuda',180)
+            self.assertEqual(result,failed);job.assert_called_once()
+            audit.assert_called_once_with(capture,verify_artifacts=False,record_comparison=True)
+            self.assertFalse(cli.load(capture/'result.json')['passed'])
+            self.assertTrue((root/'gpu-claimed-cuda.json').exists())
+            self.assertTrue((capture/'artifacts.json').exists())
+
     def test_missing_metal_compiler_stops_before_native_and_gpu_claim(self):
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);capture=root/'capture'
@@ -293,9 +331,51 @@ class CaptureAuditTests(unittest.TestCase):
         self.observation['comparison']=compare_snapshots(self.observation['before'],self.observation['after'])
         cli.write(self.root/'observation.json',self.observation)
 
-    def audit(self):
-        with patch.object(cli,'verify_package',return_value=dict(package_id='fixture',suite='projectile',golden=dict(entries=[{}]*63))),patch.object(cli,'compare_readback',return_value=dict(calculation_verified=True,mismatches=[])):
-            return cli.audit_capture(self.root,verify_artifacts=False)
+    def audit(self,*,comparison=None,error=None,record=False):
+        comparison=comparison if comparison is not None else dict(calculation_verified=True,mismatches=[])
+        with patch.object(cli,'verify_package',return_value=dict(package_id='fixture',suite='projectile',golden=dict(entries=[{}]*63))),patch.object(cli,'compare_readback',return_value=comparison,side_effect=error) as compare:
+            result=cli.audit_capture(self.root,verify_artifacts=False,record_comparison=record)
+        compare.assert_called_once()
+        return result
+
+    def test_parent_records_fresh_comparison_once_and_keeps_transport_trace_separate(self):
+        original=(self.root/'phases.jsonl').read_bytes()
+        cli.write(self.root/'comparison.json',dict(calculation_verified=False,stale=True))
+        comparison=dict(calculation_verified=True,mismatches=[],entries=[dict(native_sha256='fresh')])
+        result=self.audit(comparison=comparison,record=True)
+        self.assertTrue(result['passed'])
+        self.assertEqual(cli.load(self.root/'comparison.json'),comparison)
+        self.assertEqual((self.root/'phases.jsonl').read_bytes(),original)
+        rows=[json.loads(line) for line in (self.root/'audit-phases.jsonl').read_text().splitlines()]
+        self.assertEqual([(r['stage'],r['state']) for r in rows],[('shared_native_compare','entered'),('shared_native_compare','returned')])
+
+    def test_successful_transport_cannot_hide_mismatch_or_comparator_exception(self):
+        for error in (None,ValueError('Saved raw changed')):
+            with self.subTest(error=error):
+                cli.write(self.root/'comparison.json',dict(calculation_verified=True,stale=True))
+                mismatch=dict(calculation_verified=False,mismatches=[dict(reason='Native differs')])
+                result=self.audit(comparison=mismatch,error=error,record=True)
+                self.assertFalse(result['passed']);self.assertFalse(result['calculation_verified'])
+                saved=cli.load(self.root/'comparison.json');self.assertFalse(saved['calculation_verified'])
+                self.assertTrue(cli.load(self.root/'execution.json')['passed'])
+                self.assertTrue((self.root/'readback.bin').exists())
+                if error:self.assertIn('Saved raw changed',saved['comparison_error'])
+                else:self.assertEqual(result['first_difference'],mismatch['mismatches'][0])
+
+    def test_independent_audit_never_reuses_or_overwrites_comparison_receipt(self):
+        original=b'{"calculation_verified":false,"stale":true}\n'
+        (self.root/'comparison.json').write_bytes(original)
+        self.assertTrue(self.audit()['passed'])
+        self.assertEqual((self.root/'comparison.json').read_bytes(),original)
+        self.assertFalse((self.root/'audit-phases.jsonl').exists())
+
+    def test_missing_readback_cannot_keep_an_old_success_receipt(self):
+        (self.root/'readback.bin').unlink()
+        cli.write(self.root/'comparison.json',dict(calculation_verified=True))
+        with patch.object(cli,'verify_package',return_value=dict(package_id='fixture',suite='projectile',golden=dict(entries=[{}]*63))),patch.object(cli,'compare_readback') as compare:
+            result=cli.audit_capture(self.root,verify_artifacts=False,record_comparison=True)
+        compare.assert_not_called();self.assertFalse(result['calculation_verified'])
+        self.assertEqual(cli.load(self.root/'comparison.json'),dict(calculation_verified=False,comparison_error='Missing readback.bin'))
 
     def test_calculation_and_environment_success_remain_distinct(self):
         result=self.audit();self.assertTrue(result['passed']);self.assertTrue(result['calculation_verified'])

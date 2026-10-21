@@ -61,7 +61,7 @@ SUITES['skill-cooldown']=dict(script='research/verify-world-skill-cooldown-short
 SUITES['regression']=dict(script='research/verify-world-regression-short.py',
     golden='research/portable-world-revival-notify-regression-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=759,native=602,
-    tests=['test_portable_regression_adapter.py','test_portable_roster_regression.py',
+    tests=['test_portable_gpu_cli.py','test_portable_gpu_replay.py','test_portable_phase_audit.py','test_portable_regression_adapter.py','test_portable_roster_regression.py',
            'test_portable_readiness.py','test_portable_stun.py','test_portable_typed_recipient_delegation.py',
            'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py','test_portable_skill_interval_flat.py','test_portable_lazy_bank.py','test_portable_compiler_stats.py','test_portable_base_copy.py','test_portable_seal.py','test_portable_persona.py','test_portable_compile_cache.py','test_portable_named_magnitude.py','test_portable_enemy_selection.py','test_portable_capture_storage.py','test_portable_attack_magnitude.py','test_portable_revive_reference.py','test_portable_revival.py'])
 SUITES['healing-storage']=dict(script='research/verify-world-healing-storage-short.py',
@@ -381,10 +381,8 @@ def child(capture, backend, smoke=False, compile_only=False):
     # Raw/evidence are durable before any comparison, so failures remain inspectable.
     (capture/'readback.bin').write_bytes(raw); write(capture/'evidence.json',evidence)
     copy_generated(capture,m['suite'])
-    result = journal.invoke('shared_native_compare',compare_readback,m,capture,adapter=adapter)
-    write(capture/'comparison.json',result)
-    if not result['calculation_verified']:
-        raise ValueError('GPU comparison failed; see comparison.json')
+    # Finish the contained transport before CPU comparison. The parent audits
+    # the saved bytes independently; child exit0 alone never proves calculation.
 
 
 def compare_readback(m, capture, adapter=None):
@@ -487,7 +485,7 @@ def replay_source(m, source_package, source_capture):
     return original,facts,evidence
 
 
-def audit_replay_capture(m, capture, *, verify_artifacts=True):
+def audit_replay_capture(m, capture, *, verify_artifacts=True,record_comparison=False):
     run=load(capture/'run.json');origin=load(capture/'replay.json')
     if run['package_id']!=m['package_id'] or run['backend']!='metal':raise ValueError('Wrong replay package/backend')
     if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
@@ -499,6 +497,7 @@ def audit_replay_capture(m, capture, *, verify_artifacts=True):
     if (capture/'source-execution.json').read_bytes()!=(source/'execution.json').read_bytes():
         raise ValueError('Replay changed original failure/control facts')
     result=compare_readback(m,capture)
+    if record_comparison:write(capture/'comparison.json',result)
     return dict(result,passed=result['calculation_verified'],preservation_verified=None,sealed=False,
                 mode='saved-metal-replay',source_package_id=original['package_id'],source_execution_passed=facts['passed'],
                 original_failure_preserved=True,gpu_calls=0,gpu_retry_count=0,source_gpu_dispatches=1)
@@ -513,8 +512,8 @@ def replay_capture(capture, source_package, source_capture):
         (capture/name).write_bytes((source_capture/name).read_bytes())
     (capture/'source-execution.json').write_bytes((source_capture/'execution.json').read_bytes())
     try:
-        result=audit_replay_capture(m,capture,verify_artifacts=False)
-        write(capture/'comparison.json',compare_readback(m,capture));write(capture/'result.json',result)
+        result=audit_replay_capture(m,capture,verify_artifacts=False,record_comparison=True)
+        write(capture/'result.json',result)
         run=load(capture/'run.json');run['status']='finished';write(capture/'run.json',run)
     except BaseException as error:
         write(capture/'failure.json',dict(error=type(error).__name__+': '+str(error),gpu_calls=0));raise
@@ -729,7 +728,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
             if not smoke:
                 # Child publishes generated files before comparing; failed compilation may lack them.
                 copy_generated(capture,m['suite'],partial=True)
-                result=audit_capture(capture,verify_artifacts=False)
+                result=audit_capture(capture,verify_artifacts=False,record_comparison=True)
             else:
                 marker=load(capture/'smoke.json') if (capture/'smoke.json').exists() else {}
                 smoke_ok=facts['passed']
@@ -875,7 +874,7 @@ def environment_preserved(capture,facts,backend='cuda'):
     return preservation
 
 
-def audit_capture(capture,verify_artifacts=True):
+def audit_capture(capture,verify_artifacts=True,*,record_comparison=False):
     m=verify_package(ROOT)
     if load(capture/'run.json')['package_id']!=m['package_id']:raise ValueError('Capture belongs to another package')
     if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
@@ -887,9 +886,18 @@ def audit_capture(capture,verify_artifacts=True):
     calc=False;error=None;first_difference=None
     if (capture/'readback.bin').exists():
         try:
-            comparison=compare_readback(m,capture);calc=comparison['calculation_verified']
+            if record_comparison:
+                from portable_phase_audit import Journal
+                comparison=Journal(capture/'audit-phases.jsonl').invoke('shared_native_compare',compare_readback,m,capture)
+            else:comparison=compare_readback(m,capture)
+            if record_comparison:write(capture/'comparison.json',comparison)
+            calc=comparison['calculation_verified']
             first_difference=next(iter(comparison['mismatches']),None)
-        except Exception as exc:error=type(exc).__name__+': '+str(exc)
+        except Exception as exc:
+            error=type(exc).__name__+': '+str(exc)
+            if record_comparison:write(capture/'comparison.json',dict(calculation_verified=False,comparison_error=error))
+    elif record_comparison:
+        write(capture/'comparison.json',dict(calculation_verified=False,comparison_error='Missing readback.bin'))
     backend=load(capture/'run.json')['backend']
     if (capture/'evidence.json').exists():
         e=load(capture/'evidence.json')

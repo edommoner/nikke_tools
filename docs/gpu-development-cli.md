@@ -1,3 +1,7 @@
+<!-- parent-audit-current -->
+共通CLIのGPU子プロセスはraw保存までとし、親の独立監査へCPU比較を一本化しました。親の計測はaudit-phases.jsonl、子のCUDA API traceは従来のphases.jsonlです。独立audit／sealと失敗保持は維持します。詳細は[親監査の変更](portable-parent-audit.md)を参照してください。
+<!-- /parent-audit-current -->
+
 <!-- revival-notify-current -->
 ## seedと通知規約を反映した蘇生の共通実行器とMetal759
 

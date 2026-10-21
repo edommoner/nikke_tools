@@ -247,6 +247,7 @@ FIELDS = dict(OWNER=0, KIND=1, STAT=2, NAME=3, MAX_STACK=4, BUDGET=5,
 
 from portable_revival_specs import BASE as _rev_base,LOST as _rev_lost,RNG as _rev_rng,TRACE as _rev_trace,TRACE_COUNT as _rev_count,WORDS as _rev_words,MAGIC as _rev_magic
 LIMITS.update(REVIVAL_BASE=_rev_base,REVIVAL_LOST_BASE=_rev_lost,REVIVAL_RNG_BASE=_rev_rng,REVIVAL_TRACE_BASE=_rev_trace,REVIVAL_TRACE_COUNT=_rev_count,REVIVAL_WORDS=_rev_words,REVIVAL_MAGIC=_rev_magic)
+assert LIMITS['CARRIERS']==512 and _rev_rng-_rev_lost==5*LIMITS['CARRIERS']
 assert _rev_base>=LIMITS['BASE_COPY_STATE_BASE']+LIMITS['BASE_COPY_STATE_WORDS']
 
 

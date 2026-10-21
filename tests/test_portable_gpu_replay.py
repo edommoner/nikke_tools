@@ -39,6 +39,21 @@ class ReplayTests(unittest.TestCase):
     def test_completed_dispatch_with_old_decoder_failure_preserves_failure(self):
         _,facts,_=self.check();self.assertFalse(facts['passed']);self.assertEqual(facts['final_child_exit_code'],1)
 
+    def test_replay_publishes_the_single_fresh_comparison_and_keeps_original_failure(self):
+        (self.capture/'input.bin').write_bytes(b'input');(self.capture/'readback.bin').write_bytes(b'raw')
+        destination=self.capture.parent/'replay'
+        comparison=dict(calculation_verified=False,mismatches=[dict(reason='Still differs')],entries=[])
+        def source(*args):return self.old,self.facts,cli.load(self.capture/'evidence.json')
+        before=(self.capture/'comparison.json').read_bytes()
+        with patch.object(cli,'verify_package',return_value=self.new),patch.object(cli,'replay_source',side_effect=source),\
+             patch.object(cli,'compare_readback',return_value=comparison) as compare:
+            result=cli.replay_capture(destination,self.package,self.capture)
+        compare.assert_called_once_with(self.new,destination)
+        self.assertFalse(result['passed']);self.assertEqual(result['gpu_calls'],0)
+        self.assertEqual(cli.load(destination/'comparison.json'),comparison)
+        self.assertEqual((self.capture/'comparison.json').read_bytes(),before)
+        self.assertEqual(cli.load(destination/'source-execution.json'),self.facts)
+
     def test_input_native_or_source_baseline_changes_are_rejected(self):
         for key in ('source','input','native'):
             with self.subTest(key=key):
