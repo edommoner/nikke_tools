@@ -1,3 +1,13 @@
+<!-- shared-gpu-cli -->
+## 2026-10-21 共通検証CLI・Windowsパッケージ・開発スキル
+
+今後の短時間検証はscripts/nikke_gpu.pyとdocs/gpu-development-cli.mdを使います。既存のnative比較、共通CPU/GPU監査、厳密normalizer、phase観測、WindowsJobとprocess observerを再利用。package→unpack→CPU preflight→限定テスト→bounded run→status/export/import→GPU禁止auditを共通化しました。固定SHAパッケージ、排他的な実行claim、失敗原記録、Job子のbase Python起動、finally内で終了直後にafter観測を保存します。計算/containment/環境保持は別判定です。
+
+Mac関連44検査、隔離パッケージの63入力/native52と限定16、保存済みMetal63の全出力/native/生成一致、従来v104監査、結果ZIPの原byte回収が成功。Windows固定3c44b97はCPU32＋限定16、CPU-only Job smoke1回が成功し、子45800/親17312、pre[45800]/post[]、after約2.073秒、missing0、GPU/build0、元HEAD/status保持を確認。サービス識別はunverifiedであり、保持成功は主張しません。初回cadd96bは共有ブランチの監査器更新漏れでJob前に停止し、失敗記録を保持して修正。新GPU dispatchは0です。
+
+スキルnikke-shared-gpu-developmentを~/.codex/skillsへインストールし、repoのskills/にも原本を保存しました。CLI listでgolden_source_readyを確認してください。現行reloadの旧goldenはsource hash差分により拒否します。期待値の自動書換えは行いません。全キャラ対応の状況・未解決差分は以下の実装記録を引き継ぎ、今回のツール整備を新しい戦闘認証に数えません。詳細research/portable-gpu-cli-validation.json。
+<!-- /shared-gpu-cli -->
+
 <!-- world-projectile-v104 -->
 ## 2026-10-21 散弾数・貫通/爆発範囲と実編成の資源条件を共通実行器へ接続
 

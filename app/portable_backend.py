@@ -34,7 +34,7 @@ def source_hashes(source):
 
 
 def build(source, entry):
-    compiler_root = ROOT/f'.tools/slang-2026.20-{platform.system()}-{platform.machine()}'
+    compiler_root = Path(os.environ.get('NIKKE_SLANG_ROOT', ROOT/f'.tools/slang-2026.20-{platform.system()}-{platform.machine()}'))
     compiler = compiler_root/'bin'/('slangc.exe' if os.name == 'nt' else 'slangc')
     hashes = source_hashes(source)
     directory = ROOT/'research/portable-build'

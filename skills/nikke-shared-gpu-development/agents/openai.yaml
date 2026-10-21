@@ -1,0 +1,4 @@
+interface:
+  display_name: "NIKKE共通GPU開発"
+  short_description: "共通CLIでCUDA／Metalを実装・検証し、Windows短時間検証と保存結果の監査を進める"
+  default_prompt: "$nikke-shared-gpu-development を使い、NIKKEの共通GPU実装と必要最小限の検証を進めてください。"

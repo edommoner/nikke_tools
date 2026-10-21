@@ -91,3 +91,21 @@ def summarize(path):
                 cuda_synchronize_returned_success=returned('cuCtxSynchronize'),
                 cuda_readback_returned_success=returned('cuMemcpyDtoH_v2'),
                 scope='Observed API returns only; full output verification requires the shared suite report')
+
+
+def verify_cuda_trace(rows, *, pid=None):
+    """Validate ordered successful native boundaries, never an entry marker alone."""
+    if not rows or any(row['state']=='raised' for row in rows):
+        return False
+    if any(a['monotonic_ns']>b['monotonic_ns'] for a,b in zip(rows,rows[1:])):
+        return False
+    if pid is not None and {row['pid'] for row in rows}!={pid}:
+        return False
+    previous=-1
+    for stage in ('nvrtcCompileProgram','cuLaunchKernel','cuCtxSynchronize','cuMemcpyDtoH_v2'):
+        hits=[(i,r) for i,r in enumerate(rows) if r['stage']==stage]
+        if (len(hits)!=2 or hits[0][1]['state']!='entered' or hits[1][1]['state']!='returned'
+            or hits[1][1].get('return_code')!=0 or hits[0][0]<=previous):
+            return False
+        previous=hits[1][0]
+    return True

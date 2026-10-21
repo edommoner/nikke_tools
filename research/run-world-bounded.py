@@ -64,7 +64,7 @@ class WindowsJob:
                 raise C.WinError(C.get_last_error())
 
 
-def run_bounded(command, folder, timeout):
+def run_bounded(command, folder, timeout, *, cwd=None, env=None, before_gate=None, after_wait=None):
     started = time.perf_counter()
     job = None
     process = None
@@ -75,9 +75,11 @@ def run_bounded(command, folder, timeout):
     gate = folder/'start.json'
     if gate.exists():
         raise ValueError('Fresh capture directory required')
+    observation_error = None
+    wait_completed_ns = None
     with (folder/'stdout.log').open('wb') as stdout, (folder/'stderr.log').open('wb') as stderr:
         try:
-            options = dict(stdout=stdout, stderr=stderr, cwd=ROOT)
+            options = dict(stdout=stdout, stderr=stderr, cwd=cwd or ROOT, env=env)
             if os.name == 'nt':
                 options['creationflags'] = subprocess.BELOW_NORMAL_PRIORITY_CLASS
             else:
@@ -86,6 +88,8 @@ def run_bounded(command, folder, timeout):
             if os.name == 'nt':
                 job = WindowsJob(process)
             # Child cannot compile/load CUDA before containment succeeds.
+            if before_gate is not None:
+                before_gate()
             gate.write_text('{}\n')
             child_code = process.wait(timeout=max(.001, timeout-(time.perf_counter()-started)))
         except subprocess.TimeoutExpired:
@@ -107,10 +111,18 @@ def run_bounded(command, folder, timeout):
                     process.wait(timeout=5)
             except BaseException as error:
                 cleanup_error = type(error).__name__+': '+str(error)
+            finally:
+                wait_completed_ns = time.time_ns()
+                if after_wait is not None:
+                    try:
+                        after_wait()
+                    except BaseException as error:
+                        observation_error = type(error).__name__+': '+str(error)
     facts = dict(passed=not timed_out and failure is None and cleanup_error is None and child_code == 0,
                  timed_out=timed_out, timeout_seconds=timeout, elapsed_seconds=time.perf_counter()-started,
                  child_exit_code=child_code, final_child_exit_code=process.poll() if process is not None else None,
                  error=failure, cleanup_error=cleanup_error, cleanup_wait_seconds=5,
+                 observation_error=observation_error, wait_completed_unix_ns=wait_completed_ns,
                  below_normal_priority=os.name == 'nt', phase=summarize(folder/'phases.jsonl'),
                  gpu_retry_count=0, full_character_verified=0, full_goal_complete=False)
     (folder/'execution.json').write_text(json.dumps(facts, indent=2)+'\n')
