@@ -1,0 +1,17 @@
+{
+  "verified": true,
+  "gpu_calls": 0,
+  "baseline_commit": "d97a8df",
+  "phases": [
+    "prepareWeaponFrame",
+    "advanceWeaponCharge",
+    "captureWeaponShot",
+    "landWeaponPellets",
+    "finishWeaponShot"
+  ],
+  "token_count": 2287,
+  "token_sha256": "9fa07642d45149aa0d5a3a14b27eb90abf79130d648cb0afcfb419d5ecb614a9",
+  "helper_signature_contract_verified": true,
+  "wrapper_exit_contract_verified": true,
+  "scope": "Reconstructed original statements and explicit call/argument/ready ordering. Not runtime/compiler resource proof"
+}

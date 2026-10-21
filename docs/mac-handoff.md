@@ -1,3 +1,13 @@
+<!-- weapon-phases-current -->
+## 共通武器フレーム分割とMetal796
+
+現在のsealed suiteはentry-reload-regression796（native633／拒否163）、goldenはportable-world-weapon-phases-regression-short-expected.jsonです。武器本体を共有5 helperへ分割し、2,287 tokenの処理文を再構成、引数・snapshot・早期returnを検査しました。CUDA生成にもnoinline5境界が存在します。Runtime247／138952byte／align8と入力は変更していません。
+
+Metal796全件一致、分割前796の全input／raw／native、全lazy bankゼロを確認し、GPU禁止の独立sealが成功。SHA b9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637、2,503,999,488byte。CPU788中787成功・Windows専用1skip、その後signature guard5件も成功。詳細portable-weapon-phases.md、development checkpoint、retention、compiler-structureを参照してください。
+
+通常UI CPU、全キャラ認定0、packing214/266は入力受付のみ、entry_reloadのcover4件・新版CUDA計算は未完了です。v126既定JITとv127明示JIT1は旧Runtime246のPTXに対するメモリ確保失敗でした。次の短いWindows確認はこの新sourceのPTX生成と、成功時だけ同じ専用cacheでのJIT1 module確認で、kernelは実行しません。条件を変えたsource検証であり、旧失敗の同条件retryではありません。以下は履歴です。
+<!-- /weapon-phases-current -->
+
 <!-- entry-reload-current -->
 ## 共通entry_reloadの現在地
 

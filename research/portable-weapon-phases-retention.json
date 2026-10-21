@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "scope": "Byte retention against a previously verified immutable golden; not a new GPU dispatch or standalone calculation certification",
+  "expanded_candidate": false,
+  "candidate_offset": 0,
+  "name_prefix": "",
+  "inputs": 796,
+  "all_input_raw_native_fingerprints_equal": true,
+  "all_raw_words_equal": true,
+  "lazy_banks_zero": true,
+  "output_bytes": 2503999488,
+  "output_sha256": "b9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637",
+  "baseline_golden_sha256": "d1096f81fe3704b6cf0fea053a8f9e945dc95ac555d96983fb5f14404ac30b49",
+  "elapsed_seconds": 2.9150098339887336
+}
