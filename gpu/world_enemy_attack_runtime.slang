@@ -6,10 +6,14 @@
 uint64_t collectWorldEnemyAttackFlat(inout Runtime s,uint target,uint64_t when)
 {
     uint64_t total=0;
-    for(uint i=0;i<s.enemyBuffCount;i++)
+    for(uint i=0;i<s.orderedCount;i++)
     {
-        uint row=s.enemyBuffRows[i];Definition d=residentDefinition(s,row);
-        if(d.enemyBuff==0||d.kind!=0||d.stat!=S_atk_caster_based_pct||s.alive[row]==0||!f64Less(when,s.end[row])||!actorFieldMember(s,row,target)||!actorFieldConditions(s,row,target,when)) continue;
+        uint row=s.orderedRows[i];Definition d=residentDefinition(s,row);
+        if(d.kind!=0||d.stat!=S_atk_caster_based_pct||s.alive[row]==0||!f64Less(when,s.end[row])) continue;
+        // Native resolves _by_stat's lazy row before testing enemy membership,
+        // including allied rows. This observable resolution affects later ranks.
+        if(s.lazyPending[row]!=0) ensureLazyRecipients(s,row,when);
+        if(d.enemyBuff==0||!actorFieldMember(s,row,target)||!actorFieldConditions(s,row,target,when)) continue;
         uint64_t value=scalarValue(s,row,d.owner);
         value=f64Mul(s.baseAttack[d.owner],f64Div(value,HUNDRED));total=f64Add(total,value);
         if(!f64Finite(value)||!f64Finite(total)) { s.error=16;return 0; }

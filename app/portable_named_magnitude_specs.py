@@ -1,7 +1,7 @@
 """Canonical named coefficient/received-damage operators, outside numeric64."""
 from effect_spec import NAMED_MAGNITUDE
 
-STATS={name:NAMED_MAGNITUDE[name] for name in ('dmg_scale_mag_pct','received_dmg_buff_mag_pct')}
+STATS={name:NAMED_MAGNITUDE[name] for name in ('dmg_scale_mag_pct','atk_buff_mag_pct','received_dmg_buff_mag_pct')}
 
 
 def validate(effect,*,combat,world_frame):

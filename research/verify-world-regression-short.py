@@ -27,6 +27,7 @@ ADAPTERS={
     'persona':module('regression_persona','research/verify-world-persona-short.py'),
     'named-magnitude':module('regression_named_magnitude','research/verify-world-named-magnitude-short.py'),
     'enemy-selection':module('regression_enemy_selection','research/verify-world-enemy-selection-short.py'),
+    'attack-magnitude':module('regression_attack_magnitude','research/verify-world-attack-magnitude-short.py'),
 }
 cross=ADAPTERS['readiness'].cross
 suite=SimpleNamespace(INPUT=104400,OUTPUT=786432)

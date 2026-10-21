@@ -2245,6 +2245,11 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     PROJECTILE_ADMIT_STAGE(s,22) if (!initializeSources(s)) { results[output]=64; return; }
     PROJECTILE_ADMIT_STAGE(s,23) if(!initializeStaged(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,24) if (!initializeLandings(s)) { results[output]=64;return; }
+    // Preserve existing rejection paths; close raw numeric-stat gaps before
+    // any activation/query can silently ignore an unsupported buff identity.
+    for(uint row=0;row<s.count;row++)
+        if(definition_kind(input,row)==0 && !validPortableBuffStat(definition_stat(input,row)))
+        { PROJECTILE_ADMIT_STAGE(s,25) results[output]=64;return; }
     initializeSkillCritical(s);
     for(uint word=0;word<P_PROBABILITY_STATE_WORDS;word++) results[output+P_PROBABILITY_STATE_BASE+word]=0;
     if(commands[input+P_ENEMY_TARGET_META_BASE]!=0) mtSeed(output+P_ENEMY_RNG_BASE,uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+1])|(uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+2])<<32));

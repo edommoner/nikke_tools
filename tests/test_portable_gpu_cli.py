@@ -16,6 +16,19 @@ cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class PacketTests(unittest.TestCase):
+    def test_missing_metal_compiler_stops_before_native_and_gpu_claim(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);capture=root/'capture'
+            with patch.object(cli,'ROOT',root),patch.dict(os.environ,{'NIKKE_SLANG_ROOT':str(root/'missing')}),\
+                 patch.object(cli,'verify_package',return_value=dict(suite='regression',purpose='development',package_id='missing-compiler')),\
+                 patch.object(cli,'cpu_preflight',side_effect=AssertionError('Native work forbidden')) as native,\
+                 patch.object(cli,'run_job',side_effect=AssertionError('GPU forbidden')) as job:
+                with self.assertRaisesRegex(ValueError,'specify --slang-root'):
+                    cli.run_capture(capture,'metal',180)
+            native.assert_not_called();job.assert_not_called()
+            self.assertFalse((root/'gpu-claimed-metal.json').exists())
+            self.assertTrue((capture/'run.json').is_file())
+
     def test_status64_alone_cannot_satisfy_a_suite_execution_rejection_contract(self):
         import array
         from types import SimpleNamespace

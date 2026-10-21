@@ -52,18 +52,18 @@ SUITES['stun']=dict(script='research/verify-world-stun-short.py',golden='researc
 SUITES['burst-recipients-diagnostic']=dict(SUITES['burst-recipients'],source='gpu/world_projectile_admission_entry.slang',development_only=True)
 SUITES['roster-regression']=dict(script='research/verify-world-roster-regression-short.py',
     golden='research/portable-world-roster-regression-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=78,native=78,
+    source='gpu/world_projectile_entry.slang',inputs=80,native=80,
     tests=['test_portable_roster_regression.py','test_portable_real_binding_proof.py'])
 SUITES['skill-cooldown']=dict(script='research/verify-world-skill-cooldown-short.py',
     golden='research/portable-world-skill-cooldown-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=25,native=21,
     tests=['test_portable_skill_cooldown.py','test_portable_typed_recipient_delegation.py'])
 SUITES['regression']=dict(script='research/verify-world-regression-short.py',
-    golden='research/portable-world-enemy-selection-regression-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=664,native=526,
+    golden='research/portable-world-attack-magnitude-regression-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=718,native=570,
     tests=['test_portable_regression_adapter.py','test_portable_roster_regression.py',
            'test_portable_readiness.py','test_portable_stun.py','test_portable_typed_recipient_delegation.py',
-           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py','test_portable_skill_interval_flat.py','test_portable_lazy_bank.py','test_portable_compiler_stats.py','test_portable_base_copy.py','test_portable_seal.py','test_portable_persona.py','test_portable_compile_cache.py','test_portable_named_magnitude.py','test_portable_enemy_selection.py','test_portable_capture_storage.py'])
+           'test_portable_skill_cooldown.py','test_portable_healing_storage.py','test_portable_trigger_reduction.py','test_portable_skill_critical.py','test_portable_skill_interval.py','test_portable_skill_interval_flat.py','test_portable_lazy_bank.py','test_portable_compiler_stats.py','test_portable_base_copy.py','test_portable_seal.py','test_portable_persona.py','test_portable_compile_cache.py','test_portable_named_magnitude.py','test_portable_enemy_selection.py','test_portable_capture_storage.py','test_portable_attack_magnitude.py'])
 SUITES['healing-storage']=dict(script='research/verify-world-healing-storage-short.py',
     golden='research/portable-world-healing-storage-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=51,native=39,development_only=True,
@@ -105,6 +105,12 @@ SUITES['named-magnitude']=dict(script='research/verify-world-named-magnitude-sho
     golden='research/portable-world-named-magnitude-short-expected.json',
     source='gpu/world_projectile_entry.slang',inputs=54,native=43,development_only=True,
     tests=['test_portable_named_magnitude.py','test_portable_readiness.py'])
+
+SUITES['attack-magnitude']=dict(script='research/verify-world-attack-magnitude-short.py',
+    golden='research/portable-world-attack-magnitude-short-expected.json',
+    source='gpu/world_projectile_entry.slang',inputs=52,native=42,development_only=True,
+    tests=['test_portable_attack_magnitude.py','test_portable_named_magnitude.py','test_portable_readiness.py'])
+SUITES['attack-magnitude-diagnostic']=dict(SUITES['attack-magnitude'],source='gpu/world_projectile_admission_entry.slang')
 
 SUITES['enemy-selection']=dict(script='research/verify-world-enemy-selection-short.py',
     golden='research/portable-world-enemy-selection-short-expected.json',
@@ -686,6 +692,14 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
     write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend=backend,
                                 mode='cpu-only' if cpu_only else 'smoke' if smoke else 'gpu',status='preflight',gpu_retry_count=0))
     try:
+        # An extracted packet deliberately excludes compiler distributions.
+        # Catch a missing Metal toolchain before expensive native preparation
+        # and before consuming the exclusive GPU execution claim.
+        if backend=='metal' and not smoke and not cpu_only:
+            compiler_root=Path(os.environ.get('NIKKE_SLANG_ROOT',ROOT/f'.tools/slang-2026.20-{platform.system()}-{platform.machine()}')).resolve()
+            compiler=compiler_root/'bin'/('slangc.exe' if os.name=='nt' else 'slangc')
+            if not compiler.is_file():
+                raise ValueError('Slang compiler missing: '+str(compiler)+'; specify --slang-root')
         pre=(dict(passed=True,controller_only=True,input_count=0,native_oracles=0,gpu_calls=0)
              if smoke else cpu_preflight(m))
         write(capture/'cpu.json',pre)

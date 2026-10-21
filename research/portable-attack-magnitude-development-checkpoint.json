@@ -1,0 +1,287 @@
+{
+  "package": {
+    "package_id": "14cdb52815159ae31fcf680d08cc2f8194c6aedf68fd1c950269f7256e8b707c",
+    "source_commit": "d77da19b96c4698cc9061ae00b237d24e0f41a05",
+    "archive_bytes": 4549271,
+    "archive_sha256": "e7ec880a54c64b65e03a1adf39922facca555979f1216027b6244424c19c4c23"
+  },
+  "metal": {
+    "sealed": false,
+    "purpose": "development",
+    "calculation_verified": true,
+    "preservation_verified": null,
+    "passed": true,
+    "containment_verified": true,
+    "comparison_error": null,
+    "first_difference": null,
+    "phase": {
+      "events": 6,
+      "last_event": {
+        "monotonic_ns": 706396237634541,
+        "pid": 24366,
+        "stage": "shared_native_compare",
+        "state": "returned",
+        "wall_time_ns": 1792607246423227000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 718,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "gpu_seconds": 16.002251666621305,
+    "input_bytes": 299836804,
+    "library_compile_seconds": 1.1818161010742188,
+    "output_bytes": 2258632704,
+    "pipeline_compile_seconds": 11.290113925933838,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "bounded": {
+    "passed": true,
+    "timed_out": false,
+    "timeout_seconds": 180,
+    "elapsed_seconds": 90.96377495804336,
+    "child_exit_code": 0,
+    "final_child_exit_code": 0,
+    "error": null,
+    "cleanup_error": null,
+    "cleanup_wait_seconds": 5,
+    "observation_error": null,
+    "wait_completed_unix_ns": 1792607246576311000,
+    "below_normal_priority": false,
+    "phase": {
+      "events": 6,
+      "last_event": {
+        "monotonic_ns": 706396237634541,
+        "pid": 24366,
+        "stage": "shared_native_compare",
+        "state": "returned",
+        "wall_time_ns": 1792607246423227000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retry_count": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false
+  },
+  "cpu": {
+    "passed": true,
+    "input_count": 718,
+    "native_oracles": 570,
+    "input_sha256": "06337c627d49a3fc42196c21ee6ae956eb0df524d553c2ff742d08b0c0918864",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 41.618509000050835
+  },
+  "cpu_tests": [
+    {
+      "pattern": "test_portable_regression_adapter.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.881646916968748
+    },
+    {
+      "pattern": "test_portable_roster_regression.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.3317997499834746
+    },
+    {
+      "pattern": "test_portable_readiness.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.2098465830786154
+    },
+    {
+      "pattern": "test_portable_stun.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.4195521250367165
+    },
+    {
+      "pattern": "test_portable_typed_recipient_delegation.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.05606145900674164
+    },
+    {
+      "pattern": "test_portable_skill_cooldown.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.846950083039701
+    },
+    {
+      "pattern": "test_portable_healing_storage.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.330102500040084
+    },
+    {
+      "pattern": "test_portable_trigger_reduction.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.590303416014649
+    },
+    {
+      "pattern": "test_portable_skill_critical.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.201411082991399
+    },
+    {
+      "pattern": "test_portable_skill_interval.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.2687617499614134
+    },
+    {
+      "pattern": "test_portable_skill_interval_flat.py",
+      "exit_code": 0,
+      "elapsed_seconds": 3.0211496249539778
+    },
+    {
+      "pattern": "test_portable_lazy_bank.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.8204614999704063
+    },
+    {
+      "pattern": "test_portable_compiler_stats.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.06254812492989004
+    },
+    {
+      "pattern": "test_portable_base_copy.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.9053125419886783
+    },
+    {
+      "pattern": "test_portable_seal.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.057106457999907434
+    },
+    {
+      "pattern": "test_portable_persona.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.7560600409051403
+    },
+    {
+      "pattern": "test_portable_compile_cache.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.14242308295797557
+    },
+    {
+      "pattern": "test_portable_named_magnitude.py",
+      "exit_code": 0,
+      "elapsed_seconds": 3.3565184170147404
+    },
+    {
+      "pattern": "test_portable_enemy_selection.py",
+      "exit_code": 0,
+      "elapsed_seconds": 4.19291450001765
+    },
+    {
+      "pattern": "test_portable_capture_storage.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.07422025001142174
+    },
+    {
+      "pattern": "test_portable_attack_magnitude.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.8297117500333115
+    }
+  ],
+  "full_cpu": {
+    "discovered": 723,
+    "passed": 722,
+    "skipped": 1,
+    "failed": 0,
+    "seconds": 50.444,
+    "log_sha256": "5be29039111c2ad9ffd0fe04d6ce80af115b8ced768a49c8c915ddb28064003e"
+  },
+  "additional_cli": {
+    "tests": 28,
+    "passed": true
+  },
+  "seal": {
+    "sealed": true,
+    "gpu_calls": 0,
+    "package_id": "14cdb52815159ae31fcf680d08cc2f8194c6aedf68fd1c950269f7256e8b707c",
+    "input_count": 718,
+    "golden": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-world-attack-magnitude-regression-short-expected.json"
+  },
+  "retention": {
+    "package_id": "14cdb52815159ae31fcf680d08cc2f8194c6aedf68fd1c950269f7256e8b707c",
+    "gpu_calls": 0,
+    "output_sha_reread_verified": true,
+    "baselines": {
+      "old664": {
+        "package_id": "9b476e64ad2e320d0d6c7d600f1fd97f053428dbbb5cc178ff3600c4944fe990",
+        "checked": 663,
+        "input_native_equal": true,
+        "raw_scope": "full output block"
+      },
+      "independent52": {
+        "package_id": "217703199ab684d7554a2a45d09369931b64717e1597ff0186e9c3297cce1b11",
+        "checked": 52,
+        "input_native_equal": true,
+        "raw_scope": "all except dedicated16-word diagnostic tail"
+      }
+    },
+    "full_character_verified": 0,
+    "full_goal_complete": false,
+    "sets_overlap_do_not_sum": true,
+    "explicit_baseline_migration": {
+      "old_name": "named-magnitude/reject/named-mag-unported-atk-magnitude",
+      "new_name": "named-magnitude/reject/named-mag-unknown-stat",
+      "reason": "stat79 is now supported; replace obsolete negative with an unknown numeric stat; old golden remains unchanged"
+    },
+    "lazy_bank_zero_inputs": 718,
+    "new_real_physical_history": [
+      {
+        "name": "roster/real/이브/favorite-0/3s",
+        "recorded": 116,
+        "omitted": 0
+      },
+      {
+        "name": "roster/real/이브/favorite-0/30s",
+        "recorded": 1063,
+        "omitted": 0
+      }
+    ]
+  },
+  "compiler_delta": {
+    "baseline_source_sha256": "152d7375a74c71009699af5a1ec346538a02572b95a840a7d4097126eb91755d",
+    "candidate_source_sha256": "d725459d88367578e6c4721636e9025627d2a0011aefc1cd28982ca1aedb8b89",
+    "delta": {
+      "source_bytes": 5044,
+      "functions": 3,
+      "noinline_functions": 0
+    },
+    "runtime_declared_fields_identical": true,
+    "runtime_size_estimate_bytes": 138928,
+    "actorSetCapture_noinline": true,
+    "gpu_calls": 0,
+    "nvrtc_compile_calls": 0,
+    "compiler_memory_improvement_verified": false,
+    "scope": "Saved generated CUDA lexical difference only; not measured compiler memory, registers or execution performance",
+    "explanation": "Named caster-ATK factor scan and explicit raw buff identity guard; no new Runtime arrays; all other late attack families remain unchanged."
+  },
+  "windows_additional_executions": 0,
+  "cuda_latest_calculation_verified": false,
+  "cold_compiler_failure_unresolved": true,
+  "normal_ui": "CPU",
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

@@ -557,6 +557,7 @@ static const uint S_skill_cooldown_pct = 58U;
 static const uint S_atk_copy = 85U;
 static const uint S_hp_copy = 86U;
 static const uint S_dmg_scale_mag_pct = 78U;
+static const uint S_atk_buff_mag_pct = 79U;
 static const uint S_received_dmg_buff_mag_pct = 80U;
 static const uint H_NAMED_SKILL = 131072U;
 static const uint H_BURST = 1U;
@@ -573,5 +574,14 @@ static const uint H_INTERCEPT = 2048U;
 static const uint H_AOE_BURST = 4096U;
 static const uint H_SINGLE_BURST = 8192U;
 static const uint H_CORE = 16384U;
+static const uint P_BUFF_STAT_BITS_0 = 4294967295U;
+static const uint P_BUFF_STAT_BITS_1 = 4294965247U;
+static const uint P_BUFF_STAT_BITS_2 = 124897279U;
+bool validPortableBuffStat(uint stat)
+{
+    if(stat > 90U) return false;
+    uint bits = stat < 32U ? P_BUFF_STAT_BITS_0 : stat < 64U ? P_BUFF_STAT_BITS_1 : stat < 96U ? P_BUFF_STAT_BITS_2 : 0U;
+    return (bits & (1U << (stat & 31U))) != 0;
+}
 static const uint P_TARGET_INHERIT_0 = 256U;
 static const uint P_TARGET_INHERIT_1 = 662863872U;

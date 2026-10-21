@@ -245,6 +245,13 @@ FIELDS = dict(OWNER=0, KIND=1, STAT=2, NAME=3, MAX_STACK=4, BUDGET=5,
               TARGET_NAME=18, FORCE_MASK=19, RECIPIENTS=20, TARGET=21, STAGE_ARG=22, STAGE_OVERRIDE=23, REENTRY=24, TOGGLE=25, TRIGGER_COUNT=26, CONDITION_COUNT=27, FLAGS=28, PERIOD=29, DAMAGE_FLAGS=31)
 
 
+def buff_stat_ids():
+    from portable_protection_specs import KINDS
+    from effect_spec import DETAIL_STAT,EXTRA_STAT
+    canonical={**DETAIL_STAT,**EXTRA_STAT}
+    return set(STATS.values()) | {canonical[name] for name,kind in KINDS.items() if kind not in (5,6) and name in canonical}
+
+
 def shader_schema():
     lines = ['// Generated from app/portable_specs.py; do not hand-edit.',
              '#if defined(PORTABLE_WORLD_FRAME) && defined(PORTABLE_WIDE_LANDINGS)',
@@ -263,6 +270,14 @@ def shader_schema():
                 lines += ['#ifdef PORTABLE_WIDE_LANDINGS',f'static const uint {prefix}{name} = {wide}U;','#else',f'static const uint {prefix}{name} = {value}U;','#endif']
             else:lines.append(f'static const uint {prefix}{name} = {value}U;')
             if variant:lines.append('#endif')
+    # GPU admission uses the same explicit stat identities as host lowering.
+    # Numeric gaps must not become silent no-op buffs in raw inputs.
+    stat_ids=buff_stat_ids();largest=max(stat_ids);words=(largest//32)+1
+    for word in range(words):
+        mask=sum(1<<(stat%32) for stat in stat_ids if stat//32==word)
+        lines.append(f'static const uint P_BUFF_STAT_BITS_{word} = {mask}U;')
+    choices=' : '.join(f'stat < {(word+1)*32}U ? P_BUFF_STAT_BITS_{word}' for word in range(words))+' : 0U'
+    lines += ['bool validPortableBuffStat(uint stat)', '{',f'    if(stat > {largest}U) return false;',f'    uint bits = {choices};','    return (bits & (1U << (stat & 31U))) != 0;', '}']
     events=set(target_inheritance_events())
     # Named hit_count uses compact event 49; shared policy calls it hit_count (8).
     if 8 in events:events.add(49)

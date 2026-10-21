@@ -1,3 +1,15 @@
+<!-- attack-magnitude-current -->
+## 名前付きATK倍率79とMetal718
+
+現在のsealed CLIはregression718（native570／拒否148）、goldenはportable-world-attack-magnitude-regression-short-expected.jsonです。atk_buff_mag_pctを共通Slangのcaster基礎ATK加算へ接続し、独立52入力とイヴ全定義の実編成3秒／30秒を追加しました。正本の加算順・対象・owner／runtime条件の非再検査・lazy fresh readを保持し、通常ATK％／HP由来／ATKコピー／順位は増幅しません。
+
+初回51のlazy対象1差分、初回718の保護stat受付漏れ13拒否は保存し、修正版718全件一致・GPU0の独立sealを確認しました。旧664のうち79未対応を前提にした旧負例1件だけを未知stat負例へ明示移行し、残る663の全input／raw／native、独立52の専用診断tail以外の全raw、全718のlazy bankゼロを保持。イヴの物理履歴は3秒116件／30秒1063件・省略0です。既存ミハラ／persona等の省略制約は残ります。
+
+最終CPU723件中722成功・Windows専用1skip・失敗0、CLI28件成功。Metalコンパイラ配置の欠落を重いCPU参照／GPU claim前に拒否するCLI検査を追加しました。指定漏れでGPU前に止まった原記録は保持しています。生成CUDAは5,044byte・3関数増、Runtime全field同一・推定138,928byte。compilerメモリ改善ではありません。
+
+静的packing210/266・base150/203・86分類、通常UI CPU・全キャラGPU認定0・新版CUDA数値一致未確認・最終目標未完了。Windows追加実行0。次はreviveの永続passive再付与／HP同期／満弾行動再開／通知再入を接続する予定です。consumer未確認のprojectile_dmg_pct／shield_dmg_pct／heal_splitは無効果受付しません。CUDA cold compiler失敗の同条件再試行や上限拡大もしません。詳細docs/portable-attack-magnitude.md、docs/portable-revive-next.mdとdevelopment checkpoint。以下は履歴です。
+<!-- /attack-magnitude-current -->
+
 <!-- enemy-selection-current -->
 ## 共通random／code対象・DoT終了契約とMetal664
 

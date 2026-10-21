@@ -66,7 +66,7 @@ def fixtures():
 def negative_inputs(compile_case):
     from portable_specs import LIMITS as L,FIELDS as F
     rows=[];seed=compile_case(next(c for c in fixtures() if c['name']=='named-mag-damage-value-50'))[0];d=L['DEFINITION_BASE']
-    for label,at,value in [('kind',d+F['KIND'],4),('unported-atk-magnitude',d+F['STAT'],79),('reference-overflow',d+F['TARGET_NAME'],L['DEFINITIONS']),('reference-negative',d+F['TARGET_NAME'],0xffffffff),('no-combat',3,0),('nan',d+F['VALUE']+1,0x7ff80000),('persona-flag',L['DEFINITION_EXTRA_BASE']+3,1),('allied-health',L['HEALTH_DEFINITION_BASE']+1,1)]:
+    for label,at,value in [('kind',d+F['KIND'],4),('unknown-stat',d+F['STAT'],0xffffffff),('reference-overflow',d+F['TARGET_NAME'],L['DEFINITIONS']),('reference-negative',d+F['TARGET_NAME'],0xffffffff),('no-combat',3,0),('nan',d+F['VALUE']+1,0x7ff80000),('persona-flag',L['DEFINITION_EXTRA_BASE']+3,1),('allied-health',L['HEALTH_DEFINITION_BASE']+1,1)]:
         raw=list(seed);raw[at]=value;rows.append(('reject/named-mag-'+label,raw,None))
     boss=next(c for c in fixtures() if c['name']=='named-mag-received-boss-base-early');seed=compile_case(boss)[0];node=L['WORLD_OVERLAY_NODE_BASE']
     for label,at,value in [('overlay-name-overflow',node+11,L['DEFINITIONS']+1),('overlay-extra',node+12,1),('overlay-wrong-kind',node,6)]:

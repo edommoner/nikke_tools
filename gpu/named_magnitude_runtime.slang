@@ -1,13 +1,12 @@
 // Named operators retain canonical stat/name references and existing carriers.
 bool namedMagnitudeStat(uint stat)
-{ return stat==S_dmg_scale_mag_pct || stat==S_received_dmg_buff_mag_pct; }
+{ return stat==S_dmg_scale_mag_pct || stat==S_atk_buff_mag_pct || stat==S_received_dmg_buff_mag_pct; }
 [noinline]
 bool validNamedMagnitudes(inout Runtime s)
 {
     for(uint row=0;row<s.count;row++)
     {
         Definition d=readDefinition(s.inputBase,row);
-        if(d.stat==79) return false; // Canonical ATK magnitude remains unported.
         if(!namedMagnitudeStat(d.stat)) continue;
 #ifndef PORTABLE_WORLD_PROJECTILE
         return false;
@@ -15,10 +14,38 @@ bool validNamedMagnitudes(inout Runtime s)
         if(s.combat==0 || d.kind!=0 || d.targetName<0 || d.targetName>=int(P_DEFINITIONS) ||
            d.quantityFlags>32 || (d.quantityFlags&~32U)!=0 || d.alliedFlags!=0 ||
            d.healthScaling!=0 || d.damageFlags!=0 || !f64Finite(d.value)) return false;
-        s.quantityMask|=32768;
+        if(d.stat==S_atk_buff_mag_pct)
+        {
+            if(d.queryResolve!=0) return false;
+            s.quantityMask|=131072|256; // Native caster-ATK late pass, not numeric64.
+        }
+        else s.quantityMask|=32768;
 #endif
     }
     return true;
+}
+// get_buffs checks membership/expiry here but deliberately does not recheck
+// runtime conditions, owners or pending-damage exclusions. Lazy selectors are
+// fresh reads, not _resolve_lazy's persistent recipient/cache consumption.
+uint64_t namedAttackMultiplier(inout Runtime s,uint base,uint who,uint64_t when)
+{
+    uint64_t factor=ONE;
+#ifdef PORTABLE_WORLD_PROJECTILE
+    if((s.quantityMask&131072)==0) return factor;
+    uint name=residentDefinition(s,base).name;
+    for(uint pass=0;pass<s.orderedCount;pass++)
+    {
+        uint slot=s.orderedRows[pass];Definition mag=residentDefinition(s,slot);
+        if(s.alive[slot]==0 || mag.kind!=0 || mag.stat!=S_atk_buff_mag_pct || mag.enemyBuff!=0 ||
+           mag.targetName!=int(name) || !f64Less(when,s.end[slot])) continue;
+        uint recipients=s.activeRecipients[slot];
+        if(s.lazyPending[slot]!=0) { uint64_t order;recipients=selectRecipients(s,s.carrierDefinition[slot],when,order); }
+        if((recipients&(1U<<who))==0) continue;
+        factor=f64Add(factor,f64Div(scalarValue(s,slot,mag.owner),HUNDRED));
+        if(!f64Finite(factor)) { s.error=16;return 0; }
+    }
+#endif
+    return factor;
 }
 // timeline reads these carriers directly: no recipient/runtime-condition query.
 // Capture before B3 deferral; each resident multiplication keeps native order.

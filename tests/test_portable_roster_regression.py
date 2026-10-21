@@ -19,9 +19,14 @@ class RealRegressionTests(unittest.TestCase):
         def forbidden(*a,**k):raise AssertionError('Execution forbidden during real static packing')
         with patch.object(timeline,'simulate',forbidden),patch.object(timeline.CharState,'tick',forbidden),patch.object(portable_backend,'execute',forbidden),patch.object(portable_backend,'build',forbidden):
             entries,data=adapter.prepare()
-        self.assertEqual(len(entries),78);self.assertEqual(int.from_bytes(data[:4],'little'),78)
-        self.assertEqual(len({name for name,_,_ in entries}),78)
+        self.assertEqual(len(entries),80);self.assertEqual(int.from_bytes(data[:4],'little'),80)
+        self.assertEqual(len({name for name,_,_ in entries}),80)
         for _,words,(case,prepared,bound,metadata) in entries:
+            from portable_specs import LIMITS as L,FIELDS as F,buff_stat_ids
+            supported=buff_stat_ids()
+            for row in range(words[1]):
+                at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
+                if words[at+F['KIND']]==0:self.assertIn(words[at+F['STAT']],supported,case['character'])
             self.assertEqual(words,bound);self.assertFalse(prepared['cpu_battle_executed'])
             self.assertTrue(prepared['all_character_effects_included'])
             proof=metadata['real_prepared_input']

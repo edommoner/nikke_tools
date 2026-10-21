@@ -43,7 +43,9 @@ void collectHPAttack(inout Runtime s,uint who,uint64_t when,inout uint64_t flat)
             if(d.kind!=0 || d.enemyBuff!=0 || d.stat!=(family==0 ? S_atk_from_hp_pct : S_atk_caster_based_pct) || !lateAttackRecipient(s,row,who,when)) continue;
             uint64_t value=family==0 ? recipientValue(s,row,who) : scalarValue(s,row,who);
             uint64_t basis=family==0 ? nativeAttackMaxHP(s,who,when) : s.baseAttack[d.owner];
-            flat=f64Add(flat,f64Mul(basis,f64Div(value,HUNDRED)));
+            uint64_t contribution=f64Mul(basis,f64Div(value,HUNDRED));
+            if(family==1 && (s.quantityMask&131072)!=0) contribution=f64Mul(contribution,namedAttackMultiplier(s,row,who,when));
+            flat=f64Add(flat,contribution);
             if(!f64Finite(flat)) { s.error=16;return; }
         }
 }

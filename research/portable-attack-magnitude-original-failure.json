@@ -1,0 +1,584 @@
+{
+  "package_id": "537145dec5ce992c942dcd7717f4c96cfd5f6308d6fa5147fc3d35e71b72e54c",
+  "result": {
+    "sealed": false,
+    "purpose": "development",
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "passed": false,
+    "containment_verified": true,
+    "comparison_error": null,
+    "first_difference": {
+      "index": 30,
+      "name": "attack-mag-base-lazy",
+      "reason": "AssertionError: attack-mag-base-lazy"
+    },
+    "phase": {
+      "events": 6,
+      "last_event": {
+        "monotonic_ns": 705372089497041,
+        "pid": 22815,
+        "stage": "shared_native_compare",
+        "state": "returned",
+        "wall_time_ns": 1792606218293382000
+      },
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0
+  },
+  "comparison": {
+    "calculation_verified": false,
+    "entries": [
+      {
+        "name": "attack-mag-baseline",
+        "input_sha256": "f1c454af12ffe2e90eb8d64b3e5de071d5c3e17370d20ca38abc92c8ed33e3fe",
+        "output_sha256": "1ed974eeca453be5316816f114d257749034af1e8e102c8b1e8abaf20b71547b",
+        "native_sha256": "2f2ccdbb0f26522fa8b69511fba84d06057c9138d1867b4695e26a9fb8b86f87"
+      },
+      {
+        "name": "attack-mag-value-0",
+        "input_sha256": "af7d9906d553140b467b460ebfa2cf45cc14996b65ebe21ce7d1a0ebcf292b69",
+        "output_sha256": "b8fa3ad5fb6edbbdb071ee8b558abd4c06773e927e04d55dd7782ec3c571b17c",
+        "native_sha256": "4a09fca6499491933e3092f75c34d7a955f2304d112603bedd1b43d80bfe67d3"
+      },
+      {
+        "name": "attack-mag-value-50",
+        "input_sha256": "f307cb7a978bb51f9c5f2f8c1a4e5526e841ce1574912837a3bf535d73cc0ae6",
+        "output_sha256": "b3533862a8ad162d74c90be55f97335b8bfd8fedb2441e20a15d3c4e0c4abaf1",
+        "native_sha256": "3ba26d4b8bc0c15ee3dca4b86b68374d1764e1b6b94a9f223ecba4c61981d556"
+      },
+      {
+        "name": "attack-mag-value--50",
+        "input_sha256": "a65a951adfab3713ff64c88a7d767604c116edb5ae699a24501f54e46601ee9f",
+        "output_sha256": "2ca2eedec02959408acd5310d367d21da8f546a223fd70ba3d510aaca242beba",
+        "native_sha256": "b45a0e16021598d4a67762ac0b313431160467e3a58589166e07d49a9875b2f8"
+      },
+      {
+        "name": "attack-mag-value--100",
+        "input_sha256": "dcf49eda2fa1780763759a7418e48dbc11e0952a94a4ffd4c5e35501bcb1869e",
+        "output_sha256": "e1679b1f1ba9e4bb1445ec47b322b0544acd6840424264a011e82df3818d2dd9",
+        "native_sha256": "f3bb1b351895fe5aece6b0d16b273ef9ffb339f3be79432616da27e4a2c9b13e"
+      },
+      {
+        "name": "attack-mag-value--150",
+        "input_sha256": "f4b56c26fb47577aa8e2196e2a30aef53889871d2f89e0b05d5036b3ea494719",
+        "output_sha256": "3163b7f647e374eed7d752416440332d8b24afc4570fa0910d2f7987d91225ff",
+        "native_sha256": "3ab22a9960d4a7ba7e4ccc0875150b153a6aecb23803897214e8ab939ea0d22e"
+      },
+      {
+        "name": "attack-mag-wrong-name",
+        "input_sha256": "4ee35ee29dd4448eda6274debe7bf28efe566c5648a2bf2a3f781594f54bf519",
+        "output_sha256": "2f347143eb58fd6724bf4c10eb2c9b70070f124264cbb91ce97e5d11f73f3ffc",
+        "native_sha256": "4a09fca6499491933e3092f75c34d7a955f2304d112603bedd1b43d80bfe67d3"
+      },
+      {
+        "name": "attack-mag-other-owner-applies",
+        "input_sha256": "cf038d0eaca5ba706bec2ce62212155ecdaca3b30b4c2a85b9e6287334cd05b2",
+        "output_sha256": "d9fb7d1d89e8a9b9dde467a28a1b1166a813e1ff2ee6d0a6419f6003af695a5f",
+        "native_sha256": "d54512d99415114653d000221f91810f24d305154bdaeb07eb27aeb45602f4a1"
+      },
+      {
+        "name": "attack-mag-one-recipient",
+        "input_sha256": "d3ecfe698a7e1f241e9b7f89409eb87d8f6f514b2b587f5113cba65742084d21",
+        "output_sha256": "862dee8fdba9a63a99fa22fcf74901d7a39117061bc3089fa0818dc366f3ebd2",
+        "native_sha256": "25bc0f4935eb0ab74b01a3b09b2e44af4fdc3f70ecfadcf133cdd75b22415dc5"
+      },
+      {
+        "name": "attack-mag-other-recipient",
+        "input_sha256": "2acb3be7a51139c868e9e88d7cefe332b3d9d717290d440227e5b0615e2ac420",
+        "output_sha256": "7732a1bacb2a2410e994eae28ad838ba3dbde24247487241eed2e3bb25bcc5cd",
+        "native_sha256": "9589d32a1f4c02a822f9abb96c4e70ebf063c697548863352cf4def1332188cc"
+      },
+      {
+        "name": "attack-mag-only-atk-caster",
+        "input_sha256": "5772c71eb6193d935b2874a743b14865695fb8bf5e454295045cbdf5cee3b036",
+        "output_sha256": "f85d6dfa48fabc4d21b7a3de99b4ca97fe007af33244e9c26ebd3a15631c2995",
+        "native_sha256": "a1860667225dfad43917cd343031cfd618e6a3e4104fb5f7461ecd99e47c7c64"
+      },
+      {
+        "name": "attack-mag-only-atk-caster-hp",
+        "input_sha256": "9b2e2f2b175497ef49aaef62408b8a70cb2825f115de9b6355ba54b36a97a223",
+        "output_sha256": "5358592bec81faaaaf2e00ad10d8affcab15e1322e1a2ad74bb8bc7303ad6608",
+        "native_sha256": "793efa4173fde892ea08c3005f5ff9e72f20a14e70ff45585057ff59374c1d17"
+      },
+      {
+        "name": "attack-mag-only-atk-caster-copy",
+        "input_sha256": "6a1c30f548070bb4796012c383da86e375d5ac9a68de1637e94a7131327cbc48",
+        "output_sha256": "6b74c2ef5d337a21f287c77a7234b404d968bc4ea4fa755eba34b53fd04252c8",
+        "native_sha256": "e65946ba28b24bc93d6d9ffaf460373e8917282a26c506798a6b62c81dcc4427"
+      },
+      {
+        "name": "attack-mag-unrelated-base-keeps-contribution",
+        "input_sha256": "3d9174c4affef54223109b0d5cbf1bf75c7fd98c8e801247c280739333708562",
+        "output_sha256": "d4188bda05f209ae257e423d77e3264d3c6badb0632492abd4f7486e83d35f53",
+        "native_sha256": "b2b2ec365e08bfd52735c733a1ccf814e4d61c033f8dcd8a4e0d7637b9d2bbcf"
+      },
+      {
+        "name": "attack-mag-multiple-owners-same-name",
+        "input_sha256": "b83de78dd5995cf9e5ce9ca2a09f964f0d885aaeaac2da8f49d02354ebd39975",
+        "output_sha256": "85dfda522a3b71ee56018171d0e93ec29b6b0f0d8223dd48203be88e32fd6383",
+        "native_sha256": "2027891698f1f1dee2ec0120e106f0deec115b88e485fd6890d50ea38a8874f4"
+      },
+      {
+        "name": "attack-mag-two-additive",
+        "input_sha256": "34dc8f92ff5d74985f2e14948dd307f5775889d0ce47dbb60a1f639eec2f1fc4",
+        "output_sha256": "134c07b446aad4450e4d0e37edeae0241a71dd6b82db8462fe5099a0738c7e36",
+        "native_sha256": "0d86ad1a69556bfdab5662c9e61bbc32fd139b5d1b7224d3d12303600ef0775c"
+      },
+      {
+        "name": "attack-mag-ordered-cancellation",
+        "input_sha256": "eede04eb5c19a9ea0247a52399aa8402c195b412ff58e4ab805028b05a09116f",
+        "output_sha256": "a352abe099998d06570a7740fb74e283a34e7734c2174c61e7ab6920fd90331b",
+        "native_sha256": "370ecfebf9651eb43f3b5cc773a8175bcfa6ce5708e6cdef12d14e158dd5380e"
+      },
+      {
+        "name": "attack-mag-reverse-ordered-cancellation",
+        "input_sha256": "1210b3cd2561efd2db9a2885ffbe18b2e91e6d592bfe51361cc7fced0470b294",
+        "output_sha256": "5bb9fca9536ee702a3574466f140050b983d5c409593c81b7eb0ef58af31ff05",
+        "native_sha256": "77db633cf017d3b7039d5408084d7c7f53a25a8a1545dd6c103907a3970168a2"
+      },
+      {
+        "name": "attack-mag-runtime-false-still-applies",
+        "input_sha256": "1393eda8e23d920a091964ff65da5b9aef01d185318771e57f09862b743c8ee0",
+        "output_sha256": "68347aea3d88d3fabb3f739dafb0bcf4c94a9529810f5b4a836d3e430009bd73",
+        "native_sha256": "3ba26d4b8bc0c15ee3dca4b86b68374d1764e1b6b94a9f223ecba4c61981d556"
+      },
+      {
+        "name": "attack-mag-finite-false-no-carrier",
+        "input_sha256": "4c5db4eb481655d8f662c26cfae926ef8a8be2bb3d513b10f2b8663fab49a324",
+        "output_sha256": "47a781af96d5e33b0ad00052888f39f82df0095554b2d44f396833db7014497a",
+        "native_sha256": "2f2ccdbb0f26522fa8b69511fba84d06057c9138d1867b4695e26a9fb8b86f87"
+      },
+      {
+        "name": "attack-mag-base-runtime-false",
+        "input_sha256": "c4ec0c6cb0f5b3b2ab281d42ba4d56cb1b889f20e95ae0c5b7505b5ee7316bf2",
+        "output_sha256": "586412a9f4e9419fc5d79db44636a37e02e786fb9b2a8d4a8bc622574565d7a7",
+        "native_sha256": "f3bb1b351895fe5aece6b0d16b273ef9ffb339f3be79432616da27e4a2c9b13e"
+      },
+      {
+        "name": "attack-mag-expiry",
+        "input_sha256": "3c63ccf70cc3e354774b3efa79fe56d8b3a5bd78befed8eb5c1e0aadbdd96a41",
+        "output_sha256": "3c0754ae37d1d6fcfcc15ce91ec7d951001c447d332dc02a2475066b3c0728ce",
+        "native_sha256": "773d0435d6868705716d4a280503115b64ddd50091b5fc9ea203dbeca9880554"
+      },
+      {
+        "name": "attack-mag-base-expiry",
+        "input_sha256": "4e569dcbd64dfab8c58e77a10a62b6ad862c33ce6ab6501b3478768a7362a313",
+        "output_sha256": "fb0654b231e8edca4e0bb0f333305415de4ea8e5937b8ddf2c770a2acb795113",
+        "native_sha256": "b10097e19559b2221746c6ab39925907f35af5e06f92343b08f667c2fa281a1b"
+      },
+      {
+        "name": "attack-mag-stacked",
+        "input_sha256": "ac6751337fa7965a82888c2ae6d07b6ee1237dcd79c1e64c945f016c0c1dbc4d",
+        "output_sha256": "9275d18d346e63e3c9695c67652c479dccb1cb821face20c56bcba1210de8875",
+        "native_sha256": "425de2e31f3570a6b5b82b32edc0ce2e6f9b73625063284d4db2b1509db2561d"
+      },
+      {
+        "name": "attack-mag-gear",
+        "input_sha256": "e6b8c5300a7619b786f0ca27ff8b05eff2943031e1ed7fd7b27e79d930fb4441",
+        "output_sha256": "46338603a53045c8885472fafcf687ae1ad4dfe2ebc57f673535947acc59921d",
+        "native_sha256": "3ba26d4b8bc0c15ee3dca4b86b68374d1764e1b6b94a9f223ecba4c61981d556"
+      },
+      {
+        "name": "attack-mag-scaling-reference",
+        "input_sha256": "1b1592ce5a8dc5d8c17b52d10d9296ea74a45f533c91e85570dfe9ca61156de1",
+        "output_sha256": "1ff9f80714bf894cbedead2ab6268ae74d3b2c3fd4c39f4ec27fab046028e794",
+        "native_sha256": "f3d4954e5abc9f6c4917ae98d1d7fa73d62ef9f73a1d0f88db0ce6c43a2d4637"
+      },
+      {
+        "name": "attack-mag-base-scaling-reference",
+        "input_sha256": "00ed3397339ba833805b37a5cd7c8f88644e4c62a9f8632dafaa9c04c4d6f594",
+        "output_sha256": "ded6d53eb15680f7d9d9f22734014b6bda8275589b74549855160f9881118243",
+        "native_sha256": "99b487acace9cd8e5f80f652d17cb40522e00a592f50404acd0700837e4f7ba8"
+      },
+      {
+        "name": "attack-mag-lazy-fresh-rank",
+        "input_sha256": "37786174bdfecda97aa01145376b3700528ff7a1731e6c56c5bf264a68b96ed6",
+        "output_sha256": "e4112a862eecac8a69ec374fe034b9663e3ff993d3c81855fcbea62592c70e0f",
+        "native_sha256": "eb3d302574a9026f8209bc36c626e5442c1be52beff4fefdfb5a7227ec554a9e"
+      },
+      {
+        "name": "attack-mag-lazy-shared-with-mapped-sibling",
+        "input_sha256": "a30c95c153c8a6dbe44bcec2d55375b7da6ac6d523829b03e183a302d092bb29",
+        "output_sha256": "723c45fa3b4e84d72820266de5a26a1894a806e6b9c26821f3c7d8848e71430a",
+        "native_sha256": "d57c3cac8a7d37da8f335b3b253f630188879718e8b5a3762526599a93d44a93"
+      },
+      {
+        "name": "attack-mag-rank-does-not-use-magnitude",
+        "input_sha256": "28762c6b01e8945e70a804e243646995f3ffe91218fe16553a3dbceec0b0a056",
+        "output_sha256": "fc8dc95b9c570e82f43bf4e47890fa3110636133d15bca03b4d910d01153a69b",
+        "native_sha256": "e42ac6b87a1dcd25d4d7a438110f160d8fb4f57a2db2301545a7316b9271dc2e"
+      },
+      {
+        "name": "attack-mag-lazy-runtime-false-still-applies",
+        "input_sha256": "483a68f618c4cddc2bdac3b98711524c3f6ef5de403208a88895552b1e2addf7",
+        "output_sha256": "e72199c9a6c4956463e48f0ef16f15308828bf3c08fe6c6867742ead0b5d698a",
+        "native_sha256": "e7db8f68fb25cf998979916cb4fd811ddfd2499a468887a46e6c022ad207cdf2"
+      },
+      {
+        "name": "attack-mag-mixed-late-hp-and-copy",
+        "input_sha256": "9aef0655440adb16ec133b77930f64df69d827787cfa072dd7a1186453eb7402",
+        "output_sha256": "36147052d9aae991c56f07354637513849254a23bff3fcdadda47959518aa9ce",
+        "native_sha256": "201c230842148a6e8e542fe36a9e7d14bc18b2cc48faee25a01669af69a7566d"
+      },
+      {
+        "name": "attack-mag-amplifier-owner-down",
+        "input_sha256": "96e2b1364b65a4c35c10936fa7d7232b97d1fc5bfd480e2323d8000f3e54906d",
+        "output_sha256": "7a45427f4c94cdb4e3b866cebf33307cf71cad31350690971aaca7dbe91987a4",
+        "native_sha256": "0ff0dec5c631215f0b6fbd184d1b4accf4f739120e8b8a94c2d481cc39b77d84"
+      },
+      {
+        "name": "attack-mag-named-child",
+        "input_sha256": "3c2e8e25441c85ca86962638a21fea6142dab03ee9c4e530925364907630a685",
+        "output_sha256": "4b1dcff3d5cfcf0f7fdf03f7f946d7f60a66169b94f3af82d40f70bf339c59a1",
+        "native_sha256": "37eaf016dc3d1c8eba4f72fbda24ac32b181c5c2c3193482bca15a70e1034385"
+      },
+      {
+        "name": "attack-mag-removed",
+        "input_sha256": "7b9ee0d3709030857909141e6d7fa8f5bb9929151e17c84e2d13fc4485efb769",
+        "output_sha256": "70c276d8b1af65e93e11b07f51daa9825cc8631f69fa49b53bf5e860726cbcc1",
+        "native_sha256": "773d0435d6868705716d4a280503115b64ddd50091b5fc9ea203dbeca9880554"
+      },
+      {
+        "name": "attack-mag-base-removed",
+        "input_sha256": "fa435f91d26533b604d42855340d430e5aeb0aa81fcefaa2bb3c59a28c043dd9",
+        "output_sha256": "9bf171bc8ba680089a90bc449ee2a5697fb908dd797f60da5ad07d58a4b60f8b",
+        "native_sha256": "b10097e19559b2221746c6ab39925907f35af5e06f92343b08f667c2fa281a1b"
+      },
+      {
+        "name": "attack-mag-alias-same-name",
+        "input_sha256": "d6be92554c1b71f3b364abd87aff3fb55f84bbf3f470637fd2c2113fa2d4cfd6",
+        "output_sha256": "238f544abf56657972da7ac9aa0f04d73d7f52f49bd48ec8a8ab609a3fa65f28",
+        "native_sha256": "90b1d9947639d037bf8df597ad158be5937a459ae73dee3d1516f86381eb7116"
+      },
+      {
+        "name": "attack-mag-enemy-amplifier-does-not-affect-allies",
+        "input_sha256": "7495ac79e547c9b19780b09c18b497672bfb93fa42d3456fe192db7da581d3e7",
+        "output_sha256": "199d78edb88e6ee04633f32c143e0889c3c7506b55b0512a8aeab87de0fd1537",
+        "native_sha256": "94a1b6c3feab9035c82cd25e34ea4ff52d852aa9ef9031da17e210c0513464a8"
+      },
+      {
+        "name": "attack-mag-enemy-attack-not-amplified",
+        "input_sha256": "5c6613ebeadd251fcc287ab08c9650506d8aebaa8a8baa48d84198850051f415",
+        "output_sha256": "422b4a9c5237408aeb0cd4b62abd28e42ea02646876dc678ec722a7b53ae2a6c",
+        "native_sha256": "4033827e4679a79c380ee8cd2ed2ed83e13e9d6bbf10c77e1201e8c2516db279"
+      },
+      {
+        "name": "attack-mag-pending",
+        "input_sha256": "8f375a5f0d6dd918b19d62cfd446d499d93a028693ecf9c9c0188990e6e5ad8e",
+        "output_sha256": "24baeb1de0b328d953e58a9bdbb652791b02bafea4511d7b1befd679a07b04cd",
+        "native_sha256": "5c88b7eabd1be727241aba01ab7c2fbc6d6edd76537f2e2e9ea3f4ed7c2c89c0"
+      },
+      {
+        "name": "reject/attack-mag-kind",
+        "input_sha256": "2d1956d6d03991502d0b6cbd332f8dfe6feac769c3d383afbe896c0789e888db",
+        "output_sha256": "2b7ecb38e3a9e880602790be20ee4e9d2a99d09fbe3cc85c2b4643685c8e81c4",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/attack-mag-missing-reference",
+        "input_sha256": "005ae41038076ee876e4df92d0938ae4715c948f037458e641e1084f52a12e90",
+        "output_sha256": "9bd1ce4e16b6c7a738925da62192370b8f0669547447a7508530f303fe56b4e6",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/attack-mag-reference-overflow",
+        "input_sha256": "c22a01b99b708d6c088cd893c4c463c616b1d1b567c8a9fada173a46d7fc0ada",
+        "output_sha256": "9bd1ce4e16b6c7a738925da62192370b8f0669547447a7508530f303fe56b4e6",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/attack-mag-nan",
+        "input_sha256": "c52f039259ca435feedc2c298ef9222c48202bb30deb43b6f0d5b3b33578830b",
+        "output_sha256": "6bcf1331ebb2958e55650adfd1d9bc6ee490167f4cb61beefe4fd116e4038e19",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/attack-mag-infinity",
+        "input_sha256": "180adfad6140bc65b2ce1b4b2e3334c7374df8eecdcc93dd83ed2ecb05a78985",
+        "output_sha256": "5968a8c4109dd323fee456b25bf6abd419ceccff316cba24c01a62ac13f0ce91",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/attack-mag-unknown-stat",
+        "input_sha256": "46deb182dacf3c8453f413be46340e9e8678bda04d1c71b83e1b980e9537f456",
+        "output_sha256": "1ec8baf94d2db429c8137915c02afdeb065d5eb3b7cf5335c0c7c0a22309004d",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/attack-mag-persona",
+        "input_sha256": "648cde4812030a61698cdb497fceb74611cdeb0f8bb509eb489950f9e674ec6a",
+        "output_sha256": "05a6709a1eb65c98256a6797c393e717c9e227a3d1309fa0da51ac36a84d56ab",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/attack-mag-query-resolve",
+        "input_sha256": "256981921a3b3534d74486ea7c52ee3af3200c5582f4ea44c2fea1afb6a7de11",
+        "output_sha256": "9bd1ce4e16b6c7a738925da62192370b8f0669547447a7508530f303fe56b4e6",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/attack-mag-health",
+        "input_sha256": "2fefd2c5eae1c7777928e19e593aba9924a719145070350889e95d39f8a3d4ec",
+        "output_sha256": "5b81d294e89158186474f693fc11598a491933405a291e3cdf4ae05a6b347bb0",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/attack-mag-no-combat",
+        "input_sha256": "097ca1c48c8e17e073b35fe7cbbecc619278bfd4ded70eb2ad9ca2dd643678fb",
+        "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      }
+    ],
+    "mismatches": [
+      {
+        "index": 30,
+        "name": "attack-mag-base-lazy",
+        "reason": "AssertionError: attack-mag-base-lazy"
+      }
+    ],
+    "input_count": 51,
+    "native_oracles": 41,
+    "input_sha256": "d3254ad8862863d559d35466d34422d4df33558a46052e57614e2df687e61920",
+    "output_sha256": "b0a850495ead1b58c64433f3735a6fb1c8186e13b2b807a9cef050d09ff4969c",
+    "generated_normalized": {
+      "cuda": "0b2c4c27e0b6dd836a85eebb15bc005ace7eadfe7597312c365ac67f6752780a",
+      "metal": "322de8944003675fa8983be9e66b3dfdd1c7eeba15d14804ef0260288fa80525"
+    },
+    "audit_gpu_calls": 0
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 51,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "gpu_seconds": 0.03064795827958733,
+    "input_bytes": 21297604,
+    "library_compile_seconds": 1.1498290300369263,
+    "output_bytes": 160432128,
+    "pipeline_compile_seconds": 9.724534034729004,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "input_sha256": "d3254ad8862863d559d35466d34422d4df33558a46052e57614e2df687e61920",
+  "output_sha256": "b0a850495ead1b58c64433f3735a6fb1c8186e13b2b807a9cef050d09ff4969c",
+  "source_sha256": {
+    "gpu/world_projectile_admission_entry.slang": "04a02493065931681804f038072dcdf7c3047b950333ed86d05fc7725d1a5984",
+    "gpu/world_projectile_entry.slang": "a78c90523a37f973207265c83c7d62c2cabdf1c99023f9e36f8a30e0c1cb3c65",
+    "gpu/world_roster_entry.slang": "7d78135536c330b19acf05b458748e3236450d1281a9c5ac81fb8351c57dbbf4",
+    "gpu/world_reload_entry.slang": "fd7e2e3d64811ee2aecb5e3e517870898104712b4bb719d0b4f543e2d70085f8",
+    "gpu/world_charge_control_entry.slang": "50291edf53d64bfb866c54dfe23e454b6cb45422f4961f56d20c18d125021316",
+    "gpu/world_team_entry.slang": "8ff8496183d9e146d6fb69a8b4e39ebc696e6ced1a72cb2e3e8bacf39e7c1951",
+    "gpu/world_fraction_entry.slang": "d5837bd9edd180433d29aaba476e953d10809b86d6e6850e825d907f9f6f1b76",
+    "gpu/world_spawn_entry.slang": "1b433e98fd906fa7c9af0f100175535e0d669301a174c9df06c2d87f8b644caf",
+    "gpu/world_enemy_attack_entry.slang": "4f86e4b5e616e8149cc47245c5aa31492bcd9f3a739a49501fd7a548bd75740a",
+    "gpu/world_periodic_entry.slang": "87abe82e2142dcd58c4ebab9109efe738800200eae04ed4b72e37f375c0ec7a0",
+    "gpu/world_pending_entry.slang": "d1043328c670ac3a4837414eeb871edf94a1afac2de95d42b646b0d358ba931c",
+    "gpu/world_skill_entry.slang": "433216610c518f8c2c3f122eb1aa886ae53e197d72b4307ded1cb90dfa278a98",
+    "gpu/counter_field_entry.slang": "1147bde65aa343ceb5d3473efb43f86f0a0f0225c6ae3ffa118b62d11ec14745",
+    "gpu/counter_context_entry.slang": "7387fc06a72bc9b984f8b29d46655a549ab56e154cd9f0924dc0533b9f787073",
+    "gpu/counter_landing_entry.slang": "695560a33534df60e9f31359622f6a197d14d2eb4b072371520955c9eacde7bf",
+    "gpu/target_counter_entry.slang": "af78f0f0cc55734578c0a86f48d5cd36750dd3ae4589be405d81d962293a4666",
+    "gpu/event_runtime.slang": "b1f1e63816f6efaf952d59bdd8f26aee4970e88baa0ecc1e0f0a7b8db37b3f66",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+    "gpu/portable_schema.slang": "ad4bbfd3e62f3b94497408c25f53204bee5e7e37be8e334fbab15bd5968fc519",
+    "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
+    "gpu/runtime_init.slang": "a422bdf14b5199862bde6263e26bac696f5d905c0d7383038541c52010278200",
+    "gpu/definition_runtime.slang": "a3a6799c0d678b710924a9630374195903396ed0007783a2407aa87d5d355ac1",
+    "gpu/enemy_route_runtime.slang": "760548df57fb58921d34332df9b54cf483ef4a0a22cd5e68f08c7faee1b3667c",
+    "gpu/lazy_bank_storage.slang": "f319580696bf1a68792e243bfb39ff64c56d6361d9327d15bb32ebdbaa1733a5",
+    "gpu/world_overlay_runtime.slang": "23a9330cf5558dc0c21675c25d171e4b033108dec19d738653837c043efa745e",
+    "gpu/geometry_runtime.slang": "8e8018af3959fde2f794c147aff2387464d4f486be17088cf260da41d48f8ef5",
+    "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+    "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+    "gpu/reference_runtime.slang": "14affe61b1144e1dff4da36086007cd5238ea251ce06a0ce12bfc1261b2032b4",
+    "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+    "gpu/bullet_runtime.slang": "2cda4cfed0e7ffd31076ea48050b7be71cd8312779483b13d7c150c4ccd5d23a",
+    "gpu/rank_runtime.slang": "6862c849997a111e228286b553b9043a6035fbf150b9c831130da6171d271526",
+    "gpu/lazy_runtime.slang": "afc79badce08938e08106dc644fae14aec2cfbd2334b784554bd334e3e388130",
+    "gpu/named_magnitude_runtime.slang": "e3ddd915b38ca85be179890034ebde9efd7dd0743e53aeacfb94a46efcc98d7b",
+    "gpu/enemy_buff_runtime.slang": "d45d8af699c45f154acfddf70e8d63c67797331bd504891ee75bd01914dfc45b",
+    "gpu/world_enemy_attack_runtime.slang": "c4e8223169c1ae6f88903d05ebd271d2622c329283f029fed24e05d6d64ba09e",
+    "gpu/carrier_runtime.slang": "e01ddeecfbedf5d3be84bebe031fda019b3e056972693b9b4a3213e82e700209",
+    "gpu/skill_interval_runtime.slang": "cf91792f6f0e0a8e5b5af0abe53273446d4ea88c9d19747035988d60591fa544",
+    "gpu/quantity_runtime.slang": "7add6ff2fd9b7f132c62e044c930c28c5dda355b3582d0a53ea686d871d84516",
+    "gpu/base_copy_runtime.slang": "547a45abece616872b49f523e257f9c59e48ce5d04b051dd7ec8561bf2f27f4a",
+    "gpu/health_runtime.slang": "49b508efb93a69724bf316d6f7d97a38343a95f936f36e9bae035a9ca241caf0",
+    "gpu/lifesteal_runtime.slang": "63981f07b431ef4d2821ae513ced232629681c0f21f0ee91ad3b5dd4818fe5e2",
+    "gpu/cover_runtime.slang": "eb1b4a4e7c9683b615a160f3010e0e50a5da9d9a7f0425b471c83b1d625dffe6",
+    "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+    "gpu/hp_attack_runtime.slang": "f3126496cd2660837a36d610b113d3a6ea9fe43c6fc4800a720ecdbce2e648c0",
+    "gpu/recipient_runtime.slang": "acefbb2ce99c8d8a62e23d7a270bf47322bbaff2cef45445062851e59defc49c",
+    "gpu/skill_clock_runtime.slang": "b7bfcd4457d9e1ac2f11650fe47fabe8c3f196fb7ca2c7dadff3c0d77e0684e4",
+    "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+    "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+    "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
+    "gpu/skill_critical_runtime.slang": "ffab45b7bc55c3d1bbe472d9b590320183281e6aa11370e212c84e56ab218417",
+    "gpu/damage_runtime.slang": "4cd960b9b0d3bd42490e71794ae60077095d41a0c1ca9b88312aad389468170f",
+    "gpu/incoming_runtime.slang": "8ec389c1a9ed4b487620cfe3345673c5272f2f3e5d735028041a51bf35a22b65",
+    "gpu/burst_runtime.slang": "0f924f0b48008d41979119ae61e5a3cb9432f8e862ff84532990d6b86d5301f4",
+    "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+    "gpu/enemy_damage_runtime.slang": "94110711ef4f94cf0590b3ac097daaa6f3a8cc5a16ddfc92607a37234b95f82d",
+    "gpu/landing_runtime.slang": "36a22364895381973fb9910b0ebd947c333bc936006e6817dd1d8406a8b8323e",
+    "gpu/periodic_runtime.slang": "ac1743d8388b147adfd4370e041dc30051bd0e341b536dfc10c38edbd9aff1f4",
+    "gpu/removal_runtime.slang": "e457125116d618de53ca81d78c2f4eabe9e07d7b205a954624c9ae2e3266a694",
+    "gpu/duration_extend_runtime.slang": "22bfef6f3e944dba99ee826d8c3277623828b34b817f0ca5e6999988004d6faa",
+    "gpu/trigger_reduction_runtime.slang": "fd1e8a18a66cce0a9884aed9be42f125c9afb56ad662efecedad21ac6b7124ef",
+    "gpu/stack_runtime.slang": "376fdb5d87bb60ba8adbb4cef988b6fafca0dad732e02fe5619df4d6e82b7f3f",
+    "gpu/status_runtime.slang": "2e7dbbfd9efe39987ddc868c5fd2c73d48a117fdbd6e099f15e4ac7f74f0054a",
+    "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+    "gpu/pending_burst_runtime.slang": "845d1cb38b7ac7fe3496fc3c0bcba5f018d98703c15d4a89ff599a812bd44673",
+    "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+    "gpu/world_frame_addresses.slang": "d1606c64d97393118479cb0c4e75edb84d0a79c37e6f7dbbbdb80107915ec6ae",
+    "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+    "gpu/protection_runtime.slang": "8f4bc6c939cc513c7a4172d3ca1f51edde170a684c096bcb3804a3040aabd576",
+    "gpu/healing_storage_runtime.slang": "2b34608820115d98133cb7e8048604262cd024ec86897e5cf4f50acccb28d3dc",
+    "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+    "gpu/world_actor_pools.slang": "9762c9053cf02e685df222de1a85f1a27baf3f4f068836c89b3aa4b0df5e0d40",
+    "gpu/world_actor_fields.slang": "b518117c6754566f80bc9210c0736f48898ded63060ace7f0ca604d6707dcbe6",
+    "gpu/world_actor_state.slang": "ee5a0c960c6e7892a76ad4608a520ba5cc194f7b484bcb3588f816ca43358414",
+    "gpu/world_actor_mutation.slang": "8d807f7800ec72f25caee64d4f6ae7885dba3328773111f117b7ccf6585f0e53",
+    "gpu/world_actor_recipients.slang": "f7eb33cbe737cd6e6c729f6ca8c15d015256c2844f9d9a44fd1f6c646e34cab7",
+    "gpu/world_actor_status.slang": "ae3f88af686392cca06e6ee67c5e059b36032acfc61588fe58417cdba7e18292",
+    "gpu/world_actor_stacks.slang": "38864ac1f81c3f9591f8273b318e37ee31b76a5ddf2de8a2c2a711db29323e8f",
+    "gpu/target_counter_runtime.slang": "5a1605e713aa86f5901fc5e7e6a7a723b5ee902ae4a812c5833084542849c898",
+    "gpu/world_projectile_runtime.slang": "3d3d498386038746f671007d5522ece05c7b82dd09d9d6fee9704aeff0af9e18",
+    "gpu/counter_landing_runtime.slang": "9f7e46c3d8871f24a2859023381c8b54b70a74b3b7111687d547c454df686766",
+    "gpu/counter_context_runtime.slang": "aa3e9cf52e85feb2146467496954fcb6dd4f4eac8ebf9c1cdacdcaf38b1ea21b",
+    "gpu/counter_field_runtime.slang": "d972af3f7f9fd596a4c3732c79e344ce547532471374066c72dfeba3012153aa",
+    "gpu/world_skill_runtime.slang": "4e40434f8815103a4324586e9227404c8c67dce20d7f37e26a823199bfdf9a6d",
+    "gpu/world_periodic_runtime.slang": "3d7a830ee62e66bb2f85b162375ea42c774e4647038b51e75db161ffe6b96ea8",
+    "gpu/world_spawn_runtime.slang": "6da41aa26d47d47ebb54b6d742f62592f2fbcae50ea2e38a3a7d571771b7a8c3",
+    "gpu/world_fraction_runtime.slang": "6ee8371cee6f0ab559cbfb4c7fe2feb07b126270be9a87339893ea0f55bb3644",
+    "gpu/world_team_runtime.slang": "783e11d298afa785183e1176a9c7cb8b0ae359b9412dfb9b37efead44b7eaceb",
+    "gpu/world_charge_control_runtime.slang": "2c9339c35e4a48eecf16fb4168ed99d829f0bbc11e187cf1e26396c564f48b99",
+    "gpu/world_actor_registry.slang": "f803ee00db756eed3edd48586e3fcc94b4f750f0990f97c9ff8732da07f08477",
+    "gpu/world_frame_runtime.slang": "6be913eee371dd3652b47229813b9e0751d08ae8b82d81aa0b85cf82a545ff2c",
+    "gpu/combat_runtime.slang": "c7c6b3f139f939b326e84e4d8619a849962f8323a818a8719b709ef6aeb18642",
+    "gpu/ammo_instant_runtime.slang": "0c8c0539ad94335e80a5b4b2404a64e2899caf9754896100517f116d84212725",
+    "gpu/weapon_runtime.slang": "10f77c5be03282ff8e6ea89f50cc49db90fc29ab902b815ae45cc30e0ccf0fe8",
+    "gpu/world_reload_runtime.slang": "335c78cb91c0cc319a0fdfba1736281ebee733de4758b01036e90feefb68664c",
+    "gpu/world_overlay_weapon.slang": "f9f33dcafbdd8f8dbea5acede13461b19a08e7084b7e5aa8f1f14c1959b4d370",
+    "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+    "gpu/admission_runtime.slang": "8ed9655dd45b52d952bfdb35185590edb94e48a2d5c741c3b600e5da298bf2ec",
+    "gpu/portable_mt19937.slang": "6365293f4fe0269fba87b15aa866e617333f5012acef175a13fd7ed27152323a",
+    "gpu/enemy_target_runtime.slang": "830fd22f28d105ea6b4e0ad4d334e774e36eebab698c1096a163cfdb712d9d1f"
+  },
+  "failure_analysis": {
+    "name": "attack-mag-base-lazy",
+    "changed": [
+      "named_state"
+    ],
+    "actual": {
+      "named_state": {
+        "queries": [],
+        "allied_carriers": [
+          {
+            "name": "grant",
+            "owner": 0,
+            "recipients": null,
+            "stack": 1,
+            "activated": 0.0,
+            "end": Infinity
+          },
+          {
+            "name": "magnitude",
+            "owner": 0,
+            "recipients": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "stack": 1,
+            "activated": 0.0,
+            "end": Infinity
+          },
+          {
+            "name": "reverse",
+            "owner": 0,
+            "recipients": [
+              0
+            ],
+            "stack": 1,
+            "activated": 0.41666666666666663,
+            "end": Infinity
+          }
+        ],
+        "enemy_memberships": [],
+        "context_restored": true,
+        "pending_gone": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "native": {
+      "named_state": {
+        "queries": [],
+        "allied_carriers": [
+          {
+            "name": "grant",
+            "owner": 0,
+            "recipients": [
+              0
+            ],
+            "stack": 1,
+            "activated": 0.0,
+            "end": Infinity
+          },
+          {
+            "name": "magnitude",
+            "owner": 0,
+            "recipients": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "stack": 1,
+            "activated": 0.0,
+            "end": Infinity
+          },
+          {
+            "name": "reverse",
+            "owner": 0,
+            "recipients": [
+              0
+            ],
+            "stack": 1,
+            "activated": 0.41666666666666663,
+            "end": Infinity
+          }
+        ],
+        "enemy_memberships": [],
+        "context_restored": true,
+        "pending_gone": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "gpu_retry_count": 0,
+  "scope": "Original51:50 matches,1 observable lazy base membership mismatch. Original package/raw retained.",
+  "full_goal_complete": false
+}
