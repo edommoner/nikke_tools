@@ -110,5 +110,11 @@
     "truncated": false,
     "scope": "Known lexical calls; stop at noinline or depth3. No claim about actual compiler inlining or memory cost"
   },
-  "next_hypothesis": "Shared phase/function boundaries in dispatch and entry; lexical size is not memory attribution. No new Windows run justified until a bounded candidate and Metal parity proof exist."
+  "next_hypothesis": "Shared phase/function boundaries in dispatch and entry; lexical size is not memory attribution. No new Windows run justified until a bounded candidate and Metal parity proof exist.",
+  "superseded_fields": [
+    "functions",
+    "call_graph_summary"
+  ],
+  "correction_report": "research/portable-push-frame-corrected-compiler-structure.json",
+  "correction_reason": "Historical parser counted nested call conditions as definitions. Retain original values as history; corrected baseline count is638."
 }

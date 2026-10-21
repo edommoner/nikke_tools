@@ -34,4 +34,4 @@ Windows v121はCPU30検査後、12.326秒でreflectionファイル欠落によ�
 
 これでSlangの出力問題は解消しましたが、GPU常駐Runtimeだけでは既定2GiB内のCUDA compiler成立を実証できませんでした。保存コードの共通CLI解析ではdispatchとentryが大きいものの、字句サイズをメモリ原因とは扱いません。次はこの共有関数の境界・実際の展開を調べ、計算や効果を削らない候補を作ってからMetalで保持を検証します。Windowsで同じcompileを再実行したり上限を拡大したりしません。entry_reloadのCPU正本32件は入力・全native・trace・契約が変更前と同一、GPU未対応を維持します。
 
-次の共有pushFrame境界候補はdocs/portable-push-frame-boundary.mdを参照してください。Metal759保持を確認し、CUDA compiler改善はまだ未確認です。
+次の共有pushFrame境界候補はdocs/portable-push-frame-boundary.mdを参照してください。Metal759保持を確認しましたが、Windows v123もメモリ確保失敗で、CUDA compiler改善は実証できていません。同文書にcompiler-statsの重複計数訂正も記録しています。

@@ -255,11 +255,22 @@
     "scope": "CPU tests after progress observation display change; no GPU or comparison changes"
   },
   "windows": {
-    "status": "not_run",
+    "status": "v123_ptxas_memory_allocation_failure",
+    "report": "research/portable-world-v123-compiler-sanitized.json",
+    "source_commit": "613ffebc6e6e5b9841692e60500e16427238b7b5",
+    "cpu_tests_passed": 70,
     "compiler_improvement_verified": false,
-    "calculation_verified": false
+    "calculation_verified": false,
+    "compile_attempts": 1,
+    "nvrtc_compile_seconds": 29.875,
+    "elapsed_seconds": 41.92179279960692,
+    "cubin_bytes": 0,
+    "cache_check_executed": false,
+    "job_peak_bytes": 2147569664,
+    "gpu_calls": 0
   },
   "normal_ui": "CPU",
   "full_character_verified": 0,
-  "full_goal_complete": false
+  "full_goal_complete": false,
+  "compiler_structure_correction": "research/portable-push-frame-corrected-compiler-structure.json"
 }

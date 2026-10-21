@@ -14,8 +14,14 @@ pushFrameは深さ上限、Frame初期化、継承context、最大深さを処�
 
 statusは旧run.jsonのstatusだけでなく、既存phases.jsonlとaudit-phases.jsonlの最後の完結した観測を表示します。実際には子が完了して親比較へ進んでも、run.jsonがpreflightのままの期間がありました。既存journalの集約器を再利用し、途中の最終appendは無視します。表示から生存・停止・計算成功を推定せず、liveness_verifiedとjournal_integrity_verifiedはfalseです。監査と結果判定は既存経路のままです。CPU故障注入を含むCLI36検査で確認しました。
 
-## 次のWindows確認
+## Windows v123の結果
 
-固定したsealed packageでCPU検査後、CUBIN O1・60秒／2GiB・fresh BelowNormal Jobのcompiler-onlyを1回だけ行います。生成指紋をMetal証拠と照合し、driver／context／kernelを禁止します。成功した場合だけ必須cacheのCPU読み取り検査を行い、missではNVRTCを呼びません。同条件retry・上限拡大・fallbackはしません。コンパイル成功とCUDAの計算一致は別に確認します。
+固定613ffeb／sealed package52d92676でCPU70検査とMetal証拠への生成指紋一致を確認し、CUBIN O1・60秒／2GiB・fresh BelowNormal Jobのcompiler-onlyを1回だけ行いました。NVRTCは29.875秒、全体41.922秒でptxas Memory allocation failureへ終了しました。Job peak2,147,569,664byte、post空、既存process欠落0、原workspaceと親env保持、サービスは未識別です。artifact0、cache-check未実行、driver／context／kernel0。原失敗を保持し、改善を証明できたとは扱いません。構造化Windows報告はportable-world-v123-compiler-sanitized.jsonです。Macで原成果物を独立監査したものとは区別します。
 
-通常UI CPU、全キャラGPU認定0、entry_reloadはCPU契約32件まで、全目標未完了を維持します。通常regressionとresident-bindingの以前のgoldenはsource staleを明示して保持し、無検証で更新しません。
+同条件retry・上限拡大・fallbackはしません。次は単一属性の追加を繰り返す前に、dispatchの処理段階を共有関数へ分割する設計とコンパイル単位を調べます。成功artifactがないためcache hitの実証も未完了です。
+
+## 字句解析器の訂正
+
+compiler-statsが関数本体内のif(predicate(...))等を別の関数定義として重複計上し、呼出関係を曖昧扱いしていました。既に計測した関数本体内の一致を除外するよう修正し、CPU5検査で確認しました。保存residentコードは旧1,075という計数を撤回して638定義、noinline205、候補も638定義でnoinline206です。両保存コードの独立した宣言header計数とも一致しました。dispatch内pushFrame47呼出と、生成差分が属性だけである証拠は維持します。訂正はportable-push-frame-corrected-compiler-structure.jsonに保存し、履歴レポートは削除しません。字句計数を実際のinliningやcompiler memoryへ換算しません。
+
+通常UI CPU、全キャラGPU認定0、entry_reloadはCPU契約35件まで、全目標未完了を維持します。通常regressionとresident-bindingの以前のgoldenはsource staleを明示して保持し、無検証で更新しません。

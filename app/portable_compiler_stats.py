@@ -36,14 +36,19 @@ def cuda_statistics(raw,*,top=12,caller=None,runtime=None):
     if type(top) is not int or not 1<=top<=50:raise ValueError('Function count must be1..50')
     source=raw.decode('utf-8')
     def mask(match):return ''.join('\n' if c=='\n' else ' ' for c in match.group())
-    code=_NON_CODE.sub(mask,source);functions=[];calls=[]
+    code=_NON_CODE.sub(mask,source);functions=[];calls=[];function_end=0
     for match in _FUNCTION.finditer(code):
+        # Nested if/while conditions with function calls can resemble a
+        # declaration to the lexical header matcher. The enclosing definition
+        # has already been measured; never treat its body as more definitions.
+        if match.start()<function_end:continue
         name=match.group(1)
         if name in ('if','for','while','switch','catch'):continue
         end=match.end();depth=1
         while depth and end<len(code):
             depth+=(code[end]=='{')-(code[end]=='}');end+=1
         if depth:raise ValueError('Unbalanced generated function: '+name)
+        function_end=end
         body=code[match.end():end]
         calls.append(Counter(re.findall(r'\b([A-Za-z_]\w*)\s*\(',body)))
         functions.append(dict(name=name,line=source.count('\n',0,match.start())+1,

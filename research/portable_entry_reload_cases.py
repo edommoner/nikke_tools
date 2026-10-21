@@ -35,5 +35,11 @@ def fixtures():
     c=add('during-base-charge',max_trigger=1,trigger=dict(timing=['every:0.1s'],condition=[]));c['combat']['weapons'][0].update(mode='charge',base_weapon_type='SR',charge=.4,interval=.4,min_cycle=.4,full_charge_mult=100);c['post_fire_delays'][0]=0
     c=add('during-base-reload',max_trigger=1,trigger=dict(timing=['every:0.3s'],condition=[]));c['combat']['weapons'][0]['capacity']=1;c['duration']=1.2
     c=add('cover-delays-entry');c['controls'][0]=dict(sequence=[dict(action='cover',t=0,duration=.2)])
+    c=add('cover-speed-expires-before-entry',effects=[field('reload_speed_pct',50,'self','speed',duration=.1)])
+    c['controls'][0]=dict(sequence=[dict(action='cover',t=0,duration=.2)])
+    c=add('cover-fixed-arrives-before-entry',effects=[field('reload_time_fixed',.2,'self','fixed',timing='every:0.1s',max_trigger=1)])
+    c['controls'][0]=dict(sequence=[dict(action='cover',t=0,duration=.2)])
+    c=add('cover-measured-entry-delay');c['controls'][0]=dict(sequence=[dict(action='cover',t=0,duration=.2)])
+    c['entry_delays']=[dict(owner=0,name='entry-mode',value=.17)]
     add('named-child-before-first-query',effects=[field('reload_speed_pct',50,'self','child-speed',timing='event:entry-mode')])
     return rows

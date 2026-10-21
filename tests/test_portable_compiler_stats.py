@@ -12,6 +12,21 @@ cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class CompilerStatisticsTests(unittest.TestCase):
+    def test_nested_call_conditions_are_not_duplicate_function_definitions(self):
+        raw=b'''bool predicate(int x) { return x != 0; }
+void leaf() {}
+void root(int x) {
+ if(predicate(x)) { leaf(); }
+ while(predicate(x)) { x--; if(predicate(x)) { leaf(); } }
+}
+'''
+        result=cuda_statistics(raw,caller='root')
+        self.assertEqual(result['functions'],3)
+        self.assertEqual({f['name'] for f in result['largest_functions']},{'root','leaf','predicate'})
+        edges={e['callee']:e for e in result['call_graph']['edges'] if e['caller']=='root'}
+        self.assertFalse(edges['predicate']['ambiguous']);self.assertEqual(edges['predicate']['calls'],3)
+        self.assertFalse(edges['leaf']['ambiguous']);self.assertEqual(edges['leaf']['calls'],2)
+
     def test_runtime_payload_distinguishes_declared_bytes_from_abi_estimate(self):
         raw=b'''// struct State { float fake; };
 struct State { uint first; FixedArray<ulonglong, 3> clocks; int last; };

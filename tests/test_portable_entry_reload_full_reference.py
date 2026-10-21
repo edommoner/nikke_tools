@@ -16,7 +16,7 @@ class FullEntryReloadReferenceTests(unittest.TestCase):
     def test_literal_cases_and_full_native_contracts_forbid_gpu_and_packing(self):
         def forbidden(*a,**kw):raise AssertionError('Battle/packing/GPU forbidden here')
         with patch.object(timeline,'simulate',forbidden),patch.object(portable_runtime,'compile_program',forbidden),patch.object(portable_backend,'build',forbidden):cases=fixtures()
-        self.assertEqual(len(cases),32);before=copy.deepcopy(cases)
+        self.assertEqual(len(cases),35);before=copy.deepcopy(cases)
         with cli.forbid_gpu(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
             for case in cases:
                 with self.subTest(case['name']):
@@ -34,7 +34,7 @@ class FullEntryReloadReferenceTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             out=Path(folder)/'native.json'
             result=portable_reference.run_reference('entry-reload',out,write=cli.write,forbid_gpu=cli.forbid_gpu)
-            self.assertTrue(result['cpu_reference_verified']);self.assertEqual(result['case_count'],32)
+            self.assertTrue(result['cpu_reference_verified']);self.assertEqual(result['case_count'],35)
             self.assertFalse(result['calculation_verified']);self.assertFalse(result['gpu_supported'])
             report=json.loads(out.read_text());sources=report['source_sha256']
             for path in ('app/weapon_mode_runtime.py','app/reference_rewrite.py','research/portable_entry_reload_contracts.py','research/world_entry_reload_native.py'):
