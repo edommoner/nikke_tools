@@ -63,6 +63,10 @@ def observe(case):
    super()._close(run,t,outcome,events);ends.append([run.p.idx,{'cleared':1,'expired':2,'followed':3,'end':4}[outcome],*bits(t)])
  def register(bm):
   bm._effects=copy.deepcopy(effects);bm._build_notify_index()
+  if case.get('observe_authored_effect_lookup'):
+   # The authored roster replaces registration, so native ordered lookups
+   # must see that same literal catalog rather than original character data.
+   bm._char_effects_cache={name:[e for e,owner in bm._effects if owner==name] for name in NAMES}
   if case.get('observe_target_counters'):
    from world_target_counter_battle_native import initialize
    initialize(bm,capture)
