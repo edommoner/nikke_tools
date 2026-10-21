@@ -16,6 +16,13 @@ cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class PacketTests(unittest.TestCase):
+    def test_required_shared_auditor_helpers_are_available_before_native_work(self):
+        from portable_typed_cuda_proof_audit import verify_cpu_gpu_calls
+        from portable_phase_audit import verify_cuda_trace
+        verify_cpu_gpu_calls(dict(build=0,execute=0))
+        with self.assertRaises(AssertionError):verify_cpu_gpu_calls(dict(build=1,execute=0))
+        self.assertFalse(verify_cuda_trace([]))
+
     def test_paths_reject_traversal_windows_drives_and_backslashes(self):
         for path in ('../x','/x','C:/x','a/../x','a\\x','a//b','a/./b'):
             with self.subTest(path=path),self.assertRaises(ValueError):cli.safe_name(path)
@@ -117,6 +124,34 @@ class BoundedHooks(unittest.TestCase):
             root=Path(folder);observed=[]
             facts=self.module().run_bounded([sys.executable,'-c','import time;time.sleep(30)'],root,1,after_wait=lambda:observed.append(1))
             self.assertTrue(facts['timed_out']);self.assertIsNone(facts['cleanup_error']);self.assertEqual(observed,[1])
+
+
+class TraceTests(unittest.TestCase):
+    def rows(self):
+        rows=[]
+        for stage in ('nvrtcCompileProgram','cuLaunchKernel','cuCtxSynchronize','cuMemcpyDtoH_v2'):
+            rows.extend([dict(stage=stage,state='entered',pid=7),dict(stage=stage,state='returned',return_code=0,pid=7)])
+        for i,row in enumerate(rows):row['monotonic_ns']=i
+        return rows
+
+    def test_success_requires_ordered_complete_native_returns(self):
+        from portable_phase_audit import verify_cuda_trace
+        rows=self.rows();self.assertTrue(verify_cuda_trace(rows,pid=7))
+        self.assertFalse(verify_cuda_trace(rows[:-1],pid=7))
+        rows[3]['return_code']=700;self.assertFalse(verify_cuda_trace(rows,pid=7))
+
+    def test_wrong_pid_and_duplicate_launch_cannot_pass(self):
+        from portable_phase_audit import verify_cuda_trace
+        rows=self.rows();self.assertFalse(verify_cuda_trace(rows,pid=8))
+        rows.extend([dict(rows[2],monotonic_ns=8),dict(rows[3],monotonic_ns=9)])
+        self.assertFalse(verify_cuda_trace(rows,pid=7))
+
+    def test_reordered_native_stages_and_reversed_clock_cannot_pass(self):
+        from portable_phase_audit import verify_cuda_trace
+        rows=self.rows();rows[0:2],rows[2:4]=rows[2:4],rows[0:2]
+        for i,row in enumerate(rows):row['monotonic_ns']=i
+        self.assertFalse(verify_cuda_trace(rows,pid=7))
+        rows=self.rows();rows[-1]['monotonic_ns']=0;self.assertFalse(verify_cuda_trace(rows,pid=7))
 
 
 if __name__=='__main__':unittest.main()

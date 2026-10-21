@@ -3,7 +3,12 @@ import hashlib,json,re,subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def sha(b):return hashlib.sha256(b).hexdigest()
-def audit(*,version,source,expected_file,inputs,native_oracles,test_counts,phase_suite,old_replays,payload_files,payload_bytes,single_suite_replay_names=(),single_suite_command=None,summary_omission_counts=None,preservation_diagnostic=False):
+def verify_cpu_gpu_calls(value, *, format='counts'):
+ if format=='counts':assert value==dict(build=0,execute=0)
+ elif format=='scalar':assert type(value) is int and value==0
+ else:raise ValueError('Unknown CPU GPU-call receipt format')
+
+def audit(*,version,source,expected_file,inputs,native_oracles,test_counts,phase_suite,old_replays,payload_files,payload_bytes,single_suite_replay_names=(),single_suite_command=None,summary_omission_counts=None,preservation_diagnostic=False,cpu_gpu_calls_format='counts'):
  def load(p):return json.loads((ROOT/'research'/p).read_text())
  def blob(p):return subprocess.check_output(['git','show',source+':'+p],cwd=ROOT)
  summary_name=f'windows-portable-world-v{version}-summary.json';execution_name=f'portable-world-v{version}-execution.json';receipt_name=f'portable-cross-v{version}-receipt.json'
@@ -42,7 +47,8 @@ def audit(*,version,source,expected_file,inputs,native_oracles,test_counts,phase
    assert r['bounded_driver']['shared_gpu_command']==single_suite_command and evidence['transport']['cases']==inputs and r['actual_gpu_execution_count']==1
    derived.append(n)
  pre=r['cpu_preflight'];assert pre['source_commit']==source and pre['passed'] and pre['cpu_short']['exit_code']==0 and pre['original_head_before']=='61a43e91301841c272badce519e4d8984bb5efae'
- cpu=pre['cpu_short_report'];assert cpu['passed'] and cpu['input_count']==inputs and cpu['native_oracles']==native_oracles and cpu['input_sha256']==g['input_sha256'] and cpu['source_sha256']==g['source_sha256'] and cpu['gpu_calls']==dict(build=0,execute=0)
+ cpu=pre['cpu_short_report'];assert cpu['passed'] and cpu['input_count']==inputs and cpu['native_oracles']==native_oracles and cpu['input_sha256']==g['input_sha256'] and cpu['source_sha256']==g['source_sha256']
+ verify_cpu_gpu_calls(cpu['gpu_calls'],format=cpu_gpu_calls_format)
  tests=pre['cpu_tests'];assert [(x['pattern'],x['expected_count']) for x in tests]==test_counts
  for test in tests:assert test['exit_code']==0 and test['stderr'].rstrip().endswith('OK') and int(re.search(r'Ran (\d+) tests',test['stderr'])[1])==test['expected_count']
  phases=r['phase_rows'];assert len(phases)==e['phase']['events']==50 and all(a['monotonic_ns']<=b['monotonic_ns'] for a,b in zip(phases,phases[1:])) and not any(p['state']=='raised' for p in phases)

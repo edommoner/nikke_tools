@@ -103,6 +103,9 @@ def make_package(suite, output):
     # Include this CLI even before its first commit during local development.
     if 'scripts/nikke_gpu.py' not in names:
         names.append('scripts/nikke_gpu.py')
+    for pattern in SUITES[suite]['tests']:
+        if 'tests/'+pattern not in names:
+            raise ValueError('Required CPU test is missing from tracked payload: '+pattern)
     upstream = ROOT/'research/upstream/nikke-calc-master'
     for folder in ('calculator','runner','scraper','data'):
         names.extend(p.relative_to(ROOT).as_posix() for p in (upstream/folder).rglob('*')
@@ -355,15 +358,17 @@ def audit_capture(capture,verify_artifacts=True):
     if load(capture/'run.json')['package_id']!=m['package_id']:raise ValueError('Capture belongs to another package')
     if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
     facts=load(capture/'execution.json')
-    calc=False;error=None
+    calc=False;error=None;first_difference=None
     if (capture/'readback.bin').exists():
-        try:calc=compare_readback(m,capture)['calculation_verified']
+        try:
+            comparison=compare_readback(m,capture);calc=comparison['calculation_verified']
+            first_difference=next(iter(comparison['mismatches']),None)
         except Exception as exc:error=type(exc).__name__+': '+str(exc)
     backend=load(capture/'run.json')['backend']
     if (capture/'evidence.json').exists():
         e=load(capture/'evidence.json')
         calc &= bool(e['backend']==backend and e['transport']['command_status']=='completed' and e['transport']['cases']==SUITES[m['suite']]['inputs'])
-    from portable_phase_audit import summarize
+    from portable_phase_audit import summarize,verify_cuda_trace
     phases=summarize(capture/'phases.jsonl')
     transport_ok=facts['passed']
     if backend=='cuda':
@@ -388,11 +393,11 @@ def audit_capture(capture,verify_artifacts=True):
                              and pre['child_ppid']==post['child_ppid']==row['wrapper_pid']
                              and pre['job_members']==[row['child_pid']] and post['job_members']==[]
                              and pre['child_creation_filetime_ticks']==post['child_creation_filetime_ticks']
-                             and phase_rows and {r['pid'] for r in phase_rows}=={row['child_pid']}
+                             and verify_cuda_trace(phase_rows,pid=row['child_pid'])
                              and pre['observed_unix_ns']<=phase_rows[0]['wall_time_ns']<=phase_rows[-1]['wall_time_ns']<=post['observed_unix_ns'])
     return dict(calculation_verified=bool(calc and transport_ok and containment),preservation_verified=preservation,
                 passed=bool(calc and transport_ok and containment and (backend!='cuda' or preservation is True)),
-                containment_verified=containment,comparison_error=error,phase=phases,gpu_retries=0,audit_gpu_calls=0)
+                containment_verified=containment,comparison_error=error,first_difference=first_difference,phase=phases,gpu_retries=0,audit_gpu_calls=0)
 
 
 def collect(capture,output):
