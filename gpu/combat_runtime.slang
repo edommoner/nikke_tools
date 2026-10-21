@@ -330,7 +330,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     for (uint hit = 0; hit < count && s.error == 0; hit++)
     {
         if (s.landingPolicy==0) land(s,who,WORLD_POOL_PHYSICAL_TARGET(s,who,target),amount);
-        if (w.mode != 1 || count > 1) dispatch(s,0,20,who,0,when,output);
+        if (w.mode != 1 || count > 1) dispatch(s,0,20,who,0,when,output); WORLD_FRACTION_AUTO(s,w,who,when,output)
     }
     s.shots[who] = completedShots;
     bool burstSpeed=(s.quantityMask & 128)!=0;
@@ -344,7 +344,7 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     if(burstSpeed && w.mode==1)
     { if(WORLD_PACKET_NORMAL(s,who)) s.normalLandedMask|=1U<<who;WORLD_PHYSICAL_GAUGE(s) addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when)); }
     if (s.bulletCount != 0) WORLD_NORMAL_ONLY(s,who) consumeBulletBuffs(s,who,when,output);
-    if (last) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,14,who,0,when,output);
+    WORLD_FRACTION_CHARGE(s,w,who,count,when,output) if (last) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,14,who,0,when,output);
     WORLD_CHARGE_FINISH(s,w,who) if (changedWeaponSession(s,who,epoch,mode)) return; // Preserve a callback's new session.
     if (mode >= 0)
     {

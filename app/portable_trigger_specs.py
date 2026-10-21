@@ -13,7 +13,7 @@ CONDITIONS=dict(TARGET_STATE=16,NOT_TARGET_STATE=17,TARGET_STACK=6,CORE=35,OPTIM
 EVENTS=frozenset((0,1,2,3,4,6,7,8,9,10,11,12,14,16,17,18,19,20,21,26,29,30,31,32,36,37,38,43,46,48,49,59,60))
 COUNT=r'(?:[1-9][0-9]*|\{0\})'
 SIMPLE=r'event:shield_applied|event:shield_consumed|feather_tick|source_tick:.+|event:cover_healed|event:cover_hit|received_hit|event:lethal_hit|event:self_down|event:ally_down|event:heal_received|battle_start|passive|on_attack|hit_count|burst_cast|full_burst_start|full_burst_end|event:full_reload|last_bullet|last_bullet_fire|full_charge|full_charge_fire|full_charge_hit|squad_ammo_consume|pellet_hit'
-COUNTERS=rf'(?:received_hit_count|on_attack_count|hit_count|squad_ammo_consume|pellet_hit|pellet_hit_count|full_charge_fire_count|full_charge_count|full_charge_hit_count|burst_cast_count|full_burst_start_count|full_burst_end_count|full_burst_start_exact):{COUNT}'
+COUNTERS=rf'(?:crit_hit_count|core_hit_count|core_hit|received_hit_count|on_attack_count|hit_count|squad_ammo_consume|pellet_hit|pellet_hit_count|full_charge_fire_count|full_charge_count|full_charge_hit_count|burst_cast_count|full_burst_start_count|full_burst_end_count|full_burst_start_exact):{COUNT}'
 HP_NUMBER=r'[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
 HP_TIMING=rf'hp_below:{HP_NUMBER}|hp_below_count:{HP_NUMBER}:[1-9][0-9]*|event:(?:ally_hp_below|adjacent_hp_below):{HP_NUMBER}|event:adjacent_hp_max'
 # Names are opaque suffixes: colons, whitespace and Unicode remain significant.
@@ -38,13 +38,13 @@ def validate_input(eff,*,world_frame=False):
         if not isinstance(timing,str):raise ValueError('Invalid timing')
         if timing.startswith('event:'):
             from detail_gpu import EVENT
-            if timing in EVENT and EVENT[timing] not in (EVENTS|frozenset((5,33,34,35)) if world_frame else EVENTS):raise ValueError('Unported trigger timing: '+timing)
+            if timing in EVENT and EVENT[timing] not in (EVENTS|frozenset((5,22,23,33,34,35)) if world_frame else EVENTS):raise ValueError('Unported trigger timing: '+timing)
         if timing.startswith('every:'):
             if not timing.endswith('s'):raise ValueError('Periodic timing requires native seconds suffix')
             try:period=float(timing[6:].removesuffix('s'))
             except ValueError:raise ValueError('Invalid periodic timing') from None
             if not math.isfinite(period) or period<=0:raise ValueError('Periodic timing must be positive and finite')
-        elif not re.fullmatch(TIMING,timing) and not (world_frame and timing=='enemy_death'):raise ValueError('Unported trigger timing: '+timing)
+        elif not re.fullmatch(TIMING,timing) and not (world_frame and timing in ('enemy_death','crit_hit','core_hit')):raise ValueError('Unported trigger timing: '+timing)
     for condition in conditions:
         if not isinstance(condition,str) or not re.fullmatch(CONDITION,condition):raise ValueError('Unported predicate: '+str(condition))
 
@@ -54,7 +54,7 @@ def pack_descriptors(words,index,row,L,F,double_words,*,effect=None,states=None,
     if not 1<=n<=8 or not 0<=nc<=3:raise ValueError('Descriptor capacity exceeded')
     for slot in range(n):
         event,threshold,mode,tag,value,passive,stage=row[145+slot*7:152+slot*7]
-        if event not in (EVENTS|frozenset((5,33,34,35)) if world_frame else EVENTS) or mode not in (0,1,2,3):raise ValueError('Unported compiled trigger')
+        if event not in (EVENTS|frozenset((5,22,23,33,34,35)) if world_frame else EVENTS) or mode not in (0,1,2,3):raise ValueError('Unported compiled trigger')
         if event!=6 and (threshold!=int(threshold) or not 0<=threshold<=2**31-1):raise ValueError('Invalid discrete trigger threshold')
         if (mode or event in (7,8,30)) and threshold<=0:raise ValueError('Trigger threshold must be positive')
         if event==6 and (not math.isfinite(threshold) or threshold<=0):raise ValueError('Invalid compiled period')

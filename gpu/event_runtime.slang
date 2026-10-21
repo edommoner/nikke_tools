@@ -100,8 +100,24 @@ struct Runtime
 };
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
+#ifdef PORTABLE_WORLD_FRACTION
+bool worldFractionEnabled(inout Runtime s) { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==17; }
+#define WORLD_FRACTION_MODE(s) worldFractionEnabled(s)
+#define WORLD_FRACTION_INIT(s) initializeWorldFraction(s);
+#define WORLD_FRACTION_SAMPLE(s,who,critical,core,physical,flags) if(worldFractionEnabled(s)&&physical&&(flags&H_PART)==0) sampleWorldFraction(s,who,critical,core);
+#define WORLD_FRACTION_AUTO(s,w,who,when,output) if(worldFractionEnabled(s)&&w.mode!=1) { notifyWorldFraction(s,who,0,when,output);notifyWorldFraction(s,who,1,when,output); }
+#define WORLD_FRACTION_CHARGE(s,w,who,count,when,output) if(worldFractionEnabled(s)&&w.mode==1) for(uint fractionKind=0;fractionKind<2;fractionKind++) for(uint fractionHit=0;fractionHit<count;fractionHit++) notifyWorldFraction(s,who,fractionKind,when,output);
+#define WORLD_FRACTION_VALIDATE(s,d,input,j) for(uint fractionSlot=0;fractionSlot<d.triggerCount;fractionSlot++) { uint fractionAt=input+P_EVENT_BASE+j*P_EVENT_WORDS+fractionSlot*8; if((commands[fractionAt]==22||commands[fractionAt]==23)&&!worldFractionEnabled(s)) { s.error=64;break; } } if(s.error!=0) break;
+#else
+#define WORLD_FRACTION_MODE(s) false
+#define WORLD_FRACTION_INIT(s)
+#define WORLD_FRACTION_SAMPLE(s,who,critical,core,physical,flags)
+#define WORLD_FRACTION_AUTO(s,w,who,when,output)
+#define WORLD_FRACTION_CHARGE(s,w,who,count,when,output)
+#define WORLD_FRACTION_VALIDATE(s,d,input,j)
+#endif
 #ifdef PORTABLE_WORLD_INITIAL_SPAWN
-bool worldInitialSpawnEnabled(inout Runtime s) { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==15; }
+bool worldInitialSpawnEnabled(inout Runtime s) { return targetCountersEnabled(s)&&commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==15||WORLD_FRACTION_MODE(s); }
 #define WORLD_INITIAL_SPAWN_MODE(s) worldInitialSpawnEnabled(s)
 #define WORLD_INITIAL_SPAWN_INIT(s) initializeWorldSpawn(s);
 #define WORLD_INITIAL_SPAWN_START(s,when,output) if(worldInitialSpawnEnabled(s)) { results[s.resourceOutput+P_WORLD_SPAWN_HEAD_BASE+2]++;teamNotify(s,5,when,output); }
