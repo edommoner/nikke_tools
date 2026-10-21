@@ -21,3 +21,11 @@ v112のCUBIN O1は60秒・2GiB内でptxas allocation failureとなりました�
 過去v112と今回ではその後の機能追加も異なります。compilerの成功・失敗や時間差をbankだけの因果と断定しません。PTXの仮想register差だけをcompilerメモリ改善とも扱いません。コンパイル成功後のCUDA計算一致は、同じartifactのrequired-cache実行で別途確認します。
 
 通常画面CPU、全キャラGPU認定0、静的packing193/266・base134/203、最終目標未完了を維持します。
+
+## Windows v115の結果
+
+固定4312287のsealed packageは全manifest検査とCPU21件（cleanup4／compile CLI7／artifact10）に成功しました。その後のCUBIN O1は1回だけ、全体42.987632秒／NVRTC30.422秒でreturn6、ptxas Memory allocation failure。artifact／cache receiptは0でした。Job上限2147483648byte、peak2147504128byte、gate／pre所属とpost空を確認、cleanup／観測エラーなし、再試行0です。driver／context／kernel／GPU実行0、暖機0です。
+
+終了後snapshot遅延2.673793秒でmissing7、サービス識別unverified、原因unknownです。元HEAD/status保持とcontainment成功を、環境保持成功へ読み替えません。compiler_verified／calculation_verified／preservation_verifiedはfalseです。Macには既存Windowsチャットの構造化報告から派生したJSONを保存し、原byteの独立監査とは区別します。
+
+この結果ではcompiler改善を実証できませんでした。bank候補はprivate Metalの数値・全raw保持の証拠として残しますが、追加配列の移動やnoinlineを機械的に試しません。Windowsのコンパイル試行はここで終了し、次の変更前に関数規模・状態の受け渡し・kernel境界について新しい仮説を固定します。失敗したv112とv115のsource差やcapacity制約を混同しません。証拠は`research/portable-world-v115-compiler-sanitized.json`です。

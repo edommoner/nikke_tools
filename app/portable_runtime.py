@@ -18,9 +18,10 @@ from portable_specs import ABI, LIMITS as L, FIELDS as F, check_schema
 
 
 class UnsupportedPortable(ValueError):
-    def __init__(self, message, *, reason=None, operator=None):
+    def __init__(self, message, *, reason=None, operator=None, fields=None):
         self.reason = reason
         self.operator = operator
+        self.fields = fields
         super().__init__(message)
 
 
@@ -95,7 +96,8 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     if eff.get('type')=='buff':allowed=allowed | {'duration_bullets','event_scope'}
     effect_allowed=allowed | ({'scaling'} if eff.get('stat') in ('heal_hp_pct','cover_heal_pct','cover_hp_pct','shield_heal_pct','decoy_heal_pct') or eff.get('type')=='damage' and eff.get('stat')=='dot_damage' else set()) | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','cover_during_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult'} if eff.get('type')=='weapon_change' else set())
     if set(eff)-effect_allowed:
-        raise UnsupportedPortable('Unported effect fields: '+', '.join(sorted(set(eff)-effect_allowed)))
+        fields=sorted(set(eff)-effect_allowed)
+        raise UnsupportedPortable('Unported effect fields: '+', '.join(fields),reason='fields',fields=fields)
     from portable_trigger_specs import validate_input
     try:validate_input(eff,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason=getattr(error,'reason',None),operator=getattr(error,'operator',None)) from error

@@ -15,6 +15,21 @@ spec=importlib.util.spec_from_file_location('readiness_cli',ROOT/'scripts/nikke_
 cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 class ReadinessTests(unittest.TestCase):
+    def test_missing_fields_are_structured_and_wording_independent(self):
+        effect=dict(type='buff',stat='hp_copy',target='self',copy_from='allies_top_hp:1',
+                    trigger=dict(timing=['battle_start'],condition=[]),fixed_value=1)
+        before=copy.deepcopy(effect)
+        with self.assertRaises(UnsupportedPortable) as caught:
+            validate_effect(effect,combat={},world_frame=True)
+        self.assertEqual(effect,before)
+        observed=issue(caught.exception,effect)
+        self.assertEqual(observed['diagnostic_source'],'structured_reason')
+        self.assertEqual(observed['fields'],['copy_from'])
+        renamed=issue(UnsupportedPortable('different wording with trigger',reason='fields',fields=['copy_from']),effect)
+        fallback=issue(ValueError('Unported effect fields: copy_from'),effect)
+        self.assertEqual(observed['code'],renamed['code'])
+        self.assertEqual(observed['code'],fallback['code'])
+
     def test_bounds_and_audience_are_not_missing_trigger_operators(self):
         base=dict(type='buff',stat='atk_pct',target='self',fixed_value=1,
                   trigger=dict(timing=['battle_start'],condition=[]))

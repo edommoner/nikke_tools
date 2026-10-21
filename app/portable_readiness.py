@@ -28,7 +28,10 @@ def issue(error, effect=None, *, phase='effect'):
         # failing descriptor belongs here, never the effect's unrelated triggers.
         signature['operator'] = operator if operator is not None else dict(diagnostic=message)
     if phase=='program':signature['reason']=message
-    if message.startswith('Unported effect fields: '):
+    fields=getattr(error,'fields',None)
+    if fields is not None:
+        signature['fields'] = sorted(set(fields))
+    elif message.startswith('Unported effect fields: '):
         signature['fields'] = message.split(': ', 1)[1].split(', ')
     return dict(signature, code=json.dumps(signature, sort_keys=True, ensure_ascii=False),
                 diagnostic_source='structured_reason' if getattr(error,'reason',None) is not None else 'message_fallback',

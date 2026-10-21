@@ -1,4 +1,8 @@
 <!-- lazy-bank-current -->
+Windows v115は終了済み・idleです。固定4312287、CPU21成功後のCUBIN O1は42.99秒／NVRTC30.422秒でMemory allocation failure、compiler改善未証明、artifact0、GPU0／retry0。Job post空、missing7／原因unknown／service未識別で環境保持falseを維持します。同条件を再依頼せず、次の変更仮説を先に固定してください。詳細はresearch/portable-world-v115-compiler-sanitized.json。
+
+未知fieldを構造化し、全266profileのpacking・input hash・分類codeを保持したまま効果fallback44→25／program27→14へ削減しました（CPU14成功）。次の高優先機能は基礎HP／ATKコピーで、既存CPU参照8ケース25観測はGPU禁止で再確認済み、portable接続は未実装です。docs/portable-base-copy-next.mdを参照してください。
+
 ## 2026-10-22 private lazy cacheの作業領域とMetal428
 
 現在の通常CLIはregression428（native341／拒否87）、goldenはportable-world-lazy-bank-regression-short-expected.jsonです。5配列24576byteをprojectile入口のprivate Runtimeから出力内scratchへ移し、共通アルゴリズムを保持。Metal428全件一致、旧420と追加8境界のinput／全raw／native同一、全bank語ゼロを確認して明示sealしました。原fixture失敗は保持しています。詳細はdocs/portable-lazy-bank-storage.mdとresearch/portable-lazy-bank-retention.json。
