@@ -10,4 +10,12 @@ _reload_durationを呼ぶ時点ではモード武器への一時差替え前な�
 
 再利用可能なCPU契約はtests/test_portable_entry_reload_reference.pyにあり、owner0／4・auto／charge・delay3種の12条件を検査します。portable packingとGPU build／executeは禁止しています。このobserverは単独CharStateの検査で、full-world比較やGPU対応の証明ではありません。
 
-次はfull-world nativeの実_reload_duration呼出を追加問い合わせなしで観測し、速度補正、fixed reload、途中失効、再入、既存charge／reload中のモード開始、対象・通知への影響を契約化します。GPU側は既存MODE entry policyを拡張する候補ですが、共有reload計算の再利用と正本の毎tick照会を両立できることを先に確認します。CPU時刻をGPU入力へ埋め込まず、未対応の動的magazine／skill-mode等の拒否は維持します。
+full-world契約への接続結果は以下を参照してください。GPU側は既存MODE entry policyを拡張する候補ですが、共有reload計算の再利用と正本の毎tick照会を両立できることを先に確認します。CPU時刻をGPU入力へ埋め込まず、未対応の動的magazine／skill-mode等の拒否は維持します。
+
+## full-world契約と共通CLIへの接続
+
+`reference --suite entry-reload --out <新規JSON>`を追加しました。既存のfull native projectile→reload→control→team→frame observerを再利用し、32 literalケースで実際のモードtick、_reload_duration呼出、begin_weapon_sessionの前後を記録します。追加のstat照会は行いません。速度負値／50／100／150％／合算、固定0／正／負／最大値／速度無視、補正の途中到着と失効、明示delay0／0.17、auto／charge、owner4、有限終了、3回再入、遅延発動、元charge／reload中、cover gate、名前付き子イベントを含みます。
+
+負の固定値はクランプされず、初回時刻0ではentry_until=-0.2のまま即時射撃します。通常の速度補正のmax(0,...)と混同しません。既存アプリのweapon_mode_runtime.begin_sessionは元charge／reloadをモードtickの前にresetするため、観測はreset前も記録します。pinned upstreamだけを直接読むのでは足りません。
+
+Macの全CPU回帰743件中742成功・Windows専用1skip・失敗0です。32ケース全件の契約、観測あり／なしの全戦闘field・skill trace一致、latch破壊／元武器誤読／照会欠落／早期射撃の故障注入を4 CPUテストで検査しました。CLI実行は約1.81秒、GPU0／packing0です。source identityにapp内のPython互換層とportable_*contracts.pyを含め、実行中変更を検出します。既存のrevive契約も保持しました。構造化証拠はresearch/portable-entry-reload-reference-checkpoint.jsonです。GPU対応数・静的packing数は増えていません。

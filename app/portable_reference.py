@@ -4,7 +4,8 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
-REFERENCES={'revive':('portable_revive_cases','world_revive_native','portable_revive_contracts')}
+REFERENCES={'revive':('portable_revive_cases','world_revive_native','portable_revive_contracts'),
+            'entry-reload':('portable_entry_reload_cases','world_entry_reload_native','portable_entry_reload_contracts')}
 
 
 def digest(value):
@@ -13,12 +14,16 @@ def digest(value):
 
 def source_identity():
     paths=[ROOT/'app/portable_reference.py',ROOT/'scripts/nikke_gpu.py',ROOT/'app/engine_worker.py',ROOT/'app/engine_compat.py']
+    # Native execution includes installed application compatibility layers (for
+    # example weapon_mode_runtime), not only the upstream calculator files.
+    paths += sorted((ROOT/'app').glob('*.py'))
     paths += sorted((ROOT/'research/upstream/nikke-calc-master/calculator').rglob('*.py'))
     # These native observers form one call chain. Include the literal factories
     # too, without importing or executing the rest of the research tree.
     paths += sorted((ROOT/'research').glob('world_*native.py'))
     paths += [ROOT/'research'/name for name in ('portable_revive_cases.py','portable_revive_contracts.py','portable_persona_cases.py','portable_stun_cases.py','world_enemy_attack_cases.py','portable_burst_recipient_cases.py','portable_recipient_extension_cases.py','world_revive_native.py','enemy_target_native.py')]
     paths += sorted((ROOT/'research').glob('*cases.py'))
+    paths += sorted((ROOT/'research').glob('portable_*contracts.py'))
     paths += sorted((ROOT/'research').glob('verify-world*.py'))
     paths += sorted((ROOT/'scripts').glob('*cases.py'))
     paths += sorted((ROOT/'research/upstream/nikke-calc-master/data').rglob('*.json'))

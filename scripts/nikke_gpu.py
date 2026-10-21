@@ -966,7 +966,8 @@ def main(argv=None):
     a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
-    a=sub.add_parser('reference');a.add_argument('--suite',choices=('revive',),required=True);a.add_argument('--out',type=Path,required=True)
+    from portable_reference import REFERENCES
+    a=sub.add_parser('reference');a.add_argument('--suite',choices=REFERENCES,required=True);a.add_argument('--out',type=Path,required=True)
     for storage_command in ('archive-raw','restore-raw'):
         a=sub.add_parser(storage_command);a.add_argument('--capture',type=Path,required=True);a.add_argument('--archive',type=Path,required=True)
         if storage_command=='archive-raw':a.add_argument('--remove-original',action='store_true')
