@@ -2,6 +2,7 @@
 Both backends execute the same entry, input words and output comparison.
 """
 import ctypes as C
+import contextlib
 import hashlib
 import json
 import os
@@ -223,6 +224,48 @@ def execute_batches(source, entry, batches, input_words, output_words, backend='
     return results
 
 
+
+@contextlib.contextmanager
+def _cuda_module(artifact_bytes,entry,artifact_kind,resident):
+    """Shared driver/context/module lifecycle, with no battle allocations."""
+    artifact_buffer=C.create_string_buffer(artifact_bytes)
+    driver=C.WinDLL('nvcuda.dll')
+    signatures=dict(cuInit=[C.c_uint],cuDeviceGet=[C.POINTER(C.c_int),C.c_int],cuDeviceGetName=[C.c_char_p,C.c_int,C.c_int],
+        cuDeviceComputeCapability=[C.POINTER(C.c_int),C.POINTER(C.c_int),C.c_int],
+        cuCtxCreate_v2=[C.POINTER(C.c_void_p),C.c_uint,C.c_int],cuCtxDestroy_v2=[C.c_void_p],
+        cuModuleLoadData=[C.POINTER(C.c_void_p),C.c_void_p],cuModuleGetFunction=[C.POINTER(C.c_void_p),C.c_void_p,C.c_char_p],
+        cuModuleGetGlobal_v2=[C.POINTER(C.c_uint64),C.POINTER(C.c_size_t),C.c_void_p,C.c_char_p],
+        cuMemAlloc_v2=[C.POINTER(C.c_uint64),C.c_size_t],cuMemcpyHtoD_v2=[C.c_uint64,C.c_void_p,C.c_size_t],
+        cuMemcpyDtoH_v2=[C.c_void_p,C.c_uint64,C.c_size_t],cuCtxSynchronize=[],
+        cuLaunchKernel=[C.c_void_p,*([C.c_uint]*7),C.c_void_p,C.c_void_p,C.c_void_p])
+    for name, signature in signatures.items():
+        getattr(driver,name).argtypes=signature;getattr(driver,name).restype=C.c_int
+    def call(name,*args):
+        code=getattr(driver,name)(*args)
+        if code:raise RuntimeError(f'{name}: CUDA error {code}')
+    context=C.c_void_p()
+    call('cuInit',0);device=C.c_int();call('cuDeviceGet',C.byref(device),0)
+    if artifact_kind=='cubin':
+        major=C.c_int();minor=C.c_int();call('cuDeviceComputeCapability',C.byref(major),C.byref(minor),device)
+        if (major.value,minor.value)!=(8,6):raise RuntimeError('The native CUDA artifact requires SM86')
+    name=C.create_string_buffer(256);call('cuDeviceGetName',name,256,device)
+    try:
+        call('cuCtxCreate_v2',C.byref(context),0,device)
+        module=C.c_void_p();function=C.c_void_p();call('cuModuleLoadData',C.byref(module),C.cast(artifact_buffer,C.c_void_p))
+        call('cuModuleGetFunction',C.byref(function),module,entry.encode())
+        global_ptr=C.c_uint64();global_size=C.c_size_t()
+        call('cuModuleGetGlobal_v2',C.byref(global_ptr),C.byref(global_size),module,b'SLANG_globalParams')
+        if global_size.value!=(48 if resident else 32):raise RuntimeError('Unexpected Slang CUDA constant buffer ABI')
+        yield call,function,global_ptr,dict(backend="cuda",device=name.value.decode(),constant_buffer_bytes=global_size.value)
+    finally:
+        if context:
+            primary = sys.exc_info()[1]
+            try:call('cuCtxDestroy_v2',context)
+            except Exception as cleanup_error:
+                if primary is None:raise
+                primary.add_note('CUDA context cleanup also failed: '+str(cleanup_error))
+
+
 def execute_cuda(source, entry, packed, output_size, count,*,resident=None):
     raw,transports=execute_cuda_batches(source,entry,[packed],[output_size],[count],**({'resident':resident} if resident else {}))
     return raw[0],transports[0]
@@ -279,38 +322,12 @@ def execute_cuda_batches(source, entry, batches, output_sizes, counts,*,resident
         verify_cuda_layout_assertions(source,resident)
     artifact_kind=cuda_artifact_kind()
     artifact_bytes,compile_receipt=compile_cuda_source(source,artifact_kind=artifact_kind)
-    artifact_buffer=C.create_string_buffer(artifact_bytes)
-    driver=C.WinDLL('nvcuda.dll')
-    signatures=dict(cuInit=[C.c_uint],cuDeviceGet=[C.POINTER(C.c_int),C.c_int],cuDeviceGetName=[C.c_char_p,C.c_int,C.c_int],
-        cuDeviceComputeCapability=[C.POINTER(C.c_int),C.POINTER(C.c_int),C.c_int],
-        cuCtxCreate_v2=[C.POINTER(C.c_void_p),C.c_uint,C.c_int],cuCtxDestroy_v2=[C.c_void_p],
-        cuModuleLoadData=[C.POINTER(C.c_void_p),C.c_void_p],cuModuleGetFunction=[C.POINTER(C.c_void_p),C.c_void_p,C.c_char_p],
-        cuModuleGetGlobal_v2=[C.POINTER(C.c_uint64),C.POINTER(C.c_size_t),C.c_void_p,C.c_char_p],
-        cuMemAlloc_v2=[C.POINTER(C.c_uint64),C.c_size_t],cuMemcpyHtoD_v2=[C.c_uint64,C.c_void_p,C.c_size_t],
-        cuMemcpyDtoH_v2=[C.c_void_p,C.c_uint64,C.c_size_t],cuCtxSynchronize=[],
-        cuLaunchKernel=[C.c_void_p,*([C.c_uint]*7),C.c_void_p,C.c_void_p,C.c_void_p])
-    for name, signature in signatures.items():
-        getattr(driver,name).argtypes=signature;getattr(driver,name).restype=C.c_int
-    def call(name,*args):
-        code=getattr(driver,name)(*args)
-        if code:raise RuntimeError(f'{name}: CUDA error {code}')
-    context=C.c_void_p()
-    call('cuInit',0);device=C.c_int();call('cuDeviceGet',C.byref(device),0)
-    if artifact_kind=='cubin':
-        major=C.c_int();minor=C.c_int();call('cuDeviceComputeCapability',C.byref(major),C.byref(minor),device)
-        if (major.value,minor.value)!=(8,6):raise RuntimeError('The native CUDA artifact requires SM86')
-    name=C.create_string_buffer(256);call('cuDeviceGetName',name,256,device)
-    try:
-        call('cuCtxCreate_v2',C.byref(context),0,device)
-        module=C.c_void_p();function=C.c_void_p();call('cuModuleLoadData',C.byref(module),C.cast(artifact_buffer,C.c_void_p))
-        call('cuModuleGetFunction',C.byref(function),module,entry.encode())
+    with _cuda_module(artifact_bytes,entry,artifact_kind,resident) as loaded:
+        call,function,global_ptr,module_metadata=loaded
         inp=C.c_uint64();out=C.c_uint64()
         call('cuMemAlloc_v2',C.byref(inp),max(map(len,batches)));call('cuMemAlloc_v2',C.byref(out),max(output_sizes))
         scratch=C.c_uint64();scratch_bytes=resident['stride']*max(counts) if resident else 0
         if resident:call('cuMemAlloc_v2',C.byref(scratch),scratch_bytes)
-        global_ptr=C.c_uint64();global_size=C.c_size_t()
-        call('cuModuleGetGlobal_v2',C.byref(global_ptr),C.byref(global_size),module,b'SLANG_globalParams')
-        if global_size.value!=(48 if resident else 32):raise RuntimeError('Unexpected Slang CUDA constant buffer ABI')
         results=[];transports=[]
         for packed,output_size,count in zip(batches,output_sizes,counts):
             call('cuMemcpyHtoD_v2',inp,C.cast(C.c_char_p(packed),C.c_void_p),len(packed))
@@ -320,18 +337,27 @@ def execute_cuda_batches(source, entry, batches, output_sizes, counts,*,resident
             started=time.perf_counter();call('cuLaunchKernel',function,count,1,1,1,1,1,0,None,None,None);call('cuCtxSynchronize')
             elapsed=time.perf_counter()-started
             output=C.create_string_buffer(output_size);call('cuMemcpyDtoH_v2',output,out,output_size)
-            results.append(output.raw);transports.append(dict(backend='cuda',device=name.value.decode(),cases=count,command_status='completed',host_dispatch_seconds=elapsed,compile_artifact=compile_receipt))
+            results.append(output.raw);transports.append(dict(backend='cuda',device=module_metadata['device'],cases=count,command_status='completed',host_dispatch_seconds=elapsed,compile_artifact=compile_receipt))
         if resident:
             for transport in transports:transport.update(runtime_stride_bytes=resident['stride'],runtime_buffer_bytes=scratch_bytes,runtime_element_capacity=max(counts))
         return results,transports
-    finally:
-        if context:
-            primary = sys.exc_info()[1]
-            try:call('cuCtxDestroy_v2',context)
-            except Exception as cleanup_error:
-                if primary is None:raise
-                primary.add_note('CUDA context cleanup also failed: '+str(cleanup_error))
 
+
+def inspect_cuda_module(source,entry,*,resident=None):
+    """Load/JIT an exact cached PTX; never allocate, copy, sync or launch."""
+    if os.name!='nt':raise RuntimeError('CUDA module check requires Windows')
+    if os.environ.get('NIKKE_CUDA_CACHE_REQUIRED')!='1' or cuda_artifact_kind()!='ptx':
+        raise ValueError('CUDA module check requires cache-only PTX')
+    if resident:
+        from portable_resident_layout import verify_cuda_layout_assertions
+        verify_cuda_layout_assertions(source,resident)
+    artifact,receipt=compile_cuda_source(source,artifact_kind='ptx')
+    if receipt.get('enabled') is not True or receipt.get('hit') is not True or receipt.get('identity',{}).get('artifact')!='ptx':
+        raise ValueError('CUDA module check did not obtain a verified PTX cache hit')
+    with _cuda_module(artifact,entry,'ptx',resident) as loaded:
+        metadata=dict(loaded[3],module_verified=True,artifact_kind='ptx',compile_artifact=receipt,
+                      kernel_calls=0,buffer_allocations=0,calculation_verified=False)
+    return metadata
 
 def cuda_artifact_kind():
     kind=os.environ.get('NIKKE_CUDA_ARTIFACT','cubin')

@@ -124,13 +124,13 @@ SUITES['revive']=dict(script='research/verify-world-revive-short.py',golden='res
 SUITES['revive-diagnostic']=dict(SUITES['revive'],source='gpu/world_projectile_admission_entry.slang',require_rejection_stage=True)
 
 SCHEMA = 1
-SUITES['regression-resident']=dict(SUITES['regression'],source='gpu/world_projectile_resident_entry.slang',golden='research/portable-world-phases-resident-regression-short-expected.json',development_only=False,tests=SUITES['regression']['tests']+['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py'])
-SUITES['resident-binding']=dict(script='research/verify-resident-binding-short.py',golden='research/portable-resident-binding-short-expected.json',source='gpu/resident_runtime_binding_probe.slang',inputs=4,native=4,development_only=False,tests=['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py'])
+SUITES['regression-resident']=dict(SUITES['regression'],source='gpu/world_projectile_resident_entry.slang',golden='research/portable-world-phases-resident-regression-short-expected.json',development_only=False,tests=SUITES['regression']['tests']+['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
+SUITES['resident-binding']=dict(script='research/verify-resident-binding-short.py',golden='research/portable-resident-binding-short-expected.json',source='gpu/resident_runtime_binding_probe.slang',inputs=4,native=4,development_only=False,tests=['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
 
 # Controller validation has no numeric program to execute. Keep its CPU work
 # separate from a selected suite's battle/native preflight.
 SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
-               'test_portable_compile_cache.py','test_portable_cuda_artifact.py']
+               'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py']
 
 
 def sha(data):
@@ -395,18 +395,21 @@ def cpu_preflight(m):
                 input_sha256=sha(data), gpu_calls=calls, elapsed_seconds=time.perf_counter()-started)
 
 
-def child(capture, backend, smoke=False, compile_only=False):
+def child(capture, backend, smoke=False, compile_only=False, module_only=False):
     deadline = time.monotonic()+60
     while not (capture/'start.json').exists():
         if time.monotonic() >= deadline:
             raise RuntimeError('Containment gate not released; GPU not started')
         time.sleep(.02)
+    if compile_only and module_only:raise ValueError('Compile and module modes are exclusive')
     if smoke:
-        if compile_only:raise ValueError('Compile and smoke modes are exclusive')
+        if compile_only or module_only:raise ValueError('Compile and smoke modes are exclusive')
         write(capture/'smoke.json',dict(pid=os.getpid(),ppid=os.getppid(),gpu_calls=0)); return
     m = verify_package(ROOT)
     if compile_only:
         compile_child(m,capture,backend);return
+    if module_only:
+        module_child(m,capture,backend);return
     adapter = open_suite(m)
     entries, data = prepare_entries(adapter, m)
     if sha(data) != m['golden']['input_sha256']:
@@ -700,7 +703,7 @@ def validation_environment(capture):
     return env
 
 
-def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_only=False):
+def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_only=False,module_only=False):
     bounded=bounded_module()
     env=validation_environment(capture)
     env['PYTHONPATH']=os.pathsep.join([*site.getsitepackages(),env.get('PYTHONPATH','')])
@@ -708,7 +711,11 @@ def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_
     command=[interpreter,str(Path(__file__).resolve()),'_child','--capture',str(capture),'--backend',backend]
     if smoke:command.append('--smoke')
     if compile_only:command.append('--compile-only')
-    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=os.environ.get('NIKKE_CUDA_ARTIFACT','cubin') if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),compile_only=compile_only,ptxas_optimization_level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL'),cache_required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0'),job_memory_limit_mb=os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB'),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
+    if module_only:
+        command.append('--module-only')
+        driver_cache=(capture/'driver-cache').resolve();driver_cache.mkdir(exist_ok=True)
+        env['CUDA_CACHE_PATH']=str(driver_cache)
+    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=os.environ.get('NIKKE_CUDA_ARTIFACT','cubin') if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),compile_only=compile_only,module_only=module_only,driver_cache_path=env.get('CUDA_CACHE_PATH') if module_only else None,ptxas_optimization_level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL'),cache_required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0'),job_memory_limit_mb=os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB'),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
     observation={}
     if os.name=='nt':
         from windows_validation_observer import capture_snapshot,observe_job,compare_snapshots
@@ -805,6 +812,129 @@ def job_contained(capture,rows,*,memory_limit_bytes=None):
     if memory_limit_bytes is not None:
         good &= pre.get('job_memory_limit_bytes')==post.get('job_memory_limit_bytes')==memory_limit_bytes
     return bool(good),pid
+
+
+MODULE_DRIVER_APIS=('cuInit','cuDeviceGet','cuDeviceGetName','cuCtxCreate_v2','cuModuleLoadData','cuModuleGetFunction','cuModuleGetGlobal_v2','cuCtxDestroy_v2')
+
+
+def module_child(m,capture,backend):
+    """Exact cached PTX and shared module lifecycle; forbid every battle API."""
+    if backend!='cuda' or is_development(m):raise ValueError('Module check requires a sealed CUDA package')
+    import portable_backend
+    from portable_phase_audit import Journal,NativeLibrary
+    journal=Journal(capture/'phases.jsonl');loader=portable_backend.C.WinDLL
+    class DriverOnly:
+        def __init__(self,driver):self.driver=driver
+        def __getattr__(self,name):
+            if name in MODULE_DRIVER_APIS:return getattr(self.driver,name)
+            def forbidden(*args):
+                journal.emit('cuda_module_forbidden_api','rejected',api=name)
+                raise RuntimeError('Battle API forbidden in module check: '+name)
+            return forbidden
+    def library(name,*args,**kwargs):
+        if str(name).replace('\\','/').rsplit('/',1)[-1].lower()!='nvcuda.dll':
+            journal.emit('cuda_module_forbidden_library','rejected')
+            raise RuntimeError('Only nvcuda.dll is allowed in module check; NVRTC forbidden')
+        driver=journal.invoke('cuda_module_driver_load',loader,name,*args,**kwargs)
+        return NativeLibrary(DriverOnly(driver),journal)
+    original_compile=portable_backend.compile_cuda_artifact
+    def cached(*args,**kwargs):
+        artifact,receipt=journal.invoke('cuda_compile_artifact',original_compile,*args,**kwargs)
+        journal.emit('cuda_compile_cache','verified',receipt=receipt);return artifact,receipt
+    source=SUITES[m['suite']]['source']
+    with patch.object(portable_backend.C,'WinDLL',library),patch.object(portable_backend,'compile_cuda_artifact',cached):
+        outputs,hashes=journal.invoke('slang_build',portable_backend.build,source,'portableEvents')
+        normalized=module(ROOT/'research/summarize-portable-cross-gpu.py').normalized
+        generated={k:normalized(p.read_bytes()) for k,p in outputs.items()}
+        if hashes!=m['golden']['source_sha256'] or generated!=m['golden']['generated_normalized']:
+            raise ValueError('Module inputs differ from the sealed Metal proof')
+        plan=portable_backend.resident_plan(source,'portableEvents',outputs)
+        copy_generated(capture,m['suite'])
+        if plan:
+            for path in outputs.values():
+                (capture/('generated'+path.suffix+'.reflection.json')).write_bytes(Path(str(path)+'.reflection.json').read_bytes())
+        checked=journal.invoke('shared_cuda_module_check',portable_backend.inspect_cuda_module,outputs['cuda'],'portableEvents',resident=plan)
+    copy_generated(capture,m['suite'])
+    write(capture/'module.json',dict(source_sha256=hashes,generated_sha256={k:sha(p.read_bytes()) for k,p in outputs.items()},
+          generated_normalized=generated,resident_runtime=plan,transport=checked))
+
+
+def audit_module_capture(m,capture,*,verify_artifacts=True):
+    from portable_phase_audit import valid_cache_hit
+    run=load(capture/'run.json');facts=load(capture/'execution.json')
+    if run.get('mode')!='module-only' or run['package_id']!=m['package_id'] or run['backend']!='cuda' or is_development(m):raise ValueError('Wrong module check capture')
+    if type(facts['timeout_seconds']) is not int or not 1<=facts['timeout_seconds']<=60 or run['memory_limit_mb']!=2048:raise ValueError('Module check exceeds its bounded policy')
+    if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
+    rows=[];error=None;verified=False
+    try:
+        rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
+        if any(r['stage'].startswith('nvrtc') or r['stage'].startswith('cuda_module_forbidden') or r['stage'].startswith('cu') and len(r['stage'])>2 and r['stage'][2].isupper() and r['stage'] not in MODULE_DRIVER_APIS for r in rows):raise ValueError('Forbidden module check operation')
+        span=[(i,r) for i,r in enumerate(rows) if r['stage']=='shared_cuda_module_check']
+        if [r['state'] for _,r in span]!=['entered','returned']:raise ValueError('Module check did not return')
+        previous=-1;first_api=None
+        for stage in ('cuInit','cuDeviceGet','cuDeviceGetName','cuCtxCreate_v2','cuModuleLoadData','cuModuleGetFunction','cuModuleGetGlobal_v2','cuCtxDestroy_v2'):
+            hits=[(i,r) for i,r in enumerate(rows) if r['stage']==stage]
+            if len(hits)!=2 or hits[0][1]['state']!='entered' or hits[1][1]['state']!='returned' or hits[1][1].get('return_code')!=0 or hits[0][0]<=previous:raise ValueError('Module API return missing: '+stage)
+            if first_api is None:first_api=hits[0][0]
+            previous=hits[1][0]
+        cached=[(i,r) for i,r in enumerate(rows) if valid_cache_hit(r)]
+        if len(cached)!=1:raise ValueError('One verified compiler cache hit required')
+        if not span[0][0]<cached[0][0]<first_api<=previous<span[1][0]:raise ValueError('Cache/module API order invalid')
+        loaded=[(i,r) for i,r in enumerate(rows) if r['stage']=='cuda_module_driver_load']
+        if [r['state'] for _,r in loaded]!=['entered','returned'] or not cached[0][0]<loaded[0][0]<loaded[1][0]<first_api:raise ValueError('Driver load must follow the verified cache hit')
+        proof=load(capture/'module.json');t=proof['transport'];receipt=t['compile_artifact'];kind=receipt['identity']['artifact']
+        if kind!='ptx' or cached[0][1]['receipt']!=receipt:raise ValueError('Wrong module artifact receipt')
+        from portable_backend import cuda_compile_options
+        if receipt['identity']['options']!=cuda_compile_options('ptx'):raise ValueError('Wrong PTX compiler options')
+        if receipt['key']!=sha(json.dumps(receipt['identity'],sort_keys=True,separators=(',',':')).encode()):raise ValueError('Wrong PTX cache key')
+        normalized=module(ROOT/'research/summarize-portable-cross-gpu.py').normalized
+        if proof['source_sha256']!=m['golden']['source_sha256'] or proof['generated_normalized']!=m['golden']['generated_normalized']:raise ValueError('Module source baseline mismatch')
+        for target,suffix in [('cuda','cu'),('metal','metal')]:
+            raw=(capture/('generated.'+suffix)).read_bytes()
+            if sha(raw)!=proof['generated_sha256'][target] or normalized(raw)!=proof['generated_normalized'][target]:raise ValueError('Generated module source mismatch')
+        raw=(capture/'compiled.ptx').read_bytes()
+        if len(raw)!=receipt['artifact_bytes'] or sha(raw)!=receipt['artifact_sha256'] or receipt['identity']['source_sha256']!=proof['generated_sha256']['cuda']:raise ValueError('Cached PTX bytes mismatch')
+        from portable_backend import resident_plan
+        paths={k:capture/('generated.'+suffix) for k,suffix in [('cuda','cu'),('metal','metal')]}
+        plan=resident_plan(SUITES[m['suite']]['source'],'portableEvents',paths)
+        if plan!=proof['resident_runtime']:raise ValueError('Module Runtime reflection mismatch')
+        if plan:
+            from portable_resident_layout import verify_cuda_layout_assertions
+            verify_cuda_layout_assertions(paths['cuda'],plan)
+        expected=48 if proof['resident_runtime'] else 32
+        if t.get('constant_buffer_bytes')!=expected or t.get('module_verified') is not True or t.get('kernel_calls')!=0 or t.get('buffer_allocations')!=0 or t.get('calculation_verified') is not False:raise ValueError('Wrong module proof scope or ABI')
+        verified=True
+    except (ValueError,KeyError,OSError) as exc:error=str(exc)
+    containment,pid=job_contained(capture,rows,memory_limit_bytes=2048*1024*1024)
+    verified=bool(verified and facts['passed'] and containment)
+    preservation=environment_preserved(capture,facts)
+    return dict(mode='module-only',module_verified=verified,passed=verified and preservation is True,
+        containment_verified=containment,preservation_verified=preservation,calculation_verified=False,
+        kernel_calls=0 if not any(r['stage']=='cuLaunchKernel' for r in rows) else None,
+        buffer_allocations=0 if not any(r['stage']=='cuMemAlloc_v2' for r in rows) else None,error=error,gpu_retry_count=0)
+
+
+def module_capture(capture,timeout,original_workspace):
+    if os.name!='nt':raise ValueError('Module check requires Windows')
+    if type(timeout) is not int or not 1<=timeout<=60:raise ValueError('Module check budget must be1..60 seconds')
+    if not original_workspace or not os.environ.get('NIKKE_CUDA_COMPILE_CACHE'):raise ValueError('Original workspace and dedicated compiler cache required')
+    m=verify_package(ROOT)
+    if is_development(m):raise ValueError('Module check requires a sealed Metal package')
+    capture.mkdir(parents=True,exist_ok=False)
+    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode='module-only',status='loading',memory_limit_mb=2048,gpu_retry_count=0))
+    try:
+        with (ROOT/'module-claimed-cuda.json').open('x',encoding='utf-8') as stream:
+            json.dump(dict(package_id=m['package_id'],capture=str(capture)),stream)
+        with patch.dict(os.environ,dict(NIKKE_CUDA_ARTIFACT='ptx',NIKKE_CUDA_PTXAS_OPT_LEVEL='',NIKKE_CUDA_CACHE_REQUIRED='1',NIKKE_VALIDATION_JOB_MEMORY_MB='2048')):
+            run_job(capture,'cuda',timeout,original_workspace,module_only=True)
+        copy_generated(capture,m['suite'],partial=True)
+        result=audit_module_capture(m,capture,verify_artifacts=False);write(capture/'result.json',result)
+        run=load(capture/'run.json');run['status']='finished';write(capture/'run.json',run)
+    except BaseException as exc:
+        write(capture/'failure.json',dict(error=type(exc).__name__+': '+str(exc),kernel_calls=0))
+        run=load(capture/'run.json');run['status']='failed';write(capture/'run.json',run);raise
+    finally:collect(capture,capture/'artifacts.json')
+    return result
 
 
 def compile_child(m,capture,backend):
@@ -923,6 +1053,8 @@ def audit_capture(capture,verify_artifacts=True,*,record_comparison=False):
     m=verify_package(ROOT)
     if load(capture/'run.json')['package_id']!=m['package_id']:raise ValueError('Capture belongs to another package')
     if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
+    if load(capture/'run.json').get('mode')=='module-only':
+        return audit_module_capture(m,capture,verify_artifacts=verify_artifacts)
     if load(capture/'run.json').get('mode')=='compile-only':
         return audit_compile_capture(m,capture,verify_artifacts=verify_artifacts)
     if load(capture/'run.json').get('mode')=='replay':
@@ -1008,6 +1140,8 @@ def main(argv=None):
     a=sub.add_parser('compile');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--artifact-kind',choices=('cubin','ptx'),default='cubin')
     a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path)
+    a=sub.add_parser('module-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
+    a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path,required=True)
     a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
@@ -1023,7 +1157,8 @@ def main(argv=None):
         if name=='run':
             a.add_argument('--cpu-only',action='store_true');a.add_argument('--timeout',type=int,default=180);a.add_argument('--original-workspace',type=Path);a.add_argument('--slang-root',type=Path)
             a.add_argument('--require-cache',action='store_true');a.add_argument('--compile-cache',type=Path);a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--artifact-kind',choices=('cubin','ptx'))
-        else:a.add_argument('--compile-only',action='store_true')
+        else:
+            a.add_argument('--compile-only',action='store_true');a.add_argument('--module-only',action='store_true')
     for name in ('status','audit','collect','export'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True)
         if name in ('collect','export'):a.add_argument('--out',type=Path,required=True)
@@ -1047,6 +1182,10 @@ def main(argv=None):
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
         if a.compile_cache:os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
         result=compile_capture(a.capture,a.timeout,a.original_workspace,a.artifact_kind,a.ptxas_level,a.memory_limit_mb)
+    elif a.command=='module-check':
+        if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
+        os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
+        result=module_capture(a.capture,a.timeout,a.original_workspace)
     elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out)
     elif a.command=='cases':
         with forbid_gpu():
@@ -1078,7 +1217,7 @@ def main(argv=None):
         result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only)
     elif a.command=='_child':
         # Generated source copies are captured before comparison, including a mismatch.
-        child(a.capture,a.backend,a.smoke,a.compile_only);return
+        child(a.capture,a.backend,a.smoke,a.compile_only,a.module_only);return
     elif a.command=='audit':result=audit_capture(a.capture)
     elif a.command=='status':result=capture_status(a.capture)
     elif a.command=='collect':result=collect(a.capture,a.out)
@@ -1088,6 +1227,10 @@ def main(argv=None):
         # Historical fixed reports remain supported by their existing sealers.
         runpy.run_path(str(ROOT/f'research/seal-world-v{a.version}-cuda.py'),run_name='__main__');return
     print(json.dumps(result,ensure_ascii=False,indent=2))
+    if result.get('mode')=='module-only':
+        if not result.get('module_verified'):raise SystemExit(1)
+        if result.get('preservation_verified') is False:raise SystemExit(2)
+        return
     if a.command=='compile' or result.get('mode')=='compile-only':
         if not result.get('compiler_verified'):raise SystemExit(1)
         if result.get('preservation_verified') is False:raise SystemExit(2)
