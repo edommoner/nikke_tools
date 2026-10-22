@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "provenance": {
+    "kind": "Windows peer final summary of CPU-only saved object recovery; full receipt and partial remain on Windows",
+    "thread_id": "01a140bc-5f3b-7661-b720-50c945596eaa",
+    "turn_id": "01a16227-40bc-75f2-bb6e-077dca47ad86",
+    "status": "completed",
+    "independent_mac_original_partial_audit": false,
+    "full_receipt_transferred": false
+  },
+  "peer_report": {
+    "source_commit": "998db4ef1c8fb2f1e0992453a1387739c79775ca",
+    "source_files": {
+      "verified": 12,
+      "bytes": 237020,
+      "all_bytes_sha_matched": true
+    },
+    "cpu_recovery": {
+      "attempts": 1,
+      "exit_code": 2,
+      "seconds": 18.73411769978702,
+      "timeout_seconds": 90,
+      "timed_out": false,
+      "below_normal": true,
+      "saved_object_cpu_verified": true,
+      "compiler_return_verified": true,
+      "containment_verified": true,
+      "preservation_verified": false,
+      "passed": false,
+      "preservation_note": "元のサービス識別unverifiedを維持"
+    },
+    "saved_partial": {
+      "bytes": 145024,
+      "sha256": "1d4db24389104fdf13574ca9be8fd6ab9badcbe80d18b4b175a1d06499ff0302",
+      "format": "ELF64 little-endian / ET_REL / EM_CUDA",
+      "cuda_format_version": 124,
+      "sections": 14,
+      "external_expected_sha_matched": true,
+      "partial_in_original_inventory": false
+    },
+    "retention": {
+      "protected_files": 4024,
+      "file_set_and_bytes_sha_unchanged": true,
+      "source_files_unchanged": true,
+      "original_inventory_claim_run_metadata_preserved": true,
+      "original_failure_preserved": true,
+      "original_execution_passed": false,
+      "original_object_published": false,
+      "parent_environment_unchanged": true
+    },
+    "additional_job_ptxas_nvrtc_link_driver_gpu_calls": 0,
+    "live_process_observation_calls": 0,
+    "publication_or_transfer_calls": 0,
+    "partition_legal_verified": false,
+    "link_verified": false,
+    "calculation_verified": false,
+    "receipt": {
+      "path": "C:/Users/owner/Documents/Codex/nikke-object-recovery-998db4e-result/receipt.json",
+      "bytes": 15204,
+      "sha256": "96fb20546378f91e5927da6b189430312a8840bb002d85408dacd285b8e60ce3"
+    },
+    "status": "回収完了。元失敗を変更せず、再実行なしで保持"
+  }
+}

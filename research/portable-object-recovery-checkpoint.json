@@ -26,7 +26,7 @@
       "reason": "existing collect intentionally excludes partial; require externally recorded SHA and preserve metadata-only inventory"
     }
   ],
-  "saved_partial_validation_on_windows_pending": true,
+  "saved_partial_validation_on_windows_pending": false,
   "raw_transferred": false,
   "source": "https://github.com/NVIDIA/cuda-rust/pull/622",
   "nvrtc_calls": 0,
@@ -35,5 +35,15 @@
   "driver_calls": 0,
   "gpu_calls": 0,
   "link_verified": false,
-  "calculation_verified": false
+  "calculation_verified": false,
+  "windows_resolution": {
+    "report": "research/portable-world-v135-focus-object-recovery-peer-report.json",
+    "saved_object_cpu_verified": true,
+    "compiler_return_verified": true,
+    "containment_verified": true,
+    "preservation_verified": false,
+    "calculation_verified": false,
+    "additional_compiler_or_gpu_calls": 0,
+    "original_failure_preserved": true
+  }
 }

@@ -58,3 +58,14 @@ python scripts/nikke_gpu.py partition-object-recover \
 `--partial-sha256`は元実行の保存要約で独立に記録された値を渡す。現在のpartialを読み直して値を作り、元の記録に代えてはならない。通常`collect`のmetadata-only inventoryはrawやpartialを含まないため、その過去inventoryへ後からbinary recordを足さず、独立SHAを回収receiptへ明記する。partialと自己申告inventoryをまとめて再hashしても元SHAと一致しなければ拒否する。
 
 成功時も`original_execution_passed=false`／`original_object_published=false`を維持し、別の`saved_object_cpu_verified`と`compiler_return_verified`へ記録する。preservation、link、計算の認定は別であり、サービス未識別はexit2。元captureやpackage／candidate／cacheの中を出力先にすること、既存回収receiptの上書きも拒否する。コンパイラー再実行・GPU実行・巨大raw転送はない。
+
+## 次に区別する条件
+
+単独focusのret0から、最大関数の本文が常に2GiBを超えるとは言えなくなった。ただし元のmodule-wide assemblyからは、PTXの分離と`--compile-only`の両方が変わっている。0.316秒やJob peakを全実行器の速度／メモリ改善へ外挿しない。
+
+保存partialのCPU回収を完了した後の候補は、**書き換えていない元v135 PTX全体を、同じ固定tool／O1／FMA無効／`--compile-only`で1回だけ比較する**明示的なmodule-object実験である。これにより、focus単独との比較でmodule範囲を変えた条件を調べられる。通常`assemble`への自動fallbackや同じ失敗試行の再実行にはしない。新しいsource-only manifest／専用artifact種別／claim／Job監査を用意するまで実行しない。
+
+元moduleのobject化が成立するなら、PTXを書き換えて複数objectへ分ける方式より、元の唯一の定義・初期値を保つ単一object＋同版linkerを優先して検討できる。成立しなければ、残り190関数を含む分離案の次の境界を保存統計から選ぶ。どちらも対応版nvlinkでのlink・full battle entry・CUDA数値比較までは未証明である。この段階でparts等のGPU受付を広げない。
+
+
+998db4eの12file CPU capsuleをWindowsで全SHA照合し、保存partialの回収は18.734118秒で成功した。CUDA format version124／14sections、元SHA全一致、ret0／元Job containmentを再確認。4024保護fileの集合・全byte/SHA・親環境・元失敗／claim／inventoryは不変、追加Job／compiler／GPU0。元サービス識別unverifiedのためpreservation=false／CLI exit2であり、元実行や公開objectを成功へ変更していない。完全receipt15,204byteとpartialはWindowsに残し、Macは出所付きpeer summary取得まで（独立原本監査ではない）。詳細`research/portable-world-v135-focus-object-recovery-peer-report.json`。
