@@ -1,3 +1,7 @@
+<!-- offline-assembly-current -->
+共通CLIへ保存PTX専用の `assemble` を追加しました。固定tool SHA、元producerの既存監査、fresh BelowNormal Job/start gate、2GiB/60秒、別claim、ELF/phase監査を再利用します。NVRTC/driver/kernel0、fallback/retryなし。Macではcomponentをdownloadしwheel/EXE SHAを確認、実行していません。fresh immutable packageのCPU805件は803成功・Windows1skip・sandboxのps拒否1件で、当該phase群5件はOS観測許可で全成功しました。GPU本体/adapter/transportは実行済みMetal796とbyte同一。Windows実assemblerは未実行、CUBIN cache接続/driver load/stream転送/新版CUDA計算は未完了。詳細docs/portable-offline-assembly.mdとdevelopment checkpoint。以下は履歴です。
+<!-- /offline-assembly-current -->
+
 <!-- weapon-phases-current -->
 ## 共通武器フレーム分割とMetal796
 

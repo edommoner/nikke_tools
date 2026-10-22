@@ -126,13 +126,13 @@ SUITES['revive-diagnostic']=dict(SUITES['revive'],source='gpu/world_projectile_a
 SCHEMA = 1
 SUITES['regression-resident']=dict(SUITES['regression'],source='gpu/world_projectile_resident_entry.slang',golden='research/portable-world-phases-resident-regression-short-expected.json',development_only=False,tests=SUITES['regression']['tests']+['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
 SUITES['entry-reload']=dict(script='research/verify-world-entry-reload-short.py',golden='research/portable-world-entry-reload-short-expected.json',source='gpu/world_entry_reload_resident_entry.slang',inputs=37,native=31,development_only=False,tests=['test_portable_entry_reload_full_reference.py','test_portable_entry_reload_gpu.py','test_portable_combat.py','test_portable_resident_layout.py'])
-SUITES['entry-reload-regression']=dict(SUITES['regression-resident'],script='research/verify-world-entry-reload-regression-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-weapon-phases-regression-short-expected.json',inputs=796,native=633,development_only=False,tests=SUITES['regression-resident']['tests']+['test_portable_entry_reload_gpu.py','test_portable_entry_reload_full_reference.py','test_portable_weapon_phases.py'])
+SUITES['entry-reload-regression']=dict(SUITES['regression-resident'],script='research/verify-world-entry-reload-regression-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-weapon-phases-regression-short-expected.json',inputs=796,native=633,development_only=False,tests=SUITES['regression-resident']['tests']+['test_portable_entry_reload_gpu.py','test_portable_entry_reload_full_reference.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py'])
 SUITES['resident-binding']=dict(script='research/verify-resident-binding-short.py',golden='research/portable-resident-binding-short-expected.json',source='gpu/resident_runtime_binding_probe.slang',inputs=4,native=4,development_only=False,tests=['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
 
 # Controller validation has no numeric program to execute. Keep its CPU work
 # separate from a selected suite's battle/native preflight.
 SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
-               'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py']
+               'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py']
 
 
 def sha(data):
@@ -397,17 +397,19 @@ def cpu_preflight(m):
                 input_sha256=sha(data), gpu_calls=calls, elapsed_seconds=time.perf_counter()-started)
 
 
-def child(capture, backend, smoke=False, compile_only=False, module_only=False):
+def child(capture, backend, smoke=False, compile_only=False, module_only=False, assemble_only=False):
     deadline = time.monotonic()+60
     while not (capture/'start.json').exists():
         if time.monotonic() >= deadline:
             raise RuntimeError('Containment gate not released; GPU not started')
         time.sleep(.02)
-    if compile_only and module_only:raise ValueError('Compile and module modes are exclusive')
+    if sum(map(bool,(compile_only,module_only,assemble_only)))>1:raise ValueError('Compile, module and assembly modes are exclusive')
     if smoke:
-        if compile_only or module_only:raise ValueError('Compile and smoke modes are exclusive')
+        if compile_only or module_only or assemble_only:raise ValueError('Compiler and smoke modes are exclusive')
         write(capture/'smoke.json',dict(pid=os.getpid(),ppid=os.getppid(),gpu_calls=0)); return
     m = verify_package(ROOT)
+    if assemble_only:
+        assemble_child(m,capture,backend);return
     if compile_only:
         compile_child(m,capture,backend);return
     if module_only:
@@ -705,7 +707,7 @@ def validation_environment(capture):
     return env
 
 
-def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_only=False,module_only=False):
+def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_only=False,module_only=False,assemble_only=False):
     bounded=bounded_module()
     env=validation_environment(capture)
     env['PYTHONPATH']=os.pathsep.join([*site.getsitepackages(),env.get('PYTHONPATH','')])
@@ -713,11 +715,12 @@ def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_
     command=[interpreter,str(Path(__file__).resolve()),'_child','--capture',str(capture),'--backend',backend]
     if smoke:command.append('--smoke')
     if compile_only:command.append('--compile-only')
+    if assemble_only:command.append('--assemble-only')
     if module_only:
         command.append('--module-only')
         driver_cache=(capture/'driver-cache').resolve();driver_cache.mkdir(exist_ok=True)
         env['CUDA_CACHE_PATH']=str(driver_cache)
-    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=os.environ.get('NIKKE_CUDA_ARTIFACT','cubin') if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),compile_only=compile_only,module_only=module_only,driver_cache_path=env.get('CUDA_CACHE_PATH') if module_only else None,ptxas_optimization_level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL'),cache_required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0'),job_memory_limit_mb=os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB'),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
+    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=os.environ.get('NIKKE_CUDA_ARTIFACT','cubin') if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),compile_only=compile_only,module_only=module_only,assemble_only=assemble_only,driver_cache_path=env.get('CUDA_CACHE_PATH') if module_only else None,ptxas_optimization_level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL'),cache_required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0'),job_memory_limit_mb=os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB'),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
     observation={}
     if os.name=='nt':
         from windows_validation_observer import capture_snapshot,observe_job,compare_snapshots
@@ -969,6 +972,114 @@ def module_capture(capture,timeout,original_workspace,jit_opt_level=None):
     return result
 
 
+def assembly_origin(m,source_package,source_capture):
+    """Re-audit the immutable upstream PTX producer, including its original Job."""
+    source_package=Path(source_package);source_capture=Path(source_capture)
+    producer=verify_package(source_package)
+    if is_development(m) or is_development(producer) or producer['golden']!=m['golden']:
+        raise ValueError('Assembly requires the same sealed GPU/native baseline')
+    run=load(source_capture/'run.json');facts=load(source_capture/'execution.json')
+    if run.get('mode')!='compile-only' or run.get('artifact_kind')!='ptx' or run.get('memory_limit_mb')!=2048 or facts.get('cleanup_error') or facts.get('observation_error'):
+        raise ValueError('Assembly requires a bounded successful PTX producer')
+    result=audit_compile_capture(producer,source_capture)
+    if not result.get('compiler_verified') or not result.get('containment_verified'):raise ValueError('Upstream PTX producer not verified')
+    observation=load(source_capture/'observation.json')
+    from windows_validation_observer import compare_snapshots
+    comparison=compare_snapshots(observation['before'],observation['after'])
+    if observation['comparison']!=comparison:raise ValueError('Producer observation mismatch')
+    if comparison['missing_existing_processes']:raise ValueError('Producer lost an existing process')
+    proof=load(source_capture/'compiler.json');receipt=proof['compile_artifact'];raw=(source_capture/'compiled.ptx').read_bytes()
+    from portable_offline_assembler import validate_ptx
+    ptx=validate_ptx(raw)
+    if receipt['artifact_sha256']!=ptx['sha256'] or receipt['artifact_bytes']!=ptx['bytes']:raise ValueError('Producer PTX mismatch')
+    origin=dict(schema=1,producer_package_id=producer['package_id'],producer_manifest_sha256=sha((source_package/'gpu-package.json').read_bytes()),
+        producer_artifacts_sha256=sha((source_capture/'artifacts.json').read_bytes()),ptx=ptx,cache_key=receipt['key'],
+        cuda_sha256=proof['generated_sha256']['cuda'],generated_normalized=proof['generated_normalized'],
+        source_sha256=proof['source_sha256'],producer_compiler_verified=True,producer_containment_verified=True)
+    return origin,raw
+
+
+def assemble_child(m,capture,backend):
+    if backend!='cuda':raise ValueError('Standalone assembly requires CUDA package')
+    import ctypes as C
+    from portable_phase_audit import Journal
+    import portable_offline_assembler as assembler
+    journal=Journal(capture/'phases.jsonl');request=load(capture/'assembly-request.json')
+    loader=getattr(C,'WinDLL',None)
+    def library(name,*a,**k):
+        if str(name).replace('\\','/').rsplit('/',1)[-1].lower() not in ('kernel32','kernel32.dll'):
+            journal.emit('offline_assembly_forbidden_library','rejected');raise RuntimeError('Driver/NVRTC DLL forbidden in offline assembly')
+        return loader(name,*a,**k)
+    with forbid_gpu(),patch.object(C,'WinDLL',library,create=True):
+        origin,raw=assembly_origin(m,request['source_package'],request['source_capture'])
+        if origin!=request['origin']:raise ValueError('Upstream assembly input changed after request')
+        journal.emit('assembly_origin','verified',origin=origin)
+        receipt=journal.invoke('shared_offline_assembly',assembler.run,capture,request['ptxas'],raw,origin,journal=journal)
+    write(capture/'assembly.json',dict(origin=origin,receipt=receipt,calculation_verified=False,kernel_calls=0))
+
+
+def audit_assemble_capture(m,capture,*,verify_artifacts=True):
+    import portable_offline_assembler as assembler
+    capture=Path(capture).resolve()
+    run=load(capture/'run.json');facts=load(capture/'execution.json')
+    if run.get('mode')!='assemble-only' or run.get('backend')!='cuda' or run.get('package_id')!=m['package_id'] or is_development(m):raise ValueError('Wrong standalone assembly capture')
+    if run.get('memory_limit_mb')!=2048 or type(facts['timeout_seconds']) is not int or not 1<=facts['timeout_seconds']<=60:raise ValueError('Standalone assembly exceeds fixed policy')
+    if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
+    rows=[];verified=False;error=None
+    try:
+        rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
+        allowed={'assembly_origin','shared_offline_assembly','offline_ptxas_tool','offline_ptxas_input','offline_ptxas','offline_ptxas_child','offline_assembly_receipt'}
+        if any(r['stage'] not in allowed for r in rows):raise ValueError('Forbidden or failed assembly operation')
+        expected=[('assembly_origin','verified'),('shared_offline_assembly','entered'),('offline_ptxas_tool','verified'),('offline_ptxas_input','verified'),('offline_ptxas','entered'),('offline_ptxas_child','verified'),('offline_ptxas','returned'),('offline_assembly_receipt','verified'),('shared_offline_assembly','returned')]
+        if [(r['stage'],r['state']) for r in rows]!=expected:raise ValueError('Incomplete or reordered assembly journal')
+        request=load(capture/'assembly-request.json');origin,ptx=assembly_origin(m,request['source_package'],request['source_capture'])
+        proof=load(capture/'assembly.json');receipt=proof['receipt'];identity=receipt['identity']
+        if request['origin']!=origin or proof['origin']!=origin or rows[0]['origin']!=origin:raise ValueError('Assembly origin mismatch')
+        tool=assembler.validate_tool(request['ptxas'])
+        if rows[2]['tool']!=tool or rows[3]['input']!=origin['ptx'] or rows[4]['tool_sha256']!=tool['sha256']:raise ValueError('Assembly tool/input journal mismatch')
+        argv=[str(Path(request['ptxas']).resolve()),*assembler.OPTIONS,str(capture/'input.ptx'),'-o',str(capture/'compiled.cubin.partial')]
+        if rows[4]['argv']!=argv or rows[6]['return_code']!=0:raise ValueError('Assembler command/return mismatch')
+        snapshot=rows[5]['inspection']
+        if not assembler.contained(snapshot,rows[5]['pid'],snapshot['child_pid']) or not rows[4]['wall_time_ns']<=snapshot['observed_unix_ns']<=rows[6]['wall_time_ns']:raise ValueError('Assembler child not observed inside the validation Job')
+        expected_identity=dict(schema=1,provider='offline-ptxas',artifact='cubin',tool=tool,options=assembler.OPTIONS,input=origin['ptx'],upstream_cache_key=origin['cache_key'],upstream_cuda_sha256=origin['cuda_sha256'])
+        if identity!=expected_identity or receipt['key']!=sha(json.dumps(identity,sort_keys=True,separators=(',',':')).encode()):raise ValueError('Assembly identity mismatch')
+        if rows[7]['receipt']!=receipt or (capture/'input.ptx').read_bytes()!=ptx:raise ValueError('Assembly receipt/PTX changed')
+        binary=(capture/'compiled.cubin').read_bytes()
+        if not binary.startswith(b'\x7fELF') or len(binary)<64 or sha(binary)!=receipt['artifact_sha256'] or len(binary)!=receipt['artifact_bytes']:raise ValueError('Assembly ELF mismatch')
+        if proof.get('calculation_verified') is not False or proof.get('kernel_calls')!=0:raise ValueError('Wrong assembly proof scope')
+        verified=True
+    except (KeyError,ValueError,OSError) as exc:error=str(exc)
+    containment,pid=job_contained(capture,rows,memory_limit_bytes=2048*1024*1024)
+    verified=bool(verified and facts['passed'] and containment)
+    preservation=environment_preserved(capture,facts)
+    return dict(mode='assemble-only',assembly_verified=verified,passed=verified and preservation is True,
+        containment_verified=containment,preservation_verified=preservation,calculation_verified=False,
+        kernel_calls=0,error=error,gpu_retry_count=0)
+
+
+def assemble_capture(capture,timeout,original_workspace,source_package,source_capture,ptxas):
+    if os.name!='nt':raise ValueError('Standalone assembly requires Windows')
+    if type(timeout) is not int or not 1<=timeout<=60 or not original_workspace:raise ValueError('Standalone assembly requires original workspace and1..60s')
+    m=verify_package(ROOT)
+    origin,_=assembly_origin(m,source_package,source_capture)
+    from portable_offline_assembler import validate_tool
+    validate_tool(ptxas)
+    capture.mkdir(parents=True,exist_ok=False)
+    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode='assemble-only',status='assembling',memory_limit_mb=2048,gpu_retry_count=0))
+    request=dict(source_package=str(Path(source_package).resolve()),source_capture=str(Path(source_capture).resolve()),ptxas=str(Path(ptxas).resolve()),origin=origin)
+    write(capture/'assembly-request.json',request)
+    try:
+        with (ROOT/'assembly-claimed-cuda.json').open('x',encoding='utf-8') as stream:json.dump(dict(package_id=m['package_id'],capture=str(capture),origin=origin),stream)
+        with patch.dict(os.environ,NIKKE_VALIDATION_JOB_MEMORY_MB='2048',NIKKE_CUDA_ARTIFACT='cubin',NIKKE_CUDA_PTXAS_OPT_LEVEL='1'):
+            run_job(capture,'cuda',timeout,original_workspace,assemble_only=True)
+        result=audit_assemble_capture(m,capture,verify_artifacts=False);write(capture/'result.json',result)
+        run=load(capture/'run.json');run['status']='finished';write(capture/'run.json',run)
+    except BaseException as exc:
+        write(capture/'failure.json',dict(error=type(exc).__name__+': '+str(exc),kernel_calls=0));run=load(capture/'run.json');run['status']='failed';write(capture/'run.json',run);raise
+    finally:collect(capture,capture/'artifacts.json')
+    return result
+
+
 def compile_child(m,capture,backend):
     """Same compiler/cache as execution, with no CUDA driver admission."""
     if backend!='cuda' or is_development(m):raise ValueError('Compile-only requires a sealed CUDA package')
@@ -1085,6 +1196,8 @@ def audit_capture(capture,verify_artifacts=True,*,record_comparison=False):
     m=verify_package(ROOT)
     if load(capture/'run.json')['package_id']!=m['package_id']:raise ValueError('Capture belongs to another package')
     if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
+    if load(capture/'run.json').get('mode')=='assemble-only':
+        return audit_assemble_capture(m,capture,verify_artifacts=verify_artifacts)
     if load(capture/'run.json').get('mode')=='module-only':
         return audit_module_capture(m,capture,verify_artifacts=verify_artifacts)
     if load(capture/'run.json').get('mode')=='compile-only':
@@ -1172,6 +1285,7 @@ def main(argv=None):
     a=sub.add_parser('compile');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--artifact-kind',choices=('cubin','ptx'),default='cubin')
     a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path)
+    a=sub.add_parser('assemble');a.add_argument('--capture',type=Path,required=True);a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--ptxas',type=Path,required=True);a.add_argument('--timeout',type=int,default=60);a.add_argument('--original-workspace',type=Path,required=True)
     a=sub.add_parser('module-check');a.add_argument('--jit-opt-level',type=int,choices=range(5));a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path,required=True)
     a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -1190,7 +1304,7 @@ def main(argv=None):
             a.add_argument('--cpu-only',action='store_true');a.add_argument('--timeout',type=int,default=180);a.add_argument('--original-workspace',type=Path);a.add_argument('--slang-root',type=Path)
             a.add_argument('--require-cache',action='store_true');a.add_argument('--compile-cache',type=Path);a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--artifact-kind',choices=('cubin','ptx'))
         else:
-            a.add_argument('--compile-only',action='store_true');a.add_argument('--module-only',action='store_true')
+            a.add_argument('--compile-only',action='store_true');a.add_argument('--module-only',action='store_true');a.add_argument('--assemble-only',action='store_true')
     for name in ('status','audit','collect','export'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True)
         if name in ('collect','export'):a.add_argument('--out',type=Path,required=True)
@@ -1214,6 +1328,7 @@ def main(argv=None):
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
         if a.compile_cache:os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
         result=compile_capture(a.capture,a.timeout,a.original_workspace,a.artifact_kind,a.ptxas_level,a.memory_limit_mb)
+    elif a.command=='assemble':result=assemble_capture(a.capture,a.timeout,a.original_workspace,a.source_package,a.source_capture,a.ptxas)
     elif a.command=='module-check':
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
         os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
@@ -1249,7 +1364,7 @@ def main(argv=None):
         result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only)
     elif a.command=='_child':
         # Generated source copies are captured before comparison, including a mismatch.
-        child(a.capture,a.backend,a.smoke,a.compile_only,a.module_only);return
+        child(a.capture,a.backend,a.smoke,a.compile_only,a.module_only,a.assemble_only);return
     elif a.command=='audit':result=audit_capture(a.capture)
     elif a.command=='status':result=capture_status(a.capture)
     elif a.command=='collect':result=collect(a.capture,a.out)
@@ -1259,6 +1374,10 @@ def main(argv=None):
         # Historical fixed reports remain supported by their existing sealers.
         runpy.run_path(str(ROOT/f'research/seal-world-v{a.version}-cuda.py'),run_name='__main__');return
     print(json.dumps(result,ensure_ascii=False,indent=2))
+    if result.get('mode')=='assemble-only':
+        if not result.get('assembly_verified'):raise SystemExit(1)
+        if result.get('preservation_verified') is False:raise SystemExit(2)
+        return
     if result.get('mode')=='module-only':
         if not result.get('module_verified'):raise SystemExit(1)
         if result.get('preservation_verified') is False:raise SystemExit(2)

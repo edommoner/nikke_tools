@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "metadata_only_not_downloaded_or_executed",
+  "status": "mac_download_hash_and_members_verified_windows_execution_pending",
   "source": "https://pypi.org/pypi/nvidia-cuda-nvcc-cu12/12.4.131/json",
   "project": "nvidia-cuda-nvcc-cu12",
   "publisher": "NVIDIA CUDA Installer Team",
@@ -12,5 +12,11 @@
   "intended_scope": "Only isolated component for saved PTX8.4 offline assembly; no SDK/PATH/driver changes",
   "gpu_calls": 0,
   "compilation_calls": 0,
-  "download_calls": 0
+  "download_calls": 1,
+  "ptxas_member": "nvidia/cuda_nvcc/bin/ptxas.exe",
+  "ptxas_bytes": 19582976,
+  "ptxas_sha256": "0183c5b1fdecc69234597efac421eca4670a3f6ed6ed028ff6afb85d06f3efb8",
+  "license_members": [
+    "nvidia_cuda_nvcc_cu12-12.4.131.dist-info/License.txt"
+  ]
 }

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "status": "cpu_verified_windows_assembly_pending",
+  "package": {
+    "package_id": "d9e6124c1d59e9eed19aa519231b0688fafddca90d0843ac3b730d1a983d03e8",
+    "files": 1947,
+    "bytes": 5265837,
+    "archive_sha256": "db7ba4e0c53b6bf67355d18c9cb6ebdbfdd976e6b927f6cc3f8c84018b6056e2",
+    "source_commit": "1625cab551acfbed0039eec666881d410ae48422"
+  },
+  "cpu": {
+    "full_discovered": 805,
+    "full_passed": 803,
+    "full_skipped": 1,
+    "full_errors": 1,
+    "elapsed_seconds": 54.899,
+    "error": "Sandbox denied ps in the existing phase timeout cleanup test; no implementation assertion failed",
+    "targeted_phase_rerun": {
+      "tests": 5,
+      "passed": 5,
+      "elapsed_seconds": 1.024,
+      "os_process_observation_allowed": true
+    },
+    "new_assembly_tests": {
+      "tests": 14,
+      "passed": 14,
+      "elapsed_seconds": 0.096
+    }
+  },
+  "payload_check": {
+    "package_id": "d9e6124c1d59e9eed19aa519231b0688fafddca90d0843ac3b730d1a983d03e8",
+    "changed_payload": [
+      "app/portable_offline_assembler.py",
+      "scripts/nikke_gpu.py",
+      "tests/test_portable_offline_assembly.py"
+    ],
+    "all_gpu_sources_adapters_transport_unchanged": true
+  },
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "windows_assembly_attempts": 0,
+  "logs": [
+    {
+      "path": "/tmp/nikke-offline-assembly-full-cpu.log",
+      "sha256": "a87880bc5b7bf6848c65d7803790c6b4157beccf73c283730f1a9c8e4b926a5c"
+    },
+    {
+      "path": "/tmp/nikke-offline-assembly-phase-cpu.log",
+      "sha256": "5bcbbb6fc7006996da9ea970582386dac6a35d09210e04abf3235c8ebc41c90a"
+    },
+    {
+      "path": "/tmp/nikke-offline-assembly-unit.log",
+      "sha256": "16482382cba7228aa2c475109bbb54a3c2bf9916a5c1617b22fc101db483fbde"
+    }
+  ]
+}
