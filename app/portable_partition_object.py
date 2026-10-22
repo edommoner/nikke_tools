@@ -32,14 +32,17 @@ def module_origin(cache_entry,phases,producer,producer_raw):
 def object_profile(source):
     purpose=source.get('purpose')
     if purpose=='diagnostic-focus-relocatable-object':
-        return dict(stem='focus',provider='diagnostic-partition-ptxas',artifact='diagnostic-relocatable-object')
+        return dict(stem='focus',provider='diagnostic-partition-ptxas',artifact='diagnostic-relocatable-object',prefix='partition_object',proof='object.json',log='assembler')
     if purpose=='diagnostic-module-relocatable-object':
-        return dict(stem='module',provider='diagnostic-module-ptxas',artifact='diagnostic-module-relocatable-object')
+        return dict(stem='module',provider='diagnostic-module-ptxas',artifact='diagnostic-module-relocatable-object',prefix='partition_object',proof='object.json',log='assembler')
+    if purpose=='diagnostic-module-link':
+        return dict(stem='linked',provider='diagnostic-nvlink',artifact='diagnostic-linked-cubin',prefix='module_link',proof='link.json',log='linker')
     raise ValueError('Unknown diagnostic object source purpose')
 
 
 def object_paths(capture,source):
     stem=object_profile(source)['stem'];capture=Path(capture)
+    if stem=='linked':return capture/'module.o',capture/'linked.cubin.partial',capture/'linked.cubin'
     return capture/(stem+'.ptx'),capture/(stem+'.o.partial'),capture/(stem+'.o')
 
 
@@ -62,44 +65,70 @@ def validate_object(raw):
     return dict(format='elf64-little',type='relocatable',machine='cuda',cuda_format_version=version,sections=shnum,bytes=len(raw),sha256=assembler.digest(raw))
 
 
+def object_options(source):
+    if object_profile(source)['stem']=='linked':
+        from portable_device_linker import OPTIONS as link_options
+        return link_options
+    return OPTIONS
+
+
+def validate_tool_path(source,path):
+    if object_profile(source)['stem']=='linked':
+        from portable_device_linker import validate_tool
+        return validate_tool(path)
+    return assembler.validate_tool(path)
+
+
+def validate_input(source,raw):
+    return validate_object(raw) if object_profile(source)['stem']=='linked' else assembler.validate_ptx(raw)
+
+
+def validate_output(source,raw):
+    if object_profile(source)['stem']=='linked':
+        from portable_device_linker import validate_cubin
+        return validate_cubin(raw)
+    return validate_object(raw)
+
+
 def identity(tool,source):
     profile=object_profile(source)
-    return dict(schema=1,provider=profile['provider'],artifact=profile['artifact'],tool=tool,options=OPTIONS,origin=source)
+    return dict(schema=1,provider=profile['provider'],artifact=profile['artifact'],tool=tool,options=object_options(source),origin=source)
 
 
 def run(capture,tool,raw,source,*,journal,popen=None,inspector=None):
-    capture=Path(capture).resolve();tool=Path(tool).resolve();tool_info=assembler.validate_tool(tool)
-    if assembler.validate_ptx(raw)!=source['input']:raise ValueError('Focus input changed')
+    capture=Path(capture).resolve();tool=Path(tool).resolve();tool_info=validate_tool_path(source,tool)
+    profile=object_profile(source);prefix=profile['prefix']
+    if validate_input(source,raw)!=source['input']:raise ValueError('Diagnostic input changed')
     input_path,partial,output=object_paths(capture,source)
-    if partial.exists() or output.exists():raise FileExistsError('Focus object already exists')
+    if partial.exists() or output.exists():raise FileExistsError('Diagnostic output already exists')
     with input_path.open('xb') as stream:stream.write(raw);stream.flush();os.fsync(stream.fileno())
-    journal.emit('partition_object_tool','verified',tool=tool_info)
-    journal.emit('partition_object_input','verified',input=source['input'])
-    argv=[str(tool),*OPTIONS,str(input_path),'-o',str(partial)]
-    journal.emit('partition_object_ptxas','entered',argv=argv,tool_sha256=tool_info['sha256'])
+    journal.emit(prefix+'_tool','verified',tool=tool_info)
+    journal.emit(prefix+'_input','verified',input=source['input'])
+    argv=[str(tool),*object_options(source),str(input_path),'-o',str(partial)]
+    journal.emit(prefix+('_tool_run' if profile['stem']=='linked' else '_ptxas'),'entered',argv=argv,tool_sha256=tool_info['sha256'])
     creator=popen or subprocess.Popen;reader=inspector or assembler.inspect_process
     started=time.perf_counter();process=None
     try:
-        with (capture/'assembler.stdout.log').open('xb') as stdout,(capture/'assembler.stderr.log').open('xb') as stderr:
+        with (capture/(profile['log']+'.stdout.log')).open('xb') as stdout,(capture/(profile['log']+'.stderr.log')).open('xb') as stderr:
             process=creator(argv,cwd=capture,stdin=subprocess.DEVNULL,stdout=stdout,stderr=stderr,shell=False,
                 creationflags=subprocess.BELOW_NORMAL_PRIORITY_CLASS if os.name=='nt' else 0)
             snapshot=reader(process)
-            if not assembler.contained(snapshot,os.getpid(),process.pid):raise RuntimeError('Focus assembler is not in the validation Job')
-            journal.emit('partition_object_child','verified',inspection=snapshot)
+            if not assembler.contained(snapshot,os.getpid(),process.pid):raise RuntimeError('Native tool is not in the validation Job')
+            journal.emit(prefix+'_child','verified',inspection=snapshot)
             code=process.wait(timeout=55)
         elapsed=time.perf_counter()-started
-        journal.emit('partition_object_ptxas','returned',return_code=code,elapsed_seconds=elapsed)
-        if code:raise RuntimeError('Focus ptxas failed with exit code '+str(code))
-        if assembler.validate_tool(tool)!=tool_info or input_path.read_bytes()!=raw:raise ValueError('Focus tool/input changed during execution')
-        artifact=validate_object(partial.read_bytes())
+        journal.emit(prefix+('_tool_run' if profile['stem']=='linked' else '_ptxas'),'returned',return_code=code,elapsed_seconds=elapsed)
+        if code:raise RuntimeError('Native tool failed with exit code '+str(code))
+        if validate_tool_path(source,tool)!=tool_info or input_path.read_bytes()!=raw:raise ValueError('Native tool/input changed during execution')
+        artifact=validate_output(source,partial.read_bytes())
         with partial.open('r+b') as stream:os.fsync(stream.fileno())
-        if output.exists():raise FileExistsError('Focus object already exists')
+        if output.exists():raise FileExistsError('Diagnostic output already exists')
         partial.rename(output)
         proof=identity(tool_info,source)
         receipt=dict(identity=proof,key=assembler.digest(json.dumps(proof,sort_keys=True,separators=(',',':')).encode()),artifact=artifact,elapsed_seconds=elapsed)
-        journal.emit('partition_object_receipt','verified',receipt=receipt)
+        journal.emit(prefix+'_receipt','verified',receipt=receipt)
         return receipt
     except BaseException as error:
-        journal.emit('partition_object_failure','raised',exception=type(error).__name__)
+        journal.emit(prefix+'_failure','raised',exception=type(error).__name__)
         if process is not None and process.poll() is None:process.terminate();process.wait(timeout=5)
         raise
