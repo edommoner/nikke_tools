@@ -11,6 +11,12 @@ def reference_readiness(issue):
             contract_coverage='recorded_subset',reference_suites=['manual-swap','manual-swap-rosters'],recorded_cases=26,
             note='Known mode-swap subset has a separate shared Metal proof; this issue alone does not identify an unported valid control. Review malformed input or combined policies without inferring admission')
         return result
+    if issue.get('phase')=='effect' and issue.get('category')=='trigger' and issue.get('kind')=='buff' and issue.get('target')=='self' and issue.get('operator')==dict(domain='condition',descriptor='self_stat_above:accuracy_pct:0'):
+        result.update(lane='gpu_lowering_candidate',native_consumer='confirmed_source',
+            consumer_source='research/upstream/nikke-calc-master/calculator/buff_manager.py:_condition_ok',
+            contract_coverage='recorded_subset',reference_suites=['accuracy-predicate','accuracy-predicate-rosters'],recorded_cases=28,
+            note='Strict stat query at activation;26 authored contracts and2 complete native profiles. Host/GPU admission remains separate')
+        return result
     if issue.get('phase')=='effect' and issue.get('kind')=='damage' and issue.get('fields')==['hits_parts']:
         result.update(lane='native_contract_extension',native_consumer='confirmed_source',
             consumer_source='research/upstream/nikke-calc-master/calculator/timeline.py:_coord_skill_hits,_handle_damage_eff,_reach_hit',
@@ -27,7 +33,11 @@ def reference_readiness(issue):
         return result
     if issue.get('phase')!='effect' or issue.get('kind')!='buff':return result
     stat=issue.get('stat')
-    if stat=='heal_split':
+    if stat=='received_dmg_split':
+        result.update(lane='reference_model_gap',native_consumer='specification_deferred_in_pinned_source',
+            consumer_source='research/upstream/nikke-calc-master/docs/IMPL-STATUS.md:received_dmg_split',
+            note='Differential allocation ratios are undefined in the pinned specification; self_cover and actor delivery are both deferred. Do not alias to received_dmg_split_even or accept as no-op')
+    elif stat=='heal_split':
         result.update(native_consumer='declared_cpu_model',consumer_source='app/heal_sharing_compat.py',
             contract_coverage='recorded_subset',reference_suites=['heal-share','heal-share-extended','heal-share-targets','heal-share-lifesteal'],recorded_cases=43,
             lane='native_contract_extension',note='Declared model choices still need in-game confirmation; contracts are not exhaustive')

@@ -1,3 +1,7 @@
+<!-- accuracy-predicate-reference-current -->
+命中率条件の正本CPU26契約＋実モダニア全定義2入力を共通CLI referenceへ登録。不変packageで28契約成功、CPU-only14群99検査成功。実30秒は8判定が全成立、値は14%×5→5.44%×3で固定bool化不可。CPU物理履歴2343件はGPU容量超過のため後続比較で省略を明示する。差等被ダメ分配の2分類はpinned仕様未定の証拠を固定してmodel gapへ移動、均等分配への別名化なし。静的225/266・70分類は不変、candidate1/consumer研究4/gap3/review62。GPU受付は拒否継続、新GPU実行/claim0、正本CPU/GPU/数値/normalizer/golden不変。Metal既存1169範囲維持、Windows操作0/終了原因unknown/保全false、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-accuracy-predicate-reference.mdとresearch/portable-accuracy-predicate-reference-checkpoint.json。次は容量予算を確保して共有条件受付・Metal短例・旧1169保持へ進む。以下は履歴です。
+<!-- /accuracy-predicate-reference-current -->
+
 <!-- parent-oracles-current -->
 共通CLIに同一親プロセスの事前CPU結果の再利用を実装。現在のmanual-swap/実編成/保持suiteで自動利用し、既存比較器のGPU decode/全項目比較/拒否/全raw/SHA/生成code/輸送監査は維持。package/capture/PID/thread/引数/値の同一性を検査、一度だけ消費してclose、値を子や保存cacheへ渡さない。独立audit/seal/replayとCPU-onlyは再利用なし。旧Metal1137のCPU読取比較で818正例を再利用/84再計算/235拒否、親比較68.414秒→11.833秒（56.581秒削減）、全項目/全entries/元保存JSON一致。preflight64.800秒とCPU回帰/独立監査は残す。新旧両比較を含む測定peakRSS6140461056Bは増分/Windowsメモリ証明ではない。正式30入力を新通常経路でMetal一致（再利用23/拒否7）、生成cache追加Slang0/GPU0.054426秒、CPU13群90成功、その保存結果の独立fresh auditも成功。故障注入13を含む関連97検査成功。GPU本体/golden/正本CPU/数値/normalizer変更0、既存Metal1169の範囲を維持。Windows追加操作0/7終了unknown/preservationfalse停止、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-parent-oracles.mdとresearch/portable-parent-oracles-checkpoint.json。次はこのCLIを使って未対応制御/効果の共通GPU接続を継続。以下は履歴です。
 <!-- /parent-oracles-current -->
