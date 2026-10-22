@@ -1,3 +1,7 @@
+<!-- pellet-shot-reference-current -->
+共通CLI `reference --suite pellet-shot` に正本CPU20契約を追加。fresh不変packageで59射・62通知が成功し、旧失HP／共通reference負例を含む3群18検査成功。raw閾値aliasの区別、数値→原文順、重複descriptorの複数発動、captured pellet×muzzles、auto/warmupのみの通知、gauge/attack前の順序を固定。観測器の追加buff照会0・native/trace全保持。GPU本体／受付／golden／数値／ABI変更0・GPU実行0で、未実装のCPU準備段階です。Windowsのゲーム／動画併用は原因証拠ではなく、7終了unknown・環境保全false・追加検証停止を維持。詳細docs/portable-pellet-shot-reference.mdとresearch/portable-pellet-shot-reference-checkpoint.json。次は原文別ID＋共通Slang通知、Metal短例・実編成・旧1050保持。全キャラ認定0／UI CPU／ゴール未達。以下は履歴です。
+<!-- /pellet-shot-reference-current -->
+
 <!-- lost-hp-attack-current -->
 失HP ATKを既存共有Slang scalarへ接続。GPUはreference受付1箇所だけで、数値・Runtime・正本CPU/既存CUDA/normalizerは不変。CPU21＋復活3契約、Metal主29(native21/拒否8)＋復活3＋ギロチン全定義3秒/30秒2、旧1016が同115sourceで一致・独立seal。旧全entriesとraw3196059648Bを全byte保持、計1050(native847/拒否203)。CPU回帰58群350検査が79.062秒、GPU10.416秒、生成cache追加Slang0。full115/commands116 certificate14検査成功、commands両生成の原byteも旧版と同一（NVRTC実hit証明ではない）。ギロチン30秒で正scalar714回、最小HP50.1209%・最大倍率47.8839を観測しnative指紋保持。物理履歴30秒32省略・旧省略は残す。静的223/266・base163/203・72分類はGPU認定ではない。Windows追加実行0、7終了unknown/preservationfalse停止、UI CPU/全キャラ認定0/ゴール未達。詳細docs/portable-lost-hp-attack.mdとresearch/portable-lost-hp-attack-checkpoint.json。次はpellet_hit_in_shot:5の正本契約。以下は履歴です。
 <!-- /lost-hp-attack-current -->

@@ -4,7 +4,8 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
-REFERENCES={'lost-hp-attack-revival':('portable_lost_hp_attack_revival_cases','world_lost_hp_attack_native','portable_lost_hp_attack_contracts'),
+REFERENCES={'pellet-shot':('portable_pellet_shot_cases','world_pellet_shot_native','portable_pellet_shot_contracts'),
+            'lost-hp-attack-revival':('portable_lost_hp_attack_revival_cases','world_lost_hp_attack_native','portable_lost_hp_attack_contracts'),
             'lost-hp-attack':('portable_lost_hp_attack_cases','world_lost_hp_attack_native','portable_lost_hp_attack_contracts'),
             'skill-hp-basis-protection':('portable_skill_hp_basis_protection_cases','world_skill_hp_basis_native','portable_skill_hp_basis_contracts'),
             'skill-hp-basis':('portable_skill_hp_basis_cases','world_skill_hp_basis_native','portable_skill_hp_basis_contracts'),
