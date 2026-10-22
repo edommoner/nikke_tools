@@ -64,3 +64,9 @@ Windowsの実GPU入力generated.cu（1,861,674B／SHA `548a1cc63fbb26f4be5694f70
 `actorStateQueryScopeSnapshot(uint at)`をnoinlineのuint返却helperとして共有Slangへ分離し、push側はcall結果をuintとして保持してからscopeを書き、保存値を返す。pinned Mac Slangの両生成物でcall→store→saved uint returnを確認。CUDA helperには`__noinline__`があり、生成監査はpointer reload／post-store snapshot／誤return／helper内storeを拒否する4負例を持つ。共通resident buildでもこの監査を実行し、対象CUDA/Metalの不正生成を公開前に拒否する。既存resident transport3検査も成功。記録は`research/portable-scope-snapshot-codegen-checkpoint.json`。
 
 候補のGPU実行・計算保持はまだ未検証。GPU sourceはworld_actor_stateの1fileだけ変更し、closure110/ABI/数値式/strict normalizerは不変。旧sealed goldenとcompiler certificateは意図的に未更新である。次はdevelopmentからMetal実4／849の全raw保持と独立sealを確認して新source certificateを作り、必要な短いCUDA検証へ進む。古い成功sourceへ新SHAを貼るだけの認定はしない。
+
+## 修正候補のMetal実4保持と境界ledger
+
+専用Swift cache修正後のdevelopment packet edc6b6e4...でApple M5実4が成功。GPU3.104149秒、全12,582,912byteが旧保存rawと一致し、独立sealもGPU0で成功した。scope修正は旧Metal結果を保持している。旧Swift失敗packet/claimは維持した。
+
+849候補はCPUで歴史的な「6注釈のみ」guardがworld_actor_stateの意図した修正を拒否し、GPU前で止まった。元token ledgerのhashは更新しない。guardにhelper/call/store/returnの完全一致deltaを明示し、その差分だけを旧形へ逆変換した上で、他の全tokenを元hashへ検査する。返すoriginal_file_tokens_preservedはfalse、explicit_scope_snapshot_deltaとunmodified_tokens_preservedはtrueと区別する。helper改変・call引数改変・noinline削除も拒否する5検査が成功。これはCPU source-change ledgerであり、GPUコードのnormalizer除外やrawの差分許容ではない。

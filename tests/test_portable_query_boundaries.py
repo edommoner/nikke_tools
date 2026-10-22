@@ -1,12 +1,16 @@
-"""Reject accidental math/signature/macro changes in the boundary-only candidate."""
+"""Reject math/signature/macro changes outside the reviewed scope snapshot delta."""
 import sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'app'))
 from portable_query_boundary_contract import verify
 
 class QueryBoundaryTests(unittest.TestCase):
-    def test_only_six_annotations_are_added_to_original_source(self):
-        result=verify(ROOT);self.assertTrue(result['verified']);self.assertEqual(len(result['functions']),6);self.assertTrue(result['original_file_tokens_preserved'])
+    def test_six_annotations_and_only_reviewed_snapshot_delta_preserve_baseline_tokens(self):
+        result=verify(ROOT);self.assertTrue(result['verified']);self.assertEqual(len(result['functions']),6);self.assertFalse(result['original_file_tokens_preserved']);self.assertTrue(result['unmodified_tokens_preserved']);self.assertTrue(result['explicit_scope_snapshot_delta'])
+    def test_altered_scope_snapshot_helper_or_use_is_rejected(self):
+        name='gpu/world_actor_state.slang';source=(ROOT/name).read_text()
+        for old,new in [('return results[at];','return results[at+1];'),('actorStateQueryScopeSnapshot(at);','actorStateQueryScopeSnapshot(at+1);'),('[noinline]\nuint actorStateQueryScopeSnapshot','uint actorStateQueryScopeSnapshot')]:
+            with self.subTest(old=old),self.assertRaisesRegex(AssertionError,'statements'):verify(ROOT,sources={name:source.replace(old,new,1)})
     def test_removed_boundary_is_rejected(self):
         name='gpu/quantity_runtime.slang';s=(ROOT/name).read_text().replace('[noinline]\nuint64_t plainQuantity','uint64_t plainQuantity')
         with self.assertRaisesRegex(AssertionError,'boundary'):verify(ROOT,sources={name:s})
