@@ -1,3 +1,7 @@
+<!-- stream-audit-current -->
+共通CLIのartifact SHAと親readback監査を固定8MiB/1case読取りへ変更。fresh package CPU809中808成功・Windows1skip、保存Metal796/全2.50GBをnative633と再照合し旧comparison全一致（GPU0）。ただし最大RSS2,365,014,016byteで全体2GiB未達。次は入力準備peakとword表現、CUDA transfer/child保存のstream化が必要です。Windows v129はCPU107pass後、snapshot取得失敗でgate前停止。ptxas取得/assembly/driver/GPU0、再試行せずCPU観測診断中。詳細portable-stream-audit.md/checkpoint。以下は履歴です。
+<!-- /stream-audit-current -->
+
 <!-- offline-assembly-current -->
 共通CLIへ保存PTX専用の `assemble` を追加しました。固定tool SHA、元producerの既存監査、fresh BelowNormal Job/start gate、2GiB/60秒、別claim、ELF/phase監査を再利用します。NVRTC/driver/kernel0、fallback/retryなし。Macではcomponentをdownloadしwheel/EXE SHAを確認、実行していません。fresh immutable packageのCPU805件は803成功・Windows1skip・sandboxのps拒否1件で、当該phase群5件はOS観測許可で全成功しました。GPU本体/adapter/transportは実行済みMetal796とbyte同一。Windows実assemblerは未実行、CUBIN cache接続/driver load/stream転送/新版CUDA計算は未完了。詳細docs/portable-offline-assembly.mdとdevelopment checkpoint。以下は履歴です。
 <!-- /offline-assembly-current -->

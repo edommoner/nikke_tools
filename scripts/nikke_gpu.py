@@ -126,13 +126,13 @@ SUITES['revive-diagnostic']=dict(SUITES['revive'],source='gpu/world_projectile_a
 SCHEMA = 1
 SUITES['regression-resident']=dict(SUITES['regression'],source='gpu/world_projectile_resident_entry.slang',golden='research/portable-world-phases-resident-regression-short-expected.json',development_only=False,tests=SUITES['regression']['tests']+['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
 SUITES['entry-reload']=dict(script='research/verify-world-entry-reload-short.py',golden='research/portable-world-entry-reload-short-expected.json',source='gpu/world_entry_reload_resident_entry.slang',inputs=37,native=31,development_only=False,tests=['test_portable_entry_reload_full_reference.py','test_portable_entry_reload_gpu.py','test_portable_combat.py','test_portable_resident_layout.py'])
-SUITES['entry-reload-regression']=dict(SUITES['regression-resident'],script='research/verify-world-entry-reload-regression-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-weapon-phases-regression-short-expected.json',inputs=796,native=633,development_only=False,tests=SUITES['regression-resident']['tests']+['test_portable_entry_reload_gpu.py','test_portable_entry_reload_full_reference.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py'])
+SUITES['entry-reload-regression']=dict(SUITES['regression-resident'],script='research/verify-world-entry-reload-regression-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-weapon-phases-regression-short-expected.json',inputs=796,native=633,development_only=False,tests=SUITES['regression-resident']['tests']+['test_portable_entry_reload_gpu.py','test_portable_entry_reload_full_reference.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py'])
 SUITES['resident-binding']=dict(script='research/verify-resident-binding-short.py',golden='research/portable-resident-binding-short-expected.json',source='gpu/resident_runtime_binding_probe.slang',inputs=4,native=4,development_only=False,tests=['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
 
 # Controller validation has no numeric program to execute. Keep its CPU work
 # separate from a selected suite's battle/native preflight.
 SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
-               'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py']
+               'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py']
 
 
 def sha(data):
@@ -167,8 +167,8 @@ def file_records(root, names):
         p = root/name
         if p.is_symlink() or not p.is_file():
             raise ValueError('Expected regular artifact: '+name)
-        data = p.read_bytes()
-        records.append(dict(path=name, bytes=len(data), sha256=sha(data)))
+        from portable_capture_storage import file_digest
+        records.append(dict(path=name, bytes=p.stat().st_size, sha256=file_digest(p)))
     return records
 
 
@@ -433,16 +433,30 @@ def child(capture, backend, smoke=False, compile_only=False, module_only=False, 
     # the saved bytes independently; child exit0 alone never proves calculation.
 
 
+def readback_parts(path,count,block_size,expected_digest):
+    """Bounded second pass: hash the exact bytes consumed by every comparator."""
+    h=hashlib.sha256()
+    with Path(path).open('rb') as stream:
+        for _ in range(count):
+            part=stream.read(block_size)
+            if len(part)!=block_size:raise ValueError('Readback changed during comparison: short block')
+            h.update(part)
+            yield part
+        if stream.read(1) or h.hexdigest()!=expected_digest:
+            raise ValueError('Readback changed during comparison: size/SHA mismatch')
+
+
 def compare_readback(m, capture, adapter=None):
     """Re-run existing native comparators; no GPU builds/executes allowed."""
     (ROOT/'research/portable-build').mkdir(parents=True, exist_ok=True)
     with forbid_gpu():
         adapter = adapter or open_suite(m)
         entries,data = prepare_entries(adapter, m)
-        raw=(capture/'readback.bin').read_bytes(); evidence=load(capture/'evidence.json')
+        evidence=load(capture/'evidence.json')
+        record=file_records(capture,['readback.bin'])[0];output_digest=record['sha256']
         if (capture/'input.bin').read_bytes()!=data or sha(data)!=m['golden']['input_sha256']:
             raise ValueError('Saved input mismatch')
-        if len(raw)!=len(entries)*786432*4 or sha(raw)!=evidence['output_sha256'] or evidence['input_sha256']!=sha(data):
+        if record['bytes']!=len(entries)*786432*4 or output_digest!=evidence['output_sha256'] or evidence['input_sha256']!=sha(data):
             raise ValueError('Saved evidence/raw mismatch')
         if evidence['source_sha256']!=m['golden']['source_sha256'] or not evidence['gpu_execution_verified']:
             raise ValueError('Wrong/unverified GPU source')
@@ -466,8 +480,9 @@ def compare_readback(m, capture, adapter=None):
             if [r['receipt'] for r in phases if r['stage']=='cuda_compile_cache' and r['state']=='verified']!=[receipt]:
                 raise ValueError('CUDA compiler artifact phase mismatch')
         results=[]; mismatches=[]; iw=adapter.suite.INPUT*4; ow=786432*4
-        for i,(name,words,domain) in enumerate(entries):
-            part=raw[i*ow:(i+1)*ow]; block=array.array('I'); block.frombytes(part)
+        parts=readback_parts(capture/'readback.bin',len(entries),ow,output_digest)
+        for i,((name,words,domain),part) in enumerate(zip(entries,parts,strict=True)):
+            block=array.array('I'); block.frombytes(part)
             if sys.byteorder!='little': block.byteswap()
             try:
                 if domain is None:
@@ -490,10 +505,10 @@ def compare_readback(m, capture, adapter=None):
         for backend,suffix in [('cuda','cu'),('metal','metal')]:
             generated[backend]=adapter.cross.normalized((capture/('generated.'+suffix)).read_bytes())
         if not is_development(m) and generated!=m['golden']['generated_normalized']:mismatches.append(dict(reason='generated code mismatch'))
-        if not is_development(m) and sha(raw)!=m['golden']['output_sha256']:mismatches.append(dict(reason='full readback fingerprint mismatch'))
+        if not is_development(m) and output_digest!=m['golden']['output_sha256']:mismatches.append(dict(reason='full readback fingerprint mismatch'))
         return dict(calculation_verified=not mismatches, entries=results, mismatches=mismatches,
                     input_count=len(entries), native_oracles=sum(domain is not None for _,_,domain in entries),
-                    input_sha256=sha(data),output_sha256=sha(raw),generated_normalized=generated,audit_gpu_calls=0)
+                    input_sha256=sha(data),output_sha256=output_digest,generated_normalized=generated,audit_gpu_calls=0)
 
 
 def replay_source(m, source_package, source_capture):
