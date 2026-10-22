@@ -29,4 +29,4 @@ python scripts/nikke_gpu.py audit --capture /path/to/new-object-capture
 
 `object_verified`はこの1オブジェクト生成だけの検証で、`partition_legal_verified`／`link_verified`／`calculation_verified`はfalse。CLIはobject未検証ならexit1、環境維持がtrueと確認できなければexit2。service未識別を成功にしない。CPUの故障注入テストで使う合成ELFは実assemblerの証明ではない。
 
-最大関数単独でも失敗するか、module全体の失敗と区別できる追加証拠を得る実験である。成功してもremainderコンパイル・101global／constantの解決・relocation／ABI・link・計算一致は未証明。失敗から必要メモリ量を推計しない。対応版nvlinkは未確認で、既存11.3を12.4生成objectへ流用しない。次のlink実験には対応toolの固定・全unitのオブジェクト生成・別の明示manifest／監査が必要。
+最大関数単独でも失敗するか、module全体の失敗と区別できる追加証拠を得る実験である。成功してもremainderコンパイル・101global／constantの解決・relocation／ABI・link・計算一致は未証明。失敗から必要メモリ量を推計しない。NVIDIA公式12.4.131 archiveの公開SHAとnvlink memberのbyte／SHAをMacで確認し、同archiveのptxasは既存固定toolと同一だった（`research/portable-device-linker-component-candidate.json`）。LICENSEも保持した。nvlink自体の実行版／link互換性は未確認で、Windowsへの導入はしていない。既存11.3を12.4生成objectへ流用しない。次のlink実験には対応toolの固定・全unitのオブジェクト生成・別の明示manifest／監査が必要。

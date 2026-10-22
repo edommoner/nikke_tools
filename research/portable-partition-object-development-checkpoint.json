@@ -47,5 +47,14 @@
   "compiler_verified": false,
   "link_verified": false,
   "calculation_verified": false,
-  "next": "Windows CPU preflight then at most one focus-only diagnostic object trial; no remainder/link/GPU or raw PTX transfer"
+  "next": "Windows CPU preflight then at most one focus-only diagnostic object trial; no remainder/link/GPU or raw PTX transfer",
+  "clean_package": {
+    "package_id": "78122d2ce5441a3296d534dd1f01c175122c3559889206c7f28b718ac4d9f60f",
+    "files": 2007,
+    "bytes": 5297491,
+    "archive_sha256": "fb20fad4f81cccc7855f291ca0f8f8c7b242507aba496045533c294e0062a4d2",
+    "source_commit": "5801e81cea886c747e24761ba188f8bba5721cca",
+    "same_files_and_golden_as_cpu_tested_package": true,
+    "extra_mac_test_execution": false
+  }
 }
