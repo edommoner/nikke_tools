@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "scope": "Read-only diagnostics on existing legacy PTX; not v135 or a compiler/GPU run",
+  "gpu_calls": 0,
+  "nvrtc_calls": 0,
+  "ptxas_calls": 0,
+  "rows": [
+    {
+      "file": "app/combat.ptx",
+      "ptx_sha256": "082baaf527a087fe673bce9d6d1da694fe92fefe29f06b80841ef174e3304d40",
+      "bytes": 290241,
+      "functions": 2,
+      "direct_graph_complete": true,
+      "components": 2,
+      "cyclic_components": [],
+      "compiler_verified": false,
+      "calculation_verified": false
+    },
+    {
+      "file": "app/detail_effects.ptx",
+      "ptx_sha256": "5f5d014c5d6f0c0147c63867180f61e229252dfdfff49b63828fdf9e0dec08bd",
+      "bytes": 8464624,
+      "functions": 48,
+      "direct_graph_complete": true,
+      "components": 27,
+      "cyclic_components": [
+        [
+          "_Z11live_markerPKdS0_iP5Stateiii",
+          "_Z11resolve_allPKdS0_iP5Stateii",
+          "_Z13charge_groupsPKdS0_iP5StateiiPdPi",
+          "_Z13charge_lockedPKdS0_iP5Stateii",
+          "_Z13ranked_targetPKdS0_iP5StateS0_iPy",
+          "_Z14base_conditionPKdS0_iP5StateS0_iiidiiiii",
+          "_Z14special_targetPKdS0_iP5Stateii",
+          "_Z15named_magnitudePKdS0_iP5Stateiiiii",
+          "_Z15recipient_valuePKdS0_iP5Stateiii",
+          "_Z17resolve_live_slotPKdS0_iP5Stateii",
+          "_Z18charge_speed_totalPKdS0_iP5Stateii",
+          "_Z20exclusive_ammo_totalPKdS0_iP5StateiiddiPd",
+          "_Z21charge_immunity_flagsPKdS0_iP5Stateii",
+          "_Z21live_shield_recipientPKdS0_iP5Stateiii",
+          "_Z27charge_overflow_coefficientPKdS0_iP5Stateii",
+          "_Z4statPKdS0_iP5Stateiii",
+          "_Z5quantPKdS0_iP5Stateiiidd",
+          "_Z6max_hpPKdS0_iP5Stateiii",
+          "_Z8rank_atkPKdS0_iP5Stateii",
+          "_Z8rank_defPKdS0_iP5Stateii",
+          "_Z9full_ammoPKdS0_iP5Stateii"
+        ],
+        [
+          "_Z11list_targetPKdS0_iP5StateS0_iPy",
+          "_Z15recipient_orderPKdS0_iP5StateS0_ii"
+        ]
+      ],
+      "compiler_verified": false,
+      "calculation_verified": false
+    },
+    {
+      "file": "app/disjoint.ptx",
+      "ptx_sha256": "c460a788b238ac72bb8284f48d38ba15429562fecac67fd6c6123ca39712d323",
+      "bytes": 2646,
+      "functions": 2,
+      "direct_graph_complete": true,
+      "components": 2,
+      "cyclic_components": [],
+      "compiler_verified": false,
+      "calculation_verified": false
+    }
+  ]
+}

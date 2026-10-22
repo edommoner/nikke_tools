@@ -50,11 +50,11 @@ def _declarations(body):
     return registers,local_bytes
 
 
-def ptx_statistics(raw,*,top=8):
-    if type(top) is not int or not 1<=top<=50:raise ValueError('Function count must be1..50')
+def function_records(raw):
+    """Shared lexical boundaries for declarations and graph diagnostics only."""
     source=raw.decode('utf-8').rstrip('\0')
     code=_COMMENTS.sub(lambda m:''.join('\n' if c=='\n' else ' ' for c in m.group()),source)
-    rows=[];covered=0;newlines=[m.start() for m in re.finditer('\n',code)]
+    covered=0;newlines=[m.start() for m in re.finditer('\n',code)]
     for match in _FUNCTION.finditer(code):
         if match.start()<covered:continue
         pos=match.end()
@@ -63,22 +63,31 @@ def ptx_statistics(raw,*,top=8):
         name=_NAME.match(code,pos)
         if name is None:raise ValueError('Unsupported PTX function symbol')
         pos=name.end()
-        # Header parameter lists may have .reg declarations; do not count them
-        # as body allocations or mistake a prototype for a function body.
         while pos<len(code):
             c=code[pos]
             if c=='(':pos=_close(code,pos,'(',')');continue
             if c in ';{':break
             pos+=1
         if pos==len(code):raise ValueError('Unterminated PTX function header')
-        if code[pos]==';':continue
+        record=dict(name=name.group(1),kind=match.group(1),line=bisect_right(newlines,match.start())+1,
+                    header=code[match.start():pos],body=None)
+        if code[pos]==';':
+            yield record
+            continue
         end=_close(code,pos,'{','}');covered=end
-        registers,local_bytes=_declarations(code[pos+1:end-1])
-        rows.append(dict(name=name.group(1),kind=match.group(1),
-                         line=bisect_right(newlines,match.start())+1,
-                         lines=code[pos:end].count('\n')+1,
-                         virtual_registers=registers,
-                         virtual_register_count=sum(registers.values()),
+        record.update(body=code[pos+1:end-1],lines=code[pos:end].count('\n')+1,
+                      definition_sha256=hashlib.sha256(source[match.start():end].encode()).hexdigest())
+        yield record
+
+
+def ptx_statistics(raw,*,top=8):
+    if type(top) is not int or not 1<=top<=50:raise ValueError('Function count must be1..50')
+    rows=[]
+    for record in function_records(raw):
+        if record['body'] is None:continue
+        registers,local_bytes=_declarations(record['body'])
+        rows.append(dict(name=record['name'],kind=record['kind'],line=record['line'],lines=record['lines'],
+                         virtual_registers=registers,virtual_register_count=sum(registers.values()),
                          declared_local_bytes=local_bytes))
     if not rows:raise ValueError('No PTX function definitions found')
     return dict(schema=1,ptx_bytes=len(raw),ptx_sha256=hashlib.sha256(raw).hexdigest(),functions=len(rows),
@@ -88,7 +97,7 @@ def ptx_statistics(raw,*,top=8):
                 scope='PTX virtual declarations only; not physical registers, compiler memory attribution or execution proof')
 
 
-def saved_ptx_statistics(cache_entry,phases,*,top=8):
+def saved_ptx_statistics(cache_entry,phases,*,top=8,callgraph=False):
     """Anchor cached bytes to an existing verified compile receipt, read only."""
     value=json.loads(cache_entry.read_bytes());identity=value['identity']
     key=hashlib.sha256(json.dumps(identity,sort_keys=True,separators=(',',':')).encode()).hexdigest()
@@ -101,6 +110,10 @@ def saved_ptx_statistics(cache_entry,phases,*,top=8):
     if not any(r.get('key')==key and r.get('identity')==identity and r.get('artifact_sha256')==sha and r.get('artifact_bytes')==len(raw) for r in receipts):
         raise ValueError('Saved PTX compile receipt mismatch')
     result=ptx_statistics(raw,top=top)
+    if callgraph:
+        from portable_ptx_callgraph import callgraph_statistics
+        result['callgraph']=callgraph_statistics(raw)
+        result['cache_key']=key
     result.update(receipt_match=True,source_integrity_verified=True,analysis_complete=True,
                   compiler_verified=False,calculation_verified=False,nvrtc_compile_calls=0,gpu_calls=0)
     return result

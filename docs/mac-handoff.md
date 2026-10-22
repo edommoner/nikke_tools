@@ -1,3 +1,7 @@
+<!-- ptx-callgraph-tool-current -->
+保存PTXのCPU-only ptx-stats --callgraphを追加。既存cache key/bytes/SHA/phase receipt照合を再利用、全直接call/entry閉包/SCC/宣言・loadstore統計を出す。間接/外部/未解決は明示しclosed判定false、PTX分割合法性とcompiler memoryの認定はfalse。fresh共通smoke163中162成功/Windows1skip、選択60成功、既存CLI6ファイル約142KBのCPU受渡し9検査成功。legacy PTX3つもread-only解析できたがv135ではない。次はWindowsの保存v135 cache/phaseだけをCPU解析し、小さな派生summaryを取得。NVRTC/ptxas/driver/GPU追加0、PTX本体公開は個別確認待ちのまま。詳細docs/portable-ptx-callgraph.mdとresearch/portable-ptx-callgraph-cpu-checkpoint.json。以下は履歴です。
+<!-- /ptx-callgraph-tool-current -->
+
 <!-- parts-lifecycle-current -->
 parts-skill-lifecycle7の生成stats／着弾live部位／group破壊→子回復順序を共通reference CLIで検証。parts32＝通常31＋deferred gap1、影響25検査成功、旧25全input/native/trace/contract指紋保持。倍率を変更するnamed子の前に生成値を固定、同時2発の2発目は生成part値を保持しても先行破壊後の着弾part集合は空、同名再出現はopen ordinalで区別。GPU source閉包は旧849不変・追加GPU/Windows0・受付閉。次はdocs/portable-parts-skill-next.mdのcaptured stats/Frame/receipt/部位group接続を実装する条件を満たし、CUDA保存PTXで判別可能なcompiler実験を設計。本体CUDA未成立・全キャラ認定0/UI CPU。詳細research/portable-parts-lifecycle-reference-checkpoint.json。以下は履歴です。
 <!-- /parts-lifecycle-current -->
