@@ -28,3 +28,5 @@ fresh package aaec8ca7で全CPU861件中860成功、Windows専用1skip、smoke15
 fresh共有builderでもCUDA／Metal生成指紋がcertificateと一致し、247field／stride138,952／48byteを再確認。約1.926秒、CUDA1,202,619byte、Metal1,281,869byte。新入口を除く元shared sourceはbyte不変。通常本体の数値・イベント・canonical CPU・normalizerは変えていない。MacのGPU実行0。
 
 Windows検証はcommandsのコンパイル局所化の成否だけを判定する。成功してもfull796 CUDAや複数kernel戦闘の完成ではない。失敗ならinit/writeを追加実行せず、同条件を繰り返さずに次の構造仮説を選ぶ。service未識別はpreservation=falseのまま。全キャラGPU認定0、UI CPU、回復分配GPU未接続を維持する。
+
+v133はsmoke153件中152成功・fixtureのpath表記1エラーで停止した。`str(relative_path)`がWindowsのバックスラッシュをartifact member名へ渡し、既存safe_nameが正しく拒否した。2箇所をas_posixへ訂正。共有runtime・compiler・normalizerは不変で、元失敗はresearch/portable-world-v133-compiler-diagnostic-sanitized.jsonへ保存した。validation Job／NVRTC／assembly／GPUは未開始なので、コンパイル局所化の判定はまだ出来ない。訂正版は新しい固定sourceでsmokeから確認し、元capture・claimを置換しない。

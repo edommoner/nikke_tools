@@ -106,7 +106,7 @@ class CompilerDiagnosticTests(unittest.TestCase):
         m=copy.deepcopy(self.m);m['schema']=cli.SCHEMA;m['golden']['source_sha256']={'gpu/compiler_commands_entry.slang':cli.sha(shader.read_bytes()),'gpu/base.slang':cli.sha(base_shader.read_bytes())}
         m['golden']['baseline_golden_sha256']=cli.sha(baseline.read_bytes())
         def save():
-            cli.write(certificate,m['golden']);m['files']=cli.file_records(root,['gpu/compiler_commands_entry.slang','gpu/base.slang','research/portable-compiler-commands-source-certificate.json',str(baseline.relative_to(root))])
+            cli.write(certificate,m['golden']);m['files']=cli.file_records(root,['gpu/compiler_commands_entry.slang','gpu/base.slang','research/portable-compiler-commands-source-certificate.json',baseline.relative_to(root).as_posix()])
             m['package_id']=cli.package_id(m);cli.write(root/'gpu-package.json',m)
         save();self.assertEqual(cli.verify_package(root)['purpose'],'compiler-diagnostic')
         for field,value in (('purpose','sealed'),('calculation_verified',True),('executable_battle_verified',True),('proof_kind','battle'),('entries',[{}]),('baseline_golden_sha256','wrong')):
@@ -116,7 +116,7 @@ class CompilerDiagnosticTests(unittest.TestCase):
             save()
             with self.subTest(field=field),self.assertRaises(ValueError):cli.verify_package(root)
             m=original
-        save();m['files']=[r for r in m['files'] if r['path']!=str(baseline.relative_to(root))]
+        save();m['files']=[r for r in m['files'] if r['path']!=baseline.relative_to(root).as_posix()]
         m['package_id']=cli.package_id(m);cli.write(root/'gpu-package.json',m)
         with self.assertRaisesRegex(ValueError,'baseline absent'):cli.verify_package(root)
 
