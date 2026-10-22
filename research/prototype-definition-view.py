@@ -51,7 +51,7 @@ def main():
      report['seconds']=time.perf_counter()-started
      (lab/'report.json').write_text(json.dumps(report,indent=2));print(json.dumps({k:v for k,v in report.items() if k not in ('source_sha256','original_source_sha256','cuda_stats')},indent=2))
     assert backend.source_hashes(source)==original
-    
+
     if not report['passed']:raise RuntimeError(report['error'])
 
 

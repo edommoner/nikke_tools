@@ -768,12 +768,14 @@
   "next_gate": "Review snapshot equivalence/immutable input and local overrides, add canonical mapping contracts, then immutable full Metal796/native/retention/seal before considering any new bounded Windows compiler trial",
   "reproduction": {
     "script": "research/prototype-definition-view.py",
-    "sha256": "110a45e8bd8e31ab35edf0fd0c06f9de23d1d8609a6fa4ad3e0b39e33a62fa85",
+    "sha256": "c3bfbf3a091be0f2d3d388022aebef1be1b2dfb68cc0205157b945bc88318de5",
     "report": "/tmp/nikke-definition-view-repro/report.json",
     "generated_bytes_and_hashes_equal_v2": true,
     "seconds": 2.054831958957948,
     "nvrtc_calls": 0,
-    "kernel_calls": 0
+    "kernel_calls": 0,
+    "executed_script_sha256": "110a45e8bd8e31ab35edf0fd0c06f9de23d1d8609a6fa4ad3e0b39e33a62fa85",
+    "cosmetic_cleanup_ast_equal": true
   },
   "baseline_source_sha256": {
     "gpu/compiler_commands_entry.slang": "8aab548d4efe72ec4ed1e700c8bf894e8a08a16fe4e48dfada0180a8a6c40ef3",
