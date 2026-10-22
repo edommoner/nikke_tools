@@ -7,6 +7,8 @@ from portable_runtime import UnsupportedPortable
 def normalize_static_weapon(char,base_atk,enemy,*,camera=False):
     from calculator.timeline import CharState,in_optimal_range
     if type(camera) is not bool:raise ValueError('Camera ownership must be explicit')
+    if type(char.get('weapon_mode_swap',False)) is not bool:raise UnsupportedPortable('Manual mode-swap flag must be boolean',reason='control',fields=['weapon_mode_swap'])
+    if char.get('weapon_mode_swap',False):raise UnsupportedPortable('Manual mode-swap reload requires a common execution adapter',reason='control',fields=['weapon_mode_swap'])
     state=CharState(char,base_atk,enemy.get('code'))
     weapon=state.weapon
     if state.fire_mode not in ('auto','auto_warmup','charge'):raise UnsupportedPortable('Unported real firing mode')

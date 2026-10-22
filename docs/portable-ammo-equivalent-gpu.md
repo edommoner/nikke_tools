@@ -1,3 +1,5 @@
+後続の手動モード移行調査と正本26契約は [CPU契約記録](portable-manual-swap-reference.md) を参照。以下は弾消費通知のGPU接続時点の記録です。
+
 # 弾消費相当通知を共通GPUへ接続
 
 `squad_ammo_consume_as` をCUDA／Metal共通Slangのkind37へ接続しました。

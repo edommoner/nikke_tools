@@ -4,7 +4,9 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
-REFERENCES={'ammo-equivalent':('portable_ammo_equivalent_cases','world_ammo_equivalent_native','portable_ammo_equivalent_contracts'),
+REFERENCES={'manual-swap-rosters':('portable_manual_swap_roster_cases','world_manual_swap_roster_native','portable_manual_swap_roster_contracts'),
+            'manual-swap':('portable_manual_swap_cases','world_manual_swap_native','portable_manual_swap_contracts'),
+            'ammo-equivalent':('portable_ammo_equivalent_cases','world_ammo_equivalent_native','portable_ammo_equivalent_contracts'),
             'ammo-equivalent-catalogue':('portable_ammo_equivalent_catalogue_cases','world_ammo_equivalent_native','portable_ammo_equivalent_contracts'),
             'ammo-equivalent-geometry':('portable_ammo_equivalent_geometry_cases','world_ammo_equivalent_native','portable_ammo_equivalent_contracts'),
             'pellet-shot':('portable_pellet_shot_cases','world_pellet_shot_native','portable_pellet_shot_contracts'),
