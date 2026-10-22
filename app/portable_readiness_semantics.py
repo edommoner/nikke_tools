@@ -5,6 +5,25 @@ def reference_readiness(issue):
     result=dict(lane='reference_review',native_consumer='not_audited',contract_coverage='not_indexed',
         gpu_supported=False,gpu_admission_verified=False,full_character_verified=False,
         runtime_validation_performed=False)
+    operator=issue.get('operator')
+    operator=operator if isinstance(operator,dict) else {}
+    if issue.get('phase')=='effect' and issue.get('kind')=='buff' and issue.get('category')=='trigger' and operator.get('domain')=='condition' and operator.get('descriptor') in ('no_broken_cover_ally','focusing'):
+        focus=operator['descriptor']=='focusing'
+        result.update(lane='native_contract_extension',native_consumer='confirmed_source',
+            consumer_source='research/upstream/nikke-calc-master/calculator/buff_manager.py:_condition_ok,_runtime_condition_ok,cover_alive,_alive',
+            contract_coverage='recorded_subset',reference_suites=['state-predicates'],recorded_cases=15,
+            required_extensions=['focus_fire_live_marker_and_aim'] if focus and issue.get('stat')=='focus_fire' else ['friendly_rng_recipient'] if str(issue.get('target','')).startswith('allies_random:') else [],
+            note='CPU-only cover/camera contracts; no GPU admission. Focus is a runtime caster-camera query; finite/passive and query order must retain the pinned model')
+        return result
+    if issue.get('phase')=='effect' and issue.get('category')=='recipient' and issue.get('kind') in ('buff','instant'):
+        import re
+        if re.fullmatch(r'allies_(?:broken_cover_)?random:[1-5]',str(issue.get('target',''))):
+            result.update(lane='native_contract_extension',native_consumer='confirmed_source',
+                consumer_source='research/upstream/nikke-calc-master/calculator/buff_manager.py:_resolve_target_raw,_resolve_lazy',
+                contract_coverage='recorded_subset',reference_suites=['ally-random'],recorded_cases=18,
+                required_extensions=['friendly_rng_stream','recipient_sampling_and_lazy_cache'],
+                note='CPU-only global random.sample contracts; friendly seed/consumption is separate from expected boss RNG. Buff lazy and instant eager selection differ; do not alias enemy RNG or skip saturated/singleton draws')
+            return result
     if issue.get('phase')=='program' and issue.get('category')=='control' and issue.get('fields')==['weapon_mode_swap']:
         result.update(lane='reference_review',native_consumer='confirmed_source',
             consumer_source='research/upstream/nikke-calc-master/calculator/timeline.py:CharState.tick; calculator/buff_manager.py:manual_swap_ready',

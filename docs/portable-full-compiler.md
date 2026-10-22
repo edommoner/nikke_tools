@@ -1,3 +1,7 @@
+<!-- state-prerequisites-current -->
+次のまとめ移植に向け、共通CLI referenceへstate-predicates30＋ally-random18のCPU契約を追加。不変packageで48成功、CPU-only20群124検査24.533秒。生存者のみのcover判定（本人含む）、破壊/復旧/死亡、casterカメラ・有限/無限・同時刻の順序、独立した味方global RNGと敵RNG、空/1人/全員選択の消費、source欄を跨ぐ遅延対象cache、即時修復後の候補変化を固定。100条件/204cover/326runtime照会、50sample/50resolve/52選択。native全項目/trace/元照会回数/乱数stateを保持。focus_fireは条件だけでなくmarker＋aim consumerが未接続。not_coreは期待値累積でbool反転不可。静的227/266・68分類は不変、契約拡張6/consumer研究4/gap3/review55。GPU本体/受付/golden/正本CPU/数値/normalizer不変、GPU実行/claim0、既存Metal1234を新規証明へ加算しない。Windows操作0/原因unknown/保全false、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-state-prerequisites.mdと対応checkpoint。次は共有状態/marker/aim/味方recipientを同一batchで接続しMetal新例＋旧1234を検証。以下は履歴です。
+<!-- /state-prerequisites-current -->
+
 <!-- undying-predicate-current -->
 不屈条件self_undyingを既存共有liveMarkerへ接続。値/名前でなく生存statを照会、Runtime追加field0/stride138952、明示発動/private worldのみ。CPU22＋原文全定義マキマ3（致死刺激あり）契約、Metal主28(native22/拒否6)＋実3＋旧1203が同一sourceで一致・独立seal、計1234(native980/拒否254)。旧全entries/raw3784310784Bを全byte保持。CPU事前67.249秒＋回帰75群433検査141.520秒、GPU10.966637秒、後続生成cache必須hit/Slang0。親再利用871/fresh84/拒否248、独立sealはfresh。full116/commands117 certificate14検査と正式CPU111検査成功、3suiteを通常経路へ昇格。2件のGPU前停止は保存し、監査区切りと古い拒否fixtureだけを修正。実履歴155/1398/1398、省略0、旧省略は残る。静的227/266・base167/203・68分類はGPU認定でない。接続済み条件の旧診断は未実装候補でなく文脈確認へ。rawゼロ領域回収で全byte/SHA/path/inodeを保持し、今回7360544768Bの割当を回収、削除0。正本CPU/数値/normalizer不変、Windows追加操作0/原因unknown/保全false、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-undying-predicate.mdと対応checkpoint。次は共有状態の未対応条件をまとめて契約/保持検証。以下は履歴です。
 <!-- /undying-predicate-current -->

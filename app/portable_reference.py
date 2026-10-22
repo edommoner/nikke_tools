@@ -4,7 +4,9 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
-REFERENCES={'undying-predicate':('portable_undying_predicate_cases','world_undying_predicate_native','portable_undying_predicate_contracts'),
+REFERENCES={'state-predicates':('portable_state_predicate_cases','world_state_predicate_native','portable_state_predicate_contracts'),
+            'ally-random':('portable_ally_random_reference_cases','world_ally_random_reference_native','portable_ally_random_reference_contracts'),
+            'undying-predicate':('portable_undying_predicate_cases','world_undying_predicate_native','portable_undying_predicate_contracts'),
             'undying-predicate-rosters':('portable_undying_predicate_roster_cases','world_undying_predicate_roster_native','portable_undying_predicate_roster_contracts'),
             'accuracy-predicate-rosters':('portable_accuracy_predicate_roster_cases','world_accuracy_predicate_roster_native','portable_accuracy_predicate_roster_contracts'),
             'accuracy-predicate':('portable_accuracy_predicate_cases','world_accuracy_predicate_native','portable_accuracy_predicate_contracts'),
