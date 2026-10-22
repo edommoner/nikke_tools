@@ -23,7 +23,7 @@ flagsは`-arch=sm_86 --ignore-host-info --verbose`。[NVIDIA CUDA12.4のnvlink�
 
 ## 共通実行器と証拠の範囲
 
-focus／moduleと同じ`portable_partition_object.run`、native process inspector、Job／startgate／BelowNormal／2GiB／60秒／wait55＋cleanup5、専用claimと事後監査を使う。入力は元`module.o`を全byte保持した`module.relocatable.cubin`、出力は`linked.cubin.partial`→検証後`linked.cubin`。stageは`module_link_*`、providerは`diagnostic-nvlink`、artifactは`diagnostic-linked-cubin`、mode／claimは`link-object-only`／`link-object-claimed-cuda.json`で、通常cacheと区別する。
+focus／moduleと同じ`portable_partition_object.run`、native process inspector、Job／startgate／BelowNormal／2GiB／60秒／wait55＋cleanup5、専用claimと事後監査を使う。入力は元`module.o`を全byte保持した`module.relocatable.cubin`、出力は`linked.partial.cubin`→検証後`linked.cubin`。stageは`module_link_*`、providerは`diagnostic-nvlink`、artifactは`diagnostic-linked-cubin`、mode／claimは`link-object-only`／`link-object-claimed-cuda.json`で、通常cacheと区別する。
 
 - 元moduleのimmutable packageは元certificate／baselineへ歴史監査し、元source／cache／phase／PTXとmodule objectの生成証拠、元Job、claim、metadata inventory、期待object SHAを再確認する。既知の欠落processや異常cleanupがある元実行は次へ進めない。service未識別を成功にしない。
 - 親・子・事後監査で同じsource chainを再確認する。正確なargv／ret0／tool／input／output SHA、親子PID・作成時刻・Job所属・時系列・memory capを別々に検査する。
@@ -48,3 +48,10 @@ focus／moduleと同じ`portable_partition_object.run`、native process inspecto
 元module objectはhost objectやfatbinaryではなくET_REL／EM_CUDA。LLVMのwrapperと同じく、link用の新captureには`.cubin`で終わる`module.relocatable.cubin`として全byteコピーする。元`module.o`をrename／変更／再生成しない。親・子・auditで固定元SHAを再照合し、実argvもこのファイル名に一致させる。receiptは`input_container=raw-device-elf-cubin-v1`を持ち、通常CUBIN cache・ET_EXEC出力と区別する。拡張子から実行可能と判断せず、入力はET_REL、出力はET_EXECの検査を維持する。
 
 入力名の修正はLLVMの実装に基づく互換性修正で、元の出力作成エラーが解消したという証明ではない。出力名・固定tool・flags・capは変更しない。まず9115884のWindows CPU gate smoke結果を確認し、次の別packageで1回の保存object linkを選ぶ。新しいNVRTC／ptxasは不要。旧消費済みclaim／失敗を消したり、同一packageをretryしたりしない。
+
+
+## f604071の実証と出力suffixの限定比較
+
+Windows CPU223とnative smokeは成功。native子のJob class9実測は2GiB、2PID所属／停止起動／Resume1／return0を確認した。修正した入力は認識され、nvlinkは202byte gmem、48byte cmem[3]、portableEventsのcode generation統計を出した。しかし0.070901秒／ret1で元の`linked.cubin.partial`作成に失敗した。partial／CUBINなし、link false。Job peak62,898,176byte／2GiB、post空／欠落0／cleanupエラーなし。input SHAとtoolは不変。詳細は`research/portable-device-link-native-gate-peer-report.json`。入力名の修正だけで出力エラーは解消しなかった。
+
+次の明示診断は、未公開の一時名を`linked.partial.cubin`へ変える1ケース。`input_container`は同じで、receiptへ`output_container=atomic-partial-cubin-v1`を固定する。公開先`linked.cubin`、原input bytes、tool、flags、cap、検査、fsync→renameは同じ。nvlinkがこのsuffixを必須とするとの仕様根拠は未確認であり、互換性仮説として扱う。任意出力先／flags sweep／同一package再試行は追加しない。失敗すればそのまま保持し、ファイル名の変更だけで成功したと推定しない。

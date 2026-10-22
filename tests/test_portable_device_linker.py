@@ -34,6 +34,7 @@ class DeviceLinkerTests(unittest.TestCase):
     def popen(self,argv,**kwargs):
         self.assertEqual(argv[1:4],linker.OPTIONS);self.assertFalse(kwargs['shell']);owner=self
         self.assertEqual(Path(argv[-3]).name,'module.relocatable.cubin');self.assertEqual(Path(argv[-3]).suffix,'.cubin')
+        self.assertEqual(Path(argv[-1]).name,'linked.partial.cubin');self.assertEqual(Path(argv[-1]).suffix,'.cubin')
         class Process:
             pid=os.getpid()+2000;done=False;terminated=False
             def wait(self,timeout):
@@ -109,7 +110,7 @@ class DeviceLinkerTests(unittest.TestCase):
         self.timeout=True
         with self.context(),self.assertRaises(subprocess.TimeoutExpired):
             origin,raw=cli.linked_object_origin(self.request);obj.run(self.capture,self.tool,raw,origin,journal=module_tests.focus_tests.baseline.producer_test.Journal(self.capture/'phases.jsonl'))
-        self.assertEqual(len(self.processes),1);self.assertTrue(self.processes[0].terminated);self.assertTrue((self.capture/'linked.cubin.partial').exists());self.assertFalse((self.capture/'linked.cubin').exists())
+        self.assertEqual(len(self.processes),1);self.assertTrue(self.processes[0].terminated);self.assertTrue((self.capture/'linked.partial.cubin').exists());self.assertFalse((self.capture/'linked.cubin').exists())
 
     def test_audit_rejects_removed_host_preservation_flag_or_modified_output(self):
         self.proof();phase=self.capture/'phases.jsonl';saved=phase.read_bytes();rows=[json.loads(x) for x in saved.splitlines()];rows[4]['argv'].remove('--ignore-host-info');phase.write_text('\n'.join(map(json.dumps,rows))+'\n');self.assertFalse(self.audit()['link_verified']);phase.write_bytes(saved)

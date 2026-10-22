@@ -1,3 +1,7 @@
+<!-- link-output-suffix-current -->
+f604071 Windows CPU223全成功/native smoke成功。2PID所属/停止起動/Resume1/実測2GiB/marker/return0/cleanup確認。実nvlinkは.cubin入力を認識し202B gmem/48B cmem[3]/portableEvents統計を出すが0.070901秒ret1で旧partial出力作成失敗。native Job cap2GiB/peak62898176B/post空/missing0、元10162file不変。link/計算false。次の1変数診断は一時名のみlinked.partial.cubin（末尾.cubin）へ変更、input/tool/flags/cap/公開名/検査は同じ。vendor必須仕様の証明はなく互換性仮説。fresh CPU223中222成功/Win1skip。未実行の新packageでCPU/Job gate後に1回だけ選ぶ。追加NVRTC/ptxas/driver/GPU0、元claim/失敗保持。詳細docs/portable-device-link.md、research/portable-link-output-suffix-checkpoint.jsonとportable-device-link-native-gate-peer-report.json。Metal849+実4/parts CPU32/全キャラ認定0を維持。以下は履歴です。
+<!-- /link-output-suffix-current -->
+
 <!-- native-memory-current -->
 9115884 Windows CPU217全成功、停止起動/2PID所属/Resume1/marker/return0/cleanup成立だが、native観測器のmemory欄が未取得nullで最終smoke拒否。原失敗/8083file保持。共有portable_job_limitsへ従来x64 ABIを移し、Job設定とnative/outer観測が同じclass9完全144byte応答を使う修正。NULL現在Jobから実際のcap/peakを取得、照会拒否/短応答/未設定は2GiBへ推定しない。旧上限/割当/cleanup方針不変。fresh CPU223中222成功/Win1skip、新API6検査含む。次は固定修正版でCPU223+native gate smoke1回、成功時のみ.cubin入力契約の保存object link1回。追加NVRTC/ptxas/driver/GPU0、元object再生成/同条件retry/cap増加なし。Metal849+実4/parts CPU32/全キャラ認定0を維持。詳細docs/portable-native-launch.md、research/portable-native-memory-checkpoint.jsonとWindows peer report。以下は履歴です。
 <!-- /native-memory-current -->
