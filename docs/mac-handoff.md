@@ -1,3 +1,7 @@
+<!-- native-memory-current -->
+9115884 Windows CPU217全成功、停止起動/2PID所属/Resume1/marker/return0/cleanup成立だが、native観測器のmemory欄が未取得nullで最終smoke拒否。原失敗/8083file保持。共有portable_job_limitsへ従来x64 ABIを移し、Job設定とnative/outer観測が同じclass9完全144byte応答を使う修正。NULL現在Jobから実際のcap/peakを取得、照会拒否/短応答/未設定は2GiBへ推定しない。旧上限/割当/cleanup方針不変。fresh CPU223中222成功/Win1skip、新API6検査含む。次は固定修正版でCPU223+native gate smoke1回、成功時のみ.cubin入力契約の保存object link1回。追加NVRTC/ptxas/driver/GPU0、元object再生成/同条件retry/cap増加なし。Metal849+実4/parts CPU32/全キャラ認定0を維持。詳細docs/portable-native-launch.md、research/portable-native-memory-checkpoint.jsonとWindows peer report。以下は履歴です。
+<!-- /native-memory-current -->
+
 <!-- raw-device-link-current -->
 LLVM nvlink wrapperの生device ELF入力契約に合わせ、link用copy名をmodule.relocatable.cubinへ変更。元module.oのbyte/SHA/ET_RELを保持、rename/再生成なし。receipt input_container=raw-device-elf-cubin-v1、argvは新名を要求。出力名/固定tool/flags/2GiB/60秒は変更なし。fresh CPU217中216成功/Windows1skip。Windows9115884はnative gate専用CPU+Job smoke進行中、リンクはまだ再実行しない。元出力エラーの原因が入力拡張子と確定したわけではない。次はgate結果確認後、別packageで同じ保存objectのlink1回を選ぶ。追加compile/link/driver/GPU0、元失敗/claims/生object保持。全キャラ認定0/本体CUDA未成立/Metal849+実4/parts CPU32維持。詳細docs/portable-device-link.mdとresearch/portable-raw-device-link-checkpoint.json。以下は履歴です。
 <!-- /raw-device-link-current -->

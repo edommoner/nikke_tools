@@ -32,16 +32,7 @@ class WindowsJob:
         self.termination_attempted = False
         self.assigned = False
         from ctypes import wintypes as W
-        class Basic(C.Structure):
-            _fields_ = [('process_time', C.c_int64), ('job_time', C.c_int64),
-                        ('flags', C.c_uint32), ('min_ws', C.c_size_t), ('max_ws', C.c_size_t),
-                        ('active_limit', C.c_uint32), ('affinity', C.c_size_t),
-                        ('priority', C.c_uint32), ('scheduling', C.c_uint32)]
-        class IO(C.Structure):
-            _fields_ = [(n, C.c_uint64) for n in ('read_ops', 'write_ops', 'other_ops', 'read_bytes', 'write_bytes', 'other_bytes')]
-        class Extended(C.Structure):
-            _fields_ = [('basic', Basic), ('io', IO), ('process_mem', C.c_size_t),
-                        ('job_mem', C.c_size_t), ('peak_process', C.c_size_t), ('peak_job', C.c_size_t)]
+        from portable_job_limits import ExtendedLimitInformation as Extended
         self.limit_info_type = Extended
         self.dll = C.WinDLL('kernel32', use_last_error=True)
         signatures = dict(CreateJobObjectW=([C.c_void_p, W.LPCWSTR], W.HANDLE),
