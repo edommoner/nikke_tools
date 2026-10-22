@@ -43,8 +43,12 @@ def verify(root,*,sources=None):
     reach=json.loads((root/'tests/fixtures/portable-interrupt-reach-source-delta.json').read_text())
     parts=json.loads((root/'tests/fixtures/portable-parts-source-delta.json').read_text())
     interrupts=json.loads((root/'tests/fixtures/portable-interrupt-source-delta.json').read_text())
+    ally_burst_deltas=[]
+    from portable_ally_burst_source_contract import baseline_source as baseline_ally_burst
     for name,digest in f['other_shared_sources'].items():
         raw=sources[name].encode('utf-8') if name in sources else (root/name).read_bytes()
+        baseline,applied=baseline_ally_burst(root,name,raw.decode('utf-8'))
+        if applied:raw=baseline.encode('utf-8');ally_burst_deltas.append(name)
         if name=='gpu/world_actor_state.slang' and hashlib.sha256(raw).hexdigest()!=digest:
             from portable_query_boundary_contract import baseline_scope_source
             baseline,applied=baseline_scope_source(raw.decode('utf-8'))
@@ -103,4 +107,4 @@ def verify(root,*,sources=None):
             assert ts[j]!='=' or ts[j+1]=='=','Input command write: '+name
             assert ts[j] not in ('+','-','|','&','^','*','/','%') or ts[j+1]!='=','Input compound command write: '+name
             assert ts[j:j+2] not in (['+','+'],['-','-']),'Input command increment: '+name
-    return dict(verified=True,properties=55,local_override_properties=['damageRoute','damageHits'],wire_immutable=True,other_shared_sources_unchanged=not (reviewed_deltas or factor_deltas or part_deltas or interrupt_deltas),other_sources_outside_reviewed_delta_unchanged=True,reviewed_scope_snapshot_sources=reviewed_deltas,reviewed_damage_factor_sources=factor_deltas,reviewed_part_receipt_sources=part_deltas,reviewed_interrupt_sources=interrupt_deltas,reviewed_interrupt_reach_sources=reach_deltas,reviewed_interrupt_frame_metadata=True,reviewed_physical_interrupt_sources=physical_deltas,gpu_calls=0,scope='Source correspondence/snapshot contract; explicit later source deltas do not prove numerical parity, which requires actual execution')
+    return dict(verified=True,properties=55,local_override_properties=['damageRoute','damageHits'],wire_immutable=True,other_shared_sources_unchanged=not (reviewed_deltas or factor_deltas or part_deltas or interrupt_deltas or ally_burst_deltas),other_sources_outside_reviewed_delta_unchanged=True,reviewed_scope_snapshot_sources=reviewed_deltas,reviewed_damage_factor_sources=factor_deltas,reviewed_part_receipt_sources=part_deltas,reviewed_interrupt_sources=interrupt_deltas,reviewed_interrupt_reach_sources=reach_deltas,reviewed_interrupt_frame_metadata=True,reviewed_physical_interrupt_sources=physical_deltas,reviewed_ally_burst_sources=ally_burst_deltas,gpu_calls=0,scope='Source correspondence/snapshot contract; explicit later source deltas do not prove numerical parity, which requires actual execution')

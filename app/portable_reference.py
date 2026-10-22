@@ -4,7 +4,8 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
-REFERENCES={'revive':('portable_revive_cases','world_revive_native','portable_revive_contracts'),
+REFERENCES={'ally-burst':('portable_ally_burst_cases','world_ally_burst_native','portable_ally_burst_contracts'),
+            'revive':('portable_revive_cases','world_revive_native','portable_revive_contracts'),
             'entry-reload':('portable_entry_reload_cases','world_entry_reload_native','portable_entry_reload_contracts'),
             'heal-share':('portable_heal_share_cases','world_heal_share_native','portable_heal_share_contracts'),
             'heal-share-extended':('portable_heal_share_extra_cases','world_heal_share_native','portable_heal_share_contracts'),

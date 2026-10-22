@@ -106,7 +106,7 @@
     "gpu/world_charge_control_runtime.slang": "2c9339c35e4a48eecf16fb4168ed99d829f0bbc11e187cf1e26396c564f48b99",
     "gpu/world_actor_registry.slang": "dafa4422554269f9b3529aa21ae9542dacedc6c5af32c36842fc3e0d0b7d3d03",
     "gpu/world_frame_runtime.slang": "c44235d89908844ce3fcd1737ef5b7864f2ce801a80afaa4014865b438848a8b",
-    "gpu/combat_runtime.slang": "ef7c86bdada1b74283dc673a0616b0a999c5a08f3568fe6883ec53a3db705bc8",
+    "gpu/combat_runtime.slang": "8e7139c450b24076d2185c9d04353301d3c7ed1b13f3d7255c3fdebc0d23f121",
     "gpu/ammo_instant_runtime.slang": "2276a958d7da8d0214d8852b24961795691de4bb7310fa1501fbcb997d88cf67",
     "gpu/weapon_runtime.slang": "10f77c5be03282ff8e6ea89f50cc49db90fc29ab902b815ae45cc30e0ccf0fe8",
     "gpu/mode_entry_runtime.slang": "dbd68df38ea19a6f21f4a41bcd9936fd08a7c4003574b91fb58617538b2fc64a",
@@ -114,18 +114,18 @@
     "gpu/world_overlay_weapon.slang": "f9f33dcafbdd8f8dbea5acede13461b19a08e7084b7e5aa8f1f14c1959b4d370",
     "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
     "gpu/weapon_frame_phases.slang": "84984ebd760f7c1cc532f75d7915c8374d8615385037792924e81df0a8414217",
-    "gpu/admission_runtime.slang": "8dc02d9b8480f555f0c664b51d4071d08e6d338ffd9459f7a2c5ae93e533f6c5",
+    "gpu/admission_runtime.slang": "07d993a0876133e5f448574d074942e455b85fdcfd9ce0bffd22a36f05f25000",
     "gpu/portable_mt19937.slang": "6365293f4fe0269fba87b15aa866e617333f5012acef175a13fd7ed27152323a",
     "gpu/enemy_target_runtime.slang": "830fd22f28d105ea6b4e0ad4d334e774e36eebab698c1096a163cfdb712d9d1f",
     "gpu/program_phases.slang": "ebc1b7a37d7473223510f310d511dc90aa95d040b9e75f6b3a0fe0e836e7ec0f"
   },
   "generated_normalized": {
-    "cuda": "f47e913064f63c3738667d1ff4bb808f5371ea81d0960dd65a7630eba9fd43e0",
-    "metal": "2e7a1017a6ac0071e7b43f92471b9cbfbf50916037790a680e9f4775b4061dc5"
+    "cuda": "05ace171542271ad463415097b56d300fe93f7310bb01b0686918c9099a735a2",
+    "metal": "4f9ea49ffc6554a01de6f123fe82931e0d60b5130e3d1057df4ed8e42061a2ca"
   },
   "entries": [],
   "input_sha256": null,
   "baseline_suite": "heal-share-regression",
-  "baseline_golden_sha256": "256b0b6c648c7b9918fc7af5cc2f8cdbf92597df856e9f019a0952f235b78f45",
-  "scope": "Exact physical interrupt shared source from independently sealed Metal849 and paired generation; not CUDA compile/link/battle/resource proof"
+  "baseline_golden_sha256": "69d11f6a026edde8303c06dccb4eceb9f9e87318a1c5fa6ebf2ad29488118c65",
+  "scope": "Exact ally-burst shared source from independently sealed Metal849 plus real/feature/part suites and paired generation; not CUDA compile/link/battle/resource proof"
 }

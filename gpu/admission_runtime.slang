@@ -124,7 +124,12 @@ void admitDefinitions(inout Runtime s,uint input)
         }
         if(s.error!=0) break;
         WORLD_TEAM_VALIDATE(s,d,input,j) WORLD_FRACTION_VALIDATE(s,d,input,j) WORLD_INITIAL_SPAWN_VALIDATE(s,d,input,j) for (uint slot = 0; slot < d.triggerCount; slot++)
-            if (commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8] == 31) s.namedEventOwners |= 1U << d.owner;
+        {
+            uint event = commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8];
+            if (event == 42 && s.combat == 0) { s.error = 64; break; }
+            if (event == 31) s.namedEventOwners |= 1U << d.owner;
+        }
+        if (s.error != 0) break;
         for (uint slot = 0; slot < d.triggerCount; slot++)
             if (commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8] == 9) s.stackEventOwners |= 1U << d.owner;
         if ((d.kind == 2 || d.kind == 13 || d.kind == 14) && (d.target > 1 || !f64Finite(d.value))) { s.error = 64; break; }

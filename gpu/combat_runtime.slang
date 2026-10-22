@@ -216,7 +216,12 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
             setBurstReady(s,picked,when);
             if (s.error != 0) return;
             uint target = s.target; s.target = 0;
-            dispatch(s,0,3,picked,0,when,output); s.target = target;
+            dispatch(s,0,3,picked,0,when,output);
+            // Native ally-burst broadcast includes the caster in squad order.
+            // No subscribers means no additional dispatch/state synchronization.
+            if (nextEventCandidate(s,42,0) < s.count)
+                for (uint who = 0; who < 5 && s.error == 0; who++) dispatch(s,0,42,who,0,when,output);
+            s.target = target;
             if (stage == 3) { s.lastB3Caster = picked; s.lastB3Time = when; }
             logBurst(s,stage+(s.reentrySlot != 0 ? 6 : 0),picked,when,output);
             bool reentry = s.pendingReentry[picked] != 0; s.pendingReentry[picked] = 0;

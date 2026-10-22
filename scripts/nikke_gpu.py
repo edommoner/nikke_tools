@@ -141,6 +141,8 @@ SUITES['definition-view']=dict(script='research/verify-definition-view-short.py'
 SUITES['damage-factors']=dict(script='research/verify-damage-factors-short.py',source='gpu/damage_factors_probe.slang',
     golden='research/portable-damage-factors-short-expected.json',inputs=16,native=16,development_only=False,
     tests=['test_portable_damage_factors.py'])
+SUITES['ally-burst']=dict(script='research/verify-world-ally-burst-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-ally-burst-short-expected.json',inputs=16,native=15,development_only=False,tests=['test_portable_ally_burst.py','test_portable_definition_view.py','test_portable_burst_recipients.py'])
+SUITES['ally-burst-rosters']=dict(script='research/verify-world-ally-burst-rosters-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-ally-burst-rosters-short-expected.json',inputs=2,native=2,development_only=False,tests=['test_portable_ally_burst.py','test_portable_definition_view.py','test_portable_real_binding_proof.py'])
 SUITES['parts-skill-world']=dict(script='research/verify-world-parts-skill-short.py',source='gpu/world_entry_reload_resident_entry.slang',
     golden='research/portable-world-parts-skill-short-expected.json',inputs=63,native=59,development_only=False,
     tests=['test_portable_physical_interrupt.py','test_portable_parts_skill_gpu.py','test_portable_parts_skill_reference.py','test_portable_parts_skill_extra_reference.py','test_portable_parts_skill_lifecycle_reference.py','test_portable_damage_factors.py','test_portable_resident_layout.py','test_portable_reference_migration.py','test_portable_gpu_replay.py','test_portable_interrupt_sources.py','test_portable_actor_pool_input.py','test_portable_actor_registry_input.py','test_impact_runtime.py'])
@@ -161,6 +163,7 @@ SUITES['heal-share-diagnostic']=dict(SUITES['heal-share-world'],script='research
 SUITES['heal-share-regression']=dict(SUITES['entry-reload-regression'],script='research/verify-world-heal-share-regression-short.py',
     golden='research/portable-world-heal-share-regression-short-expected.json',inputs=849,native=676,development_only=False,
     tests=SUITES['entry-reload-regression']['tests']+['test_portable_heal_share_gpu.py','test_portable_heal_share_trace.py'])
+SUITES['heal-share-regression']['tests'].append('test_portable_ally_burst.py')
 SUITES['heal-share-rosters']=dict(script='research/verify-world-heal-share-rosters-short.py',source='gpu/world_entry_reload_resident_entry.slang',
     golden='research/portable-world-heal-share-rosters-short-expected.json',inputs=4,native=4,development_only=False,
     tests=['test_portable_heal_share_gpu.py','test_portable_real_binding_proof.py','test_portable_linked_artifact.py'])

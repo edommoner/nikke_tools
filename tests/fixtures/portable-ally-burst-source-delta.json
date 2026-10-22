@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "scope": "Exact ally-burst cast broadcast and combat-only admission; historical baselines retained",
+  "sources": {
+    "gpu/combat_runtime.slang": {
+      "baseline_sha256": "ef7c86bdada1b74283dc673a0616b0a999c5a08f3568fe6883ec53a3db705bc8",
+      "current_sha256": "8e7139c450b24076d2185c9d04353301d3c7ed1b13f3d7255c3fdebc0d23f121",
+      "baseline": "            dispatch(s,0,3,picked,0,when,output); s.target = target;",
+      "current": "            dispatch(s,0,3,picked,0,when,output);\n            // Native ally-burst broadcast includes the caster in squad order.\n            // No subscribers means no additional dispatch/state synchronization.\n            if (nextEventCandidate(s,42,0) < s.count)\n                for (uint who = 0; who < 5 && s.error == 0; who++) dispatch(s,0,42,who,0,when,output);\n            s.target = target;"
+    },
+    "gpu/admission_runtime.slang": {
+      "baseline_sha256": "8dc02d9b8480f555f0c664b51d4071d08e6d338ffd9459f7a2c5ae93e533f6c5",
+      "current_sha256": "07d993a0876133e5f448574d074942e455b85fdcfd9ce0bffd22a36f05f25000",
+      "baseline": "        WORLD_TEAM_VALIDATE(s,d,input,j) WORLD_FRACTION_VALIDATE(s,d,input,j) WORLD_INITIAL_SPAWN_VALIDATE(s,d,input,j) for (uint slot = 0; slot < d.triggerCount; slot++)\n            if (commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8] == 31) s.namedEventOwners |= 1U << d.owner;",
+      "current": "        WORLD_TEAM_VALIDATE(s,d,input,j) WORLD_FRACTION_VALIDATE(s,d,input,j) WORLD_INITIAL_SPAWN_VALIDATE(s,d,input,j) for (uint slot = 0; slot < d.triggerCount; slot++)\n        {\n            uint event = commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8];\n            if (event == 42 && s.combat == 0) { s.error = 64; break; }\n            if (event == 31) s.namedEventOwners |= 1U << d.owner;\n        }\n        if (s.error != 0) break;"
+    }
+  }
+}

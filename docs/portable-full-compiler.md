@@ -1,3 +1,5 @@
+現行certificateは味方バースト通知接続後のMetal16・新実2・旧849／実4／部位63と対応するfull114／commands115 sourceです。全て独立seal済み、Runtime stride138952／CUDA定数48byte。新版CUDAコンパイル／リンク／計算成立の証明ではありません。Windows新規検証停止を維持します。詳細[味方バースト通知](portable-ally-burst.md)。以下は履歴です。
+
 現行source certificateはfull114／commands115 sourceで、物理interrupt接続後のMetal63・849・実4と同一のGPU本体へ更新しました。両生成とRuntime stride138952／CUDA定数48byteを照合し、生成cacheを再利用しています。これは新しいCUDAコンパイル・リンク・戦闘の証明ではありません。Windowsの追加検証停止を維持します。詳細は[物理interrupt](portable-physical-interrupt.md)、以下は履歴です。
 
 # 現行戦闘本体のcompiler-only package

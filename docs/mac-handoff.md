@@ -1,3 +1,7 @@
+<!-- ally-burst-current -->
+味方バースト使用通知event42を共通Slangへ接続。CPU15契約とsealed ally-burst16(native15/拒否1)、ルピー：ウィンターショッパー全定義の実編成3秒/30秒2入力がMetal全一致・独立seal。旧849＋実4＋部位63も同sourceで全一致・独立sealし、旧916の全entriesとraw2881486848Bを全byte保持。新実編成の物理履歴49/471件・省略0、旧レム30秒55件省略等は維持。Runtime追加field0/stride138952、CUDA定数48B、full114/commands115 certificate更新、成功5検証のSlang0。CPU回帰312成功、新feature検査21成功。静的219/266・base159/203・76分類はGPU認定ではない。event41別段階通知は拒否のまま。Windows追加GPU/native/compile0、既存7終了unknown/環境保全falseで新規検証停止維持。初回sandboxのMetal未取得失敗・claim等を保存。全キャラ認定0/UI CPU/ゴール未達。詳細docs/portable-ally-burst.mdとresearch/portable-ally-burst-checkpoint.json。次は武器変更max_ammo_scaling_refのNone/zero/snapshot/reload契約。以下は履歴です。
+<!-- /ally-burst-current -->
+
 <!-- windows-historical-log-current -->
 Windowsの既存7プロセス終了（2026-10-22 19:04:25 JST）の追加切り分け。ユーザーから同時刻前後のアプリ／ターミナル終了・Codex再接続・Windows再起動なしとの回答があり、ゲーム／動画の併用は可能性として挙がっただけで因果関係は未確認です。±2分のSystem/Applicationログを30秒上限で読み取り照会し、両方UnauthorizedAccessExceptionで取得不能（1.824秒）。イベントが存在しなかったという証拠ではありません。権限昇格・範囲拡大・再現実験・追加GPU／コンパイルは0。原因unknown・環境保全false・サービス未識別を維持し、保存済み失敗／claimを保持。Windowsの新規native/GPU検証停止を継続し、Macの独立開発を進めます。根拠はresearch/portable-scope-windows-event-log-peer-report.json（peer要約、元ログの独立監査ではない）。
 <!-- /windows-historical-log-current -->
