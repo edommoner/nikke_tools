@@ -48,3 +48,13 @@ Windows CPU261とnative gate成功後、保存CUBINの通常run1回を実施。R
 ただし4入力ともGPU出力指紋がMetal goldenと異なり、calculation_verified=false。保存comparisonのCPU-only確認では4件すべてadapter.compareが例外なく完了し、name/input/native指紋は一致、output指紋だけ不一致と判別した。nativeの検査範囲は通過したが、未比較領域を含む全rawの一致は未証明である。差分を除外／許容せず、再GPUを行わずに調査する。peer記録は`research/portable-linked-rosters-peer-report.json`と`portable-linked-rosters-hash-fields.json`。
 
 共通CLIのCPU-only `readback-index`／`readback-compare`は、記録済み全raw SHAと固定786432 words/caseを要求し、4096B単位の全block SHAを比較する。二度目のsample読みでも全blockと全SHAを再検査し、診断sampleは最大8block、元bufferはread-only、出力上書きは禁止。独立stdlib moduleとしても同じmainを呼べる。5故障注入と既存CLI39検査成功。保存Metal実4の12,582,912Bは元golden SHA f83a45b0...に一致し、`research/portable-heal-rosters-metal-block-index.json`へ3072 blockの指紋のみを保存した。raw本体は共有しない。次はWindows保存CUDAをこのindexとCPU照合し、相違wordの意味を調べる。
+
+## 全raw差分の位置とscope snapshot生成の問題
+
+CPU block比較で3072中6blockのみ不一致、全6blockをsampleしてMac rawと全1024wordずつ比較した。差は合計8word：全4caseの253955（actor query scope）がCUDA1/Metal0、ナユタ30秒の86024/86025（removal queue packed metadata）と512176/512178（counter-field work count/total）の4word。その他3066blockは全SHA一致。sampleと厳密word比較は`research/portable-linked-rosters-block-samples.json`／`portable-linked-rosters-word-differences.json`へ保存した。sample取得もGPU/compile0。
+
+保存生成CUDAの`actorStatePushQuery_0`は、旧値をuintとして読み取らず同じresults要素へのuint*を保持し、新scopeを書いた後`return *old_pointer`を実行している。生成Metalは`uint previous = results[at]`をstore前に保存し、それを返す。共通Slangの`uint at=...,previous=results[at];results[at]=...;return previous;`が、CUDAで旧scopeを返さない生成になっている。bodyの差は4case共通scope差を説明する。ナユタ30秒の残る4wordが同じ原因から派生するかは未証明。
+
+次は共通Slangでsnapshotを明示的なnoinline value-return helperへ分離する等、旧値がstore前に実値として評価される形へ修正し、両生成物を直接確認する。生成CUDAだけのパッチ、normalizer除外、末尾上書きは行わない。sourceが変わるためMetal849+実4の保持／独立sealと新source certificateを経てから、必要な新full compile/object/linkと短いCUDA比較を行う。旧失敗run・claims・元rawは保存する。
+
+Windowsの実GPU入力generated.cu（1,861,674B／SHA `548a1cc63fbb26f4be5694f704606e8a98bf73c59c4c434db42798fd95461a3a`）も記録SHAと一致し、同じfunction bodyを保存ファイルだけで確認した。`research/portable-linked-scope-cuda-source-peer.json`に保持した。
