@@ -1,0 +1,162 @@
+{
+  "schema": 1,
+  "evidence_scope": "Windows saved peer summary; native Python output proof, not nvlink or independent Mac raw audit",
+  "saved_summary_sha256": "302da3442c2b69f296f6d278af91142f65d0d7f3e6a8d3f1226cb4acb6facb51",
+  "missing_roles_peer_counts": {
+    "unrelated": 5,
+    "service_candidate": 2,
+    "cause": "unknown"
+  },
+  "observation_times": {
+    "job_pre_gate_unix_ns": 1792655737167424500,
+    "before_snapshot_unix_ns": 1792655740302250000,
+    "native_inspection_unix_ns": 1792655740390912000,
+    "job_post_wait_unix_ns": 1792655740517691400,
+    "wait_completed_unix_ns": 1792655740519212300,
+    "after_snapshot_unix_ns": 1792655743385326800
+  },
+  "independent_cleanup_completion_time": null,
+  "source_commit": "64af5fb76b1d0a3f9bd4085a638c0c794452e11b",
+  "package": {
+    "package_id": "aed4e2dcbe94b349bace871894dd578533909e3a44cbcece9d3f201b0914f88d",
+    "files": 2017,
+    "filetable_sha256": "9fcc0df3057240ae8369cc4ed61cb6b66a9512cfbb12d30dee776971bed89ab8"
+  },
+  "zip": {
+    "bytes": 5330416,
+    "sha256": "12a554b5072d77397e18fbb7fcf2c99f5dc1aed3fff285e401bcfc58a2961202"
+  },
+  "cpu": {
+    "tests": 230,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "group_seconds_sum": 33.181833101436496
+  },
+  "outer": {
+    "attempts": 1,
+    "cli_exit_code": 0,
+    "elapsed_seconds": 54.29881120007485,
+    "timed_out": false,
+    "outer_cleanup_error": null,
+    "below_normal": true,
+    "parent_environment_preserved": true,
+    "protected_files": 14393,
+    "protected_bytes_sha_unchanged": true,
+    "exec_sandbox_permissions": "require_escalated"
+  },
+  "job": {
+    "execution_seconds": 6.274811699986458,
+    "passed": true,
+    "timed_out": false,
+    "pre_gate_verified": true,
+    "pre_memory_cap_bytes": 2147483648,
+    "post_memory_cap_bytes": 2147483648,
+    "peak_bytes": 40878080,
+    "post_members": [],
+    "inspection_error": null,
+    "cleanup_error": null,
+    "observation_error": null,
+    "missing_processes": 7,
+    "service_status_before": "unverified",
+    "service_status_after": "unverified"
+  },
+  "native": {
+    "python_executable": "C:\\Users\\owner\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "python_sha256": "dea78bb78043f0d53ef4a475f85fa0312b90fa93c136a0686d17946781c60e16",
+    "script_sha256": "721bb96c6f55873129ba41a60b2d8c56823fc5e9a28baf7dd812e5a9fd4ab3ea",
+    "argv": [
+      "C:\\Users\\owner\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-I",
+      "-S",
+      "C:\\Users\\owner\\Documents\\Codex\\nikke-native-output-64af5fb-diagnostic\\package\\app\\portable_native_output_probe.py",
+      "C:\\Users\\owner\\Documents\\Codex\\nikke-native-output-64af5fb-diagnostic\\smoke\\native-smoke.probe.partial.cubin"
+    ],
+    "inspection": {
+      "child_pid": 100248,
+      "child_ppid": 116144,
+      "parent_observation": "os_process_snapshot",
+      "observed_unix_ns": 1792655740390912000,
+      "wrapper_pid": 116144,
+      "child_creation_filetime_ticks": "134371293403471342",
+      "job_members": [
+        100248,
+        116144
+      ],
+      "job_peak_memory_bytes": 33591296,
+      "job_memory_limit_bytes": 2147483648
+    },
+    "native_launch": {
+      "protocol": "create-suspended-v1",
+      "created_suspended": true,
+      "creation_flags": 16388,
+      "primary_thread_id": 110928,
+      "resume_previous_count": 1
+    },
+    "return_code": 0,
+    "output_probe": {
+      "api": "CreateFileW",
+      "close_winerror": null,
+      "closed": true,
+      "created": true,
+      "expected_bytes": 20,
+      "expected_sha256": "96c983487a24dd4ab33bcb22f7d17bd28a8971851b1ab111398ad34139d87314",
+      "failed_operation": null,
+      "flushed": true,
+      "protocol": "native-file-output-v1",
+      "status": "verified",
+      "winerror": null,
+      "written_bytes": 20
+    },
+    "elapsed_seconds": 0.13095060037449002,
+    "gpu_calls": 0
+  },
+  "probe_file": {
+    "exists": true,
+    "bytes": 20,
+    "sha256": "96c983487a24dd4ab33bcb22f7d17bd28a8971851b1ab111398ad34139d87314"
+  },
+  "native_stdout": {
+    "exists": true,
+    "bytes": 331,
+    "sha256": "e4d880cd289f9e53bdf6e18b6ba64a2915fe0faf8da0226bfb1b2359f949124e"
+  },
+  "native_stderr": {
+    "exists": true,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "result": {
+    "smoke_verified": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "status": "smoke"
+  },
+  "controller_stderr": "",
+  "protected_files": {
+    "count": 14393,
+    "all_bytes_sha_unchanged": true,
+    "includes_original_12275_and_78121d4_records": true
+  },
+  "claims_retained": {
+    "nikke-native-link-78121d4-diagnostic": true,
+    "nikke-native-link-f604071-diagnostic": true,
+    "nikke-device-link-330b204-diagnostic": true
+  },
+  "calls": {
+    "cpu_smoke": 1,
+    "native_python_probe": 1,
+    "compile": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "nvlink": 0,
+    "driver": 0,
+    "gpu": 0,
+    "retries": 0
+  },
+  "preservation_verified": false,
+  "calculation_verified": false,
+  "nvlink_output_verified": false,
+  "ssh_firewall_protection_changes": false
+}

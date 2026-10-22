@@ -1,3 +1,7 @@
+<!-- jit-link-primitive-current -->
+Windows64af5fb CPU230/native I/O成立（CreateFileW新規20B/write/flush/close/実SHA/2PID/2GiB/Resume1）、nvlink固有出力は未解決。欠落7はunrelated5/service_candidate2・原因unknown、service未識別/preservationfalseを維持。保存14393file不変、追加compile/link/driver/GPU0。原失敗raw/claims保持。次候補nvJitLink12.4.127公式archive/DLL/header/LICENSEをMac静的SHA/export確認、DLL実ロード0。CUBIN AddData→Complete→GetLinkedCubin/共通ELF/Destroy/ログ保持primitiveと9疑似API検査を実装。fresh CPU239中238成功/Windows1skip。CLI実行mode/Job/source origin/cache接続は未実装で返すorigin/containment/calculationはfalse、API自動fallbackなし。次は共通bounded child/専用claim/固定DLLと元object全chain/phase監査/driver module観測を接続してからWindows1試行を選ぶ。source only旧commandsと現行compiler-fullを区別。Metal849+実4/parts CPU32/全キャラ認定0維持。詳細docs/portable-jit-link-next.md、research/portable-jit-link-primitive-checkpoint.json、portable-nvjitlink-component-candidate.jsonとnative I/O peer report。以下は履歴です。
+<!-- /jit-link-primitive-current -->
+
 <!-- native-output-probe-current -->
 78121d4保存全文とexec履歴を取得。job/linkは既にrequire_escalatedで、suffixだけの変更でも同じ出力エラーのため単純な再昇格/relinkは選ばない。既存Windows smokeのnative子を固定出力probe scriptへ接続し、CreateFileW/CREATE_NEW→WriteFile20B→Flush→CloseとWin32失敗番号をJSON保存、native returnも成功判定前に保持する実装。既存上書き/設定変更なし、parentは実20B照合。fresh CPU230中229成功/Windows1skip。次は固定新packageでCPU+native I/O smokeだけ1回、compiler/link/driver/GPU0。probe成功もnvlink個別権限や計算成功とは別。元raw/claims/失敗保持。詳細docs/portable-native-output-probe.md、research/portable-native-output-probe-checkpoint.json。Metal849+実4/parts CPU32/全キャラ認定0維持。以下は履歴です。
 <!-- /native-output-probe-current -->

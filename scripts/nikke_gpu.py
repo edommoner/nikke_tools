@@ -155,7 +155,7 @@ SUITES['heal-share-rosters']=dict(script='research/verify-world-heal-share-roste
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
     golden='research/portable-compiler-commands-heal-share-source-certificate.json',inputs=0,native=0,compiler_only=True,
     support_files=['research/portable-world-heal-share-regression-short-expected.json'],
-    tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py','test_portable_ptx_stats.py','test_portable_ptx_callgraph.py','test_portable_ptx_partition.py','test_portable_partition_object.py','test_portable_module_object.py','test_portable_device_linker.py','test_portable_native_process.py','test_portable_job_limits.py','test_portable_native_output_probe.py'])
+    tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py','test_portable_ptx_stats.py','test_portable_ptx_callgraph.py','test_portable_ptx_partition.py','test_portable_partition_object.py','test_portable_module_object.py','test_portable_device_linker.py','test_portable_native_process.py','test_portable_job_limits.py','test_portable_native_output_probe.py','test_portable_jit_link.py'])
 
 SUITES['compiler-full']=dict(SUITES['compiler-commands'],
     source=SUITES['heal-share-regression']['source'],
@@ -174,6 +174,7 @@ SMOKE_TESTS.append('test_portable_device_linker.py')
 SMOKE_TESTS.append('test_portable_native_process.py')
 SMOKE_TESTS.append('test_portable_job_limits.py')
 SMOKE_TESTS.append('test_portable_native_output_probe.py')
+SMOKE_TESTS.append('test_portable_jit_link.py')
 
 
 def sha(data):
