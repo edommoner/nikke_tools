@@ -32,14 +32,19 @@ class PartitionObjectTests(unittest.TestCase):
         self.candidate=self.root/'candidate';saved_partition(self.cache,self.phases,self.candidate,'focus')
         self.request=dict(source_package=str(self.base.source_package),source_capture=str(self.base.producer),cache_entry=str(self.cache),phases=str(self.phases),candidate=str(self.candidate),ptxas=str(self.base.tool))
 
+    def context(self):
+        stack=self.base.context()
+        stack.enter_context(patch.object(cli,'verify_package',side_effect=lambda root,**options:self.base.base.m if Path(root).resolve()==self.base.source_package else self.base.m))
+        return stack
+
     def proof(self):
-        with self.base.context():
+        with self.context():
             origin,_=cli.partition_object_origin(self.base.m,self.request)
             cli.write(self.capture/'object-request.json',dict(self.request,origin=origin));cli.partition_object_child(self.base.m,self.capture,'cuda')
         cli.write(self.capture/'run.json',dict(mode='partition-object-only',package_id=self.base.m['package_id'],backend='cuda',memory_limit_mb=2048));self.base.job_proof(self.capture)
 
     def audit(self):
-        with self.base.context():return cli.audit_partition_object_capture(self.base.m,self.capture,verify_artifacts=False)
+        with self.context():return cli.audit_partition_object_capture(self.base.m,self.capture,verify_artifacts=False)
 
     def test_origin_chain_and_relocatable_object_do_not_certify_link_or_battle(self):
         self.proof();r=self.audit();self.assertTrue(r['object_verified'],r);self.assertTrue(r['containment_verified'])
@@ -49,7 +54,7 @@ class PartitionObjectTests(unittest.TestCase):
 
     def test_edited_candidate_rehashed_plan_or_wrong_upstream_cannot_spawn(self):
         self.candidate.joinpath('focus.ptx').write_bytes(b'changed')
-        with self.base.context(),self.assertRaises(ValueError):cli.partition_object_origin(self.base.m,self.request)
+        with self.context(),self.assertRaises(ValueError):cli.partition_object_origin(self.base.m,self.request)
         self.assertFalse(self.base.processes)
         producer=dict(ptx=dict(sha256='0'*64),cache_key='other')
         good=self.root/'good-candidate';saved_partition(self.cache,self.phases,good,'focus')
@@ -64,7 +69,7 @@ class PartitionObjectTests(unittest.TestCase):
 
     def test_timeout_retains_failure_and_terminates_only_owned_child_without_retry(self):
         self.base.fail_wait=True
-        with self.base.context(),self.assertRaises(subprocess.TimeoutExpired):
+        with self.context(),self.assertRaises(subprocess.TimeoutExpired):
             origin,raw=cli.partition_object_origin(self.base.m,self.request)
             obj.run(self.capture,self.base.tool,raw,origin,journal=baseline.producer_test.Journal(self.capture/'phases.jsonl'))
         self.assertEqual(len(self.base.processes),1);self.assertTrue(self.base.processes[0].terminated)
@@ -72,13 +77,13 @@ class PartitionObjectTests(unittest.TestCase):
 
     def test_nonzero_exit_keeps_partial_and_forbids_object_publication(self):
         self.base.return_code=7
-        with self.base.context(),self.assertRaisesRegex(RuntimeError,'exit code 7'):
+        with self.context(),self.assertRaisesRegex(RuntimeError,'exit code 7'):
             origin,raw=cli.partition_object_origin(self.base.m,self.request)
             obj.run(self.capture,self.base.tool,raw,origin,journal=baseline.producer_test.Journal(self.capture/'phases.jsonl'))
         self.assertTrue((self.capture/'focus.o.partial').exists());self.assertFalse((self.capture/'focus.o').exists());self.assertEqual(len(self.base.processes),1)
 
     def test_bad_membership_is_rejected(self):
-        with self.base.context(),patch.object(assembler,'inspect_process',return_value={}),self.assertRaisesRegex(RuntimeError,'validation Job'):
+        with self.context(),patch.object(assembler,'inspect_process',return_value={}),self.assertRaisesRegex(RuntimeError,'validation Job'):
             origin,raw=cli.partition_object_origin(self.base.m,self.request)
             obj.run(self.capture,self.base.tool,raw,origin,journal=baseline.producer_test.Journal(self.capture/'phases.jsonl'))
         self.assertTrue(self.base.processes[0].terminated)
@@ -95,7 +100,7 @@ class PartitionObjectTests(unittest.TestCase):
 
     def test_capture_claim_budget_and_environment_are_separate_from_assembly(self):
         env={'UNRELATED':'preserved'}
-        with self.base.context(),patch.object(cli,'os',types.SimpleNamespace(**dict(vars(os),name='nt',environ=env))),patch.object(cli,'run_job') as job,patch.object(cli,'audit_partition_object_capture',return_value=dict(object_verified=True,calculation_verified=False)):
+        with self.context(),patch.object(cli,'os',types.SimpleNamespace(**dict(vars(os),name='nt',environ=env))),patch.object(cli,'run_job') as job,patch.object(cli,'audit_partition_object_capture',return_value=dict(object_verified=True,calculation_verified=False)):
             args=(60,self.root/'original',self.base.source_package,self.base.producer,self.cache,self.phases,self.candidate,self.base.tool)
             cli.partition_object_capture(self.root/'new-object',*args)
             self.assertTrue(job.call_args.kwargs['partition_object_only']);self.assertEqual(job.call_args.args[2],60)
@@ -106,7 +111,7 @@ class PartitionObjectTests(unittest.TestCase):
 
     def test_child_dispatch_is_exclusive_and_passes_explicit_mode(self):
         cli.write(self.capture/'start.json',{})
-        with self.base.context(),patch.object(cli,'partition_object_child') as dispatch:
+        with self.context(),patch.object(cli,'partition_object_child') as dispatch:
             cli.child(self.capture,'cuda',partition_object_only=True);dispatch.assert_called_once()
             with self.assertRaises(ValueError):cli.child(self.capture,'cuda',compile_only=True,partition_object_only=True)
         with patch.object(cli,'child') as dispatch:cli.main(['_child','--capture',str(self.capture),'--backend','cuda','--partition-object-only'])
@@ -115,7 +120,7 @@ class PartitionObjectTests(unittest.TestCase):
     def test_driver_library_is_blocked_before_loading(self):
         import ctypes as C
         def bad(*args,**kwargs):C.WinDLL('nvcuda.dll')
-        with self.base.context():
+        with self.context():
             origin,_=cli.partition_object_origin(self.base.m,self.request);cli.write(self.capture/'object-request.json',dict(self.request,origin=origin))
             with patch.object(obj,'run',side_effect=bad),patch.object(C,'WinDLL',create=True) as loader,self.assertRaisesRegex(RuntimeError,'forbidden'):
                 cli.partition_object_child(self.base.m,self.capture,'cuda')
@@ -128,3 +133,22 @@ class PartitionObjectTests(unittest.TestCase):
             result=dict(mode='partition-object-only',object_verified=verified,preservation_verified=preserved)
             with patch.object(cli,'partition_object_capture',return_value=result),contextlib.redirect_stdout(__import__('io').StringIO()),self.assertRaises(SystemExit) as raised:cli.main(command)
             self.assertEqual(raised.exception.code,code)
+
+    def test_explicit_diagnostic_accepts_old_source_without_certifying_current_baseline(self):
+        self.base.m['golden']['generated_normalized']['cuda']='newer shared runtime'
+        with self.context():
+            with self.assertRaisesRegex(ValueError,'same sealed'):cli.assembly_origin(self.base.m,self.base.source_package,self.base.producer)
+            origin,_=cli.partition_object_origin(self.base.m,self.request)
+        self.assertTrue(origin['producer']['historical_compiler_source'])
+        self.assertFalse(origin['producer']['current_battle_equivalence_verified'])
+        self.assertEqual(origin['producer']['generated_normalized'],self.base.base.m['golden']['generated_normalized'])
+        self.assertFalse(self.base.processes)
+
+    def test_preflight_failure_is_saved_auditable_and_does_not_consume_claim(self):
+        out=self.root/'preflight-failure';env={'UNRELATED':'preserved'}
+        with self.context(),patch.object(cli,'os',types.SimpleNamespace(**dict(vars(os),name='nt',environ=env))),patch.object(cli,'partition_object_origin',side_effect=ValueError('original producer mismatch')),patch.object(cli,'run_job') as job:
+            with self.assertRaisesRegex(ValueError,'producer mismatch'):cli.partition_object_capture(out,60,self.root/'original',self.base.source_package,self.base.producer,self.cache,self.phases,self.candidate,self.base.tool)
+            job.assert_not_called();self.assertFalse((self.base.package/'partition-object-claimed-cuda.json').exists())
+            self.assertEqual(cli.load(out/'run.json')['status'],'failed');self.assertIn('producer mismatch',cli.load(out/'failure.json')['error'])
+            self.assertFalse(cli.audit_partition_object_capture(self.base.m,out)['object_verified'])
+        self.assertEqual(env,{'UNRELATED':'preserved'})

@@ -229,7 +229,24 @@ def package_id(manifest):
     return sha(json.dumps(body, sort_keys=True, separators=(',', ':')).encode())
 
 
-def verify_package(root):
+def historical_compiler_layout(root,m):
+    """Resolve old certificate/baseline from hash-checked immutable records.
+
+    Never use the latest suite's file names to reinterpret a saved producer.
+    This only admits compiler-source-only packages, not historical battle runs.
+    """
+    if not compiler_only(m) or m.get('purpose')!='compiler-diagnostic':
+        raise ValueError('Historical producer must be a compiler-source-only package')
+    golden=m['golden'];records=m['files']
+    candidates=[r['path'] for r in records if r['path'].startswith('research/') and r['path'].endswith('.json')]
+    certificates=[name for name in candidates if load(root/name)==golden]
+    baselines=[r['path'] for r in records if r['path'] in candidates and r['sha256']==golden.get('baseline_golden_sha256')]
+    if len(certificates)!=1:raise ValueError('Historical compiler certificate must have one immutable owner')
+    if len(baselines)!=1:raise ValueError('Compiler shared baseline absent or ambiguous in historical payload')
+    return certificates[0],baselines[0]
+
+
+def verify_package(root,*,historical_compiler=False):
     m = load(root/'gpu-package.json')
     if m['schema'] != SCHEMA or m['package_id'] != package_id(m) or m['suite'] not in SUITES:
         raise ValueError('Invalid package identity/schema/suite')
@@ -237,14 +254,15 @@ def verify_package(root):
         raise ValueError('Invalid package purpose/case selection')
     if compiler_only(m)!=(m.get('purpose')=='compiler-diagnostic'):raise ValueError('Compiler diagnostic purpose mismatch')
     check_records(root, m['files'])
-    golden = m['golden'] if is_development(m) else load(root/SUITES[m['suite']]['golden'])
+    historical_layout=historical_compiler_layout(root,m) if historical_compiler else None
+    golden = m['golden'] if is_development(m) else load(root/(historical_layout[0] if historical_layout else SUITES[m['suite']]['golden']))
     if golden != m['golden']:
         raise ValueError('Package golden mismatch')
     if compiler_only(m):
         if golden.get('proof_kind')!='compiler-source-only' or golden.get('calculation_verified') is not False or golden.get('executable_battle_verified') is not False or golden.get('entries')!=[]:
             raise ValueError('Compiler diagnostic cannot claim a battle proof')
-        if not set(SUITES[m['suite']]['support_files'])<={r['path'] for r in m['files']}:raise ValueError('Compiler shared baseline absent from payload')
-        baseline_path=root/SUITES[m['suite']]['support_files'][0]
+        if not historical_layout and not set(SUITES[m['suite']]['support_files'])<={r['path'] for r in m['files']}:raise ValueError('Compiler shared baseline absent from payload')
+        baseline_path=root/(historical_layout[1] if historical_layout else SUITES[m['suite']]['support_files'][0])
         baseline=load(baseline_path)
         if sha(baseline_path.read_bytes())!=golden['baseline_golden_sha256'] or {k:v for k,v in golden['source_sha256'].items() if k!=SUITES[m['suite']]['source']}!=baseline['source_sha256']:
             raise ValueError('Compiler diagnostic changed the shared baseline')
@@ -1066,11 +1084,11 @@ def module_capture(capture,timeout,original_workspace,jit_opt_level=None):
     return result
 
 
-def assembly_origin(m,source_package,source_capture):
+def assembly_origin(m,source_package,source_capture,*,historical_compiler=False):
     """Re-audit the immutable upstream PTX producer, including its original Job."""
     source_package=Path(source_package);source_capture=Path(source_capture)
-    producer=verify_package(source_package)
-    if is_development(m) or is_development(producer) or producer['golden']!=m['golden']:
+    producer=verify_package(source_package,historical_compiler=True) if historical_compiler else verify_package(source_package)
+    if is_development(m) or is_development(producer) or (not historical_compiler and producer['golden']!=m['golden']):
         raise ValueError('Assembly requires the same sealed GPU/native baseline')
     run=load(source_capture/'run.json');facts=load(source_capture/'execution.json')
     if run.get('mode')!='compile-only' or run.get('artifact_kind')!='ptx' or run.get('memory_limit_mb')!=2048 or facts.get('cleanup_error') or facts.get('observation_error'):
@@ -1090,12 +1108,14 @@ def assembly_origin(m,source_package,source_capture):
         producer_artifacts_sha256=sha((source_capture/'artifacts.json').read_bytes()),ptx=ptx,cache_key=receipt['key'],
         cuda_sha256=proof['generated_sha256']['cuda'],generated_normalized=proof['generated_normalized'],
         source_sha256=proof['source_sha256'],producer_compiler_verified=True,producer_containment_verified=True)
+    if historical_compiler:
+        origin.update(historical_compiler_source=True,current_battle_equivalence_verified=False)
     return origin,raw
 
 
 def partition_object_origin(m,request):
     import portable_partition_object as obj
-    producer,_=assembly_origin(m,request['source_package'],request['source_capture'])
+    producer,_=assembly_origin(m,request['source_package'],request['source_capture'],historical_compiler=True)
     return obj.origin(request['cache_entry'],request['phases'],request['candidate'],producer)
 
 
@@ -1121,8 +1141,14 @@ def partition_object_child(m,capture,backend):
 def audit_partition_object_capture(m,capture,*,verify_artifacts=True):
     import portable_partition_object as obj
     import portable_offline_assembler as assembler
-    capture=Path(capture).resolve();run=load(capture/'run.json');facts=load(capture/'execution.json')
+    capture=Path(capture).resolve();run=load(capture/'run.json')
     if run.get('mode')!='partition-object-only' or run.get('backend')!='cuda' or run.get('package_id')!=m['package_id'] or is_development(m):raise ValueError('Wrong focus object capture')
+    if not (capture/'execution.json').exists():
+        if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
+        return dict(mode='partition-object-only',object_verified=False,passed=False,containment_verified=False,
+            preservation_verified=False,partition_legal_verified=False,calculation_verified=False,link_verified=False,
+            kernel_calls=0,error='No bounded execution receipt; preflight failure or incomplete capture',gpu_retry_count=0)
+    facts=load(capture/'execution.json')
     if run.get('memory_limit_mb')!=2048 or type(facts['timeout_seconds']) is not int or not 1<=facts['timeout_seconds']<=60:raise ValueError('Focus object exceeds fixed policy')
     if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
     rows=[];verified=False;error=None
@@ -1158,11 +1184,13 @@ def partition_object_capture(capture,timeout,original_workspace,source_package,s
     import portable_offline_assembler as assembler
     m=verify_package(ROOT)
     request={name:str(Path(value).resolve()) for name,value in dict(source_package=source_package,source_capture=source_capture,cache_entry=cache_entry,phases=phases,candidate=candidate,ptxas=ptxas).items()}
-    origin,_=partition_object_origin(m,request);request['origin']=origin;assembler.validate_tool(ptxas)
     capture.mkdir(parents=True,exist_ok=False)
-    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode='partition-object-only',status='assembling',memory_limit_mb=2048,gpu_retry_count=0))
+    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode='partition-object-only',status='preflight',memory_limit_mb=2048,gpu_retry_count=0))
     write(capture/'object-request.json',request)
     try:
+        origin,_=partition_object_origin(m,request);request['origin']=origin;assembler.validate_tool(ptxas)
+        write(capture/'object-request.json',request)
+        run=load(capture/'run.json');run['status']='assembling';write(capture/'run.json',run)
         with (ROOT/'partition-object-claimed-cuda.json').open('x',encoding='utf-8') as stream:json.dump(dict(package_id=m['package_id'],capture=str(capture),origin=origin),stream)
         with patch.dict(os.environ,NIKKE_VALIDATION_JOB_MEMORY_MB='2048'):
             run_job(capture,'cuda',timeout,original_workspace,partition_object_only=True)

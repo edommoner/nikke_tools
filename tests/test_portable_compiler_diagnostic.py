@@ -120,6 +120,41 @@ class CompilerDiagnosticTests(unittest.TestCase):
         m['package_id']=cli.package_id(m);cli.write(root/'gpu-package.json',m)
         with self.assertRaisesRegex(ValueError,'baseline absent'):cli.verify_package(root)
 
+    def test_historical_compiler_records_bind_original_certificate_and_baseline(self):
+        root=self.base.root/'historical-packet';(root/'gpu').mkdir(parents=True);(root/'research').mkdir()
+        shader=root/'gpu/compiler_commands_entry.slang';shader.write_text('// prior entry')
+        base_shader=root/'gpu/old.slang';base_shader.write_text('// prior shared body')
+        baseline=root/'research/old-baseline.json';cli.write(baseline,dict(source_sha256={'gpu/old.slang':cli.sha(base_shader.read_bytes())}))
+        certificate=root/'research/old-source-certificate.json'
+        m=copy.deepcopy(self.m);m['schema']=cli.SCHEMA
+        m['golden']['source_sha256']={'gpu/compiler_commands_entry.slang':cli.sha(shader.read_bytes()),'gpu/old.slang':cli.sha(base_shader.read_bytes())}
+        m['golden']['baseline_golden_sha256']=cli.sha(baseline.read_bytes());cli.write(certificate,m['golden'])
+        names=['gpu/compiler_commands_entry.slang','gpu/old.slang','research/old-baseline.json','research/old-source-certificate.json']
+        def save():
+            m['files']=cli.file_records(root,names);m['package_id']=cli.package_id(m);cli.write(root/'gpu-package.json',m)
+        save();before={name:(root/name).read_bytes() for name in names};manifest=(root/'gpu-package.json').read_bytes()
+        with self.assertRaises(FileNotFoundError):cli.verify_package(root)
+        self.assertEqual(cli.verify_package(root,historical_compiler=True),m)
+        self.assertEqual({name:(root/name).read_bytes() for name in names},before);self.assertEqual((root/'gpu-package.json').read_bytes(),manifest)
+        duplicate=root/'research/duplicate-certificate.json';duplicate.write_bytes(certificate.read_bytes());names.append('research/duplicate-certificate.json');save()
+        with self.assertRaisesRegex(ValueError,'one immutable owner'):cli.verify_package(root,historical_compiler=True)
+        names.pop();save();original=baseline.read_bytes();baseline.write_bytes(b'{}')
+        with self.assertRaisesRegex(ValueError,'bytes/SHA/size'):cli.verify_package(root,historical_compiler=True)
+        baseline.write_bytes(original);names.remove('research/old-baseline.json');save()
+        with self.assertRaisesRegex(ValueError,'baseline absent'):cli.verify_package(root,historical_compiler=True)
+
+    def test_historical_mode_cannot_admit_battle_or_invented_calculation(self):
+        root=self.base.root/'historical-rejected';root.mkdir()
+        m=copy.deepcopy(self.m);m['schema']=cli.SCHEMA;m['files']=[];m['purpose']='sealed';m['package_id']=cli.package_id(m);cli.write(root/'gpu-package.json',m)
+        with self.assertRaises(ValueError):cli.verify_package(root,historical_compiler=True)
+        m['purpose']='compiler-diagnostic';m['golden']['calculation_verified']=True
+        (root/'research').mkdir();certificate=root/'research/claim.json';cli.write(certificate,m['golden'])
+        # Even a fully self-consistent record layout cannot bless calculation.
+        baseline=root/'research/base.json';cli.write(baseline,dict(source_sha256={}))
+        m['golden']['baseline_golden_sha256']=cli.sha(baseline.read_bytes());cli.write(certificate,m['golden'])
+        m['files']=cli.file_records(root,['research/claim.json','research/base.json']);m['package_id']=cli.package_id(m);cli.write(root/'gpu-package.json',m)
+        with self.assertRaisesRegex(ValueError,'cannot claim a battle'):cli.verify_package(root,historical_compiler=True)
+
     def test_shared_source_closure_and_phase_entry_are_fixed_without_math_changes(self):
         from portable_phase_codegen import PHASES
         from portable_weapon_phase_contract import tokens

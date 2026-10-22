@@ -6,7 +6,7 @@
 
 ## 入力と実行
 
-freshな`compiler-commands` immutable packageでCPU preflightを通してから、Windowsで次を実行する。元producer package／captureと元cache／phase、分割candidateは既存の保存証拠を使い、再生成・再コンパイルを依頼しない。
+freshな`compiler-commands` immutable packageで共通`run --smoke`を実行し、CPU検査とJob事前検査を1回で通してから、Windowsで次を実行する。`run --smoke`にはCPU検査が含まれるため、同じpackageへ先に`--cpu-only --smoke`も実行して重複させない。元producer package／captureと元cache／phase、分割candidateは既存の保存証拠を使い、再生成・再コンパイルを依頼しない。
 
 ```sh
 python scripts/nikke_gpu.py partition-object \
@@ -30,3 +30,11 @@ python scripts/nikke_gpu.py audit --capture /path/to/new-object-capture
 `object_verified`はこの1オブジェクト生成だけの検証で、`partition_legal_verified`／`link_verified`／`calculation_verified`はfalse。CLIはobject未検証ならexit1、環境維持がtrueと確認できなければexit2。service未識別を成功にしない。CPUの故障注入テストで使う合成ELFは実assemblerの証明ではない。
 
 最大関数単独でも失敗するか、module全体の失敗と区別できる追加証拠を得る実験である。成功してもremainderコンパイル・101global／constantの解決・relocation／ABI・link・計算一致は未証明。失敗から必要メモリ量を推計しない。NVIDIA公式12.4.131 archiveの公開SHAとnvlink memberのbyte／SHAをMacで確認し、同archiveのptxasは既存固定toolと同一だった（`research/portable-device-linker-component-candidate.json`）。LICENSEも保持した。nvlink自体の実行版／link互換性は未確認で、Windowsへの導入はしていない。既存11.3を12.4生成objectへ流用しない。次のlink実験には対応toolの固定・全unitのオブジェクト生成・別の明示manifest／監査が必要。
+
+## 保存producerと現在の計算基準を区別する
+
+Windowsの5801e81試行は、保存v135 producerに現在のheal-share証明書名を要求して、実ptxas／Job／capture／claimの生成前に停止した。元producerはdefinition-viewの証明書と796基準を持っており、現在の849基準とはGPU本文も異なる。証明書をコピーしたり、基準の同一性を偽って通してはならない。元失敗と小さなpeer reportは`research/portable-world-v135-focus-object-preflight-peer-report.json`へ保持した。
+
+修正版の診断経路だけは`verify_package(..., historical_compiler=True)`を用いる。既存manifestのschema／package ID／全file byte・SHA・安全なpathを検査し、manifest内goldenと等しいJSON証明書の唯一の所有fileを、その元recordから選ぶ。基準fileもgoldenの`baseline_golden_sha256`と元recordへ結び付け、共有source closure全体と一致させる。欠落・曖昧な所有・改変・battle／計算成功の偽装は拒否する。元packageは読み取りだけで、差し替えや現行基準の追加はしない。
+
+`assembly_origin`の通常経路は従来どおり同じsealed baselineを要求する。新しいobject診断のoriginだけは、元producerの監査・入力PTX・cache key・正規化指紋・元Jobを保持し、`historical_compiler_source=true`／`current_battle_equivalence_verified=false`を記録する。古いPTXを新しい実行器の計算証明や通常キャッシュhitとして扱わない。事前監査の失敗もfresh captureへ保存し、claimやJobを作る前に停止する。execution receiptがないcaptureのauditは成功へ進まず、未検証結果を返す。

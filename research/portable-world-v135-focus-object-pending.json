@@ -40,5 +40,12 @@
     }
   ],
   "retry_or_restart_requested": false,
-  "scope": "No terminal/failure or process-preservation claim is inferred from transport failure. Recover saved capture only after reconnection. PTX transfer rejection remains in force."
+  "scope": "No terminal/failure or process-preservation claim is inferred from transport failure. Recover saved capture only after reconnection. PTX transfer rejection remains in force.",
+  "resolution": {
+    "terminal_state_recovered": true,
+    "terminal_turn_status": "completed",
+    "report": "research/portable-world-v135-focus-object-preflight-peer-report.json",
+    "native_compiler_executed": false,
+    "reason": "Upstream certificate filename and baseline mismatch; no Job/capture/claim created"
+  }
 }
