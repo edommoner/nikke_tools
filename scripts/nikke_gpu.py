@@ -134,9 +134,13 @@ SUITES['entry-reload-regression']['tests'].append('test_portable_heal_share_extr
 SUITES['entry-reload-regression']['tests'].append('test_portable_definition_view.py')
 SUITES['entry-reload-regression']['tests'].append('test_portable_readiness_semantics.py')
 SUITES['entry-reload-regression']['tests'].append('test_portable_heal_share_targets.py')
+SUITES['entry-reload-regression']['tests'].append('test_portable_heal_share_lifesteal.py')
 SUITES['definition-view']=dict(script='research/verify-definition-view-short.py',source='gpu/definition_view_probe.slang',
     golden='research/portable-definition-view-probe-expected.json',inputs=6,native=6,development_only=False,
     tests=['test_portable_definition_view.py','test_portable_resident_layout.py','test_portable_resident_transport.py'])
+SUITES['heal-share-plan']=dict(script='research/verify-heal-share-plan-short.py',source='gpu/heal_share_plan_probe.slang',
+    golden='research/portable-heal-share-plan-short-expected.json',inputs=10,native=8,development_only=False,
+    tests=['test_portable_heal_share_plan.py'])
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
     golden='research/portable-compiler-commands-definition-view-source-certificate.json',inputs=0,native=0,compiler_only=True,
     support_files=['research/portable-world-definition-view-regression-short-expected.json'],

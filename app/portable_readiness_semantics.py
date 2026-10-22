@@ -9,7 +9,7 @@ def reference_readiness(issue):
     stat=issue.get('stat')
     if stat=='heal_split':
         result.update(native_consumer='declared_cpu_model',consumer_source='app/heal_sharing_compat.py',
-            contract_coverage='recorded_subset',reference_suites=['heal-share','heal-share-extended','heal-share-targets'],recorded_cases=34,
+            contract_coverage='recorded_subset',reference_suites=['heal-share','heal-share-extended','heal-share-targets','heal-share-lifesteal'],recorded_cases=43,
             lane='native_contract_extension',note='Declared model choices still need in-game confirmation; contracts are not exhaustive')
         if issue.get('category')=='effect' and not issue.get('fields') and issue.get('scaling') is None and issue.get('target') in ('self','all_allies'):
             result['lane']='gpu_lowering_candidate'

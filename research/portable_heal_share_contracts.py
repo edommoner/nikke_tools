@@ -8,6 +8,10 @@ def verify(case,native):
     if 'plan_sequence' in expected:assert [r['weights'] for r in plans]==expected['plan_sequence'],(case['name'],'nested plan snapshots',plans)
     else:assert all(r['weights']==expected['weights'] for r in plans),(case['name'],'actual link weights',plans)
     assert len(originals)==len(ends)==len(notices)==expected['notices'],(case['name'],'non-recursive original healing/notifications')
+    if 'lifesteal_damage' in expected:
+        assert [e['damage'] for e in events if e['kind']=='lifesteal-call']==expected['lifesteal_damage'],(case['name'],'landed lifesteal packets')
+    if 'heal_sources' in expected:
+        assert [e['heal_source'] for e in notices]==expected['heal_sources'],(case['name'],'original lifesteal source')
     count=sum(len(r['weights']) for r in plans) if plans else expected['notices']
     assert len(portions)==count,(case['name'],'portion count')
     assert [a['hp'] for a in native['allies']]==expected['hp'],(case['name'],'literal HP',[a['hp'] for a in native['allies']])

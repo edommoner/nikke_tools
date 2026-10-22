@@ -1,3 +1,7 @@
+<!-- heal-plan-current -->
+回復分配のCPU参照は43（元34全input/native/trace/contract保持＋lifesteal9）、関連18成功。共通heal_share_plan.slangを実装し、独立Metal10入力（literal8＋拒否2）が一致、GPU0 seal、通常sealed CLI登録。planのみでmembership/HP/storage/DFS通知への接続は未実装・heal_split受付は閉じたまま。portable887は885成功/Win1skip/ps拒否1、同packageの観測5再確認成功。誤った広い1260 discoveryの失敗も保持。GPU実行1/Windows0。詳細research/portable-heal-share-plan-checkpoint.json、portable-heal-share-lifesteal-reference-checkpoint.json、接続計画docs/portable-heal-share-gpu-next.md。保存PTX共有の個別確認は未回答・再実行しない。以下は履歴です。
+<!-- /heal-plan-current -->
+
 <!-- heal-targets-current -->
 共通CLI referenceへheal-share-targets6を追加、旧28の全input/native/trace/contract保持・関連15検査成功。self＋RL上位2／重複／RLなし／別carrier重み／同率／別ownerを検査。正本sync_hpの除算→乗算を反映しHP5500の55.00000000000001を厳密比較、55.0再結合は故障注入で拒否、元失敗保持。readiness記録34とfresh21検査成功。GPU source/受付変更・GPU/Windows追加実行0、lifesteal等と本体CUDA成立は未完了。詳細research/portable-heal-share-target-reference-checkpoint.json。以下は履歴です。
 <!-- /heal-targets-current -->

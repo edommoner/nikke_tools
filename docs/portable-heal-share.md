@@ -54,3 +54,11 @@ GPU接続時はqueryRecipientの数値専用フィルターを無条件に転用
 初回は重複carrierのHP5500に対するHP％だけが失敗した。正本sync_hpは`hp / max_hp * 100.0`なので、55.00000000000001が正しく、旧verifierの`5500 / 100`は55.0へ再結合していた。新ケースへ明示literal hp_pctを加え、verifierはその値を厳密比較する。55.0への書換えを故障注入で拒否し、比較許容差とcanonical CPUは変更していない。元失敗を保持する。
 
 旧20＋追加8の全input/native/trace/contract指紋は不変、新6契約・関連15検査成功。readinessへ合計34件を記録し、fresh metadata packageの21検査も成功。これは参照契約であり、heal_splitのGPU受付・本体CUDA成功・全相互作用の保証ではない。lifesteal経路や変更中のlazy対象等は引き続き追加検証が必要。詳細research/portable-heal-share-target-reference-checkpoint.json。GPU／Windows追加実行0。
+
+## Lifestealと共通plan演算
+
+`reference --suite heal-share-lifesteal --out <new-file.json>`で追加9契約を実行する。通常射撃を短い観測区間外へ置いたnativeのskill packetを使い、吸収率0／負値、full-HP storage、元recipientの倍率だけを適用、別casterが付与したrateとattackerのheal_source、2着弾、最小damage1の10%による0.1、回復倍率0でも元通知を行う境界を検査する。元34ケースの全input/native/trace/contract指紋は保持した。関連18検査成功。最初の物理packet混入・wrapperのcontext名・provider対象・damage最小1・HP％演算順のfixture不備は、canonical CPUを変更せず訂正し、元失敗を保持した。
+
+共有plan演算は`gpu/heal_share_plan.slang`。`heal-share-plan` CLI suiteでliteral mask／重み／binary64分配の10入力をMetal実行し、全一致・独立GPU0 sealを確認した。goldenはportable-heal-share-plan-short-expected.json。GPU0の最終CPU preflightも成功、GPU再実行はしていない。現在のbattle runtime closureは変更せず、実carrierのmembership採取とHP/storage/通知はまだ接続していない。接続契約はportable-heal-share-gpu-next.mdを参照。
+
+最終固定packetの共有GPU向けCPU887件は885成功・Windows専用1skip・sandboxのps拒否1。影響するphase群5件はOS観測許可で再確認して成功した。最初に誤って範囲を広げた1260件は旧CUDA/application検査も含み失敗したため、共有GPUの成功件数へ混ぜない。全キャラGPU認定0、heal_splitのGPU受付未追加、本体CUDA未成立を維持する。

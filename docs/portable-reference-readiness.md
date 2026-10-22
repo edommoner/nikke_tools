@@ -19,3 +19,5 @@
 CUDAの分割調査は既存共通assemblerへ暗黙追加しない。NVIDIA 12.4.1の[compiler driver文書](https://docs.nvidia.com/cuda/archive/12.4.1/cuda-compiler-driver-nvcc/index.html)で、ptxasの`--compile-only`がrelocatable objectを生成し、separate compilationにdevice linkが必要なことを確認した。ただし現PTXの分割合法性・tool互換・2GiB内への改善は未証明。元body・外部宣言ABI・global所有・出所と失敗保持のCPU契約を整えてから明示候補を選ぶ。
 
 追加のheal-share-targets6契約をCPU検証し、readinessの記録件数を34へ更新した。旧28は全指紋を保持。複合対象は6literalケースの検証までで、未被覆相互作用が残るためlaneの自動昇格はしない。詳細はportable-heal-share.mdとportable-heal-share-target-reference-checkpoint.json。
+
+さらにheal-share-lifesteal9を検証し、記録件数は43へ更新した。これはCPU側の前提が増えた記録で、GPU laneの昇格や対応率の増加ではない。独立plan演算のMetal10は成功したが、battle接続は別の未完了項目として扱う。

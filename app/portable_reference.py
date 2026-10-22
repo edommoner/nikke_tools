@@ -8,7 +8,8 @@ REFERENCES={'revive':('portable_revive_cases','world_revive_native','portable_re
             'entry-reload':('portable_entry_reload_cases','world_entry_reload_native','portable_entry_reload_contracts'),
             'heal-share':('portable_heal_share_cases','world_heal_share_native','portable_heal_share_contracts'),
             'heal-share-extended':('portable_heal_share_extra_cases','world_heal_share_native','portable_heal_share_contracts'),
-            'heal-share-targets':('portable_heal_share_target_cases','world_heal_share_native','portable_heal_share_contracts')}
+            'heal-share-targets':('portable_heal_share_target_cases','world_heal_share_native','portable_heal_share_contracts'),
+            'heal-share-lifesteal':('portable_heal_share_lifesteal_cases','world_heal_share_native','portable_heal_share_contracts')}
 
 
 def digest(value):
