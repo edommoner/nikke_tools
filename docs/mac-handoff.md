@@ -1,3 +1,11 @@
+<!-- full-cubin-success-current -->
+固定d1594d9の現行full entryでPTX→object→メモリCUBINがWindows実証。full package a247319b.../2020files/Metal基準110source・両生成指紋一致。NVRTC14.953秒/PTX7099843B c9a35121.../peak506089472、ptxas--compile-only O1 fmadfalse6.483811秒/object4141360B b658a7f4.../peak267169792、JIT0.210278秒/CUBIN3877904B 91aacb33.../peak84570112/全9return0/Destroy/params48B/driver3観測false。各2GiB/60秒/startgate/BelowNormal/post空/cleanup正常/missing0、最終25589原本・全失敗/claims/親環境保持。最終link CPU audit1回から全chain認定、CPU248/native smoke再実行なし。service未識別preservationfalse/CLI exit2、計算/全キャラ認定0は維持。Macはpeer summaryまで・raw独立監査なし。Windows現在idle/未依頼実行なし、同package・消費済みclaimを再実行しない。次は保存現行CUBINの明示providerを共通backendと独立監査へ接続（NVRTC cache偽装/自動fallbackなし）、厳密raw CUDA/prelude/全source/toolchain照合後にMetal実編成4の短いCUDA比較。実行前にdocs/portable-full-compiler.mdの接続条件を読む。GPU数値本文/Runtime/strict normalizer不変、Metal849+実4/parts CPU32維持。詳細research/portable-full-ptx-peer-report.json、portable-full-object-link-peer-report.json。以下は履歴です。
+<!-- /full-cubin-success-current -->
+
+<!-- jit-link-success-current -->
+d1594d9 Windows CPU248/native gate成功後、保存旧commands objectのnvJitLink1回が成功。provider0.245787秒/CUBIN3129744B・65963e8d.../API12.4全9return0/Destroy/ET_EXEC sm86 params48B。保存CPU audit link/containment true、Job2GiB/peak82231296/post空/missing0/16492fileとDLL・object保持。service未識別preservationfalse/CLI exit2、計算/現行full battlefalseを維持。Macはpeer summaryまで・raw独立監査なし。次に同固定d1594d9の別compiler-full package a247319b...で現行PTXだけを1回依頼済み、同controller CPU/Job再検査とNVRTC以外compiler/driver/GPU0。結果評価前にobject/link自動実行しない。通常cache provider未接続/Metal849+実4/parts CPU32/全キャラ認定0維持。詳細docs/portable-jit-link-next.md、research/portable-jit-link-peer-report.json。以下は履歴です。
+<!-- /jit-link-success-current -->
+
 <!-- jit-link-controller-current -->
 Windows接続復旧後、64af5fbの保存結果を再取得。新実行なし、欠落7原因unknown/service未識別/preservationfalse維持。nvJitLink明示CLI jit-link-objectを共通object controller/bounded childへ接続し、元source全chain/専用claim/固定DLL前後SHA/実Job PID・2GiB/API journal・ELF/driver module観測を監査。新9を含むfresh CPU248中247成功/Win1skip、全source byte一致。実DLLロード/link/driver/GPUはまだ0。次は固定clean sourceを共有しCPU+Job smoke1回後に保存旧commands objectのメモリlink1回、nvlink.exe/ptxas/NVRTC再実行なし。成功でも現行full battleとは別、cache provider未接続/全キャラ認定0。Metal849+実4/parts CPU32維持。詳細docs/portable-jit-link-next.md、research/portable-jit-link-controller-checkpoint.json。以下は履歴です。
 <!-- /jit-link-controller-current -->

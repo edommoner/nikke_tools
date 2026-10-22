@@ -30,3 +30,11 @@ CLIへの接続を実装した。条件は元object package/producer/cache/phase
 ```
 
 元object captureは元packageの`module-object-claimed-cuda.json`にあるcaptureから解決する。失敗済みnvlink.exe／ptxas／NVRTCは再実行しない。API成功でも旧commands-onlyのリンク診断であり、本体CUDA／計算／全キャラ認定へ昇格しない。service未識別・欠落等のpreservation=falseも別に維持する。
+
+## Windows d1594d9実メモリリンク成功
+
+CPU248全成功、既存Job/native I/O smoke1回後、保存旧commands objectのAPI link1回が成立。provider 0.245786500秒、CUBIN3,129,744B／SHA `65963e8d699748dae522172449b7ebd5eb5e874eff8bf8d28d4c7be8f41b5ebd`、ET_EXEC／sm86／710 sections／4 program headers／params48B。API12.4の9件が全return0、ログ空、Destroy成立。実Job2GiB／peak82,231,296B／post空／cleanup正常／欠落0。DLL・元object・既存16,492file bytes不変。program NVRTC／ptxas／nvlink.exe／driver／GPU追加0。保存CPU audit1回もlink/containment trueである。
+
+service未識別のpreservation=falseとCLI exit2を維持する。Macはpeer summary照合まででraw独立監査はしていない。小記録は`research/portable-jit-link-peer-report.json`。nvlink.exe出力失敗の原因は解決と断定しないが、標準メモリAPIからのリンク生成は実証できた。
+
+次に同じ固定コードの別`compiler-full` packageから現行本体PTXだけを1回生成する。期待package `a247319b8676029b05d317ca37d2b88d79576447e2bfdf594335d166b08915b2`／2020files／files-table SHA `4a1f7a0299495493a9804d35d385830aca801f1767fe5b13453c4a2d8547dae6`。同一controllerのCPU／Job smokeを重複しない。成功評価後に現行object/linkを選び、現在のsourceと独立toolchainのcache identityを接続する。旧commands CUBINを現在のNVRTC cacheへ登録しない。
