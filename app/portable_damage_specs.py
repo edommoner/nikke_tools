@@ -70,3 +70,8 @@ STATS.update(NAMED_MAGNITUDE_STATS)
 # Native carrier-link presence, outside the64-entry numeric vector.
 BUFFS=BUFFS | {'heal_split'}
 STATS['heal_split']=EXTRA_STAT['heal_split']
+
+# Presence marker; never enters the64-entry arithmetic vector.
+from portable_focus_specs import STAT as FOCUS_FIRE_STAT
+BUFFS=BUFFS | {'focus_fire'}
+STATS['focus_fire']=FOCUS_FIRE_STAT

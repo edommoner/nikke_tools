@@ -3,7 +3,7 @@
 bool liveMarker(inout Runtime s, uint who, uint stat, uint64_t when)
 {
 #ifndef PORTABLE_INCOMING_SCAN_REFERENCE
-    uint bit = stat == S_invincible ? 1 : 2;
+    uint bit = stat == S_invincible ? 1 : stat==S_focus_fire ? 64 : 2;
     if ((s.incomingMask & bit) == 0) return false;
 #endif
     for (uint pass = 0; pass < s.orderedCount; pass++)

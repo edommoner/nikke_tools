@@ -249,6 +249,11 @@ from portable_revival_specs import BASE as _rev_base,LOST as _rev_lost,RNG as _r
 LIMITS.update(REVIVAL_BASE=_rev_base,REVIVAL_LOST_BASE=_rev_lost,REVIVAL_RNG_BASE=_rev_rng,REVIVAL_TRACE_BASE=_rev_trace,REVIVAL_TRACE_COUNT=_rev_count,REVIVAL_WORDS=_rev_words,REVIVAL_MAGIC=_rev_magic)
 assert LIMITS['CARRIERS']==512 and _rev_rng-_rev_lost==5*LIMITS['CARRIERS']
 assert _rev_base>=LIMITS['BASE_COPY_STATE_BASE']+LIMITS['BASE_COPY_STATE_WORDS']
+# Explicitly allocated after every existing resident scratch bank.
+LIMITS['FOCUS_STATE_BASE']=_rev_base+_rev_words
+LIMITS['FOCUS_CACHE_COUNT']=256
+LIMITS['FOCUS_STATE_WORDS']=32+LIMITS['FOCUS_CACHE_COUNT']*8
+assert LIMITS['FOCUS_STATE_BASE']+LIMITS['FOCUS_STATE_WORDS']<=786416
 
 
 def buff_stat_ids():

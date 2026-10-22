@@ -11,7 +11,8 @@ void admitDefinitions(inout Runtime s,uint input)
 #ifndef PORTABLE_WORLD_ROSTER
     if(commands[world+3]!=0) { s.error=64;return; }
 #endif
-    for(uint word=4;word<P_WORLD_META_WORDS;word++) if(commands[world+word]!=0) { s.error=64;return; }
+    if(!validFocusMetadata(input)) { s.error=64;return; }
+    for(uint word=5;word<P_WORLD_META_WORDS;word++) if(commands[world+word]!=0) { s.error=64;return; }
     if(commands[input+P_RECIPIENT_META_BASE]>P_RECIPIENT_NODES) { s.error=64;return; }
     if(commands[input+P_RECIPIENT_META_BASE+1]>1) { s.error=64;return; }
     if(!validAlliedRandomMetadata(input)) { s.error=64;return; }
@@ -108,6 +109,7 @@ void admitDefinitions(inout Runtime s,uint input)
         for(uint slot=0;slot<d.conditionCount;slot++)
         {
             uint at=input+P_CONDITION_BASE+j*P_CONDITION_WORDS+slot*4;
+            if((commands[at]==C_FOCUSING || commands[at]==C_NO_BROKEN_COVER_ALLY) && !validStatePredicate(input,j,at,s.combat)) { s.error=64;break; }
             if(commands[at]==C_SELF_UNDYING && !validUndyingPredicate(input,j,at,s.combat)) { s.error=64;break; }
             if(commands[at]==C_STAT_ABOVE && !validStatAbovePredicate(commands[at+1],loadNumber(at+2))) { s.error=64;break; }
             if(commands[at]==C_TRIGGER_HIT_CRIT)
@@ -222,6 +224,8 @@ void admitDefinitions(inout Runtime s,uint input)
         if (d.kind == 6 || d.kind == 8) s.healthMask |= 16;
         if (d.group >= s.count || d.alias >= int(j)) { s.error = 64; break; }
         PROJECTILE_ADMIT_STAGE(s,407)
+        if(d.stat==S_focus_fire)
+        { if(d.kind!=0 || s.combat==0 || !focusAimEnabled(s) || commands[input+P_WORLD_FRAME_INPUT_BASE]==0 || d.enemyBuff!=0 || d.healthScaling!=0 || d.alliedFlags!=0 || d.damageFlags!=0 || d.quantityFlags!=0 || !f64Finite(d.value) || !f64Zero(d.interval)) { s.error=64;break; }s.incomingMask|=64; }
         if (d.kind == 0 && d.stat == S_invincible) s.incomingMask |= 1;
         if (d.kind == 0 && d.stat == S_undying) s.incomingMask |= 2;
         if (d.kind == 0 && d.stat == S_received_dmg_pct) s.incomingMask |= 4;

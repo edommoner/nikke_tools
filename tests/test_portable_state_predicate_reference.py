@@ -47,9 +47,12 @@ class StatePredicateReferenceTests(unittest.TestCase):
         c=next(c for c in fixtures() if c['name'].endswith('focus-dynamic-owner'));n,_=observe(c);n['state_predicates']['runtime'][0]['camera_mask']=16
         with self.assertRaises(AssertionError):verify(c,n)
 
-    def test_unported_host_predicates_still_reject(self):
+    def test_host_predicate_context_and_unknown_suffixes_still_reject(self):
         for c in [fixtures()[0],next(c for c in fixtures() if c['name'].endswith('focus-passive-self'))]:
-            with self.assertRaises(ValueError):portable_runtime.validate_effect(c['effects'][-1],combat={},world_frame=True)
+            effect=c['effects'][-1]
+            with self.assertRaises(ValueError):portable_runtime.validate_effect(effect,combat={},world_frame=False)
+            bad=copy.deepcopy(effect);bad['trigger']['condition']=[effect['trigger']['condition'][0]+':unknown']
+            with self.assertRaises(ValueError):portable_runtime.validate_effect(bad,combat={},world_frame=True)
 
     def test_cli_is_explicitly_cpu_reference_only(self):
         with tempfile.TemporaryDirectory() as tmp:

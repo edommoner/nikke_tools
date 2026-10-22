@@ -77,9 +77,9 @@ void ensureLazyRecipients(inout Runtime s, uint row, uint64_t when)
 bool needsBuffResolution(inout Runtime s)
 {
 #ifdef PORTABLE_LAZY_ALL_PENDING_REFERENCE
-    return s.lazyPendingCount != 0;
+    return s.lazyPendingCount != 0 || focusNumericEnabled(s);
 #else
-    return s.lazyMappedPendingCount != 0;
+    return s.lazyMappedPendingCount != 0 || focusNumericEnabled(s);
 #endif
 }
 
@@ -90,7 +90,7 @@ bool needsBuffResolution(inout Runtime s)
 bool beginBuffQuery(inout Runtime s, uint who, uint64_t when)
 {
     if (s.queryActive != 0 || !needsBuffResolution(s)) return false;
-    s.queryActive = 1; s.queryWho = who; s.queryWhen = when;
+    s.queryActive = 1; s.queryWho = who; s.queryWhen = when; beginFocusNumeric(s,who,when);
     for (uint pass = 0; pass < s.orderedCount && s.error == 0; pass++)
     {
         uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row); s.queryAllowed[row] = 0;

@@ -29,7 +29,8 @@ def patch_program(words, metadata, chars, effects):
     from portable_target_state_specs import compiler_effect, allocate_names
     from portable_pellet_shot_specs import compiler_effect as pellet_shot_compiler_effect
     from portable_geometry_specs import compiler_chars
-    original = detail_gpu.compile_effects(compiler_chars(chars,metadata.get('_compiler_geometry')), [(pellet_shot_compiler_effect(compiler_effect(e)), owner) for e, owner in effects])
+    from portable_focus_specs import compiler_effect as focus_compiler_effect
+    original = detail_gpu.compile_effects(compiler_chars(chars,metadata.get('_compiler_geometry')), [(pellet_shot_compiler_effect(compiler_effect(focus_compiler_effect(e))), owner) for e, owner in effects])
     allocate_names(effects, original['states'])
     # Portable code IDs include the literal enemy code even when no condition
     # references that exact spelling. Rebuild the same immutable symbol table;

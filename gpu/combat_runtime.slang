@@ -285,6 +285,7 @@ void squadFrame(inout Runtime s, uint64_t when, uint output)
     drainLandings(s,when,output);
     if (s.error!=0) return;
     burstFrame(s,when,output); WORLD_CONTROL_ARBITRATE(s,when,output)
+    captureFocusAims(s,when);
     for (uint who = 0; who < 5 && s.error == 0; who++) weaponFrame(s,who,when,output);
 }
 // Fixed clock generation belongs to the GPU, not to an authored shot schedule.

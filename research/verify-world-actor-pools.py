@@ -40,7 +40,7 @@ def fixtures():
 
 def compile_case(c):
  words,meta=body.compile_case(c,actor_pools=True);_,patterns=compile_schedule(dict(patterns=c['patterns'],clock='accumulated',duration=c['duration']),notice_payload=True)
- table,bindings=compile_registry(patterns,pools=True);words[0]=L['WORLD_ACTOR_POOL_ABI'];words.extend(table);words.extend(compile_pools(patterns,bindings));assert len(words)==L['WORLD_ACTOR_POOL_INPUT_WORDS']
+ table,bindings=compile_registry(patterns,pools=True);words[0]=L['WORLD_ACTOR_POOL_ABI'];words.extend(table);words.extend(compile_pools(patterns,bindings,focus_aim=bool(words[L['WORLD_META_BASE']+4]),armed=any(words[L['WEAPON_BASE']+i*L['WEAPON_WORDS']] and words[L['WEAPON_BASE']+i*L['WEAPON_WORDS']+1]==0 for i in range(5))));assert len(words)==L['WORLD_ACTOR_POOL_INPUT_WORDS']
  if 'actions' in c:
   commands=[]
   for t,op,args,amount in c['actions']:commands.extend([(t,24,[0]*5,0),(t,op,args,amount)])

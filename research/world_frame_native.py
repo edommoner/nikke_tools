@@ -140,6 +140,7 @@ def observe(case):
    if len(case['controls'])!=5:raise ValueError('Five authored controls required')
    for char,control in zip(squad,case['controls']):char['control']=copy.deepcopy(control)
   config=dict(duration=case['duration'],rng_mode='expected',burst_gauge_mode='accumulate',cover_hp=1000,camera_mode=case.get('camera_mode','single'),camera=case.get('camera',[]))
+  if 'focus_aim_layer2' in case:config['aim_interrupt']=case['focus_aim_layer2']
   for key in ('control_mode','sequence'):
    if key in case:config[key]=copy.deepcopy(case[key])
   try:result=timeline.simulate(squad,config=config,enemy=enemy,seed=case.get('seed',19))

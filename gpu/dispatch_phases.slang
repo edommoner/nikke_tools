@@ -196,6 +196,7 @@ void applyDefinitionFrame(inout Runtime s,inout Frame frames[32],inout int depth
             bool live = s.alive[row] != 0;
             if (!live) { storeReferenceCapture(s,row,0,0);captureBuffReference(s,row,sourceRow); }
             if (!live) { resetBulletCarrier(s,row); discardLazy(s,row); s.stacks[row] = 0; s.hpSnapshot[row] = 0; markEntry(s,row); }
+            invalidateFocusNumeric(s);
             uint previousStack = s.stacks[row];
             if (activationLazy)
             {

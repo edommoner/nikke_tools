@@ -104,7 +104,7 @@ def compile_world_battle(prepared, *, trace='burst'):
     pack_cleanse_flags(words, [e for e, _ in bound], L)
     pack_skill_mode_flags(words, [e for e, _ in bound], L)
     words.extend(registry)
-    words.extend(compile_pools(patterns, bindings, fields=True, boss_atk=enemy.get('atk', DEFAULT_BOSS_ATK)))
+    words.extend(compile_pools(patterns, bindings, fields=True, boss_atk=enemy.get('atk', DEFAULT_BOSS_ATK),focus_aim=bool(words[L['WORLD_META_BASE']+4]),armed=any(words[L['WEAPON_BASE']+i*L['WEAPON_WORDS']] and words[L['WEAPON_BASE']+i*L['WEAPON_WORDS']+1]==0 for i in range(5))))
     for i, (effect, _) in enumerate(bound):
         plan = enemy_buff_plan(effect)
         if plan is None and effect.get('type') == 'damage':

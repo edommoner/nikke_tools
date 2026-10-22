@@ -58,11 +58,10 @@ void initializeWorldTeam(inout Runtime s)
     results[s.resourceOutput+P_WORLD_TEAM_HEAD_BASE]=0x57544831; WORLD_CONTROL_INIT(s)
 }
 [noinline]
-void notifyWorldTeam(inout Runtime s,uint who,uint64_t when,uint output)
+void notifyWorldTeamFraction(inout Runtime s,uint who,uint kind,uint64_t frac,uint64_t when,uint output)
 {
-    uint kind=WORLD_PROJECTILE_PARTS(s,commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+3])==1?0:1;
     uint state=s.resourceOutput+P_WORLD_TEAM_STATE_BASE+who*4,head=s.resourceOutput+P_WORLD_TEAM_HEAD_BASE;
-    uint64_t frac=f64Add(ONE,actorNumber(s.resourceOutput+P_WORLD_FRACTION_STATE_BASE+who*8+6)^F64_SIGN),value=actorNumber(state+kind*2);bool fired=false;
+    uint64_t value=actorNumber(state+kind*2);bool fired=false;
     if(!f64Finite(frac)||f64Less(frac,0)||f64Less(ONE,frac)) { s.error=16;return; }
     if(!f64Less(frac,ONE)) fired=true;
     else if(f64Less(0,frac))
@@ -80,4 +79,24 @@ void notifyWorldTeam(inout Runtime s,uint who,uint64_t when,uint output)
         if(results[head+2+kind]==0x7fffffff) { s.error=2;return; }
         results[head+2+kind]++;uint previous=s.target;s.target=0;dispatch(s,0,44+kind,who,0,when,output);s.target=previous;
     }
+}
+
+void notifyWorldTeam(inout Runtime s,uint who,uint64_t when,uint output)
+{
+#ifdef PORTABLE_WORLD_ACTOR_POOLS
+    if(focusAimEnabled(s) && (commands[s.inputBase+P_WORLD_META_BASE+4]&1U)!=0)
+    {
+        uint target=actorPhysicalTarget(s,who,0)&127U;
+        if(commands[actorBinding(s,target)]==1)
+        {
+            // Native stage pellets notify part then body, including zero.
+            notifyWorldTeamFraction(s,who,0,ONE,when,output);
+            if(s.error==0) notifyWorldTeamFraction(s,who,1,0,when,output);
+            return;
+        }
+    }
+#endif
+    uint kind=WORLD_PROJECTILE_PARTS(s,commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+3])==1?0:1;
+    uint64_t frac=f64Add(ONE,actorNumber(s.resourceOutput+P_WORLD_FRACTION_STATE_BASE+who*8+6)^F64_SIGN);
+    notifyWorldTeamFraction(s,who,kind,frac,when,output);
 }

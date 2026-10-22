@@ -15,7 +15,7 @@ pool=module('fields_pool','research/verify-world-actor-pools.py');SOURCE='gpu/wo
 def fixtures():return cases.fixtures(pool)
 def compile_case(c):
  words,meta,bindings=pool.compile_case(c);_,patterns=compile_schedule(dict(patterns=c['patterns'],clock='accumulated',duration=c['duration']),notice_payload=True)
- words[0]=L['WORLD_ACTOR_FIELDS_ABI'];words[L['WORLD_ACTOR_POOL_INPUT_BASE']:]=compile_pools(patterns,bindings,fields=True,boss_atk=c['enemy'].get('atk',114344))
+ words[0]=L['WORLD_ACTOR_FIELDS_ABI'];words[L['WORLD_ACTOR_POOL_INPUT_BASE']:]=compile_pools(patterns,bindings,fields=True,boss_atk=c['enemy'].get('atk',114344),focus_aim=bool(words[L['WORLD_META_BASE']+4]),armed=any(words[L['WEAPON_BASE']+i*L['WEAPON_WORDS']] and words[L['WEAPON_BASE']+i*L['WEAPON_WORDS']+1]==0 for i in range(5)))
  for i,e in enumerate(c['effects']):
   plan=enemy_buff_plan(e)
   if plan is not None and plan[0]==2:words[L['DAMAGE_DEFINITION_BASE']+i*8+1]=128

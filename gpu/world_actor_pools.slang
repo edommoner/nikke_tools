@@ -53,11 +53,12 @@ bool initializeActorPools(inout Runtime s)
         if(kind==1||kind==6 ? mode!=1 : mode<2||mode>4) return false;
         if(mode<=2 && (commands[d+1]!=0 || !f64Zero(after)) || mode==2 && !f64Less(0,hp)) return false;
         if(mode>=3 && commands[d+1]==0 || mode==3 && (!f64Zero(hp)||!f64Zero(after)) || mode==4 && (!f64Less(0,hp)||!f64Less(0,after))) return false;
+        if(focusAimEnabled(s) && kind==6) for(uint who=0;who<5;who++) if(s.weaponEnabled[who]!=0 && s.weaponMode[who]==0) return false;
         uint n=commands[d+6],packed=commands[d+7];if(n>8 || (packed>>(n*3))!=0 || kind!=1 && kind!=6 && (n!=0||commands[d+8]!=0)) return false;
         for(uint i=0;i<n;i++) if(((packed>>(i*3))&7)==0||((packed>>(i*3))&7)>4) return false;
         #ifdef PORTABLE_WORLD_ACTOR_FIELDS
         uint64_t atk=loadNumber(d+9);if(!f64Finite(atk)||f64Less(atk,0)||kind!=5&&!f64Zero(atk)) return false;
-        if(commands[d+8]>0x7fffffff || commands[d+11]!=0) return false;
+        if(commands[d+8]>0x7fffffff || commands[d+11]>(focusAimEnabled(s) && kind==1 ? 1U : 0U)) return false;
 #else
         if(commands[d+8]>0x7fffffff || commands[d+9]!=0||commands[d+10]!=0||commands[d+11]!=0) return false;
 #endif
@@ -168,6 +169,11 @@ void actorPoolLand(inout Runtime s,uint who,uint slot,uint64_t amount)
 uint actorPhysicalTarget(inout Runtime s,uint who,uint legacy)
 {
     if(!actorPoolsEnabled(s)) return legacy;
+    if(focusAimEnabled(s) && results[s.resourceOutput+P_FOCUS_STATE_BASE+6]==0x46414331U)
+    {
+        uint slot=uint(actorNumber(s.resourceOutput+P_FOCUS_STATE_BASE)>>(8*who))&255U;
+        return ACTOR_REF|(slot==128 ? focusFirstAdd(s) : slot);
+    }
     uint slot=0,order=0xffffffffU;
     for(uint i=1;i<actorPoolCount(s);i++) if(commands[actorBinding(s,i)]==5 && results[actorPoolAt(s,i)+1]!=0 && results[actorPoolAt(s,i)+10]<order) { slot=i;order=results[actorPoolAt(s,i)+10]; }
     return ACTOR_REF|slot;
@@ -176,6 +182,7 @@ bool actorPhysicalGate(inout Runtime s,uint who,uint target,uint64_t amount,uint
 {
     if(!actorPoolsEnabled(s)) return worldOverlayLand(s,who,target,amount,worldPhysicalNormal(s,who));
     storeNumber(actorPoolHead(s)+2,when);uint ref=actorPhysicalTarget(s,who,target),slot=ref&127;
+    if(focusAimEnabled(s) && commands[actorBinding(s,slot)]==6) { s.error=64;return false; }
     return commands[actorBinding(s,slot)]==5 || worldOverlayLand(s,who,0,amount,worldPhysicalNormal(s,who));
 }
 [noinline]

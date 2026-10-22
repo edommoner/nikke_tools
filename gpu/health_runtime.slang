@@ -55,6 +55,7 @@ void syncHealthActor(inout Runtime s, uint who, uint64_t when)
     s.hp[who] = larger(0,commands[s.inputBase+P_HP_UNCLAMP_POLICY]!=0 ? s.hp[who] : smaller(maximum,s.hp[who]));
     s.hpPct[who] = f64Mul(f64Div(s.hp[who],maximum),HUNDRED);
     if (!f64Finite(s.hpPct[who])) { s.error = 16; return; }
+    if(!f64Equal(previous,s.hpPct[who])) invalidateFocusNumeric(s);
     revivalClearNull(s,who);
     if (!nullPrevious && s.hpWatchCount != 0 && s.hpEdgeGuard == 0 && !f64Equal(previous,s.hpPct[who]))
     {

@@ -8,6 +8,9 @@ void initializePortableProgram(inout Runtime s,uint input,uint output,out bool r
     ready=false;
     s.resourceOutput = output;
     LAZY_BANK_INIT(output)
+#ifdef PORTABLE_WORLD_PROJECTILE
+    for(uint i=0;i<32;i++) results[output+P_FOCUS_STATE_BASE+i]=0;
+#endif
     s.resourceCount = commands[input+P_RESOURCE_META_BASE];
     if (s.resourceCount > P_RESOURCE_KEYS) { results[output] = 64; return; }
     s.generation = 1; s.count = commands[input+1]; s.combat = commands[input+3]; s.inputBase = input; s.traceMode = commands[input+5];
@@ -59,6 +62,7 @@ void initializePortableProgram(inout Runtime s,uint input,uint output,out bool r
         if(definition_kind(input,row)==0 && !validPortableBuffStat(definition_stat(input,row)))
         { PROJECTILE_ADMIT_STAGE(s,25) results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,26) if(!initializeRevival(s)) { results[output]=64;return; }
+    initializeFocusState(s);
     initializeSkillCritical(s);
     for(uint word=0;word<P_PROBABILITY_STATE_WORDS;word++) results[output+P_PROBABILITY_STATE_BASE+word]=0;
     if(commands[input+P_ENEMY_TARGET_META_BASE]!=0) mtSeed(output+P_ENEMY_RNG_BASE,uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+1])|(uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+2])<<32));

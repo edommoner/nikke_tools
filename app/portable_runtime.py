@@ -42,6 +42,9 @@ def double_words(value):
 
 def validate_effect(eff, *, combat=None, world_frame=False):
     target=eff.get('target')
+    from portable_focus_specs import validate as validate_focus
+    try:validate_focus(eff,combat=combat,world_frame=world_frame)
+    except ValueError as error:raise UnsupportedPortable(str(error),reason='effect') from error
     from portable_ally_random_specs import validate as validate_ally_random
     try:validate_ally_random(eff,combat=combat,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason='recipient') from error
@@ -237,13 +240,14 @@ def validate_effect(eff, *, combat=None, world_frame=False):
             raise UnsupportedPortable('Invalid '+key,reason='bounds')
 
 
-def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None, enemy_targeting=None, world_frame=False, world_notice_names=(), allied_seed=19):
+def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None, enemy_targeting=None, world_frame=False, world_notice_names=(), allied_seed=19, focus_aim_layer2=False):
     import detail_gpu as legacy
     from portable_stack_specs import plan as stack_plan,operation as stack_operation,value as stack_value,pack_metadata as pack_stack_metadata
     check_schema()
     if type(world_frame) is not bool:raise ValueError("Invalid world-frame trigger policy")
     if not isinstance(world_notice_names,tuple) or any(n!='target_spawn' for n in world_notice_names) or world_notice_names and not world_frame:raise ValueError("Invalid world notice namespace")
     effects = list(effects)
+    if type(focus_aim_layer2) is not bool or focus_aim_layer2 and (not world_frame or combat is None):raise ValueError('Focus aiming requires a literal private-world policy')
     hit_critical=any('trigger_hit_crit' in e.get('trigger',{}).get('condition',[]) for e,_ in effects)
     if hit_critical and (not world_frame or combat is None or not native_landing):
         raise UnsupportedPortable('Hit-critical context requires native combat world landing')
@@ -260,7 +264,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     geometry_chars=compiler_chars(chars,geometry)
     from portable_target_state_specs import compiler_effect as target_compiler_effect
     from portable_pellet_shot_specs import compiler_effect as pellet_shot_compiler_effect
-    program=legacy.compile_effects(geometry_chars,[(pellet_shot_compiler_effect(target_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e))),owner) for e,owner in effects])
+    from portable_focus_specs import compiler_effect as focus_compiler_effect,enabled as focus_marker,STAT as FOCUS_FIRE_STAT
+    program=legacy.compile_effects(geometry_chars,[(pellet_shot_compiler_effect(target_compiler_effect(focus_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e)))),owner) for e,owner in effects])
     from portable_team_hit_specs import bind_compiled
     effects,binding_metadata=bind_compiled(effects,program,[c['name'] for c in chars])
     from portable_pellet_shot_specs import bindings as pellet_shot_bindings
@@ -426,6 +431,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if hit_critical and eff.get('type')=='damage' and eff.get('name') and words[L['DAMAGE_DEFINITION_BASE']+index*8+6]==0:fields['DAMAGE_FLAGS'] |= 131072
         if element_override(eff):fields.update(KIND=0,STAT=ELEMENT_OVERRIDE_STAT)
         if hp_attack(eff):fields.update(KIND=0,STAT=HP_ATTACK_STAT)
+        if focus_marker(eff):fields.update(KIND=0,STAT=FOCUS_FIRE_STAT)
         from portable_reload_specs import fixed as reload_fixed,STAT as RELOAD_FIXED_STAT
         if reload_fixed(eff):fields.update(KIND=0,STAT=RELOAD_FIXED_STAT)
         for key,value in fields.items():compact[F[key]]=value & 0xffffffff
@@ -489,6 +495,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     pack_revival(words,L,effects,program['effects'],allied_seed)
     from portable_ally_random_specs import pack as pack_ally_random
     pack_ally_random(words,L,effects,allied_seed)
+    from portable_focus_specs import pack as pack_focus
+    pack_focus(words,L,effects,focus_aim_layer2)
     from portable_geometry_specs import pack as pack_geometry
     pack_geometry(words,geometry,effects,program['effects'],chars,L,double_words)
     from portable_burst_charge_specs import required as needs_burst_references,from_roster as burst_references_from_roster,pack as pack_burst_references

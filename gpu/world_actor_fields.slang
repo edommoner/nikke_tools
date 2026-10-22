@@ -43,6 +43,8 @@ bool actorFieldsDefinitionValid(inout Runtime s,uint row,Definition d)
     for(uint i=0;i<d.conditionCount;i++)
     {
         uint at=s.inputBase+P_CONDITION_BASE+row*P_CONDITION_WORDS+i*4,kind=commands[at];uint64_t arg=loadNumber(at+2);
+        if(kind==C_FOCUSING || kind==C_NO_BROKEN_COVER_ALLY)
+        { if(!validStatePredicate(s.inputBase,row,at,s.combat)) return false;continue; }
         if(kind==C_SELF_UNDYING)
         { if(!validUndyingPredicate(s.inputBase,row,at,s.combat)) return false;continue; }
         if(kind==C_STAT_ABOVE)

@@ -7,13 +7,22 @@ def reference_readiness(issue):
         runtime_validation_performed=False)
     operator=issue.get('operator')
     operator=operator if isinstance(operator,dict) else {}
+    if issue.get('phase')=='program' and issue.get('category')=='control' and issue.get('fields')==['focus_aim_physical_interrupt']:
+        result.update(lane='native_contract_extension',native_consumer='confirmed_source',
+            consumer_source='research/upstream/nikke-calc-master/calculator/timeline.py:_land_target; app/world_actor_runtime.py:ActorRegistry.resolve',
+            contract_coverage='reproduced_adapter_rejection',reference_suites=['focus-aim'],
+            required_extensions=['typed_interrupt_actor_bridge','typed_landing_credit'],
+            note='Pinned landing supports interrupt targets, but the current typed comparison bridge rejects their identity. Keep physical admission closed; this is an adapter extension, not an inert effect or an alias for part/projectile credit')
+        return result
     if issue.get('phase')=='effect' and issue.get('kind')=='buff' and issue.get('category')=='trigger' and operator.get('domain')=='condition' and operator.get('descriptor') in ('no_broken_cover_ally','focusing'):
         focus=operator['descriptor']=='focusing'
-        result.update(lane='native_contract_extension',native_consumer='confirmed_source',
-            consumer_source='research/upstream/nikke-calc-master/calculator/buff_manager.py:_condition_ok,_runtime_condition_ok,cover_alive,_alive',
-            contract_coverage='recorded_subset',reference_suites=['state-predicates'],recorded_cases=15,
-            required_extensions=['focus_fire_live_marker_and_aim'] if focus and issue.get('stat')=='focus_fire' else ['caster_camera_runtime_predicate'] if focus else ['cover_ally_activation_predicate'],
-            note='CPU-only cover/camera contracts; no GPU admission. Focus is a runtime caster-camera query; finite/passive and query order must retain the pinned model')
+        reader_pending=focus and issue.get('stat') not in ('atk_pct','focus_fire')
+        result.update(lane='native_contract_extension' if reader_pending else 'reference_review',native_consumer='confirmed_source',
+            consumer_source='research/upstream/nikke-calc-master/calculator/buff_manager.py:_condition_ok,_runtime_condition_ok,cover_alive,_alive,get_buffs',
+            contract_coverage='recorded_subset',reference_suites=['state-predicates']+(['focus-aim'] if focus else []),recorded_cases=15,
+            scoped_gpu_suite='state-focus',scoped_metal_validation_performed=True,
+            required_extensions=['numeric_query_reader_cache_contract'] if reader_pending else [],
+            note='Shared cover/camera predicates and focus presence/aim are connected in scoped Metal cases. Numeric dictionary camera eligibility differs from selective live reads; audit the remaining stat consumers/cache invalidations before broad promotion. Full character support remains unverified')
         return result
     if issue.get('phase')=='effect' and issue.get('category')=='recipient' and issue.get('kind') in ('buff','instant'):
         import re

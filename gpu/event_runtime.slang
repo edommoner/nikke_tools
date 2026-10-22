@@ -877,8 +877,10 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
             if(kind==C_TARGET_STATE && !present || kind==C_NOT_TARGET_STATE && present || kind==C_TARGET_STACK && f64Less(count,arg)) return false;
             continue;
         }
-        if (runtime && kind != C_GAUGE_ABOVE && kind != C_GAUGE_BELOW && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW && kind != C_COVER_ALIVE && kind != C_COVER_BROKEN && kind != C_SHIELD && kind != C_TARGET_CODE) continue;
+        if (runtime && kind != C_FOCUSING && kind != C_GAUGE_ABOVE && kind != C_GAUGE_BELOW && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW && kind != C_COVER_ALIVE && kind != C_COVER_BROKEN && kind != C_SHIELD && kind != C_TARGET_CODE) continue;
         if (kind >= C_GAUGE_ABOVE && kind <= C_GAUGE_MOD && !resourceCondition(s,owner,kind,uint(name),arg,int(commands[s.inputBase+P_RESOURCE_CONDITION_BASE+definition*3+i]))) return false;
+        if(kind==C_FOCUSING && runtime && (predicateFocusCamera(s,definition)&(1U<<definition_owner(s.inputBase,definition)))==0) return false;
+        if(kind==C_NO_BROKEN_COVER_ALLY && !runtime && !allAliveCovers(s)) return false;
         if (kind == C_CORE && !geometryCore(s)) return false;
         if (kind == C_TARGET_STUNNED && !statusStunned(s,WORLD_TEAM_STUN_TARGET(s,definition,runtime,WORLD_STATE_STUN_TARGET(s,5U+s.target)))) return false;
         if (kind == C_SELF_STUN_IMMUNE && !statusStunImmune(s,owner)) return false;
@@ -1824,3 +1826,5 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     executePortableEvents(runtimeStates[id.x],id);
 }
 #endif
+
+#include "focus_aim_runtime.slang"

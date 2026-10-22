@@ -13,11 +13,14 @@ class StateWorkRoutingTests(unittest.TestCase):
               dict(phase='effect',category='recipient',kind='buff',stat='atk_caster_based_pct',target='allies_random:1')]
         for i,row in enumerate(rows):
             with self.subTest(row=row):
-                result=reference_readiness(row);self.assertEqual(result['lane'],'native_contract_extension' if i<2 else 'reference_review');self.assertFalse(result['gpu_supported']);self.assertFalse(result['gpu_admission_verified']);self.assertFalse(result['runtime_validation_performed'])
-                if i<2:self.assertTrue(result['required_extensions'])
-                else:
-                    self.assertEqual(result['required_extensions'],[]);self.assertTrue(result['scoped_metal_validation_performed']);self.assertEqual(result['scoped_gpu_suite'],'ally-random-gpu')
-        self.assertEqual(reference_readiness(rows[0])['required_extensions'],['focus_fire_live_marker_and_aim'])
+                result=reference_readiness(row);self.assertEqual(result['lane'],'reference_review');self.assertFalse(result['gpu_supported']);self.assertFalse(result['gpu_admission_verified']);self.assertFalse(result['runtime_validation_performed'])
+                self.assertEqual(result['required_extensions'],[]);self.assertTrue(result['scoped_metal_validation_performed']);self.assertEqual(result['scoped_gpu_suite'],'state-focus' if i<2 else 'ally-random-gpu')
+        pending=dict(rows[0],stat='lifesteal_pct');result=reference_readiness(pending)
+        self.assertEqual(result['lane'],'native_contract_extension');self.assertEqual(result['required_extensions'],['numeric_query_reader_cache_contract'])
+
+    def test_physical_interrupt_is_a_typed_adapter_extension(self):
+        result=reference_readiness(dict(phase='program',category='control',fields=['focus_aim_physical_interrupt']))
+        self.assertEqual(result['lane'],'native_contract_extension');self.assertEqual(result['contract_coverage'],'reproduced_adapter_rejection');self.assertIn('typed_interrupt_actor_bridge',result['required_extensions']);self.assertFalse(result['gpu_supported'])
 
     def test_unrecorded_operator_recipient_and_kind_are_not_promoted(self):
         for row in [dict(phase='effect',category='recipient',kind='damage',target='allies_random:1'),dict(phase='effect',category='recipient',kind='instant',target='allies_random_with_debuff:2'),dict(phase='effect',category='recipient',kind='buff',target='allies_random:0'),dict(phase='program',category='recipient',kind='buff',target='allies_random:1')]:

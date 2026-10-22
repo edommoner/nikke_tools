@@ -27,6 +27,7 @@ uint stackImmunity(inout Runtime s)
 }
 void setCarrierStack(inout Runtime s,uint slot,uint value)
 {
+    invalidateFocusNumeric(s);
     s.stacks[slot]=value;
     uint flags=referenceCaptureFlags(s,slot);
     if((flags&2)!=0) storeReferenceCapture(s,slot,flags,f64FromI64(value));

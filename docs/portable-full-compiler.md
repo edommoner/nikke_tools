@@ -1,3 +1,7 @@
+<!-- state-focus-current -->
+共有cover/camera条件39/30、focus_fire存在stat91、フレーム照準とtyped部位着弾/通知を接続。Metal新66(native54/拒否12)＋旧1264(native1000/拒否264)が同117sourceで成功・各独立seal。計1330、旧全entriesとraw3,976,200,192Bを全byte保持。条件30＋照準24、初期数値cacheとlive markerの違い・更新破棄・部位同フレーム破壊を照合。新Runtime field0/stride138952/CUDA定数48B、専用bank770976..773056/cache256。旧CPU455成功/GPU10.696秒/生成cache必須hit/Slang0。静的230/266・base170/203・62分類はGPU認定でない。追加stat reader/cache invalidation、typed interrupt橋、revival/random混在、実編成と広いpromotion、現CUDA実行が残件。旧golden/本体compiler証明は保留、suiteはdevelopment_only。失敗v1-v3/claim保持・正本CPU/数値/normalizer不変。Windows操作0/7終了unknown/保全false、全キャラ0/UI CPU/ゴール未達。詳細docs/portable-state-focus.mdと対応checkpoint。次は新規packing3編成の全定義3/30秒を優先し、readerとtyped interrupt橋を検証。以下は履歴です。
+<!-- /state-focus-current -->
+
 <!-- ally-random-gpu-current -->
 味方random selector19/25を既存allied MT・遅延cache・順序付きrecipientへ接続。Metal新30(native20/拒否10)＋旧1234(native980/拒否254)が同じ116sourceで成功・各独立seal。旧全entriesとraw3,881,828,352Bを全byte保持、計1264/正例1000。旧保持CPU449成功、生成cache必須hit/追加Slang0、GPU10.3185秒。CPU契約18は不変、追加GPU契約は人数0と発動上限。新しいRuntime field0/stride138952、正本CPU/数値/MT/normalizer不変。味方だけでは復活を有効化しない。cover_breakログとcover_revive受付も既存処理へ接続。混在revive/random、random buff list、debuff型、cover/camera条件とfocus_fire marker/aim、現sourceのCUDA実行は未検証。実証goldenは保存したがsuiteはdevelopment_only、旧golden/本体compiler証明の一括promotionは保留。Windows操作0/7終了unknown/保全false、全キャラ認定0/UI CPU/ゴール未達。次は混在契約と共有cover/camera/marker接続をまとめ、次のsource batchで保持検証。詳細docs/portable-ally-random-gpu.mdとresearch/portable-ally-random-gpu-checkpoint.json。以下は履歴です。
 <!-- /ally-random-gpu-current -->
