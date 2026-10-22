@@ -7,6 +7,27 @@ from portable_readiness import issue,summarize
 
 
 class ReadinessSemanticsTests(unittest.TestCase):
+    def test_ammo_equivalent_has_native_contracts_but_no_admission_claim(self):
+        row=dict(phase='effect',category='effect',kind='instant',stat='squad_ammo_consume_as',target='self',scaling=None)
+        result=reference_readiness(row)
+        self.assertEqual(result['lane'],'gpu_lowering_candidate');self.assertEqual(result['native_consumer'],'confirmed_source')
+        self.assertEqual(result['recorded_cases'],25);self.assertEqual(result['reference_suites'],['ammo-equivalent'])
+        for key in ('gpu_supported','gpu_admission_verified','full_character_verified','runtime_validation_performed'):self.assertIs(result[key],False)
+        for changed in (dict(target='all_allies'),dict(scaling='stack_count'),dict(fields=['future']),dict(category='fields')):
+            with self.subTest(changed=changed):self.assertEqual(reference_readiness(dict(row,**changed))['lane'],'native_contract_extension')
+        for changed in (dict(phase='program'),dict(kind='buff'),dict(stat='unproven')):
+            with self.subTest(changed=changed):self.assertEqual(reference_readiness(dict(row,**changed))['lane'],'reference_review')
+
+    def test_ammo_equivalent_recorded_count_matches_registered_literals(self):
+        sys.path.insert(0,str(ROOT/'research'))
+        try:
+            from portable_reference import REFERENCES
+            import importlib
+            result=reference_readiness(dict(phase='effect',category='effect',kind='instant',stat='squad_ammo_consume_as',target='self'))
+            cases=[c for suite in result['reference_suites'] for c in importlib.import_module(REFERENCES[suite][0]).fixtures()]
+            self.assertEqual(len(cases),result['recorded_cases']);self.assertEqual(len({c['name'] for c in cases}),len(cases))
+        finally:sys.path.pop(0)
+
     def blocker(self,stat,**kw):
         effect=dict(type='buff',stat=stat,target='all_allies',**kw)
         return issue(ValueError('Unported buff stat'),effect)

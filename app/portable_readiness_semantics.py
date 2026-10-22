@@ -11,6 +11,14 @@ def reference_readiness(issue):
             contract_coverage='recorded_subset',reference_suites=['parts-skill','parts-skill-extended','parts-skill-lifecycle'],recorded_cases=32,reference_model_gap_cases=1,
             note='Non-coordinate packet/accounting contracts only; legacy deferred bonus drops part metadata and named-hit notify. No GPU admission; coordinate/interrupt world adapters remain separate constraints')
         return result
+    if issue.get('phase')=='effect' and issue.get('kind')=='instant' and issue.get('stat')=='squad_ammo_consume_as':
+        result.update(lane='native_contract_extension',native_consumer='confirmed_source',
+            consumer_source='research/upstream/nikke-calc-master/calculator/buff_manager.py:_dispatch_instant',
+            contract_coverage='recorded_subset',reference_suites=['ammo-equivalent'],recorded_cases=25,
+            note='Literal caster quantity, finite bounded lowering domain; native truncation/extra notices/recursion/tick contracts only, not GPU admission or full-profile certification')
+        if issue.get('category')=='effect' and not issue.get('fields') and issue.get('scaling') is None and issue.get('target')=='self':
+            result['lane']='gpu_lowering_candidate'
+        return result
     if issue.get('phase')!='effect' or issue.get('kind')!='buff':return result
     stat=issue.get('stat')
     if stat=='heal_split':
