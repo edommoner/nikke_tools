@@ -33,3 +33,11 @@ externが参照するsymbolには一つのvisible/weak定義が必要という[N
 `research/portable-ptx-partition-source-manifest.json`の固定8ファイルだけをfresh directoryへbytesで復元し、全SHAを検査する。共通CLIの`validation_environment(capture)`を子processへ渡し、`test_portable_ptx*.py`の16件を15秒上限で実行する。成功時だけ、保存v135 cache＋phaseに対して生成1回・再構成監査1回をそれぞれ30秒上限・BelowNormalで行う。未知構文や失敗は保持して停止する。
 
 元PTXと分割したPTX本体はWindowsに保存し、公開／転送しない。Macへ返すのは元SHA・定義数・焦点関数名・状態の名前／型／サイズ・生成物のbytes／SHA・検査結果の小さなsummaryだけとする。これは元PTXのMac独立監査やCUDA成立の代わりにはならない。
+
+## 保存v135の実測結果
+
+固定`f7e83cc2f287f44299dfeb66b0c3ac1477d7569b`の8ファイルをWindowsで照合し、16検査が2.1443秒で成功。候補生成4.4559秒、元cache／phaseからの再構成監査4.1026秒も成功した。191 bodyの所有はfocus1／remainder190、global／constant101定義はremainder単独。focusの`applyDefinitionFrame_0`は306,333byte、remainderは5,477,943byte。これらの大きさからコンパイラのメモリ改善は推定しない。
+
+元PTX／cache／phaseと親環境は不変、NVRTC／ptxas／link／driver／GPU追加実行は0。結果は`research/portable-world-v135-partition-peer-report.json`へ出所付きで保存した。元PTX・候補・完全planはWindowsに残り、Mac独立原本監査ではない。
+
+元PTX＋出所JSONのGitHub共有は人間が明示許可済みだが、Windowsの自動承認レビューが別チャットから取得した回答を認めずpushを再拒否した。push未実行で、別経路の転送や同一pushの再試行も行っていない。共有処理の停止をCPU監査の失敗や追加GPU実行の理由にはしない。

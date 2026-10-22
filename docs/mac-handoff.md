@@ -1,5 +1,5 @@
 <!-- ptx-partition-tool-current -->
-共通CLI ptx-partitionで保存cache/phaseからfocus/remainderのCPU候補生成＋--audit再構成監査を追加。全function body byte/parameter ABI保持、global/const定義はremainder単独、境界visible/extern・初期値・所有権を再parse検査。未知/weak/common/外部state/間接call等は失敗保持・停止。既存assembleは不変。fresh共通smoke170中169成功/Win1skip、最小8ファイル16検査成功、legacy約8MB等のin-memory候補2つも構造一致（v135ではない）。次はWindows保存v135のCPU候補生成・監査だけを実行し、tool/link/ABI条件を確かめる。自動compile/link/GPU0、partition合法性/コンパイル/計算は未認定。本体CUDA未成立/認定0、Metal849+実4とparts CPU32を維持。詳細docs/portable-ptx-partition.md、research/portable-ptx-partition-cpu-checkpoint.json。以下は履歴です。
+共通CLI ptx-partitionの保存v135に対するWindows CPU確認が成功。固定f7e83ccの8ファイル照合・16検査2.1443秒、候補生成4.4559秒、元cache/phaseからの再構成監査4.1026秒。191 bodyをfocus1/remainder190へ保持、global/const101定義はremainder単独。focus applyDefinitionFrame_0は306333byte、remainder5477943byte。元PTX/cache/phaseと親環境は不変、compile/link/driver/GPU追加0。原本・候補・完全planはWindowsに残り、Macはpeer summary取得までで独立原本監査ではない。PTX＋出所JSONの明示共有許可は受領済みだが、Windows自動承認レビューが別チャットの回答を認めずpushを再拒否。別経路転送・再pushは行わずWindowsチャット側の承認解決待ち。次は独立object実験のtool/link/ABI・明示manifestを準備する。partition合法性/コンパイル/計算は未認定、本体CUDA未成立/認定0、Metal849+実4とparts CPU32を維持。詳細docs/portable-ptx-partition.md、research/portable-world-v135-partition-peer-report.json。以下は履歴です。
 <!-- /ptx-partition-tool-current -->
 
 <!-- v135-callgraph-analysis-current -->

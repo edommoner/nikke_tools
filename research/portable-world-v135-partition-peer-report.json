@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "provenance": {
+    "kind": "Windows peer summary from the existing authorized chat",
+    "thread_id": "01a140bc-5f3b-7661-b720-50c945596eaa",
+    "turn_id": "01a161fb-e0f2-7043-85e3-39826860b349",
+    "mac_independent_original_ptx_audit": false,
+    "original_or_partition_ptx_transferred": false,
+    "full_plan_transferred": false
+  },
+  "peer_report": {
+    "source_commit": "f7e83cc2f287f44299dfeb66b0c3ac1477d7569b",
+    "source_files_verified": 8,
+    "tests": {
+      "passed": 16,
+      "failed": 0,
+      "seconds": 2.1443
+    },
+    "partition": {
+      "passed": true,
+      "seconds": 4.4559,
+      "focus": "applyDefinitionFrame_0",
+      "definitions": 191,
+      "body_owners": {
+        "focus": 1,
+        "remainder": 190
+      },
+      "global_constant_definitions": 101,
+      "function_body_abi_coverage_verified": true,
+      "state_single_owner_structural_verified": true,
+      "artifacts": {
+        "focus.ptx": {
+          "bytes": 306333,
+          "sha256": "4c9907debcaf6c5d4c2fd7292b9ee283c99a747d7ad019af9b697369074ea962"
+        },
+        "remainder.ptx": {
+          "bytes": 5477943,
+          "sha256": "d2f0664f9226f95e84b6fec0494fe6d6efb8aa06a16f6a58a086d3ed148ead50"
+        }
+      }
+    },
+    "reconstruction_audit": {
+      "passed": true,
+      "seconds": 4.1026
+    },
+    "plan": {
+      "bytes": 188774,
+      "sha256": "4276ed08fe232d9222a7286531a7b750f323b5f0423dc5b9298ae06aa59d43b3"
+    },
+    "source_original_ptx_cache_phases_unchanged": true,
+    "parent_environment_unchanged": true,
+    "nvrtc_ptxas_link_driver_gpu_calls": 0,
+    "partition_legal_verified": false,
+    "compiler_verified": false,
+    "calculation_verified": false,
+    "github_push_executed": false,
+    "prepared_local_commit": "1dfea468898881e5a2c626b71d38d9f9e0258469"
+  },
+  "transfer": {
+    "explicit_parent_chat_approval_received": true,
+    "push_executed": false,
+    "auto_review_rejected": true,
+    "reason": "Windows automatic approval review did not accept the retrieved human authorization from another chat; no alternate transfer or repeat push."
+  }
+}
