@@ -1,3 +1,7 @@
+<!-- module-object-verified -->
+元v135全PTXの--compile-only object生成がWindowsで成功（固定e909395、input5666316byte全byte不変/分割0、193CPU全成功）。ptxas12.4.131/O1/FMA無効、5.500616秒/ret0、module.o3327472byte/SHA c92550d36a7bc5892ffcb9f002c297227b34f7184a74827394996c2afe44b79c、CUDA format124/755sections。共通audit object_verified/containment=true、Job26.855570秒/peak219258880byte/2GiB/BelowNormal/post空/missing0、service未識別はpreservation=false/exit2。原本/全失敗/partial/claims/回収receipt/親環境保持。追加ptxas1/NVRTC/link/driver/GPU0。Macはpeer summaryまでで独立原本監査ではない。次は同版nvlinkの保存単一object実験を共通CLIへ接続し、tool版/全source chain/ET_EXEC/Job監査を準備する。PTX分割を増やしたり元objectを再生成せず進める。commands-onlyは現在のfull battleと別で、link/計算/全キャラ認定0・parts GPU未接続は未完了、Metal849+実4とparts CPU32を維持。詳細docs/portable-module-object.md、research/portable-world-v135-module-object-peer-report.json。以下は履歴です。
+<!-- /module-object-verified -->
+
 <!-- module-object-current -->
 元PTX全体の明示module-object CLIを実装。focusと同じobject engine/ELF/tool/Job/監査を再利用し、元producer/cache/phaseの全byte一致からだけmodule.ptxへコピー。source_partitioned=false、module専用purpose/provider/artifact/claim/child modeを区別し、候補分割入力は拒否。通常assemble/cache/GPU数値本文は不変。fresh CPU193中192成功/Windows1skip、元focus/recovery16保持、新module5成功。次は固定sourceで元v135全体を同じ--compile-only/O1/FMA無効の1回だけ比較（2GiB/60秒/BelowNormal、CPU/Job smoke重複なし）。新NVRTC/link/driver/GPU、自動fallback/再試行/cap拡大は追加しない。単独focusのret0だけからmodule負荷・RDC効果を断定しない。全キャラ認定0/本体CUDA未成立・parts GPU未接続、Metal849+実4とparts CPU32を維持。詳細docs/portable-module-object.md、research/portable-module-object-checkpoint.json。以下は履歴です。
 <!-- /module-object-current -->

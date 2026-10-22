@@ -32,3 +32,14 @@ focusと同じ`portable_partition_object.run`、tool SHA／PTX8.4／sm86検査�
 `object_verified`は元moduleのオブジェクト生成とその保存証拠の検証に限る。対応版nvlink候補は公式archiveのSHA・member／LICENSEをMacで確認しただけで、実行・link互換性は未確認。ここからlinkやdriver／kernelへ自動移行しない。サービス未識別はpreservation=false／exit2、link／計算／full battle成立はfalseである。
 
 元v135はcommands診断で、初期化／writeを持つfull battle entryではない。仮に本実験が成功しても本体CUDA全体、現在のMetal849、全キャラ／全特殊効果の計算証明にはならない。元moduleのobject化が成立すれば、PTX分割を増やす前に、元の定義・初期値を保つ単一object＋同版linkerの経路を優先して調べる。
+
+
+## Windowsの保存結果
+
+固定e909395のclean package `29839066123eb347d27ef19f98ea13fa554be349f16753362ec1d53fe977a65f`／2008 file tableがMacと一致。元PTX5,666,316byteの全byte一致gate、CPU193全成功、Job smokeも成功した。
+
+ptxas12.4.131の1回は5.500616秒／ret0／stderr空。元PTX全体から3,327,472byteのET_REL／EM_CUDA、CUDA format124／755sectionsを生成し、共通CPU auditでも`object_verified=true`になった。SHAは`c92550d36a7bc5892ffcb9f002c297227b34f7184a74827394996c2afe44b79c`。Job26.855570秒／peak219,258,880byte／2GiB、BelowNormal・gate・親子所属・post空／欠落0／cleanupと観測エラーなしを確認した。service未識別はpreservation=false／CLIとauditはexit2のまま。原本・過去の失敗・partial・claims・CPU回収receipt・親環境は保持した。
+
+追加ptxas1、NVRTC／link／driver／GPU0、再試行・fallback0。完全object／captureはWindowsに残し、Macは`research/portable-world-v135-module-object-peer-report.json`のpeer summaryまでで独立原本監査ではない。
+
+この入力では、オブジェクト生成のためにPTXを分割する必要はなかった。ただしwhole-program assemblyの失敗原因・全実行器の性能／メモリは断定しない。次は保存済み単一objectを同版nvlinkで扱う明示実験を準備し、元object監査とidentity／Job監査を保持する。新しいptxasやNVRTCを再実行する理由にはしない。link後もcommands-onlyと現在のfull battle entry／CUDA数値比較を区別する。

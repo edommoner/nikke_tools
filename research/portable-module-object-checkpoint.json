@@ -21,12 +21,27 @@
   "source_partitioned": false,
   "original_byte_equality_required": true,
   "focus_module_modes_and_artifact_identities_separate": true,
-  "windows_experiment_executed": false,
+  "windows_experiment_executed": true,
   "nvrtc_calls": 0,
   "ptxas_calls": 0,
   "link_calls": 0,
   "driver_calls": 0,
   "gpu_calls": 0,
   "calculation_verified": false,
-  "next": "Fixed immutable package, CPU/source gate and one combined CPU/Job smoke, then unchanged v135 full PTX --compile-only once within 60s/2GiB. No automatic link/driver/GPU/fallback/retry."
+  "next": "Explicit same-version nvlink experiment for the saved single object, with full original audit/identity/Job, before any driver/GPU or current full-battle claim.",
+  "windows_resolution": {
+    "report": "research/portable-world-v135-module-object-peer-report.json",
+    "source_commit": "e9093956a591d51f541b9bca19de7abc7b1c1130",
+    "package_id": "29839066123eb347d27ef19f98ea13fa554be349f16753362ec1d53fe977a65f",
+    "payload_records_sha256": "4172f7b7b8e93c9ffab8afc7770fb0226cd62c2772e217acc5384ecab3b81f30",
+    "object_verified": true,
+    "containment_verified": true,
+    "preservation_verified": false,
+    "link_verified": false,
+    "calculation_verified": false,
+    "ptxas_calls": 1,
+    "new_nvrtc_driver_gpu_calls": 0,
+    "source_partitioned": false,
+    "original_input_bytes_equal": true
+  }
 }
