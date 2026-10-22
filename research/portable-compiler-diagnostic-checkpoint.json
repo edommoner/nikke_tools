@@ -1,6 +1,27 @@
 {
   "schema": 1,
-  "status": "mac_verified_windows_v133_fixture_path_failure_before_compilation",
+  "status": "windows_v134_ptx_and_cache_verified_commands_assembly_memory_failure",
+  "windows_v134": {
+    "report": "research/portable-world-v134-commands-compiler-sanitized.json",
+    "source_commit": "88bce890436b84a16ee510e5693443049a4d5d87",
+    "smoke_passed": 153,
+    "ptx_bytes": 5462428,
+    "ptx_compiler_verified": true,
+    "cache_hit_verified_without_nvrtc_driver_gpu": true,
+    "assembly_verified": false,
+    "assembly_attempts": 1,
+    "assembly_failure": "ptxas Memory allocation failure on saved stdout",
+    "assembly_seconds": 30.689695000182837,
+    "assembly_job_peak_bytes": 2147610624,
+    "assembly_job_memory_limit_bytes": 2147483648,
+    "post_job_empty": true,
+    "missing_existing_processes": 7,
+    "missing_process_cause": "unknown",
+    "preservation_verified": false,
+    "calculation_verified": false,
+    "driver_module_kernel_calls": 0,
+    "automatic_followup_compiles": false
+  },
   "windows_v133": {
     "report": "research/portable-world-v133-compiler-diagnostic-sanitized.json",
     "smoke_passed": 152,

@@ -30,3 +30,11 @@ fresh共有builderでもCUDA／Metal生成指紋がcertificateと一致し、247
 Windows検証はcommandsのコンパイル局所化の成否だけを判定する。成功してもfull796 CUDAや複数kernel戦闘の完成ではない。失敗ならinit/writeを追加実行せず、同条件を繰り返さずに次の構造仮説を選ぶ。service未識別はpreservation=falseのまま。全キャラGPU認定0、UI CPU、回復分配GPU未接続を維持する。
 
 v133はsmoke153件中152成功・fixtureのpath表記1エラーで停止した。`str(relative_path)`がWindowsのバックスラッシュをartifact member名へ渡し、既存safe_nameが正しく拒否した。2箇所をas_posixへ訂正。共有runtime・compiler・normalizerは不変で、元失敗はresearch/portable-world-v133-compiler-diagnostic-sanitized.jsonへ保存した。validation Job／NVRTC／assembly／GPUは未開始なので、コンパイル局所化の判定はまだ出来ない。訂正版は新しい固定sourceでsmokeから確認し、元capture・claimを置換しない。
+
+## v134：commands単独でもassembly未成立
+
+訂正版88bce89／package c4f838a0のWindows smoke153件は全成功。CUDA／Metal生成指紋はMac certificateと同一で、NVRTCのPTX生成は11.094秒、Job27.604秒／peak470,339,584byteで成功した。PTX5,462,428byte、同key/bytes/SHAのcache hitを追加NVRTC／driver／GPU0で確認。source単位とartifact種別へ束縛した共通cache経路を診断でも再利用できた。
+
+独立ptxasは1回、30.690秒／Job47.586秒、peak2,147,610,624byte／上限2GiBで非ゼロ終了し、stdoutにMemory allocation failure。ELF/partialなし、timeoutなし、post Job空、cleanup/observation異常なし。しかし前後観測で既存process7件が欠落し原因unknown、serviceもunverifiedのためpreservation=false。制限との正確な因果や必要メモリ量は不明であり、欠落を通常終了やwrapper起因と断定しない。driver/module/kernel0、本体CUDA計算も未確認。
+
+根拠はresearch/portable-world-v134-commands-compiler-sanitized.json（peer safe report由来、Macで原captureを独立監査したものではない）。init/writeの追加compileは行わない。単に本体を3フェーズに分けるだけで2GiB内へ収まる証拠は得られず、RDCや別optionの自動fallbackもしない。次は保存PTX／生成sourceのCPU解析で、private Frame/state／関数閉包等の候補を絞り、Windowsの追加compileなしに具体的な仮説を作る。Frameは現ソースで32要素であり、配列の宣言サイズだけをメモリ原因としない。

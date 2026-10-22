@@ -1,3 +1,7 @@
+<!-- v134-and-definition-prototype-current -->
+現在の根拠はresearch/portable-world-v134-commands-compiler-sanitized.json／portable-world-v134-saved-compiler-analysis.json。v133 fixtureのWin pathを88bce89で修正、v134はsmoke153全成功、commands PTX5.46MB/11.094秒と同key cache hit成功、独立assembly1回はMemory allocation failureで未成立。Job post空だが既存process7欠落・原因unknown、service unverifiedでpreservation=false。driver/module/kernel0。init/write追加やRDC等の自動fallbackはしない。追加CPU解析でPTX191関数/maxvirtual5328（basicConditions）を確認。Macの一時Definition wire-view案（55項目一括248byte推定→5uint20byte）はCUDA／Metal生成だけ成功し、生成CUDA量は増えておりメモリ改善未証明、本worktreeのGPU本文は未変更。次はsnapshot/override/55getter契約を確認してからMetal796候補へ。詳細docs/portable-definition-view-prototype.md。回復分配は元20完全保持＋追加8をCPU検証・関連11/通常smoke153成功、GPU接続は未完了。全キャラ認定0・UI CPU。以下は履歴です。
+<!-- /v134-and-definition-prototype-current -->
+
 <!-- compiler-diagnostic-current -->
 現在はcompiler-commandsの固定compiler-diagnostic packageを追加し、既存compile/cache-check/assemble/監査/Jobを再利用。full796の共有本文は不変、診断入口1ファイルのみ追加。通常run/adapter/moduleとbattle認定を拒否、PTX/2GiB/60秒を子・親・保存監査で固定。fresh aaec8ca7で全CPU861中860成功/Windows1skip、smoke153、生成指紋/layout247/138952/48byte一致。次は固定コミット共有後、Windowsでこのcommands PTX1回＋成功時のみ独立assembly1回。通常fullを再実行せず、失敗時のinit/write・RDC等の自動追加も禁止。詳細docs/portable-compiler-diagnostic.md、research/portable-compiler-diagnostic-checkpoint.json。以下は履歴です。
 <!-- /compiler-diagnostic-current -->
