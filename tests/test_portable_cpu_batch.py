@@ -47,6 +47,21 @@ class CPUGroupTests(unittest.TestCase):
         for rows in ([],[dict(good[0],pattern='test_b.py')],[dict(good[0],exit_code=1)],[dict(good[0],tests=0)],[dict(good[0],errors=1)]):self.assertFalse(complete(rows,['test_a.py']))
 
 class CPUParentTests(unittest.TestCase):
+    def test_suite_cpu_budget_is_bounded_recorded_and_separate_from_gpu(self):
+        self.capture.mkdir()
+        def child(*args,**kwargs):
+            self.assertEqual(kwargs['timeout'],90)
+            cli.write(self.capture/'cpu-tests.json',[dict(pattern=self.pattern,exit_code=0,tests=1,failures=0,errors=0)])
+            return types.SimpleNamespace(returncode=0,stdout=b'',stderr=b'')
+        with self.context(),patch.object(cli.subprocess,'run',side_effect=child),patch.object(cli,'run_job') as job:
+            cli.SUITES['fixture']['cpu_test_timeout']=90
+            self.assertEqual(len(cli.cpu_test_groups(self.m,self.capture)),1);job.assert_not_called()
+        self.assertEqual(cli.load(self.capture/'cpu-batch.json')['timeout_seconds'],90)
+        for value in (0,-1,181,True,1.5,'90'):
+            with self.context(),patch.object(cli.subprocess,'run') as run:
+                cli.SUITES['fixture']['cpu_test_timeout']=value
+                with self.assertRaisesRegex(ValueError,'bounded CPU'):cli.cpu_test_groups(self.m,self.capture)
+                run.assert_not_called()
     def setUp(self):
         t=tempfile.TemporaryDirectory();self.addCleanup(t.cleanup);self.root=Path(t.name);(self.root/'tests').mkdir();self.pattern='test_literal.py';(self.root/'tests'/self.pattern).write_text('# parent fixture')
         self.m=dict(suite='fixture',package_id='fixture',purpose='sealed');self.capture=self.root/'capture'

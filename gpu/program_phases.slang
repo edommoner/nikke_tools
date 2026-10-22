@@ -43,7 +43,7 @@ void initializePortableProgram(inout Runtime s,uint input,uint output,out bool r
     PROJECTILE_ADMIT_STAGE(s,12) if(!validEnemyTargeting(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,13) if(!validProtection(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,14) if (!validStatusDefinitions(s)) { results[output]=64;return; }
-    PROJECTILE_ADMIT_STAGE(s,15) if (!validNamedMagnitudes(s) || !validBaseCopies(s) || !validSkillIntervals(s) || !validTriggerReductions(s) || !validStackDefinitions(s)) { results[output]=64;return; }
+    PROJECTILE_ADMIT_STAGE(s,15) if (!validNamedMagnitudes(s) || !validBaseCopies(s) || !validSkillIntervals(s) || !validTriggerReductions(s) || !validSkillHPBasis(s) || !validStackDefinitions(s)) { results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,16) if (!validEventCandidates(s)) { results[output] = 64; return; }
     PROJECTILE_ADMIT_STAGE(s,17) for (uint row = 0; row < s.count; row++) if (!validPendingDefinition(s,row)) { results[output] = 64; return; }
     PROJECTILE_ADMIT_STAGE(s,18) if (!validateDurationGroups(s)) { results[output] = 64; return; }

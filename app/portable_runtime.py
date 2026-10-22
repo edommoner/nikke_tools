@@ -87,6 +87,10 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     if protection&255==1:allowed |= {'end_on_shield_consumed'}
     if source_spec:allowed |= {'periodic_source','feather_id','feather_slots','feather_interval_base','feather_interval_step_pct'}
     if resource_op:allowed |= {'gauge_id','gauge_max'}
+    from portable_skill_hp_basis_specs import validate as validate_skill_hp_basis
+    try:basis=validate_skill_hp_basis(eff,combat=combat,world_frame=world_frame)
+    except ValueError as error:raise UnsupportedPortable(str(error),reason='scaling') from error
+    if basis.mode:allowed |= {'scaling','scaling_hp_pct'}
     if eff.get('type')=='damage':
         from portable_parts_skill_specs import validate as validate_parts
         try:
@@ -145,7 +149,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
         if not isinstance(quantities,dict):raise ValueError('Flag quantities must be a level mapping')
         for value in quantities.values():double_words(value)
     if protection and not recipient_admitted(target,instant=(protection&255) in (5,6)):raise UnsupportedPortable('Unported protection recipient selector')
-    if kind=='damage' and 'scaling' in eff and (eff['scaling']!='stack_count' or stat.split(':')[0]=='dot_damage' and (stat!='dot_damage' or not eff.get('tick_interval'))):raise UnsupportedPortable('Periodic damage scaling requires an own-stack DoT clock')
+    if kind=='damage' and not basis.mode and 'scaling' in eff and (eff['scaling']!='stack_count' or stat.split(':')[0]=='dot_damage' and (stat!='dot_damage' or not eff.get('tick_interval'))):raise UnsupportedPortable('Periodic damage scaling requires an own-stack DoT clock')
     if stat=='cover_hp_pct' and eff.get('scaling') not in (None,'max_hp','stack_count'):raise UnsupportedPortable('Unported cover HP basis')
     if kind=='buff' and stack is None and 'duration_bullets' in eff:
         bullets=eff['duration_bullets']
@@ -449,6 +453,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         pack_resource(words,index,row,L,effects[index][0],resource_keys,program['states'],double_words)
         from portable_reference_specs import pack as pack_reference
         pack_reference(words,index,L,effects[index][0],resource_keys,program['states'],F)
+        from portable_skill_hp_basis_specs import pack as pack_skill_hp_basis
+        pack_skill_hp_basis(words,index,L,effects[index][0],row,double_words)
         pack_source(words,index,row,L,effects[index][0],double_words)
         spec=staged[index]
         parent=next((i for i,(e,n) in enumerate(effects) if n==owner and spec is not None and e.get('name')==spec.reference),-1)
@@ -582,10 +588,11 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     from portable_trigger_specs import pack_event_candidates
     pack_event_candidates(words,L)
     from portable_probability_specs import definitions as probability_definitions
-    # A negative drain or a changed HP-copy basis can leave native HP above its maximum.
+    # A negative drain, HP-only reduction or changed HP-copy basis can leave
+    # native HP above its maximum. HP-only activation syncs rates, not absolute HP.
     # Preserve that only when the native static synchronization policy is off.
     # No runtime HP or CPU battle state is supplied to this descriptor.
-    if any(row[1]==8 and row[6]<0 or row[1]==0 and row[2]==86 for row in program['effects']):
+    if any(row[1]==8 and row[6]<0 or row[1]==0 and (row[2]==86 or effect.get('stat') in ('max_hp_only_pct','hp_only_caster_based_pct') and row[6]<0) for row,(effect,_) in zip(program['effects'],effects)):
         from types import SimpleNamespace
         from reference_health_runtime import enabled as reference_health_sync
         if not reference_health_sync(SimpleNamespace(_effects=effects)):

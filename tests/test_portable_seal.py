@@ -1,5 +1,5 @@
 """Independent sealing must use a fresh comparison exactly once, never old JSON."""
-import os,hashlib,json,tempfile
+import os,hashlib,json,tempfile,subprocess
 import importlib.util
 from pathlib import Path
 from types import SimpleNamespace
@@ -12,6 +12,11 @@ cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class SealTests(unittest.TestCase):
+    def test_seal_budget_rejects_invalid_values_before_child_or_io(self):
+        for timeout in (0,-1,181,True,1.5,'90'):
+            with self.subTest(timeout=timeout),patch.object(cli.subprocess,'run') as run,self.assertRaisesRegex(ValueError,'CPU seal timeout'):
+                cli.seal_development(Path('unused'),Path('unused'),Path('unused'),timeout=timeout)
+            run.assert_not_called()
     def test_original_comparison_runs_once_and_is_used_without_changes(self):
         result=dict(entries=[dict(native_sha256='fresh')],calculation_verified=True)
         compare=Mock(return_value=result)
@@ -78,7 +83,9 @@ def audit_capture(capture):
             previous=Path.cwd()
             try:
                 os.chdir(other)
-                with patch.object(cli,'ROOT',other):result=cli.seal_development(package,capture,output)
+                with patch.object(cli,'ROOT',other),patch.object(cli.subprocess,'run',wraps=subprocess.run) as child:
+                    result=cli.seal_development(package,capture,output,timeout=90)
+                    self.assertEqual(child.call_args.kwargs['timeout'],90)
             finally:os.chdir(previous)
             self.assertTrue(result['sealed']);self.assertEqual(result['gpu_calls'],0)
             self.assertEqual(json.loads(output.read_text())['entries'],[dict(name='package')])

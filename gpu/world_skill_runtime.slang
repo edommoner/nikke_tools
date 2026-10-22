@@ -25,7 +25,7 @@ uint64_t sampleWorldPartSkill(inout Runtime s,Definition d,uint64_t coefficient,
     uint flags=d.damageFlags&~H_PART;if(marker&&hasParts&&!dynamicParts) flags|=H_PART;
     bool normal=d.damageNormal!=0;if(normal&&(s.attackContext[d.owner]&4)!=0) flags|=H_EXPLOSION;uint64_t coreBonus=normal?s.coreDamageBonus[d.owner]:s.coreBonus;
     uint64_t factors[9],interceptFactor,explosionRange,pierceRange;uint sampledFlags;
-    sampleDamageFactorsForReach(s,d.owner,coefficient,when,factors,interceptFactor,explosionRange,pierceRange,sampledFlags,true,normal,coreBonus,flags,ONE,normal&&(s.attackContext[d.owner]&1)!=0);
+    sampleDamageFactorsForReach(s,d.owner,coefficient,when,factors,interceptFactor,explosionRange,pierceRange,sampledFlags,true,normal,coreBonus,flags,ONE,normal&&(s.attackContext[d.owner]&1)!=0,false,d._wireRow);
     uint64_t threshold=f64Add(HUNDRED,uint64_t(0xbe112e0b)<<32|uint64_t(0xe826d695));
     bool explosion=(flags&H_EXPLOSION)!=0||normal&&(s.attackContext[d.owner]&4)!=0;
     interruptReach=explosion?(!f64Less(explosionRange,threshold)?4U:3U):(flags&H_PIERCE)!=0?(!f64Less(pierceRange,threshold)?2U:1U):0U;

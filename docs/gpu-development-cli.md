@@ -1,3 +1,7 @@
+<!-- skill-hp-basis-current -->
+最大HP由来のスキルATK加算／置換を共通Slangへ接続。damage_basis_specsを共有し、GPUで最大HPを取得、演算順序・親子snapshot・部位・吸血を保持。HP37(native26/拒否11)＋保護回復4＋メイデン／キロ全定義3秒/30秒4、旧8群971を同115sourceでMetal一致・独立seal。旧971の全entriesとraw3054501888Bを全byte保持、計1016(native821/拒否195)。CPU回帰340成功、full115/commands116 certificate14検査成功。共通CLIで8群を1バッチへ統合し、初回60秒CPU停止を保持、当該suiteだけ90秒で66.540秒成功。GPU10.387秒、生成cache追加Slang0、GPU枠は不変。保留B3のHP換算欠落はホスト／GPUで拒否。キロ30秒の物理履歴32省略と旧省略を明示。静的222/266・base162/203・73分類はGPU認定ではない。Windows追加native/compile/GPU0、7終了unknown/preservationfalseの停止を維持。UI CPU/全キャラ認定0/ゴール未達。詳細docs/portable-skill-hp-basis.mdとresearch/portable-skill-hp-basis-checkpoint.json。次はatk_pct+lost_hp_pct等の正本consumerを先に契約化。以下は履歴です。
+<!-- /skill-hp-basis-current -->
+
 <!-- mode-capacity-current -->
 武器変更max_ammo_scaling_refを共通Slangへ接続。None/0、ゲージ→召喚体→stackの優先順位、整数倍率、進入/再進入/再装填snapshot、弾薬即時操作、容量0と無限弾薬、散弾/2銃口/charge/sentinelのCPU29契約を固定。sealed mode-capacity32(native26/拒否6)＋追加instant3＋E.H.全定義3秒/30秒2入力がMetal一致・独立seal。旧849/部位63/実4/味方通知16/ルピー2も同sourceで全一致・独立seal、計971、旧934の全entriesとraw2938109952Bを全byte保持。CPU回帰330成功。Runtime追加field0/stride138952、CUDA定数48B、full114/commands115 certificate更新。sealのCWD混在を修正し、異なる2checkoutの実子プロセス検査4件を通過、保存32のCPU監査結果がpackage自身からのsealと完全一致。初回query guard3失敗はGPU前/claimなしで保持し、元fixtureを換えず有限deltaを接続。E.H.履歴152/1388・省略0、30秒で容量1/モード1packetの実行を正本でも観測。静的220/266・base160/203・75分類はGPU認定ではない。Windows追加GPU/native/compile0・既存7終了unknown/環境保全falseで停止維持。通常UI CPU/全キャラ認定0/ゴール未達。詳細docs/portable-mode-capacity.mdとresearch/portable-mode-capacity-checkpoint.json。次も正本consumerのある未対応項目を優先し、未確認projectile/shieldをnoop受付しない。以下は履歴です。
 <!-- /mode-capacity-current -->
@@ -321,4 +325,4 @@ Macの実capture2,082,471,936byteは5,849,675byteへ圧縮でき、全展開byte
 
 ## CPU群のまとめ実行
 
-run/cpu-only/smokeは全登録群を1個のfresh CPU workerへ渡します。群別ログ/receiptを保ち、欠落・zero tests・途中失敗・不完全receipt・60秒timeoutはGPU前に停止。詳細[CPUまとめ実行](portable-cpu-batch.md)。通常run childの出力は明示file modeで固定8MiBずつ保存し、全件監査を維持します。詳細[共通file転送](portable-file-transfer.md)。
+run/cpu-only/smokeは全登録群を1個のfresh CPU workerへ渡します。群別ログ/receiptを保ち、欠落・zero tests・途中失敗・不完全receipt・CPU timeout（既定60秒／明示した統合suiteは90秒）はGPU前に停止。詳細[CPUまとめ実行](portable-cpu-batch.md)。通常run childの出力は明示file modeで固定8MiBずつ保存し、全件監査を維持します。詳細[共通file転送](portable-file-transfer.md)。

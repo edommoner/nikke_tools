@@ -31,7 +31,7 @@ void advanceSkillDamageFrame(inout Runtime s, inout Frame frames[32], inout int 
                     frames[depth].healthPrevious=sampleWorldPartSkill(s,damage,f.healthValue,f.time,partAmount,interruptAmount,interruptReach);
                 else
 #endif
-                    frames[depth].healthPrevious=damage.damageNormal!=0 ? damageValue(s,damage.owner,f.healthValue,f.time,true,s.combat!=0 ? s.coreDamageBonus[damage.owner] : s.coreBonus,damage.damageFlags,ONE,(s.attackContext[damage.owner]&1)!=0) : damageValue(s,damage.owner,f.healthValue,f.time,false,s.coreBonus,damage.damageFlags);
+                    frames[depth].healthPrevious=damage.damageNormal!=0 ? damageValue(s,damage.owner,f.healthValue,f.time,true,s.combat!=0 ? s.coreDamageBonus[damage.owner] : s.coreBonus,damage.damageFlags,ONE,(s.attackContext[damage.owner]&1)!=0,false,damage._wireRow) : damageValue(s,damage.owner,f.healthValue,f.time,false,s.coreBonus,damage.damageFlags,ONE,false,false,damage._wireRow);
                 WORLD_SKILL_SCOPE_END(s)
                 // Coefficient is consumed at cursor0; subsequent hits and child
                 // returns reuse this captured part value, never the coefficient.
@@ -52,8 +52,8 @@ void advanceSkillDamageFrame(inout Runtime s, inout Frame frames[32], inout int 
         s.target = basis;
         uint64_t coefficient = f.healthValue, amount;
         if (damage.damageNormal != 0)
-            amount = damageValue(s,damage.owner,coefficient,f.time,true,s.combat != 0 ? s.coreDamageBonus[damage.owner] : s.coreBonus,damage.damageFlags,ONE,(s.attackContext[damage.owner] & 1) != 0);
-        else amount = damageValue(s,damage.owner,coefficient,f.time,false,s.coreBonus,damage.damageFlags);
+            amount = damageValue(s,damage.owner,coefficient,f.time,true,s.combat != 0 ? s.coreDamageBonus[damage.owner] : s.coreBonus,damage.damageFlags,ONE,(s.attackContext[damage.owner] & 1) != 0,false,damage._wireRow);
+        else amount = damageValue(s,damage.owner,coefficient,f.time,false,s.coreBonus,damage.damageFlags,ONE,false,false,damage._wireRow);
         if (s.error != 0) break;
         uint64_t weighted = (damage.damageFlags & H_SPLIT) != 0 && damage.damageRoute >= 2 && (damage.periodicFlags & 1) == 0 ? f64Mul(amount,f64Div(ONE,f64FromI64(enemyMaskCount(mask)))) : amount;
         uint64_t share = weighted;

@@ -20,6 +20,9 @@ def verify_sources(root,sources=None):
     root=Path(root);sources=sources or {};data=ledger(root)
     for name,digest in data['current'].items():
         raw=sources[name].encode() if name in sources else (root/name).read_bytes()
+        from portable_skill_hp_basis_source_contract import baseline_source as baseline_hp_basis
+        source,_=baseline_hp_basis(root,name,raw.decode())
+        raw=source.encode()
         from portable_mode_capacity_source_contract import baseline_source
         source,_=baseline_source(root,name,raw.decode())
         raw=source.encode()

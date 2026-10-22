@@ -53,7 +53,10 @@ def verify(root,*,sources=None):
     from portable_mode_capacity_source_contract import baseline_source as baseline_capacity
     for row in fixture['files']:
         source=(sources or {}).get(row['path'],(root/row['path']).read_text())
-        try:source,capacity_delta=baseline_capacity(root,row['path'],source)
+        from portable_skill_hp_basis_source_contract import baseline_source as baseline_hp_basis
+        try:
+            source,_=baseline_hp_basis(root,row['path'],source)
+            source,capacity_delta=baseline_capacity(root,row['path'],source)
         except AssertionError as error:raise AssertionError('Original query statements/signatures/macros changed: '+row['path']) from error
         if capacity_delta:capacity_deltas.append(row['path'])
         if row['path']=='gpu/world_actor_pools.slang':source,interrupt_delta=baseline_interrupt_pool_source(source)

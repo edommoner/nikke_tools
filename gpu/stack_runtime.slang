@@ -160,7 +160,7 @@ bool validStackDefinitions(inout Runtime s)
         uint runtime=uint(commands[meta+1]!=0 && duration==F64_INF && (d.flags&2)!=0);
         if(commands[meta+5]!=runtime) return false;
         for(uint field=6;field<P_MODE_WORDS;field++)
-            if(!(triggerReducer(s,row)&&field<P_TRIGGER_REDUCTION_END) && !(namedSkillInterval(s,row)&&field<P_SKILL_INTERVAL_END) && !(baseCopyDefinition(s,row)&&field<P_BASE_COPY_END) && commands[meta+field]!=0) return false;
+            if(!(skillHPBasisMode(s,row)!=0&&field>=20&&field<24) && !(triggerReducer(s,row)&&field<P_TRIGGER_REDUCTION_END) && !(namedSkillInterval(s,row)&&field<P_SKILL_INTERVAL_END) && !(baseCopyDefinition(s,row)&&field<P_BASE_COPY_END) && commands[meta+field]!=0) return false;
         if(d.kind==18)
         {
             uint expected=0;

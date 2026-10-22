@@ -23,6 +23,14 @@ spec.loader.exec_module(cli)
 
 
 class SkillHPBasisReferenceTests(unittest.TestCase):
+    def test_conditional_protection_repairs_change_subsequent_absorption(self):
+        from portable_skill_hp_basis_protection_cases import fixtures as repairs
+        with cli.forbid_gpu(), patch.object(portable_runtime,'compile_program',side_effect=AssertionError('packing forbidden')):
+            for case in repairs():
+                with self.subTest(case=case['name']):
+                    native,_=observer.observe(case);self.assertTrue(verify(case,native)['verified'])
+                    changed=copy.deepcopy(native);changed['hits'][1][case['contract']['protection_absorption']['kind']]=100
+                    with self.assertRaises(AssertionError):verify(case,changed)
     def test_literal_contracts_without_packing_or_gpu(self):
         def forbidden(*args, **kwargs):
             raise AssertionError('GPU/packing forbidden in native contracts')

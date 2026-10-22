@@ -31,6 +31,8 @@ def verify(root,*,sources=None):
     assert state.count(frame_new)==1,'Unreviewed interrupt Frame metadata'
     from portable_physical_interrupt_contract import baseline_event,verify_sources
     physical_deltas=verify_sources(root,sources)
+    from portable_skill_hp_basis_source_contract import baseline_source as baseline_hp_event
+    state,_=baseline_hp_event(root,'gpu/event_runtime.slang',state)
     state_baseline=baseline_event(root,state.replace(frame_new,frame_old,1))
     bstart=state_baseline.index('struct Definition');bend=state_baseline.index('\n};',bstart)+3
     assert fingerprint(state_baseline[:bstart]+'DEFINITION_VIEW_SLOT'+state_baseline[bend:])==f['event_without_definition_tokens'],'Event/state/consumer statements changed'
@@ -44,11 +46,15 @@ def verify(root,*,sources=None):
     parts=json.loads((root/'tests/fixtures/portable-parts-source-delta.json').read_text())
     interrupts=json.loads((root/'tests/fixtures/portable-interrupt-source-delta.json').read_text())
     capacity_deltas=[]
+    from portable_skill_hp_basis_source_contract import baseline_source as baseline_hp_basis,verify_sources as verify_hp_basis
+    hp_basis_deltas=verify_hp_basis(root,sources)
     from portable_mode_capacity_source_contract import baseline_source as baseline_capacity
     ally_burst_deltas=[]
     from portable_ally_burst_source_contract import baseline_source as baseline_ally_burst
     for name,digest in f['other_shared_sources'].items():
         raw=sources[name].encode('utf-8') if name in sources else (root/name).read_bytes()
+        baseline,applied=baseline_hp_basis(root,name,raw.decode('utf-8'))
+        if applied:raw=baseline.encode('utf-8')
         if name!='gpu/weapon_frame_phases.slang':
             baseline,applied=baseline_capacity(root,name,raw.decode('utf-8'))
             if applied:raw=baseline.encode('utf-8');capacity_deltas.append(name)
@@ -100,7 +106,7 @@ def verify(root,*,sources=None):
             part_deltas.append(name)
     # The fixed closure has indexed reads, never an escaped mutable command
     # buffer. Future source changes must deliberately re-audit this assumption.
-    for name in ['gpu/event_runtime.slang','gpu/definition_runtime.slang',*f['other_shared_sources'],*factor_deltas,*part_deltas,*reach_deltas]:
+    for name in ['gpu/event_runtime.slang','gpu/definition_runtime.slang',*f['other_shared_sources'],*factor_deltas,*part_deltas,*reach_deltas,*hp_basis_deltas]:
         ts=tokens(read(name))
         for i,t in enumerate(ts):
             if t!='commands':continue
@@ -112,4 +118,4 @@ def verify(root,*,sources=None):
             assert ts[j]!='=' or ts[j+1]=='=','Input command write: '+name
             assert ts[j] not in ('+','-','|','&','^','*','/','%') or ts[j+1]!='=','Input compound command write: '+name
             assert ts[j:j+2] not in (['+','+'],['-','-']),'Input command increment: '+name
-    return dict(verified=True,properties=55,local_override_properties=['damageRoute','damageHits'],wire_immutable=True,other_shared_sources_unchanged=not (reviewed_deltas or factor_deltas or part_deltas or interrupt_deltas or ally_burst_deltas or capacity_deltas),other_sources_outside_reviewed_delta_unchanged=True,reviewed_scope_snapshot_sources=reviewed_deltas,reviewed_damage_factor_sources=factor_deltas,reviewed_part_receipt_sources=part_deltas,reviewed_interrupt_sources=interrupt_deltas,reviewed_interrupt_reach_sources=reach_deltas,reviewed_interrupt_frame_metadata=True,reviewed_physical_interrupt_sources=physical_deltas,reviewed_ally_burst_sources=ally_burst_deltas,reviewed_mode_capacity_sources=capacity_deltas,gpu_calls=0,scope='Source correspondence/snapshot contract; explicit later source deltas do not prove numerical parity, which requires actual execution')
+    return dict(verified=True,properties=55,local_override_properties=['damageRoute','damageHits'],wire_immutable=True,other_shared_sources_unchanged=not (reviewed_deltas or factor_deltas or part_deltas or interrupt_deltas or ally_burst_deltas or capacity_deltas),other_sources_outside_reviewed_delta_unchanged=True,reviewed_scope_snapshot_sources=reviewed_deltas,reviewed_damage_factor_sources=factor_deltas,reviewed_part_receipt_sources=part_deltas,reviewed_interrupt_sources=interrupt_deltas,reviewed_interrupt_reach_sources=reach_deltas,reviewed_interrupt_frame_metadata=True,reviewed_physical_interrupt_sources=physical_deltas,reviewed_ally_burst_sources=ally_burst_deltas,reviewed_mode_capacity_sources=capacity_deltas,reviewed_skill_hp_basis_sources=hp_basis_deltas,gpu_calls=0,scope='Source correspondence/snapshot contract; explicit later source deltas do not prove numerical parity, which requires actual execution')

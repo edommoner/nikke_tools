@@ -1,6 +1,10 @@
 # 共通CLIのCPUテストまとめ実行
 
-run/cpu-only/smokeは、登録順の全テスト群を新しい1個のCPU workerで実行します。毎群のPython再起動/importを除きます。既存のcpu-tests.jsonとpattern別stdout/stderrを維持し、tests/failures/errors/skipped/runner_pidを追加。batch全体のstdout/stderrとcpu-batch.jsonに60秒上限・経過時間・終了値・選択patternを保存します。native subprocessから継承された出力はbatchログに残します。
+run/cpu-only/smokeは、登録順の全テスト群を新しい1個のCPU workerで実行します。毎群のPython再起動/importを除きます。既存のcpu-tests.jsonとpattern別stdout/stderrを維持し、tests/failures/errors/skipped/runner_pidを追加。batch全体のstdout/stderrとcpu-batch.jsonに上限・経過時間・終了値・選択patternを保存します。上限は既定60秒で、immutable registryに明記したsuiteだけ`cpu_test_timeout`を使用します（厳密な整数1..180秒、不正値は子起動前に拒否）。GPU/Jobの実行枠とは別です。native subprocessから継承された出力はbatchログに残します。
+
+`skill-hp-basis-retention`は既存8群971入力を、元の入力・native比較器のまま1バッチへ結合します。入力の全byte SHAと元のラベルを検査し、各比較器へ元domainを渡します。最初の60秒検査は330件成功後に上限へ到達し、GPU claimなしで停止・保存しました。このsuiteだけCPU枠90秒とした別packageで55群340検査が66.540秒で成功しました。検査の省略・再利用した成功receipt・GPU枠の延長はありません。これは単発の観測で、速度ベンチマークではありません。
+
+大きな保存結果の独立CPU監査は`seal --timeout 90`を明示できます（既定60秒、整数1..180秒）。正本の再比較・原source/入力/出所検査は変えず、元GPUを再実行しません。無効な値は子起動やファイル操作前に拒否します。
 
 workerは元と同じunittest discovery/runnerを使い、すべてのpattern/fileを開始前に検査します。重複・不正path・欠落、zero discovery、import/test失敗、receipt欠落/不完全/順序違い、timeoutを成功扱いせず、GPU claim/Jobより前に止めます。失敗した群で停止し、それ以降の群は実行しません。workerのsys.pathは終了時に復元します。検査の省略やCPU oracle cacheは導入していません。internal _testsはimmutable package検査を経て起動され、GPU設定や実行を行いません。
 

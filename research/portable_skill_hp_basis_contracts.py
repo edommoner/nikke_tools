@@ -8,4 +8,7 @@ def verify(case,native):
     assert all(q['owner']==expected['owner'] for q in queries),(case['name'],'basis owner',queries)
     assert all(q['time'] in [p['time'] for p in packets] for q in queries),(case['name'],'basis time',queries)
     if 'hp' in expected:assert [a['hp'] for a in native['allies']]==expected['hp'],(case['name'],'life heal',[a['hp'] for a in native['allies']])
+    if 'protection_absorption' in expected:
+        witness=expected['protection_absorption']
+        assert [h[witness['kind']] for h in native['hits']]==witness['amounts'],(case['name'],'repaired absorption',native['hits'])
     return dict(verified=True,reference_model_gap=bool(expected.get('reference_model_gap')),packets=len(packets),basis_queries=len(queries))

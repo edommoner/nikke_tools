@@ -1,4 +1,5 @@
 #include "damage_factors.slang"
+#include "skill_hp_basis_runtime.slang"
 
 // Re-evaluate geometry at impact; cache only the exact normalized ratio.
 // The cache is per actor and shared by both backends, never CPU-produced.
@@ -32,7 +33,7 @@ uint64_t normalProbability(inout Runtime s, uint who, uint64_t accuracy)
 void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient, uint64_t when,
     out uint64_t factors[9], out uint64_t interceptFactor, out uint64_t explosionRange, out uint64_t pierceRange, out uint sampledFlags, bool captureReach,
     bool normal, uint64_t coreBonus, uint flags = 0, uint64_t fullChargeMult = ONE,
-    bool optimal = false, bool physical = false)
+    bool optimal = false, bool physical = false, uint basisRow = P_DEFINITIONS)
 {
     uint64_t b[64]; collectStats(s,who,when,b);
     // Physical weapon flags also apply to weapon-mode skill packets. A skill
@@ -56,7 +57,7 @@ void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient
     uint64_t f1 = f64Mul(coefficient,normal ? f64Add(ONE,f64Div(b[S_normal_atk_dmg_pct],HUNDRED)) : ONE);
     uint64_t defense = s.combat != 0 ? s.targetDefense[s.target] : s.defense;
     defense = (flags & H_ARMOR) != 0 ? 0 : f64Mul(larger(0,f64Add(f64Mul(defense,f64Add(ONE,f64Div(b[S_enemy_def_down_pct],HUNDRED))),b[S_enemy_def_down_flat])),f64Add(ONE,f64Div(b[S_def_ignore_pct],HUNDRED) ^ F64_SIGN));
-    uint64_t attack = f64Add(f64Mul(s.baseAttack[who],f64Add(ONE,f64Div(b[S_atk_pct],HUNDRED))),b[S_atk_flat]);
+    uint64_t attack = skillAttackBasis(s,who,basisRow,when,b[S_atk_pct],b[S_atk_flat]);
     uint64_t f2 = larger(0,f64Add(attack,defense ^ F64_SIGN));
     uint64_t critRate = b[normal ? S_crit_rate : S_crit_rate_skill], critDamage = b[normal ? S_crit_dmg : S_crit_dmg_skill];
     if((s.incomingMask&32)!=0) s.lastDamageCritRate=critRate;
@@ -94,10 +95,10 @@ void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient
 
 void sampleDamageFactors(inout Runtime s, uint who, uint64_t coefficient, uint64_t when,
     out uint64_t factors[9], bool normal, uint64_t coreBonus, uint flags=0,
-    uint64_t fullChargeMult=ONE,bool optimal=false,bool physical=false)
+    uint64_t fullChargeMult=ONE,bool optimal=false,bool physical=false,uint basisRow=P_DEFINITIONS)
 {
     uint64_t interceptFactor,explosionRange,pierceRange;uint sampledFlags;
-    sampleDamageFactorsForReach(s,who,coefficient,when,factors,interceptFactor,explosionRange,pierceRange,sampledFlags,false,normal,coreBonus,flags,fullChargeMult,optimal,physical);
+    sampleDamageFactorsForReach(s,who,coefficient,when,factors,interceptFactor,explosionRange,pierceRange,sampledFlags,false,normal,coreBonus,flags,fullChargeMult,optimal,physical,basisRow);
 }
 
 // Keep the reference's divide, seven ordered products and integer boundary.
@@ -114,10 +115,10 @@ uint64_t damageFromFactors(inout Runtime s, uint64_t factors[9], bool part)
 [noinline]
 uint64_t damageValue(inout Runtime s, uint who, uint64_t coefficient, uint64_t when,
     bool normal, uint64_t coreBonus, uint flags = 0, uint64_t fullChargeMult = ONE,
-    bool optimal = false, bool physical = false)
+    bool optimal = false, bool physical = false, uint basisRow = P_DEFINITIONS)
 {
     uint64_t factors[9];
-    sampleDamageFactors(s,who,coefficient,when,factors,normal,coreBonus,flags,fullChargeMult,optimal,physical);
+    sampleDamageFactors(s,who,coefficient,when,factors,normal,coreBonus,flags,fullChargeMult,optimal,physical,basisRow);
     return damageFromFactors(s,factors,false);
 }
 
@@ -126,10 +127,10 @@ uint64_t damageValue(inout Runtime s, uint who, uint64_t coefficient, uint64_t w
 [noinline]
 uint64_t damageValueWithPart(inout Runtime s, uint who, uint64_t coefficient, uint64_t when,
     bool normal, uint64_t coreBonus, uint flags, out uint64_t partAmount,
-    uint64_t fullChargeMult = ONE, bool optimal = false, bool physical = false)
+    uint64_t fullChargeMult = ONE, bool optimal = false, bool physical = false, uint basisRow = P_DEFINITIONS)
 {
     uint64_t factors[9];
-    sampleDamageFactors(s,who,coefficient,when,factors,normal,coreBonus,flags,fullChargeMult,optimal,physical);
+    sampleDamageFactors(s,who,coefficient,when,factors,normal,coreBonus,flags,fullChargeMult,optimal,physical,basisRow);
     uint64_t amount=damageFromFactors(s,factors,false);
     partAmount=s.error==0 ? damageFromFactors(s,factors,true) : 0;
     return amount;

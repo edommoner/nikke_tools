@@ -141,6 +141,10 @@ SUITES['definition-view']=dict(script='research/verify-definition-view-short.py'
 SUITES['damage-factors']=dict(script='research/verify-damage-factors-short.py',source='gpu/damage_factors_probe.slang',
     golden='research/portable-damage-factors-short-expected.json',inputs=16,native=16,development_only=False,
     tests=['test_portable_damage_factors.py'])
+SUITES['skill-hp-basis']=dict(script='research/verify-world-skill-hp-basis-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-skill-hp-basis-short-expected.json',inputs=37,native=26,development_only=False,tests=['test_portable_skill_hp_basis_reference.py','test_portable_skill_hp_basis.py','test_damage_basis_specs.py','test_portable_definition_view.py','test_portable_query_boundaries.py','test_portable_weapon_phases.py','test_portable_seal.py','test_portable_cpu_batch.py'])
+SUITES['skill-hp-basis-rosters']=dict(SUITES['skill-hp-basis'],script='research/verify-world-skill-hp-basis-rosters-short.py',golden='research/portable-world-skill-hp-basis-rosters-short-expected.json',inputs=4,native=4,tests=['test_portable_skill_hp_basis.py','test_portable_definition_view.py','test_portable_real_binding_proof.py'])
+SUITES['skill-hp-basis-rosters-diagnostic']=dict(SUITES['skill-hp-basis-rosters'],source='gpu/world_skill_hp_basis_admission_entry.slang',development_only=True)
+SUITES['skill-hp-basis-protection']=dict(SUITES['skill-hp-basis'],script='research/verify-world-skill-hp-basis-protection-short.py',golden='research/portable-world-skill-hp-basis-protection-short-expected.json',inputs=4,native=4)
 SUITES['mode-capacity']=dict(script='research/verify-world-mode-capacity-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-mode-capacity-short-expected.json',inputs=32,native=26,development_only=False,tests=['test_portable_mode_capacity_reference.py','test_portable_mode_capacity.py','test_portable_definition_view.py','test_portable_weapon_phases.py','test_portable_references.py','test_portable_combat.py','test_portable_seal.py','test_portable_query_boundaries.py'])
 SUITES['mode-capacity-instant']=dict(SUITES['mode-capacity'],script='research/verify-world-mode-capacity-instant-short.py',golden='research/portable-world-mode-capacity-instant-short-expected.json',inputs=3,native=3)
 SUITES['mode-capacity-rosters']=dict(script='research/verify-world-mode-capacity-rosters-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-mode-capacity-rosters-short-expected.json',inputs=2,native=2,development_only=False,tests=['test_portable_mode_capacity_reference.py','test_portable_mode_capacity.py','test_portable_definition_view.py','test_portable_real_binding_proof.py'])
@@ -172,6 +176,9 @@ for mode_capacity_test in ('test_portable_mode_capacity_reference.py','test_port
 SUITES['heal-share-rosters']=dict(script='research/verify-world-heal-share-rosters-short.py',source='gpu/world_entry_reload_resident_entry.slang',
     golden='research/portable-world-heal-share-rosters-short-expected.json',inputs=4,native=4,development_only=False,
     tests=['test_portable_heal_share_gpu.py','test_portable_real_binding_proof.py','test_portable_linked_artifact.py'])
+SUITES['skill-hp-basis-retention']=dict(SUITES['heal-share-regression'],script='research/verify-world-skill-hp-basis-retention-short.py',golden='research/portable-world-skill-hp-basis-retention-short-expected.json',inputs=971,native=787,development_only=False,tests=list(dict.fromkeys(SUITES['heal-share-regression']['tests']+['test_portable_skill_hp_basis_retention.py','test_portable_skill_hp_basis.py','test_portable_physical_interrupt.py','test_portable_query_boundaries.py'])))
+SUITES['skill-hp-basis-retention']['cpu_test_timeout']=90
+SUITES['skill-hp-basis-retention']['support_files']=[SUITES[name]['golden'] for name in ('heal-share-regression','parts-skill-world','heal-share-rosters','ally-burst','ally-burst-rosters','mode-capacity','mode-capacity-instant','mode-capacity-rosters')]
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
     golden='research/portable-compiler-commands-heal-share-source-certificate.json',inputs=0,native=0,compiler_only=True,
     support_files=['research/portable-world-heal-share-regression-short-expected.json'],
@@ -873,11 +880,12 @@ def audited_comparison(module, capture):
     return audit,observed[0]
 
 
-def seal_development(package_root, capture, output):
+def seal_development(package_root, capture, output, *, timeout=60):
     """Explicit GPU0 seal of a successful immutable Metal development capture."""
     # Use the package's own imports and auditors in a fresh process. Its files
     # are verified before native work; never patch a consumed package in place.
     # Legacy adapter chains use relative module paths: anchor their cwd too.
+    if type(timeout) is not int or not 1<=timeout<=180:raise ValueError('CPU seal timeout must be an integer from 1 to 180 seconds')
     script = """import importlib.util,json,sys,pathlib
 root=pathlib.Path(sys.argv[1]);capture=pathlib.Path(sys.argv[2])
 s=importlib.util.spec_from_file_location('seal_controller',sys.argv[3])
@@ -891,7 +899,7 @@ g=dict(input_sha256=r['input_sha256'],output_sha256=r['output_sha256'],source_sh
 print(json.dumps(dict(golden=g,package_id=p['package_id'],audit=a)))
 """
     completed=subprocess.run([sys.executable,'-c',script,str(package_root.resolve()),str(capture.resolve()),str(Path(__file__).resolve())],
-                             cwd=package_root.resolve(),capture_output=True,text=True,check=True,timeout=60)
+                             cwd=package_root.resolve(),capture_output=True,text=True,check=True,timeout=timeout)
     result=json.loads(completed.stdout)
     for name,digest in result['golden']['source_sha256'].items():
         if sha((ROOT/name).read_bytes())!=digest:raise ValueError('Current source differs from verified Metal source')
@@ -1008,19 +1016,21 @@ def cpu_test_groups(m,capture,smoke=False):
     from portable_cpu_tests import validate_groups,complete
     patterns=SMOKE_TESTS if smoke else SUITES[m['suite']]['tests']
     validate_groups(ROOT,patterns)
+    timeout=SUITES[m['suite']].get('cpu_test_timeout',60)
+    if type(timeout) is not int or not 1<=timeout<=180:raise ValueError('Invalid bounded CPU test timeout')
     if not patterns:
         write(capture/'cpu-tests.json',[]);return []
     command=[sys.executable,str(Path(__file__).resolve()),'_tests','--capture',str(capture)]
     if smoke:command.append('--smoke')
     started=time.perf_counter();timed_out=False;completed=None
     try:
-        completed=subprocess.run(command,cwd=ROOT,capture_output=True,timeout=60,env=cpu_test_environment(capture))
+        completed=subprocess.run(command,cwd=ROOT,capture_output=True,timeout=timeout,env=cpu_test_environment(capture))
     except subprocess.TimeoutExpired as error:
         timed_out=True
         (capture/'cpu-batch.stdout.log').write_bytes(error.stdout or b'');(capture/'cpu-batch.stderr.log').write_bytes(error.stderr or b'')
         raise
     finally:
-        write(capture/'cpu-batch.json',dict(schema=1,mode='single-process-unittest',patterns=list(patterns),timeout_seconds=60,
+        write(capture/'cpu-batch.json',dict(schema=1,mode='single-process-unittest',patterns=list(patterns),timeout_seconds=timeout,
             elapsed_seconds=time.perf_counter()-started,timed_out=timed_out,exit_code=completed.returncode if completed else None,
             gpu_calls=0,scope='Python group output in per-group logs; inherited native subprocess output in batch logs'))
     (capture/'cpu-batch.stdout.log').write_bytes(completed.stdout);(capture/'cpu-batch.stderr.log').write_bytes(completed.stderr)
@@ -1967,7 +1977,7 @@ def main(argv=None):
     for name in ('source-package','source-capture','cache-entry','phases','candidate','ptxas','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('module-check');a.add_argument('--jit-opt-level',type=int,choices=range(5));a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path,required=True);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
-    a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
     from portable_reference import REFERENCES
@@ -2034,7 +2044,7 @@ def main(argv=None):
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
         os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
         result=module_capture(a.capture,a.timeout,a.original_workspace,a.jit_opt_level)
-    elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out)
+    elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out,timeout=a.timeout)
     elif a.command=='cases':
         with forbid_gpu():
             entries,_=prepare_entries(open_suite(dict(suite=a.suite)),dict(purpose='development'))
