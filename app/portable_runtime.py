@@ -42,6 +42,9 @@ def double_words(value):
 
 def validate_effect(eff, *, combat=None, world_frame=False):
     target=eff.get('target')
+    from portable_ally_random_specs import validate as validate_ally_random
+    try:validate_ally_random(eff,combat=combat,world_frame=world_frame)
+    except ValueError as error:raise UnsupportedPortable(str(error),reason='recipient') from error
     if isinstance(target,str) and (target=='enemies_random' or target.startswith(('enemies_random:','enemies_code:','enemies_lowest_hp_code:'))) and (combat is None or not world_frame):
         raise UnsupportedPortable('Random/code enemy selectors require a private combat world',reason='recipient')
     from portable_named_magnitude_specs import validate as validate_named_magnitude
@@ -345,7 +348,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     recipient_limits=dict(L,_AUTHORED_DEFINITIONS=len(effects))
     lazy_groups={}
     for (eff,owner),row in zip(effects,program['effects']):
-        if eff.get('type')=='buff' and not stack_operation(eff) and int(row[4]) in (5,6,7,15,16):
+        if eff.get('type')=='buff' and not stack_operation(eff) and int(row[4]) in (5,6,7,15,16,19,25):
             lazy_groups.setdefault((owner,target_key(eff.get('target'))),len(lazy_groups)+1)
     merge_groups={}
     def merge_key(index,row):
@@ -484,6 +487,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             pack_mode(words,index,row,double_words)
     from portable_revival_specs import pack as pack_revival
     pack_revival(words,L,effects,program['effects'],allied_seed)
+    from portable_ally_random_specs import pack as pack_ally_random
+    pack_ally_random(words,L,effects,allied_seed)
     from portable_geometry_specs import pack as pack_geometry
     pack_geometry(words,geometry,effects,program['effects'],chars,L,double_words)
     from portable_burst_charge_specs import required as needs_burst_references,from_roster as burst_references_from_roster,pack as pack_burst_references
@@ -617,7 +622,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         from reference_health_runtime import enabled as reference_health_sync
         if not reference_health_sync(SimpleNamespace(_effects=effects)):
             words[L['HP_UNCLAMP_POLICY']]=1
-    return words,dict(**binding_metadata,_compiler_geometry=copy.deepcopy(geometry),enemy_targeting=target_metadata,mode_entry_enabled=any(words[L['MODE_BASE']+j*L['MODE_WORDS']+30] for j in range(len(effects))),probability_definitions=probability_definitions(effects),ordered_recipients=bool(nodes) or revival_ordered,protection_enabled=bool(words[L['PROTECTION_META_BASE']] or any(c[1] in (31,32) for c in script)),status_policy=words[L['STATUS_META_BASE']],status_names=program['states'],stack_operators=any(stack_operation(e) for e,_ in effects),enemy_buff_definitions=[enemy_buff_plan(e) is not None for e,_ in effects],native_landing=native_landing,source_definitions=[dict(name=next((k for k,v in program['states'].items() if v==int(row[304])),None),owner=int(row[0]),legacy=bool(row[137])) if int(row[1])==35 else None for row in program['effects']],source_query_indices=source_query_indices,resource_names=list(resource_keys),resource_query_indices=sorted(resource_query_indices),states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
+    return words,dict(**binding_metadata,_compiler_geometry=copy.deepcopy(geometry),enemy_targeting=target_metadata,mode_entry_enabled=any(words[L['MODE_BASE']+j*L['MODE_WORDS']+30] for j in range(len(effects))),probability_definitions=probability_definitions(effects),ordered_recipients=bool(nodes) or revival_ordered or bool(words[L['RECIPIENT_META_BASE']+2]),protection_enabled=bool(words[L['PROTECTION_META_BASE']] or any(c[1] in (31,32) for c in script)),status_policy=words[L['STATUS_META_BASE']],status_names=program['states'],stack_operators=any(stack_operation(e) for e,_ in effects),enemy_buff_definitions=[enemy_buff_plan(e) is not None for e,_ in effects],native_landing=native_landing,source_definitions=[dict(name=next((k for k,v in program['states'].items() if v==int(row[304])),None),owner=int(row[0]),legacy=bool(row[137])) if int(row[1])==35 else None for row in program['effects']],source_query_indices=source_query_indices,resource_names=list(resource_keys),resource_query_indices=sorted(resource_query_indices),states=program['states'],names=[c['name'] for c in chars],effects=[e['name'] for e,n in effects],bullet_lifetimes=[max(0,e.get('duration_bullets',0)) if e.get('type')=='buff' else 0 for e,n in effects],combat=combat_meta,timeline=frame_mode==24)
 
 
 def decode(words,metadata):

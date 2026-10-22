@@ -1,11 +1,23 @@
+// Friendly-only selection seeds the existing allied RNG without enabling revival.
+bool validAlliedRandomMetadata(uint input)
+{
+    uint at=input+P_RECIPIENT_META_BASE;
+    if(commands[at+2]!=0 && commands[at+2]!=0x41524731U) return false;
+    if(commands[at+2]==0 && (commands[at+3]!=0 || commands[at+4]!=0)) return false;
+    for(uint word=5;word<8;word++) if(commands[at+word]!=0) return false;
+    return true;
+}
+bool alliedRandomEnabled(inout Runtime s)
+{ return commands[s.inputBase+P_RECIPIENT_META_BASE+2]==0x41524731U; }
 bool validRecipientLeaf(uint at, bool enemy = false)
 {
     uint kind = commands[at], count = commands[at+1], mask = commands[at+2];
     if (enemy) return kind == 4 && count == 0 && mask == 0 && commands[at+3] == 0 && commands[at+4] == 0 && commands[at+5] == 0 && commands[at+6] < P_DEFINITIONS && (commands[at+7] & ~7U) == 0;
-    if (kind > 23 || (kind == 17 || kind == 19 || kind == 20) || kind == 4 || kind == 14 || count > 5 || mask > 31 || commands[at+3] > (kind == 12 || kind == 13 ? 2 : 1)) return false;
+    if (kind > 25 || (kind == 17 || kind == 20 || kind == 24) || kind == 4 || kind == 14 || count > 5 || mask > 31 || commands[at+3] > (kind == 12 || kind == 13 ? 2 : 1)) return false;
     if ((kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16 || kind == 21) && count == 0) return false;
     if((kind==22 || kind==23) && (count==0 || commands[at+3]!=0 || commands[at+4]!=0 || commands[at+5]!=0 || (commands[at+7]>>4)!=0)) return false;
     if(kind==18 && (count!=0 || commands[at+3]!=0 || commands[at+4]!=0 || commands[at+5]!=0 || (commands[at+7]>>4)!=0)) return false;
+    if((kind==19 || kind==25) && (mask!=0 || commands[at+3]!=0 || commands[at+4]!=0 || commands[at+5]!=0)) return false;
     uint order = commands[at+4], seen = 0; bool ended = false;
     if (order >> 15 != 0 || commands[at+6] >= P_DEFINITIONS || (commands[at+7] & 8) != 0 || (commands[at+7] >> 4) > P_DEFINITIONS) return false;
     for (uint i = 0; i < 5; i++)
@@ -23,7 +35,7 @@ bool validRecipientPlan(uint at,bool enemy,uint input)
     uint total=commands[input+P_RECIPIENT_META_BASE],count=commands[at+1],first=commands[at+2];
     if(enemy || total>P_RECIPIENT_NODES || count==0 || count>21 || first>total || count>total-first || commands[at+3]!=0 || commands[at+4]!=0 || commands[at+5]!=0 || commands[at+6]>=P_DEFINITIONS || (commands[at+7]&~7U)!=0) return false;
     if(commands[input+P_RECIPIENT_META_BASE+1]>1) { return false; }
-    for(uint word=2;word<8;word++) if(commands[input+P_RECIPIENT_META_BASE+word]!=0) return false;
+    if(!validAlliedRandomMetadata(input)) return false;
     for(uint node=0;node<count;node++) if(!validRecipientLeaf(input+P_RECIPIENT_NODE_BASE+(first+node)*8)) return false;
     return true;
 }
@@ -36,6 +48,23 @@ uint selectRecipientLeaf(inout Runtime s, uint row, uint at, uint64_t when, out 
     uint kind = commands[at], count = commands[at+1], candidates = commands[at+2];
     uint exclude = commands[at+3], authoredOrder = commands[at+4];
     if (kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16 || kind==22) return rankedRecipientsAt(s,row,at,when,order);
+    if(kind==19 || kind==25)
+    {
+#ifdef PORTABLE_WORLD_PROJECTILE
+        if(!alliedRandomEnabled(s)) { s.error=64;order=0;return 0; }
+        uint pool[5],size=0;
+        for(uint who=0;who<5;who++) if((s.downMask&(1U<<who))==0 &&
+            (kind==19 ? who!=d.owner : !f64Less(0,s.coverHP[who]))) pool[size++]=who;
+        uint ignored,mask=0,k=min(count,size),before=results[s.resourceOutput+P_REVIVAL_RNG_BASE];
+        uint sampled=mtSampleFive(s.resourceOutput+P_REVIVAL_RNG_BASE,size,k,ignored);order=0;
+        uint poolMask=0;for(uint i=0;i<size;i++) poolMask|=1U<<pool[i];
+        for(uint i=0;i<k;i++) { uint who=pool[((sampled>>(i*3))&7)-1];mask|=1U<<who;order|=uint64_t(who+1)<<(i*3); }
+        alliedSampleRecord(s,d.owner,kind,k,poolMask,uint(order),before,when);
+        return mask;
+#else
+        s.error=64;order=0;return 0;
+#endif
+    }
     if(kind==23)
     {
 #ifdef PORTABLE_WORLD_PROJECTILE
@@ -115,4 +144,17 @@ uint selectRecipients(inout Runtime s,uint row,uint64_t when,out uint64_t order)
         }
     }
     return seen;
+}
+
+// Ordered GPU observations, sharing the bounded revival event bank. No CPU plan.
+void alliedSampleRecord(inout Runtime s,uint owner,uint kind,uint k,uint pool,uint order,uint before,uint64_t when)
+{
+#ifdef PORTABLE_WORLD_PROJECTILE
+    uint head=s.resourceOutput+P_REVIVAL_BASE,index=results[head+6]++;
+    if(index>=P_REVIVAL_TRACE_COUNT) { s.error=64;return; }
+    uint at=s.resourceOutput+P_REVIVAL_TRACE_BASE+index*8;
+    results[at]=3;results[at+1]=owner|(kind<<3)|(k<<8);
+    results[at+2]=pool;results[at+3]=order;results[at+4]=before;
+    results[at+5]=results[s.resourceOutput+P_REVIVAL_RNG_BASE];storeNumber(at+6,when);
+#endif
 }

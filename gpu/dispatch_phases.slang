@@ -504,7 +504,7 @@ void advanceDefinitionFrame(inout Runtime s, inout Frame frames[32], inout int d
             else if (d.lazyGroup == 0) recipientMask = selectRecipients(s,row,f.time,recipientOrder);
             else recipientMask = 0;
             uint selector = commands[s.inputBase+P_RECIPIENT_BASE+row*8];
-            bool lazy = selector == 5 || selector == 6 || selector == 7 || selector == 15 || selector == 16;
+            bool lazy = selector == 5 || selector == 6 || selector == 7 || selector == 15 || selector == 16 || selector == 19 || selector == 25;
             if (d.budget >= 0 && recipientMask == 0 && (!lazy || d.kind==15)) continue;
         }
         uint stagedTotal=0;

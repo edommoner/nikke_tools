@@ -84,3 +84,6 @@ void worldDispelLog(inout Runtime s,uint node,uint64_t when)
 
 void worldReviveLog(inout Runtime s,uint who,uint downs,uint64_t when)
 { WorldSchedule w=frameSchedule(s);wsLog(w,6,who,downs,when);s.error=w.error; }
+
+void worldCoverBreakLog(inout Runtime s,uint node,uint64_t when)
+{ WorldSchedule w=frameSchedule(s);wsLog(w,7,node,0,when);s.error=w.error; }

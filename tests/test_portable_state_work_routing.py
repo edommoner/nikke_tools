@@ -11,9 +11,12 @@ class StateWorkRoutingTests(unittest.TestCase):
               dict(phase='effect',category='trigger',kind='buff',stat='atk_caster_based_pct',target='allies_random:1',operator=dict(domain='condition',descriptor='no_broken_cover_ally')),
               dict(phase='effect',category='recipient',kind='instant',stat='cover_revive',target='allies_broken_cover_random:2'),
               dict(phase='effect',category='recipient',kind='buff',stat='atk_caster_based_pct',target='allies_random:1')]
-        for row in rows:
+        for i,row in enumerate(rows):
             with self.subTest(row=row):
-                result=reference_readiness(row);self.assertEqual(result['lane'],'native_contract_extension');self.assertTrue(result['required_extensions']);self.assertFalse(result['gpu_supported']);self.assertFalse(result['gpu_admission_verified']);self.assertFalse(result['runtime_validation_performed'])
+                result=reference_readiness(row);self.assertEqual(result['lane'],'native_contract_extension' if i<2 else 'reference_review');self.assertFalse(result['gpu_supported']);self.assertFalse(result['gpu_admission_verified']);self.assertFalse(result['runtime_validation_performed'])
+                if i<2:self.assertTrue(result['required_extensions'])
+                else:
+                    self.assertEqual(result['required_extensions'],[]);self.assertTrue(result['scoped_metal_validation_performed']);self.assertEqual(result['scoped_gpu_suite'],'ally-random-gpu')
         self.assertEqual(reference_readiness(rows[0])['required_extensions'],['focus_fire_live_marker_and_aim'])
 
     def test_unrecorded_operator_recipient_and_kind_are_not_promoted(self):

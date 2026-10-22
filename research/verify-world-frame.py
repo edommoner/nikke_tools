@@ -51,6 +51,8 @@ def read_result(block,meta,case):
  logs=[];query_pattern={};plan=[];down_by_query={}
  for i in range(block[head+2]):
   at=head+2832+i*6;kind,node,arg=block[at:at+3];time=num(at+3)
+  if kind==7:
+   plan.append(dict(time=time,pattern=case['patterns'][node]['id'],event='cover_break',outcome=''));continue
   if kind==6:
    plan.append(dict(revive_after_downs=arg,time=time));continue
   if kind==3:

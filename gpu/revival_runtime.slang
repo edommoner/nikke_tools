@@ -28,7 +28,17 @@ void revivalRecord(inout Runtime s,uint kind,uint who,uint64_t when,uint ammo)
 }
 bool initializeRevival(inout Runtime s)
 {
-    bool enabled=false,seeded=false;uint64_t seed=19;
+    bool enabled=false,seeded=false,friendly=false;uint64_t seed=19;
+    if(alliedRandomEnabled(s))
+    {
+#ifndef PORTABLE_WORLD_PROJECTILE
+        return false;
+#else
+        if(s.combat==0 || !worldFrameEnabled(s)) return false;
+        uint at=s.inputBase+P_RECIPIENT_META_BASE;
+        seed=uint64_t(commands[at+3])|(uint64_t(commands[at+4])<<32);seeded=true;
+#endif
+    }
     for(uint row=0;row<s.count;row++)
     {
         Definition d=readDefinition(s.inputBase,row);
@@ -57,6 +67,11 @@ bool initializeRevival(inout Runtime s)
         {
             uint selector=commands[commands[plan]==17 ? s.inputBase+P_RECIPIENT_NODE_BASE+(commands[plan+2]+leaf)*8 : plan];
             if((selector==22 || selector==23) && d.kind!=29) return false;
+            if(selector==19 || selector==25)
+            {
+                friendly=true;
+                if(!alliedRandomEnabled(s) || (d.kind==0 || d.kind==4) && (commands[plan]==17 || d.lazyGroup==0)) return false;
+            }
         }
         if(d.kind!=29) { if(commands[s.inputBase+P_MODE_BASE+row*P_MODE_WORDS]==P_REVIVAL_MAGIC) return false;continue; }
 #ifndef PORTABLE_WORLD_PROJECTILE
@@ -71,10 +86,10 @@ bool initializeRevival(inout Runtime s)
 #endif
     }
 #ifdef PORTABLE_WORLD_PROJECTILE
-    if(commands[s.inputBase+P_RECIPIENT_META_BASE+1]!=uint(enabled)) return false;
-    if(enabled)
+    if(commands[s.inputBase+P_RECIPIENT_META_BASE+1]!=uint(enabled) || alliedRandomEnabled(s)!=friendly) return false;
+    if(enabled || friendly)
     {
-        s.quantityMask|=262144U;
+        if(enabled) s.quantityMask|=262144U;
         for(uint word=0;word<P_REVIVAL_WORDS;word++) results[revivalAt(s)+word]=0;
         mtSeed(s.resourceOutput+P_REVIVAL_RNG_BASE,seed);
     }

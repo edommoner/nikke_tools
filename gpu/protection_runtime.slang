@@ -218,6 +218,10 @@ void advanceProtectionHit(inout Runtime s,inout Frame frames[32],inout int depth
         {
             cover=smaller(s.coverHP[f.owner],f.healthValue);s.coverHP[f.owner]=f64Add(s.coverHP[f.owner],cover^F64_SIGN);
             s.coverDamage[f.owner]=f64Add(s.coverDamage[f.owner],cover);
+#ifdef PORTABLE_WORLD_FRAME
+            if(f64Less(0,cover) && f64Zero(s.coverHP[f.owner]) && scheduledArgument(uint(f.argument)))
+                worldCoverBreakLog(s,uint(f.argument)&31U,f.time);
+#endif
         }
         frames[depth].healthNext=cover;
         uint64_t amount=pierce || !f64Less(0,f.healthPrevious) && !f64Less(0,cover) ? f.healthValue : 0;

@@ -55,9 +55,10 @@ class AllyRandomReferenceTests(unittest.TestCase):
             else:n['rng']['draws']=1
             with self.subTest(fault=fault),self.assertRaises(AssertionError):verify(c,n)
 
-    def test_unported_random_recipients_remain_rejected(self):
-        for c in [fixtures()[0],next(c for c in fixtures() if c['name'].endswith('broken-empty'))]:
-            with self.assertRaises(ValueError):portable_runtime.validate_effect(c['effects'][-1],combat={},world_frame=True)
+    def test_unported_random_shapes_remain_rejected(self):
+        effect=fixtures()[0]['effects'][-1]
+        for target in ['allies_random_with_debuff:1','allies_random:6','allies_random:-1','allies_broken_cover_random:-1']:
+            with self.subTest(target=target),self.assertRaises(ValueError):portable_runtime.validate_effect(dict(effect,target=target),combat={},world_frame=True)
 
 
 if __name__=='__main__':unittest.main()

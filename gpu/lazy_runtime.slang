@@ -56,7 +56,7 @@ void ensureLazyRecipients(inout Runtime s, uint row, uint64_t when)
             }
             if (entry == P_LAZY_CACHE) { s.error = 64; return; }
             LAZY_CACHE_GROUP(s,entry) = group; LAZY_CACHE_STORE_TIME(s,entry,key);
-            uint64_t order; LAZY_CACHE_MASK(s,entry) = rankedRecipients(s,s.carrierDefinition[row],when,order); LAZY_CACHE_ORDER(s,entry) = uint(order);
+            uint64_t order; LAZY_CACHE_MASK(s,entry) = selectRecipients(s,s.carrierDefinition[row],when,order); LAZY_CACHE_ORDER(s,entry) = uint(order);
             s.cacheEvaluations++;
             if (s.cacheSeen[group-1] == 0 || !f64Less(key,s.cacheNewestTime[group-1]))
             { s.cacheSeen[group-1] = 1; s.cacheNewest[group-1] = entry; s.cacheNewestTime[group-1] = key; }

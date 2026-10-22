@@ -15,5 +15,7 @@ def baseline_source(root,name,source):
     return source,True
 def project_sources(root,sources=None):
     root=Path(root);sources=dict(sources or {});data=ledger(root)
+    from portable_ally_random_source_contract import project_sources as project_allied
+    sources,_=project_allied(root,sources)
     for name in data['sources']:sources[name],_=baseline_source(root,name,sources.get(name,(root/name).read_text()))
     return sources,list(data['sources'])

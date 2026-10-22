@@ -1,3 +1,7 @@
+<!-- ally-random-gpu-current -->
+味方random selector19/25を既存allied MT・遅延cache・順序付きrecipientへ接続。Metal新30(native20/拒否10)＋旧1234(native980/拒否254)が同じ116sourceで成功・各独立seal。旧全entriesとraw3,881,828,352Bを全byte保持、計1264/正例1000。旧保持CPU449成功、生成cache必須hit/追加Slang0、GPU10.3185秒。CPU契約18は不変、追加GPU契約は人数0と発動上限。新しいRuntime field0/stride138952、正本CPU/数値/MT/normalizer不変。味方だけでは復活を有効化しない。cover_breakログとcover_revive受付も既存処理へ接続。混在revive/random、random buff list、debuff型、cover/camera条件とfocus_fire marker/aim、現sourceのCUDA実行は未検証。実証goldenは保存したがsuiteはdevelopment_only、旧golden/本体compiler証明の一括promotionは保留。Windows操作0/7終了unknown/保全false、全キャラ認定0/UI CPU/ゴール未達。次は混在契約と共有cover/camera/marker接続をまとめ、次のsource batchで保持検証。詳細docs/portable-ally-random-gpu.mdとresearch/portable-ally-random-gpu-checkpoint.json。以下は履歴です。
+<!-- /ally-random-gpu-current -->
+
 <!-- state-prerequisites-current -->
 次のまとめ移植に向け、共通CLI referenceへstate-predicates30＋ally-random18のCPU契約を追加。不変packageで48成功、CPU-only20群124検査24.533秒。生存者のみのcover判定（本人含む）、破壊/復旧/死亡、casterカメラ・有限/無限・同時刻の順序、独立した味方global RNGと敵RNG、空/1人/全員選択の消費、source欄を跨ぐ遅延対象cache、即時修復後の候補変化を固定。100条件/204cover/326runtime照会、50sample/50resolve/52選択。native全項目/trace/元照会回数/乱数stateを保持。focus_fireは条件だけでなくmarker＋aim consumerが未接続。not_coreは期待値累積でbool反転不可。静的227/266・68分類は不変、契約拡張6/consumer研究4/gap3/review55。GPU本体/受付/golden/正本CPU/数値/normalizer不変、GPU実行/claim0、既存Metal1234を新規証明へ加算しない。Windows操作0/原因unknown/保全false、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-state-prerequisites.mdと対応checkpoint。次は共有状態/marker/aim/味方recipientを同一batchで接続しMetal新例＋旧1234を検証。以下は履歴です。
 <!-- /state-prerequisites-current -->

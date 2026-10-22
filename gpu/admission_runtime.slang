@@ -14,7 +14,7 @@ void admitDefinitions(inout Runtime s,uint input)
     for(uint word=4;word<P_WORLD_META_WORDS;word++) if(commands[world+word]!=0) { s.error=64;return; }
     if(commands[input+P_RECIPIENT_META_BASE]>P_RECIPIENT_NODES) { s.error=64;return; }
     if(commands[input+P_RECIPIENT_META_BASE+1]>1) { s.error=64;return; }
-    for(uint word=2;word<8;word++) if(commands[input+P_RECIPIENT_META_BASE+word]!=0) { s.error=64;return; }
+    if(!validAlliedRandomMetadata(input)) { s.error=64;return; }
     uint refs=input+P_BURST_REFERENCE_BASE;
     if(commands[refs]>1 || commands[refs+1]>31 || commands[refs]!=0 && s.combat==0) { s.error=64;return; }
     for(uint word=2;word<8;word++) if(commands[refs+word]!=0) { s.error=64;return; }
@@ -147,7 +147,7 @@ void admitDefinitions(inout Runtime s,uint input)
         if (d.lazyGroup != 0)
         {
             uint plan = input+P_RECIPIENT_BASE+j*8, selector = commands[plan];
-            if (d.lazyGroup > s.count || d.kind != 0 && d.kind != 4 || !(selector == 5 || selector == 6 || selector == 7 || selector == 15 || selector == 16)) { s.error = 64; break; }
+            if (d.lazyGroup > s.count || d.kind != 0 && d.kind != 4 || !(selector == 5 || selector == 6 || selector == 7 || selector == 15 || selector == 16 || selector == 19 || selector == 25)) { s.error = 64; break; }
             uint previous = s.lazyGroupDefinition[d.lazyGroup-1];
             if (previous != 0)
             {
