@@ -43,7 +43,7 @@ def object_profile(source):
 
 def object_paths(capture,source):
     stem=object_profile(source)['stem'];capture=Path(capture)
-    if stem=='linked':return capture/'module.o',capture/'linked.cubin.partial',capture/'linked.cubin'
+    if stem=='linked':return capture/'module.relocatable.cubin',capture/'linked.cubin.partial',capture/'linked.cubin'
     return capture/(stem+'.ptx'),capture/(stem+'.o.partial'),capture/(stem+'.o')
 
 
@@ -94,7 +94,7 @@ def validate_output(source,raw):
 def identity(tool,source):
     profile=object_profile(source)
     result=dict(schema=1,provider=profile['provider'],artifact=profile['artifact'],tool=tool,options=object_options(source),origin=source)
-    if profile['stem']=='linked':result['native_launch_protocol']='create-suspended-v1'
+    if profile['stem']=='linked':result.update(native_launch_protocol='create-suspended-v1',input_container='raw-device-elf-cubin-v1')
     return result
 
 

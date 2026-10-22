@@ -33,6 +33,7 @@ class DeviceLinkerTests(unittest.TestCase):
 
     def popen(self,argv,**kwargs):
         self.assertEqual(argv[1:4],linker.OPTIONS);self.assertFalse(kwargs['shell']);owner=self
+        self.assertEqual(Path(argv[-3]).name,'module.relocatable.cubin');self.assertEqual(Path(argv[-3]).suffix,'.cubin')
         class Process:
             pid=os.getpid()+2000;done=False;terminated=False
             def wait(self,timeout):
@@ -69,8 +70,8 @@ class DeviceLinkerTests(unittest.TestCase):
 
     def test_same_native_engine_links_saved_object_and_never_certifies_calculation(self):
         self.proof();r=self.audit();self.assertTrue(r['object_verified'],r);self.assertTrue(r['link_verified']);self.assertTrue(r['containment_verified']);self.assertFalse(r['preservation_verified']);self.assertFalse(r['calculation_verified']);self.assertFalse(r['passed'])
-        self.assertEqual((self.capture/'module.o').read_bytes(),(self.f.capture/'module.o').read_bytes());self.assertEqual((self.capture/'linked.cubin').read_bytes(),cubin());self.assertEqual(len(self.processes),1);self.assertEqual(len(self.f.base.processes),1)
-        proof=cli.load(self.capture/'link.json');self.assertEqual(proof['receipt']['identity']['provider'],'diagnostic-nvlink');self.assertEqual(proof['receipt']['identity']['artifact'],'diagnostic-linked-cubin');self.assertFalse(proof['origin']['current_battle_equivalence_verified'])
+        self.assertEqual((self.capture/'module.relocatable.cubin').read_bytes(),(self.f.capture/'module.o').read_bytes());self.assertEqual((self.capture/'linked.cubin').read_bytes(),cubin());self.assertEqual(len(self.processes),1);self.assertEqual(len(self.f.base.processes),1)
+        proof=cli.load(self.capture/'link.json');self.assertEqual(proof['receipt']['identity']['provider'],'diagnostic-nvlink');self.assertEqual(proof['receipt']['identity']['artifact'],'diagnostic-linked-cubin');self.assertEqual(proof['receipt']['identity']['input_container'],'raw-device-elf-cubin-v1');self.assertFalse(proof['origin']['current_battle_equivalence_verified'])
 
     def test_link_audit_requires_suspended_creation_and_a_single_resume(self):
         self.proof();phase=self.capture/'phases.jsonl';saved=phase.read_bytes()

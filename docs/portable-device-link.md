@@ -23,7 +23,7 @@ flagsは`-arch=sm_86 --ignore-host-info --verbose`。[NVIDIA CUDA12.4のnvlink�
 
 ## 共通実行器と証拠の範囲
 
-focus／moduleと同じ`portable_partition_object.run`、native process inspector、Job／startgate／BelowNormal／2GiB／60秒／wait55＋cleanup5、専用claimと事後監査を使う。入力は`module.o`、出力は`linked.cubin.partial`→検証後`linked.cubin`。stageは`module_link_*`、providerは`diagnostic-nvlink`、artifactは`diagnostic-linked-cubin`、mode／claimは`link-object-only`／`link-object-claimed-cuda.json`で、通常cacheと区別する。
+focus／moduleと同じ`portable_partition_object.run`、native process inspector、Job／startgate／BelowNormal／2GiB／60秒／wait55＋cleanup5、専用claimと事後監査を使う。入力は元`module.o`を全byte保持した`module.relocatable.cubin`、出力は`linked.cubin.partial`→検証後`linked.cubin`。stageは`module_link_*`、providerは`diagnostic-nvlink`、artifactは`diagnostic-linked-cubin`、mode／claimは`link-object-only`／`link-object-claimed-cuda.json`で、通常cacheと区別する。
 
 - 元moduleのimmutable packageは元certificate／baselineへ歴史監査し、元source／cache／phase／PTXとmodule objectの生成証拠、元Job、claim、metadata inventory、期待object SHAを再確認する。既知の欠落processや異常cleanupがある元実行は次へ進めない。service未識別を成功にしない。
 - 親・子・事後監査で同じsource chainを再確認する。正確なargv／ret0／tool／input／output SHA、親子PID・作成時刻・Job所属・時系列・memory capを別々に検査する。
@@ -41,3 +41,10 @@ focus／moduleと同じ`portable_partition_object.run`、native process inspecto
 入力の`.o`には別の懸念がある。[LLVMのClangNVLinkWrapper](https://github.com/llvm/llvm-project/blob/main/clang/tools/clang-nvlink-wrapper/ClangNVLinkWrapper.cpp)は、生のNVPTX ELFをbyte-preserving copyで`.cubin`へ写してnvlinkへ渡す（fatbinaryのhost objectは`.o`）。今回の出力作成エラーを拡張子が原因と断定しない。元objectは変更せず、ACL／path／補助出力仕様と保存ELF symbolをCPUで確認してから、新しい明示的入力契約を選ぶ。
 
 共通engineは、今後の所属確認拒否で`*_child/rejected`へ実際のsnapshotと`process.poll()`で取得可能な戻り値を残す。早期終了を成功とみなさず、元失敗の記録を作り直さない。新しい故障注入1件と既存link9＋focus16＋module5が成功。実toolの起動前に所属を観測できる仕組みは未実装であり、次のnative試行前に検討する。現行full compiler packageは準備済みだが、この失敗を無視してfull native試行を増やさない。
+
+
+## 生device ELFの入力名
+
+元module objectはhost objectやfatbinaryではなくET_REL／EM_CUDA。LLVMのwrapperと同じく、link用の新captureには`.cubin`で終わる`module.relocatable.cubin`として全byteコピーする。元`module.o`をrename／変更／再生成しない。親・子・auditで固定元SHAを再照合し、実argvもこのファイル名に一致させる。receiptは`input_container=raw-device-elf-cubin-v1`を持ち、通常CUBIN cache・ET_EXEC出力と区別する。拡張子から実行可能と判断せず、入力はET_REL、出力はET_EXECの検査を維持する。
+
+入力名の修正はLLVMの実装に基づく互換性修正で、元の出力作成エラーが解消したという証明ではない。出力名・固定tool・flags・capは変更しない。まず9115884のWindows CPU gate smoke結果を確認し、次の別packageで1回の保存object linkを選ぶ。新しいNVRTC／ptxasは不要。旧消費済みclaim／失敗を消したり、同一packageをretryしたりしない。

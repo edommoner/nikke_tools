@@ -1,3 +1,7 @@
+<!-- raw-device-link-current -->
+LLVM nvlink wrapperの生device ELF入力契約に合わせ、link用copy名をmodule.relocatable.cubinへ変更。元module.oのbyte/SHA/ET_RELを保持、rename/再生成なし。receipt input_container=raw-device-elf-cubin-v1、argvは新名を要求。出力名/固定tool/flags/2GiB/60秒は変更なし。fresh CPU217中216成功/Windows1skip。Windows9115884はnative gate専用CPU+Job smoke進行中、リンクはまだ再実行しない。元出力エラーの原因が入力拡張子と確定したわけではない。次はgate結果確認後、別packageで同じ保存objectのlink1回を選ぶ。追加compile/link/driver/GPU0、元失敗/claims/生object保持。全キャラ認定0/本体CUDA未成立/Metal849+実4/parts CPU32維持。詳細docs/portable-device-link.mdとresearch/portable-raw-device-link-checkpoint.json。以下は履歴です。
+<!-- /raw-device-link-current -->
+
 <!-- native-launch-current -->
 link profileへCREATE_SUSPENDED/BelowNormal/stdio handle listの起動adapterを接続。共通Job親子/PID作成時刻を実行前に確認してからResumeThread1回（count1のみ）、所有handleのみcleanup。旧focus/module identity/通常assembler/数値/GPU本文不変。既存Windows smokeは同じadapterで即終了Python(-I -S)を確認し、2GiB/出力marker/所属/gate/returnを要求。別Job runnerなし。fresh CPU217中216成功/Windows1skip。初回freshの共通証明書fixture不足エラー保持、whitelistを修正。実Windows gate/リンクは未検証、次はCPU+Job smokeだけ1回。Windows保存CPU診断は原object全symbol定義あり/undefined0、両dir ACL同一/短path/原8083file不変。Defender限定event昇格readは0件で原因断定不可。出力作成エラーは未解決、raw PTX共有拒否継続。full compiler packageは準備済みだがnative再試行はしない。Metal849+実4/parts CPU32/全キャラ認定0維持。詳細docs/portable-native-launch.mdとresearch/portable-native-launch-checkpoint.json。以下は履歴です。
 <!-- /native-launch-current -->
