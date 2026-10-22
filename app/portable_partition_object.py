@@ -1,4 +1,4 @@
-"""Explicit focus-object diagnostic; never a CUBIN cache or calculation proof."""
+"""Explicit relocatable-object diagnostics; never a CUBIN cache or calculation proof."""
 import json,os,struct,subprocess,time
 from pathlib import Path
 import portable_offline_assembler as assembler
@@ -17,6 +17,30 @@ def origin(cache_entry,phases,candidate,producer):
     return dict(schema=1,purpose='diagnostic-focus-relocatable-object',producer=producer,
         partition_plan_sha256=assembler.digest((candidate/'plan.json').read_bytes()),
         focus=audit['focus'],input=source,partition_cpu_audit_verified=True),raw
+
+
+def module_origin(cache_entry,phases,producer,producer_raw):
+    from portable_ptx_stats import load_saved_ptx
+    raw,key=load_saved_ptx(Path(cache_entry),Path(phases))
+    source=assembler.validate_ptx(raw)
+    if raw!=producer_raw or source!=producer['ptx'] or key!=producer['cache_key']:
+        raise ValueError('Module PTX/cache differs from the audited original producer')
+    return dict(schema=1,purpose='diagnostic-module-relocatable-object',producer=producer,
+        input=source,source_bytes_unchanged=True,source_partitioned=False),raw
+
+
+def object_profile(source):
+    purpose=source.get('purpose')
+    if purpose=='diagnostic-focus-relocatable-object':
+        return dict(stem='focus',provider='diagnostic-partition-ptxas',artifact='diagnostic-relocatable-object')
+    if purpose=='diagnostic-module-relocatable-object':
+        return dict(stem='module',provider='diagnostic-module-ptxas',artifact='diagnostic-module-relocatable-object')
+    raise ValueError('Unknown diagnostic object source purpose')
+
+
+def object_paths(capture,source):
+    stem=object_profile(source)['stem'];capture=Path(capture)
+    return capture/(stem+'.ptx'),capture/(stem+'.o.partial'),capture/(stem+'.o')
 
 
 def validate_object(raw):
@@ -39,14 +63,14 @@ def validate_object(raw):
 
 
 def identity(tool,source):
-    return dict(schema=1,provider='diagnostic-partition-ptxas',artifact='diagnostic-relocatable-object',
-        tool=tool,options=OPTIONS,origin=source)
+    profile=object_profile(source)
+    return dict(schema=1,provider=profile['provider'],artifact=profile['artifact'],tool=tool,options=OPTIONS,origin=source)
 
 
 def run(capture,tool,raw,source,*,journal,popen=None,inspector=None):
     capture=Path(capture).resolve();tool=Path(tool).resolve();tool_info=assembler.validate_tool(tool)
     if assembler.validate_ptx(raw)!=source['input']:raise ValueError('Focus input changed')
-    input_path=capture/'focus.ptx';partial=capture/'focus.o.partial';output=capture/'focus.o'
+    input_path,partial,output=object_paths(capture,source)
     if partial.exists() or output.exists():raise FileExistsError('Focus object already exists')
     with input_path.open('xb') as stream:stream.write(raw);stream.flush();os.fsync(stream.fileno())
     journal.emit('partition_object_tool','verified',tool=tool_info)

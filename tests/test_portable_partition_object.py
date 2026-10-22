@@ -116,7 +116,7 @@ class PartitionObjectTests(unittest.TestCase):
             cli.child(self.capture,'cuda',partition_object_only=True);dispatch.assert_called_once()
             with self.assertRaises(ValueError):cli.child(self.capture,'cuda',compile_only=True,partition_object_only=True)
         with patch.object(cli,'child') as dispatch:cli.main(['_child','--capture',str(self.capture),'--backend','cuda','--partition-object-only'])
-        self.assertTrue(dispatch.call_args.args[-1])
+        self.assertTrue(dispatch.call_args.args[6]);self.assertFalse(dispatch.call_args.args[7])
 
     def test_driver_library_is_blocked_before_loading(self):
         import ctypes as C

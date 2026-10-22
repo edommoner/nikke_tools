@@ -155,7 +155,7 @@ SUITES['heal-share-rosters']=dict(script='research/verify-world-heal-share-roste
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
     golden='research/portable-compiler-commands-heal-share-source-certificate.json',inputs=0,native=0,compiler_only=True,
     support_files=['research/portable-world-heal-share-regression-short-expected.json'],
-    tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py','test_portable_ptx_stats.py','test_portable_ptx_callgraph.py','test_portable_ptx_partition.py','test_portable_partition_object.py'])
+    tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py','test_portable_ptx_stats.py','test_portable_ptx_callgraph.py','test_portable_ptx_partition.py','test_portable_partition_object.py','test_portable_module_object.py'])
 
 # Controller validation has no numeric program to execute. Keep its CPU work
 # separate from a selected suite's battle/native preflight.
@@ -165,6 +165,7 @@ SMOKE_TESTS.append('test_portable_definition_view.py')
 SMOKE_TESTS.append('test_portable_ptx_callgraph.py')
 SMOKE_TESTS.append('test_portable_ptx_partition.py')
 SMOKE_TESTS.append('test_portable_partition_object.py')
+SMOKE_TESTS.append('test_portable_module_object.py')
 
 
 def sha(data):
@@ -462,17 +463,19 @@ def cpu_preflight(m):
                 input_sha256=sha(data), gpu_calls=calls, elapsed_seconds=time.perf_counter()-started)
 
 
-def child(capture, backend, smoke=False, compile_only=False, module_only=False, assemble_only=False,partition_object_only=False):
+def child(capture, backend, smoke=False, compile_only=False, module_only=False, assemble_only=False,partition_object_only=False,module_object_only=False):
     deadline = time.monotonic()+60
     while not (capture/'start.json').exists():
         if time.monotonic() >= deadline:
             raise RuntimeError('Containment gate not released; GPU not started')
         time.sleep(.02)
-    if sum(map(bool,(compile_only,module_only,assemble_only,partition_object_only)))>1:raise ValueError('Compile, module and assembly modes are exclusive')
+    if sum(map(bool,(compile_only,module_only,assemble_only,partition_object_only,module_object_only)))>1:raise ValueError('Compile, module and assembly modes are exclusive')
     if smoke:
-        if compile_only or module_only or assemble_only or partition_object_only:raise ValueError('Compiler and smoke modes are exclusive')
+        if compile_only or module_only or assemble_only or partition_object_only or module_object_only:raise ValueError('Compiler and smoke modes are exclusive')
         write(capture/'smoke.json',dict(pid=os.getpid(),ppid=os.getppid(),gpu_calls=0)); return
     m = verify_package(ROOT)
+    if module_object_only:
+        partition_object_child(m,capture,backend,module_object=True);return
     if partition_object_only:
         partition_object_child(m,capture,backend);return
     if assemble_only:
@@ -798,7 +801,7 @@ def validation_environment(capture):
     return env
 
 
-def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_only=False,module_only=False,assemble_only=False,partition_object_only=False):
+def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_only=False,module_only=False,assemble_only=False,partition_object_only=False,module_object_only=False):
     bounded=bounded_module()
     env=validation_environment(capture)
     env['PYTHONPATH']=os.pathsep.join([*site.getsitepackages(),env.get('PYTHONPATH','')])
@@ -808,11 +811,12 @@ def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_
     if compile_only:command.append('--compile-only')
     if assemble_only:command.append('--assemble-only')
     if partition_object_only:command.append('--partition-object-only')
+    if module_object_only:command.append('--module-object-only')
     if module_only:
         command.append('--module-only')
         driver_cache=(capture/'driver-cache').resolve();driver_cache.mkdir(exist_ok=True)
         env['CUDA_CACHE_PATH']=str(driver_cache)
-    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=('diagnostic-relocatable-object' if partition_object_only else os.environ.get('NIKKE_CUDA_ARTIFACT','cubin')) if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),compile_only=compile_only,module_only=module_only,assemble_only=assemble_only,partition_object_only=partition_object_only,driver_cache_path=env.get('CUDA_CACHE_PATH') if module_only else None,ptxas_optimization_level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL'),cache_required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0'),job_memory_limit_mb=os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB'),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
+    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=('diagnostic-module-relocatable-object' if module_object_only else 'diagnostic-relocatable-object' if partition_object_only else os.environ.get('NIKKE_CUDA_ARTIFACT','cubin')) if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),compile_only=compile_only,module_only=module_only,assemble_only=assemble_only,partition_object_only=partition_object_only,module_object_only=module_object_only,driver_cache_path=env.get('CUDA_CACHE_PATH') if module_only else None,ptxas_optimization_level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL'),cache_required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0'),job_memory_limit_mb=os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB'),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
     observation={}
     if os.name=='nt':
         from windows_validation_observer import capture_snapshot,observe_job,compare_snapshots
@@ -1113,13 +1117,15 @@ def assembly_origin(m,source_package,source_capture,*,historical_compiler=False)
     return origin,raw
 
 
-def partition_object_origin(m,request):
+def partition_object_origin(m,request,*,module_object=False):
     import portable_partition_object as obj
-    producer,_=assembly_origin(m,request['source_package'],request['source_capture'],historical_compiler=True)
+    if request.get('source_kind','focus')!=('module' if module_object else 'focus'):raise ValueError('Diagnostic object source kind mismatch')
+    producer,raw=assembly_origin(m,request['source_package'],request['source_capture'],historical_compiler=True)
+    if module_object:return obj.module_origin(request['cache_entry'],request['phases'],producer,raw)
     return obj.origin(request['cache_entry'],request['phases'],request['candidate'],producer)
 
 
-def partition_object_child(m,capture,backend):
+def partition_object_child(m,capture,backend,*,module_object=False):
     if backend!='cuda':raise ValueError('Focus object requires CUDA package')
     import ctypes as C
     import portable_partition_object as obj
@@ -1131,21 +1137,22 @@ def partition_object_child(m,capture,backend):
             journal.emit('partition_object_forbidden_library','rejected');raise RuntimeError('Driver/NVRTC DLL forbidden in focus object experiment')
         return loader(name,*a,**k)
     with forbid_gpu(),patch.object(C,'WinDLL',library,create=True):
-        origin,raw=partition_object_origin(m,request)
+        origin,raw=partition_object_origin(m,request,module_object=module_object)
         if origin!=request['origin']:raise ValueError('Focus object source changed after request')
         journal.emit('partition_object_origin','verified',origin=origin)
         receipt=journal.invoke('shared_partition_object',obj.run,capture,request['ptxas'],raw,origin,journal=journal)
     write(capture/'object.json',dict(origin=origin,receipt=receipt,calculation_verified=False,link_verified=False,kernel_calls=0))
 
 
-def audit_partition_object_capture(m,capture,*,verify_artifacts=True):
+def audit_partition_object_capture(m,capture,*,verify_artifacts=True,module_object=False):
     import portable_partition_object as obj
     import portable_offline_assembler as assembler
     capture=Path(capture).resolve();run=load(capture/'run.json')
-    if run.get('mode')!='partition-object-only' or run.get('backend')!='cuda' or run.get('package_id')!=m['package_id'] or is_development(m):raise ValueError('Wrong focus object capture')
+    mode='module-object-only' if module_object else 'partition-object-only'
+    if run.get('mode')!=mode or run.get('backend')!='cuda' or run.get('package_id')!=m['package_id'] or is_development(m):raise ValueError('Wrong diagnostic object capture')
     if not (capture/'execution.json').exists():
         if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
-        return dict(mode='partition-object-only',object_verified=False,passed=False,containment_verified=False,
+        return dict(mode=mode,object_verified=False,passed=False,containment_verified=False,
             preservation_verified=False,partition_legal_verified=False,calculation_verified=False,link_verified=False,
             kernel_calls=0,error='No bounded execution receipt; preflight failure or incomplete capture',gpu_retry_count=0)
     facts=load(capture/'execution.json')
@@ -1156,24 +1163,25 @@ def audit_partition_object_capture(m,capture,*,verify_artifacts=True):
         rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
         expected=[('partition_object_origin','verified'),('shared_partition_object','entered'),('partition_object_tool','verified'),('partition_object_input','verified'),('partition_object_ptxas','entered'),('partition_object_child','verified'),('partition_object_ptxas','returned'),('partition_object_receipt','verified'),('shared_partition_object','returned')]
         if [(r['stage'],r['state']) for r in rows]!=expected:raise ValueError('Incomplete or forbidden focus object journal')
-        request=load(capture/'object-request.json');origin,raw=partition_object_origin(m,request)
+        request=load(capture/'object-request.json');origin,raw=partition_object_origin(m,request,module_object=module_object)
         proof=load(capture/'object.json');receipt=proof['receipt'];tool=assembler.validate_tool(request['ptxas'])
         if request['origin']!=origin or proof['origin']!=origin or rows[0]['origin']!=origin:raise ValueError('Focus object origin mismatch')
         if rows[2]['tool']!=tool or rows[3]['input']!=origin['input'] or rows[4]['tool_sha256']!=tool['sha256']:raise ValueError('Focus object tool/input mismatch')
-        argv=[str(Path(request['ptxas']).resolve()),*obj.OPTIONS,str(capture/'focus.ptx'),'-o',str(capture/'focus.o.partial')]
+        input_path,partial_path,object_path=obj.object_paths(capture,origin)
+        argv=[str(Path(request['ptxas']).resolve()),*obj.OPTIONS,str(input_path),'-o',str(partial_path)]
         if rows[4]['argv']!=argv or rows[6]['return_code']!=0:raise ValueError('Focus object command/return mismatch')
         snapshot=rows[5]['inspection']
         if not assembler.contained(snapshot,rows[5]['pid'],snapshot['child_pid']) or not rows[4]['wall_time_ns']<=snapshot['observed_unix_ns']<=rows[6]['wall_time_ns']:raise ValueError('Focus assembler child not observed inside Job')
         ident=obj.identity(tool,origin)
         if receipt['identity']!=ident or receipt['key']!=sha(json.dumps(ident,sort_keys=True,separators=(',',':')).encode()):raise ValueError('Focus object identity mismatch')
-        if rows[7]['receipt']!=receipt or (capture/'focus.ptx').read_bytes()!=raw:raise ValueError('Focus receipt/PTX changed')
-        if obj.validate_object((capture/'focus.o').read_bytes())!=receipt['artifact']:raise ValueError('Focus object ELF changed')
+        if rows[7]['receipt']!=receipt or input_path.read_bytes()!=raw:raise ValueError('Object receipt/PTX changed')
+        if obj.validate_object(object_path.read_bytes())!=receipt['artifact']:raise ValueError('Focus object ELF changed')
         if proof.get('calculation_verified') is not False or proof.get('link_verified') is not False or proof.get('kernel_calls')!=0:raise ValueError('Wrong focus object proof scope')
         verified=True
     except (KeyError,ValueError,OSError) as exc:error=str(exc)
     containment,pid=job_contained(capture,rows,memory_limit_bytes=2048*1024*1024)
     verified=bool(verified and facts['passed'] and containment);preservation=environment_preserved(capture,facts)
-    return dict(mode='partition-object-only',object_verified=verified,passed=verified and preservation is True,
+    return dict(mode=mode,object_verified=verified,passed=verified and preservation is True,
         containment_verified=containment,preservation_verified=preservation,partition_legal_verified=False,
         calculation_verified=False,link_verified=False,kernel_calls=0,error=error,gpu_retry_count=0)
 
@@ -1233,23 +1241,27 @@ def recover_partition_object(experiment_package,capture,out,expected_partial_sha
     return result
 
 
-def partition_object_capture(capture,timeout,original_workspace,source_package,source_capture,cache_entry,phases,candidate,ptxas):
+def partition_object_capture(capture,timeout,original_workspace,source_package,source_capture,cache_entry,phases,candidate,ptxas,*,module_object=False):
     if os.name!='nt':raise ValueError('Focus object experiment requires Windows')
     if type(timeout) is not int or not 1<=timeout<=60 or not original_workspace:raise ValueError('Focus object requires original workspace and1..60s')
     import portable_offline_assembler as assembler
     m=verify_package(ROOT)
-    request={name:str(Path(value).resolve()) for name,value in dict(source_package=source_package,source_capture=source_capture,cache_entry=cache_entry,phases=phases,candidate=candidate,ptxas=ptxas).items()}
+    paths=dict(source_package=source_package,source_capture=source_capture,cache_entry=cache_entry,phases=phases,ptxas=ptxas)
+    if not module_object:paths['candidate']=candidate
+    elif candidate is not None:raise ValueError('Unmodified module experiment must not accept a partition candidate')
+    request={name:str(Path(value).resolve()) for name,value in paths.items()}
+    request['source_kind']='module' if module_object else 'focus';mode='module-object-only' if module_object else 'partition-object-only'
     capture.mkdir(parents=True,exist_ok=False)
-    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode='partition-object-only',status='preflight',memory_limit_mb=2048,gpu_retry_count=0))
+    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode=mode,status='preflight',memory_limit_mb=2048,gpu_retry_count=0))
     write(capture/'object-request.json',request)
     try:
-        origin,_=partition_object_origin(m,request);request['origin']=origin;assembler.validate_tool(ptxas)
+        origin,_=partition_object_origin(m,request,module_object=module_object);request['origin']=origin;assembler.validate_tool(ptxas)
         write(capture/'object-request.json',request)
         run=load(capture/'run.json');run['status']='assembling';write(capture/'run.json',run)
-        with (ROOT/'partition-object-claimed-cuda.json').open('x',encoding='utf-8') as stream:json.dump(dict(package_id=m['package_id'],capture=str(capture),origin=origin),stream)
+        with (ROOT/(('module-object' if module_object else 'partition-object')+'-claimed-cuda.json')).open('x',encoding='utf-8') as stream:json.dump(dict(package_id=m['package_id'],capture=str(capture),origin=origin),stream)
         with patch.dict(os.environ,NIKKE_VALIDATION_JOB_MEMORY_MB='2048'):
-            run_job(capture,'cuda',timeout,original_workspace,partition_object_only=True)
-        result=audit_partition_object_capture(m,capture,verify_artifacts=False);write(capture/'result.json',result)
+            run_job(capture,'cuda',timeout,original_workspace,**({'module_object_only':True} if module_object else {'partition_object_only':True}))
+        result=audit_partition_object_capture(m,capture,verify_artifacts=False,**({'module_object':True} if module_object else {}));write(capture/'result.json',result)
         run=load(capture/'run.json');run['status']='finished';write(capture/'run.json',run)
     except BaseException as exc:
         write(capture/'failure.json',dict(error=type(exc).__name__+': '+str(exc),kernel_calls=0));run=load(capture/'run.json');run['status']='failed';write(capture/'run.json',run);raise
@@ -1460,6 +1472,8 @@ def audit_capture(capture,verify_artifacts=True,*,record_comparison=False):
     m=verify_package(ROOT)
     if load(capture/'run.json')['package_id']!=m['package_id']:raise ValueError('Capture belongs to another package')
     if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
+    if load(capture/'run.json').get('mode')=='module-object-only':
+        return audit_partition_object_capture(m,capture,verify_artifacts=verify_artifacts,module_object=True)
     if load(capture/'run.json').get('mode')=='partition-object-only':
         return audit_partition_object_capture(m,capture,verify_artifacts=verify_artifacts)
     if load(capture/'run.json').get('mode')=='assemble-only':
@@ -1555,6 +1569,8 @@ def main(argv=None):
     a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path)
     a=sub.add_parser('assemble');a.add_argument('--capture',type=Path,required=True);a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--ptxas',type=Path,required=True);a.add_argument('--timeout',type=int,default=60);a.add_argument('--original-workspace',type=Path,required=True)
     a=sub.add_parser('partition-object-recover');a.add_argument('--experiment-package',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--partial-sha256',required=True)
+    a=sub.add_parser('module-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
+    for name in ('source-package','source-capture','cache-entry','phases','ptxas','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('partition-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     for name in ('source-package','source-capture','cache-entry','phases','candidate','ptxas','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('module-check');a.add_argument('--jit-opt-level',type=int,choices=range(5));a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
@@ -1577,7 +1593,7 @@ def main(argv=None):
             a.add_argument('--cpu-only',action='store_true');a.add_argument('--timeout',type=int,default=180);a.add_argument('--original-workspace',type=Path);a.add_argument('--slang-root',type=Path)
             a.add_argument('--require-cache',action='store_true');a.add_argument('--compile-cache',type=Path);a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--artifact-kind',choices=('cubin','ptx'))
         else:
-            a.add_argument('--compile-only',action='store_true');a.add_argument('--module-only',action='store_true');a.add_argument('--assemble-only',action='store_true');a.add_argument('--partition-object-only',action='store_true')
+            a.add_argument('--compile-only',action='store_true');a.add_argument('--module-only',action='store_true');a.add_argument('--assemble-only',action='store_true');a.add_argument('--partition-object-only',action='store_true');a.add_argument('--module-object-only',action='store_true')
     for name in ('status','audit','collect','export'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True)
         if name in ('collect','export'):a.add_argument('--out',type=Path,required=True)
@@ -1607,6 +1623,7 @@ def main(argv=None):
         result=compile_capture(a.capture,a.timeout,a.original_workspace,a.artifact_kind,a.ptxas_level,a.memory_limit_mb)
     elif a.command=='partition-object-recover':
         with forbid_gpu():result=recover_partition_object(a.experiment_package,a.capture,a.out,a.partial_sha256)
+    elif a.command=='module-object':result=partition_object_capture(a.capture,a.timeout,a.original_workspace,a.source_package,a.source_capture,a.cache_entry,a.phases,None,a.ptxas,module_object=True)
     elif a.command=='partition-object':result=partition_object_capture(a.capture,a.timeout,a.original_workspace,a.source_package,a.source_capture,a.cache_entry,a.phases,a.candidate,a.ptxas)
     elif a.command=='assemble':result=assemble_capture(a.capture,a.timeout,a.original_workspace,a.source_package,a.source_capture,a.ptxas)
     elif a.command=='module-check':
@@ -1660,7 +1677,7 @@ def main(argv=None):
         return
     elif a.command=='_child':
         # Generated source copies are captured before comparison, including a mismatch.
-        child(a.capture,a.backend,a.smoke,a.compile_only,a.module_only,a.assemble_only,a.partition_object_only);return
+        child(a.capture,a.backend,a.smoke,a.compile_only,a.module_only,a.assemble_only,a.partition_object_only,a.module_object_only);return
     elif a.command=='audit':result=audit_capture(a.capture)
     elif a.command=='status':result=capture_status(a.capture)
     elif a.command=='collect':result=collect(a.capture,a.out)
@@ -1674,7 +1691,7 @@ def main(argv=None):
         if not result.get('saved_object_cpu_verified'):raise SystemExit(1)
         if result.get('preservation_verified') is not True:raise SystemExit(2)
         return
-    if result.get('mode')=='partition-object-only':
+    if result.get('mode') in ('partition-object-only','module-object-only'):
         if not result.get('object_verified'):raise SystemExit(1)
         if result.get('preservation_verified') is not True:raise SystemExit(2)
         return

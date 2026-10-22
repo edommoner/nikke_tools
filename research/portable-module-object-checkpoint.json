@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "purpose": "explicit unchanged full PTX relocatable-module comparison",
+  "package_id": "2a00400a04977ac09c1050d9506b45d33986020321a4195cbf52fcae2ed18c9f",
+  "source_commit": "8983054cc1c338b4d042dae4be208013051a7d17",
+  "working_tree_dirty": true,
+  "cpu_capture": "/tmp/nikke-module-object-v1-cpu",
+  "tests": {
+    "discovered": 193,
+    "passed": 192,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0
+  },
+  "cpu_receipt_sha256": "ebdec2040731106b676b883e1bbcf64be39ca4d510d0e37f4eb8a416b64ec045",
+  "payload_records_sha256": "4172f7b7b8e93c9ffab8afc7770fb0226cd62c2772e217acc5384ecab3b81f30",
+  "new_module_tests": 5,
+  "old_focus_recovery_tests_retained": 16,
+  "shared_object_engine": true,
+  "original_assembler_and_gpu_math_unchanged": true,
+  "source_partitioned": false,
+  "original_byte_equality_required": true,
+  "focus_module_modes_and_artifact_identities_separate": true,
+  "windows_experiment_executed": false,
+  "nvrtc_calls": 0,
+  "ptxas_calls": 0,
+  "link_calls": 0,
+  "driver_calls": 0,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "next": "Fixed immutable package, CPU/source gate and one combined CPU/Job smoke, then unchanged v135 full PTX --compile-only once within 60s/2GiB. No automatic link/driver/GPU/fallback/retry."
+}

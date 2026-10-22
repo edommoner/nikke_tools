@@ -1,3 +1,7 @@
+<!-- module-object-current -->
+元PTX全体の明示module-object CLIを実装。focusと同じobject engine/ELF/tool/Job/監査を再利用し、元producer/cache/phaseの全byte一致からだけmodule.ptxへコピー。source_partitioned=false、module専用purpose/provider/artifact/claim/child modeを区別し、候補分割入力は拒否。通常assemble/cache/GPU数値本文は不変。fresh CPU193中192成功/Windows1skip、元focus/recovery16保持、新module5成功。次は固定sourceで元v135全体を同じ--compile-only/O1/FMA無効の1回だけ比較（2GiB/60秒/BelowNormal、CPU/Job smoke重複なし）。新NVRTC/link/driver/GPU、自動fallback/再試行/cap拡大は追加しない。単独focusのret0だけからmodule負荷・RDC効果を断定しない。全キャラ認定0/本体CUDA未成立・parts GPU未接続、Metal849+実4とparts CPU32を維持。詳細docs/portable-module-object.md、research/portable-module-object-checkpoint.json。以下は履歴です。
+<!-- /module-object-current -->
+
 <!-- saved-object-recovery-complete -->
 Windows保存focus partialのCPU回収が成功（998db4e/12file237020byte全SHA一致、18.734118秒）。元ptxas0.315660秒/ret0の145024byteはCUDA format124/14sections/外部記録SHA一致、元Job containment確認。4024file・原失敗/claim/inventory/親環境は不変、追加Job/compiler/link/driver/GPU0。saved_object_cpu_verified=trueと元実行passed=false/未公開を分離、service未識別のpreservation=false/exit2を保持。Macはpeer summaryまでで独立原本監査ではない。通常cache/CUBIN/計算への昇格なし。次は元v135 PTX全体を同じ--compile-only条件で比較する明示module-object実験を共通CLIへ設計し、分離とRDCの影響を区別する。対応nvlink候補はCPU指紋確認まで・link未実行。parts GPU接続・本体CUDA計算/全キャラ認定0は未完了、Metal849+実4/parts CPU32を維持。詳細docs/portable-partition-object.md、research/portable-world-v135-focus-object-recovery-peer-report.json。以下は履歴です。
 <!-- /saved-object-recovery-complete -->
