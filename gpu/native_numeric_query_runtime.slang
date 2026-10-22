@@ -27,8 +27,12 @@ bool initializeNativeNumeric(inout Runtime s)
     if(enabled!=expected) return false;
 #ifdef PORTABLE_WORLD_PROJECTILE
     if(!enabled) return true;
+    if(s.landingPolicy==0) return false;
     for(uint i=0;i<P_NATIVE_QUERY_WORDS;i++) results[s.resourceOutput+P_NATIVE_QUERY_BASE+i]=0;
     s.incomingMask|=256U;s.quantityMask|=256U;
+    // Native landing reads the numeric dictionary even when lifesteal is0.
+    // Reuse that same reader/continuation so post-hit mutations consume RNG.
+    s.healthMask|=64U;
     results[s.resourceOutput+P_NATIVE_QUERY_BASE]=0x4e515231U;
 #else
     if(enabled) return false;

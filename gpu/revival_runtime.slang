@@ -20,10 +20,13 @@ void revivalRecord(inout Runtime s,uint kind,uint who,uint64_t when,uint ammo)
 #ifdef PORTABLE_WORLD_PROJECTILE
     if(!revivalEnabled(s)) return;
     uint index=results[revivalAt(s)+6]++;
-    if(index>=P_REVIVAL_TRACE_COUNT) { s.error=64;return; }
+    uint history=s.resourceOutput+P_ORDERED_HISTORY_BASE;
+    uint at=orderedHistoryRecordAt(s.resourceOutput+P_REVIVAL_TRACE_BASE,history,index,nativeNumericEnabled(s));
+    if(at==0xffffffffU) { s.error=64;return; }
     if(kind==1) results[revivalAt(s)+7]++;
-    uint at=s.resourceOutput+P_REVIVAL_TRACE_BASE+index*8;
     results[at]=kind;results[at+1]=who;storeNumber(at+2,when);storeNumber(at+4,s.hp[who]);results[at+6]=ammo;
+    results[at+7]=0;
+    if(!orderedHistoryRecordDone(history,index,at)) s.error=64;
 #endif
 }
 bool initializeRevival(inout Runtime s)
@@ -70,7 +73,7 @@ bool initializeRevival(inout Runtime s)
             if(selector==19 || selector==25)
             {
                 friendly=true;
-                if(!alliedRandomEnabled(s) || (d.kind==0 || d.kind==4) && (commands[plan]==17 || d.lazyGroup==0)) return false;
+                if(!alliedRandomEnabled(s) || (d.kind==0 || d.kind==4) && (commands[plan]==17 || (selector==19 ? d.lazyGroup==0 : d.lazyGroup!=0))) return false;
             }
         }
         if(d.kind!=29) { if(commands[s.inputBase+P_MODE_BASE+row*P_MODE_WORDS]==P_REVIVAL_MAGIC) return false;continue; }

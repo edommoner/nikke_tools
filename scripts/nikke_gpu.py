@@ -154,7 +154,11 @@ SUITES['undying-predicate']=dict(SUITES['accuracy-predicate'],script='research/v
 SUITES['ally-random-gpu']=dict(SUITES['undying-predicate'],script='research/verify-world-ally-random-short.py',golden='research/portable-world-ally-random-short-expected.json',inputs=30,native=20,development_only=True,tests=SUITES['undying-predicate']['tests']+['test_portable_ally_random_gpu.py'])
 SUITES['state-focus']=dict(SUITES['ally-random-gpu'],script='research/verify-world-state-focus-short.py',golden='research/portable-world-state-focus-short-expected.json',inputs=66,native=54,development_only=True,tests=SUITES['ally-random-gpu']['tests']+['test_portable_state_focus.py'])
 SUITES['state-focus-rosters']=dict(SUITES['state-focus'],script='research/verify-world-state-focus-rosters-short.py',golden='research/portable-world-state-focus-rosters-short-expected.json',inputs=6,native=6,tests=['test_portable_late_attack_random_reference.py','test_portable_state_work_routing.py','test_portable_state_focus_rosters.py','test_portable_state_focus.py','test_portable_definition_view.py','test_portable_real_binding_proof.py'])
-SUITES['late-attack-random']=dict(SUITES['state-focus-rosters'],script='research/verify-world-late-attack-random-short.py',golden='research/portable-world-late-attack-random-short-expected.json',inputs=12,native=5,tests=SUITES['state-focus-rosters']['tests']+['test_portable_native_query.py','test_portable_weapon_phases.py','test_portable_query_boundaries.py','test_quantity_specs.py'])
+SUITES['late-attack-random']=dict(SUITES['state-focus-rosters'],script='research/verify-world-late-attack-random-short.py',golden='research/portable-world-late-attack-random-short-expected.json',inputs=13,native=6,tests=SUITES['state-focus-rosters']['tests']+['test_portable_native_query.py','test_portable_weapon_phases.py','test_portable_query_boundaries.py','test_quantity_specs.py'])
+SUITES['ordered-history']=dict(script='research/verify-ordered-history-short.py',golden='research/portable-ordered-history-short-expected.json',source='gpu/ordered_history_probe.slang',inputs=13,native=10,development_only=False,tests=['test_portable_ordered_history.py','test_portable_generation_request.py'])
+SUITES['late-attack-random']['tests']+=['test_portable_ordered_history.py','test_portable_generation_request.py']
+SUITES['state-focus-rosters']['tests']=list(SUITES['late-attack-random']['tests'])
+SUITES['ordered-history-battles']=dict(SUITES['state-focus-rosters'],script='research/verify-world-ordered-history-battles-short.py',golden='research/portable-world-ordered-history-battles-short-expected.json',inputs=19,native=12,tests=SUITES['state-focus-rosters']['tests']+['test_portable_ally_random_gpu.py','test_portable_eager_cover_migration.py'],support_files=['research/portable-world-ally-random-short-expected.json'])
 SUITES['ally-random-diagnostic']=dict(SUITES['ally-random-gpu'],source='gpu/world_accuracy_admission_entry.slang')
 SUITES['undying-predicate-rosters']=dict(SUITES['undying-predicate'],script='research/verify-world-undying-predicate-rosters-short.py',golden='research/portable-world-undying-predicate-rosters-short-expected.json',inputs=3,native=3)
 SUITES['manual-swap-rosters']=dict(SUITES['manual-swap'],script='research/verify-world-manual-swap-rosters-short.py',golden='research/portable-world-manual-swap-rosters-short-expected.json',inputs=2,native=2)
@@ -216,6 +220,7 @@ SUITES['ally-random-retention']=dict(SUITES['undying-predicate-retention'],scrip
 SUITES['ally-random-retention']['support_files']=list(dict.fromkeys(SUITES['undying-predicate-retention']['support_files']+[SUITES[name]['golden'] for name in ('undying-predicate-retention','undying-predicate','undying-predicate-rosters')]))
 SUITES['state-focus-retention']=dict(SUITES['ally-random-retention'],script='research/verify-world-state-focus-retention-short.py',golden='research/portable-world-state-focus-retention-short-expected.json',inputs=1264,native=1000,development_only=True,tests=SUITES['ally-random-retention']['tests']+['test_portable_state_focus.py','test_portable_state_focus_retention.py'])
 SUITES['state-focus-retention']['support_files']=list(dict.fromkeys(SUITES['ally-random-retention']['support_files']+[SUITES[name]['golden'] for name in ('ally-random-retention','ally-random-gpu')]))
+SUITES['ordered-history-retention']=dict(SUITES['state-focus-retention'],script='research/verify-world-ordered-history-retention-short.py',golden='research/portable-world-ordered-history-retention-short-expected.json',inputs=1349,native=1066,tests=list(dict.fromkeys(SUITES['state-focus-retention']['tests']+SUITES['ordered-history-battles']['tests']+['test_portable_eager_cover_migration.py'])))
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
     golden='research/portable-compiler-commands-heal-share-source-certificate.json',inputs=0,native=0,compiler_only=True,
     support_files=['research/portable-world-heal-share-regression-short-expected.json'],
@@ -1119,6 +1124,14 @@ def cpu_test_groups(m,capture,smoke=False):
     return rows
 
 
+def validate_generation_request(m):
+    if not os.environ.get('NIKKE_SLANG_GENERATION_CACHE'):return
+    import re
+    pattern=rb'^\s*#define\s+PORTABLE_RESIDENT_RUNTIME(?:\s|$)'
+    if not any(re.search(pattern,(ROOT/name).read_bytes(),re.M) for name in m['golden']['source_sha256']):
+        raise ValueError('Generation cache requires a resident source; omit --generation-cache for a standalone probe')
+
+
 def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_only=False,*,linked_package=None,linked_capture=None):
     parent_oracles=None
     m=verify_package(ROOT)
@@ -1129,6 +1142,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
     if bool(linked_package)!=bool(linked_capture):raise ValueError('Both saved CUBIN package and capture required')
     linked=linked_package is not None
     if linked and (backend!='cuda' or smoke or cpu_only or not 1<=timeout<=60 or not original_workspace or compiler_only(m) or is_development(m)):raise ValueError('Saved CUBIN requires a sealed CUDA battle and1..60 seconds')
+    if not smoke and not cpu_only:validate_generation_request(m)
     capture.mkdir(parents=True,exist_ok=False)
     write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend=backend,
                                 mode='cpu-only' if cpu_only else 'smoke' if smoke else 'gpu',status='preflight',gpu_retry_count=0))

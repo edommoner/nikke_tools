@@ -186,7 +186,7 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
 {
     uint stages[5]; for (uint who = 0; who < 5; who++) { stages[who] = effectiveStage(s,who,when); s.currentStage[who] = stages[who]; }
     if (s.phase == 5 && reached(when,s.fullEnd))
-    { s.phase = 0; teamNotify(s,2,when,output); s.castMask = 0; logBurst(s,5,0xffffffff,when,output); }
+    { s.phase = 0; invalidateNativeNumeric(s); teamNotify(s,2,when,output); s.castMask = 0; logBurst(s,5,0xffffffff,when,output); }
     if (s.phase == 0 && reached(s.gauge,HUNDRED))
     {
         s.gauge = 0; s.phase = 1; s.action = when; s.reentryDone = 0; s.reentrySlot = 0;
@@ -240,6 +240,7 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
     if (s.phase == 4 && reached(when,s.action))
     { s.phase = 5; s.lastFullStart = when; s.fullEnd = f64Add(when,fullBurstLength(s,when));
       if (s.error != 0) return;
+      invalidateNativeNumeric(s);
       teamNotify(s,1,when,output); reconcileBurstCooldowns(s,when); firePendingBursts(s,when,output); logBurst(s,4,0xffffffff,when,output); }
     s.gaugeCharging = uint(s.phase == 0);
 }

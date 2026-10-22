@@ -10,7 +10,8 @@ from portable_runtime import validate_effect
 from portable_ally_random_specs import MAGIC,pack
 from portable_specs import LIMITS as L
 from portable_definition_view_contract import verify
-from portable_ally_random_source_contract import ledger
+from portable_ally_random_source_contract import ledger,baseline_source
+from portable_state_focus_source_contract import project_sources as project_focus
 
 
 def adapter():
@@ -30,7 +31,9 @@ class AlliedRandomTests(unittest.TestCase):
                              [0,MAGIC,domain[0]['seed'],0])
             for row,effect in enumerate(domain[0]['effects']):
                 if effect.get('type')=='buff' and effect['target'].startswith(('allies_random:','allies_broken_cover_random:')):
-                    self.assertGreater(words[L['RECIPIENT_BASE']+row*8+7]>>4,0)
+                    group=words[L['RECIPIENT_BASE']+row*8+7]>>4
+                    if effect['target'].startswith('allies_random:'):self.assertGreater(group,0)
+                    else:self.assertEqual(group,0) # Native activation-time selection.
 
     def test_private_world_gate_lists_and_seed_shape(self):
         effect=adapter().fixtures()[0]['effects'][-1]
@@ -47,11 +50,12 @@ class AlliedRandomTests(unittest.TestCase):
     def test_every_reviewed_shader_delta_rejects_mutation(self):
         data=ledger(ROOT)
         self.assertEqual(set(verify(ROOT)['reviewed_ally_random_sources']),set(data['sources']))
+        projected,_=project_focus(ROOT)
         for name,row in data['sources'].items():
-            source=(ROOT/name).read_text()
+            source=projected.get(name,(ROOT/name).read_text())
             for change in row['changes']:
                 with self.subTest(name=name),self.assertRaises(AssertionError):
-                    verify(ROOT,sources={name:source.replace(change['current'],change['baseline'],1)})
+                    baseline_source(ROOT,name,source.replace(change['current'],change['baseline'],1))
 
 
 if __name__=='__main__':unittest.main()

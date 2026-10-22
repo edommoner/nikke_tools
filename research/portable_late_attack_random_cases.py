@@ -26,4 +26,7 @@ def fixtures():
             case['effects'].append(field(extra, 1, target, 'late-pass-sibling', duration=-1))
             case['owners'].append(4)
         rows.append(case)
+    changed=copy.deepcopy(rows[0]);changed['name']='late-attack-random-post-hit-mutation'
+    changed['effects'].append(field('atk_pct',0,'self','post-hit-value-update',timing='on_attack',duration=10,max_stack=128))
+    changed['owners'].append(0);rows.append(changed)
     return rows

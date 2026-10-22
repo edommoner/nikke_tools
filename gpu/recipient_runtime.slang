@@ -152,10 +152,12 @@ void alliedSampleRecord(inout Runtime s,uint owner,uint kind,uint k,uint pool,ui
 {
 #ifdef PORTABLE_WORLD_PROJECTILE
     uint head=s.resourceOutput+P_REVIVAL_BASE,index=results[head+6]++;
-    if(index>=P_REVIVAL_TRACE_COUNT) { s.error=64;return; }
-    uint at=s.resourceOutput+P_REVIVAL_TRACE_BASE+index*8;
+    uint history=s.resourceOutput+P_ORDERED_HISTORY_BASE;
+    uint at=orderedHistoryRecordAt(s.resourceOutput+P_REVIVAL_TRACE_BASE,history,index,nativeNumericEnabled(s));
+    if(at==0xffffffffU) { s.error=64;return; }
     results[at]=3;results[at+1]=owner|(kind<<3)|(k<<8);
     results[at+2]=pool;results[at+3]=order;results[at+4]=before;
     results[at+5]=results[s.resourceOutput+P_REVIVAL_RNG_BASE];storeNumber(at+6,when);
+    if(!orderedHistoryRecordDone(history,index,at)) s.error=64;
 #endif
 }

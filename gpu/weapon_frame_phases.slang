@@ -120,7 +120,7 @@ void landWeaponPellets(inout Runtime s,inout Weapon w,uint who,uint64_t when,uin
 void finishWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint output,uint count,uint epoch,int mode,bool scheduleAutoReload,uint64_t shotInterval,bool last)
 {
     if(w.mode!=1) notifyPelletInShot(s,who,count,when,output);
-    bool burstSpeed=(s.quantityMask & 128)!=0;
+    bool burstSpeed=(s.quantityMask & 128)!=0 || nativeNumericEnabled(s);
     if(w.mode!=1 && WORLD_PACKET_NORMAL(s,who)) markNativeNumericLanded(s,who);
     if(burstSpeed && w.mode!=1 && WORLD_PACKET_NORMAL(s,who)) s.normalLandedMask|=1U<<who;
     if(!burstSpeed || w.mode!=1) WORLD_PHYSICAL_GAUGE(s) addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when));
@@ -130,7 +130,7 @@ void finishWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint
     for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,8,who,0,when,output);
     if (w.mode == 1) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,12,who,0,when,output);
     if(burstSpeed && w.mode==1)
-    { if(WORLD_PACKET_NORMAL(s,who)) s.normalLandedMask|=1U<<who;WORLD_PHYSICAL_GAUGE(s) addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when)); }
+    { if(WORLD_PACKET_NORMAL(s,who)) { markNativeNumericLanded(s,who);s.normalLandedMask|=1U<<who; }WORLD_PHYSICAL_GAUGE(s) addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when)); }
     WORLD_TEAM_CHARGE(s,w,who,count,when,output) if (s.bulletCount != 0) WORLD_NORMAL_ONLY(s,who) consumeBulletBuffs(s,who,when,output);
     WORLD_FRACTION_CHARGE(s,w,who,count,when,output) if (last) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,14,who,0,when,output);
     WORLD_CHARGE_FINISH(s,w,who) if (changedWeaponSession(s,who,epoch,mode)) return; // Preserve a callback's new session.
@@ -141,6 +141,6 @@ void finishWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint
         { uint name = definition_name(s.inputBase,mode); s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0; clearMode(s,who,when); dispatch(s,0,29,who,int(name),when,output); return; }
     }
     if (w.mode == 1)
-    { s.pendingAutoReload[who] = uint(scheduleAutoReload); s.charging[who] = 0; s.nextShot[who] = larger(f64Add(when,WORLD_FRACTION_POST_DELAY(s,who,mode,f64Add(w.interval,w.chargeTime ^ F64_SIGN))),f64Add(s.chargeStartedAt[who],w.minCycle)); }
+    { s.pendingAutoReload[who] = uint(scheduleAutoReload); s.charging[who] = 0;invalidateNativeNumeric(s); s.nextShot[who] = larger(f64Add(when,WORLD_FRACTION_POST_DELAY(s,who,mode,f64Add(w.interval,w.chargeTime ^ F64_SIGN))),f64Add(s.chargeStartedAt[who],w.minCycle)); }
     else s.nextShot[who] = larger(when,f64Add(s.nextShot[who],shotInterval));
 }

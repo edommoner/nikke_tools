@@ -2,6 +2,7 @@
 import hashlib,importlib.util,json,sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
+from portable_eager_cover_migration import historical_words,wire
 
 class StateFocusRetentionTests(unittest.TestCase):
     def test_all_original_inputs_and_rejection_domains_retained(self):
@@ -14,6 +15,8 @@ class StateFocusRetentionTests(unittest.TestCase):
         for family in m.FAMILIES:
             golden=json.loads((ROOT/cli.SUITES[family]['golden']).read_text());count=len(golden['entries']);selected=entries[offset:offset+count]
             expected_input=count.to_bytes(4,'little')+data[4+offset*stride:4+(offset+count)*stride]
+            if family=='ally-random-gpu':
+                expected_input=count.to_bytes(4,'little')+b''.join(wire(historical_words(ROOT,name,words)) for name,words,_ in selected)
             self.assertEqual(hashlib.sha256(expected_input).hexdigest(),golden['input_sha256'],family)
             self.assertEqual([e[0] for e in selected],[family+'/'+e['name'] for e in golden['entries']])
             offset+=count

@@ -42,6 +42,8 @@ def admitted(target, *, instant=False):
 
 def pack(words, index, row, limits, effect, stat_key, merge_search, lazy_group):
     kind = int(row[4])
+    # The native broken-cover selector is eager; retain other group IDs.
+    if kind==25:lazy_group=0
     from portable_enemy_specs import enemy_buff_plan
     enemy = enemy_buff_plan(effect) is not None
     if enemy:kind=4

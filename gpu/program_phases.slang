@@ -263,4 +263,7 @@ void writePortableProgram(inout Runtime s,uint input,uint output,uint queries)
     if((s.quantityMask & 512)!=0) for(uint who=0;who<5;who++) storeNumber(output+P_MODE_ENTRY_STATE_BASE+who*2,s.modeEntryUntil[who]);
     results[output] = s.error; results[output+1] = queries; results[output+2] = s.traceCount; results[output+3] = s.maxDepth; results[output+4] = s.burstTraceCount; results[output+6] = s.traceTotal;
     results[output+7] = s.burstTraceTotal; results[output+8] = s.frameCount; WORLD_RELOAD_FINAL(s) LAZY_BANK_FINISH(output)
+#ifdef PORTABLE_WORLD_PROJECTILE
+    if(nativeNumericEnabled(s) && !finishOrderedHistory(output+P_ORDERED_HISTORY_BASE,results[output+P_REVIVAL_BASE+6])) results[output]=64;
+#endif
 }

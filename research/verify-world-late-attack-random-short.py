@@ -10,6 +10,7 @@ from portable_late_attack_random_cases import fixtures
 from portable_late_attack_random_contracts import verify
 from world_late_attack_random_native import observe
 from portable_revival_specs import BASE,RNG,TRACE,TRACE_COUNT
+from portable_ordered_history import friendly_records,verify_history
 
 
 def prepare():
@@ -42,16 +43,7 @@ def compare(block,domain):
     assert block[0]==0,(domain[0]['name'],'GPU status',block[0])
     expected=native_reference(domain)
     base.compare_expected(block,domain,expected)
-    count=block[BASE+6];assert count<=TRACE_COUNT,'sample history capacity'
-    samples=[]
-    for i in range(count):
-        at=TRACE+i*8;flags=block[at+1];k=flags>>8
-        assert block[at]==3 and flags&7==4 and (flags>>3)&31==19
-        samples.append(dict(pool=[j for j in range(5) if block[at+2]&(1<<j)],k=k,
-                            picked=[((block[at+3]>>(j*3))&7)-1 for j in range(k)],
-                            before_index=block[at+4],after_index=block[at+5]))
-    keys=('pool','k','picked','before_index','after_index')
-    assert samples==[{key:row[key] for key in keys} for row in expected['friendly_samples']],(domain[0]['name'],'ordered direct/lazy samples',len(samples),len(expected['friendly_samples']))
+    verify_history(block,friendly_records(expected['friendly_samples'],owner=4,selector=19))
     state=(3,tuple(block[RNG+8:RNG+632])+(block[RNG],),None)
     digest=hashlib.sha256(json.dumps(state,separators=(',',':')).encode()).hexdigest()
     assert digest==expected['friendly_samples'][-1]['after_sha256'],'complete MT state'

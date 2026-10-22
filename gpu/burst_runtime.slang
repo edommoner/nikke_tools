@@ -30,7 +30,7 @@ uint64_t burstCooldownReduction(inout Runtime s, uint who, uint64_t when)
 {
 #ifndef PORTABLE_BURST_SCAN_REFERENCE
     // A full buff query also resolves unrelated mapped lazy recipients.
-    if ((s.burstModifierMask & 1) == 0 && s.lazyMappedPendingCount == 0) return 0;
+    if ((s.burstModifierMask & 1) == 0 && s.lazyMappedPendingCount == 0 && !nativeNumericEnabled(s)) return 0;
 #endif
     return readStat(s,who,S_burst_cooldown,when);
 }

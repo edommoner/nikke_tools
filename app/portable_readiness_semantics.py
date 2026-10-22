@@ -12,10 +12,12 @@ def reference_readiness(issue):
         if re.fullmatch(r'allies_random:[1-5]',str(issue.get('target',''))):
             result.update(lane='native_contract_extension',native_consumer='confirmed_source',
                 consumer_source='research/upstream/nikke-calc-master/calculator/buff_manager.py:get_buffs,_resolve_target,_resolve_lazy',
-                contract_coverage='recorded_subset',reference_suites=['late-attack-random'],recorded_cases=5,
-                required_extensions=['late_attack_direct_recipient_reads','dictionary_query_cache_boundaries','bounded_random_history'],
+                contract_coverage='recorded_subset',reference_suites=['late-attack-random'],recorded_cases=6,
+                required_extensions=['dictionary_query_cache_boundaries','real_roster_rng_consumption'],
+                implemented_extensions=['late_attack_direct_recipient_reads','bounded_random_history'],
+                scoped_gpu_suite='ordered-history-battles',scoped_metal_cases=6,scoped_metal_validation_performed=True,
                 observed_gpu_mismatch_suite='state-focus-rosters',
-                note='Original Lily30s diverges: a late numeric reader samples an unresolved selector on each dictionary cache miss, while mapped siblings use lazy membership. Existing ally-random Metal cases do not cover this reader. Preserve the failed capture; do not classify this as a missing CPU model or infer full support')
+                note='Six scoped native contracts now match on Metal, including post-hit value mutation. Whole Lily30s still diverges with8 fewer samples; finish auditing dictionary-query consumers. Broken-cover recipients are eager, ordinary random late readers remain direct. Preserve failures; this is not a missing CPU model or full-character support')
             return result
     if issue.get('phase')=='program' and issue.get('category')=='control' and issue.get('fields')==['focus_aim_physical_interrupt']:
         result.update(lane='native_contract_extension',native_consumer='confirmed_source',

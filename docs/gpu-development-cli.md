@@ -1,3 +1,7 @@
+<!-- ordered-history-current -->
+共通履歴を先頭128生record＋全semantic順序SHA-256へ拡張。追加bank64word(781792..781856)、stride/Runtime field不変。時刻はhash対象外でbattle/trace比較を保持。単体ordered-history13入力がMetal成功・独立seal、実goldenで通常CLIへ登録し通常CPU6成功。resident専用generation cacheの不適合指定はCPU/capture/claim前に拒否するCLI検査を追加。実編成でselector25のeager確定（旧4入力は1word21→5のみ、旧SHAへ全復元）と率0のlanding数値照会を修正、post-hit CPU契約を追加。119sourceのbattle19は18一致、リリー30秒のみ正本4550/GPU4542抽選で8不足・205発目からdamage差分。全6native/trace元指紋保持、失敗raw/claim保持、最終CPU55＋reference6成功。次は3.85..4.0秒のGPU辞書照会owner/target/epoch/hitを直接観測し欠落を特定。旧1330＋新19の1349suiteは登録のみで、差分解消後に一括検証。旧rawの全bytes/SHA/path/inodeを保って割当1.899GB回収、削除0。Windows操作0/原因unknown/保全false、全キャラ0/UI CPU/ゴール未達。詳細docs/portable-ordered-history.mdと対応checkpoint。以下は履歴です。
+<!-- /ordered-history-current -->
+
 <!-- native-numeric-query-current -->
 後段ATK＋allies_randomのdirect読取と数値辞書cacheを共有Slangへ接続。meta+5の厳密tag/64context/8736word(773056..781792)、Runtime field追加0。初回命中/charge開始と既存mutationの破棄、数値reader入口、終了時の敵ATK→Actor数値読取順を保持。Metal native5＋拒否7が全項目・抽選pool/order/MT位置/最終全state一致し独立fresh seal、実golden保存・development_only維持。v1-v4の停止/失敗raw/claimは保持。CPU/数値/normalizer不変、厳密11source差分で旧監査層と算術/exit/boundary故障検査を維持。リリー実30秒の4550抽選は128履歴上限の拡張待ちで未検証。次は履歴方式とcharge実射撃/混在readerを検証し、実6＋旧1330を同じsourceで全保持検証。旧1330は変更前sourceの歴史的証拠で今回sourceでは未実行、広いpromotion保留。Windows操作0/原因unknown/保全false、全キャラ0/UI CPU/ゴール未達。詳細docs/portable-native-numeric-query.mdと対応checkpoint。以下は履歴です。
 <!-- /native-numeric-query-current -->
