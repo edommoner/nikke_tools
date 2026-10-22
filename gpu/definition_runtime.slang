@@ -81,6 +81,9 @@ uint definition_toggle(uint input,uint row) { return commands[(input+P_DEFINITIO
 uint definition_triggerCount(uint input,uint row) { return commands[(input+P_DEFINITION_BASE+row*P_DEFINITION_WORDS)+D_TRIGGER_COUNT]; }
 
 [ForceInline]
+bool validStatAbovePredicate(uint stat,uint64_t threshold)
+{ return (stat==0 || stat==5 || stat==6 || stat==21) && f64Finite(threshold); }
+
 uint definition_conditionCount(uint input,uint row) { return commands[(input+P_DEFINITION_BASE+row*P_DEFINITION_WORDS)+D_CONDITION_COUNT]; }
 
 [ForceInline]

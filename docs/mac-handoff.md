@@ -1,3 +1,7 @@
+<!-- accuracy-predicate-gpu-current -->
+命中率条件を既存共有stat読取/binary64比較へ接続。通常/actor-field受付を同一のstat whitelist＋有限値guardへ統一。Metal主32(native26/拒否6)＋原文全定義実モダニア2が同一到達sourceで成功し独立seal。CPU各102検査、GPU0.043992秒/3.645644秒、後者生成cache必須hit。物理履歴112/0省略と2048/295省略を照合。初回受付失敗・診断・GPU前監査失敗を保持し、入力/native期待値は不変。静的226/266・base166/203・69分類はGPU認定ではない。旧1169は変更前sourceの証拠で、今回sourceの全保持検証は容量不足で未開始（input約0.49GB＋output3.68GB＋予備14GiB必要）。development_only維持、全体promotion/証明更新は保留。raw/claims削除0、正本CPU/数値/normalizer不変、Windows追加操作0/原因unknown/保全false、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-accuracy-predicate-gpu.mdとresearch/portable-accuracy-predicate-gpu-checkpoint.json。以下は履歴です。
+<!-- /accuracy-predicate-gpu-current -->
+
 <!-- accuracy-predicate-reference-current -->
 命中率条件の正本CPU26契約＋実モダニア全定義2入力を共通CLI referenceへ登録。不変packageで28契約成功、CPU-only14群99検査成功。実30秒は8判定が全成立、値は14%×5→5.44%×3で固定bool化不可。CPU物理履歴2343件はGPU容量超過のため後続比較で省略を明示する。差等被ダメ分配の2分類はpinned仕様未定の証拠を固定してmodel gapへ移動、均等分配への別名化なし。静的225/266・70分類は不変、candidate1/consumer研究4/gap3/review62。GPU受付は拒否継続、新GPU実行/claim0、正本CPU/GPU/数値/normalizer/golden不変。Metal既存1169範囲維持、Windows操作0/終了原因unknown/保全false、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-accuracy-predicate-reference.mdとresearch/portable-accuracy-predicate-reference-checkpoint.json。次は容量予算を確保して共有条件受付・Metal短例・旧1169保持へ進む。以下は履歴です。
 <!-- /accuracy-predicate-reference-current -->

@@ -29,7 +29,7 @@ HP_TIMING=rf'hp_below:{HP_NUMBER}|hp_below_count:{HP_NUMBER}:[1-9][0-9]*|event:(
 # Reserve structured event prefixes so malformed HP/end descriptors and unported
 # accumulator/counter events cannot fall through to the generic named event.
 TIMING=rf'every_stack:[^:]+:[1-9][0-9]*|event:(?!(?:state_end|ally_hp_below|adjacent_hp_below|accum_full|target_counter_complete):)[\s\S]+|{HP_TIMING}|{SIMPLE}|{COUNTERS}|burst_enter:[123]|burst_enter_count:[123]:{COUNT}|event:state_end:[\s\S]+|hit_count:[^:]+:{COUNT}|stack_reach:[^:]+:[1-9][0-9]*'
-CONDITION=rf'trigger_hit_crit|target_stunned|self_stun_immune|(?:target_state|not_target_state):[\s\S]*|target_stack_above:[\s\S]*:[0-9]+|core_hit|optimal_range|prob:[\s\S]+|during_shield|gauge_(?:above|below|eq):[^:]+:{HP_NUMBER}|gauge_mod:[^:]+:[1-9][0-9]*:[+-]?[0-9]+|self_cover_alive|not_self_cover_alive|not_self_caused_heal|self_hp_max|(?:self_hp_above|self_hp_below|ally_hp_below):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)|during_full_burst|not_during_full_burst|during_charge|burst_casted|burst_not_casted|has_burst1_ally|no_burst1_ally|has_defender_ally|no_defender_ally|squad_ally_exists|back_row|target_is_boss|target_is_add|target_code:[\s\S]*|(?:self_state|not_self_state):[\s\S]*|self_stack_above:[^:]+:[0-9]+|enemy_count_(?:above|below):[+-]?[0-9]+|self_stat_above:(?:atk_pct|crit_rate|crit_dmg):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
+CONDITION=rf'trigger_hit_crit|target_stunned|self_stun_immune|(?:target_state|not_target_state):[\s\S]*|target_stack_above:[\s\S]*:[0-9]+|core_hit|optimal_range|prob:[\s\S]+|during_shield|gauge_(?:above|below|eq):[^:]+:{HP_NUMBER}|gauge_mod:[^:]+:[1-9][0-9]*:[+-]?[0-9]+|self_cover_alive|not_self_cover_alive|not_self_caused_heal|self_hp_max|(?:self_hp_above|self_hp_below|ally_hp_below):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)|during_full_burst|not_during_full_burst|during_charge|burst_casted|burst_not_casted|has_burst1_ally|no_burst1_ally|has_defender_ally|no_defender_ally|squad_ally_exists|back_row|target_is_boss|target_is_add|target_code:[\s\S]*|(?:self_state|not_self_state):[\s\S]*|self_stack_above:[^:]+:[0-9]+|enemy_count_(?:above|below):[+-]?[0-9]+|self_stat_above:(?:atk_pct|crit_rate|crit_dmg|accuracy_pct):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
 
 
 def validate_input(eff,*,world_frame=False):
@@ -100,7 +100,7 @@ def pack_descriptors(words,index,row,L,F,double_words,*,effect=None,states=None,
             target=target_predicate(conditions[slot])
             if target is not None:
                 kind,text,arg=target;name=states[text]
-        if kind not in CONDITIONS.values() or kind==8 and name not in (0,5,6):raise ValueError('Unported compiled predicate')
+        if kind not in CONDITIONS.values() or kind==8 and (name not in (0,5,6,21) or not math.isfinite(arg)):raise ValueError('Unported compiled predicate')
         if kind==26 and (name!=0 or not math.isfinite(arg) or not 0<=arg<=1):raise ValueError('Invalid compiled probability')
         at=L['CONDITION_BASE']+index*L['CONDITION_WORDS']+slot*4
         words[at:at+4]=[int(kind),int(name)&0xffffffff,*double_words(arg)]

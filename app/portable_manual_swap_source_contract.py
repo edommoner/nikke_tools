@@ -13,7 +13,10 @@ def baseline_source(root,name,source):
         source=source.replace(change['current'],change['baseline'],1)
     assert hashlib.sha256(source.encode()).hexdigest()==row['baseline_sha256'],'Manual-swap historical source changed: '+name
     return source,True
-def project_sources(root,sources=None):
+def project_sources(root,sources=None,*,accuracy_projected=False):
     root=Path(root);sources=dict(sources or {});data=ledger(root)
+    if not accuracy_projected:
+        from portable_accuracy_predicate_source_contract import project_sources as project_accuracy
+        sources,_=project_accuracy(root,sources)
     for name in data['sources']:sources[name],_=baseline_source(root,name,sources.get(name,(root/name).read_text()))
     return sources,list(data['sources'])

@@ -55,6 +55,8 @@ def verify(root,*,sources=None):
         source=(sources or {}).get(row['path'],(root/row['path']).read_text())
         from portable_skill_hp_basis_source_contract import baseline_source as baseline_hp_basis
         try:
+            from portable_accuracy_predicate_source_contract import baseline_source as baseline_accuracy
+            source,_=baseline_accuracy(root,row['path'],source)
             from portable_manual_swap_source_contract import baseline_source as baseline_manual
             source,_=baseline_manual(root,row['path'],source)
             from portable_ammo_equivalent_source_contract import baseline_source as baseline_ammo

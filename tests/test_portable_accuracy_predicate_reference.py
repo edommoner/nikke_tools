@@ -72,11 +72,9 @@ class AccuracyPredicateReferenceTests(unittest.TestCase):
         for changed in (dict(kind='damage'),dict(target='all_allies'),dict(operator=dict(domain='condition',descriptor='unknown'))):
             self.assertEqual(reference_readiness(dict(row,**changed))['lane'],'reference_review')
 
-    def test_native_reference_does_not_open_unverified_host_admission(self):
+    def test_shared_host_admission_preserves_accuracy_condition(self):
         effect=fixtures()[1]['effects'][-1];before=copy.deepcopy(effect)
-        with self.assertRaises(ValueError) as caught:portable_runtime.validate_effect(effect,combat={},world_frame=True)
-        self.assertEqual(caught.exception.reason,'trigger')
-        self.assertEqual(caught.exception.operator,dict(domain='condition',descriptor='self_stat_above:accuracy_pct:0'))
+        portable_runtime.validate_effect(effect,combat={},world_frame=True)
         self.assertEqual(effect,before)
 
     def test_deferred_differential_split_is_not_aliased_to_equal_distribution(self):
