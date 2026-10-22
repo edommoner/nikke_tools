@@ -63,6 +63,7 @@ void initializePortableProgram(inout Runtime s,uint input,uint output,out bool r
         { PROJECTILE_ADMIT_STAGE(s,25) results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,26) if(!initializeRevival(s)) { results[output]=64;return; }
     initializeFocusState(s);
+    if(!initializeNativeNumeric(s)) { results[output]=64;return; }
     initializeSkillCritical(s);
     for(uint word=0;word<P_PROBABILITY_STATE_WORDS;word++) results[output+P_PROBABILITY_STATE_BASE+word]=0;
     if(commands[input+P_ENEMY_TARGET_META_BASE]!=0) mtSeed(output+P_ENEMY_RNG_BASE,uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+1])|(uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+2])<<32));
@@ -73,6 +74,7 @@ void initializePortableProgram(inout Runtime s,uint input,uint output,out bool r
 [noinline]
 void writePortableQuery(inout Runtime s,uint at,uint64_t when,uint output,inout uint queries)
 {
+    if(nativeNumericEnabled(s)) results[output+P_NATIVE_QUERY_BASE+9]=1;
     do
     {
         uint index = commands[at+6];
@@ -98,6 +100,7 @@ void writePortableQuery(inout Runtime s,uint at,uint64_t when,uint output,inout 
         for (uint key = 0; key < 3; key++) storeNumber(dst+26+2*key,enemyModifiers[key]);
         results[dst+12] = masks[0]; results[dst+13] = s.combat != 0 ? s.targetGeneration[s.target] : s.generation; results[dst+14] = 0; results[dst+15] = s.timerClock;
     } while(false);
+    if(nativeNumericEnabled(s)) results[output+P_NATIVE_QUERY_BASE+9]=0;
 }
 
 [noinline]

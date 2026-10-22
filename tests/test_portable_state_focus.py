@@ -11,7 +11,8 @@ from portable_specs import LIMITS as L,shader_schema
 from portable_focus_specs import STAT,MAGIC
 from portable_runtime import validate_effect,UnsupportedPortable
 from portable_definition_view_contract import verify
-from portable_state_focus_source_contract import ledger
+from portable_state_focus_source_contract import ledger,baseline_source
+from portable_native_query_source_contract import project_sources as project_native
 from portable_focus_aim_cases import fixtures,original_fixtures
 from world_focus_aim_native import observe,plain_observe
 from portable_focus_aim_contracts import verify as verify_aims
@@ -72,11 +73,12 @@ class StateFocusTests(unittest.TestCase):
         for change,combat,world in [({},None,True),({}, {},False),({'scaling':'max_hp'},{},True),({'tick_interval':.1},{},True)]:
             with self.assertRaises(ValueError):validate_effect(dict(e,**change),combat=combat,world_frame=world)
         data=ledger(ROOT);self.assertEqual(set(verify(ROOT)['reviewed_state_focus_sources']),set(data['sources']))
+        projected,_=project_native(ROOT)
         for name,row in data['sources'].items():
-            source=(ROOT/name).read_text()
+            source=projected.get(name,(ROOT/name).read_text())
             for change in row['changes']:
                 with self.subTest(name=name),self.assertRaises(AssertionError):
-                    verify(ROOT,sources={name:source.replace(change['current'],change['baseline'],1)})
+                    baseline_source(ROOT,name,source.replace(change['current'],change['baseline'],1))
 
 
 if __name__=='__main__':unittest.main()

@@ -1,3 +1,7 @@
+<!-- native-numeric-query-current -->
+後段ATK＋allies_randomのdirect読取と数値辞書cacheを共有Slangへ接続。meta+5の厳密tag/64context/8736word(773056..781792)、Runtime field追加0。初回命中/charge開始と既存mutationの破棄、数値reader入口、終了時の敵ATK→Actor数値読取順を保持。Metal native5＋拒否7が全項目・抽選pool/order/MT位置/最終全state一致し独立fresh seal、実golden保存・development_only維持。v1-v4の停止/失敗raw/claimは保持。CPU/数値/normalizer不変、厳密11source差分で旧監査層と算術/exit/boundary故障検査を維持。リリー実30秒の4550抽選は128履歴上限の拡張待ちで未検証。次は履歴方式とcharge実射撃/混在readerを検証し、実6＋旧1330を同じsourceで全保持検証。旧1330は変更前sourceの歴史的証拠で今回sourceでは未実行、広いpromotion保留。Windows操作0/原因unknown/保全false、全キャラ0/UI CPU/ゴール未達。詳細docs/portable-native-numeric-query.mdと対応checkpoint。以下は履歴です。
+<!-- /native-numeric-query-current -->
+
 <!-- late-attack-random-current -->
 全定義3編成を共通CLI state-focus-rostersへ追加しMetal6入力を検証。5一致、リリー30秒は122差分で失敗・raw/claim保持/再実行0。原因は後段ATKのdirect random読取とdictionary cache境界：正本4550抽選に対しGPU4。CPU契約5をreference late-attack-randomへ追加し、各248照会/158hit・mapped1対late90抽選・5故障拒否・元native/trace/照会数保持を確認。分類器はこの組合せをreader/cache/history拡張へ修正。GPU source117は前回と同一、生成cache必須hit/Slang0、Apple M5 GPU2.745459秒。新suiteは未seal/development_onlyで、sealed範囲1330を維持。次は共有dictionary-query入口/後段direct読取/128超履歴を接続して実6と旧1330を保持検証。Windows操作0/原因unknown/保全false、全キャラ0/UI CPU/ゴール未達。詳細docs/portable-late-attack-random.mdと対応checkpoint。以下は履歴です。
 <!-- /late-attack-random-current -->

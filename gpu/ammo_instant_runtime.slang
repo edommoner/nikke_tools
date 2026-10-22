@@ -2,6 +2,7 @@
 [noinline]
 bool hasInfiniteAmmo(inout Runtime s, uint who, uint64_t when)
 {
+    ensureNativeNumeric(s,who,when);
 #ifdef PORTABLE_INFINITE_SCAN_REFERENCE
     uint count = s.orderedCount;
 #else

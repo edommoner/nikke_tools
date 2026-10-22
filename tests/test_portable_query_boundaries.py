@@ -23,7 +23,8 @@ class QueryBoundaryTests(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError,'statements'):verify(ROOT,sources={name:source.replace('if(commands[b]==6)','if(commands[b]==2)',1)})
     def test_removed_boundary_is_rejected(self):
         name='gpu/quantity_runtime.slang';s=(ROOT/name).read_text().replace('[noinline]\nuint64_t plainQuantity','uint64_t plainQuantity')
-        with self.assertRaisesRegex(AssertionError,'boundary'):verify(ROOT,sources={name:s})
+        # The new exact source-delta audit rejects this before token-boundary validation.
+        with self.assertRaisesRegex(AssertionError,'statements'):verify(ROOT,sources={name:s})
     def test_changed_state_predicate_is_rejected(self):
         name='gpu/ammo_instant_runtime.slang';s=(ROOT/name).read_text().replace('s.modeCapacityEpoch[who] == s.modeEpoch[who]','s.modeCapacityEpoch[who] != s.modeEpoch[who]')
         with self.assertRaisesRegex(AssertionError,'statements'):verify(ROOT,sources={name:s})

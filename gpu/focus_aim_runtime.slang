@@ -112,6 +112,7 @@ void initializeFocusState(inout Runtime s)
 }
 void invalidateFocusNumeric(inout Runtime s)
 {
+    invalidateNativeNumeric(s);
     if(!focusNumericEnabled(s)) return;
     uint at=s.resourceOutput+P_FOCUS_STATE_BASE;
     if(results[at+17]==0xffffffffU) { s.error=2;return; }

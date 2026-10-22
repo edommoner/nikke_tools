@@ -2,6 +2,7 @@
 // latched at the end of the controller tick, as in the pinned CPU state.
 uint64_t burstHitGain(inout Runtime s,uint who,uint64_t coefficient,uint hits,uint64_t multiplier,uint64_t when)
 {
+    ensureNativeNumeric(s,who,when);
     uint64_t gain=f64Mul(f64Mul(coefficient,f64FromI64(hits)),multiplier);
     if((s.quantityMask & 128)!=0)
         gain=f64Add(gain,f64Mul(f64FromI64(hits),readStat(s,who,S_burst_charge_speed_pct,when)));

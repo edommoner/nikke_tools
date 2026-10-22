@@ -4,7 +4,8 @@ bool validAlliedRandomMetadata(uint input)
     uint at=input+P_RECIPIENT_META_BASE;
     if(commands[at+2]!=0 && commands[at+2]!=0x41524731U) return false;
     if(commands[at+2]==0 && (commands[at+3]!=0 || commands[at+4]!=0)) return false;
-    for(uint word=5;word<8;word++) if(commands[at+word]!=0) return false;
+    if(commands[at+5]!=0 && (commands[at+5]!=0x4e515231U || commands[at+2]!=0x41524731U)) return false;
+    for(uint word=6;word<8;word++) if(commands[at+word]!=0) return false;
     return true;
 }
 bool alliedRandomEnabled(inout Runtime s)

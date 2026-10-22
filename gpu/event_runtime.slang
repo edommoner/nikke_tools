@@ -999,6 +999,9 @@ bool excludedDamageBuff(inout Runtime s, uint resident, uint who)
 [noinline]
 void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[64])
 {
+    bool nativeQuery=nativeNumericEnabled(s) && !nativeNumericBusy(s);
+    uint nativeSlot=0xffffffffU,nativeEpoch=0;
+    if(nativeQuery && loadNativeNumeric(s,who,when,values,nativeSlot,nativeEpoch)) return;
     WORLD_STATE_SCOPE_BEGIN(s,s.target) bool query = needsBuffResolution(s) && beginBuffQuery(s,who,when);
     for (uint k = 0; k < 64; k++) values[k] = 0;
     Sum rate = {}; rate.total = s.baseCrit; Sum skillRate = rate;
@@ -1046,7 +1049,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
         }
         else values[d.stat] = f64Add(values[d.stat],value);
     }
-    if((s.quantityMask & 256)!=0) collectHPAttack(s,who,when,values[S_atk_flat]);
+    if((s.quantityMask & 256)!=0 && !nativeNumericDiagnostic(s)) collectHPAttack(s,who,when,values[S_atk_flat]);
     if ((s.quantityMask & 1) != 0) values[S_max_ammo_pct] = quantityTotals(s,who,S_max_ammo_pct,when,0,ONE).percent;
     if ((s.quantityMask & 2) != 0 || (s.quantityMask & 8) != 0) values[S_charge_speed_pct] = quantityTotals(s,who,S_charge_speed_pct,when,0,ONE).percent;
     if ((s.quantityMask & 4) != 0)
@@ -1059,6 +1062,7 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
     values[S_crit_dmg] = f64Add(critical.total,critical.correction);
     values[S_crit_dmg_skill] = f64Add(skillCritical.total,skillCritical.correction);
     if (query) s.queryActive = 0; WORLD_STATE_SCOPE_END(s)
+    if(nativeQuery) storeNativeNumeric(s,nativeSlot,nativeEpoch,values);
 }
 #include "recipient_runtime.slang"
 #include "skill_clock_runtime.slang"
@@ -1828,3 +1832,4 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
 #endif
 
 #include "focus_aim_runtime.slang"
+#include "native_numeric_query_runtime.slang"

@@ -31,3 +31,7 @@ def pack(words, limits, effects, seed):
         raise ValueError('Friendly random recipients require an unsigned64 allied RNG seed')
     at = limits['RECIPIENT_META_BASE'] + 2
     words[at:at+3] = [MAGIC, seed & 0xffffffff, seed >> 32]
+    if any(effect.get('type')=='buff' and effect.get('stat') in ('atk_from_hp_pct','atk_caster_based_pct')
+           and isinstance(effect.get('target'),str) and re.fullmatch(r'allies_random:[1-5]',effect['target'])
+           for effect,_ in effects):
+        words[limits['RECIPIENT_META_BASE']+5]=0x4e515231

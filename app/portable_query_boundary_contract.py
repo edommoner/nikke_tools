@@ -55,6 +55,8 @@ def verify(root,*,sources=None):
         source=(sources or {}).get(row['path'],(root/row['path']).read_text())
         from portable_skill_hp_basis_source_contract import baseline_source as baseline_hp_basis
         try:
+            from portable_native_query_source_contract import baseline_source as baseline_native
+            source,_=baseline_native(root,row['path'],source)
             from portable_state_focus_source_contract import baseline_source as baseline_focus
             source,_=baseline_focus(root,row['path'],source)
             from portable_ally_random_source_contract import baseline_source as baseline_allied

@@ -142,6 +142,8 @@ void actorFieldRead(inout Runtime s,uint who,uint kind,uint identity,uint genera
     for(uint i=0;i<16;i++) results[out+i]=0;
     uint slot,status=worldActorResolve(s,kind,identity,generation,slot);results[out]=status;
     if(status!=0) return;
+    uint prior=s.target;s.target=kind==1||slot==0 ? 0 : ACTOR_REF|slot;
+    ensureNativeNumeric(s,who,when);s.target=prior;
     results[out+1]=kind;results[out+2]=identity;results[out+3]=generation;results[out+4]=results[actorPoolAt(s,slot)+1];results[out+5]=s.enemySnapshot;
     uint64_t values[3];collectEnemyModifiers(s,who,kind==1||slot==0 ? 0 : ACTOR_REF|slot,when,values);
     for(uint i=0;i<3;i++) storeNumber(out+6+i*2,values[i]);
@@ -160,6 +162,9 @@ bool actorFieldCommand(inout Runtime s,uint at,uint op,uint64_t when)
     else
     {
         for(uint i=4;i<8;i++) if(commands[at+i]!=0) return false;
+        // The native finish observer reads enemy ATK before numeric fields.
+        // That reader resolves pending caster-ATK membership even on allies.
+        if(nativeNumericEnabled(s)) { WORLD_ENEMY_ATTACK_SNAPSHOT(s,when) }
         for(uint slot=0;slot<actorPoolCount(s);slot++)
         {
             uint b=actorBinding(s,slot),gen=results[actorPoolAt(s,slot)],out=s.resourceOutput+P_WORLD_ACTOR_FIELD_ALL_BASE+slot*12;
@@ -170,7 +175,8 @@ bool actorFieldCommand(inout Runtime s,uint at,uint op,uint64_t when)
             else if(gen==0) { for(uint i=0;i<12;i++) results[out+i]=0;results[out]=2; }
             else { actorFieldRead(s,who,commands[b],commands[b+1],gen,scratch,when);for(uint i=0;i<12;i++) results[out+i]=results[scratch+i]; }
         }
-        WORLD_ENEMY_ATTACK_SNAPSHOT(s,when) results[actorFieldHead(s)+2]=actorPoolCount(s);
+        if(!nativeNumericEnabled(s)) { WORLD_ENEMY_ATTACK_SNAPSHOT(s,when) }
+        results[actorFieldHead(s)+2]=actorPoolCount(s);
     }
     return true;
 }

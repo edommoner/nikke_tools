@@ -108,6 +108,8 @@ QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when
 [noinline]
 uint64_t plainQuantity(inout Runtime s, uint who, uint key, uint64_t when)
 {
+    if(nativeNumericEnabled(s) && !nativeNumericBusy(s))
+    { uint64_t values[64];collectStats(s,who,when,values);if(key<64) return values[key]; }
     uint64_t result = 0;
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
@@ -207,6 +209,7 @@ uint64_t rawEffectiveCharge(inout Runtime s, uint who, uint64_t base, uint64_t w
 
 uint fullCapacity(inout Runtime s, uint who, uint base, bool applyBuffs, uint64_t when)
 {
+    if(applyBuffs) ensureNativeNumeric(s,who,when);
     WORLD_STATE_SCOPE_BEGIN(s,0) bool query = applyBuffs && needsBuffResolution(s) && beginBuffQuery(s,who,when);
     uint capacity = rawFullCapacity(s,who,base,applyBuffs,when);
     if (query) s.queryActive = 0; WORLD_STATE_SCOPE_END(s)
@@ -214,6 +217,7 @@ uint fullCapacity(inout Runtime s, uint who, uint base, bool applyBuffs, uint64_
 }
 uint64_t effectiveCharge(inout Runtime s, uint who, uint64_t base, uint64_t when)
 {
+    ensureNativeNumeric(s,who,when);
     WORLD_STATE_SCOPE_BEGIN(s,0) bool query = needsBuffResolution(s) && beginBuffQuery(s,who,when);
     uint64_t charge = rawEffectiveCharge(s,who,base,when);
     if (query) s.queryActive = 0; WORLD_STATE_SCOPE_END(s)

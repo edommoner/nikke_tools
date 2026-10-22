@@ -64,6 +64,7 @@ void advanceWeaponCharge(inout Runtime s,inout Weapon w,uint who,uint64_t when,u
         if (s.charging[who] == 0)
         {
             WORLD_CONTROL_WAIT(s,who,w.chargeTime,when) WORLD_CHARGE_START(s,who) WORLD_CONTROL_START(s,who,w.chargeTime,when) s.charging[who] = 1; s.chargeStartedAt[who] = when;
+            invalidateNativeNumeric(s);
             w.infinite = uint(hasInfiniteAmmo(s,who,when));
             if (w.infinite == 0 && s.ammo[who] == 1) dispatch(s,0,21,who,0,when,output);
             if (changedWeaponSession(s,who,epoch,mode)) return;
@@ -120,6 +121,7 @@ void finishWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint
 {
     if(w.mode!=1) notifyPelletInShot(s,who,count,when,output);
     bool burstSpeed=(s.quantityMask & 128)!=0;
+    if(w.mode!=1 && WORLD_PACKET_NORMAL(s,who)) markNativeNumericLanded(s,who);
     if(burstSpeed && w.mode!=1 && WORLD_PACKET_NORMAL(s,who)) s.normalLandedMask|=1U<<who;
     if(!burstSpeed || w.mode!=1) WORLD_PHYSICAL_GAUGE(s) addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when));
     if (w.mode == 1 && w.infinite == 0) { if (!changedWeaponSession(s,who,epoch,mode)) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
