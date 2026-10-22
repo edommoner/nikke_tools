@@ -1,3 +1,7 @@
+<!-- offline-assembly-v130-current -->
+Windows v130のoffline assemblyは1回失敗で終了・idleです。正規承認経路でCPU107とsmoke/観測成功後、固定12.4.131 tool/元PTX SHAを照合。ptxas9.174秒/exit4294967295、2GiB Job peak2,147,573,760byte、stderr0、ELF/partial0。harness+assemblerの正確なJob所属と親/作成時刻、post空/missing0/cleanup・observation正常を確認。service未識別でpreservation=false、原因未確定、NVRTC/driver/kernel0。v129はsandbox snapshot失敗でgate前停止した原失敗を保持。再試行/上限拡大/fallbackなし。詳細portable-offline-assembly.mdとv130 sanitized。次はMacでbounded transfer/child保存と、証拠に基づくcompiler負荷削減へ。全キャラ認定0・新版CUDA計算未確認・目標未完了です。以下は履歴です。
+<!-- /offline-assembly-v130-current -->
+
 <!-- compact-input-current -->
 共通regressionの796 word行をarray('I')へcompact化、各行の元wire照合とdomain identityは維持。保存Metal796/native633/全input・全output・comparison全一致、GPU0。Macのprepare最大RSS2,354,872,320→1,808,695,296byte、全監査1,812,381,696byte。全CPU812のlist型固定テスト1件を内容/domain/wire/array型の契約へ修正し、fresh関連5件成功（他810成功/Windows1skip）。GPU本体と比較器不変。CUDA transfer/child保存のstream接続は未完了。Windows v130は権限修正後smoke107成功/missing0/post空、offline assembly1回失敗、追加実行せず保存証拠取得中。詳細portable-compact-input.md/checkpoint。以下は履歴です。
 <!-- /compact-input-current -->

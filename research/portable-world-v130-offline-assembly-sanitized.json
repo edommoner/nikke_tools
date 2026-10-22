@@ -1,0 +1,112 @@
+{
+  "version": "v130",
+  "source_commit": "67be53be78cdbb8e26dab541fa39aa8f064b24f0",
+  "package_id": "c286c6470bc0ec09bdd9947c2cff04ac1ed2112e58f8f7f613cb410be7d0d321",
+  "package_files": 1947,
+  "environment_correction": {
+    "execution": "正規のrequire_escalated経路。observer変更なし",
+    "evidence_sha256": "5e4f2efbf215f6b2578a9a700ccbc968692a4bae110a8bb258f2e37be02d79fb",
+    "v129_failure_preserved": true
+  },
+  "smoke": {
+    "attempts": 1,
+    "passed": 107,
+    "failed": 0,
+    "verified": true,
+    "job_pre_verified": true,
+    "job_post_empty": true,
+    "missing_processes": 0,
+    "cleanup_error": null,
+    "observation_error": null
+  },
+  "tool": {
+    "version": "12.4.131",
+    "wheel_sha256": "aadd9fb307352bbcd5bc89b5f98c10cd78000915094882d97321f5fe36441742",
+    "exe_sha256": "0183c5b1fdecc69234597efac421eca4670a3f6ed6ed028ff6afb85d06f3efb8",
+    "license_retained": true,
+    "global_install": false
+  },
+  "input_ptx": {
+    "bytes": 8757024,
+    "sha256": "39a1ba84c1c2f428853679796804e400c5ee899287838b7482ddbbbff10e8b09",
+    "version": "8.4",
+    "target": "sm_86",
+    "producer_reaudited": true,
+    "producer_files_unchanged": true
+  },
+  "exact_argv": [
+    "C:\\Users\\owner\\Documents\\Codex\\nikke-v130-diagnostic\\component\\extracted\\nvidia\\cuda_nvcc\\bin\\ptxas.exe",
+    "--gpu-name=sm_86",
+    "--opt-level=1",
+    "--fmad=false",
+    "--verbose",
+    "C:\\Users\\owner\\Documents\\Codex\\nikke-v130-diagnostic\\assembly\\input.ptx",
+    "-o",
+    "C:\\Users\\owner\\Documents\\Codex\\nikke-v130-diagnostic\\assembly\\compiled.cubin.partial"
+  ],
+  "assembly": {
+    "attempts": 1,
+    "ptxas_exit_code": 4294967295,
+    "harness_exit_code": 1,
+    "cli_exit_code": 1,
+    "ptxas_seconds": 9.17372679989785,
+    "job_seconds": 14.271887800190598,
+    "outer_seconds": 26.796194899827242,
+    "timeout_seconds": 60,
+    "timed_out": false,
+    "harness_pid": 116384,
+    "harness_os_parent_pid": 100440,
+    "harness_creation_filetime_ticks": "134371017122290045",
+    "assembler_pid": 88188,
+    "assembler_os_parent_pid": 116384,
+    "assembler_creation_filetime_ticks": "134371017155259573",
+    "observed_job_members": [
+      88188,
+      116384
+    ],
+    "containment_verified": true,
+    "job_memory_limit_bytes": 2147483648,
+    "peak_job_memory_bytes": 2147573760,
+    "post_job_empty": true,
+    "missing_processes": 0,
+    "cleanup_error": null,
+    "observation_error": null,
+    "stderr_bytes": 0,
+    "stderr_tail": "",
+    "elf_exists": false,
+    "elf_bytes": null,
+    "elf_sha256": null,
+    "partial_exists": false,
+    "failure_cause": "未確定。非ゼロ終了と上限付近のJobメモリを観測したが、stderrによる診断なし"
+  },
+  "service_before": "unverified",
+  "service_after": "unverified",
+  "assembly_verified": false,
+  "preservation_verified": false,
+  "calculation_verified": false,
+  "nvrtc_calls": 0,
+  "driver_calls": 0,
+  "module_calls": 0,
+  "kernel_calls": 0,
+  "retries": 0,
+  "fallbacks": 0,
+  "postcheck_exit_codes": {
+    "smoke": {
+      "audit": 1,
+      "collect": 0,
+      "status": 0
+    },
+    "assembly": {
+      "audit": 1,
+      "collect": 0,
+      "status": 0
+    }
+  },
+  "original_checkout_clean": true,
+  "saved_report": {
+    "name": "nikke-v130-diagnostic/safe-summary.json",
+    "bytes": 6767,
+    "sha256": "63359a810a09e68efb249f0c68f2845cee93513a2d3c0e7e49bf6e5166690813"
+  },
+  "source_scope": "Derived from Windows final report and saved safe-summary SHA; original Windows capture not independently audited on Mac"
+}
