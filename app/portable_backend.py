@@ -19,6 +19,7 @@ import time
 ROOT = Path(__file__).resolve().parents[1]
 MAX_INPUT_WORDS=131072
 MAX_OUTPUT_WORDS=786432
+READBACK_CHUNK_BYTES=8*1024*1024
 
 
 def source_hashes(source):
@@ -148,7 +149,7 @@ def resident_plan(source,entry,outputs):
     return reflection_plan(outputs,entry)
 
 
-def execute(source, entry, packed, input_words, output_words, backend='metal'):
+def execute(source, entry, packed, input_words, output_words, backend='metal', *, readback_path=None):
     if backend not in ('metal', 'cuda'):
         raise ValueError('Explicit metal or cuda backend required; no CPU fallback')
     if type(input_words) is not int or type(output_words) is not int or not 1<=input_words<=MAX_INPUT_WORDS or not 1<=output_words<=MAX_OUTPUT_WORDS or output_words>524288 and output_words not in (655360,786432):
@@ -156,11 +157,16 @@ def execute(source, entry, packed, input_words, output_words, backend='metal'):
     count, = struct.unpack_from('<I', packed)
     if not 1 <= count <= 65536 or 1+count*input_words>0xffffffff or count*output_words>0xffffffff or len(packed) != (1+count*input_words)*4:
         raise ValueError('Invalid portable wire dimensions')
+    if readback_path is not None and Path(readback_path).is_symlink():raise ValueError('Fresh readback destination required')
+    destination=Path(readback_path).resolve() if readback_path is not None else None
+    partial=destination.with_name(destination.name+'.partial') if destination is not None else None
+    if destination is not None and (destination.exists() or partial.exists() or partial.is_symlink() or not destination.parent.is_dir()):
+        raise ValueError('Fresh readback destination and partial required')
     outputs, hashes = build(source, entry)
     resident=resident_plan(source,entry,outputs)
     directory = ROOT/'research/portable-build'
     with tempfile.TemporaryDirectory(prefix='dispatch-', dir=directory) as tmp:
-        input_path, output_path = Path(tmp)/'input.bin', Path(tmp)/'output.bin'
+        input_path, output_path = Path(tmp)/'input.bin', partial if destination is not None else Path(tmp)/'output.bin'
         input_path.write_bytes(packed)
         if backend == 'metal':
             if platform.system() != 'Darwin':
@@ -170,15 +176,33 @@ def execute(source, entry, packed, input_words, output_words, backend='metal'):
                                          entry, str(input_words), str(output_words),*([str(resident["stride"])] if resident else [])])
             if process.returncode:
                 raise RuntimeError(process.stderr or process.stdout)
-            raw, transport = output_path.read_bytes(), json.loads(process.stdout)
+            raw, transport = None if destination is not None else output_path.read_bytes(), json.loads(process.stdout)
             transport.update(compile_timeout_seconds=300,gpu_timeout_seconds=120)
         else:
-            raw, transport = execute_cuda(outputs['cuda'], entry, packed, count*output_words*4, count,**({'resident':resident} if resident else {}))
-    if len(raw) != count*output_words*4 or hashes != source_hashes(source):
+            raw, transport = execute_cuda(outputs['cuda'], entry, packed, count*output_words*4, count,**({'resident':resident} if resident else {}),**({'output_path':partial} if destination is not None else {}))
+    if destination is not None:
+        from portable_capture_storage import file_digest
+        if raw is not None or not partial.is_file() or partial.is_symlink() or partial.stat().st_size!=count*output_words*4 or transport['cases']!=count or transport['command_status']!='completed' or transport.get('input_bytes')!=len(packed) or transport.get('output_bytes')!=count*output_words*4:
+            raise RuntimeError('Incomplete file readback')
+        output_digest=file_digest(partial)
+        if backend=='cuda':
+            receipt=transport['readback_stream']
+            if receipt['output_sha256']!=output_digest or receipt['output_bytes']!=count*output_words*4 or receipt['chunk_bytes']!=READBACK_CHUNK_BYTES or receipt['chunks']!=(count*output_words*4+READBACK_CHUNK_BYTES-1)//READBACK_CHUNK_BYTES:raise RuntimeError('CUDA streamed readback digest mismatch')
+        elif transport.get('file_readback_chunk_bytes')!=READBACK_CHUNK_BYTES:raise RuntimeError('Metal did not use the bounded file writer')
+    else:output_digest=hashlib.sha256(raw).hexdigest()
+    if (destination is None and len(raw)!=count*output_words*4) or hashes!=source_hashes(source):
         raise RuntimeError('Invalid GPU output or source changed during execution')
+    if destination is not None:
+        with partial.open('r+b') as stream:os.fsync(stream.fileno())
+        # Publish without replacing an existing result, keeping the partial on failure.
+        os.link(partial,destination);partial.unlink()
+        if os.name!='nt':
+            fd=os.open(destination.parent,os.O_RDONLY)
+            try:os.fsync(fd)
+            finally:os.close(fd)
     return raw, dict(**(dict(resident_runtime=resident) if resident else {}),transport=transport, source_sha256=hashes,
                     generated_sha256={k:hashlib.sha256(p.read_bytes()).hexdigest() for k,p in outputs.items()},
-                    input_sha256=hashlib.sha256(packed).hexdigest(), output_sha256=hashlib.sha256(raw).hexdigest(),
+                    input_sha256=hashlib.sha256(packed).hexdigest(), output_sha256=output_digest,
                     gpu_execution_verified=True, backend=backend)
 
 
@@ -226,7 +250,7 @@ def execute_batches(source, entry, batches, input_words, output_words, backend='
 
 
 @contextlib.contextmanager
-def _cuda_module(artifact_bytes,entry,artifact_kind,resident,*,jit_opt_level=None):
+def _cuda_module(artifact_bytes,entry,artifact_kind,resident,*,jit_opt_level=None,stream_readback=False):
     """Shared driver/context/module lifecycle, with no battle allocations."""
     if jit_opt_level is not None and (type(jit_opt_level) is not int or jit_opt_level not in range(5) or artifact_kind!='ptx'):
         raise ValueError('Driver JIT optimization requires PTX and integer0..4')
@@ -240,6 +264,7 @@ def _cuda_module(artifact_bytes,entry,artifact_kind,resident,*,jit_opt_level=Non
         cuMemAlloc_v2=[C.POINTER(C.c_uint64),C.c_size_t],cuMemcpyHtoD_v2=[C.c_uint64,C.c_void_p,C.c_size_t],
         cuMemcpyDtoH_v2=[C.c_void_p,C.c_uint64,C.c_size_t],cuCtxSynchronize=[],
         cuLaunchKernel=[C.c_void_p,*([C.c_uint]*7),C.c_void_p,C.c_void_p,C.c_void_p])
+    if stream_readback:signatures['cuMemsetD8_v2']=[C.c_uint64,C.c_ubyte,C.c_size_t]
     for name, signature in signatures.items():
         getattr(driver,name).argtypes=signature;getattr(driver,name).restype=C.c_int
     if jit_opt_level is not None:
@@ -277,8 +302,8 @@ def _cuda_module(artifact_bytes,entry,artifact_kind,resident,*,jit_opt_level=Non
                 primary.add_note('CUDA context cleanup also failed: '+str(cleanup_error))
 
 
-def execute_cuda(source, entry, packed, output_size, count,*,resident=None):
-    raw,transports=execute_cuda_batches(source,entry,[packed],[output_size],[count],**({'resident':resident} if resident else {}))
+def execute_cuda(source, entry, packed, output_size, count,*,resident=None,output_path=None):
+    raw,transports=execute_cuda_batches(source,entry,[packed],[output_size],[count],**({'resident':resident} if resident else {}),**({'output_paths':[output_path]} if output_path is not None else {}))
     return raw[0],transports[0]
 
 
@@ -318,7 +343,7 @@ def compile_cuda_source(source, *, artifact_kind=None):
     return artifact_bytes,compile_receipt
 
 
-def execute_cuda_batches(source, entry, batches, output_sizes, counts,*,resident=None):
+def execute_cuda_batches(source, entry, batches, output_sizes, counts,*,resident=None,output_paths=None):
     """Opt-in sequential dispatches sharing one NVRTC build and CUDA context.
     The pinned Slang StructuredBuffer ABI is pointer + size_t; validate the
     actual constant-symbol size before copying. No numeric/game logic here.
@@ -326,6 +351,11 @@ def execute_cuda_batches(source, entry, batches, output_sizes, counts,*,resident
     if not batches or len(batches)!=len(output_sizes) or len(batches)!=len(counts):raise ValueError('Invalid CUDA dispatch sequence')
     for packed,size,count in zip(batches,output_sizes,counts):
         if type(count) is not int or not 1<=count<=65536 or type(size) is not int or size<=0 or len(packed)<4 or struct.unpack_from('<I',packed)[0]!=count:raise ValueError('Invalid CUDA dispatch dimensions')
+    if output_paths is not None:
+        if len(output_paths)!=len(batches):raise ValueError('One fresh file destination per dispatch required')
+        if any(Path(p).is_symlink() for p in output_paths):raise ValueError('Fresh distinct readback destinations required')
+        output_paths=[Path(p).resolve() for p in output_paths]
+        if len(set(output_paths))!=len(output_paths) or any(p.exists() or not p.parent.is_dir() for p in output_paths):raise ValueError('Fresh distinct readback destinations required')
     if os.name != 'nt':
         raise RuntimeError('This CUDA NVRTC adapter currently requires Windows')
     if resident:
@@ -333,25 +363,46 @@ def execute_cuda_batches(source, entry, batches, output_sizes, counts,*,resident
         verify_cuda_layout_assertions(source,resident)
     artifact_kind=cuda_artifact_kind()
     artifact_bytes,compile_receipt=compile_cuda_source(source,artifact_kind=artifact_kind)
-    with _cuda_module(artifact_bytes,entry,artifact_kind,resident) as loaded:
+    with _cuda_module(artifact_bytes,entry,artifact_kind,resident,**({'stream_readback':True} if output_paths is not None else {})) as loaded:
         call,function,global_ptr,module_metadata=loaded
         inp=C.c_uint64();out=C.c_uint64()
         call('cuMemAlloc_v2',C.byref(inp),max(map(len,batches)));call('cuMemAlloc_v2',C.byref(out),max(output_sizes))
         scratch=C.c_uint64();scratch_bytes=resident['stride']*max(counts) if resident else 0
         if resident:call('cuMemAlloc_v2',C.byref(scratch),scratch_bytes)
         results=[];transports=[]
-        for packed,output_size,count in zip(batches,output_sizes,counts):
+        for i,(packed,output_size,count) in enumerate(zip(batches,output_sizes,counts)):
             call('cuMemcpyHtoD_v2',inp,C.cast(C.c_char_p(packed),C.c_void_p),len(packed))
-            zero=C.create_string_buffer(output_size);call('cuMemcpyHtoD_v2',out,C.cast(zero,C.c_void_p),output_size)
+            if output_paths is None:
+                zero=C.create_string_buffer(output_size);call('cuMemcpyHtoD_v2',out,C.cast(zero,C.c_void_p),output_size)
+            else:call('cuMemsetD8_v2',out,0,output_size)
             params=struct.pack('<'+'Q'*(6 if resident else 4),inp.value,len(packed)//4,out.value,output_size//4,*([scratch.value,max(counts)] if resident else []))
             call('cuMemcpyHtoD_v2',global_ptr,C.cast(C.c_char_p(params),C.c_void_p),len(params))
             started=time.perf_counter();call('cuLaunchKernel',function,count,1,1,1,1,1,0,None,None,None);call('cuCtxSynchronize')
             elapsed=time.perf_counter()-started
-            output=C.create_string_buffer(output_size);call('cuMemcpyDtoH_v2',output,out,output_size)
-            results.append(output.raw);transports.append(dict(backend='cuda',device=module_metadata['device'],cases=count,command_status='completed',host_dispatch_seconds=elapsed,compile_artifact=compile_receipt))
+            if output_paths is None:
+                output=C.create_string_buffer(output_size);call('cuMemcpyDtoH_v2',output,out,output_size)
+                results.append(output.raw)
+            else:
+                stream=cuda_readback_file(call,out.value,output_size,output_paths[i]);results.append(None)
+            transports.append(dict(backend='cuda',device=module_metadata['device'],cases=count,command_status='completed',host_dispatch_seconds=elapsed,compile_artifact=compile_receipt))
+            if output_paths is not None:transports[-1].update(readback_stream=stream,input_bytes=len(packed),output_bytes=output_size)
         if resident:
             for transport in transports:transport.update(runtime_stride_bytes=resident['stride'],runtime_buffer_bytes=scratch_bytes,runtime_element_capacity=max(counts))
         return results,transports
+
+
+def cuda_readback_file(call,device_address,output_size,path):
+    """Transfer every device byte once with one bounded reusable host buffer."""
+    output=C.create_string_buffer(min(READBACK_CHUNK_BYTES,output_size));h=hashlib.sha256();chunks=0
+    with Path(path).open('xb') as stream:
+        for offset in range(0,output_size,READBACK_CHUNK_BYTES):
+            size=min(READBACK_CHUNK_BYTES,output_size-offset)
+            call('cuMemcpyDtoH_v2',output,device_address+offset,size)
+            view=memoryview(output).cast('B')[:size]
+            if stream.write(view)!=size:raise OSError('Short streamed readback write')
+            h.update(view);chunks+=1
+        stream.flush();os.fsync(stream.fileno())
+    return dict(output_bytes=output_size,output_sha256=h.hexdigest(),chunk_bytes=READBACK_CHUNK_BYTES,chunks=chunks)
 
 
 def inspect_cuda_module(source,entry,*,resident=None,jit_opt_level=None):

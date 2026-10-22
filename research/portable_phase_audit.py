@@ -19,8 +19,8 @@ class Journal:
             stream.flush()
             os.fsync(stream.fileno())
 
-    def invoke(self, stage, function, *args, native=False, **kwargs):
-        self.emit(stage, 'entered')
+    def invoke(self, stage, function, *args, native=False, event_facts=None, **kwargs):
+        self.emit(stage, 'entered', **(event_facts or {}))
         try:
             result = function(*args, **kwargs)
         except BaseException as error:
@@ -43,7 +43,11 @@ class NativeFunction:
         setattr(self._function, name, value)
 
     def __call__(self, *args):
-        return self._journal.invoke(self._name, self._function, *args, native=True)
+        facts={}
+        integer=lambda value:int(getattr(value,'value',value))
+        if self._name=='cuMemcpyDtoH_v2':facts=dict(source_device=integer(args[1]),byte_count=integer(args[2]))
+        elif self._name=='cuMemsetD8_v2':facts=dict(destination_device=integer(args[0]),value=integer(args[1]),byte_count=integer(args[2]))
+        return self._journal.invoke(self._name, self._function, *args, native=True,event_facts=facts)
 
 
 class NativeLibrary:
@@ -72,6 +76,16 @@ def observe(backend, journal):
                 journal.emit('cuda_compile_cache','verified',receipt=receipt)
                 return artifact,receipt
             stack.enter_context(patch.object(backend,compile_name,compile_ptx))
+        if hasattr(backend,'cuda_readback_file'):
+            original_readback=backend.cuda_readback_file
+            def readback(call,device_address,output_size,path):
+                journal.emit('cuda_readback_file','entered',device_address=device_address,output_bytes=output_size,chunk_bytes=backend.READBACK_CHUNK_BYTES)
+                try:receipt=original_readback(call,device_address,output_size,path)
+                except BaseException as error:
+                    journal.emit('cuda_readback_file','raised',exception=type(error).__name__);raise
+                journal.emit('cuda_readback_file','returned',receipt=receipt)
+                return receipt
+            stack.enter_context(patch.object(backend,'cuda_readback_file',readback))
         if os.name == 'nt':
             original_dll = ctypes.WinDLL
             def library(*args, **kwargs):
@@ -111,7 +125,8 @@ def verify_cuda_trace(rows, *, pid=None):
     if pid is not None and {row['pid'] for row in rows}!={pid}:
         return False
     previous=-1
-    stages=['nvrtcCompileProgram','cuLaunchKernel','cuCtxSynchronize','cuMemcpyDtoH_v2']
+    streamed=any(r['stage']=='cuda_readback_file' for r in rows)
+    stages=['nvrtcCompileProgram','cuLaunchKernel','cuCtxSynchronize']+([] if streamed else ['cuMemcpyDtoH_v2'])
     if not any(r['stage']=='nvrtcCompileProgram' for r in rows):
         hits=[(i,r) for i,r in enumerate(rows) if valid_cache_hit(r)]
         if len(hits)!=1:return False
@@ -122,7 +137,39 @@ def verify_cuda_trace(rows, *, pid=None):
             or hits[1][1].get('return_code')!=0 or hits[0][0]<=previous):
             return False
         previous=hits[1][0]
+    if streamed:
+        try:return verify_streamed_readback(rows,previous)
+        except (ValueError,KeyError,TypeError,OverflowError):return False
     return True
+
+
+def verify_streamed_readback(rows,previous):
+    # Bind every actual native copy to one complete, fixed-size file stream.
+    from portable_backend import READBACK_CHUNK_BYTES
+    markers=[(i,r) for i,r in enumerate(rows) if r['stage']=='cuda_readback_file']
+    if len(markers)!=2 or [r['state'] for _,r in markers]!=['entered','returned'] or markers[0][0]<=previous:return False
+    request=markers[0][1];receipt=markers[1][1]['receipt'];size=request['output_bytes'];address=request['device_address']
+    if type(size) is not int or size<=0 or type(address) is not int or address<=0 or request['chunk_bytes']!=READBACK_CHUNK_BYTES:return False
+    chunks=(size+READBACK_CHUNK_BYTES-1)//READBACK_CHUNK_BYTES
+    if any(type(receipt[k]) is not int for k in ('output_bytes','chunk_bytes','chunks')) or receipt['output_bytes']!=size or receipt['chunk_bytes']!=READBACK_CHUNK_BYTES or receipt['chunks']!=chunks:return False
+    digest=receipt['output_sha256']
+    if not isinstance(digest,str) or len(digest)!=64 or any(c not in '0123456789abcdef' for c in digest):return False
+    copies=[(i,r) for i,r in enumerate(rows) if r['stage']=='cuMemcpyDtoH_v2']
+    if len(copies)!=2*chunks:return False
+    position=markers[0][0]
+    for n in range(chunks):
+        (first,a),(last,b)=copies[2*n:2*n+2];offset=n*READBACK_CHUNK_BYTES
+        if not position<first<last<markers[1][0] or a['state']!='entered' or b['state']!='returned' or b.get('return_code')!=0:return False
+        if a.get('source_device')!=address+offset or a.get('byte_count')!=min(READBACK_CHUNK_BYTES,size-offset):return False
+        position=last
+    zeros=[(i,r) for i,r in enumerate(rows) if r['stage']=='cuMemsetD8_v2']
+    launch=next(i for i,r in enumerate(rows) if r['stage']=='cuLaunchKernel')
+    if len(zeros)!=2 or [r['state'] for _,r in zeros]!=['entered','returned'] or zeros[1][1].get('return_code')!=0:return False
+    cleanup=[(i,r) for i,r in enumerate(rows) if r['stage']=='cuCtxDestroy_v2']
+    if len(cleanup)!=2 or [r['state'] for _,r in cleanup]!=['entered','returned'] or cleanup[1][1].get('return_code')!=0 or not markers[1][0]<cleanup[0][0]<cleanup[1][0]:return False
+    a=zeros[0][1]
+    compiler_end=max(i for i,r in enumerate(rows) if r['stage']=='nvrtcCompileProgram' and r['state']=='returned' or valid_cache_hit(r))
+    return bool(compiler_end<zeros[0][0]<zeros[1][0]<launch and a.get('destination_device')==address and a.get('value')==0 and a.get('byte_count')==size)
 
 
 def valid_cache_hit(row):

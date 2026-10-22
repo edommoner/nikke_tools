@@ -11,6 +11,24 @@ struct ProbeError: Error, CustomStringConvertible {
     init(_ message: String) { description = message }
 }
 
+// Preserve atomic publication without copying the whole GPU buffer into Data.
+let portableReadbackChunkBytes = 8 * 1024 * 1024
+func writeReadback(_ pointer: UnsafeMutableRawPointer, _ size: Int, _ path: String) throws {
+    let temporary = path + "." + UUID().uuidString + ".writing"
+    let fd = Darwin.open(temporary, O_WRONLY | O_CREAT | O_EXCL, mode_t(0o600))
+    guard fd >= 0 else { throw ProbeError("Cannot create readback staging file: \(errno)") }
+    let file = FileHandle(fileDescriptor: fd, closeOnDealloc: true)
+    // Keep an incomplete staging file on error for inspection.
+    for offset in stride(from: 0, to: size, by: portableReadbackChunkBytes) {
+        let count = min(portableReadbackChunkBytes, size - offset)
+        let chunk = Data(bytesNoCopy: pointer.advanced(by: offset), count: count, deallocator: .none)
+        try file.write(contentsOf: chunk)
+    }
+    try file.synchronize()
+    try file.close()
+    guard Darwin.rename(temporary, path) == 0 else { throw ProbeError("Cannot publish readback file: \(errno)") }
+}
+
 // Serialize pipeline creation across worker processes. A concurrent cold
 // compile of the same large kernel can stall in the Metal compiler service.
 // Release before buffer encoding/dispatch; GPU work is not held by this lock.
@@ -111,7 +129,7 @@ func run() throws {
         command.commit()
         command.waitUntilCompleted()
         guard command.status == .completed else { throw ProbeError(command.error?.localizedDescription ?? "Metal execution failed") }
-        try Data(bytes: output.contents(), count: outputSize).write(to: URL(fileURLWithPath: path["output"]!), options: .atomic)
+        try writeReadback(output.contents(), outputSize, path["output"]!)
         var status: [String: Any] = ["backend": "metal", "device": device.name, "cases": count,
             "command_status": "completed", "registry_id": String(device.registryID),
             "gpu_seconds": command.gpuEndTime - command.gpuStartTime,
@@ -120,7 +138,8 @@ func run() throws {
             "pipeline_max_threads_per_threadgroup": pipeline.maxTotalThreadsPerThreadgroup,
             "library_compile_seconds": compiled.librarySeconds, "pipeline_compile_seconds": compiled.pipelineSeconds,
             "pipeline_lock_wait_seconds": compiled.lockWaitSeconds,
-            "input_bytes": inputData.count, "output_bytes": outputSize]
+            "input_bytes": inputData.count, "output_bytes": outputSize,
+            "file_readback_chunk_bytes": portableReadbackChunkBytes]
         if residentStride > 0 {
             status["runtime_stride_bytes"] = residentStride
             status["runtime_buffer_bytes"] = runtimeBytes

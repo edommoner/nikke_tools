@@ -1,0 +1,19 @@
+# 共通CLIの分割ファイル転送
+
+共通backend.executeの明示readback_pathは、全件を1回dispatchした結果をファイルへ保存し、raw戻り値をNoneにします。共通CLI childはこの経路を必ず使い、unused words/native domainをdispatch前に解放します。従来のbytes戻り値APIとbenchmarkのbatch APIは維持しており、それらの全長ホストバッファを解消したとは扱いません。
+
+CUDAは同じdevice出力サイズ・resident scratch・48byte ABIを維持し、outputをcuMemsetD8_v2でゼロ化。1回launch/synchronize後に、固定8MiB以下の1個のhost bufferを再利用し、正確なdevice offsetからcuMemcpyDtoH_v2で全byteを順番にファイルへ保存します。output.rawによる全量copyも行いません。逐次SHAとfile再読SHAを照合します。scratchは従来の共通initializeRuntimeのままで、追加memsetを数値設計へ混ぜていません。
+
+Metalの同じSwift runnerは、完了したMTLBufferをData(bytesNoCopy)/8MiB以下で新しいstaging fileへ書き、fsync後にrenameします。全長Dataコピーを除き、dispatch/threadgroup/共有Slang本体は変更していません。両backendの共通controllerはサイズ・source hash・transportを確認し、partialをhardlinkで排他的に公開してからpartial名を除きます。既存結果へ上書きせず、失敗/不完全fileを保持します。通常のaudit/collect/statusをそのまま使います。
+
+CUDA phase observerは各copyの実source address/byte countと実戻り値、stream開始/完了receiptを保存します。trace監査は全chunkの順序・offset・tail・上限・全範囲zero・1launch/sync・context破棄を検査し、親の実readback SHA/sizeとreceiptを束縛します。古い1copy traceの歴史的監査は維持します。メタデータやlaunch成功だけで計算一致へ昇格しません。
+
+15件のCPU故障注入は、複数8MiB chunkと端数の全byte、1回launch・正確なABI/容量、途中copy/zero/short write/context破棄の失敗、traceの欠落・順序・offset・size改変、file digest/source変更、上書き競合・broken symlinkを検査します。初期fixtureのパス別名とmock source snapshotの誤りによる失敗はログへ保持し、修正後15件が成功。Swift typecheckも成功（既存reflection APIのdeprecated警告のみ）。Macでの実GPU/全回帰とWindowsのnative transfer確認は別の必要証拠です。
+
+APIの根拠は[NVIDIA CUDA memory management](https://docs.nvidia.com/cuda/cuda-driver-api/cuda_driver_api/group__CUDA__MEM.html)。full796 CUDAのcompiler/module成立、全キャラ対応、UI GPU切替をこの転送変更だけで認定しません。
+
+## Mac実証
+
+fresh package f67ae49aのCPU827件中826成功・Windows専用1skip。共通CLIの新しいfile経路でMetal796を1回実行し、native633・全入力/全出力/旧comparison.json全内容が一致しました。input332,409,604byte、output2,503,999,488byte、output SHAb9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637。Apple M5、8MiB file writer、Runtime247/138952byte/align8、GPU13.799秒・contained child26.483秒。これは単一観測で性能改善ベンチマークではありません。CPU preflight41.326秒、registered37群50.087秒、独立親比較約44秒はGPU時間へ加算せず区別します。
+
+Windows向けには小さいresident binding4入力も、同じ新しいfile経路でMetal実行・native literal比較・GPU禁止の独立sealを行いました。12,582,912byteで8MiB+4MiBのtail転送を確認する範囲です。現在sourceへ新しい専用goldenを作り、古いbinding goldenは履歴として保持。これからWindowsで小さい4入力だけを短く1回確認し、本体796のcompiler失敗をこの成功へ置き換えません。

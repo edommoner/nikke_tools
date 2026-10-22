@@ -93,13 +93,16 @@ class PacketTests(unittest.TestCase):
             data=b'literal packed input';raw=b'fake transport bytes'
             adapter=SimpleNamespace(suite=SimpleNamespace(INPUT=1))
             manifest=dict(suite='projectile',golden=dict(input_sha256=cli.sha(data)))
+            def transport(*args,readback_path,**kwargs):
+                self.assertEqual(readback_path,capture/'readback.bin');readback_path.write_bytes(raw)
+                return None,dict(transport='fixture')
             def copied(*args,**kwargs):
                 self.assertEqual((capture/'readback.bin').read_bytes(),raw)
                 self.assertEqual(cli.load(capture/'evidence.json'),dict(transport='fixture'))
             with patch.object(cli,'verify_package',return_value=manifest),patch.object(cli,'open_suite',return_value=adapter),\
                  patch.object(cli,'prepare_entries',return_value=([],data)),patch.object(cli,'copy_generated',side_effect=copied),\
                  patch.object(cli,'compare_readback',side_effect=AssertionError('Child native comparison forbidden')) as compare,\
-                 patch.object(portable_backend,'execute',return_value=(raw,dict(transport='fixture'))) as execute:
+                 patch.object(portable_backend,'execute',side_effect=transport) as execute:
                 cli.child(capture,'metal')
             execute.assert_called_once();compare.assert_not_called()
             self.assertFalse((capture/'comparison.json').exists())

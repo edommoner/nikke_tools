@@ -1,3 +1,7 @@
+<!-- file-transfer-current -->
+共通CLIを8MiB file保存へ接続。CUDAのdevice zero/offset付き分割DtoH、Metalの分割write、exclusive final公開、unused child domains解放、全chunk/zero/context破棄のtrace監査を実装。fresh CPU827中826成功/Windows1skip、Metal796/native633/全input・output・旧comparison全一致（新実行1回）。小さいbinding4もMetal実行・GPU0独立seal、新専用goldenでWindowsの短い実転送を準備。通常bytes APIは維持。全796 CUDA compiler/module・全キャラ認定0は未完了。詳細portable-file-transfer.md/checkpoint。以下は履歴です。
+<!-- /file-transfer-current -->
+
 <!-- offline-assembly-v130-current -->
 Windows v130のoffline assemblyは1回失敗で終了・idleです。正規承認経路でCPU107とsmoke/観測成功後、固定12.4.131 tool/元PTX SHAを照合。ptxas9.174秒/exit4294967295、2GiB Job peak2,147,573,760byte、stderr0、ELF/partial0。harness+assemblerの正確なJob所属と親/作成時刻、post空/missing0/cleanup・observation正常を確認。service未識別でpreservation=false、原因未確定、NVRTC/driver/kernel0。v129はsandbox snapshot失敗でgate前停止した原失敗を保持。再試行/上限拡大/fallbackなし。詳細portable-offline-assembly.mdとv130 sanitized。次はMacでbounded transfer/child保存と、証拠に基づくcompiler負荷削減へ。全キャラ認定0・新版CUDA計算未確認・目標未完了です。以下は履歴です。
 <!-- /offline-assembly-v130-current -->

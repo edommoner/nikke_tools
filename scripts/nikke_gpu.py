@@ -126,13 +126,13 @@ SUITES['revive-diagnostic']=dict(SUITES['revive'],source='gpu/world_projectile_a
 SCHEMA = 1
 SUITES['regression-resident']=dict(SUITES['regression'],source='gpu/world_projectile_resident_entry.slang',golden='research/portable-world-phases-resident-regression-short-expected.json',development_only=False,tests=SUITES['regression']['tests']+['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
 SUITES['entry-reload']=dict(script='research/verify-world-entry-reload-short.py',golden='research/portable-world-entry-reload-short-expected.json',source='gpu/world_entry_reload_resident_entry.slang',inputs=37,native=31,development_only=False,tests=['test_portable_entry_reload_full_reference.py','test_portable_entry_reload_gpu.py','test_portable_combat.py','test_portable_resident_layout.py'])
-SUITES['entry-reload-regression']=dict(SUITES['regression-resident'],script='research/verify-world-entry-reload-regression-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-weapon-phases-regression-short-expected.json',inputs=796,native=633,development_only=False,tests=SUITES['regression-resident']['tests']+['test_portable_entry_reload_gpu.py','test_portable_entry_reload_full_reference.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py'])
-SUITES['resident-binding']=dict(script='research/verify-resident-binding-short.py',golden='research/portable-resident-binding-short-expected.json',source='gpu/resident_runtime_binding_probe.slang',inputs=4,native=4,development_only=False,tests=['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
+SUITES['entry-reload-regression']=dict(SUITES['regression-resident'],script='research/verify-world-entry-reload-regression-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-weapon-phases-regression-short-expected.json',inputs=796,native=633,development_only=False,tests=SUITES['regression-resident']['tests']+['test_portable_entry_reload_gpu.py','test_portable_entry_reload_full_reference.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py'])
+SUITES['resident-binding']=dict(script='research/verify-resident-binding-short.py',golden='research/portable-resident-binding-file-transfer-short-expected.json',source='gpu/resident_runtime_binding_probe.slang',inputs=4,native=4,development_only=False,tests=['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
 
 # Controller validation has no numeric program to execute. Keep its CPU work
 # separate from a selected suite's battle/native preflight.
 SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
-               'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py']
+               'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py']
 
 
 def sha(data):
@@ -419,15 +419,18 @@ def child(capture, backend, smoke=False, compile_only=False, module_only=False, 
     if sha(data) != m['golden']['input_sha256']:
         raise ValueError('Input changed after preflight')
     (capture/'input.bin').write_bytes(data)
+    input_words=adapter.suite.INPUT
+    del entries,adapter  # Native domains and word rows are unused by transport.
     import portable_backend
     from portable_phase_audit import Journal, observe
     journal = Journal(capture/'phases.jsonl')
     with observe(portable_backend,journal):
         raw,evidence = journal.invoke('shared_gpu_execute',portable_backend.execute,
                                      SUITES[m['suite']]['source'],'portableEvents',data,
-                                     adapter.suite.INPUT,786432,backend)
+                                     input_words,786432,backend,readback_path=capture/'readback.bin')
+    if raw is not None:raise ValueError('File transport returned an unexpected whole readback')
     # Raw/evidence are durable before any comparison, so failures remain inspectable.
-    (capture/'readback.bin').write_bytes(raw); write(capture/'evidence.json',evidence)
+    write(capture/'evidence.json',evidence)
     copy_generated(capture,m['suite'])
     # Finish the contained transport before CPU comparison. The parent audits
     # the saved bytes independently; child exit0 alone never proves calculation.
@@ -479,6 +482,12 @@ def compare_readback(m, capture, adapter=None):
             phases=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
             if [r['receipt'] for r in phases if r['stage']=='cuda_compile_cache' and r['state']=='verified']!=[receipt]:
                 raise ValueError('CUDA compiler artifact phase mismatch')
+            stream=evidence['transport'].get('readback_stream')
+            markers=[r for r in phases if r['stage']=='cuda_readback_file' and r['state']=='returned']
+            if stream is not None or markers:
+                from portable_backend import READBACK_CHUNK_BYTES
+                if stream is None or [r['receipt'] for r in markers]!=[stream] or stream.get('output_sha256')!=output_digest or stream.get('output_bytes')!=record['bytes'] or stream.get('chunk_bytes')!=READBACK_CHUNK_BYTES or stream.get('chunks')!=(record['bytes']+READBACK_CHUNK_BYTES-1)//READBACK_CHUNK_BYTES:
+                    raise ValueError('CUDA file readback receipt mismatch')
         results=[]; mismatches=[]; iw=adapter.suite.INPUT*4; ow=786432*4
         parts=readback_parts(capture/'readback.bin',len(entries),ow,output_digest)
         for i,((name,words,domain),part) in enumerate(zip(entries,parts,strict=True)):
