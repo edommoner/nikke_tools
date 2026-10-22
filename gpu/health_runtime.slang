@@ -46,13 +46,14 @@ uint64_t effectiveDefense(inout Runtime s, uint who, uint64_t when)
     return result;
 }
 [noinline]
-void syncHealthActor(inout Runtime s, uint who, uint64_t when)
+void syncHealthActor(inout Runtime s, uint who, uint64_t when,bool nativeNotification=true)
 {
     if ((s.downMask & (1U << who)) != 0) { s.hp[who] = 0; s.hpPct[who] = 0; return; }
     bool nullPrevious=revivalNullHP(s,who);
     uint64_t previous = s.hpPct[who], maximum = effectiveMaxHP(s,who,when);
     if (s.error != 0) return;
     s.hp[who] = larger(0,commands[s.inputBase+P_HP_UNCLAMP_POLICY]!=0 ? s.hp[who] : smaller(maximum,s.hp[who]));
+    if(nativeNotification || (s.healthMask&32)!=0) observeNativeNumericHP(s,who);
     s.hpPct[who] = f64Mul(f64Div(s.hp[who],maximum),HUNDRED);
     if (!f64Finite(s.hpPct[who])) { s.error = 16; return; }
     if(!f64Equal(previous,s.hpPct[who])) invalidateFocusNumeric(s);
@@ -70,7 +71,7 @@ void syncHealth(inout Runtime s, uint64_t when)
     // With listeners, synchronize one actor at a time in the explicit event
     // stack. A crossing's children finish before the next actor is observed.
     if (s.hpWatchCount != 0) { s.hpDirtyMask |= 31; return; }
-    for (uint who = 0; who < 5 && s.error == 0; who++) syncHealthActor(s,who,when);
+    for (uint who = 0; who < 5 && s.error == 0; who++) syncHealthActor(s,who,when,false);
 }
 [noinline]
 uint64_t prepareHealthGrant(inout Runtime s, uint row, uint64_t when)
@@ -102,6 +103,7 @@ void applyHealthBuff(inout Runtime s, uint row, uint64_t when)
     if (s.error != 0) return;
     if (!f64Zero(grant)) for (uint who = 0; who < 5; who++) if ((s.activeRecipients[row] & (1U << who)) != 0)
         s.hp[who] = smaller(f64Add(s.hp[who],grant),effectiveMaxHP(s,who,when));
+    for(uint who=0;who<5;who++) if((s.activeRecipients[row]&(1U<<who))!=0) observeNativeNumericHP(s,who);
     syncHealth(s,when);
 }
 [noinline]

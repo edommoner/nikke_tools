@@ -39,6 +39,7 @@ def capture_queries(names,*,with_selectors=False):
         try:
             result = getter(bm, caster, target, t, exclude_names)
             row['after_index'] = random.getstate()[1][-1]
+            row['sample_total'] = len(samples)
             row['buffs'] = dict(result)
             return result
         finally:

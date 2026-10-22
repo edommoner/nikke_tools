@@ -1338,6 +1338,7 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
                 uint mask = packedRecipientMask(f.value);
                 if (!f64Zero(grant)) for (uint who = 0; who < 5; who++) if ((mask & (1U << who)) != 0)
                     s.hp[who] = smaller(f64Add(s.hp[who],grant),effectiveMaxHP(s,who,f.time));
+                for(uint who=0;who<5;who++) if((mask&(1U<<who))!=0) observeNativeNumericHP(s,who);
                 syncHealth(s,f.time);
             }
             return;
@@ -1372,7 +1373,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         if (s.hpDirtyMask != 0)
         {
             uint who = 0; while ((s.hpDirtyMask & (1U << who)) == 0) who++;
-            s.hpDirtyMask &= ~(1U << who); syncHealthActor(s,who,frames[depth].time); continue;
+            s.hpDirtyMask &= ~(1U << who); syncHealthActor(s,who,frames[depth].time,false); continue;
         }
         COUNTER_FRAME(s,frames,depth) COUNTER_CONTEXT_SAMPLE(s,depth) WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.triggerHitCrit=f.hitCrit; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; WORLD_TEAM_FRAME(s,f)
         if(f.mode==0 && f.event==16 && f.cursor==0) traceHealShare(s,6,f.owner,f.time,0,0,uint(f.argument));
@@ -1465,10 +1466,14 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         }
         if (f.mode == 9)
         {
+            if(f.repeatRow!=0)
+            { frames[depth].repeatRow=0;finishNativeExpiredSnapshot(s,f.repeatRow-1,f.time);continue; }
             if (f.cursor == f.repeatLeft) { s.removalCount = f.value; depth--; continue; }
             uint payload=loadRemovalNotice(s,f.value+f.cursor);frames[depth].cursor++;
             uint index=f.value+f.cursor,stack=loadStackNoticeValue(s,index);
             if((payload&16384)!=0) { pushFrame(s,frames,depth,27,0,0,0,f.time,stack);continue; }
+            if((payload&32768)==0 && (stack&0x80000000U)!=0)
+            { frames[depth].repeatRow=(stack&0x7fffffffU)+1;stack=0; }
             pushFrame(s,frames,depth,0,(payload&32768)!=0 ? 9 : 29,payload&7,int((payload>>3)&255),f.time,stack);continue;
         }
         if(f.mode==24)
@@ -1698,7 +1703,12 @@ void tick(inout Runtime s, uint64_t when, uint output)
         if (s.alive[slot] != 0 && !f64Less(when,s.end[slot]))
         {
             Definition expired=residentDefinition(s,slot);uint mask=s.activeRecipients[slot];
-            queueCarrierEnd(s,slot);
+            bool snapshot=nativeNumericEnabled(s) && commands[s.inputBase+P_RECIPIENT_META_BASE+6]!=0 &&
+                s.lazyPending[slot]!=0 && expired.name<P_DEFINITIONS;
+            uint notice=s.removalCount;
+            queueCarrierEnd(s,slot,0,snapshot);
+            if(snapshot && s.error==0 && s.removalCount>notice)
+                results[s.resourceOutput+P_STACK_NOTICE_VALUE_BASE+notice]=0x80000000U|slot;
             if((s.quantityMask&8192)!=0 && commands[s.inputBase+P_HP_UNCLAMP_POLICY]!=0 && expired.kind==0 &&
                (expired.stat==S_hp_copy || expired.stat==S_hp_caster_based_pct || expired.stat==S_hp_only_caster_based_pct || expired.stat==S_max_hp_from_max_hp_pct)) queueHealthCapNotice(s,mask);
         }
@@ -1834,3 +1844,5 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
 #include "focus_aim_runtime.slang"
 #include "native_numeric_query_runtime.slang"
 #include "ordered_history_runtime.slang"
+#include "native_query_diagnostic.slang"
+#include "native_snapshot_runtime.slang"

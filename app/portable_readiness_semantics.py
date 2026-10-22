@@ -12,12 +12,12 @@ def reference_readiness(issue):
         if re.fullmatch(r'allies_random:[1-5]',str(issue.get('target',''))):
             result.update(lane='native_contract_extension',native_consumer='confirmed_source',
                 consumer_source='research/upstream/nikke-calc-master/calculator/buff_manager.py:get_buffs,_resolve_target,_resolve_lazy',
-                contract_coverage='recorded_subset',reference_suites=['late-attack-random'],recorded_cases=6,
-                required_extensions=['dictionary_query_cache_boundaries','real_roster_rng_consumption'],
-                implemented_extensions=['late_attack_direct_recipient_reads','bounded_random_history'],
-                scoped_gpu_suite='ordered-history-battles',scoped_metal_cases=6,scoped_metal_validation_performed=True,
-                observed_gpu_mismatch_suite='state-focus-rosters',
-                note='Six scoped native contracts now match on Metal, including post-hit value mutation. Whole Lily30s still diverges with8 fewer samples; finish auditing dictionary-query consumers. Broken-cover recipients are eager, ordinary random late readers remain direct. Preserve failures; this is not a missing CPU model or full-character support')
+                contract_coverage='recorded_subset',reference_suites=['late-attack-random'],recorded_cases=11,
+                required_extensions=['additional_stat_query_consumers','mixed_revive_and_random_sequences','current_source_cuda_validation'],
+                implemented_extensions=['late_attack_direct_recipient_reads','bounded_random_history','dictionary_query_cache_boundaries','real_roster_rng_consumption','native_logging_and_hp_sync'],
+                scoped_gpu_suite='ordered-history-battles',scoped_metal_cases=17,scoped_metal_validation_performed=True,
+                resolved_gpu_mismatch_suite='state-focus-rosters',
+                note='Eleven authored contracts and six original full-roster inputs match on Metal, including all4550 Lily30s selections, logging and HP-sync consumers. Continue broader stat-consumer and mixed-state coverage; current-source CUDA remains unverified. Broken-cover recipients are eager, ordinary random late readers remain direct. Preserve failures; this is not a missing CPU model or full-character support')
             return result
     if issue.get('phase')=='program' and issue.get('category')=='control' and issue.get('fields')==['focus_aim_physical_interrupt']:
         result.update(lane='native_contract_extension',native_consumer='confirmed_source',

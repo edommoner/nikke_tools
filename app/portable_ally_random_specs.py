@@ -24,7 +24,7 @@ def validate(effect, *, combat, world_frame):
         raise ValueError('Ordered random buff lists require a separate lazy-list contract')
 
 
-def pack(words, limits, effects, seed):
+def pack(words, limits, effects, seed, snapshot_logging=False):
     if not any(contains(effect.get('target', 'self')) for effect, _ in effects):
         return
     if type(seed) is not int or not 0 <= seed <= 2**64-1:
@@ -35,3 +35,4 @@ def pack(words, limits, effects, seed):
            and isinstance(effect.get('target'),str) and re.fullmatch(r'allies_random:[1-5]',effect['target'])
            for effect,_ in effects):
         words[limits['RECIPIENT_META_BASE']+5]=0x4e515231
+        words[limits['RECIPIENT_META_BASE']+6]=int(snapshot_logging)

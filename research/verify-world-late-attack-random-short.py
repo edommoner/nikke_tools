@@ -23,7 +23,7 @@ def prepare():
     meta=L['RECIPIENT_META_BASE'];seed=entries[0][1]
     for label,at,value,index in [('missing-tag',meta+5,0,0),('bad-tag',meta+5,1,0),
                                 ('missing-allied-tag',meta+2,0,0),('unneeded-tag',meta+5,0x4e515231,3),
-                                ('reserved',meta+6,1,0),('no-combat',3,0,0),
+                                ('reserved',meta+6,2,0),('log-without-native-tag',meta+6,1,3),('no-combat',3,0,0),
                                 ('excessive-count',L['RECIPIENT_BASE']+8+1,6,0)]:
         words=list(entries[index][1]);words[at]=value
         entries.append(('reject/native-query-'+label,words,None))

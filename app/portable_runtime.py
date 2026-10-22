@@ -240,12 +240,13 @@ def validate_effect(eff, *, combat=None, world_frame=False):
             raise UnsupportedPortable('Invalid '+key,reason='bounds')
 
 
-def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None, enemy_targeting=None, world_frame=False, world_notice_names=(), allied_seed=19, focus_aim_layer2=False):
+def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None, enemy_targeting=None, world_frame=False, world_notice_names=(), allied_seed=19, focus_aim_layer2=False, native_snapshot_logging=False):
     import detail_gpu as legacy
     from portable_stack_specs import plan as stack_plan,operation as stack_operation,value as stack_value,pack_metadata as pack_stack_metadata
     check_schema()
     if type(world_frame) is not bool:raise ValueError("Invalid world-frame trigger policy")
     if not isinstance(world_notice_names,tuple) or any(n!='target_spawn' for n in world_notice_names) or world_notice_names and not world_frame:raise ValueError("Invalid world notice namespace")
+    if type(native_snapshot_logging) is not bool:raise ValueError("Native snapshot logging requires a literal boolean")
     effects = list(effects)
     if type(focus_aim_layer2) is not bool or focus_aim_layer2 and (not world_frame or combat is None):raise ValueError('Focus aiming requires a literal private-world policy')
     hit_critical=any('trigger_hit_crit' in e.get('trigger',{}).get('condition',[]) for e,_ in effects)
@@ -494,7 +495,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     from portable_revival_specs import pack as pack_revival
     pack_revival(words,L,effects,program['effects'],allied_seed)
     from portable_ally_random_specs import pack as pack_ally_random
-    pack_ally_random(words,L,effects,allied_seed)
+    pack_ally_random(words,L,effects,allied_seed,native_snapshot_logging)
     from portable_focus_specs import pack as pack_focus
     pack_focus(words,L,effects,focus_aim_layer2)
     from portable_geometry_specs import pack as pack_geometry

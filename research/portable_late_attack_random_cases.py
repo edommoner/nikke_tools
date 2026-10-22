@@ -29,4 +29,22 @@ def fixtures():
     changed=copy.deepcopy(rows[0]);changed['name']='late-attack-random-post-hit-mutation'
     changed['effects'].append(field('atk_pct',0,'self','post-hit-value-update',timing='on_attack',duration=10,max_stack=128))
     changed['owners'].append(0);rows.append(changed)
+    snapshot=copy.deepcopy(rows[0]);snapshot['name']='late-attack-random-full-burst-log-off'
+    snapshot['duration']=1.25
+    snapshot['combat']['weapons'][0].update(gauge=100,interval=.5,min_cycle=.5)
+    for i in range(3):snapshot['combat']['weapons'][i]['stage']=i+1
+    rows.append(snapshot)
+    logged=copy.deepcopy(snapshot);logged['name']='late-attack-random-full-burst-log-on'
+    logged['native_snapshot_logging']=True;logged['environment']['native_snapshot_logging']=True
+    rows.append(logged)
+    healed=copy.deepcopy(rows[0]);healed['name']='late-attack-random-first-capped-heal'
+    heal=field('heal_hp_pct',1,'self','post-hit-first-capped-heal',timing='on_attack');heal['type']='instant'
+    healed['effects'].append(heal);healed['owners'].append(0);rows.append(healed)
+    expired=copy.deepcopy(rows[0]);expired['name']='late-attack-random-expiry-log-on'
+    expired['effects'][1]['duration']=.15
+    expired['native_snapshot_logging']=True;expired['environment']['native_snapshot_logging']=True
+    rows.append(expired)
+    rearmed=copy.deepcopy(expired);rearmed['name']='late-attack-random-expiry-log-rearm'
+    rearmed['effects'][1]['trigger']['timing'].append('event:state_end:'+rearmed['effects'][1]['name'])
+    rows.append(rearmed)
     return rows

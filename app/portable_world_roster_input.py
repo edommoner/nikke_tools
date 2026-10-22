@@ -80,7 +80,7 @@ def compile_world_battle(prepared, *, trace='burst'):
     words, meta = compile_program(chars, compiled, script, attacks,
         allies=prepared['allies'], cover_sync=bool(enemy.get('patterns')), native_landing=True,
         enemy_code=enemy.get('code'), geometry=from_roster(chars, enemy), world_frame=True,
-        world_notice_names=('target_spawn',) if target_spawn else (),allied_seed=policies.get('seed'),
+        world_notice_names=('target_spawn',) if target_spawn else (),allied_seed=policies.get('seed'),native_snapshot_logging=True,
         combat=dict(weapons=weapons, targets=[dict(hp=1e30, defense=enemy['def'], attack=enemy.get('atk', DEFAULT_BOSS_ATK))],
                     trace=trace, clock='accumulated'))
     if len(words) != 86016:

@@ -30,7 +30,8 @@ class LateAttackRandomReferenceTests(unittest.TestCase):
                 actual.pop('late_attack_random')
                 self.assertEqual(actual, plain)
                 self.assertEqual(recorded, trace)
-                self.assertEqual(counts, [248, 248])
+                expected=1082 if case['name'].startswith('late-attack-random-full-burst-log-') else 248
+                self.assertEqual(counts, [expected, expected])
 
     def test_contract_detects_membership_cache_and_rng_faults(self):
         case = fixtures()[0]

@@ -12,7 +12,7 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
     {
         bool primaryLive = s.alive[definition] != 0;
         if (primaryLive && (incoming.bulletDuration != 0 || incoming.lazyGroup != 0 || s.lazyPending[definition] == 0 && s.activeRecipients[definition] == recipients && (!ordered || visibleCarrierOrder(s,definition)==incomingOrder))) return definition;
-        if (!primaryLive && (incoming.mergeEligible & 2) == 0) return definition;
+        if (!primaryLive && s.lazyPending[definition]==0 && (incoming.mergeEligible & 2) == 0) return definition;
     }
 #endif
     uint merged = P_CARRIERS;
@@ -30,9 +30,9 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
             incoming.owner == prior.owner && incoming.kind == prior.kind && incoming.statKey == prior.statKey && incoming.maxStack == prior.maxStack) merged = slot;
     }
     if (merged != P_CARRIERS) return merged;
-    if (s.alive[definition] == 0) return definition;
+    if (s.alive[definition] == 0 && s.lazyPending[definition] == 0) return definition;
     for (uint slot = s.count; slot < s.carrierCount; slot++)
-        if (s.alive[slot] == 0)
+        if (s.alive[slot] == 0 && s.lazyPending[slot] == 0)
         { resetBulletCarrier(s,slot); discardLazy(s,slot); s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot; }
     if (s.carrierCount == P_CARRIERS) { s.error = 64; return definition; }
     uint slot = s.carrierCount++; s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot;
@@ -71,12 +71,14 @@ void queueRemovalNotice(inout Runtime s,uint owner,uint name,uint repeats=1)
     }
 }
 [noinline]
-void queueCarrierEnd(inout Runtime s,uint slot,uint repeats=0)
+void queueCarrierEnd(inout Runtime s,uint slot,uint repeats=0,bool preserveLazy=false)
 {
     uint definition=s.carrierDefinition[slot];
     if(repeats==0) repeats=WORLD_STATE_END_REPEATS(s,slot,definition_enemyBuff(s.inputBase,definition)!=0 && s.bulletInitialized[slot]!=2 ? countbits(s.activeRecipients[slot]>>5) : 1);
     invalidateFocusNumeric(s);
-    unlinkBulletCarrier(s,slot);discardLazy(s,slot);s.alive[slot]=0;s.stacks[slot]=0;
+    unlinkBulletCarrier(s,slot);
+    if(!preserveLazy) { discardLazy(s,slot);s.stacks[slot]=0; }
+    s.alive[slot]=0;
     queueRemovalNotice(s,definition_owner(s.inputBase,definition),definition_name(s.inputBase,definition),repeats);
 }
 

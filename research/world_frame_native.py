@@ -143,7 +143,7 @@ def observe(case):
   if 'focus_aim_layer2' in case:config['aim_interrupt']=case['focus_aim_layer2']
   for key in ('control_mode','sequence'):
    if key in case:config[key]=copy.deepcopy(case[key])
-  try:result=timeline.simulate(squad,config=config,enemy=enemy,seed=case.get('seed',19))
+  try:result=timeline.simulate(squad,config=config,enemy=enemy,seed=case.get('seed',19),verbose=case.get('native_snapshot_logging',False))
   finally:
    if case.get('observe_periodic_skills'):sys.setprofile(previous_profile)
  state=capture['state'];bm=capture['bm'];rng=capture['boss']._rng

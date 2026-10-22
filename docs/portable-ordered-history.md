@@ -1,3 +1,7 @@
+<!-- native-query-observation-current -->
+共通Slangへログsnapshot・初回/変化HP同期・期限切れログのlazy確定を接続。ログ有効/無効、満HP初回回復、終了通知から同効果再発動を含む25入力が同121sourceのMetalで全一致し独立seal成功。リリー30秒は4550抽選の全semantic順序・最終MT・原文battle/全射撃履歴まで一致。正本6編成の元指紋保持、CPU/数値/normalizer不変。読み取り専用census/windowをCLIへ追加し、診断領域以外の全byte保持を確認。旧1330＋新25の1355回帰も同121sourceでMetal全一致・独立fresh seal、CPU91群482検査成功。旧1326件のraw全4,171,235,328Bと新25件は全byte一致、既記録のselector25修正4件だけ各2B変化、旧1330のnative指紋は全保持。GPU11.14889秒/生成cache必須hit/追加Slang0。初回は旧散弾のno-op故障注入でGPU前停止し、監査層へprojectして確実に変異させるテストへ修正。Windows追加操作0/7終了原因unknown/保全false、全キャラ認定0/UI CPU/ゴール未達。詳細docs/portable-native-query-observation.mdと対応checkpoint。以下は履歴です。
+<!-- /native-query-observation-current -->
+
 # 全選択順の履歴方式と実編成の残差分
 
 共通CUDA/Metalに`ordered_history_runtime.slang`を接続した。先頭128件の生履歴を保持し、129件目から64wordの追加bankを使って全recordのsemantic atomをSHA-256へ順次投入する。計算を128件で止めず、生履歴を省略した件数も明示する。最大1,048,576件でerror64、version/件数/finalization/予約wordも検査する。

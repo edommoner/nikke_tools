@@ -28,7 +28,9 @@ class StateWorkRoutingTests(unittest.TestCase):
                 result=reference_readiness(dict(phase='effect',category=category,kind='buff',stat=stat,target='allies_random:1',operator=dict(domain='condition',descriptor='no_broken_cover_ally')))
                 self.assertEqual(result['lane'],'native_contract_extension')
                 self.assertEqual(result['reference_suites'],['late-attack-random'])
-                self.assertIn('dictionary_query_cache_boundaries',result['required_extensions'])
+                self.assertIn('dictionary_query_cache_boundaries',result['implemented_extensions'])
+                self.assertIn('current_source_cuda_validation',result['required_extensions'])
+                self.assertEqual((result['recorded_cases'],result['scoped_metal_cases']),(11,17))
                 self.assertFalse(result['gpu_supported']);self.assertFalse(result['runtime_validation_performed'])
 
     def test_unrecorded_operator_recipient_and_kind_are_not_promoted(self):

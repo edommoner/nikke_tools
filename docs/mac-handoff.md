@@ -1,3 +1,7 @@
+<!-- native-query-observation-current -->
+共通Slangへログsnapshot・初回/変化HP同期・期限切れログのlazy確定を接続。ログ有効/無効、満HP初回回復、終了通知から同効果再発動を含む25入力が同121sourceのMetalで全一致し独立seal成功。リリー30秒は4550抽選の全semantic順序・最終MT・原文battle/全射撃履歴まで一致。正本6編成の元指紋保持、CPU/数値/normalizer不変。読み取り専用census/windowをCLIへ追加し、診断領域以外の全byte保持を確認。旧1330＋新25の1355回帰も同121sourceでMetal全一致・独立fresh seal、CPU91群482検査成功。旧1326件のraw全4,171,235,328Bと新25件は全byte一致、既記録のselector25修正4件だけ各2B変化、旧1330のnative指紋は全保持。GPU11.14889秒/生成cache必須hit/追加Slang0。初回は旧散弾のno-op故障注入でGPU前停止し、監査層へprojectして確実に変異させるテストへ修正。Windows追加操作0/7終了原因unknown/保全false、全キャラ認定0/UI CPU/ゴール未達。詳細docs/portable-native-query-observation.mdと対応checkpoint。以下は履歴です。
+<!-- /native-query-observation-current -->
+
 <!-- ordered-history-current -->
 共通履歴を先頭128生record＋全semantic順序SHA-256へ拡張。追加bank64word(781792..781856)、stride/Runtime field不変。時刻はhash対象外でbattle/trace比較を保持。単体ordered-history13入力がMetal成功・独立seal、実goldenで通常CLIへ登録し通常CPU6成功。resident専用generation cacheの不適合指定はCPU/capture/claim前に拒否するCLI検査を追加。実編成でselector25のeager確定（旧4入力は1word21→5のみ、旧SHAへ全復元）と率0のlanding数値照会を修正、post-hit CPU契約を追加。119sourceのbattle19は18一致、リリー30秒のみ正本4550/GPU4542抽選で8不足・205発目からdamage差分。全6native/trace元指紋保持、失敗raw/claim保持、最終CPU55＋reference6成功。次は3.85..4.0秒のGPU辞書照会owner/target/epoch/hitを直接観測し欠落を特定。旧1330＋新19の1349suiteは登録のみで、差分解消後に一括検証。旧rawの全bytes/SHA/path/inodeを保って割当1.899GB回収、削除0。Windows操作0/原因unknown/保全false、全キャラ0/UI CPU/ゴール未達。詳細docs/portable-ordered-history.mdと対応checkpoint。以下は履歴です。
 <!-- /ordered-history-current -->

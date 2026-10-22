@@ -241,7 +241,7 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
     { s.phase = 5; s.lastFullStart = when; s.fullEnd = f64Add(when,fullBurstLength(s,when));
       if (s.error != 0) return;
       invalidateNativeNumeric(s);
-      teamNotify(s,1,when,output); reconcileBurstCooldowns(s,when); firePendingBursts(s,when,output); logBurst(s,4,0xffffffff,when,output); }
+      teamNotify(s,1,when,output); reconcileBurstCooldowns(s,when); firePendingBursts(s,when,output); logBurst(s,4,0xffffffff,when,output); nativeFullBurstSnapshot(s,when); }
     s.gaugeCharging = uint(s.phase == 0);
 }
 [noinline]

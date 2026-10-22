@@ -6,7 +6,10 @@ from pathlib import Path
 def ledger(root):return json.loads((Path(root)/'tests/fixtures/portable-ordered-history-source-delta.json').read_text())
 
 
-def baseline_source(root,name,source):
+def baseline_source(root,name,source,*,diagnostic_projected=False):
+    if not diagnostic_projected:
+        from portable_query_diagnostic_source_contract import baseline_source as project_diagnostic
+        source,_=project_diagnostic(root,name,source)
     rows=ledger(root)['sources']
     if name not in rows:return source,False
     row=rows[name]
@@ -19,6 +22,7 @@ def baseline_source(root,name,source):
 
 
 def project_sources(root,sources=None):
-    root=Path(root);sources=dict(sources or {});rows=ledger(root)['sources']
-    for name in rows:sources[name],_=baseline_source(root,name,sources.get(name,(root/name).read_text()))
+    from portable_query_diagnostic_source_contract import project_sources as project_diagnostic
+    root=Path(root);sources,_=project_diagnostic(root,sources);rows=ledger(root)['sources']
+    for name in rows:sources[name],_=baseline_source(root,name,sources.get(name,(root/name).read_text()),diagnostic_projected=True)
     return sources,list(rows)

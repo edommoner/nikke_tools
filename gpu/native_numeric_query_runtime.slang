@@ -34,6 +34,7 @@ bool initializeNativeNumeric(inout Runtime s)
     // Reuse that same reader/continuation so post-hit mutations consume RNG.
     s.healthMask|=64U;
     results[s.resourceOutput+P_NATIVE_QUERY_BASE]=0x4e515231U;
+    initializeNativeQueryDiagnostic(s);
 #else
     if(enabled) return false;
 #endif
@@ -45,6 +46,16 @@ void invalidateNativeNumeric(inout Runtime s)
     uint at=s.resourceOutput+P_NATIVE_QUERY_BASE;
     if(results[at+1]==0xffffffffU) { s.error=2;return; }
     results[at+1]++;results[at+2]=0;
+}
+// Explicit native sync_hp observes the first synchronization even at full HP.
+// Seen mask and five exact values use previously reserved cache-header words.
+void observeNativeNumericHP(inout Runtime s,uint who)
+{
+    if(!nativeNumericEnabled(s)) return;
+    uint head=s.resourceOutput+P_NATIVE_QUERY_BASE,bit=1U<<who,at=head+12+who*2;
+    uint64_t previous=uint64_t(results[at])|(uint64_t(results[at+1])<<32);
+    if((results[head+10]&bit)==0 || !f64Equal(previous,s.hp[who])) invalidateNativeNumeric(s);
+    results[head+10]|=bit;storeNumber(at,s.hp[who]);
 }
 uint nativeNumericTarget(inout Runtime s)
 {
@@ -68,6 +79,7 @@ bool loadNativeNumeric(inout Runtime s,uint who,uint64_t when,out uint64_t value
         if(results[at]==who && results[at+1]==target && results[at+2]==s.damageExclusion && results[at+3]==epoch && results[at+4]!=0)
         {
             for(uint k=0;k<64;k++) values[k]=uint64_t(results[at+8+k*2])|(uint64_t(results[at+9+k*2])<<32);
+            recordNativeQueryDiagnostic(s,who,target,s.damageExclusion,epoch,when,true,values);
             results[head+8]++;return true;
         }
     }
@@ -79,6 +91,9 @@ bool loadNativeNumeric(inout Runtime s,uint who,uint64_t when,out uint64_t value
 void storeNativeNumeric(inout Runtime s,uint slot,uint epoch,uint64_t values[64])
 {
     uint head=s.resourceOutput+P_NATIVE_QUERY_BASE;results[head+4]=0;
+    if(s.error==0 && slot!=0xffffffffU)
+        recordNativeQueryDiagnostic(s,results[slot],results[slot+1],results[slot+2],epoch,
+            uint64_t(results[head+5])|(uint64_t(results[head+6])<<32),false,values);
     if(s.error!=0 || slot==0xffffffffU || results[head+1]!=epoch) return;
     for(uint k=0;k<64;k++) storeNumber(slot+8+k*2,values[k]);
     results[slot+4]=1;
