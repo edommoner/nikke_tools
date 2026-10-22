@@ -1,3 +1,7 @@
+<!-- v135-callgraph-analysis-current -->
+Windows保存v135のcache/phaseを共通ptx-stats --callgraphでCPU解析成功。191定義すべてportableEventsから到達、SCC191個/循環0、間接/外部/未解決0。最大applyDefinitionFrame_0の5865virtual/10472行/local宣言56byteは物理memoryに換算しない。9テスト成功＋解析1.692秒/BelowNormal、追加compile/GPU0。最初のTEMP権限7pass/2errorは保持し、既存validation_environmentで別captureの環境設定だけ修正。完全261KBreportと元PTXはWindowsに残し、Macはpeer summaryのorigin/source fields照合まで（独立原本監査ではない）。次は共通CLIのCPU分割計画/ABI/global所有権検査を実装し、準備後に必要な新しいcompiler専用実験を選ぶ。単なるdead-function削除やcall循環対策は今回根拠なし。本体CUDA未成立/全キャラ認定0、Metal849+実4とparts CPU32を維持。詳細docs/portable-v135-callgraph-analysis.md、research/portable-world-v135-callgraph-peer-report.json。以下は履歴です。
+<!-- /v135-callgraph-analysis-current -->
+
 <!-- ptx-callgraph-tool-current -->
 保存PTXのCPU-only ptx-stats --callgraphを追加。既存cache key/bytes/SHA/phase receipt照合を再利用、全直接call/entry閉包/SCC/宣言・loadstore統計を出す。間接/外部/未解決は明示しclosed判定false、PTX分割合法性とcompiler memoryの認定はfalse。fresh共通smoke163中162成功/Windows1skip、選択60成功、既存CLI6ファイル約142KBのCPU受渡し9検査成功。legacy PTX3つもread-only解析できたがv135ではない。次はWindowsの保存v135 cache/phaseだけをCPU解析し、小さな派生summaryを取得。NVRTC/ptxas/driver/GPU追加0、PTX本体公開は個別確認待ちのまま。詳細docs/portable-ptx-callgraph.mdとresearch/portable-ptx-callgraph-cpu-checkpoint.json。以下は履歴です。
 <!-- /ptx-callgraph-tool-current -->

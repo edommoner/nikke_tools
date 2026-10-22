@@ -22,3 +22,5 @@ Windowsへ依頼するのは保存済みcache＋phaseのCPU解析だけ。元PTX
 ## 小さなCPU解析用の受渡し
 
 `research/portable-ptx-callgraph-source-manifest.json`は、検証済み通常packageから抜き出す既存CLI／parser／reference registry／2テストの6ファイルをbytes/SHAで固定する。計約142KB。`git show <固定commit>:<path>`のbytesでfresh directoryへ復元し、manifestを照合してから`python -m unittest discover -s tests -p 'test_portable_ptx*.py'`を実行する。Macのfreshコピーで9検査が成功した。別runnerやcompilerを配布せず、通常CLIの`ptx-stats`だけを使う。これはCPU解析用のsource受渡しで、GPU実行packageや戦闘証明の代用にはしない。
+
+WindowsのCPUテストを直接起動する場合も、先に書込み可能な新しいcaptureを作り、共通CLIの`validation_environment(capture)`が返すenvを`subprocess.run(..., env=env)`へ渡す。これは通常の`run_job`／`cpu_test_groups`と同じTEMP/TMP/TMPDIR設定で、親processの環境は変更しない。既定sandbox TEMPでは一時ファイルの作成・削除がPermissionErrorになることがある。失敗した出力は保持し、修正した環境の検査を別captureとして記録する。
