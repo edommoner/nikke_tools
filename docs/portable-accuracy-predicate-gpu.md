@@ -1,15 +1,15 @@
-# 命中率条件の共通GPU接続（保持検証待ち）
+# 命中率条件の共通GPU接続
 
-`self_stat_above:accuracy_pct:N` を既存の共有 `readStat` / `activationConditions` とソフトウェアbinary64の厳密比較へ接続した。条件の順序・発動時照会を変えず、状態fieldや算術実装は追加していない。hostはstat ID 21を受付し、compiled thresholdの有限値を検査する。GPUの通常受付とactor-field受付は同一の `validStatAbovePredicate` を使い、既存ID 0/5/6と21だけを許可してNaN/無限大を拒否する。
+`self_stat_above:accuracy_pct:N` を既存の共有 `readStat` / `activationConditions` とソフトウェアbinary64の厳密比較へ接続した。発動時の条件順序・stat照会を保ち、状態fieldや算術実装は追加していない。hostはstat ID 21と有限thresholdを受付し、GPUの通常受付とactor-field受付は同一の `validStatAbovePredicate` で既存ID 0/5/6と21だけを許可する。未対応ID、NaN、正負無限大は実行前に拒否する。
 
-共通CLIの `accuracy-predicate` は26正例＋6不正raw（負/範囲外/未対応stat、NaN、正負無限大）、`accuracy-predicate-rosters` は原文全定義モダニア3秒/30秒。Apple M5で両方が成功し、保存結果の独立CPU sealも成功。両者の到達GPUソース指紋は同一。正例28はnative全項目・保存形式の技能trace・物理履歴を既存比較器で照合した。30秒の物理履歴はnative2343、GPU2048、省略295で、省略数も一致した。全履歴をGPUに保存できたという主張ではない。
+共通CLIの `accuracy-predicate` は26正例＋6不正raw、`accuracy-predicate-rosters` は原文全定義モダニア3秒/30秒、`accuracy-predicate-retention` は旧1169入力。全てApple M5で同一の到達GPUソースにより成功し、独立CPU sealも成功した。計1203入力（native955/拒否248）の限定証明で、全キャラ認定ではない。旧全entriesとraw3677356032Bが全byte一致し、26旧goldenはentries/input/outputを保ってsourceと生成指紋だけを更新した。3suiteの通常経路への昇格を完了した。
 
-主32はCPU15群102検査17.761秒、GPU0.043992秒。実2は同102検査17.893秒、GPU3.645644秒。前者はSlang2生成、後者は必須cache hitで追加生成0。同一親CPU結果は26/2正例を再利用し、独立sealはfresh CPU照合を維持した。生成CUDAは同じSlangの生成物であり、Windows CUDA実行やNVRTC cache hitの証拠ではない。
+26契約は0/負値/隣接binary64/最小subnormal、順序依存加算、期限、所有者、stack前後、条件の短絡順を固定する。実モダニア30秒の8判定は最初の5回が14%、残り3回が5.44%を照会して成立した。固定boolやバフ有無で置き換えない。物理履歴は3秒112件・省略0、30秒はnative2343/GPU2048・省略295で、省略数も比較する。旧範囲にある既知の履歴省略も保持しており、全履歴をGPU保存できたという主張ではない。
 
-初回v1はactor-field層を開通させておらず全32がstatus64。既存診断マクロを使った同じ先頭1入力でstage8000/row2を確認し、発動器を変えず受付を追加した。v2は新deltaを既存query-boundary監査へ未登録だったため、4検査失敗でGPU前に停止。正確なdelta逆投影を追加したv3で成功した。旧監査SHAを変更せず、追加sourceも厳密SHAと一意置換で保護する。全失敗raw、ログ、claimを保持し、入力とCPU期待値を変更していない。
+主32はCPU102検査17.761秒/GPU0.043992秒、実2は同102検査17.893秒/GPU3.645644秒。旧1169はCPU事前66.177秒＋回帰72群423検査129.281秒、GPU10.694823秒。旧保持実行は生成cache必須hitで追加Slang0。同一親CPU結果は843正例を再利用し、84正例をfresh照合、242入力を拒否。独立sealでは再利用しない。正式packageのCPU102検査とfull116/commands117 certificate14検査も成功した。CUDAは同じSlangから生成するが、今回のWindows CUDA実行やNVRTC cache hitは未確認。
 
-静的packingは226/266、base166/203、69分類（consumer研究4/model gap3/review62）。全キャラ認定0、UI CPU。既存1169入力の証拠は変更前GPUソースであり、今回ソースでの全保持検証は未完了。新規34の限定証拠を全体認定へ加算しない。両suiteはdevelopment_onlyを維持し、独立seal済みgoldenを保存したが正式受付のpromotionは保留する。
+初回v1はactor-field層の受付が未接続で全32がstatus64。同じ先頭1入力の診断でstage8000/row2を確認し、発動器を変えず受付を追加した。v2は新deltaをquery-boundary監査へ未登録だったため4検査失敗でGPU前に停止。厳密なdelta逆投影を追加したv3で成功した。旧監査SHAを変更せず、追加sourceもSHAと一意置換で保護する。全失敗raw/ログ/claimを保持し、入力とCPU期待値を変更していない。
 
-次の旧1169保持実行は約0.49GBのinput＋3.68GBのoutputと14GiBの予備容量が必要。現在の空きでは足りず未開始。既存のrawや失敗証拠を削除していない。容量を確保して同ソースで全entriesとrawを保持比較し、compiler certificateと回帰を通した後にpromotionする。
+保持検証の容量不足は `sparsify-raw` でゼロ領域だけを未割り当てにして解消した。元rawを同じpath/inode/長さ/全SHAで保持し、raw/claims削除0。事前に未圧縮input488174404B＋output3677356032B＋予備14GiBを実空きで確認してから実行した。詳細はdocs/portable-sparse-raw.md。
 
-Windows追加操作0、7プロセス終了原因unknown・保全falseを維持する。全目標未達。各package ID、指紋、transport、失敗、範囲は `research/portable-accuracy-predicate-gpu-checkpoint.json` を参照。
+静的packing226/266、base166/203、69分類（consumer研究4/model gap3/review62）はGPU認定ではない。UI CPU、全キャラ認定0、全目標未達。Windows追加操作0、7終了原因unknown・環境保全falseを維持する。次は正本consumerのある未対応効果を契約化して共有実装へ進む。package/指紋/transport/失敗/範囲はresearch/portable-accuracy-predicate-gpu-checkpoint.jsonを参照。

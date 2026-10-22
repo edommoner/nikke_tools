@@ -25,7 +25,7 @@
     "gpu/portable_schema.slang": "2b2cd6fed695d3470562b27dac4b8573fccc5b27eca816b08438e6ae92fd26bb",
     "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
     "gpu/runtime_init.slang": "42138104b72985daa57788ad7ba1ca9b2db86dc208f63a089679895c8e36d1d9",
-    "gpu/definition_runtime.slang": "7fd9745d1282cb7c9bb5da50c073b5bfcd84c7e711422ce8e9aa2c8378251c37",
+    "gpu/definition_runtime.slang": "3b15a3bcf5403198806a149c999735bd362da402cbff382cb45f10b726cb6ced",
     "gpu/enemy_route_runtime.slang": "760548df57fb58921d34332df9b54cf483ef4a0a22cd5e68f08c7faee1b3667c",
     "gpu/lazy_bank_storage.slang": "f319580696bf1a68792e243bfb39ff64c56d6361d9327d15bb32ebdbaa1733a5",
     "gpu/world_overlay_runtime.slang": "23a9330cf5558dc0c21675c25d171e4b033108dec19d738653837c043efa745e",
@@ -85,7 +85,7 @@
     "gpu/dispatch_phases.slang": "02b37a204e65f5db0b5fbf800078a993b0f8ce6599ed20525afab08c2a4fed2c",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
     "gpu/world_actor_pools.slang": "4b2a9848ad30ddc819e3f3d0d4bf2cfc2377030ad0893f3498e92e127e516162",
-    "gpu/world_actor_fields.slang": "8dde0d7548c4144cefb995abb761b75b59eccc032f2e6ebfff2444594a85e7cf",
+    "gpu/world_actor_fields.slang": "6313e4ac45a9fdff744da0a146b6cc30477d2c3fedb3d629a0aaaa3327fa9e6d",
     "gpu/world_actor_state.slang": "fe544032dc4862a7a3689b292f21110674bfb37668e84ffb87d9e78412e629c3",
     "gpu/world_actor_mutation.slang": "8d807f7800ec72f25caee64d4f6ae7885dba3328773111f117b7ccf6585f0e53",
     "gpu/world_actor_recipients.slang": "f7eb33cbe737cd6e6c729f6ca8c15d015256c2844f9d9a44fd1f6c646e34cab7",
@@ -114,7 +114,7 @@
     "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
     "gpu/pellet_shot_runtime.slang": "b84c7a1a969d0b04e14d08347d2495245bca5ebe98899fe10b1c80d65f901dad",
     "gpu/weapon_frame_phases.slang": "ff97e8bd2e49dad9c55947d2da2a41ab2fe22f9b05415abe68deea46916aeee4",
-    "gpu/admission_runtime.slang": "69fabd225d68fe3b1df64fc3bd21bd64a6e770326811dbaee0acfc432ce623b0",
+    "gpu/admission_runtime.slang": "a4f34300cacc3b76f7bbbd516211993a71ea77a26591f2492315f8c17d3f7fb9",
     "gpu/portable_mt19937.slang": "6365293f4fe0269fba87b15aa866e617333f5012acef175a13fd7ed27152323a",
     "gpu/enemy_target_runtime.slang": "830fd22f28d105ea6b4e0ad4d334e774e36eebab698c1096a163cfdb712d9d1f",
     "gpu/program_phases.slang": "16783d980bcbdc7a7f9759e57fcd0b70765bc386898233d13c7c0b8c39e46846"
@@ -6422,7 +6422,7 @@
     }
   ],
   "generated_normalized": {
-    "cuda": "43e469615ee4aa6eed20e98f863c8e0b4eb4b7c901ef759ba692ab25aa626b94",
-    "metal": "98b7f12feb39ccad46c09676672db598989030ee4d9e2af353873904e82cc639"
+    "cuda": "f84f1dfb6d231f198f37c9efea37f9cb2c4bc0fd18fe8529bf09ba4c14641b40",
+    "metal": "5c86ac56a1a2b9bcbd14b49a939cd4587e50459d17a797778db7c1b899e9c19d"
   }
 }

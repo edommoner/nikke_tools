@@ -147,8 +147,8 @@ SUITES['ammo-equivalent']=dict(script='research/verify-world-ammo-equivalent-sho
 SUITES['ammo-equivalent-rosters']=dict(SUITES['ammo-equivalent'],script='research/verify-world-ammo-equivalent-rosters-short.py',golden='research/portable-world-ammo-equivalent-rosters-short-expected.json',inputs=2,native=2,tests=['test_portable_ammo_equivalent.py','test_portable_definition_view.py','test_portable_real_binding_proof.py'])
 SUITES['ammo-equivalent-catalogue']=dict(SUITES['ammo-equivalent'],script='research/verify-world-ammo-equivalent-catalogue-short.py',golden='research/portable-world-ammo-equivalent-catalogue-short-expected.json',inputs=1,native=1)
 SUITES['manual-swap']=dict(SUITES['ammo-equivalent'],script='research/verify-world-manual-swap-short.py',golden='research/portable-world-manual-swap-short-expected.json',inputs=30,native=23,development_only=False,parent_oracle_reuse=True,tests=SUITES['ammo-equivalent']['tests']+['test_portable_accuracy_predicate_reference.py','test_portable_parent_oracles.py','test_portable_manual_swap.py','test_portable_weapon_phases.py','test_portable_query_boundaries.py'])
-SUITES['accuracy-predicate']=dict(SUITES['manual-swap'],script='research/verify-world-accuracy-predicate-short.py',golden='research/portable-world-accuracy-predicate-short-expected.json',inputs=32,native=26,development_only=True,tests=SUITES['manual-swap']['tests']+['test_portable_accuracy_predicate.py'])
-SUITES['accuracy-predicate-diagnostic']=dict(SUITES['accuracy-predicate'],source='gpu/world_accuracy_admission_entry.slang')
+SUITES['accuracy-predicate']=dict(SUITES['manual-swap'],script='research/verify-world-accuracy-predicate-short.py',golden='research/portable-world-accuracy-predicate-short-expected.json',inputs=32,native=26,development_only=False,tests=SUITES['manual-swap']['tests']+['test_portable_accuracy_predicate.py'])
+SUITES['accuracy-predicate-diagnostic']=dict(SUITES['accuracy-predicate'],source='gpu/world_accuracy_admission_entry.slang',development_only=True)
 SUITES['accuracy-predicate-rosters']=dict(SUITES['accuracy-predicate'],script='research/verify-world-accuracy-predicate-rosters-short.py',golden='research/portable-world-accuracy-predicate-rosters-short-expected.json',inputs=2,native=2)
 SUITES['manual-swap-rosters']=dict(SUITES['manual-swap'],script='research/verify-world-manual-swap-rosters-short.py',golden='research/portable-world-manual-swap-rosters-short-expected.json',inputs=2,native=2)
 SUITES['ammo-equivalent-rosters-diagnostic']=dict(SUITES['ammo-equivalent-rosters'],source='gpu/world_skill_hp_basis_admission_entry.slang',development_only=True)
@@ -201,6 +201,8 @@ SUITES['ammo-equivalent-retention']=dict(SUITES['pellet-shot-retention'],script=
 SUITES['ammo-equivalent-retention']['support_files']=list(dict.fromkeys(SUITES['pellet-shot-retention']['support_files']+[SUITES[name]['golden'] for name in ('pellet-shot-retention','pellet-shot','pellet-shot-rosters')]))
 SUITES['manual-swap-retention']=dict(SUITES['ammo-equivalent-retention'],script='research/verify-world-manual-swap-retention-short.py',golden='research/portable-world-manual-swap-retention-short-expected.json',inputs=1137,native=902,development_only=False,parent_oracle_reuse=True,tests=list(dict.fromkeys(SUITES['ammo-equivalent-retention']['tests']+['test_portable_accuracy_predicate_reference.py','test_portable_parent_oracles.py','test_portable_manual_swap.py','test_portable_manual_swap_retention.py'])))
 SUITES['manual-swap-retention']['support_files']=list(dict.fromkeys(SUITES['ammo-equivalent-retention']['support_files']+[SUITES[name]['golden'] for name in ('ammo-equivalent-retention','ammo-equivalent','ammo-equivalent-rosters','ammo-equivalent-catalogue')]))
+SUITES['accuracy-predicate-retention']=dict(SUITES['manual-swap-retention'],script='research/verify-world-accuracy-predicate-retention-short.py',golden='research/portable-world-accuracy-predicate-retention-short-expected.json',inputs=1169,native=927,development_only=False,cpu_test_timeout=180,tests=list(dict.fromkeys(SUITES['manual-swap-retention']['tests']+['test_portable_accuracy_predicate.py','test_portable_accuracy_predicate_retention.py','test_portable_sparse_raw.py'])))
+SUITES['accuracy-predicate-retention']['support_files']=list(dict.fromkeys(SUITES['manual-swap-retention']['support_files']+[SUITES[name]['golden'] for name in ('manual-swap-retention','manual-swap','manual-swap-rosters')]))
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
     golden='research/portable-compiler-commands-heal-share-source-certificate.json',inputs=0,native=0,compiler_only=True,
     support_files=['research/portable-world-heal-share-regression-short-expected.json'],
@@ -228,6 +230,7 @@ SMOKE_TESTS.append('test_portable_jit_link.py')
 SMOKE_TESTS.append('test_portable_jit_link_capture.py')
 SMOKE_TESTS.append('test_portable_linked_artifact.py')
 SMOKE_TESTS.append('test_portable_readback_blocks.py')
+SMOKE_TESTS.append('test_portable_sparse_raw.py')
 SMOKE_TESTS.append('test_portable_scope_snapshot_audit.py')
 
 
@@ -2054,6 +2057,7 @@ def main(argv=None):
     from portable_reference import REFERENCES
     a=sub.add_parser('reference');a.add_argument('--suite',choices=REFERENCES,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('phase-codegen');a.add_argument('--out',type=Path,required=True);a.add_argument('--slang-root',type=Path)
+    a=sub.add_parser('sparsify-raw');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--apply',action='store_true')
     for storage_command in ('archive-raw','restore-raw'):
         a=sub.add_parser(storage_command);a.add_argument('--capture',type=Path,required=True);a.add_argument('--archive',type=Path,required=True)
         if storage_command=='archive-raw':a.add_argument('--remove-original',action='store_true')
@@ -2140,6 +2144,9 @@ def main(argv=None):
             report=generate(ROOT,SUITES[m['suite']]['source'],a.out,package_id=m['package_id'],source_hashes=source_hashes,compiler_root=a.slang_root)
         result={k:report[k] for k in ('passed','package_id','calculation_verified','executable_battle_verified','gpu_calls','nvrtc_calls','driver_calls','kernel_calls','elapsed_seconds')}
         result['report']=str(a.out.resolve()/'report.json')
+    elif a.command=='sparsify-raw':
+        from portable_sparse_raw import sparsify_raw
+        result=sparsify_raw(a.capture,a.out,check_records,apply=a.apply)
     elif a.command=='archive-raw':
         from portable_capture_storage import archive_raw
         result=archive_raw(a.capture,a.archive,check_records,remove_original=a.remove_original)

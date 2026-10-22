@@ -1,3 +1,7 @@
+<!-- accuracy-retention-current -->
+命中率条件の全保持検証完了。新34と旧1169が同一共有sourceでMetal一致・独立seal、合計1203(native955/拒否248)。旧全entriesとraw3677356032Bを全byte保持。CPU事前66.177秒＋回帰72群423検査129.281秒、GPU10.694823秒、生成cache必須hit/Slang0、親再利用843/fresh84/拒否242、独立監査はfresh。full116/commands117 certificate14検査と正式package CPU102成功、3suiteを通常経路へ昇格。共通CLIにMac sparsify-rawを追加し実APFS9検査成功、4rawの内容/長さ/path/inode/SHAを維持して7543914496Bのゼロ領域を回収、raw/claims削除0。歴史artifact metadataも不変、4.17GB入力出力＋14GiB予備を実空きで確認してからGPU実行。静的226/266・base166/203・69分類はGPU認定ではない。Windows追加操作0/原因unknown/保全false、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-accuracy-predicate-gpu.md、docs/portable-sparse-raw.mdと対応checkpoint。次は正本consumerのある未対応効果の契約と共有実装を継続。以下は履歴です。
+<!-- /accuracy-retention-current -->
+
 <!-- accuracy-predicate-gpu-current -->
 命中率条件を既存共有stat読取/binary64比較へ接続。通常/actor-field受付を同一のstat whitelist＋有限値guardへ統一。Metal主32(native26/拒否6)＋原文全定義実モダニア2が同一到達sourceで成功し独立seal。CPU各102検査、GPU0.043992秒/3.645644秒、後者生成cache必須hit。物理履歴112/0省略と2048/295省略を照合。初回受付失敗・診断・GPU前監査失敗を保持し、入力/native期待値は不変。静的226/266・base166/203・69分類はGPU認定ではない。旧1169は変更前sourceの証拠で、今回sourceの全保持検証は容量不足で未開始（input約0.49GB＋output3.68GB＋予備14GiB必要）。development_only維持、全体promotion/証明更新は保留。raw/claims削除0、正本CPU/数値/normalizer不変、Windows追加操作0/原因unknown/保全false、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-accuracy-predicate-gpu.mdとresearch/portable-accuracy-predicate-gpu-checkpoint.json。以下は履歴です。
 <!-- /accuracy-predicate-gpu-current -->
