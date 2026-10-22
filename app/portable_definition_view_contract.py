@@ -30,7 +30,7 @@ def verify(root,*,sources=None):
         depth+=(decoder[finish]=='{')-(decoder[finish]=='}');finish+=1
     assert tokens(decoder[begin:finish])==tokens('{ d._wireInput=input;d._wireRow=row;d._overrideMask=0;d._route=0;d._hits=0; }'),'Wire snapshot or override initialization changed'
     assert fingerprint(decoder[:begin]+'DEFINITION_LOADER_SLOT'+decoder[finish:])==f['decoder_without_loader_body_tokens'],'Canonical wire accessor/decoder changed'
-    reviewed_deltas=[]
+    reviewed_deltas=[];factor_deltas=[]
     for name,digest in f['other_shared_sources'].items():
         raw=sources[name].encode('utf-8') if name in sources else (root/name).read_bytes()
         if name=='gpu/world_actor_state.slang' and hashlib.sha256(raw).hexdigest()!=digest:
@@ -38,10 +38,19 @@ def verify(root,*,sources=None):
             baseline,applied=baseline_scope_source(raw.decode('utf-8'))
             assert applied,'Shared consumer change is not the reviewed scope snapshot delta'
             raw=baseline.encode('utf-8');reviewed_deltas.append(name)
-        assert hashlib.sha256(raw).hexdigest()==digest,'Shared numeric/consumer source changed: '+name
+        if name=='gpu/damage_runtime.slang' and hashlib.sha256(raw).hexdigest()!=digest:
+            # Deliberate later feature work, not a claim that the old consumer
+            # bytes survived. Retain its baseline hash and admit only this exact
+            # reviewed extraction. Numerical parity still requires GPU evidence.
+            assert digest=='4cd960b9b0d3bd42490e71794ae60077095d41a0c1ca9b88312aad389468170f'
+            assert hashlib.sha256(raw).hexdigest()=='7f7b7a24887be9361bea9ad360e99db0ab4323ede760cc0070ea1c7262feca5f','Unreviewed damage factor source'
+            assert hashlib.sha256(read('gpu/damage_factors.slang').encode('utf-8')).hexdigest()=='c806441d5532ccc494e3f9099033378621e95cc248fe1be8826f9864de2ca3de','Unreviewed damage factor product'
+            factor_deltas=['gpu/damage_runtime.slang','gpu/damage_factors.slang']
+        else:
+            assert hashlib.sha256(raw).hexdigest()==digest,'Shared numeric/consumer source changed: '+name
     # The fixed closure has indexed reads, never an escaped mutable command
     # buffer. Future source changes must deliberately re-audit this assumption.
-    for name in ['gpu/event_runtime.slang','gpu/definition_runtime.slang',*f['other_shared_sources']]:
+    for name in ['gpu/event_runtime.slang','gpu/definition_runtime.slang',*f['other_shared_sources'],*factor_deltas]:
         ts=tokens(read(name))
         for i,t in enumerate(ts):
             if t!='commands':continue
@@ -53,4 +62,4 @@ def verify(root,*,sources=None):
             assert ts[j]!='=' or ts[j+1]=='=','Input command write: '+name
             assert ts[j] not in ('+','-','|','&','^','*','/','%') or ts[j+1]!='=','Input compound command write: '+name
             assert ts[j:j+2] not in (['+','+'],['-','-']),'Input command increment: '+name
-    return dict(verified=True,properties=55,local_override_properties=['damageRoute','damageHits'],wire_immutable=True,other_shared_sources_unchanged=not reviewed_deltas,other_sources_outside_reviewed_delta_unchanged=True,reviewed_scope_snapshot_sources=reviewed_deltas,gpu_calls=0,scope='Source correspondence/snapshot contract; GPU copy semantics and numerical parity require actual execution')
+    return dict(verified=True,properties=55,local_override_properties=['damageRoute','damageHits'],wire_immutable=True,other_shared_sources_unchanged=not (reviewed_deltas or factor_deltas),other_sources_outside_reviewed_delta_unchanged=True,reviewed_scope_snapshot_sources=reviewed_deltas,reviewed_damage_factor_sources=factor_deltas,gpu_calls=0,scope='Source correspondence/snapshot contract; explicit later source deltas do not prove numerical parity, which requires actual execution')

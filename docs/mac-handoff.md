@@ -1,3 +1,7 @@
+<!-- damage-factors-current -->
+共通ダメージの因子取得／順次積を分離し、damageValueWithPartの入口を追加しました。CUDA／Metal共通Slang、binary64／整数／pow／normalizer／protected CPUは不変です。CLI damage-factors16はMetal全bit一致・独立seal、既存849(native676/拒否173)と実4も全件一致・独立seal、旧raw2670723072B/89afa4ed...と12582912B/f83a45b0...が全byte一致、全input/native/output entries保持。CPU集約307成功。source closure111/Runtime stride138952、full/commands証明書とgoldenを実証から登録しました。details docs/portable-damage-factors.md / research/portable-damage-factors-checkpoint.json。新しい二値入口は戦闘未接続でhits_partsの受付は閉じたまま。次は生成時の二値sample診断とFrame snapshot、周期snapshotと重ならないreceipt bank、live part group landingへの接続です。Windowsは以下の7終了の原因unknownで追加実行停止、全キャラ認定0/ゴール未達を維持します。
+<!-- /damage-factors-current -->
+
 # Windows scope検証の停止記録
 
 固定ソース`5c4bfcd`のCPU272件、PTX生成、object生成、JIT CUBIN生成は成功しました。link後の既存プロセス7件の消失により、実編成4ケースのGPU実行は開始せず停止しています。CUDAの修正版数値一致は未検証です。MacではMetal849ケースと実編成4ケースの全raw保持・独立sealが完了しています。

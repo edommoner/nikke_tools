@@ -14,6 +14,12 @@ class DefinitionViewTests(unittest.TestCase):
         for old,new in [('return results[at];','return results[at+1];'),('actorStateQueryScopeSnapshot(at);','actorStateQueryScopeSnapshot(at+1);')]:
             with self.subTest(old=old),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(old,new,1)})
 
+    def test_damage_factor_ledger_rejects_any_unreviewed_body_or_product(self):
+        self.assertEqual(verify(ROOT)['reviewed_damage_factor_sources'],['gpu/damage_runtime.slang','gpu/damage_factors.slang'])
+        for name,old,new in [('gpu/damage_runtime.slang','factors[7] = f3','factors[7] = ONE'),('gpu/damage_factors.slang','f64Div(factors[0],HUNDRED)','factors[0]')]:
+            source=(ROOT/name).read_text();self.assertIn(old,source)
+            with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(old,new,1)})
+
     def test_changed_getter_signedness_or_override_is_rejected(self):
         name='gpu/event_runtime.slang';source=(ROOT/name).read_text()
         for old,new in [('definition_owner(_wireInput,_wireRow)','definition_kind(_wireInput,_wireRow)'),('property int budget','property uint budget'),('_overrideMask|=1U','_overrideMask&=1U'),('_route=newValue','_hits=newValue')]:

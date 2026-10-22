@@ -138,6 +138,9 @@ SUITES['entry-reload-regression']['tests'].append('test_portable_heal_share_life
 SUITES['definition-view']=dict(script='research/verify-definition-view-short.py',source='gpu/definition_view_probe.slang',
     golden='research/portable-definition-view-probe-expected.json',inputs=6,native=6,development_only=False,
     tests=['test_portable_definition_view.py','test_portable_resident_layout.py','test_portable_resident_transport.py'])
+SUITES['damage-factors']=dict(script='research/verify-damage-factors-short.py',source='gpu/damage_factors_probe.slang',
+    golden='research/portable-damage-factors-short-expected.json',inputs=16,native=16,development_only=False,
+    tests=['test_portable_damage_factors.py'])
 SUITES['heal-share-plan']=dict(script='research/verify-heal-share-plan-short.py',source='gpu/heal_share_plan_probe.slang',
     golden='research/portable-heal-share-plan-short-expected.json',inputs=10,native=8,development_only=False,
     tests=['test_portable_heal_share_plan.py'])

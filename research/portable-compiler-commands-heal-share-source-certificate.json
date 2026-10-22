@@ -58,7 +58,8 @@
     "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
     "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
     "gpu/skill_critical_runtime.slang": "ffab45b7bc55c3d1bbe472d9b590320183281e6aa11370e212c84e56ab218417",
-    "gpu/damage_runtime.slang": "4cd960b9b0d3bd42490e71794ae60077095d41a0c1ca9b88312aad389468170f",
+    "gpu/damage_runtime.slang": "7f7b7a24887be9361bea9ad360e99db0ab4323ede760cc0070ea1c7262feca5f",
+    "gpu/damage_factors.slang": "c806441d5532ccc494e3f9099033378621e95cc248fe1be8826f9864de2ca3de",
     "gpu/incoming_runtime.slang": "6e4d106fd6b92509394c1b9c0005c824acf79fe67e476fe43fe783632d6ad1fb",
     "gpu/revival_runtime.slang": "4b38cb85ff3d24375191cabd836283f572a8c2663fccd9c1d31b71bcbb853683",
     "gpu/burst_runtime.slang": "0f924f0b48008d41979119ae61e5a3cb9432f8e862ff84532990d6b86d5301f4",
@@ -117,12 +118,12 @@
     "gpu/program_phases.slang": "ebc1b7a37d7473223510f310d511dc90aa95d040b9e75f6b3a0fe0e836e7ec0f"
   },
   "generated_normalized": {
-    "cuda": "4f5ec3643d3543e70a8373d342bfa936089cea3599713b7496ef43627da8d7e1",
-    "metal": "66742c7b734392d38340970318abef1ef88914317853647eec15dfbca75f0ee8"
+    "cuda": "0bf444dd50db37a3256aa6b91045accab94e270b11fd1c8fd1c73f7e0cf8ffd6",
+    "metal": "67fd008cad89f69c08e0e13ef3b738d0ddded4fcdbe129bca50534ac6c164086"
   },
   "entries": [],
   "input_sha256": null,
   "baseline_suite": "heal-share-regression",
-  "baseline_golden_sha256": "ddfa17ef9b0c7e320187a42902fdfb4796d15354ed1b627b0829956e2f8025b2",
-  "scope": "Shared commands from verified Metal849 source; no compiler memory improvement or CUDA battle verification"
+  "baseline_golden_sha256": "b497c4641ea5d46100af608e80daaecf496e2124f619a67b34ae919cf4589cff",
+  "scope": "Exact commands source from the Metal849 factor-extraction proof and paired source generation; no new NVRTC, link, CUDA battle or compiler performance proof"
 }

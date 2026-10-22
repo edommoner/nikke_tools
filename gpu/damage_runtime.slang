@@ -1,3 +1,5 @@
+#include "damage_factors.slang"
+
 // Re-evaluate geometry at impact; cache only the exact normalized ratio.
 // The cache is per actor and shared by both backends, never CPU-produced.
 uint64_t normalProbability(inout Runtime s, uint who, uint64_t accuracy)
@@ -27,7 +29,8 @@ uint64_t normalProbability(inout Runtime s, uint who, uint64_t accuracy)
 // Seven-factor scalar damage, shared by CUDA and Metal. All intermediate
 // arithmetic is software binary64 and follows the authored reference order.
 [noinline]
-uint64_t damageValue(inout Runtime s, uint who, uint64_t coefficient, uint64_t when,
+void sampleDamageFactors(inout Runtime s, uint who, uint64_t coefficient, uint64_t when,
+    out uint64_t factors[9],
     bool normal, uint64_t coreBonus, uint flags = 0, uint64_t fullChargeMult = ONE,
     bool optimal = false, bool physical = false)
 {
@@ -54,6 +57,7 @@ uint64_t damageValue(inout Runtime s, uint who, uint64_t coefficient, uint64_t w
     if (s.phase == 5) f3 = f64Add(f3,uint64_t(0x3fe00000) << 32);
     if(normal && hasRangeGeometry(s)) optimal=geometryRange(s,who,true,b[S_optimal_range_min],b[S_optimal_range_max_pct]);
     if (normal && optimal) f3 = f64Add(f3,uint64_t(0x3fd33333) << 32 | 0x33333333);
+    factors[7] = f3; // Part receipts retain this shot's critical/range basis, without core.
     uint64_t core = COUNTER_PART_CORE(s,flags,(flags & H_CORE) != 0 ? ONE : normal ? normalProbability(s,who,b[S_accuracy_pct]) : WORLD_MODE_CORE(s,who,flags,b[S_accuracy_pct]));
     WORLD_FRACTION_SAMPLE(s,who,critRate,core,physical,flags) if (!f64Zero(core)) f3 = f64Add(f3,f64Mul(core,f64Add(coreBonus,f64Div(b[S_core_dmg_pct],HUNDRED))));
     uint64_t f4 = (flags & H_CHARGE) != 0 ? f64Add(f64Mul(fullChargeMult,f64Add(ONE,f64Div(b[S_charge_dmg_mag_pct],HUNDRED))),f64Div(b[S_charge_dmg_pct],HUNDRED)) : ONE;
@@ -70,14 +74,47 @@ uint64_t damageValue(inout Runtime s, uint who, uint64_t coefficient, uint64_t w
     if ((flags & H_EXPLOSION) != 0) f5 = f64Add(f5,f64Div(b[S_projectile_explosion_dmg_pct],HUNDRED));
     if ((flags & H_ATTACHMENT) != 0) f5 = f64Add(f5,f64Div(b[S_projectile_attachment_dmg_pct],HUNDRED));
     if ((flags & H_SEQUENTIAL) != 0) f5 = f64Add(f5,f64Div(b[S_sequential_dmg_pct],HUNDRED));
+    factors[8] = f64Add(f5,f64Div(b[S_part_dmg_pct],HUNDRED));
     if ((flags & H_PART) != 0) f5 = f64Add(f5,f64Div(b[S_part_dmg_pct],HUNDRED));
     if ((flags & H_INTERCEPT) != 0) f5 = f64Add(f5,f64Div(b[S_intercept_dmg_pct],HUNDRED));
     uint64_t f6 = f64Add(ONE,f64Div(b[S_received_dmg_pct],HUNDRED));
     if ((flags & H_SPLIT) != 0) f6 = f64Add(f6,f64Div(b[S_split_dmg_pct],HUNDRED));
     uint64_t f7 = elementMatch(s,who) ? f64Add(uint64_t(0x3ff19999) << 32 | 0x9999999a,f64Div(b[S_element_bonus],HUNDRED)) : ONE;
-    uint64_t raw = f64Mul(f64Div(f1,HUNDRED),f2);
-    raw = f64Mul(raw,f3); raw = f64Mul(raw,f4); raw = f64Mul(raw,f5); raw = f64Mul(raw,f6); raw = f64Mul(raw,f7);
+    factors[0]=f1; factors[1]=f2; factors[2]=f3; factors[3]=f4;
+    factors[4]=f5; factors[5]=f6; factors[6]=f7;
+}
+
+// Keep the reference's divide, seven ordered products and integer boundary.
+// A part packet uses the captured no-core and part-only additive factors;
+// no stats query, RNG/fraction sampling or reverse ratio is performed here.
+uint64_t damageFromFactors(inout Runtime s, uint64_t factors[9], bool part)
+{
+    uint64_t raw = damageFactorProduct(factors,part);
     uint status; uint64_t rounded = f64ToI64(raw,0,status);
     if (status != 0) { s.error = 16; return 0; }
     return larger(ONE,f64FromI64(rounded));
+}
+
+[noinline]
+uint64_t damageValue(inout Runtime s, uint who, uint64_t coefficient, uint64_t when,
+    bool normal, uint64_t coreBonus, uint flags = 0, uint64_t fullChargeMult = ONE,
+    bool optimal = false, bool physical = false)
+{
+    uint64_t factors[9];
+    sampleDamageFactors(s,who,coefficient,when,factors,normal,coreBonus,flags,fullChargeMult,optimal,physical);
+    return damageFromFactors(s,factors,false);
+}
+
+// The caller requests a part value only when a reached live part needs it.
+// The old single-value path never adds a second rounding/error boundary.
+[noinline]
+uint64_t damageValueWithPart(inout Runtime s, uint who, uint64_t coefficient, uint64_t when,
+    bool normal, uint64_t coreBonus, uint flags, out uint64_t partAmount,
+    uint64_t fullChargeMult = ONE, bool optimal = false, bool physical = false)
+{
+    uint64_t factors[9];
+    sampleDamageFactors(s,who,coefficient,when,factors,normal,coreBonus,flags,fullChargeMult,optimal,physical);
+    uint64_t amount=damageFromFactors(s,factors,false);
+    partAmount=s.error==0 ? damageFromFactors(s,factors,true) : 0;
+    return amount;
 }

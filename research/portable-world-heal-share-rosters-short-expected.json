@@ -55,7 +55,8 @@
     "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
     "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
     "gpu/skill_critical_runtime.slang": "ffab45b7bc55c3d1bbe472d9b590320183281e6aa11370e212c84e56ab218417",
-    "gpu/damage_runtime.slang": "4cd960b9b0d3bd42490e71794ae60077095d41a0c1ca9b88312aad389468170f",
+    "gpu/damage_runtime.slang": "7f7b7a24887be9361bea9ad360e99db0ab4323ede760cc0070ea1c7262feca5f",
+    "gpu/damage_factors.slang": "c806441d5532ccc494e3f9099033378621e95cc248fe1be8826f9864de2ca3de",
     "gpu/incoming_runtime.slang": "6e4d106fd6b92509394c1b9c0005c824acf79fe67e476fe43fe783632d6ad1fb",
     "gpu/revival_runtime.slang": "4b38cb85ff3d24375191cabd836283f572a8c2663fccd9c1d31b71bcbb853683",
     "gpu/burst_runtime.slang": "0f924f0b48008d41979119ae61e5a3cb9432f8e862ff84532990d6b86d5301f4",
@@ -140,7 +141,7 @@
     }
   ],
   "generated_normalized": {
-    "cuda": "3e5b6a49226be57a9d25741538832220a872f4d2d0db3b99be187eb7d6c84baf",
-    "metal": "197a71d95793d8b860f302e22acffbea69bd00c65abb9d491791b1f6a28f23bd"
+    "cuda": "9067034cd788590272d9ffa2983899ff3f4e98f71cf2504a214b35732187ac42",
+    "metal": "3d1b21466071ae8a51434f12b50ea621b2719febce6240f589e2cc4b82058387"
   }
 }
