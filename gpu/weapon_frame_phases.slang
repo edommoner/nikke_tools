@@ -118,6 +118,7 @@ void landWeaponPellets(inout Runtime s,inout Weapon w,uint who,uint64_t when,uin
 [noinline]
 void finishWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint output,uint count,uint epoch,int mode,bool scheduleAutoReload,uint64_t shotInterval,bool last)
 {
+    if(w.mode!=1) notifyPelletInShot(s,who,count,when,output);
     bool burstSpeed=(s.quantityMask & 128)!=0;
     if(burstSpeed && w.mode!=1 && WORLD_PACKET_NORMAL(s,who)) s.normalLandedMask|=1U<<who;
     if(!burstSpeed || w.mode!=1) WORLD_PHYSICAL_GAUGE(s) addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when));

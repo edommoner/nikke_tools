@@ -436,6 +436,7 @@ void advanceDefinitionFrame(inout Runtime s, inout Frame frames[32], inout int d
                     uint at = s.inputBase+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8;
                     uint event = commands[at], mode = commands[at+3]; int tag = int(commands[at+4]), stage = int(commands[at+7]);
                     if (event != f.event) continue;
+                    if (event == 27 && tag != f.argument) continue;
                     if (event == 4 && stage != f.argument || event == 6 && int(j) != f.argument) continue;
                     if (COUNTER_NAMED(s,event,WORLD_CONTROL_NAMED(event,(event == 9 || event == 29 || event == 30 || event == 31 || event == 48 || event == 49 || event == 59))) && tag != f.argument) continue;
                     if (event == 9 && commands[at+5] != f.value) continue; WORLD_PROJECTILE_SKIP_SLOT(event,stage)

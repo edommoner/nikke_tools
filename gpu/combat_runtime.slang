@@ -251,6 +251,7 @@ bool changedWeaponSession(inout Runtime s, uint who, uint epoch, int originalMod
     // its physical shot, so its consumption and scheduling still finish.
     return !(originalMode < 0 && s.modeIndex[who] < 0 && s.physicalModeIndex[who] < 0);
 }
+#include "pellet_shot_runtime.slang"
 #include "weapon_frame_phases.slang"
 [noinline]
 void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out uint64_t landedAmount, out uint landedCount, out uint landedTarget)

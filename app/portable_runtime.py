@@ -128,6 +128,9 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     from portable_trigger_specs import validate_input
     try:validate_input(eff,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason=getattr(error,'reason',None),operator=getattr(error,'operator',None)) from error
+    from portable_pellet_shot_specs import PREFIX as PELLET_SHOT_PREFIX
+    if combat is None and any(t.startswith(PELLET_SHOT_PREFIX) for t in eff['trigger']['timing']):
+        raise UnsupportedPortable('Per-shot pellet notices require owned combat weapons',reason='trigger',operator=dict(domain='timing',descriptor=next(t for t in eff['trigger']['timing'] if t.startswith(PELLET_SHOT_PREFIX))))
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
     if stat=='heal_split' and (kind!='buff' or combat is None or not world_frame or eff.get('scaling') is not None):
         raise UnsupportedPortable('Healing share requires an unscaled private combat world buff',reason='effect')
@@ -241,9 +244,12 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     if geometry is None and geometry_required(effects):raise UnsupportedPortable('Core/range effects require literal geometry input')
     geometry_chars=compiler_chars(chars,geometry)
     from portable_target_state_specs import compiler_effect as target_compiler_effect
-    program=legacy.compile_effects(geometry_chars,[(target_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e)),owner) for e,owner in effects])
+    from portable_pellet_shot_specs import compiler_effect as pellet_shot_compiler_effect
+    program=legacy.compile_effects(geometry_chars,[(pellet_shot_compiler_effect(target_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e))),owner) for e,owner in effects])
     from portable_team_hit_specs import bind_compiled
     effects,binding_metadata=bind_compiled(effects,program,[c['name'] for c in chars])
+    from portable_pellet_shot_specs import bindings as pellet_shot_bindings
+    shot_tags=pellet_shot_bindings(effects,[c['name'] for c in chars])
     staged=staged_descriptors(effects)
     from portable_target_state_specs import allocate_names as target_state_names
     target_state_names(effects,program['states'])
@@ -421,7 +427,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         from portable_protection_specs import pack as pack_protection
         pack_protection(words,index,eff,L)
         from portable_trigger_specs import pack_descriptors
-        pack_descriptors(words,index,row,L,F,double_words,effect=effects[index][0],states=program['states'],world_frame=world_frame)
+        pack_descriptors(words,index,row,L,F,double_words,effect=effects[index][0],states=program['states'],world_frame=world_frame,shot_tags=shot_tags[effects[index][1]])
         if eff.get('scaling')=='lost_hp_pct':words[at+F['FLAGS']] |= 128
         # Native world health helpers read active membership directly, whereas
         # get_buffs rechecks infinite-duration runtime predicates. Keep both paths.

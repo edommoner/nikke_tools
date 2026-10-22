@@ -1,3 +1,5 @@
+この20ケースのCPU準備段階に続き、signed32下限を加えた21契約と共通GPU接続を検証しました。現行記録は[GPU接続](portable-pellet-shot-gpu.md)を参照してください。以下はCPU準備時の記録です。
+
 # 1射内の散弾命中数: CPU契約
 
 `reference --suite pellet-shot --out <新しいJSON>` を共通CLIへ追加しました。

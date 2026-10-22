@@ -19,7 +19,7 @@ CONDITIONS=dict(TRIGGER_HIT_CRIT=28,TARGET_STUNNED=23,SELF_STUN_IMMUNE=24,TARGET
                 BACK_ROW=7,STAT_ABOVE=8,HP_ABOVE=9,HP_BELOW=10,HP_MAX=11,NOT_SELF_HEAL=13,CAST=14,NOT_CAST=15,STATIC=25,CHARGING=29,
                 BURST1_ALLY=31,NO_BURST1_ALLY=32,ALLY_HP_BELOW=34,TARGET_CODE=TARGET_CODE,ENEMIES_ABOVE=ENEMY_COUNT_ABOVE,
                 ENEMIES_BELOW=ENEMY_COUNT_BELOW,TARGET_BOSS=TARGET_IS_BOSS,TARGET_ADD=TARGET_IS_ADD)
-EVENTS=frozenset((0,1,2,3,4,6,7,8,9,10,11,12,14,16,17,18,19,20,21,26,29,30,31,32,36,37,38,43,46,48,49,59,60))
+EVENTS=frozenset((0,1,2,3,4,6,7,8,9,10,11,12,14,16,17,18,19,20,21,26,27,29,30,31,32,36,37,38,43,46,48,49,59,60))
 COUNT=r'(?:[1-9][0-9]*|\{0\})'
 SIMPLE=r'event:shield_applied|event:shield_consumed|feather_tick|source_tick:.+|event:cover_healed|event:cover_hit|received_hit|event:lethal_hit|event:self_down|event:ally_down|event:heal_received|battle_start|passive|on_attack|hit_count|burst_cast|full_burst_start|full_burst_end|event:full_reload|last_bullet|last_bullet_fire|full_charge|full_charge_fire|full_charge_hit|squad_ammo_consume|pellet_hit'
 COUNTERS=rf'(?:part_hit_count|body_hit_count|crit_hit_count|core_hit_count|core_hit|received_hit_count|on_attack_count|hit_count|squad_ammo_consume|pellet_hit|pellet_hit_count|full_charge_fire_count|full_charge_count|full_charge_hit_count|burst_cast_count|full_burst_start_count|full_burst_end_count|full_burst_start_exact):{COUNT}'
@@ -45,6 +45,10 @@ def validate_input(eff,*,world_frame=False):
         if isinstance(condition,str):target_predicate(condition)
     for timing in timings:
         if not isinstance(timing,str):raise ValueError('Invalid timing')
+        from portable_pellet_shot_specs import parse as parse_pellet_shot
+        try:pellet_shot=parse_pellet_shot(timing)
+        except ValueError as error:raise UnsupportedTrigger(str(error),domain='timing',descriptor=timing) from error
+        if pellet_shot is not None:continue
         if timing.startswith('event:'):
             from detail_gpu import EVENT
             if timing in EVENT and EVENT[timing] not in (EVENTS|frozenset((5,22,23,33,34,35,39,42,44,45)) if world_frame else EVENTS):raise UnsupportedTrigger('Unported trigger timing: '+timing,domain='timing',descriptor=timing)
@@ -62,13 +66,20 @@ def validate_input(eff,*,world_frame=False):
         if not isinstance(condition,str) or not re.fullmatch(CONDITION,condition):raise UnsupportedTrigger('Unported predicate: '+str(condition),domain='condition',descriptor=condition)
 
 
-def pack_descriptors(words,index,row,L,F,double_words,*,effect=None,states=None,world_frame=False):
+def pack_descriptors(words,index,row,L,F,double_words,*,effect=None,states=None,world_frame=False,shot_tags=None):
     n=int(row[144]);nc=int(row[14])
     if not 1<=n<=8 or not 0<=nc<=3:raise ValueError('Descriptor capacity exceeded')
     for slot in range(n):
         event,threshold,mode,tag,value,passive,stage=row[145+slot*7:152+slot*7]
         if event not in (EVENTS|frozenset((5,22,23,33,34,35,39,42,44,45)) if world_frame else EVENTS) or mode not in (0,1,2,3):raise ValueError('Unported compiled trigger')
-        if event!=6 and (threshold!=int(threshold) or not 0<=threshold<=2**31-1):raise ValueError('Invalid discrete trigger threshold')
+        if event!=6 and (threshold!=int(threshold) or not (-(2**31) if event==27 else 0)<=threshold<=2**31-1):raise ValueError('Invalid discrete trigger threshold')
+        if event==27:
+            from portable_pellet_shot_specs import parse
+            parsed=parse(effect['trigger']['timing'][slot]) if effect is not None else None
+            if parsed is None or max(1,parsed[0])!=threshold or shot_tags is None or mode!=0 or tag!=-1 or value!=0 or passive!=0 or stage!=-1:raise ValueError('Invalid compiled per-shot descriptor')
+            threshold=parsed[0]
+            tag=shot_tags[parsed[1]]
+            stage=0
         if (mode or event in (7,8,30)) and threshold<=0:raise ValueError('Trigger threshold must be positive')
         if event==6 and (not math.isfinite(threshold) or threshold<=0):raise ValueError('Invalid compiled period')
         if event==9 and (value!=int(value) or not 0<=value<=2**31-1):raise ValueError('Invalid stack reach value')

@@ -1,3 +1,7 @@
+<!-- pellet-shot-gpu-current -->
+1射内pellet_hit_in_shot:NをCUDA／Metal共通Slangへ接続。原文別ID・signed32、0/負値の静的loweringと復元、captured pellet×muzzles、auto/warmupの通知順・重複descriptorを保持。CPU21契約、Metal36(native21/拒否15)＋メイドプリバティ全定義3秒/30秒2＋旧1050が同116sourceで一致・独立seal。旧全entriesとraw3303014400Bを全byte保持し、計1088(native870/拒否218)。CPU回帰61群362検査88.802秒、GPU10.649943秒、成功3検証の追加Slang0。full116/commands117 certificate14検査成功、最終sealed package CPU62検査・claimなし。実30秒で閾値通知43回・正reload speed照会4133回、最大20.88%、native指紋保持。物理履歴85/770・省略0、旧既知省略は維持。v1はfixtureのmin_cycle10混入でcharge1射差分、原失敗保持・正本入力0.1秒へ修正した別v2で成功、GPU source再変更なし。静的224/266・base164/203・71分類はGPU認定ではない。Windows追加操作0・7終了unknown/preservationfalse停止、全キャラ認定0/UI CPU/ゴール未達。詳細docs/portable-pellet-shot-gpu.mdとresearch/portable-pellet-shot-gpu-checkpoint.json。次は正本consumer確認済みsquad_ammo_consume_asのCPU契約。以下は履歴です。
+<!-- /pellet-shot-gpu-current -->
+
 <!-- lost-hp-attack-current -->
 失HP ATKの受付更新後もfull115／commands116。Metal1050入力の独立seal・旧1016全raw保持からcertificateを更新し、14検査成功。commands専用生成CUDA/Metalの原byteは前版と同一ですが、NVRTC実cache hit・新CUDA実行・環境保全の証拠ではありません。Windows新規検証停止を維持。詳細[失HP ATK](portable-lost-hp-attack.md)。以下は履歴です。
 <!-- /lost-hp-attack-current -->

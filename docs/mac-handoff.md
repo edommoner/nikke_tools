@@ -1,3 +1,7 @@
+<!-- pellet-shot-gpu-current -->
+1射内pellet_hit_in_shot:NをCUDA／Metal共通Slangへ接続。原文別ID・signed32、0/負値の静的loweringと復元、captured pellet×muzzles、auto/warmupの通知順・重複descriptorを保持。CPU21契約、Metal36(native21/拒否15)＋メイドプリバティ全定義3秒/30秒2＋旧1050が同116sourceで一致・独立seal。旧全entriesとraw3303014400Bを全byte保持し、計1088(native870/拒否218)。CPU回帰61群362検査88.802秒、GPU10.649943秒、成功3検証の追加Slang0。full116/commands117 certificate14検査成功、最終sealed package CPU62検査・claimなし。実30秒で閾値通知43回・正reload speed照会4133回、最大20.88%、native指紋保持。物理履歴85/770・省略0、旧既知省略は維持。v1はfixtureのmin_cycle10混入でcharge1射差分、原失敗保持・正本入力0.1秒へ修正した別v2で成功、GPU source再変更なし。静的224/266・base164/203・71分類はGPU認定ではない。Windows追加操作0・7終了unknown/preservationfalse停止、全キャラ認定0/UI CPU/ゴール未達。詳細docs/portable-pellet-shot-gpu.mdとresearch/portable-pellet-shot-gpu-checkpoint.json。次は正本consumer確認済みsquad_ammo_consume_asのCPU契約。以下は履歴です。
+<!-- /pellet-shot-gpu-current -->
+
 <!-- pellet-shot-reference-current -->
 共通CLI `reference --suite pellet-shot` に正本CPU20契約を追加。fresh不変packageで59射・62通知が成功し、旧失HP／共通reference負例を含む3群18検査成功。raw閾値aliasの区別、数値→原文順、重複descriptorの複数発動、captured pellet×muzzles、auto/warmupのみの通知、gauge/attack前の順序を固定。観測器の追加buff照会0・native/trace全保持。GPU本体／受付／golden／数値／ABI変更0・GPU実行0で、未実装のCPU準備段階です。Windowsのゲーム／動画併用は原因証拠ではなく、7終了unknown・環境保全false・追加検証停止を維持。詳細docs/portable-pellet-shot-reference.mdとresearch/portable-pellet-shot-reference-checkpoint.json。次は原文別ID＋共通Slang通知、Metal短例・実編成・旧1050保持。全キャラ認定0／UI CPU／ゴール未達。以下は履歴です。
 <!-- /pellet-shot-reference-current -->

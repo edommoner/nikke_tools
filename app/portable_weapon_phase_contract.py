@@ -53,7 +53,8 @@ def verify(root,*,phase_source=None,wrapper_source=None):
     before=fixture['body'];assert hashlib.sha256(before.encode()).hexdigest()==fixture['body_sha256']
     source=phase_source if phase_source is not None else (root/'gpu/weapon_frame_phases.slang').read_text()
     from portable_physical_interrupt_contract import baseline_phase
-    source=baseline_phase(root,source)
+    try:source=baseline_phase(root,source)
+    except AssertionError as error:raise AssertionError('Weapon phase statements/signature changed: '+str(error)) from error
     wrapper=wrapper_source if wrapper_source is not None else (root/'gpu/combat_runtime.slang').read_text()
     parts=[]
     for i,name in enumerate(NAMES):

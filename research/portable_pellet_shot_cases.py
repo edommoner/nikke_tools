@@ -7,7 +7,7 @@ from world_enemy_attack_cases import field
 def fixtures():
     base=copy.deepcopy(lost_fixtures()[-1])
     base.update(effects=[],owners=[],patterns=[dict(id='idle',kind='idle')],base_atk=[6000]*5,duration=.25)
-    for weapon in base['combat']['weapons']:weapon.update(mode='charge',charge=10)
+    for weapon in base['combat']['weapons']:weapon.update(mode='charge',charge=10,interval=10)
     rows=[]
     def add(label,*,pellets=5,muzzles=1,timings=('pellet_hit_in_shot:5',),notices=('5',),stack=3,damages=(1200,1320,1440),owner=0):
         c=copy.deepcopy(base);c['name']='pellet-shot-'+label
@@ -25,6 +25,7 @@ def fixtures():
     add('last-owner',owner=4)
     add('zero',timings=('pellet_hit_in_shot:0',),notices=('0',))
     add('negative',timings=('pellet_hit_in_shot:-1',),notices=('-1',))
+    add('signed-minimum',timings=('pellet_hit_in_shot:-2147483648',),notices=('-2147483648',))
     add('large',timings=('pellet_hit_in_shot:2147483647',),notices=(),stack=0,damages=(1200,1200,1200))
     add('raw-aliases',timings=tuple('pellet_hit_in_shot:'+x for x in ('5','05','+5',' 5','５')),notices=(' 5','+5','05','5','５'),stack=15,damages=(1200,1800,2400))
     add('numeric-order',timings=('pellet_hit_in_shot:5','pellet_hit_in_shot:2','pellet_hit_in_shot:10'),notices=('2','5'),stack=6,damages=(1200,1440,1680))
@@ -38,7 +39,7 @@ def fixtures():
     c['effects'].append(field('pellet_count',3,'self','split-child','pellet_hit',max_stack=1));c['owners'].append(0)
     c['contract'].update(notices=['5','5'],counts=[6,6],packet_counts=[3,6,6])
     c=add('charge-does-not-notify',notices=(),stack=0,damages=(1200,1200))
-    c['combat']['weapons'][0].update(mode='charge',charge=.05,full_charge_mult=100)
+    c['combat']['weapons'][0].update(mode='charge',charge=.05,min_cycle=.1,full_charge_mult=100)
     c['contract']['packet_counts']=[5,5]
     c=add('warmup');c['combat']['weapons'][0].update(mode='auto_warmup',rate=10,rate_max=10,warmup=1)
     return rows

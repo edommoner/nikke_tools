@@ -17,8 +17,11 @@ def baseline_source(root, name, source):
     assert hashlib.sha256(source.encode()).hexdigest()==row['baseline_sha256'],'HP skill historical source changed: '+name
     return source,True
 
-def verify_sources(root,sources=None):
+def verify_sources(root,sources=None,*,pellet_projected=False):
     root=Path(root);sources=sources or {};data=ledger(root)
+    if not pellet_projected:
+        from portable_pellet_shot_source_contract import project_sources
+        sources,_=project_sources(root,sources)
     for name in data['sources']:
         baseline_source(root,name,sources.get(name,(root/name).read_text()))
     for name,digest in data['new_sources'].items():

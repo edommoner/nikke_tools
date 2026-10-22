@@ -11,8 +11,8 @@ spec=importlib.util.spec_from_file_location('pellet_shot_cli',ROOT/'scripts/nikk
 
 
 class PelletShotReferenceTests(unittest.TestCase):
-    def test_twenty_literal_contracts_without_packing_or_gpu(self):
-        cases=fixtures();before=copy.deepcopy(cases);self.assertEqual(len(cases),20)
+    def test_twenty_one_literal_contracts_without_packing_or_gpu(self):
+        cases=fixtures();before=copy.deepcopy(cases);self.assertEqual(len(cases),21)
         def forbidden(*a,**kw):raise AssertionError('packing/GPU forbidden')
         with cli.forbid_gpu(),patch.object(portable_runtime,'compile_program',forbidden),patch.object(detail_gpu,'compile_effects',forbidden),patch.object(detail_gpu,'compile_full',forbidden):
             for case in cases:
@@ -63,10 +63,10 @@ class PelletShotReferenceTests(unittest.TestCase):
             self.assertIs(sys.getprofile(),prior)
         finally:sys.setprofile(previous)
 
-    def test_native_stage_registered_without_gpu_suite_admission(self):
+    def test_native_stage_stays_separate_from_gpu_evidence(self):
         from portable_reference import REFERENCES
         self.assertEqual(REFERENCES['pellet-shot'],('portable_pellet_shot_cases','world_pellet_shot_native','portable_pellet_shot_contracts'))
-        self.assertNotIn('pellet-shot',cli.SUITES)
+        self.assertEqual(cli.SUITES['pellet-shot']['native'],21)
 
     def test_observation_adds_no_buff_queries(self):
         code=observer.BuffManager.get_buffs.__code__;previous=sys.getprofile()
