@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "metal796_sealed_windows_ptx_pending",
+  "status": "metal796_sealed_windows_ptx_verified_assembly_failed",
   "candidate": {
     "boundaries": [
       "actorFieldCommand_0",
@@ -225,7 +225,30 @@
     "job_memory_limit_bytes": 2147483648,
     "automatic_driver_or_kernel": false
   },
-  "scope": "Source boundary and Metal equivalence proof; not compiler memory improvement/full CUDA/all-character certification",
+  "windows_result": {
+    "version": "v132",
+    "report": "research/portable-world-v132-query-boundaries-sanitized.json",
+    "source_scope": "Windows peer safe report; original capture not independently audited on Mac",
+    "cpu_smoke_passed": 144,
+    "compiler_verified": true,
+    "assembly_verified": false,
+    "ptx_bytes": 6721321,
+    "max_virtual_declarations": 5931,
+    "assembly_attempts": 1,
+    "assembly_seconds": 38.06140169966966,
+    "job_elapsed_seconds": 55.27590990019962,
+    "job_peak_memory_bytes": 2147631104,
+    "job_memory_limit_bytes": 2147483648,
+    "failure_cause": "Saved stdout reports ptxas Memory allocation failure; exact cap causality/required memory unproven",
+    "saved_diagnostic_report": "research/portable-world-v132-saved-diagnostic.json",
+    "post_job_empty": true,
+    "missing_processes": 0,
+    "preservation_verified": false,
+    "calculation_verified": false,
+    "kernel_calls": 0,
+    "retries": 0
+  },
+  "scope": "Source boundary and Metal equivalence proof; PTX shape improved but no full CUDA assembly/calculation or all-character certification",
   "logs": [
     {
       "path": "/tmp/nikke-query-boundaries-full-cpu.log",

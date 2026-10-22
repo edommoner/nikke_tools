@@ -12,8 +12,18 @@ Windowsでは新しいCPU batch smokeが成功しpost空/missing0/観測正常�
 
 独立assemblyへ進む事前条件は、(a)全PTX bytesが旧比10%以上減少、または(b)全関数maximum virtual宣言が20%以上減少し、全PTX bytesが増えていないことです。compiler/containment/入力sourceの検査成功が前提です。条件を満たさない場合はassembly/driverへ進まず停止。満たす場合だけ新PTXを同じ固定12.4.131 ptxas/sm86/O1/FMA無効で2GiB/60秒の1回assemblyとし、失敗は再実行しません。このgateは新しい試行が情報を増やすための仮説で、メモリ改善や成功の保証ではありません。成功してもmodule/fullCUDA計算は別工程で、自動追加しません。
 
-Macでは候補の全検査が完了し、WindowsのPTX検証は未実行です。全キャラGPU認定0、UI CPU、full796 CUDA未確認を維持します。
+Macでは候補の全検査が完了しました。下記v132でWindowsのPTX検証も完了しましたが、assemblyは失敗しています。全キャラGPU認定0、UI CPU、full796 CUDA未確認を維持します。
 
 Macのfresh package c1a7ef5aはCPU839中838成功/Windows専用1skip、6個のCUDA noinlineとuint Runtime handleを確認。CUDA関数数652は不変、noinlineは220→226です。入力/native全796指紋はGPU前から旧版と同じでした。
 
 Metal796/native633は新実行1回で一致し、既存retainerで全2,503,999,488byteを直接比較して完全一致・lazy bankゼロを確認。output SHAb9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637、GPU13.844秒は単一観測で性能認定ではありません。GPU禁止の独立sealも成功しました。新goldenはportable-world-query-boundaries-regression-short-expected.json、旧weapon-phases goldenは保持します。fixtureの元raw hashは固定Git8fdaf47へ全5ファイル照合済みです。後続の意図した機能追加では、今回だけのboundary契約をnativeケースとともに基準更新します。
+
+## Windows v132：PTX成功・assembly失敗
+
+固定e630078のsealed package85c28e99をfresh展開し、CPU smoke144件が同一workerで成功しました。NVRTC12.4.127のPTX生成は14.531秒、Job33.885秒、peak502,984,704byteで成功し、同一cache hitもGPU/NVRTC0で確認。旧PTX8,757,024→6,721,321byte、最大virtual宣言10,927→5,931で事前gateを満たしました。これは実registerやcompiler必要メモリの改善量ではありません。
+
+続く固定12.4.131 ptxasの1回assemblyは38.061秒、Job55.276秒、非ゼロ終了で失敗。Job peak2,147,631,104byteは2GiB上限付近、stderr0、ELF/partialなし。追加の保存file読取でstdout95byteにMemory allocation failureが残ることを確認しました。初回報告はstderrだけを確認して原因未確定としており、その報告も保持しています。必要メモリ量とJob上限との因果は未確定です。post Job空・missing0・cleanup/observation正常、serviceはunverifiedのためpreservation=false。driver/module/kernel0で本体CUDA計算は未確認です。同条件再実行や上限拡大はしません。
+
+根拠はresearch/portable-world-v132-query-boundaries-sanitized.json（Windowsのsafe report由来、Macで原captureを独立監査したものではありません）。次は既存stdout/phase記録の確認と、同じ共有本文のコンパイル到達範囲を切り分ける設計へ進みます。RDCや複数kernelの有効性は未証明で、自動fallbackにしません。
+
+保存fileの追加根拠はresearch/portable-world-v132-saved-diagnostic.json。stdout SHA9646198c…、origin verified→ptxas enteredは0.032秒、ptxas entered→return38.062秒でした。gate開放時刻とptxas直前のharness memoryは未取得です。pre-gate Job peak5,824,512byteを直前値へ代用せず、起動前の差約17秒を全て再監査時間とも扱いません。この確認は保存fileのCPU読取だけで、再実行0・原capture/cache/claim変更0です。

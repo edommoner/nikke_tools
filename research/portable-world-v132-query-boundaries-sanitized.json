@@ -1,0 +1,164 @@
+{
+  "version": "v132",
+  "source_commit": "e630078800caa29779ba277a4f258fdab7eb7d25",
+  "package": {
+    "id": "85c28e99878af04c8f666b5bf56ea0c78485f3903591ba638227f4ff689f7052",
+    "files": 1955,
+    "bytes": 5283123,
+    "windows_zip_sha256": "338b4a49de498e85832af7c0960468b09ddf3ad1126219a9865d856c96ae73e3",
+    "unpack_verified": true
+  },
+  "smoke": {
+    "attempts": 1,
+    "passed": 144,
+    "failed": 0,
+    "skipped": 0,
+    "group_counts": {
+      "windows_cleanup": 4,
+      "gpu_cli": 39,
+      "compile_cache": 12,
+      "cuda_artifact": 12,
+      "module_check": 19,
+      "weapon_phases": 7,
+      "offline_assembly": 14,
+      "readback_stream": 4,
+      "regression_compact": 3,
+      "file_transport": 15,
+      "cpu_batch": 7,
+      "query_boundaries": 4,
+      "ptx_stats": 4
+    },
+    "same_worker_pid": 86196,
+    "worker_timeout_seconds": 60,
+    "worker_elapsed_seconds": 24.935355099849403,
+    "job_post_empty": true,
+    "missing_processes": 0,
+    "cleanup_error": null,
+    "observation_error": null
+  },
+  "compile": {
+    "attempts": 1,
+    "compiler_verified": true,
+    "containment_verified": true,
+    "cli_exit_code": 2,
+    "options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false"
+    ],
+    "nvrtc_seconds": 14.531,
+    "job_elapsed_seconds": 33.88521829992533,
+    "peak_job_memory_bytes": 502984704,
+    "job_memory_limit_bytes": 2147483648,
+    "timeout_seconds": 60,
+    "timed_out": false,
+    "ptx_sha256": "08b6cfa31434b37ec3088bbff486ea3446936bcbdfe57fbbe116c94402cdecaa",
+    "cache_key": "72dca72f16c44842b643977e35c6461fb49ec51b65e86a6969c6ba140552010e",
+    "cache_check_hit": true,
+    "cache_check_nvrtc_driver_gpu_calls": 0,
+    "job_post_empty": true,
+    "missing_processes": 0
+  },
+  "ptx_statistics": {
+    "receipt_match": true,
+    "source_integrity_verified": true,
+    "old": {
+      "bytes": 8757024,
+      "functions": 221,
+      "max_virtual_declarations": 10927,
+      "max_body_lines": 17526
+    },
+    "new": {
+      "bytes": 6721321,
+      "functions": 227,
+      "max_virtual_declarations": 5931,
+      "max_body_lines": 8841
+    },
+    "scope": "仮想宣言の統計。実レジスタ数やcompilerメモリ改善の証明ではない"
+  },
+  "gate": {
+    "A": true,
+    "B": true,
+    "assembly_allowed": true,
+    "formula_A": "6721321*10 <= 8757024*9",
+    "formula_B": "5931*5 <= 10927*4 AND 6721321 <= 8757024"
+  },
+  "assembly": {
+    "executed": true,
+    "attempts": 1,
+    "assembly_verified": false,
+    "containment_verified": true,
+    "ptxas_exit_code": 4294967295,
+    "harness_exit_code": 1,
+    "cli_exit_code": 1,
+    "ptxas_seconds": 38.06140169966966,
+    "job_elapsed_seconds": 55.27590990019962,
+    "timeout_seconds": 60,
+    "timed_out": false,
+    "tool_sha256": "0183c5b1fdecc69234597efac421eca4670a3f6ed6ed028ff6afb85d06f3efb8",
+    "options": [
+      "--gpu-name=sm_86",
+      "--opt-level=1",
+      "--fmad=false",
+      "--verbose"
+    ],
+    "harness_pid": 78856,
+    "harness_os_parent_pid": 115640,
+    "harness_creation_filetime_ticks": "134371045666337776",
+    "assembler_pid": 49744,
+    "assembler_os_parent_pid": 78856,
+    "assembler_creation_filetime_ticks": "134371045817034291",
+    "observed_job_members": [
+      49744,
+      78856
+    ],
+    "peak_job_memory_bytes": 2147631104,
+    "job_memory_limit_bytes": 2147483648,
+    "job_post_empty": true,
+    "missing_processes": 0,
+    "cleanup_error": null,
+    "observation_error": null,
+    "stderr_bytes": 0,
+    "stderr_tail": "",
+    "elf_exists": false,
+    "elf_bytes": null,
+    "elf_sha256": null,
+    "partial_exists": false,
+    "failure_cause": "未確定。非ゼロ終了と上限付近のJob peakを観測したが、stderr診断なし"
+  },
+  "service_before": "unverified",
+  "service_after": "unverified",
+  "preservation_verified": false,
+  "calculation_verified": false,
+  "driver_calls": 0,
+  "module_calls": 0,
+  "kernel_calls": 0,
+  "retries": 0,
+  "fallbacks": 0,
+  "postcheck_exit_codes": {
+    "smoke": {
+      "audit": 1,
+      "collect": 0,
+      "status": 0
+    },
+    "cold": {
+      "audit": 2,
+      "collect": 0,
+      "status": 0
+    },
+    "assembly": {
+      "audit": 1,
+      "collect": 0,
+      "status": 0
+    }
+  },
+  "parent_environment_preserved": true,
+  "original_checkout_clean": true,
+  "existing_v128_v131_records_preserved": true,
+  "saved_report": {
+    "name": "nikke-v132-diagnostic/safe-summary.json",
+    "bytes": 14282,
+    "sha256": "e387987a5a65ca788216e331ce267e628990bd49991a8879ef322282a13693d6"
+  },
+  "source_scope": "Derived from Windows final safe report; original capture not independently audited on Mac"
+}

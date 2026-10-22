@@ -1,3 +1,7 @@
+<!-- heal-share-reference-current -->
+現在の入口はdocs/claude-overall-review-e630078-2026-10-22.mdとdocs/portable-heal-share.md、状態はresearch/portable-heal-share-reference-checkpoint.json／portable-query-boundaries-checkpoint.json。heal-shareはCPU契約20・観測器透明性・入れ子snapshot・hook連鎖の7テスト成功、共通CLI reference登録済み、GPU受付未追加。fresh846検査はsandboxのps拒否1件を同packageの影響群5件で再確認して全成功、Windows専用1skip。既存796/native633のCPU全指紋も保持。Windows v132はPTX6.72MB/最大virtual5931へ減少したがassembly失敗。保存stdoutの再読でMemory allocation failureを確認（再実行0）、gate開放時刻／直前harness memoryは未取得。次は同共有本文のcompiler到達範囲の切り分けをMacで設計する。全キャラ認定0・full796 CUDA未成立・UI CPUを維持。以下は履歴です。
+<!-- /heal-share-reference-current -->
+
 <!-- query-boundaries-current -->
 6個の既存query/actor command関数へnoinlineだけ追加、元5ファイルの全tokenを固定8fdaf47と同一に保持。fresh CPU839中838成功/Windows1skip、CUDA全6境界・uint Runtime handle確認、652関数/noinline226。Metal796/native633全一致、旧全input/raw/native指紋と2.50GB直接比較/lazy bankゼロ、GPU0独立seal成功。現sealed goldenはportable-world-query-boundaries-regression-short-expected.json。WindowsはPTX1回→保存v128とのCPU全関数max/size比較→事前gate成立時だけ独立assembly1回（各60秒/2GiB）を準備。driver/kernelは追加しません。全キャラ認定0/full796 CUDA未完了。詳細portable-query-boundaries.md/checkpoint。以下は履歴です。
 <!-- /query-boundaries-current -->
