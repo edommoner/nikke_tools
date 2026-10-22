@@ -7,7 +7,12 @@ from portable_definition_view_contract import verify
 
 class DefinitionViewTests(unittest.TestCase):
     def test_all55_properties_wire_snapshot_and_unchanged_shared_consumers(self):
-        result=verify(ROOT);self.assertTrue(result['verified']);self.assertEqual(result['properties'],55)
+        result=verify(ROOT);self.assertTrue(result['verified']);self.assertEqual(result['properties'],55);self.assertFalse(result['other_shared_sources_unchanged']);self.assertTrue(result['other_sources_outside_reviewed_delta_unchanged']);self.assertEqual(result['reviewed_scope_snapshot_sources'],['gpu/world_actor_state.slang'])
+
+    def test_scope_snapshot_changes_outside_exact_reviewed_delta_are_rejected(self):
+        name='gpu/world_actor_state.slang';source=(ROOT/name).read_text()
+        for old,new in [('return results[at];','return results[at+1];'),('actorStateQueryScopeSnapshot(at);','actorStateQueryScopeSnapshot(at+1);')]:
+            with self.subTest(old=old),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(old,new,1)})
 
     def test_changed_getter_signedness_or_override_is_rejected(self):
         name='gpu/event_runtime.slang';source=(ROOT/name).read_text()

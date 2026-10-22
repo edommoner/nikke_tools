@@ -1,4 +1,4 @@
-"""Canonical wire accessors and all consumers stay fixed during view lowering."""
+"""Canonical wire accessors and consumers outside the exact reviewed scope delta."""
 import hashlib,json,re
 from pathlib import Path
 from portable_weapon_phase_contract import tokens
@@ -30,8 +30,14 @@ def verify(root,*,sources=None):
         depth+=(decoder[finish]=='{')-(decoder[finish]=='}');finish+=1
     assert tokens(decoder[begin:finish])==tokens('{ d._wireInput=input;d._wireRow=row;d._overrideMask=0;d._route=0;d._hits=0; }'),'Wire snapshot or override initialization changed'
     assert fingerprint(decoder[:begin]+'DEFINITION_LOADER_SLOT'+decoder[finish:])==f['decoder_without_loader_body_tokens'],'Canonical wire accessor/decoder changed'
+    reviewed_deltas=[]
     for name,digest in f['other_shared_sources'].items():
         raw=sources[name].encode('utf-8') if name in sources else (root/name).read_bytes()
+        if name=='gpu/world_actor_state.slang' and hashlib.sha256(raw).hexdigest()!=digest:
+            from portable_query_boundary_contract import baseline_scope_source
+            baseline,applied=baseline_scope_source(raw.decode('utf-8'))
+            assert applied,'Shared consumer change is not the reviewed scope snapshot delta'
+            raw=baseline.encode('utf-8');reviewed_deltas.append(name)
         assert hashlib.sha256(raw).hexdigest()==digest,'Shared numeric/consumer source changed: '+name
     # The fixed closure has indexed reads, never an escaped mutable command
     # buffer. Future source changes must deliberately re-audit this assumption.
@@ -47,4 +53,4 @@ def verify(root,*,sources=None):
             assert ts[j]!='=' or ts[j+1]=='=','Input command write: '+name
             assert ts[j] not in ('+','-','|','&','^','*','/','%') or ts[j+1]!='=','Input compound command write: '+name
             assert ts[j:j+2] not in (['+','+'],['-','-']),'Input command increment: '+name
-    return dict(verified=True,properties=55,local_override_properties=['damageRoute','damageHits'],wire_immutable=True,other_shared_sources_unchanged=True,gpu_calls=0,scope='Source correspondence/snapshot contract; GPU copy semantics and numerical parity require actual execution')
+    return dict(verified=True,properties=55,local_override_properties=['damageRoute','damageHits'],wire_immutable=True,other_shared_sources_unchanged=not reviewed_deltas,other_sources_outside_reviewed_delta_unchanged=True,reviewed_scope_snapshot_sources=reviewed_deltas,gpu_calls=0,scope='Source correspondence/snapshot contract; GPU copy semantics and numerical parity require actual execution')

@@ -1,3 +1,7 @@
+<!-- scope-ledger-reconciliation-current -->
+849 v2 packet a5fe2bb3...もGPU前CPUでdefinition-viewの歴史的consumer rawhash guard1件のみ停止。scope以外の改変はなし。元fixture/hashは更新せず、query-boundaryにhelper/comment/call/store/returnのexact raw逆変換を追加し、definition-viewも同じdeltaだけを元rawへ戻して旧consumer SHAへ照合。unchanged flagはfalse/approved delta listを明示、外側source/数値/wire変更は拒否する。関連query5＋definition6成功、v2で未実行だった残5group22検査を元fresh packetでCPU-only実行して全成功、GPU0。v1/v2失敗capture/packet保持、いずれもGPUclaimなし。次はcorrected fresh full packetで849全CPU→Metal1回→全raw旧2.67GB比較→独立seal、new goldens/certificates→CUDA修正版検証。Metal実4の全raw保持/独立sealは済。GPU sourceはscope1fileだけ、normalizer不変、Windowsidle。以下は履歴です。
+<!-- /scope-ledger-reconciliation-current -->
+
 <!-- scope-rosters-retained-current -->
 修正候補＋private Swift cacheのMetal実4がApple M5で成功（packet edc6b6e4...、GPU3.104149秒、Runtime stride138952不変）、旧raw12582912Bと全byte一致/f83a45b0...、独立seal成功/GPU0。record research/portable-scope-rosters-metal-checkpoint.json。849最初のdevelopment packet efa7767a...はCPU query-boundary guardの2失敗だけでGPU前停止、capture /tmp/nikke-scope-regression-v1-metal/原失敗保持、GPUclaimなし。旧6注釈のみのledgerがscope修正を拒否したため、元ledger hashは据え置き、helperとcall/store/returnの完全一致するレビュー済みdeltaだけを逆変換して残全tokenを検査するguardへ更新。original_file_tokens_preserved=false/explicit_scope_snapshot_delta=true/unmodified_tokens_preserved=trueを明記、任意差分や数値式変更は拒否、新改変負例含む5検査成功。GPU normalizer変更なし。次はcorrected fresh packetで849CPU/GPU保持→全2.67GB旧raw一致→独立seal、新source golden/両compiler証明書登録→新full pipeline/短いCUDA再検証。全goal未完了/Windows現在idle。以下は履歴です。
 <!-- /scope-rosters-retained-current -->

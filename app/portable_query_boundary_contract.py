@@ -10,6 +10,16 @@ uint actorStateQueryScopeSnapshot(uint at)
 OLD='uint at=actorFieldHead(s)+3,previous=results[at];results[at]=actorFieldLogicalSlot(s,target)+1;return previous;'
 NEW='uint at=actorFieldHead(s)+3;uint previous=actorStateQueryScopeSnapshot(at);results[at]=actorFieldLogicalSlot(s,target)+1;return previous;'
 
+SCOPE_COMMENT='// Preserve the scalar value before updating the same RW buffer element.\n// Slang CUDA can otherwise retain a pointer and load it after the store.\n'
+
+def baseline_scope_source(source):
+    if 'actorStateQueryScopeSnapshot' not in tokens(source):return source,False
+    helper=SCOPE_COMMENT+HELPER+'\n'
+    assert source.count(helper)==1,'Original query statements: unexpected complete scope snapshot helper'
+    assert source.count(NEW)==1,'Original query statements: unexpected scope snapshot use'
+    return source.replace(helper,'',1).replace(NEW,OLD,1),True
+
+
 def reviewed_scope_delta(actual):
     helper=tokens(HELPER);new=tokens(NEW)
     def positions(needle):return [i for i in range(len(actual)-len(needle)+1) if actual[i:i+len(needle)]==needle]
