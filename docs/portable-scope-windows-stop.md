@@ -1,0 +1,9 @@
+# Windows scope検証の停止記録
+
+固定ソース`5c4bfcd`のCPU272件、PTX生成、object生成、JIT CUBIN生成は成功しました。link後の既存プロセス7件の消失により、実編成4ケースのGPU実行は開始せず停止しています。CUDAの修正版数値一致は未検証です。MacではMetal849ケースと実編成4ケースの全raw保持・独立sealが完了しています。
+
+接続復旧後、Windows側の保存記録のみを読み取りました。7件は今回の最初のsmoke検証より前から存在し、全件が終了コード1・signaledでした。CIMとnativeの作成時刻の差はマイクロ秒への切り捨てで説明され、PID再利用として扱いません。終了はlinkのbefore観測後、約5.19ミリ秒の区間に集中し、最後の子journalの約5.7秒前でした。後始末の開始時刻そのものは記録がなく、この順序だけで因果関係は断定できません。
+
+保存PPIDはlink子・ラッパーのPIDと一致せず、ソースレビューでは検証用Popenと新規無名Job以外を明示的に終了する処理は見つかりませんでした。実行時の原因はunknownです。環境保全はfalse、サービス識別はunverifiedを維持します。保存記録と失敗判定を変更せず、Windowsの追加native/GPU実行を止めています。復旧後の調査でGPU・コンパイル・新しいプロセス照会は実行していません。
+
+根拠は`research/portable-scope-windows-pipeline-peer-report.json`、`research/portable-scope-windows-exit-peer-report.json`、`research/portable-scope-windows-timing-peer-report.json`です。Windows側から取得した要約であり、Macで元の全ファイルを独立監査した証明ではありません。7件の原因調査と、将来の検証で終了処理の直前・直後を記録する設計が必要です。全キャラ・全特殊効果のGPU対応は未完了です。

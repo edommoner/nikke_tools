@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "scope": "Windows peer summary; corrected source PTX/object/link succeeded, rosters GPU not started after missing-process observation",
+  "source": "5c4bfcdebf52122cef1773deae7db58063542ec1",
+  "full_package": "11cd3d73a354102f1c0f5c0f104d98fd93338985795b487ecb3b1a8a7ff35073",
+  "rosters_package": "1d317e7f2dfbd7b2503e405b78a7b552584892f2341cbfff94aad94fe57ebc4b",
+  "capture_root": "C:/Users/owner/Documents/Codex/nikke-scope-fix-5c4bfcd-diagnostic",
+  "smoke": {
+    "tests": 272,
+    "verified": true,
+    "missing": 0
+  },
+  "ptx": {
+    "capture": "ptx",
+    "bytes": 7113760,
+    "sha256": "06ea60c969b53414794d761db15e4f94d8e1a3342437fccfbd3f30332ca48dd1",
+    "compile_seconds": 14.89,
+    "peak_bytes": 507035648,
+    "missing": 0
+  },
+  "object": {
+    "capture": "object",
+    "bytes": 4149872,
+    "sha256": "10739d289551cbb0475551c41bdc06aa23785fa95e9f42bf3e30e5ee40da4d5d",
+    "ptxas_seconds": 6.272666400298476,
+    "peak_bytes": 269115392,
+    "missing": 0
+  },
+  "link": {
+    "capture": "link",
+    "verified": true,
+    "bytes": 3886480,
+    "sha256": "47835cb006c4d92799d19008a5c3dc3a41a5da78eb972a445f17dc5b59a8b37d",
+    "jit_seconds": 0.27090210001915693,
+    "api_returns": "all zero, including Destroy",
+    "driver_loaded": [
+      false,
+      false,
+      false
+    ],
+    "params_bytes": 48,
+    "peak_bytes": 85905408,
+    "missing": 7,
+    "termination_cause": "unknown"
+  },
+  "all_jobs": {
+    "cap_bytes": 2147483648,
+    "post_members": [],
+    "cleanup_error": null,
+    "containment_verified": true
+  },
+  "stopped_reason": "7 existing processes missing after link",
+  "rosters_gpu_run": "not started",
+  "four_case_comparisons": null,
+  "calculation_verified": false,
+  "preservation_verified": false,
+  "service_status": "unverified",
+  "old_files_unchanged": 33878,
+  "old_raw_and_claims_retained": true,
+  "parent_environment_preserved": true,
+  "exec": "require_escalated",
+  "gpu_calls": 0,
+  "additional_audit_and_retries": 0,
+  "summary_path": "C:/Users/owner/Documents/Codex/nikke-scope-fix-5c4bfcd-diagnostic/safe-summary-final.json",
+  "summary_sha256": "cb93d410829cc1ee9ad45a2b5a29b6cca860557cf11d0692b6338cc5d65e8396",
+  "mac_raw_independent_audit": false
+}
