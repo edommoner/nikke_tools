@@ -16,23 +16,62 @@ void storeNumber(uint at, uint64_t value) { results[at] = uint(value); results[a
 uint64_t smaller(uint64_t a, uint64_t b) { return f64Less(a,b) ? a : b; }
 uint64_t larger(uint64_t a, uint64_t b) { return f64Less(a,b) ? b : a; }
 
-struct Definition
-{
-    uint owner, kind, stat, name, maxStack;
-    int budget;
-    uint64_t value, duration, interval;
-    uint immediate, preserve, event, threshold, countMode;
-    int eventName, targetName;
-    uint recipients, target, stageArg, stageOverride, reentry, toggle, triggerCount, conditionCount, flags;
-    uint64_t period;
-    uint damageFlags, group, exclusive, quantityFlags, fixedLiteral, polarity;
-    int alias;
-    uint64_t fixedValue;
-    uint damageRoute, damageCount, damageHits, damageNormal, damagePending, pendingHits; uint64_t damageGauge;
-    uint bulletDuration, bulletBound;
-    uint durationGroup, durationCast;
-    uint periodicFlags, periodicGroup;
-    uint healthScaling, alliedFlags, buffEvent, enemyBuff, mergeEligible, statKey, lazyGroup, queryResolve;
+struct Definition { uint _wireInput,_wireRow,_overrideMask,_route,_hits;
+property uint owner { get { return definition_owner(_wireInput,_wireRow); } }
+property uint kind { get { return definition_kind(_wireInput,_wireRow); } }
+property uint stat { get { return definition_stat(_wireInput,_wireRow); } }
+property uint name { get { return definition_name(_wireInput,_wireRow); } }
+property uint maxStack { get { return definition_maxStack(_wireInput,_wireRow); } }
+property int budget { get { return definition_budget(_wireInput,_wireRow); } }
+property uint64_t value { get { return definition_value(_wireInput,_wireRow); } }
+property uint64_t duration { get { return definition_duration(_wireInput,_wireRow); } }
+property uint64_t interval { get { return definition_interval(_wireInput,_wireRow); } }
+property uint immediate { get { return definition_immediate(_wireInput,_wireRow); } }
+property uint preserve { get { return definition_preserve(_wireInput,_wireRow); } }
+property uint event { get { return definition_event(_wireInput,_wireRow); } }
+property uint threshold { get { return definition_threshold(_wireInput,_wireRow); } }
+property uint countMode { get { return definition_countMode(_wireInput,_wireRow); } }
+property int eventName { get { return definition_eventName(_wireInput,_wireRow); } }
+property int targetName { get { return definition_targetName(_wireInput,_wireRow); } }
+property uint recipients { get { return definition_recipients(_wireInput,_wireRow); } }
+property uint target { get { return definition_target(_wireInput,_wireRow); } }
+property uint stageArg { get { return definition_stageArg(_wireInput,_wireRow); } }
+property uint stageOverride { get { return definition_stageOverride(_wireInput,_wireRow); } }
+property uint reentry { get { return definition_reentry(_wireInput,_wireRow); } }
+property uint toggle { get { return definition_toggle(_wireInput,_wireRow); } }
+property uint triggerCount { get { return definition_triggerCount(_wireInput,_wireRow); } }
+property uint conditionCount { get { return definition_conditionCount(_wireInput,_wireRow); } }
+property uint flags { get { return definition_flags(_wireInput,_wireRow); } }
+property uint64_t period { get { return definition_period(_wireInput,_wireRow); } }
+property uint damageFlags { get { return definition_damageFlags(_wireInput,_wireRow); } }
+property uint group { get { return definition_group(_wireInput,_wireRow); } }
+property uint exclusive { get { return definition_exclusive(_wireInput,_wireRow); } }
+property uint quantityFlags { get { return definition_quantityFlags(_wireInput,_wireRow); } }
+property uint fixedLiteral { get { return definition_fixedLiteral(_wireInput,_wireRow); } }
+property uint polarity { get { return definition_polarity(_wireInput,_wireRow); } }
+property int alias { get { return definition_alias(_wireInput,_wireRow); } }
+property uint64_t fixedValue { get { return definition_fixedValue(_wireInput,_wireRow); } }
+property uint damageRoute { get { return (_overrideMask&1U)!=0 ? _route : definition_damageRoute(_wireInput,_wireRow); } set { _route=newValue; _overrideMask|=1U; } }
+property uint damageCount { get { return definition_damageCount(_wireInput,_wireRow); } }
+property uint damageHits { get { return (_overrideMask&2U)!=0 ? _hits : definition_damageHits(_wireInput,_wireRow); } set { _hits=newValue; _overrideMask|=2U; } }
+property uint damageNormal { get { return definition_damageNormal(_wireInput,_wireRow); } }
+property uint damagePending { get { return definition_damagePending(_wireInput,_wireRow); } }
+property uint pendingHits { get { return definition_pendingHits(_wireInput,_wireRow); } }
+property uint64_t damageGauge { get { return definition_damageGauge(_wireInput,_wireRow); } }
+property uint bulletDuration { get { return definition_bulletDuration(_wireInput,_wireRow); } }
+property uint bulletBound { get { return definition_bulletBound(_wireInput,_wireRow); } }
+property uint durationGroup { get { return definition_durationGroup(_wireInput,_wireRow); } }
+property uint durationCast { get { return definition_durationCast(_wireInput,_wireRow); } }
+property uint periodicFlags { get { return definition_periodicFlags(_wireInput,_wireRow); } }
+property uint periodicGroup { get { return definition_periodicGroup(_wireInput,_wireRow); } }
+property uint healthScaling { get { return definition_healthScaling(_wireInput,_wireRow); } }
+property uint alliedFlags { get { return definition_alliedFlags(_wireInput,_wireRow); } }
+property uint buffEvent { get { return definition_buffEvent(_wireInput,_wireRow); } }
+property uint enemyBuff { get { return definition_enemyBuff(_wireInput,_wireRow); } }
+property uint mergeEligible { get { return definition_mergeEligible(_wireInput,_wireRow); } }
+property uint statKey { get { return definition_statKey(_wireInput,_wireRow); } }
+property uint lazyGroup { get { return definition_lazyGroup(_wireInput,_wireRow); } }
+property uint queryResolve { get { return definition_queryResolve(_wireInput,_wireRow); } }
 };
 struct Frame
 {

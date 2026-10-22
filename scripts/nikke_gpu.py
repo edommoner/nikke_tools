@@ -126,20 +126,25 @@ SUITES['revive-diagnostic']=dict(SUITES['revive'],source='gpu/world_projectile_a
 SCHEMA = 1
 SUITES['regression-resident']=dict(SUITES['regression'],source='gpu/world_projectile_resident_entry.slang',golden='research/portable-world-phases-resident-regression-short-expected.json',development_only=False,tests=SUITES['regression']['tests']+['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
 SUITES['entry-reload']=dict(script='research/verify-world-entry-reload-short.py',golden='research/portable-world-entry-reload-short-expected.json',source='gpu/world_entry_reload_resident_entry.slang',inputs=37,native=31,development_only=False,tests=['test_portable_entry_reload_full_reference.py','test_portable_entry_reload_gpu.py','test_portable_combat.py','test_portable_resident_layout.py'])
-SUITES['entry-reload-regression']=dict(SUITES['regression-resident'],script='research/verify-world-entry-reload-regression-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-query-boundaries-regression-short-expected.json',inputs=796,native=633,development_only=False,tests=SUITES['regression-resident']['tests']+['test_portable_entry_reload_gpu.py','test_portable_entry_reload_full_reference.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py','test_portable_query_boundaries.py','test_portable_ptx_stats.py'])
+SUITES['entry-reload-regression']=dict(SUITES['regression-resident'],script='research/verify-world-entry-reload-regression-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-definition-view-regression-short-expected.json',inputs=796,native=633,development_only=False,tests=SUITES['regression-resident']['tests']+['test_portable_entry_reload_gpu.py','test_portable_entry_reload_full_reference.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py','test_portable_query_boundaries.py','test_portable_ptx_stats.py'])
 SUITES['resident-binding']=dict(script='research/verify-resident-binding-short.py',golden='research/portable-resident-binding-file-transfer-short-expected.json',source='gpu/resident_runtime_binding_probe.slang',inputs=4,native=4,development_only=False,tests=['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
 SUITES['entry-reload-regression']['tests'].append('test_portable_heal_share_reference.py')
 SUITES['entry-reload-regression']['tests'].append('test_portable_phase_codegen.py')
 SUITES['entry-reload-regression']['tests'].append('test_portable_heal_share_extra_reference.py')
+SUITES['entry-reload-regression']['tests'].append('test_portable_definition_view.py')
+SUITES['definition-view']=dict(script='research/verify-definition-view-short.py',source='gpu/definition_view_probe.slang',
+    golden='research/portable-definition-view-probe-expected.json',inputs=6,native=6,development_only=False,
+    tests=['test_portable_definition_view.py','test_portable_resident_layout.py','test_portable_resident_transport.py'])
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
-    golden='research/portable-compiler-commands-source-certificate.json',inputs=0,native=0,compiler_only=True,
-    support_files=['research/portable-world-query-boundaries-regression-short-expected.json'],
+    golden='research/portable-compiler-commands-definition-view-source-certificate.json',inputs=0,native=0,compiler_only=True,
+    support_files=['research/portable-world-definition-view-regression-short-expected.json'],
     tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py'])
 
 # Controller validation has no numeric program to execute. Keep its CPU work
 # separate from a selected suite's battle/native preflight.
 SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
                'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py','test_portable_query_boundaries.py','test_portable_ptx_stats.py','test_portable_compiler_diagnostic.py']
+SMOKE_TESTS.append('test_portable_definition_view.py')
 
 
 def sha(data):

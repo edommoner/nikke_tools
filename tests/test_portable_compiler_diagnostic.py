@@ -102,11 +102,11 @@ class CompilerDiagnosticTests(unittest.TestCase):
         base_shader=root/'gpu/base.slang';base_shader.write_text('// fixed shared fixture')
         baseline=root/cli.SUITES['compiler-commands']['support_files'][0]
         cli.write(baseline,dict(source_sha256={'gpu/base.slang':cli.sha(base_shader.read_bytes())}))
-        certificate=root/'research/portable-compiler-commands-source-certificate.json'
+        certificate=root/cli.SUITES['compiler-commands']['golden']
         m=copy.deepcopy(self.m);m['schema']=cli.SCHEMA;m['golden']['source_sha256']={'gpu/compiler_commands_entry.slang':cli.sha(shader.read_bytes()),'gpu/base.slang':cli.sha(base_shader.read_bytes())}
         m['golden']['baseline_golden_sha256']=cli.sha(baseline.read_bytes())
         def save():
-            cli.write(certificate,m['golden']);m['files']=cli.file_records(root,['gpu/compiler_commands_entry.slang','gpu/base.slang','research/portable-compiler-commands-source-certificate.json',baseline.relative_to(root).as_posix()])
+            cli.write(certificate,m['golden']);m['files']=cli.file_records(root,['gpu/compiler_commands_entry.slang','gpu/base.slang',certificate.relative_to(root).as_posix(),baseline.relative_to(root).as_posix()])
             m['package_id']=cli.package_id(m);cli.write(root/'gpu-package.json',m)
         save();self.assertEqual(cli.verify_package(root)['purpose'],'compiler-diagnostic')
         for field,value in (('purpose','sealed'),('calculation_verified',True),('executable_battle_verified',True),('proof_kind','battle'),('entries',[{}]),('baseline_golden_sha256','wrong')):

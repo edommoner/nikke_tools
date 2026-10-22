@@ -1,5 +1,7 @@
 # 次のcompiler仮説：Definitionの一括実体化を避ける
 
+この文書は固定1f9a00d時点のsource-generation実験の履歴。現在の検証済み候補は[共通Definition参照](portable-definition-view.md)とresearch/portable-definition-view-checkpoint.jsonを参照する。歴史的prototype scriptの再現には適用前1f9a00dのcheckoutを使い、適用済みsourceへ再変換しない。
+
 v134はcommands単独の5.46MB PTXでも2GiB内のassemblyに失敗した。追加のinit/write試行、別option、RDC等の自動fallbackは行わない。保存PTXのCPU解析は191関数、最大virtual宣言5,328（basicConditions）、最大local宣言8,488byte（dispatch）。Frameは32要素で、宣言上の1要素scalar layout推定104byte。これらはcompilerメモリ原因を特定する証拠ではなく、Frameの常駐化を即採用する根拠にもしない。根拠はresearch/portable-world-v134-saved-compiler-analysis.json。
 
 一方、現在のDefinitionはimmutable inputの55項目をnoinline loadDefinitionで毎回デコードする。生成CUDA上のscalar layout推定は248byte。readDefinition／residentDefinitionはこの記録を値として扱う。宣言サイズだけからcompiler必要メモリを換算しないが、巨大な記録の一括コピーを避ける別の表現を安く試す理由にはなる。

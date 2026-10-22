@@ -1,0 +1,360 @@
+{
+  "schema": 1,
+  "status": "shared_definition_view_metal796_sealed_cuda_compiler_pending",
+  "baseline_commit": "1f9a00d3647708ee19fd3122d35e6366bcab2045",
+  "candidate": {
+    "properties": 55,
+    "storage_members": 5,
+    "override_properties": [
+      "damageRoute",
+      "damageHits"
+    ],
+    "unchanged_wire_accessors_and_consumers": true,
+    "baseline_fixture_verified_against_git": true
+  },
+  "full_cpu": {
+    "discovered": 870,
+    "passed": 869,
+    "skipped": 1,
+    "seconds": 60.974,
+    "scope": "Immutable development package before adapter return-value correction; affected5 and diagnostic9 subsequently rerun successfully"
+  },
+  "probe": {
+    "inputs": 6,
+    "original_capture": "/tmp/nikke-definition-view-probe-v1-metal",
+    "first_result": "All value assertions passed; comparator return type violated native fingerprint contract",
+    "corrected_replay": "/tmp/nikke-definition-view-probe-v2-replay",
+    "replay_calculation_verified": true,
+    "replay_gpu_calls": 0,
+    "original_failure_preserved": true,
+    "independent_gpu0_seal": true,
+    "output_sha256": "92af0b6954bc34cefd3839d8e7a54e41c54e8b25ade2d60a31c2663706967900"
+  },
+  "regression": {
+    "package": {
+      "package_id": "506117b6a833209cea51f7f587872ca94a9ba7b5fc86e44e0b950adf44dab0fc",
+      "files": 1971,
+      "bytes": 5291656,
+      "archive_sha256": "19f1b4b971c0b27ef15a0f3cfe3815049cf863d4c00ce7864d6b0c4161296f1d",
+      "source_commit": "1f9a00d3647708ee19fd3122d35e6366bcab2045"
+    },
+    "capture": "/tmp/nikke-definition-view-regression-v1-metal",
+    "inputs": 796,
+    "native": 633,
+    "calculation_verified": true,
+    "transport": {
+      "backend": "metal",
+      "cases": 796,
+      "command_status": "completed",
+      "configured_max_threads_per_threadgroup": 1,
+      "device": "Apple M5",
+      "file_readback_chunk_bytes": 8388608,
+      "gpu_seconds": 9.754980500089005,
+      "input_bytes": 332409604,
+      "library_compile_seconds": 1.2612760066986084,
+      "output_bytes": 2503999488,
+      "pipeline_compile_seconds": 6.449661016464233,
+      "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+      "pipeline_max_threads_per_threadgroup": 1,
+      "registry_id": "4294968313",
+      "runtime_buffer_bytes": 110605792,
+      "runtime_element_capacity": 796,
+      "runtime_physical_stride_verified": true,
+      "runtime_stride_bytes": 138952,
+      "threads_per_threadgroup": 1,
+      "compile_timeout_seconds": 300,
+      "gpu_timeout_seconds": 120
+    },
+    "output_sha256": "b9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637",
+    "independent_gpu0_seal": true
+  },
+  "retention": {
+    "passed": true,
+    "gpu_calls": 0,
+    "scope": "Byte retention against a previously verified immutable golden; not a new GPU dispatch or standalone calculation certification",
+    "expanded_candidate": false,
+    "candidate_offset": 0,
+    "name_prefix": "",
+    "inputs": 796,
+    "all_input_raw_native_fingerprints_equal": true,
+    "all_raw_words_equal": true,
+    "lazy_banks_zero": true,
+    "output_bytes": 2503999488,
+    "output_sha256": "b9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637",
+    "baseline_golden_sha256": "3a73d6c28a9ccbf7b923df4691e3aa8bbf4ade9f9523308aaafa61873ed41717",
+    "elapsed_seconds": 3.017466958030127
+  },
+  "storage_check": {
+    "passed": true,
+    "required_bytes": 6000000000,
+    "reserve_bytes": 1073741824,
+    "free_bytes": 93183840256,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "archive_storage_checked": false
+  },
+  "codegen": {
+    "schema": 1,
+    "source_bytes": 1783364,
+    "source_sha256": "faa6208f4c9f9a00e25a29d42da07c4c41f0bf240176557a6c3335ef0f475f88",
+    "functions": 701,
+    "noinline_functions": 226,
+    "largest_functions": [
+      {
+        "name": "admitDefinitions_0",
+        "line": 8012,
+        "bytes": 95321,
+        "lines": 3489,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 411
+      },
+      {
+        "name": "executePortableCommands_0",
+        "line": 61385,
+        "bytes": 65267,
+        "lines": 1023,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 131
+      },
+      {
+        "name": "applyDefinitionFrame_0",
+        "line": 47319,
+        "bytes": 64020,
+        "lines": 1098,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 137
+      },
+      {
+        "name": "advanceDefinitionFrame_0",
+        "line": 48419,
+        "bytes": 52594,
+        "lines": 1630,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 197
+      },
+      {
+        "name": "coreProbability_0",
+        "line": 1001,
+        "bytes": 45822,
+        "lines": 1597,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 187
+      },
+      {
+        "name": "dispatch_0",
+        "line": 50121,
+        "bytes": 40185,
+        "lines": 1156,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 146
+      },
+      {
+        "name": "basicConditions_0",
+        "line": 27562,
+        "bytes": 25639,
+        "lines": 1082,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 143
+      },
+      {
+        "name": "initializeChargeControl_0",
+        "line": 16725,
+        "bytes": 22208,
+        "lines": 863,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 114
+      },
+      {
+        "name": "actorFieldsDefinitionValid_0",
+        "line": 14015,
+        "bytes": 22197,
+        "lines": 859,
+        "noinline": false,
+        "global_entry": false,
+        "branches": 108
+      },
+      {
+        "name": "initializeTargetCounters_0",
+        "line": 18527,
+        "bytes": 18911,
+        "lines": 768,
+        "noinline": false,
+        "global_entry": false,
+        "branches": 94
+      },
+      {
+        "name": "advanceIncomingFrame_0",
+        "line": 40205,
+        "bytes": 16401,
+        "lines": 511,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 69
+      },
+      {
+        "name": "validStackDefinitions_0",
+        "line": 21474,
+        "bytes": 15760,
+        "lines": 575,
+        "noinline": true,
+        "global_entry": false,
+        "branches": 71
+      }
+    ],
+    "scope": "Lexical generated-CUDA spans only; not compiler time, memory attribution, performance or correctness proof",
+    "runtime_storage": {
+      "symbol": "Definition_0",
+      "members": 5,
+      "declared_member_bytes": 20,
+      "scalar_aligned_size_estimate_bytes": 20,
+      "fields": [
+        {
+          "name": "_wireInput_0",
+          "scalar_type": "uint",
+          "count": 1,
+          "declared_bytes": 4,
+          "scalar_alignment_estimate_offset": 0
+        },
+        {
+          "name": "_wireRow_0",
+          "scalar_type": "uint",
+          "count": 1,
+          "declared_bytes": 4,
+          "scalar_alignment_estimate_offset": 4
+        },
+        {
+          "name": "_overrideMask_0",
+          "scalar_type": "uint",
+          "count": 1,
+          "declared_bytes": 4,
+          "scalar_alignment_estimate_offset": 8
+        },
+        {
+          "name": "_route_0",
+          "scalar_type": "uint",
+          "count": 1,
+          "declared_bytes": 4,
+          "scalar_alignment_estimate_offset": 12
+        },
+        {
+          "name": "_hits_0",
+          "scalar_type": "uint",
+          "count": 1,
+          "declared_bytes": 4,
+          "scalar_alignment_estimate_offset": 16
+        }
+      ],
+      "cuda_abi_verified": false,
+      "scope": "Explicit uint/int32,ulonglong64 and FixedArray payloads. Alignment model is an estimate; not compiler memory, PTX local storage, registers or performance"
+    }
+  },
+  "compiler_diagnostic": {
+    "package": {
+      "package_id": "4f72a0429cb798815f48285d3f885efb670a3932ec67294630fcb7f2d49b53ed",
+      "files": 1972,
+      "bytes": 5235815,
+      "archive_sha256": "b835f296fda662452669c5d24711a374f0f1f247a5dc6b8a07c94d7f7724acc2",
+      "source_commit": "1f9a00d3647708ee19fd3122d35e6366bcab2045"
+    },
+    "smoke": {
+      "smoke_verified": true,
+      "gpu_calls": 0,
+      "calculation_verified": false,
+      "preservation_verified": null,
+      "status": "smoke"
+    },
+    "cpu_tests": 158,
+    "groups": 15,
+    "source_certificate": "research/portable-compiler-commands-definition-view-source-certificate.json"
+  },
+  "windows_plan": {
+    "source_hypothesis": "Avoid eager55-field/248-byte-estimated definition materialization using value handles plus local overrides",
+    "phase": "commands_only",
+    "ptx_attempts": 1,
+    "offline_assembly_attempts": 1,
+    "each_seconds": 60,
+    "each_memory_bytes": 2147483648,
+    "assembly_only_after_verified_ptx_cache_hit_and_normal_containment": true,
+    "read_saved_ptx_statistics": true,
+    "automatic_driver_or_kernel": false,
+    "automatic_rdc_or_option_fallback": false,
+    "previous_v134_missing_processes": 7,
+    "previous_missing_cause": "unknown",
+    "previous_preservation_verified": false
+  },
+  "compiler_memory_improvement_verified": false,
+  "full_cuda_calculation_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "ui_backend": "cpu",
+  "logs": [
+    {
+      "path": "/tmp/nikke-definition-view-v1-full-cpu.log",
+      "sha256": "de1c0756762170600c497f068ed00291dce8ccd438d6e66eed6ee8026814c4ca",
+      "bytes": 983
+    },
+    {
+      "path": "/tmp/nikke-definition-view-tests-v3.log",
+      "sha256": "42655c2affad86277dd8e4a012ac93faf71a82043013cfb1f1fa812cde13e7ab",
+      "bytes": 1039
+    },
+    {
+      "path": "/tmp/nikke-definition-view-diagnostic-tests.log",
+      "sha256": "17b35a77c5278ba5751fe8a7f97489dbd761ea71867185e1290a01c6d09952e8",
+      "bytes": 1947
+    },
+    {
+      "path": "/tmp/nikke-definition-view-probe-v1-metal/result.json",
+      "sha256": "c374e42a55a6dd2904ed2b9bbb64936ceb39fe302648a24047a3cdbdda1dbc42",
+      "bytes": 908
+    },
+    {
+      "path": "/tmp/nikke-definition-view-probe-v2-replay.log",
+      "sha256": "77b24a372dacde82855c9105fac1ec33b9aafb0a313923caec33c6bf4f958345",
+      "bytes": 2759
+    },
+    {
+      "path": "/tmp/nikke-definition-view-probe-seal.log",
+      "sha256": "421214e2fe875d022d22701504405e26f900611ffd31cb76aabd87206151f858",
+      "bytes": 211
+    },
+    {
+      "path": "/tmp/nikke-definition-view-regression-baseline-check.json",
+      "sha256": "f906f06289439d810aec31c1c1475d28ea204c3219bd133da9db0bc93c80ee46",
+      "bytes": 180
+    },
+    {
+      "path": "/tmp/nikke-definition-view-regression-v1-metal/result.json",
+      "sha256": "eecd2b1fc7ae353e761df3f55633b266a4982175a05a174535e713266cdba116",
+      "bytes": 819
+    },
+    {
+      "path": "/tmp/nikke-definition-view-regression-seal.log",
+      "sha256": "0706667d9dc2082cc8ef281d4d5160fc6e0953df7c031fb252205ffc8e3be242",
+      "bytes": 218
+    },
+    {
+      "path": "/tmp/nikke-definition-view-fixture-git.log",
+      "sha256": "6db371dfd1ac1ead3fd303ddd2dfc34d8dc7897ca70b431b5f6a1b37a320d42e",
+      "bytes": 85
+    },
+    {
+      "path": "/tmp/nikke-definition-view-compiler-codegen.json",
+      "sha256": "81cbb5b46a07778a25d044977fd309083348b06b1b9cc9bba03605ec394e4cc5",
+      "bytes": 3845
+    },
+    {
+      "path": "/tmp/nikke-definition-view-compiler-v1-smoke.log",
+      "sha256": "cde890b28c3e5385fb6019a9b9a82adb14a44926830b83a8d750db45622330a9",
+      "bytes": 134
+    }
+  ]
+}

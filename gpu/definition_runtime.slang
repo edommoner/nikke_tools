@@ -2,63 +2,7 @@
 // Keep one decoder for admission and every CUDA/Metal execution consumer.
 [noinline]
 void loadDefinition(uint input,uint row,out Definition d)
-{
-    d.owner=definition_owner(input,row);
-    d.kind=definition_kind(input,row);
-    d.stat=definition_stat(input,row);
-    d.name=definition_name(input,row);
-    d.maxStack=definition_maxStack(input,row);
-    d.budget=definition_budget(input,row);
-    d.value=definition_value(input,row);
-    d.duration=definition_duration(input,row);
-    d.interval=definition_interval(input,row);
-    d.immediate=definition_immediate(input,row);
-    d.preserve=definition_preserve(input,row);
-    d.event=definition_event(input,row);
-    d.threshold=definition_threshold(input,row);
-    d.countMode=definition_countMode(input,row);
-    d.eventName=definition_eventName(input,row);
-    d.targetName=definition_targetName(input,row);
-    d.recipients=definition_recipients(input,row);
-    d.target=definition_target(input,row);
-    d.stageArg=definition_stageArg(input,row);
-    d.stageOverride=definition_stageOverride(input,row);
-    d.reentry=definition_reentry(input,row);
-    d.toggle=definition_toggle(input,row);
-    d.triggerCount=definition_triggerCount(input,row);
-    d.conditionCount=definition_conditionCount(input,row);
-    d.flags=definition_flags(input,row);
-    d.period=definition_period(input,row);
-    d.damageFlags=definition_damageFlags(input,row);
-    d.group=definition_group(input,row);
-    d.exclusive=definition_exclusive(input,row);
-    d.quantityFlags=definition_quantityFlags(input,row);
-    d.fixedLiteral=definition_fixedLiteral(input,row);
-    d.polarity=definition_polarity(input,row);
-    d.alias=definition_alias(input,row);
-    d.fixedValue=definition_fixedValue(input,row);
-    d.damageRoute=definition_damageRoute(input,row);
-    d.damageCount=definition_damageCount(input,row);
-    d.damageHits=definition_damageHits(input,row);
-    d.damageNormal=definition_damageNormal(input,row);
-    d.damagePending=definition_damagePending(input,row);
-    d.pendingHits=definition_pendingHits(input,row);
-    d.damageGauge=definition_damageGauge(input,row);
-    d.bulletDuration=definition_bulletDuration(input,row);
-    d.bulletBound=definition_bulletBound(input,row);
-    d.durationGroup=definition_durationGroup(input,row);
-    d.durationCast=definition_durationCast(input,row);
-    d.periodicFlags=definition_periodicFlags(input,row);
-    d.periodicGroup=definition_periodicGroup(input,row);
-    d.healthScaling=definition_healthScaling(input,row);
-    d.alliedFlags=definition_alliedFlags(input,row);
-    d.buffEvent=definition_buffEvent(input,row);
-    d.enemyBuff=definition_enemyBuff(input,row);
-    d.mergeEligible=definition_mergeEligible(input,row);
-    d.statKey=definition_statKey(input,row);
-    d.lazyGroup=definition_lazyGroup(input,row);
-    d.queryResolve=definition_queryResolve(input,row);
-}
+{ d._wireInput=input;d._wireRow=row;d._overrideMask=0;d._route=0;d._hits=0; }
 // Inline only the tiny view wrapper. The decoder writes caller storage,
 // avoiding a large by-value function result on the Metal backend.
 [ForceInline]

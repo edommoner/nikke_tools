@@ -1,0 +1,25 @@
+# 共通Definition参照：Metal796保持済み候補
+
+現在の状態は`research/portable-definition-view-checkpoint.json`。効果定義の55項目を毎回一括実体化する処理を、wire input/rowとローカルoverrideの5uintへ置き換えた。CUDA／Metalは同じSlang本文・getter・setterを使う。全数値式・整数変換・pow・wire offset・状態／イベントの順序・canonical CPU・normalizerは変更しない。CUDA compilerメモリ改善と本体CUDA数値一致は未検証で、UI CPU・全キャラ認定0を維持する。
+
+## 保持する意味とソース契約
+
+入力wireはdispatch中に不変で、構築時のinput/rowを値としてsnapshotする。キャリアのrowやRuntime.inputBaseが後から変わっても、既存Definitionの参照先は変わらない。damageRoute／damageHitsだけは元からローカル書換えがあるため、maskと値でoverrideを保持する。copy前後の独立性を保ち、wireへ書き戻さない。残る53項目は読み取り専用property。
+
+fixtureは固定Git1f9a00dの55型／accessor対応を保存し、実装と独立に元Gitの全共有SHA・置換箇所以外のtokenへ照合した。CPU契約はgetter違い、signedness、overrideの値／bit、snapshot初期化、wire offset、数値／consumer／state文の変更を拒否する。入力bufferをmutable引数としてescapeさせず、既存の固定source closureで入力書込がないことも検査する。これは今回の表現変更の保持契約であり、今後の意図した機能追加時はnative契約とともに更新する。
+
+## 実証
+
+専用`definition-view`の6入力は、signed32の境界、NaN payload／負zero／subnormal等のraw64値、二つのローカルoverride、copyの独立性、row/input snapshotをMetalで確認した。最初は値assertionが全通過した後に、adapter.compareがnative_referenceと異なる型を返して指紋判定だけ失敗。戻り値だけを修正し、同source/input/native基準の新固定packageから共通replayで元GPU結果を再監査した。元失敗・claimを保持し、GPU再実行0、独立GPU0 sealも成功した。
+
+全CPUは固定開発packageで870件中869成功・Windows専用1skip。adapter訂正後の影響5件、更新したsource certificate経路9件も再確認。新compiler packageの共通smokeは15群158件成功。新しい表現のfull入力796／native633は全件一致し、旧全input/native指紋と全2,503,999,488byteを直接比較して完全一致。lazy bankゼロ、output SHAb9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637を保持した。既存のretainerと独立sealを使い、比較項目・許容誤差は緩めていない。
+
+MetalのRuntimeは247field／stride138,952／align8、3 buffers／CUDA constant48byteのまま。GPU時間9.755秒は単一観測で、速度改善のベンチマークではない。Definitionの生成宣言20byte推定は旧248byte推定から縮小したが、compiler必要メモリの測定ではない。通常suiteのgoldenは`portable-world-definition-view-regression-short-expected.json`、小probeは`portable-definition-view-probe-expected.json`を明示sealした。旧query-boundaries goldenと全captureは保持する。
+
+## 次の短いWindows候補
+
+`compiler-commands`は新full Metal proofへsource certificateを束縛し直した。入口・compiler/cache/Job/監査はv134と共通で、共有sourceの差はDefinition宣言とloaderだけ。新dataflowの影響を見るcommands-only PTX1回と、成功receipt／cache hit／正常containmentの場合だけ固定ptxasの1回assemblyを候補とする。各60秒／2GiB、BelowNormal、fresh Job/startgate、cleanup5を維持。既存v134の7process欠落は原因unknown・preservation=falseのまま記録する。
+
+NVRTC成功時は保存PTXを既存ptx-statsでCPU解析し、旧5,462,428byte／maxvirtual5,328と比較する。指標を実registerや必要メモリへ換算せず、source bytesの増減だけを成功判定にしない。driver/module/kernel、同条件再実行、init/write追加、別level／RDC等の自動fallbackはしない。成功してもfull796 CUDAや全キャラ対応の認定ではない。
+
+回復分配の28CPU契約は保持しているが、GPUへの接続はまだ完了していない。次の機能追加は本体CUDA成立の切り分けと分けて進める。
