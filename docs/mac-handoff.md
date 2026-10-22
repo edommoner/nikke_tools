@@ -1,3 +1,7 @@
+<!-- late-attack-random-current -->
+全定義3編成を共通CLI state-focus-rostersへ追加しMetal6入力を検証。5一致、リリー30秒は122差分で失敗・raw/claim保持/再実行0。原因は後段ATKのdirect random読取とdictionary cache境界：正本4550抽選に対しGPU4。CPU契約5をreference late-attack-randomへ追加し、各248照会/158hit・mapped1対late90抽選・5故障拒否・元native/trace/照会数保持を確認。分類器はこの組合せをreader/cache/history拡張へ修正。GPU source117は前回と同一、生成cache必須hit/Slang0、Apple M5 GPU2.745459秒。新suiteは未seal/development_onlyで、sealed範囲1330を維持。次は共有dictionary-query入口/後段direct読取/128超履歴を接続して実6と旧1330を保持検証。Windows操作0/原因unknown/保全false、全キャラ0/UI CPU/ゴール未達。詳細docs/portable-late-attack-random.mdと対応checkpoint。以下は履歴です。
+<!-- /late-attack-random-current -->
+
 <!-- state-focus-current -->
 共有cover/camera条件39/30、focus_fire存在stat91、フレーム照準とtyped部位着弾/通知を接続。Metal新66(native54/拒否12)＋旧1264(native1000/拒否264)が同117sourceで成功・各独立seal。計1330、旧全entriesとraw3,976,200,192Bを全byte保持。条件30＋照準24、初期数値cacheとlive markerの違い・更新破棄・部位同フレーム破壊を照合。新Runtime field0/stride138952/CUDA定数48B、専用bank770976..773056/cache256。旧CPU455成功/GPU10.696秒/生成cache必須hit/Slang0。静的230/266・base170/203・62分類はGPU認定でない。追加stat reader/cache invalidation、typed interrupt橋、revival/random混在、実編成と広いpromotion、現CUDA実行が残件。旧golden/本体compiler証明は保留、suiteはdevelopment_only。失敗v1-v3/claim保持・正本CPU/数値/normalizer不変。Windows操作0/7終了unknown/保全false、全キャラ0/UI CPU/ゴール未達。詳細docs/portable-state-focus.mdと対応checkpoint。次は新規packing3編成の全定義3/30秒を優先し、readerとtyped interrupt橋を検証。以下は履歴です。
 <!-- /state-focus-current -->
