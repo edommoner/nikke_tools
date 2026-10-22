@@ -82,7 +82,7 @@
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
     "gpu/world_actor_pools.slang": "d3a9442f559145926b8de31b677031e72c76d24feba70e43e8d5c7149bb0d5a2",
     "gpu/world_actor_fields.slang": "1c93ac2988e1ef5bc08f09ecccdce7646e5fa42acbf31ae544d54063758fba06",
-    "gpu/world_actor_state.slang": "70580c5e27b0d5d73a9832a6c56a3cf1d08594d80386dbbadc05cbb554a93b19",
+    "gpu/world_actor_state.slang": "fe544032dc4862a7a3689b292f21110674bfb37668e84ffb87d9e78412e629c3",
     "gpu/world_actor_mutation.slang": "8d807f7800ec72f25caee64d4f6ae7885dba3328773111f117b7ccf6585f0e53",
     "gpu/world_actor_recipients.slang": "f7eb33cbe737cd6e6c729f6ca8c15d015256c2844f9d9a44fd1f6c646e34cab7",
     "gpu/world_actor_status.slang": "ae3f88af686392cca06e6ee67c5e059b36032acfc61588fe58417cdba7e18292",
@@ -140,7 +140,7 @@
     }
   ],
   "generated_normalized": {
-    "cuda": "51b742a7657fa8b23a502900ee4ce06353c24545136012db259c17d9d4ce9799",
-    "metal": "4144df4aa5ca47e22349398281da5ea4b797a74f8f55bf48c785f7b34697ecae"
+    "cuda": "3e5b6a49226be57a9d25741538832220a872f4d2d0db3b99be187eb7d6c84baf",
+    "metal": "197a71d95793d8b860f302e22acffbea69bd00c65abb9d491791b1f6a28f23bd"
   }
 }

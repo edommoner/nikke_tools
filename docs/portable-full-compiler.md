@@ -72,3 +72,9 @@ Windowsの実GPU入力generated.cu（1,861,674B／SHA `548a1cc63fbb26f4be5694f70
 849候補はCPUで歴史的な「6注釈のみ」guardがworld_actor_stateの意図した修正を拒否し、GPU前で止まった。元token ledgerのhashは更新しない。guardにhelper/call/store/returnの完全一致deltaを明示し、その差分だけを旧形へ逆変換した上で、他の全tokenを元hashへ検査する。返すoriginal_file_tokens_preservedはfalse、explicit_scope_snapshot_deltaとunmodified_tokens_preservedはtrueと区別する。helper改変・call引数改変・noinline削除も拒否する5検査が成功。これはCPU source-change ledgerであり、GPUコードのnormalizer除外やrawの差分許容ではない。
 
 Definition-viewの歴史的consumer raw SHA guardも同じworld_actor_state修正を拒否したため、同じ有限deltaのexact raw逆変換を再利用する。元fixture/hashは据え置き、other_shared_sources_unchanged=false／reviewed_scope_snapshot_sourcesで変更を明示し、外側sourceの旧SHA・wire55属性・immutable command buffer検査を保持した。関連query5＋definition6、残5group22検査が成功。849 v1/v2はCPU段階で停止しGPUclaimはなく、失敗記録は保持した。
+
+## 修正後Metal849＋実4の確定
+
+849 v3のCPU306検査は全成功し、Apple M5の849実行も成功（GPU10.377407秒／Runtime stride138952）。元raw2,670,723,072byteと全byte一致、SHA89afa4ed...、独立sealもGPU0で成功した。実4も全12,582,912byteが一致し独立seal済み。各新goldenの全input/native/output entriesは旧版と一致、source差はworld_actor_stateの1fileだけと検査して登録した。
+
+compiler-full／commandsのsource-only証明書を新しい実証済みsourceと両生成指紋へ結び直した（full110、commands111 source）。fresh full controller272検査は271成功／Win1skip／失敗0。recordは`research/portable-scope-regression-metal-checkpoint.json`。次はWindowsで新sourceのPTX/object/JITlinkを各1回と、成功時だけ実4のCUDA1回。古い失敗package/claimは保持し、Na30残4wordの関連は新実結果で判断する。
