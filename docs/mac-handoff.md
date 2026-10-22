@@ -1,3 +1,7 @@
+<!-- ptx-partition-tool-current -->
+共通CLI ptx-partitionで保存cache/phaseからfocus/remainderのCPU候補生成＋--audit再構成監査を追加。全function body byte/parameter ABI保持、global/const定義はremainder単独、境界visible/extern・初期値・所有権を再parse検査。未知/weak/common/外部state/間接call等は失敗保持・停止。既存assembleは不変。fresh共通smoke170中169成功/Win1skip、最小8ファイル16検査成功、legacy約8MB等のin-memory候補2つも構造一致（v135ではない）。次はWindows保存v135のCPU候補生成・監査だけを実行し、tool/link/ABI条件を確かめる。自動compile/link/GPU0、partition合法性/コンパイル/計算は未認定。本体CUDA未成立/認定0、Metal849+実4とparts CPU32を維持。詳細docs/portable-ptx-partition.md、research/portable-ptx-partition-cpu-checkpoint.json。以下は履歴です。
+<!-- /ptx-partition-tool-current -->
+
 <!-- v135-callgraph-analysis-current -->
 Windows保存v135のcache/phaseを共通ptx-stats --callgraphでCPU解析成功。191定義すべてportableEventsから到達、SCC191個/循環0、間接/外部/未解決0。最大applyDefinitionFrame_0の5865virtual/10472行/local宣言56byteは物理memoryに換算しない。9テスト成功＋解析1.692秒/BelowNormal、追加compile/GPU0。最初のTEMP権限7pass/2errorは保持し、既存validation_environmentで別captureの環境設定だけ修正。完全261KBreportと元PTXはWindowsに残し、Macはpeer summaryのorigin/source fields照合まで（独立原本監査ではない）。次は共通CLIのCPU分割計画/ABI/global所有権検査を実装し、準備後に必要な新しいcompiler専用実験を選ぶ。単なるdead-function削除やcall循環対策は今回根拠なし。本体CUDA未成立/全キャラ認定0、Metal849+実4とparts CPU32を維持。詳細docs/portable-v135-callgraph-analysis.md、research/portable-world-v135-callgraph-peer-report.json。以下は履歴です。
 <!-- /v135-callgraph-analysis-current -->

@@ -155,7 +155,7 @@ SUITES['heal-share-rosters']=dict(script='research/verify-world-heal-share-roste
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
     golden='research/portable-compiler-commands-heal-share-source-certificate.json',inputs=0,native=0,compiler_only=True,
     support_files=['research/portable-world-heal-share-regression-short-expected.json'],
-    tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py','test_portable_ptx_stats.py','test_portable_ptx_callgraph.py'])
+    tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py','test_portable_ptx_stats.py','test_portable_ptx_callgraph.py','test_portable_ptx_partition.py'])
 
 # Controller validation has no numeric program to execute. Keep its CPU work
 # separate from a selected suite's battle/native preflight.
@@ -163,6 +163,7 @@ SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
                'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py','test_portable_query_boundaries.py','test_portable_ptx_stats.py','test_portable_compiler_diagnostic.py']
 SMOKE_TESTS.append('test_portable_definition_view.py')
 SMOKE_TESTS.append('test_portable_ptx_callgraph.py')
+SMOKE_TESTS.append('test_portable_ptx_partition.py')
 
 
 def sha(data):
@@ -1378,6 +1379,7 @@ def main(argv=None):
     a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
     a=sub.add_parser('ptx-stats');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=8);a.add_argument('--callgraph',action='store_true')
+    a=sub.add_parser('ptx-partition');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--function');a.add_argument('--audit',action='store_true')
     a=sub.add_parser('compile');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--artifact-kind',choices=('cubin','ptx'),default='cubin')
     a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path)
@@ -1422,6 +1424,10 @@ def main(argv=None):
     elif a.command=='cache-check':result=check_compile_cache(a.capture,a.out)
     elif a.command=='compiler-stats':result=compiler_statistics(a.capture,a.out,top=a.top,caller=a.caller,runtime=a.runtime)
     elif a.command=='ptx-stats':result=ptx_statistics(a.cache_entry,a.phases,a.out,top=a.top,callgraph=a.callgraph)
+    elif a.command=='ptx-partition':
+        from portable_ptx_partition import saved_partition,audit_partition
+        if a.audit and a.function:raise ValueError('Audit uses the stored focus; --function is creation only')
+        result=audit_partition(a.cache_entry,a.phases,a.out) if a.audit else saved_partition(a.cache_entry,a.phases,a.out,a.function)
     elif a.command=='compile':
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
         if a.compile_cache:os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())

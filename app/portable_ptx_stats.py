@@ -70,12 +70,12 @@ def function_records(raw):
             pos+=1
         if pos==len(code):raise ValueError('Unterminated PTX function header')
         record=dict(name=name.group(1),kind=match.group(1),line=bisect_right(newlines,match.start())+1,
-                    header=code[match.start():pos],body=None)
+                    header=code[match.start():pos],body=None,start=match.start(),body_start=pos,end=pos+1)
         if code[pos]==';':
             yield record
             continue
         end=_close(code,pos,'{','}');covered=end
-        record.update(body=code[pos+1:end-1],lines=code[pos:end].count('\n')+1,
+        record.update(body=code[pos+1:end-1],end=end,lines=code[pos:end].count('\n')+1,
                       definition_sha256=hashlib.sha256(source[match.start():end].encode()).hexdigest())
         yield record
 
@@ -97,7 +97,7 @@ def ptx_statistics(raw,*,top=8):
                 scope='PTX virtual declarations only; not physical registers, compiler memory attribution or execution proof')
 
 
-def saved_ptx_statistics(cache_entry,phases,*,top=8,callgraph=False):
+def load_saved_ptx(cache_entry,phases):
     """Anchor cached bytes to an existing verified compile receipt, read only."""
     value=json.loads(cache_entry.read_bytes());identity=value['identity']
     key=hashlib.sha256(json.dumps(identity,sort_keys=True,separators=(',',':')).encode()).hexdigest()
@@ -109,6 +109,11 @@ def saved_ptx_statistics(cache_entry,phases,*,top=8,callgraph=False):
               if r.get('stage')=='cuda_compile_cache' and r.get('state')=='verified']
     if not any(r.get('key')==key and r.get('identity')==identity and r.get('artifact_sha256')==sha and r.get('artifact_bytes')==len(raw) for r in receipts):
         raise ValueError('Saved PTX compile receipt mismatch')
+    return raw,key
+
+
+def saved_ptx_statistics(cache_entry,phases,*,top=8,callgraph=False):
+    raw,key=load_saved_ptx(cache_entry,phases)
     result=ptx_statistics(raw,top=top)
     if callgraph:
         from portable_ptx_callgraph import callgraph_statistics
