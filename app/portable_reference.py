@@ -4,7 +4,8 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
-REFERENCES={'mode-capacity':('portable_mode_capacity_cases','world_mode_capacity_native','portable_mode_capacity_contracts'),
+REFERENCES={'skill-hp-basis':('portable_skill_hp_basis_cases','world_skill_hp_basis_native','portable_skill_hp_basis_contracts'),
+            'mode-capacity':('portable_mode_capacity_cases','world_mode_capacity_native','portable_mode_capacity_contracts'),
             'ally-burst':('portable_ally_burst_cases','world_ally_burst_native','portable_ally_burst_contracts'),
             'revive':('portable_revive_cases','world_revive_native','portable_revive_contracts'),
             'entry-reload':('portable_entry_reload_cases','world_entry_reload_native','portable_entry_reload_contracts'),

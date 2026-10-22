@@ -1,3 +1,7 @@
+<!-- skill-hp-basis-reference-current -->
+最大HP由来のスキルATK加算／置換のCPU契約を共通CLI `reference --suite skill-hp-basis`へ追加。28契約（正例26／保留バーストの正本欠落2）と観測器保持・故障注入・hook復元の6検査が成功。GPU/packing0、GPU source未変更、Slang接続は次工程。最大HP×割合÷100の順序、flatへの加算位置、親連続ヒットsnapshotを固定し、保留経路はnoop認定せず拒否予定。Windows新規実行0。ユーザー回答は終了操作なし、ゲーム／動画併用は可能性のみで、下記unknown判断を維持。詳細docs/portable-skill-hp-basis.mdとresearch/portable-skill-hp-basis-reference-checkpoint.json。以下は直前のGPU完了成果と履歴です。
+<!-- /skill-hp-basis-reference-current -->
+
 <!-- mode-capacity-current -->
 武器変更max_ammo_scaling_refを共通Slangへ接続。None/0、ゲージ→召喚体→stackの優先順位、整数倍率、進入/再進入/再装填snapshot、弾薬即時操作、容量0と無限弾薬、散弾/2銃口/charge/sentinelのCPU29契約を固定。sealed mode-capacity32(native26/拒否6)＋追加instant3＋E.H.全定義3秒/30秒2入力がMetal一致・独立seal。旧849/部位63/実4/味方通知16/ルピー2も同sourceで全一致・独立seal、計971、旧934の全entriesとraw2938109952Bを全byte保持。CPU回帰330成功。Runtime追加field0/stride138952、CUDA定数48B、full114/commands115 certificate更新。sealのCWD混在を修正し、異なる2checkoutの実子プロセス検査4件を通過、保存32のCPU監査結果がpackage自身からのsealと完全一致。初回query guard3失敗はGPU前/claimなしで保持し、元fixtureを換えず有限deltaを接続。E.H.履歴152/1388・省略0、30秒で容量1/モード1packetの実行を正本でも観測。静的220/266・base160/203・75分類はGPU認定ではない。Windows追加GPU/native/compile0・既存7終了unknown/環境保全falseで停止維持。通常UI CPU/全キャラ認定0/ゴール未達。詳細docs/portable-mode-capacity.mdとresearch/portable-mode-capacity-checkpoint.json。次も正本consumerのある未対応項目を優先し、未確認projectile/shieldをnoop受付しない。以下は履歴です。
 <!-- /mode-capacity-current -->
