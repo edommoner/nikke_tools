@@ -85,11 +85,15 @@ class NativeSmokeTests(unittest.TestCase):
         spec=importlib.util.spec_from_file_location('native_smoke_cli_test',ROOT/'scripts/nikke_gpu.py')
         self.cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(self.cli)
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup);self.capture=Path(self.temp.name)
-        self.api=API();self.releases=[];self.good_membership=True;self.exit_code=0
+        self.api=API();self.releases=[];self.good_membership=True;self.exit_code=0;self.file_error=None
     def launch(self,argv,**kwargs):
         stdout=kwargs['stdout']
         def resume(handle):
-            self.releases.append(handle);stdout.write(b'nikke-native-gate-v1');stdout.flush();self.api.ended=True;self.api.code=self.exit_code;return 1
+            self.releases.append(handle)
+            from test_portable_native_output_probe import Files
+            import portable_native_output_probe as probe
+            files=Files();files.fail=self.file_error;record=probe.probe(Path(argv[-1]),dll=files,get_error=lambda:files.error)
+            stdout.write(json.dumps(record).encode());stdout.flush();self.api.ended=True;self.api.code=self.exit_code if record['status']=='verified' else 71;return 1
         return SuspendedNativeProcess(argv,**kwargs,api=self.api,get_handle=lambda fd:fd,startup_factory=lambda:types.SimpleNamespace(dwFlags=0),resume=resume)
     def snapshot(self,process):
         self.assertEqual(self.releases,[])
@@ -101,12 +105,19 @@ class NativeSmokeTests(unittest.TestCase):
     def test_existing_smoke_exercises_same_native_gate_without_compiler_or_gpu(self):
         self.proof();self.assertTrue(self.cli.audit_native_smoke(self.capture,os.getpid()))
         self.assertEqual(self.releases,[200]);self.assertIn(100,self.api.closed);self.assertIn(200,self.api.closed)
-        record=self.cli.load(self.capture/'native-smoke.json');self.assertEqual(record['argv'][1:4],['-I','-S','-c']);self.assertEqual(record['gpu_calls'],0)
+        record=self.cli.load(self.capture/'native-smoke.json');self.assertEqual(record['argv'][1:3],['-I','-S']);self.assertEqual(Path(record['argv'][3]).name,'portable_native_output_probe.py');self.assertEqual(record['gpu_calls'],0)
         path=self.capture/'native-smoke.json';record['native_launch']['resume_previous_count']=0;self.cli.write(path,record)
         with self.assertRaisesRegex(ValueError,'launch gate'):self.cli.audit_native_smoke(self.capture,os.getpid())
         record['native_launch']['resume_previous_count']=1;self.cli.write(path,record)
         (self.capture/'native-smoke.stdout.log').write_bytes(b'corrupt')
         with self.assertRaisesRegex(ValueError,'output mismatch'):self.cli.audit_native_smoke(self.capture,os.getpid())
+    def test_failed_file_creation_retains_actual_win32_error_and_native_return(self):
+        self.file_error='CreateFileW'
+        with self.assertRaisesRegex(RuntimeError,'output probe failed'):self.proof()
+        record=self.cli.load(self.capture/'native-smoke.json');self.assertEqual(record['return_code'],71)
+        self.assertEqual(record['output_probe']['winerror'],5);self.assertEqual(record['output_probe']['failed_operation'],'CreateFileW')
+        self.assertEqual(self.releases,[200]);self.assertIn(100,self.api.closed)
+        with self.assertRaisesRegex(ValueError,'command/return'):self.cli.audit_native_smoke(self.capture,os.getpid())
     def test_native_smoke_refuses_bad_membership_without_resuming(self):
         self.good_membership=False
         with self.assertRaisesRegex(RuntimeError,'not in the validation Job'):self.proof()
@@ -115,8 +126,8 @@ class NativeSmokeTests(unittest.TestCase):
         self.assertEqual(rows[0]['state'],'rejected');self.assertIn(100,self.api.closed)
     def test_smoke_nonzero_exit_or_output_corruption_is_not_success(self):
         self.exit_code=7
-        with self.assertRaisesRegex(RuntimeError,'smoke child failed'):self.proof()
-        self.assertFalse((self.capture/'native-smoke.json').exists());self.assertEqual(self.releases,[200])
+        with self.assertRaisesRegex(RuntimeError,'output probe failed'):self.proof()
+        self.assertEqual(self.cli.load(self.capture/'native-smoke.json')['return_code'],7);self.assertEqual(self.releases,[200])
         self.assertFalse(any(r[0]=='terminate' for r in self.api.events))
 
 

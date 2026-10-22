@@ -1,3 +1,11 @@
+<!-- native-output-probe-current -->
+78121d4保存全文とexec履歴を取得。job/linkは既にrequire_escalatedで、suffixだけの変更でも同じ出力エラーのため単純な再昇格/relinkは選ばない。既存Windows smokeのnative子を固定出力probe scriptへ接続し、CreateFileW/CREATE_NEW→WriteFile20B→Flush→CloseとWin32失敗番号をJSON保存、native returnも成功判定前に保持する実装。既存上書き/設定変更なし、parentは実20B照合。fresh CPU230中229成功/Windows1skip。次は固定新packageでCPU+native I/O smokeだけ1回、compiler/link/driver/GPU0。probe成功もnvlink個別権限や計算成功とは別。元raw/claims/失敗保持。詳細docs/portable-native-output-probe.md、research/portable-native-output-probe-checkpoint.json。Metal849+実4/parts CPU32/全キャラ認定0維持。以下は履歴です。
+<!-- /native-output-probe-current -->
+
+<!-- link-output-suffix-result-current -->
+78121d4 Windows CPU223/native smoke成功、出力suffix変更でもnvlinkは0.072903秒ret1/Could not open output file継続、partial/CUBINなし。2PID/実測2GiB/Resume1/peak61820928B/post空/missing0/cleanup正常、元12275file不変。単なるsuffix仮説では解消しないため比較終了、retry/flags/cap変更なし。Macは小peer summaryまで・raw独立監査ではない。次は保存全文とexecのsandbox/昇格履歴をread-onlyで取得し、native子のファイル出力権限/APIを切り分ける。Macで固定nvlink PE importsにCreateFileA/W/WriteFile/GetLastErrorを確認したが失敗API/Win32番号は未確定。再link/GPU依頼はしない。取得RPCの一度の応答待ちだけを中止し、Windows新turn未生成を確認後、read-only取得を再依頼済み。全キャラ認定0/本体CUDA未成立/Metal849+実4/parts CPU32維持。詳細research/portable-link-output-suffix-peer-report.jsonとportable-nvlink-file-api-inventory.json。以下は履歴です。
+<!-- /link-output-suffix-result-current -->
+
 <!-- link-output-suffix-current -->
 f604071 Windows CPU223全成功/native smoke成功。2PID所属/停止起動/Resume1/実測2GiB/marker/return0/cleanup確認。実nvlinkは.cubin入力を認識し202B gmem/48B cmem[3]/portableEvents統計を出すが0.070901秒ret1で旧partial出力作成失敗。native Job cap2GiB/peak62898176B/post空/missing0、元10162file不変。link/計算false。次の1変数診断は一時名のみlinked.partial.cubin（末尾.cubin）へ変更、input/tool/flags/cap/公開名/検査は同じ。vendor必須仕様の証明はなく互換性仮説。fresh CPU223中222成功/Win1skip。未実行の新packageでCPU/Job gate後に1回だけ選ぶ。追加NVRTC/ptxas/driver/GPU0、元claim/失敗保持。詳細docs/portable-device-link.md、research/portable-link-output-suffix-checkpoint.jsonとportable-device-link-native-gate-peer-report.json。Metal849+実4/parts CPU32/全キャラ認定0を維持。以下は履歴です。
 <!-- /link-output-suffix-current -->

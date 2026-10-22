@@ -155,7 +155,7 @@ SUITES['heal-share-rosters']=dict(script='research/verify-world-heal-share-roste
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
     golden='research/portable-compiler-commands-heal-share-source-certificate.json',inputs=0,native=0,compiler_only=True,
     support_files=['research/portable-world-heal-share-regression-short-expected.json'],
-    tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py','test_portable_ptx_stats.py','test_portable_ptx_callgraph.py','test_portable_ptx_partition.py','test_portable_partition_object.py','test_portable_module_object.py','test_portable_device_linker.py','test_portable_native_process.py','test_portable_job_limits.py'])
+    tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py','test_portable_ptx_stats.py','test_portable_ptx_callgraph.py','test_portable_ptx_partition.py','test_portable_partition_object.py','test_portable_module_object.py','test_portable_device_linker.py','test_portable_native_process.py','test_portable_job_limits.py','test_portable_native_output_probe.py'])
 
 SUITES['compiler-full']=dict(SUITES['compiler-commands'],
     source=SUITES['heal-share-regression']['source'],
@@ -173,6 +173,7 @@ SMOKE_TESTS.append('test_portable_module_object.py')
 SMOKE_TESTS.append('test_portable_device_linker.py')
 SMOKE_TESTS.append('test_portable_native_process.py')
 SMOKE_TESTS.append('test_portable_job_limits.py')
+SMOKE_TESTS.append('test_portable_native_output_probe.py')
 
 
 def sha(data):
@@ -480,7 +481,7 @@ def cpu_preflight(m):
                 input_sha256=sha(data), gpu_calls=calls, elapsed_seconds=time.perf_counter()-started)
 
 
-NATIVE_SMOKE_CODE='import sys;sys.stdout.write("nikke-native-gate-v1");sys.exit(0)'
+NATIVE_SMOKE_SCRIPT='app/portable_native_output_probe.py'
 
 
 def native_smoke_child(capture):
@@ -489,15 +490,21 @@ def native_smoke_child(capture):
     import portable_offline_assembler as assembler
     from portable_phase_audit import Journal
     executable=str(Path(sys.executable).resolve());before=sha(Path(executable).read_bytes())
-    argv=[executable,'-I','-S','-c',NATIVE_SMOKE_CODE];process=None
+    from portable_native_output_probe import PROBE_NAME
+    script=(ROOT/NATIVE_SMOKE_SCRIPT).resolve();script_sha=sha(script.read_bytes())
+    argv=[executable,'-I','-S',str(script),str((capture/PROBE_NAME).resolve())];process=None
     journal=Journal(capture/'native-smoke-phases.jsonl');started=time.perf_counter()
     try:
         with (capture/'native-smoke.stdout.log').open('xb') as stdout,(capture/'native-smoke.stderr.log').open('xb') as stderr:
             process=SuspendedNativeProcess(argv,cwd=capture,stdin=subprocess.DEVNULL,stdout=stdout,stderr=stderr,shell=False,creationflags=BELOW_NORMAL)
             inspection,launch=verify_native_child(process,assembler.inspect_process,journal,'native_smoke',suspended=True)
             code=process.wait(timeout=10)
-        if code!=0 or sha(Path(executable).read_bytes())!=before:raise RuntimeError('Native gate smoke child failed or Python changed')
-        write(capture/'native-smoke.json',dict(python_executable=executable,python_sha256=before,argv=argv,inspection=inspection,native_launch=launch,return_code=code,elapsed_seconds=time.perf_counter()-started,gpu_calls=0))
+        try:probe=json.loads((capture/'native-smoke.stdout.log').read_bytes())
+        except (ValueError,UnicodeError):probe=None
+        # Retain the actual child return and I/O error even if it cannot create a file.
+        write(capture/'native-smoke.json',dict(python_executable=executable,python_sha256=before,script_sha256=script_sha,argv=argv,inspection=inspection,native_launch=launch,return_code=code,output_probe=probe,elapsed_seconds=time.perf_counter()-started,gpu_calls=0))
+        if code!=0:raise RuntimeError('Native output probe failed: '+str(probe))
+        if sha(Path(executable).read_bytes())!=before or sha(script.read_bytes())!=script_sha:raise RuntimeError('Native smoke Python/script changed')
     except BaseException as error:
         journal.emit('native_smoke_failure','raised',exception=type(error).__name__)
         if process is not None and process.poll() is None:process.terminate();process.wait(timeout=5)
@@ -512,8 +519,13 @@ def audit_native_smoke(capture,harness_pid):
     record=load(capture/'native-smoke.json');snapshot=record['inspection']
     validate_launch(record['native_launch'])
     if not contained(snapshot,harness_pid,snapshot['child_pid']) or snapshot.get('job_memory_limit_bytes')!=2147483648:raise ValueError('Native smoke inherited Job not verified')
-    if record['argv']!=[record['python_executable'],'-I','-S','-c',NATIVE_SMOKE_CODE] or record['return_code']!=0 or record['gpu_calls']!=0:raise ValueError('Native smoke command/return mismatch')
-    if (capture/'native-smoke.stdout.log').read_bytes()!=b'nikke-native-gate-v1' or (capture/'native-smoke.stderr.log').read_bytes()!=b'':raise ValueError('Native smoke output mismatch')
+    from portable_native_output_probe import PROBE_NAME,validate_probe
+    script=(ROOT/NATIVE_SMOKE_SCRIPT).resolve()
+    if record['argv']!=[record['python_executable'],'-I','-S',str(script),str((capture/PROBE_NAME).resolve())] or record['script_sha256']!=sha(script.read_bytes()) or record['return_code']!=0 or record['gpu_calls']!=0:raise ValueError('Native smoke command/return mismatch')
+    try:emitted=json.loads((capture/'native-smoke.stdout.log').read_bytes())
+    except (ValueError,UnicodeError) as error:raise ValueError('Native smoke output mismatch') from error
+    if emitted!=record['output_probe'] or (capture/'native-smoke.stderr.log').read_bytes()!=b'':raise ValueError('Native smoke output mismatch')
+    validate_probe(record['output_probe'],(capture/PROBE_NAME).read_bytes())
     return True
 
 
