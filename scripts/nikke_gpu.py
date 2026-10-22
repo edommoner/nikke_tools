@@ -177,6 +177,7 @@ SMOKE_TESTS.append('test_portable_native_output_probe.py')
 SMOKE_TESTS.append('test_portable_jit_link.py')
 SMOKE_TESTS.append('test_portable_jit_link_capture.py')
 SMOKE_TESTS.append('test_portable_linked_artifact.py')
+SMOKE_TESTS.append('test_portable_readback_blocks.py')
 
 
 def sha(data):
@@ -1837,6 +1838,9 @@ def import_results(archive,destination):
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     sub.add_parser('list')
+    for name in ('readback-index','readback-compare'):
+        a=sub.add_parser(name);a.add_argument('--readback',type=Path,required=True);a.add_argument('--sha256',required=True);a.add_argument('--out',type=Path,required=True)
+        if name=='readback-compare':a.add_argument('--index',type=Path,required=True);a.add_argument('--index-sha256',required=True)
     a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True)
     a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
@@ -1891,6 +1895,11 @@ def main(argv=None):
             golden=load(ROOT/config['golden'])
             stale=[f for f,h in golden['source_sha256'].items() if not (ROOT/f).is_file() or sha((ROOT/f).read_bytes())!=h]
             result[name]=dict(config,golden_source_ready=not stale,stale_source_files=stale)
+    elif a.command in ('readback-index','readback-compare'):
+        from portable_readback_blocks import main as blocks_main
+        args=['index' if a.command=='readback-index' else 'compare','--readback',str(a.readback),'--sha256',a.sha256,'--out',str(a.out)]
+        if a.command=='readback-compare':args+=['--index',str(a.index),'--index-sha256',a.index_sha256]
+        blocks_main(args);return
     elif a.command=='replay':result=replay_capture(a.capture,a.source_package,a.source_capture)
     elif a.command=='cache-check':result=check_compile_cache(a.capture,a.out)
     elif a.command=='compiler-stats':result=compiler_statistics(a.capture,a.out,top=a.top,caller=a.caller,runtime=a.runtime)

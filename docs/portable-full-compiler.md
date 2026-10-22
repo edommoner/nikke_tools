@@ -40,3 +40,11 @@ live compilerを自動fallbackで呼ばず、共通`_cuda_module`のCUBIN load�
 通常backend・共有数値本文・state/effect・ABI・strict normalizerは変更しない。CLIが既存compile source境界を一時的に置き換え、検証済みimageを返す。NVRTC関数は明示禁止、自動fallbackはない。read→receiptは1回だけで、元CUBINを変更しない。既存CUDA module／execute／stream readbackを使う。cache reuseとNVRTC hitを別stageにし、ordered native traceと独立readback監査でも専用origin/receiptを要求する。`cache-check`もこのproviderではNVRTC cache環境不要・CPU-onlyで再照合できる。
 
 新13故障注入を含むfresh controller CPU261中260成功／Windows1skip。4入力の既存CPU/native指紋と関連19検査も成功、両packetのコードbyte一致。数値sourceが同一なのでMetal849+実4は再実行しない。記録は`research/portable-linked-provider-checkpoint.json`。次は固定clean sourceでWindows CPU/Job smoke1回後、現行CUBINを再利用する実編成4だけをGPU1回。既存NVRTC/ptxas/JITlinkは再実行しない。計算／全キャラ認定は実結果が揃うまで未完了。
+
+## ab5c17b 実CUDA起動と未解決のraw差分
+
+Windows CPU261とnative gate成功後、保存CUBINの通常run1回を実施。RTX3070TiでcuModuleLoadData／Launch／Sync／readback2回を含むdriver19戻り値0、source/生成CUDA/prelude/保存CUBIN一致、追加NVRTC／ptxas／JITlink0を確認した。Job45.666311秒／peak1,667,842,048B／2GiB／post空／cleanup正常／欠落0、元25,637file不変。service未識別のpreservationfalseは維持。
+
+ただし4入力ともGPU出力指紋がMetal goldenと異なり、calculation_verified=false。保存comparisonのCPU-only確認では4件すべてadapter.compareが例外なく完了し、name/input/native指紋は一致、output指紋だけ不一致と判別した。nativeの検査範囲は通過したが、未比較領域を含む全rawの一致は未証明である。差分を除外／許容せず、再GPUを行わずに調査する。peer記録は`research/portable-linked-rosters-peer-report.json`と`portable-linked-rosters-hash-fields.json`。
+
+共通CLIのCPU-only `readback-index`／`readback-compare`は、記録済み全raw SHAと固定786432 words/caseを要求し、4096B単位の全block SHAを比較する。二度目のsample読みでも全blockと全SHAを再検査し、診断sampleは最大8block、元bufferはread-only、出力上書きは禁止。独立stdlib moduleとしても同じmainを呼べる。5故障注入と既存CLI39検査成功。保存Metal実4の12,582,912Bは元golden SHA f83a45b0...に一致し、`research/portable-heal-rosters-metal-block-index.json`へ3072 blockの指紋のみを保存した。raw本体は共有しない。次はWindows保存CUDAをこのindexとCPU照合し、相違wordの意味を調べる。
