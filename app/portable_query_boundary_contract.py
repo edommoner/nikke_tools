@@ -55,6 +55,8 @@ def verify(root,*,sources=None):
         source=(sources or {}).get(row['path'],(root/row['path']).read_text())
         from portable_skill_hp_basis_source_contract import baseline_source as baseline_hp_basis
         try:
+            from portable_ammo_equivalent_source_contract import baseline_source as baseline_ammo
+            source,_=baseline_ammo(root,row['path'],source)
             source,_=baseline_hp_basis(root,row['path'],source)
             source,capacity_delta=baseline_capacity(root,row['path'],source)
         except AssertionError as error:raise AssertionError('Original query statements/signatures/macros changed: '+row['path']) from error

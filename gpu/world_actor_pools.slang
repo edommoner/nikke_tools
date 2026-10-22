@@ -65,7 +65,7 @@ bool initializeActorPools(inout Runtime s)
     // Wide enemy carriers/skill packets are connected in the next stage.
     // Numeric allied buffs and weapon modes already use the common core.
     for(uint row=0;row<s.count;row++)
-    { Definition d=readDefinition(s.inputBase,row); PROJECTILE_ADMIT_ROW(s,row,d)
+    { Definition d=readDefinition(s.inputBase,row); PROJECTILE_POOL_ROW(s,row,d)
 #ifdef PORTABLE_WORLD_ACTOR_FIELDS
         if(!actorFieldsDefinitionValid(s,row,d)) return false;
 #else

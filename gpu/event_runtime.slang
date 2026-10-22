@@ -163,15 +163,17 @@ RWStructuredBuffer<Runtime> runtimeStates;
 #define PROJECTILE_DIAGNOSTIC_FIELDS(s,row,d,stage) { uint diagnostic=s.resourceOutput+786416;results[diagnostic]=0x57504144;results[diagnostic+1]=stage;results[diagnostic+2]=row+1;results[diagnostic+3]=d.kind;results[diagnostic+4]=d.stat;results[diagnostic+5]=d.quantityFlags;results[diagnostic+6]=d.owner;results[diagnostic+7]=d.triggerCount;results[diagnostic+8]=d.conditionCount;results[diagnostic+9]=d.damageFlags;results[diagnostic+10]=d.healthScaling;results[diagnostic+11]=d.alliedFlags;results[diagnostic+12]=uint(d.value);results[diagnostic+13]=uint(d.value>>32);results[diagnostic+14]=uint(d.duration);results[diagnostic+15]=uint(d.duration>>32); }
 #define PROJECTILE_ADMIT_ROW(s,row,d) PROJECTILE_DIAGNOSTIC_FIELDS(s,row,d,4)
 #define PROJECTILE_COUNTER_ROW(s,row,d) PROJECTILE_DIAGNOSTIC_FIELDS(s,row,d,11)
+#define PROJECTILE_POOL_ROW(s,row,d) PROJECTILE_DIAGNOSTIC_FIELDS(s,row,d,8000)
 #define PROJECTILE_ADMIT_STAGE(s,value) results[s.resourceOutput+786416]=0x57504144;results[s.resourceOutput+786417]=value;
 #else
 #define PROJECTILE_ADMIT_ROW(s,row,d)
 #define PROJECTILE_COUNTER_ROW(s,row,d)
+#define PROJECTILE_POOL_ROW(s,row,d)
 #define PROJECTILE_ADMIT_STAGE(s,value)
 #endif
 #ifdef PORTABLE_WORLD_PROJECTILE
 #define WORLD_PROJECTILE_INIT(s) initializeProjectiles(s);
-#define WORLD_PROJECTILE_KIND(d,legacy) (d.kind==1||d.kind==9||d.kind==10||d.kind==29 ? false : (legacy))
+#define WORLD_PROJECTILE_KIND(d,legacy) (d.kind==1||d.kind==9||d.kind==10||d.kind==29||d.kind==37 ? false : (legacy))
 #define WORLD_PROJECTILE_CONDITION(s,at,kind,arg) if(kind>=C_GAUGE_ABOVE&&kind<=C_GAUGE_MOD) { if(!validProjectileResourceCondition(s,at,kind,arg)) return false;continue; }
 #define WORLD_PROJECTILE_SKIP_SLOT(event,stage) if(event==26&&stage==2) continue;
 #define WORLD_PROJECTILE_FRAME(s) if(s.error==0) snapshotProjectileParts(s);
@@ -1408,11 +1410,11 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (s.error == 0) frames[depth].healthValue = boundary;
             continue;
         }
-        if (f.mode == 15)
+        if (f.mode == 15 || f.mode == 32)
         {
             if (f.value == 0) { depth--; continue; }
             frames[depth].value--;
-            logResourceNotification(s,26,f.owner,uint(f.argument),f.time,ONE,output);
+            if(f.mode==15) logResourceNotification(s,26,f.owner,uint(f.argument),f.time,ONE,output);
             if (s.error == 0) pushFrame(s,frames,depth,0,26,f.owner,0,f.time); continue;
         }
         if (f.mode == 13) { advanceBuffActivation(s,frames,depth); continue; }

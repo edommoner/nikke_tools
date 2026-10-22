@@ -334,6 +334,12 @@ void applyDefinitionFrame(inout Runtime s,inout Frame frames[32],inout int depth
                 else if (count != 0) pushFrame(s,frames,depth,15,0,d.owner,int(key),f.time,uint(count));
             }
         }
+        else if (d.kind == 37)
+        {
+            uint status;int64_t count=int64_t(f64ToI64(d.value,1,status));
+            if(status!=0) { s.error=16;break; }
+            if(count>1) pushFrame(s,frames,depth,32,0,d.owner,0,f.time,uint(count-1));
+        }
         else if (d.kind == 25) s.pendingReentry[d.owner] = 1;
         else if (d.kind == 2)
         {

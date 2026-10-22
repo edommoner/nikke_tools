@@ -5,6 +5,8 @@ from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
 REFERENCES={'ammo-equivalent':('portable_ammo_equivalent_cases','world_ammo_equivalent_native','portable_ammo_equivalent_contracts'),
+            'ammo-equivalent-catalogue':('portable_ammo_equivalent_catalogue_cases','world_ammo_equivalent_native','portable_ammo_equivalent_contracts'),
+            'ammo-equivalent-geometry':('portable_ammo_equivalent_geometry_cases','world_ammo_equivalent_native','portable_ammo_equivalent_contracts'),
             'pellet-shot':('portable_pellet_shot_cases','world_pellet_shot_native','portable_pellet_shot_contracts'),
             'lost-hp-attack-revival':('portable_lost_hp_attack_revival_cases','world_lost_hp_attack_native','portable_lost_hp_attack_contracts'),
             'lost-hp-attack':('portable_lost_hp_attack_cases','world_lost_hp_attack_native','portable_lost_hp_attack_contracts'),

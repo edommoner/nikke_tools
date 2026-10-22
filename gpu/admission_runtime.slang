@@ -30,6 +30,12 @@ void admitDefinitions(inout Runtime s,uint input)
     for (uint j = 0; j < s.count; j++)
     {
         Definition d;loadDefinition(input,j,d); PROJECTILE_ADMIT_ROW(s,j,d)
+        if(d.kind==37)
+        {
+            if(s.combat==0 || d.stat!=0 || d.target!=0 || d.enemyBuff!=0 || d.healthScaling!=0 || d.alliedFlags!=0 || d.quantityFlags!=0 || d.damageFlags!=0 || d.queryResolve!=0 || (d.flags&~3U)!=0 || !f64Finite(d.value) || f64Less(f64FromI64(4096),f64Abs(d.value))) { s.error=64;break; }
+            uint recipient=input+P_RECIPIENT_BASE+j*8;
+            if(commands[recipient]!=0 || d.owner>=5 || d.recipients!=(1U<<d.owner)) { s.error=64;break; }
+        }
         if(d.kind==33)
         {
             if(d.stat!=0 || d.enemyBuff!=0 || d.target!=0 || d.damageFlags!=0 || d.healthScaling!=0 || d.quantityFlags!=0) { s.error=64;break; }

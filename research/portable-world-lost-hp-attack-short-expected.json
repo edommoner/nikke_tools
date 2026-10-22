@@ -19,7 +19,7 @@
     "gpu/counter_context_entry.slang": "7387fc06a72bc9b984f8b29d46655a549ab56e154cd9f0924dc0533b9f787073",
     "gpu/counter_landing_entry.slang": "695560a33534df60e9f31359622f6a197d14d2eb4b072371520955c9eacde7bf",
     "gpu/target_counter_entry.slang": "af78f0f0cc55734578c0a86f48d5cd36750dd3ae4589be405d81d962293a4666",
-    "gpu/event_runtime.slang": "d6acec375135705a332b19311872cc5e2c8e6a68ab1029ce0a84edc228305483",
+    "gpu/event_runtime.slang": "863b2097c0ec367fa8d0a415d6d7883930b88486d2076a24a2eec51314d46a85",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "2b2cd6fed695d3470562b27dac4b8573fccc5b27eca816b08438e6ae92fd26bb",
@@ -82,10 +82,10 @@
     "gpu/heal_share_runtime.slang": "f3f91269823a7edbb1124df8b8f809c59a00f72f49cb759120701d9ad725bc11",
     "gpu/heal_share_plan.slang": "0042ea4d64f9a22533b82e2206b90fa0eaba5bd90719002beb5f5cb5f03237a5",
     "gpu/heal_share_trace.slang": "432863cbd91791a47acf93062d235d7d5d8a08a71f2e2023ef4970916d07c31b",
-    "gpu/dispatch_phases.slang": "1e625e6f2ddf707e1cf89c92c9618d0ba58a24e6c28ccf20fa6c18b0faa45644",
+    "gpu/dispatch_phases.slang": "02b37a204e65f5db0b5fbf800078a993b0f8ce6599ed20525afab08c2a4fed2c",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-    "gpu/world_actor_pools.slang": "6eb7e9d7c82b0271c7dc35ceb93f63f84c8f4af1b68bfe8f2a47d192e6d68a7c",
-    "gpu/world_actor_fields.slang": "274b809f30df7b747283ac81b252ff4158b9a08e46c801e78e41a5ecccb34d58",
+    "gpu/world_actor_pools.slang": "4b2a9848ad30ddc819e3f3d0d4bf2cfc2377030ad0893f3498e92e127e516162",
+    "gpu/world_actor_fields.slang": "8dde0d7548c4144cefb995abb761b75b59eccc032f2e6ebfff2444594a85e7cf",
     "gpu/world_actor_state.slang": "fe544032dc4862a7a3689b292f21110674bfb37668e84ffb87d9e78412e629c3",
     "gpu/world_actor_mutation.slang": "8d807f7800ec72f25caee64d4f6ae7885dba3328773111f117b7ccf6585f0e53",
     "gpu/world_actor_recipients.slang": "f7eb33cbe737cd6e6c729f6ca8c15d015256c2844f9d9a44fd1f6c646e34cab7",
@@ -114,7 +114,7 @@
     "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
     "gpu/pellet_shot_runtime.slang": "b84c7a1a969d0b04e14d08347d2495245bca5ebe98899fe10b1c80d65f901dad",
     "gpu/weapon_frame_phases.slang": "877e116ac591ec7ca1db3610d4288db528d513e0e6cfeecf7fcf7dc401a3d8b9",
-    "gpu/admission_runtime.slang": "07d993a0876133e5f448574d074942e455b85fdcfd9ce0bffd22a36f05f25000",
+    "gpu/admission_runtime.slang": "69fabd225d68fe3b1df64fc3bd21bd64a6e770326811dbaee0acfc432ce623b0",
     "gpu/portable_mt19937.slang": "6365293f4fe0269fba87b15aa866e617333f5012acef175a13fd7ed27152323a",
     "gpu/enemy_target_runtime.slang": "830fd22f28d105ea6b4e0ad4d334e774e36eebab698c1096a163cfdb712d9d1f",
     "gpu/program_phases.slang": "16783d980bcbdc7a7f9759e57fcd0b70765bc386898233d13c7c0b8c39e46846"
@@ -296,7 +296,7 @@
     }
   ],
   "generated_normalized": {
-    "cuda": "c848234692767d8d7c7c8a1e46856e76e68bf356e040ac3cd4c4a0760243bc58",
-    "metal": "6d0be94d806a37dcd75c29bda5aa7ba40d16c9b283bfeeeb5185f79ce3204fda"
+    "cuda": "252e187d1d8f0cc271e16b6855bb8ec915e3cc61eb188432ab7cdbb20cf85963",
+    "metal": "acbe83009788812bf9855418494a3b38dcad30afbc0075f9b688e2546a85a871"
   }
 }

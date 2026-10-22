@@ -1,3 +1,5 @@
+後続の共通GPU接続・Metal実証は [GPU実装記録](portable-ammo-equivalent-gpu.md) を参照。以下はCPU契約段階の履歴です。
+
 # 弾消費数として数えるinstant: 正本契約
 
 共通CLIへ `reference --suite ammo-equivalent --out <新規JSON>` を追加しました。

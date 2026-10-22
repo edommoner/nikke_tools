@@ -24,6 +24,8 @@ def verify_sources(root,sources=None,*,pellet_projected=False):
     for name,digest in data['current'].items():
         raw=sources[name].encode() if name in sources else (root/name).read_bytes()
         if not pellet_projected:
+            from portable_ammo_equivalent_source_contract import baseline_source as baseline_ammo
+            source,_=baseline_ammo(root,name,raw.decode());raw=source.encode()
             from portable_pellet_shot_source_contract import baseline_source as baseline_pellet_shot
             source,_=baseline_pellet_shot(root,name,raw.decode());raw=source.encode()
         from portable_skill_hp_basis_source_contract import baseline_source as baseline_hp_basis

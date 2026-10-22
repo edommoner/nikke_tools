@@ -14,8 +14,11 @@ def baseline_source(root,name,source):
     assert hashlib.sha256(source.encode()).hexdigest()==row['baseline_sha256'],'Per-shot historical source changed: '+name
     return source,True
 
-def project_sources(root,sources=None):
+def project_sources(root,sources=None,*,ammo_projected=False):
     root=Path(root);sources=dict(sources or {});data=ledger(root)
+    if not ammo_projected:
+        from portable_ammo_equivalent_source_contract import project_sources as project_ammo
+        sources,_=project_ammo(root,sources)
     for name in data['sources']:
         sources[name],_=baseline_source(root,name,sources.get(name,(root/name).read_text()))
     for name,digest in data['new_sources'].items():

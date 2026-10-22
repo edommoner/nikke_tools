@@ -1,8 +1,9 @@
 """Literal counts, damage, ammo and observer source identity contracts."""
 def verify(case,native):
     expected=case['contract'];obs=native['ammo_equivalent'];owner=expected['owner'];notices=obs['notices'];calls=obs['calls']
+    origin=expected.get('notice_origin','equivalent')
     assert len(notices)==expected['notices']==obs['squad_count'],(case['name'],'squad count',len(notices),obs['squad_count'])
-    assert all(n['owner']==owner and n['origin'] in ('physical','equivalent') for n in notices),(case['name'],'notice source',notices)
+    assert all(n['owner']==owner and n['origin'] in ('physical',origin) for n in notices),(case['name'],'notice source',notices)
     assert len(calls)==expected['calls'] and [c['name'] for c in calls]==expected['call_names'],(case['name'],'dispatch count',calls)
     assert [c['value'] for c in calls]==expected['call_values'] and all(c['owner']==owner for c in calls),(case['name'],'literal caster quantity',calls)
     assert [c['from_tick'] for c in calls]==expected.get('tick_calls',[False]*len(calls)),(case['name'],'tick phase',calls)
@@ -19,7 +20,7 @@ def verify(case,native):
     assert [sum(n['time']==time for n in notices) for time in times]==expected['notice_groups'],(case['name'],'per-frame notifications',notices)
     for i,time in enumerate(times):
         origins=[n['origin'] for n in notices if n['time']==time];count=expected['notice_groups'][i]
-        literal=['equivalent']*count if case['name'].endswith('infinite-ammo') else ['equivalent']*(count-1)+['physical'] if expected['extras_before_physical'][i] else ['physical']+['equivalent']*(count-1)
+        literal=[origin]*count if case['name'].endswith('infinite-ammo') else [origin]*(count-1)+['physical'] if expected['extras_before_physical'][i] else ['physical']+[origin]*(count-1)
         assert origins==literal,(case['name'],'origin order',origins)
     assert all(c['time']==0 if case['name'].endswith('battle-start') else c['time'] in times or c['from_tick'] for c in calls),(case['name'],'dispatch times',calls)
     assert len([n for n in notices if n['origin']=='physical'])==(0 if case['name'].endswith('infinite-ammo') else len(shots)),(case['name'],'physical notices',notices)
