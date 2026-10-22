@@ -1,3 +1,5 @@
+追加のsealed suite `heal-share-rosters`はナユタ/レムの全定義3秒/30秒の4入力。GPU本文を変更せずMetal一致・独立seal、レム30秒の物理履歴55件省略は明示して保持します。基準の849と併せて次の変更時に検査してください。詳細は[実編成検証](portable-heal-share-real-rosters.md)。
+
 現在のsealed入口は`heal-share-regression`849(native676/拒否173)、診断は`heal-share-diagnostic`53です。回復分配43契約を共通DFSへ接続し、Metal全一致・旧796全raw保持・独立seal済み。`package --suite heal-share-regression`で固定しfresh展開して既存runを使用します。全キャラ認定0・本体CUDA未成立・UI CPUです。最新範囲と制限は[回復分配GPU接続](portable-heal-share-gpu.md)、以下は過去の接続記録です。
 
 <!-- phase-diagnostic-current -->

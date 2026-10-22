@@ -5,6 +5,12 @@ def reference_readiness(issue):
     result=dict(lane='reference_review',native_consumer='not_audited',contract_coverage='not_indexed',
         gpu_supported=False,gpu_admission_verified=False,full_character_verified=False,
         runtime_validation_performed=False)
+    if issue.get('phase')=='effect' and issue.get('kind')=='damage' and issue.get('fields')==['hits_parts']:
+        result.update(lane='native_contract_extension',native_consumer='confirmed_source',
+            consumer_source='research/upstream/nikke-calc-master/calculator/timeline.py:_coord_skill_hits,_handle_damage_eff,_reach_hit',
+            reference_suites=[],recorded_cases=0,
+            note='CPU source and canonical flag65536 found; part/intercept routing, static part basis, multi-hit and lifecycle still need independent contracts')
+        return result
     if issue.get('phase')!='effect' or issue.get('kind')!='buff':return result
     stat=issue.get('stat')
     if stat=='heal_split':

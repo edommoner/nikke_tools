@@ -39,6 +39,15 @@ class ReadinessSemanticsTests(unittest.TestCase):
             r=reference_readiness(self.blocker(stat));self.assertEqual(r['lane'],'native_consumer_research');self.assertEqual(r['native_consumer'],'unconfirmed')
             self.assertFalse(r['gpu_supported']);self.assertFalse(r['runtime_validation_performed'])
 
+    def test_parts_field_has_a_source_but_never_invented_runtime_coverage(self):
+        row=dict(phase='effect',kind='damage',category='fields',fields=['hits_parts'])
+        result=reference_readiness(row)
+        self.assertEqual(result['lane'],'native_contract_extension');self.assertEqual(result['native_consumer'],'confirmed_source')
+        self.assertEqual(result['recorded_cases'],0);self.assertEqual(result['reference_suites'],[])
+        self.assertFalse(result['gpu_supported']);self.assertFalse(result['runtime_validation_performed'])
+        self.assertEqual(reference_readiness(dict(row,fields=['hits_parts','scaling']))['lane'],'reference_review')
+        self.assertEqual(reference_readiness(dict(row,kind='buff'))['lane'],'reference_review')
+
     def test_inert_model_gap_is_checked_against_current_canonical_classification(self):
         r=reference_readiness(self.blocker('cover_def_pct'));self.assertEqual(r['lane'],'reference_model_gap')
         import effect_spec

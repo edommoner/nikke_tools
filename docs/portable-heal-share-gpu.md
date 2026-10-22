@@ -1,3 +1,5 @@
+追加のナユタ・レム実編成4件も検証済みです。定義欠落0、レム30秒の物理履歴55件省略は残るため、[実編成の範囲](portable-heal-share-real-rosters.md)を参照してください。以下は共通接続の基準849の記録です。
+
 # 回復分配を共有実行器へ接続
 
 現在のsealed suiteは`heal-share-regression`849入力（native676／拒否173）、goldenは`portable-world-heal-share-regression-short-expected.json`。回復分配の43 CPU契約とraw負例10件を既存796へ追加し、Metalで全件一致、独立GPU0 sealを確認した。CUDA／Metalは同じSlang、effect定義、入力、比較器を使う。本体CUDAのcompile／数値一致は未成立。

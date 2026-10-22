@@ -21,3 +21,5 @@ CUDAの分割調査は既存共通assemblerへ暗黙追加しない。NVIDIA 12.
 追加のheal-share-targets6契約をCPU検証し、readinessの記録件数を34へ更新した。旧28は全指紋を保持。複合対象は6literalケースの検証までで、未被覆相互作用が残るためlaneの自動昇格はしない。詳細はportable-heal-share.mdとportable-heal-share-target-reference-checkpoint.json。
 
 さらにheal-share-lifesteal9を検証し、記録件数は43へ更新した。これはCPU側の前提が増えた記録で、GPU laneの昇格や対応率の増加ではない。独立plan演算のMetal10は成功したが、battle接続は別の未完了項目として扱う。
+
+実編成4件の追加後も全266入力と80順位は保持した。hits_partsだけの3分類はpinned timelineとcanonical compilerにconsumerを確認し、native_contract_extensionへ移した。ソース確認でありCPUケース0・runtime検証false・GPU対応falseのまま。複数の未対応fieldsが混ざる行はreference_reviewに残す。段階を混同しない22検査に成功、GPU sourceの変更はない。

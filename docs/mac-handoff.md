@@ -1,3 +1,7 @@
+<!-- heal-real-rosters-current -->
+heal-share-rosters4（ナユタ/レムの全定義3秒/30秒）をMetal一致・GPU0 seal。定義81/70のbinding欠落0、source/両生成指紋は旧849と同一、849再実行0。レム30秒だけ物理履歴2103中2048記録/55省略、prefix+省略数と全戦闘結果までで未記録packet完全照合は未証明。最終CPU preflight/既存6検査/readiness22成功。全266入力と80順位保持、hits_parts3分類をsource確認済み・CPU契約0のlaneへ。次はdocs/portable-parts-skill-next.mdのCPU契約を作成し共通receiptへ移植。GPU source変更時は849＋実4を保持。本体CUDA未成立/認定0/UI CPU、Windows追加0、保存PTX共有は個別確認未回答。詳細docs/portable-heal-share-real-rosters.mdとresearch/portable-heal-share-real-rosters-checkpoint.json。以下は履歴です。
+<!-- /heal-real-rosters-current -->
+
 <!-- healing-share-gpu-current -->
 現在はheal-share-regression849(native676/拒否173)をMetal全一致・GPU0独立seal。回復分配のmembership→既存Frame mode31→HP/storage/同期子イベント→元通知へ共通接続、normal stat75なしfast pathを保持。診断53も全一致（plan/portion/元通知を直接比較、HP notify profiler列は明示的対象外）。旧796全input/native/raw・2.50GB直接比較/lazyゼロ保持、Runtime247/138952不変。CPU893中892成功/Win1skip、最終compiler smoke158中157成功/Win1skip＋更新certificate9成功。静的packing216/base156で新ナユタ/レムは入力受付だけ。次は全定義の3秒/30秒実編成を検証。本体CUDA未成立・認定0・UI CPU、Windows追加0。保存PTXの個別共有確認は未回答・再実行しない。詳細docs/portable-heal-share-gpu.md、research/portable-heal-share-gpu-checkpoint.json。以下は履歴です。
 <!-- /healing-share-gpu-current -->

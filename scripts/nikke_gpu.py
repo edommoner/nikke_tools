@@ -149,6 +149,9 @@ SUITES['heal-share-diagnostic']=dict(SUITES['heal-share-world'],script='research
 SUITES['heal-share-regression']=dict(SUITES['entry-reload-regression'],script='research/verify-world-heal-share-regression-short.py',
     golden='research/portable-world-heal-share-regression-short-expected.json',inputs=849,native=676,development_only=False,
     tests=SUITES['entry-reload-regression']['tests']+['test_portable_heal_share_gpu.py','test_portable_heal_share_trace.py'])
+SUITES['heal-share-rosters']=dict(script='research/verify-world-heal-share-rosters-short.py',source='gpu/world_entry_reload_resident_entry.slang',
+    golden='research/portable-world-heal-share-rosters-short-expected.json',inputs=4,native=4,development_only=False,
+    tests=['test_portable_heal_share_gpu.py','test_portable_real_binding_proof.py'])
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
     golden='research/portable-compiler-commands-heal-share-source-certificate.json',inputs=0,native=0,compiler_only=True,
     support_files=['research/portable-world-heal-share-regression-short-expected.json'],
