@@ -1,3 +1,7 @@
+<!-- compact-input-current -->
+共通regressionの796 word行をarray('I')へcompact化、各行の元wire照合とdomain identityは維持。保存Metal796/native633/全input・全output・comparison全一致、GPU0。Macのprepare最大RSS2,354,872,320→1,808,695,296byte、全監査1,812,381,696byte。全CPU812のlist型固定テスト1件を内容/domain/wire/array型の契約へ修正し、fresh関連5件成功（他810成功/Windows1skip）。GPU本体と比較器不変。CUDA transfer/child保存のstream接続は未完了。Windows v130は権限修正後smoke107成功/missing0/post空、offline assembly1回失敗、追加実行せず保存証拠取得中。詳細portable-compact-input.md/checkpoint。以下は履歴です。
+<!-- /compact-input-current -->
+
 <!-- stream-audit-current -->
 共通CLIのartifact SHAと親readback監査を固定8MiB/1case読取りへ変更。fresh package CPU809中808成功・Windows1skip、保存Metal796/全2.50GBをnative633と再照合し旧comparison全一致（GPU0）。ただし最大RSS2,365,014,016byteで全体2GiB未達。次は入力準備peakとword表現、CUDA transfer/child保存のstream化が必要です。Windows v129はCPU107pass後、snapshot取得失敗でgate前停止。ptxas取得/assembly/driver/GPU0、再試行せずCPU観測診断中。詳細portable-stream-audit.md/checkpoint。以下は履歴です。
 <!-- /stream-audit-current -->

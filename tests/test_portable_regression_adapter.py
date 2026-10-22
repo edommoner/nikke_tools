@@ -18,7 +18,9 @@ class RegressionAdapterTests(unittest.TestCase):
         a=SimpleNamespace(suite=SimpleNamespace(INPUT=2,OUTPUT=3,inspect_native=Mock(return_value=({'battle':1},['trace']))),prepare=lambda:([('positive',[1,2],domain),('negative',[3,4],None)],array.array('I',[2,1,2,3,4]).tobytes()),compare=Mock(return_value={'complete':'native'}))
         with patch.object(adapter,'suite',SimpleNamespace(INPUT=2,OUTPUT=3)),patch.dict(adapter.ADAPTERS,{'test':a},clear=True):
             entries,data=adapter.prepare()
-            self.assertEqual(entries,[('test/positive',[1,2],('test',domain)),('test/negative',[3,4],None)])
+            self.assertEqual([(name,list(words),domain) for name,words,domain in entries],
+                             [('test/positive',[1,2],('test',domain)),('test/negative',[3,4],None)])
+            self.assertTrue(all(isinstance(words,array.array) and words.typecode=='I' for _,words,_ in entries))
             self.assertEqual(data,array.array('I',[2,1,2,3,4]).tobytes())
             self.assertEqual(adapter.native_reference(entries[0][2]),dict(battle={'battle':1},skill_trace=['trace']))
             self.assertEqual(adapter.compare([0],entries[0][2]),{'complete':'native'})

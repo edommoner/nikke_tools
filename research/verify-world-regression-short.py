@@ -40,14 +40,19 @@ def combine(adapters):
         if adapter.suite.INPUT!=suite.INPUT or adapter.suite.OUTPUT!=suite.OUTPUT:
             raise ValueError('Regression adapters must share exact wire strides')
         rows,data=adapter.prepare()
-        packed=array.array('I',[len(rows)])
-        for _,words,_ in rows:
+        if len(data)!=(1+len(rows)*suite.INPUT)*4 or int.from_bytes(data[:4],'little')!=len(rows):
+            raise ValueError('Regression adapter input/header mismatch')
+        for i,(label,words,domain) in enumerate(rows):
             if len(words)!=suite.INPUT:raise ValueError('Regression input row stride mismatch')
-            packed.extend(words)
-        if sys.byteorder!='little':packed.byteswap()
-        if packed.tobytes()!=data:raise ValueError('Regression adapter input/header mismatch')
-        entries.extend((name+'/'+label,words,None if domain is None else (name,domain))
-                       for label,words,domain in rows)
+            # Retain compact native-endian words rather than every Python list.
+            # Check the same canonical little-endian wire one row at a time.
+            compact=array.array('I',words)
+            wire=compact if sys.byteorder=='little' else array.array('I',compact)
+            if sys.byteorder!='little':wire.byteswap()
+            start=4+i*suite.INPUT*4
+            if wire.tobytes()!=data[start:start+suite.INPUT*4]:raise ValueError('Regression adapter input/header mismatch')
+            entries.append((name+'/'+label,compact,None if domain is None else (name,domain)))
+        del rows,data
     if len({row[0] for row in entries})!=len(entries):raise ValueError('Duplicate regression case identity')
     packed=array.array('I',[len(entries)])
     for _,words,_ in entries:packed.extend(words)
