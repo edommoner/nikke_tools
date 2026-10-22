@@ -1,3 +1,7 @@
+<!-- compiler-diagnostic-current -->
+現在はcompiler-commandsの固定compiler-diagnostic packageを追加し、既存compile/cache-check/assemble/監査/Jobを再利用。full796の共有本文は不変、診断入口1ファイルのみ追加。通常run/adapter/moduleとbattle認定を拒否、PTX/2GiB/60秒を子・親・保存監査で固定。fresh aaec8ca7で全CPU861中860成功/Windows1skip、smoke153、生成指紋/layout247/138952/48byte一致。次は固定コミット共有後、Windowsでこのcommands PTX1回＋成功時のみ独立assembly1回。通常fullを再実行せず、失敗時のinit/write・RDC等の自動追加も禁止。詳細docs/portable-compiler-diagnostic.md、research/portable-compiler-diagnostic-checkpoint.json。以下は履歴です。
+<!-- /compiler-diagnostic-current -->
+
 <!-- phase-codegen-current -->
 次のcompiler調査用に共通CLI phase-codegenを追加。fresh package8470d38eで同Slang本文からinit/commands/write各CUDA／Metal全6生成、全CPU852中851成功/Windows1skip。CUDA生成量は本体1.66MB/652関数に対しinit543KB/170、commands1.20MB/573、write169KB/153。commands閉包は大きく残り、ptxasメモリ改善や本番複数kernelは未証明。詳細docs/portable-phase-codegen.md、research/portable-phase-codegen-checkpoint.json。新しいGPU/Windows実行0。次はcommands診断の固定source/生成物/compiler/cacheとbounded Jobを結ぶcompiler専用package契約を設計し、事前検査後の必要な1試行だけを検討。以下は履歴です。
 <!-- /phase-codegen-current -->

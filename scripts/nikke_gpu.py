@@ -130,11 +130,15 @@ SUITES['entry-reload-regression']=dict(SUITES['regression-resident'],script='res
 SUITES['resident-binding']=dict(script='research/verify-resident-binding-short.py',golden='research/portable-resident-binding-file-transfer-short-expected.json',source='gpu/resident_runtime_binding_probe.slang',inputs=4,native=4,development_only=False,tests=['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
 SUITES['entry-reload-regression']['tests'].append('test_portable_heal_share_reference.py')
 SUITES['entry-reload-regression']['tests'].append('test_portable_phase_codegen.py')
+SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
+    golden='research/portable-compiler-commands-source-certificate.json',inputs=0,native=0,compiler_only=True,
+    support_files=['research/portable-world-query-boundaries-regression-short-expected.json'],
+    tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py'])
 
 # Controller validation has no numeric program to execute. Keep its CPU work
 # separate from a selected suite's battle/native preflight.
 SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
-               'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py','test_portable_query_boundaries.py','test_portable_ptx_stats.py']
+               'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py','test_portable_query_boundaries.py','test_portable_ptx_stats.py','test_portable_compiler_diagnostic.py']
 
 
 def sha(data):
@@ -203,12 +207,21 @@ def verify_package(root):
     m = load(root/'gpu-package.json')
     if m['schema'] != SCHEMA or m['package_id'] != package_id(m) or m['suite'] not in SUITES:
         raise ValueError('Invalid package identity/schema/suite')
-    if m.get('purpose','sealed') not in ('sealed','development') or (not is_development(m) and m.get('selected_cases')):
+    if m.get('purpose','sealed') not in ('sealed','development','compiler-diagnostic') or (not is_development(m) and m.get('selected_cases')):
         raise ValueError('Invalid package purpose/case selection')
+    if compiler_only(m)!=(m.get('purpose')=='compiler-diagnostic'):raise ValueError('Compiler diagnostic purpose mismatch')
     check_records(root, m['files'])
     golden = m['golden'] if is_development(m) else load(root/SUITES[m['suite']]['golden'])
     if golden != m['golden']:
         raise ValueError('Package golden mismatch')
+    if compiler_only(m):
+        if golden.get('proof_kind')!='compiler-source-only' or golden.get('calculation_verified') is not False or golden.get('executable_battle_verified') is not False or golden.get('entries')!=[]:
+            raise ValueError('Compiler diagnostic cannot claim a battle proof')
+        if not set(SUITES[m['suite']]['support_files'])<={r['path'] for r in m['files']}:raise ValueError('Compiler shared baseline absent from payload')
+        baseline_path=root/SUITES[m['suite']]['support_files'][0]
+        baseline=load(baseline_path)
+        if sha(baseline_path.read_bytes())!=golden['baseline_golden_sha256'] or {k:v for k,v in golden['source_sha256'].items() if k!=SUITES[m['suite']]['source']}!=baseline['source_sha256']:
+            raise ValueError('Compiler diagnostic changed the shared baseline')
     sources=golden['source_sha256'];records={r['path']:r['sha256'] for r in m['files']}
     if not sources or SUITES[m['suite']]['source'] not in sources:raise ValueError('Package GPU source closure missing')
     missing=set(sources)-set(records)
@@ -219,6 +232,7 @@ def verify_package(root):
 
 def make_package(suite, output, *, develop=False, cases=()):
     """Whitelist code + required public data; never reports/raw/settings/tools."""
+    if SUITES[suite].get('compiler_only') and (develop or cases):raise ValueError('Compiler diagnostic has no battle development/cases')
     if SUITES[suite].get('development_only') and not develop:
         raise ValueError('This suite requires --develop until an explicit Metal seal is registered')
     tracked = subprocess.check_output(['git','ls-files','-z'], cwd=ROOT).decode().split('\0')
@@ -230,7 +244,7 @@ def make_package(suite, output, *, develop=False, cases=()):
             or (p.parts[:2]==('tests','fixtures') and p.suffix=='.json')
             or name=='research/portable-mode-session-contract.json'
             or name=='research/portable-world-counter-landing-short-expected.json'
-            or (p.parts[0]=='data' and p.suffix=='.json') or name==SUITES[suite]['golden']):
+            or (p.parts[0]=='data' and p.suffix=='.json') or name==SUITES[suite]['golden'] or name in SUITES[suite].get('support_files',())):
             names.append(name)
     # Include this CLI even before its first commit during local development.
     if 'scripts/nikke_gpu.py' not in names:
@@ -272,7 +286,7 @@ def make_package(suite, output, *, develop=False, cases=()):
     m = dict(schema=SCHEMA, suite=suite,
              source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
              working_tree_dirty=bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip()),
-             files=records, golden=golden, purpose='development' if develop else 'sealed', selected_cases=list(cases), runtime_requirements=['Python dependencies from the existing venv', 'Slang 2026.20', 'CUDA toolkit/driver on Windows or Swift/Metal on macOS'])
+             files=records, golden=golden, purpose='compiler-diagnostic' if SUITES[suite].get('compiler_only') else 'development' if develop else 'sealed', selected_cases=list(cases), runtime_requirements=['Python dependencies from the existing venv', 'Slang 2026.20', 'CUDA toolkit/driver on Windows or Swift/Metal on macOS'])
     m['package_id'] = package_id(m)
     with zipfile.ZipFile(output, 'x', compression=zipfile.ZIP_DEFLATED) as archive:
         archive.writestr('gpu-package.json', json.dumps(m, ensure_ascii=False, indent=2))
@@ -318,11 +332,16 @@ def module(path):
 
 
 def open_suite(m):
+    if compiler_only(m):raise ValueError('Compiler diagnostic has no battle adapter')
     return module(ROOT/SUITES[m['suite']]['script'])
 
 
 def is_development(m):
     return m.get('purpose', 'sealed') == 'development'
+
+
+def compiler_only(m):
+    return SUITES.get(m.get('suite'),{}).get('compiler_only') is True
 
 
 def prepare_entries(adapter, m):
@@ -794,6 +813,7 @@ def cpu_test_groups(m,capture,smoke=False):
 
 def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_only=False):
     m=verify_package(ROOT)
+    if compiler_only(m) and not smoke:raise ValueError('Compiler diagnostic cannot execute a battle')
     if is_development(m) and backend!='metal':raise ValueError('Development execution requires Metal; seal before CUDA verification')
     if not 1<=timeout<=180:raise ValueError('Timeout must be 1..180')
     if backend=='cuda' and os.name!='nt' and not smoke and not cpu_only:raise ValueError('CUDA transport requires Windows')
@@ -868,7 +888,7 @@ MODULE_DRIVER_APIS=('cuInit','cuDeviceGet','cuDeviceGetName','cuCtxCreate_v2','c
 
 def module_child(m,capture,backend):
     """Exact cached PTX and shared module lifecycle; forbid every battle API."""
-    if backend!='cuda' or is_development(m):raise ValueError('Module check requires a sealed CUDA package')
+    if backend!='cuda' or is_development(m) or compiler_only(m):raise ValueError('Module check requires a sealed CUDA battle package')
     import portable_backend
     from portable_phase_audit import Journal,NativeLibrary
     journal=Journal(capture/'phases.jsonl');loader=portable_backend.C.WinDLL
@@ -924,6 +944,7 @@ def module_child(m,capture,backend):
 
 
 def audit_module_capture(m,capture,*,verify_artifacts=True):
+    if compiler_only(m):raise ValueError('Compiler diagnostic cannot load a CUDA module')
     from portable_phase_audit import valid_cache_hit
     run=load(capture/'run.json');facts=load(capture/'execution.json')
     if run.get('mode')!='module-only' or run['package_id']!=m['package_id'] or run['backend']!='cuda' or is_development(m):raise ValueError('Wrong module check capture')
@@ -998,7 +1019,7 @@ def module_capture(capture,timeout,original_workspace,jit_opt_level=None):
     if type(timeout) is not int or not 1<=timeout<=60:raise ValueError('Module check budget must be1..60 seconds')
     if not original_workspace or not os.environ.get('NIKKE_CUDA_COMPILE_CACHE'):raise ValueError('Original workspace and dedicated compiler cache required')
     m=verify_package(ROOT)
-    if is_development(m):raise ValueError('Module check requires a sealed Metal package')
+    if is_development(m) or compiler_only(m):raise ValueError('Module check requires a sealed Metal battle package')
     capture.mkdir(parents=True,exist_ok=False)
     write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode='module-only',status='loading',jit_optimization_level=jit_opt_level,memory_limit_mb=2048,gpu_retry_count=0))
     try:
@@ -1127,6 +1148,8 @@ def assemble_capture(capture,timeout,original_workspace,source_package,source_ca
 def compile_child(m,capture,backend):
     """Same compiler/cache as execution, with no CUDA driver admission."""
     if backend!='cuda' or is_development(m):raise ValueError('Compile-only requires a sealed CUDA package')
+    if compiler_only(m) and (os.environ.get('NIKKE_CUDA_ARTIFACT')!='ptx' or os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL','')!='' or os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB')!='2048'):
+        raise ValueError('Compiler diagnostic child requires PTX and2GiB')
     import portable_backend
     from portable_phase_audit import Journal,observe
     journal=Journal(capture/'phases.jsonl')
@@ -1147,7 +1170,7 @@ def compile_child(m,capture,backend):
         normalized=module(ROOT/'research/summarize-portable-cross-gpu.py').normalized
         generated={k:normalized(p.read_bytes()) for k,p in outputs.items()}
         if hashes!=m['golden']['source_sha256'] or generated!=m['golden']['generated_normalized']:
-            raise ValueError('Generated compiler inputs differ from the sealed Metal proof')
+            raise ValueError('Generated compiler inputs differ from the '+('fixed diagnostic source certificate' if compiler_only(m) else 'sealed Metal proof'))
         artifact,receipt=journal.invoke('shared_cuda_compile_only',portable_backend.compile_cuda_source,outputs['cuda'])
     copy_generated(capture,m['suite'])
     write(capture/'compiler.json',dict(source_sha256=hashes,generated_sha256={k:sha(p.read_bytes()) for k,p in outputs.items()},
@@ -1160,6 +1183,8 @@ def audit_compile_capture(m,capture,*,verify_artifacts=True):
     if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
     facts=load(capture/'execution.json')
     if is_development(m) or type(facts['timeout_seconds']) is not int or not 1<=facts['timeout_seconds']<=60 or type(run['memory_limit_mb']) is not int or not 64<=run['memory_limit_mb']<=4096:raise ValueError('Compiler proof exceeds its bounded policy')
+    if compiler_only(m) and (run['artifact_kind']!='ptx' or run['ptxas_level'] is not None or run['memory_limit_mb']!=2048):
+        raise ValueError('Compiler diagnostic proof must use PTX and2GiB')
     rows=[];phase_error=None
     if (capture/'phases.jsonl').exists():
         for line in (capture/'phases.jsonl').read_text().splitlines():
@@ -1206,6 +1231,8 @@ def compile_capture(capture,timeout,original_workspace,artifact_kind='cubin',ptx
     if not original_workspace or not os.environ.get('NIKKE_CUDA_COMPILE_CACHE'):raise ValueError('Original workspace and dedicated compiler cache required')
     m=verify_package(ROOT)
     if is_development(m):raise ValueError('Compile-only requires a sealed Metal package')
+    if compiler_only(m) and (artifact_kind!='ptx' or ptxas_level is not None or memory_limit_mb!=2048):
+        raise ValueError('Compiler diagnostic requires PTX and the fixed2GiB budget')
     capture.mkdir(parents=True,exist_ok=False)
     write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode='compile-only',status='compiling',artifact_kind=artifact_kind,ptxas_level=ptxas_level,memory_limit_mb=memory_limit_mb,gpu_retry_count=0))
     try:
@@ -1246,6 +1273,7 @@ def audit_capture(capture,verify_artifacts=True,*,record_comparison=False):
         return audit_module_capture(m,capture,verify_artifacts=verify_artifacts)
     if load(capture/'run.json').get('mode')=='compile-only':
         return audit_compile_capture(m,capture,verify_artifacts=verify_artifacts)
+    if compiler_only(m) and load(capture/'run.json').get('mode')!='smoke':raise ValueError('Compiler diagnostic cannot certify a battle')
     if load(capture/'run.json').get('mode')=='replay':
         return audit_replay_capture(m,capture,verify_artifacts=verify_artifacts)
     facts=load(capture/'execution.json')
@@ -1280,7 +1308,7 @@ def audit_capture(capture,verify_artifacts=True,*,record_comparison=False):
         phase_rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()] if (capture/'phases.jsonl').exists() else []
         containment,pid=job_contained(capture,phase_rows)
         containment &= verify_cuda_trace(phase_rows,pid=pid) if containment else False
-    return dict(sealed=not is_development(m),purpose=m.get('purpose','sealed'),
+    return dict(sealed=not is_development(m) and not compiler_only(m),purpose=m.get('purpose','sealed'),
                 calculation_verified=bool(calc and transport_ok and containment),preservation_verified=preservation,
                 passed=bool(calc and transport_ok and containment and (backend!='cuda' or preservation is True)),
                 containment_verified=containment,comparison_error=error,first_difference=first_difference,phase=phases,gpu_retries=0,audit_gpu_calls=0)
