@@ -113,12 +113,22 @@ def _build_resident(compiler, source, entry, hashes, directory):
     return outputs,hashes
 
 
+def metal_compile_command(command,cache=None):
+    command=list(command)
+    if cache is None or Path(command[0]).name!='swift':return command
+    cache=Path(cache)
+    if not cache.is_absolute():raise ValueError('Absolute private Swift module cache required')
+    cache.mkdir(parents=True,exist_ok=True)
+    return [command[0],'-module-cache-path',str(cache),*command[1:]]
+
+
 def run_metal_command(command, *, compile_timeout=300, gpu_timeout=120):
     """Bound cold compilation separately from GPU execution; consume both pipes.
 
     The Swift adapter emits the dispatch marker just before command.commit().
     A compile/lock wait can never consume the subsequent GPU deadline.
     """
+    command=metal_compile_command(command,os.environ.get('NIKKE_METAL_MODULE_CACHE'))
     stage='compile';deadline=time.monotonic()+compile_timeout
     chunks={'stdout':bytearray(),'stderr':bytearray()}
     with subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.PIPE) as process:
