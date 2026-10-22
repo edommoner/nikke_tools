@@ -9,7 +9,7 @@ def verify_layout(limits):
     assert limits['LANDINGS']==CAPACITY and limits['LANDING_WORDS']==8
     assert limits['REVIVAL_BASE']+limits['REVIVAL_WORDS']<=trace_base
     assert limits['WORLD_PERIODIC_HEAD_BASE']+16<=trace_base
-    assert END<=786416<limits['WORLD_RELOAD_OUTPUT_WORDS']
+    assert END+10<=786416<limits['WORLD_RELOAD_OUTPUT_WORDS']
     return dict(base=BASE,end=END,capacity=CAPACITY,words=WORDS)
 
 def validate(effect,*,combat,world_frame):

@@ -29,12 +29,18 @@ uint64_t normalProbability(inout Runtime s, uint who, uint64_t accuracy)
 // Seven-factor scalar damage, shared by CUDA and Metal. All intermediate
 // arithmetic is software binary64 and follows the authored reference order.
 [noinline]
-void sampleDamageFactors(inout Runtime s, uint who, uint64_t coefficient, uint64_t when,
-    out uint64_t factors[9],
+void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient, uint64_t when,
+    out uint64_t factors[9], out uint64_t interceptFactor, out uint64_t explosionRange, out uint64_t pierceRange, bool captureReach,
     bool normal, uint64_t coreBonus, uint flags = 0, uint64_t fullChargeMult = ONE,
     bool optimal = false, bool physical = false)
 {
     uint64_t b[64]; collectStats(s,who,when,b);
+    explosionRange=0;pierceRange=0;
+    if(captureReach)
+    {
+        if((flags&H_EXPLOSION)!=0) explosionRange=plainQuantity(s,who,S_explosion_range,when);
+        else if((flags&H_PIERCE)!=0) pierceRange=plainQuantity(s,who,S_pierce_range,when);
+    }
     // Physical weapon flags also apply to weapon-mode skill packets. A skill
     // labelled normal/auto_damage still derives its flags from its own family.
     if(physical)
@@ -74,6 +80,7 @@ void sampleDamageFactors(inout Runtime s, uint who, uint64_t coefficient, uint64
     if ((flags & H_EXPLOSION) != 0) f5 = f64Add(f5,f64Div(b[S_projectile_explosion_dmg_pct],HUNDRED));
     if ((flags & H_ATTACHMENT) != 0) f5 = f64Add(f5,f64Div(b[S_projectile_attachment_dmg_pct],HUNDRED));
     if ((flags & H_SEQUENTIAL) != 0) f5 = f64Add(f5,f64Div(b[S_sequential_dmg_pct],HUNDRED));
+    interceptFactor=f64Add(f5,f64Div(b[S_intercept_dmg_pct],HUNDRED));
     factors[8] = f64Add(f5,f64Div(b[S_part_dmg_pct],HUNDRED));
     if ((flags & H_PART) != 0) f5 = f64Add(f5,f64Div(b[S_part_dmg_pct],HUNDRED));
     if ((flags & H_INTERCEPT) != 0) f5 = f64Add(f5,f64Div(b[S_intercept_dmg_pct],HUNDRED));
@@ -82,6 +89,14 @@ void sampleDamageFactors(inout Runtime s, uint who, uint64_t coefficient, uint64
     uint64_t f7 = elementMatch(s,who) ? f64Add(uint64_t(0x3ff19999) << 32 | 0x9999999a,f64Div(b[S_element_bonus],HUNDRED)) : ONE;
     factors[0]=f1; factors[1]=f2; factors[2]=f3; factors[3]=f4;
     factors[4]=f5; factors[5]=f6; factors[6]=f7;
+}
+
+void sampleDamageFactors(inout Runtime s, uint who, uint64_t coefficient, uint64_t when,
+    out uint64_t factors[9], bool normal, uint64_t coreBonus, uint flags=0,
+    uint64_t fullChargeMult=ONE,bool optimal=false,bool physical=false)
+{
+    uint64_t interceptFactor,explosionRange,pierceRange;
+    sampleDamageFactorsForReach(s,who,coefficient,when,factors,interceptFactor,explosionRange,pierceRange,false,normal,coreBonus,flags,fullChargeMult,optimal,physical);
 }
 
 // Keep the reference's divide, seven ordered products and integer boundary.

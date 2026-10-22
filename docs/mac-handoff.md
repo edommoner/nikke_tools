@@ -1,3 +1,5 @@
+共通Slangへ非座標skillのpierce／explosion到達、生成値・reach receipt、interrupt群のHP／総ダメージ外計上・吸血を接続しました。現在`parts-skill-world`46（native41／拒否5）がMetal成功・独立seal済み。生成後buff変更・複数破壊・壊れない対象・周期3tick・共有吸血を含みます。最終849と実4もMetal成功、旧849全raw約2.67GB・実4全raw・従来26入力を保持。物理interrupt・座標・deferred・実CUDA照合・CUDA生成cache改善は未完了、全キャラ認定0、Windows新規実行0です。詳細は[到達処理](portable-interrupt-reach.md)。以下は履歴です。
+
 interrupt packetの7bit codec単体を共通Slangで実装し、sealed suite `interrupt-packet-codec`154（正例140／拒否14）をMetal検証・独立sealしました。本体へのincludeはまだなく、既存849／40／実4のソースは維持。次はFrameに生成値／reachを保持し、codecをreceiptの保存・読出しへ接続してからkind6群着弾・計上・吸血を接続します。初回probeの256word stride誤りは原失敗を保持して786432wordへ修正済み。Windows新規実行0。
 
 interruptのprivate kind6／source3を共通world poolへ接続し、出現・世代・再出現・期限終了をMetalで検証しました。現在のsealed入口は`parts-skill-world`40（native30・拒否10）。既存849と実編成4も独立sealし、旧全rawと以前の26入力を保持しています。到達ダメージ・吸血・座標・deferred・修正版CUDA照合は未完了、全キャラ認定0です。Windowsの新規実行は停止中。詳細は[interrupt接続](portable-interrupt-source.md)、次の実装は[packet設計](portable-interrupt-packets-next.md)。以下は履歴です。

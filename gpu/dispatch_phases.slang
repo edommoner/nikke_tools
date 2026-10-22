@@ -24,24 +24,24 @@ void advanceSkillDamageFrame(inout Runtime s, inout Frame frames[32], inout int 
             if (f.cursor == 0)
             {
                 s.target=WORLD_SKILL_BASIS(s,damage.damageRoute>=2 || damage.damageRoute==1 ? 0 : f.target);
-                uint64_t partAmount=0;
+                uint64_t partAmount=0,interruptAmount=0;uint interruptReach=0;
                 WORLD_SKILL_SCOPE_BEGIN(s)
 #ifdef PORTABLE_WORLD_PROJECTILE
-                if(worldSkillsEnabled(s)&&(damage.damageFlags&65536U)!=0)
-                    frames[depth].healthPrevious=sampleWorldPartSkill(s,damage,f.healthValue,f.time,partAmount);
+                if(worldSkillsEnabled(s)&&worldSkillNeedsReach(s,damage))
+                    frames[depth].healthPrevious=sampleWorldPartSkill(s,damage,f.healthValue,f.time,partAmount,interruptAmount,interruptReach);
                 else
 #endif
                     frames[depth].healthPrevious=damage.damageNormal!=0 ? damageValue(s,damage.owner,f.healthValue,f.time,true,s.combat!=0 ? s.coreDamageBonus[damage.owner] : s.coreBonus,damage.damageFlags,ONE,(s.attackContext[damage.owner]&1)!=0) : damageValue(s,damage.owner,f.healthValue,f.time,false,s.coreBonus,damage.damageFlags);
                 WORLD_SKILL_SCOPE_END(s)
                 // Coefficient is consumed at cursor0; subsequent hits and child
                 // returns reuse this captured part value, never the coefficient.
-                frames[depth].healthValue=partAmount;
+                frames[depth].healthValue=partAmount;frames[depth].interruptAmount=interruptAmount;frames[depth].interruptReach=interruptReach;
                 uint order=0;frames[depth].repeatRow=(damage.periodicFlags&1)!=0 ? periodicDamageMask(s,uint(f.argument),order) : 0xffffffff;
                 frames[depth].skillCritRate=s.lastDamageCritRate;
                 frames[depth].repeatPassive=order;frames[depth].healthNext=s.enemyEpoch;
             }
             if (s.error!=0) break;
-            enqueueLanding(s,uint(f.argument),f.target,frames[depth].repeatRow,frames[depth].repeatPassive,frames[depth].healthPrevious,f.time,f.cursor+1,damage.damageHits,uint(depth+1),uint(frames[depth].healthNext),frames[depth].healthValue);
+            enqueueLanding(s,uint(f.argument),f.target,frames[depth].repeatRow,frames[depth].repeatPassive,frames[depth].healthPrevious,f.time,f.cursor+1,damage.damageHits,uint(depth+1),uint(frames[depth].healthNext),frames[depth].healthValue,frames[depth].interruptAmount,frames[depth].interruptReach);
             frames[depth].cursor++;frames[depth].value++;
             if (s.error==0) pushSkillHit(s,frames,depth,damage,frames[depth].skillCritRate,f.time);
             continue;

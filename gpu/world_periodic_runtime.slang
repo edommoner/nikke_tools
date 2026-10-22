@@ -95,7 +95,11 @@ void captureWorldPeriodicPacket(inout Runtime s,LandingReceipt r,uint index)
     for(uint i=0;i<P_WORLD_ACTOR_SET_WORDS;i++) results[at+i]=0;
     for(uint i=0;i<results[from];i++)
     {
+#ifdef PORTABLE_WORLD_PROJECTILE
+        uint slot=r.interruptReach!=0?interruptPacketSlot(from,i):periodicSnapshotSlot(from,i);
+#else
         uint slot=periodicSnapshotSlot(from,i);
+#endif
         if(!periodicSnapshotGeneration(s,from,slot)||results[actorPoolAt(s,slot)+1]==0) continue;
         uint entry=at+8+count*4,b=actorBinding(s,slot);results[entry]=slot;results[entry+1]=results[actorPoolAt(s,slot)];results[entry+2]=commands[b];results[entry+3]=commands[b+1];
         results[at+1+slot/32]|=1U<<(slot%32);count++;

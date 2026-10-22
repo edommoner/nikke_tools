@@ -145,11 +145,11 @@ def pack_battle(effects, command_count, names, state_names, bindings, patterns, 
     if not 1 <= len(bindings) <= 128:
         raise ValueError('Invalid world counter Actor binding count')
     for slot, binding in enumerate(bindings):
-        if int(binding.kind) != 1:
+        if int(binding.kind) not in (1,6):
             continue
         reach = patterns[binding.run].targets[binding.slot].reach
-        if type(reach) is not int or not 0 <= reach <= 5:
+        if type(reach) is not int or not 0 <= reach <= (5 if int(binding.kind)==1 else 4):
             raise ValueError('Invalid physical part reach')
         at = ACTION_BASE + slot * 8
-        words[at:at + 2] = [1, reach]
+        words[at:at + 2] = [1 if int(binding.kind)==1 else 2, reach]
     return words

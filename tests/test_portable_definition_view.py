@@ -9,6 +9,11 @@ class DefinitionViewTests(unittest.TestCase):
     def test_all55_properties_wire_snapshot_and_unchanged_shared_consumers(self):
         result=verify(ROOT);self.assertTrue(result['verified']);self.assertEqual(result['properties'],55);self.assertFalse(result['other_shared_sources_unchanged']);self.assertTrue(result['other_sources_outside_reviewed_delta_unchanged']);self.assertEqual(result['reviewed_scope_snapshot_sources'],['gpu/world_actor_state.slang'])
 
+    def test_interrupt_frame_codec_and_group_delta_reject_other_changes(self):
+        for name,old,new in [('gpu/event_runtime.slang','uint interruptReach;','uint interruptReach,extra;'),('gpu/world_interrupt_runtime.slang','WORLD_INTERRUPT_TOTAL_BASE=785424','WORLD_INTERRUPT_TOTAL_BASE=785422'),('gpu/world_interrupt_runtime.slang','dispatch(s,17,0,who,0,when,output,amount)','dispatch(s,17,0,who,0,when,output,ONE)'),('gpu/world_periodic_runtime.slang','interruptPacketSlot(from,i)','interruptPacketSlot(from,i+1)'),('gpu/interrupt_packet_codec.slang','index*7','index*8')]:
+            source=(ROOT/name).read_text();self.assertIn(old,source)
+            with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(old,new,1)})
+
     def test_scope_snapshot_changes_outside_exact_reviewed_delta_are_rejected(self):
         name='gpu/world_actor_state.slang';source=(ROOT/name).read_text()
         for old,new in [('return results[at];','return results[at+1];'),('actorStateQueryScopeSnapshot(at);','actorStateQueryScopeSnapshot(at+1);')]:

@@ -16,8 +16,10 @@ def observe(case):
         if previous is not None:previous(frame,event,answer)
         try:
             values=frame.f_locals
-            if case.get('observe_parts_accounting') and event=='return' and frame.f_code is BossScript.finish.__code__:
+            if (case.get('observe_parts_accounting') or any(p.get('kind')=='interrupt' for p in case.get('patterns',[]))) and event=='return' and frame.f_code is BossScript.finish.__code__:
                 accounting['interrupt_damage']=[values['self'].interrupt_dealt.get(name,0) for name in names]
+                from world_actor_pool_native import actor_bindings
+                boss=values['self'];accounting['extra']=[dict(identity=b.identity,generation=boss._runs[b.run].opens,extra_hits=boss._runs[b.run].targets[b.slot].extra_hits,extra_dealt=boss._runs[b.run].targets[b.slot].extra_dealt) for b in actor_bindings(boss) if int(b.kind)==6 and boss._runs[b.run].opens!=0]
             if case.get('observe_parts_lifecycle'):
                 if frame.f_code is BossScript.part_hits.__code__ and event=='return' and values['ev'].skill_name=='parts-source':
                     lifecycle.append(dict(kind='part-capture',time=values['t'],parts=list(answer)))
@@ -47,7 +49,7 @@ def observe(case):
     if errors:raise ValueError('Native parts observation failed: '+str(errors))
     native['parts_skill_events']=events
     if case.get('observe_parts_lifecycle'):native['parts_skill_lifecycle']=lifecycle
-    if case.get('observe_parts_accounting'):
+    if case.get('observe_parts_accounting') or any(p.get('kind')=='interrupt' for p in case.get('patterns',[])):
         if not accounting:raise ValueError('Native finish accounting missing')
         native['parts_skill_accounting']=accounting
     return native,trace

@@ -24,13 +24,21 @@ def verify(root,*,sources=None):
     expected.append('};')
     assert len(f['fields'])==len({r['name'] for r in f['fields']})==55,'Canonical55 fields missing'
     assert tokens(state[start:end])==tokens('\n'.join(expected)),'Definition property/type/override mapping changed'
-    assert fingerprint(state[:start]+'DEFINITION_VIEW_SLOT'+state[end:])==f['event_without_definition_tokens'],'Event/state/consumer statements changed'
+    # Only explicit local Frame metadata is added. Runtime/wire and every
+    # other statement retain the historical token proof.
+    frame_old='uint64_t skillCritRate;'
+    frame_new='uint64_t skillCritRate,interruptAmount;\n    uint interruptReach;'
+    assert state.count(frame_new)==1,'Unreviewed interrupt Frame metadata'
+    state_baseline=state.replace(frame_new,frame_old,1)
+    bstart=state_baseline.index('struct Definition');bend=state_baseline.index('\n};',bstart)+3
+    assert fingerprint(state_baseline[:bstart]+'DEFINITION_VIEW_SLOT'+state_baseline[bend:])==f['event_without_definition_tokens'],'Event/state/consumer statements changed'
     begin=decoder.index('{',decoder.index('void loadDefinition'));finish=begin+1;depth=1
     while depth:
         depth+=(decoder[finish]=='{')-(decoder[finish]=='}');finish+=1
     assert tokens(decoder[begin:finish])==tokens('{ d._wireInput=input;d._wireRow=row;d._overrideMask=0;d._route=0;d._hits=0; }'),'Wire snapshot or override initialization changed'
     assert fingerprint(decoder[:begin]+'DEFINITION_LOADER_SLOT'+decoder[finish:])==f['decoder_without_loader_body_tokens'],'Canonical wire accessor/decoder changed'
-    reviewed_deltas=[];factor_deltas=[];part_deltas=[];interrupt_deltas=[]
+    reviewed_deltas=[];factor_deltas=[];part_deltas=[];interrupt_deltas=[];reach_deltas=[]
+    reach=json.loads((root/'tests/fixtures/portable-interrupt-reach-source-delta.json').read_text())
     parts=json.loads((root/'tests/fixtures/portable-parts-source-delta.json').read_text())
     interrupts=json.loads((root/'tests/fixtures/portable-interrupt-source-delta.json').read_text())
     for name,digest in f['other_shared_sources'].items():
@@ -45,9 +53,15 @@ def verify(root,*,sources=None):
             # bytes survived. Retain its baseline hash and admit only this exact
             # reviewed extraction. Numerical parity still requires GPU evidence.
             assert digest=='4cd960b9b0d3bd42490e71794ae60077095d41a0c1ca9b88312aad389468170f'
-            assert hashlib.sha256(raw).hexdigest()=='7f7b7a24887be9361bea9ad360e99db0ab4323ede760cc0070ea1c7262feca5f','Unreviewed damage factor source'
+            assert reach['baseline'][name]=='7f7b7a24887be9361bea9ad360e99db0ab4323ede760cc0070ea1c7262feca5f'
+            assert hashlib.sha256(raw).hexdigest()==reach['current'][name],'Unreviewed damage factor source'
+            reach_deltas.append(name)
             assert hashlib.sha256(read('gpu/damage_factors.slang').encode('utf-8')).hexdigest()=='c806441d5532ccc494e3f9099033378621e95cc248fe1be8826f9864de2ca3de','Unreviewed damage factor product'
             factor_deltas=['gpu/damage_runtime.slang','gpu/damage_factors.slang']
+        elif name in reach['current'] and hashlib.sha256(raw).hexdigest()!=digest:
+            assert reach['baseline'][name]==digest,'Interrupt reach ledger changed historical baseline'
+            assert hashlib.sha256(raw).hexdigest()==reach['current'][name],'Unreviewed interrupt reach source: '+name
+            reach_deltas.append(name)
         elif name in interrupts['current'] and hashlib.sha256(raw).hexdigest()!=digest:
             assert interrupts['baseline'][name]==digest,'Interrupt source ledger changed historical baseline'
             assert hashlib.sha256(raw).hexdigest()==interrupts['current'][name],'Unreviewed interrupt source: '+name
@@ -58,6 +72,10 @@ def verify(root,*,sources=None):
             part_deltas.append(name)
         else:
             assert hashlib.sha256(raw).hexdigest()==digest,'Shared numeric/consumer source changed: '+name
+    assert set(reach_deltas)==set(reach['current']),'Partial interrupt reach ledger'
+    for name,digest in reach['new_sources'].items():
+        assert hashlib.sha256(read(name).encode('utf-8')).hexdigest()==digest,'Unreviewed interrupt reach helper'
+        reach_deltas.append(name)
     if interrupt_deltas:assert set(interrupt_deltas)==set(interrupts['current']),'Partial interrupt source ledger'
     if part_deltas:
         assert set(part_deltas)==set(parts['current']),'Partial part receipt source ledger'
@@ -66,7 +84,7 @@ def verify(root,*,sources=None):
             part_deltas.append(name)
     # The fixed closure has indexed reads, never an escaped mutable command
     # buffer. Future source changes must deliberately re-audit this assumption.
-    for name in ['gpu/event_runtime.slang','gpu/definition_runtime.slang',*f['other_shared_sources'],*factor_deltas,*part_deltas]:
+    for name in ['gpu/event_runtime.slang','gpu/definition_runtime.slang',*f['other_shared_sources'],*factor_deltas,*part_deltas,*reach_deltas]:
         ts=tokens(read(name))
         for i,t in enumerate(ts):
             if t!='commands':continue
@@ -78,4 +96,4 @@ def verify(root,*,sources=None):
             assert ts[j]!='=' or ts[j+1]=='=','Input command write: '+name
             assert ts[j] not in ('+','-','|','&','^','*','/','%') or ts[j+1]!='=','Input compound command write: '+name
             assert ts[j:j+2] not in (['+','+'],['-','-']),'Input command increment: '+name
-    return dict(verified=True,properties=55,local_override_properties=['damageRoute','damageHits'],wire_immutable=True,other_shared_sources_unchanged=not (reviewed_deltas or factor_deltas or part_deltas or interrupt_deltas),other_sources_outside_reviewed_delta_unchanged=True,reviewed_scope_snapshot_sources=reviewed_deltas,reviewed_damage_factor_sources=factor_deltas,reviewed_part_receipt_sources=part_deltas,reviewed_interrupt_sources=interrupt_deltas,gpu_calls=0,scope='Source correspondence/snapshot contract; explicit later source deltas do not prove numerical parity, which requires actual execution')
+    return dict(verified=True,properties=55,local_override_properties=['damageRoute','damageHits'],wire_immutable=True,other_shared_sources_unchanged=not (reviewed_deltas or factor_deltas or part_deltas or interrupt_deltas),other_sources_outside_reviewed_delta_unchanged=True,reviewed_scope_snapshot_sources=reviewed_deltas,reviewed_damage_factor_sources=factor_deltas,reviewed_part_receipt_sources=part_deltas,reviewed_interrupt_sources=interrupt_deltas,reviewed_interrupt_reach_sources=reach_deltas,reviewed_interrupt_frame_metadata=True,gpu_calls=0,scope='Source correspondence/snapshot contract; explicit later source deltas do not prove numerical parity, which requires actual execution')

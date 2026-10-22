@@ -37,9 +37,10 @@ bool validCounterLandingInput(inout Runtime s,uint base,uint step)
     for(uint j=0;j<2;j++)
     {
         uint slot=step*2+j,at=base+4104+slot*8;
-        bool part=slot<actorPoolCount(s)&&commands[actorBinding(s,slot)]==1;
+        uint sourceKind=slot<actorPoolCount(s)?commands[actorBinding(s,slot)]:0;
+        bool part=sourceKind==1||sourceKind==6;
         if(part)
-        { if(commands[at]!=1||commands[at+1]>5) return false;for(uint k=2;k<8;k++) if(commands[at+k]!=0) return false; }
+        { if(commands[at]!=(sourceKind==6?2U:1U)||commands[at+1]>(sourceKind==6?4U:5U)) return false;for(uint k=2;k<8;k++) if(commands[at+k]!=0) return false; }
         else for(uint k=0;k<8;k++) if(commands[at+k]!=0) return false;
     }
     if(step==0) { WORLD_SKILL_INIT(s) COUNTER_FIELDS_WORK_INIT(s) COUNTER_CONTEXT_INIT(s) for(uint i=P_COUNTER_LANDING_PACKET_BASE;i<P_COUNTER_LANDING_EXTRA_BASE+128*4;i++) results[s.resourceOutput+i]=0; }

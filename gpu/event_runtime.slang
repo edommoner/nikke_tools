@@ -76,7 +76,8 @@ property uint queryResolve { get { return definition_queryResolve(_wireInput,_wi
 struct Frame
 {
     uint hitCrit;
-    uint64_t skillCritRate;
+    uint64_t skillCritRate,interruptAmount;
+    uint interruptReach;
     uint mode, event, owner, cursor, target, repeatRow, repeatLeft, repeatPassive;
     int argument;
     uint64_t value, time, healthValue, healthPrevious, healthNext, gaugeFlat;

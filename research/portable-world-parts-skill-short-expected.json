@@ -1,6 +1,6 @@
 {
-  "input_sha256": "e1adb459f3058cd1947bde3aed4663a958ae1ea77f2fae284d9c8a33f8d424d0",
-  "output_sha256": "aa56b6bbcb8d57e7e4060ac519b9d1725deb7dc3a29969e83cf585e941fdac23",
+  "input_sha256": "f4ffa43514a0f76f07e568a2b6ccffc50321e99c6f0a92f3aaf5e06182101b0e",
+  "output_sha256": "7e29c8869d0276b51f487ca26fc038cdf0c7f825a8fb9f738c7cc0cd8ef6bc45",
   "source_sha256": {
     "gpu/world_entry_reload_resident_entry.slang": "dae039a720ec42ada66ae731ba23396414f4d4a0301ca89fb7d0651f855afced",
     "gpu/world_projectile_resident_entry.slang": "a2e20e241c0cd0d5533fd38078672a732bf934f2aa30fd9e1c981e7f402a9ceb",
@@ -19,7 +19,7 @@
     "gpu/counter_context_entry.slang": "7387fc06a72bc9b984f8b29d46655a549ab56e154cd9f0924dc0533b9f787073",
     "gpu/counter_landing_entry.slang": "695560a33534df60e9f31359622f6a197d14d2eb4b072371520955c9eacde7bf",
     "gpu/target_counter_entry.slang": "af78f0f0cc55734578c0a86f48d5cd36750dd3ae4589be405d81d962293a4666",
-    "gpu/event_runtime.slang": "2279641ec98d4ba8993826a1a0987006bfd2d6e1c4ef2d096fb3ff595c3981d6",
+    "gpu/event_runtime.slang": "2fbd0c184266f29478bb9a5e966784b566f3cf3e1681300ddf2fcd1bc51f55ab",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "2b2cd6fed695d3470562b27dac4b8573fccc5b27eca816b08438e6ae92fd26bb",
@@ -55,15 +55,16 @@
     "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
     "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
     "gpu/skill_critical_runtime.slang": "ffab45b7bc55c3d1bbe472d9b590320183281e6aa11370e212c84e56ab218417",
-    "gpu/damage_runtime.slang": "7f7b7a24887be9361bea9ad360e99db0ab4323ede760cc0070ea1c7262feca5f",
+    "gpu/damage_runtime.slang": "23d9dcac5167468c75e94dc7e362d547e9ff2f985538b4ba1b450ab699d3b63c",
     "gpu/damage_factors.slang": "c806441d5532ccc494e3f9099033378621e95cc248fe1be8826f9864de2ca3de",
     "gpu/incoming_runtime.slang": "6e4d106fd6b92509394c1b9c0005c824acf79fe67e476fe43fe783632d6ad1fb",
     "gpu/revival_runtime.slang": "4b38cb85ff3d24375191cabd836283f572a8c2663fccd9c1d31b71bcbb853683",
     "gpu/burst_runtime.slang": "0f924f0b48008d41979119ae61e5a3cb9432f8e862ff84532990d6b86d5301f4",
     "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
     "gpu/enemy_damage_runtime.slang": "94110711ef4f94cf0590b3ac097daaa6f3a8cc5a16ddfc92607a37234b95f82d",
-    "gpu/landing_runtime.slang": "3478a6fe27ef5f7682497e24a2c7effc947e503cd5530f3694d12fd1be212126",
+    "gpu/landing_runtime.slang": "80c3c17e97f20ea64ebaa7fb2f9c4fb426858996883cf7de4595d5f04c67a429",
     "gpu/skill_part_receipt.slang": "3bb073f46d9f298d693c5aa1d9f5439f0347a98b80498c8ccd03d7ed572ab904",
+    "gpu/interrupt_packet_codec.slang": "a2b98699efb3bc0cb7dde5a958183914930f535a7defcc690be120737f8cfd2c",
     "gpu/periodic_runtime.slang": "ac1743d8388b147adfd4370e041dc30051bd0e341b536dfc10c38edbd9aff1f4",
     "gpu/removal_runtime.slang": "e457125116d618de53ca81d78c2f4eabe9e07d7b205a954624c9ae2e3266a694",
     "gpu/duration_extend_runtime.slang": "22bfef6f3e944dba99ee826d8c3277623828b34b817f0ca5e6999988004d6faa",
@@ -80,7 +81,7 @@
     "gpu/heal_share_runtime.slang": "f3f91269823a7edbb1124df8b8f809c59a00f72f49cb759120701d9ad725bc11",
     "gpu/heal_share_plan.slang": "0042ea4d64f9a22533b82e2206b90fa0eaba5bd90719002beb5f5cb5f03237a5",
     "gpu/heal_share_trace.slang": "432863cbd91791a47acf93062d235d7d5d8a08a71f2e2023ef4970916d07c31b",
-    "gpu/dispatch_phases.slang": "20ff54f451c00409a7d8b1ad91e373c606e62ca0a52d879fe2dfb9f03dfdeb4a",
+    "gpu/dispatch_phases.slang": "84eaf8e270a85c26a569f06004a943e6c97ed250a501ba3e21fd815cf829c838",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
     "gpu/world_actor_pools.slang": "6eb7e9d7c82b0271c7dc35ceb93f63f84c8f4af1b68bfe8f2a47d192e6d68a7c",
     "gpu/world_actor_fields.slang": "274b809f30df7b747283ac81b252ff4158b9a08e46c801e78e41a5ecccb34d58",
@@ -91,11 +92,12 @@
     "gpu/world_actor_stacks.slang": "38864ac1f81c3f9591f8273b318e37ee31b76a5ddf2de8a2c2a711db29323e8f",
     "gpu/target_counter_runtime.slang": "5a1605e713aa86f5901fc5e7e6a7a723b5ee902ae4a812c5833084542849c898",
     "gpu/world_projectile_runtime.slang": "3d3d498386038746f671007d5522ece05c7b82dd09d9d6fee9704aeff0af9e18",
-    "gpu/counter_landing_runtime.slang": "4feb007ebee298ae7bef34261a0a0b8dcbd9b4dcc548aa196854bc0f6b8b15c7",
+    "gpu/counter_landing_runtime.slang": "0875b76cfa003ee1e5c1cd68368b5ac0de3380a27a2dfb4aea3eabc868ccb034",
     "gpu/counter_context_runtime.slang": "aa3e9cf52e85feb2146467496954fcb6dd4f4eac8ebf9c1cdacdcaf38b1ea21b",
     "gpu/counter_field_runtime.slang": "d972af3f7f9fd596a4c3732c79e344ce547532471374066c72dfeba3012153aa",
-    "gpu/world_skill_runtime.slang": "3204f91357239f479b305bec2e0792b8a59f99531042c9811bdb3467eae47124",
-    "gpu/world_periodic_runtime.slang": "3d7a830ee62e66bb2f85b162375ea42c774e4647038b51e75db161ffe6b96ea8",
+    "gpu/world_skill_runtime.slang": "eacd5efbbe5960893aaa3749117759789184b381740b6b00d02edcbeec9a02df",
+    "gpu/world_interrupt_runtime.slang": "e3ddc91c7048e382a5548aa8495e603216d40d7a86d92c44f8f96f0037f6a2d3",
+    "gpu/world_periodic_runtime.slang": "a409fada330b1fd3241674af42221e771e666d6474a82249b83c7c4a2f31a990",
     "gpu/world_spawn_runtime.slang": "6da41aa26d47d47ebb54b6d742f62592f2fbcae50ea2e38a3a7d571771b7a8c3",
     "gpu/world_fraction_runtime.slang": "6ee8371cee6f0ab559cbfb4c7fe2feb07b126270be9a87339893ea0f55bb3644",
     "gpu/world_team_runtime.slang": "783e11d298afa785183e1176a9c7cb8b0ae359b9412dfb9b37efead44b7eaceb",
@@ -160,15 +162,15 @@
     },
     {
       "name": "native/parts-skill-interrupt-only",
-      "input_sha256": "7ecee79f614e8dcde6409fe15e067e1d38c8d424b26300845f5078be1b456555",
+      "input_sha256": "0da1ecd715976e853410cab6b157eefd02b048ec0e217141b559b555af5f90b7",
       "output_sha256": "a6b5aec57ea8f1cbf1648694286ee1578ac24819e287f82219cbcbac5f6a5d03",
-      "native_sha256": "61c34b8e7a83e3ccee93ec899aeda0c7a399b4d2e3e5e6ae6521c11366567e75"
+      "native_sha256": "5230698b789e1d17b1d41d416aa001cd66d4202d3525cbbdf19387158361acd6"
     },
     {
       "name": "native/parts-skill-parts-and-interrupt",
-      "input_sha256": "de6f13841e7fc54a86201fb93d0390611858ba0f01463e03df00c4ab682b189f",
+      "input_sha256": "31b705ff6fab1b5e5d8cbca9dd78462c005868be2af5632c51df653e820bcd64",
       "output_sha256": "e99c8e4343709697b61e6a065adcd4bd024313b5aa9b5d5999e50a6ac9610546",
-      "native_sha256": "c407388568c10f1ec06cf1783b087629df0d3a708204b0cfd39d53fe4e4f0427"
+      "native_sha256": "9af159e8944ac162de13f09f8012a28bee94a11656e1ebcd245cf4d186788592"
     },
     {
       "name": "native/parts-skill-two-hits",
@@ -207,28 +209,28 @@
       "native_sha256": "5898941402b5110c4aa2bec4fcd27b3321c1b0ac19ac8cfdcc1813d1fe8dba3d"
     },
     {
-      "name": "reject/parts-skill-extra-pierce-parts",
-      "input_sha256": "6ef81ab9137f65ac4010575ce04443ad714c0afa8d4d6d5fc359f832caf7698a",
-      "output_sha256": "48db786e9602b1e699cd62c5230170cc51c9e0bfcd831bfc5918aa7be0852a20",
-      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      "name": "native/parts-skill-extra-pierce-parts",
+      "input_sha256": "712fa6342c96b147c9042c839e9fd68a182a241fcbf8c0f456133688dde2dbb5",
+      "output_sha256": "9bf283b17e162c0bc383e6f07f903302cdc4e1f7472f85660ece155f6a5006c3",
+      "native_sha256": "394fa55eadc09332ee80e20d33305220ac19cc61375e11b7557108179ab50819"
     },
     {
-      "name": "reject/parts-skill-extra-explosion-parts",
-      "input_sha256": "fb2d8f8656b80a15950df30898e7147d9697427432f0fc6758cef626d859bd3b",
-      "output_sha256": "ae7bce6e7a0832129887066a900abea62970cb286ab4a01f0874503436ad3761",
-      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      "name": "native/parts-skill-extra-explosion-parts",
+      "input_sha256": "d7af020ef122e47ebf967793ba48c28f249fe038fdba229ab8bbb63c535803c5",
+      "output_sha256": "32314cc017bb6eed80a75eec919bf78a015a245a26a4f5296403768d815a513d",
+      "native_sha256": "63327deff1ef755d6d8d830455f8fc5bb56365c3c8c9d086a510e07c68200b83"
     },
     {
-      "name": "reject/parts-skill-extra-explosion-range100",
-      "input_sha256": "e34c8891e957426eb03880db2a33dc6f691013696090de73d80f5ec11207aa6e",
-      "output_sha256": "ae7bce6e7a0832129887066a900abea62970cb286ab4a01f0874503436ad3761",
-      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      "name": "native/parts-skill-extra-explosion-range100",
+      "input_sha256": "cd46afaeb33a4b3f9c4682d60d0652d35bed4e488dbd2811f4b1efb379313df3",
+      "output_sha256": "4d095ceeac495d765e3708d0dd334f0ff2376d5afeef14ae24bb85da245e42f3",
+      "native_sha256": "a43474db41e80a19dc0a50d9b4022420dc430f51ce84f88796339700d1e74a06"
     },
     {
-      "name": "reject/parts-skill-extra-explosion-without-marker",
-      "input_sha256": "d60e2df6d0e40a343d4ca5cb5f6b2cceee82fb7f0ec4d43aa2c1cbbef798f56b",
-      "output_sha256": "ae7bce6e7a0832129887066a900abea62970cb286ab4a01f0874503436ad3761",
-      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      "name": "native/parts-skill-extra-explosion-without-marker",
+      "input_sha256": "dafca6fa68cbb8e2c5e95c570a50826b4e8c1ab17fe1dafb0ab14180457b621c",
+      "output_sha256": "a200b9b432d88f68135d5dd4074ff1bcbe7924604974b892122880cca2357066",
+      "native_sha256": "9b4aed0d58ae1e910617936634fdcc003fdbecd126172b0883f220ba76e919f3"
     },
     {
       "name": "native/parts-skill-extra-adds-outside-body-total",
@@ -255,10 +257,10 @@
       "native_sha256": "bb648047e6887b00f2070695e60c2ea86fef25a3726664a20ab68200cd493537"
     },
     {
-      "name": "reject/parts-skill-extra-interrupt-lifesteal-unsaturated",
-      "input_sha256": "33a2dc99dfdcd982cc872044dd97cc5fe334a77e1d713275a2dc036f5e3eb9aa",
-      "output_sha256": "48db786e9602b1e699cd62c5230170cc51c9e0bfcd831bfc5918aa7be0852a20",
-      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      "name": "native/parts-skill-extra-interrupt-lifesteal-unsaturated",
+      "input_sha256": "19762000f8b8cc799e3aed3ce95c007e3d52f7f79b95c841989c3d495e9d20ef",
+      "output_sha256": "8d541dfc1a6a2e88a2f18c92bcff3d85a76cbca82bc53d9fe1f24ccfe6b64795",
+      "native_sha256": "e236f99e4b9e845493cf0d921c1e44ac26c708cca35cecd02fff27becae3a99f"
     },
     {
       "name": "native/parts-skill-extra-shared-lifesteal-unsaturated",
@@ -316,49 +318,85 @@
     },
     {
       "name": "native/interrupt-source-delayed-reopen",
-      "input_sha256": "b001f65ba85e4cd59b885e16b0f9939d28eae88c9f42e0c4d0182a8bd3ec7139",
+      "input_sha256": "5943ba7323f4a8c03ae37f8d6e64f76ff2606b4df67b4706cea25bcb75c8e923",
       "output_sha256": "336a5d69d79426028ab12baa61718edcf6a6f93fa356e8a4ea42f3831ac30021",
-      "native_sha256": "09160421a7731e93d6025a2e9d946cdd9008eef07c25b35ab8082166e97d03ca"
+      "native_sha256": "9bdc214fd549fee47b78c62029e47a64412ac707c1e60980f5184f126775fb93"
     },
     {
       "name": "native/interrupt-source-unbreakable",
-      "input_sha256": "7d0e5bed2379bf0acb116e0d7e83501702f05f50ce915071ba05811c6701f039",
+      "input_sha256": "cdc49e08ae95ab1dab989fda4ed5a3ada1136eef881a23b4cb9f909e438d324b",
       "output_sha256": "a6b5aec57ea8f1cbf1648694286ee1578ac24819e287f82219cbcbac5f6a5d03",
-      "native_sha256": "61c34b8e7a83e3ccee93ec899aeda0c7a399b4d2e3e5e6ae6521c11366567e75"
+      "native_sha256": "5230698b789e1d17b1d41d416aa001cd66d4202d3525cbbdf19387158361acd6"
     },
     {
       "name": "native/interrupt-source-capacity127",
-      "input_sha256": "d7702044ee7a070311b3899de01eb175194464ac524b072dc28c49615df6952b",
+      "input_sha256": "11afd3d5dee2c9f9e5ecfec56bcf68c8f52fed247934be8a6302d44e7397b6dd",
       "output_sha256": "268b90a173ad9bc69b4b6e3b8147e91ae2ec412e0e3a7d131cd33f542f22d6ad",
-      "native_sha256": "549befdbfbca94e42bfc181a3664ae8f7a2d046df8c4f8596d07afd9c0679d2a"
+      "native_sha256": "cd9ee57e3fc1c05f21f94aaa2debf8aa546625825d75f510667c1f0a22fca171"
     },
     {
       "name": "reject/interrupt-physical-reach-not-ported",
-      "input_sha256": "e70f7872ee4f710a432b9898b3dc143a4624e01cb77e50177cd1aa7adad5c214",
+      "input_sha256": "366fec137330027abd9d993d4b7dbd6c70e035415d893686099526b8770bd0ca",
       "output_sha256": "09677507c56f5b1afe585066c8ab577e65d19680f1f50791c31037ab5015f281",
       "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
     },
     {
+      "name": "native/interrupt-reach-heal-child-snapshot",
+      "input_sha256": "eaa7f0f5d1e43bb9f6d06b30ed7749566320531e6ace2577f0cf01db67bfa8bd",
+      "output_sha256": "8970e1c64993d0021fe0e80898ee8ed949cbd5e1cac623faf60e9e735e5aacd2",
+      "native_sha256": "58a149069422c0f810e8d7949094c7d636b660a2961ae11e0ee22bb3897c3c08"
+    },
+    {
+      "name": "native/interrupt-reach-named-child-snapshot",
+      "input_sha256": "d2e86ed6a34544d153a4bef4db9cfcf7bef8f34c36ff67b30c33bfa6d6a92b6c",
+      "output_sha256": "b1857aae7145ce571d2f2e9214536ffe07875b8df72509e70a50fe62dec9739e",
+      "native_sha256": "d35f2a553353bbfe02fc7a50ea234bfac7ab74bb7e4afc206c8b969d9210c48a"
+    },
+    {
+      "name": "native/interrupt-reach-destroy-group",
+      "input_sha256": "443ca7fb969fd7207c86f314d3bb3c64bb688756cfbbdcae68f0180c7217eaf3",
+      "output_sha256": "83b7cd823b271e3542d5f70158dec4abf06c0a412bde43555a17a1d9698c962d",
+      "native_sha256": "12546585f7ca844c6273e652169cfe7a9ee95dfbb1c967f8b970f465709e2136"
+    },
+    {
+      "name": "native/interrupt-reach-unbreakable",
+      "input_sha256": "ed4f06bb863ae6c22bca627492fe230cac531ffcc66d261a86214f53f079ab72",
+      "output_sha256": "b10dd028a6d5ce94fb985ec0f82c0bb9acb1bb45f03f2641c5b9d44e35729a50",
+      "native_sha256": "05b2e9d4aeac956206f74c3c463e2de1f4b1e1c5539cd053cd597b103a7a8af6"
+    },
+    {
+      "name": "native/interrupt-reach-periodic-three-ticks",
+      "input_sha256": "f1cdef53e3c8d8809e8feea344b80e7b5533d9ee50ddf19ce2a37221958f0154",
+      "output_sha256": "44aebfab6430e0d8b60d350c41cf409773a0fde32374e0e8d77335d34cef15ec",
+      "native_sha256": "64034574f0fc7e6822b9a722345e6bb5ef9b7850b9dbee19f2fbf9ebd18cde13"
+    },
+    {
+      "name": "native/interrupt-reach-shared-lifesteal",
+      "input_sha256": "90fb5584cdfd79e0d9329c2be9329a9a582fbd825816f36a62dc8c11db8322f4",
+      "output_sha256": "63c1ad9cfefa21b1384ae2139d9903fc8ecaa02fc1a7f6fbb04c375bad28909d",
+      "native_sha256": "2d116aed6dc27452724542d57a4e5a4a820e43fea66dbbd32ba1642f748762dd"
+    },
+    {
       "name": "reject/interrupt-source-projectile-alias",
-      "input_sha256": "c2919304e9b2921f2787ee0fb5d88ac2f71a9a27aaac375a03e3ac2e156993ac",
+      "input_sha256": "682f8bf832c769e29c51639dca46c7e38ebf0da57c841a287983fb4773fb0184",
       "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
       "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
     },
     {
       "name": "reject/interrupt-source-part-alias",
-      "input_sha256": "cdf1cded99259a50d2e0148f6fd8134af319d9547108902c4ce3088127ff3350",
+      "input_sha256": "1653c1f224cb4456d315fb9859f15d1404f27c6577d9304e5023e01e3a3359e9",
       "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
       "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
     },
     {
       "name": "reject/interrupt-source-noncanonical-id",
-      "input_sha256": "a9af50bcb37af16caddad1c6caf0a61353bdc08e566b0828bfc5b7d6c11df1c8",
+      "input_sha256": "72dec83e117288773bdc013004808c4ca235e99639b6bb9704017d9eed9a18b6",
       "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
       "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
     }
   ],
   "generated_normalized": {
-    "cuda": "cd47df9a9abc73b31da20b406ad5f8e88bcc1f6f82d7659b2f651540e8d5273b",
-    "metal": "9e4a908f6df2aa953efa0922c226b752cbe63573650214f7074cbcc7669a7288"
+    "cuda": "196d484f6d2d15d820eda00295aae649e8cda4917c2ad2da8f1d6298e0a19046",
+    "metal": "0e16da167ae4e31172fa26ce9c2a0d0d4efffef901eb775f820dd7ad52d27683"
   }
 }

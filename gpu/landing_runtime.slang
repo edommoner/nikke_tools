@@ -2,10 +2,12 @@
 struct LandingReceipt
 {
     uint row,target,mask,order,hit,hits,depth,epoch;
-    uint64_t amount,when,partAmount;
+    uint64_t amount,when,partAmount,interruptAmount;
+    uint interruptReach;
 };
 #ifdef PORTABLE_WORLD_PROJECTILE
 #include "skill_part_receipt.slang"
+#include "interrupt_packet_codec.slang"
 #endif
 bool validLandingReceipt(LandingReceipt r)
 {
@@ -53,10 +55,10 @@ bool initializeLandings(inout Runtime s)
     return true;
 }
 [noinline]
-void enqueueLanding(inout Runtime s,uint row,uint target,uint mask,uint order,uint64_t amount,uint64_t when,uint hit,uint hits,uint depth,uint epoch,uint64_t partAmount=0)
+void enqueueLanding(inout Runtime s,uint row,uint target,uint mask,uint order,uint64_t amount,uint64_t when,uint hit,uint hits,uint depth,uint epoch,uint64_t partAmount=0,uint64_t interruptAmount=0,uint interruptReach=0)
 {
     LandingReceipt receipt;receipt.row=row;receipt.target=target;receipt.mask=mask;receipt.order=order;
-    receipt.amount=amount;receipt.when=when;receipt.hit=hit;receipt.hits=hits;receipt.depth=depth;receipt.epoch=epoch;receipt.partAmount=partAmount;
+    receipt.amount=amount;receipt.when=when;receipt.hit=hit;receipt.hits=hits;receipt.depth=depth;receipt.epoch=epoch;receipt.partAmount=partAmount;receipt.interruptAmount=interruptAmount;receipt.interruptReach=interruptReach;
     if(!WORLD_SKILL_RECEIPT_VALID(s,receipt,validLandingReceipt(receipt))) { s.error=64;return; }
     uint header=landingHeader(s),count=results[header];
     if(count>=P_LANDINGS) { s.error=64;return; }
