@@ -1,3 +1,7 @@
+<!-- windows-historical-log-current -->
+Windowsの既存7プロセス終了（2026-10-22 19:04:25 JST）の追加切り分け。ユーザーから同時刻前後のアプリ／ターミナル終了・Codex再接続・Windows再起動なしとの回答があり、ゲーム／動画の併用は可能性として挙がっただけで因果関係は未確認です。±2分のSystem/Applicationログを30秒上限で読み取り照会し、両方UnauthorizedAccessExceptionで取得不能（1.824秒）。イベントが存在しなかったという証拠ではありません。権限昇格・範囲拡大・再現実験・追加GPU／コンパイルは0。原因unknown・環境保全false・サービス未識別を維持し、保存済み失敗／claimを保持。Windowsの新規native/GPU検証停止を継続し、Macの独立開発を進めます。根拠はresearch/portable-scope-windows-event-log-peer-report.json（peer要約、元ログの独立監査ではない）。
+<!-- /windows-historical-log-current -->
+
 物理武器のinterrupt追加着弾を共通Slangへ接続しました。現在`parts-skill-world`63（native59／拒否4）がMetal成功・独立seal済み。スキルと同じgroup HP・総ダメージ外計上・吸血を使い、散弾・2銃口・生成後buff変更・射程境界・コア／critical分離・破壊／gate／add対象を検証しました。既存849・実4も全一致・独立seal、旧45入力・849全raw約2.67GB・実4全rawを保持。全実行は生成cache必須・Slang0回です。座標・deferred・random最終tick・実CUDA／環境保全・全キャラ認定は未完了、Windows新規実行0。詳細は[物理interrupt](portable-physical-interrupt.md)。以下は履歴です。
 
 Slangの両生成cacheを共通CLIへ追加しました。`generation --generation-cache <dir>`でsealed sourceをCPU準備し、`--require-generation-cache`でコンパイラ起動を禁止した再利用を指定します。`run`／`compile`／`module-check`にも同じ2オプションがあります。Mac本体114sourceの実測は初回4.09秒・Slang2回→hit0.47秒・0回、別packageでMetal実4も全一致・独立監査済み。これはNVRTC cacheとは別の前段で、Windowsの速度・実CUDA一致・環境保全の証明ではありません。Windowsのstandalone生成は拒否し、追加検証停止を維持します。詳細は[生成cache](portable-generation-cache.md)。以下は履歴です。
