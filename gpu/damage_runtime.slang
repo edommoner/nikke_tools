@@ -30,23 +30,24 @@ uint64_t normalProbability(inout Runtime s, uint who, uint64_t accuracy)
 // arithmetic is software binary64 and follows the authored reference order.
 [noinline]
 void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient, uint64_t when,
-    out uint64_t factors[9], out uint64_t interceptFactor, out uint64_t explosionRange, out uint64_t pierceRange, bool captureReach,
+    out uint64_t factors[9], out uint64_t interceptFactor, out uint64_t explosionRange, out uint64_t pierceRange, out uint sampledFlags, bool captureReach,
     bool normal, uint64_t coreBonus, uint flags = 0, uint64_t fullChargeMult = ONE,
     bool optimal = false, bool physical = false)
 {
     uint64_t b[64]; collectStats(s,who,when,b);
-    explosionRange=0;pierceRange=0;
-    if(captureReach)
-    {
-        if((flags&H_EXPLOSION)!=0) explosionRange=plainQuantity(s,who,S_explosion_range,when);
-        else if((flags&H_PIERCE)!=0) pierceRange=plainQuantity(s,who,S_pierce_range,when);
-    }
     // Physical weapon flags also apply to weapon-mode skill packets. A skill
     // labelled normal/auto_damage still derives its flags from its own family.
     if(physical)
     {
         if(!f64Zero(b[S_pierce_enabled])) flags|=H_PIERCE;
         if(!f64Zero(b[S_armor_break_enabled])) flags|=H_ARMOR;
+    }
+    sampledFlags=flags;
+    explosionRange=0;pierceRange=0;
+    if(captureReach)
+    {
+        if((flags&H_EXPLOSION)!=0) explosionRange=plainQuantity(s,who,S_explosion_range,when);
+        else if((flags&H_PIERCE)!=0) pierceRange=plainQuantity(s,who,S_pierce_range,when);
     }
     uint64_t enemyModifiers[3]; collectEnemyModifiers(s,who,s.target,when,enemyModifiers);
     b[S_enemy_def_down_pct] = f64Add(b[S_enemy_def_down_pct],enemyModifiers[0]);
@@ -95,8 +96,8 @@ void sampleDamageFactors(inout Runtime s, uint who, uint64_t coefficient, uint64
     out uint64_t factors[9], bool normal, uint64_t coreBonus, uint flags=0,
     uint64_t fullChargeMult=ONE,bool optimal=false,bool physical=false)
 {
-    uint64_t interceptFactor,explosionRange,pierceRange;
-    sampleDamageFactorsForReach(s,who,coefficient,when,factors,interceptFactor,explosionRange,pierceRange,false,normal,coreBonus,flags,fullChargeMult,optimal,physical);
+    uint64_t interceptFactor,explosionRange,pierceRange;uint sampledFlags;
+    sampleDamageFactorsForReach(s,who,coefficient,when,factors,interceptFactor,explosionRange,pierceRange,sampledFlags,false,normal,coreBonus,flags,fullChargeMult,optimal,physical);
 }
 
 // Keep the reference's divide, seven ordered products and integer boundary.

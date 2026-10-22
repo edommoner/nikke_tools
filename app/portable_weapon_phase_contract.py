@@ -52,6 +52,8 @@ def verify(root,*,phase_source=None,wrapper_source=None):
     root=Path(root);macro_contract=verify_land_macros(root);fixture=json.loads((root/'tests/fixtures/portable-weapon-frame-transplant.json').read_text())
     before=fixture['body'];assert hashlib.sha256(before.encode()).hexdigest()==fixture['body_sha256']
     source=phase_source if phase_source is not None else (root/'gpu/weapon_frame_phases.slang').read_text()
+    from portable_physical_interrupt_contract import baseline_phase
+    source=baseline_phase(root,source)
     wrapper=wrapper_source if wrapper_source is not None else (root/'gpu/combat_runtime.slang').read_text()
     parts=[]
     for i,name in enumerate(NAMES):
@@ -85,4 +87,4 @@ def verify(root,*,phase_source=None,wrapper_source=None):
     assert tokens(body(wrapper,'weaponFrameBody'))==tokens(expected),'Weapon phase call/argument/snapshot/exit contract changed'
     return dict(verified=True,gpu_calls=0,baseline_commit=fixture['baseline_commit'],phases=list(NAMES),
         token_count=len(tokens(before)),token_sha256=hashlib.sha256(json.dumps(tokens(before),separators=(',',':')).encode()).hexdigest(),
-        land_macro_contract=macro_contract,helper_signature_contract_verified=True,wrapper_exit_contract_verified=True,scope='Reconstructed original statements and explicit call/argument/ready ordering. Not runtime/compiler resource proof')
+        land_macro_contract=macro_contract,helper_signature_contract_verified=True,wrapper_exit_contract_verified=True,reviewed_physical_interrupt_hook=True,scope='Reconstructed original statements outside the exact physical interrupt hook and explicit call/argument/ready ordering. Not runtime/compiler resource proof')

@@ -84,7 +84,7 @@ void captureWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uin
     if (w.mode != 1) advanceWarmup(s,w,who,when,shotInterval);
     if (w.mode != 1 && w.infinite == 0) { if (!changedWeaponSession(s,who,epoch,mode)) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
     WORLD_PROJECTILE_SAMPLE(s,w,who,when) WORLD_SAMPLE_SHOT_KIND(s,who,mode,w.pellets*w.muzzles) uint64_t coefficient = mode >= 0 && modeShots == 0 && !f64Less(w.firstCoefficient,0) ? w.firstCoefficient : w.coefficient;
-    uint64_t amount = damageValue(s,who,f64Div(coefficient,f64FromI64(w.pellets)),when,WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode == 1 ? H_CHARGE | ((s.attackContext[who] & 4) != 0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal != 0,true);
+    uint64_t amount = COUNTER_DAMAGE(s,who,w,coefficient,when,damageValue(s,who,f64Div(coefficient,f64FromI64(w.pellets)),when,WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode == 1 ? H_CHARGE | ((s.attackContext[who] & 4) != 0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal != 0,true));
     COUNTER_SHOT(s,who,w,coefficient,when) WORLD_PROJECTILE_RECORD(s,w,who,when,amount) if (s.error != 0) return;
     uint count = w.pellets*w.muzzles;
     landedAmount=amount;landedCount=count;landedTarget=target;

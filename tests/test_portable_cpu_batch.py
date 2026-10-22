@@ -15,6 +15,12 @@ class CPUGroupTests(unittest.TestCase):
     def module(self,body):
         name='test_portable_batch_'+uuid.uuid4().hex+'.py';(self.root/'tests'/name).write_text(body);self.names.append(name);return name
     def run_groups(self,patterns):return run_groups(self.root,self.capture,patterns,cli.write)
+    def test_execution_cache_flags_do_not_leak_into_unit_workers(self):
+        with patch.dict(os.environ,NIKKE_SLANG_GENERATION_CACHE='/selected/cache',NIKKE_SLANG_GENERATION_REQUIRED='1'):
+            tests=cli.cpu_test_environment(self.capture);execution=cli.validation_environment(self.capture)
+            for key in ('NIKKE_SLANG_GENERATION_CACHE','NIKKE_SLANG_GENERATION_REQUIRED'):
+                self.assertNotIn(key,tests);self.assertEqual(execution[key],os.environ[key])
+
     def test_all_selected_groups_run_once_in_order_with_one_pid_and_logs(self):
         a=self.module("import unittest\nprint('import-first')\nclass A(unittest.TestCase):\n def test_a(self):print('first');self.assertTrue(True)\n")
         b=self.module("import unittest\nclass B(unittest.TestCase):\n def test_b(self):print('second');self.assertEqual(2+3,5)\n")

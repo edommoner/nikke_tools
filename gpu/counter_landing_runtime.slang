@@ -46,6 +46,35 @@ bool validCounterLandingInput(inout Runtime s,uint base,uint step)
     if(step==0) { WORLD_SKILL_INIT(s) COUNTER_FIELDS_WORK_INIT(s) COUNTER_CONTEXT_INIT(s) for(uint i=P_COUNTER_LANDING_PACKET_BASE;i<P_COUNTER_LANDING_EXTRA_BASE+128*4;i++) results[s.resourceOutput+i]=0; }
     return true;
 }
+#ifdef PORTABLE_WORLD_PROJECTILE
+bool physicalInterruptSources(inout Runtime s)
+{
+    if(!counterLandingsEnabled(s)) return false;
+    for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]==6) return true;
+    return false;
+}
+uint64_t sampleCounterReachShot(inout Runtime s,uint who,uint64_t coefficient,bool normal,uint64_t coreBonus,uint flags,uint64_t charge,bool optimal,uint64_t when)
+{
+    uint out=s.resourceOutput+P_COUNTER_LANDING_SHOT_BASE+who*8;
+    for(uint i=0;i<8;i++) results[out+i]=0;
+    uint64_t factors[9],interceptFactor,explosionRange,pierceRange;uint sampledFlags;
+    sampleDamageFactorsForReach(s,who,coefficient,when,factors,interceptFactor,explosionRange,pierceRange,sampledFlags,true,normal,coreBonus,flags,charge,optimal,true);
+    uint64_t threshold=f64Add(HUNDRED,uint64_t(0xbe112e0b)<<32|uint64_t(0xe826d695));
+    uint reach=(sampledFlags&H_EXPLOSION)!=0?(!f64Less(explosionRange,threshold)?4U:3U):(sampledFlags&H_PIERCE)!=0?(!f64Less(pierceRange,threshold)?2U:1U):0U;
+    bool part=false,interrupt=false;
+    for(uint slot=1;slot<actorPoolCount(s);slot++)
+    {
+        uint at=s.inputBase+P_TARGET_COUNTER_INPUT_BASE+4104+slot*8;
+        if(results[actorPoolAt(s,slot)+1]==0||commands[at+1]==0||commands[at+1]>reach) continue;
+        if(commands[at]==1) part=true;
+        if(commands[at]==2) interrupt=true;
+    }
+    uint64_t amount=damageFromFactors(s,factors,false);
+    if(part&&s.error==0) { results[out]=reach;storeNumber(out+2,damageFromFactors(s,factors,true)); }
+    if(interrupt&&s.error==0) { results[out+1]=reach;factors[8]=interceptFactor;storeNumber(out+4,damageFromFactors(s,factors,true)); }
+    return amount;
+}
+#endif
 void sampleCounterPartShot(inout Runtime s,uint who,uint64_t coefficient,bool normal,uint64_t coreBonus,uint flags,uint64_t charge,bool optimal,uint64_t when)
 {
     if(!counterLandingsEnabled(s)) return;
@@ -129,4 +158,8 @@ void deliverCounterParts(inout Runtime s,uint who,uint target,uint64_t when,uint
 {
     uint shot=s.resourceOutput+P_COUNTER_LANDING_SHOT_BASE+who*8;
     deliverCounterPartGroup(s,who,target,when,output,results[shot],actorNumber(shot+2));
+#ifdef PORTABLE_WORLD_PROJECTILE
+    if(commands[actorBinding(s,target&127U)]==0&&s.error==0&&results[shot+1]!=0)
+        deliverWorldInterruptGroup(s,who,when,output,results[shot+1],actorNumber(shot+4));
+#endif
 }

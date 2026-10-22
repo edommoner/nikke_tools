@@ -21,7 +21,7 @@
     "gpu/counter_context_entry.slang": "7387fc06a72bc9b984f8b29d46655a549ab56e154cd9f0924dc0533b9f787073",
     "gpu/counter_landing_entry.slang": "695560a33534df60e9f31359622f6a197d14d2eb4b072371520955c9eacde7bf",
     "gpu/target_counter_entry.slang": "af78f0f0cc55734578c0a86f48d5cd36750dd3ae4589be405d81d962293a4666",
-    "gpu/event_runtime.slang": "2fbd0c184266f29478bb9a5e966784b566f3cf3e1681300ddf2fcd1bc51f55ab",
+    "gpu/event_runtime.slang": "d7bc538f198cb52bcfaa701859fad31e27471425fad7426a60caaef3c5b82dac",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
     "gpu/portable_schema.slang": "2b2cd6fed695d3470562b27dac4b8573fccc5b27eca816b08438e6ae92fd26bb",
@@ -57,7 +57,7 @@
     "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
     "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
     "gpu/skill_critical_runtime.slang": "ffab45b7bc55c3d1bbe472d9b590320183281e6aa11370e212c84e56ab218417",
-    "gpu/damage_runtime.slang": "23d9dcac5167468c75e94dc7e362d547e9ff2f985538b4ba1b450ab699d3b63c",
+    "gpu/damage_runtime.slang": "069dc6ea21a49c01353395adeda5d7b886255238536bfae5904d43e9b8b1dcb4",
     "gpu/damage_factors.slang": "c806441d5532ccc494e3f9099033378621e95cc248fe1be8826f9864de2ca3de",
     "gpu/incoming_runtime.slang": "6e4d106fd6b92509394c1b9c0005c824acf79fe67e476fe43fe783632d6ad1fb",
     "gpu/revival_runtime.slang": "4b38cb85ff3d24375191cabd836283f572a8c2663fccd9c1d31b71bcbb853683",
@@ -94,10 +94,10 @@
     "gpu/world_actor_stacks.slang": "38864ac1f81c3f9591f8273b318e37ee31b76a5ddf2de8a2c2a711db29323e8f",
     "gpu/target_counter_runtime.slang": "5a1605e713aa86f5901fc5e7e6a7a723b5ee902ae4a812c5833084542849c898",
     "gpu/world_projectile_runtime.slang": "3d3d498386038746f671007d5522ece05c7b82dd09d9d6fee9704aeff0af9e18",
-    "gpu/counter_landing_runtime.slang": "0875b76cfa003ee1e5c1cd68368b5ac0de3380a27a2dfb4aea3eabc868ccb034",
+    "gpu/counter_landing_runtime.slang": "503f3185902080d920f6613f69325e302cdf5a6fdefb839230aecc50059423a4",
     "gpu/counter_context_runtime.slang": "aa3e9cf52e85feb2146467496954fcb6dd4f4eac8ebf9c1cdacdcaf38b1ea21b",
     "gpu/counter_field_runtime.slang": "d972af3f7f9fd596a4c3732c79e344ce547532471374066c72dfeba3012153aa",
-    "gpu/world_skill_runtime.slang": "eacd5efbbe5960893aaa3749117759789184b381740b6b00d02edcbeec9a02df",
+    "gpu/world_skill_runtime.slang": "72efdb2f571c5d6214bb18323d23a1d872d89cf8e9063b7b52718619b5746a56",
     "gpu/world_interrupt_runtime.slang": "e3ddc91c7048e382a5548aa8495e603216d40d7a86d92c44f8f96f0037f6a2d3",
     "gpu/world_periodic_runtime.slang": "a409fada330b1fd3241674af42221e771e666d6474a82249b83c7c4a2f31a990",
     "gpu/world_spawn_runtime.slang": "6da41aa26d47d47ebb54b6d742f62592f2fbcae50ea2e38a3a7d571771b7a8c3",
@@ -113,19 +113,19 @@
     "gpu/world_reload_runtime.slang": "335c78cb91c0cc319a0fdfba1736281ebee733de4758b01036e90feefb68664c",
     "gpu/world_overlay_weapon.slang": "f9f33dcafbdd8f8dbea5acede13461b19a08e7084b7e5aa8f1f14c1959b4d370",
     "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
-    "gpu/weapon_frame_phases.slang": "b0820299f96e1e26e87ce5c11f0f5006dfe5c670fcbfc1ea7b6ebe4647607630",
+    "gpu/weapon_frame_phases.slang": "84984ebd760f7c1cc532f75d7915c8374d8615385037792924e81df0a8414217",
     "gpu/admission_runtime.slang": "8dc02d9b8480f555f0c664b51d4071d08e6d338ffd9459f7a2c5ae93e533f6c5",
     "gpu/portable_mt19937.slang": "6365293f4fe0269fba87b15aa866e617333f5012acef175a13fd7ed27152323a",
     "gpu/enemy_target_runtime.slang": "830fd22f28d105ea6b4e0ad4d334e774e36eebab698c1096a163cfdb712d9d1f",
     "gpu/program_phases.slang": "ebc1b7a37d7473223510f310d511dc90aa95d040b9e75f6b3a0fe0e836e7ec0f"
   },
   "generated_normalized": {
-    "cuda": "196d484f6d2d15d820eda00295aae649e8cda4917c2ad2da8f1d6298e0a19046",
-    "metal": "0e16da167ae4e31172fa26ce9c2a0d0d4efffef901eb775f820dd7ad52d27683"
+    "cuda": "f47e913064f63c3738667d1ff4bb808f5371ea81d0960dd65a7630eba9fd43e0",
+    "metal": "2e7a1017a6ac0071e7b43f92471b9cbfbf50916037790a680e9f4775b4061dc5"
   },
   "entries": [],
   "input_sha256": null,
   "baseline_suite": "heal-share-regression",
-  "baseline_golden_sha256": "a52866ccede4f4a38070d4b29c1dcc2a01b54716c2fcb69dd340f9b6be5acea9",
-  "scope": "Exact shared non-coordinate skill reach source from independently sealed Metal849 and paired generation; not CUDA compile/link/battle/performance proof"
+  "baseline_golden_sha256": "256b0b6c648c7b9918fc7af5cc2f8cdbf92597df856e9f019a0952f235b78f45",
+  "scope": "Exact physical interrupt shared source from independently sealed Metal849 and paired generation; not CUDA compile/link/battle/resource proof"
 }

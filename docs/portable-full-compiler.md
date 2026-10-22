@@ -1,3 +1,5 @@
+現行source certificateはfull114／commands115 sourceで、物理interrupt接続後のMetal63・849・実4と同一のGPU本体へ更新しました。両生成とRuntime stride138952／CUDA定数48byteを照合し、生成cacheを再利用しています。これは新しいCUDAコンパイル・リンク・戦闘の証明ではありません。Windowsの追加検証停止を維持します。詳細は[物理interrupt](portable-physical-interrupt.md)、以下は履歴です。
+
 # 現行戦闘本体のcompiler-only package
 
 `compiler-full`は`heal-share-regression`と同じfull entryを、既存のcompiler-only経路へ渡す。追加wrapper、GPU計算本文の変更、生成コードの正規化変更はない。現在のMetal849実証に保存した全110 source SHAとCUDA/Metalの両generated_normalizedを、そのまま別のsource-only証明書へ固定する。新しいMetalやCUDAの実行結果を作ったとは扱わない。

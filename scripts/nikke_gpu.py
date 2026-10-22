@@ -142,8 +142,8 @@ SUITES['damage-factors']=dict(script='research/verify-damage-factors-short.py',s
     golden='research/portable-damage-factors-short-expected.json',inputs=16,native=16,development_only=False,
     tests=['test_portable_damage_factors.py'])
 SUITES['parts-skill-world']=dict(script='research/verify-world-parts-skill-short.py',source='gpu/world_entry_reload_resident_entry.slang',
-    golden='research/portable-world-parts-skill-short-expected.json',inputs=46,native=41,development_only=False,
-    tests=['test_portable_parts_skill_gpu.py','test_portable_parts_skill_reference.py','test_portable_parts_skill_extra_reference.py','test_portable_parts_skill_lifecycle_reference.py','test_portable_damage_factors.py','test_portable_resident_layout.py','test_portable_reference_migration.py','test_portable_gpu_replay.py','test_portable_interrupt_sources.py','test_portable_actor_pool_input.py','test_portable_actor_registry_input.py','test_impact_runtime.py'])
+    golden='research/portable-world-parts-skill-short-expected.json',inputs=63,native=59,development_only=False,
+    tests=['test_portable_physical_interrupt.py','test_portable_parts_skill_gpu.py','test_portable_parts_skill_reference.py','test_portable_parts_skill_extra_reference.py','test_portable_parts_skill_lifecycle_reference.py','test_portable_damage_factors.py','test_portable_resident_layout.py','test_portable_reference_migration.py','test_portable_gpu_replay.py','test_portable_interrupt_sources.py','test_portable_actor_pool_input.py','test_portable_actor_registry_input.py','test_impact_runtime.py'])
 SUITES['interrupt-packet-codec']=dict(script='research/verify-interrupt-packet-codec-short.py',source='gpu/interrupt_packet_codec_probe.slang',
     golden='research/portable-interrupt-packet-codec-short-expected.json',inputs=154,native=140,development_only=False,
     tests=['test_portable_interrupt_packet_codec.py'])
@@ -986,6 +986,14 @@ def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_
     return facts
 
 
+def cpu_test_environment(capture):
+    # Execution cache selection belongs to the GPU/compiler child. Unit tests
+    # exercise their own opt-in cache settings and minimal fake backends.
+    env=validation_environment(capture)
+    for name in ('NIKKE_SLANG_GENERATION_CACHE','NIKKE_SLANG_GENERATION_REQUIRED'):env.pop(name,None)
+    return env
+
+
 def cpu_test_groups(m,capture,smoke=False):
     """Keep discovery/import in one fresh CPU process; never skip a registry group."""
     from portable_cpu_tests import validate_groups,complete
@@ -997,7 +1005,7 @@ def cpu_test_groups(m,capture,smoke=False):
     if smoke:command.append('--smoke')
     started=time.perf_counter();timed_out=False;completed=None
     try:
-        completed=subprocess.run(command,cwd=ROOT,capture_output=True,timeout=60,env=validation_environment(capture))
+        completed=subprocess.run(command,cwd=ROOT,capture_output=True,timeout=60,env=cpu_test_environment(capture))
     except subprocess.TimeoutExpired as error:
         timed_out=True
         (capture/'cpu-batch.stdout.log').write_bytes(error.stdout or b'');(capture/'cpu-batch.stderr.log').write_bytes(error.stderr or b'')

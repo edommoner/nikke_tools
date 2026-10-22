@@ -29,7 +29,9 @@ def verify(root,*,sources=None):
     frame_old='uint64_t skillCritRate;'
     frame_new='uint64_t skillCritRate,interruptAmount;\n    uint interruptReach;'
     assert state.count(frame_new)==1,'Unreviewed interrupt Frame metadata'
-    state_baseline=state.replace(frame_new,frame_old,1)
+    from portable_physical_interrupt_contract import baseline_event,verify_sources
+    physical_deltas=verify_sources(root,sources)
+    state_baseline=baseline_event(root,state.replace(frame_new,frame_old,1))
     bstart=state_baseline.index('struct Definition');bend=state_baseline.index('\n};',bstart)+3
     assert fingerprint(state_baseline[:bstart]+'DEFINITION_VIEW_SLOT'+state_baseline[bend:])==f['event_without_definition_tokens'],'Event/state/consumer statements changed'
     begin=decoder.index('{',decoder.index('void loadDefinition'));finish=begin+1;depth=1
@@ -58,6 +60,11 @@ def verify(root,*,sources=None):
             reach_deltas.append(name)
             assert hashlib.sha256(read('gpu/damage_factors.slang').encode('utf-8')).hexdigest()=='c806441d5532ccc494e3f9099033378621e95cc248fe1be8826f9864de2ca3de','Unreviewed damage factor product'
             factor_deltas=['gpu/damage_runtime.slang','gpu/damage_factors.slang']
+        elif name=='gpu/weapon_frame_phases.slang' and hashlib.sha256(raw).hexdigest()!=digest:
+            from portable_physical_interrupt_contract import baseline_phase,ledger
+            assert ledger(root)['baseline'][name]==digest,'Physical hook ledger changed historical weapon baseline'
+            baseline=baseline_phase(root,raw.decode()).encode()
+            assert hashlib.sha256(baseline).hexdigest()==digest,'Weapon statements outside physical hook changed'
         elif name in reach['current'] and hashlib.sha256(raw).hexdigest()!=digest:
             assert reach['baseline'][name]==digest,'Interrupt reach ledger changed historical baseline'
             assert hashlib.sha256(raw).hexdigest()==reach['current'][name],'Unreviewed interrupt reach source: '+name
@@ -96,4 +103,4 @@ def verify(root,*,sources=None):
             assert ts[j]!='=' or ts[j+1]=='=','Input command write: '+name
             assert ts[j] not in ('+','-','|','&','^','*','/','%') or ts[j+1]!='=','Input compound command write: '+name
             assert ts[j:j+2] not in (['+','+'],['-','-']),'Input command increment: '+name
-    return dict(verified=True,properties=55,local_override_properties=['damageRoute','damageHits'],wire_immutable=True,other_shared_sources_unchanged=not (reviewed_deltas or factor_deltas or part_deltas or interrupt_deltas),other_sources_outside_reviewed_delta_unchanged=True,reviewed_scope_snapshot_sources=reviewed_deltas,reviewed_damage_factor_sources=factor_deltas,reviewed_part_receipt_sources=part_deltas,reviewed_interrupt_sources=interrupt_deltas,reviewed_interrupt_reach_sources=reach_deltas,reviewed_interrupt_frame_metadata=True,gpu_calls=0,scope='Source correspondence/snapshot contract; explicit later source deltas do not prove numerical parity, which requires actual execution')
+    return dict(verified=True,properties=55,local_override_properties=['damageRoute','damageHits'],wire_immutable=True,other_shared_sources_unchanged=not (reviewed_deltas or factor_deltas or part_deltas or interrupt_deltas),other_sources_outside_reviewed_delta_unchanged=True,reviewed_scope_snapshot_sources=reviewed_deltas,reviewed_damage_factor_sources=factor_deltas,reviewed_part_receipt_sources=part_deltas,reviewed_interrupt_sources=interrupt_deltas,reviewed_interrupt_reach_sources=reach_deltas,reviewed_interrupt_frame_metadata=True,reviewed_physical_interrupt_sources=physical_deltas,gpu_calls=0,scope='Source correspondence/snapshot contract; explicit later source deltas do not prove numerical parity, which requires actual execution')

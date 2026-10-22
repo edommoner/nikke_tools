@@ -12,7 +12,7 @@ from portable_specs import LIMITS
 DEFERRED={'parts-skill-extra-deferred-burst3-reference-gap'}
 RANGE=set() # Reached skill packets are connected; physical remains closed.
 HOST_REJECT=set()
-PHYSICAL_REJECT='interrupt-physical-reach-not-ported'
+PHYSICAL_REFERENCE='interrupt-physical-charge-pellets'
 RAW_REJECT={'interrupt-source-projectile-alias','interrupt-source-part-alias','interrupt-source-noncanonical-id'}
 def fixtures():
     from portable_parts_skill_cases import fixtures as a
@@ -33,23 +33,27 @@ def fixtures():
         if label=='unbreakable':p['targets'][0]['hp']=0
         if label=='capacity127':p['targets']=[dict(name='stop-'+str(i),hp=1e8,reach=1) for i in range(127)]
         rows.append(c)
-    c=copy.deepcopy(original);c['name']=PHYSICAL_REJECT
-    c['combat']['weapons'][0].update(mode='charge',base_weapon_type='RL',interval=.1,min_cycle=.05,charge=.05)
+    c=copy.deepcopy(original);c['name']=PHYSICAL_REFERENCE
+    c['combat']['weapons'][0].update(mode='charge',base_weapon_type='RL',interval=.1,min_cycle=.1,charge=.05)
+    c['weapon_metadata']['fire_stance_hold']=0
+    c['contract'].update(damage=[10004,0,0,0,0],interrupt_damage=[8004,0,0,0,0])
     rows.append(c)
     from portable_interrupt_reach_cases import fixtures as interrupt_cases
     rows.extend(interrupt_cases())
+    from portable_physical_interrupt_cases import fixtures as physical_cases
+    rows.extend(physical_cases())
     return rows
 def prepare():
-    verify_layout(LIMITS);entries=[];packed=array.array('I',[46])
+    verify_layout(LIMITS);entries=[];packed=array.array('I',[63])
     for case in fixtures():
         words,meta,bindings=suite.compile_case(case)
-        rejected=case['name'] in DEFERRED|RANGE|{PHYSICAL_REJECT}
+        rejected=case['name'] in DEFERRED|RANGE
         entries.append((('reject/' if rejected else 'native/')+case['name'],words,None if rejected else (case,meta,bindings)))
         packed.extend(words)
     seed=next(e[1] for e in entries if e[0]=='native/parts-skill-interrupt-only');at=LIMITS['WORLD_ACTOR_BINDING_BASE']+8
     for name,offset,value in [('interrupt-source-projectile-alias',0,2),('interrupt-source-part-alias',2,1),('interrupt-source-noncanonical-id',1,1)]:
         words=list(seed);words[at+offset]=value;entries.append(('reject/'+name,words,None));packed.extend(words)
-    assert len(entries)==46 and sum(e[2] is not None for e in entries)==41
+    assert len(entries)==63 and sum(e[2] is not None for e in entries)==59
     if sys.byteorder!='little':packed.byteswap()
     return entries,packed.tobytes()
 def native_reference(domain):
@@ -79,5 +83,5 @@ def compare(block,domain):
         assert actual==expected['interrupt'],(domain[0]['name'],'interrupt accounting',actual,expected['interrupt'])
     return base.compare_expected(block,domain,expected)
 def validate_rejection(block,name):
-    if name.removeprefix('reject/') not in DEFERRED|RANGE|{PHYSICAL_REJECT}|RAW_REJECT or block[0]!=64:
+    if name.removeprefix('reject/') not in DEFERRED|RANGE|RAW_REJECT or block[0]!=64:
         raise AssertionError((name,block[0]))

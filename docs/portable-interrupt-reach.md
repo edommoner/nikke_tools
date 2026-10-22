@@ -1,3 +1,5 @@
+物理武器のinterrupt追加着弾を共通Slangへ接続しました。現在`parts-skill-world`63（native59／拒否4）がMetal成功・独立seal済み。スキルと同じgroup HP・総ダメージ外計上・吸血を使い、散弾・2銃口・生成後buff変更・射程境界・コア／critical分離・破壊／gate／add対象を検証しました。既存849・実4も全一致・独立seal、旧45入力・849全raw約2.67GB・実4全rawを保持。全実行は生成cache必須・Slang0回です。座標・deferred・random最終tick・実CUDA／環境保全・全キャラ認定は未完了、Windows新規実行0。詳細は[物理interrupt](portable-physical-interrupt.md)。以下は履歴です。
+
 # 共通実行器の非座標skill到達処理
 
 共通Slangでpierce／explosionの部位・interrupt到達を接続しました。通常UIとcanonical CPU／legacy CUDAは維持します。物理武器のinterrupt追加着弾、座標、deferred burstの参照モデル制約、実CUDA照合は未完了です。全キャラ認定を行う変更ではありません。

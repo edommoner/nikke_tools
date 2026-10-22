@@ -1,3 +1,5 @@
+物理武器のinterrupt追加着弾を共通Slangへ接続しました。現在`parts-skill-world`63（native59／拒否4）がMetal成功・独立seal済み。スキルと同じgroup HP・総ダメージ外計上・吸血を使い、散弾・2銃口・生成後buff変更・射程境界・コア／critical分離・破壊／gate／add対象を検証しました。既存849・実4も全一致・独立seal、旧45入力・849全raw約2.67GB・実4全rawを保持。全実行は生成cache必須・Slang0回です。座標・deferred・random最終tick・実CUDA／環境保全・全キャラ認定は未完了、Windows新規実行0。詳細は[物理interrupt](portable-physical-interrupt.md)。以下は履歴です。
+
 Slangの両生成cacheを共通CLIへ追加しました。`generation --generation-cache <dir>`でsealed sourceをCPU準備し、`--require-generation-cache`でコンパイラ起動を禁止した再利用を指定します。`run`／`compile`／`module-check`にも同じ2オプションがあります。Mac本体114sourceの実測は初回4.09秒・Slang2回→hit0.47秒・0回、別packageでMetal実4も全一致・独立監査済み。これはNVRTC cacheとは別の前段で、Windowsの速度・実CUDA一致・環境保全の証明ではありません。Windowsのstandalone生成は拒否し、追加検証停止を維持します。詳細は[生成cache](portable-generation-cache.md)。以下は履歴です。
 
 共通Slangへ非座標skillのpierce／explosion到達、生成値・reach receipt、interrupt群のHP／総ダメージ外計上・吸血を接続しました。現在`parts-skill-world`46（native41／拒否5）がMetal成功・独立seal済み。生成後buff変更・複数破壊・壊れない対象・周期3tick・共有吸血を含みます。最終849と実4もMetal成功、旧849全raw約2.67GB・実4全raw・従来26入力を保持。物理interrupt・座標・deferred・実CUDA照合・CUDA生成cache改善は未完了、全キャラ認定0、Windows新規実行0です。詳細は[到達処理](portable-interrupt-reach.md)。以下は履歴です。
