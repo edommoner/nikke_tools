@@ -1,0 +1,178 @@
+{
+  "schema": 1,
+  "status": "cpu28_verified_gpu_unimplemented",
+  "package": {
+    "package_id": "68e6e9afe8afbb4e50a393cea1d76820230ba347e0edfaf3d9fb001638a92f02",
+    "files": 1965,
+    "bytes": 5301248,
+    "archive_sha256": "a9dd06700eede5819e499416d5825c156b08149f6ecc373880a7ee5335aa7682",
+    "source_commit": "88bce890436b84a16ee510e5693443049a4d5d87"
+  },
+  "old20_all_inputs_native_trace_contracts_identical": true,
+  "old20_count": 20,
+  "extra_count": 8,
+  "extra_cases": [
+    {
+      "name": "heal-share-extra-lazy-lowest-snapshot",
+      "input_sha256": "d5f5d073c00b4d1503cf6d3b441cba9fe2f435777314640038defbc9b2d83093",
+      "native_sha256": "75033de1f0dde325b1fce70e912efee0f64ede87755ed020946b219007a03522",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 2,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-extra-lazy-excluding-caster",
+      "input_sha256": "01a84305131a65e017ddc27e8389c6b0e65b2ec407a3007c9ecd6b4cea1b9fab",
+      "native_sha256": "71378f94a91386d41d81015589bd8ad9a7d5a204c502a24c4d0f7044de3aa3db",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 2,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-extra-runtime-condition-crosses-0",
+      "input_sha256": "21f223ab20a88420407b5e752befdebce1170dbbc58f54cf76af4715ea67028d",
+      "native_sha256": "b3c77426e8a0a01c9936e68b6ae65ef418ab5e757e791bc440a6819632c2b05c",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 5,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-extra-other-owner-passive-not-live",
+      "input_sha256": "625520d1c449ea58b50181bfd68b17521c7965f98bbdbde9b3574724be0bcbfb",
+      "native_sha256": "3cd7eb6f7233158ff9791aaa8f1be39d56089bb02d178fe89695f0c5dbeb7db5",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 1,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-extra-runtime-condition-false",
+      "input_sha256": "fb85ec732d7bf0d8d61b6199536be13f0fc93639d67fabe8c6af96dde370dfa5",
+      "native_sha256": "740b0ed74ea5ff1ca868718b0d28cbcb90bf30af4ac818586da1fba83e1107e0",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 1,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-extra-multiple-caster-carriers",
+      "input_sha256": "f35033a52c9050b40687d32f50fe0bfa58a745fbbbc0c4aeff3162c88e51bff9",
+      "native_sha256": "5dd6ec5dce0ccf79a3a520e94f5009135b5a922c931aa15f64c72de3696bc25c",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 5,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-extra-multiply-before-divide",
+      "input_sha256": "312ed0f14bfb81e4c867cf925bbf1f709311268a8723aad059cbb6b4ef7e6576",
+      "native_sha256": "8f20fa86af8e84226ff6922cfa6c53325b1cdbb68c8d31ee5846f7ac6e5ae494",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 3,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-extra-single-recipient-no-division",
+      "input_sha256": "78a95bfb822cccd7152464e90c243e242500bbea77f361ddd6b9019a33718176",
+      "native_sha256": "4b1543e17796a14f8ba3deb42fe88805874f59727f002908c09a6764a177d1d3",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 1,
+        "original_notifications": 1
+      }
+    }
+  ],
+  "related_tests": {
+    "passed": 11,
+    "seconds": 6.147
+  },
+  "smoke": {
+    "smoke_verified": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "status": "smoke"
+  },
+  "calculation_verified": false,
+  "gpu_supported": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "numeric_contracts": {
+    "multiply_then_divide": 0.04,
+    "reassociated": 0.04000000000000001,
+    "single_direct": 0.1,
+    "wrong_single_multiply_divide": 0.10000000000000002
+  },
+  "source_and_log_records": [
+    {
+      "path": "/tmp/nikke-heal-share-extra-attempt1.json",
+      "sha256": "1a0143abdc7dc792f7bc6b956cbc32e3f1466e950629741b55b8256c95b219c3",
+      "bytes": 177591
+    },
+    {
+      "path": "/tmp/nikke-heal-share-extra-attempt2.json",
+      "sha256": "29ac453bf1ef254e808179c1687b4cdfb82de066852fd5eafe014bdbd529e707",
+      "bytes": 406116
+    },
+    {
+      "path": "/tmp/nikke-heal-extra-plan-activation.log",
+      "sha256": "b6dd734cc253613733d7b9ce14dab5574488304ee1e7e0c8a3242dcf685ad817",
+      "bytes": 585
+    },
+    {
+      "path": "/tmp/nikke-heal-share-extra-v1-original20.json",
+      "sha256": "d4de182f6af9e8b777ef7643176e4dfee219c99b6b511067843879f0b78979ec",
+      "bytes": 977734
+    },
+    {
+      "path": "/tmp/nikke-heal-share-extra-v1-extended8.json",
+      "sha256": "e7b6d14c8a2bebece7ed23bcf9454f0c5b384313e449b0669aa9e158dcbb3230",
+      "bytes": 406116
+    },
+    {
+      "path": "/tmp/nikke-heal-share-extra-v1-tests.log",
+      "sha256": "68febcfc75bfc06c96c459f3c0eeb2e28fd98d44c1a8237fbab706f0b3093f82",
+      "bytes": 2189
+    },
+    {
+      "path": "/tmp/nikke-heal-share-extra-v1-smoke.log",
+      "sha256": "cde890b28c3e5385fb6019a9b9a82adb14a44926830b83a8d750db45622330a9",
+      "bytes": 134
+    }
+  ]
+}

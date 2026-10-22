@@ -36,3 +36,13 @@ python scripts/nikke_gpu.py reference --suite heal-share --out /tmp/heal-share-r
 CPU契約は共通Slang実装の完成ではない。今後はlive/条件評価、共有plan、ordered binary64数量、body/storage、同期HPイベント、元heal通知を既存Frame実行器へ接続する。特にplan・cursor・元recipient/sourceの継続状態を入れ子Frameごとに保持し、子が外側snapshotを上書きしない設計が必要。instant healingとlifesteal双方、maxHP付与／修理／蘇生との区別を確認する。
 
 最新版CUDA assemblyが未成立なので、GPU追加はv132固定基準のcompiler切り分けと混在させない。projectile_dmg_pct／shield_dmg_pctはCPU消費経路未確認で、単純な出力不変だけから意味不在と判定しない。受付だけを増やして無処理で対応済みにしない。
+
+## 追加CPU契約：遅延対象・条件・演算順序
+
+`reference --suite heal-share-extended --out <new.json>`で追加8件を実行する。元20件はfactory・入力を変えず、fresh packageで入力/native全状態/trace/契約の指紋が元reportと全て同一と確認した。追加分も観測器なしと全既存native field／trace一致、関連11テストと通常package smoke153成功。根拠はresearch/portable-heal-share-extra-reference-checkpoint.json。
+
+遅延lowest対象・caster除外、HP条件が最初のportionで閾値へ到達する場合、異なるownerのcarrier、条件付きpassiveが最初の回復時に存在しない対照を加えた。最後の対照はplan開始時の_activeにも対象carrierが存在しないと読取観測しており、単に全定義を最初から有効化してはならない。ただしこれだけでpassive初期化順全体を認定しない。
+
+演算は全量0.1・重み2/5で`(0.1*2)/5 == 0.04`、`0.1*(2/5) == 0.04000000000000001`を区別する。単一受益者・3carrierでは直接0.1を渡し、`(0.1*3)/3 == 0.10000000000000002`へ変えてはならない。最終HPだけでは差が丸めで消えるため、実CPU body_healへ渡すportion数量を観測して誤った順序を拒否する。最初の追加fixtureでは他ownerのpassive受付とfixed_valueキーの誤りがあり、原失敗を保持してliteral入力／期待値を訂正した。CPU正本・GPU本体は変更していない。
+
+GPU接続時はqueryRecipientの数値専用フィルターを無条件に転用せず、実CPU `_live`に対応する期限→lazy解決→所属→runtime条件の順を保持する。plan snapshotは子イベントの前に確定し、単一recipient枝・整数重み・ordered binary64乗除も同じ共通実行器で処理する必要がある。lifestealとの統合と実GPU検証は引き続き未完了。

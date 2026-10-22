@@ -130,6 +130,7 @@ SUITES['entry-reload-regression']=dict(SUITES['regression-resident'],script='res
 SUITES['resident-binding']=dict(script='research/verify-resident-binding-short.py',golden='research/portable-resident-binding-file-transfer-short-expected.json',source='gpu/resident_runtime_binding_probe.slang',inputs=4,native=4,development_only=False,tests=['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
 SUITES['entry-reload-regression']['tests'].append('test_portable_heal_share_reference.py')
 SUITES['entry-reload-regression']['tests'].append('test_portable_phase_codegen.py')
+SUITES['entry-reload-regression']['tests'].append('test_portable_heal_share_extra_reference.py')
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
     golden='research/portable-compiler-commands-source-certificate.json',inputs=0,native=0,compiler_only=True,
     support_files=['research/portable-world-query-boundaries-regression-short-expected.json'],
