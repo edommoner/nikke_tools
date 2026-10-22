@@ -133,6 +133,7 @@ SUITES['entry-reload-regression']['tests'].append('test_portable_phase_codegen.p
 SUITES['entry-reload-regression']['tests'].append('test_portable_heal_share_extra_reference.py')
 SUITES['entry-reload-regression']['tests'].append('test_portable_definition_view.py')
 SUITES['entry-reload-regression']['tests'].append('test_portable_readiness_semantics.py')
+SUITES['entry-reload-regression']['tests'].append('test_portable_heal_share_targets.py')
 SUITES['definition-view']=dict(script='research/verify-definition-view-short.py',source='gpu/definition_view_probe.slang',
     golden='research/portable-definition-view-probe-expected.json',inputs=6,native=6,development_only=False,
     tests=['test_portable_definition_view.py','test_portable_resident_layout.py','test_portable_resident_transport.py'])

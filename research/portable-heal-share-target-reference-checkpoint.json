@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "status": "native34_verified_gpu_unimplemented",
+  "package_id": "56f0151048d3a52401d972d64c280f9ac8d5732fa66fed021a09bd6614153450",
+  "old28_all_input_native_trace_contracts_identical": true,
+  "new_cases": [
+    {
+      "name": "heal-share-target-self-plus-two-rl",
+      "input_sha256": "28e28f7d96cdf7e8b9bd482d0b27d6d43c0141226320f757ebfbc6f1d17f1f7e",
+      "native_sha256": "be1fc90766b35a3c51d11c0a3a81cd09dd31765abb4e624e8062ac99f31cb46e",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 3,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-target-self-already-ranked",
+      "input_sha256": "3a4f806ac1a6ebaa00b622678c54263ad8e6009972238c1e4d65ad059318357b",
+      "native_sha256": "c0aadbfd642310d9f96f84cca1f370c121703cadcbfa02fde26bb1fb07660698",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 2,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-target-no-rl-self-remains",
+      "input_sha256": "493ead84acb60acd709cbe466ca156a973157ccb1fe1e06f58f78a3dcb0292b4",
+      "native_sha256": "4ddea16f96e03974c41ae6201a51224a5637b9d49b565b9f1ba875943ebba424",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 1,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-target-overlap-distinct-carriers",
+      "input_sha256": "293044bdc6631753d51f6665cf5d16b724fdc997287b2ad5ae88d7be28935bac",
+      "native_sha256": "16826f7a820c3b57a8d7419b6a7edec275aa02fc2dacfb479a8bdbbe1371c666",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 5,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-target-stable-ranked-tie",
+      "input_sha256": "fbb05276ec1b28c85ede53fd8614733b2a2858054eb31b9d3a0da30fb3315e87",
+      "native_sha256": "381bef6a7af76623a163d5928200b7e980bcf229320ff804bef12816c78617aa",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 3,
+        "original_notifications": 1
+      }
+    },
+    {
+      "name": "heal-share-target-self-is-carrier-owner",
+      "input_sha256": "5a094771ecf934ea5ba48fec9d52edc554fd5c269a0af239994acd155cbb8522",
+      "native_sha256": "38c1fd7284293f761c483fc49a7c9af5cc928644c5ce54a55e3def0c23e92fd5",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "plans": 1,
+        "original_heals": 1,
+        "portions": 2,
+        "original_notifications": 1
+      }
+    }
+  ],
+  "new_count": 6,
+  "total_reference_count": 34,
+  "cpu_tests": {
+    "passed": 15,
+    "seconds": 7.281
+  },
+  "gpu_calls": 0,
+  "packing_calls": 0,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "numeric_contract": {
+    "source": "research/upstream/nikke-calc-master/calculator/buff_manager.py:sync_hp",
+    "expression": "hp / max_hp * 100.0",
+    "literal_hp5500_percent": 55.00000000000001,
+    "reassociated55_rejected": true,
+    "old28_contracts_unchanged": true
+  },
+  "original_failure": "v1 target overlap passed HP/weights but old verifier reassociated HP percentage; retained v1 failed reference/tests; added explicit literal hp_pct expectation, no tolerance or canonical change",
+  "logs": [
+    {
+      "path": "/tmp/nikke-heal-targets-v1-reference.json",
+      "bytes": 176837,
+      "sha256": "246b8dc0969269015be09d20590cb99de5db5d826f2dc312dbff4042c8c4d9c7"
+    },
+    {
+      "path": "/tmp/nikke-heal-targets-v1-tests.log",
+      "bytes": 1939,
+      "sha256": "fd2444a110c5cf35f8a81ef1a57c3d8a86799319491c368509a22d77a877bd26"
+    },
+    {
+      "path": "/tmp/nikke-heal-targets-v2-tests.log",
+      "bytes": 2873,
+      "sha256": "8a6c96b749b96c99f58a7787857bbc7729fc32003d96b3527b9127ea004dd819"
+    },
+    {
+      "path": "/tmp/nikke-heal-targets-v2-heal-share.json",
+      "bytes": 978082,
+      "sha256": "e701b4ba7075d8e4a1da177986e262e896fe479f8e84ddceac5b018a4ef8d8d9"
+    },
+    {
+      "path": "/tmp/nikke-heal-targets-v2-heal-share-extended.json",
+      "bytes": 406463,
+      "sha256": "ce11879bf0b1b2dbc0ba6217e3d222f7f0209103ec14081444a25e72965a2ca4"
+    },
+    {
+      "path": "/tmp/nikke-heal-targets-v2-heal-share-targets.json",
+      "bytes": 314680,
+      "sha256": "d44dbeecfd7ff38bf4a81ad3299df28d61b890c741e13124bffc3f9700faebef"
+    },
+    {
+      "path": "/tmp/nikke-heal-targets-v3-readiness-tests.log",
+      "bytes": 120,
+      "sha256": "b40cc31b1d13009074ffe0e44bbd6f8eec165e836bcba5724051e4ef10a330d1"
+    }
+  ],
+  "routing_metadata_package_id": "b97475349a493d28d2ba1f8a9240f2a50085b19448803dec577e42708b6ece9c",
+  "routing_metadata_tests": {
+    "passed": 21,
+    "seconds": 0.474,
+    "scope": "Fresh package after readiness reference count update; native source/tests unchanged from tested v2"
+  }
+}

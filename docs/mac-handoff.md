@@ -1,3 +1,7 @@
+<!-- heal-targets-current -->
+共通CLI referenceへheal-share-targets6を追加、旧28の全input/native/trace/contract保持・関連15検査成功。self＋RL上位2／重複／RLなし／別carrier重み／同率／別ownerを検査。正本sync_hpの除算→乗算を反映しHP5500の55.00000000000001を厳密比較、55.0再結合は故障注入で拒否、元失敗保持。readiness記録34とfresh21検査成功。GPU source/受付変更・GPU/Windows追加実行0、lifesteal等と本体CUDA成立は未完了。詳細research/portable-heal-share-target-reference-checkpoint.json。以下は履歴です。
+<!-- /heal-targets-current -->
+
 <!-- reference-readiness-current -->
 最新レビューはdocs/claude-overall-review-0e1f71b.md。未対応82分類へ保守的な作業laneを追加、全266 profile/input/issueと旧順位を保持。21検査とfresh inventory成功、GPU/CPU battle0、packing214/base154・認定0は不変。詳細research/portable-reference-readiness-checkpoint.json。v135はPTX生成/cache再読成功、commands assemblyはMemory allocation failure、post空/missing0だがservice未識別でpreservation=false。詳細research/portable-world-v135-definition-view-compiler-sanitized.json。単なるgetter/構造体縮小試行を追加せず、保存PTXの関数負荷とmodule負荷を区別できるCPU分析・明示実験契約を優先。PTX共有は自動承認拒否で個別許可待ち、再実行しない。heal_split composite対象とlifestealはCPU契約未被覆。以下は履歴です。
 <!-- /reference-readiness-current -->

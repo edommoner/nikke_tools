@@ -13,8 +13,8 @@ class ReadinessSemanticsTests(unittest.TestCase):
 
     def test_declared_model_is_a_subset_prerequisite_and_never_gpu_support(self):
         result=reference_readiness(self.blocker('heal_split'))
-        self.assertEqual(result['lane'],'gpu_lowering_candidate');self.assertEqual(result['recorded_cases'],28)
-        self.assertEqual(result['reference_suites'],['heal-share','heal-share-extended'])
+        self.assertEqual(result['lane'],'gpu_lowering_candidate');self.assertEqual(result['recorded_cases'],34)
+        self.assertEqual(result['reference_suites'],['heal-share','heal-share-extended','heal-share-targets'])
         for key in ('gpu_supported','gpu_admission_verified','full_character_verified','runtime_validation_performed'):self.assertIs(result[key],False)
 
     def test_recorded_heal_contract_count_matches_the_registered_literal_suites(self):

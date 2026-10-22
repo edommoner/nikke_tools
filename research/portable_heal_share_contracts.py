@@ -11,7 +11,7 @@ def verify(case,native):
     count=sum(len(r['weights']) for r in plans) if plans else expected['notices']
     assert len(portions)==count,(case['name'],'portion count')
     assert [a['hp'] for a in native['allies']]==expected['hp'],(case['name'],'literal HP',[a['hp'] for a in native['allies']])
-    assert [a['hp_pct'] for a in native['allies']]==[v/100 for v in expected['hp']],(case['name'],'synchronous HP percent')
+    assert [a['hp_pct'] for a in native['allies']]==expected.get('hp_pct',[v/100 for v in expected['hp']]),(case['name'],'synchronous HP percent')
     if 'storage' in expected:assert len(native['healing_storage'])==1 and native['healing_storage'][0]['current']==expected['storage'],(case['name'],'full recipient excess storage')
     if 'portion_edges' in expected:
         # Compare the complete per-portion delivery order, not a count of the

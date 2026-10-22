@@ -17,3 +17,5 @@
 固定package e33e8ae5でreadiness21件と既存CLI39件が成功。全266 profile/input/issueと旧82順位を直接照合して保持し、静的packing214/base154、CPU battle／GPU0を確認した。記録件数がCLI登録済みliteral factoryの実ケース数と一致することも検査する。詳細は`research/portable-reference-readiness-checkpoint.json`。最初の追加テストがpackageへ含めない研究checkpointに依存した失敗は保存し、実登録factoryを使う契約へ訂正した。
 
 CUDAの分割調査は既存共通assemblerへ暗黙追加しない。NVIDIA 12.4.1の[compiler driver文書](https://docs.nvidia.com/cuda/archive/12.4.1/cuda-compiler-driver-nvcc/index.html)で、ptxasの`--compile-only`がrelocatable objectを生成し、separate compilationにdevice linkが必要なことを確認した。ただし現PTXの分割合法性・tool互換・2GiB内への改善は未証明。元body・外部宣言ABI・global所有・出所と失敗保持のCPU契約を整えてから明示候補を選ぶ。
+
+追加のheal-share-targets6契約をCPU検証し、readinessの記録件数を34へ更新した。旧28は全指紋を保持。複合対象は6literalケースの検証までで、未被覆相互作用が残るためlaneの自動昇格はしない。詳細はportable-heal-share.mdとportable-heal-share-target-reference-checkpoint.json。

@@ -46,3 +46,11 @@ CPU契約は共通Slang実装の完成ではない。今後はlive/条件評価�
 演算は全量0.1・重み2/5で`(0.1*2)/5 == 0.04`、`0.1*(2/5) == 0.04000000000000001`を区別する。単一受益者・3carrierでは直接0.1を渡し、`(0.1*3)/3 == 0.10000000000000002`へ変えてはならない。最終HPだけでは差が丸めで消えるため、実CPU body_healへ渡すportion数量を観測して誤った順序を拒否する。最初の追加fixtureでは他ownerのpassive受付とfixed_valueキーの誤りがあり、原失敗を保持してliteral入力／期待値を訂正した。CPU正本・GPU本体は変更していない。
 
 GPU接続時はqueryRecipientの数値専用フィルターを無条件に転用せず、実CPU `_live`に対応する期限→lazy解決→所属→runtime条件の順を保持する。plan snapshotは子イベントの前に確定し、単一recipient枝・整数重み・ordered binary64乗除も同じ共通実行器で処理する必要がある。lifestealとの統合と実GPU検証は引き続き未完了。
+
+## 複合対象の追加6契約
+
+共通CLIの`reference --suite heal-share-targets --out <new-file.json>`で、自分＋攻撃力上位RL2人、self重複、RLなし、別carrierとの重複重み、ATK同率の編成順、別ownerを基準にしたselfをCPU正本で検査する。入力はliteralで、期待値をGPUや観測済みstateから生成しない。既存observer／契約器／reference実行経路を再利用する。
+
+初回は重複carrierのHP5500に対するHP％だけが失敗した。正本sync_hpは`hp / max_hp * 100.0`なので、55.00000000000001が正しく、旧verifierの`5500 / 100`は55.0へ再結合していた。新ケースへ明示literal hp_pctを加え、verifierはその値を厳密比較する。55.0への書換えを故障注入で拒否し、比較許容差とcanonical CPUは変更していない。元失敗を保持する。
+
+旧20＋追加8の全input/native/trace/contract指紋は不変、新6契約・関連15検査成功。readinessへ合計34件を記録し、fresh metadata packageの21検査も成功。これは参照契約であり、heal_splitのGPU受付・本体CUDA成功・全相互作用の保証ではない。lifesteal経路や変更中のlazy対象等は引き続き追加検証が必要。詳細research/portable-heal-share-target-reference-checkpoint.json。GPU／Windows追加実行0。
