@@ -1,6 +1,8 @@
 # 次の接続：到達interrupt packet
 
-この文書は設計候補です。到達interruptのGPU実装・数値認定は未完了です。kind6 sourceの入力・世代・期限は共通poolへ接続済みで、届くskillとphysicalは明示拒否します。canonical Impactのkind2はPROJECTILE、kind6のpublic命中カウンタは未接続です。
+7bit codec単体は共通Slangで実装し、Metal154入力（正例140／拒否14）と独立sealを完了しました。128通りの巡回順（全slot×全位置）・境界・再利用・tag／membership／padding破損を全786432wordで照合しています。`interrupt-packet-codec`で固定packageを作成できます。記録は`research/portable-interrupt-packet-codec-checkpoint.json`、実装は`gpu/interrupt_packet_codec.slang`です。本体にはまだincludeせず、旧periodic表現と既存849／40のソースを維持しています。
+
+以下は本体接続の設計候補です。到達interruptのGPU実装・数値認定は未完了です。kind6 sourceの入力・世代・期限は共通poolへ接続済みで、届くskillとphysicalは明示拒否します。canonical Impactのkind2はPROJECTILE、kind6のpublic命中カウンタは未接続です。
 
 正本BossScript.interrupt_hitsはliveでreach内の全Targetにextra_hits／extra_dealtを加え、breakableなら全damageをdealtへ加えてから対象リストを返します。その後にtimelineが各対象の吸血を実行します。キャラtotal・accumulate_damageへは加えません。parts_skillだけではinterruptへ届かず、pierce／explosion本来のreachを別に評価します。partのcallbackが終わった後でinterruptのlive集合を取る順序を保持してください。
 

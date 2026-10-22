@@ -1,3 +1,5 @@
+`interrupt-packet-codec`は7bit・38wordの版付きinterrupt packetを独立検査するsealed suiteです（154入力、正例140／拒否14）。共通CUDA／Metal生成・Metal実行・独立seal済み。本体の到達ダメージ接続やCUDA実行を認定しません。詳細は[packet設計](portable-interrupt-packets-next.md)。
+
 interruptのprivate kind6／source3を共通world poolへ接続し、出現・世代・再出現・期限終了をMetalで検証しました。現在のsealed入口は`parts-skill-world`40（native30・拒否10）。既存849と実編成4も独立sealし、旧全rawと以前の26入力を保持しています。到達ダメージ・吸血・座標・deferred・修正版CUDA照合は未完了、全キャラ認定0です。Windowsの新規実行は停止中。詳細は[interrupt接続](portable-interrupt-source.md)、次の実装は[packet設計](portable-interrupt-packets-next.md)。以下は履歴です。
 
 新しいsealed suiteは`parts-skill-world`26（native25・deferred拒否1）と`skill-part-codec`4です。共通Frame・部位receipt bank・群着弾を接続し、既存849＋実4も同じ最終ソースで保持・独立sealしました。interrupt入力7件はhost拒否で別集計、座標・deferred・実CUDA照合は未完了です。[部位スキル](portable-parts-skill-gpu.md)を参照してください。通常replayの同一基準規約を保ち、CPUのcleared観測1項目の修正だけを、指定ソースSHA・他全項目一致を要求する明示的な`--reference-migration parts-cleared-v1`で監査できます。
