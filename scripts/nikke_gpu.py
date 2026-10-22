@@ -157,6 +157,10 @@ SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry
     support_files=['research/portable-world-heal-share-regression-short-expected.json'],
     tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py','test_portable_ptx_stats.py','test_portable_ptx_callgraph.py','test_portable_ptx_partition.py','test_portable_partition_object.py','test_portable_module_object.py','test_portable_device_linker.py'])
 
+SUITES['compiler-full']=dict(SUITES['compiler-commands'],
+    source=SUITES['heal-share-regression']['source'],
+    golden='research/portable-compiler-full-heal-share-source-certificate.json')
+
 # Controller validation has no numeric program to execute. Keep its CPU work
 # separate from a selected suite's battle/native preflight.
 SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
@@ -248,6 +252,14 @@ def historical_compiler_layout(root,m):
     return certificates[0],baselines[0]
 
 
+def compiler_baseline_sources(m):
+    sources=m['golden']['source_sha256']
+    # A full entry is already in the Metal baseline; commands adds one wrapper.
+    # Choose by registered suite, never by a mutable certificate field.
+    if m['suite']=='compiler-full':return sources
+    return {k:v for k,v in sources.items() if k!=SUITES[m['suite']]['source']}
+
+
 def verify_package(root,*,historical_compiler=False):
     m = load(root/'gpu-package.json')
     if m['schema'] != SCHEMA or m['package_id'] != package_id(m) or m['suite'] not in SUITES:
@@ -266,7 +278,7 @@ def verify_package(root,*,historical_compiler=False):
         if not historical_layout and not set(SUITES[m['suite']]['support_files'])<={r['path'] for r in m['files']}:raise ValueError('Compiler shared baseline absent from payload')
         baseline_path=root/(historical_layout[1] if historical_layout else SUITES[m['suite']]['support_files'][0])
         baseline=load(baseline_path)
-        if sha(baseline_path.read_bytes())!=golden['baseline_golden_sha256'] or {k:v for k,v in golden['source_sha256'].items() if k!=SUITES[m['suite']]['source']}!=baseline['source_sha256']:
+        if sha(baseline_path.read_bytes())!=golden['baseline_golden_sha256'] or compiler_baseline_sources(m)!=baseline['source_sha256'] or (m['suite']=='compiler-full' and golden['generated_normalized']!=baseline['generated_normalized']):
             raise ValueError('Compiler diagnostic changed the shared baseline')
     sources=golden['source_sha256'];records={r['path']:r['sha256'] for r in m['files']}
     if not sources or SUITES[m['suite']]['source'] not in sources:raise ValueError('Package GPU source closure missing')

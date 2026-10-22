@@ -155,6 +155,47 @@ class CompilerDiagnosticTests(unittest.TestCase):
         m['files']=cli.file_records(root,['research/claim.json','research/base.json']);m['package_id']=cli.package_id(m);cli.write(root/'gpu-package.json',m)
         with self.assertRaisesRegex(ValueError,'cannot claim a battle'):cli.verify_package(root,historical_compiler=True)
 
+    def test_full_entry_certificate_reuses_exact_saved_metal_closure_and_generated_code(self):
+        suite=cli.SUITES['compiler-full'];certificate=cli.load(ROOT/suite['golden'])
+        baseline_path=ROOT/suite['support_files'][0];baseline=cli.load(baseline_path)
+        self.assertEqual(certificate['source_sha256'],backend.source_hashes(suite['source']))
+        self.assertEqual(certificate['source_sha256'],baseline['source_sha256'])
+        self.assertEqual(certificate['generated_normalized'],baseline['generated_normalized'])
+        self.assertEqual(certificate['baseline_golden_sha256'],cli.sha(baseline_path.read_bytes()))
+        self.assertEqual(certificate['entries'],[]);self.assertFalse(certificate['calculation_verified'])
+
+    def test_full_entry_uses_shared_compile_audit_and_cannot_execute_a_battle(self):
+        self.m['suite']='compiler-full';self.proof();result=self.audit()
+        self.assertTrue(result['compiler_verified']);self.assertFalse(result['calculation_verified'])
+        self.assertEqual(self.base.native.calls.count('compile'),1)
+        with patch.object(cli,'verify_package',return_value=self.m),patch.object(cli,'run_job',side_effect=AssertionError('No Job')):
+            with self.assertRaisesRegex(ValueError,'cannot execute a battle'):
+                cli.run_capture(self.base.root/'forbidden-full','cuda',60)
+            with self.assertRaisesRegex(ValueError,'no battle adapter'):cli.open_suite(self.m)
+
+    def test_full_entry_packet_requires_entry_and_generated_fingerprints_in_exact_baseline(self):
+        root=self.base.root/'full-packet';(root/'gpu').mkdir(parents=True);(root/'research').mkdir()
+        suite=cli.SUITES['compiler-full'];entry=suite['source'];(root/entry).write_bytes(b'// full fixture')
+        baseline_path=root/suite['support_files'][0];certificate_path=root/suite['golden']
+        sources={entry:cli.sha((root/entry).read_bytes())}
+        baseline=dict(source_sha256=sources,generated_normalized=dict(cuda='cuda',metal='metal'))
+        cli.write(baseline_path,baseline);m=copy.deepcopy(self.m);m.update(schema=cli.SCHEMA,suite='compiler-full')
+        m['golden'].update(source_sha256=sources,generated_normalized=baseline['generated_normalized'],baseline_golden_sha256=cli.sha(baseline_path.read_bytes()))
+        def save():
+            cli.write(certificate_path,m['golden']);m['files']=cli.file_records(root,[entry,suite['golden'],suite['support_files'][0]])
+            m['package_id']=cli.package_id(m);cli.write(root/'gpu-package.json',m)
+        save();self.assertEqual(cli.verify_package(root),m)
+        self.assertEqual(cli.verify_package(root,historical_compiler=True),m)
+        original=copy.deepcopy(m)
+        # Rehashing the whole packet cannot hide removing the full entry from baseline.
+        baseline['source_sha256']={};cli.write(baseline_path,baseline)
+        m['golden']['baseline_golden_sha256']=cli.sha(baseline_path.read_bytes());save()
+        with self.assertRaisesRegex(ValueError,'changed the shared baseline'):cli.verify_package(root)
+        baseline['source_sha256']=sources;cli.write(baseline_path,baseline);m=copy.deepcopy(original)
+        m['golden']['generated_normalized']['cuda']='different-generated-code';save()
+        with self.assertRaisesRegex(ValueError,'changed the shared baseline'):cli.verify_package(root)
+        with self.assertRaisesRegex(ValueError,'changed the shared baseline'):cli.verify_package(root,historical_compiler=True)
+
     def test_shared_source_closure_and_phase_entry_are_fixed_without_math_changes(self):
         from portable_phase_codegen import PHASES
         from portable_weapon_phase_contract import tokens

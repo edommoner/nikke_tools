@@ -1,3 +1,7 @@
+<!-- full-compiler-package-current -->
+compiler-fullを既存compiler-only経路へ登録。Metal849と同一full entry/全110 source/両生成指紋をsource-only certificateへ固定し、追加wrapperやGPU数学/normalizer変更なし。commandsはwrapper1追加、fullはclosure完全同一と生成指紋一致を検査。historical/通常battle拒否と2GiB/60秒/PTX/driver禁止を保持。fresh package CPU205中204成功/Windows1skip、新しいcompile/link/driver/GPU0。Windowsは固定330b204の保存旧commands object linkを検証中で、その結果を評価してから現行full compileの独立packageを選ぶ。full CUDA計算/全キャラ認定0、Metal849+実4/parts CPU32は不変。詳細docs/portable-full-compiler.md、research/portable-full-compiler-checkpoint.json。以下は履歴です。
+<!-- /full-compiler-package-current -->
+
 <!-- device-link-current -->
 保存単一module.oからのlink-object CLIを共通native engineへ追加。元compiler-source-only package/producer/全source/capture/Job/claimと独立object SHAを再監査し、nvlink12.4.131の公式archive/member SHA固定。-arch=sm_86/--ignore-host-info/verbose、2GiB/60秒/BelowNormal/gate/wait55+cleanup5、専用claim・mode・artifactで通常cacheと区別。ET_EXEC/EM_CUDA/sm86/64bit/全table範囲とportableEvents実行code・SLANG_globalParams48byteを静的検査。fresh CPU202中201成功/Windows1skip、新link9・既存focus/module21保持。GPU数学/legacy assemble不変。次は固定sourceと隔離toolをWindowsへ用意し、CPU/Job smoke1回後に保存objectのlink1回のみ。新ptxas/NVRTC/driver/GPU、fallback/retry/cap増大なし。link/実行/計算は現時点未認定、旧commands-onlyと現在のfull battleを混同しない。Metal849+実4/parts CPU32/全キャラ認定0を維持。詳細docs/portable-device-link.md、research/portable-device-link-development-checkpoint.json。以下は履歴です。
 <!-- /device-link-current -->
