@@ -55,7 +55,7 @@ class ReadinessSemanticsTests(unittest.TestCase):
 
     def test_annotation_does_not_admit_the_previously_rejected_effect(self):
         from portable_runtime import validate_effect,UnsupportedPortable
-        effect=dict(type='buff',stat='heal_split',fixed_value=1,target='all_allies',duration=-1,trigger=dict(timing=['battle_start'],condition=[]))
+        effect=dict(type='buff',stat='unknown_heal_split',fixed_value=1,target='all_allies',duration=-1,trigger=dict(timing=['battle_start'],condition=[]))
         before=copy.deepcopy(effect)
         with self.assertRaises(UnsupportedPortable):validate_effect(effect,combat={},world_frame=True)
         reference_readiness(self.blocker('heal_split'))

@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "status": "shared_healing_share_metal849_sealed_cuda_unverified",
+  "scope": "Declared native model; custom43 contracts plus raw10 and retained796; new real profiles not yet battle-certified",
+  "regression": {
+    "package": {
+      "package_id": "61f1e117d572dbedc604cbef31e9c29f8452b0d91a8b92d6a61062911d09928d",
+      "files": 1989,
+      "bytes": 5227611,
+      "archive_sha256": "eaadc08d3d0e280526ba4a786d0316e590c546ccc9c45625f2be55acfa6aacf5",
+      "source_commit": "abcaf27a48e44925339c0bf81a1a8f7f45be8396"
+    },
+    "inputs": 849,
+    "native": 676,
+    "rejections": 173,
+    "calculation_verified": true,
+    "output_sha256": "89afa4ed803477c6e1d4aa37bc06bb32fb5b9717e29cc7d413f168a8717d92e1",
+    "transport": {
+      "backend": "metal",
+      "cases": 849,
+      "command_status": "completed",
+      "configured_max_threads_per_threadgroup": 1,
+      "device": "Apple M5",
+      "file_readback_chunk_bytes": 8388608,
+      "gpu_seconds": 10.325841333367862,
+      "input_bytes": 354542404,
+      "library_compile_seconds": 1.3419970273971558,
+      "output_bytes": 2670723072,
+      "pipeline_compile_seconds": 6.019194006919861,
+      "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+      "pipeline_max_threads_per_threadgroup": 1,
+      "registry_id": "4294968313",
+      "runtime_buffer_bytes": 117970248,
+      "runtime_element_capacity": 849,
+      "runtime_physical_stride_verified": true,
+      "runtime_stride_bytes": 138952,
+      "threads_per_threadgroup": 1,
+      "compile_timeout_seconds": 300,
+      "gpu_timeout_seconds": 120
+    },
+    "runtime_fields": 247,
+    "independent_gpu0_seal": true
+  },
+  "diagnostic": {
+    "package": {
+      "package_id": "55dcffcf812d30048864f78560ade2df9288b67331be23695b5b823454366808",
+      "files": 1988,
+      "bytes": 5164495,
+      "archive_sha256": "6f3591740f2622dad50d171026d98ac44ad3dcfe30f533738ef617382b062f5c",
+      "source_commit": "abcaf27a48e44925339c0bf81a1a8f7f45be8396"
+    },
+    "inputs": 53,
+    "native": 43,
+    "rejections": 10,
+    "calculation_verified": true,
+    "output_sha256": "7ae1104d738eb1c4fa962d0562cdc36a69810c4f76d0c15f376cc12f8c13afbe",
+    "independent_gpu0_seal": true,
+    "max_trace_records": 70,
+    "capacity": 512,
+    "overflow": false,
+    "projection": "Plan/portion/shared-call-return/lifesteal packet/original heal_received order; optional native HP-notify profiling stream is explicitly excluded. Full battle and unchanged skill trace still compared; unobserved source IDs projected unknown on both sides."
+  },
+  "retention": {
+    "passed": true,
+    "gpu_calls": 0,
+    "scope": "Byte retention against a previously verified immutable golden; not a new GPU dispatch or standalone calculation certification",
+    "expanded_candidate": true,
+    "candidate_offset": 0,
+    "name_prefix": "",
+    "inputs": 796,
+    "all_input_raw_native_fingerprints_equal": true,
+    "all_raw_words_equal": true,
+    "lazy_banks_zero": true,
+    "output_bytes": 2503999488,
+    "output_sha256": "b9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637",
+    "baseline_golden_sha256": "5f4661474197006aef81b08b17f97c379e775601e92af947d4226522bd691df4",
+    "elapsed_seconds": 2.9850691249594092
+  },
+  "cpu": {
+    "discovered": 893,
+    "passed": 892,
+    "windows_skipped": 1,
+    "seconds": 65.941,
+    "selected_groups": 49,
+    "selected_tests": 302,
+    "selected_batch_seconds": 44.663708208012395
+  },
+  "final_compiler_packet": {
+    "package": {
+      "package_id": "8bb4b1ee3174267aaffdbeaaa7194c18d9d3e7729b51284fe310e0784c436581",
+      "files": 1991,
+      "bytes": 5264199,
+      "archive_sha256": "b0bd600e7005f82423812a1d3095de3fc52e03a1095c870e0608337648537eb9",
+      "source_commit": "abcaf27a48e44925339c0bf81a1a8f7f45be8396"
+    },
+    "source_certificate": "research/portable-compiler-commands-heal-share-source-certificate.json",
+    "smoke_discovered": 158,
+    "smoke_skipped": 1,
+    "smoke_passed": 157,
+    "smoke_gpu_calls": 0,
+    "affected_compiler_contract_tests": 9,
+    "compiler_memory_improvement_verified": false
+  },
+  "inventory": {
+    "profile_count": 266,
+    "packed_profiles": 216,
+    "packed_base": 156,
+    "priority_categories": 80,
+    "newly_packed": [
+      {
+        "character": "나유타",
+        "favorite_stage": 0
+      },
+      {
+        "character": "렘",
+        "favorite_stage": 0
+      }
+    ],
+    "forbidden_calls": {
+      "cpu_battle": 0,
+      "gpu": 0
+    },
+    "gpu_admission_verified": false,
+    "full_character_verified": 0
+  },
+  "definition_guard": {
+    "original55_getters_types_and_decoder_unchanged": true,
+    "surrounding_feature_baseline_deliberately_advanced": true,
+    "fixture": "tests/fixtures/portable-definition-view.json",
+    "native_and_old796_retention_required_and_passed": true
+  },
+  "first_metal43": {
+    "capture": "/tmp/nikke-heal-world-v1-metal",
+    "passed": true,
+    "scope": "First normal-world candidate before selective-query guard and strict raw guards; preserved, not adopted as current golden"
+  },
+  "gpu_runs": 3,
+  "windows_additional_runs": 0,
+  "full_cuda_calculation_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "ui_backend": "cpu",
+  "logs": [
+    {
+      "path": "/tmp/nikke-heal-world-v1-metal/result.json",
+      "bytes": 819,
+      "sha256": "7a9055c6104364e4afb95f697c0542aaec3351b02252ab3716d178395e12ba21"
+    },
+    {
+      "path": "/tmp/nikke-heal-diagnostic-v2-metal/result.json",
+      "bytes": 819,
+      "sha256": "e25b6ef9328deaaf39fc328c962788981ba92147567b7b1484366128de473d88"
+    },
+    {
+      "path": "/tmp/nikke-heal-diagnostic-v2-seal.log",
+      "bytes": 209,
+      "sha256": "4fbfbb3450f775761c050083741ebda9113be5c0adc3c459ac3f9e3c6e2a6c23"
+    },
+    {
+      "path": "/tmp/nikke-heal-regression-v1-metal/result.json",
+      "bytes": 819,
+      "sha256": "469d101181a1caa4ec708a5bc5c0835a350dde87397834f7f4df294fd63da54a"
+    },
+    {
+      "path": "/tmp/nikke-heal-regression-v1-before-gpu-retention.json",
+      "bytes": 228,
+      "sha256": "dc4111bd47f2ad234aa6d4f0c3617abaa8cbde7ef224f26b9cf5e7d1aa51eff3"
+    },
+    {
+      "path": "/tmp/nikke-heal-regression-v1-retention.json",
+      "bytes": 635,
+      "sha256": "46a64400a0bded33824bc852af1b5603027731389fd19ec116c03daf21aa927a"
+    },
+    {
+      "path": "/tmp/nikke-heal-regression-v1-seal.log",
+      "bytes": 210,
+      "sha256": "95366ae9f7fe83a3dc1673995d9dfaf7781c07fa4bbd10530fce51770280bd7a"
+    },
+    {
+      "path": "/tmp/nikke-heal-regression-v1-portable-cpu.log",
+      "bytes": 1006,
+      "sha256": "56fbf0a5535ae29c0132d8176dadc50fa32dc7f30dd54d1814db17889379c505"
+    },
+    {
+      "path": "/tmp/nikke-heal-compiler-final-v1-smoke.log",
+      "bytes": 134,
+      "sha256": "cde890b28c3e5385fb6019a9b9a82adb14a44926830b83a8d750db45622330a9"
+    },
+    {
+      "path": "/tmp/nikke-heal-compiler-final-v1-diagnostic-tests.log",
+      "bytes": 107,
+      "sha256": "0b91efbf18bf599405ac2d4b15a2eefd01b926339e841af31a3da4aa2361e4f9"
+    },
+    {
+      "path": "/tmp/nikke-heal-regression-v1-inventory.json",
+      "bytes": 319185,
+      "sha256": "3396ccc1cb3a19a4ee26fe649eea58b51eddc6e7ca98a04fd2a56b0b81b29a61"
+    },
+    {
+      "path": "/tmp/nikke-heal-phase-codegen-v1/report.json",
+      "bytes": 29594,
+      "sha256": "e6266d6ee3deac8c54269cfbba4d15591eb654ebb3cb45d2fc35cde958996f55"
+    },
+    {
+      "path": "/tmp/nikke-heal-compiler-codegen.json",
+      "bytes": 11946,
+      "sha256": "86e59faa0976fd66a2f3c92610462c5290906ecb0341d2372f2ef51da1839a11"
+    }
+  ]
+}

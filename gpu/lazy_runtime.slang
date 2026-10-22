@@ -94,7 +94,7 @@ bool beginBuffQuery(inout Runtime s, uint who, uint64_t when)
     for (uint pass = 0; pass < s.orderedCount && s.error == 0; pass++)
     {
         uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row); s.queryAllowed[row] = 0;
-        if(d.stat==S_atk_buff_mag_pct) continue; // Only its native late membership read consumes this operator.
+        if(d.stat==S_atk_buff_mag_pct || d.stat==S_heal_split) continue; // Selective native consumers own these membership reads.
         if (excludedDamageBuff(s,row,who) || s.alive[row] == 0 || !f64Less(when,s.end[row])) continue;
         if (d.queryResolve != 0) ensureLazyRecipients(s,row,when);
         if ((s.activeRecipients[row] & (1U << who)) != 0 && WORLD_STATE_NUMERIC_CONDITION(s,row,who,when,basicConditions(s,row,when,true,who))) s.queryAllowed[row] = 1;

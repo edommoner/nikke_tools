@@ -197,6 +197,15 @@ void admitDefinitions(inout Runtime s,uint input)
         if (d.kind == 0 && d.stat == S_heal_received_pct) s.healthMask |= 4;
         if (d.kind == 0 && d.stat == S_outgoing_heal_pct) s.healthMask |= 8;
         if (d.kind == 0 && d.stat == S_lifesteal_pct) s.healthMask |= 64;
+        if(d.stat==S_heal_split)
+        {
+#ifndef PORTABLE_WORLD_ROSTER
+            s.error=64;break;
+#else
+            if(s.combat==0 || d.kind!=0 || d.enemyBuff!=0 || d.healthScaling!=0 || d.alliedFlags!=0 || d.damageFlags!=0 || d.quantityFlags!=0 || d.queryResolve!=0 || !f64Finite(d.value)) { s.error=64;break; }
+            s.healthMask|=128;
+#endif
+        }
         if (d.kind == 6 || d.kind == 8) s.healthMask |= 16;
         if (d.group >= s.count || d.alias >= int(j)) { s.error = 64; break; }
         PROJECTILE_ADMIT_STAGE(s,407)

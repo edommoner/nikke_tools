@@ -1,3 +1,5 @@
+現在は共有DFSへの接続とMetal849検証まで完了しています。以下は接続前の設計記録です。最新の範囲・制限・次の実編成検証は[GPU接続結果](portable-heal-share-gpu.md)を参照してください。
+
 # 回復分配を共有DFSへ接続する次の契約
 
 plan演算の共通Slangは`gpu/heal_share_plan.slang`。独立Metal probe10入力が成功し、GPU0の独立監査でsealした。既存本体へはまだincludeせず、heal_splitの受付は開いていない。CPU正本は共通CLI referenceの4 suite、合計43ケース。これは宣言済みモデルの契約で、実ゲームの意味の保証ではない。

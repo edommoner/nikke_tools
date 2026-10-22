@@ -141,9 +141,17 @@ SUITES['definition-view']=dict(script='research/verify-definition-view-short.py'
 SUITES['heal-share-plan']=dict(script='research/verify-heal-share-plan-short.py',source='gpu/heal_share_plan_probe.slang',
     golden='research/portable-heal-share-plan-short-expected.json',inputs=10,native=8,development_only=False,
     tests=['test_portable_heal_share_plan.py'])
+SUITES['heal-share-world']=dict(script='research/verify-world-heal-share-short.py',source='gpu/world_entry_reload_resident_entry.slang',
+    golden='research/portable-world-heal-share-short-expected.json',inputs=53,native=43,development_only=True,
+    tests=['test_portable_heal_share_gpu.py','test_portable_heal_share_plan.py','test_portable_resident_layout.py'])
+SUITES['heal-share-diagnostic']=dict(SUITES['heal-share-world'],script='research/verify-world-heal-share-diagnostic-short.py',source='gpu/world_heal_share_diagnostic_entry.slang',
+    golden='research/portable-world-heal-share-diagnostic-short-expected.json',development_only=False,tests=SUITES['heal-share-world']['tests']+['test_portable_heal_share_trace.py'])
+SUITES['heal-share-regression']=dict(SUITES['entry-reload-regression'],script='research/verify-world-heal-share-regression-short.py',
+    golden='research/portable-world-heal-share-regression-short-expected.json',inputs=849,native=676,development_only=False,
+    tests=SUITES['entry-reload-regression']['tests']+['test_portable_heal_share_gpu.py','test_portable_heal_share_trace.py'])
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
-    golden='research/portable-compiler-commands-definition-view-source-certificate.json',inputs=0,native=0,compiler_only=True,
-    support_files=['research/portable-world-definition-view-regression-short-expected.json'],
+    golden='research/portable-compiler-commands-heal-share-source-certificate.json',inputs=0,native=0,compiler_only=True,
+    support_files=['research/portable-world-heal-share-regression-short-expected.json'],
     tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py'])
 
 # Controller validation has no numeric program to execute. Keep its CPU work

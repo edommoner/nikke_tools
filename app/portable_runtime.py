@@ -119,6 +119,8 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     try:validate_input(eff,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason=getattr(error,'reason',None),operator=getattr(error,'operator',None)) from error
     kind,stat,target=eff.get('type'),eff.get('stat'),eff.get('target','self')
+    if stat=='heal_split' and (kind!='buff' or combat is None or not world_frame or eff.get('scaling') is not None):
+        raise UnsupportedPortable('Healing share requires an unscaled private combat world buff',reason='effect')
     if stat=='heal_overcharge_store' and (combat is None or not world_frame):
         raise UnsupportedPortable('Overheal storage requires a private combat world',reason='effect')
     if stat=='skill_cooldown_reduce_pct' and (kind!='instant' or combat is None or not world_frame):

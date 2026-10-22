@@ -66,3 +66,7 @@ STATS.update({name:EXTRA_STAT[name] for name in ('atk_copy','hp_copy')})
 from portable_named_magnitude_specs import STATS as NAMED_MAGNITUDE_STATS
 BUFFS=BUFFS | NAMED_MAGNITUDE_STATS.keys()
 STATS.update(NAMED_MAGNITUDE_STATS)
+
+# Native carrier-link presence, outside the64-entry numeric vector.
+BUFFS=BUFFS | {'heal_split'}
+STATS['heal_split']=EXTRA_STAT['heal_split']

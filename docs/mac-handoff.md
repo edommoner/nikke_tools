@@ -1,3 +1,7 @@
+<!-- healing-share-gpu-current -->
+現在はheal-share-regression849(native676/拒否173)をMetal全一致・GPU0独立seal。回復分配のmembership→既存Frame mode31→HP/storage/同期子イベント→元通知へ共通接続、normal stat75なしfast pathを保持。診断53も全一致（plan/portion/元通知を直接比較、HP notify profiler列は明示的対象外）。旧796全input/native/raw・2.50GB直接比較/lazyゼロ保持、Runtime247/138952不変。CPU893中892成功/Win1skip、最終compiler smoke158中157成功/Win1skip＋更新certificate9成功。静的packing216/base156で新ナユタ/レムは入力受付だけ。次は全定義の3秒/30秒実編成を検証。本体CUDA未成立・認定0・UI CPU、Windows追加0。保存PTXの個別共有確認は未回答・再実行しない。詳細docs/portable-heal-share-gpu.md、research/portable-heal-share-gpu-checkpoint.json。以下は履歴です。
+<!-- /healing-share-gpu-current -->
+
 <!-- heal-plan-current -->
 回復分配のCPU参照は43（元34全input/native/trace/contract保持＋lifesteal9）、関連18成功。共通heal_share_plan.slangを実装し、独立Metal10入力（literal8＋拒否2）が一致、GPU0 seal、通常sealed CLI登録。planのみでmembership/HP/storage/DFS通知への接続は未実装・heal_split受付は閉じたまま。portable887は885成功/Win1skip/ps拒否1、同packageの観測5再確認成功。誤った広い1260 discoveryの失敗も保持。GPU実行1/Windows0。詳細research/portable-heal-share-plan-checkpoint.json、portable-heal-share-lifesteal-reference-checkpoint.json、接続計画docs/portable-heal-share-gpu-next.md。保存PTX共有の個別確認は未回答・再実行しない。以下は履歴です。
 <!-- /heal-plan-current -->

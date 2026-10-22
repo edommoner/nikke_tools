@@ -1,3 +1,5 @@
+現在のsealed入口は`heal-share-regression`849(native676/拒否173)、診断は`heal-share-diagnostic`53です。回復分配43契約を共通DFSへ接続し、Metal全一致・旧796全raw保持・独立seal済み。`package --suite heal-share-regression`で固定しfresh展開して既存runを使用します。全キャラ認定0・本体CUDA未成立・UI CPUです。最新範囲と制限は[回復分配GPU接続](portable-heal-share-gpu.md)、以下は過去の接続記録です。
+
 <!-- phase-diagnostic-current -->
 共有フェーズのコンパイル範囲は`phase-codegen --out <fresh-directory> --slang-root <compiler-root>`でCPU調査できます。検証済みpackageから実行し、同じSlangのinit/commands/write各入口のCUDA／Metal生成物を保存します。NVRTC／driver／GPUは0、戦闘やABI成立の認定ではありません。回復分配の独立CPU契約は`reference --suite heal-share --out <new-file.json>`。詳細は[フェーズ診断](portable-phase-codegen.md)と[回復分配](portable-heal-share.md)を参照してください。
 <!-- /phase-diagnostic-current -->

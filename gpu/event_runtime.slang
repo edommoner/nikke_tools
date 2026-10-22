@@ -1212,6 +1212,7 @@ void worldCleanseResidents(inout Runtime s,uint row,uint scope,uint64_t when)
 #include "incoming_descriptor_runtime.slang"
 #include "protection_runtime.slang"
 #include "healing_storage_runtime.slang"
+#include "heal_share_runtime.slang"
 
 [noinline]
 uint packedRecipientMask(uint64_t order)
@@ -1352,6 +1353,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             s.hpDirtyMask &= ~(1U << who); syncHealthActor(s,who,frames[depth].time); continue;
         }
         COUNTER_FRAME(s,frames,depth) COUNTER_CONTEXT_SAMPLE(s,depth) WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.triggerHitCrit=f.hitCrit; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; WORLD_TEAM_FRAME(s,f)
+        if(f.mode==0 && f.event==16 && f.cursor==0) traceHealShare(s,6,f.owner,f.time,0,0,uint(f.argument));
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
         { depth--; continue; }
@@ -1542,6 +1544,13 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         }
         if (f.mode == 17)
         {
+            traceHealShare(s,7,f.owner,f.time,f.healthValue);
+            if(healShareFrameEnabled(s))
+            {
+                uint64_t amount;
+                if(!prepareLifestealAmount(s,f.owner,f.healthValue,f.time,amount) || s.error!=0) { depth--;continue; }
+                beginHealShareFrame(s,frames[depth],amount,f.owner);continue;
+            }
             depth--;
             if (applyLifestealState(s,f.owner,f.healthValue,f.time) && s.error == 0)
                 pushFrame(s,frames,depth,0,16,f.owner,int(f.owner),f.time);
@@ -1549,17 +1558,20 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         }
         if (f.mode == 3)
         {
-            depth--; if ((s.downMask & (1U << f.owner)) != 0) continue;
+            if ((s.downMask & (1U << f.owner)) != 0) { depth--;continue; }
             Definition heal = readDefinition(s.inputBase,uint(f.argument));
             uint64_t base = heal.healthScaling != 0 ? effectiveMaxHP(s,heal.owner,f.time) : s.baseHP[f.owner];
             uint64_t amount = f64Mul(f64Div(f64Mul(base,heal.value),HUNDRED),healMultiplier(s,f.owner,heal.owner,f.time));
             if (!f64Finite(amount)) { s.error = 16; break; }
+            if(healShareFrameEnabled(s)) { beginHealShareFrame(s,frames[depth],amount,heal.owner);continue; }
+            depth--;
             uint64_t before = s.hp[f.owner];
             s.hp[f.owner] = storageBodyHeal(s,f.owner,amount,f.time);
             s.healing[f.owner] = f64Add(s.healing[f.owner],larger(0,f64Add(s.hp[f.owner],before ^ F64_SIGN)));
             syncHealthActor(s,f.owner,f.time);
             pushFrame(s,frames,depth,0,16,f.owner,int(heal.owner),f.time); continue;
         }
+        if(f.mode==31) { advanceHealShareFrame(s,frames,depth,f);continue; }
         advanceDefinitionFrame(s,frames,depth,f,output);
     }
     COUNTER_FIELDS_WORK_RECORD(s,work) WORLD_TEAM_END(s) COUNTER_CONTEXT_END(s) WORLD_STATE_DISPATCH_END(s) s.target = entryTarget;s.triggerHitCrit=previousHitCrit;

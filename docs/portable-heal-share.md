@@ -1,3 +1,5 @@
+現在の共通GPU接続とMetal849／診断53の結果は[GPU接続結果](portable-heal-share-gpu.md)とportable-heal-share-gpu-checkpoint.jsonを参照してください。以下はCPU前提と独立plan検証の履歴です。
+
 # 回復分配の共通実行器への接続準備
 
 現在の根拠は`research/portable-heal-share-reference-checkpoint.json`。共通CLIで独立CPU契約20件を検証できる段階で、GPU実装・受付はまだ追加していない。全キャラGPU認定0、UI CPUを維持する。固定CPUの`heal_sharing_compat`が宣言するモデルを参照し、実ゲームで未確認のモデル選択まで実証したとは扱わない。
