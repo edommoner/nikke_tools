@@ -264,6 +264,7 @@ void actorPoolQuery(inout Runtime s,uint kind,uint identity,uint generation,uint
     uint p=actorPoolAt(s,slot);results[out+1]=kind;results[out+2]=identity;results[out+3]=generation;results[out+4]=results[p+1];results[out+5]=results[p+2];results[out+6]=results[p+3];results[out+7]=results[p+10];
     for(uint i=0;i<4;i++) results[out+8+i]=results[p+4+i];results[out+12]=results[p+8];results[out+13]=results[p+9];
 }
+[noinline]
 bool actorPoolCommand(inout Runtime s,uint command,uint step,uint64_t when)
 {
     if(!actorPoolsEnabled(s)) return false;

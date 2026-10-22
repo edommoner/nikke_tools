@@ -105,6 +105,7 @@ QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when
     if (removed) result.percent = f64Add(filteredPercent.total,filteredPercent.correction);
     result.rounded = f64Add(rounded.total,rounded.correction); return result;
 }
+[noinline]
 uint64_t plainQuantity(inout Runtime s, uint who, uint key, uint64_t when)
 {
     uint64_t result = 0;

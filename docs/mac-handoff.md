@@ -1,3 +1,7 @@
+<!-- query-boundaries-current -->
+6個の既存query/actor command関数へnoinlineだけ追加、元5ファイルの全tokenを固定8fdaf47と同一に保持。fresh CPU839中838成功/Windows1skip、CUDA全6境界・uint Runtime handle確認、652関数/noinline226。Metal796/native633全一致、旧全input/raw/native指紋と2.50GB直接比較/lazy bankゼロ、GPU0独立seal成功。現sealed goldenはportable-world-query-boundaries-regression-short-expected.json。WindowsはPTX1回→保存v128とのCPU全関数max/size比較→事前gate成立時だけ独立assembly1回（各60秒/2GiB）を準備。driver/kernelは追加しません。全キャラ認定0/full796 CUDA未完了。詳細portable-query-boundaries.md/checkpoint。以下は履歴です。
+<!-- /query-boundaries-current -->
+
 <!-- cpu-batch-and-v131-current -->
 共通CLIのCPUテストを1 fresh workerへまとめ、旧37群245件を全保持+故障注入7件で38群252件、単一観測50.087→34.783秒。fresh全CPU834中833成功/Windows1skip、全796/native633のCPU preflight成功、追加GPU0。Windows v131（固定438d357）はCPU129とtiny binding4 CUDAの実転送/12MiB全比較・Mac golden一致、8+4MiB copy/zero/1launch/sync/context破棄/48byteABI、2GiB Job peak406MB/post空/missing0を確認。service未識別はpreservation=false/exit2。CUBIN再読cache hitは追加NVRTC/driver/GPU0。新CPU workerのWindows確認は次の必要検証へ。full796 CUDA compiler/module・全キャラ認定0・UI CPUは未完了。次は保存PTX/callgraphに基づく限定的なcompiler境界改善を検討し、v130同条件再実行はしません。詳細portable-cpu-batch.md/file-transfer.md/checkpoints。以下は履歴です。
 <!-- /cpu-batch-and-v131-current -->

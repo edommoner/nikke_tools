@@ -83,6 +83,8 @@ def ptx_statistics(raw,*,top=8):
     if not rows:raise ValueError('No PTX function definitions found')
     return dict(schema=1,ptx_bytes=len(raw),ptx_sha256=hashlib.sha256(raw).hexdigest(),functions=len(rows),
                 largest_functions=sorted(rows,key=lambda r:(-r['declared_local_bytes'],-r['virtual_register_count'],r['line']))[:top],
+                max_virtual_function=max(rows,key=lambda r:(r['virtual_register_count'],-r['line'])),
+                max_body_lines_function=max(rows,key=lambda r:(r['lines'],-r['line'])),
                 scope='PTX virtual declarations only; not physical registers, compiler memory attribution or execution proof')
 
 

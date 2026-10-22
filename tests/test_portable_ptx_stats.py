@@ -38,6 +38,13 @@ class PTXStatisticsTests(unittest.TestCase):
         self.assertEqual(kernel['virtual_registers'],dict(b32=6,pred=2,b64=2))
         self.assertEqual(kernel['declared_local_bytes'],16);self.assertEqual(kernel['line'],3)
 
+    def test_global_maxima_are_not_limited_by_the_top_local_storage_list(self):
+        result=ptx_statistics(PTX,top=1)
+        self.assertEqual(result['largest_functions'][0]['name'],'helper')
+        self.assertEqual(result['max_virtual_function']['name'],'kernel')
+        self.assertEqual(result['max_virtual_function']['virtual_register_count'],10)
+        self.assertEqual(result['max_body_lines_function']['name'],'kernel')
+
     def test_unknown_or_malformed_input_never_returns_partial_estimates(self):
         for raw in (b'.entry bad() {',b'.entry bad() { .reg .b32 nope<unknown>; }',
                     b'.entry bad() { .local .b8 depot[]; }',b'.extern .func forward();'):

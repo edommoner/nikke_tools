@@ -86,6 +86,7 @@ bool initializeActorState(inout Runtime s)
     }
     if(enabled) results[actorFieldHead(s)+14]=0x57533031;return true;
 }
+[noinline]
 bool actorNamedQueryCommand(inout Runtime s,uint at,uint step,uint64_t when)
 {
     if(!actorStateEnabled(s)) return false;

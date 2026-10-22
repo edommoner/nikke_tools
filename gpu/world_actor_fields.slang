@@ -138,6 +138,7 @@ void actorFieldRead(inout Runtime s,uint who,uint kind,uint identity,uint genera
     uint64_t values[3];collectEnemyModifiers(s,who,kind==1||slot==0 ? 0 : ACTOR_REF|slot,when,values);
     for(uint i=0;i<3;i++) storeNumber(out+6+i*2,values[i]);
 }
+[noinline]
 bool actorFieldCommand(inout Runtime s,uint at,uint op,uint64_t when)
 {
     if(!actorFieldsEnabled(s)) return false;

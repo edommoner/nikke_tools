@@ -1,0 +1,19 @@
+# 状態照会・コマンド境界のcompiler仮説
+
+v130の独立ptxasは保存PTX8,757,024byteを2GiB Jobで1回処理し、9.174秒・非ゼロ終了・上限近傍peak・stderrなしで失敗しました。原因は未確定で、同条件を繰り返しません。保存した全221関数のPTX統計ではexecutePortableCommandsがvirtual宣言10,927/17,526行、advanceWeaponChargeが8,424/13,917行でした。virtual宣言は実レジスタやcompilerメモリの測定ではありません。
+
+候補は既存のactorFieldCommand、actorNamedQueryCommand、actorPoolCommand、plainQuantity、hasInfiniteAmmo、ammoInstantCapacityの6個にnoinlineを追加するものです。保存generated CUDAの直接呼出では、command rootにactor field(4,788byte)を2回、named(2,804byte)/pool(9,089byte)を各1回、charge rootにinfinite(1,068byte)を3回とcapacity(1,363byte)を1回呼びます。これらはannotation前にはnoinlineではありませんでした。この字句上の重複から候補を選び、実際にinlineされた量やメモリ原因とは断定しません。
+
+全5ファイルの元トークンを固定8fdaf47のhashへ束縛し、正確な6属性だけを取り除くと完全一致するCPU契約を追加。body/signature/マクロ/呼出引数/数値式/状態順序は変更しません。新境界はRuntimeだけがinout、残りはscalar入力で、同じ呼出しでstate fieldを別のout/inoutへ渡しません。software binary64/int/pow/正本CPU/normalizerは変更対象外です。
+
+検証順序：fresh immutable development package、全CPU、共通Metal796/native633/全input・raw・比較結果保持、GPU禁止の独立seal。generated CUDAで6個のnoinline境界が存在することも確認します。失敗した場合は失敗を保存し、sourceを修正する根拠なしに再実行しません。
+
+Windowsでは新しいCPU batch smokeが成功しpost空/missing0/観測正常の場合だけ、同じcompiler/header/compute86/FMA無効で新PTXを60秒/2GiBの1回生成。保存v128 PTXと新PTXの両方を、receiptを再検査する共通ptx-statsでCPU解析します。parserはlocal順top Nとは別に、全関数を通じたvirtual宣言最大と行数最大を返します。
+
+独立assemblyへ進む事前条件は、(a)全PTX bytesが旧比10%以上減少、または(b)全関数maximum virtual宣言が20%以上減少し、全PTX bytesが増えていないことです。compiler/containment/入力sourceの検査成功が前提です。条件を満たさない場合はassembly/driverへ進まず停止。満たす場合だけ新PTXを同じ固定12.4.131 ptxas/sm86/O1/FMA無効で2GiB/60秒の1回assemblyとし、失敗は再実行しません。このgateは新しい試行が情報を増やすための仮説で、メモリ改善や成功の保証ではありません。成功してもmodule/fullCUDA計算は別工程で、自動追加しません。
+
+Macでは候補の全検査が完了し、WindowsのPTX検証は未実行です。全キャラGPU認定0、UI CPU、full796 CUDA未確認を維持します。
+
+Macのfresh package c1a7ef5aはCPU839中838成功/Windows専用1skip、6個のCUDA noinlineとuint Runtime handleを確認。CUDA関数数652は不変、noinlineは220→226です。入力/native全796指紋はGPU前から旧版と同じでした。
+
+Metal796/native633は新実行1回で一致し、既存retainerで全2,503,999,488byteを直接比較して完全一致・lazy bankゼロを確認。output SHAb9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637、GPU13.844秒は単一観測で性能認定ではありません。GPU禁止の独立sealも成功しました。新goldenはportable-world-query-boundaries-regression-short-expected.json、旧weapon-phases goldenは保持します。fixtureの元raw hashは固定Git8fdaf47へ全5ファイル照合済みです。後続の意図した機能追加では、今回だけのboundary契約をnativeケースとともに基準更新します。

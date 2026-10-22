@@ -1,4 +1,5 @@
 // Presence flags do not read numeric value/stack magnitude.
+[noinline]
 bool hasInfiniteAmmo(inout Runtime s, uint who, uint64_t when)
 {
 #ifdef PORTABLE_INFINITE_SCAN_REFERENCE
@@ -21,6 +22,7 @@ bool hasInfiniteAmmo(inout Runtime s, uint who, uint64_t when)
 
 // Shared cartridge capacity and immediate refill/removal. Integer arithmetic
 // is signed and widened before addition; Python flat removal may go negative.
+[noinline]
 uint ammoInstantCapacity(inout Runtime s, uint who, uint64_t when)
 {
     int mode = s.modeIndex[who];
