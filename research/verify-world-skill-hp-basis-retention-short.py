@@ -8,7 +8,8 @@ def module(name,path):
     s=importlib.util.spec_from_file_location(name,ROOT/path);m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
 adapters={name:module('hp_retention_'+str(i),'research/verify-world-'+file+'-short.py') for i,(name,file) in enumerate(zip(FAMILIES,FILES))}
 prior=adapters['heal-share-regression'];suite,cross=prior.suite,prior.cross
-def prepare():return prior.prior.prior.combine(adapters)
+combine=prior.prior.prior.combine
+def prepare():return combine(adapters)
 def native_reference(domain):
     name,inner=domain;adapter=adapters[name]
     if hasattr(adapter,'native_reference'):return adapter.native_reference(inner)

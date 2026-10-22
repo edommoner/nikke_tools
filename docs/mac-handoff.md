@@ -1,3 +1,7 @@
+<!-- lost-hp-attack-current -->
+失HP ATKを既存共有Slang scalarへ接続。GPUはreference受付1箇所だけで、数値・Runtime・正本CPU/既存CUDA/normalizerは不変。CPU21＋復活3契約、Metal主29(native21/拒否8)＋復活3＋ギロチン全定義3秒/30秒2、旧1016が同115sourceで一致・独立seal。旧全entriesとraw3196059648Bを全byte保持、計1050(native847/拒否203)。CPU回帰58群350検査が79.062秒、GPU10.416秒、生成cache追加Slang0。full115/commands116 certificate14検査成功、commands両生成の原byteも旧版と同一（NVRTC実hit証明ではない）。ギロチン30秒で正scalar714回、最小HP50.1209%・最大倍率47.8839を観測しnative指紋保持。物理履歴30秒32省略・旧省略は残す。静的223/266・base163/203・72分類はGPU認定ではない。Windows追加実行0、7終了unknown/preservationfalse停止、UI CPU/全キャラ認定0/ゴール未達。詳細docs/portable-lost-hp-attack.mdとresearch/portable-lost-hp-attack-checkpoint.json。次はpellet_hit_in_shot:5の正本契約。以下は履歴です。
+<!-- /lost-hp-attack-current -->
+
 <!-- skill-hp-basis-current -->
 最大HP由来のスキルATK加算／置換を共通Slangへ接続。damage_basis_specsを共有し、GPUで最大HPを取得、演算順序・親子snapshot・部位・吸血を保持。HP37(native26/拒否11)＋保護回復4＋メイデン／キロ全定義3秒/30秒4、旧8群971を同115sourceでMetal一致・独立seal。旧971の全entriesとraw3054501888Bを全byte保持、計1016(native821/拒否195)。CPU回帰340成功、full115/commands116 certificate14検査成功。共通CLIで8群を1バッチへ統合し、初回60秒CPU停止を保持、当該suiteだけ90秒で66.540秒成功。GPU10.387秒、生成cache追加Slang0、GPU枠は不変。保留B3のHP換算欠落はホスト／GPUで拒否。キロ30秒の物理履歴32省略と旧省略を明示。静的222/266・base162/203・73分類はGPU認定ではない。Windows追加native/compile/GPU0、7終了unknown/preservationfalseの停止を維持。UI CPU/全キャラ認定0/ゴール未達。詳細docs/portable-skill-hp-basis.mdとresearch/portable-skill-hp-basis-checkpoint.json。次はatk_pct+lost_hp_pct等の正本consumerを先に契約化。以下は履歴です。
 <!-- /skill-hp-basis-current -->

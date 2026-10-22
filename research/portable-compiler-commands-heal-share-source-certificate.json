@@ -35,7 +35,7 @@
     "gpu/geometry_runtime.slang": "8e8018af3959fde2f794c147aff2387464d4f486be17088cf260da41d48f8ef5",
     "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
     "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
-    "gpu/reference_runtime.slang": "c421042b30fb95e6ab775086d4f586efd8bdc1b8af9f4c8c58aac8befed11457",
+    "gpu/reference_runtime.slang": "78ba2636a2b1afb7f13a8ff57d46ba5b9b84a8545d55efeae2d47375f4aac149",
     "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
     "gpu/bullet_runtime.slang": "2cda4cfed0e7ffd31076ea48050b7be71cd8312779483b13d7c150c4ccd5d23a",
     "gpu/rank_runtime.slang": "5d9742e04178629890df3a4004bdc097f6b5fdc684287bb8baeff309f5875f1f",
@@ -128,6 +128,6 @@
   "entries": [],
   "input_sha256": null,
   "baseline_suite": "heal-share-regression",
-  "baseline_golden_sha256": "d5651fe355743c059fe833c78a590333a6eb6f2fd902ce18bcbb2c7f75e83e2f",
-  "scope": "Exact HP skill basis shared source from independently sealed Metal1016 and paired generation; not CUDA compile/link/battle/resource proof"
+  "baseline_golden_sha256": "1c1444a85193e61d17bb84f183530c43797ad215341dd9a884f2a3a9f9e7a43b",
+  "scope": "Exact lost-HP ATK shared source from independently sealed Metal1050 and paired generation; not CUDA compile/link/battle/resource proof"
 }

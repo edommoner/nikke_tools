@@ -104,8 +104,10 @@ def validate_effect(eff, *, combat=None, world_frame=False):
         from portable_reference_specs import hit_reference
         hit_reference(eff)
     if eff.get('type')=='buff' and eff.get('scaling')=='lost_hp_pct':
-        if eff.get('stat')!='def_pct' or eff.get('target','self')!='self' or combat is None:
-            raise UnsupportedPortable('Lost HP defense requires combat and self recipient')
+        if eff.get('stat') not in ('def_pct','atk_pct'):
+            raise UnsupportedPortable('Lost HP scaling requires supported ATK or DEF',reason='scaling')
+        if combat is None:raise UnsupportedPortable('Lost HP scaling requires combat-owned health',reason='scaling')
+        if eff.get('target','self')!='self':raise UnsupportedPortable('Lost HP scaling requires self recipient',reason='recipient')
         allowed |= {'scaling'}
     if eff.get('type')=='buff' and eff.get('scaling')=='stack_count' or eff.get('type')=='damage' and eff.get('stat')=='dot_damage' and eff.get('scaling')=='stack_count' and eff.get('scaling_ref'):
         allowed |= {'scaling','scaling_ref'}

@@ -1,3 +1,7 @@
+<!-- lost-hp-attack-current -->
+失HP ATKの受付更新後もfull115／commands116。Metal1050入力の独立seal・旧1016全raw保持からcertificateを更新し、14検査成功。commands専用生成CUDA/Metalの原byteは前版と同一ですが、NVRTC実cache hit・新CUDA実行・環境保全の証拠ではありません。Windows新規検証停止を維持。詳細[失HP ATK](portable-lost-hp-attack.md)。以下は履歴です。
+<!-- /lost-hp-attack-current -->
+
 <!-- skill-hp-basis-current -->
 最大HPスキルbasis接続後の本体115／commands116 source certificateを、Metal1016入力の独立seal・旧971全raw保持とCPUだけの両生成から更新しました。14検査成功。CUDAの新しいcompile/link/GPU・資源・環境保全の証明ではありません。Windowsの7終了原因unknownによる新規検証停止を維持します。詳細[最大HP換算](portable-skill-hp-basis.md)。以下は履歴です。
 <!-- /skill-hp-basis-current -->
