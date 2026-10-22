@@ -43,7 +43,7 @@ class ReadinessSemanticsTests(unittest.TestCase):
         row=dict(phase='effect',kind='damage',category='fields',fields=['hits_parts'])
         result=reference_readiness(row)
         self.assertEqual(result['lane'],'native_contract_extension');self.assertEqual(result['native_consumer'],'confirmed_source')
-        self.assertEqual(result['recorded_cases'],25);self.assertEqual(result['reference_suites'],['parts-skill','parts-skill-extended'])
+        self.assertEqual(result['recorded_cases'],32);self.assertEqual(result['reference_suites'],['parts-skill','parts-skill-extended','parts-skill-lifecycle'])
         self.assertEqual(result['reference_model_gap_cases'],1)
         self.assertFalse(result['gpu_supported']);self.assertFalse(result['runtime_validation_performed'])
         self.assertEqual(reference_readiness(dict(row,fields=['hits_parts','scaling']))['lane'],'reference_review')

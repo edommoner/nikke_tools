@@ -8,7 +8,7 @@ def reference_readiness(issue):
     if issue.get('phase')=='effect' and issue.get('kind')=='damage' and issue.get('fields')==['hits_parts']:
         result.update(lane='native_contract_extension',native_consumer='confirmed_source',
             consumer_source='research/upstream/nikke-calc-master/calculator/timeline.py:_coord_skill_hits,_handle_damage_eff,_reach_hit',
-            contract_coverage='recorded_subset',reference_suites=['parts-skill','parts-skill-extended'],recorded_cases=25,reference_model_gap_cases=1,
+            contract_coverage='recorded_subset',reference_suites=['parts-skill','parts-skill-extended','parts-skill-lifecycle'],recorded_cases=32,reference_model_gap_cases=1,
             note='Non-coordinate packet/accounting contracts only; legacy deferred bonus drops part metadata and named-hit notify. No GPU admission; coordinate/interrupt world adapters remain separate constraints')
         return result
     if issue.get('phase')!='effect' or issue.get('kind')!='buff':return result

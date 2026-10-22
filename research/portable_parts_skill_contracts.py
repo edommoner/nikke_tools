@@ -18,6 +18,11 @@ def verify(case,native):
     if 'packet_times' in expected:require([e['time'] for e in packets]==expected['packet_times'],case,'landing times',packets)
     if 'gauge' in expected:require(native['gauge']==expected['gauge'],case,'gauge',native['gauge'])
     if 'pending' in expected:require(native['pending_burst']==expected['pending'],case,'actual deferred path',native['pending_burst'])
+    if 'lifecycle_opens' in expected:
+        lifecycle=native['parts_skill_lifecycle']
+        require([(e['pattern'],e['ordinal']) for e in lifecycle if e['kind']=='part-open']==expected['lifecycle_opens'],case,'fresh part generations',lifecycle)
+        require([e['parts'] for e in lifecycle if e['kind']=='part-capture']==expected['lifecycle_captures'],case,'landed part capture groups',lifecycle)
+        if 'lifecycle_kinds' in expected:require([e['kind'] for e in lifecycle]==expected['lifecycle_kinds'],case,'group mutation before child healing',lifecycle)
     result=dict(verified=True,packets=len(packets),named_notifications=len(notices))
     if expected.get('reference_model_gap'):result['reference_model_gap']=True
     return result

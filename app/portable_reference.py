@@ -11,7 +11,8 @@ REFERENCES={'revive':('portable_revive_cases','world_revive_native','portable_re
             'heal-share-targets':('portable_heal_share_target_cases','world_heal_share_native','portable_heal_share_contracts'),
             'heal-share-lifesteal':('portable_heal_share_lifesteal_cases','world_heal_share_native','portable_heal_share_contracts'),
             'parts-skill':('portable_parts_skill_cases','world_parts_skill_native','portable_parts_skill_contracts'),
-            'parts-skill-extended':('portable_parts_skill_extra_cases','world_parts_skill_native','portable_parts_skill_contracts')}
+            'parts-skill-extended':('portable_parts_skill_extra_cases','world_parts_skill_native','portable_parts_skill_contracts'),
+            'parts-skill-lifecycle':('portable_parts_skill_lifecycle_cases','world_parts_skill_native','portable_parts_skill_contracts')}
 
 
 def digest(value):

@@ -1,6 +1,6 @@
 # 次の未対応機能：hits_parts
 
-現在の静的inventoryで、armor_break_burst_damage／burst_damage／damageの`hits_parts`が未対応。対象はベスティ：タクティカルアップ、レイヴン、シンデレラ：クリスタルウェーブの各profileに現れる。解除数の予測やGPU対応認定はしない。共通CLIのCPU参照契約は25件（通常契約24＋legacy deferred burstのモデル制限1）まで確認済み。GPU受付は閉じたまま。
+現在の静的inventoryで、armor_break_burst_damage／burst_damage／damageの`hits_parts`が未対応。対象はベスティ：タクティカルアップ、レイヴン、シンデレラ：クリスタルウェーブの各profileに現れる。解除数の予測やGPU対応認定はしない。共通CLIのCPU参照契約は32件（通常契約31＋legacy deferred burstのモデル制限1）まで確認済み。GPU受付は閉じたまま。
 
 ## 確認した正本
 
@@ -31,3 +31,21 @@ CPU fixture／観測透明性／故障注入を共通CLI referenceへ接続し�
 共通CLIは最適化Pythonをnative実行前に拒否し、失敗報告を保存・再使用を拒否する。parts検証器自体も明示例外で判定する。reportの`positive_contract_cases`と`reference_model_gap_cases`は別集計であり、どちらもGPU対応率ではない。
 
 既存22件の全native既存field／traceは保持した（基本interrupt2件の追加観測accountingのみ除外して比較）。oracle追加によりinput指紋は意図的に変わっている。今回GPU sourceは既存849と全閉包SHA一致、GPU／Windows実行0。上記のsnapshot・再出現・子イベント境界は未完了で、receipt at+7も周期snapshotが使用済み。詳細は`research/portable-parts-skill-reference-checkpoint.json`と`docs/claude-overall-review-8b77b1f.md`。
+
+## 生成値と着弾順序の追加7契約
+
+`reference --suite parts-skill-lifecycle`を既存のCPU参照入口へ追加した。名前付き子通知によるpart倍率の増加／削除、部位期限終了、同名部位の再出現、吸血子通知中の倍率変更、部位群の破壊が各子回復に先行する順序、同時生成2発の先行破壊を検査する。観測器は実nativeのopen／close／destroy／part_hits返却へprofileを連鎖し、追加queryやsimulationを行わない。既存state／trace透明性、親hook復元、誤再計算・世代混同・順序変更の故障注入を含む影響25検査が成功。
+
+同時2発では両方の生成metadataにpart_damage=3000が残るが、1発目で部位が壊れると2発目のpart_hits返却は空となる。対象名だけで生成時に子packetを固定すると誤る。一方、1発のpart_hitsが返す全対象は既にdamage適用済みで、その後に子packetの吸血・通知が走る。再出現は同名でもopen ordinal1と2を区別する。この検査はinter-frame投射体のtarget binding証明には拡張しない。
+
+旧25の全input／native／trace／contract指紋を保持。GPU source閉包は既存849と同一、GPU／Windows追加0。記録は`research/portable-parts-lifecycle-reference-checkpoint.json`。
+
+## 共通実行器へ接続する実装境界
+
+1. `damage_runtime.slang:damageValue`のstats取得と7因子計算を分離し、同じ取得済みstatsからmainとpartの値を作る。part値をmainとの比から逆算せず、coreを外したpart判定で元の演算順を使う。`WORLD_FRACTION_SAMPLE`等の副作用を二重に呼ばない。物理攻撃とスキルの既存条件は維持する。
+2. `dispatch_phases.slang:advanceSkillDamageFrame`のlanding branch／cursor0で両値を取得し、複数hitが同じ値を使うようFrameへ保持する。現在coefficient用のhealthValueはcursor0後に用途がなくなるが、他mode・pending経路との寿命を実装時に検査する。
+3. `landing_runtime.slang:enqueueLanding`とworld codecに、生成済みpart値をGPU所有receiptへ保存する経路を接続する。at+7は周期packet snapshot使用済みなので使わない。並列bank案を採る場合も、全diagnostic領域との非重複、2048容量、再使用／初期化、未使用時の旧raw不変を検査してから確定する。
+4. `world_skill_runtime.slang:landWorldSkillReceipt`の本体着弾／吸血後にlive reach部位を選び、`counter_landing_runtime.slang:deliverCounterParts`のgroup適用→packet/callbackという既存構造を共通化する。単に通常の敵selectorへ部位を追加しない。part分をchar totalへ、interruptをtotal外へ計上する境界は維持する。
+5. 既存hostの座標／interrupt制約とlegacy deferred model gapは明示し、無効果受付しない。新しいsource候補はCPU契約、CUDA／Metal両生成、Metal新parts＋849＋実編成4の保持・独立sealを経る。CUDAの成立経路を判別する保存PTX分析・実験設計を先行させ、同条件のWindows再試行を増やさない。
+
+これは上記接続の設計であり、共有GPU本文への実装・新しいGPU機能認定は未完了。

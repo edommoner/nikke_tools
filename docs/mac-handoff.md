@@ -1,3 +1,7 @@
+<!-- parts-lifecycle-current -->
+parts-skill-lifecycle7の生成stats／着弾live部位／group破壊→子回復順序を共通reference CLIで検証。parts32＝通常31＋deferred gap1、影響25検査成功、旧25全input/native/trace/contract指紋保持。倍率を変更するnamed子の前に生成値を固定、同時2発の2発目は生成part値を保持しても先行破壊後の着弾part集合は空、同名再出現はopen ordinalで区別。GPU source閉包は旧849不変・追加GPU/Windows0・受付閉。次はdocs/portable-parts-skill-next.mdのcaptured stats/Frame/receipt/部位group接続を実装する条件を満たし、CUDA保存PTXで判別可能なcompiler実験を設計。本体CUDA未成立・全キャラ認定0/UI CPU。詳細research/portable-parts-lifecycle-reference-checkpoint.json。以下は履歴です。
+<!-- /parts-lifecycle-current -->
+
 <!-- parts-review-current -->
 Claudeレビュー反映：共通reference CLIは最適化Pythonをnative前に拒否・失敗保持、parts検査は明示例外、positive/model-gap別集計。parts15＋extended10＝25CPU契約（24通常＋deferred gap1）、非飽和吸血/interrupt/sharedを追加。fresh影響38検査成功、旧22全native既存field/trace保持。oracle追加でinput指紋は意図変更。GPU source全閉包は旧849同一、追加GPU/Windows0・GPU受付閉。本体CUDA未成立/全キャラ認定0/UI CPU。次は生成時stats snapshotと着弾のgeneration/子イベント契約を補強し、保存PTXに基づく判別可能なCUDA実験を設計。at+7は周期処理使用済みなので再利用不可。詳細portable-parts-skill-reference-checkpoint.json、docs/claude-overall-review-8b77b1f.md。以下は履歴です。
 <!-- /parts-review-current -->
