@@ -1,3 +1,5 @@
+Slangの両生成cacheを共通CLIへ追加しました。`generation --generation-cache <dir>`でsealed sourceをCPU準備し、`--require-generation-cache`でコンパイラ起動を禁止した再利用を指定します。`run`／`compile`／`module-check`にも同じ2オプションがあります。Mac本体114sourceの実測は初回4.09秒・Slang2回→hit0.47秒・0回、別packageでMetal実4も全一致・独立監査済み。これはNVRTC cacheとは別の前段で、Windowsの速度・実CUDA一致・環境保全の証明ではありません。Windowsのstandalone生成は拒否し、追加検証停止を維持します。詳細は[生成cache](portable-generation-cache.md)。以下は履歴です。
+
 共通Slangへ非座標skillのpierce／explosion到達、生成値・reach receipt、interrupt群のHP／総ダメージ外計上・吸血を接続しました。現在`parts-skill-world`46（native41／拒否5）がMetal成功・独立seal済み。生成後buff変更・複数破壊・壊れない対象・周期3tick・共有吸血を含みます。最終849と実4もMetal成功、旧849全raw約2.67GB・実4全raw・従来26入力を保持。物理interrupt・座標・deferred・実CUDA照合・CUDA生成cache改善は未完了、全キャラ認定0、Windows新規実行0です。詳細は[到達処理](portable-interrupt-reach.md)。以下は履歴です。
 
 `interrupt-packet-codec`は7bit・38wordの版付きinterrupt packetを独立検査するsealed suiteです（154入力、正例140／拒否14）。共通CUDA／Metal生成・Metal実行・独立seal済み。本体の到達ダメージ接続やCUDA実行を認定しません。詳細は[packet設計](portable-interrupt-packets-next.md)。

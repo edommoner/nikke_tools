@@ -167,7 +167,7 @@ SUITES['heal-share-rosters']=dict(script='research/verify-world-heal-share-roste
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
     golden='research/portable-compiler-commands-heal-share-source-certificate.json',inputs=0,native=0,compiler_only=True,
     support_files=['research/portable-world-heal-share-regression-short-expected.json'],
-    tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py','test_portable_ptx_stats.py','test_portable_ptx_callgraph.py','test_portable_ptx_partition.py','test_portable_partition_object.py','test_portable_module_object.py','test_portable_device_linker.py','test_portable_native_process.py','test_portable_job_limits.py','test_portable_native_output_probe.py','test_portable_jit_link.py','test_portable_jit_link_capture.py','test_portable_linked_artifact.py'])
+    tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_generation_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py','test_portable_ptx_stats.py','test_portable_ptx_callgraph.py','test_portable_ptx_partition.py','test_portable_partition_object.py','test_portable_module_object.py','test_portable_device_linker.py','test_portable_native_process.py','test_portable_job_limits.py','test_portable_native_output_probe.py','test_portable_jit_link.py','test_portable_jit_link_capture.py','test_portable_linked_artifact.py'])
 
 SUITES['compiler-full']=dict(SUITES['compiler-commands'],
     source=SUITES['heal-share-regression']['source'],
@@ -177,6 +177,7 @@ SUITES['compiler-full']=dict(SUITES['compiler-commands'],
 # separate from a selected suite's battle/native preflight.
 SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
                'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py','test_portable_query_boundaries.py','test_portable_ptx_stats.py','test_portable_compiler_diagnostic.py']
+SMOKE_TESTS.append('test_portable_generation_cache.py')
 SMOKE_TESTS.append('test_portable_definition_view.py')
 SMOKE_TESTS.append('test_portable_ptx_callgraph.py')
 SMOKE_TESTS.append('test_portable_ptx_partition.py')
@@ -619,6 +620,7 @@ def compare_readback(m, capture, adapter=None):
             raise ValueError('Saved input mismatch')
         if record['bytes']!=len(entries)*786432*4 or output_digest!=evidence['output_sha256'] or evidence['input_sha256']!=sha(data):
             raise ValueError('Saved evidence/raw mismatch')
+        audit_generation_capture(m,capture)
         if evidence['source_sha256']!=m['golden']['source_sha256'] or not evidence['gpu_execution_verified']:
             raise ValueError('Wrong/unverified GPU source')
         if evidence['backend']=='cuda' and 'compile_artifact' in evidence['transport']:
@@ -693,7 +695,7 @@ def replay_source(m, source_package, source_capture,reference_migration=None):
     critical={'app/portable_backend.py','app/portable_compile_cache.py','scripts/run-metal-probe.swift',
               'research/portable_phase_audit.py','research/summarize-portable-cross-gpu.py',
               'app/detail_gpu.py','app/engine_worker.py','app/effect_spec.py','app/engine_compat.py'}
-    critical |= {name for name in old.keys() | new.keys() if name.startswith(('gpu/','research/upstream/'))}
+    critical |= {name for name in old.keys() | new.keys() if name.startswith(('gpu/','research/upstream/')) or name=='app/portable_generation_cache.py'}
     if any(name not in old or name not in new or old[name]!=new[name] for name in critical):
         raise ValueError('GPU transport, source, normalizer or canonical reference changed')
     run=load(source_capture/'run.json')
@@ -900,6 +902,32 @@ def copy_generated(capture, suite, *, partial=False):
         source=ROOT/'research/portable-build'/(stem+'.'+kind)
         if source.exists():(capture/('compiled.'+kind)).write_bytes(source.read_bytes())
 
+    if os.environ.get('NIKKE_SLANG_GENERATION_CACHE'):
+        receipt=ROOT/'research/portable-build'/(stem+'.generation-cache.json')
+        if receipt.exists():
+            (capture/'generation-cache.json').write_bytes(receipt.read_bytes())
+            for suffix in ('cu','metal'):
+                source=ROOT/'research/portable-build'/(stem+'.'+suffix+'.reflection.json')
+                (capture/('generated.'+suffix+'.reflection.json')).write_bytes(source.read_bytes())
+        elif not partial:raise ValueError('Missing Slang generation cache receipt')
+
+
+def audit_generation_capture(m,capture):
+    runtime=load(capture/'runtime.json') if (capture/'runtime.json').exists() else {}
+    active=runtime.get('generation_cache_enabled',False) and load(capture/'run.json').get('mode') in ('gpu','compile-only','module-only')
+    if not active:
+        if (capture/'generation-cache.json').exists():raise ValueError('Unexpected Slang generation cache receipt')
+        return None
+    from portable_generation_cache import audit_receipt
+    receipt=load(capture/'generation-cache.json')
+    if runtime.get('generation_cache_required') and not receipt['hit']:raise ValueError('Required Slang generation cache was not a hit')
+    result=audit_receipt(receipt,m['golden']['source_sha256'],{t:capture/('generated.'+suffix) for t,suffix in [('cuda','cu'),('metal','metal')]})
+    rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
+    calls=[r['state'] for r in rows if r['stage']=='slang_compiler']
+    if calls!=['entered','returned']*receipt['compiler_invocations']:raise ValueError('Slang generation compiler invocation mismatch')
+    if [r.get('receipt') for r in rows if r['stage']=='slang_generation_cache' and r['state']=='verified']!=[receipt]:raise ValueError('Slang generation cache journal mismatch')
+    return result
+
 
 def bounded_module():
     return module(ROOT/'research/run-world-bounded.py')
@@ -940,7 +968,7 @@ def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_
         command.append('--module-only')
         driver_cache=(capture/'driver-cache').resolve();driver_cache.mkdir(exist_ok=True)
         env['CUDA_CACHE_PATH']=str(driver_cache)
-    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=('diagnostic-jit-linked-cubin' if jit_link_object_only else 'diagnostic-linked-cubin' if link_object_only else 'diagnostic-module-relocatable-object' if module_object_only else 'diagnostic-relocatable-object' if partition_object_only else os.environ.get('NIKKE_CUDA_ARTIFACT','cubin')) if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),compile_only=compile_only,module_only=module_only,assemble_only=assemble_only,partition_object_only=partition_object_only,module_object_only=module_object_only,link_object_only=link_object_only,jit_link_object_only=jit_link_object_only,swift_module_cache_path=env.get('NIKKE_METAL_MODULE_CACHE'),jit_private_cache_path=env.get('CUDA_CACHE_PATH') if jit_link_object_only else None,driver_cache_path=env.get('CUDA_CACHE_PATH') if module_only else None,ptxas_optimization_level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL'),cache_required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0'),job_memory_limit_mb=os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB'),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
+    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),generation_cache_enabled=bool(os.environ.get('NIKKE_SLANG_GENERATION_CACHE')),generation_cache_required=os.environ.get('NIKKE_SLANG_GENERATION_REQUIRED','0')=='1',slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=('diagnostic-jit-linked-cubin' if jit_link_object_only else 'diagnostic-linked-cubin' if link_object_only else 'diagnostic-module-relocatable-object' if module_object_only else 'diagnostic-relocatable-object' if partition_object_only else os.environ.get('NIKKE_CUDA_ARTIFACT','cubin')) if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),compile_only=compile_only,module_only=module_only,assemble_only=assemble_only,partition_object_only=partition_object_only,module_object_only=module_object_only,link_object_only=link_object_only,jit_link_object_only=jit_link_object_only,swift_module_cache_path=env.get('NIKKE_METAL_MODULE_CACHE'),jit_private_cache_path=env.get('CUDA_CACHE_PATH') if jit_link_object_only else None,driver_cache_path=env.get('CUDA_CACHE_PATH') if module_only else None,ptxas_optimization_level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL'),cache_required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0'),job_memory_limit_mb=os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB'),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
     observation={}
     if os.name=='nt':
         from windows_validation_observer import capture_snapshot,observe_job,compare_snapshots
@@ -1132,6 +1160,7 @@ def module_child(m,capture,backend):
 
 
 def audit_module_capture(m,capture,*,verify_artifacts=True):
+    audit_generation_capture(m,capture)
     if compiler_only(m):raise ValueError('Compiler diagnostic cannot load a CUDA module')
     from portable_phase_audit import valid_cache_hit
     run=load(capture/'run.json');facts=load(capture/'execution.json')
@@ -1689,6 +1718,7 @@ def compile_child(m,capture,backend):
 
 
 def audit_compile_capture(m,capture,*,verify_artifacts=True):
+    audit_generation_capture(m,capture)
     run=load(capture/'run.json')
     if run.get('mode')!='compile-only' or run['package_id']!=m['package_id'] or run['backend']!='cuda':raise ValueError('Wrong compiler capture')
     if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
@@ -1866,9 +1896,37 @@ def import_results(archive,destination):
     return dict(files=len(receipt['files']),gpu_calls=0,remote_report_only=True)
 
 
+def generation_capture(output):
+    if os.name=='nt':raise ValueError('Standalone generation is Mac CPU-only; Windows requires bounded compile/run generation options')
+    m=verify_package(ROOT)
+    if is_development(m):raise ValueError('Generation reuse requires a sealed source baseline')
+    output.mkdir(parents=True,exist_ok=False)
+    try:
+        import portable_backend
+        from portable_phase_audit import Journal,observe
+        journal=Journal(output/'phases.jsonl')
+        def forbidden(*args,**kwargs):raise RuntimeError('CUDA compilation or GPU execution forbidden in generation preparation')
+        with patch.object(portable_backend,'execute',forbidden),patch.object(portable_backend,'execute_batches',forbidden),patch.object(portable_backend,'compile_cuda_source',forbidden),patch.object(portable_backend,'compile_cuda_artifact',forbidden),observe(portable_backend,journal):
+            paths,hashes=portable_backend.build(SUITES[m['suite']]['source'],'portableEvents')
+        normalized=module(ROOT/'research/summarize-portable-cross-gpu.py').normalized
+        generated={k:normalized(p.read_bytes()) for k,p in paths.items()}
+        if hashes!=m['golden']['source_sha256'] or generated!=m['golden']['generated_normalized']:raise ValueError('Generated cache outputs differ from sealed baseline')
+        copy_generated(output,m['suite'])
+        from portable_generation_cache import audit_receipt
+        receipt=load(output/'generation-cache.json')
+        verified=audit_receipt(receipt,hashes,{k:output/('generated.'+suffix) for k,suffix in [('cuda','cu'),('metal','metal')]})
+        report=dict(package_id=m['package_id'],source_sha256=hashes,generated_normalized=generated,**verified,calculation_verified=False,executable_battle_verified=False)
+        write(output/'generation.json',report)
+        return report
+    except BaseException as error:
+        write(output/'failure.json',dict(error=type(error).__name__+': '+str(error),gpu_calls=0));raise
+    finally:collect(output,output/'artifacts.json')
+
+
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     sub.add_parser('list')
+    a=sub.add_parser('generation');a.add_argument('--out',type=Path,required=True);a.add_argument('--generation-cache',type=Path,required=True);a.add_argument('--require-generation-cache',action='store_true');a.add_argument('--slang-root',type=Path)
     for name in ('readback-index','readback-compare'):
         a=sub.add_parser(name);a.add_argument('--readback',type=Path,required=True);a.add_argument('--sha256',required=True);a.add_argument('--out',type=Path,required=True)
         if name=='readback-compare':a.add_argument('--index',type=Path,required=True);a.add_argument('--index-sha256',required=True)
@@ -1879,7 +1937,7 @@ def main(argv=None):
     a=sub.add_parser('ptx-partition');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--function');a.add_argument('--audit',action='store_true')
     a=sub.add_parser('compile');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--artifact-kind',choices=('cubin','ptx'),default='cubin')
-    a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path)
+    a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
     a=sub.add_parser('assemble');a.add_argument('--capture',type=Path,required=True);a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--ptxas',type=Path,required=True);a.add_argument('--timeout',type=int,default=60);a.add_argument('--original-workspace',type=Path,required=True)
     a=sub.add_parser('partition-object-recover');a.add_argument('--experiment-package',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--partial-sha256',required=True)
     a=sub.add_parser('link-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60);a.add_argument('--object-sha256',required=True)
@@ -1891,7 +1949,7 @@ def main(argv=None):
     a=sub.add_parser('partition-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     for name in ('source-package','source-capture','cache-entry','phases','candidate','ptxas','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('module-check');a.add_argument('--jit-opt-level',type=int,choices=range(5));a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
-    a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path,required=True)
+    a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path,required=True);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
     a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
@@ -1907,7 +1965,7 @@ def main(argv=None):
     for name in ('run','_child'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--smoke',action='store_true')
         if name=='run':
-            a.add_argument('--cpu-only',action='store_true');a.add_argument('--timeout',type=int,default=180);a.add_argument('--original-workspace',type=Path);a.add_argument('--slang-root',type=Path)
+            a.add_argument('--cpu-only',action='store_true');a.add_argument('--timeout',type=int,default=180);a.add_argument('--original-workspace',type=Path);a.add_argument('--slang-root',type=Path);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
             a.add_argument('--require-cache',action='store_true');a.add_argument('--compile-cache',type=Path);a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--artifact-kind',choices=('cubin','ptx'));a.add_argument('--linked-package',type=Path);a.add_argument('--linked-capture',type=Path)
         else:
             a.add_argument('--compile-only',action='store_true');a.add_argument('--module-only',action='store_true');a.add_argument('--assemble-only',action='store_true');a.add_argument('--partition-object-only',action='store_true');a.add_argument('--module-object-only',action='store_true');a.add_argument('--link-object-only',action='store_true');a.add_argument('--jit-link-object-only',action='store_true')
@@ -1917,6 +1975,9 @@ def main(argv=None):
     a=sub.add_parser('import');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True)
     a=sub.add_parser('audit-legacy');a.add_argument('--version',type=int,choices=(102,103,104),required=True)
     a=p.parse_args(argv)
+    if getattr(a,'require_generation_cache',False) and not getattr(a,'generation_cache',None):raise ValueError('--require-generation-cache requires --generation-cache')
+    if getattr(a,'generation_cache',None):os.environ['NIKKE_SLANG_GENERATION_CACHE']=str(a.generation_cache.resolve())
+    if getattr(a,'require_generation_cache',False):os.environ['NIKKE_SLANG_GENERATION_REQUIRED']='1'
     if hasattr(a,'capture'):a.capture=a.capture.resolve()
     if a.command=='list':
         result={}
@@ -1970,6 +2031,9 @@ def main(argv=None):
     elif a.command=='reference':
         from portable_reference import run_reference
         result=run_reference(a.suite,a.out,write=write,forbid_gpu=forbid_gpu)
+    elif a.command=='generation':
+        if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
+        result=generation_capture(a.out)
     elif a.command=='phase-codegen':
         m=verify_package(ROOT)
         from portable_backend import source_hashes

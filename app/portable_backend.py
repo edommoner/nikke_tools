@@ -44,6 +44,15 @@ def build(source, entry):
     resident=any(re.search(rb'^\s*#define\s+PORTABLE_RESIDENT_RUNTIME(?:\s|$)',(ROOT/name).read_bytes(),re.M) for name in hashes)
     directory = ROOT/'research/portable-build'
     directory.mkdir(parents=True, exist_ok=True)
+    generation_cache=os.environ.get('NIKKE_SLANG_GENERATION_CACHE')
+    generation_required=os.environ.get('NIKKE_SLANG_GENERATION_REQUIRED','0')
+    if generation_required not in ('0','1') or generation_required=='1' and not generation_cache:
+        raise ValueError('Required Slang generation cache directory missing or invalid')
+    if generation_cache:
+        if not resident:raise ValueError('Slang generation cache requires paired resident reflection')
+        from portable_generation_cache import get_or_generate
+        return get_or_generate(ROOT,compiler_root,source,entry,hashes,directory,Path(generation_cache),
+            lambda staging:_build_resident(compiler,source,entry,hashes,staging),required=generation_required=='1')
     if resident:
         return _build_resident(compiler, source, entry, hashes, directory)
     outputs = {}

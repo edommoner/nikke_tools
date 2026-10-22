@@ -65,8 +65,24 @@ def observe(backend, journal):
     """Wrap actual boundaries; a launch *entry* alone proves no submission."""
     original_build = backend.build
     def build(*args, **kwargs):
-        return journal.invoke('slang_build', original_build, *args, **kwargs)
+        result=journal.invoke('slang_build',original_build,*args,**kwargs)
+        if os.environ.get('NIKKE_SLANG_GENERATION_CACHE'):
+            paths,hashes=result
+            from pathlib import Path
+            from portable_generation_cache import audit_receipt
+            receipt=json.loads(next(iter(paths.values())).with_name(Path(args[0]).stem+'.generation-cache.json').read_text())
+            audit_receipt(receipt,hashes,paths)
+            journal.emit('slang_generation_cache','verified',receipt=receipt)
+        return result
     with contextlib.ExitStack() as stack:
+        if os.environ.get('NIKKE_SLANG_GENERATION_CACHE'):
+            original_run=backend.subprocess.run
+            def compiler_run(command,*args,**kwargs):
+                from pathlib import Path
+                if command and Path(command[0]).name.lower() in ('slangc','slangc.exe'):
+                    return journal.invoke('slang_compiler',original_run,command,*args,**kwargs)
+                return original_run(command,*args,**kwargs)
+            stack.enter_context(patch.object(backend.subprocess,'run',compiler_run))
         stack.enter_context(patch.object(backend, 'build', build))
         compile_name='compile_cuda_artifact' if hasattr(backend,'compile_cuda_artifact') else 'compile_cuda_ptx'
         if hasattr(backend,compile_name):

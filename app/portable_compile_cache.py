@@ -29,7 +29,7 @@ def quoted_headers(source):
 
 
 @contextmanager
-def compile_claim(path, key):
+def compile_claim(path, key, *, description='CUDA compilation'):
     """Fail fast on concurrent misses; never steal an abandoned claim by PID."""
     if path is None:
         yield
@@ -41,7 +41,7 @@ def compile_claim(path, key):
         with claim.open('xb') as stream:
             stream.write(owner);stream.flush();os.fsync(stream.fileno())
     except FileExistsError as error:
-        raise RuntimeError('CUDA compilation already claimed; inspect before retry: '+str(claim)) from error
+        raise RuntimeError(description+' already claimed; inspect before retry: '+str(claim)) from error
     def release():
         if claim.read_bytes()!=owner:
             raise RuntimeError('CUDA compile claim ownership changed; claim preserved: '+str(claim))
