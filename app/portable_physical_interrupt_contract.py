@@ -11,6 +11,8 @@ def baseline_event(root,source):
 
 def baseline_phase(root,source,*,pellet_projected=False):
     if not pellet_projected:
+        from portable_manual_swap_source_contract import baseline_source as baseline_manual
+        source,_=baseline_manual(root,'gpu/weapon_frame_phases.slang',source)
         from portable_pellet_shot_source_contract import baseline_source as baseline_pellet_shot
         source,_=baseline_pellet_shot(root,'gpu/weapon_frame_phases.slang',source)
     from portable_mode_capacity_source_contract import baseline_source
@@ -24,6 +26,8 @@ def verify_sources(root,sources=None,*,pellet_projected=False):
     for name,digest in data['current'].items():
         raw=sources[name].encode() if name in sources else (root/name).read_bytes()
         if not pellet_projected:
+            from portable_manual_swap_source_contract import baseline_source as baseline_manual
+            source,_=baseline_manual(root,name,raw.decode());raw=source.encode()
             from portable_ammo_equivalent_source_contract import baseline_source as baseline_ammo
             source,_=baseline_ammo(root,name,raw.decode());raw=source.encode()
             from portable_pellet_shot_source_contract import baseline_source as baseline_pellet_shot

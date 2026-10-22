@@ -6,12 +6,12 @@ void prepareWeaponFrame(inout Runtime s,uint who,uint64_t when,uint output,out u
     if (s.weaponEnabled[who] == 0 || (s.downMask & (1U << who)) != 0 || statusStunned(s,who)) return;
     target = aimedTarget(s,who); if (target == 0xffffffff) return;
     s.target = target; selectWeapon(s,who,when,w);
-    if (s.error != 0) return; WORLD_CONTROL_TICK(s,who,when,output)
+    if (s.error != 0) return; WORLD_MANUAL_SWAP(s,w,who,when) WORLD_CONTROL_TICK(s,who,when,output)
     if(advanceModeEntry(s,w,who,when)) return;
     if(s.modeIndex[who]>=0 && w.sentinelMode==0 && w.shotLimit>=0 && uint(w.shotLimit)==commands[s.inputBase+P_MODE_BASE+uint(s.modeIndex[who])*P_MODE_WORDS+1]) w.shotLimit=int(w.capacity);
-    if (s.modeIndex[who] < 0 && f64Less(0,s.reloadUntil[who]) && hasInfiniteAmmo(s,who,when))
+    if (!WORLD_MANUAL_ENABLED(s,who) && s.modeIndex[who] < 0 && f64Less(0,s.reloadUntil[who]) && hasInfiniteAmmo(s,who,when))
     { s.reloadUntil[who] = F64_SIGN | ONE; s.nextShot[who] = larger(s.nextShot[who],when); }
-    if (s.modeIndex[who] < 0 && f64Less(s.reloadUntil[who],0)) s.ammo[who] = min(s.ammo[who],int(w.capacity));
+    if (!WORLD_MANUAL_ENABLED(s,who) && s.modeIndex[who] < 0 && f64Less(s.reloadUntil[who],0)) s.ammo[who] = min(s.ammo[who],int(w.capacity));
     if (WORLD_RELOAD_ACTIVE(s,who,!f64Less(s.reloadUntil[who],0)) && (s.modeIndex[who] < 0 || w.reloadAllowed != 0))
     {
         if (f64Less(when,s.reloadUntil[who])) return;

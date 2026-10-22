@@ -14,7 +14,7 @@ INPUT=L['WORLD_RELOAD_INPUT_WORDS'];OUTPUT=L['WORLD_RELOAD_OUTPUT_WORDS'];SOURCE
 
 def compile_case(case):
  w,m,b=charge.compile_case(case);names=roster_names(case);effects=bound_effects([(e,names[o]) for e,o in zip(case['effects'],case['owners'])],m,names)
- w.extend(pack_reload(e for e,owner in effects));w[0]=L['WORLD_RELOAD_ABI'];w[L['TARGET_COUNTER_INPUT_BASE']+6]=22
+ w.extend(pack_reload((e for e,owner in effects),manual_swap=case.get('manual_swap')));w[0]=L['WORLD_RELOAD_ABI'];w[L['TARGET_COUNTER_INPUT_BASE']+6]=22
  assert len(w)==INPUT;return w,m,b
 
 def decoded(block,meta,case,bindings):

@@ -7,7 +7,8 @@ void initializeWorldReload(inout Runtime s)
 {
     uint p=s.inputBase+P_WORLD_RELOAD_INPUT_BASE;
     if(commands[p]!=0x57524c31||commands[p+1]!=1||commands[p+2]!=s.count) { s.error=64;return; }
-    for(uint i=3;i<8;i++) if(commands[p+i]!=0) { s.error=64;return; }
+    if(commands[p+3]>=32||commands[p+4]!=(commands[p+3]!=0 ? 0x574d5331U : 0U)) { s.error=64;return; }
+    for(uint i=5;i<8;i++) if(commands[p+i]!=0) { s.error=64;return; }
     for(uint row=0;row<P_DEFINITIONS;row++)
     {
         uint flags=commands[p+8+row];if(row>=s.count) { if(flags!=0) s.error=64;continue; }
@@ -69,4 +70,36 @@ void applyForcedReload(inout Runtime s,uint64_t order,uint64_t when)
         if(s.frameAmmoActive[who]!=0&&physical>=0) w.reloadTime=loadNumber(s.inputBase+P_MODE_BASE+uint(physical)*P_MODE_WORDS+8);
         s.ammo[who]=0;beginReload(s,w,who,when);
     }
+}
+
+// Authored owner flags only; readiness is resolved inside the shared GPU frame.
+bool manualSwapEnabled(inout Runtime s,uint who)
+{ return (commands[s.inputBase+P_WORLD_RELOAD_INPUT_BASE+3]&(1U<<who))!=0; }
+[noinline]
+bool manualSwapReady(inout Runtime s,uint who,uint64_t when)
+{
+    if(s.modeIndex[who]>=0) return false;
+    for(uint row=0;row<s.count&&s.error==0;row++)
+    {
+        Definition d=readDefinition(s.inputBase,row);
+        if(d.kind!=2||d.owner!=who||d.conditionCount==0) continue;
+        // Native notify indexing retains duplicate timing descriptors. Readiness
+        // checks conditions, not max_trigger, before the completion dispatcher.
+        for(uint slot=0;slot<d.triggerCount&&s.error==0;slot++)
+            if(commands[s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS+slot*8]==19&&activationConditions(s,row,when)) return true;
+    }
+    return false;
+}
+[noinline]
+bool advanceManualSwap(inout Runtime s,Weapon w,uint who,uint64_t when)
+{
+    if(!manualSwapEnabled(s,who)||s.modeIndex[who]>=0) return false;
+    if(f64Less(0,s.reloadUntil[who])&&hasInfiniteAmmo(s,who,when))
+    { s.reloadUntil[who]=F64_SIGN|ONE;s.nextShot[who]=larger(s.nextShot[who],when); }
+    if(!f64Less(0,s.reloadUntil[who])) s.ammo[who]=min(s.ammo[who],int(w.capacity));
+    if(f64Less(0,s.reloadUntil[who])||f64Less(0,s.postReloadUntil[who])) return false;
+    bool ready=manualSwapReady(s,who,when);
+    if(s.error!=0) return true;
+    if(!ready) return false;
+    beginReload(s,w,who,when);return true;
 }

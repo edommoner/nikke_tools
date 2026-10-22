@@ -123,7 +123,7 @@ def compile_world_battle(prepared, *, trace='burst'):
     words.extend(compile_clock(weapons, delays))
     words.extend(team_policy(meta, enemy.get('has_parts', False)))
     words.extend(controls_policy(controls, bound, names, meta['states'], camera_mask))
-    words.extend(pack_reload(e for e,_ in bound))
+    words.extend(pack_reload((e for e,_ in bound),manual_swap=[c.get('weapon_mode_swap',False) for c in chars]))
     words[0] = 0x5045568c
     words[L['TARGET_COUNTER_INPUT_BASE']+6] = 23
     if len(words) != INPUT_WORDS:

@@ -1,3 +1,5 @@
+後続の共通GPU接続・Metal実証は [GPU実装記録](portable-manual-swap-gpu.md) を参照。以下の明示拒否・実装候補という説明はCPU契約段階の履歴です。
+
 # 手動モード移行の正本契約
 
 `weapon_mode_swap` の実行経路を調べ、共通CLIに `reference --suite manual-swap`

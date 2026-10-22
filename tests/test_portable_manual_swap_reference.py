@@ -79,30 +79,29 @@ class ManualSwapReferenceTests(unittest.TestCase):
 
     def test_flag_is_rejected_before_character_or_battle_execution(self):
         with patch.object(timeline.CharState,'__init__',side_effect=AssertionError('No constructor on rejected flag')):
-            for value in (True,1,None,'yes'):
+            for value in (1,None,'yes'):
                 with self.subTest(value=value),self.assertRaises(UnsupportedPortable) as caught:normalize_static_weapon(dict(name='미란다',weapon_mode_swap=value),1,{})
                 self.assertEqual(caught.exception.reason,'control');self.assertEqual(caught.exception.fields,['weapon_mode_swap'])
         char=dict(name='미란다',skill_levels={'1':10,'2':10,'3':10});before=copy.deepcopy(char)
         self.assertEqual(normalize_static_weapon(char,1,{}),normalize_static_weapon(dict(char,weapon_mode_swap=False),1,{}));self.assertEqual(char,before)
 
-    def test_real_prepared_true_flag_is_not_silently_lost(self):
+    def test_real_prepared_true_flag_reaches_explicit_shared_wire_without_battle(self):
         from detail_coverage import body_for
         from portable_projectile_roster_input import compile_projectile_battle
+        from portable_specs import LIMITS as L
         names=['미란다','도라','N102','메어리','드레이크']
-        body=dict(body_for(names,3,grown=True),burst_gauge_mode='accumulate',weapon_mode_swap=True,_portable_static_inputs=True)
-        before_body=copy.deepcopy(body)
+        body=dict(body_for(names,3,grown=True),burst_gauge_mode='accumulate',_portable_static_inputs=True)
         with cli.forbid_gpu(),patch.object(timeline,'simulate',side_effect=AssertionError('No battle')):
-            with self.assertRaises(UnsupportedPortable):engine_worker.evaluate(body)
-        self.assertEqual(body,before_body)
-        prepared=engine_worker.evaluate(dict(body,weapon_mode_swap=False))
-        for char in prepared['chars']:char['weapon_mode_swap']=True
-        before=copy.deepcopy(prepared)
-        with cli.forbid_gpu(),patch.object(timeline,'simulate',side_effect=AssertionError('No battle')):
-            with self.assertRaises(UnsupportedPortable) as caught:compile_projectile_battle(prepared)
-        self.assertEqual(prepared,before)
-        blocker=issue(caught.exception,phase='program');r=reference_readiness(blocker)
-        self.assertEqual(r['lane'],'gpu_lowering_candidate');self.assertEqual(r['recorded_cases'],len(fixtures())+2)
-        self.assertEqual(r['reference_suites'],['manual-swap','manual-swap-rosters'])
+            disabled=engine_worker.evaluate(dict(body,weapon_mode_swap=False));old,_=compile_projectile_battle(disabled)
+            prepared=engine_worker.evaluate(dict(body,weapon_mode_swap=True));before=copy.deepcopy(prepared)
+            self.assertTrue(all(c['weapon_mode_swap'] is True for c in prepared['chars']))
+            words,_=compile_projectile_battle(prepared)
+        self.assertEqual(prepared,before);at=L['WORLD_RELOAD_INPUT_BASE']
+        self.assertEqual(words[at+3:at+5],[31,0x574d5331])
+        self.assertEqual([i for i,(a,b) in enumerate(zip(old,words)) if a!=b],[at+3,at+4])
+        blocker=dict(phase='program',category='control',fields=['weapon_mode_swap'])
+        r=reference_readiness(blocker);self.assertEqual(r['recorded_cases'],len(fixtures())+2)
+        self.assertEqual(r['lane'],'reference_review')
         self.assertFalse(r['gpu_supported']);self.assertFalse(r['runtime_validation_performed'])
 
 

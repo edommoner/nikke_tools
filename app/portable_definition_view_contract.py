@@ -9,8 +9,10 @@ def fingerprint(text):return hashlib.sha256(json.dumps(tokens(text),separators=(
 
 def verify(root,*,sources=None):
     root=Path(root);sources=sources or {}
+    from portable_manual_swap_source_contract import project_sources as project_manual
+    sources,manual_swap_deltas=project_manual(root,sources)
     from portable_ammo_equivalent_source_contract import project_sources as project_ammo
-    sources,ammo_equivalent_deltas=project_ammo(root,sources)
+    sources,ammo_equivalent_deltas=project_ammo(root,sources,manual_projected=True)
     from portable_pellet_shot_source_contract import project_sources
     sources,pellet_shot_deltas=project_sources(root,sources,ammo_projected=True)
     def read(name):return sources.get(name,(root/name).read_text(encoding='utf-8'))
@@ -114,7 +116,7 @@ def verify(root,*,sources=None):
             part_deltas.append(name)
     # The fixed closure has indexed reads, never an escaped mutable command
     # buffer. Future source changes must deliberately re-audit this assumption.
-    for name in ['gpu/event_runtime.slang','gpu/definition_runtime.slang',*f['other_shared_sources'],*factor_deltas,*part_deltas,*reach_deltas,*hp_basis_deltas,*pellet_shot_deltas,*ammo_equivalent_deltas]:
+    for name in ['gpu/event_runtime.slang','gpu/definition_runtime.slang',*f['other_shared_sources'],*factor_deltas,*part_deltas,*reach_deltas,*hp_basis_deltas,*pellet_shot_deltas,*ammo_equivalent_deltas,*manual_swap_deltas]:
         ts=tokens(read(name))
         for i,t in enumerate(ts):
             if t!='commands':continue
@@ -126,4 +128,4 @@ def verify(root,*,sources=None):
             assert ts[j]!='=' or ts[j+1]=='=','Input command write: '+name
             assert ts[j] not in ('+','-','|','&','^','*','/','%') or ts[j+1]!='=','Input compound command write: '+name
             assert ts[j:j+2] not in (['+','+'],['-','-']),'Input command increment: '+name
-    return dict(verified=True,properties=55,local_override_properties=['damageRoute','damageHits'],wire_immutable=True,other_shared_sources_unchanged=not (reviewed_deltas or factor_deltas or part_deltas or interrupt_deltas or ally_burst_deltas or capacity_deltas or pellet_shot_deltas or ammo_equivalent_deltas),other_sources_outside_reviewed_delta_unchanged=True,reviewed_scope_snapshot_sources=reviewed_deltas,reviewed_damage_factor_sources=factor_deltas,reviewed_part_receipt_sources=part_deltas,reviewed_interrupt_sources=interrupt_deltas,reviewed_interrupt_reach_sources=reach_deltas,reviewed_interrupt_frame_metadata=True,reviewed_physical_interrupt_sources=physical_deltas,reviewed_ally_burst_sources=ally_burst_deltas,reviewed_mode_capacity_sources=capacity_deltas,reviewed_skill_hp_basis_sources=hp_basis_deltas,reviewed_lost_hp_attack_sources=lost_hp_deltas,reviewed_pellet_shot_sources=pellet_shot_deltas,reviewed_ammo_equivalent_sources=ammo_equivalent_deltas,gpu_calls=0,scope='Source correspondence/snapshot contract; explicit later source deltas do not prove numerical parity, which requires actual execution')
+    return dict(verified=True,properties=55,local_override_properties=['damageRoute','damageHits'],wire_immutable=True,other_shared_sources_unchanged=not (reviewed_deltas or factor_deltas or part_deltas or interrupt_deltas or ally_burst_deltas or capacity_deltas or pellet_shot_deltas or ammo_equivalent_deltas or manual_swap_deltas),other_sources_outside_reviewed_delta_unchanged=True,reviewed_scope_snapshot_sources=reviewed_deltas,reviewed_damage_factor_sources=factor_deltas,reviewed_part_receipt_sources=part_deltas,reviewed_interrupt_sources=interrupt_deltas,reviewed_interrupt_reach_sources=reach_deltas,reviewed_interrupt_frame_metadata=True,reviewed_physical_interrupt_sources=physical_deltas,reviewed_ally_burst_sources=ally_burst_deltas,reviewed_mode_capacity_sources=capacity_deltas,reviewed_skill_hp_basis_sources=hp_basis_deltas,reviewed_lost_hp_attack_sources=lost_hp_deltas,reviewed_pellet_shot_sources=pellet_shot_deltas,reviewed_ammo_equivalent_sources=ammo_equivalent_deltas,reviewed_manual_swap_sources=manual_swap_deltas,gpu_calls=0,scope='Source correspondence/snapshot contract; explicit later source deltas do not prove numerical parity, which requires actual execution')

@@ -201,6 +201,8 @@ RWStructuredBuffer<Runtime> runtimeStates;
 #define WORLD_ROSTER_TRACE_END
 #endif
 #ifdef PORTABLE_WORLD_RELOAD
+#define WORLD_MANUAL_SWAP(s,w,who,when) if(advanceManualSwap(s,w,who,when)) return;
+#define WORLD_MANUAL_ENABLED(s,who) manualSwapEnabled(s,who)
 #define WORLD_RELOAD_FORCE_KIND(kind) (kind==23)
 #define WORLD_RELOAD_KIND(d,legacy) (d.kind==23||d.kind==13||d.kind==14 ? false : (legacy))
 #define WORLD_RELOAD_ORIGIN(input,row,legacy) ((legacy)||definition_kind(input,row)==23||definition_kind(input,row)==13||definition_kind(input,row)==14||definition_stat(input,row)==S_reload_time_fixed)
@@ -215,6 +217,8 @@ RWStructuredBuffer<Runtime> runtimeStates;
 #define WORLD_RELOAD_ORDERED(s,d,member,when) else if(d.kind==23) applyForcedReload(s,uint64_t(member+1),when);
 #define WORLD_RELOAD_FINAL(s) for(uint reloadWho=0;reloadWho<5;reloadWho++) storeNumber(s.resourceOutput+P_WORLD_RELOAD_HEAD_BASE+4+reloadWho*2,s.reloadUntil[reloadWho]);
 #else
+#define WORLD_MANUAL_SWAP(s,w,who,when)
+#define WORLD_MANUAL_ENABLED(s,who) false
 #define WORLD_RELOAD_FORCE_KIND(kind) false
 #define WORLD_RELOAD_KIND(d,legacy) legacy
 #define WORLD_RELOAD_ORIGIN(input,row,legacy) legacy
