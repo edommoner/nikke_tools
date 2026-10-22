@@ -17,9 +17,12 @@ bool initializeWorldActors(inout Runtime s)
     for(uint n=0;n<32;n++)
     {
         uint d=s.inputBase+P_WORLD_ACTOR_NODE_BASE+n*4,k=commands[d],c=commands[d+1];
-        if(k>2 || c>=P_WORLD_ACTORS || (k==0)!=(c==0) || commands[d+2]!=0 || commands[d+3]!=0 || n>=nodes && k!=0) return false;
+        if(k>3 || c>=P_WORLD_ACTORS || (k==0)!=(c==0) || commands[d+2]!=0 || commands[d+3]!=0 || n>=nodes && k!=0) return false;
+#ifndef PORTABLE_WORLD_ACTOR_POOLS
+        if(k==3) return false;
+#endif
     }
-    uint parts=0,adds=0,previousKind=0,previousNode=0;
+    uint parts=0,adds=0,interrupts=0,previousKind=0,previousNode=0;
     for(uint slot=0;slot<P_WORLD_ACTORS;slot++)
     {
         uint b=actorBinding(s,slot),kind=commands[b],id=commands[b+1],source=commands[b+2],node=commands[b+3],index=commands[b+4];
@@ -27,12 +30,12 @@ bool initializeWorldActors(inout Runtime s)
         if(commands[b+7]!=0) return false;
         if(slot==0)
         { if(kind!=0 || id!=0 || source!=0 || node!=0xffffffffU || index!=0 || commands[b+5]!=0xffffffffU || commands[b+6]!=0xffffffffU) return false;continue; }
-        if(kind!=1 && kind!=5 || kind<previousKind || node>=nodes || kind==previousKind && node<previousNode) return false;
+        if(kind!=1 && kind!=5 && kind!=6 || kind<previousKind || node>=nodes || kind==previousKind && node<previousNode) return false;
         uint d=s.inputBase+P_WORLD_ACTOR_NODE_BASE+node*4;
-        if(source!=(kind==1?1U:2U) || commands[d]!=source || index!=seen[node] || index>=commands[d+1]) return false;
+        if(source!=(kind==1?1U:kind==6?3U:2U) || commands[d]!=source || index!=seen[node] || index>=commands[d+1]) return false;
         if(kind==1)
         { if(id!=parts++ || commands[b+5]!=0 || commands[b+6]!=0) return false; }
-        else if(id!=adds++ || commands[b+5]!=0xffffffffU || commands[b+6]!=0xffffffffU) return false;
+        else if(id!=(kind==6?interrupts++:adds++) || commands[b+5]!=0xffffffffU || commands[b+6]!=0xffffffffU) return false;
         seen[node]++;previousKind=kind;previousNode=node;
     }
     for(uint n=0;n<32;n++) if(seen[n]!=commands[s.inputBase+P_WORLD_ACTOR_NODE_BASE+n*4+1]) return false;

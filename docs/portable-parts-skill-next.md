@@ -1,3 +1,5 @@
+interruptのprivate kind6／source3を共通world poolへ接続し、出現・世代・再出現・期限終了をMetalで検証しました。現在のsealed入口は`parts-skill-world`40（native30・拒否10）。既存849と実編成4も独立sealし、旧全rawと以前の26入力を保持しています。到達ダメージ・吸血・座標・deferred・修正版CUDA照合は未完了、全キャラ認定0です。Windowsの新規実行は停止中。詳細は[interrupt接続](portable-interrupt-source.md)、次の実装は[packet設計](portable-interrupt-packets-next.md)。以下は履歴です。
+
 # 次の未対応機能：hits_parts
 
 現在の接続は`portable-parts-skill-gpu.md`を参照してください。二値入口の生成時呼出し、Frame snapshot、周期とは別の2048件receipt bank、live部位群landingまで共通化し、Metal26入力（native25・deferred拒否1）を実証しました。interrupt入力の7契約・座標・deferred部位は残っています。以下は数値基盤の実装前に記した設計・CPU契約の履歴で、全項目の実装完了を意味しません。

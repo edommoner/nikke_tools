@@ -1,3 +1,5 @@
+interruptのprivate kind6／source3を共通world poolへ接続し、出現・世代・再出現・期限終了をMetalで検証しました。現在のsealed入口は`parts-skill-world`40（native30・拒否10）。既存849と実編成4も独立sealし、旧全rawと以前の26入力を保持しています。到達ダメージ・吸血・座標・deferred・修正版CUDA照合は未完了、全キャラ認定0です。Windowsの新規実行は停止中。詳細は[interrupt接続](portable-interrupt-source.md)、次の実装は[packet設計](portable-interrupt-packets-next.md)。以下は履歴です。
+
 # 部位スキルの生成・receipt・着弾接続
 
 `hits_parts`の非座標経路を共通Slangへ接続しました。生成時にlive部位のreachを検査し、取得済みの同じダメージ因子から本体値と部位値を作ります。静的has_partsだけの場合は本体へ部位補正を一度適用し、reach部位がある場合は本体の部位補正を外します。コアは部位値へ持ち越しません。

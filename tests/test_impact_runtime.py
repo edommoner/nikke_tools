@@ -33,7 +33,7 @@ class ImpactContract(unittest.TestCase):
     def test_nested_delivery_context_and_failure_cleanup(self):
         import engine_worker
         from calculator.buff_manager import BuffManager
-        manager=BuffManager.__new__(BuffManager);manager._active=[];manager._notify_ctx={}
+        manager=BuffManager.__new__(BuffManager);manager._effects=[];manager._active=[];manager._notify_ctx={}
         manager.is_down=lambda name:False
         p=self.packet();seen=[]
         def deliver(event,t,caster):

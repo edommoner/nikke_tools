@@ -7,6 +7,8 @@ from portable_enemy_specs import enemy_buff_plan
 def observe_before_finish(case,boss,manager,names,when):
  registry=registry_for(manager,boss);bindings=actor_bindings(boss);pools=pool_rows(boss);queries=[];carriers=[]
  for b,p in zip(bindings,pools):
+  if int(b.kind)==6:
+   queries.append([1]+[0]*11);continue # Private pool; canonical typed stats unavailable.
   if p[0]==0:queries.append([2]+[0]*11);continue
   snapshot=registry.exact(ActorHandle(b.kind,b.identity,p[0]));label='__enemy__' if int(b.kind)==1 else b.label
   actual=manager.get_buffs(names[0],label,when)

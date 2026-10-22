@@ -22,8 +22,8 @@ class PoolInput(unittest.TestCase):
  def test_nonfinite_literal_quantities_rejected(self):
   for v in (float('inf'),float('nan')):
    with self.assertRaises(ValueError):number(v)
- def test_attack_and_interrupt_adapters_stay_closed(self):
-  for p in [dict(id='wave',kind='summon',spec=dict(count=1,hp=3,attack=dict(atk=10,coeff=100,target='all'))),dict(id='interrupt',kind='interrupt',targets=[dict(name='ir',hp=3)])]:
+ def test_source_attack_adapter_stays_closed(self):
+  for p in [dict(id='wave',kind='summon',spec=dict(count=1,hp=3,attack=dict(atk=10,coeff=100,target='all')))]:
    with self.assertRaises(ValueError):compile_registry(validate([p]),pools=True)
  def test_wide_state_fits_transport_without_mutating_normal_layout(self):
   self.assertEqual((L['INPUT_WORDS'],L['OUTPUT_WORDS']),(86016,159744));self.assertLessEqual(L['WORLD_ACTOR_POOL_OUTPUT_WORDS'],262144);self.assertEqual(L['WORLD_ACTOR_SETS'],32);self.assertEqual(L['WORLD_ACTOR_SET_WORDS'],520)

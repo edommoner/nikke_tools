@@ -2,12 +2,12 @@
 import struct
 from collections import Counter
 from impact_specs import ActorHandle,ActorKind
-from world_actor_specs import bindings
+from portable_interrupt_specs import pool_bindings
 from calculator.boss_pattern import BOSS_EVENTS
 NONE=0xffffffff
 
 def bits(v):return list(struct.unpack('<II',struct.pack('<d',float(v))))
-def actor_bindings(boss):return sorted(bindings([r.p for r in boss._runs]),key=lambda b:(int(b.kind),b.identity))
+def actor_bindings(boss):return sorted(pool_bindings([r.p for r in boss._runs]),key=lambda b:(int(b.kind),b.identity))
 def pool_rows(boss,body_hits=()):
  rows=[]
  for b in actor_bindings(boss):
@@ -17,7 +17,7 @@ def pool_rows(boss,body_hits=()):
    rows.append([1,1,0,len(body_hits),*bits(dealt),*bits(dealt),*bits(0),0,0,0,0,0,0]);continue
   r=boss._runs[b.run]
   if r.opens==0:rows.append([0]*16);continue
-  if int(b.kind)==1:
+  if int(b.kind) in (1,6):
    a=r.targets[b.slot];gen=r.opens;alive=r.active and not a.destroyed;reason=int(a.destroyed);hits=a.hits;dealt=a.dealt;landed=a.landed;born=r.start_t;order=0
   else:
    a=r.adds[b.slot];gen=r.opens;alive=r.active and a.alive;reason={'':0,'처치':1,'퇴장':2,'자폭':3}[a.gone];hits=a.hits;dealt=a.dealt;landed=0.;born=a.spawn_t;order=a.order

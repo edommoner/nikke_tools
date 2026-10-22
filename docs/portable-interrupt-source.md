@@ -1,0 +1,15 @@
+# interrupt sourceの共通world pool接続
+
+既存の公開ActorKind2はPROJECTILEです。正本のtyped impactにはinterruptがないため、公開enum・ImpactTrace・legacy CUDAは変更していません。GPU world pool専用のkind6／source3と、独立した`InterruptBinding`を追加しました。通常のbody・part・addのIDと並び順は維持し、interrupt行を末尾へ追加します。入力は作者が記したHP・score・通知だけで、出現時刻・世代・生死をCPUで計算して供給しません。
+
+共通registry・poolはinterruptの出現、再出現、期限終了を既存schedulerから同期します。128総poolの上限を守り、敵数・通常の全敵選択・partの本体親関係へ追加しません。native観測器は実BossScriptのRun／Targetから同じpool行を読み取ります。公開ActorHandle6を作ったり、PROJECTILE・part・bodyへ置き換えたりしません。
+
+private poolにはtyped数値問い合わせを行いません。all-Actor数値snapshotはkind6でunknown1、攻撃fieldは未接続の予約値0を返します。CPUもprivate対象へのget_buffs／enemy_atk_down_flatを追加実行しません。実nativeを使う故障検査でprivate数値問い合わせを禁止しています。typed query／命中カウンタのkind範囲は従来の0..5のままで、interruptのhit creditを認定しません。
+
+`parts-skill-world`を40入力（native30・拒否10）へ拡張しました。以前host拒否だったinterruptのみ・part＋interruptの2契約と、遅延再出現・壊れない対象・127interruptの3契約をnative比較へ追加しています。pierce／explosionで届くskill5入力、deferred1、届く物理武器1、PROJECTILE偽装／part source偽装／非連続ID3はGPUで拒否します。到達ダメージ・吸血・総ダメージ外のinterrupt accountingは未接続です。
+
+初回は新規登録した既存Impactテストの空Managerに_effects初期値がなくCPUで停止しました。fixtureだけを修正し、元失敗は保持しました。次の40入力は物理拒否fixtureがauto RLでreach0だったため、30nativeは成功したものの拒否1が失敗しました。実際に届くcharge RLへ作者入力を直した別packageで検証しています。元GPU source/input・失敗を上書きしていません。
+
+過去のquery境界監査も、追加した受付2文とprivate数値viewの厳密な逆変換だけを許可する台帳へ更新しました。元のtoken hashとsource fixtureは維持し、異なるkind・式・callback・引数への変更を拒否します。GPU同等性はこの台帳ではなく実Metalのnative比較・保存raw・sealで確認します。
+
+最終証拠は`research/portable-interrupt-source-checkpoint.json`を参照してください。全キャラ認定0、通常UI CPU、Windowsの追加実行停止は維持します。次は`portable-interrupt-packets-next.md`の生成値snapshot・receipt・到達・計上・吸血です。

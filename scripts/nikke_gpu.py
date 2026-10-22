@@ -142,8 +142,8 @@ SUITES['damage-factors']=dict(script='research/verify-damage-factors-short.py',s
     golden='research/portable-damage-factors-short-expected.json',inputs=16,native=16,development_only=False,
     tests=['test_portable_damage_factors.py'])
 SUITES['parts-skill-world']=dict(script='research/verify-world-parts-skill-short.py',source='gpu/world_entry_reload_resident_entry.slang',
-    golden='research/portable-world-parts-skill-short-expected.json',inputs=26,native=25,development_only=False,
-    tests=['test_portable_parts_skill_gpu.py','test_portable_parts_skill_reference.py','test_portable_parts_skill_extra_reference.py','test_portable_parts_skill_lifecycle_reference.py','test_portable_damage_factors.py','test_portable_resident_layout.py','test_portable_reference_migration.py','test_portable_gpu_replay.py'])
+    golden='research/portable-world-parts-skill-short-expected.json',inputs=40,native=30,development_only=False,
+    tests=['test_portable_parts_skill_gpu.py','test_portable_parts_skill_reference.py','test_portable_parts_skill_extra_reference.py','test_portable_parts_skill_lifecycle_reference.py','test_portable_damage_factors.py','test_portable_resident_layout.py','test_portable_reference_migration.py','test_portable_gpu_replay.py','test_portable_interrupt_sources.py','test_portable_actor_pool_input.py','test_portable_actor_registry_input.py','test_impact_runtime.py'])
 SUITES['skill-part-codec']=dict(script='research/verify-skill-part-codec-short.py',source='gpu/skill_part_codec_probe.slang',
     golden='research/portable-skill-part-codec-short-expected.json',inputs=4,native=3,development_only=False,
     tests=['test_portable_skill_part_codec.py'])

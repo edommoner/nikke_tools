@@ -32,7 +32,7 @@ bool validWorldSkillDefinition(inout Runtime s,uint row,Definition d)
 #endif
     // Reached part/interrupt packets need their own explicit receipt metadata.
     if((d.damageFlags&(H_PIERCE|H_EXPLOSION))!=0||d.damageNormal!=0&&(s.attackContext[d.owner]&4)!=0)
-        for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]==1||commands[actorBinding(s,slot)]==2) return false;
+        for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]==1||commands[actorBinding(s,slot)]==6) return false;
     if(d.damageRoute==3)
         for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]==5&&commands[actorPoolDef(s,slot)]==3) return false;
     return true;

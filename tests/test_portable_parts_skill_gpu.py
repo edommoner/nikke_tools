@@ -25,9 +25,9 @@ class PartsSkillGpuTests(unittest.TestCase):
         with self.assertRaises(ValueError):validate(dict(type='damage',hits_parts=True),combat={},world_frame=False)
     def test_all_reference_cases_remain_and_unported_adapters_reject_explicitly(self):
         spec=importlib.util.spec_from_file_location('parts_gpu_adapter',ROOT/'research/verify-world-parts-skill-short.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
-        self.assertEqual(len(m.fixtures()),33);self.assertEqual(len(m.HOST_REJECT),7)
-        entries,data=m.prepare();self.assertEqual(len(entries),26);self.assertEqual(sum(d is not None for _,_,d in entries),25)
-        self.assertEqual(len(data),4*(1+26*m.suite.INPUT))
+        self.assertEqual(len(m.fixtures()),37);self.assertEqual(len(m.HOST_REJECT),0)
+        entries,data=m.prepare();self.assertEqual(len(entries),40);self.assertEqual(sum(d is not None for _,_,d in entries),30)
+        self.assertEqual(len(data),4*(1+40*m.suite.INPUT))
         for name,_,domain in entries:
             if domain is not None:continue
             m.validate_rejection([64],name)

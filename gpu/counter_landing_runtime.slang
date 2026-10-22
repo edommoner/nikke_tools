@@ -52,6 +52,10 @@ void sampleCounterPartShot(inout Runtime s,uint who,uint64_t coefficient,bool no
     uint64_t b[64];collectStats(s,who,when,b);
     uint reach=WORLD_PROJECTILE_REACH(s,who,flags,when,((flags&H_EXPLOSION)!=0 ? 3U : !f64Zero(b[S_pierce_enabled]) ? 1U : 0U));
     if(reach==0) return;
+    // Interception extra receipts/accounting are not connected yet. Do not
+    // silently discard a reached interrupt on a physical weapon packet.
+    for(uint slot=1;slot<actorPoolCount(s);slot++)
+        if(commands[actorBinding(s,slot)]==6&&results[actorPoolAt(s,slot)+1]!=0) { s.error=64;return; }
     bool any=false;
     for(uint slot=1;slot<actorPoolCount(s);slot++)
     {

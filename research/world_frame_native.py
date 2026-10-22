@@ -71,7 +71,7 @@ def observe(case):
     capture['target_counters']=counter_before_finish(capture['bm'],capture,NAMES)
    if case.get('observe_enemy_attack_fields'):
     from world_actor_pool_native import actor_bindings
-    capture['enemy_attack_fields']=[dict(kind=int(b.kind),identity=b.identity,flat=capture['bm'].enemy_atk_down_flat('__enemy__' if int(b.kind)==1 else b.label,t)) for b in actor_bindings(self)]
+    capture['enemy_attack_fields']=[dict(kind=int(b.kind),identity=b.identity,flat=0 if int(b.kind)==6 else capture['bm'].enemy_atk_down_flat('__enemy__' if int(b.kind)==1 else b.label,t)) for b in actor_bindings(self)]
    if case.get('observe_enemy_fields'):
     from world_actor_fields_native import observe_before_finish
     capture['enemy_fields']=observe_before_finish(case,self,capture['bm'],NAMES,t)

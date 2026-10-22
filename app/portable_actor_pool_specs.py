@@ -15,7 +15,7 @@ def compile_pools(patterns,bindings,*,fields=False,boss_atk=114344):
  for slot,b in enumerate(bindings):
   if slot==0:continue
   p=patterns[b.run];at=8+slot*12
-  if int(b.kind)==1:
+  if int(b.kind) in (1,6):
    spec=p.targets[b.slot]
    if len(spec.emits)>8:raise ValueError('Actor death notice capacity exceeded')
    if spec.score>0x7fffffff:raise ValueError('Actor score exceeds exact integer bound')

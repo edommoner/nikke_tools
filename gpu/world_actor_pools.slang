@@ -50,10 +50,10 @@ bool initializeActorPools(inout Runtime s)
         if(slot==0 || slot>=actorPoolCount(s)) { for(uint i=0;i<12;i++) if(commands[d+i]!=0) return false;continue; }
         uint64_t hp=loadNumber(d+2),after=loadNumber(d+4);
         if(!f64Finite(hp)||f64Less(hp,0)||!f64Finite(after)||f64Less(after,0)||commands[d+1]>0x7fffffff) return false;
-        if(kind==1 ? mode!=1 : mode<2||mode>4) return false;
+        if(kind==1||kind==6 ? mode!=1 : mode<2||mode>4) return false;
         if(mode<=2 && (commands[d+1]!=0 || !f64Zero(after)) || mode==2 && !f64Less(0,hp)) return false;
         if(mode>=3 && commands[d+1]==0 || mode==3 && (!f64Zero(hp)||!f64Zero(after)) || mode==4 && (!f64Less(0,hp)||!f64Less(0,after))) return false;
-        uint n=commands[d+6],packed=commands[d+7];if(n>8 || (packed>>(n*3))!=0 || kind!=1 && (n!=0||commands[d+8]!=0)) return false;
+        uint n=commands[d+6],packed=commands[d+7];if(n>8 || (packed>>(n*3))!=0 || kind!=1 && kind!=6 && (n!=0||commands[d+8]!=0)) return false;
         for(uint i=0;i<n;i++) if(((packed>>(i*3))&7)==0||((packed>>(i*3))&7)>4) return false;
         #ifdef PORTABLE_WORLD_ACTOR_FIELDS
         uint64_t atk=loadNumber(d+9);if(!f64Finite(atk)||f64Less(atk,0)||kind!=5&&!f64Zero(atk)) return false;

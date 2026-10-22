@@ -11,6 +11,16 @@ class QueryBoundaryTests(unittest.TestCase):
         name='gpu/world_actor_state.slang';source=(ROOT/name).read_text()
         for old,new in [('return results[at];','return results[at+1];'),('actorStateQueryScopeSnapshot(at);','actorStateQueryScopeSnapshot(at+1);'),('[noinline]\nuint actorStateQueryScopeSnapshot','uint actorStateQueryScopeSnapshot')]:
             with self.subTest(old=old),self.assertRaisesRegex(AssertionError,'statements'):verify(ROOT,sources={name:source.replace(old,new,1)})
+    def test_only_exact_private_interrupt_admission_delta_is_allowed(self):
+        self.assertTrue(verify(ROOT)['explicit_interrupt_pool_delta'])
+        name='gpu/world_actor_pools.slang';source=(ROOT/name).read_text()
+        for old,new in [('kind==1||kind==6 ? mode!=1','kind==1||kind==2 ? mode!=1'),('kind!=1 && kind!=6 && (n!=0','kind!=1 && kind!=2 && (n!=0')]:
+            self.assertIn(old,source)
+            with self.subTest(old=old),self.assertRaisesRegex(AssertionError,'statements'):verify(ROOT,sources={name:source.replace(old,new,1)})
+    def test_private_numeric_view_must_not_alias_projectile(self):
+        self.assertTrue(verify(ROOT)['explicit_interrupt_field_delta'])
+        name='gpu/world_actor_fields.slang';source=(ROOT/name).read_text()
+        with self.assertRaisesRegex(AssertionError,'statements'):verify(ROOT,sources={name:source.replace('if(commands[b]==6)','if(commands[b]==2)',1)})
     def test_removed_boundary_is_rejected(self):
         name='gpu/quantity_runtime.slang';s=(ROOT/name).read_text().replace('[noinline]\nuint64_t plainQuantity','uint64_t plainQuantity')
         with self.assertRaisesRegex(AssertionError,'boundary'):verify(ROOT,sources={name:s})

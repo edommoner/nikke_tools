@@ -5,6 +5,7 @@
 [noinline]
 uint64_t collectWorldEnemyAttackFlat(inout Runtime s,uint target,uint64_t when)
 {
+    if((target&ACTOR_REF)!=0&&commands[actorBinding(s,target&127U)]==6) return 0;
     uint64_t total=0;
     for(uint i=0;i<s.orderedCount;i++)
     {

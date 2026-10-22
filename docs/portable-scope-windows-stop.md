@@ -7,3 +7,5 @@
 保存PPIDはlink子・ラッパーのPIDと一致せず、ソースレビューでは検証用Popenと新規無名Job以外を明示的に終了する処理は見つかりませんでした。実行時の原因はunknownです。環境保全はfalse、サービス識別はunverifiedを維持します。保存記録と失敗判定を変更せず、Windowsの追加native/GPU実行を止めています。復旧後の調査でGPU・コンパイル・新しいプロセス照会は実行していません。
 
 根拠は`research/portable-scope-windows-pipeline-peer-report.json`、`research/portable-scope-windows-exit-peer-report.json`、`research/portable-scope-windows-timing-peer-report.json`です。Windows側から取得した要約であり、Macで元の全ファイルを独立監査した証明ではありません。7件の原因調査と、将来の検証で終了処理の直前・直後を記録する設計が必要です。全キャラ・全特殊効果のGPU対応は未完了です。
+
+ユーザーから、該当時刻前後にアプリ／ターミナル終了・Codex再接続・再起動の操作は行っていないとの回答を受けました。ゲームや動画視聴の可能性はありますが、7プロセス終了との因果関係を示す証拠はありません。原因unknownと追加実行停止を維持します。

@@ -31,11 +31,28 @@ def reviewed_scope_delta(actual):
     actual[at[0]:at[0]+len(new)]=tokens(OLD)
     return actual
 
+def baseline_interrupt_pool_source(source):
+    changes=[('if(kind==1||kind==6 ? mode!=1 : mode<2||mode>4)','if(kind==1 ? mode!=1 : mode<2||mode>4)'),
+             ('kind!=1 && kind!=6 && (n!=0||commands[d+8]!=0)','kind!=1 && (n!=0||commands[d+8]!=0)')]
+    if not any(new in source for new,_ in changes):return source,False
+    for new,old in changes:
+        assert source.count(new)==1,'Original query statements: unexpected interrupt pool admission delta'
+        source=source.replace(new,old,1)
+    return source,True
+
+def baseline_interrupt_field_source(source):
+    added='if(commands[b]==6) { for(uint i=0;i<12;i++) results[out+i]=0;results[out]=1; }\n            else '
+    if added not in source:return source,False
+    assert source.count(added)==1,'Original query statements: unexpected private interrupt numeric view'
+    return source.replace(added,'',1),True
+
 
 def verify(root,*,sources=None):
-    root=Path(root);fixture=json.loads((root/'tests/fixtures/portable-query-boundaries.json').read_text());names=[];scope_delta=False
+    root=Path(root);fixture=json.loads((root/'tests/fixtures/portable-query-boundaries.json').read_text());names=[];scope_delta=False;interrupt_delta=False;interrupt_field_delta=False
     for row in fixture['files']:
         source=(sources or {}).get(row['path'],(root/row['path']).read_text())
+        if row['path']=='gpu/world_actor_pools.slang':source,interrupt_delta=baseline_interrupt_pool_source(source)
+        if row['path']=='gpu/world_actor_fields.slang':source,interrupt_field_delta=baseline_interrupt_field_source(source)
         for name in row['functions']:
             pattern=r'(?m)^\[noinline\]\n(?=(?:bool|uint|uint64_t) '+re.escape(name)+r'\()'
             source,count=re.subn(pattern,'',source)
@@ -46,4 +63,4 @@ def verify(root,*,sources=None):
             actual=reviewed_scope_delta(actual);scope_delta=True
         assert len(actual)==row['token_count'] and hashlib.sha256(json.dumps(actual,separators=(',',':')).encode()).hexdigest()==row['token_sha256'],'Original query statements/signatures/macros changed: '+row['path']
     assert len(names)==6 and len(set(names))==6
-    return dict(verified=True,baseline_commit=fixture['baseline_commit'],functions=names,files=len(fixture['files']),original_file_tokens_preserved=not scope_delta,unmodified_tokens_preserved=True,explicit_scope_snapshot_delta=scope_delta,gpu_calls=0,scope='Six noinline boundaries and only the exact reviewed scalar snapshot delta; baseline token hashes unchanged')
+    return dict(verified=True,baseline_commit=fixture['baseline_commit'],functions=names,files=len(fixture['files']),original_file_tokens_preserved=not (scope_delta or interrupt_delta or interrupt_field_delta),unmodified_tokens_preserved=True,explicit_scope_snapshot_delta=scope_delta,explicit_interrupt_pool_delta=interrupt_delta,explicit_interrupt_field_delta=interrupt_field_delta,gpu_calls=0,scope='Six noinline boundaries and exact reviewed scalar snapshot/private interrupt admission/view deltas; baseline token hashes unchanged')

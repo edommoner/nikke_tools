@@ -158,7 +158,8 @@ bool actorFieldCommand(inout Runtime s,uint at,uint op,uint64_t when)
             // Queries have16 words;the all-Actor snapshot stores12. Last four
             // scratch words must never overwrite the next actor's record.
             uint scratch=actorFieldHead(s)+P_WORLD_ACTOR_FIELDS_OUTPUT_WORDS-P_WORLD_ACTOR_FIELDS_BASE-16;
-            if(gen==0) { for(uint i=0;i<12;i++) results[out+i]=0;results[out]=2; }
+            if(commands[b]==6) { for(uint i=0;i<12;i++) results[out+i]=0;results[out]=1; }
+            else if(gen==0) { for(uint i=0;i<12;i++) results[out+i]=0;results[out]=2; }
             else { actorFieldRead(s,who,commands[b],commands[b+1],gen,scratch,when);for(uint i=0;i<12;i++) results[out+i]=results[scratch+i]; }
         }
         WORLD_ENEMY_ATTACK_SNAPSHOT(s,when) results[actorFieldHead(s)+2]=actorPoolCount(s);

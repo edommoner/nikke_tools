@@ -39,7 +39,7 @@
     "gpu/lazy_runtime.slang": "72a21a8b78a5a8473bf3ef3fe1ac47371c656229851aa0cfcecfc9bc0c581c4b",
     "gpu/named_magnitude_runtime.slang": "e3ddd915b38ca85be179890034ebde9efd7dd0743e53aeacfb94a46efcc98d7b",
     "gpu/enemy_buff_runtime.slang": "d45d8af699c45f154acfddf70e8d63c67797331bd504891ee75bd01914dfc45b",
-    "gpu/world_enemy_attack_runtime.slang": "6832c26bef77613b65ae823e5b3376e5f8ddd2a28294b1914acf0ce0de01b683",
+    "gpu/world_enemy_attack_runtime.slang": "3490a2f4936718c0e40123e3f7d71af7366a55342450ff3e93e4576320c05362",
     "gpu/carrier_runtime.slang": "b1fc42df64231d85a73d883a510bd1088f2c789ca4ec107bf0a0769ed2f917ee",
     "gpu/skill_interval_runtime.slang": "cf91792f6f0e0a8e5b5af0abe53273446d4ea88c9d19747035988d60591fa544",
     "gpu/quantity_runtime.slang": "466651cfff6b929d3e874fdc3a1441b419f6e51e73c8cfd6bc6bf941ff631356",
@@ -82,8 +82,8 @@
     "gpu/heal_share_trace.slang": "432863cbd91791a47acf93062d235d7d5d8a08a71f2e2023ef4970916d07c31b",
     "gpu/dispatch_phases.slang": "20ff54f451c00409a7d8b1ad91e373c606e62ca0a52d879fe2dfb9f03dfdeb4a",
     "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
-    "gpu/world_actor_pools.slang": "d3a9442f559145926b8de31b677031e72c76d24feba70e43e8d5c7149bb0d5a2",
-    "gpu/world_actor_fields.slang": "1c93ac2988e1ef5bc08f09ecccdce7646e5fa42acbf31ae544d54063758fba06",
+    "gpu/world_actor_pools.slang": "6eb7e9d7c82b0271c7dc35ceb93f63f84c8f4af1b68bfe8f2a47d192e6d68a7c",
+    "gpu/world_actor_fields.slang": "274b809f30df7b747283ac81b252ff4158b9a08e46c801e78e41a5ecccb34d58",
     "gpu/world_actor_state.slang": "fe544032dc4862a7a3689b292f21110674bfb37668e84ffb87d9e78412e629c3",
     "gpu/world_actor_mutation.slang": "8d807f7800ec72f25caee64d4f6ae7885dba3328773111f117b7ccf6585f0e53",
     "gpu/world_actor_recipients.slang": "f7eb33cbe737cd6e6c729f6ca8c15d015256c2844f9d9a44fd1f6c646e34cab7",
@@ -91,16 +91,16 @@
     "gpu/world_actor_stacks.slang": "38864ac1f81c3f9591f8273b318e37ee31b76a5ddf2de8a2c2a711db29323e8f",
     "gpu/target_counter_runtime.slang": "5a1605e713aa86f5901fc5e7e6a7a723b5ee902ae4a812c5833084542849c898",
     "gpu/world_projectile_runtime.slang": "3d3d498386038746f671007d5522ece05c7b82dd09d9d6fee9704aeff0af9e18",
-    "gpu/counter_landing_runtime.slang": "ce66fbcc0df12565f15176ae7504c53d7a6a6474ccb05643201c618c17e2d2a9",
+    "gpu/counter_landing_runtime.slang": "4feb007ebee298ae7bef34261a0a0b8dcbd9b4dcc548aa196854bc0f6b8b15c7",
     "gpu/counter_context_runtime.slang": "aa3e9cf52e85feb2146467496954fcb6dd4f4eac8ebf9c1cdacdcaf38b1ea21b",
     "gpu/counter_field_runtime.slang": "d972af3f7f9fd596a4c3732c79e344ce547532471374066c72dfeba3012153aa",
-    "gpu/world_skill_runtime.slang": "4c6c5ecbaa6ade2885d3793e9f6f23456f97788cd761d2da0980e76c3f1b1e0b",
+    "gpu/world_skill_runtime.slang": "3204f91357239f479b305bec2e0792b8a59f99531042c9811bdb3467eae47124",
     "gpu/world_periodic_runtime.slang": "3d7a830ee62e66bb2f85b162375ea42c774e4647038b51e75db161ffe6b96ea8",
     "gpu/world_spawn_runtime.slang": "6da41aa26d47d47ebb54b6d742f62592f2fbcae50ea2e38a3a7d571771b7a8c3",
     "gpu/world_fraction_runtime.slang": "6ee8371cee6f0ab559cbfb4c7fe2feb07b126270be9a87339893ea0f55bb3644",
     "gpu/world_team_runtime.slang": "783e11d298afa785183e1176a9c7cb8b0ae359b9412dfb9b37efead44b7eaceb",
     "gpu/world_charge_control_runtime.slang": "2c9339c35e4a48eecf16fb4168ed99d829f0bbc11e187cf1e26396c564f48b99",
-    "gpu/world_actor_registry.slang": "f803ee00db756eed3edd48586e3fcc94b4f750f0990f97c9ff8732da07f08477",
+    "gpu/world_actor_registry.slang": "dafa4422554269f9b3529aa21ae9542dacedc6c5af32c36842fc3e0d0b7d3d03",
     "gpu/world_frame_runtime.slang": "c44235d89908844ce3fcd1737ef5b7864f2ce801a80afaa4014865b438848a8b",
     "gpu/combat_runtime.slang": "ef7c86bdada1b74283dc673a0616b0a999c5a08f3568fe6883ec53a3db705bc8",
     "gpu/ammo_instant_runtime.slang": "2276a958d7da8d0214d8852b24961795691de4bb7310fa1501fbcb997d88cf67",
@@ -142,7 +142,7 @@
     }
   ],
   "generated_normalized": {
-    "cuda": "9ef5a759ba0f912646193368dfc454a22830e5c20de9256a6a5496540cb0bf23",
-    "metal": "8e794c25544498d4a654660c916c4149e5fb5ca48cd5d1dcba8c5b1d49dd1c15"
+    "cuda": "cd47df9a9abc73b31da20b406ad5f8e88bcc1f6f82d7659b2f651540e8d5273b",
+    "metal": "9e4a908f6df2aa953efa0922c226b752cbe63573650214f7074cbcc7669a7288"
   }
 }

@@ -23,7 +23,7 @@ def compile_payload(patterns,*,camera_mask=0,element_codes=(),code_tags=None,cha
  named_refs=named_refs or {}
  for p in patterns:
   at=16+p.idx*16
-  if p.kind in ('idle','groggy','attack') or actor_pools and p.kind in ('parts','summon'):continue
+  if p.kind in ('idle','groggy','attack') or actor_pools and p.kind in ('parts','interrupt','summon'):continue
   if p.kind=='buff':
    value=p.enemy_effect['fixed_value'] if p.enemy_effect else 0
    words[at:at+10]=[1,int(p.irremovable),*number(p.def_mult),*number(p.def_add),*number(value),0,0]
