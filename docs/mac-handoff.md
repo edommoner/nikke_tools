@@ -1,3 +1,7 @@
+<!-- jit-link-controller-current -->
+Windows接続復旧後、64af5fbの保存結果を再取得。新実行なし、欠落7原因unknown/service未識別/preservationfalse維持。nvJitLink明示CLI jit-link-objectを共通object controller/bounded childへ接続し、元source全chain/専用claim/固定DLL前後SHA/実Job PID・2GiB/API journal・ELF/driver module観測を監査。新9を含むfresh CPU248中247成功/Win1skip、全source byte一致。実DLLロード/link/driver/GPUはまだ0。次は固定clean sourceを共有しCPU+Job smoke1回後に保存旧commands objectのメモリlink1回、nvlink.exe/ptxas/NVRTC再実行なし。成功でも現行full battleとは別、cache provider未接続/全キャラ認定0。Metal849+実4/parts CPU32維持。詳細docs/portable-jit-link-next.md、research/portable-jit-link-controller-checkpoint.json。以下は履歴です。
+<!-- /jit-link-controller-current -->
+
 <!-- jit-link-primitive-current -->
 Windows64af5fb CPU230/native I/O成立（CreateFileW新規20B/write/flush/close/実SHA/2PID/2GiB/Resume1）、nvlink固有出力は未解決。欠落7はunrelated5/service_candidate2・原因unknown、service未識別/preservationfalseを維持。保存14393file不変、追加compile/link/driver/GPU0。原失敗raw/claims保持。次候補nvJitLink12.4.127公式archive/DLL/header/LICENSEをMac静的SHA/export確認、DLL実ロード0。CUBIN AddData→Complete→GetLinkedCubin/共通ELF/Destroy/ログ保持primitiveと9疑似API検査を実装。fresh CPU239中238成功/Windows1skip。CLI実行mode/Job/source origin/cache接続は未実装で返すorigin/containment/calculationはfalse、API自動fallbackなし。次は共通bounded child/専用claim/固定DLLと元object全chain/phase監査/driver module観測を接続してからWindows1試行を選ぶ。source only旧commandsと現行compiler-fullを区別。Metal849+実4/parts CPU32/全キャラ認定0維持。詳細docs/portable-jit-link-next.md、research/portable-jit-link-primitive-checkpoint.json、portable-nvjitlink-component-candidate.jsonとnative I/O peer report。以下は履歴です。
 <!-- /jit-link-primitive-current -->

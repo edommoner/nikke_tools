@@ -12,6 +12,21 @@ native Python子のCreateFileW／20byte write／flush／closeはWindowsで成立
 
 このprimitiveにはDLL load、Job起動、origin監査、cache publicationがない。返す診断のsource_origin_verified／containment_verified／calculation_verifiedはfalse。実Windows linkやdriver非活動の証明でもない。静的PE importsにnvcudaはなくても、動的driver利用がないとは断定しない。NVIDIAのシステム要件もCUDA driverを含むため、実行時の確認を省略しない。
 
-次は既存CLIのbounded childへ明示modeとして接続する。必要条件は元object package/producer/cache/phase/Job/claim/固定SHAの再監査、専用claim、固定DLLのpre/post SHA、許可するDLL/APIの限定、実Job/PID/2GiB/60秒とcleanup、API stageと結果bytes/ELFの保存監査。programからdriver APIを呼ばず、unexpected driver moduleも確認対象とする。通常NVRTC cacheへの偽装登録や自動fallbackはしない。条件が揃うまでWindowsへDLL load/linkを依頼しない。
+CLIへの接続を実装した。条件は元object package/producer/cache/phase/Job/claim/固定SHAの再監査、専用claim、固定DLLのpre/post SHA、許可するDLL/APIの限定、実Job/PID/2GiB/60秒とcleanup、API stageと結果bytes/ELFの保存監査。programからdriver APIを呼ばず、unexpected driver moduleも確認対象とする。通常NVRTC cacheへの偽装登録や自動fallbackはしない。下記の固定パッケージ検査後にWindowsで1回だけ実DLLを確認する。
 
 元v135はcommands-only。API診断が成立しても、準備済みcompiler-fullの現行sourceを別にcompile/object/linkし、通常実行・cache・実編成比較へ接続する必要がある。全キャラ／全特殊効果GPU対応は未完了である。
+
+## 共通CLI接続（実Windowsは未検証）
+
+明示的な`jit-link-object`は既存object controller／bounded child／Job観測／collectを再利用する。元object全chainの監査と専用claimからだけ開始し、DLL pre/post SHA、現在Jobの実PID・作成時刻・2GiB、ロード前／ロード後／リンク後のnvcuda module観測を記録する。子のCUDA cacheは無効化し専用directoryへ限定する。API journalの全entered/returnedと戻り値、ログ、Destroy、linked ELF、raw input全byte、親Job cleanupを事後監査する。origin/containmentはcontrollerが独立に判断し、primitiveのfalse値は書き換えない。
+
+新しい故障注入9検査を含むfresh CPU248件は247成功／Windows1skip。コードは検査packetと全byte一致。実DLL load／link／driver／GPUはまだ0。`research/portable-jit-link-controller-checkpoint.json`に保存した。compiler-only packageでは`run --smoke --cpu-only`がCPU経路で、smokeなしはbattle拒否になる。
+
+```powershell
+& $py $cli jit-link-object --capture $freshCapture --timeout 60 `
+  --object-package $originalObjectPackage --object-capture $originalObjectCapture `
+  --object-sha256 c92550d36a7bc5892ffcb9f002c297227b34f7184a74827394996c2afe44b79c `
+  --nvjitlink $pinnedDll --original-workspace $originalWorkspace
+```
+
+元object captureは元packageの`module-object-claimed-cuda.json`にあるcaptureから解決する。失敗済みnvlink.exe／ptxas／NVRTCは再実行しない。API成功でも旧commands-onlyのリンク診断であり、本体CUDA／計算／全キャラ認定へ昇格しない。service未識別・欠落等のpreservation=falseも別に維持する。

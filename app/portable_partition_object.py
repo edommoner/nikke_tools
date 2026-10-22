@@ -38,12 +38,15 @@ def object_profile(source):
         return dict(stem='module',provider='diagnostic-module-ptxas',artifact='diagnostic-module-relocatable-object',prefix='partition_object',proof='object.json',log='assembler')
     if purpose=='diagnostic-module-link':
         return dict(stem='linked',provider='diagnostic-nvlink',artifact='diagnostic-linked-cubin',prefix='module_link',proof='link.json',log='linker')
+    if purpose=='diagnostic-module-jit-link':
+        return dict(stem='jit-linked',provider='diagnostic-nvjitlink',artifact='diagnostic-jit-linked-cubin',prefix='module_jit_link',proof='jit-link.json',log='jit-link')
     raise ValueError('Unknown diagnostic object source purpose')
 
 
 def object_paths(capture,source):
     stem=object_profile(source)['stem'];capture=Path(capture)
     if stem=='linked':return capture/'module.relocatable.cubin',capture/'linked.partial.cubin',capture/'linked.cubin'
+    if stem=='jit-linked':return capture/'module.relocatable.cubin',capture/'jit-linked.partial.cubin',capture/'jit-linked.cubin'
     return capture/(stem+'.ptx'),capture/(stem+'.o.partial'),capture/(stem+'.o')
 
 
@@ -67,6 +70,9 @@ def validate_object(raw):
 
 
 def object_options(source):
+    if object_profile(source)['stem']=='jit-linked':
+        from portable_jit_link import OPTIONS as jit_options
+        return jit_options
     if object_profile(source)['stem']=='linked':
         from portable_device_linker import OPTIONS as link_options
         return link_options
@@ -74,6 +80,9 @@ def object_options(source):
 
 
 def validate_tool_path(source,path):
+    if object_profile(source)['stem']=='jit-linked':
+        from portable_jit_link import validate_library
+        return validate_library(path)
     if object_profile(source)['stem']=='linked':
         from portable_device_linker import validate_tool
         return validate_tool(path)
@@ -81,11 +90,11 @@ def validate_tool_path(source,path):
 
 
 def validate_input(source,raw):
-    return validate_object(raw) if object_profile(source)['stem']=='linked' else assembler.validate_ptx(raw)
+    return validate_object(raw) if object_profile(source)['stem'] in ('linked','jit-linked') else assembler.validate_ptx(raw)
 
 
 def validate_output(source,raw):
-    if object_profile(source)['stem']=='linked':
+    if object_profile(source)['stem'] in ('linked','jit-linked'):
         from portable_device_linker import validate_cubin
         return validate_cubin(raw)
     return validate_object(raw)
@@ -95,6 +104,7 @@ def identity(tool,source):
     profile=object_profile(source)
     result=dict(schema=1,provider=profile['provider'],artifact=profile['artifact'],tool=tool,options=object_options(source),origin=source)
     if profile['stem']=='linked':result.update(native_launch_protocol='create-suspended-v1',input_container='raw-device-elf-cubin-v1',output_container='atomic-partial-cubin-v1')
+    if profile['stem']=='jit-linked':result.update(api_client='12_4',input_container='raw-device-elf-cubin-v1',output_container='api-memory-cubin-v1')
     return result
 
 
@@ -110,6 +120,10 @@ def verify_native_child(process,reader,journal,prefix,*,suspended=False):
 
 
 def run(capture,tool,raw,source,*,journal,popen=None,inspector=None):
+    if object_profile(source)['stem']=='jit-linked':
+        if popen is not None or inspector is not None:raise ValueError('JIT link uses its bounded API worker, not an external process')
+        from portable_jit_link_run import run as run_jit
+        return run_jit(capture,tool,raw,source,journal=journal)
     capture=Path(capture).resolve();tool=Path(tool).resolve();tool_info=validate_tool_path(source,tool)
     profile=object_profile(source);prefix=profile['prefix']
     if validate_input(source,raw)!=source['input']:raise ValueError('Diagnostic input changed')
