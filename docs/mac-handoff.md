@@ -1,3 +1,7 @@
+<!-- partition-object-current -->
+共通CLI partition-objectへ保存candidateのfocus専用relocatable object実験経路を追加。元producerのcompile/Job監査＋cache/phaseからcandidate全体再構成＋producer SHA/key照合を親/子/事後で再利用。固定12.4.131・O1/fmad=falseに明示--compile-only、既存bounded Job2GiB/60秒/BelowNormal・専用claim/ELF ET_REL検査、失敗/partial保持。既存assemble/通常cache/数値/共通GPU本文は不変。fresh immutable CPU181中180成功/Windows1skip、新故障注入11成功。Windows実assembler未実行。次は固定sourceのCPU preflight後、focusだけ1試行で関数単体とmodule全体を区別する証拠を得る。remainder/link/driver/GPUへ自動移行しない。対応版nvlink未確認、全キャラ認定0/本体CUDA未成立・Metal849+実4とparts CPU32維持。詳細docs/portable-partition-object.md、research/portable-partition-object-development-checkpoint.json。以下は履歴です。
+<!-- /partition-object-current -->
+
 <!-- ptx-partition-tool-current -->
 共通CLI ptx-partitionの保存v135に対するWindows CPU確認が成功。固定f7e83ccの8ファイル照合・16検査2.1443秒、候補生成4.4559秒、元cache/phaseからの再構成監査4.1026秒。191 bodyをfocus1/remainder190へ保持、global/const101定義はremainder単独。focus applyDefinitionFrame_0は306333byte、remainder5477943byte。元PTX/cache/phaseと親環境は不変、compile/link/driver/GPU追加0。原本・候補・完全planはWindowsに残り、Macはpeer summary取得までで独立原本監査ではない。PTX＋出所JSONの明示共有許可は受領済みだが、Windows自動承認レビューが別チャットの回答を認めずpushを再拒否。別経路転送・再pushは行わずWindowsチャット側の承認解決待ち。次は独立object実験のtool/link/ABI・明示manifestを準備する。partition合法性/コンパイル/計算は未認定、本体CUDA未成立/認定0、Metal849+実4とparts CPU32を維持。詳細docs/portable-ptx-partition.md、research/portable-world-v135-partition-peer-report.json。以下は履歴です。
 <!-- /ptx-partition-tool-current -->

@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "purpose": "explicit focus relocatable-object diagnostic development",
+  "package_id": "c407e8102a6a8035c8a1e63ccd6e6e18529073fbdb3d2e33a39bb02095bb5415",
+  "source_commit": "dd827805d1f831f03fced3d677d7c15247cdccea",
+  "working_tree_dirty": true,
+  "capture": "/tmp/nikke-partition-object-final-v1-cpu",
+  "tests": {
+    "discovered": 181,
+    "passed": 180,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0,
+    "groups": 18
+  },
+  "payload_records_sha256": "93715fec7374d80e6c208c7e5d3c063c8e3b9828585df6c363cb9ac61f8b5fcc",
+  "cpu_receipt_sha256": "0bbeb58fddf9d182988bfb295e3345fa9ca5956fede6ba7cebd25131ea5c2676",
+  "new_fault_injection_tests": 11,
+  "development_failures_preserved": [
+    {
+      "stage": "initial local tests",
+      "discovered": 9,
+      "errors": 7,
+      "failures": 1,
+      "reason": "request JSON path strings not converted to Path; fixture canonical path and section-size fault offset corrected"
+    },
+    {
+      "log": "/tmp/nikke-partition-object-tests-v2.log",
+      "discovered": 9,
+      "errors": 0,
+      "failures": 1,
+      "reason": "fixture fault modified wrong ELF field; corrected to section size offset160"
+    },
+    {
+      "log": "/tmp/nikke-partition-object-v1-compiler-cpu.log",
+      "reason": "non-smoke compiler diagnostic run rejected before capture creation as designed; use controller smoke"
+    }
+  ],
+  "canonical_and_numeric_and_gpu_sources_unchanged": true,
+  "existing_assembler_unchanged": true,
+  "windows_experiment_executed": false,
+  "nvrtc_calls": 0,
+  "ptxas_calls": 0,
+  "link_calls": 0,
+  "driver_calls": 0,
+  "gpu_calls": 0,
+  "compiler_verified": false,
+  "link_verified": false,
+  "calculation_verified": false,
+  "next": "Windows CPU preflight then at most one focus-only diagnostic object trial; no remainder/link/GPU or raw PTX transfer"
+}
