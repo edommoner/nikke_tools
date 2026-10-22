@@ -146,7 +146,7 @@ SUITES['pellet-shot']=dict(script='research/verify-world-pellet-shot-short.py',s
 SUITES['ammo-equivalent']=dict(script='research/verify-world-ammo-equivalent-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-ammo-equivalent-short-expected.json',inputs=46,native=29,development_only=False,tests=['test_portable_manual_swap_reference.py','test_portable_ammo_equivalent_reference.py','test_portable_ammo_equivalent.py','test_portable_readiness_semantics.py','test_portable_definition_view.py','test_portable_skill_hp_basis.py','test_portable_physical_interrupt.py','test_portable_seal.py','test_portable_cpu_batch.py'])
 SUITES['ammo-equivalent-rosters']=dict(SUITES['ammo-equivalent'],script='research/verify-world-ammo-equivalent-rosters-short.py',golden='research/portable-world-ammo-equivalent-rosters-short-expected.json',inputs=2,native=2,tests=['test_portable_ammo_equivalent.py','test_portable_definition_view.py','test_portable_real_binding_proof.py'])
 SUITES['ammo-equivalent-catalogue']=dict(SUITES['ammo-equivalent'],script='research/verify-world-ammo-equivalent-catalogue-short.py',golden='research/portable-world-ammo-equivalent-catalogue-short-expected.json',inputs=1,native=1)
-SUITES['manual-swap']=dict(SUITES['ammo-equivalent'],script='research/verify-world-manual-swap-short.py',golden='research/portable-world-manual-swap-short-expected.json',inputs=30,native=23,development_only=False,tests=SUITES['ammo-equivalent']['tests']+['test_portable_manual_swap.py','test_portable_weapon_phases.py','test_portable_query_boundaries.py'])
+SUITES['manual-swap']=dict(SUITES['ammo-equivalent'],script='research/verify-world-manual-swap-short.py',golden='research/portable-world-manual-swap-short-expected.json',inputs=30,native=23,development_only=False,parent_oracle_reuse=True,tests=SUITES['ammo-equivalent']['tests']+['test_portable_parent_oracles.py','test_portable_manual_swap.py','test_portable_weapon_phases.py','test_portable_query_boundaries.py'])
 SUITES['manual-swap-rosters']=dict(SUITES['manual-swap'],script='research/verify-world-manual-swap-rosters-short.py',golden='research/portable-world-manual-swap-rosters-short-expected.json',inputs=2,native=2)
 SUITES['ammo-equivalent-rosters-diagnostic']=dict(SUITES['ammo-equivalent-rosters'],source='gpu/world_skill_hp_basis_admission_entry.slang',development_only=True)
 SUITES['lost-hp-attack-revival']=dict(SUITES['lost-hp-attack'],script='research/verify-world-lost-hp-attack-revival-short.py',golden='research/portable-world-lost-hp-attack-revival-short-expected.json',inputs=3,native=3)
@@ -196,7 +196,7 @@ SUITES['pellet-shot-retention']=dict(SUITES['lost-hp-attack-retention'],script='
 SUITES['pellet-shot-retention']['support_files']=list(dict.fromkeys(SUITES['lost-hp-attack-retention']['support_files']+[SUITES[name]['golden'] for name in ('lost-hp-attack-retention','lost-hp-attack','lost-hp-attack-revival','lost-hp-attack-rosters')]))
 SUITES['ammo-equivalent-retention']=dict(SUITES['pellet-shot-retention'],script='research/verify-world-ammo-equivalent-retention-short.py',golden='research/portable-world-ammo-equivalent-retention-short-expected.json',inputs=1088,native=870,development_only=False,cpu_test_timeout=120,tests=list(dict.fromkeys(SUITES['pellet-shot-retention']['tests']+['test_portable_manual_swap_reference.py','test_portable_ammo_equivalent_reference.py','test_portable_ammo_equivalent.py','test_portable_ammo_equivalent_retention.py','test_portable_readiness_semantics.py'])))
 SUITES['ammo-equivalent-retention']['support_files']=list(dict.fromkeys(SUITES['pellet-shot-retention']['support_files']+[SUITES[name]['golden'] for name in ('pellet-shot-retention','pellet-shot','pellet-shot-rosters')]))
-SUITES['manual-swap-retention']=dict(SUITES['ammo-equivalent-retention'],script='research/verify-world-manual-swap-retention-short.py',golden='research/portable-world-manual-swap-retention-short-expected.json',inputs=1137,native=902,development_only=False,tests=list(dict.fromkeys(SUITES['ammo-equivalent-retention']['tests']+['test_portable_manual_swap.py','test_portable_manual_swap_retention.py'])))
+SUITES['manual-swap-retention']=dict(SUITES['ammo-equivalent-retention'],script='research/verify-world-manual-swap-retention-short.py',golden='research/portable-world-manual-swap-retention-short-expected.json',inputs=1137,native=902,development_only=False,parent_oracle_reuse=True,tests=list(dict.fromkeys(SUITES['ammo-equivalent-retention']['tests']+['test_portable_parent_oracles.py','test_portable_manual_swap.py','test_portable_manual_swap_retention.py'])))
 SUITES['manual-swap-retention']['support_files']=list(dict.fromkeys(SUITES['ammo-equivalent-retention']['support_files']+[SUITES[name]['golden'] for name in ('ammo-equivalent-retention','ammo-equivalent','ammo-equivalent-rosters','ammo-equivalent-catalogue')]))
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
     golden='research/portable-compiler-commands-heal-share-source-certificate.json',inputs=0,native=0,compiler_only=True,
@@ -492,14 +492,18 @@ def development_baseline(suite, cases):
                              for i,(name,words,domain) in enumerate(entries)])
 
 
-def native_hash(adapter, domain):
+def native_value(adapter, domain):
     if domain is None:
         value = dict(status=64)
     elif hasattr(adapter,'native_reference'):
         value = adapter.native_reference(domain)
     else:
         value = dict(zip(('battle','skill_trace'), adapter.suite.inspect_native(domain[0])))
-    return adapter.cross.digest(value)
+    return value
+
+
+def native_hash(adapter, domain):
+    return adapter.cross.digest(native_value(adapter,domain))
 
 
 @contextlib.contextmanager
@@ -511,7 +515,7 @@ def forbid_gpu():
         yield
 
 
-def cpu_preflight(m):
+def cpu_preflight(m,*,parent_oracles=None):
     started = time.perf_counter()
     (ROOT/'research/portable-build').mkdir(parents=True,exist_ok=True)
     # Patch before importing the adapter, so its from-import aliases are blocked.
@@ -522,11 +526,17 @@ def cpu_preflight(m):
         if sha(data) != golden['input_sha256'] or len(entries) != len(golden['entries']):
             raise ValueError('Input differs from golden')
         iw = adapter.suite.INPUT*4
+        if parent_oracles is not None:parent_oracles.prepare(adapter,entries)
         for i,(name,words,domain) in enumerate(entries):
             expected = golden['entries'][i]
-            if (name != expected['name'] or sha(data[4+i*iw:4+(i+1)*iw]) != expected['input_sha256']
-                or native_hash(adapter,domain) != expected['native_sha256']):
+            if name != expected['name'] or sha(data[4+i*iw:4+(i+1)*iw]) != expected['input_sha256']:
                 raise ValueError('First CPU/input mismatch: '+name)
+            before=parent_oracles.before(i) if parent_oracles is not None else None
+            value=native_value(adapter,domain)
+            if adapter.cross.digest(value) != expected['native_sha256']:
+                raise ValueError('First CPU/input mismatch: '+name)
+            if parent_oracles is not None:parent_oracles.remember(i,before,value,adapter.cross.digest)
+        if parent_oracles is not None:parent_oracles.finish()
     from portable_typed_cuda_proof_audit import verify_cpu_gpu_calls
     calls = dict(build=0,execute=0); verify_cpu_gpu_calls(calls)
     return dict(passed=True, input_count=len(entries), native_oracles=sum(domain is not None for _,_,domain in entries),
@@ -642,17 +652,45 @@ def readback_parts(path,count,block_size,expected_digest):
             raise ValueError('Readback changed during comparison: size/SHA mismatch')
 
 
-def compare_readback(m, capture, adapter=None):
+def stream_input_fingerprints(path,count,stride):
+    digest=hashlib.sha256();rows=[]
+    with Path(path).open('rb') as stream:
+        head=stream.read(4)
+        if len(head)!=4 or int.from_bytes(head,'little')!=count:raise ValueError('Saved input count mismatch')
+        digest.update(head)
+        for _ in range(count):
+            part=stream.read(stride)
+            if len(part)!=stride:raise ValueError('Saved input truncated')
+            digest.update(part);rows.append(sha(part))
+        if stream.read(1):raise ValueError('Saved input has trailing bytes')
+    return digest.hexdigest(),rows
+
+
+def compare_readback(m, capture, adapter=None,*,parent_oracles=None):
     """Re-run existing native comparators; no GPU builds/executes allowed."""
     (ROOT/'research/portable-build').mkdir(parents=True, exist_ok=True)
     with forbid_gpu():
-        adapter = adapter or open_suite(m)
-        entries,data = prepare_entries(adapter, m)
+        fallback_receipt=None
+        if parent_oracles is not None and not parent_oracles.usable:
+            parent_oracles.check(m,capture);parent_oracles.check(verify_package(ROOT),capture)
+            fallback_receipt=parent_oracles.fallback_receipt();parent_oracles.close();parent_oracles=None
+        if parent_oracles is not None:
+            parent_oracles.check(m,capture)
+            parent_oracles.start(verify_package(ROOT),capture)
+            adapter=parent_oracles.adapter;entries=parent_oracles.entries;data=None
+        else:
+            adapter = adapter or open_suite(m)
+            entries,data = prepare_entries(adapter, m)
         evidence=load(capture/'evidence.json')
         record=file_records(capture,['readback.bin'])[0];output_digest=record['sha256']
-        if (capture/'input.bin').read_bytes()!=data or sha(data)!=m['golden']['input_sha256']:
-            raise ValueError('Saved input mismatch')
-        if record['bytes']!=len(entries)*786432*4 or output_digest!=evidence['output_sha256'] or evidence['input_sha256']!=sha(data):
+        if parent_oracles is None:
+            if (capture/'input.bin').read_bytes()!=data or sha(data)!=m['golden']['input_sha256']:raise ValueError('Saved input mismatch')
+            input_hash=sha(data);iw=adapter.suite.INPUT*4
+            input_digests=[sha(data[4+i*iw:4+(i+1)*iw]) for i in range(len(entries))]
+        else:
+            input_hash,input_digests=stream_input_fingerprints(capture/'input.bin',len(entries),adapter.suite.INPUT*4)
+            if input_hash!=m['golden']['input_sha256']:raise ValueError('Saved input mismatch')
+        if record['bytes']!=len(entries)*786432*4 or output_digest!=evidence['output_sha256'] or evidence['input_sha256']!=input_hash:
             raise ValueError('Saved evidence/raw mismatch')
         audit_generation_capture(m,capture)
         if evidence['source_sha256']!=m['golden']['source_sha256'] or not evidence['gpu_execution_verified']:
@@ -693,15 +731,16 @@ def compare_readback(m, capture, adapter=None):
             block=array.array('I'); block.frombytes(part)
             if sys.byteorder!='little': block.byteswap()
             try:
-                if domain is None:
-                    if block[0]!=64:raise ValueError('Expected rejection status64')
-                    if hasattr(adapter,'validate_rejection'):adapter.validate_rejection(block,name)
-                    if SUITES[m['suite']].get('require_rejection_stage'):adapter.validate_rejection_stage(block,name)
-                    native=dict(status=64)
-                else:
-                    if block[0]!=0:raise ValueError('Expected GPU success status0; got status'+str(block[0]))
-                    native=adapter.compare(block,domain)
-                row=dict(name=name,input_sha256=sha(data[4+i*iw:4+(i+1)*iw]),output_sha256=sha(part),native_sha256=adapter.cross.digest(native))
+                with parent_oracles.comparison(i) if parent_oracles is not None else contextlib.nullcontext():
+                    if domain is None:
+                        if block[0]!=64:raise ValueError('Expected rejection status64')
+                        if hasattr(adapter,'validate_rejection'):adapter.validate_rejection(block,name)
+                        if SUITES[m['suite']].get('require_rejection_stage'):adapter.validate_rejection_stage(block,name)
+                        native=dict(status=64)
+                    else:
+                        if block[0]!=0:raise ValueError('Expected GPU success status0; got status'+str(block[0]))
+                        native=adapter.compare(block,domain)
+                row=dict(name=name,input_sha256=input_digests[i],output_sha256=sha(part),native_sha256=adapter.cross.digest(native))
                 expected = m['golden']['entries'][i]
                 actual = {key:row[key] for key in expected} if is_development(m) else row
                 if actual!=expected:mismatches.append(dict(index=i,name=name,reason='fingerprint mismatch'))
@@ -716,7 +755,8 @@ def compare_readback(m, capture, adapter=None):
         if not is_development(m) and output_digest!=m['golden']['output_sha256']:mismatches.append(dict(reason='full readback fingerprint mismatch'))
         return dict(calculation_verified=not mismatches, entries=results, mismatches=mismatches,
                     input_count=len(entries), native_oracles=sum(domain is not None for _,_,domain in entries),
-                    input_sha256=sha(data),output_sha256=output_digest,generated_normalized=generated,audit_gpu_calls=0)
+                    input_sha256=input_hash,output_sha256=output_digest,generated_normalized=generated,audit_gpu_calls=0,
+                    **(dict(parent_oracles=parent_oracles.receipt()) if parent_oracles is not None else dict(parent_oracles=fallback_receipt) if fallback_receipt is not None else {}))
 
 
 def replay_source(m, source_package, source_capture,reference_migration=None):
@@ -1061,6 +1101,7 @@ def cpu_test_groups(m,capture,smoke=False):
 
 
 def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_only=False,*,linked_package=None,linked_capture=None):
+    parent_oracles=None
     m=verify_package(ROOT)
     if compiler_only(m) and not smoke:raise ValueError('Compiler diagnostic cannot execute a battle')
     if is_development(m) and backend!='metal':raise ValueError('Development execution requires Metal; seal before CUDA verification')
@@ -1085,10 +1126,14 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
             compiler=compiler_root/'bin'/('slangc.exe' if os.name=='nt' else 'slangc')
             if not compiler.is_file():
                 raise ValueError('Slang compiler missing: '+str(compiler)+'; specify --slang-root')
+        if not smoke and not cpu_only and SUITES[m['suite']].get('parent_oracle_reuse'):
+            from portable_parent_oracles import ParentOracles
+            parent_oracles=ParentOracles(m,capture)
         pre=(dict(passed=True,controller_only=True,input_count=0,native_oracles=0,gpu_calls=0)
-             if smoke else cpu_preflight(m))
+             if smoke else cpu_preflight(m,**(dict(parent_oracles=parent_oracles) if parent_oracles is not None else {})))
         write(capture/'cpu.json',pre)
         cpu_test_groups(m,capture,smoke)
+        if parent_oracles is not None:parent_oracles.check(verify_package(ROOT),capture)
         if cpu_only:
             write(capture/'result.json',dict(cpu_verified=True,gpu_calls=0,calculation_verified=False,preservation_verified=None,status='cpu-only'))
         else:
@@ -1106,7 +1151,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
             if not smoke:
                 # Child publishes generated files before comparing; failed compilation may lack them.
                 copy_generated(capture,m['suite'],partial=True)
-                result=audit_capture(capture,verify_artifacts=False,record_comparison=True)
+                result=audit_capture(capture,verify_artifacts=False,record_comparison=True,**(dict(parent_oracles=parent_oracles) if parent_oracles is not None else {}))
             else:
                 marker=load(capture/'smoke.json') if (capture/'smoke.json').exists() else {}
                 smoke_ok=facts['passed']
@@ -1122,6 +1167,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
         run=load(capture/'run.json');run['status']='failed';write(capture/'run.json',run)
         raise
     finally:
+        if parent_oracles is not None:parent_oracles.close()
         collect(capture,capture/'artifacts.json')
     return load(capture/'result.json')
 
@@ -1850,8 +1896,11 @@ def environment_preserved(capture,facts,backend='cuda'):
     return preservation
 
 
-def audit_capture(capture,verify_artifacts=True,*,record_comparison=False):
+def audit_capture(capture,verify_artifacts=True,*,record_comparison=False,parent_oracles=None):
     m=verify_package(ROOT)
+    if parent_oracles is not None:
+        if not record_comparison or load(capture/'run.json').get('mode')!='gpu':raise ValueError('Preflight oracles are only for the owning live battle audit')
+        parent_oracles.check(m,capture)
     if load(capture/'run.json')['package_id']!=m['package_id']:raise ValueError('Capture belongs to another package')
     if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
     if load(capture/'run.json').get('mode')=='jit-link-object-only':
@@ -1877,7 +1926,7 @@ def audit_capture(capture,verify_artifacts=True,*,record_comparison=False):
         try:
             if record_comparison:
                 from portable_phase_audit import Journal
-                comparison=Journal(capture/'audit-phases.jsonl').invoke('shared_native_compare',compare_readback,m,capture)
+                comparison=Journal(capture/'audit-phases.jsonl').invoke('shared_native_compare',compare_readback,m,capture,**(dict(parent_oracles=parent_oracles) if parent_oracles is not None else {}))
             else:comparison=compare_readback(m,capture)
             if record_comparison:write(capture/'comparison.json',comparison)
             calc=comparison['calculation_verified']

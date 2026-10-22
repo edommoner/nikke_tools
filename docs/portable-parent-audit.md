@@ -1,3 +1,5 @@
+後続の同一親内preflight再利用は [親の正本結果再利用](portable-parent-oracles.md) を参照。独立監査はfresh比較を維持します。以下は子から親へ比較を移した段階の履歴です。
+
 # 共通CLIの親監査とCPU比較の重複解消
 
 Claudeの全体レビューを反映し、GPU子プロセスはinput／raw／evidence／生成コードの保存までで終了するようにしました。親プロセスが保存byteを既存compare_readbackで一度照合し、comparison.jsonとresult.jsonを記録します。計算本体、共通効果、native oracle、厳密normalizer、goldenは変更していません。
