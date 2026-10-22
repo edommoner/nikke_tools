@@ -113,7 +113,11 @@ def run(capture,tool,raw,source,*,journal,popen=None,inspector=None):
             process=creator(argv,cwd=capture,stdin=subprocess.DEVNULL,stdout=stdout,stderr=stderr,shell=False,
                 creationflags=subprocess.BELOW_NORMAL_PRIORITY_CLASS if os.name=='nt' else 0)
             snapshot=reader(process)
-            if not assembler.contained(snapshot,os.getpid(),process.pid):raise RuntimeError('Native tool is not in the validation Job')
+            if not assembler.contained(snapshot,os.getpid(),process.pid):
+                # Preserve the failed observation without blessing a short-lived
+                # process that may already have exited before enumeration.
+                journal.emit(prefix+'_child','rejected',inspection=snapshot,observed_return_code=process.poll())
+                raise RuntimeError('Native tool is not in the validation Job')
             journal.emit(prefix+'_child','verified',inspection=snapshot)
             code=process.wait(timeout=55)
         elapsed=time.perf_counter()-started

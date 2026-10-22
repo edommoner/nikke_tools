@@ -78,6 +78,21 @@ class DeviceLinkerTests(unittest.TestCase):
             with self.assertRaises(FileNotFoundError):cli.linked_object_origin(self.request)
         self.assertFalse(self.processes)
 
+    def test_failed_native_observation_is_retained_without_certifying_an_early_exit(self):
+        with self.context():
+            origin,raw=cli.linked_object_origin(self.request)
+            snapshot=dict(wrapper_pid=os.getpid(),child_pid=os.getpid()+2000,job_members=[os.getpid()],parent_observation='os_process_snapshot')
+            def exited(argv,**kwargs):
+                process=self.popen(argv,**kwargs);process.done=True;self.code=7;return process
+            with self.assertRaisesRegex(RuntimeError,'not in the validation Job'):
+                obj.run(self.capture,self.tool,raw,origin,journal=module_tests.focus_tests.baseline.producer_test.Journal(self.capture/'phases.jsonl'),popen=exited,inspector=lambda process:snapshot)
+        rows=[json.loads(line) for line in (self.capture/'phases.jsonl').read_text().splitlines()]
+        rejected=[r for r in rows if r['stage']=='module_link_child' and r['state']=='rejected']
+        self.assertEqual(len(rejected),1);self.assertEqual(rejected[0]['inspection'],snapshot)
+        self.assertEqual(rejected[0]['observed_return_code'],7);self.assertEqual(len(self.processes),1)
+        self.assertFalse(self.processes[0].terminated);self.assertFalse((self.capture/'linked.cubin').exists())
+        self.assertFalse(any(r['stage']=='module_link_receipt' for r in rows))
+
     def test_linker_timeout_keeps_partial_and_terminates_owned_process_without_retry(self):
         self.timeout=True
         with self.context(),self.assertRaises(subprocess.TimeoutExpired):

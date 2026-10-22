@@ -1,3 +1,7 @@
+<!-- device-link-failed-current -->
+Windows330b204のlink1回は失敗。package2010/tool/license/元object全byte/CPU origin gate一致、CPU202全成功・Job smoke成功。nvlinkは出力作成不可、続くnative子所属確認は不成立。native return/snapshot未保存・CUBINなし・link/計算false。外Job31.986572秒/peak62066688B/2GiB/timeoutなし/post空/missing0/cleanup観測errorなし、native子の証明とは別。service未識別はpreservation=false。原失敗claim保持、retry/出力先変更/追加compile/driver/GPU0。入力.oはLLVMの生ELF.cubin要求と相違するが出力エラー原因と断定しない。Windowsへ元ACL/path/ELF symbols/保存記録のCPU-only診断を依頼済み。Mac共通engineは所属拒否snapshot/観測可能returnを今後保存する修正、関連31成功。起動前native gateは未実装。full package b9434efは準備済みだが追加native試行は診断後。全キャラ認定0/本体CUDA未成立/Metal849+実4/parts CPU32維持。詳細docs/portable-device-link.mdとresearch/portable-world-v135-device-link-peer-report.json。以下は履歴です。
+<!-- /device-link-failed-current -->
+
 <!-- full-compiler-package-current -->
 compiler-fullを既存compiler-only経路へ登録。Metal849と同一full entry/全110 source/両生成指紋をsource-only certificateへ固定し、追加wrapperやGPU数学/normalizer変更なし。commandsはwrapper1追加、fullはclosure完全同一と生成指紋一致を検査。historical/通常battle拒否と2GiB/60秒/PTX/driver禁止を保持。fresh package CPU205中204成功/Windows1skip、新しいcompile/link/driver/GPU0。Windowsは固定330b204の保存旧commands object linkを検証中で、その結果を評価してから現行full compileの独立packageを選ぶ。full CUDA計算/全キャラ認定0、Metal849+実4/parts CPU32は不変。詳細docs/portable-full-compiler.md、research/portable-full-compiler-checkpoint.json。以下は履歴です。
 <!-- /full-compiler-package-current -->

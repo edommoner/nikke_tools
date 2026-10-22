@@ -31,3 +31,13 @@ focus／moduleと同じ`portable_partition_object.run`、native process inspecto
 - 別modeやsource_kind、wrong tool／hash、欠落symbol／誤target／切断payloadは拒否する。失敗・partial・claimを保持し、retry／fallback／再コンパイル／cap拡大をしない。
 
 `link_verified`はこの静的linkと保存証拠の検証まで。driver load、実際のGPU binding／kernel、計算一致は未証明で、`calculation_verified=false`を維持する。元v135はcommands-onlyなので、現在のfull battle entryや全キャラ／全特殊効果対応と同一視しない。サービス未識別はpreservation=false／exit2。次の計算用cache接続には、full source／生成物／toolchain・artifact identityの一致と独立したGPU検証が必要である。
+
+## 330b204のWindows失敗記録と次の確認
+
+固定package／2010 file table／公式tool・LICENSEのSHA、元object全byte、元生成記録とJob／claimのCPU origin gateは一致。Windows CPU202全成功、Job smokeも成功した。link-objectは1回で失敗し、nvlink stdoutに`Could not open output file`、共通engineに`Native tool is not in the validation Job`が残った。戻り値・native child snapshotは元journalに保存されず、CUBINもなく、link／計算の認定はfalse。
+
+外側Jobは31.986572秒、peak62,066,688byte／2GiB、timeoutなし、post空、欠落0、cleanup／観測errorなし。これはnative子の2PID所属証明とは別である。service未識別のpreservation=falseを維持。原本・失敗・claimは保持し、同条件retry／出力先変更／追加compiler・driver・GPUは行わない。小さいpeer summaryは`research/portable-world-v135-device-link-peer-report.json`。Macはsummary照合までで、Windows原本の独立監査ではない。
+
+入力の`.o`には別の懸念がある。[LLVMのClangNVLinkWrapper](https://github.com/llvm/llvm-project/blob/main/clang/tools/clang-nvlink-wrapper/ClangNVLinkWrapper.cpp)は、生のNVPTX ELFをbyte-preserving copyで`.cubin`へ写してnvlinkへ渡す（fatbinaryのhost objectは`.o`）。今回の出力作成エラーを拡張子が原因と断定しない。元objectは変更せず、ACL／path／補助出力仕様と保存ELF symbolをCPUで確認してから、新しい明示的入力契約を選ぶ。
+
+共通engineは、今後の所属確認拒否で`*_child/rejected`へ実際のsnapshotと`process.poll()`で取得可能な戻り値を残す。早期終了を成功とみなさず、元失敗の記録を作り直さない。新しい故障注入1件と既存link9＋focus16＋module5が成功。実toolの起動前に所属を観測できる仕組みは未実装であり、次のnative試行前に検討する。現行full compiler packageは準備済みだが、この失敗を無視してfull native試行を増やさない。
