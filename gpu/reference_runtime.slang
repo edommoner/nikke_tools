@@ -38,6 +38,21 @@ uint64_t referenceCount(inout Runtime s, uint who, uint key, uint name, bool gau
     }
     present=false; return 0;
 }
+uint modeCapacityReference(inout Runtime s, uint row)
+{ return commands[s.inputBase+P_REFERENCE_DEFINITION_BASE+row*4+3]; }
+[noinline]
+uint referencedModeCapacity(inout Runtime s, uint who, uint row, uint64_t when)
+{
+    uint descriptor=modeCapacityReference(s,row), base=commands[s.inputBase+P_MODE_BASE+row*P_MODE_WORDS+1];
+    bool present; s.sourceTime=when;
+    uint64_t value=referenceCount(s,who,(descriptor&511U)-1,descriptor>>9,false,present);
+    if (!present) value=ONE;
+    uint status; uint64_t count=f64ToI64(value,1,status);
+    if (base==0) { s.error=2;return 0; }
+    if (!f64Finite(value) || f64Less(value,0) || status!=0 || count>uint64_t(0x7fffffffU/base))
+    { s.error=2;return 0; }
+    return uint(count)*base;
+}
 [noinline]
 uint activationHitCount(inout Runtime s, uint row)
 {
@@ -113,7 +128,7 @@ bool validateReferences(inout Runtime s)
     for (uint row=0; row<s.count; row++)
     {
         uint at=s.inputBase+P_REFERENCE_DEFINITION_BASE+row*4,word=commands[at],hit=word&3,scale=(word>>2)&3,keys=commands[at+1],names=commands[at+2];
-        if (hit>2 || (word&~15U)!=0 || (keys&~0x3ffffU)!=0 || (names&~0xffffU)!=0 || commands[at+3]!=0) return false;
+        if (hit>2 || (word&~15U)!=0 || (keys&~0x3ffffU)!=0 || (names&~0xffffU)!=0) return false;
         for (uint part=0; part<2; part++)
         {
             uint mode=part==0 ? hit : scale,key=(keys>>(part*9))&511,name=(names>>(part*8))&255;
@@ -121,6 +136,9 @@ bool validateReferences(inout Runtime s)
             if (key==0 || key>s.resourceCount || name!=commands[s.inputBase+P_RESOURCE_NAME_BASE+key-1]) return false;
         }
         Definition d=readDefinition(s.inputBase,row);
+        uint magazine=commands[at+3],capacityKey=magazine&511U,capacityName=magazine>>9;
+        if (magazine!=0 && ((magazine&~0x1ffffU)!=0 || d.kind!=2 || s.combat==0 || capacityKey==0 || capacityKey>s.resourceCount ||
+            capacityName!=commands[s.inputBase+P_RESOURCE_NAME_BASE+capacityKey-1] || commands[s.inputBase+P_MODE_BASE+row*P_MODE_WORDS+21]!=0)) return false;
         if ((d.flags&~3583U)!=0 || uint((d.flags&4)!=0)!=uint(scale!=0)) return false;
         bool directHealth=(d.alliedFlags&1)!=0 || d.stat==S_def_caster_based_pct || (d.stat>=S_max_hp_pct&&d.stat<=S_max_hp_only_pct) || d.stat==S_max_hp_from_max_hp_pct;
         if ((d.flags&256U)!=0 && (d.kind!=0 || d.enemyBuff!=0 || s.combat==0 || !directHealth || (d.flags&2)==0 || !f64Less(d.duration,0))) return false;

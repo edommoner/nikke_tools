@@ -24,7 +24,7 @@ def identities(effects,script,limit):
     def add(name):
         if not isinstance(name,str) or not name or ':' in name:raise ValueError('Invalid resource identity')
         keys.setdefault(name,len(keys))
-    from portable_reference_specs import hit_reference,scale_reference
+    from portable_reference_specs import hit_reference,scale_reference,mode_capacity_reference
     from staged_dot_specs import specification as staged_specification
     for effect,owner in effects:
         staged=staged_specification(effect,owner,effects)
@@ -33,6 +33,8 @@ def identities(effects,script,limit):
         if mode:add(name)
         scale,name=scale_reference(effect)
         if scale:add(name)
+        capacity_name=mode_capacity_reference(effect)
+        if capacity_name is not None:add(capacity_name)
         if operation(effect):add(effect['gauge_id'])
         for t in effect.get('trigger',{}).get('timing',[]):
             if t.startswith('every_stack:'):add(t.split(':')[1])

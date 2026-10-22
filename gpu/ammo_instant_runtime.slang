@@ -31,7 +31,8 @@ uint ammoInstantCapacity(inout Runtime s, uint who, uint64_t when)
     if (commands[s.inputBase+P_MODE_BASE+uint(mode)*P_MODE_WORDS+21] != 0) return fullCapacity(s,who,base,true,when);
     if (s.modeCapacityEpoch[who] == s.modeEpoch[who]) return s.modeMagazine[who];
     uint at = s.inputBase+P_MODE_BASE+uint(mode)*P_MODE_WORDS;
-    uint capacity = fullCapacity(s,who,commands[at+1],commands[at+23] != 0,when);
+    uint capacity = modeCapacityReference(s,uint(mode)) != 0 ? referencedModeCapacity(s,who,uint(mode),when) : fullCapacity(s,who,commands[at+1],commands[at+23] != 0,when);
+    if (s.error != 0) return 0;
     s.modeMagazine[who] = capacity; s.modeCapacityEpoch[who] = s.modeEpoch[who];
     return capacity;
 }

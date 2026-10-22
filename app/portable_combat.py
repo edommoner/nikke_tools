@@ -102,10 +102,14 @@ def pack_combat(words, config, double_words):
 
 def pack_mode(words,index,row,double_words):
     """Reuse legacy compiler's mechanics; reject every discarded behavior."""
-    if int(row[224]) not in (1,2,3) or int(row[224])!=2 and row[24]!=row[28] or row[234]!=-1 or row[235]:
+    if int(row[224]) not in (1,2,3) or int(row[224])!=2 and row[24]!=row[28] or row[235]:
         raise ValueError('Unported dynamic magazine or skill-mode policy')
     if not 0<=row[42]<=180:raise ValueError('Invalid mode entry delay')
     capacity=int(row[27]);pellets=int(row[25]);muzzles=int(row[29]);limit=int(row[232])
+    reference=words[L['REFERENCE_DEFINITION_BASE']+index*4+3]
+    if capacity!=-1 and row[234]!=-1:
+        if reference==0 or reference>>9!=int(row[234]):raise ValueError('Mode capacity reference identity mismatch')
+    elif reference:raise ValueError('Unexpected mode capacity reference')
     if capacity!=-1 and not 1<=capacity<=10000 or not 1<=pellets<=64 or not 1<=muzzles<=8 or limit < -1 or limit>10000:
         raise ValueError('Invalid bounded mode dimensions')
     if not 0<row[28]<=1e6 or not 0<=row[237]<=180 or not 0<row[225]<=180 or not 0<=row[227]<=180 or not 0<=row[249]<=100:

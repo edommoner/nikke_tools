@@ -48,7 +48,17 @@ void advanceWeaponCharge(inout Runtime s,inout Weapon w,uint who,uint64_t when,u
     }
     w.infinite = uint(hasInfiniteAmmo(s,who,when));
     if (w.infinite == 0 && s.ammo[who] <= 0 && (w.mode != 1 || s.charging[who] == 0))
-    { beginReload(s,w,who,when); return; }
+    {
+        beginReload(s,w,who,when);
+        // Native checks all-ammo completion after its zero-ammo reload attempt.
+        // Infinite ammo bypasses this branch and may still fire before ending.
+        if (s.error == 0 && mode >= 0 && w.shotLimit == 0 && modeCapacityReference(s,uint(mode)) != 0)
+        {
+            uint name=definition_name(s.inputBase,uint(mode));s.frameAmmoActive[who]=0;s.physicalGaugeOwner=0;
+            clearMode(s,who,when);dispatch(s,0,29,who,int(name),when,output);
+        }
+        return;
+    }
     if (w.mode == 1)
     {
         if (s.charging[who] == 0)

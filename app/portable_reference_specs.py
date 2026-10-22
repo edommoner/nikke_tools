@@ -32,7 +32,18 @@ def scale_reference(effect):
     if effect.get('type')=='damage' and effect.get('stat')=='dot_damage' and effect.get('tick_interval'):return 3,name
     return 0,None
 
+def mode_capacity_reference(effect):
+    if effect.get('type')!='weapon_change' or 'max_ammo_scaling_ref' not in effect:return None
+    name=effect['max_ammo_scaling_ref']
+    if not isinstance(name,str) or not name or ':' in name:raise ValueError('Mode capacity requires a nonempty simple reference name')
+    if 'max_ammo' not in effect:raise ValueError('Referenced mode capacity requires explicit max_ammo')
+    base=effect['max_ammo']
+    if type(base) not in (int,float) or not (base==-1 or 1<=base<=10000) or int(base)!=base:raise ValueError('Referenced mode capacity requires an exact bounded integer base')
+    return None if effect['max_ammo']==-1 else name
+
 def pack(words,index,L,effect,keys,states,fields):
     hit,hname=hit_reference(effect);scale,sname=scale_reference(effect);at=L['REFERENCE_DEFINITION_BASE']+index*4
     words[at:at+4]=[hit|(scale<<2),(keys[hname]+1 if hit else 0)|((keys[sname]+1 if scale else 0)<<9),(states[hname] if hit else 0)|((states[sname] if scale else 0)<<8),0]
+    name=mode_capacity_reference(effect)
+    if name is not None:words[at+3]=(keys[name]+1)|(states[name]<<9)
     if scale:words[L['DEFINITION_BASE']+index*L['DEFINITION_WORDS']+fields['FLAGS']] |= 4

@@ -33,7 +33,9 @@ void beginReload(inout Runtime s, Weapon w, uint who, uint64_t when)
 bool completeReload(inout Runtime s, Weapon w, uint who, uint64_t when, uint output)
 {
     uint rawCapacity = s.modeIndex[who] < 0 ? s.capacity[who] : commands[s.inputBase+P_MODE_BASE+uint(s.modeIndex[who])*P_MODE_WORDS+1];
-    w.capacity = fullCapacity(s,who,rawCapacity,w.ammoBuffs != 0,when);
+    if (s.modeIndex[who] >= 0 && modeCapacityReference(s,uint(s.modeIndex[who])) != 0)
+    { s.modeCapacityEpoch[who]=0;w.capacity=ammoInstantCapacity(s,who,when); }
+    else w.capacity = fullCapacity(s,who,rawCapacity,w.ammoBuffs != 0,when);
     if (s.error != 0) return false;
     if (s.modeIndex[who] >= 0) { s.modeMagazine[who] = w.capacity; s.modeCapacityEpoch[who] = s.modeEpoch[who]; }
     uint64_t fraction = ONE;

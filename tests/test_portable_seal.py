@@ -1,9 +1,10 @@
 """Independent sealing must use a fresh comparison exactly once, never old JSON."""
+import os,hashlib,json,tempfile
 import importlib.util
 from pathlib import Path
 from types import SimpleNamespace
 import unittest
-from unittest.mock import Mock
+from unittest.mock import Mock,patch
 
 ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('seal_test_cli',ROOT/'scripts/nikke_gpu.py')
@@ -44,6 +45,43 @@ class SealTests(unittest.TestCase):
         module.audit_capture=lambda capture:module.compare_readback('manifest',capture)
         with self.assertRaisesRegex(ValueError,'Raw mismatch'):cli.audited_comparison(module,'capture')
         self.assertIs(module.compare_readback,compare)
+
+
+    def test_independent_seal_uses_package_relative_oracle_from_another_checkout(self):
+        # Old research adapters contain relative spec_from_file_location paths.
+        # Use a real child interpreter and different oracles in both checkouts.
+        with tempfile.TemporaryDirectory() as tmp:
+            base=Path(tmp);package=base/'package';other=base/'other';capture=base/'capture'
+            for root in (package,other):
+                (root/'research').mkdir(parents=True);(root/'gpu').mkdir()
+                (root/'gpu/proof.slang').write_text('same GPU source')
+            (package/'research/oracle.py').write_text("LABEL='package'\n")
+            (other/'research/oracle.py').write_text("LABEL='other'\n")
+            digest=hashlib.sha256((package/'gpu/proof.slang').read_bytes()).hexdigest()
+            (package/'scripts').mkdir();capture.mkdir();(capture/'run.json').write_text('{"backend":"metal"}')
+            fake="""import json,runpy
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+def load(path):return json.loads(path.read_text())
+def verify_package(root):return dict(package_id='frozen',purpose='development',golden=dict(source_sha256={'gpu/proof.slang':DIGEST}))
+def is_development(manifest):return manifest['purpose']=='development'
+def compare_readback(capture):
+    label=runpy.run_path('research/oracle.py')['LABEL']
+    if label!='package':raise ValueError('Imported oracle from another checkout')
+    return dict(input_sha256='input',output_sha256='output',entries=[dict(name=label)],generated_normalized={},calculation_verified=True)
+def audit_capture(capture):
+    compare_readback(capture)
+    return dict(calculation_verified=True)
+""".replace('DIGEST',repr(digest))
+            (package/'scripts/nikke_gpu.py').write_text(fake)
+            output=base/'sealed.json'
+            previous=Path.cwd()
+            try:
+                os.chdir(other)
+                with patch.object(cli,'ROOT',other):result=cli.seal_development(package,capture,output)
+            finally:os.chdir(previous)
+            self.assertTrue(result['sealed']);self.assertEqual(result['gpu_calls'],0)
+            self.assertEqual(json.loads(output.read_text())['entries'],[dict(name='package')])
 
 
 if __name__=='__main__':unittest.main()

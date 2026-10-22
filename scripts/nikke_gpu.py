@@ -141,6 +141,9 @@ SUITES['definition-view']=dict(script='research/verify-definition-view-short.py'
 SUITES['damage-factors']=dict(script='research/verify-damage-factors-short.py',source='gpu/damage_factors_probe.slang',
     golden='research/portable-damage-factors-short-expected.json',inputs=16,native=16,development_only=False,
     tests=['test_portable_damage_factors.py'])
+SUITES['mode-capacity']=dict(script='research/verify-world-mode-capacity-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-mode-capacity-short-expected.json',inputs=32,native=26,development_only=False,tests=['test_portable_mode_capacity_reference.py','test_portable_mode_capacity.py','test_portable_definition_view.py','test_portable_weapon_phases.py','test_portable_references.py','test_portable_combat.py','test_portable_seal.py','test_portable_query_boundaries.py'])
+SUITES['mode-capacity-instant']=dict(SUITES['mode-capacity'],script='research/verify-world-mode-capacity-instant-short.py',golden='research/portable-world-mode-capacity-instant-short-expected.json',inputs=3,native=3)
+SUITES['mode-capacity-rosters']=dict(script='research/verify-world-mode-capacity-rosters-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-mode-capacity-rosters-short-expected.json',inputs=2,native=2,development_only=False,tests=['test_portable_mode_capacity_reference.py','test_portable_mode_capacity.py','test_portable_definition_view.py','test_portable_real_binding_proof.py'])
 SUITES['ally-burst']=dict(script='research/verify-world-ally-burst-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-ally-burst-short-expected.json',inputs=16,native=15,development_only=False,tests=['test_portable_ally_burst.py','test_portable_definition_view.py','test_portable_burst_recipients.py'])
 SUITES['ally-burst-rosters']=dict(script='research/verify-world-ally-burst-rosters-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-ally-burst-rosters-short-expected.json',inputs=2,native=2,development_only=False,tests=['test_portable_ally_burst.py','test_portable_definition_view.py','test_portable_real_binding_proof.py'])
 SUITES['parts-skill-world']=dict(script='research/verify-world-parts-skill-short.py',source='gpu/world_entry_reload_resident_entry.slang',
@@ -164,6 +167,8 @@ SUITES['heal-share-regression']=dict(SUITES['entry-reload-regression'],script='r
     golden='research/portable-world-heal-share-regression-short-expected.json',inputs=849,native=676,development_only=False,
     tests=SUITES['entry-reload-regression']['tests']+['test_portable_heal_share_gpu.py','test_portable_heal_share_trace.py'])
 SUITES['heal-share-regression']['tests'].append('test_portable_ally_burst.py')
+for mode_capacity_test in ('test_portable_mode_capacity_reference.py','test_portable_mode_capacity.py','test_portable_seal.py'):
+    if mode_capacity_test not in SUITES['heal-share-regression']['tests']:SUITES['heal-share-regression']['tests'].append(mode_capacity_test)
 SUITES['heal-share-rosters']=dict(script='research/verify-world-heal-share-rosters-short.py',source='gpu/world_entry_reload_resident_entry.slang',
     golden='research/portable-world-heal-share-rosters-short-expected.json',inputs=4,native=4,development_only=False,
     tests=['test_portable_heal_share_gpu.py','test_portable_real_binding_proof.py','test_portable_linked_artifact.py'])
@@ -872,6 +877,7 @@ def seal_development(package_root, capture, output):
     """Explicit GPU0 seal of a successful immutable Metal development capture."""
     # Use the package's own imports and auditors in a fresh process. Its files
     # are verified before native work; never patch a consumed package in place.
+    # Legacy adapter chains use relative module paths: anchor their cwd too.
     script = """import importlib.util,json,sys,pathlib
 root=pathlib.Path(sys.argv[1]);capture=pathlib.Path(sys.argv[2])
 s=importlib.util.spec_from_file_location('seal_controller',sys.argv[3])
@@ -885,7 +891,7 @@ g=dict(input_sha256=r['input_sha256'],output_sha256=r['output_sha256'],source_sh
 print(json.dumps(dict(golden=g,package_id=p['package_id'],audit=a)))
 """
     completed=subprocess.run([sys.executable,'-c',script,str(package_root.resolve()),str(capture.resolve()),str(Path(__file__).resolve())],
-                             capture_output=True,text=True,check=True,timeout=60)
+                             cwd=package_root.resolve(),capture_output=True,text=True,check=True,timeout=60)
     result=json.loads(completed.stdout)
     for name,digest in result['golden']['source_sha256'].items():
         if sha((ROOT/name).read_bytes())!=digest:raise ValueError('Current source differs from verified Metal source')

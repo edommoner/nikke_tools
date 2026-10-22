@@ -1,3 +1,7 @@
+<!-- mode-capacity-current -->
+武器変更max_ammo_scaling_refを共通Slangへ接続。None/0、ゲージ→召喚体→stackの優先順位、整数倍率、進入/再進入/再装填snapshot、弾薬即時操作、容量0と無限弾薬、散弾/2銃口/charge/sentinelのCPU29契約を固定。sealed mode-capacity32(native26/拒否6)＋追加instant3＋E.H.全定義3秒/30秒2入力がMetal一致・独立seal。旧849/部位63/実4/味方通知16/ルピー2も同sourceで全一致・独立seal、計971、旧934の全entriesとraw2938109952Bを全byte保持。CPU回帰330成功。Runtime追加field0/stride138952、CUDA定数48B、full114/commands115 certificate更新。sealのCWD混在を修正し、異なる2checkoutの実子プロセス検査4件を通過、保存32のCPU監査結果がpackage自身からのsealと完全一致。初回query guard3失敗はGPU前/claimなしで保持し、元fixtureを換えず有限deltaを接続。E.H.履歴152/1388・省略0、30秒で容量1/モード1packetの実行を正本でも観測。静的220/266・base160/203・75分類はGPU認定ではない。Windows追加GPU/native/compile0・既存7終了unknown/環境保全falseで停止維持。通常UI CPU/全キャラ認定0/ゴール未達。詳細docs/portable-mode-capacity.mdとresearch/portable-mode-capacity-checkpoint.json。次も正本consumerのある未対応項目を優先し、未確認projectile/shieldをnoop受付しない。以下は履歴です。
+<!-- /mode-capacity-current -->
+
 現行certificateは味方バースト通知接続後のMetal16・新実2・旧849／実4／部位63と対応するfull114／commands115 sourceです。全て独立seal済み、Runtime stride138952／CUDA定数48byte。新版CUDAコンパイル／リンク／計算成立の証明ではありません。Windows新規検証停止を維持します。詳細[味方バースト通知](portable-ally-burst.md)。以下は履歴です。
 
 現行source certificateはfull114／commands115 sourceで、物理interrupt接続後のMetal63・849・実4と同一のGPU本体へ更新しました。両生成とRuntime stride138952／CUDA定数48byteを照合し、生成cacheを再利用しています。これは新しいCUDAコンパイル・リンク・戦闘の証明ではありません。Windowsの追加検証停止を維持します。詳細は[物理interrupt](portable-physical-interrupt.md)、以下は履歴です。

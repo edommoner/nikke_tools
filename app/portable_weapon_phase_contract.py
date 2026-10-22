@@ -87,4 +87,4 @@ def verify(root,*,phase_source=None,wrapper_source=None):
     assert tokens(body(wrapper,'weaponFrameBody'))==tokens(expected),'Weapon phase call/argument/snapshot/exit contract changed'
     return dict(verified=True,gpu_calls=0,baseline_commit=fixture['baseline_commit'],phases=list(NAMES),
         token_count=len(tokens(before)),token_sha256=hashlib.sha256(json.dumps(tokens(before),separators=(',',':')).encode()).hexdigest(),
-        land_macro_contract=macro_contract,helper_signature_contract_verified=True,wrapper_exit_contract_verified=True,reviewed_physical_interrupt_hook=True,scope='Reconstructed original statements outside the exact physical interrupt hook and explicit call/argument/ready ordering. Not runtime/compiler resource proof')
+        land_macro_contract=macro_contract,helper_signature_contract_verified=True,wrapper_exit_contract_verified=True,reviewed_physical_interrupt_hook=True,reviewed_mode_capacity_hook=True,scope='Reconstructed original statements outside the exact physical interrupt and mode-capacity zero-ammo hooks and explicit call/argument/ready ordering. Not runtime/compiler resource proof')

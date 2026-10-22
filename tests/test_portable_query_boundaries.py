@@ -6,7 +6,7 @@ from portable_query_boundary_contract import verify
 
 class QueryBoundaryTests(unittest.TestCase):
     def test_six_annotations_and_only_reviewed_snapshot_delta_preserve_baseline_tokens(self):
-        result=verify(ROOT);self.assertTrue(result['verified']);self.assertEqual(len(result['functions']),6);self.assertFalse(result['original_file_tokens_preserved']);self.assertTrue(result['unmodified_tokens_preserved']);self.assertTrue(result['explicit_scope_snapshot_delta'])
+        result=verify(ROOT);self.assertTrue(result['verified']);self.assertEqual(len(result['functions']),6);self.assertFalse(result['original_file_tokens_preserved']);self.assertTrue(result['unmodified_tokens_preserved']);self.assertTrue(result['explicit_scope_snapshot_delta']);self.assertTrue(result['explicit_mode_capacity_delta']);self.assertEqual(result['reviewed_mode_capacity_sources'],['gpu/ammo_instant_runtime.slang'])
     def test_altered_scope_snapshot_helper_or_use_is_rejected(self):
         name='gpu/world_actor_state.slang';source=(ROOT/name).read_text()
         for old,new in [('return results[at];','return results[at+1];'),('actorStateQueryScopeSnapshot(at);','actorStateQueryScopeSnapshot(at+1);'),('[noinline]\nuint actorStateQueryScopeSnapshot','uint actorStateQueryScopeSnapshot')]:
