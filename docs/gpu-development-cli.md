@@ -1,3 +1,7 @@
+<!-- phase-diagnostic-current -->
+共有フェーズのコンパイル範囲は`phase-codegen --out <fresh-directory> --slang-root <compiler-root>`でCPU調査できます。検証済みpackageから実行し、同じSlangのinit/commands/write各入口のCUDA／Metal生成物を保存します。NVRTC／driver／GPUは0、戦闘やABI成立の認定ではありません。回復分配の独立CPU契約は`reference --suite heal-share --out <new-file.json>`。詳細は[フェーズ診断](portable-phase-codegen.md)と[回復分配](portable-heal-share.md)を参照してください。
+<!-- /phase-diagnostic-current -->
+
 <!-- parent-audit-current -->
 共通CLIのGPU子プロセスはraw保存までとし、親の独立監査へCPU比較を一本化しました。親の計測はaudit-phases.jsonl、子のCUDA API traceは従来のphases.jsonlです。独立audit／sealと失敗保持は維持します。詳細は[親監査の変更](portable-parent-audit.md)を参照してください。
 <!-- /parent-audit-current -->

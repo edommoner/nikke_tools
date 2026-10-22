@@ -129,6 +129,7 @@ SUITES['entry-reload']=dict(script='research/verify-world-entry-reload-short.py'
 SUITES['entry-reload-regression']=dict(SUITES['regression-resident'],script='research/verify-world-entry-reload-regression-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-query-boundaries-regression-short-expected.json',inputs=796,native=633,development_only=False,tests=SUITES['regression-resident']['tests']+['test_portable_entry_reload_gpu.py','test_portable_entry_reload_full_reference.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py','test_portable_query_boundaries.py','test_portable_ptx_stats.py'])
 SUITES['resident-binding']=dict(script='research/verify-resident-binding-short.py',golden='research/portable-resident-binding-file-transfer-short-expected.json',source='gpu/resident_runtime_binding_probe.slang',inputs=4,native=4,development_only=False,tests=['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
 SUITES['entry-reload-regression']['tests'].append('test_portable_heal_share_reference.py')
+SUITES['entry-reload-regression']['tests'].append('test_portable_phase_codegen.py')
 
 # Controller validation has no numeric program to execute. Keep its CPU work
 # separate from a selected suite's battle/native preflight.
@@ -1336,6 +1337,7 @@ def main(argv=None):
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
     from portable_reference import REFERENCES
     a=sub.add_parser('reference');a.add_argument('--suite',choices=REFERENCES,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('phase-codegen');a.add_argument('--out',type=Path,required=True);a.add_argument('--slang-root',type=Path)
     for storage_command in ('archive-raw','restore-raw'):
         a=sub.add_parser(storage_command);a.add_argument('--capture',type=Path,required=True);a.add_argument('--archive',type=Path,required=True)
         if storage_command=='archive-raw':a.add_argument('--remove-original',action='store_true')
@@ -1390,6 +1392,14 @@ def main(argv=None):
     elif a.command=='reference':
         from portable_reference import run_reference
         result=run_reference(a.suite,a.out,write=write,forbid_gpu=forbid_gpu)
+    elif a.command=='phase-codegen':
+        m=verify_package(ROOT)
+        from portable_backend import source_hashes
+        from portable_phase_codegen import generate
+        with forbid_gpu():
+            report=generate(ROOT,SUITES[m['suite']]['source'],a.out,package_id=m['package_id'],source_hashes=source_hashes,compiler_root=a.slang_root)
+        result={k:report[k] for k in ('passed','package_id','calculation_verified','executable_battle_verified','gpu_calls','nvrtc_calls','driver_calls','kernel_calls','elapsed_seconds')}
+        result['report']=str(a.out.resolve()/'report.json')
     elif a.command=='archive-raw':
         from portable_capture_storage import archive_raw
         result=archive_raw(a.capture,a.archive,check_records,remove_original=a.remove_original)

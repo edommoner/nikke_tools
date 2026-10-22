@@ -1,3 +1,7 @@
+<!-- phase-codegen-current -->
+次のcompiler調査用に共通CLI phase-codegenを追加。fresh package8470d38eで同Slang本文からinit/commands/write各CUDA／Metal全6生成、全CPU852中851成功/Windows1skip。CUDA生成量は本体1.66MB/652関数に対しinit543KB/170、commands1.20MB/573、write169KB/153。commands閉包は大きく残り、ptxasメモリ改善や本番複数kernelは未証明。詳細docs/portable-phase-codegen.md、research/portable-phase-codegen-checkpoint.json。新しいGPU/Windows実行0。次はcommands診断の固定source/生成物/compiler/cacheとbounded Jobを結ぶcompiler専用package契約を設計し、事前検査後の必要な1試行だけを検討。以下は履歴です。
+<!-- /phase-codegen-current -->
+
 <!-- heal-share-reference-current -->
 現在の入口はdocs/claude-overall-review-e630078-2026-10-22.mdとdocs/portable-heal-share.md、状態はresearch/portable-heal-share-reference-checkpoint.json／portable-query-boundaries-checkpoint.json。heal-shareはCPU契約20・観測器透明性・入れ子snapshot・hook連鎖の7テスト成功、共通CLI reference登録済み、GPU受付未追加。fresh846検査はsandboxのps拒否1件を同packageの影響群5件で再確認して全成功、Windows専用1skip。既存796/native633のCPU全指紋も保持。Windows v132はPTX6.72MB/最大virtual5931へ減少したがassembly失敗。保存stdoutの再読でMemory allocation failureを確認（再実行0）、gate開放時刻／直前harness memoryは未取得。次は同共有本文のcompiler到達範囲の切り分けをMacで設計する。全キャラ認定0・full796 CUDA未成立・UI CPUを維持。以下は履歴です。
 <!-- /heal-share-reference-current -->
