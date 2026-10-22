@@ -1,3 +1,7 @@
+<!-- native-launch-current -->
+link profileへCREATE_SUSPENDED/BelowNormal/stdio handle listの起動adapterを接続。共通Job親子/PID作成時刻を実行前に確認してからResumeThread1回（count1のみ）、所有handleのみcleanup。旧focus/module identity/通常assembler/数値/GPU本文不変。既存Windows smokeは同じadapterで即終了Python(-I -S)を確認し、2GiB/出力marker/所属/gate/returnを要求。別Job runnerなし。fresh CPU217中216成功/Windows1skip。初回freshの共通証明書fixture不足エラー保持、whitelistを修正。実Windows gate/リンクは未検証、次はCPU+Job smokeだけ1回。Windows保存CPU診断は原object全symbol定義あり/undefined0、両dir ACL同一/短path/原8083file不変。Defender限定event昇格readは0件で原因断定不可。出力作成エラーは未解決、raw PTX共有拒否継続。full compiler packageは準備済みだがnative再試行はしない。Metal849+実4/parts CPU32/全キャラ認定0維持。詳細docs/portable-native-launch.mdとresearch/portable-native-launch-checkpoint.json。以下は履歴です。
+<!-- /native-launch-current -->
+
 <!-- device-link-failed-current -->
 Windows330b204のlink1回は失敗。package2010/tool/license/元object全byte/CPU origin gate一致、CPU202全成功・Job smoke成功。nvlinkは出力作成不可、続くnative子所属確認は不成立。native return/snapshot未保存・CUBINなし・link/計算false。外Job31.986572秒/peak62066688B/2GiB/timeoutなし/post空/missing0/cleanup観測errorなし、native子の証明とは別。service未識別はpreservation=false。原失敗claim保持、retry/出力先変更/追加compile/driver/GPU0。入力.oはLLVMの生ELF.cubin要求と相違するが出力エラー原因と断定しない。Windowsへ元ACL/path/ELF symbols/保存記録のCPU-only診断を依頼済み。Mac共通engineは所属拒否snapshot/観測可能returnを今後保存する修正、関連31成功。起動前native gateは未実装。full package b9434efは準備済みだが追加native試行は診断後。全キャラ認定0/本体CUDA未成立/Metal849+実4/parts CPU32維持。詳細docs/portable-device-link.mdとresearch/portable-world-v135-device-link-peer-report.json。以下は履歴です。
 <!-- /device-link-failed-current -->

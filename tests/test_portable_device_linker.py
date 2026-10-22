@@ -41,11 +41,14 @@ class DeviceLinkerTests(unittest.TestCase):
                 self.done=True;return owner.code
             def poll(self):return owner.code if self.done else None
             def terminate(self):self.terminated=True
+            def release(self):
+                return dict(protocol='create-suspended-v1',created_suspended=True,creation_flags=0x4004,primary_thread_id=self.pid+1,resume_previous_count=1)
+            def close(self):self.closed=True
         process=Process();self.processes.append(process);return process
 
     def context(self):
         stack=self.f.context();stack.enter_context(patch.object(linker,'TOOL_SHA256',linker.digest(self.tool.read_bytes())))
-        stack.enter_context(patch.object(obj.subprocess,'Popen',self.popen));return stack
+        stack.enter_context(patch.object(obj.subprocess,'Popen',self.popen));stack.enter_context(patch.object(obj,'SuspendedNativeProcess',self.popen));return stack
 
     def proof(self):
         with self.context():
@@ -68,6 +71,14 @@ class DeviceLinkerTests(unittest.TestCase):
         self.proof();r=self.audit();self.assertTrue(r['object_verified'],r);self.assertTrue(r['link_verified']);self.assertTrue(r['containment_verified']);self.assertFalse(r['preservation_verified']);self.assertFalse(r['calculation_verified']);self.assertFalse(r['passed'])
         self.assertEqual((self.capture/'module.o').read_bytes(),(self.f.capture/'module.o').read_bytes());self.assertEqual((self.capture/'linked.cubin').read_bytes(),cubin());self.assertEqual(len(self.processes),1);self.assertEqual(len(self.f.base.processes),1)
         proof=cli.load(self.capture/'link.json');self.assertEqual(proof['receipt']['identity']['provider'],'diagnostic-nvlink');self.assertEqual(proof['receipt']['identity']['artifact'],'diagnostic-linked-cubin');self.assertFalse(proof['origin']['current_battle_equivalence_verified'])
+
+    def test_link_audit_requires_suspended_creation_and_a_single_resume(self):
+        self.proof();phase=self.capture/'phases.jsonl';saved=phase.read_bytes()
+        for field,value in (('created_suspended',False),('creation_flags',0x4000),('resume_previous_count',0),('primary_thread_id',0)):
+            rows=[json.loads(line) for line in saved.splitlines()];rows[5]['native_launch'][field]=value
+            phase.write_text('\n'.join(map(json.dumps,rows))+'\n')
+            with self.subTest(field=field):self.assertFalse(self.audit()['link_verified'])
+        phase.write_bytes(saved)
 
     def test_original_object_hash_or_claim_mismatch_and_mode_mix_stop_before_linker(self):
         with self.context():

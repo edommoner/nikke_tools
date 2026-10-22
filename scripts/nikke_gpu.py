@@ -155,7 +155,7 @@ SUITES['heal-share-rosters']=dict(script='research/verify-world-heal-share-roste
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
     golden='research/portable-compiler-commands-heal-share-source-certificate.json',inputs=0,native=0,compiler_only=True,
     support_files=['research/portable-world-heal-share-regression-short-expected.json'],
-    tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py','test_portable_ptx_stats.py','test_portable_ptx_callgraph.py','test_portable_ptx_partition.py','test_portable_partition_object.py','test_portable_module_object.py','test_portable_device_linker.py'])
+    tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py','test_portable_ptx_stats.py','test_portable_ptx_callgraph.py','test_portable_ptx_partition.py','test_portable_partition_object.py','test_portable_module_object.py','test_portable_device_linker.py','test_portable_native_process.py'])
 
 SUITES['compiler-full']=dict(SUITES['compiler-commands'],
     source=SUITES['heal-share-regression']['source'],
@@ -171,6 +171,7 @@ SMOKE_TESTS.append('test_portable_ptx_partition.py')
 SMOKE_TESTS.append('test_portable_partition_object.py')
 SMOKE_TESTS.append('test_portable_module_object.py')
 SMOKE_TESTS.append('test_portable_device_linker.py')
+SMOKE_TESTS.append('test_portable_native_process.py')
 
 
 def sha(data):
@@ -302,6 +303,8 @@ def make_package(suite, output, *, develop=False, cases=()):
             or (p.parts[:2]==('tests','fixtures') and p.suffix=='.json')
             or name=='research/portable-mode-session-contract.json'
             or name=='research/portable-world-counter-landing-short-expected.json'
+            # Shared controller tests bind the full-entry certificate to this Metal baseline.
+            or name in ('research/portable-compiler-full-heal-share-source-certificate.json','research/portable-world-heal-share-regression-short-expected.json')
             or (p.parts[0]=='data' and p.suffix=='.json') or name==SUITES[suite]['golden'] or name in SUITES[suite].get('support_files',())):
             names.append(name)
     # Include this CLI even before its first commit during local development.
@@ -476,6 +479,43 @@ def cpu_preflight(m):
                 input_sha256=sha(data), gpu_calls=calls, elapsed_seconds=time.perf_counter()-started)
 
 
+NATIVE_SMOKE_CODE='import sys;sys.stdout.write("nikke-native-gate-v1");sys.exit(0)'
+
+
+def native_smoke_child(capture):
+    from portable_native_process import SuspendedNativeProcess,BELOW_NORMAL
+    from portable_partition_object import verify_native_child
+    import portable_offline_assembler as assembler
+    from portable_phase_audit import Journal
+    executable=str(Path(sys.executable).resolve());before=sha(Path(executable).read_bytes())
+    argv=[executable,'-I','-S','-c',NATIVE_SMOKE_CODE];process=None
+    journal=Journal(capture/'native-smoke-phases.jsonl');started=time.perf_counter()
+    try:
+        with (capture/'native-smoke.stdout.log').open('xb') as stdout,(capture/'native-smoke.stderr.log').open('xb') as stderr:
+            process=SuspendedNativeProcess(argv,cwd=capture,stdin=subprocess.DEVNULL,stdout=stdout,stderr=stderr,shell=False,creationflags=BELOW_NORMAL)
+            inspection,launch=verify_native_child(process,assembler.inspect_process,journal,'native_smoke',suspended=True)
+            code=process.wait(timeout=10)
+        if code!=0 or sha(Path(executable).read_bytes())!=before:raise RuntimeError('Native gate smoke child failed or Python changed')
+        write(capture/'native-smoke.json',dict(python_executable=executable,python_sha256=before,argv=argv,inspection=inspection,native_launch=launch,return_code=code,elapsed_seconds=time.perf_counter()-started,gpu_calls=0))
+    except BaseException as error:
+        journal.emit('native_smoke_failure','raised',exception=type(error).__name__)
+        if process is not None and process.poll() is None:process.terminate();process.wait(timeout=5)
+        raise
+    finally:
+        if process is not None:process.close()
+
+
+def audit_native_smoke(capture,harness_pid):
+    from portable_native_process import validate_launch
+    from portable_offline_assembler import contained
+    record=load(capture/'native-smoke.json');snapshot=record['inspection']
+    validate_launch(record['native_launch'])
+    if not contained(snapshot,harness_pid,snapshot['child_pid']) or snapshot.get('job_memory_limit_bytes')!=2147483648:raise ValueError('Native smoke inherited Job not verified')
+    if record['argv']!=[record['python_executable'],'-I','-S','-c',NATIVE_SMOKE_CODE] or record['return_code']!=0 or record['gpu_calls']!=0:raise ValueError('Native smoke command/return mismatch')
+    if (capture/'native-smoke.stdout.log').read_bytes()!=b'nikke-native-gate-v1' or (capture/'native-smoke.stderr.log').read_bytes()!=b'':raise ValueError('Native smoke output mismatch')
+    return True
+
+
 def child(capture, backend, smoke=False, compile_only=False, module_only=False, assemble_only=False,partition_object_only=False,module_object_only=False,link_object_only=False):
     deadline = time.monotonic()+60
     while not (capture/'start.json').exists():
@@ -485,6 +525,7 @@ def child(capture, backend, smoke=False, compile_only=False, module_only=False, 
     if sum(map(bool,(compile_only,module_only,assemble_only,partition_object_only,module_object_only,link_object_only)))>1:raise ValueError('Compile, module and assembly modes are exclusive')
     if smoke:
         if compile_only or module_only or assemble_only or partition_object_only or module_object_only or link_object_only:raise ValueError('Compiler and smoke modes are exclusive')
+        if os.name=='nt':native_smoke_child(capture)
         write(capture/'smoke.json',dict(pid=os.getpid(),ppid=os.getppid(),gpu_calls=0)); return
     m = verify_package(ROOT)
     if link_object_only:
@@ -908,7 +949,9 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
                 claim=ROOT/('gpu-claimed-'+backend+'.json')
                 with claim.open('x',encoding='utf-8') as stream:
                     json.dump(dict(capture=str(capture),package_id=m['package_id'],started_unix_ns=time.time_ns()),stream)
-            facts=run_job(capture,backend,timeout,original_workspace,smoke)
+            if smoke and os.name=='nt':
+                with patch.dict(os.environ,{'NIKKE_VALIDATION_JOB_MEMORY_MB':'2048'}):facts=run_job(capture,backend,timeout,original_workspace,smoke)
+            else:facts=run_job(capture,backend,timeout,original_workspace,smoke)
             if not smoke:
                 # Child publishes generated files before comparing; failed compilation may lack them.
                 copy_generated(capture,m['suite'],partial=True)
@@ -919,6 +962,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
                 if os.name=='nt':
                     jobs=load(capture/'job.json')['records']
                     smoke_ok &= bool(len(jobs)==1 and jobs[0]['pre_gate_verified'] and not jobs[0]['inspection_error'] and jobs[0]['post_wait'] and jobs[0]['post_wait']['job_members']==[] and marker==dict(pid=jobs[0]['child_pid'],ppid=jobs[0]['wrapper_pid'],gpu_calls=0))
+                    if smoke_ok:smoke_ok &= audit_native_smoke(capture,jobs[0]['child_pid'])
                 result=dict(smoke_verified=bool(smoke_ok),gpu_calls=0,calculation_verified=False,preservation_verified=None,status='smoke')
             write(capture/'result.json',result)
         run=load(capture/'run.json');run.update(status='finished',finished_unix_ns=time.time_ns());write(capture/'run.json',run)
@@ -1225,6 +1269,9 @@ def audit_partition_object_capture(m,capture,*,verify_artifacts=True,module_obje
         if rows[4]['argv']!=argv or rows[6]['return_code']!=0:raise ValueError('Focus object command/return mismatch')
         snapshot=rows[5]['inspection']
         if not assembler.contained(snapshot,rows[5]['pid'],snapshot['child_pid']) or not rows[4]['wall_time_ns']<=snapshot['observed_unix_ns']<=rows[6]['wall_time_ns']:raise ValueError('Focus assembler child not observed inside Job')
+        if link_object:
+            from portable_native_process import validate_launch
+            validate_launch(rows[5].get('native_launch'))
         ident=obj.identity(tool,origin)
         if receipt['identity']!=ident or receipt['key']!=sha(json.dumps(ident,sort_keys=True,separators=(',',':')).encode()):raise ValueError('Focus object identity mismatch')
         if rows[7]['receipt']!=receipt or input_path.read_bytes()!=raw:raise ValueError('Object receipt/PTX changed')

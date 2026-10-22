@@ -2,6 +2,7 @@
 import json,os,struct,subprocess,time
 from pathlib import Path
 import portable_offline_assembler as assembler
+from portable_native_process import SuspendedNativeProcess
 from portable_ptx_partition import audit_partition
 
 OPTIONS=[*assembler.OPTIONS,'--compile-only']
@@ -92,7 +93,20 @@ def validate_output(source,raw):
 
 def identity(tool,source):
     profile=object_profile(source)
-    return dict(schema=1,provider=profile['provider'],artifact=profile['artifact'],tool=tool,options=object_options(source),origin=source)
+    result=dict(schema=1,provider=profile['provider'],artifact=profile['artifact'],tool=tool,options=object_options(source),origin=source)
+    if profile['stem']=='linked':result['native_launch_protocol']='create-suspended-v1'
+    return result
+
+
+
+def verify_native_child(process,reader,journal,prefix,*,suspended=False):
+    snapshot=reader(process)
+    if not assembler.contained(snapshot,os.getpid(),process.pid):
+        journal.emit(prefix+'_child','rejected',inspection=snapshot,observed_return_code=process.poll())
+        raise RuntimeError('Native tool is not in the validation Job')
+    launch=process.release() if suspended else None
+    journal.emit(prefix+'_child','verified',inspection=snapshot,**({'native_launch':launch} if suspended else {}))
+    return snapshot,launch
 
 
 def run(capture,tool,raw,source,*,journal,popen=None,inspector=None):
@@ -106,19 +120,14 @@ def run(capture,tool,raw,source,*,journal,popen=None,inspector=None):
     journal.emit(prefix+'_input','verified',input=source['input'])
     argv=[str(tool),*object_options(source),str(input_path),'-o',str(partial)]
     journal.emit(prefix+('_tool_run' if profile['stem']=='linked' else '_ptxas'),'entered',argv=argv,tool_sha256=tool_info['sha256'])
-    creator=popen or subprocess.Popen;reader=inspector or assembler.inspect_process
+    suspended=profile['stem']=='linked'
+    creator=popen or (SuspendedNativeProcess if suspended else subprocess.Popen);reader=inspector or assembler.inspect_process
     started=time.perf_counter();process=None
     try:
         with (capture/(profile['log']+'.stdout.log')).open('xb') as stdout,(capture/(profile['log']+'.stderr.log')).open('xb') as stderr:
             process=creator(argv,cwd=capture,stdin=subprocess.DEVNULL,stdout=stdout,stderr=stderr,shell=False,
                 creationflags=subprocess.BELOW_NORMAL_PRIORITY_CLASS if os.name=='nt' else 0)
-            snapshot=reader(process)
-            if not assembler.contained(snapshot,os.getpid(),process.pid):
-                # Preserve the failed observation without blessing a short-lived
-                # process that may already have exited before enumeration.
-                journal.emit(prefix+'_child','rejected',inspection=snapshot,observed_return_code=process.poll())
-                raise RuntimeError('Native tool is not in the validation Job')
-            journal.emit(prefix+'_child','verified',inspection=snapshot)
+            verify_native_child(process,reader,journal,prefix,suspended=suspended)
             code=process.wait(timeout=55)
         elapsed=time.perf_counter()-started
         journal.emit(prefix+('_tool_run' if profile['stem']=='linked' else '_ptxas'),'returned',return_code=code,elapsed_seconds=elapsed)
@@ -136,3 +145,5 @@ def run(capture,tool,raw,source,*,journal,popen=None,inspector=None):
         journal.emit(prefix+'_failure','raised',exception=type(error).__name__)
         if process is not None and process.poll() is None:process.terminate();process.wait(timeout=5)
         raise
+    finally:
+        if suspended and process is not None and hasattr(process,'close'):process.close()
