@@ -1,3 +1,7 @@
+<!-- reference-readiness-current -->
+最新レビューはdocs/claude-overall-review-0e1f71b.md。未対応82分類へ保守的な作業laneを追加、全266 profile/input/issueと旧順位を保持。21検査とfresh inventory成功、GPU/CPU battle0、packing214/base154・認定0は不変。詳細research/portable-reference-readiness-checkpoint.json。v135はPTX生成/cache再読成功、commands assemblyはMemory allocation failure、post空/missing0だがservice未識別でpreservation=false。詳細research/portable-world-v135-definition-view-compiler-sanitized.json。単なるgetter/構造体縮小試行を追加せず、保存PTXの関数負荷とmodule負荷を区別できるCPU分析・明示実験契約を優先。PTX共有は自動承認拒否で個別許可待ち、再実行しない。heal_split composite対象とlifestealはCPU契約未被覆。以下は履歴です。
+<!-- /reference-readiness-current -->
+
 <!-- definition-view-current -->
 現在の通常入口はentry-reload-regressionの新golden portable-world-definition-view-regression-short-expected.json。Definitionを55項目の一括値からwire input/row+ローカルoverride5uintへ変更し、getter/型/初期化/元全consumerを固定Gitに照合。Metal probe6はadapter戻り値だけを訂正して元GPU結果をG0 replay/seal、原失敗保持。full796/native633全一致・旧2.50GB全byte/input/native保持・独立G0 seal成功、GPU9.755秒は単一観測。全CPU870中869/Windows1skip、影響5/diagnostic9再確認、compiler packet smoke158成功。Runtime247/138952/48byte不変、CUDAmemory改善は未確認。次は固定sourceを共有し、commands-only PTX1回＋正常receipt/cache/containment時だけAOT1回(各60秒/2GiB)。v134欠落7はunknown/preservation=falseのまま、driver/kernelやfallbackは追加しない。詳細docs/portable-definition-view.md、research/portable-definition-view-checkpoint.json。回復分配28はCPU契約のみ・全キャラGPU認定0・UI CPU。以下は履歴です。
 <!-- /definition-view-current -->

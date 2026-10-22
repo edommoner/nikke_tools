@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "shared_definition_view_metal796_sealed_cuda_compiler_pending",
+  "status": "shared_definition_view_metal796_sealed_cuda_assembly_failed",
   "baseline_commit": "1f9a00d3647708ee19fd3122d35e6366bcab2045",
   "candidate": {
     "properties": 55,
@@ -356,5 +356,17 @@
       "sha256": "cde890b28c3e5385fb6019a9b9a82adb14a44926830b83a8d750db45622330a9",
       "bytes": 134
     }
-  ]
+  ],
+  "windows_result": {
+    "report": "research/portable-world-v135-definition-view-compiler-sanitized.json",
+    "compiler_verified": true,
+    "cache_hit_verified": true,
+    "assembly_verified": false,
+    "error": "Memory allocation failure",
+    "missing_processes": 0,
+    "service_status": "unverified",
+    "preservation_verified": false,
+    "additional_driver_kernel_calls": 0,
+    "source_scope": "Peer structured report; not independent Mac audit of original Windows capture"
+  }
 }

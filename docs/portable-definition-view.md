@@ -16,10 +16,14 @@ fixtureは固定Git1f9a00dの55型／accessor対応を保存し、実装と独�
 
 MetalのRuntimeは247field／stride138,952／align8、3 buffers／CUDA constant48byteのまま。GPU時間9.755秒は単一観測で、速度改善のベンチマークではない。Definitionの生成宣言20byte推定は旧248byte推定から縮小したが、compiler必要メモリの測定ではない。通常suiteのgoldenは`portable-world-definition-view-regression-short-expected.json`、小probeは`portable-definition-view-probe-expected.json`を明示sealした。旧query-boundaries goldenと全captureは保持する。
 
-## 次の短いWindows候補
+## v135結果と次の調査
 
 `compiler-commands`は新full Metal proofへsource certificateを束縛し直した。入口・compiler/cache/Job/監査はv134と共通で、共有sourceの差はDefinition宣言とloaderだけ。新dataflowの影響を見るcommands-only PTX1回と、成功receipt／cache hit／正常containmentの場合だけ固定ptxasの1回assemblyを候補とする。各60秒／2GiB、BelowNormal、fresh Job/startgate、cleanup5を維持。既存v134の7process欠落は原因unknown・preservation=falseのまま記録する。
 
 NVRTC成功時は保存PTXを既存ptx-statsでCPU解析し、旧5,462,428byte／maxvirtual5,328と比較する。指標を実registerや必要メモリへ換算せず、source bytesの増減だけを成功判定にしない。driver/module/kernel、同条件再実行、init/write追加、別level／RDC等の自動fallbackはしない。成功してもfull796 CUDAや全キャラ対応の認定ではない。
 
 回復分配の28CPU契約は保持しているが、GPUへの接続はまだ完了していない。次の機能追加は本体CUDA成立の切り分けと分けて進める。
+
+固定0e1f71bのv135は、PTX5,666,316byteを11.265秒で生成し、同一key/bytes/SHAのcache再読を確認した。独立assemblyは30.690秒でMemory allocation failure、2GiB Job peak2,148,249,600byte、timeoutなし、ELFなし。post Job空/missing0/cleanup・observation正常だがservice未識別でpreservation=false。v134の欠落7は別の未解決履歴として維持する。根拠はpeer構造化報告で、Mac原capture独立監査ではない。
+
+Definition viewのCUDAメモリ改善は確認できず、同方向の表現変更・再試行は追加しない。保存PTXからload/アドレス計算と呼出閉包をCPUで調べ、最大関数とmodule全体のどちらが支配的かを区別する明示実験を設計する。partition/RDC/linkは候補に留め、既存assemblerへ自動fallbackとして接続しない。レビューと停止条件はdocs/claude-overall-review-0e1f71b.md。

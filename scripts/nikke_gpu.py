@@ -132,6 +132,7 @@ SUITES['entry-reload-regression']['tests'].append('test_portable_heal_share_refe
 SUITES['entry-reload-regression']['tests'].append('test_portable_phase_codegen.py')
 SUITES['entry-reload-regression']['tests'].append('test_portable_heal_share_extra_reference.py')
 SUITES['entry-reload-regression']['tests'].append('test_portable_definition_view.py')
+SUITES['entry-reload-regression']['tests'].append('test_portable_readiness_semantics.py')
 SUITES['definition-view']=dict(script='research/verify-definition-view-short.py',source='gpu/definition_view_probe.slang',
     golden='research/portable-definition-view-probe-expected.json',inputs=6,native=6,development_only=False,
     tests=['test_portable_definition_view.py','test_portable_resident_layout.py','test_portable_resident_transport.py'])
@@ -1423,6 +1424,7 @@ def main(argv=None):
         inventory=module(ROOT/'research/audit-world-roster-input.py').main(destination=str(a.out.resolve()),quiet=True)
         result={k:inventory[k] for k in ('profile_count','packed_profiles','packed_base','forbidden_calls','classification')}
         result['report']=str(a.out.resolve());result['priority_categories']=len(inventory['priorities'])
+        result['work_lane_counts']={name:len(indexes) for name,indexes in inventory['work_lanes'].items()}
     elif a.command=='reference':
         from portable_reference import run_reference
         result=run_reference(a.suite,a.out,write=write,forbid_gpu=forbid_gpu)

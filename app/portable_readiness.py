@@ -6,6 +6,7 @@ Whole-program compilation is retained as the authoritative packing check.
 """
 from collections import Counter, defaultdict
 import json
+from portable_readiness_semantics import reference_readiness
 
 
 def issue(error, effect=None, *, phase='effect'):
@@ -85,5 +86,5 @@ def summarize(rows):
             if len(codes) == 1: group['sole'].add(identity)
     ranked = [dict(issue=g['sample'], messages=sorted(g['messages']), affected_profiles=len(g['profiles']),
                    blocked_definitions=g['definitions'],
-                   single_observed_category_profiles=len(g['sole'])) for g in groups.values()]
+                   single_observed_category_profiles=len(g['sole']),reference_readiness=reference_readiness(g['sample'])) for g in groups.values()]
     return sorted(ranked, key=lambda r:(-r['single_observed_category_profiles'], -r['affected_profiles'], r['issue']['code']))
