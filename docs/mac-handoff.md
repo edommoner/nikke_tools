@@ -1,3 +1,7 @@
+<!-- parts-review-current -->
+Claudeレビュー反映：共通reference CLIは最適化Pythonをnative前に拒否・失敗保持、parts検査は明示例外、positive/model-gap別集計。parts15＋extended10＝25CPU契約（24通常＋deferred gap1）、非飽和吸血/interrupt/sharedを追加。fresh影響38検査成功、旧22全native既存field/trace保持。oracle追加でinput指紋は意図変更。GPU source全閉包は旧849同一、追加GPU/Windows0・GPU受付閉。本体CUDA未成立/全キャラ認定0/UI CPU。次は生成時stats snapshotと着弾のgeneration/子イベント契約を補強し、保存PTXに基づく判別可能なCUDA実験を設計。at+7は周期処理使用済みなので再利用不可。詳細portable-parts-skill-reference-checkpoint.json、docs/claude-overall-review-8b77b1f.md。以下は履歴です。
+<!-- /parts-review-current -->
+
 <!-- heal-real-rosters-current -->
 heal-share-rosters4（ナユタ/レムの全定義3秒/30秒）をMetal一致・GPU0 seal。定義81/70のbinding欠落0、source/両生成指紋は旧849と同一、849再実行0。レム30秒だけ物理履歴2103中2048記録/55省略、prefix+省略数と全戦闘結果までで未記録packet完全照合は未証明。最終CPU preflight/既存6検査/readiness22成功。全266入力と80順位保持、hits_parts3分類をsource確認済み・CPU契約0のlaneへ。次はdocs/portable-parts-skill-next.mdのCPU契約を作成し共通receiptへ移植。GPU source変更時は849＋実4を保持。本体CUDA未成立/認定0/UI CPU、Windows追加0、保存PTX共有は個別確認未回答。詳細docs/portable-heal-share-real-rosters.mdとresearch/portable-heal-share-real-rosters-checkpoint.json。以下は履歴です。
 <!-- /heal-real-rosters-current -->

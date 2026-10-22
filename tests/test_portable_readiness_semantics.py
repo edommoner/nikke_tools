@@ -43,7 +43,8 @@ class ReadinessSemanticsTests(unittest.TestCase):
         row=dict(phase='effect',kind='damage',category='fields',fields=['hits_parts'])
         result=reference_readiness(row)
         self.assertEqual(result['lane'],'native_contract_extension');self.assertEqual(result['native_consumer'],'confirmed_source')
-        self.assertEqual(result['recorded_cases'],0);self.assertEqual(result['reference_suites'],[])
+        self.assertEqual(result['recorded_cases'],25);self.assertEqual(result['reference_suites'],['parts-skill','parts-skill-extended'])
+        self.assertEqual(result['reference_model_gap_cases'],1)
         self.assertFalse(result['gpu_supported']);self.assertFalse(result['runtime_validation_performed'])
         self.assertEqual(reference_readiness(dict(row,fields=['hits_parts','scaling']))['lane'],'reference_review')
         self.assertEqual(reference_readiness(dict(row,kind='buff'))['lane'],'reference_review')
@@ -73,3 +74,16 @@ class ReadinessSemanticsTests(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
+
+class PartsInventoryCountTests(unittest.TestCase):
+    def test_declared_count_and_gaps_match_registered_literal_contracts(self):
+        sys.path.insert(0,str(ROOT/'research'))
+        try:
+            import importlib
+            from portable_reference import REFERENCES
+            result=reference_readiness(dict(phase='effect',kind='damage',fields=['hits_parts']))
+            cases=[c for suite in result['reference_suites'] for c in importlib.import_module(REFERENCES[suite][0]).fixtures()]
+            self.assertEqual(len({c['name'] for c in cases}),len(cases))
+            self.assertEqual(len(cases),result['recorded_cases'])
+            self.assertEqual(sum(bool(c['contract'].get('reference_model_gap')) for c in cases),result['reference_model_gap_cases'])
+        finally:sys.path.pop(0)

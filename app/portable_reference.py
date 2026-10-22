@@ -9,7 +9,9 @@ REFERENCES={'revive':('portable_revive_cases','world_revive_native','portable_re
             'heal-share':('portable_heal_share_cases','world_heal_share_native','portable_heal_share_contracts'),
             'heal-share-extended':('portable_heal_share_extra_cases','world_heal_share_native','portable_heal_share_contracts'),
             'heal-share-targets':('portable_heal_share_target_cases','world_heal_share_native','portable_heal_share_contracts'),
-            'heal-share-lifesteal':('portable_heal_share_lifesteal_cases','world_heal_share_native','portable_heal_share_contracts')}
+            'heal-share-lifesteal':('portable_heal_share_lifesteal_cases','world_heal_share_native','portable_heal_share_contracts'),
+            'parts-skill':('portable_parts_skill_cases','world_parts_skill_native','portable_parts_skill_contracts'),
+            'parts-skill-extended':('portable_parts_skill_extra_cases','world_parts_skill_native','portable_parts_skill_contracts')}
 
 
 def digest(value):
@@ -41,8 +43,12 @@ def run_reference(suite,output,*,write,forbid_gpu):
     # Reserve before importing/running a case; failed evidence is never replaced.
     with output.open('x',encoding='utf-8') as stream:stream.write('{}\n')
     started=time.perf_counter()
-    report=dict(schema=1,suite=suite,stage='cpu-native-contract',passed=False,cpu_reference_verified=False,calculation_verified=False,gpu_supported=False,gpu_calls=dict(build=0,execute=0),packing_calls=0,python=sys.version,platform=platform.platform(),cases=[],full_character_verified=0,full_goal_complete=False)
+    report=dict(schema=1,suite=suite,stage='cpu-native-contract',passed=False,cpu_reference_verified=False,calculation_verified=False,gpu_supported=False,gpu_calls=dict(build=0,execute=0),packing_calls=0,python=sys.version,platform=platform.platform(),cases=[],reference_model_gap_cases=0,positive_contract_cases=0,full_character_verified=0,full_goal_complete=False)
     try:
+        # Legacy native comparators contain assertions. Reject before importing
+        # or running them; optimized Python must never certify those contracts.
+        if sys.flags.optimize:
+            raise RuntimeError('Native reference requires assertions enabled; optimized Python is forbidden')
         sources=source_identity();report['source_sha256']=sources
         import portable_runtime,portable_backend,detail_gpu
         def no_packing(*args,**kw):raise RuntimeError('Portable packing forbidden in native contract stage')
@@ -58,6 +64,8 @@ def run_reference(suite,output,*,write,forbid_gpu):
                 contract=contracts.verify(case,native)
                 report['cases'].append(dict(name=case['name'],input_sha256=input_hash,native_sha256=digest(native),trace_sha256=digest(trace),contract=contract,native=native))
                 if contract.get('verified') is not True:raise ValueError('Native contract not verified: '+case['name'])
+                if contract.get('reference_model_gap') is True:report['reference_model_gap_cases']+=1
+                else:report['positive_contract_cases']+=1
             if cases!=before:raise ValueError('Native observation changed literal inputs')
         if source_identity()!=sources:raise ValueError('Native reference sources changed during execution')
         from portable_typed_cuda_proof_audit import verify_cpu_gpu_calls
@@ -70,4 +78,4 @@ def run_reference(suite,output,*,write,forbid_gpu):
     finally:
         report['elapsed_seconds']=time.perf_counter()-started
         write(output,report)
-    return {k:report[k] for k in ('suite','stage','passed','cpu_reference_verified','calculation_verified','gpu_supported','case_count','gpu_calls','packing_calls','elapsed_seconds')}
+    return {k:report[k] for k in ('suite','stage','passed','cpu_reference_verified','calculation_verified','gpu_supported','case_count','positive_contract_cases','reference_model_gap_cases','gpu_calls','packing_calls','elapsed_seconds')}

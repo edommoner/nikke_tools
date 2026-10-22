@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 107.61457475007046,
+  "prompt_bytes": 126025,
+  "prompt_sha256": "c0954d2fd24ef06a4a7f01bfac488f95757fde0cc8b3bb234ed952fdd6af6398",
+  "response_sha256": "d8323c125858d0ae04667cb66a9be1cda6671bfc9eb9a8c3ff46a58a43fe868b",
+  "tool_access": false,
+  "gpu_runs": 0,
+  "windows_runs": 0
+}
