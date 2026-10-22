@@ -151,11 +151,11 @@ SUITES['heal-share-regression']=dict(SUITES['entry-reload-regression'],script='r
     tests=SUITES['entry-reload-regression']['tests']+['test_portable_heal_share_gpu.py','test_portable_heal_share_trace.py'])
 SUITES['heal-share-rosters']=dict(script='research/verify-world-heal-share-rosters-short.py',source='gpu/world_entry_reload_resident_entry.slang',
     golden='research/portable-world-heal-share-rosters-short-expected.json',inputs=4,native=4,development_only=False,
-    tests=['test_portable_heal_share_gpu.py','test_portable_real_binding_proof.py'])
+    tests=['test_portable_heal_share_gpu.py','test_portable_real_binding_proof.py','test_portable_linked_artifact.py'])
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
     golden='research/portable-compiler-commands-heal-share-source-certificate.json',inputs=0,native=0,compiler_only=True,
     support_files=['research/portable-world-heal-share-regression-short-expected.json'],
-    tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py','test_portable_ptx_stats.py','test_portable_ptx_callgraph.py','test_portable_ptx_partition.py','test_portable_partition_object.py','test_portable_module_object.py','test_portable_device_linker.py','test_portable_native_process.py','test_portable_job_limits.py','test_portable_native_output_probe.py','test_portable_jit_link.py','test_portable_jit_link_capture.py'])
+    tests=['test_portable_compile_cli.py','test_portable_compile_cache.py','test_portable_offline_assembly.py','test_portable_phase_codegen.py','test_portable_compiler_diagnostic.py','test_portable_ptx_stats.py','test_portable_ptx_callgraph.py','test_portable_ptx_partition.py','test_portable_partition_object.py','test_portable_module_object.py','test_portable_device_linker.py','test_portable_native_process.py','test_portable_job_limits.py','test_portable_native_output_probe.py','test_portable_jit_link.py','test_portable_jit_link_capture.py','test_portable_linked_artifact.py'])
 
 SUITES['compiler-full']=dict(SUITES['compiler-commands'],
     source=SUITES['heal-share-regression']['source'],
@@ -176,6 +176,7 @@ SMOKE_TESTS.append('test_portable_job_limits.py')
 SMOKE_TESTS.append('test_portable_native_output_probe.py')
 SMOKE_TESTS.append('test_portable_jit_link.py')
 SMOKE_TESTS.append('test_portable_jit_link_capture.py')
+SMOKE_TESTS.append('test_portable_linked_artifact.py')
 
 
 def sha(data):
@@ -567,7 +568,7 @@ def child(capture, backend, smoke=False, compile_only=False, module_only=False, 
     import portable_backend
     from portable_phase_audit import Journal, observe
     journal = Journal(capture/'phases.jsonl')
-    with observe(portable_backend,journal):
+    with saved_linked_provider(m,capture,backend,journal),observe(portable_backend,journal):
         raw,evidence = journal.invoke('shared_gpu_execute',portable_backend.execute,
                                      SUITES[m['suite']]['source'],'portableEvents',data,
                                      input_words,786432,backend,readback_path=capture/'readback.bin')
@@ -613,17 +614,22 @@ def compare_readback(m, capture, adapter=None):
             identity_key=sha(json.dumps(receipt['identity'],sort_keys=True,separators=(',',':')).encode())
             if receipt['key']!=identity_key or receipt['identity']['artifact'] not in ('ptx','cubin') or receipt['identity']['schema']!=1:
                 raise ValueError('Invalid CUDA compile cache key/schema')
-            from portable_backend import cuda_compile_options
-            allowed=[cuda_compile_options(kind)]
-            if kind=='cubin':allowed += [cuda_compile_options(kind,level) for level in range(4)]
-            if receipt['identity']['options'] not in allowed:
-                raise ValueError('CUDA compiler options changed')
+            linked=receipt['identity'].get('provider')=='saved-module-jit-cubin'
+            if linked:
+                audit_saved_linked_artifact(m,capture,receipt)
+            else:
+                from portable_backend import cuda_compile_options
+                allowed=[cuda_compile_options(kind)]
+                if kind=='cubin':allowed += [cuda_compile_options(kind,level) for level in range(4)]
+                if receipt['identity']['options'] not in allowed:
+                    raise ValueError('CUDA compiler options changed')
             if sha(artifact)!=receipt['artifact_sha256'] or len(artifact)!=receipt['artifact_bytes']:
                 raise ValueError('Compiled CUDA artifact mismatch')
             if receipt['identity']['source_sha256']!=sha((capture/'generated.cu').read_bytes()):
                 raise ValueError('Compiled CUDA source identity mismatch')
             phases=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
-            if [r['receipt'] for r in phases if r['stage']=='cuda_compile_cache' and r['state']=='verified']!=[receipt]:
+            stage='cuda_linked_artifact_receipt' if linked else 'cuda_compile_cache'
+            if [r['receipt'] for r in phases if r['stage']==stage and r['state']=='verified']!=[receipt]:
                 raise ValueError('CUDA compiler artifact phase mismatch')
             stream=evidence['transport'].get('readback_stream')
             markers=[r for r in phases if r['stage']=='cuda_readback_file' and r['state']=='returned']
@@ -777,6 +783,12 @@ def check_compile_cache(capture, output):
     check_records(capture,load(capture/'artifacts.json')['files'])
     if load(capture/'run.json')['backend']!='cuda':raise ValueError('CUDA artifact required')
     evidence=load(capture/'evidence.json') if (capture/'evidence.json').exists() else None
+    if evidence and evidence['transport']['compile_artifact']['identity'].get('provider')=='saved-module-jit-cubin':
+        started=time.perf_counter();receipt=evidence['transport']['compile_artifact']
+        with forbid_gpu():audit_saved_linked_artifact(m,capture,receipt)
+        result=dict(passed=True,cache=receipt,elapsed_seconds=time.perf_counter()-started,gpu_calls=0,nvrtc_compile_calls=0,calculation_verified=False,package_id=m['package_id'])
+        with output.open('x',encoding='utf-8') as stream:json.dump(result,stream,indent=2);stream.write('\n')
+        return result
     from portable_compile_cache import get_or_compile,quoted_headers
     directory=os.environ.get('NIKKE_CUDA_COMPILE_CACHE')
     if not directory:raise ValueError('NIKKE_CUDA_COMPILE_CACHE is required')
@@ -890,6 +902,8 @@ def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_
         command.append('--jit-link-object-only')
         env['CUDA_CACHE_DISABLE']='1'
         cache=(capture/'jit-private-cache').resolve();cache.mkdir(exist_ok=True);env['CUDA_CACHE_PATH']=str(cache)
+    if (capture/'linked-artifact-request.json').exists():
+        env['CUDA_CACHE_DISABLE']='1';env['CUDA_CACHE_PATH']=str((capture/'linked-private-cache').resolve());Path(env['CUDA_CACHE_PATH']).mkdir(exist_ok=False)
     if module_only:
         command.append('--module-only')
         driver_cache=(capture/'driver-cache').resolve();driver_cache.mkdir(exist_ok=True)
@@ -940,16 +954,23 @@ def cpu_test_groups(m,capture,smoke=False):
     return rows
 
 
-def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_only=False):
+def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_only=False,*,linked_package=None,linked_capture=None):
     m=verify_package(ROOT)
     if compiler_only(m) and not smoke:raise ValueError('Compiler diagnostic cannot execute a battle')
     if is_development(m) and backend!='metal':raise ValueError('Development execution requires Metal; seal before CUDA verification')
     if not 1<=timeout<=180:raise ValueError('Timeout must be 1..180')
     if backend=='cuda' and os.name!='nt' and not smoke and not cpu_only:raise ValueError('CUDA transport requires Windows')
+    if bool(linked_package)!=bool(linked_capture):raise ValueError('Both saved CUBIN package and capture required')
+    linked=linked_package is not None
+    if linked and (backend!='cuda' or smoke or cpu_only or not 1<=timeout<=60 or not original_workspace or compiler_only(m) or is_development(m)):raise ValueError('Saved CUBIN requires a sealed CUDA battle and1..60 seconds')
     capture.mkdir(parents=True,exist_ok=False)
     write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend=backend,
                                 mode='cpu-only' if cpu_only else 'smoke' if smoke else 'gpu',status='preflight',gpu_retry_count=0))
     try:
+        if linked:
+            request=dict(package=str(Path(linked_package).resolve()),capture=str(Path(linked_capture).resolve()))
+            write(capture/'linked-artifact-request.json',request)
+            with forbid_gpu():saved_linked_admission(m,request)
         # An extracted packet deliberately excludes compiler distributions.
         # Catch a missing Metal toolchain before expensive native preparation
         # and before consuming the exclusive GPU execution claim.
@@ -972,6 +993,9 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
                     json.dump(dict(capture=str(capture),package_id=m['package_id'],started_unix_ns=time.time_ns()),stream)
             if smoke and os.name=='nt':
                 with patch.dict(os.environ,{'NIKKE_VALIDATION_JOB_MEMORY_MB':'2048'}):facts=run_job(capture,backend,timeout,original_workspace,smoke)
+            elif linked:
+                with patch.dict(os.environ,NIKKE_VALIDATION_JOB_MEMORY_MB='2048',NIKKE_CUDA_ARTIFACT='cubin'):
+                    facts=run_job(capture,backend,timeout,original_workspace,smoke)
             else:facts=run_job(capture,backend,timeout,original_workspace,smoke)
             if not smoke:
                 # Child publishes generated files before comparing; failed compilation may lack them.
@@ -1222,6 +1246,69 @@ def linked_object_origin(request):
         current_battle_equivalence_verified=False),raw
 
 
+def saved_linked_admission(m,request):
+    """Independent full producer/object/link audit; never activates a compiler."""
+    from portable_linked_artifact import admission
+    package=Path(request['package']).resolve();capture=Path(request['capture']).resolve()
+    linked=verify_package(package,historical_compiler=True)
+    if linked['suite']!='compiler-full':raise ValueError('Saved CUBIN must originate in a full compiler package')
+    result=audit_jit_link_capture(linked,capture,package_root=package)
+    if not result['link_verified'] or not result['containment_verified']:raise ValueError('Saved CUBIN link chain is not verified')
+    from windows_validation_observer import compare_snapshots
+    observation=load(capture/'observation.json');comparison=compare_snapshots(observation['before'],observation['after'])
+    if observation['comparison']!=comparison or comparison['missing_existing_processes']:raise ValueError('Saved CUBIN link observation mismatch or missing process')
+    proof=load(capture/'jit-link.json');link_request=load(capture/'object-request.json')
+    object_capture=Path(link_request['object_capture']);object_request=load(object_capture/'object-request.json')
+    producer=proof['origin']['object_receipt']['identity']['origin']['producer']
+    compiler=load(Path(object_request['source_capture'])/'compiler.json')
+    anchors=dict(package_id=linked['package_id'],manifest_sha256=sha((package/'gpu-package.json').read_bytes()),
+        artifacts_sha256=sha((capture/'artifacts.json').read_bytes()),claim_sha256=sha((package/'jit-link-object-claimed-cuda.json').read_bytes()),link_receipt_key=proof['receipt']['key'])
+    receipt=admission(m,linked,producer,compiler,proof['receipt'],anchors)
+    return dict(receipt=receipt,artifact=str(capture/'jit-linked.cubin'))
+
+
+@contextlib.contextmanager
+def saved_linked_provider(m,capture,backend,journal):
+    request_path=capture/'linked-artifact-request.json'
+    if not request_path.exists():
+        yield;return
+    if backend!='cuda' or compiler_only(m) or is_development(m):raise ValueError('Saved CUBIN requires a sealed CUDA battle')
+    import portable_backend
+    from portable_linked_artifact import read_verified,STAGE
+    with forbid_gpu():state=saved_linked_admission(m,load(request_path))
+    journal.emit('cuda_linked_origin','verified',receipt=state['receipt'])
+    calls=0
+    def saved(source,*,artifact_kind=None):
+        nonlocal calls
+        if calls or (artifact_kind or portable_backend.cuda_artifact_kind())!='cubin':raise ValueError('One explicit saved CUBIN load required')
+        calls+=1
+        image,receipt=journal.invoke('cuda_linked_artifact',read_verified,state['receipt'],source,state['artifact'])
+        Path(source).with_suffix('.cubin').write_bytes(image)
+        journal.emit(STAGE,'verified',receipt=receipt)
+        return image,receipt
+    def forbidden(*args,**kwargs):raise RuntimeError('Live NVRTC compilation forbidden for saved CUBIN')
+    with patch.object(portable_backend,'compile_cuda_source',saved),patch.object(portable_backend,'compile_cuda_artifact',forbidden):yield
+
+
+def audit_saved_linked_artifact(m,capture,receipt):
+    from portable_linked_artifact import read_verified
+    state=saved_linked_admission(m,load(capture/'linked-artifact-request.json'))
+    if state['receipt']!=receipt:raise ValueError('Saved CUBIN admission receipt changed')
+    image,_=read_verified(receipt,capture/'generated.cu',state['artifact'])
+    if image!=(capture/'compiled.cubin').read_bytes():raise ValueError('Saved CUBIN copied image changed')
+    facts=load(capture/'execution.json')
+    if type(facts['timeout_seconds']) is not int or not 1<=facts['timeout_seconds']<=60:raise ValueError('Saved CUBIN execution exceeds fixed budget')
+    rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
+    if any(r['stage'].startswith('nvrtc') or r['stage']=='cuda_compile_cache' for r in rows):raise ValueError('Unexpected live NVRTC in saved CUBIN execution')
+    if [r.get('receipt') for r in rows if r['stage']=='cuda_linked_origin' and r['state']=='verified']!=[receipt]:raise ValueError('Saved CUBIN source admission phase mismatch')
+    if [r['state'] for r in rows if r['stage']=='cuda_linked_artifact']!=['entered','returned']:raise ValueError('Incomplete saved CUBIN read phase')
+    origin_index=next(i for i,r in enumerate(rows) if r['stage']=='cuda_linked_origin')
+    read_indices=[i for i,r in enumerate(rows) if r['stage']=='cuda_linked_artifact']
+    receipt_indices=[i for i,r in enumerate(rows) if r['stage']=='cuda_linked_artifact_receipt' and r['state']=='verified']
+    if len(receipt_indices)!=1 or not origin_index<read_indices[0]<read_indices[1]<receipt_indices[0]:raise ValueError('Saved CUBIN admission phase order mismatch')
+    return True
+
+
 def jit_link_origin(request):
     if request.get('source_kind')!='jit-link':raise ValueError('JIT link source kind mismatch')
     origin,raw=linked_object_origin(request)
@@ -1248,7 +1335,7 @@ def jit_link_child(m,capture,backend):
     write(capture/'jit-link.json',dict(origin=origin,receipt=receipt,calculation_verified=False,link_verified=True,kernel_calls=0))
 
 
-def audit_jit_link_capture(m,capture,*,verify_artifacts=True):
+def audit_jit_link_capture(m,capture,*,verify_artifacts=True,package_root=None):
     import portable_partition_object as obj
     import portable_jit_link_run as execution
     capture=Path(capture).resolve();run=load(capture/'run.json')
@@ -1267,7 +1354,7 @@ def audit_jit_link_capture(m,capture,*,verify_artifacts=True):
         if len(records)!=1:raise ValueError('One bounded JIT Job required')
         execution.audit_rows(rows,capture,origin,tool,records[0])
         if obj.object_paths(capture,origin)[0].read_bytes()!=raw:raise ValueError('JIT object bytes changed')
-        claim=load(ROOT/'jit-link-object-claimed-cuda.json')
+        claim=load((ROOT if package_root is None else Path(package_root))/'jit-link-object-claimed-cuda.json')
         if claim.get('package_id')!=m['package_id'] or Path(claim.get('capture','')).resolve()!=capture or claim.get('origin')!=origin:raise ValueError('JIT link consumed claim mismatch')
         verified=True
     except (KeyError,ValueError,OSError) as exc:error=str(exc)
@@ -1700,13 +1787,13 @@ def audit_capture(capture,verify_artifacts=True,*,record_comparison=False):
     phases=summarize(capture/'phases.jsonl')
     transport_ok=facts['passed']
     if backend=='cuda':
-        transport_ok &= (phases['nvrtc_compile_returned_success'] or phases['cuda_compile_cache_hit_verified']) and all(phases[k] for k in ('cuda_launch_returned_success','cuda_synchronize_returned_success','cuda_readback_returned_success'))
+        transport_ok &= (phases['nvrtc_compile_returned_success'] or phases['cuda_compile_cache_hit_verified'] or phases['cuda_linked_artifact_observed']) and all(phases[k] for k in ('cuda_launch_returned_success','cuda_synchronize_returned_success','cuda_readback_returned_success'))
     preservation=None if backend!='cuda' else False
     preservation=environment_preserved(capture,facts,backend)
     containment=True if backend!='cuda' else False
     if backend=='cuda':
         phase_rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()] if (capture/'phases.jsonl').exists() else []
-        containment,pid=job_contained(capture,phase_rows)
+        containment,pid=job_contained(capture,phase_rows,memory_limit_bytes=2147483648 if (capture/'linked-artifact-request.json').exists() else None)
         containment &= verify_cuda_trace(phase_rows,pid=pid) if containment else False
     return dict(sealed=not is_development(m) and not compiler_only(m),purpose=m.get('purpose','sealed'),
                 calculation_verified=bool(calc and transport_ok and containment),preservation_verified=preservation,
@@ -1786,7 +1873,7 @@ def main(argv=None):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--smoke',action='store_true')
         if name=='run':
             a.add_argument('--cpu-only',action='store_true');a.add_argument('--timeout',type=int,default=180);a.add_argument('--original-workspace',type=Path);a.add_argument('--slang-root',type=Path)
-            a.add_argument('--require-cache',action='store_true');a.add_argument('--compile-cache',type=Path);a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--artifact-kind',choices=('cubin','ptx'))
+            a.add_argument('--require-cache',action='store_true');a.add_argument('--compile-cache',type=Path);a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--artifact-kind',choices=('cubin','ptx'));a.add_argument('--linked-package',type=Path);a.add_argument('--linked-capture',type=Path)
         else:
             a.add_argument('--compile-only',action='store_true');a.add_argument('--module-only',action='store_true');a.add_argument('--assemble-only',action='store_true');a.add_argument('--partition-object-only',action='store_true');a.add_argument('--module-object-only',action='store_true');a.add_argument('--link-object-only',action='store_true');a.add_argument('--jit-link-object-only',action='store_true')
     for name in ('status','audit','collect','export'):
@@ -1860,13 +1947,14 @@ def main(argv=None):
     elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case)
     elif a.command=='unpack':result=dict(package_id=unpack(a.archive,a.dest))
     elif a.command=='run':
+        if (a.linked_package or a.linked_capture) and (a.require_cache or a.compile_cache or a.ptxas_level is not None or a.artifact_kind):raise ValueError('Saved CUBIN and live NVRTC/cache settings are exclusive')
         if a.backend!='cuda' and (a.require_cache or a.compile_cache or a.ptxas_level is not None or a.artifact_kind):raise ValueError('CUDA compiler settings require CUDA backend')
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
         if a.compile_cache:os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
         if a.require_cache:os.environ['NIKKE_CUDA_CACHE_REQUIRED']='1'
         if a.ptxas_level is not None:os.environ['NIKKE_CUDA_PTXAS_OPT_LEVEL']=str(a.ptxas_level)
         if a.artifact_kind:os.environ['NIKKE_CUDA_ARTIFACT']=a.artifact_kind
-        result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only)
+        result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**(dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}))
     elif a.command=='_tests':
         from portable_cpu_tests import run_groups,complete
         m=verify_package(ROOT);patterns=SMOKE_TESTS if a.smoke else SUITES[m['suite']]['tests']

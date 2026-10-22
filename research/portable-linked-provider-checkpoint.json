@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "scope": "Explicit saved-module-jit-cubin provider; GPU execution not yet performed",
+  "source_commit": "01346951e69a80015b6d50b246b01f232d7e296d",
+  "working_tree_dirty": true,
+  "compiler_packet": "8880ec86831b445c2cc0427068976622a762744fb5e8404d710198e1962d1c04",
+  "rosters_packet": "05021e6c13bdaf41b3dfeafa5e2d8d04b62d64cc3796c89c0ec08422f2b38983",
+  "controller_cpu": {
+    "tests": 261,
+    "passed": 260,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0
+  },
+  "rosters_cpu": {
+    "inputs": 4,
+    "native_oracles": 4,
+    "tests": 19,
+    "failures": 0,
+    "errors": 0
+  },
+  "production_sources_match_both_packets": true,
+  "gpu_source_body_changed": false,
+  "normalizer_changed": false,
+  "live_compiler_calls": 0,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "next": "Fixed clean source; Windows CPU/Job smoke once, then saved current CUBIN with four sealed rosters once; no NVRTC/ptxas/link rerun"
+}

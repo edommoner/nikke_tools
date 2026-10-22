@@ -110,6 +110,7 @@ def summarize(path):
     return dict(events=len(rows), last_event=rows[-1] if rows else None,
                 nvrtc_compile_returned_success=returned('nvrtcCompileProgram'),
                 cuda_compile_cache_hit_verified=any(valid_cache_hit(r) for r in rows),
+                cuda_linked_artifact_observed=any(valid_linked_artifact(r) for r in rows),
                 cuda_launch_returned_success=returned('cuLaunchKernel'),
                 cuda_synchronize_returned_success=returned('cuCtxSynchronize'),
                 cuda_readback_returned_success=returned('cuMemcpyDtoH_v2'),
@@ -128,9 +129,10 @@ def verify_cuda_trace(rows, *, pid=None):
     streamed=any(r['stage']=='cuda_readback_file' for r in rows)
     stages=['nvrtcCompileProgram','cuLaunchKernel','cuCtxSynchronize']+([] if streamed else ['cuMemcpyDtoH_v2'])
     if not any(r['stage']=='nvrtcCompileProgram' for r in rows):
-        hits=[(i,r) for i,r in enumerate(rows) if valid_cache_hit(r)]
+        hits=[(i,r) for i,r in enumerate(rows) if valid_cache_hit(r) or valid_linked_artifact(r)]
         if len(hits)!=1:return False
         previous=hits[0][0];stages=stages[1:]
+    if any(r['stage']=='nvrtcCompileProgram' for r in rows) and any(valid_linked_artifact(r) for r in rows):return False
     for stage in stages:
         hits=[(i,r) for i,r in enumerate(rows) if r['stage']==stage]
         if (len(hits)!=2 or hits[0][1]['state']!='entered' or hits[1][1]['state']!='returned'
@@ -168,7 +170,7 @@ def verify_streamed_readback(rows,previous):
     cleanup=[(i,r) for i,r in enumerate(rows) if r['stage']=='cuCtxDestroy_v2']
     if len(cleanup)!=2 or [r['state'] for _,r in cleanup]!=['entered','returned'] or cleanup[1][1].get('return_code')!=0 or not markers[1][0]<cleanup[0][0]<cleanup[1][0]:return False
     a=zeros[0][1]
-    compiler_end=max(i for i,r in enumerate(rows) if r['stage']=='nvrtcCompileProgram' and r['state']=='returned' or valid_cache_hit(r))
+    compiler_end=max(i for i,r in enumerate(rows) if r['stage']=='nvrtcCompileProgram' and r['state']=='returned' or valid_cache_hit(r) or valid_linked_artifact(r))
     return bool(compiler_end<zeros[0][0]<zeros[1][0]<launch and a.get('destination_device')==address and a.get('value')==0 and a.get('byte_count')==size)
 
 
@@ -179,3 +181,10 @@ def valid_cache_hit(row):
             and isinstance(receipt.get('artifact_bytes'),int) and receipt['artifact_bytes']>0
             and all(isinstance(receipt.get(k),str) and len(receipt[k])==64
                     and all(c in '0123456789abcdef' for c in receipt[k]) for k in ('key','artifact_sha256')))
+
+
+
+def valid_linked_artifact(row):
+    if row.get('stage')!='cuda_linked_artifact_receipt':return False
+    from portable_linked_artifact import valid_marker
+    return valid_marker(row)

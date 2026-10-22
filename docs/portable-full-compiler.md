@@ -32,3 +32,11 @@ live compilerを自動fallbackで呼ばず、共通`_cuda_module`のCUBIN load�
 同じ固定full packetから保存PTXの全byteを使い、ptxas12.4.131のmodule-object1回とnvJitLink12.4.127のlink1回が成功した。ptxasは6.483811秒／return0／peak267,169,792B、object4,141,360B／SHA `b658a7f41034b55b9f81c99b00513d1768c193a917cdbc88332ea8d6e40ed2e8`。JIT providerは0.210278秒／全API9return0／Destroy成立／peak84,570,112B、CUBIN3,877,904B／SHA `91aacb335dc3355d72b652736bcd5c1bbca20798bdd8d661962c577793a45578`／params48B。driver moduleは3観測ともfalse。
 
 両Jobは実2GiB／post空／cleanup正常／欠落0。元25,589file・object/claim・親環境を保持。最終CPU audit1回も元compiler/object chainからlink/containmentを認定した。追加NVRTC／driver／GPU0、retry0。service未識別のpreservationfalse、計算false／全キャラ認定0を維持。Macはpeer summaryまで。記録は`research/portable-full-object-link-peer-report.json`。これで現行本体のPTX→object→CUBINは実証でき、次は上記の明示providerと通常実行／独立監査への接続、実編成4ケースのGPU数値比較である。
+
+## 明示保存CUBIN providerを実装（実GPUは未検証）
+
+共通CLI `run --backend cuda --timeout 60 --linked-package <full-package> --linked-capture <full-link> --slang-root <existing-root> --original-workspace <original> --capture <fresh>`で選択する。NVRTC/cache設定との併用、Metal、smoke、cpu-only、development、compiler-onlyを拒否する。親/子/事後の監査は既存compiler→object→linkを再利用し、元package内の専用claimを照合する。source110／両生成指紋／full producer／生成CUDA全byte／prelude／CUBINを結んだ`provider=saved-module-jit-cubin`を専用receiptへ固定する。
+
+通常backend・共有数値本文・state/effect・ABI・strict normalizerは変更しない。CLIが既存compile source境界を一時的に置き換え、検証済みimageを返す。NVRTC関数は明示禁止、自動fallbackはない。read→receiptは1回だけで、元CUBINを変更しない。既存CUDA module／execute／stream readbackを使う。cache reuseとNVRTC hitを別stageにし、ordered native traceと独立readback監査でも専用origin/receiptを要求する。`cache-check`もこのproviderではNVRTC cache環境不要・CPU-onlyで再照合できる。
+
+新13故障注入を含むfresh controller CPU261中260成功／Windows1skip。4入力の既存CPU/native指紋と関連19検査も成功、両packetのコードbyte一致。数値sourceが同一なのでMetal849+実4は再実行しない。記録は`research/portable-linked-provider-checkpoint.json`。次は固定clean sourceでWindows CPU/Job smoke1回後、現行CUBINを再利用する実編成4だけをGPU1回。既存NVRTC/ptxas/JITlinkは再実行しない。計算／全キャラ認定は実結果が揃うまで未完了。
