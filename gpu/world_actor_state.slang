@@ -1,10 +1,15 @@
 // Named predicates consume canonical carrier keys;lifetimes/scalars remain shared.
 bool actorStateEnabled(inout Runtime s)
 { return WORLD_MUTATION_STATE_ENABLED(s,actorFieldsEnabled(s) && commands[s.inputBase+P_WORLD_ACTOR_POOL_INPUT_BASE+4]==0x57533031); }
+// Preserve the scalar value before updating the same RW buffer element.
+// Slang CUDA can otherwise retain a pointer and load it after the store.
+[noinline]
+uint actorStateQueryScopeSnapshot(uint at)
+{ return results[at]; }
 uint actorStatePushQuery(inout Runtime s,uint target)
 {
     if(!actorStateEnabled(s)) return 0;
-    uint at=actorFieldHead(s)+3,previous=results[at];results[at]=actorFieldLogicalSlot(s,target)+1;return previous;
+    uint at=actorFieldHead(s)+3;uint previous=actorStateQueryScopeSnapshot(at);results[at]=actorFieldLogicalSlot(s,target)+1;return previous;
 }
 void actorStatePopQuery(inout Runtime s,uint previous)
 { if(actorStateEnabled(s)) results[actorFieldHead(s)+3]=previous; }

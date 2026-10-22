@@ -94,6 +94,9 @@ def _build_resident(compiler, source, entry, hashes, directory):
                     raise RuntimeError('Slang resident '+target+' artifact missing or empty: '+path.name+'; '+diagnostic)
             staged[target]=output
         plan=reflection_plan(staged,entry)
+        if b'actorStateQueryScopeSnapshot_' in staged['cuda'].read_bytes():
+            from portable_scope_snapshot_audit import audit as audit_scope_snapshot
+            audit_scope_snapshot(staged['cuda'].read_bytes(),staged['metal'].read_bytes())
         staged['cuda'].write_bytes(cuda_layout_assertions(staged['cuda'].read_bytes(),plan))
         if source_hashes(source)!=hashes:
             raise RuntimeError('GPU sources changed during build; discard generated outputs')

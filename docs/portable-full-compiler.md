@@ -58,3 +58,9 @@ CPU block比較で3072中6blockのみ不一致、全6blockをsampleしてMac raw
 次は共通Slangでsnapshotを明示的なnoinline value-return helperへ分離する等、旧値がstore前に実値として評価される形へ修正し、両生成物を直接確認する。生成CUDAだけのパッチ、normalizer除外、末尾上書きは行わない。sourceが変わるためMetal849+実4の保持／独立sealと新source certificateを経てから、必要な新full compile/object/linkと短いCUDA比較を行う。旧失敗run・claims・元rawは保存する。
 
 Windowsの実GPU入力generated.cu（1,861,674B／SHA `548a1cc63fbb26f4be5694f704606e8a98bf73c59c4c434db42798fd95461a3a`）も記録SHAと一致し、同じfunction bodyを保存ファイルだけで確認した。`research/portable-linked-scope-cuda-source-peer.json`に保持した。
+
+## 共通snapshot修正候補
+
+`actorStateQueryScopeSnapshot(uint at)`をnoinlineのuint返却helperとして共有Slangへ分離し、push側はcall結果をuintとして保持してからscopeを書き、保存値を返す。pinned Mac Slangの両生成物でcall→store→saved uint returnを確認。CUDA helperには`__noinline__`があり、生成監査はpointer reload／post-store snapshot／誤return／helper内storeを拒否する4負例を持つ。共通resident buildでもこの監査を実行し、対象CUDA/Metalの不正生成を公開前に拒否する。既存resident transport3検査も成功。記録は`research/portable-scope-snapshot-codegen-checkpoint.json`。
+
+候補のGPU実行・計算保持はまだ未検証。GPU sourceはworld_actor_stateの1fileだけ変更し、closure110/ABI/数値式/strict normalizerは不変。旧sealed goldenとcompiler certificateは意図的に未更新である。次はdevelopmentからMetal実4／849の全raw保持と独立sealを確認して新source certificateを作り、必要な短いCUDA検証へ進む。古い成功sourceへ新SHAを貼るだけの認定はしない。

@@ -178,6 +178,7 @@ SMOKE_TESTS.append('test_portable_jit_link.py')
 SMOKE_TESTS.append('test_portable_jit_link_capture.py')
 SMOKE_TESTS.append('test_portable_linked_artifact.py')
 SMOKE_TESTS.append('test_portable_readback_blocks.py')
+SMOKE_TESTS.append('test_portable_scope_snapshot_audit.py')
 
 
 def sha(data):
