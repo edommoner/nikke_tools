@@ -2,13 +2,37 @@
 // hit multiplicity, gauge, Actor HP, counter completion and healing are shared.
 bool worldSkillsEnabled(inout Runtime s)
 { return targetCountersEnabled(s)&&(commands[s.inputBase+P_TARGET_COUNTER_INPUT_BASE+6]==7||worldPendingEnabled(s)); }
+#ifdef PORTABLE_WORLD_PROJECTILE
+uint64_t sampleWorldPartSkill(inout Runtime s,Definition d,uint64_t coefficient,uint64_t when,out uint64_t partAmount)
+{
+    bool hasParts=commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+3]!=0,extra=false;
+    for(uint slot=1;slot<actorPoolCount(s);slot++)
+    {
+        if(commands[actorBinding(s,slot)]!=1||results[actorPoolAt(s,slot)+1]==0) continue;
+        hasParts=true;
+        uint at=s.inputBase+P_TARGET_COUNTER_INPUT_BASE+4104+slot*8;
+        if(commands[at]==1&&commands[at+1]!=0&&commands[at+1]<=5) extra=true;
+    }
+    uint flags=d.damageFlags&~H_PART;if(hasParts&&!extra) flags|=H_PART;
+    bool normal=d.damageNormal!=0;uint64_t coreBonus=normal?s.coreDamageBonus[d.owner]:s.coreBonus;
+    partAmount=0;
+    if(extra) return damageValueWithPart(s,d.owner,coefficient,when,normal,coreBonus,flags,partAmount,ONE,normal&&(s.attackContext[d.owner]&1)!=0);
+    return damageValue(s,d.owner,coefficient,when,normal,coreBonus,flags,ONE,normal&&(s.attackContext[d.owner]&1)!=0);
+}
+#endif
 bool validWorldSkillDefinition(inout Runtime s,uint row,Definition d)
 {
     if(d.enemyBuff!=0||!validEnemyRoute(s.inputBase,d.damageRoute)||d.damageCount==0||d.damageCount>128||d.damageHits>256||d.damagePending!=0&&!worldPendingEnabled(s)||(d.periodicFlags!=0||!f64Zero(d.interval))&&!worldPeriodicClock(s,d)||d.healthScaling!=0||referenceScaleMode(s,row)!=0&&!(worldPendingEnabled(s)&&d.damagePending!=0&&referenceScaleMode(s,row)==1)&&!(worldPeriodicClock(s,d)&&referenceScaleMode(s,row)==3)) return false;
-    if((d.damageFlags&~uint(1|2|4|8|16|32|64|128|256|512|1024|2048|4096|8192|16384|65536|H_NAMED_SKILL))!=0||(d.damageFlags&(H_PART|65536U))!=0||(d.damageFlags&H_DOT)!=0&&!worldPeriodicClock(s,d)||d.damageNormal>1) return false;
+    if((d.damageFlags&~uint(1|2|4|8|16|32|64|128|256|512|1024|2048|4096|8192|16384|65536|H_NAMED_SKILL))!=0||(d.damageFlags&H_DOT)!=0&&!worldPeriodicClock(s,d)||d.damageNormal>1) return false;
+#ifndef PORTABLE_WORLD_PROJECTILE
+    if((d.damageFlags&(H_PART|65536U))!=0) return false;
+#else
+    if((d.damageFlags&H_PART)!=0&&(d.damageFlags&65536U)==0) return false;
+    if((d.damageFlags&65536U)!=0&&d.damagePending!=0) return false;
+#endif
     // Reached part/interrupt packets need their own explicit receipt metadata.
     if((d.damageFlags&(H_PIERCE|H_EXPLOSION))!=0||d.damageNormal!=0&&(s.attackContext[d.owner]&4)!=0)
-        for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]==1) return false;
+        for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]==1||commands[actorBinding(s,slot)]==2) return false;
     if(d.damageRoute==3)
         for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]==5&&commands[actorPoolDef(s,slot)]==3) return false;
     return true;
@@ -16,18 +40,25 @@ bool validWorldSkillDefinition(inout Runtime s,uint row,Definition d)
 bool validWorldSkillReceipt(inout Runtime s,LandingReceipt r,bool legacy)
 {
     if(!worldSkillsEnabled(s)) return legacy;
-    return r.row<s.count&&definition_kind(s.inputBase,r.row)==3&&WORLD_PERIODIC_VALID(s,r,r.mask==0xffffffffU)&&r.hit>=1&&r.hit<=256&&r.hits>=r.hit&&r.hits<=256&&r.depth>=1&&r.depth<=P_DEPTH&&r.epoch<=0x7fffffff&&f64Finite(r.amount)&&!f64Less(r.amount,0)&&f64Finite(r.when);
+    return r.row<s.count&&definition_kind(s.inputBase,r.row)==3&&WORLD_PERIODIC_VALID(s,r,r.mask==0xffffffffU)&&r.hit>=1&&r.hit<=256&&r.hits>=r.hit&&r.hits<=256&&r.depth>=1&&r.depth<=P_DEPTH&&r.epoch<=0x7fffffff&&f64Finite(r.amount)&&!f64Less(r.amount,0)&&f64Finite(r.when)&&f64Finite(r.partAmount)&&!f64Less(r.partAmount,0);
 }
 void storeWorldSkillReceipt(inout Runtime s,uint at,LandingReceipt r)
 {
     if(!worldSkillsEnabled(s)) { storeLandingReceipt(at,r);return; }
     results[at]=r.row;results[at+1]=r.hit|(r.hits<<9)|(r.depth<<18);
     storeNumber(at+2,r.amount);storeNumber(at+4,r.when);results[at+6]=r.epoch;results[at+7]=0;WORLD_PERIODIC_STORE(s,at,r)
+#ifdef PORTABLE_WORLD_PROJECTILE
+    storeSkillPartAmount(at,r.partAmount);
+#endif
 }
 LandingReceipt loadWorldSkillReceipt(uint at)
 {
     LandingReceipt r={};uint counts=results[at+1];r.row=results[at];r.mask=0xffffffffU;
-    r.hit=counts&511;r.hits=(counts>>9)&511;r.depth=counts>>18;r.amount=actorNumber(at+2);r.when=actorNumber(at+4);r.epoch=results[at+6];WORLD_PERIODIC_LOAD(r,at) return r;
+    r.hit=counts&511;r.hits=(counts>>9)&511;r.depth=counts>>18;r.amount=actorNumber(at+2);r.when=actorNumber(at+4);r.epoch=results[at+6];WORLD_PERIODIC_LOAD(r,at)
+#ifdef PORTABLE_WORLD_PROJECTILE
+    r.partAmount=loadSkillPartAmount(at);
+#endif
+    return r;
 }
 uint worldSkillHead(inout Runtime s) { return s.resourceOutput+P_WORLD_SKILL_HEAD_BASE; }
 void initializeWorldSkills(inout Runtime s)
@@ -87,6 +118,14 @@ bool landWorldSkillReceipt(inout Runtime s,LandingReceipt r,uint64_t when,uint o
             counterPhysicalPacket(s,d.owner,slot,generation,amount,results[receipt+1]!=0,when,output);
             results[counterHead(s)+11]=previous;
             if((s.healthMask&64)!=0&&s.error==0) dispatch(s,17,0,d.owner,0,when,output,share);
+#ifdef PORTABLE_WORLD_PROJECTILE
+            if(slot==0&&!f64Zero(r.partAmount)&&s.error==0)
+            {
+                uint family=results[counterHead(s)+11];results[counterHead(s)+11]=WORLD_PERIODIC_FAMILY(s,d,((d.damageFlags&H_CORE)!=0&&d.damageNormal==0)?0:1);
+                deliverCounterPartGroup(s,d.owner,ACTOR_REF,when,output,5,r.partAmount);
+                results[counterHead(s)+11]=family;
+            }
+#endif
             uint out=worldSkillHead(s);if(results[out+3]==0x7fffffff) { s.error=2;break; }results[out+3]++;
         }
     }

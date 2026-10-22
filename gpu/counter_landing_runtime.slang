@@ -89,12 +89,12 @@ void publishCounterLanding(inout Runtime s,uint who,uint target,uint64_t amount,
     uint64_t damage=commands[binding]==5 ? actorNumber(receipt+2) : amount;
     counterPhysicalPacket(s,who,slot,generation,damage,killed,when,output);
 }
-void deliverCounterParts(inout Runtime s,uint who,uint target,uint64_t when,uint output)
+void deliverCounterPartGroup(inout Runtime s,uint who,uint target,uint64_t when,uint output,uint reach,uint64_t amount)
 {
     if(commands[actorBinding(s,target&127U)]!=0) return;
-    uint shot=s.resourceOutput+P_COUNTER_LANDING_SHOT_BASE+who*8,reach=results[shot],count=0;
+    uint count=0;
     if(reach==0) return;
-    uint64_t amount=actorNumber(shot+2);storeNumber(actorPoolHead(s)+2,when);
+    storeNumber(actorPoolHead(s)+2,when);
     results[counterHead(s)+10]=1;
     // Native Boss.part_hits applies every reached part before returning its
     // ordered packet list. Counter/HP children cannot change that captured list.
@@ -119,4 +119,9 @@ void deliverCounterParts(inout Runtime s,uint who,uint target,uint64_t when,uint
         counterPhysicalPacket(s,who,results[at],results[at+1],amount,results[at+3]!=0,when,output);
         if((s.healthMask&64)!=0&&s.error==0) dispatch(s,17,0,who,0,when,output,amount);
     }
+}
+void deliverCounterParts(inout Runtime s,uint who,uint target,uint64_t when,uint output)
+{
+    uint shot=s.resourceOutput+P_COUNTER_LANDING_SHOT_BASE+who*8;
+    deliverCounterPartGroup(s,who,target,when,output,results[shot],actorNumber(shot+2));
 }

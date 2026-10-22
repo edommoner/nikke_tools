@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "scope": "Exact reviewed part receipt feature delta; not historical source preservation or GPU equivalence proof",
+  "baseline": {
+    "gpu/landing_runtime.slang": "36a22364895381973fb9910b0ebd947c333bc936006e6817dd1d8406a8b8323e",
+    "gpu/dispatch_phases.slang": "c7bf79a309bdd4b6571a2cd4504c64f5531c708971ccd2dc6b4b8cf4a2b37f69",
+    "gpu/counter_landing_runtime.slang": "9f7e46c3d8871f24a2859023381c8b54b70a74b3b7111687d547c454df686766",
+    "gpu/world_skill_runtime.slang": "4e40434f8815103a4324586e9227404c8c67dce20d7f37e26a823199bfdf9a6d"
+  },
+  "current": {
+    "gpu/landing_runtime.slang": "3478a6fe27ef5f7682497e24a2c7effc947e503cd5530f3694d12fd1be212126",
+    "gpu/dispatch_phases.slang": "20ff54f451c00409a7d8b1ad91e373c606e62ca0a52d879fe2dfb9f03dfdeb4a",
+    "gpu/counter_landing_runtime.slang": "ce66fbcc0df12565f15176ae7504c53d7a6a6474ccb05643201c618c17e2d2a9",
+    "gpu/world_skill_runtime.slang": "4c6c5ecbaa6ade2885d3793e9f6f23456f97788cd761d2da0980e76c3f1b1e0b"
+  },
+  "new_sources": {
+    "gpu/skill_part_receipt.slang": "3bb073f46d9f298d693c5aa1d9f5439f0347a98b80498c8ccd03d7ed572ab904"
+  }
+}

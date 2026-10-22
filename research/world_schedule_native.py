@@ -5,6 +5,10 @@ from portable_world_schedule_specs import OUTCOMES
 
 def bits(value):return list(struct.unpack('<II',struct.pack('<d',float(value))))
 
+def cleared_run(run):
+ # Native _close_due's target predicate, observed after at least one open.
+ return bool(run.opens>0 and run.p.until_cleared and (all(not a.alive for a in run.adds) if run.p.summon is not None else all(x.destroyed for x in run.targets if x.spec.breakable)))
+
 def observe(case,patterns):
  names={p.id:p.idx for p in patterns};names['start']=32
  log=[];history=[];snapshots=[];frames=0
@@ -22,7 +26,7 @@ def observe(case,patterns):
  def states():
   rows=[]
   for run in boss._runs:
-   cleared=run.opens>0 and run.p.until_cleared and (all(not a.alive for a in run.adds) if run.p.summon else all(x.destroyed for x in run.targets if x.spec.breakable))
+   cleared=cleared_run(run)
    rows.append([int(run.active),run.opens,*bits(run.start_t),run.fired,0,int(cleared),0,*run.consumed_after,*([0]*(8-len(run.consumed_after))),*run.consumed_until,*([0]*(8-len(run.consumed_until)))])
   return rows+[[0]*24 for _ in range(32-len(rows))]
  def begin(time,mask=0):

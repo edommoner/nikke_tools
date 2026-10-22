@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "status": "part_skill_packet_path_connected_partial_feature_scope",
+  "proofs": [
+    {
+      "name": "parts",
+      "capture": "/tmp/nikke-parts-world-v3-metal",
+      "package_id": "c8c2be2417f1ec39c4fa5dcd279bcb04b2b39c1022dacd2ea8d398bb8233ae8a",
+      "cases": 26,
+      "raw_bytes": 81788928,
+      "raw_sha256": "3790db562c53d04ea4364334f368f7ac08a096480e9dc23d19470374534ce00e",
+      "device": "Apple M5",
+      "gpu_seconds": 0.04426462505944073,
+      "sealed_path": "/tmp/nikke-parts-world-v3-sealed.json",
+      "sealed_sha256": "bff22efa0a5636879e014d7c78683bc53e4205f4fc9a46ab2b645a73e733846f",
+      "seal_gpu_calls": 0
+    },
+    {
+      "name": "codec",
+      "capture": "/tmp/nikke-part-codec-v1-metal",
+      "package_id": "5748e9c2941e1b7ed3991ece97ee7dc89b4557b961ec1f668e4a7aad3f3f0b82",
+      "cases": 4,
+      "raw_bytes": 12582912,
+      "raw_sha256": "650e957ca0a274b8efb5281cfdd9a2677e3b45644c2bebf854ea74e1d2cd3bcf",
+      "device": "Apple M5",
+      "gpu_seconds": 7.750000804662704e-06,
+      "sealed_path": "/tmp/nikke-part-codec-v1-sealed.json",
+      "sealed_sha256": "0a06c1e8fd504ca3363f56fc2e60d1132f050a432a82b5ef8882f58247432d39",
+      "seal_gpu_calls": 0
+    },
+    {
+      "name": "regression",
+      "capture": "/tmp/nikke-parts-world-regression-v2-metal",
+      "package_id": "53da5e4aa1a09210844f31f78163577f7fd741343cfa6022b0acb18bff28cafc",
+      "cases": 849,
+      "raw_bytes": 2670723072,
+      "raw_sha256": "89afa4ed803477c6e1d4aa37bc06bb32fb5b9717e29cc7d413f168a8717d92e1",
+      "device": "Apple M5",
+      "gpu_seconds": 10.294027875061147,
+      "sealed_path": "/tmp/nikke-parts-world-regression-v2-sealed.json",
+      "sealed_sha256": "ae4d71a1474231d1f3ecf1f184d91ed4a99edad6edfe09d1b16cf709c4327069",
+      "seal_gpu_calls": 0
+    },
+    {
+      "name": "rosters",
+      "capture": "/tmp/nikke-parts-world-rosters-v2-metal",
+      "package_id": "0fbd91b8778c1cab13818b459cce4c5f35553b890ee523ec1f8c0afbf66e3041",
+      "cases": 4,
+      "raw_bytes": 12582912,
+      "raw_sha256": "f83a45b0297cf2f46a2232c9d2469e3148665c79337899562c1e56f8d043de97",
+      "device": "Apple M5",
+      "gpu_seconds": 3.142990499967709,
+      "sealed_path": "/tmp/nikke-parts-world-rosters-v2-sealed.json",
+      "sealed_sha256": "2df85b4e147c81c617d614c962c6f196f702bb3c15cf47b09f53dc724722d4ee",
+      "seal_gpu_calls": 0
+    }
+  ],
+  "retention": [
+    {
+      "bytes": 2670723072,
+      "sha256": "89afa4ed803477c6e1d4aa37bc06bb32fb5b9717e29cc7d413f168a8717d92e1",
+      "all_bytes_equal": true,
+      "old": "/tmp/nikke-parts-factors-regression-v2-metal/readback.bin",
+      "new": "/tmp/nikke-parts-world-regression-v2-metal/readback.bin",
+      "gpu_calls": 0
+    },
+    {
+      "bytes": 12582912,
+      "sha256": "f83a45b0297cf2f46a2232c9d2469e3148665c79337899562c1e56f8d043de97",
+      "all_bytes_equal": true,
+      "old": "/tmp/nikke-parts-factors-rosters-v2-metal/readback.bin",
+      "new": "/tmp/nikke-parts-world-rosters-v2-metal/readback.bin",
+      "gpu_calls": 0
+    }
+  ],
+  "cpu": {
+    "final_regression_tests": 308,
+    "failures": 0,
+    "errors": 0,
+    "parts_preflight_tests": 32,
+    "codec_tests": 2
+  },
+  "layout": {
+    "part_base": 781328,
+    "part_end_exclusive": 785424,
+    "capacity": 2048,
+    "words_per_receipt": 2,
+    "periodic_at_plus7_unchanged": true,
+    "runtime_stride": 138952,
+    "full_closure": 112,
+    "commands_closure": 113
+  },
+  "native_observation_correction": {
+    "original_failure": "/tmp/nikke-parts-world-v1-metal",
+    "replay": "/tmp/nikke-parts-world-v2-replay",
+    "receipt": {
+      "kind": "parts-cleared-v1",
+      "case": "native/parts-lifecycle-reopened-same-labels",
+      "path": [
+        "battle",
+        "graph_states",
+        0,
+        6
+      ],
+      "old_placeholder": 0,
+      "new_observed": 1,
+      "all_other_native_fields_equal": true,
+      "all_other_baselines_equal": true,
+      "gpu_calls": 0
+    },
+    "replay_passed": true,
+    "replay_gpu_calls": 0,
+    "old_records_unchanged": true,
+    "all_old849_native_entries_unchanged": true
+  },
+  "pre_final_proofs": [
+    "/tmp/nikke-parts-world-regression-v1-metal",
+    "/tmp/nikke-parts-world-rosters-v1-metal",
+    "/tmp/nikke-parts-world-v2-replay"
+  ],
+  "final_dot_family_fix": "Reuse WORLD_PERIODIC_FAMILY; dedicated literal part/DoT counter completion native and GPU compared",
+  "static_packing": {
+    "profiles": 218,
+    "total": 266,
+    "base": 158,
+    "scope": "Packing only; no full-character certification"
+  },
+  "remaining": [
+    "Interrupt Actor input for seven retained CPU contracts and reached interrupt packet accounting/healing",
+    "Coordinate part geometry and deferred burst part packet model gap",
+    "Diagnostic full lifecycle stream and broader generation/target-counter combinations",
+    "Current source CUDA numerical parity and saved-generation cache optimization",
+    "Windows existing7 exit cause unknown; no new native/GPU operations"
+  ],
+  "windows_new_runs": 0,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "controller_cpu": {
+    "package_id": "8340581a5492720d8eac6f679ca70f5a7e2758b9a81bde8f63b1ea8fffee1562",
+    "capture": "/tmp/nikke-parts-world-controller-final-cpu",
+    "gpu_calls": 0,
+    "tests": 274,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  }
+}

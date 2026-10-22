@@ -1,6 +1,6 @@
 # 次の未対応機能：hits_parts
 
-数値基盤の最初の接続は`portable-damage-factors.md`に記録しました。既存damageValueを因子取得と順次積へ分離し、Metal849＋実4の全raw保持・独立seal、積の専用16ケースを確認済みです。二値入口damageValueWithPartの実戦呼出し、Frame／receipt保存と部位landingは未接続です。以下の設計全体を実装済みと扱わないでください。
+現在の接続は`portable-parts-skill-gpu.md`を参照してください。二値入口の生成時呼出し、Frame snapshot、周期とは別の2048件receipt bank、live部位群landingまで共通化し、Metal26入力（native25・deferred拒否1）を実証しました。interrupt入力の7契約・座標・deferred部位は残っています。以下は数値基盤の実装前に記した設計・CPU契約の履歴で、全項目の実装完了を意味しません。
 
 現在の静的inventoryで、armor_break_burst_damage／burst_damage／damageの`hits_parts`が未対応。対象はベスティ：タクティカルアップ、レイヴン、シンデレラ：クリスタルウェーブの各profileに現れる。解除数の予測やGPU対応認定はしない。共通CLIのCPU参照契約は32件（通常契約31＋legacy deferred burstのモデル制限1）まで確認済み。GPU受付は閉じたまま。
 

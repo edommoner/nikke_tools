@@ -1,0 +1,39 @@
+{
+  "input_sha256": "e9e24bfa0fde1360f8f3b7868f71390dd66cd5774ddd29e5399391a9fda750c9",
+  "output_sha256": "650e957ca0a274b8efb5281cfdd9a2677e3b45644c2bebf854ea74e1d2cd3bcf",
+  "source_sha256": {
+    "gpu/skill_part_codec_probe.slang": "ce276145fd2e62d22e624eb8a19036bb8b79e5cb12a97cc70566e4995eaca368",
+    "gpu/portable_schema.slang": "2b2cd6fed695d3470562b27dac4b8573fccc5b27eca816b08438e6ae92fd26bb",
+    "gpu/skill_part_receipt.slang": "3bb073f46d9f298d693c5aa1d9f5439f0347a98b80498c8ccd03d7ed572ab904"
+  },
+  "entries": [
+    {
+      "name": "part-codec-first-clear",
+      "input_sha256": "7770ba5f41d4c8d3b59f14008a4ddb2abd501bb5b6cb535ba3fd252dfa3c2d40",
+      "output_sha256": "67d5c9d857493baa1d5e34103f38806811a52034868f52062f0187c6b1149456",
+      "native_sha256": "b14de6e1b13475e362696924c7760481ecf670dee64beffa0fdab94c5a9630a9"
+    },
+    {
+      "name": "part-codec-last-reuse",
+      "input_sha256": "c640f16ae3472b96743e8099559a035f21cf7b3f4a9e1cc85c5d0af804f9db45",
+      "output_sha256": "e1eaa8b3ead25153f8b9f5b171adb972b2215bc74c5285944787976ca1d4b1b0",
+      "native_sha256": "81f9d3afb0d6520ce61054d5c3b449c40a4e74a3816c2b7958f4e01189b9fe05"
+    },
+    {
+      "name": "part-codec-middle-set",
+      "input_sha256": "1c4c27289c686b716fa4c08be6e48855104c7b62ca33ace356c31ed989642f28",
+      "output_sha256": "4766827cf54caece62c7cba3ce908de6d29b06de504837f9616396338fbf419f",
+      "native_sha256": "2651331d4f648b21a62cf092e9c84bc9b9ec3b511507658819fe567959979cf5"
+    },
+    {
+      "name": "part-codec-reject-overflow",
+      "input_sha256": "c8419e6c7b07c2229935e7dcbc097706d29851d837e382bfb02ad8536abdd37b",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "generated_normalized": {
+    "cuda": "49435b0ee29ba013b7a53b1279fc16767053eb9116d79f16198b34bb7737b783",
+    "metal": "666e6449764260b05b64b8ceb869c4affa09ad518fb0788447804d6d4702a7f7"
+  }
+}

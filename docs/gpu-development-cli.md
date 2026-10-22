@@ -1,3 +1,5 @@
+新しいsealed suiteは`parts-skill-world`26（native25・deferred拒否1）と`skill-part-codec`4です。共通Frame・部位receipt bank・群着弾を接続し、既存849＋実4も同じ最終ソースで保持・独立sealしました。interrupt入力7件はhost拒否で別集計、座標・deferred・実CUDA照合は未完了です。[部位スキル](portable-parts-skill-gpu.md)を参照してください。通常replayの同一基準規約を保ち、CPUのcleared観測1項目の修正だけを、指定ソースSHA・他全項目一致を要求する明示的な`--reference-migration parts-cleared-v1`で監査できます。
+
 追加のsealed suite `heal-share-rosters`はナユタ/レムの全定義3秒/30秒の4入力。GPU本文を変更せずMetal一致・独立seal、レム30秒の物理履歴55件省略は明示して保持します。基準の849と併せて次の変更時に検査してください。詳細は[実編成検証](portable-heal-share-real-rosters.md)。
 
 現在のsealed入口は`heal-share-regression`849(native676/拒否173)、診断は`heal-share-diagnostic`53です。回復分配43契約を共通DFSへ接続し、Metal全一致・旧796全raw保持・独立seal済み。`package --suite heal-share-regression`で固定しfresh展開して既存runを使用します。全キャラ認定0・本体CUDA未成立・UI CPUです。最新範囲と制限は[回復分配GPU接続](portable-heal-share-gpu.md)、以下は過去の接続記録です。

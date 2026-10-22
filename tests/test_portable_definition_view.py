@@ -20,6 +20,11 @@ class DefinitionViewTests(unittest.TestCase):
             source=(ROOT/name).read_text();self.assertIn(old,source)
             with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(old,new,1)})
 
+    def test_part_receipt_ledger_rejects_recalculation_and_bank_or_group_changes(self):
+        for name,old,new in [('gpu/skill_part_receipt.slang','781328','781320'),('gpu/dispatch_phases.slang','frames[depth].healthValue=partAmount','frames[depth].healthValue=f.healthValue'),('gpu/counter_landing_runtime.slang','results[counterHead(s)+10]=1','results[counterHead(s)+10]=0'),('gpu/world_skill_runtime.slang','storeSkillPartAmount(at,r.partAmount)','storeSkillPartAmount(at,r.amount)')]:
+            source=(ROOT/name).read_text();self.assertIn(old,source)
+            with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(old,new,1)})
+
     def test_changed_getter_signedness_or_override_is_rejected(self):
         name='gpu/event_runtime.slang';source=(ROOT/name).read_text()
         for old,new in [('definition_owner(_wireInput,_wireRow)','definition_kind(_wireInput,_wireRow)'),('property int budget','property uint budget'),('_overrideMask|=1U','_overrideMask&=1U'),('_route=newValue','_hits=newValue')]:

@@ -88,6 +88,10 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     if source_spec:allowed |= {'periodic_source','feather_id','feather_slots','feather_interval_base','feather_interval_step_pct'}
     if resource_op:allowed |= {'gauge_id','gauge_max'}
     if eff.get('type')=='damage':
+        from portable_parts_skill_specs import validate as validate_parts
+        try:
+            if validate_parts(eff,combat=combat,world_frame=world_frame):allowed |= {'hits_parts'}
+        except ValueError as error:raise UnsupportedPortable(str(error),reason='effect',fields=['hits_parts']) from error
         if world_frame and 'damage_formula' in eff:
             if eff['damage_formula']!='normal_attack':raise UnsupportedPortable('Unknown world skill damage formula')
             allowed |= {'damage_formula'}
