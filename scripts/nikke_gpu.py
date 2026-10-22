@@ -126,13 +126,13 @@ SUITES['revive-diagnostic']=dict(SUITES['revive'],source='gpu/world_projectile_a
 SCHEMA = 1
 SUITES['regression-resident']=dict(SUITES['regression'],source='gpu/world_projectile_resident_entry.slang',golden='research/portable-world-phases-resident-regression-short-expected.json',development_only=False,tests=SUITES['regression']['tests']+['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
 SUITES['entry-reload']=dict(script='research/verify-world-entry-reload-short.py',golden='research/portable-world-entry-reload-short-expected.json',source='gpu/world_entry_reload_resident_entry.slang',inputs=37,native=31,development_only=False,tests=['test_portable_entry_reload_full_reference.py','test_portable_entry_reload_gpu.py','test_portable_combat.py','test_portable_resident_layout.py'])
-SUITES['entry-reload-regression']=dict(SUITES['regression-resident'],script='research/verify-world-entry-reload-regression-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-weapon-phases-regression-short-expected.json',inputs=796,native=633,development_only=False,tests=SUITES['regression-resident']['tests']+['test_portable_entry_reload_gpu.py','test_portable_entry_reload_full_reference.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py'])
+SUITES['entry-reload-regression']=dict(SUITES['regression-resident'],script='research/verify-world-entry-reload-regression-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-weapon-phases-regression-short-expected.json',inputs=796,native=633,development_only=False,tests=SUITES['regression-resident']['tests']+['test_portable_entry_reload_gpu.py','test_portable_entry_reload_full_reference.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py'])
 SUITES['resident-binding']=dict(script='research/verify-resident-binding-short.py',golden='research/portable-resident-binding-file-transfer-short-expected.json',source='gpu/resident_runtime_binding_probe.slang',inputs=4,native=4,development_only=False,tests=['test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_resident_build.py','test_portable_module_check.py'])
 
 # Controller validation has no numeric program to execute. Keep its CPU work
 # separate from a selected suite's battle/native preflight.
 SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
-               'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py']
+               'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py']
 
 
 def sha(data):
@@ -762,6 +762,34 @@ def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_
     return facts
 
 
+def cpu_test_groups(m,capture,smoke=False):
+    """Keep discovery/import in one fresh CPU process; never skip a registry group."""
+    from portable_cpu_tests import validate_groups,complete
+    patterns=SMOKE_TESTS if smoke else SUITES[m['suite']]['tests']
+    validate_groups(ROOT,patterns)
+    if not patterns:
+        write(capture/'cpu-tests.json',[]);return []
+    command=[sys.executable,str(Path(__file__).resolve()),'_tests','--capture',str(capture)]
+    if smoke:command.append('--smoke')
+    started=time.perf_counter();timed_out=False;completed=None
+    try:
+        completed=subprocess.run(command,cwd=ROOT,capture_output=True,timeout=60,env=validation_environment(capture))
+    except subprocess.TimeoutExpired as error:
+        timed_out=True
+        (capture/'cpu-batch.stdout.log').write_bytes(error.stdout or b'');(capture/'cpu-batch.stderr.log').write_bytes(error.stderr or b'')
+        raise
+    finally:
+        write(capture/'cpu-batch.json',dict(schema=1,mode='single-process-unittest',patterns=list(patterns),timeout_seconds=60,
+            elapsed_seconds=time.perf_counter()-started,timed_out=timed_out,exit_code=completed.returncode if completed else None,
+            gpu_calls=0,scope='Python group output in per-group logs; inherited native subprocess output in batch logs'))
+    (capture/'cpu-batch.stdout.log').write_bytes(completed.stdout);(capture/'cpu-batch.stderr.log').write_bytes(completed.stderr)
+    rows=load(capture/'cpu-tests.json') if (capture/'cpu-tests.json').exists() else []
+    if completed.returncode or not complete(rows,patterns):
+        failed=next((r['pattern'] for r in rows if r.get('exit_code')!=0),'incomplete batch')
+        raise ValueError('CPU tests failed: '+failed)
+    return rows
+
+
 def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_only=False):
     m=verify_package(ROOT)
     if is_development(m) and backend!='metal':raise ValueError('Development execution requires Metal; seal before CUDA verification')
@@ -782,17 +810,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
         pre=(dict(passed=True,controller_only=True,input_count=0,native_oracles=0,gpu_calls=0)
              if smoke else cpu_preflight(m))
         write(capture/'cpu.json',pre)
-        test_results=[]
-        test_env=validation_environment(capture)
-        for pattern in (SMOKE_TESTS if smoke else SUITES[m['suite']]['tests']):
-            if not (ROOT/'tests'/pattern).is_file():raise ValueError('CPU test file missing: '+pattern)
-            started=time.perf_counter()
-            completed=subprocess.run([sys.executable,'-m','unittest','discover','-s',str(ROOT/'tests'),'-p',pattern],cwd=ROOT,capture_output=True,timeout=60,env=test_env)
-            (capture/(pattern+'.stdout.log')).write_bytes(completed.stdout)
-            (capture/(pattern+'.stderr.log')).write_bytes(completed.stderr)
-            test_results.append(dict(pattern=pattern,exit_code=completed.returncode,elapsed_seconds=time.perf_counter()-started))
-            write(capture/'cpu-tests.json',test_results)
-            if completed.returncode:raise ValueError('CPU tests failed: '+pattern)
+        cpu_test_groups(m,capture,smoke)
         if cpu_only:
             write(capture/'result.json',dict(cpu_verified=True,gpu_calls=0,calculation_verified=False,preservation_verified=None,status='cpu-only'))
         else:
@@ -1320,6 +1338,7 @@ def main(argv=None):
     for storage_command in ('archive-raw','restore-raw'):
         a=sub.add_parser(storage_command);a.add_argument('--capture',type=Path,required=True);a.add_argument('--archive',type=Path,required=True)
         if storage_command=='archive-raw':a.add_argument('--remove-original',action='store_true')
+    a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
     a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True)
     for name in ('run','_child'):
@@ -1386,6 +1405,13 @@ def main(argv=None):
         if a.ptxas_level is not None:os.environ['NIKKE_CUDA_PTXAS_OPT_LEVEL']=str(a.ptxas_level)
         if a.artifact_kind:os.environ['NIKKE_CUDA_ARTIFACT']=a.artifact_kind
         result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only)
+    elif a.command=='_tests':
+        from portable_cpu_tests import run_groups,complete
+        m=verify_package(ROOT);patterns=SMOKE_TESTS if a.smoke else SUITES[m['suite']]['tests']
+        rows=run_groups(ROOT,a.capture,patterns,write)
+        print(json.dumps(dict(cpu_tests_verified=complete(rows,patterns),groups=len(rows),gpu_calls=0)))
+        if not complete(rows,patterns):raise SystemExit(1)
+        return
     elif a.command=='_child':
         # Generated source copies are captured before comparison, including a mismatch.
         child(a.capture,a.backend,a.smoke,a.compile_only,a.module_only,a.assemble_only);return

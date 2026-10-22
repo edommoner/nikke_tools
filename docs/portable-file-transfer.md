@@ -17,3 +17,9 @@ APIの根拠は[NVIDIA CUDA memory management](https://docs.nvidia.com/cuda/cuda
 fresh package f67ae49aのCPU827件中826成功・Windows専用1skip。共通CLIの新しいfile経路でMetal796を1回実行し、native633・全入力/全出力/旧comparison.json全内容が一致しました。input332,409,604byte、output2,503,999,488byte、output SHAb9cd45185fb37568494df918a71d4b115b7853e26e8eba0b1af5d307f6d30637。Apple M5、8MiB file writer、Runtime247/138952byte/align8、GPU13.799秒・contained child26.483秒。これは単一観測で性能改善ベンチマークではありません。CPU preflight41.326秒、registered37群50.087秒、独立親比較約44秒はGPU時間へ加算せず区別します。
 
 Windows向けには小さいresident binding4入力も、同じ新しいfile経路でMetal実行・native literal比較・GPU禁止の独立sealを行いました。12,582,912byteで8MiB+4MiBのtail転送を確認する範囲です。現在sourceへ新しい専用goldenを作り、古いbinding goldenは履歴として保持。これからWindowsで小さい4入力だけを短く1回確認し、本体796のcompiler失敗をこの成功へ置き換えません。
+
+## Windows v131の小さい実転送
+
+固定438d357/同じsealed binding4でWindows CPU129件/skip0、4 native比較・全12,582,912byteがMac goldenと一致しました。cuMemsetD8_v2の全範囲zero、DtoH 8MiB+4MiBの正確なoffsetと戻り値0、1launch/1sync/context破棄0、Runtime247/138952byte/48byteABIを確認。CUBIN27,216byte SHA58ddfe034d9c94c36c69cf908ffa83b67aa9efd63ce0262aacedae8ea108b495、NVRTC0.531秒、2GiB Job peak405,921,792byte/15.108秒/post空/missing0/cleanup・観測正常でした。サービス識別unverifiedのためpreservation=false/exit2を維持します。
+
+同じCUBINのcache-checkは同key/bytes/SHAのhitをNVRTC0/driver0/GPU0で確認。warm GPU/full796 CUDA/offline assemblyは追加しませんでした。保存要約SHA9cbc50f39f1e201e80965407122609a2594d9e374c23e90b9b6eb9d8f839bd5d、派生記録はportable-world-v131-file-transfer-sanitized.json。MacがWindows原captureを独立監査したものではありません。full本体のv130失敗を小さい4入力の成功で置き換えません。

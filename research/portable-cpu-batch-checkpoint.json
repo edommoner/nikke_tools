@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "status": "cpu_verified",
+  "package": {
+    "package_id": "598042a75bfaf0b4551a73d9f3ed5ffb988ec930a7e1e64fc03732e9e5223496",
+    "files": 1952,
+    "bytes": 5280265,
+    "archive_sha256": "7c231cb8a04825f8ec23b0ab269600745674786e1d5a35a39f9f2ca4a7b6ac6d",
+    "source_commit": "438d3570a53cfb4263f9cd3eaab253561f8c42fb"
+  },
+  "full_cpu": {
+    "discovered": 834,
+    "passed": 833,
+    "skipped": 1,
+    "elapsed_seconds": 56.089
+  },
+  "retention": {
+    "baseline_groups": 37,
+    "baseline_tests": 245,
+    "candidate_groups": 38,
+    "candidate_tests": 252,
+    "all_prior_group_counts_preserved": true,
+    "baseline_seconds": 50.087145037716255,
+    "candidate_batch_seconds": 34.78266916598659,
+    "one_pid": true,
+    "preflight": {
+      "passed": true,
+      "input_count": 796,
+      "native_oracles": 633,
+      "input_sha256": "21080fdf79eca41ed2da2dff3ba4d6337d219e9cc29f7e4cb7efd81e094f0276",
+      "gpu_calls": {
+        "build": 0,
+        "execute": 0
+      },
+      "elapsed_seconds": 42.56108358397614
+    }
+  },
+  "batch": {
+    "schema": 1,
+    "mode": "single-process-unittest",
+    "patterns": [
+      "test_portable_gpu_cli.py",
+      "test_portable_gpu_replay.py",
+      "test_portable_phase_audit.py",
+      "test_portable_regression_adapter.py",
+      "test_portable_roster_regression.py",
+      "test_portable_readiness.py",
+      "test_portable_stun.py",
+      "test_portable_typed_recipient_delegation.py",
+      "test_portable_skill_cooldown.py",
+      "test_portable_healing_storage.py",
+      "test_portable_trigger_reduction.py",
+      "test_portable_skill_critical.py",
+      "test_portable_skill_interval.py",
+      "test_portable_skill_interval_flat.py",
+      "test_portable_lazy_bank.py",
+      "test_portable_compiler_stats.py",
+      "test_portable_base_copy.py",
+      "test_portable_seal.py",
+      "test_portable_persona.py",
+      "test_portable_compile_cache.py",
+      "test_portable_named_magnitude.py",
+      "test_portable_enemy_selection.py",
+      "test_portable_capture_storage.py",
+      "test_portable_attack_magnitude.py",
+      "test_portable_revive_reference.py",
+      "test_portable_revival.py",
+      "test_portable_resident_layout.py",
+      "test_portable_resident_transport.py",
+      "test_portable_resident_build.py",
+      "test_portable_module_check.py",
+      "test_portable_entry_reload_gpu.py",
+      "test_portable_entry_reload_full_reference.py",
+      "test_portable_weapon_phases.py",
+      "test_portable_offline_assembly.py",
+      "test_portable_readback_stream.py",
+      "test_portable_regression_compact.py",
+      "test_portable_file_transport.py",
+      "test_portable_cpu_batch.py"
+    ],
+    "timeout_seconds": 60,
+    "elapsed_seconds": 34.78266916598659,
+    "timed_out": false,
+    "exit_code": 0,
+    "gpu_calls": 0,
+    "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+  },
+  "new_fault_tests": 7,
+  "new_gpu_calls": 0,
+  "scope": "Same selected CPU groups in one fresh worker; all796 native/input preflight preserved. Timing is single observations, not a benchmark or whole pipeline speed guarantee.",
+  "logs": [
+    {
+      "path": "/tmp/nikke-cpu-batch-unit.log",
+      "sha256": "0b4e4ee47b268ad55e514494df0a5113fb634dd566862457b5133aaf3602d81b"
+    },
+    {
+      "path": "/tmp/nikke-cpu-batch-cli.log",
+      "sha256": "ff63c473176fdfb115e8cf3263a73e235afb081d2560396e4bdf7f8e26d43937"
+    },
+    {
+      "path": "/tmp/nikke-cpu-batch-full-cpu.log",
+      "sha256": "455ce6dcc6a670d026a179244cbd88f013ed8520d5bd5afde74b9a8507755595"
+    },
+    {
+      "path": "/tmp/nikke-cpu-batch-preflight.log",
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    }
+  ]
+}

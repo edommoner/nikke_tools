@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "metal796_verified_windows_tiny_transfer_pending",
+  "status": "metal796_and_cuda4_transfer_verified_full_cuda_incomplete",
   "package": {
     "package_id": "f67ae49a30281d17f6fe24514f2ad901707f508d255eb8a2ce3b2e973a369434",
     "files": 1950,
@@ -124,7 +124,7 @@
     "golden": "research/portable-resident-binding-file-transfer-short-expected.json"
   },
   "scope": "Shared file transport verified; existing bytes APIs unchanged; full796 CUDA compiler/module and all-character coverage remain incomplete",
-  "windows_gpu_dispatches": 0,
+  "windows_gpu_dispatches": 1,
   "logs": [
     {
       "path": "/tmp/nikke-file-transfer-full-cpu.log",
@@ -150,5 +150,8 @@
       "path": "/tmp/nikke-file-binding-metal.log",
       "sha256": "27c93661e05f6158fb2ff1e7b99eb0efe6ae5e0db00a2aae6e6f8c93fdc3d58b"
     }
-  ]
+  ],
+  "windows_report": "research/portable-world-v131-file-transfer-sanitized.json",
+  "windows_mac_golden_output_sha_equal": true,
+  "windows_cache_hit_gpu_calls": 0
 }

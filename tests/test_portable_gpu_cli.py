@@ -172,15 +172,19 @@ class PacketTests(unittest.TestCase):
             def job(capture,*args,**kwargs):
                 cli.write(capture/'smoke.json',dict(pid=123,ppid=12,gpu_calls=0))
                 return dict(passed=True)
+            def batch(*args,**kwargs):
+                cli.write(capture/'cpu-tests.json',[dict(pattern=p,exit_code=0,tests=1,failures=0,errors=0,skipped=0) for p in cli.SMOKE_TESTS])
+                return SimpleNamespace(returncode=0,stdout=b'',stderr=b'')
             with patch.object(cli,'verify_package',return_value=dict(suite='regression',purpose='sealed',package_id='smoke-test')),\
                  patch.object(cli,'os',SimpleNamespace(**dict(vars(os),name='posix'))),\
                  patch.object(cli,'cpu_preflight',side_effect=AssertionError('Native battle forbidden')) as native,\
-                 patch.object(cli.subprocess,'run',return_value=SimpleNamespace(returncode=0,stdout=b'',stderr=b'')) as tests,\
+                 patch.object(cli.subprocess,'run',side_effect=batch) as tests,\
                  patch.object(cli,'run_job',side_effect=job):
                 result=cli.run_capture(capture,'cuda',30,smoke=True)
             native.assert_not_called()
             self.assertTrue(result['smoke_verified']);self.assertFalse(result['calculation_verified'])
-            self.assertEqual([c.args[0][-1] for c in tests.call_args_list],cli.SMOKE_TESTS)
+            tests.assert_called_once();self.assertIn('_tests',tests.call_args.args[0]);self.assertIn('--smoke',tests.call_args.args[0])
+            self.assertEqual(cli.load(capture/'cpu-batch.json')['patterns'],cli.SMOKE_TESTS)
             self.assertEqual(cli.load(capture/'cpu.json')['native_oracles'],0)
             self.assertIn('test_portable_compile_cache.py',cli.SMOKE_TESTS)
             self.assertIn('test_portable_cuda_artifact.py',cli.SMOKE_TESTS)

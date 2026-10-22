@@ -1,3 +1,7 @@
+<!-- cpu-batch-and-v131-current -->
+共通CLIのCPUテストを1 fresh workerへまとめ、旧37群245件を全保持+故障注入7件で38群252件、単一観測50.087→34.783秒。fresh全CPU834中833成功/Windows1skip、全796/native633のCPU preflight成功、追加GPU0。Windows v131（固定438d357）はCPU129とtiny binding4 CUDAの実転送/12MiB全比較・Mac golden一致、8+4MiB copy/zero/1launch/sync/context破棄/48byteABI、2GiB Job peak406MB/post空/missing0を確認。service未識別はpreservation=false/exit2。CUBIN再読cache hitは追加NVRTC/driver/GPU0。新CPU workerのWindows確認は次の必要検証へ。full796 CUDA compiler/module・全キャラ認定0・UI CPUは未完了。次は保存PTX/callgraphに基づく限定的なcompiler境界改善を検討し、v130同条件再実行はしません。詳細portable-cpu-batch.md/file-transfer.md/checkpoints。以下は履歴です。
+<!-- /cpu-batch-and-v131-current -->
+
 <!-- file-transfer-current -->
 共通CLIを8MiB file保存へ接続。CUDAのdevice zero/offset付き分割DtoH、Metalの分割write、exclusive final公開、unused child domains解放、全chunk/zero/context破棄のtrace監査を実装。fresh CPU827中826成功/Windows1skip、Metal796/native633/全input・output・旧comparison全一致（新実行1回）。小さいbinding4もMetal実行・GPU0独立seal、新専用goldenでWindowsの短い実転送を準備。通常bytes APIは維持。全796 CUDA compiler/module・全キャラ認定0は未完了。詳細portable-file-transfer.md/checkpoint。以下は履歴です。
 <!-- /file-transfer-current -->
