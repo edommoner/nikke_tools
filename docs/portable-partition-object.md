@@ -38,3 +38,23 @@ Windowsの5801e81試行は、保存v135 producerに現在のheal-share証明書�
 修正版の診断経路だけは`verify_package(..., historical_compiler=True)`を用いる。既存manifestのschema／package ID／全file byte・SHA・安全なpathを検査し、manifest内goldenと等しいJSON証明書の唯一の所有fileを、その元recordから選ぶ。基準fileもgoldenの`baseline_golden_sha256`と元recordへ結び付け、共有source closure全体と一致させる。欠落・曖昧な所有・改変・battle／計算成功の偽装は拒否する。元packageは読み取りだけで、差し替えや現行基準の追加はしない。
 
 `assembly_origin`の通常経路は従来どおり同じsealed baselineを要求する。新しいobject診断のoriginだけは、元producerの監査・入力PTX・cache key・正規化指紋・元Jobを保持し、`historical_compiler_source=true`／`current_battle_equivalence_verified=false`を記録する。古いPTXを新しい実行器の計算証明や通常キャッシュhitとして扱わない。事前監査の失敗もfresh captureへ保存し、claimやJobを作る前に停止する。execution receiptがないcaptureのauditは成功へ進まず、未検証結果を返す。
+
+## CUDA ELF版フィールドと、保存partialのCPU回収
+
+75dc851のWindows実験は、ptxas12.4.131が0.315660秒・exit0で145,024byteを出力した後、検証器の`e_version==1`条件で停止した。Job全体のpeakは148,045,824byte、終了後Job空・欠落0。サービスは未識別のためpreservation=false。原結果は`research/portable-world-v135-focus-object-format-peer-report.json`へ出所付きで保存した。これだけでremainder／link／計算成立とは呼ばない。
+
+`EI_VERSION=1`とCUDA ELFの非ゼロ`e_version`は別フィールドである。[NVIDIA/cuda-rustの修正#622](https://github.com/NVIDIA/cuda-rust/pull/622)にも同じ誤拒否の修正がある。検証器はEI_VERSIONの1を維持し、CUDA側versionは非ゼロを検査・実値を記録する。ET_REL／EM_CUDA／header・section表／payload範囲検査は維持し、ゼロversion、別machine／executable、切断sectionは引き続き拒否する。ツールとflagsの固定は変更しない。
+
+```sh
+python scripts/nikke_gpu.py partition-object-recover \
+  --experiment-package /path/to/original-experiment/package \
+  --capture /path/to/original-experiment/object \
+  --partial-sha256 1d4db24389104fdf13574ca9be8fd6ab9badcbe80d18b4b175a1d06499ff0302 \
+  --out /path/to/new-recovery/receipt.json
+```
+
+これはCPUだけの別レポート生成で、元run／失敗／claim／partialを変更せず、`.o`へのrename・claim消去・再コンパイルをしない。元immutable package／metadata inventory、producerと全candidate再構成、固定tool・入力、正確なargv、ret0、元Jobの親子・時系列・2GiB／60秒／BelowNormal／cleanupを再検査する。元journalがコンパイル正常終了後のValueErrorで停止した形であることを確認し、保存partial全体を新検証器で読む。
+
+`--partial-sha256`は元実行の保存要約で独立に記録された値を渡す。現在のpartialを読み直して値を作り、元の記録に代えてはならない。通常`collect`のmetadata-only inventoryはrawやpartialを含まないため、その過去inventoryへ後からbinary recordを足さず、独立SHAを回収receiptへ明記する。partialと自己申告inventoryをまとめて再hashしても元SHAと一致しなければ拒否する。
+
+成功時も`original_execution_passed=false`／`original_object_published=false`を維持し、別の`saved_object_cpu_verified`と`compiler_return_verified`へ記録する。preservation、link、計算の認定は別であり、サービス未識別はexit2。元captureやpackage／candidate／cacheの中を出力先にすること、既存回収receiptの上書きも拒否する。コンパイラー再実行・GPU実行・巨大raw転送はない。

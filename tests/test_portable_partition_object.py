@@ -27,7 +27,8 @@ class PartitionObjectTests(unittest.TestCase):
         self.base.source_package=self.base.source_package.resolve();self.base.package=self.base.package.resolve()
         self.root=self.base.root;self.capture=self.base.capture
         receipt=cli.load(self.base.producer/'compiler.json')['compile_artifact']
-        self.cache=self.root/(receipt['key']+'.json');self.phases=self.base.producer/'phases.jsonl'
+        cache_directory=self.root/'saved-cache';cache_directory.mkdir()
+        self.cache=cache_directory/(receipt['key']+'.json');self.phases=self.base.producer/'phases.jsonl'
         self.cache.write_text(json.dumps(dict(identity=receipt['identity'],artifact_bytes=len(PTX),artifact_sha256=assembler.digest(PTX),artifact_base64=base64.b64encode(PTX).decode())))
         self.candidate=self.root/'candidate';saved_partition(self.cache,self.phases,self.candidate,'focus')
         self.request=dict(source_package=str(self.base.source_package),source_capture=str(self.base.producer),cache_entry=str(self.cache),phases=str(self.phases),candidate=str(self.candidate),ptxas=str(self.base.tool))
@@ -152,3 +153,40 @@ class PartitionObjectTests(unittest.TestCase):
             self.assertEqual(cli.load(out/'run.json')['status'],'failed');self.assertIn('producer mismatch',cli.load(out/'failure.json')['error'])
             self.assertFalse(cli.audit_partition_object_capture(self.base.m,out)['object_verified'])
         self.assertEqual(env,{'UNRELATED':'preserved'})
+
+    def test_cuda_format_version_is_not_generic_ident_version(self):
+        for version in (1,124,128):
+            raw=bytearray(relocatable());struct.pack_into('<I',raw,20,version)
+            self.assertEqual(obj.validate_object(raw)['cuda_format_version'],version)
+        raw=bytearray(relocatable());struct.pack_into('<I',raw,20,0)
+        with self.assertRaises(ValueError):obj.validate_object(raw)
+        raw=bytearray(relocatable());raw[6]=124
+        with self.assertRaises(ValueError):obj.validate_object(raw)
+
+    def failed_format_capture(self):
+        with self.context():
+            origin,_=cli.partition_object_origin(self.base.m,self.request);cli.write(self.capture/'object-request.json',dict(self.request,origin=origin))
+            with patch.object(obj,'validate_object',side_effect=ValueError('previous ELF version assumption')),self.assertRaises(ValueError):cli.partition_object_child(self.base.m,self.capture,'cuda')
+        cli.write(self.capture/'run.json',dict(mode='partition-object-only',package_id=self.base.m['package_id'],backend='cuda',memory_limit_mb=2048,status='finished'));cli.write(self.capture/'result.json',dict(object_verified=False,calculation_verified=False));self.base.job_proof(self.capture)
+        facts=cli.load(self.capture/'execution.json');facts.update(passed=False,timed_out=False,child_exit_code=1,final_child_exit_code=1,error=None,below_normal_priority=True);cli.write(self.capture/'execution.json',facts)
+        cli.write(self.base.package/'partition-object-claimed-cuda.json',dict(package_id=self.base.m['package_id'],capture=str(self.capture.resolve()),origin=origin));cli.collect(self.capture,self.capture/'artifacts.json')
+        return assembler.digest((self.capture/'focus.o.partial').read_bytes())
+
+    def test_cpu_recovery_reuses_original_failed_partial_without_publication_or_process(self):
+        expected=self.failed_format_capture();before={p:p.read_bytes() for p in self.capture.iterdir() if p.is_file()};claim=(self.base.package/'partition-object-claimed-cuda.json').read_bytes();count=len(self.base.processes)
+        with self.context(),patch.object(obj.subprocess,'Popen',side_effect=AssertionError('CPU recovery cannot create a process')):
+            result=cli.recover_partition_object(self.base.package,self.capture,self.root/'recovered.json',expected)
+        self.assertTrue(result['saved_object_cpu_verified'],result);self.assertTrue(result['compiler_return_verified']);self.assertTrue(result['containment_verified']);self.assertFalse(result['passed']);self.assertFalse(result['original_execution_passed']);self.assertFalse(result['original_object_published']);self.assertFalse(result['link_verified']);self.assertFalse(result['calculation_verified'])
+        self.assertEqual(result['ptxas_calls'],0);self.assertEqual(count,len(self.base.processes));self.assertEqual(before,{p:p.read_bytes() for p in self.capture.iterdir() if p.is_file()});self.assertEqual(claim,(self.base.package/'partition-object-claimed-cuda.json').read_bytes())
+        with self.context(),self.assertRaises(FileExistsError):cli.recover_partition_object(self.base.package,self.capture,self.root/'recovered.json',expected)
+        with self.context(),self.assertRaisesRegex(ValueError,'outside'):cli.recover_partition_object(self.base.package,self.capture,self.capture/'rewrite.json',expected)
+
+    def test_recovery_rejects_rehashed_partial_nonzero_return_and_missing_claim(self):
+        expected=self.failed_format_capture();partial=self.capture/'focus.o.partial';raw=partial.read_bytes();partial.write_bytes(raw+b'changed');cli.collect(self.capture,self.capture/'artifacts.json')
+        with self.context():r=cli.recover_partition_object(self.base.package,self.capture,self.root/'bad-partial.json',expected)
+        self.assertFalse(r['saved_object_cpu_verified']);self.assertIn('externally recorded',r['error']);partial.write_bytes(raw);cli.collect(self.capture,self.capture/'artifacts.json')
+        phase=self.capture/'phases.jsonl';saved=phase.read_bytes();rows=[json.loads(line) for line in saved.splitlines()];rows[6]['return_code']=7;phase.write_text('\n'.join(map(json.dumps,rows))+'\n');cli.collect(self.capture,self.capture/'artifacts.json')
+        with self.context():r=cli.recover_partition_object(self.base.package,self.capture,self.root/'bad-return.json',expected)
+        self.assertFalse(r['saved_object_cpu_verified']);phase.write_bytes(saved);cli.collect(self.capture,self.capture/'artifacts.json');(self.base.package/'partition-object-claimed-cuda.json').unlink()
+        with self.context():r=cli.recover_partition_object(self.base.package,self.capture,self.root/'bad-claim.json',expected)
+        self.assertFalse(r['saved_object_cpu_verified'])

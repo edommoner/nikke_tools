@@ -26,13 +26,16 @@ def validate_object(raw):
     kind,machine,version=struct.unpack_from('<HHI',raw,16)
     shoff=struct.unpack_from('<Q',raw,40)[0]
     ehsize,phentsize,phnum,shentsize,shnum,shstrndx=struct.unpack_from('<HHHHHH',raw,52)
-    if (kind,machine,version,ehsize,phnum,shentsize)!=(1,190,1,64,0,64) or not shnum or not 0<shstrndx<shnum or shoff<64 or shoff+64*shnum>len(raw):
+    # EI_VERSION above is generic ELF1; e_version is CUDA's nonzero format
+    # version (pinned12.4.131 emitted124). NVIDIA/cuda-rust#622 confirms the
+    # distinction. Keep the type/machine/table/payload checks unchanged.
+    if version==0 or (kind,machine,ehsize,phnum,shentsize)!=(1,190,64,0,64) or not shnum or not 0<shstrndx<shnum or shoff<64 or shoff+64*shnum>len(raw):
         raise ValueError('Invalid relocatable CUDA ELF header or section table')
     for index in range(shnum):
         section=struct.unpack_from('<IIQQQQIIQQ',raw,shoff+index*64)
         typ=section[1];offset,size=section[4:6]
         if typ!=8 and (offset>len(raw) or size>len(raw)-offset):raise ValueError('Truncated CUDA ELF section')
-    return dict(format='elf64-little',type='relocatable',machine='cuda',sections=shnum,bytes=len(raw),sha256=assembler.digest(raw))
+    return dict(format='elf64-little',type='relocatable',machine='cuda',cuda_format_version=version,sections=shnum,bytes=len(raw),sha256=assembler.digest(raw))
 
 
 def identity(tool,source):

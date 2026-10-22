@@ -1178,6 +1178,61 @@ def audit_partition_object_capture(m,capture,*,verify_artifacts=True):
         calculation_verified=False,link_verified=False,kernel_calls=0,error=error,gpu_retry_count=0)
 
 
+def recover_partition_object(experiment_package,capture,out,expected_partial_sha256):
+    """CPU-only recovery receipt for a saved format-validation failure.
+
+    Does not alter the old run, publish an object, consume a claim, or execute
+    anything. Partial bytes remain anchored to the original artifact inventory.
+    """
+    import portable_partition_object as obj
+    import portable_offline_assembler as assembler
+    experiment_package=Path(experiment_package).resolve();capture=Path(capture).resolve();out=Path(out).resolve()
+    request=load(capture/'object-request.json')
+    readonly=[experiment_package,capture,*[Path(request[k]).resolve() for k in ('source_package','source_capture','candidate')],Path(request['cache_entry']).resolve().parent]
+    if any(out.is_relative_to(root) for root in readonly):raise ValueError('Recovery receipt must be outside all original evidence')
+    if out.exists():raise FileExistsError('Fresh recovery receipt required')
+    result=dict(schema=1,purpose='saved-focus-object-cpu-recovery',saved_object_cpu_verified=False,passed=False,
+        original_execution_passed=False,original_object_published=False,partition_legal_verified=False,
+        link_verified=False,calculation_verified=False,nvrtc_calls=0,ptxas_calls=0,link_calls=0,driver_calls=0,gpu_calls=0)
+    try:
+        if len(expected_partial_sha256)!=64 or any(c not in '0123456789abcdef' for c in expected_partial_sha256):raise ValueError('Expected original partial SHA256 is required')
+        m=verify_package(experiment_package)
+        inventory=load(capture/'artifacts.json');records=inventory['files'];anchor=sha((capture/'artifacts.json').read_bytes());check_records(capture,records)
+        run=load(capture/'run.json');facts=load(capture/'execution.json')
+        if run.get('mode')!='partition-object-only' or run.get('backend')!='cuda' or run.get('package_id')!=m['package_id'] or run.get('status') not in ('failed','finished') or run.get('memory_limit_mb')!=2048:raise ValueError('Expected original failed focus experiment')
+        if facts.get('passed') is not False or facts.get('timed_out') is not False or facts.get('child_exit_code')!=1 or facts.get('final_child_exit_code')!=1 or facts.get('error') is not None or facts.get('cleanup_error') is not None or facts.get('observation_error') is not None or facts.get('below_normal_priority') is not True or type(facts['timeout_seconds']) is not int or not 1<=facts['timeout_seconds']<=60:raise ValueError('Original bounded execution is incomplete or abnormal')
+        if any((capture/name).exists() for name in ('focus.o','object.json')):raise ValueError('Recovery requires retained unpublished partial')
+        if (capture/'result.json').exists() and load(capture/'result.json').get('object_verified') is not False:raise ValueError('Original result is not a failed object validation')
+        rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
+        expected=[('partition_object_origin','verified'),('shared_partition_object','entered'),('partition_object_tool','verified'),('partition_object_input','verified'),('partition_object_ptxas','entered'),('partition_object_child','verified'),('partition_object_ptxas','returned'),('partition_object_failure','raised'),('shared_partition_object','raised')]
+        if [(r['stage'],r['state']) for r in rows]!=expected or any(r.get('exception')!='ValueError' for r in rows[7:]):raise ValueError('Not a complete saved object-validation failure')
+        source,raw=partition_object_origin(m,request);tool=assembler.validate_tool(request['ptxas'])
+        claim_path=experiment_package/'partition-object-claimed-cuda.json';claim_raw=claim_path.read_bytes();claim=json.loads(claim_raw)
+        if claim.get('package_id')!=m['package_id'] or Path(claim.get('capture','')).resolve()!=capture or claim.get('origin')!=source:raise ValueError('Original consumed claim mismatch')
+        if request['origin']!=source or rows[0]['origin']!=source or rows[2]['tool']!=tool or rows[3]['input']!=source['input'] or rows[4]['tool_sha256']!=tool['sha256'] or (capture/'focus.ptx').read_bytes()!=raw:raise ValueError('Saved object source/tool changed')
+        argv=[str(Path(request['ptxas']).resolve()),*obj.OPTIONS,str(capture/'focus.ptx'),'-o',str(capture/'focus.o.partial')]
+        if rows[4]['argv']!=argv or rows[6]['return_code']!=0:raise ValueError('Saved assembler command/return mismatch')
+        snapshot=rows[5]['inspection']
+        if not assembler.contained(snapshot,rows[5]['pid'],snapshot['child_pid']) or not rows[4]['wall_time_ns']<=snapshot['observed_unix_ns']<=rows[6]['wall_time_ns']:raise ValueError('Saved assembler child containment not verified')
+        containment,pid=job_contained(capture,rows,memory_limit_bytes=2048*1024*1024)
+        if not containment:raise ValueError('Original bounded Job not verified')
+        artifact=obj.validate_object((capture/'focus.o.partial').read_bytes())
+        if artifact['sha256']!=expected_partial_sha256:raise ValueError('Partial differs from original externally recorded SHA256')
+        matches=[r for r in records if r['path']=='focus.o.partial']
+        if matches and (matches[0]['bytes']!=artifact['bytes'] or matches[0]['sha256']!=artifact['sha256']):raise ValueError('Partial differs from original inventory')
+        if not matches and inventory.get('raw_included') is not False:raise ValueError('Missing partial record without original metadata-only inventory')
+        preservation=environment_preserved(capture,facts)
+        check_records(capture,records)
+        if sha((capture/'artifacts.json').read_bytes())!=anchor or claim_path.read_bytes()!=claim_raw:raise ValueError('Original inventory or claim changed during recovery')
+        result.update(saved_object_cpu_verified=True,passed=preservation is True,containment_verified=True,preservation_verified=preservation,
+            original_package_id=m['package_id'],original_artifacts_sha256=anchor,origin=source,tool=tool,options=obj.OPTIONS,
+            artifact=dict(artifact,path=str(capture/'focus.o.partial')),partial_external_sha256=expected_partial_sha256,partial_in_original_inventory=bool(matches),compiler_return_verified=True,compiler_elapsed_seconds=rows[6]['elapsed_seconds'])
+    except (ValueError,KeyError,OSError) as error:result['error']=type(error).__name__+': '+str(error)
+    out.parent.mkdir(parents=True,exist_ok=True)
+    with out.open('x',encoding='utf-8') as stream:json.dump(result,stream,ensure_ascii=False,indent=2);stream.write('\n')
+    return result
+
+
 def partition_object_capture(capture,timeout,original_workspace,source_package,source_capture,cache_entry,phases,candidate,ptxas):
     if os.name!='nt':raise ValueError('Focus object experiment requires Windows')
     if type(timeout) is not int or not 1<=timeout<=60 or not original_workspace:raise ValueError('Focus object requires original workspace and1..60s')
@@ -1499,6 +1554,7 @@ def main(argv=None):
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--artifact-kind',choices=('cubin','ptx'),default='cubin')
     a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path)
     a=sub.add_parser('assemble');a.add_argument('--capture',type=Path,required=True);a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--ptxas',type=Path,required=True);a.add_argument('--timeout',type=int,default=60);a.add_argument('--original-workspace',type=Path,required=True)
+    a=sub.add_parser('partition-object-recover');a.add_argument('--experiment-package',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--partial-sha256',required=True)
     a=sub.add_parser('partition-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     for name in ('source-package','source-capture','cache-entry','phases','candidate','ptxas','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('module-check');a.add_argument('--jit-opt-level',type=int,choices=range(5));a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
@@ -1549,6 +1605,8 @@ def main(argv=None):
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
         if a.compile_cache:os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
         result=compile_capture(a.capture,a.timeout,a.original_workspace,a.artifact_kind,a.ptxas_level,a.memory_limit_mb)
+    elif a.command=='partition-object-recover':
+        with forbid_gpu():result=recover_partition_object(a.experiment_package,a.capture,a.out,a.partial_sha256)
     elif a.command=='partition-object':result=partition_object_capture(a.capture,a.timeout,a.original_workspace,a.source_package,a.source_capture,a.cache_entry,a.phases,a.candidate,a.ptxas)
     elif a.command=='assemble':result=assemble_capture(a.capture,a.timeout,a.original_workspace,a.source_package,a.source_capture,a.ptxas)
     elif a.command=='module-check':
@@ -1612,6 +1670,10 @@ def main(argv=None):
         # Historical fixed reports remain supported by their existing sealers.
         runpy.run_path(str(ROOT/f'research/seal-world-v{a.version}-cuda.py'),run_name='__main__');return
     print(json.dumps(result,ensure_ascii=False,indent=2))
+    if a.command=='partition-object-recover':
+        if not result.get('saved_object_cpu_verified'):raise SystemExit(1)
+        if result.get('preservation_verified') is not True:raise SystemExit(2)
+        return
     if result.get('mode')=='partition-object-only':
         if not result.get('object_verified'):raise SystemExit(1)
         if result.get('preservation_verified') is not True:raise SystemExit(2)
