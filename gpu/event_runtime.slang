@@ -1079,6 +1079,8 @@ bool activationConditions(inout Runtime s, uint row, uint64_t when)
         {
             if(!f64Less(loadNumber(at+2),readStat(s,owner,commands[at+1],when))) return false;
         }
+        else if(commands[at] == C_SELF_UNDYING)
+        { if(!liveMarker(s,owner,S_undying,when)) return false; }
         else if(commands[at] == C_OPTIMAL_RANGE)
         {
             uint64_t values[64];

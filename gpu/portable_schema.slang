@@ -448,6 +448,7 @@ static const uint D_CONDITION_COUNT = 27U;
 static const uint D_FLAGS = 28U;
 static const uint D_PERIOD = 29U;
 static const uint D_DAMAGE_FLAGS = 31U;
+static const uint C_SELF_UNDYING = 38U;
 static const uint C_TRIGGER_HIT_CRIT = 28U;
 static const uint C_TARGET_STUNNED = 23U;
 static const uint C_SELF_STUN_IMMUNE = 24U;

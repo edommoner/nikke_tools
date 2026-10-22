@@ -1,3 +1,7 @@
+<!-- undying-predicate-current -->
+不屈条件self_undyingを既存共有liveMarkerへ接続。値/名前でなく生存statを照会、Runtime追加field0/stride138952、明示発動/private worldのみ。CPU22＋原文全定義マキマ3（致死刺激あり）契約、Metal主28(native22/拒否6)＋実3＋旧1203が同一sourceで一致・独立seal、計1234(native980/拒否254)。旧全entries/raw3784310784Bを全byte保持。CPU事前67.249秒＋回帰75群433検査141.520秒、GPU10.966637秒、後続生成cache必須hit/Slang0。親再利用871/fresh84/拒否248、独立sealはfresh。full116/commands117 certificate14検査と正式CPU111検査成功、3suiteを通常経路へ昇格。2件のGPU前停止は保存し、監査区切りと古い拒否fixtureだけを修正。実履歴155/1398/1398、省略0、旧省略は残る。静的227/266・base167/203・68分類はGPU認定でない。接続済み条件の旧診断は未実装候補でなく文脈確認へ。rawゼロ領域回収で全byte/SHA/path/inodeを保持し、今回7360544768Bの割当を回収、削除0。正本CPU/数値/normalizer不変、Windows追加操作0/原因unknown/保全false、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-undying-predicate.mdと対応checkpoint。次は共有状態の未対応条件をまとめて契約/保持検証。以下は履歴です。
+<!-- /undying-predicate-current -->
+
 <!-- accuracy-retention-current -->
 命中率条件の全保持検証完了。新34と旧1169が同一共有sourceでMetal一致・独立seal、合計1203(native955/拒否248)。旧全entriesとraw3677356032Bを全byte保持。CPU事前66.177秒＋回帰72群423検査129.281秒、GPU10.694823秒、生成cache必須hit/Slang0、親再利用843/fresh84/拒否242、独立監査はfresh。full116/commands117 certificate14検査と正式package CPU102成功、3suiteを通常経路へ昇格。共通CLIにMac sparsify-rawを追加し実APFS9検査成功、4rawの内容/長さ/path/inode/SHAを維持して7543914496Bのゼロ領域を回収、raw/claims削除0。歴史artifact metadataも不変、4.17GB入力出力＋14GiB予備を実空きで確認してからGPU実行。静的226/266・base166/203・69分類はGPU認定ではない。Windows追加操作0/原因unknown/保全false、全キャラ認定0/UI CPU/全目標未達。詳細docs/portable-accuracy-predicate-gpu.md、docs/portable-sparse-raw.mdと対応checkpoint。次は正本consumerのある未対応効果の契約と共有実装を継続。以下は履歴です。
 <!-- /accuracy-retention-current -->

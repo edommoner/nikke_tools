@@ -4,7 +4,9 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
-REFERENCES={'accuracy-predicate-rosters':('portable_accuracy_predicate_roster_cases','world_accuracy_predicate_roster_native','portable_accuracy_predicate_roster_contracts'),
+REFERENCES={'undying-predicate':('portable_undying_predicate_cases','world_undying_predicate_native','portable_undying_predicate_contracts'),
+            'undying-predicate-rosters':('portable_undying_predicate_roster_cases','world_undying_predicate_roster_native','portable_undying_predicate_roster_contracts'),
+            'accuracy-predicate-rosters':('portable_accuracy_predicate_roster_cases','world_accuracy_predicate_roster_native','portable_accuracy_predicate_roster_contracts'),
             'accuracy-predicate':('portable_accuracy_predicate_cases','world_accuracy_predicate_native','portable_accuracy_predicate_contracts'),
             'manual-swap-rosters':('portable_manual_swap_roster_cases','world_manual_swap_roster_native','portable_manual_swap_roster_contracts'),
             'manual-swap':('portable_manual_swap_cases','world_manual_swap_native','portable_manual_swap_contracts'),

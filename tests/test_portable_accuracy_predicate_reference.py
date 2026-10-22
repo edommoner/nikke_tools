@@ -67,7 +67,7 @@ class AccuracyPredicateReferenceTests(unittest.TestCase):
 
     def test_specific_blocker_maps_to_native_contracts_without_admission_claim(self):
         row=dict(phase='effect',category='trigger',kind='buff',stat='atk_pct',target='self',operator=dict(domain='condition',descriptor='self_stat_above:accuracy_pct:0'))
-        result=reference_readiness(row);self.assertEqual(result['recorded_cases'],28);self.assertEqual(result['lane'],'gpu_lowering_candidate')
+        result=reference_readiness(row);self.assertEqual(result['recorded_cases'],28);self.assertEqual(result['lane'],'reference_review')
         self.assertFalse(result['gpu_supported']);self.assertFalse(result['runtime_validation_performed'])
         for changed in (dict(kind='damage'),dict(target='all_allies'),dict(operator=dict(domain='condition',descriptor='unknown'))):
             self.assertEqual(reference_readiness(dict(row,**changed))['lane'],'reference_review')

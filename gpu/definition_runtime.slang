@@ -178,3 +178,11 @@ uint definition_lazyGroup(uint input,uint row) { return commands[input+P_RECIPIE
 
 [ForceInline]
 uint definition_queryResolve(uint input,uint row) { return (commands[input+P_RECIPIENT_BASE+row*8+7] >> 2) & 1; }
+
+bool validUndyingPredicate(uint input,uint row,uint at,uint combat)
+{
+    if(combat!=1 || commands[at+1]!=0 || !f64Zero(loadNumber(at+2))) return false;
+    for(uint slot=0;slot<definition_triggerCount(input,row);slot++)
+    { uint eventAt=input+P_EVENT_BASE+row*P_EVENT_WORDS+slot*8;if(commands[eventAt]==0 && commands[eventAt+6]!=0) return false; }
+    return true;
+}
