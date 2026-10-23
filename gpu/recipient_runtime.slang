@@ -14,9 +14,23 @@ bool validAlliedRandomMetadata(uint input)
 }
 bool alliedRandomEnabled(inout Runtime s)
 { return commands[s.inputBase+P_RECIPIENT_META_BASE+2]==0x41524731U; }
+#ifdef PORTABLE_RANDOM_CLEANSE
+bool alliedHasHarmful(inout Runtime s,uint who)
+{
+    for(uint pass=0;pass<s.orderedCount;pass++)
+    {
+        uint slot=s.orderedRows[pass],definition=s.carrierDefinition[slot];
+        if(s.alive[slot]!=0 && s.lazyPending[slot]==0 && (definition_polarity(s.inputBase,definition)==2 || definition_polarity(s.inputBase,definition)==3) && (s.activeRecipients[slot]&(1U<<who))!=0) return true;
+    }
+    return false;
+}
+#endif
 bool validRecipientLeaf(uint at, bool enemy = false)
 {
     uint kind = commands[at], count = commands[at+1], mask = commands[at+2];
+#ifdef PORTABLE_RANDOM_CLEANSE
+    if(kind==20) return !enemy && count<=5 && mask==0 && commands[at+3]==0 && commands[at+4]==0 && commands[at+5]==0 && commands[at+6]<P_DEFINITIONS && commands[at+7]==0;
+#endif
 #ifdef PORTABLE_BELOW_DEF
     if(kind==14) return !enemy && count==0 && mask==0 && commands[at+3]==0 && commands[at+4]==0 && commands[at+5]==0 && commands[at+6]<P_DEFINITIONS && (commands[at+7]&8U)==0 && (commands[at+7]>>4)<=P_DEFINITIONS;
 #endif
@@ -72,13 +86,21 @@ uint selectRecipientLeaf(inout Runtime s, uint row, uint at, uint64_t when, out 
     }
 #endif
     if (kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16 || kind==22) return rankedRecipientsAt(s,row,at,when,order);
-    if(kind==19 || kind==25)
+    if(kind==19 || kind==25
+#ifdef PORTABLE_RANDOM_CLEANSE
+       || kind==20
+#endif
+       )
     {
 #ifdef PORTABLE_WORLD_PROJECTILE
         if(!alliedRandomEnabled(s)) { s.error=64;order=0;return 0; }
         uint pool[5],size=0;
         for(uint who=0;who<5;who++) if((s.downMask&(1U<<who))==0 &&
-            (kind==19 ? who!=d.owner : !f64Less(0,s.coverHP[who]))) pool[size++]=who;
+            (kind==19 ? who!=d.owner :
+#ifdef PORTABLE_RANDOM_CLEANSE
+             kind==20 ? alliedHasHarmful(s,who) :
+#endif
+             !f64Less(0,s.coverHP[who]))) pool[size++]=who;
         uint ignored,mask=0,k=min(count,size),before=results[s.resourceOutput+P_REVIVAL_RNG_BASE];
         uint sampled=mtSampleFive(s.resourceOutput+P_REVIVAL_RNG_BASE,size,k,ignored);order=0;
         uint poolMask=0;for(uint i=0;i<size;i++) poolMask|=1U<<pool[i];

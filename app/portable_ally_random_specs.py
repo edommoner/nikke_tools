@@ -2,14 +2,14 @@
 import re
 
 MAGIC = 0x41524731
-SELECTORS = (19, 25)
+SELECTORS = (19, 20, 25)
 
 
 def contains(target):
     if isinstance(target, list):
         return any(contains(item) for item in target)
     return isinstance(target, str) and re.fullmatch(
-        r'allies_random:[0-5]|allies_broken_cover_random:\d+', target) is not None
+        r'allies_random(?:_with_debuff)?:[0-5]|allies_broken_cover_random:\d+', target) is not None
 
 
 def validate(effect, *, combat, world_frame):
@@ -20,6 +20,10 @@ def validate(effect, *, combat, world_frame):
         raise ValueError('Friendly random recipients require a private combat world')
     if effect.get('type') not in ('buff', 'instant'):
         raise ValueError('Friendly random recipients require buff or instant effects')
+    def harmful(items):
+        return any(harmful(item) for item in items) if isinstance(items,list) else isinstance(items,str) and items.startswith('allies_random_with_debuff:')
+    if harmful(target) and (isinstance(target,list) or effect.get('type')!='instant' or effect.get('stat')!='debuff_cleanse'):
+        raise ValueError('Harmful random recipients require a direct instant cleanse')
     if effect.get('type') == 'buff' and isinstance(target, list):
         raise ValueError('Ordered random buff lists require a separate lazy-list contract')
 

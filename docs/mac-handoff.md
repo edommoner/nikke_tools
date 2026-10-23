@@ -1,3 +1,7 @@
+<!-- random-cleanse-gpu-current -->
+有害所持味方のrandom selector20をprivate CUDA/Metal共通Slangへ接続。基礎18/live12/budget6/ココア全71定義3/30sの2で正本38。本人包含・解除不能候補・expiry/down/復活・人数0..5・budgetの候補probe→dispatch二重抽選/上限後0を固定。Metal169成功後budget追加175を実行、ownerメタデータ不足の比較失敗を元raw/claim保持で修正し共通replay＋独立seal175(native132/拒否43)成功、GPU再実行0。全624語MT/初期0抽選/最終所属と既存battle/traceを比較。旧125raw393216000Bと旧169raw531628032B全byte保持。CPU15群125(skip0)＋最終8成功、GPU4.365s、cache必須hit/追加Slang0。Runtime/stride138952/数値/normalizer/正本/Windows wrapper不変。静的237/266・base177/203・41分類、旧236SHA/残拒否/code順保持。Windows0/原因unknown/保全false/現CUDA未検証、全キャラ0/UI CPU/development_only/未達。次はperiodic/免疫/別carrier混在、敵デバフ実編成、現CUDA/全カタログ。詳細docs/portable-random-cleanse-gpu.mdとcheckpoint。以下は履歴。
+<!-- /random-cleanse-gpu-current -->
+
 <!-- random-cleanse-reference-current -->
 共通CLI reference random-cleanseへ18正本契約を追加。本人を含む有害所持者/解除不能も候補/編成順pool/ordered sample/各人の古い順/共有carrierの部分解除/小数上限を固定。fresh packageのreference18＋CPU4群26(skip0)成功、元battle/trace/RNG/全照会回数保持。GPU受付は拒否のまま、既存125のsource/input/native期待値全同一、追加GPU/Windows0。全266profileSHA/拒否理由/42順位code保持、236/base176不変。次はexpiry/down/revive/repeated候補変化→共通Slang→全定義実編成と現CUDA。全キャラ0/UI CPU/未達。詳細docs/portable-random-cleanse-reference.mdとresearch/portable-random-cleanse-reference-checkpoint.json。以下は履歴。
 <!-- /random-cleanse-reference-current -->

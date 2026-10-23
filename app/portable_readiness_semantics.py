@@ -12,11 +12,12 @@ def reference_readiness(issue):
         return result
     operator=issue.get('operator')
     operator=operator if isinstance(operator,dict) else {}
-    if issue.get('phase')=='effect' and issue.get('category')=='recipient' and issue.get('kind')=='instant' and issue.get('stat')=='debuff_cleanse' and issue.get('target')=='allies_random_with_debuff:2' and not issue.get('fields') and issue.get('scaling') is None:
-        result.update(lane='native_contract_extension',native_consumer='confirmed_source',contract_coverage='recorded_subset',recorded_cases=18,reference_suites=['random-cleanse'],
+    if issue.get('phase')=='effect' and issue.get('category')=='recipient' and issue.get('kind')=='instant' and issue.get('stat')=='debuff_cleanse' and issue.get('target') in tuple('allies_random_with_debuff:'+str(n) for n in range(6)) and not issue.get('fields') and issue.get('scaling') is None:
+        result.update(lane='native_contract_extension',native_consumer='confirmed_source',contract_coverage='recorded_subset',recorded_cases=38,reference_suites=['random-cleanse','random-cleanse-mixed','random-cleanse-budget','random-cleanse-rosters'],
             consumer_source='calculator/buff_manager.py:_resolve_target_raw,_has_harmful,_dispatch_instant',
-            required_extensions=['live_expiry_down_revival_and_repeated_selection_contracts','shared_harmful_eligibility_and_ordered_sample_lowering','full_profile_and_current_cuda_validation'],
-            note='Eighteen native battle contracts fix self inclusion, harmful_irremovable eligibility without removal, native ordered sampling and per-actor oldest-first shared-carrier edits. Zero/negative counts remove all; positive subunit counts still remove one in the pinned model. Target2/battle-start scope only; GPU admission remains rejected and no full-character certification')
+            scoped_metal_validation=dict(suite='random-cleanse-retention',inputs=175,native_cases=132,rejected_cases=43,synthetic_contracts=36,original_profiles=1,original_definitions=71,original_durations=[3,30],zero_sample_initial_mt_verified=True,independently_audited=True,replay_gpu_calls=0),
+            required_extensions=['periodic_and_broader_harmful_carrier_interactions','full_catalog_target_worlds','current_source_cuda_validation'],
+            note='Thirty-six synthetic contracts plus complete Cocoa3/30s fix self inclusion, irremovable eligibility without removal, live expiry/down/revival, counts0..5 and ordered shared-carrier edits. Budget probes sample before dispatch; exhausted budgets sample zero times and empty pools spend no budget. Private shared Slang/Metal175 and independent seal passed; original owner-metadata comparison failure preserved, repaired by replay without another dispatch. Public entries retain rejection; broader interactions/full-character/current-source CUDA remain unverified')
         return result
     if issue.get('phase')=='gpu-admission' and issue.get('category')=='trigger' and operator.get('domain')=='condition' and operator.get('descriptor') in ('has_burst1_ally','no_burst1_ally'):
         result.update(lane='native_contract_extension',native_consumer='confirmed_source',contract_coverage='recorded_subset',recorded_cases=12,reference_suites=['burst1-ally'],

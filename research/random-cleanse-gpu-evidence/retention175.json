@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "retained_entries": 169,
+  "raw_bytes": 531628032,
+  "raw_sha256": "a403b4149acf12e0439250f2f18d6c2e627ab4768e9aaa43907af978158761d6",
+  "input_bytes": 70574400,
+  "input_sha256": "6610682c27d5874d796141b501f71c611f2bbd1ce2e59cca74196126e5152a6b",
+  "all_bytes_equal": true,
+  "input_native_fingerprints_identical": true,
+  "previous125_also_retained": true,
+  "gpu_calls": 0
+}

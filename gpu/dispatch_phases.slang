@@ -488,6 +488,15 @@ void advanceDefinitionFrame(inout Runtime s, inout Frame frames[32], inout int d
             if(s.activations[WORLD_TEAM_BUDGET(s,row)]>=uint(d.budget)) continue;
             WORLD_RANDOM_DISCARD(s,row) if(s.error!=0) break;
         }
+#ifdef PORTABLE_RANDOM_CLEANSE
+        if(d.kind==26 && commands[s.inputBase+P_RECIPIENT_BASE+row*8]==20 && d.budget>=0 && (f.event!=28 || (d.flags&1)!=0 && s.alive[row]==0))
+        {
+            if(s.activations[WORLD_TEAM_BUDGET(s,row)]>=uint(d.budget)) continue;
+            uint64_t discardedOrder;
+            if(selectRecipients(s,row,f.time,discardedOrder)==0) continue;
+            if(s.error!=0) break;
+        }
+#endif
         if(d.kind==29 && d.budget>=0)
         {
             if(s.activations[WORLD_TEAM_BUDGET(s,row)]>=uint(d.budget)) continue;

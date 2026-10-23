@@ -70,6 +70,13 @@ bool initializeRevival(inout Runtime s)
         {
             uint selector=commands[commands[plan]==17 ? s.inputBase+P_RECIPIENT_NODE_BASE+(commands[plan+2]+leaf)*8 : plan];
             if((selector==22 || selector==23) && d.kind!=29) return false;
+#ifdef PORTABLE_RANDOM_CLEANSE
+            if(selector==20)
+            {
+                if(d.kind!=26 || commands[plan]==17 || !alliedRandomEnabled(s)) return false;
+                friendly=true;
+            }
+#endif
             if(selector==19 || selector==25)
             {
                 friendly=true;

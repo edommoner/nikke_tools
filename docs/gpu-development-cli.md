@@ -1,3 +1,7 @@
+<!-- random-cleanse-gpu-current -->
+private `random-cleanse-retention`175(native132/拒否43)がMetal保存replay＋独立seal成功。`package --suite random-cleanse-retention --develop` で固定する。`random-cleanse`単独は50(native38/拒否12)の開発suiteで別golden未登録。正本referenceは random-cleanse18 / random-cleanse-mixed12 / random-cleanse-budget6 / random-cleanse-rosters2。元175のowner不足による比較失敗はsource/input/native同一の新packageへreplayして修復、GPU再実行なし。詳しい実証範囲・残件はdocs/portable-random-cleanse-gpu.md。
+<!-- /random-cleanse-gpu-current -->
+
 <!-- random-cleanse-reference-current -->
 `reference --suite random-cleanse --out <new.json>` はGPU/packing禁止の正本18契約。ランダム有害所持者の本人包含・解除不能の候補資格・抽選順と各人の所属解除を検査する。GPU接続前の契約であり受付は拒否のまま。詳細docs/portable-random-cleanse-reference.md、次はlive候補変化と共通実行器への接続。
 <!-- /random-cleanse-reference-current -->

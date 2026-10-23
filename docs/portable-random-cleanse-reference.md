@@ -1,5 +1,7 @@
 # 有害効果を持つ味方のランダム解除
 
+現在のGPU接続と追加契約は[共通GPU接続記録](portable-random-cleanse-gpu.md)を参照。以下は、最初の正本18契約を作成した時点の記録である。
+
 共通CLI `reference --suite random-cleanse --out <new.json>` へ、正本の戦闘を実行する18契約を追加した。これはGPU実装前の意味の固定であり、GPU受付は引き続き拒否する。
 
 正本 `calculator/buff_manager.py` の `_resolve_target_raw` は `allies_random_with_debuff:2` の候補を編成順の生存者から作り、`_has_harmful` が真の者を抽出して `random.sample` する。通常の `allies_random` と異なり本人を除外しない。`harmful_irremovable` も有害効果の所持判定に含まれるので、抽選されても解除が起こらない場合がある。

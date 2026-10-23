@@ -3,7 +3,10 @@ import hashlib,json
 from pathlib import Path
 
 def ledger(root):return json.loads((Path(root)/'tests/fixtures/portable-burst1-ally-source-delta.json').read_text())
-def baseline_source(root,name,source):
+def baseline_source(root,name,source,*,random_cleanse_projected=False):
+    if not random_cleanse_projected:
+        from portable_random_cleanse_source_contract import baseline_source as project_random
+        source,_=project_random(root,name,source)
     row=ledger(root)['sources'].get(name)
     if row is None:return source,False
     assert hashlib.sha256(source.encode()).hexdigest()==row['current_sha256'],'Unreviewed B1-ally source: '+name
@@ -14,7 +17,8 @@ def baseline_source(root,name,source):
     return source,True
 
 def project_sources(root,sources=None):
-    root=Path(root);sources=dict(sources or {});data=ledger(root)
+    from portable_random_cleanse_source_contract import project_sources as project_random
+    root=Path(root);sources,_=project_random(root,sources);data=ledger(root)
     for name,digest in data['added_sources'].items():assert hashlib.sha256(sources.get(name,(root/name).read_text()).encode()).hexdigest()==digest,'Unreviewed B1-ally helper: '+name
-    for name in data['sources']:sources[name],_=baseline_source(root,name,sources.get(name,(root/name).read_text()))
+    for name in data['sources']:sources[name],_=baseline_source(root,name,sources.get(name,(root/name).read_text()),random_cleanse_projected=True)
     return sources,list(data['sources'])

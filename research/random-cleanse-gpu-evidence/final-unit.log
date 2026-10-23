@@ -1,0 +1,13 @@
+test18_native_contracts_without_packing_or_gpu (test_portable_random_cleanse.RandomCleanseTests.test18_native_contracts_without_packing_or_gpu) ... ok
+test_budget_probes_exhaustion_empty_and_late_candidates (test_portable_random_cleanse.RandomCleanseTests.test_budget_probes_exhaustion_empty_and_late_candidates) ... ok
+test_exact_source_delta_rejects_broadened_eligibility_and_admission (test_portable_random_cleanse.RandomCleanseTests.test_exact_source_delta_rejects_broadened_eligibility_and_admission) ... ok
+test_live_expiry_down_revive_reselection_and_count_boundaries (test_portable_random_cleanse.RandomCleanseTests.test_live_expiry_down_revive_reselection_and_count_boundaries) ... ok
+test_native_battle_trace_random_and_query_counts_unchanged (test_portable_random_cleanse.RandomCleanseTests.test_native_battle_trace_random_and_query_counts_unchanged) ... ok
+test_pool_self_exclusion_rng_limit_and_membership_faults_rejected (test_portable_random_cleanse.RandomCleanseTests.test_pool_self_exclusion_rng_limit_and_membership_faults_rejected) ... ok
+test_private_host_admission_and_readiness_remains_only_recorded_scope (test_portable_random_cleanse.RandomCleanseTests.test_private_host_admission_and_readiness_remains_only_recorded_scope) ... ok
+test_shared_input_layout_typed_rejections_and_retained_prefix (test_portable_random_cleanse.RandomCleanseTests.test_shared_input_layout_typed_rejections_and_retained_prefix) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 6.177s
+
+OK

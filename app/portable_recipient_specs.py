@@ -48,7 +48,7 @@ def pack(words, index, row, limits, effect, stat_key, merge_search, lazy_group):
     from portable_enemy_specs import enemy_buff_plan
     enemy = enemy_buff_plan(effect) is not None
     if enemy:kind=4
-    if kind not in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25):
+    if kind not in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25):
         raise ValueError('Unported compiled recipient selector')
     at = limits['RECIPIENT_BASE'] + index * 8
     independent_quantity=effect.get('_source_tag')=='equipment' and int(row[2]) in (18,20,37)
