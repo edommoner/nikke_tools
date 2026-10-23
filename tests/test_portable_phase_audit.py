@@ -12,14 +12,56 @@ import unittest
 from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT/'research'))
-from portable_phase_audit import Journal, NativeLibrary, observe, summarize
+sys.path[:0]=[str(ROOT/'research'),str(ROOT/'app')]
+from portable_phase_audit import Journal, NativeLibrary, observe, observe_generation, summarize
 spec = importlib.util.spec_from_file_location('world_bounded', ROOT/'research/run-world-bounded.py')
 bounded = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(bounded)
 
 
 class AuditTests(unittest.TestCase):
+    def test_function_duration_excludes_its_own_journal_writes_and_no_unfinished_duration(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/'timed.jsonl';journal=Journal(path)
+            with patch('portable_phase_audit.time.perf_counter_ns',side_effect=[100,1000000100]):
+                self.assertEqual(journal.invoke('actual',lambda:7),7)
+            journal.emit('unfinished','entered')
+            report=summarize(path)
+            self.assertEqual(report['timed_calls'],[dict(stage='actual',pid=os.getpid(),state='returned',elapsed_seconds=1.)])
+            self.assertEqual(report['last_event']['stage'],'unfinished')
+            self.assertFalse(report['cuda_launch_returned_success'])
+
+    def test_generation_observer_preserves_arguments_results_and_restores_on_failure(self):
+        import portable_generation_cache as cache
+        import portable_resident_layout as layout
+        import portable_scope_snapshot_audit as scope
+        modules=[(cache,n) for n in ('identity','validate_pair','read_entry','atomic','reflection_plan','verify_cuda_layout_assertions')]+[(layout,'reflection_plan'),(scope,'audit')]
+        originals={(m,n):getattr(m,n) for m,n in modules}
+        token=object();received=[]
+        def identity(*args,**kwargs):received.append((args,kwargs));return token
+        with tempfile.TemporaryDirectory() as directory,patch.object(cache,'identity',identity):
+            path=Path(directory)/'generation.jsonl'
+            with self.assertRaisesRegex(RuntimeError,'injected'),observe_generation(Journal(path)):
+                self.assertIs(cache.identity(token,entry='unchanged'),token)
+                self.assertEqual(received,[((token,),{'entry':'unchanged'})])
+                raise RuntimeError('injected')
+            self.assertIs(cache.identity,identity)
+            rows=[json.loads(line) for line in path.read_text().splitlines()]
+            self.assertEqual([(r['stage'],r['state']) for r in rows],[('slang_generation_identity','entered'),('slang_generation_identity','returned')])
+            self.assertFalse(summarize(path)['cuda_launch_returned_success'])
+        for (module,name),original in originals.items():self.assertIs(getattr(module,name),original)
+
+    def test_generation_audit_failure_remains_failure(self):
+        import portable_generation_cache as cache
+        def fail(*args):raise ValueError('bad pair')
+        with tempfile.TemporaryDirectory() as directory,patch.object(cache,'validate_pair',fail):
+            path=Path(directory)/'generation.jsonl'
+            with self.assertRaisesRegex(ValueError,'bad pair'),observe_generation(Journal(path)):
+                cache.validate_pair({},'portableEvents')
+            self.assertIs(cache.validate_pair,fail)
+            rows=[json.loads(line) for line in path.read_text().splitlines()]
+            self.assertEqual([(r['stage'],r['state']) for r in rows],[('slang_generation_validate_pair','entered'),('slang_generation_validate_pair','raised')])
+
     def test_native_proxy_preserves_signature_arguments_result_and_failed_launch(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory)/'phases.jsonl'

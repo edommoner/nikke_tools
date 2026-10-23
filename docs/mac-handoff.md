@@ -1,3 +1,7 @@
+<!-- generation-timing-current -->
+Slang後の停止を切り分けるため、既存observerにidentity/read/paired/reflection/layout/scope/publicationの時間計測を追加。全関数のreturned/raisedへ自分のentry/exitログを除いたelapsedを記録、statusへtimed_calls表示。cacheキー/consumer/生成物/claim規則不変。runtimeに両cacheパス、identity後journalにentry/claimのkeyとパスを記録（存在/生存の証明ではない）。Mac固定8f78d6b5…でCPU37 stage3.985秒、関連CPU72成功、sealed生成cache必須hit/Slang0/GPU0/build.194秒/identity.094+.093秒。Windows保存runtime959B/phases813B(6event)の限定読取は旧cacheパス/key欠如でclaim不明、再帰走査/削除/再実行0。CPU準備のみ1回を固定b2f72e9・codex/cuda-preparation-v2-source(2file/6.88MB)で依頼、remote turn01a16a69-16f2-7203-80db-37438b709cfd進行中/cursor:51、GPU/Slang/NVRTC/driver/cache-probe禁止、90秒/2GiB/BelowNormalの既存全stage経路。旧Metal33/46と147source保持、7欠落unknown/環境保全false、全目標未達。詳しくはdocs/portable-generation-timing.md。以下は履歴。
+<!-- /generation-timing-current -->
+
 <!-- destructible-world-current -->
 型付き弾/HP盾/hit盾を既存world_scheduleへ接続する共通CLI destructible-worldを追加。GPUが生死からclearedを求め、既存active/generationで生成・退役する。別時計/CPUスポーン予定表なし、same-time再入/旧世代着弾/cleared優先/epsilon/slot127/owner/finishをBossScript正本時計＋宣言target状態と照合。Metal33(正例21/拒否12)一致＋独立seal、最終CPU17成功・保存5block故障注入、GPU.012810秒/PSO.182481秒/実run生成cache必須hit/Slang0。production147source/Runtime138952と旧core保持。戦闘生成元/dispatch/迎撃・倍率/all_projectilesは未接続、245packing/残20model gap/全キャラ0/UI CPU/未達。Windows追加0、7欠落は操作否定・game/video可能性の回答でもcause unknown/保全false、次CUDA前はCPU準備計測と保存claim監査。詳細docs/portable-destructible-world.mdとcheckpoint。以下は履歴。
 <!-- /destructible-world-current -->

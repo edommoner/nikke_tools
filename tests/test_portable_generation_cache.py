@@ -47,6 +47,31 @@ class GenerationCacheTests(unittest.TestCase):
         for name,raw in first.items():
             if not name.endswith('generation-cache.json'):self.assertEqual(self.live()[name],raw)
         self.assertTrue(cache.audit_receipt(self.receipt(),hashes,paths)['verified'])
+    def test_observed_required_hit_keeps_exact_identity_and_artifacts(self):
+        sys.path.insert(0,str(ROOT/'research'))
+        try:from portable_phase_audit import Journal,observe
+        finally:sys.path.pop(0)
+        self.build();first=self.live();identity=self.receipt()['identity']
+        path=Path(self.tmp.name)/'observed.jsonl'
+        with observe(backend,Journal(path)):
+            paths,hashes=self.build(True)
+        self.assertEqual(self.calls,['cuda','metal'])
+        self.assertEqual(self.receipt()['identity'],identity)
+        for name,raw in first.items():
+            if not name.endswith('generation-cache.json'):self.assertEqual(self.live()[name],raw)
+        rows=[json.loads(line) for line in path.read_text().splitlines()]
+        self.assertNotIn('slang_compiler',[r['stage'] for r in rows])
+        for stage in ['identity','validate_pair','read_entry','atomic']:
+            observed=[r['state'] for r in rows if r['stage']=='slang_generation_'+stage]
+            self.assertTrue(observed);self.assertEqual(observed,['entered','returned']*(len(observed)//2))
+        requests=[r for r in rows if r['stage']=='slang_generation_request']
+        self.assertEqual(len(requests),2)
+        for r in requests:
+            self.assertEqual(r['key'],self.receipt()['key'])
+            self.assertEqual(r['cache_entry_path'],str(self.cached/(r['key']+'.json')))
+            self.assertEqual(r['claim_path'],str(self.cached/(r['key']+'.claim')))
+            self.assertEqual(r['state'],'observed')
+        self.assertTrue(cache.audit_receipt(self.receipt(),hashes,paths)['verified'])
     def test_identical_code_from_another_package_root_reuses_pair(self):
         self.build();other=Path(self.tmp.name)/'other';shutil.copytree(self.root,other);shutil.rmtree(other/'research')
         with patch.object(backend,'ROOT',other):self.build(True)

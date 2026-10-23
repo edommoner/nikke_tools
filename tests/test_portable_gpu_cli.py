@@ -131,6 +131,20 @@ class PacketTests(unittest.TestCase):
             rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
             self.assertEqual([(r['stage'],r['state']) for r in rows],[('shared_gpu_execute','entered'),('shared_gpu_execute','returned')])
 
+    def test_runtime_keeps_exact_cache_paths_without_enumerating_them(self):
+        from types import SimpleNamespace
+        with tempfile.TemporaryDirectory() as folder:
+            capture=Path(folder);settings=dict(NIKKE_SLANG_GENERATION_CACHE=str(capture/'generation'),NIKKE_CUDA_COMPILE_CACHE=str(capture/'nvrtc'))
+            fake=SimpleNamespace(run_bounded=lambda *a,**kw:dict(passed=True))
+            with patch.object(cli,'os',SimpleNamespace(**dict(vars(os),name='posix'))),patch.dict(os.environ,settings),\
+                 patch.object(cli,'validation_environment',return_value=dict(settings)),patch.object(cli,'bounded_module',return_value=fake),\
+                 patch.object(Path,'rglob',side_effect=AssertionError('No cache enumeration')):
+                cli.run_job(capture,'cuda',10)
+            runtime=cli.load(capture/'runtime.json')
+            self.assertEqual(runtime['generation_cache_path'],settings['NIKKE_SLANG_GENERATION_CACHE'])
+            self.assertEqual(runtime['compile_cache_path'],settings['NIKKE_CUDA_COMPILE_CACHE'])
+            self.assertTrue(runtime['generation_cache_enabled']);self.assertTrue(runtime['compile_cache_enabled'])
+
     def test_run_uses_one_parent_audit_and_preserves_failed_calculation(self):
         from types import SimpleNamespace
         with tempfile.TemporaryDirectory() as folder:

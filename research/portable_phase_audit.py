@@ -21,12 +21,15 @@ class Journal:
 
     def invoke(self, stage, function, *args, native=False, event_facts=None, **kwargs):
         self.emit(stage, 'entered', **(event_facts or {}))
+        started=time.perf_counter_ns()
         try:
             result = function(*args, **kwargs)
         except BaseException as error:
-            self.emit(stage, 'raised', exception=type(error).__name__)
+            elapsed=(time.perf_counter_ns()-started)/1e9
+            self.emit(stage, 'raised', exception=type(error).__name__,elapsed_seconds=elapsed)
             raise
-        self.emit(stage, 'returned', **({'return_code': int(result)} if native else {}))
+        elapsed=(time.perf_counter_ns()-started)/1e9
+        self.emit(stage, 'returned', elapsed_seconds=elapsed, **({'return_code': int(result)} if native else {}))
         return result
 
 
@@ -61,6 +64,41 @@ class NativeLibrary:
 
 
 @contextlib.contextmanager
+def observe_generation(journal):
+    """Time post-compiler CPU/cache boundaries without changing cache identity.
+
+    No per-file hooks: fsyncing an event for every SDK file would distort the
+    operation being measured. Each original function still runs in full.
+    """
+    import portable_generation_cache as cache
+    import portable_resident_layout as layout
+    import portable_scope_snapshot_audit as scope
+    with contextlib.ExitStack() as stack:
+        def wrap(module,name,stage):
+            original=getattr(module,name)
+            def observed(*args,**kwargs):
+                result=journal.invoke(stage,original,*args,**kwargs)
+                if module is cache and name=='identity' and isinstance(result,dict) and result.get('kind')=='paired-resident-slang-generation':
+                    from pathlib import Path
+                    directory=os.environ.get('NIKKE_SLANG_GENERATION_CACHE')
+                    entry_key=cache.key(result)
+                    journal.emit('slang_generation_request','observed',key=entry_key,
+                        cache_entry_path=str(Path(directory)/(entry_key+'.json')) if directory else None,
+                        claim_path=str(Path(directory)/(entry_key+'.claim')) if directory else None)
+                return result
+            stack.enter_context(patch.object(module,name,observed))
+        for name in ('identity','validate_pair','read_entry','atomic'):
+            wrap(cache,name,'slang_generation_'+name)
+        # Generation imports reflection_plan locally, while cache validation
+        # holds its imported function. Cover both without changing either.
+        wrap(layout,'reflection_plan','slang_reflection_plan')
+        wrap(cache,'reflection_plan','slang_reflection_plan')
+        wrap(cache,'verify_cuda_layout_assertions','slang_layout_assertions')
+        wrap(scope,'audit','slang_scope_snapshot_audit')
+        yield
+
+
+@contextlib.contextmanager
 def observe(backend, journal):
     """Wrap actual boundaries; a launch *entry* alone proves no submission."""
     original_build = backend.build
@@ -76,6 +114,7 @@ def observe(backend, journal):
         return result
     with contextlib.ExitStack() as stack:
         if os.environ.get('NIKKE_SLANG_GENERATION_CACHE'):
+            stack.enter_context(observe_generation(journal))
             original_run=backend.subprocess.run
             def compiler_run(command,*args,**kwargs):
                 from pathlib import Path
@@ -123,7 +162,9 @@ def summarize(path):
                     raise
     returned = lambda stage: any(r['stage'] == stage and r['state'] == 'returned'
                                  and r.get('return_code') == 0 for r in rows)
+    timed=[dict(stage=r['stage'],pid=r['pid'],state=r['state'],elapsed_seconds=r['elapsed_seconds']) for r in rows if r['state'] in ('returned','raised') and 'elapsed_seconds' in r]
     return dict(events=len(rows), last_event=rows[-1] if rows else None,
+                timed_calls=timed,timing_scope='Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none',
                 nvrtc_compile_returned_success=returned('nvrtcCompileProgram'),
                 cuda_compile_cache_hit_verified=any(valid_cache_hit(r) for r in rows),
                 cuda_linked_artifact_observed=any(valid_linked_artifact(r) for r in rows),

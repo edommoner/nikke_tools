@@ -1,0 +1,20 @@
+{
+  "package_id": "8f78d6b50fe7c125edff30ac582e902863a5486a2bb4618a6cda245d600cf70b",
+  "distribution_commit": "b2f72e9049836b82c918c3b21fc9acfba74afced",
+  "branch": "codex/cuda-preparation-v2-source",
+  "mac_cpu_stage_verified": true,
+  "mac_regression_tests": 72,
+  "mac_cpu_core_tests": 37,
+  "mac_native_preflight": 24,
+  "mac_generation_required_hit": true,
+  "new_compiler_calls": 0,
+  "new_gpu_calls": 0,
+  "cache_identity_changed": false,
+  "windows_saved_claim": "unknown; path/key absent from old records",
+  "windows_cpu_profile": "in progress",
+  "windows_thread": "01a140bc-5f3b-7661-b720-50c945596eaa",
+  "windows_turn": "01a16a69-16f2-7203-80db-37438b709cfd",
+  "windows_cursor": "932a0914-64f4-43a3-850e-7a2d8ab6e419:51",
+  "missing_process_cause": "unknown",
+  "full_goal_complete": false
+}

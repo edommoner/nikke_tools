@@ -1,0 +1,20 @@
+{
+  "package_id": "8f78d6b50fe7c125edff30ac582e902863a5486a2bb4618a6cda245d600cf70b",
+  "source_sha256": {
+    "gpu/destructible_target_probe.slang": "db8c864995f8c0b880c0d9851d10126a53402da823761ca0f70cc83a96305e09",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/destructible_target_core.slang": "a76de4e9c79097db495d652cb22814691cdb12e15ebbed5f5fec7ef86032a694"
+  },
+  "generated_normalized": {
+    "cuda": "42bca3956d8f4d18c8d354b53114ececdc7d4c03911d598d2392f6fe63b23ed0",
+    "metal": "647794f322aed0dde54d86ed0ac2183f0bd0b8fc93125f4c83503f23347532df"
+  },
+  "verified": true,
+  "cache_hit": true,
+  "compiler_invocations": 0,
+  "gpu_calls": 0,
+  "development_only": false,
+  "sealed_generated_baseline_verified": true,
+  "calculation_verified": false,
+  "executable_battle_verified": false
+}
