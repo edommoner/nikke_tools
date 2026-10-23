@@ -1,6 +1,6 @@
 {
-  "input_sha256": "ec3fcff7164ec4f62bb479d788c0c198fd2fea8ef4d6bc265eaa045c1bd54e59",
-  "output_sha256": "99544a95ced8ca9dac5c5e43c63a910140055792b52627fe06051e9bda781b42",
+  "input_sha256": "96dd55d39c157dc0550457a69b23ba8c223f7c6de3d5cc291119ed52f7e5324c",
+  "output_sha256": "dce150577eaf5e7b182a95e96aa59e0be8dd2d2110720c04c6cf1ef59a5b44c4",
   "source_sha256": {
     "gpu/destructible_battle_entry.slang": "0b136e653f0db5697d85bdbd0f9ac0c76fbc95d149a8571576ff8d67b882d6b8",
     "gpu/world_projectile_chain_entry.slang": "69de5447fd6f2eb8439fda802bae0571fe82d49eb531359f42c4175436c604c9",
@@ -305,6 +305,120 @@
       "input_sha256": "22be51b5fef3dc0738ade52399e76f9220a531056aee38eeeda37fc0614fe39c",
       "output_sha256": "898de74ddecd160a8626248c12fd75ed663e29bfa5d240e39a0b4e9ef2e217bd",
       "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "destructible-battle/counter-live-threshold",
+      "input_sha256": "d43717f29bc5c359537a1aeda0da52c1376afb51d081253038000386c51768f0",
+      "output_sha256": "5dc19f7591df0d8f63313656dae7a1902b09ede6306845eb6bdeba254a2240cb",
+      "native_sha256": "3883e56943a53d227c37f9950e0a991bc59bb500d361baff521decf38b294974"
+    },
+    {
+      "name": "destructible-battle/counter-death",
+      "input_sha256": "a84b4827349c3848825436269afcf84b54badbab3b3c6ae163adff9e29c24894",
+      "output_sha256": "3d4b2dc4255045bd8bf5d62d35a013e9183992bc9249af1f52e4463f06152294",
+      "native_sha256": "b550ea0a628146fd9c72df5a64128071448f651e5f5090147924fab66b476dd6"
+    },
+    {
+      "name": "destructible-battle/counter-cancel-on-death",
+      "input_sha256": "417c2514068fe3bf017beb1ab8c017e64bb74707a09b3d8fbf064c173d1513e8",
+      "output_sha256": "cbaaabaf644cecd5a9edb5e5586293278c7465ca1febe72e4849c5d7e0b9e05c",
+      "native_sha256": "7200a030da8bd95b6bdafb3d5a61271039f18f73c4af68163cb8b3ee138bdb17"
+    },
+    {
+      "name": "destructible-battle/counter-refresh-before-death",
+      "input_sha256": "ba63ec90dafd8bd516b8d2aa8341c42fc0838472fe259710e713226a5da59d6c",
+      "output_sha256": "442538f1e05a415fb955a18786002c34341dbfb8374d4b1fe474c20bffe01dd9",
+      "native_sha256": "e955f64e3143af307df3152b729beb1184f62dd8bf0878f11c24a209611c19fe"
+    },
+    {
+      "name": "destructible-battle/counter-siblings-before-refresh-and-death",
+      "input_sha256": "a6836be582977f0eede1aea702189b94867a86da65ec21ecfa291892a3887fac",
+      "output_sha256": "c0456d7ec07f9693c5e3a880669e3400868d146f2856bba8598c906a9ba2aa75",
+      "native_sha256": "8ad3a90ae30f8967c6c218e40b35f14da2a6fa60f33d7d86d80e607130457fb4"
+    },
+    {
+      "name": "destructible-battle/counter-future-generation-isolation",
+      "input_sha256": "6bf37d109e7130624556a482c1aced1df617c9ec92143e67e13a377ef8870d22",
+      "output_sha256": "3dbb9cec8969d1eec9c940bd2742c9a3fe4af3c6aea3eea4dc20168cc7bd7f44",
+      "native_sha256": "f00ba9d0983db8b9fcf116388fea117ba7a586bb342dacad52d43accf834a7a0"
+    },
+    {
+      "name": "destructible-battle/counter-owner-ignores-other-attacker",
+      "input_sha256": "bd01bdfaa021a797723ade9cd9017d56ad67aa596ef44968da5dc01f1b335b96",
+      "output_sha256": "13648343d8cddfccf59a75af26d1fba53e3a160104152dbbb8920da2cab2ae1b",
+      "native_sha256": "190665d6608c31ec639122534db3f2edf709bb8d352493f2df574c56d892edfb"
+    },
+    {
+      "name": "destructible-battle/counter-squad-accepts-other-attacker",
+      "input_sha256": "891ac1db14bc22d2581674bfa29464bd123f66b9f6d2095a249d2ea37c74cb9b",
+      "output_sha256": "019f138dd5e427060b286f497983d289a2b431b0f8f989738e70d5dad437af0a",
+      "native_sha256": "5a9bacd7c12f1c094a3520e13f467a7d42cd84897f5b5bbf7af44c27d94da323"
+    },
+    {
+      "name": "destructible-battle/counter-predicate-self-marker",
+      "input_sha256": "02586cb189aa51236bb709ab271e624ff13ebed05582202d4ed09778834b368d",
+      "output_sha256": "8a0752e643896abb0efaaf1d24007c0bc5f2d6ff5beb4f2e3a47a37d12e19e15",
+      "native_sha256": "1f24dbecc7e817b157bfbf61761cb85ea517b3a2f73967dd0955d092971dcbef"
+    },
+    {
+      "name": "destructible-battle/counter-predicate-not-self-marker",
+      "input_sha256": "f5981f0e3c98e2cda2be2c462b4c28eab7ed84c1d16c983a6b15d736cc9706c7",
+      "output_sha256": "12d5a5639da1934893de8c868986142e895bbdac9ddec783d16d43dab4b75ae3",
+      "native_sha256": "a3bee7889457405538586e83bc8252f922e0303d57909411cfa451853e0df4ad"
+    },
+    {
+      "name": "destructible-battle/counter-predicate-marker-visible-during-child",
+      "input_sha256": "5929609cb2568d4144b6e871d2a457fee1e240165b8bcff199ea0c7a188e960a",
+      "output_sha256": "16bdae470caed5fd133eccb680c0c231bade86a3440728f6ca1ba8b238e9be42",
+      "native_sha256": "a3bee7889457405538586e83bc8252f922e0303d57909411cfa451853e0df4ad"
+    },
+    {
+      "name": "reject/destructible-battle/unmodelled-target-state",
+      "input_sha256": "d0dda6969a9fc5abea057fc2cba9939c9e833c471fa57e5928dc59a6cabd7ee6",
+      "output_sha256": "ce429434a7e16fe2af2eaef5356d7b0a6936b927dc46fea2cb7a3707fd957481",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-battle/unmodelled-target-field",
+      "input_sha256": "f18f417b4154fe565137e412d0546d1094f85b24a79a2ac6ba699d999f3ad95a",
+      "output_sha256": "1770ad6d937c84308839bf75ef40b07a3adee40645b83f33209d30bfef944f06",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "destructible-battle/counter-reentrant-live-set",
+      "input_sha256": "a3b1f4c9a0998b7c4914b7a69bf71df89495194d195c2caec1b251ec2f834e08",
+      "output_sha256": "79e317b1a052e5d0ac3509efa832033f34aafee3ed1bb7c325dda9039a320b28",
+      "native_sha256": "6ddd528ae33d4148ffd909533e0dbaa20c474be2297ee798c125ed2a289ee969"
+    },
+    {
+      "name": "destructible-battle/counter-reentrant-fatal-parent",
+      "input_sha256": "9df062069d2e1a1af686e18fe9d7a0f46e7b0fa5c6a2b357e94c3cae1c95dbbb",
+      "output_sha256": "a8c2176992566c9f2003b3a925e037cefa249324498f58484ffa035a05bf5508",
+      "native_sha256": "643664ef9af0a66f01bd3792a007670dc025fb61f12e39b5656da5fc52a8d31d"
+    },
+    {
+      "name": "destructible-battle/counter-reentrant-grandchild",
+      "input_sha256": "c7c8d8be78e14936446893d77b388fd862aa5e58ba4303c980a1926fc04c7cca",
+      "output_sha256": "c4f7e7abd224f0fe622b04cc85ef3fbc38164e6976dee5a67a7ad23b47435bdf",
+      "native_sha256": "42b7e5d18653ce4870e27beb4c7aa420994941158b90a4312669bbaa53f012c8"
+    },
+    {
+      "name": "destructible-battle/counter-reentrant-frozen-damage",
+      "input_sha256": "81c349b581eed28f59e9971b2de4d1083ce56c5a01259afc0996f6cc1309c95c",
+      "output_sha256": "0b9dc01926a81fb943324f7872c398942db0b6d8eaade3c1d3042d113b6e8970",
+      "native_sha256": "a289d0077f255d4e75b683b9eabc10419cb622902a65fe07258e6ade5d0380c6"
+    },
+    {
+      "name": "destructible-battle/counter-explicit-boss-field",
+      "input_sha256": "b8a25f5eae1ef117f663c7fd3428a049998fe84882ecdb343119f1aeced4683f",
+      "output_sha256": "5603b638f36fe874afbd2810673dcf04be79b00a18736adb95eec485d8ed2b90",
+      "native_sha256": "bba1af359995ed6b88fba75977841dfbaaa7601294abc62c625ae70c5e9d47ed"
+    },
+    {
+      "name": "destructible-battle/counter-generic-named-child-clears-typed-target",
+      "input_sha256": "7eaae6f3e0ae6db35929dce0ce75d70cc79270d2be98239ca49bfeb190c002cf",
+      "output_sha256": "a35d54466f6c05243a6d1e07a335db98b1b6c6134e5245671e8e8e0cbbb0ed2d",
+      "native_sha256": "486abffe07b9d0791d4bd59da0fdef67e18bc809e0e0df82a04ac40350520e1e"
     }
   ],
   "generated_normalized": {

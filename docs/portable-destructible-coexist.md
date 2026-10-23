@@ -1,5 +1,7 @@
 # 通常部位クリアと型付き投射物の共存
 
+最新の44入力・実戦counter/子/孫contextは[カウンター実戦検証](portable-destructible-counter-battle.md)を参照。以下は前段の記録。
+
 通常のpartsノードに`until.targets_cleared`がある戦闘を、型付き投射物の入口が余分に拒否していた。単独typed clock用の検証が、全clearedノードへtyped bindingを要求していたためである。`PORTABLE_DESTRUCTIBLE_BATTLE`の場合だけこの要求を外し、通常の部位・敵のクリア判定は既存actorPools/WorldScheduleへ任せる。同じ共有SlangをCUDA/Metalが使い、CPUイベント列・別時計・偽の部位は追加しない。
 
 typed binding自身をcanonical clearedノードへ接続する操作は、従来どおり明示拒否する。通常部位の全破壊とtyped数量の全消失を同一ノードで合成する規則は、今回の共存検証に含めない。単独typed worldの既存クリア規則は変えていない。

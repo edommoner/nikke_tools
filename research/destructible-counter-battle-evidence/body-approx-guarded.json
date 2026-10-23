@@ -1,0 +1,17 @@
+{
+  "source_package_id": "4153fcd0b9f7ae465c9b3dc0769fff0bf68f0eb1fcb74fe9908a72ff1f7b9f8a",
+  "scope": "Scoped typed adapter rejects undefined logical recipients; protected canonical CPU unchanged",
+  "cases": [
+    {
+      "case": "target-state",
+      "accepted": false,
+      "error": "Typed logical target condition requires an explicit actor policy"
+    },
+    {
+      "case": "target-field",
+      "accepted": false,
+      "error": "Typed enemy recipient requires an explicit actor policy"
+    }
+  ],
+  "gpu_calls": 0
+}

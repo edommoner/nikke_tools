@@ -1,5 +1,7 @@
 # 実戦時計への型付き投射物接続：共有GPU実証
 
+最新の44入力・実戦counter/子/孫contextは[カウンター実戦検証](portable-destructible-counter-battle.md)を参照。以下は前段の記録。
+
 最新の通常部位との共存25入力と保存出力監査器は[共存検証](portable-destructible-coexist.md)を参照。この文書の20入力は前段の実証記録である。
 
 ## Metal20と共通Frame

@@ -12,6 +12,8 @@ from destructible_world_runtime import DestructibleWorld
 from destructible_attack_runtime import projectiles
 from destructible_skill_specs import FIELDS
 from impact_specs import ActorKind
+from effect_runtime import state
+from enemy_recipient_specs import CURRENT_TARGETS
 from reference_rewrite import rewrite_reference
 
 class TypedLandings(ast.NodeTransformer):
@@ -32,7 +34,7 @@ def typed_battle(bindings,*,max_attacks=128):
     old_simulate=timeline.simulate;old_alias=sim.simulate
     if old_simulate is not old_alias:raise ValueError('Native battle aliases differ before typed extension')
     old_boss=timeline.BossScript;old_register=buff_manager.BuffManager.register_damage_handler;old_hit=timeline.HitEvent
-    data=dict(worlds=[],activations=[],attacks=[],finished=[]);active=[];marked={};restores=[]
+    data=dict(worlds=[],managers=[],activations=[],attacks=[],finished=[]);active=[];marked={};restores=[]
     class Boss(old_boss):
         def __init__(self,*args,**kwargs):
             super().__init__(*args,**kwargs);self._nikke_typed_world=DestructibleWorld.from_clock(self,bindings);data['worlds'].append(self._nikke_typed_world)
@@ -43,10 +45,20 @@ def typed_battle(bindings,*,max_attacks=128):
     def register(manager,handler):
         old_register(manager,handler);previous=manager._damage_handler
         if not data['worlds']:raise ValueError('Typed battle requires the scheduler before damage registration')
+        data['managers'].append(manager)
         world=data['worlds'][-1];resolver=manager._resolve_target;missing=object();old_instance=manager.__dict__.get('_resolve_target',missing)
+        condition_ok=manager._condition_ok;old_condition=manager.__dict__.get('_condition_ok',missing)
+        def typed_context():
+            frames=state(manager).event_stack;target=frames[-1].target if frames else None
+            return target is not None and target.kind in (ActorKind.PROJECTILE,ActorKind.HP_SHIELD,ActorKind.HIT_SHIELD)
         def resolve_target(target,caster,*args,**kwargs):
             if target=='all_projectiles':return [world.bindings[i].label for i in world.targets.select([ActorKind.PROJECTILE])]
+            if isinstance(target,str) and target in CURRENT_TARGETS and typed_context():raise ValueError('Typed enemy recipient requires an explicit actor policy')
             return resolver(target,caster,*args,**kwargs)
+        def conditions(values,caster,t,eff=None):
+            if typed_context() and any(isinstance(value,str) and (value in ('target_is_boss','target_is_add','target_stunned','not_target_stunned') or value.startswith(('target_state:','not_target_state:','target_stack_above:','target_stack_below:'))) for value in values):
+                raise ValueError('Typed logical target condition requires an explicit actor policy')
+            return condition_ok(values,caster,t,eff)
         @wraps(previous)
         def damage(effect,caster,t,*args,**kwargs):
             context=None
@@ -59,8 +71,8 @@ def typed_battle(bindings,*,max_attacks=128):
             active.append(context)
             try:return previous(dict(effect,target='boss') if context is not None else effect,caster,t,*args,**kwargs)
             finally:assert active.pop() is context
-        manager._damage_handler=damage;manager._resolve_target=resolve_target
-        restores.append((manager,damage,previous,old_instance,missing))
+        manager._damage_handler=damage;manager._resolve_target=resolve_target;manager._condition_ok=conditions
+        restores.append((manager,damage,previous,old_instance,old_condition,missing))
     def packet(*args,**kwargs):
         event=old_hit(*args,**kwargs);context=active[-1] if active else None
         if context is None:return event
@@ -79,8 +91,10 @@ def typed_battle(bindings,*,max_attacks=128):
     try:
         with patch.object(timeline,'BossScript',Boss),patch.object(buff_manager.BuffManager,'register_damage_handler',register),patch.object(timeline,'HitEvent',packet),patch.dict(old_simulate.__globals__,{'_nikke_skip_typed_body_landing':skip}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):yield data
     finally:
-        for manager,wrapper,previous,old_instance,missing in reversed(restores):
+        for manager,wrapper,previous,old_instance,old_condition,missing in reversed(restores):
             if manager._damage_handler is wrapper:manager._damage_handler=previous
             if old_instance is missing:manager.__dict__.pop('_resolve_target',None)
             else:manager._resolve_target=old_instance
+            if old_condition is missing:manager.__dict__.pop('_condition_ok',None)
+            else:manager._condition_ok=old_condition
         if active:raise ValueError('Typed handler context leaked after battle')

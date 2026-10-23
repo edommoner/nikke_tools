@@ -98,8 +98,8 @@ class BattleTests(unittest.TestCase):
     def test_shared_battle_table_packs_without_running_native(self):
         s=importlib.util.spec_from_file_location('typed_battle_test',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
         with patch.object(a,'observe',side_effect=AssertionError('No CPU event list may enter GPU input')):rows,data=a.prepare()
-        self.assertEqual((len(rows),sum(c is not None for _,_,c in rows)),(25,14))
-        self.assertEqual(len(data),4+25*109536*4)
+        self.assertEqual((len(rows),sum(c is not None for _,_,c in rows)),(44,31))
+        self.assertEqual(len(data),4+44*109536*4)
         for _,words,domain in rows:
             if domain is None:continue
             self.assertFalse(any(words[104400:104400+2320]))
@@ -170,6 +170,78 @@ class BattleTests(unittest.TestCase):
             words,domain=by_name[record['name']];self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256']);a.compare(block,domain)
             offsets=(L['WORLD_ACTOR_POOL_STATE_BASE']+16,L['WORLD_ACTOR_POOL_STATE_BASE']+20,L['WORLD_FRAME_OUTPUT_BASE']+16+4,787458,787460,790019)
             for offset in offsets:
+                changed=array.array('I',block);changed[offset]^=1
+                with self.subTest(name=record['name'],offset=offset),self.assertRaises((AssertionError,ValueError)):a.compare(changed,domain)
+
+    def test_counter_battle_contracts_keep_child_order_generation_and_owner(self):
+        s=importlib.util.spec_from_file_location('typed_counter_contracts',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
+        rows,_=a.prepare();answers={c[0]['counter_contract']:a.native_reference(c) for _,_,c in rows if c is not None and c[0].get('counter_contract')}
+        self.assertEqual(len(answers),17)
+        self.assertEqual([r['damage'] for r in answers['live-threshold']['typed']['attacks']],[968.,968.,1086.])
+        for name,amount in [('death',1086),('cancel-on-death',968),('refresh-before-death',1204),('siblings-before-refresh-and-death',1322),('owner-ignores-other-attacker',968),('squad-accepts-other-attacker',1086),('predicate-self-marker',968),('predicate-not-self-marker',1086),('predicate-marker-visible-during-child',1086)]:
+            self.assertEqual(answers[name]['battle']['damage'][0],amount,name)
+        trace=answers['siblings-before-refresh-and-death']['battle']['target_counters']['completions']
+        self.assertEqual([(r['name'],r['reason'],r['epoch']) for r in trace],[('first','threshold',1),('second','threshold',2),('second','death',3)])
+        self.assertEqual(trace[0]['impact']['attack_id'],1);self.assertIsNone(trace[-1]['impact'])
+        future=answers['future-generation-isolation']['battle']['target_counters'];self.assertEqual([r['name'] for r in future['completions']],['next']);self.assertEqual([(r['name'],r['credit']) for r in future['resources']],[('marker',0)])
+        self.assertEqual([r['damage'] for r in answers['explicit-boss-field']['typed']['attacks']],[968.,1021.,1021.])
+        self.assertEqual([r['damage'] for r in answers['generic-named-child-clears-typed-target']['typed']['attacks']],[968.,1140.,1140.])
+
+    def test_logical_enemy_predicates_keep_the_explicit_actor_policy_guard(self):
+        s=importlib.util.spec_from_file_location('typed_counter_rejections',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
+        from detail_gpu import UnsupportedDetail
+        seed=next(c for c in a.fixtures() if c.get('counter_contract')=='live-threshold')
+        for condition in ('target_is_boss','target_is_add'):
+            c=copy.deepcopy(seed);c['effects'][1]['trigger']['condition']=[condition]
+            with self.subTest(condition=condition),self.assertRaisesRegex(UnsupportedDetail,'explicit actor policy'):a.compile_case(c)
+            with self.subTest(condition=condition),self.assertRaisesRegex(ValueError,'explicit actor policy'):
+                with battle.typed_battle(c['typed_bindings']):world_frame_native.observe(c)
+        for kind in ('target-state','target-field'):
+            c=copy.deepcopy(seed)
+            if kind=='target-state':c['effects'][1]['trigger']['condition']=['target_state:marker']
+            else:c['effects'][1].update(target='target',stat='def_pct')
+            # The wire accepts these ordinary field/condition encodings, but
+            # a projectile's logical recipient is intentionally unmodelled.
+            a.compile_case(c)
+            with self.subTest(kind=kind),self.assertRaisesRegex(ValueError,'explicit actor policy'):
+                with battle.typed_battle(c['typed_bindings']) as data:world_frame_native.observe(c)
+            manager=data['managers'][0];self.assertNotIn('_condition_ok',manager.__dict__);self.assertNotIn('_resolve_target',manager.__dict__)
+
+    def test_old25_inputs_native_and_shader_identity_are_retained(self):
+        from portable_backend import source_hashes
+        s=importlib.util.spec_from_file_location('typed_counter_retained',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
+        old=json.loads((ROOT/'research/destructible-counter-battle-evidence/prior25-golden.json').read_text());self.assertEqual(old['source_sha256'],source_hashes('gpu/destructible_battle_entry.slang'))
+        rows,_=a.prepare()
+        for (name,words,domain),prior in zip(rows[:25],old['entries'],strict=True):
+            self.assertEqual(name,prior['name']);self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),prior['input_sha256'])
+            self.assertEqual(a.cross.digest(a.native_reference(domain) if domain is not None else dict(status=64)),prior['native_sha256'])
+
+    def test_real_counter_children_reenter_the_same_typed_producer(self):
+        s=importlib.util.spec_from_file_location('typed_counter_reentry',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
+        rows,_=a.prepare()
+        for _,_,domain in rows:
+            if domain is None or not domain[0].get('reentrant_contract'):continue
+            c=domain[0];n=a.native_reference(domain);attacks=n['typed']['attacks'];grandchild='grandchild' in c['name'] or 'frozen-damage' in c['name']
+            self.assertEqual([r['attack_id'] for r in attacks],[1,2,3] if grandchild else [1,2]);self.assertEqual(len({r['time'] for r in attacks}),1)
+            self.assertEqual([r['damage'] for r in attacks],[968.,1086.,1204.] if grandchild else [968.,1086.])
+            self.assertTrue(all(r['completed'] for r in attacks))
+            if c['name'].endswith('/counter-reentrant-fatal-parent'):self.assertEqual([r['slot'] for r in attacks[1]['receipts']],[1])
+            if c['name'].endswith('/counter-reentrant-frozen-damage'):
+                self.assertEqual([r['remaining'] for r in n['typed']['state']],[6742.,6742.]);self.assertEqual(attacks[0]['receipts'][1]['took'],968.)
+            else:self.assertFalse(attacks[0]['receipts'][1]['delivered'])
+
+    def test_saved_real_counter_battles_reject_completion_context_corruption(self):
+        from portable_backend import source_hashes
+        from portable_specs import LIMITS as L
+        s=importlib.util.spec_from_file_location('counter_battle_saved',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
+        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-counter-battle-raw.json').read_text());self.assertEqual(fixture['source_sha256'],source_hashes('gpu/destructible_battle_entry.slang'))
+        rows,_=a.prepare();by_name={n:(w,c) for n,w,c in rows}
+        for record in fixture['records']:
+            block=array.array('I',[0])*fixture['output_words']
+            for i,v in record['nonzero']:block[i]=v
+            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),record['output_sha256']);words,domain=by_name[record['name']]
+            self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256']);a.compare(block,domain)
+            for offset in (L['TARGET_COUNTER_HEAD']+1,L['TARGET_COUNTER_TRACE_BASE']+2,L['TARGET_COUNTER_TRACE_BASE']+6,L['TARGET_COUNTER_TRACE_BASE']+13,L['TARGET_COUNTER_TRACE_BASE']+14,L['COUNTER_CONTEXT_BASE']+1,790008):
                 changed=array.array('I',block);changed[offset]^=1
                 with self.subTest(name=record['name'],offset=offset),self.assertRaises((AssertionError,ValueError)):a.compare(changed,domain)
 

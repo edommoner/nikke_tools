@@ -27,13 +27,23 @@ def compile_case(c):
     w.extend(extra);assert len(w)==suite.INPUT
     return w,(c,m,b)
 def prepare():
-    rows=[]
-    for c in fixtures():w,domain=compile_case(c);rows.append((c['name'],w,domain))
+    rows=[];counter_rows=[];reentrant_rows=[];context_rows=[]
+    for c in fixtures():
+        w,domain=compile_case(c);(context_rows if c.get('context_contract') else reentrant_rows if c.get('reentrant_contract') else counter_rows if c.get('counter_contract') else rows).append((c['name'],w,domain))
     seed=rows[0][1]
     for label,offset,value in [('row',109520,256),('capacity-zero',109521,0),('capacity-overflow',109521,129),('context-policy',109522,0),('magic',109523,0),('reserved',109524,1),('second-clock',104400,0x57533031),('binding-node',104400+2328,32),('binding-capacity',104400+2332,0x7ff80000),('binding-reserved',104400+2336,1)]:
         w=list(seed);w[offset]=value;rows.append(('reject/destructible-battle/'+label,w,None))
     coexist=next(w for n,w,c in rows if n.endswith('/ordinary-part-clear-opens-typed'))
     w=list(coexist);w[104400+2328]=0;rows.append(('reject/destructible-battle/typed-binding-to-canonical-clear',w,None))
+    rows.extend(counter_rows)
+    counter=next(c for c in fixtures() if c.get('counter_contract')=='live-threshold')
+    for label,change in [('unmodelled-target-state',dict(condition=['target_state:marker'])),('unmodelled-target-field',dict(target='target',stat='def_pct'))]:
+        c=copy.deepcopy(counter)
+        if 'condition' in change:c['effects'][1]['trigger']['condition']=change['condition']
+        else:c['effects'][1].update(change)
+        w,_=compile_case(c);rows.append(('reject/destructible-battle/'+label,w,None))
+    rows.extend(reentrant_rows)
+    rows.extend(context_rows)
     packed=array.array('I',[len(rows)])
     for _,w,_ in rows:packed.extend(w)
     if sys.byteorder!='little':packed.byteswap()
@@ -41,6 +51,14 @@ def prepare():
 def native_reference(domain):
     c,m,b=domain;names=roster_names(c)
     with typed_battle(c['typed_bindings'],max_attacks=c['max_attacks']) as data:n=observe(c)
+    from effect_runtime import state
+    assert len(data['managers'])==1
+    runtime=state(data['managers'][0]);assert not runtime.event_stack and not runtime.impact_stack and not runtime.activation_stack,'Native typed context leaked'
+    if c.get('observe_target_counters'):
+        # Same full-counter comparison contract as verify-world-counter-landings:
+        # notification profiling is a CPU-only observation; exact completions,
+        # resources/epochs, packets, death set and resulting battle stay compared.
+        n['target_counters'].pop('events')
     world=data['worlds'][0];state=[]
     for r in world.targets.rows:
         state.append(None if r is None else dict(handle=[int(r.handle.kind),r.handle.identity,r.handle.generation],alive=r.alive,remaining=r.remaining,capacity=r.capacity,expires=r.expires,owner=None if r.owner is None else [int(r.owner.kind),r.owner.identity,r.owner.generation]))

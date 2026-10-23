@@ -1,5 +1,5 @@
 <!-- shared-readback-current -->
-現在の型付き実戦入口はsealed `destructible-battle`（25入力/native14、Metal/独立seal済み）。通常`projectile-chain-retention`の492入力もsealed経路を使える。詳細は docs/portable-destructible-coexist.md。以下は既存経路を含む履歴であり、最新の件数/source readinessはCLI `list`と固定packageを参照する。
+現在の型付き実戦入口はsealed `destructible-battle`（44入力/native31・拒否13、Metal/独立seal済み）。通常`projectile-chain-retention`の492入力もsealed経路を使える。詳細は docs/portable-destructible-counter-battle.md。以下は既存経路を含む履歴であり、最新の件数/source readinessはCLI `list`と固定packageを参照する。
 
 保存出力の既存監査器を拡張した。`readback-index --case-words 1048576`は型付き実戦の4MiB/caseを明示し、省略時は従来の786432word。`readback-compare`はSHAで固定したindexの幅を使う。ファイル長から幅を推測しない。`readback-retain`は並べ替え/追加のあるcapture間で元ケースの保持を調べる。2つのcomparison.jsonのSHAを必須とし、成功comparison・一意なcase名・件数・全readback SHA・実caseごとのoutput SHAを読み直してから、元caseのinput/native/output指紋を照合する。
 
