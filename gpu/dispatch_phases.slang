@@ -251,6 +251,9 @@ void applyDefinitionFrame(inout Runtime s,inout Frame frames[32],inout int depth
 #ifdef PORTABLE_HEAL_CHARGE
                 || (protectionPolicy(s,sourceRow)&255)==10
 #endif
+#ifdef PORTABLE_DAMAGE_ACCUM
+                || ((protectionPolicy(s,sourceRow)&255)>=13 && (protectionPolicy(s,sourceRow)&255)<=15)
+#endif
                 )
             {
                 pushFrame(s,frames,depth,13,0,d.owner,int(row),f.time,d.enemyBuff!=0 ? uint64_t(recipientMask&~31U)<<16 : recipientOrder);
@@ -403,6 +406,9 @@ void applyDefinitionFrame(inout Runtime s,inout Frame frames[32],inout int depth
             if(s.error==0) { pushFrame(s,frames,depth,38,0,d.owner,int(row),f.time,recipientOrder);if(s.error==0) frames[depth].healthValue=amount; }
         }
 #endif
+        #ifdef PORTABLE_DAMAGE_ACCUM
+        else if(d.kind==34) releaseDamageAccum(s,d,row,f,uint(depth+1));
+#endif
         else if (d.kind == 33) pushFrame(s,frames,depth,2,0,d.owner,int(row),f.time);
 #ifdef PORTABLE_PARENT_FIXED_DAMAGE
         else if(d.kind==3 && (d.damageFlags&262144U)!=0) enqueueParentFixed(s,d,row,f,depth);
@@ -481,7 +487,11 @@ void advanceDefinitionFrame(inout Runtime s, inout Frame frames[32], inout int d
                     if (event != f.event) continue;
                     if (event == 27 && tag != f.argument) continue;
                     if ((event == 4 || event == 41) && stage != f.argument || event == 6 && int(j) != f.argument) continue;
-                    if (COUNTER_NAMED(s,event,WORLD_CONTROL_NAMED(event,(event == 9 || event == 29 || event == 30 || event == 31 || event == 48 || event == 49 || event == 59))) && tag != f.argument) continue;
+                    bool accumNamed=false;
+#ifdef PORTABLE_DAMAGE_ACCUM
+                    accumNamed=event==50;
+#endif
+                    if (COUNTER_NAMED(s,event,WORLD_CONTROL_NAMED(event,(event == 9 || event == 29 || event == 30 || event == 31 || event == 48 || event == 49 || event == 59 || accumNamed))) && tag != f.argument) continue;
                     if (event == 9 && commands[at+5] != f.value) continue; WORLD_PROJECTILE_SKIP_SLOT(event,stage)
                     multiplicity++; bool ok = event != 30 || resourceModulo(f.healthValue,uint(f64ToPositiveStep(loadNumber(at+1)))) == 0;
                     if (mode != 0 || event == 7 || event == 8)

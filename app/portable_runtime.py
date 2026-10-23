@@ -77,6 +77,9 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     from portable_heal_charge_specs import validate as validate_heal_charge
     try:validate_heal_charge(eff,combat=combat,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason='effect') from error
+    from portable_damage_accum_specs import validate as validate_damage_accum
+    try:damage_accum=validate_damage_accum(eff,combat=combat,world_frame=world_frame)
+    except ValueError as error:raise UnsupportedPortable(str(error),reason='effect') from error
     from periodic_source_specs import specification as source_specification
     source_spec=source_specification(eff)
     from portable_removal_specs import plan as removal_plan
@@ -125,10 +128,10 @@ def validate_effect(eff, *, combat=None, world_frame=False):
         from portable_reference_specs import hit_reference
         hit_reference(eff)
     if eff.get('type')=='buff' and eff.get('scaling')=='lost_hp_pct':
-        if eff.get('stat') not in ('def_pct','atk_pct'):
+        if eff.get('stat') not in ('def_pct','atk_pct','dmg_accum_rate_pct'):
             raise UnsupportedPortable('Lost HP scaling requires supported ATK or DEF',reason='scaling')
         if combat is None:raise UnsupportedPortable('Lost HP scaling requires combat-owned health',reason='scaling')
-        if eff.get('target','self')!='self':raise UnsupportedPortable('Lost HP scaling requires self recipient',reason='recipient')
+        if eff.get('target','self')!='self' and not damage_accum:raise UnsupportedPortable('Lost HP scaling requires self recipient',reason='recipient')
         allowed |= {'scaling'}
     if eff.get('type')=='buff' and eff.get('scaling')=='stack_count' or eff.get('type')=='damage' and eff.get('stat')=='dot_damage' and eff.get('scaling')=='stack_count' and eff.get('scaling_ref'):
         allowed |= {'scaling','scaling_ref'}
@@ -185,7 +188,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
         quantities=eff.get('values',{})
         if not isinstance(quantities,dict):raise ValueError('Flag quantities must be a level mapping')
         for value in quantities.values():double_words(value)
-    if protection and not recipient_admitted(target,instant=(protection&255) in (5,6,12)):raise UnsupportedPortable('Unported protection recipient selector')
+    if protection and (protection&255)<13 and not recipient_admitted(target,instant=(protection&255) in (5,6,12)):raise UnsupportedPortable('Unported protection recipient selector')
     if kind=='damage' and not basis.mode and 'scaling' in eff and (eff['scaling']!='stack_count' or stat.split(':')[0]=='dot_damage' and (stat!='dot_damage' or not eff.get('tick_interval'))):raise UnsupportedPortable('Periodic damage scaling requires an own-stack DoT clock')
     if stat=='cover_hp_pct' and eff.get('scaling') not in (None,'max_hp','stack_count'):raise UnsupportedPortable('Unported cover HP basis')
     if kind=='buff' and stack is None and 'duration_bullets' in eff:
@@ -299,7 +302,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     from portable_focus_specs import compiler_effect as focus_compiler_effect,enabled as focus_marker,STAT as FOCUS_FIRE_STAT
     from portable_named_enemy_specs import compiler_effect as named_enemy_compiler_effect,allocate_names as named_enemy_names
     from portable_full_burst_landing_specs import compiler_effect as landing_compiler_effect
-    program=legacy.compile_effects(geometry_chars,[(landing_compiler_effect(named_enemy_compiler_effect(nonfull_compiler_effect(pellet_shot_compiler_effect(target_compiler_effect(focus_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e))))))),owner) for e,owner in effects])
+    from portable_damage_accum_specs import compiler_effect as accum_compiler_effect
+    program=legacy.compile_effects(geometry_chars,[(accum_compiler_effect(landing_compiler_effect(named_enemy_compiler_effect(nonfull_compiler_effect(pellet_shot_compiler_effect(target_compiler_effect(focus_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e)))))))),owner) for e,owner in effects])
     named_enemy_names(effects,program['states'])
     from portable_team_hit_specs import bind_compiled
     effects,binding_metadata=bind_compiled(effects,program,[c['name'] for c in chars])
@@ -483,6 +487,9 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if focus_marker(eff):fields.update(KIND=0,STAT=FOCUS_FIRE_STAT)
         from portable_reload_specs import fixed as reload_fixed,STAT as RELOAD_FIXED_STAT
         if reload_fixed(eff):fields.update(KIND=0,STAT=RELOAD_FIXED_STAT)
+        if eff.get('stat') in ('dmg_accum_dealt_atk_pct','dmg_accum_received_atk_pct'):
+            from effect_spec import EXTRA_STAT
+            fields.update(KIND=0,STAT=EXTRA_STAT[eff['stat']])
         for key,value in fields.items():compact[F[key]]=value & 0xffffffff
         for key,offset in [('VALUE',6),('DURATION',7),('INTERVAL',59)]:compact[F[key]:F[key]+2]=double_words(row[offset])
         if element_override(eff):
@@ -496,6 +503,10 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         at=L['DEFINITION_BASE']+index*L['DEFINITION_WORDS'];words[at:at+len(compact)]=compact
         from portable_protection_specs import pack as pack_protection
         pack_protection(words,index,eff,L)
+        if eff.get('stat')=='accum_split_damage':
+            words[at+F['DAMAGE_FLAGS']]=16
+            packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS']
+            words[packet+4:packet+6]=[0,0]
         from portable_trigger_specs import pack_descriptors
         pack_descriptors(words,index,row,L,F,double_words,effect=effects[index][0],states=program['states'],world_frame=world_frame,shot_tags=shot_tags[effects[index][1]])
         if eff.get('scaling')=='lost_hp_pct':words[at+F['FLAGS']] |= 128

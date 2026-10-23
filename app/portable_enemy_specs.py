@@ -10,6 +10,7 @@ def damage_plan(effect):
     if enabled(effect):
         from quantity_specs import validate_quantity
         validate_quantity(effect);return damage_plan(dict(effect,stat='damage'))
+    if effect.get('stat')=='accum_split_damage':return damage_plan(dict(effect,stat='split_damage'))
     stat=effect.get('stat','')
     if not isinstance(stat,str):raise ValueError('Damage family must be a string')
     parts=stat.split(':')
@@ -46,7 +47,7 @@ def damage_plan(effect):
     return route,count,hits
 
 
-ENEMY_BUFF_STATS=frozenset(('atk_pct','atk_caster_based_pct','taunt','stun','stun_immune','def_pct','def_caster_based_pct','received_dmg_pct','dmg_scale_mag_pct','atk_buff_mag_pct','received_dmg_buff_mag_pct','stack_change_immune','buff_max_stack_add'))
+ENEMY_BUFF_STATS=frozenset(('dmg_accum_dealt_atk_pct','dmg_accum_received_atk_pct','dmg_accum_rate_pct','atk_pct','atk_caster_based_pct','taunt','stun','stun_immune','def_pct','def_caster_based_pct','received_dmg_pct','dmg_scale_mag_pct','atk_buff_mag_pct','received_dmg_buff_mag_pct','stack_change_immune','buff_max_stack_add'))
 
 def enemy_buff_plan(effect):
     """Same enemy selectors as damaging packets; current-target keeps context."""

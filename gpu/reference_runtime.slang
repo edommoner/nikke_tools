@@ -157,7 +157,11 @@ bool validateReferences(inout Runtime s)
 #endif
         bool directHealth=(d.alliedFlags&1)!=0 || d.stat==S_def_caster_based_pct || (d.stat>=S_max_hp_pct&&d.stat<=S_max_hp_only_pct) || d.stat==S_max_hp_from_max_hp_pct;
         if ((d.flags&256U)!=0 && (d.kind!=0 || d.enemyBuff!=0 || s.combat==0 || !directHealth || (d.flags&2)==0 || !f64Less(d.duration,0))) return false;
-        if ((d.flags&128U)!=0 && (d.kind!=0 || !((d.stat==S_atk_pct && d.alliedFlags==0) || (d.stat==S_enemy_def_down_pct && d.alliedFlags==1)) || d.enemyBuff!=0 || s.combat==0 || scale!=0 || commands[s.inputBase+P_RECIPIENT_BASE+row*8]!=0)) return false;
+        bool damageAccumLostHP=false;
+#ifdef PORTABLE_DAMAGE_ACCUM
+        damageAccumLostHP=d.stat==83U && d.kind==0;
+#endif
+        if (!damageAccumLostHP && (d.flags&128U)!=0 && (d.kind!=0 || !((d.stat==S_atk_pct && d.alliedFlags==0) || (d.stat==S_enemy_def_down_pct && d.alliedFlags==1)) || d.enemyBuff!=0 || s.combat==0 || scale!=0 || commands[s.inputBase+P_RECIPIENT_BASE+row*8]!=0)) return false;
         if ((scale==1 || scale==2) && (d.stat==S_max_hp_pct || d.stat==S_max_hp_only_pct || d.stat==S_hp_caster_based_pct || d.stat==S_hp_only_caster_based_pct)) s.healthMask|=32;
         if (hit!=0 && d.kind!=3 && !(hit==1 && (d.kind==20 || d.kind==21))) return false;
         if (scale==3 && (d.kind!=3 || f64Zero(d.interval) || (d.periodicFlags&2)==0)) return false;

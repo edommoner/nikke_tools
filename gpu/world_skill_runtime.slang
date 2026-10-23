@@ -81,7 +81,11 @@ bool validWorldSkillDefinition(inout Runtime s,uint row,Definition d)
 bool validWorldSkillReceipt(inout Runtime s,LandingReceipt r,bool legacy)
 {
     if(!worldSkillsEnabled(s)) return legacy;
-    return r.row<s.count&&definition_kind(s.inputBase,r.row)==3&&WORLD_PERIODIC_VALID(s,r,r.mask==0xffffffffU)&&r.hit>=1&&r.hit<=256&&r.hits>=r.hit&&r.hits<=256&&r.depth>=1&&r.depth<=P_DEPTH&&r.epoch<=0x7fffffff&&r.interruptReach<=4&&(r.interruptReach!=0||f64Zero(r.interruptAmount))&&f64Finite(r.interruptAmount)&&!f64Less(r.interruptAmount,0)&&f64Finite(r.amount)&&!f64Less(r.amount,0)&&f64Finite(r.when)&&f64Finite(r.partAmount)&&!f64Less(r.partAmount,0);
+    bool accumReceipt=false;
+#ifdef PORTABLE_DAMAGE_ACCUM
+    accumReceipt=r.row<s.count && definition_kind(s.inputBase,r.row)==34;
+#endif
+    return r.row<s.count&&(definition_kind(s.inputBase,r.row)==3||accumReceipt)&&WORLD_PERIODIC_VALID(s,r,r.mask==0xffffffffU)&&r.hit>=1&&r.hit<=256&&r.hits>=r.hit&&r.hits<=256&&r.depth>=1&&r.depth<=P_DEPTH&&r.epoch<=0x7fffffff&&r.interruptReach<=4&&(r.interruptReach!=0||f64Zero(r.interruptAmount))&&f64Finite(r.interruptAmount)&&!f64Less(r.interruptAmount,0)&&f64Finite(r.amount)&&(accumReceipt||!f64Less(r.amount,0))&&f64Finite(r.when)&&f64Finite(r.partAmount)&&!f64Less(r.partAmount,0);
 }
 void storeWorldSkillReceipt(inout Runtime s,uint at,LandingReceipt r)
 {
@@ -107,6 +111,9 @@ uint worldSkillHead(inout Runtime s) { return s.resourceOutput+P_WORLD_SKILL_HEA
 void initializeWorldSkills(inout Runtime s)
 {
     if(!worldSkillsEnabled(s)) return;
+#ifdef PORTABLE_DAMAGE_ACCUM
+    if(damageAccumEnabled(s)) { results[damageAccumHeader(s)]=0;results[damageAccumHeader(s)+1]=0; }
+#endif
     WORLD_PERIODIC_INIT(s) for(uint i=P_WORLD_SKILL_HEAD_BASE;i<P_WORLD_SKILL_TRACE_BASE+128*48;i++) results[s.resourceOutput+i]=0;
     results[worldSkillHead(s)]=0x57534b31;
 }
@@ -161,6 +168,9 @@ bool landWorldSkillReceipt(inout Runtime s,LandingReceipt r,uint64_t when,uint o
             counterPhysicalPacket(s,d.owner,slot,generation,amount,results[receipt+1]!=0,when,output);
             results[counterHead(s)+11]=previous;
             if((s.healthMask&64)!=0&&s.error==0) dispatch(s,17,0,d.owner,0,when,output,share);
+#ifdef PORTABLE_DAMAGE_ACCUM
+            if(damageAccumEnabled(s) && slot==0 && s.error==0) dispatch(s,39,0,d.owner,0,when,output,share);
+#endif
 #ifdef PORTABLE_WORLD_PROJECTILE
             if(slot==0&&!f64Zero(r.partAmount)&&s.error==0)
             {

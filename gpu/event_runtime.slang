@@ -446,7 +446,11 @@ bool worldPendingEnabled(inout Runtime s) { return WORLD_PENDING_ENABLED(s); }
 #ifdef PORTABLE_WORLD_SKILLS
 #define WORLD_SKILL_FIELDS(s,legacy) ((legacy)||worldSkillsEnabled(s))
 #ifdef PORTABLE_HEAL_CHARGE
+#ifdef PORTABLE_DAMAGE_ACCUM
+#define WORLD_HEAL_CHARGE_KIND(d,legacy) (d.kind==32 || d.kind==34 ? false : (legacy))
+#else
 #define WORLD_HEAL_CHARGE_KIND(d,legacy) (d.kind==32 ? false : (legacy))
+#endif
 #else
 #define WORLD_HEAL_CHARGE_KIND(d,legacy) legacy
 #endif
@@ -1274,6 +1278,10 @@ void worldCleanseResidents(inout Runtime s,uint row,uint scope,uint64_t when)
 #ifdef PORTABLE_HEAL_CHARGE
 #include "heal_charge_runtime.slang"
 #endif
+#ifdef PORTABLE_DAMAGE_ACCUM
+#include "damage_accum_core.slang"
+#include "damage_accum_battle_runtime.slang"
+#endif
 
 [noinline]
 uint packedRecipientMask(uint64_t order)
@@ -1345,6 +1353,10 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
             rechargeImmunity(s,f.cursor-1,packedRecipientMask(buff.enemyBuff!=0 ? 0 : f.value)|(buff.enemyBuff!=0 ? uint(f.value>>16) : 0));
             depth--;
             uint protection=protectionPolicy(s,f.repeatRow)&255;
+#ifdef PORTABLE_DAMAGE_ACCUM
+            if(protection>=13 && protection<=15 && s.alive[slot]!=0 && s.entryOrder[slot]==f.repeatPassive && s.carrierDefinition[slot]==f.repeatRow)
+            { buildDamageAccum(s,slot,f.time);return; }
+#endif
 #ifdef PORTABLE_HEAL_CHARGE
             if(protection==10 && s.alive[slot]!=0 && s.entryOrder[slot]==f.repeatPassive && s.carrierDefinition[slot]==f.repeatRow)
             { buildHealCharge(s,slot,f.time);return; }
@@ -1405,6 +1417,9 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
 #endif
 #ifdef PORTABLE_FULL_BURST_LANDING
     if(mode==34 && s.error==0) { frames[depth].mode=10;frames[depth].repeatLeft=notifyContext;frames[depth].healthValue=landingAmount;if(notifyContext!=0 && (s.quantityMask&128)!=0) frames[depth].gaugeFlat=readStat(s,owner,S_burst_charge_speed_pct,when); }
+#endif
+    #ifdef PORTABLE_DAMAGE_ACCUM
+    if(mode==39 && s.error==0) frames[depth].healthValue=landingAmount;
 #endif
     COUNTER_ROOT(s,frames,depth,mode) if (mode == 17 && s.error == 0) frames[depth].healthValue=landingAmount;
     uint work = 0;
@@ -1650,6 +1665,9 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         }
 #ifdef PORTABLE_HEAL_CHARGE
         if(f.mode==38) { advanceHealChargeDischarge(s,frames,depth,f);continue; }
+#endif
+        #ifdef PORTABLE_DAMAGE_ACCUM
+        if(f.mode==39) { advanceDamageAccumNotices(s,frames,depth,f);continue; }
 #endif
         if(f.mode==31) { advanceHealShareFrame(s,frames,depth,f);continue; }
         advanceDefinitionFrame(s,frames,depth,f,output);

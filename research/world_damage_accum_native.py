@@ -1,6 +1,6 @@
 """Observe actual installed accumulation calls/records; never add semantic queries."""
 import sys
-from contextlib import contextmanager
+from contextlib import contextmanager,nullcontext
 from unittest.mock import patch
 import engine_worker,damage_accum_runtime
 from calculator import timeline
@@ -10,7 +10,7 @@ from world_projectile_native import observe as plain
 STATS=damage_accum_runtime.STATS
 
 @contextmanager
-def capture(names):
+def capture(names,*,tag_effects=False):
     previous=sys.getprofile();events=[];pending={};entries={};last=[None];data=dict(events=events)
     codes={BuffManager.accumulate_damage.__code__:'collect',BuffManager._accum_rate.__code__:'rate',BuffManager.accum_discharge.__code__:'take',damage_accum_runtime.activate.__code__:'snapshot'}
     def pools(manager):
@@ -49,12 +49,26 @@ def capture(names):
         result=original_hit(*args,**kwargs)
         if result.hit_tag=='accum_split_damage':events.append(dict(kind='emission',time=result.t,owner=names.index(result.caster),amount=result.damage,name=result.skill_name,rule=result.rule,split=result.split,critical=result.is_crit))
         return result
-    with patch.object(BuffManager,'notify',notify),patch.object(timeline,'HitEvent',hit):
+    original_register=BuffManager._register_all;tagged={}
+    def register(manager):
+        result=original_register(manager)
+        for index,(effect,_) in enumerate(manager._effects):
+            tagged.setdefault(id(effect),(effect,'_portable_observer_row' in effect,effect.get('_portable_observer_row')))
+            effect['_portable_observer_row']=index
+        data['definitions']=[dict(owner=names.index(owner),name=e.get('name'),stat=e.get('stat'),kind=e.get('type')) for e,owner in manager._effects]
+        return result
+    with patch.object(BuffManager,'_register_all',register) if tag_effects else nullcontext(),patch.object(BuffManager,'notify',notify),patch.object(timeline,'HitEvent',hit):
         sys.setprofile(profile)
         try:yield data
-        finally:sys.setprofile(previous)
+        finally:
+            sys.setprofile(previous)
+            try:
+                if not pending:data['final']=view(last[0]) if last[0] is not None else dict(pools=[],archive={})
+            finally:
+                for effect,present,value in tagged.values():
+                    if present:effect['_portable_observer_row']=value
+                    else:effect.pop('_portable_observer_row',None)
     if pending:raise ValueError('Incomplete damage-accumulation observation')
-    data['final']=view(last[0]) if last[0] is not None else dict(pools=[],archive={})
 
 def observe(case):
     with capture(roster_names(case)) as data:n,t=plain(case)

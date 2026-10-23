@@ -36,6 +36,14 @@ void admitDefinitions(inout Runtime s,uint input)
     for (uint j = 0; j < s.count; j++)
     {
         Definition d;loadDefinition(input,j,d); PROJECTILE_ADMIT_ROW(s,j,d)
+        if(d.stat>=81U && d.stat<=83U || d.kind==34)
+        {
+#ifdef PORTABLE_DAMAGE_ACCUM
+            if(!validDamageAccum(s,j,d,protectionPolicy(s,j))) { s.error=64;break; }
+#else
+            s.error=64;break;
+#endif
+        }
         if(d.stat==76U || d.stat==77U || d.kind==32)
         {
 #ifdef PORTABLE_HEAL_CHARGE
@@ -158,6 +166,14 @@ void admitDefinitions(inout Runtime s,uint input)
         WORLD_TEAM_VALIDATE(s,d,input,j) WORLD_FRACTION_VALIDATE(s,d,input,j) WORLD_INITIAL_SPAWN_VALIDATE(s,d,input,j) for (uint slot = 0; slot < d.triggerCount; slot++)
         {
             uint at=input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8,event=commands[at];
+            if(event==50)
+            {
+#ifndef PORTABLE_DAMAGE_ACCUM
+                s.error=64;break;
+#else
+                if(s.combat==0 || commands[input+P_WORLD_FRAME_INPUT_BASE]!=0x57533031U || uint(commands[at+4])>=P_DEFINITIONS) { s.error=64;break; }
+#endif
+            }
             if(event==40)
             {
 #ifdef PORTABLE_PARTIAL_CHARGE
@@ -211,8 +227,12 @@ void admitDefinitions(inout Runtime s,uint input)
             if(s.error!=0) break;
         }
         uint periodic = input+P_PERIODIC_DEFINITION_BASE+j*2;
+        bool accumEnemy=false;
+#ifdef PORTABLE_DAMAGE_ACCUM
+        accumEnemy=d.kind==0 && d.stat>=81U && d.stat<=83U;
+#endif
         if (d.enemyBuff != 0 && (d.enemyBuff != 1 || !(d.kind==0 || d.kind==4 && (d.flags&56)!=0 || d.kind==4 && d.stat==0 || d.kind==19) || s.combat == 0 || d.lazyGroup != 0 ||
-            !WORLD_ENEMY_ATTACK_STAT(s,d,(d.stat == S_enemy_def_down_pct || d.stat == S_def_caster_based_pct || d.stat == S_received_dmg_pct || namedMagnitudeStat(d.stat) || d.stat == S_taunt || d.stat == S_stun || d.kind==4 && (d.flags&56)!=0 || d.kind==4 && d.stat==0 || d.kind==19)) ||
+            !WORLD_ENEMY_ATTACK_STAT(s,d,(d.stat == S_enemy_def_down_pct || d.stat == S_def_caster_based_pct || d.stat == S_received_dmg_pct || accumEnemy || namedMagnitudeStat(d.stat) || d.stat == S_taunt || d.stat == S_stun || d.kind==4 && (d.flags&56)!=0 || d.kind==4 && d.stat==0 || d.kind==19)) ||
             !validEnemyRoute(s.inputBase,d.damageRoute) || d.damageCount == 0 || d.damageCount > 256 || d.damageHits != 0 || d.damageNormal != 0 || !f64Zero(d.damageGauge) || d.damagePending != 0 || d.pendingHits != 0 ||
             commands[input+P_RECIPIENT_BASE+j*8] != 4)) { s.error = 64; break; }
         if (d.kind == 3 && (!f64Finite(d.value) || !validEnemyRoute(s.inputBase,d.damageRoute) || d.damageCount == 0 || d.damageCount > 256 || d.damageHits > 256 ||

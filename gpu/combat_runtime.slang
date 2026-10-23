@@ -298,7 +298,11 @@ void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
     if (s.landingPolicy!=0 || (s.healthMask&64)!=0) for (uint hit=0;hit<landedCount && s.error==0;hit++)
     {
         COUNTER_CAPTURE(s,who,landedTarget) WORLD_PHYSICAL_BEGIN(s,who,landedTarget,landedAmount) if (s.landingPolicy!=0) land(s,who,COUNTER_TARGET(s,WORLD_POOL_PHYSICAL_TARGET(s,who,landedTarget)),landedAmount);
-        COUNTER_IMPACT(s,who,landedAmount,when,output) if ((s.healthMask&64)!=0 && s.error==0) dispatch(s,17,0,who,0,when,output,landedAmount); COUNTER_PARTS(s,who,when,output) WORLD_GATE_END
+        COUNTER_IMPACT(s,who,landedAmount,when,output) if ((s.healthMask&64)!=0 && s.error==0) dispatch(s,17,0,who,0,when,output,landedAmount);
+#ifdef PORTABLE_DAMAGE_ACCUM
+        if(damageAccumEnabled(s) && s.error==0 && (actorPhysicalTarget(s,who,landedTarget)&127U)==0) dispatch(s,39,0,who,0,when,output,landedAmount);
+#endif
+        COUNTER_PARTS(s,who,when,output) WORLD_GATE_END
     }
 }
 [noinline]

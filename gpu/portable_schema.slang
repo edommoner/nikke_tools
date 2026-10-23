@@ -612,7 +612,7 @@ static const uint H_SINGLE_BURST = 8192U;
 static const uint H_CORE = 16384U;
 static const uint P_BUFF_STAT_BITS_0 = 4294967295U;
 static const uint P_BUFF_STAT_BITS_1 = 4294965247U;
-static const uint P_BUFF_STAT_BITS_2 = 259129343U;
+static const uint P_BUFF_STAT_BITS_2 = 260046847U;
 bool validPortableBuffStat(uint stat)
 {
     if(stat > 91U) return false;

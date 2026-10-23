@@ -51,10 +51,10 @@ class CoreTests(unittest.TestCase):
                 if fault=='cycle':corrupt[offset]=block[8]
                 else:corrupt[offset]^=1
                 with self.subTest(case=name,fault=fault),self.assertRaises(AssertionError):adapter.compare(corrupt,domain)
-    def test_new_battle_family_is_still_closed(self):
+    def test_new_battle_family_requires_private_world(self):
         from portable_damage_accum_cases import fixtures
         from portable_runtime import validate_effect
         c=fixtures()[0]
         for effect in c['effects'][1:]:
-            with self.assertRaises(ValueError):validate_effect(effect,combat=c['combat'],world_frame=True)
+            with self.assertRaises(ValueError):validate_effect(effect,combat=c['combat'],world_frame=False)
 if __name__=='__main__':unittest.main()

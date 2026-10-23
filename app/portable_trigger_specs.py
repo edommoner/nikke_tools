@@ -52,9 +52,10 @@ def validate_input(eff,*,world_frame=False):
         if timing.startswith(('squad_burst_cast:','non_full_charge_fire_count:')) and not world_frame:raise UnsupportedTrigger('Squad stage requires a private combat world',domain='timing',descriptor=timing)
         if timing.startswith('event:'):
             from detail_gpu import EVENT
-            if timing in EVENT and EVENT[timing] not in (EVENTS|frozenset((5,22,23,33,34,35,39,40,41,42,44,45)) if world_frame else EVENTS):raise UnsupportedTrigger('Unported trigger timing: '+timing,domain='timing',descriptor=timing)
+            if timing in EVENT and EVENT[timing] not in (EVENTS|frozenset((5,22,23,33,34,35,39,40,41,42,44,45,50)) if world_frame else EVENTS):raise UnsupportedTrigger('Unported trigger timing: '+timing,domain='timing',descriptor=timing)
         from portable_charge_control_specs import parse_hold
         if world_frame and parse_hold(timing) is not None:continue
+        if world_frame and timing.startswith('event:accum_full:') and timing.removeprefix('event:accum_full:'):continue
         if timing.startswith('every:'):
             if not timing.endswith('s'):raise ValueError('Periodic timing requires native seconds suffix')
             try:period=float(timing[6:].removesuffix('s'))
@@ -78,7 +79,7 @@ def pack_descriptors(words,index,row,L,F,double_words,*,effect=None,states=None,
     if not 1<=n<=8 or not 0<=nc<=3:raise ValueError('Descriptor capacity exceeded')
     for slot in range(n):
         event,threshold,mode,tag,value,passive,stage=row[145+slot*7:152+slot*7]
-        if event not in (EVENTS|frozenset((5,22,23,33,34,35,39,40,41,42,44,45)) if world_frame else EVENTS) or mode not in (0,1,2,3):raise ValueError('Unported compiled trigger')
+        if event not in (EVENTS|frozenset((5,22,23,33,34,35,39,40,41,42,44,45,50)) if world_frame else EVENTS) or mode not in (0,1,2,3):raise ValueError('Unported compiled trigger')
         if event==40:
             from portable_nonfull_charge_specs import parse as nonfull_count
             parsed=nonfull_count(effect['trigger']['timing'][slot]) if effect is not None else None

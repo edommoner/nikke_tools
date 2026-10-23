@@ -163,6 +163,9 @@ void deliverCounterPartGroup(inout Runtime s,uint who,uint target,uint64_t when,
         if(results[at+2]==0) continue;
         counterPhysicalPacket(s,who,results[at],results[at+1],amount,results[at+3]!=0,when,output);
         if((s.healthMask&64)!=0&&s.error==0) dispatch(s,17,0,who,0,when,output,amount);
+#ifdef PORTABLE_DAMAGE_ACCUM
+        if(damageAccumEnabled(s) && s.error==0) dispatch(s,39,0,who,0,when,output,amount);
+#endif
     }
 }
 void deliverCounterParts(inout Runtime s,uint who,uint target,uint64_t when,uint output)

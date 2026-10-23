@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "all266_profile_keys_preserved": true,
+  "all242_previously_accepted_records_and_input_sha256_identical": true,
+  "newly_packed": [
+    {
+      "character": "\ub3c4\ub85c\uc2dc",
+      "favorite_stage": 0,
+      "input_sha256": "e60a43b9cdc8d1c8691c86b23443af76d8f922f813a2918a9de71eb1c528c44f"
+    },
+    {
+      "character": "\ud2b8\ub85c\ub2c8",
+      "favorite_stage": 0,
+      "input_sha256": "fb31fb4c80e93fb9bab90dd623d840317c224a285364cf414181cee826ed0483"
+    }
+  ],
+  "packed_profiles": 244,
+  "packed_base": 184,
+  "remaining_categories": 23,
+  "gpu_calls": 0,
+  "full_character_verified": false,
+  "full_goal_complete": false
+}

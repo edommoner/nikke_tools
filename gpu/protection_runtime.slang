@@ -10,11 +10,20 @@ uint protectionObject(inout Runtime s,uint slot)
     uint object=results[s.resourceOutput+P_PROTECTION_MAP_BASE+slot];
     if(object==0 || object>P_PROTECTION_OBJECTS || s.alive[slot]==0) return PROTECTION_NONE;
     uint at=protectionAddress(s,object-1);
-    return results[at+20]==s.entryOrder[slot] && results[at+21]==slot ? object-1 : PROTECTION_NONE;
+    uint binding=21;
+#ifdef PORTABLE_DAMAGE_ACCUM
+    uint kind=results[at+22]&255U;if(kind==13 || kind==15 || kind==16) binding=6;
+#endif
+    return results[at+20]==s.entryOrder[slot] && results[at+binding]==slot ? object-1 : PROTECTION_NONE;
 }
 bool protectionObjectActive(inout Runtime s,uint object)
 {
-    uint at=protectionAddress(s,object),slot=results[at+21];
+    uint at=protectionAddress(s,object),binding=21;
+#ifdef PORTABLE_DAMAGE_ACCUM
+    uint kind=results[at+22]&255U;if(kind==13 || kind==15 || kind==16) binding=6;
+    if(kind==14 || kind==17) return false;
+#endif
+    uint slot=results[at+binding];
     return slot<P_CARRIERS && s.alive[slot]!=0 && results[at+20]!=0 && results[at+20]==s.entryOrder[slot] && results[s.resourceOutput+P_PROTECTION_MAP_BASE+slot]==object+1;
 }
 [noinline]
@@ -275,6 +284,10 @@ bool validProtection(inout Runtime s)
     {
         uint policy=protectionPolicy(s,row),kind=policy&255;Definition d=readDefinition(s.inputBase,row);
         if(d.kind==8 && f64Less(d.value,0) || d.kind==0 && d.stat==S_hp_copy && baseCopyDefinition(s,row) || d.kind==0 && (d.stat==S_max_hp_only_pct || d.stat==S_hp_only_caster_based_pct) && f64Less(d.value,0)) negativeHealth=true;
+#ifdef PORTABLE_DAMAGE_ACCUM
+        if(kind>=13) { if(!validDamageAccum(s,row,d,policy)) return false;enabled|=129U;continue; }
+        if((d.stat>=81U && d.stat<=83U || d.kind==34) && kind==0) return false;
+#endif
 #ifdef PORTABLE_HEAL_CHARGE
         if(kind>=10) { if(!validHealCharge(s,row,d,policy)) return false;enabled|=65U;continue; }
         if((d.stat==76U || d.stat==77U || d.kind==32) && kind==0) return false;

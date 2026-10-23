@@ -47,20 +47,23 @@ class DamageAccumReferenceTests(unittest.TestCase):
                     if 'after' in e:
                         for p in e['after']['pools']:p['base']=0
             with self.subTest(fault=fault),self.assertRaises(AssertionError):verify(c,n)
-    def test_new_gpu_family_stays_closed_until_shared_runtime_implementation(self):
+    def test_new_gpu_family_requires_private_combat_world(self):
         c=self.cases[0]
         for e in (c['effects'][1],self.cases[5]['effects'][2],c['effects'][-1]):
-            with self.subTest(stat=e['stat']),self.assertRaises(ValueError):portable_runtime.validate_effect(e,combat=c['combat'],world_frame=True)
+            with self.subTest(stat=e['stat']):
+                portable_runtime.validate_effect(e,combat=c['combat'],world_frame=True)
+                with self.assertRaises(ValueError):portable_runtime.validate_effect(e,combat=c['combat'],world_frame=False)
     def test_unported_enemy_carriers_and_allied_carriers_are_observed_separately(self):
         c=next(c for c in self.cases if c['contract']['kind']=='active-consume-once');n=self.answers[self.cases.index(c)][0]
         self.assertTrue(n['named_state']['enemy_memberships']);self.assertNotIn('pool',[p['name'] for p in n['named_state']['allied_carriers']])
         c=next(c for c in self.cases if c['contract']['kind']=='pool-target-does-not-filter-damage');n=self.answers[self.cases.index(c)][0]
         self.assertIn('pool',[p['name'] for p in n['named_state']['allied_carriers']])
-    def test_readiness_records_native_contracts_without_admitting_gpu(self):
+    def test_readiness_keeps_scoped_metal_evidence_separate_from_full_support(self):
         from portable_readiness_semantics import reference_readiness
         for kind,stat in [('buff','dmg_accum_dealt_atk_pct'),('buff','dmg_accum_received_atk_pct'),('buff','dmg_accum_rate_pct'),('damage','accum_split_damage')]:
             issue=dict(phase='effect',kind=kind,stat=stat,target='target',scaling=None);r=reference_readiness(issue)
             self.assertEqual(r['lane'],'native_contract_extension');self.assertEqual(r['recorded_cases'],52);self.assertFalse(r['gpu_supported']);self.assertFalse(r['gpu_admission_verified']);self.assertFalse(r['in_game_rules_verified'])
+            self.assertEqual(r['scoped_metal_validation']['inputs'],460);self.assertTrue(r['scoped_metal_validation']['independently_audited']);self.assertEqual(r['followup_metal_validation']['inputs'],4)
             self.assertEqual(reference_readiness(dict(issue,fields=['weapon_type']))['lane'],'reference_review')
     def test_installed_native_activation_uses_shared_lifecycle(self):
         from effect_runtime import CATALOG
@@ -68,5 +71,8 @@ class DamageAccumReferenceTests(unittest.TestCase):
     def test_prior_metal143_source_files_are_exactly_preserved(self):
         from portable_backend import source_hashes
         golden=json.loads((ROOT/'research/portable-world-heal-charge-lifetime-short-expected.json').read_text())
-        self.assertEqual(source_hashes('gpu/world_heal_charge_entry.slang'),golden['source_sha256'])
+        from portable_damage_accum_source_contract import project_sources
+        import hashlib
+        projected=project_sources(ROOT)
+        self.assertEqual({name:hashlib.sha256(projected.get(name,(ROOT/name).read_text()).encode()).hexdigest() for name in golden['source_sha256']},golden['source_sha256'])
 if __name__=='__main__':unittest.main()
