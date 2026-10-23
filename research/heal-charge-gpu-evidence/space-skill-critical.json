@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-skill-critical-regression-metal",
+  "raw_bytes": 1006632960,
+  "raw_sha256": "73ecb653086740a0ba4c719c349907846d0a9b1614905c36fd0f9732237601c9",
+  "evidence_sha256": "b9a9b069d860e3591f3d6b5efa7b8e9e1e7ca76a7b73dd43a5accb41e3695ee3",
+  "raw_inode": 506660893,
+  "zero_ranges": 2417,
+  "zero_range_bytes": 715522048,
+  "allocated_before": 1006632960,
+  "allocated_after": 291110912,
+  "allocated_reclaimed": 715522048,
+  "full_hash_verified": true
+}

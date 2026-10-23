@@ -78,6 +78,9 @@ void queueCarrierEnd(inout Runtime s,uint slot,uint repeats=0,bool preserveLazy=
     invalidateFocusNumeric(s);
     unlinkBulletCarrier(s,slot);
     if(!preserveLazy) { discardLazy(s,slot);s.stacks[slot]=0; }
+#ifdef PORTABLE_HEAL_CHARGE
+    retainHealChargeEnd(s,slot);
+#endif
     s.alive[slot]=0;
     queueRemovalNotice(s,definition_owner(s.inputBase,definition),definition_name(s.inputBase,definition),repeats);
 }

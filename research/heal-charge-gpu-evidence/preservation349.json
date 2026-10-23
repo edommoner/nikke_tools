@@ -1,0 +1,11 @@
+{
+  "scope": "Saved old349 complete input/native/output fingerprints and raw byte preservation only",
+  "old": "/tmp/nikke-max-ammo-metal349-v2",
+  "new": "/tmp/nikke-heal-charge-metal386-v3",
+  "entries": 349,
+  "all_fingerprints_identical": true,
+  "raw_bytes_identical": 1097859072,
+  "raw_sha256": "97ba904acc84561fe2e0d9106e0ac39766957e35905ca1cedc3d3bfed4ce1cf2",
+  "input_payload_bytes_identical": 145742400,
+  "gpu_calls": 0
+}

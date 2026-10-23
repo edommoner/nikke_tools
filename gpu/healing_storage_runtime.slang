@@ -76,6 +76,9 @@ uint64_t transferHealingStorage(inout Runtime s,uint who,uint64_t amount,uint64_
 [noinline]
 uint64_t storageBodyHeal(inout Runtime s,uint who,uint64_t amount,uint64_t when)
 {
+#ifdef PORTABLE_HEAL_CHARGE
+    collectHealCharge(s,who,amount,when);
+#endif
     uint64_t maximum=effectiveMaxHP(s,who,when),next=f64Add(s.hp[who],amount);
     if(f64Less(0,amount)) transferHealingStorage(s,who,larger(0,f64Add(next,maximum^F64_SIGN)),when,true);
     return smaller(next,maximum);

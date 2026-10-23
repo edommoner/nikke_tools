@@ -74,6 +74,9 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     resource_op=resource_operation(eff);validate_resource(eff)
     from portable_protection_specs import policy as protection_policy
     protection=protection_policy(eff)
+    from portable_heal_charge_specs import validate as validate_heal_charge
+    try:validate_heal_charge(eff,combat=combat,world_frame=world_frame)
+    except ValueError as error:raise UnsupportedPortable(str(error),reason='effect') from error
     from periodic_source_specs import specification as source_specification
     source_spec=source_specification(eff)
     from portable_removal_specs import plan as removal_plan
@@ -182,7 +185,7 @@ def validate_effect(eff, *, combat=None, world_frame=False):
         quantities=eff.get('values',{})
         if not isinstance(quantities,dict):raise ValueError('Flag quantities must be a level mapping')
         for value in quantities.values():double_words(value)
-    if protection and not recipient_admitted(target,instant=(protection&255) in (5,6)):raise UnsupportedPortable('Unported protection recipient selector')
+    if protection and not recipient_admitted(target,instant=(protection&255) in (5,6,12)):raise UnsupportedPortable('Unported protection recipient selector')
     if kind=='damage' and not basis.mode and 'scaling' in eff and (eff['scaling']!='stack_count' or stat.split(':')[0]=='dot_damage' and (stat!='dot_damage' or not eff.get('tick_interval'))):raise UnsupportedPortable('Periodic damage scaling requires an own-stack DoT clock')
     if stat=='cover_hp_pct' and eff.get('scaling') not in (None,'max_hp','stack_count'):raise UnsupportedPortable('Unported cover HP basis')
     if kind=='buff' and stack is None and 'duration_bullets' in eff:
@@ -420,7 +423,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if removal is not None and removal[0]==1:pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
         if removal is not None and removal[0]==2:
             packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS'];words[packet:packet+8]=[*removal[1],0,0,0,0,0,0]
-        if row[1] in (0,4,5,6,7,8,12,13,14,22,23,24,27,29,30,31):pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],target_key(effects[index][0].get('target'))),0) if effects[index][0].get('type')=='buff' else 0)
+        if row[1] in (0,4,5,6,7,8,12,13,14,22,23,24,27,29,30,31,32):pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],target_key(effects[index][0].get('target'))),0) if effects[index][0].get('type')=='buff' else 0)
         if effects[index][0].get('type')=='damage':
             route,count,hits=damage_plan(effects[index][0])
             from portable_reference_specs import hit_reference

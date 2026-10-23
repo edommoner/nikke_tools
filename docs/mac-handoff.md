@@ -1,3 +1,7 @@
+<!-- heal-charge-gpu-current -->
+回復蓄積/容量boost/放出を共通Slangのscalar kind10・既存pool lifetime/同期continuationへ接続。Metal386(native290/拒否96)の29新契約が一致し、decoder-only修正後に保存raw replay/独立seal成功、GPU追加0。元CPU型比較・kind32 Actor-pool受付・指紋popの失敗を保持。旧349 input/native/output/raw1097859072B、全Runtime field/stride138952、旧241input SHA/全266profile保持。CPU33群231/78.087秒＋比較器故障8成功、GPU4.445秒、生成必須hit/Slang0。静的242/266/base182/203/残30、元デルタ79定義はpackingのみ。次は終了pool→down→復活の即時破棄（現sweep時機に不足の恐れ）、上限/回復分配mixed、元デルタ実編成。CUDA生成のみで実compiler/cache速度/計算未検証、Windows追加0/7終了unknown/保全false。全キャラ0/UI CPU/development_only/目標未達。詳細docs/portable-heal-charge-gpu.mdとcheckpoint。以下は履歴。
+<!-- /heal-charge-gpu-current -->
+
 <!-- compiler-certificate-current -->
 共通CLI compiler-certificateで保存Metalをfresh childから独立再監査し、登録world suiteごとのcompiler-full--suite source-only証明書を発行。Metal349/139sourceから発行成功、固定compiler packet ca71d9c0.../2556filesを作成。共通CPU32群323中322成功/Windows1skip・4.941秒、seal5成功。required generation cache hit/Slang0/GPU0・CUDA/Metal/reflection全byte保持。独立seal済みmax-ammo3 suiteを通常sealed package可能にし、実編成2もCPU3群16/native2で経路確認。旧weapon/query監査の追加差分接続漏れをCPUで検出、厳密逆変換を接続し元token/hashと失敗を保持。旧compiler-full/commands/historical、raw CUDA/prelude/toolchain/claim/Jobと保存CUBIN専用identityは維持。GPU数値/正本/ABI/normalizer変更0、Windows追加0・現CUDA compile/計算未確認・全キャラ0/UI CPU/目標未達。次は回復蓄積29の共有GPU接続と有用な固定checkpointでの短いCUDA。詳細docs/portable-compiler-certificate.mdとcheckpoint。以下は履歴。
 <!-- /compiler-certificate-current -->

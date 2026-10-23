@@ -586,6 +586,8 @@ static const uint S_explosion_range = 64U;
 static const uint S_stun = 28U;
 static const uint S_heal_overcharge_store = 74U;
 static const uint S_skill_cooldown_pct = 58U;
+static const uint S_heal_overcharge_store_atk_pct = 76U;
+static const uint S_accumulate_max_scale_pct = 77U;
 static const uint S_atk_copy = 85U;
 static const uint S_hp_copy = 86U;
 static const uint S_dmg_scale_mag_pct = 78U;
@@ -610,7 +612,7 @@ static const uint H_SINGLE_BURST = 8192U;
 static const uint H_CORE = 16384U;
 static const uint P_BUFF_STAT_BITS_0 = 4294967295U;
 static const uint P_BUFF_STAT_BITS_1 = 4294965247U;
-static const uint P_BUFF_STAT_BITS_2 = 259117055U;
+static const uint P_BUFF_STAT_BITS_2 = 259129343U;
 bool validPortableBuffStat(uint stat)
 {
     if(stat > 91U) return false;

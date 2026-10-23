@@ -19,10 +19,11 @@ def observe(case):
         if event=='call':
             row=dict(kind=kind,time=v.get('t'),before=pools(manager))
             if kind in ('collect','take','latch_end'):row.update(name=v.get('name'),owner=names.index(v['caster']) if 'caster' in v else names.index(v['name']),amount=v.get('amount'))
-            if kind=='discharge':row['owner']=names.index(v['caster'])
+            if kind in ('snapshot','discharge'):row.update(owner=names.index(v['caster']),row=v['eff']['_portable_observer_row'])
+            if kind=='take':row['row']=frame.f_back.f_locals['eff']['_portable_observer_row']
             events.append(row);pending[id(frame)]=row
         else:
-            row=pending.pop(id(frame));row.update(after=pools(manager))
+            row=pending.pop(id(frame));row.update(after=pools(manager),returned_sequence=len(events))
             if kind in ('take','capacity'):row['value']=value
             if kind=='capacity':row['row']=v['ab'].effect['_portable_observer_row']
             if kind=='discharge':row.update(returned_sequence=len(events),targets=[names.index(n) for n in v['targets']],taken=v['amount'])

@@ -35,7 +35,7 @@ def allocate(limits):
     limits['ORDERED_HISTORY_WORDS'] = 64
     limits['NATIVE_DIAG_BASE'] = limits['REVIVAL_BASE'] + limits['REVIVAL_WORDS']
     limits['NATIVE_DIAG_WORDS'] = 16 + 256 * 16
-    for mode in ('normal', 'native-query-diagnostic', 'heal-share-diagnostic', 'interrupt-aim-diagnostic'):
+    for mode in ('normal', 'native-query-diagnostic', 'heal-share-diagnostic', 'interrupt-aim-diagnostic','heal-charge'):
         verify(limits, mode=mode)
 
 
@@ -68,6 +68,9 @@ def banks(limits, mode='normal'):
         rows.append(Bank('native-query-diagnostic', l['NATIVE_DIAG_BASE'], l['NATIVE_DIAG_WORDS']))
     elif mode == 'heal-share-diagnostic':
         rows.append(Bank('heal-share-diagnostic', trace_base, 8 + COUNT * trace_words))
+    elif mode == 'heal-charge':
+        from portable_heal_charge_specs import TRACE_BASE, TRACE_COUNT, TRACE_WORDS
+        rows.append(Bank('heal-charge', TRACE_BASE, 8 + TRACE_COUNT * TRACE_WORDS))
     elif mode in ('interrupt-aim-diagnostic','duration-scaling-diagnostic'):
         rows.append(Bank('interrupt-aim-diagnostic', l['NATIVE_DIAG_BASE'], l['NATIVE_DIAG_WORDS']))
     elif mode != 'normal':
@@ -129,5 +132,5 @@ def audit_sources(root, limits, *, sources=None):
     if 'initializeInterruptAimDiagnostics(s);' not in focus or 'initializeInterruptAimDiagnostics(s);' in sources.get('gpu/world_actor_pools.slang', (root/'gpu/world_actor_pools.slang').read_text()):
         raise ValueError('Interrupt diagnostic initialization must follow recipient tail clearing')
     return dict(verified=True, modes=[verify(limits, mode=m) for m in (
-        'normal', 'native-query-diagnostic', 'heal-share-diagnostic', 'interrupt-aim-diagnostic')],
+        'normal', 'native-query-diagnostic', 'heal-share-diagnostic', 'interrupt-aim-diagnostic','heal-charge')],
         incompatible_modes=['native-query-diagnostic', 'heal-share-diagnostic', 'interrupt-aim-diagnostic'], gpu_calls=0)

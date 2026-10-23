@@ -47,10 +47,11 @@ class HealChargeReferenceTests(unittest.TestCase):
             elif fault=='hp':b['allies'][1]['hp']+=1
             else:next(e for e in events if e['kind']=='take')['after'][0]['done']=False
             with self.subTest(fault=fault),self.assertRaises(AssertionError):verify(c,b)
-    def test_shared_gpu_still_rejects_unimplemented_family(self):
+    def test_shared_gpu_requires_private_world_for_family(self):
         effects={e['stat']:e for c in self.cases for e in c['effects'] if e.get('stat') in ('heal_overcharge_store_atk_pct','accumulate_max_scale_pct','heal_overcharge_discharge')}
         for e in effects.values():
-            with self.assertRaises(ValueError):portable_runtime.validate_effect(e,combat=self.cases[0]['combat'],world_frame=True)
+            portable_runtime.validate_effect(e,combat=self.cases[0]['combat'],world_frame=True)
+            with self.assertRaises(ValueError):portable_runtime.validate_effect(e,combat=self.cases[0]['combat'],world_frame=False)
     def test_readiness_declares_model_and_keeps_runtime_unverified(self):
         from portable_readiness_semantics import reference_readiness
         for kind,stat,target in [('buff','heal_overcharge_store_atk_pct','self'),('buff','accumulate_max_scale_pct','self'),('instant','heal_overcharge_discharge','all_allies')]:

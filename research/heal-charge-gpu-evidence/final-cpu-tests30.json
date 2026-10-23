@@ -1,0 +1,42 @@
+[
+  {
+    "pattern": "test_portable_heal_charge_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 6.421330166980624,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 15140
+  },
+  {
+    "pattern": "test_portable_heal_charge_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.1150501249358058,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 15140
+  },
+  {
+    "pattern": "test_quantity_specs.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.005612749955616891,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 15140
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.29712699993979186,
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 15140
+  }
+]

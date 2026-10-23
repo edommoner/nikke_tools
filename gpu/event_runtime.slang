@@ -445,8 +445,13 @@ bool worldPeriodicEnabled(inout Runtime s) { return WORLD_PERIODIC_ENABLED(s); }
 bool worldPendingEnabled(inout Runtime s) { return WORLD_PENDING_ENABLED(s); }
 #ifdef PORTABLE_WORLD_SKILLS
 #define WORLD_SKILL_FIELDS(s,legacy) ((legacy)||worldSkillsEnabled(s))
-#define WORLD_SKILL_KIND(s,row,d,legacy) WORLD_TEAM_KIND(s,row,d,((legacy)&&!(worldSkillsEnabled(s)&&d.kind==3)&&!WORLD_PENDING_KIND(s,d)))
-#define WORLD_SKILL_DEFINITION(s,row,d,legacy) WORLD_TEAM_KIND(s,row,d,(worldSkillsEnabled(s)&&d.kind==3 ? !validWorldSkillDefinition(s,row,d) : WORLD_PENDING_KIND(s,d) ? false : (legacy)))
+#ifdef PORTABLE_HEAL_CHARGE
+#define WORLD_HEAL_CHARGE_KIND(d,legacy) (d.kind==32 ? false : (legacy))
+#else
+#define WORLD_HEAL_CHARGE_KIND(d,legacy) legacy
+#endif
+#define WORLD_SKILL_KIND(s,row,d,legacy) WORLD_HEAL_CHARGE_KIND(d,WORLD_TEAM_KIND(s,row,d,((legacy)&&!(worldSkillsEnabled(s)&&d.kind==3)&&!WORLD_PENDING_KIND(s,d))))
+#define WORLD_SKILL_DEFINITION(s,row,d,legacy) WORLD_HEAL_CHARGE_KIND(d,WORLD_TEAM_KIND(s,row,d,(worldSkillsEnabled(s)&&d.kind==3 ? !validWorldSkillDefinition(s,row,d) : WORLD_PENDING_KIND(s,d) ? false : (legacy))))
 #define WORLD_SKILL_INHERITS(s,event,legacy) ((legacy)||(worldSkillsEnabled(s)&&event==49))
 #define WORLD_SKILL_BASIS(s,legacy) (worldSkillsEnabled(s) ? 0U : (legacy))
 #define WORLD_SKILL_SCOPE_BEGIN(s) uint skillQueryScope=0;if(worldSkillsEnabled(s)) skillQueryScope=actorStatePushQuery(s,0);
@@ -1266,6 +1271,9 @@ void worldCleanseResidents(inout Runtime s,uint row,uint scope,uint64_t when)
 #include "protection_runtime.slang"
 #include "healing_storage_runtime.slang"
 #include "heal_share_runtime.slang"
+#ifdef PORTABLE_HEAL_CHARGE
+#include "heal_charge_runtime.slang"
+#endif
 
 [noinline]
 uint packedRecipientMask(uint64_t order)
@@ -1337,6 +1345,10 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
             rechargeImmunity(s,f.cursor-1,packedRecipientMask(buff.enemyBuff!=0 ? 0 : f.value)|(buff.enemyBuff!=0 ? uint(f.value>>16) : 0));
             depth--;
             uint protection=protectionPolicy(s,f.repeatRow)&255;
+#ifdef PORTABLE_HEAL_CHARGE
+            if(protection==10 && s.alive[slot]!=0 && s.entryOrder[slot]==f.repeatPassive && s.carrierDefinition[slot]==f.repeatRow)
+            { buildHealCharge(s,slot,f.time);return; }
+#endif
             if((protection==1 || protection==2 || protection==9) && buff.lazyGroup==0 && f.value!=0 && s.alive[slot]!=0 && s.entryOrder[slot]==f.repeatPassive && s.carrierDefinition[slot]==f.repeatRow)
             {
                 if(f.repeatLeft!=0) captureBuffReference(s,slot,f.repeatRow);
@@ -1636,6 +1648,9 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             syncHealthActor(s,f.owner,f.time);
             pushFrame(s,frames,depth,0,16,f.owner,int(heal.owner),f.time); continue;
         }
+#ifdef PORTABLE_HEAL_CHARGE
+        if(f.mode==38) { advanceHealChargeDischarge(s,frames,depth,f);continue; }
+#endif
         if(f.mode==31) { advanceHealShareFrame(s,frames,depth,f);continue; }
         advanceDefinitionFrame(s,frames,depth,f,output);
     }

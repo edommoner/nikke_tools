@@ -36,6 +36,14 @@ void admitDefinitions(inout Runtime s,uint input)
     for (uint j = 0; j < s.count; j++)
     {
         Definition d;loadDefinition(input,j,d); PROJECTILE_ADMIT_ROW(s,j,d)
+        if(d.stat==76U || d.stat==77U || d.kind==32)
+        {
+#ifdef PORTABLE_HEAL_CHARGE
+            if(!validHealCharge(s,j,d,protectionPolicy(s,j))) { s.error=64;break; }
+#else
+            s.error=64;break;
+#endif
+        }
         if(d.kind==37)
         {
             if(s.combat==0 || d.stat!=0 || d.target!=0 || d.enemyBuff!=0 || d.healthScaling!=0 || d.alliedFlags!=0 || d.quantityFlags!=0 || d.damageFlags!=0 || d.queryResolve!=0 || (d.flags&~3U)!=0 || !f64Finite(d.value) || f64Less(f64FromI64(4096),f64Abs(d.value))) { s.error=64;break; }

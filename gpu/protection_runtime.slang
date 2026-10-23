@@ -275,6 +275,10 @@ bool validProtection(inout Runtime s)
     {
         uint policy=protectionPolicy(s,row),kind=policy&255;Definition d=readDefinition(s.inputBase,row);
         if(d.kind==8 && f64Less(d.value,0) || d.kind==0 && d.stat==S_hp_copy && baseCopyDefinition(s,row) || d.kind==0 && (d.stat==S_max_hp_only_pct || d.stat==S_hp_only_caster_based_pct) && f64Less(d.value,0)) negativeHealth=true;
+#ifdef PORTABLE_HEAL_CHARGE
+        if(kind>=10) { if(!validHealCharge(s,row,d,policy)) return false;enabled|=65U;continue; }
+        if((d.stat==76U || d.stat==77U || d.kind==32) && kind==0) return false;
+#endif
         if(kind==0) { if(policy!=0 || d.kind==27 || d.kind==31 || d.kind==0 && (d.stat==45 || d.stat==72 || d.stat==71 || d.stat==69 || d.stat==S_heal_overcharge_store)) return false;continue; }
         enabled|=1U|(kind==4 ? 2U : 0U)|(kind==7 ? 4U : 0U)|(kind==3 ? 8U : 0U)|(kind==8 ? 16U : 0U)|(kind==9 ? 32U : 0U);
         if(d.quantityFlags!=(kind==4 ? 4U : 0U) || (d.flags&120U)!=0) return false;

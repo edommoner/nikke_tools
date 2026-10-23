@@ -247,7 +247,11 @@ void applyDefinitionFrame(inout Runtime s,inout Frame frames[32],inout int depth
             bool namedNotice = namedCandidate && (s.namedEventOwners & packedRecipientMask(audienceOrder)) != 0;
             bool stackNotice = (d.buffEvent & 1) != 0 && previousStack != s.stacks[row] && (s.stackEventOwners & (1U << d.owner)) != 0;
             if (live && !namedNotice && !stackNotice) captureBuffReference(s,row,sourceRow);
-            if (namedNotice || stackNotice || (d.buffEvent >> 2) != 0 || baseCopyStat(d.stat) || immunityPolicy(s.inputBase,sourceRow)==3 || (protectionPolicy(s,sourceRow)&255)==1 || (protectionPolicy(s,sourceRow)&255)==2 || (protectionPolicy(s,sourceRow)&255)==9)
+            if (namedNotice || stackNotice || (d.buffEvent >> 2) != 0 || baseCopyStat(d.stat) || immunityPolicy(s.inputBase,sourceRow)==3 || (protectionPolicy(s,sourceRow)&255)==1 || (protectionPolicy(s,sourceRow)&255)==2 || (protectionPolicy(s,sourceRow)&255)==9
+#ifdef PORTABLE_HEAL_CHARGE
+                || (protectionPolicy(s,sourceRow)&255)==10
+#endif
+                )
             {
                 pushFrame(s,frames,depth,13,0,d.owner,int(row),f.time,d.enemyBuff!=0 ? uint64_t(recipientMask&~31U)<<16 : recipientOrder);
                 if (s.error == 0)
@@ -392,6 +396,13 @@ void applyDefinitionFrame(inout Runtime s,inout Frame frames[32],inout int depth
             if (s.removalCount > begin) pushFrame(s,frames,depth,9,0,0,int(begin),f.time);
         }
         else if (d.kind==26) WORLD_CLEANSE(s,row,recipientMask,f.time);
+#ifdef PORTABLE_HEAL_CHARGE
+        else if(d.kind==32)
+        {
+            uint64_t amount=takeHealCharge(s,d.owner,uint(d.targetName),row,f.time);
+            if(s.error==0) { pushFrame(s,frames,depth,38,0,d.owner,int(row),f.time,recipientOrder);if(s.error==0) frames[depth].healthValue=amount; }
+        }
+#endif
         else if (d.kind == 33) pushFrame(s,frames,depth,2,0,d.owner,int(row),f.time);
 #ifdef PORTABLE_PARENT_FIXED_DAMAGE
         else if(d.kind==3 && (d.damageFlags&262144U)!=0) enqueueParentFixed(s,d,row,f,depth);
@@ -538,7 +549,11 @@ void advanceDefinitionFrame(inout Runtime s, inout Frame frames[32], inout int d
         }
         if (f.mode!=19 && d.kind==22)
             recipientMask=f64Zero(d.value) ? 0 : selectRecipients(s,row,f.time,recipientOrder);
-        if (f.mode!=19 && (WORLD_RELOAD_FORCE_KIND(d.kind) || d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30 || d.kind==29 || d.kind==15 || d.kind==26))
+        if (f.mode!=19 && (WORLD_RELOAD_FORCE_KIND(d.kind) || d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30 || d.kind==29 || d.kind==15 || d.kind==26
+#ifdef PORTABLE_HEAL_CHARGE
+            || d.kind==32
+#endif
+            ))
         {
             if(d.kind==15 && d.budget<0 && !hasDurationExtensionMembers(s,row)) recipientMask=0;
             else if (d.enemyBuff != 0 || (d.kind==15 || d.kind==26) && d.target==2)
@@ -547,7 +562,11 @@ void advanceDefinitionFrame(inout Runtime s, inout Frame frames[32], inout int d
             else recipientMask = 0;
             uint selector = commands[s.inputBase+P_RECIPIENT_BASE+row*8];
             bool lazy = selector == 5 || selector == 6 || selector == 7 || selector == 15 || selector == 16 || selector == 19;
-            if (d.budget >= 0 && recipientMask == 0 && (!lazy || d.kind==15)) continue;
+            if (d.budget >= 0 && recipientMask == 0 && (!lazy || d.kind==15)
+#ifdef PORTABLE_HEAL_CHARGE
+                && d.kind!=32
+#endif
+                ) continue;
         }
         uint stagedTotal=0;
         COUNTER_GUARD(s,row) bool stageRegister=s.stagedEnabled!=0 && isStaged(s,row) && (f.event!=28 || (d.flags&1)!=0 && s.alive[row]==0);

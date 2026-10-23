@@ -58,6 +58,9 @@ STATS['heal_overcharge_store']=EXTRA_STAT['heal_overcharge_store']
 BUFFS=BUFFS | {'skill_cooldown_pct'}
 STATS['skill_cooldown_pct']=EXTRA_STAT['skill_cooldown_pct']
 
+BUFFS=BUFFS | {'heal_overcharge_store_atk_pct','accumulate_max_scale_pct'}
+STATS.update({name:EXTRA_STAT[name] for name in ('heal_overcharge_store_atk_pct','accumulate_max_scale_pct')})
+
 # Base copies own carrier snapshots outside the64-value numeric vector.
 BUFFS=BUFFS | {'atk_copy','hp_copy'}
 STATS.update({name:EXTRA_STAT[name] for name in ('atk_copy','hp_copy')})

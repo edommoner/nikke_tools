@@ -1,0 +1,473 @@
+{
+  "schema": 1,
+  "source_bytes": 2099069,
+  "source_sha256": "9cf2f307b6bec244d90497d0342713b27d4c704b272a3437541c2a888142c727",
+  "functions": 843,
+  "noinline_functions": 247,
+  "largest_functions": [
+    {
+      "name": "admitDefinitions_0",
+      "line": 9972,
+      "bytes": 115182,
+      "lines": 4162,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 492
+    },
+    {
+      "name": "applyDefinitionFrame_0",
+      "line": 55725,
+      "bytes": 71519,
+      "lines": 1158,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 145
+    },
+    {
+      "name": "executePortableCommands_0",
+      "line": 72678,
+      "bytes": 65890,
+      "lines": 1023,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 131
+    },
+    {
+      "name": "advanceDefinitionFrame_0",
+      "line": 56885,
+      "bytes": 57323,
+      "lines": 1773,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 215
+    },
+    {
+      "name": "coreProbability_0",
+      "line": 1004,
+      "bytes": 45822,
+      "lines": 1597,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 187
+    },
+    {
+      "name": "dispatch_0",
+      "line": 58730,
+      "bytes": 43971,
+      "lines": 1300,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 166
+    },
+    {
+      "name": "actorFieldsDefinitionValid_0",
+      "line": 16634,
+      "bytes": 28691,
+      "lines": 1070,
+      "noinline": false,
+      "global_entry": false,
+      "branches": 138
+    },
+    {
+      "name": "basicConditions_0",
+      "line": 32641,
+      "bytes": 28407,
+      "lines": 1198,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 159
+    },
+    {
+      "name": "initializeChargeControl_0",
+      "line": 20272,
+      "bytes": 23945,
+      "lines": 900,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 119
+    },
+    {
+      "name": "initializeTargetCounters_0",
+      "line": 22138,
+      "bytes": 18911,
+      "lines": 768,
+      "noinline": false,
+      "global_entry": false,
+      "branches": 94
+    },
+    {
+      "name": "validateReferences_0",
+      "line": 27358,
+      "bytes": 18007,
+      "lines": 689,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 81
+    },
+    {
+      "name": "advanceSkillDamageFrame_0",
+      "line": 44954,
+      "bytes": 17923,
+      "lines": 461,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 47
+    }
+  ],
+  "scope": "Lexical generated-CUDA spans only; not compiler time, memory attribution, performance or correctness proof",
+  "call_graph": {
+    "root": "collectHealCharge_0",
+    "max_depth": 3,
+    "visited_functions": 17,
+    "truncated": false,
+    "edges": [
+      {
+        "caller": "collectHealCharge_0",
+        "callee": "f64Add_0",
+        "calls": 2,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": true,
+        "bytes": 2056,
+        "lines": 96
+      },
+      {
+        "caller": "collectHealCharge_0",
+        "callee": "f64Finite_0",
+        "calls": 2,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 121,
+        "lines": 3
+      },
+      {
+        "caller": "collectHealCharge_0",
+        "callee": "f64Less_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 617,
+        "lines": 37
+      },
+      {
+        "caller": "collectHealCharge_0",
+        "callee": "healChargeCapacity_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": true,
+        "bytes": 2271,
+        "lines": 71
+      },
+      {
+        "caller": "collectHealCharge_0",
+        "callee": "healChargeEnabled_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 218,
+        "lines": 4
+      },
+      {
+        "caller": "collectHealCharge_0",
+        "callee": "larger_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 215,
+        "lines": 12
+      },
+      {
+        "caller": "collectHealCharge_0",
+        "callee": "protectionAddress_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 172,
+        "lines": 3
+      },
+      {
+        "caller": "collectHealCharge_0",
+        "callee": "protectionNumber_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 194,
+        "lines": 3
+      },
+      {
+        "caller": "collectHealCharge_0",
+        "callee": "protectionObject_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 1024,
+        "lines": 46
+      },
+      {
+        "caller": "collectHealCharge_0",
+        "callee": "queryRecipient_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 1597,
+        "lines": 71
+      },
+      {
+        "caller": "collectHealCharge_0",
+        "callee": "smaller_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 216,
+        "lines": 12
+      },
+      {
+        "caller": "collectHealCharge_0",
+        "callee": "storeNumber_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 219,
+        "lines": 5
+      },
+      {
+        "caller": "collectHealCharge_0",
+        "callee": "sweepHealCharge_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": true,
+        "bytes": 1451,
+        "lines": 58
+      },
+      {
+        "caller": "collectHealCharge_0",
+        "callee": "traceHealCharge_0",
+        "calls": 1,
+        "depth": 1,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 1218,
+        "lines": 30
+      },
+      {
+        "caller": "f64Less_0",
+        "callee": "f64Equal_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 541,
+        "lines": 34
+      },
+      {
+        "caller": "f64Less_0",
+        "callee": "f64Nan_0",
+        "calls": 2,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 118,
+        "lines": 3
+      },
+      {
+        "caller": "larger_0",
+        "callee": "f64Less_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 617,
+        "lines": 37
+      },
+      {
+        "caller": "protectionObject_0",
+        "callee": "protectionAddress_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 172,
+        "lines": 3
+      },
+      {
+        "caller": "queryRecipient_0",
+        "callee": "Definition_queryResolve_get_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 236,
+        "lines": 4
+      },
+      {
+        "caller": "queryRecipient_0",
+        "callee": "actorNamedNumericCondition_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 857,
+        "lines": 30
+      },
+      {
+        "caller": "queryRecipient_0",
+        "callee": "ensureLazyRecipients_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": true,
+        "bytes": 8040,
+        "lines": 228
+      },
+      {
+        "caller": "queryRecipient_0",
+        "callee": "excludedDamageBuff_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 777,
+        "lines": 20
+      },
+      {
+        "caller": "queryRecipient_0",
+        "callee": "f64Equal_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 541,
+        "lines": 34
+      },
+      {
+        "caller": "queryRecipient_0",
+        "callee": "f64Less_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 617,
+        "lines": 37
+      },
+      {
+        "caller": "queryRecipient_0",
+        "callee": "loadDefinition_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": true,
+        "bytes": 254,
+        "lines": 8
+      },
+      {
+        "caller": "smaller_0",
+        "callee": "f64Less_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 617,
+        "lines": 37
+      },
+      {
+        "caller": "traceHealCharge_0",
+        "callee": "healChargeEnabled_0",
+        "calls": 1,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 218,
+        "lines": 4
+      },
+      {
+        "caller": "traceHealCharge_0",
+        "callee": "storeNumber_0",
+        "calls": 5,
+        "depth": 2,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 219,
+        "lines": 5
+      },
+      {
+        "caller": "f64Equal_0",
+        "callee": "f64Nan_0",
+        "calls": 2,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 118,
+        "lines": 3
+      },
+      {
+        "caller": "f64Equal_0",
+        "callee": "f64Zero_0",
+        "calls": 2,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 102,
+        "lines": 3
+      },
+      {
+        "caller": "actorNamedNumericCondition_0",
+        "callee": "actorStateEnabled_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 725,
+        "lines": 33
+      },
+      {
+        "caller": "actorNamedNumericCondition_0",
+        "callee": "actorStatePopQuery_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 240,
+        "lines": 8
+      },
+      {
+        "caller": "actorNamedNumericCondition_0",
+        "callee": "actorStatePushQuery_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": false,
+        "bytes": 445,
+        "lines": 13
+      },
+      {
+        "caller": "actorNamedNumericCondition_0",
+        "callee": "basicConditions_0",
+        "calls": 1,
+        "depth": 3,
+        "ambiguous": false,
+        "noinline": true,
+        "bytes": 28407,
+        "lines": 1198
+      }
+    ],
+    "scope": "Known lexical calls; stop at noinline or depth3. No claim about actual compiler inlining or memory cost"
+  },
+  "source_integrity_verified": true,
+  "analysis_complete": true,
+  "calculation_verified": false,
+  "compiler_verified": false,
+  "gpu_calls": 0,
+  "nvrtc_compile_calls": 0
+}
