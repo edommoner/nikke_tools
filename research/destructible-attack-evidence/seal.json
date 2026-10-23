@@ -1,0 +1,7 @@
+{
+  "sealed": true,
+  "gpu_calls": 0,
+  "package_id": "1a1f20409cea537ce727f7404d6e6e629c9d7f6239b6b3a4b7d15fde937f7bde",
+  "input_count": 15,
+  "golden": "/private/tmp/nikke-runtime-resident/research/portable-destructible-attack-short-expected.json"
+}

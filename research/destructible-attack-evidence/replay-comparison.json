@@ -1,0 +1,105 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "destructible-attack/mixed-live-only-projectiles",
+      "input_sha256": "539471cd8923150b5707d255c79821a7f0043ffa9ae7d15ec0f5ce64b262636a",
+      "output_sha256": "e1803dbd118c658eb11981c6843cdcc7a79f0a81803be63fd85e875a14128903",
+      "native_sha256": "6b95b4221aa1f7c133e3a7f2eb4fa4d11a8ab82e59699d4c2a33689f6054bdc2"
+    },
+    {
+      "name": "destructible-attack/zero-damage-keeps-live",
+      "input_sha256": "28e81ee942d977ab5c66ca1f51fd4efd88265b003b8eae6fa181b9c499b4d12a",
+      "output_sha256": "577c9cc4a6c0a20eb11bc5062d219d8b6f855210bbc87954deeda00436c0834b",
+      "native_sha256": "9b0e1e5e364ab16b076843a10d2d11b9739e8948456a5cc431adce4d7da767d2"
+    },
+    {
+      "name": "destructible-attack/miss-no-counter",
+      "input_sha256": "fe8df110bafadb99f2c8aff04f3d8d68e0a243cc4465d0821e6836dedc616659",
+      "output_sha256": "187b2f70a04a26c567565b3265c8de04a3ed68788c448c45d32aaebf887ebc71",
+      "native_sha256": "4b4660bc851e3558ef114f10a582dde283aaf961a9e3d8984ce24c0546eb3a21"
+    },
+    {
+      "name": "destructible-attack/blocked-with-credit",
+      "input_sha256": "65bb27e6a30bca3d8ddd5c22be761724d7d3429addd3d2312f4527a1a3744659",
+      "output_sha256": "298abba959529bfe7deb138134b070a29d46735306e7b8a61b1ab754f44abfd4",
+      "native_sha256": "4b4660bc851e3558ef114f10a582dde283aaf961a9e3d8984ce24c0546eb3a21"
+    },
+    {
+      "name": "destructible-attack/fractional-credit",
+      "input_sha256": "2960c4eb41a46534f466c7c30c8c608026db378a801096c8c9b1823ee3681738",
+      "output_sha256": "c320c4642194de3d1b471bec6515feed77ae0d0dcfd857ad6f3c5949ccad1241",
+      "native_sha256": "56411330ac0174525057ebb55ec994313c7acb39873e9b7bc50c9d573c590122"
+    },
+    {
+      "name": "destructible-attack/only-shields-empty",
+      "input_sha256": "bf3a5f78096f797b9931f981f9823a1cb929e56f7d4ee2a2f6666baa9e071465",
+      "output_sha256": "50b8ceeebbf7053deed3944d52efca741a94b49e7b2285720d81d72d9cabc054",
+      "native_sha256": "cd159fba884a92f9b8594c0ff6d3be2d2ee1cf2347d0bb1977d1c0b45a5ba7c5"
+    },
+    {
+      "name": "destructible-attack/delayed-empty",
+      "input_sha256": "7ad51432ec9ceca021f5f4a4dba646df0f824e2bec9a2447ab7642969be2e609",
+      "output_sha256": "3bb9c3400ea2bec104a659e9ccb000c3d6d1cbc4cea393c7f8cbab01f74d1256",
+      "native_sha256": "a4daf0239795a0b54102ac362beed8cecb7cb99f4caa44a150bbce1f7b652b1e"
+    },
+    {
+      "name": "destructible-attack/new-generation",
+      "input_sha256": "dfb153530361057d07e990831ef66caf37d87385761d030f9f3f80970d1f3ca6",
+      "output_sha256": "14f1643eb79f163a2abaa04c5cbcc6742da025ce170f66d1cf9e61a84f80ee86",
+      "native_sha256": "0cf0408617c10b9df1077c378f365e51207deba2b76c7ba5966ca400e0ebb879"
+    },
+    {
+      "name": "destructible-attack/high-slot128",
+      "input_sha256": "42aeb5df8fc159afeb24c409d859f7a594572b33104eaa594c76501e6aa66ef7",
+      "output_sha256": "d0425f4e252c37785dba6fae943980cef040268b157847ca051b9eaa496ba62e",
+      "native_sha256": "32784548a7daeb1583793cd4c9235d5a82383bd7f54323a10315455c22dd24f1"
+    },
+    {
+      "name": "reject/destructible-attack/attacker",
+      "input_sha256": "697ad8601b46705dbd7221e24f7f0a75191c83a198244ec1a030750468898429",
+      "output_sha256": "6698a06eb3a1169ab455bbe046593b46e9f66eb56907caaa04d74048163d5775",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-attack/family",
+      "input_sha256": "68f680b67e300bfb5ca87e07406e03922ec617e1b98936aad0bf0881b38e0ddf",
+      "output_sha256": "6698a06eb3a1169ab455bbe046593b46e9f66eb56907caaa04d74048163d5775",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-attack/outcome",
+      "input_sha256": "45a79a9e40683b13320f924718fe0ed7218e9a8bf53395e13b65fca7e8fd133a",
+      "output_sha256": "6698a06eb3a1169ab455bbe046593b46e9f66eb56907caaa04d74048163d5775",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-attack/attack-id",
+      "input_sha256": "d6bcd7c3ec4edde1efa6ef7d1673716014a26da3a88aaba3806df39e6495265d",
+      "output_sha256": "6698a06eb3a1169ab455bbe046593b46e9f66eb56907caaa04d74048163d5775",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-attack/reserved",
+      "input_sha256": "3d4e52cc7bc341900a9b67199d32de96511746b78cdb2d152de48670a31135b3",
+      "output_sha256": "3995d8e6697317fb1cd847842770a22a9f4a4eae2a2b4d4386fae53c4c2d4cd4",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-attack/miss-with-damage",
+      "input_sha256": "bbb8683d309d0b07a0ec62dbdc837bd813ba17876acd727eb250a75b8502c57f",
+      "output_sha256": "6698a06eb3a1169ab455bbe046593b46e9f66eb56907caaa04d74048163d5775",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 15,
+  "native_oracles": 9,
+  "input_sha256": "8330c8e77c99c38364b80ba6f31ba4d2a333dbe45babefee015a59655a586798",
+  "output_sha256": "c4519b078b5eda3bdb8f60db3875b5d30487be4f85630681ef26ce66281f4076",
+  "generated_normalized": {
+    "cuda": "3c7e528c052d908940b8736ee13eb45d6ff7ae9cf90c4ecb9df5f30e47a018d8",
+    "metal": "10925da98e67a16e762af02dec43a547d3d4597cfee0ceeea61eaf51c8cce91b"
+  },
+  "audit_gpu_calls": 0
+}
