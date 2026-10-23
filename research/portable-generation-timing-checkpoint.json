@@ -27,7 +27,16 @@
   "corrected_mac_core_tests": 38,
   "corrected_mac_related_tests": 74,
   "corrected_mac_stage_verified": true,
-  "corrected_windows_cpu": "requested once; result pending",
+  "corrected_windows_cpu": "terminal success: CPU38 and native24 preflight; compiler/GPU0",
   "corrected_windows_turn": "01a16a70-1a2a-74e1-91f6-499eba312ccd",
-  "corrected_windows_cursor": "932a0914-64f4-43a3-850e-7a2d8ab6e419:53"
+  "corrected_windows_cursor": "b0ceb4a4-c8c1-428e-bc07-b30c38de2633:2",
+  "pending_windows_jobs": 0,
+  "corrected_windows_process_missing": 0,
+  "corrected_windows_service": "unverified",
+  "authored_case_purity": "9 case and packed byte hashes unchanged; discarded native7 removed from cases(); explicit native7 retained",
+  "final_mac_package_id": "4e3cc51d4fbff4be31616ced9c8e582f3d8caaa931365078592e35d5e92e6b04",
+  "final_mac_core_tests": 40,
+  "final_mac_native_preflight": 24,
+  "final_mac_stage_verified": true,
+  "final_case_split_windows_measured": false
 }

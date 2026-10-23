@@ -17,7 +17,7 @@ n=module('overlay_body_native','research/characterize-world-overlays.py')
 SOURCE='gpu/world_overlay_entry.slang'
 
 def cases():
- rows=[r['case'] for r in n.full_simulations() if r['name'] not in ('native-overlay-vanish','native-overlay-shield')]
+ rows=[case for case in n.simulation_cases() if case['name'] not in ('native-overlay-vanish','native-overlay-shield')]
  base=copy.deepcopy(rows[0]);c=copy.deepcopy(base);c['name']='world-and-character-received-insertion-order'
  c['patterns']=[dict(id='world-first',kind='buff',enemy=dict(received_dmg_pct=-1e16)),dict(id='world-later',kind='buff',delay=.1,enemy=dict(received_dmg_pct=1))]
  c['effects']=[f.effect('received_dmg_pct',1e16,target='all_enemies')];c['owners']=[0];rows.append(c)

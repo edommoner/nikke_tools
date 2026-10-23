@@ -104,13 +104,20 @@ def contracts():
  add('reject-mixed-range-domains',mixed)
  return rows
 
-def full_simulations():
+def simulation_cases():
+ """Authored stimuli only; callers packing inputs must not run the oracle."""
  spec=importlib.util.spec_from_file_location('overlay_frame_fixtures',ROOT/'research/verify-world-frame.py');f=importlib.util.module_from_spec(spec);spec.loader.exec_module(f)
  base=copy.deepcopy(f.fixtures()[0]);base.update(duration=.5,patterns=[dict(id='base',kind='idle')],enemy={'def':100,'core_px':0},weapon_metadata=dict(spread_start=20,spread_end=10,spread_change_pershot=2,optimal_range=[10,20]));base['combat']['weapons']=[dict(enabled=True,stage=0,gauge=0,capacity=1000,interval=.1,reload=1) for _ in range(5)]
  profiles=[('base',[]),('defense',[dict(id='armor',kind='buff',enemy=dict(def_mult=2,def_add=10),until={'time':.2})]),('received',[dict(id='received',kind='buff',enemy=dict(received_dmg_pct=-30),until={'time':.2})]),('core',[dict(id='core',kind='core',core_px=52,until={'time':.2})]),('range',[dict(id='range',kind='move',weapons=['AR'],until={'time':.2})]),('vanish',[dict(id='vanish',kind='vanish',until={'time':.2})]),('shield',[dict(id='shield',kind='shield',code='수냉',until={'time':.2})])]
  rows=[]
  for name,patterns in profiles:
   case=copy.deepcopy(base);case['name']='native-overlay-'+name;case['patterns']+=patterns
+  rows.append(case)
+ return rows
+
+def full_simulations():
+ rows=[]
+ for case in simulation_cases():
   try:result=observe(case)
   except Exception as error:rows.append(dict(name=case['name'],passed=False,error=repr(error),case=case))
   else:rows.append(dict(name=case['name'],passed=True,case=case,actual=result))

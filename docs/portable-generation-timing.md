@@ -28,6 +28,14 @@ v2は60.581秒でexit1、timeoutではない。gate後全件verify38.917秒、CP
 
 全件検証は各ファイルの `is_symlink/is_file/stat` 3照会を1回の `lstat` とregular判定へ統合した。全byte SHAの再読取、全ファイルmembership、worker検証は維持。旧packetの2,667files/40,404,440Bの旧・新レコードが完全一致し、同じサイズの改変・欠落・directory・symlinkを拒否する。Windowsの速度改善はまだ未検証。Macで一度の順序付き比較は実施したが、順序とcacheの影響があるため速度証明にしない。
 
-修正版固定package `4fe0ff04…` はMac新規展開でCPU38＋native24のstageと関連CPU74検査が成功。途中のv3もCPU38成功として保持し、新しいenv修正は別v4 packetとした。Windowsへは `codex/cuda-preparation-v4-source` の `5bc6615d7d694ad0e8aa0eff12a88b1be72f85cf`（2files、ZIP6,881,290B）を共有し、修正版CPU stageだけを1回依頼した。旧stage/claimは再利用しない。結果待ちで、GPU・コンパイラの実行依頼はない。
+修正版固定package `4fe0ff04…` はMac新規展開でCPU38＋native24のstageと関連CPU74検査が成功。途中のv3もCPU38成功として保持し、新しいenv修正は別v4 packetとした。Windowsへは `codex/cuda-preparation-v4-source` の `5bc6615d7d694ad0e8aa0eff12a88b1be72f85cf`（2files、ZIP6,881,290B）を共有し、修正版CPU stageだけを1回依頼した。旧stage/claimは再利用しない。
+
+Windows v4はCPU38・native24事前検査がすべて成功。input SHAは旧Metal/core46と同一。全stage64.580秒、verify26.163秒、CPU batch33.904秒（worker verify9.510秒を含む）、before/after観測2.198/1.999秒。単回なので速度改善率は認定しない。2GiB/BelowNormal/peak199,839,744B、終了後Job空、missing0。service未確認で環境保持false、GPU計算認定falseを維持。コンパイラとGPUの呼び出し0、追加再実行0。今回の二つのWindows stageはいずれもCPUだけで、それぞれ別固定packetを1回ずつ。現在pendingのWindows jobはない。
+
+## ケース作成に隠れていた不要な参照計算
+
+調査中に、`verify-world-overlay-body.cases()` がauthored caseを取り出すだけなのに `full_simulations()` を呼び、native7戦闘と診断保存まで実行していたことが判明した。多くの後続familyがこのcaseをseedとして使っていた。`simulation_cases()` へデータ作成を抽出し、packingはこれだけを呼ぶ。明示的な `full_simulations()` は引き続きnative7戦闘を実行し、元の比較を残す。
+
+変更前に保存した9ケースのcase SHAとpacked input SHAが全件一致。packing時のnative呼び出しを禁止した検査、caseのfresh copy、明示native7の実行も確認。共通CLI core suiteとsmokeへ純粋性2検査を追加した。最終Mac固定packetでCPU40＋native24事前検査を行い、この最新分をWindowsでさらに再実行はしない。Windows v4は分離前sourceのCPU38成功証拠として保持し、分離のWindows速度改善は未測定とする。
 
 今回の変更にGPU計算本体・canonical reference・cache identity consumer・strict normalizerの変更はない。旧Metal33/46と戦闘証拠を保持し、全キャラ認定や今回のCUDA数値一致とは数えない。対象別counterへのtyped着弾・所有付き破壊dispatchと、敵弾・敵盾の実戦意味論の接続は引き続き残件である。

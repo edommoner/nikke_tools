@@ -229,6 +229,7 @@ SUITES['projectile-chain-reference']=dict(SUITES['damage-accum-battle'],tests=['
 SUITES['damage-accum-core']=dict(script='research/verify-damage-accum-core-short.py',golden='research/portable-damage-accum-core-short-expected.json',source='gpu/damage_accum_probe.slang',inputs=41,native=34,support_files=['research/portable-world-heal-charge-lifetime-short-expected.json'],tests=['test_portable_damage_accum_core.py','test_portable_damage_accum_reference.py','test_portable_packet_stage.py'])
 SUITES['destructible-target-core']=dict(SUITES['damage-accum-core'],script='research/verify-destructible-target-core-short.py',golden='research/portable-destructible-target-core-short-expected.json',source='gpu/destructible_target_probe.slang',support_files=SUITES['damage-accum-core']['support_files']+['research/portable-world-projectile-chain-short-expected.json'],inputs=46,native=24,upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'],development_only=False,tests=['test_destructible_target_state.py','test_portable_damage_accum_core.py','test_portable_model_gap_audit.py','test_portable_readiness_semantics.py','test_portable_parent_fixed.py'])
 SUITES['saved-core-report-audit']=dict(SUITES['damage-accum-core'],tests=['test_portable_saved_core_report.py','test_portable_compile_cache.py'],support_files=['research/portable-damage-accum-core-short-expected.json','tests/fixtures/cuda-core-report-v4/generated/damage_accum_probe.cu','tests/fixtures/cuda-core-report-v4/generated/damage_accum_probe.metal'])
+SUITES['destructible-target-core']['tests'].append('test_portable_authored_case_purity.py')
 SUITES['destructible-world']=dict(SUITES['destructible-target-core'],script='research/verify-destructible-world-short.py',golden='research/portable-destructible-world-short-expected.json',source='gpu/destructible_world_probe.slang',inputs=33,native=21,development_only=False,tests=['test_destructible_world.py','test_destructible_target_state.py'])
 SUITES['leftmost-retention']=dict(SUITES['leftmost'],script='research/verify-world-leftmost-retention-short.py',golden='research/portable-world-leftmost-retention-short-expected.json',inputs=74,native=59,tests=SUITES['leftmost']['tests']+['test_portable_leftmost_replay.py','test_portable_duration_scaling_gpu.py','test_portable_gpu_replay.py','test_portable_reference_migration.py'])
 SUITES['cache-preflight-regression']=dict(SUITES['duration-scaling'],tests=SUITES['duration-scaling']['tests']+['test_portable_cache_probe.py','test_portable_required_cache_preflight.py','test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_compile_cli.py','test_portable_generation_cache.py','test_portable_generation_request.py','test_portable_gpu_cli.py','test_portable_gpu_replay.py','test_portable_compiler_diagnostic.py'])
@@ -358,6 +359,7 @@ SMOKE_TESTS.append('test_portable_packet_stage.py')
 SMOKE_TESTS.append('test_portable_readback_blocks.py')
 SMOKE_TESTS.append('test_portable_sparse_raw.py')
 SMOKE_TESTS.append('test_portable_scope_snapshot_audit.py')
+SMOKE_TESTS.append('test_portable_authored_case_purity.py')
 
 
 def sha(data):
