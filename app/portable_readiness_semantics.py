@@ -10,6 +10,12 @@ def reference_readiness(issue):
             consumer_source='calculator/timeline.py:_handle_damage_eff; app/portable_skill_weapon_contract.py',
             note='The pinned native handler reads cs.weapon and base_weapon_type, not the effect annotation. Only a known declaration equal to the caster base weapon is admitted for normal_attack auto_damage. Effect-local override or mismatched annotation semantics remain unresolved; do not infer no-op support or in-game correctness')
         return result
+    if issue.get('phase')=='effect' and issue.get('category')=='fields' and issue.get('kind')=='damage' and issue.get('stat') in ('sequential_damage:6','sequential_damage:13') and issue.get('target')=='enemies_random' and issue.get('fields')==['land_in_full_burst']:
+        result.update(lane='native_contract_extension',native_consumer='confirmed_source',contract_coverage='recorded_subset',recorded_cases=15,reference_suites=['full-burst-landing','full-burst-landing-rosters'],
+            consumer_source='calculator/timeline.py:_handle_damage_eff,_handle_landing_damage,BurstController.tick; app/attack_timing_specs.py:full_burst_landing',
+            required_extensions=['separate_latched_landing_mode_in_shared_pending_controller','retain_actual_landing_reference_read_before_latched_override','shared_cast_exclusion_and_normal_landing_packet_path','mixed_target_rng_and_numeric_basis_contracts','metal_and_current_source_cuda_validation'],
+            note='Thirteen native fixtures and original Elegg Boom and Shock3/30s confirm cast-time gates/counts, landing-time buff queries, later-cast exclusions, same-frame full-burst landings and queued ordinary children. Cast reference1 is read as2 at landing before overriding back to1; preserve both calls. Original30s fires the6-hit branch;13-hit is synthetic only. GPU admission remains closed and no new GPU/full-character validation is claimed')
+        return result
     operator=issue.get('operator')
     operator=operator if isinstance(operator,dict) else {}
     named_target=issue.get('target')

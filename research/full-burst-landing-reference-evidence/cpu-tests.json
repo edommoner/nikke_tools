@@ -1,0 +1,52 @@
+[
+  {
+    "pattern": "test_portable_full_burst_landing_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.823423207970336,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 96801
+  },
+  {
+    "pattern": "test_attack_timing_specs.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.005364665994420648,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 96801
+  },
+  {
+    "pattern": "test_portable_named_enemy_removal.py",
+    "exit_code": 0,
+    "elapsed_seconds": 7.645936832996085,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 96801
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.32792220800183713,
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 96801
+  },
+  {
+    "pattern": "test_portable_reference_optimization.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.5618672920390964,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 96801
+  }
+]

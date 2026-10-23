@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "status": "native_contract_ready_gpu_not_connected",
+  "package_id": "bb35b29375e449839dcaac2c2d1e1199617de6259137c68e235c4ddd60b591ff",
+  "source_parent": "d38713e62225ef61427e2ca03e7b8816a4914075",
+  "native": {
+    "synthetic_contracts": 13,
+    "original_profile_inputs": 2,
+    "synthetic_handler_calls": 24,
+    "synthetic_parent_notifications": 36,
+    "synthetic_packets": 40,
+    "original_handler_calls": [
+      0,
+      2
+    ],
+    "original_notifications": [
+      0,
+      6
+    ],
+    "original_thirteen_hit_branch_verified": false,
+    "synthetic_thirteen_hit_branch_verified": true,
+    "reference_read_values": [
+      1,
+      2
+    ],
+    "latched_reference_count": 1
+  },
+  "cpu": {
+    "groups": 5,
+    "tests": 27,
+    "skipped": 0,
+    "seconds": 15.364514207001776,
+    "old230_native_seconds": 12.531889082980342,
+    "final_observer_equivalence_battles": 15,
+    "final_focused_tests": 5,
+    "final_focused_seconds": 5.864
+  },
+  "gpu": {
+    "new_admission": false,
+    "new_builds": 0,
+    "new_executions": 0,
+    "source_files_unchanged": 133,
+    "old230_input_and_native_verified": true,
+    "old_saved_metal_evidence_retained": true
+  },
+  "inventory": {
+    "packed": 239,
+    "profiles": 266,
+    "packed_base": 179,
+    "base": 203,
+    "priority_categories": 37,
+    "all_profile_records_unchanged": true,
+    "recorded_native_extension_categories": 2
+  },
+  "windows": {
+    "additional_operations": 0,
+    "current_source_cuda_calculation_verified": false,
+    "seven_missing_processes_cause": "unknown",
+    "environment_preservation_verified": false
+  },
+  "normal_ui": "cpu",
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "next": [
+    "shared distinct landing queue mode preserving two native queues",
+    "landing count read then frozen override and ordered buff exclusions",
+    "zero-coefficient,HP basis,RNG targets and queue capacity contracts",
+    "Metal retention and original-profile validation before opening scoped admission"
+  ]
+}
