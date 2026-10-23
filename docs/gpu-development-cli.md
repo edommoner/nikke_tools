@@ -1,3 +1,7 @@
+<!-- heal-charge-reference-current -->
+共通CLI reference --suite heal-chargeへ受けた回復量の蓄積/容量boost/放出の正本29契約を追加。scalar pool・ATK snapshot・満HP前clamp・state_end retention/cleanse/down discard・consume後の重複対象順・owner順を固定。fresh不変packageで5.963秒/関連4群27検査(skip0)成功、追加照会0・全native/trace/RNG保持。harmful指定ずれとowner順をCPUで検出、失敗保持・同時刻反例を残し別ケース追加。GPU受付拒否のまま、Slang/数値/正本変更0・GPU/Windows commands0。全266profile/241input SHA/拒否理由/Metal349 source保持、静的241/266/base181/203/残33・modelgap10/contractextension3/review20。保存CUDA2.068MB/833fn/241noinlineをCPU構造分析、既存compiler-full sourceに追加23/変更38（cache hit/性能証明ではない）。次は共有pool lifetime/放出continuation接続と最新Metal seal由来compiler package経路。全キャラ0/UI CPU/現CUDA未検証/7終了unknown/保全false/未達。詳細docs/portable-heal-charge-reference.mdとcheckpoint。以下は履歴。
+<!-- /heal-charge-reference-current -->
+
 <!-- max-ammo-scaling-gpu-current -->
 max_ammo_countのcharge_dmg_pctを共通Slangへ接続。Metal349(native261/拒否88)＋元エミリア全73定義3/30sの2入力が一致、両独立seal成功。live本人容量/stack後倍率/整数丸め/mode memoを再利用、Runtime全layout/stride138952不変・旧321 input/native/raw1009778688B保持。CPU31群217/71.663秒・native20.732秒・GPU4.426秒、実編成CPU3群16/GPU1.817秒、実run生成cache必須hit/追加Slang0。初回generationの静的再帰はGPU0で検出し非再帰容量読取＋共通整数変換へ修正、import/テスト形状もGPU前に修正し失敗を保持。静的241/266/base181/203/残33・旧240記録/SHA保持。Windows追加0/現CUDA未検証/7終了unknown/保全false、全キャラ0/UI CPU/development_only/未達。次は残33分類consumer、late-query/mode遷移混在、CUDAcache。詳細docs/portable-max-ammo-scaling-gpu.mdとcheckpoint。以下は履歴。
 <!-- /max-ammo-scaling-gpu-current -->

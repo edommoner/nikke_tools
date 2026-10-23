@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "all266_profile_records_identical": true,
+  "all241_packed_input_hashes_identical": true,
+  "all_blockers_identical": true,
+  "all_shared_gpu_sources_identical_to_metal349": true,
+  "canonical_reference_unchanged": true,
+  "gpu_calls": 0,
+  "native_calls": 0
+}
