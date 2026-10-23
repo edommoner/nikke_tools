@@ -4,7 +4,8 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
-REFERENCES={'skill-weapon-rosters':('portable_skill_weapon_roster_cases','world_skill_weapon_roster_native','portable_skill_weapon_roster_contracts'),
+REFERENCES={'burst1-ally':('portable_burst1_ally_cases','world_burst1_ally_native','portable_burst1_ally_contracts'),
+            'skill-weapon-rosters':('portable_skill_weapon_roster_cases','world_skill_weapon_roster_native','portable_skill_weapon_roster_contracts'),
             'skill-weapon':('portable_skill_weapon_cases','world_skill_weapon_native','portable_skill_weapon_contracts'),
             'below-def':('portable_below_def_cases','world_below_def_native','portable_below_def_contracts'),
             'leftmost-rosters':('portable_leftmost_roster_cases','world_leftmost_roster_native','portable_leftmost_roster_contracts'),

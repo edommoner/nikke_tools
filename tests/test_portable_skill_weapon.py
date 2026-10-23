@@ -75,7 +75,7 @@ class SkillWeaponTests(unittest.TestCase):
         from portable_readiness_semantics import reference_readiness
         for descriptor in ('has_burst1_ally','no_burst1_ally'):
             r=reference_readiness(dict(phase='gpu-admission',category='trigger',operator=dict(domain='condition',descriptor=descriptor)))
-            self.assertEqual(r['lane'],'native_contract_extension');self.assertEqual(r['recorded_cases'],0);self.assertFalse(r['gpu_supported']);self.assertFalse(r['runtime_validation_performed'])
+            self.assertEqual(r['lane'],'native_contract_extension');self.assertEqual(r['recorded_cases'],12);self.assertEqual(r['reference_suites'],['burst1-ally']);self.assertFalse(r['gpu_supported']);self.assertFalse(r['runtime_validation_performed'])
         self.assertEqual(reference_readiness(dict(phase='effect',category='trigger',operator=dict(domain='condition',descriptor='no_burst1_ally')))['lane'],'reference_review')
 
     def test_remaining_contradictions_are_model_questions_not_calculation_support(self):

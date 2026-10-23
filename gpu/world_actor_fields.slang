@@ -59,6 +59,10 @@ bool actorFieldsDefinitionValid(inout Runtime s,uint row,Definition d)
             return false;
 #endif
         }
+#ifdef PORTABLE_BURST1_ALLY
+        if(kind==C_BURST1_ALLY || kind==C_NO_BURST1_ALLY)
+        { if(s.combat==0 || commands[at+1]!=0 || !f64Zero(arg)) return false;continue; }
+#endif
         if(kind==C_CORE || kind==C_OPTIMAL_RANGE)
         { if(!hasRangeGeometry(s) || commands[at+1]!=0 || !f64Zero(arg)) return false;continue; }
         WORLD_TEAM_CONDITION(s,row,d,at,kind,arg) WORLD_ENEMY_ATTACK_ADMIT(s,d,at,kind,arg) WORLD_STATE_ADMIT_CONDITION(s,at,kind,arg) if(kind!=C_ENEMIES_ABOVE&&kind!=C_ENEMIES_BELOW&&kind!=C_TARGET_BOSS&&kind!=C_TARGET_ADD || commands[at+1]!=0 || !f64Finite(arg)) return false;

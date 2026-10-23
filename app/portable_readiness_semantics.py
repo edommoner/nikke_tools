@@ -13,11 +13,12 @@ def reference_readiness(issue):
     operator=issue.get('operator')
     operator=operator if isinstance(operator,dict) else {}
     if issue.get('phase')=='gpu-admission' and issue.get('category')=='trigger' and operator.get('domain')=='condition' and operator.get('descriptor') in ('has_burst1_ally','no_burst1_ally'):
-        result.update(lane='native_contract_extension',native_consumer='confirmed_source',contract_coverage='not_indexed',recorded_cases=0,
+        result.update(lane='native_contract_extension',native_consumer='confirmed_source',contract_coverage='recorded_subset',recorded_cases=12,reference_suites=['burst1-ally'],
             consumer_source='calculator/buff_manager.py:_condition_ok; gpu/event_runtime.slang:basicConditions',
-            rejecting_tier='gpu/world_actor_fields.slang:actorFieldsDefinitionValid',
-            required_extensions=['dedicated_live_stage_presence_contract','self_exclusion_and_down_actor_contract','stage_override_and_expiry_contract','zero_name_and_argument_admission_guards','metal_original_roster_validation'],
-            note='The runtime actor-field tier does not admit these predicates although the common evaluator implements them. This routing is not a static inventory category or a successful GPU calculation. Dedicated contracts and a shared tier connection are pending')
+            prior_rejecting_tier='gpu/world_actor_fields.slang:actorFieldsDefinitionValid',
+            scoped_metal_validation=dict(suite='burst1-ally-retention',inputs=125,native_cases=94,rejected_cases=31,native_predicate_cases=12,predicate_checks=36,original_profiles=2,original_definitions=83,independently_audited=True),
+            required_extensions=['other_caster_positions_and_broader_mixed_stage_contracts','current_source_cuda_validation','full_catalog_battle_validation'],
+            note='Twelve native contracts fix caster exclusion, down allies, live stage overrides and expiry. The private actor-field admission uses the existing evaluator with zero-name/argument and combat guards. Metal125 and independent seal include both original Anis profiles; all95 previous raw outputs are unchanged. This recorded scope is not full-character or current-source CUDA certification; legacy entries retain rejection')
         return result
     if issue.get('phase')=='effect' and issue.get('category')=='fields' and issue.get('kind')=='buff' and issue.get('stat') in ('stealth','stun') and issue.get('target')=='self' and issue.get('fields')==['duration_scaling','duration_scaling_ref']:
         result.update(lane='native_contract_extension',native_consumer='confirmed_source',

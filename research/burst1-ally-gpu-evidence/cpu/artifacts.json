@@ -1,0 +1,162 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "cpu-batch.json",
+      "bytes": 766,
+      "sha256": "e33ad18f04de8052e27fcd485fd0d8e2cf592cb0a36196420c8a20db54ea0b71"
+    },
+    {
+      "path": "cpu-batch.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "cpu-batch.stdout.log",
+      "bytes": 59,
+      "sha256": "a6ae9d5daa7ab70360b2339e9b09e58211c3dac1b7fb60006b65f08f22d1f48a"
+    },
+    {
+      "path": "cpu-tests.json",
+      "bytes": 2598,
+      "sha256": "af3634167af13f748bbe96fb705f7808c2c71a5fa7ee4112a4a3753813c55f7e"
+    },
+    {
+      "path": "cpu.json",
+      "bytes": 248,
+      "sha256": "555157b11c9d106cc994a6991eb1f88d125f6b50705ceff9ccf3d882fcd0846d"
+    },
+    {
+      "path": "result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "run.json",
+      "bytes": 237,
+      "sha256": "791a890330e9343a0cf9b42f91904ead6e61016b95e7bf0b40646fdde521078b"
+    },
+    {
+      "path": "test_portable_below_def.py.stderr.log",
+      "bytes": 104,
+      "sha256": "a687e7844378200a0134bc17c6f7798ca7ac64c3104aa923546dbea4bb5284b0"
+    },
+    {
+      "path": "test_portable_below_def.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_burst1_ally.py.stderr.log",
+      "bytes": 104,
+      "sha256": "f97016709ea9b93c2992ec77c5050a0e70388a9ee2a813358fccb0747661783c"
+    },
+    {
+      "path": "test_portable_burst1_ally.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_definition_view.py.stderr.log",
+      "bytes": 107,
+      "sha256": "ccea17206411a7ebe36a01b7f98da865774039d6528a041196a00ac07bad6870"
+    },
+    {
+      "path": "test_portable_definition_view.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_development_generation.py.stderr.log",
+      "bytes": 103,
+      "sha256": "7d674d73acbb43674318c4638a47092ab76cb59a502c175b751e1a2c7d2747c4"
+    },
+    {
+      "path": "test_portable_development_generation.py.stdout.log",
+      "bytes": 21,
+      "sha256": "0f9732071aabc96662979198c067859ad0bf8058fe95745ce8da23df1428a44c"
+    },
+    {
+      "path": "test_portable_duration_scaling_gpu.py.stderr.log",
+      "bytes": 102,
+      "sha256": "0eee84248d053b40e768e694ede58feb5b3605aa34a44b72f92bcfa8b09a77cf"
+    },
+    {
+      "path": "test_portable_duration_scaling_gpu.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_generation_request.py.stderr.log",
+      "bytes": 100,
+      "sha256": "fe008aab760eb03ccac7578e2b84665b1b50b0d7f855b17a0c7a8d039435b658"
+    },
+    {
+      "path": "test_portable_generation_request.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_gpu_cli.py.stderr.log",
+      "bytes": 138,
+      "sha256": "4a21ef197b10a9d1a9ed11711ea624cd5ebde96083c528fda9af42c5f79bc07f"
+    },
+    {
+      "path": "test_portable_gpu_cli.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_gpu_replay.py.stderr.log",
+      "bytes": 104,
+      "sha256": "b52fd2030bf92de4dd39dd804082b2d46694302b3e58cf9795e8231d2f98f7c2"
+    },
+    {
+      "path": "test_portable_gpu_replay.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_leftmost.py.stderr.log",
+      "bytes": 105,
+      "sha256": "9b7c7f26dc26584ed11ae8ef709631d21b0e9758ef12f204ab09140dab59a85a"
+    },
+    {
+      "path": "test_portable_leftmost.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_leftmost_replay.py.stderr.log",
+      "bytes": 101,
+      "sha256": "03b0671469b1dea153e707763742babda32a2e767e2a8babf3df77f56485572d"
+    },
+    {
+      "path": "test_portable_leftmost_replay.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_readiness_semantics.py.stderr.log",
+      "bytes": 110,
+      "sha256": "96c7a5e003c4e2ed9c0efe678ca00ecb78625070f4d2489bdb9e40f036f8ca4b"
+    },
+    {
+      "path": "test_portable_readiness_semantics.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_skill_weapon.py.stderr.log",
+      "bytes": 109,
+      "sha256": "d81136ab381b72482a8ab3b2eb3ee76db75874120d94e240a3ff00a7ad1c78f8"
+    },
+    {
+      "path": "test_portable_skill_weapon.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}
