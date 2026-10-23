@@ -1,0 +1,18 @@
+{
+  "package_id": "4fe0ff04b63f456b0b3f9c8735957070b1fde26933c77963a9501be602294303",
+  "files": 2667,
+  "bytes": 6881290,
+  "archive_sha256": "eaf26fce56da0976f09657d2a2014a8c6cfc3416b6fce688566cc4f84955d021",
+  "source_commit": "e95502bdfe5e4d5870bb46ec11ce6134cf50b6ec",
+  "scope": "CPU-only corrected preparation; no compiler, driver, cache probe or GPU execution",
+  "mac_cpu_tests": 38,
+  "mac_native_preflight": 24,
+  "mac_related_regressions": 74,
+  "changes": [
+    "UTF-8 native diagnostic writes",
+    "UTF-8 owned child environment only",
+    "one lstat instead of three path status checks, same full-byte digests"
+  ],
+  "gpu_source_and_input_unchanged": true,
+  "archive_bytes": 6881290
+}
