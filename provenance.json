@@ -1,0 +1,14 @@
+{
+  "package_id": "5972500de3f882e7defd03658a2781dabc382060e648928c72549a393b015c11",
+  "files": 2677,
+  "bytes": 6920707,
+  "archive_sha256": "a97f377ba5358918b9b7271ca4ca74652306e493902632af3f514ce491d4b21d",
+  "source_commit": "dfbd4ee06d9b601bb87a27bd92fa67cdd97387cb",
+  "scope": "CPU Job smoke then compile-only PTX; driver/context/launch forbidden",
+  "mac_cpu64_and_native13_verified": true,
+  "mac_cpu_integration146_verified": true,
+  "prepared_transport_metal18_verified": true,
+  "gpu_source_and_input_unchanged": true,
+  "old_cubin_claim_must_be_preserved": true,
+  "archive_bytes": 6920707
+}
