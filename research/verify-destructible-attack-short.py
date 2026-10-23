@@ -26,10 +26,10 @@ def prepare():
     for _,w,_ in rows:packed.extend(w)
     if sys.byteorder!='little':packed.byteswap()
     return rows,packed.tobytes()
-def native_reference(c):
+def native_reference(c,producer=None):
     w=DestructibleWorld(c['nodes'],c['bindings']);bm=manager(c['effects']);bm.notify('battle_start',0,NAMES[0])
     for op in c['ops']:w.advance(op[5]);bm.tick(op[5])
-    receipts=projectiles(w,bm,NAMES[c['who']],c['family'],c['outcome'],c['damage'],c['credit'],c['attack_id'])
+    receipts=projectiles(w,bm,NAMES[c['who']],c['family'],c['outcome'],c['damage'],c['credit'],c['attack_id']) if producer is None else producer(w,bm)
     actual=[]
     for slot,h,r in receipts:actual.append(dict(slot=slot,handle=[int(h.kind),h.identity,h.generation],delivered=r['delivered'],broken=r['broken'],took=bits(r['took'])))
     live=[r for r in pool(bm,'target_hit_counter').values() if any(ab is r.carrier for ab in bm._active)]

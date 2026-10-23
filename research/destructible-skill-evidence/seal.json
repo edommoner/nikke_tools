@@ -1,0 +1,7 @@
+{
+  "sealed": true,
+  "gpu_calls": 0,
+  "package_id": "d780cfaa2f1330d4762afb57db779f9cb33ebeca66a0bcf31cd90538c65d69cd",
+  "input_count": 18,
+  "golden": "/private/tmp/nikke-runtime-resident/research/portable-destructible-skill-short-expected.json"
+}

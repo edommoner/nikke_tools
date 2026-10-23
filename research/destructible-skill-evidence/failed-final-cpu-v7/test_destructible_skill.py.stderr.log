@@ -1,0 +1,20 @@
+.E.....
+======================================================================
+ERROR: test_old_projectile_producer_inputs_and_native_results_are_preserved (test_destructible_skill.SkillTests.test_old_projectile_producer_inputs_and_native_results_are_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-destructible-skill-final-v7/tests/test_destructible_skill.py", line 45, in test_old_projectile_producer_inputs_and_native_results_are_preserved
+    old=json.loads((ROOT/'research/portable-destructible-attack-short-expected.json').read_text());rows,data=a.attack.prepare()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/nikke-destructible-skill-final-v7/research/portable-destructible-attack-short-expected.json'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.420s
+
+FAILED (errors=1)

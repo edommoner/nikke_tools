@@ -17,7 +17,10 @@ def reference_readiness(issue):
         result.update(lane='reference_model_gap',native_consumer='missing_canonical_world_or_quantity_consumer',consumer_source='app/portable_model_gap_audit.py; app/portable_missing_consumer_audit.py; calculator/boss_pattern.py:_ranked; calculator/timeline.py:_register_instant_handlers',
             required_extensions=['explicit_world_or_quantity_model','typed_target_lifecycle_and_producer_contracts','shared_execution_and_current_CUDA_Metal_battle_validation'],
             note='Pinned source leaves movement/lock/range/target-count unimplemented. target_and_nearby falls back to one aimed target without a nearby spatial model; all_projectiles returns before damage. Enemy ammunition is filtered out by the allied instant handler, though its named completion still emits. Enemy healing has no verified recipient path. Keep these effects rejected; source audits and typed-state core do not certify battle support')
-        if issue.get('target')=='all_projectiles':result['typed_foundation_validation']=typed_foundation
+        if issue.get('target')=='all_projectiles':
+            result['typed_foundation_validation']=typed_foundation
+            result['typed_skill_validation']=dict(suite='destructible-skill',inputs=18,native_cases=10,rejected_cases=8,original_definitions=1,original_definition_inputs=8,metal_verified=True,independently_audited=True,cuda_device_verified=False,scalar_context_declared=True,automatic_battle_dispatch_verified=False,projectile_modifiers_verified=False,original_full_profile_verified=False,in_game_rules_verified=False,
+                scope='plain_original_definition_to_existing_scalar_query_and_live_projectile_producer')
         return result
     weapon_completion=(issue.get('phase')=='effect' and issue.get('category')=='trigger' and not issue.get('fields') and operator.get('domain')=='timing' and isinstance(operator.get('descriptor'),str) and operator['descriptor'].startswith('weapon_hit:') and bool(operator['descriptor'][len('weapon_hit:'):]))
     ordinary_stack_carrier=(issue.get('phase')=='effect' and issue.get('kind')=='buff' and issue.get('stat')=='buff_stack_add' and issue.get('target') in ('self','target') and not issue.get('fields') and issue.get('scaling') is None)

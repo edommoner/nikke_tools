@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "package_id": "4d2eda334d9d016d55dfa33ca7e4d887fbb49a13485aef7a65192cfe10d00ce8",
+  "stage": "cpu",
+  "bounded_execution_verified": false,
+  "proof_result": null,
+  "compiler_verified": false,
+  "calculation_verified": false,
+  "cpu_verified": false,
+  "smoke_verified": false,
+  "whole_stage_process_preservation_verified": null,
+  "whole_stage_environment_preservation_verified": null,
+  "stage_verified": false,
+  "stage_complete": false,
+  "gpu_retries": 0,
+  "full_goal_complete": false
+}

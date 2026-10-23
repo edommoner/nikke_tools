@@ -59,6 +59,10 @@
     "bytes": 3114,
     "sha256": "4cf4fa6a2e5246018a4e13f63d46e16c8c1ca7335fcf50473d5237b572e9407c"
   },
+  "windows-ptx-static-reported-summary.json": {
+    "bytes": 2955,
+    "sha256": "0b231d54f4ecb515a34cacc80a478493ec9550357bcedec2e23903c246319dd3"
+  },
   "windows-reported-summary.json": {
     "bytes": 3339,
     "sha256": "5302110746e18a93e675304d074364cde2c3865f83a56f03189d198ee1660892"
