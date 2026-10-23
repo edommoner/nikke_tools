@@ -361,6 +361,9 @@ SMOKE_TESTS.append('test_portable_readback_blocks.py')
 SMOKE_TESTS.append('test_portable_sparse_raw.py')
 SMOKE_TESTS.append('test_portable_scope_snapshot_audit.py')
 SMOKE_TESTS.append('test_portable_authored_case_purity.py')
+SMOKE_TESTS.append('test_portable_prepared_input.py')
+SUITES['destructible-counter']['tests'].append('test_portable_prepared_input.py')
+SUITES['destructible-counter']['tests'].append('test_portable_packet_stage.py')
 
 
 def sha(data):
@@ -674,7 +677,57 @@ def forbid_gpu():
         yield
 
 
-def cpu_preflight(m,*,parent_oracles=None):
+PREPARED_INPUT_PROTOCOL='prepared-v1'
+
+
+def transport_input_receipt(m,data,input_words):
+    """Bind framing and every row to the immutable package's input baseline."""
+    count=len(m['golden']['entries'])
+    if type(input_words) is not int or input_words<1 or count<1 or len(data)!=4+count*input_words*4 or int.from_bytes(data[:4],'little')!=count:
+        raise ValueError('Invalid prepared transport input framing')
+    digest=sha(data)
+    if digest!=m['golden']['input_sha256']:raise ValueError('Prepared transport input differs from golden')
+    for i,row in enumerate(m['golden']['entries']):
+        if sha(data[4+i*input_words*4:4+(i+1)*input_words*4])!=row['input_sha256']:
+            raise ValueError('Prepared transport input row differs from golden')
+    return dict(schema=1,package_id=m['package_id'],input_count=count,input_words=input_words,input_bytes=len(data),input_sha256=digest)
+
+
+def publish_transport_input(m,capture,data,input_words):
+    receipt=transport_input_receipt(m,data,input_words)
+    for name in ('input.bin','input-preflight.json'):
+        p=capture/name
+        if p.exists() or p.is_symlink():raise ValueError('Fresh prepared transport input required')
+    with (capture/'input.bin').open('xb') as stream:
+        stream.write(data);stream.flush();os.fsync(stream.fileno())
+    write(capture/'input-preflight.json',receipt)
+    return receipt
+
+
+def read_prepared_transport_input(m,capture):
+    for name in ('input.bin','input-preflight.json','cpu.json'):
+        p=capture/name
+        if p.is_symlink() or not p.is_file():raise ValueError('Prepared transport input/gate missing or linked: '+name)
+    receipt=load(capture/'input-preflight.json');cpu=load(capture/'cpu.json')
+    if not isinstance(receipt,dict) or not isinstance(cpu,dict):raise ValueError('Invalid prepared transport input metadata')
+    data=(capture/'input.bin').read_bytes()
+    expected=transport_input_receipt(m,data,receipt.get('input_words'))
+    exact=lambda a,b:json.dumps(a,sort_keys=True,separators=(',',':'))==json.dumps(b,sort_keys=True,separators=(',',':'))
+    if not exact(receipt,expected):
+        raise ValueError('Prepared transport input receipt mismatch')
+    if cpu.get('passed') is not True or cpu.get('input_sha256')!=receipt['input_sha256'] or not exact(cpu.get('input_count'),receipt['input_count']) or not exact(cpu.get('gpu_calls'),dict(build=0,execute=0)) or not exact(cpu.get('transport_input'),receipt):
+        raise ValueError('Prepared transport input CPU gate mismatch')
+    return data,receipt['input_words']
+
+
+def prepare_legacy_child_input(m,capture):
+    adapter=open_suite(m);entries,data=prepare_entries(adapter,m)
+    if sha(data)!=m['golden']['input_sha256']:raise ValueError('Input changed after preflight')
+    (capture/'input.bin').write_bytes(data)
+    return data,adapter.suite.INPUT
+
+
+def cpu_preflight(m,*,parent_oracles=None,input_capture=None):
     started = time.perf_counter()
     (ROOT/'research/portable-build').mkdir(parents=True,exist_ok=True)
     # Patch before importing the adapter, so its from-import aliases are blocked.
@@ -698,8 +751,11 @@ def cpu_preflight(m,*,parent_oracles=None):
         if parent_oracles is not None:parent_oracles.finish()
     from portable_typed_cuda_proof_audit import verify_cpu_gpu_calls
     calls = dict(build=0,execute=0); verify_cpu_gpu_calls(calls)
-    return dict(passed=True, input_count=len(entries), native_oracles=sum(domain is not None for _,_,domain in entries),
+    result=dict(passed=True, input_count=len(entries), native_oracles=sum(domain is not None for _,_,domain in entries),
                 input_sha256=sha(data), gpu_calls=calls, elapsed_seconds=time.perf_counter()-started)
+    if input_capture is not None:result['transport_input']=publish_transport_input(m,input_capture,data,adapter.suite.INPUT)
+    result['elapsed_seconds']=time.perf_counter()-started
+    return result
 
 
 NATIVE_SMOKE_SCRIPT='app/portable_native_output_probe.py'
@@ -777,13 +833,12 @@ def child(capture, backend, smoke=False, compile_only=False, module_only=False, 
         compile_child(m,capture,backend);return
     if module_only:
         module_child(m,capture,backend);return
-    adapter = open_suite(m)
-    entries, data = prepare_entries(adapter, m)
-    if sha(data) != m['golden']['input_sha256']:
-        raise ValueError('Input changed after preflight')
-    (capture/'input.bin').write_bytes(data)
-    input_words=adapter.suite.INPUT
-    del entries,adapter  # Native domains and word rows are unused by transport.
+    protocol=load(capture/'run.json').get('input_protocol','legacy') if (capture/'run.json').exists() else 'legacy'
+    if protocol==PREPARED_INPUT_PROTOCOL:
+        data,input_words=Journal(capture/'preparation.jsonl').invoke('gpu_child_prepared_input',read_prepared_transport_input,m,capture)
+    elif protocol=='legacy':
+        data,input_words=Journal(capture/'preparation.jsonl').invoke('gpu_child_legacy_input',prepare_legacy_child_input,m,capture)
+    else:raise ValueError('Unknown transport input protocol')
     import portable_backend
     from portable_phase_audit import Journal, observe
     journal = Journal(capture/'phases.jsonl')
@@ -1422,7 +1477,8 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
     if not smoke and not cpu_only:validate_generation_request(m)
     capture.mkdir(parents=True,exist_ok=False)
     write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend=backend,
-                                mode='cpu-only' if cpu_only else 'smoke' if smoke else 'gpu',status='preflight',gpu_retry_count=0))
+                                mode='cpu-only' if cpu_only else 'smoke' if smoke else 'gpu',status='preflight',gpu_retry_count=0,
+                                **(dict(input_protocol=PREPARED_INPUT_PROTOCOL) if not cpu_only and not smoke else {})))
     try:
         if linked:
             request=dict(package=str(Path(linked_package).resolve()),capture=str(Path(linked_capture).resolve()))
@@ -1445,8 +1501,10 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
         # Reject broken test payloads before expensive full native battles.
         # Both gates still complete before the exclusive GPU claim/start.
         cpu_test_groups(m,capture,smoke)
+        options=dict(parent_oracles=parent_oracles) if parent_oracles is not None else {}
+        if not cpu_only and not smoke:options['input_capture']=capture
         pre=(dict(passed=True,controller_only=True,input_count=0,native_oracles=0,gpu_calls=0)
-             if smoke else cpu_preflight(m,**(dict(parent_oracles=parent_oracles) if parent_oracles is not None else {})))
+             if smoke else cpu_preflight(m,**options))
         write(capture/'cpu.json',pre)
         if parent_oracles is not None:parent_oracles.check(verify_package(ROOT),capture)
         if cpu_only:
@@ -2235,6 +2293,9 @@ def audit_capture(capture,verify_artifacts=True,*,record_comparison=False,parent
     if compiler_only(m) and load(capture/'run.json').get('mode')!='smoke':raise ValueError('Compiler diagnostic cannot certify a battle')
     if load(capture/'run.json').get('mode')=='replay':
         return audit_replay_capture(m,capture,verify_artifacts=verify_artifacts)
+    protocol=load(capture/'run.json').get('input_protocol','legacy')
+    if protocol not in ('legacy',PREPARED_INPUT_PROTOCOL):raise ValueError('Unknown transport input protocol')
+    if protocol==PREPARED_INPUT_PROTOCOL:read_prepared_transport_input(m,capture)
     facts=load(capture/'execution.json')
     calc=False;error=None;first_difference=None
     if (capture/'readback.bin').exists():

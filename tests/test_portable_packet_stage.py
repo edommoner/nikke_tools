@@ -18,6 +18,25 @@ class PacketStageTests(unittest.TestCase):
         for timeout in (0,181,True,1.5):
             with self.assertRaises(ValueError):stage.recipe('id','cpu','cuda','/tmp/x',None,timeout)
         with self.assertRaises(ValueError):stage.recipe('id','compile','cuda','/tmp/x',None,180)
+        with self.assertRaisesRegex(ValueError,'CUDA backend'):stage.recipe('id','compile-ptx','metal','/tmp/x',None,180)
+    def test_compile_stage_is_fixed_ptx_without_run_or_gpu_flags(self):
+        p=stage.recipe('id','compile-ptx','cuda','/tmp/isolated-stage','/tmp/original',180)
+        args=stage.proof_arguments(p)
+        self.assertEqual(args,['compile','--capture',p['proof_capture'],'--timeout','60','--artifact-kind','ptx','--memory-limit-mb','2048','--original-workspace',p['original_workspace']])
+        p['original_workspace']=None
+        with self.assertRaisesRegex(ValueError,'original workspace'):stage.proof_arguments(p)
+    def test_compile_result_cannot_promote_driver_or_gpu_work_to_compiler_only_success(self):
+        good=dict(mode='compile-only',compiler_verified=True,calculation_verified=False,gpu_calls=0,driver_load_calls=0)
+        for change in ({},dict(gpu_calls=1),dict(gpu_calls=False),dict(driver_load_calls=1),dict(calculation_verified=True),dict(mode='gpu')):
+            with tempfile.TemporaryDirectory() as d:
+                root=Path(d)/'packet';root.mkdir();folder=Path(d)/'stage';proof=dict(good,**change)
+                def bounded(*a,**kw):
+                    (folder/'proof').mkdir();(folder/'proof/result.json').write_text(json.dumps(proof));return dict(passed=True)
+                cli=SimpleNamespace(bounded_module=lambda:SimpleNamespace(run_bounded=bounded),validation_environment=lambda _:dict())
+                with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='id')),patch.object(stage,'load_module',return_value=cli),patch.object(stage,'is_windows',return_value=False):
+                    r=stage.run_stage(folder,'compile-ptx','cuda',180,'/tmp/original')
+                self.assertEqual(r['compiler_verified'],not change);self.assertEqual(r['stage_verified'],not change)
+                self.assertFalse(r['calculation_verified'])
     def test_existing_stage_record_is_never_overwritten(self):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/'claim.json';stage.save(p,{'old':1})

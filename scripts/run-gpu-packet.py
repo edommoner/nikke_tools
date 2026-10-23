@@ -19,14 +19,19 @@ def save(path,value):
         json.dump(value,stream,indent=2);stream.write('\n');stream.flush();os.fsync(stream.fileno())
 
 def recipe(package_id,stage,backend,capture,original_workspace,timeout):
-    if stage not in ('cpu','smoke','gpu') or backend not in ('metal','cuda') or type(timeout) is not int or not 1<=timeout<=180:raise ValueError('Invalid packet stage or budget')
+    if stage not in ('cpu','smoke','gpu','compile-ptx') or backend not in ('metal','cuda') or type(timeout) is not int or not 1<=timeout<=180:raise ValueError('Invalid packet stage or budget')
+    if stage=='compile-ptx' and backend!='cuda':raise ValueError('PTX compilation requires CUDA backend')
     capture=Path(capture).resolve();original=Path(original_workspace).resolve() if original_workspace else None
+    if stage=='compile-ptx' and original is None:raise ValueError('PTX compilation requires an original workspace')
     if capture==ROOT or ROOT in capture.parents:raise ValueError('Stage capture must be outside the immutable package')
     if original is not None and (original==ROOT or original==capture or original in capture.parents):raise ValueError('Use an isolated capture outside the original workspace')
     if is_windows() and original is None:raise ValueError('Windows requires an explicit original workspace')
     return dict(schema=1,package_id=package_id,stage=stage,backend=backend,capture=str(capture),proof_capture=str(capture/'proof'),original_workspace=str(original) if original else None,timeout_seconds=timeout,inner_gpu_timeout_seconds=min(60,timeout),preparation_scope='Immutable package manifest only; never enumerate/hash original workspace, historical captures or SDK trees',memory_limit_mb=2048)
 
 def proof_arguments(plan):
+    if plan['stage']=='compile-ptx':
+        if not plan['original_workspace']:raise ValueError('PTX compilation requires an original workspace')
+        return ['compile','--capture',plan['proof_capture'],'--timeout',str(plan['inner_gpu_timeout_seconds']),'--artifact-kind','ptx','--memory-limit-mb','2048','--original-workspace',plan['original_workspace']]
     arguments=['run','--backend',plan['backend'],'--capture',plan['proof_capture'],'--timeout',str(plan['inner_gpu_timeout_seconds'])]
     if plan['stage']=='cpu':arguments.append('--cpu-only')
     elif plan['stage']=='smoke':arguments.append('--smoke')
@@ -107,13 +112,15 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None):
     comparison=observation.get('comparison',{})
     process_preserved=comparison.get('all_monitored_processes_preserved')
     environment_preserved=bool(process_preserved is True and comparison.get('identified_nikke_service_preservation_verified') is True and facts.get('observation_error') is None) if is_windows() else None
-    key={'cpu':'cpu_verified','smoke':'smoke_verified','gpu':'passed'}[stage]
-    stage_verified=bool(facts['passed'] and proof and proof.get(key))
-    result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,calculation_verified=bool(proof and proof.get('calculation_verified')),cpu_verified=bool(proof and proof.get('cpu_verified')),smoke_verified=bool(proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
+    key={'cpu':'cpu_verified','smoke':'smoke_verified','gpu':'passed','compile-ptx':'compiler_verified'}[stage]
+    compiler_verified=bool(proof and proof.get('mode')=='compile-only' and proof.get('compiler_verified') is True and proof.get('calculation_verified') is False and type(proof.get('gpu_calls')) is int and proof['gpu_calls']==0 and type(proof.get('driver_load_calls')) is int and proof['driver_load_calls']==0)
+    verified=compiler_verified if stage=='compile-ptx' else bool(proof and proof.get(key))
+    stage_verified=bool(facts['passed'] and verified)
+    result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,compiler_verified=compiler_verified,calculation_verified=bool(stage!='compile-ptx' and proof and proof.get('calculation_verified')),cpu_verified=bool(proof and proof.get('cpu_verified')),smoke_verified=bool(proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
     save(folder/'stage-result.json',result);return result
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--capture',type=Path,required=True);parser.add_argument('--stage',choices=('cpu','smoke','gpu'));parser.add_argument('--backend',choices=('metal','cuda'));parser.add_argument('--timeout',type=int,default=180);parser.add_argument('--original-workspace');parser.add_argument('--_child',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--capture',type=Path,required=True);parser.add_argument('--stage',choices=('cpu','smoke','gpu','compile-ptx'));parser.add_argument('--backend',choices=('metal','cuda'));parser.add_argument('--timeout',type=int,default=180);parser.add_argument('--original-workspace');parser.add_argument('--_child',action='store_true');args=parser.parse_args()
     if args._child:child(args.capture.resolve());return
     if not args.stage or not args.backend:parser.error('--stage and --backend required')
     result=run_stage(args.capture,args.stage,args.backend,args.timeout,args.original_workspace);print(json.dumps(result));raise SystemExit(0 if result['stage_verified'] else 1)
