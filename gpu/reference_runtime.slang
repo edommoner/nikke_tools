@@ -150,7 +150,11 @@ bool validateReferences(inout Runtime s)
         }
         else if (magazine!=0 && ((magazine&~0x1ffffU)!=0 || d.kind!=2 || s.combat==0 || capacityKey==0 || capacityKey>s.resourceCount ||
             capacityName!=commands[s.inputBase+P_RESOURCE_NAME_BASE+capacityKey-1] || commands[s.inputBase+P_MODE_BASE+row*P_MODE_WORDS+21]!=0)) return false;
+#ifdef PORTABLE_MAX_AMMO_SCALING
+        if ((d.flags&~7679U)!=0 || !validMaxAmmoScaling(s,row,d) || uint((d.flags&4)!=0)!=uint(scale!=0)) return false;
+#else
         if ((d.flags&~3583U)!=0 || uint((d.flags&4)!=0)!=uint(scale!=0)) return false;
+#endif
         bool directHealth=(d.alliedFlags&1)!=0 || d.stat==S_def_caster_based_pct || (d.stat>=S_max_hp_pct&&d.stat<=S_max_hp_only_pct) || d.stat==S_max_hp_from_max_hp_pct;
         if ((d.flags&256U)!=0 && (d.kind!=0 || d.enemyBuff!=0 || s.combat==0 || !directHealth || (d.flags&2)==0 || !f64Less(d.duration,0))) return false;
         if ((d.flags&128U)!=0 && (d.kind!=0 || !((d.stat==S_atk_pct && d.alliedFlags==0) || (d.stat==S_enemy_def_down_pct && d.alliedFlags==1)) || d.enemyBuff!=0 || s.combat==0 || scale!=0 || commands[s.inputBase+P_RECIPIENT_BASE+row*8]!=0)) return false;

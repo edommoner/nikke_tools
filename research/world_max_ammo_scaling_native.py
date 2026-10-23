@@ -1,12 +1,14 @@
 """Observe actual recursion and capacity returns; never add a buff/provider query."""
 import sys
+from contextlib import contextmanager
 from calculator import timeline
 from calculator.buff_manager import BuffManager
 from world_frame_native import roster_names
 from world_projectile_native import observe as plain
 
-def observe(case):
-    names=roster_names(case);previous=sys.getprofile();reads=[];capacities=[];pending={}
+@contextmanager
+def capture(names):
+    previous=sys.getprofile();reads=[];capacities=[];pending={}
     scale=BuffManager._scale_by_max_ammo.__code__;full=timeline.CharState._full_ammo.__code__
     def profile(frame,event,value):
         if previous is not None:previous(frame,event,value)
@@ -23,8 +25,11 @@ def observe(case):
             if parent is not None and parent.f_code is scale:
                 capacities.append(dict(owner=names.index(v['self'].name),time=v['t'],value=value,memo=v['self']._wc_ammo_full))
     sys.setprofile(profile)
-    try:n,t=plain(case)
+    try:yield dict(reads=reads,capacities=capacities)
     finally:sys.setprofile(previous)
     if pending:raise ValueError('Incomplete maximum-ammunition observation')
-    n['max_ammo_scaling']=dict(reads=reads,capacities=capacities)
+
+def observe(case):
+    with capture(roster_names(case)) as observation:n,t=plain(case)
+    n['max_ammo_scaling']=observation
     return n,t

@@ -1,3 +1,7 @@
+<!-- max-ammo-scaling-gpu-current -->
+max_ammo_countのcharge_dmg_pctを共通Slangへ接続。Metal349(native261/拒否88)＋元エミリア全73定義3/30sの2入力が一致、両独立seal成功。live本人容量/stack後倍率/整数丸め/mode memoを再利用、Runtime全layout/stride138952不変・旧321 input/native/raw1009778688B保持。CPU31群217/71.663秒・native20.732秒・GPU4.426秒、実編成CPU3群16/GPU1.817秒、実run生成cache必須hit/追加Slang0。初回generationの静的再帰はGPU0で検出し非再帰容量読取＋共通整数変換へ修正、import/テスト形状もGPU前に修正し失敗を保持。静的241/266/base181/203/残33・旧240記録/SHA保持。Windows追加0/現CUDA未検証/7終了unknown/保全false、全キャラ0/UI CPU/development_only/未達。次は残33分類consumer、late-query/mode遷移混在、CUDAcache。詳細docs/portable-max-ammo-scaling-gpu.mdとcheckpoint。以下は履歴。
+<!-- /max-ammo-scaling-gpu-current -->
+
 <!-- max-ammo-scaling-reference-current -->
 共通CLI reference --suite max-ammo-scalingへ正本20契約を追加。live recipient容量、半端割合グループ0.5切上げ/flat偶数丸め、1発効果、mode memo/再装填/失効、再帰Noneを固定。外側1349/内側1170、観測追加照会0・全native/trace/RNG保持。fresh不変packageでreference1.796秒と5群37検査(skip0)成功。GPU受付は拒否のまま、Slang/正本/数値/normalizer変更0・GPU/Windows追加0。前回Metal321の全sourceと全266profile/240input SHA/拒否理由を保持。静的240/266/base180/203/残34、全キャラ0/UI CPU/目標未達。次は量源を共通lookupへ接続し、再帰/query scope/cacheを検証→Metal20＋旧321保持・元エミリア実編成。詳細docs/portable-max-ammo-scaling-reference.mdとcheckpoint。以下は履歴。
 <!-- /max-ammo-scaling-reference-current -->

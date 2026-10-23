@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-charge-boundary-regression-metal",
+  "raw_bytes": 1028653056,
+  "raw_sha256": "940ec3658722ef69752fda9caa1609acea3f9ff3a6edeee36f30ed6b4d0e9993",
+  "evidence_sha256": "90d4f0b18b8a7b70b7c02721b3eb9eacc6bf6eebb2fa1c90fa2c385113bc2ce7",
+  "raw_inode": 506668109,
+  "zero_ranges": 2486,
+  "zero_range_bytes": 728956928,
+  "allocated_before": 1028653056,
+  "allocated_after": 299696128,
+  "allocated_reclaimed": 728956928,
+  "full_hash_verified": true
+}

@@ -67,7 +67,7 @@ class ParentFixedTests(unittest.TestCase):
         r=reference_readiness(dict(phase='effect',kind='damage',category='effect',stat='dealt_fixed_damage',target='target_body'))
         self.assertEqual(r['recorded_cases'],23);self.assertEqual(r['scoped_metal_validation']['inputs'],321);self.assertFalse(r['gpu_supported'])
         r=reference_readiness(dict(phase='effect',kind='buff',category='fields',stat='charge_dmg_pct',target='self',scaling='max_ammo_count',fields=['scaling']))
-        self.assertEqual(r['native_consumer'],'confirmed_source');self.assertEqual(r['recorded_cases'],20);self.assertFalse(r['runtime_validation_performed'])
+        self.assertEqual(r['native_consumer'],'confirmed_source');self.assertEqual(r['recorded_cases'],22);self.assertFalse(r['runtime_validation_performed'])
         for operator in (None,[],False):
             r=reference_readiness(dict(phase='effect',kind='damage',category='trigger',stat='unknown',operator=operator));self.assertEqual(r['lane'],'reference_review')
     def test_missing_model_audit_is_not_an_inert_effect_admission(self):

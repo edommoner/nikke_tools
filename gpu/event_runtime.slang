@@ -1009,6 +1009,9 @@ bool excludedDamageBuff(inout Runtime s, uint resident, uint who)
 #include "carrier_runtime.slang"
 #include "skill_interval_runtime.slang"
 #include "quantity_runtime.slang"
+#ifdef PORTABLE_MAX_AMMO_SCALING
+#include "max_ammo_scaling_runtime.slang"
+#endif
 #include "base_copy_runtime.slang"
 #include "health_runtime.slang"
 #include "lifesteal_runtime.slang"
@@ -1052,6 +1055,9 @@ void collectStats(inout Runtime s, uint who, uint64_t when, out uint64_t values[
         if(d.stat==S_pierce_enabled || d.stat==S_armor_break_enabled)
         { values[d.stat]=ONE;continue; }
         uint64_t value = d.stat == S_atk_caster_based_pct ? scalarValue(s,selected,who) : recipientValue(s,selected,who);
+#ifdef PORTABLE_MAX_AMMO_SCALING
+        if((d.flags&4096U)!=0) value=f64Mul(value,f64FromI64(scaledBuffCapacity(s,who,when)));
+#endif
         if (d.stat == S_crit_rate || d.stat == S_normal_atk_crit_rate)
         {
             value = f64Div(value,HUNDRED); addSum(rate,value);

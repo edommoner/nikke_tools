@@ -107,6 +107,8 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     if basis.mode:allowed |= {'scaling','scaling_hp_pct'}
     from portable_parent_fixed_specs import validate as validate_parent_fixed
     validate_parent_fixed(eff,combat=combat,world_frame=world_frame)
+    from portable_max_ammo_scaling_specs import validate as validate_ammo_scaling
+    if validate_ammo_scaling(eff,combat=combat,world_frame=world_frame):allowed |= {'scaling'}
     if eff.get('type')=='damage':
         from portable_parts_skill_specs import validate as validate_parts
         try:
@@ -494,6 +496,10 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         from portable_trigger_specs import pack_descriptors
         pack_descriptors(words,index,row,L,F,double_words,effect=effects[index][0],states=program['states'],world_frame=world_frame,shot_tags=shot_tags[effects[index][1]])
         if eff.get('scaling')=='lost_hp_pct':words[at+F['FLAGS']] |= 128
+        from portable_max_ammo_scaling_specs import enabled as ammo_scaled,FLAG as AMMO_SCALE_FLAG,MAX_AMMO_SCALE
+        if ammo_scaled(eff):
+            if int(row[10])!=MAX_AMMO_SCALE:raise ValueError('Canonical final-ammunition quantity changed')
+            words[at+F['FLAGS']] |= AMMO_SCALE_FLAG
         # Native world health helpers read active membership directly, whereas
         # get_buffs rechecks infinite-duration runtime predicates. Keep both paths.
         direct_health=eff.get('stat') in ('def_pct','def_caster_based_pct','max_hp_pct','max_hp_only_pct','hp_caster_based_pct','hp_only_caster_based_pct','max_hp_from_max_hp_pct','hp_copy')

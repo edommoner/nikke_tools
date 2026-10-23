@@ -180,18 +180,30 @@ uint64_t checkedIntegerAdd(inout Runtime s, uint64_t a, uint64_t b)
     if (((a ^ result) & (b ^ result) & F64_SIGN) != 0) s.error = 2;
     return result;
 }
-uint rawFullCapacity(inout Runtime s, uint who, uint base, bool applyBuffs, uint64_t when)
+uint capacityFromParts(inout Runtime s,uint base,uint64_t rounded,uint64_t flatValue)
 {
-    if (!applyBuffs || base == 0 || (s.quantityMask & 17) == 0) return base;
-    QuantityTotals quant = quantityTotals(s,who,S_max_ammo_pct,when,f64FromI64(base),ONE);
     uint qStatus,flatStatus;
-    uint64_t quantity = f64ToI64(quant.rounded,1,qStatus), flat = f64ToI64(plainQuantity(s,who,S_max_ammo_flat,when),0,flatStatus);
+    uint64_t quantity = f64ToI64(rounded,1,qStatus), flat = f64ToI64(flatValue,0,flatStatus);
     if (qStatus != 0 || flatStatus != 0) { s.error = 2; return 0; }
     uint64_t total = checkedIntegerAdd(s,checkedIntegerAdd(s,base,quantity),flat);
     if ((total & F64_SIGN) != 0 || total == 0) return 1;
     if (total > 0x7fffffff) { s.error = 2; return 0; }
     return uint(total);
 }
+uint rawFullCapacity(inout Runtime s, uint who, uint base, bool applyBuffs, uint64_t when)
+{
+    if (!applyBuffs || base == 0 || (s.quantityMask & 17) == 0) return base;
+    QuantityTotals quant = quantityTotals(s,who,S_max_ammo_pct,when,f64FromI64(base),ONE);
+    return capacityFromParts(s,base,quant.rounded,plainQuantity(s,who,S_max_ammo_flat,when));
+}
+#ifdef PORTABLE_MAX_AMMO_SCALING
+uint rawScaledFullCapacity(inout Runtime s,uint who,uint base,bool applyBuffs,uint64_t when)
+{
+    if (!applyBuffs || base == 0 || (s.quantityMask & 17) == 0) return base;
+    QuantityTotals quant=quantityTotals(s,who,S_max_ammo_pct,when,f64FromI64(base),ONE);
+    return capacityFromParts(s,base,quant.rounded,liveQuantity(s,who,S_max_ammo_flat,when));
+}
+#endif
 [noinline]
 uint64_t rawEffectiveCharge(inout Runtime s, uint who, uint64_t base, uint64_t when)
 {

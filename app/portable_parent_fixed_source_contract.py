@@ -2,7 +2,8 @@
 import hashlib,json
 from pathlib import Path
 def project_sources(root,sources=None):
-    root=Path(root);sources=dict(sources or {});data=json.loads((root/'tests/fixtures/portable-parent-fixed-source-delta.json').read_text())
+    from portable_max_ammo_scaling_source_contract import project_sources as project_ammo
+    root=Path(root);sources=project_ammo(root,sources);data=json.loads((root/'tests/fixtures/portable-parent-fixed-source-delta.json').read_text())
     for name,digest in data['added_sources'].items():assert hashlib.sha256(sources.get(name,(root/name).read_text()).encode()).hexdigest()==digest
     for name,row in data['sources'].items():
         current=sources.get(name,(root/name).read_text());assert hashlib.sha256(current.encode()).hexdigest()==row['current_sha256'],'Unreviewed parent fixed source: '+name
