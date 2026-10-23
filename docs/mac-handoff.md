@@ -1,3 +1,7 @@
+<!-- aimed-callback-current -->
+GPU本体変更なしでbody/partカウンター子のATK/吸血を共通20ケースへ追加。正本104射/440returned packet/20完了をCPU固定し、追加観測器のsemantic read/trace保持。Metal20の全battle/HP/pool/counter/named/trace/会計と直接private184行一致・独立seal。440行GPU個別traceではない。CPU4群17検査18.356秒＋最終5群21検査18.508秒、GPU0.05524秒、生成cache hit/追加Slang0。通常122/診断123 sourceが旧sealed1405/診断12と全同一なので旧1405保持証拠を再利用し全体再実行0。初期テストのcanonical通知無効化とcharge時刻0の誤認はGPU前に修正、数値期待値/正本変更なし。Windows追加0/原因unknown/保全false、現CUDA未検証。development_only/全キャラ0/UI CPU/未達。次は全定義実編成のtarget worldと広いcallback。詳細docs/portable-aimed-callbacks.mdとcheckpoint。以下は履歴。
+<!-- /aimed-callback-current -->
+
 <!-- aimed-area-current -->
 共有Slangへ狙った部位／interruptの貫通・爆発body→target配信、対象重複除外・発射時倍率snapshotを接続。Metal全1405(native1121/拒否284)＋診断12/直接private74receipt成功。正本60射/172returned packetはCPU固定（全172のGPU個別traceではない）。旧1393 input/native保持、1387raw全byte一致、混在6はNQR cache hit数各3減だけ。他のbyteと診断bank外37551360B保持。診断容量16→128を排他bankで拡張、Runtime/stride/数値/normalizer不変。CPU95群498検査175.857秒。full v1のCPU故障注入失敗は保持、上位層逆投影の検査修正後v2成功・GPU同条件retry0。Windows追加0/原因unknown/保全false、現CUDA未検証。development_only/全キャラ0/UI CPU/未達。次は混在callbackと全定義実編成のtarget world。詳細docs/portable-aimed-area.mdとcheckpoint。以下は履歴です。
 <!-- /aimed-area-current -->
