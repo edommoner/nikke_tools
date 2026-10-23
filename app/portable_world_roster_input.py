@@ -14,7 +14,7 @@ INPUT_WORDS = L['WORLD_RELOAD_INPUT_WORDS']
 OUTPUT_WORDS = L['WORLD_RELOAD_OUTPUT_WORDS']
 
 
-def compile_world_battle(prepared, *, trace='burst'):
+def compile_world_battle(prepared, *, trace='burst', allow_physical_interrupt=False):
     from portable_runtime import compile_program, UnsupportedPortable
     from calculator.timeline import DEFAULT_CONFIG, _resolve_cameras
     from calculator.boss_pattern import BossScript, DEFAULT_BOSS_ATK
@@ -37,6 +37,8 @@ def compile_world_battle(prepared, *, trace='burst'):
 
     if prepared.get('cpu_battle_executed') is not False or prepared.get('all_character_effects_included') is not True:
         raise UnsupportedPortable('Complete static preparation without CPU battle execution required')
+    if type(allow_physical_interrupt) is not bool:
+        raise UnsupportedPortable('Physical interrupt opt-in must be a literal boolean')
     chars = copy.deepcopy(prepared['chars'])
     names = [c['name'] for c in chars]
     if len(names) != 5 or len(set(names)) != 5:
@@ -47,7 +49,7 @@ def compile_world_battle(prepared, *, trace='burst'):
                'allow_unparsed', 'aim_interrupt', 'camera', 'camera_mode', 'control_mode'}
     if set(cfg) - allowed or cfg.get('rng_mode') != 'expected' or cfg.get('burst_gauge_mode') != 'accumulate' or policies.get('expected') is not True:
         raise UnsupportedPortable('Real world requires expected RNG and accumulated burst gauge')
-    if cfg.get('allow_unparsed') or cfg.get('aim_interrupt') or set(policies['auto']) != set(names):
+    if cfg.get('allow_unparsed') or (cfg.get('aim_interrupt') and not allow_physical_interrupt) or set(policies['auto']) != set(names):
         raise UnsupportedPortable('Unparsed effects, interrupt aiming or manual burst policy unconnected')
     if set(policies['controls']) != set(names) or any(policies['controls'][c['name']] != c.get('control', {}) for c in chars):
         raise UnsupportedPortable('Prepared control policy disagrees with real characters')
@@ -80,7 +82,7 @@ def compile_world_battle(prepared, *, trace='burst'):
     words, meta = compile_program(chars, compiled, script, attacks,
         allies=prepared['allies'], cover_sync=bool(enemy.get('patterns')), native_landing=True,
         enemy_code=enemy.get('code'), geometry=from_roster(chars, enemy), world_frame=True,
-        world_notice_names=('target_spawn',) if target_spawn else (),allied_seed=policies.get('seed'),native_snapshot_logging=True,
+        world_notice_names=('target_spawn',) if target_spawn else (),allied_seed=policies.get('seed'),native_snapshot_logging=True,focus_aim_layer2=cfg.get('aim_interrupt',False),
         combat=dict(weapons=weapons, targets=[dict(hp=1e30, defense=enemy['def'], attack=enemy.get('atk', DEFAULT_BOSS_ATK))],
                     trace=trace, clock='accumulated'))
     if len(words) != 86016:
@@ -132,4 +134,5 @@ def compile_world_battle(prepared, *, trace='burst'):
         prepared_effects=len(original), bound_effects=len(bound), camera=sorted(cameras),
         cpu_battle_executed=False, full_catalog_certified=False,
         policy=copy.deepcopy(policies), actor_bindings=len(bindings))
+    if allow_physical_interrupt:meta['real_prepared_input']['physical_interrupt_opt_in']=True
     return words, meta

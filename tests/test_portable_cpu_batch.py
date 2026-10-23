@@ -68,6 +68,17 @@ class CPUParentTests(unittest.TestCase):
     def context(self):
         import contextlib
         s=contextlib.ExitStack();s.enter_context(patch.object(cli,'ROOT',self.root));s.enter_context(patch.object(cli,'SUITES',dict(fixture=dict(tests=[self.pattern]))));s.enter_context(patch.object(cli,'verify_package',return_value=self.m));s.enter_context(patch.object(cli,'cpu_preflight',return_value=dict(passed=True)));s.enter_context(patch.object(cli,'os',types.SimpleNamespace(**dict(vars(os),name='nt'))));return s
+    def test_failed_unit_gate_skips_full_native_battles_and_gpu(self):
+        with self.context(),patch.object(cli,'cpu_test_groups',side_effect=ValueError('test payload absent')),patch.object(cli,'cpu_preflight') as native,patch.object(cli,'run_job') as job,self.assertRaisesRegex(ValueError,'test payload absent'):
+            cli.run_capture(self.capture,'cuda',60,cpu_only=True)
+        native.assert_not_called();job.assert_not_called();self.assertFalse((self.capture/'cpu.json').exists());self.assertFalse((self.root/'gpu-claimed-cuda.json').exists())
+    def test_successful_units_still_require_native_gate_before_cpu_only_success(self):
+        order=[]
+        def units(*a,**k):order.append('units')
+        def native(*a,**k):order.append('native');return dict(passed=True,gpu_calls=0)
+        with self.context(),patch.object(cli,'cpu_test_groups',side_effect=units),patch.object(cli,'cpu_preflight',side_effect=native),patch.object(cli,'run_job') as job:
+            result=cli.run_capture(self.capture,'cuda',60,cpu_only=True)
+        self.assertEqual(order,['units','native']);self.assertTrue(result['cpu_verified']);self.assertEqual(cli.load(self.capture/'cpu.json'),dict(passed=True,gpu_calls=0));job.assert_not_called()
     def test_incomplete_successful_child_and_failed_child_never_claim_gpu(self):
         for mode in ('missing_receipt','zero_tests','failed'):
             self.capture=self.root/mode

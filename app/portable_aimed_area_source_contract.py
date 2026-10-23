@@ -8,6 +8,8 @@ def ledger(root):
 
 
 def baseline_source(root, name, source):
+    from portable_aimed_enemy_source_contract import baseline_source as project_enemy
+    source, _ = project_enemy(root, name, source)
     rows = ledger(root)['sources']
     if name not in rows:
         return source, False
@@ -21,7 +23,8 @@ def baseline_source(root, name, source):
 
 
 def project_sources(root, sources=None):
-    root = Path(root); sources = dict(sources or {})
+    from portable_aimed_enemy_source_contract import project_sources as project_enemy
+    root = Path(root); sources, _ = project_enemy(root, sources)
     for name in ledger(root)['sources']:
         sources[name], _ = baseline_source(root, name, sources.get(name, (root/name).read_text()))
     return sources, list(ledger(root)['sources'])

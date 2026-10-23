@@ -163,7 +163,10 @@ SUITES['aimed-factors']=dict(SUITES['interrupt-aim'],script='research/verify-wor
 SUITES['aimed-factors-diagnostic']=dict(SUITES['aimed-factors'],script='research/verify-world-aimed-factor-diagnostic-short.py',source='gpu/world_interrupt_aim_diagnostic_entry.slang',golden='research/portable-world-aimed-factor-diagnostic-short-expected.json')
 SUITES['aimed-area']=dict(SUITES['aimed-factors'],script='research/verify-world-aimed-area-short.py',golden='research/portable-world-aimed-area-short-expected.json',inputs=12,native=12,tests=['test_portable_aimed_area.py','test_portable_aimed_packet_reference.py','test_portable_definition_view.py','test_portable_physical_interrupt.py','test_portable_scratch_layout.py','test_portable_interrupt_aim.py','test_portable_state_work_routing.py'])
 SUITES['aimed-area-diagnostic']=dict(SUITES['aimed-area'],script='research/verify-world-aimed-area-diagnostic-short.py',source='gpu/world_interrupt_aim_diagnostic_entry.slang',golden='research/portable-world-aimed-area-diagnostic-short-expected.json')
-SUITES['aimed-callback']=dict(SUITES['aimed-area-diagnostic'],script='research/verify-world-aimed-callback-short.py',golden='research/portable-world-aimed-callback-short-expected.json',inputs=20,native=20,tests=['test_portable_aimed_callback.py','test_portable_aimed_area.py','test_portable_physical_interrupt.py','test_portable_scratch_layout.py','test_portable_state_work_routing.py'])
+SUITES['aimed-callback']=dict(SUITES['aimed-area-diagnostic'],script='research/verify-world-aimed-callback-short.py',golden='research/portable-world-aimed-callback-short-expected.json',inputs=20,native=20,tests=['test_portable_aimed_callback.py','test_portable_gpu_cli.py','test_portable_cpu_batch.py','test_portable_aimed_area.py','test_portable_physical_interrupt.py','test_portable_scratch_layout.py','test_portable_state_work_routing.py'])
+SUITES['aimed-rosters']=dict(SUITES['aimed-area'],script='research/verify-world-aimed-rosters-short.py',source='gpu/world_entry_reload_resident_entry.slang',golden='research/portable-world-aimed-rosters-short-expected.json',inputs=12,native=12,parent_oracle_reuse=True,cpu_test_timeout=180,tests=['test_portable_aimed_rosters.py','test_portable_aimed_enemy.py','test_portable_state_work_routing.py','test_portable_state_focus_rosters.py','test_portable_real_binding_proof.py','test_portable_parent_oracles.py'])
+SUITES['aimed-rosters']['support_files']=list(dict.fromkeys(SUITES['aimed-rosters'].get('support_files',[])+['research/portable-world-aimed-area-retention-short-expected.json']))
+SUITES['aimed-enemy']=dict(SUITES['aimed-area-diagnostic'],script='research/verify-world-aimed-enemy-short.py',golden='research/portable-world-aimed-enemy-short-expected.json',inputs=6,native=6,tests=['test_portable_aimed_enemy.py','test_portable_aimed_area.py','test_portable_interrupt_aim.py','test_portable_definition_view.py'])
 SUITES['scratch-layout']=dict(script='research/verify-scratch-layout-short.py',golden='research/portable-scratch-layout-short-expected.json',source='gpu/scratch_layout_probe.slang',inputs=8,native=6,development_only=False,tests=['test_portable_scratch_layout.py','test_portable_scratch_layout_migration.py','test_portable_generation_request.py'])
 SUITES['ordered-history']=dict(script='research/verify-ordered-history-short.py',golden='research/portable-ordered-history-short-expected.json',source='gpu/ordered_history_probe.slang',inputs=13,native=10,development_only=False,tests=['test_portable_ordered_history.py','test_portable_generation_request.py'])
 SUITES['late-attack-random']['tests']+=['test_portable_ordered_history.py','test_portable_generation_request.py']
@@ -1178,10 +1181,12 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
         if not smoke and not cpu_only and SUITES[m['suite']].get('parent_oracle_reuse'):
             from portable_parent_oracles import ParentOracles
             parent_oracles=ParentOracles(m,capture)
+        # Reject broken test payloads before expensive full native battles.
+        # Both gates still complete before the exclusive GPU claim/start.
+        cpu_test_groups(m,capture,smoke)
         pre=(dict(passed=True,controller_only=True,input_count=0,native_oracles=0,gpu_calls=0)
              if smoke else cpu_preflight(m,**(dict(parent_oracles=parent_oracles) if parent_oracles is not None else {})))
         write(capture/'cpu.json',pre)
-        cpu_test_groups(m,capture,smoke)
         if parent_oracles is not None:parent_oracles.check(verify_package(ROOT),capture)
         if cpu_only:
             write(capture/'result.json',dict(cpu_verified=True,gpu_calls=0,calculation_verified=False,preservation_verified=None,status='cpu-only'))

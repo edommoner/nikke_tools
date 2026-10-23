@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "baseline_commit": "9a497c7f0c63bc41890dbd9d6acdff07ad96f257",
+  "scope": "Canonical enemy recipient/predicate aliases part and private interrupt to body; physical delivery unchanged",
+  "sources": {
+    "gpu/world_actor_fields.slang": {
+      "baseline_sha256": "756470b76f90bd8392d00772a82e171cd7001868108d903d8c03362b6c4a3772",
+      "current_sha256": "c5c867d5952a9f6d9dddcfc39add526b260a058683f8be95f23f042a831dd7cb",
+      "changes": [
+        {
+          "baseline": "return commands[actorBinding(s,slot)]==1 ? 0 : slot;",
+          "current": "uint kind=commands[actorBinding(s,slot)];return kind==1||kind==6 ? 0 : slot;"
+        },
+        {
+          "baseline": "return COUNTER_CONTEXT_ADD(s,(actorPhysicalTarget(s,who,0)&127U)!=0);",
+          "current": "return COUNTER_CONTEXT_ADD(s,commands[actorBinding(s,actorPhysicalTarget(s,who,0)&127U)]==5);"
+        },
+        {
+          "baseline": "actorFieldLogicalSlot(s,inherited) : actorPhysicalTarget(s,who,0)&127U);",
+          "current": "actorFieldLogicalSlot(s,inherited) : actorFieldLogicalSlot(s,actorPhysicalTarget(s,who,0)));"
+        }
+      ]
+    },
+    "gpu/world_actor_state.slang": {
+      "baseline_sha256": "fe544032dc4862a7a3689b292f21110674bfb37668e84ffb87d9e78412e629c3",
+      "current_sha256": "30d3f771fb85630e9526a4efa695c789be4a069ea003fd7053535d00538856ee",
+      "changes": [
+        {
+          "baseline": "return COUNTER_CONTEXT_TARGET(s,actorPhysicalTarget(s,results[head+4],0)&127U);",
+          "current": "return COUNTER_CONTEXT_TARGET(s,actorFieldLogicalSlot(s,actorPhysicalTarget(s,results[head+4],0)));"
+        }
+      ]
+    }
+  }
+}

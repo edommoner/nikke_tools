@@ -221,5 +221,14 @@
     "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
   },
   "sealed": true,
-  "audit_gpu_calls": 0
+  "audit_gpu_calls": 0,
+  "storage_budget_correction": {
+    "input_bytes": 8352004,
+    "output_bytes": 62914560,
+    "reserve_bytes": 15032385536,
+    "historical_available_bytes": 18312540160,
+    "required_bytes": 15103652100,
+    "passed_against_recorded_available": true,
+    "scope": "Original estimate used smaller TARGET_COUNTER_INPUT_WORDS; actual captured WORLD_RELOAD input is554880bytes larger. Full input/readback plus14GiB reserve still fit recorded available bytes. Original receipt preserved; no GPU rerun."
+  }
 }

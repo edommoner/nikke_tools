@@ -23,7 +23,7 @@ void actorFieldBind(inout Runtime s,uint row,uint target,uint generation)
 bool actorFieldSame(inout Runtime s,uint row,uint generation)
 { uint at=actorFieldKey(s,row);return WORLD_RECIPIENT_SAME(s,row,generation,results[at]==(s.target&127U)+1 && results[at+1]==generation); }
 uint actorFieldLogicalSlot(inout Runtime s,uint target)
-{ uint slot=(target&ACTOR_REF)!=0 ? target&127U : target;if(slot>=actorPoolCount(s)) return 128;return commands[actorBinding(s,slot)]==1 ? 0 : slot; }
+{ uint slot=(target&ACTOR_REF)!=0 ? target&127U : target;if(slot>=actorPoolCount(s)) return 128;uint kind=commands[actorBinding(s,slot)];return kind==1||kind==6 ? 0 : slot; }
 bool actorFieldQueryLive(inout Runtime s,uint target)
 { uint slot=actorFieldLogicalSlot(s,target);return slot<actorPoolCount(s) && results[actorPoolAt(s,slot)+1]!=0; }
 bool actorFieldMember(inout Runtime s,uint row,uint target)
@@ -33,7 +33,7 @@ bool actorFieldConditions(inout Runtime s,uint row,uint target,uint64_t when)
 bool actorFieldContextAdd(inout Runtime s,uint who)
 {
     if((s.target&ACTOR_REF)!=0) return COUNTER_CONTEXT_ADD(s,commands[actorBinding(s,s.target&127U)]==5);
-    return COUNTER_CONTEXT_ADD(s,(actorPhysicalTarget(s,who,0)&127U)!=0);
+    return COUNTER_CONTEXT_ADD(s,commands[actorBinding(s,actorPhysicalTarget(s,who,0)&127U)]==5);
 }
 bool actorFieldTargetMismatch(inout Runtime s,uint who,uint kind)
 { return kind==C_TARGET_BOSS && actorFieldContextAdd(s,who) || kind==C_TARGET_ADD && !actorFieldContextAdd(s,who); }
@@ -90,7 +90,7 @@ void actorFieldSelectOrder(inout Runtime s,inout uint order[128],inout uint coun
         return;
     }
     if(route==1) { order[0]=0;count=1;return; }
-    uint first=COUNTER_FIELDS_FIRST(s,route,(inherited&ACTOR_REF)!=0 ? actorFieldLogicalSlot(s,inherited) : actorPhysicalTarget(s,who,0)&127U);
+    uint first=COUNTER_FIELDS_FIRST(s,route,(inherited&ACTOR_REF)!=0 ? actorFieldLogicalSlot(s,inherited) : actorFieldLogicalSlot(s,actorPhysicalTarget(s,who,0)));
     if(route==0) { order[0]=first;count=first<128 ? 1 : 0;return; }
     if(route==6)
     {

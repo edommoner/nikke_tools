@@ -1,3 +1,7 @@
+<!-- aimed-real-world-current -->
+全定義の実編成3profile×部位/interrupt×3/30s=12をprivate明示受付へ接続。Mermaidの2入力で名前付き状態/解除の論理対象不整合を検出し、共通Slang2ファイル4箇所でpart/private6→本体の敵効果scopeへ修正。正本/期待値不変、修正版Metal12と論理6/直接private28receipt成功・独立seal。正本6624射/11870returned packet/3532private着弾/9102RNG、実GPU比較は状態/武器時計/burst/全pool会計/ordered RNG/最終MT。射撃trace容量770・省略1354保持、全packet/全skill列traceではない。旧1405の全4419747840Bとcallback20の62914560Bを全byte保持・独立seal。CPU回帰95群498検査175.984秒＋最終7群71検査。CLIは単体検査→native→GPUへ変更し故障注入11成功、実callback実行でも順序確認。default266の旧230packing入力SHA/拒否理由を全保持（base170）。sparsifyはSHA/path/inode保持で6941179904B回収・削除0。Windows追加0/原因unknown/保全false、現CUDA実行未確認。development_only/全キャラ0/UI CPU/未達。次は対象worldのカタログ拡張と未対応consumer/制御。詳細docs/portable-aimed-real-worlds.mdとcheckpoint。以下は履歴。
+<!-- /aimed-real-world-current -->
+
 <!-- aimed-callback-current -->
 GPU本体変更なしでbody/partカウンター子のATK/吸血を共通20ケースへ追加。正本104射/440returned packet/20完了をCPU固定し、追加観測器のsemantic read/trace保持。Metal20の全battle/HP/pool/counter/named/trace/会計と直接private184行一致・独立seal。440行GPU個別traceではない。CPU4群17検査18.356秒＋最終5群21検査18.508秒、GPU0.05524秒、生成cache hit/追加Slang0。通常122/診断123 sourceが旧sealed1405/診断12と全同一なので旧1405保持証拠を再利用し全体再実行0。初期テストのcanonical通知無効化とcharge時刻0の誤認はGPU前に修正、数値期待値/正本変更なし。Windows追加0/原因unknown/保全false、現CUDA未検証。development_only/全キャラ0/UI CPU/未達。次は全定義実編成のtarget worldと広いcallback。詳細docs/portable-aimed-callbacks.mdとcheckpoint。以下は履歴。
 <!-- /aimed-callback-current -->

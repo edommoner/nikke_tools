@@ -1,0 +1,132 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "rows": [
+    {
+      "name": "aimed-real/비스킷/3s/interrupt",
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "all_source_indices_bound_once": true,
+      "all_character_effects_included": true,
+      "cpu_battle_executed": false,
+      "input_words": 104400,
+      "effect_definitions_sha256": "0202669234474d2377a592d201bdaae4a940a7438b1a8ccad3030849a9b852b8"
+    },
+    {
+      "name": "aimed-real/비스킷/3s/part",
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "all_source_indices_bound_once": true,
+      "all_character_effects_included": true,
+      "cpu_battle_executed": false,
+      "input_words": 104400,
+      "effect_definitions_sha256": "0202669234474d2377a592d201bdaae4a940a7438b1a8ccad3030849a9b852b8"
+    },
+    {
+      "name": "aimed-real/비스킷/30s/interrupt",
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "all_source_indices_bound_once": true,
+      "all_character_effects_included": true,
+      "cpu_battle_executed": false,
+      "input_words": 104400,
+      "effect_definitions_sha256": "0202669234474d2377a592d201bdaae4a940a7438b1a8ccad3030849a9b852b8"
+    },
+    {
+      "name": "aimed-real/비스킷/30s/part",
+      "prepared_effects": 70,
+      "bound_effects": 70,
+      "all_source_indices_bound_once": true,
+      "all_character_effects_included": true,
+      "cpu_battle_executed": false,
+      "input_words": 104400,
+      "effect_definitions_sha256": "0202669234474d2377a592d201bdaae4a940a7438b1a8ccad3030849a9b852b8"
+    },
+    {
+      "name": "aimed-real/리틀 머메이드/3s/interrupt",
+      "prepared_effects": 79,
+      "bound_effects": 79,
+      "all_source_indices_bound_once": true,
+      "all_character_effects_included": true,
+      "cpu_battle_executed": false,
+      "input_words": 104400,
+      "effect_definitions_sha256": "95f5e8931571ffe3b0c02fd6c5e4723c1d60299438ca2ff4740c06cbba10b8bd"
+    },
+    {
+      "name": "aimed-real/리틀 머메이드/3s/part",
+      "prepared_effects": 79,
+      "bound_effects": 79,
+      "all_source_indices_bound_once": true,
+      "all_character_effects_included": true,
+      "cpu_battle_executed": false,
+      "input_words": 104400,
+      "effect_definitions_sha256": "95f5e8931571ffe3b0c02fd6c5e4723c1d60299438ca2ff4740c06cbba10b8bd"
+    },
+    {
+      "name": "aimed-real/리틀 머메이드/30s/interrupt",
+      "prepared_effects": 79,
+      "bound_effects": 79,
+      "all_source_indices_bound_once": true,
+      "all_character_effects_included": true,
+      "cpu_battle_executed": false,
+      "input_words": 104400,
+      "effect_definitions_sha256": "95f5e8931571ffe3b0c02fd6c5e4723c1d60299438ca2ff4740c06cbba10b8bd"
+    },
+    {
+      "name": "aimed-real/리틀 머메이드/30s/part",
+      "prepared_effects": 79,
+      "bound_effects": 79,
+      "all_source_indices_bound_once": true,
+      "all_character_effects_included": true,
+      "cpu_battle_executed": false,
+      "input_words": 104400,
+      "effect_definitions_sha256": "95f5e8931571ffe3b0c02fd6c5e4723c1d60299438ca2ff4740c06cbba10b8bd"
+    },
+    {
+      "name": "aimed-real/릴리/3s/interrupt",
+      "prepared_effects": 68,
+      "bound_effects": 68,
+      "all_source_indices_bound_once": true,
+      "all_character_effects_included": true,
+      "cpu_battle_executed": false,
+      "input_words": 104400,
+      "effect_definitions_sha256": "f7ffcbae80b4ddadb50ef2bd4d22edc7c6cc1e4b8a655ae7a883024405dc84a8"
+    },
+    {
+      "name": "aimed-real/릴리/3s/part",
+      "prepared_effects": 68,
+      "bound_effects": 68,
+      "all_source_indices_bound_once": true,
+      "all_character_effects_included": true,
+      "cpu_battle_executed": false,
+      "input_words": 104400,
+      "effect_definitions_sha256": "f7ffcbae80b4ddadb50ef2bd4d22edc7c6cc1e4b8a655ae7a883024405dc84a8"
+    },
+    {
+      "name": "aimed-real/릴리/30s/interrupt",
+      "prepared_effects": 68,
+      "bound_effects": 68,
+      "all_source_indices_bound_once": true,
+      "all_character_effects_included": true,
+      "cpu_battle_executed": false,
+      "input_words": 104400,
+      "effect_definitions_sha256": "f7ffcbae80b4ddadb50ef2bd4d22edc7c6cc1e4b8a655ae7a883024405dc84a8"
+    },
+    {
+      "name": "aimed-real/릴리/30s/part",
+      "prepared_effects": 68,
+      "bound_effects": 68,
+      "all_source_indices_bound_once": true,
+      "all_character_effects_included": true,
+      "cpu_battle_executed": false,
+      "input_words": 104400,
+      "effect_definitions_sha256": "f7ffcbae80b4ddadb50ef2bd4d22edc7c6cc1e4b8a655ae7a883024405dc84a8"
+    }
+  ],
+  "input_bytes": 5011204,
+  "source_count": 122,
+  "gpu_source_equal_to_sealed_1405": true,
+  "retained_old_input_sha256": "fcc545914f79d58bdd37f313409c0010358b9daf50eaeecffb1761e959d58b4f",
+  "retained_old_output_sha256": "19a9575b13355dff51ba8ea12e3238e05286b68370036b25d24a4bf2d597ea31",
+  "scope": "Static full-definition input/binding audit before logical shader fix; GPU source equality refers to initial failed v2, not corrected shader source. Default input hashes remain unchanged."
+}

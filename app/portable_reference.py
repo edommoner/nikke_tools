@@ -4,7 +4,9 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
-REFERENCES={'aimed-callback':('portable_aimed_callback_cases','world_aimed_area_native','portable_aimed_callback_contracts'),
+REFERENCES={'aimed-enemy':('portable_aimed_enemy_cases','world_aimed_area_native','portable_aimed_enemy_contracts'),
+            'aimed-rosters':('portable_aimed_roster_cases','world_aimed_roster_native','portable_aimed_roster_contracts'),
+            'aimed-callback':('portable_aimed_callback_cases','world_aimed_area_native','portable_aimed_callback_contracts'),
             'aimed-area':('portable_aimed_area_cases','world_aimed_area_native','portable_aimed_area_contracts'),
             'aimed-packets':('portable_aimed_packet_cases','world_aimed_packet_native','portable_aimed_packet_contracts'),
             'interrupt-aim':('portable_interrupt_aim_cases','world_interrupt_aim_native','portable_interrupt_aim_contracts'),
