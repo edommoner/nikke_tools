@@ -159,6 +159,8 @@ SUITES['mixed-query']=dict(SUITES['late-attack-random'],script='research/verify-
 SUITES['mixed-query-diagnostic']=dict(SUITES['mixed-query'],script='research/verify-world-mixed-query-diagnostic-short.py',source='gpu/world_heal_share_diagnostic_entry.slang',golden='research/portable-world-mixed-query-diagnostic-short-expected.json',tests=SUITES['mixed-query']['tests']+['test_portable_heal_share_trace.py'])
 SUITES['interrupt-aim']=dict(SUITES['mixed-query'],script='research/verify-world-interrupt-aim-short.py',golden='research/portable-world-interrupt-aim-short-expected.json',inputs=24,native=24,development_only=True,tests=['test_portable_interrupt_aim_reference.py','test_portable_interrupt_aim.py','test_portable_state_focus.py','test_portable_definition_view.py','test_portable_physical_interrupt.py','test_portable_scratch_layout.py','test_portable_state_work_routing.py'],support_files=['research/portable-interrupt-aim-rejection-stage.json'])
 SUITES['interrupt-aim-diagnostic']=dict(SUITES['interrupt-aim'],script='research/verify-world-interrupt-aim-diagnostic-short.py',source='gpu/world_interrupt_aim_diagnostic_entry.slang',golden='research/portable-world-interrupt-aim-diagnostic-short-expected.json')
+SUITES['aimed-factors']=dict(SUITES['interrupt-aim'],script='research/verify-world-aimed-factor-short.py',golden='research/portable-world-aimed-factor-short-expected.json',inputs=8,native=8,tests=['test_portable_aimed_packet_reference.py','test_portable_aimed_factor.py','test_portable_definition_view.py','test_portable_physical_interrupt.py','test_portable_state_focus.py','test_portable_state_work_routing.py'])
+SUITES['aimed-factors-diagnostic']=dict(SUITES['aimed-factors'],script='research/verify-world-aimed-factor-diagnostic-short.py',source='gpu/world_interrupt_aim_diagnostic_entry.slang',golden='research/portable-world-aimed-factor-diagnostic-short-expected.json')
 SUITES['scratch-layout']=dict(script='research/verify-scratch-layout-short.py',golden='research/portable-scratch-layout-short-expected.json',source='gpu/scratch_layout_probe.slang',inputs=8,native=6,development_only=False,tests=['test_portable_scratch_layout.py','test_portable_scratch_layout_migration.py','test_portable_generation_request.py'])
 SUITES['ordered-history']=dict(script='research/verify-ordered-history-short.py',golden='research/portable-ordered-history-short-expected.json',source='gpu/ordered_history_probe.slang',inputs=13,native=10,development_only=False,tests=['test_portable_ordered_history.py','test_portable_generation_request.py'])
 SUITES['late-attack-random']['tests']+=['test_portable_ordered_history.py','test_portable_generation_request.py']
@@ -230,6 +232,7 @@ SUITES['state-focus-retention']['support_files']=list(dict.fromkeys(SUITES['ally
 SUITES['ordered-history-retention']=dict(SUITES['state-focus-retention'],script='research/verify-world-ordered-history-retention-short.py',golden='research/portable-world-ordered-history-retention-short-expected.json',inputs=1355,native=1071,tests=list(dict.fromkeys(SUITES['state-focus-retention']['tests']+SUITES['ordered-history-battles']['tests']+['test_portable_eager_cover_migration.py'])))
 SUITES['interrupt-aim-retention']=dict(SUITES['ordered-history-retention'],script='research/verify-world-interrupt-aim-retention-short.py',golden='research/portable-world-interrupt-aim-retention-short-expected.json',inputs=1385,native=1101,development_only=True,tests=list(dict.fromkeys(SUITES['ordered-history-retention']['tests']+SUITES['interrupt-aim']['tests']+SUITES['mixed-query']['tests'])))
 SUITES['interrupt-aim-retention']['support_files']=list(dict.fromkeys(SUITES['ordered-history-retention']['support_files']+['research/portable-interrupt-aim-rejection-stage.json']))
+SUITES['aimed-factors-retention']=dict(SUITES['interrupt-aim-retention'],script='research/verify-world-aimed-factor-retention-short.py',golden='research/portable-world-aimed-factor-retention-short-expected.json',inputs=1393,native=1109,development_only=True)
 SUITES['compiler-commands']=dict(script=None,source='gpu/compiler_commands_entry.slang',
     golden='research/portable-compiler-commands-heal-share-source-certificate.json',inputs=0,native=0,compiler_only=True,
     support_files=['research/portable-world-heal-share-regression-short-expected.json'],
@@ -2092,6 +2095,7 @@ def main(argv=None):
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
     from portable_reference import REFERENCES
     a=sub.add_parser('layout-compare');a.add_argument('--before',type=Path,required=True);a.add_argument('--after',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('aimed-factor-compare');a.add_argument('--before',type=Path,required=True);a.add_argument('--after',type=Path,required=True);a.add_argument('--diagnostic',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('layout-check');a.add_argument('--out',type=Path)
     a=sub.add_parser('reference');a.add_argument('--suite',choices=REFERENCES,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('phase-codegen');a.add_argument('--out',type=Path,required=True);a.add_argument('--slang-root',type=Path)
@@ -2172,6 +2176,12 @@ def main(argv=None):
         from portable_scratch_layout_migration import compare_captures
         receipt=compare_captures(ROOT,a.before,a.after);write(a.out,receipt)
         result={k:v for k,v in receipt.items() if k!='rows'}
+    elif a.command=='aimed-factor-compare':
+        from portable_aimed_factor_retention import compare_captures
+        if a.out.exists():raise ValueError('Saved-result audit output already exists')
+        with forbid_gpu():receipt=compare_captures(ROOT,a.before,a.after,a.diagnostic)
+        with a.out.open('x',encoding='utf-8') as stream:json.dump(receipt,stream,ensure_ascii=False,indent=2);stream.write('\n')
+        result={k:v for k,v in receipt.items() if k!='changed_memo_rows'}
     elif a.command=='layout-check':
         from portable_specs import LIMITS
         from portable_scratch_layout import audit_sources

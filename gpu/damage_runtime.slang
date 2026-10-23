@@ -43,6 +43,11 @@ void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient
         if(!f64Zero(b[S_pierce_enabled])) flags|=H_PIERCE;
         if(!f64Zero(b[S_armor_break_enabled])) flags|=H_ARMOR;
     }
+    uint aimedKind=0;
+#ifdef PORTABLE_WORLD_PROJECTILE
+    if(physical && focusAimEnabled(s) && actorPoolsEnabled(s))
+        aimedKind=commands[actorBinding(s,actorPhysicalTarget(s,who,0)&127U)];
+#endif
     sampledFlags=flags;
     explosionRange=0;pierceRange=0;
     if(captureReach)
@@ -66,7 +71,7 @@ void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient
     if(normal && hasRangeGeometry(s)) optimal=geometryRange(s,who,true,b[S_optimal_range_min],b[S_optimal_range_max_pct]);
     if (normal && optimal) f3 = f64Add(f3,uint64_t(0x3fd33333) << 32 | 0x33333333);
     factors[7] = f3; // Part receipts retain this shot's critical/range basis, without core.
-    uint64_t core = COUNTER_PART_CORE(s,flags,(flags & H_CORE) != 0 ? ONE : normal ? normalProbability(s,who,b[S_accuracy_pct]) : WORLD_MODE_CORE(s,who,flags,b[S_accuracy_pct]));
+    uint64_t core = (aimedKind==1 || aimedKind==6) ? uint64_t(0) : COUNTER_PART_CORE(s,flags,(flags & H_CORE) != 0 ? ONE : normal ? normalProbability(s,who,b[S_accuracy_pct]) : WORLD_MODE_CORE(s,who,flags,b[S_accuracy_pct]));
     WORLD_FRACTION_SAMPLE(s,who,critRate,core,physical,flags) if (!f64Zero(core)) f3 = f64Add(f3,f64Mul(core,f64Add(coreBonus,f64Div(b[S_core_dmg_pct],HUNDRED))));
     uint64_t f4 = (flags & H_CHARGE) != 0 ? f64Add(f64Mul(fullChargeMult,f64Add(ONE,f64Div(b[S_charge_dmg_mag_pct],HUNDRED))),f64Div(b[S_charge_dmg_pct],HUNDRED)) : ONE;
     uint64_t f5 = f64Add(ONE,f64Div(b[S_atk_dmg_pct],HUNDRED));
@@ -86,6 +91,13 @@ void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient
     factors[8] = f64Add(f5,f64Div(b[S_part_dmg_pct],HUNDRED));
     if ((flags & H_PART) != 0) f5 = f64Add(f5,f64Div(b[S_part_dmg_pct],HUNDRED));
     if ((flags & H_INTERCEPT) != 0) f5 = f64Add(f5,f64Div(b[S_intercept_dmg_pct],HUNDRED));
+    // Native _stage_pellet direct targets have no core and one target factor.
+    // Piercing/explosive shots need distinct body and target packets instead.
+    if((flags&(H_PIERCE|H_EXPLOSION))==0)
+    {
+        if(aimedKind==1 && (flags&H_PART)==0) f5=f64Add(f5,f64Div(b[S_part_dmg_pct],HUNDRED));
+        if(aimedKind==6 && (flags&H_INTERCEPT)==0) f5=f64Add(f5,f64Div(b[S_intercept_dmg_pct],HUNDRED));
+    }
     uint64_t f6 = f64Add(ONE,f64Div(b[S_received_dmg_pct],HUNDRED));
     if ((flags & H_SPLIT) != 0) f6 = f64Add(f6,f64Div(b[S_split_dmg_pct],HUNDRED));
     uint64_t f7 = elementMatch(s,who) ? f64Add(uint64_t(0x3ff19999) << 32 | 0x9999999a,f64Div(b[S_element_bonus],HUNDRED)) : ONE;

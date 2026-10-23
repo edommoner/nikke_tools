@@ -1,3 +1,5 @@
+no-core/intercept倍率と新しい複数packet観測の最新状態は [portable-aimed-packets.md](portable-aimed-packets.md) を参照。以下は041934b時点の直接着弾接続記録です。
+
 # Private interrupt直接着弾の共有接続
 
 通常合計外のinterrupt直接着弾を共有SlangのactorPoolLandへ接続した。生存中はnativeどおりhits/dealt/landedを加算し、同フレーム破壊後も外部会計と吸血を残す。対象の再出現世代を維持し、canonical counterへのImpactは発行しない。通常の武器発射イベントとゲージ処理を消す変更ではない。CUDA/Metalに別々の計算・効果定義・期待値は追加していない。

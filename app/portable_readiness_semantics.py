@@ -22,11 +22,11 @@ def reference_readiness(issue):
     if issue.get('phase')=='program' and issue.get('category')=='control' and issue.get('fields')==['focus_aim_physical_interrupt']:
         result.update(lane='native_contract_extension',native_consumer='confirmed_source',
             consumer_source='research/upstream/nikke-calc-master/calculator/timeline.py:_land_target; app/impact_runtime.py:landing; app/world_actor_runtime.py:ActorRegistry.view',
-            contract_coverage='recorded_subset',reference_suites=['interrupt-aim'],recorded_cases=24,
-            implemented_extensions=['private_native_interrupt_receipts','zero_canonical_credit_contract','same_frame_dead_accounting','respawn_generation_contract','charge_and_lifesteal_contracts','shared_private_interrupt_landing_bridge','scoped_metal_full_battle_and_receipts'],
-            scoped_gpu_suite='interrupt-aim-retention',scoped_metal_cases=24,scoped_metal_receipts=98,scoped_metal_validation_performed=True,
-            required_extensions=['aimed_no_core_intercept_factors','native_multipacket_shot_observer','aimed_pierce_explosion_packet_set','current_source_cuda_validation'],
-            note='Shared private kind6 direct landing/accounting/lifesteal matches24 authored Metal contracts and98 per-landing receipts;1355 old and6 mixed inputs also pass. Canonical ActorKind2 stays PROJECTILE and no canonical credit is added. Development-only: aimed no-core/intercept multipliers and piercing/explosive body+target packet sets still require extension. Default typed CPU bridge remains unchanged; no full-character promotion')
+            contract_coverage='recorded_subset',reference_suites=['interrupt-aim','aimed-packets'],recorded_cases=40,
+            implemented_extensions=['private_native_interrupt_receipts','zero_canonical_credit_contract','same_frame_dead_accounting','respawn_generation_contract','charge_and_lifesteal_contracts','shared_private_interrupt_landing_bridge','scoped_metal_full_battle_and_receipts','aimed_no_core_intercept_factors','native_multipacket_shot_observer'],
+            scoped_gpu_suite='aimed-factors-retention',scoped_metal_cases=8,scoped_metal_receipts=34,prior_direct_metal_cases=24,scoped_metal_validation_performed=True,
+            required_extensions=['aimed_pierce_explosion_packet_set','current_source_cuda_validation'],
+            note='No-core and direct part/intercept factors match8 authored Metal contracts and34 private receipts; all1385 old inputs also match on the new shared source. Native multi-packet observation records16 contracts/178 returned packets without extra queries. Development-only: piercing/explosive GPU body+target packet delivery still needs connection. Canonical ActorKind2 remains PROJECTILE; default typed CPU bridge unchanged, no full-character promotion')
         return result
     if issue.get('phase')=='effect' and issue.get('kind')=='buff' and issue.get('category')=='trigger' and operator.get('domain')=='condition' and operator.get('descriptor') in ('no_broken_cover_ally','focusing'):
         focus=operator['descriptor']=='focusing'
