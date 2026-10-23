@@ -1,0 +1,13 @@
+{
+  "package_id": "8f78d6b50fe7c125edff30ac582e902863a5486a2bb4618a6cda245d600cf70b",
+  "files": 2667,
+  "bytes": 6880164,
+  "archive_sha256": "11f1609e145f47d339cd047cd067011c4be67662265aa39458f30ec7cc33cecd",
+  "source_commit": "78bd816517cf3442a70b910f909c7b7e6df6e375",
+  "scope": "CPU-only preparation profiling; no Slang/NVRTC/driver/GPU invocation authorized",
+  "archive_bytes": 6880164,
+  "mac_cpu37_stage_verified": true,
+  "mac_cache_required_hit_verified": true,
+  "mac_regression_tests": 72,
+  "branch": "codex/cuda-preparation-v2-source"
+}
