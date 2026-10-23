@@ -14,7 +14,7 @@ class GenerationCacheTests(unittest.TestCase):
         (self.root/'gpu').mkdir(parents=True);(self.root/'app').mkdir();(self.tool/'bin').mkdir(parents=True);(self.tool/'include').mkdir()
         (self.tool/'bin/slangc').write_bytes(b'compiler');(self.tool/'include/prelude.h').write_bytes(b'prelude')
         (self.root/'gpu/entry.slang').write_text('#define PORTABLE_RESIDENT_RUNTIME\n')
-        for name in ('portable_backend.py','portable_generation_cache.py','portable_resident_layout.py','portable_scope_snapshot_audit.py'):shutil.copyfile(ROOT/'app'/name,self.root/'app'/name)
+        for name in ('portable_backend.py','portable_slang_generation.py','portable_generation_cache.py','portable_resident_layout.py','portable_scope_snapshot_audit.py'):shutil.copyfile(ROOT/'app'/name,self.root/'app'/name)
         self.context=ExitStack();self.addCleanup(self.context.close)
         self.context.enter_context(patch.object(backend,'ROOT',self.root));self.context.enter_context(patch.dict(os.environ,{'NIKKE_SLANG_ROOT':str(self.tool),'NIKKE_SLANG_GENERATION_CACHE':str(self.cached),'NIKKE_SLANG_GENERATION_REQUIRED':'0'}))
         self.context.enter_context(patch.object(backend.subprocess,'run',side_effect=self.compiler))
@@ -52,7 +52,7 @@ class GenerationCacheTests(unittest.TestCase):
         self.assertEqual(claim.read_bytes(),b'foreign');self.assertEqual(self.calls,[])
     def test_changed_source_compiler_prelude_or_consumer_is_required_miss(self):
         self.build()
-        for p in [self.root/'gpu/entry.slang',self.tool/'bin/slangc',self.tool/'include/prelude.h',self.root/'app/portable_scope_snapshot_audit.py']:
+        for p in [self.root/'gpu/entry.slang',self.tool/'bin/slangc',self.tool/'include/prelude.h',self.root/'app/portable_scope_snapshot_audit.py',self.root/'app/portable_slang_generation.py',self.root/'app/portable_resident_layout.py']:
             original=p.read_bytes();p.write_bytes(original+b'\n// changed')
             with self.subTest(path=str(p)),self.assertRaisesRegex(RuntimeError,'Required.*miss'):self.build(True)
             p.write_bytes(original)

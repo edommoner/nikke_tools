@@ -188,6 +188,7 @@ SUITES['burst1-ally-retention']=dict(SUITES['burst1-ally'],script='research/veri
 SUITES['leftmost-rosters']=dict(SUITES['leftmost'],script='research/verify-world-leftmost-rosters-short.py',golden='research/portable-world-leftmost-rosters-short-expected.json',inputs=6,native=6)
 SUITES['random-cleanse']=dict(SUITES['burst1-ally'],script='research/verify-world-random-cleanse-short.py',source='gpu/world_random_cleanse_entry.slang',golden='research/portable-world-random-cleanse-short-expected.json',inputs=50,native=38,tests=['test_portable_random_cleanse.py','test_portable_ally_random_gpu.py','test_portable_ally_random_reference.py','test_portable_definition_view.py','test_portable_readiness_semantics.py'])
 SUITES['random-cleanse-retention']=dict(SUITES['random-cleanse'],script='research/verify-world-random-cleanse-retention-short.py',golden='research/portable-world-random-cleanse-retention-short-expected.json',inputs=175,native=132,tests=list(dict.fromkeys(SUITES['burst1-ally-retention']['tests']+SUITES['random-cleanse']['tests'])))
+SUITES['generation-boundary']=dict(SUITES['random-cleanse-retention'],tests=['test_portable_generation_separation.py','test_portable_generation_cache.py','test_portable_resident_build.py','test_portable_required_cache_preflight.py','test_portable_cache_probe.py','test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_phase_audit.py','test_portable_gpu_cli.py','test_portable_gpu_replay.py','test_portable_development_generation.py'])
 SUITES['leftmost-retention']=dict(SUITES['leftmost'],script='research/verify-world-leftmost-retention-short.py',golden='research/portable-world-leftmost-retention-short-expected.json',inputs=74,native=59,tests=SUITES['leftmost']['tests']+['test_portable_leftmost_replay.py','test_portable_duration_scaling_gpu.py','test_portable_gpu_replay.py','test_portable_reference_migration.py'])
 SUITES['cache-preflight-regression']=dict(SUITES['duration-scaling'],tests=SUITES['duration-scaling']['tests']+['test_portable_cache_probe.py','test_portable_required_cache_preflight.py','test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_compile_cli.py','test_portable_generation_cache.py','test_portable_generation_request.py','test_portable_gpu_cli.py','test_portable_gpu_replay.py','test_portable_compiler_diagnostic.py'])
 SUITES['squad-stage-rosters']=dict(SUITES['squad-stage'],script='research/verify-world-squad-stage-rosters-short.py',golden='research/portable-world-squad-stage-rosters-short-expected.json',inputs=7,native=7)
@@ -283,6 +284,7 @@ SUITES['compiler-full']=dict(SUITES['compiler-commands'],
 SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
                'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py','test_portable_query_boundaries.py','test_portable_ptx_stats.py','test_portable_compiler_diagnostic.py']
 SMOKE_TESTS.append('test_portable_generation_cache.py')
+SMOKE_TESTS.append('test_portable_generation_separation.py')
 SMOKE_TESTS.append('test_portable_definition_view.py')
 SMOKE_TESTS.append('test_portable_ptx_callgraph.py')
 SMOKE_TESTS.append('test_portable_ptx_partition.py')
@@ -581,9 +583,10 @@ def native_hash(adapter, domain):
 @contextlib.contextmanager
 def forbid_gpu():
     import portable_backend
+    import portable_slang_generation
     def stop(*args, **kwargs):
         raise RuntimeError('GPU build/execute forbidden in CPU/audit stage')
-    with patch.object(portable_backend,'build',stop), patch.object(portable_backend,'execute',stop), patch.object(portable_backend,'execute_batches',stop):
+    with patch.object(portable_backend,'build',stop), patch.object(portable_backend,'execute',stop), patch.object(portable_backend,'execute_batches',stop),patch.object(portable_slang_generation,'build',stop),patch.object(portable_slang_generation,'_build_resident',stop):
         yield
 
 
@@ -841,7 +844,7 @@ def replay_source(m, source_package, source_capture,reference_migration=None):
     critical={'app/portable_backend.py','app/portable_compile_cache.py','scripts/run-metal-probe.swift',
               'research/portable_phase_audit.py','research/summarize-portable-cross-gpu.py',
               'app/detail_gpu.py','app/engine_worker.py','app/effect_spec.py','app/engine_compat.py'}
-    critical |= {name for name in old.keys() | new.keys() if name.startswith(('gpu/','research/upstream/')) or name=='app/portable_generation_cache.py'}
+    critical |= {name for name in old.keys() | new.keys() if name.startswith(('gpu/','research/upstream/')) or name in ('app/portable_generation_cache.py','app/portable_slang_generation.py')}
     if any(name not in old or name not in new or old[name]!=new[name] for name in critical):
         raise ValueError('GPU transport, source, normalizer or canonical reference changed')
     run=load(source_capture/'run.json')
@@ -1211,10 +1214,13 @@ def cache_probe(source,cuda_root,cache,output,*,artifact_kind='cubin',ptxas_leve
 @contextlib.contextmanager
 def cache_file_checks_only():
     import portable_backend
+    import portable_slang_generation
+    cached_generation_build=portable_slang_generation.build
     blocked=[]
     def forbidden(*args,**kwargs):
         blocked.append('compiler/process/library');raise RuntimeError('Required-cache preflight forbids compilation, subprocesses and native libraries')
     with forbid_gpu(),patch.object(portable_backend,'_build_resident',forbidden),\
+         patch.object(portable_slang_generation,'build',cached_generation_build),patch.object(portable_slang_generation,'_build_resident',forbidden),\
          patch.object(portable_backend.subprocess,'run',forbidden),\
          patch.object(portable_backend.C,'WinDLL',forbidden,create=True),patch.object(portable_backend.C,'CDLL',forbidden):
         yield blocked

@@ -65,7 +65,7 @@ class ReplayTests(unittest.TestCase):
         self.new['files'][0]['sha256']='changed'
         with self.assertRaisesRegex(ValueError,'changed'):self.check()
         self.new=copy.deepcopy(self.old)
-        for path in ('gpu/new.slang','research/upstream/new.py'):
+        for path in ('gpu/new.slang','research/upstream/new.py','app/portable_slang_generation.py'):
             self.new['files'].append(dict(path=path,sha256='new'))
             with self.assertRaisesRegex(ValueError,'changed'):self.check()
             self.new['files'].pop()

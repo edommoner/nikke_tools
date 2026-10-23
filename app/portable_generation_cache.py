@@ -36,7 +36,7 @@ def identity(root,compiler_root,source,entry,hashes):
             if dependency not in hashes:raise ValueError('Slang cache literal include missing from source closure')
         if re.search(rb'\bimport\s|__DATE__|__TIME__|__TIMESTAMP__',raw):raise ValueError('Slang generation cache cannot fingerprint implicit modules or time macros')
         if b'__FILE__' in raw:sensitive=True
-    consumers={n:file_digest(root/n) for n in ('app/portable_backend.py','app/portable_generation_cache.py','app/portable_resident_layout.py','app/portable_scope_snapshot_audit.py')}
+    consumers={n:file_digest(root/n) for n in ('app/portable_slang_generation.py','app/portable_generation_cache.py','app/portable_resident_layout.py','app/portable_scope_snapshot_audit.py')}
     return dict(schema=SCHEMA,kind='paired-resident-slang-generation',source=source,entry=entry,source_sha256=hashes,options=OPTIONS,
                 compiler_root=str(compiler_root),compiler_files=files,host=dict(system=platform.system(),machine=platform.machine(),release=platform.release()),consumers=consumers,path_sensitive_root=str(root.resolve()) if sensitive else None)
 

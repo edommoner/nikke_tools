@@ -1,0 +1,192 @@
+{
+  "files": [
+    {
+      "path": "app/portable_backend.py",
+      "bytes": 28926,
+      "sha256": "d99974383efa85227de4f449d7667dca80aec388187050e07dff47543adebbcc"
+    },
+    {
+      "path": "app/portable_generation_cache.py",
+      "bytes": 8351,
+      "sha256": "8c2fe0ac816e256ba25a6cad535afa85fefbf4d934281b9d611a986cf8d6bc97"
+    },
+    {
+      "path": "app/portable_slang_generation.py",
+      "bytes": 6196,
+      "sha256": "3c7d10365ed81221060120268b682187e0bcbb3c37cecbdd1a87ed216ad21f32"
+    },
+    {
+      "path": "docs/gpu-development-cli.md",
+      "bytes": 102822,
+      "sha256": "e9370c85346f413bde7c2ef29a68822b7422cc55974bfd9882bec0dba8dc3cda"
+    },
+    {
+      "path": "docs/mac-handoff.md",
+      "bytes": 380167,
+      "sha256": "a256245b381582dab5ae00f4cefabf5280aff99512beb3655b00d267f2b7f58d"
+    },
+    {
+      "path": "docs/portable-cache-preflight.md",
+      "bytes": 5525,
+      "sha256": "c0f1f1481c8c48e5c56ac27271d148e0d445401cc04487b46adeb866f5704e3b"
+    },
+    {
+      "path": "docs/portable-generation-boundary.md",
+      "bytes": 5315,
+      "sha256": "fe964e0898444bfe90f948e70d13490f2f513771f4d2632795a91f85c9a4fc63"
+    },
+    {
+      "path": "docs/portable-generation-cache.md",
+      "bytes": 4275,
+      "sha256": "0bb65731fadd40f68e94f0edf02b8465a5c2f1109b196b208107525150cc053c"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cold/artifacts.json",
+      "bytes": 867,
+      "sha256": "d0e9df3de6017ef67cb5ea144ba7f4a045f7a26b5eaaf0971175641c2cf9de64"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cold/generation-cache.json",
+      "bytes": 27485,
+      "sha256": "b1c6fff2b66f75214877556ce359bb4c08f2438ba5d45f27522396f41818d64f"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cold/generation.json",
+      "bytes": 14300,
+      "sha256": "52d1c04a1fd0685d59714959d892c6e5c283f30627cfa537e52bb90b1bcd13bf"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cold/phases.jsonl",
+      "bytes": 28427,
+      "sha256": "61ee35869155ab4bdbd6b308ac9863752f0e05da15d5e8f7e5848a6523d99f72"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cpu-final/artifacts.json",
+      "bytes": 4976,
+      "sha256": "a75c605e387c9356d1eea20ec1e52c8871c3114f7dc83679720c973a812943e3"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cpu-final/cpu-batch.json",
+      "bytes": 737,
+      "sha256": "fed84d5a2bcb026b87648bff565e30d38df2bcf299f4457b25a6fa2f63c6be43"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cpu-final/cpu-tests.json",
+      "bytes": 2402,
+      "sha256": "80fad6b79912ca804f9788f3ce45455010c98f51981ca1a7b2e6519bdfe9bc8d"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cpu-final/cpu.json",
+      "bytes": 250,
+      "sha256": "f2c6310f69a18c18b9aa66649e7438c4606100afab0fba6c3463ba587751d63b"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cpu-final/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cpu-final/run.json",
+      "bytes": 237,
+      "sha256": "c963e5f3ea3c580daee2784925355deed30fa4965b65498dfd93c02636960fe0"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cpu-original-failure/artifacts.json",
+      "bytes": 3790,
+      "sha256": "500ec9138bb80ba40f46bed83b142eb6454db545b655795c020f7a88dbd35fe9"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cpu-original-failure/cpu-batch.json",
+      "bytes": 737,
+      "sha256": "ff038642ef7c97c7e72bbf98899af464270b6711c54f0450ba62fd727ea02a06"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cpu-original-failure/cpu-tests.json",
+      "bytes": 1756,
+      "sha256": "cfe150a93d7f5859fc4f2954251309d3d4b682e8d1c6f8b80a15b8e2497f3e94"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cpu-original-failure/failure.json",
+      "bytes": 96,
+      "sha256": "4b871254bf2f8f8b2aaeee122965114548f7fac94dc349b71e1bf22d6cc03557"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cpu-original-failure/run.json",
+      "bytes": 192,
+      "sha256": "fd1b8c201dc427d37280f37592b0604f1bc0f88634c066f2d72edcc7b34a7635"
+    },
+    {
+      "path": "research/generation-boundary-evidence/cpu-original-failure/test_portable_phase_audit.py.stderr.log",
+      "bytes": 1561,
+      "sha256": "d97c8d907b3c02c51c7e775a3585578e633f569f1a0b078952645942ba54a72b"
+    },
+    {
+      "path": "research/generation-boundary-evidence/proof.json",
+      "bytes": 1979,
+      "sha256": "81974cf508cfbf708e034b1cb2598525f793d27bb1f4d81575568785957d0e61"
+    },
+    {
+      "path": "research/generation-boundary-evidence/transport-hit/artifacts.json",
+      "bytes": 867,
+      "sha256": "d6b8b1ffd7e2aad57809079de52c827f20d3ccab5a6d7cdf3045e8aa3e0066a4"
+    },
+    {
+      "path": "research/generation-boundary-evidence/transport-hit/generation-cache.json",
+      "bytes": 27484,
+      "sha256": "7e7a6ace4e8c3b36455dd577be41eb61091cb1ed555c38067452c94ecea15d1b"
+    },
+    {
+      "path": "research/generation-boundary-evidence/transport-hit/generation.json",
+      "bytes": 14299,
+      "sha256": "c138c0551f2edcad31baa324668c7386d02f9a7aa7299398f11ec95eb2920bc1"
+    },
+    {
+      "path": "research/generation-boundary-evidence/transport-hit/phases.jsonl",
+      "bytes": 27896,
+      "sha256": "3ddb7361d9153e36d18d886b2b7627fdf8163c404f8788a43ecb27d9efec4a1d"
+    },
+    {
+      "path": "research/generation-boundary-evidence/transport-variant.json",
+      "bytes": 363,
+      "sha256": "d2e0f4a926f8033fbdc16544fabb3ddcb2645450fe4b848e6cdf1911af5c35d3"
+    },
+    {
+      "path": "research/portable-generation-boundary-checkpoint.json",
+      "bytes": 4359,
+      "sha256": "3ddec62b4d04cb2a7e85d0fba587fdaccf57b10447bdb2831e99f4a643258fe6"
+    },
+    {
+      "path": "scripts/nikke_gpu.py",
+      "bytes": 214792,
+      "sha256": "9aea3693bdb1e3ab0c1fb39fe0bf582b524a7088ea8ce7d889e9ae893cf25cab"
+    },
+    {
+      "path": "tests/fixtures/portable-generation-extraction.json",
+      "bytes": 1821,
+      "sha256": "b27126180a75c0d1dccf32c72ce9d0c84eb47b056dc2dbcb8c07a97744fb61a8"
+    },
+    {
+      "path": "tests/test_portable_generation_cache.py",
+      "bytes": 10208,
+      "sha256": "8861e4cdc171990467ddd39887a5792585f514b5f68a580c4e64f42303bf9313"
+    },
+    {
+      "path": "tests/test_portable_generation_separation.py",
+      "bytes": 4510,
+      "sha256": "2528947ccc627c2243b4099e7d8517d9b3c473ea25924efb49f6956cc667fd35"
+    },
+    {
+      "path": "tests/test_portable_gpu_replay.py",
+      "bytes": 5930,
+      "sha256": "4de91b7fda34d80ad04c90154185b88059f2fe5f7093f8353d26c2ec23a6930a"
+    }
+  ],
+  "bytes": 944033,
+  "credential_detections": 0,
+  "excluded": [
+    "personal sessions/settings",
+    "raw GPU buffers",
+    "generated CUDA/MSL and reflection payloads",
+    "compiler distributions"
+  ]
+}

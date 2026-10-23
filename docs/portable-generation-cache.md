@@ -1,5 +1,7 @@
 # CUDA前段のSlang生成キャッシュ
 
+現在は生成器を `portable_slang_generation.py` へ分離し、転送コードだけの変更で生成cacheを失わない境界にした。GPU source・Slang・生成器・ABI/scope監査の厳密なhashは維持する。実4file全byte保持・旧receipt・新keyの扱いは[生成器と転送コードのキャッシュ境界](portable-generation-boundary.md)を参照。以下の初期実装と測定は履歴として保持する。
+
 共通CLIの`generation`は、既存sealed packageのCUDA／Metal生成物をCPUだけで準備します。`--generation-cache`は`run`、`compile`、`module-check`でも使えます。NVRTCの`--compile-cache`や保存CUBINの再利用とは別の層です。数値実装・生成オプション・strict normalizer・GPU入力・基準goldenは変更していません。
 
 ```sh

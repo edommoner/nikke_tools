@@ -1,3 +1,7 @@
+<!-- generation-boundary-current -->
+`generation-boundary` は既存175入力で生成器/cache/CLIの11群116検査を行う開発suite。`run --cpu-only` と `generation --develop` で検証した。生成器を独立moduleへ抽出し、転送だけの編集でもcache必須hit/Slang0を維持する。旧cacheを新keyへ流用せず、旧receiptの監査を保持する。実測・限界はdocs/portable-generation-boundary.md。新GPU/Windows実行は0。
+<!-- /generation-boundary-current -->
+
 <!-- random-cleanse-gpu-current -->
 private `random-cleanse-retention`175(native132/拒否43)がMetal保存replay＋独立seal成功。`package --suite random-cleanse-retention --develop` で固定する。`random-cleanse`単独は50(native38/拒否12)の開発suiteで別golden未登録。正本referenceは random-cleanse18 / random-cleanse-mixed12 / random-cleanse-budget6 / random-cleanse-rosters2。元175のowner不足による比較失敗はsource/input/native同一の新packageへreplayして修復、GPU再実行なし。詳しい実証範囲・残件はdocs/portable-random-cleanse-gpu.md。
 <!-- /random-cleanse-gpu-current -->

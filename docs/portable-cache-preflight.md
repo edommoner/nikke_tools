@@ -19,8 +19,9 @@ cache必須指定のない実行、CPU-only、smoke、保存CUBINの経路は変
 明示的なcoldコンパイルは、従来の短時間・メモリ制限付き経路を使う。
 失敗／古いclaimは自動削除しない。
 
-生成cacheはホスト側のconsumerコードのhashも含む。CUDA側だけの変更でもbackend全体のhashが
-変われば旧生成cacheはmissする。今回の初回Metal確認もこの理由でGPU実行前に停止した。
+初期の生成cacheはbackend全体のhashも含み、CUDA側だけの変更でも旧生成cacheがmissした。
+この節の初回Metal確認もこの理由でGPU実行前に停止した。現在は生成器を独立させ、転送だけの
+変更はkeyから分離している。生成器・ABI/scope監査器のhashは維持する（[現行の境界](portable-generation-boundary.md)）。
 その失敗／claimを保持し、Slangコード生成だけを明示的に行って新しいcacheを作成した。
 CUDA・Metal・両reflectionの全byteが以前の実証と一致することを確認し、key規則は緩めていない。
 

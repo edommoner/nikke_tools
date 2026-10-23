@@ -1,3 +1,7 @@
+<!-- generation-boundary-current -->
+Slang source_hashes/build/resident生成を独立moduleへ抽出し、backendの転送/driver編集による不要な生成cache missを解消。元3関数はroot引数以外AST同一、他backend全module文/定数同一。cache keyは生成器全体/ABI/scope/tool/GPU閉包のhashを保持、新keyで旧cache流用0/旧receipt監査保持。新entryはCPU禁止・cache先行確認・replay保護へ接続。固定Aと転送chunk8→4MiBだけのBでGPU/input/native175全同一、cold2.766s/Slang2→B必須hit0.287s/Slang0、CUDA/MSL/両reflectionは前回Metal175と全byte同一。比較用chunk変更は復元済み。CPU11群116(skip0)/native175成功。初回CPUのps sandbox拒否は保持し同packageを別CPU-only captureで権限付き終了検査成功、skip0。新GPU/Windows execution0/現CUDA未検証、前回175の証拠は元scopeで保持。前回静的237/266・41分類、今回効果/入力変更0、全キャラ0/UI CPU/未達。次は名前付き敵対象等の未対応契約と、本体CUDAの保存object/linkから短い検証を選ぶ。詳細docs/portable-generation-boundary.mdとcheckpoint。以下は履歴。
+<!-- /generation-boundary-current -->
+
 <!-- random-cleanse-gpu-current -->
 有害所持味方のrandom selector20をprivate CUDA/Metal共通Slangへ接続。基礎18/live12/budget6/ココア全71定義3/30sの2で正本38。本人包含・解除不能候補・expiry/down/復活・人数0..5・budgetの候補probe→dispatch二重抽選/上限後0を固定。Metal169成功後budget追加175を実行、ownerメタデータ不足の比較失敗を元raw/claim保持で修正し共通replay＋独立seal175(native132/拒否43)成功、GPU再実行0。全624語MT/初期0抽選/最終所属と既存battle/traceを比較。旧125raw393216000Bと旧169raw531628032B全byte保持。CPU15群125(skip0)＋最終8成功、GPU4.365s、cache必須hit/追加Slang0。Runtime/stride138952/数値/normalizer/正本/Windows wrapper不変。静的237/266・base177/203・41分類、旧236SHA/残拒否/code順保持。Windows0/原因unknown/保全false/現CUDA未検証、全キャラ0/UI CPU/development_only/未達。次はperiodic/免疫/別carrier混在、敵デバフ実編成、現CUDA/全カタログ。詳細docs/portable-random-cleanse-gpu.mdとcheckpoint。以下は履歴。
 <!-- /random-cleanse-gpu-current -->
