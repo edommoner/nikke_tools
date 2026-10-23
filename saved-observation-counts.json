@@ -1,0 +1,61 @@
+{
+  "scope": "Saved JSON only; no new process, service or event query",
+  "identity_rule": "Saved observer tuple: pid, lowercase image path, creation_filetime_ticks",
+  "outer_missing": 7,
+  "inner_missing": 0,
+  "outer_missing_present_in_inner_before": 0,
+  "outer_missing_present_in_inner_after": 0,
+  "outer_missing_present_in_both_inner_snapshots": 0,
+  "saved_parent_match_counts": {
+    "outer_child": 0,
+    "outer_wrapper": 0,
+    "inner_child": 0,
+    "inner_wrapper": 0
+  },
+  "creation_relative_to_outer_child": {
+    "before": 7,
+    "after": 0,
+    "equal": 0,
+    "unavailable": 0
+  },
+  "pre_gate_job_membership_counts": {
+    "outer": 0,
+    "inner": 0
+  },
+  "exact_identity_matches_previous_5c4bfcd_missing": 0,
+  "role_counts": {
+    "unknown": 7
+  },
+  "classification_true_counts": {
+    "command_available": 0,
+    "gpu_service_script": 0,
+    "observer_script_reference": 0,
+    "original_workspace_reference": 0,
+    "server_script": 0,
+    "validation_reference": 0
+  },
+  "times_unix_ns": {
+    "outer_before": 1792774312827925200,
+    "outer_after": 1792774422487003600,
+    "outer_child_started": 1792774310436273100,
+    "outer_job_pre_gate": 1792774310075934300,
+    "outer_job_post_wait": 1792774420113612700,
+    "outer_wait_completed": 1792774420115122500,
+    "inner_before": 1792774381709641300,
+    "inner_after": 1792774404502156600,
+    "inner_job_pre_gate": 1792774379599036800,
+    "inner_job_post_wait": 1792774402220645100,
+    "inner_wait_completed": 1792774402222150700,
+    "inner_gpu_claim": 1792774379478375500,
+    "inner_run_finished": 1792774419699216800,
+    "cpu_batch_start": "unavailable",
+    "cpu_batch_end": "unavailable"
+  },
+  "cpu_batch": {
+    "elapsed_seconds": 38.62442780006677,
+    "exit_code": 0,
+    "timed_out": false
+  },
+  "cause": "unknown",
+  "original_environment_preservation_verified": false
+}

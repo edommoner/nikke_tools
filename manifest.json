@@ -1,0 +1,315 @@
+{
+  "schema": 1,
+  "package_id": "58e69f8b9701907cc9a9993124fff395581777652ce5c7d9037f3a68c22782a6",
+  "source_distribution_commit": "5d10c5184982955fa59bf622a9f5ca63ab91b080",
+  "report_scope": "Damage accumulation scalar-state 41 inputs only; not battle or all-character admission",
+  "calculation_verified": true,
+  "environment_preservation_verified": false,
+  "cause": "unknown",
+  "new_gpu_compile_cpu_test_or_process_queries": 0,
+  "raw_sdk_personal_process_lists_and_settings_included": false,
+  "original_artifacts_modified": false,
+  "redactions": {
+    "identity_or_command_fields_removed": 72,
+    "member_arrays_replaced": 8,
+    "path_strings_replaced": 8
+  },
+  "files": [
+    {
+      "path": "safe-summary.json",
+      "source": {
+        "bytes": 42808,
+        "sha256": "7f631f9bc6d09a8d2db4ae73bc559f202ce364c05c5f03b1753b7b4dfc1df351"
+      },
+      "export": {
+        "bytes": 41507,
+        "sha256": "75f83a87f60d8563e653ecc33b3eff08aed53fdc001940986e7b36969cb61c7b"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "package-provenance.json",
+      "source": {
+        "bytes": 590,
+        "sha256": "5af25e694cf63b14d53b2be10fbe4e581de7b87d8da2d8ac103a566e23a9cb64"
+      },
+      "export": {
+        "bytes": 590,
+        "sha256": "5af25e694cf63b14d53b2be10fbe4e581de7b87d8da2d8ac103a566e23a9cb64"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "gpu/proof/comparison.json",
+      "source": {
+        "bytes": 14298,
+        "sha256": "16cd99806e7009872b1c959d2f42c1a669c9537defd21cc05c91b57d5577c327"
+      },
+      "export": {
+        "bytes": 14298,
+        "sha256": "16cd99806e7009872b1c959d2f42c1a669c9537defd21cc05c91b57d5577c327"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "gpu/proof/evidence.json",
+      "source": {
+        "bytes": 2702,
+        "sha256": "86d42d5c11e14dc1cc852fb60d5a98767c0d76eb687bde01eb2ad3d3730e7033"
+      },
+      "export": {
+        "bytes": 2631,
+        "sha256": "44e4b2dfe0b2c2dbfc63569236b13491d47cd17eb50d58f59da8c9f53a7780b6"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "gpu/proof/cpu-tests.json",
+      "source": {
+        "bytes": 663,
+        "sha256": "e11daf97bc0ab6a0fcf4a349c93b6ea5e0885b7489d7aec555df7e682a8c058b"
+      },
+      "export": {
+        "bytes": 585,
+        "sha256": "2b0c75df28ea5c91c1997783dba62eab2ffb6dd985b14fe4727fe686e22ce561"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "gpu/proof/cpu.json",
+      "source": {
+        "bytes": 248,
+        "sha256": "84b7e9223bbe4aae74a59581a2e11cc2b2ca85173d3056befacd1c2df6413b9a"
+      },
+      "export": {
+        "bytes": 248,
+        "sha256": "84b7e9223bbe4aae74a59581a2e11cc2b2ca85173d3056befacd1c2df6413b9a"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "gpu/proof/execution.json",
+      "source": {
+        "bytes": 1062,
+        "sha256": "f2601e3a0d0d3c329b27954604961ac62756ad97c669b097c617f4f21b4ce1bf"
+      },
+      "export": {
+        "bytes": 1008,
+        "sha256": "88f96e586fba5b4d7c22c312b5147bbe10e9e6137875a6aa09aec4d6ba92543c"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "gpu/proof/result.json",
+      "source": {
+        "bytes": 857,
+        "sha256": "06151891bf9bf016ecda4ede6ceefbc1222ea64cb7e07c076145debe36e075c7"
+      },
+      "export": {
+        "bytes": 837,
+        "sha256": "74363382f171e43e8af68906a6844844870b10d3b042d49acf1efcdd8f2206b1"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "gpu/stage-result.json",
+      "source": {
+        "bytes": 1436,
+        "sha256": "2f0e7320061f3ef4765704c26d6add2f4ab8cdd8dd9157eeb633a8a0420841df"
+      },
+      "export": {
+        "bytes": 1370,
+        "sha256": "1bc1830b3626dbd6482c8aa3b0d186e8aeb661c2a9dd32888843a359cabfcd5a"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "gpu/execution.json",
+      "source": {
+        "bytes": 906,
+        "sha256": "f3dbe26d32419109a7db7ab38cf33eb27977d00715d0144bbc0044e81c4bbb57"
+      },
+      "export": {
+        "bytes": 878,
+        "sha256": "4a661862753eda7cd6391ea6266a70fa28b13f31466ab4db1e3616c49331a63a"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "cache-check.json",
+      "source": {
+        "bytes": 1242,
+        "sha256": "1cbc9e6b9715505defa18dab77fb4f2acd0085c6777cf7684ba0879b75263a24"
+      },
+      "export": {
+        "bytes": 1139,
+        "sha256": "ecc8904fca4a1e9fda755e22765a3402697ee7eea3487b850661a9152fe2999f"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "smoke/stage-result.json",
+      "source": {
+        "bytes": 645,
+        "sha256": "995832983ad2dd40d8c01f30e428d43796303faa69cc788489dae885418f3f42"
+      },
+      "export": {
+        "bytes": 623,
+        "sha256": "0bf80cc091c1c2ca90b1040b901c684d1d40a3a53c2480f918afa40e44fef85b"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "smoke/execution.json",
+      "source": {
+        "bytes": 904,
+        "sha256": "717f76c1f43c66906bdda8629c3583bcfb9f4b0ae3a1be36c17e8178a6bf1312"
+      },
+      "export": {
+        "bytes": 876,
+        "sha256": "4aa8c66d9117c7fd1217c394b59b0f035ef5257646a5d1076f64f0fdd02dff3d"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "smoke/proof/execution.json",
+      "source": {
+        "bytes": 890,
+        "sha256": "0dc063fcbc03f4f9b0b682e2a97741a16cfe71a1d4f0549d897545e907cff641"
+      },
+      "export": {
+        "bytes": 862,
+        "sha256": "7eaaeb4ded464d8704fa5736b02904bbef396bddacb7d1c027e919fcc67c5e04"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "smoke/proof/cpu-tests.json",
+      "source": {
+        "bytes": 6974,
+        "sha256": "2534e1a91396c68a945dd5603a78bc9f5c436a47a23ab71acfd10dc6de5fd979"
+      },
+      "export": {
+        "bytes": 6142,
+        "sha256": "d941775d14c7a8e63026ddf1ebf2fc094fe46a3e4ef5d54648de51eded50b242"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "smoke/proof/result.json",
+      "source": {
+        "bytes": 134,
+        "sha256": "cde890b28c3e5385fb6019a9b9a82adb14a44926830b83a8d750db45622330a9"
+      },
+      "export": {
+        "bytes": 134,
+        "sha256": "cde890b28c3e5385fb6019a9b9a82adb14a44926830b83a8d750db45622330a9"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "gpu/job.json",
+      "source": {
+        "bytes": 1090,
+        "sha256": "7e99f1fda34c34fad3e3ca061051ca3a7617ff098cb68d1af1d6f466d86c5c8e"
+      },
+      "export": {
+        "bytes": 809,
+        "sha256": "83de70c42f0718cbf4297bc11769f6653ef374fa6b2284a50041037b63c6648d"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "gpu/proof/job.json",
+      "source": {
+        "bytes": 1091,
+        "sha256": "d0feab63d70af522a96079df94f0127f99ff244c7a271f7731a00712624d8997"
+      },
+      "export": {
+        "bytes": 810,
+        "sha256": "f72d68e72f1f6aedd1629a00bb88ba7f363c08a6cd6f0055b6f66114eb42de6b"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "smoke/job.json",
+      "source": {
+        "bytes": 1099,
+        "sha256": "56e9a20cc10d06926780c6d6678c263527836c928d380f5cb3f39fc049da7658"
+      },
+      "export": {
+        "bytes": 809,
+        "sha256": "830804f7ce38bb3ed3ab370c708db5203cbfa6beff12ec46ff1d49c2e19e7674"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "smoke/proof/job.json",
+      "source": {
+        "bytes": 1094,
+        "sha256": "9aaadccf7024699ec5b617ae44b2ed626ca7e24e4b5e207801b7bd4f1f26c506"
+      },
+      "export": {
+        "bytes": 808,
+        "sha256": "fc1ce38141ab40106177df54c6dc64a99e5f9e9a7a5200f0f9b6703ec5302369"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "generated/damage_accum_probe.cu",
+      "source": {
+        "bytes": 48234,
+        "sha256": "9169cd39e33eb232d05e6d69081f9846c0448ab584db76de50410f96dd33d195"
+      },
+      "export": {
+        "bytes": 48146,
+        "sha256": "f5d142b69c35739f1c312494657b36a2961dcb2210911a9a6fa7aacfca59febc"
+      },
+      "transformation": "Generated CUDA copy: only absolute prelude include normalized"
+    },
+    {
+      "path": "generated/damage_accum_probe.metal",
+      "source": {
+        "bytes": 50959,
+        "sha256": "e051c0923dba8bfc8564c513b4626064da1d33f5d0ea37a4f3e2d933e1e3a36f"
+      },
+      "export": {
+        "bytes": 50959,
+        "sha256": "e051c0923dba8bfc8564c513b4626064da1d33f5d0ea37a4f3e2d933e1e3a36f"
+      },
+      "transformation": "Byte-identical generated Metal"
+    },
+    {
+      "path": "generated/damage_accum_probe.cu.reflection.json",
+      "source": {
+        "bytes": 7933,
+        "sha256": "305de516f50d91e348f5e1923081332144f6ebfebd85b11b78aa009dbb4fdec1"
+      },
+      "export": {
+        "bytes": 7306,
+        "sha256": "6d72bf5c8e652909ae80bee1c42915de0224a08013cab1d781b41a08b1949f7f"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "generated/damage_accum_probe.metal.reflection.json",
+      "source": {
+        "bytes": 7468,
+        "sha256": "28db564e2f3383dd6daba3b402e6de3264d2494e821a685c0a62fdbb47255494"
+      },
+      "export": {
+        "bytes": 6553,
+        "sha256": "db7d055e4025729b42b1ffe41289da4671c0db3ee24edbd40a467d8d2e1a8a80"
+      },
+      "transformation": "sanitized JSON copy"
+    },
+    {
+      "path": "saved-observation-counts.json",
+      "export": {
+        "bytes": 1869,
+        "sha256": "94f4c188b0035fce0777196896e7540b6e66a6ec1fb2db02388cc1dbea510544"
+      },
+      "transformation": "Counts from existing saved observations only; no process identities exported"
+    }
+  ]
+}

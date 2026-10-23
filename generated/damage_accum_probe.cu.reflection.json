@@ -1,0 +1,330 @@
+{
+  "version": "1.1",
+  "parameters": [
+    {
+      "name": "commands",
+      "binding": {
+        "kind": "uniform",
+        "offset": 0,
+        "size": 16,
+        "elementStride": 0
+      },
+      "type": {
+        "kind": "resource",
+        "baseShape": "structuredBuffer",
+        "resultType": {
+          "kind": "scalar",
+          "scalarType": "uint32",
+          "sizes": [
+            {
+              "kind": "uniform",
+              "value": 4,
+              "alignment": 4
+            }
+          ]
+        },
+        "sizes": [
+          {
+            "kind": "uniform",
+            "value": 16,
+            "alignment": 8
+          }
+        ]
+      }
+    },
+    {
+      "name": "results",
+      "binding": {
+        "kind": "uniform",
+        "offset": 16,
+        "size": 16,
+        "elementStride": 0
+      },
+      "type": {
+        "kind": "resource",
+        "baseShape": "structuredBuffer",
+        "access": "readWrite",
+        "resultType": {
+          "kind": "scalar",
+          "scalarType": "uint32",
+          "sizes": [
+            {
+              "kind": "uniform",
+              "value": 4,
+              "alignment": 4
+            }
+          ]
+        },
+        "sizes": [
+          {
+            "kind": "uniform",
+            "value": 16,
+            "alignment": 8
+          }
+        ]
+      }
+    },
+    {
+      "name": "runtimeStates",
+      "binding": {
+        "kind": "uniform",
+        "offset": 32,
+        "size": 16,
+        "elementStride": 0
+      },
+      "type": {
+        "kind": "resource",
+        "baseShape": "structuredBuffer",
+        "access": "readWrite",
+        "resultType": {
+          "kind": "struct",
+          "name": "Runtime",
+          "fields": [
+            {
+              "name": "nextOrder",
+              "type": {
+                "kind": "scalar",
+                "scalarType": "uint64",
+                "sizes": [
+                  {
+                    "kind": "uniform",
+                    "value": 8,
+                    "alignment": 8
+                  }
+                ]
+              },
+              "binding": {
+                "kind": "uniform",
+                "offset": 0,
+                "size": 8,
+                "elementStride": 0
+              }
+            }
+          ],
+          "sizes": [
+            {
+              "kind": "uniform",
+              "value": 8,
+              "alignment": 8
+            }
+          ]
+        },
+        "sizes": [
+          {
+            "kind": "uniform",
+            "value": 16,
+            "alignment": 8
+          }
+        ]
+      }
+    }
+  ],
+  "globalScope": {
+    "kind": "constantBuffer",
+    "binding": {
+      "kind": "uniform",
+      "offset": 0,
+      "size": 8,
+      "elementStride": 0
+    },
+    "parameters": [
+      {
+        "name": "commands",
+        "binding": {
+          "kind": "uniform",
+          "offset": 0,
+          "size": 16,
+          "elementStride": 0
+        },
+        "type": {
+          "kind": "resource",
+          "baseShape": "structuredBuffer",
+          "resultType": {
+            "kind": "scalar",
+            "scalarType": "uint32",
+            "sizes": [
+              {
+                "kind": "uniform",
+                "value": 4,
+                "alignment": 4
+              }
+            ]
+          },
+          "sizes": [
+            {
+              "kind": "uniform",
+              "value": 16,
+              "alignment": 8
+            }
+          ]
+        }
+      },
+      {
+        "name": "results",
+        "binding": {
+          "kind": "uniform",
+          "offset": 16,
+          "size": 16,
+          "elementStride": 0
+        },
+        "type": {
+          "kind": "resource",
+          "baseShape": "structuredBuffer",
+          "access": "readWrite",
+          "resultType": {
+            "kind": "scalar",
+            "scalarType": "uint32",
+            "sizes": [
+              {
+                "kind": "uniform",
+                "value": 4,
+                "alignment": 4
+              }
+            ]
+          },
+          "sizes": [
+            {
+              "kind": "uniform",
+              "value": 16,
+              "alignment": 8
+            }
+          ]
+        }
+      },
+      {
+        "name": "runtimeStates",
+        "binding": {
+          "kind": "uniform",
+          "offset": 32,
+          "size": 16,
+          "elementStride": 0
+        },
+        "type": {
+          "kind": "resource",
+          "baseShape": "structuredBuffer",
+          "access": "readWrite",
+          "resultType": {
+            "kind": "struct",
+            "name": "Runtime",
+            "fields": [
+              {
+                "name": "nextOrder",
+                "type": {
+                  "kind": "scalar",
+                  "scalarType": "uint64",
+                  "sizes": [
+                    {
+                      "kind": "uniform",
+                      "value": 8,
+                      "alignment": 8
+                    }
+                  ]
+                },
+                "binding": {
+                  "kind": "uniform",
+                  "offset": 0,
+                  "size": 8,
+                  "elementStride": 0
+                }
+              }
+            ],
+            "sizes": [
+              {
+                "kind": "uniform",
+                "value": 8,
+                "alignment": 8
+              }
+            ]
+          },
+          "sizes": [
+            {
+              "kind": "uniform",
+              "value": 16,
+              "alignment": 8
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "entryPoints": [
+    {
+      "name": "portableEvents",
+      "stage": "compute",
+      "scope": {
+        "kind": "constantBuffer",
+        "binding": {
+          "kind": "uniform",
+          "offset": 0,
+          "size": 8,
+          "elementStride": 0
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "semanticName": "SV_DISPATCHTHREADID",
+            "type": {
+              "kind": "vector",
+              "elementCount": 3,
+              "elementType": {
+                "kind": "scalar",
+                "scalarType": "uint32"
+              },
+              "sizes": []
+            }
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "semanticName": "SV_DISPATCHTHREADID",
+          "type": {
+            "kind": "vector",
+            "elementCount": 3,
+            "elementType": {
+              "kind": "scalar",
+              "scalarType": "uint32"
+            },
+            "sizes": []
+          }
+        }
+      ],
+      "threadGroupSize": [
+        1,
+        1,
+        1
+      ],
+      "bindings": [
+        {
+          "name": "commands",
+          "binding": {
+            "kind": "uniform",
+            "offset": 0,
+            "size": 16,
+            "elementStride": 0
+          }
+        },
+        {
+          "name": "results",
+          "binding": {
+            "kind": "uniform",
+            "offset": 16,
+            "size": 16,
+            "elementStride": 0
+          }
+        },
+        {
+          "name": "runtimeStates",
+          "binding": {
+            "kind": "uniform",
+            "offset": 32,
+            "size": 16,
+            "elementStride": 0
+          }
+        }
+      ]
+    }
+  ],
+  "bindlessSpaceIndex": 1
+}

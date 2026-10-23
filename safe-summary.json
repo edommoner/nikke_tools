@@ -1,0 +1,844 @@
+{
+  "distribution_commit": "5d10c5184982955fa59bf622a9f5ca63ab91b080",
+  "source_revision": "7e04d641efba10a4b452883f9762e697258ea927",
+  "package_id": "58e69f8b9701907cc9a9993124fff395581777652ce5c7d9037f3a68c22782a6",
+  "suite": "damage-accum-core",
+  "capture": "<validation>\\gpu",
+  "proof_capture": "<validation>\\gpu\\proof",
+  "smoke": {
+    "session": 14196,
+    "stage_result": {
+      "schema": 1,
+      "package_id": "58e69f8b9701907cc9a9993124fff395581777652ce5c7d9037f3a68c22782a6",
+      "stage": "smoke",
+      "bounded_execution_verified": true,
+      "proof_result": {
+        "smoke_verified": true,
+        "gpu_calls": 0,
+        "calculation_verified": false,
+        "preservation_verified": null,
+        "status": "smoke"
+      },
+      "calculation_verified": false,
+      "cpu_verified": false,
+      "smoke_verified": true,
+      "whole_stage_process_preservation_verified": true,
+      "whole_stage_environment_preservation_verified": false,
+      "stage_verified": true,
+      "stage_complete": true,
+      "gpu_retries": 0,
+      "full_goal_complete": false
+    },
+    "cpu": {
+      "tests": 324,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 9
+    },
+    "whole_job": {
+      "seconds": 84.67633139993995,
+      "child_exit_code": 0,
+      "pre_gate_verified": true,
+      "cap_bytes": 2147483648,
+      "post_cap_bytes": 2147483648,
+      "peak_bytes": 219938816,
+      "post_members": [],
+      "timed_out": false,
+      "cleanup_error": null,
+      "inspection_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "cause": null
+    },
+    "proof_job": {
+      "seconds": 4.7879733997397125,
+      "child_exit_code": 0,
+      "pre_gate_verified": true,
+      "cap_bytes": 2147483648,
+      "post_cap_bytes": 2147483648,
+      "peak_bytes": 45793280,
+      "post_members": [],
+      "timed_out": false,
+      "cleanup_error": null,
+      "inspection_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "cause": null
+    }
+  },
+  "gpu": {
+    "session": 5380,
+    "stage_result": {
+      "schema": 1,
+      "package_id": "58e69f8b9701907cc9a9993124fff395581777652ce5c7d9037f3a68c22782a6",
+      "stage": "gpu",
+      "bounded_execution_verified": false,
+      "proof_result": {
+        "sealed": true,
+        "purpose": "sealed",
+        "calculation_verified": true,
+        "preservation_verified": false,
+        "passed": false,
+        "containment_verified": true,
+        "comparison_error": null,
+        "first_difference": null,
+        "phase": {
+          "events": 94,
+          "last_event": {
+            "monotonic_ns": 2603826890000000,
+            "stage": "shared_gpu_execute",
+            "state": "returned",
+            "wall_time_ns": 1792774402100417000
+          },
+          "nvrtc_compile_returned_success": true,
+          "cuda_compile_cache_hit_verified": false,
+          "cuda_linked_artifact_observed": false,
+          "cuda_launch_returned_success": true,
+          "cuda_synchronize_returned_success": true,
+          "cuda_readback_returned_success": true,
+          "scope": "Observed API returns only; full output verification requires the shared suite report"
+        },
+        "gpu_retries": 0,
+        "audit_gpu_calls": 0
+      },
+      "calculation_verified": true,
+      "cpu_verified": false,
+      "smoke_verified": false,
+      "whole_stage_process_preservation_verified": false,
+      "whole_stage_environment_preservation_verified": false,
+      "stage_verified": false,
+      "stage_complete": false,
+      "gpu_retries": 0,
+      "full_goal_complete": false
+    },
+    "inner_result": {
+      "sealed": true,
+      "purpose": "sealed",
+      "calculation_verified": true,
+      "preservation_verified": false,
+      "passed": false,
+      "containment_verified": true,
+      "comparison_error": null,
+      "first_difference": null,
+      "phase": {
+        "events": 94,
+        "last_event": {
+          "monotonic_ns": 2603826890000000,
+          "stage": "shared_gpu_execute",
+          "state": "returned",
+          "wall_time_ns": 1792774402100417000
+        },
+        "nvrtc_compile_returned_success": true,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_linked_artifact_observed": false,
+        "cuda_launch_returned_success": true,
+        "cuda_synchronize_returned_success": true,
+        "cuda_readback_returned_success": true,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retries": 0,
+      "audit_gpu_calls": 0
+    },
+    "cpu": {
+      "tests": 21,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "cpu_preflight": {
+      "passed": true,
+      "input_count": 41,
+      "native_oracles": 34,
+      "input_sha256": "5018e81131e03f4daaa22b26fa7b9df76c0efbc041946c2b176244b9b5f8f701",
+      "gpu_calls": {
+        "build": 0,
+        "execute": 0
+      },
+      "elapsed_seconds": 3.4956632000394166
+    },
+    "whole_job": {
+      "seconds": 112.4598149000667,
+      "child_exit_code": 2,
+      "pre_gate_verified": true,
+      "cap_bytes": 2147483648,
+      "post_cap_bytes": 2147483648,
+      "peak_bytes": 523214848,
+      "post_members": [],
+      "timed_out": false,
+      "cleanup_error": null,
+      "inspection_error": null,
+      "observation_error": null,
+      "missing_processes": 7,
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "cause": "unknown"
+    },
+    "proof_job": {
+      "seconds": 24.966521800030023,
+      "child_exit_code": 0,
+      "pre_gate_verified": true,
+      "cap_bytes": 2147483648,
+      "post_cap_bytes": 2147483648,
+      "peak_bytes": 442159104,
+      "post_members": [],
+      "timed_out": false,
+      "cleanup_error": null,
+      "inspection_error": null,
+      "observation_error": null,
+      "missing_processes": 0,
+      "service_before": "unverified",
+      "service_after": "unverified",
+      "cause": null
+    },
+    "transport": {
+      "backend": "cuda",
+      "device": "NVIDIA GeForce RTX 3070 Ti",
+      "cases": 41,
+      "command_status": "completed",
+      "host_dispatch_seconds": 0.004974799696356058,
+      "readback_stream": {
+        "output_bytes": 128974848,
+        "output_sha256": "1c9b7b50d9d9668ba70e81a215800b8365abdb903ab470a10c8505355c950e32",
+        "chunk_bytes": 8388608,
+        "chunks": 16
+      },
+      "input_bytes": 83972,
+      "output_bytes": 128974848,
+      "runtime_stride_bytes": 8,
+      "runtime_buffer_bytes": 328,
+      "runtime_element_capacity": 41
+    },
+    "driver_api_returns": [
+      {
+        "api": "cuInit",
+        "return_code": 0
+      },
+      {
+        "api": "cuDeviceGet",
+        "return_code": 0
+      },
+      {
+        "api": "cuDeviceComputeCapability",
+        "return_code": 0
+      },
+      {
+        "api": "cuDeviceGetName",
+        "return_code": 0
+      },
+      {
+        "api": "cuCtxCreate_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuModuleLoadData",
+        "return_code": 0
+      },
+      {
+        "api": "cuModuleGetFunction",
+        "return_code": 0
+      },
+      {
+        "api": "cuModuleGetGlobal_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemAlloc_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemAlloc_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemAlloc_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyHtoD_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemsetD8_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyHtoD_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuLaunchKernel",
+        "return_code": 0
+      },
+      {
+        "api": "cuCtxSynchronize",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuMemcpyDtoH_v2",
+        "return_code": 0
+      },
+      {
+        "api": "cuCtxDestroy_v2",
+        "return_code": 0
+      }
+    ]
+  },
+  "fingerprints": {
+    "input_sha256": "5018e81131e03f4daaa22b26fa7b9df76c0efbc041946c2b176244b9b5f8f701",
+    "output_sha256": "1c9b7b50d9d9668ba70e81a215800b8365abdb903ab470a10c8505355c950e32",
+    "all_41_entries_match": true,
+    "native_oracles": 34,
+    "entries": [
+      {
+        "name": "damage-accum-core/dealt",
+        "input_sha256": "c7ac5d57366fbbbeb87075a3c07b19e9805fea7cb53d5f7ac6f34847f4778385",
+        "output_sha256": "285990c45b159d777856252ced04d0ad9e4f7a3164775a117e15e0a37ff85986",
+        "native_sha256": "59372c5a22489d0525580ae84a655d4c2fc30611e1580ac884b0ac8fed4bcf46"
+      },
+      {
+        "name": "damage-accum-core/received",
+        "input_sha256": "545a9a06de984b178377b4812239fe151ab99110e2029d218a67106f680767b8",
+        "output_sha256": "1e0a89d696d7e847fe7d5c213cf76ac56918a63574f28c13ab8cf79b1a72a031",
+        "native_sha256": "59372c5a22489d0525580ae84a655d4c2fc30611e1580ac884b0ac8fed4bcf46"
+      },
+      {
+        "name": "damage-accum-core/other-caster",
+        "input_sha256": "0e56f7e449c29f40eb494605f1ce112f1b098936a827a8879dae8fb9a824ab1b",
+        "output_sha256": "78d1bf307b8226e99866ebfa9196fd7ce8c2e36e974d502b3ec56271c46c1342",
+        "native_sha256": "74bedf733eb04217523d611103c27ea3851cd5a1a46ea7824e032d16da70c9e9"
+      },
+      {
+        "name": "damage-accum-core/absent-rate",
+        "input_sha256": "52a49c6a14a6e9efdde0d27a8ebfcf221e9041a9e8b6a960e37415e84821c727",
+        "output_sha256": "454e31dbec5dc241fffc50cddf9386bc079abbe8b9be95b9da1140f1cfa97c73",
+        "native_sha256": "5aa91ff91451300cffca1d537dabceb144504bd07017c746469f6490c5e648b6"
+      },
+      {
+        "name": "damage-accum-core/explicit-zero",
+        "input_sha256": "c00b837d7e64909fc5a1e979747213ab8297bac10202f6169cf01971815337d6",
+        "output_sha256": "e1041383b5b8f3576f0251622271c099dcfd1f61d0ed855fe75df33a7c3d797f",
+        "native_sha256": "03937edc1596a35c0489ae3fe1bed98eef9a6f23d1f648f115fefb596afc0445"
+      },
+      {
+        "name": "damage-accum-core/named25",
+        "input_sha256": "f96661db0e4a82bd999f76fb08240b1fc31dfa02ac5613ba00e35b7b9e7455aa",
+        "output_sha256": "df30c7c6f5a99c169cd023f734abdfd685e3a83e4422ce895417d1adfd48dc23",
+        "native_sha256": "fdbff8071e286433919670a08b6e907d8c23b09931fa6d4712c538fac607111b"
+      },
+      {
+        "name": "damage-accum-core/base50-named25",
+        "input_sha256": "cea23ad058724912a737972b6c1150cf4e25400d742c8fe3283182a9c98a3b54",
+        "output_sha256": "f3b0fa9648a11d84342e6da2cd2baa8b7a45d5133e504f50bf4756d23baa387d",
+        "native_sha256": "4d4870f40723795c393fcf3203404248de278cb96acd9230833722238cce86c0"
+      },
+      {
+        "name": "damage-accum-core/wrong-name-and-owner",
+        "input_sha256": "8e0f7509e45c95d3ac31539421d3e6c3a758421f0e5ec050f2922765504cff76",
+        "output_sha256": "6eb93f37b2be507b98bc81a1ccdc3105a29679d611559649bd27e0fd1dbbb488",
+        "native_sha256": "1b025945ed6582fed9f27e759e4819178eeda5b8b8dff2557abe81726dcc4108"
+      },
+      {
+        "name": "damage-accum-core/negative-rate",
+        "input_sha256": "17a5af182ebc06230696aa3b2de14f214e73479c1d0e1f7b58f7b72010efa254",
+        "output_sha256": "331307527daa2742f51fe82be8033350609f0e2d7a8c1f82f5fe2ada4f09348b",
+        "native_sha256": "ece41b959af817c7f9147cdf7442408d17da61008c71139dd1da24005d2d09c3"
+      },
+      {
+        "name": "damage-accum-core/negative-cap",
+        "input_sha256": "630afe78b2bbfd18fb08a674ee572b2fb4a450e48436c8b67ec7f300e6b15f3b",
+        "output_sha256": "f15c0bb823e55023d26ef36ac18fef59846d9816edbd7d641b30c4acd1ac6e09",
+        "native_sha256": "466703b9e00cbfdb9e0ca2375060bf55419c2fc6d026385b2d0979968f5cad03"
+      },
+      {
+        "name": "damage-accum-core/zero-cap",
+        "input_sha256": "90d587539645fd049bcc2dcd1b972a6e5bc1a9fca21253774f91c40b75553b42",
+        "output_sha256": "237ea3c9ab22f460ba5433386b99f9d95d31c0487aa08416ae809d1cf07a2699",
+        "native_sha256": "c3a6087527b33e6fb23208fce1334f85278dee1b0fdd676ec7c7bda876739b55"
+      },
+      {
+        "name": "damage-accum-core/clamped",
+        "input_sha256": "0dda77a5085bd3cb72b2dc96767d1e6c138f37255996e324b493742d23d433c6",
+        "output_sha256": "da61e7823729800292bd92e4a9c30ac8afce6bc567417fafabc7da59a939438f",
+        "native_sha256": "63dae2eaf88fa4739d233451fe3d4b56b750b2403b781a947d1bf6e1a6e83eae"
+      },
+      {
+        "name": "damage-accum-core/epsilon-inside",
+        "input_sha256": "14ea3aa960356168b98ae2cf1555575804f3b4bc35d9f4ebe8ae7a0561b6db53",
+        "output_sha256": "a1c1c638002f41ed6237b76c83352778d3e7a1f9e68198d051579567f255f5ce",
+        "native_sha256": "3c32f33cfd2e17d5bf417ed865df981bc0b4f332bd6314eb891ff0f097273210"
+      },
+      {
+        "name": "damage-accum-core/epsilon-outside",
+        "input_sha256": "cf91d9b3c76c3002fb0cb6ad545365654efac64ad1aace1737433bae87ab87ae",
+        "output_sha256": "0939655ca2b974ac14b40e252def172cb5ad5eb845d0ee0e5648ea7d740daf77",
+        "native_sha256": "755f1fbe36aa9a80c85ef3925dadd468f5a29aea77fc87dc6afaf0b11025b1e2"
+      },
+      {
+        "name": "damage-accum-core/archived",
+        "input_sha256": "23ccbaa2ebf536529d969b8df5fad8d88b75270c00bd315c9c9e25c7f9e50c96",
+        "output_sha256": "f486b075319fc33041f19c94aac594ee6249a0ace0ea12cfce4366dc3fec63ba",
+        "native_sha256": "d31ca6f46fef285698c9bf1ef7ab35dd5fa2b0c83ab988c19ddd7907f722f96c"
+      },
+      {
+        "name": "damage-accum-core/refresh-clears",
+        "input_sha256": "725c346846d1069150421587957123723e690ff026ffec771413752edd9f4fbe",
+        "output_sha256": "a965059cb694f176f72771d09cdcd3936879467d22472499f4e826785ea199b1",
+        "native_sha256": "2b34341797da0a608e30f6fda15a20866aa8755f226b3287bd3ff00e86609190"
+      },
+      {
+        "name": "damage-accum-core/dealt-before-received",
+        "input_sha256": "940db5cf60eae06d5a2b8073e38766d298cc925d30674c64d7db30ece3a8ecdb",
+        "output_sha256": "9d43f5fcf19c3ff6f6a84bc38d50a1cf1a4c4ffcd868f55b654331ca9920df20",
+        "native_sha256": "2125ae393e4f08aa8e8fed1a3d216ccc11132e6e0a8577d05cede93ab74c9336"
+      },
+      {
+        "name": "damage-accum-core/first-active-done-shadows",
+        "input_sha256": "2f90161afac006e381f45a6db43156ec107b7fc90304e187cbed5f26867531d3",
+        "output_sha256": "dcfc7e33a89207ff3dc953108856cdce41bc16f7aab13cb2860c64f648bb6d9e",
+        "native_sha256": "4ded7624f57bf15e0b9a5750236efdd806a59f9671df5bffd440fb010b2c9406"
+      },
+      {
+        "name": "damage-accum-core/last-archive",
+        "input_sha256": "3b951c40e75ad933c3b915fa6cb9c4def9e13256199745e8f4aead0eddbe2a8e",
+        "output_sha256": "2215f41fcb09f65d711cc84b6d613c6c1aad0374aa4c07d40c4b2993bff55086",
+        "native_sha256": "69065346eb3f29ed39de766d457180a4b90b6cffbbe9b65b1652b088a2773a6f"
+      },
+      {
+        "name": "damage-accum-core/first-active-reverse-stat",
+        "input_sha256": "393e20dd7eb788ee62493c87f686da80027ac8d00a2ca9157ba3903bba27ab81",
+        "output_sha256": "d9f01c32969595f9d16d2dbefad3b0287b7cd8bbe8b2c26e3ba9af147f6ad2f8",
+        "native_sha256": "dd85055871d73d5a2882e067a22a65d71d53648f4b1f1baddadf915ce553bdde"
+      },
+      {
+        "name": "damage-accum-core/lost-hp41",
+        "input_sha256": "4044e7670dabaf10b48acc6c624fea5ec9ba13a9786274f684de1be3ddeaf9e7",
+        "output_sha256": "6b399bdb8d5aec9cdf1679f70cd6f12c9fc5670805636ea993aff1a4aec52b7b",
+        "native_sha256": "e6901b5cb7ab87c43187149dc7bb0657636595d4415c7a54f09f78bc072606cb"
+      },
+      {
+        "name": "damage-accum-core/live-lost-hp",
+        "input_sha256": "f9758dab4f616aaf732669ff56daeca75e36a73f0c957aa689d0a1de2c6300c4",
+        "output_sha256": "bf12f910d60f780ab4ca486f408657751f39eecd85425a0b8ca40667416da095",
+        "native_sha256": "e617c1a38ad1fd08a323efe79a07810cc7e0b0dc15af992bfb028ee6938c022f"
+      },
+      {
+        "name": "damage-accum-core/stacked",
+        "input_sha256": "585cb2c588f7117eeb5dc1e653db417b7c77f77f0bb50ee46760a42e2e421ff1",
+        "output_sha256": "51d6b1159c9449ef8dc797f3c4c2fe90280a49ebbdc1b0e08d207d49517cb176",
+        "native_sha256": "306f9ab2499af9f5c059ead924bee2b39d75a70ab3569a7495169d7b6af777e6"
+      },
+      {
+        "name": "damage-accum-core/ordered-cancellation",
+        "input_sha256": "a5138e014ae21fe611f8f07f4fa71a4adea5bce825c0ff357ae9ce2876a2236a",
+        "output_sha256": "16eeabbdd7d48587325977cbda2804924384bfe39ddcc42490c6d208cb00a602",
+        "native_sha256": "15ea063777c1bd7867f37a53e734b86e66f5614693e976d0977165b3e8353d8d"
+      },
+      {
+        "name": "damage-accum-core/separate-rate-groups",
+        "input_sha256": "9d823e23a6d56b91243f9082c800f3c12da2a8e4bf7768cf0f7eb971ddc21ce6",
+        "output_sha256": "f7c07cb70bf84529ea67e9bfb23d8c5f0d289da3cc793d54cae63580bde89267",
+        "native_sha256": "15ea063777c1bd7867f37a53e734b86e66f5614693e976d0977165b3e8353d8d"
+      },
+      {
+        "name": "damage-accum-core/release-feeds-other",
+        "input_sha256": "a8921ea1ec81d1bbf7932813d4ebab263b223aed144d648094f068592049798f",
+        "output_sha256": "f7b0a257eecc938d60c1005204f203470e9dabcbab857452964c4e694746a5c1",
+        "native_sha256": "e2ed8b51208621703e0c000cfeffb2df720568a01eec7815333e3dd755a03fc7"
+      },
+      {
+        "name": "damage-accum-core/split-truncation",
+        "input_sha256": "9acf7788256f0de22d1d51876a930841f1187df3a94409ce43202edef134dda4",
+        "output_sha256": "00e66cfb82db2a05677f13594d7ed252c184181464044013c4ec7758276482fb",
+        "native_sha256": "d594bb8ca048095adf939d07ea10b9c483cd81aeb48e355b6b17990ad45f6711"
+      },
+      {
+        "name": "damage-accum-core/positive-truncates-zero",
+        "input_sha256": "2aef346c00265cf0574f8e4ad24206a0ac1a6a15f6273ddc266bbfdb6b7dbf9c",
+        "output_sha256": "ed490b30a20bb07a77550d942d7c24fac7d5ed7cd7e0fae799a3c63f9efa850b",
+        "native_sha256": "1fb9c0c6306248c5659eead413168624ca8f712e8d51b4a555362cb205829c37"
+      },
+      {
+        "name": "damage-accum-core/negative-split-packet",
+        "input_sha256": "cb408c274d9d5075a0fbad144a6ace2c578cb4560243a8ff6d0b7b8e45b6c04b",
+        "output_sha256": "f6b5228688f1c87b6256459bdeaefe0d3060959f2ba346a7088af890ff4710a9",
+        "native_sha256": "db2ef787af5443d3afb755efdf37b4a42f7b44e3f096b4350d2f789be58db91c"
+      },
+      {
+        "name": "damage-accum-core/zero-negative-credit",
+        "input_sha256": "2745df85a285f6fbd70ad5286b8fa3a115c392b87c17f0b2cd6f00acf24560ab",
+        "output_sha256": "4565f73a31b964ed7f82f91a208b265b32d37a41ee1e180a6fae07f3be99971e",
+        "native_sha256": "37a921a6fb39348d769f84320a61c0158218409000df808a10f17689f5bd5d03"
+      },
+      {
+        "name": "damage-accum-core/missing-name-ledger",
+        "input_sha256": "b8da51694c9e19238499e53f6d321334f37bf236a76fc424030d9e3538967074",
+        "output_sha256": "da93c75a26958cbee330adddecdf039968e423477a463df49046ac3aad76909a",
+        "native_sha256": "1c1ff55dd99abbc9013b8f7351b0d3226bbb0214c240a9e1ff8450da96f09f4e"
+      },
+      {
+        "name": "damage-accum-core/empty-pool-name",
+        "input_sha256": "6ef4f0d8ae1c2fd5ff99d606dd14524281edb6ce8a72cac35cfecffd408866c8",
+        "output_sha256": "fb21cadd99c810d05860ead1ce33ff87932f07e5f6ef0b9e37b815b7bb6add9c",
+        "native_sha256": "169bcc739b095753640f38dc6d66fda7973b84e29bae42f462ffa3843ae74fb7"
+      },
+      {
+        "name": "damage-accum-core/rate-retired",
+        "input_sha256": "096428989892cd2bad9852835b8ff8913914bdb0e71a95a6f311c9c25de57117",
+        "output_sha256": "4b8d0f55a747f1893cee6cdbd6b912d7034b1c21d8b7ac27bf81363855ead87e",
+        "native_sha256": "7ece8c74ff2f641f54b6edfe57edb626ab2322af8a7891973811d329c5ff7da6"
+      },
+      {
+        "name": "damage-accum-core/slot-reused-order",
+        "input_sha256": "a58b504de1975343b8b61ab376d5b74c8481054eabda4fdd8868fc08e4e25bc8",
+        "output_sha256": "334cf22bb3e629d707bba053a369189dd8b90fed062b52226c980d89673d1b3a",
+        "native_sha256": "cff5980a350cd996edb913b514c958d0e72b6e51b342cc90054f55ca0469b9d4"
+      },
+      {
+        "name": "reject/damage-accum-core/invalid-rate-policy",
+        "input_sha256": "528c0c6e369e3c12adb88ad9020ebf0a132ab9a83af684d0fdc29f45ed7d543b",
+        "output_sha256": "c16370c4bb09f3f13c801bb88e16e33da85403f3997fcf2d7ad7fd38161cddae",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/damage-accum-core/invalid-rate-owner",
+        "input_sha256": "d5f0fe42253b13a113932a8eb8eae634c1508dc5d49abfc3a95a533622c15e13",
+        "output_sha256": "c16370c4bb09f3f13c801bb88e16e33da85403f3997fcf2d7ad7fd38161cddae",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/damage-accum-core/archive-capacity-exhausted",
+        "input_sha256": "f2d0aa89387593b2bcbe8dd3eabd62462703da02eecc6c39d5b577b82f1fab42",
+        "output_sha256": "2e2de9b47567524c9adb35f0dacbd90dc799ac9b258748821827a6c5aea0e7fc",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/damage-accum-core/unknown-operation",
+        "input_sha256": "0fd79988ffa48dcfe9c77cceb874570212e0a37b6abe01333c63e0f318ff90d5",
+        "output_sha256": "d139d276fab6cecf98d97c6fa0ec6305815ef0d29a0e4d10fe29ba6380cfa887",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/damage-accum-core/nan-credit",
+        "input_sha256": "7019d8ce21fbce01f7ceaef820e4c9f4dc715fb1886899ff0749197a385b9571",
+        "output_sha256": "d2dee8c345f162d24375af9e549b94ec08d84c6f61e93228d479769901a91209",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/damage-accum-core/infinite-rate",
+        "input_sha256": "6107df473af458496a8bf58f14dc52b20dba95d17372ba7a7c9f922ae1f3f5cd",
+        "output_sha256": "3cbb7bc183e7010c5a9e44bad7fbf5c6f8af5869c5270f28d74f6525fd4e5d89",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/damage-accum-core/emission-int64-overflow",
+        "input_sha256": "b5c02d9aaf785eb57d458ce7b7dfafa57ee65e2891d49189b38dbabae93c4900",
+        "output_sha256": "2c345af1b03d7b0e77bca5c5041b5f65e24b1e556cd7ec7f8d80b954d3daea68",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      }
+    ]
+  },
+  "generated": {
+    "raw": {
+      "cuda": "9169cd39e33eb232d05e6d69081f9846c0448ab584db76de50410f96dd33d195",
+      "metal": "e051c0923dba8bfc8564c513b4626064da1d33f5d0ea37a4f3e2d933e1e3a36f"
+    },
+    "normalized": {
+      "cuda": "3e09c9b5938b3588cd11d71066160fe816882bbbd304689b59d14f4a036833dc",
+      "metal": "9dba9aedc50e979621e861a8ded3562134685005a153add8c7af4342dfc1bb75"
+    },
+    "source_closure_matches": true,
+    "generation_cache": {
+      "artifacts": {
+        "cuda": {
+          "bytes": 48234,
+          "sha256": "9169cd39e33eb232d05e6d69081f9846c0448ab584db76de50410f96dd33d195"
+        },
+        "cuda-reflection": {
+          "bytes": 7933,
+          "sha256": "305de516f50d91e348f5e1923081332144f6ebfebd85b11b78aa009dbb4fdec1"
+        },
+        "metal": {
+          "bytes": 50959,
+          "sha256": "e051c0923dba8bfc8564c513b4626064da1d33f5d0ea37a4f3e2d933e1e3a36f"
+        },
+        "metal-reflection": {
+          "bytes": 7468,
+          "sha256": "28db564e2f3383dd6daba3b402e6de3264d2494e821a685c0a62fdbb47255494"
+        }
+      },
+      "compiler_invocations": 2,
+      "hit": false,
+      "identity": {
+        "compiler_files": {
+          "bin/gfx.dll": "ec000e6e6f8b339230965af9d9050b8640e92398cb7a681de1531a77af123abb",
+          "bin/gfx.slang": "621f34605c411822bfda8f098d9b2b467d525d77ced141aa62bd8c7816aa95c8",
+          "bin/slang-compiler.dll": "3fe9fca8bef7fab9cb6748b6e6e7d8f4abbfe2d7f7a8c863ba9253b9ba8ef0b1",
+          "bin/slang-glsl-module.dll": "849982a9d7549634d7b43a60a6db11d9d4ea4d4bc92b7df92f7fda7034901510",
+          "bin/slang-glslang.dll": "b5a8bb1d4ebb408a553d315f804ff323f8f2c9e5f91993ffcf945e771dcb9dd5",
+          "bin/slang-llvm.dll": "a481148b2e89d463ee654c20c2aee02349397179770f1845c5b03a0862e81381",
+          "bin/slang-rt.dll": "255b5c7871dbb6bd0296b727bd6685af2b2223779da1021d074e4015a484733c",
+          "bin/slang-standard-module-2026.20/experimental/workgraph.slang": "5ac051e0bbb9e78cad3d7d368aa76045adefe417133182e4b9a783ed711345d7",
+          "bin/slang-standard-module-2026.20/experimental/workgraph.slang-module": "1d660ecbf2c59f56d09d3126e783f4c55fcb44fff776f25180413b7c456b4d2f",
+          "bin/slang-standard-module-2026.20/slang/WaveMatrix.slang": "7b538d81618f9fe7a8a317dd0e85ff259202a7cc3b34246307880acfc2e7f973",
+          "bin/slang-standard-module-2026.20/slang/accelerate-vector-coopmat.slang": "bdf92713aea036cb8a68bb520155f8e67dc1ef74b299ea2371fd187fbaf5f1e9",
+          "bin/slang-standard-module-2026.20/slang/activations.slang": "17111ed31a33986a8f3e1028754da83f8e8c17ad4eae082b46a6910c486f1469",
+          "bin/slang-standard-module-2026.20/slang/bindless-storage.slang": "af5d4c7a6cce1b7c19dcb556823d4855394ee1e0e6d2d2a74887cd3775ec671e",
+          "bin/slang-standard-module-2026.20/slang/functional.slang-module": "27545b14ab22b17c9019e79719e704b6e3a30555132fbe6749d0e43e7a487110",
+          "bin/slang-standard-module-2026.20/slang/hash-function.slang": "bee7e1dd58b8ac576189f6543ec9c0bcea49d780c92b3f59649317e7f68c0601",
+          "bin/slang-standard-module-2026.20/slang/iactivation.slang": "886d1de409f9788a15272358306771106d356811ba05431d2e2ea4405fdc80bf",
+          "bin/slang-standard-module-2026.20/slang/iencoder.slang": "d54547342622935f630954e475c532d3e6280b12066456ddb629407bee747c41",
+          "bin/slang-standard-module-2026.20/slang/ilayer.slang": "f90e83e132de9a1b729b85d85ee64cd7ba20c4b0db1321cfb0058db84792541d",
+          "bin/slang-standard-module-2026.20/slang/inline-vector.slang": "4dd82536ccc99a05af682d8f08891906aa8e8190470cc1746a5ffeafffaf20d5",
+          "bin/slang-standard-module-2026.20/slang/istorages.slang": "6bd2a6aae09e5bad8a2ef6a3f086f1fee430d859366325f2e343253ba8f06ab4",
+          "bin/slang-standard-module-2026.20/slang/ivector.slang": "4146fb8627f89c7d0ee2f516f617fdcb27182a62fcb371d248cb43889c4baa4a",
+          "bin/slang-standard-module-2026.20/slang/layers.slang": "9a772bf23d5697d1b7325dec59856ea47158e05a95218a4ecb17e6128a277d1e",
+          "bin/slang-standard-module-2026.20/slang/mma-linear-layout-help.slang": "6778fc740686062015448effd4536ef35331d62a1ff6f4278e5c7a5af1a8a163",
+          "bin/slang-standard-module-2026.20/slang/mma-tiled-cuda.slang": "c002e5bbfe7d73bd05691122ea8d0c860c7defa07fd5f077481fbb7d64874c47",
+          "bin/slang-standard-module-2026.20/slang/mma-tiled-layout-helper.slang": "a7f3bacede85b39797927710fb8aa47d952e2621428d0eb23b3b3142d3eef00e",
+          "bin/slang-standard-module-2026.20/slang/mma-tiled-metal.slang": "60eb69591e610da07a791ee0ff565c1f56117d5e2f00af5f15c26a16daab1420",
+          "bin/slang-standard-module-2026.20/slang/mma-tiled-vulkan.slang": "60b9df04e732f0f9598426a0f175f5556d6904d4711281716a8fa986d824e3c4",
+          "bin/slang-standard-module-2026.20/slang/network-parameter-layout-converter.slang": "40c0a26d4204c63977024e609d13d2f041fcfd36103e072fc87a4c523058c3ae",
+          "bin/slang-standard-module-2026.20/slang/neural.slang": "598c9c3d987c3231551cb0dbd12bdb6345d0b05f18da5318d1e5b636e5b8d43e",
+          "bin/slang-standard-module-2026.20/slang/neural.slang-module": "d89ec90c7b796bbef31fae283c6b8c9559abda23e10ad16d928b6bb910919f8d",
+          "bin/slang-standard-module-2026.20/slang/numerics.slang-module": "2a545865eaad35c0f602552e81a63682e2d3e322400449c9ed2939ebac973bd4",
+          "bin/slang-standard-module-2026.20/slang/numerics/__builtin.slang-module": "fef8ff9eb3b861aca89e2439767105dd8e59a225224f2a248000c7c2b4a3b428",
+          "bin/slang-standard-module-2026.20/slang/numerics/__builtin_differentiable.slang-module": "aa2f1444d8599178c8c7732612cd7ba7f32ecae87e7134c7350015c32c53aa3a",
+          "bin/slang-standard-module-2026.20/slang/numerics/differentiable.slang-module": "837daaf41f2c23625fe2fe4381787bec7af58ec5bb93183d73a49422bc2ff465",
+          "bin/slang-standard-module-2026.20/slang/permuto-encoder.slang": "8564f73a57c355c478ca86349c18ec7e7fe321f316c71126531ba1a98f3e4011",
+          "bin/slang-standard-module-2026.20/slang/shared-memory-pool.slang": "cc2b1fe4ff31cfdef98cb8d4802edc50508c6b7431ef7a64664b4ad32a9a33e2",
+          "bin/slang-standard-module-2026.20/slang/vectorized-reader.slang": "5da65a878563ac190c847a90a85d6a404f4091e159fd2cdbc98730aef005d646",
+          "bin/slang.dll": "59190f074d96d8f2d002d7e9200cde7196be728c8705741ed95733c53e223b43",
+          "bin/slang.exe": "7647d89eb31d533aee4d3d9691a759dbf3086fe9520d99ca1b1b0ca6a0857148",
+          "bin/slang.slang": "94dc40cf0909ecdf157410ee2f483b90cd5ba583d9a8ee84e9bdd3e1a6672a24",
+          "bin/slangc.exe": "59ceb8b73aae261fd52715d82f7e54d8e21232a0795a45444d90d8384bd1a3d3",
+          "bin/slangd.exe": "0241607d061e8156b288a4b840311f20491d0b6818990e5d1d5b8aecb8f49c70",
+          "bin/slangi.exe": "647900af9c29707e08d302fc05c701fae415b65e857450a99d16d82b4edc400e",
+          "include/slang-com-helper.h": "04ed9bfc80e5c3aa227f6a069cad1c2e8102ea0f3678e7c391a3c8d92d1d1c39",
+          "include/slang-com-ptr.h": "fb225147df75460422b3c800afe4293ff59236d94fd574a4fec8d2f43b95865d",
+          "include/slang-cpp-host-prelude.h": "c35720012479357aee70914c6c8cf86af1c934007275f753c8c6101cfa53b465",
+          "include/slang-cpp-prelude.h": "089bcdaed89a313267b3049e5b22857a8a54f56701baa839b8029e7ae8519464",
+          "include/slang-cpp-scalar-intrinsics.h": "c0a8a4e291b3d30f3ad0e17e8b01c31291230af0a5cea14e97f93a12f1d0e2fc",
+          "include/slang-cpp-types-core.h": "a230301085e18678f9e91a984d061abb7057ca2b16c0253335409fcc950268c0",
+          "include/slang-cpp-types.h": "1de53b1426834f8a01dfa674a5031f07750e94fd5e9563a5cdb73e84b8be4a57",
+          "include/slang-cuda-prelude.h": "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a",
+          "include/slang-deprecated.h": "8766bec509b912b338a394fba9fbbf443c31dc3fd19ecd25e85ab0a7e01e6c04",
+          "include/slang-gfx.h": "ca8c6f75e4d2c1ab88b58cd781581c74b64c0672941a9576ef537385358a84ba",
+          "include/slang-hlsl-prelude.h": "410b08865422c9e5ecccdfde70a8e461ad66f1a0ba8c8ae678d808e7f6e4891d",
+          "include/slang-image-format-defs.h": "184948d16aaf606399748273e329b0b4715145b5e1475cb7f9b0b3eaee37ad3d",
+          "include/slang-llvm.h": "f3b43240c90ce7471299cc8601950386834740b09f35abf891ac977bc9bb35e2",
+          "include/slang-tag-version.h": "f86f51313d5ebccb2c9cd13eb978663b9e9d3959e367c39d7f9a94d43e3bbed6",
+          "include/slang-torch-prelude.h": "946d7a5d9a52d1080d71101b65e702502d1fbc06bfde41ddf56292591146e7f8",
+          "include/slang.h": "7a2722ed08388c577891afa166e5cd0074ca10778a48f8ce4179512c74a161b8",
+          "lib/gfx.lib": "845a1aaaca5cd01e39cacf28a49e841ef289a04229e51516562b0f1c61095cd5",
+          "lib/slang-compiler.lib": "ef655c3bed9686d47758ff98c08d56d3bec36ffb45190759df219a718fe2f724",
+          "lib/slang-rt.lib": "b8fd293a3fa295dcd6aa949ca539e55ead6310bfc78ec07b138c618d8d2fd15b",
+          "lib/slang.lib": "904e52712ad57ee19b12192af20c33a168e8071d22cca83d6254e262bb0b30cb",
+          "share/slang/agent-skills/LICENSE": "b738d98b7725414b534c119ac66126876b8cbd40aa8ae48210db190714b81670",
+          "share/slang/agent-skills/PROVENANCE.json": "4307b9f17826e35c766ad62f557fd89d9bcf547c4031b7cfbaf4e9636f5bc223",
+          "share/slang/agent-skills/README.md": "14053fb5551760249ab4d325c0c7c79dfca7be2668eef6d320bd2f7fd470e9fc",
+          "share/slang/agent-skills/skills/slang-numeric-generics/SKILL.md": "42799eeba8691147b9430833ab03c68eaa4eef32324501432b97f5d3cebf43f1",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/custom-numeric-types.md": "e48ebfecbb5fb33472b9a9f229bfb615af45b3aa65b68fa9208b0d6af5dad372",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/builtin-numeric-conversion.slang": "c07ea999f86cddfd5bc50aba4625537b684272c5f46f166f5984c8acb7db7f18",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/builtin-vector-element.slang": "9e030ceb42caba07a29905d42a178ef90c87210427b33fed3550a70c91987740",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/capability-selection.slang": "8f8e2f6f9a616d24fc48f425cc7b53c9e90c425fc7f2a9a15487fcfbaf4fa94e",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/custom-dual-number.slang": "9128b870db68a1dde6afd5d889b47967882af8d6dafccfb20044cea3b5bb2644",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/differentiable-dot-product.slang": "cd75a743d9df617930f8b6491e709cd5b54a9efec0defce80ca2fc2a12582ef4",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/dot-product.slang": "a4d4edcafc79506c5e62544926f0174d7dc5d08829015826c05a0add905a8c44",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/sealed-builtin-negative.slang": "29d73fe4d95497788fa7662970808d0fd7447b22716c1e3e397c335bc5230a6f",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/shapes-and-masks.slang": "d8323bfc78eb5134e15429b6e20c042415a74b41d45e7a22f5a58f267c319d0c",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/wrapper-conformance.slang": "7c903870ae862537b1265bcb4877544eac5dedf676bd2475bf0ecba9e885714a",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/interface-selection.md": "5776b916439867f99cbe8f24866e89c6ea8fcbd3bb3e2d74753693e886c9b665",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/public-versus-builtin.md": "b85d8ebdf2bc48f8fc1950d4b4d1069a85723f7a2cb8587705bdb0e135d3a9d9",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/shapes-and-conversions.md": "83173beed9ce6b360cac75cb6d749d98664ebc73bb86b7a89ae1e485b2bddc4e",
+          "share/slang/agent-skills/skills/slang-port-hlsl-templates/SKILL.md": "7f16e1fc79ac4106de5a9ad60c9530137bb638460d98adbe5a46d8f60e7436c3",
+          "share/slang/agent-skills/skills/slang-port-hlsl-templates/references/contracts-and-extensions.md": "6578388febe9f2d4a231fe90d7cddd42c8dc27ac53eba6bc64571373fbe0370f",
+          "share/slang/agent-skills/skills/slang-port-hlsl-templates/references/examples/contracts-and-extensions.slang": "d3c615a454f0e76a310053f4ce870d2131277075e4c18e05acb3c42702a6b238",
+          "share/slang/agent-skills/skills/slang-port-hlsl-templates/references/examples/finite-value-generic.slang": "ff2277f0fd712369cfe64c1b25e165978a12ab7d6ff73ef992eb56eba4308bc9",
+          "share/slang/agent-skills/skills/slang-port-hlsl-templates/references/examples/finite-value-specialized.slang": "4483bb14c848fadc32f6ed1fc286b5a133633ee972995c428df01a6811b3b435",
+          "share/slang/agent-skills/skills/slang-port-hlsl-templates/references/finite-value-dispatch.md": "bd9d97e2e290dd9f6a2249b79be79c0895c979a58a137e5172dc953a2c8ff720",
+          "share/slang/agent-skills/skills/slang-port-hlsl/SKILL.md": "1184eeade10fff2374e4cfdbfffba63c302562c11720a282f8856a9cea3e7519",
+          "share/slang/agent-skills/skills/slang-port-hlsl/references/common-differences.md": "9834fa146031f08fb71536464b4f3f1be6fc753d44c6da5fcf10332c65f228d8",
+          "share/slang/agent-skills/skills/slang-port-hlsl/references/examples/scalar-vector-one.slang": "31eacb64a179d94d0f44cb361522ba0ee1be0b164a2ce2098903c12c3776fcd4"
+        },
+        "compiler_root": "<slang-2026.20>",
+        "consumers": {
+          "app/portable_generation_cache.py": "8c2fe0ac816e256ba25a6cad535afa85fefbf4d934281b9d611a986cf8d6bc97",
+          "app/portable_resident_layout.py": "dae4870636288cb31c64370de686e46e9e98352c306b5011b812f1eb239f8b42",
+          "app/portable_scope_snapshot_audit.py": "05a44d082ca9df9559b6cd537366639c0ac4321874b000b454ef4cb4f0188817",
+          "app/portable_slang_generation.py": "3c7d10365ed81221060120268b682187e0bcbb3c37cecbdd1a87ed216ad21f32"
+        },
+        "entry": "portableEvents",
+        "host": {
+          "machine": "AMD64",
+          "release": "11",
+          "system": "Windows"
+        },
+        "kind": "paired-resident-slang-generation",
+        "options": [
+          "-fp-mode",
+          "precise",
+          "-line-directive-mode",
+          "none",
+          "-reflection-json"
+        ],
+        "path_sensitive_root": null,
+        "schema": 1,
+        "source": "gpu/damage_accum_probe.slang",
+        "source_sha256": {
+          "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+          "gpu/damage_accum_core.slang": "e76d01686e3f466fb2971f9d81634452676f3a8d4fd4b5fe79a90853c7204e1b",
+          "gpu/damage_accum_probe.slang": "e506fb453a4a198342ecb519f9e69e1c4eae1a2100486d53b66d0b37923bb3d9"
+        }
+      },
+      "key": "e8e82f85c970868310e70f3af04447de6fdbe72e8108deddd7e36adce0c939af",
+      "schema": 1
+    }
+  },
+  "compile": {
+    "receipt": {
+      "enabled": true,
+      "hit": false,
+      "key": "59dd62d0bd92c8e397ddc1e71c1e3454f5230b4fa2e725cade6115d0340da15c",
+      "identity": {
+        "schema": 1,
+        "artifact": "cubin",
+        "source_sha256": "9169cd39e33eb232d05e6d69081f9846c0448ab584db76de50410f96dd33d195",
+        "options": [
+          "--std=c++17",
+          "--gpu-architecture=sm_86",
+          "--fmad=false"
+        ],
+        "headers": {
+          "<slang-2026.20>\\include\\slang-cuda-prelude.h": "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
+        },
+        "compiler_files": {
+          "nvrtc-builtins64_124.dll": "79888dba26c51475ea21fc7b47d2b9dd5b1ffaecc8e5ea22a49fa5f5a722eb43",
+          "nvrtc64_120_0.dll": "3aa3cd8aa10437e212760c0e1ed730807811ec3bc330216dbfde4b26211d2243"
+        }
+      },
+      "artifact_sha256": "72de4074434091cdd0f1036195fd78e321c1579f80f9c7cc2d53047fe49e69cf",
+      "artifact_bytes": 73680
+    },
+    "seconds": 1.453,
+    "return_code": 0
+  },
+  "cache_check": {
+    "passed": true,
+    "cache": {
+      "enabled": true,
+      "hit": true,
+      "key": "59dd62d0bd92c8e397ddc1e71c1e3454f5230b4fa2e725cade6115d0340da15c",
+      "identity": {
+        "schema": 1,
+        "artifact": "cubin",
+        "source_sha256": "9169cd39e33eb232d05e6d69081f9846c0448ab584db76de50410f96dd33d195",
+        "options": [
+          "--std=c++17",
+          "--gpu-architecture=sm_86",
+          "--fmad=false"
+        ],
+        "headers": {
+          "<slang-2026.20>\\include\\slang-cuda-prelude.h": "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
+        },
+        "compiler_files": {
+          "nvrtc-builtins64_124.dll": "79888dba26c51475ea21fc7b47d2b9dd5b1ffaecc8e5ea22a49fa5f5a722eb43",
+          "nvrtc64_120_0.dll": "3aa3cd8aa10437e212760c0e1ed730807811ec3bc330216dbfde4b26211d2243"
+        }
+      },
+      "artifact_sha256": "72de4074434091cdd0f1036195fd78e321c1579f80f9c7cc2d53047fe49e69cf",
+      "artifact_bytes": 73680
+    },
+    "elapsed_seconds": 0.08532420033589005,
+    "gpu_calls": 0,
+    "nvrtc_compile_calls": 0,
+    "calculation_verified": false,
+    "package_id": "58e69f8b9701907cc9a9993124fff395581777652ce5c7d9037f3a68c22782a6"
+  },
+  "cache_check_path": "<validation>\\cache-check.json",
+  "containment_verified": true,
+  "calculation_verified": true,
+  "environment_preservation_verified": false,
+  "old_v1_v2_captures_and_claims_retained": true,
+  "calls": {
+    "smoke": 1,
+    "gpu_stage": 1,
+    "gpu_execute": 1,
+    "nvrtc_compile": 1,
+    "file_only_cache_check": 1,
+    "cache_check_nvrtc": 0,
+    "cache_check_gpu": 0,
+    "additional_cpu_stage": 0,
+    "retries": 0
+  },
+  "exec_context": {
+    "smoke_and_gpu": "require_escalated",
+    "file_cache_check": "use_default"
+  },
+  "full_battle_admission_verified": false,
+  "all_character_verified": false,
+  "raw_shared": false
+}
