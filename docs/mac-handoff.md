@@ -1,3 +1,7 @@
+<!-- destructible-world-current -->
+型付き弾/HP盾/hit盾を既存world_scheduleへ接続する共通CLI destructible-worldを追加。GPUが生死からclearedを求め、既存active/generationで生成・退役する。別時計/CPUスポーン予定表なし、same-time再入/旧世代着弾/cleared優先/epsilon/slot127/owner/finishをBossScript正本時計＋宣言target状態と照合。Metal33(正例21/拒否12)一致＋独立seal、最終CPU17成功・保存5block故障注入、GPU.012810秒/PSO.182481秒/実run生成cache必須hit/Slang0。production147source/Runtime138952と旧core保持。戦闘生成元/dispatch/迎撃・倍率/all_projectilesは未接続、245packing/残20model gap/全キャラ0/UI CPU/未達。Windows追加0、7欠落は操作否定・game/video可能性の回答でもcause unknown/保全false、次CUDA前はCPU準備計測と保存claim監査。詳細docs/portable-destructible-world.mdとcheckpoint。以下は履歴。
+<!-- /destructible-world-current -->
+
 <!-- packet-preparation-current -->
 Windows core46はCPU37/24state preflight成功後に全stage90秒timeout。Slang2回は合計.608秒、CPU batch33.685秒/native.033秒、NVRTC/GPU/readback未観測。外側2GiB/peak340,103,168B/post空/cleanup正常、inner after未完・missing7/unknown/保全false。保存7JSON11,614Bを全SHA検査、再実行/cache-check0。CLI再importと同一processの重複全件検証を除き、共有run_captureのgate前検証、CPU worker/GPU childの検証は維持。既存Journalへ準備/監視/各検証/CPU/inner jobを追加しstatusもstage対応。最終固定packet 9fb5ca76...でCPU37＋controller335(334成功/Win1skip)、改変/gate故障注入9＋CLI41成功。旧Metal46は保存replay＋独立sealで全golden/raw保持・追加GPU0。Windows改善実測は未実施、次はCPU-only準備計測、時間枠拡大やGPU再試行はしていない。source147/245SHA保持・残20model gap・typed target coreはbattle未接続。全キャラ0/UI CPU/目標未達。再利用停止の直接差分は追加したIMPL-STATUS文書だけで、ActorRegistry由来との説明を訂正した。詳細docs/portable-destructible-target-core.mdとcheckpoint。以下は履歴。
 <!-- /packet-preparation-current -->
