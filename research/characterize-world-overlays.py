@@ -115,7 +115,7 @@ def full_simulations():
   except Exception as error:rows.append(dict(name=case['name'],passed=False,error=repr(error),case=case))
   else:rows.append(dict(name=case['name'],passed=True,case=case,actual=result))
  debug=ROOT/'research/portable-build/overlay-native-full-before-assert.json';debug.parent.mkdir(parents=True,exist_ok=True)
- debug.write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n')
+ debug.write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  if all(r['passed'] for r in rows):
   original=rows[0]['actual']['damage']
   assert all(a<b for a,b in zip(rows[1]['actual']['damage'],original))
@@ -128,6 +128,6 @@ def full_simulations():
 def main():
  rows=contracts();full=full_simulations();paths=['research/characterize-world-overlays.py','research/world_frame_native.py','app/world_frame_runtime.py','research/upstream/nikke-calc-master/calculator/boss_pattern.py','research/upstream/nikke-calc-master/calculator/timeline.py','research/upstream/nikke-calc-master/calculator/buff_manager.py']
  report=dict(passed=all(x['passed'] for x in rows+full),source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),source_sha256={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths},contracts=rows,full_native_profiles=full,gpu_executions=0,gpu_overlay_verified=False,canonical_world_admission=False,full_character_verified=0,full_goal_complete=False,scope='Native scheduler/lifecycle contracts plus seven actual full simulations. No generated CPU state is used as GPU input;no GPU overlay or full-character support claim.')
- out=ROOT/'research/portable-world-overlay-native.json';out.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');assert report['passed'],[(r['name'],r.get('error')) for r in rows+full if not r['passed']]
+ out=ROOT/'research/portable-world-overlay-native.json';out.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');assert report['passed'],[(r['name'],r.get('error')) for r in rows+full if not r['passed']]
  print(len(rows),'native overlay contracts and',len(full),'full simulate profiles passed')
 if __name__=='__main__':main()

@@ -16,6 +16,33 @@ cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class PacketTests(unittest.TestCase):
+    def test_owned_validation_child_uses_utf8_without_changing_parent(self):
+        with tempfile.TemporaryDirectory() as directory,patch.dict(os.environ,{'PYTHONUTF8':'0','PYTHONIOENCODING':'cp932'}):
+            root=Path(directory);target=root/'diagnostic.json';before=dict(os.environ)
+            env=cli.validation_environment(root)
+            code="import sys,pathlib,json;pathlib.Path(sys.argv[1]).write_text(json.dumps({'label':'수냉'},ensure_ascii=False));print(sys.flags.utf8_mode);print('수냉')"
+            result=subprocess.run([sys.executable,'-c',code,str(target)],env=env,capture_output=True,check=True)
+            self.assertEqual(result.stdout.decode('utf-8').splitlines(),['1','수냉'])
+            self.assertEqual(json.loads(target.read_text(encoding='utf-8')),{'label':'수냉'})
+            self.assertEqual(dict(os.environ),before)
+
+    def test_artifact_metadata_reduction_preserves_byte_checks_and_regular_file_guard(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);member=root/'member';member.write_bytes(b'original')
+            records=cli.file_records(root,['member']);cli.check_records(root,records)
+            member.write_bytes(b'modified') # equal length: metadata cannot prove integrity
+            with self.assertRaisesRegex(ValueError,'bytes/SHA/size'):cli.check_records(root,records)
+            member.unlink();member.mkdir()
+            with self.assertRaisesRegex(ValueError,'regular artifact'):cli.file_records(root,['member'])
+            member.rmdir()
+            with self.assertRaisesRegex(ValueError,'regular artifact'):cli.file_records(root,['member'])
+            # Windows may not permit symlinks; existing code rejects every
+            # non-regular lstat mode, and supported hosts exercise a real link.
+            target=root/'target';target.write_bytes(b'original')
+            try:member.symlink_to(target)
+            except OSError:return
+            with self.assertRaisesRegex(ValueError,'regular artifact'):cli.file_records(root,['member'])
+
     def test_source_edit_during_native_baseline_cannot_publish_a_mixed_snapshot(self):
         import portable_backend
         with tempfile.TemporaryDirectory() as folder:

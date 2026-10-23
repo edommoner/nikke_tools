@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "mode": "single-process-unittest",
+  "patterns": [
+    "test_destructible_target_state.py",
+    "test_portable_damage_accum_core.py",
+    "test_portable_model_gap_audit.py",
+    "test_portable_readiness_semantics.py",
+    "test_portable_parent_fixed.py"
+  ],
+  "timeout_seconds": 60,
+  "elapsed_seconds": 3.8964928339701146,
+  "timed_out": false,
+  "exit_code": 0,
+  "gpu_calls": 0,
+  "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+}

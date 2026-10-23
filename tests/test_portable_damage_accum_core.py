@@ -1,10 +1,27 @@
 """State-store contracts, separate from complete battle GPU admission."""
-import array,hashlib,importlib.util,json,sys,unittest
+import array,hashlib,importlib.util,json,sys,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 spec=importlib.util.spec_from_file_location('damage_core_adapter',ROOT/'research/verify-damage-accum-core-short.py');adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
 class CoreTests(unittest.TestCase):
+    def test_native_overlay_diagnostic_survives_cp932_default(self):
+        spec=importlib.util.spec_from_file_location('overlay_encoding_contract',ROOT/'research/characterize-world-overlays.py')
+        overlay=importlib.util.module_from_spec(spec);spec.loader.exec_module(overlay)
+        original=Path.write_text
+        with tempfile.TemporaryDirectory() as directory:
+            saved=Path(directory)/'diagnostic.json'
+            def write(path,data,*args,**kwargs):
+                if path.name=='overlay-native-full-before-assert.json':
+                    # Simulate the Windows default and preserve real Unicode
+                    # witness data; dropping/ASCII-escaping it is not the fix.
+                    return original(saved,data,*args,**dict({'encoding':'cp932'},**kwargs))
+                return original(path,data,*args,**kwargs)
+            with patch.object(Path,'write_text',write):rows=overlay.full_simulations()
+            self.assertEqual(len(rows),7);self.assertTrue(all(r['passed'] for r in rows))
+            text=saved.read_text(encoding='utf-8');self.assertIn('수냉',text)
+            self.assertEqual(json.loads(text),rows)
+
     def test_native_methods_cover_fixed_state_contracts(self):
         rows,_=adapter.prepare();answers={c['name'].split('/')[-1]:adapter.native_reference(c) for _,_,c in rows if c is not None}
         def take(name):return [v for v in answers[name]['operations'] if v['op']==3]

@@ -10,6 +10,7 @@ from pathlib import Path, PurePosixPath
 import platform
 import runpy
 import site
+import stat
 import subprocess
 import sys
 import time
@@ -389,10 +390,12 @@ def file_records(root, names):
     for name in sorted(names):
         safe_name(name)
         p = root/name
-        if p.is_symlink() or not p.is_file():
+        try:info=p.lstat()
+        except OSError as error:raise ValueError('Expected regular artifact: '+name) from error
+        if not stat.S_ISREG(info.st_mode):
             raise ValueError('Expected regular artifact: '+name)
         from portable_capture_storage import file_digest
-        records.append(dict(path=name, bytes=p.stat().st_size, sha256=file_digest(p)))
+        records.append(dict(path=name, bytes=info.st_size, sha256=file_digest(p)))
     return records
 
 
@@ -1213,6 +1216,9 @@ def bounded_module():
 def validation_environment(capture):
     """Keep owned Windows tests/compiler scratch out of a sandbox default TEMP."""
     env=os.environ.copy();env.pop('__PYVENV_LAUNCHER__',None)
+    # Package sources, JSON and child logs use UTF-8 on every host. Scope this
+    # to owned validation processes; never change the user's OS/Python setup.
+    env['PYTHONUTF8']='1';env['PYTHONIOENCODING']='utf-8'
     if platform.system()=='Darwin':
         cache=Path(env.get('NIKKE_METAL_MODULE_CACHE',str((capture/'swift-module-cache').resolve())))
         if not cache.is_absolute():raise ValueError('Absolute private Swift module cache required')
