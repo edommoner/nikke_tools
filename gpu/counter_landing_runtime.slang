@@ -118,6 +118,7 @@ void counterPhysicalPacket(inout Runtime s,uint who,uint slot,uint generation,ui
 void publishCounterLanding(inout Runtime s,uint who,uint target,uint64_t amount,uint64_t when,uint output)
 {
     uint slot=target&127U,receipt=actorPoolHead(s)+18;
+    if(commands[actorBinding(s,slot)]==6) return; // Private interrupt has no canonical hit credit.
     if(results[receipt]==0) return;
     uint binding=actorBinding(s,slot),generation=results[actorPoolAt(s,slot)];bool killed=results[receipt+1]!=0;
     uint64_t damage=commands[binding]==5 ? actorNumber(receipt+2) : amount;

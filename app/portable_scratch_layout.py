@@ -66,6 +66,8 @@ def banks(limits, mode='normal'):
         rows.append(Bank('native-query-diagnostic', l['NATIVE_DIAG_BASE'], l['NATIVE_DIAG_WORDS']))
     elif mode == 'heal-share-diagnostic':
         rows.append(Bank('heal-share-diagnostic', trace_base, 8 + COUNT * trace_words))
+    elif mode == 'interrupt-aim-diagnostic':
+        rows.append(Bank('interrupt-aim-diagnostic', 785536, 16 + 16 * 32))
     elif mode != 'normal':
         raise ValueError('Unknown or incompatible scratch diagnostic modes')
     return rows
@@ -102,7 +104,9 @@ def audit_sources(root, limits, *, sources=None):
     sources = sources or {}; root = Path(root)
     for name, symbol, expected in (
         ('gpu/skill_part_receipt.slang', 'SKILL_PART_BASE', BASE),
-        ('gpu/world_interrupt_runtime.slang', 'WORLD_INTERRUPT_TOTAL_BASE', BASE + 4096)):
+        ('gpu/world_interrupt_runtime.slang', 'WORLD_INTERRUPT_TOTAL_BASE', BASE + 4096),
+        ('gpu/world_interrupt_runtime.slang', 'INTERRUPT_AIM_DIAG_BASE', 785536),
+        ('gpu/world_interrupt_runtime.slang', 'INTERRUPT_AIM_DIAG_COUNT', 16)):
         text = sources.get(name, (root/name).read_text())
         match = re.search(r'\b'+symbol+r'\s*=\s*(\d+)\s*;', text)
         if match is None or int(match[1]) != expected:
@@ -119,6 +123,9 @@ def audit_sources(root, limits, *, sources=None):
     for producer in ('WORLD_POOL_INIT(s,output)', 'WORLD_FIELDS_INIT(s,output)', 'COUNTER_INIT(s,output)'):
         if text.index(producer) >= text.index('initializeFocusState(s);'):
             raise ValueError('Scratch initialization order changed: '+producer)
+    focus = sources.get('gpu/focus_aim_runtime.slang', (root/'gpu/focus_aim_runtime.slang').read_text())
+    if 'initializeInterruptAimDiagnostics(s);' not in focus or 'initializeInterruptAimDiagnostics(s);' in sources.get('gpu/world_actor_pools.slang', (root/'gpu/world_actor_pools.slang').read_text()):
+        raise ValueError('Interrupt diagnostic initialization must follow recipient tail clearing')
     return dict(verified=True, modes=[verify(limits, mode=m) for m in (
-        'normal', 'native-query-diagnostic', 'heal-share-diagnostic')],
+        'normal', 'native-query-diagnostic', 'heal-share-diagnostic', 'interrupt-aim-diagnostic')],
         incompatible_modes=['native-query-diagnostic', 'heal-share-diagnostic'], gpu_calls=0)

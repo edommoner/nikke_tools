@@ -1,3 +1,7 @@
+<!-- interrupt-aim-gpu-current -->
+private kind6の直接着弾を共有actor pool/吸血/通知へ接続。Metal通常1385(native1101/拒否284)＋診断24/98receiptが一致・独立seal。CPU95群498検査175.6899秒、GPU10.7289秒、normal122source/診断123。旧1355のinput/native全保持、1354raw全byte一致、負例1だけcharge制御不整合の拒否位置変更657wordを固定し両方64。混在6の18,874,368B、診断bank外75,446,784Bも全保持。normalizer/数値/Runtime/既存容量変更0。通常v1の零率通知差・診断v2の初期化順序失敗raw/claim保持。sparsifyはbyte/SHA/path/inode保持で6,898,974,720Bのzero割当回収・削除0。Windows0/原因unknown/保全false、静的230/266・62分類、全キャラ0/UI CPU/未達。24例はcore0/intercept追加なしの直接packet範囲。次は狙った対象のno-core/intercept倍率、複数packet native観測、貫通/爆発の本体+対象/aimed重複除外。development_onlyを維持し広いpromotionをしない。詳細docs/portable-interrupt-aim-gpu.mdと対応checkpoint。以下は履歴です。
+<!-- /interrupt-aim-gpu-current -->
+
 <!-- interrupt-aim-reference-current -->
 共通CLI reference interrupt-aimへprivate物理着弾24契約を追加。正本hit_target前後98receipt、通常合計外会計・吸血・dead同フレーム・generation1→2・charge・散弾/2銃口・gateを固定。canonical ActorKind2はPROJECTILE、private6にhit creditを付けない。context内だけのCPU橋で通常CPU/default typed橋/GPU受付は不変。native/全trace/semantic read回数保持、偽receipt/二重/非物理/世代/容量/6故障を拒否。fresh不変packageのreference24とCPU23群140検査成功、batch28.4414秒。GPU/Windows0・共通GPU source/数値/normalizer変更0。全キャラ0/UI CPU/未達。次は共有landing continuationへprivate種別を接続し、Metal full battle/receiptと保持回帰後に受付。詳細docs/portable-interrupt-aim-reference.mdと対応checkpoint。以下は履歴です。
 <!-- /interrupt-aim-reference-current -->

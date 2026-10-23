@@ -1,0 +1,2 @@
+#define PORTABLE_INTERRUPT_AIM_DIAGNOSTIC
+#include "world_entry_reload_resident_entry.slang"

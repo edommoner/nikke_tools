@@ -23,9 +23,10 @@ def reference_readiness(issue):
         result.update(lane='native_contract_extension',native_consumer='confirmed_source',
             consumer_source='research/upstream/nikke-calc-master/calculator/timeline.py:_land_target; app/impact_runtime.py:landing; app/world_actor_runtime.py:ActorRegistry.view',
             contract_coverage='recorded_subset',reference_suites=['interrupt-aim'],recorded_cases=24,
-            implemented_extensions=['private_native_interrupt_receipts','zero_canonical_credit_contract','same_frame_dead_accounting','respawn_generation_contract','charge_and_lifesteal_contracts'],
-            required_extensions=['shared_private_interrupt_landing_bridge','metal_full_battle_and_receipt_validation'],
-            note='Opt-in private kind6 receipts preserve native target landing/accounting and lifesteal across24 authored contracts. Default typed CPU bridge and GPU physical admission remain closed. Canonical ActorKind2 stays PROJECTILE; interrupts acquire no canonical hit credit. Connect shared GPU before promotion')
+            implemented_extensions=['private_native_interrupt_receipts','zero_canonical_credit_contract','same_frame_dead_accounting','respawn_generation_contract','charge_and_lifesteal_contracts','shared_private_interrupt_landing_bridge','scoped_metal_full_battle_and_receipts'],
+            scoped_gpu_suite='interrupt-aim-retention',scoped_metal_cases=24,scoped_metal_receipts=98,scoped_metal_validation_performed=True,
+            required_extensions=['aimed_no_core_intercept_factors','native_multipacket_shot_observer','aimed_pierce_explosion_packet_set','current_source_cuda_validation'],
+            note='Shared private kind6 direct landing/accounting/lifesteal matches24 authored Metal contracts and98 per-landing receipts;1355 old and6 mixed inputs also pass. Canonical ActorKind2 stays PROJECTILE and no canonical credit is added. Development-only: aimed no-core/intercept multipliers and piercing/explosive body+target packet sets still require extension. Default typed CPU bridge remains unchanged; no full-character promotion')
         return result
     if issue.get('phase')=='effect' and issue.get('kind')=='buff' and issue.get('category')=='trigger' and operator.get('domain')=='condition' and operator.get('descriptor') in ('no_broken_cover_ally','focusing'):
         focus=operator['descriptor']=='focusing'

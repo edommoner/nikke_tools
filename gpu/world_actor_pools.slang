@@ -53,7 +53,6 @@ bool initializeActorPools(inout Runtime s)
         if(kind==1||kind==6 ? mode!=1 : mode<2||mode>4) return false;
         if(mode<=2 && (commands[d+1]!=0 || !f64Zero(after)) || mode==2 && !f64Less(0,hp)) return false;
         if(mode>=3 && commands[d+1]==0 || mode==3 && (!f64Zero(hp)||!f64Zero(after)) || mode==4 && (!f64Less(0,hp)||!f64Less(0,after))) return false;
-        if(focusAimEnabled(s) && kind==6) for(uint who=0;who<5;who++) if(s.weaponEnabled[who]!=0 && s.weaponMode[who]==0) return false;
         uint n=commands[d+6],packed=commands[d+7];if(n>8 || (packed>>(n*3))!=0 || kind!=1 && kind!=6 && (n!=0||commands[d+8]!=0)) return false;
         for(uint i=0;i<n;i++) if(((packed>>(i*3))&7)==0||((packed>>(i*3))&7)>4) return false;
         #ifdef PORTABLE_WORLD_ACTOR_FIELDS
@@ -129,6 +128,11 @@ void actorPoolLand(inout Runtime s,uint who,uint slot,uint64_t amount)
     uint head=actorPoolHead(s),scratch=head+18,p=actorPoolAt(s,slot),d=actorPoolDef(s,slot),kind=commands[actorBinding(s,slot)],gen=results[p];
     for(uint i=0;i<6;i++) results[scratch+i]=0;
     uint64_t took=0,overkill=0,when=actorNumber(head+2);bool killed=false,live=results[p+1]!=0;
+#ifdef PORTABLE_WORLD_PROJECTILE
+    uint interruptReceipt=0;
+    if(kind==6) { interruptReceipt=beginInterruptAimReceipt(s,who,slot,amount);if(s.error!=0) return;accumulateInterruptAimDamage(s,who,amount);if(s.error!=0) return; }
+#endif
+    bool directTarget=kind==1 || kind==6;
     if(kind==0 || kind==1)
     { s.total[who]=f64Add(s.total[who],amount);s.scoredDamage[who]=f64Add(s.scoredDamage[who],amount); }
     if(kind==0)
@@ -141,12 +145,12 @@ void actorPoolLand(inout Runtime s,uint who,uint slot,uint64_t amount)
     else if(live)
     {
         uint mode=commands[d];bool counting=mode==3 || mode==4 && !f64Less(when,f64Add(f64Add(actorNumber(p+8),loadNumber(d+4)),WS_EPS^F64_SIGN));
-        if(COUNTER_PART_DIRECT(s,kind,kind==1 || counting))
+        if(COUNTER_PART_DIRECT(s,kind,directTarget || counting))
         { if(results[p+3]==0x7fffffff) { s.error=2;return; }results[p+3]++; }
-        took=kind==1 ? amount : counting ? smaller(amount,ONE) : smaller(amount,f64Add(loadNumber(d+2),actorNumber(p+4)^F64_SIGN));
+        took=directTarget ? amount : counting ? smaller(amount,ONE) : smaller(amount,f64Add(loadNumber(d+2),actorNumber(p+4)^F64_SIGN));
         uint64_t dealt=COUNTER_PART_DEALT(s,kind,d,p,f64Add(actorNumber(p+4),took));storeNumber(p+4,dealt);
-        if(COUNTER_PART_DIRECT(s,kind,kind==1)) storeNumber(p+6,f64Add(actorNumber(p+6),amount));
-        killed=kind==1 ? f64Less(0,loadNumber(d+2))&&!f64Less(dealt,loadNumber(d+2)) : counting ? results[p+3]>=commands[d+1] : !f64Less(dealt,loadNumber(d+2));
+        if(COUNTER_PART_DIRECT(s,kind,directTarget)) storeNumber(p+6,f64Add(actorNumber(p+6),amount));
+        killed=directTarget ? f64Less(0,loadNumber(d+2))&&!f64Less(dealt,loadNumber(d+2)) : counting ? results[p+3]>=commands[d+1] : !f64Less(dealt,loadNumber(d+2));
         if(kind==5) { s.addScoredDamage[who]=f64Add(s.addScoredDamage[who],took);overkill=f64Add(amount,took^F64_SIGN);actorPoolAddOverkill(s,who,overkill); }
         results[scratch]=1;
         if(killed)
@@ -164,6 +168,9 @@ void actorPoolLand(inout Runtime s,uint who,uint slot,uint64_t amount)
     else if(kind==5) { overkill=amount;actorPoolAddOverkill(s,who,amount); }
     results[scratch+1]=uint(killed);storeNumber(scratch+2,took);storeNumber(scratch+4,overkill);results[head+15]++;
     if(!f64Finite(actorNumber(p+4))||!f64Finite(actorNumber(p+6))||!f64Finite(actorNumber(head+16))||!f64Finite(s.total[who])||!f64Finite(s.scoredDamage[who])||!f64Finite(s.addScoredDamage[who])||!f64Finite(s.addOverkill[who])) s.error=16;
+#ifdef PORTABLE_WORLD_PROJECTILE
+    if(kind==6) endInterruptAimReceipt(s,interruptReceipt,who,slot);
+#endif
     worldActorsApply(s);
 }
 uint actorPhysicalTarget(inout Runtime s,uint who,uint legacy)
@@ -182,7 +189,6 @@ bool actorPhysicalGate(inout Runtime s,uint who,uint target,uint64_t amount,uint
 {
     if(!actorPoolsEnabled(s)) return worldOverlayLand(s,who,target,amount,worldPhysicalNormal(s,who));
     storeNumber(actorPoolHead(s)+2,when);uint ref=actorPhysicalTarget(s,who,target),slot=ref&127;
-    if(focusAimEnabled(s) && commands[actorBinding(s,slot)]==6) { s.error=64;return false; }
     return commands[actorBinding(s,slot)]==5 || worldOverlayLand(s,who,0,amount,worldPhysicalNormal(s,who));
 }
 [noinline]

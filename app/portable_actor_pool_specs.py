@@ -11,9 +11,6 @@ def number(v):
 def compile_pools(patterns,bindings,*,fields=False,boss_atk=114344,focus_aim=False,armed=False):
  from calculator.boss_pattern import BOSS_EVENTS,penalty_parts
  penalties=penalty_parts(patterns) if focus_aim else frozenset()
- if focus_aim and armed and any(p.kind=='interrupt' for p in patterns):
-  from portable_runtime import UnsupportedPortable
-  raise UnsupportedPortable('Physical interrupt aim has no canonical typed Actor bridge',reason='control',fields=['focus_aim_physical_interrupt'])
  words=[0]*(L['WORLD_ACTOR_POOL_INPUT_WORDS']-L['WORLD_ACTOR_INPUT_WORDS']);words[:2]=[MAGIC,len(bindings)]
  if fields:words[2:4]=number(boss_atk)
  for slot,b in enumerate(bindings):

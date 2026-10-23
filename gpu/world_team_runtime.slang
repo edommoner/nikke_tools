@@ -87,6 +87,13 @@ void notifyWorldTeam(inout Runtime s,uint who,uint64_t when,uint output)
     if(focusAimEnabled(s) && (commands[s.inputBase+P_WORLD_META_BASE+4]&1U)!=0)
     {
         uint target=actorPhysicalTarget(s,who,0)&127U;
+        if(commands[actorBinding(s,target)]==6)
+        {
+            // Aimed interrupt packets publish both native zero-fraction observations.
+            notifyWorldTeamFraction(s,who,0,0,when,output);
+            if(s.error==0) notifyWorldTeamFraction(s,who,1,0,when,output);
+            return;
+        }
         if(commands[actorBinding(s,target)]==1)
         {
             // Native stage pellets notify part then body, including zero.

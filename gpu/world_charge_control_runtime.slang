@@ -22,6 +22,7 @@ void initializeChargeControl(inout Runtime s)
     for(uint who=0;who<5;who++)
     {
         uint a=controlOwnerInput(s,who),nc=commands[a],ns=commands[a+1],first=commands[a+2],count=commands[a+3],kind=commands[a+4];
+        if(kind!=0 && s.weaponMode[who]!=1) { s.error=64;return; } // Static charge controls require a charge base weapon.
         if(nc>8||ns>8||first!=offset||first+count>total||count>256||kind>2||kind==0&&nc!=0||kind==2&&ns!=0) { s.error=64;return; }
         for(uint j=5;j<8;j++) if(commands[a+j]!=0) { s.error=64;return; }
         for(uint i=0;i<8;i++)

@@ -1,3 +1,5 @@
+最新の直接着弾GPU実証と残る倍率/複数packetの範囲は [portable-interrupt-aim-gpu.md](portable-interrupt-aim-gpu.md) を参照。以下は97eb14a時点のCPU準備記録です。
+
 # 物理interrupt照準の正本契約
 
 共通CLI `reference --suite interrupt-aim` に24のliteral契約を追加した。正本の物理射撃・対象決定・`BossScript.hit_target`・吸血処理をそのまま実行し、実際の着弾前後の状態をprivate receiptとして記録する。追加のダメージ計算・buff照会・照準照会・RNG消費はない。

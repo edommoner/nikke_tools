@@ -61,12 +61,12 @@ class StateFocusTests(unittest.TestCase):
             else:bad['focus_aim'][0 if key=='first' else -1]['aims'][1]=''
             with self.assertRaises(AssertionError):verify_aims(c,bad)
 
-    def test_physical_interrupt_native_gap_is_preserved_and_host_closed(self):
+    def test_default_native_gap_remains_but_private_physical_host_is_connected(self):
         case=original_fixtures()[0]
         with self.assertRaisesRegex(ValueError,'Unknown world actor'):
             plain_observe(case)
-        with self.assertRaisesRegex(UnsupportedPortable,'canonical typed Actor bridge'):
-            adapter().suite.compile_case(case)
+        words,metadata,bindings=adapter().suite.compile_case(case)
+        self.assertTrue(words);self.assertTrue(any(int(b.kind)==6 for b in bindings))
 
     def test_host_and_exact_source_delta_guards(self):
         e=fixtures()[0]['effects'][-1];validate_effect(e,combat={},world_frame=True)

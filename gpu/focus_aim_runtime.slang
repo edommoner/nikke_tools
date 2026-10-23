@@ -101,6 +101,7 @@ bool focusNumericEnabled(inout Runtime s)
 void initializeFocusState(inout Runtime s)
 {
 #ifdef PORTABLE_WORLD_PROJECTILE
+    initializeInterruptAimDiagnostics(s); // After recipient/counter tail clearing.
     bool numeric=false;
     for(uint row=0;row<s.count;row++) for(uint i=0;i<definition_conditionCount(s.inputBase,row);i++)
         numeric |= commands[s.inputBase+P_CONDITION_BASE+row*P_CONDITION_WORDS+i*4]==C_FOCUSING;

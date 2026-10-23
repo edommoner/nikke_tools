@@ -1,5 +1,47 @@
 // Private interruption extras: no canonical ActorHandle, total, gauge or hit credit.
 static const uint WORLD_INTERRUPT_TOTAL_BASE=785424;
+static const uint INTERRUPT_AIM_DIAG_BASE=785536;
+static const uint INTERRUPT_AIM_DIAG_COUNT=16;
+#if defined(PORTABLE_INTERRUPT_AIM_DIAGNOSTIC) && (defined(PORTABLE_NATIVE_QUERY_DIAGNOSTIC) || defined(PORTABLE_HEAL_SHARE_DIAGNOSTIC))
+#error Interrupt aim diagnostics require a separate entry
+#endif
+void initializeInterruptAimDiagnostics(inout Runtime s)
+{
+#ifdef PORTABLE_INTERRUPT_AIM_DIAGNOSTIC
+    for(uint i=0;i<16+INTERRUPT_AIM_DIAG_COUNT*32;i++) results[s.resourceOutput+INTERRUPT_AIM_DIAG_BASE+i]=0;
+    results[s.resourceOutput+INTERRUPT_AIM_DIAG_BASE]=0x49415231U;
+#endif
+}
+void accumulateInterruptAimDamage(inout Runtime s,uint who,uint64_t amount)
+{
+    uint at=s.resourceOutput+WORLD_INTERRUPT_TOTAL_BASE+who*2;
+    uint64_t sum=f64Add(actorNumber(at),amount);if(!f64Finite(sum)) { s.error=16;return; }storeNumber(at,sum);
+}
+uint beginInterruptAimReceipt(inout Runtime s,uint who,uint slot,uint64_t amount)
+{
+#ifdef PORTABLE_INTERRUPT_AIM_DIAGNOSTIC
+    uint head=s.resourceOutput+INTERRUPT_AIM_DIAG_BASE,count=results[head+1];
+    if(count>=INTERRUPT_AIM_DIAG_COUNT) { s.error=64;return 0; }
+    uint at=head+16+count*32,p=actorPoolAt(s,slot),binding=actorBinding(s,slot);
+    results[at]=who;results[at+1]=commands[binding+1];results[at+2]=results[p];
+    results[at+3]=results[p+1];results[at+5]=results[p+3];
+    storeNumber(at+8,actorNumber(actorPoolHead(s)+2));storeNumber(at+10,amount);
+    storeNumber(at+12,actorNumber(p+4));storeNumber(at+16,actorNumber(p+6));
+    storeNumber(at+20,actorNumber(s.resourceOutput+WORLD_INTERRUPT_TOTAL_BASE+who*2));
+    return at;
+#else
+    return 0;
+#endif
+}
+void endInterruptAimReceipt(inout Runtime s,uint at,uint who,uint slot)
+{
+#ifdef PORTABLE_INTERRUPT_AIM_DIAGNOSTIC
+    uint p=actorPoolAt(s,slot);results[at+4]=results[p+1];results[at+6]=results[p+3];
+    storeNumber(at+14,actorNumber(p+4));storeNumber(at+18,actorNumber(p+6));
+    storeNumber(at+22,actorNumber(s.resourceOutput+WORLD_INTERRUPT_TOTAL_BASE+who*2));
+    results[s.resourceOutput+INTERRUPT_AIM_DIAG_BASE+1]++;
+#endif
+}
 void storeWorldSkillReachPacket(inout Runtime s,uint at,LandingReceipt r)
 {
     if(r.interruptReach==0) return;
