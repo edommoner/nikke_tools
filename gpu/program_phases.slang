@@ -63,7 +63,7 @@ void initializePortableProgram(inout Runtime s,uint input,uint output,out bool r
         { PROJECTILE_ADMIT_STAGE(s,25) results[output]=64;return; }
     PROJECTILE_ADMIT_STAGE(s,26) if(!initializeRevival(s)) { results[output]=64;return; }
 #ifdef PORTABLE_HEAL_CHARGE
-    if(healChargeEnabled(s)) for(uint word=0;word<8+512*20;word++) results[output+771072+word]=0;
+    if(healChargeEnabled(s)) for(uint word=0;word<8+512*20+8;word++) results[output+771072+word]=0;
 #endif
     initializeFocusState(s);
     if(!initializeNativeNumeric(s)) { results[output]=64;return; }

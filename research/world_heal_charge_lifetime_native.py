@@ -1,0 +1,1 @@
+from world_heal_charge_native import observe_extended as observe

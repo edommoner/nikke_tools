@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-storage-admission-regression-metal",
+  "raw_bytes": 739246080,
+  "raw_sha256": "ad578ee48773a3ff6455a85b778bf6176dbaf6f1ed83d271a7cbbaf3c56a23be",
+  "evidence_sha256": "dac583b5206d544c5efc2eaca9d266cb04a4e2f9dcdc09d42dd55793ce0ab2f4",
+  "raw_inode": 506650747,
+  "zero_ranges": 1756,
+  "zero_range_bytes": 524484608,
+  "allocated_before": 739246080,
+  "allocated_after": 214761472,
+  "allocated_reclaimed": 524484608,
+  "full_hash_verified": true
+}

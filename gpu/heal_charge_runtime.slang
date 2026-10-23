@@ -5,14 +5,28 @@
 #endif
 static const uint HEAL_CHARGE_DONE=262144U;
 bool healChargeEnabled(inout Runtime s) { return (commands[s.inputBase+P_PROTECTION_META_BASE]&64U)!=0; }
+#include "heal_charge_history.slang"
 void traceHealCharge(inout Runtime s,uint kind,uint row,uint who,uint64_t when,uint64_t before,uint64_t after,uint64_t cap,uint64_t amount)
 {
     if(!healChargeEnabled(s)) return;
-    uint head=s.resourceOutput+771072,count=results[head+1];results[head+2]++;
-    if(count==512) return;
-    results[head]=0x48434731U;results[head+1]=count+1;uint at=head+8+count*20;
-    results[at]=kind;results[at+1]=row;results[at+2]=who;
-    storeNumber(at+3,when);storeNumber(at+5,before);storeNumber(at+7,after);storeNumber(at+9,cap);storeNumber(at+11,amount);
+    uint head=s.resourceOutput+771072,index=results[head+2];
+    if(index>=1048576U) { s.error=64;return; }
+    uint words[20];for(uint i=0;i<20;i++) words[i]=0;
+    words[0]=kind;words[1]=row;words[2]=who;
+    words[3]=uint(when);words[4]=uint(when>>32);words[5]=uint(before);words[6]=uint(before>>32);
+    words[7]=uint(after);words[8]=uint(after>>32);words[9]=uint(cap);words[10]=uint(cap>>32);words[11]=uint(amount);words[12]=uint(amount>>32);
+    results[head]=0x48434731U;results[head+2]=index+1;
+    if(index<512)
+    {
+        results[head+1]=index+1;uint at=head+8+index*20;
+        for(uint i=0;i<20;i++) results[at+i]=words[i];
+    }
+    else
+    {
+        uint tail=s.resourceOutput+HEAL_CHARGE_HISTORY_TAIL;
+        if(index==512) beginHealChargeHistory(head,tail);
+        hashHealChargeRecord(tail,words);results[head+6]=index+1-512;
+    }
 }
 [noinline]
 void sweepHealCharge(inout Runtime s)
@@ -21,8 +35,21 @@ void sweepHealCharge(inout Runtime s)
     for(uint object=0;object<P_PROTECTION_OBJECTS;object++)
     {
         uint at=protectionAddress(s,object),flags=results[at+22];if((flags&255U)!=10) continue;
-        uint owner=(flags>>10)&7;
-        if((s.downMask&(1U<<owner))!=0 || !protectionObjectActive(s,object) && ((flags&PROTECTION_ENDED)==0 || (flags&HEAL_CHARGE_DONE)!=0))
+        if(!protectionObjectActive(s,object) && ((flags&PROTECTION_ENDED)==0 || (flags&HEAL_CHARGE_DONE)!=0))
+        { results[at+22]=0;storeNumber(at,0); }
+    }
+}
+// Native retirement happens after recipient removal, before down notifications.
+// Live persistent/shared carriers survive, even when their caster is down.
+[noinline]
+void retireHealChargeDown(inout Runtime s,uint who)
+{
+    if(!healChargeEnabled(s)) return;
+    for(uint object=0;object<P_PROTECTION_OBJECTS;object++)
+    {
+        uint at=protectionAddress(s,object),flags=results[at+22];
+        if((flags&255U)!=10 || protectionObjectActive(s,object)) continue;
+        if(((flags>>10)&7)==who || (flags&PROTECTION_ENDED)==0 || (flags&HEAL_CHARGE_DONE)!=0)
         { results[at+22]=0;storeNumber(at,0); }
     }
 }

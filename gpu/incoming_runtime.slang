@@ -48,6 +48,9 @@ void knockDown(inout Runtime s, uint who, uint64_t when)
             if (s.activeRecipients[row] == 0) { unlinkBulletCarrier(s,row); s.alive[row] = 0; s.stacks[row] = 0; }
         }
     }
+#ifdef PORTABLE_HEAL_CHARGE
+    retireHealChargeDown(s,who);
+#endif
     for (uint row = 0; row < s.count; row++)
     {
         Definition d = readDefinition(s.inputBase,row);

@@ -69,8 +69,8 @@ def banks(limits, mode='normal'):
     elif mode == 'heal-share-diagnostic':
         rows.append(Bank('heal-share-diagnostic', trace_base, 8 + COUNT * trace_words))
     elif mode == 'heal-charge':
-        from portable_heal_charge_specs import TRACE_BASE, TRACE_COUNT, TRACE_WORDS
-        rows.append(Bank('heal-charge', TRACE_BASE, 8 + TRACE_COUNT * TRACE_WORDS))
+        from portable_heal_charge_specs import TRACE_BASE, TRACE_COUNT, TRACE_WORDS, TRACE_HISTORY_WORDS
+        rows.append(Bank('heal-charge', TRACE_BASE, 8 + TRACE_COUNT * TRACE_WORDS + TRACE_HISTORY_WORDS))
     elif mode in ('interrupt-aim-diagnostic','duration-scaling-diagnostic'):
         rows.append(Bank('interrupt-aim-diagnostic', l['NATIVE_DIAG_BASE'], l['NATIVE_DIAG_WORDS']))
     elif mode != 'normal':

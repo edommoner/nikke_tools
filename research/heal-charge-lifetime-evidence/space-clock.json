@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-trigger-reduction-clock-corrected-metal",
+  "raw_bytes": 902823936,
+  "raw_sha256": "cab824fed7f189fb70d67e720a2277f60eed5dc3cd65db421125f3aef2746573",
+  "evidence_sha256": "1c32bf5730467842e720b820d54dbe755ff08412197d0b5882c1077fdd263b22",
+  "raw_inode": 506657260,
+  "zero_ranges": 2197,
+  "zero_range_bytes": 636551168,
+  "allocated_before": 902823936,
+  "allocated_after": 266272768,
+  "allocated_reclaimed": 636551168,
+  "full_hash_verified": true
+}

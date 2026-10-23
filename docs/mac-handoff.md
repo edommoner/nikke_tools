@@ -1,3 +1,7 @@
+<!-- heal-charge-lifetime-current -->
+回復poolのdown破棄を共通retirementへ接続。正本activeのpersistent/共有carrierは保持し、終了/消失recordは復活通知前に破棄する12契約がMetal398(native302/拒否96)・独立seal成功。旧386 input/native保持、385raw1211105280B完全一致、down1入力のみstale量/型2wordを意図して0へ修正し差分明示。標準デルタ79定義に防御型がなく蓄積0だった失敗を保持し、対照＋ノア入り81定義を各3/30s、4入力全定義/順序・Metal/独立seal成功。発動30sは生成7/take2/正の放出2、全1272量/順序/時計を先頭512raw＋SHA256連鎖/最終poolで一致。共通SHA圧縮器を再利用し旧history13/8192記録もMetal成功・全旧raw指紋保持。全Runtime/stride138952不変。CPU36群248/85.079秒・native28.240秒/GPU4.561秒、実編成GPU3.434秒。最終通常CLI31成功、compiler-full--heal-charge-lifetime-retentionの143source証明/固定packet771f4aa1...、CPU323中322/Win1skip、生成cache必須hit/Slang0/GPU0/両生成・reflection全byte保持。静的242/base182/残30と全266/242SHA保持。Windows追加0/現CUDA実機未確認/7終了unknown/保全false、全キャラ0/UI CPU/未達。次は容量境界・広い混在・未対応30分類・有用な短いCUDA。詳細docs/portable-heal-charge-lifetime.mdとcheckpoint。以下は履歴。
+<!-- /heal-charge-lifetime-current -->
+
 <!-- heal-charge-gpu-current -->
 回復蓄積/容量boost/放出を共通Slangのscalar kind10・既存pool lifetime/同期continuationへ接続。Metal386(native290/拒否96)の29新契約が一致し、decoder-only修正後に保存raw replay/独立seal成功、GPU追加0。元CPU型比較・kind32 Actor-pool受付・指紋popの失敗を保持。旧349 input/native/output/raw1097859072B、全Runtime field/stride138952、旧241input SHA/全266profile保持。CPU33群231/78.087秒＋比較器故障8成功、GPU4.445秒、生成必須hit/Slang0。静的242/266/base182/203/残30、元デルタ79定義はpackingのみ。次は終了pool→down→復活の即時破棄（現sweep時機に不足の恐れ）、上限/回復分配mixed、元デルタ実編成。CUDA生成のみで実compiler/cache速度/計算未検証、Windows追加0/7終了unknown/保全false。全キャラ0/UI CPU/development_only/目標未達。詳細docs/portable-heal-charge-gpu.mdとcheckpoint。以下は履歴。
 <!-- /heal-charge-gpu-current -->

@@ -4,6 +4,8 @@ TRACE_BASE=771072
 TRACE_COUNT=512
 TRACE_WORDS=20
 TRACE_MAGIC=0x48434731
+TRACE_HISTORY_WORDS=8
+TRACE_MAX=1048576
 
 def validate(effect,*,combat,world_frame):
     kind=KINDS.get(effect.get('stat'),0)

@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-healing-storage-regression-metal",
+  "raw_bytes": 578813952,
+  "raw_sha256": "40cc6df6f786f7279ace565c4c0e757402f4d2b4c0161aae85dc90c552ae1b2e",
+  "evidence_sha256": "9ce63b7ebf1b67765e7f044ddbbcff13cc16b7201dace6c8a78016ceef80b2a2",
+  "raw_inode": 506641663,
+  "zero_ranges": 1314,
+  "zero_range_bytes": 420347904,
+  "allocated_before": 578813952,
+  "allocated_after": 158466048,
+  "allocated_reclaimed": 420347904,
+  "full_hash_verified": true
+}

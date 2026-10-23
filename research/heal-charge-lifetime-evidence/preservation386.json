@@ -1,0 +1,28 @@
+{
+  "scope": "Full old386 input/native preserved; exact raw comparison with one explicit retirement correction",
+  "inputs_retained": 386,
+  "all_native_sha256_identical": true,
+  "input_payload_bytes_identical": 161193600,
+  "raw_identical_cases": 385,
+  "raw_identical_bytes": 1211105280,
+  "raw_intentional_changes": [
+    {
+      "name": "heal-charge/heal-charge-down-discards",
+      "row": 371,
+      "word_changes": [
+        [
+          109249,
+          1083129856,
+          0
+        ],
+        [
+          109270,
+          10,
+          0
+        ]
+      ],
+      "reason": "Immediate retirement clears stale owner-down scalar quantity and kind flags; native removed this record already"
+    }
+  ],
+  "gpu_calls": 0
+}

@@ -47,15 +47,17 @@ def trace_words(row):
     for value in row[3:]:result.extend(struct.unpack('<II',struct.pack('<d',value)))
     return result+[0]*(TRACE_WORDS-len(result))
 
-def compare(block,domain):
-    expected=native_reference(domain);events=expected['battle']['healing_charge']['events']
+def compare_trace(block,events):
+    from portable_heal_charge_history import verify as verify_history
+    return verify_history(block,[trace_words(row) for row in expected_trace(events)])
+
+def compare_expected(block,domain,expected):
+    events=expected['battle']['healing_charge']['events']
     battle=dict(expected['battle']);battle.pop('healing_charge')
     prior.prior.prior.landing.base.compare_expected(block,domain,dict(expected,battle=battle))
-    trace=expected_trace(events);assert len(trace)<=TRACE_COUNT,'Extend literal overflow contract before truncation'
-    assert list(block[TRACE_BASE:TRACE_BASE+8])==[TRACE_MAGIC,len(trace),len(trace),0,0,0,0,0],('heal-charge-header',list(block[TRACE_BASE:TRACE_BASE+8]),len(trace))
-    for index,row in enumerate(trace):
-        at=TRACE_BASE+8+index*TRACE_WORDS;actual=list(block[at:at+TRACE_WORDS]);wanted=trace_words(row)
-        assert actual==wanted,('heal-charge-event',index,row,actual,wanted)
+    compare_trace(block,events)
     return expected
+
+def compare(block,domain):return compare_expected(block,domain,native_reference(domain))
 
 def validate_rejection(block,name):assert name.startswith('reject/heal-charge-') and block[0]==64,(name,block[0])
