@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "gpu_sources_identical_to_metal321": true,
+  "all266_profile_records_identical": true,
+  "all240_packed_input_hashes_identical": true,
+  "all_blockers_identical": true,
+  "protected_files_unchanged": true,
+  "gpu_calls": 0,
+  "native_calls": 0,
+  "windows_operations": 0,
+  "prior_inventory": "research/parent-fixed-evidence/inventory-v5.json",
+  "prior_metal_seal": "research/portable-world-parent-fixed-retention-short-expected.json"
+}

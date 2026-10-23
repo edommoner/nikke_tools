@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "stage": "cpu-native-contract",
+  "parent_commit": "882f8b9c14b3f30e8beb685299c4f9ccca273c97",
+  "package_id": "94d21634c055e93ad3ef298add37893b97ed414e4ea3da7208e4a422a846f500",
+  "native_cases": 20,
+  "outer_live_capacity_queries": 1349,
+  "recursive_skips": 1170,
+  "reference_seconds": 1.7958079590462148,
+  "cpu_tests": 37,
+  "new_gpu_calls": 0,
+  "packing_in_reference": 0,
+  "windows_operations": 0,
+  "gpu_supported": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "inventory": {
+    "packed_profiles": 240,
+    "profiles": 266,
+    "base_packed": 180,
+    "base_profiles": 203,
+    "remaining_categories": 34
+  },
+  "next": "Shared live recipient capacity value source, query-scope/recursion/cache correctness, Metal20 plus retained321 and original Emilia profiles."
+}

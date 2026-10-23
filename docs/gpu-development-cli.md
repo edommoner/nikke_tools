@@ -1,3 +1,7 @@
+<!-- max-ammo-scaling-reference-current -->
+共通CLI reference --suite max-ammo-scalingへ正本20契約を追加。live recipient容量、半端割合グループ0.5切上げ/flat偶数丸め、1発効果、mode memo/再装填/失効、再帰Noneを固定。外側1349/内側1170、観測追加照会0・全native/trace/RNG保持。fresh不変packageでreference1.796秒と5群37検査(skip0)成功。GPU受付は拒否のまま、Slang/正本/数値/normalizer変更0・GPU/Windows追加0。前回Metal321の全sourceと全266profile/240input SHA/拒否理由を保持。静的240/266/base180/203/残34、全キャラ0/UI CPU/目標未達。次は量源を共通lookupへ接続し、再帰/query scope/cacheを検証→Metal20＋旧321保持・元エミリア実編成。詳細docs/portable-max-ammo-scaling-reference.mdとcheckpoint。以下は履歴。
+<!-- /max-ammo-scaling-reference-current -->
+
 <!-- parent-fixed-current -->
 親通知のdealt_fixed_damageを共有Slangへ接続。Metal321(native241/拒否80)＋独立seal成功、旧291 input/native/raw915406848B保持、Runtime全layout/stride138952不変。23新契約は散弾/複数muzzle/端数0packet/通知欠如/再入/吸血/大整数を含む。CPU29群203/67.906秒、native19.685秒、GPU4.451秒、生成cache必須hit/実run追加Slang0。初回package欠落はGPU0、初回Metal差分はfixture待機0→正本.215の入力修正で解消し失敗を保持、GPUsourceと全正本期待値不変。consumer-auditで実consumer欠如を明示分類、静的240/266/base180/203/残34。次はmax_ammo_countのlive対象容量scaling（source確認のみ/契約0）と広い親context/現CUDA。Windows追加0/7終了unknown/環境保全false、全キャラ0/UI CPU/development_only/未達。詳細docs/portable-parent-fixed.md、checkpointとevidence。以下は履歴。
 <!-- /parent-fixed-current -->

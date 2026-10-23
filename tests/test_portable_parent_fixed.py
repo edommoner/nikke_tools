@@ -62,12 +62,12 @@ class ParentFixedTests(unittest.TestCase):
         s=importlib.util.spec_from_file_location('parent_cli_documents',ROOT/'scripts/nikke_gpu.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
         self.assertEqual(m.SUITES['parent-fixed-retention']['upstream_documents'],['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'])
         for name in m.SUITES['parent-fixed-retention']['upstream_documents']:self.assertTrue((ROOT/name).is_file())
-    def test_readiness_separates_scoped_parent_proof_and_ammo_source_only(self):
+    def test_readiness_separates_scoped_parent_proof_and_ammo_native_only(self):
         from portable_readiness_semantics import reference_readiness
         r=reference_readiness(dict(phase='effect',kind='damage',category='effect',stat='dealt_fixed_damage',target='target_body'))
         self.assertEqual(r['recorded_cases'],23);self.assertEqual(r['scoped_metal_validation']['inputs'],321);self.assertFalse(r['gpu_supported'])
         r=reference_readiness(dict(phase='effect',kind='buff',category='fields',stat='charge_dmg_pct',target='self',scaling='max_ammo_count',fields=['scaling']))
-        self.assertEqual(r['native_consumer'],'confirmed_source');self.assertEqual(r['recorded_cases'],0);self.assertFalse(r['runtime_validation_performed'])
+        self.assertEqual(r['native_consumer'],'confirmed_source');self.assertEqual(r['recorded_cases'],20);self.assertFalse(r['runtime_validation_performed'])
         for operator in (None,[],False):
             r=reference_readiness(dict(phase='effect',kind='damage',category='trigger',stat='unknown',operator=operator));self.assertEqual(r['lane'],'reference_review')
     def test_missing_model_audit_is_not_an_inert_effect_admission(self):
