@@ -1,0 +1,171 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "destructible-frame/original-level1",
+      "input_sha256": "f6d4146f1e1fb490f5636d423556fea05376da63ac6f5307cafae65329c172e1",
+      "output_sha256": "8b931eeb5ddaa4051ab1e94690bd019b954da823d44ff743067587380a75eed6",
+      "native_sha256": "9b7f1001a2e484d681f1658f78d66489b95cff55e35f7c7b4fb41491c87c2934"
+    },
+    {
+      "name": "destructible-frame/original-level10",
+      "input_sha256": "fee391253809b4573441ad10eec2f7d3c979b5cab10ca7dbdae7234b7bfae5f5",
+      "output_sha256": "cfcb527bb6a14fefdf695efe4e81f1e35566c0448dbded5ac3a34fb45e22f5b3",
+      "native_sha256": "2c19b75add6b3919d53cd91bcfcc0dffcae9f8e18b28e82c09d043ab221f5f25"
+    },
+    {
+      "name": "destructible-frame/original-full-burst",
+      "input_sha256": "458905a28541fa1c18ff2517442210cff0ad1146ddd5d7461317fb3b0d7374af",
+      "output_sha256": "7a0767bc23550bca3eeb679b0aa27f4ca655b610eb42d0da2cb375584a2ca954",
+      "native_sha256": "da25ee9ddcd0a1d8dfbd7c37e38eecfd20f9eb2c8321ac33dd4f8902931a584a"
+    },
+    {
+      "name": "destructible-frame/explicit-defense100",
+      "input_sha256": "32dbbbbac4a050d74eac2c52271d6519427fec37ed07839de3e3973e7d2b117a",
+      "output_sha256": "5c0d3f517b524603e2ff61d348fd92428b15c645d970c15d6263ccd99d1ef867",
+      "native_sha256": "cde2bc161ee27be69d4113fb3371e62cbb156e82e1c60eb29edaa2e6bba93d8e"
+    },
+    {
+      "name": "destructible-frame/live-attack-buff",
+      "input_sha256": "de421d33cbbb41ab8bec486af6fc13279fa6e4e9fd149a2a92be36b41303e23a",
+      "output_sha256": "9d2fdb1e46e4a5f0d1f153ef1c15bb8ce8411ce55b50c00c8fe1da1b44153ef3",
+      "native_sha256": "929407602fba37d545e57b9c45900ea953270e449feefccbe74c554dd80ae5a9"
+    },
+    {
+      "name": "destructible-frame/live-damage-and-critical-buffs",
+      "input_sha256": "4672e464d29e9d27d15bfc56d6587c7d6b86d7febdd031602d18e8e2600e6dba",
+      "output_sha256": "3cd46ee277bc686bb79639fe6e2cdeaf281ea459176c9c3d1bd337c5253fe9fb",
+      "native_sha256": "e8fa3677ce33ca04b9d401862b88f8e28531ba8abe3244fbdc5164558d038ea0"
+    },
+    {
+      "name": "destructible-frame/expired-buff",
+      "input_sha256": "4fa8689bb835b5ffb9ba6c15da71a881e23863cba7b47221df0fa29a7a2bb6d0",
+      "output_sha256": "c996cf4a01701082bb4982ad8935fda4b3ecc2a30f77c1c9b5177e08a3bdfa6b",
+      "native_sha256": "3e7e4189206b6d5940e10dbb8482cd396212eb9e8acf90a70d3f94a8bb345eb5"
+    },
+    {
+      "name": "destructible-frame/empty-selection",
+      "input_sha256": "0018dc3becd44733d7844b91ff85d098e2cee4d2272e51691d75f654011ba603",
+      "output_sha256": "a59d9451e2cb6d76c73aa5e56f455dc0a945501e0c7e3573a72d14cf0cc009e2",
+      "native_sha256": "04d10aee9ac26b795a8e09364eba257fc034458caf8a57da1e0bfcdee59b3413"
+    },
+    {
+      "name": "destructible-frame/zero-coefficient",
+      "input_sha256": "0bf249b7bd705f0e2964a7d9342e462a703a519ee45ea5c0c564bf187480058e",
+      "output_sha256": "408226f28b42bfa278db8f20d896ebb143306cd7254c3b49def75e1ae9422e39",
+      "native_sha256": "48df9ee5a5daf3655b18efacfde8cf54c9ae7d93f955edbbf100744f052feb25"
+    },
+    {
+      "name": "destructible-frame/one-ulp-coefficient",
+      "input_sha256": "15f27a0579b3b9c96317d7927b544b41a54d11406683ec66682e8e0c92ef5405",
+      "output_sha256": "451382a29cb48fd0e6079c97a693a484b135f5536353a8ecb7faa5773658c5e5",
+      "native_sha256": "fd6a43204c9edb09054de8481626e8943253c4b822aa1664a0c1f0c553fa6592"
+    },
+    {
+      "name": "destructible-frame/trigger-not-due",
+      "input_sha256": "9f03c110664499a54e16d6cb863b084c8608e21d1012165aff32034b27dd6ebc",
+      "output_sha256": "50c3927d5be357f09e252d186b6336f3b3dd5f00864dfec5ede6745458cc3f84",
+      "native_sha256": "bbbaa1c34a08d19a2a556c7b6aaefe52b430e3ae84e68ecd629ca3f1ba0242b2"
+    },
+    {
+      "name": "destructible-frame/two-root-attacks",
+      "input_sha256": "0e8c5f97e38a929aa8162c9eb798c5bc72bdcb9a66e7de524f736b062c8f598d",
+      "output_sha256": "4785d9d7981d4e4ec013d514dc0cef4982a77b0656e44cc4d85e1c15e1645135",
+      "native_sha256": "3e5a47795961514b9516a43cf961b2f4626798c9fefe6765afb5d70bf1fd15bc"
+    },
+    {
+      "name": "destructible-frame/manager-budget-once",
+      "input_sha256": "a5f8c7434edfa721dc7b43195702d651f1cc21c9b8923013694d4f618969f21f",
+      "output_sha256": "203922608432f8acce9feb4430c22bad00fd727c68dd6431934e8a8b62dc4046",
+      "native_sha256": "2c19b75add6b3919d53cd91bcfcc0dffcae9f8e18b28e82c09d043ab221f5f25"
+    },
+    {
+      "name": "destructible-frame/empty-does-not-consume-budget",
+      "input_sha256": "196d0b4360018acad7da9e45842b8761c23354a9669fc5858ba2b70c534b2814",
+      "output_sha256": "89f5223bb45e71045c93c46077cf782b7f99d9664154b83ad4f4ed08039fab3d",
+      "native_sha256": "29ac84dc9c04c0711426f6ae8887768bfb50991b0b15231e0e88e88f57663abf"
+    },
+    {
+      "name": "destructible-frame/named-hit-child-after-counter",
+      "input_sha256": "4438a6005fd5a35b774f63ce3384d622bbef1867c07dde15d6c84be028afb49e",
+      "output_sha256": "39fa32b4477a0bc1a911a357063518bc2ed9100cb08990f79fe51d31723a7b63",
+      "native_sha256": "1c2ec600f1d4709bd310b89f96b88d8c598474734d260ea30833f32e05513d15"
+    },
+    {
+      "name": "destructible-frame/high-slot128",
+      "input_sha256": "385697696055f44c32baa3bb0fe8bd1eb93fd59014a167c7d0693629ce6bf588",
+      "output_sha256": "0bfa5f024007a58073a830f45bd101bd37080aaa266be2e1a3df831539748d9b",
+      "native_sha256": "da85b9d585bc52af08ebf97de72e98dd9e888c566aced7384d0a75948b1c0304"
+    },
+    {
+      "name": "destructible-frame/siblings-refresh-before-death",
+      "input_sha256": "64da0b490494de01967d934080f5320594aa24179ffc0c75139cf8000b356a48",
+      "output_sha256": "715d225aa2d39a76a487a1f08ce490dc5825dd1e7238e9412f8f03d93b04aa2f",
+      "native_sha256": "b88fd759225179c77868ec9a64e41287869a3c99f589ac18d8af06285617156b"
+    },
+    {
+      "name": "reject/destructible-frame/row",
+      "input_sha256": "f4776a4a8ed6e8fe31ad95cb5d1bdf404c57cb4c41e42cf55c0fc04206486f72",
+      "output_sha256": "c99fae13105b70fc95a76cbd3c20415e7907a08261a0c9d28a37b410b629b082",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-frame/attack-id",
+      "input_sha256": "5702aac2cb9554cf388dd071ede870007680287c0563e84583eff4dd6646d639",
+      "output_sha256": "c99fae13105b70fc95a76cbd3c20415e7907a08261a0c9d28a37b410b629b082",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-frame/full-burst",
+      "input_sha256": "e4e030535fda93a5fced8a9fc04a2b0392244c17166106ba16fd323ef28aac00",
+      "output_sha256": "c99fae13105b70fc95a76cbd3c20415e7907a08261a0c9d28a37b410b629b082",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-frame/manual-skill-magic",
+      "input_sha256": "7dad022db2bd3d92a32d07cd058c77caff8d65a85641c420ae1d6b7fb61f5afd",
+      "output_sha256": "c99fae13105b70fc95a76cbd3c20415e7907a08261a0c9d28a37b410b629b082",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-frame/roots-zero",
+      "input_sha256": "9dce0f0d09c13acbcfdef5fb4ca8693fb2dc92c1ec8dffa7a3b19bd1b847b129",
+      "output_sha256": "c99fae13105b70fc95a76cbd3c20415e7907a08261a0c9d28a37b410b629b082",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-frame/roots-overflow",
+      "input_sha256": "1d8b0501e3cdab5ff5cffa952361b18b35ab53488c7dce59d495fa8397b9c8bb",
+      "output_sha256": "c99fae13105b70fc95a76cbd3c20415e7907a08261a0c9d28a37b410b629b082",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-frame/event",
+      "input_sha256": "db269f45316d3d62e1ac7af615745876114a3efef9c44645c7756d2852121a14",
+      "output_sha256": "c99fae13105b70fc95a76cbd3c20415e7907a08261a0c9d28a37b410b629b082",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-frame/reserved",
+      "input_sha256": "317a10e30d3316298dcc13d6a541dc4f465dc025d5a04505790527744778d643",
+      "output_sha256": "c99fae13105b70fc95a76cbd3c20415e7907a08261a0c9d28a37b410b629b082",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/destructible-frame/counter-as-skill",
+      "input_sha256": "b9a97f45621d6f846c81336914000c08fb3004badf90c60101638debca83769d",
+      "output_sha256": "c99fae13105b70fc95a76cbd3c20415e7907a08261a0c9d28a37b410b629b082",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 26,
+  "native_oracles": 17,
+  "input_sha256": "aa5bee9bc543a1226a0e7c1b72ad766a0c2d6c948636942444b29be8057f4cd9",
+  "output_sha256": "44d1461f997e4f6fdc1f61062c579e47451f348228674ce80832d8c0412f7911",
+  "generated_normalized": {
+    "cuda": "4aa8f23a856418939df97fd747177bab0a592129cc60cd7dfe65e76063bddff2",
+    "metal": "6a61ec8f2af14dd672ff3273532b911e68f58d2d2b9987e2b109aa4a60c7f484"
+  },
+  "audit_gpu_calls": 0
+}

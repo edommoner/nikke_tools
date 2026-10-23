@@ -21,6 +21,8 @@ def reference_readiness(issue):
             result['typed_foundation_validation']=typed_foundation
             result['typed_skill_validation']=dict(suite='destructible-skill',inputs=18,native_cases=10,rejected_cases=8,original_definitions=1,original_definition_inputs=8,metal_verified=True,independently_audited=True,cuda_device_verified=False,scalar_context_declared=True,automatic_battle_dispatch_verified=False,projectile_modifiers_verified=False,original_full_profile_verified=False,in_game_rules_verified=False,
                 scope='plain_original_definition_to_existing_scalar_query_and_live_projectile_producer')
+            result['typed_frame_validation']=dict(suite='destructible-frame',inputs=26,native_cases=17,rejected_cases=9,metal_verified=True,independently_audited=True,ordinary_notify_and_budget_verified=True,same_stack_counter_children_verified=True,empty_targets_preserve_budget=True,full_battle_scheduler_verified=False,cuda_device_verified=False,original_full_profile_verified=False,projectile_modifiers_verified=False,
+                scope='opt_in_common_skill_frame_with_explicit_typed_world_and_scalar_context')
         return result
     weapon_completion=(issue.get('phase')=='effect' and issue.get('category')=='trigger' and not issue.get('fields') and operator.get('domain')=='timing' and isinstance(operator.get('descriptor'),str) and operator['descriptor'].startswith('weapon_hit:') and bool(operator['descriptor'][len('weapon_hit:'):]))
     ordinary_stack_carrier=(issue.get('phase')=='effect' and issue.get('kind')=='buff' and issue.get('stat')=='buff_stack_add' and issue.get('target') in ('self','target') and not issue.get('fields') and issue.get('scaling') is None)

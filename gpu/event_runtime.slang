@@ -1520,7 +1520,12 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             pushFrame(s,frames,depth,0,31,encoded-1,f.argument,f.time);
             continue;
         }
-        if (f.mode == 10) { advanceSkillDamageFrame(s,frames,depth,f,output);continue; }
+        if (f.mode == 10) {
+#ifdef PORTABLE_DESTRUCTIBLE_FRAME
+            if(advanceDestructibleSkillFrame(s,frames,depth,f,output)) continue;
+#endif
+            advanceSkillDamageFrame(s,frames,depth,f,output);continue;
+        }
         if (f.mode == 11)
         {
             Definition cover = readDefinition(s.inputBase,uint(f.argument));

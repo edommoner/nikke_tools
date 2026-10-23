@@ -1,0 +1,72 @@
+[
+  {
+    "pattern": "test_destructible_frame.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.8463124580448493,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 47499
+  },
+  {
+    "pattern": "test_destructible_skill.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.5043677919311449,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 47499
+  },
+  {
+    "pattern": "test_destructible_attack.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.2564868750050664,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 47499
+  },
+  {
+    "pattern": "test_destructible_counter.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.3721761660417542,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 47499
+  },
+  {
+    "pattern": "test_destructible_world.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.03272529202513397,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 47499
+  },
+  {
+    "pattern": "test_target_counter_runtime.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.010832374915480614,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 47499
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.12524795904755592,
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 47499
+  }
+]

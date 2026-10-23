@@ -79,6 +79,7 @@ class ReadinessSemanticsTests(unittest.TestCase):
         v=result['typed_skill_validation'];self.assertEqual((v['inputs'],v['native_cases'],v['original_definitions']),(18,10,1))
         self.assertTrue(v['metal_verified']);self.assertFalse(v['automatic_battle_dispatch_verified']);self.assertFalse(v['projectile_modifiers_verified'])
         self.assertFalse(result['gpu_supported']);self.assertFalse(result['gpu_admission_verified']);self.assertFalse(result['full_character_verified'])
+        frame=result['typed_frame_validation'];self.assertEqual((frame['inputs'],frame['native_cases']),(26,17));self.assertTrue(frame['ordinary_notify_and_budget_verified']);self.assertFalse(frame['full_battle_scheduler_verified'])
 
     def test_inert_model_gap_is_checked_against_current_canonical_classification(self):
         r=reference_readiness(self.blocker('cover_def_pct'));self.assertEqual(r['lane'],'reference_model_gap')

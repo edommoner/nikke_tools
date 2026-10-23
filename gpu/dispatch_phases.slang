@@ -607,6 +607,9 @@ void advanceDefinitionFrame(inout Runtime s, inout Frame frames[32], inout int d
         if (f.mode!=19 && (f.event != 28 || (d.flags & 1) != 0 && ((s.stagedEnabled==0 || !isStaged(s,row)) || stageRegister)))
         {
             if (d.budget >= 0 && s.activations[WORLD_TEAM_BUDGET(s,row)] >= uint(d.budget)) continue;
+#ifdef PORTABLE_DESTRUCTIBLE_FRAME
+            if(d.budget>=0&&!destructibleActivationHasTargets(s,row)) continue;
+#endif
             if (s.activations[WORLD_TEAM_BUDGET(s,row)] == 0x7fffffff) { s.error = 2; break; }
             s.activations[WORLD_TEAM_BUDGET(s,row)]++;
         }

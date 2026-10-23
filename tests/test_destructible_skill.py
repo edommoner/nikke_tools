@@ -49,7 +49,8 @@ class SkillTests(unittest.TestCase):
     def test_saved_gpu_checks_scalar_context_and_landing_results(self):
         from portable_backend import source_hashes
         fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-skill-raw.json').read_text())
-        self.assertEqual(fixture['source_sha256'],source_hashes('gpu/destructible_skill_probe.slang'));rows,_=a.prepare()
+        from portable_destructible_frame_source_contract import verify_retained_sources
+        verify_retained_sources(ROOT,'gpu/destructible_skill_probe.slang',fixture['source_sha256']);rows,_=a.prepare()
         for record in fixture['records']:
             block=array.array('I',[0])*786432
             for i,v in record['nonzero']:block[i]=v

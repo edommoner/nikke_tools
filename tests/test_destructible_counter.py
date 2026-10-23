@@ -66,7 +66,8 @@ class CounterTests(unittest.TestCase):
   from portable_backend import source_hashes
   from portable_specs import LIMITS as L
   fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-counter-raw.json').read_text())
-  self.assertEqual(fixture['source_sha256'],source_hashes('gpu/destructible_counter_probe.slang'))
+  from portable_destructible_frame_source_contract import verify_retained_sources
+  verify_retained_sources(ROOT,'gpu/destructible_counter_probe.slang',fixture['source_sha256'])
   rows,_=adapter.prepare()
   for r in fixture['records']:
    block=array.array('I',[0])*786432

@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "all492_raw_bytes_identical": true,
+  "bytes": 1547698176,
+  "sha256": "81097426560613d9b76ab91e30bdec3e7a2d6747dd001554cb7158ec36d5af7b",
+  "source": "/tmp/nikke-chain-retention-metal492-v2",
+  "capture": "/tmp/nikke-df-metal492-retention-v1",
+  "gpu_audit_calls": 0
+}
