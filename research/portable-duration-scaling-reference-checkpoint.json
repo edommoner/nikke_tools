@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-23T06:14:48.006004+00:00",
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "ui_backend": "cpu",
+  "development_only": true,
+  "stage": "native-duration-scaling-prerequisites",
+  "reference_verified": true,
+  "new_gpu_coverage": 0,
+  "new_gpu_calls": {
+    "build": 0,
+    "execute": 0
+  },
+  "native_reference_packing_calls": 0,
+  "case_count": 31,
+  "synthetic_cases": 27,
+  "real_cases": 4,
+  "real_original_definitions": 80,
+  "real_durations": [
+    3,
+    30
+  ],
+  "real_baseline_duration_checks": [
+    0,
+    0
+  ],
+  "real_shield_break_duration_checks": [
+    2,
+    2
+  ],
+  "duration_checks": 93,
+  "reference_reads": 87,
+  "package_id": "3da37aa6c94ce59189eaf95cc290d5dd4c97b32d167086414173fbe6448df60d",
+  "transport_package_suite": "not-core",
+  "transport_package_inputs": 32,
+  "transport_scope": "Freeze current source and native observer payload; no GPU execution. The reference stage blocks portable packing.",
+  "reference_seconds": 3.1625998340314254,
+  "cpu": {
+    "groups": 5,
+    "tests": 26,
+    "seconds": 14.240826958906837
+  },
+  "retention": {
+    "passed": true,
+    "gpu_calls": 0,
+    "all266_profile_records_preserved": true,
+    "packed233_input_hashes_preserved": true,
+    "rejected33_profiles_preserved": true,
+    "priority49_codes_messages_order_preserved": true,
+    "changed_routing": [
+      {
+        "issue": {
+          "phase": "effect",
+          "category": "fields",
+          "kind": "buff",
+          "stat": "stealth",
+          "target": "self",
+          "scaling": null,
+          "fields": [
+            "duration_scaling",
+            "duration_scaling_ref"
+          ],
+          "code": "{\"category\": \"fields\", \"fields\": [\"duration_scaling\", \"duration_scaling_ref\"], \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stealth\", \"target\": \"self\"}",
+          "diagnostic_source": "structured_reason",
+          "error_type": "UnsupportedPortable",
+          "message": "Unported effect fields: duration_scaling, duration_scaling_ref"
+        },
+        "before": "reference_review",
+        "after": "native_contract_extension"
+      },
+      {
+        "issue": {
+          "phase": "effect",
+          "category": "fields",
+          "kind": "buff",
+          "stat": "stun",
+          "target": "self",
+          "scaling": null,
+          "fields": [
+            "duration_scaling",
+            "duration_scaling_ref"
+          ],
+          "code": "{\"category\": \"fields\", \"fields\": [\"duration_scaling\", \"duration_scaling_ref\"], \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"self\"}",
+          "diagnostic_source": "structured_reason",
+          "error_type": "UnsupportedPortable",
+          "message": "Unported effect fields: duration_scaling, duration_scaling_ref"
+        },
+        "before": "reference_review",
+        "after": "native_contract_extension"
+      }
+    ],
+    "gpu_source_files_unchanged": 125,
+    "old32_input_native_fingerprints_preserved": true,
+    "prior_metal1565_proof_reused": true,
+    "new_gpu_coverage": 0
+  },
+  "numerical_primitives_and_normalizer_changes": 0,
+  "protected_cpu_changes": 0,
+  "windows": {
+    "additional_operations": 0,
+    "current_source_cuda_verified": false,
+    "missing_process_cause": "unknown",
+    "preservation_verified": false
+  },
+  "remaining": [
+    "private_static_duration_reference_descriptor",
+    "activation_time_reference_before_carrier_mutation",
+    "applying_definition_expiry_for_named_alias",
+    "negative_finite_and_infinite_sentinel_distinction",
+    "passive_initialization_and_stack_operation_refresh_consumers",
+    "feather_live_count_time_and_precedence",
+    "shared_slang_metal_retention_and_real_shield_break",
+    "current_source_cuda_validation"
+  ],
+  "evidence": "research/duration-scaling-reference-evidence"
+}

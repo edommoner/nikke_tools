@@ -7,6 +7,14 @@ def reference_readiness(issue):
         runtime_validation_performed=False)
     operator=issue.get('operator')
     operator=operator if isinstance(operator,dict) else {}
+    if issue.get('phase')=='effect' and issue.get('category')=='fields' and issue.get('kind')=='buff' and issue.get('stat') in ('stealth','stun') and issue.get('target')=='self' and issue.get('fields')==['duration_scaling','duration_scaling_ref']:
+        result.update(lane='native_contract_extension',native_consumer='confirmed_source',
+            consumer_source='research/upstream/nikke-calc-master/calculator/buff_manager.py:_expires_at,ref_count,_apply',
+            contract_coverage='recorded_subset',reference_suites=['duration-scaling'],recorded_cases=31,
+            real_original_definitions=80,real_durations=[3,30],
+            required_extensions=['static_duration_reference_identity','activation_time_reference_before_carrier_mutation','source_definition_duration_for_named_alias','ordered_binary64_duration_expiry','shared_slang_metal_retention_and_real_shield_break','current_source_cuda_validation'],
+            note='Native-only27 synthetic plus four original full Label inputs, baseline/shield break at3/30s. Missing ref gives0; zero gauge shadows named stack; None/-1 skip ref reads; finite duration multiplies before time addition. Value scaling is independent, refresh reads before own stack increment. No packing or GPU admission added')
+        return result
     if issue.get('phase')=='effect' and issue.get('category')=='trigger' and operator.get('domain')=='condition' and operator.get('descriptor')=='not_core':
         result.update(lane='native_contract_extension',native_consumer='confirmed_source',
             consumer_source='research/upstream/nikke-calc-master/calculator/buff_manager.py:_condition_ok,notify; calculator/timeline.py:_bullet_core_fracs,_fire,_charge_fire',

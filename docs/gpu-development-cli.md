@@ -1,3 +1,7 @@
+<!-- duration-scaling-reference-current -->
+重複数に比例する持続時間を共通CLI reference duration-scalingへ31契約（合成27＋レイブル全80定義3/30sの通常/シールド破壊4）で固定。正本expiry93回/ref_count87回、通常入力0回と破壊刺激のstealth/stun各1回を区別。参照なし0・0ゲージ優先・整数化・caster単位・再付与の増加前読取・同名aliasの適用元定義・None/-1の読取省略・負の有限時間・値倍率との独立を確認。元battle/trace/全get_buffs/sample/expiry/ref読取の順と結果を保持、8故障拒否。不変packageのreference31とCPU5群26検査14.241秒成功。2分類をnative_contract_extensionへ移し、全266記録/233SHA/33拒否/49code順保持。GPU125sourceと既存32input/native同一によりMetal1565証拠を再利用し、今回GPU追加0。GPU受付は拒否のまま。正本/数値/normalizer変更0、Windows追加操作0/7終了unknown/保全false、全キャラ0/UI CPU/未達。次はstatic参照descriptorと適用前expiryを共有Slangへ接続し、passive/stack操作/召喚体の混在とMetal保持を検証。詳細docs/portable-duration-scaling-reference.mdとresearch/portable-duration-scaling-reference-checkpoint.json。以下は履歴。
+<!-- /duration-scaling-reference-current -->
+
 <!-- not-core-cli-current -->
 現行の非コア検証は `not-core`32（native27/拒否5）、`not-core-legacy-reject`1、`not-core-retention`1565（native1236/拒否329）。共通Slangのprivate入口でMetal独立seal済み、development_onlyを維持。`package --suite not-core --develop` で固定し、`unpack`後は必ず展開先をcwdとして、そのpackageの `scripts/nikke_gpu.py run` を実行する。旧adapterには相対importがあるため、別checkoutをcwdにしない。保存結果の `seal` はpackage自身のcwd/importsを使う。実例と限界はdocs/portable-not-core-gpu.md。全体のCPU500検査約176秒/正本事前約90秒に対しGPU計算約11秒。以下は履歴。
 <!-- /not-core-cli-current -->
