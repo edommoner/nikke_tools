@@ -53,7 +53,6 @@
     "new_battle_admission": 0
   },
   "Windows": {
-    "new_GPU_compile_or_OS_observation_calls": 0,
     "current_core_CUDA_verified": false,
     "current_full_battle_CUDA_verified": false,
     "prior_environment_preservation_verified": false,
@@ -63,8 +62,31 @@
     "package_id": "be8e852d3661dfd749b3d08c986877cab2e5dbcc391357d12b310736daf8e17f",
     "archive_sha256": "b01943862d017ecc664fa67c2223664b778c33b28124da3c7312c72016a553d2",
     "bounded_request_sent": true,
-    "result_pending": true,
-    "thread": "01a140bc-5f3b-7661-b720-50c945596eaa"
+    "result_pending": false,
+    "thread": "01a140bc-5f3b-7661-b720-50c945596eaa",
+    "new_stage_attempts": 1,
+    "CPU_tests_passed": 37,
+    "CPU_native_state_preflight_passed": true,
+    "CPU_batch_seconds": 33.68531250022352,
+    "Slang_calls_returned": 2,
+    "nvrtc_calls_observed": 0,
+    "GPU_launches_observed": 0,
+    "stage_budget_seconds": 90,
+    "stage_timed_out": true,
+    "calculation_verified": false,
+    "outer_job_containment_reported": true,
+    "outer_job_peak_bytes": 340103168,
+    "outer_job_post_empty": true,
+    "inner_post_observation_complete": false,
+    "environment_preservation_verified": false,
+    "reported_missing_processes": 7,
+    "extra_Windows_runs_after_timeout": 0,
+    "report_commit": "1226a72da0e9fb7382b6ac5708c4b2d892e7f107",
+    "report_manifest_SHA256": "dc55fa5fe0fa0acd2ee0d301e2d15819943471c2ae536a04d8b1ef5ee8dee589",
+    "report_files": 7,
+    "report_bytes": 11614,
+    "all_report_file_bytes_and_SHA_verified": true,
+    "generation_cache_claim_and_staging_uninspected_after_timeout": true
   },
   "failures_preserved": [
     {
@@ -75,7 +97,7 @@
     {
       "name": "saved-replay-v3",
       "gpu_calls": 0,
-      "reason": "ActorRegistry bridge changed canonical reference identity; strict guard rejected reuse; final new package verified without weakening guard"
+      "reason": "Strict replay guard rejected the newly included upstream IMPL-STATUS audit document. Critical-file comparison proved this was the only difference; shader/input/native baselines were identical. Guard retained and final package independently verified."
     }
   ],
   "normal_UI": "CPU",
@@ -85,7 +107,8 @@
     "world_schedule_spawn_expiry_binding",
     "typed_landing_and_break_notice_continuations",
     "all_projectiles_selection_and_live_modifier_consumers",
-    "one_short_CUDA46_and_file_only_cache_check",
+    "read_only_saved_generation_claim_and_staging_audit_no_PID_based_claim_steal",
+    "CPU_only_Windows_preparation_profile_before_new_CUDA",
     "movement_nearby_lock_on_enemy_quantities_and_attack_group_producers"
   ],
   "CLI_packaging_guard": {
@@ -113,5 +136,30 @@
     "allocated_after": 3014656,
     "allocated_reclaimed": 141688832,
     "full_hash_verified": true
+  },
+  "preparation_followup": {
+    "remove_duplicate_same_process_full_package_check": true,
+    "reuse_loaded_shared_CLI": true,
+    "per_process_full_validation_before_CPU_or_GPU_preserved": true,
+    "gate_Job_limits_and_cleanup_unchanged": true,
+    "preparation_journal_added": true,
+    "Windows_performance_gain_not_yet_measured": true,
+    "Windows_rerun_not_requested": true,
+    "package_id": "9fb5ca766a9b85c0d4030333bc50d5f92b6f4d0fe4fc4b8ac44a2e074940946c",
+    "CPU37_whole_stage_passed": true,
+    "controller_smoke_total": 335,
+    "controller_smoke_passed": 334,
+    "controller_smoke_skipped": 1,
+    "packet_stage_unit_tests": 9,
+    "CLI_unit_tests": 41,
+    "one_pre_CPU_verification_in_same_process_recorded": true,
+    "CPU_worker_byte_verification_retained": true,
+    "gpu_child_byte_verification_retained": true,
+    "saved_Metal46_replay_passed": true,
+    "independent_replay_seal_passed": true,
+    "replay_package_id": "7a804a5e8a202363e9c4040d3f83ada335307408ce878aac5c38fa9634886180",
+    "new_GPU_calls_for_preparation_fix": 0,
+    "stage_recipe_package_identity_binding_preserved": true,
+    "valid_replacement_package_rejected_after_gate": true
   }
 }

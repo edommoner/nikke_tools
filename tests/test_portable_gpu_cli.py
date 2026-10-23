@@ -90,6 +90,16 @@ class PacketTests(unittest.TestCase):
             cli.write(capture/'result.json',failed)
             self.assertEqual(cli.capture_status(capture)['result'],failed)
 
+    def test_status_reads_whole_stage_recipe_and_preparation_without_liveness_claim(self):
+        with tempfile.TemporaryDirectory() as folder:
+            capture=Path(folder);recipe=dict(stage='cpu',package_id='id');result=dict(stage_complete=True,cpu_verified=True)
+            cli.write(capture/'recipe.json',recipe);cli.write(capture/'stage-result.json',result)
+            rows=[dict(stage='packet_verify_package',state=x,monotonic_ns=i,wall_time_ns=i,pid=123) for i,x in enumerate(('entered','returned'))]
+            (capture/'preparation.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in rows))
+            with cli.forbid_gpu():saved=cli.capture_status(capture)
+            self.assertEqual(saved['run'],recipe);self.assertEqual(saved['result'],result);self.assertEqual(saved['observations']['preparation.jsonl']['events'],2)
+            self.assertFalse(saved['liveness_verified']);self.assertFalse(saved['journal_integrity_verified'])
+
     def test_status_with_missing_journals_never_infers_a_stopped_or_successful_run(self):
         with tempfile.TemporaryDirectory() as folder:
             capture=Path(folder);cli.write(capture/'run.json',dict(status='preflight'))

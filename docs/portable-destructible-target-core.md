@@ -14,7 +14,7 @@ CPU側は既存ActorRegistryへlive providerをbindできる。失効後のalive
 
 正常系はHP / hit量、fractional credit、blocked/miss、expiry、slot127/64の選択mask、同じownerの複数shield、retire/respawn、古い世代・別identity、1e30/2^53の容量を含む。拒否には二重spawn・世代skip・別kindへのslot変更・重複identity・不正owner・非有限値・時刻逆行・不正operandを含む。保存GPU出力5ブロックからID/世代/量/選択を改変する故障検査を追加した。
 
-最終CPUは5群37検査成功、約3.460秒。GPU計算0.002794秒、cached pipeline0.000774秒。旧版との全input/native/output指紋も同一。ActorRegistry接続でCPU reference identityが変わり保存replay guardが停止したため、guardを維持して新固定packageでMetalを確認した。初回と最終のGPU source/input/outputは同一である。途中のpackageからIMPL-STATUSが欠けたCPU失敗も保存し、明示upstream_documentsへ追加した。
+最終CPUは5群37検査成功、約3.460秒。GPU計算0.002794秒、cached pipeline0.000774秒。旧版との全input/native/output指紋も同一。追加したupstream監査文書IMPL-STATUSがstrict replayの照合差分となって停止したため、guardを維持して新固定packageでMetalを確認した。初回と最終のGPU source/input/outputは同一である。途中のpackageからIMPL-STATUSが欠けたCPU失敗も保存し、明示upstream_documentsへ追加した。
 
 ## 維持した範囲と次の接続
 
@@ -25,3 +25,11 @@ CPU側は既存ActorRegistryへlive providerをbindできる。失効後のalive
 共通CLIのpackage検査は、選択suiteのadapterと宣言済みsupport_filesが追跡payloadに存在することをnative baseline準備・archive作成の前に確認する。未追跡の新adapterによる配布先FileNotFoundErrorを早期に止める。既存CLI回帰＋新しい故障注入の40検査が成功し、実sealed package生成も成功した。宣言していない暗黙のdata依存を自動推定する機能ではなく、upstream_documents等の明示は必要。
 
 Windows向け固定packetは `codex/cuda-destructible-core-v1-source` の19c31f9、ID be8e852d3661dfd749b3d08c986877cab2e5dbcc391357d12b310736daf8e17f。Macの正式packet CPU37とgeneration cache必須hitを確認して配布した。CUDA本体の結果はcheckpointのWindows欄で追跡する。
+
+Windows v1はCPU37と24 state oracle成功後、全stage90秒でtimeoutした。Slang2呼出しは計約0.608秒、CPU batchは33.685秒、state preflightは0.033秒。NVRTC/GPU launch/readbackは観測されず、CUDA数値未認定・cache-check未実施。外側Jobの2GiB/peak340,103,168B/post空とcleanup正常を報告、missing7/cause unknown/保全false、inner after未完を保持。診断7 JSON11,614Bの全size/SHAをMacで検査した。
+
+同一stage子で、verify_package→runpyによる再import→共有run_capture内verify_packageと全件走査を重ねていた。共有CLIのmainを直接呼び、唯一の共有検証をCPU/GPU gate前に保つ形へ変更した。既存Journalでheader、外側監視、共有検証、CPU batch/native、inner job、子の検証を記録し、statusでも準備journalを表示する。検証・隔離・claim・時間/メモリ上限を省略または拡大していない。Windowsの改善実測は未実施で、timeout後の再実行は依頼していない。
+
+準備修正の最終固定package 9fb5ca76...で、全stage所有のCPU37とcontroller smoke335（334成功/Windows専用1skip）が成功した。gate未解放、改変member、別の有効package IDへの差替えの拒否、共有CLI呼出し、CPU前の同一process全件検証1回を検査し、別CPU worker/GPU childの再検証を維持した。statusはrecipe/stage-result/preparation journalも読み、livenessを推定しない。旧Metal46の保存replayと独立sealが成功し、全golden・raw指紋は同一、追加GPU0。Windowsでの速度改善は未測定。次のWindows作業はGPU retryではなく、この準備段階のCPU-only計測が先である。
+
+Timeoutで残った可能性があるgeneration cache claim/stagingは未監査。次は保存ファイルと終了済みJobの証拠から状態を読む。PIDだけでclaimを奪ったり、実行claimを消して再実行しない。

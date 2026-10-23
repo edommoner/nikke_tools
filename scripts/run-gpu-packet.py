@@ -3,7 +3,7 @@
 No original-workspace file inventory or historical report hashing. Reuses the
 existing fresh Job, gate, process observer and cleanup; no parallel job engine.
 """
-import argparse,importlib.util,json,os,runpy,site,sys,time
+import argparse,contextlib,importlib.util,json,os,site,sys,time
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1]
@@ -51,16 +51,33 @@ def child(folder):
     while not (folder/'start.json').exists():
         if time.monotonic()>=deadline:raise RuntimeError('Whole-stage containment gate was not released')
         time.sleep(.02)
-    # Full record/source verification is inside the owned process and deadline.
-    if cli.verify_package(ROOT)['package_id']!=plan['package_id']:raise ValueError('Packet changed after stage gate')
+    # Shared run_capture performs full byte/source verification before every
+    # CPU/GPU gate. Do not duplicate that scan or import a second CLI instance.
+    # These observers time the original functions; none replaces their checks.
+    from portable_phase_audit import Journal
+    journal=Journal(folder/'preparation.jsonl')
     os.chdir(ROOT);sys.argv=[str(ROOT/'scripts/nikke_gpu.py'),*proof_arguments(plan)]
-    runpy.run_path(str(ROOT/'scripts/nikke_gpu.py'),run_name='__main__')
+    with contextlib.ExitStack() as stack:
+        for name in ('verify_package','cpu_test_groups','cpu_preflight','run_job'):
+            if not hasattr(cli,name):continue
+            original=getattr(cli,name)
+            def observed(*args,_fn=original,_name=name,**kwargs):
+                def checked():
+                    result=_fn(*args,**kwargs)
+                    if _name=='verify_package' and result.get('package_id')!=plan['package_id']:raise ValueError('Packet changed after stage gate')
+                    return result
+                return journal.invoke('packet_'+_name,checked)
+            stack.enter_context(patch.object(cli,name,observed))
+        journal.invoke('packet_shared_cli',cli.main)
 
 def run_stage(folder,stage,backend,timeout,original_workspace=None):
     started=time.monotonic()
     cli=load_module('packet_stage_cli',ROOT/'scripts/nikke_gpu.py');manifest=packet_header(cli)
     plan=recipe(manifest['package_id'],stage,backend,folder,original_workspace,timeout);folder=Path(plan['capture'])
     folder.mkdir(parents=True,exist_ok=False);save(folder/'recipe.json',plan)
+    from portable_phase_audit import Journal
+    journal=Journal(folder/'preparation.jsonl')
+    journal.emit('packet_header_prepare','returned',elapsed_seconds=time.monotonic()-started)
     # A claim is durable before any launch; a missing result never permits retry.
     save(ROOT/('packet-stage-claimed-'+stage+'-'+backend+'.json'),dict(package_id=manifest['package_id'],capture=str(folder),created_unix_ns=time.time_ns()))
     bounded=cli.bounded_module();env=cli.validation_environment(folder)
@@ -84,8 +101,8 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None):
         if is_windows():
             from windows_validation_observer import observe_job
             with observe_job(bounded,folder/'job.json'):
-                facts=bounded.run_bounded(command,folder,remaining,cwd=ROOT,env=env,before_gate=before,after_wait=after)
-        else:facts=bounded.run_bounded(command,folder,remaining,cwd=ROOT,env=env)
+                facts=journal.invoke('packet_bounded_stage',bounded.run_bounded,command,folder,remaining,cwd=ROOT,env=env,before_gate=lambda:journal.invoke('packet_before_observation',before),after_wait=lambda:journal.invoke('packet_after_observation',after))
+        else:facts=journal.invoke('packet_bounded_stage',bounded.run_bounded,command,folder,remaining,cwd=ROOT,env=env)
     proof_path=folder/'proof/result.json';proof=json.loads(proof_path.read_text()) if proof_path.is_file() else None
     comparison=observation.get('comparison',{})
     process_preserved=comparison.get('all_monitored_processes_preserved')

@@ -352,6 +352,7 @@ SMOKE_TESTS.append('test_portable_native_output_probe.py')
 SMOKE_TESTS.append('test_portable_jit_link.py')
 SMOKE_TESTS.append('test_portable_jit_link_capture.py')
 SMOKE_TESTS.append('test_portable_linked_artifact.py')
+SMOKE_TESTS.append('test_portable_packet_stage.py')
 SMOKE_TESTS.append('test_portable_readback_blocks.py')
 SMOKE_TESTS.append('test_portable_sparse_raw.py')
 SMOKE_TESTS.append('test_portable_scope_snapshot_audit.py')
@@ -404,12 +405,14 @@ def capture_status(capture):
     """Display saved progress without inferring process liveness or success."""
     observations={}
     summarize=module(ROOT/'research/portable_phase_audit.py').summarize
-    for name in ('phases.jsonl','audit-phases.jsonl'):
+    for name in ('phases.jsonl','audit-phases.jsonl','preparation.jsonl'):
         path=capture/name
         if path.exists():
             summary=summarize(path)
             observations[name]=dict(events=summary['events'],last_event=summary['last_event'])
-    return dict(run=load(capture/'run.json'),result=load(capture/'result.json') if (capture/'result.json').exists() else None,
+    run=capture/('run.json' if (capture/'run.json').exists() else 'recipe.json')
+    result=capture/('result.json' if (capture/'result.json').exists() else 'stage-result.json')
+    return dict(run=load(run),result=load(result) if result.exists() else None,
                 observations=observations,liveness_verified=False,journal_integrity_verified=False,
                 scope='Saved journal observations only; entered/returned events do not establish current liveness or calculation success')
 
@@ -751,7 +754,8 @@ def child(capture, backend, smoke=False, compile_only=False, module_only=False, 
         if compile_only or module_only or assemble_only or partition_object_only or module_object_only or link_object_only or jit_link_object_only:raise ValueError('Compiler and smoke modes are exclusive')
         if os.name=='nt':native_smoke_child(capture)
         write(capture/'smoke.json',dict(pid=os.getpid(),ppid=os.getppid(),gpu_calls=0)); return
-    m = verify_package(ROOT)
+    from portable_phase_audit import Journal
+    m = Journal(capture/'preparation.jsonl').invoke('gpu_child_verify_package',verify_package,ROOT)
     if jit_link_object_only:
         jit_link_child(m,capture,backend);return
     if link_object_only:
@@ -1241,15 +1245,17 @@ def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_
         driver_cache=(capture/'driver-cache').resolve();driver_cache.mkdir(exist_ok=True)
         env['CUDA_CACHE_PATH']=str(driver_cache)
     write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),generation_cache_enabled=bool(os.environ.get('NIKKE_SLANG_GENERATION_CACHE')),generation_cache_required=os.environ.get('NIKKE_SLANG_GENERATION_REQUIRED','0')=='1',slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=('diagnostic-jit-linked-cubin' if jit_link_object_only else 'diagnostic-linked-cubin' if link_object_only else 'diagnostic-module-relocatable-object' if module_object_only else 'diagnostic-relocatable-object' if partition_object_only else os.environ.get('NIKKE_CUDA_ARTIFACT','cubin')) if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),compile_only=compile_only,module_only=module_only,assemble_only=assemble_only,partition_object_only=partition_object_only,module_object_only=module_object_only,link_object_only=link_object_only,jit_link_object_only=jit_link_object_only,swift_module_cache_path=env.get('NIKKE_METAL_MODULE_CACHE'),jit_private_cache_path=env.get('CUDA_CACHE_PATH') if jit_link_object_only else None,driver_cache_path=env.get('CUDA_CACHE_PATH') if module_only else None,ptxas_optimization_level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL'),cache_required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0'),job_memory_limit_mb=os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB'),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
+    from portable_phase_audit import Journal
+    preparation=Journal(capture/'preparation.jsonl')
     observation={}
     if os.name=='nt':
         from windows_validation_observer import capture_snapshot,observe_job,compare_snapshots
         if not original_workspace:raise ValueError('--original-workspace is required on Windows')
         def before():
-            observation['before']=capture_snapshot(original_workspace,ROOT)
+            observation['before']=preparation.invoke('inner_before_observation',capture_snapshot,original_workspace,ROOT)
             write(capture/'observation.json',observation)
         def after():
-            observation['after']=capture_snapshot(original_workspace,ROOT)
+            observation['after']=preparation.invoke('inner_after_observation',capture_snapshot,original_workspace,ROOT)
             if 'before' in observation:observation['comparison']=compare_snapshots(observation['before'],observation['after'])
             write(capture/'observation.json',observation)
         with observe_job(bounded,capture/'job.json'):
@@ -2498,7 +2504,9 @@ def main(argv=None):
         result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**(dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}))
     elif a.command=='_tests':
         from portable_cpu_tests import run_groups,complete
-        m=verify_package(ROOT);patterns=SMOKE_TESTS if a.smoke else SUITES[m['suite']]['tests']
+        from portable_phase_audit import Journal
+        m=Journal(a.capture/'preparation.jsonl').invoke('cpu_worker_verify_package',verify_package,ROOT)
+        patterns=SMOKE_TESTS if a.smoke else SUITES[m['suite']]['tests']
         rows=run_groups(ROOT,a.capture,patterns,write)
         print(json.dumps(dict(cpu_tests_verified=complete(rows,patterns),groups=len(rows),gpu_calls=0)))
         if not complete(rows,patterns):raise SystemExit(1)
