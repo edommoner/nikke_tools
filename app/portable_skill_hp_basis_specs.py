@@ -21,7 +21,7 @@ def pack(words, index, limits, effect, canonical, number):
     if canonical[1] != 3 or canonical[53] != basis.mode or canonical[54] != basis.hp_pct:
         raise ValueError('Canonical HP skill basis descriptor mismatch')
     packet = limits['DAMAGE_DEFINITION_BASE'] + index * limits['DAMAGE_DEFINITION_WORDS']
-    if words[packet + 6] != 0:
+    if words[packet + 6] == 1:
         raise ValueError('reference_model_gap: deferred burst damage ignores HP skill basis in pinned native')
     at = limits['MODE_BASE'] + index * limits['MODE_WORDS'] + OFFSET
     if any(words[at:at + WORDS]):

@@ -12,6 +12,40 @@ bool fullBurstPendingInvalid(inout Runtime s,Definition d)
     int literal=int(tag);
     return literal< -256 || literal>256 || d.damageHits!=uint(max(0,literal)) || (commands[reference]&3)!=0;
 }
+// Separate diagnostic bank; observe returned values without another query.
+void recordFullBurstQuery(inout Runtime s,uint kind,uint row,uint64_t when,uint64_t x,uint64_t y,uint present=1)
+{
+#ifdef PORTABLE_FULL_BURST_QUERY_DIAGNOSTIC
+    uint head=s.resourceOutput+P_NATIVE_DIAG_BASE,index=results[head+2]++;
+    if(index>=128) { results[head+3]++;return; }results[head+1]++;
+    uint at=head+16+index*12;results[at]=kind;results[at+1]=row;results[at+2]=definition_owner(s.inputBase,row);results[at+3]=present;
+    storeNumber(at+4,when);storeNumber(at+6,x);storeNumber(at+8,y);
+#endif
+}
+void readFullBurstLandingReference(inout Runtime s,uint row,uint64_t when)
+{
+    Definition d=readDefinition(s.inputBase,row);uint tag=d.pendingHits;
+    if(tag<4096 || int(tag)<0) return;
+    uint at=s.inputBase+P_REFERENCE_DEFINITION_BASE+row*4;bool present;
+    uint64_t value=referenceCount(s,d.owner,(commands[at+1]&511)-1,commands[at+2]&255,false,present);
+    // Native reads this live value, then replaces it with the cast-time latch.
+    // It is neither a new capacity bound nor a new integer conversion.
+    recordFullBurstQuery(s,2,row,when,present?value:0,0,uint(present));
+}
+void collectFullBurstEnemyStats(inout Runtime s,uint who,uint64_t when,inout uint64_t b[64])
+{
+    uint64_t enemy[3];collectEnemyModifiers(s,who,s.target,when,enemy);
+    b[S_enemy_def_down_pct]=f64Add(b[S_enemy_def_down_pct],enemy[0]);
+    b[S_enemy_def_down_flat]=f64Add(b[S_enemy_def_down_flat],enemy[1]);
+    b[S_received_dmg_pct]=f64Add(b[S_received_dmg_pct],enemy[2]);
+}
+void queryOnlyFullBurstLanding(inout Runtime s,uint row,uint64_t when)
+{
+    Definition d=readDefinition(s.inputBase,row);uint64_t b[64];collectStats(s,d.owner,when,b);
+    collectFullBurstEnemyStats(s,d.owner,when,b);recordFullBurstQuery(s,1,row,when,b[S_atk_flat],b[S_atk_pct]);
+    readFullBurstLandingReference(s,row,when);
+    if(skillHPBasisMode(s,row)!=0) { uint64_t hp=nativeAttackMaxHP(s,d.owner,when,row);recordFullBurstQuery(s,3,row,when,hp,0); }
+}
 uint fullBurstLandingCount(inout Runtime s,uint row)
 {
     Definition d=readDefinition(s.inputBase,row);uint tag=d.pendingHits;

@@ -18,8 +18,11 @@ bool validSkillHPBasis(inout Runtime s)
 #ifndef PORTABLE_WORLD_SKILLS
         return false;
 #else
-        uint64_t pct=loadNumber(at+2);Definition d=readDefinition(s.inputBase,row);
-        if(commands[at]!=SKILL_HP_BASIS_MAGIC || commands[at+1]<1 || commands[at+1]>2 || d.kind!=3 || s.combat==0 || !worldSkillsEnabled(s) || d.damagePending!=0 || !f64Finite(pct) || f64Less(pct,0) || f64Less(f64FromI64(1000000),pct)) return false;
+        uint64_t pct=loadNumber(at+2);Definition d=readDefinition(s.inputBase,row);bool deferredInvalid=d.damagePending!=0;
+#ifdef PORTABLE_FULL_BURST_LANDING
+        deferredInvalid=deferredInvalid && d.damagePending!=2;
+#endif
+        if(commands[at]!=SKILL_HP_BASIS_MAGIC || commands[at+1]<1 || commands[at+1]>2 || d.kind!=3 || s.combat==0 || !worldSkillsEnabled(s) || deferredInvalid || !f64Finite(pct) || f64Less(pct,0) || f64Less(f64FromI64(1000000),pct)) return false;
 #endif
     }
     return true;
@@ -31,7 +34,16 @@ uint64_t skillAttackBasis(inout Runtime s,uint who,uint row,uint64_t when,uint64
     {
         uint64_t pct=loadNumber(skillHPBasisAddress(s,row)+2);
         // Preserve native multiply-then-divide and addition into flat before ATK.
-        uint64_t hp=f64Div(f64Mul(nativeAttackMaxHP(s,who,when),pct),HUNDRED);
+        uint64_t hp=0;
+#ifdef PORTABLE_FULL_BURST_LANDING
+        if(definition_damagePending(s.inputBase,row)==2)
+        {
+            uint64_t maximum=nativeAttackMaxHP(s,who,when,row);recordFullBurstQuery(s,3,row,when,maximum,0);
+            hp=f64Div(f64Mul(maximum,pct),HUNDRED);
+        }
+        else
+#endif
+        hp=f64Div(f64Mul(nativeAttackMaxHP(s,who,when),pct),HUNDRED);
         if(mode==1) flat=f64Add(flat,hp);
         else { base=hp;percent=0;flat=0; }
     }

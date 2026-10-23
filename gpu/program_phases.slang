@@ -66,6 +66,9 @@ void initializePortableProgram(inout Runtime s,uint input,uint output,out bool r
     if(!initializeNativeNumeric(s)) { results[output]=64;return; }
     initializeSkillCritical(s);
     initializeNotCore(s);initializeDurationTrace(s);
+#ifdef PORTABLE_FULL_BURST_QUERY_DIAGNOSTIC
+    initializeNativeQueryDiagnostic(s);
+#endif
     for(uint word=0;word<P_PROBABILITY_STATE_WORDS;word++) results[output+P_PROBABILITY_STATE_BASE+word]=0;
     if(commands[input+P_ENEMY_TARGET_META_BASE]!=0) mtSeed(output+P_ENEMY_RNG_BASE,uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+1])|(uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+2])<<32));
     initializeHPWatches(s);

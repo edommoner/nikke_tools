@@ -33,14 +33,21 @@ void advanceSkillDamageFrame(inout Runtime s, inout Frame frames[32], inout int 
                 uint parentExclusion=s.damageExclusion;if(damage.damagePending==2) s.damageExclusion=uint(f.argument)+1;
 #endif
                 WORLD_SKILL_SCOPE_BEGIN(s)
+#ifdef PORTABLE_FULL_BURST_LANDING
+                if(damage.damagePending==2 && damage.damageHits==0)
+                { queryOnlyFullBurstLanding(s,uint(f.argument),f.time);frames[depth].healthPrevious=0; }
+                else
+#endif
+                {
+
 #ifdef PORTABLE_WORLD_PROJECTILE
                 if(worldSkillsEnabled(s)&&worldSkillNeedsReach(s,damage))
                     frames[depth].healthPrevious=sampleWorldPartSkill(s,damage,f.healthValue,f.time,partAmount,interruptAmount,interruptReach);
                 else
 #endif
                     frames[depth].healthPrevious=damage.damageNormal!=0 ? damageValue(s,damage.owner,f.healthValue,f.time,true,s.combat!=0 ? s.coreDamageBonus[damage.owner] : s.coreBonus,damage.damageFlags,ONE,(s.attackContext[damage.owner]&1)!=0,false,damage._wireRow) : damageValue(s,damage.owner,f.healthValue,f.time,false,s.coreBonus,damage.damageFlags,ONE,false,false,damage._wireRow);
+                }
 #ifdef PORTABLE_FULL_BURST_LANDING
-                if(damage.damagePending==2) { uint ignoredCount=fullBurstLandingCount(s,uint(f.argument)); }
                 s.damageExclusion=parentExclusion;
 #endif
                 WORLD_SKILL_SCOPE_END(s)

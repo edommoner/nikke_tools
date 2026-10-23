@@ -1,0 +1,118 @@
+{
+  "calculation_verified": false,
+  "entries": [],
+  "mismatches": [
+    {
+      "index": 0,
+      "name": "full-burst-query-max_hp_additive-three",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 1,
+      "name": "full-burst-query-max_hp_additive-reference",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 2,
+      "name": "full-burst-query-max_hp_additive-zero",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 3,
+      "name": "full-burst-query-max_hp_additive-negative",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 4,
+      "name": "full-burst-query-max_hp_additive-later-hp",
+      "reason": "AssertionError: ('full-burst-query-max_hp_additive-later-hp', 0, ['damage', 'actor_pools'])"
+    },
+    {
+      "index": 5,
+      "name": "full-burst-query-max_hp_additive-ignored-live-1024",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 6,
+      "name": "full-burst-query-max_hp_additive-callback-hp",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 7,
+      "name": "full-burst-query-max_hp_additive-parts",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 8,
+      "name": "full-burst-query-max_hp_additive-zero-parts",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 9,
+      "name": "full-burst-query-max_hp_replacement-three",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 10,
+      "name": "full-burst-query-max_hp_replacement-reference",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 11,
+      "name": "full-burst-query-max_hp_replacement-zero",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 12,
+      "name": "full-burst-query-max_hp_replacement-negative",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 13,
+      "name": "full-burst-query-max_hp_replacement-later-hp",
+      "reason": "AssertionError: ('full-burst-query-max_hp_replacement-later-hp', 0, ['damage', 'actor_pools'])"
+    },
+    {
+      "index": 14,
+      "name": "full-burst-query-max_hp_replacement-ignored-live-1024",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 15,
+      "name": "full-burst-query-max_hp_replacement-callback-hp",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 16,
+      "name": "full-burst-query-max_hp_replacement-parts",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 17,
+      "name": "full-burst-query-max_hp_replacement-zero-parts",
+      "reason": "AssertionError: "
+    },
+    {
+      "index": 18,
+      "name": "full-burst-query-zero-overflow-ordinary",
+      "reason": "AssertionError: "
+    }
+  ],
+  "input_count": 19,
+  "native_oracles": 19,
+  "input_sha256": "de63bd1b414f4d575080abf2e71a2533e007cb47577226598931631069ce6391",
+  "output_sha256": "d11773b685842a3b093e8ef1f2e460226ea28fbd687c9515a3b35552c6fac9e6",
+  "generated_normalized": {
+    "cuda": "ad98acd8d64d8ba170f63d92af1ea2aeca61225c86e96d52e532547f70dc08eb",
+    "metal": "22492f9fa70f63b67289ef645577e5841c0f2bbc16df061083849bed1e0826a4"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 0,
+    "fresh_native_cases": 19,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

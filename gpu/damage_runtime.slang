@@ -36,6 +36,16 @@ void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient
     bool optimal = false, bool physical = false, uint basisRow = P_DEFINITIONS)
 {
     uint64_t b[64]; collectStats(s,who,when,b);
+    uint64_t attack=0;
+#ifdef PORTABLE_FULL_BURST_LANDING
+    bool fullBurstLanding=basisRow<s.count && definition_damagePending(s.inputBase,basisRow)==2;
+    if(fullBurstLanding)
+    {
+        collectFullBurstEnemyStats(s,who,when,b);recordFullBurstQuery(s,1,basisRow,when,b[S_atk_flat],b[S_atk_pct]);
+        readFullBurstLandingReference(s,basisRow,when);
+        attack=skillAttackBasis(s,who,basisRow,when,b[S_atk_pct],b[S_atk_flat]);
+    }
+#endif
     // Physical weapon flags also apply to weapon-mode skill packets. A skill
     // labelled normal/auto_damage still derives its flags from its own family.
     if(physical)
@@ -55,14 +65,22 @@ void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient
         if((flags&H_EXPLOSION)!=0) explosionRange=plainQuantity(s,who,S_explosion_range,when);
         else if((flags&H_PIERCE)!=0) pierceRange=plainQuantity(s,who,S_pierce_range,when);
     }
+#ifdef PORTABLE_FULL_BURST_LANDING
+    if(!fullBurstLanding)
+#endif
+    {
     uint64_t enemyModifiers[3]; collectEnemyModifiers(s,who,s.target,when,enemyModifiers);
     b[S_enemy_def_down_pct] = f64Add(b[S_enemy_def_down_pct],enemyModifiers[0]);
     b[S_enemy_def_down_flat] = f64Add(b[S_enemy_def_down_flat],enemyModifiers[1]);
     b[S_received_dmg_pct] = f64Add(b[S_received_dmg_pct],enemyModifiers[2]);
+    }
     uint64_t f1 = f64Mul(coefficient,normal ? f64Add(ONE,f64Div(b[S_normal_atk_dmg_pct],HUNDRED)) : ONE);
     uint64_t defense = s.combat != 0 ? s.targetDefense[s.target] : s.defense;
     defense = (flags & H_ARMOR) != 0 ? 0 : f64Mul(larger(0,f64Add(f64Mul(defense,f64Add(ONE,f64Div(b[S_enemy_def_down_pct],HUNDRED))),b[S_enemy_def_down_flat])),f64Add(ONE,f64Div(b[S_def_ignore_pct],HUNDRED) ^ F64_SIGN));
-    uint64_t attack = skillAttackBasis(s,who,basisRow,when,b[S_atk_pct],b[S_atk_flat]);
+#ifdef PORTABLE_FULL_BURST_LANDING
+    if(!fullBurstLanding)
+#endif
+    attack = skillAttackBasis(s,who,basisRow,when,b[S_atk_pct],b[S_atk_flat]);
     uint64_t f2 = larger(0,f64Add(attack,defense ^ F64_SIGN));
     uint64_t critRate = b[normal ? S_crit_rate : S_crit_rate_skill], critDamage = b[normal ? S_crit_dmg : S_crit_dmg_skill];
     if((s.incomingMask&32)!=0) s.lastDamageCritRate=critRate;

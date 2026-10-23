@@ -9,6 +9,14 @@
 // No additional buff/recipient query, invalidation or arithmetic is performed.
 void initializeNativeQueryDiagnostic(inout Runtime s)
 {
+#ifdef PORTABLE_FULL_BURST_QUERY_DIAGNOSTIC
+#if defined(PORTABLE_NATIVE_QUERY_DIAGNOSTIC) || defined(PORTABLE_HEAL_SHARE_DIAGNOSTIC)
+#error Full-burst query diagnostics require a separate bank owner
+#endif
+    uint queryHead=s.resourceOutput+P_NATIVE_DIAG_BASE;
+    for(uint i=0;i<P_NATIVE_DIAG_WORDS;i++) results[queryHead+i]=0;
+    results[queryHead]=0x46425131U;results[queryHead+8]=12;results[queryHead+9]=128;
+#endif
 #ifdef PORTABLE_NATIVE_QUERY_DIAGNOSTIC
     uint head=s.resourceOutput+P_NATIVE_DIAG_BASE;
     for(uint i=0;i<P_NATIVE_DIAG_WORDS;i++) results[head+i]=0;

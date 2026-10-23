@@ -1,3 +1,7 @@
+<!-- full-burst-query-current -->
+保留pending2の0hit query-only・現在参照数の読取後に固定countを使用・HP換算を共有Slangへ接続。専用diagnostic19でbuff/ref/HP41戻り値の順・bit値・時刻が正本一致、通常とのbank外59456320B保持。Metal291(native218/拒否73)と両独立seal成功、旧272 input/nativeと855638016B保持・Runtime全layout/stride138952不変。巨大係数0hit5・現在1024でも固定1hit2・両HP方式/部位/子HPを含む新19。初回HP除外2差分は不変parent maskをHP基準へ渡して修正、初回診断のarray/listとcache無効時初期化も修正。保存replay GPU0で初期化漏れを検出、失敗/raw/claim保持・新source別package実証。通常291 input/native同一、他289raw909115392B保持。CPU27群190(skip0)66.850秒/native18.697秒/GPU4.416秒、診断CPU3群15/GPU0.053秒、実run生成cache必須hit/追加Slang0。分類追記後19検査成功、静的240/266/base180/203/残35・旧266全記録と240SHA保持。次は優先35分類の実consumer（projectile_dmg_pct等）、低marker周期移動/zero係数/対象混在/広い実編成/現CUDA。Windows追加0/7終了unknown/保全false、全キャラ0/UI CPU/development_only/未達。詳細docs/portable-full-burst-query.mdとcheckpoint。以下は履歴。
+<!-- /full-burst-query-current -->
+
 <!-- full-burst-capacity-current -->
 full-burst待機列512境界と着弾後の次回mode2残存を実証。既存出力word3＋旧形式優先512entryで新形式件数/owner/name/hitsを公開し、正本の実controller終了列と照合。Metal272(native199/旧拒否72/実行時容量超過1)と独立seal成功、旧267 input/nativeと全839909376B保持・Runtime全layout/stride138952不変。親1＋子511で514packetとdamage654278、着弾後追加1項目が次回へ残る。513はnative515packetで有限/GPU status64、入力差はBUDGET511→512の1word。summaryは履歴のみ省略し全処理/総packet数/公開battle状態/RNG/最終列を比較、個別GPU514traceではない。CPU25群180(skip0)63.867秒/上限90秒/native17.885秒/GPU4.410秒、生成cache必須hit/実行時Slang0。次は0hit query-only・HP basis照会順/保留組合せ・周期snapshot移動・現CUDA/全キャラ。Windows追加0/7終了unknown/保全false、全キャラ0/UI CPU/development_only/未達。詳細docs/portable-full-burst-capacity.mdとcheckpoint。以下は履歴。
 <!-- /full-burst-capacity-current -->

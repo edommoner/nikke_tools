@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "status": "scoped_metal_verified",
+  "source_parent": "407b4f2b00eebfc053610aa926a659c33c4c436a",
+  "package_id": "fd83cf9b0e3f76cdd1573a0f9b695f1ab38456e39509b2035001d58f5807e7bb",
+  "diagnostic_package_id": "c817519be8666ae3585bb6eb830cdc799273915c1418d916558f1cee345a8d08",
+  "metal": {
+    "inputs": 291,
+    "native": 218,
+    "rejected": 73,
+    "new_contracts": 19,
+    "independent_seal": true,
+    "device": "Apple M5",
+    "gpu_seconds": 4.415681499987841,
+    "library_seconds": 1.4275449514389038,
+    "pipeline_seconds": 8.385987043380737,
+    "retained_inputs": 272,
+    "retained_raw_bytes": 855638016,
+    "old272_raw_identical": true,
+    "runtime_layout_identical": true,
+    "runtime_stride": 138952
+  },
+  "diagnostic": {
+    "inputs": 19,
+    "ordered_query_events": 41,
+    "independent_seal": true,
+    "gpu_seconds": 0.053016249905340374,
+    "outside_bank_identical": true,
+    "outside_bank_bytes": 59456320
+  },
+  "cpu": {
+    "groups": 27,
+    "tests": 190,
+    "skipped": 0,
+    "seconds": 66.84984708297998,
+    "native_seconds": 18.696771375020035,
+    "post_metadata_targeted_tests": 19
+  },
+  "generation": {
+    "cuda_and_msl_generated": true,
+    "actual_run_compiler_invocations": 0,
+    "required_cache_hit": true,
+    "corrected_preparation_compiler_invocations": 4
+  },
+  "inventory": {
+    "profiles": 266,
+    "base": 203,
+    "packed": 240,
+    "packed_base": 180,
+    "priority_categories": 35,
+    "all266_profile_records_and240_input_hashes_retained": true
+  },
+  "recovery": {
+    "failed_normal_preserved": true,
+    "failed_diagnostic_preserved": true,
+    "parser_only_replay_gpu_calls": 0,
+    "parser_only_replay_passed": false,
+    "changed_raw_blocks_after_calculation_fix": [
+      276,
+      285
+    ],
+    "all291_input_native_expected_same": true,
+    "other289_raw_bytes_retained": 909115392,
+    "causes": [
+      "Diagnostic decoder compared array slice with list",
+      "Dedicated query diagnostic initialization was skipped without dictionary-cache admission",
+      "HP attack basis lacked the immutable parent exclusion scope"
+    ]
+  },
+  "windows": {
+    "additional_operations": 0,
+    "seven_process_exit_cause": "unknown",
+    "environment_preservation_verified": false
+  },
+  "limits": [
+    "Low-marker periodic snapshot relocation still not dynamically exercised",
+    "Zero-coefficient, mixed random recipients and broader world/full-profile combinations remain",
+    "Current CUDA execution unverified",
+    "Unported35 categories and all-character certification incomplete"
+  ],
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "ui_backend": "cpu",
+  "development_only": true
+}

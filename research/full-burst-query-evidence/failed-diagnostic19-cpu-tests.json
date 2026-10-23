@@ -1,0 +1,32 @@
+[
+  {
+    "pattern": "test_portable_full_burst_query.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.302164625027217,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3243
+  },
+  {
+    "pattern": "test_portable_skill_hp_basis.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.6231834589270875,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3243
+  },
+  {
+    "pattern": "test_portable_full_burst_landing_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 5.328078250051476,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3243
+  }
+]
