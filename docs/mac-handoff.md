@@ -1,3 +1,7 @@
+<!-- random-cleanse-reference-current -->
+共通CLI reference random-cleanseへ18正本契約を追加。本人を含む有害所持者/解除不能も候補/編成順pool/ordered sample/各人の古い順/共有carrierの部分解除/小数上限を固定。fresh packageのreference18＋CPU4群26(skip0)成功、元battle/trace/RNG/全照会回数保持。GPU受付は拒否のまま、既存125のsource/input/native期待値全同一、追加GPU/Windows0。全266profileSHA/拒否理由/42順位code保持、236/base176不変。次はexpiry/down/revive/repeated候補変化→共通Slang→全定義実編成と現CUDA。全キャラ0/UI CPU/未達。詳細docs/portable-random-cleanse-reference.mdとresearch/portable-random-cleanse-reference-checkpoint.json。以下は履歴。
+<!-- /random-cleanse-reference-current -->
+
 <!-- burst1-ally-gpu-current -->
 has/no_burst1_allyをprivate actor-field受付へ接続。GPU変更はguard4行＋flag1行、既存basicConditions/数値/状態更新/Runtime/stride138952/normalizer/正本/旧CUDA/Windows wrapperは不変。正本12契約36判定で自己除外・戦闘不能者のstage保持・live override/失効を固定し、全battle/trace/照会回数保持。不正name/引数/NaN/combat/world8も拒否。Metal125(native94/拒否31)と独立seal成功、前回拒否のアニス全83定義3/30秒2入力も同じinput/native期待値で一致（正本auto calc2/77）。旧95の298844160Bと旧合成8の25165824Bを全byte保持、旧10 input/native fingerprintも不変、失敗/raw/claim保持。CPU12群108(skip0)11.322秒/native9.956秒/GPU4.333秒、生成事前検査→cache必須hit/追加Slang0、監査GPU0。静的236/266・base176/203・42分類は全profileSHA/拒否理由とも不変。既知runtime blockerはこの12契約/2実編成範囲で解消しroutingへscoped証拠を記録、全キャラ0/UI CPU/development_only/全目標未達。caster他位置/広いstage・復活混在/新private全1612/全catalog/現CUDAが残件。Windows操作0/原因unknown/保全false。詳細docs/portable-burst1-ally-admission.mdとresearch/portable-burst1-ally-gpu-checkpoint.json。以下は履歴。
 <!-- /burst1-ally-gpu-current -->

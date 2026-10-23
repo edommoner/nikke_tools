@@ -12,6 +12,12 @@ def reference_readiness(issue):
         return result
     operator=issue.get('operator')
     operator=operator if isinstance(operator,dict) else {}
+    if issue.get('phase')=='effect' and issue.get('category')=='recipient' and issue.get('kind')=='instant' and issue.get('stat')=='debuff_cleanse' and issue.get('target')=='allies_random_with_debuff:2' and not issue.get('fields') and issue.get('scaling') is None:
+        result.update(lane='native_contract_extension',native_consumer='confirmed_source',contract_coverage='recorded_subset',recorded_cases=18,reference_suites=['random-cleanse'],
+            consumer_source='calculator/buff_manager.py:_resolve_target_raw,_has_harmful,_dispatch_instant',
+            required_extensions=['live_expiry_down_revival_and_repeated_selection_contracts','shared_harmful_eligibility_and_ordered_sample_lowering','full_profile_and_current_cuda_validation'],
+            note='Eighteen native battle contracts fix self inclusion, harmful_irremovable eligibility without removal, native ordered sampling and per-actor oldest-first shared-carrier edits. Zero/negative counts remove all; positive subunit counts still remove one in the pinned model. Target2/battle-start scope only; GPU admission remains rejected and no full-character certification')
+        return result
     if issue.get('phase')=='gpu-admission' and issue.get('category')=='trigger' and operator.get('domain')=='condition' and operator.get('descriptor') in ('has_burst1_ally','no_burst1_ally'):
         result.update(lane='native_contract_extension',native_consumer='confirmed_source',contract_coverage='recorded_subset',recorded_cases=12,reference_suites=['burst1-ally'],
             consumer_source='calculator/buff_manager.py:_condition_ok; gpu/event_runtime.slang:basicConditions',
