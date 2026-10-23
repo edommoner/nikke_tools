@@ -61,12 +61,13 @@ def read_artifact(path, identity):
     value=json.loads(path.read_bytes())
     if value['identity']!=identity:raise ValueError('CUDA compile cache identity mismatch')
     artifact=base64.b64decode(value['artifact_base64'],validate=True)
-    if sha(artifact)!=value['artifact_sha256'] or len(artifact)!=value['artifact_bytes']:
+    if not artifact or sha(artifact)!=value['artifact_sha256'] or len(artifact)!=value['artifact_bytes']:
         raise ValueError('CUDA compile cache artifact integrity failure')
     return artifact
 
 
-def get_or_compile(source, options, compiler_files, compile_fn, directory=None, *, header_files=(), artifact_kind='ptx'):
+def cache_request(source, options, compiler_files, directory=None, *, header_files=(), artifact_kind='ptx'):
+    """One exact-byte identity for inspection and compilation; schema stays1."""
     if artifact_kind not in ('ptx','cubin'):raise ValueError('Unsupported CUDA artifact kind')
     compiler_files=list(map(Path,compiler_files));header_files=list(map(Path,header_files))
     identity = dict(schema=1, artifact=artifact_kind, source_sha256=sha(source),
@@ -77,6 +78,21 @@ def get_or_compile(source, options, compiler_files, compile_fn, directory=None, 
     path = Path(directory)/f'{key}.json' if directory is not None else None
     if path and not identity['compiler_files']:
         raise ValueError('CUDA cache requires compiler binary identities')
+    return identity,key,path
+
+
+def probe(source, options, compiler_files, directory=None, *, header_files=(), artifact_kind='ptx'):
+    """Read only: never creates a directory, takes a claim or compiles."""
+    identity,key,path=cache_request(source,options,compiler_files,directory,header_files=header_files,artifact_kind=artifact_kind)
+    artifact=read_artifact(path,identity) if path is not None and path.exists() else None
+    return artifact,dict(enabled=path is not None,hit=artifact is not None,key=key,identity=identity,
+        artifact_sha256=sha(artifact) if artifact is not None else None,artifact_bytes=len(artifact) if artifact is not None else 0,
+        probe_only=True,claim_present=path.with_suffix('.claim').exists() if path is not None else False)
+
+
+def get_or_compile(source, options, compiler_files, compile_fn, directory=None, *, header_files=(), artifact_kind='ptx'):
+    compiler_files=list(map(Path,compiler_files));header_files=list(map(Path,header_files))
+    identity,key,path=cache_request(source,options,compiler_files,directory,header_files=header_files,artifact_kind=artifact_kind)
     hit = bool(path and path.exists())
     if hit:
         artifact=read_artifact(path,identity)

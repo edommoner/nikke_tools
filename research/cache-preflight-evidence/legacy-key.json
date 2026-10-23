@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "nvrtc_compile_calls": 0,
+  "scope": "Synthetic artifact differential against the previous cache implementation, not an actual compiler result",
+  "legacy_source_sha256": "0f2b4e737c648c8a06862d64da8a485e0223fe5556398a2bf02e24885503c9d0",
+  "exact_schema1_key": "fad47743103832db04be68a070dc8b0fa7521b446dc3b70c599a42804d21506f",
+  "legacy_new_receipts_equal": true,
+  "serialized_cache_bytes_equal": true,
+  "new_probe_reads_legacy_record": true
+}

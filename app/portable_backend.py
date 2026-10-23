@@ -329,16 +329,33 @@ def execute_cuda(source, entry, packed, output_size, count,*,resident=None,outpu
     return raw[0],transports[0]
 
 
-def compile_cuda_source(source, *, artifact_kind=None):
-    """CPU-only compiler/cache path; never loads nvcuda or creates a context."""
-    if os.name != 'nt':raise RuntimeError('CUDA compiler requires Windows')
-    artifact_kind=cuda_artifact_kind() if artifact_kind is None else artifact_kind
-    cuda_bin = Path(os.environ.get('CUDA_PATH', r'C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.3'))/'bin'
+def cuda_compiler_files(cuda_root=None):
+    cuda_bin=Path(cuda_root if cuda_root is not None else os.environ.get('CUDA_PATH',r'C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.3'))/'bin'
     compiler_files=sorted(cuda_bin.glob('nvrtc*.dll'))
     libraries=[p for p in compiler_files if p.name.lower().startswith('nvrtc64_')]
     builtins=[p for p in compiler_files if p.name.lower().startswith('nvrtc-builtins64_')]
     if len(libraries)!=1 or len(builtins)!=1:
         raise RuntimeError('CUDA compiler root requires exactly one NVRTC and one builtins DLL')
+    return cuda_bin,compiler_files,libraries,builtins
+
+
+def probe_cuda_source_cache(source, directory, *, cuda_root=None,artifact_kind='cubin',ptxas_level=None):
+    """File-only inspection, also usable on archived toolchains off Windows."""
+    from portable_compile_cache import probe,quoted_headers
+    _,files,_,_=cuda_compiler_files(cuda_root)
+    raw=Path(source).read_bytes()
+    artifact,receipt=probe(raw,cuda_compile_options(artifact_kind,ptxas_level),files,directory,
+        header_files=quoted_headers(raw),artifact_kind=artifact_kind)
+    if artifact is not None and artifact_kind=='cubin' and not artifact.startswith(b'\x7fELF'):
+        raise RuntimeError('Cached CUBIN artifact is not a native ELF binary')
+    return receipt
+
+
+def compile_cuda_source(source, *, artifact_kind=None):
+    """CPU-only compiler/cache path; never loads nvcuda or creates a context."""
+    if os.name != 'nt':raise RuntimeError('CUDA compiler requires Windows')
+    artifact_kind=cuda_artifact_kind() if artifact_kind is None else artifact_kind
+    cuda_bin,compiler_files,libraries,builtins=cuda_compiler_files()
     with os.add_dll_directory(str(cuda_bin)):
         def load_compiler():
             lib = C.WinDLL(str(libraries[0]))

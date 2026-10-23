@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "scope": "Direct file-only production preflight on real127-source package and Slang fingerprint; not a validation run or Windows test",
+  "error": "Required Slang generation cache miss; compiler forbidden",
+  "cache_directory_created": false,
+  "existing_execution_claim_unchanged": true,
+  "gpu_calls": 0,
+  "nvrtc_compile_calls": 0,
+  "seconds": 0.12151270895265043
+}

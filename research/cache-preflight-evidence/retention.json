@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "all47_input_native_output_fingerprints_retained": true,
+  "all_raw_bytes_identical": 147849216,
+  "all_input_bytes_identical": 19627204,
+  "output_sha256": "baf7029de8114b6c8ae81641da716d6bc664f7566448c62f3769ee635b3977b5",
+  "generated_normalized_identical": true,
+  "shared_gpu_source_files_unchanged": 127,
+  "scope": "47 inputs verified on the changed host transport. Historical1612 remains prior GPU-body evidence; no full transport reexecution."
+}

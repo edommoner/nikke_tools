@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "mode": "single-process-unittest",
+  "patterns": [
+    "test_portable_duration_scaling_reference.py",
+    "test_portable_duration_scaling_mixed.py",
+    "test_portable_duration_scaling_gpu.py",
+    "test_portable_definition_view.py",
+    "test_portable_scratch_layout.py",
+    "test_portable_cache_probe.py",
+    "test_portable_required_cache_preflight.py",
+    "test_portable_compile_cache.py",
+    "test_portable_cuda_artifact.py",
+    "test_portable_compile_cli.py",
+    "test_portable_generation_cache.py",
+    "test_portable_generation_request.py",
+    "test_portable_gpu_cli.py",
+    "test_portable_gpu_replay.py"
+  ],
+  "timeout_seconds": 60,
+  "elapsed_seconds": 14.066965083009563,
+  "timed_out": false,
+  "exit_code": 0,
+  "gpu_calls": 0,
+  "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+}

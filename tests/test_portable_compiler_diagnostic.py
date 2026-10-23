@@ -158,11 +158,23 @@ class CompilerDiagnosticTests(unittest.TestCase):
     def test_full_entry_certificate_reuses_exact_saved_metal_closure_and_generated_code(self):
         suite=cli.SUITES['compiler-full'];certificate=cli.load(ROOT/suite['golden'])
         baseline_path=ROOT/suite['support_files'][0];baseline=cli.load(baseline_path)
-        self.assertEqual(certificate['source_sha256'],backend.source_hashes(suite['source']))
+        # This is a historical certificate, not an automatic promotion of
+        # later shared GPU features. Its owner is the exact saved Metal proof.
+        self.assertIn(suite['source'],certificate['source_sha256'])
         self.assertEqual(certificate['source_sha256'],baseline['source_sha256'])
         self.assertEqual(certificate['generated_normalized'],baseline['generated_normalized'])
         self.assertEqual(certificate['baseline_golden_sha256'],cli.sha(baseline_path.read_bytes()))
         self.assertEqual(certificate['entries'],[]);self.assertFalse(certificate['calculation_verified'])
+
+    def test_stale_full_entry_cannot_publish_a_current_compiler_packet(self):
+        suite=cli.SUITES['compiler-full'];sources=backend.source_hashes(suite['source']);sources=dict(sources);sources[suite['source']]='0'*64
+        names=set(sources)|{'scripts/nikke_gpu.py',suite['golden'],*suite['support_files'],*('tests/'+p for p in suite['tests'])}
+        tracked=('\0'.join(sorted(names))+'\0').encode();output=self.base.root/'stale-compiler.zip'
+        with patch.object(cli.subprocess,'check_output',return_value=tracked),patch.object(backend,'source_hashes',return_value=sources),\
+             patch.object(backend,'build',side_effect=AssertionError('No compiler')),\
+             patch.object(cli,'development_baseline',side_effect=AssertionError('No native baseline')):
+            with self.assertRaisesRegex(ValueError,'source closure is stale'):cli.make_package('compiler-full',output)
+        self.assertFalse(output.exists())
 
     def test_full_entry_uses_shared_compile_audit_and_cannot_execute_a_battle(self):
         self.m['suite']='compiler-full';self.proof();result=self.audit()
