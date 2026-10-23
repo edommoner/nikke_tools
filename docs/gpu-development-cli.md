@@ -1,3 +1,7 @@
+<!-- destructible-target-core-current -->
+残20分類の未監査10件をsource監査し、20model gap/review0へ。移動/lock/range/対象数のconsumer欠如、敵弾薬のallied filterとnamed通知、nearbyの1対象fallbackをCLI consumer-auditへ追加し、source変更注入で停止。単なる受付追加を避け、projectile/HP盾/hit盾の共有Slang状態部品＋CPU ActorRegistry bridgeを実装。Metal46（宣言モデル24/拒否22）＋独立seal、CPU5群37成功、GPU.002794秒/cached pipeline.000774秒、CUDA生成29,512B。型/identity固定・世代/失効・HPとhitcredit・slot127選択を検証、保存5blockの故障注入付き。probe Runtime8B、production Runtime138952/147source/全266記録/245SHA/20code順位不変、旧Metal492＋実ラピ2を保持。battleの生成/着弾/破壊通知とall_projectiles/倍率は未接続で、状態coreを全機能対応と数えない。CUDA実機はこれから必要な46入力だけを短く検証する候補、full battle未検証/旧7終了unknown/保全falseを維持。通常UI CPU/全キャラ0/目標未達。詳細docs/portable-destructible-target-core.mdとresearch/portable-destructible-target-core-checkpoint.json。以下は履歴。
+<!-- /destructible-target-core-current -->
+
 <!-- projectile-chain-reference-current -->
 
 <!-- projectile-chain-gpu-current -->

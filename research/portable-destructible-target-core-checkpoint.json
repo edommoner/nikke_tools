@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "status": "shared_destructible_core_Metal46_sealed_battle_binding_pending",
+  "source_parent": "7d91378",
+  "suite": "destructible-target-core",
+  "package_id": "5eeebe846af6f89c7ccb63a71fa43d42ec9c180720fc3f53b15f8826903219ea",
+  "capture": "/tmp/nikke-destructible-core-metal46-v3",
+  "model_scope": "declared typed storage and registry bridge; not pinned battle or in-game rules",
+  "core": {
+    "actor_kinds": [
+      2,
+      3,
+      4
+    ],
+    "capacity": 128,
+    "record_words": 14,
+    "probe_Runtime_stride": 8,
+    "production_Runtime_stride": 138952,
+    "production_Runtime_changes": 0,
+    "shared_CUDA_Metal": true,
+    "software_binary64_unchanged": true,
+    "owner_policy": "explicit BODY/ADD handle; no automatic interception or death propagation"
+  },
+  "Metal": {
+    "inputs": 46,
+    "declared_state_cases": 24,
+    "rejects": 22,
+    "independent_seal": true,
+    "gpu_seconds": 0.002794250031001866,
+    "pipeline_compile_seconds": 0.0007740259170532227,
+    "readback_bytes": 144703488,
+    "readback_sha256": "2061a04f0d6d8bdc4d6b72bb48e0a2bd68336012a2f2da82465978b690924a2f",
+    "new_GPU_dispatches": 2
+  },
+  "cpu": {
+    "groups": 5,
+    "tests": 37,
+    "skipped": 0,
+    "seconds": 3.460225958842784
+  },
+  "preserved": {
+    "battle_source_count": 147,
+    "all_battle_source_hashes_equal": true,
+    "all266_profile_records_equal": true,
+    "old245_input_SHA_equal": true,
+    "all20_issue_codes_and_ranking_equal": true,
+    "previous_Metal492_and_original_Rapi2_proofs_retained": true
+  },
+  "work_routing": {
+    "reference_model_gap": 20,
+    "reference_review": 0,
+    "unknown_reclassified": 10,
+    "new_battle_admission": 0
+  },
+  "Windows": {
+    "new_GPU_compile_or_OS_observation_calls": 0,
+    "current_core_CUDA_verified": false,
+    "current_full_battle_CUDA_verified": false,
+    "prior_environment_preservation_verified": false,
+    "cause": "unknown"
+  },
+  "failures_preserved": [
+    {
+      "name": "CPU-package-v2",
+      "gpu_calls": 0,
+      "reason": "IMPL-STATUS document missing from package; declared explicitly in upstream_documents"
+    },
+    {
+      "name": "saved-replay-v3",
+      "gpu_calls": 0,
+      "reason": "ActorRegistry bridge changed canonical reference identity; strict guard rejected reuse; final new package verified without weakening guard"
+    }
+  ],
+  "normal_UI": "CPU",
+  "full_character_certifications": 0,
+  "full_goal_complete": false,
+  "next": [
+    "world_schedule_spawn_expiry_binding",
+    "typed_landing_and_break_notice_continuations",
+    "all_projectiles_selection_and_live_modifier_consumers",
+    "one_short_CUDA46_and_file_only_cache_check",
+    "movement_nearby_lock_on_enemy_quantities_and_attack_group_producers"
+  ]
+}

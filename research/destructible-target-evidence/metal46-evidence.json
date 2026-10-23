@@ -1,0 +1,58 @@
+{
+  "resident_runtime": {
+    "schema": 1,
+    "stride": 8,
+    "alignment": 8,
+    "fields": [
+      {
+        "name": "steps",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 0,
+        "size": 8
+      }
+    ],
+    "bindings": {
+      "commands": 0,
+      "results": 1,
+      "runtimeStates": 2
+    },
+    "cuda_constant_bytes": 48
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 46,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 0.002794250031001866,
+    "input_bytes": 376836,
+    "library_compile_seconds": 0.0007140636444091797,
+    "output_bytes": 144703488,
+    "pipeline_compile_seconds": 0.0007740259170532227,
+    "pipeline_lock_wait_seconds": 9.5367431640625e-07,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "runtime_buffer_bytes": 368,
+    "runtime_element_capacity": 46,
+    "runtime_physical_stride_verified": true,
+    "runtime_stride_bytes": 8,
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "source_sha256": {
+    "gpu/destructible_target_probe.slang": "db8c864995f8c0b880c0d9851d10126a53402da823761ca0f70cc83a96305e09",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/destructible_target_core.slang": "a76de4e9c79097db495d652cb22814691cdb12e15ebbed5f5fec7ef86032a694"
+  },
+  "generated_sha256": {
+    "cuda": "844bd899530630e9474489eb0b8179b078b23e74cd72b109160972e7f784fc8f",
+    "metal": "647794f322aed0dde54d86ed0ac2183f0bd0b8fc93125f4c83503f23347532df"
+  },
+  "input_sha256": "5856e76aa76c0565aecb470d94927ce11bcce25719eb009c6ac78c357c18dd96",
+  "output_sha256": "2061a04f0d6d8bdc4d6b72bb48e0a2bd68336012a2f2da82465978b690924a2f",
+  "gpu_execution_verified": true,
+  "backend": "metal"
+}

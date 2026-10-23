@@ -22,4 +22,6 @@ def verify(root):
     impact=(root/'app/impact_runtime.py').read_text(encoding="utf-8");assert 'Impact(event.caster,actor.handle,classify_hit(event.hit_tag),HitOutcome.DAMAGING,event.damage)' in impact
     assert 'Impact(ev.caster,target,classify_hit(ev.hit_tag),HitOutcome.DAMAGING,amount)' in impact
     sources += [root/'app/attack_group_specs.py',up/'calculator/buff_manager.py',root/'app/impact_runtime.py',root/'app/impact_specs.py',root/'app/damage_query_runtime.py']
-    return dict(passed=True,missing_target_worlds=list(rows),damage_factor_consumers=[],all_projectiles_early_return=True,multi_hit_listener_present=True,battle_attack_group_producer_calls=producer_calls,impacts_keep_default_attack_id_zero=True,historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources})
+    from portable_model_gap_audit import verify as model_gaps
+    remaining=model_gaps(root)
+    return dict(passed=True,remaining_model_gaps=remaining,missing_target_worlds=list(rows),damage_factor_consumers=[],all_projectiles_early_return=True,multi_hit_listener_present=True,battle_attack_group_producer_calls=producer_calls,impacts_keep_default_attack_id_zero=True,historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources})
