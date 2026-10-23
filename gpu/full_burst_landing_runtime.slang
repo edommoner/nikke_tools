@@ -22,10 +22,10 @@ uint fullBurstLandingCount(inout Runtime s,uint row)
     if(!f64Finite(value) || f64Less(f64FromI64(256),value)) { s.error=2;return 0; }
     uint status;uint64_t count=f64ToI64(value,1,status);if(status!=0) { s.error=2;return 0; }return uint(count);
 }
-void generateFullBurstLandings(inout Runtime s,uint count,uint64_t when,uint output,out uint begin,out uint end)
+void generateFullBurstLandings(inout Runtime s,uint64_t when,uint output,out uint begin,out uint end)
 {
     uint header=landingHeader(s);begin=results[header];
-    for(uint index=0;index<count && s.error==0;index++)
+    for(uint index=0;index<s.pendingCount && s.error==0;index++)
     {
         uint row=s.pendingRow[index];Definition d=readDefinition(s.inputBase,row);if(d.damagePending!=2) continue;
         s.sourceTime=when;
@@ -34,6 +34,21 @@ void generateFullBurstLandings(inout Runtime s,uint count,uint64_t when,uint out
         if(s.error==0) dispatch(s,34,0,d.owner,int(row),when,output,coefficient,s.pendingHits[index]);
     }
     end=results[header];
+}
+// A receipt owns its scalar part value and immutable periodic/interrupt tuple.
+// Moving only the eight core words leaves both sidecars attached to the old slot.
+void moveFullBurstReceipt(inout Runtime s,uint fromIndex,uint toIndex)
+{
+    if(fromIndex==toIndex) return;
+    if(fromIndex>=P_LANDINGS || toIndex>=P_LANDINGS) { s.error=64;return; }
+    uint from=landingAddress(s,fromIndex),to=landingAddress(s,toIndex),marker=results[from+7];
+    if(marker!=0 && (marker&0x7fffffffU)!=fromIndex+1) { s.error=64;return; }
+    for(uint i=0;i<P_LANDING_WORDS;i++) results[to+i]=results[from+i];
+    uint fromPart=skillPartReceiptAddress(from),toPart=skillPartReceiptAddress(to);
+    for(uint i=0;i<2;i++) results[toPart+i]=results[fromPart+i];
+    uint fromSnapshot=periodicPacketSnapshot(s,fromIndex),toSnapshot=periodicPacketSnapshot(s,toIndex);
+    for(uint i=0;i<38;i++) results[toSnapshot+i]=results[fromSnapshot+i];
+    if(marker!=0) results[to+7]=(marker&0x80000000U)|(toIndex+1);
 }
 void landFullBurstRange(inout Runtime s,uint begin,uint end,uint64_t when,uint output)
 {
@@ -48,7 +63,7 @@ void landFullBurstRange(inout Runtime s,uint begin,uint end,uint64_t when,uint o
     if(s.error==0)
     {
         uint tail=results[header]-end;
-        for(uint i=0;i<tail;i++) for(uint word=0;word<P_LANDING_WORDS;word++) results[landingAddress(s,begin+i)+word]=results[landingAddress(s,end+i)+word];
+        for(uint i=0;i<tail && s.error==0;i++) moveFullBurstReceipt(s,end+i,begin+i);
         results[header]=begin+tail;
     }
     s.target=saved;

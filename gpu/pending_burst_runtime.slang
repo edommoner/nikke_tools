@@ -45,12 +45,71 @@ void enqueuePendingBurst(inout Runtime s, uint row, uint64_t when)
 #endif
     s.pendingAmount[index] = 0;
 }
+// Stage the captured batch in the existing serialized-pending output bank.
+// Generation keeps its live queue; landing callbacks see only the unconsumed tail.
+uint pendingBatchAddress(inout Runtime s,uint index)
+{ return s.resourceOutput+P_PENDING_STATE_BASE+4+index*8; }
+uint pendingBatchRow(inout Runtime s,uint index)
+{
+#ifdef PORTABLE_FULL_BURST_LANDING
+    return results[pendingBatchAddress(s,index)];
+#else
+    return s.pendingRow[index];
+#endif
+}
+uint pendingBatchHits(inout Runtime s,uint index)
+{
+#ifdef PORTABLE_FULL_BURST_LANDING
+    return results[pendingBatchAddress(s,index)+5];
+#else
+    return s.pendingHits[index];
+#endif
+}
+uint64_t pendingBatchAmount(inout Runtime s,uint index)
+{
+#ifdef PORTABLE_FULL_BURST_LANDING
+    return sourceNumber(pendingBatchAddress(s,index)+6);
+#else
+    return s.pendingAmount[index];
+#endif
+}
+uint64_t pendingBatchTime(inout Runtime s,uint index)
+{
+#ifdef PORTABLE_FULL_BURST_LANDING
+    return sourceNumber(pendingBatchAddress(s,index)+1);
+#else
+    return s.pendingCastTime[index];
+#endif
+}
+#ifdef PORTABLE_FULL_BURST_LANDING
+void stagePendingBatch(inout Runtime s,uint count)
+{
+    for(uint i=0;i<count;i++)
+    {
+        uint at=pendingBatchAddress(s,i);results[at]=s.pendingRow[i];
+        storeNumber(at+1,s.pendingCastTime[i]);storeNumber(at+3,s.pendingCoefficient[i]);
+        results[at+5]=s.pendingHits[i];storeNumber(at+6,s.pendingAmount[i]);
+    }
+}
+void releasePendingBatch(inout Runtime s,uint count)
+{
+    uint retained=0;
+    for(uint i=count;i<s.pendingCount;i++)
+    {
+        if(definition_damagePending(s.inputBase,s.pendingRow[i])==2) continue;
+        s.pendingRow[retained]=s.pendingRow[i];s.pendingHits[retained]=s.pendingHits[i];
+        s.pendingCoefficient[retained]=s.pendingCoefficient[i];s.pendingCastTime[retained]=s.pendingCastTime[i];
+        s.pendingAmount[retained]=s.pendingAmount[i];retained++;
+    }
+    s.pendingCount=retained;
+}
+#endif
 void logPendingPacket(inout Runtime s,Definition d,uint row,uint index,uint hit,uint mask,uint order,uint64_t when,uint output)
 {
     uint trace=s.traceCount;
-    logDamagePacket(s,d,row,mask,0,hit+1,s.pendingAmount[index],s.pendingAmount[index],order,when,1,output);
+    logDamagePacket(s,d,row,mask,0,hit+1,pendingBatchAmount(s,index),pendingBatchAmount(s,index),order,when,1,output);
     if(s.error==0 && s.traceMode==1)
-    { uint at=output+P_PENDING_TRACE_BASE+trace*4;results[at]=1;storeNumber(at+1,s.pendingCastTime[index]); }
+    { uint at=output+P_PENDING_TRACE_BASE+trace*4;results[at]=1;storeNumber(at+1,pendingBatchTime(s,index)); }
 }
 [noinline]
 void firePendingBursts(inout Runtime s, uint64_t when, uint output)
@@ -94,15 +153,17 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
         s.damageExclusion = 0; s.target = target;
     }
 #ifdef PORTABLE_FULL_BURST_LANDING
-    uint fullBegin,fullEnd;generateFullBurstLandings(s,count,when,output,fullBegin,fullEnd);
+    stagePendingBatch(s,count);
+    uint fullBegin,fullEnd;generateFullBurstLandings(s,when,output,fullBegin,fullEnd);
+    if(s.error==0) releasePendingBatch(s,count);
 #endif
     for (uint index = 0; index < count && s.error == 0; index++)
     {
-        uint row = s.pendingRow[index]; Definition d = readDefinition(s.inputBase,row); d.damageHits = s.pendingHits[index];
+        uint row = pendingBatchRow(s,index); Definition d = readDefinition(s.inputBase,row); d.damageHits = pendingBatchHits(s,index);
 #ifdef PORTABLE_FULL_BURST_LANDING
         if(d.damagePending==2) continue;
 #endif
-        for (uint hit = 0; hit < d.damageHits && s.error == 0 && !f64Zero(s.pendingAmount[index]); hit++)
+        for (uint hit = 0; hit < d.damageHits && s.error == 0 && !f64Zero(pendingBatchAmount(s,index)); hit++)
         {
             WORLD_PENDING_LAND(s,d,row,index,hit,when,output) uint packedOrder; uint inherited = aimedTarget(s,d.owner);
             uint mask = enemyDamageMask(s,d,inherited,packedOrder);
@@ -113,8 +174,8 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
             {
                 uint encoded = (packedOrder >> (pass*4)) & 15; if (encoded == 0) break;
                 uint target=encoded-1;if(recovery && s.targetAlive[target]==0) continue;
-                WORLD_SKILL_BEGIN(s,d.owner,target,s.pendingAmount[index]) if(recovery) s.target=target;land(s,d.owner,target,s.pendingAmount[index]);
-                if(recovery && s.error==0) dispatch(s,17,0,d.owner,0,when,output,s.pendingAmount[index]); WORLD_GATE_END
+                WORLD_SKILL_BEGIN(s,d.owner,target,pendingBatchAmount(s,index)) if(recovery) s.target=target;land(s,d.owner,target,pendingBatchAmount(s,index));
+                if(recovery && s.error==0) dispatch(s,17,0,d.owner,0,when,output,pendingBatchAmount(s,index)); WORLD_GATE_END
             }
             if(!recovery) logPendingPacket(s,d,row,index,hit,mask,packedOrder,when,output);
         }
@@ -127,12 +188,16 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
     s.damageExclusion = 0;s.target=parentTarget;
     if (s.error == 0)
     {
+#ifdef PORTABLE_FULL_BURST_LANDING
+        for(uint i=0;i<count*8;i++) results[pendingBatchAddress(s,0)+i]=0;
+#else
         // Native clears its captured batch before landing. Children queued by
         // recovery survive for the next B3 collection rather than being lost.
         uint tail=s.pendingCount-count;
         for(uint i=0;i<tail;i++)
         { s.pendingRow[i]=s.pendingRow[count+i];s.pendingHits[i]=s.pendingHits[count+i];s.pendingCoefficient[i]=s.pendingCoefficient[count+i];s.pendingCastTime[i]=s.pendingCastTime[count+i];s.pendingAmount[i]=s.pendingAmount[count+i]; }
         s.pendingCount=tail;
+#endif
     }
 }
 void writePendingBurst(inout Runtime s, uint output, bool entries)

@@ -2,7 +2,8 @@
 import hashlib,json
 from pathlib import Path
 def project_sources(root,sources=None):
-    root=Path(root);sources=dict(sources or {});data=json.loads((root/'tests/fixtures/portable-full-burst-landing-source-delta.json').read_text())
+    from portable_full_burst_queue_source_contract import project_sources as project_queue
+    root=Path(root);sources=project_queue(root,sources);data=json.loads((root/'tests/fixtures/portable-full-burst-landing-source-delta.json').read_text())
     for name,digest in data['added_sources'].items():assert hashlib.sha256(sources.get(name,(root/name).read_text()).encode()).hexdigest()==digest,'Unreviewed full-burst landing helper: '+name
     for name,row in data['sources'].items():
         current=sources.get(name,(root/name).read_text());assert hashlib.sha256(current.encode()).hexdigest()==row['current_sha256'],'Unreviewed full-burst landing source: '+name

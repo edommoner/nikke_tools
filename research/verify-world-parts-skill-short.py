@@ -68,18 +68,21 @@ def native_reference(domain):
     result=dict(battle=native,skill_trace=trace)
     if interrupt is not None:result['interrupt']=interrupt
     return result
+def decoded_interrupt(block,bindings,owners):
+    import struct
+    def number(at):return struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
+    extra=[]
+    for slot,b in enumerate(bindings):
+        gen=block[LIMITS['WORLD_ACTOR_POOL_STATE_BASE']+slot*16]
+        if int(b.kind)!=6 or gen==0:continue
+        at=LIMITS['COUNTER_LANDING_EXTRA_BASE']+slot*4
+        extra.append(dict(identity=b.identity,generation=gen,extra_hits=block[at],extra_dealt=number(at+2)))
+    actual=dict(interrupt_damage=[number(785424+i*2) for i in range(owners)],extra=extra)
+    return actual
 def compare(block,domain):
     expected=native_reference(domain)
     if 'interrupt' in expected:
-        import struct
-        def number(at):return struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
-        extra=[]
-        for slot,b in enumerate(domain[2]):
-            gen=block[LIMITS['WORLD_ACTOR_POOL_STATE_BASE']+slot*16]
-            if int(b.kind)!=6 or gen==0:continue
-            at=LIMITS['COUNTER_LANDING_EXTRA_BASE']+slot*4
-            extra.append(dict(identity=b.identity,generation=gen,extra_hits=block[at],extra_dealt=number(at+2)))
-        actual=dict(interrupt_damage=[number(785424+i*2) for i in range(len(expected['interrupt']['interrupt_damage']))],extra=extra)
+        actual=decoded_interrupt(block,domain[2],len(expected['interrupt']['interrupt_damage']))
         assert actual==expected['interrupt'],(domain[0]['name'],'interrupt accounting',actual,expected['interrupt'])
     return base.compare_expected(block,domain,expected)
 def validate_rejection(block,name):
