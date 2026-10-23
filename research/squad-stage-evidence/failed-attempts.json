@@ -1,0 +1,339 @@
+[
+  {
+    "capture": "/tmp/nikke-squad-stage-v1-capture",
+    "preserved": true,
+    "run.json": {
+      "schema": 1,
+      "package_id": "d308fd3655dff988a84b441c48fd254b47879006c8a50b4b7c1fcc0a07b7e5b6",
+      "backend": "metal",
+      "mode": "gpu",
+      "status": "failed",
+      "gpu_retry_count": 0
+    },
+    "cpu-batch.json": {
+      "schema": 1,
+      "mode": "single-process-unittest",
+      "patterns": [
+        "test_portable_squad_stage.py",
+        "test_portable_ally_burst.py",
+        "test_portable_burst_recipients.py",
+        "test_portable_definition_view.py",
+        "test_portable_state_work_routing.py"
+      ],
+      "timeout_seconds": 60,
+      "elapsed_seconds": 11.082034624996595,
+      "timed_out": false,
+      "exit_code": 1,
+      "gpu_calls": 0,
+      "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+    }
+  },
+  {
+    "capture": "/tmp/nikke-squad-stage-v2-capture",
+    "preserved": true,
+    "run.json": {
+      "schema": 1,
+      "package_id": "fdbb6b5194b585b6286c4c241ddf9b6861a5ed3ec61475f42c3eb6e036f30847",
+      "backend": "metal",
+      "mode": "gpu",
+      "status": "finished",
+      "gpu_retry_count": 0,
+      "finished_unix_ns": 1792723012210032000
+    },
+    "cpu-batch.json": {
+      "schema": 1,
+      "mode": "single-process-unittest",
+      "patterns": [
+        "test_portable_squad_stage.py",
+        "test_portable_ally_burst.py",
+        "test_portable_burst_recipients.py",
+        "test_portable_definition_view.py",
+        "test_portable_state_work_routing.py"
+      ],
+      "timeout_seconds": 60,
+      "elapsed_seconds": 12.460790375014767,
+      "timed_out": false,
+      "exit_code": 0,
+      "gpu_calls": 0,
+      "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+    },
+    "result.json": {
+      "sealed": false,
+      "purpose": "development",
+      "calculation_verified": false,
+      "preservation_verified": null,
+      "passed": false,
+      "containment_verified": true,
+      "comparison_error": null,
+      "first_difference": {
+        "index": 0,
+        "name": "squad-stage-own-stages",
+        "reason": "ValueError: Expected GPU success status0; got status64"
+      },
+      "phase": {
+        "events": 9,
+        "last_event": {
+          "monotonic_ns": 822161582127958,
+          "pid": 60549,
+          "stage": "shared_gpu_execute",
+          "state": "returned",
+          "wall_time_ns": 1792723011819791000
+        },
+        "nvrtc_compile_returned_success": false,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_linked_artifact_observed": false,
+        "cuda_launch_returned_success": false,
+        "cuda_synchronize_returned_success": false,
+        "cuda_readback_returned_success": false,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retries": 0,
+      "audit_gpu_calls": 0
+    }
+  },
+  {
+    "capture": "/tmp/nikke-squad-stage-v3-capture",
+    "preserved": true,
+    "run.json": {
+      "schema": 1,
+      "package_id": "c6093f04bdbf12903b4d4e195132a544fd7b49718a00eae11213c75b3466b9b1",
+      "backend": "metal",
+      "mode": "gpu",
+      "status": "finished",
+      "gpu_retry_count": 0,
+      "finished_unix_ns": 1792723900681181000
+    },
+    "cpu-batch.json": {
+      "schema": 1,
+      "mode": "single-process-unittest",
+      "patterns": [
+        "test_portable_squad_stage.py",
+        "test_portable_ally_burst.py",
+        "test_portable_burst_recipients.py",
+        "test_portable_definition_view.py",
+        "test_portable_state_work_routing.py"
+      ],
+      "timeout_seconds": 60,
+      "elapsed_seconds": 12.510436499956995,
+      "timed_out": false,
+      "exit_code": 0,
+      "gpu_calls": 0,
+      "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+    },
+    "result.json": {
+      "sealed": false,
+      "purpose": "development",
+      "calculation_verified": false,
+      "preservation_verified": null,
+      "passed": false,
+      "containment_verified": true,
+      "comparison_error": null,
+      "first_difference": {
+        "index": 0,
+        "name": "squad-stage-own-stages",
+        "reason": "AssertionError: ('squad-stage-own-stages', 0, ['allies'])"
+      },
+      "phase": {
+        "events": 9,
+        "last_event": {
+          "monotonic_ns": 823050039780750,
+          "pid": 61102,
+          "stage": "shared_gpu_execute",
+          "state": "returned",
+          "wall_time_ns": 1792723900277211000
+        },
+        "nvrtc_compile_returned_success": false,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_linked_artifact_observed": false,
+        "cuda_launch_returned_success": false,
+        "cuda_synchronize_returned_success": false,
+        "cuda_readback_returned_success": false,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retries": 0,
+      "audit_gpu_calls": 0
+    }
+  },
+  {
+    "capture": "/tmp/nikke-squad-stage-rosters-v4-capture",
+    "preserved": true,
+    "run.json": {
+      "schema": 1,
+      "package_id": "9755c051d3b5cf6bb3c157eff1c629ac83e03ebd26f433e7d06c93dc9ca846ad",
+      "backend": "metal",
+      "mode": "gpu",
+      "status": "finished",
+      "gpu_retry_count": 0,
+      "finished_unix_ns": 1792724219262911000
+    },
+    "cpu-batch.json": {
+      "schema": 1,
+      "mode": "single-process-unittest",
+      "patterns": [
+        "test_portable_squad_stage.py",
+        "test_portable_ally_burst.py",
+        "test_portable_burst_recipients.py",
+        "test_portable_definition_view.py",
+        "test_portable_state_work_routing.py"
+      ],
+      "timeout_seconds": 60,
+      "elapsed_seconds": 12.850363457924686,
+      "timed_out": false,
+      "exit_code": 0,
+      "gpu_calls": 0,
+      "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+    },
+    "result.json": {
+      "sealed": false,
+      "purpose": "development",
+      "calculation_verified": false,
+      "preservation_verified": null,
+      "passed": false,
+      "containment_verified": true,
+      "comparison_error": null,
+      "first_difference": {
+        "index": 3,
+        "name": "squad-stage-real/레드 후드/30s/explicit-A",
+        "reason": "AssertionError: ('squad-stage-real/레드 후드/30s/explicit-A', 'full original Red Hood', [{'path': '.body_damage[0]', 'gpu': 51220054.0, 'cpu': 55344873}, {'path': '.body_damage[1]', 'gpu': 33952884.0, 'cpu': 38238372}, {'path': '.body_damage[2]', 'gpu': 10421904.0, 'cpu': 12078151}, {'path': '.body_damage[3]', 'gpu': 47582613.0, 'cpu': 57483308}, {'path': '.body_damage[4]', 'gpu': 18358100.0, 'cpu': 20844070}, {'path': '.combat.last_b3_caster', 'gpu': 0, 'cpu': 3}, {'path': '.combat.last_b3_cast_time', 'gpu': 2.6166666666666623, 'cpu': 16.51666666666701}, {'path': '.combat.last_full_start', 'gpu': 2.9999999999999942, 'cpu': 16.900000000000322}])"
+      },
+      "phase": {
+        "events": 5,
+        "last_event": {
+          "monotonic_ns": 823368673603250,
+          "pid": 61553,
+          "stage": "shared_gpu_execute",
+          "state": "returned",
+          "wall_time_ns": 1792724218911303000
+        },
+        "nvrtc_compile_returned_success": false,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_linked_artifact_observed": false,
+        "cuda_launch_returned_success": false,
+        "cuda_synchronize_returned_success": false,
+        "cuda_readback_returned_success": false,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retries": 0,
+      "audit_gpu_calls": 0
+    }
+  },
+  {
+    "capture": "/tmp/nikke-squad-stage-retention-v2-capture",
+    "preserved": true,
+    "run.json": {
+      "schema": 1,
+      "package_id": "4dd5cba04df337721138934312511bf40314b8c90653d6fc4ab023c70e6c3245",
+      "backend": "metal",
+      "mode": "gpu",
+      "status": "failed",
+      "gpu_retry_count": 0
+    },
+    "cpu-batch.json": {
+      "schema": 1,
+      "mode": "single-process-unittest",
+      "patterns": [
+        "test_portable_gpu_cli.py",
+        "test_portable_gpu_replay.py",
+        "test_portable_phase_audit.py",
+        "test_portable_regression_adapter.py",
+        "test_portable_roster_regression.py",
+        "test_portable_readiness.py",
+        "test_portable_stun.py",
+        "test_portable_typed_recipient_delegation.py",
+        "test_portable_skill_cooldown.py",
+        "test_portable_healing_storage.py",
+        "test_portable_trigger_reduction.py",
+        "test_portable_skill_critical.py",
+        "test_portable_skill_interval.py",
+        "test_portable_skill_interval_flat.py",
+        "test_portable_lazy_bank.py",
+        "test_portable_compiler_stats.py",
+        "test_portable_base_copy.py",
+        "test_portable_seal.py",
+        "test_portable_persona.py",
+        "test_portable_compile_cache.py",
+        "test_portable_named_magnitude.py",
+        "test_portable_enemy_selection.py",
+        "test_portable_capture_storage.py",
+        "test_portable_attack_magnitude.py",
+        "test_portable_revive_reference.py",
+        "test_portable_revival.py",
+        "test_portable_resident_layout.py",
+        "test_portable_resident_transport.py",
+        "test_portable_resident_build.py",
+        "test_portable_module_check.py",
+        "test_portable_entry_reload_gpu.py",
+        "test_portable_entry_reload_full_reference.py",
+        "test_portable_weapon_phases.py",
+        "test_portable_offline_assembly.py",
+        "test_portable_readback_stream.py",
+        "test_portable_regression_compact.py",
+        "test_portable_file_transport.py",
+        "test_portable_cpu_batch.py",
+        "test_portable_query_boundaries.py",
+        "test_portable_ptx_stats.py",
+        "test_portable_heal_share_reference.py",
+        "test_portable_phase_codegen.py",
+        "test_portable_heal_share_extra_reference.py",
+        "test_portable_definition_view.py",
+        "test_portable_readiness_semantics.py",
+        "test_portable_heal_share_targets.py",
+        "test_portable_heal_share_lifesteal.py",
+        "test_portable_heal_share_gpu.py",
+        "test_portable_heal_share_trace.py",
+        "test_portable_ally_burst.py",
+        "test_portable_mode_capacity_reference.py",
+        "test_portable_mode_capacity.py",
+        "test_portable_skill_hp_basis_retention.py",
+        "test_portable_skill_hp_basis.py",
+        "test_portable_physical_interrupt.py",
+        "test_portable_lost_hp_attack_reference.py",
+        "test_portable_lost_hp_attack.py",
+        "test_portable_lost_hp_attack_retention.py",
+        "test_portable_pellet_shot_reference.py",
+        "test_portable_pellet_shot.py",
+        "test_portable_pellet_shot_retention.py",
+        "test_portable_manual_swap_reference.py",
+        "test_portable_ammo_equivalent_reference.py",
+        "test_portable_ammo_equivalent.py",
+        "test_portable_ammo_equivalent_retention.py",
+        "test_portable_accuracy_predicate_reference.py",
+        "test_portable_parent_oracles.py",
+        "test_portable_manual_swap.py",
+        "test_portable_manual_swap_retention.py",
+        "test_portable_accuracy_predicate.py",
+        "test_portable_accuracy_predicate_retention.py",
+        "test_portable_sparse_raw.py",
+        "test_portable_undying_predicate_reference.py",
+        "test_portable_undying_predicate.py",
+        "test_portable_undying_predicate_retention.py",
+        "test_portable_state_predicate_reference.py",
+        "test_portable_ally_random_reference.py",
+        "test_portable_state_work_routing.py",
+        "test_portable_ally_random_gpu.py",
+        "test_portable_ally_random_retention.py",
+        "test_portable_state_focus.py",
+        "test_portable_state_focus_retention.py",
+        "test_portable_late_attack_random_reference.py",
+        "test_portable_state_focus_rosters.py",
+        "test_portable_real_binding_proof.py",
+        "test_portable_native_query.py",
+        "test_quantity_specs.py",
+        "test_portable_ordered_history.py",
+        "test_portable_generation_request.py",
+        "test_portable_eager_cover_migration.py",
+        "test_portable_query_diagnostic.py",
+        "test_portable_scratch_layout.py",
+        "test_portable_interrupt_aim_reference.py",
+        "test_portable_interrupt_aim.py",
+        "test_portable_mixed_query.py"
+      ],
+      "timeout_seconds": 180,
+      "elapsed_seconds": 4.512070375028998,
+      "timed_out": false,
+      "exit_code": 1,
+      "gpu_calls": 0,
+      "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+    }
+  }
+]

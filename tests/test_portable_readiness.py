@@ -80,7 +80,7 @@ class ReadinessTests(unittest.TestCase):
     def test_missing_trigger_operator_survives_application_adapter(self):
         codes=[]
         for domain,descriptor in [('timing','multi_hit:2'),('timing','multi_hit:4'),
-                                  ('condition','self_future_marker'),('timing','squad_burst_cast:2')]:
+                                  ('condition','self_future_marker'),('timing','squad_burst_cast:4')]:
             effect=dict(type='buff',stat='atk_pct',target='self',fixed_value=1,
                         trigger=dict(timing=['battle_start'],condition=[]))
             effect['trigger'][domain if domain=='timing' else 'condition']=[descriptor]

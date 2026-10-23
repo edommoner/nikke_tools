@@ -135,7 +135,16 @@ void admitDefinitions(inout Runtime s,uint input)
         if(s.error!=0) break;
         WORLD_TEAM_VALIDATE(s,d,input,j) WORLD_FRACTION_VALIDATE(s,d,input,j) WORLD_INITIAL_SPAWN_VALIDATE(s,d,input,j) for (uint slot = 0; slot < d.triggerCount; slot++)
         {
-            uint event = commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8];
+            uint at=input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8,event=commands[at];
+            if(event==41)
+            {
+#ifdef PORTABLE_WORLD_ROSTER
+                uint stage=commands[at+7];
+                if(s.combat==0 || commands[input+P_WORLD_FRAME_INPUT_BASE]!=0x57533031U || stage<1 || stage>3 || !f64Equal(loadNumber(at+1),f64FromI64(stage)) || commands[at+3]!=0 || commands[at+4]!=0xffffffffU || commands[at+5]!=0 || commands[at+6]!=0) { s.error=64;break; }
+#else
+                s.error=64;break;
+#endif
+            }
             if (event == 42 && s.combat == 0) { s.error = 64; break; }
             if (event == 31) s.namedEventOwners |= 1U << d.owner;
         }

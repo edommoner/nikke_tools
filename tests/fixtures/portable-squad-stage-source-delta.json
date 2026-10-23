@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "baseline_commit": "6774e63",
+  "scope": "Caster-owned stage notification after burst_cast before ally broadcast; strict descriptor admission, no arithmetic change; automatic candidate stage independent of logical stage, explicit/live overrides preserved",
+  "sources": {
+    "gpu/combat_runtime.slang": {
+      "baseline_sha256": "fc39e83ee003d0558830f2dfa5982ace68bfcb3b88bb12a5ff4aab555b31bb51",
+      "current_sha256": "58aa89c63c497bd5891bc2406a110db4f74a10541f0ac3e35b1500b85d6308d5",
+      "changes": [
+        {
+          "baseline": "            dispatch(s,0,3,picked,0,when,output);\n            // Native ally-burst",
+          "current": "            dispatch(s,0,3,picked,0,when,output);\n            // Native stage notice belongs only to this caster, before ally broadcast.\n            if(nextEventCandidate(s,41,0)<s.count && s.error==0) dispatch(s,0,41,picked,int(stage),when,output);\n            // Native ally-burst"
+        },
+        {
+          "baseline": "s.stage[who] = commands[at+3]; s.currentStage[who] = s.stage[who];",
+          "current": "s.stage[who] = commands[at+3]&7U; s.currentStage[who] = s.stage[who];"
+        },
+        {
+          "baseline": "        s.coefficient[who] = loadNumber(at+4);",
+          "current": "        uint stageWord=commands[at+3];\n        if((stageWord&~0x707U)!=0 || s.stage[who]>4 || ((stageWord>>8)&3U)!=0 && (s.stage[who]!=4 || (stageWord&1024U)!=0)) { s.error=64;return; }\n        s.coefficient[who] = loadNumber(at+4);"
+        },
+        {
+          "baseline": "uint effectiveStage(inout Runtime s, uint who, uint64_t when)\n{\n    uint stage = s.stage[who], order = 0;\n    for (uint row = 0; row < s.carrierCount; row++)\n        if (residentDefinition(s,row).owner == who && residentDefinition(s,row).stageOverride != 0 && s.alive[row] != 0 && f64Less(when,s.end[row]) && basicConditions(s,row,when,true) && s.entryOrder[row] >= order)\n        { order = s.entryOrder[row]; stage = residentDefinition(s,row).stageOverride; }\n    return stage;\n}\n",
+          "current": "uint effectiveStage(inout Runtime s, uint who, uint64_t when, out uint candidate)\n{\n    uint stage = s.stage[who], order = 0;bool overridden=false;\n    for (uint row = 0; row < s.carrierCount; row++)\n        if (residentDefinition(s,row).owner == who && residentDefinition(s,row).stageOverride != 0 && s.alive[row] != 0 && f64Less(when,s.end[row]) && basicConditions(s,row,when,true) && s.entryOrder[row] >= order)\n        { order = s.entryOrder[row]; stage = residentDefinition(s,row).stageOverride;overridden=true; }\n    uint automaticStage=commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3]>>8&3U;\n    candidate=!overridden && stage==4 && automaticStage!=0 ? automaticStage : stage;\n    return stage;\n}\n"
+        },
+        {
+          "baseline": "uint stages[5]; for (uint who = 0; who < 5; who++) { stages[who] = effectiveStage(s,who,when); s.currentStage[who] = stages[who]; }",
+          "current": "uint stages[5]; for (uint who = 0; who < 5; who++) { uint candidate;s.currentStage[who] = effectiveStage(s,who,when,candidate);stages[who]=candidate; }"
+        },
+        {
+          "baseline": "        for (uint who = 0; who < 5; who++) if (stages[who] == s.phase || stages[who] == 4)\n",
+          "current": "        bool explicitCandidate=false;\n        for(uint who=0;who<5;who++) if((stages[who]==s.phase || stages[who]==4) && (commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3]&1024U)!=0) explicitCandidate=true;\n        for (uint who = 0; who < 5; who++) if (stages[who] == s.phase || stages[who] == 4)\n"
+        },
+        {
+          "baseline": "if (s.phase < 3 && s.reentrySlot == 0) break;",
+          "current": "if (s.phase < 3 && s.reentrySlot == 0 && !explicitCandidate) break;"
+        }
+      ]
+    },
+    "gpu/dispatch_phases.slang": {
+      "baseline_sha256": "297763eafc8bc8dd68a1c5d183c1777e8c9a8eff7d3aae575c5149f969be0dd2",
+      "current_sha256": "10624ca2fec68c0752c5731b9dba448cfa83304d2279e0f2f893fc1eeba01e4e",
+      "changes": [
+        {
+          "baseline": "if (event == 4 && stage != f.argument || event == 6 && int(j) != f.argument) continue;",
+          "current": "if ((event == 4 || event == 41) && stage != f.argument || event == 6 && int(j) != f.argument) continue;"
+        },
+        {
+          "baseline": "if (stage == 2 && event != 4) ok = false;",
+          "current": "if (stage == 2 && event != 4 && event != 41) ok = false;"
+        }
+      ]
+    },
+    "gpu/admission_runtime.slang": {
+      "baseline_sha256": "e6e485ea651da78d680d130b3fb402280ddd2c6f98bbf32bafa6db7634ae1674",
+      "current_sha256": "802e3c437db2748ac75dd2e7d8ad4aa7519ead931695ebd29ededcf52b401752",
+      "changes": [
+        {
+          "baseline": "            uint event = commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8];\n            if (event == 42",
+          "current": "            uint at=input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8,event=commands[at];\n            if(event==41)\n            {\n#ifdef PORTABLE_WORLD_ROSTER\n                uint stage=commands[at+7];\n                if(s.combat==0 || commands[input+P_WORLD_FRAME_INPUT_BASE]!=0x57533031U || stage<1 || stage>3 || !f64Equal(loadNumber(at+1),f64FromI64(stage)) || commands[at+3]!=0 || commands[at+4]!=0xffffffffU || commands[at+5]!=0 || commands[at+6]!=0) { s.error=64;break; }\n#else\n                s.error=64;break;\n#endif\n            }\n            if (event == 42"
+        }
+      ]
+    }
+  }
+}

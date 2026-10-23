@@ -444,7 +444,7 @@ void advanceDefinitionFrame(inout Runtime s, inout Frame frames[32], inout int d
                     uint event = commands[at], mode = commands[at+3]; int tag = int(commands[at+4]), stage = int(commands[at+7]);
                     if (event != f.event) continue;
                     if (event == 27 && tag != f.argument) continue;
-                    if (event == 4 && stage != f.argument || event == 6 && int(j) != f.argument) continue;
+                    if ((event == 4 || event == 41) && stage != f.argument || event == 6 && int(j) != f.argument) continue;
                     if (COUNTER_NAMED(s,event,WORLD_CONTROL_NAMED(event,(event == 9 || event == 29 || event == 30 || event == 31 || event == 48 || event == 49 || event == 59))) && tag != f.argument) continue;
                     if (event == 9 && commands[at+5] != f.value) continue; WORLD_PROJECTILE_SKIP_SLOT(event,stage)
                     multiplicity++; bool ok = event != 30 || resourceModulo(f.healthValue,uint(f64ToPositiveStep(loadNumber(at+1)))) == 0;
@@ -457,7 +457,7 @@ void advanceDefinitionFrame(inout Runtime s, inout Frame frames[32], inout int d
                         if(stage==1 && triggerReductionEvent(event) && (s.quantityMask&1024)!=0) ok=triggerReductionCountMatches(s,j,count,threshold64,mode,f.time);
                         else ok = mode == 2 ? count >= threshold : mode == 3 ? count == threshold : count % threshold == 0;
                     }
-                    if (stage == 2 && event != 4) ok = false;
+                    if (stage == 2 && event != 4 && event != 41) ok = false;
                     if (ok && !matched) { matched = true; passive = commands[at+6]; }
                 }
                 if (!matched) continue;

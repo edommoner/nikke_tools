@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "suites": [
+    {
+      "suite": "logical6",
+      "inputs": 6,
+      "raw_bytes": 18874368,
+      "raw_sha256": "5064246ab96ea171aed1fb9c55415de9269805d928e72e11693b1b35d9bcf38e",
+      "input_native_raw_preserved": true
+    },
+    {
+      "suite": "callback20",
+      "inputs": 20,
+      "raw_bytes": 62914560,
+      "raw_sha256": "d89c830d2ffcb0b48e6d048d47be440513300a7719d88fc956ba70c4c5342704",
+      "input_native_raw_preserved": true
+    },
+    {
+      "suite": "prior_rosters12",
+      "inputs": 12,
+      "raw_bytes": 37748736,
+      "raw_sha256": "a68068dc5d257e09d0e57e9fffd413e10617a3a2db6abec26ac177f260b9c1f7",
+      "input_native_raw_preserved": true
+    }
+  ]
+}

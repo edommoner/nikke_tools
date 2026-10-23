@@ -29,7 +29,9 @@ void initializeCombat(inout Runtime s, uint input)
         if (s.attackContext[who] > 7) { s.error = 64; return; }
         s.pellets[who] = commands[input+P_WEAPON_EXTRA_BASE+who*4]; s.muzzles[who] = commands[input+P_WEAPON_EXTRA_BASE+who*4+1];
         s.weaponEnabled[who] = commands[at]; s.weaponMode[who] = commands[at+1];
-        s.capacity[who] = commands[at+2]; s.ammo[who] = s.capacity[who]; s.stage[who] = commands[at+3]; s.currentStage[who] = s.stage[who]; s.physicalModeIndex[who] = -1;
+        s.capacity[who] = commands[at+2]; s.ammo[who] = s.capacity[who]; s.stage[who] = commands[at+3]&7U; s.currentStage[who] = s.stage[who]; s.physicalModeIndex[who] = -1;
+        uint stageWord=commands[at+3];
+        if((stageWord&~0x707U)!=0 || s.stage[who]>4 || ((stageWord>>8)&3U)!=0 && (s.stage[who]!=4 || (stageWord&1024U)!=0)) { s.error=64;return; }
         s.coefficient[who] = loadNumber(at+4); s.interval[who] = loadNumber(at+6);
         s.reloadTime[who] = loadNumber(at+8); s.chargeTime[who] = loadNumber(at+10);
         s.gain[who] = loadNumber(at+12); s.cooldown[who] = loadNumber(at+14);
@@ -172,19 +174,21 @@ void enterStage(inout Runtime s, uint stage, uint64_t when, uint output)
 {
     for (uint who = 0; who < 5 && s.error == 0; who++) dispatch(s,0,4,who,int(stage),when,output);
 }
-uint effectiveStage(inout Runtime s, uint who, uint64_t when)
+uint effectiveStage(inout Runtime s, uint who, uint64_t when, out uint candidate)
 {
-    uint stage = s.stage[who], order = 0;
+    uint stage = s.stage[who], order = 0;bool overridden=false;
     for (uint row = 0; row < s.carrierCount; row++)
         if (residentDefinition(s,row).owner == who && residentDefinition(s,row).stageOverride != 0 && s.alive[row] != 0 && f64Less(when,s.end[row]) && basicConditions(s,row,when,true) && s.entryOrder[row] >= order)
-        { order = s.entryOrder[row]; stage = residentDefinition(s,row).stageOverride; }
+        { order = s.entryOrder[row]; stage = residentDefinition(s,row).stageOverride;overridden=true; }
+    uint automaticStage=commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3]>>8&3U;
+    candidate=!overridden && stage==4 && automaticStage!=0 ? automaticStage : stage;
     return stage;
 }
 #include "burst_duration_runtime.slang"
 [noinline]
 void burstFrame(inout Runtime s, uint64_t when, uint output)
 {
-    uint stages[5]; for (uint who = 0; who < 5; who++) { stages[who] = effectiveStage(s,who,when); s.currentStage[who] = stages[who]; }
+    uint stages[5]; for (uint who = 0; who < 5; who++) { uint candidate;s.currentStage[who] = effectiveStage(s,who,when,candidate);stages[who]=candidate; }
     if (s.phase == 5 && reached(when,s.fullEnd))
     { s.phase = 0; invalidateNativeNumeric(s); teamNotify(s,2,when,output); s.castMask = 0; logBurst(s,5,0xffffffff,when,output); }
     if (s.phase == 0 && reached(s.gauge,HUNDRED))
@@ -202,12 +206,14 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
     {
         uint picked = 5, candidates = 0; uint64_t earliest = FOREVER; s.cooldownWaitMask = 0;
         if (s.reentrySlot != 0) enterStage(s,s.phase,when,output);
+        bool explicitCandidate=false;
+        for(uint who=0;who<5;who++) if((stages[who]==s.phase || stages[who]==4) && (commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3]&1024U)!=0) explicitCandidate=true;
         for (uint who = 0; who < 5; who++) if (stages[who] == s.phase || stages[who] == 4)
         {
             candidates |= 1U << who; earliest = smaller(earliest,s.ready[who]);
             if ((s.downMask&(1U<<who))==0 && !statusStunned(s,who) && reached(when,s.ready[who])) { picked = who; break; }
             // Default automatic B1/B2 reserves the first candidate; reentry and B3 scan alternatives.
-            if (s.phase < 3 && s.reentrySlot == 0) break;
+            if (s.phase < 3 && s.reentrySlot == 0 && !explicitCandidate) break;
         }
         if (picked == 5) { s.action = larger(s.action,earliest); s.cooldownWaitMask = candidates; }
         if (picked < 5)
@@ -217,6 +223,8 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
             if (s.error != 0) return;
             uint target = s.target; s.target = 0;
             dispatch(s,0,3,picked,0,when,output);
+            // Native stage notice belongs only to this caster, before ally broadcast.
+            if(nextEventCandidate(s,41,0)<s.count && s.error==0) dispatch(s,0,41,picked,int(stage),when,output);
             // Native ally-burst broadcast includes the caster in squad order.
             // No subscribers means no additional dispatch/state synchronization.
             if (nextEventCandidate(s,42,0) < s.count)

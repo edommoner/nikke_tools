@@ -24,6 +24,10 @@ def normalize_static_weapon(char,base_atk,enemy,*,camera=False):
                 spread_start=state.spread_start,spread_end=state.spread_end,spread_shots=state._spread_shots_needed,
                 core_diameter=enemy.get('core_px',0),clip_count=state.clip_count,
                 post_reload_delay=state.post_reload_delay,cover_during_delay=state.cover_during_delay)
+    # Native keeps logical stage A for conditions, but default automatic Red
+    # Hood selection is B3; explicit user stages and live overrides take priority.
+    if char['name']=='레드 후드' and str(stage)=='A' and char.get('burst_stage') is None:config['automatic_burst_stage']=3
+    if char.get('burst_stage') is not None:config['explicit_burst_stage']=True
     if state.fire_mode=='charge':
         config.update(charge=state.charge_time_base,interval=state.charge_time_base+state.post_fire_delay,min_cycle=state._min_fire_cycle)
     else:

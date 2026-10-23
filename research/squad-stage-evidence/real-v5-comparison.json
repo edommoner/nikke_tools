@@ -1,0 +1,65 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "squad-stage-real/레드 후드/3s",
+      "input_sha256": "c4471cc94fcfd5074f18044a6a091773bd6feba0ea59ed9ef9cd7358dd5bbe15",
+      "output_sha256": "6207d75b689386cd6000930d54ab60321a967cc115e28ef0b618eb3783b29948",
+      "native_sha256": "16544bb8d1dd68f137a4d2fb1a31f0a88cf658a1fff654afac8a665c67d0d660"
+    },
+    {
+      "name": "squad-stage-real/레드 후드/30s",
+      "input_sha256": "0ac56f7f57d922343e1920521d733e5b218830cf7e555312ae73577de75cb792",
+      "output_sha256": "0522d5047c2ddf778396d4aa573c60a8108bb4a62840b19fd97c281d77faef74",
+      "native_sha256": "16c0615a500537ae93deccdfda72ca3a213155ffe099f0ecab2f943d9a985a9e"
+    },
+    {
+      "name": "squad-stage-real/레드 후드/3s/explicit-A",
+      "input_sha256": "f48888e77f6fcd809aa597e78296ac2e22d52825357c95e1238bc10979a9cad4",
+      "output_sha256": "43e22cd4f23e99cfb3ddac005af0137abad3fc96fb245f234690f60a4d62e8cb",
+      "native_sha256": "9a74464e5ce3221bfadbb826b71a788b7cd0e9c0667b189be9b55bbc9aad32f2"
+    },
+    {
+      "name": "squad-stage-real/레드 후드/30s/explicit-A",
+      "input_sha256": "2f54c41fabe23000a072b9d3bf01e86b02b7fdb76405f6d256954b886f1c227e",
+      "output_sha256": "be60959f76f3608b51887eb49d735a4ccd60b31ad707d71079b4ff609fd03840",
+      "native_sha256": "a628861c01c8b7f802d6107868e97e1f6935f6a5547d759f2795ef1f4e0be415"
+    },
+    {
+      "name": "squad-stage-real/레드 후드/3s/live-A",
+      "input_sha256": "047b89985e72f6516b4db814a6b8f0ead117e08a602019f07df3387cb90e900f",
+      "output_sha256": "6e496d0b5c8b2e5fff1cf7910d6ced9ebbd0c6d62d9c40d61e9963b6e142806b",
+      "native_sha256": "9a74464e5ce3221bfadbb826b71a788b7cd0e9c0667b189be9b55bbc9aad32f2"
+    },
+    {
+      "name": "squad-stage-real/레드 후드/30s/live-A",
+      "input_sha256": "8a2ddfc31a9bd18650a5d9f06f8b20fc47df400eb5ab6904f9f970732af0734c",
+      "output_sha256": "e4004d82449b8090acdcbac4d3f462677ee11dd5779e070c54c9bf33ada98272",
+      "native_sha256": "f5d0d25aa7e7112afbf59fe2dee397683eb961769ae15f56610ad5585b2c5d84"
+    },
+    {
+      "name": "squad-stage-real/레드 후드/3s/expired-A",
+      "input_sha256": "4b33118ac9f16c9e29727458ae3ed4af9e7801aa612f0de5a69d074173a2e9d7",
+      "output_sha256": "1e8265eb99949cfffcf7ca347c8eb5c8f935e1b1fb325bdfd8282b832a705a63",
+      "native_sha256": "16544bb8d1dd68f137a4d2fb1a31f0a88cf658a1fff654afac8a665c67d0d660"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 7,
+  "native_oracles": 7,
+  "input_sha256": "134d15d4417568cb855b4eae95698ce77fb3940ab9a5beff841302675df6581a",
+  "output_sha256": "c894f46902f1ef06c53dbcb4c0ff878d216eec2c8f2bdaffc11c5d47f5a81136",
+  "generated_normalized": {
+    "cuda": "769514c9caf982bf90983b48178f5cc674c76f507900c41cb2694b97b5d25cee",
+    "metal": "282ad874fb3ae8abb5535b70e3301d462854d1ca184a43a0854bf95c56c64b46"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 7,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

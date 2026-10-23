@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-real-aim-retention-v1-capture",
+  "raw_bytes": 4419747840,
+  "raw_sha256": "19a9575b13355dff51ba8ea12e3238e05286b68370036b25d24a4bf2d597ea31",
+  "evidence_sha256": "f74d395a0303e430c5011e22e56fdd31fbb117d9820e1d5c1751d5a9c8d6fde7",
+  "raw_inode": 508150069,
+  "zero_ranges": 10547,
+  "zero_range_bytes": 3143237632,
+  "allocated_before": 1276510208,
+  "allocated_after": 1276510208,
+  "allocated_reclaimed": 0,
+  "full_hash_verified": true
+}

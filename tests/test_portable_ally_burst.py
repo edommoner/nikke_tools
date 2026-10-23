@@ -45,13 +45,14 @@ class AllyBurstTests(unittest.TestCase):
                 with self.assertRaisesRegex(RuntimeError,'injected'):observer.observe(fixtures()[1])
             self.assertIs(sys.getprofile(),profile)
         finally:sys.setprofile(prior)
-    def test_event42_remains_combat_only_and_stage41_is_not_admitted(self):
+    def test_broadcast42_and_caster_stage41_remain_private_world_only(self):
         effect=fixtures()[1]['effects'][-1]
         validate_input(effect,world_frame=True)
         with self.assertRaises(UnsupportedTrigger):validate_input(effect)
         for timing in ('squad_burst_cast:1','squad_burst_cast:2','squad_burst_cast:3'):
-            bad=copy.deepcopy(effect);bad['trigger']['timing']=[timing]
-            with self.assertRaises(UnsupportedTrigger):validate_input(bad,world_frame=True)
+            staged=copy.deepcopy(effect);staged['trigger']['timing']=[timing]
+            validate_input(staged,world_frame=True)
+            with self.assertRaises(UnsupportedTrigger):validate_input(staged,world_frame=False)
     def test_source_delta_rejects_order_omission_owner_and_admission_mutations(self):
         self.assertEqual(set(source_verify(ROOT)['reviewed_ally_burst_sources']),{'gpu/combat_runtime.slang','gpu/admission_runtime.slang'})
         for name,old,new in [('gpu/combat_runtime.slang','nextEventCandidate(s,42,0)','nextEventCandidate(s,41,0)'),('gpu/combat_runtime.slang','dispatch(s,0,42,who,0,when,output)','dispatch(s,0,42,picked,0,when,output)'),('gpu/combat_runtime.slang','who = 0; who < 5 &&','who = 1; who < 5 &&'),('gpu/admission_runtime.slang','event == 42 && s.combat == 0','event == 41 && s.combat == 0')]:

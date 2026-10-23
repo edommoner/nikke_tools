@@ -1,3 +1,7 @@
+<!-- squad-stage-current -->
+段階別squad_burst_cast:1/2/3を共有Slangへ接続。Metal1442(native1144/拒否298)と独立seal成功。16native契約＋14拒否、全81定義のレッドフード7実編成で自動B3/明示A/live/期限切れを検証。旧1405の4419747840Bと追加37の個別結果を全保持。既存論理6/callback20/実編成12も変更後Metal一致・全raw保持。CPU95群500検査176.226秒、native事前80.025秒、GPU10.771秒。数値/normalizer/容量/Runtime不変。静的231/266・base171/203・54分類、旧230入力SHAと35拒否保持。Windows追加0/原因unknown/保全false/現CUDA実機未検証。development_only/全キャラ0/UI CPU/未達。詳細[段階別通知](portable-squad-stage.md)とresearch/portable-squad-stage-checkpoint.json。次は未対応consumer確認と対象/制御契約の拡張。以下は履歴。
+<!-- /squad-stage-current -->
+
 <!-- aimed-real-world-current -->
 全定義の実編成3profile×部位/interrupt×3/30s=12をprivate明示受付へ接続。Mermaidの2入力で名前付き状態/解除の論理対象不整合を検出し、共通Slang2ファイル4箇所でpart/private6→本体の敵効果scopeへ修正。正本/期待値不変、修正版Metal12と論理6/直接private28receipt成功・独立seal。正本6624射/11870returned packet/3532private着弾/9102RNG、実GPU比較は状態/武器時計/burst/全pool会計/ordered RNG/最終MT。射撃trace容量770・省略1354保持、全packet/全skill列traceではない。旧1405の全4419747840Bとcallback20の62914560Bを全byte保持・独立seal。CPU回帰95群498検査175.984秒＋最終7群71検査。CLIは単体検査→native→GPUへ変更し故障注入11成功、実callback実行でも順序確認。default266の旧230packing入力SHA/拒否理由を全保持（base170）。sparsifyはSHA/path/inode保持で6941179904B回収・削除0。Windows追加0/原因unknown/保全false、現CUDA実行未確認。development_only/全キャラ0/UI CPU/未達。次は対象worldのカタログ拡張と未対応consumer/制御。詳細docs/portable-aimed-real-worlds.mdとcheckpoint。以下は履歴。
 <!-- /aimed-real-world-current -->

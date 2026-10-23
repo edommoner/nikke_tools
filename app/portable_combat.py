@@ -29,7 +29,7 @@ def pack_combat(words, config, double_words):
     words[28:30]=double_words(number(config.get('initial_gauge',0),0,100))
     words[30:32]=double_words(number(config.get('reentry_delay',.5),0,180))
     for i,w in enumerate(weapons):
-        allowed={'base_weapon_type','enabled','mode','coefficient','capacity','interval','reload','charge','gauge','stage','cooldown','pellets','muzzles','full_charge_mult','optimal','element_match','rate','rate_max','warmup','cooldown_time','spread_start','spread_end','spread_shots','core_diameter','clip_count','post_reload_delay','min_cycle','gauge_mult','core_mult','raw_charge','cover_during_delay','reload_cancel_on_full'}
+        allowed={'base_weapon_type','enabled','mode','coefficient','capacity','interval','reload','charge','gauge','stage','cooldown','pellets','muzzles','full_charge_mult','optimal','element_match','rate','rate_max','warmup','cooldown_time','spread_start','spread_end','spread_shots','core_diameter','clip_count','post_reload_delay','min_cycle','gauge_mult','core_mult','raw_charge','cover_during_delay','reload_cancel_on_full','automatic_burst_stage','explicit_burst_stage'}
         if not isinstance(w,dict) or set(w)-allowed or type(w.get('enabled',False)) is not bool:
             raise ValueError('Unsupported weapon fields')
         enabled=w.get('enabled',False);mode=w.get('mode','auto')
@@ -38,6 +38,10 @@ def pack_combat(words, config, double_words):
         if mode not in ('auto','auto_warmup','charge'):raise ValueError('Unsupported automatic firing mode')
         cap=w.get('capacity',1);stage=w.get('stage',0)
         if type(cap) is not int or not 1<=cap<=10000 or type(stage) is not int or stage not in (0,1,2,3,4):raise ValueError('Invalid magazine or burst stage')
+        automatic_stage=w.get('automatic_burst_stage',0)
+        if type(automatic_stage) is not int or automatic_stage not in (0,1,2,3) or automatic_stage and stage!=4:raise ValueError('Automatic candidate stage requires a logical all-stage weapon')
+        explicit_stage=w.get('explicit_burst_stage',False)
+        if type(explicit_stage) is not bool or explicit_stage and automatic_stage:raise ValueError('Explicit stage must be boolean and cannot use automatic candidate stage')
         pellets=w.get('pellets',1);muzzles=w.get('muzzles',1)
         if type(pellets) is not int or type(muzzles) is not int or not 1<=pellets<=64 or not 1<=muzzles<=8:
             raise ValueError('Invalid physical shot dimensions')
@@ -48,7 +52,7 @@ def pack_combat(words, config, double_words):
         raw_rate=number(w['rate'],1/180,1e6) if 'rate' in w else None
         if raw_rate is not None and (mode=='charge' or 'interval' in w and w['interval']!=1/raw_rate):raise ValueError('Conflicting rate/interval or rate on a charge weapon')
         default_interval=1/raw_rate if raw_rate is not None else 1
-        at=L['WEAPON_BASE']+i*L['WEAPON_WORDS'];words[at:at+4]=[int(enabled),2 if mode=='auto_warmup' else int(mode=='charge'),cap,stage]
+        at=L['WEAPON_BASE']+i*L['WEAPON_WORDS'];words[at:at+4]=[int(enabled),2 if mode=='auto_warmup' else int(mode=='charge'),cap,stage|(automatic_stage<<8)|(int(explicit_stage)<<10)]
         values=[('coefficient',100,0,1e6),('interval',default_interval,1e-6,180),('reload',1,0,180),('charge',1,1e-6,180),('gauge',0,0,100),('cooldown',40,0,180)]
         for j,(key,default,lo,hi) in enumerate(values):words[at+4+2*j:at+6+2*j]=double_words(number(w.get(key,default),lo,hi))
         if mode=='charge' and w.get('interval',1)<w.get('charge',1):raise ValueError('Charge cycle must include charging time')
