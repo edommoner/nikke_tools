@@ -92,7 +92,7 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None):
     environment_preserved=bool(process_preserved is True and comparison.get('identified_nikke_service_preservation_verified') is True and facts.get('observation_error') is None) if is_windows() else None
     key={'cpu':'cpu_verified','smoke':'smoke_verified','gpu':'passed'}[stage]
     stage_verified=bool(facts['passed'] and proof and proof.get(key))
-    result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,calculation_verified=bool(facts['passed'] and proof and proof.get('calculation_verified')),cpu_verified=bool(facts['passed'] and proof and proof.get('cpu_verified')),smoke_verified=bool(facts['passed'] and proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
+    result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,calculation_verified=bool(proof and proof.get('calculation_verified')),cpu_verified=bool(proof and proof.get('cpu_verified')),smoke_verified=bool(proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
     save(folder/'stage-result.json',result);return result
 
 def main():

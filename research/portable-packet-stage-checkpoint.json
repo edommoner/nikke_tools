@@ -69,5 +69,14 @@
     "passed": true,
     "seconds": 5.270477332989685,
     "gpu_calls": 0
+  },
+  "latest_package": {
+    "package_id": "58e69f8b9701907cc9a9993124fff395581777652ce5c7d9037f3a68c22782a6",
+    "files": 2594,
+    "zip_bytes": 6514823,
+    "zip_sha256": "a40a8a8ecf162b7b9d753251e317d013fa643eab3091cabf09fa82be26852735",
+    "CPU_tests": 21,
+    "CPU_stage_seconds": 12.001032041967846,
+    "numeric_proof_not_coupled_to_outer_exit_code": true
   }
 }

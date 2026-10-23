@@ -35,7 +35,16 @@ class PacketStageTests(unittest.TestCase):
                 cli=SimpleNamespace(verify_package=lambda _:dict(package_id='id'),bounded_module=lambda:SimpleNamespace(run_bounded=bounded),validation_environment=lambda _:dict())
                 with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='id')),patch.object(stage,'load_module',return_value=cli),patch.object(stage,'is_windows',return_value=False),patch.object(Path,'rglob',side_effect=AssertionError('No historical enumeration')):
                     result=stage.run_stage(folder,'cpu','metal',20)
-                self.assertFalse(result['stage_verified']);self.assertFalse(result['cpu_verified'])
+                self.assertFalse(result['stage_verified']);self.assertEqual(result['cpu_verified'],bool(proof and proof.get('cpu_verified')))
+    def test_numeric_proof_is_separate_from_failed_outer_execution(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)/'packet';root.mkdir();folder=Path(d)/'stage'
+            def bounded(*args,**kwargs):
+                (folder/'proof').mkdir();(folder/'proof/result.json').write_text(json.dumps({'calculation_verified':True,'passed':False,'preservation_verified':False}));return {'passed':False,'child_exit_code':2}
+            cli=SimpleNamespace(bounded_module=lambda:SimpleNamespace(run_bounded=bounded),validation_environment=lambda _:dict())
+            with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='id')),patch.object(stage,'load_module',return_value=cli),patch.object(stage,'is_windows',return_value=False):
+                result=stage.run_stage(folder,'gpu','metal',20)
+            self.assertTrue(result['calculation_verified']);self.assertFalse(result['stage_verified']);self.assertFalse(result['bounded_execution_verified'])
     def test_success_requires_real_proof_receipt_and_owned_completion(self):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d)/'packet';root.mkdir();folder=Path(d)/'stage'
