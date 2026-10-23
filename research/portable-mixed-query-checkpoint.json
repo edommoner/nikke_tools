@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-23T00:07:38.745899+00:00",
+  "full_goal_complete": false,
+  "full_character_certified": 0,
+  "ui_backend": "cpu",
+  "normal_inputs": 6,
+  "diagnostic_inputs": 6,
+  "normal_source_count": 122,
+  "shared_source_unchanged_from_prior_1355": true,
+  "prior_full_rerun": false,
+  "normal_package": "aaa62e8444f8e4695456686c58fbc70b18fc6f93532f7265ba4c9c3e60eeec74",
+  "diagnostic_package": "c1a0bba53208e96fbe030e0f4df23d4e72c3d7b5582f318da7879bed0cee53d9",
+  "independent_seals": true,
+  "diagnostic_neutrality": {
+    "passed": true,
+    "gpu_calls": 0,
+    "cases": 6,
+    "input_sha256": "cc7177f9d2a82d322d6f938e9dc954e3be7ce911c2fc3dee21f5774464f944c3",
+    "normal_output_sha256": "89427719ed576e91fe91d23b0ab9165c36a419dd605925d3925799c5fe59ed5d",
+    "diagnostic_output_sha256": "e90d7ec2b14f2cc20b9136dfa67737a6e24e0acfbe5b7aca8311cf7eb9ca54c4",
+    "excluded_observer_word_range": [
+      771072,
+      781320
+    ],
+    "unchanged_bytes": 18628416,
+    "scope": "Exact native identities and every byte outside explicit heal diagnostic bank"
+  },
+  "windows": {
+    "additional_operations": 0,
+    "cause": "unknown",
+    "environment_preservation": false,
+    "user_report": "No application/terminal shutdown, Codex reconnect or Windows restart performed; games/video may have been in use. This does not establish causation."
+  },
+  "next": "Private physical interrupt bridge: formal CPU contracts before GPU admission",
+  "release_cpu_tests": {
+    "passed": true,
+    "groups": 4,
+    "tests": 13,
+    "gpu_calls": 0,
+    "package_id": "cc3d95407816fa4adf104f28dffe2fe631dc01668e64d85aa862dd04912d1163"
+  }
+}

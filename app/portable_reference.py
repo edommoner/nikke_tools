@@ -4,7 +4,8 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
-REFERENCES={'late-attack-random':('portable_late_attack_random_cases','world_late_attack_random_native','portable_late_attack_random_contracts'),
+REFERENCES={'mixed-query':('portable_mixed_query_cases','world_mixed_query_native','portable_mixed_query_contracts'),
+            'late-attack-random':('portable_late_attack_random_cases','world_late_attack_random_native','portable_late_attack_random_contracts'),
             'state-predicates':('portable_state_predicate_cases','world_state_predicate_native','portable_state_predicate_contracts'),
             'ally-random':('portable_ally_random_reference_cases','world_ally_random_reference_native','portable_ally_random_reference_contracts'),
             'focus-aim':('portable_focus_aim_cases','world_focus_aim_native','portable_focus_aim_contracts'),
