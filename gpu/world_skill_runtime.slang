@@ -123,7 +123,7 @@ bool landWorldSkillReceipt(inout Runtime s,LandingReceipt r,uint64_t when,uint o
     Definition d=readDefinition(s.inputBase,r.row);
     uint index=0;while(index<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,index)+5]!=0) index++;
     if(index==P_WORLD_ACTOR_SETS) { s.error=64;return false; }
-    WORLD_PERIODIC_CAPTURE_PACKET(s,r,index,actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner);)if(s.error!=0) return false;
+    WORLD_PERIODIC_CAPTURE_PACKET(s,r,index,actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner NAMED_ENEMY_ARGUMENT(r.row));)if(s.error!=0) return false;
     uint set=actorPoolSet(s,index),n=results[set];uint64_t share=r.amount;
     if((d.damageFlags&H_SPLIT)!=0&&n>1)
     {

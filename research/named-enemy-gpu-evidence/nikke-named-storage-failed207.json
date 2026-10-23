@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-named-enemy-metal207-v1",
+  "raw_bytes": 651165696,
+  "raw_sha256": "ebdcb944feb2cf18cfe84dcdf0271202a05458b39beef862ed8a09e25a2e0edb",
+  "evidence_sha256": "8cd6cb000f922a5c1061c43a1acce548d2dce10099d6771fd909716e6058153d",
+  "raw_inode": 508434272,
+  "zero_ranges": 1485,
+  "zero_range_bytes": 472186880,
+  "allocated_before": 651165696,
+  "allocated_after": 178978816,
+  "allocated_reclaimed": 472186880,
+  "full_hash_verified": true
+}

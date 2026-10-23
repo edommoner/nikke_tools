@@ -17,6 +17,8 @@ def damage_plan(effect):
             if not re.fullmatch(r'(?:0|[1-9][0-9]*)',parts[1]) or not 0<=int(parts[1])<=256:raise ValueError('Damage hit count must be an integer in 0..256')
             hits=int(parts[1])
     target=effect.get('target','target');count=1
+    from portable_named_enemy_specs import name as named_enemy_name,ROUTE as NAMED_ENEMY_ROUTE
+    if named_enemy_name(effect) is not None:return NAMED_ENEMY_ROUTE,128,hits
     if target=='enemies_random' or isinstance(target,str) and target.startswith('enemies_random:'):
         raw=target.partition(':')[2]
         if raw and (not re.fullmatch(r'[1-9][0-9]*',raw) or int(raw)>256):raise ValueError('Random enemy count must be1..256')

@@ -61,7 +61,7 @@ void captureActorRecipients(inout Runtime s,uint row,Definition d,uint target)
     uint index=0;while(index<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,index)+5]!=0) index++;
     if(index==P_WORLD_ACTOR_SETS) { s.error=64;return; }
     // Native initialization uses nearest ordering for a current-target selector.
-    uint route=d.damageRoute==0?6:d.damageRoute;actorSetCapture(s,33,index,route,d.damageCount,target,d.owner);if(s.error!=0) return;
+    uint route=d.damageRoute==0?6:d.damageRoute;actorSetCapture(s,33,index,route,d.damageCount,target,d.owner NAMED_ENEMY_ARGUMENT(row));if(s.error!=0) return;
     resetActorRecipients(s,row);uint at=actorRecipientAt(s,row),set=actorPoolSet(s,index);results[at]=2;
     for(uint i=0;i<results[set]&&s.error==0;i++) actorRecipientAppend(s,row,results[set+8+i*4],results[set+9+i*4]);
     results[set+5]=0;results[actorPoolHead(s)+7]--;

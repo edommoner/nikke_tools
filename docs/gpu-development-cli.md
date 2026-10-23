@@ -1,3 +1,7 @@
+<!-- named-enemy-gpu-current -->
+名前付き敵の対象選択を共有Slangのprivate入口へ接続。名前operandを非weapon MODE24..27へタグ付き格納し、既存の敵集合/所持状態/照会scope/世代を再利用。Metal207(native155/拒否52)・診断23の全69対象マスク・独立seal成功。旧175のinput/native/outputと550502400Bを保持、診断領域外72257444B同一。Runtime/stride138952/数値/normalizer/正本不変。初回の追加ダメージ4件status64は着弾の定義番号受け渡し漏れを修正、失敗/raw/claim保持・別packageで実証。CPU17群135(skip0)28.256秒/native12.033秒/GPU4.317秒、生成cache必須hit/実行時Slang0。静的238/266・base178/203・残39分類、旧237記録/SHA保持。名前付き敵remove_named_buffは未受付、seq/ref/scaling/budget/passive/実編成/現CUDA/全カタログは残件。Windows操作0/7終了unknown/保全false、全キャラ0/UI CPU/目標未達。詳細docs/portable-named-enemy-gpu.mdとcheckpoint。以下は履歴。
+<!-- /named-enemy-gpu-current -->
+
 <!-- named-enemy-reference-current -->
 `reference --suite named-enemy --out <new.json>` はGPU/packing禁止の正本23契約。`named-enemy-reference` packageはそのCPU検査と旧175入力の保持を行う開発suiteで、新しい名前付き敵のGPU suiteではない。固定packageでreference23/CPU49/旧175nativeが成功、GPU0。対象解決/フォールバック/残件はdocs/portable-named-enemy-reference.md。
 <!-- /named-enemy-reference-current -->

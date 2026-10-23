@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-persona-regression-metal",
+  "raw_bytes": 1642070016,
+  "raw_sha256": "f6ae5b77699480159a506647344b649041c4869abdeefb5e9bab8bbc645f74f8",
+  "evidence_sha256": "5bb02b6fe406f999af52466a02f096d3da150d817ee05e17a5928f8fc810c2e2",
+  "raw_inode": 506728322,
+  "zero_ranges": 3951,
+  "zero_range_bytes": 1172963328,
+  "allocated_before": 1642070016,
+  "allocated_after": 469106688,
+  "allocated_reclaimed": 1172963328,
+  "full_hash_verified": true
+}

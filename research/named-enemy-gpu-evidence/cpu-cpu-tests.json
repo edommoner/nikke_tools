@@ -1,0 +1,172 @@
+[
+  {
+    "pattern": "test_portable_below_def.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.101115999976173,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_leftmost.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.3367669159779325,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_definition_view.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.4497952089877799,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_duration_scaling_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.44682320789434016,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_leftmost_replay.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.7162208339432254,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_gpu_replay.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.07191308296751231,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_development_generation.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.13221808394882828,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_generation_request.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.03570187499281019,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_gpu_cli.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.267445708042942,
+    "tests": 39,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_skill_weapon.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.0471540830330923,
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_burst1_ally.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.1969312919536605,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.35258316702675074,
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_random_cleanse.py",
+    "exit_code": 0,
+    "elapsed_seconds": 6.402324999915436,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_ally_random_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.38556349999271333,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_ally_random_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.1057004169560969,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_named_enemy_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.101746915956028,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  },
+  {
+    "pattern": "test_portable_named_enemy_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.105526958010159,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 93704
+  }
+]

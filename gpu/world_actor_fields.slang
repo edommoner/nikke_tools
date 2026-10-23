@@ -5,7 +5,7 @@ uint actorFieldScope(inout Runtime s,uint row,out ActorBits bits)
 {
     bits=actorBitsEmpty();uint index=0;while(index<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,index)+5]!=0) index++;
     if(index==P_WORLD_ACTOR_SETS) { s.error=64;return index; }
-    Definition d=readDefinition(s.inputBase,row);actorSetCapture(s,33,index,d.damageRoute,d.damageCount,s.target,d.owner);
+    Definition d=readDefinition(s.inputBase,row);actorSetCapture(s,33,index,d.damageRoute,d.damageCount,s.target,d.owner NAMED_ENEMY_ARGUMENT(row));
     if(s.error==0) for(uint i=0;i<4;i++) bits.words[i]=results[actorPoolSet(s,index)+1+i];return index;
 }
 bool worldDurationAffected(inout Runtime s,uint row,ActorBits scope)
@@ -90,8 +90,17 @@ uint64_t actorFieldRank(inout Runtime s,uint slot,uint route)
     return commands[d]==3 ? f64FromI64(uint64_t(commands[d+1])-uint64_t(results[p+3])) : f64Add(loadNumber(d+2),actorNumber(p+4)^F64_SIGN);
 }
 [noinline]
-void actorFieldSelectOrder(inout Runtime s,inout uint order[128],inout uint count,uint route,uint limit,uint inherited,uint who)
+void actorFieldSelectOrder(inout Runtime s,inout uint order[128],inout uint count,uint route,uint limit,uint inherited,uint who NAMED_ENEMY_PARAMETER)
 {
+#ifdef PORTABLE_NAMED_ENEMY
+    if(route==11)
+    {
+        if(definition>=s.count) { s.error=64;return; }
+        if(count<=1) { order[0]=0;count=1;namedEnemyTrace(s,definition,order,count);return; }
+        uint written=0;for(uint i=0;i<count;i++) if(namedEnemyPresent(s,definition,order[i])) order[written++]=order[i];
+        if(written==0) order[written++]=0;count=written;namedEnemyTrace(s,definition,order,count);return;
+    }
+#endif
     if(route==2) { count=min(count,limit);return; }
     if(route==10)
     {
@@ -133,7 +142,7 @@ void beginActorFields(inout Runtime s,inout Frame frames[32],inout int depth,uin
 {
     uint index=0;while(index<P_WORLD_ACTOR_SETS && results[actorPoolSet(s,index)+5]!=0) index++;
     if(index==P_WORLD_ACTOR_SETS) { s.error=64;return; }
-    Definition d=readDefinition(s.inputBase,row);actorSetCapture(s,33,index,d.damageRoute,d.damageCount,parent.target,d.owner);
+    Definition d=readDefinition(s.inputBase,row);actorSetCapture(s,33,index,d.damageRoute,d.damageCount,parent.target,d.owner NAMED_ENEMY_ARGUMENT(row));
     if(s.error!=0) return;
     pushFrame(s,frames,depth,25,parent.event,d.owner,int(row),parent.time,index);
     if(s.error==0) results[actorFieldHead(s)+1]++;

@@ -35,7 +35,7 @@ void discardWorldRandomTargets(inout Runtime s,uint row)
     Definition d=readDefinition(s.inputBase,row);if(d.damageRoute!=10) return;
     uint index=0;while(index<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,index)+5]!=0) index++;
     if(index==P_WORLD_ACTOR_SETS) { s.error=64;return; }
-    actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner);
+    actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner NAMED_ENEMY_ARGUMENT(row));
     if(s.error!=0) return;
     results[actorPoolSet(s,index)+5]=0;results[actorPoolHead(s)+7]--;
 }
@@ -52,7 +52,7 @@ void captureWorldPeriodicDefinition(inout Runtime s,uint row,uint source,bool ap
     uint index=0;while(index<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,index)+5]!=0) index++;
     if(index==P_WORLD_ACTOR_SETS) { s.error=64;return; }
     Definition d=readDefinition(s.inputBase,source);
-    actorSetCapture(s,33,index,d.damageRoute==0?6:d.damageRoute,d.damageCount,0,d.owner);if(s.error!=0) return;
+    actorSetCapture(s,33,index,d.damageRoute==0?6:d.damageRoute,d.damageCount,0,d.owner NAMED_ENEMY_ARGUMENT(source));if(s.error!=0) return;
     uint set=actorPoolSet(s,index);
     for(uint i=0;i<results[set];i++)
     {
@@ -88,7 +88,7 @@ void storeWorldPeriodicPacket(inout Runtime s,uint at,LandingReceipt r)
 void captureWorldPeriodicPacket(inout Runtime s,LandingReceipt r,uint index)
 {
     if(r.target==0 && definition_damageRoute(s.inputBase,r.row)==10)
-    { Definition d=readDefinition(s.inputBase,r.row);actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner);return; }
+    { Definition d=readDefinition(s.inputBase,r.row);actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner NAMED_ENEMY_ARGUMENT(r.row));return; }
     if(r.target==0||r.target>P_LANDINGS) { s.error=64;return; }
     uint from=periodicPacketSnapshot(s,r.target-1),at=actorPoolSet(s,index),count=0;
     if(results[from]>128) { s.error=64;return; }

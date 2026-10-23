@@ -1,3 +1,5 @@
+> 追記：共有GPU接続とMetalの限定検証は完了した。最新結果は[名前付き敵GPU](portable-named-enemy-gpu.md)。以下は接続前の正本契約記録。
+
 # 名前付き効果を持つ敵の対象指定
 
 共通CLI `reference --suite named-enemy --out <new.json>` に23の正本契約を追加した。対象は `enemies_with_buff:<名前>` の効果付与、追加ダメージ、名前付き効果の持続時間延長である。GPUの受付・実行器はまだ変更していない。

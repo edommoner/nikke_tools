@@ -26,13 +26,21 @@ uint actorStateCurrentTarget(inout Runtime s)
     uint target=results[head+5];if((target&ACTOR_REF)!=0) return COUNTER_CONTEXT_TARGET(s,actorFieldLogicalSlot(s,target));
     return COUNTER_CONTEXT_TARGET(s,actorFieldLogicalSlot(s,actorPhysicalTarget(s,results[head+4],0)));
 }
-uint64_t actorNamedTargetStack(inout Runtime s,int name,out bool present)
+uint64_t actorNamedTargetStack(inout Runtime s,int name,out bool present
+#ifdef PORTABLE_NAMED_ENEMY
+    ,bool explicitEmpty=false
+#endif
+    )
 {
     uint target=actorStateCurrentTarget(s);uint64_t count=0;present=false;
     if(target>=actorPoolCount(s)||results[actorPoolAt(s,target)+1]==0) return 0;
     for(uint pass=0;pass<s.orderedCount;pass++)
     {
         uint row=s.orderedRows[pass];
+#ifdef PORTABLE_NAMED_ENEMY
+        uint descriptor=s.inputBase+P_MODE_BASE+s.carrierDefinition[row]*P_MODE_WORDS+24;
+        if(explicitEmpty && (commands[descriptor]!=0x4e455231U || (commands[descriptor+2]&2U)==0)) continue;
+#endif
         // Presence follows the resident list;numeric modifier queries separately
         // filter end time. A post-frame query must not run an invented tick.
         WORLD_PERIODIC_NAMED(s,row,target,count,present,name) if(s.alive[row]==0 || int(definition_name(s.inputBase,s.carrierDefinition[row]))!=name || definition_enemyBuff(s.inputBase,s.carrierDefinition[row])==0 || !actorFieldMember(s,row,target==0?0:ACTOR_REF|target)) continue;
@@ -82,6 +90,9 @@ void actorStateDropGone(inout Runtime s)
 }
 bool initializeActorState(inout Runtime s)
 {
+#ifdef PORTABLE_NAMED_ENEMY
+    if(!validNamedEnemyDefinitions(s)) return false;
+#endif
     bool enabled=actorStateEnabled(s);
     for(uint step=0;step<P_COMMANDS;step++)
     {
@@ -122,3 +133,7 @@ bool actorStateHealthContract(Definition d)
     // ordinary stat/buff queries continue to evaluate their runtime predicates.
     return (d.flags&256U)!=0 || !(d.enemyBuff==0&&health&&(d.flags&2)!=0&&f64Less(d.duration,0));
 }
+
+#ifdef PORTABLE_NAMED_ENEMY
+#include "named_enemy_recipient_runtime.slang"
+#endif

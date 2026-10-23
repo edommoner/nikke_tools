@@ -10,7 +10,7 @@ void actorMutationRemoveNamed(inout Runtime s,uint row,uint target,uint64_t when
     {
         index=0;while(index<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,index)+5]!=0) index++;
         if(index==P_WORLD_ACTOR_SETS) { s.error=64;return; }
-        actorSetCapture(s,33,index,d.damageRoute,d.damageCount,target,d.owner);if(s.error!=0) return;
+        actorSetCapture(s,33,index,d.damageRoute,d.damageCount,target,d.owner NAMED_ENEMY_ARGUMENT(row));if(s.error!=0) return;
         for(uint i=0;i<4;i++) enemies.words[i]=results[actorPoolSet(s,index)+1+i];
     }
     for(uint pass=0;pass<s.orderedCount&&s.error==0;pass++)

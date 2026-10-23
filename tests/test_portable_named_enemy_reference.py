@@ -50,11 +50,14 @@ class NamedEnemyReferenceTests(unittest.TestCase):
         c=fixtures()[0];n=observe(c)[0];n['named_enemy']['rankings'][0]['order']=[]
         with self.assertRaises(AssertionError):verify(c,n)
 
-    def test_gpu_rejection_remains_and_routing_has_only_recorded_native_scope(self):
+    def test_gpu_host_admission_and_routing_has_only_recorded_native_scope(self):
         from portable_reference import REFERENCES
         self.assertIn('named-enemy',REFERENCES)
         for c in fixtures():
-            with self.subTest(case=c['name']),self.assertRaises(ValueError):portable_runtime.validate_effect(c['effects'][-1],combat={},world_frame=True)
+            with self.subTest(case=c['name']):
+                portable_runtime.validate_effect(c['effects'][-1],combat={},world_frame=True)
+                with self.assertRaises(ValueError):portable_runtime.validate_effect(c['effects'][-1],combat=None,world_frame=True)
+                with self.assertRaises(ValueError):portable_runtime.validate_effect(c['effects'][-1],combat={},world_frame=False)
         rows=[dict(kind='buff',stat='received_dmg_pct'),dict(kind='damage',stat='bonus_damage'),dict(kind='instant',stat='named_buff_duration_extend'),dict(kind='damage',stat='sequential_damage:ref')]
         for row in rows:
             issue=dict(phase='effect',category='recipient',target='enemies_with_buff:mark',**row);r=reference_readiness(issue)

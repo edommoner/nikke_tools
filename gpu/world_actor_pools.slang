@@ -221,7 +221,7 @@ void actorSortSpawnOrder(inout Runtime s,inout uint order[128],uint count)
     }
 }
 [noinline]
-void actorSetCapture(inout Runtime s,uint kindMask,uint index,uint route=2,uint limit=128,uint inherited=0,uint who=0)
+void actorSetCapture(inout Runtime s,uint kindMask,uint index,uint route=2,uint limit=128,uint inherited=0,uint who=0 NAMED_ENEMY_PARAMETER)
 {
     uint at=actorPoolSet(s,index),head=actorPoolHead(s);
     if(results[at+5]!=0) { s.error=64;return; }
@@ -234,7 +234,7 @@ void actorSetCapture(inout Runtime s,uint kindMask,uint index,uint route=2,uint 
     }
     actorSortSpawnOrder(s,order,count);
 #ifdef PORTABLE_WORLD_ACTOR_FIELDS
-    actorFieldSelectOrder(s,order,count,route,limit,inherited,who);
+    actorFieldSelectOrder(s,order,count,route,limit,inherited,who NAMED_ENEMY_ARGUMENT(definition));
 #endif
     ActorBits bits=actorBitsEmpty();
     for(uint i=0;i<count;i++)
