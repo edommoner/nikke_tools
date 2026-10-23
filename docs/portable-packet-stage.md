@@ -24,3 +24,9 @@ python scripts/run-gpu-packet.py --stage gpu --backend cuda --capture <fresh-gpu
 gpu stageの内側の通常runが、選択suiteの全CPU tests/native preflightを完了した場合だけGPUへ進む。別のCPU stageを先に重ねて実行する必要はない。stageに失敗したら既存結果だけを取得し、手動Ctrl-Cや追加helperで継続しない。
 
 Macでは全stage経路で対象CPU20検査成功。gate内へのfull verification移動後のcontroller smoke32群323検査（Windows専用1skip）もGPU0で成功した。これはWindows Job実機の新しい証明ではない。Windowsでは最初に上記smokeを確認してから、必要な短いsuiteだけを1回実行する。ダメージ蓄積coreのGPU source/41入力goldenは変更していない。
+
+## Windows smokeで見つかった共通テストの条件
+
+新launcherのWindows外側Jobは、単独pre-gate、2GiB制限、peak191217664B、57.333秒、post-members空/cleanup errorなし、監視process欠落0を記録した。サービス識別不明のため環境保全全体はfalseのままである。CPU193件中192成功、Mac専用standalone generationをWindowsでも呼ぶ1テストで止まり、CUDA0。
+
+productionのMac専用guardは維持した。fake compilerでcache/journalを検査するテストだけCLIのos参照をproxyにし、global os.nameとpathlibは実OSのままにした。Windows guardが出力生成/compile前に拒否する独立検査も追加した。Macの修正版smokeは32群324件（Win専用1skip）、GPU0で成功。

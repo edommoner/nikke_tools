@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "Mac_owned_stages_verified_Windows_smoke_pending",
+  "status": "Mac324_smoke_verified_Windows_platform_test_corrected",
   "package_id": "bdb482e1b3e93428db5f25f690f828abb7da1977b85aeaeb3b4b879e55065f73",
   "package_files": 2594,
   "zip_bytes": 6514392,
@@ -33,5 +33,41 @@
   "core_GPU_source_and_goldens_unchanged": true,
   "additional_Metal_dispatches": 0,
   "additional_CUDA_dispatches": 0,
-  "full_goal_complete": false
+  "full_goal_complete": false,
+  "windows_v2_smoke": {
+    "schema": 1,
+    "source": "Remote Windows saved summary via completed thread turn01a1699c-b992-7112-a189-d5c0bb0129ba; not independently downloaded",
+    "package_id": "bdb482e1b3e93428db5f25f690f828abb7da1977b85aeaeb3b4b879e55065f73",
+    "session": 72011,
+    "session_terminal": true,
+    "exit_code": 1,
+    "stage_verified": false,
+    "CPU_attempted": 193,
+    "CPU_passed": 192,
+    "CPU_errors": 1,
+    "failed_test": "test_cli_generation_and_journal_audit_preserve_cache_boundary",
+    "reason": "Test invokes Mac-only standalone generation_capture on Windows",
+    "Job_pre_gate_verified": true,
+    "Job_cap_bytes": 2147483648,
+    "Job_peak_bytes": 191217664,
+    "seconds": 57.33282329980284,
+    "post_job_members": [],
+    "cleanup_error": null,
+    "missing_processes": 0,
+    "process_preservation_verified": true,
+    "environment_preservation_verified": false,
+    "service_status": "unverified",
+    "GPU_runs": 0,
+    "summary_sha256": "17c5bf7a239b7c842ecb1a534723a6ee5efc6bd53223805074546ead310b4214"
+  },
+  "corrected_package_id": "b63c5e8a803a12e897c7154236804c2bc8985562ddf982ac858acf34c7c36a9f",
+  "platform_fix": "Fake only CLI os.name for fake compiler cache/journal test, without modifying global os.name/pathlib; add independent Windows guard rejection before build",
+  "Mac_corrected_smoke": {
+    "groups": 32,
+    "tests": 324,
+    "skipped": 1,
+    "passed": true,
+    "seconds": 5.270477332989685,
+    "gpu_calls": 0
+  }
 }

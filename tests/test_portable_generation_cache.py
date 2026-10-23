@@ -8,6 +8,12 @@ import portable_backend as backend
 import portable_generation_cache as cache
 from test_portable_resident_layout import document
 
+class OSNameProxy:
+    # Override only the CLI platform guard. Never change the global os.name:
+    # pathlib and the fake compiler must keep the real host's path semantics.
+    def __init__(self,name):self.name=name
+    def __getattr__(self,name):return getattr(os,name)
+
 class GenerationCacheTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name)/'project';self.tool=Path(self.tmp.name)/'compiler';self.cached=Path(self.tmp.name)/'cache';self.calls=[];self.problem=None
@@ -96,13 +102,21 @@ class GenerationCacheTests(unittest.TestCase):
         paths['cuda'].write_bytes(b'changed')
         with self.assertRaises(ValueError):cache.audit_receipt(r,hashes,paths)
 
+    def test_windows_standalone_generation_rejects_before_any_compiler(self):
+        import importlib.util
+        spec=importlib.util.spec_from_file_location('windows_generation_guard_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
+        output=self.root/'windows-generation-denied'
+        with patch.object(cli,'os',OSNameProxy('nt')),patch.object(backend,'build',side_effect=AssertionError('No compiler allowed')) as build:
+            with self.assertRaisesRegex(ValueError,'Windows requires bounded'):cli.generation_capture(output)
+        build.assert_not_called();self.assertFalse(output.exists())
+
     def test_cli_generation_and_journal_audit_preserve_cache_boundary(self):
         import importlib.util
         from types import SimpleNamespace
         spec=importlib.util.spec_from_file_location('generation_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
         paths,hashes=self.build();gold=dict(source_sha256=hashes,generated_normalized={k:cache.digest(p.read_bytes()) for k,p in paths.items()});self.calls.clear();shutil.rmtree(self.cached)
         manifest=dict(suite='fixture',package_id='fixture',purpose='sealed',golden=gold)
-        with patch.object(cli,'ROOT',self.root),patch.object(cli,'verify_package',return_value=manifest),patch.dict(cli.SUITES,fixture=dict(source='gpu/entry.slang')),patch.object(cli,'module',return_value=SimpleNamespace(normalized=cache.digest)):
+        with patch.object(cli,'ROOT',self.root),patch.object(cli,'verify_package',return_value=manifest),patch.dict(cli.SUITES,fixture=dict(source='gpu/entry.slang')),patch.object(cli,'module',return_value=SimpleNamespace(normalized=cache.digest)),patch.object(cli,'os',OSNameProxy('posix')):
             first=cli.generation_capture(self.root/'cold');self.assertFalse(first['cache_hit']);self.assertEqual(first['compiler_invocations'],2)
             second=cli.generation_capture(self.root/'warm');self.assertTrue(second['cache_hit']);self.assertEqual(second['compiler_invocations'],0)
             for folder in ('cold','warm'):

@@ -70,6 +70,11 @@
     "Mac_CPU_tests": 20,
     "Mac_controller_smoke_tests": 323,
     "Mac_smoke_skipped": 1,
-    "Windows_native_Job_smoke_pending": true
+    "Windows_native_Job_smoke_pending": true,
+    "Windows_outer_Job_reported_verified": true,
+    "Windows_smoke_passed": false,
+    "Windows_smoke_failure": "Mac-only generation endpoint invoked by platform-unaware test",
+    "Mac_corrected_smoke_tests": 324,
+    "corrected_package_id": "b63c5e8a803a12e897c7154236804c2bc8985562ddf982ac858acf34c7c36a9f"
   }
 }
