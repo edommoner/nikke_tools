@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "missing_target_worlds": [
+    "projectile_dmg_pct",
+    "shield_dmg_pct"
+  ],
+  "damage_factor_consumers": [],
+  "all_projectiles_early_return": true,
+  "multi_hit_listener_present": true,
+  "battle_attack_group_producer_calls": [],
+  "impacts_keep_default_attack_id_zero": true,
+  "historical_documents_are_not_current_instructions": true,
+  "gpu_supported": false,
+  "full_goal_complete": false,
+  "source_sha256": {
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/upstream/nikke-calc-master/docs/IMPL-STATUS.md": "9a1249c6951a4d56d67061a71131289d9e6d87a64d8999fcdd7d7512ceb0f3d3",
+    "research/upstream/nikke-calc-master/calculator/damage.py": "7884a1aeb2d2d03dd192434e11f21bc1af5d61d7cdb7a65bf39185899c968e2b",
+    "app/attack_group_runtime.py": "a572f34766be43a5c834a5b960ff203cf0ec36b4ded55c60a2d19028e4dcc6aa",
+    "app/attack_group_specs.py": "dfe98cc089f9271f411ab7773cd81788d96261dd6eb3ae021ad351c7c8ad19eb",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "app/impact_runtime.py": "230ef43042356f5220a3e17d898f947dfc9e30187606f83dc5399a09a4da27d9",
+    "app/impact_specs.py": "2650a209e9e629e0c03c4ebeb064b77832caa3d8659b7fe1913ee9199efcac81",
+    "app/damage_query_runtime.py": "fcb22427f84941e5d6a331d02054341e8f5859b274d139a799f3bc8ef202ddd0"
+  }
+}

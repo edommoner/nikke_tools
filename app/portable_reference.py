@@ -4,7 +4,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
-REFERENCES={'full-burst-landing':('portable_full_burst_landing_cases','world_full_burst_landing_native','portable_full_burst_landing_contracts'),
+REFERENCES={'parent-fixed':('portable_parent_fixed_cases','world_parent_fixed_native','portable_parent_fixed_contracts'),'full-burst-landing':('portable_full_burst_landing_cases','world_full_burst_landing_native','portable_full_burst_landing_contracts'),
             'full-burst-landing-rosters':('portable_full_burst_landing_roster_cases','world_full_burst_landing_roster_native','portable_full_burst_landing_roster_contracts'),
             'named-enemy-removal-rosters':('portable_named_enemy_removal_roster_cases','world_named_enemy_removal_roster_native','portable_named_enemy_removal_roster_contracts'),
             'named-enemy-removal':('portable_named_enemy_removal_cases','world_named_enemy_removal_native','portable_named_enemy_removal_contracts'),

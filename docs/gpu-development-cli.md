@@ -1,3 +1,7 @@
+<!-- parent-fixed-current -->
+親通知のdealt_fixed_damageを共有Slangへ接続。Metal321(native241/拒否80)＋独立seal成功、旧291 input/native/raw915406848B保持、Runtime全layout/stride138952不変。23新契約は散弾/複数muzzle/端数0packet/通知欠如/再入/吸血/大整数を含む。CPU29群203/67.906秒、native19.685秒、GPU4.451秒、生成cache必須hit/実run追加Slang0。初回package欠落はGPU0、初回Metal差分はfixture待機0→正本.215の入力修正で解消し失敗を保持、GPUsourceと全正本期待値不変。consumer-auditで実consumer欠如を明示分類、静的240/266/base180/203/残34。次はmax_ammo_countのlive対象容量scaling（source確認のみ/契約0）と広い親context/現CUDA。Windows追加0/7終了unknown/環境保全false、全キャラ0/UI CPU/development_only/未達。詳細docs/portable-parent-fixed.md、checkpointとevidence。以下は履歴。
+<!-- /parent-fixed-current -->
+
 <!-- full-burst-query-current -->
 保留pending2の0hit query-only・現在参照数の読取後に固定countを使用・HP換算を共有Slangへ接続。専用diagnostic19でbuff/ref/HP41戻り値の順・bit値・時刻が正本一致、通常とのbank外59456320B保持。Metal291(native218/拒否73)と両独立seal成功、旧272 input/nativeと855638016B保持・Runtime全layout/stride138952不変。巨大係数0hit5・現在1024でも固定1hit2・両HP方式/部位/子HPを含む新19。初回HP除外2差分は不変parent maskをHP基準へ渡して修正、初回診断のarray/listとcache無効時初期化も修正。保存replay GPU0で初期化漏れを検出、失敗/raw/claim保持・新source別package実証。通常291 input/native同一、他289raw909115392B保持。CPU27群190(skip0)66.850秒/native18.697秒/GPU4.416秒、診断CPU3群15/GPU0.053秒、実run生成cache必須hit/追加Slang0。分類追記後19検査成功、静的240/266/base180/203/残35・旧266全記録と240SHA保持。次は優先35分類の実consumer（projectile_dmg_pct等）、低marker周期移動/zero係数/対象混在/広い実編成/現CUDA。Windows追加0/7終了unknown/保全false、全キャラ0/UI CPU/development_only/未達。詳細docs/portable-full-burst-query.mdとcheckpoint。以下は履歴。
 <!-- /full-burst-query-current -->

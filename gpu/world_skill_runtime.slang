@@ -49,7 +49,14 @@ uint64_t sampleWorldPartSkill(inout Runtime s,Definition d,uint64_t coefficient,
 bool validWorldSkillDefinition(inout Runtime s,uint row,Definition d)
 {
     if(d.enemyBuff!=0||!validEnemyRoute(s.inputBase,d.damageRoute)||d.damageCount==0||d.damageCount>128||d.damageHits>256||d.damagePending!=0&&!worldPendingEnabled(s)||(d.periodicFlags!=0||!f64Zero(d.interval))&&!worldPeriodicClock(s,d)||d.healthScaling!=0||referenceScaleMode(s,row)!=0&&!(worldPendingEnabled(s)&&d.damagePending!=0&&referenceScaleMode(s,row)==1)&&!(worldPeriodicClock(s,d)&&referenceScaleMode(s,row)==3)) return false;
-    if((d.damageFlags&~uint(1|2|4|8|16|32|64|128|256|512|1024|2048|4096|8192|16384|65536|H_NAMED_SKILL))!=0||(d.damageFlags&H_DOT)!=0&&!worldPeriodicClock(s,d)||d.damageNormal>1) return false;
+#ifdef PORTABLE_PARENT_FIXED_DAMAGE
+    if(!validParentFixed(s,row,d)) return false;
+#endif
+    if((d.damageFlags&~uint(
+#ifdef PORTABLE_PARENT_FIXED_DAMAGE
+        262144U|
+#endif
+        1|2|4|8|16|32|64|128|256|512|1024|2048|4096|8192|16384|65536|H_NAMED_SKILL))!=0||(d.damageFlags&H_DOT)!=0&&!worldPeriodicClock(s,d)||d.damageNormal>1) return false;
 #ifndef PORTABLE_WORLD_PROJECTILE
     if((d.damageFlags&(H_PART|65536U))!=0) return false;
 #else
@@ -211,4 +218,8 @@ void landWorldPending(inout Runtime s,Definition d,uint row,uint index,uint hit,
 #endif
 #else
 bool worldPeriodicClock(inout Runtime s,Definition d) { return false; }
+#endif
+
+#ifdef PORTABLE_PARENT_FIXED_DAMAGE
+#include "parent_fixed_runtime.slang"
 #endif

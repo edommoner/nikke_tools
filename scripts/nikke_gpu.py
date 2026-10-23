@@ -207,6 +207,8 @@ SUITES['full-burst-capacity-retention']=dict(SUITES['full-burst-capacity'],scrip
 SUITES['full-burst-query']=dict(SUITES['full-burst-landing'],script='research/verify-world-full-burst-query-short.py',golden='research/portable-world-full-burst-query-short-expected.json',inputs=19,native=19,tests=['test_portable_full_burst_query.py','test_portable_skill_hp_basis.py','test_portable_full_burst_landing_gpu.py'])
 SUITES['full-burst-query-diagnostic']=dict(SUITES['full-burst-query'],source='gpu/world_full_burst_query_diagnostic_entry.slang',script='research/verify-world-full-burst-query-diagnostic-short.py',golden='research/portable-world-full-burst-query-diagnostic-short-expected.json')
 SUITES['full-burst-query-retention']=dict(SUITES['full-burst-query'],script='research/verify-world-full-burst-query-retention-short.py',golden='research/portable-world-full-burst-query-retention-short-expected.json',inputs=291,native=218,cpu_test_timeout=120,tests=list(dict.fromkeys(SUITES['full-burst-capacity-retention']['tests']+SUITES['full-burst-query']['tests'])))
+SUITES['parent-fixed']=dict(SUITES['full-burst-query'],upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'],source='gpu/world_parent_fixed_entry.slang',script='research/verify-world-parent-fixed-short.py',golden='research/portable-world-parent-fixed-short-expected.json',inputs=30,native=23,tests=['test_portable_parent_fixed.py','test_quantity_specs.py','test_portable_readiness_semantics.py'])
+SUITES['parent-fixed-retention']=dict(SUITES['parent-fixed'],script='research/verify-world-parent-fixed-retention-short.py',golden='research/portable-world-parent-fixed-retention-short-expected.json',inputs=321,native=241,cpu_test_timeout=120,tests=list(dict.fromkeys(SUITES['full-burst-query-retention']['tests']+SUITES['parent-fixed']['tests'])))
 SUITES['leftmost-retention']=dict(SUITES['leftmost'],script='research/verify-world-leftmost-retention-short.py',golden='research/portable-world-leftmost-retention-short-expected.json',inputs=74,native=59,tests=SUITES['leftmost']['tests']+['test_portable_leftmost_replay.py','test_portable_duration_scaling_gpu.py','test_portable_gpu_replay.py','test_portable_reference_migration.py'])
 SUITES['cache-preflight-regression']=dict(SUITES['duration-scaling'],tests=SUITES['duration-scaling']['tests']+['test_portable_cache_probe.py','test_portable_required_cache_preflight.py','test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_compile_cli.py','test_portable_generation_cache.py','test_portable_generation_request.py','test_portable_gpu_cli.py','test_portable_gpu_replay.py','test_portable_compiler_diagnostic.py'])
 SUITES['squad-stage-rosters']=dict(SUITES['squad-stage'],script='research/verify-world-squad-stage-rosters-short.py',golden='research/portable-world-squad-stage-rosters-short-expected.json',inputs=7,native=7)
@@ -453,6 +455,13 @@ def make_package(suite, output, *, develop=False, cases=()):
             or name in ('research/portable-compiler-full-heal-share-source-certificate.json','research/portable-world-heal-share-regression-short-expected.json')
             or (p.parts[0]=='data' and p.suffix=='.json') or name==SUITES[suite]['golden'] or name in SUITES[suite].get('support_files',())):
             names.append(name)
+    # Declared public pinned documents are data inputs to source audits.
+    # They are frozen and licensed with the same upstream snapshot as Python.
+    for name in SUITES[suite].get('upstream_documents',()):
+        p=PurePosixPath(safe_name(name));path=ROOT/name
+        if p.parts[:4]!=('research','upstream','nikke-calc-master','docs') or p.suffix!='.md' or not path.is_file() or path.is_symlink():
+            raise ValueError('Invalid upstream audit document: '+name)
+        if name not in names:names.append(name)
     # Include this CLI even before its first commit during local development.
     if 'scripts/nikke_gpu.py' not in names:
         names.append('scripts/nikke_gpu.py')
@@ -2253,6 +2262,7 @@ def main(argv=None):
     a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
     a=sub.add_parser('cache-probe');a.add_argument('--generated-cuda',type=Path,required=True);a.add_argument('--cuda-root',type=Path,required=True);a.add_argument('--compile-cache',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a.add_argument('--artifact-kind',choices=('ptx','cubin'),default='cubin');a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--require-hit',action='store_true')
+    a=sub.add_parser('consumer-audit');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
     from portable_reference import REFERENCES
     a=sub.add_parser('layout-compare');a.add_argument('--before',type=Path,required=True);a.add_argument('--after',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -2348,6 +2358,11 @@ def main(argv=None):
         from portable_scratch_layout import audit_sources
         result=audit_sources(ROOT,LIMITS)
         if a.out:write(a.out,result)
+    elif a.command=='consumer-audit':
+        from portable_missing_consumer_audit import verify as audit_consumers
+        if a.out.exists():raise ValueError('Consumer audit output already exists')
+        with forbid_gpu():result=audit_consumers(ROOT)
+        with a.out.open('x',encoding='utf-8') as stream:json.dump(result,stream,ensure_ascii=False,indent=2);stream.write('\n')
     elif a.command=='reference':
         from portable_reference import run_reference
         result=run_reference(a.suite,a.out,write=write,forbid_gpu=forbid_gpu)

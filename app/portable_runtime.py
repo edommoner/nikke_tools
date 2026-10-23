@@ -105,6 +105,8 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     try:basis=validate_skill_hp_basis(eff,combat=combat,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason='scaling') from error
     if basis.mode:allowed |= {'scaling','scaling_hp_pct'}
+    from portable_parent_fixed_specs import validate as validate_parent_fixed
+    validate_parent_fixed(eff,combat=combat,world_frame=world_frame)
     if eff.get('type')=='damage':
         from portable_parts_skill_specs import validate as validate_parts
         try:
@@ -464,8 +466,13 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
                 'FORCE_MASK':int(row[legacy.B3_MASK]),'RECIPIENTS':31 if row[4]==1 else 1<<int(row[0]),
                 'TARGET':cleansing[0] if cleansing is not None else stack[1] if stack is not None else extension[0] if extension is not None else removal[0] if removal is not None else int(bool(effects[index][0].get('name'))) if row[1] in (2,13) else int(effects[index][0].get('target')=='boss'), 'STAGE_ARG':int(row[151]),
                 'STAGE_OVERRIDE':int(row[252]),'REENTRY':int(row[253]),'TOGGLE':int(bool(int(row[213]) & 128)), 'DAMAGE_FLAGS':int(row[39])}
+        from portable_parent_fixed_specs import enabled as parent_fixed_enabled,FLAG as PARENT_FIXED_FLAG
+        if parent_fixed_enabled(eff):
+            if int(row[1])!=36:raise ValueError('Canonical parent fixed kind changed')
+            fields.update(KIND=3,DAMAGE_FLAGS=PARENT_FIXED_FLAG)
+            packet=L['DAMAGE_DEFINITION_BASE']+index*8;words[packet+4:packet+6]=double_words(0)
         if world_frame and eff.get('type')=='damage' and words[L['DAMAGE_DEFINITION_BASE']+index*8+6]!=0:fields['DAMAGE_FLAGS'] &= ~256
-        if hit_critical and eff.get('type')=='damage' and eff.get('name') and words[L['DAMAGE_DEFINITION_BASE']+index*8+6]==0:fields['DAMAGE_FLAGS'] |= 131072
+        if hit_critical and not parent_fixed_enabled(eff) and eff.get('type')=='damage' and eff.get('name') and words[L['DAMAGE_DEFINITION_BASE']+index*8+6]==0:fields['DAMAGE_FLAGS'] |= 131072
         if element_override(eff):fields.update(KIND=0,STAT=ELEMENT_OVERRIDE_STAT)
         if hp_attack(eff):fields.update(KIND=0,STAT=HP_ATTACK_STAT)
         if focus_marker(eff):fields.update(KIND=0,STAT=FOCUS_FIRE_STAT)

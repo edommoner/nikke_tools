@@ -76,6 +76,9 @@ property uint queryResolve { get { return definition_queryResolve(_wireInput,_wi
 };
 struct Frame
 {
+#ifdef PORTABLE_PARENT_FIXED_DAMAGE
+    uint64_t notifyDealt;
+#endif
     uint hitCrit;
     uint64_t skillCritRate,interruptAmount;
     uint interruptReach;
@@ -1379,6 +1382,9 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
     if ((s.healthMask&32)!=0) pushFrame(s,frames,depth,16,0,0,0,when);
     pushFrame(s,frames,depth,mode,event,owner,argument,when);
     if(mode==0 && s.error==0) frames[depth].hitCrit=notifyContext;
+#ifdef PORTABLE_PARENT_FIXED_DAMAGE
+    if(mode==0 && event==12 && s.error==0) frames[depth].notifyDealt=landingAmount;
+#endif
 #ifdef PORTABLE_FULL_BURST_LANDING
     if(mode==34 && s.error==0) { frames[depth].mode=10;frames[depth].repeatLeft=notifyContext;frames[depth].healthValue=landingAmount;if(notifyContext!=0 && (s.quantityMask&128)!=0) frames[depth].gaugeFlat=readStat(s,owner,S_burst_charge_speed_pct,when); }
 #endif

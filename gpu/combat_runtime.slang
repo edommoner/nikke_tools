@@ -279,7 +279,11 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     uint completedShots;bool scheduleAutoReload,last;uint64_t shotInterval;
     captureWeaponShot(s,w,who,when,output,target,modeShots,mode,epoch,landedAmount,landedCount,landedTarget,completedShots,scheduleAutoReload,shotInterval,last,ready);if(!ready) return;
     landWeaponPellets(s,w,who,when,output,target,landedAmount,landedCount,completedShots);
-    finishWeaponShot(s,w,who,when,output,landedCount,epoch,mode,scheduleAutoReload,shotInterval,last);
+    finishWeaponShot(s,w,who,when,output,landedCount,epoch,mode,scheduleAutoReload,shotInterval,last
+#ifdef PORTABLE_PARENT_FIXED_DAMAGE
+        ,landedAmount
+#endif
+    );
 }
 
 void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)

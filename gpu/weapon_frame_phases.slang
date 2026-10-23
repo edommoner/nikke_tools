@@ -123,7 +123,11 @@ void landWeaponPellets(inout Runtime s,inout Weapon w,uint who,uint64_t when,uin
 }
 
 [noinline]
-void finishWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint output,uint count,uint epoch,int mode,bool scheduleAutoReload,uint64_t shotInterval,bool last)
+void finishWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint output,uint count,uint epoch,int mode,bool scheduleAutoReload,uint64_t shotInterval,bool last
+#ifdef PORTABLE_PARENT_FIXED_DAMAGE
+    ,uint64_t landedAmount
+#endif
+)
 {
     if(w.mode!=1) notifyPelletInShot(s,who,count,when,output);
     bool burstSpeed=(s.quantityMask & 128)!=0 || nativeNumericEnabled(s);
@@ -134,7 +138,11 @@ void finishWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint
     dispatch(s,0,7,who,0,when,output);
     if (w.mode == 1) dispatch(s,0,PARTIAL_IS_FULL(w)?11:40,who,0,when,output);
     for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,8,who,0,when,output,0,notCoreContext(s,who));
-    if (w.mode == 1 && PARTIAL_IS_FULL(w)) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,12,who,0,when,output);
+    if (w.mode == 1 && PARTIAL_IS_FULL(w)) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,12,who,0,when,output
+#ifdef PORTABLE_PARENT_FIXED_DAMAGE
+        ,(s.quantityMask&0x01000000U)!=0 ? f64Mul(landedAmount,f64FromI64(w.pellets)) : uint64_t(0)
+#endif
+    );
     if(burstSpeed && w.mode==1)
     { if(WORLD_PACKET_NORMAL(s,who)) { markNativeNumericLanded(s,who);s.normalLandedMask|=1U<<who; }WORLD_PHYSICAL_GAUGE(s) addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when)); }
     WORLD_TEAM_CHARGE(s,w,who,count,when,output) if (s.bulletCount != 0) WORLD_NORMAL_ONLY(s,who) consumeBulletBuffs(s,who,when,output);

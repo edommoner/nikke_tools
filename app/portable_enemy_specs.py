@@ -6,6 +6,10 @@ ROUTES=dict(INHERITED=0,BODY=1,ALL=2,MAX_HP=3,CURRENT_HP=4,LOW_HP=5,NEAREST=6,TO
 
 
 def damage_plan(effect):
+    from portable_parent_fixed_specs import enabled
+    if enabled(effect):
+        from quantity_specs import validate_quantity
+        validate_quantity(effect);return damage_plan(dict(effect,stat='damage'))
     stat=effect.get('stat','')
     if not isinstance(stat,str):raise ValueError('Damage family must be a string')
     parts=stat.split(':')

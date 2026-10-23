@@ -393,6 +393,9 @@ void applyDefinitionFrame(inout Runtime s,inout Frame frames[32],inout int depth
         }
         else if (d.kind==26) WORLD_CLEANSE(s,row,recipientMask,f.time);
         else if (d.kind == 33) pushFrame(s,frames,depth,2,0,d.owner,int(row),f.time);
+#ifdef PORTABLE_PARENT_FIXED_DAMAGE
+        else if(d.kind==3 && (d.damageFlags&262144U)!=0) enqueueParentFixed(s,d,row,f,depth);
+#endif
         else if (d.kind == 3)
         { WORLD_SKILL_SCOPE_BEGIN(s)
             if (f.event != 28) s.stacks[row] = 1;
