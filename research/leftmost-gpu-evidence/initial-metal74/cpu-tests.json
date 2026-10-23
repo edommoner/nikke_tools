@@ -1,0 +1,42 @@
+[
+  {
+    "pattern": "test_portable_leftmost.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.1146484999917448,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 81287
+  },
+  {
+    "pattern": "test_portable_recipient_extension.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.23647183401044458,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 81287
+  },
+  {
+    "pattern": "test_portable_burst_recipients.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.9662335420725867,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 81287
+  },
+  {
+    "pattern": "test_portable_definition_view.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.421833666972816,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 81287
+  }
+]

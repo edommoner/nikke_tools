@@ -1,0 +1,158 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-23T07:48:58.523775+00:00",
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "ui_backend": "cpu",
+  "development_only": true,
+  "stage": "code-weapon-leftmost-shared-gpu",
+  "implementation": {
+    "selector": 24,
+    "admitted_count": [
+      0,
+      5
+    ],
+    "candidate_source": "immutable roster element/weapon metadata",
+    "selection_order": "GPU alive filter then squad-order truncation",
+    "private_entry": "gpu/world_leftmost_entry.slang",
+    "shared_cuda_metal": true,
+    "runtime_layout_unchanged": true,
+    "numerical_primitives_unchanged": true
+  },
+  "cpu": {
+    "groups": 8,
+    "tests": 41,
+    "skipped": 0,
+    "seconds": 4.838119332096539,
+    "native_seconds": 7.917170417029411
+  },
+  "metal": {
+    "inputs": 74,
+    "native": 59,
+    "rejected": 15,
+    "device": "Apple M5",
+    "gpu_seconds": 4.337507624994032,
+    "independently_sealed": true,
+    "actual_package_id": "831de07363be74bf457240464fb810568c95984e9de83355862ee2f79f8e3964",
+    "audit_package_id": "e73696f70ecfef38967b5f444f73cad1138355c00509e097ccf3a39f6f78b304",
+    "replay_gpu_calls": 0,
+    "generation_cache_hit": true,
+    "extra_slang_invocations": 0
+  },
+  "retained": {
+    "duration": {
+      "input": {
+        "bytes": 19627200,
+        "sha256": "c3659c7c24effabe510dd6185eb7ba43fa50646a5468edf5163d6b74f6b168df",
+        "all_bytes_equal": true
+      },
+      "output": {
+        "bytes": 147849216,
+        "sha256": "baf7029de8114b6c8ae81641da716d6bc664f7566448c62f3769ee635b3977b5",
+        "all_bytes_equal": true
+      }
+    },
+    "leftmost": {
+      "input": {
+        "bytes": 8769600,
+        "sha256": "ebf3f881e7c5b122bc7fbaf30f169e43511da46eccfc0b080f4a184b8cf75833",
+        "all_bytes_equal": true
+      },
+      "output": {
+        "bytes": 66060288,
+        "sha256": "c68cf9cf063bf106a45614fcc6d84d317d4360e7dd39ea845b3976d525b5922f",
+        "all_bytes_equal": true
+      }
+    },
+    "inventory": {
+      "retained_input_hashes": 234,
+      "old_packed": 234,
+      "new_packed": 235,
+      "new_profile": [
+        [
+          "트리나",
+          0
+        ]
+      ],
+      "removed_categories": 3,
+      "remaining_categories": 44,
+      "remaining_order_preserved": true,
+      "full_character_verified": 0
+    }
+  },
+  "real_contracts": [
+    {
+      "name": "leftmost-real/empty/3s",
+      "verified": true,
+      "reference_model_gap": false,
+      "selections": 1,
+      "picked": [],
+      "shots": 85
+    },
+    {
+      "name": "leftmost-real/empty/30s",
+      "verified": true,
+      "reference_model_gap": false,
+      "selections": 5,
+      "picked": [],
+      "shots": 770
+    },
+    {
+      "name": "leftmost-real/two/3s",
+      "verified": true,
+      "reference_model_gap": false,
+      "selections": 3,
+      "picked": [
+        1
+      ],
+      "shots": 80
+    },
+    {
+      "name": "leftmost-real/two/30s",
+      "verified": true,
+      "reference_model_gap": false,
+      "selections": 5,
+      "picked": [
+        1
+      ],
+      "shots": 699
+    },
+    {
+      "name": "leftmost-real/last/3s",
+      "verified": true,
+      "reference_model_gap": false,
+      "selections": 3,
+      "picked": [
+        4
+      ],
+      "shots": 116
+    },
+    {
+      "name": "leftmost-real/last/30s",
+      "verified": true,
+      "reference_model_gap": false,
+      "selections": 5,
+      "picked": [
+        4
+      ],
+      "shots": 1018
+    }
+  ],
+  "initial_failures": [
+    "initial21 comparison missing existing healing-storage decoder; repaired using saved raw",
+    "real reference import ordering fixed before GPU",
+    "initial74 adapter mislabeled15 rejections as native successes; pinned metadata correction only, source/input/59 positive native baselines unchanged"
+  ],
+  "windows": {
+    "operations_this_milestone": 0,
+    "current_source_cuda_verified": false,
+    "missing_process_cause": "unknown",
+    "preservation_verified": false
+  },
+  "remaining": [
+    "current-source CUDA short validation with existing bounded package/cache workflow",
+    "broader shared-selector lifecycle/revive/nested-list contracts",
+    "current private entry full1612 retention and catalog battle certification",
+    "remaining44 observed static blocker categories, including native consumer/model research"
+  ]
+}

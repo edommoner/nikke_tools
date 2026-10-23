@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "comparison.json",
+      "bytes": 7307,
+      "sha256": "7e750574c77977727d963360c2754f7edf0bc854b81fc6a77edb82114eeff17b"
+    },
+    {
+      "path": "evidence.json",
+      "bytes": 49707,
+      "sha256": "d9878e829c9f1d8db00af841486a08467cf9f331e2032a5caebff114b91b279d"
+    },
+    {
+      "path": "replay.json",
+      "bytes": 210,
+      "sha256": "30736de310f85f1836e1e86f92bcb7e866063baf48fb606c3004e2d93e373796"
+    },
+    {
+      "path": "result.json",
+      "bytes": 7645,
+      "sha256": "9061e4af1e092f55453cbb75a40bc37bcf9bf061d09f979ce7e6ca4dd65aa101"
+    },
+    {
+      "path": "run.json",
+      "bytes": 192,
+      "sha256": "8598d26fb7e47d14ad2496dfb88ec7c47e980b10747bee455de9ea9cf77b557b"
+    },
+    {
+      "path": "source-execution.json",
+      "bytes": 1032,
+      "sha256": "d7193f7441edad55a729fcfa7c16ee9de57ae8c0bd07d598dee1ffa8c41b2e45"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}

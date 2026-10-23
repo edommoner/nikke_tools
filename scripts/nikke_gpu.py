@@ -179,6 +179,9 @@ SUITES['not-core-legacy-reject']=dict(SUITES['not-core'],script='research/verify
 SUITES['duration-scaling']=dict(SUITES['not-core'],script='research/verify-world-duration-scaling-short.py',source='gpu/world_duration_scaling_entry.slang',golden='research/portable-world-duration-scaling-short-expected.json',inputs=47,native=40,tests=['test_portable_duration_scaling_reference.py','test_portable_duration_scaling_mixed.py','test_portable_duration_scaling_gpu.py','test_portable_definition_view.py','test_portable_scratch_layout.py'])
 SUITES['duration-scaling-diagnostic']=dict(SUITES['duration-scaling'],script='research/verify-world-duration-scaling-diagnostic-short.py',source='gpu/world_duration_scaling_diagnostic_entry.slang',golden='research/portable-world-duration-scaling-diagnostic-short-expected.json')
 SUITES['duration-scaling-legacy-reject']=dict(SUITES['duration-scaling'],script='research/verify-world-duration-scaling-legacy-reject-short.py',source='gpu/world_not_core_entry.slang',golden='research/portable-world-duration-scaling-legacy-reject-short-expected.json',inputs=1,native=0)
+SUITES['leftmost']=dict(SUITES['duration-scaling'],script='research/verify-world-leftmost-short.py',source='gpu/world_leftmost_entry.slang',golden='research/portable-world-leftmost-short-expected.json',inputs=21,native=13,tests=['test_portable_leftmost.py','test_portable_recipient_extension.py','test_portable_burst_recipients.py','test_portable_definition_view.py'])
+SUITES['leftmost-rosters']=dict(SUITES['leftmost'],script='research/verify-world-leftmost-rosters-short.py',golden='research/portable-world-leftmost-rosters-short-expected.json',inputs=6,native=6)
+SUITES['leftmost-retention']=dict(SUITES['leftmost'],script='research/verify-world-leftmost-retention-short.py',golden='research/portable-world-leftmost-retention-short-expected.json',inputs=74,native=59,tests=SUITES['leftmost']['tests']+['test_portable_leftmost_replay.py','test_portable_duration_scaling_gpu.py','test_portable_gpu_replay.py','test_portable_reference_migration.py'])
 SUITES['cache-preflight-regression']=dict(SUITES['duration-scaling'],tests=SUITES['duration-scaling']['tests']+['test_portable_cache_probe.py','test_portable_required_cache_preflight.py','test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_compile_cli.py','test_portable_generation_cache.py','test_portable_generation_request.py','test_portable_gpu_cli.py','test_portable_gpu_replay.py','test_portable_compiler_diagnostic.py'])
 SUITES['squad-stage-rosters']=dict(SUITES['squad-stage'],script='research/verify-world-squad-stage-rosters-short.py',golden='research/portable-world-squad-stage-rosters-short-expected.json',inputs=7,native=7)
 SUITES['scratch-layout']=dict(script='research/verify-scratch-layout-short.py',golden='research/portable-scratch-layout-short-expected.json',source='gpu/scratch_layout_probe.slang',inputs=8,native=6,development_only=False,tests=['test_portable_scratch_layout.py','test_portable_scratch_layout_migration.py','test_portable_generation_request.py'])
@@ -859,6 +862,11 @@ def replay_source(m, source_package, source_capture,reference_migration=None):
     return original,facts,evidence
 
 def verify_reference_migration(name,original,m):
+    if name=='leftmost-rejection-domains-v1':
+        from portable_leftmost_replay_migration import verify
+        with forbid_gpu():
+            adapter=open_suite(m);entries,_=prepare_entries(adapter,m)
+            return verify(original,m,entries)
     from portable_reference_migration import verify,CASE
     with forbid_gpu():
         adapter=open_suite(m);entries,_=prepare_entries(adapter,m)
@@ -2187,7 +2195,7 @@ def main(argv=None):
     for name in ('readback-index','readback-compare'):
         a=sub.add_parser(name);a.add_argument('--readback',type=Path,required=True);a.add_argument('--sha256',required=True);a.add_argument('--out',type=Path,required=True)
         if name=='readback-compare':a.add_argument('--index',type=Path,required=True);a.add_argument('--index-sha256',required=True)
-    a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--reference-migration',choices=['parts-cleared-v1'])
+    a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--reference-migration',choices=['parts-cleared-v1','leftmost-rejection-domains-v1'])
     a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
     a=sub.add_parser('ptx-stats');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=8);a.add_argument('--callgraph',action='store_true')

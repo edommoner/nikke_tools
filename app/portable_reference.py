@@ -4,7 +4,9 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
-REFERENCES={'duration-scaling-mixed':('portable_duration_scaling_extended_cases','world_duration_scaling_native','portable_duration_scaling_extended_contracts'),
+REFERENCES={'leftmost-rosters':('portable_leftmost_roster_cases','world_leftmost_roster_native','portable_leftmost_roster_contracts'),
+            'leftmost':('portable_leftmost_cases','world_leftmost_native','portable_leftmost_contracts'),
+            'duration-scaling-mixed':('portable_duration_scaling_extended_cases','world_duration_scaling_native','portable_duration_scaling_extended_contracts'),
             'duration-scaling':('portable_duration_scaling_cases','world_duration_scaling_native','portable_duration_scaling_contracts'),
             'not-core':('portable_not_core_cases','world_not_core_native','portable_not_core_contracts'),
             'partial-query':('portable_partial_query_cases','world_partial_query_native','portable_partial_query_contracts'),

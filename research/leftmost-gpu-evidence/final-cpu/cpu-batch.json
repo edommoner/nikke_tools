@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "mode": "single-process-unittest",
+  "patterns": [
+    "test_portable_leftmost.py",
+    "test_portable_recipient_extension.py",
+    "test_portable_burst_recipients.py",
+    "test_portable_definition_view.py",
+    "test_portable_leftmost_replay.py",
+    "test_portable_duration_scaling_gpu.py",
+    "test_portable_gpu_replay.py",
+    "test_portable_reference_migration.py"
+  ],
+  "timeout_seconds": 60,
+  "elapsed_seconds": 5.040246959077194,
+  "timed_out": false,
+  "exit_code": 0,
+  "gpu_calls": 0,
+  "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+}

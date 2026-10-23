@@ -14,6 +14,9 @@ bool alliedRandomEnabled(inout Runtime s)
 bool validRecipientLeaf(uint at, bool enemy = false)
 {
     uint kind = commands[at], count = commands[at+1], mask = commands[at+2];
+#ifdef PORTABLE_LEFTMOST
+    if(kind==24) return !enemy && count<=5 && mask<=31 && commands[at+3]==0 && commands[at+4]==0 && commands[at+5]==0 && commands[at+6]<P_DEFINITIONS && (commands[at+7]&~7U)==0;
+#endif
     if (enemy) return kind == 4 && count == 0 && mask == 0 && commands[at+3] == 0 && commands[at+4] == 0 && commands[at+5] == 0 && commands[at+6] < P_DEFINITIONS && (commands[at+7] & ~7U) == 0;
     if (kind > 25 || (kind == 17 || kind == 20 || kind == 24) || kind == 4 || kind == 14 || count > 5 || mask > 31 || commands[at+3] > (kind == 12 || kind == 13 ? 2 : 1)) return false;
     if ((kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16 || kind == 21) && count == 0) return false;
@@ -49,6 +52,16 @@ uint selectRecipientLeaf(inout Runtime s, uint row, uint at, uint64_t when, out 
     Definition d = readDefinition(s.inputBase,row);
     uint kind = commands[at], count = commands[at+1], candidates = commands[at+2];
     uint exclude = commands[at+3], authoredOrder = commands[at+4];
+#ifdef PORTABLE_LEFTMOST
+    if(kind==24)
+    {
+        uint mask=0,written=0;order=0;
+        for(uint who=0;who<5 && written<count;who++)
+            if((candidates&(1U<<who))!=0 && (s.downMask&(1U<<who))==0)
+            { mask|=1U<<who;order|=uint64_t(who+1)<<(3*written++); }
+        return mask;
+    }
+#endif
     if (kind == 5 || kind == 6 || kind == 7 || kind == 15 || kind == 16 || kind==22) return rankedRecipientsAt(s,row,at,when,order);
     if(kind==19 || kind==25)
     {
