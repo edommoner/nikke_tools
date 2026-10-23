@@ -1,0 +1,37 @@
+{
+  "pre_gpu_failure": {
+    "package": "7a09b88e7ca1ff509e90fa89b7b4e61d45f851ab1578eed465fcf10178aadc7b",
+    "error": "Swift transport rejected 1048576-word output before GPU dispatch",
+    "gpu_dispatches": 0
+  },
+  "failed_metal": [
+    {
+      "package_id": "c518eb10edba3e957d908b22fadc63febc64ad9d563c5d9553038a815b78be2f",
+      "mismatches": [
+        {
+          "index": 4,
+          "name": "destructible-battle/ordinary-named-child",
+          "reason": "ValueError: Expected GPU success status0; got status64"
+        }
+      ],
+      "raw_sha256": "c7bbc67bb132bdee6d575d8c8d571ce6e7c3243d82f86c780f176ea20e9cb40b"
+    },
+    {
+      "package_id": "fd2c744d1bb19528b9b340c7db764f7483224441f601c5e1c0e0406543a7b2b0",
+      "mismatches": [
+        {
+          "index": 4,
+          "name": "destructible-battle/ordinary-named-child",
+          "reason": "ValueError: Expected GPU success status0; got status64"
+        }
+      ],
+      "raw_sha256": "c7bbc67bb132bdee6d575d8c8d571ce6e7c3243d82f86c780f176ea20e9cb40b"
+    }
+  ],
+  "aborted_package_preparation": {
+    "error": "Package sources changed during native baseline preparation",
+    "gpu_calls": 0
+  },
+  "all_original_captures_and_claims_retained": true,
+  "retry_same_package": 0
+}

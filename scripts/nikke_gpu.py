@@ -223,7 +223,7 @@ SUITES['damage-accum-battle']=dict(SUITES['heal-charge-lifetime'],source='gpu/wo
 SUITES['damage-accum-retention']=dict(SUITES['damage-accum-battle'],script='research/verify-world-damage-accum-retention-short.py',golden='research/portable-world-damage-accum-retention-short-expected.json',inputs=460,native=354,cpu_test_timeout=120,tests=list(dict.fromkeys(SUITES['heal-charge-lifetime-retention']['tests']+SUITES['damage-accum-battle']['tests'])))
 SUITES['damage-accum-rosters']=dict(SUITES['damage-accum-battle'],script='research/verify-world-damage-accum-rosters-short.py',golden='research/portable-world-damage-accum-rosters-short-expected.json',inputs=4,native=4,tests=SUITES['damage-accum-battle']['tests']+['test_portable_damage_accum_rosters.py'])
 SUITES['projectile-chain']=dict(SUITES['damage-accum-battle'],source='gpu/world_projectile_chain_entry.slang',script='research/verify-world-projectile-chain-short.py',golden='research/portable-world-projectile-chain-short-expected.json',inputs=32,native=24,development_only=True,tests=['test_portable_projectile_chain_reference.py','test_portable_projectile_chain_gpu.py','test_portable_damage_accum_battle.py'])
-SUITES['projectile-chain-retention']=dict(SUITES['projectile-chain'],script='research/verify-world-projectile-chain-retention-short.py',golden='research/portable-world-projectile-chain-retention-short-expected.json',inputs=492,native=378,cpu_test_timeout=120,tests=list(dict.fromkeys(SUITES['damage-accum-retention']['tests']+SUITES['projectile-chain']['tests'])))
+SUITES['projectile-chain-retention']=dict(SUITES['projectile-chain'],script='research/verify-world-projectile-chain-retention-short.py',golden='research/portable-world-projectile-chain-retention-short-expected.json',inputs=492,native=378,development_only=False,cpu_test_timeout=120,tests=list(dict.fromkeys(SUITES['damage-accum-retention']['tests']+SUITES['projectile-chain']['tests'])))
 SUITES['projectile-chain-rosters']=dict(SUITES['projectile-chain'],script='research/verify-world-projectile-chain-rosters-short.py',golden='research/portable-world-projectile-chain-rosters-short-expected.json',inputs=2,native=2,tests=SUITES['projectile-chain']['tests']+['test_portable_projectile_chain_rosters.py'])
 SUITES['projectile-chain-reference']=dict(SUITES['damage-accum-battle'],tests=['test_portable_projectile_chain_reference.py','test_portable_projectile_chain_rosters.py','test_portable_damage_accum_core.py'],support_files=['research/portable-world-heal-charge-lifetime-short-expected.json','research/portable_projectile_chain_cases.py','research/world_projectile_chain_native.py','research/portable_projectile_chain_contracts.py','research/portable_projectile_chain_roster_cases.py'])
 SUITES['damage-accum-core']=dict(script='research/verify-damage-accum-core-short.py',golden='research/portable-damage-accum-core-short-expected.json',source='gpu/damage_accum_probe.slang',inputs=41,native=34,support_files=['research/portable-world-heal-charge-lifetime-short-expected.json'],tests=['test_portable_damage_accum_core.py','test_portable_damage_accum_reference.py','test_portable_packet_stage.py'])
@@ -237,6 +237,8 @@ SUITES['destructible-skill']=dict(SUITES['destructible-attack'],script='research
 SUITES['destructible-frame']=dict(SUITES['destructible-skill'],script='research/verify-destructible-frame-short.py',golden='research/portable-destructible-frame-short-expected.json',source='gpu/destructible_frame_probe.slang',inputs=26,native=17,development_only=False,tests=['test_destructible_frame.py',*SUITES['destructible-skill']['tests']])
 SUITES['destructible-frame']['tests'].append('test_portable_packet_stage.py')
 SUITES['destructible-frame']['tests'].append('test_destructible_battle.py')
+SUITES['destructible-battle']=dict(SUITES['destructible-frame'],script='research/verify-destructible-battle-short.py',golden='research/portable-destructible-battle-short-expected.json',source='gpu/destructible_battle_entry.slang',inputs=20,native=10,development_only=False,output_words=1048576)
+SUITES['destructible-battle']['tests']=SUITES['destructible-frame']['tests']+['test_portable_file_transport.py','test_portable_resident_transport.py','test_portable_world_reload.py','test_portable_seal.py']
 SUITES['leftmost-retention']=dict(SUITES['leftmost'],script='research/verify-world-leftmost-retention-short.py',golden='research/portable-world-leftmost-retention-short-expected.json',inputs=74,native=59,tests=SUITES['leftmost']['tests']+['test_portable_leftmost_replay.py','test_portable_duration_scaling_gpu.py','test_portable_gpu_replay.py','test_portable_reference_migration.py'])
 SUITES['cache-preflight-regression']=dict(SUITES['duration-scaling'],tests=SUITES['duration-scaling']['tests']+['test_portable_cache_probe.py','test_portable_required_cache_preflight.py','test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_compile_cli.py','test_portable_generation_cache.py','test_portable_generation_request.py','test_portable_gpu_cli.py','test_portable_gpu_replay.py','test_portable_compiler_diagnostic.py'])
 SUITES['squad-stage-rosters']=dict(SUITES['squad-stage'],script='research/verify-world-squad-stage-rosters-short.py',golden='research/portable-world-squad-stage-rosters-short-expected.json',inputs=7,native=7)
@@ -850,7 +852,7 @@ def child(capture, backend, smoke=False, compile_only=False, module_only=False, 
     with saved_linked_provider(m,capture,backend,journal),observe(portable_backend,journal):
         raw,evidence = journal.invoke('shared_gpu_execute',portable_backend.execute,
                                      SUITES[m['suite']]['source'],'portableEvents',data,
-                                     input_words,786432,backend,readback_path=capture/'readback.bin')
+                                     input_words,SUITES[m['suite']].get('output_words',786432),backend,readback_path=capture/'readback.bin')
     if raw is not None:raise ValueError('File transport returned an unexpected whole readback')
     # Raw/evidence are durable before any comparison, so failures remain inspectable.
     write(capture/'evidence.json',evidence)
@@ -910,7 +912,7 @@ def compare_readback(m, capture, adapter=None,*,parent_oracles=None):
         else:
             input_hash,input_digests=stream_input_fingerprints(capture/'input.bin',len(entries),adapter.suite.INPUT*4)
             if input_hash!=m['golden']['input_sha256']:raise ValueError('Saved input mismatch')
-        if record['bytes']!=len(entries)*786432*4 or output_digest!=evidence['output_sha256'] or evidence['input_sha256']!=input_hash:
+        if record['bytes']!=len(entries)*SUITES[m['suite']].get('output_words',786432)*4 or output_digest!=evidence['output_sha256'] or evidence['input_sha256']!=input_hash:
             raise ValueError('Saved evidence/raw mismatch')
         audit_generation_capture(m,capture)
         if evidence['source_sha256']!=m['golden']['source_sha256'] or not evidence['gpu_execution_verified']:
@@ -945,7 +947,7 @@ def compare_readback(m, capture, adapter=None,*,parent_oracles=None):
                 from portable_backend import READBACK_CHUNK_BYTES
                 if stream is None or [r['receipt'] for r in markers]!=[stream] or stream.get('output_sha256')!=output_digest or stream.get('output_bytes')!=record['bytes'] or stream.get('chunk_bytes')!=READBACK_CHUNK_BYTES or stream.get('chunks')!=(record['bytes']+READBACK_CHUNK_BYTES-1)//READBACK_CHUNK_BYTES:
                     raise ValueError('CUDA file readback receipt mismatch')
-        results=[]; mismatches=[]; iw=adapter.suite.INPUT*4; ow=786432*4
+        results=[]; mismatches=[]; iw=adapter.suite.INPUT*4; ow=SUITES[m['suite']].get('output_words',786432)*4
         parts=readback_parts(capture/'readback.bin',len(entries),ow,output_digest)
         for i,((name,words,domain),part) in enumerate(zip(entries,parts,strict=True)):
             block=array.array('I'); block.frombytes(part)

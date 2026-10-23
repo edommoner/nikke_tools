@@ -1,0 +1,135 @@
+{
+  "package_id": "1ba39cadaa9daa157036ac9e366c820489cf994c1015add8793d940deabbf113",
+  "tests": [
+    {
+      "pattern": "test_destructible_frame.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.3204918330302462,
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_skill.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.4905788340838626,
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_attack.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.23344808293040842,
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_counter.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.37292520806659013,
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_world.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.033476500073447824,
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_target_counter_runtime.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.010949041927233338,
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_readiness_semantics.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.1220548750134185,
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_packet_stage.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.03725841699633747,
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_destructible_battle.py",
+      "exit_code": 0,
+      "elapsed_seconds": 3.623653208022006,
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_file_transport.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.07764879101887345,
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_resident_transport.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.003068291931413114,
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_world_reload.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.4500378749798983,
+      "tests": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_seal.py",
+      "exit_code": 0,
+      "elapsed_seconds": 0.16614529199432582,
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "total_tests": 119,
+  "native": {
+    "passed": true,
+    "input_count": 20,
+    "native_oracles": 10,
+    "input_sha256": "5b81ce11ce119d149acfdcc04a14d345f4c8702bf2cdd58fcf2e7c0ed5c411b3",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 1.1524712500395253
+  },
+  "gpu_calls": 0
+}

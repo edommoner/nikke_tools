@@ -39,7 +39,8 @@ class FrameTests(unittest.TestCase):
         rows,data=a.prepare();self.assertEqual((len(rows),sum(c is not None for _,_,c in rows)),(26,17));self.assertEqual(len(data),4+26*102600*4)
     def test_saved_actual_frame_outputs_detect_budget_child_and_context_corruption(self):
         from portable_backend import source_hashes
-        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-frame-raw.json').read_text());self.assertEqual(fixture['source_sha256'],source_hashes('gpu/destructible_frame_probe.slang'))
+        from portable_destructible_battle_source_contract import verify_retained_sources
+        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-frame-raw.json').read_text());verify_retained_sources(ROOT,'gpu/destructible_frame_probe.slang',fixture['source_sha256'])
         rows,_=a.prepare();by_name={name:(name,words,c) for name,words,c in rows}
         for record in fixture['records']:
             b=array.array('I',[0])*786432

@@ -13,6 +13,9 @@ void worldFrameBegin(inout Runtime s,uint64_t when)
 #else
     wsBegin(w,when,0);s.error=w.error;
 #endif
+#ifdef PORTABLE_DESTRUCTIBLE_BATTLE
+    if(s.error==0) destructibleBattleSync(s,when,false);
+#endif
 #ifdef PORTABLE_WORLD_OVERLAYS
     if(s.error==0) applyWorldOverlays(s,when);
 #endif
@@ -74,6 +77,9 @@ void worldFrameFinish(inout Runtime s)
 #endif
 #ifdef PORTABLE_WORLD_ACTORS
     if(s.error==0) worldActorsApply(s);
+#endif
+#ifdef PORTABLE_DESTRUCTIBLE_BATTLE
+    if(s.error==0) destructibleBattleSync(s,wsLoad(w.input+6),true);
 #endif
 }
 

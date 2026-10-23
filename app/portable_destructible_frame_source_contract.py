@@ -6,7 +6,8 @@ import hashlib,json
 from pathlib import Path
 
 def project_sources(root,sources=None):
-    root=Path(root);sources=dict(sources or {})
+    from portable_destructible_battle_source_contract import project_sources as project_battle
+    root=Path(root);sources=project_battle(root,sources)
     data=json.loads((root/'tests/fixtures/portable-destructible-frame-source-delta.json').read_text())
     for name,row in data['sources'].items():
         current=sources.get(name,(root/name).read_text())

@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "all266_profiles_identical": true,
+  "all_issue_codes_and_ranks_preserved": true,
+  "changed_priority_metadata_only": [
+    17
+  ],
+  "packed_profiles": 245,
+  "packed_base": 185,
+  "remaining_categories": 20,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "priority_position_indexing": "one_based",
+  "changed_issue": {
+    "phase": "effect",
+    "category": "recipient",
+    "kind": "damage",
+    "stat": "damage",
+    "target": "all_projectiles",
+    "scaling": null,
+    "code": "{\"category\": \"recipient\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"damage\", \"target\": \"all_projectiles\"}",
+    "diagnostic_source": "message_fallback",
+    "error_type": "UnsupportedPortable",
+    "message": "Unported enemy damage selector"
+  }
+}

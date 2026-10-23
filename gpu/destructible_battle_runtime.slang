@@ -1,0 +1,46 @@
+// DBT1: actual full battle clock, normal scalar context, one plain skill row.
+// Admission deliberately excludes canonical targets-cleared coupling.
+bool initializeDestructibleBattle(inout Runtime s)
+{
+    uint descriptor=DF_DESCRIPTOR(s),extra=DF_EXTRA(s),count=commands[extra+2320];
+    if(commands[descriptor]>=s.count||commands[descriptor+1]<1||commands[descriptor+1]>128||commands[descriptor+2]!=1||commands[descriptor+3]!=0x44425431U) return false;
+    for(uint i=4;i<16;i++) if(commands[descriptor+i]!=0) return false;
+    for(uint i=0;i<2320;i++) if(commands[extra+i]!=0) return false;
+    for(uint i=2321;i<2328;i++) if(commands[extra+i]!=0) return false;
+    for(uint i=3864;i<5120;i++) if(commands[extra+i]!=0) return false;
+    if(!worldFrameEnabled(s)) return false;
+    Definition d=readDefinition(s.inputBase,commands[descriptor]);
+    // Both accepted bits already have an ordinary common-executor consumer:
+    // named scalar factors and post-handler completion notification (event51).
+    if(d.kind!=3||d.stat!=0||d.damageRoute!=1||d.damageCount!=1||d.damageHits!=1||d.damagePending!=0||d.damageNormal!=0||(d.damageFlags&~(H_NAMED_SKILL|524288U))!=0||d.healthScaling!=0||d.quantityFlags!=0||!dtQuantity(d.value)) return false;
+    WorldSchedule w=frameSchedule(s);
+    for(uint slot=0;slot<count&&slot<128;slot++)
+    { uint node=commands[extra+2328+slot*12];if(node>=w.count||(commands[wsNode(w,node)+1]&2)!=0) return false; }
+    if(!dwValidate(w,extra+2328,count,DF_BASE(s.resourceOutput))) return false;
+    results[s.resourceOutput+786432]=0x44425431U;
+    results[DF_HEADER(s.resourceOutput)+4]=1;
+    return true;
+}
+void destructibleBattleSync(inout Runtime s,uint64_t when,bool finished)
+{
+    uint header=DF_HEADER(s.resourceOutput);
+    if(results[header+4]==0) return;
+    if(results[header+3]!=0) { s.error=64;return; }
+    uint base=DF_BASE(s.resourceOutput),extra=DF_EXTRA(s),count=commands[extra+2320],status;
+    dtAdvance(base,count,when,dtNumber(header),status);
+    if(status!=0) { s.error=status;return; }
+    WorldSchedule w=frameSchedule(s);dwSync(w,extra+2328,count,base,when);s.error=w.error;
+    dtStore(header,when);results[header+2]=1;results[header+3]=uint(finished);
+}
+void destructibleBattleCapture(inout Runtime s,uint scratch,uint selected,Frame f,Definition d)
+{
+    results[scratch+530]=0;results[scratch+531]=0;
+    if(selected==0) return;
+    uint head=s.resourceOutput+786432,index=results[head+1];
+    if(index>=commands[DF_DESCRIPTOR(s)+1]) { s.error=64;return; }
+    results[head+1]=index+1;
+    uint trace=s.resourceOutput+790000+index*1040;
+    results[scratch+530]=trace;results[scratch+531]=index+1;
+    results[trace]=index+1;results[trace+1]=uint(f.argument);results[trace+2]=d.owner;results[trace+3]=selected;
+    dtStore(trace+4,f.time);dtStore(trace+6,dtNumber(scratch+532));dtStore(trace+8,dtNumber(scratch+534));
+}

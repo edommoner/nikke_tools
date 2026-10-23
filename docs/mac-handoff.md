@@ -1724,6 +1724,10 @@ Windows v110はCPU20件成功後、修正argvでO1 compilerを1回だけ実行�
 rawEffectiveChargeへ共通noinline属性だけを追加しました。変更前1180f97と生成CUDAの差分は該当1属性だけで、厳密normalizerは変更していません。固定327入力のMetal/nativeは全件一致し、input／全raw outputも旧327と同一です。新しいsourceを明示sealし、現在のregression327はresearch/portable-world-charge-boundary-regression-short-expected.jsonを使います。CPU事前検査の登録9群も成功しました。旧671件全体のCPU回帰は1180f97の証拠で、今回再実行したという意味ではありません。
 
 research/portable-charge-boundary-development-checkpoint.jsonが最新根拠です。生成CUDAの呼出関係上でrawEffectiveChargeがnoinlineになったことは確認しましたが、compilerメモリ／速度の改善はまだ未確認です。Windowsはsealed packageでCUBIN O1・60秒・Job2GiBのcompiler-onlyを1回だけ行う予定です。driver/context/kernelは使わず、再試行・上限拡大・自動fallbackはしません。過去v110との比較はsourceが違うため、この1属性だけの因果として扱いません。
+# 2026-10-24 実戦時計の型付き投射物Metal実証
+
+最新は`docs/portable-destructible-battle.md`/`research/portable-destructible-battle-checkpoint.json`。共通CLI `destructible-battle`がMetal20(native10/拒否10)・独立seal成功。通常と同じ最新entry/単一WorldSchedule/同じdamage Frameを使い、CPUイベント列なしで出現世代・物理攻撃混在・名前付き子・128弾・空対象budget保持を照合。GPU0.061秒/pipeline64.809秒、Runtime138952不変・新entryだけ出力1048576wordへ拡張し専用領域へ配置。最終不変package1ba39cad...はCPU119(skip0)/native10成功、実raw5blockの破損45通りを検出。通常492もCPU288/native378/Metal/独立seal成功し、旧1547698176byteを直接比較して全一致、生成CUDA/MSLも正規化前から同一。旧goldenは保持し、実証後だけ新golden登録。初回Swift guardのGPU前失敗、次の2回の名前付き子拒否（flag受付＋最新consumer入口の漏れ）、package中source編集の停止は保持/同一claim retry0。全266profile同一、packing245/base185/残20・全キャラ0/UI CPU/未達。Windows接続取得失敗で新run依頼0。次は実戦typed counter/子context・通常cleared node共存、元の全定義profile、個別DEF/投射物/盾倍率。CUBIN O0短時間実証は接続復旧後のみ。以下のCPU段階は履歴。
+
 # 2026-10-24 実戦時計の型付き投射物CPU契約
 
 最新の追加は`docs/portable-destructible-battle.md`と`research/portable-destructible-battle-cpu-checkpoint.json`。通常native simulate所有のBossScriptへ数量を接続し、別時計を作らず3世代再出現・普通の子/物理攻撃保持・再入ID・例外復旧をCPU9契約で確認。fresh共通CLI packageのCPU72(skip0)/既存native17成功、既存Metal golden保持、新GPU/Windows追加0。実schedulerのMetal接続は未完了。共通packetへCUBIN O0 compile-only stageを追加、同じ60/180秒・2GiB・BelowNormal/Job・driver/GPU0制約を保持。Windows実行は未依頼。7プロセス終了についてユーザーは手動終了/再接続/再起動なし・ゲーム/動画利用の可能性と回答。因果不明/保全失敗は維持し、利用状況から原因を断定しない。次はSlang world同期→既存FrameのMetal実証。全キャラ0/UI CPU/目標未達。

@@ -1,5 +1,5 @@
 """Actual native battle-clock contracts before the shared GPU battle hookup."""
-import copy,sys,unittest
+import copy,sys,unittest,importlib.util,json,array,hashlib
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1]
@@ -94,5 +94,48 @@ class BattleTests(unittest.TestCase):
     def test_canonical_cleared_node_has_no_invented_typed_clear_semantics(self):
         world=DestructibleWorld([dict(id='idle',until=dict(targets_cleared=True))],BINDINGS)
         with self.assertRaisesRegex(ValueError,'target-cleared'):DestructibleWorld.from_clock(world.clock,BINDINGS)
+
+    def test_shared_battle_table_packs_without_running_native(self):
+        s=importlib.util.spec_from_file_location('typed_battle_test',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
+        with patch.object(a,'observe',side_effect=AssertionError('No CPU event list may enter GPU input')):rows,data=a.prepare()
+        self.assertEqual((len(rows),sum(c is not None for _,_,c in rows)),(20,10))
+        self.assertEqual(len(data),4+20*109536*4)
+        for _,words,domain in rows:
+            if domain is None:continue
+            self.assertFalse(any(words[104400:104400+2320]))
+            n=a.native_reference(domain);self.assertTrue(n['typed']['finished'])
+            if domain[0]['name'].endswith('/three-real-generations'):
+                self.assertEqual([r['receipts'][0]['handle'][2] for r in n['typed']['attacks']],[1,2,3])
+            if domain[0]['name'].endswith('/empty-retains-budget'):self.assertEqual(len(n['typed']['attacks']),1)
+
+    def test_battle_source_inverse_rejects_unreviewed_changes(self):
+        from portable_destructible_battle_source_contract import project_sources
+        data=json.loads((ROOT/'tests/fixtures/portable-destructible-battle-source-delta.json').read_text())
+        project_sources(ROOT)
+        for name,row in data['sources'].items():
+            with self.subTest(source=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n'})
+
+    def test_full_battle_uses_the_complete_current_shared_executor(self):
+        from portable_backend import source_hashes
+        ordinary=set(source_hashes('gpu/world_projectile_chain_entry.slang'))
+        typed=set(source_hashes('gpu/destructible_battle_entry.slang'))
+        self.assertLessEqual(ordinary,typed)
+
+    def test_actual_metal_battle_blocks_reject_state_and_receipt_corruption(self):
+        from portable_backend import source_hashes
+        s=importlib.util.spec_from_file_location('typed_battle_saved',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
+        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-battle-raw.json').read_text())
+        self.assertEqual(fixture['source_sha256'],source_hashes('gpu/destructible_battle_entry.slang'))
+        rows,_=a.prepare();by_name={n:(w,c) for n,w,c in rows}
+        for record in fixture['records']:
+            block=array.array('I',[0])*fixture['output_words']
+            for i,v in record['nonzero']:block[i]=v
+            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),record['output_sha256'])
+            words,domain=by_name[record['name']]
+            self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256'])
+            a.compare(block,domain)
+            for offset in (0,786433,789251,787458,790000,790006,790010,790019,790020):
+                changed=array.array('I',block);changed[offset]^=2
+                with self.subTest(name=record['name'],offset=offset),self.assertRaises((AssertionError,ValueError)):a.compare(changed,domain)
 
 if __name__=='__main__':unittest.main()
