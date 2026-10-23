@@ -1,0 +1,29 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "reject/duration-scaling-old-entry",
+      "input_sha256": "8ba7b5dc52d6d281334b989a27bac195afea749b3ce4bb1e2ce7fc18ec3b2a88",
+      "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 1,
+  "native_oracles": 0,
+  "input_sha256": "a4d13313e50b03a93fdd87a512297e94d1d7a2bc402b47b19c9fc88cd08fc8cc",
+  "output_sha256": "1cbb574764d0603fcade72f42b4cf15b20325e917acc777ed00fbc9666de6c1c",
+  "generated_normalized": {
+    "cuda": "9385916deda4cbf0f26bbae193b5f22afc77e3c23c8dc7de799762269d38f0da",
+    "metal": "68dc270a077c1a5032d2e7b5abdd2dd0f4a8d5ae32e5d0e24402f3412939584b"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 0,
+    "fresh_native_cases": 0,
+    "rejection_cases": 1,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

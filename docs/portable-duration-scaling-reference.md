@@ -1,3 +1,5 @@
+後続のGPU接続と保持検証は [持続時間の共通GPU接続](portable-duration-scaling-gpu.md) を参照。以下はCPU準備段階の記録。
+
 # 重複数に比例する持続時間の正本契約
 
 共通CLI `reference --suite duration-scaling` に31入力を登録した。

@@ -1747,7 +1747,7 @@ void tick(inout Runtime s, uint64_t when, uint output)
             for (uint pass = 0; pass < s.orderedCount; pass++)
             { uint slot = s.orderedRows[pass]; if (s.carrierDefinition[slot] == j && s.alive[slot] != 0) { resident = slot; break; } }
             if (resident == s.carrierCount) dispatch(s,1,28,definition_owner(s.inputBase,j),int(j),when,output);
-            else s.end[resident] = larger(s.end[resident],f64Add(when,definition_duration(s.inputBase,j)));
+            else s.end[resident] = larger(s.end[resident],passiveDefinitionExpiry(s,j,when));
         }
     for (uint j = 0; j < s.count && s.error == 0; j++)
         if (!f64Zero(definition_period(s.inputBase,j))) for (uint slot = 0; slot < definition_triggerCount(s.inputBase,j) && s.error == 0; slot++)

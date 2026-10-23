@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "baseline_commit": "b81bfe1dba14c349ff1e1fb3c173a9d1c872766f",
+  "sources": {
+    "gpu/reference_runtime.slang": {
+      "baseline_sha256": "78ba2636a2b1afb7f13a8ff57d46ba5b9b84a8545d55efeae2d47375f4aac149",
+      "current_sha256": "11ae1c5be25d9f637cc3a9c4f8355176f182913e5d877f0fa7cb125c82e7e118",
+      "changes": [
+        {
+          "baseline": "    present=false; return 0;\n}\nuint modeCapacityReference(inout Runtime s, uint row)\n{ return commands[s.inputBase+P_REFERENCE_DEFINITION_BASE+row*4+3]; }\n",
+          "current": "    present=false; return 0;\n}\n#include \"duration_scaling_runtime.slang\"\nuint modeCapacityReference(inout Runtime s, uint row)\n{ return commands[s.inputBase+P_REFERENCE_DEFINITION_BASE+row*4+3]; }\n"
+        },
+        {
+          "baseline": "        Definition d=readDefinition(s.inputBase,row);\n        uint magazine=commands[at+3],capacityKey=magazine&511U,capacityName=magazine>>9;\n        if (magazine!=0 && ((magazine&~0x1ffffU)!=0 || d.kind!=2 || s.combat==0 || capacityKey==0 || capacityKey>s.resourceCount ||\n            capacityName!=commands[s.inputBase+P_RESOURCE_NAME_BASE+capacityKey-1] || commands[s.inputBase+P_MODE_BASE+row*P_MODE_WORDS+21]!=0)) return false;\n        if ((d.flags&~3583U)!=0 || uint((d.flags&4)!=0)!=uint(scale!=0)) return false;\n",
+          "current": "        Definition d=readDefinition(s.inputBase,row);\n        uint magazine=commands[at+3],capacityKey=magazine&511U,capacityName=magazine>>9;\n        if((magazine&0x80000000U)!=0)\n        {\n#ifdef PORTABLE_DURATION_SCALING\n            capacityName=(magazine>>9)&255U;\n            if((magazine&~0x8001ffffU)!=0 || (d.kind!=0&&d.kind!=4) || s.combat==0 || commands[s.inputBase+P_WORLD_FRAME_INPUT_BASE]!=0x57533031U || !f64Finite(d.duration) ||\n               capacityKey>s.resourceCount || (capacityKey==0 ? capacityName!=0 : capacityName!=commands[s.inputBase+P_RESOURCE_NAME_BASE+capacityKey-1])) return false;\n#else\n            return false;\n#endif\n        }\n        else if (magazine!=0 && ((magazine&~0x1ffffU)!=0 || d.kind!=2 || s.combat==0 || capacityKey==0 || capacityKey>s.resourceCount ||\n            capacityName!=commands[s.inputBase+P_RESOURCE_NAME_BASE+capacityKey-1] || commands[s.inputBase+P_MODE_BASE+row*P_MODE_WORDS+21]!=0)) return false;\n        if ((d.flags&~3583U)!=0 || uint((d.flags&4)!=0)!=uint(scale!=0)) return false;\n"
+        }
+      ]
+    },
+    "gpu/dispatch_phases.slang": {
+      "baseline_sha256": "9ceb8b634835fafc30db763671c5176aca2cba46b10422b6e6d1642863dd69e5",
+      "current_sha256": "c50dcd499ff2cb5d59d85a5633177d9b67f04fab35c1bad942348c7978259516",
+      "changes": [
+        {
+          "baseline": "        {\n            uint sourceRow=row; uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;\n            if(!activationLazy) { recipientMask=filterHarmful(s,d,recipientMask,recipientOrder);if(d.polarity==2 && recipientMask==0) continue; }\n            uint capturedGeneration=d.enemyBuff!=0 && recipientMask!=0 ? (f.mode==19 ? f.repeatPassive : s.targetGeneration[firstbithigh(recipientMask>>5)]) : 0;\n",
+          "current": "        {\n            uint sourceRow=row; uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;\n            uint64_t expires=definitionExpiry(s,sourceRow,f.time);\n            if(!activationLazy) { recipientMask=filterHarmful(s,d,recipientMask,recipientOrder);if(d.polarity==2 && recipientMask==0) continue; }\n            uint capturedGeneration=d.enemyBuff!=0 && recipientMask!=0 ? (f.mode==19 ? f.repeatPassive : s.targetGeneration[firstbithigh(recipientMask>>5)]) : 0;\n"
+        },
+        {
+          "baseline": "            if (s.error!=0) break;\n            WORLD_FIELDS_BIND(s,row,d,f) s.alive[row] = 1; s.activated[row] = f.time;\n            s.end[row] = f64Less(duration,0) ? F64_INF : f64Add(f.time,duration);\n            if(activationLazy && d.stat==S_heal_overcharge_store)\n            {\n",
+          "current": "            if (s.error!=0) break;\n            WORLD_FIELDS_BIND(s,row,d,f) s.alive[row] = 1; s.activated[row] = f.time;\n            s.end[row] = expires;\n            if(activationLazy && d.stat==S_heal_overcharge_store)\n            {\n"
+        }
+      ]
+    },
+    "gpu/event_runtime.slang": {
+      "baseline_sha256": "c78bebe9158388f8bd87a35adbc43c9ccc492504a96ddfe1f33ac262da8e5a59",
+      "current_sha256": "b47f82a6f0fe34e82d644a7cf07ffa5ce64311ddcf07624ce9a8caa6d90d61c0",
+      "changes": [
+        {
+          "baseline": "            { uint slot = s.orderedRows[pass]; if (s.carrierDefinition[slot] == j && s.alive[slot] != 0) { resident = slot; break; } }\n            if (resident == s.carrierCount) dispatch(s,1,28,definition_owner(s.inputBase,j),int(j),when,output);\n            else s.end[resident] = larger(s.end[resident],f64Add(when,definition_duration(s.inputBase,j)));\n        }\n    for (uint j = 0; j < s.count && s.error == 0; j++)\n",
+          "current": "            { uint slot = s.orderedRows[pass]; if (s.carrierDefinition[slot] == j && s.alive[slot] != 0) { resident = slot; break; } }\n            if (resident == s.carrierCount) dispatch(s,1,28,definition_owner(s.inputBase,j),int(j),when,output);\n            else s.end[resident] = larger(s.end[resident],passiveDefinitionExpiry(s,j,when));\n        }\n    for (uint j = 0; j < s.count && s.error == 0; j++)\n"
+        }
+      ]
+    },
+    "gpu/program_phases.slang": {
+      "baseline_sha256": "8213b572b271cdeed6264c92669f26d353b1df6254dec2d0385e7113fb5948ed",
+      "current_sha256": "d6f63d61fc2a9b3ba3fc20e76a814c4a0a31b0a75d69e1f43decfa5e5ec31938",
+      "changes": [
+        {
+          "baseline": "    if(!initializeNativeNumeric(s)) { results[output]=64;return; }\n    initializeSkillCritical(s);\n    initializeNotCore(s);\n    for(uint word=0;word<P_PROBABILITY_STATE_WORDS;word++) results[output+P_PROBABILITY_STATE_BASE+word]=0;\n    if(commands[input+P_ENEMY_TARGET_META_BASE]!=0) mtSeed(output+P_ENEMY_RNG_BASE,uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+1])|(uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+2])<<32));\n",
+          "current": "    if(!initializeNativeNumeric(s)) { results[output]=64;return; }\n    initializeSkillCritical(s);\n    initializeNotCore(s);initializeDurationTrace(s);\n    for(uint word=0;word<P_PROBABILITY_STATE_WORDS;word++) results[output+P_PROBABILITY_STATE_BASE+word]=0;\n    if(commands[input+P_ENEMY_TARGET_META_BASE]!=0) mtSeed(output+P_ENEMY_RNG_BASE,uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+1])|(uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+2])<<32));\n"
+        }
+      ]
+    }
+  },
+  "added_sources": {
+    "gpu/duration_scaling_runtime.slang": "b9737f726a6129069fa2b0379ea0aa97d59df5df4c2834b6d2adc999f7830c01",
+    "gpu/world_duration_scaling_entry.slang": "cd3c334b411f26f0f2d32844fb9a6e7282ab270ba20610445a03ee494840578e",
+    "gpu/world_duration_scaling_diagnostic_entry.slang": "050cc4dcbaabfe8c15593cfa3ca188289170b85d97c3b17dcb0fb62b60f9ed9b"
+  }
+}

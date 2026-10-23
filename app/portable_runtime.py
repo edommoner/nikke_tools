@@ -121,6 +121,12 @@ def validate_effect(eff, *, combat=None, world_frame=False):
         from portable_reference_specs import scale_reference
         try:scale_reference(eff)
         except ValueError as error:raise UnsupportedPortable(str(error),reason='scaling') from error
+    if {'duration_scaling','duration_scaling_ref'} & eff.keys():
+        from portable_reference_specs import duration_reference
+        try:duration_reference(eff)
+        except ValueError as error:raise UnsupportedPortable(str(error),reason='fields',fields=['duration_scaling','duration_scaling_ref']) from error
+        if combat is None or not world_frame:raise UnsupportedPortable('Duration references require a private combat world',reason='fields',fields=['duration_scaling','duration_scaling_ref'])
+        allowed |= {'duration_scaling','duration_scaling_ref'}
     if stack is not None and stack[0] in (20,21):allowed |= {'scaling','scaling_ref'}
     if resource_op in (2,3):allowed |= {'minimum_remaining'}
     if eff.get('type')=='buff':allowed=allowed | {'duration_bullets','event_scope'}

@@ -68,7 +68,7 @@ def banks(limits, mode='normal'):
         rows.append(Bank('native-query-diagnostic', l['NATIVE_DIAG_BASE'], l['NATIVE_DIAG_WORDS']))
     elif mode == 'heal-share-diagnostic':
         rows.append(Bank('heal-share-diagnostic', trace_base, 8 + COUNT * trace_words))
-    elif mode == 'interrupt-aim-diagnostic':
+    elif mode in ('interrupt-aim-diagnostic','duration-scaling-diagnostic'):
         rows.append(Bank('interrupt-aim-diagnostic', l['NATIVE_DIAG_BASE'], l['NATIVE_DIAG_WORDS']))
     elif mode != 'normal':
         raise ValueError('Unknown or incompatible scratch diagnostic modes')

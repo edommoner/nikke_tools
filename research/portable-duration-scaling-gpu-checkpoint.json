@@ -1,0 +1,159 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-23T06:40:39.458697+00:00",
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "ui_backend": "cpu",
+  "development_only": true,
+  "stage": "shared-private-duration-scaling-metal",
+  "native_cases": 40,
+  "original_native_cases_preserved": 31,
+  "mixed_cases": 9,
+  "real_cases": 4,
+  "real_original_definitions": 80,
+  "real_durations": [
+    3,
+    30
+  ],
+  "real_shots": [
+    49,
+    38,
+    455,
+    444
+  ],
+  "duration_checks": 160,
+  "reference_reads": 154,
+  "stack_refresh_handler_calls": 3,
+  "shared_source_languages": [
+    "CUDA",
+    "Metal"
+  ],
+  "current_source_cuda_verified": false,
+  "metal": {
+    "device": "Apple M5",
+    "normal_inputs": 47,
+    "normal_native": 40,
+    "normal_rejected": 7,
+    "legacy_rejected": 1,
+    "diagnostic_inputs": 47,
+    "diagnostic_binary64_bitwise": true,
+    "diagnostic_omitted": 0,
+    "diagnostic_replay_gpu_calls": 0,
+    "full_inputs": 1612,
+    "full_native": 1276,
+    "full_rejected": 336,
+    "independently_sealed": true,
+    "full_package_id": "c9c13a3bea978ce7a4eeeb02fb8b33e2e6f885a10ee4849062af5b9228839605",
+    "normal_package_id": "b8722141607ce2892548ff1e3084543f46f3c10e7d0bd3fbe328287a0bad93d7",
+    "diagnostic_audit_package_id": "594a6491c732e6cc23eb212c8a5b7371af3977a63a4b0c93fbce0536a2d0d40e",
+    "shared_source_files": 127,
+    "gpu_seconds": 10.954028791747987,
+    "child_total_seconds": 43.54138724994846,
+    "runtime_stride_bytes": 138952,
+    "generation_cache_hit": true,
+    "full_additional_slang_invocations": 0,
+    "output_sha256": "5f33b4d07b041a845d47108f55c9d09af673eaf1c989f58fdc3ca9916d4bc028"
+  },
+  "cpu": {
+    "groups": 95,
+    "tests": 500,
+    "seconds": 175.5816129532177,
+    "native_preflight_seconds": 93.15381429193076,
+    "final_groups": 5,
+    "final_tests": 27,
+    "final_seconds": 12.51729145902209
+  },
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 1192,
+    "fresh_native_cases": 84,
+    "rejection_cases": 336,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  },
+  "retention": {
+    "passed": true,
+    "gpu_calls": 0,
+    "input_native_output_entries_preserved": 1612,
+    "raw_parts": [
+      {
+        "inputs": 1565,
+        "raw_bytes": 4923064320,
+        "sha256": "ff0a42bd149bc22dc6f80c518b0ac481f50ab9b682ce6ec6fae153df2c0b8193",
+        "all_bytes_identical": true
+      },
+      {
+        "inputs": 47,
+        "raw_bytes": 147849216,
+        "sha256": "baf7029de8114b6c8ae81641da716d6bc664f7566448c62f3769ee635b3977b5",
+        "all_bytes_identical": true
+      }
+    ],
+    "full_raw_bytes": 5070913536,
+    "full_output_sha256": "5f33b4d07b041a845d47108f55c9d09af673eaf1c989f58fdc3ca9916d4bc028",
+    "exclusions": []
+  },
+  "diagnostic_neutrality": {
+    "passed": true,
+    "gpu_calls": 0,
+    "input_native_fingerprints_identical": 47,
+    "diagnostic_bank": [
+      770976,
+      4112
+    ],
+    "all_outside_bank_bytes_identical": 147076160,
+    "replay_raw_bytes_identical": true,
+    "original_failure_preserved": true
+  },
+  "static_retention": {
+    "passed": true,
+    "gpu_calls": 0,
+    "all266_profile_keys_preserved": true,
+    "prior233_packed_records_and_input_hashes_preserved": true,
+    "remaining32_rejected_records_preserved": true,
+    "priority_code_order_preserved": true,
+    "removed_priority_codes": [
+      "{\"category\": \"fields\", \"fields\": [\"duration_scaling\", \"duration_scaling_ref\"], \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stealth\", \"target\": \"self\"}",
+      "{\"category\": \"fields\", \"fields\": [\"duration_scaling\", \"duration_scaling_ref\"], \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"stun\", \"target\": \"self\"}"
+    ],
+    "newly_packed": [
+      {
+        "character": "레이블",
+        "favorite_stage": 0,
+        "input_sha256": "3f9af1c0497f8b7301460769626825ecea42f817846c48af947ff13630200aaa",
+        "prepared_effects": 80
+      }
+    ],
+    "packed_profiles": 234,
+    "packed_base": 174,
+    "priority_categories": 47,
+    "full_character_verified": 0
+  },
+  "storage": {
+    "full_input_output_budget_bytes": 5744084740,
+    "reserve_bytes": 15032385536,
+    "allocated_reclaimed_bytes": 6898712576,
+    "all_full_hashes_verified": true,
+    "raw_deleted": false
+  },
+  "protected_cpu_numeric_normalizer_changes": 0,
+  "windows": {
+    "additional_operations": 0,
+    "current_source_cuda_verified": false,
+    "missing_process_cause": "unknown",
+    "preservation_verified": false
+  },
+  "failures_preserved": [
+    "normal-v1 decoder omission: all38 saved outputs verified CPU-only; new47 adds nine new inputs",
+    "diagnostic-v1 array/list comparison: corrected replay and independent bitwise seal, GPU0",
+    "CPU stack stimulus initially instant type: handler0 observed; corrected authored buff stimulus reaches3 calls"
+  ],
+  "unchanged_gpu_retries": 0,
+  "remaining": [
+    "broader_empty_immune_and_lazy_recipient_combinations",
+    "mixed_revival_target_generations_and_other_state_consumers",
+    "full_catalog_battle_validation",
+    "current_source_cuda_validation"
+  ],
+  "evidence": "research/duration-scaling-gpu-evidence"
+}

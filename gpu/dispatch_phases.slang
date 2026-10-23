@@ -188,6 +188,7 @@ void applyDefinitionFrame(inout Runtime s,inout Frame frames[32],inout int depth
         if (d.kind == 0 || d.kind == 4)
         {
             uint sourceRow=row; uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;
+            uint64_t expires=definitionExpiry(s,sourceRow,f.time);
             if(!activationLazy) { recipientMask=filterHarmful(s,d,recipientMask,recipientOrder);if(d.polarity==2 && recipientMask==0) continue; }
             uint capturedGeneration=d.enemyBuff!=0 && recipientMask!=0 ? (f.mode==19 ? f.repeatPassive : s.targetGeneration[firstbithigh(recipientMask>>5)]) : 0;
             row = findCarrier(s,row,recipientMask,f.time,capturedGeneration,recipientOrder);
@@ -207,7 +208,7 @@ void applyDefinitionFrame(inout Runtime s,inout Frame frames[32],inout int depth
             if(!live || d.maxStack!=1) s.stacks[row] = checkedStackIncrement(s.stacks[row],d.maxStack,s.error);
             if (s.error!=0) break;
             WORLD_FIELDS_BIND(s,row,d,f) s.alive[row] = 1; s.activated[row] = f.time;
-            s.end[row] = f64Less(duration,0) ? F64_INF : f64Add(f.time,duration);
+            s.end[row] = expires;
             if(activationLazy && d.stat==S_heal_overcharge_store)
             {
                 uint object=protectionObject(s,row);

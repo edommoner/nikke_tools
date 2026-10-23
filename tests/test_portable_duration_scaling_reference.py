@@ -75,9 +75,11 @@ class DurationScalingReferenceTests(unittest.TestCase):
         from portable_readiness_semantics import reference_readiness
         for stat in ('stealth','stun'):
             e=synthetic_fixtures()[0]['effects'][-1];e.update(stat=stat)
-            with self.assertRaises(UnsupportedPortable):validate_effect(e,combat={},world_frame=True)
+            with self.assertRaises(UnsupportedPortable):validate_effect(e,combat={},world_frame=False)
+            validate_effect(e,combat={},world_frame=True)
             r=reference_readiness(dict(phase='effect',category='fields',kind='buff',stat=stat,target='self',fields=['duration_scaling','duration_scaling_ref']))
-            self.assertEqual(r['reference_suites'],['duration-scaling']);self.assertEqual(r['recorded_cases'],31)
+            self.assertEqual(r['reference_suites'],['duration-scaling','duration-scaling-mixed']);self.assertEqual(r['recorded_cases'],40)
+            self.assertEqual(r['scoped_metal_validation']['expiry_checks'],160);self.assertTrue(r['scoped_metal_validation']['independently_audited'])
             for key in ('gpu_supported','gpu_admission_verified','full_character_verified','runtime_validation_performed'):self.assertIs(r[key],False)
 
 if __name__=='__main__':unittest.main()

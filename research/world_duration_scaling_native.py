@@ -7,7 +7,7 @@ from world_frame_native import roster_names
 from world_projectile_native import observe as plain
 
 @contextmanager
-def capture(names):
+def capture(names,*,stack_refresh=False):
     expiry=BuffManager._expires_at;reference=BuffManager.ref_count;checks=[];pending=[];managers=[]
     def observed_expiry(bm,effect,caster,t):
         managers[:]=[bm]
@@ -21,11 +21,18 @@ def capture(names):
         result=reference(bm,caster,ref)
         if pending:pending[-1]['reads'].append(dict(owner=names.index(caster),name=ref,value=result))
         return result
-    with patch.object(BuffManager,'_expires_at',observed_expiry),patch.object(BuffManager,'ref_count',observed_reference):yield checks,managers
+    operation=BuffManager._apply_buff_max_stack_add;operations=[]
+    def observed_operation(bm,effect,caster,t):
+        snapshot=lambda:[dict(name=a.effect.get('name'),stack=a.stack,expires_at=a.expires_at) for a in bm._active]
+        row=dict(time=t,before=snapshot()) if stack_refresh else None
+        result=operation(bm,effect,caster,t)
+        if row is not None:row['after']=snapshot();operations.append(row)
+        return result
+    with patch.object(BuffManager,'_expires_at',observed_expiry),patch.object(BuffManager,'ref_count',observed_reference),patch.object(BuffManager,'_apply_buff_max_stack_add',observed_operation):yield checks,managers,operations
 
 def observe(case):
     names=case['body']['squad'] if 'body' in case else roster_names(case)
-    with capture(names) as (checks,managers):
+    with capture(names,stack_refresh=case.get('observe_stack_refresh',False)) as (checks,managers,operations):
         if 'body' in case:
             import importlib.util
             from pathlib import Path
@@ -39,4 +46,5 @@ def observe(case):
         indices=[i for i,(e,c) in enumerate(bm._effects) if e is ab.effect and c==ab.caster];assert len(indices)==1
         carriers.append(dict(definition=indices[0],owner=names.index(ab.caster),stack=ab.stack,activated=ab.activated_at,expires_at=ab.expires_at))
     native['duration_scaling']=dict(checks=checks,carriers=carriers,definitions=len(bm._effects),trace_sha256=hashlib.sha256(json.dumps(trace,sort_keys=True,ensure_ascii=False).encode()).hexdigest())
+    if case.get('observe_stack_refresh'):native['duration_scaling']['stack_refresh']=operations
     return native,trace
