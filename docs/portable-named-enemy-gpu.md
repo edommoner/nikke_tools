@@ -1,3 +1,5 @@
+> 追記：名前付き敵の効果解除とアスカWILLE実編成の最新結果は[解除GPU接続](portable-named-enemy-removal.md)。以下は最初の対象選択接続の記録。
+
 # 名前付き効果を持つ敵の共有GPU選択
 
 `enemies_with_buff:<名前>` を既存の敵集合・名前付き状態・世代管理へ接続した。CUDA/Metal共通のSlang実装を使い、今回の実機計算はApple M5のMetalで確認した。公開入口と通常UIの受付は変えず、private / development_onlyを維持する。

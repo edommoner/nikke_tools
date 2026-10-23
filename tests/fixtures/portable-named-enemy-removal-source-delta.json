@@ -1,0 +1,11 @@
+{
+  "baseline_commit": "42f563e8987390c5a45f713bc13553a7a53e891a",
+  "sources": {
+    "gpu/named_enemy_recipient_runtime.slang": {
+      "baseline_sha256": "a446a8632bc42d8297f8ace2bb831d32030e99c74926bab46337d8bc41590246",
+      "current_sha256": "73e67afe6c898a0ca027e4ae17fc822a0fee8d4a6c66226c2b3398da3414a1bb",
+      "baseline": "d.kind==15 && d.target==2",
+      "current": "(d.kind==1 || d.kind==15) && d.target==2"
+    }
+  }
+}

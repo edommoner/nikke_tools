@@ -30,7 +30,7 @@ bool validNamedEnemyDefinitions(inout Runtime s)
         if(tag!=0x4e455231U || flags>3 || commands[at+3]!=0 || !actorStateEnabled(s) || s.combat==0 || !worldFrameEnabled(s)) return false;
         if(name==0 ? (flags!=2 || d.damageRoute==11) : (name>P_DEFINITIONS || d.damageRoute!=11 || d.damageCount!=128)) return false;
         if((flags&2U)!=0 && !(d.enemyBuff!=0 && (d.kind==0 || d.kind==4) || d.kind==3 && (d.damageFlags&H_DOT)!=0)) return false;
-        if(name!=0 && !(d.enemyBuff!=0 || d.kind==3 || d.kind==15 && d.target==2)) return false;
+        if(name!=0 && !(d.enemyBuff!=0 || d.kind==3 || (d.kind==1 || d.kind==15) && d.target==2)) return false;
         named|=name!=0;
     }
 #ifdef PORTABLE_NAMED_ENEMY_DIAGNOSTIC

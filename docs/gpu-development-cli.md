@@ -1,3 +1,7 @@
+<!-- named-enemy-removal-current -->
+名前付き敵へのremove_named_buffを既存の共有解除本体へ接続。target scopeは名前route、default/globalはtarget未消費・descriptor未追加を区別。正本16契約48dispatch/33rank/33recipient/504所持、通知時の残存所属と全battle/trace/RNG/照会回数を確認。Metal230(native171/拒否59)と独立seal成功、旧207 input/native/output・651165696B保持。別の実編成2入力は元アスカWILLE全80定義3/30sがMetal＋独立seal一致、解除0/1回・state_end0/1回を観測。GPU差分は受付1式、Runtime/stride138952/数値/normalizer/正本不変。CPU20群156(skip0)35.914秒/native12.550秒/GPU4.337秒、実編成CPU2群7/GPU2.934秒、生成cache必須hit/実行時Slang0。旧テストの既対応random1拒否を容量外6へ訂正、CPU失敗保持/GPU起動0。静的239/266・base179/203・残37分類、旧238記録/SHA保持。周期/空の解除対象名/再入callback/seq/ref/scaling/budget/広い実編成/現CUDAは残件。Windows操作0/原因unknown/保全false、全キャラ0/UI CPU/目標未達。詳細docs/portable-named-enemy-removal.mdとcheckpoint。以下は履歴。
+<!-- /named-enemy-removal-current -->
+
 <!-- named-enemy-gpu-current -->
 名前付き敵の対象選択を共有Slangのprivate入口へ接続。名前operandを非weapon MODE24..27へタグ付き格納し、既存の敵集合/所持状態/照会scope/世代を再利用。Metal207(native155/拒否52)・診断23の全69対象マスク・独立seal成功。旧175のinput/native/outputと550502400Bを保持、診断領域外72257444B同一。Runtime/stride138952/数値/normalizer/正本不変。初回の追加ダメージ4件status64は着弾の定義番号受け渡し漏れを修正、失敗/raw/claim保持・別packageで実証。CPU17群135(skip0)28.256秒/native12.033秒/GPU4.317秒、生成cache必須hit/実行時Slang0。静的238/266・base178/203・残39分類、旧237記録/SHA保持。名前付き敵remove_named_buffは未受付、seq/ref/scaling/budget/passive/実編成/現CUDA/全カタログは残件。Windows操作0/7終了unknown/保全false、全キャラ0/UI CPU/目標未達。詳細docs/portable-named-enemy-gpu.mdとcheckpoint。以下は履歴。
 <!-- /named-enemy-gpu-current -->

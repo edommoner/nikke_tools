@@ -24,7 +24,7 @@ class RemovalTests(unittest.TestCase):
    with self.subTest(value=value),self.assertRaises(ValueError):plan(e,combat={})
   e=copy.deepcopy(base);e['type']='buff'
   with self.assertRaises(ValueError):plan(e,combat={})
-  e=copy.deepcopy(base);e['target']='allies_random:1'
+  e=copy.deepcopy(base);e['target']='allies_random:6'
   with self.assertRaises(ValueError):plan(e,combat={})
   e=copy.deepcopy(base);e['target']='boss'
   with self.assertRaises(ValueError):plan(e)
