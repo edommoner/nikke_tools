@@ -89,8 +89,11 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     if eff.get('type')=='damage' and not isinstance(eff.get('stat',''),str):raise UnsupportedPortable('Damage family must be a string')
     from portable_element_specs import enabled as element_override,validate as validate_element
     validate_element(eff)
+    from portable_full_burst_landing_specs import validate as validate_landing
+    validate_landing(eff,combat=combat,world_frame=world_frame)
     allowed = {'name','source','type','stat','fixed_value','values','duration','duration_values',
                'target','trigger','note','polarity','favorite','_source_tag','_quant_group','max_ammo_reduction_exclusive','trigger_values','max_stack','max_trigger','tick_interval','tick_start','target_effect','target_skill'}
+    if 'land_in_full_burst' in eff:allowed |= {'land_in_full_burst'}
     if eff.get('type')=='damage' and eff.get('stat')=='dot_damage':allowed |= {'ramp_interval','ramp_damage_stack','post_ramp_tick_delay'}
     if element_override(eff):allowed |= {'target_code'}
     if base_copy(eff):allowed |= {'copy_from'}
@@ -288,7 +291,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     from portable_nonfull_charge_specs import compiler_effect as nonfull_compiler_effect
     from portable_focus_specs import compiler_effect as focus_compiler_effect,enabled as focus_marker,STAT as FOCUS_FIRE_STAT
     from portable_named_enemy_specs import compiler_effect as named_enemy_compiler_effect,allocate_names as named_enemy_names
-    program=legacy.compile_effects(geometry_chars,[(named_enemy_compiler_effect(nonfull_compiler_effect(pellet_shot_compiler_effect(target_compiler_effect(focus_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e)))))),owner) for e,owner in effects])
+    from portable_full_burst_landing_specs import compiler_effect as landing_compiler_effect
+    program=legacy.compile_effects(geometry_chars,[(landing_compiler_effect(named_enemy_compiler_effect(nonfull_compiler_effect(pellet_shot_compiler_effect(target_compiler_effect(focus_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e))))))),owner) for e,owner in effects])
     named_enemy_names(effects,program['states'])
     from portable_team_hit_specs import bind_compiled
     effects,binding_metadata=bind_compiled(effects,program,[c['name'] for c in chars])
@@ -425,10 +429,19 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             if pending and combat is None:raise UnsupportedPortable('Pending B3 bonus damage requires the combat controller')
             from named_target_specs import resolve_named_attack
             named=None if staged[index] is not None else resolve_named_attack(eff,owner,effects)
+            from portable_full_burst_landing_specs import plan as landing_plan
+            landing=landing_plan(eff,caster)
             pending_hits=named.deferred_bonus_hits if pending and named is not None else 1
             if pending_hits>256:raise UnsupportedPortable('Pending named attack count exceeds 256')
-            words[at:at+8]=[route,count,hits,int(eff.get('damage_formula')=='normal_attack' and not pending if world_frame else eff['stat'].split(':')[0]=='auto_damage'),*double_words(override),int(pending),pending_hits if pending else 0]
-            if pending:
+            pending_mode=2 if landing is not None else int(pending)
+            latched=(landing.count & 0xffffffff if type(landing.count) is int else 4096+program['states'][landing.count]) if landing is not None else pending_hits if pending else 0
+            words[at:at+8]=[route,count,hits,int(eff.get('damage_formula')=='normal_attack' and not pending if world_frame else eff['stat'].split(':')[0]=='auto_damage'),*double_words(override),pending_mode,latched]
+            if landing is not None:
+                from portable_full_burst_landing_specs import MAGIC as LANDING_MAGIC,OFFSET as LANDING_OFFSET
+                descriptor=L['MODE_BASE']+index*L['MODE_WORDS']+LANDING_OFFSET
+                if any(words[descriptor:descriptor+3]):raise ValueError('Full-burst landing descriptor overlaps MODE data')
+                words[descriptor:descriptor+3]=[LANDING_MAGIC,0,0]
+            if pending_mode:
                 later_names={e.get('name') for e,n in effects[index+1:] if n==owner and e.get('type')=='buff' and 'burst_cast' in e.get('trigger',{}).get('timing',[]) and e.get('name')}
                 mask=L['PENDING_EXCLUDE_BASE']+index*L['MASK_WORDS']
                 for other,(e,n) in enumerate(effects):

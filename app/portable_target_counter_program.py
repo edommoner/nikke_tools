@@ -32,7 +32,8 @@ def patch_program(words, metadata, chars, effects):
     from portable_geometry_specs import compiler_chars
     from portable_focus_specs import compiler_effect as focus_compiler_effect
     from portable_named_enemy_specs import compiler_effect as named_compiler_effect,allocate_names as named_names
-    original = detail_gpu.compile_effects(compiler_chars(chars,metadata.get('_compiler_geometry')), [(named_compiler_effect(nonfull_compiler_effect(pellet_shot_compiler_effect(compiler_effect(focus_compiler_effect(e))))), owner) for e, owner in effects])
+    from portable_full_burst_landing_specs import compiler_effect as landing_compiler_effect
+    original = detail_gpu.compile_effects(compiler_chars(chars,metadata.get('_compiler_geometry')), [(landing_compiler_effect(named_compiler_effect(nonfull_compiler_effect(pellet_shot_compiler_effect(compiler_effect(focus_compiler_effect(e)))))), owner) for e, owner in effects])
     named_names(effects,original['states'])
     allocate_names(effects, original['states'])
     # Portable code IDs include the literal enemy code even when no condition

@@ -49,7 +49,11 @@ uint64_t namedAttackMultiplier(inout Runtime s,uint base,uint who,uint64_t when)
 }
 // timeline reads these carriers directly: no recipient/runtime-condition query.
 // Capture before B3 deferral; each resident multiplication keeps native order.
-uint64_t namedDamageCoefficient(inout Runtime s,uint row,uint64_t coefficient,uint64_t when)
+uint64_t namedDamageCoefficient(inout Runtime s,uint row,uint64_t coefficient,uint64_t when
+#ifdef PORTABLE_FULL_BURST_LANDING
+    ,bool parentExclusion=false
+#endif
+)
 {
 #ifdef PORTABLE_WORLD_PROJECTILE
     if((s.quantityMask&32768)==0 || f64Zero(coefficient)) return coefficient;
@@ -60,6 +64,10 @@ uint64_t namedDamageCoefficient(inout Runtime s,uint row,uint64_t coefficient,ui
         uint slot=s.orderedRows[pass];Definition mag=residentDefinition(s,slot);
         if(s.alive[slot]==0 || mag.kind!=0 || mag.stat!=S_dmg_scale_mag_pct ||
            mag.owner!=damage.owner || mag.targetName!=int(damage.name) || !f64Less(when,s.end[slot])) continue;
+#ifdef PORTABLE_FULL_BURST_LANDING
+        uint exclusion=s.inputBase+P_PENDING_EXCLUDE_BASE+row*P_MASK_WORDS,definition=s.carrierDefinition[slot];
+        if(parentExclusion && (commands[exclusion+definition/32] & (1U<<(definition%32)))!=0) continue;
+#endif
         coefficient=f64Mul(coefficient,f64Add(ONE,f64Div(scalarValue(s,slot,mag.owner),HUNDRED)));
         if(!f64Finite(coefficient)) { s.error=16;return 0; }
     }

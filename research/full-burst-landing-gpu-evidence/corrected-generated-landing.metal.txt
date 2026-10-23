@@ -1,0 +1,49 @@
+void generateFullBurstLandings_0(uint _S8813, uint _S8814, ulong _S8815, uint _S8816, uint thread* _S8817, uint thread* _S8818, KernelContext_0 thread* kernelContext_668)
+{
+    Runtime_0 device* _S8819 = kernelContext_668->runtimeStates_0+_S8813;
+    uint _S8820 = landingHeader_0(_S8813, kernelContext_668);
+    *_S8817 = *(kernelContext_668->results_0+_S8820);
+    uint index_29 = 0U;
+    for(;;)
+    {
+        bool _S8821;
+        if(index_29 < _S8814)
+        {
+            _S8821 = (_S8819->error_0) == 0U;
+        }
+        else
+        {
+            _S8821 = false;
+        }
+        if(_S8821)
+        {
+        }
+        else
+        {
+            break;
+        }
+        uint row_82 = _S8819->pendingRow_0[index_29];
+        thread Definition_0 d_144;
+        loadDefinition_0(_S8819->inputBase_0, _S8819->pendingRow_0[index_29], &d_144);
+        Definition_0 _S8822 = d_144;
+        thread Definition_0 _S8823 = d_144;
+        uint _S8824 = Definition_damagePending_get_0(&_S8823, kernelContext_668);
+        if(_S8824 != 2U)
+        {
+            index_29 = index_29 + 1U;
+            continue;
+        }
+        _S8819->sourceTime_0 = _S8815;
+        ulong _S8825 = activationDamageCoefficient_0(_S8813, row_82, kernelContext_668);
+        ulong _S8826 = namedDamageCoefficient_0(_S8813, row_82, _S8825, _S8815, true, kernelContext_668);
+        if((_S8819->error_0) == 0U)
+        {
+            thread Definition_0 _S8827 = _S8822;
+            uint _S8828 = Definition_owner_get_0(&_S8827, kernelContext_668);
+            dispatch_0(_S8813, 34U, 0U, _S8828, int(row_82), _S8815, _S8816, _S8826, _S8819->pendingHits_0[index_29], kernelContext_668);
+        }
+        index_29 = index_29 + 1U;
+    }
+    *_S8818 = *(kernelContext_668->results_0+_S8820);
+    return;
+}

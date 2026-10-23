@@ -54,7 +54,13 @@ bool validWorldSkillDefinition(inout Runtime s,uint row,Definition d)
     if((d.damageFlags&(H_PART|65536U))!=0) return false;
 #else
     if((d.damageFlags&H_PART)!=0&&(d.damageFlags&65536U)==0) return false;
-    if((d.damageFlags&65536U)!=0&&d.damagePending!=0) return false;
+    if((d.damageFlags&65536U)!=0&&
+#ifdef PORTABLE_FULL_BURST_LANDING
+        d.damagePending==1
+#else
+        d.damagePending!=0
+#endif
+    ) return false;
 #endif
 #ifndef PORTABLE_WORLD_PROJECTILE
     // Earlier world tiers have no reach receipt or private interrupt executor.

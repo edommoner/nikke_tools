@@ -1379,6 +1379,9 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
     if ((s.healthMask&32)!=0) pushFrame(s,frames,depth,16,0,0,0,when);
     pushFrame(s,frames,depth,mode,event,owner,argument,when);
     if(mode==0 && s.error==0) frames[depth].hitCrit=notifyContext;
+#ifdef PORTABLE_FULL_BURST_LANDING
+    if(mode==34 && s.error==0) { frames[depth].mode=10;frames[depth].repeatLeft=notifyContext;frames[depth].healthValue=landingAmount;if(notifyContext!=0 && (s.quantityMask&128)!=0) frames[depth].gaugeFlat=readStat(s,owner,S_burst_charge_speed_pct,when); }
+#endif
     COUNTER_ROOT(s,frames,depth,mode) if (mode == 17 && s.error == 0) frames[depth].healthValue=landingAmount;
     uint work = 0;
     while (depth >= 0 && s.error == 0)

@@ -9,7 +9,11 @@ void advanceSkillDamageFrame(inout Runtime s, inout Frame frames[32], inout int 
     do
     {
         Definition damage = readDefinition(s.inputBase,uint(f.argument)); damage.damageHits=f.repeatLeft;
-        if (f.cursor >= damage.damageHits)
+        if (f.cursor >= damage.damageHits
+#ifdef PORTABLE_FULL_BURST_LANDING
+            && !(damage.damagePending==2 && f.cursor==0)
+#endif
+        )
         {
             depth--;
             if (s.combat != 0 && f.value != 0)
@@ -25,6 +29,9 @@ void advanceSkillDamageFrame(inout Runtime s, inout Frame frames[32], inout int 
             {
                 s.target=WORLD_SKILL_BASIS(s,damage.damageRoute>=2 || damage.damageRoute==1 ? 0 : f.target);
                 uint64_t partAmount=0,interruptAmount=0;uint interruptReach=0;
+#ifdef PORTABLE_FULL_BURST_LANDING
+                uint parentExclusion=s.damageExclusion;if(damage.damagePending==2) s.damageExclusion=uint(f.argument)+1;
+#endif
                 WORLD_SKILL_SCOPE_BEGIN(s)
 #ifdef PORTABLE_WORLD_PROJECTILE
                 if(worldSkillsEnabled(s)&&worldSkillNeedsReach(s,damage))
@@ -32,6 +39,10 @@ void advanceSkillDamageFrame(inout Runtime s, inout Frame frames[32], inout int 
                 else
 #endif
                     frames[depth].healthPrevious=damage.damageNormal!=0 ? damageValue(s,damage.owner,f.healthValue,f.time,true,s.combat!=0 ? s.coreDamageBonus[damage.owner] : s.coreBonus,damage.damageFlags,ONE,(s.attackContext[damage.owner]&1)!=0,false,damage._wireRow) : damageValue(s,damage.owner,f.healthValue,f.time,false,s.coreBonus,damage.damageFlags,ONE,false,false,damage._wireRow);
+#ifdef PORTABLE_FULL_BURST_LANDING
+                if(damage.damagePending==2) { uint ignoredCount=fullBurstLandingCount(s,uint(f.argument)); }
+                s.damageExclusion=parentExclusion;
+#endif
                 WORLD_SKILL_SCOPE_END(s)
                 // Coefficient is consumed at cursor0; subsequent hits and child
                 // returns reuse this captured part value, never the coefficient.
@@ -41,6 +52,9 @@ void advanceSkillDamageFrame(inout Runtime s, inout Frame frames[32], inout int 
                 frames[depth].repeatPassive=order;frames[depth].healthNext=s.enemyEpoch;
             }
             if (s.error!=0) break;
+#ifdef PORTABLE_FULL_BURST_LANDING
+            if(damage.damagePending==2 && damage.damageHits==0) { depth--;continue; }
+#endif
             enqueueLanding(s,uint(f.argument),f.target,frames[depth].repeatRow,frames[depth].repeatPassive,frames[depth].healthPrevious,f.time,f.cursor+1,damage.damageHits,uint(depth+1),uint(frames[depth].healthNext),frames[depth].healthValue,frames[depth].interruptAmount,frames[depth].interruptReach);
             frames[depth].cursor++;frames[depth].value++;
             if (s.error==0) pushSkillHit(s,frames,depth,damage,frames[depth].skillCritRate,f.time);

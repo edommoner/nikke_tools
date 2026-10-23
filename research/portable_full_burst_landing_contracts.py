@@ -23,5 +23,7 @@ def verify_trace(case,trace):
     if c['delayed']:assert all(v['created']==v['landed'] and abs(v['created']-35/60)<1e-12 for v in parent)
     else:assert all(abs(v['landed']-v['created']-1/60)<1e-12 for v in parent)
     if c['extra']=='legacy':assert trace[0]['row']==row+1 and trace[0]['amount']==1575
-    if c['extra']=='child':assert [v['amount'] for v in trace]==[3150,1260,3150,1323,3150,1386]
+    if c['extra']=='child':
+        assert [v['amount'] for v in trace]==[3150,1260,3150,1323,3150,1386]
+        assert all(v['created']==v['landed'] and abs(v['created']-35/60)<1e-12 for v in trace)
     return dict(parent_packets=len(parent),parent_amount=amount if parent else None,all_packets=len(trace))

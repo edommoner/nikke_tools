@@ -34,9 +34,15 @@ void enqueuePendingBurst(inout Runtime s, uint row, uint64_t when)
     if (s.pendingCount == P_PENDING) { s.error = 64; return; }
     if (s.pendingEnqueued == 0x7fffffff) { s.error = 2; return; }
     uint index = s.pendingCount++;
+#ifdef PORTABLE_FULL_BURST_LANDING
+    if(d.damagePending==1)
+#endif
     s.pendingEnqueued++;
     s.pendingRow[index] = row; s.pendingCoefficient[index] = coefficient;
     s.pendingCastTime[index] = when; s.pendingHits[index] = d.pendingHits;
+#ifdef PORTABLE_FULL_BURST_LANDING
+    if(d.damagePending==2) s.pendingHits[index]=fullBurstLandingCount(s,row);
+#endif
     s.pendingAmount[index] = 0;
 }
 void logPendingPacket(inout Runtime s,Definition d,uint row,uint index,uint hit,uint mask,uint order,uint64_t when,uint output)
@@ -55,6 +61,9 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
     for (uint index = 0; index < count && s.error == 0; index++)
     {
         uint row = s.pendingRow[index]; Definition d = readDefinition(s.inputBase,row);
+#ifdef PORTABLE_FULL_BURST_LANDING
+        if(d.damagePending==2) continue;
+#endif
 #ifndef PORTABLE_PENDING_RECALCULATE_REFERENCE
         // No event is dispatched during this calculation phase. Repeated
         // adjacent definitions with the same captured coefficient share it.
@@ -84,9 +93,15 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
         WORLD_PENDING_SCOPE_BEGIN(s) s.pendingAmount[index] = damageValue(s,d.owner,coefficient,when,false,s.coreBonus); WORLD_PENDING_SCOPE_END(s)
         s.damageExclusion = 0; s.target = target;
     }
+#ifdef PORTABLE_FULL_BURST_LANDING
+    uint fullBegin,fullEnd;generateFullBurstLandings(s,count,when,output,fullBegin,fullEnd);
+#endif
     for (uint index = 0; index < count && s.error == 0; index++)
     {
         uint row = s.pendingRow[index]; Definition d = readDefinition(s.inputBase,row); d.damageHits = s.pendingHits[index];
+#ifdef PORTABLE_FULL_BURST_LANDING
+        if(d.damagePending==2) continue;
+#endif
         for (uint hit = 0; hit < d.damageHits && s.error == 0 && !f64Zero(s.pendingAmount[index]); hit++)
         {
             WORLD_PENDING_LAND(s,d,row,index,hit,when,output) uint packedOrder; uint inherited = aimedTarget(s,d.owner);
@@ -106,6 +121,9 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
         if (s.pendingFired == 0x7fffffff) { s.error = 2; break; }
         s.pendingFired++;
     }
+#ifdef PORTABLE_FULL_BURST_LANDING
+    if(s.error==0) landFullBurstRange(s,fullBegin,fullEnd,when,output);
+#endif
     s.damageExclusion = 0;s.target=parentTarget;
     if (s.error == 0)
     {
@@ -119,11 +137,23 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
 }
 void writePendingBurst(inout Runtime s, uint output, bool entries)
 {
-    results[output] = s.pendingCount; results[output+1] = s.pendingEnqueued; results[output+2] = s.pendingFired;
+    uint logicalCount=s.pendingCount;
+#ifdef PORTABLE_FULL_BURST_LANDING
+    logicalCount=0;for(uint i=0;i<s.pendingCount;i++) if(definition_damagePending(s.inputBase,s.pendingRow[i])==1) logicalCount++;
+#endif
+    results[output] = logicalCount; results[output+1] = s.pendingEnqueued; results[output+2] = s.pendingFired;
+    uint logicalIndex=0;
     if (entries) for (uint index = 0; index < s.pendingCount; index++)
     {
-        uint at = output+4+index*8; results[at] = s.pendingRow[index];
+        #ifdef PORTABLE_FULL_BURST_LANDING
+        if(definition_damagePending(s.inputBase,s.pendingRow[index])==2) continue;
+#endif
+        uint at = output+4+logicalIndex++*8; results[at] = s.pendingRow[index];
         storeNumber(at+1,s.pendingCastTime[index]); storeNumber(at+3,s.pendingCoefficient[index]);
         results[at+5] = s.pendingHits[index]; storeNumber(at+6,s.pendingAmount[index]);
     }
 }
+
+#ifdef PORTABLE_FULL_BURST_LANDING
+#include "full_burst_landing_runtime.slang"
+#endif

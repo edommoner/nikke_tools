@@ -137,9 +137,10 @@ def pack_battle(effects, command_count, names, state_names, bindings, patterns, 
     if type(command_count) is not int or not 1 <= command_count <= COMMANDS:
         raise ValueError('Invalid world counter command count')
     for effect, owner in effects:
-        if specification(effect) is not None and effect.get('target') != 'boss':
+        if specification(effect) is not None and effect.get('target') != 'boss' and not single_body_selector(effect,bindings):
             raise ValueError('World counter carrier must explicitly bind the boss sentinel')
-    words = pack(effects, [(0, ('activate',))] * command_count, names, state_names, allow_no_counter=allow_no_counter)
+    policies=[(dict(effect,target='boss') if effect.get('target')!='boss' and single_body_selector(effect,bindings) else effect,owner) for effect,owner in effects]
+    words = pack(policies, [(0, ('activate',))] * command_count, names, state_names, allow_no_counter=allow_no_counter)
     words[6] = 1
     words[ACTION_BASE:] = [0] * (COMMANDS * ACTION_WORDS)
     if not 1 <= len(bindings) <= 128:
@@ -153,3 +154,18 @@ def pack_battle(effects, command_count, names, state_names, bindings, patterns, 
         at = ACTION_BASE + slot * 8
         words[at:at + 2] = [1 if int(binding.kind)==1 else 2, reach]
     return words
+
+
+def single_body_selector(effect,bindings):
+    """A declared body-only world makes every supported enemy selector body-only."""
+    spec=specification(effect)
+    if spec is None or not spec.single_body or len(bindings)!=1 or int(bindings[0].kind)!=0:return False
+    from portable_enemy_specs import enemy_buff_plan
+    return enemy_buff_plan(dict(type='buff',stat='def_pct',target=effect.get('target','self'))) is not None
+
+
+def pack_single_body_selectors(words,effects,bindings):
+    from portable_specs import LIMITS as L
+    for row,(effect,owner) in enumerate(effects):
+        if effect.get('target')!='boss' and single_body_selector(effect,bindings):
+            at=L['DAMAGE_DEFINITION_BASE']+row*L['DAMAGE_DEFINITION_WORDS'];words[at:at+2]=[1,1]

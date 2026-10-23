@@ -47,10 +47,12 @@ class FullBurstLandingReferenceTests(unittest.TestCase):
             with self.subTest(fault=fault),self.assertRaises(AssertionError):verify(c,b)
         b=copy.deepcopy(t);b[0]['amount']+=1
         with self.assertRaises(AssertionError):verify_trace(c,b)
-    def test_gpu_admission_remains_closed(self):
+    def test_private_host_admission_has_explicit_world_requirement(self):
         for c in fixtures():
             e=next(e for e in c['effects'] if e.get('name')=='landing')
-            with self.assertRaises(ValueError):portable_runtime.validate_effect(e,combat=c['combat'],world_frame=True)
+            portable_runtime.validate_effect(e,combat=c['combat'],world_frame=True)
+            with self.assertRaises(ValueError):portable_runtime.validate_effect(e,combat=c['combat'],world_frame=False)
+            with self.assertRaises(ValueError):portable_runtime.validate_effect(e,combat=None,world_frame=True)
     def test_native_source_routing_preserves_unproven_fields(self):
         from portable_readiness_semantics import reference_readiness
         for stat in ('sequential_damage:6','sequential_damage:13'):

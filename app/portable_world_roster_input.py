@@ -121,6 +121,8 @@ def compile_world_battle(prepared, *, trace='burst', allow_physical_interrupt=Fa
     words[L['COMMAND_BASE']+step*8:L['COMMAND_BASE']+(step+1)*8] = [40, *struct.unpack('<II', struct.pack('<d', duration)), 0,0,0,0,0]
     words[2] = step+1
     append_queries(words, meta, [], duration)
+    from portable_target_counter_specs import pack_single_body_selectors
+    pack_single_body_selectors(words,bound,bindings)
     words.extend(pack_battle([(e,names.index(owner)) for e,owner in bound], words[2], names, meta['states'], bindings, patterns, allow_no_counter=True))
     words.extend(compile_clock(weapons, delays))
     words.extend(team_policy(meta, enemy.get('has_parts', False)))
