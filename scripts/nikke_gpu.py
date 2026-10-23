@@ -221,7 +221,9 @@ SUITES['heal-charge-rosters']=dict(SUITES['heal-charge'],script='research/verify
 SUITES['damage-accum-battle']=dict(SUITES['heal-charge-lifetime'],source='gpu/world_damage_accum_entry.slang',script='research/verify-world-damage-accum-short.py',golden='research/portable-world-damage-accum-short-expected.json',inputs=62,native=52,development_only=True,support_files=['research/portable-world-heal-charge-lifetime-short-expected.json'],tests=['test_portable_damage_accum_battle.py','test_portable_damage_accum_core.py','test_portable_damage_accum_reference.py'])
 SUITES['damage-accum-retention']=dict(SUITES['damage-accum-battle'],script='research/verify-world-damage-accum-retention-short.py',golden='research/portable-world-damage-accum-retention-short-expected.json',inputs=460,native=354,cpu_test_timeout=120,tests=list(dict.fromkeys(SUITES['heal-charge-lifetime-retention']['tests']+SUITES['damage-accum-battle']['tests'])))
 SUITES['damage-accum-rosters']=dict(SUITES['damage-accum-battle'],script='research/verify-world-damage-accum-rosters-short.py',golden='research/portable-world-damage-accum-rosters-short-expected.json',inputs=4,native=4,tests=SUITES['damage-accum-battle']['tests']+['test_portable_damage_accum_rosters.py'])
+SUITES['projectile-chain-reference']=dict(SUITES['damage-accum-battle'],tests=['test_portable_projectile_chain_reference.py','test_portable_projectile_chain_rosters.py','test_portable_damage_accum_core.py'],support_files=['research/portable-world-heal-charge-lifetime-short-expected.json','research/portable_projectile_chain_cases.py','research/world_projectile_chain_native.py','research/portable_projectile_chain_contracts.py','research/portable_projectile_chain_roster_cases.py'])
 SUITES['damage-accum-core']=dict(script='research/verify-damage-accum-core-short.py',golden='research/portable-damage-accum-core-short-expected.json',source='gpu/damage_accum_probe.slang',inputs=41,native=34,support_files=['research/portable-world-heal-charge-lifetime-short-expected.json'],tests=['test_portable_damage_accum_core.py','test_portable_damage_accum_reference.py','test_portable_packet_stage.py'])
+SUITES['saved-core-report-audit']=dict(SUITES['damage-accum-core'],tests=['test_portable_saved_core_report.py','test_portable_compile_cache.py'],support_files=['research/portable-damage-accum-core-short-expected.json','tests/fixtures/cuda-core-report-v4/generated/damage_accum_probe.cu','tests/fixtures/cuda-core-report-v4/generated/damage_accum_probe.metal'])
 SUITES['leftmost-retention']=dict(SUITES['leftmost'],script='research/verify-world-leftmost-retention-short.py',golden='research/portable-world-leftmost-retention-short-expected.json',inputs=74,native=59,tests=SUITES['leftmost']['tests']+['test_portable_leftmost_replay.py','test_portable_duration_scaling_gpu.py','test_portable_gpu_replay.py','test_portable_reference_migration.py'])
 SUITES['cache-preflight-regression']=dict(SUITES['duration-scaling'],tests=SUITES['duration-scaling']['tests']+['test_portable_cache_probe.py','test_portable_required_cache_preflight.py','test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_compile_cli.py','test_portable_generation_cache.py','test_portable_generation_request.py','test_portable_gpu_cli.py','test_portable_gpu_replay.py','test_portable_compiler_diagnostic.py'])
 SUITES['squad-stage-rosters']=dict(SUITES['squad-stage'],script='research/verify-world-squad-stage-rosters-short.py',golden='research/portable-world-squad-stage-rosters-short-expected.json',inputs=7,native=7)
@@ -2344,6 +2346,7 @@ def main(argv=None):
     a=sub.add_parser('consumer-audit');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
     from portable_reference import REFERENCES
+    a=sub.add_parser('saved-core-report-audit');a.add_argument('--report-root',type=Path,required=True);a.add_argument('--manifest-sha256',required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('layout-compare');a.add_argument('--before',type=Path,required=True);a.add_argument('--after',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('aimed-factor-compare');a.add_argument('--before',type=Path,required=True);a.add_argument('--after',type=Path,required=True);a.add_argument('--diagnostic',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('layout-check');a.add_argument('--out',type=Path)
@@ -2424,6 +2427,11 @@ def main(argv=None):
         result={k:inventory[k] for k in ('profile_count','packed_profiles','packed_base','forbidden_calls','classification')}
         result['report']=str(a.out.resolve());result['priority_categories']=len(inventory['priorities'])
         result['work_lane_counts']={name:len(indexes) for name,indexes in inventory['work_lanes'].items()}
+    elif a.command=='saved-core-report-audit':
+        if a.out.exists():raise ValueError('Saved report audit output already exists')
+        from portable_saved_core_report import audit
+        result=audit(a.report_root,load(ROOT/SUITES['damage-accum-core']['golden']),module(ROOT/'research/summarize-portable-cross-gpu.py').normalized,a.manifest_sha256)
+        write(a.out,result)
     elif a.command=='layout-compare':
         from portable_scratch_layout_migration import compare_captures
         receipt=compare_captures(ROOT,a.before,a.after);write(a.out,receipt)

@@ -50,7 +50,17 @@
   "retries": 0,
   "full_battle_or_character_certification": false,
   "safe_summary_sha256": "7f631f9bc6d09a8d2db4ae73bc559f202ce364c05c5f03b1753b7b4dfc1df351",
-  "small_result_transfer_pending": true,
-  "transfer_tool_cell_id": "6939",
-  "reported_full_readback_digest_matches_Metal_golden": true
+  "small_result_transfer_pending": false,
+  "reported_full_readback_digest_matches_Metal_golden": true,
+  "followup_import": {
+    "branch": "codex/cuda-damage-accum-core-v4-report",
+    "commit": "62a173324f126771b6e6b2683652f1d2175596b9",
+    "manifest_sha256": "e7c93111b6acb67f312df3c617bc8b21dc5778fc6ae9cfcd806ef3eaf1226448",
+    "files": 26,
+    "bytes": 201729,
+    "strict_generated_and_all41_fingerprints_match": true,
+    "independent_CUDA_raw_audit": false,
+    "audit": "research/damage-accum-core-evidence/windows-v4-import-audit.json",
+    "additional_gpu_compile_or_test_runs": 0
+  }
 }

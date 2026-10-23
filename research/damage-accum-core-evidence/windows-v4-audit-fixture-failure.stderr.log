@@ -1,0 +1,23 @@
+......E
+======================================================================
+ERROR: test_verified_report_stays_distinct_from_independent_cuda_raw_proof (test_portable_saved_core_report.SavedReportTests.test_verified_report_stays_distinct_from_independent_cuda_raw_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-saved-core-audit-v2/tests/test_portable_saved_core_report.py", line 16, in test_verified_report_stays_distinct_from_independent_cuda_raw_proof
+    r=self.run_audit();self.assertTrue(r['passed']);self.assertEqual((r['files'],r['bytes'],r['inputs']),(26,201729,41));self.assertFalse(r['CUDA_raw_independently_audited']);self.assertFalse(r['compiled_CUBIN_independently_audited']);self.assertFalse(r['calculation_verified']);self.assertFalse(r['environment_preservation_verified']);self.assertEqual(r['gpu_calls'],0)
+      ^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-saved-core-audit-v2/tests/test_portable_saved_core_report.py", line 11, in run_audit
+    def run_audit(self,anchor=MANIFEST):return audit(self.root,GOLDEN,cross.normalized,anchor)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-saved-core-audit-v2/app/portable_saved_core_report.py", line 23, in audit
+    path=root.joinpath(*rel.parts);need(path.resolve().is_relative_to(root) and path.is_file(),'Report path escapes root or is missing')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-saved-core-audit-v2/app/portable_saved_core_report.py", line 11, in need
+    if not condition:raise ValueError(message)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Report path escapes root or is missing
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.042s
+
+FAILED (errors=1)

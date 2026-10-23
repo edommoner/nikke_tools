@@ -73,7 +73,11 @@
     "saved_only_export_request_acknowledged": true,
     "export_thread": "01a140bc-5f3b-7661-b720-50c945596eaa",
     "export_turn": "01a169e7-aaf4-7a22-9320-1c2e1ba166e9",
-    "export_status": "in_progress"
+    "export_status": "completed",
+    "export_commit": "62a173324f126771b6e6b2683652f1d2175596b9",
+    "small_report_audit": "research/damage-accum-core-evidence/windows-v4-import-audit.json",
+    "all41_report_fingerprints_and_strict_generated_match": true,
+    "CUDA_raw_independent_audit": false
   },
   "normal_UI": "CPU",
   "full_character_certifications": 0,

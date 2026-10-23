@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "source_revision": "7e04d641efba10a4b452883f9762e697258ea927",
+  "package_id": "58e69f8b9701907cc9a9993124fff395581777652ce5c7d9037f3a68c22782a6",
+  "file": "validation-package.zip",
+  "bytes": 6514823,
+  "sha256": "a40a8a8ecf162b7b9d753251e317d013fa643eab3091cabf09fa82be26852735",
+  "suite": "damage-accum-core",
+  "inputs": 41,
+  "native_method_state_contracts": 34,
+  "rejections": 7,
+  "scope": "Scalar state operations only; not full battle GPU admission",
+  "all_package_files_match_source_revision": true,
+  "personal_settings_raw_and_compilers_excluded": true
+}

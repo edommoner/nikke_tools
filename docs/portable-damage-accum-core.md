@@ -1,3 +1,5 @@
+最新の保存CUDAレポート回収・strict指紋/cache照合は `docs/portable-saved-core-report-audit.md` を参照。26小ファイルは回収済みで、元の環境保持falseとcause unknown、CUDA raw独立監査falseを維持する。以下は状態coreの実装記録。
+
 # ダメージ蓄積の共有状態本体とMetal検証
 
 `gpu/damage_accum_core.slang` に、scalar pool・率・名前archive・放出の状態操作を実装した。`damage-accum-core` は共通CLIのsealed suiteで、34正例/7拒否の41入力を同じSlang、入力、CPU比較器でCUDA/Metalへ渡す。これは状態操作の単体検証である。戦闘への接続は後続の `docs/portable-damage-accum-battle.md` に記録し、Metal52契約・旧398保持・元2profileを独立実証した。全キャラ・全特殊効果のGPU対応は未完了。
