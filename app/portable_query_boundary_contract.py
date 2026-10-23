@@ -50,6 +50,11 @@ def baseline_interrupt_field_source(source):
 def verify(root,*,sources=None):
     root=Path(root);fixture=json.loads((root/'tests/fixtures/portable-query-boundaries.json').read_text());names=[];scope_delta=False;interrupt_delta=False;interrupt_field_delta=False
     capacity_deltas=[]
+    # The new live-ammunition source has an exact full-file inverse. Apply it
+    # before the older per-file query chain, keeping the original token hashes.
+    from portable_parent_fixed_source_contract import project_sources as project_parent
+    try:sources=project_parent(root,sources)
+    except AssertionError as error:raise AssertionError('Original query statements/signatures/macros changed') from error
     from portable_mode_capacity_source_contract import baseline_source as baseline_capacity
     for row in fixture['files']:
         source=(sources or {}).get(row['path'],(root/row['path']).read_text())
@@ -85,4 +90,4 @@ def verify(root,*,sources=None):
             actual=reviewed_scope_delta(actual);scope_delta=True
         assert len(actual)==row['token_count'] and hashlib.sha256(json.dumps(actual,separators=(',',':')).encode()).hexdigest()==row['token_sha256'],'Original query statements/signatures/macros changed: '+row['path']
     assert len(names)==6 and len(set(names))==6
-    return dict(verified=True,baseline_commit=fixture['baseline_commit'],functions=names,files=len(fixture['files']),original_file_tokens_preserved=not (scope_delta or interrupt_delta or interrupt_field_delta or capacity_deltas),unmodified_tokens_preserved=True,explicit_scope_snapshot_delta=scope_delta,explicit_interrupt_pool_delta=interrupt_delta,explicit_interrupt_field_delta=interrupt_field_delta,explicit_mode_capacity_delta=bool(capacity_deltas),reviewed_mode_capacity_sources=capacity_deltas,gpu_calls=0,scope='Six noinline boundaries and exact reviewed scalar snapshot/private interrupt admission/view/mode capacity deltas; baseline token hashes unchanged')
+    return dict(verified=True,baseline_commit=fixture['baseline_commit'],functions=names,files=len(fixture['files']),original_file_tokens_preserved=not (scope_delta or interrupt_delta or interrupt_field_delta or capacity_deltas),unmodified_tokens_preserved=True,explicit_scope_snapshot_delta=scope_delta,explicit_interrupt_pool_delta=interrupt_delta,explicit_interrupt_field_delta=interrupt_field_delta,explicit_mode_capacity_delta=bool(capacity_deltas),reviewed_mode_capacity_sources=capacity_deltas,explicit_max_ammo_scaling_delta=True,gpu_calls=0,scope='Six noinline boundaries and exact reviewed scalar snapshot/private interrupt admission/view/mode capacity deltas; baseline token hashes unchanged')

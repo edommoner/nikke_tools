@@ -176,6 +176,13 @@ class CompilerDiagnosticTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'source closure is stale'):cli.make_package('compiler-full',output)
         self.assertFalse(output.exists())
 
+    def test_registered_current_full_entry_reuses_shared_compile_and_audit(self):
+        self.m['suite']='compiler-full--max-ammo-scaling-retention'
+        self.m['golden']['baseline_suite']='max-ammo-scaling-retention'
+        self.proof();result=self.audit()
+        self.assertTrue(result['compiler_verified']);self.assertFalse(result['calculation_verified'])
+        with self.assertRaisesRegex(ValueError,'no battle adapter'):cli.open_suite(self.m)
+
     def test_full_entry_uses_shared_compile_audit_and_cannot_execute_a_battle(self):
         self.m['suite']='compiler-full';self.proof();result=self.audit()
         self.assertTrue(result['compiler_verified']);self.assertFalse(result['calculation_verified'])

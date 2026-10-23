@@ -2,6 +2,7 @@
 import hashlib,json
 from pathlib import Path
 from portable_compile_cache import quoted_headers
+from portable_compiler_certificate import full_family
 from portable_device_linker import validate_cubin
 
 PROVIDER='saved-module-jit-cubin'
@@ -15,7 +16,7 @@ def key(identity):return digest(json.dumps(identity,sort_keys=True,separators=('
 
 
 def admission(current,linked,producer,compiler,receipt,anchors):
-    if current.get('purpose','sealed')!='sealed' or linked.get('suite')!='compiler-full' or linked.get('purpose')!='compiler-diagnostic':raise ValueError('Saved CUBIN requires sealed battle and full compiler packages')
+    if current.get('purpose','sealed')!='sealed' or not full_family(linked.get('suite'),linked.get('golden',{}).get('baseline_suite')) or linked.get('purpose')!='compiler-diagnostic':raise ValueError('Saved CUBIN requires sealed battle and full compiler packages')
     baseline=current['golden'];certificate=linked['golden']
     if not baseline['source_sha256'] or any(value!=baseline['source_sha256'] for value in (certificate['source_sha256'],producer['source_sha256'],compiler['source_sha256'])):raise ValueError('Saved CUBIN source closure mismatch')
     if any(value!=baseline['generated_normalized'] for value in (certificate['generated_normalized'],producer['generated_normalized'],compiler['generated_normalized'])):raise ValueError('Saved CUBIN generated baseline mismatch')

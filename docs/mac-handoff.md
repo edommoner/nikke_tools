@@ -1,3 +1,7 @@
+<!-- compiler-certificate-current -->
+共通CLI compiler-certificateで保存Metalをfresh childから独立再監査し、登録world suiteごとのcompiler-full--suite source-only証明書を発行。Metal349/139sourceから発行成功、固定compiler packet ca71d9c0.../2556filesを作成。共通CPU32群323中322成功/Windows1skip・4.941秒、seal5成功。required generation cache hit/Slang0/GPU0・CUDA/Metal/reflection全byte保持。独立seal済みmax-ammo3 suiteを通常sealed package可能にし、実編成2もCPU3群16/native2で経路確認。旧weapon/query監査の追加差分接続漏れをCPUで検出、厳密逆変換を接続し元token/hashと失敗を保持。旧compiler-full/commands/historical、raw CUDA/prelude/toolchain/claim/Jobと保存CUBIN専用identityは維持。GPU数値/正本/ABI/normalizer変更0、Windows追加0・現CUDA compile/計算未確認・全キャラ0/UI CPU/目標未達。次は回復蓄積29の共有GPU接続と有用な固定checkpointでの短いCUDA。詳細docs/portable-compiler-certificate.mdとcheckpoint。以下は履歴。
+<!-- /compiler-certificate-current -->
+
 <!-- heal-charge-reference-current -->
 共通CLI reference --suite heal-chargeへ受けた回復量の蓄積/容量boost/放出の正本29契約を追加。scalar pool・ATK snapshot・満HP前clamp・state_end retention/cleanse/down discard・consume後の重複対象順・owner順を固定。fresh不変packageで5.963秒/関連4群27検査(skip0)成功、追加照会0・全native/trace/RNG保持。harmful指定ずれとowner順をCPUで検出、失敗保持・同時刻反例を残し別ケース追加。GPU受付拒否のまま、Slang/数値/正本変更0・GPU/Windows commands0。全266profile/241input SHA/拒否理由/Metal349 source保持、静的241/266/base181/203/残33・modelgap10/contractextension3/review20。保存CUDA2.068MB/833fn/241noinlineをCPU構造分析、既存compiler-full sourceに追加23/変更38（cache hit/性能証明ではない）。次は共有pool lifetime/放出continuation接続と最新Metal seal由来compiler package経路。全キャラ0/UI CPU/現CUDA未検証/7終了unknown/保全false/未達。詳細docs/portable-heal-charge-reference.mdとcheckpoint。以下は履歴。
 <!-- /heal-charge-reference-current -->

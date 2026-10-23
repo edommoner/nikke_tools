@@ -303,10 +303,26 @@ SUITES['compiler-full']=dict(SUITES['compiler-commands'],
     source=SUITES['heal-share-regression']['source'],
     golden='research/portable-compiler-full-heal-share-source-certificate.json')
 
+# These three current source baselines have explicit independent Metal seals.
+# Sealed package eligibility is scoped proof, not UI or full-catalog admission.
+for _sealed_suite in ('max-ammo-scaling','max-ammo-scaling-retention','max-ammo-scaling-rosters'):
+    SUITES[_sealed_suite]['development_only']=False
+
+# Full-source diagnostics are derived from registered full-world battle suites.
+# Registry choices, rather than mutable certificate fields, select full vs commands.
+from portable_compiler_certificate import alias as compiler_alias
+for _baseline,_config in list(SUITES.items()):
+    if _config.get('compiler_only') or not _config.get('script') or not _config['source'].startswith('gpu/world_') or not _config['source'].endswith('_entry.slang'):continue
+    SUITES[compiler_alias(_baseline)]=dict(SUITES['compiler-full'],source=_config['source'],
+        golden='research/portable-'+compiler_alias(_baseline)+'-source-certificate.json',
+        support_files=[_config['golden']],compiler_baseline_suite=_baseline,
+        tests=SUITES['compiler-full']['tests']+['test_portable_compiler_certificate.py','test_portable_seal.py'])
+
 # Controller validation has no numeric program to execute. Keep its CPU work
 # separate from a selected suite's battle/native preflight.
 SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
                'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py','test_portable_query_boundaries.py','test_portable_ptx_stats.py','test_portable_compiler_diagnostic.py']
+SMOKE_TESTS.append('test_portable_compiler_certificate.py')
 SMOKE_TESTS.append('test_portable_generation_cache.py')
 SMOKE_TESTS.append('test_portable_generation_separation.py')
 SMOKE_TESTS.append('test_portable_definition_view.py')
@@ -409,7 +425,7 @@ def compiler_baseline_sources(m):
     sources=m['golden']['source_sha256']
     # A full entry is already in the Metal baseline; commands adds one wrapper.
     # Choose by registered suite, never by a mutable certificate field.
-    if m['suite']=='compiler-full':return sources
+    if full_compiler(m):return sources
     return {k:v for k,v in sources.items() if k!=SUITES[m['suite']]['source']}
 
 
@@ -429,9 +445,11 @@ def verify_package(root,*,historical_compiler=False):
         if golden.get('proof_kind')!='compiler-source-only' or golden.get('calculation_verified') is not False or golden.get('executable_battle_verified') is not False or golden.get('entries')!=[]:
             raise ValueError('Compiler diagnostic cannot claim a battle proof')
         if not historical_layout and not set(SUITES[m['suite']]['support_files'])<={r['path'] for r in m['files']}:raise ValueError('Compiler shared baseline absent from payload')
+        declared=SUITES[m['suite']].get('compiler_baseline_suite')
+        if declared is not None and golden.get('baseline_suite')!=declared:raise ValueError('Compiler baseline suite mismatch')
         baseline_path=root/(historical_layout[1] if historical_layout else SUITES[m['suite']]['support_files'][0])
         baseline=load(baseline_path)
-        if sha(baseline_path.read_bytes())!=golden['baseline_golden_sha256'] or compiler_baseline_sources(m)!=baseline['source_sha256'] or (m['suite']=='compiler-full' and golden['generated_normalized']!=baseline['generated_normalized']):
+        if sha(baseline_path.read_bytes())!=golden['baseline_golden_sha256'] or compiler_baseline_sources(m)!=baseline['source_sha256'] or (full_compiler(m) and golden['generated_normalized']!=baseline['generated_normalized']):
             raise ValueError('Compiler diagnostic changed the shared baseline')
     sources=golden['source_sha256'];records={r['path']:r['sha256'] for r in m['files']}
     if not sources or SUITES[m['suite']]['source'] not in sources:raise ValueError('Package GPU source closure missing')
@@ -562,6 +580,11 @@ def is_development(m):
 
 def compiler_only(m):
     return SUITES.get(m.get('suite'),{}).get('compiler_only') is True
+
+def full_compiler(m):
+    from portable_compiler_certificate import full_family
+    config=SUITES.get(m.get('suite'),{})
+    return config.get('compiler_only') is True and full_family(m.get('suite'),config.get('compiler_baseline_suite'))
 
 
 def prepare_entries(adapter, m):
@@ -1050,8 +1073,8 @@ def audited_comparison(module, capture):
     return audit,observed[0]
 
 
-def seal_development(package_root, capture, output, *, timeout=60):
-    """Explicit GPU0 seal of a successful immutable Metal development capture."""
+def audit_saved_metal(package_root,capture,*,timeout=60,development_only=False):
+    """GPU0 audit in the saved package's own process/import context."""
     # Use the package's own imports and auditors in a fresh process. Its files
     # are verified before native work; never patch a consumed package in place.
     # Legacy adapter chains use relative module paths: anchor their cwd too.
@@ -1063,20 +1086,62 @@ controller=importlib.util.module_from_spec(s);s.loader.exec_module(controller)
 s=importlib.util.spec_from_file_location('seal_cli',root/'scripts/nikke_gpu.py')
 m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
 p=m.verify_package(root)
-if not m.is_development(p) or m.load(capture/'run.json')['backend']!='metal':raise ValueError('Metal development capture required')
+if (sys.argv[4]=='development' and not m.is_development(p)) or p.get('purpose','sealed') not in ('sealed','development') or m.load(capture/'run.json')['backend']!='metal':raise ValueError('Matching Metal battle capture required')
 a,r=controller.audited_comparison(m,capture)
 g=dict(input_sha256=r['input_sha256'],output_sha256=r['output_sha256'],source_sha256=p['golden']['source_sha256'],entries=r['entries'],generated_normalized=r['generated_normalized'])
 print(json.dumps(dict(golden=g,package_id=p['package_id'],audit=a)))
 """
-    completed=subprocess.run([sys.executable,'-c',script,str(package_root.resolve()),str(capture.resolve()),str(Path(__file__).resolve())],
+    completed=subprocess.run([sys.executable,'-c',script,str(package_root.resolve()),str(capture.resolve()),str(Path(__file__).resolve()),'development' if development_only else 'battle'],
                              cwd=package_root.resolve(),capture_output=True,text=True,check=True,timeout=timeout)
     result=json.loads(completed.stdout)
     for name,digest in result['golden']['source_sha256'].items():
         if sha((ROOT/name).read_bytes())!=digest:raise ValueError('Current source differs from verified Metal source')
+    return result
+
+
+def seal_development(package_root,capture,output,*,timeout=60):
+    """Explicit GPU0 seal of a successful immutable Metal development capture."""
+    result=audit_saved_metal(package_root,capture,timeout=timeout,development_only=True)
     with output.open('x',encoding='utf-8') as stream:
         json.dump(result['golden'],stream,ensure_ascii=False,indent=2);stream.write('\n')
     return dict(sealed=True,gpu_calls=0,package_id=result['package_id'],
                 input_count=len(result['golden']['entries']),golden=str(output.resolve()))
+
+
+def make_compiler_certificate(suite,package_root,capture,output,*,timeout=120):
+    """Re-audit saved Metal bytes using the shared seal; never run generation/GPU."""
+    from portable_compiler_certificate import certificate
+    from portable_backend import source_hashes
+    diagnostic=compiler_alias(suite)
+    if diagnostic not in SUITES or not full_compiler(dict(suite=diagnostic)):raise ValueError('Registered full-world battle suite required')
+    if type(timeout) is not int or not 1<=timeout<=180:raise ValueError('CPU certificate timeout must be1..180 seconds')
+    output.mkdir(parents=True,exist_ok=False)
+    try:
+        package=verify_package(package_root);run=load(capture/'run.json')
+        anchors={str(path):sha(path.read_bytes()) for path in (package_root/'gpu-package.json',capture/'artifacts.json',capture/'run.json')}
+        if package['suite']!=suite or compiler_only(package) or package.get('selected_cases') or run.get('backend')!='metal' or run.get('package_id')!=package['package_id']:
+            raise ValueError('Unfiltered matching Metal battle package/capture required')
+        expected_path=ROOT/SUITES[suite]['golden'];raw=expected_path.read_bytes();baseline=json.loads(raw)
+        if baseline['source_sha256']!=source_hashes(SUITES[suite]['source']):raise ValueError('Current Metal source baseline is stale')
+        if package['golden']['source_sha256']!=baseline['source_sha256']:raise ValueError('Saved Metal source closure differs from current baseline')
+        # The original immutable package owns imports and native comparisons.
+        # Existing successful flags or a user-provided seal JSON alone are insufficient.
+        proof=audit_saved_metal(package_root,capture,timeout=timeout)
+        write(output/'metal-golden.json',proof['golden'])
+        if proof['package_id']!=package['package_id'] or proof['golden']!=baseline:raise ValueError('Audited Metal output differs from the registered battle baseline')
+        result=certificate(suite,baseline,raw)
+        if raw!=expected_path.read_bytes() or baseline['source_sha256']!=source_hashes(SUITES[suite]['source']):raise ValueError('Metal baseline changed during certificate preparation')
+        if verify_package(package_root)!=package or any(sha(Path(path).read_bytes())!=digest for path,digest in anchors.items()):raise ValueError('Saved Metal package/capture changed during certificate preparation')
+        write(output/'source-certificate.json',result)
+        report=dict(passed=True,compiler_suite=diagnostic,certificate_target=SUITES[diagnostic]['golden'],
+            baseline_suite=suite,baseline_golden_sha256=sha(raw),certificate_sha256=sha((output/'source-certificate.json').read_bytes()),
+            metal_package_id=package['package_id'],metal_manifest_sha256=anchors[str(package_root/'gpu-package.json')],
+            metal_artifacts_sha256=anchors[str(capture/'artifacts.json')],metal_run_sha256=anchors[str(capture/'run.json')],metal_input_count=len(proof['golden']['entries']),
+            independent_metal_audit=True,compiler_verified=False,cache_hit_verified=False,calculation_verified=False,
+            gpu_calls=0,compiler_calls=0,scope='Compiler source identity only; audited Metal baseline is a separate calculation proof')
+        write(output/'report.json',report);return report
+    except BaseException as error:
+        write(output/'failure.json',dict(passed=False,error=type(error).__name__+': '+str(error),gpu_calls=0,compiler_calls=0));raise
 
 
 def copy_generated(capture, suite, *, partial=False):
@@ -1618,7 +1683,7 @@ def saved_linked_admission(m,request):
     from portable_linked_artifact import admission
     package=Path(request['package']).resolve();capture=Path(request['capture']).resolve()
     linked=verify_package(package,historical_compiler=True)
-    if linked['suite']!='compiler-full':raise ValueError('Saved CUBIN must originate in a full compiler package')
+    if not full_compiler(linked):raise ValueError('Saved CUBIN must originate in a full compiler package')
     result=audit_jit_link_capture(linked,capture,package_root=package)
     if not result['link_verified'] or not result['containment_verified']:raise ValueError('Saved CUBIN link chain is not verified')
     from windows_validation_observer import compare_snapshots
@@ -2263,6 +2328,7 @@ def main(argv=None):
     a=sub.add_parser('module-check');a.add_argument('--jit-opt-level',type=int,choices=range(5));a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path,required=True);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
     a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
+    a=sub.add_parser('compiler-certificate');a.add_argument('--suite',choices=[config['compiler_baseline_suite'] for config in SUITES.values() if config.get('compiler_baseline_suite')],required=True);a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=120)
     a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
     a=sub.add_parser('cache-probe');a.add_argument('--generated-cuda',type=Path,required=True);a.add_argument('--cuda-root',type=Path,required=True);a.add_argument('--compile-cache',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a.add_argument('--artifact-kind',choices=('ptx','cubin'),default='cubin');a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--require-hit',action='store_true')
@@ -2337,6 +2403,8 @@ def main(argv=None):
         os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
         result=module_capture(a.capture,a.timeout,a.original_workspace,a.jit_opt_level)
     elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out,timeout=a.timeout)
+    elif a.command=='compiler-certificate':
+        with forbid_gpu():result=make_compiler_certificate(a.suite,a.package_root,a.capture,a.out,timeout=a.timeout)
     elif a.command=='cases':
         with forbid_gpu():
             entries,_=prepare_entries(open_suite(dict(suite=a.suite)),dict(purpose='development'))

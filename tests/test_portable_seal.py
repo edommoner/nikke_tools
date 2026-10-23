@@ -89,6 +89,12 @@ def audit_capture(capture):
             finally:os.chdir(previous)
             self.assertTrue(result['sealed']);self.assertEqual(result['gpu_calls'],0)
             self.assertEqual(json.loads(output.read_text())['entries'],[dict(name='package')])
+            (package/'scripts/nikke_gpu.py').write_text(fake.replace("purpose='development'","purpose='sealed'"))
+            with patch.object(cli,'ROOT',other):
+                audited=cli.audit_saved_metal(package,capture,timeout=90)
+                self.assertEqual(audited['package_id'],'frozen')
+                with self.assertRaises(subprocess.CalledProcessError):cli.seal_development(package,capture,base/'not-development.json',timeout=90)
+            self.assertFalse((base/'not-development.json').exists())
 
 
 if __name__=='__main__':unittest.main()

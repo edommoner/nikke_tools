@@ -51,14 +51,24 @@ def verify_land_macros(root,*,event_source=None):
 def verify(root,*,phase_source=None,wrapper_source=None):
     root=Path(root);macro_contract=verify_land_macros(root);fixture=json.loads((root/'tests/fixtures/portable-weapon-frame-transplant.json').read_text())
     before=fixture['body'];assert hashlib.sha256(before.encode()).hexdigest()==fixture['body_sha256']
-    source=phase_source if phase_source is not None else (root/'gpu/weapon_frame_phases.slang').read_text()
+    # Project only the explicitly reviewed parent-quantity/source deltas before
+    # the historical native-query chain. The old token ledger is unchanged.
+    from portable_parent_fixed_source_contract import project_sources as project_parent
+    overrides={}
+    if phase_source is not None:overrides['gpu/weapon_frame_phases.slang']=phase_source
+    if wrapper_source is not None:overrides['gpu/combat_runtime.slang']=wrapper_source
+    try:reviewed=project_parent(root,overrides)
+    except AssertionError as error:
+        label='Weapon phase call/argument/snapshot/exit contract changed' if wrapper_source is not None else 'Weapon phase statements/signature changed'
+        raise AssertionError(label+': '+str(error)) from error
+    source=reviewed.get('gpu/weapon_frame_phases.slang',(root/'gpu/weapon_frame_phases.slang').read_text())
     from portable_physical_interrupt_contract import baseline_phase
     try:
         from portable_native_query_source_contract import baseline_source as baseline_native
         source,_=baseline_native(root,'gpu/weapon_frame_phases.slang',source)
         source=baseline_phase(root,source)
     except AssertionError as error:raise AssertionError('Weapon phase statements/signature changed: '+str(error)) from error
-    wrapper=wrapper_source if wrapper_source is not None else (root/'gpu/combat_runtime.slang').read_text()
+    wrapper=reviewed.get('gpu/combat_runtime.slang',(root/'gpu/combat_runtime.slang').read_text())
     parts=[]
     for i,name in enumerate(NAMES):
         signatures=re.findall(r'\bvoid\s+'+name+r'\s*\(([^{};]*)\)\s*\{',_NON_CODE.sub('',source))
@@ -91,4 +101,4 @@ def verify(root,*,phase_source=None,wrapper_source=None):
     assert tokens(body(wrapper,'weaponFrameBody'))==tokens(expected),'Weapon phase call/argument/snapshot/exit contract changed'
     return dict(verified=True,gpu_calls=0,baseline_commit=fixture['baseline_commit'],phases=list(NAMES),
         token_count=len(tokens(before)),token_sha256=hashlib.sha256(json.dumps(tokens(before),separators=(',',':')).encode()).hexdigest(),
-        land_macro_contract=macro_contract,helper_signature_contract_verified=True,wrapper_exit_contract_verified=True,reviewed_physical_interrupt_hook=True,reviewed_mode_capacity_hook=True,scope='Reconstructed original statements outside the exact physical interrupt and mode-capacity zero-ammo hooks and explicit call/argument/ready ordering. Not runtime/compiler resource proof')
+        land_macro_contract=macro_contract,helper_signature_contract_verified=True,wrapper_exit_contract_verified=True,reviewed_physical_interrupt_hook=True,reviewed_mode_capacity_hook=True,reviewed_parent_fixed_quantity_delta=True,scope='Reconstructed original statements outside the exact physical interrupt and mode-capacity zero-ammo hooks and explicit call/argument/ready ordering. Not runtime/compiler resource proof')

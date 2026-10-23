@@ -28,6 +28,12 @@ class LinkedArtifactTests(unittest.TestCase):
     def receipt(self):return saved.admission(self.current,self.linked,self.producer,self.compiler,self.link,self.anchors)
     def state(self):return dict(receipt=self.receipt(),artifact=str(self.image))
     def request(self):cli.write(self.capture/'linked-artifact-request.json',dict(package='full',capture='link'))
+    def test_registered_full_world_family_uses_same_exact_source_admission(self):
+        self.linked['suite']='compiler-full--max-ammo-scaling-retention'
+        self.linked['golden']['baseline_suite']='max-ammo-scaling-retention'
+        self.assertEqual(self.receipt()['identity']['provider'],saved.PROVIDER)
+        self.linked['golden']['baseline_suite']='other'
+        with self.assertRaisesRegex(ValueError,'full compiler'):self.receipt()
     def test_exact_source_and_header_reuse_returns_distinct_toolchain_identity(self):
         r=self.receipt();image,actual=saved.read_verified(r,self.source,self.image)
         self.assertEqual(image,linker.cubin());self.assertEqual(actual,r);self.assertEqual(r['identity']['provider'],saved.PROVIDER);self.assertNotIn('hit',r)

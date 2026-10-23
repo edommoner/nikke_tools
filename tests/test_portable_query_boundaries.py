@@ -21,6 +21,12 @@ class QueryBoundaryTests(unittest.TestCase):
         self.assertTrue(verify(ROOT)['explicit_interrupt_field_delta'])
         name='gpu/world_actor_fields.slang';source=(ROOT/name).read_text()
         with self.assertRaisesRegex(AssertionError,'statements'):verify(ROOT,sources={name:source.replace('if(commands[b]==6)','if(commands[b]==2)',1)})
+    def test_new_capacity_read_path_is_checked_before_historical_tokens(self):
+        self.assertTrue(verify(ROOT)['explicit_max_ammo_scaling_delta'])
+        name='gpu/quantity_runtime.slang';source=(ROOT/name).read_text()
+        changed=source.replace('liveQuantity(s,who,S_max_ammo_flat,when)','plainQuantity(s,who,S_max_ammo_flat,when)')
+        self.assertNotEqual(source,changed)
+        with self.assertRaisesRegex(AssertionError,'statements'):verify(ROOT,sources={name:changed})
     def test_removed_boundary_is_rejected(self):
         name='gpu/quantity_runtime.slang';s=(ROOT/name).read_text().replace('[noinline]\nuint64_t plainQuantity','uint64_t plainQuantity')
         # The new exact source-delta audit rejects this before token-boundary validation.
