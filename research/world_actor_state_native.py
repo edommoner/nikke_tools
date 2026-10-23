@@ -3,6 +3,7 @@ from impact_specs import ActorHandle,ActorKind
 from world_actor_runtime import registry_for
 from world_actor_pool_native import actor_bindings
 from portable_enemy_specs import enemy_buff_plan
+from calculator.buff_manager import _is_enemy
 from effect_runtime import state
 
 def before_finish(case,boss,manager,names,when):
@@ -20,9 +21,11 @@ def before_finish(case,boss,manager,names,when):
  for ab in manager._active:
   if ab.effect.get('_boss_bound') or ab.effect.get('type')!='buff':continue
   # Native named-enemy selectors are valid before portable lowering exists.
-  # Classify the observation without admitting a GPU route or issuing a query.
+  # Actual native recipients also classify new enemy carriers before a portable
+  # lowering exists. This reads fields and a pure label predicate only; it
+  # neither admits a GPU route nor resolves/queries a recipient again.
   raw_target=ab.effect.get('target','self')
-  if enemy_buff_plan(ab.effect) is not None or isinstance(raw_target,str) and raw_target.startswith('enemies_with_buff:'):members.append(bool(ab.target_chars));continue
+  if enemy_buff_plan(ab.effect) is not None or isinstance(raw_target,str) and raw_target.startswith('enemies_with_buff:') or ab.target_chars is not None and any(_is_enemy(n) for n in ab.target_chars):members.append(bool(ab.target_chars));continue
   allies.append(dict(name=ab.effect.get('name',''),owner=names.index(ab.caster),recipients=None if ab.target_chars is None else [names.index(n) for n in ab.target_chars],stack=ab.stack,activated=ab.activated_at,end=ab.expires_at))
  return dict(queries=queries,allied_carriers=allies,enemy_memberships=members,context_restored=True)
 
