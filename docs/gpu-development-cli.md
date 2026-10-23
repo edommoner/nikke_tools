@@ -1,3 +1,7 @@
+<!-- partial-query-current -->
+短押し＋lazy/direct数値参照の17正本契約を共通CLIへ追加し、GPUの3実差分を修正：開始/待機中の余分な辞書照会、回復倍率の全辞書参照、mode終了の無効化不足。Metal1533(native1209/拒否324)と独立seal成功。診断2の0.2〜0.8秒の全missも一致し、診断bank外6258560B保持。新17の全4465抽選・順序・最終MTを検証。旧1516のinput/native全保持、1512raw全同一、4入力はcache hit回数1wordずつ（16B）だけ減少し正本回復呼出3/2/3/3回×2に一致。他4768923632Bと新17単独/全体rawを保持。CPU95群500検査176.060秒/正本事前88.790秒/GPU11.064秒/最終5群20検査11.253秒。全体v1の故障注入はGPU前停止を保持し、正しいlayout層へ投影して同じ故障を検査。入力/正本/ソース基準1533は修正前後同一。静的全266記録・232SHA・34拒否・50分類不変。数値primitive/normalizer/Runtime/stride/容量不変。生成cache必須hit・追加Slang0。Windows操作0/原因unknown/保全false/現CUDA未検証。development_only/全キャラ0/UI CPU/未達。次は追加consumer/制御混在と全カタログ実編成。詳細[短押しと数値参照](portable-partial-query-gpu.md)とresearch/portable-partial-query-checkpoint.json。以下は履歴。
+<!-- /partial-query-current -->
+
 <!-- partial-charge-current -->
 短押し・非フルチャージをCUDA/Metal共通Slangの開発専用入口へ接続。Metal1516(native1192/拒否324)とGPU禁止の独立seal成功。追加74入力はpartial45・動的14・クロスト全77定義4・signed基準11。符号付きbaseから回数補正を引いてから最小1へclampし、signed32両端・負の小数補正・期限切れを固定。CPU95群500検査175.999秒、正本事前85.512秒、GPU11.219秒、最終12群93検査20.700秒。旧1505の全raw4734320640Bとnativeを保持し、入力変更は0/負base2件の静的header/tag/flagだけ。静的232/266・base172/203・50分類、旧231入力SHAと34拒否保持。数値primitive/normalizer/Runtime/stride/容量不変。生成cache必須hit・追加Slang0。Windows操作0/原因unknown/保全false/現CUDA未検証。public event40/tap2は未開放、development_only/全キャラ0/UI CPU/未達。次はtapとlazy/random数値readerの照会時点・混在制御の正本契約。詳細[短押しGPU接続](portable-partial-charge-gpu.md)とresearch/portable-partial-charge-checkpoint.json。以下は履歴。
 <!-- /partial-charge-current -->

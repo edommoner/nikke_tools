@@ -1197,7 +1197,7 @@ void clearMode(inout Runtime s, uint who, uint64_t when)
 {
     s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who]; s.modeShots[who] = 0; s.modeEntryUntil[who] = F64_SIGN | ONE; s.modeEntryPhase[who]=0;
     // A logical mode cancelled before any physical entry never replaced the gun.
-    if (s.physicalModeIndex[who] < 0) return;
+    if (s.physicalModeIndex[who] < 0) { invalidateNativeNumeric(s);return; }
     // End callbacks operate on the restored base magazine, not the capacity
     // captured for the old physical shot. Pending-only modes keep that shot.
     s.frameAmmoActive[who] = 0;
@@ -1206,6 +1206,9 @@ void clearMode(inout Runtime s, uint who, uint64_t when)
     s.physicalModeIndex[who] = -2; s.pendingAutoReload[who] = 0;
     s.ammo[who] = fullCapacity(s,who,s.capacity[who],true,when); s.weaponInitialized[who] = 1; s.reloadUntil[who] = F64_SIGN | ONE;
     s.charging[who] = 0; s.nextShot[who] = when; s.modeShots[who] = 0; s.postReloadUntil[who] = F64_SIGN | ONE;
+    // Native end_weapon_change invalidates after end_session restores ammo,
+    // before its named end callback and the next base-weapon frame.
+    invalidateNativeNumeric(s);
 }
 
 [noinline]

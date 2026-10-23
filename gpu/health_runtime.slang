@@ -109,8 +109,9 @@ void applyHealthBuff(inout Runtime s, uint row, uint64_t when)
 [noinline]
 uint64_t healMultiplier(inout Runtime s, uint recipient, uint source, uint64_t when)
 {
-    uint64_t received = larger(0,f64Add(ONE,f64Div(plainQuantity(s,recipient,S_heal_received_pct,when),HUNDRED)));
-    uint64_t outgoing = larger(0,f64Add(ONE,f64Div(plainQuantity(s,source,S_outgoing_heal_pct,when),HUNDRED)));
+    // Native healing uses _live_sum for these two stats, not get_buffs.
+    uint64_t received = larger(0,f64Add(ONE,f64Div(liveQuantity(s,recipient,S_heal_received_pct,when),HUNDRED)));
+    uint64_t outgoing = larger(0,f64Add(ONE,f64Div(liveQuantity(s,source,S_outgoing_heal_pct,when),HUNDRED)));
     return f64Mul(received,outgoing);
 }
 [noinline]

@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
 from portable_specs import LIMITS as L
 from portable_scratch_layout import verify, audit_sources
-from portable_scratch_layout_source_contract import ledger,project_sources
+from portable_scratch_layout_source_contract import ledger,project_sources,baseline_source
 
 
 class ScratchLayoutTests(unittest.TestCase):
@@ -51,12 +51,14 @@ class ScratchLayoutTests(unittest.TestCase):
 
     def test_all_relocation_deltas_are_exact_and_faults_rejected(self):
         project_sources(ROOT)
+        from portable_interrupt_aim_source_contract import project_sources as project_interrupt
+        projected,_=project_interrupt(ROOT)
         for name,row in ledger(ROOT)['sources'].items():
-            text=(ROOT/name).read_text()
+            text=projected.get(name,(ROOT/name).read_text())
             for c in row['changes']:
                 self.assertEqual(text.count(c['current']),1)
                 with self.subTest(name=name),self.assertRaises(AssertionError):
-                    project_sources(ROOT,{name:text.replace(c['current'],c['baseline'],1)})
+                    baseline_source(ROOT,name,text.replace(c['current'],c['baseline'],1),interrupt_projected=True)
 
 
 if __name__=='__main__':unittest.main()

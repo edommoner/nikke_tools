@@ -38,9 +38,9 @@ CPU正本、既存compiler、binary64・整数変換・powプリミティブは�
 GPU禁止の独立 `seal` を使用する。実際の成否・指紋はcheckpoint/evidenceに保存する。
 
 実編成の物理traceは容量770と省略数を保持する。全packet・全skill個別traceの証明ではない。
-広いカタログ、lazy/random数値readerとtapの混在、追加の武器・制御interleaving、現CUDAは残件。
-特に非forced tapの毎frameのeffectiveCharge照会と正本の発射時照会の差は、
-追加consumer契約で確認する必要があり、現時点で全consumer一致とはしない。
+lazy/random数値readerとtapの混在は[数値参照・抽選順](portable-partial-query-gpu.md)の17契約で
+開始時／待機時参照・回復live走査・mode終了cacheの実差分を修正し、全1533入力で保持検証した。
+広いカタログ、追加stat・武器・制御interleaving、現CUDAは残件で、全consumer一致とはしない。
 
 初期extended v1はcamera設定とDOWN_Charge fixtureの時計不整合で失敗しraw/claimを保持。
 入力を正本の静的条件へ直した別packageで検証した。絶対行→論理行の移行は

@@ -1,0 +1,107 @@
+{
+  "calculation_verified": false,
+  "entries": [
+    {
+      "name": "partial-query-late-caster",
+      "input_sha256": "f60aca38537b713aa634b3b706713265a770010178f95597311c1c6ce76f149f",
+      "output_sha256": "baa417872d8043ea89d37e1ccb6dd5584f16f08bdeb7e56f79d4f29c4164c3ca",
+      "native_sha256": "d01354b43df964abd7323a6d9a1a253ea86bd33df238bbffd68b1cff288e782d"
+    },
+    {
+      "name": "partial-query-late-hp",
+      "input_sha256": "bcb9fc020a7a567442eff798e550fb175720050f0b7ada153fa934b57f9b1338",
+      "output_sha256": "05e5acf86afa625138ea2690715d46c04c3dba72988f6b19e8b51000aff7de74",
+      "native_sha256": "58d337b877af422c45dfa635ba1000d877c6cba52e3af61877f6843def502ad4"
+    },
+    {
+      "name": "partial-query-mapped-speed",
+      "input_sha256": "e52afc154057bb4eb93c9a4f3143c5724e177ca79afb7e479aa5784aeb64d831",
+      "output_sha256": "e03fd2df65fe8bb2534def19270724cfa91202a35871e91d5e0073406553ca6c",
+      "native_sha256": "564bf21d08563810f1093f83d9343b3826e78087ff2f9edf2012b01d35927ebc"
+    },
+    {
+      "name": "partial-query-mapped-flat",
+      "input_sha256": "0ce0a2519d5e44c83e4ea38bb5867fe1bd9b312be74ae87e850e4bc2f824dd96",
+      "output_sha256": "e03fd2df65fe8bb2534def19270724cfa91202a35871e91d5e0073406553ca6c",
+      "native_sha256": "bc3443db537fe9128b12fa24e04f61b19295f7f0cb0c78ded595bdec82b8ab2c"
+    },
+    {
+      "name": "partial-query-mapped-fixed",
+      "input_sha256": "dc39f7efab4a0cf317e9b0f440e1d9edc7b40c3ad00ceea55f4c21c7b7aa57f7",
+      "output_sha256": "e03fd2df65fe8bb2534def19270724cfa91202a35871e91d5e0073406553ca6c",
+      "native_sha256": "ef75d0b1a64d469b753e48a53b1351a340316e6d1c4fbdcc9889818bd035d226"
+    },
+    {
+      "name": "partial-query-speed-and-late",
+      "input_sha256": "539ac305c5fd9cee71ca631bb58161fd12a675e95e2808c48c30b2d4ac5f1631",
+      "output_sha256": "bf82982296faef283bb2bc1bcbfbb5f76ce1c85cfcdfb71d9f50d487e3109a21",
+      "native_sha256": "af44778dfd7dacb756ff60f2653b966bee8f37273c342a8cd23097c2164ea387"
+    },
+    {
+      "name": "partial-query-expires",
+      "input_sha256": "0a0d584ece6c32435c330b6da3b250f30203eccf8444bd4b25c8713664657085",
+      "output_sha256": "d32d973d98ef914cb49ed92569e7d1cb77525218ca26c0839b03104be0a287d8",
+      "native_sha256": "94ec0cf3d27508686835cedc569fca192a3b2e306acc5a40977c8fee00e48c72"
+    },
+    {
+      "name": "partial-query-post-hit-mutation",
+      "input_sha256": "97095a7a1a736e114020f6dae31d5558a7349cd27b28b77999c49c5829c62f94",
+      "output_sha256": "5bf8a27f589ddc533cd2417d0a5d9723b8e34caf2312379dfa79249015f63556",
+      "native_sha256": "2b2e874659e2f4dda387dbd3f3c997d0ad9a5c75494c8a599cc961657001dac3"
+    },
+    {
+      "name": "partial-query-periodic-full",
+      "input_sha256": "a0d005ed0685369fdf52e408a86538d025dbe9ee2b151dd32b19a27723c98495",
+      "output_sha256": "6ee5eb37942dfe23fb89b3f4537270cfbd5e2c88aa869b30845beb575233192c",
+      "native_sha256": "0f35e741ca797b88b0e197b244a4cd8beb29e0b074fd1c0657bdda668fa45373"
+    },
+    {
+      "name": "partial-query-spontaneous-full",
+      "input_sha256": "3da51b5a9eb921671349a4c3d6b8b49eb47ee242822af9e4277d986f69cc3996",
+      "output_sha256": "d633addcf3cbe86b48664fce825c81d3561ca2d35a9c8af9e6c9f016f02d6e39",
+      "native_sha256": "7daf34460a948c1922415c2292a987a63c888e7a8f9915bf98cc71caced29eab"
+    },
+    {
+      "name": "partial-query-automatic",
+      "input_sha256": "7dad2377ccb101d37d4998385bd06773b9520377fbb1654232e15e1107d8c988",
+      "output_sha256": "e67623efb830f9dfc79e7f92176159e9f7554fff1e58daeb3823145d1b603aea",
+      "native_sha256": "8d2e1906f5bd206110296bf7a0b331e63e289c736c352d589aed266084878032"
+    },
+    {
+      "name": "partial-query-reload",
+      "input_sha256": "16bf3103b3fd3ce1d461aa48e407f358a71cfdc30cb5f859850c130c9946a683",
+      "output_sha256": "0ccfdb6d6fb7b95cd44a0af13f5012e79202edeb70150460a93256419c69b62d",
+      "native_sha256": "996fae0fa1bd9e46eb0d6cc23c246eccf790f9e09944ebf5f7ed81dec747a837"
+    },
+    {
+      "name": "partial-query-logging",
+      "input_sha256": "2cd9baa59e6b7cfa537cec10d775ff211bfe3e85ed73366464d6442fcc8aa4dd",
+      "output_sha256": "baa417872d8043ea89d37e1ccb6dd5584f16f08bdeb7e56f79d4f29c4164c3ca",
+      "native_sha256": "d01354b43df964abd7323a6d9a1a253ea86bd33df238bbffd68b1cff288e782d"
+    }
+  ],
+  "mismatches": [
+    {
+      "index": 12,
+      "name": "partial-query-callback-mode",
+      "reason": "AssertionError: ('partial-query-callback-mode', 0, ['damage', 'actor_pools', 'projectile_shots'])"
+    }
+  ],
+  "input_count": 14,
+  "native_oracles": 14,
+  "input_sha256": "d7231cafed69c32f5f29174f2f39ed6692744882202ca9be221d32510a94a26a",
+  "output_sha256": "b4ff21f7f668140cea5ecb2ddd55d1b06dc535f42212181260e62a4c53ec8128",
+  "generated_normalized": {
+    "cuda": "48a0ac1f2c88e58d645255edbb188ae4578c48e3a42eec15b1a2bb267e86599b",
+    "metal": "d812697160fe420661ff66f939142077601715c0512f0331290da8aee17ca6eb"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 13,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

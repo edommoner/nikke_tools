@@ -106,10 +106,8 @@ QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when
     result.rounded = f64Add(rounded.total,rounded.correction); return result;
 }
 [noinline]
-uint64_t plainQuantity(inout Runtime s, uint who, uint key, uint64_t when)
+uint64_t liveQuantity(inout Runtime s, uint who, uint key, uint64_t when)
 {
-    if(nativeNumericEnabled(s) && !nativeNumericBusy(s))
-    { uint64_t values[64];collectStats(s,who,when,values);if(key<64) return values[key]; }
     uint64_t result = 0;
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
@@ -117,6 +115,13 @@ uint64_t plainQuantity(inout Runtime s, uint who, uint key, uint64_t when)
         if (d.kind == 0 && d.stat == key && queryRecipient(s,row,who,when)) result = f64Add(result,d.queryResolve != 0 && d.alliedFlags == 0 ? recipientValue(s,row,who) : scalarValue(s,row,who));
     }
     return result;
+}
+[noinline]
+uint64_t plainQuantity(inout Runtime s, uint who, uint key, uint64_t when)
+{
+    if(nativeNumericEnabled(s) && !nativeNumericBusy(s))
+    { uint64_t values[64];collectStats(s,who,when,values);if(key<64) return values[key]; }
+    return liveQuantity(s,who,key,when);
 }
 [noinline]
 uint64_t periodicSkillInterval(inout Runtime s,uint definition,uint64_t base,uint64_t when)

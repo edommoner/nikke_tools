@@ -65,11 +65,13 @@ void advanceWeaponCharge(inout Runtime s,inout Weapon w,uint who,uint64_t when,u
         {
             WORLD_CONTROL_WAIT(s,who,w.chargeTime,when) WORLD_CHARGE_START(s,who) WORLD_CONTROL_START(s,who,w.chargeTime,when) s.charging[who] = 1; s.chargeStartedAt[who] = when;
             invalidateNativeNumeric(s);
-            w.infinite = uint(hasInfiniteAmmo(s,who,when));
+            // Non-forced tap returns before reading the numeric dictionary.
+            // Native only checks ammunition here for the last-bullet notice.
+            if(PARTIAL_USE_HEAVY(s,who) || s.ammo[who]==1) w.infinite = uint(hasInfiniteAmmo(s,who,when));
             if (w.infinite == 0 && s.ammo[who] == 1) dispatch(s,0,21,who,0,when,output);
             if (changedWeaponSession(s,who,epoch,mode)) return;
         }
-        s.chargeUntil[who] = f64Add(s.chargeStartedAt[who],effectiveCharge(s,who,w.chargeTime,when));
+        if(PARTIAL_USE_HEAVY(s,who)) s.chargeUntil[who] = f64Add(s.chargeStartedAt[who],effectiveCharge(s,who,w.chargeTime,when));
         WORLD_CHARGE_HOLD(s,w,who,when) if (s.error != 0 || f64Less(when,s.chargeUntil[who])) return;
         if(PARTIAL_IS_FULL(w)) dispatch(s,0,10,who,0,when,output);
         w.infinite = uint(hasInfiniteAmmo(s,who,when));

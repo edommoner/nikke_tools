@@ -1,6 +1,10 @@
 #if defined(PORTABLE_NATIVE_QUERY_DIAGNOSTIC) && defined(PORTABLE_HEAL_SHARE_DIAGNOSTIC)
 #error Native-query and heal-share diagnostic logs require separate entries
 #endif
+#ifndef PORTABLE_QUERY_WINDOW_LOWER
+#define PORTABLE_QUERY_WINDOW_LOWER ((uint64_t(0x402a9999U)<<32)|0x9999999aU)
+#define PORTABLE_QUERY_WINDOW_UPPER ((uint64_t(0x402abd70U)<<32)|0xa3d70a3dU)
+#endif
 // Read-only semantic observation in a separate compile-time diagnostic entry.
 // No additional buff/recipient query, invalidation or arithmetic is performed.
 void initializeNativeQueryDiagnostic(inout Runtime s)
@@ -12,14 +16,17 @@ void initializeNativeQueryDiagnostic(inout Runtime s)
     results[head]=0x4e514331U;results[head+8]=2;results[head+9]=2048;
 #else
     results[head]=0x4e514431U;results[head+8]=16;results[head+9]=256;
-    storeNumber(head+4,(uint64_t(0x402a9999U)<<32)|0x9999999aU); //13.3
-    storeNumber(head+6,(uint64_t(0x402abd70U)<<32)|0xa3d70a3dU); //13.37
+    storeNumber(head+4,PORTABLE_QUERY_WINDOW_LOWER); // default13.3
+    storeNumber(head+6,PORTABLE_QUERY_WINDOW_UPPER); // default13.37
 #endif
 #endif
 }
 void recordNativeQueryDiagnostic(inout Runtime s,uint who,uint target,uint exclusion,uint epoch,uint64_t when,bool hit,uint64_t values[64])
 {
 #ifdef PORTABLE_NATIVE_QUERY_DIAGNOSTIC
+#ifdef PORTABLE_QUERY_MISSES_ONLY
+    if(hit) return;
+#endif
 #ifdef PORTABLE_NATIVE_QUERY_CENSUS
     if(hit || who!=0) return;
     uint head=s.resourceOutput+P_NATIVE_DIAG_BASE;
@@ -32,7 +39,7 @@ void recordNativeQueryDiagnostic(inout Runtime s,uint who,uint target,uint exclu
     results[head+16+index*2]=results[s.resourceOutput+P_REVIVAL_BASE+6];
     results[head+17+index*2]=results[s.resourceOutput+P_REVIVAL_RNG_BASE];
 #else
-    uint64_t lower=(uint64_t(0x402a9999U)<<32)|0x9999999aU,upper=(uint64_t(0x402abd70U)<<32)|0xa3d70a3dU;
+    uint64_t lower=PORTABLE_QUERY_WINDOW_LOWER,upper=PORTABLE_QUERY_WINDOW_UPPER;
     if(f64Less(when,lower) || f64Less(upper,when)) return;
     uint head=s.resourceOutput+P_NATIVE_DIAG_BASE,index=results[head+2]++;
     if(index>=256) { results[head+3]++;return; }

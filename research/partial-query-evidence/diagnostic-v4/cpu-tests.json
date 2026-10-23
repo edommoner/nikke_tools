@@ -1,0 +1,92 @@
+[
+  {
+    "pattern": "test_portable_partial_charge.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.3482210419606417,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70253
+  },
+  {
+    "pattern": "test_portable_nonfull_charge_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.9834740420337766,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70253
+  },
+  {
+    "pattern": "test_portable_nonfull_charge_routing.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.003031875006854534,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70253
+  },
+  {
+    "pattern": "test_portable_definition_view.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.4031129579525441,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70253
+  },
+  {
+    "pattern": "test_portable_charge_control.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.799974082969129,
+    "tests": 28,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70253
+  },
+  {
+    "pattern": "test_portable_world_roster_input.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.05707012501079589,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70253
+  },
+  {
+    "pattern": "test_portable_squad_stage.py",
+    "exit_code": 0,
+    "elapsed_seconds": 5.457664874964394,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70253
+  },
+  {
+    "pattern": "test_portable_partial_query.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.858356583979912,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70253
+  },
+  {
+    "pattern": "test_portable_query_diagnostic.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.11997316603083163,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 70253
+  }
+]
