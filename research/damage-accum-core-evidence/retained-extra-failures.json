@@ -1,0 +1,6 @@
+{
+  "schema": 1,
+  "initial_untracked_test_package_rejected": true,
+  "final_sealed_replay_rejected": "Shared replay requires two development packages; v9 is sealed. No retry or GPU rerun; its complete golden equals independently auditedv8 and CPU preflight plus required generation hit verified it.",
+  "all_failure_captures_and_claims_preserved": true
+}

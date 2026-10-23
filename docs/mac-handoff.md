@@ -1,3 +1,7 @@
+<!-- damage-accum-core-current -->
+ダメージ蓄積の共有scalar状態本体を実装し、共通CLI damage-accum-coreをsealed登録。Metal41(native状態契約34/拒否7)＋独立seal成功、量/率/順序/名前archive/放出整数/activeリンク一致。旧52戦闘契約とproduction143source/Runtime138952不変、battleのGPU受付は未接続。active連結リストで順序再探索を除去、head/tailは明示別領域。probeのみresident順序counter8B。最終package47a3e486.../2592files/6509450B、CPU14成功・故障注入付き保存raw6ブロック、生成cache必須hit/Slang0/CUDA46301B。CUDA実機/速度は未確認。初回reader/拒否header差等を保持、計2source各1Metal・readerのみのGPU再実行0。成功rawのゼロ領域126287872B回収・削除0。静的242/base182/残30/全キャラ0/UI CPU/未達。Windows追加commands0、過去7終了unknown/保全false。次はこのcoreを実carrier・吸血後boss着弾・再入安全なevent50 continuationへ接続→52＋旧398＋実編成をMetal検証。詳細docs/portable-damage-accum-core.mdとcheckpoint。以下は履歴。
+<!-- /damage-accum-core-current -->
+
 <!-- damage-accum-reference-current -->
 次の未対応ダメージ蓄積4種を共通CLI reference damage-accumの正本52契約へ固定。dealt→received走査、基礎/名前率の別順序和、None/明示0、ATK snapshot、吸血後boss収集、全pool更新後通知、owner非依存first-active/名前archive、splitのみ倍率/intを確認。fresh不変package9a6e80f1...で52契約9.827秒＋10検査10.367秒、旧family通常CLI31検査成功。未移植敵carrierのreader分類修正は旧Metal398保存replay＋独立sealで全指紋/143source/raw1251999744B保持、GPU追加0。新蓄積系のGPU受付は拒否のまま。全266profile/242SHA保持、静的242/base182/残30・contract6/gap10/review14。失敗/元refresh/散弾/adds対照を保持、ゼロ領域のみ1271791616B回収・raw削除0。Windows追加0/7終了unknown/保全false/現CUDA未確認。全キャラ0/UI CPU/未達。次はscalar carrier＋global名前archive、吸血後continuation/遅延event50を共通Slangへ接続しMetal実証。詳細docs/portable-damage-accum-reference.mdとcheckpoint。以下は履歴。
 <!-- /damage-accum-reference-current -->

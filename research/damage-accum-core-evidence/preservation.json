@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "production_gpu_sources": 143,
+  "all_production_source_hashes_preserved": true,
+  "production_Runtime_stride": 138952,
+  "production_Runtime_unchanged": true,
+  "independent_golden_equals_final_sealed_package": true,
+  "final_package_id": "47a3e486e1c6cbfe155c06a4a96013396b6e615eac4bfdc38f6b7dc4edc5db27",
+  "final_package_files": 2592,
+  "final_package_zip_bytes": 6509450,
+  "new_gpu_source_closure": 3,
+  "new_probe_Runtime_stride": 8,
+  "new_probe_Runtime_scope": "Only the GPU-owned monotonic activation sequence; not the production battle Runtime",
+  "new_core_scope": "Authored scalar state operations, not native battle trace replay",
+  "old398_gpu_rerun": 0,
+  "all_character_certification": 0,
+  "new_battle_admission": false,
+  "unsupported_categories": 30,
+  "static_packed": 242
+}

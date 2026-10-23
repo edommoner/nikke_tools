@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "status": "shared_scalar_state_core_Metal41_independently_verified_battle_adapter_pending",
+  "source_parent": "8903874ecd09e06ab50f060d6f0b65fdd7f6c393",
+  "metal_package_id": "f0a4c78606c84b48009c01e564beaf8616c7c00e27bef20fc93dd218faaa2435",
+  "final_package_id": "47a3e486e1c6cbfe155c06a4a96013396b6e615eac4bfdc38f6b7dc4edc5db27",
+  "scope": "Shared scalar state store only; not complete battle GPU admission",
+  "inputs": 41,
+  "native_method_state_contracts": 34,
+  "rejections": 7,
+  "full_native_battle_contracts_retained": 52,
+  "independent_seal": true,
+  "device": "Apple M5",
+  "gpu_seconds": 0.00018945836927741766,
+  "raw_bytes": 128974848,
+  "cpu": {
+    "groups": 2,
+    "tests": 14,
+    "seconds": 10.930095583898947
+  },
+  "generation": {
+    "required_hit": true,
+    "compiler_invocations": 0,
+    "CUDA_bytes": 46301,
+    "MSL_bytes": 48927,
+    "paired_probe_Runtime_stride": 8,
+    "production_Runtime_stride": 138952,
+    "CUDA_compiler_speed_verified": false,
+    "CUDA_numerical_execution_verified": false
+  },
+  "gpu_dispatches": {
+    "total": 2,
+    "first_source": "v5; reader normalizer missing, saved replay matched34 positives and identified3 numeric-header mismatches",
+    "second_source": "v8; explicit header address, exact internal errors retained,41 pass",
+    "reader_fix_gpu_reruns": 0
+  },
+  "windows": {
+    "additional_commands": 0,
+    "seven_process_exit_cause": "unknown",
+    "environment_preservation_verified": false,
+    "next": "Only the isolated41-case package is a candidate for a bounded short CUDA check; no full-entry compile"
+  },
+  "limits": [
+    "Probe uses at most32 arena slots and8 captured notices; production1024 capacity not stressed",
+    "ATK snapshot, real carrier lifecycle, boss/parts/add routing and continuation are not connected",
+    "Native methods cover collection/rate/discharge; split emission is its exact reference expression, not the full timeline handler",
+    "No new character or battle GPU admission;52 battle contracts still CPU-only"
+  ],
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "ui_backend": "cpu",
+  "next_action": "Connect this exact core to the private battle carrier and post-lifesteal packet continuation, then prove52 native worlds plus old398 and real profiles"
+}

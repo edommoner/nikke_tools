@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-damage-accum-core-metal41-v8",
+  "raw_bytes": 128974848,
+  "raw_sha256": "1c9b7b50d9d9668ba70e81a215800b8365abdb903ab470a10c8505355c950e32",
+  "evidence_sha256": "14e8d7ebd8ff442187e015e87be3a7d8ff3eee39b437a2cdbdf5778c1d617237",
+  "raw_inode": 508670380,
+  "zero_ranges": 41,
+  "zero_range_bytes": 126287872,
+  "allocated_before": 128974848,
+  "allocated_after": 2686976,
+  "allocated_reclaimed": 126287872,
+  "full_hash_verified": true
+}
