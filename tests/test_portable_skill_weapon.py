@@ -51,7 +51,7 @@ class SkillWeaponTests(unittest.TestCase):
         e=fixtures()[1]['effects'][-1]
         for value in (None,False,1,'','LASER',[],{}):
             with self.subTest(value=value),self.assertRaises(ValueError):declaration(dict(e,weapon_type=value))
-        for changes in (dict(stat='projectile_attachment_damage'),dict(type='buff'),dict(damage_formula='skill')):
+        for changes in (dict(stat='projectile_explosion_damage'),dict(type='buff'),dict(damage_formula='skill')):
             with self.assertRaises(portable_runtime.UnsupportedPortable):portable_runtime.validate_effect(dict(e,**changes),combat={},world_frame=True)
         for combat,world in ((None,True),({},False)):
             with self.assertRaises(portable_runtime.UnsupportedPortable):portable_runtime.validate_effect(e,combat=combat,world_frame=world)

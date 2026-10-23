@@ -55,6 +55,7 @@ def validate_input(eff,*,world_frame=False):
             if timing in EVENT and EVENT[timing] not in (EVENTS|frozenset((5,22,23,33,34,35,39,40,41,42,44,45,50)) if world_frame else EVENTS):raise UnsupportedTrigger('Unported trigger timing: '+timing,domain='timing',descriptor=timing)
         from portable_charge_control_specs import parse_hold
         if world_frame and parse_hold(timing) is not None:continue
+        if world_frame and timing.startswith('weapon_hit:'):continue
         if world_frame and timing.startswith('event:accum_full:') and timing.removeprefix('event:accum_full:'):continue
         if timing.startswith('every:'):
             if not timing.endswith('s'):raise ValueError('Periodic timing requires native seconds suffix')
@@ -106,6 +107,12 @@ def pack_descriptors(words,index,row,L,F,double_words,*,effect=None,states=None,
         edge=stage in (-11,-12,-13,-14)
         if edge and (event not in (31,48) or not math.isfinite(value)):raise ValueError('Invalid compiled HP edge')
         payload=double_words(value) if edge or event==39 else [int(value)&0xffffffff,int(passive)]
+        from portable_projectile_chain_specs import reference as completion_reference
+        ref=completion_reference(effect['trigger']['timing'][slot]) if effect is not None else None
+        if ref is not None:
+            if not world_frame or event!=31 or mode!=0 or threshold!=0 or value!=0 or passive!=0 or stage!=-1:raise ValueError('Invalid named handler-completion descriptor')
+            event=51;stage=0
+            if slot==0:words[L['DEFINITION_BASE']+index*L['DEFINITION_WORDS']+F['EVENT']]=51
         words[at:at+8]=[int(event),*double_words(threshold),int(mode),int(tag)&0xffffffff,*payload,int(stage)&0xffffffff]
     for slot in range(nc):
         kind,name,arg=row[15+slot*3:18+slot*3]

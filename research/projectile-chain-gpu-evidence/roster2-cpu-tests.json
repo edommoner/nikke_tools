@@ -1,0 +1,42 @@
+[
+  {
+    "pattern": "test_portable_projectile_chain_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.561365959001705,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31655
+  },
+  {
+    "pattern": "test_portable_projectile_chain_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.25474895804654807,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31655
+  },
+  {
+    "pattern": "test_portable_damage_accum_battle.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.3704446670599282,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31655
+  },
+  {
+    "pattern": "test_portable_projectile_chain_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.532327666063793,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 31655
+  }
+]

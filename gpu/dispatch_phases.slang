@@ -15,12 +15,23 @@ void advanceSkillDamageFrame(inout Runtime s, inout Frame frames[32], inout int 
 #endif
         )
         {
+#ifdef PORTABLE_PROJECTILE_CHAIN
+            if(f.cursor==0 && f.event==1)
+            {
+                uint saved=s.target;s.target=0;WORLD_SKILL_SCOPE_BEGIN(s)
+                queryOnlyFullBurstLanding(s,uint(f.argument),f.time);
+                WORLD_SKILL_SCOPE_END(s) s.target=saved;
+            }
+#endif
             depth--;
             if (s.combat != 0 && f.value != 0)
             {
                 uint64_t gain = f64Less(damage.damageGauge,0) ? (s.physicalGaugeOwner==damage.owner+1 ? s.physicalGaugeGain : s.gain[damage.owner]) : damage.damageGauge;
                 WORLD_SKILL_GAUGE(s,damage.owner) addBurstGauge(s,f64Add(f64Mul(gain,f64FromI64(f.value)),f64Mul(f.gaugeFlat,f64FromI64(f.value))));
             }
+#ifdef PORTABLE_PROJECTILE_CHAIN
+            if(f.event==1 && s.error==0) pushFrame(s,frames,depth,0,51,damage.owner,int(damage.name),f.time);
+#endif
             continue;
         }
         if (s.landingPolicy != 0)
@@ -60,7 +71,13 @@ void advanceSkillDamageFrame(inout Runtime s, inout Frame frames[32], inout int 
             }
             if (s.error!=0) break;
 #ifdef PORTABLE_FULL_BURST_LANDING
-            if(damage.damagePending==2 && damage.damageHits==0) { depth--;continue; }
+            if(damage.damagePending==2 && damage.damageHits==0)
+            { depth--;
+#ifdef PORTABLE_PROJECTILE_CHAIN
+              if(f.event==1 && s.error==0) pushFrame(s,frames,depth,0,51,damage.owner,int(damage.name),f.time);
+#endif
+              continue;
+            }
 #endif
             enqueueLanding(s,uint(f.argument),f.target,frames[depth].repeatRow,frames[depth].repeatPassive,frames[depth].healthPrevious,f.time,f.cursor+1,damage.damageHits,uint(depth+1),uint(frames[depth].healthNext),frames[depth].healthValue,frames[depth].interruptAmount,frames[depth].interruptReach);
             frames[depth].cursor++;frames[depth].value++;
@@ -426,6 +443,9 @@ void applyDefinitionFrame(inout Runtime s,inout Frame frames[32],inout int depth
                 if (s.error==0)
                 {
                     frames[depth].repeatLeft=hits; frames[depth].healthValue=coefficient;
+#ifdef PORTABLE_PROJECTILE_CHAIN
+                    frames[depth].event=uint((d.damageFlags&524288U)!=0 && !f64Zero(originalCoefficient));
+#endif
                     // Native skill damage captures buffs before named-hit children.
                     // Unlike physical firing, later callbacks do not resample this gain.
                     if(hits!=0 && (s.quantityMask & 128)!=0) frames[depth].gaugeFlat=readStat(s,d.owner,S_burst_charge_speed_pct,f.time);
@@ -490,6 +510,9 @@ void advanceDefinitionFrame(inout Runtime s, inout Frame frames[32], inout int d
                     bool accumNamed=false;
 #ifdef PORTABLE_DAMAGE_ACCUM
                     accumNamed=event==50;
+#endif
+#ifdef PORTABLE_PROJECTILE_CHAIN
+                    accumNamed=accumNamed || event==51;
 #endif
                     if (COUNTER_NAMED(s,event,WORLD_CONTROL_NAMED(event,(event == 9 || event == 29 || event == 30 || event == 31 || event == 48 || event == 49 || event == 59 || accumNamed))) && tag != f.argument) continue;
                     if (event == 9 && commands[at+5] != f.value) continue; WORLD_PROJECTILE_SKIP_SLOT(event,stage)

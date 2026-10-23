@@ -42,6 +42,8 @@ def double_words(value):
 
 def validate_effect(eff, *, combat=None, world_frame=False):
     target=eff.get('target')
+    from portable_projectile_chain_specs import validate as validate_chain
+    validate_chain(eff,combat,world_frame)
     from portable_focus_specs import validate as validate_focus
     try:validate_focus(eff,combat=combat,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason='effect') from error
@@ -303,7 +305,8 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     from portable_named_enemy_specs import compiler_effect as named_enemy_compiler_effect,allocate_names as named_enemy_names
     from portable_full_burst_landing_specs import compiler_effect as landing_compiler_effect
     from portable_damage_accum_specs import compiler_effect as accum_compiler_effect
-    program=legacy.compile_effects(geometry_chars,[(accum_compiler_effect(landing_compiler_effect(named_enemy_compiler_effect(nonfull_compiler_effect(pellet_shot_compiler_effect(target_compiler_effect(focus_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e)))))))),owner) for e,owner in effects])
+    from portable_projectile_chain_specs import compiler_effect as chain_compiler_effect
+    program=legacy.compile_effects(geometry_chars,[(chain_compiler_effect(accum_compiler_effect(landing_compiler_effect(named_enemy_compiler_effect(nonfull_compiler_effect(pellet_shot_compiler_effect(target_compiler_effect(focus_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e))))))))),owner) for e,owner in effects])
     named_enemy_names(effects,program['states'])
     from portable_team_hit_specs import bind_compiled
     effects,binding_metadata=bind_compiled(effects,program,[c['name'] for c in chars])
@@ -482,6 +485,9 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             packet=L['DAMAGE_DEFINITION_BASE']+index*8;words[packet+4:packet+6]=double_words(0)
         if world_frame and eff.get('type')=='damage' and words[L['DAMAGE_DEFINITION_BASE']+index*8+6]!=0:fields['DAMAGE_FLAGS'] &= ~256
         if hit_critical and not parent_fixed_enabled(eff) and eff.get('type')=='damage' and eff.get('name') and words[L['DAMAGE_DEFINITION_BASE']+index*8+6]==0:fields['DAMAGE_FLAGS'] |= 131072
+        from portable_projectile_chain_specs import ordinary as ordinary_stack,FLAG as COMPLETION_FLAG
+        if ordinary_stack(eff):fields.update(KIND=0,STAT=92)
+        if world_frame and any(t.startswith('weapon_hit:') for e,_ in effects for t in e.get('trigger',{}).get('timing',[])) and eff.get('type')=='damage' and fields['KIND']==3 and not parent_fixed_enabled(eff) and eff.get('name') and words[L['DAMAGE_DEFINITION_BASE']+index*8+6]!=1:fields['DAMAGE_FLAGS'] |= COMPLETION_FLAG
         if element_override(eff):fields.update(KIND=0,STAT=ELEMENT_OVERRIDE_STAT)
         if hp_attack(eff):fields.update(KIND=0,STAT=HP_ATTACK_STAT)
         if focus_marker(eff):fields.update(KIND=0,STAT=FOCUS_FIRE_STAT)

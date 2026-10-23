@@ -37,5 +37,6 @@ def fixtures():
     c=add('all-projectiles-missing-reference',[dict(damage(),target='all_projectiles'),marker()]);c['contract']['reference_model_gap']=True
     c=add('physical-hits-are-not-handler-completions',[marker()])
     c['combat']['weapons'][0].update(mode='auto',interval=.1,min_cycle=.1,post_reload_delay=0)
+    c['post_fire_delays'][0]=0  # Auto weapons have no charge-release clock.
     c=add('normal-MG-attachment-factor',[field('projectile_attachment_dmg_pct',100,'self','attachment-factor'),damage('projectile_attachment_damage',damage_formula='normal_attack',weapon_type='MG'),marker()]);c['combat']['weapons'][0]['base_weapon_type']='MG'
     return rows

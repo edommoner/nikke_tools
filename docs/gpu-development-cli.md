@@ -1,4 +1,9 @@
 <!-- projectile-chain-reference-current -->
+
+<!-- projectile-chain-gpu-current -->
+名前付きスキル終了weapon_hitを既存damage Frame完了後のevent51へ、buff型buff_stack_addを非数値carrier stat92へ接続。CUDA/MetalのSlang・入力・native比較を共通化、Runtime全field/offset/stride138952とbinary64/正本/normalizer不変。Metal32(native24/拒否8)、元ラピ：レッドフード全87定義3/30sの2入力、旧460込み492(native378/拒否114)が全件一致・各独立seal成功。旧460 raw1,447,034,880B/新32 raw100,663,296Bと全指紋保持。CPU41群281件skip0、95.366秒＋native事前38.076秒、GPU4.549秒。初回pipeline66.165秒、同source後続.002690秒、実run generation cache必須hit/Slang0。旧descriptor sentinelのhost変換失敗と旧負例のCPU失敗を保持して修正。raw削除0、疎化で1.107GB回収。静的245/266/base185/203/残20分類、旧244SHA全保持。Windows追加実行・観測0、ゲーム/動画利用可能性の申告は因果根拠でなく7終了unknown/保全false、現full-battle CUDA未検証。通常UI CPU/全キャラ認定0/目標未達。詳細docs/portable-projectile-chain-gpu.mdとresearch/portable-projectile-chain-gpu-checkpoint.json。次は残20分類のcanonical consumer調査とfull-burst混在契約。以下は履歴。
+<!-- /projectile-chain-gpu-current -->
+
 次のラピ：レッドフードの付着弾/weapon_hit/buff型stack carrierを正本26契約＋元87定義3/30sで固定。native handler終了通知はper-packetではなくcast終了で1回、0/負hit・元係数0・名前倍率0・nested child・buff/instantの違いを実測。new GPU受付は閉じたまま、既存146 shader/旧62 source-input-native/全266記録・244 SHA/23分類code順保持、Metal460証拠を再利用。分類はGPU候補2/native extension1/model gap10/review10。Windows保存v4の26files201729Bを回収し、共通CLI saved-core-report-auditで41指紋と両生成strict指紋・cache identityを照合。cold1.453s/warm file-only.085s、CUDA raw/CUBIN独立監査やfull battle CUDAではない。7欠落はinner before/afterに0・旧7と同一identity0、role/cause unknown・環境保持falseを維持。追加GPU/Slang/NVRTC/Windows観測0。次は共有Frameのhandler終了continuation、ordinary carrier projection、matching base weapon guardとMetal/旧460/元ラピ。全キャラ0/UI CPU/未達。詳細docs/portable-projectile-chain-reference.md、docs/portable-saved-core-report-audit.mdとcheckpoint。以下は履歴。
 <!-- /projectile-chain-reference-current -->
 

@@ -1,0 +1,12 @@
+{
+  "old460": {
+    "bytes": 1447034880,
+    "sha256": "ff727ad310638d8a0848f2c18b00869c55f296948e52b54043513c143011527b",
+    "all_bytes_equal": true
+  },
+  "new32": {
+    "bytes": 100663296,
+    "sha256": "0eea02f4714a1129d1e26cc703cc22468c58da8cab86d42f250228c6a3383251",
+    "all_bytes_equal": true
+  }
+}

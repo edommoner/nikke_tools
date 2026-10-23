@@ -53,6 +53,9 @@ bool validWorldSkillDefinition(inout Runtime s,uint row,Definition d)
     if(!validParentFixed(s,row,d)) return false;
 #endif
     if((d.damageFlags&~uint(
+#ifdef PORTABLE_PROJECTILE_CHAIN
+        524288U|
+#endif
 #ifdef PORTABLE_PARENT_FIXED_DAMAGE
         262144U|
 #endif

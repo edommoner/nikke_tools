@@ -56,7 +56,7 @@ class ProjectileChainReferenceTests(unittest.TestCase):
         self.assertEqual(reference_readiness(issues[0])['lane'],'gpu_lowering_candidate')
         self.assertEqual(reference_readiness(issues[2])['lane'],'native_contract_extension')
         empty=dict(issues[0],operator=dict(domain='timing',descriptor='weapon_hit:'));self.assertEqual(reference_readiness(empty)['lane'],'reference_review');self.assertEqual(reference_readiness(dict(issues[0],operator=None))['lane'],'reference_review')
-    def test_weapon_completion_timing_stays_closed_before_shared_adapter(self):
+    def test_weapon_completion_timing_requires_private_world(self):
         c=self.cases[0]
-        with self.assertRaises(ValueError):portable_runtime.validate_effect(c['effects'][-1],combat=c['combat'],world_frame=True)
+        with self.assertRaises(ValueError):portable_runtime.validate_effect(c['effects'][-1],combat=c['combat'],world_frame=False)
 if __name__=='__main__':unittest.main()

@@ -7,7 +7,7 @@ from portable_enemy_specs import enemy_buff_plan
 KINDS={'buff_stack_add':16,'buff_stack_remove':17,'buff_stack_init':18,'buff_max_stack_add':19,'debuff_stack_add':20,'debuff_stack_remove':21}
 META_MAGIC=0x53544b31
 
-def operation(effect):return KINDS.get(effect.get('stat'),0)
+def operation(effect):return 0 if effect.get('type')=='buff' and effect.get('stat')=='buff_stack_add' else KINDS.get(effect.get('stat'),0)
 
 def plan(effect,*,combat=None):
     op=operation(effect)

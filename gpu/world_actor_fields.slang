@@ -74,7 +74,7 @@ bool actorFieldsDefinitionValid(inout Runtime s,uint row,Definition d)
 #ifdef PORTABLE_DAMAGE_ACCUM
     accumStat=d.stat>=81U && d.stat<=83U;
 #endif
-    if(WORLD_STATUS_FIELD_INVALID(s,d,d.kind!=0 || d.stat!=S_enemy_def_down_pct&&d.stat!=S_def_caster_based_pct&&d.stat!=S_received_dmg_pct&&!namedMagnitudeStat(d.stat)&&!accumStat) || d.bulletDuration!=0 || !f64Zero(d.interval) || d.lazyGroup!=0 || referenceScaleMode(s,row)!=0) return false;
+    if(WORLD_STATUS_FIELD_INVALID(s,d,d.kind!=0 || d.stat!=S_enemy_def_down_pct&&d.stat!=S_def_caster_based_pct&&d.stat!=S_received_dmg_pct&&!namedMagnitudeStat(d.stat)&&!accumStat&&!projectileCarrierStat(d.stat)) || d.bulletDuration!=0 || !f64Zero(d.interval) || d.lazyGroup!=0 || referenceScaleMode(s,row)!=0) return false;
     if(!validEnemyRoute(s.inputBase,d.damageRoute) || d.damageCount==0 || d.damageCount>256 || (d.buffEvent&2)!=0) return false;
     if(d.damageRoute==3) for(uint slot=1;slot<actorPoolCount(s);slot++)
         if(commands[actorBinding(s,slot)]==5 && commands[actorPoolDef(s,slot)]==3) return false; // Native max-HP rank has no HP for hit-only actors.

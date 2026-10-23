@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-chain-retention-metal492-v2",
+  "raw_bytes": 1547698176,
+  "raw_sha256": "81097426560613d9b76ab91e30bdec3e7a2d6747dd001554cb7158ec36d5af7b",
+  "evidence_sha256": "e5d0d841e8a50604ba7aa28fd7eab47daf6cd65a4b7632e8eba004d5453059ac",
+  "raw_inode": 508803855,
+  "zero_ranges": 3608,
+  "zero_range_bytes": 1106771968,
+  "allocated_before": 1547698176,
+  "allocated_after": 440926208,
+  "allocated_reclaimed": 1106771968,
+  "full_hash_verified": true
+}

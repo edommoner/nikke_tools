@@ -74,6 +74,15 @@ property uint statKey { get { return definition_statKey(_wireInput,_wireRow); } 
 property uint lazyGroup { get { return definition_lazyGroup(_wireInput,_wireRow); } }
 property uint queryResolve { get { return definition_queryResolve(_wireInput,_wireRow); } }
 };
+// One authored ordinary carrier identity, excluded from numeric vectors.
+bool projectileCarrierStat(uint stat)
+{
+#ifdef PORTABLE_PROJECTILE_CHAIN
+    return stat==92U;
+#else
+    return false;
+#endif
+}
 struct Frame
 {
 #ifdef PORTABLE_PARENT_FIXED_DAMAGE
@@ -1416,7 +1425,11 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
     if(mode==0 && event==12 && s.error==0) frames[depth].notifyDealt=landingAmount;
 #endif
 #ifdef PORTABLE_FULL_BURST_LANDING
-    if(mode==34 && s.error==0) { frames[depth].mode=10;frames[depth].repeatLeft=notifyContext;frames[depth].healthValue=landingAmount;if(notifyContext!=0 && (s.quantityMask&128)!=0) frames[depth].gaugeFlat=readStat(s,owner,S_burst_charge_speed_pct,when); }
+    if(mode==34 && s.error==0) {
+#ifdef PORTABLE_PROJECTILE_CHAIN
+    frames[depth].event=uint((definition_damageFlags(s.inputBase,uint(argument))&524288U)!=0 && !f64Zero(definition_value(s.inputBase,uint(argument))));
+#endif
+    frames[depth].mode=10;frames[depth].repeatLeft=notifyContext;frames[depth].healthValue=landingAmount;if(notifyContext!=0 && (s.quantityMask&128)!=0) frames[depth].gaugeFlat=readStat(s,owner,S_burst_charge_speed_pct,when); }
 #endif
     #ifdef PORTABLE_DAMAGE_ACCUM
     if(mode==39 && s.error==0) frames[depth].healthValue=landingAmount;

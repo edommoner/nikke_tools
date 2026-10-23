@@ -8,7 +8,7 @@ bool actorStatusFieldInvalid(inout Runtime s,Definition d)
 #ifdef PORTABLE_DAMAGE_ACCUM
     accumStat=d.stat>=81U && d.stat<=83U;
 #endif
-    return d.kind!=0&&d.kind!=4 || d.kind==4&&d.stat!=0 || d.kind==0&&WORLD_ENEMY_ATTACK_INVALID(s,d,d.stat!=S_enemy_def_down_pct&&d.stat!=S_def_caster_based_pct&&d.stat!=S_received_dmg_pct && !namedMagnitudeStat(d.stat) && !accumStat && d.stat!=S_taunt && d.stat!=S_stun);
+    return d.kind!=0&&d.kind!=4 || d.kind==4&&d.stat!=0 || d.kind==0&&WORLD_ENEMY_ATTACK_INVALID(s,d,d.stat!=S_enemy_def_down_pct&&d.stat!=S_def_caster_based_pct&&d.stat!=S_received_dmg_pct && !namedMagnitudeStat(d.stat) && !accumStat && !projectileCarrierStat(d.stat) && d.stat!=S_taunt && d.stat!=S_stun);
 }
 bool actorStatusScopeValid(inout Runtime s,Definition d)
 {

@@ -19,7 +19,7 @@ def damage_plan(effect):
     if len(parts)==2:
         if not parts[1]:raise ValueError('Empty hit count reference')
         if parts[1].lstrip('-').isdigit():
-            negative_landing='land_in_full_burst' in effect and -256<=int(parts[1])<0
+            negative_landing=-256<=int(parts[1])<0
             if not negative_landing and (not re.fullmatch(r'(?:0|[1-9][0-9]*)',parts[1]) or not 0<=int(parts[1])<=256):raise ValueError('Damage hit count must be an integer in 0..256')
             hits=max(0,int(parts[1]))
     target=effect.get('target','target');count=1
@@ -47,7 +47,7 @@ def damage_plan(effect):
     return route,count,hits
 
 
-ENEMY_BUFF_STATS=frozenset(('dmg_accum_dealt_atk_pct','dmg_accum_received_atk_pct','dmg_accum_rate_pct','atk_pct','atk_caster_based_pct','taunt','stun','stun_immune','def_pct','def_caster_based_pct','received_dmg_pct','dmg_scale_mag_pct','atk_buff_mag_pct','received_dmg_buff_mag_pct','stack_change_immune','buff_max_stack_add'))
+ENEMY_BUFF_STATS=frozenset(('buff_stack_add','dmg_accum_dealt_atk_pct','dmg_accum_received_atk_pct','dmg_accum_rate_pct','atk_pct','atk_caster_based_pct','taunt','stun','stun_immune','def_pct','def_caster_based_pct','received_dmg_pct','dmg_scale_mag_pct','atk_buff_mag_pct','received_dmg_buff_mag_pct','stack_change_immune','buff_max_stack_add'))
 
 def enemy_buff_plan(effect):
     """Same enemy selectors as damaging packets; current-target keeps context."""
