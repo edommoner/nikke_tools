@@ -1,0 +1,9 @@
+{
+  "stage": "existing projectile diagnostic flag only",
+  "source": "gpu/world_below_def_entry.slang",
+  "baseline_sha256": "f8426962ef84a79c26068f670fb85e6120b5954657d6f746020001c82faef7c3",
+  "diagnostic_sha256": "eafaffbc17eb69fd71c180227fc1cceb63cbf0316f5d4b1ace0de745b9caeef8",
+  "prefix": "#define PORTABLE_WORLD_PROJECTILE_DIAGNOSTIC\n",
+  "registry_addition": "SUITES['skill-weapon-admission-diagnostic']=dict(SUITES['skill-weapon'],tests=['test_portable_skill_weapon.py'])\n",
+  "normal_sources_restored": true
+}

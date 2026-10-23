@@ -136,7 +136,11 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     try:validate_revival(eff,combat=combat,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason='effect') from error
     if 'persist_on_revive' in eff:allowed |= {'persist_on_revive'}
-    effect_allowed=allowed | ({'scaling'} if eff.get('stat') in ('heal_hp_pct','cover_heal_pct','cover_hp_pct','shield_heal_pct','decoy_heal_pct') or eff.get('type')=='damage' and eff.get('stat')=='dot_damage' else set()) | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','cover_during_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult','entry_reload','max_ammo_scaling_ref'} if eff.get('type')=='weapon_change' else set())
+    from portable_skill_weapon_specs import declaration as skill_weapon_declaration
+    try:skill_weapon=skill_weapon_declaration(eff)
+    except ValueError as error:raise UnsupportedPortable(str(error),reason='fields',fields=['weapon_type']) from error
+    if skill_weapon is not None and (combat is None or not world_frame):raise UnsupportedPortable('Skill weapon annotations require a private combat world',reason='fields',fields=['weapon_type'])
+    effect_allowed=allowed | ({'weapon_type'} if skill_weapon is not None else set()) | ({'scaling'} if eff.get('stat') in ('heal_hp_pct','cover_heal_pct','cover_hp_pct','shield_heal_pct','decoy_heal_pct') or eff.get('type')=='damage' and eff.get('stat')=='dot_damage' else set()) | ({'toggle','weapon_type','damage_coeff','max_ammo','duration_bullets','charge','charge_time','full_charge_mult','reload_time','fire_rate','fire_rate_max','warmup_bullets','pellets','muzzles','post_fire_delay','cover_during_delay','first_damage_coeff','max_ammo_buff_applies','burst_energy','core_dmg_mult','entry_reload','max_ammo_scaling_ref'} if eff.get('type')=='weapon_change' else set())
     if eff.get('stat')=='squad_ammo_consume_as':effect_allowed |= {'scaling'}
     if set(eff)-effect_allowed:
         fields=sorted(set(eff)-effect_allowed)
@@ -271,6 +275,12 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     from portable_geometry_specs import compiler_chars,required as geometry_required
     if geometry is None and geometry_required(effects):raise UnsupportedPortable('Core/range effects require literal geometry input')
     geometry_chars=compiler_chars(chars,geometry)
+    from portable_skill_weapon_specs import validate_binding as validate_skill_weapon_binding,declaration as skill_weapon_declaration
+    for eff,owner in effects:
+        if skill_weapon_declaration(eff) is None:continue
+        caster=next(c for c in geometry_chars if c['name']==owner)
+        try:validate_skill_weapon_binding(eff,caster['_weapon'])
+        except ValueError as error:raise UnsupportedPortable(str(error),reason='fields',fields=['weapon_type']) from error
     from portable_target_state_specs import compiler_effect as target_compiler_effect
     from portable_pellet_shot_specs import compiler_effect as pellet_shot_compiler_effect
     from portable_nonfull_charge_specs import compiler_effect as nonfull_compiler_effect

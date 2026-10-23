@@ -5,8 +5,20 @@ def reference_readiness(issue):
     result=dict(lane='reference_review',native_consumer='not_audited',contract_coverage='not_indexed',
         gpu_supported=False,gpu_admission_verified=False,full_character_verified=False,
         runtime_validation_performed=False)
+    if issue.get('phase')=='effect' and issue.get('category')=='fields' and issue.get('kind')=='damage' and issue.get('stat')=='auto_damage' and issue.get('fields')==['weapon_type']:
+        result.update(lane='reference_model_gap',native_consumer='actor_weapon_only',contract_coverage='recorded_subset',reference_suites=['skill-weapon','skill-weapon-rosters'],recorded_cases=16,reference_model_gap_cases=6,
+            consumer_source='calculator/timeline.py:_handle_damage_eff; app/portable_skill_weapon_contract.py',
+            note='The pinned native handler reads cs.weapon and base_weapon_type, not the effect annotation. Only a known declaration equal to the caster base weapon is admitted for normal_attack auto_damage. Effect-local override or mismatched annotation semantics remain unresolved; do not infer no-op support or in-game correctness')
+        return result
     operator=issue.get('operator')
     operator=operator if isinstance(operator,dict) else {}
+    if issue.get('phase')=='gpu-admission' and issue.get('category')=='trigger' and operator.get('domain')=='condition' and operator.get('descriptor') in ('has_burst1_ally','no_burst1_ally'):
+        result.update(lane='native_contract_extension',native_consumer='confirmed_source',contract_coverage='not_indexed',recorded_cases=0,
+            consumer_source='calculator/buff_manager.py:_condition_ok; gpu/event_runtime.slang:basicConditions',
+            rejecting_tier='gpu/world_actor_fields.slang:actorFieldsDefinitionValid',
+            required_extensions=['dedicated_live_stage_presence_contract','self_exclusion_and_down_actor_contract','stage_override_and_expiry_contract','zero_name_and_argument_admission_guards','metal_original_roster_validation'],
+            note='The runtime actor-field tier does not admit these predicates although the common evaluator implements them. This routing is not a static inventory category or a successful GPU calculation. Dedicated contracts and a shared tier connection are pending')
+        return result
     if issue.get('phase')=='effect' and issue.get('category')=='fields' and issue.get('kind')=='buff' and issue.get('stat') in ('stealth','stun') and issue.get('target')=='self' and issue.get('fields')==['duration_scaling','duration_scaling_ref']:
         result.update(lane='native_contract_extension',native_consumer='confirmed_source',
             consumer_source='research/upstream/nikke-calc-master/calculator/buff_manager.py:_expires_at,ref_count,_apply',

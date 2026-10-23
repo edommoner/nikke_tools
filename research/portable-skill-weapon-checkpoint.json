@@ -1,0 +1,158 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-23T08:30:51.064169+00:00",
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "ui_backend": "cpu",
+  "development_only": true,
+  "stage": "native-skill-weapon-metadata-and-runtime-burst1-admission-diagnosis",
+  "native_contract": {
+    "synthetic": 14,
+    "observed_calculator_calls": 42,
+    "contradictory_annotation_model_gap_cases": 6,
+    "original_Anis_profiles": 2,
+    "original_definitions": 83,
+    "original_calculator_calls": 79,
+    "real_contracts": [
+      {
+        "name": "skill-weapon-real/Anis-Star/3s",
+        "verified": true,
+        "reference_model_gap": false,
+        "actual_calculator_calls": 2,
+        "handler_reached": true,
+        "declared_weapon_is_not_override": true,
+        "shots": 16
+      },
+      {
+        "name": "skill-weapon-real/Anis-Star/30s",
+        "verified": true,
+        "reference_model_gap": false,
+        "actual_calculator_calls": 77,
+        "handler_reached": true,
+        "declared_weapon_is_not_override": true,
+        "shots": 149
+      }
+    ],
+    "policy": "Only known normal_attack auto_damage annotations matching caster base metadata are accepted; no effect-local weapon override inferred"
+  },
+  "cpu": {
+    "groups": 5,
+    "tests": 37,
+    "skipped": 0,
+    "unit_seconds": 6.781166875036433,
+    "native_seconds": 1.806134624988772,
+    "package_id": "a124e076e865c05d279620ef797aff5bfdc6f49415f812a339db96c7ec404617"
+  },
+  "current_metal": {
+    "package_id": "308c83d4dd92d3f447e28a4abbab63746f6a976d90188ae98455cb4da30599f2",
+    "inputs": 10,
+    "passed": false,
+    "synthetic_comparisons_equal": 8,
+    "original_profile_rejections": 2,
+    "calculation_verified": false,
+    "unsealed": true,
+    "gpu_seconds": 0.04381612502038479,
+    "additional_slang_invocations": 0
+  },
+  "runtime_blocker": {
+    "schema": 1,
+    "stage": "runtime-admission-blocker",
+    "passed": false,
+    "calculation_verified": false,
+    "diagnostic_observed_inputs": 1,
+    "normal_observed_rejections": 2,
+    "normal_cases": [
+      "skill-weapon-real/Anis-Star/3s",
+      "skill-weapon-real/Anis-Star/30s"
+    ],
+    "source_package_id": "308c83d4dd92d3f447e28a4abbab63746f6a976d90188ae98455cb4da30599f2",
+    "diagnostic_package_id": "1e724c051e78cb73d2799b7d311e073cd80b77140feb6f247ba8621fe93fd9f7",
+    "diagnostic_stage": 8000,
+    "definition": 1,
+    "effect_name": "스타 폴 2",
+    "effect_kind": "instant",
+    "effect_stat": "remove_named_buff",
+    "condition": {
+      "domain": "condition",
+      "descriptor": "no_burst1_ally",
+      "wire": [
+        32,
+        0,
+        0,
+        0
+      ]
+    },
+    "condition_executor": "gpu/event_runtime.slang:basicConditions",
+    "rejecting_tier": "gpu/world_actor_fields.slang:actorFieldsDefinitionValid",
+    "root_cause": "Live burst1-ally predicates are implemented by basicConditions but omitted from actor-field admission; keep rejection until dedicated native/mixed contracts and shape validation are connected",
+    "related_unobserved_descriptor": "has_burst1_ally",
+    "scope": "Stage/row and literal wire observed for 3s input. 30s rejection is retained; it has the same first definition/condition but was not separately instrumented.",
+    "gpu_retries": 0,
+    "full_character_verified": 0,
+    "work_route": {
+      "lane": "native_contract_extension",
+      "native_consumer": "confirmed_source",
+      "contract_coverage": "not_indexed",
+      "gpu_supported": false,
+      "gpu_admission_verified": false,
+      "full_character_verified": false,
+      "runtime_validation_performed": false,
+      "recorded_cases": 0,
+      "consumer_source": "calculator/buff_manager.py:_condition_ok; gpu/event_runtime.slang:basicConditions",
+      "rejecting_tier": "gpu/world_actor_fields.slang:actorFieldsDefinitionValid",
+      "required_extensions": [
+        "dedicated_live_stage_presence_contract",
+        "self_exclusion_and_down_actor_contract",
+        "stage_override_and_expiry_contract",
+        "zero_name_and_argument_admission_guards",
+        "metal_original_roster_validation"
+      ],
+      "note": "The runtime actor-field tier does not admit these predicates although the common evaluator implements them. This routing is not a static inventory category or a successful GPU calculation. Dedicated contracts and a shared tier connection are pending"
+    }
+  },
+  "retained95": {
+    "passed": true,
+    "inputs": 95,
+    "native": 72,
+    "rejected": 23,
+    "independently_sealed": true,
+    "gpu_calls": 0,
+    "output_bytes": 298844160,
+    "output_sha256": "4da53ff03892e23e4f383b4444e04b9341011e7f816b09175f43af6256a4a2fa",
+    "cpu_tests": 81,
+    "new_math_and_gpu_sources": false
+  },
+  "inventory": {
+    "retained_input_hashes": 235,
+    "old_packed": 235,
+    "new_packed": 236,
+    "old_categories": 43,
+    "new_categories": 42,
+    "new_profiles": [
+      [
+        "아니스 : 스타",
+        0
+      ]
+    ],
+    "full_character_verified": 0,
+    "runtime_rejections_kept_separate": true
+  },
+  "diagnostic": {
+    "inputs": 1,
+    "purpose": "failed admission localization, not calculation certification",
+    "gpu_seconds": 0.013202624977566302,
+    "retries": 0,
+    "normal_sources_restored": true
+  },
+  "windows": {
+    "operations_this_milestone": 0,
+    "current_source_cuda_verified": false,
+    "missing_process_cause": "unknown",
+    "preservation_verified": false
+  },
+  "next": [
+    "Fix missing actor-field admission for dynamic has/no burst1 ally predicates only after isolated live-stage/self-exclusion/down/override native contracts and malformed-wire guards",
+    "Revalidate complete original Anis profiles and retain previous suites on the corrected shared source",
+    "Current-source bounded CUDA, full1612 private-entry retention, remaining42 static categories and full catalog battles"
+  ]
+}

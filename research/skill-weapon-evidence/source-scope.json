@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "protected_sources_unchanged": [
+    "app/detail_gpu.py",
+    "app/engine_worker.py",
+    "app/effect_spec.py",
+    "app/engine_compat.py",
+    "app/portable_backend.py",
+    "app/portable_compile_cache.py",
+    "research/windows_validation_observer.py",
+    "research/run-world-bounded.py",
+    "research/summarize-portable-cross-gpu.py"
+  ],
+  "all_gpu_sources_unchanged": true,
+  "final_package_input_native_gpu_baselines_equal": true,
+  "diagnostic_flag_and_registry_restored": true,
+  "source_variant": "existing diagnostic flag was packaged in a separate immutable experiment; never a successful calculation proof",
+  "gpu_calls": 0
+}

@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "cpu-batch.json",
+      "bytes": 650,
+      "sha256": "885c7ef88da80b3ec2cb76eea3814c0bd4902548c6da6b99d45c131d4cc34df1"
+    },
+    {
+      "path": "cpu-batch.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "cpu-batch.stdout.log",
+      "bytes": 58,
+      "sha256": "dac3f7ad6395ac9d1e046246cb7d3b8f40cbec9c3b9c00440bd0d8016be7cf0c"
+    },
+    {
+      "path": "cpu-tests.json",
+      "bytes": 1947,
+      "sha256": "07dec3114799e80964a8a466d06f0f328ddf93fd0a3464c10950f1802605bdb7"
+    },
+    {
+      "path": "cpu.json",
+      "bytes": 247,
+      "sha256": "eb0ce80a5178f40966734b841d16d9febe58bdc36dc44e94c61ece837ee61599"
+    },
+    {
+      "path": "result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "run.json",
+      "bytes": 237,
+      "sha256": "e9e3278cf22935aba45fcb3e2777288d3952a72eaa5da6919db97dcebe955a4c"
+    },
+    {
+      "path": "test_portable_below_def.py.stderr.log",
+      "bytes": 104,
+      "sha256": "ef81e2d2646d7e064fe9e94bc4d1ae15656ba488e1f9450a619f6982881f799e"
+    },
+    {
+      "path": "test_portable_below_def.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_definition_view.py.stderr.log",
+      "bytes": 107,
+      "sha256": "eb59e07f91421bd58485070cececd2e4f31d6c4387898e1fcaec93bfaf40eb79"
+    },
+    {
+      "path": "test_portable_definition_view.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_development_generation.py.stderr.log",
+      "bytes": 103,
+      "sha256": "1f11b6e880045ee35de832b81b45d06257342e13b5c79bbf0034379d4ca220b9"
+    },
+    {
+      "path": "test_portable_development_generation.py.stdout.log",
+      "bytes": 21,
+      "sha256": "0f9732071aabc96662979198c067859ad0bf8058fe95745ce8da23df1428a44c"
+    },
+    {
+      "path": "test_portable_duration_scaling_gpu.py.stderr.log",
+      "bytes": 102,
+      "sha256": "0eee84248d053b40e768e694ede58feb5b3605aa34a44b72f92bcfa8b09a77cf"
+    },
+    {
+      "path": "test_portable_duration_scaling_gpu.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_generation_request.py.stderr.log",
+      "bytes": 100,
+      "sha256": "fe008aab760eb03ccac7578e2b84665b1b50b0d7f855b17a0c7a8d039435b658"
+    },
+    {
+      "path": "test_portable_generation_request.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_gpu_cli.py.stderr.log",
+      "bytes": 138,
+      "sha256": "ef5f20f70c6ae8521e1c4d8485067febc0511a5258c7cbd0ca0680b85e64d884"
+    },
+    {
+      "path": "test_portable_gpu_cli.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_gpu_replay.py.stderr.log",
+      "bytes": 104,
+      "sha256": "b52fd2030bf92de4dd39dd804082b2d46694302b3e58cf9795e8231d2f98f7c2"
+    },
+    {
+      "path": "test_portable_gpu_replay.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_leftmost.py.stderr.log",
+      "bytes": 105,
+      "sha256": "2393f1eed67dffddbb6163ee38006f05f2082772d73051c1b2ca85dff7d2b877"
+    },
+    {
+      "path": "test_portable_leftmost.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_leftmost_replay.py.stderr.log",
+      "bytes": 101,
+      "sha256": "60808d72c1ff649f3e579649c4c7847035eec9812807731f99648adbab741114"
+    },
+    {
+      "path": "test_portable_leftmost_replay.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}

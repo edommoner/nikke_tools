@@ -1,0 +1,82 @@
+{
+  "calculation_verified": false,
+  "entries": [
+    {
+      "name": "skill-weapon-AR-None",
+      "input_sha256": "77c4bb57f994dd104f5842c39f43be531419b71121e472bb53e1e56798e327ff",
+      "output_sha256": "c47b0df647ec78ce0b8d4056aaa38f633fa0ca2b7db01f5f3cf6320360d88096",
+      "native_sha256": "ecedc8ccefb337aae3397ac50bdd65a133941659082942f9808a97e28e3a179f"
+    },
+    {
+      "name": "skill-weapon-AR-AR",
+      "input_sha256": "77c4bb57f994dd104f5842c39f43be531419b71121e472bb53e1e56798e327ff",
+      "output_sha256": "c47b0df647ec78ce0b8d4056aaa38f633fa0ca2b7db01f5f3cf6320360d88096",
+      "native_sha256": "ecedc8ccefb337aae3397ac50bdd65a133941659082942f9808a97e28e3a179f"
+    },
+    {
+      "name": "skill-weapon-RL-None",
+      "input_sha256": "8afb8887e2f0a9071264a9dba8d1b571c18c91146a02549d957275fa4b0651b2",
+      "output_sha256": "9b06d37804fa9440cbf02842a91aa5c8d99a569193d55266e04af26b6d6121f8",
+      "native_sha256": "6ba2a574069681992f48cc5fb9e2bfed13fb56c857d8bd942300f53e38e4bb69"
+    },
+    {
+      "name": "skill-weapon-RL-RL",
+      "input_sha256": "8afb8887e2f0a9071264a9dba8d1b571c18c91146a02549d957275fa4b0651b2",
+      "output_sha256": "9b06d37804fa9440cbf02842a91aa5c8d99a569193d55266e04af26b6d6121f8",
+      "native_sha256": "6ba2a574069681992f48cc5fb9e2bfed13fb56c857d8bd942300f53e38e4bb69"
+    },
+    {
+      "name": "skill-weapon-SR-None",
+      "input_sha256": "9365104cd5d3cd5040d1d19db197c8e7ed2d65a30ae10c6962d1c5df953febcb",
+      "output_sha256": "c47b0df647ec78ce0b8d4056aaa38f633fa0ca2b7db01f5f3cf6320360d88096",
+      "native_sha256": "ecedc8ccefb337aae3397ac50bdd65a133941659082942f9808a97e28e3a179f"
+    },
+    {
+      "name": "skill-weapon-SR-SR",
+      "input_sha256": "9365104cd5d3cd5040d1d19db197c8e7ed2d65a30ae10c6962d1c5df953febcb",
+      "output_sha256": "c47b0df647ec78ce0b8d4056aaa38f633fa0ca2b7db01f5f3cf6320360d88096",
+      "native_sha256": "ecedc8ccefb337aae3397ac50bdd65a133941659082942f9808a97e28e3a179f"
+    },
+    {
+      "name": "skill-weapon-mode-AR-RL",
+      "input_sha256": "bfebd0b1a3f8ac629b8016528745e31dd5d56f6a2ec5f7d76d8a30d2a116039c",
+      "output_sha256": "f81e8f1215523acf7c48aaf6d8a4e952baf23154e46422f16ef19acc070070e4",
+      "native_sha256": "ba2d28e4ec6947873547337ac9710503e8471e7c336886acb9a66d2e5c6e04c6"
+    },
+    {
+      "name": "skill-weapon-mode-RL-SR",
+      "input_sha256": "0d2bbd5e8580fc7d35ca7b809910214c6c0759e81a15bab61344633b1aee7ac0",
+      "output_sha256": "264e52e40d59eafb58662e1c174af5c12319318dfa4a7ff5fc17ffc31798cbfc",
+      "native_sha256": "381cea8b6a88616505a41b8e98d650e2471febe0d51ac237f8a3b23af0a43508"
+    }
+  ],
+  "mismatches": [
+    {
+      "index": 8,
+      "name": "skill-weapon-real/Anis-Star/3s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 9,
+      "name": "skill-weapon-real/Anis-Star/30s",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    }
+  ],
+  "input_count": 10,
+  "native_oracles": 10,
+  "input_sha256": "9d6c6365f2a1b241a2d4645cd293f8dc70d81c49522f62f15b35bdae4eaf300f",
+  "output_sha256": "787da05f3c2c3cb1e5ce4bd75bad796d28a9c92f827792dff4da5940517c34a2",
+  "generated_normalized": {
+    "cuda": "2c24f002509ded72eb6fde0b6e7138252cdb43511c0d46c6e53db5e6db666cc0",
+    "metal": "e6349619f7bfa3374462c963efac2b5b6f4dc8accebe7999389a336841255f2c"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 8,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}
