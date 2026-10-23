@@ -48,6 +48,18 @@ class PacketTests(unittest.TestCase):
                     cli.make_package('fixture',out,develop=True)
             native.assert_not_called();self.assertFalse(out.exists())
 
+    def test_untracked_adapter_and_declared_support_stop_before_native_or_archive(self):
+        import portable_backend
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder).resolve()
+            for name in ('gpu/main.slang','research/new_adapter.py','research/baseline.json'):
+                path=root/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_text('{}')
+            out=root/'package.zip';config=dict(source='gpu/main.slang',golden='future.json',tests=[],script='research/new_adapter.py',support_files=['research/baseline.json'])
+            for tracked,missing in [(b'gpu/main.slang\0','new_adapter.py'),(b'gpu/main.slang\0research/new_adapter.py\0','baseline.json')]:
+                with patch.object(cli,'ROOT',root),patch.object(portable_backend,'ROOT',root),patch.dict(cli.SUITES,fixture=config),patch.object(cli.subprocess,'check_output',return_value=tracked),patch.object(cli,'development_baseline',side_effect=AssertionError('Native must not start')) as native,cli.forbid_gpu():
+                    with self.assertRaisesRegex(ValueError,'Declared suite file missing.*'+missing):cli.make_package('fixture',out,develop=True)
+                native.assert_not_called();self.assertFalse(out.exists())
+
     def test_package_gpu_source_requires_manifest_membership_and_matching_golden_hash(self):
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);(root/'gpu').mkdir();(root/'gpu/main.slang').write_text('#include "new.slang"\n');(root/'gpu/new.slang').write_text('// helper\n')

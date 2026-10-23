@@ -21,3 +21,7 @@ CPU側は既存ActorRegistryへlive providerをbindできる。失効後のalive
 既存battleの147ソース、全266profile記録、245input SHA、20 issue codeと順位は不変。分類だけを未監査10件からsource gapへ更新し、20 model gaps / review0とした。既存Metal492＋元ラピ2の証拠を保持する。通常UIはCPU、全キャラ認定0、目標未達。
 
 次は共通world scheduleへのspawn/expire binding、明示対象へのreceipt配送、破壊notice continuation、all_projectilesの実選択、projectile/shield倍率の演算位置を接続する。移動・近傍・lock-on・対象数増加・敵弾薬/回復・multi_hit producerも残る。新coreのCUDA実機確認は必要な短い46入力だけで行い、本体の巨大compileや通常battle回帰をWindowsへ依頼しない。
+
+共通CLIのpackage検査は、選択suiteのadapterと宣言済みsupport_filesが追跡payloadに存在することをnative baseline準備・archive作成の前に確認する。未追跡の新adapterによる配布先FileNotFoundErrorを早期に止める。既存CLI回帰＋新しい故障注入の40検査が成功し、実sealed package生成も成功した。宣言していない暗黙のdata依存を自動推定する機能ではなく、upstream_documents等の明示は必要。
+
+Windows向け固定packetは `codex/cuda-destructible-core-v1-source` の19c31f9、ID be8e852d3661dfd749b3d08c986877cab2e5dbcc391357d12b310736daf8e17f。Macの正式packet CPU37とgeneration cache必須hitを確認して配布した。CUDA本体の結果はcheckpointのWindows欄で追跡する。

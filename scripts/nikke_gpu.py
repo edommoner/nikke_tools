@@ -505,6 +505,11 @@ def make_package(suite, output, *, develop=False, cases=()):
     for pattern in SUITES[suite]['tests']:
         if 'tests/'+pattern not in names:
             raise ValueError('Required CPU test is missing from tracked payload: '+pattern)
+    required=[*SUITES[suite].get('support_files',())]
+    if not SUITES[suite].get('compiler_only') and SUITES[suite].get('script'):
+        required.append(SUITES[suite]['script'])
+    missing_required=set(required)-set(names)
+    if missing_required:raise ValueError('Declared suite file missing from tracked payload: '+', '.join(sorted(missing_required)))
     from portable_backend import source_hashes
     gpu_sources=source_hashes(SUITES[suite]['source'])
     missing=set(gpu_sources)-set(names)

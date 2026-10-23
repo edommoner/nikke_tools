@@ -57,7 +57,14 @@
     "current_core_CUDA_verified": false,
     "current_full_battle_CUDA_verified": false,
     "prior_environment_preservation_verified": false,
-    "cause": "unknown"
+    "cause": "unknown",
+    "distribution_branch": "codex/cuda-destructible-core-v1-source",
+    "distribution_commit": "19c31f9",
+    "package_id": "be8e852d3661dfd749b3d08c986877cab2e5dbcc391357d12b310736daf8e17f",
+    "archive_sha256": "b01943862d017ecc664fa67c2223664b778c33b28124da3c7312c72016a553d2",
+    "bounded_request_sent": true,
+    "result_pending": true,
+    "thread": "01a140bc-5f3b-7661-b720-50c945596eaa"
   },
   "failures_preserved": [
     {
@@ -80,5 +87,31 @@
     "all_projectiles_selection_and_live_modifier_consumers",
     "one_short_CUDA46_and_file_only_cache_check",
     "movement_nearby_lock_on_enemy_quantities_and_attack_group_producers"
-  ]
+  ],
+  "CLI_packaging_guard": {
+    "adapter_and_declared_support_members_checked_before_native_or_archive": true,
+    "tests": 40,
+    "passed": true,
+    "real_sealed_package_succeeded": true
+  },
+  "storage": {
+    "schema": 1,
+    "operation": "sparsify-raw",
+    "apply": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "raw_deleted": false,
+    "passed": true,
+    "capture": "/private/tmp/nikke-destructible-core-metal46-v3",
+    "raw_bytes": 144703488,
+    "raw_sha256": "2061a04f0d6d8bdc4d6b72bb48e0a2bd68336012a2f2da82465978b690924a2f",
+    "evidence_sha256": "2f2959edd4d73e1254d870bba22a157219a692e3ff0358707f99eb96f439f336",
+    "raw_inode": 508814003,
+    "zero_ranges": 46,
+    "zero_range_bytes": 141688832,
+    "allocated_before": 144703488,
+    "allocated_after": 3014656,
+    "allocated_reclaimed": 141688832,
+    "full_hash_verified": true
+  }
 }
