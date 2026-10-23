@@ -15,7 +15,7 @@ class UnsupportedTrigger(ValueError):
         self.operator = dict(domain=domain, descriptor=descriptor)
         super().__init__(message)
 
-CONDITIONS=dict(FOCUSING=30,NO_BROKEN_COVER_ALLY=39,SELF_UNDYING=38,TRIGGER_HIT_CRIT=28,TARGET_STUNNED=23,SELF_STUN_IMMUNE=24,TARGET_STATE=16,NOT_TARGET_STATE=17,TARGET_STACK=6,CORE=35,OPTIMAL_RANGE=33,PROB=26,SHIELD=12,GAUGE_ABOVE=18,GAUGE_BELOW=19,GAUGE_EQ=20,GAUGE_MOD=21,COVER_ALIVE=36,COVER_BROKEN=37,FULL=1,NOT_FULL=2,SELF_STATE=3,NOT_SELF_STATE=4,SELF_STACK=5,
+CONDITIONS=dict(NOT_CORE=27,FOCUSING=30,NO_BROKEN_COVER_ALLY=39,SELF_UNDYING=38,TRIGGER_HIT_CRIT=28,TARGET_STUNNED=23,SELF_STUN_IMMUNE=24,TARGET_STATE=16,NOT_TARGET_STATE=17,TARGET_STACK=6,CORE=35,OPTIMAL_RANGE=33,PROB=26,SHIELD=12,GAUGE_ABOVE=18,GAUGE_BELOW=19,GAUGE_EQ=20,GAUGE_MOD=21,COVER_ALIVE=36,COVER_BROKEN=37,FULL=1,NOT_FULL=2,SELF_STATE=3,NOT_SELF_STATE=4,SELF_STACK=5,
                 BACK_ROW=7,STAT_ABOVE=8,HP_ABOVE=9,HP_BELOW=10,HP_MAX=11,NOT_SELF_HEAL=13,CAST=14,NOT_CAST=15,STATIC=25,CHARGING=29,
                 BURST1_ALLY=31,NO_BURST1_ALLY=32,ALLY_HP_BELOW=34,TARGET_CODE=TARGET_CODE,ENEMIES_ABOVE=ENEMY_COUNT_ABOVE,
                 ENEMIES_BELOW=ENEMY_COUNT_BELOW,TARGET_BOSS=TARGET_IS_BOSS,TARGET_ADD=TARGET_IS_ADD)
@@ -29,7 +29,7 @@ HP_TIMING=rf'hp_below:{HP_NUMBER}|hp_below_count:{HP_NUMBER}:[1-9][0-9]*|event:(
 # Reserve structured event prefixes so malformed HP/end descriptors and unported
 # accumulator/counter events cannot fall through to the generic named event.
 TIMING=rf'every_stack:[^:]+:[1-9][0-9]*|event:(?!(?:state_end|ally_hp_below|adjacent_hp_below|accum_full|target_counter_complete):)[\s\S]+|{HP_TIMING}|{SIMPLE}|{COUNTERS}|non_full_charge_fire_count:(?:-?[0-9]+|\{{0\}})|squad_burst_cast:[123]|burst_enter:[123]|burst_enter_count:[123]:{COUNT}|event:state_end:[\s\S]+|hit_count:[^:]+:{COUNT}|stack_reach:[^:]+:[1-9][0-9]*'
-CONDITION=rf'focusing|no_broken_cover_ally|self_undying|trigger_hit_crit|target_stunned|self_stun_immune|(?:target_state|not_target_state):[\s\S]*|target_stack_above:[\s\S]*:[0-9]+|core_hit|optimal_range|prob:[\s\S]+|during_shield|gauge_(?:above|below|eq):[^:]+:{HP_NUMBER}|gauge_mod:[^:]+:[1-9][0-9]*:[+-]?[0-9]+|self_cover_alive|not_self_cover_alive|not_self_caused_heal|self_hp_max|(?:self_hp_above|self_hp_below|ally_hp_below):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)|during_full_burst|not_during_full_burst|during_charge|burst_casted|burst_not_casted|has_burst1_ally|no_burst1_ally|has_defender_ally|no_defender_ally|squad_ally_exists|back_row|target_is_boss|target_is_add|target_code:[\s\S]*|(?:self_state|not_self_state):[\s\S]*|self_stack_above:[^:]+:[0-9]+|enemy_count_(?:above|below):[+-]?[0-9]+|self_stat_above:(?:atk_pct|crit_rate|crit_dmg|accuracy_pct):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
+CONDITION=rf'not_core|focusing|no_broken_cover_ally|self_undying|trigger_hit_crit|target_stunned|self_stun_immune|(?:target_state|not_target_state):[\s\S]*|target_stack_above:[\s\S]*:[0-9]+|core_hit|optimal_range|prob:[\s\S]+|during_shield|gauge_(?:above|below|eq):[^:]+:{HP_NUMBER}|gauge_mod:[^:]+:[1-9][0-9]*:[+-]?[0-9]+|self_cover_alive|not_self_cover_alive|not_self_caused_heal|self_hp_max|(?:self_hp_above|self_hp_below|ally_hp_below):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)|during_full_burst|not_during_full_burst|during_charge|burst_casted|burst_not_casted|has_burst1_ally|no_burst1_ally|has_defender_ally|no_defender_ally|squad_ally_exists|back_row|target_is_boss|target_is_add|target_code:[\s\S]*|(?:self_state|not_self_state):[\s\S]*|self_stack_above:[^:]+:[0-9]+|enemy_count_(?:above|below):[+-]?[0-9]+|self_stat_above:(?:atk_pct|crit_rate|crit_dmg|accuracy_pct):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
 
 
 def validate_input(eff,*,world_frame=False):
@@ -62,6 +62,7 @@ def validate_input(eff,*,world_frame=False):
             if not math.isfinite(period) or period<=0:raise ValueError('Periodic timing must be positive and finite')
         elif not re.fullmatch(TIMING,timing) and not (world_frame and timing in ('enemy_death','crit_hit','core_hit')):raise UnsupportedTrigger('Unported trigger timing: '+timing,domain='timing',descriptor=timing)
     for condition in conditions:
+        if condition=='not_core' and not world_frame:raise ValueError('Non-core context requires private physical world')
         if condition in ('focusing','no_broken_cover_ally') and not world_frame:raise ValueError('Cover/camera predicates require a private combat world')
         if condition=='no_broken_cover_ally' and 'passive' in timings:raise UnsupportedTrigger('Cover predicate requires explicit activation',domain='condition',descriptor=condition)
         if condition=='self_undying':

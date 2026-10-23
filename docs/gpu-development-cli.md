@@ -1,3 +1,7 @@
+<!-- not-core-cli-current -->
+現行の非コア検証は `not-core`32（native27/拒否5）、`not-core-legacy-reject`1、`not-core-retention`1565（native1236/拒否329）。共通Slangのprivate入口でMetal独立seal済み、development_onlyを維持。`package --suite not-core --develop` で固定し、`unpack`後は必ず展開先をcwdとして、そのpackageの `scripts/nikke_gpu.py run` を実行する。旧adapterには相対importがあるため、別checkoutをcwdにしない。保存結果の `seal` はpackage自身のcwd/importsを使う。実例と限界はdocs/portable-not-core-gpu.md。全体のCPU500検査約176秒/正本事前約90秒に対しGPU計算約11秒。以下は履歴。
+<!-- /not-core-cli-current -->
+
 <!-- not-core-reference-current -->
 未対応not_coreを共通CLI referenceへ27契約（合成25＋冬ギロチン全79定義の実編成3/30s）で固定。正本条件評価160回/成立95回/instant39回、実ゲージhandler3/34回を観測。元battle/trace/全get_buffs/全sample保持、7種故障拒否。不変packageでreference27とCPU7群49検査成功。独立したeffect/caster累積キー、probとの独立、重複条件/descriptor、条件短絡とbudget後の評価、ペレット→銃口平均、発射snapshot、子通知の空contextと親復元、passive評価を明示。分類1件を正本接続待ちへ移動し、静的266記録/232SHA/34拒否/50code順序は保持。GPU123sourceと既存17 input/native指紋は同一のため、既存Metal1533の証拠を再利用。今回GPU build/execute/Windows0。GPUのnot_core受付は未開放・対応追加0、全キャラ0/UI CPU/未達。次は通知core_fracと独立状態・条件/budget順を共有Slangへ接続し、Metal合成/実編成/保持を検証。詳細[非コア条件の正本契約](portable-not-core-reference.md)とresearch/portable-not-core-reference-checkpoint.json。以下は履歴。
 <!-- /not-core-reference-current -->

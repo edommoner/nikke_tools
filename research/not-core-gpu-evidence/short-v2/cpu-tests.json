@@ -1,0 +1,52 @@
+[
+  {
+    "pattern": "test_portable_not_core_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.9320650830632076,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 73584
+  },
+  {
+    "pattern": "test_portable_not_core_routing.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.005412333062849939,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 73584
+  },
+  {
+    "pattern": "test_portable_not_core_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.4514986249851063,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 73584
+  },
+  {
+    "pattern": "test_portable_definition_view.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.4173518329625949,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 73584
+  },
+  {
+    "pattern": "test_portable_scratch_layout.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.12403562490362674,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 73584
+  }
+]

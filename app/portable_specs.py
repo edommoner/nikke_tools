@@ -250,6 +250,8 @@ LIMITS.update(REVIVAL_BASE=_rev_base,REVIVAL_LOST_BASE=_rev_lost,REVIVAL_RNG_BAS
 assert LIMITS['CARRIERS']==512 and _rev_rng-_rev_lost==5*LIMITS['CARRIERS']
 assert _rev_base>=LIMITS['BASE_COPY_STATE_BASE']+LIMITS['BASE_COPY_STATE_WORDS']
 # Account for literal-address receipts and mutually exclusive diagnostic modes.
+from portable_not_core_specs import allocate as _allocate_not_core
+_allocate_not_core(LIMITS)
 from portable_scratch_layout import allocate as _allocate_scratch_layout
 _allocate_scratch_layout(LIMITS)
 
@@ -259,6 +261,7 @@ def buff_stat_ids():
     from effect_spec import DETAIL_STAT,EXTRA_STAT
     canonical={**DETAIL_STAT,**EXTRA_STAT}
     return set(STATS.values()) | {canonical[name] for name,kind in KINDS.items() if kind not in (5,6) and name in canonical}
+
 
 
 def shader_schema():

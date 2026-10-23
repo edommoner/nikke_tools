@@ -837,6 +837,8 @@ void addSum(inout Sum sum, uint64_t term)
 #include "reference_runtime.slang"
 #include "staged_runtime.slang"
 
+#include "not_core_runtime.slang"
+
 // Definition predicates use compiled IDs and exact binary64 operands.
 // Runtime tests are deliberately distinct from activation-time gates.
 bool stateMember(inout Runtime s, uint who, int name, uint flags)
@@ -876,7 +878,11 @@ uint64_t targetStateStack(inout Runtime s,int name,uint64_t when,out bool presen
 bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uint recipient = 0xffffffff, uint conditionSlot = 0xffffffff)
 {
     uint definition = s.carrierDefinition[row], owner = WORLD_TEAM_OWNER(s,definition,runtime,definition_owner(s.inputBase,definition));
-    if (runtime && (referenceCaptureFlags(s,row)&4)==0 && (!f64Less(definition_duration(s.inputBase,definition),0) || (definition_flags(s.inputBase,definition) & 2) == 0)) return true;
+    bool hasNotCore=false;
+#ifdef PORTABLE_NOT_CORE
+    if(runtime && (definition_flags(s.inputBase,definition)&1)!=0) for(uint i=0;i<definition_conditionCount(s.inputBase,definition);i++) hasNotCore |= commands[s.inputBase+P_CONDITION_BASE+definition*P_CONDITION_WORDS+i*4]==C_NOT_CORE;
+#endif
+    if (runtime && !hasNotCore && (referenceCaptureFlags(s,row)&4)==0 && (!f64Less(definition_duration(s.inputBase,definition),0) || (definition_flags(s.inputBase,definition) & 2) == 0)) return true;
     uint first=conditionSlot==0xffffffff ? 0 : conditionSlot;
     uint last=conditionSlot==0xffffffff ? definition_conditionCount(s.inputBase,definition) : conditionSlot+1;
     for (uint i = first; i < last; i++)
@@ -889,6 +895,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
             if(kind==C_TARGET_STATE && !present || kind==C_NOT_TARGET_STATE && present || kind==C_TARGET_STACK && f64Less(count,arg)) return false;
             continue;
         }
+        if(kind==C_NOT_CORE) { if(!runtime || (definition_flags(s.inputBase,definition)&1)!=0) { if(!notCorePredicate(s,definition,owner)) return false; }continue; }
         if (runtime && kind != C_FOCUSING && kind != C_GAUGE_ABOVE && kind != C_GAUGE_BELOW && kind != C_FULL && kind != C_NOT_FULL && kind != C_SELF_STATE && kind != C_NOT_SELF_STATE && kind != C_SELF_STACK && kind != C_CAST && kind != C_NOT_CAST && kind != C_CHARGING && kind != C_ENEMIES_ABOVE && kind != C_ENEMIES_BELOW && kind != C_HP_ABOVE && kind != C_HP_BELOW && kind != C_HP_MAX && kind != C_ALLY_HP_BELOW && kind != C_COVER_ALIVE && kind != C_COVER_BROKEN && kind != C_SHIELD && kind != C_TARGET_CODE) continue;
         if (kind >= C_GAUGE_ABOVE && kind <= C_GAUGE_MOD && !resourceCondition(s,owner,kind,uint(name),arg,int(commands[s.inputBase+P_RESOURCE_CONDITION_BASE+definition*3+i]))) return false;
         if(kind==C_FOCUSING && runtime && (predicateFocusCamera(s,definition)&(1U<<definition_owner(s.inputBase,definition)))==0) return false;
@@ -896,7 +903,7 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
         if (kind == C_CORE && !geometryCore(s)) return false;
         if (kind == C_TARGET_STUNNED && !statusStunned(s,WORLD_TEAM_STUN_TARGET(s,definition,runtime,WORLD_STATE_STUN_TARGET(s,5U+s.target)))) return false;
         if (kind == C_SELF_STUN_IMMUNE && !statusStunImmune(s,owner)) return false;
-        if (kind == C_TRIGGER_HIT_CRIT && s.triggerHitCrit==0) return false;
+        if (kind == C_TRIGGER_HIT_CRIT && (s.triggerHitCrit&1U)==0) return false;
         if (kind == C_TARGET_CODE)
         {
             uint code=commands[s.inputBase+P_WORLD_META_BASE];
@@ -1362,7 +1369,7 @@ void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int de
 #include "dispatch_phases.slang"
 
 [noinline]
-void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, uint64_t when, uint output, uint64_t landingAmount = 0)
+void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, uint64_t when, uint output, uint64_t landingAmount = 0, uint notifyContext = 0)
 {
     if (owner >= 5) { s.error = 64; return; }
     uint previousHitCrit=s.triggerHitCrit;
@@ -1371,6 +1378,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
     Frame frames[32]; int depth = -1;
     if ((s.healthMask&32)!=0) pushFrame(s,frames,depth,16,0,0,0,when);
     pushFrame(s,frames,depth,mode,event,owner,argument,when);
+    if(mode==0 && s.error==0) frames[depth].hitCrit=notifyContext;
     COUNTER_ROOT(s,frames,depth,mode) if (mode == 17 && s.error == 0) frames[depth].healthValue=landingAmount;
     uint work = 0;
     while (depth >= 0 && s.error == 0)

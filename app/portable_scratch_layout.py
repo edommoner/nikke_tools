@@ -61,7 +61,9 @@ def banks(limits, mode='normal'):
             Bank('numeric-query-header', l['NATIVE_QUERY_BASE'], l['NATIVE_QUERY_HEADER_WORDS']),
             Bank('numeric-query-cells0', l['NATIVE_QUERY_BANK0_BASE'], l['NATIVE_QUERY_BANK_COUNT'] * l['NATIVE_QUERY_CELL_WORDS']),
             Bank('numeric-query-cells1', l['NATIVE_QUERY_BANK1_BASE'], l['NATIVE_QUERY_BANK_COUNT'] * l['NATIVE_QUERY_CELL_WORDS']),
-            Bank('ordered-history', l['ORDERED_HISTORY_BASE'], l['ORDERED_HISTORY_WORDS'])]
+            Bank('ordered-history', l['ORDERED_HISTORY_BASE'], l['ORDERED_HISTORY_WORDS']),
+            Bank('not-core-values0',l['NOT_CORE_BANK0_BASE'],1000),Bank('not-core-values1',l['NOT_CORE_BANK1_BASE'],1560),
+            Bank('not-core-seen',l['NOT_CORE_SEEN_BASE'],40),Bank('not-core-shot',l['NOT_CORE_SHOT_BASE'],10)]
     if mode == 'native-query-diagnostic':
         rows.append(Bank('native-query-diagnostic', l['NATIVE_DIAG_BASE'], l['NATIVE_DIAG_WORDS']))
     elif mode == 'heal-share-diagnostic':

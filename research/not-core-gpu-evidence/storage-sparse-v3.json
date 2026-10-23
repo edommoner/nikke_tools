@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-revival-notify-regression-metal",
+  "raw_bytes": 2387607552,
+  "raw_sha256": "e9284ab0b1afb99a3d9969ec8ee2ff43d8e333608a59240ab446c323d1bc0481",
+  "evidence_sha256": "e2e9cd46699d3a7c60d5f34b7596ca76669f385ec0b3253c319e1306a26beb12",
+  "raw_inode": 506958855,
+  "zero_ranges": 5809,
+  "zero_range_bytes": 1690632192,
+  "allocated_before": 2387607552,
+  "allocated_after": 696975360,
+  "allocated_reclaimed": 1690632192,
+  "full_hash_verified": true
+}

@@ -7,9 +7,9 @@ def ledger(root):
     return json.loads((Path(root)/'tests/fixtures/portable-aimed-enemy-source-delta.json').read_text())
 
 
-def baseline_source(root, name, source):
+def baseline_source(root, name, source, *, stage_projected=False):
     from portable_squad_stage_source_contract import baseline_source as project_stage
-    source, _ = project_stage(root, name, source)
+    if not stage_projected:source, _ = project_stage(root, name, source)
     rows = ledger(root)['sources']
     if name not in rows:
         return source, False
@@ -26,5 +26,5 @@ def project_sources(root, sources=None):
     from portable_squad_stage_source_contract import project_sources as project_stage
     root = Path(root); sources, _ = project_stage(root, sources)
     for name in ledger(root)['sources']:
-        sources[name], _ = baseline_source(root, name, sources.get(name, (root/name).read_text()))
+        sources[name], _ = baseline_source(root, name, sources.get(name, (root/name).read_text()), stage_projected=True)
     return sources, list(ledger(root)['sources'])

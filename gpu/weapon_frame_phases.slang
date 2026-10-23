@@ -104,6 +104,7 @@ void captureWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uin
     COUNTER_SHOT(s,who,w,coefficient,when) WORLD_PROJECTILE_RECORD(s,w,who,when,amount) if (s.error != 0) return;
     uint count = w.pellets*w.muzzles;
     landedAmount=amount;landedCount=count;landedTarget=target;
+    snapshotNotCore(s,who,w.pellets);
     completedShots = s.shots[who]+1;
     ready=true;
 }
@@ -132,7 +133,7 @@ void finishWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint
     if (w.mode == 1 && w.infinite == 0) { if (!changedWeaponSession(s,who,epoch,mode)) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
     dispatch(s,0,7,who,0,when,output);
     if (w.mode == 1) dispatch(s,0,PARTIAL_IS_FULL(w)?11:40,who,0,when,output);
-    for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,8,who,0,when,output);
+    for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,8,who,0,when,output,0,notCoreContext(s,who));
     if (w.mode == 1 && PARTIAL_IS_FULL(w)) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,12,who,0,when,output);
     if(burstSpeed && w.mode==1)
     { if(WORLD_PACKET_NORMAL(s,who)) { markNativeNumericLanded(s,who);s.normalLandedMask|=1U<<who; }WORLD_PHYSICAL_GAUGE(s) addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when)); }

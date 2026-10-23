@@ -109,6 +109,15 @@ void admitDefinitions(inout Runtime s,uint input)
         for(uint slot=0;slot<d.conditionCount;slot++)
         {
             uint at=input+P_CONDITION_BASE+j*P_CONDITION_WORDS+slot*4;
+            if(commands[at]==C_NOT_CORE)
+            {
+#ifdef PORTABLE_NOT_CORE
+                if(s.combat==0 || commands[input+P_WORLD_FRAME_INPUT_BASE]!=0x57533031U || commands[at+1]!=0 || !f64Zero(loadNumber(at+2))) { s.error=64;break; }
+                s.incomingMask|=512U;
+#else
+                s.error=64;break;
+#endif
+            }
             if((commands[at]==C_FOCUSING || commands[at]==C_NO_BROKEN_COVER_ALLY) && !validStatePredicate(input,j,at,s.combat)) { s.error=64;break; }
             if(commands[at]==C_SELF_UNDYING && !validUndyingPredicate(input,j,at,s.combat)) { s.error=64;break; }
             if(commands[at]==C_STAT_ABOVE && !validStatAbovePredicate(commands[at+1],loadNumber(at+2))) { s.error=64;break; }

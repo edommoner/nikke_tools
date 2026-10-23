@@ -32,7 +32,9 @@ def compile_case(case,*,actor_pools=False):
  names=roster_names(case);enemy=case['enemy'];auth=copy.deepcopy(case);auth['effects']=[__import__('portable_world_overlay_specs').compiler_effect(e) for e in auth['effects']];auth['combat']['targets'][0]['defense']=enemy.get('def',0)
  geometry=dict(core_px=enemy.get('core_px',0),distance=enemy.get('distance'),optimal_weapons=enemy.get('optimal_range_weapons',[]),weapons=[dict(type=w.get('base_weapon_type','MG' if w.get('mode')=='auto_warmup' else 'AR'),minimum=10,maximum=20) for w in case['combat']['weapons']])
  validate(geometry);auth['environment']['geometry']=geometry
- for weapon in auth['combat']['weapons']:weapon.update(spread_start=20,spread_end=10,spread_shots=5,core_diameter=geometry['core_px'])
+ literal=case.get('literal_weapon_geometry')
+ if literal is not None and (not isinstance(literal,list) or len(literal)!=5 or any(set(w)!={'spread_start','spread_end','spread_shots'} for w in literal)):raise ValueError('Invalid literal weapon geometry')
+ for who,weapon in enumerate(auth['combat']['weapons']):weapon.update(**(literal[who] if literal is not None else dict(spread_start=20,spread_end=10,spread_shots=5)),core_diameter=geometry['core_px'])
  graph,patterns=compile_schedule(dict(patterns=case['patterns'],clock='accumulated',duration=case['duration']),notice_payload=True)
  BossScript(patterns,copy.deepcopy(enemy),lambda *_:False) # Same cross-domain constraints as native.
  payload=None

@@ -13,8 +13,9 @@ def reference_readiness(issue):
             contract_coverage='recorded_subset',reference_suites=['not-core'],recorded_cases=27,
             real_profiles=1,real_original_definitions=79,real_durations=[3,30],real_instant_handler_calls=[3,34],
             implemented_extensions=['native_optional_core_context_contract','native_independent_not_core_accumulator_contract','native_nested_notify_restore_contract','native_condition_and_budget_order_contract'],
-            required_extensions=['physical_hit_count_core_fraction_snapshot','per_definition_caster_not_core_state_separate_from_probability','ordered_duplicate_conditions_and_budget_evaluation','passive_numeric_query_context','current_source_cuda_validation'],
-            note='CPU-only expected-mode contracts25 plus complete Winter Guillotine3/30s. Only physical hit_count carries core_frac here; absent context means non-core, including last_bullet. Duplicate conditions share an effect/caster key, probability uses another key, and conditions still evaluate after activation budget. No packing, GPU admission or execution; do not lower to a constant probability or current post-callback geometry')
+            scoped_metal_validation=dict(suite='not-core',native_cases=27,rejected_cases=5,private_entry='gpu/world_not_core_entry.slang',independently_audited=True),
+            required_extensions=['broader_mixed_passive_numeric_context_consumers','current_source_cuda_validation','full_catalog_battle_validation'],
+            note='Expected-mode contracts25 plus complete Winter Guillotine3/30s verified on the private Metal entry. Physical hit_count freezes core_frac; absent context means non-core, including last_bullet. Definition/caster accumulators are separate from probability, preserve ordered duplicate conditions and evaluate before activation budget. The tested passive subset has no core context. Public/legacy entry still rejects; broader mixed consumers and current-source CUDA are unverified')
         return result
     if issue.get('phase')=='effect' and issue.get('category')=='trigger' and operator.get('domain')=='timing':
         import re

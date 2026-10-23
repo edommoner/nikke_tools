@@ -46,12 +46,16 @@ class AmmoEquivalentTests(unittest.TestCase):
         self.assertEqual(cases,before);entries,data=m.prepare();self.assertEqual(len(entries),46);self.assertEqual(sum(e[2] is not None for e in entries),29);self.assertEqual(len(data),4+46*m.suite.INPUT*4)
 
     def test_exact_delta_rejects_removed_hooks_broader_bounds_bulk_counts_and_wrong_log(self):
-        from portable_ammo_equivalent_source_contract import ledger
+        from portable_ammo_equivalent_source_contract import ledger,baseline_source
+        from portable_manual_swap_source_contract import project_sources
         data=ledger(ROOT);self.assertEqual(set(verify(ROOT)['reviewed_ammo_equivalent_sources']),set(data['sources']))
+        projected,_=project_sources(ROOT)
         for name,row in data['sources'].items():
-            source=(ROOT/name).read_text()
+            source=projected.get(name,(ROOT/name).read_text())
             for change in row['changes']:
-                with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(change['current'],change['baseline'],1)})
+                self.assertEqual(source.count(change['current']),1)
+                mutated=source.replace(change['current'],change['baseline'],1);self.assertNotEqual(mutated,source)
+                with self.subTest(name=name),self.assertRaises(AssertionError):baseline_source(ROOT,name,mutated)
         for name,old,new in [('gpu/admission_runtime.slang','f64FromI64(4096)','f64FromI64(8192)'),('gpu/dispatch_phases.slang','uint(count-1)','uint(count)'),('gpu/event_runtime.slang','if(f.mode==15) logResourceNotification','if(true) logResourceNotification')]:
             source=(ROOT/name).read_text();self.assertIn(old,source)
             with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(old,new,1)})

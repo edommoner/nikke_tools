@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "all266_profile_keys_preserved": true,
+  "prior232_input_hashes_preserved": true,
+  "remaining33_rejected_records_preserved": true,
+  "priority_order_preserved": true,
+  "removed_priority_codes": [
+    "{\"category\": \"trigger\", \"kind\": \"instant\", \"operator\": {\"descriptor\": \"not_core\", \"domain\": \"condition\"}, \"phase\": \"effect\", \"scaling\": null, \"stat\": \"gauge_charge\", \"target\": \"self\"}"
+  ],
+  "newly_packed": [
+    {
+      "character": "길로틴 : 윈터 슬레이어",
+      "favorite_stage": 0,
+      "input_sha256": "fcb76a41f61f977d35d28600246a72303d5633cf00431dcd1f6b61eecf636da0",
+      "prepared_effects": 79
+    }
+  ],
+  "packed_profiles": 233,
+  "packed_base": 173,
+  "priority_categories": 49,
+  "full_character_verified": 0
+}

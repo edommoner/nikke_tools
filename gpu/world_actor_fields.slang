@@ -51,6 +51,14 @@ bool actorFieldsDefinitionValid(inout Runtime s,uint row,Definition d)
         { if(!validStatAbovePredicate(commands[at+1],arg)) return false;continue; }
         if(kind==C_TARGET_STUNNED || kind==C_SELF_STUN_IMMUNE)
         { if(s.combat==0 || commands[at+1]!=0 || !f64Zero(arg)) return false;continue; }
+        if(kind==C_NOT_CORE)
+        {
+#ifdef PORTABLE_NOT_CORE
+            if(s.combat==0 || commands[at+1]!=0 || !f64Zero(arg)) return false;continue;
+#else
+            return false;
+#endif
+        }
         if(kind==C_CORE || kind==C_OPTIMAL_RANGE)
         { if(!hasRangeGeometry(s) || commands[at+1]!=0 || !f64Zero(arg)) return false;continue; }
         WORLD_TEAM_CONDITION(s,row,d,at,kind,arg) WORLD_ENEMY_ATTACK_ADMIT(s,d,at,kind,arg) WORLD_STATE_ADMIT_CONDITION(s,at,kind,arg) if(kind!=C_ENEMIES_ABOVE&&kind!=C_ENEMIES_BELOW&&kind!=C_TARGET_BOSS&&kind!=C_TARGET_ADD || commands[at+1]!=0 || !f64Finite(arg)) return false;
