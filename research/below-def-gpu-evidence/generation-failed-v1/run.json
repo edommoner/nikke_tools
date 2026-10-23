@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "package_id": "b7b37c15f7c853c5a918530c5f060d8f50e5ee5c74bf9fd08e3ccdd2e14bb2cc",
+  "backend": "metal",
+  "mode": "gpu",
+  "status": "finished",
+  "gpu_retry_count": 0,
+  "finished_unix_ns": 1792742312862565000
+}

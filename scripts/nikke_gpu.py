@@ -180,6 +180,8 @@ SUITES['duration-scaling']=dict(SUITES['not-core'],script='research/verify-world
 SUITES['duration-scaling-diagnostic']=dict(SUITES['duration-scaling'],script='research/verify-world-duration-scaling-diagnostic-short.py',source='gpu/world_duration_scaling_diagnostic_entry.slang',golden='research/portable-world-duration-scaling-diagnostic-short-expected.json')
 SUITES['duration-scaling-legacy-reject']=dict(SUITES['duration-scaling'],script='research/verify-world-duration-scaling-legacy-reject-short.py',source='gpu/world_not_core_entry.slang',golden='research/portable-world-duration-scaling-legacy-reject-short-expected.json',inputs=1,native=0)
 SUITES['leftmost']=dict(SUITES['duration-scaling'],script='research/verify-world-leftmost-short.py',source='gpu/world_leftmost_entry.slang',golden='research/portable-world-leftmost-short-expected.json',inputs=21,native=13,tests=['test_portable_leftmost.py','test_portable_recipient_extension.py','test_portable_burst_recipients.py','test_portable_definition_view.py'])
+SUITES['below-def']=dict(SUITES['leftmost'],script='research/verify-world-below-def-short.py',source='gpu/world_below_def_entry.slang',golden='research/portable-world-below-def-short-expected.json',inputs=21,native=13,tests=['test_portable_below_def.py','test_portable_leftmost.py','test_portable_definition_view.py','test_portable_duration_scaling_gpu.py'])
+SUITES['below-def-retention']=dict(SUITES['below-def'],script='research/verify-world-below-def-retention-short.py',golden='research/portable-world-below-def-retention-short-expected.json',inputs=95,native=72,tests=SUITES['below-def']['tests']+['test_portable_leftmost_replay.py','test_portable_gpu_replay.py','test_portable_development_generation.py','test_portable_generation_request.py','test_portable_gpu_cli.py'])
 SUITES['leftmost-rosters']=dict(SUITES['leftmost'],script='research/verify-world-leftmost-rosters-short.py',golden='research/portable-world-leftmost-rosters-short-expected.json',inputs=6,native=6)
 SUITES['leftmost-retention']=dict(SUITES['leftmost'],script='research/verify-world-leftmost-retention-short.py',golden='research/portable-world-leftmost-retention-short-expected.json',inputs=74,native=59,tests=SUITES['leftmost']['tests']+['test_portable_leftmost_replay.py','test_portable_duration_scaling_gpu.py','test_portable_gpu_replay.py','test_portable_reference_migration.py'])
 SUITES['cache-preflight-regression']=dict(SUITES['duration-scaling'],tests=SUITES['duration-scaling']['tests']+['test_portable_cache_probe.py','test_portable_required_cache_preflight.py','test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_compile_cli.py','test_portable_generation_cache.py','test_portable_generation_request.py','test_portable_gpu_cli.py','test_portable_gpu_replay.py','test_portable_compiler_diagnostic.py'])
@@ -2161,10 +2163,12 @@ def import_results(archive,destination):
     return dict(files=len(receipt['files']),gpu_calls=0,remote_report_only=True)
 
 
-def generation_capture(output):
+def generation_capture(output,*,development=False):
     if os.name=='nt':raise ValueError('Standalone generation is Mac CPU-only; Windows requires bounded compile/run generation options')
     m=verify_package(ROOT)
-    if is_development(m):raise ValueError('Generation reuse requires a sealed source baseline')
+    dev=is_development(m)
+    if dev and not development:raise ValueError('Generation reuse requires a sealed source baseline; use --develop for generation-only preflight')
+    if development and not dev:raise ValueError('--develop generation requires a development package')
     output.mkdir(parents=True,exist_ok=False)
     try:
         import portable_backend
@@ -2175,12 +2179,13 @@ def generation_capture(output):
             paths,hashes=portable_backend.build(SUITES[m['suite']]['source'],'portableEvents')
         normalized=module(ROOT/'research/summarize-portable-cross-gpu.py').normalized
         generated={k:normalized(p.read_bytes()) for k,p in paths.items()}
-        if hashes!=m['golden']['source_sha256'] or generated!=m['golden']['generated_normalized']:raise ValueError('Generated cache outputs differ from sealed baseline')
+        if hashes!=m['golden']['source_sha256']:raise ValueError('Generation source differs from immutable package baseline')
+        if not dev and generated!=m['golden']['generated_normalized']:raise ValueError('Generated cache outputs differ from sealed baseline')
         copy_generated(output,m['suite'])
         from portable_generation_cache import audit_receipt
         receipt=load(output/'generation-cache.json')
         verified=audit_receipt(receipt,hashes,{k:output/('generated.'+suffix) for k,suffix in [('cuda','cu'),('metal','metal')]})
-        report=dict(package_id=m['package_id'],source_sha256=hashes,generated_normalized=generated,**verified,calculation_verified=False,executable_battle_verified=False)
+        report=dict(package_id=m['package_id'],source_sha256=hashes,generated_normalized=generated,**verified,development_only=dev,sealed_generated_baseline_verified=not dev,calculation_verified=False,executable_battle_verified=False)
         write(output/'generation.json',report)
         return report
     except BaseException as error:
@@ -2191,7 +2196,7 @@ def generation_capture(output):
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     sub.add_parser('list')
-    a=sub.add_parser('generation');a.add_argument('--out',type=Path,required=True);a.add_argument('--generation-cache',type=Path,required=True);a.add_argument('--require-generation-cache',action='store_true');a.add_argument('--slang-root',type=Path)
+    a=sub.add_parser('generation');a.add_argument('--develop',action='store_true');a.add_argument('--out',type=Path,required=True);a.add_argument('--generation-cache',type=Path,required=True);a.add_argument('--require-generation-cache',action='store_true');a.add_argument('--slang-root',type=Path)
     for name in ('readback-index','readback-compare'):
         a=sub.add_parser(name);a.add_argument('--readback',type=Path,required=True);a.add_argument('--sha256',required=True);a.add_argument('--out',type=Path,required=True)
         if name=='readback-compare':a.add_argument('--index',type=Path,required=True);a.add_argument('--index-sha256',required=True)
@@ -2319,7 +2324,7 @@ def main(argv=None):
         result=run_reference(a.suite,a.out,write=write,forbid_gpu=forbid_gpu)
     elif a.command=='generation':
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
-        result=generation_capture(a.out)
+        result=generation_capture(a.out,development=a.develop)
     elif a.command=='phase-codegen':
         m=verify_package(ROOT)
         from portable_backend import source_hashes

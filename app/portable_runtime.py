@@ -45,6 +45,8 @@ def validate_effect(eff, *, combat=None, world_frame=False):
     from portable_focus_specs import validate as validate_focus
     try:validate_focus(eff,combat=combat,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason='effect') from error
+    if target=='allies_below_def' and (combat is None or not world_frame):
+        raise UnsupportedPortable('Final-defense recipients require a private combat world',reason='recipient')
     from portable_ally_random_specs import validate as validate_ally_random
     try:validate_ally_random(eff,combat=combat,world_frame=world_frame)
     except ValueError as error:raise UnsupportedPortable(str(error),reason='recipient') from error

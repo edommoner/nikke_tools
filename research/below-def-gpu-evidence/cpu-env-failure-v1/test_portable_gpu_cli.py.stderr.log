@@ -1,0 +1,34 @@
+....................E......E...........
+======================================================================
+ERROR: test_missing_metal_compiler_stops_before_native_and_gpu_claim (test_portable_gpu_cli.PacketTests.test_missing_metal_compiler_stops_before_native_and_gpu_claim)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-below-def-retention-v3/tests/test_portable_gpu_cli.py", line 137, in test_missing_metal_compiler_stops_before_native_and_gpu_claim
+    cli.run_capture(capture,'metal',180)
+  File "/private/tmp/nikke-below-def-retention-v3/scripts/nikke_gpu.py", line 1279, in run_capture
+    if not smoke and not cpu_only:validate_generation_request(m)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-below-def-retention-v3/scripts/nikke_gpu.py", line 1179, in validate_generation_request
+    if not any(re.search(pattern,(ROOT/name).read_bytes(),re.M) for name in m['golden']['source_sha256']):
+                                                                            ~^^^^^^^^^^
+KeyError: 'golden'
+
+======================================================================
+ERROR: test_run_uses_one_parent_audit_and_preserves_failed_calculation (test_portable_gpu_cli.PacketTests.test_run_uses_one_parent_audit_and_preserves_failed_calculation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-below-def-retention-v3/tests/test_portable_gpu_cli.py", line 122, in test_run_uses_one_parent_audit_and_preserves_failed_calculation
+    result=cli.run_capture(capture,'cuda',180)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-below-def-retention-v3/scripts/nikke_gpu.py", line 1279, in run_capture
+    if not smoke and not cpu_only:validate_generation_request(m)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-below-def-retention-v3/scripts/nikke_gpu.py", line 1179, in validate_generation_request
+    if not any(re.search(pattern,(ROOT/name).read_bytes(),re.M) for name in m['golden']['source_sha256']):
+                                                                            ~^^^^^^^^^^
+KeyError: 'golden'
+
+----------------------------------------------------------------------
+Ran 39 tests in 1.197s
+
+FAILED (errors=2)

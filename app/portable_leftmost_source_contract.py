@@ -4,7 +4,10 @@ from pathlib import Path
 
 def ledger(root):return json.loads((Path(root)/'tests/fixtures/portable-leftmost-source-delta.json').read_text())
 
-def baseline_source(root,name,source):
+def baseline_source(root,name,source,*,below_projected=False):
+    if not below_projected:
+        from portable_below_def_source_contract import baseline_source as project_below
+        source,_=project_below(root,name,source)
     row=ledger(root)['sources'].get(name)
     if row is None:return source,False
     assert hashlib.sha256(source.encode()).hexdigest()==row['current_sha256'],'Unreviewed leftmost source: '+name
@@ -15,7 +18,8 @@ def baseline_source(root,name,source):
     return source,True
 
 def project_sources(root,sources=None):
-    root=Path(root);sources=dict(sources or {});data=ledger(root)
+    from portable_below_def_source_contract import project_sources as project_below
+    root=Path(root);sources,_=project_below(root,sources);data=ledger(root)
     for name,digest in data['added_sources'].items():assert hashlib.sha256(sources.get(name,(root/name).read_text()).encode()).hexdigest()==digest,'Unreviewed leftmost helper: '+name
-    for name in data['sources']:sources[name],_=baseline_source(root,name,sources.get(name,(root/name).read_text()))
+    for name in data['sources']:sources[name],_=baseline_source(root,name,sources.get(name,(root/name).read_text()),below_projected=True)
     return sources,list(data['sources'])

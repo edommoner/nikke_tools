@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-10-23T08:06:18.247240+00:00",
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "ui_backend": "cpu",
+  "development_only": true,
+  "stage": "final-defense-recipient-shared-gpu-and-development-generation",
+  "implementation": {
+    "selector": 14,
+    "candidate_basis": "resolved native defense percent then caster-based flat; strict less-than; alive filter",
+    "single_target": "lazy at first numeric consumption",
+    "list_target": "eager native ordered list resolution",
+    "runtime_stride": 138952,
+    "numerical_primitives_unchanged": true
+  },
+  "native": {
+    "cases": 13,
+    "target_resolutions": 39,
+    "defense_reads": 234,
+    "observation_preserves_battle_trace_and_query_counts": true
+  },
+  "cpu": {
+    "groups": 9,
+    "tests": 81,
+    "skipped": 0,
+    "unit_seconds": 7.319533875328489,
+    "native_seconds": 8.112316917045973,
+    "package_id": "b1e9a24758b8eff963fa3d6ffeb562bdd5ad57736615d4e2b1b8d37c14f10886"
+  },
+  "metal": {
+    "device": "Apple M5",
+    "inputs": 95,
+    "native": 72,
+    "rejected": 23,
+    "gpu_seconds": 4.29389658337459,
+    "actual_package_id": "649d3cf936432c58d762ee2c0103f9ec702bf1ac6230d7d065c32b31d70ca65a",
+    "replay_package_id": "65b22407d55bdd6e15763bbbd1a78900cd2a69d765fa625769fbed9b0415f3df",
+    "independently_sealed": true,
+    "replay_gpu_calls": 0,
+    "generation_cache_hit": true,
+    "slang_invocations_during_gpu_validation": 0
+  },
+  "retention": {
+    "input.bin": {
+      "bytes": 30902400,
+      "sha256": "9e3bc34ddc6da7959b0aedb6caa7bb24f4e7b95c1a519a1657b3fb4e742f4d14",
+      "all_bytes_equal": true
+    },
+    "readback.bin": {
+      "bytes": 232783872,
+      "sha256": "b273bb2ee7bf96db5fe63abe784b60ade8c4dc68a4a12f4d8666b3a844a6bd2c",
+      "all_bytes_equal": true
+    },
+    "runtime_reflection_equal": true,
+    "inventory": {
+      "retained_input_sha256": 235,
+      "packed_profiles": 235,
+      "packed_base": 175,
+      "removed_categories": [
+        "{\"category\": \"recipient\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"projectile_explosion_dmg_pct\", \"target\": [\"self\", \"allies_below_def\"]}"
+      ],
+      "remaining_categories": 43,
+      "ranking_change": "Anis Star remaining auto_damage weapon_type becomes a sole observed category; recompute existing ranking",
+      "full_character_verified": 0
+    }
+  },
+  "cli_generation": {
+    "explicit_development_only": true,
+    "gpu_calls": 0,
+    "compiler_invocations": 0,
+    "cache_hit": true,
+    "sealed_generated_baseline_verified": false,
+    "calculation_verified": false
+  },
+  "failures_preserved": [
+    "initial undefined def_pct symbol stopped Slang before GPU dispatch; corrected to existing alliedFlags metadata, sources genuinely changed",
+    "new generation CLI unit-test left environment variables in shared CPU runner; restored test environment, no calculation/GPU change"
+  ],
+  "windows": {
+    "operations_this_milestone": 0,
+    "current_source_cuda_verified": false,
+    "missing_process_cause": "unknown",
+    "preservation_verified": false
+  },
+  "remaining": [
+    "Anis Star full-profile auto_damage weapon_type contract and GPU execution",
+    "broader pending defense, scalar references, revival/lazy bundle interleavings",
+    "full1612 current private entry retention and full catalog battles",
+    "remaining43 observed categories and current-source bounded CUDA check"
+  ]
+}

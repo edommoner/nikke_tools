@@ -1,3 +1,6 @@
+#ifdef PORTABLE_BELOW_DEF
+#include "below_def_recipient_runtime.slang"
+#endif
 // Friendly-only selection seeds the existing allied RNG without enabling revival.
 bool validAlliedRandomMetadata(uint input)
 {
@@ -14,6 +17,9 @@ bool alliedRandomEnabled(inout Runtime s)
 bool validRecipientLeaf(uint at, bool enemy = false)
 {
     uint kind = commands[at], count = commands[at+1], mask = commands[at+2];
+#ifdef PORTABLE_BELOW_DEF
+    if(kind==14) return !enemy && count==0 && mask==0 && commands[at+3]==0 && commands[at+4]==0 && commands[at+5]==0 && commands[at+6]<P_DEFINITIONS && (commands[at+7]&8U)==0 && (commands[at+7]>>4)<=P_DEFINITIONS;
+#endif
 #ifdef PORTABLE_LEFTMOST
     if(kind==24) return !enemy && count<=5 && mask<=31 && commands[at+3]==0 && commands[at+4]==0 && commands[at+5]==0 && commands[at+6]<P_DEFINITIONS && (commands[at+7]&~7U)==0;
 #endif
@@ -52,6 +58,9 @@ uint selectRecipientLeaf(inout Runtime s, uint row, uint at, uint64_t when, out 
     Definition d = readDefinition(s.inputBase,row);
     uint kind = commands[at], count = commands[at+1], candidates = commands[at+2];
     uint exclude = commands[at+3], authoredOrder = commands[at+4];
+#ifdef PORTABLE_BELOW_DEF
+    if(kind==14) return selectBelowDefense(s,row,when,order);
+#endif
 #ifdef PORTABLE_LEFTMOST
     if(kind==24)
     {
