@@ -24,8 +24,8 @@ class ReadbackBlockTests(unittest.TestCase):
         with self.assertRaises(ValueError):blocks.compare(self.path,'0'*64,self.index)
     def test_sampling_rejects_changed_file_after_first_pass(self):
         original=blocks.scan
-        def changed(*args):
-            result=original(*args);self.path.write_bytes(bytes([1])+self.raw[1:]);return result
+        def changed(*args,**kwargs):
+            result=original(*args,**kwargs);self.path.write_bytes(bytes([1])+self.raw[1:]);return result
         with patch.object(blocks,'scan',side_effect=changed),self.assertRaisesRegex(ValueError,'changed while sampling'):blocks.compare(self.path,self.sha,self.index)
     def test_index_anchor_and_existing_output_are_not_overwritten(self):
         index=self.root/'index.json';blocks.write(index,self.index);out=self.root/'result.json'
@@ -33,6 +33,53 @@ class ReadbackBlockTests(unittest.TestCase):
         self.assertFalse(out.exists());out.write_text('original')
         with self.assertRaises(FileExistsError):blocks.write(out,{})
         self.assertEqual(out.read_text(),'original')
+
+    def test_extended_shape_has_correct_second_case_offsets(self):
+        raw=bytes(1048576*4*2);self.path.write_bytes(raw);index=blocks.scan(self.path,blocks.digest(raw),case_words=1048576)
+        changed=bytearray(raw);changed[1048576*4+16]=9;self.path.write_bytes(changed)
+        r=blocks.compare(self.path,blocks.digest(changed),index)
+        self.assertEqual(r['changed_blocks'],[1024]);self.assertEqual((r['samples'][0]['case_index'],r['samples'][0]['case_word_offset']),(1,0));self.assertEqual(r['samples'][0]['words'][4],9)
+
+    def test_ambiguous_file_shape_requires_the_declared_stride(self):
+        raw=bytes(3*1048576*4);self.path.write_bytes(raw);h=blocks.digest(raw)
+        self.assertEqual(blocks.scan(self.path,h)['cases'],4)
+        self.assertEqual(blocks.scan(self.path,h,case_words=1048576)['cases'],3)
+        for size in (True,786433,1048577):
+            with self.assertRaises(ValueError):blocks.scan(self.path,h,case_words=size)
+
+    def capture(self,name,rows,*,words=1048576):
+        folder=self.root/name;folder.mkdir();raw=b''.join(bytes([value])+bytes(words*4-1) for _,value in rows);(folder/'readback.bin').write_bytes(raw)
+        entries=[dict(name=n,input_sha256=blocks.digest(('input:'+n).encode()),native_sha256=blocks.digest(('native:'+n).encode()),output_sha256=blocks.digest(bytes([value])+bytes(words*4-1))) for n,value in rows]
+        report=dict(calculation_verified=True,mismatches=[],input_count=len(rows),output_sha256=blocks.digest(raw),entries=entries)
+        (folder/'comparison.json').write_text(json.dumps(report));return folder,blocks.digest((folder/'comparison.json').read_bytes())
+
+    def test_retention_rehashes_reordered_cases_and_new_cases(self):
+        old,old_sha=self.capture('old',[('first',0),('last',2)])
+        new,new_sha=self.capture('new',[('last',2),('additional',3),('first',0)])
+        r=blocks.retain(old,old_sha,new,new_sha,case_words=1048576)
+        self.assertTrue(r['all_reference_cases_retained']);self.assertEqual(r['retained_cases'],2);self.assertEqual(r['retained_output_bytes'],2*1048576*4);self.assertEqual(r['added'],['additional']);self.assertEqual(r['gpu_calls'],0);self.assertFalse(r['calculation_verified'])
+
+    def test_retention_reports_changed_and_missing_cases(self):
+        old,old_sha=self.capture('old',[('first',0),('last',2)])
+        new,new_sha=self.capture('new',[('first',1)])
+        r=blocks.retain(old,old_sha,new,new_sha,case_words=1048576)
+        self.assertFalse(r['all_reference_cases_retained']);self.assertEqual(r['missing'],['last']);self.assertEqual(r['changed'],[dict(name='first',fields=['output_sha256'])]);self.assertEqual(r['retained_cases'],0)
+
+    def test_retention_rejects_anchors_forged_case_hashes_and_duplicate_names(self):
+        folder,h=self.capture('capture',[('first',0),('last',2)])
+        with self.assertRaisesRegex(ValueError,'anchor SHA'):blocks.capture_fingerprints(folder,'0'*64,1048576)
+        path=folder/'comparison.json';report=json.loads(path.read_text());report['entries'][0]['output_sha256']='0'*64;path.write_text(json.dumps(report))
+        with self.assertRaisesRegex(ValueError,'actual readback'):blocks.capture_fingerprints(folder,blocks.digest(path.read_bytes()),1048576)
+        report['entries'][1]['name']='first';path.write_text(json.dumps(report))
+        with self.assertRaisesRegex(ValueError,'duplicate'):blocks.capture_fingerprints(folder,blocks.digest(path.read_bytes()),1048576)
+
+    def test_retention_cli_fails_closed_after_preserving_differences(self):
+        old,old_sha=self.capture('old',[('first',0)])
+        new,new_sha=self.capture('new',[('first',1)]);out=self.root/'retention.json'
+        with patch('builtins.print'),self.assertRaises(SystemExit) as failed:
+            blocks.main(['retain','--reference-capture',str(old),'--reference-comparison-sha256',old_sha,'--candidate-capture',str(new),'--candidate-comparison-sha256',new_sha,'--case-words','1048576','--out',str(out)])
+        self.assertEqual(failed.exception.code,2);self.assertFalse(json.loads(out.read_text())['all_reference_cases_retained'])
+        self.assertEqual((old/'readback.bin').read_bytes()[0],0);self.assertEqual((new/'readback.bin').read_bytes()[0],1)
 
 
 if __name__=='__main__':unittest.main()

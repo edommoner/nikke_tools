@@ -1,0 +1,15 @@
+# 通常部位クリアと型付き投射物の共存
+
+通常のpartsノードに`until.targets_cleared`がある戦闘を、型付き投射物の入口が余分に拒否していた。単独typed clock用の検証が、全clearedノードへtyped bindingを要求していたためである。`PORTABLE_DESTRUCTIBLE_BATTLE`の場合だけこの要求を外し、通常の部位・敵のクリア判定は既存actorPools/WorldScheduleへ任せる。同じ共有SlangをCUDA/Metalが使い、CPUイベント列・別時計・偽の部位は追加しない。
+
+typed binding自身をcanonical clearedノードへ接続する操作は、従来どおり明示拒否する。通常部位の全破壊とtyped数量の全消失を同一ノードで合成する規則は、今回の共存検証に含めない。単独typed worldの既存クリア規則は変えていない。
+
+共有25入力（native14/拒否11）がApple M5のMetalと完全一致し、別プロセスで全保存raw/nativeを比較する独立sealも成功。追加の4正例は、部位全破壊→次ノードの弾生成、部位と弾それぞれの再出現、弾破壊が通常部位のclear条件へ混入しないこと、typed128＋通常127部位の別状態を検証する。raw負例はcanonical clearノードへのtyped bindingを拒否する。通常poolの全16word状態、graph状態/履歴、body damage、弾の世代/残量/receiptを比較した。
+
+成功packageは`f70bc436418d2a029bef41278bf9335f6234f98a78b398cabe48ecb2e1378589`。GPU0.066186秒、pipeline64.433266秒、出力104857600byte、Runtime138952byte/出力1048576wordは前段と同じ。新GPU dispatchは1回、同一claim retry0。最初のpackageは旧world fixtureの直接source照合でCPUゲートが停止/GPU0。旧source/raw/期待値を変えず、今回の1ファイル差分の厳密逆変換へ履歴検査を接続して解消した。原失敗を保持する。
+
+独立seal後だけgoldenを登録し、最終package `85262ad4831e6c143366173288440521ef512fc17665a6ca32ebe32f3be4a377`をfresh unpackしてCPU133検査（skip0）/native14成功。旧実GPU5blockの検査に加え、新しい共存2blockを入力・全raw SHA付きで固定し、通常pool/graph/typed状態の故障注入12通りを検出する。sealed generationも必須cache hit/追加Slang0/GPU0で一致した。
+
+旧20入力は新しい`readback-retain`で、入力/native/全raw fingerprintと83886080byteの保持を確認した。この監査はCPUのみ。通常492入口の全147source SHAも現在のsealed goldenと一致するため、その不変経路のGPUは再実行していない。byte監査やsource同一性を、新しい数値演算・現在のCUDA実機の証明へ昇格しない。
+
+全266プロフィール・245packing/base185・20分類のissue/順位を維持し、all_projectilesの限定実証metadataだけ拡張した。Windows状態取得は失敗し、新しいrun依頼0。CUDA実機、typed counterの実戦binding/子context、元の全定義プロフィール、対象別DEF/専用倍率/迎撃/破壊固有効果は未完了。全キャラ認定0・通常UI CPU・全目標未達。次は実戦のtyped counterと子contextを接続する。証拠は`research/destructible-coexist-evidence/`、checkpointは`research/portable-destructible-coexist-checkpoint.json`。

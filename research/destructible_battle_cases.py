@@ -24,4 +24,17 @@ def fixtures():
     c=add('projectiles-with-shields');c['typed_bindings'].extend([dict(node='idle',kind=3,identity=20,capacity=5000.),dict(node='idle',kind=4,identity=21,capacity=5.)])
     c=add('live-buff-and-expiry',timing='every:0.1s');c['effects'].insert(0,field('atk_pct',50,'self','live-atk',duration=.15));c['owners'].insert(0,0)
     c=add('empty-retains-budget',timing='every:0.1s');c['patterns'][0]['delay']=.15;c['effects'][0]['max_trigger']=1
+    def physical(c):
+        c['combat']['weapons'][0].update(mode='auto',interval=.1,min_cycle=.1,post_reload_delay=0);c['post_fire_delays'][0]=0
+        c['effects'].append(field('pierce_enabled',1,'self','ordinary-pierce'));c['owners'].append(0)
+        c['observe_actor_pools']=True
+    c=add('ordinary-part-clear-opens-typed',timing='every:0.1s');physical(c)
+    c['patterns']=[dict(id='parts',kind='parts',targets=[dict(name='ordinary-part',hp=100,reach=1)],until=dict(targets_cleared=True)),dict(id='idle',kind='idle',after=['parts'],until=dict(time=.25))]
+    c=add('ordinary-clear-and-typed-repeat',timing='event:target_spawn',repeat=True);physical(c)
+    c['patterns'].insert(0,dict(id='parts',kind='parts',targets=[dict(name='ordinary-part',hp=100,reach=1)],after=['start','parts'],repeat=3,until=dict(targets_cleared=True)))
+    c=add('typed-death-does-not-clear-ordinary');c['typed_bindings'][0]['capacity']=1.;c['observe_actor_pools']=True
+    c['patterns'].insert(0,dict(id='parts',kind='parts',targets=[dict(name='ordinary-part',hp=10000,reach=1)],until=dict(time=.15,targets_cleared=True)))
+    c=add('separate-128-typed-and-127-ordinary');c['observe_actor_pools']=True
+    c['typed_bindings']=[dict(node='idle',kind=2,identity=10+i,capacity=10000.) for i in range(128)]
+    c['patterns'].insert(0,dict(id='parts',kind='parts',targets=[dict(name='ordinary-'+str(i),hp=10000,reach=1) for i in range(127)],until=dict(time=.15,targets_cleared=True)))
     return rows

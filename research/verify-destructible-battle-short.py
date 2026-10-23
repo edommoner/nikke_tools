@@ -32,6 +32,8 @@ def prepare():
     seed=rows[0][1]
     for label,offset,value in [('row',109520,256),('capacity-zero',109521,0),('capacity-overflow',109521,129),('context-policy',109522,0),('magic',109523,0),('reserved',109524,1),('second-clock',104400,0x57533031),('binding-node',104400+2328,32),('binding-capacity',104400+2332,0x7ff80000),('binding-reserved',104400+2336,1)]:
         w=list(seed);w[offset]=value;rows.append(('reject/destructible-battle/'+label,w,None))
+    coexist=next(w for n,w,c in rows if n.endswith('/ordinary-part-clear-opens-typed'))
+    w=list(coexist);w[104400+2328]=0;rows.append(('reject/destructible-battle/typed-binding-to-canonical-clear',w,None))
     packed=array.array('I',[len(rows)])
     for _,w,_ in rows:packed.extend(w)
     if sys.byteorder!='little':packed.byteswap()

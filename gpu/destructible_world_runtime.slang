@@ -13,8 +13,13 @@ bool dwValidate(WorldSchedule w,uint bindings,uint count,uint base)
         dtSpawn(base,count,slot,commands[d+1],commands[d+2],1,wsLoad(d+3),f64FromI64(1)^F64_SIGN,commands[d+5],commands[d+6],commands[d+7],0,status);
         if(status!=0) return false;
     }
+#ifndef PORTABLE_DESTRUCTIBLE_BATTLE
+    // The standalone typed clock owns these aggregate clear conditions.
+    // An attached battle instead keeps ordinary clear nodes in actorPools;
+    // its entry separately rejects bindings to those canonical clear nodes.
     for(uint n=0;n<w.count;n++) if((commands[wsNode(w,n)+1]&2)!=0)
     { bool any=false;for(uint i=0;i<count;i++) if(commands[bindings+i*DW_BIND_WORDS]==n) any=true;if(!any) return false; }
+#endif
     for(uint i=count*DW_BIND_WORDS;i<128*DW_BIND_WORDS;i++) if(commands[bindings+i]!=0) return false;
     for(uint i=0;i<128*DT_WORDS;i++) results[base+i]=0;
     return true;

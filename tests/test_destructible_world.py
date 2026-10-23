@@ -68,9 +68,9 @@ class WorldTests(unittest.TestCase):
   c['nodes'][0]['attack']=100
   with self.assertRaisesRegex(ValueError,'unmodelled'):compile_bindings(c['nodes'],c['bindings'])
  def test_saved_gpu_reader_rejects_clock_target_and_notice_corruption(self):
-  from portable_backend import source_hashes
+  from portable_destructible_coexist_source_contract import verify_retained_sources
   fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-world-raw.json').read_text())
-  self.assertEqual(fixture['source_sha256'],source_hashes('gpu/destructible_world_probe.slang'))
+  verify_retained_sources(ROOT,'gpu/destructible_world_probe.slang',fixture['source_sha256'])
   rows,_=adapter.prepare()
   for r in fixture['records']:
    w=array.array('I',[0])*786432

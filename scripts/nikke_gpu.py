@@ -237,8 +237,9 @@ SUITES['destructible-skill']=dict(SUITES['destructible-attack'],script='research
 SUITES['destructible-frame']=dict(SUITES['destructible-skill'],script='research/verify-destructible-frame-short.py',golden='research/portable-destructible-frame-short-expected.json',source='gpu/destructible_frame_probe.slang',inputs=26,native=17,development_only=False,tests=['test_destructible_frame.py',*SUITES['destructible-skill']['tests']])
 SUITES['destructible-frame']['tests'].append('test_portable_packet_stage.py')
 SUITES['destructible-frame']['tests'].append('test_destructible_battle.py')
-SUITES['destructible-battle']=dict(SUITES['destructible-frame'],script='research/verify-destructible-battle-short.py',golden='research/portable-destructible-battle-short-expected.json',source='gpu/destructible_battle_entry.slang',inputs=20,native=10,development_only=False,output_words=1048576)
+SUITES['destructible-battle']=dict(SUITES['destructible-frame'],script='research/verify-destructible-battle-short.py',golden='research/portable-destructible-battle-short-expected.json',source='gpu/destructible_battle_entry.slang',inputs=25,native=14,development_only=False,output_words=1048576)
 SUITES['destructible-battle']['tests']=SUITES['destructible-frame']['tests']+['test_portable_file_transport.py','test_portable_resident_transport.py','test_portable_world_reload.py','test_portable_seal.py']
+SUITES['destructible-battle']['tests'].append('test_portable_readback_blocks.py')
 SUITES['leftmost-retention']=dict(SUITES['leftmost'],script='research/verify-world-leftmost-retention-short.py',golden='research/portable-world-leftmost-retention-short-expected.json',inputs=74,native=59,tests=SUITES['leftmost']['tests']+['test_portable_leftmost_replay.py','test_portable_duration_scaling_gpu.py','test_portable_gpu_replay.py','test_portable_reference_migration.py'])
 SUITES['cache-preflight-regression']=dict(SUITES['duration-scaling'],tests=SUITES['duration-scaling']['tests']+['test_portable_cache_probe.py','test_portable_required_cache_preflight.py','test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_compile_cli.py','test_portable_generation_cache.py','test_portable_generation_request.py','test_portable_gpu_cli.py','test_portable_gpu_replay.py','test_portable_compiler_diagnostic.py'])
 SUITES['squad-stage-rosters']=dict(SUITES['squad-stage'],script='research/verify-world-squad-stage-rosters-short.py',golden='research/portable-world-squad-stage-rosters-short-expected.json',inputs=7,native=7)
@@ -2411,6 +2412,8 @@ def main(argv=None):
     for name in ('readback-index','readback-compare'):
         a=sub.add_parser(name);a.add_argument('--readback',type=Path,required=True);a.add_argument('--sha256',required=True);a.add_argument('--out',type=Path,required=True)
         if name=='readback-compare':a.add_argument('--index',type=Path,required=True);a.add_argument('--index-sha256',required=True)
+        else:a.add_argument('--case-words',type=int,choices=(786432,1048576),default=786432)
+    a=sub.add_parser('readback-retain');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--reference-comparison-sha256',required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--candidate-comparison-sha256',required=True);a.add_argument('--case-words',type=int,choices=(786432,1048576),default=786432);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--reference-migration',choices=['parts-cleared-v1','leftmost-rejection-domains-v1'])
     a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
@@ -2481,7 +2484,11 @@ def main(argv=None):
         from portable_readback_blocks import main as blocks_main
         args=['index' if a.command=='readback-index' else 'compare','--readback',str(a.readback),'--sha256',a.sha256,'--out',str(a.out)]
         if a.command=='readback-compare':args+=['--index',str(a.index),'--index-sha256',a.index_sha256]
+        else:args+=['--case-words',str(a.case_words)]
         blocks_main(args);return
+    elif a.command=='readback-retain':
+        from portable_readback_blocks import main as blocks_main
+        blocks_main(['retain','--reference-capture',str(a.reference_capture),'--reference-comparison-sha256',a.reference_comparison_sha256,'--candidate-capture',str(a.candidate_capture),'--candidate-comparison-sha256',a.candidate_comparison_sha256,'--case-words',str(a.case_words),'--out',str(a.out)]);return
     elif a.command=='replay':result=replay_capture(a.capture,a.source_package,a.source_capture,**(dict(reference_migration=a.reference_migration) if a.reference_migration else {}))
     elif a.command=='cache-check':result=check_compile_cache(a.capture,a.out)
     elif a.command=='compiler-stats':result=compiler_statistics(a.capture,a.out,top=a.top,caller=a.caller,runtime=a.runtime)

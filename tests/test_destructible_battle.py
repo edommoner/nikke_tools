@@ -98,8 +98,8 @@ class BattleTests(unittest.TestCase):
     def test_shared_battle_table_packs_without_running_native(self):
         s=importlib.util.spec_from_file_location('typed_battle_test',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
         with patch.object(a,'observe',side_effect=AssertionError('No CPU event list may enter GPU input')):rows,data=a.prepare()
-        self.assertEqual((len(rows),sum(c is not None for _,_,c in rows)),(20,10))
-        self.assertEqual(len(data),4+20*109536*4)
+        self.assertEqual((len(rows),sum(c is not None for _,_,c in rows)),(25,14))
+        self.assertEqual(len(data),4+25*109536*4)
         for _,words,domain in rows:
             if domain is None:continue
             self.assertFalse(any(words[104400:104400+2320]))
@@ -122,10 +122,10 @@ class BattleTests(unittest.TestCase):
         self.assertLessEqual(ordinary,typed)
 
     def test_actual_metal_battle_blocks_reject_state_and_receipt_corruption(self):
-        from portable_backend import source_hashes
+        from portable_destructible_coexist_source_contract import verify_retained_sources
         s=importlib.util.spec_from_file_location('typed_battle_saved',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
         fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-battle-raw.json').read_text())
-        self.assertEqual(fixture['source_sha256'],source_hashes('gpu/destructible_battle_entry.slang'))
+        verify_retained_sources(ROOT,'gpu/destructible_battle_entry.slang',fixture['source_sha256'])
         rows,_=a.prepare();by_name={n:(w,c) for n,w,c in rows}
         for record in fixture['records']:
             block=array.array('I',[0])*fixture['output_words']
@@ -136,6 +136,41 @@ class BattleTests(unittest.TestCase):
             a.compare(block,domain)
             for offset in (0,786433,789251,787458,790000,790006,790010,790019,790020):
                 changed=array.array('I',block);changed[offset]^=2
+                with self.subTest(name=record['name'],offset=offset),self.assertRaises((AssertionError,ValueError)):a.compare(changed,domain)
+
+    def test_ordinary_clear_and_typed_lifetimes_have_distinct_owners(self):
+        s=importlib.util.spec_from_file_location('typed_coexist_native',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
+        rows,_=a.prepare();answers={name.split('/')[-1]:a.native_reference(c) for name,_,c in rows if c is not None and c[0]['observe_actor_pools']}
+        first=answers['ordinary-part-clear-opens-typed'];cleared=next(r for r in first['battle']['boss_log'] if r['outcome']=='cleared')
+        self.assertGreater(cleared['time'],0);self.assertEqual(len(first['typed']['attacks']),2)
+        self.assertTrue(all(r['time']>cleared['time'] for r in first['typed']['attacks']))
+        repeat=answers['ordinary-clear-and-typed-repeat'];self.assertEqual(len([r for r in repeat['battle']['boss_log'] if r['outcome']=='cleared']),3)
+        self.assertEqual([r['receipts'][0]['handle'][2] for r in repeat['typed']['attacks']],[1,2,3])
+        separate=answers['typed-death-does-not-clear-ordinary'];self.assertTrue(separate['typed']['attacks'][0]['receipts'][0]['broken'])
+        self.assertFalse(any(r['outcome']=='cleared' for r in separate['battle']['boss_log']))
+        high=answers['separate-128-typed-and-127-ordinary'];self.assertEqual(len(high['typed']['attacks'][0]['receipts']),128)
+
+    def test_coexistence_source_delta_is_exact(self):
+        from portable_destructible_coexist_source_contract import project_sources
+        data=json.loads((ROOT/'tests/fixtures/portable-destructible-coexist-source-delta.json').read_text());project_sources(ROOT)
+        for name,row in data['sources'].items():
+            with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n'})
+
+    def test_real_metal_coexistence_blocks_reject_pool_aliasing(self):
+        from portable_backend import source_hashes
+        from portable_specs import LIMITS as L
+        s=importlib.util.spec_from_file_location('coexist_saved',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
+        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-coexist-raw.json').read_text())
+        self.assertEqual(fixture['source_sha256'],source_hashes('gpu/destructible_battle_entry.slang'))
+        rows,_=a.prepare();by_name={n:(w,c) for n,w,c in rows}
+        for record in fixture['records']:
+            block=array.array('I',[0])*fixture['output_words']
+            for i,v in record['nonzero']:block[i]=v
+            self.assertEqual(hashlib.sha256(block.tobytes()).hexdigest(),record['output_sha256'])
+            words,domain=by_name[record['name']];self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256']);a.compare(block,domain)
+            offsets=(L['WORLD_ACTOR_POOL_STATE_BASE']+16,L['WORLD_ACTOR_POOL_STATE_BASE']+20,L['WORLD_FRAME_OUTPUT_BASE']+16+4,787458,787460,790019)
+            for offset in offsets:
+                changed=array.array('I',block);changed[offset]^=1
                 with self.subTest(name=record['name'],offset=offset),self.assertRaises((AssertionError,ValueError)):a.compare(changed,domain)
 
 if __name__=='__main__':unittest.main()

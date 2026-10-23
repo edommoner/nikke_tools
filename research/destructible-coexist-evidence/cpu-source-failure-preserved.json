@@ -1,0 +1,10 @@
+{
+  "package_id": "6edd20a77178baa590d0136096c761f0a2d6d35b6c31335d653c96959c888fb0",
+  "failed_group": "test_destructible_world.py",
+  "tests_completed": 32,
+  "failures": 1,
+  "gpu_calls": 0,
+  "reason": "Historical world source fixture was still using direct hashes; connected exact coexistence inverse without changing the source/raw/native baseline",
+  "original_capture_preserved": true,
+  "execution_claim_retries": 0
+}

@@ -1,3 +1,19 @@
+<!-- shared-readback-current -->
+現在の型付き実戦入口はsealed `destructible-battle`（25入力/native14、Metal/独立seal済み）。通常`projectile-chain-retention`の492入力もsealed経路を使える。詳細は docs/portable-destructible-coexist.md。以下は既存経路を含む履歴であり、最新の件数/source readinessはCLI `list`と固定packageを参照する。
+
+保存出力の既存監査器を拡張した。`readback-index --case-words 1048576`は型付き実戦の4MiB/caseを明示し、省略時は従来の786432word。`readback-compare`はSHAで固定したindexの幅を使う。ファイル長から幅を推測しない。`readback-retain`は並べ替え/追加のあるcapture間で元ケースの保持を調べる。2つのcomparison.jsonのSHAを必須とし、成功comparison・一意なcase名・件数・全readback SHA・実caseごとのoutput SHAを読み直してから、元caseのinput/native/output指紋を照合する。
+
+```sh
+python scripts/nikke_gpu.py readback-retain \
+  --reference-capture OLD_CAPTURE --reference-comparison-sha256 OLD_COMPARISON_SHA256 \
+  --candidate-capture NEW_CAPTURE --candidate-comparison-sha256 NEW_COMPARISON_SHA256 \
+  --case-words 1048576 --out NEW_RETENTION_REPORT.json
+```
+
+大文字の値は実path/SHAへ置き換える。元raw/comparisonと既存出力は上書きしない。不一致は診断JSONを保存してexit2、anchor不正やraw改変も停止する。GPU/build/compileは呼ばない。成功comparisonのflagだけを信頼した数値証明ではなく、結果は常に `calculation_verified=false` / `gpu_calls=0`。追加native oracleやGPU計算は既存のrun/audit/sealが担当する。
+raw退避済みなら既存の`restore-raw`で元byteを復元してから監査し、GPU再実行で作り直さない。
+<!-- /shared-readback-current -->
+
 <!-- packet-preparation-current -->
 Windows core46はCPU37/24state preflight成功後に全stage90秒timeout。Slang2回は合計.608秒、CPU batch33.685秒/native.033秒、NVRTC/GPU/readback未観測。外側2GiB/peak340,103,168B/post空/cleanup正常、inner after未完・missing7/unknown/保全false。保存7JSON11,614Bを全SHA検査、再実行/cache-check0。CLI再importと同一processの重複全件検証を除き、共有run_captureのgate前検証、CPU worker/GPU childの検証は維持。既存Journalへ準備/監視/各検証/CPU/inner jobを追加しstatusもstage対応。最終固定packet 9fb5ca76...でCPU37＋controller335(334成功/Win1skip)、改変/gate故障注入9＋CLI41成功。旧Metal46は保存replay＋独立sealで全golden/raw保持・追加GPU0。Windows改善実測は未実施、次はCPU-only準備計測、時間枠拡大やGPU再試行はしていない。source147/245SHA保持・残20model gap・typed target coreはbattle未接続。全キャラ0/UI CPU/目標未達。再利用停止の直接差分は追加したIMPL-STATUS文書だけで、ActorRegistry由来との説明を訂正した。詳細docs/portable-destructible-target-core.mdとcheckpoint。以下は履歴。
 <!-- /packet-preparation-current -->

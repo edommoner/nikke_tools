@@ -1,5 +1,7 @@
 # 実戦時計への型付き投射物接続：共有GPU実証
 
+最新の通常部位との共存25入力と保存出力監査器は[共存検証](portable-destructible-coexist.md)を参照。この文書の20入力は前段の実証記録である。
+
 ## Metal20と共通Frame
 
 最新の共有entryは`gpu/destructible_battle_entry.slang`。通常戦闘と同じ最新の`world_projectile_chain_entry.slang`を含み、通常の戦闘loopが所有するWorldScheduleへ型付き量を同期する。CPUが生成したイベント列・別時計・別のダメージ式は使わない。既存の`destructible_frame_runtime.slang`を住所providerだけ変えて再利用し、通常の発動回数・量確定・同じDFS Frame・同期counter継続・名前付き命中・handler完了通知・gaugeを通す。
