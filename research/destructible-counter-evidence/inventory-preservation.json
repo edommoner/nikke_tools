@@ -1,0 +1,87 @@
+{
+  "all266_records_equal": true,
+  "old245_input_SHA_preserved": true,
+  "all20_issue_codes_and_ranking_preserved": true,
+  "only_foundation_metadata_added": [
+    {
+      "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"projectile_dmg_pct\", \"target\": \"all_allies\"}",
+      "foundation": {
+        "suite": "destructible-counter",
+        "inputs": 18,
+        "native_cases": 13,
+        "rejected_cases": 5,
+        "independently_audited": true,
+        "scope": "declared_typed_world_resolved_landings_and_existing_counter_children_only",
+        "metal_verified": true,
+        "cuda_device_verified": false,
+        "battle_producers_verified": false,
+        "damage_factors_verified": false
+      }
+    },
+    {
+      "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"shield_dmg_pct\", \"target\": \"all_allies\"}",
+      "foundation": {
+        "suite": "destructible-counter",
+        "inputs": 18,
+        "native_cases": 13,
+        "rejected_cases": 5,
+        "independently_audited": true,
+        "scope": "declared_typed_world_resolved_landings_and_existing_counter_children_only",
+        "metal_verified": true,
+        "cuda_device_verified": false,
+        "battle_producers_verified": false,
+        "damage_factors_verified": false
+      }
+    },
+    {
+      "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"shield_dmg_pct\", \"target\": \"self\"}",
+      "foundation": {
+        "suite": "destructible-counter",
+        "inputs": 18,
+        "native_cases": 13,
+        "rejected_cases": 5,
+        "independently_audited": true,
+        "scope": "declared_typed_world_resolved_landings_and_existing_counter_children_only",
+        "metal_verified": true,
+        "cuda_device_verified": false,
+        "battle_producers_verified": false,
+        "damage_factors_verified": false
+      }
+    },
+    {
+      "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"projectile_dmg_pct\", \"target\": \"self\"}",
+      "foundation": {
+        "suite": "destructible-counter",
+        "inputs": 18,
+        "native_cases": 13,
+        "rejected_cases": 5,
+        "independently_audited": true,
+        "scope": "declared_typed_world_resolved_landings_and_existing_counter_children_only",
+        "metal_verified": true,
+        "cuda_device_verified": false,
+        "battle_producers_verified": false,
+        "damage_factors_verified": false
+      }
+    },
+    {
+      "code": "{\"category\": \"recipient\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"damage\", \"target\": \"all_projectiles\"}",
+      "foundation": {
+        "suite": "destructible-counter",
+        "inputs": 18,
+        "native_cases": 13,
+        "rejected_cases": 5,
+        "independently_audited": true,
+        "scope": "declared_typed_world_resolved_landings_and_existing_counter_children_only",
+        "metal_verified": true,
+        "cuda_device_verified": false,
+        "battle_producers_verified": false,
+        "damage_factors_verified": false
+      }
+    }
+  ],
+  "new_gpu_admission": false,
+  "forbidden_calls": {
+    "cpu_battle": 0,
+    "gpu": 0
+  }
+}

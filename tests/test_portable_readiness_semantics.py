@@ -58,6 +58,9 @@ class ReadinessSemanticsTests(unittest.TestCase):
     def test_confirmed_missing_target_world_is_never_noop_support(self):
         for stat in ('projectile_dmg_pct','shield_dmg_pct'):
             r=reference_readiness(self.blocker(stat));self.assertEqual(r['lane'],'reference_model_gap');self.assertEqual(r['native_consumer'],'explicitly_missing_target_world')
+            self.assertFalse(r['gpu_supported']);self.assertFalse(r['gpu_admission_verified'])
+            self.assertEqual(r['typed_foundation_validation']['inputs'],18)
+            self.assertFalse(r['typed_foundation_validation']['battle_producers_verified'])
             self.assertFalse(r['gpu_supported']);self.assertFalse(r['runtime_validation_performed'])
 
     def test_parts_field_has_a_source_but_never_invented_runtime_coverage(self):

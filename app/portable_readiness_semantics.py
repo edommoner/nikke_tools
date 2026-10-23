@@ -10,10 +10,14 @@ def reference_readiness(issue):
     missing_stats=('enemy_movement_disable','force_move','effect_range_pct','effect_target_count_add','lock_on')
     missing_target=(issue.get('kind')=='damage' and issue.get('target') in ('all_projectiles','target_and_nearby:2'))
     missing_enemy_quantity=(issue.get('target')=='all_enemies' and (issue.get('kind'),issue.get('stat')) in (('buff','heal_received_pct'),('instant','ammo_charge_pct')))
+    typed_foundation=dict(suite='destructible-counter',inputs=18,native_cases=13,rejected_cases=5,independently_audited=True,
+        scope='declared_typed_world_resolved_landings_and_existing_counter_children_only',
+        metal_verified=True,cuda_device_verified=False,battle_producers_verified=False,damage_factors_verified=False)
     if issue.get('phase')=='effect' and not issue.get('fields') and issue.get('scaling') is None and (issue.get('kind')=='buff' and issue.get('stat') in missing_stats or missing_target or missing_enemy_quantity):
         result.update(lane='reference_model_gap',native_consumer='missing_canonical_world_or_quantity_consumer',consumer_source='app/portable_model_gap_audit.py; app/portable_missing_consumer_audit.py; calculator/boss_pattern.py:_ranked; calculator/timeline.py:_register_instant_handlers',
             required_extensions=['explicit_world_or_quantity_model','typed_target_lifecycle_and_producer_contracts','shared_execution_and_current_CUDA_Metal_battle_validation'],
             note='Pinned source leaves movement/lock/range/target-count unimplemented. target_and_nearby falls back to one aimed target without a nearby spatial model; all_projectiles returns before damage. Enemy ammunition is filtered out by the allied instant handler, though its named completion still emits. Enemy healing has no verified recipient path. Keep these effects rejected; source audits and typed-state core do not certify battle support')
+        if issue.get('target')=='all_projectiles':result['typed_foundation_validation']=typed_foundation
         return result
     weapon_completion=(issue.get('phase')=='effect' and issue.get('category')=='trigger' and not issue.get('fields') and operator.get('domain')=='timing' and isinstance(operator.get('descriptor'),str) and operator['descriptor'].startswith('weapon_hit:') and bool(operator['descriptor'][len('weapon_hit:'):]))
     ordinary_stack_carrier=(issue.get('phase')=='effect' and issue.get('kind')=='buff' and issue.get('stat')=='buff_stack_add' and issue.get('target') in ('self','target') and not issue.get('fields') and issue.get('scaling') is None)
@@ -215,6 +219,7 @@ def reference_readiness(issue):
             result['lane']='gpu_lowering_candidate'
     elif stat in ('projectile_dmg_pct','shield_dmg_pct'):
         result.update(lane='reference_model_gap',native_consumer='explicitly_missing_target_world',
+            typed_foundation_validation=typed_foundation,
             consumer_source='research/upstream/nikke-calc-master/docs/IMPL-STATUS.md; calculator/timeline.py:_handle_damage_eff; app/portable_missing_consumer_audit.py',
             note='The pinned specification explicitly leaves destructible enemy projectiles and enemy shields unimplemented. all_projectiles returns before damage handling; these modifiers have no damage-factor consumer. This is missing reference semantics, never no-op GPU support. Historical decisions are evidence, not instructions to omit the current goal')
     elif stat=='cover_def_pct':

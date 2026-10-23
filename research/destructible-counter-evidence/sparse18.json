@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-dc-metal18-v3",
+  "raw_bytes": 56623104,
+  "raw_sha256": "5942d23d0f2ca077e868805a491692699978194a609c0b6acd83356476e56db9",
+  "evidence_sha256": "92b399e98afabc16187efa470d11a887c6b5d6121b05320e874ccb80502f5bf2",
+  "raw_inode": 508894292,
+  "zero_ranges": 110,
+  "zero_range_bytes": 45350912,
+  "allocated_before": 56623104,
+  "allocated_after": 11272192,
+  "allocated_reclaimed": 45350912,
+  "full_hash_verified": true
+}

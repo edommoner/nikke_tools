@@ -1,0 +1,11 @@
+{
+  "old_package": "4ae71a60feca5500d7952aba2dec887aa631d09ea2f9f1d6960ff88533b4a848",
+  "old_capture": "/tmp/nikke-dc-metal16-v2",
+  "new_capture": "/tmp/nikke-dc-metal18-v3",
+  "entries": 16,
+  "raw_bytes": 50331648,
+  "case_rows_equal": true,
+  "native_digests_equal": true,
+  "raw_bytes_equal": true,
+  "gpu_calls": 0
+}
