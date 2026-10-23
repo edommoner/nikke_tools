@@ -7,6 +7,15 @@ def reference_readiness(issue):
         runtime_validation_performed=False)
     operator=issue.get('operator')
     operator=operator if isinstance(operator,dict) else {}
+    if issue.get('phase')=='effect' and issue.get('category')=='trigger' and operator.get('domain')=='condition' and operator.get('descriptor')=='not_core':
+        result.update(lane='native_contract_extension',native_consumer='confirmed_source',
+            consumer_source='research/upstream/nikke-calc-master/calculator/buff_manager.py:_condition_ok,notify; calculator/timeline.py:_bullet_core_fracs,_fire,_charge_fire',
+            contract_coverage='recorded_subset',reference_suites=['not-core'],recorded_cases=27,
+            real_profiles=1,real_original_definitions=79,real_durations=[3,30],real_instant_handler_calls=[3,34],
+            implemented_extensions=['native_optional_core_context_contract','native_independent_not_core_accumulator_contract','native_nested_notify_restore_contract','native_condition_and_budget_order_contract'],
+            required_extensions=['physical_hit_count_core_fraction_snapshot','per_definition_caster_not_core_state_separate_from_probability','ordered_duplicate_conditions_and_budget_evaluation','passive_numeric_query_context','current_source_cuda_validation'],
+            note='CPU-only expected-mode contracts25 plus complete Winter Guillotine3/30s. Only physical hit_count carries core_frac here; absent context means non-core, including last_bullet. Duplicate conditions share an effect/caster key, probability uses another key, and conditions still evaluate after activation budget. No packing, GPU admission or execution; do not lower to a constant probability or current post-callback geometry')
+        return result
     if issue.get('phase')=='effect' and issue.get('category')=='trigger' and operator.get('domain')=='timing':
         import re
         if re.fullmatch(r'non_full_charge_fire_count:[1-9][0-9]*',str(operator.get('descriptor',''))):

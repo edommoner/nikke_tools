@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "raw_included": false,
+  "personal_sessions_included": false,
+  "files": [
+    {
+      "path": "research/not-core-reference-evidence/cpu/cpu-tests.json",
+      "bytes": 1543,
+      "sha256": "a8381c693efd67baf9589eb94a19d8a064a76aca730c7db66d3cf669b9e9f6f9"
+    },
+    {
+      "path": "research/not-core-reference-evidence/cpu/test_portable_definition_view.py.stderr.log",
+      "bytes": 107,
+      "sha256": "44a270ce8c5358cca75d18d9208f36ffcdf97095dba8ed8fada789e444a0a64f"
+    },
+    {
+      "path": "research/not-core-reference-evidence/cpu/test_portable_definition_view.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/not-core-reference-evidence/cpu/test_portable_not_core_reference.py.stderr.log",
+      "bytes": 103,
+      "sha256": "fb9a6efbc655bb3e9eba5a60eed8cb827418902a03946ba0a8bff4da63285b42"
+    },
+    {
+      "path": "research/not-core-reference-evidence/cpu/test_portable_not_core_reference.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/not-core-reference-evidence/cpu/test_portable_not_core_routing.py.stderr.log",
+      "bytes": 101,
+      "sha256": "edb4e2159c923ea45a32656078835cdf531c3d7b414c670dd786978875cb0678"
+    },
+    {
+      "path": "research/not-core-reference-evidence/cpu/test_portable_not_core_routing.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/not-core-reference-evidence/cpu/test_portable_readiness.py.stderr.log",
+      "bytes": 113,
+      "sha256": "f4b5c30ea5f5757fd4f518c357bf01b0a4e4d96a01bb3607dee95aab1e788cf3"
+    },
+    {
+      "path": "research/not-core-reference-evidence/cpu/test_portable_readiness.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/not-core-reference-evidence/cpu/test_portable_readiness_semantics.py.stderr.log",
+      "bytes": 110,
+      "sha256": "a18f297cf2a042a09d3cad11acaec464f3c1912651374657cea03dd188239a77"
+    },
+    {
+      "path": "research/not-core-reference-evidence/cpu/test_portable_readiness_semantics.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/not-core-reference-evidence/cpu/test_portable_reference_optimization.py.stderr.log",
+      "bytes": 101,
+      "sha256": "66a20e9242d231d8b613e2a11178c8ee222ec81f777102fd06864bb94c32b209"
+    },
+    {
+      "path": "research/not-core-reference-evidence/cpu/test_portable_reference_optimization.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/not-core-reference-evidence/cpu/test_portable_state_work_routing.py.stderr.log",
+      "bytes": 102,
+      "sha256": "e6ec182765cd965f2837d8eeaef5a64af48a104f245cd1a0b7281559194c57c1"
+    },
+    {
+      "path": "research/not-core-reference-evidence/cpu/test_portable_state_work_routing.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/not-core-reference-evidence/inventory.json",
+      "bytes": 251354,
+      "sha256": "5a4ec649dbcbe15a7e4350bc00d5d6c5c0b2d4a4e4ab68e7d9538622f32fbb75"
+    },
+    {
+      "path": "research/not-core-reference-evidence/observation-extension.json",
+      "bytes": 159,
+      "sha256": "2dfc97240441c037838b70b9ccd1ed7b390642b9166c60fc975537797d678150"
+    },
+    {
+      "path": "research/not-core-reference-evidence/reference.json",
+      "bytes": 1585057,
+      "sha256": "d0f4e57ec1c49fd93ba4cc2a40d152ff8d937a13f3bf7e575a75a645737cdd8c"
+    },
+    {
+      "path": "research/not-core-reference-evidence/retention.json",
+      "bytes": 1163,
+      "sha256": "4cabce4347b9809f8fe379eb996c4bc7a04b08d5bc993213b53f089e41b439d9"
+    }
+  ]
+}

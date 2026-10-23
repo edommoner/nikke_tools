@@ -1,0 +1,72 @@
+[
+  {
+    "pattern": "test_portable_not_core_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.6733683329075575,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 72285
+  },
+  {
+    "pattern": "test_portable_not_core_routing.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.005666458047926426,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 72285
+  },
+  {
+    "pattern": "test_portable_readiness.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.35738458298146725,
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 72285
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.2842820000369102,
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 72285
+  },
+  {
+    "pattern": "test_portable_state_work_routing.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.0032826249953359365,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 72285
+  },
+  {
+    "pattern": "test_portable_definition_view.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.39077275001909584,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 72285
+  },
+  {
+    "pattern": "test_portable_reference_optimization.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.3371068340493366,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 72285
+  }
+]
