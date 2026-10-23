@@ -1,3 +1,7 @@
+<!-- interrupt-aim-reference-current -->
+共通CLI reference interrupt-aimへprivate物理着弾24契約を追加。正本hit_target前後98receipt、通常合計外会計・吸血・dead同フレーム・generation1→2・charge・散弾/2銃口・gateを固定。canonical ActorKind2はPROJECTILE、private6にhit creditを付けない。context内だけのCPU橋で通常CPU/default typed橋/GPU受付は不変。native/全trace/semantic read回数保持、偽receipt/二重/非物理/世代/容量/6故障を拒否。fresh不変packageのreference24とCPU23群140検査成功、batch28.4414秒。GPU/Windows0・共通GPU source/数値/normalizer変更0。全キャラ0/UI CPU/未達。次は共有landing continuationへprivate種別を接続し、Metal full battle/receiptと保持回帰後に受付。詳細docs/portable-interrupt-aim-reference.mdと対応checkpoint。以下は履歴です。
+<!-- /interrupt-aim-reference-current -->
+
 <!-- mixed-query-current -->
 照準＋数値辞書＋回復共有＋部位の混在6ケースを共通CLI mixed-query/mixed-query-diagnosticへ追加。正本観測の計算・trace・semantic read回数保持、8種の故障検出。Metal通常6＋診断6が全項目/全抽選順序/最終MT/照準/回復順一致し、独立seal成功。診断bank外18,628,416byte全保持。CPU13/16検査成功、GPU各約0.050秒。通常122sourceは既存1355と完全同一で全体再実行0、通常Slang0・診断両生成2。GPU本体/数値/normalizer変更0。Windows追加操作0、ユーザーは終了/再起動操作なし・ゲーム/動画の可能性を回答、因果はunknown/保全falseのまま。全キャラ0/UI CPU/未達、次はprivate物理interrupt橋のCPU契約と接続。詳細docs/portable-mixed-query.mdと対応checkpoint。以下は履歴です。
 <!-- /mixed-query-current -->

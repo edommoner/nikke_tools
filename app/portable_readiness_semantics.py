@@ -22,9 +22,10 @@ def reference_readiness(issue):
     if issue.get('phase')=='program' and issue.get('category')=='control' and issue.get('fields')==['focus_aim_physical_interrupt']:
         result.update(lane='native_contract_extension',native_consumer='confirmed_source',
             consumer_source='research/upstream/nikke-calc-master/calculator/timeline.py:_land_target; app/impact_runtime.py:landing; app/world_actor_runtime.py:ActorRegistry.view',
-            contract_coverage='reproduced_adapter_rejection',reference_suites=['focus-aim'],
-            required_extensions=['typed_interrupt_actor_bridge','typed_landing_credit'],
-            note='Pinned landing supports interrupt targets, but the current typed comparison bridge rejects their identity. Keep physical admission closed; this is an adapter extension, not an inert effect or an alias for part/projectile credit')
+            contract_coverage='recorded_subset',reference_suites=['interrupt-aim'],recorded_cases=24,
+            implemented_extensions=['private_native_interrupt_receipts','zero_canonical_credit_contract','same_frame_dead_accounting','respawn_generation_contract','charge_and_lifesteal_contracts'],
+            required_extensions=['shared_private_interrupt_landing_bridge','metal_full_battle_and_receipt_validation'],
+            note='Opt-in private kind6 receipts preserve native target landing/accounting and lifesteal across24 authored contracts. Default typed CPU bridge and GPU physical admission remain closed. Canonical ActorKind2 stays PROJECTILE; interrupts acquire no canonical hit credit. Connect shared GPU before promotion')
         return result
     if issue.get('phase')=='effect' and issue.get('kind')=='buff' and issue.get('category')=='trigger' and operator.get('domain')=='condition' and operator.get('descriptor') in ('no_broken_cover_ally','focusing'):
         focus=operator['descriptor']=='focusing'
