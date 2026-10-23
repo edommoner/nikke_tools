@@ -57,3 +57,15 @@ probeはarena最大32、通知8の範囲である。production1024枠、複数�
 6. 正本52戦闘契約、旧Metal398全byte保持、元ドロシー/トロニーの全定義/実編成をMetalで検証する。保存old source証明は明示delta逆変換で保持し、正本・binary64・normalizerを変更しない。
 
 証拠はresearch/damage-accum-core-evidence/、checkpointはresearch/portable-damage-accum-core-checkpoint.json。
+
+## Windows配布とbattle配置候補の追記
+
+Windowsへはroot commit5dfc0d6...の専用branchから6.5MBの同一packageと出所JSONだけを配布し、開発履歴転送を避けた。package ID/SHA確認後、補助helperが中断されCPU captureはpreflight/4検査成功までの記録で止まっている。CPU完了やCUDA開始は未確認、GPU実行0。保存runner PIDだけをliveness証拠にせず、既存実行だけの読み取り回収を依頼した。追加CPU/GPUや再起動は依頼していない。
+
+既存scratch ownership監査の全5モードに候補を追加してCPU確認したところ、header260666..260668、通知scratch260668..261692（512件）が衝突せず入る。元の未所有区間は260666..262128で残り436word。これは実行layoutへの割当やGPU証明ではなく、次のadapterが実際に初期化順・再入時所有期間とともに実装する候補である。
+
+## Windows準備経路の修正
+
+読み取り回収で、旧helperの準備が過去34046ファイル/1167617324Bの列挙・SHA読取だったと報告された。元CPU runnerへはOpenProcessがerror87でlive handleを取得できず、CPU完了は未認定のまま保存した。旧7プロセスの終了原因とは結び付けない。
+
+この個別helperを再利用せず、scripts/run-gpu-packet.pyでCPU事前検査を含む全stageを既存Job/start gate/cleanupの所有下へ置く。準備ではmanifest headerだけを読み、全member検査もgate後の予算内に含める。Macの対象CPU20検査とcontroller smoke323（Windows専用1skip）が成功。詳細docs/portable-packet-stage.md。

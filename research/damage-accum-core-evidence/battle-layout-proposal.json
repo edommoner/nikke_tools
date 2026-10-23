@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "status": "proposed_addresses_only_not_yet_allocated_or_used_by_battle",
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "output_words": 786432,
+  "header": {
+    "base": 260666,
+    "words": 2,
+    "end": 260668
+  },
+  "queue": {
+    "base": 260668,
+    "words": 1024,
+    "end": 261692,
+    "captured_notices": 512
+  },
+  "available_interval": [
+    260666,
+    262128
+  ],
+  "remaining_words": 436,
+  "selection_precedes_object_arena": [
+    108736,
+    109248
+  ],
+  "adjacent_header_would_overlap_shield_selection": true,
+  "modes": [
+    {
+      "mode": "normal",
+      "existing_layout_verified": true,
+      "proposed_nonoverlap_verified": true,
+      "existing_banks_sha256": "cd13c0d363d7609654826fe436095d2a197c2615b8644c7fb742f7af4de0ee7b"
+    },
+    {
+      "mode": "native-query-diagnostic",
+      "existing_layout_verified": true,
+      "proposed_nonoverlap_verified": true,
+      "existing_banks_sha256": "128728e040f163a5966180a0d8cb2631143da4ccd4a21973a23b4de6dac4e6f7"
+    },
+    {
+      "mode": "heal-share-diagnostic",
+      "existing_layout_verified": true,
+      "proposed_nonoverlap_verified": true,
+      "existing_banks_sha256": "d955e4790c73bc482645c725dcf5c678a4684a315ae5349ecd14fd15e9754cb1"
+    },
+    {
+      "mode": "interrupt-aim-diagnostic",
+      "existing_layout_verified": true,
+      "proposed_nonoverlap_verified": true,
+      "existing_banks_sha256": "4a4ae51a311ef10910383b2b030b053893a9c829890a2477e44f912ac2d1c427"
+    },
+    {
+      "mode": "heal-charge",
+      "existing_layout_verified": true,
+      "proposed_nonoverlap_verified": true,
+      "existing_banks_sha256": "494fb31074cb0f99702a352226110cc8d34282116d6f11206a2df453b882b5f2"
+    }
+  ],
+  "source_sha256": {
+    "app/portable_specs.py": "d838bf266eff60884b0b5a995c5e09070fcf8ec436dbebb91098f333476008fd",
+    "app/portable_scratch_layout.py": "6faf4e7afbf1007a035545d52ccecbeb1fb1a8192b40c8a5bc39b25c153c9a8e",
+    "gpu/portable_schema.slang": "162ef0519564ac9f4aeb2efccb6c7c3bf3f9f60931a20e21ffdba42aed7f1712"
+  },
+  "reentry_requirement": "Scratch list must be copied into owned typed notice objects before any callback; ancestors cannot retain this global scratch"
+}

@@ -35,10 +35,18 @@
     "reader_fix_gpu_reruns": 0
   },
   "windows": {
-    "additional_commands": 0,
+    "status": "original_attempt_incomplete_recovery_finished",
+    "CPU_verified": false,
+    "recorded_tests": 4,
+    "gpu_runs": 0,
+    "CPU_runner_liveness": "OpenProcess87; no live handle acquired",
     "seven_process_exit_cause": "unknown",
     "environment_preservation_verified": false,
-    "next": "Only the isolated41-case package is a candidate for a bounded short CUDA check; no full-entry compile"
+    "extra_tests_or_GPU_restarts_requested": 0,
+    "distribution_branch": "codex/cuda-damage-accum-core-v1-source",
+    "read_only_recovery_pending": false,
+    "historical_preparation_files": 34046,
+    "historical_preparation_bytes": 1167617324
   },
   "limits": [
     "Probe uses at most32 arena slots and8 captured notices; production1024 capacity not stressed",
@@ -49,5 +57,19 @@
   "full_goal_complete": false,
   "full_character_verified": 0,
   "ui_backend": "cpu",
-  "next_action": "Connect this exact core to the private battle carrier and post-lifesteal packet continuation, then prove52 native worlds plus old398 and real profiles"
+  "next_action": "Connect this exact core to the private battle carrier and post-lifesteal packet continuation, then prove52 native worlds plus old398 and real profiles",
+  "battle_layout_proposal": {
+    "header": 260666,
+    "queue": 260668,
+    "queue_words": 1024,
+    "all5_modes_nonoverlapping": true,
+    "actually_allocated": false
+  },
+  "whole_stage_launcher": {
+    "package_id": "bdb482e1b3e93428db5f25f690f828abb7da1977b85aeaeb3b4b879e55065f73",
+    "Mac_CPU_tests": 20,
+    "Mac_controller_smoke_tests": 323,
+    "Mac_smoke_skipped": 1,
+    "Windows_native_Job_smoke_pending": true
+  }
 }

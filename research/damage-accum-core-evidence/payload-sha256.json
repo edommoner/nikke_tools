@@ -1,4 +1,5 @@
 {
+  "battle-layout-proposal.json": "8e0b3f960c829a6def865644dfc3f8104da001fdc4c50a9cb72dd965f7a29ecf",
   "compiler-structure.json": "1ba0c60efadbf1236634698aeaccc3d52eec0a778a08bc6250961814b8010c3c",
   "failure-nonresident-cache-v3.json": "2cdc9b87d65026c5b4134bff06ebc0c9b5b77e830351bdecf6f0a24e32c96570",
   "failure-numeric-header-replay-v6.json": "57b22b588c4a3dbef85ce8170d8e570978eeb1193376a06a392b2a46d5755b1f",
@@ -18,5 +19,7 @@
   "native-preflight34.json": "1f333a38dacede72833bfe58f16f02a0c5a13274ee2c1cdbcee11584a2046d13",
   "preservation.json": "13d4d48a14618e4a7d925c5951b23d7abd87f400fa54cd15360386ed292b0d1f",
   "retained-extra-failures.json": "d0817d9ceaa1d232b916cfb3ffef01814be147ebb86a1e03d903ad2dc65fb51d",
-  "space-raw41.json": "ff1b4e902e24004324404e52fd98a90c3c9d68db2bc904601569ec90c9412030"
+  "space-raw41.json": "ff1b4e902e24004324404e52fd98a90c3c9d68db2bc904601569ec90c9412030",
+  "windows-attempt.json": "7730cf97b46f55b078073ea10113139bb75bea166a8d3b6b1e08db86aaf94cb8",
+  "windows-package-distribution.json": "34e4abee85947677a8533188563a52b15a2f9a9676bf4bc057ead97955527261"
 }

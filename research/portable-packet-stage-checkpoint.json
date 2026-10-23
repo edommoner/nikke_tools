@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "status": "Mac_owned_stages_verified_Windows_smoke_pending",
+  "package_id": "bdb482e1b3e93428db5f25f690f828abb7da1977b85aeaeb3b4b879e55065f73",
+  "package_files": 2594,
+  "zip_bytes": 6514392,
+  "zip_sha256": "f5d40b03ebc54e390678e3654ee017606c8ac659ec031e12b52123cb77dedd7f",
+  "cpu": {
+    "groups": 3,
+    "tests": 20,
+    "passed": true,
+    "all_inside_bounded_stage": true
+  },
+  "smoke": {
+    "groups": 32,
+    "tests": 323,
+    "skipped": 1,
+    "passed": true,
+    "package_id": "b18591acdb4d479be73bd53e730c5de2ec8d02fe2a10413b70f53ab446f88702",
+    "difference_from_final": "Final only inherits caller site-packages for direct base Python"
+  },
+  "reused": [
+    "research/run-world-bounded.py",
+    "research/windows_validation_observer.py",
+    "scripts/nikke_gpu.py"
+  ],
+  "parent_preparation": "Manifest header only; full record validation gated inside owned child",
+  "whole_stage_deadline_max_seconds": 180,
+  "cleanup_budget_seconds": 5,
+  "inner_GPU_deadline_max_seconds": 60,
+  "job_memory_MiB": 2048,
+  "Windows_Job_execution_verified": false,
+  "core_GPU_source_and_goldens_unchanged": true,
+  "additional_Metal_dispatches": 0,
+  "additional_CUDA_dispatches": 0,
+  "full_goal_complete": false
+}
