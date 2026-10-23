@@ -2,7 +2,8 @@
 import hashlib,json
 from pathlib import Path
 def project_sources(root,sources=None):
-    root=Path(root);sources=dict(sources or {});data=json.loads((root/'tests/fixtures/portable-full-burst-queue-source-delta.json').read_text())
+    from portable_full_burst_capacity_source_contract import project_sources as project_capacity
+    root=Path(root);sources=project_capacity(root,sources);data=json.loads((root/'tests/fixtures/portable-full-burst-queue-source-delta.json').read_text())
     for name,row in data['sources'].items():
         current=sources.get(name,(root/name).read_text())
         assert hashlib.sha256(current.encode()).hexdigest()==row['current_sha256'],'Unreviewed full-burst queue source: '+name

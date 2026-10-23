@@ -207,6 +207,11 @@ void writePendingBurst(inout Runtime s, uint output, bool entries)
     logicalCount=0;for(uint i=0;i<s.pendingCount;i++) if(definition_damagePending(s.inputBase,s.pendingRow[i])==1) logicalCount++;
 #endif
     results[output] = logicalCount; results[output+1] = s.pendingEnqueued; results[output+2] = s.pendingFired;
+#ifdef PORTABLE_FULL_BURST_LANDING
+    // Private final-state diagnostic. Query word3 and all legacy fields retain
+    // their old meaning. Entries remain legacy-first in the existing512 slots.
+    if(entries) results[output+3]=s.pendingCount-logicalCount;
+#endif
     uint logicalIndex=0;
     if (entries) for (uint index = 0; index < s.pendingCount; index++)
     {
@@ -217,6 +222,15 @@ void writePendingBurst(inout Runtime s, uint output, bool entries)
         storeNumber(at+1,s.pendingCastTime[index]); storeNumber(at+3,s.pendingCoefficient[index]);
         results[at+5] = s.pendingHits[index]; storeNumber(at+6,s.pendingAmount[index]);
     }
+#ifdef PORTABLE_FULL_BURST_LANDING
+    if(entries) for(uint index=0;index<s.pendingCount;index++)
+    {
+        if(definition_damagePending(s.inputBase,s.pendingRow[index])!=2) continue;
+        uint at=output+4+logicalIndex++*8;results[at]=s.pendingRow[index];
+        storeNumber(at+1,s.pendingCastTime[index]);storeNumber(at+3,s.pendingCoefficient[index]);
+        results[at+5]=s.pendingHits[index];storeNumber(at+6,s.pendingAmount[index]);
+    }
+#endif
 }
 
 #ifdef PORTABLE_FULL_BURST_LANDING

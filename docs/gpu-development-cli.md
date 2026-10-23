@@ -1,3 +1,7 @@
+<!-- full-burst-capacity-current -->
+full-burst待機列512境界と着弾後の次回mode2残存を実証。既存出力word3＋旧形式優先512entryで新形式件数/owner/name/hitsを公開し、正本の実controller終了列と照合。Metal272(native199/旧拒否72/実行時容量超過1)と独立seal成功、旧267 input/nativeと全839909376B保持・Runtime全layout/stride138952不変。親1＋子511で514packetとdamage654278、着弾後追加1項目が次回へ残る。513はnative515packetで有限/GPU status64、入力差はBUDGET511→512の1word。summaryは履歴のみ省略し全処理/総packet数/公開battle状態/RNG/最終列を比較、個別GPU514traceではない。CPU25群180(skip0)63.867秒/上限90秒/native17.885秒/GPU4.410秒、生成cache必須hit/実行時Slang0。次は0hit query-only・HP basis照会順/保留組合せ・周期snapshot移動・現CUDA/全キャラ。Windows追加0/7終了unknown/保全false、全キャラ0/UI CPU/development_only/未達。詳細docs/portable-full-burst-capacity.mdとcheckpoint。以下は履歴。
+<!-- /full-burst-capacity-current -->
+
 <!-- full-burst-queue-current -->
 フルバースト着弾のlive再入とtyped receipt tail所有情報を共通Slangへ修正。子・孫を同回生成、旧bonus追加分だけ次回へ残し、既存出力bankに旧batchを一時保存して着弾前に枠解放。tailの本体8/部位2/周期・迎撃snapshot38wordとslot参照を移動。Metal267(native195/拒否72)と独立seal成功、旧260 input/nativeと全817889280B保持・Runtime全layout/stride138952不変。CPU24群174(skip0)52.754秒/native15.774秒/GPU4.399秒、生成cache必須hit/実行時Slang0。追加7はlive/孫/初期混在/旧tail/部位/迎撃/周期共存。周期低markerの移動は未実証、512枠境界・着弾後mode2の直接観測・0hit query-only/HP basis順・現CUDA/全キャラは残件。Windows追加0、利用者の終了/再起動操作なし回答を記録、ゲーム/動画原因は未確定・7終了unknown/保全false。全キャラ0/UI CPU/development_only/未達。詳細docs/portable-full-burst-queue.mdとcheckpoint。以下は履歴。
 <!-- /full-burst-queue-current -->
