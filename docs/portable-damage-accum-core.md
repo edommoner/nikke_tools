@@ -37,7 +37,7 @@ python scripts/nikke_gpu.py unpack --archive /tmp/damage-core.zip --dest /tmp/da
 python scripts/nikke_gpu.py run --backend metal --cpu-only --capture /tmp/damage-core-cpu --timeout 90
 ```
 
-sealed packageでgenerationを行い、cache必須hitを確認してから新しいcaptureへ1回だけ実行する。使ったpackage/backendのclaimを消さない。Windowsはこの41入力だけを短く検証する候補で、full-entry compilerや旧398入力の実行を必要条件にしない。CUDA実機は現時点で未検証。
+sealed packageでgenerationを行い、cache必須hitを確認してから新しいcaptureへ1回だけ実行する。使ったpackage/backendのclaimを消さない。Windowsはこの41入力だけを短く検証する候補で、full-entry compilerや旧398入力の実行を必要条件にしない。CUDA coreの後続結果は末尾に記録した。full battleのCUDA実機は未検証。
 
 ## 保持した失敗と限界
 
@@ -71,3 +71,9 @@ Windowsへはroot commit5dfc0d6...の専用branchから6.5MBの同一packageと�
 この個別helperを再利用せず、scripts/run-gpu-packet.pyでCPU事前検査を含む全stageを既存Job/start gate/cleanupの所有下へ置く。準備ではmanifest headerだけを読み、全member検査もgate後の予算内に含める。Macの対象CPU20検査とcontroller smoke323（Windows専用1skip）が成功。詳細docs/portable-packet-stage.md。
 
 実adapterでは、coreのrate record21がstack、既存protectionObjectのrecord21がcarrier slotである点を分ける必要がある。coreのlogical slotはword6に置き、typed bindingで読む。allocateProtectionは先頭20wordを消すため、再利用前にactiveリンクを外さなければならない。入力policyの高位bitをcoreのactive/owner flagsへそのままコピーしない。これらは既存ソースの直接接続前に解決する条件で、現在の単体probeはproduction bindingを認定しない。
+
+## CUDA coreの実機報告
+
+修正版Windows smoke324件(skip9)/失敗0、対象CPU21件/失敗0の後、RTX3070Tiで41入力(native方法34/拒否7)が一致した。共有CLIの報告するinput SHA5018e811...、全128974848B readback SHA1c9b7b50...はMetal登録goldenと同じである。cold NVRTCは1回1.453秒、host dispatch0.004975秒（MetalのGPU秒とは別の計測）。file-only warm cacheはhit/0.085秒、追加compile/GPU0。GPUは1回のみ。
+
+内側Jobで欠落0だが、全stageの前後観測では7件欠落/サービス識別不明で環境保全false、原因unknownを保持する。数値一致/containmentと保全を分離する。追加Windows実験は依頼せず、保存済み小レポートと時点集計だけを取得中である。現在の記録はWindows共通CLIの完了報告であり、MacでCUDA rawを独立再監査したものではない。battle adapter/全キャラ認定の証明にはしない。

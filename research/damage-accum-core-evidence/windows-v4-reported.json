@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "provenance": "Windows common-CLI completed-turn summary; small saved artifacts requested, transfer still awaiting acknowledgement",
+  "remote_report_only": true,
+  "Mac_independent_CUDA_raw_audit": false,
+  "package_id": "58e69f8b9701907cc9a9993124fff395581777652ce5c7d9037f3a68c22782a6",
+  "calculation_verified": true,
+  "containment_verified": true,
+  "environment_preservation_verified": false,
+  "overall_stage_verified": false,
+  "CPU": {
+    "smoke": 324,
+    "smoke_skipped": 9,
+    "suite": 21,
+    "errors": 0
+  },
+  "comparison": {
+    "inputs_matched": 41,
+    "native_oracles_matched": 34,
+    "rejections_matched": 7,
+    "mismatches": [],
+    "input_sha256": "5018e81131e03f4daaa22b26fa7b9df76c0efbc041946c2b176244b9b5f8f701",
+    "output_sha256": "1c9b7b50d9d9668ba70e81a215800b8365abdb903ab470a10c8505355c950e32"
+  },
+  "device": "NVIDIA GeForce RTX 3070 Ti",
+  "compile": {
+    "cold": true,
+    "calls": 1,
+    "seconds": 1.453
+  },
+  "host_dispatch_seconds": 0.004974799696356058,
+  "warm_cache_check": {
+    "hit": true,
+    "seconds": 0.08532420033589005,
+    "compile_calls": 0,
+    "gpu_calls": 0
+  },
+  "Job": {
+    "cap_bytes": 2147483648,
+    "whole_stage_peak_bytes": 523214848,
+    "proof_peak_bytes": 442159104,
+    "post_members": [],
+    "cleanup_error": null,
+    "whole_stage_missing": 7,
+    "proof_missing": 0
+  },
+  "preservation_cause": "unknown",
+  "service_status": "unverified",
+  "GPU_runs": 1,
+  "retries": 0,
+  "full_battle_or_character_certification": false,
+  "safe_summary_sha256": "7f631f9bc6d09a8d2db4ae73bc559f202ce364c05c5f03b1753b7b4dfc1df351",
+  "small_result_transfer_pending": true,
+  "transfer_tool_cell_id": "6939",
+  "reported_full_readback_digest_matches_Metal_golden": true
+}
