@@ -20,7 +20,7 @@ class StateWorkRoutingTests(unittest.TestCase):
 
     def test_physical_interrupt_is_a_typed_adapter_extension(self):
         result=reference_readiness(dict(phase='program',category='control',fields=['focus_aim_physical_interrupt']))
-        self.assertEqual(result['lane'],'native_contract_extension');self.assertEqual(result['contract_coverage'],'recorded_subset');self.assertEqual(result['recorded_cases'],40);self.assertEqual(result['reference_suites'],['interrupt-aim','aimed-packets']);self.assertIn('aimed_pierce_explosion_packet_set',result['required_extensions']);self.assertIn('shared_private_interrupt_landing_bridge',result['implemented_extensions']);self.assertEqual(result['scoped_metal_receipts'],34);self.assertIn('native_multipacket_shot_observer',result['implemented_extensions']);self.assertNotIn('aimed_no_core_intercept_factors',result['required_extensions']);self.assertFalse(result['gpu_supported'])
+        self.assertEqual(result['lane'],'reference_review');self.assertEqual(result['contract_coverage'],'recorded_subset');self.assertEqual(result['recorded_cases'],44);self.assertEqual(result['reference_suites'],['interrupt-aim','aimed-packets','aimed-area']);self.assertIn('aimed_pierce_explosion_packet_set',result['implemented_extensions']);self.assertIn('shared_private_interrupt_landing_bridge',result['implemented_extensions']);self.assertEqual(result['scoped_metal_receipts'],74);self.assertIn('native_multipacket_shot_observer',result['implemented_extensions']);self.assertNotIn('aimed_no_core_intercept_factors',result['required_extensions']);self.assertFalse(result['gpu_supported'])
 
     def test_late_attack_random_is_not_covered_by_generic_recipient_proof(self):
         for stat in ('atk_caster_based_pct','atk_from_hp_pct'):

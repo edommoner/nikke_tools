@@ -1,0 +1,102 @@
+{
+  "gpu_calls": 0,
+  "native_input_preserved": 1393,
+  "old_full_byte_equal": 1387,
+  "changed_cases": 6,
+  "word_offset_counts": {
+    "785448": 6
+  },
+  "changed_rows": [
+    {
+      "index": 1379,
+      "name": "interrupt-aim-retention/mixed-query/mixed-query-focus-owner",
+      "before_sha256": "35b8e682d08f70496bac9f3e4a205a04d04f61358550ee396ddb930570d0edbd",
+      "after_sha256": "56e2389e6cdb9191f634c4a911b366f86704c5b3e333fcce3cb4833650588c6f",
+      "word_changes": [
+        {
+          "word": 785448,
+          "before": 155,
+          "after": 152
+        }
+      ]
+    },
+    {
+      "index": 1380,
+      "name": "interrupt-aim-retention/mixed-query/mixed-query-focus-foreign",
+      "before_sha256": "f28f62039fdda33db8aa9dc7190f333d5712b39fb0842a1e38f6b0124a7bb8b3",
+      "after_sha256": "8674d3e03c06233d8533c112df722f644d1eb2bd47cb92620addaa5dec0bf98e",
+      "word_changes": [
+        {
+          "word": 785448,
+          "before": 155,
+          "after": 152
+        }
+      ]
+    },
+    {
+      "index": 1381,
+      "name": "interrupt-aim-retention/mixed-query/mixed-query-focus-empty",
+      "before_sha256": "ddb8f45cf9b40840042bb5d670e2550c792e0cc961b7656f3966ce4cb3666287",
+      "after_sha256": "985499eb4c9d03078f0fbd58c3c2812a652d147389cda28def39831fa70b99d2",
+      "word_changes": [
+        {
+          "word": 785448,
+          "before": 155,
+          "after": 152
+        }
+      ]
+    },
+    {
+      "index": 1382,
+      "name": "interrupt-aim-retention/mixed-query/mixed-query-focus-heal",
+      "before_sha256": "53d26a95387bdb50c443874ee4ee66a9b25dfdef84ef74977493c34f892bf3d0",
+      "after_sha256": "5388cb4e9e0de7b21401a33b4a5a85c234e5fcd38e5a2b6cc4cb5ee42f9f8796",
+      "word_changes": [
+        {
+          "word": 785448,
+          "before": 158,
+          "after": 155
+        }
+      ]
+    },
+    {
+      "index": 1383,
+      "name": "interrupt-aim-retention/mixed-query/mixed-query-focus-parts",
+      "before_sha256": "2eff74e59e6cdf5f46564fdf9f03de14b14aa1603de6a61fad2a62b905f67ac6",
+      "after_sha256": "2c941eddb6aed1928c68c6a5e07b6c6fade20c086eb5b7d8283d1e404a658dba",
+      "word_changes": [
+        {
+          "word": 785448,
+          "before": 163,
+          "after": 160
+        }
+      ]
+    },
+    {
+      "index": 1384,
+      "name": "interrupt-aim-retention/mixed-query/mixed-query-focus-heal-parts",
+      "before_sha256": "ecad0e7f0cc6227974214ef5692f1b493481fb2f094eb837fe888fbc3e8de782",
+      "after_sha256": "e489e1a1f595ffa06dd31b800476249c757b91c4f892b2df7dc94a1171b28c97",
+      "word_changes": [
+        {
+          "word": 785448,
+          "before": 166,
+          "after": 163
+        }
+      ]
+    }
+  ],
+  "output_sha256": {
+    "old": "675d3bc56fb542a32939e2323b082822a2a393c60d416c2cb03c226e865539c1",
+    "new": "19a9575b13355dff51ba8ea12e3238e05286b68370036b25d24a4bf2d597ea31",
+    "diagnostic": "13fd932a3f490b97bfda1a69ee9403fabd984428c7498c111f471439a2fd42f3"
+  },
+  "diagnostic_cases": 12,
+  "diagnostic_unchanged_bytes": 37551360,
+  "diagnostic_only_word_range": [
+    770976,
+    775088
+  ],
+  "reviewed_scope": "Exact recorded transition048adb0 to aimed-area source ledger: six mixed-query rows differ only at NQR header+8, successful cache-hit counter (155/158/163/166 minus3); all other bytes preserved. Not a generated-code normalizer exclusion.",
+  "passed": true
+}

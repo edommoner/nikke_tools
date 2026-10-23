@@ -50,6 +50,7 @@ bool validCounterLandingInput(inout Runtime s,uint base,uint step)
 bool physicalInterruptSources(inout Runtime s)
 {
     if(!counterLandingsEnabled(s)) return false;
+    if(focusAimEnabled(s) && actorPoolsEnabled(s)) return true; // Capture one factor snapshot for aimed part-only worlds too.
     for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]==6) return true;
     return false;
 }
@@ -69,9 +70,18 @@ uint64_t sampleCounterReachShot(inout Runtime s,uint who,uint64_t coefficient,bo
         if(commands[at]==1) part=true;
         if(commands[at]==2) interrupt=true;
     }
-    uint64_t amount=damageFromFactors(s,factors,false);
+    uint64_t partFactor=factors[8],amount=damageFromFactors(s,factors,false);
     if(part&&s.error==0) { results[out]=reach;storeNumber(out+2,damageFromFactors(s,factors,true)); }
     if(interrupt&&s.error==0) { results[out+1]=reach;factors[8]=interceptFactor;storeNumber(out+4,damageFromFactors(s,factors,true)); }
+    uint target=actorPhysicalTarget(s,who,0)&127U,kind=commands[actorBinding(s,target)];
+    if(focusAimEnabled(s) && (kind==1 || kind==6) && reach!=0 && s.error==0)
+    {
+        // Captured amount for the target packet; never re-query after callbacks.
+        if(kind==6) factors[8]=interceptFactor;
+        else factors[8]=partFactor;
+        storeNumber(out+6,damageFromFactors(s,factors,true));
+        results[out+1]|=0x80000000U|(target<<8);
+    }
     return amount;
 }
 #endif
@@ -124,7 +134,7 @@ void publishCounterLanding(inout Runtime s,uint who,uint target,uint64_t amount,
     uint64_t damage=commands[binding]==5 ? actorNumber(receipt+2) : amount;
     counterPhysicalPacket(s,who,slot,generation,damage,killed,when,output);
 }
-void deliverCounterPartGroup(inout Runtime s,uint who,uint target,uint64_t when,uint output,uint reach,uint64_t amount)
+void deliverCounterPartGroup(inout Runtime s,uint who,uint target,uint64_t when,uint output,uint reach,uint64_t amount,uint excluded=128)
 {
     if(commands[actorBinding(s,target&127U)]!=0) return;
     uint count=0;
@@ -136,7 +146,7 @@ void deliverCounterPartGroup(inout Runtime s,uint who,uint target,uint64_t when,
     for(uint slot=1;slot<actorPoolCount(s)&&s.error==0;slot++)
     {
         uint input=s.inputBase+P_TARGET_COUNTER_INPUT_BASE+4104+slot*8,p=actorPoolAt(s,slot);
-        if(commands[input]!=1||commands[input+1]==0||commands[input+1]>reach||results[p+1]==0) continue;
+        if(slot==excluded||commands[input]!=1||commands[input+1]==0||commands[input+1]>reach||results[p+1]==0) continue;
         uint gen=results[p],out=s.resourceOutput+P_COUNTER_LANDING_PART_BASE+count*8;
         uint extra=s.resourceOutput+P_COUNTER_LANDING_EXTRA_BASE+slot*4;
         if(results[extra]==0x7fffffff) { s.error=2;break; }
@@ -164,3 +174,37 @@ void deliverCounterParts(inout Runtime s,uint who,uint target,uint64_t when,uint
         deliverWorldInterruptGroup(s,who,when,output,results[shot+1],actorNumber(shot+4));
 #endif
 }
+
+#ifdef PORTABLE_WORLD_PROJECTILE
+void landAimedAreaPacket(inout Runtime s,uint who,uint slot,uint64_t amount,uint64_t when,uint output,bool body,uint excluded)
+{
+    if(!worldOverlayLand(s,who,0,amount,worldPhysicalNormal(s,who))) return;
+    storeNumber(actorPoolHead(s)+2,when);
+    land(s,who,ACTOR_REF|slot,amount);
+    if(s.error==0) publishCounterLanding(s,who,ACTOR_REF|slot,amount,when,output);
+    if((s.healthMask&64)!=0 && s.error==0) dispatch(s,17,0,who,0,when,output,amount);
+    if(body && s.error==0)
+    {
+        uint shot=s.resourceOutput+P_COUNTER_LANDING_SHOT_BASE+who*8;
+        deliverCounterPartGroup(s,who,ACTOR_REF,when,output,results[shot],actorNumber(shot+2),excluded);
+        if(s.error==0 && (results[shot+1]&7U)!=0)
+            deliverWorldInterruptGroup(s,who,when,output,results[shot+1]&7U,actorNumber(shot+4),excluded);
+    }
+}
+bool deliverAimedAreaShot(inout Runtime s,uint who,uint64_t when,uint output,uint64_t amount,uint count)
+{
+    if(count==0 || !counterLandingsEnabled(s)) return false;
+    uint shot=s.resourceOutput+P_COUNTER_LANDING_SHOT_BASE+who*8,tag=results[shot+1];
+    if((tag&0x80000000U)==0) return false;
+    uint target=(tag>>8)&127U;
+    if(s.landingPolicy==0 || target==0 || target>=actorPoolCount(s) || (commands[actorBinding(s,target)]!=1 && commands[actorBinding(s,target)]!=6)) { s.error=64;return true; }
+    uint64_t targetAmount=actorNumber(shot+6);
+    for(uint i=0;i<count && s.error==0;i++)
+    {
+        // Native returned order: no-core body (including reach extras), then target.
+        landAimedAreaPacket(s,who,0,amount,when,output,true,target);
+        if(s.error==0) landAimedAreaPacket(s,who,target,targetAmount,when,output,false,target);
+    }
+    return true;
+}
+#endif

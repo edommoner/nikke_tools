@@ -1,3 +1,7 @@
+<!-- aimed-area-current -->
+共有Slangへ狙った部位／interruptの貫通・爆発body→target配信、対象重複除外・発射時倍率snapshotを接続。Metal全1405(native1121/拒否284)＋診断12/直接private74receipt成功。正本60射/172returned packetはCPU固定（全172のGPU個別traceではない）。旧1393 input/native保持、1387raw全byte一致、混在6はNQR cache hit数各3減だけ。他のbyteと診断bank外37551360B保持。診断容量16→128を排他bankで拡張、Runtime/stride/数値/normalizer不変。CPU95群498検査175.857秒。full v1のCPU故障注入失敗は保持、上位層逆投影の検査修正後v2成功・GPU同条件retry0。Windows追加0/原因unknown/保全false、現CUDA未検証。development_only/全キャラ0/UI CPU/未達。次は混在callbackと全定義実編成のtarget world。詳細docs/portable-aimed-area.mdとcheckpoint。以下は履歴です。
+<!-- /aimed-area-current -->
+
 <!-- aimed-packets-current -->
 正本の物理split/hit_countと全returned HitEventを別観測する共通reference aimed-packets16契約を追加（86射/178packet/88private着弾）。旧24native/trace/receiptsとsemantic read回数保持。共有Slang1ファイルで狙ったpart/interruptのno-coreと直接対象倍率を接続。Metal全1393(native1109/拒否284)＋倍率診断8/34receiptが一致・独立seal。CPU95群498検査175.5653秒＋最終6群28検査、GPU10.5420秒。旧1385 input/native全保持、1361raw全byte一致、24件はcore memo72wordだけで旧4,356,832,992B保持。診断bank外25,148,928Bも全一致。共通CLI aimed-factor-compareでsource遷移/全raw/hashをGPU0で再監査。数値ライブラリ/normalizer/Runtime/容量変更0。Windows0/原因unknown/保全false、全キャラ0/UI CPU/未達。次はarea8の本体+対象packet/aimed重複除外を共有continuationへ接続。36private着弾を含むので診断容量16へケースを縮めず排他領域を拡張。development_only維持。詳細docs/portable-aimed-packets.mdと対応checkpoint。以下は履歴です。
 <!-- /aimed-packets-current -->

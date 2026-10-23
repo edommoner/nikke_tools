@@ -20,16 +20,22 @@ class InterruptAimGpuTests(unittest.TestCase):
 
     def test_exact_delta_rejects_accounting_credit_lifecycle_and_admission_faults(self):
         project_sources(ROOT)
+        from portable_aimed_factor_source_contract import project_sources as project_factors
+        projected,_=project_factors(ROOT)
+        project_sources(ROOT,projected,factors_projected=True) # The unmutated layer must pass first.
         for name,row in ledger(ROOT)['sources'].items():
-            text=(ROOT/name).read_text()
+            text=projected.get(name,(ROOT/name).read_text())
             for change in row['changes']:
+                self.assertEqual(text.count(change['current']),1,'Fault must actually mutate the intended layer')
+                changed=text.replace(change['current'],change['baseline'],1)
+                self.assertNotEqual(changed,text)
                 with self.subTest(name=name),self.assertRaises(AssertionError):
-                    project_sources(ROOT,{name:text.replace(change['current'],change['baseline'],1)})
+                    project_sources(ROOT,dict(projected,**{name:changed}),factors_projected=True)
         for name,old,new in [('gpu/world_interrupt_runtime.slang','f64Add(actorNumber(at),amount)','f64Add(actorNumber(at),ONE)'),
                              ('gpu/world_actor_pools.slang','kind==1 || kind==6','kind==1 || kind==2'),
                              ('gpu/counter_landing_runtime.slang','if(commands[actorBinding(s,slot)]==6) return;','if(false) return;')]:
-            text=(ROOT/name).read_text();self.assertEqual(text.count(old),1)
-            with self.subTest(name=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:text.replace(old,new,1)})
+            text=projected.get(name,(ROOT/name).read_text());self.assertEqual(text.count(old),1)
+            with self.subTest(name=name),self.assertRaises(AssertionError):project_sources(ROOT,dict(projected,**{name:text.replace(old,new,1)}),factors_projected=True)
 
     def test_diagnostic_bank_and_reserved_fields_fail_closed(self):
         report=verify(LIMITS,mode='interrupt-aim-diagnostic');self.assertTrue(report['verified'])

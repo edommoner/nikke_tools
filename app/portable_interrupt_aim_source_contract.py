@@ -7,9 +7,9 @@ def ledger(root):
     return json.loads((Path(root)/'tests/fixtures/portable-interrupt-aim-source-delta.json').read_text())
 
 
-def baseline_source(root, name, source):
+def baseline_source(root, name, source, *, factors_projected=False):
     from portable_aimed_factor_source_contract import baseline_source as project_factors
-    source, _ = project_factors(root, name, source)
+    if not factors_projected:source, _ = project_factors(root, name, source)
     rows = ledger(root)['sources']
     if name not in rows:
         return source, False
@@ -22,9 +22,10 @@ def baseline_source(root, name, source):
     return source, True
 
 
-def project_sources(root, sources=None):
+def project_sources(root, sources=None, *, factors_projected=False):
     from portable_aimed_factor_source_contract import project_sources as project_factors
-    root = Path(root); sources, _ = project_factors(root, sources)
+    root = Path(root); sources = dict(sources or {})
+    if not factors_projected:sources, _ = project_factors(root, sources)
     for name in ledger(root)['sources']:
-        sources[name], _ = baseline_source(root, name, sources.get(name, (root/name).read_text()))
+        sources[name], _ = baseline_source(root, name, sources.get(name, (root/name).read_text()), factors_projected=True)
     return sources, list(ledger(root)['sources'])

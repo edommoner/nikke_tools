@@ -1,7 +1,7 @@
 """Private physical-interrupt diagnostic wire; no canonical Impact conversion."""
 import struct
-BASE=785536
-COUNT=16
+BASE=770976
+COUNT=128
 WORDS=32
 MAGIC=0x49415231
 

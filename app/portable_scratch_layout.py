@@ -35,7 +35,7 @@ def allocate(limits):
     limits['ORDERED_HISTORY_WORDS'] = 64
     limits['NATIVE_DIAG_BASE'] = limits['REVIVAL_BASE'] + limits['REVIVAL_WORDS']
     limits['NATIVE_DIAG_WORDS'] = 16 + 256 * 16
-    for mode in ('normal', 'native-query-diagnostic', 'heal-share-diagnostic'):
+    for mode in ('normal', 'native-query-diagnostic', 'heal-share-diagnostic', 'interrupt-aim-diagnostic'):
         verify(limits, mode=mode)
 
 
@@ -67,7 +67,7 @@ def banks(limits, mode='normal'):
     elif mode == 'heal-share-diagnostic':
         rows.append(Bank('heal-share-diagnostic', trace_base, 8 + COUNT * trace_words))
     elif mode == 'interrupt-aim-diagnostic':
-        rows.append(Bank('interrupt-aim-diagnostic', 785536, 16 + 16 * 32))
+        rows.append(Bank('interrupt-aim-diagnostic', l['NATIVE_DIAG_BASE'], l['NATIVE_DIAG_WORDS']))
     elif mode != 'normal':
         raise ValueError('Unknown or incompatible scratch diagnostic modes')
     return rows
@@ -105,8 +105,8 @@ def audit_sources(root, limits, *, sources=None):
     for name, symbol, expected in (
         ('gpu/skill_part_receipt.slang', 'SKILL_PART_BASE', BASE),
         ('gpu/world_interrupt_runtime.slang', 'WORLD_INTERRUPT_TOTAL_BASE', BASE + 4096),
-        ('gpu/world_interrupt_runtime.slang', 'INTERRUPT_AIM_DIAG_BASE', 785536),
-        ('gpu/world_interrupt_runtime.slang', 'INTERRUPT_AIM_DIAG_COUNT', 16)):
+        ('gpu/world_interrupt_runtime.slang', 'INTERRUPT_AIM_DIAG_BASE', limits['NATIVE_DIAG_BASE']),
+        ('gpu/world_interrupt_runtime.slang', 'INTERRUPT_AIM_DIAG_COUNT', 128)):
         text = sources.get(name, (root/name).read_text())
         match = re.search(r'\b'+symbol+r'\s*=\s*(\d+)\s*;', text)
         if match is None or int(match[1]) != expected:
@@ -128,4 +128,4 @@ def audit_sources(root, limits, *, sources=None):
         raise ValueError('Interrupt diagnostic initialization must follow recipient tail clearing')
     return dict(verified=True, modes=[verify(limits, mode=m) for m in (
         'normal', 'native-query-diagnostic', 'heal-share-diagnostic', 'interrupt-aim-diagnostic')],
-        incompatible_modes=['native-query-diagnostic', 'heal-share-diagnostic'], gpu_calls=0)
+        incompatible_modes=['native-query-diagnostic', 'heal-share-diagnostic', 'interrupt-aim-diagnostic'], gpu_calls=0)

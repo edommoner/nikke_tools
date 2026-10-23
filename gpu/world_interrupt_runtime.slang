@@ -1,7 +1,7 @@
 // Private interruption extras: no canonical ActorHandle, total, gauge or hit credit.
 static const uint WORLD_INTERRUPT_TOTAL_BASE=785424;
-static const uint INTERRUPT_AIM_DIAG_BASE=785536;
-static const uint INTERRUPT_AIM_DIAG_COUNT=16;
+static const uint INTERRUPT_AIM_DIAG_BASE=770976;
+static const uint INTERRUPT_AIM_DIAG_COUNT=128;
 #if defined(PORTABLE_INTERRUPT_AIM_DIAGNOSTIC) && (defined(PORTABLE_NATIVE_QUERY_DIAGNOSTIC) || defined(PORTABLE_HEAL_SHARE_DIAGNOSTIC))
 #error Interrupt aim diagnostics require a separate entry
 #endif
@@ -69,13 +69,13 @@ void loadWorldSkillReachPacket(inout LandingReceipt r,uint at)
     r.interruptReach=results[from+36];r.interruptAmount=sourceNumber(from+34);
     r.target=(results[from+37]&2U)!=0?index+1:0;
 }
-void deliverWorldInterruptGroup(inout Runtime s,uint who,uint64_t when,uint output,uint reach,uint64_t amount)
+void deliverWorldInterruptGroup(inout Runtime s,uint who,uint64_t when,uint output,uint reach,uint64_t amount,uint excluded=128)
 {
     uint count=0,head=actorPoolHead(s);
     for(uint slot=1;slot<actorPoolCount(s)&&s.error==0;slot++)
     {
         uint input=s.inputBase+P_TARGET_COUNTER_INPUT_BASE+4104+slot*8,p=actorPoolAt(s,slot),d=actorPoolDef(s,slot);
-        if(commands[actorBinding(s,slot)]!=6||commands[input]!=2||commands[input+1]==0||commands[input+1]>reach||results[p+1]==0) continue;
+        if(slot==excluded||commands[actorBinding(s,slot)]!=6||commands[input]!=2||commands[input+1]==0||commands[input+1]>reach||results[p+1]==0) continue;
         uint extra=s.resourceOutput+P_COUNTER_LANDING_EXTRA_BASE+slot*4,total=s.resourceOutput+WORLD_INTERRUPT_TOTAL_BASE+who*2;
         if(results[extra]==0x7fffffffU) { s.error=2;break; }
         uint64_t extraDealt=f64Add(actorNumber(extra+2),amount),sum=f64Add(actorNumber(total),amount);
