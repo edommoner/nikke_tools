@@ -1724,3 +1724,6 @@ Windows v110はCPU20件成功後、修正argvでO1 compilerを1回だけ実行�
 rawEffectiveChargeへ共通noinline属性だけを追加しました。変更前1180f97と生成CUDAの差分は該当1属性だけで、厳密normalizerは変更していません。固定327入力のMetal/nativeは全件一致し、input／全raw outputも旧327と同一です。新しいsourceを明示sealし、現在のregression327はresearch/portable-world-charge-boundary-regression-short-expected.jsonを使います。CPU事前検査の登録9群も成功しました。旧671件全体のCPU回帰は1180f97の証拠で、今回再実行したという意味ではありません。
 
 research/portable-charge-boundary-development-checkpoint.jsonが最新根拠です。生成CUDAの呼出関係上でrawEffectiveChargeがnoinlineになったことは確認しましたが、compilerメモリ／速度の改善はまだ未確認です。Windowsはsealed packageでCUBIN O1・60秒・Job2GiBのcompiler-onlyを1回だけ行う予定です。driver/context/kernelは使わず、再試行・上限拡大・自動fallbackはしません。過去v110との比較はsourceが違うため、この1属性だけの因果として扱いません。
+# 2026-10-24 実戦時計の型付き投射物CPU契約
+
+最新の追加は`docs/portable-destructible-battle.md`と`research/portable-destructible-battle-cpu-checkpoint.json`。通常native simulate所有のBossScriptへ数量を接続し、別時計を作らず3世代再出現・普通の子/物理攻撃保持・再入ID・例外復旧をCPU9契約で確認。fresh共通CLI packageのCPU72(skip0)/既存native17成功、既存Metal golden保持、新GPU/Windows追加0。実schedulerのMetal接続は未完了。共通packetへCUBIN O0 compile-only stageを追加、同じ60/180秒・2GiB・BelowNormal/Job・driver/GPU0制約を保持。Windows実行は未依頼。7プロセス終了についてユーザーは手動終了/再接続/再起動なし・ゲーム/動画利用の可能性と回答。因果不明/保全失敗は維持し、利用状況から原因を断定しない。次はSlang world同期→既存FrameのMetal実証。全キャラ0/UI CPU/目標未達。

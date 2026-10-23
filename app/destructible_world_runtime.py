@@ -51,6 +51,9 @@ class DestructibleWorld:
         self.patterns,parsed,self.bindings=compile_bindings(nodes,bindings)
         self.enemy={'def':0,'core_px':0,'patterns':copy.deepcopy(self.patterns)}
         self.clock=BossScript(parsed,self.enemy,lambda *_:False)
+        self._setup(self.bindings,registry);self.attached=False
+    def _setup(self,bindings,registry):
+        self.bindings=bindings
         self.targets=DestructibleTargets(len(self.bindings));self.registry=registry or ActorRegistry()
         self.last=None;self.finished=False
         for slot,b in enumerate(self.bindings):
@@ -58,6 +61,18 @@ class DestructibleWorld:
                 r=self.targets.rows[slot]
                 return (0,False,b.owner) if r is None else (r.handle.generation,r.alive,r.owner)
             self.registry.bind(b.handle.kind,b.label,provider,identity=b.handle.identity)
+    @classmethod
+    def from_clock(cls,clock,bindings,registry=None):
+        """Attach quantities to an existing battle clock; create no scheduler."""
+        _,_,rows=compile_bindings([dict(id=r.p.id) for r in clock._runs],bindings)
+        if any(clock._runs[b.node].p.until_cleared for b in rows):
+            raise ValueError('Attached typed bindings require a node without canonical target-cleared semantics')
+        self=cls.__new__(cls);self.clock=clock;self.enemy=clock._enemy;self.patterns=None
+        self._setup(rows,registry);self.attached=True
+        return self
+    def synchronize(self,t,*,finished=False):
+        if not self.attached or self.finished:raise ValueError('Active attached battle clock required')
+        self.targets.advance(t);self.last=float(t);self._sync();self.finished=bool(finished)
     def _sync(self):
         for slot,b in enumerate(self.bindings):
             run=self.clock._runs[b.node];old=self.targets.rows[slot]
@@ -66,6 +81,7 @@ class DestructibleWorld:
             if run.active and (old is None or old.handle.generation!=run.opens):
                 self.targets.spawn(slot,ActorHandle(b.handle.kind,b.handle.identity,run.opens),b.capacity,owner=b.owner)
     def advance(self,t):
+        if self.attached:raise ValueError('The owning battle advances an attached clock')
         if self.finished:raise ValueError('Destructible world already finished')
         self.targets.advance(t)
         if self.last==t:return False
@@ -81,5 +97,6 @@ class DestructibleWorld:
             r=self.targets.rows[slot];notice=dict(handle=[int(r.handle.kind),r.handle.identity,r.handle.generation],owner=None if r.owner is None else [int(r.owner.kind),r.owner.identity,r.owner.generation],time=self.last)
         return dict(result,notice=notice)
     def finish(self,t):
+        if self.attached:raise ValueError('The owning battle finishes an attached clock')
         if self.finished:raise ValueError('Destructible world already finished')
         self.targets.advance(t);self.clock.finish(t);self._sync();self.last=float(t);self.finished=True

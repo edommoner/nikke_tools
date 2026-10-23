@@ -1,0 +1,15 @@
+# 実戦時計への型付き投射物接続：CPU契約
+
+`app/destructible_battle_runtime.py`の`typed_battle`は、通常のnative `simulate`が所有するBossScriptへ型付き数量を接続する開発用スコープである。別の時計やCPU生成イベント列は作らない。実際の`begin_frame`後に出現世代を同期し、`finish`後に退場させる。通常のdamage handlerがlive ATK/HP/DEF・crit・名前付き命中・gaugeを所有し、その生成packetだけを生存中の投射物へ配送する。後続のbody着弾では同じpacketを除外する。個別投射物DEFや専用倍率は追加していない。
+
+同期子が新しい攻撃を発生させる前に攻撃IDと未完了記録を確保する。配送例外を成功扱いせず、未完了として残す。普通の子スキルのbody packetと物理攻撃は元の着弾へ渡す。対象0はpacket・名前付き子通知を生成しない。スコープ終了時は例外時も元のnative関数を復元する。
+
+新CPU契約9件は、実schedulerの3回再出現/世代、元handlerとの量/RNG一致、body二重加算防止、対象0、通常の名前付き子、物理攻撃全結果保持、配送中の再入ID、例外復旧、容量/専用式/正本target-cleared semanticsの拒否を確認する。後者のクリア条件は未統合なので明示拒否する。攻撃観測上限128で、容量を超えた結果は成功としない。
+
+固定package `9e6818b591f7df546d2a79d22749da038aa3eafc89f3c4fa6b7401e3d34c8532`をfresh unpackし、共通CLIのCPU72検査（skip0）と既存Frame26のnative17比較が成功した。既存Metal goldenは変更していない。今回GPU追加0、Windows追加0。この実戦時計接続自体のMetal/CUDA証明は未完了であり、従来のMetal26/通常492の証明と区別する。検証記録は`research/portable-destructible-battle-cpu-checkpoint.json`。
+
+Windows用の共通packet stageへ`compile-cubin-o0`を追加した。既存compiler/cacheを再利用し、CUBIN・ptxas最適化0を明示する。compile-onlyのdriver/context/GPUは禁止し、内側最大60秒・外側最大180秒・2GiB・BelowNormal・同じJob/gate/cleanupを維持する。前のPTX JIT待機とは異なる仮説の検証であり、同一claimの再試行や予算拡大はしない。compile-only成功を計算成功へ昇格させない。12件のpacket CPU検査を含む上記72件が成功したが、実WindowsのO0 compile/cache/loadは未実施。配布済みの固定package `21ba977a8c6d7518ad448c9e1c8d5852eabfd76d06d8d64eb2b7e52ea71ad639`はCPU63検査時点の内容を保持する。
+
+10月22日19:04:25頃（日本時間）の既存7プロセス終了について、ユーザーはアプリ/ターミナル終了・Codex再接続・Windows再起動を行っておらず、ゲームや動画利用の可能性を報告した。これは利用状況の報告であり終了原因の証明ではない。競合・メモリ圧・driver・Jobの因果は未確定、元のmissing/保全失敗判定は維持する。負荷の都合から自動的に時間/メモリ上限を増やさない。
+
+次はこの実schedulerのworld同期を既存Slang Frame入口へ接続し、共有ケースのMetal実行・独立sealを行う。全プロフィール対応、専用投射物/盾倍率、迎撃、破壊固有効果、attack-group完了は未完了。通常UI CPU・全キャラ認定0・全体目標未達を維持する。

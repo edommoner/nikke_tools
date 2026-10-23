@@ -25,16 +25,22 @@ class PacketStageTests(unittest.TestCase):
         self.assertEqual(args,['compile','--capture',p['proof_capture'],'--timeout','60','--artifact-kind','ptx','--memory-limit-mb','2048','--original-workspace',p['original_workspace']])
         p['original_workspace']=None
         with self.assertRaisesRegex(ValueError,'original workspace'):stage.proof_arguments(p)
+    def test_cubin_o0_stage_uses_existing_compiler_and_keeps_the_same_budget(self):
+        p=stage.recipe('id','compile-cubin-o0','cuda','/tmp/isolated-stage','/tmp/original',180)
+        self.assertEqual(stage.proof_arguments(p),['compile','--capture',p['proof_capture'],'--timeout','60','--artifact-kind','cubin','--memory-limit-mb','2048','--original-workspace',p['original_workspace'],'--ptxas-level','0'])
+        with self.assertRaisesRegex(ValueError,'CUDA backend'):stage.recipe('id','compile-cubin-o0','metal','/tmp/x','/tmp/original',180)
+        with self.assertRaisesRegex(ValueError,'original workspace'):stage.recipe('id','compile-cubin-o0','cuda','/tmp/x',None,180)
     def test_compile_result_cannot_promote_driver_or_gpu_work_to_compiler_only_success(self):
         good=dict(mode='compile-only',compiler_verified=True,calculation_verified=False,gpu_calls=0,driver_load_calls=0)
-        for change in ({},dict(gpu_calls=1),dict(gpu_calls=False),dict(driver_load_calls=1),dict(calculation_verified=True),dict(mode='gpu')):
+        for mode in stage.COMPILE_STAGES:
+          for change in ({},dict(gpu_calls=1),dict(gpu_calls=False),dict(driver_load_calls=1),dict(calculation_verified=True),dict(mode='gpu')):
             with tempfile.TemporaryDirectory() as d:
                 root=Path(d)/'packet';root.mkdir();folder=Path(d)/'stage';proof=dict(good,**change)
                 def bounded(*a,**kw):
                     (folder/'proof').mkdir();(folder/'proof/result.json').write_text(json.dumps(proof));return dict(passed=True)
                 cli=SimpleNamespace(bounded_module=lambda:SimpleNamespace(run_bounded=bounded),validation_environment=lambda _:dict())
                 with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='id')),patch.object(stage,'load_module',return_value=cli),patch.object(stage,'is_windows',return_value=False):
-                    r=stage.run_stage(folder,'compile-ptx','cuda',180,'/tmp/original')
+                    r=stage.run_stage(folder,mode,'cuda',180,'/tmp/original')
                 self.assertEqual(r['compiler_verified'],not change);self.assertEqual(r['stage_verified'],not change)
                 self.assertFalse(r['calculation_verified'])
     def test_existing_stage_record_is_never_overwritten(self):
