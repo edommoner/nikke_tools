@@ -234,6 +234,17 @@ RWStructuredBuffer<Runtime> runtimeStates;
 #define WORLD_RELOAD_ORDERED(s,d,member,when)
 #define WORLD_RELOAD_FINAL(s)
 #endif
+
+#ifdef PORTABLE_PARTIAL_CHARGE
+#define PARTIAL_IS_FULL(w) ((w).partialFull!=0)
+#define PARTIAL_USE_HEAVY(s,who) partialUseHeavy(s,who)
+#define PARTIAL_CAPTURE_CHARGE(s,w,who,when) partialCaptureCharge(s,w,who,when);
+#else
+#define PARTIAL_IS_FULL(w) true
+#define PARTIAL_USE_HEAVY(s,who) true
+#define PARTIAL_CAPTURE_CHARGE(s,w,who,when)
+#endif
+
 #ifdef PORTABLE_WORLD_CHARGE_CONTROL
 #ifdef PORTABLE_WORLD_PROJECTILE
 #define WORLD_CONTROL_WIRE_MODE 24
@@ -261,7 +272,7 @@ RWStructuredBuffer<Runtime> runtimeStates;
 #define WORLD_CONTROL_GAIN(s,w,who) if(w.mode==1) w.gaugeMultiplier=(results[s.resourceOutput+P_WORLD_CONTROL_HEAD_BASE+3]&(1U<<who))!=0?w.fullChargeMult:ONE;
 #define WORLD_CONTROL_WAIT(s,who,charge,when) if(waitChargeControl(s,who,charge,when)) return;
 #define WORLD_CONTROL_START(s,who,charge,when) startChargeControl(s,who,charge,when);
-#define WORLD_CONTROL_READY(s,who,when,output) if(readyChargeControl(s,who,when,output)) return;
+#define WORLD_CONTROL_READY(s,who,when,output) if(readyChargeControl(s,who,when,output,w.chargeTime)) return;
 #define WORLD_CONTROL_HEAVY(s,who,legacy) (f64Less(actorNumber(controlState(s,who)+6),0) ? (legacy) : false)
 #define WORLD_CONTROL_FINISH(s,who) if(w.mode==1&&!changedWeaponSession(s,who,epoch,mode)) finishChargeControl(s,who);
 #define WORLD_CONTROL_CANCEL(s,who) cancelChargeControl(s,who,false);
@@ -575,7 +586,7 @@ bool worldPendingEnabled(inout Runtime s) { return WORLD_PENDING_ENABLED(s); }
 #define WORLD_MODE_CORE(s,who,flags,accuracy) ((flags & 32768U)!=0 ? normalProbability(s,who,accuracy) : 0)
 #define WORLD_MODE_CHARGE_CANCEL(s,who) worldChargeCancel(s,who); WORLD_CONTROL_CANCEL(s,who)
 #define WORLD_CHARGE_START(s,who) worldChargeReset(s,who);
-#define WORLD_CHARGE_HOLD(s,w,who,when) WORLD_CONTROL_READY(s,who,when,output) if(WORLD_CONTROL_HEAVY(s,who,worldChargeHold(s,w,who,when))) return;
+#define WORLD_CHARGE_HOLD(s,w,who,when) WORLD_CONTROL_READY(s,who,when,output) if(PARTIAL_USE_HEAVY(s,who) && WORLD_CONTROL_HEAVY(s,who,worldChargeHold(s,w,who,when))) return; PARTIAL_CAPTURE_CHARGE(s,w,who,when)
 #define WORLD_CHARGE_FINISH(s,w,who) if(w.mode==1) worldChargeReset(s,who); WORLD_CONTROL_FINISH(s,who)
 #define WORLD_MODE_GAUGE(s,w,who,index) if(index>=0 && w.mode==1) w.gaugeMultiplier=(commands[s.inputBase+WO_IN+1]&(1U<<who))!=0 ? w.fullChargeMult : ONE;
 #else

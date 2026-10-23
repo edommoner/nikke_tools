@@ -20,5 +20,5 @@ def verify(case,native):
         if e['kind']=='activate':
             assert e['owner']==owner,(case['name'],'caster ownership')
             before=[n for n in events[:position] if n['kind']=='notify']
-            assert before and before[-1]['event'] in ('on_attack','non_full_charge_fire') and before[-1]['time']==e['time'],(case['name'],'activation context')
+            assert before and before[-1]['event'] in c.get('activation_events',('on_attack','non_full_charge_fire')) and before[-1]['time']==e['time'],(case['name'],'activation context')
     return dict(verified=True,reference_model_gap=False,partial_shots=c['partial'],full_shots=c['full'],activations=c['activations'])

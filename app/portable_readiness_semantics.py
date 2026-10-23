@@ -12,10 +12,12 @@ def reference_readiness(issue):
         if re.fullmatch(r'non_full_charge_fire_count:[1-9][0-9]*',str(operator.get('descriptor',''))):
             result.update(lane='native_contract_extension',native_consumer='confirmed_source',
                 consumer_source='research/upstream/nikke-calc-master/calculator/timeline.py:_charge_fire,_tap_timing,_tick_charge; calculator/buff_manager.py:_timing_to_index_key,_timing_match',
-                contract_coverage='recorded_subset',reference_suites=['nonfull-charge'],recorded_cases=23,
-                implemented_extensions=['partial_and_full_notice_partition','caster_owned_counter','duplicate_and_raw_alias_multiplicity','trigger_reduction_and_budget','tap_full_override','per_shot_not_per_muzzle_counter'],
-                required_extensions=['partial_charge_weapon_state_and_tap_controls','damage_core_and_burst_gain_snapshots','weapon_change_reload_and_mixed_control_interleavings','current_source_cuda_validation'],
-                note='Native-only contracts, no packing or GPU execution. Tap mode can still fire full-charge; an event40 admission without real partial-charge firing would be inert and must remain rejected. No full-profile or GPU support claim')
+                contract_coverage='recorded_subset',reference_suites=['nonfull-charge','nonfull-charge-reduction'],recorded_cases=30,
+                implemented_extensions=['partial_and_full_notice_partition','caster_owned_counter','duplicate_and_raw_alias_multiplicity','trigger_reduction_and_budget','tap_full_override','per_shot_not_per_muzzle_counter','partial_charge_weapon_state_and_tap_controls','damage_core_and_burst_gain_snapshots','signed_base_subtract_before_clamp'],
+                scoped_gpu_suite='partial-charge-retention',scoped_metal_cases=48,scoped_metal_rejections=26,scoped_metal_validation_performed=True,
+                real_gpu_suite='partial-charge-rosters',real_profiles=1,real_original_definitions=77,real_max_duration=30,
+                required_extensions=['mixed_lazy_random_numeric_query_consumers','broader_weapon_change_and_control_interleavings','full_catalog_partial_charge_rosters','current_source_cuda_validation'],
+                note='Private partial-charge entry matches48 native inputs and26 raw rejections inside1516 retained Metal inputs. Includes all77 Crust definitions at3/30s with automatic/tap controls; bounded physical trace retains omissions. Static packing is not GPU admission or full-character certification. Public entry still rejects event40/tap wire2. Broader lazy/random readers, interleavings, catalog and current-source CUDA remain unverified')
             return result
     if issue.get('phase')=='effect' and issue.get('kind')=='buff' and issue.get('stat') in ('atk_caster_based_pct','atk_from_hp_pct'):
         import re

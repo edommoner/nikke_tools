@@ -4,7 +4,8 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
-REFERENCES={'nonfull-charge':('portable_nonfull_charge_cases','world_nonfull_charge_native','portable_nonfull_charge_contracts'),
+REFERENCES={'nonfull-charge-reduction':('portable_partial_charge_reduction_cases','world_nonfull_charge_native','portable_nonfull_charge_contracts'),
+            'nonfull-charge':('portable_nonfull_charge_cases','world_nonfull_charge_native','portable_nonfull_charge_contracts'),
             'squad-stage':('portable_squad_stage_cases','world_ally_burst_native','portable_squad_stage_contracts'),
             'aimed-enemy':('portable_aimed_enemy_cases','world_aimed_area_native','portable_aimed_enemy_contracts'),
             'aimed-rosters':('portable_aimed_roster_cases','world_aimed_roster_native','portable_aimed_roster_contracts'),

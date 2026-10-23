@@ -16,8 +16,8 @@ bool controlDefinition(uint input,uint row)
 void initializeChargeControl(inout Runtime s)
 {
     uint p=controlInput(s),total=commands[p+4];
-    if(commands[p]!=0x57434831||commands[p+1]!=1||commands[p+2]>2||commands[p+3]>31||commands[p+3]!=commands[s.inputBase+WO_IN+1]||total>1280) { s.error=64;return; }
-    for(uint j=5;j<16;j++) if(commands[p+j]!=0) { s.error=64;return; }
+    if(commands[p]!=0x57434831||!partialControlHeader(s,p)||commands[p+2]>2||commands[p+3]>31||commands[p+3]!=commands[s.inputBase+WO_IN+1]||total>1280) { s.error=64;return; }
+    for(uint j=partialReservedStart(s,p);j<16;j++) if(commands[p+j]!=0) { s.error=64;return; }
     uint offset=0;
     for(uint who=0;who<5;who++)
     {
@@ -25,6 +25,7 @@ void initializeChargeControl(inout Runtime s)
         if(kind!=0 && s.weaponMode[who]!=1) { s.error=64;return; } // Static charge controls require a charge base weapon.
         if(nc>8||ns>8||first!=offset||first+count>total||count>256||kind>2||kind==0&&nc!=0||kind==2&&ns!=0) { s.error=64;return; }
         for(uint j=5;j<8;j++) if(commands[a+j]!=0) { s.error=64;return; }
+        bool foundTap=false;
         for(uint i=0;i<8;i++)
         {
             uint row=controlClick(s,who,i);
@@ -32,8 +33,12 @@ void initializeChargeControl(inout Runtime s)
             else
             {
                 uint mode=commands[row],window=commands[row+1];uint64_t lead=loadNumber(row+6);
+                if(mode==1) { foundTap=true;if(!validPartialClick(s,who,row,kind)) { s.error=64;return; } }
+                else
+                {
                 if((mode!=0&&mode!=2&&mode!=3&&mode!=4)||window>4||commands[row+2]>99||commands[row+3]>3||commands[row+4]>31||commands[row+3]==0&&commands[row+4]!=0||commands[row+5]!=0||!f64Finite(lead)||f64Less(f64FromI64(180),f64Abs(lead))||(mode==3)!=(window==2)||(mode==4)!=(window==4)||kind==2&&(mode==2||mode==4)) { s.error=64;return; }
                 for(uint j=8;j<16;j++) if(commands[row+j]!=0) s.error=64;
+                }
             }
             row=controlSequence(s,who,i);
             if(i>=ns) { for(uint j=0;j<8;j++) if(commands[row+j]!=0) s.error=64; }
@@ -44,6 +49,7 @@ void initializeChargeControl(inout Runtime s)
                 for(uint j=4;j<8;j++) if(commands[row+j]!=0) s.error=64;
             }
         }
+        if(!partialOwnerMaskValid(s,who,foundTap)) { s.error=64;return; }
         uint seen[8];for(uint j=0;j<8;j++) seen[j]=0;
         for(uint i=first;i<first+count;i++)
         {
@@ -211,6 +217,7 @@ void startChargeControl(inout Runtime s,uint who,uint64_t charge,uint64_t when)
     uint a=controlState(s,who),input=controlOwnerInput(s,who),first=commands[input+2],end=first+commands[input+3];
     results[a]=0;storeNumber(a+2,ONE|F64_SIGN);storeNumber(a+4,ONE|F64_SIGN);results[a+24]=1;
     for(uint i=first;i<end;i++) results[s.resourceOutput+P_WORLD_CONTROL_FIRED_BASE+i/32]&=~(1U<<(i%32));
+    partialStartCharge(s,who,when);
     uint64_t start=actorNumber(a+10);
     if(f64Less(0,start)&&!f64Less(when,start)&&end!=first)
     {
@@ -219,9 +226,10 @@ void startChargeControl(inout Runtime s,uint who,uint64_t charge,uint64_t when)
     }
 }
 [noinline]
-bool readyChargeControl(inout Runtime s,uint who,uint64_t when,uint output)
+bool readyChargeControl(inout Runtime s,uint who,uint64_t when,uint output,uint64_t charge)
 {
     uint a=controlState(s,who);
+    bool partialHandled=false;bool partialWait=partialReadyCharge(s,who,charge,when,partialHandled);if(partialHandled) return partialWait;
     if(results[a]==0)
     {
         if(f64Less(when,s.chargeUntil[who])) return false;
@@ -240,8 +248,68 @@ bool readyChargeControl(inout Runtime s,uint who,uint64_t when,uint output)
 }
 void cancelChargeControl(inout Runtime s,uint who,bool release)
 {
-    uint a=controlState(s,who);results[a]=0;storeNumber(a+2,ONE|F64_SIGN);storeNumber(a+4,ONE|F64_SIGN);results[a+24]=0;
+    uint a=controlState(s,who);partialCancelCharge(s,who);results[a]=0;storeNumber(a+2,ONE|F64_SIGN);storeNumber(a+4,ONE|F64_SIGN);results[a+24]=0;
     if(release||s.modeIndex[who]<0) { storeNumber(a+6,ONE|F64_SIGN);results[a+14]=0xffffffff; }
 }
 void finishChargeControl(inout Runtime s,uint who)
 { cancelChargeControl(s,who,true);results[controlState(s,who)+24]=2; }
+
+#ifndef PORTABLE_PARTIAL_CHARGE
+bool partialControlHeader(inout Runtime s,uint p) { return commands[p+1]==1; }
+uint partialReservedStart(inout Runtime s,uint p) { return 5; }
+bool validPartialClick(inout Runtime s,uint who,uint row,uint kind) { return false; }
+bool partialOwnerMaskValid(inout Runtime s,uint who,bool foundTap) { return !foundTap; }
+void partialStartCharge(inout Runtime s,uint who,uint64_t when) {}
+bool partialReadyCharge(inout Runtime s,uint who,uint64_t charge,uint64_t when,out bool handled) { handled=false;return false; }
+void partialCancelCharge(inout Runtime s,uint who) {}
+#else
+bool partialControlHeader(inout Runtime s,uint p)
+{ return commands[p+1]==1 || commands[p+1]==2 && commands[p+5]>0 && commands[p+5]<32; }
+uint partialReservedStart(inout Runtime s,uint p) { return commands[p+1]==2?6:5; }
+bool partialOwnerEnabled(inout Runtime s,uint who)
+{ uint p=controlInput(s);return commands[p+1]==2 && (commands[p+5]&(1U<<who))!=0; }
+bool partialOwnerMaskValid(inout Runtime s,uint who,bool foundTap) { return partialOwnerEnabled(s,who)==foundTap; }
+bool validPartialClick(inout Runtime s,uint who,uint row,uint kind)
+{
+    if(!partialOwnerEnabled(s,who)||kind==0||commands[row+1]>4||commands[row+1]==2||commands[row+1]==4||commands[row+2]>99||commands[row+3]>3||commands[row+4]>31||commands[row+3]==0&&commands[row+4]!=0||commands[row+5]!=0) return false;
+    for(uint i=6;i<16;i+=2) { uint64_t v=loadNumber(row+i);if(!f64Finite(v)||f64Less(v,0)||f64Less(f64FromI64(180),v)) return false; }
+    return f64Less(0,loadNumber(row+6));
+}
+void partialStartCharge(inout Runtime s,uint who,uint64_t when)
+{
+    if(!partialOwnerEnabled(s,who)) return;
+    uint a=controlState(s,who);results[a+17]=0;results[a+18]=0;results[a+19]=1;
+    if(!controlOwns(s,who)) return;
+    uint count=commands[controlOwnerInput(s,who)];
+    for(uint i=0;i<count;i++)
+    {
+        uint row=controlClick(s,who,i),mode=commands[row];
+        if(mode==4||!controlWindow(s,who,row)) continue;
+        if(mode==1)
+        {
+            results[a+17]=i+1;uint64_t interval=loadNumber(row+14),last=results[a+23]!=0?actorNumber(a+30):f64FromI64(uint64_t(-1000000000));
+            results[a+18]=uint(f64Less(0,interval)&&!f64Less(f64Add(when,last^F64_SIGN),interval));
+        }
+        break;
+    }
+}
+bool partialReadyCharge(inout Runtime s,uint who,uint64_t charge,uint64_t when,out bool handled)
+{
+    handled=false;if(!partialOwnerEnabled(s,who)) return false;
+    uint a=controlState(s,who),row=results[a+17];
+    if(row==0||results[a+18]!=0) return false;
+    handled=true;row=controlClick(s,who,row-1);s.chargeUntil[who]=f64Add(s.chargeStartedAt[who],loadNumber(row+6));
+    if(f64Less(when,s.chargeUntil[who])) return true;
+    results[a+19]=uint(!f64Less(loadNumber(row+8),effectiveCharge(s,who,charge,when)));return false;
+}
+void partialCancelCharge(inout Runtime s,uint who)
+{ if(partialOwnerEnabled(s,who)) { uint a=controlState(s,who);results[a+17]=0;results[a+18]=0;results[a+19]=0; } }
+bool partialUseHeavy(inout Runtime s,uint who)
+{ uint a=controlState(s,who);return results[a+17]==0||results[a+18]!=0; }
+void partialCaptureCharge(inout Runtime s,inout Weapon w,uint who,uint64_t when)
+{
+    if(!partialOwnerEnabled(s,who)) return;
+    uint a=controlState(s,who);w.partialTapRow=results[a+17];w.partialFull=w.partialTapRow==0||results[a+18]!=0?1:results[a+19];
+    if(w.partialFull!=0) { results[a+23]=1;storeNumber(a+30,when); } else w.gaugeMultiplier=ONE;
+}
+#endif

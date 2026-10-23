@@ -69,6 +69,9 @@ void teamNotify(inout Runtime s, uint event, uint64_t when, uint output)
 }
 struct Weapon
 {
+#ifdef PORTABLE_PARTIAL_CHARGE
+    uint partialTapRow,partialFull;
+#endif
     uint mode, capacity, pellets, muzzles, infinite, sentinelMode, reloadAllowed, optimal, rawRate, ammoBuffs, delayCover;
     int shotLimit;
     uint64_t coefficient, interval, reloadTime, chargeTime, gain, coreBonus, firstCoefficient, fullChargeMult, minCycle, gaugeMultiplier, rateMin, rateMax, warmLimit, coolTime;
@@ -76,6 +79,9 @@ struct Weapon
 [noinline]
 void selectWeapon(inout Runtime s,uint who,uint64_t when,out Weapon w)
 {
+#ifdef PORTABLE_PARTIAL_CHARGE
+    w.partialTapRow=0;w.partialFull=1;
+#endif
     w.mode=0;
     w.capacity=0;
     w.pellets=0;

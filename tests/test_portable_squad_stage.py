@@ -8,7 +8,8 @@ from calculator import timeline
 from calculator.buff_manager import BuffManager
 from portable_squad_stage_cases import fixtures
 from portable_squad_stage_contracts import verify
-from portable_squad_stage_source_contract import project_sources,ledger
+from portable_squad_stage_source_contract import project_sources,ledger,baseline_source as stage_baseline
+from portable_partial_charge_source_contract import baseline_source as partial_baseline
 from portable_trigger_specs import validate_input,UnsupportedTrigger
 from world_ally_burst_native import observe
 from world_projectile_native import observe as plain
@@ -50,13 +51,13 @@ class SquadStageTests(unittest.TestCase):
     def test_source_delta_rejects_omission_wrong_order_stage_and_ownership(self):
         project_sources(ROOT)
         for name,row in ledger(ROOT)['sources'].items():
-            text=(ROOT/name).read_text()
+            text,_=partial_baseline(ROOT,name,(ROOT/name).read_text())
             for change in row['changes']:
                 bad=text.replace(change['current'],change['baseline'],1);self.assertNotEqual(text,bad)
-                with self.assertRaises(AssertionError):project_sources(ROOT,{name:bad})
-        name='gpu/combat_runtime.slang';text=(ROOT/name).read_text();bad=text.replace('dispatch(s,0,41,picked,int(stage)','dispatch(s,0,41,4,int(stage)')
+                with self.assertRaises(AssertionError):stage_baseline(ROOT,name,bad,partial_projected=True)
+        name='gpu/combat_runtime.slang';text,_=partial_baseline(ROOT,name,(ROOT/name).read_text());bad=text.replace('dispatch(s,0,41,picked,int(stage)','dispatch(s,0,41,4,int(stage)')
         self.assertNotEqual(text,bad)
-        with self.assertRaises(AssertionError):project_sources(ROOT,{name:bad})
+        with self.assertRaises(AssertionError):stage_baseline(ROOT,name,bad,partial_projected=True)
 
     def test_full_real_roster_has_all81_definitions_without_battle_or_gpu(self):
         def forbidden(*a,**k):raise AssertionError('Static preparation executed a battle/GPU')

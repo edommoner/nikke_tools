@@ -20,7 +20,7 @@ def compile_case(case):
  with patch.dict(timeline._NIKKE,authored_metadata(case)),patch.dict(timeline._DELAYS['_exceptions'],{},clear=True),patch.dict(timeline._DELAYS['_defaults_by_weapon_type'],{'AR':{'post_reload_delay':0}},clear=True):norm=normalize_static_controls(chars,case['base_atk'],case['enemy'],case['control_mode'])
  from portable_team_hit_specs import bound_effects
  effects=bound_effects([(e,names[o]) for e,o in zip(case['effects'],case['owners'])],m,names)
- policy=compile_policy(norm,effects,names,m['states'],w[L['WORLD_OVERLAY_INPUT_BASE']+1]);w.extend(policy);w[0]=L['WORLD_CONTROL_ABI'];w[L['TARGET_COUNTER_INPUT_BASE']+6]=21
+ policy=compile_policy(norm,effects,names,m['states'],w[L['WORLD_OVERLAY_INPUT_BASE']+1]);w[L['WORLD_OVERLAY_INPUT_BASE']+1]=policy[3];w.extend(policy);w[0]=L['WORLD_CONTROL_ABI'];w[L['TARGET_COUNTER_INPUT_BASE']+6]=21
  assert len(w)==INPUT;m['_control_policy']=policy;return w,m,b
 
 def decoded(block,meta,case,bindings):

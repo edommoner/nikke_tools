@@ -265,8 +265,9 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     geometry_chars=compiler_chars(chars,geometry)
     from portable_target_state_specs import compiler_effect as target_compiler_effect
     from portable_pellet_shot_specs import compiler_effect as pellet_shot_compiler_effect
+    from portable_nonfull_charge_specs import compiler_effect as nonfull_compiler_effect
     from portable_focus_specs import compiler_effect as focus_compiler_effect,enabled as focus_marker,STAT as FOCUS_FIRE_STAT
-    program=legacy.compile_effects(geometry_chars,[(pellet_shot_compiler_effect(target_compiler_effect(focus_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e)))),owner) for e,owner in effects])
+    program=legacy.compile_effects(geometry_chars,[(nonfull_compiler_effect(pellet_shot_compiler_effect(target_compiler_effect(focus_compiler_effect(dict(e,stat='') if e.get('type')=='buff' and e.get('stat') is None else legacy_effect(e))))),owner) for e,owner in effects])
     from portable_team_hit_specs import bind_compiled
     effects,binding_metadata=bind_compiled(effects,program,[c['name'] for c in chars])
     from portable_pellet_shot_specs import bindings as pellet_shot_bindings

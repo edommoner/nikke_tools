@@ -28,7 +28,7 @@ HP_TIMING=rf'hp_below:{HP_NUMBER}|hp_below_count:{HP_NUMBER}:[1-9][0-9]*|event:(
 # Names are opaque suffixes: colons, whitespace and Unicode remain significant.
 # Reserve structured event prefixes so malformed HP/end descriptors and unported
 # accumulator/counter events cannot fall through to the generic named event.
-TIMING=rf'every_stack:[^:]+:[1-9][0-9]*|event:(?!(?:state_end|ally_hp_below|adjacent_hp_below|accum_full|target_counter_complete):)[\s\S]+|{HP_TIMING}|{SIMPLE}|{COUNTERS}|squad_burst_cast:[123]|burst_enter:[123]|burst_enter_count:[123]:{COUNT}|event:state_end:[\s\S]+|hit_count:[^:]+:{COUNT}|stack_reach:[^:]+:[1-9][0-9]*'
+TIMING=rf'every_stack:[^:]+:[1-9][0-9]*|event:(?!(?:state_end|ally_hp_below|adjacent_hp_below|accum_full|target_counter_complete):)[\s\S]+|{HP_TIMING}|{SIMPLE}|{COUNTERS}|non_full_charge_fire_count:(?:-?[0-9]+|\{{0\}})|squad_burst_cast:[123]|burst_enter:[123]|burst_enter_count:[123]:{COUNT}|event:state_end:[\s\S]+|hit_count:[^:]+:{COUNT}|stack_reach:[^:]+:[1-9][0-9]*'
 CONDITION=rf'focusing|no_broken_cover_ally|self_undying|trigger_hit_crit|target_stunned|self_stun_immune|(?:target_state|not_target_state):[\s\S]*|target_stack_above:[\s\S]*:[0-9]+|core_hit|optimal_range|prob:[\s\S]+|during_shield|gauge_(?:above|below|eq):[^:]+:{HP_NUMBER}|gauge_mod:[^:]+:[1-9][0-9]*:[+-]?[0-9]+|self_cover_alive|not_self_cover_alive|not_self_caused_heal|self_hp_max|(?:self_hp_above|self_hp_below|ally_hp_below):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)|during_full_burst|not_during_full_burst|during_charge|burst_casted|burst_not_casted|has_burst1_ally|no_burst1_ally|has_defender_ally|no_defender_ally|squad_ally_exists|back_row|target_is_boss|target_is_add|target_code:[\s\S]*|(?:self_state|not_self_state):[\s\S]*|self_stack_above:[^:]+:[0-9]+|enemy_count_(?:above|below):[+-]?[0-9]+|self_stat_above:(?:atk_pct|crit_rate|crit_dmg|accuracy_pct):[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)'
 
 
@@ -49,10 +49,10 @@ def validate_input(eff,*,world_frame=False):
         try:pellet_shot=parse_pellet_shot(timing)
         except ValueError as error:raise UnsupportedTrigger(str(error),domain='timing',descriptor=timing) from error
         if pellet_shot is not None:continue
-        if timing.startswith('squad_burst_cast:') and not world_frame:raise UnsupportedTrigger('Squad stage requires a private combat world',domain='timing',descriptor=timing)
+        if timing.startswith(('squad_burst_cast:','non_full_charge_fire_count:')) and not world_frame:raise UnsupportedTrigger('Squad stage requires a private combat world',domain='timing',descriptor=timing)
         if timing.startswith('event:'):
             from detail_gpu import EVENT
-            if timing in EVENT and EVENT[timing] not in (EVENTS|frozenset((5,22,23,33,34,35,39,41,42,44,45)) if world_frame else EVENTS):raise UnsupportedTrigger('Unported trigger timing: '+timing,domain='timing',descriptor=timing)
+            if timing in EVENT and EVENT[timing] not in (EVENTS|frozenset((5,22,23,33,34,35,39,40,41,42,44,45)) if world_frame else EVENTS):raise UnsupportedTrigger('Unported trigger timing: '+timing,domain='timing',descriptor=timing)
         from portable_charge_control_specs import parse_hold
         if world_frame and parse_hold(timing) is not None:continue
         if timing.startswith('every:'):
@@ -77,7 +77,17 @@ def pack_descriptors(words,index,row,L,F,double_words,*,effect=None,states=None,
     if not 1<=n<=8 or not 0<=nc<=3:raise ValueError('Descriptor capacity exceeded')
     for slot in range(n):
         event,threshold,mode,tag,value,passive,stage=row[145+slot*7:152+slot*7]
-        if event not in (EVENTS|frozenset((5,22,23,33,34,35,39,41,42,44,45)) if world_frame else EVENTS) or mode not in (0,1,2,3):raise ValueError('Unported compiled trigger')
+        if event not in (EVENTS|frozenset((5,22,23,33,34,35,39,40,41,42,44,45)) if world_frame else EVENTS) or mode not in (0,1,2,3):raise ValueError('Unported compiled trigger')
+        if event==40:
+            from portable_nonfull_charge_specs import parse as nonfull_count
+            parsed=nonfull_count(effect['trigger']['timing'][slot]) if effect is not None else None
+            if parsed is None or mode!=1 or tag!=-1 or value!=0 or passive!=0 or stage not in (1,2):raise ValueError('Invalid compiled non-full charge descriptor')
+            original=parsed[0]
+            if original is None:
+                if stage!=2:raise ValueError('Missing non-full never-count marker')
+            elif original<=0:
+                threshold=1;tag=original;value=1
+            else:threshold=original
         if event!=6 and (threshold!=int(threshold) or not (-(2**31) if event==27 else 0)<=threshold<=2**31-1):raise ValueError('Invalid discrete trigger threshold')
         if event==41 and (not world_frame or stage not in (1,2,3) or threshold!=stage or mode!=0 or tag!=-1 or value!=0 or passive!=0):raise ValueError('Invalid compiled squad stage descriptor')
         if event==27:

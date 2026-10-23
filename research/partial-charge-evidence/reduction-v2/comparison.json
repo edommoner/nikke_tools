@@ -1,0 +1,89 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "partial-reduction-zero-negative",
+      "input_sha256": "8f03b59c94139078c7f71ce9d2883f0b3ccd87043ec1346820c3cb370086be2d",
+      "output_sha256": "a54ebea9cca8b5c8c54976c0732fc3923f0cc2778afe2d667831165195319c7c",
+      "native_sha256": "a7d606b2df9b49f6890102b00b91cdd07cd66990addebf2eedbb0355c202599b"
+    },
+    {
+      "name": "partial-reduction-negative-negative",
+      "input_sha256": "aac887553fca20d479f380315f94af6d1d6ebdba869da9d33c4a7da782876782",
+      "output_sha256": "a54ebea9cca8b5c8c54976c0732fc3923f0cc2778afe2d667831165195319c7c",
+      "native_sha256": "a7d606b2df9b49f6890102b00b91cdd07cd66990addebf2eedbb0355c202599b"
+    },
+    {
+      "name": "partial-reduction-fractional-negative",
+      "input_sha256": "8c3db061bd85fda89ab02e5507edbfc74c6431d592de9947661d4d8fe16a16aa",
+      "output_sha256": "a54ebea9cca8b5c8c54976c0732fc3923f0cc2778afe2d667831165195319c7c",
+      "native_sha256": "a7d606b2df9b49f6890102b00b91cdd07cd66990addebf2eedbb0355c202599b"
+    },
+    {
+      "name": "partial-reduction-negative-expires",
+      "input_sha256": "f21ad546ef62da4002c132101a87031264ad9e2d810e9d6839b7c61b541ac79d",
+      "output_sha256": "4f0a220ee6497fa93498bf1e98cc9f5cf0f74b6d38520c370dc9297d4db657a2",
+      "native_sha256": "aa78e127ee170a44f88a5a6476102453a22885b218e9d75f1409c5c6c47e1e26"
+    },
+    {
+      "name": "partial-reduction-positive-control",
+      "input_sha256": "ae5a9e2781d4afe547209c70f4067d462b5b9994fe526b257b1b892695b9b0f6",
+      "output_sha256": "c87dff82633c54afb3d4c0f9f1c46a327be8a0836bd38bea140b92f65408c16a",
+      "native_sha256": "df3aed7893913a6b8b257e145dc736e27c2adfe8f3b9095ee8bd4a73f4949d62"
+    },
+    {
+      "name": "partial-reduction-signed-minimum",
+      "input_sha256": "183338652b067d9f26efc6ba0ca001ce9e38286e34733c2a63ea4ac4ce4331f5",
+      "output_sha256": "a54ebea9cca8b5c8c54976c0732fc3923f0cc2778afe2d667831165195319c7c",
+      "native_sha256": "a7d606b2df9b49f6890102b00b91cdd07cd66990addebf2eedbb0355c202599b"
+    },
+    {
+      "name": "partial-reduction-signed-maximum",
+      "input_sha256": "292db5b89ca864dc0f9c69e9420f8bc11e05c7782a51d4f3be89ead99e4d16f0",
+      "output_sha256": "64a03381182c42408ad79dc74673bc040aad25acbf58242a936cd7f126fe6d40",
+      "native_sha256": "96f24f76b84763af17e28d15f79f62134159c07e7c0d2dc843f2f3fd18bf11aa"
+    },
+    {
+      "name": "reject/partial-reduction-positive-signed-base",
+      "input_sha256": "2887604ff0c90603da2188fb702127fa203d17f95e1ac30ed5de93ca3b2b1718",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/partial-reduction-wrong-placeholder",
+      "input_sha256": "06453b93e9c426ab5955422b2475944e42667421c5598d030a1c9fb8f2b2e6f8",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/partial-reduction-unknown-flag",
+      "input_sha256": "32593c7a81f9d8f4c72175cbcdc2ed2cc594f0c92a442912aeec9c7ec5c4879b",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/partial-reduction-never-with-signed-flag",
+      "input_sha256": "0d7a84758cc0f91ecd3657edf59c7231f289d93246df46f251779ff581e931d9",
+      "output_sha256": "f64d2a58f2ebb0f3cfe05b61f620afbe39135859fee581519fb78c3bf784b2b5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 11,
+  "native_oracles": 7,
+  "input_sha256": "efc0780bbebecfa72570d9b298a1fe534bb141a5e3255828e58c6e9352cf4487",
+  "output_sha256": "820512f94894c67cc3a6dd914932c8754ad0c4a25de0108aa8c41e23adba4f43",
+  "generated_normalized": {
+    "cuda": "f3a2afd0173823e7e6dd7401ed78b4fd690eb3558fbdf75acae62f8914c0a94e",
+    "metal": "1265bb7751da9ffbcdf12f59034460c53397d9460c483d0be1dd3bada5c3ed44"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 7,
+    "fresh_native_cases": 0,
+    "rejection_cases": 4,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

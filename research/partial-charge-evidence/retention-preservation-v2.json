@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "prior_inputs": 1505,
+  "prior_native_fingerprints_preserved": true,
+  "prior_raw_bytes_identical": 4734320640,
+  "prior_raw_sha256": "7945d3a282f1779475c5d558a1729fb5f9b340a12e96523cde30440dac471be6",
+  "static_signed_payload_migrations": [
+    {
+      "case": 1456,
+      "name": "partial-charge/nonfull-charge-zero-clamped",
+      "before": "5eddbdb90fb164c7cce7fc7f01038332768cc1b51b22ce126743e356b5e41ee8",
+      "after": "ec771a9de4d5231388ed91549311ea903d46fd827df3479d1920b9b9f5cd84e2",
+      "words": [
+        {
+          "word": 103,
+          "before": 0,
+          "after": 1
+        },
+        {
+          "word": 17188,
+          "before": 4294967295,
+          "after": 0
+        },
+        {
+          "word": 17189,
+          "before": 0,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "case": 1457,
+      "name": "partial-charge/nonfull-charge-negative-clamped",
+      "before": "4980c9e8ed1da2eefc14c60d83cef893262c03dc9032cce8f106649a3814b9ea",
+      "after": "4c0e6554c88ead90531ddcdcab7009983af492f293989d46db379ac6481d7cb9",
+      "words": [
+        {
+          "word": 103,
+          "before": 4294967295,
+          "after": 1
+        },
+        {
+          "word": 17189,
+          "before": 0,
+          "after": 1
+        }
+      ]
+    }
+  ],
+  "old1442_input_fingerprints_preserved": true,
+  "new_independent_inputs": 11,
+  "new_independent_raw_bytes_identical": 34603008,
+  "total_inputs": 1516,
+  "output_sha256": "46b9d82bde569d67c47be99273e98ce63aec1816cff3731aabf4f598869f4ac9"
+}

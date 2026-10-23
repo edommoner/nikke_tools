@@ -1,0 +1,287 @@
+{
+  "schema": 1,
+  "raw_included": false,
+  "personal_sessions_included": false,
+  "files": [
+    {
+      "path": "research/partial-charge-evidence/default-inventory-v2.json",
+      "bytes": 249821,
+      "sha256": "e6931a070c94e1f2271da6181c7d82906d91ab89625fdf86a1b0c3bf15ba4abd"
+    },
+    {
+      "path": "research/partial-charge-evidence/extended-v1-failure-inspection.json",
+      "bytes": 3964,
+      "sha256": "c9cb56d897af7ddd8c1e6dade935735054e02ecce90dff9df70ffa41771cde47"
+    },
+    {
+      "path": "research/partial-charge-evidence/extended-v3-seal.json",
+      "bytes": 18010,
+      "sha256": "73e3a6fa0dc3b61f177b27e2a861356355357a1015c6a2058fe4e9bd7de0237c"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/cpu-tests.json",
+      "bytes": 2649,
+      "sha256": "44737dbb888a7d28ab358a1523b58618d3774cf5259878c38ffe25df91d287e8"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_charge_control.py.stderr.log",
+      "bytes": 127,
+      "sha256": "dc1d8539e5e093863bc30b6f55cf953204abf9c7c75f00689a00f63585baf7fa"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_charge_control.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_definition_view.py.stderr.log",
+      "bytes": 107,
+      "sha256": "eb59e07f91421bd58485070cececd2e4f31d6c4387898e1fcaec93bfaf40eb79"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_definition_view.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_nonfull_charge_reference.py.stderr.log",
+      "bytes": 102,
+      "sha256": "ecc6ea9517aba969ea789c15157c69e645e6a229a70ea5272bc4279a59726042"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_nonfull_charge_reference.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_nonfull_charge_routing.py.stderr.log",
+      "bytes": 100,
+      "sha256": "a6707d4eff38012da33ddc34bc6dc076a3b17151cfc9aef223c8790cbe64c3da"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_nonfull_charge_routing.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_partial_charge.py.stderr.log",
+      "bytes": 104,
+      "sha256": "811cd75b540ec19a37e447df25cd90328547affe7d3786aa70587a229ac0cec2"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_partial_charge.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_partial_charge_extended.py.stderr.log",
+      "bytes": 101,
+      "sha256": "8298b7a96d068854ecaeb6397fcab3a64d299bfe8093fa82d854718930575e33"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_partial_charge_extended.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_partial_charge_reduction.py.stderr.log",
+      "bytes": 101,
+      "sha256": "7cec2e0625936bc390959c23cefe3ad23948b0d6bf7bb87e365c954c237a169f"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_partial_charge_reduction.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_readiness.py.stderr.log",
+      "bytes": 113,
+      "sha256": "e0ed73347423f94407939cfb2c83a7fdf4cb459825f40496ebe5ed5efb1e8b9b"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_readiness.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_readiness_semantics.py.stderr.log",
+      "bytes": 110,
+      "sha256": "9e40f1a904d23e7d8fd102265fc8a6cd2b097f779190b0fceef585f109b9a17f"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_readiness_semantics.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_reference_optimization.py.stderr.log",
+      "bytes": 101,
+      "sha256": "9170a3812bd47ce2d0d6634aca67af3c7d57da5f692ab05d70c6bf35ae3a9e8f"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_reference_optimization.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_squad_stage.py.stderr.log",
+      "bytes": 104,
+      "sha256": "781402d499bb7e886d7bf5efd66fcf954aad3b8040b1f8c9edc2d0b5ad064946"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_squad_stage.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_state_work_routing.py.stderr.log",
+      "bytes": 102,
+      "sha256": "e6ec182765cd965f2837d8eeaef5a64af48a104f245cd1a0b7281559194c57c1"
+    },
+    {
+      "path": "research/partial-charge-evidence/final-cpu/test_portable_state_work_routing.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/partial-charge-evidence/full-storage-v4.json",
+      "bytes": 202,
+      "sha256": "eecd66c22006ab81b520e373c01b8526d38e6ba89789f0fe0b31d187d43ceb9d"
+    },
+    {
+      "path": "research/partial-charge-evidence/full-storage-v5.json",
+      "bytes": 201,
+      "sha256": "abce113c5bbb90789ca6f722e9dcf6b6475005b4939032e06b50422077d0302c"
+    },
+    {
+      "path": "research/partial-charge-evidence/reduction-v2/comparison.json",
+      "bytes": 4456,
+      "sha256": "c27c60583e321b7974fa5ce4c379d1e7e3cd0e1fd1669143a505ac6caa45efec"
+    },
+    {
+      "path": "research/partial-charge-evidence/reduction-v2/cpu-tests.json",
+      "bytes": 1764,
+      "sha256": "211ed769c37a7ff15a3301e0a81ea872dd117ce6e0f8bd4048848eb47861ec9c"
+    },
+    {
+      "path": "research/partial-charge-evidence/reduction-v2/cpu.json",
+      "bytes": 247,
+      "sha256": "f9915329809b817df1b9664123c571d261c91defa4d96374ebef8164562f5eca"
+    },
+    {
+      "path": "research/partial-charge-evidence/reduction-v2/evidence.json",
+      "bytes": 49174,
+      "sha256": "2b69eb1e8fcab4802cadac7da51b9d0a8eaeabd85a13ae854a78be63a491c496"
+    },
+    {
+      "path": "research/partial-charge-evidence/reduction-v2/execution.json",
+      "bytes": 1032,
+      "sha256": "c7ef930f903ebd90886cb54cb5f180d3afb4a98d2a0adc6f9555a91dc217a5eb"
+    },
+    {
+      "path": "research/partial-charge-evidence/reduction-v2/result.json",
+      "bytes": 863,
+      "sha256": "b50c447e8fd032a27849cd71394d9cb33f48dad093481f144a04ea3589c0d076"
+    },
+    {
+      "path": "research/partial-charge-evidence/reduction-v2-seal.json",
+      "bytes": 17030,
+      "sha256": "ba7024ec6e32aa98f8a82b6eb92b2e567db57f0e0cb4866f1e47cad03d52a247"
+    },
+    {
+      "path": "research/partial-charge-evidence/retention-preservation-v1.json",
+      "bytes": 738,
+      "sha256": "b676e2d91b4120bb5d3bb5ccc681a383e77817712a3cfd6bb42bc55b0e14f942"
+    },
+    {
+      "path": "research/partial-charge-evidence/retention-preservation-v2.json",
+      "bytes": 1565,
+      "sha256": "811f29bad82b821a55649554b6bab4f2b89b978eb75a194fee4c2c0586bf3c90"
+    },
+    {
+      "path": "research/partial-charge-evidence/retention-v3-seal.json",
+      "bytes": 966057,
+      "sha256": "ff07eaf414f54b02f3a4447b8554bfee15c4fdd1f58cfcaf6f2f83a0531b280a"
+    },
+    {
+      "path": "research/partial-charge-evidence/retention-v4/artifacts.json",
+      "bytes": 36618,
+      "sha256": "b222926a60f41e77b2c9ee6a2e418b1079631a4987e9435f473b2511447f2bd3"
+    },
+    {
+      "path": "research/partial-charge-evidence/retention-v4/comparison.json",
+      "bytes": 957497,
+      "sha256": "b5bf3bde4156eade294c0c9601dd8f98430e40976c97e82936b4908e9b1dec14"
+    },
+    {
+      "path": "research/partial-charge-evidence/retention-v4/cpu-batch.json",
+      "bytes": 4234,
+      "sha256": "0cc95da3d6c0ce424e8135a610d9e227feae7469d3a3e16b5248b94737a10dd8"
+    },
+    {
+      "path": "research/partial-charge-evidence/retention-v4/cpu-tests.json",
+      "bytes": 20767,
+      "sha256": "322075426e74aed80cfa2834802290ddcec73e58ff81d92822e8a516ae62285b"
+    },
+    {
+      "path": "research/partial-charge-evidence/retention-v4/cpu.json",
+      "bytes": 250,
+      "sha256": "2b7edeba6607809c184256c0f62d7b9316ddb2f314bbac4b667d061600be6f74"
+    },
+    {
+      "path": "research/partial-charge-evidence/retention-v4/evidence.json",
+      "bytes": 49187,
+      "sha256": "c82a97889a7b755a9d5dd8d1a320b23b4af6c1d7ec1612b92f7a9fe0708347a8"
+    },
+    {
+      "path": "research/partial-charge-evidence/retention-v4/execution.json",
+      "bytes": 1032,
+      "sha256": "e64556193b8095aa50a9f1c55cdfb92025b8afb176a45682026634051c31aead"
+    },
+    {
+      "path": "research/partial-charge-evidence/retention-v4/generation-cache.json",
+      "bytes": 26637,
+      "sha256": "4e998bc068e08b82f624dbab52fa429cab35fd93cb243109dfb6dfe103764651"
+    },
+    {
+      "path": "research/partial-charge-evidence/retention-v4/result.json",
+      "bytes": 863,
+      "sha256": "c20c67ad284d6912d82ce8fc66df7c9772906ba3686a355752c48a64cf96c192"
+    },
+    {
+      "path": "research/partial-charge-evidence/retention-v4-seal.json",
+      "bytes": 970060,
+      "sha256": "6d1c301ce84282044547c3a0708abea70c519e3a127c4497d7b8d1159bac47f2"
+    },
+    {
+      "path": "research/partial-charge-evidence/rosters-v3-seal.json",
+      "bytes": 14652,
+      "sha256": "8ffce7727fd1dbb3600c36757021175c69a9bce8ce51c409bd39a41a51ce9ed3"
+    },
+    {
+      "path": "research/partial-charge-evidence/state-transition-full-v1.json",
+      "bytes": 3813,
+      "sha256": "719f974ff039cb9113846e2526be91393af93102c0f81069ed42db9b4ff42d64"
+    },
+    {
+      "path": "research/partial-charge-evidence/static-retention-v1.json",
+      "bytes": 395,
+      "sha256": "fdc9ae0d265a4f85833ec4cc29bc1e0a6322793696e83e92fa017717babcd148"
+    },
+    {
+      "path": "research/partial-charge-evidence/storage-sparse-v7.json",
+      "bytes": 648,
+      "sha256": "df94c6ae2a21927e8ee569b3697f5e4d09ff707eeb70a5c25c6780dab6500210"
+    },
+    {
+      "path": "research/partial-charge-evidence/storage-sparse-v8.json",
+      "bytes": 636,
+      "sha256": "41e268088cb3f2899e1b3c7b501228b2eda584fbf0cb0aec43b01d60b7e802a5"
+    },
+    {
+      "path": "research/partial-charge-evidence/v3-seal.json",
+      "bytes": 28328,
+      "sha256": "e080695825e0dc04733aa0cdb61a9fc37a0e8e2d262f57e844444e865f17f5bb"
+    }
+  ]
+}

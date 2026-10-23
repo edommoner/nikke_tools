@@ -136,6 +136,15 @@ void admitDefinitions(inout Runtime s,uint input)
         WORLD_TEAM_VALIDATE(s,d,input,j) WORLD_FRACTION_VALIDATE(s,d,input,j) WORLD_INITIAL_SPAWN_VALIDATE(s,d,input,j) for (uint slot = 0; slot < d.triggerCount; slot++)
         {
             uint at=input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8,event=commands[at];
+            if(event==40)
+            {
+#ifdef PORTABLE_PARTIAL_CHARGE
+                uint64_t threshold=loadNumber(at+1);uint status;uint64_t count=f64ToI64(threshold,1,status);
+                if(s.combat==0 || commands[input+P_WORLD_FRAME_INPUT_BASE]!=0x57533031U || status!=0 || count==0 || count>0x7fffffff || !f64Equal(threshold,f64FromI64(count)) || commands[at+3]!=1 || commands[at+6]!=0 || commands[at+5]>1 || commands[at+5]==0 && commands[at+4]!=0xffffffffU || commands[at+5]==1 && (int(commands[at+4])>0 || count!=1 || commands[at+7]!=1) || commands[at+7]!=1 && commands[at+7]!=2) { s.error=64;break; }
+#else
+                s.error=64;break;
+#endif
+            }
             if(event==41)
             {
 #ifdef PORTABLE_WORLD_ROSTER

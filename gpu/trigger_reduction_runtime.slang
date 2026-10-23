@@ -53,7 +53,14 @@ bool triggerReductionCountMatches(inout Runtime s,uint row,uint count,uint64_t t
     if(status!=0) { s.error=2;return false; }
     // Bound512 *1e8 keeps the ordered sum and integer difference inside i64.
     // Negative reductions may exceed the32-bit event counter's horizon.
-    if((reduction&(uint64_t(1)<<63))!=0) threshold+=uint64_t(0)-reduction;
+    if(threshold==0 || (threshold&(uint64_t(1)<<63))!=0)
+    {
+        // Only signed32 non-full bases enter here. Subtract first, then clamp;
+        // the bounded resident sum keeps this difference safely inside i64.
+        int64_t remaining=int64_t(threshold)-int64_t(reduction);
+        threshold=remaining>1?uint64_t(remaining):uint64_t(1);
+    }
+    else if((reduction&(uint64_t(1)<<63))!=0) threshold+=uint64_t(0)-reduction;
     else threshold=reduction>=threshold ? 1 : threshold-reduction;
     return mode==2 ? uint64_t(count)>=threshold : mode==3 ? uint64_t(count)==threshold : uint64_t(count)%threshold==0;
 }

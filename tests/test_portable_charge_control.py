@@ -80,7 +80,7 @@ class ChargeControls(unittest.TestCase):
    with self.subTest(t=t),self.assertRaises(ValueError):parse_hold(t)
  def test_opaque_finite_raw_spellings_are_preserved(self):self.assertEqual(parse_hold('charge_hold:1e-1'),('1e-1',.1,1))
  def test_pending_adapter_families_fail_closed(self):
-  for control in (dict(click=[dict(mode='tap',window='always',rate=2)]),dict(click=[dict(mode='hold',anchor='combat_start',offset=0,len=1)]),dict(sequence=[dict(action='cover',t=0,duration=1)])):
+  for control in (dict(click=[dict(mode='hold',anchor='combat_start',offset=0,len=1)]),dict(sequence=[dict(action='cover',t=0,duration=1)])):
    c=copy.deepcopy(self.row('sequence-until-0.8'));c['controls'][0]=control
    with self.assertRaises(ValueError):self.normalize(c)
  def test_capacity_is_not_silently_truncated(self):

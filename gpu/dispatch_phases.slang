@@ -454,7 +454,14 @@ void advanceDefinitionFrame(inout Runtime s, inout Frame frames[32], inout int d
                         uint64_t threshold64 = f64ToI64(loadNumber(at+1),1,status);
                         if (status != 0 || threshold64 == 0 || threshold64 > 0x7fffffff || s.counters[counter] == 0x7fffffff) { s.error = 2; break; }
                         uint count = WORLD_TEAM_COUNTER(s,f.event,counter), threshold = uint(threshold64);
-                        if(stage==1 && triggerReductionEvent(event) && (s.quantityMask&1024)!=0) ok=triggerReductionCountMatches(s,j,count,threshold64,mode,f.time);
+                        if(stage==1 && triggerReductionEvent(event) && (s.quantityMask&1024)!=0)
+                        {
+                            uint64_t base=threshold64;
+#ifdef PORTABLE_PARTIAL_CHARGE
+                            if(event==40 && commands[at+5]==1) base=uint64_t(int64_t(int(commands[at+4])));
+#endif
+                            ok=triggerReductionCountMatches(s,j,count,base,mode,f.time);
+                        }
                         else ok = mode == 2 ? count >= threshold : mode == 3 ? count == threshold : count % threshold == 0;
                     }
                     if (stage == 2 && event != 4 && event != 41) ok = false;

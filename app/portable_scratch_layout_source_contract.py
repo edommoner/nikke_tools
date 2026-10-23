@@ -7,9 +7,9 @@ def ledger(root):
     return json.loads((Path(root)/'tests/fixtures/portable-scratch-layout-source-delta.json').read_text())
 
 
-def baseline_source(root, name, source):
+def baseline_source(root, name, source, *, interrupt_projected=False):
     from portable_interrupt_aim_source_contract import baseline_source as project_interrupt
-    source, _ = project_interrupt(root, name, source)
+    if not interrupt_projected:source, _ = project_interrupt(root, name, source)
     rows = ledger(root)['sources']
     if name not in rows:
         return source, False
@@ -26,5 +26,5 @@ def project_sources(root, sources=None):
     from portable_interrupt_aim_source_contract import project_sources as project_interrupt
     root = Path(root); sources, _ = project_interrupt(root, sources)
     for name in ledger(root)['sources']:
-        sources[name], _ = baseline_source(root, name, sources.get(name, (root/name).read_text()))
+        sources[name], _ = baseline_source(root, name, sources.get(name, (root/name).read_text()), interrupt_projected=True)
     return sources, list(ledger(root)['sources'])

@@ -1,3 +1,7 @@
+<!-- partial-charge-current -->
+短押し・非フルチャージをCUDA/Metal共通Slangの開発専用入口へ接続。Metal1516(native1192/拒否324)とGPU禁止の独立seal成功。追加74入力はpartial45・動的14・クロスト全77定義4・signed基準11。符号付きbaseから回数補正を引いてから最小1へclampし、signed32両端・負の小数補正・期限切れを固定。CPU95群500検査175.999秒、正本事前85.512秒、GPU11.219秒、最終12群93検査20.700秒。旧1505の全raw4734320640Bとnativeを保持し、入力変更は0/負base2件の静的header/tag/flagだけ。静的232/266・base172/203・50分類、旧231入力SHAと34拒否保持。数値primitive/normalizer/Runtime/stride/容量不変。生成cache必須hit・追加Slang0。Windows操作0/原因unknown/保全false/現CUDA未検証。public event40/tap2は未開放、development_only/全キャラ0/UI CPU/未達。次はtapとlazy/random数値readerの照会時点・混在制御の正本契約。詳細[短押しGPU接続](portable-partial-charge-gpu.md)とresearch/portable-partial-charge-checkpoint.json。以下は履歴。
+<!-- /partial-charge-current -->
+
 <!-- nonfull-charge-reference-current -->
 共通CLI reference nonfull-chargeへ23の正本契約を追加。短押しpartial/full、周期的full、発射単位counter、重複/raw alias/軽減/budget、散弾2銃口、reload、通知callbackでauto武器へ変更・復帰を固定。全battle/trace/semantic read回数保持、7種故障拒否、fresh packageのreference23とCPU7群47検査成功。未対応4分類を正本確認済みnative_contract_extensionへ移動し、全266profile・231入力SHA・35拒否・54分類code順序を保持。GPU122sourceは既存1442と同一、追加GPU/Windows0。tapはstatic層で未受付、GPUはchargeならfull通知するためevent40だけ開放しない。次はpartial chargeの状態・tap制御・damage/core/ゲージsnapshotを共有実装し、混在/全定義クロストとMetalで検証。GPU対応追加0・全キャラ0/UI CPU/development_only/未達。詳細[非フルチャージの正本契約](portable-nonfull-charge-reference.md)とresearch/portable-nonfull-charge-checkpoint.json。以下は履歴。
 <!-- /nonfull-charge-reference-current -->
