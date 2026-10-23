@@ -1,3 +1,7 @@
+<!-- named-enemy-reference-current -->
+`reference --suite named-enemy --out <new.json>` はGPU/packing禁止の正本23契約。`named-enemy-reference` packageはそのCPU検査と旧175入力の保持を行う開発suiteで、新しい名前付き敵のGPU suiteではない。固定packageでreference23/CPU49/旧175nativeが成功、GPU0。対象解決/フォールバック/残件はdocs/portable-named-enemy-reference.md。
+<!-- /named-enemy-reference-current -->
+
 <!-- generation-boundary-current -->
 `generation-boundary` は既存175入力で生成器/cache/CLIの11群116検査を行う開発suite。`run --cpu-only` と `generation --develop` で検証した。生成器を独立moduleへ抽出し、転送だけの編集でもcache必須hit/Slang0を維持する。旧cacheを新keyへ流用せず、旧receiptの監査を保持する。実測・限界はdocs/portable-generation-boundary.md。新GPU/Windows実行は0。
 <!-- /generation-boundary-current -->

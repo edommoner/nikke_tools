@@ -19,7 +19,10 @@ def before_finish(case,boss,manager,names,when):
  allies=[];members=[]
  for ab in manager._active:
   if ab.effect.get('_boss_bound') or ab.effect.get('type')!='buff':continue
-  if enemy_buff_plan(ab.effect) is not None:members.append(bool(ab.target_chars));continue
+  # Native named-enemy selectors are valid before portable lowering exists.
+  # Classify the observation without admitting a GPU route or issuing a query.
+  raw_target=ab.effect.get('target','self')
+  if enemy_buff_plan(ab.effect) is not None or isinstance(raw_target,str) and raw_target.startswith('enemies_with_buff:'):members.append(bool(ab.target_chars));continue
   allies.append(dict(name=ab.effect.get('name',''),owner=names.index(ab.caster),recipients=None if ab.target_chars is None else [names.index(n) for n in ab.target_chars],stack=ab.stack,activated=ab.activated_at,end=ab.expires_at))
  return dict(queries=queries,allied_carriers=allies,enemy_memberships=members,context_restored=True)
 

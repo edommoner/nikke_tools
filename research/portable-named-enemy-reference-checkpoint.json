@@ -1,0 +1,154 @@
+{
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "normal_ui": "cpu",
+  "development_only": true,
+  "feature": "enemies_with_buff opaque names / native contracts",
+  "gpu_admission": false,
+  "package_id": "57a6e33b26608f6deb12bfbe528dbeeb109cd59cca5f51eab7c3413b773b7a0f",
+  "archive_sha256": "d808dce41104ed0147ed0c5dae71628cf2a8c4cf1634f8b02a65248bd9f3f60b",
+  "reference": {
+    "cases": 23,
+    "rankings": 64,
+    "recipient_resolutions": 57,
+    "membership_checks": 628,
+    "seconds": 1.917246958008036,
+    "packing_calls": 0,
+    "gpu_calls": 0
+  },
+  "cpu": {
+    "groups": 6,
+    "tests": 49,
+    "skipped": 0,
+    "seconds": 11.86164720915258,
+    "native_inputs": 175,
+    "native_seconds": 10.543088499922305
+  },
+  "retention": {
+    "passed": true,
+    "profiles_all_records_identical": 266,
+    "packed_profiles": 237,
+    "packed_base": 177,
+    "categories": 41,
+    "priority_code_order_preserved": true,
+    "routing_changed_indices": [
+      8,
+      10,
+      32,
+      33
+    ],
+    "routing_changes": [
+      {
+        "index": 8,
+        "issue": {
+          "phase": "effect",
+          "category": "recipient",
+          "kind": "damage",
+          "stat": "bonus_damage",
+          "target": "enemies_with_buff:안티 AT 필드",
+          "scaling": "stack_count",
+          "code": "{\"category\": \"recipient\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": \"stack_count\", \"stat\": \"bonus_damage\", \"target\": \"enemies_with_buff:안티 AT 필드\"}",
+          "diagnostic_source": "message_fallback",
+          "error_type": "UnsupportedPortable",
+          "message": "Unported enemy damage selector"
+        },
+        "old_lane": "reference_review",
+        "new_lane": "native_contract_extension"
+      },
+      {
+        "index": 10,
+        "issue": {
+          "phase": "effect",
+          "category": "recipient",
+          "kind": "instant",
+          "stat": "named_buff_duration_extend",
+          "target": "enemies_with_buff:벚꽃잎",
+          "scaling": null,
+          "code": "{\"category\": \"recipient\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"named_buff_duration_extend\", \"target\": \"enemies_with_buff:벚꽃잎\"}",
+          "diagnostic_source": "message_fallback",
+          "error_type": "ValueError",
+          "message": "Unported duration extension recipient selector"
+        },
+        "old_lane": "reference_review",
+        "new_lane": "native_contract_extension"
+      },
+      {
+        "index": 32,
+        "issue": {
+          "phase": "effect",
+          "category": "recipient",
+          "kind": "buff",
+          "stat": "received_dmg_pct",
+          "target": "enemies_with_buff:록 온",
+          "scaling": null,
+          "code": "{\"category\": \"recipient\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"received_dmg_pct\", \"target\": \"enemies_with_buff:록 온\"}",
+          "diagnostic_source": "structured_reason",
+          "error_type": "UnsupportedPortable",
+          "message": "Unported buff recipient selector"
+        },
+        "old_lane": "reference_review",
+        "new_lane": "native_contract_extension"
+      },
+      {
+        "index": 33,
+        "issue": {
+          "phase": "effect",
+          "category": "recipient",
+          "kind": "damage",
+          "stat": "sequential_damage:오토 파이어 레디",
+          "target": "enemies_with_buff:록 온",
+          "scaling": "stack_count",
+          "code": "{\"category\": \"recipient\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": \"stack_count\", \"stat\": \"sequential_damage:오토 파이어 레디\", \"target\": \"enemies_with_buff:록 온\"}",
+          "diagnostic_source": "message_fallback",
+          "error_type": "UnsupportedPortable",
+          "message": "Unported enemy damage selector"
+        },
+        "old_lane": "reference_review",
+        "new_lane": "native_contract_extension"
+      }
+    ],
+    "gpu_source_input_native175_identical": true,
+    "gpu_source_changed": false,
+    "gpu_calls": 0,
+    "reference_cases": 23,
+    "rankings": 64,
+    "recipient_resolutions": 57,
+    "membership_checks": 628,
+    "cpu": {
+      "groups": 6,
+      "tests": 49,
+      "skipped": 0,
+      "seconds": 11.86164720915258,
+      "native_inputs": 175,
+      "native_seconds": 10.543088499922305
+    }
+  },
+  "initial_formatter_incompatibility": "Existing native observer classified unported enemies_with_buff target as allied and raised ValueError: '__enemy__' is not in list; prefix classification corrected without changing battle",
+  "protected_files": [
+    "app/detail_gpu.py",
+    "app/engine_worker.py",
+    "app/effect_spec.py",
+    "app/engine_compat.py",
+    "app/portable_runtime.py",
+    "app/portable_backend.py",
+    "app/portable_slang_generation.py",
+    "app/portable_generation_cache.py",
+    "app/portable_compile_cache.py",
+    "research/windows_validation_observer.py",
+    "research/summarize-portable-cross-gpu.py"
+  ],
+  "gpu_source_changed": false,
+  "slang_or_nvrtc_calls": 0,
+  "gpu_dispatches": 0,
+  "windows_execution": 0,
+  "current_cuda_verified": false,
+  "windows_missing_process_cause": "unknown",
+  "environment_preservation_verified": false,
+  "next": [
+    "shared_named_enemy_name_operand_and_actor_set_route",
+    "sequential_references_scaling_budget_passive_and_context_contracts",
+    "metal_native_and_retained_output_validation",
+    "full_profiles_current_cuda_and_catalog"
+  ],
+  "evidence_directory": "research/named-enemy-reference-evidence"
+}

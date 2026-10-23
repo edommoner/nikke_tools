@@ -1,3 +1,7 @@
+<!-- named-enemy-reference-current -->
+共通CLI reference named-enemyへ23正本契約。buff/bonus damage/duration extension、名前そのまま（colon/空白/空文字）、body先頭alive add誕生順、同名caster非依存、該当なしboss fallback、expiry/late wave/retire/同id再登場/解除/128敵を固定。実rank64/recipient57/所持628、全native/trace/RNG/6照会回数保持、故障拒否。旧native観測器が未対応敵selectorを味方に整形するValueErrorだけ修正、正本/GPU受付変更0。fixed package reference23＋CPU6群49(skip0)/旧175native成功、旧GPU/source/input/native175全同一。静的全266記録/237SHA/29拒否/41code順位保持、4分類をsource確認済みnative_contract_extensionへ。Slang/NVRTC/GPU/Windows追加0、全キャラ0/UI CPU/未達。次は共有名前operand/敵route/状態世代への接続、seq/ref/scaling/budget/文脈/実編成契約→Metal保持。詳細docs/portable-named-enemy-reference.mdとcheckpoint。以下は履歴。
+<!-- /named-enemy-reference-current -->
+
 <!-- generation-boundary-current -->
 Slang source_hashes/build/resident生成を独立moduleへ抽出し、backendの転送/driver編集による不要な生成cache missを解消。元3関数はroot引数以外AST同一、他backend全module文/定数同一。cache keyは生成器全体/ABI/scope/tool/GPU閉包のhashを保持、新keyで旧cache流用0/旧receipt監査保持。新entryはCPU禁止・cache先行確認・replay保護へ接続。固定Aと転送chunk8→4MiBだけのBでGPU/input/native175全同一、cold2.766s/Slang2→B必須hit0.287s/Slang0、CUDA/MSL/両reflectionは前回Metal175と全byte同一。比較用chunk変更は復元済み。CPU11群116(skip0)/native175成功。初回CPUのps sandbox拒否は保持し同packageを別CPU-only captureで権限付き終了検査成功、skip0。新GPU/Windows execution0/現CUDA未検証、前回175の証拠は元scopeで保持。前回静的237/266・41分類、今回効果/入力変更0、全キャラ0/UI CPU/未達。次は名前付き敵対象等の未対応契約と、本体CUDAの保存object/linkから短い検証を選ぶ。詳細docs/portable-generation-boundary.mdとcheckpoint。以下は履歴。
 <!-- /generation-boundary-current -->

@@ -12,6 +12,13 @@ def reference_readiness(issue):
         return result
     operator=issue.get('operator')
     operator=operator if isinstance(operator,dict) else {}
+    named_target=issue.get('target')
+    if issue.get('phase')=='effect' and issue.get('category')=='recipient' and isinstance(named_target,str) and named_target.startswith('enemies_with_buff:') and not issue.get('fields') and (issue.get('kind')=='buff' and issue.get('stat')=='received_dmg_pct' or issue.get('kind')=='instant' and issue.get('stat')=='named_buff_duration_extend' or issue.get('kind')=='damage' and (issue.get('stat')=='bonus_damage' or str(issue.get('stat','')).startswith('sequential_damage:'))):
+        result.update(lane='native_contract_extension',native_consumer='confirmed_source',contract_coverage='recorded_subset',recorded_cases=23,reference_suites=['named-enemy'],
+            consumer_source='calculator/boss_pattern.py:_ranked,resolve_enemies,route; calculator/buff_manager.py:_resolve_enemies,enemy_has_state; calculator/timeline.py:_land',
+            required_extensions=['shared_named_enemy_route_and_name_operand_lowering','sequential_hit_references_scaling_budget_passive_contracts','mixed_world_full_profiles_and_current_cuda_validation'],
+            note='Twenty-three native contracts/628 actual membership calls fix body-first alive-add order, global caster-independent names, opaque colon/space/empty names, no-match boss fallback, expiry, retirement and reused-ID mark removal, across buffs/bonus damage/duration extension. Sequential/ref/scaling combinations need further contracts. Native observer classification is independent of portable admission for this prefix. GPU admission is still rejected; no runtime GPU or full-character certification')
+        return result
     if issue.get('phase')=='effect' and issue.get('category')=='recipient' and issue.get('kind')=='instant' and issue.get('stat')=='debuff_cleanse' and issue.get('target') in tuple('allies_random_with_debuff:'+str(n) for n in range(6)) and not issue.get('fields') and issue.get('scaling') is None:
         result.update(lane='native_contract_extension',native_consumer='confirmed_source',contract_coverage='recorded_subset',recorded_cases=38,reference_suites=['random-cleanse','random-cleanse-mixed','random-cleanse-budget','random-cleanse-rosters'],
             consumer_source='calculator/buff_manager.py:_resolve_target_raw,_has_harmful,_dispatch_instant',

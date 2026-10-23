@@ -4,7 +4,8 @@ from pathlib import Path
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
-REFERENCES={'random-cleanse-budget':('portable_random_cleanse_budget_cases','world_random_cleanse_native','portable_random_cleanse_budget_contracts'),
+REFERENCES={'named-enemy':('portable_named_enemy_cases','world_named_enemy_native','portable_named_enemy_contracts'),
+            'random-cleanse-budget':('portable_random_cleanse_budget_cases','world_random_cleanse_native','portable_random_cleanse_budget_contracts'),
             'random-cleanse-rosters':('portable_random_cleanse_roster_cases','world_random_cleanse_roster_native','portable_random_cleanse_roster_contracts'),
             'random-cleanse-mixed':('portable_random_cleanse_mixed_cases','world_random_cleanse_native','portable_random_cleanse_mixed_contracts'),
             'random-cleanse':('portable_random_cleanse_cases','world_random_cleanse_native','portable_random_cleanse_contracts'),
