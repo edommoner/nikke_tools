@@ -7,6 +7,16 @@ def reference_readiness(issue):
         runtime_validation_performed=False)
     operator=issue.get('operator')
     operator=operator if isinstance(operator,dict) else {}
+    if issue.get('phase')=='effect' and issue.get('category')=='trigger' and operator.get('domain')=='timing':
+        import re
+        if re.fullmatch(r'non_full_charge_fire_count:[1-9][0-9]*',str(operator.get('descriptor',''))):
+            result.update(lane='native_contract_extension',native_consumer='confirmed_source',
+                consumer_source='research/upstream/nikke-calc-master/calculator/timeline.py:_charge_fire,_tap_timing,_tick_charge; calculator/buff_manager.py:_timing_to_index_key,_timing_match',
+                contract_coverage='recorded_subset',reference_suites=['nonfull-charge'],recorded_cases=23,
+                implemented_extensions=['partial_and_full_notice_partition','caster_owned_counter','duplicate_and_raw_alias_multiplicity','trigger_reduction_and_budget','tap_full_override','per_shot_not_per_muzzle_counter'],
+                required_extensions=['partial_charge_weapon_state_and_tap_controls','damage_core_and_burst_gain_snapshots','weapon_change_reload_and_mixed_control_interleavings','current_source_cuda_validation'],
+                note='Native-only contracts, no packing or GPU execution. Tap mode can still fire full-charge; an event40 admission without real partial-charge firing would be inert and must remain rejected. No full-profile or GPU support claim')
+            return result
     if issue.get('phase')=='effect' and issue.get('kind')=='buff' and issue.get('stat') in ('atk_caster_based_pct','atk_from_hp_pct'):
         import re
         if re.fullmatch(r'allies_random:[1-5]',str(issue.get('target',''))):

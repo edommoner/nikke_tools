@@ -1,3 +1,7 @@
+<!-- nonfull-charge-reference-current -->
+共通CLI reference nonfull-chargeへ23の正本契約を追加。短押しpartial/full、周期的full、発射単位counter、重複/raw alias/軽減/budget、散弾2銃口、reload、通知callbackでauto武器へ変更・復帰を固定。全battle/trace/semantic read回数保持、7種故障拒否、fresh packageのreference23とCPU7群47検査成功。未対応4分類を正本確認済みnative_contract_extensionへ移動し、全266profile・231入力SHA・35拒否・54分類code順序を保持。GPU122sourceは既存1442と同一、追加GPU/Windows0。tapはstatic層で未受付、GPUはchargeならfull通知するためevent40だけ開放しない。次はpartial chargeの状態・tap制御・damage/core/ゲージsnapshotを共有実装し、混在/全定義クロストとMetalで検証。GPU対応追加0・全キャラ0/UI CPU/development_only/未達。詳細[非フルチャージの正本契約](portable-nonfull-charge-reference.md)とresearch/portable-nonfull-charge-checkpoint.json。以下は履歴。
+<!-- /nonfull-charge-reference-current -->
+
 <!-- squad-stage-current -->
 段階別squad_burst_cast:1/2/3を共有Slangへ接続。Metal1442(native1144/拒否298)と独立seal成功。16native契約＋14拒否、全81定義のレッドフード7実編成で自動B3/明示A/live/期限切れを検証。旧1405の4419747840Bと追加37の個別結果を全保持。既存論理6/callback20/実編成12も変更後Metal一致・全raw保持。CPU95群500検査176.226秒、native事前80.025秒、GPU10.771秒。数値/normalizer/容量/Runtime不変。静的231/266・base171/203・54分類、旧230入力SHAと35拒否保持。Windows追加0/原因unknown/保全false/現CUDA実機未検証。development_only/全キャラ0/UI CPU/未達。詳細[段階別通知](portable-squad-stage.md)とresearch/portable-squad-stage-checkpoint.json。次は未対応consumer確認と対象/制御契約の拡張。以下は履歴。
 <!-- /squad-stage-current -->

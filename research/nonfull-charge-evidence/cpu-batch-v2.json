@@ -1,0 +1,16 @@
+{
+  "patterns": [
+    "test_portable_nonfull_charge_reference.py",
+    "test_portable_nonfull_charge_routing.py",
+    "test_portable_readiness.py",
+    "test_portable_readiness_semantics.py",
+    "test_portable_state_work_routing.py",
+    "test_portable_definition_view.py",
+    "test_portable_reference_optimization.py"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 9.282064875005744,
+  "timeout_seconds": 180,
+  "gpu_calls": 0,
+  "worker": "Existing portable_cpu_tests.run_groups"
+}
