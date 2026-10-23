@@ -1,0 +1,11 @@
+{
+  "package_id": "21ba977a8c6d7518ad448c9e1c8d5852eabfd76d06d8d64eb2b7e52ea71ad639",
+  "files": 2702,
+  "bytes": 7111331,
+  "archive_sha256": "c1fe337b3d4ef19436d7ea5b2f4a3907103021dae4f1075e4534ef5d614ff9b8",
+  "source_commit": "5c5aaa0bb6f3590ebe811318a05d2bea59af667d",
+  "scope": "CPU63/native17 then bounded compile-only CUBIN ptxas0; cached GPU26 only on compiler success and empty Jobs",
+  "gpu_source_input_native_unchanged": true,
+  "mac_cpu63_verified": true,
+  "old_claims_must_be_preserved": true
+}
