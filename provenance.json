@@ -1,0 +1,18 @@
+{
+  "package_id": "9b2d57fb840b925dd2aa52e08276375e8f3b694e679c93928f4e91d8c971396a",
+  "files": 2676,
+  "bytes": 6916626,
+  "archive_sha256": "dcbbb864c2021614e3301cb99a61f776f27199a23127cfce52969c8dceecddc7",
+  "source_commit": "7614837e8d8f0815244939eafbd69f1ce4d582bd",
+  "scope": "Resolved typed landings into existing common counter/child executor; no automatic battle producer or factors",
+  "mac_metal_inputs": 18,
+  "mac_metal_native": 13,
+  "mac_metal_rejections": 5,
+  "independent_metal_seal": true,
+  "mac_final_cpu_tests": 42,
+  "raw16_retained_bytes": 50331648,
+  "windows_gpu_budget_seconds": 180,
+  "windows_inner_timeout_seconds": 60,
+  "windows_memory_limit_bytes": 2147483648,
+  "archive_bytes": 6916626
+}
