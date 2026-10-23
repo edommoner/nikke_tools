@@ -1,3 +1,7 @@
+<!-- scratch-layout-current -->
+旧scratch配置に部位スキル/割り込み集計/回復診断との重複を発見し、最大容量を保って分離。出力786432word/Runtime138952B/数値cache64/照準cache256/部位receipt2048は不変。NQRはpadding二bank、headerと履歴は割り込み集計後へ移動。排他的な二つの診断entryだけは領域共有し、同時macroを実Slangで拒否。共通CLI layout-check/layout-compareと読み書き幅・容量縮小・計算改変の故障検査を追加。Metal最大容量probe8＋実window1＋同122sourceの1355(native1071/拒否284)が全成功・独立fresh seal。CPU全92群487検査と最終小CLI10検査成功。GPU11.3868秒、normalizer/正本/算術不変。旧1302件は全byte一致、移動53件のcache/履歴と移動外4,260,934,400Bも保持。Windows操作0/原因unknown/保全false、全キャラ0/UI CPU/未達。次は混在consumer契約とprivate kind6の物理interrupt橋。18CPUケースが終了する試作は/tmp/nikke-private-interrupt-runtime-draft-v1.pyに保持し受付未開放。詳細docs/portable-scratch-layout.mdと対応checkpoint。以下は履歴です。
+<!-- /scratch-layout-current -->
+
 <!-- native-query-observation-current -->
 共通Slangへログsnapshot・初回/変化HP同期・期限切れログのlazy確定を接続。ログ有効/無効、満HP初回回復、終了通知から同効果再発動を含む25入力が同121sourceのMetalで全一致し独立seal成功。リリー30秒は4550抽選の全semantic順序・最終MT・原文battle/全射撃履歴まで一致。正本6編成の元指紋保持、CPU/数値/normalizer不変。読み取り専用census/windowをCLIへ追加し、診断領域以外の全byte保持を確認。旧1330＋新25の1355回帰も同121sourceでMetal全一致・独立fresh seal、CPU91群482検査成功。旧1326件のraw全4,171,235,328Bと新25件は全byte一致、既記録のselector25修正4件だけ各2B変化、旧1330のnative指紋は全保持。GPU11.14889秒/生成cache必須hit/追加Slang0。初回は旧散弾のno-op故障注入でGPU前停止し、監査層へprojectして確実に変異させるテストへ修正。Windows追加操作0/7終了原因unknown/保全false、全キャラ認定0/UI CPU/ゴール未達。詳細docs/portable-native-query-observation.mdと対応checkpoint。以下は履歴です。
 <!-- /native-query-observation-current -->

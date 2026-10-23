@@ -1,3 +1,6 @@
+#if defined(PORTABLE_NATIVE_QUERY_DIAGNOSTIC) && defined(PORTABLE_HEAL_SHARE_DIAGNOSTIC)
+#error Native-query and heal-share diagnostic logs require separate entries
+#endif
 // Read-only semantic observation in a separate compile-time diagnostic entry.
 // No additional buff/recipient query, invalidation or arithmetic is performed.
 void initializeNativeQueryDiagnostic(inout Runtime s)

@@ -24,8 +24,10 @@ class NativeQueryTests(unittest.TestCase):
         tags=[w[L['RECIPIENT_META_BASE']+5] for _,w,_ in entries[:11]]
         self.assertEqual(tags,[0x4e515231]*3+[0,0x4e515231,0x4e515231,0x4e515231,0x4e515231,0x4e515231,0x4e515231,0x4e515231])
         self.assertEqual([w[L['RECIPIENT_META_BASE']+6] for _,w,_ in entries[:11]],[0]*7+[1,0,1,1])
-        self.assertEqual(L['NATIVE_QUERY_BASE'],L['FOCUS_STATE_BASE']+L['FOCUS_STATE_WORDS'])
-        self.assertLessEqual(L['NATIVE_QUERY_BASE']+L['NATIVE_QUERY_WORDS'],786416)
+        self.assertEqual(L['NATIVE_QUERY_WORDS'],32+64*136)
+        from portable_scratch_layout import verify
+        self.assertTrue(verify(L)['verified'])
+        self.assertLessEqual(L['NATIVE_QUERY_BASE']+L['NATIVE_QUERY_HEADER_WORDS'],786416)
         self.assertEqual((ROOT/'gpu/portable_schema.slang').read_text(),shader_schema())
 
     def test_each_new_source_delta_is_exact_and_faults_rejected(self):

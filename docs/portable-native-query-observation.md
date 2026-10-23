@@ -1,3 +1,7 @@
+<!-- scratch-layout-current -->
+旧scratch配置に部位スキル/割り込み集計/回復診断との重複を発見し、最大容量を保って分離。出力786432word/Runtime138952B/数値cache64/照準cache256/部位receipt2048は不変。NQRはpadding二bank、headerと履歴は割り込み集計後へ移動。排他的な二つの診断entryだけは領域共有し、同時macroを実Slangで拒否。共通CLI layout-check/layout-compareと読み書き幅・容量縮小・計算改変の故障検査を追加。Metal最大容量probe8＋実window1＋同122sourceの1355(native1071/拒否284)が全成功・独立fresh seal。CPU全92群487検査と最終小CLI10検査成功。GPU11.3868秒、normalizer/正本/算術不変。旧1302件は全byte一致、移動53件のcache/履歴と移動外4,260,934,400Bも保持。Windows操作0/原因unknown/保全false、全キャラ0/UI CPU/未達。次は混在consumer契約とprivate kind6の物理interrupt橋。18CPUケースが終了する試作は/tmp/nikke-private-interrupt-runtime-draft-v1.pyに保持し受付未開放。詳細docs/portable-scratch-layout.mdと対応checkpoint。以下は履歴です。
+<!-- /scratch-layout-current -->
+
 # 数値照会の観測とログ・HP同期consumer
 
 共通Slangへ三つの正本consumerを接続した。正本CPU、保護対象のcompiler、binary64/int/pow、生成コードnormalizerは変更していない。CUDA/Metal別の効果処理は追加せず、同じSlangから両backendを生成する。今回の実GPU検証はApple M5のMetalだけである。

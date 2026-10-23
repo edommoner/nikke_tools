@@ -21,7 +21,7 @@ def reference_readiness(issue):
             return result
     if issue.get('phase')=='program' and issue.get('category')=='control' and issue.get('fields')==['focus_aim_physical_interrupt']:
         result.update(lane='native_contract_extension',native_consumer='confirmed_source',
-            consumer_source='research/upstream/nikke-calc-master/calculator/timeline.py:_land_target; app/world_actor_runtime.py:ActorRegistry.resolve',
+            consumer_source='research/upstream/nikke-calc-master/calculator/timeline.py:_land_target; app/impact_runtime.py:landing; app/world_actor_runtime.py:ActorRegistry.view',
             contract_coverage='reproduced_adapter_rejection',reference_suites=['focus-aim'],
             required_extensions=['typed_interrupt_actor_bridge','typed_landing_credit'],
             note='Pinned landing supports interrupt targets, but the current typed comparison bridge rejects their identity. Keep physical admission closed; this is an adapter extension, not an inert effect or an alias for part/projectile credit')

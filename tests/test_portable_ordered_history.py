@@ -55,7 +55,7 @@ class OrderedHistoryTests(unittest.TestCase):
         b=list(a);b[4]^=1;self.assertNotEqual(semantic_digest([a]),semantic_digest([b]))
 
     def test_allocation_and_every_new_delta_guard(self):
-        self.assertEqual(L['ORDERED_HISTORY_BASE'],L['NATIVE_QUERY_BASE']+L['NATIVE_QUERY_WORDS'])
+        self.assertEqual(L['ORDERED_HISTORY_BASE'],L['NATIVE_QUERY_BASE']+L['NATIVE_QUERY_HEADER_WORDS'])
         self.assertLessEqual(L['ORDERED_HISTORY_BASE']+L['ORDERED_HISTORY_WORDS'],786416)
         project_sources(ROOT)
         projected,_=project_diagnostic(ROOT)

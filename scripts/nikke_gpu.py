@@ -155,10 +155,11 @@ SUITES['ally-random-gpu']=dict(SUITES['undying-predicate'],script='research/veri
 SUITES['state-focus']=dict(SUITES['ally-random-gpu'],script='research/verify-world-state-focus-short.py',golden='research/portable-world-state-focus-short-expected.json',inputs=66,native=54,development_only=True,tests=SUITES['ally-random-gpu']['tests']+['test_portable_state_focus.py'])
 SUITES['state-focus-rosters']=dict(SUITES['state-focus'],script='research/verify-world-state-focus-rosters-short.py',golden='research/portable-world-state-focus-rosters-short-expected.json',inputs=6,native=6,tests=['test_portable_late_attack_random_reference.py','test_portable_state_work_routing.py','test_portable_state_focus_rosters.py','test_portable_state_focus.py','test_portable_definition_view.py','test_portable_real_binding_proof.py'])
 SUITES['late-attack-random']=dict(SUITES['state-focus-rosters'],script='research/verify-world-late-attack-random-short.py',golden='research/portable-world-late-attack-random-short-expected.json',inputs=19,native=11,tests=SUITES['state-focus-rosters']['tests']+['test_portable_native_query.py','test_portable_weapon_phases.py','test_portable_query_boundaries.py','test_quantity_specs.py'])
+SUITES['scratch-layout']=dict(script='research/verify-scratch-layout-short.py',golden='research/portable-scratch-layout-short-expected.json',source='gpu/scratch_layout_probe.slang',inputs=8,native=6,development_only=False,tests=['test_portable_scratch_layout.py','test_portable_scratch_layout_migration.py','test_portable_generation_request.py'])
 SUITES['ordered-history']=dict(script='research/verify-ordered-history-short.py',golden='research/portable-ordered-history-short-expected.json',source='gpu/ordered_history_probe.slang',inputs=13,native=10,development_only=False,tests=['test_portable_ordered_history.py','test_portable_generation_request.py'])
 SUITES['late-attack-random']['tests']+=['test_portable_ordered_history.py','test_portable_generation_request.py']
 SUITES['state-focus-rosters']['tests']=list(SUITES['late-attack-random']['tests'])
-SUITES['ordered-history-battles']=dict(SUITES['state-focus-rosters'],script='research/verify-world-ordered-history-battles-short.py',golden='research/portable-world-ordered-history-battles-short-expected.json',inputs=25,native=17,tests=SUITES['state-focus-rosters']['tests']+['test_portable_ally_random_gpu.py','test_portable_eager_cover_migration.py','test_portable_query_diagnostic.py'],support_files=['research/portable-world-ally-random-short-expected.json'])
+SUITES['ordered-history-battles']=dict(SUITES['state-focus-rosters'],script='research/verify-world-ordered-history-battles-short.py',golden='research/portable-world-ordered-history-battles-short-expected.json',inputs=25,native=17,tests=SUITES['state-focus-rosters']['tests']+['test_portable_ally_random_gpu.py','test_portable_eager_cover_migration.py','test_portable_query_diagnostic.py','test_portable_scratch_layout.py'],support_files=['research/portable-world-ally-random-short-expected.json'])
 SUITES['native-query-diagnostic']=dict(SUITES['ordered-history-battles'],script='research/verify-world-native-query-diagnostic-short.py',source='gpu/world_native_query_diagnostic_entry.slang',golden='research/portable-native-query-diagnostic-short-expected.json',inputs=1,native=1,tests=SUITES['ordered-history-battles']['tests'])
 SUITES['native-query-window']=dict(SUITES['native-query-diagnostic'],source='gpu/world_native_query_window_entry.slang')
 SUITES['ally-random-diagnostic']=dict(SUITES['ally-random-gpu'],source='gpu/world_accuracy_admission_entry.slang')
@@ -2084,6 +2085,8 @@ def main(argv=None):
     a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
     from portable_reference import REFERENCES
+    a=sub.add_parser('layout-compare');a.add_argument('--before',type=Path,required=True);a.add_argument('--after',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('layout-check');a.add_argument('--out',type=Path)
     a=sub.add_parser('reference');a.add_argument('--suite',choices=REFERENCES,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('phase-codegen');a.add_argument('--out',type=Path,required=True);a.add_argument('--slang-root',type=Path)
     a=sub.add_parser('sparsify-raw');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--apply',action='store_true')
@@ -2159,6 +2162,15 @@ def main(argv=None):
         result={k:inventory[k] for k in ('profile_count','packed_profiles','packed_base','forbidden_calls','classification')}
         result['report']=str(a.out.resolve());result['priority_categories']=len(inventory['priorities'])
         result['work_lane_counts']={name:len(indexes) for name,indexes in inventory['work_lanes'].items()}
+    elif a.command=='layout-compare':
+        from portable_scratch_layout_migration import compare_captures
+        receipt=compare_captures(ROOT,a.before,a.after);write(a.out,receipt)
+        result={k:v for k,v in receipt.items() if k!='rows'}
+    elif a.command=='layout-check':
+        from portable_specs import LIMITS
+        from portable_scratch_layout import audit_sources
+        result=audit_sources(ROOT,LIMITS)
+        if a.out:write(a.out,result)
     elif a.command=='reference':
         from portable_reference import run_reference
         result=run_reference(a.suite,a.out,write=write,forbid_gpu=forbid_gpu)

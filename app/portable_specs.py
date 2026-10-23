@@ -249,21 +249,9 @@ from portable_revival_specs import BASE as _rev_base,LOST as _rev_lost,RNG as _r
 LIMITS.update(REVIVAL_BASE=_rev_base,REVIVAL_LOST_BASE=_rev_lost,REVIVAL_RNG_BASE=_rev_rng,REVIVAL_TRACE_BASE=_rev_trace,REVIVAL_TRACE_COUNT=_rev_count,REVIVAL_WORDS=_rev_words,REVIVAL_MAGIC=_rev_magic)
 assert LIMITS['CARRIERS']==512 and _rev_rng-_rev_lost==5*LIMITS['CARRIERS']
 assert _rev_base>=LIMITS['BASE_COPY_STATE_BASE']+LIMITS['BASE_COPY_STATE_WORDS']
-# Explicitly allocated after every existing resident scratch bank.
-LIMITS['FOCUS_STATE_BASE']=_rev_base+_rev_words
-LIMITS['FOCUS_CACHE_COUNT']=256
-LIMITS['FOCUS_STATE_WORDS']=32+LIMITS['FOCUS_CACHE_COUNT']*8
-assert LIMITS['FOCUS_STATE_BASE']+LIMITS['FOCUS_STATE_WORDS']<=786416
-LIMITS['NATIVE_QUERY_BASE']=LIMITS['FOCUS_STATE_BASE']+LIMITS['FOCUS_STATE_WORDS']
-LIMITS['NATIVE_QUERY_COUNT']=64
-LIMITS['NATIVE_QUERY_WORDS']=32+LIMITS['NATIVE_QUERY_COUNT']*136
-assert LIMITS['NATIVE_QUERY_BASE']+LIMITS['NATIVE_QUERY_WORDS']<=786416
-LIMITS['ORDERED_HISTORY_BASE']=LIMITS['NATIVE_QUERY_BASE']+LIMITS['NATIVE_QUERY_WORDS']
-LIMITS['ORDERED_HISTORY_WORDS']=64
-assert LIMITS['ORDERED_HISTORY_BASE']+LIMITS['ORDERED_HISTORY_WORDS']<=786416
-LIMITS['NATIVE_DIAG_BASE']=LIMITS['ORDERED_HISTORY_BASE']+LIMITS['ORDERED_HISTORY_WORDS']
-LIMITS['NATIVE_DIAG_WORDS']=16+256*16
-assert LIMITS['NATIVE_DIAG_BASE']+LIMITS['NATIVE_DIAG_WORDS']<=786416
+# Account for literal-address receipts and mutually exclusive diagnostic modes.
+from portable_scratch_layout import allocate as _allocate_scratch_layout
+_allocate_scratch_layout(LIMITS)
 
 
 def buff_stat_ids():
@@ -309,6 +297,8 @@ def shader_schema():
 
 
 def check_schema():
+    from portable_scratch_layout import audit_sources
+    audit_sources(Path(__file__).resolve().parents[1],LIMITS)
     path = Path(__file__).resolve().parents[1]/'gpu/portable_schema.slang'
     if path.read_text(encoding='utf-8') != shader_schema():
         raise ValueError('Regenerate gpu/portable_schema.slang from portable_specs.shader_schema()')

@@ -1,6 +1,7 @@
 #include "binary64.slang"
 #include "core_probability.slang"
 #include "portable_schema.slang"
+#include "portable_scratch_layout.slang"
 #include "stack_numeric.slang"
 
 StructuredBuffer<uint> commands;

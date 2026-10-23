@@ -28,7 +28,8 @@ bool initializeNativeNumeric(inout Runtime s)
 #ifdef PORTABLE_WORLD_PROJECTILE
     if(!enabled) return true;
     if(s.landingPolicy==0) return false;
-    for(uint i=0;i<P_NATIVE_QUERY_WORDS;i++) results[s.resourceOutput+P_NATIVE_QUERY_BASE+i]=0;
+    for(uint i=0;i<P_NATIVE_QUERY_HEADER_WORDS;i++) results[s.resourceOutput+P_NATIVE_QUERY_BASE+i]=0;
+    for(uint i=0;i<P_NATIVE_QUERY_COUNT;i++) for(uint j=0;j<P_NATIVE_QUERY_CELL_WORDS;j++) results[nativeNumericCell(s.resourceOutput,i)+j]=0;
     s.incomingMask|=256U;s.quantityMask|=256U;
     // Native landing reads the numeric dictionary even when lifesteal is0.
     // Reuse that same reader/continuation so post-hit mutations consume RNG.
@@ -75,7 +76,7 @@ bool loadNativeNumeric(inout Runtime s,uint who,uint64_t when,out uint64_t value
     uint count=results[head+2],target=nativeNumericTarget(s);
     for(uint i=0;i<count;i++)
     {
-        uint at=head+32+i*136;
+        uint at=nativeNumericCell(s.resourceOutput,i);
         if(results[at]==who && results[at+1]==target && results[at+2]==s.damageExclusion && results[at+3]==epoch && results[at+4]!=0)
         {
             for(uint k=0;k<64;k++) values[k]=uint64_t(results[at+8+k*2])|(uint64_t(results[at+9+k*2])<<32);
@@ -84,7 +85,7 @@ bool loadNativeNumeric(inout Runtime s,uint who,uint64_t when,out uint64_t value
         }
     }
     if(count==P_NATIVE_QUERY_COUNT) { s.error=64;return false; }
-    slot=head+32+count*136;results[head+2]=count+1;
+    slot=nativeNumericCell(s.resourceOutput,count);results[head+2]=count+1;
     results[slot]=who;results[slot+1]=target;results[slot+2]=s.damageExclusion;results[slot+3]=epoch;results[slot+4]=0;
     results[head+4]=1;results[head+7]++;return false;
 }

@@ -32,7 +32,7 @@ class StateFocusTests(unittest.TestCase):
         self.assertEqual(len(data),4+sum(len(w)*4 for _,w,_ in entries))
         self.assertEqual((ROOT/'gpu/portable_schema.slang').read_text(),shader_schema())
         self.assertGreaterEqual(STAT,64)
-        self.assertEqual(L['FOCUS_STATE_BASE'],L['REVIVAL_BASE']+L['REVIVAL_WORDS'])
+        self.assertEqual(L['FOCUS_STATE_BASE'],L['WORLD_ACTOR_FIELD_ALL_BASE']+128*12)
         self.assertLessEqual(L['FOCUS_STATE_BASE']+L['FOCUS_STATE_WORDS'],786416)
         self.assertEqual(entries[46][1][L['WORLD_ACTOR_POOL_DEF_BASE']+12+11],1)
         for name,words,domain in entries[30:54]:
