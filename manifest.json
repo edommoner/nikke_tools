@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "package_id": "be8e852d3661dfd749b3d08c986877cab2e5dbcc391357d12b310736daf8e17f",
+  "report_kind": "Saved timeout evidence; no GPU numerical proof or synthetic-output fixture",
+  "files": [
+    {
+      "path": "summary.json",
+      "bytes": 4120,
+      "sha256": "f946b2285d14880babaa094ec08de516deaa3ff7594fc652784ce9c277fb62fb"
+    },
+    {
+      "path": "stage-result.json",
+      "bytes": 485,
+      "sha256": "d815f787ee3b643aeb33792ba96b1125d5e57d3cd60c4fc7b08a2f0cf973ac42"
+    },
+    {
+      "path": "cpu-tests.json",
+      "bytes": 965,
+      "sha256": "4d0deba27d63f53a8ef9ff77a17c3d1bca84b1bd62061ddb925ab05e622f19d8"
+    },
+    {
+      "path": "phases.json",
+      "bytes": 858,
+      "sha256": "7c204deb19daec9cc22e1391989ca4e7ce3d7bb3eba46aee5378f303c7a712a5"
+    },
+    {
+      "path": "control-comparison.json",
+      "bytes": 3449,
+      "sha256": "2d69a937078beb8212c0377ef82d0116f22f7318dc653e4eae89b6019dc94438"
+    },
+    {
+      "path": "provenance.json",
+      "bytes": 521,
+      "sha256": "a49bbc27a31225190c7470aad773b6c27229da7761133bd51d1374f7bd18d7cf"
+    }
+  ],
+  "source_originals_modified": false,
+  "new_experiments_during_export": 0,
+  "privacy_filtered": true
+}

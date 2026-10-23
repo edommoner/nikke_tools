@@ -1,0 +1,132 @@
+{
+  "package_id": "be8e852d3661dfd749b3d08c986877cab2e5dbcc391357d12b310736daf8e17f",
+  "distribution_commit": "19c31f902ed4c06f47b6088a87c55ca98fc273fc",
+  "source_commit": "3ab3035b383516e7e2249f826aee653740fde454",
+  "capture": "gpu",
+  "proof_capture": "gpu/proof",
+  "session": {
+    "id": 53424,
+    "terminal": true,
+    "exit_code": 1,
+    "manual_interrupt": false
+  },
+  "scope": "Declared typed destructible target state only; not game or full battle admission",
+  "result": {
+    "schema": 1,
+    "package_id": "be8e852d3661dfd749b3d08c986877cab2e5dbcc391357d12b310736daf8e17f",
+    "stage": "gpu",
+    "bounded_execution_verified": false,
+    "proof_result": null,
+    "calculation_verified": false,
+    "cpu_verified": false,
+    "smoke_verified": false,
+    "whole_stage_process_preservation_verified": false,
+    "whole_stage_environment_preservation_verified": false,
+    "stage_verified": false,
+    "stage_complete": false,
+    "gpu_retries": 0,
+    "full_goal_complete": false
+  },
+  "cpu": {
+    "tests": 37,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "preflight": {
+      "passed": true,
+      "input_count": 46,
+      "native_oracles": 24,
+      "input_sha256": "5856e76aa76c0565aecb470d94927ce11bcce25719eb009c6ac78c357c18dd96",
+      "gpu_calls": {
+        "build": 0,
+        "execute": 0
+      },
+      "elapsed_seconds": 0.0331468996591866
+    },
+    "batch": {
+      "schema": 1,
+      "mode": "single-process-unittest",
+      "patterns": [
+        "test_destructible_target_state.py",
+        "test_portable_damage_accum_core.py",
+        "test_portable_model_gap_audit.py",
+        "test_portable_readiness_semantics.py",
+        "test_portable_parent_fixed.py"
+      ],
+      "timeout_seconds": 60,
+      "elapsed_seconds": 33.68531250022352,
+      "timed_out": false,
+      "exit_code": 0,
+      "gpu_calls": 0,
+      "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+    }
+  },
+  "whole_job": {
+    "timed_out": true,
+    "budget_seconds": 90,
+    "actual_child_wait_budget": 89.7960000000894,
+    "elapsed_seconds": 92.07327490020543,
+    "final_child_exit_code": 1,
+    "pre_gate_verified": true,
+    "pre_cap_bytes": 2147483648,
+    "post_cap_bytes": 2147483648,
+    "peak_bytes": 340103168,
+    "post_member_count": 0,
+    "cleanup_error": null,
+    "inspection_error": null,
+    "observation_error": null,
+    "missing_processes": 7,
+    "service_before": "unverified",
+    "service_after": "unverified",
+    "cause": "unknown"
+  },
+  "inner_job": {
+    "pre_gate_verified": true,
+    "pre_cap_bytes": 2147483648,
+    "post_wait": null,
+    "observation_complete": false,
+    "missing_process_count": "unavailable: no saved after snapshot"
+  },
+  "phase": {
+    "slang_compiler_calls_returned": 2,
+    "slang_build_returned": false,
+    "nvrtc_calls_observed": 0,
+    "gpu_launches_observed": 0,
+    "last": {
+      "stage": "slang_compiler",
+      "state": "returned",
+      "wall_time_ns": 1792783373308557600
+    }
+  },
+  "compile_seconds": null,
+  "actual_strict_generated_fingerprints": null,
+  "actual_gpu_input_native_output_fingerprints": null,
+  "synthetic_gpu_output_fixture": "unavailable: no saved readback",
+  "cache_check": "not run after timeout",
+  "calculation_verified": false,
+  "outer_job_containment_verified": true,
+  "environment_preservation_verified": false,
+  "controls": {
+    "modules_equal": true,
+    "additional_present_modules_equal": true,
+    "actual_run_functions_equal": {
+      "run_capture": true,
+      "run_job": true,
+      "cpu_test_groups": true,
+      "validation_environment": true,
+      "audit_capture": true,
+      "child": true
+    },
+    "cli_file_differences": "Additional suite registrations and unused saved-core-report-audit parser/dispatch only; run path unchanged"
+  },
+  "calls": {
+    "gpu_stage_attempts": 1,
+    "extra_smoke": 0,
+    "extra_cpu_stage": 0,
+    "cache_check": 0,
+    "retries": 0
+  },
+  "original_capture_claims_retained": true,
+  "old_damage_accum_results_not_reused": true,
+  "raw_cubin_sdk_personal_settings_process_lists_shared": false
+}
