@@ -47,6 +47,11 @@ class FrontierTests(unittest.TestCase):
         accumulation=result['coordinate_target_accumulation']
         self.assertEqual(accumulation['classification'],'native_reference_exclusion')
         self.assertFalse(accumulation['extra_gpu_collection_required_for_parity'])
+        self.assertTrue(accumulation['coordinate_accumulation_emission_connected'])
+        emission=result['coordinate_accumulation_emission']
+        self.assertTrue(emission['body_only_receipt_connected'])
+        self.assertFalse(emission['public_gpu_admitted'])
+        self.assertEqual(emission['excluded_coordinate_scenarios'],['ADD sharing','enemy attack nodes'])
         self.assertTrue(landing['prepared_frame_values_on_gpu'])
         self.assertTrue(landing['all_cuts_retained'])
         self.assertEqual(landing['cuts_capacity'],5098)

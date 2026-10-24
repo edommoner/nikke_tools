@@ -88,7 +88,16 @@ void releaseDamageAccum(inout Runtime s,Definition d,uint row,Frame f,uint depth
     uint saved=s.target;s.target=0;uint64_t split=readStat(s,d.owner,S_split_dmg_pct,f.time);s.target=saved;
     bool emit;uint64_t integer=daEmission(amount,split,emit,status);
     if(status!=0) { s.error=64;return; }
-    if(emit && s.error==0) enqueueLanding(s,row,f.target,0xffffffffU,0,f64FromI64(integer),f.time,1,1,depth,s.enemyEpoch);
+    if(emit && s.error==0)
+    {
+#ifdef PORTABLE_COORDINATE_PHYSICAL
+        // enqueueLanding's receipt depth is one past its cast snapshot.
+        if(depth==0){s.error=64;return;}
+        captureCoordinatePhysicalBodyOnly(s,row,depth-1);
+        if(s.error!=0)return;
+#endif
+        enqueueLanding(s,row,f.target,0xffffffffU,0,f64FromI64(integer),f.time,1,1,depth,s.enemyEpoch);
+    }
 }
 bool validDamageAccum(inout Runtime s,uint row,Definition d,uint policy)
 {

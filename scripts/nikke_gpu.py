@@ -339,6 +339,8 @@ SUITES['coordinate-quantity']['tests'].append('test_coordinate_accumulation_poli
 SUITES['coordinate-quantity']['support_files']=[*SUITES['coordinate-quantity']['support_files'],
     'research/portable-packet-integer-short-expected.json',
     'research/portable-compiler-full--coordinate-quantity-source-certificate.json']
+SUITES['coordinate-accum-emission']=dict(SUITES['coordinate-quantity'],script='research/verify-coordinate-accum-emission-short.py',golden='research/portable-coordinate-accum-emission-short-expected.json',inputs=84,native=78,development_only=False,tests=[*SUITES['coordinate-quantity']['tests'],'test_coordinate_accum_emission.py','test_portable_damage_accum_battle.py','test_portable_damage_accum_core.py'])
+SUITES['coordinate-accum-emission']['support_files']=[*SUITES['coordinate-quantity']['support_files'],'research/portable-coordinate-quantity-short-expected.json','research/portable-compiler-full--coordinate-accum-emission-source-certificate.json']
 SUITES['skill-part-codec']=dict(script='research/verify-skill-part-codec-short.py',source='gpu/skill_part_codec_probe.slang',
     golden='research/portable-skill-part-codec-short-expected.json',inputs=4,native=3,development_only=False,
     tests=['test_portable_skill_part_codec.py'])

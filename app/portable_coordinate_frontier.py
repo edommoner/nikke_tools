@@ -110,6 +110,9 @@ def verify(root, overrides=None):
     quantity_path=root/'research/portable-coordinate-quantity-short-expected.json'
     quantity_golden=json.loads(quantity_path.read_text()) if quantity_path.is_file() else None
     quantity_matches=quantity_golden['source_sha256']==physical_sources if quantity_golden else None
+    emission_path=root/'research/portable-coordinate-accum-emission-short-expected.json'
+    emission_golden=json.loads(emission_path.read_text()) if emission_path.is_file() else None
+    emission_matches=emission_golden['source_sha256']==physical_sources if emission_golden else None
     integer_sources=source_hashes(root,'gpu/packet_integer_probe.slang')
     integer_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in integer_sources.items()}
     integer_path=root/'research/portable-packet-integer-short-expected.json'
@@ -128,7 +131,7 @@ def verify(root, overrides=None):
              work='Per-pellet body/front/reach packets, conditional core probability, per-target damage rounding',
              private_expected_entry='gpu/world_coordinate_physical_entry.slang',
              private_expected_packets_connected=True,
-             remaining=['live-core-nodes','coordinate-accumulation-emission',
+             remaining=['live-core-nodes',
                         'rounded-geometry-cache','manual-aim','sampling-rng','mixed-shot-groups'],
              depends_on=['landing-probability', 'physical-native-observation']),
         dict(id='coordinate-shot-groups', classification='adapter_gap',
@@ -186,7 +189,15 @@ def verify(root, overrides=None):
                 coordinate_target_accumulation=dict(classification='native_reference_exclusion',
                     direct_target_consumer=False,reference_suite='coordinate-accumulation-policy',
                     game_rule_verified=False,extra_gpu_collection_required_for_parity=False,
-                    coordinate_accumulation_emission_connected=False),
+                    coordinate_accumulation_emission_connected=True),
+                coordinate_accumulation_emission=dict(suite='coordinate-accum-emission',
+                    proof_available=emission_golden is not None,sealed_source_matches_current=emission_matches,
+                    requires_new_metal_proof=not emission_matches,
+                    input_count=len(emission_golden['entries']) if emission_golden else None,
+                    source_sha256=physical_sources,reference_kind='deterministic-common-cpu',
+                    body_only_receipt_connected=True,shared_queue_and_lifetime_core=True,
+                    excluded_coordinate_scenarios=['ADD sharing','enemy attack nodes'],
+                    public_gpu_admitted=False,all_characters_certified=False),
                 coordinate_skill_shape_contains_is_physical_landing=False,
                 angular_interval_algebra=dict(suite='coordinate-arcs',
                     sealed_source_matches_current=arc_source_matches, source_sha256=arc_sources,

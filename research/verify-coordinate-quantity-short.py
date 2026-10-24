@@ -32,10 +32,13 @@ def native_reference(domain):
 def compare(block,domain):
     case,meta,bindings,descriptors=domain
     if not case.get('observe_coordinate_landings'):return parent.compare(block,domain)
-    expected=native_reference(domain)
+    return compare_expected(block,domain,native_reference(domain))
+
+def compare_expected(block,domain,expected,*,verify_parent_quantity=True):
+    case,meta,bindings,descriptors=domain
     parent.codec.compare_expected(block[:786432],domain[:3],dict(battle=expected['battle'],skill_trace=expected['skill_trace']))
     from portable_coordinate_physical_specs import LAYOUT
-    last={notice['owner']:notice for notice in expected['full_charge_quantities']}
+    last={notice['owner']:notice for notice in expected['full_charge_quantities']} if verify_parent_quantity else {}
     for owner,notice in last.items():
         at=LAYOUT['BANK']+owner*LAYOUT['BANK_WORDS']+14
         assert list(block[at:at+2])==list(struct.unpack('<II',struct.pack('<d',notice['dealt']))),(case['name'],'captured exact parent bits',owner)

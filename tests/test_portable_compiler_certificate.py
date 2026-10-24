@@ -19,13 +19,30 @@ class CompilerCertificateTests(unittest.TestCase):
     def make(self,*,audit=None,sources=None,output=None):
         with patch.object(cli,'ROOT',self.root),patch.object(cli,'verify_package',return_value=self.m),patch.object(cli,'audit_saved_metal',audit or self.audit),patch.object(backend,'source_hashes',return_value=sources or self.baseline['source_sha256']),cli.forbid_gpu():
             return cli.make_compiler_certificate(self.suite,self.package,self.capture,output or self.root/'evidence')
-    def test_current_mixed_battle_full_certificate_keeps_the_entire_shared_runtime(self):
+    def test_historical_mixed_certificate_keeps_full_runtime_and_rejects_stale_current_sources(self):
         suite='attack-group-mixed';name=alias(suite);config=cli.SUITES[name]
         baseline=cli.load(ROOT/cli.SUITES[suite]['golden']);proof=cli.load(ROOT/config['golden'])
         self.assertEqual(config['source'],cli.SUITES[suite]['source'])
         self.assertNotEqual(config['source'],cli.SUITES['compiler-commands']['source'])
         self.assertEqual(proof,certificate(suite,baseline,(ROOT/cli.SUITES[suite]['golden']).read_bytes()))
-        self.assertEqual(proof['source_sha256'],backend.source_hashes(config['source']))
+        current=backend.source_hashes(config['source'])
+        from portable_coordinate_accum_emission_source_contract import project_sources
+        projected=dict(current)
+        for path,text in project_sources(ROOT).items():
+            if path in projected:projected[path]=cli.sha(text.encode())
+        self.assertEqual(proof['source_sha256'],projected)
+        if current!=proof['source_sha256']:
+            # An exact historical inverse proves the prior source, never current
+            # package admission. Feed real current bytes to the unchanged gate.
+            import shutil
+            baseline_path=cli.SUITES[suite]['golden'];paths=[*current,config['golden'],baseline_path]
+            for path in paths:
+                dest=self.root/path;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/path,dest)
+            files=cli.file_records(self.root,paths)
+            manifest=dict(schema=cli.SCHEMA,suite=name,purpose='compiler-diagnostic',golden=proof,files=files,selected_cases=[])
+            manifest['package_id']=cli.package_id(manifest);cli.write(self.root/'gpu-package.json',manifest)
+            with self.assertRaisesRegex(ValueError,'GPU source record differs from golden'):
+                cli.verify_package(self.root)
         self.assertIn('gpu/attack_group_runtime.slang',proof['source_sha256'])
         self.assertIn('gpu/program_phases.slang',proof['source_sha256'])
         self.assertEqual(config['inputs'],0);self.assertEqual(config['native'],0)
