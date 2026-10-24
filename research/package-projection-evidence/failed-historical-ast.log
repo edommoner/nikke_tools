@@ -1,0 +1,14 @@
+F...
+======================================================================
+FAIL: test_exact_ast_extraction_preserves_compiler_options_publish_and_all_transport_functions (test_portable_generation_separation.GenerationSeparationTests.test_exact_ast_extraction_preserves_compiler_options_publish_and_all_transport_functions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-compact-skill157-sealed-v5/tests/test_portable_generation_separation.py", line 37, in test_exact_ast_extraction_preserves_compiler_options_publish_and_all_transport_functions
+    self.assertEqual(other,proof['other_backend_functions'])
+AssertionError: {'met[270 chars]e': '3ebf6655df933169ecc479db12a38256d4a7d180e[1100 chars]0a3'} != {'met[270 chars]e': 'f5e361b8bfd5b0e51196ce2b4d53833c6392db221[1100 chars]0a3'}
+Diff is 1646 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.025s
+
+FAILED (failures=1)

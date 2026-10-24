@@ -1,3 +1,7 @@
+<!-- compact-package-current -->
+検証準備向けに `package --compact` を追加。対応はdestructible-skill-retention157とdestructible-skill-misato-retention2のみ。全GPUソース・公開data/fixture・pinned upstream・指定CPU/全smokeを保持し、無関係な研究/test Pythonを依存別に除外。固定v7は2,795→1,550ファイル/ZIP8.46→6.39MB、Windows時間改善は未測定。既定full・厳密hash/cache/normalizer・Job/claimは維持。詳細docs/portable-compact-package.md、実測/限界はcheckpoint。
+<!-- /compact-package-current -->
+
 <!-- shared-readback-current -->
 
 現在の型付きskill実戦はsealed `destructible-skill-retention`157(native102/拒否55)と`destructible-skill-misato-retention`2を使う。元レイのselector/count/burst flagsを保ち、Metal/各独立seal/CPU43成功、旧141とミサト2の全input/native/raw保持。standalone16はdevelopment_only。Windows O0診断は内側timeout/driver-GPU0で現CUDA未確認。詳細docs/portable-destructible-skill-rosters-gpu.md。

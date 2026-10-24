@@ -1,0 +1,50 @@
+E.E...........E..
+======================================================================
+ERROR: test_declared_count_and_gaps_match_registered_literal_contracts (test_portable_readiness_semantics.PartsInventoryCountTests.test_declared_count_and_gaps_match_registered_literal_contracts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-compact-misato-sealed-v1/tests/test_portable_readiness_semantics.py", line 156, in test_declared_count_and_gaps_match_registered_literal_contracts
+    cases=[c for suite in result['reference_suites'] for c in importlib.import_module(REFERENCES[suite][0]).fixtures()]
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'portable_parts_skill_cases'
+
+======================================================================
+ERROR: test_ammo_equivalent_recorded_count_matches_registered_literals (test_portable_readiness_semantics.ReadinessSemanticsTests.test_ammo_equivalent_recorded_count_matches_registered_literals)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-compact-misato-sealed-v1/tests/test_portable_readiness_semantics.py", line 27, in test_ammo_equivalent_recorded_count_matches_registered_literals
+    cases=[c for suite in result['reference_suites'] for c in importlib.import_module(REFERENCES[suite][0]).fixtures()]
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'portable_ammo_equivalent_cases'
+
+======================================================================
+ERROR: test_recorded_heal_contract_count_matches_the_registered_literal_suites (test_portable_readiness_semantics.ReadinessSemanticsTests.test_recorded_heal_contract_count_matches_the_registered_literal_suites)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-compact-misato-sealed-v1/tests/test_portable_readiness_semantics.py", line 47, in test_recorded_heal_contract_count_matches_the_registered_literal_suites
+    cases=[case for suite in suites for case in importlib.import_module(REFERENCES[suite][0]).fixtures()]
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'portable_heal_share_cases'
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.006s
+
+FAILED (errors=3)

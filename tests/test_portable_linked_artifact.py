@@ -108,6 +108,7 @@ class LinkedArtifactTests(unittest.TestCase):
         self.assertTrue(verify_cuda_trace(rows,pid=os.getpid()))
         rows.pop(0);self.assertFalse(verify_cuda_trace(rows,pid=os.getpid()))
     def test_parent_claim_budget_and_environment_are_shared_with_normal_run(self):
+        storage=patch.object(cli,'capture_storage_preflight');budget=storage.start();self.addCleanup(storage.stop)
         result=dict(calculation_verified=False,passed=False);folder=self.root/'parent';env={'UNRELATED':'same'}
         def job(*args,**kwargs):
             self.assertEqual(cli.os.environ['NIKKE_VALIDATION_JOB_MEMORY_MB'],'2048');self.assertEqual(cli.os.environ['NIKKE_CUDA_ARTIFACT'],'cubin');return dict(passed=True)
@@ -115,6 +116,7 @@ class LinkedArtifactTests(unittest.TestCase):
         with patch.object(cli,'ROOT',self.root),patch.object(cli,'os',fake_os),patch.object(cli,'verify_package',return_value=self.current),patch.object(cli,'saved_linked_admission',return_value=self.state()),patch.object(cli,'cpu_preflight',return_value=dict(passed=True)),patch.object(cli,'cpu_test_groups'),patch.object(cli,'run_job',side_effect=job) as run,patch.object(cli,'copy_generated'),patch.object(cli,'audit_capture',return_value=result):
             self.assertEqual(cli.run_capture(folder,'cuda',60,self.root,linked_package=self.root,linked_capture=self.root),result)
             run.assert_called_once();self.assertTrue((self.root/'gpu-claimed-cuda.json').exists());self.assertTrue((folder/'linked-artifact-request.json').exists())
+        self.assertEqual(budget.call_count,2)
         self.assertEqual(env,{'UNRELATED':'same'})
 
     def test_controller_audits_link_package_claim_in_its_own_root_and_checks_observation(self):

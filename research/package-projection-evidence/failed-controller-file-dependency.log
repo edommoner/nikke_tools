@@ -1,0 +1,32 @@
+...............F
+======================================================================
+FAIL: test_stale_full_entry_cannot_publish_a_current_compiler_packet (test_portable_compiler_diagnostic.CompilerDiagnosticTests.test_stale_full_entry_cannot_publish_a_current_compiler_packet)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-compact-skill157-sealed-v3/scripts/nikke_gpu.py", line 423, in file_records
+    try:info=p.lstat()
+             ^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 847, in lstat
+    return self.stat(follow_symlinks=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 840, in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/nikke-compact-skill157-sealed-v3/tests/test_portable_phase_codegen.py'
+
+The above exception was the direct cause of the following exception:
+
+ValueError: Expected regular artifact: tests/test_portable_phase_codegen.py
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/tmp/nikke-compact-skill157-sealed-v3/tests/test_portable_compiler_diagnostic.py", line 176, in test_stale_full_entry_cannot_publish_a_current_compiler_packet
+    with self.assertRaisesRegex(ValueError,'source closure is stale'):cli.make_package('compiler-full',output)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "source closure is stale" does not match "Expected regular artifact: tests/test_portable_phase_codegen.py"
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.062s
+
+FAILED (failures=1)

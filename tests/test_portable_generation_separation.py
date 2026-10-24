@@ -24,6 +24,26 @@ class RestoreRoot(ast.NodeTransformer):
             assert isinstance(node.args[0],ast.Name) and node.args[0].id=='ROOT';node.args.pop(0)
         return node
 
+def historical_transport_fingerprint(node):
+    """Undo only a68a80f's explicit typed-readback stride for the old proof.
+
+    That later commit admitted 1048576 words in these two guards. Preserve the
+    original extraction fixture and compare every other AST node unchanged.
+    This helper is a historical source test, never a generated-code normalizer.
+    """
+    node=copy.deepcopy(node)
+    if node.name in ('execute','execute_batches'):
+        matches=[n for n in ast.walk(node) if isinstance(n,ast.Compare)
+                 and isinstance(n.left,ast.Name) and n.left.id=='output_words'
+                 and len(n.ops)==1 and isinstance(n.ops[0],ast.NotIn)
+                 and len(n.comparators)==1 and isinstance(n.comparators[0],ast.Tuple)]
+        if len(matches)!=1:raise ValueError('Typed readback stride guard absent or ambiguous')
+        values=matches[0].comparators[0].elts
+        if [n.value if isinstance(n,ast.Constant) else None for n in values]!=[655360,786432,1048576]:
+            raise ValueError('Unexpected typed readback stride contract')
+        values.pop()
+    return fingerprint(node)
+
 class GenerationSeparationTests(unittest.TestCase):
     def helper(self):
         h=fixtures.GenerationCacheTests();h.setUp();self.addCleanup(h.doCleanups);return h
@@ -33,8 +53,18 @@ class GenerationSeparationTests(unittest.TestCase):
         functions={n.name:n for n in ast.parse((ROOT/'app/portable_slang_generation.py').read_text()).body if isinstance(n,ast.FunctionDef)}
         self.assertEqual(set(functions),set(proof['generation_functions']))
         self.assertEqual({name:fingerprint(RestoreRoot().visit(node)) for name,node in functions.items()},proof['generation_functions'])
-        other={n.name:fingerprint(n) for n in ast.parse((ROOT/'app/portable_backend.py').read_text()).body if isinstance(n,ast.FunctionDef) and n.name not in functions}
+        other={n.name:historical_transport_fingerprint(n) for n in ast.parse((ROOT/'app/portable_backend.py').read_text()).body if isinstance(n,ast.FunctionDef) and n.name not in functions}
         self.assertEqual(other,proof['other_backend_functions'])
+
+    def test_historical_stride_projection_cannot_hide_a_different_capacity_or_transport(self):
+        node=next(n for n in ast.parse((ROOT/'app/portable_backend.py').read_text()).body if isinstance(n,ast.FunctionDef) and n.name=='execute')
+        expected=historical_transport_fingerprint(node)
+        changed=copy.deepcopy(node)
+        guard=next(n for n in ast.walk(changed) if isinstance(n,ast.Constant) and n.value==1048576);guard.value=1048575
+        with self.assertRaisesRegex(ValueError,'stride contract'):historical_transport_fingerprint(changed)
+        changed=copy.deepcopy(node)
+        error=next(n for n in ast.walk(changed) if isinstance(n,ast.Constant) and n.value=='Invalid portable word strides');error.value='different validation'
+        self.assertNotEqual(historical_transport_fingerprint(changed),expected)
 
     def test_transport_only_edits_keep_key_pair_and_required_hit_without_compilation(self):
         h=self.helper();paths,hashes=h.build();receipt=h.receipt();before={k:p.read_bytes() for k,p in cache.artifact_paths(paths).items()}

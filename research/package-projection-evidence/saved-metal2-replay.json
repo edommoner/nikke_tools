@@ -1,0 +1,37 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "destructible-weapon-roster/Misato/3s",
+      "input_sha256": "214e60fec03bf758220db6cafcae25ca995dd899ff01268fde2fcc820b918f5b",
+      "output_sha256": "75e8379f0d0c13b806fa8a173748c8718f88dfd6215e54243c8c011a9f54c1f3",
+      "native_sha256": "871718ef8926f7612688b443535d288f13835e691455f069e03468e712834305"
+    },
+    {
+      "name": "destructible-weapon-roster/Misato/30s",
+      "input_sha256": "85b6433de9187314aa3c6785126848bf7d834f6c2ac72efa68bce0c09758ff0f",
+      "output_sha256": "7697d93cc94c49ad69e872e08586cbbbf9e884a126d52a7df6b2a8bcf4ae04d4",
+      "native_sha256": "5b9b024f98487613c13954cdf0cd13d32a583b9b1e87bee3063911f83c7eb7c6"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 2,
+  "native_oracles": 2,
+  "input_sha256": "182eb790762bdb9664b9fa9962e07c9315b19883b2afe7ebfc2d1a0cae2d7ed5",
+  "output_sha256": "5ca151c183b24b9b50afcde2a4d4f5b59dc45ff34e932c4a45f99fa0db9c5e84",
+  "generated_normalized": {
+    "cuda": "4d5886af3106ca3a2e2eedc258b2a3dedbcbde42ce54541af74f4e8654d49be5",
+    "metal": "a2c50c48bf8a74199b394a921d3e2a8a227a60319ed48529093f21c2ff0cdf20"
+  },
+  "audit_gpu_calls": 0,
+  "passed": true,
+  "preservation_verified": null,
+  "sealed": false,
+  "mode": "saved-metal-replay",
+  "source_package_id": "aeab1203b4e50f3226851fc8b01822e9f0061998a98ce30db79c7e7d8b7848ad",
+  "source_execution_passed": true,
+  "original_failure_preserved": true,
+  "gpu_calls": 0,
+  "gpu_retry_count": 0,
+  "source_gpu_dispatches": 1
+}

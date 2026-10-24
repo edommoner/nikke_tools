@@ -384,6 +384,8 @@ SMOKE_TESTS.append('test_portable_sparse_raw.py')
 SMOKE_TESTS.append('test_portable_scope_snapshot_audit.py')
 SMOKE_TESTS.append('test_portable_authored_case_purity.py')
 SMOKE_TESTS.append('test_portable_prepared_input.py')
+SMOKE_TESTS.append('test_portable_package_projection.py')
+SMOKE_TESTS.append('test_portable_storage_budget.py')
 SUITES['destructible-counter']['tests'].append('test_portable_prepared_input.py')
 SUITES['destructible-counter']['tests'].append('test_portable_packet_stage.py')
 
@@ -506,14 +508,20 @@ def verify_package(root,*,historical_compiler=False):
     missing=set(sources)-set(records)
     if missing:raise ValueError('GPU source missing from immutable payload: '+', '.join(sorted(missing)))
     if any(records[name]!=digest for name,digest in sources.items()):raise ValueError('GPU source record differs from golden')
+    if 'payload_projection' in m:
+        from portable_package_projection import validate
+        validate(m['payload_projection'],m['files'],m['suite'],SUITES[m['suite']],SMOKE_TESTS)
     return m
 
 
-def make_package(suite, output, *, develop=False, cases=()):
+def make_package(suite, output, *, develop=False, cases=(), compact=False):
     """Whitelist code + required public data; never reports/raw/settings/tools."""
     if SUITES[suite].get('compiler_only') and (develop or cases):raise ValueError('Compiler diagnostic has no battle development/cases')
     if SUITES[suite].get('development_only') and not develop:
         raise ValueError('This suite requires --develop until an explicit Metal seal is registered')
+    if compact:
+        from portable_package_projection import SUPPORTED_SUITES
+        if suite not in SUPPORTED_SUITES:raise ValueError('Compact profile not validated for this suite')
     tracked = subprocess.check_output(['git','ls-files','-z'], cwd=ROOT).decode().split('\0')
     names = []
     for name in filter(None, tracked):
@@ -566,6 +574,11 @@ def make_package(suite, output, *, develop=False, cases=()):
             if sha((ROOT/name).read_bytes())!=contract[digest]:raise ValueError('Pinned CPU contract source changed: '+name)
             if name not in names:names.append(name)
     records = file_records(ROOT, names)
+    projection=None
+    if compact:
+        from portable_package_projection import project,roots_for
+        selected,projection=project(ROOT,names,roots_for(SUITES[suite],SMOKE_TESTS),
+                                    suite_tests={key:config['tests'] for key,config in SUITES.items()})
     if cases and not develop:
         raise ValueError('--case requires --develop')
     golden = development_baseline(suite, cases) if develop else load(ROOT/SUITES[suite]['golden'])
@@ -580,12 +593,16 @@ def make_package(suite, output, *, develop=False, cases=()):
              source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
              working_tree_dirty=bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip()),
              files=records, golden=golden, purpose='compiler-diagnostic' if SUITES[suite].get('compiler_only') else 'development' if develop else 'sealed', selected_cases=list(cases), runtime_requirements=['Python dependencies from the existing venv', 'Slang 2026.20', 'CUDA toolkit/driver on Windows or Swift/Metal on macOS'])
+    if projection is not None:
+        selected=set(selected)
+        m['files']=[row for row in records if row['path'] in selected]
+        m['payload_projection']=projection
     m['package_id'] = package_id(m)
     with zipfile.ZipFile(output, 'x', compression=zipfile.ZIP_DEFLATED) as archive:
         archive.writestr('gpu-package.json', json.dumps(m, ensure_ascii=False, indent=2))
-        for row in records:
+        for row in m['files']:
             archive.writestr(row['path'], (ROOT/row['path']).read_bytes())
-    return dict(package_id=m['package_id'], files=len(records), bytes=Path(output).stat().st_size,
+    return dict(package_id=m['package_id'], files=len(m['files']), bytes=Path(output).stat().st_size,
                 archive_sha256=sha(Path(output).read_bytes()), source_commit=m['source_commit'])
 
 
@@ -2488,7 +2505,7 @@ def main(argv=None):
     a=sub.add_parser('storage-check',help='CPU-only free-space budget check; does not archive or delete files')
     a.add_argument('--required-bytes',type=int,default=0);a.add_argument('--reserve-bytes',type=int,default=1024**3);a.add_argument('--path',type=Path,default=ROOT)
     a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
-    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[])
+    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups')
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True)
     for name in ('run','_child'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--smoke',action='store_true')
@@ -2503,6 +2520,9 @@ def main(argv=None):
     a=sub.add_parser('import');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True)
     a=sub.add_parser('audit-legacy');a.add_argument('--version',type=int,choices=(102,103,104),required=True)
     a=p.parse_args(argv)
+    if (ROOT/'gpu-package.json').is_file():
+        from portable_package_projection import check_command
+        check_command(load(ROOT/'gpu-package.json').get('payload_projection'),a.command)
     if getattr(a,'require_generation_cache',False) and not getattr(a,'generation_cache',None):raise ValueError('--require-generation-cache requires --generation-cache')
     if getattr(a,'generation_cache',None):os.environ['NIKKE_SLANG_GENERATION_CACHE']=str(a.generation_cache.resolve())
     if getattr(a,'require_generation_cache',False):os.environ['NIKKE_SLANG_GENERATION_REQUIRED']='1'
@@ -2614,7 +2634,7 @@ def main(argv=None):
         from portable_capture_storage import restore_raw
         result=restore_raw(a.capture,a.archive,check_records)
     elif a.command=='cache-probe':result=cache_probe(a.generated_cuda,a.cuda_root,a.compile_cache,a.out,artifact_kind=a.artifact_kind,ptxas_level=a.ptxas_level,require_hit=a.require_hit)
-    elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case)
+    elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case,compact=a.compact)
     elif a.command=='unpack':result=dict(package_id=unpack(a.archive,a.dest))
     elif a.command=='run':
         if (a.linked_package or a.linked_capture) and (a.require_cache or a.compile_cache or a.ptxas_level is not None or a.artifact_kind):raise ValueError('Saved CUBIN and live NVRTC/cache settings are exclusive')

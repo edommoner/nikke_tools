@@ -180,10 +180,11 @@ class PacketTests(unittest.TestCase):
             with patch.object(cli,'ROOT',root),patch.object(cli,'verify_package',return_value=dict(suite='projectile',package_id='transport-test')),\
                  patch.object(cli,'SUITES',dict(projectile=dict(tests=[]))),patch.object(cli,'cpu_preflight',return_value=dict(passed=True)),\
                  patch.object(cli,'os',SimpleNamespace(**dict(vars(os),name='nt'))),\
-                 patch.object(cli,'run_job',return_value=dict(passed=True)) as job,patch.object(cli,'copy_generated'),\
+                 patch.object(cli,'run_job',return_value=dict(passed=True)) as job,patch.object(cli,'copy_generated'),patch.object(cli,'capture_storage_preflight') as storage,\
                  patch.object(cli,'audit_capture',return_value=failed) as audit:
                 result=cli.run_capture(capture,'cuda',180)
             self.assertEqual(result,failed);job.assert_called_once()
+            self.assertEqual(storage.call_count,2)
             audit.assert_called_once_with(capture,verify_artifacts=False,record_comparison=True)
             self.assertFalse(cli.load(capture/'result.json')['passed'])
             self.assertTrue((root/'gpu-claimed-cuda.json').exists())
