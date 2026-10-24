@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`reference --suite coordinate-group-common --out /tmp/new.json` は座標弾の実packetとgroup receiptを比較するCPU17契約。full immutable packageから実行し、GPU／packingは0。`coordinate-control`のCPUゲートへ新8＋既存group31検査を追加した。GPU group接続は未完了。[group正本契約](portable-coordinate-group-reference.md)を参照。
+
 `coordinate-control`206（共通CPU182／拒24）は照準と武器変更・reload・散弾・tap／holdを共通executorへ合成したsealed profile。M5 Metalと独立seal、CPU95／control416が成功。`package --suite coordinate-control --compact`を使う。`model-check`はgroup writerの3重複と未実装の移設／caller接続を区別する。[操作合成](portable-coordinate-control.md)を参照。
 
 `coordinate-aim`190（共通CPU166／拒24）は手動照準・camera調停を共通resident実行器へ接続したsealed profile。4window／5anchor／前回skill点と今回physical点／7059frameをMetal実証した。`package --suite coordinate-aim --compact`を使う。[共通GPU照準](portable-coordinate-aim-gpu.md)を参照。

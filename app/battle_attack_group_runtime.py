@@ -35,18 +35,27 @@ class LandScope(ast.NodeTransformer):
         return node
 
 class Producer:
-    def __init__(self):
+    def __init__(self,*,coordinate_packets=False):
+        self.coordinate_packets=coordinate_packets
         self.next_id=0;self.pending={};self.shots={};self.active=[];self.deliveries=[];self.contexts=[];self.damage_contexts=[];self.child_targets={};self.visibility=[];self.restores=[]
         self.data=dict(shots=[],groups=[],notifications=[],children=[],child_landings=[],managers=[])
+        if coordinate_packets:self.data['physical_receipts']=[]
     def wrap_fire(self,original):
         @wraps(original)
         def fire(actor,t,manager,*args,**kwargs):
             answer=original(actor,t,manager,*args,**kwargs)
             if not answer or not plan(manager,actor.name) or actor._wc_is_skill_damage():return answer
             from calculator.sim_result import _is_normal
-            if any(not _is_normal(ev) or ev.to is not None or ev.rule or ev.target or ev.extra or ev.split or ev.part_damage or ev.interrupt_damage for ev in answer):
+            if self.coordinate_packets:
+                # _coord_pellet already authored the real BODY/PART/INTERRUPT
+                # packets. Retain their identities and let canonical landing
+                # publish typed receipts; never synthesize enemy targets here.
+                if any(not _is_normal(ev) or ev.to is not None or ev.rule or ev.split or ev.part_damage or ev.interrupt_damage for ev in answer):
+                    raise ValueError('Coordinate shot groups require expanded normal packets')
+            elif any(not _is_normal(ev) or ev.to is not None or ev.rule or ev.target or ev.extra or ev.split or ev.part_damage or ev.interrupt_damage for ev in answer):
                 raise ValueError('Shot groups require plain logical normal packets')
-            if len(self.shots)>=32 or len(answer)>1024 or len({id(ev) for ev in answer})!=len(answer):raise ValueError('Pending shot group capacity or packet identity')
+            packet_limit=131072 if self.coordinate_packets else 1024
+            if len(self.shots)>=32 or len(answer)>packet_limit or len({id(ev) for ev in answer})!=len(answer):raise ValueError('Pending shot group capacity or packet identity')
             self.next_id+=1
             if self.next_id>=2**24:raise ValueError('Shot identity capacity exceeded')
             shot=Shot(manager,actor.name,self.next_id,t,{id(ev):ev for ev in answer})
@@ -103,21 +112,23 @@ class Producer:
         return out
 
 @contextmanager
-def battle_attack_groups(*,routing):
+def battle_attack_groups(*,routing,coordinate_packets=False):
     if routing not in ('native','all-logical-enemies'):raise ValueError('Explicit native or all-logical-enemies shot routing required')
     from calculator import timeline,buff_manager
     from runner import sim
     import impact_runtime
     if timeline.simulate is not sim.simulate:raise ValueError('Native simulation aliases differ')
     if getattr(timeline.BossScript,'_nikke_attack_group_scope',False):raise ValueError('Nested shot producer scopes are unsupported')
-    runtime=Producer();old_sim=timeline.simulate;old_boss=timeline.BossScript;old_hit=timeline.HitEvent
+    if type(coordinate_packets) is not bool:raise ValueError('Explicit boolean coordinate packet policy required')
+    if coordinate_packets and routing!='native':raise ValueError('Coordinate packets require native routing')
+    runtime=Producer(coordinate_packets=coordinate_packets);old_sim=timeline.simulate;old_boss=timeline.BossScript;old_hit=timeline.HitEvent
     manager_type=buff_manager.BuffManager;old_register=manager_type.register_damage_handler;old_notify=manager_type.notify;old_resolve=manager_type._resolve_target
     old_landing=manager_type.publish_landing;old_add=manager_type.land_add_with_impact;old_publish=impact_runtime.publish_impact
     class Boss(old_boss):
         _nikke_attack_group_scope=True
         def __init__(self,*args,**kwargs):
             super().__init__(*args,**kwargs)
-            if self.geom is not None or self.target_kinds or self._base_parts or any(run.p.kind not in ('idle','summon') or run.p.summon is not None and (run.p.summon.attack is not None or run.p.summon.self_destruct) for run in self._runs):raise ValueError('Shot group model requires plain body/add world')
+            if not coordinate_packets and (self.geom is not None or self.target_kinds or self._base_parts or any(run.p.kind not in ('idle','summon') or run.p.summon is not None and (run.p.summon.attack is not None or run.p.summon.self_destruct) for run in self._runs)):raise ValueError('Shot group model requires plain body/add world')
         def _alive_adds(self):
             actors=super()._alive_adds()
             if not runtime.visibility or runtime.visibility[-1][0] is not self:return actors
@@ -152,6 +163,8 @@ def battle_attack_groups(*,routing):
             if frame[2]:
                 if packet.attacker!=frame[1] or packet.family!=HitFamily.WEAPON:raise ValueError('Nonphysical shot receipt')
                 packet=replace(packet,attack_id=frame[2])
+                if coordinate_packets:
+                    runtime.data['physical_receipts'].append(dict(owner=frame[1],identity=frame[2],time=t,target=packet.target,credit=packet.credit,outcome=int(packet.outcome)))
         return old_publish(manager,packet,t)
     def landing(manager,event,t,boss):
         child=runtime.child_targets.get(id(event))

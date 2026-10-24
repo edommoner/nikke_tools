@@ -1,0 +1,19 @@
+coordinate-group-common/occlusion-and-body {'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'groups': 1, 'expanded_packets': 2, 'receipts': 1, 'notifications': 1, 'gpu_supported': False}
+coordinate-group-common/full-front {'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'groups': 1, 'expanded_packets': 1, 'receipts': 0, 'notifications': 0, 'gpu_supported': False}
+coordinate-group-common/interrupt-front {'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'groups': 1, 'expanded_packets': 1, 'receipts': 0, 'notifications': 0, 'gpu_supported': False}
+coordinate-group-common/two-muzzles-three-pellets {'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'groups': 1, 'expanded_packets': 12, 'receipts': 6, 'notifications': 1, 'gpu_supported': False}
+coordinate-group-common/retirement {'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'groups': 3, 'expanded_packets': 6, 'receipts': 3, 'notifications': 3, 'gpu_supported': False}
+coordinate-group-common/body-without-targets {'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'groups': 1, 'expanded_packets': 1, 'receipts': 1, 'notifications': 1, 'gpu_supported': False}
+coordinate-group-common/pierce-reach {'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'groups': 1, 'expanded_packets': 3, 'receipts': 1, 'notifications': 1, 'gpu_supported': False}
+coordinate-group-common/charge-pierce {'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'groups': 1, 'expanded_packets': 3, 'receipts': 1, 'notifications': 1, 'gpu_supported': False}
+coordinate-group-common/threshold-snapshot {'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'groups': 2, 'expanded_packets': 18, 'receipts': 6, 'notifications': 1, 'gpu_supported': False}
+coordinate-group-common/add-retirement {'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'groups': 1, 'expanded_packets': 12, 'receipts': 6, 'notifications': 2, 'gpu_supported': False}
+coordinate-group-common/add-alive {'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'groups': 1, 'expanded_packets': 12, 'receipts': 6, 'notifications': 1, 'gpu_supported': False}
+coordinate-group-common/child-target-body {'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'groups': 1, 'expanded_packets': 2, 'receipts': 1, 'notifications': 1, 'gpu_supported': False}
+coordinate-group-common/child-retired-adds {'verified': True, 'reference_model_gap': False, 'reference_kind': 'deterministic-common-cpu', 'groups': 1, 'expanded_packets': 12, 'receipts': 6, 'notifications': 2, 'gpu_supported': False}
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+  File "/private/tmp/nikke-runtime-resident/research/portable_coordinate_group_contracts.py", line 33, in verify
+    if label=='zero-damage-body':assert native['physical_pellets'][0]['packets'][0]['damage']==0 and len(receipts)==1
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

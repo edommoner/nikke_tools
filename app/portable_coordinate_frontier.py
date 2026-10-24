@@ -48,7 +48,10 @@ def verify(root, overrides=None):
     producer = texts['app/battle_attack_group_runtime.py']
     assert 'Shot groups require plain logical normal packets' in producer
     assert 'Shot group model requires plain body/add world' in producer
-    assert 'ev.part_damage or ev.interrupt_damage' in producer
+    assert 'if any(not _is_normal(ev) or ev.to is not None or ev.rule or ev.split or ev.part_damage or ev.interrupt_damage for ev in answer):' in producer
+    assert 'elif any(not _is_normal(ev) or ev.to is not None or ev.rule or ev.target or ev.extra or ev.split or ev.part_damage or ev.interrupt_damage for ev in answer):' in producer
+    for token in ('coordinate_packets=False', 'Coordinate shot groups require expanded normal packets', "runtime.data['physical_receipts'].append"):
+        assert token in producer, 'Coordinate receipt adapter drift: '+token
     legacy_observer = texts['research/world_projectile_native.py']
     assert 'len(answer)%muzzles==0 and len({h.damage for h in answer})==1' in legacy_observer
     assert 'actorPoolCount(s)!=1' in texts['gpu/attack_group_runtime.slang']
@@ -165,9 +168,13 @@ def verify(root, overrides=None):
              remaining=[
                         'manual-aim','sampling-rng','mixed-shot-groups'],
              depends_on=['landing-probability', 'physical-native-observation']),
-        dict(id='coordinate-shot-groups', classification='adapter_gap',
+        dict(id='coordinate-shot-groups', classification='gpu_port_gap',
              native='battle_attack_group_runtime.Producer.wrap_fire / packet_scope',
-             work='Observe expanded physical packets and collect BODY/ADD receipts without counting PART/INTERRUPT as enemies',
+             work='Bind actual expanded coordinate packet receipts to GPU group collection/seal',
+             native_coordinate_packet_adapter_available=True,
+             native_reference_cli='coordinate-group-common',
+             default_plain_packet_policy_preserved=True,
+             physical_gpu_group_receipts_connected=False,
              depends_on=['physical-packet-expansion', 'physical-native-observation']),
         dict(id='physical-native-observation', classification='reference_adapter',
              native='world_projectile_native.capture_projectile_shots',
