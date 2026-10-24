@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "changed_source_files": [
+    "gpu/attack_group_runtime.slang"
+  ],
+  "unchanged_fields": [
+    "entries",
+    "input_sha256",
+    "output_sha256",
+    "generated_normalized"
+  ],
+  "gpu_calls": 0
+}

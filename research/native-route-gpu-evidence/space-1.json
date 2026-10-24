@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-enemy-selection-scopes-diagnostic-metal",
+  "raw_bytes": 182452224,
+  "raw_sha256": "9bb51388816e073636c5056d567708fad952652af016ea9dc1b21662af8ca47f",
+  "evidence_sha256": "683608c2cf82b912d84c2a72cf4e9b52ea7e5bdaba7d5cf7fcf511731e036dea",
+  "raw_inode": 506806296,
+  "zero_ranges": 432,
+  "zero_range_bytes": 126746624,
+  "allocated_before": 182452224,
+  "allocated_after": 55705600,
+  "allocated_reclaimed": 126746624,
+  "full_hash_verified": true
+}

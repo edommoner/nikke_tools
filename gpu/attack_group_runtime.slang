@@ -59,7 +59,7 @@ bool initializeAttackGroups(inout Runtime s)
     for(uint i=0;i<32+32*AG_WORDS;i++) results[head+i]=0;
     for(uint i=0;i<AG_LOG_CAP*AG_WORDS;i++) results[s.resourceOutput+AG_LOG+i]=0;
     for(uint i=0;i<P_LANDINGS;i++) results[s.resourceOutput+AG_PACKETS+i]=0;
-    if(commands[input]!=0x41475331U||commands[input+1]!=1||commands[input+2]==0||(commands[input+2]&~31U)!=0) return false;
+    if(commands[input]!=0x41475331U||(commands[input+1]!=1&&commands[input+1]!=2)||commands[input+2]==0||(commands[input+2]&~31U)!=0) return false;
     for(uint i=3;i<8;i++) if(commands[input+i]!=0) return false;
     if(!actorRecipientsEnabled(s)||s.combat==0||s.landingPolicy!=1||s.targetCount!=1||commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+3]!=0) return false;
     for(uint slot=0;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]!=0&&commands[actorBinding(s,slot)]!=5) return false;
@@ -76,7 +76,7 @@ bool initializeAttackGroups(inout Runtime s)
         }
     }
     if(owners!=commands[input+2]) return false;
-    results[head]=0x41475331U;results[head+8]=owners;return true;
+    results[head]=0x41475331U;results[head+8]=owners;results[head+9]=commands[input+1]-1;return true;
 }
 void agCollect(inout Runtime s,uint group,uint slot,uint generation)
 {
@@ -99,7 +99,9 @@ bool deliverAttackGroupShot(inout Runtime s,uint who,uint64_t when,uint output,u
     {
         uint setIndex=0;while(setIndex<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,setIndex)+5]!=0) setIndex++;
         if(setIndex==P_WORLD_ACTOR_SETS) { s.error=64;break; }
-        actorSetCapture(s,33,setIndex,2,128,0,who NAMED_ENEMY_ARGUMENT(0));uint set=actorPoolSet(s,setIndex),n=results[set];
+        // Native route samples the existing physical selector again after each
+        // pellet's receipt/counter children. A destroyed ADD is never reused.
+        actorSetCapture(s,33,setIndex,results[head+9]!=0 ? 0 : 2,128,0,who NAMED_ENEMY_ARGUMENT(0));uint set=actorPoolSet(s,setIndex),n=results[set];
         for(uint i=0;i<n&&s.error==0;i++)
         {
             uint entry=set+8+i*4,slot=results[entry],generation=results[entry+1];

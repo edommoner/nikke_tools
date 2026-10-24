@@ -141,7 +141,7 @@
     "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
     "gpu/pellet_shot_runtime.slang": "b84c7a1a969d0b04e14d08347d2495245bca5ebe98899fe10b1c80d65f901dad",
     "gpu/weapon_frame_phases.slang": "7307812dd5ef45da88a0cb82103176dbf2f9735a9c67fe9d4a25b5b109015258",
-    "gpu/attack_group_runtime.slang": "a54b9533b5fa3d9fb39d32369ab910eb40a1103575f363c186682822d73ea451",
+    "gpu/attack_group_runtime.slang": "247d73a51eac6d8125156ab0206135c2e7f951da2db11444933ed6c00e26cafa",
     "gpu/admission_runtime.slang": "12373d3b492fd9759b9f25791034b1c1269a86570d5c7066d1a265bcd1bd8cb2",
     "gpu/portable_mt19937.slang": "6365293f4fe0269fba87b15aa866e617333f5012acef175a13fd7ed27152323a",
     "gpu/enemy_target_runtime.slang": "830fd22f28d105ea6b4e0ad4d334e774e36eebab698c1096a163cfdb712d9d1f",
@@ -347,7 +347,7 @@
     }
   ],
   "generated_normalized": {
-    "cuda": "dce509d7d4c3f8112f8d0230681d4584c1c4708490ea1432e7e460a1207dd071",
-    "metal": "00b44ba6eb5eb3e28925dfd9788cb077aed24e87ab8f1a842546e9354dfc8c7a"
+    "cuda": "f57373d14c3b8f086530bb9cdc2b06dbe133586d71309321eb38a55f5ce9fc18",
+    "metal": "6a9ee5a7a0cf5981db0a5976a7ffd4e270970b8a90cfd013c5aeacb24a8628f9"
   }
 }

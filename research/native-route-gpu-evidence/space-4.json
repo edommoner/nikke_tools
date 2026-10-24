@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-attack-magnitude-development-metal",
+  "raw_bytes": 160432128,
+  "raw_sha256": "b0a850495ead1b58c64433f3735a6fb1c8186e13b2b807a9cef050d09ff4969c",
+  "evidence_sha256": "28a9da0b021af1bb51c51d880f08eafbf588ee9b66d6d6a07942e4f8217fce9f",
+  "raw_inode": 506875259,
+  "zero_ranges": 389,
+  "zero_range_bytes": 110362624,
+  "allocated_before": 160432128,
+  "allocated_after": 50069504,
+  "allocated_reclaimed": 110362624,
+  "full_hash_verified": true
+}

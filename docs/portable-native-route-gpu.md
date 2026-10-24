@@ -1,0 +1,19 @@
+# 通常対象選択と実射撃groupの共通GPU接続
+
+共通CLIのsealed `attack-group-native-route` は53入力（native42／拒否11）を、同じSlang本体・同じCPU正本・同じ比較器で検証する。旧 `attack-group-battle` 32入力を先頭に保持し、[通常対象選択のCPU20契約](portable-native-route-groups.md)と未知routing拒否1件を追加した。Apple M5で全件一致し、GPUを再実行しない独立processのsealも成功した。
+
+`AGS1` 入力のrouting値1は従来の全論理敵モデル、2は既存の物理selectorを使う通常対象選択である。共通 `actorSetCapture` のroute0が `actorPhysicalTarget` を弾ごとに呼び、実着弾と同期counter子効果の後に次の弾の照準先を選び直す。既存の武器snapshot、Actor receipt、group seal、DFS通知、世代固定queued childを再利用し、対象判定やdamage formulaを別実装しない。旧modeの出力headerはゼロを保ち、旧32入力の全134,217,728byte出力も完全保持した。
+
+新20入力は172group・2通知を記録し、元ニヒリスター／ベロータ16件では未導入正本のbattle全体・全物理射撃履歴を保持する。元ノワール／ツバイの実散弾に宣言listenerを加えた破壊2件は、同一射撃中のADD0→ADD1→ADD2→BODYという順序と、各1回だけの通知、破壊済み対象へ付け替えない子効果を検証する。両キャラが元からmulti_hitを持つという認定ではない。旧22正例を含むGPU全体は340group・114通知である。
+
+比較器は既存のbattle全体・物理snapshot・ADD別数量／hit／世代・caster別ADD総量・global overkillに加え、全groupのID／epoch／時刻／packet数／順序付きtyped集合・通知数・敵buff対象・所有参照解放を調べる。保存readbackの世代、通知数、queued参照、overkillを変える4負例も、同じ共通比較器で全て拒否した。原本rawは変更していない。
+
+53入力のGPU計算2.028268秒、library1.632280秒、初回pipeline93.075730秒だった。登録CPU28検査と独立seal、共通制御372検査（Windows専用1skip）に成功した。既存 `destructible-body-heal-share-retention` 61入力も現sourceで全一致・独立sealし、入力／native／全255,852,544byte rawを保持した。こちらの生成CUDA／Metalと両reflectionは前回と全byte同一で、goldenは非activeなgroup sourceのIDだけを更新した。CPU93検査とnative52事前照合が成功し、GPU10.382187秒、pipeline67.185490秒だった。
+
+最終sealed packageは53が `7e38f81f58323b958108f01ad728adedbdcf3eca0cb1e92f4979909a6b68f15c`、61が `6dbb436d12f9b092c01cd9a317fa6f99ff76b06d53b506da1c07624df6736838`。53は最終packageからCPU28＋native42を再確認した。61の実行済みpackageとの差は分類metadata・CLIの新suite登録状態・独立監査済みgoldenだけで、計算sourceを変更せず重いCPU93検査を繰り返していない。両最終packageの全payload SHAをcheckout／新規展開先へ照合し、sealed生成cacheも必須hitを確認した。実GPU2回ともSlang新規起動0、再試行0、Windows操作0である。
+
+初回の容量検査は1GiB予備領域を確保できずGPU0で停止した。終了済みraw11件と今回の2件を全byte／SHA／inode不変で疎ファイル化し、合計1,546,256,384byteの割当を回収した。原本削除0。古い1captureはartifacts記録がなく、何も変えずに対象外とした。全証拠と容量receiptは `research/native-route-gpu-evidence`、まとめは `research/portable-native-route-gpu-checkpoint.json` にある。
+
+静的packingは245/266、base185/203、20分類は全てreference-model-gapのままで、プロフィール・issue・順位laneは前回と同一。新しいscopeの実証metadataだけを追記した。通常battleへのproducer導入、部位／座標／盾との統合、log64を超える長時間、広いmixed-owner、現CUDA実機計算・compile cache実測、全キャラ認定は未完了。通常UIはCPU、全体目標は継続中である。
+
+今回の実測ではGPU本体よりPSO作成とCPU正本に時間がかかる。生成物の必須cache hitは機能しているが、永続Metal pipeline cacheはなく、同一生成物の61件でも67秒を要した。CUDA側の既存compile cacheと別にこの準備費用を切り分け、短い限定検証へ進む前に共有検証経路のキャッシュ改善を続ける。

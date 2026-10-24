@@ -38,8 +38,8 @@ def prepare():
     if sys.byteorder!='little':packed.byteswap()
     return entries,packed.tobytes()
 def native_reference(domain):return inspect_native(domain[0])
-def compare(block,domain):
-    case,prepared,words,meta=domain;n=native_reference(domain)
+def compare(block,domain,*,native=None):
+    case,prepared,words,meta=domain;n=native_reference(domain) if native is None else native
     assert block[0]==0,dict(status=block[0],name=case['name'])
     actual,_,_,differences=real.compare(block,prepared,(words,meta),n['battle'],n['projectile_shots'])
     if differences:raise ValueError(str(dict(difference_count=len(differences),first=differences[:8])))

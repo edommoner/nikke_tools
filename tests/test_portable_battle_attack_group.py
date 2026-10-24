@@ -22,6 +22,22 @@ class PortableBattleAttackGroupTests(unittest.TestCase):
             with self.assertRaises(ValueError):compile_battle(p,routing=value)
         p['enemy']['has_parts']=True
         with self.assertRaises(ValueError):compile_battle(p,routing=c['routing'])
+    def test_native_route_is_static_and_old_inputs_are_retained(self):
+        import importlib.util
+        from portable_battle_native_route_cases import fixtures as native_cases
+        from calculator import timeline
+        with patch.object(timeline,'simulate',side_effect=AssertionError('No CPU battle trace input')):
+            for case in native_cases():
+                p=engine_worker.evaluate(dict(case['body'],_portable_static_inputs=True));before=copy.deepcopy(p)
+                w,m=compile_battle(p,routing='native',declared_effects=case.get('declared_effects',[]))
+                self.assertEqual(p,before);self.assertEqual(w[104401],2)
+                self.assertFalse(m['real_prepared_input']['declared_attack_group_policy']['cpu_trace_used_as_gpu_input'])
+        spec=importlib.util.spec_from_file_location('native_route_gpu_adapter',ROOT/'research/verify-world-attack-group-native-route-short.py')
+        adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
+        old,_=adapter.shared.prepare();entries,_=adapter.prepare()
+        self.assertEqual(len(entries),53)
+        self.assertEqual([(n,w) for n,w,_ in old],[(n,w) for n,w,_ in entries[:32]])
+        self.assertEqual(entries[-1][1][104401],3)
     def test_suite_includes_native_audit_document(self):
         import importlib.util
         spec=importlib.util.spec_from_file_location('group_cli_config',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)

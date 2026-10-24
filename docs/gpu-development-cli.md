@@ -1,3 +1,7 @@
+<!-- native-route-gpu-current -->
+通常対象選択を既存共通actorSetCapture／actorPhysicalTargetへpacketごと接続。sealed attack-group-native-route53(native42/拒否11)がM5 Metal一致・独立seal、旧32の全134217728byte保持。新20は172group/2通知、SG途中ADD3破壊→BODY再選択、元Ni/Vel16全battle保持。全53は340group/114通知、保存出力4改変を共通比較器で拒否。旧61も現source一致・独立sealし全255852544byte、入力/native、両生成/両reflection全byte保持。CPU28＋旧93＋分類17、制御372(Win1skip)。実run Slang0/再試行0/Windows0。GPU53=2.028秒/PSO93.076秒、61=10.382秒/PSO67.185秒、永続PSO cacheは未実装。全byte/SHA/inode不変で約1.55GB割当回収、raw削除0。最終package53は7e38f81f…、61は6dbb436d…、payload全SHA照合済み。静的245/266/base185/203/20gapと全profile/issue/lane保持、通常UI CPU/全キャラ0/未達。次は長時間log64・mixed-ownerと準備cache、geometry/盾/parts、現CUDA。詳細[通常対象選択GPU](portable-native-route-gpu.md)とresearch/portable-native-route-gpu-checkpoint.json。以下は履歴。
+<!-- /native-route-gpu-current -->
+
 <!-- native-route-groups-current -->
 実射撃groupに明示nativeポリシーを追加し、元Bossルーターを変更せず実着弾を収集するCPU20契約を共通CLI referenceへ登録。新規展開の固定packageで172group／2通知／2子着弾、元2プロフィール16件のbattle全体と全物理shotが未導入正本に一致。宣言listener付きSG2件では同一射撃中ADD3破壊→BODYへ実再選択し、各1回だけ発動。CPU27成功、旧32input/native22全保持、全2832payload SHA一致。旧policy専用source監査の初回失敗を保持し、明示二policyと置換禁止3負例で修正。GPU source／golden／数値／保護CPU変更0・GPU0・Windows操作0。新20はGPU未接続で全キャラ認定へ加算しない。次はpacketごと既存actorPhysicalTargetへ共通Slangを接続し、Metal20＋旧32/61保持・独立seal。詳細[通常対象選択の射撃group](portable-native-route-groups.md)とresearch/portable-native-route-group-checkpoint.json。全体目標未達、以下は履歴。
 <!-- /native-route-groups-current -->
