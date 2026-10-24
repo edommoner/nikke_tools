@@ -34,6 +34,12 @@ class FrontierTests(unittest.TestCase):
         self.assertFalse(geometry['radial_integrator_connected'])
         self.assertFalse(geometry['battle_connected'])
         landing=result['deterministic_radial_landing']
+        physical=result['coordinate_physical_expected']
+        self.assertTrue(physical['runtime_connected'])
+        self.assertEqual(physical['group_owner_mask_required'],0)
+        self.assertFalse(physical['live_core_nodes_connected'])
+        self.assertFalse(physical['rng_connected'])
+        self.assertFalse(physical['public_gpu_admitted'])
         self.assertTrue(landing['prepared_frame_values_on_gpu'])
         self.assertTrue(landing['all_cuts_retained'])
         self.assertEqual(landing['cuts_capacity'],5098)

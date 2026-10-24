@@ -1,5 +1,8 @@
 # Mac GPU開発引き継ぎ
 
+座標物理の共通着弾→packet捕捉→通知→着弾をresident実射撃へ接続。新coordinate-physical23（共通CPU17／拒否6）がM5 Metal成功・独立seal、52pellet／100packetの全戦闘decoderと順序付きtraceを照合。散弾・2銃口・貫通・charge・回転矩形・crit・accuracy・2射手・破壊・interrupt補正・武器変更を実証。旧97／81も現sourceでMetal／独立seal、input/native/raw全byte SHA保持。生成CUDA/MSLはspread抽出で変更、新指紋とfull compiler証明書を独立監査後に更新。GPU4／retry0、warm23は生成cache＋PSO必須hit・Slang0・GPU.132秒／execute1.25秒（初回PSO90.84秒）。最終CPU27／control416（Win1skip）、full2986→compact1663全残存byte一致、保護7source維持。監査3失敗を保持しexact inverse／証明書を修正。raw3件を全byte-SHA-inode保持で疎化、1896841216byte回収／削除0。Windows追加0／現CUDA未実証。次優先は全packet整数和のfull-charge参照量とparts蓄積、通常経路生成byte保持によるCUDA cache再利用。live core／丸めGeometry cache／aim／RNG／group同時／原定義混在は未完了。全キャラ0／20gap／UI CPU／目標未達。詳細[座標物理GPU接続](portable-coordinate-physical-gpu.md)とresearch/portable-coordinate-physical-gpu-checkpoint.json。以下は履歴。
+
+
 共通CLI `reference --suite coordinate-physical-common` を追加。共通着弾規約を実際のCPU物理packet・通知・破壊へ接続し9world／27pellet／47packetを検査した。完全遮蔽の旧0damage本体packetとの差、別frameの正残差packet保持、同射撃snapshot固定（6×1000→次射撃6×7000、part通知11）を明示。旧CPU／passive観測器／GPU283source／保護7source不変。selected36／control416（Win1skip）、full2976→compact1643全残存byte一致、model-check成功。初回監査資料梱包漏れを保持し修正済み。新GPU0／Windows追加0／cache変更0。resident物理へのGPU packet・fraction通知・着弾接続は未完了、body-only制限／全キャラ0／20gap／UI CPU維持。詳細[共通規約の物理CPU比較](portable-coordinate-physical-common.md)とresearch/portable-coordinate-physical-common-checkpoint.json。以下は履歴。
 
 

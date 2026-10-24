@@ -3,9 +3,8 @@
 
 // Re-evaluate geometry at impact; cache only the exact normalized ratio.
 // The cache is per actor and shared by both backends, never CPU-produced.
-uint64_t normalProbability(inout Runtime s, uint who, uint64_t accuracy)
+uint64_t currentNormalSpread(inout Runtime s, uint who, uint64_t accuracy)
 {
-    if (s.combat == 0 || s.geometry[who] == 0) return s.probability;
     uint64_t spread = s.spreadStart[who];
     if (!f64Zero(s.spreadShots[who]))
     {
@@ -15,6 +14,12 @@ uint64_t normalProbability(inout Runtime s, uint who, uint64_t accuracy)
     uint64_t slope = uint64_t(0x3f829888) << 32 | 0xf861a60d; // binary64 .00908
     spread = larger(ONE,f64Mul(spread,f64Add(ONE,f64Mul(slope,accuracy) ^ F64_SIGN)));
     s.lastSpread[who] = spread;
+    return spread;
+}
+uint64_t normalProbability(inout Runtime s, uint who, uint64_t accuracy)
+{
+    if (s.combat == 0 || s.geometry[who] == 0) return s.probability;
+    uint64_t spread=currentNormalSpread(s,who,accuracy);
     uint64_t ratio = f64Div(s.coreDiameter[who],spread);
     if (s.probabilityValid[who] == 0 || !f64Equal(ratio,s.probabilityRatio[who]))
     {
@@ -89,7 +94,11 @@ void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient
     if(normal && hasRangeGeometry(s)) optimal=geometryRange(s,who,true,b[S_optimal_range_min],b[S_optimal_range_max_pct]);
     if (normal && optimal) f3 = f64Add(f3,uint64_t(0x3fd33333) << 32 | 0x33333333);
     factors[7] = f3; // Part receipts retain this shot's critical/range basis, without core.
-    uint64_t core = (aimedKind==1 || aimedKind==6) ? uint64_t(0) : COUNTER_PART_CORE(s,flags,(flags & H_CORE) != 0 ? ONE : normal ? normalProbability(s,who,b[S_accuracy_pct]) : WORLD_MODE_CORE(s,who,flags,b[S_accuracy_pct]));
+    uint64_t core =
+#ifdef PORTABLE_COORDINATE_PHYSICAL
+        physical ? coordinatePhysicalBodyCore(s,who) :
+#endif
+        (aimedKind==1 || aimedKind==6) ? uint64_t(0) : COUNTER_PART_CORE(s,flags,(flags & H_CORE) != 0 ? ONE : normal ? normalProbability(s,who,b[S_accuracy_pct]) : WORLD_MODE_CORE(s,who,flags,b[S_accuracy_pct]));
     WORLD_FRACTION_SAMPLE(s,who,critRate,core,physical,flags) if (!f64Zero(core)) f3 = f64Add(f3,f64Mul(core,f64Add(coreBonus,f64Div(b[S_core_dmg_pct],HUNDRED))));
     uint64_t f4 = (flags & H_CHARGE) != 0 ? f64Add(f64Mul(fullChargeMult,f64Add(ONE,f64Div(b[S_charge_dmg_mag_pct],HUNDRED))),f64Div(b[S_charge_dmg_pct],HUNDRED)) : ONE;
     uint64_t f5 = f64Add(ONE,f64Div(b[S_atk_dmg_pct],HUNDRED));

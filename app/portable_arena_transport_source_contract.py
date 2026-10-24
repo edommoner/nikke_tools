@@ -4,9 +4,10 @@ from pathlib import Path
 
 
 def historical_backend_source(root,source=None):
+    from portable_coordinate_physical_source_contract import project_backend_source
     root=Path(root)
     row=json.loads((root/'tests/fixtures/portable-arena-transport-source-delta.json').read_text())
-    current=(root/row['path']).read_text() if source is None else source
+    current=project_backend_source(root,source)
     if current!=row['current'] or hashlib.sha256(current.encode()).hexdigest()!=row['current_sha256']:
         raise ValueError('Unreviewed composed transport source')
     baseline=row['baseline']

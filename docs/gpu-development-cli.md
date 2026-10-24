@@ -315,3 +315,11 @@ full packageで `python scripts/nikke_gpu.py reference --suite coordinate-physic
 旧host正本との同値やGPU受付の証明ではない。compactではreferenceコマンドを従来どおり拒否するが、
 coordinate-landingの必須CPU群に同じ比較経路・旧物理・frontierテストを収録する。
 詳細は `docs/portable-coordinate-physical-common.md`。
+
+## 座標物理のGPU実戦検査
+
+`package --suite coordinate-physical --compact` はsealed 23入力（共通CPU17／拒否6）を収録する。
+既存の `unpack`／`run --cpu-only`／`run --backend metal`／保存結果監査を使う。
+Windowsも同じ入力と比較器を使い、既存の低優先度・2GiB・180秒wrapperを維持する。
+この入口では射撃groupを無効化し、活core・手動aim・RNGなどは未接続。
+範囲と新旧回帰の証拠は `docs/portable-coordinate-physical-gpu.md` を参照。

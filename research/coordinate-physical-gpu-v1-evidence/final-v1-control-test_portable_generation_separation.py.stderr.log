@@ -1,0 +1,27 @@
+.EE...
+======================================================================
+ERROR: test_exact_ast_extraction_preserves_compiler_options_publish_and_all_transport_functions (test_portable_generation_separation.GenerationSeparationTests.test_exact_ast_extraction_preserves_compiler_options_publish_and_all_transport_functions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-physical-final-v1/tests/test_portable_generation_separation.py", line 57, in test_exact_ast_extraction_preserves_compiler_options_publish_and_all_transport_functions
+    other={n.name:historical_transport_fingerprint(n) for n in ast.parse(historical_backend_source(ROOT)).body if isinstance(n,ast.FunctionDef) and n.name not in functions}
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-physical-final-v1/app/portable_arena_transport_source_contract.py", line 11, in historical_backend_source
+    raise ValueError('Unreviewed composed transport source')
+ValueError: Unreviewed composed transport source
+
+======================================================================
+ERROR: test_historical_stride_projection_cannot_hide_a_different_capacity_or_transport (test_portable_generation_separation.GenerationSeparationTests.test_historical_stride_projection_cannot_hide_a_different_capacity_or_transport)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-physical-final-v1/tests/test_portable_generation_separation.py", line 61, in test_historical_stride_projection_cannot_hide_a_different_capacity_or_transport
+    node=next(n for n in ast.parse(historical_backend_source(ROOT)).body if isinstance(n,ast.FunctionDef) and n.name=='execute')
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-physical-final-v1/app/portable_arena_transport_source_contract.py", line 11, in historical_backend_source
+    raise ValueError('Unreviewed composed transport source')
+ValueError: Unreviewed composed transport source
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.022s
+
+FAILED (errors=2)

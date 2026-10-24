@@ -41,6 +41,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
         if(commands[bind]!=commands[row]||commands[bind+1]!=commands[row+1]||commands[bind+3]!=commands[row+2]||commands[bind+4]!=commands[row+3]||!f64Equal(loadNumber(def+2),cNumber(row+20))){results[output]=64;return;}
     }
     if(!validCoordinateAreaIR(s)){results[output]=64;return;}
+#ifdef PORTABLE_COORDINATE_PHYSICAL
+    if(!initializeCoordinatePhysical(s)){results[output]=64;return;}
+#endif
     if(!worldSkillsEnabled(s)||!actorPoolsEnabled(s)){results[output]=64;return;}
     for(uint i=CP_BASE;i<P_OUTPUT_WORDS;i++)results[output+i]=0;
     results[output+CP_BASE]=0x43534b31U;

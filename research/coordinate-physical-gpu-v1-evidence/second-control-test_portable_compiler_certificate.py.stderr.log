@@ -1,0 +1,14 @@
+.....F........
+======================================================================
+FAIL: test_current_mixed_battle_full_certificate_keeps_the_entire_shared_runtime (test_portable_compiler_certificate.CompilerCertificateTests.test_current_mixed_battle_full_certificate_keeps_the_entire_shared_runtime)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-physical-develop-v2/tests/test_portable_compiler_certificate.py", line 28, in test_current_mixed_battle_full_certificate_keeps_the_entire_shared_runtime
+    self.assertEqual(proof['source_sha256'],backend.source_hashes(config['source']))
+AssertionError: {'gpu[7340 chars]g': '4ea923bb8f1adfadeca492d52c3e72d5a23e8730a[7837 chars]2f7'} != {'gpu[7340 chars]g': '1654c70865436753ce6ca4385c4db8907efd7f9e1[7837 chars]2f7'}
+Diff is 15993 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.037s
+
+FAILED (failures=1)

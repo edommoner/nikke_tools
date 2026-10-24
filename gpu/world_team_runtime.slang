@@ -83,6 +83,9 @@ void notifyWorldTeamFraction(inout Runtime s,uint who,uint kind,uint64_t frac,ui
 
 void notifyWorldTeam(inout Runtime s,uint who,uint64_t when,uint output)
 {
+#ifdef PORTABLE_COORDINATE_PHYSICAL
+    notifyCoordinatePhysicalTeam(s,who,when,output);return;
+#endif
 #ifdef PORTABLE_COMPOSED_ARENA
     // Native coordinate weapons observe part then body, including zero part
     // probability in an empty scene. Keep the shared fraction/notification path.

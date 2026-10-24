@@ -329,6 +329,10 @@ SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-sho
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
 SUITES['coordinate-landing']['support_files'] = ['research/portable-coordinate-arcs-short-expected.json']
+SUITES['coordinate-physical']=dict(script='research/verify-coordinate-physical-short.py',source='gpu/world_coordinate_physical_entry.slang',golden='research/portable-coordinate-physical-short-expected.json',inputs=23,native=17,output_words=1310720,development_only=False,tests=['test_coordinate_physical_gpu.py','test_coordinate_physical_common.py','test_coordinate_physical_reference.py','test_portable_damage_factors.py'])
+SUITES['coordinate-physical']['upstream_documents']=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
+SUITES['coordinate-physical']['support_files']=['research/portable-coordinate-arcs-short-expected.json']
+SUITES['coordinate-physical']['tests'].append('test_coordinate_physical_frontier.py')
 SUITES['skill-part-codec']=dict(script='research/verify-skill-part-codec-short.py',source='gpu/skill_part_codec_probe.slang',
     golden='research/portable-skill-part-codec-short-expected.json',inputs=4,native=3,development_only=False,
     tests=['test_portable_skill_part_codec.py'])

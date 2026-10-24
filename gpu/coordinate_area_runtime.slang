@@ -15,7 +15,11 @@ bool validCoordinateAreaIR(inout Runtime s)
         uint p=coordinateAreaRow(s,slot);
         if(slot==0||slot>c.count){for(uint j=0;j<8;j++)if(commands[p+j]!=0)return false;continue;}
         uint index=commands[p];if(index==0||index>c.count)return false;
-        uint row=cRow(c,index-1);if(commands[row+5]!=slot||commands[p+1]!=commands[row+4]||!f64Zero(cNumber(row+16))||commands[p+6]!=0||commands[p+7]!=0)return false;
+        uint row=cRow(c,index-1);if(commands[row+5]!=slot||commands[p+1]!=commands[row+4]||
+#ifndef PORTABLE_COORDINATE_PHYSICAL
+            !f64Zero(cNumber(row+16))||
+#endif
+            commands[p+6]!=0||commands[p+7]!=0)return false;
         uint64_t co=cNumber(p+2),si=cNumber(p+4);
         if(!coordinateShapeMatrixValid(commands[p+1],co,si))return false;
     }

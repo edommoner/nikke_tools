@@ -49,6 +49,9 @@ bool validCounterLandingInput(inout Runtime s,uint base,uint step)
 #ifdef PORTABLE_WORLD_PROJECTILE
 bool physicalInterruptSources(inout Runtime s)
 {
+#ifdef PORTABLE_COORDINATE_PHYSICAL
+    return true; // The typed coordinate hook owns this physical snapshot.
+#endif
     if(!counterLandingsEnabled(s)) return false;
     if(focusAimEnabled(s) && actorPoolsEnabled(s)) return true; // Capture one factor snapshot for aimed part-only worlds too.
     for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]==6) return true;
