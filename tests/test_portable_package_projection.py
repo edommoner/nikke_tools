@@ -12,7 +12,7 @@ from portable_package_projection import project, validate, roots_for, check_comm
 
 class ProjectionTests(unittest.TestCase):
     def test_current_shared_group_entries_are_explicitly_supported(self):
-        self.assertTrue({'attack-group-battle','attack-group-native-route','attack-group-long'} <= set(SUPPORTED_SUITES))
+        self.assertTrue({'attack-group-battle','attack-group-native-route','attack-group-long','attack-group-mixed'} <= set(SUPPORTED_SUITES))
     def fixture(self, root):
         sources = {
             'app/controller.py': 'import selected\n',

@@ -274,6 +274,7 @@ SUITES['attack-group-battle']=dict(output_words=1048576,upstream_documents=['res
 SUITES['attack-group-native-route']=dict(SUITES['attack-group-battle'],script='research/verify-world-attack-group-native-route-short.py',golden='research/portable-world-attack-group-native-route-short-expected.json',inputs=53,native=42,development_only=False)
 SUITES['attack-group-long']=dict(SUITES['attack-group-native-route'],script='research/verify-world-attack-group-long-short.py',golden='research/portable-world-attack-group-long-short-expected.json',inputs=60,native=48,development_only=False)
 SUITES['attack-group-long']['tests']=[*SUITES['attack-group-native-route']['tests'],'test_long_group_history.py']
+SUITES['attack-group-mixed']=dict(SUITES['attack-group-long'],script='research/verify-world-attack-group-mixed-short.py',golden='research/portable-world-attack-group-mixed-short-expected.json',inputs=81,native=68,development_only=False,tests=[*SUITES['attack-group-long']['tests'],'test_mixed_attack_groups.py'])
 SUITES['leftmost-retention']=dict(SUITES['leftmost'],script='research/verify-world-leftmost-retention-short.py',golden='research/portable-world-leftmost-retention-short-expected.json',inputs=74,native=59,tests=SUITES['leftmost']['tests']+['test_portable_leftmost_replay.py','test_portable_duration_scaling_gpu.py','test_portable_gpu_replay.py','test_portable_reference_migration.py'])
 SUITES['cache-preflight-regression']=dict(SUITES['duration-scaling'],tests=SUITES['duration-scaling']['tests']+['test_portable_cache_probe.py','test_portable_required_cache_preflight.py','test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_compile_cli.py','test_portable_generation_cache.py','test_portable_generation_request.py','test_portable_gpu_cli.py','test_portable_gpu_replay.py','test_portable_compiler_diagnostic.py'])
 SUITES['squad-stage-rosters']=dict(SUITES['squad-stage'],script='research/verify-world-squad-stage-rosters-short.py',golden='research/portable-world-squad-stage-rosters-short-expected.json',inputs=7,native=7)
@@ -554,7 +555,7 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False):
             or name=='research/portable-mode-session-contract.json'
             or name=='research/portable-world-counter-landing-short-expected.json'
             # Shared controller tests bind the full-entry certificate to this Metal baseline.
-            or name in ('research/portable-compiler-full-heal-share-source-certificate.json','research/portable-world-heal-share-regression-short-expected.json')
+            or name in ('research/portable-compiler-full-heal-share-source-certificate.json','research/portable-world-heal-share-regression-short-expected.json','research/portable-compiler-full--attack-group-long-source-certificate.json','research/portable-world-attack-group-long-short-expected.json')
             or (p.parts[0]=='data' and p.suffix=='.json') or name==SUITES[suite]['golden'] or name in SUITES[suite].get('support_files',())):
             names.append(name)
     # Declared public pinned documents are data inputs to source audits.
@@ -2533,7 +2534,7 @@ def main(argv=None):
     a=sub.add_parser('layout-check');a.add_argument('--out',type=Path)
     a=sub.add_parser('reference');a.add_argument('--suite',choices=REFERENCES,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('phase-codegen');a.add_argument('--out',type=Path,required=True);a.add_argument('--slang-root',type=Path)
-    a=sub.add_parser('sparsify-raw');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--apply',action='store_true')
+    a=sub.add_parser('sparsify-raw');a.add_argument('--block-size',type=int,choices=(4096,65536),default=65536);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--apply',action='store_true')
     for storage_command in ('archive-raw','restore-raw'):
         a=sub.add_parser(storage_command);a.add_argument('--capture',type=Path,required=True);a.add_argument('--archive',type=Path,required=True)
         if storage_command=='archive-raw':a.add_argument('--remove-original',action='store_true')
@@ -2659,7 +2660,7 @@ def main(argv=None):
         result['report']=str(a.out.resolve()/'report.json')
     elif a.command=='sparsify-raw':
         from portable_sparse_raw import sparsify_raw
-        result=sparsify_raw(a.capture,a.out,check_records,apply=a.apply)
+        result=sparsify_raw(a.capture,a.out,check_records,apply=a.apply,block_size=a.block_size)
     elif a.command=='storage-check':
         from portable_capture_storage import space_status
         result=dict(space_status(a.path,a.required_bytes,reserve=a.reserve_bytes),gpu_calls=0,calculation_verified=False,scope='Free-space budget only; no archive integrity or cleanup')

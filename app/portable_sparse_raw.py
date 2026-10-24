@@ -12,12 +12,12 @@ ZERO=bytes(BLOCK)
 ZERO_CHUNK=bytes(CHUNK)
 
 
-def scan(stream,size):
-    digest=hashlib.sha256();ranges=[];start=None;offset=0
+def scan(stream,size,block_size=BLOCK):
+    digest=hashlib.sha256();ranges=[];start=None;offset=0;zero_block=bytes(block_size)
     while chunk:=stream.read(CHUNK):
         digest.update(chunk)
-        for at in range(0,len(chunk),BLOCK):
-            block=chunk[at:at+BLOCK];zero=len(block)==BLOCK and block==ZERO
+        for at in range(0,len(chunk),block_size):
+            block=chunk[at:at+block_size];zero=len(block)==block_size and block==zero_block
             if zero and start is None:start=offset+at
             elif not zero and start is not None:ranges.append((start,offset+at-start));start=None
         offset+=len(chunk)
@@ -30,7 +30,8 @@ def signature(value):
     return tuple(getattr(value,key) for key in ('st_dev','st_ino','st_size','st_mtime_ns','st_ctime_ns','st_nlink'))
 
 
-def sparsify_raw(capture,receipt,check_records,*,apply=False):
+def sparsify_raw(capture,receipt,check_records,*,apply=False,block_size=BLOCK):
+    if type(block_size) is not int or block_size not in (4096,BLOCK):raise ValueError('Scan block must be4096 or65536 bytes')
     if sys.platform!='darwin':raise ValueError('Zero-block reclamation requires Darwin F_PUNCHHOLE')
     capture=Path(capture).resolve();receipt=Path(receipt).absolute()
     if receipt.is_symlink():raise ValueError('Fresh sparse receipt required')
@@ -55,7 +56,9 @@ def sparsify_raw(capture,receipt,check_records,*,apply=False):
                 fcntl.flock(stream,fcntl.LOCK_EX|fcntl.LOCK_NB)
                 before=os.fstat(stream.fileno())
                 if not stat.S_ISREG(before.st_mode) or before.st_nlink!=1 or before.st_size!=size:raise ValueError('Unique regular raw file with anchored size required')
-                actual,ranges=scan(stream,size)
+                allocation_unit=os.fstatvfs(stream.fileno()).f_frsize
+                if allocation_unit<=0 or block_size%allocation_unit:raise ValueError('Scan block must align to filesystem allocation unit')
+                actual,ranges=scan(stream,size,block_size)
                 if actual!=digest:raise ValueError('Raw differs from anchored SHA before reclamation')
                 if signature(os.fstat(stream.fileno()))!=signature(before):raise ValueError('Raw changed during planning')
                 if raw.stat().st_ino!=before.st_ino or raw.stat().st_dev!=before.st_dev:raise ValueError('Raw pathname changed')
@@ -69,14 +72,14 @@ def sparsify_raw(capture,receipt,check_records,*,apply=False):
                             remaining-=len(chunk)
                         fcntl.fcntl(stream,99,struct.pack('=IIqq',0,0,offset,length))
                     os.fsync(stream.fileno())
-                stream.seek(0);after_digest,_=scan(stream,size);after=os.fstat(stream.fileno())
+                stream.seek(0);after_digest,_=scan(stream,size,block_size);after=os.fstat(stream.fileno())
                 if after_digest!=digest or after.st_size!=size or after.st_ino!=before.st_ino or (raw.stat().st_dev,raw.stat().st_ino)!=(before.st_dev,before.st_ino):raise ValueError('Raw byte/size/identity verification failed')
                 # Recheck the original evidence and every recorded raw artifact.
                 _,after_size,after_anchor,after_evidence=anchor(capture,check_records)
                 if (after_size,after_anchor,after_evidence)!=(size,digest,evidence_sha):raise ValueError('Evidence anchor changed during reclamation')
                 check_records(capture,raw_records)
                 state.update(passed=True,capture=str(capture),raw_bytes=size,raw_sha256=digest,evidence_sha256=evidence_sha,
-                             raw_inode=after.st_ino,zero_ranges=len(ranges),zero_range_bytes=sum(n for _,n in ranges),
+                             raw_inode=after.st_ino,scan_block_bytes=block_size,filesystem_allocation_unit=allocation_unit,zero_ranges=len(ranges),zero_range_bytes=sum(n for _,n in ranges),
                              allocated_before=before.st_blocks*512,allocated_after=after.st_blocks*512,
                              allocated_reclaimed=before.st_blocks*512-after.st_blocks*512,full_hash_verified=True)
         except BaseException as error:

@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "attack-group-mixed/0/3s/1adds/native",
+      "corruption": "first-owner",
+      "word": 862049,
+      "rejected": true,
+      "error": "AssertionError"
+    },
+    {
+      "case": "attack-group-mixed/0/3s/1adds/all-logical-enemies",
+      "corruption": "threshold-notice",
+      "word": 862058,
+      "rejected": true,
+      "error": "AssertionError"
+    },
+    {
+      "case": "attack-group-mixed/1/3s/1adds/native",
+      "corruption": "rear-owner",
+      "word": 862049,
+      "rejected": true,
+      "error": "AssertionError"
+    },
+    {
+      "case": "attack-group-mixed/0/180s/3adds/all-logical-enemies",
+      "corruption": "owner-after64",
+      "word": 864609,
+      "rejected": true,
+      "error": "AssertionError"
+    }
+  ],
+  "original_raw_unchanged": true,
+  "original_readback_sha256": "39b711e14b97c9e7d30180b2598e98059a0c964b266c24e39b4b51138fe1c7cc",
+  "gpu_calls": 0
+}

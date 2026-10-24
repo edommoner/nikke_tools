@@ -1,3 +1,7 @@
+<!-- mixed-attack-group-current -->
+実Ni/Velを同編成のslot0/1・3/4へ配置し元全効果を保つ混合owner20ケースを追加。sealed attack-group-mixed81(native68/拒否13)がMetal一致・独立seal、旧60の全251658240byte/input/native保持。新20は1116group/528通知、3/30/180秒・閾値2/4・両policy・65件目以降の両ownerを照合。GPU11.661秒/必須pipelinehit.002401秒/Slang0、保存4改変拒否。最終CPU34/制御392(Win1skip)、full2848→compact1567全残存record一致。共通テストfixture同梱漏れの失敗を保持して修正。容量guard停止後4KiB opt-in疎化を実装し2capture計1564307456byte回収、全byte/SHA/inode/証拠保持・削除0。共有計算/数値/正本/旧golden変更0、新GPU1/retry0。Windows新依頼0、既存PTX結果unknownで再依頼せず。全キャラ0/静的245/266/base185/203/20gap/UI CPU/未達。次はgeometry/parts/arena境界の正本契約、Windowsは復旧後に保存結果取得。詳細 [混合owner実射撃group](portable-mixed-attack-groups.md) とresearch/portable-mixed-attack-group-checkpoint.json。
+<!-- /mixed-attack-group-current -->
+
 <!-- current-full-compiler-packet -->
 現在のMetal60をGPU0で独立再監査しcompiler-full--attack-group-longの全source証明書を登録。旧本体で成功したPTX→object→JITlinkを再利用する方針で、現全ソースPTX専用1回をWindowsへ依頼。接続不可のため実行状態・結果はunknown、再依頼0。共通packetへ既存module-object/JITlink CLIを固定request/外Job/内60外180秒/2GiBで接続し、CPU191＋制御391(Win1skip)成功。source/数値/golden変更0・新GPU0。v2へ移行する場合は成功済みPTX cache必須でNVRTC0のproducerを同ownerへ作り、providerのpackage ID条件を維持する。新stage実Windowsは未確認。全キャラ0/20gap/UI CPU/未達。詳細 [現在の全本体コンパイル経路](portable-current-full-compiler.md) とresearch/portable-current-full-compiler-checkpoint.json。
 <!-- /current-full-compiler-packet -->

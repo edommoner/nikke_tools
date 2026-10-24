@@ -25,6 +25,24 @@ class SparseRawTests(unittest.TestCase):
 
     def run_sparse(self,apply=False,name='receipt.json'):return sparsify_raw(self.capture,self.root/name,check,apply=apply)
 
+    def test_actual_4k_reclaims_zeros_inside_occupied_64k_blocks_without_byte_changes(self):
+        self.payload=(b'A'*4096+bytes(BLOCK-4096))*16+b'TAIL'
+        self.raw.write_bytes(self.payload)
+        (self.capture/'evidence.json').write_text(json.dumps(dict(transport=dict(output_bytes=len(self.payload)),output_sha256=hashlib.sha256(self.payload).hexdigest())))
+        records=[dict(path=p.name,bytes=p.stat().st_size,sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in (self.raw,self.capture/'evidence.json')]
+        (self.capture/'artifacts.json').write_text(json.dumps(dict(files=records)))
+        metadata={p.name:p.read_bytes() for p in self.capture.iterdir() if p!=self.raw};before=self.raw.stat()
+        coarse=self.run_sparse();self.assertEqual(coarse['zero_range_bytes'],0)
+        result=sparsify_raw(self.capture,self.root/'fine.json',check,apply=True,block_size=4096)
+        self.assertTrue(result['passed']);self.assertEqual(result['scan_block_bytes'],4096)
+        self.assertGreater(result['allocated_reclaimed'],0);self.assertEqual(result['zero_range_bytes'],16*(BLOCK-4096))
+        self.assertEqual(self.raw.read_bytes(),self.payload);self.assertEqual(self.raw.stat().st_ino,before.st_ino)
+        self.assertEqual({p.name:p.read_bytes() for p in self.capture.iterdir() if p!=self.raw},metadata)
+        self.assertFalse(result['raw_deleted'])
+        for bad in (512,8192,True,4096.0):
+            with self.assertRaises(ValueError):sparsify_raw(self.capture,self.root/'bad.json',check,apply=True,block_size=bad)
+        self.assertFalse((self.root/'bad.json').exists())
+
     def test_actual_reclamation_retains_raw_bytes_path_inode_and_evidence(self):
         before=self.raw.stat();result=self.run_sparse(True)
         self.assertTrue(result['passed']);self.assertEqual(self.raw.read_bytes(),self.payload);self.assertEqual(self.raw.stat().st_ino,before.st_ino)
