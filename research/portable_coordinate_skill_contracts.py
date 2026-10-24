@@ -13,4 +13,10 @@ def verify(case,native):
     if c['marker']:
         assert all('stop' not in s['targets'] for s in selection['selections'])
         assert all(s['targets']==[name for name,kind in zip(s['geometry'],s['kinds'],strict=True) if kind=='parts'] for s in selection['selections'])
+    if c.get('retired_same_cast'):
+        rows=[r for r in selection['target_accounting'] if r['kind']=='parts']
+        assert [r['before_alive'] for r in rows]==[True,True,False,False]
+        assert [r['pool_damage_delta'] for r in rows]==[3000,3000,0,0]
+        assert [r['pool_hits_delta'] for r in rows]==[1,1,0,0]
+        assert sum(r['event']=='destroy' for r in native['boss_log'])==2
     return dict(verified=True,native_coordinate_path=True,packets=len(packets),casts=len(selection['selections']),interrupt_accounting_verified=True,depth_order_verified=True,geometry_cache_reuse_verified=True,reference_model_gap=False,gpu_supported=False,full_character_verified=False)

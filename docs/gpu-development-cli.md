@@ -1,3 +1,7 @@
+<!-- coordinate-scene-current -->
+座標descriptor／depth・出生時刻順／live世代付き全部位集合を共通Slangへ追加。sealed coordinate-scene21(native10/拒否11)が実M5 Metal全word一致・独立seal、保存raw4改変検出。127対象/pattern31/不壊/再出現/signed-zero/subnormalを検査。CUDA/MSL共通生成、CUDA実行なし。明示primitive操作の部品検証で、戦闘Frame・範囲距離・公開受付は未接続。正本stale targetはkindを返し総量計上するため前記録を訂正、同cast後続packetのreference25を追加。最終CPU12/旧81native68+CPU52/制御392(Win1skip)、全package SHA/compact残存records一致。新GPU1/retry0、Windows追加依頼0・保存PTX結果unknown。全キャラ0/20gap/UI CPU/未達。次は共通Frame caller pool接続、形状数値primitive。詳細[座標GPU部品](portable-coordinate-scene.md)とresearch/portable-coordinate-scene-checkpoint.json。以下は履歴。
+<!-- /coordinate-scene-current -->
+
 <!-- coordinate-skill-reference-current -->
 座標スキルの正本24契約を共通reference CLIへ追加しGPU/packing0で成功。全部位指定と通常貫通/爆発の距離選択・前後順・破壊/不壊・通知/packet順・別interrupt量を区別。CPU bridgeの無条件PART publishによるinterrupt誤分類を、native戻り値capture→元total後/吸血前の条件publishへ修正。hit_target1回・private kind6非alias・reserved local拒否を検査。観測透明性/既存profile連鎖/入力不変も成功。source監査は座標をnativeモデル有りのgpu_port_gapとし、GPU拒否guardと数値依存6math＋powを記録。固定package CPU49/旧81入力native68保持/制御392(Win1skip)、全残存full/compact records一致。正本/数値/GPU/旧golden変更0、新GPU0/Windows新依頼0。座標GPU未接続、全キャラ0/20gap/UI CPU/未達。次は共通descriptorと形状/数値primitive。詳細 [座標スキル正本契約](portable-coordinate-skill-reference.md) とresearch/portable-coordinate-skill-reference-checkpoint.json。
 <!-- /coordinate-skill-reference-current -->

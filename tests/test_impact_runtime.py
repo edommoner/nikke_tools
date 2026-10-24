@@ -52,7 +52,7 @@ class ImpactContract(unittest.TestCase):
         self.assertEqual(state(manager).event_stack,[]);self.assertEqual(state(manager).impact_stack,[]);self.assertEqual(manager._notify_ctx,{})
         with self.assertRaises(TypeError):manager.notify('hit_count:bad',0,'a',impact={})
         self.assertEqual(state(manager).event_stack,[])
-    def test_native_target_receipt_distinguishes_parts_interrupt_and_retired(self):
+    def test_native_target_publication_distinguishes_parts_interrupt_and_empty_result(self):
         import engine_worker
         from impact_runtime import target_landing
         manager=NS();state(manager).impact_trace=ImpactTrace()

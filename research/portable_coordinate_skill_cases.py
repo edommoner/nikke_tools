@@ -33,5 +33,8 @@ def fixtures():
     c=add('unbreakable-second',True);c['effects'][-1]['trigger']['timing']=['battle_start','every:0.2s']
     for target in c['patterns'][0]['targets']:target['hp']=0
     c['contract'].update(packets=[('',2000),('near',3000),('far',3000)]*2,selected=[['near','far']]*2,event_kinds=(['named-hit']+['packet']*3)*2,damage=[16000,0,0,0,0],notices=2,geometry=[['stop','near','far']]*2)
-    assert len(rows)==24
+    c=add('same-cast-retired-packets',True);c['effects'][-1]['stat']='bonus_damage:2'
+    for target in c['patterns'][0]['targets']:target['hp']=1
+    c['contract'].update(packets=[('',2000),('near',3000),('far',3000)]*2,selected=[['near','far']]*2,event_kinds=['named-hit']*2+['packet']*6,damage=[16000,0,0,0,0],notices=2,geometry=[['stop','near','far']]*2,retired_same_cast=True)
+    assert len(rows)==25
     return rows

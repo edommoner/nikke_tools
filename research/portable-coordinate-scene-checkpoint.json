@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "stage": "shared-coordinate-component",
+  "passed": true,
+  "component_inputs": 21,
+  "native_oracles": 10,
+  "rejections": 11,
+  "gpu_dispatches": 1,
+  "gpu_retries": 0,
+  "independent_seal_gpu_calls": 0,
+  "actual_backend": "Apple M5 Metal",
+  "cuda_generated": true,
+  "cuda_executed": false,
+  "full_battle_connected": false,
+  "coordinate_public_admission": false,
+  "cpu_tests": 12,
+  "regression_cpu_tests": 52,
+  "regression_inputs": 81,
+  "regression_native": 68,
+  "control_tests": 392,
+  "windows_only_skips": 1,
+  "reference_contracts": 25,
+  "saved_raw_mutations_detected": 4,
+  "input_sha256": "0f31e455460c118f7b49f730a8a9f0441fa135732badb06b27c7e3582d0c2bfb",
+  "output_sha256": "1ceb11912638c546284c1bbe5d48eb49bb3325a03420f4be8e1e370b47716068",
+  "full_package": "edf63c63a90b8fba17e50c76086a8e4adc33372185d14a5396847145e9ece438",
+  "compact_package": "c6ec26bb136e07886c4dd8edb1342f03c07f0d018943d07934424018bc018d2d",
+  "payload_hashes_verified": true,
+  "compact_retained_records_exact": true,
+  "v2_final_differences": [
+    "app/portable_package_projection.py",
+    "scripts/nikke_gpu.py",
+    "tests/test_portable_package_projection.py"
+  ],
+  "initial_failure": {
+    "path": "/tmp/nikke-coordinate-scene21-generation-v1",
+    "reason": "Slang generation cache requires paired resident reflection",
+    "gpu_calls": 0,
+    "guard_preserved": true
+  },
+  "retired_target_correction": "Canonical hit_target returns kind for stale target; part aggregate still counts, target pool does not receive further damage. Same-cast 25th reference contract preserves this distinction. Previous checkpoint claim was false.",
+  "windows": {
+    "new_execution_requests": 0,
+    "pending_ptx_result": "unknown",
+    "host_observation": "unavailable after user restoration report",
+    "rerun_requested": false
+  },
+  "coverage": {
+    "static": [
+      245,
+      266
+    ],
+    "base": [
+      185,
+      203
+    ],
+    "remaining_gap_categories": 20,
+    "all_character_certifications": 0,
+    "ui_backend": "cpu",
+    "goal_complete": false
+  },
+  "next": [
+    "Connect descriptor/capture to shared battle Frame caller pool",
+    "Implement Shape.dist/contains numerical primitives without changing existing binary64",
+    "Keep public coordinate guard until native-equivalent battle proof"
+  ]
+}

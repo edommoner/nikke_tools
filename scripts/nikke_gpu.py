@@ -275,7 +275,7 @@ SUITES['attack-group-native-route']=dict(SUITES['attack-group-battle'],script='r
 SUITES['attack-group-long']=dict(SUITES['attack-group-native-route'],script='research/verify-world-attack-group-long-short.py',golden='research/portable-world-attack-group-long-short-expected.json',inputs=60,native=48,development_only=False)
 SUITES['attack-group-long']['tests']=[*SUITES['attack-group-native-route']['tests'],'test_long_group_history.py']
 SUITES['attack-group-mixed']=dict(SUITES['attack-group-long'],script='research/verify-world-attack-group-mixed-short.py',golden='research/portable-world-attack-group-mixed-short-expected.json',inputs=81,native=68,development_only=False,tests=[*SUITES['attack-group-long']['tests'],'test_mixed_attack_groups.py'])
-SUITES['attack-group-mixed']['tests']+=['test_impact_runtime.py','test_coordinate_skill_reference.py','test_portable_model_gap_audit.py']
+SUITES['attack-group-mixed']['tests']+=['test_impact_runtime.py','test_coordinate_skill_reference.py','test_portable_model_gap_audit.py','test_portable_coordinate_scene.py']
 SUITES['leftmost-retention']=dict(SUITES['leftmost'],script='research/verify-world-leftmost-retention-short.py',golden='research/portable-world-leftmost-retention-short-expected.json',inputs=74,native=59,tests=SUITES['leftmost']['tests']+['test_portable_leftmost_replay.py','test_portable_duration_scaling_gpu.py','test_portable_gpu_replay.py','test_portable_reference_migration.py'])
 SUITES['cache-preflight-regression']=dict(SUITES['duration-scaling'],tests=SUITES['duration-scaling']['tests']+['test_portable_cache_probe.py','test_portable_required_cache_preflight.py','test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_compile_cli.py','test_portable_generation_cache.py','test_portable_generation_request.py','test_portable_gpu_cli.py','test_portable_gpu_replay.py','test_portable_compiler_diagnostic.py'])
 SUITES['squad-stage-rosters']=dict(SUITES['squad-stage'],script='research/verify-world-squad-stage-rosters-short.py',golden='research/portable-world-squad-stage-rosters-short-expected.json',inputs=7,native=7)
@@ -307,6 +307,7 @@ SUITES['parts-skill-world']=dict(script='research/verify-world-parts-skill-short
 SUITES['interrupt-packet-codec']=dict(script='research/verify-interrupt-packet-codec-short.py',source='gpu/interrupt_packet_codec_probe.slang',
     golden='research/portable-interrupt-packet-codec-short-expected.json',inputs=154,native=140,development_only=False,
     tests=['test_portable_interrupt_packet_codec.py'])
+SUITES['coordinate-scene']=dict(script='research/verify-coordinate-scene-short.py',source='gpu/coordinate_scene_probe.slang',golden='research/portable-coordinate-scene-short-expected.json',inputs=21,native=10,output_words=32768,development_only=False,tests=['test_portable_coordinate_scene.py','test_coordinate_skill_reference.py','test_impact_runtime.py'])
 SUITES['skill-part-codec']=dict(script='research/verify-skill-part-codec-short.py',source='gpu/skill_part_codec_probe.slang',
     golden='research/portable-skill-part-codec-short-expected.json',inputs=4,native=3,development_only=False,
     tests=['test_portable_skill_part_codec.py'])

@@ -31,7 +31,7 @@
   "native_hit_target_calls_per_landing": 1,
   "ordering": "native hit_target; original part total update; conditional typed PART impact; native lifesteal",
   "private_interrupt_is_not_canonical_actor": true,
-  "retired_target_has_no_typed_receipt": true,
+  "retired_target_has_no_typed_receipt": false,
   "canonical_cpu_changed": false,
   "gpu_source_changed": false,
   "numeric_source_or_normalizer_changed": false,
@@ -63,5 +63,6 @@
   ],
   "remaining_model_gaps": 20,
   "next_action": "Implement shared coordinate descriptors and numerical shape contract; parts-inclusive selection and ordinary area selection remain distinct. Physical probability integration is separate; do not admit coord until connected and Metal/native proved.",
-  "evidence_directory": "research/coordinate-skill-reference-evidence"
+  "evidence_directory": "research/coordinate-skill-reference-evidence",
+  "retired_accounting_correction": "Native hit_target returns kind even after prior destruction; previous true assertion was unsupported. Pool quantities stop changing, but native packet total accounting continues. New same-cast contract verifies this."
 }

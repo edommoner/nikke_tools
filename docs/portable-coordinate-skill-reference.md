@@ -1,3 +1,5 @@
+> 最新追記: referenceは同cast内消滅後packetの契約を加えて25件へ拡張した。正本kind/accountingの説明を訂正した。新GPU部品21入力と最終回帰は[座標GPU部品](portable-coordinate-scene.md)を参照。以下の24件・CPU49件は前段階の記録。
+
 # 座標スキルの正本契約とtyped receipt接続
 
 共通CLI `reference --suite coordinate-skill` に、円／回転矩形・前後順・全部位／距離選択・破壊／不壊を含む24契約を追加した。新規full固定packageでGPU／packing禁止のまま全24が成功した。GPU受付は閉じたままで、座標GPU対応の証明ではない。fixtureは既存のauthored effect／weapon metadataを置換する正本ハーネスを再利用し、実キャラ全効果の認定とは区別する。
@@ -21,9 +23,9 @@ python scripts/nikke_gpu.py consumer-audit --out NEW_CONSUMER_AUDIT.json
 
 最初の座標実行は `Unknown world actor (explicit handle required): stop` で停止した。旧typed impact bridgeは `_land_target` の吸血直前で無条件にPART receiptを発行しており、正本が返すinterruptや消滅済み対象の区別を使っていなかった。
 
-`impact_runtime.Landings` が `boss.hit_target` の戻り値を専用localへ捕捉し、元の条件分岐・総量加算の後でPARTの場合だけpublishするようにした。hit_targetは元の1回だけで、戻り値の再計算はない。順序は **native hit_target→元のpart total更新→typed impact→元の吸血** を保つ。private interrupt kind6をcanonical ActorKindへ追加したり、部位へaliasしたりしない。消滅済み戻り値にもtyped creditを作らない。reserved localの既存使用やsourceのcapture件数不一致はinstall時に拒否する。
+`impact_runtime.Landings` が `boss.hit_target` の戻り値を専用localへ捕捉し、元の条件分岐・総量加算の後でPARTの場合だけpublishするようにした。hit_targetは元の1回だけで、戻り値の再計算はない。順序は **native hit_target→元のpart total更新→typed impact→元の吸血** を保つ。private interrupt kind6をcanonical ActorKindへ追加したり、部位へaliasしたりしない。正本hit_targetは消滅済みでもkindを返すため、この条件だけではstale partの通知を抑止しない。前版の「消滅済みではtyped creditを作らない」は誤った説明で、実装の正本accounting保持とは分けて訂正する。reserved localの既存使用やsourceのcapture件数不一致はinstall時に拒否する。
 
-unit故障注入は部位／interrupt／retired戻り値と実行順序・一回呼出しを検査する。座標契約の故障注入で通知順の検査不足も見つけたため、通知数とpacket配列だけでなくliteral event-kind列を追加した。旧正本CPUファイルや計算式は変更していない。
+unit故障注入は部位／interrupt／空の戻り値と実行順序・一回呼出しを検査する。座標契約の故障注入で通知順の検査不足も見つけたため、通知数とpacket配列だけでなくliteral event-kind列を追加した。旧正本CPUファイルや計算式は変更していない。
 
 ## 未対応分類と数値設計
 
