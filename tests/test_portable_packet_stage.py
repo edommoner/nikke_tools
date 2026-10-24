@@ -8,6 +8,36 @@ spec=importlib.util.spec_from_file_location('packet_stage',ROOT/'scripts/run-gpu
 class PacketStageTests(unittest.TestCase):
     def request(self,mode,base):
         return {key:('a'*64 if key=='object_sha256' else str((base/key).resolve())) for key in stage.OBJECT_STAGES[mode]}
+    def test_saved_linked_battle_uses_existing_run_and_fixed_bounds(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d);request={key:str((base/key).resolve()) for key in stage.LINKED_FIELDS}
+            plan=stage.recipe('id','gpu-linked','cuda',base/'capture',base/'original',90,request)
+            args=stage.proof_arguments(plan)
+            self.assertEqual(args,['run','--backend','cuda','--capture',plan['proof_capture'],'--timeout','60',
+                '--linked-package',request['linked_package'],'--linked-capture',request['linked_capture'],
+                '--original-workspace',plan['original_workspace']])
+            self.assertEqual(plan['memory_limit_mb'],2048)
+            for bad in (None,{},dict(request,extra='--gpu'),dict(request,linked_capture='relative'),dict(request,linked_package=True)):
+                with self.subTest(bad=bad),self.assertRaises(ValueError):
+                    stage.recipe('id','gpu-linked','cuda',base/'capture',base/'original',90,bad)
+            with self.assertRaisesRegex(ValueError,'CUDA backend'):stage.recipe('id','gpu-linked','metal',base/'capture',base/'original',90,request)
+            with self.assertRaisesRegex(ValueError,'original workspace'):stage.recipe('id','gpu-linked','cuda',base/'capture',None,90,request)
+    def test_saved_linked_calculation_remains_separate_from_outer_failure(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d);root=base/'packet';root.mkdir();folder=base/'stage'
+            request={key:str((base/key).resolve()) for key in stage.LINKED_FIELDS}
+            def bounded(*args,**kwargs):
+                self.assertEqual(kwargs['env']['NIKKE_VALIDATION_JOB_MEMORY_MB'],'2048')
+                (folder/'proof').mkdir();(folder/'proof/result.json').write_text(json.dumps(dict(calculation_verified=True,passed=False)))
+                return dict(passed=False)
+            cli=SimpleNamespace(bounded_module=lambda:SimpleNamespace(run_bounded=bounded),validation_environment=lambda _:dict())
+            with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='id')),patch.object(stage,'load_module',return_value=cli),patch.object(stage,'is_windows',return_value=False):
+                result=stage.run_stage(folder,'gpu-linked','cuda',90,base/'original',request)
+            self.assertTrue(result['calculation_verified']);self.assertFalse(result['stage_verified'])
+            self.assertFalse(result['compiler_verified']);self.assertFalse(result['generation_verified'])
+            with self.assertRaises(FileExistsError):
+                with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='id')),patch.object(stage,'load_module',return_value=cli),patch.object(stage,'is_windows',return_value=False):
+                    stage.run_stage(base/'again','gpu-linked','cuda',90,base/'original',request)
     def test_saved_object_stages_only_forward_exact_paths_to_existing_cli(self):
         with tempfile.TemporaryDirectory() as d:
             base=Path(d)

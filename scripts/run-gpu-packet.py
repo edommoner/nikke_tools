@@ -11,7 +11,9 @@ sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 COMPILE_STAGES=('compile-ptx','compile-cubin-o0')
 OBJECT_STAGES={'module-object':('source_package','source_capture','cache_entry','phases','ptxas'),
                'jit-link-object':('object_package','object_capture','object_sha256','nvjitlink')}
-STAGES=('cpu','smoke','generation','gpu',*COMPILE_STAGES,*OBJECT_STAGES)
+LINKED_STAGE='gpu-linked'
+LINKED_FIELDS=('linked_package','linked_capture')
+STAGES=('cpu','smoke','generation','gpu',LINKED_STAGE,*COMPILE_STAGES,*OBJECT_STAGES)
 
 def is_windows():return os.name=='nt'
 
@@ -32,10 +34,10 @@ def verified_generation(proof,package_id):
         and 'gpu_calls' in proof)
 
 def object_request(stage,value):
-    if stage not in OBJECT_STAGES:
-        if value is not None:raise ValueError('Only saved-object stages accept a request')
+    if stage not in (*OBJECT_STAGES,LINKED_STAGE):
+        if value is not None:raise ValueError('Only saved-object or saved-linked GPU stages accept a request')
         return None
-    fields=OBJECT_STAGES[stage]
+    fields=LINKED_FIELDS if stage==LINKED_STAGE else OBJECT_STAGES[stage]
     if type(value) is not dict or set(value)!=set(fields):raise ValueError('Exact saved-object request fields required')
     result={}
     for key in fields:
@@ -61,10 +63,10 @@ def verified_object(proof,stage):
 
 def recipe(package_id,stage,backend,capture,original_workspace,timeout,request=None):
     if stage not in STAGES or backend not in ('metal','cuda') or type(timeout) is not int or not 1<=timeout<=180:raise ValueError('Invalid packet stage or budget')
-    if stage in (*COMPILE_STAGES,*OBJECT_STAGES) and backend!='cuda':raise ValueError('Compilation requires CUDA backend')
+    if stage in (*COMPILE_STAGES,*OBJECT_STAGES,LINKED_STAGE) and backend!='cuda':raise ValueError('Compilation requires CUDA backend')
     request=object_request(stage,request)
     capture=Path(capture).resolve();original=Path(original_workspace).resolve() if original_workspace else None
-    if stage in (*COMPILE_STAGES,*OBJECT_STAGES) and original is None:raise ValueError('Compilation requires an original workspace')
+    if stage in (*COMPILE_STAGES,*OBJECT_STAGES,LINKED_STAGE) and original is None:raise ValueError('Compilation requires an original workspace')
     if capture==ROOT or ROOT in capture.parents:raise ValueError('Stage capture must be outside the immutable package')
     if original is not None and (original==ROOT or original==capture or original in capture.parents):raise ValueError('Use an isolated capture outside the original workspace')
     if is_windows() and original is None:raise ValueError('Windows requires an explicit original workspace')
@@ -91,6 +93,9 @@ def proof_arguments(plan):
         if kind=='cubin':arguments.extend(['--ptxas-level','0'])
         return arguments
     arguments=['run','--backend',plan['backend'],'--capture',plan['proof_capture'],'--timeout',str(plan['inner_gpu_timeout_seconds'])]
+    if plan['stage']==LINKED_STAGE:
+        request=object_request(LINKED_STAGE,plan['object_request'])
+        for key in LINKED_FIELDS:arguments.extend(['--'+key.replace('_','-'),request[key]])
     if plan['stage']=='cpu':arguments.append('--cpu-only')
     elif plan['stage']=='smoke':arguments.append('--smoke')
     if plan['original_workspace']:arguments.extend(['--original-workspace',plan['original_workspace']])
@@ -171,7 +176,7 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None)
     comparison=observation.get('comparison',{})
     process_preserved=comparison.get('all_monitored_processes_preserved')
     environment_preserved=bool(process_preserved is True and comparison.get('identified_nikke_service_preservation_verified') is True and facts.get('observation_error') is None) if is_windows() else None
-    key={'cpu':'cpu_verified','smoke':'smoke_verified','generation':'verified','gpu':'passed',**{name:'compiler_verified' for name in COMPILE_STAGES},**{name:'object_verified' for name in OBJECT_STAGES}}[stage]
+    key={'cpu':'cpu_verified','smoke':'smoke_verified','generation':'verified','gpu':'passed',LINKED_STAGE:'passed',**{name:'compiler_verified' for name in COMPILE_STAGES},**{name:'object_verified' for name in OBJECT_STAGES}}[stage]
     compiler_verified=bool(proof and proof.get('mode')=='compile-only' and proof.get('compiler_verified') is True and proof.get('calculation_verified') is False and type(proof.get('gpu_calls')) is int and proof['gpu_calls']==0 and type(proof.get('driver_load_calls')) is int and proof['driver_load_calls']==0)
     generation_verified=verified_generation(proof,manifest['package_id'])
     if stage not in COMPILE_STAGES:compiler_verified=False

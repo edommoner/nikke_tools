@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+共通wrapperの保存CUBIN戦闘は `gpu-linked` を使用します。2キーrequest・既存出所監査・全stage制限と現full objectの未完了監査は [保存リンク実行](portable-saved-linked-stage.md) を参照してください。
+
 現行suite・入力数・source identityはCLI/package manifestを正とします。最新状態と次の作業は [Mac引き継ぎ](mac-handoff.md)、過去の進捗は [履歴](gpu-development-cli-history.md) に分けています。
 
 座標形状の実戦接続・数値方針gapは [座標area](portable-coordinate-area.md) を参照してください。Metal52入力は一致済みですが、host trig差によりWindows入力検査が停止しており、両GPU完成とは扱いません。
