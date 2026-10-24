@@ -21,7 +21,16 @@ def verify(root):
     assert producer_calls==['app/battle_attack_group_runtime.py'],'Unreviewed attack producer requires a fresh semantic audit'
     scoped_tree=ast.parse(scoped.read_text());scope=next(n for n in scoped_tree.body if isinstance(n,ast.FunctionDef) and n.name=='battle_attack_groups')
     assert [a.arg for a in scope.args.kwonlyargs]==['routing'] and scope.args.kw_defaults==[None]
-    assert any(isinstance(n,ast.If) and ast.unparse(n.test)=="routing != 'all-logical-enemies'" for n in scope.body)
+    assert any(isinstance(n,ast.If) and ast.unparse(n.test)=="routing not in ('native', 'all-logical-enemies')" and len(n.body)==1 and isinstance(n.body[0],ast.Raise) for n in scope.body)
+    # Only the declared scene model may override the canonical route. Native
+    # mode must forward the original event, including per-pellet reselection.
+    boss=next(n for n in scope.body if isinstance(n,ast.ClassDef) and n.name=='Boss')
+    route=next(n for n in boss.body if isinstance(n,ast.FunctionDef) and n.name=='route')
+    rewrites=[n for n in ast.walk(route) if isinstance(n,ast.Call) and isinstance(n.func,ast.Name) and n.func.id=='replace']
+    assert len(rewrites)==1 and ast.unparse(rewrites[0])=="replace(event, rule='all_enemies')"
+    override=next(n for n in route.body if isinstance(n,ast.If) and rewrites[0] in list(ast.walk(n)))
+    assert ast.unparse(override.test)=="routing == 'all-logical-enemies' and current and (current[1] is not None) and (current[2] is event)"
+    assert ast.unparse(route.body[-1])=='return super().route(event, has_state)'
     assert not any(isinstance(n,(ast.Expr,ast.Assign,ast.With)) and any(isinstance(c,ast.Call) and isinstance(c.func,ast.Name) and c.func.id=='battle_attack_groups' for c in ast.walk(n)) for n in scoped_tree.body)
     for name in ('engine_compat.py','engine_worker.py'):
         assert 'battle_attack_group_runtime' not in (root/'app'/name).read_text(),'Default installation requires a separate admission audit'
@@ -32,4 +41,4 @@ def verify(root):
     sources += [root/'app/attack_group_specs.py',up/'calculator/buff_manager.py',root/'app/impact_runtime.py',root/'app/impact_specs.py',root/'app/damage_query_runtime.py']
     from portable_model_gap_audit import verify as model_gaps
     remaining=model_gaps(root)
-    return dict(passed=True,remaining_model_gaps=remaining,missing_target_worlds=list(rows),damage_factor_consumers=[],all_projectiles_early_return=True,multi_hit_listener_present=True,battle_attack_group_producer_calls=producer_calls,default_battle_attack_group_producer_calls=[],opt_in_producer_policy='all-logical-enemies; body/add only; normal physical shot returns',impacts_keep_default_attack_id_zero=True,historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources})
+    return dict(passed=True,remaining_model_gaps=remaining,missing_target_worlds=list(rows),damage_factor_consumers=[],all_projectiles_early_return=True,multi_hit_listener_present=True,battle_attack_group_producer_calls=producer_calls,default_battle_attack_group_producer_calls=[],opt_in_producer_policy='native or all-logical-enemies; body/add only; normal physical shot returns',native_router_override=False,impacts_keep_default_attack_id_zero=True,historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources})

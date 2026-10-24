@@ -1,4 +1,4 @@
-"""Opt-in normal-shot producer for a declared whole-scene logical enemy model.
+"""Opt-in normal-shot producer using native or declared whole-scene routing.
 
 Uses actual native fire returns, routing, landings and owned group dispatch.
 It supplies no damage formula or CPU replay. BODY/ADD are enemies; parts are
@@ -104,7 +104,7 @@ class Producer:
 
 @contextmanager
 def battle_attack_groups(*,routing):
-    if routing!='all-logical-enemies':raise ValueError('Explicit all-logical-enemies shot routing required')
+    if routing not in ('native','all-logical-enemies'):raise ValueError('Explicit native or all-logical-enemies shot routing required')
     from calculator import timeline,buff_manager
     from runner import sim
     import impact_runtime
@@ -135,7 +135,7 @@ def battle_attack_groups(*,routing):
                 runtime.visibility.append((self,manager,bindings))
                 try:return super().route(event,has_state)
                 finally:runtime.visibility.pop()
-            if current and current[1] is not None and current[2] is event:
+            if routing=='all-logical-enemies' and current and current[1] is not None and current[2] is event:
                 return super().route(replace(event,rule='all_enemies'),has_state)
             return super().route(event,has_state)
         def publish_add_receipt(self,event,label,generation,amount,killed,t):
