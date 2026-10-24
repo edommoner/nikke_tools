@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "milestone": "coordinate-dot-common-clock",
+  "classification": "progress",
+  "goal_complete": false,
+  "all_character_certification": 0,
+  "ui_backend": "cpu",
+  "gap_categories": 20,
+  "inputs": 35,
+  "native": 28,
+  "rejections": 7,
+  "new_dot_cases": 9,
+  "new_gpu_runs": 2,
+  "retries": 0,
+  "new_windows_execution_requests": 0,
+  "metal_verified": true,
+  "independent_saved_audit": true,
+  "raw_retained": true,
+  "old24_all_bytes_retained": true,
+  "legacy_world_pool16_and_mixed81_source_current": true,
+  "protected_files_sha256": {
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "research/summarize-portable-cross-gpu.py": "01e8595eb20c4a3c1f94f524e81e812d2921fd240b17a33e6dbfb050320fb21a"
+  },
+  "packages": {
+    "passed": true,
+    "gpu_calls": 0,
+    "full_package_id": "1aac903a743605bf48f974a7d17abdfc762fc939b16569fda54d8d462bc81b98",
+    "compact_package_id": "6979def7fb2dbd570105d2b1458fa8337a46e12e62f0d8184bc00c591ba477e9",
+    "full_files": 2875,
+    "compact_files": 1584,
+    "retained_records_exact": true,
+    "retained_bytes_verified": true,
+    "golden_exact": true,
+    "unchanged_legacy_closures": [
+      {
+        "suite": "coordinate-world-pool",
+        "current_source_closure": true,
+        "new_gpu_calls": 0
+      },
+      {
+        "suite": "attack-group-mixed",
+        "current_source_closure": true,
+        "new_gpu_calls": 0
+      }
+    ]
+  },
+  "windows": {
+    "package_id": "959b00624a989ffc85295b0c1afd918f79f10436c194289210412f6a67092a25",
+    "compiler_verified": true,
+    "stage_verified": false,
+    "calculation_verified": false,
+    "ptx_bytes": 9554090,
+    "ptx_sha256": "578466d1a717d9adb4b965edc1178dd06cfff31379adb894b32751788ee4074e",
+    "nvrtc_seconds": 26.3016445,
+    "total_seconds": 97.4220158,
+    "outer_missing_processes": 9,
+    "missing_process_cause": "unknown",
+    "gpu_calls": 0,
+    "export_state": "pending-approved-saved-export-only"
+  },
+  "remaining": [
+    "ordinary distance/shape selection",
+    "coordinate physical attacks",
+    "pending B3 packet model",
+    "cross-frame same-label generation transition",
+    "original full character definitions",
+    "public coordinate admission"
+  ]
+}

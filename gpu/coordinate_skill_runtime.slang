@@ -12,8 +12,9 @@ void coordinateFrameSnapshot(inout Runtime s,uint64_t when)
 }
 bool validCoordinateSkillDefinition(inout Runtime s,Definition d)
 {
-    // Ordinary radius selection and delayed/DoT coordinate packets are not connected.
-    return d.damagePending==0&&d.periodicFlags==0&&f64Zero(d.interval)&&(d.damageFlags&H_DOT)==0&&((d.damageFlags&65536U)!=0||(d.damageFlags&(H_PIERCE|H_EXPLOSION))==0);
+    // Ordinary radius selection and deferred coordinate packets are not connected.
+    // The common world validator owns DoT/periodic clock admission.
+    return d.damagePending==0&&((d.damageFlags&65536U)!=0||(d.damageFlags&(H_PIERCE|H_EXPLOSION))==0);
 }
 uint64_t sampleCoordinateSkill(inout Runtime s,Definition d,uint64_t coefficient,uint64_t when,out uint64_t partAmount)
 {
@@ -80,7 +81,7 @@ void deliverCoordinateParts(inout Runtime s,LandingReceipt r,uint64_t when,uint 
         storeNumber(actorPoolHead(s)+2,when);s.target=0;land(s,d.owner,ACTOR_REF|slot,r.partAmount);
         if(s.error!=0)return;
         coordinateTrace(s,d.owner,slot,gen,r.partAmount,when,true);
-        uint family=results[counterHead(s)+11];results[counterHead(s)+11]=((d.damageFlags&H_CORE)!=0&&d.damageNormal==0)?0:1;
+        uint family=results[counterHead(s)+11];results[counterHead(s)+11]=WORLD_PERIODIC_FAMILY(s,d,((d.damageFlags&H_CORE)!=0&&d.damageNormal==0)?0:1);
         // Canonical target-kind accounting continues after retirement. Its typed
         // receipt and lifesteal follow it; pool hits/dealt only change while live.
         counterPhysicalPacket(s,d.owner,slot,gen,r.partAmount,results[actorPoolHead(s)+19]!=0,when,output);

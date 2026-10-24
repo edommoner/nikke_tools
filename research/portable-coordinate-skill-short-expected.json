@@ -136,7 +136,7 @@
     "gpu/ordered_history_runtime.slang": "7d620776fb4f6076208fa4f585c6e0a7925a05de955fff9ea98f49024537eac8",
     "gpu/native_query_diagnostic.slang": "eb9f3e4aad78941669d35d0260e7275170324b6f82becf361dc19f79bb9ce7e8",
     "gpu/native_snapshot_runtime.slang": "b11b2570c50b3ffa08e2b061a9e126f5183efbf1ec988ce95f95a80d8427e2f7",
-    "gpu/coordinate_skill_runtime.slang": "da15d617f519f9a34c4e8df7c1cb74467a5b379d336581745e667524a4ec9e85",
+    "gpu/coordinate_skill_runtime.slang": "5fdc962f0ae271bf2298b014d3d86238f6cf06e2837056ef224b2c0675e5b5a4",
     "gpu/coordinate_scene.slang": "1a3726f1534b5f93e31c1a72eb3d3a1307ca079e23e327b537d641c4236f3ed8",
     "gpu/coordinate_scene_layout.slang": "b305e295cfda56d41be1a5d90dd4925ac337f44bf16bb5d5da89395294f148ec",
     "gpu/coordinate_packet_layout.slang": "dfb5c268fb3ac0f661a110eb316466307c5b336c58e245ae6c8e49c48fc69710"
@@ -288,7 +288,7 @@
     }
   ],
   "generated_normalized": {
-    "cuda": "c1814fbe2c2815f475db381b520d1bfbed19c3a2dc12ba8806454ec623e18f40",
-    "metal": "0d0c0b96e4a173536a4901c2d8b25ab38c1b1049e74665947e13a1ac42e85fe6"
+    "cuda": "2d0e78d0a185277aa101aeca75338277df93b222562c45933fc84a844a7912e9",
+    "metal": "bc7e52e65c0566930c40c33c8f01e6f30fa4c33fd7ee5d532295211cdf2c321b"
   }
 }
