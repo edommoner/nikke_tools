@@ -3,6 +3,7 @@ import argparse,array,copy,datetime,hashlib,importlib.util,json,struct,sys,subpr
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts'),str(ROOT/'research')]
 import engine_worker
+from world_authored_roster import skill_levels
 from portable_backend import execute,source_hashes
 from portable_runtime import compile_program,decode
 from portable_specs import LIMITS as L
@@ -34,7 +35,7 @@ def compile_case(case):
   if p['kind'] not in ('idle','groggy','attack') or p.get('until',{}).get('targets_cleared') or p.get('spec',{}).get('debuffs'):raise ValueError('World payload is not connected at this frame-coupling stage')
  duration=case['duration'];clock='accumulated' if case['combat'].get('clock')=='accumulated' else 'rational'
  graph,patterns=compile_schedule(dict(patterns=case['patterns'],clock=clock,duration=duration),notice_payload=True)
- chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=dict(engine_worker.META[n],reload_time=case['combat']['weapons'][i]['reload'])) for i,n in enumerate(NAMES)]
+ chars=[dict(name=n,skill_levels=level,_weapon=dict(engine_worker.META[n],reload_time=case['combat']['weapons'][i]['reload'])) for i,(n,level) in enumerate(zip(NAMES,skill_levels(case)))]
  script=[[duration,24,0,0,0,-1,0,0],[duration,30,0,0,0,-1,0,0],[duration,2,0,0,-1,0,0,0]]
  words,meta=compile_program(chars,[(e,NAMES[o]) for e,o in zip(case['effects'],case['owners'])],script,case['base_atk'],combat=case['combat'],world_frame=True,world_notice_names=('target_spawn',) if any('event:target_spawn' in (*p.emit,*p.emit_end) for p in patterns) else (),**case['environment'])
  assert len(words)==86016;words[0]=L['WORLD_FRAME_ABI'];words.extend(graph);words.extend([0]*512)

@@ -5,6 +5,7 @@ ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('ap
 from portable_backend import execute,source_hashes
 from portable_specs import LIMITS as L,FIELDS as F
 import engine_worker
+from world_authored_roster import skill_levels
 from world_skill_native import inspect as inspect_native
 import world_team_cases as cases
 s=importlib.util.spec_from_file_location('fraction_spawn','research/verify-world-spawn.py');spawn=importlib.util.module_from_spec(s);s.loader.exec_module(spawn)
@@ -24,7 +25,7 @@ def compile_case(case):
  from portable_charge_clock_specs import compile_clock
  from portable_enemy_specs import damage_plan
  c=copy.deepcopy(case);c['effects']=compiler_effects(case['effects']);w,m,b=physical.pack.stack.compile_case(c)
- names=roster_names(case);metadata=authored_metadata(case);chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},_weapon=metadata[n]) for n in names]
+ names=roster_names(case);metadata=authored_metadata(case);chars=[dict(name=n,skill_levels=level,_weapon=metadata[n]) for n,level in zip(names,skill_levels(case))]
  original=[(e,names[o]) for e,o in zip(case['effects'],case['owners'])]
  patch_program(w,m,chars,original);bound=bound_effects(original,m,names)
  _,patterns=compile_schedule(dict(patterns=case['patterns'],clock='accumulated',duration=case['duration']),notice_payload=True)

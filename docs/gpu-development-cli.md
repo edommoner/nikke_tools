@@ -1,4 +1,6 @@
 <!-- shared-readback-current -->
+元のレベル別投射物定義にはsealed `destructible-original-battle`（8入力/native8、Metal/独立seal済み）を追加した。5人×スキル1/2/3の明示levelsを共通native/入力経路へ渡し、既存caseはlevel10を維持する。レベル1/5/10とowner4、実burst通知・完了子を検証。元1定義の限定実証であり全プロフィール認定ではない。詳細は docs/portable-destructible-original-battle.md。
+
 現在の型付き実戦入口はsealed `destructible-battle`（44入力/native31・拒否13、Metal/独立seal済み）。通常`projectile-chain-retention`の492入力もsealed経路を使える。詳細は docs/portable-destructible-counter-battle.md。以下は既存経路を含む履歴であり、最新の件数/source readinessはCLI `list`と固定packageを参照する。
 
 保存出力の既存監査器を拡張した。`readback-index --case-words 1048576`は型付き実戦の4MiB/caseを明示し、省略時は従来の786432word。`readback-compare`はSHAで固定したindexの幅を使う。ファイル長から幅を推測しない。`readback-retain`は並べ替え/追加のあるcapture間で元ケースの保持を調べる。2つのcomparison.jsonのSHAを必須とし、成功comparison・一意なcase名・件数・全readback SHA・実caseごとのoutput SHAを読み直してから、元caseのinput/native/output指紋を照合する。

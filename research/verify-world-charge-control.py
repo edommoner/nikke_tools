@@ -8,6 +8,7 @@ from portable_backend import execute,source_hashes
 from portable_specs import LIMITS as L,FIELDS as F
 from portable_charge_control_specs import normalize_static_controls,compile_policy,OWNER_BASE,CLICK_BASE,SEQUENCE_BASE,THRESHOLD_BASE
 from world_frame_native import roster_names,authored_metadata
+from world_authored_roster import skill_levels
 from world_charge_control_native import observe as inspect_native
 from world_charge_control_cases import fixtures
 from calculator import timeline
@@ -16,7 +17,7 @@ INPUT=L['WORLD_CONTROL_INPUT_WORDS'];OUTPUT=655360;SOURCE='gpu/world_charge_cont
 
 def compile_case(case):
  if case.get('sequence'):raise ValueError('Squad focus sequences require common focus adapter')
- w,m,b=team.compile_case(case);names=roster_names(case);chars=[dict(name=n,skill_levels={'1':10,'2':10,'3':10},control=copy.deepcopy(c)) for n,c in zip(names,case['controls'])]
+ w,m,b=team.compile_case(case);names=roster_names(case);chars=[dict(name=n,skill_levels=level,control=copy.deepcopy(c)) for n,c,level in zip(names,case['controls'],skill_levels(case))]
  with patch.dict(timeline._NIKKE,authored_metadata(case)),patch.dict(timeline._DELAYS['_exceptions'],{},clear=True),patch.dict(timeline._DELAYS['_defaults_by_weapon_type'],{'AR':{'post_reload_delay':0}},clear=True):norm=normalize_static_controls(chars,case['base_atk'],case['enemy'],case['control_mode'])
  from portable_team_hit_specs import bound_effects
  effects=bound_effects([(e,names[o]) for e,o in zip(case['effects'],case['owners'])],m,names)

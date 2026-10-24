@@ -1,5 +1,7 @@
 # 実戦投射物カウンターと同期子効果の共通GPU実証
 
+元のレベル別定義を実戦burstへ渡す追加8入力は[元定義の実戦接続](portable-destructible-original-battle.md)を参照。以下の44入力とcounter実証は保持している。
+
 共通CLI `destructible-battle`を44入力（native31・拒否13）へ拡張し、Apple M5のMetalで全件一致、保存rawを別プロセスで再比較する独立sealも成功した。今回GPUソースは変更せず、実戦scheduler・既存Frame・target-counter実行器をそのまま使う。CUDA/Metalで同じ効果定義・入力・比較器を共有するが、この44入力のCUDA実機検証は未完了である。
 
 ## 実証した動作

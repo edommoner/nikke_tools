@@ -1,0 +1,93 @@
+{
+  "package_id": "7f7c13bd5efea8f2d9b8b01c7f02aa2130d032ddcd58abbb453ead00144d54a7",
+  "comparison": {
+    "calculation_verified": true,
+    "entries": [
+      {
+        "name": "destructible-original-battle/level1",
+        "input_sha256": "7aacb7038cbf9db3f7bbb96759cb17b45c285330f0582c9b791e0e230f94f379",
+        "output_sha256": "ac49006fb453cb4cf30c6ed716a69d5293fe3ce904cb86e41b8842aa6b0e9c31",
+        "native_sha256": "e9689bc2502c8223d8c41256450a09ad2e64b7866f9b5eb1eb82123257803cae"
+      },
+      {
+        "name": "destructible-original-battle/level5",
+        "input_sha256": "ea96cc3f88ec8779d1380522a942afbe4442332605e7a74650146150db129af1",
+        "output_sha256": "91da17aed26452775534f67012939fb8cbbe4b29c5b6a87769d242a8f52843d4",
+        "native_sha256": "4d54891bc15fc0575afac92b97bc6a3ed4c157123c0843efaf06dc4c9fa0fa03"
+      },
+      {
+        "name": "destructible-original-battle/level10",
+        "input_sha256": "b981a0a6b341e02870bc9fa4fea732b89a7c65fb08c87faca2e47689155c1180",
+        "output_sha256": "b43285456e69ea34b7b336217c613a571103153136c7747176b1041e71e878a3",
+        "native_sha256": "0a359d66b2b1a7c9c2a2d189c935033665af0c5147c8f4b11241194e46014aa4"
+      },
+      {
+        "name": "destructible-original-battle/defense0",
+        "input_sha256": "f98e3349b978d6a7f97afffe6bc554ca58cd5b7c71b168db54befd6af8b4b56b",
+        "output_sha256": "e72aef337d29058347b82528eada56d72a6c2351332a0b90bd9bb13a37986273",
+        "native_sha256": "1e5f3d6715114584fa653d185cc9684023afe4acb048f8bf82abcea06f95a1a8"
+      },
+      {
+        "name": "destructible-original-battle/live-buff",
+        "input_sha256": "47c38def482e4bc05337efd3378b2196564267994eadd7214d8c918131ff7853",
+        "output_sha256": "558954f755ba0d64f1528a14dc179c49ac87de7eddd4ef0ae886c466e9206cd1",
+        "native_sha256": "6c0a231e4d973cb62f238f19c311566d699956c1091a33048a8aff50d15e25ed"
+      },
+      {
+        "name": "destructible-original-battle/named-child",
+        "input_sha256": "85f10aa42fee4c5ab2d454aec779352d47fac4b5bd8509585aa70d0353724cab",
+        "output_sha256": "7adc1f9577f47552c1d3951bb1a46af33ef34316915aaf04ddf1f86ac40161bf",
+        "native_sha256": "bad3b33d2ead4a77dbecec61da8440c5b4be37d4ed47f911310366475e2dbcae"
+      },
+      {
+        "name": "destructible-original-battle/empty-targets",
+        "input_sha256": "2af26cc6cc14e5b93c913d4cbe062a6e9563aa3663c361a227d0b55f54d8d043",
+        "output_sha256": "b9697ed1305d9f1fe469cb02aa8b3c7fdfb6ce5d829349dfe1162f4015739848",
+        "native_sha256": "5da3f9a637732a19cfc8b19c115a6ae2d8bdf425b4c4b7d703f422e050f161fe"
+      },
+      {
+        "name": "destructible-original-battle/last-owner",
+        "input_sha256": "0bc86a466844c8303f4eae40c13111b5f7f6799ae7e9ea8bdf23bb9ba5baf4c9",
+        "output_sha256": "f1f6804469cd9883036873540b580d248968da4528d92ee23163f7bfa5d00aab",
+        "native_sha256": "be2e95484ac509356e181c3f2a38b46814506d5bb5620170fb50c7452bd53a00"
+      }
+    ],
+    "mismatches": [],
+    "input_count": 8,
+    "native_oracles": 8,
+    "input_sha256": "c7846738bb83c6869d68358460bcdc5732336d5a66b259e9012b6486fe907220",
+    "output_sha256": "73d274b6a90d3aa3ced0f9b2415ce877d75e5f645fc65a4bb89b0bd7bb349436",
+    "generated_normalized": {
+      "cuda": "b2a43558f037e52a9a4af2e1dda46ef746e1c66f6391e684b877faadec118d1e",
+      "metal": "3f1ee8cbdab84582958d17aa7600c6091f93957be14b706c9430cb3b390dbe22"
+    },
+    "audit_gpu_calls": 0
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 8,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 0.05603270838037133,
+    "input_bytes": 3505156,
+    "library_compile_seconds": 0.0021500587463378906,
+    "output_bytes": 33554432,
+    "pipeline_compile_seconds": 0.016867995262145996,
+    "pipeline_lock_wait_seconds": 1.9073486328125e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "runtime_buffer_bytes": 1111616,
+    "runtime_element_capacity": 8,
+    "runtime_physical_stride_verified": true,
+    "runtime_stride_bytes": 138952,
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "generation_cache_hit": true,
+  "compiler_invocations": 0,
+  "independent_seal": true,
+  "new_gpu_dispatches": 1,
+  "same_claim_retries": 0
+}

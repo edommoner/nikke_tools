@@ -1,0 +1,32 @@
+{
+  "character": "스노우 화이트 : 헤비암즈",
+  "index": 24,
+  "definition": {
+    "source": "스킬3",
+    "type": "damage",
+    "name": "세븐스 드워프 풀 액티브 4",
+    "trigger": {
+      "timing": [
+        "burst_cast"
+      ],
+      "condition": []
+    },
+    "target": "all_projectiles",
+    "stat": "damage",
+    "values": {
+      "1": 24.76,
+      "2": 26.66,
+      "3": 28.57,
+      "4": 30.47,
+      "5": 32.38,
+      "6": 34.28,
+      "7": 36.19,
+      "8": 38.09,
+      "9": 40.0,
+      "10": 41.9
+    }
+  },
+  "definition_sha256": "851c2a864650a3e0320a7c965779790f016208f07cade5d8b2ea0c715d9dfb4c",
+  "source": "research/upstream/nikke-calc-master/data/parsed_skills.json",
+  "whole_profile_verified": false
+}

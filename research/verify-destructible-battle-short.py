@@ -5,6 +5,8 @@ ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('ap
 import engine_worker
 from destructible_battle_cases import fixtures
 from destructible_battle_runtime import typed_battle
+from destructible_skill_specs import coefficient
+from world_authored_roster import skill_levels
 from destructible_world_runtime import compile_bindings
 from world_frame_native import observe,roster_names
 from portable_specs import LIMITS as L
@@ -82,7 +84,9 @@ def decode(block,domain):
     for i in range(count):
         at=790000+i*1040;selected=block[at+3];assert 1<=selected<=128 and block[at+10] in (0,1) and not any(block[at+11:at+16])
         source=next(j for j,e in enumerate(c['effects']) if e.get('target')=='all_projectiles')
-        assert block[at+1]==m['binding_source_indices'].index(source) and number(block,at+6)==c['effects'][source]['fixed_value']
+        owner=c['owners'][source]
+        sampled_coefficient=coefficient(c['effects'][source],dict(name=roster_names(c)[owner],skill_levels=skill_levels(c)[owner]))
+        assert block[at+1]==m['binding_source_indices'].index(source) and number(block,at+6)==sampled_coefficient
         receipts=[]
         for j in range(selected):
             p=at+16+j*8;assert block[p+4] in (0,1) and block[p+5] in (0,1)

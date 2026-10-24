@@ -7,6 +7,7 @@ from calculator import timeline,buff_manager
 from enemy_target_native import ObservedRNG
 from timer_registry_cases import NAMES
 from world_schedule_native import cleared_run
+from world_authored_roster import skill_levels
 
 def roster_names(case):
  names=case.get('names',NAMES)
@@ -27,7 +28,7 @@ def authored_metadata(case):
  return metadata
 
 def observe(case):
- NAMES=roster_names(case)
+ NAMES=roster_names(case);levels=skill_levels(case)
  capture={};ends=[];counts={n:0 for n in NAMES};effects=[(copy.deepcopy(e),NAMES[o]) for e,o in zip(case['effects'],case['owners'])]
  bits=lambda v:list(struct.unpack('<II',struct.pack('<d',float(v))))
  original_char=timeline.CharState;original_burst=timeline.BurstController;original_boss=timeline.BossScript
@@ -135,7 +136,7 @@ def observe(case):
    if uid not in ids:ids[uid]=len(ids)+1
  with counter_observer,spawn_observer,fractional_observer,patch.dict(timeline._NIKKE,metadata),patch.dict(buff_manager._NIKKE,metadata),patch.object(timeline,'calc_base_stats',stats),patch.object(buff_manager.BuffManager,'_register_all',register),patch.object(timeline,'CharState',Character),patch.object(timeline,'BurstController',Controller),patch.object(timeline,'BossScript',Boss),patch.object(timeline.random,'Random',ObservedRNG),patch.dict(timeline._DELAYS['_exceptions'],{},clear=True),patch.dict(timeline._DELAYS['_defaults_by_weapon_type'],{'AR':{'post_reload_delay':0}},clear=True):
   if case.get('observe_periodic_skills'):sys.setprofile(periodic_profile)
-  squad=[dict(name=n,skill_levels={'1':10,'2':10,'3':10}) for n in NAMES]
+  squad=[dict(name=n,skill_levels=level) for n,level in zip(NAMES,levels)]
   if 'controls' in case:
    if len(case['controls'])!=5:raise ValueError('Five authored controls required')
    for char,control in zip(squad,case['controls']):char['control']=copy.deepcopy(control)
