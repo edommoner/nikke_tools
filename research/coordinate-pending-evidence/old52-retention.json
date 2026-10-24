@@ -1,0 +1,10 @@
+{
+  "old_input_bytes": 22597120,
+  "old_input_sha256": "1a794305c8f59be1a5909f532906cf6a0d1e222ca4ce754157b7a6b9fb987156",
+  "old_raw_bytes": 218103808,
+  "old_raw_sha256": "3360c8c171e0d4fade8db1d41f82420d2683249fcb13a6ef084d5df06bdc25f8",
+  "old52_input_and_raw_exact": true,
+  "old52_sealed_entries_exact": true,
+  "new_metal_runs": 1,
+  "gpu_retries": 0
+}

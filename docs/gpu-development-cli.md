@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+座標worldの最新private supersetは`coordinate-pending`60（native50／拒否10）です。旧形式B3本体保留を共通executorへ接続し、旧area52を全byte保持しました。opt-in座標保留や全キャラ対応の完了ではありません。[座標B3保留](portable-coordinate-pending.md)を参照してください。
+
 共通wrapperの保存CUBIN戦闘は `gpu-linked` を使用します。2キーrequest・既存出所監査・全stage制限と現full objectの未完了監査は [保存リンク実行](portable-saved-linked-stage.md) を参照してください。
 
 現行suite・入力数・source identityはCLI/package manifestを正とします。最新状態と次の作業は [Mac引き継ぎ](mac-handoff.md)、過去の進捗は [履歴](gpu-development-cli-history.md) に分けています。

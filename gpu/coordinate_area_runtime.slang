@@ -27,7 +27,16 @@ bool coordinateAreaContains(inout Runtime s,uint slot,uint64_t ax,uint64_t ay,ui
     uint64_t distance=coordinateShapeDistance(commands[row+4],cNumber(row+6),cNumber(row+8),cNumber(row+10),cNumber(row+12),cNumber(row+14),cNumber(m+2),cNumber(m+4),ax,ay);
     return coordinateShapeContains(distance,grow);
 }
-bool validCoordinateAreaSkill(inout Runtime s,Definition d){return d.damagePending==0;}
+bool validCoordinateAreaSkill(inout Runtime s,Definition d)
+{
+#ifdef PORTABLE_COORDINATE_LEGACY_PENDING
+    // The legacy B3 queue produces body-only HitEvents; ordinary opt-in
+    // landing damage is a different native path and remains unconnected.
+    return d.damagePending<=1;
+#else
+    return d.damagePending==0;
+#endif
+}
 // This narrow hook fills the already-existing interruption receipt fields.
 uint64_t sampleCoordinateAreaSkill(inout Runtime s,Definition d,uint64_t coefficient,uint64_t when,out uint64_t partAmount,out uint64_t interruptAmount,out uint interruptReach)
 {
@@ -72,6 +81,11 @@ void captureCoordinateAreaCast(inout Runtime s,Definition d,uint depth,uint64_t 
 }
 void deliverCoordinateAreaTargets(inout Runtime s,LandingReceipt r,uint64_t when,uint output)
 {
+#ifdef PORTABLE_COORDINATE_LEGACY_PENDING
+    // Its body already landed through the common pending/skill executor.
+    // There is deliberately no coordinate cast snapshot for this queue.
+    if(r.coordinatePacket==0&&readDefinition(s.inputBase,r.row).damagePending==1)return;
+#endif
     if(r.coordinatePacket==0||r.coordinatePacket>CP_PACKET_COUNT){s.error=64;return;}
     uint at=s.resourceOutput+CP_PACKETS+(r.coordinatePacket-1)*CP_SNAPSHOT_WORDS,count=results[at];Definition d=readDefinition(s.inputBase,r.row);
     if(results[at+1]!=0x43505331U||results[at+2]!=r.row||count>127){s.error=64;return;}
