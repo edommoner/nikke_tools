@@ -1,5 +1,8 @@
 # 共通GPU検証CLI
 
+決定的な共通数値profile `coordinate-binary64-v1`のsin/cos・atan2・acos・整数sqrtを共通IRからCPU／Slangへ実装。sealed `coordinate-numeric`2783（共通CPU2771／拒否12）がM5 Metal全word一致・独立seal、独立Decimal10451入力は最大1/1/1/2/0 ULP。共通CLI `numeric-audit`追加、最終CPU9／関連・制御436（Win1skip）、full2944→compact1614全残存byte一致。新GPU1／retry0、旧5suite再実行0。CUDAの新規計算実証は未取得。回転caller・arc生成・積分・物理packet・共通resident戦闘への接続と公開受付は未完了。全キャラ0／20gap／UI CPU／目標未達。詳細[共通数値v1](portable-coordinate-numeric-v1.md)とresearch/portable-coordinate-numeric-v1-checkpoint.json。以下は履歴。
+
+
 `coordinate-arc-scalar`640入力（native632／拒否8）は、共通の円弧wrap／shift／補償付きmeasureと、生成被覆の差・交差をMetalで実証・独立seal済みです。active区間だけを移動する最適化でも全rawを保持し、今回のGPU測定は2.52秒→0.037秒。数値方針は明示回答により決定的な共通規約へ選定済みで、`model-check`は選択済み／共通三角関数未実装を分けます。[円弧の数値演算](portable-coordinate-arc-scalar.md)を参照してください。
 
 `model-check --out /tmp/new-model.json`で、既存の未対応分類・正本consumer・共通arena監査と、座標物理弾の依存関係をまとめて確認できます。CPU/GPU計算を実行せず、旧GPU証明とcurrent sourceの不一致も明記します。`coordinate-arcs`135入力は遮蔽に必要な共通区間演算をM5 Metalで実証・独立seal済みです。物理着弾全体の接続は未完了。[座標物理の移植境界](portable-coordinate-physical-frontier.md)を参照してください。

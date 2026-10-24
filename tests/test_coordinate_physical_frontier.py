@@ -23,6 +23,11 @@ class FrontierTests(unittest.TestCase):
         self.assertFalse(result['public_gpu_admitted'])
         self.assertFalse(result['coordinate_skill_shape_contains_is_physical_landing'])
         self.assertFalse(result['logical_pellets_equal_emitted_packets'])
+        numeric=result['deterministic_numeric_primitives']
+        self.assertEqual(numeric['reference_kind'],'deterministic-common-cpu')
+        self.assertEqual(numeric['contract'],'coordinate-binary64-v1')
+        self.assertFalse(numeric['battle_connected'])
+        self.assertFalse(numeric['full_numeric_policy_implemented'])
         self.assertEqual((result['gpu_calls'], result['native_battle_calls']), (0, 0))
         rows = {r['id']: r for r in result['dependencies']}
         self.assertEqual(len(rows), 7)

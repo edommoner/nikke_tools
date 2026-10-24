@@ -67,6 +67,14 @@ def verify(root, overrides=None):
     # Absence is explicit; it must not become support or block new development.
     scalar_matches=(json.loads(scalar_path.read_text())['source_sha256']==scalar_sources
                     if scalar_path.is_file() else None)
+    from portable_coordinate_numeric_v1 import PROFILE,contract_sha256,check_schema
+    check_schema(root)
+    numeric_sources=source_hashes(root,'gpu/coordinate_numeric_probe.slang')
+    numeric_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest()
+                     if name in overrides else digest for name,digest in numeric_sources.items()}
+    numeric_path=root/'research/portable-coordinate-numeric-short-expected.json'
+    numeric_matches=(json.loads(numeric_path.read_text())['source_sha256']==numeric_sources
+                     if numeric_path.is_file() else None)
     dependencies = [
         dict(id='landing-probability', classification='gpu_port_gap',
              native='Geometry.landing -> aim.landing',
@@ -115,6 +123,13 @@ def verify(root, overrides=None):
                     operations=['positive-modulo','arc-wrap','arc-shift','compensated-measure'],
                     zero_width_arc_preserved=True, existing_runtime_sum_reused=True,
                     does_not_include=['acos','atan2','radial-quadrature']),
+                deterministic_numeric_primitives=dict(suite='coordinate-numeric',
+                    contract=PROFILE,contract_sha256=contract_sha256(),
+                    proof_available=numeric_matches is not None,sealed_source_matches_current=numeric_matches,
+                    source_sha256=numeric_sources,reference_kind='deterministic-common-cpu',
+                    operations=['sincos-degrees','sincos-bounded-radians','atan2','acos','sqrt'],
+                    battle_connected=False,full_numeric_policy_implemented=False,
+                    native_host_disagreement_evidence_preserved=True),
                 logical_pellets_equal_emitted_packets=False, dependencies=dependencies,
                 source_sha256={p: hashlib.sha256(t.encode()).hexdigest() for p, t in texts.items()},
                 model_gap_audit=model, gpu_calls=0, native_battle_calls=0,

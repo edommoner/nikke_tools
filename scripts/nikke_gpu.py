@@ -322,6 +322,7 @@ SUITES['coordinate-composed']=dict(SUITES['coordinate-generation'],script='resea
 SUITES['coordinate-arcs']=dict(script='research/verify-coordinate-arcs-short.py',source='gpu/coordinate_arc_probe.slang',golden='research/portable-coordinate-arcs-short-expected.json',inputs=135,native=126,output_words=4100,development_only=False,upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'],tests=['test_coordinate_arcs.py','test_coordinate_physical_frontier.py'])
 SUITES['coordinate-composed']['support_files']=[*SUITES['coordinate-generation'].get('support_files',[]),'research/portable-coordinate-arcs-short-expected.json']
 SUITES['coordinate-arc-scalar']=dict(script='research/verify-coordinate-arc-scalar-short.py',source='gpu/coordinate_arc_scalar_probe.slang',golden='research/portable-coordinate-arc-scalar-short-expected.json',inputs=640,native=632,output_words=4104,development_only=False,tests=['test_coordinate_arc_scalar.py','test_portable_model_gap_audit.py','test_coordinate_physical_frontier.py'],upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'],support_files=['research/portable-coordinate-arcs-short-expected.json'])
+SUITES['coordinate-numeric']=dict(script='research/verify-coordinate-numeric-short.py',source='gpu/coordinate_numeric_probe.slang',golden='research/portable-coordinate-numeric-short-expected.json',inputs=2783,native=2771,output_words=16,development_only=False,tests=['test_coordinate_numeric_v1.py'])
 SUITES['skill-part-codec']=dict(script='research/verify-skill-part-codec-short.py',source='gpu/skill_part_codec_probe.slang',
     golden='research/portable-skill-part-codec-short-expected.json',inputs=4,native=3,development_only=False,
     tests=['test_portable_skill_part_codec.py'])
@@ -2575,6 +2576,7 @@ def main(argv=None):
     a=sub.add_parser('layout-check');a.add_argument('--out',type=Path)
     from portable_arena_specs import PROFILES as ARENA_PROFILES
     a=sub.add_parser('arena-check');a.add_argument('--profile',choices=ARENA_PROFILES,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('numeric-audit');a.add_argument('--out',type=Path,required=True);a.add_argument('--samples',type=int,default=512)
     a=sub.add_parser('model-check');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('reference');a.add_argument('--suite',choices=REFERENCES,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('phase-codegen');a.add_argument('--out',type=Path,required=True);a.add_argument('--slang-root',type=Path)
@@ -2688,6 +2690,11 @@ def main(argv=None):
         if a.out.exists():raise ValueError('Arena audit output already exists')
         with forbid_gpu():result={**audit_live_sources(ROOT),**audit_profile(a.profile)}
         write(a.out,result)
+    elif a.command=='numeric-audit':
+        from coordinate_numeric_accuracy import audit as numeric_audit
+        if a.out.exists():raise ValueError('Numeric accuracy audit output already exists')
+        with forbid_gpu():result=numeric_audit(ROOT,a.samples)
+        with a.out.open('x',encoding='utf-8') as stream:json.dump(result,stream,ensure_ascii=False,indent=2);stream.write('\n')
     elif a.command=='model-check':
         from portable_coordinate_frontier import verify as audit_frontier
         if a.out.exists():raise ValueError('Model audit output already exists')
