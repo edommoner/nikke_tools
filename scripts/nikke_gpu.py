@@ -347,6 +347,7 @@ SUITES['coordinate-round']=dict(script='research/verify-coordinate-round-short.p
 SUITES['coordinate-cache']=dict(SUITES['coordinate-core'],script='research/verify-coordinate-cache-short.py',source='gpu/world_coordinate_cache_entry.slang',golden='research/portable-coordinate-cache-short-expected.json',inputs=133,native=118,development_only=False,tests=[*SUITES['coordinate-core']['tests'],'test_coordinate_round.py','test_coordinate_cache.py'])
 SUITES['coordinate-cache']['support_files']=[*SUITES['coordinate-core']['support_files'],'research/portable-coordinate-core-short-expected.json','research/portable-coordinate-round-short-expected.json','research/portable-compiler-full--coordinate-cache-source-certificate.json']
 SUITES['coordinate-matrix']=dict(SUITES['coordinate-cache'],script='research/verify-coordinate-matrix-short.py',golden='research/portable-coordinate-matrix-short-expected.json',inputs=151,native=136,development_only=False,tests=[*SUITES['coordinate-cache']['tests'],'test_coordinate_matrix.py'])
+SUITES['coordinate-matrix']['tests'].append('test_coordinate_aim_reference.py')
 SUITES['coordinate-matrix']['support_files']=[*SUITES['coordinate-cache']['support_files'],'research/portable-coordinate-cache-short-expected.json']
 SUITES['skill-part-codec']=dict(script='research/verify-skill-part-codec-short.py',source='gpu/skill_part_codec_probe.slang',
     golden='research/portable-skill-part-codec-short-expected.json',inputs=4,native=3,development_only=False,

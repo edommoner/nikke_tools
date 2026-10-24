@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`reference --suite coordinate-aim-common --out /tmp/new.json` は手動照準・camera調停の共通CPU30契約（GPU0／packing0）を検査する。定時skillの前回照準と、調停後physicalの新照準を区別する。静的IR／GPU接続の残件は[照準接続契約](portable-coordinate-aim-contract.md)を参照。
+
 `coordinate-matrix`151（共通CPU136／拒15）は範囲スキルの静的回転係数を共通数値規約へ接続したsealed profile。旧cache133の全input／rawを保持し、18worldを追加。CUDA／Metal共通実行器・生成cacheをそのまま再利用する。[共通area matrix](portable-coordinate-matrix-common.md)を参照。
 
 `coordinate-cache`133（共通CPU118／拒否15）と`coordinate-round`9046（正例9039／拒否7）はM5 Metalで全word照合・独立seal済み。共通CLIの通常手順を使う。Geometryごとの最初のLandingを全射手で共有し、127対象時231件／対象0時4096件を超えると明示拒否する。旧120の入力／元nativeと全semantic領域を保持し、作業scratchと新cacheは別profile指紋。現在のWindows CUDA実行は未取得。[Geometry cache](portable-coordinate-cache.md)を参照。
