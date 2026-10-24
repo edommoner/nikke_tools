@@ -61,7 +61,11 @@
     "outer_missing_processes": 9,
     "missing_process_cause": "unknown",
     "gpu_calls": 0,
-    "export_state": "pending-approved-saved-export-only"
+    "export_state": "imported-all15-size-sha-verified",
+    "report_commit": "da8051535d135009e5a72e3e8cb19beb4a777ff1",
+    "strict_normalized_matches_current_mixed81": true,
+    "raw_identity_matches_current": false,
+    "cache_rebinding_allowed": false
   },
   "remaining": [
     "ordinary distance/shape selection",

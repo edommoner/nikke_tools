@@ -24,7 +24,7 @@ DoT+200%とpart+50%は正本の同じ数量層へ加算する。基礎2000なら
 
 ## Windows保存結果
 
-接続復旧後は既存PTX結果のstatus/exportのみを依頼し、再実行はしていない。NVRTCは26.302秒で9554090byteのPTX生成に成功、Slang生成cache hit。全stage97.422秒のうち親package検査40.865秒、子package検査12.761秒、artifact compile26.534秒（入れ子の値は合算しない）。driver/link/GPU0。外側観測で9プロセス欠落・原因unknownのためstage/環境保全はfalseであり、compiler成功と分けて保持する。共有15ファイルへの個別承認を受け、保存exportのみ進行。
+接続復旧後は既存PTX結果のstatus/exportのみを依頼し、再実行はしていない。NVRTCは26.302秒で9554090byteのPTX生成に成功、Slang生成cache hit。全stage97.422秒のうち親package検査40.865秒、子package検査12.761秒、artifact compile26.534秒（入れ子の値は合算しない）。driver/link/GPU0。外側観測で9プロセス欠落・原因unknownのためstage/環境保全はfalseであり、compiler成功と分けて保持する。共有15ファイルへの個別承認を受け、固定commit `da8051535d135009e5a72e3e8cb19beb4a777ff1` をMacへ取得し、manifestを含む計9634581byteの全サイズ/SHAを照合した。正規化CUDA/MSLは現mixed81と一致するが、生成raw/source閉包identityは異なるため現packageへPTX cacheを再bindしてはならない。保存PTXは別branchに保持し本実装branchへ重複梱包しない。
 
 ## 残件
 
