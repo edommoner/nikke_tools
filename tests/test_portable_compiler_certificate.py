@@ -19,6 +19,18 @@ class CompilerCertificateTests(unittest.TestCase):
     def make(self,*,audit=None,sources=None,output=None):
         with patch.object(cli,'ROOT',self.root),patch.object(cli,'verify_package',return_value=self.m),patch.object(cli,'audit_saved_metal',audit or self.audit),patch.object(backend,'source_hashes',return_value=sources or self.baseline['source_sha256']),cli.forbid_gpu():
             return cli.make_compiler_certificate(self.suite,self.package,self.capture,output or self.root/'evidence')
+    def test_current_long_battle_full_certificate_keeps_the_entire_shared_runtime(self):
+        suite='attack-group-long';name=alias(suite);config=cli.SUITES[name]
+        baseline=cli.load(ROOT/cli.SUITES[suite]['golden']);proof=cli.load(ROOT/config['golden'])
+        self.assertEqual(config['source'],cli.SUITES[suite]['source'])
+        self.assertNotEqual(config['source'],cli.SUITES['compiler-commands']['source'])
+        self.assertEqual(proof,certificate(suite,baseline,(ROOT/cli.SUITES[suite]['golden']).read_bytes()))
+        self.assertEqual(proof['source_sha256'],backend.source_hashes(config['source']))
+        self.assertIn('gpu/attack_group_runtime.slang',proof['source_sha256'])
+        self.assertIn('gpu/program_phases.slang',proof['source_sha256'])
+        self.assertEqual(config['inputs'],0);self.assertEqual(config['native'],0)
+        self.assertFalse(proof['calculation_verified']);self.assertFalse(proof['executable_battle_verified'])
+
     def test_registered_aliases_keep_exact_source_and_existing_commands_unchanged(self):
         cfg=cli.SUITES[alias(self.suite)];self.assertEqual(cfg['source'],self.config['source']);self.assertEqual(cfg['support_files'],[self.config['golden']]);self.assertTrue(cli.full_compiler(dict(suite=alias(self.suite))))
         self.assertFalse(cli.full_compiler(dict(suite='compiler-commands')));self.assertTrue(cli.full_compiler(dict(suite='compiler-full')))

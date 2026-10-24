@@ -9,7 +9,9 @@ from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 COMPILE_STAGES=('compile-ptx','compile-cubin-o0')
-STAGES=('cpu','smoke','generation','gpu',*COMPILE_STAGES)
+OBJECT_STAGES={'module-object':('source_package','source_capture','cache_entry','phases','ptxas'),
+               'jit-link-object':('object_package','object_capture','object_sha256','nvjitlink')}
+STAGES=('cpu','smoke','generation','gpu',*COMPILE_STAGES,*OBJECT_STAGES)
 
 def is_windows():return os.name=='nt'
 
@@ -29,11 +31,40 @@ def verified_generation(proof,package_id):
         and all(type(proof.get(key,0)) is int and proof.get(key,0)==0 for key in ('gpu_calls','driver_load_calls','nvrtc_compile_calls'))
         and 'gpu_calls' in proof)
 
-def recipe(package_id,stage,backend,capture,original_workspace,timeout):
+def object_request(stage,value):
+    if stage not in OBJECT_STAGES:
+        if value is not None:raise ValueError('Only saved-object stages accept a request')
+        return None
+    fields=OBJECT_STAGES[stage]
+    if type(value) is not dict or set(value)!=set(fields):raise ValueError('Exact saved-object request fields required')
+    result={}
+    for key in fields:
+        item=value[key]
+        if not isinstance(item,str) or not item or any(c in item for c in ('\x00','\r','\n')):raise ValueError('Invalid saved-object request value')
+        if key=='object_sha256':
+            if len(item)!=64 or any(c not in '0123456789abcdef' for c in item):raise ValueError('Exact saved-object SHA256 required')
+            result[key]=item
+        else:
+            if not Path(item).is_absolute():raise ValueError('Absolute saved-object paths required')
+            result[key]=str(Path(item).resolve())
+    return result
+
+
+def verified_object(proof,stage):
+    return bool(proof and stage in OBJECT_STAGES and proof.get('mode')==stage+'-only'
+        and proof.get('object_verified') is True and proof.get('containment_verified') is True
+        and proof.get('calculation_verified') is False
+        and proof.get('link_verified') is (stage=='jit-link-object')
+        and type(proof.get('kernel_calls')) is int and proof['kernel_calls']==0
+        and all(type(proof.get(k,0)) is int and proof.get(k,0)==0 for k in ('gpu_calls','driver_load_calls','nvrtc_compile_calls')))
+
+
+def recipe(package_id,stage,backend,capture,original_workspace,timeout,request=None):
     if stage not in STAGES or backend not in ('metal','cuda') or type(timeout) is not int or not 1<=timeout<=180:raise ValueError('Invalid packet stage or budget')
-    if stage in COMPILE_STAGES and backend!='cuda':raise ValueError('Compilation requires CUDA backend')
+    if stage in (*COMPILE_STAGES,*OBJECT_STAGES) and backend!='cuda':raise ValueError('Compilation requires CUDA backend')
+    request=object_request(stage,request)
     capture=Path(capture).resolve();original=Path(original_workspace).resolve() if original_workspace else None
-    if stage in COMPILE_STAGES and original is None:raise ValueError('Compilation requires an original workspace')
+    if stage in (*COMPILE_STAGES,*OBJECT_STAGES) and original is None:raise ValueError('Compilation requires an original workspace')
     if capture==ROOT or ROOT in capture.parents:raise ValueError('Stage capture must be outside the immutable package')
     if original is not None and (original==ROOT or original==capture or original in capture.parents):raise ValueError('Use an isolated capture outside the original workspace')
     if is_windows() and original is None:raise ValueError('Windows requires an explicit original workspace')
@@ -42,9 +73,15 @@ def recipe(package_id,stage,backend,capture,original_workspace,timeout):
         cache=os.environ.get('NIKKE_SLANG_GENERATION_CACHE')
         if not cache or not Path(cache).is_absolute():raise ValueError('Generation stage requires an absolute Slang generation cache')
         plan['generation_cache']=str(Path(cache).resolve())
+    if request is not None:plan['object_request']=request
     return plan
 
 def proof_arguments(plan):
+    if plan['stage'] in OBJECT_STAGES:
+        request=object_request(plan['stage'],plan['object_request'])
+        arguments=[plan['stage'],'--capture',plan['proof_capture'],'--timeout',str(plan['inner_gpu_timeout_seconds']),'--original-workspace',plan['original_workspace']]
+        for key in OBJECT_STAGES[plan['stage']]:arguments.extend(['--'+key.replace('_','-'),request[key]])
+        return arguments
     if plan['stage']=='generation':
         return ['generation','--out',plan['proof_capture'],'--generation-cache',plan['generation_cache'],'--packet-stage',plan['capture']]
     if plan['stage'] in COMPILE_STAGES:
@@ -70,7 +107,7 @@ def child(folder):
     plan=json.loads((folder/'recipe.json').read_text())
     if plan['capture']!=str(folder.resolve()):raise ValueError('Stage recipe directory changed')
     cli=load_module('packet_child_cli',ROOT/'scripts/nikke_gpu.py');manifest=packet_header(cli)
-    expected=recipe(manifest['package_id'],plan['stage'],plan['backend'],folder,plan['original_workspace'],plan['timeout_seconds'])
+    expected=recipe(manifest['package_id'],plan['stage'],plan['backend'],folder,plan['original_workspace'],plan['timeout_seconds'],plan.get('object_request'))
     if plan!=expected:raise ValueError('Packet stage recipe changed')
     save(folder/'child.json',dict(pid=os.getpid(),ppid=os.getppid(),package_id=manifest['package_id'],started_unix_ns=time.time_ns(),scope='Identity record only; liveness requires the owning process handle'))
     deadline=time.monotonic()+30
@@ -96,10 +133,10 @@ def child(folder):
             stack.enter_context(patch.object(cli,name,observed))
         journal.invoke('packet_shared_cli',cli.main)
 
-def run_stage(folder,stage,backend,timeout,original_workspace=None):
+def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None):
     started=time.monotonic()
     cli=load_module('packet_stage_cli',ROOT/'scripts/nikke_gpu.py');manifest=packet_header(cli)
-    plan=recipe(manifest['package_id'],stage,backend,folder,original_workspace,timeout);folder=Path(plan['capture'])
+    plan=recipe(manifest['package_id'],stage,backend,folder,original_workspace,timeout,request);folder=Path(plan['capture'])
     folder.mkdir(parents=True,exist_ok=False);save(folder/'recipe.json',plan)
     from portable_phase_audit import Journal
     journal=Journal(folder/'preparation.jsonl')
@@ -134,18 +171,24 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None):
     comparison=observation.get('comparison',{})
     process_preserved=comparison.get('all_monitored_processes_preserved')
     environment_preserved=bool(process_preserved is True and comparison.get('identified_nikke_service_preservation_verified') is True and facts.get('observation_error') is None) if is_windows() else None
-    key={'cpu':'cpu_verified','smoke':'smoke_verified','generation':'verified','gpu':'passed',**{name:'compiler_verified' for name in COMPILE_STAGES}}[stage]
+    key={'cpu':'cpu_verified','smoke':'smoke_verified','generation':'verified','gpu':'passed',**{name:'compiler_verified' for name in COMPILE_STAGES},**{name:'object_verified' for name in OBJECT_STAGES}}[stage]
     compiler_verified=bool(proof and proof.get('mode')=='compile-only' and proof.get('compiler_verified') is True and proof.get('calculation_verified') is False and type(proof.get('gpu_calls')) is int and proof['gpu_calls']==0 and type(proof.get('driver_load_calls')) is int and proof['driver_load_calls']==0)
     generation_verified=verified_generation(proof,manifest['package_id'])
     if stage not in COMPILE_STAGES:compiler_verified=False
-    verified=compiler_verified if stage in COMPILE_STAGES else generation_verified if stage=='generation' else bool(proof and proof.get(key))
+    diagnostic_verified=verified_object(proof,stage) if stage in OBJECT_STAGES else False
+    verified=compiler_verified if stage in COMPILE_STAGES else diagnostic_verified if stage in OBJECT_STAGES else generation_verified if stage=='generation' else bool(proof and proof.get(key))
     stage_verified=bool(facts['passed'] and verified)
-    result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,compiler_verified=compiler_verified,generation_verified=generation_verified if stage=='generation' else False,calculation_verified=bool(stage not in (*COMPILE_STAGES,'generation') and proof and proof.get('calculation_verified')),cpu_verified=bool(proof and proof.get('cpu_verified')),smoke_verified=bool(proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
+    result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,compiler_verified=compiler_verified,generation_verified=generation_verified if stage=='generation' else False,calculation_verified=bool(stage not in (*COMPILE_STAGES,*OBJECT_STAGES,'generation') and proof and proof.get('calculation_verified')),cpu_verified=bool(proof and proof.get('cpu_verified')),smoke_verified=bool(proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
+    if stage in OBJECT_STAGES:result.update(diagnostic_verified=diagnostic_verified,object_verified=diagnostic_verified,link_verified=bool(diagnostic_verified and stage=='jit-link-object'))
     save(folder/'stage-result.json',result);return result
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--capture',type=Path,required=True);parser.add_argument('--stage',choices=STAGES);parser.add_argument('--backend',choices=('metal','cuda'));parser.add_argument('--timeout',type=int,default=180);parser.add_argument('--original-workspace');parser.add_argument('--_child',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--capture',type=Path,required=True);parser.add_argument('--stage',choices=STAGES);parser.add_argument('--backend',choices=('metal','cuda'));parser.add_argument('--timeout',type=int,default=180);parser.add_argument('--original-workspace');parser.add_argument('--request',type=Path);parser.add_argument('--_child',action='store_true');args=parser.parse_args()
     if args._child:child(args.capture.resolve());return
     if not args.stage or not args.backend:parser.error('--stage and --backend required')
-    result=run_stage(args.capture,args.stage,args.backend,args.timeout,args.original_workspace);print(json.dumps(result));raise SystemExit(0 if result['stage_verified'] else 1)
+    request=None
+    if args.request:
+        if args.request.stat().st_size>16384:raise ValueError('Saved-object request exceeds16KiB')
+        request=json.loads(args.request.read_text(encoding='utf-8'))
+    result=run_stage(args.capture,args.stage,args.backend,args.timeout,args.original_workspace,request);print(json.dumps(result));raise SystemExit(0 if result['stage_verified'] else 1)
 if __name__=='__main__':main()

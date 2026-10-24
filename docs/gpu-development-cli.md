@@ -1,3 +1,7 @@
+<!-- current-full-compiler-packet -->
+現在のMetal60をGPU0で独立再監査しcompiler-full--attack-group-longの全source証明書を登録。旧本体で成功したPTX→object→JITlinkを再利用する方針で、現全ソースPTX専用1回をWindowsへ依頼。接続不可のため実行状態・結果はunknown、再依頼0。共通packetへ既存module-object/JITlink CLIを固定request/外Job/内60外180秒/2GiBで接続し、CPU191＋制御391(Win1skip)成功。source/数値/golden変更0・新GPU0。v2へ移行する場合は成功済みPTX cache必須でNVRTC0のproducerを同ownerへ作り、providerのpackage ID条件を維持する。新stage実Windowsは未確認。全キャラ0/20gap/UI CPU/未達。詳細 [現在の全本体コンパイル経路](portable-current-full-compiler.md) とresearch/portable-current-full-compiler-checkpoint.json。
+<!-- /current-full-compiler-packet -->
+
 <!-- long-group-history-current -->
 
 <!-- cuda-packet-preparation-current -->

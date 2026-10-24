@@ -6,6 +6,48 @@ from unittest.mock import patch,Mock
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 spec=importlib.util.spec_from_file_location('packet_stage',ROOT/'scripts/run-gpu-packet.py');stage=importlib.util.module_from_spec(spec);spec.loader.exec_module(stage)
 class PacketStageTests(unittest.TestCase):
+    def request(self,mode,base):
+        return {key:('a'*64 if key=='object_sha256' else str((base/key).resolve())) for key in stage.OBJECT_STAGES[mode]}
+    def test_saved_object_stages_only_forward_exact_paths_to_existing_cli(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d)
+            for mode,fields in stage.OBJECT_STAGES.items():
+                request=self.request(mode,base)
+                p=stage.recipe('id',mode,'cuda',base/'capture',base/'original',180,request)
+                arguments=stage.proof_arguments(p)
+                expected=[mode,'--capture',p['proof_capture'],'--timeout','60','--original-workspace',p['original_workspace']]
+                for key in fields:expected.extend(['--'+key.replace('_','-'),request[key]])
+                self.assertEqual(arguments,expected);self.assertEqual(p['memory_limit_mb'],2048)
+                self.assertNotIn('--candidate',arguments);self.assertNotIn('--ptxas-level',arguments)
+                self.assertNotIn('--cpu-only',arguments);self.assertNotIn('run',arguments)
+                with self.assertRaisesRegex(ValueError,'CUDA backend'):stage.recipe('id',mode,'metal',base/'capture',base/'original',180,request)
+                with self.assertRaisesRegex(ValueError,'original workspace'):stage.recipe('id',mode,'cuda',base/'capture',None,180,request)
+    def test_saved_object_requests_reject_injected_options_or_ambiguous_paths(self):
+        base=Path(tempfile.gettempdir()).resolve()
+        for mode in stage.OBJECT_STAGES:
+            good=self.request(mode,base)
+            for bad in (None,[],{},dict(good,extra='--gpu'),dict(good,**{next(iter(good)):'relative'}),dict(good,**{next(iter(good)):True}),dict(good,**{next(iter(good)):'bad\npath'})):
+                with self.subTest(mode=mode,bad=bad),self.assertRaises(ValueError):stage.object_request(mode,bad)
+        for value in ('A'*64,'a'*63,'g'*64):
+            with self.assertRaisesRegex(ValueError,'SHA256'):stage.object_request('jit-link-object',dict(self.request('jit-link-object',base),object_sha256=value))
+        with self.assertRaisesRegex(ValueError,'Only saved-object'):stage.recipe('id','gpu','cuda',base/'capture',None,180,{'extra':'value'})
+    def test_saved_object_scope_and_outer_failure_cannot_become_battle_success(self):
+        for mode in stage.OBJECT_STAGES:
+            good=dict(mode=mode+'-only',object_verified=True,containment_verified=True,calculation_verified=False,link_verified=mode=='jit-link-object',kernel_calls=0)
+            variants=[({},True),({},False),({'mode':'gpu'},True),({'object_verified':False},True),({'containment_verified':False},True),({'calculation_verified':True},True),({'kernel_calls':1},True),({'kernel_calls':False},True),({'link_verified':mode!='jit-link-object'},True),({'driver_load_calls':1},True),({'nvrtc_compile_calls':1},True)]
+            for change,outer_passed in variants:
+                with tempfile.TemporaryDirectory() as d:
+                    base=Path(d);root=base/'packet';root.mkdir();folder=base/'stage';proof=dict(good,**change)
+                    def bounded(*args,**kwargs):
+                        self.assertEqual(kwargs['env']['NIKKE_VALIDATION_JOB_MEMORY_MB'],'2048')
+                        (folder/'proof').mkdir();(folder/'proof/result.json').write_text(json.dumps(proof));return dict(passed=outer_passed)
+                    cli=SimpleNamespace(bounded_module=lambda:SimpleNamespace(run_bounded=bounded),validation_environment=lambda _:dict())
+                    with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='id')),patch.object(stage,'load_module',return_value=cli),patch.object(stage,'is_windows',return_value=False):
+                        result=stage.run_stage(folder,mode,'cuda',180,base/'original',self.request(mode,base))
+                    self.assertEqual(result['diagnostic_verified'],not change)
+                    self.assertEqual(result['stage_verified'],not change and outer_passed)
+                    self.assertFalse(result['calculation_verified']);self.assertFalse(result['compiler_verified']);self.assertFalse(result['generation_verified'])
+
     def test_generation_is_separate_cpu_only_preparation(self):
         with patch.dict(stage.os.environ,{'NIKKE_SLANG_GENERATION_CACHE':str(Path('/tmp/generation-cache').resolve())}):
             p=stage.recipe('id','generation','cuda','/tmp/generated-stage','/tmp/original',180)
