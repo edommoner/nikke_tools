@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "cpu24.json",
+      "bytes": 1429,
+      "sha256": "8d80f2460003473a85eed0b51e9028f52fb195d237cd9d1c80fafd13a4c2565f"
+    },
+    {
+      "path": "inventory-preservation.json",
+      "bytes": 320,
+      "sha256": "46182e7ad9927e003d4bb6570d2c5a86e2046b07eddc3f41c72f990e6e956d97"
+    },
+    {
+      "path": "metal2.json",
+      "bytes": 2581,
+      "sha256": "f61ab316963014299956934c643e0154ec7d76bba18b0e24d22daf58df7b1316"
+    },
+    {
+      "path": "package-support-failure.json",
+      "bytes": 517,
+      "sha256": "6479d3328cd5339de9d8c1014e3b0b0c6a3465948966e7125553887c46e86c13"
+    },
+    {
+      "path": "reference2.json",
+      "bytes": 229569,
+      "sha256": "b20c2e0942f4ddcc702f66dda16cfca266899cacea3c1436efba8b444741a564"
+    },
+    {
+      "path": "sealed-generation.json",
+      "bytes": 515,
+      "sha256": "cc336c8eefef7b189f970d829c04340b1bd2d9a17ffe2da9a77f0b128deb259c"
+    },
+    {
+      "path": "source-preservation.json",
+      "bytes": 16988,
+      "sha256": "03f59ed2a2f5d76144128adb451ed734cc344d37b3e5bbce9982fe6f50778f27"
+    },
+    {
+      "path": "sparse141.json",
+      "bytes": 571,
+      "sha256": "64577125012a4f9450db0524e7c4887d3031bd11cc28a4528b4b0f4dc6edb7f5"
+    },
+    {
+      "path": "storage-before-gpu.json",
+      "bytes": 246,
+      "sha256": "cd70a8ac431a2a91422993c3939c72e44e2da3a94583ff344781ba149c71c6d8"
+    },
+    {
+      "path": "storage-before-input.json",
+      "bytes": 247,
+      "sha256": "43d7098b2feb1194a4b64b2e7530d46e6abfd58d3cb641eec22fdd31d5d94704"
+    },
+    {
+      "path": "storage-before-stop.json",
+      "bytes": 247,
+      "sha256": "14d867efd35f868597e084fe9797f3504d6dde6392754adfa8ed68a22c925478"
+    }
+  ],
+  "total_bytes": 253230,
+  "scope": "Complete original Misato roster under declared weapon-only shield policy; no raw/settings/compiler distribution"
+}

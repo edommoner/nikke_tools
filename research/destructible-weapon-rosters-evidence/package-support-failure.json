@@ -1,0 +1,12 @@
+{
+  "package_id": "89be083791f5c3da8ba8f744eb688e8b909093947e82ad6f3b58f0511017c0d2",
+  "stage": "cpu-tests",
+  "failed_pattern": "test_destructible_weapon_rosters.py",
+  "tests": 7,
+  "exit_code": 1,
+  "missing_support_file": "research/portable-destructible-weapon-shield-short-expected.json",
+  "stderr_sha256": "5774e3e9fb36a5785e505d2298811f4f4fa95155150fed1fd7b5dfecc329af46",
+  "fix": "Explicit support_files inclusion; fresh final v3 CPU24 successful",
+  "gpu_calls": 0,
+  "original_failure_preserved": true
+}
