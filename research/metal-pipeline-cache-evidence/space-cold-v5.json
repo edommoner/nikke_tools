@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-metal-cache-cold-capture53-v5",
+  "raw_bytes": 222298112,
+  "raw_sha256": "c3f9ba680a600ebda8375c07a821776736fa3f177202b0639b1278c153144716",
+  "evidence_sha256": "6e08c8f06dd1bd132cb9863dc4be8224de41fe2bd0661e994a2789b0e0ca7111",
+  "raw_inode": 509406884,
+  "zero_ranges": 532,
+  "zero_range_bytes": 158138368,
+  "allocated_before": 222298112,
+  "allocated_after": 64159744,
+  "allocated_reclaimed": 158138368,
+  "full_hash_verified": true
+}

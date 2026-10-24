@@ -383,6 +383,7 @@ SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
                'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py','test_portable_query_boundaries.py','test_portable_ptx_stats.py','test_portable_compiler_diagnostic.py']
 SMOKE_TESTS.append('test_portable_compiler_certificate.py')
 SMOKE_TESTS.append('test_portable_generation_cache.py')
+SMOKE_TESTS.append('test_portable_metal_cache.py')
 SMOKE_TESTS.append('test_portable_generation_separation.py')
 SMOKE_TESTS.append('test_portable_definition_view.py')
 SMOKE_TESTS.append('test_portable_ptx_callgraph.py')
@@ -1063,7 +1064,7 @@ def replay_source(m, source_package, source_capture,reference_migration=None):
     critical={'app/portable_backend.py','app/portable_compile_cache.py','scripts/run-metal-probe.swift',
               'research/portable_phase_audit.py','research/summarize-portable-cross-gpu.py',
               'app/detail_gpu.py','app/engine_worker.py','app/effect_spec.py','app/engine_compat.py'}
-    critical |= {name for name in old.keys() | new.keys() if name.startswith(('gpu/','research/upstream/')) or name in ('app/portable_generation_cache.py','app/portable_slang_generation.py')}
+    critical |= {name for name in old.keys() | new.keys() if name.startswith(('gpu/','research/upstream/')) or name in ('app/portable_generation_cache.py','app/portable_slang_generation.py','app/portable_metal_cache.py')}
     if any(name not in old or name not in new or old[name]!=new[name] for name in critical):
         raise ValueError('GPU transport, source, normalizer or canonical reference changed')
     run=load(source_capture/'run.json')
@@ -1388,7 +1389,7 @@ def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_
         command.append('--module-only')
         driver_cache=(capture/'driver-cache').resolve();driver_cache.mkdir(exist_ok=True)
         env['CUDA_CACHE_PATH']=str(driver_cache)
-    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),generation_cache_enabled=bool(os.environ.get('NIKKE_SLANG_GENERATION_CACHE')),generation_cache_path=env.get('NIKKE_SLANG_GENERATION_CACHE'),generation_cache_required=os.environ.get('NIKKE_SLANG_GENERATION_REQUIRED','0')=='1',slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=('diagnostic-jit-linked-cubin' if jit_link_object_only else 'diagnostic-linked-cubin' if link_object_only else 'diagnostic-module-relocatable-object' if module_object_only else 'diagnostic-relocatable-object' if partition_object_only else os.environ.get('NIKKE_CUDA_ARTIFACT','cubin')) if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),compile_cache_path=env.get('NIKKE_CUDA_COMPILE_CACHE'),compile_only=compile_only,module_only=module_only,assemble_only=assemble_only,partition_object_only=partition_object_only,module_object_only=module_object_only,link_object_only=link_object_only,jit_link_object_only=jit_link_object_only,swift_module_cache_path=env.get('NIKKE_METAL_MODULE_CACHE'),jit_private_cache_path=env.get('CUDA_CACHE_PATH') if jit_link_object_only else None,driver_cache_path=env.get('CUDA_CACHE_PATH') if module_only else None,ptxas_optimization_level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL'),cache_required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0'),job_memory_limit_mb=os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB'),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
+    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),generation_cache_enabled=bool(os.environ.get('NIKKE_SLANG_GENERATION_CACHE')),generation_cache_path=env.get('NIKKE_SLANG_GENERATION_CACHE'),generation_cache_required=os.environ.get('NIKKE_SLANG_GENERATION_REQUIRED','0')=='1',slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=('diagnostic-jit-linked-cubin' if jit_link_object_only else 'diagnostic-linked-cubin' if link_object_only else 'diagnostic-module-relocatable-object' if module_object_only else 'diagnostic-relocatable-object' if partition_object_only else os.environ.get('NIKKE_CUDA_ARTIFACT','cubin')) if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),compile_cache_path=env.get('NIKKE_CUDA_COMPILE_CACHE'),compile_only=compile_only,module_only=module_only,assemble_only=assemble_only,partition_object_only=partition_object_only,module_object_only=module_object_only,link_object_only=link_object_only,jit_link_object_only=jit_link_object_only,swift_module_cache_path=env.get('NIKKE_METAL_MODULE_CACHE'),metal_pipeline_cache_enabled=backend=='metal' and bool(env.get('NIKKE_METAL_PIPELINE_CACHE')),metal_pipeline_cache_required=backend=='metal' and env.get('NIKKE_METAL_PIPELINE_REQUIRED')=='1',jit_private_cache_path=env.get('CUDA_CACHE_PATH') if jit_link_object_only else None,driver_cache_path=env.get('CUDA_CACHE_PATH') if module_only else None,ptxas_optimization_level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL'),cache_required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0'),job_memory_limit_mb=os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB'),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
     from portable_phase_audit import Journal
     preparation=Journal(capture/'preparation.jsonl')
     observation={}
@@ -1412,7 +1413,7 @@ def cpu_test_environment(capture):
     # Execution cache selection belongs to the GPU/compiler child. Unit tests
     # exercise their own opt-in cache settings and minimal fake backends.
     env=validation_environment(capture)
-    for name in ('NIKKE_SLANG_GENERATION_CACHE','NIKKE_SLANG_GENERATION_REQUIRED'):env.pop(name,None)
+    for name in ('NIKKE_SLANG_GENERATION_CACHE','NIKKE_SLANG_GENERATION_REQUIRED','NIKKE_METAL_PIPELINE_CACHE','NIKKE_METAL_PIPELINE_REQUIRED'):env.pop(name,None)
     return env
 
 
@@ -2378,6 +2379,10 @@ def audit_capture(capture,verify_artifacts=True,*,record_comparison=False,parent
     if protocol not in ('legacy',PREPARED_INPUT_PROTOCOL):raise ValueError('Unknown transport input protocol')
     if protocol==PREPARED_INPUT_PROTOCOL:read_prepared_transport_input(m,capture)
     facts=load(capture/'execution.json')
+    if load(capture/'run.json')['backend']=='metal' and (capture/'evidence.json').exists():
+        from portable_metal_cache import verify as verify_metal_cache
+        verify_metal_cache(load(capture/'evidence.json')['transport'],load(capture/'runtime.json'),
+                           (capture/'generated.metal').read_bytes(),(ROOT/'scripts/run-metal-probe.swift').read_bytes())
     calc=False;error=None;first_difference=None
     if (capture/'readback.bin').exists():
         try:
@@ -2534,6 +2539,7 @@ def main(argv=None):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--smoke',action='store_true')
         if name=='run':
             a.add_argument('--cpu-only',action='store_true');a.add_argument('--timeout',type=int,default=180);a.add_argument('--original-workspace',type=Path);a.add_argument('--slang-root',type=Path);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
+            a.add_argument('--metal-pipeline-cache',type=Path);a.add_argument('--require-metal-pipeline-cache',action='store_true')
             a.add_argument('--require-cache',action='store_true');a.add_argument('--compile-cache',type=Path);a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--artifact-kind',choices=('cubin','ptx'));a.add_argument('--linked-package',type=Path);a.add_argument('--linked-capture',type=Path)
         else:
             a.add_argument('--compile-only',action='store_true');a.add_argument('--module-only',action='store_true');a.add_argument('--assemble-only',action='store_true');a.add_argument('--partition-object-only',action='store_true');a.add_argument('--module-object-only',action='store_true');a.add_argument('--link-object-only',action='store_true');a.add_argument('--jit-link-object-only',action='store_true')
@@ -2660,6 +2666,10 @@ def main(argv=None):
     elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case,compact=a.compact)
     elif a.command=='unpack':result=dict(package_id=unpack(a.archive,a.dest))
     elif a.command=='run':
+        if a.backend!='metal' and (a.metal_pipeline_cache or a.require_metal_pipeline_cache):raise ValueError('Metal pipeline settings require Metal backend')
+        if a.require_metal_pipeline_cache and not a.metal_pipeline_cache:raise ValueError('--require-metal-pipeline-cache requires --metal-pipeline-cache')
+        if a.metal_pipeline_cache:os.environ['NIKKE_METAL_PIPELINE_CACHE']=str(a.metal_pipeline_cache.resolve())
+        if a.require_metal_pipeline_cache:os.environ['NIKKE_METAL_PIPELINE_REQUIRED']='1'
         if (a.linked_package or a.linked_capture) and (a.require_cache or a.compile_cache or a.ptxas_level is not None or a.artifact_kind):raise ValueError('Saved CUBIN and live NVRTC/cache settings are exclusive')
         if a.backend!='cuda' and (a.require_cache or a.compile_cache or a.ptxas_level is not None or a.artifact_kind):raise ValueError('CUDA compiler settings require CUDA backend')
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())

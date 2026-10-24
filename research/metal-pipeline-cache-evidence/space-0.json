@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-interrupt-reach-v2-metal",
+  "raw_bytes": 144703488,
+  "raw_sha256": "7e29c8869d0276b51f487ca26fc038cdf0c7f825a8fb9f738c7cc0cd8ef6bc45",
+  "evidence_sha256": "c571ef22e3bad5c2da0a543986590b56554f39ab00aebb084094dacb9e5a5d44",
+  "raw_inode": 507475948,
+  "zero_ranges": 379,
+  "zero_range_bytes": 96796672,
+  "allocated_before": 144703488,
+  "allocated_after": 47906816,
+  "allocated_reclaimed": 96796672,
+  "full_hash_verified": true
+}

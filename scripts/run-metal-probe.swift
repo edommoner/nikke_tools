@@ -2,6 +2,7 @@
 import Foundation
 import Metal
 import Darwin
+import CryptoKit
 
 // The encoder dispatches exactly one independent program per threadgroup.
 let portableThreadsPerThreadgroup = 1
@@ -9,6 +10,63 @@ let portableThreadsPerThreadgroup = 1
 struct ProbeError: Error, CustomStringConvertible {
     let description: String
     init(_ message: String) { description = message }
+}
+
+func sha256(_ data: Data) -> String { SHA256.hash(data: data).map { String(format: "%02x", $0) }.joined() }
+func canonicalJSON(_ value: Any) throws -> Data {
+    try JSONSerialization.data(withJSONObject: value, options: [.sortedKeys, .withoutEscapingSlashes])
+}
+struct PipelineCacheRecord: Codable {
+    let identity: [String: String]
+    let archive_sha256: String
+    let archive_bytes: Int
+}
+struct PipelineCacheRequest {
+    let root: URL
+    let identity: [String: String]
+    let key: String
+    let required: Bool
+    var archiveURL: URL { root.appendingPathComponent(key + ".metalarc") }
+    var recordURL: URL { root.appendingPathComponent(key + ".json") }
+    func read() throws -> PipelineCacheRecord? {
+        let archiveExists = FileManager.default.fileExists(atPath: archiveURL.path)
+        let recordExists = FileManager.default.fileExists(atPath: recordURL.path)
+        if !archiveExists && !recordExists {
+            if required { throw ProbeError("Required Metal pipeline cache miss: \(key)") }
+            return nil
+        }
+        guard archiveExists && recordExists else { throw ProbeError("Incomplete Metal pipeline cache: \(key)") }
+        let record = try JSONDecoder().decode(PipelineCacheRecord.self, from: Data(contentsOf: recordURL))
+        let bytes = try Data(contentsOf: archiveURL)
+        guard record.identity == identity, record.archive_bytes > 0,
+              record.archive_bytes == bytes.count, record.archive_sha256 == sha256(bytes) else {
+            throw ProbeError("Metal pipeline cache integrity failure: \(key)")
+        }
+        return record
+    }
+}
+func pipelineCacheRequest(device: MTLDevice, source: String, entry: String, residentStride: Int) throws -> PipelineCacheRequest? {
+    let env = ProcessInfo.processInfo.environment
+    let required = env["NIKKE_METAL_PIPELINE_REQUIRED"] == "1"
+    guard let directory = env["NIKKE_METAL_PIPELINE_CACHE"], !directory.isEmpty else {
+        if required { throw ProbeError("Required Metal pipeline cache needs a directory") }
+        return nil
+    }
+    let identity = ["schema": "1", "source_sha256": sha256(Data(source.utf8)),
+        "consumer_sha256": sha256(try Data(contentsOf: URL(fileURLWithPath: #filePath))),
+        "entry": entry, "resident_stride": String(residentStride),
+        "threads_per_threadgroup": String(portableThreadsPerThreadgroup), "math_mode": "safe",
+        "registry_id": String(device.registryID), "device": device.name,
+        "os_build": ProcessInfo.processInfo.operatingSystemVersionString]
+    return PipelineCacheRequest(root: URL(fileURLWithPath: directory, isDirectory: true),
+        identity: identity, key: sha256(try canonicalJSON(identity)), required: required)
+}
+func publishCacheFile(_ temporary: URL, _ destination: URL) throws {
+    let file = try FileHandle(forWritingTo: temporary)
+    try file.synchronize(); try file.close()
+    guard chmod(temporary.path, 0o600) == 0, Darwin.rename(temporary.path, destination.path) == 0 else {
+        throw ProbeError("Cannot publish Metal pipeline cache: \(errno)")
+    }
 }
 
 // Preserve atomic publication without copying the whole GPU buffer into Data.
@@ -33,8 +91,19 @@ func writeReadback(_ pointer: UnsafeMutableRawPointer, _ size: Int, _ path: Stri
 // compile of the same large kernel can stall in the Metal compiler service.
 // Release before buffer encoding/dispatch; GPU work is not held by this lock.
 func compilePipeline(device: MTLDevice, source: String, entry: String, lockURL: URL, residentStride: Int = 0) throws
-    -> (pipeline: MTLComputePipelineState, librarySeconds: Double, pipelineSeconds: Double, lockWaitSeconds: Double) {
-    let descriptor = open(lockURL.path, O_CREAT | O_RDWR, 0o600)
+    -> (pipeline: MTLComputePipelineState, librarySeconds: Double, pipelineSeconds: Double, lockWaitSeconds: Double, cache: [String: Any]?) {
+    let cache = try pipelineCacheRequest(device: device, source: source, entry: entry, residentStride: residentStride)
+    // Read both files only under the per-key lock, so a concurrent publisher's
+    // archive/receipt handoff cannot look like a corrupt incomplete entry.
+    // A required miss still stops before library compilation.
+    if let cache = cache {
+        if cache.required && !FileManager.default.fileExists(atPath: cache.root.path) {
+            throw ProbeError("Required Metal pipeline cache miss: \(cache.key)")
+        }
+        try FileManager.default.createDirectory(at: cache.root, withIntermediateDirectories: true)
+    }
+    let actualLock = cache.map { $0.root.appendingPathComponent($0.key + ".lock") } ?? lockURL
+    let descriptor = open(actualLock.path, O_CREAT | O_RDWR, 0o600)
     guard descriptor >= 0 else { throw ProbeError("Cannot open Metal pipeline lock") }
     defer { close(descriptor) }
     FileHandle.standardError.write(Data("portable_stage=pipeline_lock\n".utf8))
@@ -44,6 +113,7 @@ func compilePipeline(device: MTLDevice, source: String, entry: String, lockURL: 
     }
     let lockWaitSeconds = Date().timeIntervalSinceReferenceDate - lockStart
     defer { flock(descriptor, LOCK_UN) }
+    let cached = try cache?.read()
     let options = MTLCompileOptions()
     options.mathMode = .safe
     FileHandle.standardError.write(Data("portable_stage=library_compile\n".utf8))
@@ -57,8 +127,29 @@ func compilePipeline(device: MTLDevice, source: String, entry: String, lockURL: 
     pipelineDescriptor.computeFunction = function
     pipelineDescriptor.maxTotalThreadsPerThreadgroup = portableThreadsPerThreadgroup
     var reflection: MTLComputePipelineReflection?
-    let pipelineOptions: MTLPipelineOption = residentStride > 0 ? [.argumentInfo, .bufferTypeInfo] : []
-    let pipeline = try device.makeComputePipelineState(descriptor: pipelineDescriptor, options: pipelineOptions, reflection: &reflection)
+    var pipelineOptions: MTLPipelineOption = residentStride > 0 ? [.argumentInfo, .bufferTypeInfo] : []
+    var archive: MTLBinaryArchive?
+    var archiveSeconds = 0.0
+    if let cache = cache {
+        let archiveDescriptor = MTLBinaryArchiveDescriptor()
+        if cached != nil { archiveDescriptor.url = cache.archiveURL }
+        archive = try device.makeBinaryArchive(descriptor: archiveDescriptor)
+        pipelineDescriptor.binaryArchives = [archive!]
+        if cached == nil {
+            FileHandle.standardError.write(Data("portable_stage=pipeline_archive_compile\n".utf8))
+            let start = Date().timeIntervalSinceReferenceDate
+            try archive!.addComputePipelineFunctions(descriptor: pipelineDescriptor)
+            archiveSeconds = Date().timeIntervalSinceReferenceDate - start
+        }
+        // A hit is proven by the native API, not by file existence or timing.
+        pipelineOptions.insert(.failOnBinaryArchiveMiss)
+    }
+    let pipeline: MTLComputePipelineState
+    do { pipeline = try device.makeComputePipelineState(descriptor: pipelineDescriptor, options: pipelineOptions, reflection: &reflection) }
+    catch {
+        if cache != nil { throw ProbeError("Metal binary archive pipeline failure: \(error)") }
+        throw error
+    }
     if residentStride > 0 {
         guard let state = reflection?.arguments.first(where: { $0.type == .buffer && $0.index == 2 }),
               state.bufferDataSize == residentStride else {
@@ -66,7 +157,26 @@ func compilePipeline(device: MTLDevice, source: String, entry: String, lockURL: 
         }
     }
     let pipelineSeconds = Date().timeIntervalSinceReferenceDate - pipelineStart
-    return (pipeline, librarySeconds, pipelineSeconds, lockWaitSeconds)
+    var cacheInfo: [String: Any]?
+    if let cache = cache {
+        var record = cached
+        if record == nil {
+            let temporary = cache.root.appendingPathComponent(cache.key + "." + UUID().uuidString + ".writing")
+            try archive!.serialize(to: temporary)
+            let bytes = try Data(contentsOf: temporary)
+            guard !bytes.isEmpty else { throw ProbeError("Empty Metal pipeline archive") }
+            try publishCacheFile(temporary, cache.archiveURL)
+            record = PipelineCacheRecord(identity: cache.identity, archive_sha256: sha256(bytes), archive_bytes: bytes.count)
+            let recordTemporary = cache.root.appendingPathComponent(cache.key + "." + UUID().uuidString + ".json.writing")
+            try JSONEncoder().encode(record!).write(to: recordTemporary, options: .withoutOverwriting)
+            try publishCacheFile(recordTemporary, cache.recordURL)
+        }
+        cacheInfo = ["schema": 1, "enabled": true, "required": cache.required, "hit": cached != nil,
+            "key": cache.key, "identity": cache.identity, "archive_sha256": record!.archive_sha256,
+            "archive_bytes": record!.archive_bytes, "native_archive_miss_rejected": true,
+            "archive_compile_seconds": archiveSeconds]
+    }
+    return (pipeline, librarySeconds, pipelineSeconds, lockWaitSeconds, cacheInfo)
 }
 
 func run() throws {
@@ -145,6 +255,10 @@ func run() throws {
             status["runtime_buffer_bytes"] = runtimeBytes
             status["runtime_element_capacity"] = maxCount
             status["runtime_physical_stride_verified"] = true
+        }
+        if let cache = compiled.cache {
+            status["pipeline_cache"] = cache
+            status["pipeline_os_build"] = ProcessInfo.processInfo.operatingSystemVersionString
         }
         statuses.append(status)
     }
