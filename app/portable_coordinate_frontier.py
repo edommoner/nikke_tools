@@ -118,6 +118,15 @@ def verify(root, overrides=None):
     core_path=root/'research/portable-coordinate-core-short-expected.json'
     core_golden=json.loads(core_path.read_text()) if core_path.is_file() else None
     core_matches=core_golden['source_sha256']==core_sources if core_golden else None
+    cache_sources=source_hashes(root,'gpu/world_coordinate_cache_entry.slang')
+    cache_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in cache_sources.items()}
+    cache_path=root/'research/portable-coordinate-cache-short-expected.json'
+    cache_golden=json.loads(cache_path.read_text()) if cache_path.is_file() else None
+    cache_matches=cache_golden['source_sha256']==cache_sources if cache_golden else None
+    round_sources=source_hashes(root,'gpu/coordinate_round_probe.slang')
+    round_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in round_sources.items()}
+    round_path=root/'research/portable-coordinate-round-short-expected.json'
+    round_matches=json.loads(round_path.read_text())['source_sha256']==round_sources if round_path.is_file() else None
     integer_sources=source_hashes(root,'gpu/packet_integer_probe.slang')
     integer_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in integer_sources.items()}
     integer_path=root/'research/portable-packet-integer-short-expected.json'
@@ -137,7 +146,7 @@ def verify(root, overrides=None):
              private_expected_entry='gpu/world_coordinate_physical_entry.slang',
              private_expected_packets_connected=True,
              remaining=[
-                        'rounded-geometry-cache','manual-aim','sampling-rng','mixed-shot-groups'],
+                        'manual-aim','sampling-rng','mixed-shot-groups'],
              depends_on=['landing-probability', 'physical-native-observation']),
         dict(id='coordinate-shot-groups', classification='adapter_gap',
              native='battle_attack_group_runtime.Producer.wrap_fire / packet_scope',
@@ -211,6 +220,19 @@ def verify(root, overrides=None):
                     runtime_connected=True,graph_lifetime_reused=True,
                     winner='greatest diameter; newest start then declaration on equal diameter',
                     default_auto_aim_tracks_selected_core=True,base_core_at_origin=True,
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_geometry_cache=dict(suite='coordinate-cache',
+                    proof_available=cache_golden is not None,sealed_source_matches_current=cache_matches,
+                    requires_new_metal_proof=not cache_matches,
+                    input_count=len(cache_golden['entries']) if cache_golden else None,
+                    source_sha256=cache_sources,reference_kind='deterministic-common-cpu',
+                    runtime_connected=True,shared_across_shooters=True,
+                    key='CPython-compatible decimal-six nearest-even; signed-zero keys canonicalized',
+                    value='first exact landing result for an equal key in the same Geometry',
+                    entries_no_targets=4096,entries_127_targets=231,hash_slots=8192,
+                    overflow='explicit rejection; no eviction',
+                    duplicate_target_labels='binding/reference boundary; not admitted',
+                    round_probe=dict(suite='coordinate-round',sealed_source_matches_current=round_matches),
                     public_gpu_admitted=False,all_characters_certified=False),
                 coordinate_skill_shape_contains_is_physical_landing=False,
                 angular_interval_algebra=dict(suite='coordinate-arcs',

@@ -30,6 +30,9 @@ bool initializeCoordinatePhysical(inout Runtime s)
     for(uint row=0;row<s.count;row++)for(uint slot=0;slot<readDefinition(s.inputBase,row).triggerCount;slot++)
         if(commands[s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS+slot*8]==62)return false;
     for(uint i=CF_BASE;i<CF_END;i++)results[s.resourceOutput+i]=0;
+#ifdef PORTABLE_COORDINATE_GEOMETRY_CACHE
+    initializeGeometryCache(s);
+#endif
     return true;
 }
 void notifyCoordinatePhysicalTeam(inout Runtime s,uint who,uint64_t when,uint output)
@@ -89,7 +92,11 @@ uint64_t coordinatePhysicalSample(inout Runtime s,uint who,Weapon w,uint64_t coe
         uint slot=results[frame+8+i*4],area=coordinateAreaRow(s,slot),row=cRow(coordinatePoolView(s),commands[area]-1);
         cfShape(s,clShapeAt(input,i),row);
     }
+#ifdef PORTABLE_COORDINATE_GEOMETRY_CACHE
+    if(!coordinateCachedLanding(s,input,output,count)){if(s.error==0)s.error=64;return 0;}
+#else
     if(!coordinateLandingV1(input,output)){s.error=64;return 0;}
+#endif
     uint64_t front=0,part=0;
     for(uint i=0;i<n;i++)
     {

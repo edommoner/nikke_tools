@@ -61,6 +61,9 @@ uint64_t sampleCoordinateAreaSkill(inout Runtime s,Definition d,uint64_t coeffic
     uint64_t ax=cNumber(meta+4),ay=cNumber(meta+6);
 #ifdef PORTABLE_COORDINATE_LIVE_CORE
     uint64_t cx,cy,diameter;coordinateCoreGeometry(s,ax,ay,cx,cy,diameter);
+#ifdef PORTABLE_COORDINATE_GEOMETRY_CACHE
+    coordinateCachedAim(s,ax,ay);
+#endif
 #endif
     if(focusAimEnabled(s)&&results[s.resourceOutput+P_FOCUS_STATE_BASE+6]==0x46414331U)
     {

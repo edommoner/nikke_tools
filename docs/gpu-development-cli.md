@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`coordinate-cache`133（共通CPU118／拒否15）と`coordinate-round`9046（正例9039／拒否7）はM5 Metalで全word照合・独立seal済み。共通CLIの通常手順を使う。Geometryごとの最初のLandingを全射手で共有し、127対象時231件／対象0時4096件を超えると明示拒否する。旧120の入力／元nativeと全semantic領域を保持し、作業scratchと新cacheは別profile指紋。現在のWindows CUDA実行は未取得。[Geometry cache](portable-coordinate-cache.md)を参照。
+
 `coordinate-core`120（共通CPU106／拒否14）はM5 Metalで全word照合・独立seal済み。coreの既存graph寿命・中心・同径優先・既定照準を接続し、旧84の入力prefixとnative／GPU rawを保持。専用entryは入力108792／出力1310720word。`package --suite coordinate-core --compact`から共通手順を使う。Windowsの現CUDA実行は未取得。[live core](portable-coordinate-core.md)を参照。
 
 `coordinate-accum-emission`84（共通CPU78／拒否6）はM5 Metalで照合・独立seal済み。既存蓄積49world＋geometry4worldを追加し、旧31全entryを保持する。immutable package→CPU preflight→bounded GPU→独立sealの共通手順を使う。ADD共有・敵攻撃sceneは未対応、現在のCUDA実行は未取得。[座標蓄積放出](portable-coordinate-accum-emission.md)を参照。

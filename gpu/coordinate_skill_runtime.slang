@@ -9,6 +9,9 @@ void coordinateFrameSnapshot(inout Runtime s,uint64_t when)
 {
     uint at=s.resourceOutput+CP_FRAME;for(uint i=0;i<CP_FRAME_WORDS;i++)results[at+i]=0;
     cCapture(coordinatePoolView(s),at,when);results[s.resourceOutput+CP_BASE+1]=1;
+#ifdef PORTABLE_COORDINATE_GEOMETRY_CACHE
+    if(results[s.resourceOutput+GC_BASE]==GC_MAGIC)coordinateCacheRefresh(s);
+#endif
 }
 bool validCoordinateSkillDefinition(inout Runtime s,Definition d)
 {

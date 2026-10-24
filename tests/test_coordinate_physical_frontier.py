@@ -57,6 +57,9 @@ class FrontierTests(unittest.TestCase):
         self.assertTrue(core['graph_lifetime_reused'])
         self.assertTrue(core['default_auto_aim_tracks_selected_core'])
         self.assertFalse(core['public_gpu_admitted'])
+        cache=result['coordinate_geometry_cache']
+        self.assertTrue(cache['runtime_connected']);self.assertTrue(cache['shared_across_shooters'])
+        self.assertEqual(cache['entries_127_targets'],231);self.assertFalse(cache['public_gpu_admitted'])
         self.assertTrue(landing['prepared_frame_values_on_gpu'])
         self.assertTrue(landing['all_cuts_retained'])
         self.assertEqual(landing['cuts_capacity'],5098)

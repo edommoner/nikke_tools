@@ -4,7 +4,8 @@ from pathlib import Path
 
 
 def project_sources(root,sources=None):
-    root=Path(root);sources=dict(sources or {})
+    from portable_coordinate_cache_source_contract import project_sources as project_cache
+    root=Path(root);sources=project_cache(root,sources)
     data=json.loads((root/'tests/fixtures/portable-coordinate-core-source-delta.json').read_text())
     for name,row in data['sources'].items():
         current=sources.get(name,(root/name).read_text())
@@ -18,7 +19,8 @@ def project_sources(root,sources=None):
 
 def project_backend_source(root,source=None):
     root=Path(root);row=json.loads((root/'tests/fixtures/portable-coordinate-core-source-delta.json').read_text())['transport']
-    current=(root/row['path']).read_text() if source is None else source
+    from portable_coordinate_cache_source_contract import project_backend_source as project_cache_backend
+    current=project_cache_backend(root,source)
     if current!=row['current'] or hashlib.sha256(current.encode()).hexdigest()!=row['current_sha256']:raise ValueError('Unreviewed coordinate core transport source')
     if hashlib.sha256(row['baseline'].encode()).hexdigest()!=row['baseline_sha256']:raise ValueError('Coordinate core transport baseline changed')
     return row['baseline']
