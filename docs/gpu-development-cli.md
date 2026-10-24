@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`coordinate-arc-scalar`640入力（native632／拒否8）は、共通の円弧wrap／shift／補償付きmeasureと、生成被覆の差・交差をMetalで実証・独立seal済みです。active区間だけを移動する最適化でも全rawを保持し、今回のGPU測定は2.52秒→0.037秒。数値方針は明示回答により決定的な共通規約へ選定済みで、`model-check`は選択済み／共通三角関数未実装を分けます。[円弧の数値演算](portable-coordinate-arc-scalar.md)を参照してください。
+
 `model-check --out /tmp/new-model.json`で、既存の未対応分類・正本consumer・共通arena監査と、座標物理弾の依存関係をまとめて確認できます。CPU/GPU計算を実行せず、旧GPU証明とcurrent sourceの不一致も明記します。`coordinate-arcs`135入力は遮蔽に必要な共通区間演算をM5 Metalで実証・独立seal済みです。物理着弾全体の接続は未完了。[座標物理の移植境界](portable-coordinate-physical-frontier.md)を参照してください。
 
 座標と実射撃groupの合成入口は`coordinate-composed`97入力（native81／拒否16）。body-only物理射撃と座標skillを同じGPU常駐Runtimeへ接続し、Metal実GPUで全出力を照合・独立sealしました。CUDA／Metalは同じSlang入口・定義・比較器を使います。Windowsの新しい計算実証は未取得です。[合成実行器](portable-arena-composed-executor.md)を参照してください。

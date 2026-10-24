@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "cpu-batch.json",
+      "bytes": 422,
+      "sha256": "bfb6045620fce498c298a68bb56b79da2e2c5ccffac33dcc14f03a73f3d0af08"
+    },
+    {
+      "path": "cpu-batch.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "cpu-batch.stdout.log",
+      "bytes": 58,
+      "sha256": "3fdb897ea0c79bf3419a74c1f3a119a82fd727972b20879d19d6b305efb6ad67"
+    },
+    {
+      "path": "cpu-tests.json",
+      "bytes": 654,
+      "sha256": "cbfebfab5c2534319fb9b1b6eba78466492af7bfcd794b0bbd171d20967a42e9"
+    },
+    {
+      "path": "cpu.json",
+      "bytes": 248,
+      "sha256": "c15bc928dd966cfcd07e7ab63d6ad2202f70a120a993495bf012feda443c7874"
+    },
+    {
+      "path": "preparation.jsonl",
+      "bytes": 319,
+      "sha256": "a607a4be5a229dd82c14fea4272b2503d06c707cfa663704cb4a8989879f995b"
+    },
+    {
+      "path": "result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "run.json",
+      "bytes": 237,
+      "sha256": "c6b2d33a68e09b77fb255bb571718b752d04f68b3136a5b483d9093ac01dc5b0"
+    },
+    {
+      "path": "test_coordinate_arc_scalar.py.stderr.log",
+      "bytes": 105,
+      "sha256": "fc827540616121b1a004e635148c02faab8889a9b4ce20cf29a8788294430ef9"
+    },
+    {
+      "path": "test_coordinate_arc_scalar.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_coordinate_physical_frontier.py.stderr.log",
+      "bytes": 102,
+      "sha256": "551cd015f6a160add8a6d1ec6e49e6290a0f61b579be26852e0b178aa1f9d766"
+    },
+    {
+      "path": "test_coordinate_physical_frontier.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_model_gap_audit.py.stderr.log",
+      "bytes": 105,
+      "sha256": "886c9ffb596114b674dbd65ae53d02f8c4f0ed3259bf22f0453167dcdad426c7"
+    },
+    {
+      "path": "test_portable_model_gap_audit.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}

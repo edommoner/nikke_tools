@@ -59,6 +59,14 @@ def verify(root, overrides=None):
                    if name in overrides else digest for name,digest in arc_sources.items()}
     arc_golden = json.loads((root/'research/portable-coordinate-arcs-short-expected.json').read_text())
     arc_source_matches = arc_golden['source_sha256'] == arc_sources
+    scalar_sources=source_hashes(root,'gpu/coordinate_arc_scalar_probe.slang')
+    scalar_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest()
+                    if name in overrides else digest for name,digest in scalar_sources.items()}
+    scalar_path=root/'research/portable-coordinate-arc-scalar-short-expected.json'
+    # Other immutable suite packages may omit this separate primitive proof.
+    # Absence is explicit; it must not become support or block new development.
+    scalar_matches=(json.loads(scalar_path.read_text())['source_sha256']==scalar_sources
+                    if scalar_path.is_file() else None)
     dependencies = [
         dict(id='landing-probability', classification='gpu_port_gap',
              native='Geometry.landing -> aim.landing',
@@ -87,9 +95,9 @@ def verify(root, overrides=None):
         dict(id='manual-coordinate-aim', classification='gpu_port_gap',
              native='CharState._aim_point / simulate._resolve_aims',
              work='Authored coordinate waypoints and frame camera arbitration', depends_on=[]),
-        dict(id='numeric-policy', classification='reference_numeric_policy_gap',
-             work='Resolve observed Mac/Windows sin45 boundary disagreement',
-             user_decision_required=True, depends_on=[]),
+        dict(id='numeric-policy', classification='gpu_numeric_implementation_gap',
+             work='Implement selected deterministic shared numeric contract; retain native host disagreement evidence',
+             user_decision_required=False, implementation_required=True, depends_on=[]),
     ]
     return dict(schema=1, passed=True, scope='Source audit and dependency plan only',
                 native_model_available=True, public_gpu_admitted=False,
@@ -100,6 +108,13 @@ def verify(root, overrides=None):
                     requires_new_metal_proof=not arc_source_matches,
                     operands_capacity=512, output_capacity=1024,
                     whole_geometry_capacity_certified=False, battle_connected=False),
+                angular_scalar_arithmetic=dict(suite='coordinate-arc-scalar',
+                    proof_available=scalar_matches is not None,
+                    sealed_source_matches_current=scalar_matches,
+                    source_sha256=scalar_sources, battle_connected=False,
+                    operations=['positive-modulo','arc-wrap','arc-shift','compensated-measure'],
+                    zero_width_arc_preserved=True, existing_runtime_sum_reused=True,
+                    does_not_include=['acos','atan2','radial-quadrature']),
                 logical_pellets_equal_emitted_packets=False, dependencies=dependencies,
                 source_sha256={p: hashlib.sha256(t.encode()).hexdigest() for p, t in texts.items()},
                 model_gap_audit=model, gpu_calls=0, native_battle_calls=0,

@@ -42,7 +42,14 @@ def verify(root,overrides=None):
  assert fixture['source_sha256']==hashlib.sha256(text['calculator/aim.py'].encode()).hexdigest(),'Coordinate numeric source drift requires new host evidence'
  profiles=fixture['observed_profiles'];assert profiles['mac']['contains'] is True and profiles['windows']['contains'] is False
  assert profiles['mac']['sin45_hex']!=profiles['windows']['sin45_hex'] and fixture['common_policy_selected'] is False
+ # Above is immutable historical evidence. The user's subsequent selection
+ # is separate from implementation and never certifies GPU/public admission.
+ decision_path='tests/fixtures/coordinate-common-numeric-decision.json'
+ decision_raw=(root/decision_path).read_bytes();decision=json.loads(decision_raw)
+ assert decision['schema']==1 and decision['selected_policy']=='deterministic-shared-numeric'
+ assert decision['common_policy_selected'] is True and decision['implementation_completed'] is False
+ assert decision['contract_id'] is None and decision['public_gpu_admitted'] is False
  coordinate_port['scope']='Public admission and all coordinate policies; private suites remain separate evidence'
- coordinate_port['numeric_frontend']=dict(classification='reference_numeric_policy_gap',host_math_affects_selection=True,common_policy_selected=False,fixture=fixture_path,fixture_sha256=hashlib.sha256((root/fixture_path).read_bytes()).hexdigest(),private_suites=['coordinate-area','coordinate-shape'],private_evidence_does_not_certify_public_admission=True)
+ coordinate_port['numeric_frontend']=dict(classification='gpu_numeric_implementation_gap',host_math_affects_selection=True,common_policy_selected=True,selected_policy=decision['selected_policy'],policy_implemented=False,decision_fixture=decision_path,decision_sha256=hashlib.sha256(decision_raw).hexdigest(),fixture=fixture_path,fixture_sha256=hashlib.sha256((root/fixture_path).read_bytes()).hexdigest(),private_suites=['coordinate-area','coordinate-shape'],private_evidence_does_not_certify_public_admission=True)
  result=dict(passed=True,missing_stats=missing,coordinate_world=coordinate_port,target_and_nearby=dict(explicit_ranked_branch=False,fallback='current aimed logical enemy only',nearby_spatial_world=False),enemy_ammo=dict(allied_filter=True,enemy_ammunition_state=False,named_completion_outside_target_loop=True),enemy_healing=dict(allied_heal_consumer_present='heal_received_pct' in strings['calculator/buff_manager.py'],enemy_healing_path_verified=False),historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={**{base+name:hashlib.sha256(value.encode()).hexdigest() for name,value in text.items()},gate_path:hashlib.sha256(gate_text.encode()).hexdigest()})
  return result

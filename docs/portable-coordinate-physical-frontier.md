@@ -34,8 +34,10 @@ probeは各入力512区間・出力1024区間を確保し、overflowをstatus64�
 
 固定package、source／input／output指紋、CPU検査、失敗とWindows送信の状態は`research/portable-coordinate-physical-frontier-checkpoint-v1.json`と`research/coordinate-physical-frontier-evidence-v1/`へ保存する。最初のpackageは出力stride登録不足で作成前に停止し、生成cacheを指定したstandalone runもclaim前に拒否された。修正後の初回dispatchをv2bへ保存し、同claimでのGPU再試行は0。最終v1のCPU制御検査は仕様文書のpackage漏れを検出し、対象suiteへ明示し、同梱依存をpackage作成時・CPU worker前の両方で検査する。合成suiteのarc golden漏れもCPUで検出して保持し、最終v4で再検証する。これらの失敗を消していない。
 
-Windowsの保存object回収はCPUのみの初回依頼を送ったが、接続APIがactive turn不在として拒否した。新しい処理開始は確認できず、再送・compile・GPUは行っていない。保存objectがあったという前回のread-only結果を、回収成功へ読み替えない。host sin45の数値方針も回答待ち。
+Windowsの保存object回収はCPUのみの初回依頼を送ったが、接続APIがactive turn不在として拒否した。新しい処理開始は確認できず、再送・compile・GPUは行っていない。保存objectがあったという前回のread-only結果を、回収成功へ読み替えない。host sin45の数値方針は、後続の明示回答で決定的な共通規約へ選定された。共通の三角関数実装は未完了。
 
 全キャラ認定0・20gap・UI CPUを維持する。物理着弾確率とpacket展開の本体接続、手動aim、元キャラ全定義の混合world、公開受付、Windowsの計算実証が残る。
 
 最終v4は区間CPU8・合成CPU51・制御416（Windows専用1skip）が成功。full2932→compact1605の残存record／byte／goldenは完全一致。旧合成97と旧座標88・本体81のGPU閉包は既存goldenに一致し、GPU再実行0。CPU正本・共有binary64・strict normalizer・CUDA cache規約も不変。
+
+後続では円弧wrap／shift／measureと生成被覆の差・交差を実装し、640入力をMetal実証した。[円弧の数値演算](portable-coordinate-arc-scalar.md)を参照。既存Sumを直接再利用し、原本の幅0区間と補償加算を保持する。

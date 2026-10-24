@@ -1,0 +1,14 @@
+{
+  "input_bytes_exact": true,
+  "raw_bytes_exact": true,
+  "raw_bytes": 10506240,
+  "input_sha256": "eff9da4cc1c026ba7d9b68c6fb7327c0ebd05633c8bcbc8c794310e65c451579",
+  "output_sha256": "8537c6db2d9870673bdaceaaee7de2ed99e26c69a16a75f40bbd2b293c37020b",
+  "before_gpu_seconds": 2.5163726250175387,
+  "after_gpu_seconds": 0.03658541676122695,
+  "gpu_time_ratio": 68.78075604387752,
+  "scope": "One recorded pair for this640-input probe; not full battle or whole CLI performance",
+  "capacity_unchanged": true,
+  "generated_code_changed": true,
+  "normalizer_unchanged": true
+}

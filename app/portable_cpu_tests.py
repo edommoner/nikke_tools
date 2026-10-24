@@ -4,7 +4,11 @@ from pathlib import Path
 
 AUDIT_FILES = {'test_coordinate_physical_frontier.py': (
     'research/upstream/nikke-calc-master/docs/IMPL-STATUS.md',
-    'research/portable-coordinate-arcs-short-expected.json')}
+    'research/portable-coordinate-arcs-short-expected.json',
+    'tests/fixtures/coordinate-common-numeric-decision.json'),
+    'test_portable_model_gap_audit.py': (
+    'research/upstream/nikke-calc-master/docs/IMPL-STATUS.md',
+    'tests/fixtures/coordinate-common-numeric-decision.json')}
 
 
 def validate_dependency_files(root,patterns,included=None):

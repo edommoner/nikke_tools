@@ -1,5 +1,7 @@
 # 座標形状から実戦着弾への接続
 
+後続の明示回答により、数値基準は決定的な共通規約へ選定済み。共通三角関数と公開受付の実装は未完了。以下の回答待ちという記述は選定前の履歴であり、旧Mac／Windowsの境界差は証拠として保持する。[現在の数値作業](portable-coordinate-arc-scalar.md)を参照。
+
 `coordinate-area` は私有の共通世界実行器へ通常の貫通/爆発の距離選択を接続する。M5 Metalの52入力（native42/拒否10）と、同じshape関数を使う小probe158入力（native150/拒否8）が一致し、保存rawの独立sealも成功した。Windowsは入力preflightでhost三角関数差を検出して停止し、GPU実行0。全キャラ認定0、UI CPU、20gapを維持する。
 
 ## 共通実装

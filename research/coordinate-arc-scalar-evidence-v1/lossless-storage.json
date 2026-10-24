@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-squad-stage-retention-v3-capture",
+  "raw_bytes": 4536139776,
+  "raw_sha256": "002eca0ee6ebb2c0dc0ae198c2542f7bb8c63c6b48a884ebbe10231e9281ea54",
+  "evidence_sha256": "aa091b64dd59151030130e242671f945775af7a500bf7573a8bd081d63bb9b3f",
+  "raw_inode": 508189516,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 34494,
+  "zero_range_bytes": 4351676416,
+  "allocated_before": 1300627456,
+  "allocated_after": 184463360,
+  "allocated_reclaimed": 1116164096,
+  "full_hash_verified": true
+}

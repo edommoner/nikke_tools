@@ -1,0 +1,9 @@
+{
+  "retained_cases": 600,
+  "input_and_native_entry_records_exact": true,
+  "raw_bytes_retained": 9849600,
+  "old_order_projected_output_sha256": "d10352866b135d5bcc52c81c139d9c59ae96b0ff8caf4695ec112ef5e24e7b10",
+  "before_output_sha256": "d10352866b135d5bcc52c81c139d9c59ae96b0ff8caf4695ec112ef5e24e7b10",
+  "new_source_and_generated_code_differ": true,
+  "normalizer_changed": false
+}
