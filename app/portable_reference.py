@@ -72,6 +72,7 @@ REFERENCES['attack-group-battle']=('portable_battle_attack_group_cases','world_b
 REFERENCES['attack-group-native-route']=('portable_battle_native_route_cases','world_battle_native_route_native','portable_battle_native_route_contracts')
 REFERENCES['attack-group-long']=('portable_long_group_cases','world_battle_native_route_native','portable_long_group_contracts')
 REFERENCES['coordinate-skill']=('portable_coordinate_skill_cases','world_coordinate_skill_native','portable_coordinate_skill_contracts')
+REFERENCES['coordinate-physical-common']=('portable_coordinate_physical_common_cases','world_coordinate_physical_common_reference','portable_coordinate_physical_common_contracts')
 
 
 def digest(value):
@@ -87,6 +88,10 @@ def source_identity():
     # These native observers form one call chain. Include the literal factories
     # too, without importing or executing the rest of the research tree.
     paths += sorted((ROOT/'research').glob('world_*native.py'))
+    paths += [ROOT/'research'/name for name in (
+        'world_coordinate_physical_common.py',
+        'world_coordinate_physical_common_reference.py',
+        'coordinate_landing_reference.py', 'coordinate_geometry_reference.py')]
     paths += [ROOT/'research'/name for name in ('portable_revive_cases.py','portable_revive_contracts.py','portable_persona_cases.py','portable_stun_cases.py','world_enemy_attack_cases.py','portable_burst_recipient_cases.py','portable_recipient_extension_cases.py','world_revive_native.py','enemy_target_native.py')]
     paths += sorted((ROOT/'research').glob('*cases.py'))
     paths += sorted((ROOT/'research').glob('portable_*contracts.py'))
@@ -104,6 +109,11 @@ def run_reference(suite,output,*,write,forbid_gpu):
     with output.open('x',encoding='utf-8') as stream:stream.write('{}\n')
     started=time.perf_counter()
     report=dict(schema=1,suite=suite,stage='cpu-native-contract',passed=False,cpu_reference_verified=False,calculation_verified=False,gpu_supported=False,gpu_calls=dict(build=0,execute=0),packing_calls=0,python=sys.version,platform=platform.platform(),cases=[],reference_model_gap_cases=0,positive_contract_cases=0,full_character_verified=0,full_goal_complete=False)
+    if suite == 'coordinate-physical-common':
+        report.update(stage='cpu-common-policy-contract',
+                      reference_kind='deterministic-common-cpu',
+                      numerical_contract='coordinate-landing-v1',
+                      historical_native_equivalence=False)
     try:
         # Legacy native comparators contain assertions. Reject before importing
         # or running them; optimized Python must never certify those contracts.

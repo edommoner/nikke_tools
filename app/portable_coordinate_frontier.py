@@ -21,7 +21,8 @@ def verify(root, overrides=None):
     paths = [base + name for name in ('timeline.py', 'aim.py', 'boss_pattern.py')]
     paths += ['app/battle_attack_group_runtime.py', 'gpu/attack_group_runtime.slang',
               'gpu/coordinate_area_runtime.slang', 'research/world_projectile_native.py',
-              'research/world_coordinate_physical_native.py', 'research/portable_coordinate_physical_cases.py']
+              'research/world_coordinate_physical_native.py', 'research/portable_coordinate_physical_cases.py',
+              'research/world_coordinate_physical_common.py']
     texts = {p: overrides.get(p, (root / p).read_text()) for p in paths}
     def function(path, name):
         rows = [n for n in ast.walk(ast.parse(texts[path]))
@@ -53,6 +54,11 @@ def verify(root, overrides=None):
     assert 'actorPoolCount(s)!=1' in texts['gpu/attack_group_runtime.slang']
     assert 'Coordinate physical probability/parts routing is unconnected.' in texts['gpu/attack_group_runtime.slang']
     assert 'coordinateAreaContains' in texts['gpu/coordinate_area_runtime.slang']
+    common_policy = texts['research/world_coordinate_physical_common.py']
+    for token in ("patch.object(boss_pattern, 'landing', common_landing)",
+                  "kwargs.get('config', {}).get('rng_mode') != 'expected'",
+                  'result = native(case)', "REFERENCE_KIND = 'deterministic-common-cpu'"):
+        assert token in common_policy, 'Common physical reference policy changed: ' + token
     from portable_slang_generation import source_hashes
     arc_sources = source_hashes(root, 'gpu/coordinate_arc_probe.slang')
     arc_sources = {name: hashlib.sha256(overrides[name].encode()).hexdigest()
@@ -108,6 +114,9 @@ def verify(root, overrides=None):
              reference_tests='tests/test_coordinate_physical_reference.py',
              scope='Expected mode authored worlds; no GPU or group proof',
              legacy_equal_packet_observer_preserved=True,
+             common_policy_observer='research/world_coordinate_physical_common.py',
+             common_policy_reference_cli='coordinate-physical-common',
+             common_policy_is_historical_native_equivalence=False,
              depends_on=[]),
         dict(id='physical-rng', classification='gpu_port_gap',
              native='CharState._coord_pellet -> sample_landing',

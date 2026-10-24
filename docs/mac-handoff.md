@@ -1,5 +1,8 @@
 # Mac GPU開発引き継ぎ
 
+共通CLI `reference --suite coordinate-physical-common` を追加。共通着弾規約を実際のCPU物理packet・通知・破壊へ接続し9world／27pellet／47packetを検査した。完全遮蔽の旧0damage本体packetとの差、別frameの正残差packet保持、同射撃snapshot固定（6×1000→次射撃6×7000、part通知11）を明示。旧CPU／passive観測器／GPU283source／保護7source不変。selected36／control416（Win1skip）、full2976→compact1643全残存byte一致、model-check成功。初回監査資料梱包漏れを保持し修正済み。新GPU0／Windows追加0／cache変更0。resident物理へのGPU packet・fraction通知・着弾接続は未完了、body-only制限／全キャラ0／20gap／UI CPU維持。詳細[共通規約の物理CPU比較](portable-coordinate-physical-common.md)とresearch/portable-coordinate-physical-common-checkpoint.json。以下は履歴。
+
+
 共通の可変指数unit pow・GL10定数・形状arcをexpected landingへ接続。sealed `coordinate-power`909（共通CPU898／拒否11）と`coordinate-landing`40（共通CPU26／拒否14）がM5 Metal全word一致・独立seal、MPFR2434入力0 ULP。127対象／5098cut／1024arcを保持し、初版pipeline stack失敗を出力arenaと参照渡しで解消。形状準備をGPU内で一度だけ行い、旧全1715840byte保持・新準備データ照合、GPU17.130→.424秒（単一probe測定対約40.4倍）。最終CPU17／関連・制御462（Win1skip）、full2969→compact1636全byte一致。新kernel3／pipeline失敗1／同claim再試行0、旧主要7suite再GPU0。raw全SHA-byte-inode保持の疎化で1096093696byte回収。Windows新要求0、API active ID不在・CUA Codex安全制約で未送達。物理packet／resident戦闘caller／RNG／aim・cache key／全元定義と公開受付は未接続。全キャラ0／20gap／UI CPU／目標未達。詳細[共通着弾確率](portable-coordinate-landing-v1.md)とresearch/portable-coordinate-landing-v1-checkpoint.json。以下は履歴。
 
 

@@ -42,6 +42,9 @@ class FrontierTests(unittest.TestCase):
         self.assertEqual((result['gpu_calls'], result['native_battle_calls']), (0, 0))
         rows = {r['id']: r for r in result['dependencies']}
         self.assertEqual(len(rows), 7)
+        self.assertEqual(rows['physical-native-observation']['common_policy_reference_cli'],
+                         'coordinate-physical-common')
+        self.assertFalse(rows['physical-native-observation']['common_policy_is_historical_native_equivalence'])
         def visit(key, stack):
             self.assertNotIn(key, stack)
             for dep in rows[key]['depends_on']:visit(dep, stack | {key})
@@ -67,6 +70,12 @@ class FrontierTests(unittest.TestCase):
             with self.subTest(name=name, old=old):
                 text=(ROOT/name).read_text();self.assertIn(old,text)
                 with self.assertRaises(AssertionError):verify(ROOT,{name:text.replace(old,new,1)})
+
+    def test_common_policy_cannot_silently_revert_to_host_landing(self):
+        name='research/world_coordinate_physical_common.py';text=(ROOT/name).read_text()
+        with self.assertRaises(AssertionError):
+            verify(ROOT,{name:text.replace("patch.object(boss_pattern, 'landing', common_landing)",
+                                           "patch.object(boss_pattern, 'landing', boss_pattern.landing)")})
 
     def test_cli_writes_once_without_backend_or_native_execution(self):
         path=ROOT/'scripts/nikke_gpu.py';spec=importlib.util.spec_from_file_location('frontier_cli',path)

@@ -307,3 +307,11 @@ run/cpu-only/smokeは全登録群を1個のfresh CPU workerへ渡します。群
 # 最新typed61の親process再利用
 
 `destructible-body-heal-share-retention` の通常runは既存ParentOraclesを使い、事前照合で算出した52 nativeを同じ親process内だけで通常比較へ渡します。全比較・入力/provider/valueのstampは維持。`audit`／保存結果監査／独立sealは毎回freshです。86 CPU検査のためこのsuiteのCPU枠は120秒、GPU／compiler／Windows枠は以前のままです。新しいcacheファイルやreplay optionはありません。詳細は [共通比較器の親process再利用](portable-destructible-parent-oracles.md)。
+
+## 座標物理の共通規約CPU比較
+
+full packageで `python scripts/nikke_gpu.py reference --suite coordinate-physical-common --out UNIQUE.json`。
+共通着弾規約を実戦CPUのpacket・通知へ接続する9worldの参照検査で、GPU実行・packingは禁止する。
+旧host正本との同値やGPU受付の証明ではない。compactではreferenceコマンドを従来どおり拒否するが、
+coordinate-landingの必須CPU群に同じ比較経路・旧物理・frontierテストを収録する。
+詳細は `docs/portable-coordinate-physical-common.md`。
