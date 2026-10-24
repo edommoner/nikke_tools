@@ -4,6 +4,9 @@ struct LandingReceipt
 #ifdef PORTABLE_ATTACK_GROUPS
     uint attackGroup;
 #endif
+#ifdef PORTABLE_COORDINATE_SKILLS
+    uint coordinatePacket;
+#endif
     uint row,target,mask,order,hit,hits,depth,epoch;
     uint64_t amount,when,partAmount,interruptAmount;
     uint interruptReach;

@@ -17,7 +17,7 @@ def inspect(case):
    return
   if frame.f_code.co_name!='_land':return
   ev=frame.f_locals.get('ev')
-  if ev is None or ev.skill_name not in names:return
+  if ev is None or ev.skill_name not in names or case.get('coordinate_packet_trace') and ev.target:return
   if event=='call':
    row=dict(row=event_rows.get(id(ev),names[ev.skill_name]),created=ev.t,landed=frame.f_locals['t'],amount=ev.damage,share=ev.damage,recipients=[0])
    records.append(row);active.append(row)

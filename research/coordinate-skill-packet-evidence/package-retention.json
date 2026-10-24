@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "full_records": 2872,
+  "compact_records": 1581,
+  "retained_records_exact": true,
+  "all_payload_sha_verified": true,
+  "changed_since_execution": [
+    "app/portable_package_projection.py",
+    "research/portable-compiler-full--attack-group-mixed-source-certificate.json",
+    "research/portable-coordinate-skill-short-expected.json",
+    "research/portable-world-attack-group-mixed-short-expected.json",
+    "tests/test_portable_package_projection.py"
+  ],
+  "gpu_source_unchanged": true
+}

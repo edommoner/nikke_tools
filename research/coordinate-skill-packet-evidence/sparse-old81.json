@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-coordinate-pool-old81-metal-v3",
+  "raw_bytes": 339738624,
+  "raw_sha256": "39b711e14b97c9e7d30180b2598e98059a0c964b266c24e39b4b51138fe1c7cc",
+  "evidence_sha256": "6d7ddd2a0a3d68cb8768267df4fbd60fcd31f9a03c1a2be9d3ba05647b98c5f1",
+  "raw_inode": 509564374,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 2513,
+  "zero_range_bytes": 318083072,
+  "allocated_before": 339738624,
+  "allocated_after": 21655552,
+  "allocated_reclaimed": 318083072,
+  "full_hash_verified": true
+}

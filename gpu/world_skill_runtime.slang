@@ -5,6 +5,9 @@ bool worldSkillsEnabled(inout Runtime s)
 #ifdef PORTABLE_WORLD_PROJECTILE
 bool worldSkillNeedsReach(inout Runtime s,Definition d)
 {
+#ifdef PORTABLE_COORDINATE_SKILLS
+    return true;
+#endif
     if((d.damageFlags&65536U)!=0) return true;
     for(uint slot=1;slot<actorPoolCount(s);slot++)
     {
@@ -15,6 +18,9 @@ bool worldSkillNeedsReach(inout Runtime s,Definition d)
 }
 uint64_t sampleWorldPartSkill(inout Runtime s,Definition d,uint64_t coefficient,uint64_t when,out uint64_t partAmount,out uint64_t interruptAmount,out uint interruptReach)
 {
+#ifdef PORTABLE_COORDINATE_SKILLS
+    partAmount=0;interruptAmount=0;interruptReach=0;return sampleCoordinateSkill(s,d,coefficient,when,partAmount);
+#endif
     bool marker=(d.damageFlags&65536U)!=0,hasParts=commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+3]!=0,dynamicParts=false;
     for(uint slot=1;slot<actorPoolCount(s);slot++)
     {
@@ -48,6 +54,9 @@ uint64_t sampleWorldPartSkill(inout Runtime s,Definition d,uint64_t coefficient,
 #endif
 bool validWorldSkillDefinition(inout Runtime s,uint row,Definition d)
 {
+#ifdef PORTABLE_COORDINATE_SKILLS
+    if(!validCoordinateSkillDefinition(s,d)) return false;
+#endif
     if(d.enemyBuff!=0||!validEnemyRoute(s.inputBase,d.damageRoute)||d.damageCount==0||d.damageCount>128||d.damageHits>256||d.damagePending!=0&&!worldPendingEnabled(s)||(d.periodicFlags!=0||!f64Zero(d.interval))&&!worldPeriodicClock(s,d)||d.healthScaling!=0||referenceScaleMode(s,row)!=0&&!(worldPendingEnabled(s)&&d.damagePending!=0&&referenceScaleMode(s,row)==1)&&!(worldPeriodicClock(s,d)&&referenceScaleMode(s,row)==3)) return false;
 #ifdef PORTABLE_PARENT_FIXED_DAMAGE
     if(!validParentFixed(s,row,d)) return false;
@@ -103,6 +112,9 @@ void storeWorldSkillReceipt(inout Runtime s,uint at,LandingReceipt r)
 #ifdef PORTABLE_WORLD_PROJECTILE
     storeSkillPartAmount(at,r.partAmount);
     storeWorldSkillReachPacket(s,at,r);
+#ifdef PORTABLE_COORDINATE_SKILLS
+    storeCoordinatePacket(s,at,r);
+#endif
 #endif
 }
 LandingReceipt loadWorldSkillReceipt(uint at)
@@ -116,6 +128,9 @@ LandingReceipt loadWorldSkillReceipt(uint at)
 #endif
 #ifdef PORTABLE_WORLD_PROJECTILE
     r.partAmount=loadSkillPartAmount(at);
+#ifdef PORTABLE_COORDINATE_SKILLS
+    r.coordinatePacket=(at%P_OUTPUT_WORDS-P_LANDING_STATE_BASE)/P_LANDING_WORDS+1;
+#endif
     loadWorldSkillReachPacket(r,at);
 #endif
     return r;
@@ -187,6 +202,9 @@ bool landWorldSkillReceipt(inout Runtime s,LandingReceipt r,uint64_t when,uint o
             // with normal_skill, which is SKILL. The normalized descriptor
             // carries both facts without backend-specific string routing.
             results[counterHead(s)+11]=WORLD_PERIODIC_FAMILY(s,d,((d.damageFlags&H_CORE)!=0&&d.damageNormal==0) ? 0 : 1);
+#ifdef PORTABLE_COORDINATE_SKILLS
+            coordinateTrace(s,d.owner,slot,generation,share,when,false);
+#endif
             counterPhysicalPacket(s,d.owner,slot,generation,amount,results[receipt+1]!=0,when,output);
             results[counterHead(s)+11]=previous;
             if((s.healthMask&64)!=0&&s.error==0) dispatch(s,17,0,d.owner,0,when,output,share);
@@ -194,6 +212,7 @@ bool landWorldSkillReceipt(inout Runtime s,LandingReceipt r,uint64_t when,uint o
             if(damageAccumEnabled(s) && slot==0 && s.error==0) dispatch(s,39,0,d.owner,0,when,output,share);
 #endif
 #ifdef PORTABLE_WORLD_PROJECTILE
+#ifndef PORTABLE_COORDINATE_SKILLS
             if(slot==0&&!f64Zero(r.partAmount)&&s.error==0)
             {
                 uint family=results[counterHead(s)+11];results[counterHead(s)+11]=WORLD_PERIODIC_FAMILY(s,d,((d.damageFlags&H_CORE)!=0&&d.damageNormal==0)?0:1);
@@ -203,9 +222,13 @@ bool landWorldSkillReceipt(inout Runtime s,LandingReceipt r,uint64_t when,uint o
             if(slot==0&&r.interruptReach!=0&&!f64Zero(r.interruptAmount)&&s.error==0)
                 deliverWorldInterruptGroup(s,d.owner,when,output,r.interruptReach,r.interruptAmount);
 #endif
+#endif
             uint out=worldSkillHead(s);if(results[out+3]==0x7fffffff) { s.error=2;break; }results[out+3]++;
         }
     }
+#ifdef PORTABLE_COORDINATE_SKILLS
+    if(s.error==0) deliverCoordinateParts(s,r,when,output);
+#endif
     results[set+5]=0;results[actorPoolHead(s)+7]--;
     return s.error==0;
 }

@@ -36,5 +36,13 @@ def fixtures():
     c=add('same-cast-retired-packets',True);c['effects'][-1]['stat']='bonus_damage:2'
     for target in c['patterns'][0]['targets']:target['hp']=1
     c['contract'].update(packets=[('',2000),('near',3000),('far',3000)]*2,selected=[['near','far']]*2,event_kinds=['named-hit']*2+['packet']*6,damage=[16000,0,0,0,0],notices=2,geometry=[['stop','near','far']]*2,retired_same_cast=True)
-    assert len(rows)==25
+    c=add('heal-child-uses-frame-geometry',True);c['effects'][-1]['max_trigger']=1
+    for target in c['patterns'][0]['targets']:target['hp']=1
+    from portable_burst_recipient_cases import instant
+    c['effects'].insert(0,instant('current_hp_reduce',50,'self','drain'));c['owners'].insert(0,0)
+    c['effects'].insert(-1,field('lifesteal_pct',10,'self','lifesteal'));c['owners'].insert(-1,0)
+    child=copy.deepcopy(c['effects'][-1]);child.update(name='coordinate-child',fixed_value=10);child['trigger']=dict(timing=['event:heal_received'],condition=['self_hp_above:54']);c['effects'].append(child);c['owners'].append(0)
+    c['coordinate_sources']=['parts-source','coordinate-child'];c['observe_selection_liveness']=True
+    c['contract'].update(packets=[('',2000),('near',3000),('far',3000),('',200),('near',300),('far',300)],selected=[['near','far']]*2,event_kinds=['named-hit','packet','packet','named-hit']+['packet']*4,damage=[8800,0,0,0,0],notices=2,geometry=[['stop','near','far']]*2,retired_same_cast=True,hp=[5880,10000,10000,10000,10000])
+    assert len(rows)==26
     return rows

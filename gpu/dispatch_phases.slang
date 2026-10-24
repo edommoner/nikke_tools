@@ -62,6 +62,9 @@ void advanceSkillDamageFrame(inout Runtime s, inout Frame frames[32], inout int 
                 s.damageExclusion=parentExclusion;
 #endif
                 WORLD_SKILL_SCOPE_END(s)
+#ifdef PORTABLE_COORDINATE_SKILLS
+                captureCoordinateCast(s,damage,uint(depth),f.time);
+#endif
                 // Coefficient is consumed at cursor0; subsequent hits and child
                 // returns reuse this captured part value, never the coefficient.
                 frames[depth].healthValue=partAmount;frames[depth].interruptAmount=interruptAmount;frames[depth].interruptReach=interruptReach;

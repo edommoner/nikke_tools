@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "captures": [
+    {
+      "cases": 16,
+      "raw_bytes": 67108864,
+      "raw_sha256": "523136a06b329eb23ab314d93a27b45dc7627d28c625182ac3ca338af571ab7a",
+      "input_full_bytes_exact": true,
+      "raw_full_hash_verified": true,
+      "generated_files_full_bytes_exact": [
+        "generated.cu",
+        "generated.metal"
+      ]
+    },
+    {
+      "cases": 81,
+      "raw_bytes": 339738624,
+      "raw_sha256": "39b711e14b97c9e7d30180b2598e98059a0c964b266c24e39b4b51138fe1c7cc",
+      "input_full_bytes_exact": true,
+      "raw_full_hash_verified": true,
+      "generated_files_full_bytes_exact": [
+        "generated.cu",
+        "generated.metal",
+        "generated.cu.reflection.json",
+        "generated.metal.reflection.json"
+      ]
+    }
+  ]
+}

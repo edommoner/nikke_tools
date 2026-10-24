@@ -7,23 +7,30 @@ from world_parts_skill_native import observe as original
 def observe(case):
     codes=[c for c in timeline.simulate.__code__.co_consts if isinstance(c,types.CodeType) and c.co_name=='_coord_skill_hits']
     if len(codes)!=1:raise ValueError('Unique native coordinate skill selector required')
-    previous=sys.getprofile();selections=[];snapshots=[];last=[None,None];errors=[];reuse=[True];reuse_checks=[0];pending={};accounting=[]
+    source_names=frozenset(case.get('coordinate_sources',['parts-source']));previous=sys.getprofile();selections=[];snapshots=[];last=[None,None];errors=[];reuse=[True];reuse_checks=[0];pending={};accounting=[]
     def profile(frame,event,answer):
         if previous is not None:previous(frame,event,answer)
         try:
             if frame.f_code is BossScript.hit_target.__code__:
                 v=frame.f_locals;ev=v['ev'];boss=v['self']
-                if ev.skill_name=='parts-source':
+                if ev.skill_name in source_names:
                     candidates=[(run,x) for run in boss._runs for x in run.targets if x.spec.name==ev.target]
                     run,x=candidates[0]
                     if event=='call':pending[id(frame)]=(bool(run.active and not x.destroyed),x.dealt,x.hits)
                     elif event=='return':
                         alive,dealt,hits=pending.pop(id(frame));accounting.append(dict(target=ev.target,time=v['t'],kind=answer,before_alive=alive,after_alive=bool(run.active and not x.destroyed),pool_damage_delta=x.dealt-dealt,pool_hits_delta=x.hits-hits))
+                        if case.get('coordinate_packet_trace'):accounting[-1]['generation']=run.opens
             if event!='return':return
 
             v=frame.f_locals
-            if frame.f_code is codes[0] and v['eff'].get('name')=='parts-source':
+            if frame.f_code is codes[0] and v['eff'].get('name') in source_names:
                 g=v['geom'];selections.append(dict(time=v['t'],owner=v['cs'].name,targets=[e.target for e in answer],geometry=[t.name for t in g.targets],shapes=[dataclasses.asdict(t.shape) for t in g.targets],kinds=[t.kind for t in g.targets],auto_aim=list(g.auto_aim)))
+                if case.get('coordinate_packet_trace'):
+                    boss=frame.f_back.f_locals['boss'];generations={x.spec.name:run.opens for run in boss._runs for x in run.targets}
+                    selections[-1].update(effect_name=v['eff']['name'],hit=frame.f_back.f_locals['_']+1,generations=[generations[e.target] for e in answer])
+                if case.get('observe_selection_liveness'):
+                    boss=frame.f_back.f_locals['boss'];dead={x.spec.name for run in boss._runs for x in run.targets if x.destroyed}
+                    selections[-1]['retired_targets']=[e.target for e in answer if e.target in dead]
             elif frame.f_code is BossScript._apply_geom.__code__:
                 g=v['self'].geom
                 if g is None:return

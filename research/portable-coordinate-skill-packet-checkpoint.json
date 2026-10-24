@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "stage": "coordinate-immediate-all-parts-producer-and-landing",
+  "passed": true,
+  "suite": "coordinate-skills",
+  "actual_metal_inputs": 24,
+  "native_battles": 19,
+  "rejections": 5,
+  "fixture_model": "declared effects; expected RNG; not original whole-character certification",
+  "coordinate_producer_connected": true,
+  "coordinate_frame_snapshot_connected": true,
+  "coordinate_cast_snapshot_connected": true,
+  "coordinate_packet_snapshot_connected": true,
+  "coordinate_target_landing_connected": true,
+  "public_coordinate_admission": false,
+  "full_coordinate_world_supported": false,
+  "full_character_verified": 0,
+  "remaining_gap_categories": 20,
+  "normal_ui": "CPU",
+  "goal_complete": false,
+  "reference_contracts": 26,
+  "final_cpu_tests": 20,
+  "control_tests": 392,
+  "windows_only_skip": 1,
+  "legacy16_native": 11,
+  "legacy81_native": 68,
+  "legacy81_cpu_tests": 52,
+  "legacy_raw_bytes_retained": 406847488,
+  "positive18_raw_bytes_retained": 75497472,
+  "gpu_dispatches_this_stage": 4,
+  "gpu_retries": 0,
+  "independent_audit_gpu_calls": 0,
+  "metal_gpu_seconds": 0.019568166695535183,
+  "required_pipeline_cache_hit": true,
+  "input_sha256": "25cc8b531de431846750f93773446a3eda03de08e51515a1c43393191eb903ae",
+  "output_sha256": "e5fa4d835ee82f8423aa715dbf21bb23f87b4af2b1eb077dfdc48dc09dd719a9",
+  "gpu_source_same_between23_and24": true,
+  "runtime_fields_added": 0,
+  "landing_receipt_local_uint_added": 1,
+  "arena_snapshot_words": 68,
+  "arena_casts": 32,
+  "arena_packets": 2048,
+  "trace_capacity": 4096,
+  "selection_log_words": 65536,
+  "arena_end_word": 1043608,
+  "output_words": 1048576,
+  "overflow": "status64; no truncation",
+  "typed_counter_witness": {
+    "reasons": [
+      "threshold",
+      "death"
+    ],
+    "epochs": [
+      1,
+      2
+    ],
+    "credits": [
+      1,
+      0
+    ],
+    "stale_followup_does_not_retrigger": true
+  },
+  "heal_child_witness": {
+    "selected_retired_target": "near",
+    "damage": 8800,
+    "hp": 5880
+  },
+  "software_binary64_unchanged": true,
+  "protected_cpu_unchanged": true,
+  "normalizer_unchanged": true,
+  "old_cuda_metal_complete_bytes_retained": true,
+  "packages": {
+    "executed": "57ca558c1c8f6af9458bc0f83ba34b4d96a681f5f88d945e4ced5ba14c2b1e5e",
+    "full": "51335846adab73e431796cd35ba2840ff99f6812ff23a0c136941b48a14e1f5f",
+    "compact": "76f31c53688a5720deefc1c658e751a2845378a79b625f3ac725f344e54348a2",
+    "legacy81": "96ef97577ebef1f90e6c2ae090eef35030db1dddd4deb4eb7cf8679cf27353c0",
+    "compiler": "f04b59b9c326aa80b1f3b48c3d6ddd8ede01248d88ec0ba277cff64cf39498f3"
+  },
+  "windows": {
+    "new_requests": 0,
+    "pending_ptx_result": "unknown",
+    "connection_reobserved_this_stage": false,
+    "cuda_execution_verified": false,
+    "cuda_cache_hit_verified": false
+  },
+  "unresolved": [
+    "Ordinary radius Shape.dist/contains numeric design",
+    "Coordinate physical weapon probability and RNG",
+    "Delayed/DoT coordinate packets",
+    "Cross-frame same-label generation/retarget semantics",
+    "Original full character effects and public admission"
+  ],
+  "next": [
+    "Extend canonical contracts for cross-frame source and label generations",
+    "Connect remaining coordinate consumers using shared numeric primitives",
+    "Validate full original character definitions, not only declared stimuli"
+  ]
+}

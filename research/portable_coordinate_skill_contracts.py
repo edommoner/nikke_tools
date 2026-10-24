@@ -13,6 +13,8 @@ def verify(case,native):
     if c['marker']:
         assert all('stop' not in s['targets'] for s in selection['selections'])
         assert all(s['targets']==[name for name,kind in zip(s['geometry'],s['kinds'],strict=True) if kind=='parts'] for s in selection['selections'])
+    if case.get('observe_selection_liveness'):assert [s['retired_targets'] for s in selection['selections']]==[[],['near']]
+    if 'hp' in c:assert [a['hp'] for a in native['allies']]==c['hp']
     if c.get('retired_same_cast'):
         rows=[r for r in selection['target_accounting'] if r['kind']=='parts']
         assert [r['before_alive'] for r in rows]==[True,True,False,False]

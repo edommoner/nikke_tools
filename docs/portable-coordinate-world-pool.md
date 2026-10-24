@@ -1,3 +1,5 @@
+> 続き: 即時全部位のproducerと着弾接続を[座標skill packet](portable-coordinate-skill-packets.md)へ記録した。以下はpool読取り段階の履歴。
+
 # 座標selectorから共通戦闘poolへの直接接続
 
 共通Slangの座標selectorが、既存戦闘実行器の16word actor poolを直接読むようにした。新しい `coordinate-world-pool` 16入力（正本battle11、不正入力5）が実M5 Metalで成功し、GPU再実行なしで独立sealした。専用poolへのコピーや新しいRuntime状態は追加していない。既存の8word component viewも同じselectorを使い、旧21入力の全出力を保持した。

@@ -6,7 +6,13 @@ void worldFrameBegin(inout Runtime s,uint64_t when)
     // Initialization owns clock0. The first combat frame delivers its queued
     // attacks without applying another transition at the same timestamp.
     // Native app/world_frame_runtime.py enforces the same frame-once policy.
-    if(f64Zero(when) && results[w.output+1]!=0) return;
+    if(f64Zero(when) && results[w.output+1]!=0)
+    {
+#ifdef PORTABLE_COORDINATE_SKILLS
+        if(!coordinateFrameReady(s)) coordinateFrameSnapshot(s,when);
+#endif
+        return;
+    }
 #ifdef PORTABLE_WORLD_ACTOR_POOLS
     wsBegin(w,when,actorPoolsCleared(s));s.error=w.error;
     if(s.error==0) actorPoolsSync(s,when);
@@ -21,6 +27,9 @@ void worldFrameBegin(inout Runtime s,uint64_t when)
 #endif
 #ifdef PORTABLE_WORLD_ACTORS
     if(s.error==0) worldActorsApply(s); WORLD_PROJECTILE_FRAME(s)
+#endif
+#ifdef PORTABLE_COORDINATE_SKILLS
+    if(s.error==0) coordinateFrameSnapshot(s,when);
 #endif
 }
 [noinline]

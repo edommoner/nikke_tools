@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "retained_native_cases": 18,
+  "retained_raw_bytes": 75497472,
+  "retained_raw_sha256": "f24d3007aef4e401e63e01b5ad1f0e114703d1cef6af3a9afd77faa6d9cf2bd3",
+  "input_native_output_entry_records_exact": true,
+  "generated_normalized_exact": true,
+  "gpu_calls": 0
+}

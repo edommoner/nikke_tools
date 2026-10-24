@@ -187,6 +187,9 @@ uint actorPhysicalTarget(inout Runtime s,uint who,uint legacy)
 }
 bool actorPhysicalGate(inout Runtime s,uint who,uint target,uint64_t amount,uint64_t when)
 {
+#ifdef PORTABLE_COORDINATE_SKILLS
+    s.error=64;return false; // Coordinate physical probability is not connected.
+#endif
     if(!actorPoolsEnabled(s)) return worldOverlayLand(s,who,target,amount,worldPhysicalNormal(s,who));
     storeNumber(actorPoolHead(s)+2,when);uint ref=actorPhysicalTarget(s,who,target),slot=ref&127;
     return commands[actorBinding(s,slot)]==5 || worldOverlayLand(s,who,0,amount,worldPhysicalNormal(s,who));

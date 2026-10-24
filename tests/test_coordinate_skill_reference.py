@@ -9,7 +9,7 @@ from world_parts_skill_native import observe as baseline
 from portable_coordinate_skill_contracts import verify
 class CoordinateSkillTests(unittest.TestCase):
     def test_all_literal_coordinate_contracts(self):
-        rows=fixtures();self.assertEqual(len(rows),25);self.assertEqual(len({c['name'] for c in rows}),25)
+        rows=fixtures();self.assertEqual(len(rows),26);self.assertEqual(len({c['name'] for c in rows}),26)
         for case in rows:self.assertTrue(verify(case,observe(case)[0])['verified'])
     def test_observer_transparency_input_preservation_and_profile_chain(self):
         case=fixtures()[2];before=copy.deepcopy(case);expected,trace=baseline(case);calls=[];old=sys.getprofile()
