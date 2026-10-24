@@ -19,8 +19,8 @@ class CompilerCertificateTests(unittest.TestCase):
     def make(self,*,audit=None,sources=None,output=None):
         with patch.object(cli,'ROOT',self.root),patch.object(cli,'verify_package',return_value=self.m),patch.object(cli,'audit_saved_metal',audit or self.audit),patch.object(backend,'source_hashes',return_value=sources or self.baseline['source_sha256']),cli.forbid_gpu():
             return cli.make_compiler_certificate(self.suite,self.package,self.capture,output or self.root/'evidence')
-    def test_current_long_battle_full_certificate_keeps_the_entire_shared_runtime(self):
-        suite='attack-group-long';name=alias(suite);config=cli.SUITES[name]
+    def test_current_mixed_battle_full_certificate_keeps_the_entire_shared_runtime(self):
+        suite='attack-group-mixed';name=alias(suite);config=cli.SUITES[name]
         baseline=cli.load(ROOT/cli.SUITES[suite]['golden']);proof=cli.load(ROOT/config['golden'])
         self.assertEqual(config['source'],cli.SUITES[suite]['source'])
         self.assertNotEqual(config['source'],cli.SUITES['compiler-commands']['source'])

@@ -10,7 +10,7 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     if(id.x>=commands[0])return;
     uint input=1+id.x*C_INPUT,output=id.x*C_OUTPUT;
     for(uint i=0;i<C_OUTPUT;i++)results[output+i]=0;
-    CoordinateScene s;s.input=input;s.output=output;s.count=commands[input+2];s.state=output+C_STATE;s.error=0;
+    CoordinateScene s;s.input=input;s.output=output;s.count=commands[input+2];s.state=output+C_STATE;s.error=0;s.poolStride=8;s.poolBySlot=0;s.poolStart=4;
     uint patterns=commands[input+3],ops=commands[input+4];
     if(commands[input]!=0x434f4f31U||commands[input+1]!=1||ops==0||ops>C_OPS||!cValidate(s,patterns)){results[output]=64;return;}
     for(uint i=5;i<16;i++)if(commands[input+i]!=0){results[output]=64;return;}

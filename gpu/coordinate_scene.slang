@@ -1,10 +1,10 @@
 // Read-only coordinate descriptors; liveness comes from the caller's pool view.
 #include "coordinate_scene_layout.slang"
-struct CoordinateScene {uint input,output,count,state,error;};
+struct CoordinateScene {uint input,output,count,state,error,poolStride,poolBySlot,poolStart;};
 uint64_t cNumber(uint at) {return uint64_t(commands[at])|(uint64_t(commands[at+1])<<32);}
 void cStore(uint at,uint64_t v) {results[at]=uint(v);results[at+1]=uint(v>>32);}
 uint cRow(CoordinateScene s,uint row) {return s.input+C_ROW_BASE+row*C_ROW_WORDS;}
-uint cState(CoordinateScene s,uint row) {return s.state+row*8;}
+uint cState(CoordinateScene s,uint row) {return s.state+(s.poolBySlot!=0?commands[cRow(s,row)+5]:row)*s.poolStride;}
 bool cValidate(CoordinateScene s,uint patterns)
 {
     if(s.count>C_CAPACITY||patterns==0||patterns>32)return false;
@@ -30,7 +30,7 @@ bool cBefore(CoordinateScene s,uint a,uint b)
 {
     uint x=cRow(s,a),y=cRow(s,b);uint64_t az=cNumber(x+18),bz=cNumber(y+18);
     if(f64Less(az,bz))return false;if(f64Less(bz,az))return true;
-    uint ax=cState(s,a),by=cState(s,b);uint64_t at=uint64_t(results[ax+4])|(uint64_t(results[ax+5])<<32),bt=uint64_t(results[by+4])|(uint64_t(results[by+5])<<32);
+    uint ax=cState(s,a)+s.poolStart,by=cState(s,b)+s.poolStart;uint64_t at=uint64_t(results[ax])|(uint64_t(results[ax+1])<<32),bt=uint64_t(results[by])|(uint64_t(results[by+1])<<32);
     if(f64Less(at,bt))return false;if(f64Less(bt,at))return true;
     if(commands[x+2]!=commands[y+2])return commands[x+2]>commands[y+2];return commands[x+3]>commands[y+3];
 }

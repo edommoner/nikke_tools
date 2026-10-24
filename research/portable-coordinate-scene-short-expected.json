@@ -2,9 +2,9 @@
   "input_sha256": "0f31e455460c118f7b49f730a8a9f0441fa135732badb06b27c7e3582d0c2bfb",
   "output_sha256": "1ceb11912638c546284c1bbe5d48eb49bb3325a03420f4be8e1e370b47716068",
   "source_sha256": {
-    "gpu/coordinate_scene_probe.slang": "d8df9982dc260e28d7bd324d6743e712f4112ca74ed58ba5f86c18f4db82a511",
+    "gpu/coordinate_scene_probe.slang": "fe31fd620418f6c5286d4fdb381364137365e04432f5f2cce6ede2cfbb500dd9",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
-    "gpu/coordinate_scene.slang": "7febd7cf8621ec1efa4072a4a7c783f66ef19e3d792dee08723947b4dc3833a6",
+    "gpu/coordinate_scene.slang": "1a3726f1534b5f93e31c1a72eb3d3a1307ca079e23e327b537d641c4236f3ed8",
     "gpu/coordinate_scene_layout.slang": "b305e295cfda56d41be1a5d90dd4925ac337f44bf16bb5d5da89395294f148ec"
   },
   "entries": [
@@ -136,7 +136,7 @@
     }
   ],
   "generated_normalized": {
-    "cuda": "7653a45dfa0c0bc4c601b2e80eaa02f51670632e0a882f0a0be2ceb978a439d9",
-    "metal": "9172ce5ddf644fd2c50ca066050752fdb810767f205ca9cecf99ba7d06a0de1b"
+    "cuda": "e50c6164444342c36d3f9a5335404ca00a3f8003ecd7fad1590a1b69a713bcec",
+    "metal": "9d16a2f27c50faf890b4dfc2e2bbffc0553f41c578675a4a980b495fcd7092af"
   }
 }

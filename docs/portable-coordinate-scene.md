@@ -1,3 +1,5 @@
+> 続き: 共通戦闘poolへの直接読取りと旧21の保持を[実pool直接接続](portable-coordinate-world-pool.md)へ記録した。以下は部品段階の記録。
+
 # 共通座標descriptorと対象集合のGPU部品
 
 共通Slangへ座標descriptor、depth／出生時刻／pattern／ordinal順、live世代付き全部位集合を追加した。共通CLI `coordinate-scene` の21入力（正本比較10、不正入力11）がApple M5のMetalで全word一致し、保存結果をGPU再実行なしで独立sealした。同じSlangからCUDAとMetalを生成したが、今回のCUDA実行結果はない。

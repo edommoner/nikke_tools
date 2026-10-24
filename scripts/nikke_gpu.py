@@ -308,6 +308,7 @@ SUITES['interrupt-packet-codec']=dict(script='research/verify-interrupt-packet-c
     golden='research/portable-interrupt-packet-codec-short-expected.json',inputs=154,native=140,development_only=False,
     tests=['test_portable_interrupt_packet_codec.py'])
 SUITES['coordinate-scene']=dict(script='research/verify-coordinate-scene-short.py',source='gpu/coordinate_scene_probe.slang',golden='research/portable-coordinate-scene-short-expected.json',inputs=21,native=10,output_words=32768,development_only=False,tests=['test_portable_coordinate_scene.py','test_coordinate_skill_reference.py','test_impact_runtime.py'])
+SUITES['coordinate-world-pool']=dict(script='research/verify-coordinate-world-pool-short.py',source='gpu/world_coordinate_pool_entry.slang',golden='research/portable-coordinate-world-pool-short-expected.json',inputs=16,native=11,output_words=1048576,development_only=False,tests=['test_portable_coordinate_scene.py','test_coordinate_skill_reference.py','test_impact_runtime.py','test_coordinate_world_pool.py'])
 SUITES['skill-part-codec']=dict(script='research/verify-skill-part-codec-short.py',source='gpu/skill_part_codec_probe.slang',
     golden='research/portable-skill-part-codec-short-expected.json',inputs=4,native=3,development_only=False,
     tests=['test_portable_skill_part_codec.py'])
@@ -557,7 +558,7 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False):
             or name=='research/portable-mode-session-contract.json'
             or name=='research/portable-world-counter-landing-short-expected.json'
             # Shared controller tests bind the full-entry certificate to this Metal baseline.
-            or name in ('research/portable-compiler-full-heal-share-source-certificate.json','research/portable-world-heal-share-regression-short-expected.json','research/portable-compiler-full--attack-group-long-source-certificate.json','research/portable-world-attack-group-long-short-expected.json')
+            or name in ('research/portable-compiler-full-heal-share-source-certificate.json','research/portable-world-heal-share-regression-short-expected.json','research/portable-compiler-full--attack-group-long-source-certificate.json','research/portable-world-attack-group-long-short-expected.json','research/portable-compiler-full--attack-group-mixed-source-certificate.json','research/portable-world-attack-group-mixed-short-expected.json')
             or (p.parts[0]=='data' and p.suffix=='.json') or name==SUITES[suite]['golden'] or name in SUITES[suite].get('support_files',())):
             names.append(name)
     # Declared public pinned documents are data inputs to source audits.

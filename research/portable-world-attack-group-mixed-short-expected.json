@@ -36,7 +36,7 @@
     "gpu/event_runtime.slang": "51b2eeca255e158609ed55388aa73d4b5cad331fa77eeca5862831565a08a65b",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
-    "gpu/portable_schema.slang": "69825b169d63d065ba86a36d56b774a9a7a7c60da6d24a33a7716d3229265fc5",
+    "gpu/portable_schema.slang": "16e23f42505fd55edd7a673ad78fba8b5d1e866abb023494982b49fa5b393204",
     "gpu/portable_scratch_layout.slang": "713d698693e05adc708869da6a41dfa0b49719dce5582a10def6d0c11e6f3c68",
     "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
     "gpu/runtime_init.slang": "42138104b72985daa57788ad7ba1ca9b2db86dc208f63a089679895c8e36d1d9",

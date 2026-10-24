@@ -1,3 +1,7 @@
+<!-- coordinate-world-pool-current -->
+座標selectorを共通戦闘の16word actor poolへ直接接続（状態コピー0／Runtime追加0）。sealed coordinate-world-pool16(native battle11/拒否5)がM5 Metal一致・独立seal、再出現世代2/出生順/ordinal/破壊/interrupt/depth反転を検査。既存非座標battle＋literal座標sidecarの終了前読取り検証で、座標packet producer／Frame着弾は未接続。旧21全byte保持、mixed81も現schemaで再検証・独立seal、全339738624byte/input/native/生成CUDA-MSL両reflection保持。新compiler-full--attack-group-mixedを共通CLIで独立監査登録、旧long証明書は履歴（現source stale）。最終CPU16/旧81CPU52/制御392(Win1skip)、full2866→compact1575全record/SHA一致。新GPU4/retry0/Windows新依頼0、保存PTXunknown。全キャラ0/20gap/UI CPU/未達。次は選択時の座標集合固定と実packet接続、stale accounting/通知吸血順。詳細[実pool直接接続](portable-coordinate-world-pool.md)とresearch/portable-coordinate-world-pool-checkpoint.json。以下は履歴。
+<!-- /coordinate-world-pool-current -->
+
 <!-- coordinate-scene-current -->
 座標descriptor／depth・出生時刻順／live世代付き全部位集合を共通Slangへ追加。sealed coordinate-scene21(native10/拒否11)が実M5 Metal全word一致・独立seal、保存raw4改変検出。127対象/pattern31/不壊/再出現/signed-zero/subnormalを検査。CUDA/MSL共通生成、CUDA実行なし。明示primitive操作の部品検証で、戦闘Frame・範囲距離・公開受付は未接続。正本stale targetはkindを返し総量計上するため前記録を訂正、同cast後続packetのreference25を追加。最終CPU12/旧81native68+CPU52/制御392(Win1skip)、全package SHA/compact残存records一致。新GPU1/retry0、Windows追加依頼0・保存PTX結果unknown。全キャラ0/20gap/UI CPU/未達。次は共通Frame caller pool接続、形状数値primitive。詳細[座標GPU部品](portable-coordinate-scene.md)とresearch/portable-coordinate-scene-checkpoint.json。以下は履歴。
 <!-- /coordinate-scene-current -->
