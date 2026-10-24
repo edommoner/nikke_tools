@@ -69,7 +69,7 @@ def scope(c,observations):
     def observed(bindings,**kw):
         @contextmanager
         def capture():
-            with typed_battle(bindings,modifier_model=True,shield_owner=BOSS if c.get('shield_interception_v1') else None,**kw) as data:
+            with typed_battle(bindings,modifier_model=True,shield_owner=BOSS if c.get('shield_interception_v1') else None,hit_shields=c.get('hit_shield_interception_v1',False),**kw) as data:
                 observations.append(data);yield data
         return capture()
     with patch.object(battle,'typed_battle',observed):yield

@@ -1,13 +1,16 @@
 <!-- shared-readback-current -->
-現在の型付き実戦検証はsealed `destructible-shield-battle`（88入力/native58＋拒否30、Metal/独立seal成功）を使う。既存Frameをprovider化して投射物とHP盾を共通実行し、旧44のraw全byte・旧18のnative指紋を保持。最終CPU184/skip0。HP盾はplain boss skill限定の宣言モデルで、通常武器/hit盾/貫通・公開受付・CUDA実機は未完了。詳細 docs/portable-destructible-shield-gpu.md。
+現在の型付き実戦検証はsealed `destructible-hit-shield`（111入力/native76＋拒否35、Metal/独立seal成功）を使う。HP盾とhit盾の選択/量確定/receipt/counterを既存Frameで共用し、旧88の全input/native/raw369098752byteを共通readback-retainで保持。最終CPU191/skip0。plain boss skill限定の宣言モデルで、通常武器/貫通・公開受付・CUDA実機は未完了。詳細 docs/portable-destructible-hit-shield.md。
 
 ```sh
-python scripts/nikke_gpu.py package --suite destructible-shield-battle --out NEW_PACKAGE.zip
+python scripts/nikke_gpu.py package --suite destructible-hit-shield --out NEW_PACKAGE.zip
+python scripts/nikke_gpu.py reference --suite destructible-hit-shield --out NEW_REFERENCE.json
 ```
 
-Frame source変更後の開発checkoutでは旧frame/battle/original/modifier-battle専用goldenはstaleであり、sealed package作成を拒否する。元golden/固定package/rawは履歴として保持し、新しい88入口を使う。source inverseは保存fixtureの厳密な履歴検査に限定し、新しい計算証明へ代用しない。専用scalar `destructible-modifier` の29入力はsource119不変で、実戦とのscopeは別。
+referenceは同じ18 CPU契約だけをGPU/packing禁止で調べ、model gapのまま記録する。HSI2/flag1/route4だけがHP＋hit盾を選び、旧HSI1/flag0/route3はHP専用を維持する。input110112/output1048576wordを変更せず、hit盾のcreditとHP scalar量を混ぜない。
 
-`reference --suite destructible-shield-battle --out NEW.json`は同じ15 CPU宣言契約だけをGPU禁止下で実行する。`storage-check --required-bytes N`は既定1GiBを予約するbudget検査で、archive検査ではない。既存`sparsify-raw`は終了済みrawの全byte/SHA/inodeを保ってゼロ割当を回収でき、GPUでのraw再作成や削除へ置き換えない。
+source更新後の開発checkoutでは旧88を含む専用goldenはstaleであり、sealed package作成を拒否する。元golden/固定package/rawは履歴として保持し、現在は111入口を使う。source inverseは保存fixtureの厳密な履歴検査に限定し、新しい計算証明へ代用しない。専用scalar destructible-modifierの29入力はsource119不変。
+
+`storage-check --required-bytes N`は既定1GiBを予約するbudget検査で、archive検査ではない。既存`sparsify-raw`は終了済みrawの全byte/SHA/inodeを保ってゼロ割当を回収でき、GPUでのraw再作成や削除へ置き換えない。
 
 保存出力の既存監査器を拡張した。`readback-index --case-words 1048576`は型付き実戦の4MiB/caseを明示し、省略時は従来の786432word。`readback-compare`はSHAで固定したindexの幅を使う。ファイル長から幅を推測しない。`readback-retain`は並べ替え/追加のあるcapture間で元ケースの保持を調べる。2つのcomparison.jsonのSHAを必須とし、成功comparison・一意なcase名・件数・全readback SHA・実caseごとのoutput SHAを読み直してから、元caseのinput/native/output指紋を照合する。
 

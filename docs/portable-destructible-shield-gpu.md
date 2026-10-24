@@ -1,5 +1,7 @@
 # HP盾の実戦迎撃を共有Frameへ接続
 
+後続のhit-credit共用と旧88全byte保持は[hit盾実証](portable-destructible-hit-shield.md)を参照。以下はHP盾V1を接続した時点の記録。
+
 共通CLIのsealed suite `destructible-shield-battle`を追加した。前段のCPU15契約を同じbattle scheduler・DFS Frame・共有modifier scalar・既存receipt/counterへ接続し、Apple M5のMetal88入力（native58・拒否30）が全件一致した。GPU実行は1回で成功し、保存出力の独立sealもGPU0で成功した。通常武器/hit盾/貫通の迎撃、ゲーム規則、全プロフィール、CUDA実機の認定は未完了。
 
 ## 共通実行器の変更

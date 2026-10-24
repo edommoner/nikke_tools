@@ -18,8 +18,8 @@
 #define DF_ATTACK_ID(s,scratch,descriptor) results[scratch+531]
 #define DF_COMPLETE(s,scratch) if(results[scratch+531]!=0) results[results[scratch+530]+10]=1;
 #define DF_ROW_ENABLED(s,row) ((row)<(s).count&&commands[(s).inputBase+109824+(row)]!=0)
-#define DF_BODY_FALLBACK(s,row) (commands[(s).inputBase+109824+(row)]==3)
-#define DF_MATCH(s,row,at,selected) (results[at+3]!=0&&(DF_BODY_FALLBACK(s,row)?((selected)==0&&results[at]==3&&results[at+10]==commands[(s).inputBase+110081]&&results[at+11]==commands[(s).inputBase+110082]&&results[at+12]==commands[(s).inputBase+110083]):results[at]==2))
+#define DF_BODY_FALLBACK(s,row) (commands[(s).inputBase+109824+(row)]>=3)
+#define DF_MATCH(s,row,at,selected) (results[at+3]!=0&&(DF_BODY_FALLBACK(s,row)?((selected)==0&&(results[at]==3||(commands[(s).inputBase+109824+(row)]==4&&results[at]==4))&&results[at+10]==commands[(s).inputBase+110081]&&results[at+11]==commands[(s).inputBase+110082]&&results[at+12]==commands[(s).inputBase+110083]):results[at]==2))
 #define portableEvents unusedNormalBattleEntry
 #include "world_projectile_chain_entry.slang"
 #undef portableEvents
@@ -33,7 +33,18 @@ uint64_t modifierFrameDamage(inout Runtime s,uint who,uint64_t coefficient,uint6
 {
     if(normal||optimal||physical||!f64Equal(coreBonus,s.coreBonus)||!f64Equal(charge,ONE)||!DF_ROW_ENABLED(s,row)||skillHPBasisMode(s,row)!=0||(flags&~(H_NAMED_SKILL|524288U))!=0) { s.error=64;return 0; }
     uint64_t factor5,projectile,shield;
-    return destructibleModifierDamage(s,s.inputBase+109568,who,commands[s.inputBase+109824+row],coefficient,when,factor5,projectile,shield);
+    uint kind=commands[s.inputBase+109824+row];
+    if(kind==4)
+    {
+        uint count=commands[DF_EXTRA(s)+2320],base=DF_BASE(s.resourceOutput);bool found=false;
+        for(uint slot=0;slot<count;slot++)
+        {
+            uint at=dtAt(base,slot);
+            if(DF_MATCH(s,row,at,0)) { kind=results[at]==4?0:3;found=true;break; }
+        }
+        if(!found) { s.error=64;return 0; }
+    }
+    return destructibleModifierDamage(s,s.inputBase+109568,who,kind,coefficient,when,factor5,projectile,shield);
 }
 #define damageValue modifierFrameDamage
 #include "destructible_frame_runtime.slang"
@@ -59,14 +70,15 @@ bool validBattleModifierAxes(inout Runtime s)
 bool validShieldBattleRoutes(inout Runtime s)
 {
     uint base=s.inputBase+110080;
-    if(commands[base]!=0x48534931U||commands[base+1]!=0||commands[base+2]!=0||commands[base+3]!=1) return false;
-    for(uint i=4;i<32;i++) if(commands[base+i]!=0) return false;
+    bool hitShields=commands[base]==0x48534932U;
+    if((!hitShields&&commands[base]!=0x48534931U)||commands[base+1]!=0||commands[base+2]!=0||commands[base+3]!=1||commands[base+4]!=uint(hitShields)) return false;
+    for(uint i=5;i<32;i++) if(commands[base+i]!=0) return false;
     if(!DF_ROW_ENABLED(s,commands[DF_DESCRIPTOR(s)])) return false;
     for(uint row=0;row<256;row++)
     {
         uint route=commands[s.inputBase+109824+row];
         if(route==0) continue;
-        if((route!=2&&route!=3)||row>=s.count||skillHPBasisMode(s,row)!=0) return false;
+        if((route!=2&&route!=3&&!(hitShields&&route==4))||row>=s.count||skillHPBasisMode(s,row)!=0) return false;
         Definition d=readDefinition(s.inputBase,row);
         if(d.kind!=3||d.stat!=0||d.damageRoute!=1||d.damageCount!=1||d.damageHits!=1||d.damagePending!=0||d.damageNormal!=0||(d.damageFlags&~(H_NAMED_SKILL|524288U))!=0||d.healthScaling!=0||d.quantityFlags!=0||!dtQuantity(d.value)) return false;
     }

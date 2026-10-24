@@ -37,7 +37,8 @@ class ShieldGPUTests(unittest.TestCase):
     def test_actual_metal_shield_blocks_detect_owner_source_scalar_and_receipt_corruption(self):
         from portable_backend import source_hashes
         f=json.loads((ROOT/'tests/fixtures/portable-destructible-shield-battle-raw.json').read_text())
-        self.assertEqual(f['source_sha256'],source_hashes('gpu/destructible_shield_battle_entry.slang'))
+        from portable_destructible_hit_shield_source_contract import verify_retained_sources
+        verify_retained_sources(ROOT,'gpu/destructible_shield_battle_entry.slang',f['source_sha256'])
         rows,_=a.prepare()
         for record in f['records']:
             name,words,domain=rows[record['index']];self.assertEqual(name,record['name'])

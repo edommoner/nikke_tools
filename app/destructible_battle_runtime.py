@@ -27,11 +27,12 @@ class TypedLandings(ast.NodeTransformer):
         return node
 
 @contextmanager
-def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None):
+def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False):
     from calculator import timeline,buff_manager
     from runner import sim
     if type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Invalid typed battle observation capacity')
     if type(modifier_model) is not bool:raise ValueError('Explicit modifier model boolean required')
+    if type(hit_shields) is not bool or hit_shields and shield_owner is None:raise ValueError('Hit shields require an explicit shield owner and boolean policy')
     if shield_owner is not None:
         from destructible_shield_policy import validate_owner
         validate_owner(shield_owner)
@@ -83,9 +84,9 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
                 from destructible_shield_policy import select
                 from destructible_skill_specs import coefficient
                 coefficient(dict(effect,target='all_projectiles'),manager._char[caster])
-                selected=select(world,shield_owner)
+                selected=select(world,shield_owner,hit_shields=hit_shields)
                 if selected is not None:
-                    context=dict(manager=manager,world=world,effect=effect,caster=caster,time=t,kind=ActorKind.HP_SHIELD,selected=selected)
+                    context=dict(manager=manager,world=world,effect=effect,caster=caster,time=t,kind=selected[1].kind,selected=selected)
             active.append(context)
             try:return previous(dict(effect,target='boss') if context is not None else effect,caster,t,*args,**kwargs)
             finally:assert active.pop() is context
@@ -98,7 +99,9 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
         hit=kwargs.get('hit_type',args[3] if len(args)>3 else None)
         if not isinstance(hit,dict) or hit.get('coeff') is None:raise ValueError('Typed handler must expose its sampled coefficient')
         context['coefficient']=float(hit['coeff'])
-        return calculate(*args,**kwargs,kind=context['kind'])
+        # Hit shields consume packet credit, never HP damage. Retain the normal
+        # scalar in Impact for diagnostics/counters without applying HP factors.
+        return calculate(*args,**kwargs,kind=ActorKind.BODY if context['kind']==ActorKind.HIT_SHIELD else context['kind'])
     def packet(*args,**kwargs):
         event=old_hit(*args,**kwargs);context=active[-1] if active else None
         if context is None:return event

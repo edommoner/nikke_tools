@@ -5,7 +5,7 @@ from destructible_shield_policy import BOSS
 from world_frame_native import observe as battle
 
 def observe(case):
-    with typed_battle(case['typed_bindings'],modifier_model=True,shield_owner=BOSS) as data:
+    with typed_battle(case['typed_bindings'],modifier_model=True,shield_owner=BOSS,hit_shields=case.get('hit_shield_interception_v1',False)) as data:
         native=battle(case)
     from effect_runtime import state
     manager,=data['managers'];runtime=state(manager)
