@@ -37,10 +37,11 @@ class ArenaSpecsTests(unittest.TestCase):
         self.assertEqual(sum(r['words'] for r in outputs if 'coordinate-clear-tail' not in (r['first'],r['second'])),235096)
         self.assertTrue(any('coordinate-clear-tail' in (r['first'],r['second']) for r in outputs))
 
-    def test_composed_plan_retains_every_capacity_and_marks_battle_unconnected(self):
+    def test_composed_plan_retains_every_capacity_and_marks_physical_scope(self):
         row=audit_profile('combined-v1')
         self.assertTrue(row['address_plan_verified'])
-        self.assertFalse(row['runtime_connected'])
+        self.assertTrue(row['runtime_connected'])
+        self.assertEqual(row['composed_physical_scope'],'body-only')
         self.assertFalse(row['gpu_execution_verified'])
         self.assertEqual((row['input_words'],row['output_words']),(108648,1310720))
         before,after=coordinate_layout(),coordinate_layout(1048576)

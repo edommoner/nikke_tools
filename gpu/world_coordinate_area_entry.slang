@@ -1,12 +1,9 @@
 // Execute the existing complete world program; read its caller-owned pools.
-#define sampleCoordinateSkill(s,d,v,t,p) sampleCoordinateAreaSkill(s,d,v,t,p,interruptAmount,interruptReach)
-#define captureCoordinateCast captureCoordinateAreaCast
-#define validCoordinateSkillDefinition validCoordinateAreaSkill
-#define deliverCoordinateParts deliverCoordinateAreaTargets
-#define PORTABLE_COORDINATE_SKILLS
-#define PORTABLE_COORDINATE_POOL
+#include "coordinate_area_hooks.slang"
 #define portableEvents legacyCoordinatePoolEvents
+#ifndef PORTABLE_COMPOSED_ARENA
 #include "world_projectile_entry.slang"
+#endif
 #undef portableEvents
 #undef sampleCoordinateSkill
 #undef captureCoordinateCast
@@ -14,14 +11,22 @@
 #undef deliverCoordinateParts
 #include "coordinate_skill_runtime.slang"
 #include "coordinate_area_runtime.slang"
+#ifdef PORTABLE_COMPOSED_ARENA
+[noinline]
+void executeComposedCoordinateEvents(inout Runtime s,uint3 id)
+#else
 [shader("compute")]
 [numthreads(1,1,1)]
 void portableEvents(uint3 id:SV_DispatchThreadID)
+#endif
 {
     if(id.x>=commands[0])return;
-    uint input=1+id.x*(P_INPUT_WORDS+C_INPUT+CA_INPUT),output=id.x*P_OUTPUT_WORDS,dst=output+786432U;
+    uint input=1+id.x*(P_INPUT_WORDS+C_INPUT+CA_INPUT),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
     WORLD_TEAM_INPUT(input,output)
-    Runtime s;initializeRuntime(s);bool ready;initializePortableProgram(s,input,output,ready);if(!ready)return;
+#ifndef PORTABLE_COMPOSED_ARENA
+    Runtime s;
+#endif
+    initializeRuntime(s);bool ready;initializePortableProgram(s,input,output,ready);if(!ready)return;
     CoordinateScene c;c.input=input+P_INPUT_WORDS;c.output=dst;c.count=commands[c.input+2];c.state=actorPoolAt(s,0);c.error=0;c.poolStride=16;c.poolBySlot=1;c.poolStart=8;
     // Validate binding/HP agreement before running the battle, with no pool copy.
     if(commands[c.input]!=0x434f4f31U||commands[c.input+1]!=1||commands[c.input+3]!=commands[input+P_WORLD_FRAME_INPUT_BASE+1]||c.count+1!=actorPoolCount(s)||!cValidate(c,commands[c.input+3])){results[output]=64;return;}
@@ -43,3 +48,12 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     for(uint i=5;i<16;i++)results[output+CP_BASE+i]=0;
     writePortableProgram(s,input,output,queries);
 }
+#ifdef PORTABLE_COMPOSED_ARENA
+[shader("compute")]
+[numthreads(1,1,1)]
+void portableEvents(uint3 id:SV_DispatchThreadID)
+{
+    if(id.x>=commands[0])return;
+    executeComposedCoordinateEvents(runtimeStates[id.x],id);
+}
+#endif

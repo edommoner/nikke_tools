@@ -1,7 +1,11 @@
 // GPU-owned actual-shot groups. Uses canonical Actor receipts and DFS dispatch.
 // The explicit AGS1 policy counts BODY/ADD enemies, never pellets or damage.
+#ifdef PORTABLE_COMPOSED_ARENA
+#include "composed_arena_layout.slang"
+#else
 static const uint AG_HEADER=800000,AG_SLOTS=800032,AG_WORDS=536,AG_LOG=820000,AG_LOG_CAP=64,AG_PACKETS=860000;
 static const uint AG_COMPACT=AG_PACKETS+P_LANDINGS,AG_COMPACT_WORDS=1048576-AG_COMPACT;
+#endif
 uint agHead(inout Runtime s) { return s.resourceOutput+AG_HEADER; }
 uint agAt(inout Runtime s,uint index) { return s.resourceOutput+AG_SLOTS+index*AG_WORDS; }
 uint agKey(inout Runtime s,uint index) { return (results[agAt(s,index)+3]<<5)|index; }
@@ -60,12 +64,20 @@ bool initializeAttackGroups(inout Runtime s)
     for(uint i=0;i<32+32*AG_WORDS;i++) results[head+i]=0;
     for(uint i=0;i<AG_LOG_CAP*AG_WORDS;i++) results[s.resourceOutput+AG_LOG+i]=0;
     for(uint i=0;i<P_LANDINGS;i++) results[s.resourceOutput+AG_PACKETS+i]=0;
-    if(commands[input]!=0x41475331U||(commands[input+1]!=1&&commands[input+1]!=2)||commands[input+2]==0||(commands[input+2]&~31U)!=0) return false;
+    if(commands[input]!=0x41475331U||(commands[input+1]!=1&&commands[input+1]!=2)
+#ifndef PORTABLE_COMPOSED_ARENA
+       ||commands[input+2]==0
+#endif
+       ||(commands[input+2]&~31U)!=0) return false;
     if(commands[input+3]>1) return false;
     for(uint i=4;i<8;i++) if(commands[input+i]!=0) return false;
     if(commands[input+3]!=0) for(uint i=0;i<AG_COMPACT_WORDS;i++) results[s.resourceOutput+AG_COMPACT+i]=0;
     if(!actorRecipientsEnabled(s)||s.combat==0||s.landingPolicy!=1||s.targetCount!=1||commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+3]!=0) return false;
+    #ifdef PORTABLE_COMPOSED_ARENA
+    for(uint slot=0;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]!=0&&commands[actorBinding(s,slot)]!=1&&commands[actorBinding(s,slot)]!=6) return false;
+#else
     for(uint slot=0;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]!=0&&commands[actorBinding(s,slot)]!=5) return false;
+#endif
     uint owners=0;
     for(uint row=0;row<s.count;row++)
     {
@@ -92,6 +104,9 @@ bool deliverAttackGroupShot(inout Runtime s,uint who,uint64_t when,uint output,u
 {
     uint head=agHead(s);if(count==0||(results[head+8]&(1U<<who))==0) return false;
     if(s.error!=0) return true;
+#ifdef PORTABLE_COMPOSED_ARENA
+    if(actorPoolCount(s)!=1) { s.error=64;return true; } // Coordinate physical probability/parts routing is unconnected.
+#endif
     if(!worldPhysicalNormal(s,who)||count>1024||results[head+3]!=0) { s.error=64;return true; }
     uint group=0;while(group<32&&results[agAt(s,group)]!=0) group++;
     if(group==32||results[head+1]>=0xffffffU||results[head+2]>=0x7ffffffU||results[head+10]==0&&results[head+5]>=AG_LOG_CAP) { s.error=64;return true; }

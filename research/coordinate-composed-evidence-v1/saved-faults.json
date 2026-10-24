@@ -1,0 +1,31 @@
+{
+  "faults": [
+    {
+      "fault": "lost-group-header",
+      "detected": true
+    },
+    {
+      "fault": "missing-group",
+      "detected": true
+    },
+    {
+      "fault": "stale-body-generation",
+      "detected": true
+    },
+    {
+      "fault": "missing-zero-part-observation",
+      "detected": true
+    },
+    {
+      "fault": "lost-compact-history",
+      "detected": true
+    },
+    {
+      "fault": "unused-coordinate-tail",
+      "detected": true
+    }
+  ],
+  "original_raw_sha256": "6ed4125dda143a3274601c371a7fbc0afc38e9e17e590db9fc2bcb368665d490",
+  "original_raw_unchanged": true,
+  "gpu_calls": 0
+}

@@ -3,10 +3,11 @@ import hashlib,json,re
 from pathlib import Path
 
 def project_sources(root,sources=None):
-    root=Path(root);sources=dict(sources or {})
+    from portable_arena_composed_source_contract import project_sources as project_composition
+    root=Path(root);sources=project_composition(root,sources)
     data=json.loads((root/'tests/fixtures/portable-attack-group-source-delta.json').read_text())
     for name,digest in data['added_sources'].items():
-        assert hashlib.sha256((root/name).read_bytes()).hexdigest()==digest,'Unreviewed added attack-group source: '+name
+        assert hashlib.sha256(sources.get(name,(root/name).read_text()).encode()).hexdigest()==digest,'Unreviewed added attack-group source: '+name
     for name,row in data['sources'].items():
         current=sources.get(name,(root/name).read_text())
         assert current==row['current'] and hashlib.sha256(current.encode()).hexdigest()==row['current_sha256'],'Unreviewed attack-group source: '+name

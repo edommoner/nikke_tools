@@ -6,6 +6,16 @@ from portable_definition_view_contract import verify
 
 
 class DefinitionViewTests(unittest.TestCase):
+    def test_composed_layout_and_physical_admission_delta_is_exact(self):
+        for name,old,new in [('gpu/portable_schema.slang','P_OUTPUT_WORDS = 1310720U','P_OUTPUT_WORDS = 1048576U'),
+                ('gpu/coordinate_area_layout.slang','CA_BASE_INPUT=107592','CA_BASE_INPUT=107584'),
+                ('gpu/composed_arena_layout.slang','CP_BASE=1048576','CP_BASE=786432'),
+                ('gpu/attack_group_runtime.slang','if(actorPoolCount(s)!=1)','if(actorPoolCount(s)>128)'),
+                ('gpu/world_coordinate_composed_entry.slang','#define PORTABLE_ATTACK_GROUPS','#define PORTABLE_ATTACK_GROUPS_DISABLED'),
+                ('gpu/world_team_runtime.slang','notifyWorldTeamFraction(s,who,0,0,when,output);','notifyWorldTeamFraction(s,who,0,ONE,when,output);')]:
+            source=(ROOT/name).read_text();self.assertIn(old,source)
+            with self.subTest(name=name),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(old,new,1)})
+
     def test_landing_generation_delta_cannot_change_snapshots_or_admission_guards(self):
         names=['gpu/coordinate_skill_runtime.slang','gpu/coordinate_area_runtime.slang']
         self.assertEqual(verify(ROOT)['reviewed_coordinate_generation_sources'],names)

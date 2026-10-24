@@ -1,4 +1,7 @@
 // Generated from portable_coordinate_packet_specs.
+#ifdef PORTABLE_COMPOSED_ARENA
+#include "composed_arena_layout.slang"
+#else
 static const uint CP_BASE=786432;
 static const uint CP_HEADER_WORDS=16;
 static const uint CP_FRAME=786448;
@@ -14,3 +17,4 @@ static const uint CP_TRACE_WORDS=12;
 static const uint CP_SELECTION=978072;
 static const uint CP_SELECTION_WORDS=65536;
 static const uint CP_END=1043608;
+#endif

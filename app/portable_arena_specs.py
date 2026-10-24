@@ -1,7 +1,7 @@
 """Shared input/output ownership for coordinate and actual-shot profiles.
 
-The combined-v1 profile is an address plan, not a connected battle executor.
-Legacy shader text stays byte-identical until its consumers are migrated.
+The combined-v1 entry connects the resident executor and both output arenas.
+Coordinate physical routing remains limited to a body-only pool.
 """
 from dataclasses import asdict, dataclass
 import hashlib
@@ -53,8 +53,10 @@ def attack_group_layout(landings=2048):
 
 
 def coordinate_shader_schema():
-    return '// Generated from portable_coordinate_packet_specs.\n' + ''.join(
-        f'static const uint CP_{key}={value};\n' for key, value in coordinate_layout().items())
+    return ('// Generated from portable_coordinate_packet_specs.\n'
+            '#ifdef PORTABLE_COMPOSED_ARENA\n#include "composed_arena_layout.slang"\n#else\n'
+            + ''.join(f'static const uint CP_{key}={value};\n' for key,value in coordinate_layout().items())
+            + '#endif\n')
 
 
 def attack_group_shader_declarations():
@@ -132,7 +134,8 @@ def audit_regions(rows, input_words, output_words):
 
 def audit_profile(profile):
     rows, input_words, output_words = regions(profile)
-    return dict(profile=profile, runtime_connected=profile in ('coordinate', 'attack-group'),
+    return dict(profile=profile, runtime_connected=profile != 'combined-legacy',
+                composed_physical_scope='body-only' if profile=='combined-v1' else None,
                 gpu_execution_verified=False, gpu_calls=0, calculation_verified=False,
                 **audit_regions(rows, input_words, output_words))
 
@@ -163,7 +166,7 @@ def audit_live_sources(root):
                'for(uint i=0;i<P_LANDINGS;i++) results[s.resourceOutput+AG_PACKETS+i]=0;',
                'for(uint i=0;i<AG_COMPACT_WORDS;i++) results[s.resourceOutput+AG_COMPACT+i]=0;'),
         'gpu/world_coordinate_area_entry.slang': (
-            'uint input=1+id.x*(P_INPUT_WORDS+C_INPUT+CA_INPUT),output=id.x*P_OUTPUT_WORDS,dst=output+786432U;',
+            'uint input=1+id.x*(P_INPUT_WORDS+C_INPUT+CA_INPUT),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;',
             'CoordinateScene c;c.input=input+P_INPUT_WORDS;',
             'for(uint i=CP_BASE;i<P_OUTPUT_WORDS;i++)results[output+i]=0;'),
         'gpu/coordinate_skill_runtime.slang': ('CoordinateScene c;c.input=s.inputBase+P_INPUT_WORDS;',),
@@ -184,19 +187,23 @@ def audit_live_sources(root):
     check_schema(root)
     if not source_matches(root) or area['BASE_INPUT'] != WORLD_INPUT_WORDS+scene['INPUT']:
         raise ValueError('Coordinate input schema drift')
+    from portable_arena_composed_source_contract import project_sources
+    project_sources(root)
+    for name in ('gpu/world_coordinate_composed_entry.slang','gpu/coordinate_area_hooks.slang','gpu/world_team_runtime.slang'):
+        hashes[name]=hashlib.sha256((root/name).read_bytes()).hexdigest()
     return dict(schema=1, scope='Static input/output ownership; no battle or GPU proof',
-                legacy_shader_declarations_verified=True, resident_audit=resident,
+                legacy_shader_declarations_verified=True, composed_source_contract_verified=True, resident_audit=resident,
                 source_sha256=hashes, gpu_calls=0)
 
 
 def composed_shader_schema():
-    """Generated address contract for the next composed consumer, not yet active."""
+    """Generated address contract consumed by the composed entry."""
     rows, input_words, output_words = regions('combined-v1')
     offsets = {row.name: row.base for row in rows}
     values = dict(INPUT_WORDS=input_words, OUTPUT_WORDS=output_words,
                   SCENE_INPUT_BASE=offsets['coordinate-scene'],
                   AREA_INPUT_BASE=offsets['coordinate-area'])
-    return ('// Generated combined-v1 address plan; battle consumer not connected.\n'
+    return ('// Generated combined-v1 address contract.\n#ifndef PORTABLE_COMPOSED_ARENA_LAYOUT\n#define PORTABLE_COMPOSED_ARENA_LAYOUT\n'
             + ''.join(f'static const uint COMPOSED_{key}={value};\n' for key, value in values.items())
             + ''.join(f'static const uint CP_{key}={value};\n' for key, value in coordinate_layout(LEGACY_OUTPUT_WORDS).items())
-            + attack_group_shader_declarations())
+            + attack_group_shader_declarations() + '#endif\n')

@@ -18,7 +18,7 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 MAX_INPUT_WORDS=131072
-MAX_OUTPUT_WORDS=1048576
+MAX_OUTPUT_WORDS=1310720
 READBACK_CHUNK_BYTES=8*1024*1024
 
 
@@ -86,11 +86,20 @@ def resident_plan(source,entry,outputs):
     return reflection_plan(outputs,entry)
 
 
+def validate_composed_stride(source,input_words,output_words):
+    if output_words==1310720 or source=='gpu/world_coordinate_composed_entry.slang':
+        from portable_arena_specs import audit_profile
+        plan=audit_profile('combined-v1')
+        if source!='gpu/world_coordinate_composed_entry.slang' or (input_words,output_words)!=(plan['input_words'],plan['output_words']):
+            raise ValueError('Composed stride requires the registered shared entry and complete wire')
+
+
 def execute(source, entry, packed, input_words, output_words, backend='metal', *, readback_path=None):
     if backend not in ('metal', 'cuda'):
         raise ValueError('Explicit metal or cuda backend required; no CPU fallback')
-    if type(input_words) is not int or type(output_words) is not int or not 1<=input_words<=MAX_INPUT_WORDS or not 1<=output_words<=MAX_OUTPUT_WORDS or output_words>524288 and output_words not in (655360,786432,1048576):
+    if type(input_words) is not int or type(output_words) is not int or not 1<=input_words<=MAX_INPUT_WORDS or not 1<=output_words<=MAX_OUTPUT_WORDS or output_words>524288 and output_words not in (655360,786432,1048576,1310720):
         raise ValueError('Invalid portable word strides')
+    validate_composed_stride(source,input_words,output_words)
     count, = struct.unpack_from('<I', packed)
     if not 1 <= count <= 65536 or 1+count*input_words>0xffffffff or count*output_words>0xffffffff or len(packed) != (1+count*input_words)*4:
         raise ValueError('Invalid portable wire dimensions')
@@ -150,10 +159,11 @@ def execute_batches(source, entry, batches, input_words, output_words, backend='
     success. Both adapters reuse their pipeline/context and two bounded buffers.
     """
     if backend not in ('metal','cuda'):raise ValueError('Explicit metal or cuda backend required; no CPU fallback')
-    if type(input_words) is not int or type(output_words) is not int or not 1<=input_words<=MAX_INPUT_WORDS or not 1<=output_words<=MAX_OUTPUT_WORDS or output_words>524288 and output_words not in (655360,786432,1048576):raise ValueError('Invalid portable word strides')
+    if type(input_words) is not int or type(output_words) is not int or not 1<=input_words<=MAX_INPUT_WORDS or not 1<=output_words<=MAX_OUTPUT_WORDS or output_words>524288 and output_words not in (655360,786432,1048576,1310720):raise ValueError('Invalid portable word strides')
     batches=list(batches)
     if not batches:raise ValueError('Empty portable dispatch sequence')
     counts=[]
+    validate_composed_stride(source,input_words,output_words)
     for packed in batches:
         if len(packed)<4:raise ValueError('Missing portable batch header')
         count,=struct.unpack_from('<I',packed)

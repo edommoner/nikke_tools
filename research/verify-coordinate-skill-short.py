@@ -68,8 +68,8 @@ def native_reference(domain):
     # target label to BODY. No extra damage/receipt is omitted from comparison.
     return dict(battle=n,skill_trace=t,coordinate_selection=coordinate['selections'],coordinate_target_accounting=coordinate['target_accounting'],coordinate_packets=[e for e in events if e['kind']=='packet'])
 
-def compare(block,domain):
-    case,meta,bindings,descriptors=domain;expected=native_reference(domain)
+def compare(block,domain,*,expected=None):
+    case,meta,bindings,descriptors=domain;expected=native_reference(domain) if expected is None else expected
     parent.compare_expected(block[:786432],domain[:3],{key:expected[key] for key in ('battle','skill_trace')})
     assert block[P['BASE']]==0x43534b31 and block[P['BASE']+1]==1
     by_name={r['label']:r for r in descriptors['rows']};names=roster_names(case);account=iter(expected['coordinate_target_accounting']);packets=[]

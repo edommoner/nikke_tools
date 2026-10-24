@@ -1,4 +1,6 @@
-// Generated combined-v1 address plan; battle consumer not connected.
+// Generated combined-v1 address contract.
+#ifndef PORTABLE_COMPOSED_ARENA_LAYOUT
+#define PORTABLE_COMPOSED_ARENA_LAYOUT
 static const uint COMPOSED_INPUT_WORDS=108648;
 static const uint COMPOSED_OUTPUT_WORDS=1310720;
 static const uint COMPOSED_SCENE_INPUT_BASE=104408;
@@ -20,3 +22,4 @@ static const uint CP_SELECTION_WORDS=65536;
 static const uint CP_END=1305752;
 static const uint AG_HEADER=800000,AG_SLOTS=800032,AG_WORDS=536,AG_LOG=820000,AG_LOG_CAP=64,AG_PACKETS=860000;
 static const uint AG_COMPACT=AG_PACKETS+P_LANDINGS,AG_COMPACT_WORDS=1048576-AG_COMPACT;
+#endif

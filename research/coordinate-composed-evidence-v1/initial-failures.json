@@ -1,0 +1,10 @@
+{
+  "initial97": "Swift wire admission rejected 1310720 before device discovery; no kernel dispatched",
+  "old81": "Metal device unavailable in sandbox; escalated read-only device discovery returned Apple M5",
+  "claims_preserved": true,
+  "old_packages_unchanged": true,
+  "same_package_retried": false,
+  "source_audit_initial_failure": "Composition was projected twice in historical chain; apply exact inverse once at attack-group chain root",
+  "source_audit_fix": "Canonical ledgers preserved; current and baseline full hashes verified",
+  "gpu_calls_in_failed_transports": 0
+}

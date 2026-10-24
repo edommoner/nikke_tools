@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-partial-charge-retention-v3-capture",
+  "raw_bytes": 4734320640,
+  "raw_sha256": "7945d3a282f1779475c5d558a1729fb5f9b340a12e96523cde30440dac471be6",
+  "evidence_sha256": "7593f19a86fcb9bfba5ea964fe923caded1f3829d75ca22f43ac3101a2c44bd2",
+  "raw_inode": 508234445,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 35809,
+  "zero_range_bytes": 4543320064,
+  "allocated_before": 1352335360,
+  "allocated_after": 191000576,
+  "allocated_reclaimed": 1161334784,
+  "full_hash_verified": true
+}

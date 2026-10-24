@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-arena-composed-old88-metal-v3b",
+  "raw_bytes": 369098752,
+  "raw_sha256": "bcee5a6cb0fedca84fb7a7ef8ec0184f58355ca60fc5fa55545356d5d83f5728",
+  "evidence_sha256": "57b6b037d9a816df24e9c16263c3ab3704e2d37cfc62e1263c919e64182526f2",
+  "raw_inode": 509787074,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 2751,
+  "zero_range_bytes": 355987456,
+  "allocated_before": 369098752,
+  "allocated_after": 13111296,
+  "allocated_reclaimed": 355987456,
+  "full_hash_verified": true
+}

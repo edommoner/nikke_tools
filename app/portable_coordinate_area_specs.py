@@ -8,7 +8,10 @@ from pathlib import Path
 from portable_coordinate_scene_specs import bits,LAYOUT as C
 LAYOUT=dict(INPUT=1056,HEADER=32,ROW_WORDS=8,ROWS=128,BASE_INPUT=107584)
 MAGIC=0x43415231
-def shader_schema():return '// Generated from portable_coordinate_area_specs.\n'+''.join(f'static const uint CA_{k}={v};\n' for k,v in LAYOUT.items())
+def shader_schema():
+    return '// Generated from portable_coordinate_area_specs.\n'+''.join(
+        ('#ifdef PORTABLE_COMPOSED_ARENA\nstatic const uint CA_BASE_INPUT=107592;\n#else\n'+f'static const uint CA_{k}={v};\n'+'#endif\n')
+        if k=='BASE_INPUT' else f'static const uint CA_{k}={v};\n' for k,v in LAYOUT.items())
 def check_schema(root=None):assert (Path(root or Path(__file__).resolve().parents[1])/'gpu/coordinate_area_layout.slang').read_text()==shader_schema()
 def rotation_coefficients(shape):
     theta=math.radians(shape.rot)

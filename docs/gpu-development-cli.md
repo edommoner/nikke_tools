@@ -1,6 +1,17 @@
 # 共通GPU検証CLI
 
-`arena-check --profile coordinate|attack-group|combined-legacy|combined-v1 --out /tmp/new.json`で実consumerに結び付けた入力・出力の合成配置を監査できます。旧配置の結合は終了1、移設案は終了0ですが戦闘未接続です。共通CPU smokeにも7検査を追加しました。[arena合成](gpu-arena-composition.md)を参照してください。
+座標と実射撃groupの合成入口は`coordinate-composed`97入力（native81／拒否16）。body-only物理射撃と座標skillを同じGPU常駐Runtimeへ接続し、Metal実GPUで全出力を照合・独立sealしました。CUDA／Metalは同じSlang入口・定義・比較器を使います。Windowsの新しい計算実証は未取得です。[合成実行器](portable-arena-composed-executor.md)を参照してください。
+
+```sh
+python scripts/nikke_gpu.py package --suite coordinate-composed --compact --out /tmp/new-composed.zip
+# 新規フォルダーへ展開し、そのフォルダーをcwdとして実行
+python scripts/nikke_gpu.py run --backend metal --cpu-only --capture /tmp/new-composed-cpu
+python scripts/nikke_gpu.py run --backend metal --cpu-only --smoke --capture /tmp/new-composed-control
+```
+
+出力1310720word（5MiB／入力）を確保します。座標物理部位・手動aim・全元定義の公開受付は未接続です。旧`coordinate-generation`88は独立入口として保持します。以降のsuperset表記と件数は各時点の履歴です。
+
+`arena-check --profile coordinate|attack-group|combined-legacy|combined-v1 --out /tmp/new.json`で実consumerに結び付けた入力・出力の合成配置を監査できます。旧配置の結合は終了1。`combined-v1`はprivate合成入口へ接続済みですが、arena-checkは静的監査です。共通CPU smokeにも7検査を追加しました。[arena合成](gpu-arena-composition.md)を参照してください。
 
 座標worldの最新private supersetは`coordinate-generation`88（native75／拒否13）です。世代交代時の対象名解決と期限切れ部位の通知順を接続し、旧76を全byte保持しました。[世代交代の着弾](portable-coordinate-generation.md)と[主実行器とのarena合成課題](gpu-arena-composition.md)を参照してください。
 

@@ -6,6 +6,7 @@ import portable_backend as backend
 import portable_slang_generation as generator
 import portable_generation_cache as cache
 import test_portable_generation_cache as fixtures
+from portable_arena_transport_source_contract import historical_backend_source
 
 def fingerprint(node):return hashlib.sha256(ast.dump(node,include_attributes=False).encode()).hexdigest()
 
@@ -53,11 +54,11 @@ class GenerationSeparationTests(unittest.TestCase):
         functions={n.name:n for n in ast.parse((ROOT/'app/portable_slang_generation.py').read_text()).body if isinstance(n,ast.FunctionDef)}
         self.assertEqual(set(functions),set(proof['generation_functions']))
         self.assertEqual({name:fingerprint(RestoreRoot().visit(node)) for name,node in functions.items()},proof['generation_functions'])
-        other={n.name:historical_transport_fingerprint(n) for n in ast.parse((ROOT/'app/portable_backend.py').read_text()).body if isinstance(n,ast.FunctionDef) and n.name not in functions}
+        other={n.name:historical_transport_fingerprint(n) for n in ast.parse(historical_backend_source(ROOT)).body if isinstance(n,ast.FunctionDef) and n.name not in functions}
         self.assertEqual(other,proof['other_backend_functions'])
 
     def test_historical_stride_projection_cannot_hide_a_different_capacity_or_transport(self):
-        node=next(n for n in ast.parse((ROOT/'app/portable_backend.py').read_text()).body if isinstance(n,ast.FunctionDef) and n.name=='execute')
+        node=next(n for n in ast.parse(historical_backend_source(ROOT)).body if isinstance(n,ast.FunctionDef) and n.name=='execute')
         expected=historical_transport_fingerprint(node)
         changed=copy.deepcopy(node)
         guard=next(n for n in ast.walk(changed) if isinstance(n,ast.Constant) and n.value==1048576);guard.value=1048575
@@ -65,6 +66,16 @@ class GenerationSeparationTests(unittest.TestCase):
         changed=copy.deepcopy(node)
         error=next(n for n in ast.walk(changed) if isinstance(n,ast.Constant) and n.value=='Invalid portable word strides');error.value='different validation'
         self.assertNotEqual(historical_transport_fingerprint(changed),expected)
+
+    def test_composed_transport_review_cannot_hide_guard_or_dispatch_changes(self):
+        source=(ROOT/'app/portable_backend.py').read_text()
+        for old,new in [('MAX_OUTPUT_WORDS=1310720','MAX_OUTPUT_WORDS=2621440'),
+                ('source!=\'gpu/world_coordinate_composed_entry.slang\'','source!=\'gpu/world_attack_group_entry.slang\''),
+                ('validate_composed_stride(source,input_words,output_words)','validate_composed_stride(source,input_words,1048576)'),
+                ('Invalid portable word strides','Ignored portable word strides'),
+                ('gpu_execution_verified=True','gpu_execution_verified=False')]:
+            self.assertIn(old,source)
+            with self.subTest(old=old),self.assertRaises(ValueError):historical_backend_source(ROOT,source.replace(old,new,1))
 
     def test_transport_only_edits_keep_key_pair_and_required_hit_without_compilation(self):
         h=self.helper();paths,hashes=h.build();receipt=h.receipt();before={k:p.read_bytes() for k,p in cache.artifact_paths(paths).items()}

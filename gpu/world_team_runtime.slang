@@ -83,6 +83,15 @@ void notifyWorldTeamFraction(inout Runtime s,uint who,uint kind,uint64_t frac,ui
 
 void notifyWorldTeam(inout Runtime s,uint who,uint64_t when,uint output)
 {
+#ifdef PORTABLE_COMPOSED_ARENA
+    // Native coordinate weapons observe part then body, including zero part
+    // probability in an empty scene. Keep the shared fraction/notification path.
+    if(actorPoolCount(s)==1)
+    {
+        notifyWorldTeamFraction(s,who,0,0,when,output);
+        if(s.error!=0)return;
+    }
+#endif
 #ifdef PORTABLE_WORLD_ACTOR_POOLS
     if(focusAimEnabled(s) && (commands[s.inputBase+P_WORLD_META_BASE+4]&1U)!=0)
     {
