@@ -83,6 +83,13 @@ class ReadinessSemanticsTests(unittest.TestCase):
         original=result['typed_original_battle_validation'];self.assertEqual((original['inputs'],original['native_cases'],original['original_definitions']),(8,8,1));self.assertEqual(original['skill_levels'],[1,5,10]);self.assertTrue(original['actual_burst_notification_verified']);self.assertFalse(original['original_full_profile_verified']);self.assertFalse(original['cuda_device_verified'])
         battle=result['typed_battle_validation'];self.assertEqual((battle['inputs'],battle['native_cases']),(44,31));self.assertTrue(battle['actual_battle_scheduler_verified']);self.assertTrue(battle['ordinary_cleared_nodes_coexist']);self.assertTrue(battle['nested_same_producer_reentry_verified']);self.assertTrue(battle['explicit_boss_and_generic_child_recipients_verified']);self.assertFalse(battle['typed_logical_enemy_policy_verified']);self.assertFalse(battle['separate_cpu_event_list']);self.assertFalse(battle['canonical_targets_cleared_verified']);self.assertFalse(battle['original_full_profile_verified'])
 
+    def test_declared_modifier_design_does_not_promote_model_gap_or_gpu_support(self):
+        for stat in ('projectile_dmg_pct','shield_dmg_pct'):
+            r=reference_readiness(self.blocker(stat));self.assertEqual(r['lane'],'reference_model_gap')
+            v=r['typed_modifier_design'];self.assertEqual(v['cases'],20);self.assertTrue(v['cpu_contract_verified'])
+            for field in ('canonical_consumer_verified','metal_verified','cuda_device_verified','battle_connected','in_game_rules_verified'):self.assertFalse(v[field])
+            self.assertFalse(r['gpu_supported']);self.assertFalse(r['runtime_validation_performed'])
+
     def test_inert_model_gap_is_checked_against_current_canonical_classification(self):
         r=reference_readiness(self.blocker('cover_def_pct'));self.assertEqual(r['lane'],'reference_model_gap')
         import effect_spec

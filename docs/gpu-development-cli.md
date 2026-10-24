@@ -1,4 +1,6 @@
 <!-- shared-readback-current -->
+最優先modifierのCPU設計は `reference --suite destructible-modifier --out NEW.json`（宣言20件、GPU/battle未接続・model gap維持）。詳細 docs/portable-destructible-modifier-design.md。`storage-check --required-bytes N`はbudgetだけを調べ、既定1GiB予約を満たさなければexit2。通常runもinput作成前とGPU claim前に実サイズを検査する。既存`sparsify-raw`で終了済みrawの全byte/SHAを保ったゼロ割当回収が可能。archive検証やraw削除の代替として扱わない。
+
 元のレベル別投射物定義にはsealed `destructible-original-battle`（8入力/native8、Metal/独立seal済み）を追加した。5人×スキル1/2/3の明示levelsを共通native/入力経路へ渡し、既存caseはlevel10を維持する。レベル1/5/10とowner4、実burst通知・完了子を検証。元1定義の限定実証であり全プロフィール認定ではない。詳細は docs/portable-destructible-original-battle.md。
 
 現在の型付き実戦入口はsealed `destructible-battle`（44入力/native31・拒否13、Metal/独立seal済み）。通常`projectile-chain-retention`の492入力もsealed経路を使える。詳細は docs/portable-destructible-counter-battle.md。以下は既存経路を含む履歴であり、最新の件数/source readinessはCLI `list`と固定packageを参照する。

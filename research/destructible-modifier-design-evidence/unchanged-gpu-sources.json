@@ -1,0 +1,14 @@
+{
+  "sources": {
+    "gpu/destructible_battle_entry.slang": {
+      "unchanged": true,
+      "files": 152
+    },
+    "gpu/world_projectile_chain_entry.slang": {
+      "unchanged": true,
+      "files": 147
+    }
+  },
+  "new_gpu_dispatches": 0,
+  "current_cuda_device_verified": false
+}

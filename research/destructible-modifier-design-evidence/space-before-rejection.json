@@ -1,0 +1,15 @@
+{
+  "passed": false,
+  "required_bytes": 37059588,
+  "reserve_bytes": 1073741824,
+  "free_bytes": 433860608,
+  "input_bytes": 3505156,
+  "output_bytes": 33554432,
+  "prepared_input_present": false,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "cpu_tests_started": false,
+  "input_created": false,
+  "gpu_claim_created": false,
+  "scope": "Actual early storage refusal; original failure capture retained"
+}

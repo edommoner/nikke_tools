@@ -1,8 +1,18 @@
 """Lossless local raw storage. Never compiles, dispatches or promotes GPU proof."""
-import gzip,hashlib,json,os,tempfile
+import gzip,hashlib,json,os,tempfile,shutil
 from pathlib import Path
 
 CHUNK=8*1024*1024
+
+
+def space_status(path,needed=0,*,reserve=1024**3):
+    """Shared budget-only check; no cleanup, compression or proof promotion."""
+    if any(type(n) is not int or n<0 for n in (needed,reserve)):
+        raise ValueError('Storage budget must use nonnegative integer bytes')
+    probe=Path(path).resolve()
+    while not probe.exists():probe=probe.parent
+    free=shutil.disk_usage(probe).free
+    return dict(passed=free>=needed+reserve,required_bytes=needed,reserve_bytes=reserve,free_bytes=free)
 
 
 def file_digest(path):

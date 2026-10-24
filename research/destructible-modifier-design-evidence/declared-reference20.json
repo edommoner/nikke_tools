@@ -1,0 +1,562 @@
+{
+  "schema": 1,
+  "suite": "destructible-modifier",
+  "stage": "cpu-native-contract",
+  "passed": true,
+  "cpu_reference_verified": true,
+  "calculation_verified": false,
+  "gpu_supported": false,
+  "gpu_calls": {
+    "build": 0,
+    "execute": 0
+  },
+  "packing_calls": 0,
+  "cases": [
+    {
+      "name": "destructible-modifier/baseline",
+      "input_sha256": "984b6df744bc391d622383ee5b726da4f88d1af3fa237f056331b25f17a02b63",
+      "native_sha256": "1d468f476ba943162a3cba231c479959dd9aff9bc6658bd133979f9cd7dc537d",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 900,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 1.0,
+        "projectile_modifier": 0.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/projectile",
+      "input_sha256": "0bffe2b9a7ce4e51beaf4893e91d6fe19f3da107ae53c002685387fb5daa8eeb",
+      "native_sha256": "e9f1ea23aee35d4656d54cbfe416ce06f6bb97f5e328432537c2abfb158a56be",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 1350,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 1.5,
+        "projectile_modifier": 50.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/hp-shield",
+      "input_sha256": "17b6a9921559ac97c59ee823b7f3177c4ff9c8f58ad3a265d18617e3e65dffd2",
+      "native_sha256": "f70770dd5086d051ee7ce64630e45fb76af682e8c5e010b34004be36e8281687",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 1350,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 3,
+        "factor5": 1.5,
+        "projectile_modifier": 0.0,
+        "shield_modifier": 50.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/body-excludes-both",
+      "input_sha256": "91cb3152cbc14a83587f96afb379319ae220edbbb3913f97900b59fb6b47c33e",
+      "native_sha256": "22c9383c50ce475ae7bde06e9fe41ba1224e859a8378b9ffe32a0fd2d4526226",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 900,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 0,
+        "factor5": 1.0,
+        "projectile_modifier": 50.0,
+        "shield_modifier": 100.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/projectile-excludes-shield",
+      "input_sha256": "4da817993ca58e7d8ae4e51b9124a51ba3b15d63d1504fb0c5e2037bafd6c57c",
+      "native_sha256": "1899da50081f1ac924e43554d6f6fc9ad9b999df831f346a3adc3e268130b57b",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 900,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 1.0,
+        "projectile_modifier": 0.0,
+        "shield_modifier": 100.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/hp-shield-excludes-projectile",
+      "input_sha256": "a70773b3d9249457839046456fb33fc1a9af71a80fee002e82c918a42271d3f0",
+      "native_sha256": "871d1a6633d43e1868c39b2798102059280ab4574cfb46ae71779c028bf60f47",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 900,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 3,
+        "factor5": 1.0,
+        "projectile_modifier": 100.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/not-intercept",
+      "input_sha256": "a1552326b391c3f58ca5a04f7b7fd30099ce6465bfe9dbb6b533820b89cba605",
+      "native_sha256": "1d468f476ba943162a3cba231c479959dd9aff9bc6658bd133979f9cd7dc537d",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 900,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 1.0,
+        "projectile_modifier": 0.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/not-part",
+      "input_sha256": "3da53a5956287d11458b2bb31b6fce04654663404dd1646dbc713dc8e3535d2c",
+      "native_sha256": "1d468f476ba943162a3cba231c479959dd9aff9bc6658bd133979f9cd7dc537d",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 900,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 1.0,
+        "projectile_modifier": 0.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/not-attachment",
+      "input_sha256": "77ff62f64cafdc37c7d39e2bcaca344612e98fdad1863f1684ced540186a10ff",
+      "native_sha256": "1d468f476ba943162a3cba231c479959dd9aff9bc6658bd133979f9cd7dc537d",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 900,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 1.0,
+        "projectile_modifier": 0.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/not-explosion",
+      "input_sha256": "a7f7db082dc343ad0f5ea2c9825fd873115d642cf26fe5acaf32de05ee7e4995",
+      "native_sha256": "1d468f476ba943162a3cba231c479959dd9aff9bc6658bd133979f9cd7dc537d",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 900,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 1.0,
+        "projectile_modifier": 0.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/additive-not-product",
+      "input_sha256": "8b74b15e3f641c9681f8f96edb207102b832bcf772ee66bd5e9b6220185d74f4",
+      "native_sha256": "2a29d3f764c1501c6b4e057ac595d120ff1430209fbae792dc06ed2d3efa1de4",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 1710,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 1.9,
+        "projectile_modifier": 50.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/two-sources",
+      "input_sha256": "56f0ba787974ab09a9b72e8f795cd25e758830bfc9d223fc5f7579dc7557dd0d",
+      "native_sha256": "e9f1ea23aee35d4656d54cbfe416ce06f6bb97f5e328432537c2abfb158a56be",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 1350,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 1.5,
+        "projectile_modifier": 50.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/negative",
+      "input_sha256": "cd622b91d847a3fa3e16495b051d5bf328f679df80ddbd58155ddce20351523d",
+      "native_sha256": "fa0ddf1bcf7f2c9b08dbac88733977d7202dfda5cf44d2d18cd8cf4b5503d208",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 450,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 0.5,
+        "projectile_modifier": -50.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/minimum-one",
+      "input_sha256": "8eb59043e868196799dc0fad71d7021cd636e527720475a0691d0204af641183",
+      "native_sha256": "cfcd6876c9a934db43265a819e295c4d112798bd887eeab411331d5151fdf6d7",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 1,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 0.0,
+        "projectile_modifier": -100.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/expired",
+      "input_sha256": "7335536f152ca9396c70aa4d10961c378b73187315f928440bf943ff0e183125",
+      "native_sha256": "1d468f476ba943162a3cba231c479959dd9aff9bc6658bd133979f9cd7dc537d",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 900,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 1.0,
+        "projectile_modifier": 0.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/not-other-ally",
+      "input_sha256": "5f0195d237cb2fad4d4340055f82594b1cfeb5e6ae04b1374de2540ba1d8a9b6",
+      "native_sha256": "1d468f476ba943162a3cba231c479959dd9aff9bc6658bd133979f9cd7dc537d",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 900,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 1.0,
+        "projectile_modifier": 0.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/squad-gift",
+      "input_sha256": "5b20317906b5c24cad34f7e6ff9e8e66c4beaed429f107cb5b2827744d85da82",
+      "native_sha256": "e9f1ea23aee35d4656d54cbfe416ce06f6bb97f5e328432537c2abfb158a56be",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 1350,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 1.5,
+        "projectile_modifier": 50.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/runtime-condition-false",
+      "input_sha256": "818f65dc86198bc55804b8b850fde68247d1caa54a84363ba470e37a38dde087",
+      "native_sha256": "1d468f476ba943162a3cba231c479959dd9aff9bc6658bd133979f9cd7dc537d",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 900,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 1.0,
+        "projectile_modifier": 0.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/stacked",
+      "input_sha256": "9082ce333ea716d20d2165bb2ede1e2afac97dd1a2e35a53c78a4c8bc0de8218",
+      "native_sha256": "e9f1ea23aee35d4656d54cbfe416ce06f6bb97f5e328432537c2abfb158a56be",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 1350,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 1.5,
+        "projectile_modifier": 50.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "destructible-modifier/before-final-round",
+      "input_sha256": "0e4c17b16691a14cf631f69cc2c6b352610f67599bb4219526e32c17308253be",
+      "native_sha256": "cd15e1e490c29156990ef5dc2b51d3a10bb74ac88fb0cb90863b792c9b00cf54",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "seven_native_factors_preserved": true,
+        "modifiers_before_final_round": true,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "native": {
+        "damage": 2,
+        "is_crit": false,
+        "crit_frac": 0.0,
+        "kind": 2,
+        "factor5": 1.5,
+        "projectile_modifier": 50.0,
+        "shield_modifier": 0.0,
+        "declared_model": "v1",
+        "in_game_rules_verified": false
+      }
+    }
+  ],
+  "reference_model_gap_cases": 20,
+  "positive_contract_cases": 0,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "case_count": 20,
+  "elapsed_seconds": 0.6998099170159549
+}

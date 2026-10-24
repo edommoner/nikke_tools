@@ -241,7 +241,7 @@ SUITES['destructible-battle']=dict(SUITES['destructible-frame'],script='research
 SUITES['destructible-battle']['tests']=SUITES['destructible-frame']['tests']+['test_portable_file_transport.py','test_portable_resident_transport.py','test_portable_world_reload.py','test_portable_seal.py']
 SUITES['destructible-battle']['tests'].append('test_portable_readback_blocks.py')
 SUITES['destructible-battle']['support_files']=[*SUITES['destructible-frame'].get('support_files',()),'research/destructible-counter-battle-evidence/prior25-golden.json']
-SUITES['destructible-original-battle']=dict(SUITES['destructible-battle'],script='research/verify-destructible-original-battle-short.py',golden='research/portable-destructible-original-battle-short-expected.json',inputs=8,native=8,development_only=False,tests=[*SUITES['destructible-battle']['tests'],'test_world_authored_roster.py'],support_files=[*SUITES['destructible-battle']['support_files'],'research/portable-destructible-battle-short-expected.json','research/portable-world-projectile-chain-retention-short-expected.json'])
+SUITES['destructible-original-battle']=dict(SUITES['destructible-battle'],script='research/verify-destructible-original-battle-short.py',golden='research/portable-destructible-original-battle-short-expected.json',inputs=8,native=8,development_only=False,tests=[*SUITES['destructible-battle']['tests'],'test_world_authored_roster.py','test_destructible_damage_policy.py','test_portable_storage_budget.py'],support_files=[*SUITES['destructible-battle']['support_files'],'research/portable-destructible-battle-short-expected.json','research/portable-world-projectile-chain-retention-short-expected.json'])
 SUITES['leftmost-retention']=dict(SUITES['leftmost'],script='research/verify-world-leftmost-retention-short.py',golden='research/portable-world-leftmost-retention-short-expected.json',inputs=74,native=59,tests=SUITES['leftmost']['tests']+['test_portable_leftmost_replay.py','test_portable_duration_scaling_gpu.py','test_portable_gpu_replay.py','test_portable_reference_migration.py'])
 SUITES['cache-preflight-regression']=dict(SUITES['duration-scaling'],tests=SUITES['duration-scaling']['tests']+['test_portable_cache_probe.py','test_portable_required_cache_preflight.py','test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_compile_cli.py','test_portable_generation_cache.py','test_portable_generation_request.py','test_portable_gpu_cli.py','test_portable_gpu_replay.py','test_portable_compiler_diagnostic.py'])
 SUITES['squad-stage-rosters']=dict(SUITES['squad-stage'],script='research/verify-world-squad-stage-rosters-short.py',golden='research/portable-world-squad-stage-rosters-short-expected.json',inputs=7,native=7)
@@ -701,6 +701,23 @@ def transport_input_receipt(m,data,input_words):
         if sha(data[4+i*input_words*4:4+(i+1)*input_words*4])!=row['input_sha256']:
             raise ValueError('Prepared transport input row differs from golden')
     return dict(schema=1,package_id=m['package_id'],input_count=count,input_words=input_words,input_bytes=len(data),input_sha256=digest)
+
+
+def capture_storage_preflight(m,capture,*,prepared=False):
+    """Budget the exact uncompressed payload, before input/claim allocations."""
+    from portable_capture_storage import space_status
+    with forbid_gpu():adapter=open_suite(m)
+    count=len(m['golden']['entries']);iw=adapter.suite.INPUT;ow=SUITES[m['suite']].get('output_words',786432)
+    if any(type(v) is not int or v<1 for v in (count,iw,ow)):raise ValueError('Invalid storage shape')
+    input_bytes=4+count*iw*4;output_bytes=count*ow*4
+    if prepared:
+        path=capture/'input.bin'
+        if path.is_symlink() or not path.is_file() or path.stat().st_size!=input_bytes:raise ValueError('Prepared storage input size differs')
+    budget=space_status(capture,output_bytes+(0 if prepared else input_bytes))
+    report=dict(budget,input_bytes=input_bytes,output_bytes=output_bytes,prepared_input_present=prepared,gpu_calls=0,calculation_verified=False)
+    write(capture/('storage-before-gpu.json' if prepared else 'storage.json'),report)
+    if not budget['passed']:raise ValueError('Insufficient space for uncompressed input/readback and reserve; see storage receipt')
+    return report
 
 
 def publish_transport_input(m,capture,data,input_words):
@@ -1502,6 +1519,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
             compiler=compiler_root/'bin'/('slangc.exe' if os.name=='nt' else 'slangc')
             if not compiler.is_file():
                 raise ValueError('Slang compiler missing: '+str(compiler)+'; specify --slang-root')
+        if not smoke and not cpu_only:capture_storage_preflight(m,capture)
         if not linked and not smoke and not cpu_only:
             paired=backend=='cuda' and required_cuda_cache_preflight(m,capture)
             if not paired:required_generation_cache_preflight(m,capture)
@@ -1521,6 +1539,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
             write(capture/'result.json',dict(cpu_verified=True,gpu_calls=0,calculation_verified=False,preservation_verified=None,status='cpu-only'))
         else:
             # Durable exclusive claim prevents same-package/backend GPU retries, even after a crash.
+            if not smoke:capture_storage_preflight(m,capture,prepared=True)
             if not smoke:
                 claim=ROOT/('gpu-claimed-'+backend+'.json')
                 with claim.open('x',encoding='utf-8') as stream:
@@ -2454,6 +2473,8 @@ def main(argv=None):
     for storage_command in ('archive-raw','restore-raw'):
         a=sub.add_parser(storage_command);a.add_argument('--capture',type=Path,required=True);a.add_argument('--archive',type=Path,required=True)
         if storage_command=='archive-raw':a.add_argument('--remove-original',action='store_true')
+    a=sub.add_parser('storage-check',help='CPU-only free-space budget check; does not archive or delete files')
+    a.add_argument('--required-bytes',type=int,default=0);a.add_argument('--reserve-bytes',type=int,default=1024**3);a.add_argument('--path',type=Path,default=ROOT)
     a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
     a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True)
@@ -2571,6 +2592,9 @@ def main(argv=None):
     elif a.command=='sparsify-raw':
         from portable_sparse_raw import sparsify_raw
         result=sparsify_raw(a.capture,a.out,check_records,apply=a.apply)
+    elif a.command=='storage-check':
+        from portable_capture_storage import space_status
+        result=dict(space_status(a.path,a.required_bytes,reserve=a.reserve_bytes),gpu_calls=0,calculation_verified=False,scope='Free-space budget only; no archive integrity or cleanup')
     elif a.command=='archive-raw':
         from portable_capture_storage import archive_raw
         result=archive_raw(a.capture,a.archive,check_records,remove_original=a.remove_original)
@@ -2629,6 +2653,9 @@ def main(argv=None):
     if a.command=='compile' or result.get('mode')=='compile-only':
         if not result.get('compiler_verified'):raise SystemExit(1)
         if result.get('preservation_verified') is False:raise SystemExit(2)
+        return
+    if a.command=='storage-check':
+        if not result['passed']:raise SystemExit(2)
         return
     if a.command=='cache-probe':
         if not result['passed']:raise SystemExit(1)
