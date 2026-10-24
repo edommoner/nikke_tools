@@ -120,8 +120,8 @@ void actorPoolNotice(inout Runtime s,uint slot,uint generation,uint event)
     uint head=actorPoolHead(s),n=results[head+5];if(n>=P_WORLD_ACTOR_NOTICES) { s.error=2;return; }
     uint at=s.resourceOutput+P_WORLD_ACTOR_NOTICE_BASE+n*3;results[at]=event;results[at+1]=slot;results[at+2]=generation;results[head+5]=n+1;
 }
-void actorPoolAddOverkill(inout Runtime s,uint who,uint64_t amount)
-{ uint at=actorPoolHead(s)+16;storeNumber(at,f64Add(actorNumber(at),amount));s.addOverkill[who]=f64Add(s.addOverkill[who],amount); }
+void actorPoolAddOverkill(inout Runtime s,uint who,uint64_t amount,bool attributed=true)
+{ uint at=actorPoolHead(s)+16;storeNumber(at,f64Add(actorNumber(at),amount));if(attributed) s.addOverkill[who]=f64Add(s.addOverkill[who],amount); }
 [noinline]
 void actorPoolLand(inout Runtime s,uint who,uint slot,uint64_t amount)
 {
@@ -223,6 +223,9 @@ void actorSortSpawnOrder(inout Runtime s,inout uint order[128],uint count)
 [noinline]
 void actorSetCapture(inout Runtime s,uint kindMask,uint index,uint route=2,uint limit=128,uint inherited=0,uint who=0 NAMED_ENEMY_PARAMETER)
 {
+#ifdef PORTABLE_ATTACK_GROUPS
+    if(route==0&&kindMask==33&&results[agHead(s)+4]!=0) { agCapture(s,results[agHead(s)+4],index);return; }
+#endif
     uint at=actorPoolSet(s,index),head=actorPoolHead(s);
     if(results[at+5]!=0) { s.error=64;return; }
     for(uint i=0;i<P_WORLD_ACTOR_SET_WORDS;i++) results[at+i]=0;

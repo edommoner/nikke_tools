@@ -16,8 +16,8 @@ def project_sources(root,sources=None):
     return sources
 
 def verify_retained_sources(root,source,expected):
-    from portable_backend import source_hashes
-    actual=source_hashes(source)
+    from portable_attack_group_source_contract import retained_source_hashes
+    actual=retained_source_hashes(root,source)
     for name,text in project_sources(root).items():
         if name in actual:actual[name]=hashlib.sha256(text.encode()).hexdigest()
     assert actual==expected,'Retained fixture source differs beyond the exact opt-in dispatcher delta'

@@ -174,6 +174,12 @@ void admitDefinitions(inout Runtime s,uint input)
         WORLD_TEAM_VALIDATE(s,d,input,j) WORLD_FRACTION_VALIDATE(s,d,input,j) WORLD_INITIAL_SPAWN_VALIDATE(s,d,input,j) for (uint slot = 0; slot < d.triggerCount; slot++)
         {
             uint at=input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8,event=commands[at];
+            if(event==62)
+            {
+#ifndef PORTABLE_ATTACK_GROUPS
+                s.error=64;break;
+#endif
+            }
             if(event==51)
             {
 #ifdef PORTABLE_PROJECTILE_CHAIN

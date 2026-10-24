@@ -1,0 +1,23 @@
+.E.....
+======================================================================
+ERROR: test_forged_matched_set_and_uninstalled_default_are_rejected (test_battle_attack_group_runtime.BattleAttackGroupTests.test_forged_matched_set_and_uninstalled_default_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-ag-gpu22-v1/tests/test_battle_attack_group_runtime.py", line 83, in test_forged_matched_set_and_uninstalled_default_are_rejected
+    self.assertNotIn('_nikke_shot_land_scope',referenced_names(timeline.simulate));self.assertEqual(audit(ROOT)['default_battle_attack_group_producer_calls'],[])
+                                                                                                    ^^^^^^^^^^^
+  File "/private/tmp/nikke-ag-gpu22-v1/app/portable_missing_consumer_audit.py", line 13, in verify
+    rows={s:next(line for line in status.read_text(encoding="utf-8").splitlines() if line.startswith('| `'+s+'` |')) for s in ('projectile_dmg_pct','shield_dmg_pct')};assert all('❌' in x for x in rows.values())
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/nikke-ag-gpu22-v1/research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.136s
+
+FAILED (errors=1)

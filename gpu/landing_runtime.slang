@@ -1,6 +1,9 @@
 // Codec only changes representation. binary64 payloads and event order are exact.
 struct LandingReceipt
 {
+#ifdef PORTABLE_ATTACK_GROUPS
+    uint attackGroup;
+#endif
     uint row,target,mask,order,hit,hits,depth,epoch;
     uint64_t amount,when,partAmount,interruptAmount;
     uint interruptReach;
@@ -59,10 +62,16 @@ void enqueueLanding(inout Runtime s,uint row,uint target,uint mask,uint order,ui
 {
     LandingReceipt receipt;receipt.row=row;receipt.target=target;receipt.mask=mask;receipt.order=order;
     receipt.amount=amount;receipt.when=when;receipt.hit=hit;receipt.hits=hits;receipt.depth=depth;receipt.epoch=epoch;receipt.partAmount=partAmount;receipt.interruptAmount=interruptAmount;receipt.interruptReach=interruptReach;
+#ifdef PORTABLE_ATTACK_GROUPS
+    receipt.attackGroup=0;
+#endif
     if(!WORLD_SKILL_RECEIPT_VALID(s,receipt,validLandingReceipt(receipt))) { s.error=64;return; }
     uint header=landingHeader(s),count=results[header];
     if(count>=P_LANDINGS) { s.error=64;return; }
     if(results[header+2]==0x7fffffff) { s.error=2;return; }
+#ifdef PORTABLE_ATTACK_GROUPS
+    receipt.attackGroup=agRetainCurrent(s,row);if(s.error!=0) return;
+#endif
     WORLD_SKILL_RECEIPT_STORE(s,landingAddress(s,count),receipt);
     results[header]=count+1;results[header+2]++;results[header+5]=max(results[header+5],count+1-results[header+1]);
 }

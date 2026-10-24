@@ -95,6 +95,11 @@ void storeWorldSkillReceipt(inout Runtime s,uint at,LandingReceipt r)
     if(!worldSkillsEnabled(s)) { storeLandingReceipt(at,r);return; }
     results[at]=r.row;results[at+1]=r.hit|(r.hits<<9)|(r.depth<<18);
     storeNumber(at+2,r.amount);storeNumber(at+4,r.when);results[at+6]=r.epoch;results[at+7]=0;WORLD_PERIODIC_STORE(s,at,r)
+#ifdef PORTABLE_ATTACK_GROUPS
+    uint groupPacket=(at-s.resourceOutput-P_LANDING_STATE_BASE)/P_LANDING_WORDS;
+    if(groupPacket>=P_LANDINGS) { s.error=64;return; }
+    results[s.resourceOutput+AG_PACKETS+groupPacket]=r.attackGroup;
+#endif
 #ifdef PORTABLE_WORLD_PROJECTILE
     storeSkillPartAmount(at,r.partAmount);
     storeWorldSkillReachPacket(s,at,r);
@@ -104,6 +109,11 @@ LandingReceipt loadWorldSkillReceipt(uint at)
 {
     LandingReceipt r={};uint counts=results[at+1];r.row=results[at];r.mask=0xffffffffU;
     r.hit=counts&511;r.hits=(counts>>9)&511;r.depth=counts>>18;r.amount=actorNumber(at+2);r.when=actorNumber(at+4);r.epoch=results[at+6];WORLD_PERIODIC_LOAD(r,at)
+#ifdef PORTABLE_ATTACK_GROUPS
+    uint groupOutput=(at/P_OUTPUT_WORDS)*P_OUTPUT_WORDS,groupPacket=(at-groupOutput-P_LANDING_STATE_BASE)/P_LANDING_WORDS;
+    r.attackGroup=groupPacket<P_LANDINGS?results[groupOutput+AG_PACKETS+groupPacket]:0;
+    if(groupPacket<P_LANDINGS) results[groupOutput+AG_PACKETS+groupPacket]=0;
+#endif
 #ifdef PORTABLE_WORLD_PROJECTILE
     r.partAmount=loadSkillPartAmount(at);
     loadWorldSkillReachPacket(r,at);
@@ -149,6 +159,9 @@ bool landWorldSkillReceipt(inout Runtime s,LandingReceipt r,uint64_t when,uint o
 #endif
     uint index=0;while(index<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,index)+5]!=0) index++;
     if(index==P_WORLD_ACTOR_SETS) { s.error=64;return false; }
+#ifdef PORTABLE_ATTACK_GROUPS
+    if(r.attackGroup!=0) agCapture(s,r.attackGroup,index);else
+#endif
     WORLD_PERIODIC_CAPTURE_PACKET(s,r,index,actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner NAMED_ENEMY_ARGUMENT(r.row));)if(s.error!=0) return false;
     uint set=actorPoolSet(s,index),n=results[set];uint64_t share=r.amount;
     if((d.damageFlags&H_SPLIT)!=0&&n>1)
@@ -156,6 +169,9 @@ bool landWorldSkillReceipt(inout Runtime s,LandingReceipt r,uint64_t when,uint o
         uint status;uint64_t weighted=f64Mul(r.amount,f64Div(ONE,f64FromI64(n)));
         uint64_t rounded=f64ToI64(weighted,0,status);if(status!=0) { s.error=16;return false; }share=f64FromI64(rounded);
     }
+#ifdef PORTABLE_ATTACK_GROUPS
+    if(r.attackGroup!=0) agRejectedRouting(s,r.attackGroup,d.owner,share);
+#endif
     logWorldSkill(s,r,set,share,when);
     for(uint i=0;i<n&&s.error==0;i++)
     {
@@ -204,7 +220,11 @@ void drainWorldSkills(inout Runtime s,uint64_t when,uint output)
         if(++work>4096) { s.error=4;break; }
         LandingReceipt r=loadWorldSkillReceipt(landingAddress(s,results[h+1]++));
         if(!validWorldSkillReceipt(s,r,false)) { s.error=64;break; }
-        if(!landWorldSkillReceipt(s,r,when,output)) break;
+        bool landed=landWorldSkillReceipt(s,r,when,output);
+#ifdef PORTABLE_ATTACK_GROUPS
+        if(r.attackGroup!=0) agRelease(s,r.attackGroup);
+#endif
+        if(!landed||s.error!=0) break;
         if(results[h+3]==0x7fffffff) { s.error=2;break; }results[h+3]++;
     }
     if(s.error==0) { results[h]=0;results[h+1]=0; }s.target=saved;

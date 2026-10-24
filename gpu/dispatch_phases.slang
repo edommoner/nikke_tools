@@ -506,6 +506,9 @@ void advanceDefinitionFrame(inout Runtime s, inout Frame frames[32], inout int d
                     uint event = commands[at], mode = commands[at+3]; int tag = int(commands[at+4]), stage = int(commands[at+7]);
                     if (event != f.event) continue;
                     if (event == 27 && tag != f.argument) continue;
+#ifdef PORTABLE_ATTACK_GROUPS
+                    if(event==62&&(tag!=f.argument||f.attackGroup==0)) continue;
+#endif
                     if ((event == 4 || event == 41) && stage != f.argument || event == 6 && int(j) != f.argument) continue;
                     bool accumNamed=false;
 #ifdef PORTABLE_DAMAGE_ACCUM

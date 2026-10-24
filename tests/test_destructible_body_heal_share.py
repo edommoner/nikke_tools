@@ -37,7 +37,8 @@ class BodyHealShareTests(unittest.TestCase):
         from portable_backend import source_hashes
         from portable_specs import LIMITS as L
         f=json.loads((ROOT/'tests/fixtures/portable-destructible-body-heal-share-raw.json').read_text());rows,_=a.prepare()
-        self.assertEqual(f['source_sha256'],source_hashes('gpu/destructible_roster_accum_entry.slang'));checked=0
+        from portable_attack_group_source_contract import retained_source_hashes
+        self.assertEqual(f['source_sha256'],retained_source_hashes(ROOT,'gpu/destructible_roster_accum_entry.slang'));checked=0
         for r in f['records']:
             name,w,domain=rows[r['index']];self.assertEqual(name,r['name']);self.assertEqual(hashlib.sha256(array.array('I',w).tobytes()).hexdigest(),r['input_sha256'])
             block=array.array('I',[0])*f['output_words']

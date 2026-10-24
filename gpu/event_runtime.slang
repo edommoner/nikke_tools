@@ -85,6 +85,9 @@ bool projectileCarrierStat(uint stat)
 }
 struct Frame
 {
+#ifdef PORTABLE_ATTACK_GROUPS
+    uint attackGroup;
+#endif
 #ifdef PORTABLE_PARENT_FIXED_DAMAGE
     uint64_t notifyDealt;
 #endif
@@ -1256,6 +1259,9 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
     f.mode = mode; f.event = event; f.owner = owner; f.argument = argument; f.time = when; f.value = mode == 9 ? uint(argument) : value;
     uint inherited = event < 32 ? P_TARGET_INHERIT_0 : P_TARGET_INHERIT_1;
     f.target = s.combat == 0 || mode != 0 || (event < 64 && (inherited & (1U << (event%32))) != 0) ? s.target : 0;
+#ifdef PORTABLE_ATTACK_GROUPS
+    f.attackGroup=mode!=0||event==62||(event<64&&(inherited&(1U<<(event%32)))!=0)?results[agHead(s)+4]:0;
+#endif
     frames[depth] = f; COUNTER_CONTEXT_PUSH(s,depth,mode,event) s.maxDepth = max(s.maxDepth,uint(depth+1));
 }
 
@@ -1453,7 +1459,11 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint who = 0; while ((s.hpDirtyMask & (1U << who)) == 0) who++;
             s.hpDirtyMask &= ~(1U << who); syncHealthActor(s,who,frames[depth].time,false); continue;
         }
-        COUNTER_FRAME(s,frames,depth) COUNTER_CONTEXT_SAMPLE(s,depth) WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.triggerHitCrit=f.hitCrit; s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; WORLD_TEAM_FRAME(s,f)
+        COUNTER_FRAME(s,frames,depth) COUNTER_CONTEXT_SAMPLE(s,depth) WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.triggerHitCrit=f.hitCrit;
+#ifdef PORTABLE_ATTACK_GROUPS
+        results[agHead(s)+4]=f.attackGroup;
+#endif
+        s.sourceTime=f.time; s.target = f.target; s.healSource = f.event == 16 ? f.argument : -1; WORLD_TEAM_FRAME(s,f)
         if(f.mode==0 && f.event==16 && f.cursor==0) traceHealShare(s,6,f.owner,f.time,0,0,uint(f.argument));
         if (f.cursor == 0 && (f.mode == 0 || f.mode == 1 || f.mode == 2) &&
             (s.downMask & (1U << f.owner)) != 0 && f.event != 26 && f.event != 28 && f.event != 38)
@@ -1888,6 +1898,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "world_frame_runtime.slang"
 #endif
 #include "combat_runtime.slang"
+#ifdef PORTABLE_ATTACK_GROUPS
+#include "attack_group_runtime.slang"
+#endif
 
 #include "admission_runtime.slang"
 #include "portable_mt19937.slang"

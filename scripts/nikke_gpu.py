@@ -270,6 +270,7 @@ SUITES['destructible-body-heal-share-retention']['development_only']=False
 SUITES['destructible-body-heal-share-retention'].update(parent_oracle_reuse=True,cpu_test_timeout=120)
 SUITES['destructible-body-heal-share-retention']['tests']+=['test_portable_parent_oracles.py','test_destructible_parent_oracles.py']
 SUITES['destructible-body-heal-share-retention']['tests'].append('test_battle_attack_group_runtime.py')
+SUITES['attack-group-battle']=dict(output_words=1048576,upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'],script='research/verify-world-attack-group-battle-short.py',golden='research/portable-world-attack-group-battle-short-expected.json',source='gpu/world_attack_group_entry.slang',inputs=32,native=22,development_only=False,tests=['test_battle_attack_group_runtime.py','test_attack_group_runtime.py','test_portable_battle_attack_group.py'])
 SUITES['leftmost-retention']=dict(SUITES['leftmost'],script='research/verify-world-leftmost-retention-short.py',golden='research/portable-world-leftmost-retention-short-expected.json',inputs=74,native=59,tests=SUITES['leftmost']['tests']+['test_portable_leftmost_replay.py','test_portable_duration_scaling_gpu.py','test_portable_gpu_replay.py','test_portable_reference_migration.py'])
 SUITES['cache-preflight-regression']=dict(SUITES['duration-scaling'],tests=SUITES['duration-scaling']['tests']+['test_portable_cache_probe.py','test_portable_required_cache_preflight.py','test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_compile_cli.py','test_portable_generation_cache.py','test_portable_generation_request.py','test_portable_gpu_cli.py','test_portable_gpu_replay.py','test_portable_compiler_diagnostic.py'])
 SUITES['squad-stage-rosters']=dict(SUITES['squad-stage'],script='research/verify-world-squad-stage-rosters-short.py',golden='research/portable-world-squad-stage-rosters-short-expected.json',inputs=7,native=7)
@@ -659,7 +660,12 @@ def module(path):
 
 def open_suite(m):
     if compiler_only(m):raise ValueError('Compiler diagnostic has no battle adapter')
-    return module(ROOT/SUITES[m['suite']]['script'])
+    adapter=module(ROOT/SUITES[m['suite']]['script'])
+    if getattr(adapter,'STRICT_WIRE_DIMENSIONS',False):
+        expected=adapter.suite.OUTPUT;configured=SUITES[m['suite']].get('output_words',786432)
+        if type(expected) is not int or expected<1 or type(configured) is not int or configured!=expected:
+            raise ValueError('Adapter output words disagree with transport allocation')
+    return adapter
 
 
 def is_development(m):

@@ -294,6 +294,9 @@ void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
     landedAmount=WEAPON_BODY_AMOUNT(s,who,landedAmount);
     s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0;
 #ifdef PORTABLE_WORLD_PROJECTILE
+#ifdef PORTABLE_ATTACK_GROUPS
+    if(deliverAttackGroupShot(s,who,when,output,landedAmount,landedCount)) return;
+#endif
     if(deliverAimedAreaShot(s,who,when,output,landedAmount,landedCount)) return;
 #endif
     if (s.landingPolicy!=0 || (s.healthMask&64)!=0) for (uint hit=0;hit<landedCount && s.error==0;hit++)

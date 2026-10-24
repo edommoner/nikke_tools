@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-parent-reuse-metal61-v1",
+  "raw_bytes": 255852544,
+  "raw_sha256": "4becd121ab46edf6121a2e93b2f271b68589d77a9bd994634a779eb8d44db179",
+  "evidence_sha256": "5d9f56420f1a78a5d37b39000b4917005ffc6bc763914a4b19b51b36810aa72f",
+  "raw_inode": 509275912,
+  "zero_ranges": 664,
+  "zero_range_bytes": 170262528,
+  "allocated_before": 255852544,
+  "allocated_after": 85590016,
+  "allocated_reclaimed": 170262528,
+  "full_hash_verified": true
+}

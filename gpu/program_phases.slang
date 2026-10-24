@@ -74,6 +74,9 @@ void initializePortableProgram(inout Runtime s,uint input,uint output,out bool r
 #endif
     for(uint word=0;word<P_PROBABILITY_STATE_WORDS;word++) results[output+P_PROBABILITY_STATE_BASE+word]=0;
     if(commands[input+P_ENEMY_TARGET_META_BASE]!=0) mtSeed(output+P_ENEMY_RNG_BASE,uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+1])|(uint64_t(commands[input+P_ENEMY_TARGET_META_BASE+2])<<32));
+#ifdef PORTABLE_ATTACK_GROUPS
+    if(!initializeAttackGroups(s)) { results[output]=64;return; }
+#endif
     initializeHPWatches(s);
     ready=true;
 }

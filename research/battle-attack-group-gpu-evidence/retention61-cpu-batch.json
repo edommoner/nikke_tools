@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "mode": "single-process-unittest",
+  "patterns": [
+    "test_destructible_weapon_rosters.py",
+    "test_portable_readiness_semantics.py",
+    "test_destructible_skill_rosters.py",
+    "test_destructible_weapon_gpu.py",
+    "test_destructible_skill_gpu.py",
+    "test_destructible_body_lifesteal.py",
+    "test_destructible_aoe_burst_rosters.py",
+    "test_destructible_body_accum.py",
+    "test_destructible_body_heal_share.py",
+    "test_portable_heal_share_reference.py",
+    "test_portable_parent_oracles.py",
+    "test_destructible_parent_oracles.py",
+    "test_battle_attack_group_runtime.py"
+  ],
+  "timeout_seconds": 120,
+  "elapsed_seconds": 92.34969183302019,
+  "timed_out": false,
+  "exit_code": 0,
+  "gpu_calls": 0,
+  "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+}

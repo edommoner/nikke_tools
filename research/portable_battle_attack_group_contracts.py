@@ -14,6 +14,7 @@ def verify(case,n):
     assert all(tuple(r['target']) in frozen.get(r['group_identity'],set()) and r['damage']>=0 for r in landings)
     if c['capacity']==1. or c.get('reopened'):
         assert qualifying and landings and all(r['target']==[0,0,1] for r in landings)
+        assert n['add_overkill']>0,'Dead/frozen requested ADD labels still count native unrouted overkill'
         if c.get('reopened'):assert n['adds'] and all(a['handle'][2]==2 for a in n['adds'])
         else:assert all(not a['alive'] for a in n['adds'])
     else:

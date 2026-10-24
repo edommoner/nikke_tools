@@ -1,3 +1,7 @@
+<!-- battle-attack-groups-gpu-current -->
+実射撃group・queued childの世代付き対象・敵buff fanoutを共通Slangへ接続し、sealed `attack-group-battle`32（native22／拒否10）がApple M5 Metal一致・独立seal。元ニヒリスター／ベロータ20入力と宣言listenerを加えたSG2入力で168group／112通知、全物理snapshot・全ADD数量／hit／世代・global overkill・buff対象・所有参照解放を照合した。GPU1.950秒／cold PSO89.670秒、Runtime138952不変・run Slang0。旧61も同じ現共有sourceで一致・独立sealし、旧255852544byte rawと全input／native保持。旧goldenはsource／生成物identityだけを更新した。CPU23＋旧93、共通制御372（Win1skip）が成功。CLIへ出力割当一致guard、source履歴へexact逆差分を追加し、失敗・claim・rawを保持。明示all-logical-enemies/BODY/ADDモデルで、geometry／長時間log64超／mixed-owner広範囲／現CUDA／公開受付は未完了。静的245/266・base185/203・残20gap／全キャラ0／UI CPU／ゴール未達。Windows追加0。詳細 [実射撃group GPU接続](portable-battle-attack-groups-gpu.md) とresearch/portable-battle-attack-group-gpu-checkpoint.json。以下は履歴。
+<!-- /battle-attack-groups-gpu-current -->
+
 <!-- battle-attack-groups-native-current -->
 共通CLI `reference --suite attack-group-battle` に実射撃のCPU22契約を追加。固定full packageで168射／168group／112通知／448子着弾が成功、16入力で非zero。元ニヒリスター／ベロータ20入力と、宣言listenerを加えた元ノワール／ツバイ10packet射撃2入力を区別する。実際のBODY/ADD receiptからdistinct集合をsealし、queued childの世代固定・例外復元・単boss全battle保持を検査。明示all-logical-enemiesモデルで、ゲーム内の範囲判定／Slang自律producer／Metal接続は未完了、22全てmodel gap・GPU加算0。前回のsealed Metal入口はdestructible-body-heal-share-retention61、親oracle52再利用とfresh独立監査を維持する。Windowsは接続復旧を読み取り確認、idleで新規CUBIN／CUDA依頼0。全キャラ0／通常UI CPU／ゴール未達。詳細 [実射撃group CPU契約](portable-battle-attack-groups-native.md) とresearch/portable-battle-attack-group-checkpoint.json。以下は履歴。
 <!-- /battle-attack-groups-native-current -->

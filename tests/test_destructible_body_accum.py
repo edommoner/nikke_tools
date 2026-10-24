@@ -49,7 +49,8 @@ class BodyAccumTests(unittest.TestCase):
         from portable_specs import LIMITS as L
         from portable_damage_accum_observation import compare_final
         f=json.loads((ROOT/'tests/fixtures/portable-destructible-body-accum-raw.json').read_text());rows,_=a.prepare()
-        self.assertEqual(source_hashes('gpu/destructible_roster_accum_entry.slang'),f['source_sha256']);checked=0
+        from portable_attack_group_source_contract import retained_source_hashes
+        self.assertEqual(retained_source_hashes(ROOT,'gpu/destructible_roster_accum_entry.slang'),f['source_sha256']);checked=0
         for r in f['records']:
             name,w,domain=rows[r['index']];self.assertEqual(name,r['name']);self.assertEqual(hashlib.sha256(array.array('I',w).tobytes()).hexdigest(),r['input_sha256'])
             block=array.array('I',[0])*f['output_words']
