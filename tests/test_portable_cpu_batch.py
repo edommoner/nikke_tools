@@ -3,10 +3,19 @@ import importlib.util,json,os,subprocess,sys,tempfile,types,unittest,uuid
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'app'))
-from portable_cpu_tests import run_groups,complete,validate_groups
+from portable_cpu_tests import run_groups,complete,validate_groups,validate_dependency_files,AUDIT_FILES
 s=importlib.util.spec_from_file_location('batch_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(s);s.loader.exec_module(cli)
 
 class CPUGroupTests(unittest.TestCase):
+    def test_audit_dependency_is_checked_before_worker_and_requires_manifest_record(self):
+        pattern='test_coordinate_physical_frontier.py';(self.root/'tests'/pattern).write_text('# never imported')
+        with self.assertRaisesRegex(ValueError,'CPU audit dependency missing'):self.run_groups([pattern])
+        self.assertFalse((self.capture/'cpu-tests.json').exists())
+        for name in AUDIT_FILES[pattern]:
+            path=self.root/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_text('fixture')
+        validate_groups(self.root,[pattern])
+        with self.assertRaisesRegex(ValueError,'immutable payload'):validate_dependency_files(self.root,[pattern],included=set())
+        validate_dependency_files(self.root,[pattern],included=set(AUDIT_FILES[pattern]))
     def setUp(self):
         t=tempfile.TemporaryDirectory();self.addCleanup(t.cleanup);self.root=Path(t.name).resolve();(self.root/'tests').mkdir();self.capture=self.root/'capture';self.capture.mkdir();self.names=[]
         self.addCleanup(self.clear_modules)

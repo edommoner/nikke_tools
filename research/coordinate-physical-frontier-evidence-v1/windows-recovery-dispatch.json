@@ -1,0 +1,13 @@
+{
+  "purpose": "First CPU-only saved-object audit; no compile or GPU",
+  "source_branch": "codex/current-object-recovery-v2-source",
+  "package_id": "32da0fc5be83b73d2b55c28f03d5a161cf8606ac0f57cfeb2e9812b91fdd0806",
+  "delivery_verified": false,
+  "tool_error": "Cannot steer conversation 01a140bc-5f3b-7661-b720-50c945596eaa without an active turn id",
+  "thread_snapshot_revision": 78,
+  "thread_status": "idle",
+  "latest_turn_status": "completed",
+  "execution_started_verified": false,
+  "retries": 0,
+  "windows_gpu_calls_verified_this_turn": 0
+}

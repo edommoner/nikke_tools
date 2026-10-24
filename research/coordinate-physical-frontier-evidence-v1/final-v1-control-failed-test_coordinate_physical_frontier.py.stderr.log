@@ -1,0 +1,175 @@
+EEEEEEEE
+======================================================================
+ERROR: test_audit_reuses_public_and_arena_guards_without_battles (test_coordinate_physical_frontier.FrontierTests.test_audit_reuses_public_and_arena_guards_without_battles)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/tests/test_coordinate_physical_frontier.py", line 18, in test_audit_reuses_public_and_arena_guards_without_battles
+    result = verify(ROOT)
+             ^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_coordinate_frontier.py", line 17, in verify
+    model = model_audit(root, overrides)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_model_gap_audit.py", line 13, in verify
+    path=base+name;text[name]=overrides.get(path,(root/path).read_text(encoding='utf-8'))
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/nikke-coordinate-arcs-final-v1/research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'
+
+======================================================================
+ERROR: test_changed_packet_probability_or_observation_requires_review (test_coordinate_physical_frontier.FrontierTests.test_changed_packet_probability_or_observation_requires_review) (name='research/upstream/nikke-calc-master/calculator/timeline.py', old='L.core_open / wb')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/tests/test_coordinate_physical_frontier.py", line 45, in test_changed_packet_probability_or_observation_requires_review
+    with self.assertRaises(AssertionError):verify(ROOT,{name:text.replace(old,new,1)})
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_coordinate_frontier.py", line 17, in verify
+    model = model_audit(root, overrides)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_model_gap_audit.py", line 13, in verify
+    path=base+name;text[name]=overrides.get(path,(root/path).read_text(encoding='utf-8'))
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/nikke-coordinate-arcs-final-v1/research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'
+
+======================================================================
+ERROR: test_changed_packet_probability_or_observation_requires_review (test_coordinate_physical_frontier.FrontierTests.test_changed_packet_probability_or_observation_requires_review) (name='research/upstream/nikke-calc-master/calculator/timeline.py', old='round(r["damage"] * p)')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/tests/test_coordinate_physical_frontier.py", line 45, in test_changed_packet_probability_or_observation_requires_review
+    with self.assertRaises(AssertionError):verify(ROOT,{name:text.replace(old,new,1)})
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_coordinate_frontier.py", line 17, in verify
+    model = model_audit(root, overrides)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_model_gap_audit.py", line 13, in verify
+    path=base+name;text[name]=overrides.get(path,(root/path).read_text(encoding='utf-8'))
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/nikke-coordinate-arcs-final-v1/research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'
+
+======================================================================
+ERROR: test_changed_packet_probability_or_observation_requires_review (test_coordinate_physical_frontier.FrontierTests.test_changed_packet_probability_or_observation_requires_review) (name='research/upstream/nikke-calc-master/calculator/timeline.py', old='angle=needs_angle(ax, ay, tg, geom.core)')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/tests/test_coordinate_physical_frontier.py", line 45, in test_changed_packet_probability_or_observation_requires_review
+    with self.assertRaises(AssertionError):verify(ROOT,{name:text.replace(old,new,1)})
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_coordinate_frontier.py", line 17, in verify
+    model = model_audit(root, overrides)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_model_gap_audit.py", line 13, in verify
+    path=base+name;text[name]=overrides.get(path,(root/path).read_text(encoding='utf-8'))
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/nikke-coordinate-arcs-final-v1/research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'
+
+======================================================================
+ERROR: test_changed_packet_probability_or_observation_requires_review (test_coordinate_physical_frontier.FrontierTests.test_changed_packet_probability_or_observation_requires_review) (name='research/upstream/nikke-calc-master/calculator/aim.py', old='_subtract(arcs, covered)')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/tests/test_coordinate_physical_frontier.py", line 45, in test_changed_packet_probability_or_observation_requires_review
+    with self.assertRaises(AssertionError):verify(ROOT,{name:text.replace(old,new,1)})
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_coordinate_frontier.py", line 17, in verify
+    model = model_audit(root, overrides)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_model_gap_audit.py", line 13, in verify
+    path=base+name;text[name]=overrides.get(path,(root/path).read_text(encoding='utf-8'))
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/nikke-coordinate-arcs-final-v1/research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'
+
+======================================================================
+ERROR: test_changed_packet_probability_or_observation_requires_review (test_coordinate_physical_frontier.FrontierTests.test_changed_packet_probability_or_observation_requires_review) (name='research/world_projectile_native.py', old='len({h.damage for h in answer})==1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/tests/test_coordinate_physical_frontier.py", line 45, in test_changed_packet_probability_or_observation_requires_review
+    with self.assertRaises(AssertionError):verify(ROOT,{name:text.replace(old,new,1)})
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_coordinate_frontier.py", line 17, in verify
+    model = model_audit(root, overrides)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_model_gap_audit.py", line 13, in verify
+    path=base+name;text[name]=overrides.get(path,(root/path).read_text(encoding='utf-8'))
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/nikke-coordinate-arcs-final-v1/research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'
+
+======================================================================
+ERROR: test_changed_packet_probability_or_observation_requires_review (test_coordinate_physical_frontier.FrontierTests.test_changed_packet_probability_or_observation_requires_review) (name='app/battle_attack_group_runtime.py', old='ev.part_damage or ev.interrupt_damage')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/tests/test_coordinate_physical_frontier.py", line 45, in test_changed_packet_probability_or_observation_requires_review
+    with self.assertRaises(AssertionError):verify(ROOT,{name:text.replace(old,new,1)})
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_coordinate_frontier.py", line 17, in verify
+    model = model_audit(root, overrides)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_model_gap_audit.py", line 13, in verify
+    path=base+name;text[name]=overrides.get(path,(root/path).read_text(encoding='utf-8'))
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/nikke-coordinate-arcs-final-v1/research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'
+
+======================================================================
+ERROR: test_cli_writes_once_without_backend_or_native_execution (test_coordinate_physical_frontier.FrontierTests.test_cli_writes_once_without_backend_or_native_execution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/tests/test_coordinate_physical_frontier.py", line 53, in test_cli_writes_once_without_backend_or_native_execution
+    cli.main(['model-check','--out',str(out)])
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/scripts/nikke_gpu.py", line 2690, in main
+    with forbid_gpu():result=audit_frontier(ROOT)
+                             ^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_coordinate_frontier.py", line 17, in verify
+    model = model_audit(root, overrides)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-coordinate-arcs-final-v1/app/portable_model_gap_audit.py", line 13, in verify
+    path=base+name;text[name]=overrides.get(path,(root/path).read_text(encoding='utf-8'))
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.15_1/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/nikke-coordinate-arcs-final-v1/research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.020s
+
+FAILED (errors=8)

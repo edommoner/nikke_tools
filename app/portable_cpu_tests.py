@@ -2,12 +2,29 @@
 import contextlib,os,re,sys,time,unittest
 from pathlib import Path
 
+AUDIT_FILES = {'test_coordinate_physical_frontier.py': (
+    'research/upstream/nikke-calc-master/docs/IMPL-STATUS.md',
+    'research/portable-coordinate-arcs-short-expected.json')}
+
+
+def validate_dependency_files(root,patterns,included=None):
+    """Reject missing audit data before tests/native work or execution claims."""
+    root=Path(root)
+    names={name for pattern in patterns for name in AUDIT_FILES.get(pattern,())}
+    for name in sorted(names):
+        path=root/name
+        if not path.is_file() or path.is_symlink():
+            raise ValueError('CPU audit dependency missing: '+name)
+        if included is not None and name not in included:
+            raise ValueError('CPU audit dependency missing from immutable payload: '+name)
+
 
 def validate_groups(root,patterns):
     if len(set(patterns))!=len(patterns):raise ValueError('Duplicate CPU test group')
     for pattern in patterns:
         if not re.fullmatch(r'test_[A-Za-z0-9_]+\.py',pattern) or not (root/'tests'/pattern).is_file():
             raise ValueError('CPU test file missing or invalid: '+pattern)
+    validate_dependency_files(root,patterns)
 
 
 def run_groups(root,capture,patterns,write):

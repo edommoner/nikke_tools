@@ -1,0 +1,9 @@
+{
+  "case": "coordinate-physical-reference/occlusion-and-body",
+  "barriers": {
+    "legacy_equal_packet_observer": "AssertionError",
+    "legacy_group_observer": "Shot group model requires plain body/add world"
+  },
+  "gpu_calls": 0,
+  "native_simulations_attempted": 2
+}

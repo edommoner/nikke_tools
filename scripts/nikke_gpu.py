@@ -318,7 +318,9 @@ SUITES['coordinate-area']=dict(SUITES['coordinate-dot'],script='research/verify-
 SUITES['coordinate-pending']=dict(SUITES['coordinate-area'],script='research/verify-coordinate-pending-short.py',source='gpu/world_coordinate_pending_entry.slang',golden='research/portable-coordinate-pending-short-expected.json',inputs=60,native=50,development_only=False,tests=[*SUITES['coordinate-area']['tests'],'test_coordinate_pending.py'])
 SUITES['coordinate-full-burst']=dict(SUITES['coordinate-pending'],script='research/verify-coordinate-full-burst-short.py',source='gpu/world_coordinate_full_burst_entry.slang',golden='research/portable-coordinate-full-burst-short-expected.json',inputs=76,native=63,development_only=False,tests=[*SUITES['coordinate-pending']['tests'],'test_coordinate_full_burst.py'])
 SUITES['coordinate-generation']=dict(SUITES['coordinate-full-burst'],script='research/verify-coordinate-generation-short.py',golden='research/portable-coordinate-generation-short-expected.json',inputs=88,native=75,development_only=False,tests=[*SUITES['coordinate-full-burst']['tests'],'test_coordinate_generation.py'])
-SUITES['coordinate-composed']=dict(SUITES['coordinate-generation'],script='research/verify-coordinate-composed-short.py',source='gpu/world_coordinate_composed_entry.slang',golden='research/portable-coordinate-composed-short-expected.json',inputs=97,native=81,output_words=1310720,development_only=False,tests=[*SUITES['coordinate-generation']['tests'],'test_coordinate_composed.py'])
+SUITES['coordinate-composed']=dict(SUITES['coordinate-generation'],script='research/verify-coordinate-composed-short.py',source='gpu/world_coordinate_composed_entry.slang',golden='research/portable-coordinate-composed-short-expected.json',inputs=97,native=81,output_words=1310720,development_only=False,upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'],tests=[*SUITES['coordinate-generation']['tests'],'test_coordinate_composed.py','test_coordinate_physical_reference.py','test_coordinate_physical_frontier.py'])
+SUITES['coordinate-arcs']=dict(script='research/verify-coordinate-arcs-short.py',source='gpu/coordinate_arc_probe.slang',golden='research/portable-coordinate-arcs-short-expected.json',inputs=135,native=126,output_words=4100,development_only=False,upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'],tests=['test_coordinate_arcs.py','test_coordinate_physical_frontier.py'])
+SUITES['coordinate-composed']['support_files']=[*SUITES['coordinate-generation'].get('support_files',[]),'research/portable-coordinate-arcs-short-expected.json']
 SUITES['skill-part-codec']=dict(script='research/verify-skill-part-codec-short.py',source='gpu/skill_part_codec_probe.slang',
     golden='research/portable-skill-part-codec-short-expected.json',inputs=4,native=3,development_only=False,
     tests=['test_portable_skill_part_codec.py'])
@@ -611,6 +613,8 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False):
             if not name.startswith('research/upstream/nikke-calc-master/'):raise ValueError('CPU contract source must remain in pinned upstream')
             if sha((ROOT/name).read_bytes())!=contract[digest]:raise ValueError('Pinned CPU contract source changed: '+name)
             if name not in names:names.append(name)
+    from portable_cpu_tests import validate_dependency_files
+    validate_dependency_files(ROOT,[*SUITES[suite]['tests'],*SMOKE_TESTS],included=set(names))
     records = file_records(ROOT, names)
     projection=None
     if compact:
@@ -1454,9 +1458,10 @@ def cpu_test_environment(capture):
 
 def cpu_test_groups(m,capture,smoke=False):
     """Keep discovery/import in one fresh CPU process; never skip a registry group."""
-    from portable_cpu_tests import validate_groups,complete
+    from portable_cpu_tests import validate_groups,validate_dependency_files,complete
     patterns=SMOKE_TESTS if smoke else SUITES[m['suite']]['tests']
     validate_groups(ROOT,patterns)
+    validate_dependency_files(ROOT,patterns,included={r['path'] for r in m.get('files',[])})
     timeout=SUITES[m['suite']].get('cpu_test_timeout',60)
     if type(timeout) is not int or not 1<=timeout<=180:raise ValueError('Invalid bounded CPU test timeout')
     if not patterns:
@@ -2569,6 +2574,7 @@ def main(argv=None):
     a=sub.add_parser('layout-check');a.add_argument('--out',type=Path)
     from portable_arena_specs import PROFILES as ARENA_PROFILES
     a=sub.add_parser('arena-check');a.add_argument('--profile',choices=ARENA_PROFILES,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('model-check');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('reference');a.add_argument('--suite',choices=REFERENCES,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('phase-codegen');a.add_argument('--out',type=Path,required=True);a.add_argument('--slang-root',type=Path)
     a=sub.add_parser('sparsify-raw');a.add_argument('--block-size',type=int,choices=(4096,65536),default=65536);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--apply',action='store_true')
@@ -2681,6 +2687,11 @@ def main(argv=None):
         if a.out.exists():raise ValueError('Arena audit output already exists')
         with forbid_gpu():result={**audit_live_sources(ROOT),**audit_profile(a.profile)}
         write(a.out,result)
+    elif a.command=='model-check':
+        from portable_coordinate_frontier import verify as audit_frontier
+        if a.out.exists():raise ValueError('Model audit output already exists')
+        with forbid_gpu():result=audit_frontier(ROOT)
+        with a.out.open('x',encoding='utf-8') as stream:json.dump(result,stream,ensure_ascii=False,indent=2);stream.write('\n')
     elif a.command=='layout-check':
         from portable_specs import LIMITS
         from portable_scratch_layout import audit_sources
