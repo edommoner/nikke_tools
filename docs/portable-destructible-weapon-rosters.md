@@ -1,5 +1,7 @@
 # 元のミサト編成を共通武器・盾実行器へ接続
 
+Current sealed entry: `destructible-skill-retention`157 / `destructible-skill-misato-retention`2. See [shared skill GPU proof](portable-destructible-skill-rosters-gpu.md). The following text records this earlier stage.
+
 sealed共通CLI `destructible-weapon-rosters`を追加した。元ミサトの5スキル定義と、装備・ドラー・ドレイク・N102・メアリーを含む全71定義を保持し、元の実武器・成長設定・スキルレベルで3秒/30秒をMetal実行した。両入力がnativeと一致し、保存readbackの独立sealも成功した。
 
 これは宣言された単一boss・武器だけの盾policyでの実編成検証であり、通常UIや全キャラ/全worldの認定ではない。盾の優先順位と補正factorは既存のprivate宣言モデルを維持する。

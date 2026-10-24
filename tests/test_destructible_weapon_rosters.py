@@ -78,7 +78,8 @@ class WeaponRosterSavedTests(unittest.TestCase):
  def test_actual_original_roster_readback_rejects_hp_ammo_and_typed_corruption(self):
   from portable_backend import source_hashes
   f=json.loads((ROOT/'tests/fixtures/portable-destructible-weapon-rosters-raw.json').read_text());rows,_=a.prepare()
-  self.assertEqual(source_hashes(ROOT/'gpu/destructible_weapon_shield_entry.slang'),f['source_sha256'])
+  from portable_destructible_roster_skill_source_contract import verify_retained_sources
+  verify_retained_sources(ROOT,'gpu/destructible_weapon_shield_entry.slang',f['source_sha256'])
   self.assertEqual(f['source_sha256'],json.loads((ROOT/'research/portable-destructible-weapon-shield-short-expected.json').read_text())['source_sha256'])
   for record in f['records']:
    name,w,domain=rows[record['index']];self.assertEqual(name,record['name']);self.assertEqual(hashlib.sha256(array.array('I',w).tobytes()).hexdigest(),record['input_sha256'])

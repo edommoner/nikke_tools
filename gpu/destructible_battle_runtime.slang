@@ -50,4 +50,8 @@ void destructibleBattleCapture(inout Runtime s,uint scratch,uint selected,Frame 
     results[scratch+530]=trace;results[scratch+531]=index+1;
     results[trace]=index+1;results[trace+1]=uint(f.argument);results[trace+2]=d.owner;results[trace+3]=selected;
     dtStore(trace+4,f.time);dtStore(trace+6,dtNumber(scratch+532));dtStore(trace+8,dtNumber(scratch+534));
+#ifdef PORTABLE_DESTRUCTIBLE_ROSTER_SKILL
+    if(rosterShieldSkillsEnabled(s))
+    { results[trace+11]=1;results[trace+12]=2;results[trace+13]=d.damageRoute;results[trace+14]=d.damageFlags&(H_BURST|H_AOE_BURST|H_SINGLE_BURST);results[trace+15]=d.damageCount; }
+#endif
 }

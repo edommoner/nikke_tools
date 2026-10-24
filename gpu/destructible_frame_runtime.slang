@@ -21,6 +21,10 @@
 #define DF_BODY_FALLBACK(s,row) false
 #define DF_MATCH(s,row,at,selected) (results[at+3]!=0&&results[at]==2)
 #endif
+#ifndef DF_ROUTE_VALID
+#define DF_ROUTE_VALID(s,d) ((d).damageRoute==1)
+#define DF_CAPTURE_BODY(s,d,f) true
+#endif
 bool dwFrameDescriptorValid(inout Runtime s,uint at)
 {
     uint row=commands[at];
@@ -58,7 +62,8 @@ bool advanceDestructibleSkillFrame(inout Runtime s,inout Frame frames[32],inout 
     }
     if(f.repeatRow==0)
     {
-        if(!DF_VALID(s,d,descriptor)||d.kind!=3||d.damageRoute!=1||d.damageHits!=1||d.damageNormal!=0||d.damagePending!=0||f.repeatLeft>1||s.target!=0||!f64Equal(dtNumber(header),f.time)) { s.error=64;return true; }
+        if(!DF_VALID(s,d,descriptor)||d.kind!=3||!DF_ROUTE_VALID(s,d)||d.damageHits!=1||d.damageNormal!=0||d.damagePending!=0||f.repeatLeft>1||s.target!=0||!f64Equal(dtNumber(header),f.time)) { s.error=64;return true; }
+        if(!DF_CAPTURE_BODY(s,d,f)) { if(s.error==0) s.error=64;return true; }
         DF_COEFF(s,scratch,output,f.healthValue) DF_AMOUNT(s,scratch,output,0)
         uint selected=0;
         if(f.repeatLeft!=0&&DF_HAS_SAMPLE(s,row))

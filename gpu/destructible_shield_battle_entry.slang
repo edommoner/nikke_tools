@@ -9,7 +9,9 @@
 #define DF_HEADER(output) ((output)+789248)
 #define DF_SCHEDULE(s,w,extra,output) WorldSchedule w=frameSchedule(s);
 #define DF_SCRATCH(output,depth) ((output)+940000+uint(depth)*544)
+#ifndef DF_VALID
 #define DF_VALID(s,d,descriptor) (commands[descriptor+3]==0x44425431U&&(d.damageFlags&~(H_NAMED_SKILL|524288U))==0)
+#endif
 #define DF_HAS_SAMPLE(s,row) destructibleActivationHasTargets(s,row)
 #define DF_COEFF(s,scratch,output,value) dtStore(scratch+532,value);
 #define DF_AMOUNT(s,scratch,output,value) dtStore(scratch+534,value);
@@ -31,6 +33,9 @@
 // Named coefficient/completion bits do not add a scalar factor of their own.
 uint64_t modifierFrameDamage(inout Runtime s,uint who,uint64_t coefficient,uint64_t when,bool normal,uint64_t coreBonus,uint flags,uint64_t charge,bool optimal,bool physical,uint row)
 {
+#ifdef PORTABLE_DESTRUCTIBLE_ROSTER_SKILL
+    if(rosterShieldSkillsEnabled(s)) return rosterShieldSkillDamage(s,who,coefficient,when,normal,coreBonus,flags,charge,optimal,physical,row);
+#endif
     if(normal||optimal||physical||!f64Equal(coreBonus,s.coreBonus)||!f64Equal(charge,ONE)||!DF_ROW_ENABLED(s,row)||skillHPBasisMode(s,row)!=0||(flags&~(H_NAMED_SKILL|524288U))!=0) { s.error=64;return 0; }
     uint64_t factor5,projectile,shield;
     uint kind=commands[s.inputBase+109824+row];
@@ -87,6 +92,10 @@ bool validShieldBattleRoutes(inout Runtime s)
         if(route==0) continue;
         if((route!=2&&route!=3&&!(hitShields&&route==4))||row>=s.count||skillHPBasisMode(s,row)!=0) return false;
         Definition d=readDefinition(s.inputBase,row);
+#ifdef PORTABLE_DESTRUCTIBLE_ROSTER_SKILL
+        if(rosterShieldSkillsEnabled(s))
+        { if((route!=3&&route!=4)||!rosterShieldSkillDefinition(s,d)) return false;continue; }
+#endif
         if(d.kind!=3||d.stat!=0||d.damageRoute!=1||d.damageCount!=1||d.damageHits!=1||d.damagePending!=0||d.damageNormal!=0||(d.damageFlags&~(H_NAMED_SKILL|524288U))!=0||d.healthScaling!=0||d.quantityFlags!=0||!dtQuantity(d.value)) return false;
     }
     return true;

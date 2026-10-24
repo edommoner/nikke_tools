@@ -1,7 +1,13 @@
 // A weapon's factor snapshot is owned by its existing fire operation. Quantities
 // are rounded only for actor kinds actually selected, avoiding unused overflow.
 bool destructibleWeaponEnabled(inout Runtime s)
-{ return commands[s.inputBase+110080]==0x48534933U&&commands[s.inputBase+110085]==1; }
+{
+    bool magic=commands[s.inputBase+110080]==0x48534933U;
+#ifdef PORTABLE_DESTRUCTIBLE_ROSTER_SKILL
+    magic=magic||commands[s.inputBase+110080]==0x48534934U;
+#endif
+    return magic&&commands[s.inputBase+110085]==1;
+}
 uint destructibleWeaponBank(inout Runtime s,uint who) { return s.resourceOutput+970000+who*256; }
 bool validDestructibleWeapons(inout Runtime s)
 {

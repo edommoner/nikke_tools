@@ -1,5 +1,7 @@
 # 元レイ編成のskill盾接続：native契約
 
+Current sealed entry: `destructible-skill-retention`157 / `destructible-skill-misato-retention`2. See [shared skill GPU proof](portable-destructible-skill-rosters-gpu.md). The following text records this earlier stage.
+
 共通CLI `reference --suite destructible-skill-rosters`へ、元レイ7スキル＋装備・ミランダ・ドラー・N102・メアリーを含む全73定義の4契約を追加した。HP盾、hit盾、盾破壊後のbody fallback、発動前の短時間をactual native simulateで実行する。新しいGPU入口・GPU対応認定はまだない。
 
 ## 元の対象名を保つ理由

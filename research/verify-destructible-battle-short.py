@@ -70,7 +70,7 @@ def native_reference(domain):
         receipts=[dict(slot=slot,handle=[int(h.kind),h.identity,h.generation],delivered=receipt['delivered'],broken=receipt['broken'],took=receipt['took']) for slot,h,receipt in r['receipts']]
         attacks.append(dict(attack_id=r['attack_id'],owner=names.index(r['caster']),time=r['time'],damage=r['damage'],completed=r['completed'],receipts=receipts))
     return dict(battle=n,typed=dict(time=world.last,finished=world.finished,state=state,attacks=attacks))
-def decode(block,domain,*,sampled_coefficients=None,sampled_rows=None,sampled_packets=None):
+def decode(block,domain,*,sampled_coefficients=None,sampled_rows=None,sampled_packets=None,sampled_skill_metadata=None):
     c,m,b=domain;assert block[0]==0,('battle status',block[0]);assert block[786432]==0x44425431 and not any(block[786434:786448])
     header=789248;assert block[header+2]==1 and block[header+3] in (0,1) and block[header+4]==1 and not any(block[header+5:header+16])
     assert not any(block[787456+len(c['typed_bindings'])*14:787456+128*14]),'Unbound typed state'
@@ -85,6 +85,7 @@ def decode(block,domain,*,sampled_coefficients=None,sampled_rows=None,sampled_pa
     if sampled_coefficients is not None:assert len(sampled_coefficients)==count,'Native coefficient sample count'
     if sampled_rows is not None:assert len(sampled_rows)==count,'Native source sample count'
     if sampled_packets is not None:assert len(sampled_packets)==count,'Native packet sample count'
+    if sampled_skill_metadata is not None:assert len(sampled_skill_metadata)==count,'Native skill metadata count'
     for i in range(count):
         at=790000+i*1040;selected=block[at+3];assert 1<=selected<=128 and block[at+10] in (0,1)
         source=sampled_rows[i] if sampled_rows is not None else next(j for j,e in enumerate(c['effects']) if e.get('target')=='all_projectiles')
@@ -93,7 +94,8 @@ def decode(block,domain,*,sampled_coefficients=None,sampled_rows=None,sampled_pa
             assert list(block[at+11:at+16])==[0,1,int(sampled_packets[i]),0,0],'Weapon packet family/mode'
             source_row=0xffffffff;sampled_coefficient=sampled_coefficients[i]
         else:
-            assert not any(block[at+11:at+16]),'Unused skill packet metadata'
+            if sampled_skill_metadata is None:assert not any(block[at+11:at+16]),'Unused skill packet metadata'
+            else:assert list(block[at+11:at+16])==sampled_skill_metadata[i],'Original skill family/selector metadata'
             owner=c['owners'][source];source_row=m['binding_source_indices'].index(source)
             sampled_coefficient=(sampled_coefficients[i] if sampled_coefficients is not None else coefficient(c['effects'][source],dict(name=roster_names(c)[owner],skill_levels=skill_levels(c)[owner])))
         assert block[at+1]==source_row and struct.pack('<II',*block[at+6:at+8])==struct.pack('<d',sampled_coefficient),'Sampled typed coefficient/source'

@@ -45,7 +45,8 @@ class WeaponSavedReadbackTests(unittest.TestCase):
  def test_actual_metal_pellet_receipts_and_charge_times_reject_corruption(self):
   from portable_backend import source_hashes
   f=json.loads((ROOT/'tests/fixtures/portable-destructible-weapon-raw.json').read_text());rows,_=a.prepare()
-  self.assertEqual(source_hashes(ROOT/'gpu/destructible_weapon_shield_entry.slang'),f['source_sha256'])
+  from portable_destructible_roster_skill_source_contract import verify_retained_sources
+  verify_retained_sources(ROOT,'gpu/destructible_weapon_shield_entry.slang',f['source_sha256'])
   checked=0
   for record in f['records']:
    name,words,domain=rows[record['index']];self.assertEqual(name,record['name'])

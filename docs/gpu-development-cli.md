@@ -1,5 +1,7 @@
 <!-- shared-readback-current -->
 
+現在の型付きskill実戦はsealed `destructible-skill-retention`157(native102/拒否55)と`destructible-skill-misato-retention`2を使う。元レイのselector/count/burst flagsを保ち、Metal/各独立seal/CPU43成功、旧141とミサト2の全input/native/raw保持。standalone16はdevelopment_only。Windows O0診断は内側timeout/driver-GPU0で現CUDA未確認。詳細docs/portable-destructible-skill-rosters-gpu.md。
+
 次のskill盾接続はCPU限定 `reference --suite destructible-skill-rosters`（元レイ7＋装備/同伴の全73定義・4契約）を使う。元selectorとburst/single familyの違いを保持したnative比較基準で、新GPU対応ではない。旧ミサト2・武器141は保持。詳細docs/portable-destructible-skill-rosters-native.md。
 
 実編成の武器盾検証はsealed `destructible-weapon-rosters`（元ミサト5＋装備/同伴の全71定義、3/30秒の2入力、Metal/独立seal/CPU24成功）を使う。referenceも同名。共有155source・両生成は武器141と同一、public受付/全キャラ認定は未完了。詳細docs/portable-destructible-weapon-rosters.md。
