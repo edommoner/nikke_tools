@@ -75,6 +75,20 @@ void moveCoordinateReceipt(inout Runtime s,uint fromIndex,uint toIndex)
     uint to=s.resourceOutput+CP_PACKETS+toIndex*CP_SNAPSHOT_WORDS;
     for(uint i=0;i<CP_SNAPSHOT_WORDS;i++)results[to+i]=results[from+i];
 }
+uint coordinateLandingGeneration(inout Runtime s,uint slot,uint selectedGeneration)
+{
+    if(slot==0||slot>=actorPoolCount(s)||selectedGeneration==0){s.error=64;return 0;}
+    // Native HitEvent keeps a target name, not an ActorHandle. The cast
+    // snapshot stays frozen, while hit_target resolves the current run.
+    uint currentGeneration=results[actorPoolAt(s,slot)];
+    if(currentGeneration==0||currentGeneration>0x7fffffffU||currentGeneration<selectedGeneration){s.error=64;return 0;}
+    return currentGeneration;
+}
+bool coordinatePartNeedsRetirement(inout Runtime s,uint slot,uint generation)
+{
+    uint binding=actorBinding(s,slot);
+    return results[actorPoolAt(s,slot)+1]==0&&!counterActorDead(s,1,commands[binding+1],generation);
+}
 void deliverCoordinateParts(inout Runtime s,LandingReceipt r,uint64_t when,uint output)
 {
     if(r.coordinatePacket==0||r.coordinatePacket>CP_PACKET_COUNT){s.error=64;return;}
@@ -82,8 +96,10 @@ void deliverCoordinateParts(inout Runtime s,LandingReceipt r,uint64_t when,uint 
     if(results[at+1]!=0x43505331U||results[at+2]!=r.row||count>127){s.error=64;return;}
     for(uint i=0;i<count&&s.error==0;i++)
     {
-        uint slot=coordinateSnapshotSlot(at,i),binding=actorBinding(s,slot),node=commands[binding+3],gen=results[at+4+node];
-        if(slot==0||slot>=actorPoolCount(s)||commands[binding]!=1||gen==0||results[actorPoolAt(s,slot)]!=gen){s.error=64;return;}
+        uint slot=coordinateSnapshotSlot(at,i);if(slot==0||slot>=actorPoolCount(s)){s.error=64;return;}
+        uint binding=actorBinding(s,slot),node=commands[binding+3];
+        if(commands[binding]!=1){s.error=64;return;}
+        uint gen=coordinateLandingGeneration(s,slot,results[at+4+node]);if(s.error!=0)return;
         if(!worldOverlayLand(s,d.owner,0,r.partAmount,false))continue;
         storeNumber(actorPoolHead(s)+2,when);s.target=0;land(s,d.owner,ACTOR_REF|slot,r.partAmount);
         if(s.error!=0)return;
@@ -91,7 +107,9 @@ void deliverCoordinateParts(inout Runtime s,LandingReceipt r,uint64_t when,uint 
         uint family=results[counterHead(s)+11];results[counterHead(s)+11]=WORLD_PERIODIC_FAMILY(s,d,((d.damageFlags&H_CORE)!=0&&d.damageNormal==0)?0:1);
         // Canonical target-kind accounting continues after retirement. Its typed
         // receipt and lifesteal follow it; pool hits/dealt only change while live.
-        counterPhysicalPacket(s,d.owner,slot,gen,r.partAmount,results[actorPoolHead(s)+19]!=0,when,output);
+        // Native publishes the impact, then retires the typed handle whenever
+        // the target view is not alive, including expiry before this packet.
+        counterPhysicalPacket(s,d.owner,slot,gen,r.partAmount,coordinatePartNeedsRetirement(s,slot,gen),when,output);
         results[counterHead(s)+11]=family;
         if((s.healthMask&64)!=0&&s.error==0)dispatch(s,17,0,d.owner,0,when,output,r.partAmount);
     }

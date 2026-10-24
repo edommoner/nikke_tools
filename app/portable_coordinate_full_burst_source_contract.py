@@ -12,7 +12,8 @@ def ledger(root):
 
 
 def project_sources(root,sources=None):
-    root=Path(root);sources=dict(sources or {});data=ledger(root)
+    from portable_coordinate_generation_source_contract import project_sources as project_generations
+    root=Path(root);sources=project_generations(root,sources);data=ledger(root)
     for name,row in data['sources'].items():
         current=sources.get(name,(root/name).read_text())
         assert hashlib.sha256(current.encode()).hexdigest()==row['current_sha256'],'Unreviewed coordinate full-burst source: '+name

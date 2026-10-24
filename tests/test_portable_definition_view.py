@@ -6,6 +6,17 @@ from portable_definition_view_contract import verify
 
 
 class DefinitionViewTests(unittest.TestCase):
+    def test_landing_generation_delta_cannot_change_snapshots_or_admission_guards(self):
+        names=['gpu/coordinate_skill_runtime.slang','gpu/coordinate_area_runtime.slang']
+        self.assertEqual(verify(ROOT)['reviewed_coordinate_generation_sources'],names)
+        for name,old,new in [(names[0],'return currentGeneration;','return selectedGeneration;'),
+                (names[0],'currentGeneration<selectedGeneration','currentGeneration>selectedGeneration'),
+                (names[0],'currentGeneration>0x7fffffffU','currentGeneration>0xffffffffU'),
+                (names[1],'coordinateLandingGeneration(s,slot,results[at+4+node])','coordinateLandingGeneration(s,slot,results[at+4+node]+1)'),
+                (names[0],'!counterActorDead(s,1,commands[binding+1],generation)','counterActorDead(s,1,commands[binding+1],generation)')]:
+            source=(ROOT/name).read_text();self.assertIn(old,source)
+            with self.subTest(name=name,old=old),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(old,new,1)})
+
     def test_coordinate_receipt_delta_is_explicit_and_other_changes_are_rejected(self):
         names=['gpu/full_burst_landing_runtime.slang','gpu/coordinate_skill_runtime.slang','gpu/coordinate_area_runtime.slang','gpu/world_coordinate_full_burst_entry.slang']
         self.assertEqual(verify(ROOT)['reviewed_coordinate_full_burst_sources'],names)

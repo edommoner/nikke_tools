@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "purpose": "Frozen selection; late target-name landing generation",
+  "sources": {
+    "gpu/coordinate_skill_runtime.slang": {
+      "baseline_sha256": "65cd0cbd77b60b408d8180c8d05f877cb544dba6374cf22d90214c8667e2ed38",
+      "current_sha256": "8e32e1e958ca637ac623303e93e037750d0b921d6a562533287daf0537b6725a",
+      "changes": [
+        {
+          "baseline": "",
+          "current": "uint coordinateLandingGeneration(inout Runtime s,uint slot,uint selectedGeneration)\n{\n    if(slot==0||slot>=actorPoolCount(s)||selectedGeneration==0){s.error=64;return 0;}\n    // Native HitEvent keeps a target name, not an ActorHandle. The cast\n    // snapshot stays frozen, while hit_target resolves the current run.\n    uint currentGeneration=results[actorPoolAt(s,slot)];\n    if(currentGeneration==0||currentGeneration>0x7fffffffU||currentGeneration<selectedGeneration){s.error=64;return 0;}\n    return currentGeneration;\n}\n"
+        },
+        {
+          "baseline": "        uint slot=coordinateSnapshotSlot(at,i),binding=actorBinding(s,slot),node=commands[binding+3],gen=results[at+4+node];\n        if(slot==0||slot>=actorPoolCount(s)||commands[binding]!=1||gen==0||results[actorPoolAt(s,slot)]!=gen){s.error=64;return;}\n",
+          "current": "        uint slot=coordinateSnapshotSlot(at,i);if(slot==0||slot>=actorPoolCount(s)){s.error=64;return;}\n        uint binding=actorBinding(s,slot),node=commands[binding+3];\n        if(commands[binding]!=1){s.error=64;return;}\n        uint gen=coordinateLandingGeneration(s,slot,results[at+4+node]);if(s.error!=0)return;\n"
+        }
+      ]
+    },
+    "gpu/coordinate_area_runtime.slang": {
+      "baseline_sha256": "dcbdf93bc17611148cc8f5ff506085eebe45a7b1b3c632cb08bf32436ff23d5b",
+      "current_sha256": "205b3dd1d716c6f84a3dea79ca49789dbd2f6b9ddaa183d7414edcda329c76b0",
+      "changes": [
+        {
+          "baseline": "        uint slot=coordinateSnapshotSlot(at,i),binding=actorBinding(s,slot),node=commands[binding+3],gen=results[at+4+node],kind=commands[binding];\n        if(slot==0||slot>=actorPoolCount(s)||(kind!=1&&kind!=6)||gen==0||results[actorPoolAt(s,slot)]!=gen){s.error=64;return;}\n",
+          "current": "        uint slot=coordinateSnapshotSlot(at,i);if(slot==0||slot>=actorPoolCount(s)){s.error=64;return;}\n        uint binding=actorBinding(s,slot),node=commands[binding+3],kind=commands[binding];\n        if(kind!=1&&kind!=6){s.error=64;return;}\n        uint gen=coordinateLandingGeneration(s,slot,results[at+4+node]);if(s.error!=0)return;\n"
+        }
+      ]
+    }
+  }
+}

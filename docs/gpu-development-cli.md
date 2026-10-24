@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+座標worldの最新private supersetは`coordinate-generation`88（native75／拒否13）です。世代交代時の対象名解決と期限切れ部位の通知順を接続し、旧76を全byte保持しました。[世代交代の着弾](portable-coordinate-generation.md)と[主実行器とのarena合成課題](gpu-arena-composition.md)を参照してください。
+
 座標worldの最新private supersetは`coordinate-full-burst`76（native63／拒否13）です。opt-in保留弾と子receiptの座標snapshot移動を接続し、旧60と本体81のraw/inputを保持しました。[座標全バースト保留](portable-coordinate-full-burst.md)を参照してください。以前の入口は履歴です。
 
 座標worldの最新private supersetは`coordinate-pending`60（native50／拒否10）です。旧形式B3本体保留を共通executorへ接続し、旧area52を全byte保持しました。opt-in座標保留や全キャラ対応の完了ではありません。[座標B3保留](portable-coordinate-pending.md)を参照してください。

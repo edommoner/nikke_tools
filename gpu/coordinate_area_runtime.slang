@@ -93,8 +93,10 @@ void deliverCoordinateAreaTargets(inout Runtime s,LandingReceipt r,uint64_t when
     if(results[at+1]!=0x43505331U||results[at+2]!=r.row||count>127){s.error=64;return;}
     for(uint i=0;i<count&&s.error==0;i++)
     {
-        uint slot=coordinateSnapshotSlot(at,i),binding=actorBinding(s,slot),node=commands[binding+3],gen=results[at+4+node],kind=commands[binding];
-        if(slot==0||slot>=actorPoolCount(s)||(kind!=1&&kind!=6)||gen==0||results[actorPoolAt(s,slot)]!=gen){s.error=64;return;}
+        uint slot=coordinateSnapshotSlot(at,i);if(slot==0||slot>=actorPoolCount(s)){s.error=64;return;}
+        uint binding=actorBinding(s,slot),node=commands[binding+3],kind=commands[binding];
+        if(kind!=1&&kind!=6){s.error=64;return;}
+        uint gen=coordinateLandingGeneration(s,slot,results[at+4+node]);if(s.error!=0)return;
         uint64_t amount=kind==1?r.partAmount:r.interruptAmount;
         if(!worldOverlayLand(s,d.owner,0,amount,false))continue;
         storeNumber(actorPoolHead(s)+2,when);s.target=0;land(s,d.owner,ACTOR_REF|slot,amount);if(s.error!=0)return;
@@ -102,7 +104,7 @@ void deliverCoordinateAreaTargets(inout Runtime s,LandingReceipt r,uint64_t when
         if(kind==1)
         {
             uint family=results[counterHead(s)+11];results[counterHead(s)+11]=WORLD_PERIODIC_FAMILY(s,d,((d.damageFlags&H_CORE)!=0&&d.damageNormal==0)?0:1);
-            counterPhysicalPacket(s,d.owner,slot,gen,amount,results[actorPoolHead(s)+19]!=0,when,output);results[counterHead(s)+11]=family;
+            counterPhysicalPacket(s,d.owner,slot,gen,amount,coordinatePartNeedsRetirement(s,slot,gen),when,output);results[counterHead(s)+11]=family;
         }
         if((s.healthMask&64)!=0&&s.error==0)dispatch(s,17,0,d.owner,0,when,output,amount);
     }
