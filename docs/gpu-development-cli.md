@@ -1,5 +1,7 @@
 <!-- shared-readback-current -->
 
+次のskill盾接続はCPU限定 `reference --suite destructible-skill-rosters`（元レイ7＋装備/同伴の全73定義・4契約）を使う。元selectorとburst/single familyの違いを保持したnative比較基準で、新GPU対応ではない。旧ミサト2・武器141は保持。詳細docs/portable-destructible-skill-rosters-native.md。
+
 実編成の武器盾検証はsealed `destructible-weapon-rosters`（元ミサト5＋装備/同伴の全71定義、3/30秒の2入力、Metal/独立seal/CPU24成功）を使う。referenceも同名。共有155source・両生成は武器141と同一、public受付/全キャラ認定は未完了。詳細docs/portable-destructible-weapon-rosters.md。
 
 通常武器の盾接続はsealed `destructible-weapon-shield`141(native98/拒否43、Metal/独立seal/CPU204成功)を使う。reference22は宣言モデルを維持する。初回charge fixtureの静的clock差分と修正成功、旧111全raw保持、時間内訳・残件はdocs/portable-destructible-weapon-shield-gpu.mdを参照。以下2段落はnative段階と旧skill入口の履歴。

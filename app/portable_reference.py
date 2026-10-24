@@ -67,6 +67,7 @@ REFERENCES['destructible-shield-battle']=('destructible_shield_battle_cases','wo
 REFERENCES['destructible-hit-shield']=('destructible_hit_shield_cases','world_destructible_shield_battle_native','portable_destructible_hit_shield_contracts')
 REFERENCES['destructible-weapon-shield']=('destructible_weapon_shield_cases','world_destructible_shield_battle_native','portable_destructible_weapon_shield_contracts')
 REFERENCES['destructible-weapon-rosters']=('destructible_weapon_roster_cases','world_destructible_weapon_roster_native','portable_destructible_weapon_roster_contracts')
+REFERENCES['destructible-skill-rosters']=('destructible_skill_roster_cases','world_destructible_weapon_roster_native','portable_destructible_skill_roster_contracts')
 
 
 def digest(value):

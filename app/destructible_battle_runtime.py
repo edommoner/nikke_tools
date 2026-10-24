@@ -27,13 +27,14 @@ class TypedLandings(ast.NodeTransformer):
         return node
 
 @contextmanager
-def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False):
+def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False,skill_shields=False):
     from calculator import timeline,buff_manager
     from runner import sim
     if type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Invalid typed battle observation capacity')
     if type(modifier_model) is not bool:raise ValueError('Explicit modifier model boolean required')
     if type(hit_shields) is not bool or hit_shields and shield_owner is None:raise ValueError('Hit shields require an explicit shield owner and boolean policy')
     if type(weapon_shields) is not bool or weapon_shields and shield_owner is None:raise ValueError('Weapon shields require an explicit shield owner and boolean policy')
+    if type(skill_shields) is not bool or skill_shields and shield_owner is None:raise ValueError('Skill shields require an explicit shield owner and boolean policy')
     if shield_owner is not None:
         from destructible_shield_policy import validate_owner
         validate_owner(shield_owner)
@@ -59,6 +60,15 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
             from destructible_damage_policy import modifier_axis
             for effect,_ in manager._effects:modifier_axis(effect)
         if weapons is not None:weapons.validate_effects(manager)
+        if skill_shields:
+            clock=data['worlds'][-1].clock
+            if clock.has_summons or any(r.p.kind in ('parts','interrupt') for r in clock._runs) or data['worlds'][-1].enemy.get('coord') is not None or data['worlds'][-1].enemy.get('has_parts'):
+                raise ValueError('Declared skill shield policy requires a plain single boss')
+            from destructible_skill_shield_policy import skill
+            from damage_accum_runtime import STATS
+            for effect,caster in manager._effects:
+                if effect.get('stat')=='lifesteal_pct' or effect.get('stat') in STATS:raise ValueError('Skill shield post-landing consumer is not declared')
+                if effect.get('type')=='damage':skill(effect,manager._char[caster])
         data['managers'].append(manager)
         world=data['worlds'][-1];resolver=manager._resolve_target;missing=object();old_instance=manager.__dict__.get('_resolve_target',missing)
         condition_ok=manager._condition_ok;old_condition=manager.__dict__.get('_condition_ok',missing)
@@ -82,17 +92,20 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
                 data['activations'].append(dict(name=effect.get('name'),caster=caster,time=t))
                 if not world.targets.select([ActorKind.PROJECTILE]):return
                 context=dict(manager=manager,world=world,effect=effect,caster=caster,time=t,kind=ActorKind.PROJECTILE)
-            elif shield_owner is not None and effect.get('target')=='boss':
+            elif shield_owner is not None and (effect.get('target')=='boss' or skill_shields):
                 # Select before entering the ordinary handler. Neither damage
                 # resolution nor synchronous children may retarget this packet.
                 from destructible_shield_policy import select
                 from destructible_skill_specs import coefficient
-                coefficient(dict(effect,target='all_projectiles'),manager._char[caster])
+                if skill_shields:
+                    from destructible_skill_shield_policy import skill
+                    skill(effect,manager._char[caster])
+                else:coefficient(dict(effect,target='all_projectiles'),manager._char[caster])
                 selected=select(world,shield_owner,hit_shields=hit_shields)
                 if selected is not None:
                     context=dict(manager=manager,world=world,effect=effect,caster=caster,time=t,kind=selected[1].kind,selected=selected)
             active.append(context)
-            try:return previous(dict(effect,target='boss') if context is not None else effect,caster,t,*args,**kwargs)
+            try:return previous(dict(effect,target='boss') if context is not None and not skill_shields else effect,caster,t,*args,**kwargs)
             finally:assert active.pop() is context
         manager._damage_handler=damage;manager._resolve_target=resolve_target;manager._condition_ok=conditions
         restores.append((manager,damage,previous,old_instance,old_condition,missing))

@@ -19,11 +19,16 @@ def observe(case):
     samples=[];original=destructible_damage_policy.calculate
     def calculate(*args,**kw):
         value=original(*args,**kw)
-        if kw['kind']==ActorKind.HP_SHIELD:
+        if kw['kind']==ActorKind.HP_SHIELD or case.get('skill_shield_interception_v1'):
             buffs=kw.get('buffs',args[1] if len(args)>1 else {})
-            samples.append(dict(modifier=buffs.get('shield_dmg_pct',0.),factor5=value['factor5'],damage=value['damage']))
+            row=dict(modifier=buffs.get('shield_dmg_pct',0.),factor5=value['factor5'],damage=value['damage'])
+            if case.get('skill_shield_interception_v1'):row.update(scalar_kind=int(kw['kind']),applied_modifier=buffs.get('shield_dmg_pct',0.) if kw['kind']==ActorKind.HP_SHIELD else 0.)
+            if case.get('skill_shield_interception_v1'):
+                hit=kw.get('hit_type',args[3] if len(args)>3 else {})
+                row['family_flags']={k:bool(hit.get(k,False)) for k in ('is_burst_damage','is_aoe_burst','is_single_burst')}
+            samples.append(row)
         return value
-    with typed_battle(case['typed_bindings'],modifier_model=True,shield_owner=BOSS,hit_shields=True,weapon_shields=True,max_attacks=case['max_attacks']) as data,patch.object(destructible_damage_policy,'calculate',calculate),patch.object(BuffManager,'apply_shared_body_heal',heal):
+    with typed_battle(case['typed_bindings'],modifier_model=True,shield_owner=BOSS,hit_shields=True,weapon_shields=True,max_attacks=case['max_attacks'],skill_shields=case.get('skill_shield_interception_v1',False)) as data,patch.object(destructible_damage_policy,'calculate',calculate),patch.object(BuffManager,'apply_shared_body_heal',heal):
         battle,shots=roster.native_reference(case['body'])
     assert len(data['worlds'])==len(data['managers'])==1
     from effect_runtime import state
@@ -33,7 +38,18 @@ def observe(case):
         targets.append(None if r is None else dict(handle=[int(r.handle.kind),r.handle.identity,r.handle.generation],alive=r.alive,remaining=r.remaining,capacity=r.capacity,expires=r.expires,owner=None if r.owner is None else [int(r.owner.kind),r.owner.identity,r.owner.generation]))
     attacks=[]
     for r in data['attacks']:
-        assert 'family' in r,'Weapon-only roster must not silently intercept skill packets'
+        if not case.get('skill_shield_interception_v1'):assert 'family' in r,'Weapon-only roster must not silently intercept skill packets'
         attacks.append(dict(attack_id=r['attack_id'],owner=names.index(r['caster']),time=r['time'],damage=r['damage'],completed=r['completed'],receipts=[dict(slot=slot,handle=[int(h.kind),h.identity,h.generation],delivered=v['delivered'],broken=v['broken'],took=v['took']) for slot,h,v in r['receipts']]))
     samples_expected=[r['damage'] for r in attacks];assert [r['damage'] for r in samples]==samples_expected
-    return dict(battle=battle,projectile_shots=shots,typed=dict(time=world.last,finished=world.finished,state=targets,attacks=attacks),weapon_samples=[dict(coefficient=r['coefficient'],mode_skill=r['weapon_mode_skill']) for r in data['attacks']],shield_samples=samples,healing=heals),[]
+    result=dict(battle=battle,projectile_shots=shots,typed=dict(time=world.last,finished=world.finished,state=targets,attacks=attacks),shield_samples=samples,healing=heals)
+    if case.get('skill_shield_interception_v1'):
+        packets=[]
+        for r in data['attacks']:
+            source=None
+            if 'family' not in r:
+                matches=[i for i,(effect,caster) in enumerate(data['managers'][0]._effects) if effect.get('name')==r['name'] and caster==r['caster']]
+                assert len(matches)==1,'Unambiguous original skill definition required';source=matches[0]
+            packets.append(dict(coefficient=r['coefficient'],mode_skill=r.get('weapon_mode_skill',False),source=source,name=r['name']))
+        result['packet_samples']=packets
+    else:result['weapon_samples']=[dict(coefficient=r['coefficient'],mode_skill=r['weapon_mode_skill']) for r in data['attacks']]
+    return result,[]

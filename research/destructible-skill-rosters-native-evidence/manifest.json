@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "cpu32.json",
+      "bytes": 1685,
+      "sha256": "17ca31fa02cbd48f0f909e73aa352d281f444799291cb4012c03db1a09ee1655"
+    },
+    {
+      "path": "inventory-preservation.json",
+      "bytes": 214,
+      "sha256": "cc58eb882d1c5ab5463be5d49fa707e387eed8214250924ac8c416f9184e767d"
+    },
+    {
+      "path": "reference4.json",
+      "bytes": 1504985,
+      "sha256": "119597be416303386d4536cdd3a83971db43813388858ecc74ffc9a693de030d"
+    },
+    {
+      "path": "sealed-generation.json",
+      "bytes": 515,
+      "sha256": "6353a9366bfa68c9c971b77bf057610db9dd7279ce6d90fb2091ddea07dba417"
+    },
+    {
+      "path": "source-preservation.json",
+      "bytes": 681,
+      "sha256": "bbda3a4926c97e4a64c98a6fb6c782b2ed8b9f8af922c15be70c2973483d7b95"
+    }
+  ],
+  "total_bytes": 1508080,
+  "scope": "New opt-in native skill prerequisites and preservation of prior GPU source/baselines; not a new GPU proof"
+}
