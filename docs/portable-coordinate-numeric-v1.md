@@ -30,3 +30,5 @@ Metalの入力133,588byte／出力178,112byte、GPU時間0.001873秒、shared ex
 今回の証明は数値部品のMetal実証であり、CUDA実行は未取得。共通Slang・入力・比較器をWindowsの短いprobeにそのまま使う。本体の全編成再ビルドは不要である。
 
 回転形状caller、幾何arc生成、半径方向の積分、cache key丸め、物理packet／RNGからresident戦闘実行器への接続は未完了。旧shape/area suiteは歴史上のnative host profileとして保持する。全キャラ認証0、20分類のgap、UI CPU・公開受付未対応を維持する。最新の機械可読記録は`research/portable-coordinate-numeric-v1-checkpoint.json`、小さな検証資料は`research/coordinate-numeric-v1-evidence/`にある。
+
+Windows用の固定sourceは`d1a1e210c7510d9b87d4836068f086a3ca3722a3`、再現package IDは`505e0fd6c6615c4fa016c00c728c7205637f1982218537b8eb8862a7efcc3779`。検証依頼の送信はCodex APIの`without an active turn id`エラーで拒否され、実行開始は未確認。idle状態の同じsnapshotを繰り返し取得して待機中と扱わない。`windows-dispatch.json`に失敗を保存した。Windows側で新規作成先・claimを確認してから、元の短い依頼を届ける必要がある。
