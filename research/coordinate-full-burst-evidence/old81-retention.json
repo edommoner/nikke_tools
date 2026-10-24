@@ -1,0 +1,29 @@
+{
+  "records": [
+    {
+      "file": "input.bin",
+      "bytes": 33828196,
+      "sha256": "68f73317df3ac4990f79128bd358bd72f6d2e0b53960e2835aad5551a8dcd99e",
+      "exact": true
+    },
+    {
+      "file": "readback.bin",
+      "bytes": 339738624,
+      "sha256": "39b711e14b97c9e7d30180b2598e98059a0c964b266c24e39b4b51138fe1c7cc",
+      "exact": true
+    },
+    {
+      "file": "generated.cu",
+      "bytes": 2221708,
+      "sha256": "44ed50919f8e92db7da1fcab5ba58bc5842a901989c510f7561c418d42e3c838",
+      "exact": true
+    },
+    {
+      "file": "generated.metal",
+      "bytes": 2356594,
+      "sha256": "6c1bb991df5bd6e085314f1678d29d4b765245ab3570d2457f8610aef3a387c2",
+      "exact": true
+    }
+  ],
+  "all_exact": true
+}

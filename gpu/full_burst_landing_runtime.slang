@@ -82,6 +82,9 @@ void moveFullBurstReceipt(inout Runtime s,uint fromIndex,uint toIndex)
     for(uint i=0;i<2;i++) results[toPart+i]=results[fromPart+i];
     uint fromSnapshot=periodicPacketSnapshot(s,fromIndex),toSnapshot=periodicPacketSnapshot(s,toIndex);
     for(uint i=0;i<38;i++) results[toSnapshot+i]=results[fromSnapshot+i];
+#ifdef PORTABLE_COORDINATE_SKILLS
+    moveCoordinateReceipt(s,fromIndex,toIndex);
+#endif
     if(marker!=0) results[to+7]=(marker&0x80000000U)|(toIndex+1);
 }
 void landFullBurstRange(inout Runtime s,uint begin,uint end,uint64_t when,uint output)

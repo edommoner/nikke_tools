@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "purpose": "Exact coordinate full-burst receipt relocation; source audit only",
+  "sources": {
+    "gpu/full_burst_landing_runtime.slang": {
+      "baseline_sha256": "2fe29e32d292edd89c9181faa895799d4a4951b0cd0b1a133c1437be80e12d0b",
+      "current_sha256": "40d45810cc279a8f395d0877c98b94055b3026fcf8eae97007ef3004fa856c9f",
+      "changes": [
+        {
+          "baseline": "",
+          "current": "#ifdef PORTABLE_COORDINATE_SKILLS\n    moveCoordinateReceipt(s,fromIndex,toIndex);\n#endif\n"
+        }
+      ]
+    },
+    "gpu/coordinate_skill_runtime.slang": {
+      "baseline_sha256": "5fdc962f0ae271bf2298b014d3d86238f6cf06e2837056ef224b2c0675e5b5a4",
+      "current_sha256": "65cd0cbd77b60b408d8180c8d05f877cb544dba6374cf22d90214c8667e2ed38",
+      "changes": [
+        {
+          "baseline": "",
+          "current": "void moveCoordinateReceipt(inout Runtime s,uint fromIndex,uint toIndex)\n{\n    if(fromIndex>=CP_PACKET_COUNT||toIndex>=CP_PACKET_COUNT){s.error=64;return;}\n    uint from=s.resourceOutput+CP_PACKETS+fromIndex*CP_SNAPSHOT_WORDS;\n    uint to=s.resourceOutput+CP_PACKETS+toIndex*CP_SNAPSHOT_WORDS;\n    for(uint i=0;i<CP_SNAPSHOT_WORDS;i++)results[to+i]=results[from+i];\n}\n"
+        }
+      ]
+    },
+    "gpu/coordinate_area_runtime.slang": {
+      "baseline_sha256": "33a79db3cba0b6256458bf9fcea507d79327a9b051d9f214d7a126cf30f931cd",
+      "current_sha256": "dcbdf93bc17611148cc8f5ff506085eebe45a7b1b3c632cb08bf32436ff23d5b",
+      "changes": [
+        {
+          "baseline": "#ifdef PORTABLE_COORDINATE_LEGACY_PENDING\n",
+          "current": "#ifdef PORTABLE_COORDINATE_FULL_BURST_PENDING\n    return d.damagePending<=2;\n#elif defined(PORTABLE_COORDINATE_LEGACY_PENDING)\n"
+        }
+      ]
+    }
+  },
+  "added_sources": {
+    "gpu/world_coordinate_full_burst_entry.slang": "43536bbc309f9575749cc912ebc0c47aa6b00a8b182bec3053711933730c932a"
+  }
+}

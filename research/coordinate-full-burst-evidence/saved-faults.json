@@ -1,0 +1,22 @@
+{
+  "faults": [
+    {
+      "fault": "child-landing-generation",
+      "detected": true
+    },
+    {
+      "fault": "child-selection-generation",
+      "detected": true
+    },
+    {
+      "fault": "child-body-target-slot",
+      "detected": true
+    },
+    {
+      "fault": "extra-cast",
+      "detected": true
+    }
+  ],
+  "original_raw_unchanged": true,
+  "gpu_calls": 0
+}

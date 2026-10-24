@@ -68,6 +68,13 @@ void coordinateTrace(inout Runtime s,uint who,uint slot,uint gen,uint64_t amount
     uint at=s.resourceOutput+CP_TRACE+count*CP_TRACE_WORDS;results[at]=who;results[at+1]=slot;results[at+2]=commands[actorBinding(s,slot)];results[at+3]=gen;
     storeNumber(at+4,when);storeNumber(at+6,amount);results[at+8]=uint(extra);for(uint i=9;i<12;i++)results[at+i]=0;results[head+2]=count+1;
 }
+void moveCoordinateReceipt(inout Runtime s,uint fromIndex,uint toIndex)
+{
+    if(fromIndex>=CP_PACKET_COUNT||toIndex>=CP_PACKET_COUNT){s.error=64;return;}
+    uint from=s.resourceOutput+CP_PACKETS+fromIndex*CP_SNAPSHOT_WORDS;
+    uint to=s.resourceOutput+CP_PACKETS+toIndex*CP_SNAPSHOT_WORDS;
+    for(uint i=0;i<CP_SNAPSHOT_WORDS;i++)results[to+i]=results[from+i];
+}
 void deliverCoordinateParts(inout Runtime s,LandingReceipt r,uint64_t when,uint output)
 {
     if(r.coordinatePacket==0||r.coordinatePacket>CP_PACKET_COUNT){s.error=64;return;}

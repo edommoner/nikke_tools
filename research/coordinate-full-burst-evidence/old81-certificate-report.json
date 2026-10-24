@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "compiler_suite": "compiler-full--attack-group-mixed",
+  "certificate_target": "research/portable-compiler-full--attack-group-mixed-source-certificate.json",
+  "baseline_suite": "attack-group-mixed",
+  "baseline_golden_sha256": "690b66289b47c9dd9048b9db741fe78b3b56f0c13169f23ed317fbfab3441a60",
+  "certificate_sha256": "490a4b2dc97d3c1062ae7a256e300c069ea9f3def9b451da4e09a8dc839514ed",
+  "metal_package_id": "1069b73fe1f4a8a765c8e4f235448f418504df2a02fe11d833ab787c662e42b0",
+  "metal_manifest_sha256": "a91ea1e0e86df238e8f81f18d8a86a10c4596dde3daefa305ad761e05a5712ef",
+  "metal_artifacts_sha256": "e0633f476a6d9ae018e17aae490b8a235ced7c41ff881bcd01c644d3d4094526",
+  "metal_run_sha256": "f43933c8f649453f37b9372e4663a4c4d77f9e74da0f24665bdd980b8d7e2a2c",
+  "metal_input_count": 81,
+  "independent_metal_audit": true,
+  "compiler_verified": false,
+  "cache_hit_verified": false,
+  "calculation_verified": false,
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "scope": "Compiler source identity only; audited Metal baseline is a separate calculation proof"
+}

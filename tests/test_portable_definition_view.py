@@ -6,6 +6,18 @@ from portable_definition_view_contract import verify
 
 
 class DefinitionViewTests(unittest.TestCase):
+    def test_coordinate_receipt_delta_is_explicit_and_other_changes_are_rejected(self):
+        names=['gpu/full_burst_landing_runtime.slang','gpu/coordinate_skill_runtime.slang','gpu/coordinate_area_runtime.slang','gpu/world_coordinate_full_burst_entry.slang']
+        self.assertEqual(verify(ROOT)['reviewed_coordinate_full_burst_sources'],names)
+        changes=[(names[0],'moveCoordinateReceipt(s,fromIndex,toIndex);','moveCoordinateReceipt(s,fromIndex+1,toIndex);'),
+            (names[0],'begin=results[header];','begin=0;'),
+            (names[1],'uint from=s.resourceOutput+CP_PACKETS+fromIndex*CP_SNAPSHOT_WORDS;','uint from=s.resourceOutput+CP_PACKETS+(fromIndex+1)*CP_SNAPSHOT_WORDS;'),
+            (names[2],'return d.damagePending<=2;','return d.damagePending<=3;'),
+            (names[3],'#define PORTABLE_FULL_BURST_LANDING','#define PORTABLE_FULL_BURST_LANDING_DISABLED')]
+        for name,old,new in changes:
+            source=(ROOT/name).read_text();self.assertIn(old,source)
+            with self.subTest(name=name,old=old),self.assertRaises(AssertionError):verify(ROOT,sources={name:source.replace(old,new,1)})
+
     def test_all55_properties_wire_snapshot_and_unchanged_shared_consumers(self):
         result=verify(ROOT);self.assertTrue(result['verified']);self.assertEqual(result['properties'],55);self.assertFalse(result['other_shared_sources_unchanged']);self.assertTrue(result['other_sources_outside_reviewed_delta_unchanged']);self.assertEqual(result['reviewed_scope_snapshot_sources'],['gpu/world_actor_state.slang'])
 

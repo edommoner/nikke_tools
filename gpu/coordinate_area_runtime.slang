@@ -29,7 +29,9 @@ bool coordinateAreaContains(inout Runtime s,uint slot,uint64_t ax,uint64_t ay,ui
 }
 bool validCoordinateAreaSkill(inout Runtime s,Definition d)
 {
-#ifdef PORTABLE_COORDINATE_LEGACY_PENDING
+#ifdef PORTABLE_COORDINATE_FULL_BURST_PENDING
+    return d.damagePending<=2;
+#elif defined(PORTABLE_COORDINATE_LEGACY_PENDING)
     // The legacy B3 queue produces body-only HitEvents; ordinary opt-in
     // landing damage is a different native path and remains unconnected.
     return d.damagePending<=1;
