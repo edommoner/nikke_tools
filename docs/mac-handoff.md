@@ -1753,3 +1753,10 @@ research/portable-charge-boundary-development-checkpoint.jsonが最新根拠で�
 # 2026-10-24 実戦時計の型付き投射物CPU契約
 
 最新の追加は`docs/portable-destructible-battle.md`と`research/portable-destructible-battle-cpu-checkpoint.json`。通常native simulate所有のBossScriptへ数量を接続し、別時計を作らず3世代再出現・普通の子/物理攻撃保持・再入ID・例外復旧をCPU9契約で確認。fresh共通CLI packageのCPU72(skip0)/既存native17成功、既存Metal golden保持、新GPU/Windows追加0。実schedulerのMetal接続は未完了。共通packetへCUBIN O0 compile-only stageを追加、同じ60/180秒・2GiB・BelowNormal/Job・driver/GPU0制約を保持。Windows実行は未依頼。7プロセス終了についてユーザーは手動終了/再接続/再起動なし・ゲーム/動画利用の可能性と回答。因果不明/保全失敗は維持し、利用状況から原因を断定しない。次はSlang world同期→既存FrameのMetal実証。全キャラ0/UI CPU/目標未達。
+# 2026-10-24 body蓄積・固定量放出と観測器の高速化
+
+最新は `docs/portable-destructible-body-accum.md` と `research/portable-destructible-body-accum-checkpoint.json`。共通CLIの `destructible-body-accum-retention` 49入力（native40／拒否9）がMetal全件一致・別process独立seal済み。旧31のinput／native／全130,023,424byte rawは同じ配置で完全一致しました。HSI6の明示policyだけで既存のbody着弾→吸血→蓄積と、pool take→整数化→landing queue→live盾への固定量放出を接続します。固定量へダメージ式・盾倍率を再適用しません。整数化後0もhit creditを消費します。元トロニー全定義はbody蓄積・body放出を実証し、盾への固定量放出は独立した宣言入力です。元ドロシーは貫通未対応として全定義のまま拒否を維持します。
+
+native observerの全Python呼出し監視がcode objectをhashしていたため、監視対象codeの強参照を保ってidentity検索へ変更しました。変更前の14編成とnative全指紋は同一。初回事前照合153秒に対し、新版14編成の準備・照合は約21秒（工程・負荷差があるため厳密な速度倍率ではない）です。GPU4.66秒／初回PSO65.80秒と、回帰49のGPU10.08秒／cached PSO0.003秒を分けて記録します。保存raw4blockの破損24通りと既存蓄積CPU参照10検査も成功。旧HSI5の生成CUDA／Metalは正規化前の全byte一致。保護CPU4ファイル・pinned upstream・binary64・strict normalizerは不変です。
+
+最終小型packageは1576 files／7,218,467byte。CPU60件83.570秒・native40件40.598秒、共通制御372件（Windows専用1skip）に成功し、実行後の全payload SHAとcheckoutとの一致も確認しました。旧golden／失敗／claim／rawは保持し、単独18は開発用のままです。次は共有回復の受益者receipt、貫通、parts／coords／ADD混在、同期子放出境界を優先します。packing245/266・base185/203・残20 model gap・全キャラ認定0・通常UI CPUは維持。Windows追加操作0、現full battle CUDA実機とcache性能は未確認。過去7プロセス終了はユーザー操作なし・game/video利用の可能性だけでは原因を確定できず、unknown／保全falseを維持します。

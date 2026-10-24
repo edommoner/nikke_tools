@@ -27,7 +27,7 @@ class TypedLandings(ast.NodeTransformer):
         return node
 
 @contextmanager
-def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False,skill_shields=False,body_lifesteal=False):
+def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False,skill_shields=False,body_lifesteal=False,body_accumulation=False):
     from calculator import timeline,buff_manager
     from runner import sim
     if type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Invalid typed battle observation capacity')
@@ -36,6 +36,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     if type(weapon_shields) is not bool or weapon_shields and shield_owner is None:raise ValueError('Weapon shields require an explicit shield owner and boolean policy')
     if type(skill_shields) is not bool or skill_shields and shield_owner is None:raise ValueError('Skill shields require an explicit shield owner and boolean policy')
     if type(body_lifesteal) is not bool or body_lifesteal and not (weapon_shields and skill_shields and shield_owner is not None):raise ValueError('Body lifesteal requires explicit weapon/skill shield policies')
+    if type(body_accumulation) is not bool or body_accumulation and not body_lifesteal:raise ValueError('Body accumulation requires explicit body lifesteal policy')
     if shield_owner is not None:
         from destructible_shield_policy import validate_owner
         validate_owner(shield_owner)
@@ -46,7 +47,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     old_scalar=timeline.calc_damage
     data=dict(worlds=[],managers=[],activations=[],attacks=[],finished=[]);active=[];marked={};restores=[]
     from destructible_weapon_runtime import WeaponShots
-    weapons=WeaponShots(timeline,data,shield_owner,hit_shields,body_lifesteal=body_lifesteal) if weapon_shields else None
+    weapons=WeaponShots(timeline,data,shield_owner,hit_shields,body_lifesteal=body_lifesteal,body_accumulation=body_accumulation) if weapon_shields else None
     class Boss(old_boss):
         def __init__(self,*args,**kwargs):
             super().__init__(*args,**kwargs);self._nikke_typed_world=DestructibleWorld.from_clock(self,bindings);data['worlds'].append(self._nikke_typed_world)
@@ -68,8 +69,12 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
             from destructible_skill_shield_policy import skill
             from damage_accum_runtime import STATS
             for effect,caster in manager._effects:
-                if effect.get('stat')=='lifesteal_pct' and not body_lifesteal or effect.get('stat') in STATS:raise ValueError('Skill shield post-landing consumer is not declared')
-                if effect.get('type')=='damage':skill(effect,manager._char[caster])
+                if effect.get('stat')=='lifesteal_pct' and not body_lifesteal or effect.get('stat') in STATS and not body_accumulation:raise ValueError('Skill shield post-landing consumer is not declared')
+                if effect.get('type')=='damage':
+                    if body_accumulation and effect.get('stat')=='accum_split_damage':
+                        from destructible_skill_shield_policy import accumulation_skill
+                        accumulation_skill(effect)
+                    else:skill(effect,manager._char[caster],allow_split=body_accumulation)
         data['managers'].append(manager)
         world=data['worlds'][-1];resolver=manager._resolve_target;missing=object();old_instance=manager.__dict__.get('_resolve_target',missing)
         condition_ok=manager._condition_ok;old_condition=manager.__dict__.get('_condition_ok',missing)
@@ -87,6 +92,12 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
         @wraps(previous)
         def damage(effect,caster,t,*args,**kwargs):
             context=None
+            if body_accumulation and effect.get('stat')=='accum_split_damage':
+                from destructible_skill_shield_policy import accumulation_skill
+                accumulation_skill(effect)
+                active.append(None)
+                try:return previous(effect,caster,t,*args,**kwargs)
+                finally:assert active.pop() is None
             if effect.get('target')=='all_projectiles':
                 if set(effect)-FIELDS or effect.get('type')!='damage' or effect.get('stat')!='damage':raise ValueError('Typed battle currently requires a plain projectile skill')
                 if world.last!=t or world.finished:raise ValueError('Projectile skill is outside the owning battle frame')
@@ -100,7 +111,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
                 from destructible_skill_specs import coefficient
                 if skill_shields:
                     from destructible_skill_shield_policy import skill
-                    skill(effect,manager._char[caster])
+                    skill(effect,manager._char[caster],allow_split=body_accumulation)
                 else:coefficient(dict(effect,target='all_projectiles'),manager._char[caster])
                 selected=select(world,shield_owner,hit_shields=hit_shields)
                 if selected is not None:
@@ -121,16 +132,13 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
         # Hit shields consume packet credit, never HP damage. Retain the normal
         # scalar in Impact for diagnostics/counters without applying HP factors.
         return calculate(*args,**kwargs,kind=ActorKind.BODY if context['kind']==ActorKind.HIT_SHIELD else context['kind'])
-    def packet(*args,**kwargs):
-        event=old_hit(*args,**kwargs);context=active[-1] if active else None
-        if not active and weapons is not None:context=weapons.take(event)
+    def deliver_event(event,context):
         if context is None:return event
         if event.caster!=context['caster'] or event.t!=context['time']:raise ValueError('Typed packet owner/time mismatch')
         if len(data['attacks'])>=max_attacks:raise ValueError('Typed battle attack observation capacity exceeded')
         identity=len(data['attacks'])+1;marked[id(event)]=event
-        # Reserve before synchronous landing children can produce another packet.
-        # A failed delivery remains visible as incomplete, never as success.
         record=dict(attack_id=identity,name=context['name'] if 'name' in context else context['effect'].get('name'),caster=event.caster,time=event.t,damage=float(event.damage),receipts=(),completed=False)
+        if context.get('quantity_only'):record['quantity_only']=True
         if 'family' in context:record.update(family=context['family'],hit_tag=context['hit_tag'],weapon_mode_skill=context['weapon_mode_skill'])
         if modifier_model:record['coefficient']=context['coefficient']
         data['attacks'].append(record)
@@ -144,7 +152,19 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
             record['receipts']=((slot,handle,deliver(world,context['manager'],slot,Impact(event.caster,handle,context.get('family',1),2,float(event.damage),1.,identity))),)
         record['completed']=True
         return event
-    def skip(event):return marked.get(id(event)) is event
+    def packet(*args,**kwargs):
+        event=old_hit(*args,**kwargs);context=active[-1] if active else None
+        if not active and weapons is not None:context=weapons.take(event)
+        return deliver_event(event,context)
+    def skip(event):
+        if marked.get(id(event)) is event:return True
+        if body_accumulation and event.hit_tag=='accum_split_damage':
+            from destructible_shield_policy import select
+            world=data['worlds'][-1];selected=select(world,shield_owner,hit_shields=hit_shields)
+            if selected is not None:
+                context=dict(manager=data['managers'][-1],world=world,caster=event.caster,time=event.t,kind=selected[1].kind,selected=selected,coefficient=0.,name=event.skill_name,quantity_only=True)
+                deliver_event(event,context);return True
+        return False
     rewritten=rewrite_reference(old_simulate,TypedLandings(),dict(land=1),compose=True)
     from destructible_damage_policy import manager_type
     manager_scope=patch.object(timeline,'BuffManager',manager_type(timeline.BuffManager)) if modifier_model else nullcontext()

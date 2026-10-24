@@ -86,8 +86,17 @@ bool validShieldBattleRoutes(inout Runtime s)
     if((!weapons&&!hitShields&&commands[base]!=0x48534931U)||commands[base+1]!=0||commands[base+2]!=0||commands[base+3]!=1||commands[base+4]!=uint(hitShields)) return false;
 #ifdef PORTABLE_DESTRUCTIBLE_BODY_LIFESTEAL
     bool bodyLifesteal=commands[base]==0x48534935U;
+#ifdef PORTABLE_DESTRUCTIBLE_BODY_ACCUM
+    bool bodyAccum=commands[base]==0x48534936U;
+    bodyLifesteal=bodyLifesteal||bodyAccum;
+    if(bodyAccum&&commands[base+7]!=1) return false;
+#endif
     if(bodyLifesteal&&(!weapons||commands[base+6]!=1)) return false;
+#ifdef PORTABLE_DESTRUCTIBLE_BODY_ACCUM
+    for(uint i=bodyAccum?8U:bodyLifesteal?7U:weapons?6U:5U;i<32;i++) if(commands[base+i]!=0) return false;
+#else
     for(uint i=bodyLifesteal?7U:weapons?6U:5U;i<32;i++) if(commands[base+i]!=0) return false;
+#endif
 #else
     for(uint i=weapons?6U:5U;i<32;i++) if(commands[base+i]!=0) return false;
 #endif

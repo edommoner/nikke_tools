@@ -9,6 +9,9 @@ bool destructibleWeaponEnabled(inout Runtime s)
 #ifdef PORTABLE_DESTRUCTIBLE_BODY_LIFESTEAL
     magic=magic||commands[s.inputBase+110080]==0x48534935U;
 #endif
+#ifdef PORTABLE_DESTRUCTIBLE_BODY_ACCUM
+    magic=magic||commands[s.inputBase+110080]==0x48534936U;
+#endif
     return magic&&commands[s.inputBase+110085]==1;
 }
 uint destructibleWeaponBank(inout Runtime s,uint who) { return s.resourceOutput+970000+who*256; }
@@ -18,7 +21,11 @@ bool validDestructibleWeapons(inout Runtime s)
     for(uint row=0;row<s.count;row++)
     {
         Definition d=readDefinition(s.inputBase,row);
-#ifdef PORTABLE_DESTRUCTIBLE_BODY_LIFESTEAL
+#ifdef PORTABLE_DESTRUCTIBLE_BODY_ACCUM
+        bool accum=commands[s.inputBase+110080]==0x48534936U&&commands[s.inputBase+110087]==1;
+        if(d.kind==34&&!accum) return false;
+        if(d.kind==0&&((d.stat==S_lifesteal_pct&&commands[s.inputBase+110080]!=0x48534935U&&!accum)||((d.stat==81||d.stat==82)&&!accum))) return false;
+#elif defined(PORTABLE_DESTRUCTIBLE_BODY_LIFESTEAL)
         if(d.kind==0&&((d.stat==S_lifesteal_pct&&commands[s.inputBase+110080]!=0x48534935U)||d.stat==81||d.stat==82)) return false;
 #else
         if(d.kind==0&&(d.stat==S_lifesteal_pct||d.stat==81||d.stat==82)) return false;
@@ -78,6 +85,9 @@ bool destructibleWeaponPellet(inout Runtime s,uint who,uint64_t when,uint hit)
     WorldSchedule w=frameSchedule(s);DWReceipt r=dwLand(w,DF_BASE(output),commands[DF_EXTRA(s)+2320],DF_HEADER(output),slot,kind,identity,generation,2,amount,ONE,when);
     if(w.error!=0) { s.error=w.error;return true; }
     uint receipt=trace+16;results[receipt]=slot;results[receipt+1]=kind;results[receipt+2]=identity;results[receipt+3]=generation;results[receipt+4]=r.delivered;results[receipt+5]=r.broken;dtStore(receipt+6,r.took);
+#ifdef PORTABLE_DESTRUCTIBLE_BODY_ACCUM
+    destructibleNotifyShieldReceipt(s,who,when,kind,identity,generation,0,amount,index,r,bank+224);
+#else
     if(r.delivered!=0)
     {
         uint packet=bank+224;for(uint i=0;i<16;i++) results[packet+i]=0;
@@ -90,6 +100,7 @@ bool destructibleWeaponPellet(inout Runtime s,uint who,uint64_t when,uint hit)
             if(s.error==0&&results[counterHead(s)+4]>start) dispatch(s,26,0,0,int(start),when,output);
         }
     }
+#endif
     results[trace+10]=1;return true;
 }
 uint64_t destructibleWeaponBodyAmount(inout Runtime s,uint who,uint64_t legacy)

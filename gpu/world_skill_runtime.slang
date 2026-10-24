@@ -144,6 +144,9 @@ void logWorldSkill(inout Runtime s,LandingReceipt r,uint set,uint64_t share,uint
 bool landWorldSkillReceipt(inout Runtime s,LandingReceipt r,uint64_t when,uint output)
 {
     Definition d=readDefinition(s.inputBase,r.row);
+#ifdef PORTABLE_DESTRUCTIBLE_BODY_ACCUM
+    if(d.kind==34&&destructibleAccumLanding(s,r,when,output)) return s.error==0;
+#endif
     uint index=0;while(index<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,index)+5]!=0) index++;
     if(index==P_WORLD_ACTOR_SETS) { s.error=64;return false; }
     WORLD_PERIODIC_CAPTURE_PACKET(s,r,index,actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner NAMED_ENEMY_ARGUMENT(r.row));)if(s.error!=0) return false;

@@ -46,7 +46,8 @@ class BodyLifestealTests(unittest.TestCase):
         from portable_backend import source_hashes
         from portable_specs import LIMITS as L
         fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-body-lifesteal-raw.json').read_text());rows,_=a.prepare()
-        self.assertEqual(source_hashes(ROOT/'gpu/destructible_roster_lifesteal_entry.slang'),fixture['source_sha256']);checked=0
+        from portable_destructible_accum_source_contract import verify_retained_sources
+        verify_retained_sources(ROOT,'gpu/destructible_roster_lifesteal_entry.slang',fixture['source_sha256']);checked=0
         for record in fixture['records']:
             name,words,domain=rows[record['index']];self.assertEqual(name,record['name']);self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256'])
             block=array.array('I',[0])*fixture['output_words']

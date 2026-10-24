@@ -13,9 +13,10 @@ SOURCE='gpu/destructible_weapon_shield_entry.slang'
 INPUT_WORDS=110112
 OUTPUT_WORDS=1048576
 
-def compile_weapon_shield_roster(prepared,bindings,*,hit_shields=True,max_attacks=128,skill_shields=False,body_lifesteal=False):
+def compile_weapon_shield_roster(prepared,bindings,*,hit_shields=True,max_attacks=128,skill_shields=False,body_lifesteal=False,body_accumulation=False):
     if type(skill_shields) is not bool:raise ValueError('Explicit skill shield policy boolean required')
     if type(body_lifesteal) is not bool or body_lifesteal and not skill_shields:raise ValueError('Body lifesteal requires explicit skill shield policy')
+    if type(body_accumulation) is not bool or body_accumulation and not body_lifesteal:raise ValueError('Body accumulation requires body lifesteal policy')
     if type(hit_shields) is not bool or type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Explicit bounded weapon shield policy required')
     if prepared['enemy'].get('coord') is not None or prepared['enemy'].get('has_parts') or prepared['enemy'].get('part_break_interval',0):raise ValueError('Plain body geometry required for roster shield policy')
     if any(b.get('kind') not in (3,4) for b in bindings):raise ValueError('Weapon roster requires HP/hit shield bindings')
@@ -26,11 +27,14 @@ def compile_weapon_shield_roster(prepared,bindings,*,hit_shields=True,max_attack
     for item,dest in zip(original,lowered['effects'],strict=True):
         effect=item['effect']
         if effect.get('stat')=='pierce_enabled':raise ValueError('Weapon shield piercing policy is not declared')
-        if (effect.get('stat')=='lifesteal_pct' and not body_lifesteal) or effect.get('stat') in STATS:raise ValueError('Weapon shield post-landing consumer is not declared')
+        if (effect.get('stat')=='lifesteal_pct' and not body_lifesteal) or effect.get('stat') in STATS and not body_accumulation:raise ValueError('Weapon shield post-landing consumer is not declared')
         if effect.get('type')=='damage':
             if skill_shields:
                 from destructible_skill_shield_policy import skill
-                skill(effect,chars[item['owner']])
+                if body_accumulation and effect.get('stat')=='accum_split_damage':
+                    from destructible_skill_shield_policy import accumulation_skill
+                    accumulation_skill(effect)
+                else:skill(effect,chars[item['owner']],allow_split=body_accumulation)
             elif effect.get('target') in ('boss','all_projectiles'):raise ValueError('Roster policy currently routes weapons only')
         if modifier_axis(effect):dest['effect']['stat']='atk_dmg_pct'
     words,meta=compile_projectile_battle(lowered)
@@ -42,11 +46,12 @@ def compile_weapon_shield_roster(prepared,bindings,*,hit_shields=True,max_attack
         extra[at:at+8]=[row.node,int(row.handle.kind),row.handle.identity,*struct.unpack('<II',struct.pack('<d',row.capacity)),*owner]
     extra[5120:5124]=[0xffffffff,max_attacks,1,0x44425431]
     extra[5136]=0x444d4231
-    extra[5680:5686]=[0x48534935 if body_lifesteal else 0x48534934 if skill_shields else 0x48534933,0,0,1,int(hit_shields),1]
+    extra[5680:5686]=[0x48534936 if body_accumulation else 0x48534935 if body_lifesteal else 0x48534934 if skill_shields else 0x48534933,0,0,1,int(hit_shields),1]
     if body_lifesteal:extra[5686]=1
+    if body_accumulation:extra[5687]=1
     for row,index in enumerate(meta['binding_source_indices']):
         axis=modifier_axis(original[index]['effect'])
-        if skill_shields and original[index]['effect'].get('type')=='damage':extra[5424+row]=4 if hit_shields else 3
+        if skill_shields and original[index]['effect'].get('type')=='damage' and original[index]['effect'].get('stat')!='accum_split_damage':extra[5424+row]=4 if hit_shields else 3
         if axis:
             at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS'];assert words[at+F['KIND']]==0
             words[at+F['KIND']]=4;words[at+F['STAT']]=0;extra[5168+row]=axis

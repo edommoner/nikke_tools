@@ -10,31 +10,39 @@ from world_projectile_native import observe as plain
 STATS=damage_accum_runtime.STATS
 
 @contextmanager
-def capture(names,*,tag_effects=False):
+def capture(names,*,tag_effects=False,identity_rows=False):
     previous=sys.getprofile();events=[];pending={};entries={};last=[None];data=dict(events=events)
-    codes={BuffManager.accumulate_damage.__code__:'collect',BuffManager._accum_rate.__code__:'rate',BuffManager.accum_discharge.__code__:'take',damage_accum_runtime.activate.__code__:'snapshot'}
+    # Profiling sees every Python call/return. Hashing a large code object also
+    # hashes its constants; dispatch by the identity of these live functions.
+    watched=(BuffManager.accumulate_damage.__code__,BuffManager._accum_rate.__code__,BuffManager.accum_discharge.__code__,damage_accum_runtime.activate.__code__)
+    codes=dict(zip(map(id,watched),('collect','rate','take','snapshot'),strict=True))
+    def row_of(manager,effect,caster):
+        if not identity_rows:return effect['_portable_observer_row']
+        matches=[i for i,(e,c) in enumerate(manager._effects) if e is effect and c==caster]
+        if len(matches)!=1:raise ValueError('Unambiguous native accumulator definition required')
+        return matches[0]
     def pools(manager):
         out=[]
         for ab in manager._active:
             if ab.effect.get('stat') not in STATS:continue
             entry=entries.setdefault(ab.uid,len(entries)+1)
-            out.append(dict(entry=entry,row=ab.effect['_portable_observer_row'],owner=names.index(ab.caster),name=ab.effect.get('name',''),stat=ab.effect['stat'],base=ab.accum_cap,current=ab.accum,done=ab.accum_done,recipients=None if ab.target_chars is None else list(ab.target_chars)))
+            out.append(dict(entry=entry,row=row_of(manager,ab.effect,ab.caster),owner=names.index(ab.caster),name=ab.effect.get('name',''),stat=ab.effect['stat'],base=ab.accum_cap,current=ab.accum,done=ab.accum_done,recipients=None if ab.target_chars is None else list(ab.target_chars)))
         return out
     def view(manager):return dict(pools=pools(manager),archive=dict(manager._accum_last))
     def profile(frame,event,value):
         if previous is not None:previous(frame,event,value)
-        kind=codes.get(frame.f_code)
+        kind=codes.get(id(frame.f_code))
         if kind is None or event not in ('call','return'):return
         v=frame.f_locals;manager=v.get('self',v.get('manager'));last[0]=manager
         if kind=='snapshot' and (v['effect'].get('type')!='buff' or v['effect'].get('stat') not in STATS):return
         if event=='call':
             row=dict(kind=kind,time=v.get('t'),before=view(manager))
             if kind in ('snapshot','collect'):row['owner']=names.index(v['caster'])
-            if kind=='snapshot':row['row']=v['effect']['_portable_observer_row']
+            if kind=='snapshot':row['row']=row_of(manager,v['effect'],v['caster'])
             if kind=='collect':row['amount']=v['damage']
-            if kind=='rate':row.update(entry=entries.setdefault(v['ab'].uid,len(entries)+1),row=v['ab'].effect['_portable_observer_row'])
+            if kind=='rate':row.update(entry=entries.setdefault(v['ab'].uid,len(entries)+1),row=row_of(manager,v['ab'].effect,v['ab'].caster))
             if kind=='take':
-                row['name']=v['name'];caller=frame.f_back.f_locals;row['requester']=names.index(caller['caster']);row['row']=caller['eff']['_portable_observer_row']
+                row['name']=v['name'];caller=frame.f_back.f_locals;row['requester']=names.index(caller['caster']);row['row']=row_of(manager,caller['eff'],caller['caster'])
             events.append(row);pending[id(frame)]=row
         else:
             row=pending.pop(id(frame));row.update(after=view(manager),returned_sequence=len(events))

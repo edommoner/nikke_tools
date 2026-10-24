@@ -26,7 +26,11 @@ def compare(block,domain,native):
     for packet,sample in zip(n['packet_samples'],n['shield_samples'],strict=True):
         source=packet['source']
         if source is None:metadata.append(None);continue
-        e=p['effects'][source];plan=skill(e['effect'],chars[e['owner']]);flags=sample['family_flags']
+        e=p['effects'][source]
+        if packet.get('quantity_only'):
+            from destructible_skill_shield_policy import accumulation_skill
+            plan=accumulation_skill(e['effect']);metadata.append([1,3,plan['route'],16,128 if plan['route']==2 else plan['count']]);continue
+        plan=skill(e['effect'],chars[e['owner']],allow_split=c.get('body_accumulation_v1',False));flags=sample['family_flags']
         bits=int(flags['is_burst_damage'])|4096*int(flags['is_aoe_burst'])|8192*int(flags['is_single_burst'])
         metadata.append([1,2,plan['route'],bits,128 if plan['route']==2 else plan['count']])
     decoded=prior.prior.battle.decode(block,(case,m,()),sampled_coefficients=[r['coefficient'] for r in n['packet_samples']],sampled_rows=[r['source'] for r in n['packet_samples']],sampled_packets=[r['mode_skill'] for r in n['packet_samples']],sampled_skill_metadata=metadata)

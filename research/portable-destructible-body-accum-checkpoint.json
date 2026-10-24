@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "goal_complete": false,
+  "base_commit": "da956550c57c8c39b40206b1daa8eeb0a77905b6",
+  "stage": "HSI6 body-only pools and fixed-quantity live shield landing",
+  "suite": "destructible-body-accum-retention",
+  "final_package": {
+    "package_id": "7794bd72977c85b2ffba5a0bad77b9655a63faa91d739444da48f062547635d6",
+    "root": "/tmp/nikke-body-accum-final-v2",
+    "files": 1576,
+    "zip_bytes": 7218467,
+    "zip_sha256": "0e5da7ab29e4822baeb5d5d80169a8db99f321d2ffa62364ccaf78cbc945cbb6",
+    "all_payload_hashes_verified_after_cpu": true,
+    "checkout_payload_hashes_equal": true
+  },
+  "proofs": {
+    "metal_inputs": 49,
+    "native_oracles": 40,
+    "reject_inputs": 9,
+    "independent_seal": true,
+    "standalone18_development_metal_verified": true,
+    "old31_input_and_native_exact": true,
+    "old31_all_raw_exact": true,
+    "retained_bytes": 130023424,
+    "gpu_seconds": 10.080716458382085,
+    "pipeline_seconds": 0.003000020980834961,
+    "cpu_tests": 60,
+    "cpu_seconds": 82.35799804097041,
+    "native_seconds": 40.43479941599071,
+    "saved_raw_blocks": 4,
+    "corruptions_detected": 24,
+    "original_trony_long_emissions": 4,
+    "original_trony_shield_discharge_verified": false,
+    "declared_quantity_shield_discharge_verified": true,
+    "old_hsi5_generated_cuda_metal_raw_bytes_exact": true,
+    "observer_identity_dispatch_native14_fingerprints_equal": true,
+    "observer_native14_seconds": 21.36622512503527,
+    "old_native14_preflight_seconds": 153.02446658408735,
+    "timings_are_not_controlled_speed_ratio": true,
+    "existing_accum_reference_tests": 10,
+    "existing_accum_reference_seconds": 3.343,
+    "gpu_dispatches": 2,
+    "same_claim_retries": 0,
+    "controller_tests": 372,
+    "controller_skipped": 1,
+    "runtime_stride": 138952,
+    "shader_sources": 160,
+    "generated_normalized": {
+      "cuda": "4aa49d97371dbf82306a987d6abc8de38dc4c73b1c77ec3e55f24e929b6ad523",
+      "metal": "1ed48e163c78160ee268830cc35b6568e992cb9a9944974678d0b5135b4400a4"
+    },
+    "input_sha256": "7d0ef5fad63e8d111c88bdee414ae5db94aaf4f104ae06fc3208166cf5d5ac3e",
+    "output_sha256": "c2b6288e4766636bafe4fe96497f2915298783087b059ff25f09ae0a568c4162",
+    "output_bytes": 205520896,
+    "normalizer_exclusions_added": 0,
+    "final_compact_cpu_tests": 60,
+    "final_compact_cpu_seconds": 83.57021250005346,
+    "final_compact_native_oracles": 40,
+    "final_compact_native_seconds": 40.59844112501014,
+    "controller_seconds": 5.19818666705396
+  },
+  "failures_preserved": [
+    {
+      "stage": "v1 package",
+      "reason": "Original Dorothy includes undeclared piercing; rejected without deleting original effects",
+      "gpu_calls": 0
+    },
+    {
+      "stage": "v2 package",
+      "reason": "Sources changed during baseline; rejected",
+      "gpu_calls": 0
+    },
+    {
+      "stage": "v3 CPU preflight",
+      "capture": "/tmp/nikke-body-accum-cpu-v3",
+      "reason": "Duplicated full14 unit native simulation hit original90s limit",
+      "gpu_calls": 0
+    },
+    {
+      "stage": "v4 package",
+      "reason": "Intentionally interrupted after local negative fixture ownership error; corrected before v5",
+      "gpu_calls": 0
+    }
+  ],
+  "scope": {
+    "declared_single_boss_policy": true,
+    "full_character_verified": 0,
+    "normal_ui": "CPU",
+    "packing_prior": 245,
+    "total_profiles": 266,
+    "base_prior": 185,
+    "total_base": 203,
+    "model_gaps": 20,
+    "piercing_verified": false,
+    "heal_share_verified": false,
+    "current_full_battle_cuda_verified": false,
+    "windows_commands": 0,
+    "previous_windows_exit_cause": "unknown",
+    "windows_preservation_verified": false,
+    "user_report": "No application/terminal close, Codex reconnect or reboot; possible game/video use is not causal evidence"
+  },
+  "storage": {
+    "raw_deleted": false,
+    "all_bytes_sha_inode_retained": true,
+    "allocated_reclaimed_bytes": 593428480
+  },
+  "next": [
+    "shared healing recipient receipts",
+    "piercing contract including complete original Dorothy",
+    "parts/coordinates/adds and synchronous child release boundaries",
+    "bounded CUDA only after distinct compiler improvement"
+  ],
+  "evidence_manifest_sha256": "979f1fc39ec6a6e26220ae9a776fd816d4824ebf82d2bfc65fdda89a1b3cc4a4"
+}

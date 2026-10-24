@@ -2,6 +2,9 @@
 // Frame. These functions own neither a clock nor a second skill formula.
 bool rosterShieldSkillsEnabled(inout Runtime s)
 {
+#ifdef PORTABLE_DESTRUCTIBLE_BODY_ACCUM
+    if(commands[s.inputBase+110080]==0x48534936U) return commands[s.inputBase+110085]==1&&commands[s.inputBase+110086]==1&&commands[s.inputBase+110087]==1;
+#endif
 #ifdef PORTABLE_DESTRUCTIBLE_BODY_LIFESTEAL
     if(commands[s.inputBase+110080]==0x48534935U) return commands[s.inputBase+110085]==1&&commands[s.inputBase+110086]==1;
 #endif
@@ -10,6 +13,9 @@ bool rosterShieldSkillsEnabled(inout Runtime s)
 bool rosterShieldSkillDefinition(inout Runtime s,Definition d)
 {
     uint allowed=H_NAMED_SKILL|524288U|H_BURST|H_AOE_BURST|H_SINGLE_BURST;
+#ifdef PORTABLE_DESTRUCTIBLE_BODY_ACCUM
+    if(commands[s.inputBase+110080]==0x48534936U) allowed|=H_SPLIT;
+#endif
     if((d.damageFlags&(H_AOE_BURST|H_SINGLE_BURST))!=0&&(d.damageFlags&H_BURST)==0) return false;
     if((d.damageFlags&(H_AOE_BURST|H_SINGLE_BURST))==(H_AOE_BURST|H_SINGLE_BURST)) return false;
     return actorPoolCount(s)==1&&d.kind==3&&d.stat==0&&d.enemyBuff==0&&d.alliedFlags==0&&d.periodicFlags==0&&f64Zero(d.interval)&&d.damageRoute>=1&&d.damageRoute<=9&&d.damageCount>=1&&d.damageCount<=128&&d.damageHits==1&&d.damagePending==0&&d.damageNormal==0&&(d.damageFlags&~allowed)==0&&d.healthScaling==0&&d.quantityFlags==0&&dtQuantity(d.value);

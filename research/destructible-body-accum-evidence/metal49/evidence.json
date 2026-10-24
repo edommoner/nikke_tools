@@ -1,0 +1,1937 @@
+{
+  "resident_runtime": {
+    "schema": 1,
+    "stride": 138952,
+    "alignment": 8,
+    "fields": [
+      {
+        "name": "triggerHitCrit",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 0,
+        "size": 4
+      },
+      {
+        "name": "lastDamageCritRate",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 8,
+        "size": 8
+      },
+      {
+        "name": "teamEvent",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 16,
+        "size": 4
+      },
+      {
+        "name": "sourceEnabled",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 20,
+        "size": 4
+      },
+      {
+        "name": "sourceTime",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 24,
+        "size": 8
+      },
+      {
+        "name": "stagedEnabled",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 32,
+        "size": 4
+      },
+      {
+        "name": "stagedScopeRow",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 36,
+        "size": 4
+      },
+      {
+        "name": "stagedScopeGeneration",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 40,
+        "size": 4
+      },
+      {
+        "name": "stagedScopeEntry",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 44,
+        "size": 4
+      },
+      {
+        "name": "stagedScopeStack",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 48,
+        "size": 4
+      },
+      {
+        "name": "resourceCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 52,
+        "size": 4
+      },
+      {
+        "name": "resourceAmmoObserved",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 56,
+        "size": 4
+      },
+      {
+        "name": "resourceTraceCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 60,
+        "size": 4
+      },
+      {
+        "name": "resourceTraceTotal",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 64,
+        "size": 4
+      },
+      {
+        "name": "resourceOutput",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 68,
+        "size": 4
+      },
+      {
+        "name": "bulletHead",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 72,
+        "size": 4
+      },
+      {
+        "name": "bulletTail",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 76,
+        "size": 4
+      },
+      {
+        "name": "bulletCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 80,
+        "size": 4
+      },
+      {
+        "name": "bulletLinked",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 84,
+        "size": 2048
+      },
+      {
+        "name": "bulletPrev",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 2132,
+        "size": 2048
+      },
+      {
+        "name": "bulletNext",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 4180,
+        "size": 2048
+      },
+      {
+        "name": "bulletInitialized",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 6228,
+        "size": 2048
+      },
+      {
+        "name": "bulletLeft",
+        "scalar": "int32",
+        "count": 512,
+        "offset": 8276,
+        "size": 2048
+      },
+      {
+        "name": "recipientBullets",
+        "scalar": "uint32",
+        "count": 2560,
+        "offset": 10324,
+        "size": 10240
+      },
+      {
+        "name": "recipientStacks",
+        "scalar": "uint32",
+        "count": 2560,
+        "offset": 20564,
+        "size": 10240
+      },
+      {
+        "name": "carrierCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 30804,
+        "size": 4
+      },
+      {
+        "name": "carrierDefinition",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 30808,
+        "size": 2048
+      },
+      {
+        "name": "multiCarrier",
+        "scalar": "uint32",
+        "count": 256,
+        "offset": 32856,
+        "size": 1024
+      },
+      {
+        "name": "removalCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 33880,
+        "size": 4
+      },
+      {
+        "name": "lazyPending",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 33884,
+        "size": 2048
+      },
+      {
+        "name": "lazyLink",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 35932,
+        "size": 2048
+      },
+      {
+        "name": "lazyPendingCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 37980,
+        "size": 4
+      },
+      {
+        "name": "lazyMappedPendingCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 37984,
+        "size": 4
+      },
+      {
+        "name": "lazyEnabled",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 37988,
+        "size": 4
+      },
+      {
+        "name": "cacheCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 37992,
+        "size": 4
+      },
+      {
+        "name": "cacheCursor",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 37996,
+        "size": 4
+      },
+      {
+        "name": "cacheEvaluations",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 38000,
+        "size": 4
+      },
+      {
+        "name": "cacheReuses",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 38004,
+        "size": 4
+      },
+      {
+        "name": "cacheNewest",
+        "scalar": "uint32",
+        "count": 256,
+        "offset": 38008,
+        "size": 1024
+      },
+      {
+        "name": "cacheSeen",
+        "scalar": "uint32",
+        "count": 256,
+        "offset": 39032,
+        "size": 1024
+      },
+      {
+        "name": "lazyGroupDefinition",
+        "scalar": "uint32",
+        "count": 256,
+        "offset": 40056,
+        "size": 1024
+      },
+      {
+        "name": "cacheNewestTime",
+        "scalar": "uint64",
+        "count": 256,
+        "offset": 41080,
+        "size": 2048
+      },
+      {
+        "name": "cacheRootTime",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 43128,
+        "size": 8
+      },
+      {
+        "name": "cacheFloor",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 43136,
+        "size": 8
+      },
+      {
+        "name": "queryActive",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 43144,
+        "size": 4
+      },
+      {
+        "name": "queryWho",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 43148,
+        "size": 4
+      },
+      {
+        "name": "queryAllowed",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 43152,
+        "size": 2048
+      },
+      {
+        "name": "queryWhen",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 45200,
+        "size": 8
+      },
+      {
+        "name": "incomingMask",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 45208,
+        "size": 4
+      },
+      {
+        "name": "downMask",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 45212,
+        "size": 4
+      },
+      {
+        "name": "activeRecipients",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 45216,
+        "size": 2048
+      },
+      {
+        "name": "carrierRecipientOrder",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 47264,
+        "size": 2048
+      },
+      {
+        "name": "receivedHits",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 49312,
+        "size": 20
+      },
+      {
+        "name": "receivedDamage",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 49336,
+        "size": 40
+      },
+      {
+        "name": "hpWatchCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 49376,
+        "size": 4
+      },
+      {
+        "name": "hpWatchSlots",
+        "scalar": "uint32",
+        "count": 2048,
+        "offset": 49380,
+        "size": 8192
+      },
+      {
+        "name": "hpDirtyMask",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 57572,
+        "size": 4
+      },
+      {
+        "name": "hpPendingMask",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 57576,
+        "size": 4
+      },
+      {
+        "name": "hpEdgeGuard",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 57580,
+        "size": 4
+      },
+      {
+        "name": "hpPrevious",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 57584,
+        "size": 40
+      },
+      {
+        "name": "hpNext",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 57624,
+        "size": 40
+      },
+      {
+        "name": "durationEnabled",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 57664,
+        "size": 4
+      },
+      {
+        "name": "lastB3Caster",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 57668,
+        "size": 4
+      },
+      {
+        "name": "durationGroupFirst",
+        "scalar": "uint32",
+        "count": 256,
+        "offset": 57672,
+        "size": 1024
+      },
+      {
+        "name": "lastB3Time",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 58696,
+        "size": 8
+      },
+      {
+        "name": "lastFullStart",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 58704,
+        "size": 8
+      },
+      {
+        "name": "landingPolicy",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 58712,
+        "size": 4
+      },
+      {
+        "name": "healthMask",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 58716,
+        "size": 4
+      },
+      {
+        "name": "healSource",
+        "scalar": "int32",
+        "count": 1,
+        "offset": 58720,
+        "size": 4
+      },
+      {
+        "name": "pendingCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 58724,
+        "size": 4
+      },
+      {
+        "name": "pendingEnqueued",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 58728,
+        "size": 4
+      },
+      {
+        "name": "pendingFired",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 58732,
+        "size": 4
+      },
+      {
+        "name": "damageExclusion",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 58736,
+        "size": 4
+      },
+      {
+        "name": "pendingRow",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 58740,
+        "size": 2048
+      },
+      {
+        "name": "pendingHits",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 60788,
+        "size": 2048
+      },
+      {
+        "name": "pendingCoefficient",
+        "scalar": "uint64",
+        "count": 512,
+        "offset": 62840,
+        "size": 4096
+      },
+      {
+        "name": "pendingCastTime",
+        "scalar": "uint64",
+        "count": 512,
+        "offset": 66936,
+        "size": 4096
+      },
+      {
+        "name": "pendingAmount",
+        "scalar": "uint64",
+        "count": 512,
+        "offset": 71032,
+        "size": 4096
+      },
+      {
+        "name": "coverMask",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 75128,
+        "size": 4
+      },
+      {
+        "name": "coverSync",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 75132,
+        "size": 4
+      },
+      {
+        "name": "baseCoverHP",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 75136,
+        "size": 40
+      },
+      {
+        "name": "coverHP",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 75176,
+        "size": 40
+      },
+      {
+        "name": "coverMaxHP",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 75216,
+        "size": 40
+      },
+      {
+        "name": "coverDamage",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 75256,
+        "size": 40
+      },
+      {
+        "name": "baseHP",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 75296,
+        "size": 40
+      },
+      {
+        "name": "hp",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 75336,
+        "size": 40
+      },
+      {
+        "name": "hpPct",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 75376,
+        "size": 40
+      },
+      {
+        "name": "baseDefense",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 75416,
+        "size": 40
+      },
+      {
+        "name": "hpSnapshot",
+        "scalar": "uint64",
+        "count": 512,
+        "offset": 75456,
+        "size": 4096
+      },
+      {
+        "name": "healing",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 79552,
+        "size": 40
+      },
+      {
+        "name": "quantityMask",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 79592,
+        "size": 4
+      },
+      {
+        "name": "weaponInitialized",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 79596,
+        "size": 20
+      },
+      {
+        "name": "modeMagazine",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 79616,
+        "size": 20
+      },
+      {
+        "name": "delayCover",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 79636,
+        "size": 20
+      },
+      {
+        "name": "pendingAutoReload",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 79656,
+        "size": 20
+      },
+      {
+        "name": "rawCharge",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 79680,
+        "size": 40
+      },
+      {
+        "name": "activated",
+        "scalar": "uint64",
+        "count": 512,
+        "offset": 79720,
+        "size": 4096
+      },
+      {
+        "name": "rawRate",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 83816,
+        "size": 20
+      },
+      {
+        "name": "clipCount",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 83836,
+        "size": 20
+      },
+      {
+        "name": "geometry",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 83856,
+        "size": 20
+      },
+      {
+        "name": "probabilityValid",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 83876,
+        "size": 20
+      },
+      {
+        "name": "probabilityEvaluations",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 83896,
+        "size": 20
+      },
+      {
+        "name": "chargeStartedAt",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 83920,
+        "size": 40
+      },
+      {
+        "name": "minCycle",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 83960,
+        "size": 40
+      },
+      {
+        "name": "gaugeMultiplier",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84000,
+        "size": 40
+      },
+      {
+        "name": "coreDamageBonus",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84040,
+        "size": 40
+      },
+      {
+        "name": "warm",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84080,
+        "size": 40
+      },
+      {
+        "name": "lastFire",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84120,
+        "size": 40
+      },
+      {
+        "name": "lastInterval",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84160,
+        "size": 40
+      },
+      {
+        "name": "postReloadUntil",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84200,
+        "size": 40
+      },
+      {
+        "name": "rateMin",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84240,
+        "size": 40
+      },
+      {
+        "name": "rateMax",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84280,
+        "size": 40
+      },
+      {
+        "name": "warmLimit",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84320,
+        "size": 40
+      },
+      {
+        "name": "coolTime",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84360,
+        "size": 40
+      },
+      {
+        "name": "postReloadDelay",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84400,
+        "size": 40
+      },
+      {
+        "name": "spreadStart",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84440,
+        "size": 40
+      },
+      {
+        "name": "spreadEnd",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84480,
+        "size": 40
+      },
+      {
+        "name": "spreadShots",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84520,
+        "size": 40
+      },
+      {
+        "name": "coreDiameter",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84560,
+        "size": 40
+      },
+      {
+        "name": "lastSpread",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84600,
+        "size": 40
+      },
+      {
+        "name": "lastProbability",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84640,
+        "size": 40
+      },
+      {
+        "name": "probabilityRatio",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84680,
+        "size": 40
+      },
+      {
+        "name": "modeIndex",
+        "scalar": "int32",
+        "count": 5,
+        "offset": 84720,
+        "size": 20
+      },
+      {
+        "name": "physicalModeIndex",
+        "scalar": "int32",
+        "count": 5,
+        "offset": 84740,
+        "size": 20
+      },
+      {
+        "name": "currentStage",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 84760,
+        "size": 20
+      },
+      {
+        "name": "enemySnapshot",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 84780,
+        "size": 4
+      },
+      {
+        "name": "attackContext",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 84784,
+        "size": 20
+      },
+      {
+        "name": "fullChargeMult",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 84808,
+        "size": 40
+      },
+      {
+        "name": "modeEpoch",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 84848,
+        "size": 20
+      },
+      {
+        "name": "appliedEpoch",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 84868,
+        "size": 20
+      },
+      {
+        "name": "modeShots",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 84888,
+        "size": 20
+      },
+      {
+        "name": "pendingReentry",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 84908,
+        "size": 20
+      },
+      {
+        "name": "reentrySlot",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 84928,
+        "size": 4
+      },
+      {
+        "name": "reentryDone",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 84932,
+        "size": 4
+      },
+      {
+        "name": "casts",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 84936,
+        "size": 20
+      },
+      {
+        "name": "burstTraceCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 84956,
+        "size": 4
+      },
+      {
+        "name": "pellets",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 84960,
+        "size": 20
+      },
+      {
+        "name": "muzzles",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 84980,
+        "size": 20
+      },
+      {
+        "name": "inputBase",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 85000,
+        "size": 4
+      },
+      {
+        "name": "modeEnd",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 85008,
+        "size": 40
+      },
+      {
+        "name": "reentryDelay",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 85048,
+        "size": 8
+      },
+      {
+        "name": "modeEntryUntil",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 85056,
+        "size": 40
+      },
+      {
+        "name": "modeEntryPhase",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 85096,
+        "size": 20
+      },
+      {
+        "name": "automaticAddAim",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 85116,
+        "size": 4
+      },
+      {
+        "name": "enemyAttackOrder",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 85120,
+        "size": 4
+      },
+      {
+        "name": "enemySpawnOrder",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 85124,
+        "size": 4
+      },
+      {
+        "name": "combatStarted",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 85128,
+        "size": 4
+      },
+      {
+        "name": "combat",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 85132,
+        "size": 4
+      },
+      {
+        "name": "targetCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 85136,
+        "size": 4
+      },
+      {
+        "name": "target",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 85140,
+        "size": 4
+      },
+      {
+        "name": "aim",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 85144,
+        "size": 20
+      },
+      {
+        "name": "targetAlive",
+        "scalar": "uint32",
+        "count": 8,
+        "offset": 85164,
+        "size": 32
+      },
+      {
+        "name": "targetGeneration",
+        "scalar": "uint32",
+        "count": 8,
+        "offset": 85196,
+        "size": 32
+      },
+      {
+        "name": "targetHits",
+        "scalar": "uint32",
+        "count": 8,
+        "offset": 85228,
+        "size": 32
+      },
+      {
+        "name": "targetHP",
+        "scalar": "uint64",
+        "count": 8,
+        "offset": 85264,
+        "size": 64
+      },
+      {
+        "name": "targetMaxHP",
+        "scalar": "uint64",
+        "count": 8,
+        "offset": 85328,
+        "size": 64
+      },
+      {
+        "name": "targetDamage",
+        "scalar": "uint64",
+        "count": 8,
+        "offset": 85392,
+        "size": 64
+      },
+      {
+        "name": "targetDefense",
+        "scalar": "uint64",
+        "count": 8,
+        "offset": 85456,
+        "size": 64
+      },
+      {
+        "name": "scoredDamage",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 85520,
+        "size": 40
+      },
+      {
+        "name": "addScoredDamage",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 85560,
+        "size": 40
+      },
+      {
+        "name": "addOverkill",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 85600,
+        "size": 40
+      },
+      {
+        "name": "targetScoredDamage",
+        "scalar": "uint64",
+        "count": 8,
+        "offset": 85640,
+        "size": 64
+      },
+      {
+        "name": "targetDealt",
+        "scalar": "uint64",
+        "count": 8,
+        "offset": 85704,
+        "size": 64
+      },
+      {
+        "name": "timerTarget",
+        "scalar": "uint32",
+        "count": 256,
+        "offset": 85768,
+        "size": 1024
+      },
+      {
+        "name": "periodicOrder",
+        "scalar": "uint32",
+        "count": 256,
+        "offset": 86792,
+        "size": 1024
+      },
+      {
+        "name": "periodicGeneration",
+        "scalar": "uint32",
+        "count": 2048,
+        "offset": 87816,
+        "size": 8192
+      },
+      {
+        "name": "periodicOwner",
+        "scalar": "uint32",
+        "count": 256,
+        "offset": 96008,
+        "size": 1024
+      },
+      {
+        "name": "weaponEnabled",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 97032,
+        "size": 20
+      },
+      {
+        "name": "weaponMode",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 97052,
+        "size": 20
+      },
+      {
+        "name": "capacity",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 97072,
+        "size": 20
+      },
+      {
+        "name": "shots",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 97092,
+        "size": 20
+      },
+      {
+        "name": "stage",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 97112,
+        "size": 20
+      },
+      {
+        "name": "charging",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 97132,
+        "size": 20
+      },
+      {
+        "name": "ammo",
+        "scalar": "int32",
+        "count": 5,
+        "offset": 97152,
+        "size": 20
+      },
+      {
+        "name": "reloadCancelOnFull",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 97172,
+        "size": 20
+      },
+      {
+        "name": "modeCapacityEpoch",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 97192,
+        "size": 20
+      },
+      {
+        "name": "frameAmmoActive",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 97212,
+        "size": 20
+      },
+      {
+        "name": "frameAmmoBase",
+        "scalar": "uint32",
+        "count": 5,
+        "offset": 97232,
+        "size": 20
+      },
+      {
+        "name": "infiniteRowCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 97252,
+        "size": 4
+      },
+      {
+        "name": "infiniteRows",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 97256,
+        "size": 2048
+      },
+      {
+        "name": "enemyBuffCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 99304,
+        "size": 4
+      },
+      {
+        "name": "enemyBuffRows",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 99308,
+        "size": 2048
+      },
+      {
+        "name": "enemyCaptureGeneration",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 101356,
+        "size": 2048
+      },
+      {
+        "name": "enemyEpoch",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103404,
+        "size": 4
+      },
+      {
+        "name": "enemyBirth",
+        "scalar": "uint32",
+        "count": 8,
+        "offset": 103408,
+        "size": 32
+      },
+      {
+        "name": "namedEventOwners",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103440,
+        "size": 4
+      },
+      {
+        "name": "stackEventOwners",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103444,
+        "size": 4
+      },
+      {
+        "name": "phase",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103448,
+        "size": 4
+      },
+      {
+        "name": "castMask",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103452,
+        "size": 4
+      },
+      {
+        "name": "traceMode",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103456,
+        "size": 4
+      },
+      {
+        "name": "traceTotal",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103460,
+        "size": 4
+      },
+      {
+        "name": "burstTraceTotal",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103464,
+        "size": 4
+      },
+      {
+        "name": "nextFrame",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103468,
+        "size": 4
+      },
+      {
+        "name": "frameCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103472,
+        "size": 4
+      },
+      {
+        "name": "clockMode",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103476,
+        "size": 4
+      },
+      {
+        "name": "frameTime",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 103480,
+        "size": 8
+      },
+      {
+        "name": "burstModifierMask",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103488,
+        "size": 4
+      },
+      {
+        "name": "cooldownWaitMask",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103492,
+        "size": 4
+      },
+      {
+        "name": "gaugeCharging",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103496,
+        "size": 4
+      },
+      {
+        "name": "normalLandedMask",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103500,
+        "size": 4
+      },
+      {
+        "name": "physicalGaugeOwner",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103504,
+        "size": 4
+      },
+      {
+        "name": "cooldownApplied",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 103512,
+        "size": 40
+      },
+      {
+        "name": "physicalGaugeGain",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 103552,
+        "size": 8
+      },
+      {
+        "name": "coefficient",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 103560,
+        "size": 40
+      },
+      {
+        "name": "interval",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 103600,
+        "size": 40
+      },
+      {
+        "name": "reloadTime",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 103640,
+        "size": 40
+      },
+      {
+        "name": "chargeTime",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 103680,
+        "size": 40
+      },
+      {
+        "name": "gain",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 103720,
+        "size": 40
+      },
+      {
+        "name": "cooldown",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 103760,
+        "size": 40
+      },
+      {
+        "name": "nextShot",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 103800,
+        "size": 40
+      },
+      {
+        "name": "reloadUntil",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 103840,
+        "size": 40
+      },
+      {
+        "name": "ready",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 103880,
+        "size": 40
+      },
+      {
+        "name": "chargeUntil",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 103920,
+        "size": 40
+      },
+      {
+        "name": "gauge",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 103960,
+        "size": 8
+      },
+      {
+        "name": "action",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 103968,
+        "size": 8
+      },
+      {
+        "name": "fullEnd",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 103976,
+        "size": 8
+      },
+      {
+        "name": "count",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103984,
+        "size": 4
+      },
+      {
+        "name": "error",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103988,
+        "size": 4
+      },
+      {
+        "name": "timerClock",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103992,
+        "size": 4
+      },
+      {
+        "name": "entryClock",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 103996,
+        "size": 4
+      },
+      {
+        "name": "traceCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 104000,
+        "size": 4
+      },
+      {
+        "name": "maxDepth",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 104004,
+        "size": 4
+      },
+      {
+        "name": "generation",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 104008,
+        "size": 4
+      },
+      {
+        "name": "orderedCount",
+        "scalar": "uint32",
+        "count": 1,
+        "offset": 104012,
+        "size": 4
+      },
+      {
+        "name": "orderedRows",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 104016,
+        "size": 2048
+      },
+      {
+        "name": "activations",
+        "scalar": "uint32",
+        "count": 256,
+        "offset": 106064,
+        "size": 1024
+      },
+      {
+        "name": "counters",
+        "scalar": "uint32",
+        "count": 2048,
+        "offset": 107088,
+        "size": 8192
+      },
+      {
+        "name": "periodInitialized",
+        "scalar": "uint32",
+        "count": 256,
+        "offset": 115280,
+        "size": 1024
+      },
+      {
+        "name": "stacks",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 116304,
+        "size": 2048
+      },
+      {
+        "name": "alive",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 118352,
+        "size": 2048
+      },
+      {
+        "name": "entryOrder",
+        "scalar": "uint32",
+        "count": 512,
+        "offset": 120400,
+        "size": 2048
+      },
+      {
+        "name": "timerActive",
+        "scalar": "uint32",
+        "count": 256,
+        "offset": 122448,
+        "size": 1024
+      },
+      {
+        "name": "timerEpoch",
+        "scalar": "uint32",
+        "count": 256,
+        "offset": 123472,
+        "size": 1024
+      },
+      {
+        "name": "timerOrder",
+        "scalar": "uint32",
+        "count": 256,
+        "offset": 124496,
+        "size": 1024
+      },
+      {
+        "name": "timerGeneration",
+        "scalar": "uint32",
+        "count": 256,
+        "offset": 125520,
+        "size": 1024
+      },
+      {
+        "name": "periodDue",
+        "scalar": "uint64",
+        "count": 256,
+        "offset": 126544,
+        "size": 2048
+      },
+      {
+        "name": "periodPrevious",
+        "scalar": "uint64",
+        "count": 256,
+        "offset": 128592,
+        "size": 2048
+      },
+      {
+        "name": "due",
+        "scalar": "uint64",
+        "count": 256,
+        "offset": 130640,
+        "size": 2048
+      },
+      {
+        "name": "expiry",
+        "scalar": "uint64",
+        "count": 256,
+        "offset": 132688,
+        "size": 2048
+      },
+      {
+        "name": "end",
+        "scalar": "uint64",
+        "count": 512,
+        "offset": 134736,
+        "size": 4096
+      },
+      {
+        "name": "total",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 138832,
+        "size": 40
+      },
+      {
+        "name": "baseAttack",
+        "scalar": "uint64",
+        "count": 5,
+        "offset": 138872,
+        "size": 40
+      },
+      {
+        "name": "defense",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 138912,
+        "size": 8
+      },
+      {
+        "name": "probability",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 138920,
+        "size": 8
+      },
+      {
+        "name": "coreBonus",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 138928,
+        "size": 8
+      },
+      {
+        "name": "baseCrit",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 138936,
+        "size": 8
+      },
+      {
+        "name": "baseCritDamage",
+        "scalar": "uint64",
+        "count": 1,
+        "offset": 138944,
+        "size": 8
+      }
+    ],
+    "bindings": {
+      "commands": 0,
+      "results": 1,
+      "runtimeStates": 2
+    },
+    "cuda_constant_bytes": 48
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 49,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 10.080716458382085,
+    "input_bytes": 21581956,
+    "library_compile_seconds": 0.0019860267639160156,
+    "output_bytes": 205520896,
+    "pipeline_compile_seconds": 0.003000020980834961,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "registry_id": "4294968313",
+    "runtime_buffer_bytes": 6808648,
+    "runtime_element_capacity": 49,
+    "runtime_physical_stride_verified": true,
+    "runtime_stride_bytes": 138952,
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "source_sha256": {
+    "gpu/destructible_roster_accum_entry.slang": "bd913575d7aaee9b85166a948348b879cb4b631498a47329ee66470d4d1d5a28",
+    "gpu/destructible_roster_lifesteal_entry.slang": "bad92bd22ba74d4f5c2ce0203f12f384bb1205bbba623863b40e25767e95b922",
+    "gpu/destructible_roster_skill_entry.slang": "4a781deb7c6a41fa7951cc82af9a58b9427d9bb385e74108a98f13d07cc96d06",
+    "gpu/destructible_weapon_shield_entry.slang": "e6ece02d3d50464537d0b7b3c4b82771269b0f3f1181fc30772d2b7db49d97f8",
+    "gpu/destructible_shield_battle_entry.slang": "1851ece4a0c15cca37d79a683c973a40ff7de3b79bfbb35b2cc15dd17a85255c",
+    "gpu/world_projectile_chain_entry.slang": "69de5447fd6f2eb8439fda802bae0571fe82d49eb531359f42c4175436c604c9",
+    "gpu/world_damage_accum_entry.slang": "7a70befe6d808850887e22cb33771d8bac781f3d6768cdaf62dd4f3fa19fbd23",
+    "gpu/world_heal_charge_entry.slang": "b83b00992eeeca69aa84491875bf6dc0b4fe5e37ff6041fd5fee5a8503dfaa5f",
+    "gpu/world_max_ammo_scaling_entry.slang": "bd458f4404e37e9941ef7ffea7cdead22ddfdbbf12ac60b7b8f3f67bb262318c",
+    "gpu/world_parent_fixed_entry.slang": "8616945cbacf5a7c1cb68367a25832d32906e8120ea83fee9868fe082d168648",
+    "gpu/world_full_burst_landing_entry.slang": "3bd25fd482793580fb9b6cf62a33c7847b2153502d927e545462fc027865b884",
+    "gpu/world_named_enemy_entry.slang": "9e7d38161f0fc0ef1693eb46ceb80093413c048158af3aa0970f43680f1628d8",
+    "gpu/world_random_cleanse_entry.slang": "78494ec7ab6337e2d1bd205be752be670453fcccfb90f051a4ecec1cb3f27223",
+    "gpu/world_below_def_entry.slang": "f77dda756746dce8f30b6571c4fb898e683d1bf3c9acd22e6e2c1305a13cdd96",
+    "gpu/world_leftmost_entry.slang": "2d48cf84ab5d637ba2e283b29fde3e9451029b3c7f8219950d984ebbc1c3df9d",
+    "gpu/world_duration_scaling_entry.slang": "cd3c334b411f26f0f2d32844fb9a6e7282ab270ba20610445a03ee494840578e",
+    "gpu/world_not_core_entry.slang": "96cf5011066124cba15a2c680e783bbe25857cfc10efcf1a43c8cd2c97b50313",
+    "gpu/world_partial_charge_entry.slang": "2664b4e60a80efb44bd678da11d43c20645d233091f486a001a3364157ae4c8a",
+    "gpu/world_entry_reload_resident_entry.slang": "dae039a720ec42ada66ae731ba23396414f4d4a0301ca89fb7d0651f855afced",
+    "gpu/world_projectile_resident_entry.slang": "a2e20e241c0cd0d5533fd38078672a732bf934f2aa30fd9e1c981e7f402a9ceb",
+    "gpu/world_projectile_entry.slang": "a78c90523a37f973207265c83c7d62c2cabdf1c99023f9e36f8a30e0c1cb3c65",
+    "gpu/world_roster_entry.slang": "7d78135536c330b19acf05b458748e3236450d1281a9c5ac81fb8351c57dbbf4",
+    "gpu/world_reload_entry.slang": "fd7e2e3d64811ee2aecb5e3e517870898104712b4bb719d0b4f543e2d70085f8",
+    "gpu/world_charge_control_entry.slang": "50291edf53d64bfb866c54dfe23e454b6cb45422f4961f56d20c18d125021316",
+    "gpu/world_team_entry.slang": "8ff8496183d9e146d6fb69a8b4e39ebc696e6ced1a72cb2e3e8bacf39e7c1951",
+    "gpu/world_fraction_entry.slang": "d5837bd9edd180433d29aaba476e953d10809b86d6e6850e825d907f9f6f1b76",
+    "gpu/world_spawn_entry.slang": "1b433e98fd906fa7c9af0f100175535e0d669301a174c9df06c2d87f8b644caf",
+    "gpu/world_enemy_attack_entry.slang": "4f86e4b5e616e8149cc47245c5aa31492bcd9f3a739a49501fd7a548bd75740a",
+    "gpu/world_periodic_entry.slang": "87abe82e2142dcd58c4ebab9109efe738800200eae04ed4b72e37f375c0ec7a0",
+    "gpu/world_pending_entry.slang": "d1043328c670ac3a4837414eeb871edf94a1afac2de95d42b646b0d358ba931c",
+    "gpu/world_skill_entry.slang": "433216610c518f8c2c3f122eb1aa886ae53e197d72b4307ded1cb90dfa278a98",
+    "gpu/counter_field_entry.slang": "1147bde65aa343ceb5d3473efb43f86f0a0f0225c6ae3ffa118b62d11ec14745",
+    "gpu/counter_context_entry.slang": "7387fc06a72bc9b984f8b29d46655a549ab56e154cd9f0924dc0533b9f787073",
+    "gpu/counter_landing_entry.slang": "695560a33534df60e9f31359622f6a197d14d2eb4b072371520955c9eacde7bf",
+    "gpu/target_counter_entry.slang": "af78f0f0cc55734578c0a86f48d5cd36750dd3ae4589be405d81d962293a4666",
+    "gpu/event_runtime.slang": "081823b3afeacf6dcbcf704c4808f6c517b02434fd422203316e4496cc880927",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+    "gpu/portable_schema.slang": "9e51e0b3f5450aa83aa96b7b5b9df596c3900a32ca812f4de66fed2c4942eadf",
+    "gpu/portable_scratch_layout.slang": "713d698693e05adc708869da6a41dfa0b49719dce5582a10def6d0c11e6f3c68",
+    "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
+    "gpu/runtime_init.slang": "42138104b72985daa57788ad7ba1ca9b2db86dc208f63a089679895c8e36d1d9",
+    "gpu/definition_runtime.slang": "b51aa866698ffae2aec5e209689a6d98ccda3dd5e1f047ce5a420fb69125abf6",
+    "gpu/enemy_route_runtime.slang": "dbe447fe0caab524771956be69dc861d72e53650e36f7f81c37aba27228478ba",
+    "gpu/lazy_bank_storage.slang": "f319580696bf1a68792e243bfb39ff64c56d6361d9327d15bb32ebdbaa1733a5",
+    "gpu/world_overlay_runtime.slang": "23a9330cf5558dc0c21675c25d171e4b033108dec19d738653837c043efa745e",
+    "gpu/geometry_runtime.slang": "8e8018af3959fde2f794c147aff2387464d4f486be17088cf260da41d48f8ef5",
+    "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+    "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+    "gpu/reference_runtime.slang": "61dbf7374e909a730811699787bf62bc59adf721697fc1b7377d7eee9fa9b2e0",
+    "gpu/duration_scaling_runtime.slang": "b9737f726a6129069fa2b0379ea0aa97d59df5df4c2834b6d2adc999f7830c01",
+    "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+    "gpu/not_core_runtime.slang": "1427279f19af5321e6365c261ee13c4cbc18cd2e69147c41c584439b9df5dbf8",
+    "gpu/bullet_runtime.slang": "2cda4cfed0e7ffd31076ea48050b7be71cd8312779483b13d7c150c4ccd5d23a",
+    "gpu/rank_runtime.slang": "5d9742e04178629890df3a4004bdc097f6b5fdc684287bb8baeff309f5875f1f",
+    "gpu/lazy_runtime.slang": "42420d880fd40940e495a60b0bf3fa4389e737a5eb276764bb90236f022bf0ff",
+    "gpu/named_magnitude_runtime.slang": "15362b672572ac08d89dd1dbf203ed9d8365c334a1486ff5ef2204a51c8cbb2a",
+    "gpu/enemy_buff_runtime.slang": "d45d8af699c45f154acfddf70e8d63c67797331bd504891ee75bd01914dfc45b",
+    "gpu/world_enemy_attack_runtime.slang": "3490a2f4936718c0e40123e3f7d71af7366a55342450ff3e93e4576320c05362",
+    "gpu/carrier_runtime.slang": "b709b4a737a7e43e03ea3e75f34b19290092838ab2b3cac93444f615545c4895",
+    "gpu/skill_interval_runtime.slang": "cf91792f6f0e0a8e5b5af0abe53273446d4ea88c9d19747035988d60591fa544",
+    "gpu/quantity_runtime.slang": "d04e568983cc1be4124d5144239cbde63826f51a05c23ba2c7bbb03a0a809020",
+    "gpu/max_ammo_scaling_runtime.slang": "fa54cbb7db18e4cd3963cde241416cd5c3a2f18ac97a19623540f46497d6d9cf",
+    "gpu/base_copy_runtime.slang": "547a45abece616872b49f523e257f9c59e48ce5d04b051dd7ec8561bf2f27f4a",
+    "gpu/health_runtime.slang": "24f66e89700d5c06b1757d9bb1c203025064665af57b88199eb709f6713772bc",
+    "gpu/lifesteal_runtime.slang": "2f75f91df647a4d496671253b2f52792032197ef7a0b8d7ea87a92b7408f76f2",
+    "gpu/cover_runtime.slang": "eb1b4a4e7c9683b615a160f3010e0e50a5da9d9a7f0425b471c83b1d625dffe6",
+    "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+    "gpu/hp_attack_runtime.slang": "3021b7019d9a504522b8e7ae859c785a5caa56baddc2d42611c5f044a1be0569",
+    "gpu/recipient_runtime.slang": "bbbecd7e1db056175eb4205c490e0517de8485c96504a94aa4ff9531468af2ec",
+    "gpu/below_def_recipient_runtime.slang": "a1f0291c96df29c15843796e3209b3e9d4ed582366dfd2bdac99494ca2203d2f",
+    "gpu/skill_clock_runtime.slang": "b7bfcd4457d9e1ac2f11650fe47fabe8c3f196fb7ca2c7dadff3c0d77e0684e4",
+    "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+    "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+    "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
+    "gpu/skill_critical_runtime.slang": "ffab45b7bc55c3d1bbe472d9b590320183281e6aa11370e212c84e56ab218417",
+    "gpu/damage_runtime.slang": "4ea923bb8f1adfadeca492d52c3e72d5a23e8730aecc92c26bafb9764458845d",
+    "gpu/damage_factors.slang": "c806441d5532ccc494e3f9099033378621e95cc248fe1be8826f9864de2ca3de",
+    "gpu/skill_hp_basis_runtime.slang": "074b0123c79d0825ebbec561270310f697a8a960d1d653fbfd1cf7c1088b049d",
+    "gpu/incoming_runtime.slang": "4ac7df9cd500c97f1e449106eb93d9c1176f0b1620b28bf42645bfdaee6d661d",
+    "gpu/revival_runtime.slang": "a75b7cd4bff78ece2fdab6aab49dcc9718b7e56f7676c3169589ef1b9cb1a961",
+    "gpu/burst_runtime.slang": "5d8e2d43a524a3f7b311f6532e7602a47049e4f38a5549769ed884a229c9e2be",
+    "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+    "gpu/enemy_damage_runtime.slang": "94110711ef4f94cf0590b3ac097daaa6f3a8cc5a16ddfc92607a37234b95f82d",
+    "gpu/landing_runtime.slang": "80c3c17e97f20ea64ebaa7fb2f9c4fb426858996883cf7de4595d5f04c67a429",
+    "gpu/skill_part_receipt.slang": "3bb073f46d9f298d693c5aa1d9f5439f0347a98b80498c8ccd03d7ed572ab904",
+    "gpu/interrupt_packet_codec.slang": "a2b98699efb3bc0cb7dde5a958183914930f535a7defcc690be120737f8cfd2c",
+    "gpu/periodic_runtime.slang": "ac1743d8388b147adfd4370e041dc30051bd0e341b536dfc10c38edbd9aff1f4",
+    "gpu/removal_runtime.slang": "e457125116d618de53ca81d78c2f4eabe9e07d7b205a954624c9ae2e3266a694",
+    "gpu/duration_extend_runtime.slang": "22bfef6f3e944dba99ee826d8c3277623828b34b817f0ca5e6999988004d6faa",
+    "gpu/trigger_reduction_runtime.slang": "dfab7a78e75e09ab8d0a3295e0cd7201b45fa84439e88300916f47cf5ed6fe36",
+    "gpu/stack_runtime.slang": "0d668b768a7672bce5df2b0993e89971ffc749304e307e5ca6548da18652dc16",
+    "gpu/status_runtime.slang": "2e7dbbfd9efe39987ddc868c5fd2c73d48a117fdbd6e099f15e4ac7f74f0054a",
+    "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+    "gpu/pending_burst_runtime.slang": "cf57944d6fdedbdfcf04227584f0cc8a0a8ece67820cb8ec5a93f28c07bc72cc",
+    "gpu/full_burst_landing_runtime.slang": "2fe29e32d292edd89c9181faa895799d4a4951b0cd0b1a133c1437be80e12d0b",
+    "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+    "gpu/world_frame_addresses.slang": "d1606c64d97393118479cb0c4e75edb84d0a79c37e6f7dbbbdb80107915ec6ae",
+    "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+    "gpu/protection_runtime.slang": "03bcdb07252ac7dc13b91c0011f45f1dc1603f60970d032bfb3a3b67a60dde8d",
+    "gpu/healing_storage_runtime.slang": "3402e1c12d9957568a3040955e9b6cf03b922dd67358b89b0c1bdd657bc84e4b",
+    "gpu/heal_share_runtime.slang": "f3f91269823a7edbb1124df8b8f809c59a00f72f49cb759120701d9ad725bc11",
+    "gpu/heal_share_plan.slang": "0042ea4d64f9a22533b82e2206b90fa0eaba5bd90719002beb5f5cb5f03237a5",
+    "gpu/heal_share_trace.slang": "432863cbd91791a47acf93062d235d7d5d8a08a71f2e2023ef4970916d07c31b",
+    "gpu/heal_charge_runtime.slang": "adfe69629e03f4dbf7fa0ef9a9a1ea9fc1f3041f938eb055a489ea6cf0764409",
+    "gpu/heal_charge_history.slang": "0ec65f9f5f0519370816648988d17fbe600cce453a166dcda3d5f97b43d055f4",
+    "gpu/sha256_runtime.slang": "33eb3d6c21d9a2309c8357a335a45866ed61bfc9fdf05c7506da7da43985eaae",
+    "gpu/damage_accum_core.slang": "e76d01686e3f466fb2971f9d81634452676f3a8d4fd4b5fe79a90853c7204e1b",
+    "gpu/damage_accum_battle_runtime.slang": "0786ca986cc5bef684da30c499050b76f125b52011a36c96a8989ac616500dce",
+    "gpu/dispatch_phases.slang": "d8db062e6e1e8c95f51e0b52c1956da4ce52e8027bf0ddd49a8643a4366984ea",
+    "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+    "gpu/world_actor_pools.slang": "8b18b2c1da192a08939564c5304d634d0611fcacba1ff5dde069c9adda352e17",
+    "gpu/world_actor_fields.slang": "88c6b70a0c3b4c97eca5dd7c63cef06a5268fecc91f454a9268def568c6b953d",
+    "gpu/world_actor_state.slang": "54ba591b5d7920f44586cf4ba21cfc681981b5a9eeed4b45dd68319a84f3aeb8",
+    "gpu/named_enemy_recipient_runtime.slang": "73e67afe6c898a0ca027e4ae17fc822a0fee8d4a6c66226c2b3398da3414a1bb",
+    "gpu/world_actor_mutation.slang": "3834d491358ef4f5cd888728a1efea9fae52d5f58bc31bdb6885338be88e038c",
+    "gpu/world_actor_recipients.slang": "1930b7b38765340d373765b9250c1027d33103909ed6d245f71de32ceab40758",
+    "gpu/world_actor_status.slang": "c7a6b4949da6ea886298c15c7d696963b9f83b69122175860eb34485af7c9bb3",
+    "gpu/world_actor_stacks.slang": "38864ac1f81c3f9591f8273b318e37ee31b76a5ddf2de8a2c2a711db29323e8f",
+    "gpu/target_counter_runtime.slang": "5a1605e713aa86f5901fc5e7e6a7a723b5ee902ae4a812c5833084542849c898",
+    "gpu/world_projectile_runtime.slang": "3d3d498386038746f671007d5522ece05c7b82dd09d9d6fee9704aeff0af9e18",
+    "gpu/counter_landing_runtime.slang": "962b75f70131be4865bc8fa439adc06bff5425c1737e6bc3079af01f530c9ffd",
+    "gpu/counter_context_runtime.slang": "aa3e9cf52e85feb2146467496954fcb6dd4f4eac8ebf9c1cdacdcaf38b1ea21b",
+    "gpu/counter_field_runtime.slang": "d972af3f7f9fd596a4c3732c79e344ce547532471374066c72dfeba3012153aa",
+    "gpu/world_skill_runtime.slang": "3c9be34c0380f3bc33e4478302e76935de9980e1c66f8264adcaff5e1bbdfab5",
+    "gpu/world_interrupt_runtime.slang": "2eda90e2955a597532e17ed575f8e2802e8a3abbbfc00fb42d9df983a51211f4",
+    "gpu/world_periodic_runtime.slang": "25347205a8bcd16b1af61124eea5694513017ecf2baad2303ecba803e7e714aa",
+    "gpu/world_spawn_runtime.slang": "6da41aa26d47d47ebb54b6d742f62592f2fbcae50ea2e38a3a7d571771b7a8c3",
+    "gpu/world_fraction_runtime.slang": "6ee8371cee6f0ab559cbfb4c7fe2feb07b126270be9a87339893ea0f55bb3644",
+    "gpu/world_team_runtime.slang": "4ac04376ed7a2f5a623b9b0f493aeb91a3e147b679e887829301e0a51a5902c4",
+    "gpu/world_charge_control_runtime.slang": "49a0114e0a508b7b53244fe68c4682a2c1812e8a2663757c393628a32693ff27",
+    "gpu/parent_fixed_runtime.slang": "e5b7cfd7041b30357633971bad758687ecda7f47a44a493af1071b1e9f973b88",
+    "gpu/world_actor_registry.slang": "dafa4422554269f9b3529aa21ae9542dacedc6c5af32c36842fc3e0d0b7d3d03",
+    "gpu/world_frame_runtime.slang": "1b82c691dc7965d7b414f2b575ac8fdbde8b3aec20cc8211121cb48ddf632b22",
+    "gpu/combat_runtime.slang": "5b03344981a3ade57bf47335ce11803d949f545f69c3af65ced8103ff8666d54",
+    "gpu/ammo_instant_runtime.slang": "b4a57c26c46977396d034075826f463c6b3d09616c8cd81f3a468aa787fda4bd",
+    "gpu/weapon_runtime.slang": "8ba1777d786ae0860f5d64fbe214daabbc4abe0ae137964ebe1f9bf845011b3b",
+    "gpu/mode_entry_runtime.slang": "dbd68df38ea19a6f21f4a41bcd9936fd08a7c4003574b91fb58617538b2fc64a",
+    "gpu/world_reload_runtime.slang": "47889666772f867b246b63ecc2cdea98eda79b6b7e2e4b2bd67d63c3b1818090",
+    "gpu/world_overlay_weapon.slang": "f9f33dcafbdd8f8dbea5acede13461b19a08e7084b7e5aa8f1f14c1959b4d370",
+    "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+    "gpu/pellet_shot_runtime.slang": "b84c7a1a969d0b04e14d08347d2495245bca5ebe98899fe10b1c80d65f901dad",
+    "gpu/weapon_frame_phases.slang": "7307812dd5ef45da88a0cb82103176dbf2f9735a9c67fe9d4a25b5b109015258",
+    "gpu/admission_runtime.slang": "5f8519a45a5875123f83dc0d8893acd0d815ddc5dc84f5f08be740b737271301",
+    "gpu/portable_mt19937.slang": "6365293f4fe0269fba87b15aa866e617333f5012acef175a13fd7ed27152323a",
+    "gpu/enemy_target_runtime.slang": "830fd22f28d105ea6b4e0ad4d334e774e36eebab698c1096a163cfdb712d9d1f",
+    "gpu/program_phases.slang": "f83370df3d5cd8b0894860c99a4181d19b0e2ac6115672307f3ddfe36d0cb319",
+    "gpu/focus_aim_runtime.slang": "ea88f70ce33815e69b3b5074b5cc321d5bbc08c9b693deeef75ed1556b2b9a73",
+    "gpu/native_numeric_query_runtime.slang": "2e979426e3b798095113e8e5f2028ce3f16af64a013fac289c89f9eb20f1ae4e",
+    "gpu/ordered_history_runtime.slang": "7d620776fb4f6076208fa4f585c6e0a7925a05de955fff9ea98f49024537eac8",
+    "gpu/native_query_diagnostic.slang": "eb9f3e4aad78941669d35d0260e7275170324b6f82becf361dc19f79bb9ce7e8",
+    "gpu/native_snapshot_runtime.slang": "b11b2570c50b3ffa08e2b061a9e126f5183efbf1ec988ce95f95a80d8427e2f7",
+    "gpu/destructible_target_core.slang": "a76de4e9c79097db495d652cb22814691cdb12e15ebbed5f5fec7ef86032a694",
+    "gpu/destructible_world_runtime.slang": "1d85363f1222ca05f80e9bcce11f752ea61675b86b286920e494c9e7f4cef8fb",
+    "gpu/destructible_battle_runtime.slang": "97885366d06cbe5da0130977ad9cac2e130b6d3f6c15d4664b73abe9fe76b164",
+    "gpu/destructible_modifier_runtime.slang": "2e14d9430565113f2e7ee09af37ba007b808387f512ca7b4f4af2c9c458f5ac6",
+    "gpu/destructible_frame_runtime.slang": "0b37068ab3bd20df01c9231f8b39f7ddcad12eddab61b9143b408d68265488d5",
+    "gpu/destructible_weapon_runtime.slang": "31c889f35aef525bf352a986b33e97c39b3f3b0dc44c7c6040550db888916e0d",
+    "gpu/destructible_roster_skill_runtime.slang": "967b7926af441461586178e2ee2c57e6fd87919c05e411e284619d78cdcf9122",
+    "gpu/destructible_accum_landing.slang": "9eeab15f4b408331ce6437bfb5941bc5ff421344518f30b5f9b1b4208175df04"
+  },
+  "generated_sha256": {
+    "cuda": "c42f7f975c21f139cc2401ce5e2f288e675ede7c36335964874b3bc6883dee3c",
+    "metal": "1ed48e163c78160ee268830cc35b6568e992cb9a9944974678d0b5135b4400a4"
+  },
+  "input_sha256": "7d0ef5fad63e8d111c88bdee414ae5db94aaf4f104ae06fc3208166cf5d5ac3e",
+  "output_sha256": "c2b6288e4766636bafe4fe96497f2915298783087b059ff25f09ae0a568c4162",
+  "gpu_execution_verified": true,
+  "backend": "metal"
+}

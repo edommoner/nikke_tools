@@ -28,8 +28,17 @@ def observe(case):
                 row['family_flags']={k:bool(hit.get(k,False)) for k in ('is_burst_damage','is_aoe_burst','is_single_burst')}
             samples.append(row)
         return value
-    with typed_battle(case['typed_bindings'],modifier_model=True,shield_owner=BOSS,hit_shields=True,weapon_shields=True,max_attacks=case['max_attacks'],skill_shields=case.get('skill_shield_interception_v1',False),body_lifesteal=case.get('body_lifesteal_v1',False)) as data,patch.object(destructible_damage_policy,'calculate',calculate),patch.object(BuffManager,'apply_shared_body_heal',heal):
-        battle,shots=roster.native_reference(case['body'])
+    with typed_battle(case['typed_bindings'],modifier_model=True,shield_owner=BOSS,hit_shields=True,weapon_shields=True,max_attacks=case['max_attacks'],skill_shields=case.get('skill_shield_interception_v1',False),body_lifesteal=case.get('body_lifesteal_v1',False),body_accumulation=case.get('body_accumulation_v1',False)) as data,patch.object(destructible_damage_policy,'calculate',calculate),patch.object(BuffManager,'apply_shared_body_heal',heal):
+        if case.get('declared_effects'):
+            previous_effects=BuffManager._register_all
+            def register_extra(manager):
+                result=previous_effects(manager)
+                import copy
+                for effect in case['declared_effects']:manager._effects.append((copy.deepcopy(effect),case['body']['squad'][0]))
+                manager._build_notify_index()
+                return result
+            with patch.object(BuffManager,'_register_all',register_extra):battle,shots=roster.native_reference(case['body'])
+        else:battle,shots=roster.native_reference(case['body'])
     assert len(data['worlds'])==len(data['managers'])==1
     from effect_runtime import state
     runtime=state(data['managers'][0]);assert not runtime.event_stack and not runtime.impact_stack and not runtime.activation_stack
@@ -40,6 +49,13 @@ def observe(case):
     for r in data['attacks']:
         if not case.get('skill_shield_interception_v1'):assert 'family' in r,'Weapon-only roster must not silently intercept skill packets'
         attacks.append(dict(attack_id=r['attack_id'],owner=names.index(r['caster']),time=r['time'],damage=r['damage'],completed=r['completed'],receipts=[dict(slot=slot,handle=[int(h.kind),h.identity,h.generation],delivered=v['delivered'],broken=v['broken'],took=v['took']) for slot,h,v in r['receipts']]))
+    if case.get('body_accumulation_v1'):
+        scalar=iter(samples);ordered=[]
+        for raw,row in zip(data['attacks'],attacks,strict=True):
+            if raw.get('quantity_only'):
+                ordered.append(dict(modifier=0.,factor5=None,damage=row['damage'],scalar_kind=raw['receipts'][0][1].kind.value,applied_modifier=0.,family_flags=dict(is_burst_damage=False,is_aoe_burst=False,is_single_burst=False)))
+            else:ordered.append(next(scalar))
+        assert next(scalar,None) is None;samples=ordered
     samples_expected=[r['damage'] for r in attacks];assert [r['damage'] for r in samples]==samples_expected
     result=dict(battle=battle,projectile_shots=shots,typed=dict(time=world.last,finished=world.finished,state=targets,attacks=attacks),shield_samples=samples,healing=heals)
     if case.get('skill_shield_interception_v1'):
@@ -49,7 +65,9 @@ def observe(case):
             if 'family' not in r:
                 matches=[i for i,(effect,caster) in enumerate(data['managers'][0]._effects) if effect.get('name')==r['name'] and caster==r['caster']]
                 assert len(matches)==1,'Unambiguous original skill definition required';source=matches[0]
-            packets.append(dict(coefficient=r['coefficient'],mode_skill=r.get('weapon_mode_skill',False),source=source,name=r['name']))
+            packet=dict(coefficient=r['coefficient'],mode_skill=r.get('weapon_mode_skill',False),source=source,name=r['name'])
+            if r.get('quantity_only'):packet['quantity_only']=True
+            packets.append(packet)
         result['packet_samples']=packets
     else:result['weapon_samples']=[dict(coefficient=r['coefficient'],mode_skill=r['weapon_mode_skill']) for r in data['attacks']]
     return result,[]

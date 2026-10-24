@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-body-lifesteal-metal31-v4",
+  "raw_bytes": 130023424,
+  "raw_sha256": "072440c2ab84dd2e1fafe8bea5fc9890a51fea1535067e740050e444efa48e68",
+  "evidence_sha256": "1d9a94d3573f085c5fbe00ed5878c3721d6ca5fbc64723938e0d59ab18241e1e",
+  "raw_inode": 509231924,
+  "zero_ranges": 345,
+  "zero_range_bytes": 85590016,
+  "allocated_before": 130023424,
+  "allocated_after": 44433408,
+  "allocated_reclaimed": 85590016,
+  "full_hash_verified": true
+}

@@ -3,7 +3,8 @@ import hashlib,json
 from pathlib import Path
 
 def project_sources(root,sources=None):
-    root=Path(root);sources=dict(sources or {})
+    from portable_destructible_accum_source_contract import project_sources as accum_sources
+    root=Path(root);sources=accum_sources(root,sources)
     data=json.loads((root/'tests/fixtures/portable-destructible-lifesteal-source-delta.json').read_text())
     for name,row in data['sources'].items():
         current=sources.get(name,(root/name).read_text())
