@@ -1,40 +1,49 @@
 {
   "schema": 1,
-  "milestone": "read-only-module-object-recovery",
-  "classification": "progress",
-  "goal_complete": false,
-  "all_character_certification": 0,
-  "gap_categories": 20,
-  "ui_backend": "cpu",
-  "package_id": "32da0fc5be83b73d2b55c28f03d5a161cf8606ac0f57cfeb2e9812b91fdd0806",
-  "source_distribution_commit": "811ca5ce1cf001eef7376789781e7fdc6e15f7a9",
-  "source_distribution_branch": "codex/current-object-recovery-v2-source",
-  "archive_bytes": 7157771,
-  "archive_sha256": "86695edadf7a300461ac164d631b7f1d4bb4c27bae17a5d58d0fc918499feab3",
-  "control_groups": 40,
-  "control_tests": 404,
-  "control_skips": 1,
-  "recovery_tests_included_in_control": 7,
-  "compiler_cpu_groups": 20,
-  "compiler_cpu_tests": 191,
-  "compiler_cpu_package_version": "v1; v2 changes only packet scope guard and its test",
-  "new_slang_calls": 0,
-  "new_nvrtc_calls": 0,
-  "new_ptxas_calls": 0,
-  "new_driver_calls": 0,
-  "new_gpu_calls": 0,
-  "windows_dispatch_acknowledged": false,
-  "windows_recovery_verified": false,
-  "original_stage_verified": false,
-  "originals_modified": false,
-  "claims_preserved": true,
-  "retry": false,
-  "recovery_receipt_link_admission_connected": false,
-  "remaining": [
-    "Windows bounded CPU/Job smoke and saved-object audit",
-    "explicit recovered-object JIT link provenance",
-    "current CUDA calculation",
-    "coordinate numeric policy awaiting user",
-    "all original characters/effects and public GPU admission"
-  ]
+  "purpose": "CUDA ELF version and CPU-only saved object recovery",
+  "cpu_tested_package_id": "a9dc3a6ac6207dd611b645669d3b555e3c50e7ad0b78fc79bd634ac301c1196e",
+  "cpu_capture": "/tmp/nikke-object-recovery-v1-cpu",
+  "tests": {
+    "discovered": 188,
+    "passed": 187,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0
+  },
+  "cpu_receipt_sha256": "72de704239bcf1a49f7fdeebbdbb28ac7cf1f3b94aad07304960c0c195375688",
+  "capsule_files": 12,
+  "capsule_bytes": 237020,
+  "capsule_command_help_passed": true,
+  "development_failures": [
+    {
+      "log": "/tmp/nikke-object-recovery-unit-v1.log",
+      "errors": 2,
+      "reason": "test cache-directory fixture covered receipt path; put cache in its own directory"
+    },
+    {
+      "log": "/tmp/nikke-object-recovery-unit-v2.log",
+      "failures": 1,
+      "reason": "existing collect intentionally excludes partial; require externally recorded SHA and preserve metadata-only inventory"
+    }
+  ],
+  "saved_partial_validation_on_windows_pending": false,
+  "raw_transferred": false,
+  "source": "https://github.com/NVIDIA/cuda-rust/pull/622",
+  "nvrtc_calls": 0,
+  "ptxas_calls": 0,
+  "link_calls": 0,
+  "driver_calls": 0,
+  "gpu_calls": 0,
+  "link_verified": false,
+  "calculation_verified": false,
+  "windows_resolution": {
+    "report": "research/portable-world-v135-focus-object-recovery-peer-report.json",
+    "saved_object_cpu_verified": true,
+    "compiler_return_verified": true,
+    "containment_verified": true,
+    "preservation_verified": false,
+    "calculation_verified": false,
+    "additional_compiler_or_gpu_calls": 0,
+    "original_failure_preserved": true
+  }
 }
