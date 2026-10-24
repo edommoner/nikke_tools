@@ -9,7 +9,7 @@ from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 COMPILE_STAGES=('compile-ptx','compile-cubin-o0')
-STAGES=('cpu','smoke','gpu',*COMPILE_STAGES)
+STAGES=('cpu','smoke','generation','gpu',*COMPILE_STAGES)
 
 def is_windows():return os.name=='nt'
 
@@ -20,6 +20,15 @@ def save(path,value):
     with path.open('x',encoding='utf-8') as stream:
         json.dump(value,stream,indent=2);stream.write('\n');stream.flush();os.fsync(stream.fileno())
 
+def verified_generation(proof,package_id):
+    """Source preparation cannot masquerade as a compiler or GPU receipt."""
+    return bool(proof and proof.get('package_id')==package_id and proof.get('verified') is True
+        and proof.get('sealed_generated_baseline_verified') is True
+        and proof.get('mode','generation')=='generation' and proof.get('compiler_verified',False) is False
+        and proof.get('calculation_verified') is False and proof.get('executable_battle_verified') is False
+        and all(type(proof.get(key,0)) is int and proof.get(key,0)==0 for key in ('gpu_calls','driver_load_calls','nvrtc_compile_calls'))
+        and 'gpu_calls' in proof)
+
 def recipe(package_id,stage,backend,capture,original_workspace,timeout):
     if stage not in STAGES or backend not in ('metal','cuda') or type(timeout) is not int or not 1<=timeout<=180:raise ValueError('Invalid packet stage or budget')
     if stage in COMPILE_STAGES and backend!='cuda':raise ValueError('Compilation requires CUDA backend')
@@ -28,9 +37,16 @@ def recipe(package_id,stage,backend,capture,original_workspace,timeout):
     if capture==ROOT or ROOT in capture.parents:raise ValueError('Stage capture must be outside the immutable package')
     if original is not None and (original==ROOT or original==capture or original in capture.parents):raise ValueError('Use an isolated capture outside the original workspace')
     if is_windows() and original is None:raise ValueError('Windows requires an explicit original workspace')
-    return dict(schema=1,package_id=package_id,stage=stage,backend=backend,capture=str(capture),proof_capture=str(capture/'proof'),original_workspace=str(original) if original else None,timeout_seconds=timeout,inner_gpu_timeout_seconds=min(60,timeout),preparation_scope='Immutable package manifest only; never enumerate/hash original workspace, historical captures or SDK trees',memory_limit_mb=2048)
+    plan=dict(schema=1,package_id=package_id,stage=stage,backend=backend,capture=str(capture),proof_capture=str(capture/'proof'),original_workspace=str(original) if original else None,timeout_seconds=timeout,inner_gpu_timeout_seconds=min(60,timeout),preparation_scope='Immutable package manifest only; never enumerate/hash original workspace, historical captures or SDK trees',memory_limit_mb=2048)
+    if stage=='generation':
+        cache=os.environ.get('NIKKE_SLANG_GENERATION_CACHE')
+        if not cache or not Path(cache).is_absolute():raise ValueError('Generation stage requires an absolute Slang generation cache')
+        plan['generation_cache']=str(Path(cache).resolve())
+    return plan
 
 def proof_arguments(plan):
+    if plan['stage']=='generation':
+        return ['generation','--out',plan['proof_capture'],'--generation-cache',plan['generation_cache'],'--packet-stage',plan['capture']]
     if plan['stage'] in COMPILE_STAGES:
         if not plan['original_workspace']:raise ValueError('Compilation requires an original workspace')
         kind='ptx' if plan['stage']=='compile-ptx' else 'cubin'
@@ -91,6 +107,7 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None):
     # A claim is durable before any launch; a missing result never permits retry.
     save(ROOT/('packet-stage-claimed-'+stage+'-'+backend+'.json'),dict(package_id=manifest['package_id'],capture=str(folder),created_unix_ns=time.time_ns()))
     bounded=cli.bounded_module();env=cli.validation_environment(folder)
+    if stage=='generation':env['NIKKE_SLANG_GENERATION_REQUIRED']='0'
     env['NIKKE_VALIDATION_JOB_MEMORY_MB']='2048'
     env['PYTHONPATH']=os.pathsep.join([*site.getsitepackages(),env.get('PYTHONPATH','')])
     interpreter=getattr(sys,'_base_executable',sys.executable) if is_windows() else sys.executable
@@ -113,15 +130,17 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None):
             with observe_job(bounded,folder/'job.json'):
                 facts=journal.invoke('packet_bounded_stage',bounded.run_bounded,command,folder,remaining,cwd=ROOT,env=env,before_gate=lambda:journal.invoke('packet_before_observation',before),after_wait=lambda:journal.invoke('packet_after_observation',after))
         else:facts=journal.invoke('packet_bounded_stage',bounded.run_bounded,command,folder,remaining,cwd=ROOT,env=env)
-    proof_path=folder/'proof/result.json';proof=json.loads(proof_path.read_text()) if proof_path.is_file() else None
+    proof_path=folder/('proof/generation.json' if stage=='generation' else 'proof/result.json');proof=json.loads(proof_path.read_text()) if proof_path.is_file() else None
     comparison=observation.get('comparison',{})
     process_preserved=comparison.get('all_monitored_processes_preserved')
     environment_preserved=bool(process_preserved is True and comparison.get('identified_nikke_service_preservation_verified') is True and facts.get('observation_error') is None) if is_windows() else None
-    key={'cpu':'cpu_verified','smoke':'smoke_verified','gpu':'passed',**{name:'compiler_verified' for name in COMPILE_STAGES}}[stage]
+    key={'cpu':'cpu_verified','smoke':'smoke_verified','generation':'verified','gpu':'passed',**{name:'compiler_verified' for name in COMPILE_STAGES}}[stage]
     compiler_verified=bool(proof and proof.get('mode')=='compile-only' and proof.get('compiler_verified') is True and proof.get('calculation_verified') is False and type(proof.get('gpu_calls')) is int and proof['gpu_calls']==0 and type(proof.get('driver_load_calls')) is int and proof['driver_load_calls']==0)
-    verified=compiler_verified if stage in COMPILE_STAGES else bool(proof and proof.get(key))
+    generation_verified=verified_generation(proof,manifest['package_id'])
+    if stage not in COMPILE_STAGES:compiler_verified=False
+    verified=compiler_verified if stage in COMPILE_STAGES else generation_verified if stage=='generation' else bool(proof and proof.get(key))
     stage_verified=bool(facts['passed'] and verified)
-    result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,compiler_verified=compiler_verified,calculation_verified=bool(stage not in COMPILE_STAGES and proof and proof.get('calculation_verified')),cpu_verified=bool(proof and proof.get('cpu_verified')),smoke_verified=bool(proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
+    result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,compiler_verified=compiler_verified,generation_verified=generation_verified if stage=='generation' else False,calculation_verified=bool(stage not in (*COMPILE_STAGES,'generation') and proof and proof.get('calculation_verified')),cpu_verified=bool(proof and proof.get('cpu_verified')),smoke_verified=bool(proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
     save(folder/'stage-result.json',result);return result
 
 def main():

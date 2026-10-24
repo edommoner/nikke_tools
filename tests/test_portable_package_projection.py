@@ -7,10 +7,12 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'app'))
-from portable_package_projection import project, validate, roots_for, check_command
+from portable_package_projection import project, validate, roots_for, check_command, SUPPORTED_SUITES
 
 
 class ProjectionTests(unittest.TestCase):
+    def test_current_shared_group_entries_are_explicitly_supported(self):
+        self.assertTrue({'attack-group-battle','attack-group-native-route','attack-group-long'} <= set(SUPPORTED_SUITES))
     def fixture(self, root):
         sources = {
             'app/controller.py': 'import selected\n',

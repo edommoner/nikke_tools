@@ -6,6 +6,10 @@ that the current user's GPU goal may omit these effects.
 import ast,hashlib
 from pathlib import Path
 
+def source_name(path,root):
+    """Repository identities use POSIX separators on every execution host."""
+    return path.relative_to(root).as_posix()
+
 def verify(root):
     root=Path(root);up=root/'research/upstream/nikke-calc-master';timeline=up/'calculator/timeline.py';status=up/'docs/IMPL-STATUS.md';damage=up/'calculator/damage.py'
     tree=ast.parse(timeline.read_text(encoding="utf-8"));handlers=[n for n in ast.walk(tree) if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef)) and n.name=='_handle_damage_eff'];assert len(handlers)==1
@@ -16,7 +20,7 @@ def verify(root):
     for p in sorted((root/'app').glob('*.py')):
         if p.name=='attack_group_runtime.py':continue
         t=ast.parse(p.read_text(encoding="utf-8"));calls=[n for n in ast.walk(t) if isinstance(n,ast.Call) and isinstance(n.func,ast.Attribute) and n.func.attr in ('begin_attack_targets','finish_attack_targets')]
-        if calls:producer_calls.append(str(p.relative_to(root)))
+        if calls:producer_calls.append(source_name(p,root))
     scoped=root/'app/battle_attack_group_runtime.py'
     assert producer_calls==['app/battle_attack_group_runtime.py'],'Unreviewed attack producer requires a fresh semantic audit'
     scoped_tree=ast.parse(scoped.read_text());scope=next(n for n in scoped_tree.body if isinstance(n,ast.FunctionDef) and n.name=='battle_attack_groups')
@@ -41,4 +45,4 @@ def verify(root):
     sources += [root/'app/attack_group_specs.py',up/'calculator/buff_manager.py',root/'app/impact_runtime.py',root/'app/impact_specs.py',root/'app/damage_query_runtime.py']
     from portable_model_gap_audit import verify as model_gaps
     remaining=model_gaps(root)
-    return dict(passed=True,remaining_model_gaps=remaining,missing_target_worlds=list(rows),damage_factor_consumers=[],all_projectiles_early_return=True,multi_hit_listener_present=True,battle_attack_group_producer_calls=producer_calls,default_battle_attack_group_producer_calls=[],opt_in_producer_policy='native or all-logical-enemies; body/add only; normal physical shot returns',native_router_override=False,impacts_keep_default_attack_id_zero=True,historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources})
+    return dict(passed=True,remaining_model_gaps=remaining,missing_target_worlds=list(rows),damage_factor_consumers=[],all_projectiles_early_return=True,multi_hit_listener_present=True,battle_attack_group_producer_calls=producer_calls,default_battle_attack_group_producer_calls=[],opt_in_producer_policy='native or all-logical-enemies; body/add only; normal physical shot returns',native_router_override=False,impacts_keep_default_attack_id_zero=True,historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={source_name(p,root):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources})

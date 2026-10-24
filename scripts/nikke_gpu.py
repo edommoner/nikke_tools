@@ -400,6 +400,7 @@ SMOKE_TESTS.append('test_portable_jit_link.py')
 SMOKE_TESTS.append('test_portable_jit_link_capture.py')
 SMOKE_TESTS.append('test_portable_linked_artifact.py')
 SMOKE_TESTS.append('test_portable_packet_stage.py')
+SMOKE_TESTS.append('test_portable_generation_gate.py')
 SMOKE_TESTS.append('test_portable_readback_blocks.py')
 SMOKE_TESTS.append('test_portable_sparse_raw.py')
 SMOKE_TESTS.append('test_portable_scope_snapshot_audit.py')
@@ -2455,8 +2456,11 @@ def import_results(archive,destination):
     return dict(files=len(receipt['files']),gpu_calls=0,remote_report_only=True)
 
 
-def generation_capture(output,*,development=False):
-    if os.name=='nt':raise ValueError('Standalone generation is Mac CPU-only; Windows requires bounded compile/run generation options')
+def generation_capture(output,*,development=False,packet_stage=None):
+    containment=None
+    if os.name=='nt':
+        from portable_generation_gate import verify_packet_generation
+        containment=verify_packet_generation(ROOT,packet_stage,output)
     m=verify_package(ROOT)
     dev=is_development(m)
     if dev and not development:raise ValueError('Generation reuse requires a sealed source baseline; use --develop for generation-only preflight')
@@ -2478,6 +2482,7 @@ def generation_capture(output,*,development=False):
         receipt=load(output/'generation-cache.json')
         verified=audit_receipt(receipt,hashes,{k:output/('generated.'+suffix) for k,suffix in [('cuda','cu'),('metal','metal')]})
         report=dict(package_id=m['package_id'],source_sha256=hashes,generated_normalized=generated,**verified,development_only=dev,sealed_generated_baseline_verified=not dev,calculation_verified=False,executable_battle_verified=False)
+        if containment is not None:report['packet_containment']=containment
         write(output/'generation.json',report)
         return report
     except BaseException as error:
@@ -2488,7 +2493,7 @@ def generation_capture(output,*,development=False):
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     sub.add_parser('list')
-    a=sub.add_parser('generation');a.add_argument('--develop',action='store_true');a.add_argument('--out',type=Path,required=True);a.add_argument('--generation-cache',type=Path,required=True);a.add_argument('--require-generation-cache',action='store_true');a.add_argument('--slang-root',type=Path)
+    a=sub.add_parser('generation');a.add_argument('--packet-stage',type=Path);a.add_argument('--develop',action='store_true');a.add_argument('--out',type=Path,required=True);a.add_argument('--generation-cache',type=Path,required=True);a.add_argument('--require-generation-cache',action='store_true');a.add_argument('--slang-root',type=Path)
     for name in ('readback-index','readback-compare'):
         a=sub.add_parser(name);a.add_argument('--readback',type=Path,required=True);a.add_argument('--sha256',required=True);a.add_argument('--out',type=Path,required=True)
         if name=='readback-compare':a.add_argument('--index',type=Path,required=True);a.add_argument('--index-sha256',required=True)
@@ -2643,7 +2648,7 @@ def main(argv=None):
         result=run_reference(a.suite,a.out,write=write,forbid_gpu=forbid_gpu)
     elif a.command=='generation':
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
-        result=generation_capture(a.out,development=a.develop)
+        result=generation_capture(a.out,development=a.develop,packet_stage=a.packet_stage)
     elif a.command=='phase-codegen':
         m=verify_package(ROOT)
         from portable_backend import source_hashes

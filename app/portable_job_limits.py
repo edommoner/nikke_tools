@@ -17,7 +17,7 @@ class ExtendedLimitInformation(C.Structure):
               ('job_mem',C.c_size_t),('peak_process',C.c_size_t),('peak_job',C.c_size_t)]
 
 
-def read_job_limits(dll,handle,info_type=ExtendedLimitInformation):
+def read_job_limits(dll,handle,info_type=ExtendedLimitInformation,*,include_flags=False):
     if C.sizeof(C.c_void_p)!=8:raise RuntimeError('Validation requires Windows x64 Job ABI')
     dll.QueryInformationJobObject.argtypes=[C.c_void_p,C.c_int,C.c_void_p,C.c_uint32,C.POINTER(C.c_uint32)]
     dll.QueryInformationJobObject.restype=C.c_int
@@ -25,4 +25,6 @@ def read_job_limits(dll,handle,info_type=ExtendedLimitInformation):
     if not dll.QueryInformationJobObject(handle,9,C.byref(limits),C.sizeof(limits),C.byref(returned)):
         raise C.WinError(C.get_last_error())
     if returned.value!=C.sizeof(limits):raise RuntimeError('Incomplete Windows Job extended-limit response')
-    return dict(job_peak_memory_bytes=int(limits.peak_job),job_memory_limit_bytes=int(limits.job_mem) if limits.basic.flags&0x200 else None)
+    result=dict(job_peak_memory_bytes=int(limits.peak_job),job_memory_limit_bytes=int(limits.job_mem) if limits.basic.flags&0x200 else None)
+    if include_flags:result['job_limit_flags']=int(limits.basic.flags)
+    return result

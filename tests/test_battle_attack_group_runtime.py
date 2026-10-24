@@ -1,6 +1,6 @@
 """Autonomous native shot boundaries, matched recipients and cleanup."""
 import copy,importlib.util,json,sys,unittest
-from pathlib import Path
+from pathlib import Path,PureWindowsPath,PurePosixPath
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 import engine_worker
@@ -15,6 +15,12 @@ def roster():
     s=importlib.util.spec_from_file_location('group_test_roster',ROOT/'research/verify-world-projectile-rosters.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
 def snapshot():return (timeline.simulate,sim.simulate,timeline.BossScript,timeline.HitEvent,timeline.CharState._fire,timeline.CharState._charge_fire,buff_manager.BuffManager.notify,buff_manager.BuffManager._resolve_target,buff_manager.BuffManager.register_damage_handler,buff_manager.BuffManager.publish_landing)
 class BattleAttackGroupTests(unittest.TestCase):
+    def test_source_audit_names_are_identical_on_windows_and_posix(self):
+        from portable_missing_consumer_audit import source_name
+        for path_type,root in [(PureWindowsPath,'C:/repo'),(PurePosixPath,'/repo')]:
+            base=path_type(root)
+            self.assertEqual(source_name(base/'app'/'battle_attack_group_runtime.py',base),'app/battle_attack_group_runtime.py')
+            with self.assertRaises(ValueError):source_name(base.parent/'other'/'producer.py',base)
     def test_full_original_effects_and_factories_do_not_simulate(self):
         with patch.object(timeline,'simulate',side_effect=AssertionError('No CPU hit input')):
             cases=fixtures();self.assertEqual(len(cases),22)

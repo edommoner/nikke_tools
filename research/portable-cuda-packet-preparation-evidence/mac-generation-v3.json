@@ -1,0 +1,35 @@
+{
+  "capture": "/tmp/nikke-cuda-prep-generation-stage-v3",
+  "stage_result": {
+    "schema": 1,
+    "package_id": "3f61532e114175a182c632eb11b94b2584194767baec6510df7f2dd6227be1ec",
+    "stage": "generation",
+    "bounded_execution_verified": true,
+    "compiler_verified": false,
+    "generation_verified": true,
+    "calculation_verified": false,
+    "cpu_verified": false,
+    "smoke_verified": false,
+    "whole_stage_process_preservation_verified": null,
+    "whole_stage_environment_preservation_verified": null,
+    "stage_verified": true,
+    "stage_complete": true,
+    "gpu_retries": 0,
+    "full_goal_complete": false
+  },
+  "generated_normalized": {
+    "cuda": "f6d8ca67c30e6ef28c82ae05b4a95a7b1d215317c9cb32198d80eed03e6e97a3",
+    "metal": "6c1bb991df5bd6e085314f1678d29d4b765245ab3570d2457f8610aef3a387c2"
+  },
+  "gpu_calls": 0,
+  "compiler_invocations": 0,
+  "cache_hit": true,
+  "elapsed_seconds": 0.5608999169198796,
+  "original_receipt_sha256": {
+    "stage-result.json": "201c35b39b20554664aa5bab5fcb3f869e720952aa858d10b995b0b6c11b83e0",
+    "execution.json": "8fbb692e6e6fd9e8e4f67a8aa785051f745198feca2e290c5da8968bbf5e1e12",
+    "proof/generation.json": "65f96b8f4429f935b0d9c05b2cc9b226f04d734b02154258cbb0bca971f746b1",
+    "proof/generation-cache.json": "feeef27c5f9212cee2f70faf49a2b80747f56449f8f29c35a28deab03ce16a74",
+    "preparation.jsonl": "4986d177d523a3978b03ea685f3c4c7cecb3d75e94bd791f9bc6541abc238a7c"
+  }
+}

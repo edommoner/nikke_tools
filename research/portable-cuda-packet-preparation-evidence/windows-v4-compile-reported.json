@@ -1,0 +1,80 @@
+{
+  "evidence_kind": "Windows task final response; saved raw receipts not independently imported",
+  "thread_id": "01a140bc-5f3b-7661-b720-50c945596eaa",
+  "turn_id": "01a16d4b-69d0-77c0-aa7f-8aef8466f64a",
+  "report": {
+    "package_id": "74b85b79ba275e5068caff94c955f82f830733cbfc1969c953264a928c59ba13",
+    "stage": "compile-cubin-o0",
+    "attempts": 1,
+    "initial_active_validation_processes": 0,
+    "initial_compile_claims": 0,
+    "terminal": true,
+    "outer_exit_code": 1,
+    "inner_exit_code": 1,
+    "both_timed_out": false,
+    "compiler_verified": false,
+    "stage_verified": false,
+    "calculation_verified": false,
+    "failure": {
+      "message": "ptxas fatal: Memory allocation failure",
+      "nvrtc_return_code": 6,
+      "artifact_exists": false
+    },
+    "generation": {
+      "cache_hit": true,
+      "cache_key": "dbe7d0c861c98245670cdbdd8defdf7442f1972adc4d60884c585a0de96a780f",
+      "slang_compiler_invocations": 0
+    },
+    "nvrtc": {
+      "entered": 1,
+      "returned": 1,
+      "raised_at_api_boundary": 0,
+      "compile_seconds": 27.2113278,
+      "artifact_wrapper": "raised RuntimeError"
+    },
+    "seconds": {
+      "outer_execution": 58.2994291,
+      "inner_execution": 43.6232534,
+      "package_verify": 7.0332386,
+      "child_package_verify": 6.6989505,
+      "generation_cache_restore_and_validate": 1.5309501,
+      "compile_artifact_until_error": 27.5550885,
+      "outer_before_observation": 3.5471419,
+      "outer_after_observation": 3.4728456,
+      "inner_before_observation": 3.723194,
+      "inner_after_observation": 3.6853399,
+      "whole_stage": 58.3001972
+    },
+    "job": {
+      "both_pre_gates_verified": true,
+      "both_below_normal": true,
+      "both_limits_bytes": 2147483648,
+      "outer_recorded_peak_bytes": 2148503552,
+      "inner_recorded_peak_bytes": 2124677120,
+      "both_post_jobs_empty": true,
+      "inspection_errors": null,
+      "cleanup_errors": null,
+      "observation_errors": null
+    },
+    "preservation": {
+      "outer_missing": 0,
+      "inner_missing": 0,
+      "process_preservation_verified": true,
+      "service_before_after": "unverified",
+      "environment_preservation_verified": false
+    },
+    "compile_cache": {
+      "completed_artifact": false,
+      "remaining_claim_or_json_files": 0
+    },
+    "cpu_retests": 0,
+    "driver_load_calls": 0,
+    "gpu_calls": 0,
+    "retry": false,
+    "limits_changed": false,
+    "claims_manually_modified": false,
+    "old_seven_process_cause": "unknown",
+    "capture": "C:/Users/owner/Documents/Codex/nikke-cuda-prep-v4-2d07a5e-diagnostic/compile-cubin-o0",
+    "note": "メモリ割当失敗は保存ログの報告。どの制限が直接原因かは未確定。入れ子の時間は合算不可"
+  }
+}

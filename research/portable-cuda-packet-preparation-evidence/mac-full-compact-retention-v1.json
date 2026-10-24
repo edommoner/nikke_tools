@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "packages": [
+    {
+      "suite": "attack-group-battle",
+      "full_files": 2840,
+      "compact_files": 1557,
+      "full_zip_bytes": 9271153,
+      "compact_zip_bytes": 7146143,
+      "compact_sha256": "92d677a39eb2d3de0e4ea9cf29025c1d835205c23e80fa344d40a807dead6da9",
+      "package_id": "09cece1a32b256084f916c69f4d09c2733163af7602c137396f4c5d79f02a000",
+      "retained_records_exact": true,
+      "golden_exact": true
+    },
+    {
+      "suite": "attack-group-native-route",
+      "full_files": 2840,
+      "compact_files": 1557,
+      "full_zip_bytes": 9276470,
+      "compact_zip_bytes": 7151699,
+      "compact_sha256": "2fcd0092396ef351fb32653e3f002f495dabdb5717b7736818796813d4da3441",
+      "package_id": "1adeb5be2b94a861dbbcfe6ae7d3ee6776eacce561466727841f5bdffcb3d624",
+      "retained_records_exact": true,
+      "golden_exact": true
+    },
+    {
+      "suite": "attack-group-long",
+      "full_files": 2840,
+      "compact_files": 1559,
+      "full_zip_bytes": 9278144,
+      "compact_zip_bytes": 7155905,
+      "compact_sha256": "e52aee9fe5f9b42c55a1598068024d399ae7f61ec967710a243ead80d186092b",
+      "package_id": "493a776bac58a688a3207f4916c44404b79765d5e6fd2efda721558a55539bd4",
+      "retained_records_exact": true,
+      "golden_exact": true
+    }
+  ],
+  "control_tests": 383,
+  "windows_skip": 1,
+  "generation_stage_verified": true,
+  "gpu_calls": 0
+}

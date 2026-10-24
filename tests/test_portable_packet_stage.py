@@ -6,6 +6,26 @@ from unittest.mock import patch,Mock
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 spec=importlib.util.spec_from_file_location('packet_stage',ROOT/'scripts/run-gpu-packet.py');stage=importlib.util.module_from_spec(spec);spec.loader.exec_module(stage)
 class PacketStageTests(unittest.TestCase):
+    def test_generation_is_separate_cpu_only_preparation(self):
+        with patch.dict(stage.os.environ,{'NIKKE_SLANG_GENERATION_CACHE':str(Path('/tmp/generation-cache').resolve())}):
+            p=stage.recipe('id','generation','cuda','/tmp/generated-stage','/tmp/original',180)
+        self.assertEqual(stage.proof_arguments(p),['generation','--out',p['proof_capture'],'--generation-cache',p['generation_cache'],'--packet-stage',p['capture']])
+        self.assertEqual(p['inner_gpu_timeout_seconds'],60);self.assertEqual(p['memory_limit_mb'],2048)
+        with patch.dict(stage.os.environ,{'NIKKE_SLANG_GENERATION_CACHE':''}):
+            with self.assertRaisesRegex(ValueError,'absolute Slang generation cache'):stage.recipe('id','generation','cuda','/tmp/x','/tmp/original',180)
+    def test_generation_receipt_cannot_claim_battle_or_gpu_success(self):
+        good=dict(package_id='id',verified=True,sealed_generated_baseline_verified=True,calculation_verified=False,executable_battle_verified=False,gpu_calls=0)
+        for change in ({},dict(package_id='other'),dict(gpu_calls=1),dict(gpu_calls=False),dict(calculation_verified=True),dict(executable_battle_verified=True),dict(sealed_generated_baseline_verified=False),dict(mode='compile-only',compiler_verified=True,driver_load_calls=0),dict(driver_load_calls=1),dict(nvrtc_compile_calls=1)):
+            with tempfile.TemporaryDirectory() as d:
+                root=Path(d)/'packet';root.mkdir();folder=Path(d)/'stage';proof=dict(good,**change)
+                def bounded(*args,**kw):
+                    self.assertEqual(kw['env']['NIKKE_SLANG_GENERATION_REQUIRED'],'0')
+                    (folder/'proof').mkdir();(folder/'proof/generation.json').write_text(json.dumps(proof));return dict(passed=True)
+                cli=SimpleNamespace(bounded_module=lambda:SimpleNamespace(run_bounded=bounded),validation_environment=lambda _:dict())
+                with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='id')),patch.object(stage,'load_module',return_value=cli),patch.object(stage,'is_windows',return_value=False),patch.dict(stage.os.environ,{'NIKKE_SLANG_GENERATION_CACHE':str(Path(d)/'cache')}):
+                    result=stage.run_stage(folder,'generation','cuda',180,'/tmp/original')
+                self.assertEqual(result['stage_verified'],not change);self.assertEqual(result['generation_verified'],not change)
+                self.assertFalse(result['calculation_verified']);self.assertFalse(result['compiler_verified'])
     def test_recipe_rejects_capture_inside_package_and_original(self):
         with self.assertRaises(ValueError):stage.recipe('id','cpu','cuda',ROOT/'capture',None,180)
         with self.assertRaises(ValueError):stage.recipe('id','cpu','cuda',Path('/tmp/original/capture'),'/tmp/original',180)

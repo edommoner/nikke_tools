@@ -16,7 +16,8 @@ SUPPORTED_SUITES = ('destructible-skill-retention', 'destructible-skill-misato-r
                     'destructible-aoe-burst-rosters','destructible-body-lifesteal',
                     'destructible-body-lifesteal-retention',
                     'destructible-body-accum','destructible-body-accum-retention',
-                    'destructible-body-heal-share','destructible-body-heal-share-retention')
+                    'destructible-body-heal-share','destructible-body-heal-share-retention',
+                    'attack-group-battle','attack-group-native-route','attack-group-long')
 RUNTIME_ROOTS = ('research/run-world-bounded.py', 'research/portable_phase_audit.py',
                  'research/summarize-portable-cross-gpu.py')
 # These registries describe commands outside this profile, not runtime imports.

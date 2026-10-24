@@ -1,4 +1,9 @@
 <!-- long-group-history-current -->
+
+<!-- cuda-packet-preparation-current -->
+CUDA準備を既存packet wrapperの生成専用stageへ分離し、実Job/2GiB/BelowNormal/gate確認付きでWindowsへ接続。Windows CPU32/native48/60入力成功後、生成v4も34.117秒でCUDA/MSL sealed指紋一致（Slang2、NVRTC/driver/GPU0、postJob空/missing0、service unverified）。最新3suiteをcompactへ追加し、残存全byte/goldenを保持。Windows相対path監査不具合をPOSIX表記で修正。Mac制御387(Win1skip)・生成stage成功、計算コード/数値/golden変更0・GPU再実行0。生成cache必須O0を1回だけ実施しcachehit/Slang0、NVRTC27.211秒でptxas Memory allocation failure/rc6/artifactなし、全58.300秒（timeoutなし）。内外Job後空/missing0、driver/GPU0・再試行/上限変更0。次はCPUのみで保存生成コードを解析しcompilerメモリ削減の共通分割候補を調べる。失敗・claimは保持。現CUDA計算未確認、全キャラ0/静的245/266/base185/203/20gap/UI CPU/未達。詳細 [CUDA packet準備](portable-cuda-packet-preparation.md) とresearch/portable-cuda-packet-preparation-checkpoint.json。以下は履歴。
+<!-- /cuda-packet-preparation-current -->
+
 sealed attack-group-long60(native48/拒否12)で、180秒の全927group/209通知をMetal一致・独立seal。live32slotと観測履歴を分離し、opt-in可変長24+4*対象wordsで全recordを保存、先頭64legacyも保持。schema LANDINGS2048から開始862048/arena186528wordsを導出、尽きれば明示status64。初版の512誤認/領域重複で新6件の参照bank検査が失敗したcapture/claimを保持し、同じ60入力で修正を検証。65射目/最終時刻/余分word/参照bank末尾の4改変を検出。旧53の全222298112byte/input/native保持、旧53/32のsource/生成IDだけ更新。CPU31/正本48/制御380(Win1skip)、GPU11.181秒/PSO90.851秒/run Slang0、最終package4c2a5371…全payload/CPU/generation照合済み。旧61は新GPU0/source再bind0、生成CUDA/Metal/両reflection全byte一致だけをCPU確認。原本削除0で約656MB割当回収。静的245/266/base185/203/20gapと全profile/issue/lane保持、全キャラ0/UI CPU/Windows0/未達。次はCUDA本体compile/cacheとmixed-owner/arena境界、geometry/盾/parts。詳細[完全な長時間group履歴](portable-long-group-history.md)とresearch/portable-long-group-history-checkpoint.json。以下は履歴。
 <!-- /long-group-history-current -->
 
