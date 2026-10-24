@@ -17,11 +17,19 @@ def verify(root):
         if p.name=='attack_group_runtime.py':continue
         t=ast.parse(p.read_text(encoding="utf-8"));calls=[n for n in ast.walk(t) if isinstance(n,ast.Call) and isinstance(n.func,ast.Attribute) and n.func.attr in ('begin_attack_targets','finish_attack_targets')]
         if calls:producer_calls.append(str(p.relative_to(root)))
-    assert not producer_calls,'New attack producer requires a fresh semantic audit'
+    scoped=root/'app/battle_attack_group_runtime.py'
+    assert producer_calls==['app/battle_attack_group_runtime.py'],'Unreviewed attack producer requires a fresh semantic audit'
+    scoped_tree=ast.parse(scoped.read_text());scope=next(n for n in scoped_tree.body if isinstance(n,ast.FunctionDef) and n.name=='battle_attack_groups')
+    assert [a.arg for a in scope.args.kwonlyargs]==['routing'] and scope.args.kw_defaults==[None]
+    assert any(isinstance(n,ast.If) and ast.unparse(n.test)=="routing != 'all-logical-enemies'" for n in scope.body)
+    assert not any(isinstance(n,(ast.Expr,ast.Assign,ast.With)) and any(isinstance(c,ast.Call) and isinstance(c.func,ast.Name) and c.func.id=='battle_attack_groups' for c in ast.walk(n)) for n in scoped_tree.body)
+    for name in ('engine_compat.py','engine_worker.py'):
+        assert 'battle_attack_group_runtime' not in (root/'app'/name).read_text(),'Default installation requires a separate admission audit'
+    sources.append(scoped)
     assert 'manager.notify(event,t,key.caster,attack_targets=sealed.result)' in (root/'app/attack_group_runtime.py').read_text(encoding="utf-8")
     impact=(root/'app/impact_runtime.py').read_text(encoding="utf-8");assert 'Impact(event.caster,actor.handle,classify_hit(event.hit_tag),HitOutcome.DAMAGING,event.damage)' in impact
     assert 'Impact(ev.caster,target,classify_hit(ev.hit_tag),HitOutcome.DAMAGING,amount)' in impact
     sources += [root/'app/attack_group_specs.py',up/'calculator/buff_manager.py',root/'app/impact_runtime.py',root/'app/impact_specs.py',root/'app/damage_query_runtime.py']
     from portable_model_gap_audit import verify as model_gaps
     remaining=model_gaps(root)
-    return dict(passed=True,remaining_model_gaps=remaining,missing_target_worlds=list(rows),damage_factor_consumers=[],all_projectiles_early_return=True,multi_hit_listener_present=True,battle_attack_group_producer_calls=producer_calls,impacts_keep_default_attack_id_zero=True,historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources})
+    return dict(passed=True,remaining_model_gaps=remaining,missing_target_worlds=list(rows),damage_factor_consumers=[],all_projectiles_early_return=True,multi_hit_listener_present=True,battle_attack_group_producer_calls=producer_calls,default_battle_attack_group_producer_calls=[],opt_in_producer_policy='all-logical-enemies; body/add only; normal physical shot returns',impacts_keep_default_attack_id_zero=True,historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources})

@@ -1,3 +1,7 @@
+<!-- battle-attack-groups-native-current -->
+共通CLI `reference --suite attack-group-battle` に実射撃のCPU22契約を追加。固定full packageで168射／168group／112通知／448子着弾が成功、16入力で非zero。元ニヒリスター／ベロータ20入力と、宣言listenerを加えた元ノワール／ツバイ10packet射撃2入力を区別する。実際のBODY/ADD receiptからdistinct集合をsealし、queued childの世代固定・例外復元・単boss全battle保持を検査。明示all-logical-enemiesモデルで、ゲーム内の範囲判定／Slang自律producer／Metal接続は未完了、22全てmodel gap・GPU加算0。前回のsealed Metal入口はdestructible-body-heal-share-retention61、親oracle52再利用とfresh独立監査を維持する。Windowsは接続復旧を読み取り確認、idleで新規CUBIN／CUDA依頼0。全キャラ0／通常UI CPU／ゴール未達。詳細 [実射撃group CPU契約](portable-battle-attack-groups-native.md) とresearch/portable-battle-attack-group-checkpoint.json。以下は履歴。
+<!-- /battle-attack-groups-native-current -->
+
 <!-- body-lifesteal-shield-current -->
 HSI5で元ミルク吸血16.16%を既存body着弾後へ接続。盾で吸収したpacketはbody/吸血を抑止し、body到達だけ従来処理。元77定義・3/30秒の新13(native10/拒否3)、旧AoE18込み31(native26/拒否5)がMetal一致・各独立seal。累積healing未照合を保存raw破損で発見して厳密なnative receipt比較を追加し、GPU0 replay13/再seal・12破損検出。旧18全raw一致、新13の6件は配置変更に伴うscratch絶対アドレス1wordのみ、元raw/保持検査失敗/全差分を保持しnormalizer除外0。source158/Runtime138952/数値/保護CPU維持、旧経路の生成CUDA/MSL全byteも同一。現在sealed入口destructible-body-lifesteal-retention31、旧goldenはsource stale履歴を保つ。蓄積/共有回復/貫通は未対応、Windows追加0/全キャラ0/UI CPU/残20gap。詳細docs/portable-destructible-body-lifesteal.mdとcheckpoint。以下は履歴。
 <!-- /body-lifesteal-shield-current -->
