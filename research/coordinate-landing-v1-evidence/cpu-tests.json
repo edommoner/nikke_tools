@@ -1,0 +1,32 @@
+[
+  {
+    "pattern": "test_coordinate_landing_v1.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.8199924170039594,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 38071
+  },
+  {
+    "pattern": "test_coordinate_power_v1.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.028080916963517666,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 38071
+  },
+  {
+    "pattern": "test_portable_numeric_design.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.001522333943285048,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 38071
+  }
+]

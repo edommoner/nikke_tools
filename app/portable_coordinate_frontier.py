@@ -81,6 +81,13 @@ def verify(root, overrides=None):
     geometry_path=root/'research/portable-coordinate-geometry-short-expected.json'
     geometry_matches=(json.loads(geometry_path.read_text())['source_sha256']==geometry_sources
                       if geometry_path.is_file() else None)
+    landing_sources=source_hashes(root,'gpu/coordinate_landing_probe.slang')
+    landing_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest()
+                     if name in overrides else digest for name,digest in landing_sources.items()}
+    landing_path=root/'research/portable-coordinate-landing-short-expected.json'
+    landing_matches=(json.loads(landing_path.read_text())['source_sha256']==landing_sources
+                     if landing_path.is_file() else None)
+    from portable_coordinate_landing_v1 import TARGETS,CUTS,OUTPUT as LANDING_OUTPUT
     dependencies = [
         dict(id='landing-probability', classification='gpu_port_gap',
              native='Geometry.landing -> aim.landing',
@@ -143,6 +150,15 @@ def verify(root, overrides=None):
                     operations=['distance','contains','circle-arcs','halfplane-arcs','grown-rotated-rectangle-arcs','radial-breaks'],
                     nonfinite_intermediate_rejected=True,denominator_underflow_rejected=True,
                     battle_connected=False,radial_integrator_connected=False,
+                    whole_geometry_capacity_certified=False),
+                deterministic_radial_landing=dict(suite='coordinate-landing',
+                    proof_available=landing_matches is not None,sealed_source_matches_current=landing_matches,
+                    source_sha256=landing_sources,reference_kind='deterministic-common-cpu',
+                    unit_power_contract='coordinate-unit-power-v1',quadrature_contract='coordinate-gauss-legendre-10-v1',
+                    targets_capacity=TARGETS,cuts_capacity=CUTS,output_words=LANDING_OUTPUT,
+                    prepared_frame_values_on_gpu=True,all_cuts_retained=True,
+                    operations=['front-probability','reach-probability','core-open','core-under'],
+                    battle_connected=False,sampling_rng_connected=False,cache_key_rounding_connected=False,
                     whole_geometry_capacity_certified=False),
                 logical_pellets_equal_emitted_packets=False, dependencies=dependencies,
                 source_sha256={p: hashlib.sha256(t.encode()).hexdigest() for p, t in texts.items()},

@@ -33,6 +33,12 @@ class FrontierTests(unittest.TestCase):
         self.assertFalse(geometry['rotation_matrix_precomputed_on_cpu'])
         self.assertFalse(geometry['radial_integrator_connected'])
         self.assertFalse(geometry['battle_connected'])
+        landing=result['deterministic_radial_landing']
+        self.assertTrue(landing['prepared_frame_values_on_gpu'])
+        self.assertTrue(landing['all_cuts_retained'])
+        self.assertEqual(landing['cuts_capacity'],5098)
+        self.assertFalse(landing['sampling_rng_connected'])
+        self.assertFalse(landing['battle_connected'])
         self.assertEqual((result['gpu_calls'], result['native_battle_calls']), (0, 0))
         rows = {r['id']: r for r in result['dependencies']}
         self.assertEqual(len(rows), 7)

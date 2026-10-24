@@ -1,0 +1,21 @@
+{
+  "kind": "coordinate-unit-power-directed-mpfr-v1",
+  "contract": "coordinate-unit-power-v1",
+  "inputs": 2434,
+  "samples": 2048,
+  "accuracy_verified": true,
+  "max_ulp": 0,
+  "source_sha256": {
+    "app/portable_coordinate_power_v1.py": "95e82d81212709ced940ab8bb6d538c8ed0c88bf020ea89e4931e73c338997ce",
+    "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+    "gpu/coordinate_power_v1.slang": "13c6251bec7bd32c392cfe52540a615947a325f1beecbe4565eafdf838de656e",
+    "research/coordinate_power_accuracy.py": "20a3d2238a56919985fc2ada6839eaf8979bdb5a60855aebde64f0aa7954a44e",
+    "research/portable_coordinate_power_cases.py": "c8329b1623d2cd4a65ff0f2d310c5d679ec912ea2edc8708af15c434e17bfe3b"
+  },
+  "comparison_sha256": "1186a7f93bc595baefb81c6a20d9902e1309c939edeab68096cf4207093f695d",
+  "oracle": "MPFR256 directed down/up; both binary64 endpoints must agree",
+  "mpfr_version": "MPFR 4.2.1",
+  "all_domain_no_unresolved_rounding_claim": false,
+  "gpu_executions": 0,
+  "elapsed_seconds": 0.1124132089316845
+}

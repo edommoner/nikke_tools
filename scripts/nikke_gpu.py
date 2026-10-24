@@ -324,6 +324,8 @@ SUITES['coordinate-composed']['support_files']=[*SUITES['coordinate-generation']
 SUITES['coordinate-arc-scalar']=dict(script='research/verify-coordinate-arc-scalar-short.py',source='gpu/coordinate_arc_scalar_probe.slang',golden='research/portable-coordinate-arc-scalar-short-expected.json',inputs=640,native=632,output_words=4104,development_only=False,tests=['test_coordinate_arc_scalar.py','test_portable_model_gap_audit.py','test_coordinate_physical_frontier.py'],upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'],support_files=['research/portable-coordinate-arcs-short-expected.json'])
 SUITES['coordinate-numeric']=dict(script='research/verify-coordinate-numeric-short.py',source='gpu/coordinate_numeric_probe.slang',golden='research/portable-coordinate-numeric-short-expected.json',inputs=2783,native=2771,output_words=16,development_only=False,tests=['test_coordinate_numeric_v1.py'])
 SUITES['coordinate-geometry']=dict(script='research/verify-coordinate-geometry-short.py',source='gpu/coordinate_geometry_probe.slang',golden='research/portable-coordinate-geometry-short-expected.json',inputs=1224,native=1209,output_words=4160,development_only=False,tests=['test_coordinate_geometry_v1.py','test_coordinate_numeric_v1.py'])
+SUITES['coordinate-power']=dict(script='research/verify-coordinate-power-short.py',source='gpu/coordinate_power_probe.slang',golden='research/portable-coordinate-power-short-expected.json',inputs=909,native=898,output_words=8,development_only=False,tests=['test_coordinate_power_v1.py','test_portable_numeric_design.py'])
+SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['skill-part-codec']=dict(script='research/verify-skill-part-codec-short.py',source='gpu/skill_part_codec_probe.slang',
     golden='research/portable-skill-part-codec-short-expected.json',inputs=4,native=3,development_only=False,
     tests=['test_portable_skill_part_codec.py'])
@@ -2577,7 +2579,7 @@ def main(argv=None):
     a=sub.add_parser('layout-check');a.add_argument('--out',type=Path)
     from portable_arena_specs import PROFILES as ARENA_PROFILES
     a=sub.add_parser('arena-check');a.add_argument('--profile',choices=ARENA_PROFILES,required=True);a.add_argument('--out',type=Path,required=True)
-    a=sub.add_parser('numeric-audit');a.add_argument('--out',type=Path,required=True);a.add_argument('--samples',type=int,default=512)
+    a=sub.add_parser('numeric-audit');a.add_argument('--out',type=Path,required=True);a.add_argument('--samples',type=int,default=512);a.add_argument('--profile',choices=('coordinate-binary64-v1','coordinate-unit-power-v1'),default='coordinate-binary64-v1')
     a=sub.add_parser('model-check');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('reference');a.add_argument('--suite',choices=REFERENCES,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('phase-codegen');a.add_argument('--out',type=Path,required=True);a.add_argument('--slang-root',type=Path)
@@ -2692,7 +2694,10 @@ def main(argv=None):
         with forbid_gpu():result={**audit_live_sources(ROOT),**audit_profile(a.profile)}
         write(a.out,result)
     elif a.command=='numeric-audit':
-        from coordinate_numeric_accuracy import audit as numeric_audit
+        if a.profile=='coordinate-unit-power-v1':
+            from coordinate_power_accuracy import audit as numeric_audit
+        else:
+            from coordinate_numeric_accuracy import audit as numeric_audit
         if a.out.exists():raise ValueError('Numeric accuracy audit output already exists')
         with forbid_gpu():result=numeric_audit(ROOT,a.samples)
         with a.out.open('x',encoding='utf-8') as stream:json.dump(result,stream,ensure_ascii=False,indent=2);stream.write('\n')
