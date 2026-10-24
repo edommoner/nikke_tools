@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "package_id": "959b00624a989ffc85295b0c1afd918f79f10436c194289210412f6a67092a25",
+  "archive_bytes": 9228821,
+  "archive_sha256": "7fb69ffdf87e9aad0580832a083d52c12d381d8c367fc70e2e96485b29517589",
+  "source_base_commit": "df20f067c38acaf3f5a52c38c66c515340e40e95",
+  "working_tree_dirty": true,
+  "suite": "compiler-full--attack-group-long",
+  "purpose": "compiler-diagnostic",
+  "files": 2842,
+  "complete_current_gpu_source_equals_windows_v4": true,
+  "generated_normalized": {
+    "cuda": "f6d8ca67c30e6ef28c82ae05b4a95a7b1d215317c9cb32198d80eed03e6e97a3",
+    "metal": "6c1bb991df5bd6e085314f1678d29d4b765245ab3570d2457f8610aef3a387c2"
+  },
+  "mac_cpu_tests": 191,
+  "independent_metal60_audit": true,
+  "changed_retained_payload_from_v4": [
+    "tests/test_portable_compiler_certificate.py"
+  ],
+  "omitted_by_existing_compiler_package_whitelist": [
+    "research/upstream/nikke-calc-master/docs/IMPL-STATUS.md"
+  ],
+  "requested_stage": "compile-ptx",
+  "requested_artifact": "ptx",
+  "max_inner_seconds": 60,
+  "max_outer_seconds": 180,
+  "memory_limit_mb": 2048,
+  "driver_calls_requested": 0,
+  "gpu_calls_requested": 0,
+  "slang_calls_requested": 0,
+  "prior_cubin_failure_preserved": true,
+  "why_distinct": "Full-source PTX only; separate assembly/link was previously proven with an older full source. Not a repeat CUBIN run or shortened commands subset."
+}
