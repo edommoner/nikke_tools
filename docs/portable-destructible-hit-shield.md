@@ -1,5 +1,7 @@
 # hit盾を既存の選択・着弾Frameへ接続
 
+後続で通常武器22契約のMetal接続が完了した。現在の141入力入口・制限は[武器GPU実証](portable-destructible-weapon-shield-gpu.md)を参照。以下はこの段階の履歴。
+
 後続の通常武器のnative CPU契約22件は[武器の盾接続設計](portable-destructible-weapon-shield-native.md)を参照。武器GPUは未接続で、以下はskill向けMetal111の記録。
 
 共通CLIのsealed `destructible-hit-shield`を追加した。HP盾と同じ実戦scheduler・選択・Frame・receipt・counter continuationでhit盾を処理し、Apple M5のMetal111入力（native76・拒否35）が全件一致した。GPU実行は1回で成功し、保存出力の独立sealもGPU0で成功した。通常武器・貫通・ADD owner・全プロフィール・ゲーム規則・CUDA実機の認定は未完了。

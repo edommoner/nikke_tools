@@ -3,16 +3,23 @@
 bool initializeDestructibleBattle(inout Runtime s)
 {
     uint descriptor=DF_DESCRIPTOR(s),extra=DF_EXTRA(s),count=commands[extra+2320];
-    if(commands[descriptor]>=s.count||commands[descriptor+1]<1||commands[descriptor+1]>128||commands[descriptor+2]!=1||commands[descriptor+3]!=0x44425431U) return false;
+    bool weaponOnly=false;
+#ifdef PORTABLE_DESTRUCTIBLE_WEAPON
+    weaponOnly=destructibleWeaponEnabled(s)&&commands[descriptor]==0xffffffffU;
+#endif
+    if((!weaponOnly&&commands[descriptor]>=s.count)||commands[descriptor+1]<1||commands[descriptor+1]>128||commands[descriptor+2]!=1||commands[descriptor+3]!=0x44425431U) return false;
     for(uint i=4;i<16;i++) if(commands[descriptor+i]!=0) return false;
     for(uint i=0;i<2320;i++) if(commands[extra+i]!=0) return false;
     for(uint i=2321;i<2328;i++) if(commands[extra+i]!=0) return false;
     for(uint i=3864;i<5120;i++) if(commands[extra+i]!=0) return false;
     if(!worldFrameEnabled(s)) return false;
+    if(!weaponOnly)
+    {
     Definition d=readDefinition(s.inputBase,commands[descriptor]);
     // Both accepted bits already have an ordinary common-executor consumer:
     // named scalar factors and post-handler completion notification (event51).
     if(d.kind!=3||d.stat!=0||d.damageRoute!=1||d.damageCount!=1||d.damageHits!=1||d.damagePending!=0||d.damageNormal!=0||(d.damageFlags&~(H_NAMED_SKILL|524288U))!=0||d.healthScaling!=0||d.quantityFlags!=0||!dtQuantity(d.value)) return false;
+    }
     WorldSchedule w=frameSchedule(s);
     for(uint slot=0;slot<count&&slot<128;slot++)
     { uint node=commands[extra+2328+slot*12];if(node>=w.count||(commands[wsNode(w,node)+1]&2)!=0) return false; }

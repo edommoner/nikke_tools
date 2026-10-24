@@ -27,9 +27,9 @@ def fixtures():
     c=add('scatter-counter-skill-consumes-separate-credit',kind=4,capacity=2.,pellets=3)
     child=dict(name='counter-skill',source='스킬2',type='damage',stat='damage',target='boss',fixed_value=50.,trigger=dict(timing=['event:target_counter_complete:marker'],condition=[]))
     watched(c,'hit_shield',child)
-    c=add('full-charge-hp-context');c['duration']=.5;c['combat']['weapons'][0].update(mode='charge',charge=.1,interval=.2,min_cycle=.2,full_charge_mult=200,base_weapon_type='SR')
-    c=add('charge-scatter-hp-context',pellets=3);c['duration']=.5;c['combat']['weapons'][0].update(mode='charge',charge=.1,interval=.2,min_cycle=.2,full_charge_mult=200,base_weapon_type='SR')
-    c=add('tap-hit-credit',kind=4,capacity=2.);c['duration']=.95;c['combat']['weapons'][0].update(mode='charge',charge=.2,interval=.2,min_cycle=.1,full_charge_mult=300,base_weapon_type='SR');c['controls']=[dict(click=[dict(window='always',mode='tap',rate=4,release=.05)]),{},{},{},{}]
+    c=add('full-charge-hp-context');c['duration']=.5;c['combat']['weapons'][0].update(mode='charge',charge=.1,interval=.2,min_cycle=.2,full_charge_mult=200,base_weapon_type='SR');c['post_fire_delays'][0]=.215
+    c=add('charge-scatter-hp-context',pellets=3);c['duration']=.5;c['combat']['weapons'][0].update(mode='charge',charge=.1,interval=.2,min_cycle=.2,full_charge_mult=200,base_weapon_type='SR');c['post_fire_delays'][0]=.215
+    c=add('tap-hit-credit',kind=4,capacity=2.);c['duration']=.95;c['combat']['weapons'][0].update(mode='charge',charge=.2,interval=.2,min_cycle=.1,full_charge_mult=300,base_weapon_type='SR');c['controls']=[dict(click=[dict(window='always',mode='tap',rate=4,release=.05)]),{},{},{},{}];c['post_fire_delays'][0]=.215
     from world_overlay_skill_mode_cases import fixtures as modes
     template=modes()[0]['effects'][0]
     for skill in (False,True):
@@ -39,8 +39,8 @@ def fixtures():
     c=add('world-expiry-keeps-later-body');c['patterns'][0]['until']['time']=.15
     c=add('core-context-is-preserved');c['enemy']['core_px']=1000000.
     add('two-muzzles-hit-credit',kind=4,capacity=3.,muzzles=2)
-    c=add('last-squad-owner');c['combat']['weapons'][4]=copy.deepcopy(c['combat']['weapons'][0]);c['combat']['weapons'][0].update(mode='charge',charge=10,interval=10,min_cycle=10);c['owners']=[4]
-    c=add('two-allied-attackers',kind=4,capacity=1.);c['combat']['weapons'][1]=copy.deepcopy(c['combat']['weapons'][0])
-    c=add('rl-explosion-charge-context');c['duration']=.5;c['combat']['weapons'][0].update(mode='charge',charge=.1,interval=.2,min_cycle=.2,full_charge_mult=200,base_weapon_type='RL');c['effects'].append(field('projectile_explosion_dmg_pct',100,'self','explosion-factor'));c['owners'].append(0)
+    c=add('last-squad-owner');c['combat']['weapons'][4]=copy.deepcopy(c['combat']['weapons'][0]);c['post_fire_delays'][4]=0;c['combat']['weapons'][0].update(mode='charge',charge=10,interval=10,min_cycle=10);c['owners']=[4];c['post_fire_delays'][0]=.215
+    c=add('two-allied-attackers',kind=4,capacity=1.);c['combat']['weapons'][1]=copy.deepcopy(c['combat']['weapons'][0]);c['post_fire_delays'][1]=0
+    c=add('rl-explosion-charge-context');c['duration']=.5;c['combat']['weapons'][0].update(mode='charge',charge=.1,interval=.2,min_cycle=.2,full_charge_mult=200,base_weapon_type='RL');c['effects'].append(field('projectile_explosion_dmg_pct',100,'self','explosion-factor'));c['owners'].append(0);c['post_fire_delays'][0]=.215
     c=add('hp-policy-skips-hit-shield',kind=4,capacity=2.);c['hit_shield_interception_v1']=False
     return rows

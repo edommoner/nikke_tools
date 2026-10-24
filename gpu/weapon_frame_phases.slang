@@ -1,4 +1,10 @@
 // Shared weapon-frame phases; math, callback order and snapshots are unchanged.
+#ifndef WEAPON_TYPED_DAMAGE
+#define WEAPON_TYPED_DAMAGE(s,who,w,coefficient,when,legacy) legacy
+#define WEAPON_TYPED_PELLET(s,w,who,when,output,hit,amount) false
+#define WEAPON_BODY_SUPPRESSED(s,who,hit) false
+#define WEAPON_BODY_AMOUNT(s,who,legacy) legacy
+#endif
 [noinline]
 void prepareWeaponFrame(inout Runtime s,uint who,uint64_t when,uint output,out uint target,out Weapon w,out bool ready)
 {
@@ -100,7 +106,7 @@ void captureWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uin
     if (w.mode != 1) advanceWarmup(s,w,who,when,shotInterval);
     if (w.mode != 1 && w.infinite == 0) { if (!changedWeaponSession(s,who,epoch,mode)) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
     WORLD_PROJECTILE_SAMPLE(s,w,who,when) WORLD_SAMPLE_SHOT_KIND(s,who,mode,w.pellets*w.muzzles) uint64_t coefficient = mode >= 0 && modeShots == 0 && !f64Less(w.firstCoefficient,0) ? w.firstCoefficient : w.coefficient;
-    uint64_t amount = COUNTER_DAMAGE(s,who,w,coefficient,when,damageValue(s,who,f64Div(coefficient,f64FromI64(w.pellets)),when,WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode == 1 ? (PARTIAL_IS_FULL(w)?H_CHARGE:0U) | ((s.attackContext[who] & 4) != 0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal != 0,true));
+    uint64_t amount = WEAPON_TYPED_DAMAGE(s,who,w,coefficient,when,COUNTER_DAMAGE(s,who,w,coefficient,when,damageValue(s,who,f64Div(coefficient,f64FromI64(w.pellets)),when,WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode == 1 ? (PARTIAL_IS_FULL(w)?H_CHARGE:0U) | ((s.attackContext[who] & 4) != 0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal != 0,true)));
     COUNTER_SHOT(s,who,w,coefficient,when) WORLD_PROJECTILE_RECORD(s,w,who,when,amount) if (s.error != 0) return;
     uint count = w.pellets*w.muzzles;
     landedAmount=amount;landedCount=count;landedTarget=target;
@@ -116,7 +122,8 @@ void landWeaponPellets(inout Runtime s,inout Weapon w,uint who,uint64_t when,uin
     // later pellets, consume extra ammunition, or redirect this physical shot.
     for (uint hit = 0; hit < count && s.error == 0; hit++)
     {
-        if (s.landingPolicy==0) land(s,who,WORLD_POOL_PHYSICAL_TARGET(s,who,target),amount);
+        bool typed=WEAPON_TYPED_PELLET(s,w,who,when,output,hit,amount);
+        if (!typed && s.landingPolicy==0) land(s,who,WORLD_POOL_PHYSICAL_TARGET(s,who,target),amount);
         if (w.mode != 1 || count > 1) dispatch(s,0,20,who,0,when,output); WORLD_TEAM_PELLET(s,w,who,when,output) WORLD_FRACTION_AUTO(s,w,who,when,output)
     }
     s.shots[who] = completedShots;

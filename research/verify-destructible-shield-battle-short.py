@@ -18,7 +18,7 @@ suite=types.SimpleNamespace(INPUT=110112,OUTPUT=1048576);cross=battle.cross
 def fixtures():
     return [*battle.fixtures(),*modifiers(),*[dict(c,shield_interception_v1=True) for c in shields()]]
 
-def compile_case(c):
+def compile_case(c,*,allow_weapon_only=False):
     lowered=copy.deepcopy(c);routes={}
     for index,effect in enumerate(lowered['effects']):
         if modifier_axis(effect):effect['stat']='atk_dmg_pct'
@@ -26,10 +26,9 @@ def compile_case(c):
         elif c.get('shield_interception_v1') and effect.get('target')=='boss' and effect.get('type')=='damage':
             # Validate the same plain skill contract before any target exists.
             coefficient(dict(effect,target='all_projectiles'),dict(name=battle.roster_names(c)[c['owners'][index]],skill_levels=battle.skill_levels(c)[c['owners'][index]]));routes[index]=3
-    if not routes:raise ValueError('At least one routed plain skill required')
-    primary=next(iter(routes))
-    lowered['effects'][primary]['target']='all_projectiles'
-    w,(_,meta,bindings)=battle.compile_case(lowered)
+    if not routes and not (allow_weapon_only and c.get('weapon_shield_interception_v1')):raise ValueError('At least one routed plain skill required')
+    if routes:lowered['effects'][next(iter(routes))]['target']='all_projectiles'
+    w,(_,meta,bindings)=battle.compile_case(lowered,weapon_only=not routes)
     extra=[0]*576;extra[0]=0x444d4231;extra[544:548]=[0x48534931,0,0,1]
     for row,index in enumerate(meta['binding_source_indices']):
         axis=modifier_axis(c['effects'][index]);extra[32+row]=axis;extra[288+row]=routes.get(index,0)
@@ -69,7 +68,7 @@ def scope(c,observations):
     def observed(bindings,**kw):
         @contextmanager
         def capture():
-            with typed_battle(bindings,modifier_model=True,shield_owner=BOSS if c.get('shield_interception_v1') else None,hit_shields=c.get('hit_shield_interception_v1',False),**kw) as data:
+            with typed_battle(bindings,modifier_model=True,shield_owner=BOSS if c.get('shield_interception_v1') else None,hit_shields=c.get('hit_shield_interception_v1',False),weapon_shields=c.get('weapon_shield_interception_v1',False),**kw) as data:
                 observations.append(data);yield data
         return capture()
     with patch.object(battle,'typed_battle',observed):yield

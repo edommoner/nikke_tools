@@ -1,5 +1,7 @@
 # 通常武器の盾接続：nativeの発射snapshotを保持
 
+後続で通常武器22契約のMetal接続が完了した。現在の141入力入口・制限は[武器GPU実証](portable-destructible-weapon-shield-gpu.md)を参照。以下はこの段階の履歴。
+
 共通CLI `reference --suite destructible-weapon-shield`へ22 CPU契約を追加した。実際のCharState._fire/_charge_fireとBossScript時計からHP盾/hit盾へ接続し、auto・散弾・charge・tap・武器変更・複数総口・複数射手を確認した。今回の新GPU実行は0で、武器のMetal/CUDA接続・ゲーム規則・全キャラ認定は未完了。
 
 ## 発射中のcontextを接続する

@@ -42,7 +42,8 @@ class HitShieldTests(unittest.TestCase):
  def test_actual_metal_credit_owner_generation_and_counter_receipts(self):
   from portable_backend import source_hashes
   f=json.loads((ROOT/'tests/fixtures/portable-destructible-hit-shield-raw.json').read_text());rows,_=a.prepare()
-  self.assertEqual(f['source_sha256'],source_hashes('gpu/destructible_shield_battle_entry.slang'))
+  from portable_destructible_weapon_source_contract import verify_retained_sources
+  verify_retained_sources(ROOT,'gpu/destructible_shield_battle_entry.slang',f['source_sha256'])
   for record in f['records']:
    name,words,domain=rows[record['index']];self.assertEqual(name,record['name'])
    self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256'])

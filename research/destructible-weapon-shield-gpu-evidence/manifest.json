@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "clock-diagnostic.json",
+      "bytes": 1654,
+      "sha256": "b7e81d727ca321bff27ff1f9904ebc902d16bc129b55a46cf17d9ff4744ef8bb"
+    },
+    {
+      "path": "cpu204.json",
+      "bytes": 6892,
+      "sha256": "0aeee1ceeb239137c514804af5aa4acb9c2bc83237948a5bb4abd3b934d0b2de"
+    },
+    {
+      "path": "execution-timing.json",
+      "bytes": 2275,
+      "sha256": "7577e14fd760f2427eb00142387efc9e11cd2923e654b488fa0a3158983b6ecd"
+    },
+    {
+      "path": "failed-metal141.json",
+      "bytes": 57396,
+      "sha256": "3acc6d346ac9c7a3d5ddab6dbf9b76375c0c96c19c7c8a0f374f8bf6ceba2d92"
+    },
+    {
+      "path": "inventory-preservation.json",
+      "bytes": 1358,
+      "sha256": "09c0d2503009c9b7ca03c3cca3ec4c223a604ebfaec144ea908d047305461064"
+    },
+    {
+      "path": "metal141.json",
+      "bytes": 53110,
+      "sha256": "032133d2402d073e89930942ca8e428861c8adc4a983bc2519adc6f8e06705e8"
+    },
+    {
+      "path": "reference22.json",
+      "bytes": 826655,
+      "sha256": "7cd0f80bc6e0938608b8144f3c61bd58d4ab464c5fc39b9ff593974b99f07c46"
+    },
+    {
+      "path": "retained111.json",
+      "bytes": 2455,
+      "sha256": "fd34bb17c5c4a7ad967433bf7b86a2ce90abee463d9c0d4ac67dbad1a41177cd"
+    },
+    {
+      "path": "sealed-generation.json",
+      "bytes": 515,
+      "sha256": "760127915b5862c04b04b233048e48c8473a208c11cd4c75ddf39dfeb899e76e"
+    },
+    {
+      "path": "source-boundaries.json",
+      "bytes": 1224,
+      "sha256": "fd011ccb9eab96c4af6cec5312640756d34c99f083cd33620233987d443b835e"
+    },
+    {
+      "path": "sparse-failed141.json",
+      "bytes": 571,
+      "sha256": "33b46a79805cf95b5a572e0a2d83cb287a714df00ceda53c986d8b3a1751859d"
+    },
+    {
+      "path": "sparse111.json",
+      "bytes": 571,
+      "sha256": "29b547e09078c7ef54e50643f7524758147960bf5c972eae7fae80beb1ac2404"
+    },
+    {
+      "path": "windows-status.json",
+      "bytes": 536,
+      "sha256": "8ea7a6fa5d3d38405c2b041de3b1b90e8f27069c1c3c2c2f80241ac90f79970a"
+    }
+  ],
+  "total_bytes": 955212,
+  "scope": "Shared synthetic weapon battle proof and native comparison, preserved failed input diagnosis, no raw/settings/toolchains"
+}

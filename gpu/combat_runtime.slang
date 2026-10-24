@@ -291,12 +291,14 @@ void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
     s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0;
     uint64_t landedAmount;uint landedCount,landedTarget;
     weaponFrameBody(s,who,when,output,landedAmount,landedCount,landedTarget);
+    landedAmount=WEAPON_BODY_AMOUNT(s,who,landedAmount);
     s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0;
 #ifdef PORTABLE_WORLD_PROJECTILE
     if(deliverAimedAreaShot(s,who,when,output,landedAmount,landedCount)) return;
 #endif
     if (s.landingPolicy!=0 || (s.healthMask&64)!=0) for (uint hit=0;hit<landedCount && s.error==0;hit++)
     {
+        if(WEAPON_BODY_SUPPRESSED(s,who,hit)) continue;
         COUNTER_CAPTURE(s,who,landedTarget) WORLD_PHYSICAL_BEGIN(s,who,landedTarget,landedAmount) if (s.landingPolicy!=0) land(s,who,COUNTER_TARGET(s,WORLD_POOL_PHYSICAL_TARGET(s,who,landedTarget)),landedAmount);
         COUNTER_IMPACT(s,who,landedAmount,when,output) if ((s.healthMask&64)!=0 && s.error==0) dispatch(s,17,0,who,0,when,output,landedAmount);
 #ifdef PORTABLE_DAMAGE_ACCUM

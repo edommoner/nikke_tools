@@ -112,6 +112,14 @@ class ReadinessSemanticsTests(unittest.TestCase):
         for flag in ('weapon_interception_verified','piercing_interception_verified','cuda_device_verified','in_game_rules_verified','original_full_profile_verified'):self.assertFalse(v[flag])
         self.assertEqual(r['lane'],'reference_model_gap');self.assertFalse(r['gpu_supported']);self.assertFalse(r['gpu_admission_verified'])
 
+    def test_weapon_shield_proof_does_not_certify_geometry_or_public_admission(self):
+        r=reference_readiness(self.blocker('shield_dmg_pct'));v=r['typed_weapon_shield_battle_validation']
+        self.assertEqual((v['inputs'],v['native_cases'],v['rejected_cases'],v['new_weapon_cases']),(141,98,43,22))
+        for flag in ('metal_verified','independently_audited','shot_factors_frozen','per_pellet_live_selection','hp_hit_body_continuation','auto_charge_tap_modes_muzzles_verified','ammo_and_gauge_verified','prior111_all_input_native_and_raw_retained'):self.assertTrue(v[flag])
+        for flag in ('coordinates_verified','parts_verified','piercing_interception_verified','lifesteal_accumulation_verified','add_owner_verified','cuda_device_verified','in_game_rules_verified','original_full_profile_verified'):self.assertFalse(v[flag])
+        self.assertEqual(r['lane'],'reference_model_gap');self.assertFalse(r['gpu_supported']);self.assertFalse(r['gpu_admission_verified'])
+        self.assertNotIn('typed_weapon_shield_battle_validation',reference_readiness(self.blocker('projectile_dmg_pct')))
+
     def test_inert_model_gap_is_checked_against_current_canonical_classification(self):
         r=reference_readiness(self.blocker('cover_def_pct'));self.assertEqual(r['lane'],'reference_model_gap')
         import effect_spec

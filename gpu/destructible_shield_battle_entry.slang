@@ -52,7 +52,8 @@ uint64_t modifierFrameDamage(inout Runtime s,uint who,uint64_t coefficient,uint6
 bool validBattleModifierAxes(inout Runtime s)
 {
     uint descriptor=s.inputBase+109536;
-    if(commands[descriptor]!=0x444d4231U||skillHPBasisMode(s,commands[DF_DESCRIPTOR(s)])!=0) return false;
+    uint source=commands[DF_DESCRIPTOR(s)];
+    if(commands[descriptor]!=0x444d4231U||(source<s.count&&skillHPBasisMode(s,source)!=0)) return false;
     for(uint i=1;i<32;i++) if(commands[descriptor+i]!=0) return false;
     for(uint row=0;row<256;row++)
     {
@@ -70,10 +71,16 @@ bool validBattleModifierAxes(inout Runtime s)
 bool validShieldBattleRoutes(inout Runtime s)
 {
     uint base=s.inputBase+110080;
+    bool weapons=false;
+#ifdef PORTABLE_DESTRUCTIBLE_WEAPON
+    weapons=destructibleWeaponEnabled(s);
+    if(weapons&&!validDestructibleWeapons(s)) return false;
+#endif
     bool hitShields=commands[base]==0x48534932U;
-    if((!hitShields&&commands[base]!=0x48534931U)||commands[base+1]!=0||commands[base+2]!=0||commands[base+3]!=1||commands[base+4]!=uint(hitShields)) return false;
-    for(uint i=5;i<32;i++) if(commands[base+i]!=0) return false;
-    if(!DF_ROW_ENABLED(s,commands[DF_DESCRIPTOR(s)])) return false;
+    if(weapons) hitShields=commands[base+4]==1;
+    if((!weapons&&!hitShields&&commands[base]!=0x48534931U)||commands[base+1]!=0||commands[base+2]!=0||commands[base+3]!=1||commands[base+4]!=uint(hitShields)) return false;
+    for(uint i=weapons?6U:5U;i<32;i++) if(commands[base+i]!=0) return false;
+    if(!DF_ROW_ENABLED(s,commands[DF_DESCRIPTOR(s)])&&!(weapons&&commands[DF_DESCRIPTOR(s)]==0xffffffffU)) return false;
     for(uint row=0;row<256;row++)
     {
         uint route=commands[s.inputBase+109824+row];

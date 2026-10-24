@@ -36,7 +36,8 @@ class ModifierGPUTests(unittest.TestCase):
             verify_retained_sources(ROOT,entry,json.loads((ROOT/golden).read_text())['source_sha256'])
     def test_actual_metal_blocks_preserve_bits_and_reject_corruption(self):
         from portable_backend import source_hashes
-        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-modifier-raw.json').read_text());self.assertEqual(fixture['source_sha256'],source_hashes('gpu/destructible_modifier_probe.slang'))
+        from portable_destructible_weapon_source_contract import verify_retained_sources
+        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-modifier-raw.json').read_text());verify_retained_sources(ROOT,'gpu/destructible_modifier_probe.slang',fixture['source_sha256'])
         rows,_=a.prepare()
         for record,(name,words,domain) in zip(fixture['records'],rows):
             self.assertEqual(record['name'],name);self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256'])

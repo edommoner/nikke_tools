@@ -57,6 +57,7 @@ class WeaponShieldTests(unittest.TestCase):
   from portable_reference import REFERENCES
   from portable_backend import source_hashes
   self.assertEqual(REFERENCES['destructible-weapon-shield'][0],'destructible_weapon_shield_cases')
-  self.assertEqual(source_hashes('gpu/destructible_shield_battle_entry.slang'),json.loads((ROOT/'research/portable-destructible-hit-shield-short-expected.json').read_text())['source_sha256'])
+  from portable_destructible_weapon_source_contract import verify_retained_sources
+  verify_retained_sources(ROOT,'gpu/destructible_shield_battle_entry.slang',json.loads((ROOT/'research/portable-destructible-hit-shield-short-expected.json').read_text())['source_sha256'])
 
 if __name__=='__main__':unittest.main()

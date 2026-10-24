@@ -1,0 +1,43 @@
+{
+  "profiles": 266,
+  "packed_profiles": 245,
+  "packed_base": 185,
+  "remaining_categories": 20,
+  "profile_records_issues_and_priorities_identical_except_readiness_metadata": true,
+  "metadata_changes": [
+    {
+      "index": 1,
+      "issue": {
+        "phase": "effect",
+        "category": "effect",
+        "kind": "buff",
+        "stat": "shield_dmg_pct",
+        "target": "all_allies",
+        "scaling": null,
+        "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"shield_dmg_pct\", \"target\": \"all_allies\"}",
+        "diagnostic_source": "structured_reason",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported buff stat"
+      }
+    },
+    {
+      "index": 2,
+      "issue": {
+        "phase": "effect",
+        "category": "effect",
+        "kind": "buff",
+        "stat": "shield_dmg_pct",
+        "target": "self",
+        "scaling": null,
+        "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"shield_dmg_pct\", \"target\": \"self\"}",
+        "diagnostic_source": "structured_reason",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported buff stat"
+      }
+    }
+  ],
+  "all20_model_gap": true,
+  "full_character_verified": 0,
+  "normal_ui": "CPU",
+  "gpu_calls": 0
+}

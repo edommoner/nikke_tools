@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "failed_capture_preserved": true,
+  "failed_comparison_sha256": "32a9a0d7fda1017023e769c292c2e6494ec045052712694eaf90756477839a1c",
+  "successful_comparison_sha256": "3d41d3f19fd74d8416e7e320d7cb623c0ea189cffac0ea3fea10581d7dd528ca",
+  "failed_readback_sha256": "33c51b1ff89894a31e48887988f94d74defb3574def1df48adb0ee98bbd8b9fe",
+  "successful_readback_sha256": "0b38be89c1f58da7743bdfabeba59bd426596235d4d682a3282ea2ba5cc256d5",
+  "failed_mismatches": [
+    {
+      "index": 120,
+      "name": "destructible-weapon-shield/full-charge-hp-context"
+    },
+    {
+      "index": 121,
+      "name": "destructible-weapon-shield/charge-scatter-hp-context"
+    },
+    {
+      "index": 131,
+      "name": "destructible-weapon-shield/rl-explosion-charge-context"
+    }
+  ],
+  "input_changed": [
+    {
+      "index": 120,
+      "name": "destructible-weapon-shield/full-charge-hp-context"
+    },
+    {
+      "index": 121,
+      "name": "destructible-weapon-shield/charge-scatter-hp-context"
+    },
+    {
+      "index": 122,
+      "name": "destructible-weapon-shield/tap-hit-credit"
+    },
+    {
+      "index": 129,
+      "name": "destructible-weapon-shield/last-squad-owner"
+    },
+    {
+      "index": 131,
+      "name": "destructible-weapon-shield/rl-explosion-charge-context"
+    }
+  ],
+  "output_changed_indices": [
+    120,
+    121,
+    131
+  ],
+  "source_changes_between_executions": false,
+  "reason": "Five static post-fire clock values aligned with the native charge metadata fallback 0.215, without deriving times from battle output",
+  "gpu_calls": 0,
+  "all141_native_fingerprints_unchanged": true,
+  "source_sha256_identical": true
+}
