@@ -644,3 +644,7 @@ run/cpu-only/smokeは全登録群を1個のfresh CPU workerへ渡します。群
 # 共有回復の受益者監査61入力
 
 `destructible-body-heal-share-retention` は旧49の位置を保持して元レム等の全定義12編成を追加した、Metal／native照合・独立seal済みの入口です。`--compact` は全71 CPU検査と全52 native照合を保持します。GPU source／生成CUDA・Metalは前の49と全byte同一で、既存共通共有Frameを使います。単独 `destructible-body-heal-share` は開発用なので `--develop` が必要です。詳細は [共有回復の受益者監査](portable-destructible-body-heal-share.md)。
+
+# 最新typed61の親process再利用
+
+`destructible-body-heal-share-retention` の通常runは既存ParentOraclesを使い、事前照合で算出した52 nativeを同じ親process内だけで通常比較へ渡します。全比較・入力/provider/valueのstampは維持。`audit`／保存結果監査／独立sealは毎回freshです。86 CPU検査のためこのsuiteのCPU枠は120秒、GPU／compiler／Windows枠は以前のままです。新しいcacheファイルやreplay optionはありません。詳細は [共通比較器の親process再利用](portable-destructible-parent-oracles.md)。

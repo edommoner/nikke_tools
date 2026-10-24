@@ -1770,3 +1770,11 @@ native observerの全Python呼出し監視がcode objectをhashしていたた�
 最終compactは1583 files／7,275,395byte。CPU71件89.150秒、native52件72.096秒、共通制御372件（Windows専用1skip）成功、全payload SHAとcheckoutとの一致も確認済み。単独12は開発用、旧goldenは履歴のまま。Windows追加操作0、現full battle CUDA／cache実測は未確認、旧7プロセス終了原因unknown／保全falseを維持。packing245/266・base185/203・残20 model gap・全キャラ0・UI CPU・目標未達です。
 
 次の効率化は、共通adapterのnative providerを既存ParentOraclesへ直結して同じ親processの事前値を通常比較で使うこと。現retentionのcompareは別adapterへ委譲するためprovider検出が通らず、事前計算と通常監査の約72秒ずつが重複しています。独立seal／保存結果監査をfreshに保ち、input/provider/valueのstampと全比較項目を維持したCPU故障注入・保存raw照合で進めてください。未対応20分類を見直し、貫通・元ドロシー／parts・coords・ADD混在と共通CUDA compile負荷も優先します。
+
+# 2026-10-24 共通比較器の親process再利用と未対応20分類の再確認
+
+最新は `docs/portable-destructible-parent-oracles.md`／`research/portable-destructible-parent-checkpoint.json`。共通body比較を1か所へまとめ、retention61のcompareからnative_referenceを直呼びすることで既存ParentOraclesへ接続。通常実行のCPU事前52編成を同じ親だけで再利用し、追加native0／拒否9／全61 Metal一致。通常比較2.051859秒（以前fresh約72秒）で、input/provider/valueのstamp・所有者・1回だけの利用・全数値比較は維持。別processのGPU禁止監査は実native52回・再利用0、75.438829秒で成功。旧61全255,852,544byteとinput/native/生成CUDA/MSLは同一、GPU/定義/core/normalizer/goldenは変更なし。今回GPU1回／Slang0／Windows0。
+
+新しい実fixture再利用2検査と既存ParentOracles13検査を追加し、CPU86件91.286秒。既存71検査約89秒に追加分があるためsuiteのCPU枠だけ事前に120秒へ設定し、GPU/compiler/Windows枠は変更していません。終了故障注入のunitが実disk不足へ先に到達したため、この模擬testだけ容量成功と2回呼出しを検証して目的のtransport失敗へ到達させます。本番storage guardは不変。compact package b58be3b...は1585 files／7,281,453byte。GPU10.283秒・cached PSO0.003秒、事前native52は72.634秒。共通制御372件（Windows専用1skip）成功、全payload SHA/checkout一致も確認済み。
+
+現sourceの共通CLI inventoryは266 profiles／packing245（base185）、未対応21 profiles／20分類、CPU戦闘/GPU0。20分類は全てreference_model_gapで、現在のtyped補正modelの通常入口への接続、受取damage splitの保留仕様、空間・cover・敵回復/弾薬等が残る。小さな全20分類・未対応profile一覧とfull report SHAをevidenceへ保存。次は既存attack_group_runtimeのopen/sealを実戦producerへ接続するmulti_hit:2/:4（니힐리스타／벨로타）のnative契約を優先。受付だけを開いたpacking増加を対応済みにしない。CUDA compile負荷と短いcached実機検証も未完。全キャラ0/UI CPU/全目標未達、旧Windows7プロセス終了原因unknown/保全falseは維持。

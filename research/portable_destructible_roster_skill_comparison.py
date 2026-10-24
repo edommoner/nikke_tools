@@ -41,3 +41,11 @@ def compare(block,domain,native):
     assert decoded==n['typed'],(c['name'],decoded,n['typed'])
     assert not any(block[L['COUNTER_CONTEXT_BASE']:L['COUNTER_CONTEXT_BASE']+1096]),'Typed counter context leaked'
     return n
+
+def compare_body_consumers(block,domain,native):
+    """One battle/landing audit, plus the existing pool audit when declared."""
+    result=compare(block,domain,native)
+    if domain[0].get('body_accumulation_v1'):
+        from portable_damage_accum_observation import compare_final
+        compare_final(block,domain[1],native['damage_accumulation'])
+    return result

@@ -185,8 +185,11 @@ def compare(block,domain):
         owned=self.root/'owned';created=[];original=module.ParentOracles
         def construct(*a):result=original(*a);created.append(result);return result
         fake_os=types.SimpleNamespace(**dict(vars(os),name='nt'))
-        with patch.object(module,'ParentOracles',side_effect=construct),patch.object(cli,'os',fake_os),patch.object(cli,'cpu_test_groups'),patch.object(cli,'run_job',side_effect=RuntimeError('Transport failed')):
+        # This fixture injects a transport failure, not host disk pressure.
+        # Actual storage gates have separate budget tests and remain in run.
+        with patch.object(module,'ParentOracles',side_effect=construct),patch.object(cli,'os',fake_os),patch.object(cli,'cpu_test_groups'),patch.object(cli,'capture_storage_preflight',return_value=dict(passed=True)) as storage,patch.object(cli,'run_job',side_effect=RuntimeError('Transport failed')):
             with self.assertRaisesRegex(RuntimeError,'Transport failed'):cli.run_capture(owned,'cuda',30)
+        self.assertEqual(storage.call_count,2)
         self.assertEqual(len(created),1);self.assertTrue(created[0].closed);self.assertFalse(created[0].records)
         self.assertTrue((self.root/'gpu-claimed-cuda.json').is_file());self.assertTrue((owned/'failure.json').is_file())
         self.assertFalse((owned/'comparison.json').exists())
