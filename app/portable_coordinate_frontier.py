@@ -133,6 +133,13 @@ def verify(root, overrides=None):
     aim_path=root/'research/portable-coordinate-aim-short-expected.json'
     aim_golden=json.loads(aim_path.read_text()) if aim_path.is_file() else None
     aim_matches=aim_golden['source_sha256']==aim_sources if aim_golden else None
+    control_sources=source_hashes(root,'gpu/world_coordinate_control_entry.slang')
+    control_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in control_sources.items()}
+    control_path=root/'research/portable-coordinate-control-short-expected.json'
+    control_golden=json.loads(control_path.read_text()) if control_path.is_file() else None
+    control_matches=control_golden['source_sha256']==control_sources if control_golden else None
+    from portable_coordinate_group_frontier import verify as group_frontier
+    group_plan=group_frontier(root)
     round_sources=source_hashes(root,'gpu/coordinate_round_probe.slang')
     round_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in round_sources.items()}
     round_path=root/'research/portable-coordinate-round-short-expected.json'
@@ -266,6 +273,14 @@ def verify(root, overrides=None):
                     state_begin=aim_layout['STATE'],state_end=aim_layout['STATE']+aim_layout['STATE_WORDS'],
                     authored_entries_per_owner=8,window_kinds=4,anchor_kinds=5,
                     public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_control_compositions=dict(suite='coordinate-control',
+                    source_sha256=control_sources,proof_available=control_golden is not None,
+                    sealed_source_matches_current=control_matches,requires_new_metal_proof=not control_matches,
+                    input_count=len(control_golden['entries']) if control_golden else None,
+                    base_weapon_reload_time_in_control_queries=True,
+                    live_reload_fraction_controls_clip_classification=True,
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_group_integration=group_plan,
                 coordinate_skill_shape_contains_is_physical_landing=False,
                 angular_interval_algebra=dict(suite='coordinate-arcs',
                     sealed_source_matches_current=arc_source_matches, source_sha256=arc_sources,

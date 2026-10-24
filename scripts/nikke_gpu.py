@@ -351,6 +351,8 @@ SUITES['coordinate-matrix']['tests'].append('test_coordinate_aim_reference.py')
 SUITES['coordinate-matrix']['support_files']=[*SUITES['coordinate-cache']['support_files'],'research/portable-coordinate-cache-short-expected.json']
 SUITES['coordinate-aim']=dict(SUITES['coordinate-matrix'],script='research/verify-coordinate-aim-short.py',source='gpu/world_coordinate_aim_entry.slang',golden='research/portable-coordinate-aim-short-expected.json',inputs=190,native=166,development_only=False,tests=[*SUITES['coordinate-matrix']['tests'],'test_coordinate_aim_gpu.py'])
 SUITES['coordinate-aim']['support_files']=[*SUITES['coordinate-matrix']['support_files'],'research/portable-coordinate-matrix-short-expected.json','research/portable-compiler-full--coordinate-aim-source-certificate.json']
+SUITES['coordinate-control']=dict(SUITES['coordinate-aim'],script='research/verify-coordinate-control-short.py',source='gpu/world_coordinate_control_entry.slang',golden='research/portable-coordinate-control-short-expected.json',inputs=206,native=182,development_only=False,tests=[*SUITES['coordinate-aim']['tests'],'test_coordinate_control.py'])
+SUITES['coordinate-control']['support_files']=[*SUITES['coordinate-aim']['support_files'],'research/portable-coordinate-aim-short-expected.json','research/portable-compiler-full--coordinate-control-source-certificate.json']
 SUITES['skill-part-codec']=dict(script='research/verify-skill-part-codec-short.py',source='gpu/skill_part_codec_probe.slang',
     golden='research/portable-skill-part-codec-short-expected.json',inputs=4,native=3,development_only=False,
     tests=['test_portable_skill_part_codec.py'])

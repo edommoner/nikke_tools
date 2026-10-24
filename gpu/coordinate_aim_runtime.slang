@@ -18,11 +18,19 @@ bool coordinateAimMustBreak(inout Runtime s,uint slot)
 uint64_t coordinateAimReloadTotal(inout Runtime s,uint who,uint64_t when)
 {
     Weapon w;w.reloadTime=s.reloadTime[who];
+#ifndef PORTABLE_COORDINATE_CONTROL_COMPOSED
     if(s.modeIndex[who]>=0)w.reloadTime=loadNumber(s.inputBase+P_MODE_BASE+uint(s.modeIndex[who])*P_MODE_WORDS+8);
+#endif
     uint64_t one=reloadDuration(s,w,who,when);
+#ifndef PORTABLE_COORDINATE_CONTROL_COMPOSED
     if(s.modeIndex[who]>=0||s.clipCount[who]<=1)return one;
     uint full=fullCapacity(s,who,s.capacity[who],true,when),status;
+#endif
     uint64_t fraction=smaller(ONE,f64Mul(f64Div(ONE,f64FromI64(s.clipCount[who])),larger(0,f64Add(ONE,f64Div(readStat(s,who,S_reload_ratio_pct,when),HUNDRED)))));
+#ifdef PORTABLE_COORDINATE_CONTROL_COMPOSED
+    if(!f64Less(fraction,ONE)||s.modeIndex[who]>=0)return one;
+    uint full=fullCapacity(s,who,s.capacity[who],true,when),status;
+#endif
     uint64_t gain=f64ToI64(f64Add(f64Mul(f64FromI64(full),fraction),uint64_t(0x3fe00000)<<32),2,status);
     if(status!=0||gain>0x7fffffff){s.error=2;return 0;}
     uint need=uint(max(int(full)-s.ammo[who],0)),unit=max(uint(gain),1U),clips=max((need+unit-1)/unit,1U);

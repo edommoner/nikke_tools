@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "scope": "Private shared coordinate aim/weapon/reload/control compositions",
+  "suite": "coordinate-control",
+  "reference_kind": "deterministic-common-cpu",
+  "sealed": true,
+  "input_count": 206,
+  "native_oracles": 182,
+  "rejections": 24,
+  "new_compositions": 16,
+  "input_words": 109528,
+  "output_words": 1310720,
+  "runtime_stride_bytes": 138952,
+  "cpu": {
+    "tests": 95,
+    "failures": 0
+  },
+  "control": {
+    "tests": 416,
+    "failures": 0,
+    "skipped": 1
+  },
+  "new_gpu_calls": 1,
+  "successful_gpu_calls": 1,
+  "failed_gpu_calls": 0,
+  "gpu_retries": 0,
+  "intermediate_v1_gpu_calls": 0,
+  "positive_native_frames": 7878,
+  "partial_rejection_frames_excluded": true,
+  "retention": {
+    "passed": true,
+    "gpu_calls": 0,
+    "old190_input_entries_retained": 190,
+    "old190_native_fingerprints_retained": 166,
+    "old190_full_raw_bytes_retained": 996147200,
+    "native_inputs": 182,
+    "total_frames": 7878,
+    "source_generated_legacy_pairs": 5,
+    "partial_rejection_frames_excluded": true
+  },
+  "legacy_generated_cuda_msl_raw_bytes_retained": [
+    "attack-group-mixed81",
+    "coordinate-composed97",
+    "coordinate-core120",
+    "coordinate-cache133",
+    "coordinate-aim190"
+  ],
+  "legacy_separate_gpu_reruns": 0,
+  "cuda_cache_rules_changed": false,
+  "strict_normalizer_changed": false,
+  "protected_source_sha256": {
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "research/summarize-portable-cross-gpu.py": "01e8595eb20c4a3c1f94f524e81e812d2921fd240b17a33e6dbfb050320fb21a",
+    "app/portable_compile_cache.py": "d1dcc7cf1a5c7197b1dd63dd0d6bd1cc90192356eb42ad4a4e6b2f641c5cc505"
+  },
+  "core_probability_sha256": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+  "development_package_id": "b423e149a741d91de74e2a6cee01f81fa7c3df3a5984b0536043790bce78c915",
+  "final_compact_package_id": "080908991f5099b52df37868f36958461f32a7af554cb4956d5d2a6a1c95ba9b",
+  "final_full_package_id": "bd1143e130f2796a2acdbe891e464e17d3f97fbdc6f9d6abadfb17bf145d0fcb",
+  "package_projection": {
+    "passed": true,
+    "full_files": 3072,
+    "compact_files": 1763,
+    "all_retained_records_and_bytes_identical": true,
+    "gpu_calls": 0
+  },
+  "timing": {
+    "gpu_seconds": 3.738755000056699,
+    "pipeline_seconds": 90.52755606174469,
+    "shared_execute_seconds": 100.592713833
+  },
+  "storage": {
+    "raw_deleted": false,
+    "success_raw": {
+      "schema": 1,
+      "operation": "sparsify-raw",
+      "apply": true,
+      "gpu_calls": 0,
+      "calculation_verified": false,
+      "raw_deleted": false,
+      "passed": true,
+      "capture": "/private/tmp/nikke-coordinate-control-metal-v2",
+      "raw_bytes": 1080033280,
+      "raw_sha256": "2d9a3ceda8e8d811b5adb8cd0adb42b54d5120a335c1b39bc4175b218802def6",
+      "evidence_sha256": "1c8344961672cfbb24f886d474db7241f2fc620f1fc91aa8d1c71608d6149111",
+      "raw_inode": 510124717,
+      "scan_block_bytes": 4096,
+      "filesystem_allocation_unit": 4096,
+      "zero_ranges": 7811,
+      "zero_range_bytes": 1040424960,
+      "allocated_before": 1080033280,
+      "allocated_after": 39608320,
+      "allocated_reclaimed": 1040424960,
+      "full_hash_verified": true
+    },
+    "total_allocated_reclaimed": 2024034304
+  },
+  "windows_requests": 0,
+  "current_cuda_calculation_verified": false,
+  "cuda_current_cache_hit_verified": false,
+  "source_only_compiler_certificate": true,
+  "compiler_device_verification": false,
+  "group_integration": {
+    "classification": "gpu_port_gap",
+    "current_address_plan_verified": false,
+    "proposal_address_plan_verified": true,
+    "proposed_addresses_implemented": false,
+    "physical_group_receipts_connected": false,
+    "add_sharing_connected": false,
+    "proposed_output_words": 1507328,
+    "compact_words_retained": 186528
+  },
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "remaining_model_gaps": 20,
+  "public_gpu_admitted": false,
+  "ui_backend": "cpu",
+  "remaining": [
+    "actual group reader/writer relocation and bounded clear",
+    "heterogeneous coordinate physical group packet producer and ADD sharing",
+    "RNG and mixed scenes",
+    "all original character/effect definitions and public admission",
+    "bounded current CUDA execution"
+  ]
+}

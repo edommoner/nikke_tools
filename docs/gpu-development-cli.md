@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`coordinate-control`206（共通CPU182／拒24）は照準と武器変更・reload・散弾・tap／holdを共通executorへ合成したsealed profile。M5 Metalと独立seal、CPU95／control416が成功。`package --suite coordinate-control --compact`を使う。`model-check`はgroup writerの3重複と未実装の移設／caller接続を区別する。[操作合成](portable-coordinate-control.md)を参照。
+
 `coordinate-aim`190（共通CPU166／拒24）は手動照準・camera調停を共通resident実行器へ接続したsealed profile。4window／5anchor／前回skill点と今回physical点／7059frameをMetal実証した。`package --suite coordinate-aim --compact`を使う。[共通GPU照準](portable-coordinate-aim-gpu.md)を参照。
 
 `reference --suite coordinate-aim-common --out /tmp/new.json` は手動照準・camera調停の共通CPU30契約（GPU0／packing0）を検査する。定時skillの前回照準と、調停後physicalの新照準を区別する。静的IR／GPU接続の残件は[照準接続契約](portable-coordinate-aim-contract.md)を参照。
