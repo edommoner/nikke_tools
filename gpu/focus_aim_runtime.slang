@@ -59,6 +59,9 @@ uint focusFirstAdd(inout Runtime s)
 }
 void captureFocusAims(inout Runtime s,uint64_t when)
 {
+#ifdef PORTABLE_COORDINATE_AUTHORED_AIM
+    coordinateCaptureAims(s,when);return;
+#endif
 #ifdef PORTABLE_WORLD_ACTOR_POOLS
     if(!focusAimEnabled(s) || !actorPoolsEnabled(s)) return;
     uint rest=focusFirstAdd(s)!=0 ? 128 : 0,lead=rest;

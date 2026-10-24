@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-native-snapshot-retention-v2-metal",
+  "raw_bytes": 4262461440,
+  "raw_sha256": "5fd726638fcd2987aeda41e288e50e673e5f6884d99cc67f48dc52e816801b52",
+  "evidence_sha256": "162e1ef6f9a56cdd4229ee18bdc747ece85d6ce362c8a5b1793d177e2b05dd28",
+  "raw_inode": 508028294,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 32545,
+  "zero_range_bytes": 4088963072,
+  "allocated_before": 173498368,
+  "allocated_after": 173498368,
+  "allocated_reclaimed": 0,
+  "full_hash_verified": true
+}

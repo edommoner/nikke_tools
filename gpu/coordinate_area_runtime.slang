@@ -65,11 +65,15 @@ uint64_t sampleCoordinateAreaSkill(inout Runtime s,Definition d,uint64_t coeffic
     coordinateCachedAim(s,ax,ay);
 #endif
 #endif
+#ifdef PORTABLE_COORDINATE_AUTHORED_AIM
+    coordinateAimPoint(s,d.owner,ax,ay);
+#else
     if(focusAimEnabled(s)&&results[s.resourceOutput+P_FOCUS_STATE_BASE+6]==0x46414331U)
     {
         uint slot=uint(actorNumber(s.resourceOutput+P_FOCUS_STATE_BASE)>>(8*d.owner))&255U;
         if(slot>0&&slot<128){CoordinateScene c=coordinatePoolView(s);uint m=coordinateAreaRow(s,slot),row=cRow(c,commands[m]-1);ax=cNumber(row+6);ay=cNumber(row+8);}
     }
+#endif
     cStore(s.resourceOutput+CP_BASE+6,grow);cStore(s.resourceOutput+CP_BASE+8,ax);cStore(s.resourceOutput+CP_BASE+10,ay);
     if((marker||f64Less(0,grow))&&results[s.resourceOutput+CP_FRAME+3]!=0)partAmount=damageFromFactors(s,factors,true);
     if(f64Less(0,grow)){factors[8]=intercept;interruptAmount=damageFromFactors(s,factors,true);interruptReach=1;}

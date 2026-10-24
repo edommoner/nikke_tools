@@ -126,6 +126,13 @@ def verify(root, overrides=None):
     matrix_path=root/'research/portable-coordinate-matrix-short-expected.json'
     matrix_golden=json.loads(matrix_path.read_text()) if matrix_path.is_file() else None
     matrix_matches=matrix_golden['source_sha256']==cache_sources if matrix_golden else None
+    from portable_coordinate_aim_wire import LAYOUT as aim_layout,check_schema as check_aim_schema
+    check_aim_schema(root)
+    aim_sources=source_hashes(root,'gpu/world_coordinate_aim_entry.slang')
+    aim_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in aim_sources.items()}
+    aim_path=root/'research/portable-coordinate-aim-short-expected.json'
+    aim_golden=json.loads(aim_path.read_text()) if aim_path.is_file() else None
+    aim_matches=aim_golden['source_sha256']==aim_sources if aim_golden else None
     round_sources=source_hashes(root,'gpu/coordinate_round_probe.slang')
     round_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in round_sources.items()}
     round_path=root/'research/portable-coordinate-round-short-expected.json'
@@ -173,7 +180,8 @@ def verify(root, overrides=None):
              native='CharState._aim_point / simulate._resolve_aims',
              work='Authored coordinate waypoints and frame camera arbitration',
              common_policy_reference_cli='coordinate-aim-common',
-             static_authored_aim_ir_available=True,shared_gpu_aim_connected=False,
+             static_authored_aim_ir_available=True,shared_gpu_aim_hooks_implemented=True,
+             sealed_shared_gpu_aim_source_matches_current=aim_matches,
              aim_query_phases=['prior-frame aim for pre-arbitration skill handlers','resolved current-frame aim for physical ticks'], depends_on=[]),
         dict(id='numeric-policy', classification='gpu_numeric_implementation_gap',
              work='Implement selected deterministic shared numeric contract; retain native host disagreement evidence',
@@ -248,6 +256,15 @@ def verify(root, overrides=None):
                     static_authored_rotation_lowering=True,shared_cache_executor=True,
                     native_area_distance_scoped_to_common_reference=True,
                     historical_cpu_profile_retained=True,
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_authored_aim=dict(suite='coordinate-aim',proof_available=aim_golden is not None,
+                    sealed_source_matches_current=aim_matches,requires_new_metal_proof=not aim_matches,
+                    source_sha256=aim_sources,input_count=len(aim_golden['entries']) if aim_golden else None,
+                    reference_cli='coordinate-aim-common',reference_kind='deterministic-common-cpu',
+                    shared_runtime_hooks_implemented=True,persistent_point_bank=True,
+                    pre_arbitration_skill_aim_retained=True,post_arbitration_physical_aim=True,
+                    state_begin=aim_layout['STATE'],state_end=aim_layout['STATE']+aim_layout['STATE_WORDS'],
+                    authored_entries_per_owner=8,window_kinds=4,anchor_kinds=5,
                     public_gpu_admitted=False,all_characters_certified=False),
                 coordinate_skill_shape_contains_is_physical_landing=False,
                 angular_interval_algebra=dict(suite='coordinate-arcs',

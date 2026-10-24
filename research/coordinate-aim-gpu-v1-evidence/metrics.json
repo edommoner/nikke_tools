@@ -1,0 +1,1009 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "native_fingerprints_rechecked": 166,
+  "old151_native_fingerprints_retained": 136,
+  "old151_semantic_bytes_retained": 791578240,
+  "aim_state_new_profile_bytes_per_case": 640,
+  "all_frame_count": 7059,
+  "conformance": "two noncryptographic 64-bit rolling frame digests plus count and exact final point banks; battle and packet arrays compared separately",
+  "reserved_aim_header_zero_cases": 190,
+  "rows": [
+    {
+      "index": 0,
+      "name": "coordinate-physical-reference/occlusion-and-body",
+      "frames": 4,
+      "pre_aim_native_sha256": "b669408d5efd9531ef5ce12f4e81180a5da287d3991ed5c3b31d43876cc61767"
+    },
+    {
+      "index": 1,
+      "name": "coordinate-physical-reference/full-front",
+      "frames": 4,
+      "pre_aim_native_sha256": "7b6f0cde517e8dbd59b221f26939c11d8dc273ac686715a68bf1fc944341cc89"
+    },
+    {
+      "index": 2,
+      "name": "coordinate-physical-reference/interrupt-front",
+      "frames": 4,
+      "pre_aim_native_sha256": "b62f869357ac4c04232447a3b525532b624c3a1db5f9ab81048207a3a2467795"
+    },
+    {
+      "index": 3,
+      "name": "coordinate-physical-reference/two-muzzles-three-pellets",
+      "frames": 4,
+      "pre_aim_native_sha256": "4df5c69c8c4350598dd9e8de540bcb002e623c8e5a7069a4f4bc2f3f13b3e039"
+    },
+    {
+      "index": 4,
+      "name": "coordinate-physical-reference/retirement",
+      "frames": 16,
+      "pre_aim_native_sha256": "fe2b971755ae0c30022e04e6ec64d40e73144ed7f7e7a98d1d81a916dcb85dad"
+    },
+    {
+      "index": 5,
+      "name": "coordinate-physical-reference/body-without-targets",
+      "frames": 4,
+      "pre_aim_native_sha256": "c7e3c077e3764124c099779e8e42e090469bea8fa0e18396ac2acaebce991277"
+    },
+    {
+      "index": 6,
+      "name": "coordinate-physical-reference/pierce-reach",
+      "frames": 4,
+      "pre_aim_native_sha256": "4b930cfb3ab5396acca2b2bf8e3f85c0ef1d68fba426859366e3d496c56cde3b"
+    },
+    {
+      "index": 7,
+      "name": "coordinate-physical-reference/charge-pierce",
+      "frames": 7,
+      "pre_aim_native_sha256": "baeac61d9b9df3899ee60595ea8b51cee5063e4974ff108addd6296828f075b4"
+    },
+    {
+      "index": 8,
+      "name": "coordinate-physical-reference/threshold-snapshot",
+      "frames": 10,
+      "pre_aim_native_sha256": "da85156e191cdf12a9b450211c918418b15cb56f96b7274352a63c5f94a79557"
+    },
+    {
+      "index": 9,
+      "name": "coordinate-physical-gpu/rotated-rectangle",
+      "frames": 4,
+      "pre_aim_native_sha256": "777968f59a3e4398c3268bc8dd9d2ca11c8129a1e6f8d5d98ea4b44853a90d3f"
+    },
+    {
+      "index": 10,
+      "name": "coordinate-physical-gpu/critical-fraction",
+      "frames": 4,
+      "pre_aim_native_sha256": "05aef997ed367c1393387a2c713a0f9f07f939cef58102704029808787389633"
+    },
+    {
+      "index": 11,
+      "name": "coordinate-physical-gpu/accuracy",
+      "frames": 4,
+      "pre_aim_native_sha256": "3b463885bb5f0bd78cd73289b07367161eda12acbd559f34911076b980864f53"
+    },
+    {
+      "index": 12,
+      "name": "coordinate-physical-gpu/two-owners",
+      "frames": 4,
+      "pre_aim_native_sha256": "77bea1db85904de04177d894c451f1b213d025071124874f347ac8983cce5ba7"
+    },
+    {
+      "index": 13,
+      "name": "coordinate-physical-gpu/unbreakable",
+      "frames": 4,
+      "pre_aim_native_sha256": "b669408d5efd9531ef5ce12f4e81180a5da287d3991ed5c3b31d43876cc61767"
+    },
+    {
+      "index": 14,
+      "name": "coordinate-physical-gpu/same-shot-retirement",
+      "frames": 10,
+      "pre_aim_native_sha256": "89a47b3917bba7a081b6cb5f9dee0fc2de130b79db4ef5d44a508d0738776d7b"
+    },
+    {
+      "index": 15,
+      "name": "coordinate-physical-gpu/interrupt-reach",
+      "frames": 4,
+      "pre_aim_native_sha256": "af2662c7b9324f5b39697e12958383bb6547d1dee434fd6185100199610fb00b"
+    },
+    {
+      "index": 16,
+      "name": "coordinate-physical-gpu/weapon-change",
+      "frames": 4,
+      "pre_aim_native_sha256": "b679201280b6bf467b9eb61e79d41f20aece14cfb5f2dbdc5a6a223fe4f4b05d"
+    },
+    {
+      "index": 23,
+      "name": "coordinate-quantity/pierce-parent",
+      "frames": 7,
+      "pre_aim_native_sha256": "479a46b8a81eab3ebd294ea5d9d135d0f23cd16895f1817d8eeeeaebbbab152f"
+    },
+    {
+      "index": 24,
+      "name": "coordinate-quantity/two-muzzles-seven-pellets",
+      "frames": 7,
+      "pre_aim_native_sha256": "ed80ddc8072c1a388ddb5774f830fd1d1dd8217872da195aa3d6eea47cdd4198"
+    },
+    {
+      "index": 25,
+      "name": "coordinate-quantity/large-parent",
+      "frames": 7,
+      "pre_aim_native_sha256": "a765605abdf95489e8d8f767eec817d2f26b7562a12c0fbb2d6e9113f6604b09"
+    },
+    {
+      "index": 26,
+      "name": "coordinate-quantity/including-interrupt",
+      "frames": 7,
+      "pre_aim_native_sha256": "32e91c576e1487ef1a2f244f621398b53a945901138515475ecb19cd207a248f"
+    },
+    {
+      "index": 27,
+      "name": "coordinate-quantity/zero-child",
+      "frames": 7,
+      "pre_aim_native_sha256": "5148f456b9f8b23a091d3ed70ebe60381ea9663de4121b07d45fce2febf053f0"
+    },
+    {
+      "index": 28,
+      "name": "coordinate-quantity/fraction-to-zero",
+      "frames": 7,
+      "pre_aim_native_sha256": "b0adfe435deacb2c3253503ae6fcb695374123c637723aeb54bf4242a6f332b7"
+    },
+    {
+      "index": 29,
+      "name": "coordinate-quantity/last-owner",
+      "frames": 7,
+      "pre_aim_native_sha256": "2ee64c21e3c263c236b7f0755882fdb7230a8bf6b41002eabed809fbab02ea0c"
+    },
+    {
+      "index": 30,
+      "name": "coordinate-quantity/two-shooters",
+      "frames": 7,
+      "pre_aim_native_sha256": "02f144b88981651cc3e211e54d956efd8ff05bacb9159d63e61b5c7c3e2d8ae9"
+    },
+    {
+      "index": 31,
+      "name": "coordinate-accum-emission/dealt-default",
+      "frames": 57,
+      "pre_aim_native_sha256": "f60dd31a4840652744fdb9578a5e58c5e3da990dccd50cecbf9501366670758f"
+    },
+    {
+      "index": 32,
+      "name": "coordinate-accum-emission/received-default",
+      "frames": 57,
+      "pre_aim_native_sha256": "5f95e887b6d1c884436c570fa167fd6e48589e4a8514a68c6ce3c1dde8305dec"
+    },
+    {
+      "index": 33,
+      "name": "coordinate-accum-emission/last-owner-dealt",
+      "frames": 57,
+      "pre_aim_native_sha256": "743ecd9ecd4068aaa890e871701750b9f21d7e4b052ce5387f0e05d01dd9d717"
+    },
+    {
+      "index": 34,
+      "name": "coordinate-accum-emission/dealt-ignores-other-casters",
+      "frames": 57,
+      "pre_aim_native_sha256": "b30d0854a763f5f622bed9e7e5ac8aa9e71718787b4658c2b9d99e84e7287699"
+    },
+    {
+      "index": 35,
+      "name": "coordinate-accum-emission/received-counts-other-casters",
+      "frames": 57,
+      "pre_aim_native_sha256": "6e3fcbfebd01b79eb9edc7e0a632605123d22ae99cbb333850f7c1b71572602e"
+    },
+    {
+      "index": 36,
+      "name": "coordinate-accum-emission/base50",
+      "frames": 57,
+      "pre_aim_native_sha256": "a022df1274d8470f2fe131eab310418e26e81e0e58ecbcd606481af74d7bb6f5"
+    },
+    {
+      "index": 37,
+      "name": "coordinate-accum-emission/base50-named25",
+      "frames": 57,
+      "pre_aim_native_sha256": "a6bca0ce321c11f40b14e2800d680fcaf45e8f2a298fa2e97e7c93618efeeead"
+    },
+    {
+      "index": 38,
+      "name": "coordinate-accum-emission/absent-base",
+      "frames": 57,
+      "pre_aim_native_sha256": "ebb6050a266e488271816d895e3fe10e313fb55f8e05fc571d00f255bebdcee3"
+    },
+    {
+      "index": 39,
+      "name": "coordinate-accum-emission/explicit-zero-base",
+      "frames": 57,
+      "pre_aim_native_sha256": "f20e18df15cedfbb952191e34fe06b3f6a85bceb767fe9c805c5027847e8e7e9"
+    },
+    {
+      "index": 40,
+      "name": "coordinate-accum-emission/absent-base-named25",
+      "frames": 57,
+      "pre_aim_native_sha256": "14d8cd841e8cc0266d58f29aa0dc807402d02ee278b0504cfda2782ce93d6a22"
+    },
+    {
+      "index": 41,
+      "name": "coordinate-accum-emission/zero-base-named25",
+      "frames": 57,
+      "pre_aim_native_sha256": "d018a72ff51926a90ad4f44c352bfd69959b05e0e093624d333b7a7b2e55d5f0"
+    },
+    {
+      "index": 42,
+      "name": "coordinate-accum-emission/empty-values-is-zero",
+      "frames": 57,
+      "pre_aim_native_sha256": "f20e18df15cedfbb952191e34fe06b3f6a85bceb767fe9c805c5027847e8e7e9"
+    },
+    {
+      "index": 43,
+      "name": "coordinate-accum-emission/wrong-named-rate",
+      "frames": 57,
+      "pre_aim_native_sha256": "ebb6050a266e488271816d895e3fe10e313fb55f8e05fc571d00f255bebdcee3"
+    },
+    {
+      "index": 44,
+      "name": "coordinate-accum-emission/wrong-caster-rate",
+      "frames": 57,
+      "pre_aim_native_sha256": "d95e7c0168a148d5a4e981f4636bf473380b0b435bfac82d27fd9bbe998de07d"
+    },
+    {
+      "index": 45,
+      "name": "coordinate-accum-emission/own-rate-wrong-recipient",
+      "frames": 57,
+      "pre_aim_native_sha256": "46207f925b36433b62a45f9dd7dfe2f5633e83c65332a8954d8f3856c0f26ac8"
+    },
+    {
+      "index": 46,
+      "name": "coordinate-accum-emission/two-baseline-rates",
+      "frames": 57,
+      "pre_aim_native_sha256": "103e7dd9aeea3fdbc18a1426d38a5f56bf419edd1617de11bd994ba8641057c6"
+    },
+    {
+      "index": 47,
+      "name": "coordinate-accum-emission/negative-rate",
+      "frames": 57,
+      "pre_aim_native_sha256": "90fd4f851874a9c2393e2271d90a453e9390dedd020daa305a88d65da27b6fc0"
+    },
+    {
+      "index": 48,
+      "name": "coordinate-accum-emission/cap-clamp",
+      "frames": 57,
+      "pre_aim_native_sha256": "49ad5e51baefbce89c3270dd51cc88f1a11197ec80e72651f2d087db3cc9c3cf"
+    },
+    {
+      "index": 49,
+      "name": "coordinate-accum-emission/zero-cap",
+      "frames": 57,
+      "pre_aim_native_sha256": "bff2db9abfaab249286cf41b952a1f8fc144547f209fa5af17d126168ee1636a"
+    },
+    {
+      "index": 50,
+      "name": "coordinate-accum-emission/negative-cap",
+      "frames": 57,
+      "pre_aim_native_sha256": "e409281ad7bc3f29359d011e453b99890ef03cab205e6627a0672726fde31984"
+    },
+    {
+      "index": 51,
+      "name": "coordinate-accum-emission/epsilon-inside",
+      "frames": 57,
+      "pre_aim_native_sha256": "0c7a608cf1cc010a1d8b5849560dbf3c88e7a985d1e354c8e2996642ebabb701"
+    },
+    {
+      "index": 52,
+      "name": "coordinate-accum-emission/epsilon-outside",
+      "frames": 57,
+      "pre_aim_native_sha256": "0b7d43cca24ff9d1a495de5b55c256d15c23c3748ecfdb7d48427c18062b9653"
+    },
+    {
+      "index": 53,
+      "name": "coordinate-accum-emission/initial-ATK",
+      "frames": 57,
+      "pre_aim_native_sha256": "0af9fc049d8b03aeb7b51230beef74796bbbcf84f425780cce41eda447dcf585"
+    },
+    {
+      "index": 54,
+      "name": "coordinate-accum-emission/later-ATK-keeps-cap",
+      "frames": 57,
+      "pre_aim_native_sha256": "2ef33f08cf9b018c45386c6903b5fe2a97afa4c98f1c400f053045b32b37838b"
+    },
+    {
+      "index": 55,
+      "name": "coordinate-accum-emission/empty-expiry",
+      "frames": 57,
+      "pre_aim_native_sha256": "1101826662ca7af57d020c69dc84ffa3063dbe42ca509273cedb2cc4846567e0"
+    },
+    {
+      "index": 56,
+      "name": "coordinate-accum-emission/archived-consume-once",
+      "frames": 57,
+      "pre_aim_native_sha256": "9adb4dbee5be564c5c87a245f41d9177b8ce2fd33d464186f8d7ab9fdfe9dc08"
+    },
+    {
+      "index": 57,
+      "name": "coordinate-accum-emission/active-consume-once",
+      "frames": 57,
+      "pre_aim_native_sha256": "86f9223ab8eeaf6177eccf95f740d46460fdda399dcbebf2d5677ea834a37787"
+    },
+    {
+      "index": 58,
+      "name": "coordinate-accum-emission/missing-name",
+      "frames": 57,
+      "pre_aim_native_sha256": "6e71fa9a53944489380e6598edc9a9ae507bbafe24db4c547300b4a1717f0863"
+    },
+    {
+      "index": 59,
+      "name": "coordinate-accum-emission/cross-owner-active",
+      "frames": 57,
+      "pre_aim_native_sha256": "043e686b2188a061fd4d1a03f1a54c44b3132c88d121733106f7501ec81d6b7f"
+    },
+    {
+      "index": 60,
+      "name": "coordinate-accum-emission/cross-owner-archive",
+      "frames": 57,
+      "pre_aim_native_sha256": "00411a4d3f0f07443c2ba67d574ee8c265783d4712ab9963788d9f88bef13627"
+    },
+    {
+      "index": 61,
+      "name": "coordinate-accum-emission/refresh-clears-archive",
+      "frames": 57,
+      "pre_aim_native_sha256": "bd4b0b0be52042123bb555c0c7517e3f3fe33c3c1258385a369aa3cee4654e54"
+    },
+    {
+      "index": 62,
+      "name": "coordinate-accum-emission/refresh-collects-new-lifetime",
+      "frames": 57,
+      "pre_aim_native_sha256": "79b215da8ef799f9cfed6f6df934fe9f27b7964f3b6d679eea2a0c8ff78065de"
+    },
+    {
+      "index": 63,
+      "name": "coordinate-accum-emission/named-removal-retains-archive",
+      "frames": 57,
+      "pre_aim_native_sha256": "1bcbeed960fd12dc0ca50372eed520d33dd87a927600434778c482ff97d69ec6"
+    },
+    {
+      "index": 64,
+      "name": "coordinate-accum-emission/split-only-and-int-truncation",
+      "frames": 57,
+      "pre_aim_native_sha256": "fd2388775c7fb4e4af22156f47f7e9de2f4ffe7d647c8e088df7cecd211f817d"
+    },
+    {
+      "index": 65,
+      "name": "coordinate-accum-emission/no-second-attack-modifier",
+      "frames": 57,
+      "pre_aim_native_sha256": "90f60a6c118b149a20853929c0aba9fdff6c279d413fd17ca11dad5fce6e0e89"
+    },
+    {
+      "index": 66,
+      "name": "coordinate-accum-emission/lifesteal-before-rate",
+      "frames": 57,
+      "pre_aim_native_sha256": "51ccae74f2e5c995754a3ef483f16fed9d1d07da1d7df0e1ef2b976adf2f88bc"
+    },
+    {
+      "index": 67,
+      "name": "coordinate-accum-emission/scatter-two-muzzles",
+      "frames": 57,
+      "pre_aim_native_sha256": "d2bf1f2222db49c164c0b91200701e343a6cbcd828a86d20f8ca86e141e7cd45"
+    },
+    {
+      "index": 68,
+      "name": "coordinate-accum-emission/all-pools-full-before-notices",
+      "frames": 57,
+      "pre_aim_native_sha256": "551f9d71de23c67265f0d2eeb4d7a201168839776023d994b7e6874bd87befa2"
+    },
+    {
+      "index": 69,
+      "name": "coordinate-accum-emission/duplicate-name-first-active",
+      "frames": 57,
+      "pre_aim_native_sha256": "4a3a782479451a39d734437187aeb420a74565b2a9f71975d0043b2f45271e49"
+    },
+    {
+      "index": 70,
+      "name": "coordinate-accum-emission/duplicate-name-last-archive",
+      "frames": 57,
+      "pre_aim_native_sha256": "362e926641799275c9a4b4f230fbb64f0c3a49215b83fc08ebe30dd2ad8fc84c"
+    },
+    {
+      "index": 71,
+      "name": "coordinate-accum-emission/pool-target-does-not-filter-damage",
+      "frames": 57,
+      "pre_aim_native_sha256": "4d8371c0021041c3e4282b6326138a9e9d1a7e83acb8f90a8f084153f5fd3c60"
+    },
+    {
+      "index": 72,
+      "name": "coordinate-accum-emission/stacked-rate",
+      "frames": 57,
+      "pre_aim_native_sha256": "4ee2fa3461506bc3a435003c6cea6987294a3e7fb4f470ed1f4a9e9c73477c1c"
+    },
+    {
+      "index": 73,
+      "name": "coordinate-accum-emission/release-feeds-another-pool",
+      "frames": 57,
+      "pre_aim_native_sha256": "d4d76aded672bf1f9d11739927d3dcac0e2b08098dcb76b1b2439183aa77c63c"
+    },
+    {
+      "index": 74,
+      "name": "coordinate-accum-emission/rate-expired-before-hit",
+      "frames": 57,
+      "pre_aim_native_sha256": "bcdd10020a42b279e61eb039d7a3a52c90704181ebad020c00ba0fadfba5074c"
+    },
+    {
+      "index": 75,
+      "name": "coordinate-accum-emission/last-owner-cap-snapshot",
+      "frames": 57,
+      "pre_aim_native_sha256": "4281c17b43f80da555ade5617ae21d9398dbb4f1f1fa69eeec539c60dd2ed365"
+    },
+    {
+      "index": 76,
+      "name": "coordinate-accum-emission/dealt-group-before-received",
+      "frames": 57,
+      "pre_aim_native_sha256": "57b6db7423aad3fe6ad3828443b3c0e5a73d62777b13e168e2e1a23bb96e72d2"
+    },
+    {
+      "index": 77,
+      "name": "coordinate-accum-emission/ordered-baseline-cancellation",
+      "frames": 57,
+      "pre_aim_native_sha256": "4d1002a5cb11ee7e9ff6df38c576b4cafe1d01a2c638a5172a6d0a56ab01247d"
+    },
+    {
+      "index": 78,
+      "name": "coordinate-accum-emission/separate-baseline-and-named-groups",
+      "frames": 57,
+      "pre_aim_native_sha256": "bcf9876d010ab256543665dfb8c6c3d00d3f5b1416b5b3e418d36989e8904aa5"
+    },
+    {
+      "index": 79,
+      "name": "coordinate-accum-emission/duplicate-name-active-reverse-stat-order",
+      "frames": 57,
+      "pre_aim_native_sha256": "ab890188a114932deb67d419641eac3402bb0616abe53b7e9e66ab7362bdb0cb"
+    },
+    {
+      "index": 80,
+      "name": "coordinate-accum-emission/fully-occluded",
+      "frames": 57,
+      "pre_aim_native_sha256": "1393942a2003840fd0b12d83efe893e0932fb3ba29b89a31b68bc0439de9ba38"
+    },
+    {
+      "index": 81,
+      "name": "coordinate-accum-emission/interrupt",
+      "frames": 57,
+      "pre_aim_native_sha256": "f5f0b5355fbd6918cb64d7df2560c88a191184ceed5a2cfaccf67bc5e75c68b0"
+    },
+    {
+      "index": 82,
+      "name": "coordinate-accum-emission/destroyed-parts",
+      "frames": 57,
+      "pre_aim_native_sha256": "5b19427bc6279c1d9687a58b20501c531f656af8743489362c8bdb250a9719f5"
+    },
+    {
+      "index": 83,
+      "name": "coordinate-accum-emission/two-coordinate-shooters",
+      "frames": 57,
+      "pre_aim_native_sha256": "f60dd31a4840652744fdb9578a5e58c5e3da990dccd50cecbf9501366670758f"
+    },
+    {
+      "index": 84,
+      "name": "coordinate-core/centered-core",
+      "frames": 16,
+      "pre_aim_native_sha256": "50f08584519494a5d48c5c5c9f43490b910b069b8b43fa7e1dda9913b0a7e121"
+    },
+    {
+      "index": 85,
+      "name": "coordinate-core/base-core",
+      "frames": 16,
+      "pre_aim_native_sha256": "c81be944282c2ec6374a308dffdcd34079864b889a4fb3f496dd0a460b30bdbb"
+    },
+    {
+      "index": 86,
+      "name": "coordinate-core/off-center-explicit",
+      "frames": 16,
+      "pre_aim_native_sha256": "747fbeeaa045ea205479bbfb0cc9e76dceb3676e756c5b447e4ad1939f806921"
+    },
+    {
+      "index": 87,
+      "name": "coordinate-core/off-center-default-auto",
+      "frames": 16,
+      "pre_aim_native_sha256": "b356267189564040619d1b5ca5f78ed34c0eee2ed2ae9f68d25cb11696c7f3ed"
+    },
+    {
+      "index": 88,
+      "name": "coordinate-core/part-occlusion",
+      "frames": 16,
+      "pre_aim_native_sha256": "745080042d88d98ee9d69e0ed29c32a2c7f7f5da2169dc4556ad6de704993223"
+    },
+    {
+      "index": 89,
+      "name": "coordinate-core/pierce-under-part",
+      "frames": 16,
+      "pre_aim_native_sha256": "34a2c1e0efc6c6fe466c350ae75bd9949341786c9c67e5f522b5201ba3417762"
+    },
+    {
+      "index": 90,
+      "name": "coordinate-core/explosion-under-part",
+      "frames": 16,
+      "pre_aim_native_sha256": "c42ebcc7b106f20015d86620bd568c9e643e330dd1c35f4088a9b6c733c760dc"
+    },
+    {
+      "index": 91,
+      "name": "coordinate-core/critical-and-core-damage",
+      "frames": 16,
+      "pre_aim_native_sha256": "00392d14b55002bed1622243e09c2a857eebe6fb191c6bd2f4da4c858e80f6cd"
+    },
+    {
+      "index": 92,
+      "name": "coordinate-core/core-fraction-child",
+      "frames": 16,
+      "pre_aim_native_sha256": "12721e15a3588d69ea357450ab844b516260c6b7dd6a2e5e449e08226843a38b"
+    },
+    {
+      "index": 93,
+      "name": "coordinate-core/delayed-open",
+      "frames": 16,
+      "pre_aim_native_sha256": "455c745fa820747817a1b405cef5be97d88a112cc900e247cd78d2184a1fe07f"
+    },
+    {
+      "index": 94,
+      "name": "coordinate-core/expiry",
+      "frames": 16,
+      "pre_aim_native_sha256": "1c614c448605c1e92d32e3c3c40a0dc7c53d35abecaca9c9a94ec90a8201165b"
+    },
+    {
+      "index": 95,
+      "name": "coordinate-core/reopen",
+      "frames": 16,
+      "pre_aim_native_sha256": "11135c86d03616a5c843cb5fe348dd6781b6aacbc6bb40b99141b798177c451f"
+    },
+    {
+      "index": 96,
+      "name": "coordinate-core/largest-wins",
+      "frames": 16,
+      "pre_aim_native_sha256": "c2c36a2730d5be21e1f557318082c5d0306fb8110f8fdb23cb342fdf97cf239c"
+    },
+    {
+      "index": 97,
+      "name": "coordinate-core/equal-newest-start",
+      "frames": 16,
+      "pre_aim_native_sha256": "90ee1a3b6a6d8ca356bc227da8ecec3c9624186b6e86dc7edd69a45e3d7fca13"
+    },
+    {
+      "index": 98,
+      "name": "coordinate-core/equal-declaration-order",
+      "frames": 16,
+      "pre_aim_native_sha256": "a2450278f255eda3209fa1194d4904bcb2917bff2757f47a2a7c1269560fe146"
+    },
+    {
+      "index": 99,
+      "name": "coordinate-core/base-equal-node",
+      "frames": 16,
+      "pre_aim_native_sha256": "6ad796ad1e03b2f7e46e08465b6346c1df5960ae175c1a85b99a274f0c6a2a07"
+    },
+    {
+      "index": 100,
+      "name": "coordinate-core/base-larger-than-node",
+      "frames": 16,
+      "pre_aim_native_sha256": "ee19453d07146aad7bd6ca88bf2bb5a7f4a671da59f85dea4b71b56b19bcbb62"
+    },
+    {
+      "index": 101,
+      "name": "coordinate-core/older-declaration-newest-start",
+      "frames": 16,
+      "pre_aim_native_sha256": "a6b784a92ce25d63d3945f8a0c8dc8d43df241633b9bab6ef3ae15132dfc4570"
+    },
+    {
+      "index": 102,
+      "name": "coordinate-core/winner-expires-restores-core",
+      "frames": 16,
+      "pre_aim_native_sha256": "0bf135bd5e4bbe3b98d9f9e1ec70d5dbabd3f897df8b46ee084b5b77ab06f664"
+    },
+    {
+      "index": 103,
+      "name": "coordinate-core/large-core",
+      "frames": 16,
+      "pre_aim_native_sha256": "3aa2e37077e79f97e550fb309a5ed7512d708a6bbba679e827d405ae419f4288"
+    },
+    {
+      "index": 104,
+      "name": "coordinate-core/tiny-core",
+      "frames": 16,
+      "pre_aim_native_sha256": "c934a8b577680405138d43d2e20ff74ce3fc0c2927951634e26fcc776f7021ff"
+    },
+    {
+      "index": 105,
+      "name": "coordinate-core/scatter-two-muzzles",
+      "frames": 16,
+      "pre_aim_native_sha256": "14af8e073adc99e270355a245ae816f9ba128a5314df729f2b8fb696e5da1e6b"
+    },
+    {
+      "index": 106,
+      "name": "coordinate-core/two-shooters",
+      "frames": 16,
+      "pre_aim_native_sha256": "52172da882eb7d19f8c83ac768f8a91c7633efeb2d1acddacae7811a2802f36c"
+    },
+    {
+      "index": 107,
+      "name": "coordinate-core/last-owner",
+      "frames": 16,
+      "pre_aim_native_sha256": "5190f69ad6e8ad1c71577bdb97107ed1ba096f0b89d147dc4d3d0ca34eae8208"
+    },
+    {
+      "index": 108,
+      "name": "coordinate-core/expanded-parent",
+      "frames": 7,
+      "pre_aim_native_sha256": "34ffb83641fee5f7a0e9bdb4447dafbad0c2dd90e46bb291ce7fe30135c57e56"
+    },
+    {
+      "index": 109,
+      "name": "coordinate-core/32-nodes",
+      "frames": 16,
+      "pre_aim_native_sha256": "df0e8c08c4093a4dfbe39093ea908cb44bc970ab194b17dea76d0545b052e807"
+    },
+    {
+      "index": 110,
+      "name": "coordinate-core/127-targets",
+      "frames": 16,
+      "pre_aim_native_sha256": "9ed0187a5f4236d133fbdda4bdb280067ec0e88925d641fdcdc14f965b3606b7"
+    },
+    {
+      "index": 111,
+      "name": "coordinate-core/area-skill-default-core-aim",
+      "frames": 16,
+      "pre_aim_native_sha256": "c9618c227501a71160e88490f9a0d18747f3a6f69d0f1d4a2373a504a3de740b"
+    },
+    {
+      "index": 120,
+      "name": "coordinate-core/cache-same-key",
+      "frames": 28,
+      "pre_aim_native_sha256": "3d3cefc0d205a4e4af299b7e2a048e47a3600b8891d98ddbf96e3d534390f580"
+    },
+    {
+      "index": 121,
+      "name": "coordinate-core/cache-radius-collision",
+      "frames": 28,
+      "pre_aim_native_sha256": "e6860839332f7127577d68d2f672cca58964369516d1afa652daa36ab245a34b"
+    },
+    {
+      "index": 122,
+      "name": "coordinate-core/cache-cross-owner-first-value",
+      "frames": 28,
+      "pre_aim_native_sha256": "367c199752c9baa923f6b688a2fc5284ddf0290cecc73ceb79c1ef8c14fb1dcf"
+    },
+    {
+      "index": 123,
+      "name": "coordinate-core/cache-zero-to-positive-grow",
+      "frames": 28,
+      "pre_aim_native_sha256": "8606bd88cc8a9408a4076c7d3cb757a572b9df1d2687c46586f564d510bb2ea5"
+    },
+    {
+      "index": 124,
+      "name": "coordinate-core/cache-core-motion-same-rounded-key",
+      "frames": 28,
+      "pre_aim_native_sha256": "75eaf8a84d458279a967c7622c5d13c8d5192bda724d6470313e52d6fef05150"
+    },
+    {
+      "index": 125,
+      "name": "coordinate-core/cache-equal-core-no-new-geometry",
+      "frames": 28,
+      "pre_aim_native_sha256": "dd5fbe1e35d4bb03d299fc328898fe09c72120e9bd2b952300e8284ec1d67adb"
+    },
+    {
+      "index": 126,
+      "name": "coordinate-core/cache-same-target-new-generation",
+      "frames": 28,
+      "pre_aim_native_sha256": "0546bb3f976f45f3a5f9488ee0adf281660ecd8b8001d58d3591024a7519b317"
+    },
+    {
+      "index": 127,
+      "name": "coordinate-core/cache-same-target-set-new-order",
+      "frames": 28,
+      "pre_aim_native_sha256": "af5c7e65c431c0bad716cb2d9ed4a8f4cd803641a2a146bd40769f1388258e27"
+    },
+    {
+      "index": 128,
+      "name": "coordinate-core/cache-scatter-shared-keys",
+      "frames": 28,
+      "pre_aim_native_sha256": "a4e2068a491daac94a4a13eda9f3cd9d1998270d150f359cabb6500b82d66e32"
+    },
+    {
+      "index": 129,
+      "name": "coordinate-core/cache-cache-empty-geometry-gap",
+      "frames": 28,
+      "pre_aim_native_sha256": "f567dde1caf31a9ca61a937ae2548dbf5f4c7bb581be94d28665f2f608c6d6b1"
+    },
+    {
+      "index": 130,
+      "name": "coordinate-core/cache-closed-negative-zero-base",
+      "frames": 28,
+      "pre_aim_native_sha256": "5fa5cb3aa780dd7de5d593d46d0b2974442de9cbef93d26a9a3a07a7abcb58c1"
+    },
+    {
+      "index": 131,
+      "name": "coordinate-core/cache-near-capacity",
+      "frames": 1200,
+      "pre_aim_native_sha256": "0658663c749b0906ef0270c0043bf7029c7c92a4751297b7c65d90dca7ccdfa6"
+    },
+    {
+      "index": 133,
+      "name": "coordinate-core/common-matrix-0",
+      "frames": 16,
+      "pre_aim_native_sha256": "dbdef13e54a21b8a80c07f16d81618520f61dd9653f1fd8aabe60b7a849037d3"
+    },
+    {
+      "index": 134,
+      "name": "coordinate-core/common-matrix-1",
+      "frames": 16,
+      "pre_aim_native_sha256": "dbdef13e54a21b8a80c07f16d81618520f61dd9653f1fd8aabe60b7a849037d3"
+    },
+    {
+      "index": 135,
+      "name": "coordinate-core/common-matrix-2",
+      "frames": 16,
+      "pre_aim_native_sha256": "de4bd716f2aef617b7db29e0a97dc6f7746fcc40dd2d80640fd428d46f0f9f40"
+    },
+    {
+      "index": 136,
+      "name": "coordinate-core/common-matrix-3",
+      "frames": 16,
+      "pre_aim_native_sha256": "dbdef13e54a21b8a80c07f16d81618520f61dd9653f1fd8aabe60b7a849037d3"
+    },
+    {
+      "index": 137,
+      "name": "coordinate-core/common-matrix-4",
+      "frames": 16,
+      "pre_aim_native_sha256": "dbdef13e54a21b8a80c07f16d81618520f61dd9653f1fd8aabe60b7a849037d3"
+    },
+    {
+      "index": 138,
+      "name": "coordinate-core/common-matrix-5",
+      "frames": 16,
+      "pre_aim_native_sha256": "dbdef13e54a21b8a80c07f16d81618520f61dd9653f1fd8aabe60b7a849037d3"
+    },
+    {
+      "index": 139,
+      "name": "coordinate-core/common-matrix-6",
+      "frames": 16,
+      "pre_aim_native_sha256": "7f18b0d72617318f6f6b0df60ce0b61ee60d2c2e3d4d038011c5cfc63935307e"
+    },
+    {
+      "index": 140,
+      "name": "coordinate-core/common-matrix-7",
+      "frames": 16,
+      "pre_aim_native_sha256": "dbdef13e54a21b8a80c07f16d81618520f61dd9653f1fd8aabe60b7a849037d3"
+    },
+    {
+      "index": 141,
+      "name": "coordinate-core/common-matrix-8",
+      "frames": 16,
+      "pre_aim_native_sha256": "06a5fc05f8b5237f3ca2f8a440cb6f49b773a31fd83d9774aa5f676db271aace"
+    },
+    {
+      "index": 142,
+      "name": "coordinate-core/common-matrix-9",
+      "frames": 16,
+      "pre_aim_native_sha256": "8076b7c75c7439c68be595b76270a244692888d5da9da0610e817e1fcd41c27d"
+    },
+    {
+      "index": 143,
+      "name": "coordinate-core/common-matrix-10",
+      "frames": 16,
+      "pre_aim_native_sha256": "4fc7fd973fce2c6fc29bfbd85cf782b2945ed4851fae9fd7e1b07ff8011eb2f9"
+    },
+    {
+      "index": 144,
+      "name": "coordinate-core/common-matrix-11",
+      "frames": 16,
+      "pre_aim_native_sha256": "dbdef13e54a21b8a80c07f16d81618520f61dd9653f1fd8aabe60b7a849037d3"
+    },
+    {
+      "index": 145,
+      "name": "coordinate-core/common-matrix-12",
+      "frames": 16,
+      "pre_aim_native_sha256": "c569a0f1ade60a866150c3a9a3b709a9a5d40a8a7cfabe37ff3605db496815b0"
+    },
+    {
+      "index": 146,
+      "name": "coordinate-core/common-matrix-13",
+      "frames": 16,
+      "pre_aim_native_sha256": "dbdef13e54a21b8a80c07f16d81618520f61dd9653f1fd8aabe60b7a849037d3"
+    },
+    {
+      "index": 147,
+      "name": "coordinate-core/common-matrix-14",
+      "frames": 16,
+      "pre_aim_native_sha256": "9525457b1c1e5439200a24d503a9d74683b000e6ad7471a668409eaa17f4ead9"
+    },
+    {
+      "index": 148,
+      "name": "coordinate-core/common-matrix-15",
+      "frames": 16,
+      "pre_aim_native_sha256": "d1601062eb66389f5f98229495a1d4b4767fbb2415d2b5c98ac8fe7f7af6b3ec"
+    },
+    {
+      "index": 149,
+      "name": "coordinate-core/common-matrix-touch-False",
+      "frames": 16,
+      "pre_aim_native_sha256": "ec91fd84eae72d88268719ad61e9d8518d6b193b7d9d1515c38c1a6c91e2bc6a"
+    },
+    {
+      "index": 150,
+      "name": "coordinate-core/common-matrix-touch-True",
+      "frames": 16,
+      "pre_aim_native_sha256": "65a54527c0b43c5b60b4a792c3438b0e950bbb6de5e7efbf5ce76a5efd590949"
+    },
+    {
+      "index": 151,
+      "name": "coordinate-core/aim/manual-owner-only",
+      "frames": 22,
+      "pre_aim_native_sha256": "06868ebbe5fac6f9154a7abe8152fc85276b37edffae73c5f0b401f111990846"
+    },
+    {
+      "index": 152,
+      "name": "coordinate-core/aim/first-live-entry",
+      "frames": 22,
+      "pre_aim_native_sha256": "3bc12be3b0ae33097913783a07be9dc77babf77aeaa2c1fac554c6e646ebf41b"
+    },
+    {
+      "index": 153,
+      "name": "coordinate-core/aim/target-expires",
+      "frames": 22,
+      "pre_aim_native_sha256": "db8c804a345a8e6e1ab7a434695e1c5745b008a99dca3b869b62b5c8a4b6f502"
+    },
+    {
+      "index": 154,
+      "name": "coordinate-core/aim/core-expires-fallback",
+      "frames": 22,
+      "pre_aim_native_sha256": "0096a6395e9c6515ac230115b553603806c2268ad572a7748c22b832bb8c7fcb"
+    },
+    {
+      "index": 155,
+      "name": "coordinate-core/aim/core-changes-manual-stays",
+      "frames": 22,
+      "pre_aim_native_sha256": "375370959c29878a4014fdfc2addef120089f66cd2992c7db21690ae23af1ebb"
+    },
+    {
+      "index": 156,
+      "name": "coordinate-core/aim/priority-preemption",
+      "frames": 22,
+      "pre_aim_native_sha256": "c620b5a82b0b87d44c5fccc38601d6b4e3a0a588180b7f617d8ae0c836116d1c"
+    },
+    {
+      "index": 157,
+      "name": "coordinate-core/aim/equal-priority-new-edge",
+      "frames": 22,
+      "pre_aim_native_sha256": "dd26b99db3bb1a71e97fbee106136c6f059932da18866f16dc4f50b39c4b7c99"
+    },
+    {
+      "index": 158,
+      "name": "coordinate-core/aim/warn-all-own",
+      "frames": 22,
+      "pre_aim_native_sha256": "d9a880e2f6d72255ea1a05fe49679891bdc4203cc2ba25d168e66d4782f7f64d"
+    },
+    {
+      "index": 159,
+      "name": "coordinate-core/aim/layer2-interrupt",
+      "frames": 22,
+      "pre_aim_native_sha256": "b0cfa9b857f6e4bdfe312aa1e61aaf85797e557e5a9b8f2ba81b9c83cd30b402"
+    },
+    {
+      "index": 160,
+      "name": "coordinate-core/aim/layer1-ignores-interrupt",
+      "frames": 22,
+      "pre_aim_native_sha256": "20a1d83c1ebb31ab143e7ce89e7a7de5ed8b5bf5550bff3bd31cf59e5eff10ec"
+    },
+    {
+      "index": 161,
+      "name": "coordinate-core/aim/shared-camera-layer2",
+      "frames": 22,
+      "pre_aim_native_sha256": "eb61d3b661dfa8450bb56889af1b7dd331a0a9ca33393644a1e80d5014913f90"
+    },
+    {
+      "index": 162,
+      "name": "coordinate-core/aim/focus-zero-marker-expires",
+      "frames": 22,
+      "pre_aim_native_sha256": "06868ebbe5fac6f9154a7abe8152fc85276b37edffae73c5f0b401f111990846"
+    },
+    {
+      "index": 163,
+      "name": "coordinate-core/aim/full-burst-follow",
+      "frames": 60,
+      "pre_aim_native_sha256": "42cd5d62f055fce02b7d0f69661ad72f28d192a5a99bad528de50e9c6cb67e99"
+    },
+    {
+      "index": 164,
+      "name": "coordinate-core/aim/window-always",
+      "frames": 60,
+      "pre_aim_native_sha256": "42cd5d62f055fce02b7d0f69661ad72f28d192a5a99bad528de50e9c6cb67e99"
+    },
+    {
+      "index": 165,
+      "name": "coordinate-core/aim/window-burst_charge",
+      "frames": 60,
+      "pre_aim_native_sha256": "abea3e5279a453c274db96d9e7c943b92ab0c210ddbe5225e47c409eb1b4800c"
+    },
+    {
+      "index": 166,
+      "name": "coordinate-core/aim/window-burst_chain",
+      "frames": 60,
+      "pre_aim_native_sha256": "24d5ab02e4b182447068bce868502263bfa7f75cf8bd58a2fbc59a0053e63d3c"
+    },
+    {
+      "index": 167,
+      "name": "coordinate-core/aim/window-own_full_burst",
+      "frames": 60,
+      "pre_aim_native_sha256": "e73531909b9665067dfcc8071f77d464c2ee829be4a6cbcc07c9d276bafd90b5"
+    },
+    {
+      "index": 168,
+      "name": "coordinate-core/aim/combat-start-anchor",
+      "frames": 22,
+      "pre_aim_native_sha256": "468ca622b3d8759c44de83f3f87f7bde2d3a597738d3d01c19be0194c2e08fc0"
+    },
+    {
+      "index": 169,
+      "name": "coordinate-core/aim/anchor-fb_end",
+      "frames": 60,
+      "pre_aim_native_sha256": "5ea105f2bb2f6d8bd452269648546ae6ae59871a346e14ef2d8ae98934209642"
+    },
+    {
+      "index": 170,
+      "name": "coordinate-core/aim/anchor-own_fb_end",
+      "frames": 60,
+      "pre_aim_native_sha256": "5ea105f2bb2f6d8bd452269648546ae6ae59871a346e14ef2d8ae98934209642"
+    },
+    {
+      "index": 171,
+      "name": "coordinate-core/aim/anchor-own-buff-end",
+      "frames": 22,
+      "pre_aim_native_sha256": "468ca622b3d8759c44de83f3f87f7bde2d3a597738d3d01c19be0194c2e08fc0"
+    },
+    {
+      "index": 172,
+      "name": "coordinate-core/aim/anchor-reload-minus",
+      "frames": 22,
+      "pre_aim_native_sha256": "2b991f4e7a786e4a61ef9762ad03da90bd0eda7a65308431d38ecdc6dce5a0ad"
+    },
+    {
+      "index": 173,
+      "name": "coordinate-core/aim/anchor-next-fb-prediction",
+      "frames": 660,
+      "pre_aim_native_sha256": "eee45f7ea0225fbaeab4bef970453dd31296e821bdaf3baccf057c44c8e072a4"
+    },
+    {
+      "index": 174,
+      "name": "coordinate-core/aim/gate-True",
+      "frames": 60,
+      "pre_aim_native_sha256": "42cd5d62f055fce02b7d0f69661ad72f28d192a5a99bad528de50e9c6cb67e99"
+    },
+    {
+      "index": 175,
+      "name": "coordinate-core/aim/gate-False",
+      "frames": 60,
+      "pre_aim_native_sha256": "25f352305f52c4270c408789bf6a71e38e76de1ec88f2e482583529da2e80ddd"
+    },
+    {
+      "index": 176,
+      "name": "coordinate-core/aim/same-frame-target-break",
+      "frames": 22,
+      "pre_aim_native_sha256": "1e48aea36cc21d9712c475a20c06c2cb99d74b81020a69614936d730915d6bce"
+    },
+    {
+      "index": 177,
+      "name": "coordinate-core/aim/default-interrupt-priority",
+      "frames": 22,
+      "pre_aim_native_sha256": "0d249e0a39e354965810b7a0ce4048f0b6015cb26005ec6abe3dae336db018a2"
+    },
+    {
+      "index": 178,
+      "name": "coordinate-core/aim/shared-camera-manual",
+      "frames": 22,
+      "pre_aim_native_sha256": "3bcf3def23e6d5b764ff3d21e41fe876f0bcbb1208c9f70ef6ea35569f748b67"
+    },
+    {
+      "index": 179,
+      "name": "coordinate-core/aim/forced-camera-sequence",
+      "frames": 22,
+      "pre_aim_native_sha256": "c620b5a82b0b87d44c5fccc38601d6b4e3a0a588180b7f617d8ae0c836116d1c"
+    },
+    {
+      "index": 180,
+      "name": "coordinate-core/aim/dynamic-reload-minus",
+      "frames": 34,
+      "pre_aim_native_sha256": "0885c63297be60c38f61afab75333e51f17d51d2089823d5ca177438c50bf545"
+    }
+  ]
+}

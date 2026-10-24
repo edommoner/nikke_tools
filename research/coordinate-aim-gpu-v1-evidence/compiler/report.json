@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "compiler_suite": "compiler-full--coordinate-aim",
+  "certificate_target": "research/portable-compiler-full--coordinate-aim-source-certificate.json",
+  "baseline_suite": "coordinate-aim",
+  "baseline_golden_sha256": "3c81981ae1f142b5810c406137e3f72695c0af40bbcdb035cc89669ac22bdaf7",
+  "certificate_sha256": "68e368bbb6ee6c1253c6d1f06d38bf346ce1a70cbc9a8cdae400ce0b5867bbe8",
+  "metal_package_id": "1e0f320e65a1a8dc188d1ab2393340903efb07e8f854da456d25277c8c71b294",
+  "metal_manifest_sha256": "0a9f5323b3ab3bc9950a6e51c39f7ab02ef68d9fde87fda9ea85b18fcb6a7d18",
+  "metal_artifacts_sha256": "068c16bea61fcfc945ffc9ba145beee170f71d2b06e2e200b076b82679ad1482",
+  "metal_run_sha256": "86552a0274cf95b0570bfe1e1b15d9376b6741f4c2aca992ffb9397f845f3ddc",
+  "metal_input_count": 190,
+  "independent_metal_audit": true,
+  "compiler_verified": false,
+  "cache_hit_verified": false,
+  "calculation_verified": false,
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "scope": "Compiler source identity only; audited Metal baseline is a separate calculation proof"
+}

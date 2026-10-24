@@ -90,7 +90,12 @@ def validate_composed_stride(source,input_words,output_words):
     if output_words==1310720 or source=='gpu/world_coordinate_composed_entry.slang':
         from portable_arena_specs import audit_profile
         plan=audit_profile('combined-v1')
-        if source in ('gpu/world_coordinate_core_entry.slang','gpu/world_coordinate_cache_entry.slang'):
+        if source=='gpu/world_coordinate_aim_entry.slang':
+            from portable_coordinate_aim_wire import INPUT_WORDS,OUTPUT_WORDS,check_schema
+            check_schema(ROOT)
+            if (input_words,output_words)!=(INPUT_WORDS,OUTPUT_WORDS):
+                raise ValueError('Coordinate aim requires the complete authored wire')
+        elif source in ('gpu/world_coordinate_core_entry.slang','gpu/world_coordinate_cache_entry.slang'):
             from portable_coordinate_core_specs import INPUT_WORDS,OUTPUT_WORDS,check_schema
             check_schema(ROOT)
             if source=='gpu/world_coordinate_cache_entry.slang':

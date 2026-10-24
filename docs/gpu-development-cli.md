@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`coordinate-aim`190（共通CPU166／拒24）は手動照準・camera調停を共通resident実行器へ接続したsealed profile。4window／5anchor／前回skill点と今回physical点／7059frameをMetal実証した。`package --suite coordinate-aim --compact`を使う。[共通GPU照準](portable-coordinate-aim-gpu.md)を参照。
+
 `reference --suite coordinate-aim-common --out /tmp/new.json` は手動照準・camera調停の共通CPU30契約（GPU0／packing0）を検査する。定時skillの前回照準と、調停後physicalの新照準を区別する。静的IR／GPU接続の残件は[照準接続契約](portable-coordinate-aim-contract.md)を参照。
 
 `coordinate-matrix`151（共通CPU136／拒15）は範囲スキルの静的回転係数を共通数値規約へ接続したsealed profile。旧cache133の全input／rawを保持し、18worldを追加。CUDA／Metal共通実行器・生成cacheをそのまま再利用する。[共通area matrix](portable-coordinate-matrix-common.md)を参照。

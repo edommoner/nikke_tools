@@ -26,7 +26,11 @@ bool initializeCoordinatePhysical(inout Runtime s)
 #ifdef PORTABLE_COORDINATE_LIVE_CORE
     if(!validCoordinateCoreIR(s))return false;
 #endif
+#ifdef PORTABLE_COORDINATE_AUTHORED_AIM
+    if(!initializeCoordinateAim(s))return false;
+#else
     if(focusAimEnabled(s))return false; // Explicit waypoints/layer2 need their own caller.
+#endif
     for(uint row=0;row<s.count;row++)for(uint slot=0;slot<readDefinition(s.inputBase,row).triggerCount;slot++)
         if(commands[s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS+slot*8]==62)return false;
     for(uint i=CF_BASE;i<CF_END;i++)results[s.resourceOutput+i]=0;
@@ -79,6 +83,9 @@ uint64_t coordinatePhysicalSample(inout Runtime s,uint who,Weapon w,uint64_t coe
 #ifdef PORTABLE_COORDINATE_LIVE_CORE
     uint64_t ax=cNumber(meta+4),ay=cNumber(meta+6),cx,cy,diameter;
     coordinateCoreGeometry(s,ax,ay,cx,cy,diameter);
+#ifdef PORTABLE_COORDINATE_AUTHORED_AIM
+    coordinateAimPoint(s,who,ax,ay);
+#endif
     clWrite(input+4,ax);clWrite(input+6,ay);
     if(f64Less(0,diameter))
     {

@@ -104,7 +104,11 @@ uint controlPick(inout Runtime s,uint who,bool holdOnly)
 }
 bool controlOwns(inout Runtime s,uint who)
 { return commands[controlInput(s)+2]!=0||results[controlHead(s)+2]==who+1; }
+#ifdef PORTABLE_COORDINATE_AUTHORED_AIM
+uint controlRequestBase(inout Runtime s,uint who,uint64_t when)
+#else
 uint controlRequest(inout Runtime s,uint who,uint64_t when)
+#endif
 {
     uint a=controlState(s,who),input=controlOwnerInput(s,who),index=results[a+1];
     if(index<commands[input+1]&&!f64Less(when,loadNumber(controlSequence(s,who,index)))) return 100; // priority99 plus presence.
@@ -112,6 +116,10 @@ uint controlRequest(inout Runtime s,uint who,uint64_t when)
     uint selected=controlPick(s,who,false);if(selected==8) return 0;
     uint row=controlClick(s,who,selected);return commands[row]==0?0:commands[row+2]+1;
 }
+#ifdef PORTABLE_COORDINATE_AUTHORED_AIM
+uint controlRequest(inout Runtime s,uint who,uint64_t when)
+{return max(controlRequestBase(s,who,when),coordinateAimRequest(s,who,when));}
+#endif
 void releaseChargeControl(inout Runtime s,uint who,uint64_t when)
 {
     uint a=controlState(s,who);
@@ -138,6 +146,15 @@ void arbitrateChargeControl(inout Runtime s,uint64_t when)
         uint a=controlState(s,who);request[who]=controlRequest(s,who,when);edge[who]=uint(request[who]!=0&&results[a+16]==0);results[a+16]=uint(request[who]!=0);count+=uint(request[who]!=0);
     }
     uint mode=commands[controlInput(s)+2];if(mode==2&&count>1) { s.error=64;return; }
+#ifdef PORTABLE_COORDINATE_AUTHORED_AIM
+    uint forced=coordinateAimForcedOwner(s,when);
+    if(mode==0&&forced!=0)
+    {
+        owner=forced;if(old!=0&&old!=owner)releaseChargeControl(s,old-1,when);
+        if(owner!=old)storeNumber(h+4,when);
+    }
+    else
+#endif
     if(mode==0)
     {
         if(owner!=0&&request[owner-1]==0)

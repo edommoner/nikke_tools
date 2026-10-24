@@ -58,7 +58,9 @@ bool coordinateCachedLanding(inout Runtime s,uint input,uint output,uint logical
     if(results[h+2]==0||n!=results[h+3]||count>results[h+6]||logicalCount==0){s.error=64;return false;}
     // Native Geometry keeps its first equal geometry, including raw signed
     // zeros. Misses therefore use that representative, not a newer equal one.
+#ifndef PORTABLE_COORDINATE_AUTHORED_AIM
     clWrite(input+4,actorNumber(sig+10));clWrite(input+6,actorNumber(sig+12));
+#endif
     uint64_t radius=actorNumber(sig+8);results[input+3]=uint(f64Less(0,radius));
     if(results[input+3]!=0)
     {

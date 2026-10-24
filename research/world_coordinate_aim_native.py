@@ -4,6 +4,7 @@ Only observes calls already made by canonical simulate. No added aim resolution,
 window query, arbitration, schedule, packet production or geometry calculation.
 """
 import copy
+from contextlib import contextmanager
 import sys
 from unittest.mock import patch
 from world_coordinate_physical_common import observe as physical
@@ -11,7 +12,8 @@ from world_coordinate_matrix_common import common_policy
 from world_frame_native import roster_names
 
 
-def observe(case):
+@contextmanager
+def capture(case):
     import engine_worker
     from calculator import timeline
     names = roster_names(case)
@@ -80,8 +82,13 @@ def observe(case):
          patch.object(timeline.CharState, '_when_open', observed_window), \
          patch.object(timeline.CharState, '_anchor_at', observed_anchor), \
          patch.object(timeline.CharState, '_aim_point', observed_point), common_policy():
+        yield dict(frames=frames, requests=requests, windows=windows, anchors=anchors, queries=queries,
+                   producer='canonical simulate._resolve_aims after arbitration before character ticks')
+
+
+def observe(case):
+    with capture(case) as observed:
         result = physical(case)
     trace = result.pop('skill_trace')
-    result['coordinate_aim'] = dict(frames=frames, requests=requests, windows=windows, anchors=anchors, queries=queries,
-                                   producer='canonical simulate._resolve_aims after arbitration before character ticks')
+    result['coordinate_aim'] = observed
     return result, trace

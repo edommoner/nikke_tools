@@ -1,5 +1,7 @@
 # 手動照準・カメラ調停の共通実行器への接続契約
 
+この文書はCPU契約・静的IRを固定した時点の記録。GPU接続と190入力の実証は[共通GPU照準](portable-coordinate-aim-gpu.md)を参照。以下の未接続という記述は当時の状態。
+
 共通CLI `reference --suite coordinate-aim-common`へ30件の実戦契約を追加した。canonical simulateが実際に行う操作要求、window／anchor照会、調停後のframe照準、物理／範囲スキルの照準照会をpassiveに読む。新しいスケジュールや選択結果をCPUでGPU入力に埋め込む方式ではない。共通数値のlanding／area distanceを用い、元CPUのファイルは変更しない。
 
 30件、1652frame、実際の照準照会206回が検査に成功した。4状態窓（always／burst_charge／burst_chain／own_full_burst）、5アンカー（combat_start／fb_end／own_fb_end／next_fb_start／own_buff_end）、reload_total動的減算、burst使用者gateを含む。最初の生存entry、core消滅・移動、対象の実破壊、優先度先占・同順位の新要求、warn全員操作、レイヤー1／2、共有カメラ、0値focus markerの期限切れ、全バースト追従、強制focus sequenceを扱う。別unitでstrict競合の拒否も検査した。11秒の予測ケースは最初のcycleで閉じ、full burst終了後の実予測clockから開く。

@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "scope": "Shared authored coordinate aim in complete resident state/event executor",
+  "suite": "coordinate-aim",
+  "reference_kind": "deterministic-common-cpu",
+  "sealed": true,
+  "input_count": 190,
+  "native_oracles": 166,
+  "rejections": 24,
+  "input_words": 109528,
+  "output_words": 1310720,
+  "state_words": 160,
+  "state_begin": 919840,
+  "state_end": 920000,
+  "window_kinds": 4,
+  "anchor_kinds": 5,
+  "authored_entries_per_owner": 8,
+  "focus_sequence_capacity": 16,
+  "runtime_stride_bytes": 138952,
+  "cpu": {
+    "tests": 90,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "control": {
+    "tests": 416,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "new_gpu_calls": 2,
+  "successful_gpu_calls": 1,
+  "failed_gpu_calls": 1,
+  "gpu_retries": 0,
+  "intermediate_v2_gpu_calls": 0,
+  "source_only_compiler_certificate": true,
+  "compiler_device_verification": false,
+  "windows_requests": 0,
+  "windows_snapshot": {
+    "thread_id": "01a140bc-5f3b-7661-b720-50c945596eaa",
+    "host": "remote-control:env_e_6ac12920046c8331afb50b0234aeba48",
+    "revision": 78,
+    "status": "idle",
+    "changed": false,
+    "new_requests": 0,
+    "current_cuda_verified": false,
+    "live_gpu_job_verified": false
+  },
+  "current_cuda_calculation_verified": false,
+  "cuda_current_cache_hit_verified": false,
+  "legacy_generated_cuda_msl_raw_bytes_retained": true,
+  "legacy_separate_gpu_reruns": 0,
+  "cuda_cache_rules_changed": false,
+  "protected_source_sha256": {
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "research/summarize-portable-cross-gpu.py": "01e8595eb20c4a3c1f94f524e81e812d2921fd240b17a33e6dbfb050320fb21a",
+    "app/portable_compile_cache.py": "d1dcc7cf1a5c7197b1dd63dd0d6bd1cc90192356eb42ad4a4e6b2f641c5cc505"
+  },
+  "core_probability_sha256": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+  "development_package_id": "1e0f320e65a1a8dc188d1ab2393340903efb07e8f854da456d25277c8c71b294",
+  "final_compact_package_id": "e02b1a83533230a28d4bf2c277ed36ee5f2a560e354878ba6ae8b009dd8dc191",
+  "final_full_package_id": "357612dc09da06c3f9641b76e7c08d18b33761d0cc03d7dbb072b01ad8d3e4e7",
+  "package_projection": {
+    "full_files": 3062,
+    "compact_files": 1753,
+    "all_retained_bytes_equal": true
+  },
+  "retention": {
+    "old151_input_prefixes_retained": true,
+    "old151_native_fingerprints_retained": 136,
+    "old151_semantic_bytes_retained": 791578240,
+    "whole_old_raw_claim": false,
+    "new_aim_region_bytes_per_case": 640
+  },
+  "frame_conformance": {
+    "frames": 7059,
+    "method": "two noncryptographic 64-bit rolling frame digests plus count and exact final point banks; battle and packet arrays compared separately"
+  },
+  "timing": {
+    "gpu_seconds": 3.6985288750147447,
+    "pipeline_seconds": 91.07773101329803,
+    "shared_execute_seconds": 100.810055167,
+    "performance_ratio_claim": false
+  },
+  "storage": {
+    "allocated_reclaimed": 2970705920,
+    "raw_deleted": false,
+    "full_hash_and_inode_preserved": true,
+    "initial_budget_failure_gpu_calls": 0,
+    "execution_reserve_bytes": 1073741824,
+    "success_raw_bytes": 996147200,
+    "success_raw_sha256": "35bbd9577bdf881d8d31c0932ab2d607d9c49883dc594f86edbd756a69b11f41",
+    "success_raw_inode": 510109460
+  },
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "remaining_model_gaps": 20,
+  "public_gpu_admitted": false,
+  "ui_backend": "cpu",
+  "remaining": [
+    "weapon-change and other-control compositions including reload_total weapon snapshot",
+    "group and ADD writer/caller integration",
+    "sampling RNG",
+    "coordinate attack/buff/move/shield scene compositions",
+    "all original definitions and public admission"
+  ]
+}
