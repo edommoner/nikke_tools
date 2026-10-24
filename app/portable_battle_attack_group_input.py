@@ -6,16 +6,18 @@ from portable_runtime import double_words
 from attack_group_specs import simultaneous_threshold
 from portable_projectile_roster_input import compile_projectile_battle
 SOURCE='gpu/world_attack_group_entry.slang'
-INPUT_WORDS=104408
-OUTPUT_WORDS=1048576
-HEADER=800000
-SLOTS=800032
-SLOT_WORDS=536
-LOG=820000
-LOG_CAPACITY=64
-PACKETS=860000
-COMPACT=PACKETS+L['LANDINGS']
-COMPACT_WORDS=OUTPUT_WORDS-COMPACT
+from portable_arena_specs import attack_group_layout,WORLD_INPUT_WORDS
+_ARENA=attack_group_layout(L['LANDINGS'])
+INPUT_WORDS=WORLD_INPUT_WORDS+8
+OUTPUT_WORDS=_ARENA['OUTPUT_WORDS']
+HEADER=_ARENA['HEADER']
+SLOTS=_ARENA['SLOTS']
+SLOT_WORDS=_ARENA['WORDS']
+LOG=_ARENA['LOG']
+LOG_CAPACITY=_ARENA['LOG_CAP']
+PACKETS=_ARENA['PACKETS']
+COMPACT=_ARENA['COMPACT']
+COMPACT_WORDS=_ARENA['COMPACT_WORDS']
 
 def compile_battle(prepared,*,routing,declared_effects=(),group_history='fixed64'):
     if routing not in ('native','all-logical-enemies'):raise ValueError('Explicit native or logical-enemy routing required')

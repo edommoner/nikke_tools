@@ -420,6 +420,7 @@ SMOKE_TESTS.append('test_portable_sparse_raw.py')
 SMOKE_TESTS.append('test_portable_scope_snapshot_audit.py')
 SMOKE_TESTS.append('test_portable_authored_case_purity.py')
 SMOKE_TESTS.append('test_portable_prepared_input.py')
+SMOKE_TESTS.append('test_portable_arena_specs.py')
 SMOKE_TESTS.append('test_portable_package_projection.py')
 SMOKE_TESTS.append('test_portable_storage_budget.py')
 SUITES['destructible-counter']['tests'].append('test_portable_prepared_input.py')
@@ -2565,6 +2566,8 @@ def main(argv=None):
     a=sub.add_parser('layout-compare');a.add_argument('--before',type=Path,required=True);a.add_argument('--after',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('aimed-factor-compare');a.add_argument('--before',type=Path,required=True);a.add_argument('--after',type=Path,required=True);a.add_argument('--diagnostic',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('layout-check');a.add_argument('--out',type=Path)
+    from portable_arena_specs import PROFILES as ARENA_PROFILES
+    a=sub.add_parser('arena-check');a.add_argument('--profile',choices=ARENA_PROFILES,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('reference');a.add_argument('--suite',choices=REFERENCES,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('phase-codegen');a.add_argument('--out',type=Path,required=True);a.add_argument('--slang-root',type=Path)
     a=sub.add_parser('sparsify-raw');a.add_argument('--block-size',type=int,choices=(4096,65536),default=65536);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--apply',action='store_true')
@@ -2672,6 +2675,11 @@ def main(argv=None):
         with forbid_gpu():receipt=compare_captures(ROOT,a.before,a.after,a.diagnostic)
         with a.out.open('x',encoding='utf-8') as stream:json.dump(receipt,stream,ensure_ascii=False,indent=2);stream.write('\n')
         result={k:v for k,v in receipt.items() if k!='changed_memo_rows'}
+    elif a.command=='arena-check':
+        from portable_arena_specs import audit_live_sources,audit_profile
+        if a.out.exists():raise ValueError('Arena audit output already exists')
+        with forbid_gpu():result={**audit_live_sources(ROOT),**audit_profile(a.profile)}
+        write(a.out,result)
     elif a.command=='layout-check':
         from portable_specs import LIMITS
         from portable_scratch_layout import audit_sources
@@ -2770,6 +2778,9 @@ def main(argv=None):
         return
     if a.command=='cache-probe':
         if not result['passed']:raise SystemExit(1)
+        return
+    if a.command=='arena-check':
+        if not result['address_plan_verified']:raise SystemExit(1)
         return
     if a.command in ('run','audit','replay'):
         if result.get('cpu_verified') or result.get('smoke_verified'):return

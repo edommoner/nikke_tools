@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`arena-check --profile coordinate|attack-group|combined-legacy|combined-v1 --out /tmp/new.json`で実consumerに結び付けた入力・出力の合成配置を監査できます。旧配置の結合は終了1、移設案は終了0ですが戦闘未接続です。共通CPU smokeにも7検査を追加しました。[arena合成](gpu-arena-composition.md)を参照してください。
+
 座標worldの最新private supersetは`coordinate-generation`88（native75／拒否13）です。世代交代時の対象名解決と期限切れ部位の通知順を接続し、旧76を全byte保持しました。[世代交代の着弾](portable-coordinate-generation.md)と[主実行器とのarena合成課題](gpu-arena-composition.md)を参照してください。
 
 座標worldの最新private supersetは`coordinate-full-burst`76（native63／拒否13）です。opt-in保留弾と子receiptの座標snapshot移動を接続し、旧60と本体81のraw/inputを保持しました。[座標全バースト保留](portable-coordinate-full-burst.md)を参照してください。以前の入口は履歴です。
