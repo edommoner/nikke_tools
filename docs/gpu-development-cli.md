@@ -640,3 +640,7 @@ run/cpu-only/smokeは全登録群を1個のfresh CPU workerへ渡します。群
 # body蓄積と固定量放出の保持49入力
 
 `destructible-body-accum-retention` は旧31の位置を維持して新18を追加した、Metal／native照合・独立seal済みの入口です。`--compact` に対応し、全60 CPU検査と全40 native照合を保持します。単独 `destructible-body-accum` 18入力は開発用なので `--develop` が必要です。実キャラのbody蓄積と、宣言poolの盾放出を区別し、元ドロシーの貫通受付は開放しません。詳細は [body蓄積・固定量放出](portable-destructible-body-accum.md)。
+
+# 共有回復の受益者監査61入力
+
+`destructible-body-heal-share-retention` は旧49の位置を保持して元レム等の全定義12編成を追加した、Metal／native照合・独立seal済みの入口です。`--compact` は全71 CPU検査と全52 native照合を保持します。GPU source／生成CUDA・Metalは前の49と全byte同一で、既存共通共有Frameを使います。単独 `destructible-body-heal-share` は開発用なので `--develop` が必要です。詳細は [共有回復の受益者監査](portable-destructible-body-heal-share.md)。

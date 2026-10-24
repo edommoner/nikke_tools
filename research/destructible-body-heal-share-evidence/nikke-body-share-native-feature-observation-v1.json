@@ -1,0 +1,124 @@
+{
+  "gpu_calls": 0,
+  "rows": [
+    {
+      "name": "destructible-body-heal-share/Noir/3s/hp",
+      "healing_recipients": 69,
+      "shared_calls": 23,
+      "weights": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "destructible-body-heal-share/Noir/30s/hp",
+      "healing_recipients": 6050,
+      "shared_calls": 1504,
+      "weights": [
+        [
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "destructible-body-heal-share/Trony/30s/hp",
+      "healing_recipients": 5350,
+      "shared_calls": 1364,
+      "weights": [
+        [
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ]
+      ]
+    }
+  ]
+}

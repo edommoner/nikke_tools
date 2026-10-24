@@ -1760,3 +1760,13 @@ research/portable-charge-boundary-development-checkpoint.jsonが最新根拠で�
 native observerの全Python呼出し監視がcode objectをhashしていたため、監視対象codeの強参照を保ってidentity検索へ変更しました。変更前の14編成とnative全指紋は同一。初回事前照合153秒に対し、新版14編成の準備・照合は約21秒（工程・負荷差があるため厳密な速度倍率ではない）です。GPU4.66秒／初回PSO65.80秒と、回帰49のGPU10.08秒／cached PSO0.003秒を分けて記録します。保存raw4blockの破損24通りと既存蓄積CPU参照10検査も成功。旧HSI5の生成CUDA／Metalは正規化前の全byte一致。保護CPU4ファイル・pinned upstream・binary64・strict normalizerは不変です。
 
 最終小型packageは1576 files／7,218,467byte。CPU60件83.570秒・native40件40.598秒、共通制御372件（Windows専用1skip）に成功し、実行後の全payload SHAとcheckoutとの一致も確認しました。旧golden／失敗／claim／rawは保持し、単独18は開発用のままです。次は共有回復の受益者receipt、貫通、parts／coords／ADD混在、同期子放出境界を優先します。packing245/266・base185/203・残20 model gap・全キャラ認定0・通常UI CPUは維持。Windows追加操作0、現full battle CUDA実機とcache性能は未確認。過去7プロセス終了はユーザー操作なし・game/video利用の可能性だけでは原因を確定できず、unknown／保全falseを維持します。
+
+# 2026-10-24 共有回復の受益者監査・保持61
+
+最新は `docs/portable-destructible-body-heal-share.md`／`research/portable-destructible-body-heal-share-checkpoint.json`。元レム・ミルク・RL2人と元ノワール／元トロニーの全73定義×3／30秒・HP／hit／破壊の12編成を追加。既存共通Slangの共有Frameを使い、recipientごとの実clamp前後HPを既存observerのcontext managerで観測します。初期1/3とburst後2/8対1/8、盾のbody吸血抑止、蓄積共存を検査。回復元のHP差へ誤帰属せず、5人のquery／最終累積healingを厳密比較します。実raw2blockへの24破損と誤帰属・audit省略を拒否。故障注入で見つけた最終HP欄の未照合も、同じnative最終queryへのHP／maxHP／HP%／DEF照合で修正しました。実body clamp内の例外後にprofile・simulate・damage/heal scopeが復元することも検査しています。
+
+共通CLI `destructible-body-heal-share-retention` 61入力（native52／拒否9）がMetal全件一致・独立seal成功。旧49の全input／native指紋と全205,520,896byte rawが同一indexで一致。GPU sourceと生成CUDA／Metalは正規化前から前回と全byte同じで、Slang追加0、GPU10.170秒／cached PSO0.003秒。CPU71件87.796秒／90秒枠、native52事前照合72.304秒。独立sealのみ実測に基づくCPU90秒を明示（GPU／Windows枠変更なし）。最初の12入力は容量再検査でGPU前停止、rawをbyte/SHA/inode保持で疎化して未消費claimを使った別captureで実行。原失敗は保持しています。
+
+最終compactは1583 files／7,275,395byte。CPU71件89.150秒、native52件72.096秒、共通制御372件（Windows専用1skip）成功、全payload SHAとcheckoutとの一致も確認済み。単独12は開発用、旧goldenは履歴のまま。Windows追加操作0、現full battle CUDA／cache実測は未確認、旧7プロセス終了原因unknown／保全falseを維持。packing245/266・base185/203・残20 model gap・全キャラ0・UI CPU・目標未達です。
+
+次の効率化は、共通adapterのnative providerを既存ParentOraclesへ直結して同じ親processの事前値を通常比較で使うこと。現retentionのcompareは別adapterへ委譲するためprovider検出が通らず、事前計算と通常監査の約72秒ずつが重複しています。独立seal／保存結果監査をfreshに保ち、input/provider/valueのstampと全比較項目を維持したCPU故障注入・保存raw照合で進めてください。未対応20分類を見直し、貫通・元ドロシー／parts・coords・ADD混在と共通CUDA compile負荷も優先します。

@@ -1,0 +1,22 @@
+[
+  {
+    "pattern": "test_destructible_body_heal_share.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.4001204170053825,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 82247
+  },
+  {
+    "pattern": "test_portable_heal_share_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.2994787080679089,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 82247
+  }
+]

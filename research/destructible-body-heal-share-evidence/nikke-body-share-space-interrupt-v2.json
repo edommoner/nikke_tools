@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-physical-interrupt-v2-metal",
+  "raw_bytes": 198180864,
+  "raw_sha256": "ee1935cc64319a2f3c659ceb6cecc9cceac1c695087efbe7ee804967591ecce1",
+  "evidence_sha256": "125e79491bb3bf20d5d922f53e4afaa667ff94a38712b24b5451de5611f150a6",
+  "raw_inode": 507544452,
+  "zero_ranges": 514,
+  "zero_range_bytes": 132382720,
+  "allocated_before": 198180864,
+  "allocated_after": 65798144,
+  "allocated_reclaimed": 132382720,
+  "full_hash_verified": true
+}
