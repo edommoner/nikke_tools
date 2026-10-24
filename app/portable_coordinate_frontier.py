@@ -75,6 +75,12 @@ def verify(root, overrides=None):
     numeric_path=root/'research/portable-coordinate-numeric-short-expected.json'
     numeric_matches=(json.loads(numeric_path.read_text())['source_sha256']==numeric_sources
                      if numeric_path.is_file() else None)
+    geometry_sources=source_hashes(root,'gpu/coordinate_geometry_probe.slang')
+    geometry_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest()
+                      if name in overrides else digest for name,digest in geometry_sources.items()}
+    geometry_path=root/'research/portable-coordinate-geometry-short-expected.json'
+    geometry_matches=(json.loads(geometry_path.read_text())['source_sha256']==geometry_sources
+                      if geometry_path.is_file() else None)
     dependencies = [
         dict(id='landing-probability', classification='gpu_port_gap',
              native='Geometry.landing -> aim.landing',
@@ -130,6 +136,14 @@ def verify(root, overrides=None):
                     operations=['sincos-degrees','sincos-bounded-radians','atan2','acos','sqrt'],
                     battle_connected=False,full_numeric_policy_implemented=False,
                     native_host_disagreement_evidence_preserved=True),
+                deterministic_shape_geometry=dict(suite='coordinate-geometry',
+                    contract=PROFILE,proof_available=geometry_matches is not None,
+                    sealed_source_matches_current=geometry_matches,source_sha256=geometry_sources,
+                    authored_angles_consumed_on_gpu=True,rotation_matrix_precomputed_on_cpu=False,
+                    operations=['distance','contains','circle-arcs','halfplane-arcs','grown-rotated-rectangle-arcs','radial-breaks'],
+                    nonfinite_intermediate_rejected=True,denominator_underflow_rejected=True,
+                    battle_connected=False,radial_integrator_connected=False,
+                    whole_geometry_capacity_certified=False),
                 logical_pellets_equal_emitted_packets=False, dependencies=dependencies,
                 source_sha256={p: hashlib.sha256(t.encode()).hexdigest() for p, t in texts.items()},
                 model_gap_audit=model, gpu_calls=0, native_battle_calls=0,

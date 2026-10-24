@@ -1,0 +1,22 @@
+[
+  {
+    "pattern": "test_coordinate_geometry_v1.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.995732165989466,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 36500
+  },
+  {
+    "pattern": "test_coordinate_numeric_v1.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.09682662494014949,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 36500
+  }
+]

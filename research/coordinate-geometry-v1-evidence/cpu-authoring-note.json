@@ -1,0 +1,10 @@
+{
+  "kind": "authoring-observation-not-a-gpu-capture",
+  "initial_tests": 8,
+  "initial_failures": 1,
+  "cause": "Analytic expected circle endpoint algebraically cancelled tau; ordered wrap produces a three-ULP difference",
+  "resolution": "Preserved implementation order and asserted the ordered expected endpoint; added independent Decimal interior/gap classification",
+  "after_initial_correction_tests": 8,
+  "after_independent_oracle_tests": 9,
+  "gpu_source_changed_for_this_failure": false
+}

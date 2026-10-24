@@ -1,5 +1,8 @@
 # 共通GPU検証CLI
 
+共通数値profileをGPU側の角度→回転係数→形状距離／contains／円・半平面・grow付き回転矩形arc／区切り半径へ接続。sealed `coordinate-geometry`1224（共通CPU1209／拒否15）がM5 Metal全word一致・独立seal。旧正本と方針不変の288入力を距離／breaks照合し、別方式Decimalの円弧内外200点超も成功。最終CPU18／関連・制御445（Win1skip）、full2950→compact1621全残存byte一致。GPU1／retry0／旧6suite再GPU0。GPU .188791秒、Swift module cache利用でexecute全体1.722503秒。Windows新要求0、直前の数値依頼はAPIエラーで未送達。積分／pow・GL定数規約／物理packet／resident戦闘caller／全元定義・公開受付は未完了。全キャラ0／20gap／UI CPU／目標未達。詳細[共通形状・円弧](portable-coordinate-geometry-v1.md)とresearch/portable-coordinate-geometry-v1-checkpoint.json。以下は履歴。
+
+
 決定的な共通数値profile `coordinate-binary64-v1`のsin/cos・atan2・acos・整数sqrtを共通IRからCPU／Slangへ実装。sealed `coordinate-numeric`2783（共通CPU2771／拒否12）がM5 Metal全word一致・独立seal、独立Decimal10451入力は最大1/1/1/2/0 ULP。共通CLI `numeric-audit`追加、最終CPU9／関連・制御436（Win1skip）、full2944→compact1614全残存byte一致。新GPU1／retry0、旧5suite再実行0。CUDAの新規計算実証は未取得。回転caller・arc生成・積分・物理packet・共通resident戦闘への接続と公開受付は未完了。全キャラ0／20gap／UI CPU／目標未達。詳細[共通数値v1](portable-coordinate-numeric-v1.md)とresearch/portable-coordinate-numeric-v1-checkpoint.json。以下は履歴。
 
 

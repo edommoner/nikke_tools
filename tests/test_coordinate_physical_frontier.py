@@ -28,6 +28,11 @@ class FrontierTests(unittest.TestCase):
         self.assertEqual(numeric['contract'],'coordinate-binary64-v1')
         self.assertFalse(numeric['battle_connected'])
         self.assertFalse(numeric['full_numeric_policy_implemented'])
+        geometry=result['deterministic_shape_geometry']
+        self.assertTrue(geometry['authored_angles_consumed_on_gpu'])
+        self.assertFalse(geometry['rotation_matrix_precomputed_on_cpu'])
+        self.assertFalse(geometry['radial_integrator_connected'])
+        self.assertFalse(geometry['battle_connected'])
         self.assertEqual((result['gpu_calls'], result['native_battle_calls']), (0, 0))
         rows = {r['id']: r for r in result['dependencies']}
         self.assertEqual(len(rows), 7)
