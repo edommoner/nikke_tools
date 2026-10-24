@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "package_id": "32da0fc5be83b73d2b55c28f03d5a161cf8606ac0f57cfeb2e9812b91fdd0806",
+  "suite": "compiler-full--attack-group-mixed",
+  "archive_bytes": 7157771,
+  "archive_sha256": "86695edadf7a300461ac164d631b7f1d4bb4c27bae17a5d58d0fc918499feab3",
+  "purpose": "CPU-only saved-object recovery; no native compilation, driver or GPU",
+  "original_object_sha256": "ea9e1484a30fe69864a515cafdba87569079e93a924c55f44b82016762e48cb8"
+}
