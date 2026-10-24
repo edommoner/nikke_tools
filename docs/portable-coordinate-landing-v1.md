@@ -40,3 +40,5 @@ CPU参照は新profileとして分離し、旧正本は保持する。26幾何�
 新しいCUDA実機結果は未取得。既存Windowsチャットの依頼送信APIはactive turn ID不在で拒否され、待機中のjobとは扱わない。UI送信の可否も確認したが、Computer UseはCodexアプリを安全制約で利用できず、代替のUI自動操作は試していない。Windowsの新しい実行依頼0・GPU0。
 
 詳細は`research/portable-coordinate-landing-v1-checkpoint.json`と`research/coordinate-landing-v1-evidence/`。rawはローカルcaptureへ保持し、GitHubへ送らない。
+
+ユーザーの「もう一度試せますか？」を受け、idle/revision78を再確認して固定07e1d178のlanding40依頼を1回送信したが、同じactive turn IDエラーで拒否された。計算の再実行は依頼していない。送信を開始するにはWindows既存チャットを人が1通のメッセージで開始する必要がある。記録は`windows-message-retry.json`。Macで再現したWindows用package IDは`9856b8681e48c72aa3b9451b71a2401c174a147dcefe8b94535e4304d3cdf6b4`。
