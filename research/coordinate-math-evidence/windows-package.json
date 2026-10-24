@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "package_id": "e0074dcffc79460882d624ff28acfc116db878a8bc4e3969c9e633142f128da4",
+  "suite": "coordinate-math",
+  "archive_bytes": 7307770,
+  "archive_sha256": "6121c474288dcd8ff1328d816e9ae40227e8ac25d215a517a85b223ba65ae06f",
+  "scope": "Integer binary64 two-dimensional norm only; no full battle CUDA build",
+  "expected_inputs": 1026,
+  "native": 1024,
+  "max_seconds": 180,
+  "job_memory_mb": 2048,
+  "priority": "BelowNormal",
+  "gpu_attempts": 1,
+  "distribution_commit": "87ab8ffc60cca804a155c261680ee229b90a62bb"
+}
