@@ -13,7 +13,8 @@ from pathlib import PurePosixPath
 
 PROFILE = 'selected-suite-python-v1'
 SUPPORTED_SUITES = ('destructible-skill-retention', 'destructible-skill-misato-retention',
-                    'destructible-aoe-burst-rosters')
+                    'destructible-aoe-burst-rosters','destructible-body-lifesteal',
+                    'destructible-body-lifesteal-retention')
 RUNTIME_ROOTS = ('research/run-world-bounded.py', 'research/portable_phase_audit.py',
                  'research/summarize-portable-cross-gpu.py')
 # These registries describe commands outside this profile, not runtime imports.

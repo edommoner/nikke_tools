@@ -11,8 +11,9 @@ from impact_specs import ActorKind,classify_hit
 from destructible_shield_policy import select
 
 class WeaponShots:
-    def __init__(self,timeline,data,owner,hit_shields):
-        self.timeline=timeline;self.data=data;self.owner=owner;self.hit_shields=hit_shields;self.frames=[]
+    def __init__(self,timeline,data,owner,hit_shields,*,body_lifesteal=False):
+        if type(body_lifesteal) is not bool:raise ValueError('Explicit body lifesteal boolean required')
+        self.timeline=timeline;self.data=data;self.owner=owner;self.hit_shields=hit_shields;self.body_lifesteal=body_lifesteal;self.frames=[]
 
     def geometry(self,character,manager,enemy):
         if enemy.get(self.timeline.GEOM_KEY) is not None or enemy.get(self.timeline.PART_REACH_KEY,0) or enemy.get(self.timeline.INTERRUPT_REACH_KEY,0) or character._stage_aim(manager) is not None:
@@ -20,7 +21,7 @@ class WeaponShots:
 
     def validate_effects(self,manager):
         from damage_accum_runtime import STATS
-        if any(e.get('stat')=='lifesteal_pct' or e.get('stat') in STATS for e,_ in manager._effects):
+        if any(e.get('stat')=='lifesteal_pct' and not self.body_lifesteal or e.get('stat') in STATS for e,_ in manager._effects):
             raise ValueError('Weapon shield post-landing lifesteal/accumulation policy is not declared')
 
     def wrap(self,method):

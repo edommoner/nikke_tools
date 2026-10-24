@@ -27,7 +27,7 @@ class TypedLandings(ast.NodeTransformer):
         return node
 
 @contextmanager
-def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False,skill_shields=False):
+def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False,skill_shields=False,body_lifesteal=False):
     from calculator import timeline,buff_manager
     from runner import sim
     if type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Invalid typed battle observation capacity')
@@ -35,6 +35,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     if type(hit_shields) is not bool or hit_shields and shield_owner is None:raise ValueError('Hit shields require an explicit shield owner and boolean policy')
     if type(weapon_shields) is not bool or weapon_shields and shield_owner is None:raise ValueError('Weapon shields require an explicit shield owner and boolean policy')
     if type(skill_shields) is not bool or skill_shields and shield_owner is None:raise ValueError('Skill shields require an explicit shield owner and boolean policy')
+    if type(body_lifesteal) is not bool or body_lifesteal and not (weapon_shields and skill_shields and shield_owner is not None):raise ValueError('Body lifesteal requires explicit weapon/skill shield policies')
     if shield_owner is not None:
         from destructible_shield_policy import validate_owner
         validate_owner(shield_owner)
@@ -45,7 +46,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     old_scalar=timeline.calc_damage
     data=dict(worlds=[],managers=[],activations=[],attacks=[],finished=[]);active=[];marked={};restores=[]
     from destructible_weapon_runtime import WeaponShots
-    weapons=WeaponShots(timeline,data,shield_owner,hit_shields) if weapon_shields else None
+    weapons=WeaponShots(timeline,data,shield_owner,hit_shields,body_lifesteal=body_lifesteal) if weapon_shields else None
     class Boss(old_boss):
         def __init__(self,*args,**kwargs):
             super().__init__(*args,**kwargs);self._nikke_typed_world=DestructibleWorld.from_clock(self,bindings);data['worlds'].append(self._nikke_typed_world)
@@ -67,7 +68,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
             from destructible_skill_shield_policy import skill
             from damage_accum_runtime import STATS
             for effect,caster in manager._effects:
-                if effect.get('stat')=='lifesteal_pct' or effect.get('stat') in STATS:raise ValueError('Skill shield post-landing consumer is not declared')
+                if effect.get('stat')=='lifesteal_pct' and not body_lifesteal or effect.get('stat') in STATS:raise ValueError('Skill shield post-landing consumer is not declared')
                 if effect.get('type')=='damage':skill(effect,manager._char[caster])
         data['managers'].append(manager)
         world=data['worlds'][-1];resolver=manager._resolve_target;missing=object();old_instance=manager.__dict__.get('_resolve_target',missing)

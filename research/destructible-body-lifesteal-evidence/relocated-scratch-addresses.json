@@ -1,0 +1,82 @@
+{
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "changes": [
+    {
+      "name": "destructible-body-lifesteal/3s/hp",
+      "reference_index": 0,
+      "candidate_index": 18,
+      "words": [
+        [
+          941074,
+          798320,
+          19672688
+        ]
+      ]
+    },
+    {
+      "name": "destructible-body-lifesteal/3s/hit",
+      "reference_index": 1,
+      "candidate_index": 19,
+      "words": [
+        [
+          941074,
+          1846896,
+          20721264
+        ]
+      ]
+    },
+    {
+      "name": "destructible-body-lifesteal/3s/expiry",
+      "reference_index": 3,
+      "candidate_index": 21,
+      "words": [
+        [
+          941074,
+          3936768,
+          22811136
+        ]
+      ]
+    },
+    {
+      "name": "destructible-body-lifesteal/30s/hp",
+      "reference_index": 5,
+      "candidate_index": 23,
+      "words": [
+        [
+          941074,
+          6049520,
+          24923888
+        ]
+      ]
+    },
+    {
+      "name": "destructible-body-lifesteal/30s/hit",
+      "reference_index": 6,
+      "candidate_index": 24,
+      "words": [
+        [
+          941074,
+          7098096,
+          25972464
+        ]
+      ]
+    },
+    {
+      "name": "destructible-body-lifesteal/30s/expiry",
+      "reference_index": 8,
+      "candidate_index": 26,
+      "words": [
+        [
+          941074,
+          9179648,
+          28054016
+        ]
+      ]
+    }
+  ],
+  "all_changes_exact_typed_frame_scratch_addresses": true,
+  "word_offset": 941074,
+  "whole_raw_retention_passed": false,
+  "normalizer_changed": false
+}

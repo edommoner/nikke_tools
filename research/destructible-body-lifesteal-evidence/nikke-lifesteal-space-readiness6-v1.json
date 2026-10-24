@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-readiness-metal-v6",
+  "raw_bytes": 217055232,
+  "raw_sha256": "c722470a274e1cb941584dcbd04b759072cdbd5423c4b31a2c67d35fc9da178b",
+  "evidence_sha256": "d71faa9a389263c3e20172c04eafd5f98b2b8411c63c4fe85c5a1f790c5a54df",
+  "raw_inode": 506535057,
+  "zero_ranges": 505,
+  "zero_range_bytes": 155582464,
+  "allocated_before": 217055232,
+  "allocated_after": 61472768,
+  "allocated_reclaimed": 155582464,
+  "full_hash_verified": true
+}

@@ -1,6 +1,6 @@
 # 共通GPU検証パッケージの依存別軽量化
 
-`package --compact` は、検証対象と無関係な研究用Python・テストファイルを同梱しない明示オプションです。既定のフルパッケージは維持します。対応範囲は `destructible-skill-retention`・`destructible-skill-misato-retention`・`destructible-aoe-burst-rosters` の3 suiteで、他suiteへの指定はnative準備・アーカイブ作成前に拒否します。
+`package --compact` は、検証対象と無関係な研究用Python・テストファイルを同梱しない明示オプションです。既定のフルパッケージは維持します。対応範囲は `destructible-skill-retention`・`destructible-skill-misato-retention`・`destructible-aoe-burst-rosters`・`destructible-body-lifesteal`・`destructible-body-lifesteal-retention` の5 suiteで、他suiteへの指定はnative準備・アーカイブ作成前に拒否します。
 
 ```sh
 python scripts/nikke_gpu.py package --suite destructible-skill-retention --compact --out NEW_PACKAGE.zip
@@ -16,11 +16,13 @@ python scripts/nikke_gpu.py run --backend metal --cpu-only --smoke --capture NEW
 
 whitelist内の全app/scriptsコード、全GPUソース、全JSON fixture・公開データ、同梱済みの全pinned upstreamとLICENSEを保持します。元のwhitelist外からファイルを追加しません。選択suiteのadapter・全CPUテスト、全SMOKE_TESTS、bounded runner・phase audit・厳密normalizerを依存解析の起点とし、静的import・動的importのモジュール名literal・Pythonファイル名literalをたどります。同名候補は全て残します。制御テストの `cli.SUITES['compiler-full']` のような明示参照は、そのsuiteのテストファイルも保持します。
 
-汎用Pythonの依存解決器ではありません。未知の式で作る動的依存を完全に証明できるとは扱わず、実行確認した3 suiteだけに制限します。CLI自身の全suite宣言から無関係なadapterを引き込むことを避ける一方、native reference registryは共通テストが実際に参照するため保持します。`inventory`・`reference`・`consumer-audit`・`cases`・`compiler-certificate`・旧監査・再packageは軽量版では拒否し、フルcheckout/packageを使うよう案内します。
+汎用Pythonの依存解決器ではありません。未知の式で作る動的依存を完全に証明できるとは扱わず、実行確認した5 suiteだけに制限します。CLI自身の全suite宣言から無関係なadapterを引き込むことを避ける一方、native reference registryは共通テストが実際に参照するため保持します。`inventory`・`reference`・`consumer-audit`・`cases`・`compiler-certificate`・旧監査・再packageは軽量版では拒否し、フルcheckout/packageを使うよう案内します。
 
 manifestの `payload_projection` にprofile・起点・元一覧のSHA・除外一覧・件数・容量を記録し、package IDへ含めます。既存の全同梱ファイルのbyte/SHA検査、GPU source closure、golden、native/input照合、両生成の厳密normalizer、実行claim、Windows Job/優先度/2GiB/180秒上限を維持します。パッケージ作成時は除外前の全レコードも前後照合し、依存解析中・native準備中の変更を拒否します。
 
 ## 検証と限界
+
+HSI5追加後の現在source入口は `destructible-body-lifesteal-retention`31。旧3 suiteは元golden/sourceの履歴を保つため、現在checkoutからのsealed作成はsource staleで拒否し、元固定packageを使います。詳細は `portable-destructible-body-lifesteal.md`。
 
 AoE suite追加の現在の証拠は `portable-destructible-aoe-burst-rosters.md` を参照。以下のv7は軽量化初版の固定測定です。
 

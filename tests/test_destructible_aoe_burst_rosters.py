@@ -49,7 +49,8 @@ class AoEBurstRosterTests(unittest.TestCase):
     def test_saved_trina_hp_and_hit_outputs_detect_factor_flag_and_receipt_corruption(self):
         from portable_backend import source_hashes
         fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-aoe-burst-rosters-raw.json').read_text());rows,_=adapter.prepare()
-        self.assertEqual(source_hashes(ROOT/'gpu/destructible_roster_skill_entry.slang'),fixture['source_sha256'])
+        from portable_destructible_lifesteal_source_contract import verify_retained_sources
+        verify_retained_sources(ROOT,'gpu/destructible_roster_skill_entry.slang',fixture['source_sha256'])
         checked=0
         for record in fixture['records']:
             name,words,domain=rows[record['index']];self.assertEqual(name,record['name'])

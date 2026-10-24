@@ -1,7 +1,12 @@
 // Reuse actor selection, factor sampling, rounded quantities and the typed DFS
 // Frame. These functions own neither a clock nor a second skill formula.
 bool rosterShieldSkillsEnabled(inout Runtime s)
-{ return commands[s.inputBase+110080]==0x48534934U&&commands[s.inputBase+110085]==1; }
+{
+#ifdef PORTABLE_DESTRUCTIBLE_BODY_LIFESTEAL
+    if(commands[s.inputBase+110080]==0x48534935U) return commands[s.inputBase+110085]==1&&commands[s.inputBase+110086]==1;
+#endif
+    return commands[s.inputBase+110080]==0x48534934U&&commands[s.inputBase+110085]==1;
+}
 bool rosterShieldSkillDefinition(inout Runtime s,Definition d)
 {
     uint allowed=H_NAMED_SKILL|524288U|H_BURST|H_AOE_BURST|H_SINGLE_BURST;

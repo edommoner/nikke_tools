@@ -1,3 +1,7 @@
+<!-- body-lifesteal-shield-current -->
+HSI5で元ミルク吸血16.16%を既存body着弾後へ接続。盾で吸収したpacketはbody/吸血を抑止し、body到達だけ従来処理。元77定義・3/30秒の新13(native10/拒否3)、旧AoE18込み31(native26/拒否5)がMetal一致・各独立seal。累積healing未照合を保存raw破損で発見して厳密なnative receipt比較を追加し、GPU0 replay13/再seal・12破損検出。旧18全raw一致、新13の6件は配置変更に伴うscratch絶対アドレス1wordのみ、元raw/保持検査失敗/全差分を保持しnormalizer除外0。source158/Runtime138952/数値/保護CPU維持、旧経路の生成CUDA/MSL全byteも同一。現在sealed入口destructible-body-lifesteal-retention31、旧goldenはsource stale履歴を保つ。蓄積/共有回復/貫通は未対応、Windows追加0/全キャラ0/UI CPU/残20gap。詳細docs/portable-destructible-body-lifesteal.mdとcheckpoint。以下は履歴。
+<!-- /body-lifesteal-shield-current -->
+
 <!-- aoe-burst-shield-current -->
 元ノワールAoEと元ミサト盾150%、元トリナAoE435.6%を既存共通FrameでMetal18(native16/拒否2)・独立seal。全78/83定義を保つ3/30秒実編成、HP/hit/slot順/破壊body/世代を照合、旧14全raw保持。GPU9.758秒/PSO.002491秒、source157/Runtime138952/正本/数値/normalizer不変・required generation hit/Slang0。sealed destructible-aoe-burst-rostersをcompactへ追加し比較器共通化、破損16検出は同一入力nativeをコピーし90秒上限を維持。Windows追加0/現CUDA未確認/20gap/全キャラ0/UI CPU。詳細docs/portable-destructible-aoe-burst-rosters.mdとcheckpoint。以下は履歴。
 <!-- /aoe-burst-shield-current -->

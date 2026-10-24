@@ -10,7 +10,17 @@ prior=importlib.util.module_from_spec(spec);spec.loader.exec_module(prior)
 
 def compare(block,domain,native):
     c,m,p,w=domain;n=native;roster=prior.roster
-    _,_,_,diff=roster.compare(block,p,(w,m),n['battle'],n['projectile_shots']);assert block[0]==0 and not diff,(c['name'],block[0],diff[:8])
+    actual,_,_,diff=roster.compare(block,p,(w,m),n['battle'],n['projectile_shots']);assert block[0]==0 and not diff,(c['name'],block[0],diff[:8])
+    if c.get('body_lifesteal_v1'):
+        # The recorded shared-body-heal calls own their recipient HP deltas.
+        # These authored rosters have no sharing; do not infer other recipients
+        # from the source owner when future heal_split cases are introduced.
+        assert not any(r['effect'].get('stat')=='heal_split' for r in p['effects']),'Shared healing requires recipient receipts'
+        healed=[0.]*5
+        for receipt in n['healing']:
+            who=receipt['owner'];healed[who]+=max(0.,receipt['after']-receipt['before'])
+        for rows in (actual['allies'],actual['queries'][0]['allies']):
+            assert [row['healing'] for row in rows]==healed,(c['name'],'body_healing',rows,healed)
     names=c['body']['squad'];case=dict(c,names=names,effects=[r['effect'] for r in p['effects']],owners=[names.index(r['owner']) for r in p['effects']])
     chars={r['name']:r for r in p['chars']};metadata=[]
     for packet,sample in zip(n['packet_samples'],n['shield_samples'],strict=True):

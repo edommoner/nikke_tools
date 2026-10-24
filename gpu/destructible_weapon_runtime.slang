@@ -6,6 +6,9 @@ bool destructibleWeaponEnabled(inout Runtime s)
 #ifdef PORTABLE_DESTRUCTIBLE_ROSTER_SKILL
     magic=magic||commands[s.inputBase+110080]==0x48534934U;
 #endif
+#ifdef PORTABLE_DESTRUCTIBLE_BODY_LIFESTEAL
+    magic=magic||commands[s.inputBase+110080]==0x48534935U;
+#endif
     return magic&&commands[s.inputBase+110085]==1;
 }
 uint destructibleWeaponBank(inout Runtime s,uint who) { return s.resourceOutput+970000+who*256; }
@@ -15,7 +18,11 @@ bool validDestructibleWeapons(inout Runtime s)
     for(uint row=0;row<s.count;row++)
     {
         Definition d=readDefinition(s.inputBase,row);
+#ifdef PORTABLE_DESTRUCTIBLE_BODY_LIFESTEAL
+        if(d.kind==0&&((d.stat==S_lifesteal_pct&&commands[s.inputBase+110080]!=0x48534935U)||d.stat==81||d.stat==82)) return false;
+#else
         if(d.kind==0&&(d.stat==S_lifesteal_pct||d.stat==81||d.stat==82)) return false;
+#endif
     }
     return true;
 }
