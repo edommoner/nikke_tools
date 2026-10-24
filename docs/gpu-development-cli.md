@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`coordinate-matrix`151（共通CPU136／拒15）は範囲スキルの静的回転係数を共通数値規約へ接続したsealed profile。旧cache133の全input／rawを保持し、18worldを追加。CUDA／Metal共通実行器・生成cacheをそのまま再利用する。[共通area matrix](portable-coordinate-matrix-common.md)を参照。
+
 `coordinate-cache`133（共通CPU118／拒否15）と`coordinate-round`9046（正例9039／拒否7）はM5 Metalで全word照合・独立seal済み。共通CLIの通常手順を使う。Geometryごとの最初のLandingを全射手で共有し、127対象時231件／対象0時4096件を超えると明示拒否する。旧120の入力／元nativeと全semantic領域を保持し、作業scratchと新cacheは別profile指紋。現在のWindows CUDA実行は未取得。[Geometry cache](portable-coordinate-cache.md)を参照。
 
 `coordinate-core`120（共通CPU106／拒否14）はM5 Metalで全word照合・独立seal済み。coreの既存graph寿命・中心・同径優先・既定照準を接続し、旧84の入力prefixとnative／GPU rawを保持。専用entryは入力108792／出力1310720word。`package --suite coordinate-core --compact`から共通手順を使う。Windowsの現CUDA実行は未取得。[live core](portable-coordinate-core.md)を参照。

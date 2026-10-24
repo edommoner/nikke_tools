@@ -123,6 +123,9 @@ def verify(root, overrides=None):
     cache_path=root/'research/portable-coordinate-cache-short-expected.json'
     cache_golden=json.loads(cache_path.read_text()) if cache_path.is_file() else None
     cache_matches=cache_golden['source_sha256']==cache_sources if cache_golden else None
+    matrix_path=root/'research/portable-coordinate-matrix-short-expected.json'
+    matrix_golden=json.loads(matrix_path.read_text()) if matrix_path.is_file() else None
+    matrix_matches=matrix_golden['source_sha256']==cache_sources if matrix_golden else None
     round_sources=source_hashes(root,'gpu/coordinate_round_probe.slang')
     round_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in round_sources.items()}
     round_path=root/'research/portable-coordinate-round-short-expected.json'
@@ -233,6 +236,15 @@ def verify(root, overrides=None):
                     overflow='explicit rejection; no eviction',
                     duplicate_target_labels='binding/reference boundary; not admitted',
                     round_probe=dict(suite='coordinate-round',sealed_source_matches_current=round_matches),
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_area_matrix=dict(suite='coordinate-matrix',
+                    proof_available=matrix_golden is not None,sealed_source_matches_current=matrix_matches,
+                    input_count=len(matrix_golden['entries']) if matrix_golden else None,
+                    profile='coordinate-area-matrix-common-v1',reference_kind='deterministic-common-cpu',
+                    shared_numeric_profile=PROFILE,host_transcendentals_in_input=False,
+                    static_authored_rotation_lowering=True,shared_cache_executor=True,
+                    native_area_distance_scoped_to_common_reference=True,
+                    historical_cpu_profile_retained=True,
                     public_gpu_admitted=False,all_characters_certified=False),
                 coordinate_skill_shape_contains_is_physical_landing=False,
                 angular_interval_algebra=dict(suite='coordinate-arcs',

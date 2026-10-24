@@ -60,6 +60,11 @@ class FrontierTests(unittest.TestCase):
         cache=result['coordinate_geometry_cache']
         self.assertTrue(cache['runtime_connected']);self.assertTrue(cache['shared_across_shooters'])
         self.assertEqual(cache['entries_127_targets'],231);self.assertFalse(cache['public_gpu_admitted'])
+        matrix=result['coordinate_area_matrix']
+        self.assertFalse(matrix['host_transcendentals_in_input'])
+        self.assertTrue(matrix['shared_cache_executor'])
+        self.assertTrue(matrix['historical_cpu_profile_retained'])
+        self.assertFalse(matrix['public_gpu_admitted'])
         self.assertTrue(landing['prepared_frame_values_on_gpu'])
         self.assertTrue(landing['all_cuts_retained'])
         self.assertEqual(landing['cuts_capacity'],5098)

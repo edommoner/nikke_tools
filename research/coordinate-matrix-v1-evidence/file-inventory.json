@@ -1,0 +1,184 @@
+{
+  "files": [
+    {
+      "path": "metal151/run.json",
+      "bytes": 267,
+      "sha256": "2ff9b82808124ba5628056cda9c9d694c474b98598dfbcdc7ddeffbdeeed3e1b",
+      "origin": "/tmp/nikke-coordinate-matrix-metal-v1/run.json"
+    },
+    {
+      "path": "metal151/cpu.json",
+      "bytes": 548,
+      "sha256": "264d1d15fa89f4fcccb072348acd7f19d1f1d4631c945ff3ff95984a1aa6c068",
+      "origin": "/tmp/nikke-coordinate-matrix-metal-v1/cpu.json"
+    },
+    {
+      "path": "metal151/cpu-tests.json",
+      "bytes": 3243,
+      "sha256": "d8c90376f70e12a0fba4be0c603ed6085d5ef213bd97dc4fb4355b279651401e",
+      "origin": "/tmp/nikke-coordinate-matrix-metal-v1/cpu-tests.json"
+    },
+    {
+      "path": "metal151/result.json",
+      "bytes": 3977,
+      "sha256": "9e275045668e3b0fbc2188e70a865cca026a5ffcf5ca5c1c692bc42497380463",
+      "origin": "/tmp/nikke-coordinate-matrix-metal-v1/result.json"
+    },
+    {
+      "path": "metal151/execution.json",
+      "bytes": 4145,
+      "sha256": "ee970ca97745d4a5c60b997d26007467e258da8e1ff1c55f1c038e49f447d44e",
+      "origin": "/tmp/nikke-coordinate-matrix-metal-v1/execution.json"
+    },
+    {
+      "path": "metal151/evidence.json",
+      "bytes": 56580,
+      "sha256": "f923cf968634ac8bfffed76cb39f84a6dc69f5a01657f2c6fb166f5b018e72ce",
+      "origin": "/tmp/nikke-coordinate-matrix-metal-v1/evidence.json"
+    },
+    {
+      "path": "metal151/comparison.json",
+      "bytes": 52030,
+      "sha256": "4177a0298e22d697b62ca35b994085864c80086481d4edd9167fc10b7b71e3ca",
+      "origin": "/tmp/nikke-coordinate-matrix-metal-v1/comparison.json"
+    },
+    {
+      "path": "metal151/generation-cache.json",
+      "bytes": 32853,
+      "sha256": "88c57fbd5c5f4ab616bfdde15e6f0fffd45227a66b8dcf4d5ae35ff44858a274",
+      "origin": "/tmp/nikke-coordinate-matrix-metal-v1/generation-cache.json"
+    },
+    {
+      "path": "metal151/phases.jsonl",
+      "bytes": 39977,
+      "sha256": "917c24287c30a16fb0ce42734d3fefd4ef8d7811832407c660e912007063aaea",
+      "origin": "/tmp/nikke-coordinate-matrix-metal-v1/phases.jsonl"
+    },
+    {
+      "path": "metal151/storage.json",
+      "bytes": 253,
+      "sha256": "4a4d01cd20c0d93f4aacd3f2c399726c95800d5570899816cc0326afa0b95bbc",
+      "origin": "/tmp/nikke-coordinate-matrix-metal-v1/storage.json"
+    },
+    {
+      "path": "development-cpu/run.json",
+      "bytes": 237,
+      "sha256": "fc2b20a42804d6e9088df90b57814b047dda8dc3adb26baaa3d01c83c116e1df",
+      "origin": "/tmp/nikke-coordinate-matrix-cpu-v1/run.json"
+    },
+    {
+      "path": "development-cpu/cpu.json",
+      "bytes": 250,
+      "sha256": "fd1bb59d63c6f490ebf49de39c8e2c4dac22445ad8b1c5644e06ccc9ff5132aa",
+      "origin": "/tmp/nikke-coordinate-matrix-cpu-v1/cpu.json"
+    },
+    {
+      "path": "development-cpu/cpu-tests.json",
+      "bytes": 3244,
+      "sha256": "6f2e986d5006148def68675bb1e76df49c032cf24ad227653b4285a433b0d4c9",
+      "origin": "/tmp/nikke-coordinate-matrix-cpu-v1/cpu-tests.json"
+    },
+    {
+      "path": "development-cpu/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731",
+      "origin": "/tmp/nikke-coordinate-matrix-cpu-v1/result.json"
+    },
+    {
+      "path": "final-cpu/run.json",
+      "bytes": 237,
+      "sha256": "a0397f80cf6ff30e685e8af1856bc97a6c076bf17a431e4aa207f544e0153056",
+      "origin": "/tmp/nikke-coordinate-matrix-final-cpu-v1/run.json"
+    },
+    {
+      "path": "final-cpu/cpu.json",
+      "bytes": 250,
+      "sha256": "9ca556b3f46030137fd2375cb8586a5c1af18d99b40143f7ccc0cc58782e30c4",
+      "origin": "/tmp/nikke-coordinate-matrix-final-cpu-v1/cpu.json"
+    },
+    {
+      "path": "final-cpu/cpu-tests.json",
+      "bytes": 3242,
+      "sha256": "c78583f283f832ef3cc50653410f1751dcdf4eb72b3a7ca1fd0d12902bf1464d",
+      "origin": "/tmp/nikke-coordinate-matrix-final-cpu-v1/cpu-tests.json"
+    },
+    {
+      "path": "final-cpu/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731",
+      "origin": "/tmp/nikke-coordinate-matrix-final-cpu-v1/result.json"
+    },
+    {
+      "path": "final-control/run.json",
+      "bytes": 237,
+      "sha256": "c6d265374dea9ae7f42dd168423a3e5474867073136172e179aa92f4feb9fff5",
+      "origin": "/tmp/nikke-coordinate-matrix-final-control-v1/run.json"
+    },
+    {
+      "path": "final-control/cpu.json",
+      "bytes": 109,
+      "sha256": "bc45e3d39298f7219da3140078d6f10d93262192126d145de384a7dcb2799e8e",
+      "origin": "/tmp/nikke-coordinate-matrix-final-control-v1/cpu.json"
+    },
+    {
+      "path": "final-control/cpu-tests.json",
+      "bytes": 8937,
+      "sha256": "8646a4813d6204325fa6a7f530823f425c2649d7ec03785371e84d050d33f861",
+      "origin": "/tmp/nikke-coordinate-matrix-final-control-v1/cpu-tests.json"
+    },
+    {
+      "path": "final-control/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731",
+      "origin": "/tmp/nikke-coordinate-matrix-final-control-v1/result.json"
+    },
+    {
+      "path": "generation.json",
+      "bytes": 19870,
+      "sha256": "86d745e57223ee9506bf20e77d4b8af574b0f010155f54fa48998cbc32c73ee9",
+      "origin": "/tmp/nikke-coordinate-matrix-generation-v1/generation.json"
+    },
+    {
+      "path": "retention.json",
+      "bytes": 187,
+      "sha256": "a4f4a06b106d30cc7f7b0fc41c9cb9170e0b22d84cbf682920945cd7f6df1693",
+      "origin": "/tmp/nikke-coordinate-matrix-retention-v1.json"
+    },
+    {
+      "path": "storage.json",
+      "bytes": 700,
+      "sha256": "5c429e37dc12548b75c0ee4ce431e9eabbdd14c836fd2802fd369d8f81b1a6c2",
+      "origin": "/tmp/nikke-coordinate-matrix-storage-v1.json"
+    },
+    {
+      "path": "model-check.json",
+      "bytes": 182184,
+      "sha256": "b65014a39ef1f6f567cc3719120b22f2d98287803a7c9207583aae1acb357aa0",
+      "origin": "/tmp/nikke-coordinate-matrix-model-v1.json"
+    },
+    {
+      "path": "initial-unit-witness.txt",
+      "bytes": 294,
+      "sha256": "5c26d72bcb938bdbc10aaedb2aa0966b7cbecef9fdbe119bf662c3438303670d",
+      "origin": "/tmp/nikke-coordinate-matrix-local-v1/initial-failure.txt"
+    },
+    {
+      "path": "local-tests.log",
+      "bytes": 105,
+      "sha256": "f3db775e32258b0b1d8a360e902052b33387b6d09d634efb987542ce35b65731",
+      "origin": "/tmp/nikke-coordinate-matrix-local-v1/tests.log"
+    },
+    {
+      "path": "independent-seal.log",
+      "bytes": 210,
+      "sha256": "ef1bd692687f790e9993056db3e1af755c639897a7e68dde1ef10bfc13330b1d",
+      "origin": "/tmp/nikke-coordinate-matrix-local-v1/seal.log"
+    },
+    {
+      "path": "storage-budget.json",
+      "bytes": 232,
+      "sha256": "a0d920cb212f51dc161cd2f295bca63be17cb0663d6777592eda37ee43d3e111",
+      "origin": "/tmp/nikke-coordinate-matrix-local-v1/storage.json"
+    }
+  ]
+}
