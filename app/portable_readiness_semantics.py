@@ -228,9 +228,9 @@ def reference_readiness(issue):
     elif stat in ('projectile_dmg_pct','shield_dmg_pct'):
         result.update(lane='reference_model_gap',native_consumer='explicitly_missing_target_world',
             typed_foundation_validation=typed_foundation,
-            typed_modifier_design=dict(reference_suite='destructible-modifier',cases=20,declared_model='v1',cpu_contract_verified=True,canonical_consumer_verified=False,metal_verified=False,cuda_device_verified=False,battle_connected=False,in_game_rules_verified=False),
+            typed_modifier_design=dict(reference_suite='destructible-modifier',cases=20,declared_model='v1',cpu_contract_verified=True,canonical_consumer_verified=False,metal_verified=True,metal_suite='destructible-modifier',metal_inputs=29,metal_native_cases=20,independently_audited=True,cuda_device_verified=False,battle_connected=False,in_game_rules_verified=False,scope='private_declared_scalar_query_only'),
             consumer_source='research/upstream/nikke-calc-master/docs/IMPL-STATUS.md; calculator/timeline.py:_handle_damage_eff; app/portable_missing_consumer_audit.py',
-            note='The pinned specification explicitly leaves destructible enemy projectiles and enemy shields unimplemented. all_projectiles returns before damage handling; these modifiers have no canonical damage-factor consumer. A private v1 CPU contract adds the explicitly declared target-kind contribution inside factor5 before final rounding; it is not connected to battle/GPU and does not certify in-game rules. This remains missing reference semantics, never no-op GPU support. Historical decisions are evidence, not instructions to omit the current goal')
+            note='The pinned specification explicitly leaves destructible enemy projectiles and enemy shields unimplemented. all_projectiles returns before damage handling; these modifiers have no canonical damage-factor consumer. A private v1 CPU/Metal scalar contract adds the explicitly declared target-kind contribution inside factor5 before final rounding; it is not connected to the battle producer and does not certify in-game rules. This remains missing reference semantics, never no-op GPU support. Historical decisions are evidence, not instructions to omit the current goal')
     elif stat=='cover_def_pct':
         from effect_spec import SCOPED_INERT
         if stat in SCOPED_INERT:

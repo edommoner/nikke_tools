@@ -1,0 +1,16 @@
+{
+  "sources": {
+    "gpu/destructible_battle_entry.slang": {
+      "unchanged": true,
+      "files": 152
+    },
+    "gpu/world_projectile_chain_entry.slang": {
+      "unchanged": true,
+      "files": 147
+    }
+  },
+  "old44_and_original8_gpu_reruns": 0,
+  "normal492_gpu_reruns": 0,
+  "shared_binary64_modified": false,
+  "canonical_cpu_modified": false
+}

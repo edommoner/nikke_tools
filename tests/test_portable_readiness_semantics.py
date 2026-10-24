@@ -87,7 +87,8 @@ class ReadinessSemanticsTests(unittest.TestCase):
         for stat in ('projectile_dmg_pct','shield_dmg_pct'):
             r=reference_readiness(self.blocker(stat));self.assertEqual(r['lane'],'reference_model_gap')
             v=r['typed_modifier_design'];self.assertEqual(v['cases'],20);self.assertTrue(v['cpu_contract_verified'])
-            for field in ('canonical_consumer_verified','metal_verified','cuda_device_verified','battle_connected','in_game_rules_verified'):self.assertFalse(v[field])
+            self.assertTrue(v['metal_verified']);self.assertEqual((v['metal_inputs'],v['metal_native_cases']),(29,20))
+            for field in ('canonical_consumer_verified','cuda_device_verified','battle_connected','in_game_rules_verified'):self.assertFalse(v[field])
             self.assertFalse(r['gpu_supported']);self.assertFalse(r['runtime_validation_performed'])
 
     def test_inert_model_gap_is_checked_against_current_canonical_classification(self):

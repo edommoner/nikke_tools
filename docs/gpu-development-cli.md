@@ -1,5 +1,7 @@
 <!-- shared-readback-current -->
-最優先modifierのCPU設計は `reference --suite destructible-modifier --out NEW.json`（宣言20件、GPU/battle未接続・model gap維持）。詳細 docs/portable-destructible-modifier-design.md。`storage-check --required-bytes N`はbudgetだけを調べ、既定1GiB予約を満たさなければexit2。通常runもinput作成前とGPU claim前に実サイズを検査する。既存`sparsify-raw`で終了済みrawの全byte/SHAを保ったゼロ割当回収が可能。archive検証やraw削除の代替として扱わない。
+最新のprivate scalar補正はsealed `destructible-modifier`（29入力/native20＋拒否9、Metal/独立seal済み）。同じ20 CPUケースを共有resident carrierと7因子/丸めへ接続した。出力159744wordの専用probeであり、実戦Frame・公開受付・CUDA実機は未対応。詳細 docs/portable-destructible-modifier-gpu.md。通常CLIのpackage/unpack/run/auditを使う。
+
+最優先modifierのCPU設計は `reference --suite destructible-modifier --out NEW.json`（宣言CPU20件、実戦未接続・model gap維持）。詳細 docs/portable-destructible-modifier-design.md。`storage-check --required-bytes N`はbudgetだけを調べ、既定1GiB予約を満たさなければexit2。通常runもinput作成前とGPU claim前に実サイズを検査する。既存`sparsify-raw`で終了済みrawの全byte/SHAを保ったゼロ割当回収が可能。archive検証やraw削除の代替として扱わない。
 
 元のレベル別投射物定義にはsealed `destructible-original-battle`（8入力/native8、Metal/独立seal済み）を追加した。5人×スキル1/2/3の明示levelsを共通native/入力経路へ渡し、既存caseはlevel10を維持する。レベル1/5/10とowner4、実burst通知・完了子を検証。元1定義の限定実証であり全プロフィール認定ではない。詳細は docs/portable-destructible-original-battle.md。
 

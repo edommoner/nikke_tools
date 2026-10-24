@@ -1,5 +1,7 @@
 # 投射物・HP盾補正の宣言CPU契約と容量ガード
 
+続く共有scalarのMetal29実証は[GPU接続記録](portable-destructible-modifier-gpu.md)を参照。以下はCPU設計と容量回収の時点の記録。
+
 残る最優先の`projectile_dmg_pct`と`shield_dmg_pct`について、GPUへ接続する前の明示CPUモデルv1を実装した。共通CLI `reference --suite destructible-modifier`の20件が成功。これは既存CPU正本やゲーム仕様の完成ではなく、新しい対象モデルの計算契約である。全20件をreference_model_gapのまま報告し、GPU/battle接続・in-game認定はfalseに保つ。今回の新GPU dispatchは0。
 
 ## 数値・対象契約
