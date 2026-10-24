@@ -109,7 +109,7 @@ SUITES['named-magnitude']=dict(script='research/verify-world-named-magnitude-sho
 
 SUITES['attack-magnitude']=dict(script='research/verify-world-attack-magnitude-short.py',
     golden='research/portable-world-attack-magnitude-short-expected.json',
-    source='gpu/world_projectile_entry.slang',inputs=52,native=42,development_only=True,
+    source='gpu/world_projectile_entry.slang',inputs=52,native=42,development_only=False,
     tests=['test_portable_attack_magnitude.py','test_portable_named_magnitude.py','test_portable_readiness.py'])
 SUITES['attack-magnitude-diagnostic']=dict(SUITES['attack-magnitude'],source='gpu/world_projectile_admission_entry.slang')
 
@@ -308,10 +308,12 @@ SUITES['interrupt-packet-codec']=dict(script='research/verify-interrupt-packet-c
     golden='research/portable-interrupt-packet-codec-short-expected.json',inputs=154,native=140,development_only=False,
     tests=['test_portable_interrupt_packet_codec.py'])
 SUITES['coordinate-math']=dict(script='research/verify-coordinate-math-short.py',source='gpu/coordinate_math_probe.slang',golden='research/portable-coordinate-math-short-expected.json',inputs=1026,native=1024,output_words=8,development_only=False,tests=['test_coordinate_math.py'])
+SUITES['coordinate-shape']=dict(script='research/verify-coordinate-shape-short.py',source='gpu/coordinate_shape_probe.slang',golden='research/portable-coordinate-shape-short-expected.json',inputs=158,native=150,output_words=8,development_only=False,tests=['test_coordinate_math.py','test_coordinate_shape.py'])
 SUITES['coordinate-scene']=dict(script='research/verify-coordinate-scene-short.py',source='gpu/coordinate_scene_probe.slang',golden='research/portable-coordinate-scene-short-expected.json',inputs=21,native=10,output_words=32768,development_only=False,tests=['test_portable_coordinate_scene.py','test_coordinate_skill_reference.py','test_impact_runtime.py'])
 SUITES['coordinate-world-pool']=dict(script='research/verify-coordinate-world-pool-short.py',source='gpu/world_coordinate_pool_entry.slang',golden='research/portable-coordinate-world-pool-short-expected.json',inputs=16,native=11,output_words=1048576,development_only=False,tests=['test_portable_coordinate_scene.py','test_coordinate_skill_reference.py','test_impact_runtime.py','test_coordinate_world_pool.py'])
 SUITES['coordinate-skills']=dict(script='research/verify-coordinate-skill-short.py',source='gpu/world_coordinate_skill_entry.slang',golden='research/portable-coordinate-skill-short-expected.json',inputs=24,native=19,output_words=1048576,development_only=False,tests=['test_coordinate_packets.py','test_coordinate_skill_reference.py','test_impact_runtime.py','test_coordinate_world_pool.py','test_portable_coordinate_scene.py'])
 SUITES['coordinate-dot']=dict(SUITES['coordinate-skills'],script='research/verify-coordinate-dot-short.py',golden='research/portable-coordinate-dot-short-expected.json',inputs=35,native=28,development_only=False,tests=[*SUITES['coordinate-skills']['tests'],'test_coordinate_dot.py'])
+SUITES['coordinate-area']=dict(SUITES['coordinate-dot'],script='research/verify-coordinate-area-short.py',source='gpu/world_coordinate_area_entry.slang',golden='research/portable-coordinate-area-short-expected.json',inputs=52,native=42,development_only=False,tests=[*SUITES['coordinate-dot']['tests'],'test_coordinate_math.py','test_coordinate_area.py'])
 SUITES['skill-part-codec']=dict(script='research/verify-skill-part-codec-short.py',source='gpu/skill_part_codec_probe.slang',
     golden='research/portable-skill-part-codec-short-expected.json',inputs=4,native=3,development_only=False,
     tests=['test_portable_skill_part_codec.py'])
@@ -817,6 +819,20 @@ def prepare_legacy_child_input(m,capture):
     return data,adapter.suite.INPUT
 
 
+def cpu_input_mismatch(m,entries,data,input_words,capture):
+    """Diagnose existing static bytes only; never evaluate an oracle or retry."""
+    if capture is None:return
+    expected=m['golden']['entries'];iw=input_words*4;rows=[];count=0
+    for i in range(max(len(entries),len(expected))):
+        actual=entries[i] if i<len(entries) else None;baseline=expected[i] if i<len(expected) else None
+        digest=sha(data[4+i*iw:4+(i+1)*iw]) if actual is not None else None
+        if actual is not None and baseline is not None and actual[0]==baseline['name'] and digest==baseline['input_sha256']:continue
+        count+=1
+        if len(rows)<64:rows.append(dict(index=i,actual_name=actual[0] if actual else None,expected_name=baseline['name'] if baseline else None,actual_sha256=digest,expected_sha256=baseline['input_sha256'] if baseline else None))
+    report=dict(schema=1,passed=False,stage='CPU input preflight',input_words=input_words,input_bytes=len(data),actual_input_count=len(entries),expected_input_count=len(expected),framing_valid=len(data)==4+len(entries)*iw and len(data)>=4 and int.from_bytes(data[:4],'little')==len(entries),actual_input_sha256=sha(data),expected_input_sha256=m['golden']['input_sha256'],row_mismatch_count=count,first_mismatched_rows=rows,rows_truncated=count>len(rows),python_version=sys.version.split()[0],platform=sys.platform,gpu_calls=0,diagnostic_native_oracle_calls=0,calculation_verified=False,raw_input_included=False,scope='Static-byte diagnosis only; earlier preflight work is not inferred')
+    with (Path(capture)/'cpu-input-mismatch.json').open('x',encoding='utf-8') as stream:json.dump(report,stream,ensure_ascii=False,indent=2);stream.write('\n')
+
+
 def cpu_preflight(m,*,parent_oracles=None,input_capture=None):
     started = time.perf_counter()
     (ROOT/'research/portable-build').mkdir(parents=True,exist_ok=True)
@@ -826,12 +842,14 @@ def cpu_preflight(m,*,parent_oracles=None,input_capture=None):
         entries, data = prepare_entries(adapter, m)
         golden = m['golden']
         if sha(data) != golden['input_sha256'] or len(entries) != len(golden['entries']):
+            cpu_input_mismatch(m,entries,data,adapter.suite.INPUT,input_capture)
             raise ValueError('Input differs from golden')
         iw = adapter.suite.INPUT*4
         if parent_oracles is not None:parent_oracles.prepare(adapter,entries)
         for i,(name,words,domain) in enumerate(entries):
             expected = golden['entries'][i]
             if name != expected['name'] or sha(data[4+i*iw:4+(i+1)*iw]) != expected['input_sha256']:
+                cpu_input_mismatch(m,entries,data,adapter.suite.INPUT,input_capture)
                 raise ValueError('First CPU/input mismatch: '+name)
             before=parent_oracles.before(i) if parent_oracles is not None else None
             value=native_value(adapter,domain)

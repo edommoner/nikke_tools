@@ -13,6 +13,10 @@ class GapAuditTests(unittest.TestCase):
   for old,new in [('hit = [g for g in geom.targets if g.kind == "parts"]', 'hit = [g for g in geom.targets if g.kind == "interrupt"]'), ('g.shape.contains(ax, ay, grow)', 'True')]:
    changed=text.replace(old,new);self.assertNotEqual(text,changed)
    with self.assertRaises(AssertionError):verify(ROOT,{path:changed})
+ def test_coordinate_host_math_policy_gap_is_source_bound_and_not_admitted(self):
+  r=verify(ROOT)['coordinate_world'];n=r['numeric_frontend'];self.assertEqual(n['classification'],'reference_numeric_policy_gap');self.assertTrue(n['host_math_affects_selection']);self.assertFalse(n['common_policy_selected']);self.assertFalse(r['gpu_connected'])
+  path='research/upstream/nikke-calc-master/calculator/aim.py';text=(ROOT/path).read_text();changed=text.replace('math.cos(th)','1.0');self.assertNotEqual(text,changed)
+  with self.assertRaisesRegex(AssertionError,'numeric source drift'):verify(ROOT,{path:changed})
  def test_coordinate_guard_change_requires_port_evidence(self):
   path='app/portable_world_roster_input.py';text=(ROOT/path).read_text()
   changed=text.replace("enemy.get('coord') is not None or ", '');self.assertNotEqual(text,changed)

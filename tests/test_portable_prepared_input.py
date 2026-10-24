@@ -77,4 +77,16 @@ class PreparedInputTests(unittest.TestCase):
   bad=copy.deepcopy(self.m);data=struct.pack('<II',2,7);bad['golden']['input_sha256']=cli.sha(data)
   with self.assertRaisesRegex(ValueError,'framing'):cli.publish_transport_input(bad,self.capture,data,1)
   self.assertFalse((self.capture/'input.bin').exists())
+ def test_input_drift_is_diagnosed_before_native_without_publishing_raw(self):
+  changed=struct.pack('<II',1,8)
+  with patch.object(cli,'ROOT',self.root),patch.object(cli,'open_suite',return_value=self.adapter),patch.object(cli,'prepare_entries',return_value=(self.rows,changed)),patch.object(self.adapter,'native_reference',side_effect=AssertionError('Native work after input mismatch')),self.assertRaisesRegex(ValueError,'Input differs from golden'):
+   cli.cpu_preflight(self.m,input_capture=self.capture)
+  d=cli.load(self.capture/'cpu-input-mismatch.json');self.assertEqual(d['row_mismatch_count'],1);self.assertTrue(d['framing_valid']);self.assertEqual(d['first_mismatched_rows'][0]['index'],0);self.assertEqual(d['gpu_calls'],0);self.assertFalse(d['raw_input_included']);self.assertFalse((self.capture/'input.bin').exists())
+  with self.assertRaises(FileExistsError):cli.cpu_input_mismatch(self.m,self.rows,changed,1,self.capture)
+ def test_framing_and_row_metadata_diagnostics_do_not_weaken_rejection(self):
+  bad=copy.deepcopy(self.m);bad['golden']['entries'][0]['input_sha256']='0'*64
+  with patch.object(cli,'ROOT',self.root),patch.object(cli,'open_suite',return_value=self.adapter),patch.object(cli,'prepare_entries',return_value=(self.rows,self.data)),patch.object(self.adapter,'native_reference',side_effect=AssertionError('No native after row mismatch')),self.assertRaisesRegex(ValueError,'First CPU/input mismatch'):
+   cli.cpu_preflight(bad,input_capture=self.capture)
+  d=cli.load(self.capture/'cpu-input-mismatch.json');self.assertEqual(d['actual_input_sha256'],d['expected_input_sha256']);self.assertEqual(d['row_mismatch_count'],1)
+  other=self.root/'header';other.mkdir();cli.cpu_input_mismatch(self.m,self.rows,struct.pack('<II',2,7),1,other);d=cli.load(other/'cpu-input-mismatch.json');self.assertFalse(d['framing_valid']);self.assertEqual(d['row_mismatch_count'],0)
 if __name__=='__main__':unittest.main()

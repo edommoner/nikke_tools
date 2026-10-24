@@ -1,0 +1,20 @@
+[
+  {
+    "pattern": "test_coordinate_math.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.08464366698171943,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  {
+    "pattern": "test_coordinate_shape.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.7360925840912387,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+]

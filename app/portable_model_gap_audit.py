@@ -2,7 +2,7 @@
 
 This is a source assertion, not a game specification or support certificate.
 """
-import ast,hashlib
+import ast,hashlib,json
 from pathlib import Path
 MISSING_STATS=('enemy_movement_disable','force_move','effect_range_pct','effect_target_count_add','lock_on')
 MODULES=('calculator/timeline.py','calculator/buff_manager.py','calculator/boss_pattern.py','calculator/damage.py')
@@ -38,5 +38,11 @@ def verify(root,overrides=None):
  coordinate_guards=[n for n in ast.walk(gate) if isinstance(n,ast.If) and ast.unparse(n.test)=="enemy.get('coord') is not None or enemy.get('part_break_interval', 0)"]
  assert len(coordinate_guards)==1 and any(isinstance(n,ast.Raise) for n in coordinate_guards[0].body),'Coordinate GPU admission changed; update port evidence'
  coordinate_port=dict(classification='gpu_port_gap',native_model_available=True,native_selector='_coord_skill_hits',part_inclusive='all live parts; excludes interrupt; independent of shape distance',ordinary_area='live shape.contains at current aim with pierce/explosion radius',native_math_calls=math_calls,native_pow_operator=any(isinstance(n,ast.BinOp) and isinstance(n.op,ast.Pow) for n in ast.walk(aim)),cpu_contract_suite='coordinate-skill',gpu_connected=False,gpu_rejection_guard_verified=True)
+ fixture_path='tests/fixtures/coordinate-native-trig-policy.json';fixture=json.loads((root/fixture_path).read_text())
+ assert fixture['source_sha256']==hashlib.sha256(text['calculator/aim.py'].encode()).hexdigest(),'Coordinate numeric source drift requires new host evidence'
+ profiles=fixture['observed_profiles'];assert profiles['mac']['contains'] is True and profiles['windows']['contains'] is False
+ assert profiles['mac']['sin45_hex']!=profiles['windows']['sin45_hex'] and fixture['common_policy_selected'] is False
+ coordinate_port['scope']='Public admission and all coordinate policies; private suites remain separate evidence'
+ coordinate_port['numeric_frontend']=dict(classification='reference_numeric_policy_gap',host_math_affects_selection=True,common_policy_selected=False,fixture=fixture_path,fixture_sha256=hashlib.sha256((root/fixture_path).read_bytes()).hexdigest(),private_suites=['coordinate-area','coordinate-shape'],private_evidence_does_not_certify_public_admission=True)
  result=dict(passed=True,missing_stats=missing,coordinate_world=coordinate_port,target_and_nearby=dict(explicit_ranked_branch=False,fallback='current aimed logical enemy only',nearby_spatial_world=False),enemy_ammo=dict(allied_filter=True,enemy_ammunition_state=False,named_completion_outside_target_loop=True),enemy_healing=dict(allied_heal_consumer_present='heal_received_pct' in strings['calculator/buff_manager.py'],enemy_healing_path_verified=False),historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={**{base+name:hashlib.sha256(value.encode()).hexdigest() for name,value in text.items()},gate_path:hashlib.sha256(gate_text.encode()).hexdigest()})
  return result

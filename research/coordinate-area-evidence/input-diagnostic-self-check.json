@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "oracle_calls": 0,
+  "reconstructed_bytes_match_observed_windows_input_sha": true,
+  "all45_rows_reported": true,
+  "raw_data_published": false,
+  "scope": "CPU-only diagnostic self-check; no change to Windows failure or input gate"
+}
