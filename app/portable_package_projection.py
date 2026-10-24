@@ -17,7 +17,7 @@ SUPPORTED_SUITES = ('destructible-skill-retention', 'destructible-skill-misato-r
                     'destructible-body-lifesteal-retention',
                     'destructible-body-accum','destructible-body-accum-retention',
                     'destructible-body-heal-share','destructible-body-heal-share-retention',
-                    'attack-group-battle','attack-group-native-route','attack-group-long','attack-group-mixed','coordinate-math','coordinate-shape','coordinate-area','coordinate-scene','coordinate-world-pool','coordinate-skills','coordinate-dot')
+                    'attack-group-battle','attack-group-native-route','attack-group-long','attack-group-mixed','coordinate-math','coordinate-shape','coordinate-area','coordinate-scene','coordinate-world-pool','coordinate-skills','coordinate-dot','compiler-full--attack-group-mixed')
 RUNTIME_ROOTS = ('research/run-world-bounded.py', 'research/portable_phase_audit.py',
                  'research/summarize-portable-cross-gpu.py')
 # These registries describe commands outside this profile, not runtime imports.
@@ -27,7 +27,12 @@ UNSUPPORTED_COMMANDS = {'package', 'reference', 'inventory', 'consumer-audit', '
 
 
 def roots_for(config, smoke_tests):
-    return sorted({*RUNTIME_ROOTS, config['script'],
+    script=config['script']
+    if script is None and config.get('compiler_only') is not True:
+        raise ValueError('Only a literal compiler-only suite may omit its adapter')
+    if script is not None and (not isinstance(script,str) or not script):
+        raise ValueError('A selected-suite adapter must be a nonempty path')
+    return sorted({*RUNTIME_ROOTS, *([script] if script is not None else []),
                    *('tests/' + name for name in (*config['tests'], *smoke_tests))})
 
 

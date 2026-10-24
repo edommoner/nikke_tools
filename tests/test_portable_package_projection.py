@@ -13,6 +13,16 @@ from portable_package_projection import project, validate, roots_for, check_comm
 class ProjectionTests(unittest.TestCase):
     def test_current_shared_group_entries_are_explicitly_supported(self):
         self.assertTrue({'attack-group-battle','attack-group-native-route','attack-group-long','attack-group-mixed','coordinate-math','coordinate-shape','coordinate-area','coordinate-scene','coordinate-world-pool','coordinate-skills','coordinate-dot'} <= set(SUPPORTED_SUITES))
+    def test_compiler_only_roots_keep_cpu_smoke_without_inventing_an_adapter(self):
+        self.assertIn('compiler-full--attack-group-mixed',SUPPORTED_SUITES)
+        config=dict(script=None,compiler_only=True,tests=['test_compile.py'])
+        roots=roots_for(config,['test_smoke.py'])
+        self.assertTrue({'tests/test_compile.py','tests/test_smoke.py'} <= set(roots))
+        self.assertNotIn(None,roots)
+        for marker in [False,1,None]:
+            with self.assertRaisesRegex(ValueError,'literal compiler-only'):roots_for(dict(config,compiler_only=marker),[])
+        with self.assertRaisesRegex(ValueError,'nonempty path'):roots_for(dict(config,script=''),[])
+
     def fixture(self, root):
         sources = {
             'app/controller.py': 'import selected\n',

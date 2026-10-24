@@ -116,6 +116,8 @@ importは原byte・サイズ・SHAを確認し、新規宛先だけへ展開し�
 
 ## CUDAコンパイルキャッシュ
 
+`compiler-full--attack-group-mixed` はcompiler-onlyでも `package --compact` を利用できます。Noneのcase adapterを補わず、指定CPU群とsmokeを保持します。現在のPTXをSlang/NVRTC再実行なしで現ownerへ復元した記録と制約は [compiler compact/cache](portable-compiler-compact-cache.md) を参照してください。他のcompiler aliasへ自動適用はしません。
+
 Windowsの既定はSM86向けCUBINです。NVRTCへ`--gpu-architecture=sm_86`・`--fmad=false`を渡し、`nvrtcGetCUBINSize`/`nvrtcGetCUBIN`でバイナリーを取得します。実行時にdeviceのcompute capabilityを照合します。APIは[NVIDIA NVRTC 11.3公式文書](https://docs.nvidia.com/cuda/archive/11.3.0/nvrtc/index.html)に基づき、Windowsの11.3 DLLでもexportをCPU0-GPUの能力検査で確認しました。`NIKKE_CUDA_ARTIFACT=ptx`は診断用の明示選択です。API不在やSM不一致からの自動切替はありません。数値・効果のSlang本体は共通です。
 
 `NIKKE_CUDA_COMPILE_CACHE`を専用ローカルディレクトリへ指定した場合だけ、生成物を保存・再利用します。キーは形式(cubin/ptx)、生成CUDAの原byte、全オプション、NVRTC DLLと引用includeされたSlang prelude/headerの原byte SHAです。破損・identity不一致は失敗させ、normalizerはキーに使用しません。hitでもCUDA launch/synchronize/readback・CPU比較は必須です。`cuda_compile_cache`の観測と、`compiled.cubin`または`compiled.ptx`をcaptureに残します。rawバイナリーは結果ZIP・GitHub payloadへ含めません。
