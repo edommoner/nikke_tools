@@ -1,0 +1,8 @@
+{
+  "missing_existing_processes_count": 0,
+  "all_monitored_processes_preserved": true,
+  "service_status_before": "unverified",
+  "service_status_after": "unverified",
+  "termination_cause": "unknown",
+  "process_list_excluded": true
+}

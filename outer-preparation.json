@@ -1,0 +1,88 @@
+[
+  {
+    "elapsed_seconds": 0.14099999982863665,
+    "monotonic_ns": 2664957812000000,
+    "stage": "packet_header_prepare",
+    "state": "returned",
+    "wall_time_ns": 1792835533019710700
+  },
+  {
+    "monotonic_ns": 2664957906000000,
+    "stage": "packet_bounded_stage",
+    "state": "entered",
+    "wall_time_ns": 1792835533113188200
+  },
+  {
+    "monotonic_ns": 2664957953000000,
+    "stage": "packet_before_observation",
+    "state": "entered",
+    "wall_time_ns": 1792835533164729500
+  },
+  {
+    "elapsed_seconds": 3.528767,
+    "monotonic_ns": 2664961484000000,
+    "stage": "packet_before_observation",
+    "state": "returned",
+    "wall_time_ns": 1792835536695244200
+  },
+  {
+    "monotonic_ns": 2664961531000000,
+    "stage": "packet_shared_cli",
+    "state": "entered",
+    "wall_time_ns": 1792835536731611600
+  },
+  {
+    "monotonic_ns": 2664961593000000,
+    "stage": "packet_verify_package",
+    "state": "entered",
+    "wall_time_ns": 1792835536798747600
+  },
+  {
+    "elapsed_seconds": 40.8645301,
+    "monotonic_ns": 2665002453000000,
+    "stage": "packet_verify_package",
+    "state": "returned",
+    "wall_time_ns": 1792835577664220100
+  },
+  {
+    "monotonic_ns": 2665002468000000,
+    "stage": "packet_run_job",
+    "state": "entered",
+    "wall_time_ns": 1792835577668354000
+  },
+  {
+    "elapsed_seconds": 48.6306947,
+    "monotonic_ns": 2665051093000000,
+    "stage": "packet_run_job",
+    "state": "returned",
+    "wall_time_ns": 1792835626299727300
+  },
+  {
+    "elapsed_seconds": 90.213454,
+    "exception": "SystemExit",
+    "monotonic_ns": 2665051734000000,
+    "stage": "packet_shared_cli",
+    "state": "raised",
+    "wall_time_ns": 1792835626946399800
+  },
+  {
+    "monotonic_ns": 2665051796000000,
+    "stage": "packet_after_observation",
+    "state": "entered",
+    "wall_time_ns": 1792835627003237900
+  },
+  {
+    "elapsed_seconds": 3.5297484,
+    "monotonic_ns": 2665055328000000,
+    "stage": "packet_after_observation",
+    "state": "returned",
+    "wall_time_ns": 1792835630534765100
+  },
+  {
+    "elapsed_seconds": 97.422965,
+    "monotonic_ns": 2665055328000000,
+    "stage": "packet_bounded_stage",
+    "state": "returned",
+    "wall_time_ns": 1792835630537340900
+  }
+]

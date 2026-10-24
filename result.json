@@ -1,0 +1,162 @@
+{
+  "mode": "compile-only",
+  "compiler_verified": true,
+  "passed": false,
+  "containment_verified": true,
+  "preservation_verified": false,
+  "calculation_verified": false,
+  "gpu_calls": 0,
+  "driver_load_calls": 0,
+  "phase": {
+    "events": 60,
+    "last_event": {
+      "elapsed_seconds": 26.5425533,
+      "monotonic_ns": 2665047484000000,
+      "stage": "shared_cuda_compile_only",
+      "state": "returned",
+      "wall_time_ns": 1792835622689965600
+    },
+    "timed_calls": [
+      {
+        "stage": "slang_generation_identity",
+        "state": "returned",
+        "elapsed_seconds": 0.6601585
+      },
+      {
+        "stage": "slang_generation_read_entry",
+        "state": "returned",
+        "elapsed_seconds": 0.0298724
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "state": "returned",
+        "elapsed_seconds": 0.0329717
+      },
+      {
+        "stage": "slang_layout_assertions",
+        "state": "returned",
+        "elapsed_seconds": 0.0278775
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "state": "returned",
+        "elapsed_seconds": 0.0479927
+      },
+      {
+        "stage": "slang_generation_validate_pair",
+        "state": "returned",
+        "elapsed_seconds": 0.131131
+      },
+      {
+        "stage": "slang_generation_identity",
+        "state": "returned",
+        "elapsed_seconds": 0.6304004
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "state": "returned",
+        "elapsed_seconds": 0.0040707
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "state": "returned",
+        "elapsed_seconds": 0.0023997
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "state": "returned",
+        "elapsed_seconds": 0.0041621
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "state": "returned",
+        "elapsed_seconds": 0.0019311
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "state": "returned",
+        "elapsed_seconds": 0.0023543
+      },
+      {
+        "stage": "slang_build",
+        "state": "returned",
+        "elapsed_seconds": 1.6427663
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "state": "returned",
+        "elapsed_seconds": 0.0051896
+      },
+      {
+        "stage": "slang_layout_assertions",
+        "state": "returned",
+        "elapsed_seconds": 0.0141918
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "state": "returned",
+        "elapsed_seconds": 0.0484014
+      },
+      {
+        "stage": "slang_generation_validate_pair",
+        "state": "returned",
+        "elapsed_seconds": 0.0789634
+      },
+      {
+        "stage": "nvrtcCreateProgram",
+        "state": "returned",
+        "elapsed_seconds": 0.0015545
+      },
+      {
+        "stage": "nvrtcCompileProgram",
+        "state": "returned",
+        "elapsed_seconds": 26.3016445
+      },
+      {
+        "stage": "nvrtcGetProgramLogSize",
+        "state": "returned",
+        "elapsed_seconds": 8.9e-06
+      },
+      {
+        "stage": "nvrtcGetProgramLog",
+        "state": "returned",
+        "elapsed_seconds": 7.6e-06
+      },
+      {
+        "stage": "nvrtcGetPTXSize",
+        "state": "returned",
+        "elapsed_seconds": 7.8e-06
+      },
+      {
+        "stage": "nvrtcGetPTX",
+        "state": "returned",
+        "elapsed_seconds": 0.0007629
+      },
+      {
+        "stage": "nvrtcDestroyProgram",
+        "state": "returned",
+        "elapsed_seconds": 0.0005253
+      },
+      {
+        "stage": "cuda_compile_artifact",
+        "state": "returned",
+        "elapsed_seconds": 26.533615
+      },
+      {
+        "stage": "shared_cuda_compile_only",
+        "state": "returned",
+        "elapsed_seconds": 26.5425533
+      }
+    ],
+    "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+    "nvrtc_compile_returned_success": true,
+    "cuda_compile_cache_hit_verified": false,
+    "cuda_linked_artifact_observed": false,
+    "cuda_launch_returned_success": false,
+    "cuda_synchronize_returned_success": false,
+    "cuda_readback_returned_success": false,
+    "scope": "Observed API returns only; full output verification requires the shared suite report"
+  },
+  "error": null,
+  "gpu_retry_count": 0
+}

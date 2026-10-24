@@ -1,0 +1,721 @@
+[
+  {
+    "monotonic_ns": 2665019031000000,
+    "stage": "slang_build",
+    "state": "entered",
+    "wall_time_ns": 1792835594235253000
+  },
+  {
+    "monotonic_ns": 2665019171000000,
+    "stage": "slang_generation_identity",
+    "state": "entered",
+    "wall_time_ns": 1792835594383412600
+  },
+  {
+    "elapsed_seconds": 0.6601585,
+    "monotonic_ns": 2665019843000000,
+    "stage": "slang_generation_identity",
+    "state": "returned",
+    "wall_time_ns": 1792835595044863900
+  },
+  {
+    "cache_entry_path": "<local-path>",
+    "claim_path": "<local-path>",
+    "key": "dbe7d0c861c98245670cdbdd8defdf7442f1972adc4d60884c585a0de96a780f",
+    "monotonic_ns": 2665019843000000,
+    "stage": "slang_generation_request",
+    "state": "observed",
+    "wall_time_ns": 1792835595046381400
+  },
+  {
+    "monotonic_ns": 2665019843000000,
+    "stage": "slang_generation_read_entry",
+    "state": "entered",
+    "wall_time_ns": 1792835595047922600
+  },
+  {
+    "elapsed_seconds": 0.0298724,
+    "monotonic_ns": 2665019875000000,
+    "stage": "slang_generation_read_entry",
+    "state": "returned",
+    "wall_time_ns": 1792835595078151500
+  },
+  {
+    "monotonic_ns": 2665019875000000,
+    "stage": "slang_generation_validate_pair",
+    "state": "entered",
+    "wall_time_ns": 1792835595086812900
+  },
+  {
+    "monotonic_ns": 2665019875000000,
+    "stage": "slang_reflection_plan",
+    "state": "entered",
+    "wall_time_ns": 1792835595086812900
+  },
+  {
+    "elapsed_seconds": 0.0329717,
+    "monotonic_ns": 2665019921000000,
+    "stage": "slang_reflection_plan",
+    "state": "returned",
+    "wall_time_ns": 1792835595121640300
+  },
+  {
+    "monotonic_ns": 2665019921000000,
+    "stage": "slang_layout_assertions",
+    "state": "entered",
+    "wall_time_ns": 1792835595122650900
+  },
+  {
+    "elapsed_seconds": 0.0278775,
+    "monotonic_ns": 2665019937000000,
+    "stage": "slang_layout_assertions",
+    "state": "returned",
+    "wall_time_ns": 1792835595151325900
+  },
+  {
+    "monotonic_ns": 2665019953000000,
+    "stage": "slang_scope_snapshot_audit",
+    "state": "entered",
+    "wall_time_ns": 1792835595167127200
+  },
+  {
+    "elapsed_seconds": 0.0479927,
+    "monotonic_ns": 2665020015000000,
+    "stage": "slang_scope_snapshot_audit",
+    "state": "returned",
+    "wall_time_ns": 1792835595217056300
+  },
+  {
+    "elapsed_seconds": 0.131131,
+    "monotonic_ns": 2665020015000000,
+    "stage": "slang_generation_validate_pair",
+    "state": "returned",
+    "wall_time_ns": 1792835595218570500
+  },
+  {
+    "monotonic_ns": 2665020015000000,
+    "stage": "slang_generation_identity",
+    "state": "entered",
+    "wall_time_ns": 1792835595219579000
+  },
+  {
+    "elapsed_seconds": 0.6304004,
+    "monotonic_ns": 2665020640000000,
+    "stage": "slang_generation_identity",
+    "state": "returned",
+    "wall_time_ns": 1792835595850669800
+  },
+  {
+    "cache_entry_path": "<local-path>",
+    "claim_path": "<local-path>",
+    "key": "dbe7d0c861c98245670cdbdd8defdf7442f1972adc4d60884c585a0de96a780f",
+    "monotonic_ns": 2665020640000000,
+    "stage": "slang_generation_request",
+    "state": "observed",
+    "wall_time_ns": 1792835595851674300
+  },
+  {
+    "monotonic_ns": 2665020640000000,
+    "stage": "slang_generation_atomic",
+    "state": "entered",
+    "wall_time_ns": 1792835595853187000
+  },
+  {
+    "elapsed_seconds": 0.0040707,
+    "monotonic_ns": 2665020656000000,
+    "stage": "slang_generation_atomic",
+    "state": "returned",
+    "wall_time_ns": 1792835595858269600
+  },
+  {
+    "monotonic_ns": 2665020656000000,
+    "stage": "slang_generation_atomic",
+    "state": "entered",
+    "wall_time_ns": 1792835595858800000
+  },
+  {
+    "elapsed_seconds": 0.0023997,
+    "monotonic_ns": 2665020656000000,
+    "stage": "slang_generation_atomic",
+    "state": "returned",
+    "wall_time_ns": 1792835595862435600
+  },
+  {
+    "monotonic_ns": 2665020656000000,
+    "stage": "slang_generation_atomic",
+    "state": "entered",
+    "wall_time_ns": 1792835595863252100
+  },
+  {
+    "elapsed_seconds": 0.0041621,
+    "monotonic_ns": 2665020656000000,
+    "stage": "slang_generation_atomic",
+    "state": "returned",
+    "wall_time_ns": 1792835595868844400
+  },
+  {
+    "monotonic_ns": 2665020656000000,
+    "stage": "slang_generation_atomic",
+    "state": "entered",
+    "wall_time_ns": 1792835595868844400
+  },
+  {
+    "elapsed_seconds": 0.0019311,
+    "monotonic_ns": 2665020671000000,
+    "stage": "slang_generation_atomic",
+    "state": "returned",
+    "wall_time_ns": 1792835595872373400
+  },
+  {
+    "monotonic_ns": 2665020671000000,
+    "stage": "slang_generation_atomic",
+    "state": "entered",
+    "wall_time_ns": 1792835595874393600
+  },
+  {
+    "elapsed_seconds": 0.0023543,
+    "monotonic_ns": 2665020671000000,
+    "stage": "slang_generation_atomic",
+    "state": "returned",
+    "wall_time_ns": 1792835595877444900
+  },
+  {
+    "elapsed_seconds": 1.6427663,
+    "monotonic_ns": 2665020671000000,
+    "stage": "slang_build",
+    "state": "returned",
+    "wall_time_ns": 1792835595880155900
+  },
+  {
+    "monotonic_ns": 2665020734000000,
+    "stage": "slang_generation_validate_pair",
+    "state": "entered",
+    "wall_time_ns": 1792835595938032400
+  },
+  {
+    "monotonic_ns": 2665020734000000,
+    "stage": "slang_reflection_plan",
+    "state": "entered",
+    "wall_time_ns": 1792835595939043200
+  },
+  {
+    "elapsed_seconds": 0.0051896,
+    "monotonic_ns": 2665020734000000,
+    "stage": "slang_reflection_plan",
+    "state": "returned",
+    "wall_time_ns": 1792835595944375400
+  },
+  {
+    "monotonic_ns": 2665020734000000,
+    "stage": "slang_layout_assertions",
+    "state": "entered",
+    "wall_time_ns": 1792835595946493800
+  },
+  {
+    "elapsed_seconds": 0.0141918,
+    "monotonic_ns": 2665020750000000,
+    "stage": "slang_layout_assertions",
+    "state": "returned",
+    "wall_time_ns": 1792835595961642300
+  },
+  {
+    "monotonic_ns": 2665020765000000,
+    "stage": "slang_scope_snapshot_audit",
+    "state": "entered",
+    "wall_time_ns": 1792835595967207500
+  },
+  {
+    "elapsed_seconds": 0.0484014,
+    "monotonic_ns": 2665020812000000,
+    "stage": "slang_scope_snapshot_audit",
+    "state": "returned",
+    "wall_time_ns": 1792835596015847100
+  },
+  {
+    "elapsed_seconds": 0.0789634,
+    "monotonic_ns": 2665020812000000,
+    "stage": "slang_generation_validate_pair",
+    "state": "returned",
+    "wall_time_ns": 1792835596017425000
+  },
+  {
+    "monotonic_ns": 2665020812000000,
+    "receipt": {
+      "artifacts": {
+        "cuda": {
+          "bytes": 2299970,
+          "sha256": "0602ced2841941e2455954bae34f03c9b879898b34e5e37dced96c2d6b8fcaa4"
+        },
+        "cuda-reflection": {
+          "bytes": 423513,
+          "sha256": "026f2792d3dd88cd6368e2a00379ed11097df3d939394adec7a3818565d23a54"
+        },
+        "metal": {
+          "bytes": 2435959,
+          "sha256": "7169dccae5fc993f50a114070f37be1957bc4f2e40dba245d8cc147bf67d0925"
+        },
+        "metal-reflection": {
+          "bytes": 423048,
+          "sha256": "d113d0e433a4de550bb1dec6212ff187bf2ac63c85db3d1d6d0bfd893c1a8f05"
+        }
+      },
+      "compiler_invocations": 0,
+      "hit": true,
+      "identity": {
+        "compiler_files": {
+          "bin/gfx.dll": "ec000e6e6f8b339230965af9d9050b8640e92398cb7a681de1531a77af123abb",
+          "bin/gfx.slang": "621f34605c411822bfda8f098d9b2b467d525d77ced141aa62bd8c7816aa95c8",
+          "bin/slang-compiler.dll": "3fe9fca8bef7fab9cb6748b6e6e7d8f4abbfe2d7f7a8c863ba9253b9ba8ef0b1",
+          "bin/slang-glsl-module.dll": "849982a9d7549634d7b43a60a6db11d9d4ea4d4bc92b7df92f7fda7034901510",
+          "bin/slang-glslang.dll": "b5a8bb1d4ebb408a553d315f804ff323f8f2c9e5f91993ffcf945e771dcb9dd5",
+          "bin/slang-llvm.dll": "a481148b2e89d463ee654c20c2aee02349397179770f1845c5b03a0862e81381",
+          "bin/slang-rt.dll": "255b5c7871dbb6bd0296b727bd6685af2b2223779da1021d074e4015a484733c",
+          "bin/slang-standard-module-2026.20/experimental/workgraph.slang": "5ac051e0bbb9e78cad3d7d368aa76045adefe417133182e4b9a783ed711345d7",
+          "bin/slang-standard-module-2026.20/experimental/workgraph.slang-module": "1d660ecbf2c59f56d09d3126e783f4c55fcb44fff776f25180413b7c456b4d2f",
+          "bin/slang-standard-module-2026.20/slang/WaveMatrix.slang": "7b538d81618f9fe7a8a317dd0e85ff259202a7cc3b34246307880acfc2e7f973",
+          "bin/slang-standard-module-2026.20/slang/accelerate-vector-coopmat.slang": "bdf92713aea036cb8a68bb520155f8e67dc1ef74b299ea2371fd187fbaf5f1e9",
+          "bin/slang-standard-module-2026.20/slang/activations.slang": "17111ed31a33986a8f3e1028754da83f8e8c17ad4eae082b46a6910c486f1469",
+          "bin/slang-standard-module-2026.20/slang/bindless-storage.slang": "af5d4c7a6cce1b7c19dcb556823d4855394ee1e0e6d2d2a74887cd3775ec671e",
+          "bin/slang-standard-module-2026.20/slang/functional.slang-module": "27545b14ab22b17c9019e79719e704b6e3a30555132fbe6749d0e43e7a487110",
+          "bin/slang-standard-module-2026.20/slang/hash-function.slang": "bee7e1dd58b8ac576189f6543ec9c0bcea49d780c92b3f59649317e7f68c0601",
+          "bin/slang-standard-module-2026.20/slang/iactivation.slang": "886d1de409f9788a15272358306771106d356811ba05431d2e2ea4405fdc80bf",
+          "bin/slang-standard-module-2026.20/slang/iencoder.slang": "d54547342622935f630954e475c532d3e6280b12066456ddb629407bee747c41",
+          "bin/slang-standard-module-2026.20/slang/ilayer.slang": "f90e83e132de9a1b729b85d85ee64cd7ba20c4b0db1321cfb0058db84792541d",
+          "bin/slang-standard-module-2026.20/slang/inline-vector.slang": "4dd82536ccc99a05af682d8f08891906aa8e8190470cc1746a5ffeafffaf20d5",
+          "bin/slang-standard-module-2026.20/slang/istorages.slang": "6bd2a6aae09e5bad8a2ef6a3f086f1fee430d859366325f2e343253ba8f06ab4",
+          "bin/slang-standard-module-2026.20/slang/ivector.slang": "4146fb8627f89c7d0ee2f516f617fdcb27182a62fcb371d248cb43889c4baa4a",
+          "bin/slang-standard-module-2026.20/slang/layers.slang": "9a772bf23d5697d1b7325dec59856ea47158e05a95218a4ecb17e6128a277d1e",
+          "bin/slang-standard-module-2026.20/slang/mma-linear-layout-help.slang": "6778fc740686062015448effd4536ef35331d62a1ff6f4278e5c7a5af1a8a163",
+          "bin/slang-standard-module-2026.20/slang/mma-tiled-cuda.slang": "c002e5bbfe7d73bd05691122ea8d0c860c7defa07fd5f077481fbb7d64874c47",
+          "bin/slang-standard-module-2026.20/slang/mma-tiled-layout-helper.slang": "a7f3bacede85b39797927710fb8aa47d952e2621428d0eb23b3b3142d3eef00e",
+          "bin/slang-standard-module-2026.20/slang/mma-tiled-metal.slang": "60eb69591e610da07a791ee0ff565c1f56117d5e2f00af5f15c26a16daab1420",
+          "bin/slang-standard-module-2026.20/slang/mma-tiled-vulkan.slang": "60b9df04e732f0f9598426a0f175f5556d6904d4711281716a8fa986d824e3c4",
+          "bin/slang-standard-module-2026.20/slang/network-parameter-layout-converter.slang": "40c0a26d4204c63977024e609d13d2f041fcfd36103e072fc87a4c523058c3ae",
+          "bin/slang-standard-module-2026.20/slang/neural.slang": "598c9c3d987c3231551cb0dbd12bdb6345d0b05f18da5318d1e5b636e5b8d43e",
+          "bin/slang-standard-module-2026.20/slang/neural.slang-module": "d89ec90c7b796bbef31fae283c6b8c9559abda23e10ad16d928b6bb910919f8d",
+          "bin/slang-standard-module-2026.20/slang/numerics.slang-module": "2a545865eaad35c0f602552e81a63682e2d3e322400449c9ed2939ebac973bd4",
+          "bin/slang-standard-module-2026.20/slang/numerics/__builtin.slang-module": "fef8ff9eb3b861aca89e2439767105dd8e59a225224f2a248000c7c2b4a3b428",
+          "bin/slang-standard-module-2026.20/slang/numerics/__builtin_differentiable.slang-module": "aa2f1444d8599178c8c7732612cd7ba7f32ecae87e7134c7350015c32c53aa3a",
+          "bin/slang-standard-module-2026.20/slang/numerics/differentiable.slang-module": "837daaf41f2c23625fe2fe4381787bec7af58ec5bb93183d73a49422bc2ff465",
+          "bin/slang-standard-module-2026.20/slang/permuto-encoder.slang": "8564f73a57c355c478ca86349c18ec7e7fe321f316c71126531ba1a98f3e4011",
+          "bin/slang-standard-module-2026.20/slang/shared-memory-pool.slang": "cc2b1fe4ff31cfdef98cb8d4802edc50508c6b7431ef7a64664b4ad32a9a33e2",
+          "bin/slang-standard-module-2026.20/slang/vectorized-reader.slang": "5da65a878563ac190c847a90a85d6a404f4091e159fd2cdbc98730aef005d646",
+          "bin/slang.dll": "59190f074d96d8f2d002d7e9200cde7196be728c8705741ed95733c53e223b43",
+          "bin/slang.exe": "7647d89eb31d533aee4d3d9691a759dbf3086fe9520d99ca1b1b0ca6a0857148",
+          "bin/slang.slang": "94dc40cf0909ecdf157410ee2f483b90cd5ba583d9a8ee84e9bdd3e1a6672a24",
+          "bin/slangc.exe": "59ceb8b73aae261fd52715d82f7e54d8e21232a0795a45444d90d8384bd1a3d3",
+          "bin/slangd.exe": "0241607d061e8156b288a4b840311f20491d0b6818990e5d1d5b8aecb8f49c70",
+          "bin/slangi.exe": "647900af9c29707e08d302fc05c701fae415b65e857450a99d16d82b4edc400e",
+          "include/slang-com-helper.h": "04ed9bfc80e5c3aa227f6a069cad1c2e8102ea0f3678e7c391a3c8d92d1d1c39",
+          "include/slang-com-ptr.h": "fb225147df75460422b3c800afe4293ff59236d94fd574a4fec8d2f43b95865d",
+          "include/slang-cpp-host-prelude.h": "c35720012479357aee70914c6c8cf86af1c934007275f753c8c6101cfa53b465",
+          "include/slang-cpp-prelude.h": "089bcdaed89a313267b3049e5b22857a8a54f56701baa839b8029e7ae8519464",
+          "include/slang-cpp-scalar-intrinsics.h": "c0a8a4e291b3d30f3ad0e17e8b01c31291230af0a5cea14e97f93a12f1d0e2fc",
+          "include/slang-cpp-types-core.h": "a230301085e18678f9e91a984d061abb7057ca2b16c0253335409fcc950268c0",
+          "include/slang-cpp-types.h": "1de53b1426834f8a01dfa674a5031f07750e94fd5e9563a5cdb73e84b8be4a57",
+          "include/slang-cuda-prelude.h": "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a",
+          "include/slang-deprecated.h": "8766bec509b912b338a394fba9fbbf443c31dc3fd19ecd25e85ab0a7e01e6c04",
+          "include/slang-gfx.h": "ca8c6f75e4d2c1ab88b58cd781581c74b64c0672941a9576ef537385358a84ba",
+          "include/slang-hlsl-prelude.h": "410b08865422c9e5ecccdfde70a8e461ad66f1a0ba8c8ae678d808e7f6e4891d",
+          "include/slang-image-format-defs.h": "184948d16aaf606399748273e329b0b4715145b5e1475cb7f9b0b3eaee37ad3d",
+          "include/slang-llvm.h": "f3b43240c90ce7471299cc8601950386834740b09f35abf891ac977bc9bb35e2",
+          "include/slang-tag-version.h": "f86f51313d5ebccb2c9cd13eb978663b9e9d3959e367c39d7f9a94d43e3bbed6",
+          "include/slang-torch-prelude.h": "946d7a5d9a52d1080d71101b65e702502d1fbc06bfde41ddf56292591146e7f8",
+          "include/slang.h": "7a2722ed08388c577891afa166e5cd0074ca10778a48f8ce4179512c74a161b8",
+          "lib/gfx.lib": "845a1aaaca5cd01e39cacf28a49e841ef289a04229e51516562b0f1c61095cd5",
+          "lib/slang-compiler.lib": "ef655c3bed9686d47758ff98c08d56d3bec36ffb45190759df219a718fe2f724",
+          "lib/slang-rt.lib": "b8fd293a3fa295dcd6aa949ca539e55ead6310bfc78ec07b138c618d8d2fd15b",
+          "lib/slang.lib": "904e52712ad57ee19b12192af20c33a168e8071d22cca83d6254e262bb0b30cb",
+          "share/slang/agent-skills/LICENSE": "b738d98b7725414b534c119ac66126876b8cbd40aa8ae48210db190714b81670",
+          "share/slang/agent-skills/PROVENANCE.json": "4307b9f17826e35c766ad62f557fd89d9bcf547c4031b7cfbaf4e9636f5bc223",
+          "share/slang/agent-skills/README.md": "14053fb5551760249ab4d325c0c7c79dfca7be2668eef6d320bd2f7fd470e9fc",
+          "share/slang/agent-skills/skills/slang-numeric-generics/SKILL.md": "42799eeba8691147b9430833ab03c68eaa4eef32324501432b97f5d3cebf43f1",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/custom-numeric-types.md": "e48ebfecbb5fb33472b9a9f229bfb615af45b3aa65b68fa9208b0d6af5dad372",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/builtin-numeric-conversion.slang": "c07ea999f86cddfd5bc50aba4625537b684272c5f46f166f5984c8acb7db7f18",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/builtin-vector-element.slang": "9e030ceb42caba07a29905d42a178ef90c87210427b33fed3550a70c91987740",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/capability-selection.slang": "8f8e2f6f9a616d24fc48f425cc7b53c9e90c425fc7f2a9a15487fcfbaf4fa94e",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/custom-dual-number.slang": "9128b870db68a1dde6afd5d889b47967882af8d6dafccfb20044cea3b5bb2644",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/differentiable-dot-product.slang": "cd75a743d9df617930f8b6491e709cd5b54a9efec0defce80ca2fc2a12582ef4",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/dot-product.slang": "a4d4edcafc79506c5e62544926f0174d7dc5d08829015826c05a0add905a8c44",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/sealed-builtin-negative.slang": "29d73fe4d95497788fa7662970808d0fd7447b22716c1e3e397c335bc5230a6f",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/shapes-and-masks.slang": "d8323bfc78eb5134e15429b6e20c042415a74b41d45e7a22f5a58f267c319d0c",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/examples/wrapper-conformance.slang": "7c903870ae862537b1265bcb4877544eac5dedf676bd2475bf0ecba9e885714a",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/interface-selection.md": "5776b916439867f99cbe8f24866e89c6ea8fcbd3bb3e2d74753693e886c9b665",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/public-versus-builtin.md": "b85d8ebdf2bc48f8fc1950d4b4d1069a85723f7a2cb8587705bdb0e135d3a9d9",
+          "share/slang/agent-skills/skills/slang-numeric-generics/references/shapes-and-conversions.md": "83173beed9ce6b360cac75cb6d749d98664ebc73bb86b7a89ae1e485b2bddc4e",
+          "share/slang/agent-skills/skills/slang-port-hlsl-templates/SKILL.md": "7f16e1fc79ac4106de5a9ad60c9530137bb638460d98adbe5a46d8f60e7436c3",
+          "share/slang/agent-skills/skills/slang-port-hlsl-templates/references/contracts-and-extensions.md": "6578388febe9f2d4a231fe90d7cddd42c8dc27ac53eba6bc64571373fbe0370f",
+          "share/slang/agent-skills/skills/slang-port-hlsl-templates/references/examples/contracts-and-extensions.slang": "d3c615a454f0e76a310053f4ce870d2131277075e4c18e05acb3c42702a6b238",
+          "share/slang/agent-skills/skills/slang-port-hlsl-templates/references/examples/finite-value-generic.slang": "ff2277f0fd712369cfe64c1b25e165978a12ab7d6ff73ef992eb56eba4308bc9",
+          "share/slang/agent-skills/skills/slang-port-hlsl-templates/references/examples/finite-value-specialized.slang": "4483bb14c848fadc32f6ed1fc286b5a133633ee972995c428df01a6811b3b435",
+          "share/slang/agent-skills/skills/slang-port-hlsl-templates/references/finite-value-dispatch.md": "bd9d97e2e290dd9f6a2249b79be79c0895c979a58a137e5172dc953a2c8ff720",
+          "share/slang/agent-skills/skills/slang-port-hlsl/SKILL.md": "1184eeade10fff2374e4cfdbfffba63c302562c11720a282f8856a9cea3e7519",
+          "share/slang/agent-skills/skills/slang-port-hlsl/references/common-differences.md": "9834fa146031f08fb71536464b4f3f1be6fc753d44c6da5fcf10332c65f228d8",
+          "share/slang/agent-skills/skills/slang-port-hlsl/references/examples/scalar-vector-one.slang": "31eacb64a179d94d0f44cb361522ba0ee1be0b164a2ce2098903c12c3776fcd4"
+        },
+        "compiler_root": "<local-path>",
+        "consumers": {
+          "app/portable_generation_cache.py": "8c2fe0ac816e256ba25a6cad535afa85fefbf4d934281b9d611a986cf8d6bc97",
+          "app/portable_resident_layout.py": "dae4870636288cb31c64370de686e46e9e98352c306b5011b812f1eb239f8b42",
+          "app/portable_scope_snapshot_audit.py": "05a44d082ca9df9559b6cd537366639c0ac4321874b000b454ef4cb4f0188817",
+          "app/portable_slang_generation.py": "3c7d10365ed81221060120268b682187e0bcbb3c37cecbdd1a87ed216ad21f32"
+        },
+        "entry": "portableEvents",
+        "host": {
+          "machine": "AMD64",
+          "release": "11",
+          "system": "Windows"
+        },
+        "kind": "paired-resident-slang-generation",
+        "options": [
+          "-fp-mode",
+          "precise",
+          "-line-directive-mode",
+          "none",
+          "-reflection-json"
+        ],
+        "path_sensitive_root": null,
+        "schema": 1,
+        "source": "gpu/world_attack_group_entry.slang",
+        "source_sha256": {
+          "gpu/admission_runtime.slang": "12373d3b492fd9759b9f25791034b1c1269a86570d5c7066d1a265bcd1bd8cb2",
+          "gpu/ammo_instant_runtime.slang": "b4a57c26c46977396d034075826f463c6b3d09616c8cd81f3a468aa787fda4bd",
+          "gpu/attack_group_runtime.slang": "d843c6ff4273435abaf35df017d2ac8c1d716d9e562ab9aa2b14526f2ae473a8",
+          "gpu/base_copy_runtime.slang": "547a45abece616872b49f523e257f9c59e48ce5d04b051dd7ec8561bf2f27f4a",
+          "gpu/below_def_recipient_runtime.slang": "a1f0291c96df29c15843796e3209b3e9d4ed582366dfd2bdac99494ca2203d2f",
+          "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+          "gpu/bullet_consume.slang": "93b2767fedee20bc490d13576f4ee9694b97060630cc0164f6d6da8e01914e63",
+          "gpu/bullet_runtime.slang": "2cda4cfed0e7ffd31076ea48050b7be71cd8312779483b13d7c150c4ccd5d23a",
+          "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
+          "gpu/burst_runtime.slang": "5d8e2d43a524a3f7b311f6532e7602a47049e4f38a5549769ed884a229c9e2be",
+          "gpu/carrier_runtime.slang": "b709b4a737a7e43e03ea3e75f34b19290092838ab2b3cac93444f615545c4895",
+          "gpu/combat_runtime.slang": "79ec1e4f3debc64b47b779ba2051e03a8e0914a3b2031a2fafee47ece4e837a5",
+          "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+          "gpu/counter_context_entry.slang": "7387fc06a72bc9b984f8b29d46655a549ab56e154cd9f0924dc0533b9f787073",
+          "gpu/counter_context_runtime.slang": "aa3e9cf52e85feb2146467496954fcb6dd4f4eac8ebf9c1cdacdcaf38b1ea21b",
+          "gpu/counter_field_entry.slang": "1147bde65aa343ceb5d3473efb43f86f0a0f0225c6ae3ffa118b62d11ec14745",
+          "gpu/counter_field_runtime.slang": "d972af3f7f9fd596a4c3732c79e344ce547532471374066c72dfeba3012153aa",
+          "gpu/counter_landing_entry.slang": "695560a33534df60e9f31359622f6a197d14d2eb4b072371520955c9eacde7bf",
+          "gpu/counter_landing_runtime.slang": "962b75f70131be4865bc8fa439adc06bff5425c1737e6bc3079af01f530c9ffd",
+          "gpu/cover_runtime.slang": "eb1b4a4e7c9683b615a160f3010e0e50a5da9d9a7f0425b471c83b1d625dffe6",
+          "gpu/damage_accum_battle_runtime.slang": "0786ca986cc5bef684da30c499050b76f125b52011a36c96a8989ac616500dce",
+          "gpu/damage_accum_core.slang": "e76d01686e3f466fb2971f9d81634452676f3a8d4fd4b5fe79a90853c7204e1b",
+          "gpu/damage_factors.slang": "c806441d5532ccc494e3f9099033378621e95cc248fe1be8826f9864de2ca3de",
+          "gpu/damage_runtime.slang": "4ea923bb8f1adfadeca492d52c3e72d5a23e8730aecc92c26bafb9764458845d",
+          "gpu/definition_runtime.slang": "b51aa866698ffae2aec5e209689a6d98ccda3dd5e1f047ce5a420fb69125abf6",
+          "gpu/dispatch_phases.slang": "74252b4b4e68d0d67a2ca24994b3d9770db66b2ac156a8b7a58c7d61a8addb78",
+          "gpu/duration_extend_runtime.slang": "22bfef6f3e944dba99ee826d8c3277623828b34b817f0ca5e6999988004d6faa",
+          "gpu/duration_scaling_runtime.slang": "b9737f726a6129069fa2b0379ea0aa97d59df5df4c2834b6d2adc999f7830c01",
+          "gpu/element_runtime.slang": "2de573c0bb3c912a81997145c6d9beb6701af06822c9575561af9ae19cebac56",
+          "gpu/enemy_aim_runtime.slang": "9bacabb7f197277258786b7f8cac0aa2a7698675aefd83c8f4eea89154dc65c0",
+          "gpu/enemy_attack_rank_runtime.slang": "005a41fdf9e55c16f87c315b65ec9cda20d0e0c8c7f1c5aa2daf9a06379deab1",
+          "gpu/enemy_buff_runtime.slang": "d45d8af699c45f154acfddf70e8d63c67797331bd504891ee75bd01914dfc45b",
+          "gpu/enemy_damage_runtime.slang": "94110711ef4f94cf0590b3ac097daaa6f3a8cc5a16ddfc92607a37234b95f82d",
+          "gpu/enemy_route_runtime.slang": "dbe447fe0caab524771956be69dc861d72e53650e36f7f81c37aba27228478ba",
+          "gpu/enemy_spawn_order_runtime.slang": "224f896f62e9f410577adb08ccacb23430c6859d000fccc540830ae3e321ab8e",
+          "gpu/enemy_target_runtime.slang": "830fd22f28d105ea6b4e0ad4d334e774e36eebab698c1096a163cfdb712d9d1f",
+          "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
+          "gpu/event_runtime.slang": "51b2eeca255e158609ed55388aa73d4b5cad331fa77eeca5862831565a08a65b",
+          "gpu/focus_aim_runtime.slang": "ea88f70ce33815e69b3b5074b5cc321d5bbc08c9b693deeef75ed1556b2b9a73",
+          "gpu/full_burst_landing_runtime.slang": "2fe29e32d292edd89c9181faa895799d4a4951b0cd0b1a133c1437be80e12d0b",
+          "gpu/geometry_runtime.slang": "8e8018af3959fde2f794c147aff2387464d4f486be17088cf260da41d48f8ef5",
+          "gpu/heal_charge_history.slang": "0ec65f9f5f0519370816648988d17fbe600cce453a166dcda3d5f97b43d055f4",
+          "gpu/heal_charge_runtime.slang": "adfe69629e03f4dbf7fa0ef9a9a1ea9fc1f3041f938eb055a489ea6cf0764409",
+          "gpu/heal_share_plan.slang": "0042ea4d64f9a22533b82e2206b90fa0eaba5bd90719002beb5f5cb5f03237a5",
+          "gpu/heal_share_runtime.slang": "f3f91269823a7edbb1124df8b8f809c59a00f72f49cb759120701d9ad725bc11",
+          "gpu/heal_share_trace.slang": "432863cbd91791a47acf93062d235d7d5d8a08a71f2e2023ef4970916d07c31b",
+          "gpu/healing_storage_runtime.slang": "3402e1c12d9957568a3040955e9b6cf03b922dd67358b89b0c1bdd657bc84e4b",
+          "gpu/health_runtime.slang": "24f66e89700d5c06b1757d9bb1c203025064665af57b88199eb709f6713772bc",
+          "gpu/hp_attack_runtime.slang": "3021b7019d9a504522b8e7ae859c785a5caa56baddc2d42611c5f044a1be0569",
+          "gpu/hp_edge_runtime.slang": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+          "gpu/incoming_descriptor_runtime.slang": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+          "gpu/incoming_runtime.slang": "4ac7df9cd500c97f1e449106eb93d9c1176f0b1620b28bf42645bfdaee6d661d",
+          "gpu/interrupt_packet_codec.slang": "a2b98699efb3bc0cb7dde5a958183914930f535a7defcc690be120737f8cfd2c",
+          "gpu/landing_runtime.slang": "a0d2f6755b9718acc502953edc1f6fc11663169c8d286f5adbd43309a9727937",
+          "gpu/lazy_bank_storage.slang": "f319580696bf1a68792e243bfb39ff64c56d6361d9327d15bb32ebdbaa1733a5",
+          "gpu/lazy_runtime.slang": "42420d880fd40940e495a60b0bf3fa4389e737a5eb276764bb90236f022bf0ff",
+          "gpu/lifesteal_runtime.slang": "2f75f91df647a4d496671253b2f52792032197ef7a0b8d7ea87a92b7408f76f2",
+          "gpu/max_ammo_scaling_runtime.slang": "fa54cbb7db18e4cd3963cde241416cd5c3a2f18ac97a19623540f46497d6d9cf",
+          "gpu/mode_entry_runtime.slang": "dbd68df38ea19a6f21f4a41bcd9936fd08a7c4003574b91fb58617538b2fc64a",
+          "gpu/named_enemy_recipient_runtime.slang": "73e67afe6c898a0ca027e4ae17fc822a0fee8d4a6c66226c2b3398da3414a1bb",
+          "gpu/named_magnitude_runtime.slang": "15362b672572ac08d89dd1dbf203ed9d8365c334a1486ff5ef2204a51c8cbb2a",
+          "gpu/native_numeric_query_runtime.slang": "2e979426e3b798095113e8e5f2028ce3f16af64a013fac289c89f9eb20f1ae4e",
+          "gpu/native_query_diagnostic.slang": "eb9f3e4aad78941669d35d0260e7275170324b6f82becf361dc19f79bb9ce7e8",
+          "gpu/native_snapshot_runtime.slang": "b11b2570c50b3ffa08e2b061a9e126f5183efbf1ec988ce95f95a80d8427e2f7",
+          "gpu/not_core_runtime.slang": "1427279f19af5321e6365c261ee13c4cbc18cd2e69147c41c584439b9df5dbf8",
+          "gpu/ordered_history_runtime.slang": "7d620776fb4f6076208fa4f585c6e0a7925a05de955fff9ea98f49024537eac8",
+          "gpu/parent_fixed_runtime.slang": "e5b7cfd7041b30357633971bad758687ecda7f47a44a493af1071b1e9f973b88",
+          "gpu/pellet_shot_runtime.slang": "b84c7a1a969d0b04e14d08347d2495245bca5ebe98899fe10b1c80d65f901dad",
+          "gpu/pending_burst_runtime.slang": "cf57944d6fdedbdfcf04227584f0cc8a0a8ece67820cb8ec5a93f28c07bc72cc",
+          "gpu/periodic_runtime.slang": "ac1743d8388b147adfd4370e041dc30051bd0e341b536dfc10c38edbd9aff1f4",
+          "gpu/portable_mt19937.slang": "6365293f4fe0269fba87b15aa866e617333f5012acef175a13fd7ed27152323a",
+          "gpu/portable_schema.slang": "69825b169d63d065ba86a36d56b774a9a7a7c60da6d24a33a7716d3229265fc5",
+          "gpu/portable_scratch_layout.slang": "713d698693e05adc708869da6a41dfa0b49719dce5582a10def6d0c11e6f3c68",
+          "gpu/program_phases.slang": "07fe76c2535a04965e501899e25d918ed596a57304a1732cff7c064e8bd8d29e",
+          "gpu/protection_runtime.slang": "03bcdb07252ac7dc13b91c0011f45f1dc1603f60970d032bfb3a3b67a60dde8d",
+          "gpu/quantity_runtime.slang": "d04e568983cc1be4124d5144239cbde63826f51a05c23ba2c7bbb03a0a809020",
+          "gpu/rank_runtime.slang": "5d9742e04178629890df3a4004bdc097f6b5fdc684287bb8baeff309f5875f1f",
+          "gpu/recipient_runtime.slang": "bbbecd7e1db056175eb4205c490e0517de8485c96504a94aa4ff9531468af2ec",
+          "gpu/reference_runtime.slang": "61dbf7374e909a730811699787bf62bc59adf721697fc1b7377d7eee9fa9b2e0",
+          "gpu/removal_runtime.slang": "e457125116d618de53ca81d78c2f4eabe9e07d7b205a954624c9ae2e3266a694",
+          "gpu/resource_runtime.slang": "9a408150b467a32b490b0da67c0169653270b72d2796ceb8a96e3665b446f89b",
+          "gpu/revival_runtime.slang": "a75b7cd4bff78ece2fdab6aab49dcc9718b7e56f7676c3169589ef1b9cb1a961",
+          "gpu/runtime_init.slang": "42138104b72985daa57788ad7ba1ca9b2db86dc208f63a089679895c8e36d1d9",
+          "gpu/sha256_runtime.slang": "33eb3d6c21d9a2309c8357a335a45866ed61bfc9fdf05c7506da7da43985eaae",
+          "gpu/skill_clock_runtime.slang": "b7bfcd4457d9e1ac2f11650fe47fabe8c3f196fb7ca2c7dadff3c0d77e0684e4",
+          "gpu/skill_critical_runtime.slang": "ffab45b7bc55c3d1bbe472d9b590320183281e6aa11370e212c84e56ab218417",
+          "gpu/skill_hp_basis_runtime.slang": "074b0123c79d0825ebbec561270310f697a8a960d1d653fbfd1cf7c1088b049d",
+          "gpu/skill_interval_runtime.slang": "cf91792f6f0e0a8e5b5af0abe53273446d4ea88c9d19747035988d60591fa544",
+          "gpu/skill_part_receipt.slang": "3bb073f46d9f298d693c5aa1d9f5439f0347a98b80498c8ccd03d7ed572ab904",
+          "gpu/source_runtime.slang": "91c4e6360f1a15c0a074abb87ef93a313fd6c93cd5a6198b0b5d13b2671c1071",
+          "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
+          "gpu/stack_runtime.slang": "0d668b768a7672bce5df2b0993e89971ffc749304e307e5ca6548da18652dc16",
+          "gpu/staged_runtime.slang": "f060e866ef66762dc9faed7d4c9c89492f606f3e7dd5e9650305ff6b9ece4934",
+          "gpu/status_runtime.slang": "2e7dbbfd9efe39987ddc868c5fd2c73d48a117fdbd6e099f15e4ac7f74f0054a",
+          "gpu/target_counter_entry.slang": "af78f0f0cc55734578c0a86f48d5cd36750dd3ae4589be405d81d962293a4666",
+          "gpu/target_counter_runtime.slang": "5a1605e713aa86f5901fc5e7e6a7a723b5ee902ae4a812c5833084542849c898",
+          "gpu/trigger_reduction_runtime.slang": "dfab7a78e75e09ab8d0a3295e0cd7201b45fa84439e88300916f47cf5ed6fe36",
+          "gpu/weapon_frame_phases.slang": "7307812dd5ef45da88a0cb82103176dbf2f9735a9c67fe9d4a25b5b109015258",
+          "gpu/weapon_runtime.slang": "8ba1777d786ae0860f5d64fbe214daabbc4abe0ae137964ebe1f9bf845011b3b",
+          "gpu/world_actor_fields.slang": "88c6b70a0c3b4c97eca5dd7c63cef06a5268fecc91f454a9268def568c6b953d",
+          "gpu/world_actor_mutation.slang": "3834d491358ef4f5cd888728a1efea9fae52d5f58bc31bdb6885338be88e038c",
+          "gpu/world_actor_pools.slang": "9da4c9100e11f01a6d80e128629d7e7275eead49ab77c2e60f1c4cd3c5dee9e6",
+          "gpu/world_actor_recipients.slang": "1930b7b38765340d373765b9250c1027d33103909ed6d245f71de32ceab40758",
+          "gpu/world_actor_registry.slang": "dafa4422554269f9b3529aa21ae9542dacedc6c5af32c36842fc3e0d0b7d3d03",
+          "gpu/world_actor_stacks.slang": "38864ac1f81c3f9591f8273b318e37ee31b76a5ddf2de8a2c2a711db29323e8f",
+          "gpu/world_actor_state.slang": "54ba591b5d7920f44586cf4ba21cfc681981b5a9eeed4b45dd68319a84f3aeb8",
+          "gpu/world_actor_status.slang": "c7a6b4949da6ea886298c15c7d696963b9f83b69122175860eb34485af7c9bb3",
+          "gpu/world_attack_group_entry.slang": "f7b85e5187595e6413b9d9357db15a412106218d6f1663fb74d680010243b286",
+          "gpu/world_below_def_entry.slang": "f77dda756746dce8f30b6571c4fb898e683d1bf3c9acd22e6e2c1305a13cdd96",
+          "gpu/world_charge_control_entry.slang": "50291edf53d64bfb866c54dfe23e454b6cb45422f4961f56d20c18d125021316",
+          "gpu/world_charge_control_runtime.slang": "49a0114e0a508b7b53244fe68c4682a2c1812e8a2663757c393628a32693ff27",
+          "gpu/world_damage_accum_entry.slang": "7a70befe6d808850887e22cb33771d8bac781f3d6768cdaf62dd4f3fa19fbd23",
+          "gpu/world_duration_scaling_entry.slang": "cd3c334b411f26f0f2d32844fb9a6e7282ab270ba20610445a03ee494840578e",
+          "gpu/world_enemy_attack_entry.slang": "4f86e4b5e616e8149cc47245c5aa31492bcd9f3a739a49501fd7a548bd75740a",
+          "gpu/world_enemy_attack_runtime.slang": "3490a2f4936718c0e40123e3f7d71af7366a55342450ff3e93e4576320c05362",
+          "gpu/world_entry_reload_resident_entry.slang": "dae039a720ec42ada66ae731ba23396414f4d4a0301ca89fb7d0651f855afced",
+          "gpu/world_fraction_entry.slang": "d5837bd9edd180433d29aaba476e953d10809b86d6e6850e825d907f9f6f1b76",
+          "gpu/world_fraction_runtime.slang": "6ee8371cee6f0ab559cbfb4c7fe2feb07b126270be9a87339893ea0f55bb3644",
+          "gpu/world_frame_addresses.slang": "d1606c64d97393118479cb0c4e75edb84d0a79c37e6f7dbbbdb80107915ec6ae",
+          "gpu/world_frame_runtime.slang": "1b82c691dc7965d7b414f2b575ac8fdbde8b3aec20cc8211121cb48ddf632b22",
+          "gpu/world_full_burst_landing_entry.slang": "3bd25fd482793580fb9b6cf62a33c7847b2153502d927e545462fc027865b884",
+          "gpu/world_heal_charge_entry.slang": "b83b00992eeeca69aa84491875bf6dc0b4fe5e37ff6041fd5fee5a8503dfaa5f",
+          "gpu/world_interrupt_runtime.slang": "2eda90e2955a597532e17ed575f8e2802e8a3abbbfc00fb42d9df983a51211f4",
+          "gpu/world_leftmost_entry.slang": "2d48cf84ab5d637ba2e283b29fde3e9451029b3c7f8219950d984ebbc1c3df9d",
+          "gpu/world_max_ammo_scaling_entry.slang": "bd458f4404e37e9941ef7ffea7cdead22ddfdbbf12ac60b7b8f3f67bb262318c",
+          "gpu/world_named_enemy_entry.slang": "9e7d38161f0fc0ef1693eb46ceb80093413c048158af3aa0970f43680f1628d8",
+          "gpu/world_not_core_entry.slang": "96cf5011066124cba15a2c680e783bbe25857cfc10efcf1a43c8cd2c97b50313",
+          "gpu/world_overlay_runtime.slang": "23a9330cf5558dc0c21675c25d171e4b033108dec19d738653837c043efa745e",
+          "gpu/world_overlay_weapon.slang": "f9f33dcafbdd8f8dbea5acede13461b19a08e7084b7e5aa8f1f14c1959b4d370",
+          "gpu/world_parent_fixed_entry.slang": "8616945cbacf5a7c1cb68367a25832d32906e8120ea83fee9868fe082d168648",
+          "gpu/world_partial_charge_entry.slang": "2664b4e60a80efb44bd678da11d43c20645d233091f486a001a3364157ae4c8a",
+          "gpu/world_pending_entry.slang": "d1043328c670ac3a4837414eeb871edf94a1afac2de95d42b646b0d358ba931c",
+          "gpu/world_periodic_entry.slang": "87abe82e2142dcd58c4ebab9109efe738800200eae04ed4b72e37f375c0ec7a0",
+          "gpu/world_periodic_runtime.slang": "25347205a8bcd16b1af61124eea5694513017ecf2baad2303ecba803e7e714aa",
+          "gpu/world_projectile_chain_entry.slang": "69de5447fd6f2eb8439fda802bae0571fe82d49eb531359f42c4175436c604c9",
+          "gpu/world_projectile_entry.slang": "a78c90523a37f973207265c83c7d62c2cabdf1c99023f9e36f8a30e0c1cb3c65",
+          "gpu/world_projectile_resident_entry.slang": "a2e20e241c0cd0d5533fd38078672a732bf934f2aa30fd9e1c981e7f402a9ceb",
+          "gpu/world_projectile_runtime.slang": "3d3d498386038746f671007d5522ece05c7b82dd09d9d6fee9704aeff0af9e18",
+          "gpu/world_random_cleanse_entry.slang": "78494ec7ab6337e2d1bd205be752be670453fcccfb90f051a4ecec1cb3f27223",
+          "gpu/world_reload_entry.slang": "fd7e2e3d64811ee2aecb5e3e517870898104712b4bb719d0b4f543e2d70085f8",
+          "gpu/world_reload_runtime.slang": "47889666772f867b246b63ecc2cdea98eda79b6b7e2e4b2bd67d63c3b1818090",
+          "gpu/world_roster_entry.slang": "7d78135536c330b19acf05b458748e3236450d1281a9c5ac81fb8351c57dbbf4",
+          "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
+          "gpu/world_skill_entry.slang": "433216610c518f8c2c3f122eb1aa886ae53e197d72b4307ded1cb90dfa278a98",
+          "gpu/world_skill_runtime.slang": "39b6ebaf8ea815473012154d8770677e399dd5261d0e93efab9f57bcb660b833",
+          "gpu/world_spawn_entry.slang": "1b433e98fd906fa7c9af0f100175535e0d669301a174c9df06c2d87f8b644caf",
+          "gpu/world_spawn_runtime.slang": "6da41aa26d47d47ebb54b6d742f62592f2fbcae50ea2e38a3a7d571771b7a8c3",
+          "gpu/world_team_entry.slang": "8ff8496183d9e146d6fb69a8b4e39ebc696e6ced1a72cb2e3e8bacf39e7c1951",
+          "gpu/world_team_runtime.slang": "4ac04376ed7a2f5a623b9b0f493aeb91a3e147b679e887829301e0a51a5902c4"
+        }
+      },
+      "key": "dbe7d0c861c98245670cdbdd8defdf7442f1972adc4d60884c585a0de96a780f",
+      "schema": 1
+    },
+    "stage": "slang_generation_cache",
+    "state": "verified",
+    "wall_time_ns": 1792835596018978900
+  },
+  {
+    "monotonic_ns": 2665020937000000,
+    "stage": "shared_cuda_compile_only",
+    "state": "entered",
+    "wall_time_ns": 1792835596145950100
+  },
+  {
+    "monotonic_ns": 2665020937000000,
+    "stage": "cuda_compile_artifact",
+    "state": "entered",
+    "wall_time_ns": 1792835596149098600
+  },
+  {
+    "monotonic_ns": 2665021000000000,
+    "name": "nvrtc64_120_0.dll",
+    "stage": "cuda_compiler_library",
+    "state": "entered",
+    "wall_time_ns": 1792835596213982800
+  },
+  {
+    "monotonic_ns": 2665021015000000,
+    "name": "nvrtc64_120_0.dll",
+    "stage": "cuda_compiler_library",
+    "state": "loaded",
+    "wall_time_ns": 1792835596219866700
+  },
+  {
+    "monotonic_ns": 2665021015000000,
+    "name": "nvrtc-builtins64_124.dll",
+    "stage": "cuda_compiler_library",
+    "state": "entered",
+    "wall_time_ns": 1792835596220397100
+  },
+  {
+    "monotonic_ns": 2665021015000000,
+    "name": "nvrtc-builtins64_124.dll",
+    "stage": "cuda_compiler_library",
+    "state": "loaded",
+    "wall_time_ns": 1792835596221945100
+  },
+  {
+    "monotonic_ns": 2665021015000000,
+    "stage": "nvrtcCreateProgram",
+    "state": "entered",
+    "wall_time_ns": 1792835596222476400
+  },
+  {
+    "elapsed_seconds": 0.0015545,
+    "monotonic_ns": 2665021015000000,
+    "return_code": 0,
+    "stage": "nvrtcCreateProgram",
+    "state": "returned",
+    "wall_time_ns": 1792835596224100000
+  },
+  {
+    "monotonic_ns": 2665021015000000,
+    "stage": "nvrtcCompileProgram",
+    "state": "entered",
+    "wall_time_ns": 1792835596225636500
+  },
+  {
+    "elapsed_seconds": 26.3016445,
+    "monotonic_ns": 2665047328000000,
+    "return_code": 0,
+    "stage": "nvrtcCompileProgram",
+    "state": "returned",
+    "wall_time_ns": 1792835622528449200
+  },
+  {
+    "monotonic_ns": 2665047328000000,
+    "stage": "nvrtcGetProgramLogSize",
+    "state": "entered",
+    "wall_time_ns": 1792835622530114700
+  },
+  {
+    "elapsed_seconds": 8.9e-06,
+    "monotonic_ns": 2665047328000000,
+    "return_code": 0,
+    "stage": "nvrtcGetProgramLogSize",
+    "state": "returned",
+    "wall_time_ns": 1792835622531154100
+  },
+  {
+    "monotonic_ns": 2665047328000000,
+    "stage": "nvrtcGetProgramLog",
+    "state": "entered",
+    "wall_time_ns": 1792835622532162000
+  },
+  {
+    "elapsed_seconds": 7.6e-06,
+    "monotonic_ns": 2665047328000000,
+    "return_code": 0,
+    "stage": "nvrtcGetProgramLog",
+    "state": "returned",
+    "wall_time_ns": 1792835622532668500
+  },
+  {
+    "monotonic_ns": 2665047328000000,
+    "stage": "nvrtcGetPTXSize",
+    "state": "entered",
+    "wall_time_ns": 1792835622533677200
+  },
+  {
+    "elapsed_seconds": 7.8e-06,
+    "monotonic_ns": 2665047328000000,
+    "return_code": 0,
+    "stage": "nvrtcGetPTXSize",
+    "state": "returned",
+    "wall_time_ns": 1792835622534185400
+  },
+  {
+    "monotonic_ns": 2665047328000000,
+    "stage": "nvrtcGetPTX",
+    "state": "entered",
+    "wall_time_ns": 1792835622537221900
+  },
+  {
+    "elapsed_seconds": 0.0007629,
+    "monotonic_ns": 2665047328000000,
+    "return_code": 0,
+    "stage": "nvrtcGetPTX",
+    "state": "returned",
+    "wall_time_ns": 1792835622538736900
+  },
+  {
+    "monotonic_ns": 2665047328000000,
+    "stage": "nvrtcDestroyProgram",
+    "state": "entered",
+    "wall_time_ns": 1792835622539746400
+  },
+  {
+    "elapsed_seconds": 0.0005253,
+    "monotonic_ns": 2665047328000000,
+    "return_code": 0,
+    "stage": "nvrtcDestroyProgram",
+    "state": "returned",
+    "wall_time_ns": 1792835622541326400
+  },
+  {
+    "elapsed_seconds": 26.533615,
+    "monotonic_ns": 2665047468000000,
+    "stage": "cuda_compile_artifact",
+    "state": "returned",
+    "wall_time_ns": 1792835622682522300
+  },
+  {
+    "monotonic_ns": 2665047484000000,
+    "receipt": {
+      "artifact_bytes": 9554090,
+      "artifact_sha256": "578466d1a717d9adb4b965edc1178dd06cfff31379adb894b32751788ee4074e",
+      "enabled": true,
+      "hit": false,
+      "identity": {
+        "artifact": "ptx",
+        "compiler_files": {
+          "nvrtc-builtins64_124.dll": "79888dba26c51475ea21fc7b47d2b9dd5b1ffaecc8e5ea22a49fa5f5a722eb43",
+          "nvrtc64_120_0.dll": "3aa3cd8aa10437e212760c0e1ed730807811ec3bc330216dbfde4b26211d2243"
+        },
+        "headers": {
+          "slang-cuda-prelude.h": "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
+        },
+        "options": [
+          "--std=c++17",
+          "--gpu-architecture=compute_86",
+          "--fmad=false"
+        ],
+        "schema": 1,
+        "source_sha256": "0602ced2841941e2455954bae34f03c9b879898b34e5e37dced96c2d6b8fcaa4"
+      },
+      "key": "cd8336304b1d037394b555a1e048a1017fe9919038b99cbad2d9360475136416"
+    },
+    "stage": "cuda_compile_cache",
+    "state": "verified",
+    "wall_time_ns": 1792835622684073200
+  },
+  {
+    "elapsed_seconds": 26.5425533,
+    "monotonic_ns": 2665047484000000,
+    "stage": "shared_cuda_compile_only",
+    "state": "returned",
+    "wall_time_ns": 1792835622689965600
+  }
+]

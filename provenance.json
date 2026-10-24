@@ -1,34 +1,93 @@
 {
-  "schema": 1,
+  "repository": "edommoner/nikke_tools",
+  "distribution_commit": "c1d464f9cb694d425425f3885c7f68a931c3128a",
   "package_id": "959b00624a989ffc85295b0c1afd918f79f10436c194289210412f6a67092a25",
-  "archive_bytes": 9228821,
-  "archive_sha256": "7fb69ffdf87e9aad0580832a083d52c12d381d8c367fc70e2e96485b29517589",
-  "source_base_commit": "df20f067c38acaf3f5a52c38c66c515340e40e95",
-  "working_tree_dirty": true,
-  "suite": "compiler-full--attack-group-long",
-  "purpose": "compiler-diagnostic",
-  "files": 2842,
-  "complete_current_gpu_source_equals_windows_v4": true,
-  "generated_normalized": {
-    "cuda": "f6d8ca67c30e6ef28c82ae05b4a95a7b1d215317c9cb32198d80eed03e6e97a3",
-    "metal": "6c1bb991df5bd6e085314f1678d29d4b765245ab3570d2457f8610aef3a387c2"
-  },
-  "mac_cpu_tests": 191,
-  "independent_metal60_audit": true,
-  "changed_retained_payload_from_v4": [
-    "tests/test_portable_compiler_certificate.py"
+  "sources": [
+    {
+      "report_file": "compiled.ptx",
+      "original_relative_file": "proof/compiled.ptx",
+      "original_bytes": 9554090,
+      "original_sha256": "578466d1a717d9adb4b965edc1178dd06cfff31379adb894b32751788ee4074e",
+      "export_sanitized": false
+    },
+    {
+      "report_file": "outer-execution.json",
+      "original_relative_file": "execution.json",
+      "original_bytes": 1107,
+      "original_sha256": "5ba61bee8f973f26db84e2d12ea68cc4b691493377ad836cf62de09cbd260f5f",
+      "export_sanitized": true
+    },
+    {
+      "report_file": "outer-job.json",
+      "original_relative_file": "job.json",
+      "original_bytes": 1095,
+      "original_sha256": "97274ce7ee65f55bab38a928b7e89fc330378cec1ee0dbd511b577a323083ab8",
+      "export_sanitized": true
+    },
+    {
+      "report_file": "outer-preparation.json",
+      "original_relative_file": "preparation.jsonl",
+      "original_bytes": 2083,
+      "original_sha256": "1970784a1006951b54ff674f264fc2861696ac6c88a2fed13cfa680ab9c5212b",
+      "export_sanitized": true
+    },
+    {
+      "report_file": "outer-observation.json",
+      "original_relative_file": "observation.json",
+      "original_bytes": 155402,
+      "original_sha256": "863c25159780b6220f781ede292fc9c4086c67d5da87cb1b5d76542873461833",
+      "export_sanitized": true
+    },
+    {
+      "report_file": "inner-execution.json",
+      "original_relative_file": "proof/execution.json",
+      "original_bytes": 5340,
+      "original_sha256": "50d2844883f02cdf184cda4a7b4ca8856d7bf5eba698ee21c55524ae0d4d6049",
+      "export_sanitized": true
+    },
+    {
+      "report_file": "inner-job.json",
+      "original_relative_file": "proof/job.json",
+      "original_bytes": 1094,
+      "original_sha256": "ca0ad8d5513776ca5f1e16aadff308eda89f3d8c130da6bb17cf43a77d319d62",
+      "export_sanitized": true
+    },
+    {
+      "report_file": "inner-phases.json",
+      "original_relative_file": "proof/phases.jsonl",
+      "original_bytes": 39223,
+      "original_sha256": "da6086de58361cf5de9ebcb69062352e841038d9819266be5facdd916f4c236b",
+      "export_sanitized": true
+    },
+    {
+      "report_file": "inner-preparation.json",
+      "original_relative_file": "proof/preparation.jsonl",
+      "original_bytes": 958,
+      "original_sha256": "97faed1f671d66d66deaf1f2f8a0d90d488156a61bd96fa801e43f11953ea943",
+      "export_sanitized": true
+    },
+    {
+      "report_file": "inner-observation.json",
+      "original_relative_file": "proof/observation.json",
+      "original_bytes": 146138,
+      "original_sha256": "9bb4200142ea2cef1fa255dfe6359cc72ebb1e9955ec7e909a49e22b7e44c9bf",
+      "export_sanitized": true
+    },
+    {
+      "report_file": "compiler.json",
+      "original_relative_file": "proof/compiler.json",
+      "original_bytes": 17214,
+      "original_sha256": "1cc14ab83754c8e09ef657de12da89ad45539f0f362b6c1883e5cb7c9d04b018",
+      "export_sanitized": true
+    },
+    {
+      "report_file": "result.json",
+      "original_relative_file": "proof/result.json",
+      "original_bytes": 4975,
+      "original_sha256": "cbb3a15ebfb962a07563f7eb9c9897eb315175f96b7fb18a2cf0c66a88858c2a",
+      "export_sanitized": true
+    }
   ],
-  "omitted_by_existing_compiler_package_whitelist": [
-    "research/upstream/nikke-calc-master/docs/IMPL-STATUS.md"
-  ],
-  "requested_stage": "compile-ptx",
-  "requested_artifact": "ptx",
-  "max_inner_seconds": 60,
-  "max_outer_seconds": 180,
-  "memory_limit_mb": 2048,
-  "driver_calls_requested": 0,
-  "gpu_calls_requested": 0,
-  "slang_calls_requested": 0,
-  "prior_cubin_failure_preserved": true,
-  "why_distinct": "Full-source PTX only; separate assembly/link was previously proven with an older full source. Not a repeat CUBIN run or shortened commands subset."
+  "absolute_local_paths_excluded_from_json": true,
+  "original_capture_modified": false
 }

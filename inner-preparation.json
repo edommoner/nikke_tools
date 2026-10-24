@@ -1,0 +1,41 @@
+[
+  {
+    "monotonic_ns": 2665002640000000,
+    "stage": "inner_before_observation",
+    "state": "entered",
+    "wall_time_ns": 1792835577852880900
+  },
+  {
+    "elapsed_seconds": 3.5704115,
+    "monotonic_ns": 2665006218000000,
+    "stage": "inner_before_observation",
+    "state": "returned",
+    "wall_time_ns": 1792835581424639200
+  },
+  {
+    "monotonic_ns": 2665006250000000,
+    "stage": "gpu_child_verify_package",
+    "state": "entered",
+    "wall_time_ns": 1792835581454962200
+  },
+  {
+    "elapsed_seconds": 12.7607633,
+    "monotonic_ns": 2665019015000000,
+    "stage": "gpu_child_verify_package",
+    "state": "returned",
+    "wall_time_ns": 1792835594216981000
+  },
+  {
+    "monotonic_ns": 2665047750000000,
+    "stage": "inner_after_observation",
+    "state": "entered",
+    "wall_time_ns": 1792835622955310800
+  },
+  {
+    "elapsed_seconds": 3.3208701,
+    "monotonic_ns": 2665051078000000,
+    "stage": "inner_after_observation",
+    "state": "returned",
+    "wall_time_ns": 1792835626277398400
+  }
+]

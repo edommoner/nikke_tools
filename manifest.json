@@ -1,0 +1,75 @@
+{
+  "files": [
+    {
+      "path": "compiled.ptx",
+      "bytes": 9554090,
+      "sha256": "578466d1a717d9adb4b965edc1178dd06cfff31379adb894b32751788ee4074e"
+    },
+    {
+      "path": "compiler.json",
+      "bytes": 17117,
+      "sha256": "adf78a1803f44f5f6b4953b41a378dd08c88efbf5555a173e10ef3b6b1b86731"
+    },
+    {
+      "path": "inner-execution.json",
+      "bytes": 4527,
+      "sha256": "f91104b33dd5a769a49c083c41b2b8de6848f8a8e7e3efe61e5c1f7502f24252"
+    },
+    {
+      "path": "inner-job.json",
+      "bytes": 741,
+      "sha256": "949c0dd16e55e316846c963f2dd208d34c1557cbe517276c69e939273e23e542"
+    },
+    {
+      "path": "inner-observation.json",
+      "bytes": 237,
+      "sha256": "0a5439a3a346827ee9f204a6482cc8242cfef142a85714fc71fc078cff3c1bb5"
+    },
+    {
+      "path": "inner-phases.json",
+      "bytes": 42089,
+      "sha256": "9e5478733d3952fa4bcf45ca950ea3cb83793453dc966fe55f018d087e158ce5"
+    },
+    {
+      "path": "inner-preparation.json",
+      "bytes": 1019,
+      "sha256": "f4e602d8c35a0b591c73ea0f172e55ac292ee841ead05321644690e99882d05a"
+    },
+    {
+      "path": "outer-execution.json",
+      "bytes": 1077,
+      "sha256": "53735424f6c2bd54b4d653f9d0abeb4052f2b055b997dcb8df05b85b4d9217b2"
+    },
+    {
+      "path": "outer-job.json",
+      "bytes": 743,
+      "sha256": "ba50181ab3406479b61631363d93a52264fc1eee8366517794646dccaa3e1ef3"
+    },
+    {
+      "path": "outer-observation.json",
+      "bytes": 238,
+      "sha256": "3f7097bd61e360c40dc3a960295744e4a4861da65cd4a1de5f44c51f67d23125"
+    },
+    {
+      "path": "outer-preparation.json",
+      "bytes": 2215,
+      "sha256": "4394700adb11dff4a2110466744974ed1ff789e269217949cf9178dd5ebdf0cc"
+    },
+    {
+      "path": "provenance.json",
+      "bytes": 3465,
+      "sha256": "d9f4dc35a7b67526e82e5819924557ab7ee1b7d08e47027ecf512561a8f1f739"
+    },
+    {
+      "path": "result.json",
+      "bytes": 4356,
+      "sha256": "091efa1a899ebb65920210de41ecf87111a1ef21db91c56405eb5352306b4369"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 487,
+      "sha256": "07160a9fb79a96cb67fd0ac6781c5c93703066b260f47a7f46b2296bc2495254"
+    }
+  ],
+  "manifest_self_excluded": true
+}
