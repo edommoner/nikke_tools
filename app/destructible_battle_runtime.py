@@ -27,12 +27,13 @@ class TypedLandings(ast.NodeTransformer):
         return node
 
 @contextmanager
-def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False):
+def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False):
     from calculator import timeline,buff_manager
     from runner import sim
     if type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Invalid typed battle observation capacity')
     if type(modifier_model) is not bool:raise ValueError('Explicit modifier model boolean required')
     if type(hit_shields) is not bool or hit_shields and shield_owner is None:raise ValueError('Hit shields require an explicit shield owner and boolean policy')
+    if type(weapon_shields) is not bool or weapon_shields and shield_owner is None:raise ValueError('Weapon shields require an explicit shield owner and boolean policy')
     if shield_owner is not None:
         from destructible_shield_policy import validate_owner
         validate_owner(shield_owner)
@@ -42,6 +43,8 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     old_boss=timeline.BossScript;old_register=buff_manager.BuffManager.register_damage_handler;old_hit=timeline.HitEvent
     old_scalar=timeline.calc_damage
     data=dict(worlds=[],managers=[],activations=[],attacks=[],finished=[]);active=[];marked={};restores=[]
+    from destructible_weapon_runtime import WeaponShots
+    weapons=WeaponShots(timeline,data,shield_owner,hit_shields) if weapon_shields else None
     class Boss(old_boss):
         def __init__(self,*args,**kwargs):
             super().__init__(*args,**kwargs);self._nikke_typed_world=DestructibleWorld.from_clock(self,bindings);data['worlds'].append(self._nikke_typed_world)
@@ -55,6 +58,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
         if modifier_model:
             from destructible_damage_policy import modifier_axis
             for effect,_ in manager._effects:modifier_axis(effect)
+        if weapons is not None:weapons.validate_effects(manager)
         data['managers'].append(manager)
         world=data['worlds'][-1];resolver=manager._resolve_target;missing=object();old_instance=manager.__dict__.get('_resolve_target',missing)
         condition_ok=manager._condition_ok;old_condition=manager.__dict__.get('_condition_ok',missing)
@@ -93,6 +97,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
         manager._damage_handler=damage;manager._resolve_target=resolve_target;manager._condition_ok=conditions
         restores.append((manager,damage,previous,old_instance,old_condition,missing))
     def scalar(*args,**kwargs):
+        if not active and weapons is not None:return weapons.scalar(old_scalar,*args,**kwargs)
         context=active[-1] if active else None
         if context is None:return old_scalar(*args,**kwargs)
         from destructible_damage_policy import calculate
@@ -104,13 +109,15 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
         return calculate(*args,**kwargs,kind=ActorKind.BODY if context['kind']==ActorKind.HIT_SHIELD else context['kind'])
     def packet(*args,**kwargs):
         event=old_hit(*args,**kwargs);context=active[-1] if active else None
+        if not active and weapons is not None:context=weapons.take(event)
         if context is None:return event
         if event.caster!=context['caster'] or event.t!=context['time']:raise ValueError('Typed packet owner/time mismatch')
         if len(data['attacks'])>=max_attacks:raise ValueError('Typed battle attack observation capacity exceeded')
         identity=len(data['attacks'])+1;marked[id(event)]=event
         # Reserve before synchronous landing children can produce another packet.
         # A failed delivery remains visible as incomplete, never as success.
-        record=dict(attack_id=identity,name=context['effect'].get('name'),caster=event.caster,time=event.t,damage=float(event.damage),receipts=(),completed=False)
+        record=dict(attack_id=identity,name=context['name'] if 'name' in context else context['effect'].get('name'),caster=event.caster,time=event.t,damage=float(event.damage),receipts=(),completed=False)
+        if 'family' in context:record.update(family=context['family'],hit_tag=context['hit_tag'],weapon_mode_skill=context['weapon_mode_skill'])
         if modifier_model:record['coefficient']=context['coefficient']
         data['attacks'].append(record)
         if context['kind']==ActorKind.PROJECTILE:
@@ -120,7 +127,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
             from impact_specs import Impact
             slot,handle=context['selected'];world=context['world']
             if world.last!=event.t or world.finished:raise ValueError('Shield packet left its owning frame')
-            record['receipts']=((slot,handle,deliver(world,context['manager'],slot,Impact(event.caster,handle,1,2,float(event.damage),1.,identity))),)
+            record['receipts']=((slot,handle,deliver(world,context['manager'],slot,Impact(event.caster,handle,context.get('family',1),2,float(event.damage),1.,identity))),)
         record['completed']=True
         return event
     def skip(event):return marked.get(id(event)) is event
@@ -129,7 +136,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     manager_scope=patch.object(timeline,'BuffManager',manager_type(timeline.BuffManager)) if modifier_model else nullcontext()
     scalar_scope=patch.object(timeline,'calc_damage',scalar) if modifier_model else nullcontext()
     try:
-        with manager_scope,scalar_scope,patch.object(timeline,'BossScript',Boss),patch.object(buff_manager.BuffManager,'register_damage_handler',register),patch.object(timeline,'HitEvent',packet),patch.dict(old_simulate.__globals__,{'_nikke_skip_typed_body_landing':skip}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):yield data
+        with manager_scope,scalar_scope,weapons.scope() if weapons is not None else nullcontext(),patch.object(timeline,'BossScript',Boss),patch.object(buff_manager.BuffManager,'register_damage_handler',register),patch.object(timeline,'HitEvent',packet),patch.dict(old_simulate.__globals__,{'_nikke_skip_typed_body_landing':skip}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):yield data
     finally:
         for manager,wrapper,previous,old_instance,old_condition,missing in reversed(restores):
             if manager._damage_handler is wrapper:manager._damage_handler=previous

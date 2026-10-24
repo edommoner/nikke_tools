@@ -1,4 +1,6 @@
 <!-- shared-readback-current -->
+
+通常武器の次段階はCPU限定 `reference --suite destructible-weapon-shield --out NEW_REFERENCE.json`（22宣言契約）を使う。実際の発射method/shot buff snapshot/pellet再選択、弾数・gauge・例外復元を固定した。新GPU対応ではなくmodel gapを維持し、既存111入口のCPU群へ含めている。詳細 docs/portable-destructible-weapon-shield-native.md。
 現在の型付き実戦検証はsealed `destructible-hit-shield`（111入力/native76＋拒否35、Metal/独立seal成功）を使う。HP盾とhit盾の選択/量確定/receipt/counterを既存Frameで共用し、旧88の全input/native/raw369098752byteを共通readback-retainで保持。最終CPU191/skip0。plain boss skill限定の宣言モデルで、通常武器/貫通・公開受付・CUDA実機は未完了。詳細 docs/portable-destructible-hit-shield.md。
 
 ```sh

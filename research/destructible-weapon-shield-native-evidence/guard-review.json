@@ -1,0 +1,11 @@
+{
+  "previous_cpu_package": "a74e21a413cf9ba20fb33cf009b2fd4f3e9e2283344c351f4b029c379bbaee4f",
+  "previous_cpu_tests_passed": 198,
+  "final_package": "72dcbebdadd6282975aaf9f29641e73a2ebc0071fe6ae5939efac871d992f7b5",
+  "reason": "Native body landing owns lifesteal/accumulation; typed weapon interception has no declared replacement yet",
+  "change": "Reject registered lifesteal_pct/dmg_accum_dealt_atk_pct/dmg_accum_received_atk_pct once per manager before firing",
+  "positive22_input_native_trace_fingerprints_unchanged": true,
+  "final_cpu_tests_passed": 198,
+  "new_gpu_dispatches": 0,
+  "old_captures_preserved": true
+}

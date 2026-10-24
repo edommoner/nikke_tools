@@ -1,0 +1,16 @@
+{
+  "shader_closure_files": 153,
+  "all_shader_sources_unchanged": true,
+  "protected_sources_unchanged": [
+    "app/detail_gpu.py",
+    "app/engine_worker.py",
+    "app/effect_spec.py",
+    "app/engine_compat.py",
+    "gpu/binary64.slang"
+  ],
+  "strict_normalizer_changed": false,
+  "old_gpu_reruns": 0,
+  "new_gpu_dispatches": 0,
+  "raw_deleted": false,
+  "windows_new_run_requests": 0
+}
