@@ -19,6 +19,6 @@ sealed戦闘packageで実行し、requestのpackageはfull compiler package、ca
 
 内側Jobは59.4140873秒／exit0、しかし外側は後続監査の途中で90秒上限へ達し、93.6340647秒で終了処理した。package検証は6.8996383秒、9.9543165秒、内側13.5328837秒、最後の再監査は未完了。全stage/object_verifiedはfalseを保持する。両Jobは2GiB／BelowNormal／gate確認／post空、peak396,890,112／357,236,736byte、cleanup・観測errorなし／missing0、service未確認のため環境保全false。
 
-元proofにはobject／全9phase／inner executionがあるが、outer終了でrun.statusはprocessingのまま、artifacts.json／result.json／failure.jsonはない。これを成功runへ書き換えたり、元captureへ後付けartifactsを作らない。claimは消費済みで再コンパイル・上限増加・リンクへは進まない。次は別のCPU監査receiptで保存objectの出所を回収する経路を設計し、元失敗・欠けた記録を明示して保持する。
+元proofにはobject／全9phase／inner executionがあるが、outer終了でrun.statusはprocessingのまま、artifacts.json／result.json／failure.jsonはない。これを成功runへ書き換えたり、元captureへ後付けartifactsを作らない。claimは消費済みで再コンパイル・上限増加・リンクへは進まない。別のCPU監査receiptで出所を回収する共通経路は[object回収](portable-object-recovery.md)を参照。元失敗・欠けた記録を明示して保持する。
 
 現状はWindows接続内peer reportまでで、Mac独立原本監査ではない。CUDA本体計算、全キャラ／全特殊効果の完成証明でもない。座標host trigの数値方針は回答待ち、公開受付とUIはCPUのまま。

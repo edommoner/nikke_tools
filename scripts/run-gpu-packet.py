@@ -9,7 +9,7 @@ from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 COMPILE_STAGES=('compile-ptx','compile-cubin-o0')
-OBJECT_STAGES={'module-object':('source_package','source_capture','cache_entry','phases','ptxas'),
+OBJECT_STAGES={'recover-object':('source_package','source_capture','object_sha256'),'module-object':('source_package','source_capture','cache_entry','phases','ptxas'),
                'jit-link-object':('object_package','object_capture','object_sha256','nvjitlink')}
 LINKED_STAGE='gpu-linked'
 LINKED_FIELDS=('linked_package','linked_capture')
@@ -58,6 +58,9 @@ def verified_object(proof,stage):
         and proof.get('calculation_verified') is False
         and proof.get('link_verified') is (stage=='jit-link-object')
         and type(proof.get('kernel_calls')) is int and proof['kernel_calls']==0
+        and (stage!='recover-object' or (type(proof.get('native_tool_calls')) is int
+            and proof['native_tool_calls']==0 and proof.get('original_stage_verified') is False
+            and proof.get('original_capture_modified') is False and proof.get('original_outer_timed_out') is True))
         and all(type(proof.get(k,0)) is int and proof.get(k,0)==0 for k in ('gpu_calls','driver_load_calls','nvrtc_compile_calls')))
 
 
@@ -79,6 +82,9 @@ def recipe(package_id,stage,backend,capture,original_workspace,timeout,request=N
     return plan
 
 def proof_arguments(plan):
+    if plan['stage']=='recover-object':
+        request=object_request('recover-object',plan['object_request'])
+        return ['recover-object','--source-package',request['source_package'],'--source-capture',request['source_capture'],'--out',plan['proof_capture'],'--object-sha256',request['object_sha256']]
     if plan['stage'] in OBJECT_STAGES:
         request=object_request(plan['stage'],plan['object_request'])
         arguments=[plan['stage'],'--capture',plan['proof_capture'],'--timeout',str(plan['inner_gpu_timeout_seconds']),'--original-workspace',plan['original_workspace']]

@@ -45,8 +45,11 @@ class PacketStageTests(unittest.TestCase):
                 request=self.request(mode,base)
                 p=stage.recipe('id',mode,'cuda',base/'capture',base/'original',180,request)
                 arguments=stage.proof_arguments(p)
-                expected=[mode,'--capture',p['proof_capture'],'--timeout','60','--original-workspace',p['original_workspace']]
-                for key in fields:expected.extend(['--'+key.replace('_','-'),request[key]])
+                if mode=='recover-object':
+                    expected=[mode,'--source-package',request['source_package'],'--source-capture',request['source_capture'],'--out',p['proof_capture'],'--object-sha256',request['object_sha256']]
+                else:
+                    expected=[mode,'--capture',p['proof_capture'],'--timeout','60','--original-workspace',p['original_workspace']]
+                    for key in fields:expected.extend(['--'+key.replace('_','-'),request[key]])
                 self.assertEqual(arguments,expected);self.assertEqual(p['memory_limit_mb'],2048)
                 self.assertNotIn('--candidate',arguments);self.assertNotIn('--ptxas-level',arguments)
                 self.assertNotIn('--cpu-only',arguments);self.assertNotIn('run',arguments)
@@ -64,7 +67,9 @@ class PacketStageTests(unittest.TestCase):
     def test_saved_object_scope_and_outer_failure_cannot_become_battle_success(self):
         for mode in stage.OBJECT_STAGES:
             good=dict(mode=mode+'-only',object_verified=True,containment_verified=True,calculation_verified=False,link_verified=mode=='jit-link-object',kernel_calls=0)
+            if mode=='recover-object':good.update(native_tool_calls=0,original_stage_verified=False,original_capture_modified=False,original_outer_timed_out=True)
             variants=[({},True),({},False),({'mode':'gpu'},True),({'object_verified':False},True),({'containment_verified':False},True),({'calculation_verified':True},True),({'kernel_calls':1},True),({'kernel_calls':False},True),({'link_verified':mode!='jit-link-object'},True),({'driver_load_calls':1},True),({'nvrtc_compile_calls':1},True)]
+            if mode=='recover-object':variants.extend([(dict(native_tool_calls=1),True),(dict(original_stage_verified=True),True),(dict(original_capture_modified=True),True),(dict(original_outer_timed_out=False),True)])
             for change,outer_passed in variants:
                 with tempfile.TemporaryDirectory() as d:
                     base=Path(d);root=base/'packet';root.mkdir();folder=base/'stage';proof=dict(good,**change)

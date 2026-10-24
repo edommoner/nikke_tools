@@ -7,6 +7,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path, PurePosixPath
+from types import SimpleNamespace
 import platform
 import runpy
 import site
@@ -401,6 +402,7 @@ SMOKE_TESTS.append('test_portable_ptx_callgraph.py')
 SMOKE_TESTS.append('test_portable_ptx_partition.py')
 SMOKE_TESTS.append('test_portable_partition_object.py')
 SMOKE_TESTS.append('test_portable_module_object.py')
+SMOKE_TESTS.append('test_portable_object_recovery.py')
 SMOKE_TESTS.append('test_portable_device_linker.py')
 SMOKE_TESTS.append('test_portable_native_process.py')
 SMOKE_TESTS.append('test_portable_job_limits.py')
@@ -2039,7 +2041,7 @@ def partition_object_child(m,capture,backend,*,module_object=False,link_object=F
     write(capture/obj.object_profile(origin)['proof'],dict(origin=origin,receipt=receipt,calculation_verified=False,link_verified=link_object,kernel_calls=0))
 
 
-def audit_partition_object_capture(m,capture,*,verify_artifacts=True,module_object=False,link_object=False):
+def audit_partition_object_capture(m,capture,*,verify_artifacts=True,module_object=False,link_object=False,artifact_records=None):
     import portable_partition_object as obj
     import portable_offline_assembler as assembler
     capture=Path(capture).resolve();run=load(capture/'run.json')
@@ -2047,13 +2049,15 @@ def audit_partition_object_capture(m,capture,*,verify_artifacts=True,module_obje
     spec=object_spec('link' if link_object else 'module' if module_object else 'focus');mode=spec['mode'];prefix=spec['prefix']
     if run.get('mode')!=mode or run.get('backend')!='cuda' or run.get('package_id')!=m['package_id'] or is_development(m):raise ValueError('Wrong diagnostic object capture')
     if not (capture/'execution.json').exists():
-        if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
+        if artifact_records is not None:check_records(capture,artifact_records)
+        elif verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
         return dict(mode=mode,object_verified=False,passed=False,containment_verified=False,
             preservation_verified=False,partition_legal_verified=False,calculation_verified=False,link_verified=False,
             kernel_calls=0,error='No bounded execution receipt; preflight failure or incomplete capture',gpu_retry_count=0)
     facts=load(capture/'execution.json')
     if run.get('memory_limit_mb')!=2048 or type(facts['timeout_seconds']) is not int or not 1<=facts['timeout_seconds']<=60:raise ValueError('Focus object exceeds fixed policy')
-    if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
+    if artifact_records is not None:check_records(capture,artifact_records)
+    elif verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
     rows=[];verified=False;error=None
     try:
         rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
@@ -2538,6 +2542,8 @@ def main(argv=None):
     for name in ('object-package','object-capture','nvlink','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('jit-link-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60);a.add_argument('--object-sha256',required=True)
     for name in ('object-package','object-capture','nvjitlink','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
+    a=sub.add_parser('recover-object');a.add_argument('--object-sha256',required=True)
+    for name in ('source-package','source-capture','out'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('module-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     for name in ('source-package','source-capture','cache-entry','phases','ptxas','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('partition-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
@@ -2630,6 +2636,11 @@ def main(argv=None):
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
         os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
         result=module_capture(a.capture,a.timeout,a.original_workspace,a.jit_opt_level)
+    elif a.command=='recover-object':
+        from portable_object_recovery import recover
+        with forbid_gpu():
+            verify_package(ROOT)
+            result=recover(SimpleNamespace(**globals()),a.source_package,a.source_capture,a.out,a.object_sha256)
     elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out,timeout=a.timeout)
     elif a.command=='compiler-certificate':
         with forbid_gpu():result=make_compiler_certificate(a.suite,a.package_root,a.capture,a.out,timeout=a.timeout)
@@ -2735,7 +2746,7 @@ def main(argv=None):
         if not result.get('saved_object_cpu_verified'):raise SystemExit(1)
         if result.get('preservation_verified') is not True:raise SystemExit(2)
         return
-    if result.get('mode') in ('partition-object-only','module-object-only','link-object-only','jit-link-object-only'):
+    if result.get('mode') in ('partition-object-only','module-object-only','link-object-only','jit-link-object-only','recover-object-only'):
         if not result.get('object_verified'):raise SystemExit(1)
         if result.get('preservation_verified') is not True:raise SystemExit(2)
         return
