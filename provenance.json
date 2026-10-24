@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "package_id": "d2049b6d0efcb1e85be60c359e2b166f44f9f7925c87f1eac6ea39f366dd38a0",
+  "archive_bytes": 7156130,
+  "archive_sha256": "ed28b11dc6fad7982eec3878216b71685faf18ae9b6e3a73507b2f16bce76c02",
+  "source_base_commit": "db636725fb8c41b33a88c87f927ef4796e40f1bc",
+  "working_tree_dirty": true,
+  "suite": "attack-group-long",
+  "inputs": 60,
+  "native_oracles": 48,
+  "files": 1559,
+  "mac_cpu_tests": 32,
+  "mac_control_tests": 383,
+  "mac_cpu_verified": true,
+  "mac_retained_records_and_golden_exact": true,
+  "fix": "Portable source audit identities use relative POSIX names on Windows and Mac; approved producer set unchanged",
+  "requested_windows_stages": [
+    "cpu",
+    "generation"
+  ],
+  "maximum_seconds_per_stage": 180,
+  "memory_limit_mb": 2048,
+  "nvrtc_calls_requested": 0,
+  "driver_calls_requested": 0,
+  "gpu_calls_requested": 0,
+  "previous_failure_preserved": true
+}
