@@ -14,9 +14,12 @@ SLOT_WORDS=536
 LOG=820000
 LOG_CAPACITY=64
 PACKETS=860000
+COMPACT=PACKETS+L['LANDINGS']
+COMPACT_WORDS=OUTPUT_WORDS-COMPACT
 
-def compile_battle(prepared,*,routing,declared_effects=()):
+def compile_battle(prepared,*,routing,declared_effects=(),group_history='fixed64'):
     if routing not in ('native','all-logical-enemies'):raise ValueError('Explicit native or logical-enemy routing required')
+    if group_history not in ('fixed64','compact'):raise ValueError('Explicit fixed64 or compact group history required')
     enemy=prepared['enemy']
     if enemy.get('has_parts') or enemy.get('coord') is not None or enemy.get('part_break_interval',0):raise ValueError('Plain body/add world required')
     patterns=enemy.get('patterns',[])
@@ -47,6 +50,6 @@ def compile_battle(prepared,*,routing,declared_effects=()):
             if slot==0:words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['EVENT']]=62
     pack_event_candidates(words,L)
     assert len(words)==104400
-    words.extend([0x41475331,2 if routing=='native' else 1,owners,0,0,0,0,0]);assert len(words)==INPUT_WORDS
+    words.extend([0x41475331,2 if routing=='native' else 1,owners,int(group_history=='compact'),0,0,0,0]);assert len(words)==INPUT_WORDS
     metadata['real_prepared_input']['declared_attack_group_policy']=dict(routing=routing,listener_owners=owners,game_geometry_verified=False,source_effects=original,cpu_trace_used_as_gpu_input=False)
     return words,metadata

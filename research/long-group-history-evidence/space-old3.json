@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-ammo-equivalent-gpu-v2-metal",
+  "raw_bytes": 132120576,
+  "raw_sha256": "a6a1087fc97466a2dcc527c07b138e601b15dd27233864ec6f1fb2f28862f8b5",
+  "evidence_sha256": "b9eff22cd6e8e1fd118d9b1f83a35176276af80b511fda3b804573601d69ed1e",
+  "raw_inode": 507708389,
+  "zero_ranges": 217,
+  "zero_range_bytes": 106430464,
+  "allocated_before": 132120576,
+  "allocated_after": 25690112,
+  "allocated_reclaimed": 106430464,
+  "full_hash_verified": true
+}

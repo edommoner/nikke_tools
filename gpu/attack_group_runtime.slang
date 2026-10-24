@@ -1,6 +1,7 @@
 // GPU-owned actual-shot groups. Uses canonical Actor receipts and DFS dispatch.
 // The explicit AGS1 policy counts BODY/ADD enemies, never pellets or damage.
 static const uint AG_HEADER=800000,AG_SLOTS=800032,AG_WORDS=536,AG_LOG=820000,AG_LOG_CAP=64,AG_PACKETS=860000;
+static const uint AG_COMPACT=AG_PACKETS+P_LANDINGS,AG_COMPACT_WORDS=1048576-AG_COMPACT;
 uint agHead(inout Runtime s) { return s.resourceOutput+AG_HEADER; }
 uint agAt(inout Runtime s,uint index) { return s.resourceOutput+AG_SLOTS+index*AG_WORDS; }
 uint agKey(inout Runtime s,uint index) { return (results[agAt(s,index)+3]<<5)|index; }
@@ -60,7 +61,9 @@ bool initializeAttackGroups(inout Runtime s)
     for(uint i=0;i<AG_LOG_CAP*AG_WORDS;i++) results[s.resourceOutput+AG_LOG+i]=0;
     for(uint i=0;i<P_LANDINGS;i++) results[s.resourceOutput+AG_PACKETS+i]=0;
     if(commands[input]!=0x41475331U||(commands[input+1]!=1&&commands[input+1]!=2)||commands[input+2]==0||(commands[input+2]&~31U)!=0) return false;
-    for(uint i=3;i<8;i++) if(commands[input+i]!=0) return false;
+    if(commands[input+3]>1) return false;
+    for(uint i=4;i<8;i++) if(commands[input+i]!=0) return false;
+    if(commands[input+3]!=0) for(uint i=0;i<AG_COMPACT_WORDS;i++) results[s.resourceOutput+AG_COMPACT+i]=0;
     if(!actorRecipientsEnabled(s)||s.combat==0||s.landingPolicy!=1||s.targetCount!=1||commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+3]!=0) return false;
     for(uint slot=0;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]!=0&&commands[actorBinding(s,slot)]!=5) return false;
     uint owners=0;
@@ -76,7 +79,7 @@ bool initializeAttackGroups(inout Runtime s)
         }
     }
     if(owners!=commands[input+2]) return false;
-    results[head]=0x41475331U;results[head+8]=owners;results[head+9]=commands[input+1]-1;return true;
+    results[head]=0x41475331U;results[head+8]=owners;results[head+9]=commands[input+1]-1;results[head+10]=commands[input+3];return true;
 }
 void agCollect(inout Runtime s,uint group,uint slot,uint generation)
 {
@@ -91,7 +94,7 @@ bool deliverAttackGroupShot(inout Runtime s,uint who,uint64_t when,uint output,u
     if(s.error!=0) return true;
     if(!worldPhysicalNormal(s,who)||count>1024||results[head+3]!=0) { s.error=64;return true; }
     uint group=0;while(group<32&&results[agAt(s,group)]!=0) group++;
-    if(group==32||results[head+1]>=0xffffffU||results[head+2]>=0x7ffffffU||results[head+5]>=AG_LOG_CAP) { s.error=64;return true; }
+    if(group==32||results[head+1]>=0xffffffU||results[head+2]>=0x7ffffffU||results[head+10]==0&&results[head+5]>=AG_LOG_CAP) { s.error=64;return true; }
     uint at=agAt(s,group);for(uint i=0;i<AG_WORDS;i++) results[at+i]=0;
     results[at]=1;results[at+1]=who;results[at+2]=++results[head+1];results[at+3]=++results[head+2];results[at+5]=count;results[at+6]=1;storeNumber(at+8,when);results[head+3]=group+1;
     uint saved=s.target;
@@ -118,8 +121,21 @@ bool deliverAttackGroupShot(inout Runtime s,uint who,uint64_t when,uint output,u
         results[set+5]=0;results[actorPoolHead(s)+7]--;
     }
     s.target=saved;results[head+3]=0;results[at]=2;
-    uint log=s.resourceOutput+AG_LOG+results[head+5]++*AG_WORDS;
-    for(uint i=0;i<AG_WORDS;i++) results[log+i]=results[at+i];
+    uint log=0xffffffffU,compact=0xffffffffU;
+    if(results[head+5]<AG_LOG_CAP)
+    {
+        log=s.resourceOutput+AG_LOG+results[head+5]++*AG_WORDS;
+        for(uint i=0;i<AG_WORDS;i++) results[log+i]=results[at+i];
+    }
+    if(results[head+10]!=0)
+    {
+        // Lossless variable-length history is independent of the 32 live
+        // group slots. No rolling hash, dropped target or overwritten record.
+        uint words=24+results[at+4]*4,used=results[head+11];
+        if(used>AG_COMPACT_WORDS||words>AG_COMPACT_WORDS-used) { s.error=64;return true; }
+        compact=s.resourceOutput+AG_COMPACT+used;results[head+11]+=words;
+        for(uint i=0;i<words;i++) results[compact+i]=results[at+i];
+    }
     uint key=agKey(s,group),prior=results[head+4];bool seen[129];for(uint i=0;i<129;i++) seen[i]=false;
     for(uint row=0;row<s.count&&s.error==0;row++)
     {
@@ -128,7 +144,9 @@ bool deliverAttackGroupShot(inout Runtime s,uint who,uint64_t when,uint output,u
         {
             uint p=s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS+slot*8;if(commands[p]!=62) continue;uint threshold=commands[p+4];
             if(seen[threshold]) continue;seen[threshold]=true;if(results[at+4]<threshold) continue;
-            results[head+4]=key;results[head+6]++;results[log+10]++;
+            results[head+4]=key;results[head+6]++;
+            if(log!=0xffffffffU) results[log+10]++;
+            if(compact!=0xffffffffU) results[compact+10]++;
             dispatch(s,0,62,who,int(threshold),when,output);
         }
     }

@@ -4,7 +4,7 @@
 
 GPUが実際の発射・pellet×muzzles・Actor着弾からdistinct集合を構成し、全packet終了後に既存DFSへevent62を通知する。登録順の同じ閾値は1通知にまとめ、元のeffect descriptorの重複は既存dispatchが処理する。CPUのhit列や通知列をGPU入力へ渡さない。元ニヒリスター／ベロータの全73／71定義を保持した20入力と、元ノワール／ツバイに宣言listenerを足す2入力を区別する。
 
-groupは32slot／128typed対象／1射1024packetを上限とする。射撃ID・epoch・owner・refcountをGPUが所有し、callback前にsealしてopen groupを切り離す。Frameは対象集合のkeyを保持し、関係しない通知ではそのscopeを隠す。current-target selectorは既存Actor setへ変換するため、敵buffも既存のper-target carrier経路を通る。queued childは専用512key bankに参照を保ち、消費後に解放する。従来のperiodic／interrupt receipt欄を変更しない。
+groupは32slot／128typed対象／1射1024packetを上限とする。射撃ID・epoch・owner・refcountをGPUが所有し、callback前にsealしてopen groupを切り離す。Frameは対象集合のkeyを保持し、関係しない通知ではそのscopeを隠す。current-target selectorは既存Actor setへ変換するため、敵buffも既存のper-target carrier経路を通る。queued childは専用key bank（共通schemaのLANDINGS＝2048）に参照を保ち、消費後に解放する。従来のperiodic／interrupt receipt欄を変更しない。
 
 死滅・世代交代した対象へ子効果を付け替えず、正本 `Boss.route(ev.to)` と同様に未着弾の要求量をglobal overkillへ一括乗算で計上する。新世代へのdamage／hit／scoreは増やさない。binary64・整数化・pow・damage formula・strict normalizerは元の共有実装を使う。出力は1,048,576 wordsで、group logは64射までであり、超過は拒否する。履歴を黙って省略しない。
 

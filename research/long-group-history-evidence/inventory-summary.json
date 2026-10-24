@@ -1,0 +1,38 @@
+{
+  "profile_count": 266,
+  "base_count": 203,
+  "packed_profiles": 245,
+  "packed_base": 185,
+  "work_lanes": {
+    "gpu_lowering_candidate": [],
+    "native_contract_extension": [],
+    "native_consumer_research": [],
+    "reference_model_gap": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "reference_review": []
+  },
+  "full_character_verified": 0,
+  "canonical_world_admission": false,
+  "normal_ui": "CPU",
+  "profile_issue_lane_records_unchanged": true
+}

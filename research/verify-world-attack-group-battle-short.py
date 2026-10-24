@@ -38,19 +38,37 @@ def prepare():
     if sys.byteorder!='little':packed.byteswap()
     return entries,packed.tobytes()
 def native_reference(domain):return inspect_native(domain[0])
+def group_record_offsets(block,compact,total):
+    from portable_battle_attack_group_input import COMPACT,COMPACT_WORDS
+    assert block[HEADER+10]==int(compact)
+    if not compact:
+        assert total<=LOG_CAPACITY and block[HEADER+11]==0
+        return [LOG+i*SLOT_WORDS for i in range(total)]
+    used=block[HEADER+11];assert used<=COMPACT_WORDS
+    at=COMPACT;end=at+used;rows=[]
+    for i in range(total):
+        assert at+24<=end and block[at+4]<=128
+        words=24+4*block[at+4];assert at+words<=end
+        if i<LOG_CAPACITY:assert block[LOG+i*SLOT_WORDS:LOG+i*SLOT_WORDS+words]==block[at:at+words]
+        rows.append(at);at+=words
+    assert at==end,'Missing or trailing compact group record'
+    return rows
 def compare(block,domain,*,native=None):
     case,prepared,words,meta=domain;n=native_reference(domain) if native is None else native
     assert block[0]==0,dict(status=block[0],name=case['name'])
     actual,_,_,differences=real.compare(block,prepared,(words,meta),n['battle'],n['projectile_shots'])
     if differences:raise ValueError(str(dict(difference_count=len(differences),first=differences[:8])))
     assert block[HEADER]==0x41475331 and block[HEADER+3]==block[HEADER+4]==0
-    assert block[HEADER+5]==len(n['groups'])<=LOG_CAPACITY
+    compact=words[104403]==1
+    assert block[HEADER+5]==min(len(n['groups']),LOG_CAPACITY)
+    assert block[HEADER+1]==len(n['groups'])
     assert block[HEADER+6]==len(n['notifications'])
     for slot in range(32):assert block[SLOTS+slot*SLOT_WORDS]==0,'Retained group resource leaked'
     import struct
     number=lambda at:struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
-    for i,(group,shot) in enumerate(zip(n['groups'],n['shots'],strict=True)):
-        at=LOG+i*SLOT_WORDS;targets=[[block[at+26+j*4],block[at+27+j*4],block[at+25+j*4]] for j in range(block[at+4])]
+    offsets=group_record_offsets(block,compact,len(n['groups']))
+    for at,group,shot in zip(offsets,n['groups'],n['shots'],strict=True):
+        targets=[[block[at+26+j*4],block[at+27+j*4],block[at+25+j*4]] for j in range(block[at+4])]
         assert block[at]==2 and block[at+1]==case['body']['squad'].index(group['owner'])
         assert block[at+2]==group['identity'] and block[at+3]==group['epoch']
         assert block[at+5]==shot['packets'] and number(at+8)==group['time']
