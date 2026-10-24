@@ -40,6 +40,13 @@ class FrontierTests(unittest.TestCase):
         self.assertFalse(physical['live_core_nodes_connected'])
         self.assertFalse(physical['rng_connected'])
         self.assertFalse(physical['public_gpu_admitted'])
+        quantity=result['coordinate_packet_quantity']
+        self.assertTrue(quantity['expanded_full_charge_parent_quantity_connected'])
+        self.assertTrue(quantity['native_creation_and_landing_times_distinguished'])
+        self.assertFalse(quantity['public_gpu_admitted'])
+        accumulation=result['coordinate_target_accumulation']
+        self.assertEqual(accumulation['classification'],'native_reference_exclusion')
+        self.assertFalse(accumulation['extra_gpu_collection_required_for_parity'])
         self.assertTrue(landing['prepared_frame_values_on_gpu'])
         self.assertTrue(landing['all_cuts_retained'])
         self.assertEqual(landing['cuts_capacity'],5098)

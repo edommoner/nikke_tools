@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`coordinate-quantity`31（共通CPU25／拒否6）と`packet-integer`305（正例294／拒否11）はM5 Metalで照合・独立seal済み。immutable package→CPU preflight→bounded GPU→保存結果sealの既存手順を使う。`reference --suite coordinate-accumulation-policy --out /tmp/new-policy.json`はCPU正本のtarget蓄積除外3worldだけを検査し、GPU対応を主張しない。現在のCUDA検証は未取得。[整数参照量・cache保持](portable-coordinate-quantity.md)を参照。
+
 共通の可変指数unit pow・GL10定数・形状arcをexpected landingへ接続。sealed `coordinate-power`909（共通CPU898／拒否11）と`coordinate-landing`40（共通CPU26／拒否14）がM5 Metal全word一致・独立seal、MPFR2434入力0 ULP。127対象／5098cut／1024arcを保持し、初版pipeline stack失敗を出力arenaと参照渡しで解消。形状準備をGPU内で一度だけ行い、旧全1715840byte保持・新準備データ照合、GPU17.130→.424秒（単一probe測定対約40.4倍）。最終CPU17／関連・制御462（Win1skip）、full2969→compact1636全byte一致。新kernel3／pipeline失敗1／同claim再試行0、旧主要7suite再GPU0。raw全SHA-byte-inode保持の疎化で1096093696byte回収。Windows新要求0、API active ID不在・CUA Codex安全制約で未送達。物理packet／resident戦闘caller／RNG／aim・cache key／全元定義と公開受付は未接続。全キャラ0／20gap／UI CPU／目標未達。詳細[共通着弾確率](portable-coordinate-landing-v1.md)とresearch/portable-coordinate-landing-v1-checkpoint.json。以下は履歴。
 
 

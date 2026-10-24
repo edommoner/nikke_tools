@@ -13,5 +13,9 @@ void enqueueParentFixed(inout Runtime s,Definition d,uint row,Frame frame,int de
     uint status;uint64_t amount=f64ToI64(raw,1,status);
     if(status!=0) { s.error=16;return; }
     // A positive fraction truncates to0 yet still makes the native packet.
+#ifdef PORTABLE_COORDINATE_PHYSICAL
+    captureCoordinatePhysicalBodyOnly(s,row,uint(depth));
+    if(s.error!=0)return;
+#endif
     enqueueLanding(s,row,frame.target,0xffffffffU,0,f64FromI64(amount),frame.time,1,1,uint(depth+1),s.enemyEpoch);
 }

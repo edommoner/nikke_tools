@@ -333,6 +333,12 @@ SUITES['coordinate-physical']=dict(script='research/verify-coordinate-physical-s
 SUITES['coordinate-physical']['upstream_documents']=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
 SUITES['coordinate-physical']['support_files']=['research/portable-coordinate-arcs-short-expected.json']
 SUITES['coordinate-physical']['tests'].append('test_coordinate_physical_frontier.py')
+SUITES['packet-integer']=dict(script='research/verify-packet-integer-short.py',source='gpu/packet_integer_probe.slang',golden='research/portable-packet-integer-short-expected.json',inputs=305,native=294,output_words=8,development_only=False,tests=['test_packet_integer_sum.py','test_portable_numeric_design.py'])
+SUITES['coordinate-quantity']=dict(SUITES['coordinate-physical'],script='research/verify-coordinate-quantity-short.py',golden='research/portable-coordinate-quantity-short-expected.json',inputs=31,native=25,development_only=False,tests=[*SUITES['coordinate-physical']['tests'],'test_packet_integer_sum.py','test_coordinate_quantity.py'])
+SUITES['coordinate-quantity']['tests'].append('test_coordinate_accumulation_policy.py')
+SUITES['coordinate-quantity']['support_files']=[*SUITES['coordinate-quantity']['support_files'],
+    'research/portable-packet-integer-short-expected.json',
+    'research/portable-compiler-full--coordinate-quantity-source-certificate.json']
 SUITES['skill-part-codec']=dict(script='research/verify-skill-part-codec-short.py',source='gpu/skill_part_codec_probe.slang',
     golden='research/portable-skill-part-codec-short-expected.json',inputs=4,native=3,development_only=False,
     tests=['test_portable_skill_part_codec.py'])

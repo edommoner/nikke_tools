@@ -1,0 +1,184 @@
+{
+  "gpu_calls": 0,
+  "sealed_native_digests_match": true,
+  "cases": [
+    {
+      "name": "coordinate-physical-reference/occlusion-and-body",
+      "logical_pellets": 1,
+      "physical_packets": 2,
+      "all_landed_packets": 2,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-reference/full-front",
+      "logical_pellets": 1,
+      "physical_packets": 1,
+      "all_landed_packets": 1,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-reference/interrupt-front",
+      "logical_pellets": 1,
+      "physical_packets": 1,
+      "all_landed_packets": 1,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-reference/two-muzzles-three-pellets",
+      "logical_pellets": 6,
+      "physical_packets": 12,
+      "all_landed_packets": 12,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-reference/retirement",
+      "logical_pellets": 3,
+      "physical_packets": 6,
+      "all_landed_packets": 6,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-reference/body-without-targets",
+      "logical_pellets": 1,
+      "physical_packets": 1,
+      "all_landed_packets": 1,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-reference/pierce-reach",
+      "logical_pellets": 1,
+      "physical_packets": 3,
+      "all_landed_packets": 3,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-reference/charge-pierce",
+      "logical_pellets": 1,
+      "physical_packets": 3,
+      "all_landed_packets": 3,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-reference/threshold-snapshot",
+      "logical_pellets": 12,
+      "physical_packets": 18,
+      "all_landed_packets": 18,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-gpu/rotated-rectangle",
+      "logical_pellets": 1,
+      "physical_packets": 3,
+      "all_landed_packets": 3,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-gpu/critical-fraction",
+      "logical_pellets": 1,
+      "physical_packets": 2,
+      "all_landed_packets": 2,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-gpu/accuracy",
+      "logical_pellets": 1,
+      "physical_packets": 2,
+      "all_landed_packets": 2,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-gpu/two-owners",
+      "logical_pellets": 2,
+      "physical_packets": 4,
+      "all_landed_packets": 4,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-gpu/unbreakable",
+      "logical_pellets": 1,
+      "physical_packets": 2,
+      "all_landed_packets": 2,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-gpu/same-shot-retirement",
+      "logical_pellets": 12,
+      "physical_packets": 24,
+      "all_landed_packets": 24,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-gpu/interrupt-reach",
+      "logical_pellets": 1,
+      "physical_packets": 4,
+      "all_landed_packets": 4,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-physical-gpu/weapon-change",
+      "logical_pellets": 6,
+      "physical_packets": 12,
+      "all_landed_packets": 12,
+      "full_charge_notices": 0
+    },
+    {
+      "name": "coordinate-quantity/pierce-parent",
+      "logical_pellets": 1,
+      "physical_packets": 3,
+      "all_landed_packets": 4,
+      "full_charge_notices": 1
+    },
+    {
+      "name": "coordinate-quantity/two-muzzles-seven-pellets",
+      "logical_pellets": 14,
+      "physical_packets": 42,
+      "all_landed_packets": 44,
+      "full_charge_notices": 2
+    },
+    {
+      "name": "coordinate-quantity/large-parent",
+      "logical_pellets": 14,
+      "physical_packets": 42,
+      "all_landed_packets": 44,
+      "full_charge_notices": 2
+    },
+    {
+      "name": "coordinate-quantity/including-interrupt",
+      "logical_pellets": 1,
+      "physical_packets": 4,
+      "all_landed_packets": 5,
+      "full_charge_notices": 1
+    },
+    {
+      "name": "coordinate-quantity/zero-child",
+      "logical_pellets": 1,
+      "physical_packets": 3,
+      "all_landed_packets": 3,
+      "full_charge_notices": 1
+    },
+    {
+      "name": "coordinate-quantity/fraction-to-zero",
+      "logical_pellets": 1,
+      "physical_packets": 3,
+      "all_landed_packets": 4,
+      "full_charge_notices": 1
+    },
+    {
+      "name": "coordinate-quantity/last-owner",
+      "logical_pellets": 1,
+      "physical_packets": 3,
+      "all_landed_packets": 4,
+      "full_charge_notices": 1
+    },
+    {
+      "name": "coordinate-quantity/two-shooters",
+      "logical_pellets": 2,
+      "physical_packets": 5,
+      "all_landed_packets": 6,
+      "full_charge_notices": 2
+    }
+  ],
+  "logical_pellets": 87,
+  "landed_packets": 214,
+  "full_charge_notices": 11
+}

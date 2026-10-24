@@ -1,0 +1,22 @@
+[
+  {
+    "pattern": "test_packet_integer_sum.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.0199359169928357,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 44362
+  },
+  {
+    "pattern": "test_portable_numeric_design.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.001963707967661321,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 44362
+  }
+]

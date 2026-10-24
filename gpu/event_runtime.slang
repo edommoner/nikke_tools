@@ -1428,7 +1428,12 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
     pushFrame(s,frames,depth,mode,event,owner,argument,when);
     if(mode==0 && s.error==0) frames[depth].hitCrit=notifyContext;
 #ifdef PORTABLE_PARENT_FIXED_DAMAGE
-    if(mode==0 && event==12 && s.error==0) frames[depth].notifyDealt=landingAmount;
+    if(mode==0 && event==12 && s.error==0) frames[depth].notifyDealt=
+#ifdef PORTABLE_COORDINATE_PHYSICAL
+        coordinatePhysicalParentQuantity(s,owner);
+#else
+        landingAmount;
+#endif
 #endif
 #ifdef PORTABLE_FULL_BURST_LANDING
     if(mode==34 && s.error==0) {

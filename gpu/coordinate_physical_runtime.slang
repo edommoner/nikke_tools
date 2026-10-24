@@ -5,8 +5,18 @@
 #include "coordinate_power_v1.slang"
 #include "coordinate_quadrature_v1.slang"
 #include "coordinate_landing_resident_v1.slang"
+#include "packet_integer_sum.slang"
 
 uint cfBank(inout Runtime s,uint who){return s.resourceOutput+CF_BANK+who*CF_BANK_WORDS;}
+uint64_t coordinatePhysicalParentQuantity(inout Runtime s,uint who)
+{uint bank=cfBank(s,who);return results[bank+2]!=0?actorNumber(bank+14):uint64_t(0);}
+void captureCoordinatePhysicalBodyOnly(inout Runtime s,uint row,uint depth)
+{
+    if(depth>=CP_CASTS||!coordinateFrameReady(s)){s.error=64;return;}
+    uint at=s.resourceOutput+CP_CAST+depth*CP_SNAPSHOT_WORDS;
+    for(uint i=0;i<CP_SNAPSHOT_WORDS;i++)results[at+i]=0;
+    results[at+1]=0x43505331U;results[at+2]=row;
+}
 uint64_t coordinatePhysicalBodyCore(inout Runtime s,uint who){return actorNumber(cfBank(s,who)+8);}
 bool initializeCoordinatePhysical(inout Runtime s)
 {
@@ -96,6 +106,15 @@ uint64_t coordinatePhysicalSample(inout Runtime s,uint who,Weapon w,uint64_t coe
         }
         else{s.error=64;return 0;}
         cfPacket(s,bank,slot,results[at+3],cfWeighted(s,amount,probability),reach);
+    }
+    if((s.quantityMask&0x01000000U)!=0&&w.mode==1&&PARTIAL_IS_FULL(w))
+    {
+        PacketIntegerSum sum=packetIntegerZero();
+        for(uint i=0;i<results[bank+1];i++)if(!packetIntegerAddAmount(sum,actorNumber(bank+CF_TEMPLATE+i*CF_PACKET_WORDS+2))){s.error=16;return 0;}
+        // Native sum(all packets across muzzles)/muzzles is this exact integer.
+        // Multiply while still integer; rounding the template sum first loses
+        // units when its low bits are later amplified by the pellet count.
+        storeNumber(bank+14,packetIntegerBinary64(packetIntegerMultiply(sum,w.pellets)));
     }
     results[bank]=count;storeNumber(bank+10,when);results[bank+2]=1;
     return body;

@@ -1,25 +1,20 @@
 #include "damage_factors.slang"
 #include "skill_hp_basis_runtime.slang"
+#include "normal_spread_body.slang"
 
 // Re-evaluate geometry at impact; cache only the exact normalized ratio.
 // The cache is per actor and shared by both backends, never CPU-produced.
+#ifdef PORTABLE_COORDINATE_PHYSICAL
 uint64_t currentNormalSpread(inout Runtime s, uint who, uint64_t accuracy)
 {
-    uint64_t spread = s.spreadStart[who];
-    if (!f64Zero(s.spreadShots[who]))
-    {
-        uint64_t progress = f64Div(smaller(s.warm[who],s.spreadShots[who]),s.spreadShots[who]);
-        spread = f64Add(spread,f64Mul(f64Add(s.spreadEnd[who],spread ^ F64_SIGN),progress));
-    }
-    uint64_t slope = uint64_t(0x3f829888) << 32 | 0xf861a60d; // binary64 .00908
-    spread = larger(ONE,f64Mul(spread,f64Add(ONE,f64Mul(slope,accuracy) ^ F64_SIGN)));
-    s.lastSpread[who] = spread;
+    PORTABLE_NORMAL_SPREAD_BODY
     return spread;
 }
+#endif
 uint64_t normalProbability(inout Runtime s, uint who, uint64_t accuracy)
 {
     if (s.combat == 0 || s.geometry[who] == 0) return s.probability;
-    uint64_t spread=currentNormalSpread(s,who,accuracy);
+    PORTABLE_NORMAL_SPREAD_BODY
     uint64_t ratio = f64Div(s.coreDiameter[who],spread);
     if (s.probabilityValid[who] == 0 || !f64Equal(ratio,s.probabilityRatio[who]))
     {

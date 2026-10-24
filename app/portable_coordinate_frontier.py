@@ -107,6 +107,15 @@ def verify(root, overrides=None):
     assert '#define WEAPON_BODY_AMOUNT(s,who,legacy) coordinatePhysicalDeliver(s,who,legacy)' in physical_entry
     assert 'if(commands[s.inputBase+104402]!=0' in physical_runtime
     assert 'notifyWorldTeamFraction(s,who,0,actorNumber(bank+4)' in physical_runtime
+    quantity_path=root/'research/portable-coordinate-quantity-short-expected.json'
+    quantity_golden=json.loads(quantity_path.read_text()) if quantity_path.is_file() else None
+    quantity_matches=quantity_golden['source_sha256']==physical_sources if quantity_golden else None
+    integer_sources=source_hashes(root,'gpu/packet_integer_probe.slang')
+    integer_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in integer_sources.items()}
+    integer_path=root/'research/portable-packet-integer-short-expected.json'
+    integer_matches=json.loads(integer_path.read_text())['source_sha256']==integer_sources if integer_path.is_file() else None
+    assert 'bm.accumulate_damage' in function(base+'timeline.py','_land_boss')
+    assert 'bm.accumulate_damage' not in function(base+'timeline.py','_land_target')
     from portable_coordinate_landing_v1 import TARGETS,CUTS,OUTPUT as LANDING_OUTPUT
     dependencies = [
         dict(id='landing-probability', classification='gpu_port_gap',
@@ -119,7 +128,7 @@ def verify(root, overrides=None):
              work='Per-pellet body/front/reach packets, conditional core probability, per-target damage rounding',
              private_expected_entry='gpu/world_coordinate_physical_entry.slang',
              private_expected_packets_connected=True,
-             remaining=['live-core-nodes','expanded-charge-parent-quantity','part-damage-accumulation',
+             remaining=['live-core-nodes','coordinate-accumulation-emission',
                         'rounded-geometry-cache','manual-aim','sampling-rng','mixed-shot-groups'],
              depends_on=['landing-probability', 'physical-native-observation']),
         dict(id='coordinate-shot-groups', classification='adapter_gap',
@@ -160,10 +169,24 @@ def verify(root, overrides=None):
                     physical_packet_capture_before_notifications=True,
                     physical_delivery_after_notifications=True,
                     live_core_nodes_connected=False,manual_aim_connected=False,
-                    expanded_full_charge_parent_quantity_connected=False,
-                    damage_accum_part_packets_connected=False,
+                    expanded_full_charge_parent_quantity_in_physical23_proof=False,
                     rng_connected=False,all_characters_certified=False,
                     public_gpu_admitted=False),
+                coordinate_packet_quantity=dict(suite='coordinate-quantity',
+                    proof_available=quantity_golden is not None,sealed_source_matches_current=quantity_matches,
+                    input_count=len(quantity_golden['entries']) if quantity_golden else None,
+                    source_sha256=physical_sources,reference_kind='deterministic-common-cpu',
+                    packet_sum='unsigned128',packet_terms=128,multiplier_max=1024,
+                    exact_integer_bound_bits=80,binary64_rounding='once after exact sum and multiplication',
+                    expanded_full_charge_parent_quantity_connected=True,
+                    native_creation_and_landing_times_distinguished=True,
+                    integer_probe=dict(suite='packet-integer',sealed_source_matches_current=integer_matches,
+                                       source_sha256=integer_sources),
+                    public_gpu_admitted=False),
+                coordinate_target_accumulation=dict(classification='native_reference_exclusion',
+                    direct_target_consumer=False,reference_suite='coordinate-accumulation-policy',
+                    game_rule_verified=False,extra_gpu_collection_required_for_parity=False,
+                    coordinate_accumulation_emission_connected=False),
                 coordinate_skill_shape_contains_is_physical_landing=False,
                 angular_interval_algebra=dict(suite='coordinate-arcs',
                     sealed_source_matches_current=arc_source_matches, source_sha256=arc_sources,
