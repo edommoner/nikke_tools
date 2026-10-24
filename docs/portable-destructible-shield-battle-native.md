@@ -1,5 +1,7 @@
 # HP盾の実戦迎撃：共通CLIのCPU契約
 
+後続の共有Frame/Metal88接続は[HP盾GPU実証](portable-destructible-shield-gpu.md)を参照。以下は当該段階の記録。
+
 投射物のMetal18実証に続き、通常native battle schedulerからHP盾へ攻撃を振り分ける明示モデルv1を追加した。共通CLI `reference --suite destructible-shield-battle`の15契約が成功した。これはCPU側の接続であり、Metal/CUDAの盾迎撃実証、ゲーム規則の認定、全キャラ対応ではない。
 
 ## 選択と量の確定

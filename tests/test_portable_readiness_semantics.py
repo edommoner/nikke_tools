@@ -98,6 +98,13 @@ class ReadinessSemanticsTests(unittest.TestCase):
             self.assertFalse(r['gpu_supported']);self.assertEqual(r['lane'],'reference_model_gap')
         self.assertNotIn('typed_modifier_battle_validation',reference_readiness(self.blocker('shield_dmg_pct')))
 
+    def test_hp_shield_plain_skill_proof_does_not_enable_general_admission(self):
+        r=reference_readiness(self.blocker('shield_dmg_pct'));v=r['typed_shield_battle_validation']
+        self.assertEqual((v['inputs'],v['native_cases'],v['rejected_cases'],v['new_shield_cases']),(88,58,30,15))
+        for flag in ('metal_verified','independently_audited','same_frame_stack','explicit_boss_owner_generation','no_overflow','body_fallback','death_counter_children'):self.assertTrue(v[flag])
+        for flag in ('weapon_interception_verified','hit_shield_interception_verified','piercing_interception_verified','cuda_device_verified','in_game_rules_verified','original_full_profile_verified'):self.assertFalse(v[flag])
+        self.assertEqual(r['lane'],'reference_model_gap');self.assertFalse(r['gpu_supported']);self.assertFalse(r['gpu_admission_verified'])
+
     def test_inert_model_gap_is_checked_against_current_canonical_classification(self):
         r=reference_readiness(self.blocker('cover_def_pct'));self.assertEqual(r['lane'],'reference_model_gap')
         import effect_spec

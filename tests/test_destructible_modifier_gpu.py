@@ -29,10 +29,11 @@ class ModifierGPUTests(unittest.TestCase):
         from portable_destructible_modifier_contracts import verify
         for c in a.fixtures():
             result=verify(c,a.native_reference(c));self.assertTrue(result['reference_model_gap']);self.assertFalse(result['in_game_rules_verified'])
-    def test_existing_battle_sources_are_unmodified(self):
+    def test_previous_battle_sources_match_exact_reviewed_projection(self):
         from portable_backend import source_hashes
+        from portable_destructible_shield_source_contract import verify_retained_sources
         for entry,golden in [('gpu/destructible_battle_entry.slang','research/portable-destructible-battle-short-expected.json'),('gpu/world_projectile_chain_entry.slang','research/portable-world-projectile-chain-retention-short-expected.json')]:
-            self.assertEqual(source_hashes(entry),json.loads((ROOT/golden).read_text())['source_sha256'])
+            verify_retained_sources(ROOT,entry,json.loads((ROOT/golden).read_text())['source_sha256'])
     def test_actual_metal_blocks_preserve_bits_and_reject_corruption(self):
         from portable_backend import source_hashes
         fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-modifier-raw.json').read_text());self.assertEqual(fixture['source_sha256'],source_hashes('gpu/destructible_modifier_probe.slang'))

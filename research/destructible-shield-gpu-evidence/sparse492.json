@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "raw_bytes": 1547698176,
+  "raw_sha256": "81097426560613d9b76ab91e30bdec3e7a2d6747dd001554cb7158ec36d5af7b",
+  "evidence_sha256": "37a8b3c67bce9ab8b5d2752d2575e728a8fd39e9e56bac91a18a2a982d215dbf",
+  "raw_inode": 508964518,
+  "zero_ranges": 3608,
+  "zero_range_bytes": 1106771968,
+  "allocated_before": 1547698176,
+  "allocated_after": 440926208,
+  "allocated_reclaimed": 1106771968,
+  "full_hash_verified": true
+}

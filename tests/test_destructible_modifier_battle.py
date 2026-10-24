@@ -29,11 +29,12 @@ class ModifierBattleTests(unittest.TestCase):
     def test_no_cpu_event_list_or_scalar_value_enters_gpu_input(self):
         with patch.object(a.battle,'observe',side_effect=AssertionError('No oracle')),patch.object(a,'native_reference',side_effect=AssertionError('No oracle')):rows,data=a.prepare()
         self.assertEqual((len(rows),sum(c is not None for _,_,c in rows)),(18,12));self.assertEqual(len(data),4+18*109824*4)
-    def test_shared_frame_and_existing_shader_closures_are_unmodified(self):
+    def test_existing_shader_closures_match_exact_reviewed_projection(self):
+        from portable_destructible_shield_source_contract import verify_retained_sources
         from portable_backend import source_hashes
         import json
         for entry,golden in [('gpu/destructible_battle_entry.slang','research/portable-destructible-battle-short-expected.json'),('gpu/destructible_modifier_probe.slang','research/portable-destructible-modifier-short-expected.json')]:
-            self.assertEqual(source_hashes(entry),json.loads((ROOT/golden).read_text())['source_sha256'])
+            verify_retained_sources(ROOT,entry,json.loads((ROOT/golden).read_text())['source_sha256'])
         source=(ROOT/'gpu/destructible_modifier_battle_entry.slang').read_text();self.assertIn('#include "destructible_frame_runtime.slang"',source);self.assertIn('#include "destructible_modifier_runtime.slang"',source)
     def test_optional_native_scope_restores_even_after_failure(self):
         before=(timeline.BuffManager,timeline.calc_damage,buff_manager.BuffManager.get_buffs,dict(buff_manager._STAT_TO_BUFF))
@@ -44,8 +45,9 @@ class ModifierBattleTests(unittest.TestCase):
         self.assertEqual(before,(timeline.BuffManager,timeline.calc_damage,buff_manager.BuffManager.get_buffs,dict(buff_manager._STAT_TO_BUFF)))
         self.assertEqual(a.native_reference(a.compile_case(c)[1])['typed']['attacks'][0]['damage'],1451.)
     def test_saved_actual_metal_blocks_check_sampled_coefficients_and_frozen_siblings(self):
+        from portable_destructible_shield_source_contract import verify_retained_sources
         from portable_backend import source_hashes
-        f=json.loads((ROOT/'tests/fixtures/portable-destructible-modifier-battle-raw.json').read_text());self.assertEqual(f['source_sha256'],source_hashes('gpu/destructible_modifier_battle_entry.slang'))
+        f=json.loads((ROOT/'tests/fixtures/portable-destructible-modifier-battle-raw.json').read_text());verify_retained_sources(ROOT,'gpu/destructible_modifier_battle_entry.slang',f['source_sha256'])
         rows,_=a.prepare()
         for record in f['records']:
             name,words,domain=rows[record['index']];self.assertEqual(name,record['name']);self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256'])

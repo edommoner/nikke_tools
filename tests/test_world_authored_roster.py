@@ -41,9 +41,10 @@ class AuthoredRosterTests(unittest.TestCase):
         for (name,words,domain),expected in zip(rows,old['entries']):
             self.assertEqual(name,expected['name']);self.assertEqual(nikke_gpu.native_hash(a.battle,domain),expected['native_sha256'])
     def test_saved_actual_metal_blocks_check_original_coefficients_and_owner(self):
+        from portable_destructible_shield_source_contract import verify_retained_sources
         from portable_backend import source_hashes
         fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-original-battle-raw.json').read_text())
-        self.assertEqual(fixture['source_sha256'],source_hashes('gpu/destructible_battle_entry.slang'))
+        verify_retained_sources(ROOT,'gpu/destructible_battle_entry.slang',fixture['source_sha256'])
         rows,_=a.prepare()
         for record,(name,words,domain) in zip(fixture['records'],rows):
             self.assertEqual(record['name'],name);self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),record['input_sha256'])
@@ -59,8 +60,9 @@ class AuthoredRosterTests(unittest.TestCase):
                     with self.subTest(name=name,offset=offset),self.assertRaises(AssertionError):a.compare(changed,domain)
 
     def test_unchanged_shader_matches_typed44_and_normal492(self):
+        from portable_destructible_shield_source_contract import verify_retained_sources
         from portable_backend import source_hashes
         for entry,golden in [('gpu/destructible_battle_entry.slang','research/portable-destructible-battle-short-expected.json'),('gpu/world_projectile_chain_entry.slang','research/portable-world-projectile-chain-retention-short-expected.json')]:
-            self.assertEqual(source_hashes(entry),json.loads((ROOT/golden).read_text())['source_sha256'])
+            verify_retained_sources(ROOT,entry,json.loads((ROOT/golden).read_text())['source_sha256'])
 
 if __name__=='__main__':unittest.main()

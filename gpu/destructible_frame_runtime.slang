@@ -16,6 +16,11 @@
 #define DF_ATTACK_ID(s,scratch,descriptor) commands[descriptor+1]
 #define DF_COMPLETE(s,scratch)
 #endif
+#ifndef DF_ROW_ENABLED
+#define DF_ROW_ENABLED(s,row) ((row)==commands[DF_DESCRIPTOR(s)])
+#define DF_BODY_FALLBACK(s,row) false
+#define DF_MATCH(s,row,at,selected) (results[at+3]!=0&&results[at]==2)
+#endif
 bool dwFrameDescriptorValid(inout Runtime s,uint at)
 {
     uint row=commands[at];
@@ -26,19 +31,31 @@ bool dwFrameDescriptorValid(inout Runtime s,uint at)
 }
 bool destructibleActivationHasTargets(inout Runtime s,uint row)
 {
-    if(row!=commands[DF_DESCRIPTOR(s)]) return true;
+    if(!DF_ROW_ENABLED(s,row)||DF_BODY_FALLBACK(s,row)) return true;
     uint count=commands[DF_EXTRA(s)+2320],base=DF_BASE(s.resourceOutput);
-    for(uint slot=0;slot<count;slot++) { uint at=dtAt(base,slot);if(results[at]==2&&results[at+3]!=0) return true; }
+    for(uint slot=0;slot<count;slot++) { uint at=dtAt(base,slot);if(DF_MATCH(s,row,at,0)) return true; }
     return false;
 }
 bool advanceDestructibleSkillFrame(inout Runtime s,inout Frame frames[32],inout int depth,inout Frame f,uint output)
 {
-    uint descriptor=DF_DESCRIPTOR(s),row=commands[descriptor];
-    if(uint(f.argument)!=row) return false;
+    uint descriptor=DF_DESCRIPTOR(s),row=uint(f.argument);
+    if(!DF_ROW_ENABLED(s,row)) return false;
     uint extra=DF_EXTRA(s),base=DF_BASE(output),header=DF_HEADER(output),count=commands[extra+2320];
     DF_SCHEDULE(s,w,extra,output)
     uint scratch=DF_SCRATCH(output,depth),packet=scratch+513;
     Definition d=readDefinition(s.inputBase,row);
+    if(DF_BODY_FALLBACK(s,row))
+    {
+        // An ordinary fallback keeps the ordinary handler's own continuation.
+        // Never reselect after a body landing has already started.
+        if(f.repeatRow>4||(f.repeatRow==0&&f.cursor!=0)) return false;
+        if(f.repeatRow==0)
+        {
+            bool found=false;
+            for(uint slot=0;slot<count;slot++) { uint at=dtAt(base,slot);if(DF_MATCH(s,row,at,0)) { found=true;break; } }
+            if(!found) return false;
+        }
+    }
     if(f.repeatRow==0)
     {
         if(!DF_VALID(s,d,descriptor)||d.kind!=3||d.damageRoute!=1||d.damageHits!=1||d.damageNormal!=0||d.damagePending!=0||f.repeatLeft>1||s.target!=0||!f64Equal(dtNumber(header),f.time)) { s.error=64;return true; }
@@ -51,8 +68,8 @@ bool advanceDestructibleSkillFrame(inout Runtime s,inout Frame frames[32],inout 
             for(uint slot=0;slot<count;slot++)
             {
                 uint at=dtAt(base,slot);
-                if(results[at+3]!=0&&results[at]==2)
-                { uint p=scratch+selected*4;results[p]=slot;results[p+1]=2;results[p+2]=results[at+1];results[p+3]=results[at+2];selected++; }
+                if(DF_MATCH(s,row,at,selected))
+                { uint p=scratch+selected*4;results[p]=slot;results[p+1]=results[at];results[p+2]=results[at+1];results[p+3]=results[at+2];selected++; }
             }
         }
         results[scratch+512]=selected;DF_SELECTION(s,scratch,output,selected,f,d) frames[depth].repeatRow=1;f=frames[depth];

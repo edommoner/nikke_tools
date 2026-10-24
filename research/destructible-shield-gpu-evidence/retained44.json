@@ -1,0 +1,280 @@
+{
+  "schema": 1,
+  "old_comparison_sha256": "4f7dcbd9fbe381bd5c8a628332f3a85062c0a75551325e9f3cf510fd480bb9b4",
+  "new_comparison_sha256": "5b9ee01430682295ad49fa2651e39cbe4282823d8031ac2fe2cb169c2f1f7f0f",
+  "old_readback_sha256": "dce150577eaf5e7b182a95e96aa59e0be8dd2d2110720c04c6cf1ef59a5b44c4",
+  "new_readback_sha256": "0fd56a5ba5c593d2c83f312ba1fcd2a6388f3159b1a27d2c5572f72cb4d87363",
+  "input_prefix_words": 109536,
+  "new_input_words": 110112,
+  "old_cases": 44,
+  "all_native_and_input_projections_unchanged": true,
+  "all_readback_bytes_unchanged": true,
+  "cases": [
+    {
+      "name": "destructible-battle/plain",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/three-real-generations",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/empty",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/physical-and-typed",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/ordinary-named-child",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/high-slot128",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/broken-set-not-retargeted",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/projectiles-with-shields",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/live-buff-and-expiry",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/empty-retains-budget",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/ordinary-part-clear-opens-typed",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/ordinary-clear-and-typed-repeat",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/typed-death-does-not-clear-ordinary",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/separate-128-typed-and-127-ordinary",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "reject/destructible-battle/row",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "reject/destructible-battle/capacity-zero",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "reject/destructible-battle/capacity-overflow",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "reject/destructible-battle/context-policy",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "reject/destructible-battle/magic",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "reject/destructible-battle/reserved",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "reject/destructible-battle/second-clock",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "reject/destructible-battle/binding-node",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "reject/destructible-battle/binding-capacity",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "reject/destructible-battle/binding-reserved",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "reject/destructible-battle/typed-binding-to-canonical-clear",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-live-threshold",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-death",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-cancel-on-death",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-refresh-before-death",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-siblings-before-refresh-and-death",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-future-generation-isolation",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-owner-ignores-other-attacker",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-squad-accepts-other-attacker",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-predicate-self-marker",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-predicate-not-self-marker",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-predicate-marker-visible-during-child",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "reject/destructible-battle/unmodelled-target-state",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "reject/destructible-battle/unmodelled-target-field",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-reentrant-live-set",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-reentrant-fatal-parent",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-reentrant-grandchild",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-reentrant-frozen-damage",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-explicit-boss-field",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    },
+    {
+      "name": "destructible-battle/counter-generic-named-child-clears-typed-target",
+      "same_input_prefix": true,
+      "native_unchanged": true,
+      "readback_unchanged": true
+    }
+  ],
+  "gpu_calls": 0,
+  "calculation_verified": false
+}

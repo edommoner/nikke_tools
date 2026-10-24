@@ -1,15 +1,13 @@
 <!-- shared-readback-current -->
-HP盾の実戦迎撃はCPU契約段階へ進んだ。`reference --suite destructible-shield-battle`の15宣言モデル契約と、固定packageのCPU179/既存18入力保持が成功。実scheduler上のplain boss skillだけを明示所有者のHP盾へ振り分け、無spill・次発のbody復帰・named子・破壊counter子・再出現世代を確認。新GPU/Windows依頼0、Metal/CUDA接続と武器/hit盾/貫通迎撃は未完了。詳細 docs/portable-destructible-shield-battle-native.md。
+現在の型付き実戦検証はsealed `destructible-shield-battle`（88入力/native58＋拒否30、Metal/独立seal成功）を使う。既存Frameをprovider化して投射物とHP盾を共通実行し、旧44のraw全byte・旧18のnative指紋を保持。最終CPU184/skip0。HP盾はplain boss skill限定の宣言モデルで、通常武器/hit盾/貫通・公開受付・CUDA実機は未完了。詳細 docs/portable-destructible-shield-gpu.md。
 
-実戦補正にはsealed `destructible-modifier-battle`（18入力/native12＋拒否6、Metal保存replay/独立seal済み）を追加した。既存Frameの量確定から共有projectile queryへ接続し、親兄弟固定・再入・通常body非混入・実採取のnamed係数を比較する。HP盾の実戦選択/迎撃・公開受付・CUDA実機は未対応。詳細 docs/portable-destructible-modifier-battle.md。
+```sh
+python scripts/nikke_gpu.py package --suite destructible-shield-battle --out NEW_PACKAGE.zip
+```
 
-最新のprivate scalar補正はsealed `destructible-modifier`（29入力/native20＋拒否9、Metal/独立seal済み）。同じ20 CPUケースを共有resident carrierと7因子/丸めへ接続した。出力159744wordの専用probeであり、実戦Frame・公開受付・CUDA実機は未対応。詳細 docs/portable-destructible-modifier-gpu.md。通常CLIのpackage/unpack/run/auditを使う。
+Frame source変更後の開発checkoutでは旧frame/battle/original/modifier-battle専用goldenはstaleであり、sealed package作成を拒否する。元golden/固定package/rawは履歴として保持し、新しい88入口を使う。source inverseは保存fixtureの厳密な履歴検査に限定し、新しい計算証明へ代用しない。専用scalar `destructible-modifier` の29入力はsource119不変で、実戦とのscopeは別。
 
-最優先modifierのCPU設計は `reference --suite destructible-modifier --out NEW.json`（宣言CPU20件、実戦未接続・model gap維持）。詳細 docs/portable-destructible-modifier-design.md。`storage-check --required-bytes N`はbudgetだけを調べ、既定1GiB予約を満たさなければexit2。通常runもinput作成前とGPU claim前に実サイズを検査する。既存`sparsify-raw`で終了済みrawの全byte/SHAを保ったゼロ割当回収が可能。archive検証やraw削除の代替として扱わない。
-
-元のレベル別投射物定義にはsealed `destructible-original-battle`（8入力/native8、Metal/独立seal済み）を追加した。5人×スキル1/2/3の明示levelsを共通native/入力経路へ渡し、既存caseはlevel10を維持する。レベル1/5/10とowner4、実burst通知・完了子を検証。元1定義の限定実証であり全プロフィール認定ではない。詳細は docs/portable-destructible-original-battle.md。
-
-現在の型付き実戦入口はsealed `destructible-battle`（44入力/native31・拒否13、Metal/独立seal済み）。通常`projectile-chain-retention`の492入力もsealed経路を使える。詳細は docs/portable-destructible-counter-battle.md。以下は既存経路を含む履歴であり、最新の件数/source readinessはCLI `list`と固定packageを参照する。
+`reference --suite destructible-shield-battle --out NEW.json`は同じ15 CPU宣言契約だけをGPU禁止下で実行する。`storage-check --required-bytes N`は既定1GiBを予約するbudget検査で、archive検査ではない。既存`sparsify-raw`は終了済みrawの全byte/SHA/inodeを保ってゼロ割当を回収でき、GPUでのraw再作成や削除へ置き換えない。
 
 保存出力の既存監査器を拡張した。`readback-index --case-words 1048576`は型付き実戦の4MiB/caseを明示し、省略時は従来の786432word。`readback-compare`はSHAで固定したindexの幅を使う。ファイル長から幅を推測しない。`readback-retain`は並べ替え/追加のあるcapture間で元ケースの保持を調べる。2つのcomparison.jsonのSHAを必須とし、成功comparison・一意なcase名・件数・全readback SHA・実caseごとのoutput SHAを読み直してから、元caseのinput/native/output指紋を照合する。
 

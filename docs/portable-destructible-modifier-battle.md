@@ -1,5 +1,7 @@
 # 投射物補正を実戦Frameの量確定へ接続
 
+後続の共有Frame/Metal88接続は[HP盾GPU実証](portable-destructible-shield-gpu.md)を参照。以下は当該段階の記録。
+
 sealed共通CLI `destructible-modifier-battle`を追加した。先行scalarと同じ補正queryを、実際のbattle schedulerが所有する既存Frameへ接続する。Metal18入力（native12・拒否6）が保存replayで全件一致し、独立sealも成功。GPU実行は1回だけで、reader修正後のreplay/監査はGPU0で行った。現在のCUDA実機、HP盾への実戦対象選択・迎撃、ゲーム規則・元全プロフィールの認定は未完了である。
 
 ## 計算・状態の共用

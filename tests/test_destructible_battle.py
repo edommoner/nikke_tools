@@ -116,6 +116,7 @@ class BattleTests(unittest.TestCase):
             with self.subTest(source=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n'})
 
     def test_full_battle_uses_the_complete_current_shared_executor(self):
+        from portable_destructible_shield_source_contract import verify_retained_sources as verify_shield_sources
         from portable_backend import source_hashes
         ordinary=set(source_hashes('gpu/world_projectile_chain_entry.slang'))
         typed=set(source_hashes('gpu/destructible_battle_entry.slang'))
@@ -157,11 +158,12 @@ class BattleTests(unittest.TestCase):
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:row['current']+'\n'})
 
     def test_real_metal_coexistence_blocks_reject_pool_aliasing(self):
+        from portable_destructible_shield_source_contract import verify_retained_sources as verify_shield_sources
         from portable_backend import source_hashes
         from portable_specs import LIMITS as L
         s=importlib.util.spec_from_file_location('coexist_saved',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
         fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-coexist-raw.json').read_text())
-        self.assertEqual(fixture['source_sha256'],source_hashes('gpu/destructible_battle_entry.slang'))
+        verify_shield_sources(ROOT,'gpu/destructible_battle_entry.slang',fixture['source_sha256'])
         rows,_=a.prepare();by_name={n:(w,c) for n,w,c in rows}
         for record in fixture['records']:
             block=array.array('I',[0])*fixture['output_words']
@@ -208,9 +210,10 @@ class BattleTests(unittest.TestCase):
             manager=data['managers'][0];self.assertNotIn('_condition_ok',manager.__dict__);self.assertNotIn('_resolve_target',manager.__dict__)
 
     def test_old25_inputs_native_and_shader_identity_are_retained(self):
+        from portable_destructible_shield_source_contract import verify_retained_sources as verify_shield_sources
         from portable_backend import source_hashes
         s=importlib.util.spec_from_file_location('typed_counter_retained',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
-        old=json.loads((ROOT/'research/destructible-counter-battle-evidence/prior25-golden.json').read_text());self.assertEqual(old['source_sha256'],source_hashes('gpu/destructible_battle_entry.slang'))
+        old=json.loads((ROOT/'research/destructible-counter-battle-evidence/prior25-golden.json').read_text());verify_shield_sources(ROOT,'gpu/destructible_battle_entry.slang',old['source_sha256'])
         rows,_=a.prepare()
         for (name,words,domain),prior in zip(rows[:25],old['entries'],strict=True):
             self.assertEqual(name,prior['name']);self.assertEqual(hashlib.sha256(array.array('I',words).tobytes()).hexdigest(),prior['input_sha256'])
@@ -231,10 +234,11 @@ class BattleTests(unittest.TestCase):
             else:self.assertFalse(attacks[0]['receipts'][1]['delivered'])
 
     def test_saved_real_counter_battles_reject_completion_context_corruption(self):
+        from portable_destructible_shield_source_contract import verify_retained_sources as verify_shield_sources
         from portable_backend import source_hashes
         from portable_specs import LIMITS as L
         s=importlib.util.spec_from_file_location('counter_battle_saved',ROOT/'research/verify-destructible-battle-short.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
-        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-counter-battle-raw.json').read_text());self.assertEqual(fixture['source_sha256'],source_hashes('gpu/destructible_battle_entry.slang'))
+        fixture=json.loads((ROOT/'tests/fixtures/portable-destructible-counter-battle-raw.json').read_text());verify_shield_sources(ROOT,'gpu/destructible_battle_entry.slang',fixture['source_sha256'])
         rows,_=a.prepare();by_name={n:(w,c) for n,w,c in rows}
         for record in fixture['records']:
             block=array.array('I',[0])*fixture['output_words']
