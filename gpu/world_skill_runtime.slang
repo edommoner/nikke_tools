@@ -227,7 +227,11 @@ bool landWorldSkillReceipt(inout Runtime s,LandingReceipt r,uint64_t when,uint o
         }
     }
 #ifdef PORTABLE_COORDINATE_SKILLS
-    if(s.error==0) deliverCoordinateParts(s,r,when,output);
+    if(s.error==0) deliverCoordinateParts(s,r,when,output
+#ifdef PORTABLE_COORDINATE_LIVE_CORE
+        ,set
+#endif
+    );
 #endif
     results[set+5]=0;results[actorPoolHead(s)+7]--;
     return s.error==0;

@@ -52,6 +52,11 @@ class FrontierTests(unittest.TestCase):
         self.assertTrue(emission['body_only_receipt_connected'])
         self.assertFalse(emission['public_gpu_admitted'])
         self.assertEqual(emission['excluded_coordinate_scenarios'],['ADD sharing','enemy attack nodes'])
+        core=result['coordinate_live_core']
+        self.assertTrue(core['runtime_connected'])
+        self.assertTrue(core['graph_lifetime_reused'])
+        self.assertTrue(core['default_auto_aim_tracks_selected_core'])
+        self.assertFalse(core['public_gpu_admitted'])
         self.assertTrue(landing['prepared_frame_values_on_gpu'])
         self.assertTrue(landing['all_cuts_retained'])
         self.assertEqual(landing['cuts_capacity'],5098)

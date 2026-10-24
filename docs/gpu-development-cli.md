@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`coordinate-core`120（共通CPU106／拒否14）はM5 Metalで全word照合・独立seal済み。coreの既存graph寿命・中心・同径優先・既定照準を接続し、旧84の入力prefixとnative／GPU rawを保持。専用entryは入力108792／出力1310720word。`package --suite coordinate-core --compact`から共通手順を使う。Windowsの現CUDA実行は未取得。[live core](portable-coordinate-core.md)を参照。
+
 `coordinate-accum-emission`84（共通CPU78／拒否6）はM5 Metalで照合・独立seal済み。既存蓄積49world＋geometry4worldを追加し、旧31全entryを保持する。immutable package→CPU preflight→bounded GPU→独立sealの共通手順を使う。ADD共有・敵攻撃sceneは未対応、現在のCUDA実行は未取得。[座標蓄積放出](portable-coordinate-accum-emission.md)を参照。
 
 `coordinate-quantity`31（共通CPU25／拒否6）と`packet-integer`305（正例294／拒否11）はM5 Metalで照合・独立seal済み。immutable package→CPU preflight→bounded GPU→保存結果sealの既存手順を使う。`reference --suite coordinate-accumulation-policy --out /tmp/new-policy.json`はCPU正本のtarget蓄積除外3worldだけを検査し、GPU対応を主張しない。現在のCUDA検証は未取得。[整数参照量・cache保持](portable-coordinate-quantity.md)を参照。

@@ -23,6 +23,9 @@ bool initializeCoordinatePhysical(inout Runtime s)
     // This scratch occupies the dormant group compaction arena. No group
     // owner or group-trigger definition may share this particular profile.
     if(commands[s.inputBase+104402]!=0||s.target!=0||s.landingPolicy!=1)return false;
+#ifdef PORTABLE_COORDINATE_LIVE_CORE
+    if(!validCoordinateCoreIR(s))return false;
+#endif
     if(focusAimEnabled(s))return false; // Explicit waypoints/layer2 need their own caller.
     for(uint row=0;row<s.count;row++)for(uint slot=0;slot<readDefinition(s.inputBase,row).triggerCount;slot++)
         if(commands[s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS+slot*8]==62)return false;
@@ -70,6 +73,16 @@ uint64_t coordinatePhysicalSample(inout Runtime s,uint who,Weapon w,uint64_t coe
     if(!f64Finite(radius)||!f64Finite(grow)){s.error=16;return 0;}grow=larger(0,grow);
     results[input]=CL_MAGIC;results[input+1]=1;results[input+2]=n;
     clWrite(input+4,cNumber(meta+4));clWrite(input+6,cNumber(meta+6));clWrite(input+8,radius);clWrite(input+10,grow);
+#ifdef PORTABLE_COORDINATE_LIVE_CORE
+    uint64_t ax=cNumber(meta+4),ay=cNumber(meta+6),cx,cy,diameter;
+    coordinateCoreGeometry(s,ax,ay,cx,cy,diameter);
+    clWrite(input+4,ax);clWrite(input+6,ay);
+    if(f64Less(0,diameter))
+    {
+        results[input+3]=1;uint coreAt=clShapeAt(input,CL_TARGETS);results[coreAt]=1;
+        clWrite(coreAt+2,cx);clWrite(coreAt+4,cy);clWrite(coreAt+6,f64Div(diameter,uint64_t(0x40000000U)<<32));
+    }
+#endif
     clWrite(input+12,(uint64_t(0x40046666U)<<32)|uint64_t(0x66666666U)); // MODEL_N=2.55
     for(uint i=0;i<n;i++)
     {

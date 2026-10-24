@@ -59,6 +59,9 @@ uint64_t sampleCoordinateAreaSkill(inout Runtime s,Definition d,uint64_t coeffic
     }
     if(!f64Finite(grow)){s.error=64;return 0;}if(!f64Less(0,grow))grow=0;
     uint64_t ax=cNumber(meta+4),ay=cNumber(meta+6);
+#ifdef PORTABLE_COORDINATE_LIVE_CORE
+    uint64_t cx,cy,diameter;coordinateCoreGeometry(s,ax,ay,cx,cy,diameter);
+#endif
     if(focusAimEnabled(s)&&results[s.resourceOutput+P_FOCUS_STATE_BASE+6]==0x46414331U)
     {
         uint slot=uint(actorNumber(s.resourceOutput+P_FOCUS_STATE_BASE)>>(8*d.owner))&255U;
@@ -85,7 +88,11 @@ void captureCoordinateAreaCast(inout Runtime s,Definition d,uint depth,uint64_t 
     }
     results[at]=count;
 }
-void deliverCoordinateAreaTargets(inout Runtime s,LandingReceipt r,uint64_t when,uint output)
+void deliverCoordinateAreaTargets(inout Runtime s,LandingReceipt r,uint64_t when,uint output
+#ifdef PORTABLE_COORDINATE_LIVE_CORE
+    ,uint traceSet
+#endif
+)
 {
 #ifdef PORTABLE_COORDINATE_LEGACY_PENDING
     // Its body already landed through the common pending/skill executor.
@@ -103,6 +110,11 @@ void deliverCoordinateAreaTargets(inout Runtime s,LandingReceipt r,uint64_t when
         uint gen=coordinateLandingGeneration(s,slot,results[at+4+node]);if(s.error!=0)return;
         uint64_t amount=kind==1?r.partAmount:r.interruptAmount;
         if(!worldOverlayLand(s,d.owner,0,amount,false))continue;
+#ifdef PORTABLE_COORDINATE_LIVE_CORE
+        // This is a real separate native HitEvent, not an extra damage query.
+        LandingReceipt packet=r;packet.amount=amount;logWorldSkill(s,packet,traceSet,amount,when);
+        if(s.error!=0)return;
+#endif
         storeNumber(actorPoolHead(s)+2,when);s.target=0;land(s,d.owner,ACTOR_REF|slot,amount);if(s.error!=0)return;
         coordinateTrace(s,d.owner,slot,gen,amount,when,true);
         if(kind==1)

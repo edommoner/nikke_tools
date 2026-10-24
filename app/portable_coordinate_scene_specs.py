@@ -9,11 +9,11 @@ def bits(value):
     return list(struct.unpack('<II',struct.pack('<d',float(value))))
 def layout_source():return '// Shared coordinate scene ABI, generated from portable_coordinate_scene_specs.\n'+''.join(f'static const uint C_{k}={v};\n' for k,v in LAYOUT.items())
 def source_matches(root=None):return (Path(root or Path(__file__).resolve().parents[1])/'gpu/coordinate_scene_layout.slang').read_text()==layout_source()
-def compile_scene(case):
+def compile_scene(case,*,allow_core=False):
     from calculator.boss_pattern import validate
     if not source_matches():raise ValueError('Coordinate descriptor source layout drift')
     patterns=validate(copy.deepcopy(case['patterns']),coord=True)
-    if not 1<=len(patterns)<=32 or any(p.kind not in ('parts','interrupt','idle') for p in patterns):raise ValueError('Coordinate component requires1..32 parts/interrupt/idle nodes')
+    if not 1<=len(patterns)<=32 or any(p.kind not in (('parts','interrupt','idle','core') if allow_core else ('parts','interrupt','idle')) for p in patterns):raise ValueError('Coordinate component requires1..32 parts/interrupt/idle nodes')
     rows=[];ids={1:0,6:0}
     for p in patterns:
         for ordinal,t in enumerate(p.targets):

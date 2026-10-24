@@ -4,7 +4,8 @@ from pathlib import Path
 
 
 def project_sources(root,sources=None):
-    root=Path(root);sources=dict(sources or {})
+    from portable_coordinate_core_source_contract import project_sources as project_core
+    root=Path(root);sources=project_core(root,sources)
     data=json.loads((root/'tests/fixtures/portable-coordinate-accum-emission-source-delta.json').read_text())
     for name,row in data['sources'].items():
         current=sources.get(name,(root/name).read_text())

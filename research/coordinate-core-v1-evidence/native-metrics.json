@@ -1,0 +1,2042 @@
+{
+  "package_id": "bdf35ec0897d96cf18dc8648393f5735d2b128ab0c13a71d19bf104ede9f825b",
+  "gpu_calls": 0,
+  "all_native_digests_match": true,
+  "native_cases": 106,
+  "logical_pellets": 720,
+  "landed_packets": 2037,
+  "core_notifications": 720,
+  "cases": [
+    {
+      "name": "coordinate-physical-reference/occlusion-and-body",
+      "native_sha256": "8df584fa23203bca9407fdc37254b90a795251ee6bc626a7617714b39ecd4fab",
+      "logical_pellets": 1,
+      "landed_packets": 2,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-physical-reference/full-front",
+      "native_sha256": "413d7a0c810ea582a34a71aac5cce459db75ef4fafc6f624962d3644bde9034d",
+      "logical_pellets": 1,
+      "landed_packets": 1,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-physical-reference/interrupt-front",
+      "native_sha256": "3414a448f73c5a2c60650e7f9711c60046705339c70d98261a446cae39ba4dc1",
+      "logical_pellets": 1,
+      "landed_packets": 1,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-physical-reference/two-muzzles-three-pellets",
+      "native_sha256": "682d26a73a44fa787f07fa1efc9b71b3b6e736f24cad442cbb5ffa234a010a80",
+      "logical_pellets": 6,
+      "landed_packets": 12,
+      "core_notifications": 6
+    },
+    {
+      "name": "coordinate-physical-reference/retirement",
+      "native_sha256": "f4bc8e1bf1ba493f6736950c7056334684a047f961e491e8f089bee90e93651a",
+      "logical_pellets": 3,
+      "landed_packets": 6,
+      "core_notifications": 3
+    },
+    {
+      "name": "coordinate-physical-reference/body-without-targets",
+      "native_sha256": "0966c759aca090fa99aaa272bb793d147f870130f5326dd2e7c0aa9d35b39cf6",
+      "logical_pellets": 1,
+      "landed_packets": 1,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-physical-reference/pierce-reach",
+      "native_sha256": "2f61fc04539e2e50d96566e682ae4ae383eb1261d05841ca3f3a533e528d2db0",
+      "logical_pellets": 1,
+      "landed_packets": 3,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-physical-reference/charge-pierce",
+      "native_sha256": "0a040eacdd18882929bf5a8d4b2f9c21a303aa4dfcbced6150a8515c8ff8b3e8",
+      "logical_pellets": 1,
+      "landed_packets": 3,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-physical-reference/threshold-snapshot",
+      "native_sha256": "5f72c9808bfbae80559a7ff876e204d9639d5391f4e10efaddf40c1bfbb810ba",
+      "logical_pellets": 12,
+      "landed_packets": 18,
+      "core_notifications": 12
+    },
+    {
+      "name": "coordinate-physical-gpu/rotated-rectangle",
+      "native_sha256": "f5369b3dfd9af115be8fb3546ae1b25ee946375734387f8aec57c12e20d15ead",
+      "logical_pellets": 1,
+      "landed_packets": 3,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-physical-gpu/critical-fraction",
+      "native_sha256": "ab8ba15353c20c9a84ad131c01a1d2a4dd90a85089ea959172f6cef725fde6ac",
+      "logical_pellets": 1,
+      "landed_packets": 2,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-physical-gpu/accuracy",
+      "native_sha256": "615f123c9af8f21331e0f24e54fbbb7a92dbb525c71cdcd49505a9e0e5c45256",
+      "logical_pellets": 1,
+      "landed_packets": 2,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-physical-gpu/two-owners",
+      "native_sha256": "bfbd01d584285e2782c2a36f8673b68925a66b09dfd6816032a3ab8de7392b7c",
+      "logical_pellets": 2,
+      "landed_packets": 4,
+      "core_notifications": 2
+    },
+    {
+      "name": "coordinate-physical-gpu/unbreakable",
+      "native_sha256": "8df584fa23203bca9407fdc37254b90a795251ee6bc626a7617714b39ecd4fab",
+      "logical_pellets": 1,
+      "landed_packets": 2,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-physical-gpu/same-shot-retirement",
+      "native_sha256": "4c57b91f8fdf7a6cbfebe4c77e0acb72e3e66e40e5ca8e1cf88dc3062d7eeea8",
+      "logical_pellets": 12,
+      "landed_packets": 24,
+      "core_notifications": 12
+    },
+    {
+      "name": "coordinate-physical-gpu/interrupt-reach",
+      "native_sha256": "bf351e18022f5d30ed362dbbbd8f07cdc5d91b6b8cf36398c5a5b5f1d6b11830",
+      "logical_pellets": 1,
+      "landed_packets": 4,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-physical-gpu/weapon-change",
+      "native_sha256": "6b4e79012f31b78a9ecbb8593f3451b94da6a78d207435f2b52c0f074278512d",
+      "logical_pellets": 6,
+      "landed_packets": 12,
+      "core_notifications": 6
+    },
+    {
+      "name": "coordinate-quantity/pierce-parent",
+      "native_sha256": "856a8d3387b0da4bd972dc93d724c1e612fe3657d8ceeb85b6e7c263903bfd35",
+      "logical_pellets": 1,
+      "landed_packets": 4,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-quantity/two-muzzles-seven-pellets",
+      "native_sha256": "3a7e4bdefb555a237b09760dc50bb6034d51a6af688b88d1a4997c14296da535",
+      "logical_pellets": 14,
+      "landed_packets": 44,
+      "core_notifications": 14
+    },
+    {
+      "name": "coordinate-quantity/large-parent",
+      "native_sha256": "fe698a165a56eedebeafca630d877f3f25c478a238123e74da2a12d24659d260",
+      "logical_pellets": 14,
+      "landed_packets": 44,
+      "core_notifications": 14
+    },
+    {
+      "name": "coordinate-quantity/including-interrupt",
+      "native_sha256": "4a73dd35353bb196cc4602d5ddf92dfee3f33add0658ca5f824cfeab3f2ffdf8",
+      "logical_pellets": 1,
+      "landed_packets": 5,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-quantity/zero-child",
+      "native_sha256": "241f2162e916fab04f1c9ad592347e40a83d234fb007a6bb0f0438aa6bb96784",
+      "logical_pellets": 1,
+      "landed_packets": 3,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-quantity/fraction-to-zero",
+      "native_sha256": "2680a5d54ea1dccf976f4b05b675a5e0775074177e84b8c07a060eb7b99ad8c1",
+      "logical_pellets": 1,
+      "landed_packets": 4,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-quantity/last-owner",
+      "native_sha256": "b645d6ec76eec23c33ec278fd1f9ad52ce2c6f097a3a9db3f0724afeb0b183cc",
+      "logical_pellets": 1,
+      "landed_packets": 4,
+      "core_notifications": 1
+    },
+    {
+      "name": "coordinate-quantity/two-shooters",
+      "native_sha256": "dfbd37fcf36376a8701301d272aaf358805bc0d356fc92ad2b51ef0494813c40",
+      "logical_pellets": 2,
+      "landed_packets": 6,
+      "core_notifications": 2
+    },
+    {
+      "name": "coordinate-accum-emission/dealt-default",
+      "native_sha256": "6097ee425611b34bf53fbdc34aea07b1f9fb825eb80109015d5b067585ab646f",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/received-default",
+      "native_sha256": "74cd694fc82e48b61dbdf9d43dbf25c948ff303bb194312edab4b92d81901f1c",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/last-owner-dealt",
+      "native_sha256": "d086a126c7c13acc74b37357227a8d60d6c01119dd6cf5ea01fb4d504073567a",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/dealt-ignores-other-casters",
+      "native_sha256": "2529b64c9e4b475f3cf79152050a02fd3cd34cd1bef4afef4e68d4136227968f",
+      "logical_pellets": 8,
+      "landed_packets": 24,
+      "core_notifications": 8
+    },
+    {
+      "name": "coordinate-accum-emission/received-counts-other-casters",
+      "native_sha256": "79baab29fc111556111732fdded566a392766860042efc8af904bf1226f74980",
+      "logical_pellets": 8,
+      "landed_packets": 25,
+      "core_notifications": 8
+    },
+    {
+      "name": "coordinate-accum-emission/base50",
+      "native_sha256": "eb909a47290df91eec75024f8b59d0ef5586dd817649f6c493848e9488130f5e",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/base50-named25",
+      "native_sha256": "d66d19046f1dbc6ae25cbb652924257d62cb15d313dfb91c1666a701bb16a67d",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/absent-base",
+      "native_sha256": "1b5505d55803a8c38168669389ace0e459d3209ba1910c28bce10faf255789ac",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/explicit-zero-base",
+      "native_sha256": "4ceb64b29663b540ea8a5aefcbb2ef8088f514e48652e71ef19030fdfdadd986",
+      "logical_pellets": 10,
+      "landed_packets": 30,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/absent-base-named25",
+      "native_sha256": "b2a5fb04daad07ed1d30016e511e55cfaa71ee5aa9627b73f6907dc00917f38a",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/zero-base-named25",
+      "native_sha256": "753496cab67effd1c3370673cbe3c6747479363a1d1dd9c3386a0a9a157ca8a7",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/empty-values-is-zero",
+      "native_sha256": "4ceb64b29663b540ea8a5aefcbb2ef8088f514e48652e71ef19030fdfdadd986",
+      "logical_pellets": 10,
+      "landed_packets": 30,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/wrong-named-rate",
+      "native_sha256": "1b5505d55803a8c38168669389ace0e459d3209ba1910c28bce10faf255789ac",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/wrong-caster-rate",
+      "native_sha256": "f8e48cd17c02e5a3658265b4a1eb6866c2f797bd9ab84d617ea37c1265400e0b",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/own-rate-wrong-recipient",
+      "native_sha256": "3e8b8c9a122da7dc1f84724c782fd6f192a565ab85903e2c38644f635ff00797",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/two-baseline-rates",
+      "native_sha256": "4e58810477a15f5717a857cf5f47f89d35ad0dfb105858dec8faf58026197715",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/negative-rate",
+      "native_sha256": "e402e2c936ed704dc0738b2aa2d652e88d502a818ffa4a74e531137b89406e87",
+      "logical_pellets": 10,
+      "landed_packets": 30,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/cap-clamp",
+      "native_sha256": "c844a74f89e4e31a55e8708a337f3e9f1ea2274c2d774bf598f522f296655188",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/zero-cap",
+      "native_sha256": "2c191404ccc50ed7b9277929a627aea33cf390f5bb8715db5c31ef55b672df26",
+      "logical_pellets": 10,
+      "landed_packets": 30,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/negative-cap",
+      "native_sha256": "ae7e8a320743f3d78e0a6d0704194dbc15c4ef39798e4d15447f36fd83249ede",
+      "logical_pellets": 10,
+      "landed_packets": 30,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/epsilon-inside",
+      "native_sha256": "e44cd3c3a186f2f6bc5ad670eddf4da371fcb4c9d5136b720fc0b7dea67d8c85",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/epsilon-outside",
+      "native_sha256": "8849102733937f74cb3d10051bee4f86b0470673c54dea1478a77baf9497bb3a",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/initial-ATK",
+      "native_sha256": "2b5d21528c186f3b4ba79d19b0ed48c9ccf11cdb5659b38cb93d6ed4586e9603",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/later-ATK-keeps-cap",
+      "native_sha256": "f7ff5c25254afb26799cadf7d86fcf07993fb692f63575a8ade44ed4bd6ed449",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/empty-expiry",
+      "native_sha256": "3c5b155633caaab191bfa3b4701899ae7523aed31c133f1b21db7d1af3849331",
+      "logical_pellets": 10,
+      "landed_packets": 30,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/archived-consume-once",
+      "native_sha256": "e4d1abc36bd26fea83f48e513e0f11f4a71d7e702ebeb2c94b593cb4455338f3",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/active-consume-once",
+      "native_sha256": "e16fe528bb4b6745595aeed2c5829c30e19e2cd51cae5e4cdaa3943e5d3af250",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/missing-name",
+      "native_sha256": "83734652339cc5e1128654db1ae93144a23a4e1b1861dd4cb9716c03607f9542",
+      "logical_pellets": 10,
+      "landed_packets": 30,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/cross-owner-active",
+      "native_sha256": "09b32a15073d62bde65ce7e0dd6d169663bde16801685e9a8ec7dc3384bcb322",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/cross-owner-archive",
+      "native_sha256": "2f7c84d9b379665deb25af9db50ae32e152620ac9b8e3c570db0b1c81e9d5e90",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/refresh-clears-archive",
+      "native_sha256": "9ce9fc461339c27b1fd7718e4d114c90695cf2c89f46141eede2f12132daf4cf",
+      "logical_pellets": 9,
+      "landed_packets": 27,
+      "core_notifications": 9
+    },
+    {
+      "name": "coordinate-accum-emission/refresh-collects-new-lifetime",
+      "native_sha256": "7931e8a8987dde705405e500cd5305912556618d4441407f9563449f739ef136",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/named-removal-retains-archive",
+      "native_sha256": "9dd45bee894dbc6f73dce52477d0b8e95f82aacae1a776506f7a046fb2e712b1",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/split-only-and-int-truncation",
+      "native_sha256": "a430a3a6f06bf0d50177bf26fc33d4fee221baf8cf8d53475b0016d03bb8850f",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/no-second-attack-modifier",
+      "native_sha256": "6dc24eb072adeb30ed7fd17b5301a8130b83116c77936f9e414987d26c9cd7ba",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/lifesteal-before-rate",
+      "native_sha256": "78f836526603401aba6f70d191e106500b1d684170dbe95231a3302368e7b08f",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/scatter-two-muzzles",
+      "native_sha256": "c2fd4d66d1506c0b2f0467f0648c7a2ad3745df135e0b99aa2cdbcefee047ab1",
+      "logical_pellets": 20,
+      "landed_packets": 61,
+      "core_notifications": 20
+    },
+    {
+      "name": "coordinate-accum-emission/all-pools-full-before-notices",
+      "native_sha256": "c4f96fa1a454a43a05f113ab92d75a7e641db42b27165c34025b1ec9b3185b18",
+      "logical_pellets": 10,
+      "landed_packets": 32,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/duplicate-name-first-active",
+      "native_sha256": "c33d5eb7c18ba3f285a2f9990f59706c4eda82ab2dd4649a1da7bd8d2cb41434",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/duplicate-name-last-archive",
+      "native_sha256": "d21d43a6ac877b099b8161fbdd74ec8dbb5ac9ce4d7593724777bd33ed75c318",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/pool-target-does-not-filter-damage",
+      "native_sha256": "394937671e9783e45571193109f78aa350f284a47585b557732c557d8b3031f0",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/stacked-rate",
+      "native_sha256": "395072e5ae55ca41defe3f556d7aef42de134878724195c7df0ac8d104f9aa65",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/release-feeds-another-pool",
+      "native_sha256": "1978101330a96ecee61d2f7d1f6699070cbdf2ced4a17ddae070f7a9a9a01ae2",
+      "logical_pellets": 10,
+      "landed_packets": 32,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/rate-expired-before-hit",
+      "native_sha256": "a9c20b653e432e1e60146030c42f2321b5162a5ca30a2d0656d31151ce727b2d",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/last-owner-cap-snapshot",
+      "native_sha256": "665085c6d699e70ffcb2ff1183e76fa67f1d623ab20f195ee191835806330d83",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/dealt-group-before-received",
+      "native_sha256": "680caf442ffcacbef5b4a1af9f695b0ea66d9b3c8a2a2f6d2c933e1d1f80c196",
+      "logical_pellets": 10,
+      "landed_packets": 32,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/ordered-baseline-cancellation",
+      "native_sha256": "8f843a2a4bb7a73db753a17a8c69f5f8fcd29544c921f1e8365c7963217852f6",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/separate-baseline-and-named-groups",
+      "native_sha256": "b922d35bf5624d616145d0f603f41a6bbeab10cf50b6a6f96c801746c9a6bd4a",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/duplicate-name-active-reverse-stat-order",
+      "native_sha256": "222719d67fd4f6a422249cabf1cc5a5447f8ba74873569e922d38cd7e2b63919",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/fully-occluded",
+      "native_sha256": "9346f4b65c150fa0d36a27224b6f82077281a323a176a484a989e9fa49ff30fe",
+      "logical_pellets": 10,
+      "landed_packets": 10,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/interrupt",
+      "native_sha256": "4f0b7820d6d40aeb07aeab3bd5a4841f0d41f43123db02179c16ca7997b53e2a",
+      "logical_pellets": 10,
+      "landed_packets": 41,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/destroyed-parts",
+      "native_sha256": "66231bf61b40161d8a4c0dc810df701439744657f6f7c46983fd88d82e58f4d4",
+      "logical_pellets": 10,
+      "landed_packets": 21,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-accum-emission/two-coordinate-shooters",
+      "native_sha256": "6097ee425611b34bf53fbdc34aea07b1f9fb825eb80109015d5b067585ab646f",
+      "logical_pellets": 10,
+      "landed_packets": 31,
+      "core_notifications": 10
+    },
+    {
+      "name": "coordinate-core/centered-core",
+      "native_sha256": "42ec04dab472f7b7020cdede7232fc644ffdc3125b0976b0b0086f92bbe06538",
+      "logical_pellets": 3,
+      "landed_packets": 3,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9590148539614158
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.09173518365315188
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/base-core",
+      "native_sha256": "bcca4c3a5a404b39847df969a6038ab6493b97e33f733c45866411f8953d41a0",
+      "logical_pellets": 3,
+      "landed_packets": 3,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9590148539614158
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.09173518365315188
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/off-center-explicit",
+      "native_sha256": "7c7b5fca14d2ad1b1ec80f64ba11ad55c2e35724a65462947f9a77ba2de2bb28",
+      "logical_pellets": 3,
+      "landed_packets": 3,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.03601837118197763,
+          "body_fraction": 0.9639816288180224
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.04863657694272059,
+          "body_fraction": 0.9513634230572794
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.06836636138341651,
+          "body_fraction": 0.9316336386165835
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.1530213095081147
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/off-center-default-auto",
+      "native_sha256": "0f1159cbcebd6e80f6ad7664c918b97044f1372f4feb8abc61c7e3444bcb2805",
+      "logical_pellets": 3,
+      "landed_packets": 3,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            3.0,
+            -1.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            3.0,
+            -1.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            3.0,
+            -1.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9590148539614158
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.09173518365315188
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/part-occlusion",
+      "native_sha256": "77e5d81360f092024606803baf6153b2a531c26aadd8353b0737136431d03768",
+      "logical_pellets": 3,
+      "landed_packets": 6,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.0,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.0,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.0,
+          "body_fraction": 0.9590148539614158
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": []
+    },
+    {
+      "name": "coordinate-core/pierce-under-part",
+      "native_sha256": "bb20e5aa35f226d0dac6a664525716bdb16e8cf3466d892684e0cec1e892a7bf",
+      "logical_pellets": 3,
+      "landed_packets": 9,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9590148539614158
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.09173518365315188
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/explosion-under-part",
+      "native_sha256": "b6376e838c4871554f7fe879fa92e123d36e6e499fb0fa203a50994524eecf62",
+      "logical_pellets": 1,
+      "landed_packets": 3,
+      "core_notifications": 1,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.05,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.016505416541446365,
+          "body_fraction": 0.9834945834585537
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.016505416541446365
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/critical-and-core-damage",
+      "native_sha256": "7eb852ab477559a736faff7be01c4f1f7815b3cb382d4c80f6ac0728acdde38c",
+      "logical_pellets": 3,
+      "landed_packets": 3,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9590148539614158
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.09173518365315188
+        },
+        {
+          "event": 22,
+          "owner": 0,
+          "value": 0.20000000000000018
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/core-fraction-child",
+      "native_sha256": "7d53b6d0a97b84418ab592fb4137911236285f02af20ce157d1f987dee700f42",
+      "logical_pellets": 3,
+      "landed_packets": 3,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.3556045338103339,
+          "body_fraction": 0.644395466189666
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.4801823819979015,
+          "body_fraction": 0.5198176180020986
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.6749718899066492,
+          "body_fraction": 0.32502811009335075
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.5107588057148846
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/delayed-open",
+      "native_sha256": "5b2086e5f92b86909ff0f64cfa5eb16b8ca5585f42d1306152b0df13e23fcc44",
+      "logical_pellets": 3,
+      "landed_packets": 6,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.0,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            7.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9141299906375157
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            7.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9134280054902405
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.07014242702410936
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/expiry",
+      "native_sha256": "bd8781d166b84f8adea17e0af94da3c3493324c4df6a9b519d701ee4220a14ae",
+      "logical_pellets": 3,
+      "landed_packets": 6,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.0,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.0,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.0,
+          "body_fraction": 0.9590148539614158
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": []
+    },
+    {
+      "name": "coordinate-core/reopen",
+      "native_sha256": "97061412b3a36471ec3fddb76dcde2e4bb974980a137a4ffc583852cf9601b89",
+      "logical_pellets": 3,
+      "landed_packets": 6,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.0,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.0,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.0,
+          "body_fraction": 0.9590148539614158
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": []
+    },
+    {
+      "name": "coordinate-core/largest-wins",
+      "native_sha256": "ee4cd5098647b60b2654bdd1705758dfa8933ce44ee8ed4e3386b140b098c03b",
+      "logical_pellets": 3,
+      "landed_packets": 6,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.11058939147503105,
+          "body_fraction": 0.8487058020504135
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.14933183458932509,
+          "body_fraction": 0.7957033686397187
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.2099093894211728,
+          "body_fraction": 0.7128289405432338
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.46983061548552896
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/equal-newest-start",
+      "native_sha256": "702c9bc356b31df4d5e087f42ddf72f6b7e7bd1b06eca0f02a7c5e45e92676c3",
+      "logical_pellets": 3,
+      "landed_packets": 6,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9376792852530401
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            -5.0,
+            2.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9063675093379163
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            -5.0,
+            2.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.8743916393467307
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.09173518365315188
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/equal-declaration-order",
+      "native_sha256": "2415e78528eb25d241a6566084dcc1bfb95ff7d9fc3eb938086006b3f2c0d905",
+      "logical_pellets": 3,
+      "landed_packets": 6,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            -5.0,
+            2.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9306593922649661
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            -5.0,
+            2.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9063675093379163
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            -5.0,
+            2.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.8743916393467307
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.09173518365315188
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/base-equal-node",
+      "native_sha256": "25dbde8ecae4f0861c87f001969d4e2a88a63e706dd0e57076468e2145e22a11",
+      "logical_pellets": 3,
+      "landed_packets": 6,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9376792852530401
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.915846659955781
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.8817092398615916
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.09173518365315188
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/base-larger-than-node",
+      "native_sha256": "714317584b413f7017f6587b6cf05a25c0dc6f06f568191242e585789c1e5618",
+      "logical_pellets": 3,
+      "landed_packets": 6,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.10486182783742243,
+          "body_fraction": 0.8735454155335352
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.1415977511087742,
+          "body_fraction": 0.8292449679057006
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.19903791820674993,
+          "body_fraction": 0.759976935754666
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.44549749715294656
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/older-declaration-newest-start",
+      "native_sha256": "a6edab545574ff4932c2bd6852a958d478fb157d3aaf1a41f8aee2c7c26158db",
+      "logical_pellets": 3,
+      "landed_packets": 6,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            -5.0,
+            2.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9306593922649661
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.915846659955781
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.8817092398615916
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.09173518365315188
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/winner-expires-restores-core",
+      "native_sha256": "1d2adfa0152638222308c2c08e0ea483937f3624eb7ea7783c49b1969e05d4f0",
+      "logical_pellets": 3,
+      "landed_packets": 6,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9376792852530401
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            -5.0,
+            2.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9063675093379163
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            -5.0,
+            2.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.8743916393467307
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.09173518365315188
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/large-core",
+      "native_sha256": "6af466c3aa6f9a400e8fe2ab62203eb704dfdea00853c0907cc584483cccca5d",
+      "logical_pellets": 3,
+      "landed_packets": 3,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 1.0,
+          "body_fraction": 0.0
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 1.0,
+          "body_fraction": 0.0
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 1.0,
+          "body_fraction": 0.0
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": []
+    },
+    {
+      "name": "coordinate-core/tiny-core",
+      "native_sha256": "34e51e50a84b7e63e60dc199c5453aa39aeee599cd34b52dd1acb4b5205c8cbd",
+      "logical_pellets": 3,
+      "landed_packets": 3,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.0006295860722850556,
+          "body_fraction": 0.999370413927715
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.0008501470344688716,
+          "body_fraction": 0.9991498529655312
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.0011950154192797839,
+          "body_fraction": 0.9988049845807202
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.002674748526033711
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/scatter-two-muzzles",
+      "native_sha256": "b99690a3632161a8e52030dfe190e8ed2c02e747b341172516d4dcf11ced2363",
+      "logical_pellets": 18,
+      "landed_packets": 54,
+      "core_notifications": 18,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9590148539614158
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9590148539614158
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9590148539614158
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9590148539614158
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9590148539614158
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9590148539614158
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.5504111019189112
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/two-shooters",
+      "native_sha256": "a8fc84ae7aa047f841d9f16045432e31375c7b0b7b7473749694cc31116b7245",
+      "logical_pellets": 6,
+      "landed_packets": 15,
+      "core_notifications": 6,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9376792852530401
+        },
+        {
+          "owner": "모더니아",
+          "time": 0.0,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9376792852530401
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.915846659955781
+        },
+        {
+          "owner": "모더니아",
+          "time": 0.11666666666666665,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.915846659955781
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.8817092398615916
+        },
+        {
+          "owner": "모더니아",
+          "time": 0.21666666666666665,
+          "aim": [
+            4.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.8817092398615916
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.09173518365315188
+        },
+        {
+          "event": 23,
+          "owner": 3,
+          "value": 0.09173518365315188
+        },
+        {
+          "event": 22,
+          "owner": 3,
+          "value": 0.44999999999999996
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/last-owner",
+      "native_sha256": "29d8685480de097ac3b9c84b2f9e2dc1edcce213d8192c740f654df7bc54d3a9",
+      "logical_pellets": 3,
+      "landed_packets": 3,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "N102",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "N102",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "N102",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9590148539614158
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 4,
+          "value": 0.09173518365315188
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/expanded-parent",
+      "native_sha256": "74faaecea505b5691fa5c385403bfa0a1db3492abad13aee31546a613c798857",
+      "logical_pellets": 1,
+      "landed_packets": 4,
+      "core_notifications": 1,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.05,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.016505416541446365,
+          "body_fraction": 0.9834945834585537
+        }
+      ],
+      "skill_trace": [
+        {
+          "row": 3,
+          "created": 0.05,
+          "landed": 0.06666666666666667,
+          "amount": 2008,
+          "share": 2008,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 1
+        }
+      ],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.016505416541446365
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/32-nodes",
+      "native_sha256": "f98d28ea3063e7b10d5ee8602c9e2b5260e3adc89e2ff00474f85536553104a6",
+      "logical_pellets": 3,
+      "landed_packets": 3,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            3.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            3.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            3.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9590148539614158
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.09173518365315188
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/127-targets",
+      "native_sha256": "384c81fc57c913248a62798a56a1e6c70b8ca0f334f9d54fbf2d494cbd80e752",
+      "logical_pellets": 3,
+      "landed_packets": 3,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            0.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9590148539614158
+        }
+      ],
+      "skill_trace": [],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.09173518365315188
+        }
+      ]
+    },
+    {
+      "name": "coordinate-core/area-skill-default-core-aim",
+      "native_sha256": "8b53bc6285fd1d34ee520e2587da4b0e65e078c6c76185c7a7642fc0de510bdb",
+      "logical_pellets": 3,
+      "landed_packets": 8,
+      "core_notifications": 3,
+      "shots": [
+        {
+          "owner": "리타",
+          "time": 0.0,
+          "aim": [
+            40.0,
+            0.0
+          ],
+          "core_fraction": 0.02159275662904252,
+          "body_fraction": 0.9784072433709575
+        },
+        {
+          "owner": "리타",
+          "time": 0.11666666666666665,
+          "aim": [
+            40.0,
+            0.0
+          ],
+          "core_fraction": 0.02915728098552524,
+          "body_fraction": 0.9708427190144747
+        },
+        {
+          "owner": "리타",
+          "time": 0.21666666666666665,
+          "aim": [
+            40.0,
+            0.0
+          ],
+          "core_fraction": 0.04098514603858412,
+          "body_fraction": 0.9590148539614158
+        }
+      ],
+      "skill_trace": [
+        {
+          "row": 3,
+          "created": 0.11666666666666665,
+          "landed": 0.11666666666666665,
+          "amount": 2000,
+          "share": 2000,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 1
+        },
+        {
+          "row": 3,
+          "created": 0.11666666666666665,
+          "landed": 0.11666666666666665,
+          "amount": 3000,
+          "share": 3000,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 1
+        }
+      ],
+      "fractional_accumulators": [
+        {
+          "event": 23,
+          "owner": 0,
+          "value": 0.09173518365315188
+        }
+      ]
+    }
+  ]
+}

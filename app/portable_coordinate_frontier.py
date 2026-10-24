@@ -113,6 +113,11 @@ def verify(root, overrides=None):
     emission_path=root/'research/portable-coordinate-accum-emission-short-expected.json'
     emission_golden=json.loads(emission_path.read_text()) if emission_path.is_file() else None
     emission_matches=emission_golden['source_sha256']==physical_sources if emission_golden else None
+    core_sources=source_hashes(root,'gpu/world_coordinate_core_entry.slang')
+    core_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in core_sources.items()}
+    core_path=root/'research/portable-coordinate-core-short-expected.json'
+    core_golden=json.loads(core_path.read_text()) if core_path.is_file() else None
+    core_matches=core_golden['source_sha256']==core_sources if core_golden else None
     integer_sources=source_hashes(root,'gpu/packet_integer_probe.slang')
     integer_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in integer_sources.items()}
     integer_path=root/'research/portable-packet-integer-short-expected.json'
@@ -131,7 +136,7 @@ def verify(root, overrides=None):
              work='Per-pellet body/front/reach packets, conditional core probability, per-target damage rounding',
              private_expected_entry='gpu/world_coordinate_physical_entry.slang',
              private_expected_packets_connected=True,
-             remaining=['live-core-nodes',
+             remaining=[
                         'rounded-geometry-cache','manual-aim','sampling-rng','mixed-shot-groups'],
              depends_on=['landing-probability', 'physical-native-observation']),
         dict(id='coordinate-shot-groups', classification='adapter_gap',
@@ -197,6 +202,15 @@ def verify(root, overrides=None):
                     source_sha256=physical_sources,reference_kind='deterministic-common-cpu',
                     body_only_receipt_connected=True,shared_queue_and_lifetime_core=True,
                     excluded_coordinate_scenarios=['ADD sharing','enemy attack nodes'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_live_core=dict(suite='coordinate-core',
+                    proof_available=core_golden is not None,sealed_source_matches_current=core_matches,
+                    requires_new_metal_proof=not core_matches,
+                    input_count=len(core_golden['entries']) if core_golden else None,
+                    source_sha256=core_sources,reference_kind='deterministic-common-cpu',
+                    runtime_connected=True,graph_lifetime_reused=True,
+                    winner='greatest diameter; newest start then declaration on equal diameter',
+                    default_auto_aim_tracks_selected_core=True,base_core_at_origin=True,
                     public_gpu_admitted=False,all_characters_certified=False),
                 coordinate_skill_shape_contains_is_physical_landing=False,
                 angular_interval_algebra=dict(suite='coordinate-arcs',

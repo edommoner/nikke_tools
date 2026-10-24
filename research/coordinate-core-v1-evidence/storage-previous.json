@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-interrupt-aim-retention-v2-capture",
+  "raw_bytes": 4356833280,
+  "raw_sha256": "ed1ee9d50bb85c1d38aa0a355db830360505e42dd1768a4183b50e4e3cbe77c2",
+  "evidence_sha256": "6cb8cb7622299f37c5ffc8ebd4d73d64c05478389ece78fd2c4d9a2a58b607b0",
+  "raw_inode": 508075301,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 33337,
+  "zero_range_bytes": 4179079168,
+  "allocated_before": 1255800832,
+  "allocated_after": 177754112,
+  "allocated_reclaimed": 1078046720,
+  "full_hash_verified": true
+}

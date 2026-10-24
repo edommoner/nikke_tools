@@ -20,7 +20,8 @@ def project_sources(root,sources=None):
 def project_backend_source(root,source=None):
     root=Path(root)
     row=json.loads((root/'tests/fixtures/portable-coordinate-physical-source-delta.json').read_text())['transport']
-    current=(root/row['path']).read_text() if source is None else source
+    from portable_coordinate_core_source_contract import project_backend_source as project_core_backend
+    current=project_core_backend(root,source)
     if current!=row['current'] or hashlib.sha256(current.encode()).hexdigest()!=row['current_sha256']:
         raise ValueError('Unreviewed coordinate physical transport source')
     if hashlib.sha256(row['baseline'].encode()).hexdigest()!=row['baseline_sha256']:

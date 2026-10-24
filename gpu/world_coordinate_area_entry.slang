@@ -21,7 +21,11 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
 {
     if(id.x>=commands[0])return;
+#ifdef PORTABLE_COORDINATE_LIVE_CORE
+    uint input=1+id.x*(P_INPUT_WORDS+C_INPUT+CA_INPUT+CC_INPUT),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
+#else
     uint input=1+id.x*(P_INPUT_WORDS+C_INPUT+CA_INPUT),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
+#endif
     WORLD_TEAM_INPUT(input,output)
 #ifndef PORTABLE_COMPOSED_ARENA
     Runtime s;
