@@ -63,6 +63,7 @@ REFERENCES={'projectile-chain-rosters':('portable_projectile_chain_roster_cases'
             'parts-skill-extended':('portable_parts_skill_extra_cases','world_parts_skill_native','portable_parts_skill_contracts'),
             'parts-skill-lifecycle':('portable_parts_skill_lifecycle_cases','world_parts_skill_native','portable_parts_skill_contracts')}
 REFERENCES['destructible-modifier']=('destructible_modifier_cases','world_destructible_modifier_native','portable_destructible_modifier_contracts')
+REFERENCES['destructible-shield-battle']=('destructible_shield_battle_cases','world_destructible_shield_battle_native','portable_destructible_shield_battle_contracts')
 
 
 def digest(value):

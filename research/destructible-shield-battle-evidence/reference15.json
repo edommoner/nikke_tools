@@ -1,0 +1,768 @@
+{
+  "schema": 1,
+  "source_report_sha256": "c8b67655fa158ffd9385b965580a607db414a394e1d14c3ce48a86f4231cb3d3",
+  "passed": true,
+  "case_count": 15,
+  "positive_contract_cases": 0,
+  "reference_model_gap_cases": 15,
+  "gpu_calls": {
+    "build": 0,
+    "execute": 0
+  },
+  "packing_calls": 0,
+  "elapsed_seconds": 1.4833547919988632,
+  "cases": [
+    {
+      "name": "destructible-shield-battle/shield-factor-keeps-physical-body",
+      "input_sha256": "9c52e0a4a09df1798c63c0c895f7b0b86e1174bc53919fef34bf6387fa6c269e",
+      "native_sha256": "dddce737de3a86ea044d1d8e072fa7ddb13c925ac1b1b43d88c612307cf2ed37",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "owner_generation_matched": true,
+        "no_overflow": true,
+        "physical_weapon_interception": false,
+        "hit_shield_interception": false,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": 3872,
+      "attacks": [
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ]
+        },
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ]
+        }
+      ],
+      "remaining": [
+        7098.0
+      ]
+    },
+    {
+      "name": "destructible-shield-battle/projectile-factor-does-not-affect-shield",
+      "input_sha256": "feef9035ae3fee545195c6968f4757009fb90f747e8eec44936767e35c37a81c",
+      "native_sha256": "37858bb993e8e879a3bdffaaeb750c45c5e3260ebdfb5692090398ec21aab5c6",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "owner_generation_matched": true,
+        "no_overflow": true,
+        "physical_weapon_interception": false,
+        "hit_shield_interception": false,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": 3872,
+      "attacks": [
+        {
+          "damage": 968.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 968.0
+            }
+          ]
+        },
+        {
+          "damage": 968.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 968.0
+            }
+          ]
+        }
+      ],
+      "remaining": [
+        8064.0
+      ]
+    },
+    {
+      "name": "destructible-shield-battle/break-without-overflow",
+      "input_sha256": "155c9a1bcf39f39033e03804762fe2e5c30caafe1445facabe968b10d4fdf86b",
+      "native_sha256": "7072913f0c1d8218d8031d2d5b9a6fa504168b968c689547bac426fe5b615004",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "owner_generation_matched": true,
+        "no_overflow": true,
+        "physical_weapon_interception": false,
+        "hit_shield_interception": false,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": 4840,
+      "attacks": [
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 500.0
+            }
+          ]
+        }
+      ],
+      "remaining": [
+        0.0
+      ]
+    },
+    {
+      "name": "destructible-shield-battle/unowned-shield-does-not-intercept",
+      "input_sha256": "3613c068d4f7bc74a8fb649340aba8bc4c57446165c3db3c0276f7d60fc0b0d0",
+      "native_sha256": "4cfb1967f98de8390644f9fb43f4a8b2ce921c0c1058a4a4b348114b9436c3b0",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "owner_generation_matched": true,
+        "no_overflow": true,
+        "physical_weapon_interception": false,
+        "hit_shield_interception": false,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": 5808,
+      "attacks": [],
+      "remaining": [
+        10000.0
+      ]
+    },
+    {
+      "name": "destructible-shield-battle/other-owner-does-not-intercept",
+      "input_sha256": "75749780c5ce99cad1db325741c74ec80858728edf3487378b10d86e40a9bdcc",
+      "native_sha256": "4cfb1967f98de8390644f9fb43f4a8b2ce921c0c1058a4a4b348114b9436c3b0",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "owner_generation_matched": true,
+        "no_overflow": true,
+        "physical_weapon_interception": false,
+        "hit_shield_interception": false,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": 5808,
+      "attacks": [],
+      "remaining": [
+        10000.0
+      ]
+    },
+    {
+      "name": "destructible-shield-battle/stale-owner-generation-does-not-intercept",
+      "input_sha256": "7c2b411357dbe38ea050cc672141c47182c9480d4ba47de7cae0b9df22bd6a1c",
+      "native_sha256": "4cfb1967f98de8390644f9fb43f4a8b2ce921c0c1058a4a4b348114b9436c3b0",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "owner_generation_matched": true,
+        "no_overflow": true,
+        "physical_weapon_interception": false,
+        "hit_shield_interception": false,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": 5808,
+      "attacks": [],
+      "remaining": [
+        10000.0
+      ]
+    },
+    {
+      "name": "destructible-shield-battle/two-shields-in-binding-order",
+      "input_sha256": "59d9b37abea6493da2baed5ac2ae2ceba9e7feb56941cdee20939cccf2022ac0",
+      "native_sha256": "a3c5ff7fed8cef0672f7e8ce1bf094008080ea77e71f9e35993fb8588cabc0d7",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "owner_generation_matched": true,
+        "no_overflow": true,
+        "physical_weapon_interception": false,
+        "hit_shield_interception": false,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": 3872,
+      "attacks": [
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 500.0
+            }
+          ]
+        },
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 1,
+              "handle": [
+                3,
+                11,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ]
+        }
+      ],
+      "remaining": [
+        0.0,
+        3549.0
+      ]
+    },
+    {
+      "name": "destructible-shield-battle/expired-world-falls-back-to-body",
+      "input_sha256": "02f06a2ffb52c45d82967a2149deaf39df9141d5d997f28ece78530261331071",
+      "native_sha256": "3e1a50c9be88fe2efa1f2ffe012fe44a61b5012b42e1d98815589990ea567d01",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "owner_generation_matched": true,
+        "no_overflow": true,
+        "physical_weapon_interception": false,
+        "hit_shield_interception": false,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": 4840,
+      "attacks": [
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ]
+        }
+      ],
+      "remaining": [
+        8549.0
+      ]
+    },
+    {
+      "name": "destructible-shield-battle/named-coefficient-is-preserved",
+      "input_sha256": "9ffcafe58613afc99aff5b0cbb08f242587894e0a389f731731a3b3ee162472f",
+      "native_sha256": "8a688a5a68b99df0a1e2209099ee6f0a1981d92a58bb83b395a64e018bbe4b1f",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "owner_generation_matched": true,
+        "no_overflow": true,
+        "physical_weapon_interception": false,
+        "hit_shield_interception": false,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": 3872,
+      "attacks": [
+        {
+          "damage": 2177.0,
+          "coefficient": 150.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 2177.0
+            }
+          ]
+        },
+        {
+          "damage": 2177.0,
+          "coefficient": 150.0,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 2177.0
+            }
+          ]
+        }
+      ],
+      "remaining": [
+        5646.0
+      ]
+    },
+    {
+      "name": "destructible-shield-battle/expiry-before-second-skill",
+      "input_sha256": "0d7bac2e6b8d81c784b8264b3583cb54f9219219d091e9b6256884eacaba9da0",
+      "native_sha256": "4ccec9763c56fb0a22933f78f211d371110ae07e66025d52abcd8c18937e306b",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "owner_generation_matched": true,
+        "no_overflow": true,
+        "physical_weapon_interception": false,
+        "hit_shield_interception": false,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": 3872,
+      "attacks": [
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ]
+        },
+        {
+          "damage": 968.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 968.0
+            }
+          ]
+        }
+      ],
+      "remaining": [
+        7581.0
+      ]
+    },
+    {
+      "name": "destructible-shield-battle/ordinary-and-target-factor-add",
+      "input_sha256": "116d3f5e87f90d48c44b6b92f53f712147549b478cc8ec82d5bca41ac68da8a4",
+      "native_sha256": "b11912f2236bf0f5b1c8a642ec4ae2c47101007d89598b7a839bd79fd0463a2f",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "owner_generation_matched": true,
+        "no_overflow": true,
+        "physical_weapon_interception": false,
+        "hit_shield_interception": false,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": 5416,
+      "attacks": [
+        {
+          "damage": 1838.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1838.0
+            }
+          ]
+        },
+        {
+          "damage": 1838.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.21666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1838.0
+            }
+          ]
+        }
+      ],
+      "remaining": [
+        6324.0
+      ]
+    },
+    {
+      "name": "destructible-shield-battle/projectiles-are-not-shields",
+      "input_sha256": "989e6b2a6524441f49540fa824c81448b895eac796b32f76811ce378c1f403e2",
+      "native_sha256": "4cfb1967f98de8390644f9fb43f4a8b2ce921c0c1058a4a4b348114b9436c3b0",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "owner_generation_matched": true,
+        "no_overflow": true,
+        "physical_weapon_interception": false,
+        "hit_shield_interception": false,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": 5808,
+      "attacks": [],
+      "remaining": [
+        10000.0
+      ]
+    },
+    {
+      "name": "destructible-shield-battle/named-completion-child-reselects-shield",
+      "input_sha256": "fa8efdfb05a325ae71a68881371becd4bc3ba8cfcb8c35c38e55567c0a69482d",
+      "native_sha256": "ec86a3b5b88d5314d8c34ef2514860068b1c2d134a557dbb7965fcadfb0a595e",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "owner_generation_matched": true,
+        "no_overflow": true,
+        "physical_weapon_interception": false,
+        "hit_shield_interception": false,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": 0,
+      "attacks": [
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 1451.0
+            }
+          ]
+        },
+        {
+          "damage": 726.0,
+          "coefficient": 50.0,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": false,
+              "took": 726.0
+            }
+          ]
+        }
+      ],
+      "remaining": [
+        7823.0
+      ]
+    },
+    {
+      "name": "destructible-shield-battle/death-counter-child-falls-back-to-body",
+      "input_sha256": "745bb4906482080e00741219c4d029dccb4cb5c0a870cb22d58d3c07005bb8a7",
+      "native_sha256": "050a4614a26298024b970355537442bf4492fb50f120b7e485ab6b61411253bc",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "owner_generation_matched": true,
+        "no_overflow": true,
+        "physical_weapon_interception": false,
+        "hit_shield_interception": false,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": 5324,
+      "attacks": [
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.11666666666666665,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 500.0
+            }
+          ]
+        }
+      ],
+      "remaining": [
+        0.0
+      ]
+    },
+    {
+      "name": "destructible-shield-battle/next-generation-is-selected-after-respawn",
+      "input_sha256": "31893ad106e0e228b379219e24cfac906455c143c9fd64df70ac796212d7f54f",
+      "native_sha256": "39bc87bbc574179ad489fedafcac754f1ee67ab7df9dcfaf8086dadb8bbafdfa",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "declared_model": true,
+        "canonical_consumer_verified": false,
+        "actual_battle_scheduler": true,
+        "owner_generation_matched": true,
+        "no_overflow": true,
+        "physical_weapon_interception": false,
+        "hit_shield_interception": false,
+        "gpu_connected": false,
+        "in_game_rules_verified": false
+      },
+      "body_damage": 3872,
+      "attacks": [
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.0,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                1
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 500.0
+            }
+          ]
+        },
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.09999999999999999,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                2
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 500.0
+            }
+          ]
+        },
+        {
+          "damage": 1451.0,
+          "coefficient": 100.0,
+          "completed": true,
+          "time": 0.19999999999999998,
+          "receipts": [
+            {
+              "slot": 0,
+              "handle": [
+                3,
+                10,
+                3
+              ],
+              "delivered": true,
+              "broken": true,
+              "took": 500.0
+            }
+          ]
+        }
+      ],
+      "remaining": [
+        0.0
+      ]
+    }
+  ]
+}

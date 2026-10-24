@@ -1,4 +1,6 @@
 <!-- shared-readback-current -->
+HP盾の実戦迎撃はCPU契約段階へ進んだ。`reference --suite destructible-shield-battle`の15宣言モデル契約と、固定packageのCPU179/既存18入力保持が成功。実scheduler上のplain boss skillだけを明示所有者のHP盾へ振り分け、無spill・次発のbody復帰・named子・破壊counter子・再出現世代を確認。新GPU/Windows依頼0、Metal/CUDA接続と武器/hit盾/貫通迎撃は未完了。詳細 docs/portable-destructible-shield-battle-native.md。
+
 実戦補正にはsealed `destructible-modifier-battle`（18入力/native12＋拒否6、Metal保存replay/独立seal済み）を追加した。既存Frameの量確定から共有projectile queryへ接続し、親兄弟固定・再入・通常body非混入・実採取のnamed係数を比較する。HP盾の実戦選択/迎撃・公開受付・CUDA実機は未対応。詳細 docs/portable-destructible-modifier-battle.md。
 
 最新のprivate scalar補正はsealed `destructible-modifier`（29入力/native20＋拒否9、Metal/独立seal済み）。同じ20 CPUケースを共有resident carrierと7因子/丸めへ接続した。出力159744wordの専用probeであり、実戦Frame・公開受付・CUDA実機は未対応。詳細 docs/portable-destructible-modifier-gpu.md。通常CLIのpackage/unpack/run/auditを使う。

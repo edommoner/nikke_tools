@@ -27,11 +27,15 @@ class TypedLandings(ast.NodeTransformer):
         return node
 
 @contextmanager
-def typed_battle(bindings,*,max_attacks=128,modifier_model=False):
+def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None):
     from calculator import timeline,buff_manager
     from runner import sim
     if type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Invalid typed battle observation capacity')
     if type(modifier_model) is not bool:raise ValueError('Explicit modifier model boolean required')
+    if shield_owner is not None:
+        from destructible_shield_policy import validate_owner
+        validate_owner(shield_owner)
+        if not modifier_model:raise ValueError('Shield interception requires the declared modifier model')
     old_simulate=timeline.simulate;old_alias=sim.simulate
     if old_simulate is not old_alias:raise ValueError('Native battle aliases differ before typed extension')
     old_boss=timeline.BossScript;old_register=buff_manager.BuffManager.register_damage_handler;old_hit=timeline.HitEvent
@@ -72,7 +76,16 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False):
                 if world.last!=t or world.finished:raise ValueError('Projectile skill is outside the owning battle frame')
                 data['activations'].append(dict(name=effect.get('name'),caster=caster,time=t))
                 if not world.targets.select([ActorKind.PROJECTILE]):return
-                context=dict(manager=manager,world=world,effect=effect,caster=caster,time=t)
+                context=dict(manager=manager,world=world,effect=effect,caster=caster,time=t,kind=ActorKind.PROJECTILE)
+            elif shield_owner is not None and effect.get('target')=='boss':
+                # Select before entering the ordinary handler. Neither damage
+                # resolution nor synchronous children may retarget this packet.
+                from destructible_shield_policy import select
+                from destructible_skill_specs import coefficient
+                coefficient(dict(effect,target='all_projectiles'),manager._char[caster])
+                selected=select(world,shield_owner)
+                if selected is not None:
+                    context=dict(manager=manager,world=world,effect=effect,caster=caster,time=t,kind=ActorKind.HP_SHIELD,selected=selected)
             active.append(context)
             try:return previous(dict(effect,target='boss') if context is not None else effect,caster,t,*args,**kwargs)
             finally:assert active.pop() is context
@@ -85,7 +98,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False):
         hit=kwargs.get('hit_type',args[3] if len(args)>3 else None)
         if not isinstance(hit,dict) or hit.get('coeff') is None:raise ValueError('Typed handler must expose its sampled coefficient')
         context['coefficient']=float(hit['coeff'])
-        return calculate(*args,**kwargs,kind=ActorKind.PROJECTILE)
+        return calculate(*args,**kwargs,kind=context['kind'])
     def packet(*args,**kwargs):
         event=old_hit(*args,**kwargs);context=active[-1] if active else None
         if context is None:return event
@@ -97,7 +110,14 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False):
         record=dict(attack_id=identity,name=context['effect'].get('name'),caster=event.caster,time=event.t,damage=float(event.damage),receipts=(),completed=False)
         if modifier_model:record['coefficient']=context['coefficient']
         data['attacks'].append(record)
-        record['receipts']=projectiles(context['world'],context['manager'],event.caster,1,2,float(event.damage),1.,identity)
+        if context['kind']==ActorKind.PROJECTILE:
+            record['receipts']=projectiles(context['world'],context['manager'],event.caster,1,2,float(event.damage),1.,identity)
+        else:
+            from destructible_impact_runtime import deliver
+            from impact_specs import Impact
+            slot,handle=context['selected'];world=context['world']
+            if world.last!=event.t or world.finished:raise ValueError('Shield packet left its owning frame')
+            record['receipts']=((slot,handle,deliver(world,context['manager'],slot,Impact(event.caster,handle,1,2,float(event.damage),1.,identity))),)
         record['completed']=True
         return event
     def skip(event):return marked.get(id(event)) is event
