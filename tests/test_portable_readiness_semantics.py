@@ -91,6 +91,13 @@ class ReadinessSemanticsTests(unittest.TestCase):
             for field in ('canonical_consumer_verified','cuda_device_verified','battle_connected','in_game_rules_verified'):self.assertFalse(v[field])
             self.assertFalse(r['gpu_supported']);self.assertFalse(r['runtime_validation_performed'])
 
+    def test_projectile_battle_metadata_does_not_certify_hp_shield_or_public_admission(self):
+        for issue in (self.blocker('projectile_dmg_pct'),dict(phase='effect',kind='damage',stat='damage',target='all_projectiles')):
+            r=reference_readiness(issue);v=r['typed_modifier_battle_validation'];self.assertEqual((v['inputs'],v['native_cases']),(18,12));self.assertTrue(v['actual_scheduler_verified']);self.assertTrue(v['parent_damage_frozen']);self.assertTrue(v['named_coefficient_observed'])
+            for flag in ('hp_shield_battle_verified','cuda_device_verified','in_game_rules_verified','original_full_profile_verified'):self.assertFalse(v[flag])
+            self.assertFalse(r['gpu_supported']);self.assertEqual(r['lane'],'reference_model_gap')
+        self.assertNotIn('typed_modifier_battle_validation',reference_readiness(self.blocker('shield_dmg_pct')))
+
     def test_inert_model_gap_is_checked_against_current_canonical_classification(self):
         r=reference_readiness(self.blocker('cover_def_pct'));self.assertEqual(r['lane'],'reference_model_gap')
         import effect_spec

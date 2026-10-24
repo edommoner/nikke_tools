@@ -1,5 +1,7 @@
 # 投射物・HP盾補正の共有scalar GPU実証
 
+続く投射物の実戦Frame接続18入力は[実戦補正記録](portable-destructible-modifier-battle.md)を参照。以下はscalar29の実証記録。
+
 共通CLI `destructible-modifier`をsealed suiteへ登録した。先行CPU設計と同じ20ケースを、共有Slangのresident carrier・数値query・7因子・最終丸めへ接続した。Apple M5のMetal29入力（native20・拒否9）が全件一致し、保存rawの独立sealも成功。CUDA/MSLは同じSlangから生成・厳密照合する。現在のCUDA実機、実戦producer/Frameへの補正接続、ゲーム規則の認定は未完了である。
 
 ## 共通計算とprivate入力

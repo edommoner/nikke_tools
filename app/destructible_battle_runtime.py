@@ -5,7 +5,7 @@ packet lands on live typed targets; the later body landing is explicitly skipped
 This is an opt-in declared model, not public full-catalog admission.
 """
 import ast
-from contextlib import contextmanager
+from contextlib import contextmanager,nullcontext
 from functools import wraps
 from unittest.mock import patch
 from destructible_world_runtime import DestructibleWorld
@@ -27,13 +27,15 @@ class TypedLandings(ast.NodeTransformer):
         return node
 
 @contextmanager
-def typed_battle(bindings,*,max_attacks=128):
+def typed_battle(bindings,*,max_attacks=128,modifier_model=False):
     from calculator import timeline,buff_manager
     from runner import sim
     if type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Invalid typed battle observation capacity')
+    if type(modifier_model) is not bool:raise ValueError('Explicit modifier model boolean required')
     old_simulate=timeline.simulate;old_alias=sim.simulate
     if old_simulate is not old_alias:raise ValueError('Native battle aliases differ before typed extension')
     old_boss=timeline.BossScript;old_register=buff_manager.BuffManager.register_damage_handler;old_hit=timeline.HitEvent
+    old_scalar=timeline.calc_damage
     data=dict(worlds=[],managers=[],activations=[],attacks=[],finished=[]);active=[];marked={};restores=[]
     class Boss(old_boss):
         def __init__(self,*args,**kwargs):
@@ -45,6 +47,9 @@ def typed_battle(bindings,*,max_attacks=128):
     def register(manager,handler):
         old_register(manager,handler);previous=manager._damage_handler
         if not data['worlds']:raise ValueError('Typed battle requires the scheduler before damage registration')
+        if modifier_model:
+            from destructible_damage_policy import modifier_axis
+            for effect,_ in manager._effects:modifier_axis(effect)
         data['managers'].append(manager)
         world=data['worlds'][-1];resolver=manager._resolve_target;missing=object();old_instance=manager.__dict__.get('_resolve_target',missing)
         condition_ok=manager._condition_ok;old_condition=manager.__dict__.get('_condition_ok',missing)
@@ -73,6 +78,14 @@ def typed_battle(bindings,*,max_attacks=128):
             finally:assert active.pop() is context
         manager._damage_handler=damage;manager._resolve_target=resolve_target;manager._condition_ok=conditions
         restores.append((manager,damage,previous,old_instance,old_condition,missing))
+    def scalar(*args,**kwargs):
+        context=active[-1] if active else None
+        if context is None:return old_scalar(*args,**kwargs)
+        from destructible_damage_policy import calculate
+        hit=kwargs.get('hit_type',args[3] if len(args)>3 else None)
+        if not isinstance(hit,dict) or hit.get('coeff') is None:raise ValueError('Typed handler must expose its sampled coefficient')
+        context['coefficient']=float(hit['coeff'])
+        return calculate(*args,**kwargs,kind=ActorKind.PROJECTILE)
     def packet(*args,**kwargs):
         event=old_hit(*args,**kwargs);context=active[-1] if active else None
         if context is None:return event
@@ -82,14 +95,18 @@ def typed_battle(bindings,*,max_attacks=128):
         # Reserve before synchronous landing children can produce another packet.
         # A failed delivery remains visible as incomplete, never as success.
         record=dict(attack_id=identity,name=context['effect'].get('name'),caster=event.caster,time=event.t,damage=float(event.damage),receipts=(),completed=False)
+        if modifier_model:record['coefficient']=context['coefficient']
         data['attacks'].append(record)
         record['receipts']=projectiles(context['world'],context['manager'],event.caster,1,2,float(event.damage),1.,identity)
         record['completed']=True
         return event
     def skip(event):return marked.get(id(event)) is event
     rewritten=rewrite_reference(old_simulate,TypedLandings(),dict(land=1),compose=True)
+    from destructible_damage_policy import manager_type
+    manager_scope=patch.object(timeline,'BuffManager',manager_type(timeline.BuffManager)) if modifier_model else nullcontext()
+    scalar_scope=patch.object(timeline,'calc_damage',scalar) if modifier_model else nullcontext()
     try:
-        with patch.object(timeline,'BossScript',Boss),patch.object(buff_manager.BuffManager,'register_damage_handler',register),patch.object(timeline,'HitEvent',packet),patch.dict(old_simulate.__globals__,{'_nikke_skip_typed_body_landing':skip}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):yield data
+        with manager_scope,scalar_scope,patch.object(timeline,'BossScript',Boss),patch.object(buff_manager.BuffManager,'register_damage_handler',register),patch.object(timeline,'HitEvent',packet),patch.dict(old_simulate.__globals__,{'_nikke_skip_typed_body_landing':skip}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):yield data
     finally:
         for manager,wrapper,previous,old_instance,old_condition,missing in reversed(restores):
             if manager._damage_handler is wrapper:manager._damage_handler=previous

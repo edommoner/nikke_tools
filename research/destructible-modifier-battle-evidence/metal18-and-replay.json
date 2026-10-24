@@ -1,0 +1,171 @@
+{
+  "producer_package_id": "a32b395a945cdee7cbb0b6c4d46349374d82f5ab69de2ed658766e000b96a937",
+  "reader_package_id": "29334f25744750c47970aa2f30d47f2ee69edfec3e76a3fc22040103a2a86478",
+  "original_calculation_verified": false,
+  "original_first_difference": {
+    "index": 8,
+    "name": "destructible-modifier-battle/named-coefficient-is-preserved",
+    "reason": "AssertionError: "
+  },
+  "original_failure_preserved": true,
+  "comparison": {
+    "calculation_verified": true,
+    "entries": [
+      {
+        "name": "destructible-modifier-battle/physical-body-is-unmodified",
+        "input_sha256": "c10dcb7dd498919c4cdb9b25735708b7240d68307d4dd6eca23809b4058cc0af",
+        "output_sha256": "90414598d0ad6ac20910123302f2998529c1b256c5b113878fb91400970cbfb5",
+        "native_sha256": "17d1b9013f482551f186d0b817ca11dca81a0c7ddb24a36eeaca77e2869e140f"
+      },
+      {
+        "name": "destructible-modifier-battle/shield-factor-does-not-affect-projectiles",
+        "input_sha256": "1709f9fb3feb414d2d2f69b86255dcfdf866f3e2a7dde0b71bab284dab787662",
+        "output_sha256": "9e39643c813c162894543a83adc4bc8ac7f0d6a1828869c0e57ef93221746075",
+        "native_sha256": "f5fccb671eee6ded7f60dc0352153e1331fbf69f20bde18da8d44ae003b675ef"
+      },
+      {
+        "name": "destructible-modifier-battle/expiry-before-second-skill",
+        "input_sha256": "00fa43ff8dae1a44b13c9fbd82a5bb9d51f50817634c3f35ae73d3ae9f13e011",
+        "output_sha256": "07f9e4daabd4afa8128d203940aa7bf8d58ee18c8395c5d35a215e325c893a24",
+        "native_sha256": "4f4a333aad64f3d8009da9b338640c3d7250a1fae463e7d0388ceb7dba2cc64f"
+      },
+      {
+        "name": "destructible-modifier-battle/different-ally-self",
+        "input_sha256": "009fcdb4dfe48ff444cab50c1fb185311a9cceea85e1fb855341fbd20c9f3eb9",
+        "output_sha256": "84067c1f4f88cc627ea5e42910c1c2d03a8c3ceba1a2bca99f6cf385ca9c79f9",
+        "native_sha256": "f5fccb671eee6ded7f60dc0352153e1331fbf69f20bde18da8d44ae003b675ef"
+      },
+      {
+        "name": "destructible-modifier-battle/squad-gift",
+        "input_sha256": "c3093974dcceb777609ab8f0690d79e1fc618970695f28775b2e432a2dcdb920",
+        "output_sha256": "0d16ec2e948323f5b8d1db18ad7e3194cbc4e13d9174232024ffa130b86cabeb",
+        "native_sha256": "17d1b9013f482551f186d0b817ca11dca81a0c7ddb24a36eeaca77e2869e140f"
+      },
+      {
+        "name": "destructible-modifier-battle/ordinary-and-target-factor-add",
+        "input_sha256": "26e5ea1d0d69d8be9b3562acc9acd12a2a351e8a842ab7b6c4912c5e176224c6",
+        "output_sha256": "e08ee9d96e68ab135548ec05f46d93e088feb455c481a7a6ef63cf1bea406cd0",
+        "native_sha256": "baece7217f2f5ebe718568ef7e36d3012a87b4499043a2b650f89e4f5c94422f"
+      },
+      {
+        "name": "destructible-modifier-battle/two-stacks",
+        "input_sha256": "2c37dddc5a6d59a5d034fb7cfa178336f7181fb5ee52a52e7a6c4656954ae9e7",
+        "output_sha256": "93f90d970acd568d5e1561255b33e5babf44d29ae63481cdf32c50d416408f4e",
+        "native_sha256": "6d80c0f1711b9d176be4f719055b30e0283f5d3355b43f31baef22448b9f04da"
+      },
+      {
+        "name": "destructible-modifier-battle/named-completion-keeps-body-normal",
+        "input_sha256": "dce5c64440938692b7e33ceaf31b4501bcd4afabe5c7fc8dd32a2b4d0a597f0d",
+        "output_sha256": "7ef926160fa3941df9222d4c055a1597788d7ac32c2ff7d892cc407a75ba8c9d",
+        "native_sha256": "9a849863d2bb167dfe2b37a4dc18ca0e766c3b6ce3078f6035c6987bd3ddf18a"
+      },
+      {
+        "name": "destructible-modifier-battle/named-coefficient-is-preserved",
+        "input_sha256": "a73c815a8610eba2716980c05b814d423344f31b77ab57042145534a8a541b1a",
+        "output_sha256": "1f7d9f18fd0d6ebf1bb99b39b2e7be19a04b4b0b6aeb62176731114d2b2b19a5",
+        "native_sha256": "7950914de27aba16466569fda72576fcba46ec0096197f46d02b607e3aba15fa"
+      },
+      {
+        "name": "destructible-modifier-battle/reentrant-parent-child-grandchild",
+        "input_sha256": "9149bf3e7b3acd2d91feb642adbfea0f59fff1a3efae4f8f717f325a35a1356f",
+        "output_sha256": "1fc8613101be9a1f9c069f73d09913afc583929be52839a6f15b286911f0c6ac",
+        "native_sha256": "adb2b51d10b17dab60b05f836d64c529ef38e79a3b203b6c5426f9b531620bfc"
+      },
+      {
+        "name": "destructible-modifier-battle/zero-factor-keeps-native-minimum",
+        "input_sha256": "f98d8fb0c40b503f435bc95559a79caeccc91d93f8cf074b89dec8ac0050acf5",
+        "output_sha256": "ed4def33ff46e7a06cb44ab626d943554312ed40a5472875e0c28b3d434536f5",
+        "native_sha256": "700535074318fe3d673532e868ae9e69ee398b4914f1648285130a972fdf2606"
+      },
+      {
+        "name": "destructible-modifier-battle/empty-world-has-no-query",
+        "input_sha256": "b7e75f2b98f02a89befe762a686e4d6cd848a91282dd73044c9cf6c0bbab5d2b",
+        "output_sha256": "8203c79c7dd826a7f4f610bb9d7ee4b57c2fccb164a2b708eb540a9f732342d2",
+        "native_sha256": "06b2286bbc3461e1588881f72ffe5c7def56ed1b1353727071274a85b5c5580a"
+      },
+      {
+        "name": "reject/destructible-modifier-battle/magic",
+        "input_sha256": "045c36c1cfd27e30bc1718dc197c11af938cf7a188c21f4b040475077089476e",
+        "output_sha256": "7c75eda2fabcf5278a0a9e288b8911eba8966ca413eb73412c3f54c1aeb15970",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/destructible-modifier-battle/reserved",
+        "input_sha256": "9ddea58404ae7432fe8059f63c23f2b263204792988e52dce444ca450c11fbb6",
+        "output_sha256": "7c75eda2fabcf5278a0a9e288b8911eba8966ca413eb73412c3f54c1aeb15970",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/destructible-modifier-battle/unknown-axis",
+        "input_sha256": "15e1acb39f52bba739f59e2f07f9169c8808aa16dd3cf6c92445abcb9b42a8fe",
+        "output_sha256": "7c75eda2fabcf5278a0a9e288b8911eba8966ca413eb73412c3f54c1aeb15970",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/destructible-modifier-battle/unused-axis",
+        "input_sha256": "bb6d589ebf89aec18fcf972440d28fd4f833a824b45d14a4ae712a35eebb807b",
+        "output_sha256": "7c75eda2fabcf5278a0a9e288b8911eba8966ca413eb73412c3f54c1aeb15970",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/destructible-modifier-battle/axis-on-skill",
+        "input_sha256": "ce5391cecdaf5fecf45becfc19f29812e7fab195460c6189740e623961a26a99",
+        "output_sha256": "7c75eda2fabcf5278a0a9e288b8911eba8966ca413eb73412c3f54c1aeb15970",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      },
+      {
+        "name": "reject/destructible-modifier-battle/numeric-carrier",
+        "input_sha256": "91a30f5ba904ca406715892ae312b26633549f93dbfd04206d091d05991b6cda",
+        "output_sha256": "7c75eda2fabcf5278a0a9e288b8911eba8966ca413eb73412c3f54c1aeb15970",
+        "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+      }
+    ],
+    "mismatches": [],
+    "input_count": 18,
+    "native_oracles": 12,
+    "input_sha256": "c938f362de4a9ba6378eb7e3a3046e89817cac4d9008023c43927a7830a03dad",
+    "output_sha256": "d83a8ba378f1bc08795f47e35e23c643121cfff539e81dd70ad29d9ea8abed59",
+    "generated_normalized": {
+      "cuda": "492c3362beb30a104941e38f13b8d1e018186d56f427ca3dfd110f7ecef8569c",
+      "metal": "679cd4a1727f7bafc44fc8f7826f917297e8edf43e87a74fc4032925b5a0a364"
+    },
+    "audit_gpu_calls": 0
+  },
+  "replay": {
+    "calculation_verified": true,
+    "passed": true,
+    "mode": "saved-metal-replay",
+    "gpu_calls": 0,
+    "gpu_retry_count": 0,
+    "source_gpu_dispatches": 1,
+    "source_execution_passed": true,
+    "original_failure_preserved": true
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 18,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 0.05381520837545395,
+    "input_bytes": 7907332,
+    "library_compile_seconds": 1.5338350534439087,
+    "output_bytes": 75497472,
+    "pipeline_compile_seconds": 64.65519404411316,
+    "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "runtime_buffer_bytes": 2501136,
+    "runtime_element_capacity": 18,
+    "runtime_physical_stride_verified": true,
+    "runtime_stride_bytes": 138952,
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "independent_seal": true,
+  "generation_cache_hit": true,
+  "execution_slang_invocations": 0,
+  "new_gpu_dispatches": 1,
+  "identical_claim_retries": 0
+}

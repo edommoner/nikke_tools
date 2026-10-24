@@ -10,6 +10,14 @@ from impact_specs import ActorKind,enum_value
 MODIFIERS=('projectile_dmg_pct','shield_dmg_pct')
 KIND_KEY='_declared_destructible_kind_v1'
 
+def modifier_axis(effect):
+    stat=effect.get('stat')
+    if stat not in MODIFIERS:return 0
+    if effect.get('type')!='buff' or effect.get('target') not in ('self','all_allies') or effect.get('scaling') is not None:
+        raise ValueError('Declared plain allied modifier required')
+    return int(ActorKind.PROJECTILE if stat=='projectile_dmg_pct' else ActorKind.HP_SHIELD)
+
+
 def _clone(fn,globals,closure=None):
     result=types.FunctionType(fn.__code__,globals,fn.__name__,fn.__defaults__,fn.__closure__ if closure is None else closure)
     result.__kwdefaults__=fn.__kwdefaults__
@@ -62,16 +70,24 @@ def resolve(manager,attacker,*,kind,base_attack,weapon,defense,coefficient,when,
             recipients=carrier.target_chars if carrier.target_chars is not None else manager._resolve_lazy(carrier)
             if any(n not in manager.squad_names for n in recipients):raise ValueError('Declared outgoing modifiers require allied recipients')
     if any(not math.isfinite(buffs[name]) for name in MODIFIERS):raise ValueError('Nonfinite declared modifier sum')
+    result=calculate(base_attack,buffs,weapon,damage.default_hit_type(is_normal_atk=False,is_full_burst=full_burst,coeff=coefficient),enemy_def=defense,expected=True,kind=kind)
+    return dict(result,kind=int(kind),projectile_modifier=buffs['projectile_dmg_pct'],shield_modifier=buffs['shield_dmg_pct'],declared_model='v1',in_game_rules_verified=False)
+
+
+def calculate(base_atk,buffs,weapon,hit_type=None,enemy_def=31784.,expected=False,*,kind):
+    """Keep the native handler's exact sampled context, including named factors."""
+    from calculator import damage
+    kind=enum_value(ActorKind,kind)
+    if kind not in (ActorKind.BODY,ActorKind.PROJECTILE,ActorKind.HP_SHIELD):raise ValueError('Unsupported declared scalar actor kind')
+    hit=dict(damage.default_hit_type() if hit_type is None else hit_type)
+    if kind!=ActorKind.BODY and (hit.get('is_part') or hit.get('is_intercept')):raise ValueError('Typed scalar cannot alias part/intercept factors')
+    if any(not math.isfinite(buffs.get(name,0.)) for name in MODIFIERS):raise ValueError('Nonfinite declared modifier sum')
     original=damage._factor5
-    def factor5(values,hit):
-        value=original(values,hit)
-        flag=hit.get(KIND_KEY)
-        if flag==int(ActorKind.PROJECTILE):value+=values['projectile_dmg_pct']/100.
-        elif flag==int(ActorKind.HP_SHIELD):value+=values['shield_dmg_pct']/100.
+    def factor5(values,ht):
+        value=original(values,ht)
+        if kind==ActorKind.PROJECTILE:value+=values.get('projectile_dmg_pct',0.)/100.
+        elif kind==ActorKind.HP_SHIELD:value+=values.get('shield_dmg_pct',0.)/100.
         return value
-    # A private callable namespace keeps the canonical factor/entry untouched.
     calculator=_clone(damage.calc_damage,dict(damage.calc_damage.__globals__,_factor5=factor5))
-    hit=damage.default_hit_type(is_normal_atk=False,is_full_burst=full_burst,coeff=coefficient)
-    hit[KIND_KEY]=int(kind)
-    result=calculator(base_attack,buffs,weapon,hit,enemy_def=defense,expected=True)
-    return dict(result,kind=int(kind),factor5=factor5(buffs,hit),projectile_modifier=buffs['projectile_dmg_pct'],shield_modifier=buffs['shield_dmg_pct'],declared_model='v1',in_game_rules_verified=False)
+    result=calculator(base_atk,buffs,weapon,hit,enemy_def=enemy_def,expected=expected)
+    return dict(result,factor5=factor5(buffs,hit))

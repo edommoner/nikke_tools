@@ -1,4 +1,6 @@
 <!-- shared-readback-current -->
+実戦補正にはsealed `destructible-modifier-battle`（18入力/native12＋拒否6、Metal保存replay/独立seal済み）を追加した。既存Frameの量確定から共有projectile queryへ接続し、親兄弟固定・再入・通常body非混入・実採取のnamed係数を比較する。HP盾の実戦選択/迎撃・公開受付・CUDA実機は未対応。詳細 docs/portable-destructible-modifier-battle.md。
+
 最新のprivate scalar補正はsealed `destructible-modifier`（29入力/native20＋拒否9、Metal/独立seal済み）。同じ20 CPUケースを共有resident carrierと7因子/丸めへ接続した。出力159744wordの専用probeであり、実戦Frame・公開受付・CUDA実機は未対応。詳細 docs/portable-destructible-modifier-gpu.md。通常CLIのpackage/unpack/run/auditを使う。
 
 最優先modifierのCPU設計は `reference --suite destructible-modifier --out NEW.json`（宣言CPU20件、実戦未接続・model gap維持）。詳細 docs/portable-destructible-modifier-design.md。`storage-check --required-bytes N`はbudgetだけを調べ、既定1GiB予約を満たさなければexit2。通常runもinput作成前とGPU claim前に実サイズを検査する。既存`sparsify-raw`で終了済みrawの全byte/SHAを保ったゼロ割当回収が可能。archive検証やraw削除の代替として扱わない。
