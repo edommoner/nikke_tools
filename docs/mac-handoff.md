@@ -1,3 +1,7 @@
+<!-- coordinate-skill-reference-current -->
+座標スキルの正本24契約を共通reference CLIへ追加しGPU/packing0で成功。全部位指定と通常貫通/爆発の距離選択・前後順・破壊/不壊・通知/packet順・別interrupt量を区別。CPU bridgeの無条件PART publishによるinterrupt誤分類を、native戻り値capture→元total後/吸血前の条件publishへ修正。hit_target1回・private kind6非alias・reserved local拒否を検査。観測透明性/既存profile連鎖/入力不変も成功。source監査は座標をnativeモデル有りのgpu_port_gapとし、GPU拒否guardと数値依存6math＋powを記録。固定package CPU49/旧81入力native68保持/制御392(Win1skip)、全残存full/compact records一致。正本/数値/GPU/旧golden変更0、新GPU0/Windows新依頼0。座標GPU未接続、全キャラ0/20gap/UI CPU/未達。次は共通descriptorと形状/数値primitive。詳細 [座標スキル正本契約](portable-coordinate-skill-reference.md) とresearch/portable-coordinate-skill-reference-checkpoint.json。
+<!-- /coordinate-skill-reference-current -->
+
 <!-- mixed-attack-group-current -->
 実Ni/Velを同編成のslot0/1・3/4へ配置し元全効果を保つ混合owner20ケースを追加。sealed attack-group-mixed81(native68/拒否13)がMetal一致・独立seal、旧60の全251658240byte/input/native保持。新20は1116group/528通知、3/30/180秒・閾値2/4・両policy・65件目以降の両ownerを照合。GPU11.661秒/必須pipelinehit.002401秒/Slang0、保存4改変拒否。最終CPU34/制御392(Win1skip)、full2848→compact1567全残存record一致。共通テストfixture同梱漏れの失敗を保持して修正。容量guard停止後4KiB opt-in疎化を実装し2capture計1564307456byte回収、全byte/SHA/inode/証拠保持・削除0。共有計算/数値/正本/旧golden変更0、新GPU1/retry0。Windows新依頼0、既存PTX結果unknownで再依頼せず。全キャラ0/静的245/266/base185/203/20gap/UI CPU/未達。次はgeometry/parts/arena境界の正本契約、Windowsは復旧後に保存結果取得。詳細 [混合owner実射撃group](portable-mixed-attack-groups.md) とresearch/portable-mixed-attack-group-checkpoint.json。
 <!-- /mixed-attack-group-current -->

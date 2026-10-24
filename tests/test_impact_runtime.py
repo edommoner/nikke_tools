@@ -52,6 +52,40 @@ class ImpactContract(unittest.TestCase):
         self.assertEqual(state(manager).event_stack,[]);self.assertEqual(state(manager).impact_stack,[]);self.assertEqual(manager._notify_ctx,{})
         with self.assertRaises(TypeError):manager.notify('hit_count:bad',0,'a',impact={})
         self.assertEqual(state(manager).event_stack,[])
+    def test_native_target_receipt_distinguishes_parts_interrupt_and_retired(self):
+        import engine_worker
+        from impact_runtime import target_landing
+        manager=NS();state(manager).impact_trace=ImpactTrace()
+        run=NS(p=NS(kind='parts',targets=[NS(name='left')],summon=None),opens=7,active=True,targets=[NS(spec=NS(name='left'),destroyed=False)])
+        boss=NS(target_kinds={'left':'parts'},_runs=[run])
+        event=NS(target='left',part='',caster='a',hit_tag='skill',damage=13)
+        for answer in ('parts','interrupt',''):
+            with patch.object(boss,'hit_target',side_effect=AssertionError('No native replay'),create=True):target_landing(manager,event,.5,boss,answer)
+        self.assertEqual(state(manager).impact_trace.count,1)
+        self.assertEqual(state(manager).impact_trace.last.target,ActorHandle(ActorKind.PART,0,7))
+
+    def test_target_capture_keeps_native_total_then_typed_impact_then_lifesteal(self):
+        import ast
+        from impact_runtime import Landings
+        source="""def simulate():
+ def _land_target(ev,t):
+  if boss.hit_target(ev,t)=='parts':events.append('total')
+  _apply_lifesteal(ev,bm,base_stats,t)
+ _land_target(None,0)
+"""
+        rewrite=Landings();tree=ast.fix_missing_locations(rewrite.visit(ast.parse(source)))
+        self.assertEqual(rewrite.counts,dict(body=0,part=0,target=1,add=0,target_capture=1))
+        with self.assertRaisesRegex(ValueError,'Reserved native target'):
+            Landings().visit(ast.parse(source.replace("if boss.hit_target(ev,t)=='parts':","if (_nikke_target_kind := boss.hit_target(ev,t))=='parts':")))
+        for kind in ('parts','interrupt',''):
+            events=[]
+            def hit(*args):events.append('native');return kind
+            def published(*args):
+                if args[-1]=='parts':events.append('typed')
+            scope=dict(events=events,boss=NS(hit_target=hit),bm=NS(publish_target_landing=published),base_stats={},_apply_lifesteal=lambda *args:events.append('heal'))
+            exec(compile(tree,'native-target-order','exec'),scope);scope['simulate']()
+            self.assertEqual(events,['native','total','typed','heal'] if kind=='parts' else ['native','heal'])
+
     def test_part_respawn_is_a_distinct_actor_and_unknown_targets_do_not_alias_body(self):
         import engine_worker
         from impact_runtime import landing

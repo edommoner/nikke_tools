@@ -6,6 +6,17 @@ from portable_model_gap_audit import verify,MISSING_STATS
 class GapAuditTests(unittest.TestCase):
  def test_current_sources_distinguish_missing_models_from_missing_ports(self):
   r=verify(ROOT);self.assertEqual(set(r['missing_stats']),set(MISSING_STATS));self.assertFalse(r['gpu_supported']);self.assertTrue(r['enemy_ammo']['named_completion_outside_target_loop']);self.assertFalse(r['target_and_nearby']['nearby_spatial_world'])
+ def test_coordinate_geometry_is_a_port_gap_with_an_existing_native_consumer(self):
+  r=verify(ROOT)['coordinate_world'];self.assertEqual(r['classification'],'gpu_port_gap');self.assertTrue(r['native_model_available']);self.assertFalse(r['gpu_connected'])
+  self.assertTrue({'acos','atan2','cos','hypot','radians','sin'} <= set(r['native_math_calls']));self.assertTrue(r['native_pow_operator'])
+  path='research/upstream/nikke-calc-master/calculator/timeline.py';text=(ROOT/path).read_text()
+  for old,new in [('hit = [g for g in geom.targets if g.kind == "parts"]', 'hit = [g for g in geom.targets if g.kind == "interrupt"]'), ('g.shape.contains(ax, ay, grow)', 'True')]:
+   changed=text.replace(old,new);self.assertNotEqual(text,changed)
+   with self.assertRaises(AssertionError):verify(ROOT,{path:changed})
+ def test_coordinate_guard_change_requires_port_evidence(self):
+  path='app/portable_world_roster_input.py';text=(ROOT/path).read_text()
+  changed=text.replace("enemy.get('coord') is not None or ", '');self.assertNotEqual(text,changed)
+  with self.assertRaisesRegex(AssertionError,'Coordinate GPU admission changed'):verify(ROOT,{path:changed})
  def test_new_consumer_or_changed_spec_forces_review(self):
   base='research/upstream/nikke-calc-master/'
   path=base+'calculator/timeline.py';original=(ROOT/path).read_text()
