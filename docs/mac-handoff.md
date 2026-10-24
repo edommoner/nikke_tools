@@ -1,3 +1,7 @@
+<!-- aoe-burst-shield-current -->
+元ノワールAoEと元ミサト盾150%、元トリナAoE435.6%を既存共通FrameでMetal18(native16/拒否2)・独立seal。全78/83定義を保つ3/30秒実編成、HP/hit/slot順/破壊body/世代を照合、旧14全raw保持。GPU9.758秒/PSO.002491秒、source157/Runtime138952/正本/数値/normalizer不変・required generation hit/Slang0。sealed destructible-aoe-burst-rostersをcompactへ追加し比較器共通化、破損16検出は同一入力nativeをコピーし90秒上限を維持。Windows追加0/現CUDA未確認/20gap/全キャラ0/UI CPU。詳細docs/portable-destructible-aoe-burst-rosters.mdとcheckpoint。以下は履歴。
+<!-- /aoe-burst-shield-current -->
+
 # 共通CLIの軽量パッケージ
 
 `docs/portable-compact-package.md` と `research/portable-package-projection-checkpoint.json` を参照。`package --compact` は現行skill157/Misato2に限定し、全GPU source・fixture/data・pinned upstream・指定CPU/全smokeを保持する。ファイル数2,795→1,550/ZIP8.46→6.39MB、Windows速度は未測定・今回追加実行0。共通制御372(Win1skip)、strict generation hit/Slang0、保存Metal2 replay成功。失敗と古いgeneration fixtureを保持し、歴史source auditだけ後続の明示stride差分へ対応。計算本体/normalizer/全キャラ認定0/残20model gapは変わらない。

@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-roster-skills-metal157-v1",
+  "raw_bytes": 658505728,
+  "raw_sha256": "3a23ae61a216209232aedd03b667a5e124e78dd03aedc3a05660ac00544f8656",
+  "evidence_sha256": "24ed96e609d8bce30a2ebafa0fa2c587d7eb1ca6a2c9998fb78cc31006421297",
+  "raw_inode": 509147048,
+  "zero_ranges": 1519,
+  "zero_range_bytes": 492830720,
+  "allocated_before": 658505728,
+  "allocated_after": 165675008,
+  "allocated_reclaimed": 492830720,
+  "full_hash_verified": true
+}
