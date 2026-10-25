@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "old_package_id": "79b127f4f173087afd282e61dca6a1f0a1a583ff59ab4f169c77c4f16f92023f",
+  "new_package_id": "e048d189d90df0480d16dfe1657bbbb925e60ca289b5b94b768a9cccf7d80a9f",
+  "all_four_inputs_and_native_fingerprints_retained": true,
+  "already_passing_three_readbacks_retained": [
+    {
+      "index": 0,
+      "name": "coordinate-original-reload/Milk-auto",
+      "bytes": 7079424,
+      "sha256": "30d066fdce1f935b455d00c0fa53bdc0940c9bfd7bd765216cadeca65d9276d6"
+    },
+    {
+      "index": 2,
+      "name": "coordinate-original-reload/Asuka-WILLE",
+      "bytes": 7079424,
+      "sha256": "3784e924bd7c2faa689312b19905fa70b9a1d07704a1f79f4e6f80e4bb0feb59"
+    },
+    {
+      "index": 3,
+      "name": "coordinate-original-reload/Jill",
+      "bytes": 7079424,
+      "sha256": "035b7065530fbe38d441212764b3c3aea02dafe13e1ef2cf135678f355c6e432"
+    }
+  ],
+  "retained_bytes": 21238272,
+  "gpu_calls": 0,
+  "failed_captures_preserved": [
+    "/tmp/nikke-original-reload-metal-v1",
+    "/tmp/nikke-original-reload-metal-v2"
+  ]
+}

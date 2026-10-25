@@ -1,0 +1,15 @@
+{
+  "schema": "independent-metal-audit-v1",
+  "package_id": "e048d189d90df0480d16dfe1657bbbb925e60ca289b5b94b768a9cccf7d80a9f",
+  "capture": "/private/tmp/nikke-original-reload-metal-v3",
+  "child_pid": 39168,
+  "input_count": 4,
+  "native_cases": 4,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 89.70407637488097,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "7f76b372d35809f919f05bd02ab6973be9da8dbc80d5b6db9da98ccccf2ea37f",
+  "output_sha256": "303458dc0e84b207213f045ece7a088b96b0048a86ef75e52222343b571ce0bb",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls"
+}

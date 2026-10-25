@@ -291,6 +291,11 @@ void startChargeControl(inout Runtime s,uint who,uint64_t charge,uint64_t when)
     {
         uint64_t need=loadNumber(controlThreshold(s,end-1)+2);
         storeNumber(a+6,f64Add(f64Add(f64Add(when,effectiveCharge(s,who,charge,when)),need),uint64_t(0x3f911111)<<32|0x11111111));storeNumber(a+10,ONE|F64_SIGN);
+#ifdef PORTABLE_COORDINATE_ORIGINAL_FORCED_RELOAD
+        // Native promotes this planned judgement shot even when a tap entry
+        // was latched. The hold threshold requires a real full charge.
+        if(partialOwnerEnabled(s,who)) results[a+18]=1;
+#endif
     }
 }
 [noinline]
@@ -392,6 +397,15 @@ void partialCaptureCharge(inout Runtime s,inout Weapon w,uint who,uint64_t when)
 {
     if(!partialOwnerEnabled(s,who)) return;
     uint a=controlState(s,who);w.partialTapRow=results[a+17];w.partialFull=w.partialTapRow==0||results[a+18]!=0?1:results[a+19];
-    if(w.partialFull!=0) { results[a+23]=1;storeNumber(a+30,when); } else w.gaugeMultiplier=ONE;
+    if(w.partialFull!=0)
+    {
+#ifdef PORTABLE_COORDINATE_ORIGINAL_FORCED_RELOAD
+        // This snapshot also runs while the charge is still filling. Only a
+        // ready shot enters native _charge_fire and owns last-full history.
+        if(!f64Less(when,s.chargeUntil[who]))
+#endif
+        { results[a+23]=1;storeNumber(a+30,when); }
+    }
+    else w.gaugeMultiplier=ONE;
 }
 #endif

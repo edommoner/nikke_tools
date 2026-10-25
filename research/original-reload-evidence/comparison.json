@@ -1,0 +1,48 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "coordinate-original-reload/Milk-auto",
+      "input_sha256": "8a2b17bad368e43fdc135b0ad99637845a8925fac15ee0582b7d7677495fe817",
+      "output_sha256": "30d066fdce1f935b455d00c0fa53bdc0940c9bfd7bd765216cadeca65d9276d6",
+      "native_sha256": "21044edaf9f01d47bfdbd0003fbee31db6f1d674743d75c2a224f843ae9d71ab"
+    },
+    {
+      "name": "coordinate-original-reload/Milk-character",
+      "input_sha256": "6e934d2ab08e10d2d0c7787b666df4e7478880e0e3672e3675d983a58c6a49a6",
+      "output_sha256": "103bc92f53af86ba4eefe685d4a90b04e8d5c5528357efb8bf3c2b990338d34d",
+      "native_sha256": "a79794469914d421155c18332c6d242cebfa6a57510c98b47a44ab0f912a4f8a"
+    },
+    {
+      "name": "coordinate-original-reload/Asuka-WILLE",
+      "input_sha256": "d875190cb7ba11617e6365e6eff5c51f135871eb0261b54a52dacfd979b5aed5",
+      "output_sha256": "3784e924bd7c2faa689312b19905fa70b9a1d07704a1f79f4e6f80e4bb0feb59",
+      "native_sha256": "c5d441a8219b30202048286235dc004dafc6309c51c8ce67b38cdf65b82366b8"
+    },
+    {
+      "name": "coordinate-original-reload/Jill",
+      "input_sha256": "e55d4b895a8ea05fa9b7e41589b8b4d041a2b578a37603f71994af43a5d89951",
+      "output_sha256": "035b7065530fbe38d441212764b3c3aea02dafe13e1ef2cf135678f355c6e432",
+      "native_sha256": "05e337f646776bd01713c8d91345eb753da0d90146341777fcda9058c1708df6"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 4,
+  "native_oracles": 4,
+  "input_sha256": "7f76b372d35809f919f05bd02ab6973be9da8dbc80d5b6db9da98ccccf2ea37f",
+  "output_sha256": "303458dc0e84b207213f045ece7a088b96b0048a86ef75e52222343b571ce0bb",
+  "generated_normalized": {
+    "cuda": "2873c63a9890f829d9b655422e8a5b72fc0251a45deeb8f9e8bf4e980e758bc7",
+    "metal": "68bf6b7c319a934ee2555abe65a8f6cb080150f03fa4e678265d935408d7ac04"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 4,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 4
+  }
+}

@@ -1,5 +1,5 @@
 """Native reload ordering, fixed-value semantics and declarative GPU input packing."""
-import copy,importlib.util,sys,unittest
+import copy,importlib.util,json,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','scripts','research')]
@@ -11,7 +11,13 @@ from portable_specs import LIMITS as L,FIELDS as F
 s=importlib.util.spec_from_file_location('reload_test_suite',ROOT/'research/verify-world-reload.py');suite=importlib.util.module_from_spec(s);s.loader.exec_module(suite)
 class ReloadContracts(unittest.TestCase):
  @classmethod
- def setUpClass(cls):cls.rows={c['name']:c for c in fixtures()};cls.native={n:observe(c)[0] for n,c in cls.rows.items()}
+ def setUpClass(cls):
+  cls.rows={c['name']:c for c in fixtures()};cls.observed={n:observe(c) for n,c in cls.rows.items()};cls.native={n:value[0] for n,value in cls.observed.items()}
+ def test_all_legacy_native_fingerprints_from_existing_observations(self):
+  expected=json.loads((ROOT/'tests/fixtures/portable-reload-native-baseline.json').read_text())['native_fingerprints']
+  spec=importlib.util.spec_from_file_location('reload_native_digest',ROOT/'research/summarize-portable-cross-gpu.py');cross=importlib.util.module_from_spec(spec);spec.loader.exec_module(cross)
+  self.assertEqual(set(expected),set(self.observed));self.assertEqual(len(expected),46)
+  for name,(native,trace) in self.observed.items():self.assertEqual(cross.digest(dict(battle=native,skill_trace=trace)),expected[name],name)
  def row(self,name):return self.rows['reload-'+name]
  def native_case(self,name):return self.native['reload-'+name]
  def first_start(self,name):return next(r for r in self.native_case(name)['reload_events'] if r['kind']=='start' and r['owner']==0)

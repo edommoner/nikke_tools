@@ -249,6 +249,9 @@ def verify(root, overrides=None):
     slot_original_sources=source_hashes(root,'gpu/world_coordinate_original_slot_entry.slang') if (root/'gpu/world_coordinate_original_slot_entry.slang').is_file() else {}
     slot_original_path=root/'research/portable-coordinate-original-source-short-expected.json'
     slot_original_golden=json.loads(slot_original_path.read_text()) if slot_original_path.is_file() else None
+    forced_original_sources=source_hashes(root,'gpu/world_coordinate_original_reload_entry.slang') if (root/'gpu/world_coordinate_original_reload_entry.slang').is_file() else {}
+    forced_original_path=root/'research/portable-coordinate-original-reload-short-expected.json'
+    forced_original_golden=json.loads(forced_original_path.read_text()) if forced_original_path.is_file() else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -722,6 +725,15 @@ def verify(root, overrides=None):
                     initial_force_clock_scope='Empty initial grid, not a nonempty-clock witness',
                     remaining=['other original duration recipients and forced-slot combinations',
                         'current CUDA execution and public all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_original_forced_reload=dict(suite='coordinate-original-reload',source_sha256=forced_original_sources,
+                    proof_available=forced_original_golden is not None,
+                    sealed_source_matches_current=forced_original_golden['source_sha256']==forced_original_sources if forced_original_golden else None,
+                    input_count=len(forced_original_golden['entries']) if forced_original_golden else None,
+                    original_definitions_weapons_preserved=True,shared_reload_observer_and_reader=True,admitted_kinds=[23],
+                    checked=['actual charge-hold force request with original character defaults','actual state-end force request',
+                        'actual burst-cast force request','complete force/start/finish trace and final clocks'],
+                    remaining=['other original recipient and reload/weapon mixtures','current CUDA execution and public all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 sampled_vital_kind_preflight=dict(shared_generated_guard=True,scope='definition kinds only',
                     rejects_before_native_and_gpu=True,explicit_subsets_respected=True,expected_rejections_preserved=True,

@@ -1,4 +1,7 @@
         if(kind!=0&&kind!=2&&kind!=3&&kind!=4&&kind!=6&&kind!=7&&kind!=8&&kind!=24
+#ifdef PORTABLE_COORDINATE_ORIGINAL_FORCED_RELOAD
+            &&kind!=23 // Existing common reload request and lifecycle handlers.
+#endif
 #ifdef PORTABLE_COORDINATE_ORIGINAL_SOURCE_OPS
             &&kind!=15&&kind!=33 // Existing named duration and forced skill-slot handlers.
 #endif

@@ -427,3 +427,5 @@ python scripts/nikke_gpu.py refresh-tests \
 `seal --audit-receipt NEW_PATH` は同じ1回のGPU禁止fresh子監査から、PID・比較domain数・live parent再利用なし・実測秒数・入出力SHAを保存します。通常比較のParentOracles再利用時間と独立監査時間を区別します。[自動装填](portable-coordinate-auto-reload.md)。
 
 `coordinate-original-source`5は元定義の強制slot・持続延長と後続DoTを実Metal/fresh監査でsealした入口です。生成/cache検査の`portable_scope_snapshot_audit`はresident staged scopeのsnapshot→4word公開→dispatch→4word復元も検査します。全キャラ認定やCUDA成功とは区別します。[source操作とscope検査](portable-original-source-operations.md)参照。
+
+`coordinate-original-reload`4は元編成・元のauto／キャラ既定操作で強制reloadと発射時計を検証するsealed入口です。`test_portable_world_reload`は共通observerとreaderを使い、setupで既に取る46ケースのnative結果から固定指紋も検査します。追加の二重native実行はありません。[強制reloadと比較範囲](portable-original-forced-reload.md)参照。

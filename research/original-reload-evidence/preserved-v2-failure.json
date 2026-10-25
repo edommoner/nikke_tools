@@ -1,0 +1,48 @@
+{
+  "calculation_verified": false,
+  "entries": [
+    {
+      "name": "coordinate-original-reload/Milk-auto",
+      "input_sha256": "8a2b17bad368e43fdc135b0ad99637845a8925fac15ee0582b7d7677495fe817",
+      "output_sha256": "30d066fdce1f935b455d00c0fa53bdc0940c9bfd7bd765216cadeca65d9276d6",
+      "native_sha256": "21044edaf9f01d47bfdbd0003fbee31db6f1d674743d75c2a224f843ae9d71ab"
+    },
+    {
+      "name": "coordinate-original-reload/Asuka-WILLE",
+      "input_sha256": "d875190cb7ba11617e6365e6eff5c51f135871eb0261b54a52dacfd979b5aed5",
+      "output_sha256": "3784e924bd7c2faa689312b19905fa70b9a1d07704a1f79f4e6f80e4bb0feb59",
+      "native_sha256": "c5d441a8219b30202048286235dc004dafc6309c51c8ce67b38cdf65b82366b8"
+    },
+    {
+      "name": "coordinate-original-reload/Jill",
+      "input_sha256": "e55d4b895a8ea05fa9b7e41589b8b4d041a2b578a37603f71994af43a5d89951",
+      "output_sha256": "035b7065530fbe38d441212764b3c3aea02dafe13e1ef2cf135678f355c6e432",
+      "native_sha256": "05e337f646776bd01713c8d91345eb753da0d90146341777fcda9058c1708df6"
+    }
+  ],
+  "mismatches": [
+    {
+      "index": 1,
+      "name": "coordinate-original-reload/Milk-character",
+      "reason": "AssertionError: Coordinate retained projectile history count"
+    }
+  ],
+  "input_count": 4,
+  "native_oracles": 4,
+  "input_sha256": "7f76b372d35809f919f05bd02ab6973be9da8dbc80d5b6db9da98ccccf2ea37f",
+  "output_sha256": "092063fc08ce9905d6151bc5f351a53c48ad13ef86d1b12584c01aad6b7549b6",
+  "generated_normalized": {
+    "cuda": "fa43c1738d6ce8462b112b61239ee79284eea1f42bfe126d92d3495484d08062",
+    "metal": "96fab8977df24e27543bcc492771492f8899000bdd688540ad401b25ff75ca28"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 3,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 3
+  }
+}
