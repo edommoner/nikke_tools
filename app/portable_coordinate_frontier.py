@@ -192,6 +192,10 @@ def verify(root, overrides=None):
     manual_path=root/'research/portable-coordinate-manual-short-expected.json'
     manual_golden=json.loads(manual_path.read_text()) if manual_path.is_file() else None
     manual_matches=manual_golden['source_sha256']==manual_sources if manual_golden else False
+    policy_sources=source_hashes(root,'gpu/world_coordinate_policy_entry.slang')
+    policy_path=root/'research/portable-coordinate-policy-short-expected.json'
+    policy_golden=json.loads(policy_path.read_text()) if policy_path.is_file() else None
+    policy_matches=policy_golden['source_sha256']==policy_sources if policy_golden else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -480,6 +484,16 @@ def verify(root, overrides=None):
                     conditional_policies_connected=False,cover_all_connected=False,
                     input_words=109528,output_words=1769472,additional_runtime_bytes=0,
                     remaining=['conditional cover/reload/burst policies and cover_all','post-delay, zero-listener, knockdown and storage combinations','mixed actor payloads and original definitions','CUDA execution and public all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_cover_policies=dict(suite='coordinate-policy',source_sha256=policy_sources,
+                    proof_available=policy_golden is not None,sealed_source_matches_current=policy_matches,
+                    input_count=len(policy_golden['entries']) if policy_golden else None,
+                    reference_kind='deterministic-common-cpu',common_runtime_connected=True,
+                    own_full_burst_cover=True,reload_policies=['before_fb_end','into_fb','finish_by_fb_end','finish_by_own_buff_end'],
+                    shared_anchor_and_prediction_clock=True,computed_cpu_action_schedule=False,
+                    if_dry_connected=True,one_time_anchor_rollback=True,cover_all_connected=False,
+                    input_words=109656,output_words=1769856,extra_runtime_bytes=0,reentry_capacity_per_owner=16,
+                    remaining=['cover_all and forced burst action producers','post-delay, zero-listener, knockdown and storage combinations','mixed actors and original definitions','CUDA execution and public all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 packet_integer_ratio=dict(suite='packet-ratio',source_sha256=ratio_sources,
                     proof_available=ratio_golden is not None,sealed_source_matches_current=ratio_matches,

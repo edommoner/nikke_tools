@@ -9,6 +9,9 @@ uint controlSequence(inout Runtime s,uint who,uint index) { return controlInput(
 uint controlThreshold(inout Runtime s,uint index) { return controlInput(s)+1016+index*4; }
 #ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
 #include "coordinate_manual_control_runtime.slang"
+#ifdef PORTABLE_COORDINATE_COVER_POLICIES
+#include "coordinate_cover_policy_runtime.slang"
+#endif
 #endif
 bool controlDefinition(uint input,uint row)
 {
@@ -130,6 +133,9 @@ uint controlRequest(inout Runtime s,uint who,uint64_t when)
     if(manualOpen(s,who))return results[a+15]+1;
 #endif
     if(f64Less(when,actorNumber(a+6))&&(results[a+14]==0xffffffff||controlWindow(s,who,controlClick(s,who,results[a+14])))) return results[a+15]+1;
+#ifdef PORTABLE_COORDINATE_COVER_POLICIES
+    uint policy=coverPolicyRequest(s,who,when);if(policy!=0)return policy;
+#endif
     uint selected=controlPick(s,who,false);if(selected==8) return 0;
     uint row=controlClick(s,who,selected);return commands[row]==0?0:commands[row+2]+1;
 }
@@ -141,6 +147,9 @@ void releaseChargeControl(inout Runtime s,uint who,uint64_t when)
 {
     uint a=controlState(s,who);
 #ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+#ifdef PORTABLE_COORDINATE_COVER_POLICIES
+    releaseCoverPolicy(s,who,when);
+#endif
     if(manualControls(s))exitManualCover(s,who,when);
 #endif
     if(!f64Less(when,actorNumber(a+6))) return;
@@ -224,6 +233,9 @@ void advanceChargeControl(inout Runtime s,uint who,uint64_t when)
                 { results[a+14]=selected;storeNumber(a+6,uint64_t(0x7ff00000)<<32);results[a+15]=commands[row+2]; }
                 else if(f64Less(0,s.fullEnd)&&!f64Equal(s.fullEnd,actorNumber(a+8)))
                 {
+#ifdef PORTABLE_COORDINATE_COVER_POLICIES
+                    coverPolicyHoldAnchor(s,who,s.fullEnd);
+#endif
                     storeNumber(a+8,s.fullEnd);results[a+22]=1;results[a+15]=commands[row+2];uint64_t lead=loadNumber(row+6);
                     if(mode==2) storeNumber(a+6,f64Add(s.fullEnd,lead^F64_SIGN));
                     else if(commands[input+3]!=0)

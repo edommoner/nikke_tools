@@ -4,7 +4,7 @@ from pathlib import Path
 
 SCHEMA='readback-block-index-v1'
 CASE_WORDS=786432
-CASE_SHAPES=(CASE_WORDS,1048576,1310720,1507328,1769472)
+CASE_SHAPES=(CASE_WORDS,1048576,1310720,1507328,1769472,1769856)
 BLOCK_WORDS=1024
 
 
@@ -18,15 +18,17 @@ def checked_hash(value):
 
 def scan(path,expected_sha256,*,case_words=CASE_WORDS,include_case_hashes=False):
     if type(case_words) is not int or case_words not in CASE_SHAPES:raise ValueError('Unsupported readback case shape')
-    checked_hash(expected_sha256);h=hashlib.sha256();case=hashlib.sha256();size=0;blocks=[];cases=[]
+    checked_hash(expected_sha256);h=hashlib.sha256();case=hashlib.sha256();size=0;blocks=[];cases=[];case_position=0;case_bytes=case_words*4
     with Path(path).open('rb') as stream:
         while True:
             raw=stream.read(BLOCK_WORDS*4)
             if not raw:break
             h.update(raw);size+=len(raw);blocks.append(digest(raw))
             if include_case_hashes:
-                case.update(raw)
-                if size%(case_words*4)==0:cases.append(case.hexdigest());case=hashlib.sha256()
+                start=0
+                while start<len(raw):
+                    take=min(len(raw)-start,case_bytes-case_position);case.update(raw[start:start+take]);start+=take;case_position+=take
+                    if case_position==case_bytes:cases.append(case.hexdigest());case=hashlib.sha256();case_position=0
     if not size or size%(case_words*4) or h.hexdigest()!=expected_sha256:raise ValueError('Readback size or recorded SHA mismatch')
     result=dict(schema=SCHEMA,bytes=size,sha256=h.hexdigest(),case_words=case_words,block_words=BLOCK_WORDS,cases=size//(case_words*4),blocks=blocks)
     if include_case_hashes:result['case_sha256']=cases
@@ -34,7 +36,7 @@ def scan(path,expected_sha256,*,case_words=CASE_WORDS,include_case_hashes=False)
 
 
 def validate(index):
-    if index['schema']!=SCHEMA or type(index['case_words']) is not int or index['case_words'] not in CASE_SHAPES or index['block_words']!=BLOCK_WORDS or type(index['cases']) is not int or index['cases']<=0 or index['bytes']!=index['cases']*index['case_words']*4 or len(index['blocks'])*BLOCK_WORDS*4!=index['bytes']:raise ValueError('Invalid fixed readback block index')
+    if index['schema']!=SCHEMA or type(index['case_words']) is not int or index['case_words'] not in CASE_SHAPES or index['block_words']!=BLOCK_WORDS or type(index['cases']) is not int or index['cases']<=0 or index['bytes']!=index['cases']*index['case_words']*4 or len(index['blocks'])!=(index['bytes']+BLOCK_WORDS*4-1)//(BLOCK_WORDS*4):raise ValueError('Invalid fixed readback block index')
     checked_hash(index['sha256'])
     for value in index['blocks']:checked_hash(value)
 
@@ -54,7 +56,7 @@ def compare(path,expected_sha256,index,*,sample_blocks=8):
         for i,want in enumerate(actual['blocks']):
             raw=stream.read(BLOCK_WORDS*4);h.update(raw)
             if digest(raw)!=want:raise ValueError('Readback changed while sampling')
-            if i in selected:rows.append(dict(block=i,case_index=i*BLOCK_WORDS//index['case_words'],case_word_offset=i*BLOCK_WORDS%index['case_words'],words=list(struct.unpack('<'+str(BLOCK_WORDS)+'I',raw))))
+            if i in selected:rows.append(dict(block=i,case_index=i*BLOCK_WORDS//index['case_words'],case_word_offset=i*BLOCK_WORDS%index['case_words'],words=list(struct.unpack('<'+str(len(raw)//4)+'I',raw))))
         if stream.read(1) or h.hexdigest()!=actual['sha256']:raise ValueError('Readback changed while sampling')
     return dict(schema='readback-block-diff-v1',reference_sha256=index['sha256'],actual_sha256=actual['sha256'],bytes=actual['bytes'],blocks=len(actual['blocks']),changed_blocks=changed,samples=rows,all_blocks_equal=not changed,gpu_calls=0,calculation_verified=False)
 
@@ -76,7 +78,7 @@ def capture_fingerprints(folder,comparison_sha256,case_words):
     return report,index
 
 
-def retain(reference,reference_comparison_sha256,candidate,candidate_comparison_sha256,*,case_words=CASE_WORDS,reference_case_words=None):
+def retain(reference,reference_comparison_sha256,candidate,candidate_comparison_sha256,*,case_words=CASE_WORDS,reference_case_words=None,input_extension=None):
     """Rehash both complete files; compare retained cases by anchored name.
 
     This checks preserved bytes/input/native fingerprints, never recomputes a
@@ -87,6 +89,10 @@ def retain(reference,reference_comparison_sha256,candidate,candidate_comparison_
     old,old_index=capture_fingerprints(reference,reference_comparison_sha256,reference_words)
     new,new_index=capture_fingerprints(candidate,candidate_comparison_sha256,case_words)
     previous={r['name']:r for r in old['entries']};current={r['name']:r for r in new['entries']}
+    equivalent={};extension_receipt=None
+    if input_extension is not None:
+        from portable_input_extension import verify_extension
+        equivalent,extension_receipt=verify_extension(reference,old,candidate,new,input_extension)
     prefixes={}
     if reference_words!=case_words:
         whole=hashlib.sha256()
@@ -100,6 +106,7 @@ def retain(reference,reference_comparison_sha256,candidate,candidate_comparison_
     for name,row in previous.items():
         if name not in current:continue
         fields=[key for key in ('input_sha256','native_sha256') if row[key]!=current[name][key]]
+        if equivalent.get(name) and 'input_sha256' in fields:fields.remove('input_sha256')
         if reference_words==case_words:
             if row['output_sha256']!=current[name]['output_sha256']:fields.append('output_sha256')
         else:
@@ -109,6 +116,7 @@ def retain(reference,reference_comparison_sha256,candidate,candidate_comparison_
         if fields:changed.append(dict(name=name,fields=fields))
     result=dict(schema='readback-case-retention-v1',reference_comparison_sha256=reference_comparison_sha256,candidate_comparison_sha256=candidate_comparison_sha256,reference_readback_sha256=old_index['sha256'],candidate_readback_sha256=new_index['sha256'],case_words=case_words,reference_cases=len(previous),candidate_cases=len(current),retained_cases=len(previous)-len(missing)-len(changed),retained_output_bytes=(len(previous)-len(missing)-len(changed))*reference_words*4,missing=missing,added=added,changed=changed,all_reference_cases_retained=not missing and not changed,gpu_calls=0,calculation_verified=False)
     if reference_words!=case_words:result.update(schema='readback-case-prefix-retention-v1',reference_case_words=reference_words,appended_tail_required_zero=True)
+    if extension_receipt is not None:result['verified_input_extension']=extension_receipt
     return result
 
 
@@ -122,10 +130,10 @@ def main(argv=None):
         a=sub.add_parser(name);a.add_argument('--readback',type=Path,required=True);a.add_argument('--sha256',required=True);a.add_argument('--out',type=Path,required=True)
         if name=='compare':a.add_argument('--index',type=Path,required=True);a.add_argument('--index-sha256',required=True)
         else:a.add_argument('--case-words',type=int,choices=CASE_SHAPES,default=CASE_WORDS)
-    a=sub.add_parser('retain');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--reference-comparison-sha256',required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--candidate-comparison-sha256',required=True);a.add_argument('--case-words',type=int,choices=CASE_SHAPES,default=CASE_WORDS);a.add_argument('--reference-case-words',type=int,choices=CASE_SHAPES);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('retain');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--reference-comparison-sha256',required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--candidate-comparison-sha256',required=True);a.add_argument('--case-words',type=int,choices=CASE_SHAPES,default=CASE_WORDS);a.add_argument('--reference-case-words',type=int,choices=CASE_SHAPES);a.add_argument('--input-extension',choices=('coordinate-policy-v1',));a.add_argument('--out',type=Path,required=True)
     a=p.parse_args(argv)
     if a.command=='index':result=scan(a.readback,a.sha256,case_words=a.case_words)
-    elif a.command=='retain':result=retain(a.reference_capture,a.reference_comparison_sha256,a.candidate_capture,a.candidate_comparison_sha256,case_words=a.case_words,reference_case_words=a.reference_case_words)
+    elif a.command=='retain':result=retain(a.reference_capture,a.reference_comparison_sha256,a.candidate_capture,a.candidate_comparison_sha256,case_words=a.case_words,reference_case_words=a.reference_case_words,input_extension=a.input_extension)
     else:
         raw=a.index.read_bytes()
         if digest(raw)!=checked_hash(a.index_sha256):raise ValueError('Reference index SHA mismatch')

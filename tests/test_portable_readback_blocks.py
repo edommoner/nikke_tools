@@ -97,4 +97,11 @@ class ReadbackBlockTests(unittest.TestCase):
         old,old_sha=self.capture('small',[('first',0)],words=1507328);new,new_sha=self.capture('large',[('first',0)],words=1769472)
         with self.assertRaises(ValueError):blocks.retain(old,old_sha,new,'0'*64,case_words=1769472,reference_case_words=1507328)
         with self.assertRaises(ValueError):blocks.retain(new,new_sha,old,old_sha,case_words=1507328,reference_case_words=1769472)
+    def test_unaligned_registered_shape_splits_case_hashes_and_samples_terminal_block(self):
+        words=1769856;raw=b'\1'*(words*4)+b'\2'*(words*4);self.path.write_bytes(raw)
+        index=blocks.scan(self.path,blocks.digest(raw),case_words=words,include_case_hashes=True);blocks.validate(index)
+        self.assertEqual(index['case_sha256'],[blocks.digest(raw[:words*4]),blocks.digest(raw[words*4:])])
+        self.assertTrue(blocks.compare(self.path,blocks.digest(raw),index)['all_blocks_equal'])
+        changed=bytearray(raw);changed[-4]=3;self.path.write_bytes(changed)
+        result=blocks.compare(self.path,blocks.digest(changed),index);self.assertEqual(result['changed_blocks'],[len(index['blocks'])-1]);self.assertEqual(len(result['samples'][0]['words']),768)
 if __name__=='__main__':unittest.main()

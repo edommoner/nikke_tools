@@ -36,22 +36,27 @@ uint64_t coordinateAimReloadTotal(inout Runtime s,uint who,uint64_t when)
     uint need=uint(max(int(full)-s.ammo[who],0)),unit=max(uint(gain),1U),clips=max((need+unit-1)/unit,1U);
     return f64Mul(one,f64FromI64(clips));
 }
+bool coordinateControlAnchor(inout Runtime s,uint who,uint code,uint stage,uint mask,uint name,uint64_t offset,uint minus,uint64_t when,out uint64_t base,out uint64_t at)
+{
+    base=0;at=0;if(stage!=0&&(results[controlHead(s)+9+stage]&mask)==0)return false;
+    if(code==1||code==2){if(s.phase!=5||code==2&&(s.castMask&(1U<<who))==0||!f64Less(0,s.fullEnd))return false;base=s.fullEnd;}
+    else if(code==3){base=actorNumber(ciHead(s)+10);if(!f64Less(0,base))base=actorNumber(ciHead(s)+12);if(!f64Less(0,base))return false;}
+    else if(code==4)
+    {
+        bool found=false;
+        for(uint i=0;i<s.carrierCount;i++)if(s.alive[i]!=0&&residentDefinition(s,i).owner==who&&residentDefinition(s,i).name==name&&f64Less(s.end[i],FOREVER)&&f64Less(when,s.end[i])){base=found?larger(base,s.end[i]):s.end[i];found=true;}
+        if(!found)return false;
+    }
+    at=f64Add(base,offset);if(minus!=0)at=f64Add(at,coordinateAimReloadTotal(s,who,when)^F64_SIGN);
+    return true;
+}
 bool coordinateAimWindow(inout Runtime s,uint who,uint row,uint64_t when)
 {
     uint stage=commands[row+4],mask=commands[row+5];
     if(stage!=0&&(results[controlHead(s)+9+stage]&mask)==0)return false;
     uint kind=commands[row+2],code=commands[row+3];
     if(kind==0){if(code==0)return true;if(code==1)return s.gaugeCharging!=0;if(code==2)return s.gaugeCharging==0&&s.phase!=5;return s.phase==5&&(s.castMask&(1U<<who))!=0;}
-    uint64_t base=0;
-    if(code==1||code==2){if(s.phase!=5||code==2&&(s.castMask&(1U<<who))==0||!f64Less(0,s.fullEnd))return false;base=s.fullEnd;}
-    else if(code==3){base=actorNumber(ciHead(s)+10);if(!f64Less(0,base))base=actorNumber(ciHead(s)+12);if(!f64Less(0,base))return false;}
-    else if(code==4)
-    {
-        bool found=false;uint name=commands[row+6];
-        for(uint i=0;i<s.carrierCount;i++)if(s.alive[i]!=0&&residentDefinition(s,i).owner==who&&residentDefinition(s,i).name==name&&f64Less(s.end[i],FOREVER)&&f64Less(when,s.end[i])){base=found?larger(base,s.end[i]):s.end[i];found=true;}
-        if(!found)return false;
-    }
-    uint64_t at=f64Add(base,loadNumber(row+8));if(commands[row+7]!=0)at=f64Add(at,coordinateAimReloadTotal(s,who,when)^F64_SIGN);
+    uint64_t base,at;if(!coordinateControlAnchor(s,who,code,stage,mask,commands[row+6],loadNumber(row+8),commands[row+7],when,base,at))return false;
     return !f64Less(when,at)&&f64Less(when,f64Add(at,loadNumber(row+10)));
 }
 uint coordinateAimPick(inout Runtime s,uint who,uint64_t when)

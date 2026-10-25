@@ -66,6 +66,9 @@ bool initializeCoordinateSampling(inout Runtime s)
     initializeSampledParentDamage(s);
 #ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
     initializeManualControls(s);
+#ifdef PORTABLE_COORDINATE_COVER_POLICIES
+    if(!initializeCoverPolicies(s))return false;
+#endif
 #endif
 #ifdef PORTABLE_COORDINATE_SAMPLED_BURSTS
     for(uint i=0;i<CSB_WORDS;i++)results[s.resourceOutput+CSB_BASE+i]=0;

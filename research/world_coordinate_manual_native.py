@@ -28,4 +28,5 @@ def observe(case):
     finally:sys.setprofile(previous)
     if set(characters)!=set(names):raise ValueError('Missing canonical manual character state')
     n['manual_actions']=dict(events=events,characters=[state(characters[name]) for name in names])
+    if case.get('cover_policies'):n['cover_policy_state']=[dict(cover_anchor=characters[name]._cover_ctrl_anchor,reload_anchor=characters[name]._reload_ctrl_anchor,kind=characters[name]._ctrl_anchor_kind,value=characters[name]._ctrl_anchor_val,reentry=sorted([list(v) for v in characters[name]._reentry_used if v[0] in ('cover','reload')])) for name in names]
     return n,t

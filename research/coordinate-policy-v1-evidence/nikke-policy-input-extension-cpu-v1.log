@@ -1,0 +1,9 @@
+test_nondefault_extension_and_changed_prefix_are_not_equivalent (test_portable_input_extension.InputExtensionTests.test_nondefault_extension_and_changed_prefix_are_not_equivalent) ... ok
+test_registered_default_extension_preserves_literal_prefix (test_portable_input_extension.InputExtensionTests.test_registered_default_extension_preserves_literal_prefix) ... ok
+test_unknown_contract_rejected_before_file_access (test_portable_input_extension.InputExtensionTests.test_unknown_contract_rejected_before_file_access) ... ok
+test_whole_and_case_hashes_are_required (test_portable_input_extension.InputExtensionTests.test_whole_and_case_hashes_are_required) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.010s
+
+OK

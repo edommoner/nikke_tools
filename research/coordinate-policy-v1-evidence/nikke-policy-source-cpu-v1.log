@@ -1,0 +1,11 @@
+test_capacity_and_persistent_rng_do_not_overlap (test_coordinate_sampling_bank.BankTests.test_capacity_and_persistent_rng_do_not_overlap) ... ok
+test_complete_capacity_fits_without_overlapping_persistent_rng (test_coordinate_sampling_bank.BankTests.test_complete_capacity_fits_without_overlapping_persistent_rng) ... ok
+test_exact_overflow_preserves_input_and_all_other_native_fields (test_coordinate_sampling_bank.BankTests.test_exact_overflow_preserves_input_and_all_other_native_fields) ... ok
+test_exact_source_inverse_rejects_unreviewed_sampled_changes (test_coordinate_sampling_bank.BankTests.test_exact_source_inverse_rejects_unreviewed_sampled_changes) ... ok
+test_static_pack_never_runs_a_battle_or_rng (test_coordinate_sampling_bank.BankTests.test_static_pack_never_runs_a_battle_or_rng) ... ok
+test_wrong_omission_retention_and_reserved_bits_never_get_masked (test_coordinate_sampling_bank.BankTests.test_wrong_omission_retention_and_reserved_bits_never_get_masked) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.129s
+
+OK

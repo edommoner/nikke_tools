@@ -30,6 +30,17 @@ void resetManualCover(inout Runtime s,uint who)
 {
     if(!manualControls(s))return;uint a=manualState(s,who);results[a]=0;results[a+1]=0;results[a+6]=0;results[a+9]=0;results[a+10]=0;storeNumber(a+2,ONE|F64_SIGN);
 }
+void enterManualCover(inout Runtime s,uint who,uint64_t when,uint64_t duration,uint priority,bool fresh)
+{
+    uint a=controlState(s,who),m=manualState(s,who);results[m]=f64Less(duration,0)?2U:1U;results[m+1]=0;results[m+6]=1;results[m+7]++;storeNumber(m+2,f64Less(duration,0)?ONE|F64_SIGN:f64Add(when,duration));storeNumber(m+4,when);
+        results[m+9]=1;if(fresh)invalidateNativeNumeric(s);
+        if(s.weaponMode[who]==1){s.charging[who]=0;cancelChargeControl(s,who,true);}
+        else{results[a]=0;storeNumber(a+2,ONE|F64_SIGN);storeNumber(a+4,ONE|F64_SIGN);storeNumber(a+6,ONE|F64_SIGN);results[a+14]=0xffffffff;}
+        results[a+15]=priority;
+        uint tag=commands[controlInput(s)+6];if(tag!=0xffffffffU)dispatch(s,0,31,who,int(tag),when,s.resourceOutput);
+        Weapon w;selectWeapon(s,who,when,w);w.reloadTime=s.reloadTime[who]; // Manual input sees the restored base weapon.
+        if(!f64Less(0,s.reloadUntil[who])&&s.ammo[who]<int(w.capacity)){results[m+10]=1;beginReload(s,w,who,when);results[m+10]=0;}
+}
 void pumpManualSequences(inout Runtime s,uint who,uint64_t when)
 {
     uint a=controlState(s,who),input=controlOwnerInput(s,who),index=results[a+1],n=commands[input+1];
@@ -39,14 +50,7 @@ void pumpManualSequences(inout Runtime s,uint who,uint64_t when)
         if(commands[row+4]==0)
         {if(commands[input+4]!=0){results[a+14]=0xffffffff;storeNumber(a+6,loadNumber(row+2));results[a+15]=99;}continue;}
         if(protectionMarker(s,who,7,when))continue;
-        uint m=manualState(s,who);uint64_t duration=loadNumber(row+2);results[m]=f64Less(duration,0)?2U:1U;results[m+1]=0;results[m+6]=1;results[m+7]++;storeNumber(m+2,f64Less(duration,0)?ONE|F64_SIGN:f64Add(when,duration));storeNumber(m+4,when);
-        results[m+9]=1;
-        if(s.weaponMode[who]==1){s.charging[who]=0;cancelChargeControl(s,who,true);}
-        else{results[a]=0;storeNumber(a+2,ONE|F64_SIGN);storeNumber(a+4,ONE|F64_SIGN);storeNumber(a+6,ONE|F64_SIGN);results[a+14]=0xffffffff;}
-        results[a+15]=99;
-        uint tag=commands[controlInput(s)+6];if(tag!=0xffffffffU)dispatch(s,0,31,who,int(tag),when,s.resourceOutput);
-        Weapon w;selectWeapon(s,who,when,w);w.reloadTime=s.reloadTime[who]; // Manual input sees the restored base weapon.
-        if(!f64Less(0,s.reloadUntil[who])&&s.ammo[who]<int(w.capacity)){results[m+10]=1;beginReload(s,w,who,when);results[m+10]=0;}
+        enterManualCover(s,who,when,loadNumber(row+2),99,false);
     }
 }
 bool manualBeforeReload(inout Runtime s,Weapon w,uint who,uint64_t when)

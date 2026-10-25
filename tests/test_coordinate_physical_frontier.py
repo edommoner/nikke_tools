@@ -77,6 +77,12 @@ class FrontierTests(unittest.TestCase):
         self.assertFalse(manual['conditional_policies_connected']);self.assertFalse(manual['cover_all_connected'])
         self.assertFalse(manual['public_gpu_admitted']);self.assertFalse(manual['all_characters_certified'])
         self.assertIs(type(manual['sealed_source_matches_current']),bool)
+        policies=result['coordinate_cover_policies']
+        self.assertTrue(policies['common_runtime_connected']);self.assertTrue(policies['shared_anchor_and_prediction_clock'])
+        self.assertEqual(len(policies['reload_policies']),4);self.assertTrue(policies['if_dry_connected'])
+        self.assertFalse(policies['computed_cpu_action_schedule']);self.assertFalse(policies['cover_all_connected'])
+        self.assertFalse(policies['public_gpu_admitted']);self.assertFalse(policies['all_characters_certified'])
+        self.assertEqual((policies['input_words'],policies['output_words']),(109656,1769856))
         rows = {r['id']: r for r in result['dependencies']}
         self.assertEqual(len(rows), 7)
         self.assertEqual(rows['physical-native-observation']['common_policy_reference_cli'],

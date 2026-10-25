@@ -14,6 +14,9 @@ void prepareWeaponFrame(inout Runtime s,uint who,uint64_t when,uint output,out u
     s.target = target; selectWeapon(s,who,when,w);
     if (s.error != 0) return; WORLD_MANUAL_SWAP(s,w,who,when) WORLD_CONTROL_TICK(s,who,when,output)
 #ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+#ifdef PORTABLE_COORDINATE_COVER_POLICIES
+    applyCoverPolicies(s,who,when);
+#endif
     if(manualBeforeReload(s,w,who,when))return;
 #endif
     if(advanceModeEntry(s,w,who,when)) return;

@@ -1915,3 +1915,13 @@ native observerの全Python呼出し監視がcode objectをhashしていたた�
 `coordinate-manual`169（native151／拒否18）はM5 Metal照合・独立seal済み。旧136全962592768byte・input/native指紋を保持。新規25worldで有限／None／時刻0、部分装填取消、mode auto／charge、camera preempt、cover_disabled、被弾、後から予約したhold、ゼロ射撃・全MT保持を検査。初版GPUは23差分を保存、CF領域clear後の初期化とbase autoの内部phase／見えるchargingの分離で解消。実GPU計2／同claim retry0。CPU112／control428（Win1skip）、Runtime138952byte・247fieldと入出力容量不変。GPU.484183秒／初回PSO91.796496秒。共通CLIがstrict SOURCE不一致を準備前に拒否し、fixture base再利用で入力生成の重複を削減。保存済みMetal cacheのfile probeはhitだがwarm GPUは再実行していない。Windows新要求0・現CUDA未取得。
 
 最新根拠は `research/portable-coordinate-manual-checkpoint.json`。現worktree `/private/tmp/nikke-runtime-resident`、branch `codex/runtime-resident`。復旧点は固定package `/tmp/nikke-manual-develop-v8` と成功capture `/tmp/nikke-manual-metal-v2`、失敗 `/tmp/nikke-manual-metal-v1`。rawは削除せず4KiB疎化で全byte/SHA/inode保持。次は条件付きcover/reload/burst policyとcover_all、post-delay中のcover・mode期限、named listenerなしの数値cache／reload速度条件、down／revival・healing storage合成を優先して契約→共通Slangへ進める。明示25worldから全入力・全元定義の対応を推定しない。元canonical7ファイル不変、全キャラ0／model gap20／UI CPU／目標未達。
+
+## 2026-10-25 条件付きcover／reload方針の共通GPU実行
+
+`coordinate-policy`196（native171／拒否25）はM5 Metal全件一致・独立seal済み。本人FB coverと4リロード方針、5種類のanchor、if_dry、stage gate、優先度、camera preempt時の一度だけのanchor復元を共通Slangへ接続。既存aimのanchor／装填総時間／次FB予測を共有し、CPUで操作時刻表を作らない。20新worldを追加し、旧169全1,196,163,072byteとnative／input prefixを保持。入力+128word／出力+384word、Runtime138952byte・247fieldは不変。共通readback器はcase境界をまたぐhashと短い末尾blockを照合する。静的burst cooldownの正本との矛盾は入力準備で拒否する。
+
+固定package `/tmp/nikke-policy-develop-v2`、成功capture `/tmp/nikke-policy-metal-v2`、最終配布 `/tmp/nikke-policy-final-compact-v1.zip`。CPU116件141.626秒、native171事前98.824秒。GPU0.644926秒／初回PSO91.377002秒。初版 `/tmp/nikke-policy-metal-v1` は旧ソース逆変換のschema／Swiftの不足をCPUで検出し、GPU前停止。修正版だけGPU1回／claim retry0。sealとcompiler証明書は別processのGPU禁止監査。rawは全byte/SHA/inodeを保った4KiB疎化で約1.35GBを回収し、削除していない。生成cache必須検査はpaired CUDA／Metal出力をcompiler0で再利用したが、CUDA実行・warm cache性能は未証明。
+
+詳細は `docs/portable-coordinate-cover-policy.md`／`research/portable-coordinate-policy-checkpoint.json`。現worktree `/private/tmp/nikke-runtime-resident`、branch `codex/runtime-resident`。旧manual169単独のcertificateは履歴としてexact inverseを維持。新方針の証明を旧入口の対応済み認定へ自動転記しない。次はcover_allと強制burst action producer、post-delay／zero-listener／knockdown・回復貯蔵の合成、mixed actor／元定義を優先する。Windowsは既存接続の送信APIがidleを開始できず、新規GPU要求0、現CUDA結果未取得。全キャラ認定0／20 model gap／UI CPU／目標未達を維持する。
+
+最終compactは1,832 files（full3,173）で全選択byte一致・checkout SHA一致。共通制御433件成功（Windows専用1skip）、frontier5件と静的cooldown負例1件も成功。最新inventoryは245/266 packing・base185/203で、全キャラ戦闘認定0を保持。
