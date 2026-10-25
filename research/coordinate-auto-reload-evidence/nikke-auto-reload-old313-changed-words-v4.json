@@ -1,0 +1,19 @@
+{
+  "name": "coordinate-mode-actions/automatic-reload-cover",
+  "changed_words": [
+    {
+      "word": 512176,
+      "before": 43,
+      "after": 42
+    },
+    {
+      "word": 512178,
+      "before": 130,
+      "after": 129
+    }
+  ],
+  "all_words_examined": 1769856,
+  "input_and_native_identical": true,
+  "all_reference_cases_retained": false,
+  "gpu_calls": 0
+}

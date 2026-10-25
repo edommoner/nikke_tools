@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "real_run_rejected_before_cpu": true,
+  "cpu_test_receipt_present": false,
+  "native_preparation_receipt_present": false,
+  "gpu_claim_present": false,
+  "gpu_calls": 0,
+  "archived_source_sha256": "411df731b6ed8cabc8133638a2c8e2e6c5fd3335daddd7ab47713ed9c4e65a33",
+  "scope": "Device-negative live run; archived source manifest confirms no execution claim"
+}

@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "source_package_id": "6594648c5af83debe81386493151ba01fb98d29b2b568d684d8a78ba2f0d7b98",
+  "package_id": "6b24922b132d356d08d98b4434162f2e38c44b982d474a53e1541a59b197767d",
+  "changed_archive_members": [
+    "gpu-package.json",
+    "tests/test_portable_compiler_certificate.py"
+  ],
+  "golden_identical": true,
+  "non_test_payload_all_bytes_identical": true,
+  "test_refresh": {
+    "source_package_id": "6594648c5af83debe81386493151ba01fb98d29b2b568d684d8a78ba2f0d7b98",
+    "preflight_capture": "/private/tmp/nikke-auto-reload-metal-v3",
+    "preflight_artifacts_sha256": "80e8b0f81d3cf048f760b8f2a70d725f96c304e0a99e30e077edb38c2a6b8a1c",
+    "tests": [
+      {
+        "path": "tests/test_portable_compiler_certificate.py",
+        "before_sha256": "9db16e208155fb574d1fa4d3d9364f58caa3848feb880c50844321860659300b",
+        "after_sha256": "81ca335f9cede6ced44bf09c7e425c8fb5e32f1c93caaabd17b28fc333213d09"
+      }
+    ]
+  },
+  "archive_sha256": "f631d08bc127f647983598a57ad63aa32bcc83835f6a1d1ad09ae52fdb891aa7",
+  "gpu_calls": 0,
+  "native_battle_calls": 0,
+  "calculation_verified": false
+}

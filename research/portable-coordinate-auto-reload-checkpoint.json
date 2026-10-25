@@ -1,0 +1,90 @@
+{
+  "schema": "coordinate-auto-reload-checkpoint-v1",
+  "suite": "coordinate-auto-reload",
+  "inputs": 322,
+  "native": 275,
+  "rejections": 47,
+  "device": "Apple M5",
+  "calculation_verified": true,
+  "independent_seal_passed": true,
+  "independent_metal_audits": 1,
+  "independent_audit_gpu_calls": 0,
+  "independent_audit_live_parent_reuse": false,
+  "independent_audit_seconds": 210.92972604208626,
+  "independent_audit_native_domains": 275,
+  "golden_sha256": "8776cdf69ff6263650fb9d0fa3f085f8685f7c93663edf08e8227bad05988d9c",
+  "source_certificate_sha256": "4842c854887a9dd226e27f4803baade2aab938563f8eef98f56c045275e70986",
+  "compiler_verified": false,
+  "current_cuda_verified": false,
+  "warm_cuda_cache_verified": false,
+  "development_package_id": "6b24922b132d356d08d98b4434162f2e38c44b982d474a53e1541a59b197767d",
+  "capture": "/tmp/nikke-auto-reload-metal-v4",
+  "gpu_seconds": 0.6974214583169669,
+  "pipeline_compile_seconds": 93.75637102127075,
+  "cpu_preflight_seconds": 192.45214616600424,
+  "normal_comparison_seconds": 8.671852958,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 275,
+    "fresh_native_cases": 0,
+    "rejection_cases": 47,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 275
+  },
+  "runtime_bytes": 138952,
+  "runtime_fields": 247,
+  "input_words": 109968,
+  "output_words": 1769856,
+  "old313_raw_identical": 312,
+  "old313_other_changes": "Only two work-statistic words in automatic-reload-cover; all inputs/native identical",
+  "v2_success_raw_identical": 316,
+  "v2_success_other_changes": "Five cases: only two work-statistic words; original failed case remains recorded",
+  "actual_new_source_gpu_runs": 3,
+  "same_claim_retries": 0,
+  "protected_unchanged": {
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+    "research/summarize-portable-cross-gpu.py": "01e8595eb20c4a3c1f94f524e81e812d2921fd240b17a33e6dbfb050320fb21a",
+    "app/portable_compile_cache.py": "d1dcc7cf1a5c7197b1dd63dd0d6bd1cc90192356eb42ad4a4e6b2f641c5cc505"
+  },
+  "final_package": {
+    "package_id": "85d28d121670541aa29ef1d5b65949fa1fbf06d36b70ad47ddc28c7ececd2f2b",
+    "files": 1871,
+    "bytes": 8716209,
+    "archive_sha256": "d3e57789a965beefa5cb1e341dd0b5d3e2328a6fe08a354f9940885546ce839c",
+    "source_commit": "366ae6668412a869a53d16c157490ad367b157a9"
+  },
+  "final_tests": {
+    "selected": {
+      "groups": 4,
+      "tests": 33,
+      "skipped": 0
+    },
+    "control": {
+      "groups": 46,
+      "tests": 470,
+      "skipped": 1
+    }
+  },
+  "packing": {
+    "profiles": 266,
+    "packed_profiles": 245,
+    "base": 203,
+    "packed_base": 185,
+    "unsupported_profiles": 21
+  },
+  "full_character_verified": 0,
+  "normal_ui": "CPU",
+  "full_goal_complete": false,
+  "next": [
+    "automatic reload down/revival, callback mode/capacity boundaries",
+    "healing storage and mixed actor original definitions",
+    "bounded current-source CUDA and warm cache validation",
+    "public admission and all-character certification"
+  ]
+}

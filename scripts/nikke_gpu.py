@@ -355,6 +355,8 @@ SUITES['coordinate-burst-control']=dict(SUITES['coordinate-squad-mode'],script='
 SUITES['coordinate-burst-control']['support_files']=['research/portable-compiler-full--coordinate-burst-control-source-certificate.json',SUITES['coordinate-squad-mode']['golden'],*SUITES['coordinate-squad-mode']['support_files']]
 SUITES['coordinate-mode-actions']=dict(SUITES['coordinate-burst-control'],script='research/verify-coordinate-mode-actions-short.py',source='gpu/world_coordinate_mode_actions_entry.slang',golden='research/portable-coordinate-mode-actions-short-expected.json',inputs=313,native=266,development_only=False,tests=['test_coordinate_mode_actions.py','test_portable_parent_oracles.py','test_coordinate_physical_frontier.py'])
 SUITES['coordinate-mode-actions']['support_files']=['research/portable-compiler-full--coordinate-mode-actions-source-certificate.json',SUITES['coordinate-burst-control']['golden'],*SUITES['coordinate-burst-control']['support_files']]
+SUITES['coordinate-auto-reload']=dict(SUITES['coordinate-mode-actions'],script='research/verify-coordinate-auto-reload-short.py',source='gpu/world_coordinate_auto_reload_entry.slang',golden='research/portable-coordinate-auto-reload-short-expected.json',inputs=322,native=275,development_only=False,tests=['test_coordinate_auto_reload.py','test_portable_parent_oracles.py','test_coordinate_parent_oracles.py','test_coordinate_physical_frontier.py'])
+SUITES['coordinate-auto-reload']['support_files']=['research/portable-compiler-full--coordinate-auto-reload-source-certificate.json',SUITES['coordinate-mode-actions']['golden'],*SUITES['coordinate-mode-actions']['support_files']]
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -489,6 +491,9 @@ SMOKE_TESTS.append('test_portable_packet_stage.py')
 SMOKE_TESTS.append('test_portable_generation_gate.py')
 SMOKE_TESTS.append('test_portable_readback_blocks.py')
 SMOKE_TESTS.append('test_portable_sparse_raw.py')
+SMOKE_TESTS.append('test_portable_metal_device.py')
+SMOKE_TESTS.append('test_portable_required_cache_preflight.py')
+SMOKE_TESTS.append('test_portable_test_repackage.py')
 SMOKE_TESTS.append('test_portable_scope_snapshot_audit.py')
 SMOKE_TESTS.append('test_portable_authored_case_purity.py')
 SMOKE_TESTS.append('test_portable_prepared_input.py')
@@ -1394,7 +1399,7 @@ def audit_saved_metal(package_root,capture,*,timeout=60,development_only=False):
     # are verified before native work; never patch a consumed package in place.
     # Legacy adapter chains use relative module paths: anchor their cwd too.
     if type(timeout) is not int or not 1<=timeout<=CPU_SAVED_AUDIT_MAX_SECONDS:raise ValueError('CPU seal timeout must be an integer from 1 to 240 seconds')
-    script = """import importlib.util,json,sys,pathlib
+    script = """import importlib.util,json,sys,pathlib,os
 root=pathlib.Path(sys.argv[1]);capture=pathlib.Path(sys.argv[2])
 s=importlib.util.spec_from_file_location('seal_controller',sys.argv[3])
 controller=importlib.util.module_from_spec(s);s.loader.exec_module(controller)
@@ -1404,20 +1409,23 @@ p=m.verify_package(root)
 if (sys.argv[4]=='development' and not m.is_development(p)) or p.get('purpose','sealed') not in ('sealed','development') or m.load(capture/'run.json')['backend']!='metal':raise ValueError('Matching Metal battle capture required')
 a,r=controller.audited_comparison(m,capture)
 g=dict(input_sha256=r['input_sha256'],output_sha256=r['output_sha256'],source_sha256=p['golden']['source_sha256'],entries=r['entries'],generated_normalized=r['generated_normalized'])
-print(json.dumps(dict(golden=g,package_id=p['package_id'],audit=a)))
+print(json.dumps(dict(golden=g,package_id=p['package_id'],audit=a,independent_comparison=dict(child_pid=os.getpid(),input_count=r.get('input_count',len(r['entries'])),native_cases=r.get('native_oracles'),live_parent_receipt_present='parent_oracles' in r))))
 """
+    started=time.perf_counter()
     completed=subprocess.run([sys.executable,'-c',script,str(package_root.resolve()),str(capture.resolve()),str(Path(__file__).resolve()),'development' if development_only else 'battle'],
                              cwd=package_root.resolve(),capture_output=True,text=True,check=True,timeout=timeout)
     result=json.loads(completed.stdout)
+    result['independent_audit_seconds']=time.perf_counter()-started
     for name,digest in result['golden']['source_sha256'].items():
         if sha((ROOT/name).read_bytes())!=digest:raise ValueError('Current source differs from verified Metal source')
     return result
 
 
-def seal_development(package_root,capture,output,*,timeout=60,compiler_certificate=None):
+def seal_development(package_root,capture,output,*,timeout=60,compiler_certificate=None,audit_receipt=None):
     """One fresh GPU0 audit can seal a battle and its exact compiler source."""
     output=Path(output)
     targets=[output] if compiler_certificate is None else [output,Path(compiler_certificate)]
+    if audit_receipt is not None:targets.append(Path(audit_receipt))
     if len({path.resolve() for path in targets})!=len(targets):raise ValueError('Seal outputs must be distinct')
     for path in targets:
         if path.exists() or path.is_symlink():raise FileExistsError(path)
@@ -1428,6 +1436,16 @@ def seal_development(package_root,capture,output,*,timeout=60,compiler_certifica
         if manifest.get('selected_cases')!=[] or diagnostic not in SUITES or not full_compiler(dict(suite=diagnostic)):
             raise ValueError('Compiler certificate requires an unfiltered registered full-world battle')
     result=audit_saved_metal(package_root,capture,timeout=timeout,development_only=True)
+    independent_receipt=None
+    if audit_receipt is not None:
+        facts=result.get('independent_comparison',{})
+        if facts.get('live_parent_receipt_present') is not False or type(facts.get('child_pid')) is not int or facts['child_pid']<=0 or facts['child_pid']==os.getpid() or type(facts.get('input_count')) is not int or facts['input_count']!=len(result['golden']['entries']) or type(facts.get('native_cases')) is not int or not 0<=facts['native_cases']<=facts['input_count'] or not result['audit'].get('calculation_verified'):
+            raise ValueError('Independent audit receipt requires a fresh child comparison')
+        seconds=result.get('independent_audit_seconds')
+        if type(seconds) not in (int,float) or not 0<=seconds<=timeout+1:raise ValueError('Independent audit receipt requires its bounded elapsed time')
+        independent_receipt=dict(schema='independent-metal-audit-v1',package_id=result['package_id'],capture=str(Path(capture).resolve()),
+            **facts,elapsed_seconds=seconds,gpu_calls=0,calculation_verified=True,input_sha256=result['golden']['input_sha256'],output_sha256=result['golden']['output_sha256'],
+            scope='One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls')
     raw=(json.dumps(result['golden'],ensure_ascii=False,indent=2)+'\n').encode('utf-8')
     source_certificate=None
     if manifest_raw is not None:
@@ -1447,6 +1465,8 @@ def seal_development(package_root,capture,output,*,timeout=60,compiler_certifica
         report.update(compiler_certificate=str(target.resolve()),compiler_certificate_sha256=sha(target.read_bytes()),
                       certificate_from_same_fresh_audit=True,independent_metal_audits=1,
                       compiler_verified=False,cache_hit_verified=False)
+    if independent_receipt is not None:
+        target=Path(audit_receipt);write(target,independent_receipt);report.update(audit_receipt=str(target.resolve()),audit_receipt_sha256=sha(target.read_bytes()))
     return report
 
 
@@ -1734,6 +1754,13 @@ def required_cuda_cache_preflight(m,capture):
     return True
 
 
+def metal_device_preflight(capture):
+    from portable_metal_device import probe
+    receipt=probe(ROOT);write(capture/'metal-device-preflight.json',receipt)
+    if not receipt['passed']:raise RuntimeError('Metal device unavailable before CPU preparation; no execution claim consumed')
+    return receipt
+
+
 def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_only=False,*,linked_package=None,linked_capture=None):
     parent_oracles=None
     m=verify_package(ROOT)
@@ -1766,6 +1793,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
         if not linked and not smoke and not cpu_only:
             paired=backend=='cuda' and required_cuda_cache_preflight(m,capture)
             if not paired:required_generation_cache_preflight(m,capture)
+        if backend=='metal' and not smoke and not cpu_only:metal_device_preflight(capture)
         if not smoke and not cpu_only and SUITES[m['suite']].get('parent_oracle_reuse'):
             from portable_parent_oracles import ParentOracles
             parent_oracles=ParentOracles(m,capture)
@@ -2682,6 +2710,9 @@ def generation_capture(output,*,development=False,packet_stage=None):
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     sub.add_parser('list')
+    a=sub.add_parser('refresh-tests',help='Copy an unclaimed development packet with explicit test-only updates')
+    for name in ('source-package','source-capture','out'):a.add_argument('--'+name,type=Path,required=True)
+    a.add_argument('--test',action='append',required=True)
     a=sub.add_parser('generation');a.add_argument('--packet-stage',type=Path);a.add_argument('--develop',action='store_true');a.add_argument('--out',type=Path,required=True);a.add_argument('--generation-cache',type=Path,required=True);a.add_argument('--require-generation-cache',action='store_true');a.add_argument('--slang-root',type=Path)
     for name in ('readback-index','readback-compare'):
         a=sub.add_parser(name);a.add_argument('--readback',type=Path,required=True);a.add_argument('--sha256',required=True);a.add_argument('--out',type=Path,required=True)
@@ -2711,13 +2742,14 @@ def main(argv=None):
     for name in ('source-package','source-capture','cache-entry','phases','candidate','ptxas','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('module-check');a.add_argument('--jit-opt-level',type=int,choices=range(5));a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path,required=True);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
-    a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=60);a.add_argument('--compiler-certificate',type=Path,help='Create a full-source certificate from this same fresh audit')
+    a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=60);a.add_argument('--compiler-certificate',type=Path,help='Create a full-source certificate from this same fresh audit');a.add_argument('--audit-receipt',type=Path,help='Record the same fresh child audit and elapsed time without repeating it')
     a=sub.add_parser('compiler-certificate');a.add_argument('--suite',choices=[config['compiler_baseline_suite'] for config in SUITES.values() if config.get('compiler_baseline_suite')],required=True);a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=120)
     a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
     a=sub.add_parser('cache-probe');a.add_argument('--generated-cuda',type=Path,required=True);a.add_argument('--cuda-root',type=Path,required=True);a.add_argument('--compile-cache',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a.add_argument('--artifact-kind',choices=('ptx','cubin'),default='cubin');a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--require-hit',action='store_true')
     a=sub.add_parser('consumer-audit');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('metal-device-probe',help='Bounded device visibility only; no kernel compilation or GPU dispatch');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('coordinate-parent-check',help='CPU-only live preflight/context reuse check against saved Metal fixtures; not GPU certification')
     a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     from portable_reference import REFERENCES
@@ -2761,7 +2793,10 @@ def main(argv=None):
     if getattr(a,'generation_cache',None):os.environ['NIKKE_SLANG_GENERATION_CACHE']=str(a.generation_cache.resolve())
     if getattr(a,'require_generation_cache',False):os.environ['NIKKE_SLANG_GENERATION_REQUIRED']='1'
     if hasattr(a,'capture'):a.capture=a.capture.resolve()
-    if a.command=='list':
+    if a.command=='refresh-tests':
+        from portable_test_repackage import refresh
+        with forbid_gpu():result=refresh(SimpleNamespace(**globals()),a.source_package,a.source_capture,ROOT,a.test,a.out)
+    elif a.command=='list':
         result={}
         for name,config in SUITES.items():
             if not (ROOT/config['golden']).is_file():
@@ -2811,10 +2846,14 @@ def main(argv=None):
         with forbid_gpu():
             verify_package(ROOT)
             result=recover(SimpleNamespace(**globals()),a.source_package,a.source_capture,a.out,a.object_sha256)
+    elif a.command=='metal-device-probe':
+        from portable_metal_device import probe
+        if a.out.exists() or a.out.is_symlink():raise FileExistsError(a.out)
+        result=probe(ROOT);write(a.out,result)
     elif a.command=='coordinate-parent-check':
         from portable_coordinate_parent_check import check
         with forbid_gpu():result=check(a.source_package,a.source_capture,a.out)
-    elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out,timeout=a.timeout,**(dict(compiler_certificate=a.compiler_certificate) if a.compiler_certificate is not None else {}))
+    elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out,timeout=a.timeout,**(dict(compiler_certificate=a.compiler_certificate) if a.compiler_certificate is not None else {}),**(dict(audit_receipt=a.audit_receipt) if a.audit_receipt is not None else {}))
     elif a.command=='compiler-certificate':
         with forbid_gpu():result=make_compiler_certificate(a.suite,a.package_root,a.capture,a.out,timeout=a.timeout)
     elif a.command=='cases':
@@ -2963,7 +3002,7 @@ def main(argv=None):
     if a.command=='storage-check':
         if not result['passed']:raise SystemExit(2)
         return
-    if a.command=='cache-probe':
+    if a.command in ('cache-probe','metal-device-probe'):
         if not result['passed']:raise SystemExit(1)
         return
     if a.command=='arena-check':

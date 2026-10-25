@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "failure.json",
+      "bytes": 133,
+      "sha256": "61a8e744cf7b8c4f405139954458363db2e14d0bb08ec96899a77deb9e590235"
+    },
+    {
+      "path": "run.json",
+      "bytes": 222,
+      "sha256": "0581e59bb96e6bd58eded87c0d6c0a097f54a8748224dfedf54f6d7602242933"
+    },
+    {
+      "path": "storage.json",
+      "bytes": 299,
+      "sha256": "d396a8f466a57baea91e0a34dbce38ca7dd1763291a0c1183a1da1efb5b15af5"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}

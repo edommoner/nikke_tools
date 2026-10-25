@@ -13,7 +13,7 @@ cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 class SealTests(unittest.TestCase):
     def test_seal_budget_rejects_invalid_values_before_child_or_io(self):
-        for timeout in (0,-1,181,True,1.5,'90'):
+        for timeout in (0,-1,241,True,1.5,'90'):
             with self.subTest(timeout=timeout),patch.object(cli.subprocess,'run') as run,self.assertRaisesRegex(ValueError,'CPU seal timeout'):
                 cli.seal_development(Path('unused'),Path('unused'),Path('unused'),timeout=timeout)
             run.assert_not_called()
@@ -96,5 +96,35 @@ def audit_capture(capture):
                 with self.assertRaises(subprocess.CalledProcessError):cli.seal_development(package,capture,base/'not-development.json',timeout=90)
             self.assertFalse((base/'not-development.json').exists())
 
+
+    def receipt_result(self):
+        return dict(package_id='fixture',golden=dict(entries=[dict(name='case')],input_sha256='0'*64,output_sha256='1'*64),audit=dict(calculation_verified=True),independent_comparison=dict(child_pid=os.getpid()+10000,input_count=1,native_cases=1,live_parent_receipt_present=False),independent_audit_seconds=.5)
+
+    def test_same_fresh_audit_can_publish_a_receipt_without_a_second_comparison(self):
+        with tempfile.TemporaryDirectory() as tmp,patch.object(cli,'audit_saved_metal',return_value=self.receipt_result()) as audit:
+            root=Path(tmp);receipt=root/'receipt.json';result=cli.seal_development(root,root/'capture',root/'golden.json',audit_receipt=receipt)
+            audit.assert_called_once();saved=json.loads(receipt.read_text());self.assertTrue(saved['calculation_verified']);self.assertFalse(saved['live_parent_receipt_present']);self.assertEqual(saved['native_cases'],1);self.assertEqual(saved['gpu_calls'],0)
+            self.assertEqual(result['audit_receipt_sha256'],hashlib.sha256(receipt.read_bytes()).hexdigest())
+
+    def test_receipt_rejects_missing_counts_reuse_owner_and_unbounded_time_before_outputs(self):
+        for label,change in [('missing',{'native_cases':None}),('reused',{'live_parent_receipt_present':True}),('owner',{'child_pid':os.getpid()}),('count',{'input_count':True})]:
+            value=self.receipt_result();value['independent_comparison'].update(change)
+            with self.subTest(label=label),tempfile.TemporaryDirectory() as tmp,patch.object(cli,'audit_saved_metal',return_value=value):
+                root=Path(tmp)
+                with self.assertRaisesRegex(ValueError,'fresh child'):cli.seal_development(root,root/'capture',root/'golden.json',audit_receipt=root/'receipt.json')
+                self.assertFalse((root/'golden.json').exists());self.assertFalse((root/'receipt.json').exists())
+        value=self.receipt_result();value['independent_audit_seconds']=1000
+        with tempfile.TemporaryDirectory() as tmp,patch.object(cli,'audit_saved_metal',return_value=value):
+            root=Path(tmp)
+            with self.assertRaisesRegex(ValueError,'bounded elapsed'):cli.seal_development(root,root/'capture',root/'golden.json',audit_receipt=root/'receipt.json')
+            self.assertFalse((root/'golden.json').exists())
+
+    def test_receipt_targets_must_be_fresh_and_distinct_before_audit(self):
+        with tempfile.TemporaryDirectory() as tmp,patch.object(cli,'audit_saved_metal') as audit:
+            root=Path(tmp);target=root/'golden.json'
+            with self.assertRaisesRegex(ValueError,'distinct'):cli.seal_development(root,root/'capture',target,audit_receipt=target)
+            receipt=root/'receipt.json';receipt.write_text('original')
+            with self.assertRaises(FileExistsError):cli.seal_development(root,root/'capture',target,audit_receipt=receipt)
+            audit.assert_not_called();self.assertEqual(receipt.read_text(),'original')
 
 if __name__=='__main__':unittest.main()

@@ -78,8 +78,18 @@ void prepareWeaponFrame(inout Runtime s,uint who,uint64_t when,uint output,out u
 void advanceWeaponCharge(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint output,uint epoch,int mode,out bool ready)
 {
     ready=false;
+#ifdef PORTABLE_WORLD_CHARGE_CONTROL
+    // Native _tick_weapon_change samples was_ready before _tick_charge turns
+    // an expired post-delay into ready. Cover/reset ready refills; expiry does not.
+    if(mode>=0&&w.mode==1&&results[controlState(s,who)+24]==0)
+        s.ammo[who]=ammoInstantCapacity(s,who,when);
+#endif
     if (f64Less(when,s.nextShot[who])) return;
-    if (s.pendingAutoReload[who] != 0)
+    if (s.pendingAutoReload[who] != 0 && w.mode==1
+#ifdef PORTABLE_WORLD_CHARGE_CONTROL
+        && results[controlState(s,who)+24]==2
+#endif
+    )
     {
         // Eligibility was sampled before hit callbacks. Complete at the first
         // post-delay frame even if the speed effect expired in the meantime.
@@ -90,6 +100,9 @@ void advanceWeaponCharge(inout Runtime s,inout Weapon w,uint who,uint64_t when,u
         if (s.error != 0 || changedWeaponSession(s,who,epoch,mode)) return;
         // Automatic completion bypasses partial clips and post-reload delay.
     }
+#ifdef PORTABLE_WORLD_CHARGE_CONTROL
+    if(w.mode==1&&results[controlState(s,who)+24]==2)results[controlState(s,who)+24]=0;
+#endif
     w.infinite = uint(hasInfiniteAmmo(s,who,when));
     if (w.infinite == 0 && s.ammo[who] <= 0 && (w.mode != 1 || s.charging[who] == 0))
     {
@@ -206,7 +219,7 @@ void finishWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint
         { uint name = definition_name(s.inputBase,mode); s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0; clearMode(s,who,when); dispatch(s,0,29,who,int(name),when,output); return; }
     }
     if (w.mode == 1)
-    { s.pendingAutoReload[who] = uint(scheduleAutoReload); s.charging[who] = 0;invalidateNativeNumeric(s); s.nextShot[who] = larger(f64Add(when,WORLD_FRACTION_POST_DELAY(s,who,mode,f64Add(w.interval,w.chargeTime ^ F64_SIGN))),f64Add(s.chargeStartedAt[who],w.minCycle)); }
+    { s.pendingAutoReload[who] |= uint(scheduleAutoReload); s.charging[who] = 0;invalidateNativeNumeric(s); s.nextShot[who] = larger(f64Add(when,WORLD_FRACTION_POST_DELAY(s,who,mode,f64Add(w.interval,w.chargeTime ^ F64_SIGN))),f64Add(s.chargeStartedAt[who],w.minCycle)); }
     else s.nextShot[who] = larger(when,f64Add(s.nextShot[who],shotInterval));
 #ifdef PORTABLE_PARTIAL_CHARGE
     if(w.mode==1 && w.partialTapRow!=0)

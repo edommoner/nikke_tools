@@ -30,6 +30,9 @@ class RequiredCachePreflightTests(unittest.TestCase):
         stack=contextlib.ExitStack();stack.enter_context(patch.dict(os.environ,self.env));stack.enter_context(patch.object(cli,'ROOT',self.root));stack.enter_context(patch.object(cli,'os',WindowsNameOnly()))
         stack.enter_context(patch.dict(cli.SUITES,{'cache-unit':dict(source=self.source,tests=[])}));stack.enter_context(patch.object(cli,'verify_package',return_value=self.m));stack.enter_context(patch.object(backend,'build',self.build))
         stack.enter_context(patch.object(cli,'module',return_value=types.SimpleNamespace(normalized=cli.sha)));stack.enter_context(patch.object(cli,'cpu_test_groups',self.cpu));stack.enter_context(patch.object(cli,'cpu_preflight',side_effect=AssertionError('Native work after miss')));stack.enter_context(patch.object(cli,'run_job',side_effect=AssertionError('Job after miss')))
+        # This synthetic cache fixture has no battle adapter or storage plan.
+        stack.enter_context(patch.object(cli,'capture_storage_preflight'))
+        stack.enter_context(patch.object(cli,'metal_device_preflight'))
         return stack
     def test_miss_stops_before_cpu_native_job_and_exclusive_claim(self):
         with self.context(),self.assertRaisesRegex(RuntimeError,'before CPU preflight'):cli.run_capture(self.capture,'cuda',180)

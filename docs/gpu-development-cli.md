@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+最新の `coordinate-auto-reload`322（native275／拒否47）は保留自動装填・期限・遮蔽とmode弾倉補充を共通実行器で検証し、M5 Metal全一致・別processのfresh監査済みです。`metal-device-probe`／通常runのCPU前可視性検査、未claim開発packetの `refresh-tests`、同じfresh sealの `--audit-receipt` も追加しました。最終機能33・制御470検査成功（Windows1skip）。[自動装填と検証記録](portable-coordinate-auto-reload.md)／[Metal可視性](portable-metal-device-preflight.md)。
+
 `coordinate-mode-actions`313（native266／拒否47）はmode中の明示hold／coverと射撃後待機を共通実行器で照合し、M5 Metal全件一致・別processのfresh seal済みです。元武器がchargeならcoverで待機時計も解除します。静的base時計とwire登録の矛盾をCPU／GPU計算前に拒否。旧293の入力・nativeは不変、raw287全byte保持／6件は未射撃charge武器のnextShotだけ変更し全差分を保存。[mode操作と待機](portable-coordinate-mode-actions.md)。
 
 `coordinate-burst-control`293の通常比較は、同じ親の実native事前値と生成イベント記録を既存ParentOraclesで再利用します。独立監査はfreshを維持。CPU専用 `coordinate-parent-check --source-package PATH --source-capture PATH --out NEW_PATH` で全件のfresh比較との一致・追加native0回・原capture保持を確認できます。このコマンドはGPU証明を作りません。[仕様と測定](portable-coordinate-parent-oracles.md)。
@@ -383,3 +385,21 @@ Windowsも同じ入力と比較器を使い、既存の低優先度・2GiB・180
 `coordinate-burst-control` は293入力（native246／拒否47）を共通候補producer／既存戦闘実行器で実行し、M5 Metal全一致・独立seal済みです。旧251入力の全rawを保持しています。`package --suite coordinate-burst-control --compact` を使います。[実装・配置・残り](portable-coordinate-burst-control.md)を参照してください。
 
 実GPU前のnative照合は `preparation.jsonl` の `cpu_native_oracle` でケース番号・名前・全件数・所要時間と失敗位置を観測できます。値の指紋が一致してから正常終了を記録し、失敗時は入力公開／GPU開始を止めます。processの生存はこの記録から推測しません。GPU禁止の `seal`／`compiler-certificate` のCPU監査だけ `--timeout 240` を明示可能です。293入力の通常比較195秒という実測に基づく分離で、GPU・Windows・compileの180秒上限は維持します。
+
+
+## CPU前の停止とテストだけの更新
+
+Metalの実行前可視性を `metal-device-probe` で確認し、通常runもCPU準備前に検査します。[可視性と失敗記録](portable-metal-device-preflight.md)。容量不足・device未検出はclaimを消費しません。
+
+`refresh-tests` は、GPU未開始の失敗した開発packetに対する明示テスト更新です。元packet・失敗captureを保持し、新しいZIPを排他的に作ります。既存 `tests/test_*.py` だけを指定でき、shader・正本・入力producer・fixture・goldenは変更しません。workspaceの非test payloadが変わっていれば拒否します。旧CLIの限定launcher差分だけを認識し、出力には元のfrozen CLIをコピーします。GPU開始済み・claim消費済み・filtered/sealed packetは拒否します。元と新ZIPの全byte SHAを検査し、native battle／GPU呼出しは0です。
+
+```sh
+python scripts/nikke_gpu.py refresh-tests \
+  --source-package /tmp/failed-preflight-package \
+  --source-capture /tmp/failed-preflight-capture \
+  --test tests/test_example.py --out /tmp/new-test-only-package.zip
+```
+
+新packetも通常のCPU tests・全native事前照合・GPU実行・独立fresh監査を通します。基準計算の再作成だけを避ける操作で、計算成功を認定しません。実証では `6594648c…` から `6b24922b…` へcompiler certificateテスト1ファイルだけを更新し、全322入力／native指紋と全非test byteを保持しました。元の容量停止とZIPは残しています。
+
+`seal --audit-receipt NEW_PATH` は同じ1回のGPU禁止fresh子監査から、PID・比較domain数・live parent再利用なし・実測秒数・入出力SHAを保存します。通常比較のParentOracles再利用時間と独立監査時間を区別します。[自動装填](portable-coordinate-auto-reload.md)。

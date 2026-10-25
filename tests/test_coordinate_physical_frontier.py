@@ -103,6 +103,10 @@ class FrontierTests(unittest.TestCase):
         self.assertTrue(actions['canonical_static_base_clock_checked']);self.assertFalse(actions['computed_cpu_action_schedule'])
         self.assertFalse(actions['public_gpu_admitted']);self.assertFalse(actions['all_characters_certified'])
         self.assertEqual((actions['input_words'],actions['output_words'],actions['extra_runtime_bytes']),(109968,1769856,0))
+        auto=result['coordinate_automatic_reload']
+        self.assertTrue(auto['shared_post_delay_phase']);self.assertTrue(auto['pending_survives_ineligible_shot'])
+        self.assertTrue(auto['session_change_clears_pending']);self.assertTrue(auto['exact_notification_damage_and_final_latch_compared'])
+        self.assertFalse(auto['computed_cpu_action_schedule']);self.assertFalse(auto['public_gpu_admitted']);self.assertFalse(auto['all_characters_certified'])
         rows = {r['id']: r for r in result['dependencies']}
         self.assertEqual(len(rows), 7)
         self.assertEqual(rows['physical-native-observation']['common_policy_reference_cli'],

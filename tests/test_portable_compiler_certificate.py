@@ -121,7 +121,9 @@ class CompilerCertificateTests(unittest.TestCase):
         from types import SimpleNamespace
         answer=dict(golden=dict(source_sha256={}),package_id='saved',audit=dict(calculation_verified=True))
         with patch.object(cli.subprocess,'run',return_value=SimpleNamespace(stdout=json.dumps(answer))) as launch:
-            self.assertEqual(cli.audit_saved_metal(self.package,self.capture,timeout=240),answer)
+            actual=cli.audit_saved_metal(self.package,self.capture,timeout=240)
+            seconds=actual.pop('independent_audit_seconds');self.assertGreaterEqual(seconds,0);self.assertLess(seconds,240)
+            self.assertEqual(actual,answer)
             self.assertEqual(launch.call_args.kwargs['timeout'],240)
             for budget in (0,241,True,'240'):
                 with self.assertRaises(ValueError):cli.audit_saved_metal(self.package,self.capture,timeout=budget)

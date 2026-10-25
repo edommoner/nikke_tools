@@ -1991,3 +1991,16 @@ CPU専用 `coordinate-parent-check` は原成功Metal293のread-only fixtureか�
 model-checkに最新入口の証明を追加しsource match true、inventoryは245/266 packing・base185/203・未対応21profiles/20 reference_model_gap分類を維持。全キャラ0／UI CPU／全目標未達。Windowsは既存チャットrev78 idleのままで、今回status確認1・新メッセージ/GPU0。次はmodeで中断したpending automatic reloadの通知とspeed effect期限の合成、zero-listener／healing storage／mixed actor元定義、短いcurrent CUDAとwarm cacheの検証を進めます。
 
 このMacの今回のsandbox内ではMetal deviceを列挙できず、読み取り確認と実Metal実行はrequire_escalatedで成功しました。次回もデバイス可視性を先に確認し、同claimを再利用しないこと。共通CLIへGPU0のMetal可視性事前検査を加え、CPU準備後のNo Metal device停止を避けることも次の効率化項目です。
+
+
+## 2026-10-25 保留自動装填・CPU前Metal確認・test-only更新
+
+最新は `coordinate-auto-reload`322（native275／拒否47）、`docs/portable-coordinate-auto-reload.md` と `research/portable-coordinate-auto-reload-checkpoint.json`。共通weapon tickでpost-delay完了を扱い、遮蔽でreadyへ戻ったmode chargeだけ弾倉を補充、非適格な次shotでもpendingを保持します。mode開始／終了の既存pending破棄は保持。9worldで期限・cover取消・mode満了／交換・until_reload・zero-duration／listener・待機途中終了を実native観測し、通知の子damage／atk・最終ammo／pendingを比較。Runtime／wire／入出力容量と保護8ファイルは不変です。
+
+固定 `/tmp/nikke-auto-reload-develop-v4`（6b24922b…）／`/tmp/nikke-auto-reload-metal-v4` は322全一致。GPU.697421秒／初回PSO93.756371秒／CPU事前192.452146秒／通常比較8.671853秒、事前275を再利用し追加native0。同じ親のreceiptを渡さないGPU禁止fresh子監査は210.929726秒、全322／275native domain一致。同じ監査でgolden・専用source certificate・実測時間receiptを作成。CUDA証明へ流用しません。旧313は入力／native全同一、312全raw保持、残る1件はfield work統計2wordのみ変化。初版成功321も316全raw保持、5件は同じwork統計だけ。失敗1件はammo0→1と統計。詳細全word差分・元失敗は保持し、全raw保持と偽りません。新sourceのGPU計3回、同claim retry0。
+
+共通CLIにGPU0のMetal device可視性検査を追加。容量／必須cache後、CPU準備／test／claim前に20秒上限でdevice確認。sandbox未検出・権限別M5検出、実packetのCPU前停止を確認。CPU-only／smoke／CUDAは除外。`refresh-tests` は未claim・GPU未開始のfailed development packetだけ、既存test Pythonの明示変更を新ZIPへコピー。非test／golden／基準を原byteで保持し、全payload再hash・排他的公開・元capture維持。実322 packetのテスト期待値1件更新に利用し、CPU基準再作成だけを回避。通常native照合・独立監査は省略しません。機構7検査、可視性8、既存cache境界9を共通制御へ登録。CLIのimport scope失敗も既存復旧検査が検出・修正し元失敗を保存。
+
+最終compact `/tmp/nikke-auto-reload-final-v2.zip`（85d28d12…／1871files／8,716,209byte）は選択33・制御470（Windows1skip）成功、終了後に全payload SHA／checkout全byte／実GPU source・input・native基準一致を確認。生成cache hit／compiler0、実GPU時のCUDA/MSL両生成物と全byte同一。追加GPU0。全reader終了後にrawを全byte/SHA/inode維持で4KiB疎化。完了source展開19件も全復元・全SHA検査後のlossless archiveへ移し、元ZIP・receiptを保持。raw削除0。
+
+inventory再検査は245/266 packing・base185/203、未対応21profiles、全キャラ認定0／UI CPU／目標未達。未対応20 model-gap分類の解消をpackingだけで認定しません。Windowsの送信API再試行はidle chatを開始できず未送信で、追加実行0。接続復旧を繰り返し依頼せず、ユーザーが開始した場合だけ既存短い検証の結果を取得します。次はpending装填とdown／復活・callbackでのmode／容量変更、healing storage／混在actor元定義、短いcurrent CUDA／warm cache確認を優先します。

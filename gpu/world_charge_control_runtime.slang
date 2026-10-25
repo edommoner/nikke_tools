@@ -269,7 +269,8 @@ void advanceChargeControl(inout Runtime s,uint who,uint64_t when)
         results[a+1]=index;
         }
     }
-    if(results[a+24]==2&&!f64Less(when,s.nextShot[who])&&WORLD_RELOAD_PHASE_EXPIRE(s,who)) results[a+24]=0;
+    // The weapon tick owns post-delay completion. Preserve its entry phase
+    // through posture/reload checks so a real ready mode can refill its ammo.
 }
 bool waitChargeControl(inout Runtime s,uint who,uint64_t charge,uint64_t when)
 {

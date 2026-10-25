@@ -1,0 +1,70 @@
+{
+  "calculation_verified": false,
+  "entries": [
+    {
+      "name": "coordinate-auto-reload/latched-speed-expiry",
+      "input_sha256": "4aa71a716b2416396a3431ae10a6f231d43fc968b0fdd4317e1da26b2f31f032",
+      "output_sha256": "76f41bc31079fd477596aea0c91f607f82d909fe816456454d69a2da957e5aba",
+      "native_sha256": "2aa5b621d2cd4038eb6666bbc7bb75a928e11cf8807e2189888eaa9d877b1c5a"
+    },
+    {
+      "name": "coordinate-auto-reload/until-reload-cover",
+      "input_sha256": "8a9c70783a5a3afc022c61b08af15ee5aaf50b8d95de41a310cbbf0cd8c5ba17",
+      "output_sha256": "57a3a787ac0cd9be77997388c64ecee7afca42ac1f08ce8728392c60329c3dce",
+      "native_sha256": "6b49624841c923a8959ee872fa78e2c19a5cb7462a3425831f614cd8f9e298c3"
+    },
+    {
+      "name": "coordinate-auto-reload/mode-expiry-latched",
+      "input_sha256": "7e22092b26f5b2d060ad5da4c9fd067c844eedeb5c7315755706e7af93fa7878",
+      "output_sha256": "412731aaf54f0c4f1a78baed464bd074ca895deac739a66fa5133f95aca771b2",
+      "native_sha256": "267c5151909a97ca19830f66ba0b9e3349ef4dfc63b6d20625972f4d6b15f0db"
+    },
+    {
+      "name": "coordinate-auto-reload/mode-replacement-latched",
+      "input_sha256": "4263e3dbc650fd463a5fa7467b95f478bf53a6755e1040f219849b2e451837d2",
+      "output_sha256": "4adc37e4a65dfa94847eb9b49a54508bed6cc43d9412c3521cb60c3bf1ca8279",
+      "native_sha256": "24e43a49e4fd4497f97d262f798799c7976cfc6ea1f437ac9dd74243ab56bd86"
+    },
+    {
+      "name": "coordinate-auto-reload/zero-listener",
+      "input_sha256": "df8458a7783a521f19c0249aab1cf529efee8ca69c32e59f0361794162b498fe",
+      "output_sha256": "11eb36ce4309885a053811137c4e1f0949da774ee314b50b351e5105c83b5958",
+      "native_sha256": "35dd77d0ed9aa0eeb65ebf2a779c37d7ec7acd0c7638d4ad8e8b263c44fba616"
+    }
+  ],
+  "mismatches": [
+    {
+      "index": 1,
+      "name": "coordinate-auto-reload/cover-cancels-phase",
+      "reason": "AssertionError: Preserved ordered binary64 aggregate"
+    },
+    {
+      "index": 2,
+      "name": "coordinate-auto-reload/cover-then-speed-expiry",
+      "reason": "AssertionError: Preserved ordered binary64 aggregate"
+    },
+    {
+      "index": 7,
+      "name": "coordinate-auto-reload/zero-duration-cover",
+      "reason": "AssertionError: Preserved ordered binary64 aggregate"
+    }
+  ],
+  "input_count": 8,
+  "native_oracles": 8,
+  "input_sha256": "b96b3d2e6f08925aaa7701fc5da9e638d95cb5109d6aa9552979b86df52f4a81",
+  "output_sha256": "d34488bdd5a2a3e2fd6c58318457f00ad7bc8247dc7a09de2785668f39282d4c",
+  "generated_normalized": {
+    "cuda": "42ce38fe3bd79eb8eb29fc2a18f9ed54cdee397af68c947dad173d618eafab67",
+    "metal": "4213880dcc4d5ef4ad7d8d89408a663198062ab2fea62a8df4182694c78f6281"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 5,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 5
+  }
+}
