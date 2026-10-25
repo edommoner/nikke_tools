@@ -1,0 +1,15 @@
+{
+  "schema": "independent-metal-audit-v1",
+  "package_id": "ea73aa5694b80915f22621b1452e72019ac36962476f6a2a4c7169a89187d69b",
+  "capture": "/private/tmp/nikke-original-ammo-metal-v1",
+  "child_pid": 27972,
+  "input_count": 4,
+  "native_cases": 4,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 64.31608633394353,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "c878c86123c780e3061fb91ecf03aaad272a412d93d0a74d41d13f0cd447532d",
+  "output_sha256": "6bc6495208db962c230902e9770adac3537496257926c018e1861cfa65fbcc10",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls"
+}

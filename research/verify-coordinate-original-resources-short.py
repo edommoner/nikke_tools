@@ -44,6 +44,9 @@ def compare(block,domain):
     from world_coordinate_sampled_skill_native import creation_indices
     with creation_indices(domain[0]) as indices:native=native_reference(domain)
     parent.compare_observed(block,domain,native,indices)
+    return compare_resource_state(block,domain,native)
+
+def compare_resource_state(block,domain,native):
     from portable_runtime import decode
     actual=decode(block[:159744],domain[1]);observed=native['original_resources'];names=domain[1]['resource_names']
     for who,owner in enumerate(domain[0]['names']):

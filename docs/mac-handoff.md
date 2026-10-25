@@ -2121,3 +2121,15 @@ packet `/tmp/nikke-original-resources-develop-v1`（95b08ccd…）、capture `/t
 独立seal20.138357秒、別child・全3fresh・live parent receiptなし／GPU0。同じ監査からgoldenとsource-only証明書を作成。最終compact `/tmp/nikke-original-resources-final-v1.zip`（44c51fa9…）は機能19／制御476（Win1skip）成功。全1929payload SHA／checkout全byteと実GPU source・input・native・output一致を終了後に確認。全reader終了後のrawはbyte/SHA/size/inode保持で疎化、削除0。
 
 次の候補はammo13/14等の未受付kindと、それに依存する元ゲージevery_stackの正の通知。kind受付は共有declを更新し、生成fragmentも更新してから新source/goldenを独立検証すること。既存parent source inverseも維持すること。敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cache、公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／全目標未達。Windows新依頼0、idle送信APIへ同じrunを繰り返さないこと。
+
+## 2026-10-26 元編成ammo13/14・正のゲージ段階通知
+
+最新 `coordinate-original-ammo`4、`docs/portable-original-ammo.md`／`research/portable-original-ammo-checkpoint.json`。元のギロチン：ウィンタースレイヤー79／ノワール74／アルカナ：フォーチュンメイト80／グレイブ83全定義を5人編成・元weapon／成長／操作のまま保持し、6／6／6／16秒。既存共通割合13／固定14 handlerを新ammo入口の受付へ接続。CPUとSlangのkind条件は同じ宣言から生成、数値／wire／Runtime容量変更0。旧resource入口は新macro未定義でCUDA／MSL原生成物全byte保持、厳密inverseと負例も維持しました。祖先baselineに無い新fragmentはinverse後に除去し、元original7検査も成功。旧goldenのraw source一致falseを隠しません。
+
+受動observerは実handler呼出し・戻りと実capacity照会の戻りだけを観測し、stat再照会0。ギロチンは実経験値10通知→レベル2と10.26%補充、ノワールは全5人の39.88%補充と上限切捨て、アルカナは実2／6発補充、グレイブは元状態終了から−100%で104→0を確認。既存全battle／packet／RNG／最終ammoと、共有resource比較器の全ゲージ／通知・定義別発火数を合成しました。正の通知を未発火のまま認定していません。
+
+packet `/tmp/nikke-original-ammo-develop-v1`（ea73aa56…）、capture `/tmp/nikke-original-ammo-metal-v1` はM5全4一致。GPU1回1.706368秒／初PSO92.190548秒／CPU事前60.414598秒、生成cache必須hit・compiler0、retry0。独立seal64.316086秒、別child・全4fresh・live parent receiptなし／GPU0。同じ監査からgoldenとsource-only証明書を作成。現CUDA compile/link/cache/battleへは流用しません。
+
+最終compact `/tmp/nikke-original-ammo-final-v1.zip`（b8fdecda…）は関連23／制御476（Win1skip）成功。全1938payload SHA／checkout全byteとGPU source・全input／native／output指紋を終了後に検査。全reader終了後にrawをSHA／size／inode保持で疎化し27,058,176byte回収、削除0。全266静的inventoryは247packing／kind拒否46（旧resource65）。残り201をGPU対応数としないこと。
+
+次は実在するstack上限19（11profile）、解除26（11profile）、stack追加16等を優先し、元定義の実発火とreadbackを確認します。敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cache、公開GPU・全キャラ認定も未完。全キャラ0／UI CPU／全目標未達、Windows新規実行依頼0。既存idleチャット送信APIはユーザー依頼で再試行しても同じactive-turnエラー。検証の重複runは依頼せず、手動開始または実行開始可能な状態になってから既存短い検証の状態／保存結果を取得します。

@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`coordinate-original-ammo`4 は元のギロチン：ウィンタースレイヤー／ノワール／アルカナ：フォーチュンメイト／グレイブの割合・固定補充と負の割合、正のゲージ段階通知を検証したsealed suiteです。`package --suite coordinate-original-ammo --compact` を使います。共有kind宣言・既存共通handlerを使用し、M5 Metal全一致・独立fresh監査・関連23／制御476成功（Win1skip）。kind受付46拒否をGPU対応数へ読み替えないこと。現CUDA／全キャラ認定は未完了です。[検証範囲](portable-original-ammo.md)。
+
 `coordinate-original-resources`3 は元E.H.／ネオン：ビジョンアイの固有ゲージ加算・消費・上限を共通handlerへ接続したsealed suiteです。M5全3・独立監査・機能19／制御476成功（Win1skip）。sampled-vital kind条件を共通宣言からSlang／CPUへ生成し、正例の未対応kindをnative/GPU前に拒否します。`entry-inventory --suite coordinate-original-resources --out UNIQUE.json` で静的kind拒否を調べられますが、GPU受付全体の認定ではありません。[範囲と残件](portable-original-resources.md)。
 
 `coordinate-original-burst-revival`4 は元ラプンツェルのB1復活とセンチのスキル残り待機短縮を既存共通handlerへ接続したsealed suiteです。M5 Metal全4・独立監査・機能39／制御476成功（Win1skip）。`entry-inventory --out UNIQUE.json` は開発checkout／full packageで全266元profileの座標入力とkind一覧をCPU専用調査し、GPU受付・計算認定とは分けます。[範囲・初回失敗・残件](portable-original-burst-revival.md)。

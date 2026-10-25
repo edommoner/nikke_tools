@@ -1,4 +1,7 @@
         if(kind!=0&&kind!=2&&kind!=3&&kind!=4&&kind!=6&&kind!=7&&kind!=8&&kind!=24
+#ifdef PORTABLE_COORDINATE_ORIGINAL_AMMO
+            &&kind!=13&&kind!=14 // Existing shared percentage and flat ammo handlers.
+#endif
 #ifdef PORTABLE_COORDINATE_ORIGINAL_RESOURCES
             &&kind!=9&&kind!=10 // Existing shared gauge charge/consume handlers.
 #endif

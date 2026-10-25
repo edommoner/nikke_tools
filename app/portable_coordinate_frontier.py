@@ -237,6 +237,9 @@ def verify(root, overrides=None):
     resource_original_sources=source_hashes(root,'gpu/world_coordinate_original_resource_entry.slang') if (root/'gpu/world_coordinate_original_resource_entry.slang').is_file() else {}
     resource_original_path=root/'research/portable-coordinate-original-resources-short-expected.json'
     resource_original_golden=json.loads(resource_original_path.read_text()) if resource_original_path.is_file() else None
+    ammo_original_sources=source_hashes(root,'gpu/world_coordinate_original_ammo_entry.slang') if (root/'gpu/world_coordinate_original_ammo_entry.slang').is_file() else {}
+    ammo_original_path=root/'research/portable-coordinate-original-ammo-short-expected.json'
+    ammo_original_golden=json.loads(ammo_original_path.read_text()) if ammo_original_path.is_file() else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -662,6 +665,17 @@ def verify(root, overrides=None):
                     shared_gauge_handlers=True,admitted_kinds=[9,10],shared_slang_cpu_kind_declaration=True,
                     checked=['stored values and base caps','actual charge/consume dispatch counts','cap-dependent callbacks','no spurious step notifications'],
                     remaining=['positive gauge-step notifications in original rosters','other resource and ammo operation admission',
+                        'current CUDA execution and public all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_original_ammo=dict(suite='coordinate-original-ammo',source_sha256=ammo_original_sources,
+                    proof_available=ammo_original_golden is not None,
+                    sealed_source_matches_current=ammo_original_golden['source_sha256']==ammo_original_sources if ammo_original_golden else None,
+                    input_count=len(ammo_original_golden['entries']) if ammo_original_golden else None,
+                    original_definitions_weapons_preserved=True,reference_kind='deterministic-common-cpu',
+                    shared_ammo_handlers=True,admitted_kinds=[13,14],shared_slang_cpu_kind_declaration=True,
+                    checked=['actual percentage and flat dispatches','effective capacity and upper clipping',
+                        'negative percentage drain','positive original gauge-step reward and final resources'],
+                    remaining=['other original stack and resource operations','enemy healing and original weapon group model',
                         'current CUDA execution and public all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 sampled_vital_kind_preflight=dict(shared_generated_guard=True,scope='definition kinds only',

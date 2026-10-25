@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 BASE=(0,2,3,4,6,7,8,24)
 EXTENSIONS=(
+ ('PORTABLE_COORDINATE_ORIGINAL_AMMO',(13,14),False,'Existing shared percentage and flat ammo handlers.'),
  ('PORTABLE_COORDINATE_ORIGINAL_RESOURCES',(9,10),False,'Existing shared gauge charge/consume handlers.'),
  ('PORTABLE_COORDINATE_ORIGINAL_CLOCKS',(22,),False,'Existing shared remaining skill-clock reduction.'),
  ('PORTABLE_COORDINATE_ORIGINAL_ROSTER',(1,),False,'Existing named removal, recipient snapshot and callbacks.'),
