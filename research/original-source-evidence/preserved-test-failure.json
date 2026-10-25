@@ -1,0 +1,62 @@
+[
+  {
+    "pattern": "test_original_source.py",
+    "exit_code": 0,
+    "elapsed_seconds": 29.11778995883651,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 36716
+  },
+  {
+    "pattern": "test_original_cleanse.py",
+    "exit_code": 0,
+    "elapsed_seconds": 17.39256558381021,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 36716
+  },
+  {
+    "pattern": "test_coordinate_kind_admission.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.27745562489144504,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 36716
+  },
+  {
+    "pattern": "test_coordinate_original.py",
+    "exit_code": 0,
+    "elapsed_seconds": 10.078636750113219,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 36716
+  },
+  {
+    "pattern": "test_original_entry_inventory.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.6486673750914633,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 36716
+  },
+  {
+    "pattern": "test_portable_staged_scope_audit.py",
+    "exit_code": 1,
+    "elapsed_seconds": 0.031321957940235734,
+    "tests": 3,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 36716
+  }
+]

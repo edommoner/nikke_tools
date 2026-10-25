@@ -246,6 +246,9 @@ def verify(root, overrides=None):
     cleanse_original_sources=source_hashes(root,'gpu/world_coordinate_original_cleanse_entry.slang') if (root/'gpu/world_coordinate_original_cleanse_entry.slang').is_file() else {}
     cleanse_original_path=root/'research/portable-coordinate-original-cleanse-short-expected.json'
     cleanse_original_golden=json.loads(cleanse_original_path.read_text()) if cleanse_original_path.is_file() else None
+    slot_original_sources=source_hashes(root,'gpu/world_coordinate_original_slot_entry.slang') if (root/'gpu/world_coordinate_original_slot_entry.slang').is_file() else {}
+    slot_original_path=root/'research/portable-coordinate-original-source-short-expected.json'
+    slot_original_golden=json.loads(slot_original_path.read_text()) if slot_original_path.is_file() else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -705,6 +708,19 @@ def verify(root, overrides=None):
                     checked=['empty actual cleanse','partial shared-carrier cleanse with three allies retained',
                         'all-allied actual removal','enemy beneficial dispel and irremovable retention'],
                     remaining=['boss attack debuff payload is unconnected','other original stack/resource operations',
+                        'current CUDA execution and public all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_original_source_operations=dict(suite='coordinate-original-source',source_sha256=slot_original_sources,
+                    proof_available=slot_original_golden is not None,
+                    sealed_source_matches_current=slot_original_golden['source_sha256']==slot_original_sources if slot_original_golden else None,
+                    input_count=len(slot_original_golden['entries']) if slot_original_golden else None,
+                    original_definitions_weapons_preserved=True,reference_kind='deterministic-common-cpu',
+                    shared_source_slot_and_duration_handlers=True,admitted_kinds=[15,33],
+                    checked=['actual original forced skill-slot definitions','real part destruction then original duration extensions',
+                        'DoT damage after the old deadline','final carrier expiration and DoT next tick','nonempty periodic grid during extension',
+                        'original staged DoT damage and stack-only coefficient override','wide enemy DoT duration membership'],
+                    initial_force_clock_scope='Empty initial grid, not a nonempty-clock witness',
+                    remaining=['other original duration recipients and forced-slot combinations',
                         'current CUDA execution and public all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 sampled_vital_kind_preflight=dict(shared_generated_guard=True,scope='definition kinds only',

@@ -1,3 +1,10 @@
+#ifdef PORTABLE_COORDINATE_ORIGINAL_SOURCE_OPS
+// A buffer scope crosses resident dispatch without relying on compiler-promoted
+// Runtime fields. Materialize old values before publishing the nested scope.
+[noinline]
+uint stagedScopeSnapshot(inout Runtime s,uint word)
+{ return results[s.resourceOutput+P_STAGED_HEADER_BASE+2+word]; }
+#endif
 // Shared staged application schedule; each record occupies six output words.
 uint stagedAddress(inout Runtime s, uint row) { return s.resourceOutput+P_STAGED_STATE_BASE+row*6; }
 uint stagedDefinition(inout Runtime s, uint row) { return s.inputBase+P_STAGED_DEFINITION_BASE+row*8; }

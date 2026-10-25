@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "old_package_id": "bde4c597799942046e917a0af7d88330b5903756eab63ab332e23f9634dcc55f",
+  "final_package_id": "1af82e9ea9cce2dd45fc19c948d3e5d35060ceb83f814c2f75eb892fd45516d6",
+  "only_changed_payload": [
+    "tests/test_portable_staged_scope_audit.py"
+  ],
+  "control_tests_repeated": false,
+  "control_evidence": "/tmp/nikke-original-source-final-control-v3/cpu-tests.json",
+  "generated_code_repeated": false,
+  "generation_evidence": "/tmp/nikke-original-source-final-generation-v3/generation.json",
+  "full_selected_tests_repeated": true,
+  "gpu_calls": 0
+}

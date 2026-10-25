@@ -1780,11 +1780,21 @@ void stagedPass(inout Runtime s,uint64_t when,uint output)
         if(selected==s.count) break;
         if(++work>4096) { s.error=4;break; }
         uint at=stagedAddress(s,selected),index=++results[at+3];s.stacks[selected]=min(index,definition_maxStack(s.inputBase,selected));
+#ifdef PORTABLE_COORDINATE_ORIGINAL_SOURCE_OPS
+        uint scope=s.resourceOutput+P_STAGED_HEADER_BASE+2;
+        uint savedRow=stagedScopeSnapshot(s,0),savedGen=stagedScopeSnapshot(s,1),savedEntry=stagedScopeSnapshot(s,2),savedStack=stagedScopeSnapshot(s,3);
+        uint damageOverride=commands[stagedDefinition(s,selected)+6];
+        results[scope]=selected+1;results[scope+1]=results[at];results[scope+2]=s.entryOrder[selected];
+        results[scope+3]=damageOverride==0 ? s.stacks[selected] : damageOverride-1;
+        dispatch(s,1,28,definition_owner(s.inputBase,selected),int(selected),when,output);
+        results[scope]=savedRow;results[scope+1]=savedGen;results[scope+2]=savedEntry;results[scope+3]=savedStack;
+#else
         uint previousRow=s.stagedScopeRow,previousGen=s.stagedScopeGeneration,previousEntry=s.stagedScopeEntry,previousStack=s.stagedScopeStack;
         uint override=commands[stagedDefinition(s,selected)+6];
         s.stagedScopeRow=selected+1;s.stagedScopeGeneration=results[at];s.stagedScopeEntry=s.entryOrder[selected];s.stagedScopeStack=override==0 ? s.stacks[selected] : override-1;
         dispatch(s,1,28,definition_owner(s.inputBase,selected),int(selected),when,output);
         s.stagedScopeRow=previousRow;s.stagedScopeGeneration=previousGen;s.stagedScopeEntry=previousEntry;s.stagedScopeStack=previousStack;
+#endif
     }
 }
 // Snapshot keys/owners, not epochs: a later existing key observes a child's

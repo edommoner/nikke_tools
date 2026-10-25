@@ -11,7 +11,11 @@ uint actorFieldScope(inout Runtime s,uint row,out ActorBits bits)
 bool worldDurationAffected(inout Runtime s,uint row,ActorBits scope)
 {
     for(uint target=0;target<actorPoolCount(s);target++)
-        if(actorBitsHas(scope,target)&&actorFieldMember(s,row,target==0?0:ACTOR_REF|target)) return true;
+        if(actorBitsHas(scope,target)&&(actorFieldMember(s,row,target==0?0:ACTOR_REF|target)
+#ifdef PORTABLE_COORDINATE_ORIGINAL_SOURCE_OPS
+            || worldPeriodicNamedMember(s,s.carrierDefinition[row],target)
+#endif
+        )) return true;
     return false;
 }
 uint actorFieldKey(inout Runtime s,uint row) { return s.resourceOutput+P_WORLD_ACTOR_FIELD_KEY_BASE+row*4; }

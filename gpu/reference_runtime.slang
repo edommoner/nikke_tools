@@ -118,7 +118,12 @@ uint64_t activationDamageCoefficient(inout Runtime s, uint row)
         }
         if(!present && referenceScaleMode(s,row)==3) scale=scaleReferenceCount(s,row,present);
     }
+#ifdef PORTABLE_COORDINATE_ORIGINAL_SOURCE_OPS
+    uint scope=s.resourceOutput+P_STAGED_HEADER_BASE+2;
+    if(results[scope]==row+1 && s.alive[row]!=0 && results[scope+2]==s.entryOrder[row] && results[scope+1]==stagedGeneration(s,row)) scale=f64FromI64(results[scope+3]);
+#else
     if(s.stagedScopeRow==row+1 && s.alive[row]!=0 && s.stagedScopeEntry==s.entryOrder[row] && s.stagedScopeGeneration==stagedGeneration(s,row)) scale=f64FromI64(s.stagedScopeStack);
+#endif
     return f64Mul(d.value,scale);
 }
 [noinline]
