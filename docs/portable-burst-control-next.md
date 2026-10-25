@@ -8,3 +8,5 @@
 - 実際のburst候補・段階開始時計と、未観測時の次FB予測が同じdelay／順序契約を使う。観測済みのcycle外挿をCPUで入力しない。GPUがburst開始／終了の観測から自分で更新する。
 
 比較ケースには、同段階の代替がreadyでも待つdelay、自分のcooldownが遅く解除されるcycle、境界直前直後のwait、cooldown減少、down／stun、明示順序、patternの代替fallback、再突入、reload into_fbの予測合成を含める。CPU正本のprotectedファイル・pinned upstreamをGPU都合で書き換えず、world native adapterのconfigへの静的literal受け渡しを明示監査する。元データと矛盾するweapon cooldown literalは現方針と同様に事前拒否する。
+
+候補policy単体は `portable-burst-control-policy.md` の347正本＋34拒否で共通Slang/Metal実証・独立seal済みです。本書の戦闘接続要件は残り、現world入口は引き続きcontrol.burstを拒否します。次は実証済みhelperをRuntimeと時計へ接続してください。

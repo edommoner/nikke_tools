@@ -1949,3 +1949,7 @@ native observerの全Python呼出し監視がcode objectをhashしていたた�
 最終 `/tmp/nikke-squad-mode-final-compact-v1.zip` はfull3189→1832 files、全選択byte／checkout SHA一致。最終control443（Windows専用1skip）、frontier5、追加の進入待機positive witness1も成功。Windowsはrev78 idleのままで新しい実行依頼0。生成cache hit／compiler0と、現CUDA実行・warm cache性能未確認を分ける。packing245/266・base185/203、未対応21 profiles／20 model gap分類、全キャラ0／UI CPU／全目標未達を維持。
 
 次は未対応分類の現consumerを再確認し、burst delay／wait_own_cooldown／patternと予測時計（`docs/portable-burst-control-next.md`）、modeと個別sequence・post-delay・healing storage／actorの合成、元定義への接続を進める。coordinate ParentOraclesの再利用では、比較時だけ収集するcreation_indicesも事前観測へ含める必要がある。比較から単にnative呼出しを抜いてobserverの値を空にしない。独立監査はfreshを維持する。
+
+## 2026-10-25 burst操作の共通policy単体実証
+
+最新追加は `docs/portable-burst-control-policy.md` と `research/portable-burst-control-policy-checkpoint.json`。共通CLI `burst-control-policy` は347正本＋34拒否の381入力がM5 Metal全一致・別process/GPU禁止seal済み。候補producerをactual/予測で共有し、delay、本人wait、安定pattern順位、明示順序、再突入/A候補とepsilon境界を共通software binary64で検査。GPU1回、0.000918秒、pipeline0.129766秒。単独probeへresident generation cache指定した初回はcapture/claim前に拒否、指定修正後に実行。CPU3、共通制御443（Windows1skip）、保護8ファイル・旧world shaderは不変。実戦のcontrol.burst受付は未接続のまま。次は同じhelperをburstFrame/coordinateAimBurstEndへ接続し、stage_open/完了周期/tick冒頭候補をGPU保持、cooldown低下・full-end通知・reload into_fbを実戦照合し、旧251全raw保持後だけ受付を開く。固定package `/tmp/nikke-burst-policy-develop-v1`、capture `/tmp/nikke-burst-policy-metal-v1`、seal `/tmp/nikke-burst-policy-sealed-v1.json`。Windows追加0、現full battle CUDA/cache性能未取得。packing245/266・未対応21profiles/20分類・全キャラ0/UI CPU・全目標未達。

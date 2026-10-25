@@ -369,3 +369,7 @@ Windowsも同じ入力と比較器を使い、既存の低優先度・2GiB・180
 ## 明示cover・holdの共通実行器
 
 `coordinate-manual` はsealed 169入力（native151・拒否18）。`package --suite coordinate-manual --compact` から共通手順を使う。静的な時刻・duration・untilだけをpackingし、cover・reload・charge・camera処理は共通Slang側で実行する。strict adapterとregistryのSOURCE不一致は入力準備前に拒否する。25の新規worldと旧136全byte保持をM5 Metalで確認済み。条件付きpolicy／cover_allと現CUDAは未検証。詳細は [手動操作の共通実行器](portable-coordinate-manual.md)。
+
+## バースト候補policyの単体入口
+
+`burst-control-policy` は347正本＋34拒否の381入力を共有CUDA/Metal sourceで検査し、M5 Metalで実証・独立seal済みです。`package --suite burst-control-policy --compact` で固定packageを作成できます。これは候補・delay・wait・pattern・明示順序・次FB予測の単体契約で、worldのcontrol.burst受付は未接続です。[契約と残り](portable-burst-control-policy.md)を参照してください。
