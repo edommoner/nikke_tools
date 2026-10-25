@@ -1,0 +1,76 @@
+{
+  "calculation_verified": false,
+  "entries": [
+    {
+      "name": "coordinate-original-shield/Mori/full",
+      "input_sha256": "bd12cc003a21e4e6d2080d1a3f97d5b966ef2e34dc52ea283bfa4749c59796a6",
+      "output_sha256": "0499db6b1021f5cc776d714986d9a9ea12e52e3ab170e07a6788046b60061627",
+      "native_sha256": "8cb71c73b49f56c86bcb84071c01b0ff083e758a55569deefbc8cb065e9eba6d"
+    },
+    {
+      "name": "coordinate-original-shield/Mori/chipped",
+      "input_sha256": "f28ff112519c8a3e598c4d5f9288cce88bd5c6e0458ef2e9970b390666a18ea8",
+      "output_sha256": "90f52e812eb16c1d940b20b893cf3bdfb7624e76b338e8072e1a566a160847f5",
+      "native_sha256": "6806002bb22245b8f46cfacbe1fb8d5f6d33f914287db6fa6a6a666c289aa76d"
+    },
+    {
+      "name": "coordinate-original-shield/Mori/broken",
+      "input_sha256": "7e97028723465cbacb72c6ed25be833174ac4b7dae560fddaa9c7cd638f22cf5",
+      "output_sha256": "3a619aa271bda9a0c84bd9e816521f9f36f445c1790bd37bff96286d321465bc",
+      "native_sha256": "106ffb88f1d41130cf45e5dfdf2709060292735d105f431f9a28e9482106d6dc"
+    },
+    {
+      "name": "coordinate-original-shield/Kilo/full",
+      "input_sha256": "57b0506a84c906e3f4e54912ed641758e8465c560c8ed8cf107cae6d92168cac",
+      "output_sha256": "47198e9e762a7890db054b577d654379dc451ce4b6dd90ec5f2fa6456dd9c3b6",
+      "native_sha256": "f2650fa7352e236b155288e09e880ebb8a8eb9f5ad694e7ba4b1172a1666ca47"
+    },
+    {
+      "name": "coordinate-original-shield/Kilo/chipped",
+      "input_sha256": "11d685428d7e38330ea20acda6c33601ac90449abea260ebffe32b1f56365a78",
+      "output_sha256": "b8e8af0d243c2e3522f2bba99b0c3df1f51074e4c2ff977eceb075852ef097b0",
+      "native_sha256": "3efbdb8f4fca309b71e8c46125b29e77ea0753884c26a6cc2b53c36f86a9857c"
+    },
+    {
+      "name": "coordinate-original-shield/Kilo/broken",
+      "input_sha256": "485b78bc454c90bef9b6cbd71faa5e643c800a60bef9ce2a7a3bcb810e696df9",
+      "output_sha256": "1e4206102f1e44c55a2d38b649f6b7fdb3cfe21f23be18614a842a89b32dcd41",
+      "native_sha256": "e7cb9841eb74fa5febaca07614bcafdfab3f871e624ec06a79302a7a277ee079"
+    }
+  ],
+  "mismatches": [
+    {
+      "index": 0,
+      "name": "coordinate-original-shield/Rapunzel-pure-grace/full",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 1,
+      "name": "coordinate-original-shield/Rapunzel-pure-grace/chipped",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    },
+    {
+      "index": 2,
+      "name": "coordinate-original-shield/Rapunzel-pure-grace/broken",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    }
+  ],
+  "input_count": 9,
+  "native_oracles": 9,
+  "input_sha256": "baa1c43ac59eaa82844dab123ecc9a63c6838acd75b19d44a42084f69b15d41e",
+  "output_sha256": "5fae55e10fe5f8350d9cddea191f1b1a7913647a533f27f997a2af3a7dbe42cc",
+  "generated_normalized": {
+    "cuda": "f52e219620dc32b9792260222e929ca24b686e8eef9596b1cd90f66d773bccc6",
+    "metal": "897c2f4344b3ad804f12621e73c5adfad176aa4ce5dcf6464cac48e2b3d45050"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 6,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 6
+  }
+}

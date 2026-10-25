@@ -1,4 +1,7 @@
         if(kind!=0&&kind!=2&&kind!=3&&kind!=4&&kind!=6&&kind!=7&&kind!=8&&kind!=24
+#ifdef PORTABLE_COORDINATE_ORIGINAL_SHIELD_HEAL
+            &&kind!=27 // Existing shared protection healing and periodic instant handlers.
+#endif
 #ifdef PORTABLE_COORDINATE_ORIGINAL_FORCED_RELOAD
             &&kind!=23 // Existing common reload request and lifecycle handlers.
 #endif

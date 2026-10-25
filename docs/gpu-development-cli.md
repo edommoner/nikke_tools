@@ -429,3 +429,5 @@ python scripts/nikke_gpu.py refresh-tests \
 `coordinate-original-source`5は元定義の強制slot・持続延長と後続DoTを実Metal/fresh監査でsealした入口です。生成/cache検査の`portable_scope_snapshot_audit`はresident staged scopeのsnapshot→4word公開→dispatch→4word復元も検査します。全キャラ認定やCUDA成功とは区別します。[source操作とscope検査](portable-original-source-operations.md)参照。
 
 `coordinate-original-reload`4は元編成・元のauto／キャラ既定操作で強制reloadと発射時計を検証するsealed入口です。`test_portable_world_reload`は共通observerとreaderを使い、setupで既に取る46ケースのnative結果から固定指紋も検査します。追加の二重native実行はありません。[強制reloadと比較範囲](portable-original-forced-reload.md)参照。
+
+`coordinate-original-shield`9はラプンツェル：ピュアグレイス／モリ／キロの元全定義で、満タン・実損傷後の回復と再被弾・破壊を比較するsealed入口です。既存共通kind27と「シールド中」条件を接続し、M5 Metal全9一致・独立seal済みです。元計算を保つ明示opt-inのPython観測filterは3ケースで非filter版の全native指紋と一致を確認し、約7～10倍短縮しました。旧ケースの既定値はFalseです。[比較範囲・観測の適用条件](portable-original-shield-heal.md)を参照してください。CUDA／Metalは同じ入力・Slang・比較器を使いますが、現CUDA実行は未取得です。

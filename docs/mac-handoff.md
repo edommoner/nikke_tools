@@ -2173,3 +2173,17 @@ GPU前packet v1は未実行。v2 `/tmp/nikke-original-cleanse-develop-v2`（5ac7
 最新の`coordinate-original-source`5は元Julia愛蔵品1/2/3（77/79/79定義・各3秒）と元サクラ全74定義の対照／実部位破壊（各18秒）をM5 Metalで全一致、独立fresh監査68.982秒でseal済みです。共通kind15/33の入口に加え、resident staged scopeの生成書込み欠落をbuffer scopeで修正し、wide敵DoTの対象tupleを持続延長へ接続。元の10段階DoTと旧期限後の実damageを保持。Julia3件の全21,238,272byteと全5入力/native指紋は不変。実GPU計2（失敗1保存、修正版1成功）、retry0、GPU1.538秒／PSO92.290秒。生成/cacheの共通scope検査、実生成物sliceによる負例、機能31／制御476検査成功（Windows1skip）を追加。通常UI CPU・全キャラ0・現CUDA未検証、Windows新実行0。静的packing247/266、kind拒否16で、受付をキャラ認定へ数えません。次は3プロファイルに影響するkind23 force_reloadを優先。[共通source操作と失敗・修正の証拠](portable-original-source-operations.md)。
 
 最新の`coordinate-original-reload`4はミルクのauto／元tap-hold運用を各18秒（81定義）、アスカWILLE15秒（80）、ジル6秒（78）をM5 Metal全一致・独立fresh監査89.704秒でseal済みです。共通kind23を接続し、判定用の予定チャージのfull昇格と、キャンセル充填がlast-full発射時計を更新する漏れを修正。元の期間・定義・武器・既定操作と全4入力/native指紋を保持。先に通った3ケースの21,238,272byteも不変。既存reload observer／readerを共用し、旧46native指紋をsetup観測再利用の単体検査へ追加。機能38／制御476成功（Win1skip）。実GPU計3（失敗2保存・修正版1成功）、retry0、GPU1.927秒／PSO92.539秒。最終生成cache必須hit・Slang0、Windows新実行0／現CUDA未取得。packing247/266・kind拒否13を全キャラ認定へ数えず、UI CPU・全キャラ0・未達。次はkind27盾回復（3プロファイル）を優先。[強制reloadと制御時計の境界](portable-original-forced-reload.md)。
+
+## 2026-10-26 元編成shield heal27・Python観測経路
+
+最新 `coordinate-original-shield`9、`docs/portable-original-shield-heal.md`／`research/portable-original-shield-heal-checkpoint.json`。元ラプンツェル：ピュアグレイス全73／モリ72／キロ74定義、完全5人編成・武器・成長を保持し各6秒×満タン／実損傷と回復後の再被弾／破壊。既存共通kind27を共有declへ接続、反復instantの実timer位相／無期限・全最終shield保存状態・全battle／packet／RNG等を比較。CPU schedule入力0、数値／wire／Runtime138952byte不変。
+
+初版 `/tmp/nikke-original-shield-metal-v1` は6/9一致、ラプンツェル3件はstatus64。診断stage8000／row1で、回復timerより前の「シールド中」条件付きbuffのactor-field受付不足を特定。新入口だけ引数なし・戦闘中のC_SHIELDを検査して既存hasProtectionへ接続。定義／9入力／native指紋は保持し、旧reload入口のCUDA/MSL原生成物は全byte保持、厳密inverseも追加。失敗claim／raw保持、retry0。
+
+凍結packet v2 `/tmp/nikke-original-shield-develop-v2`（9696f5eb…）、capture `/tmp/nikke-original-shield-metal-v2` はM5全9一致。GPU計2回（失敗1・成功1）、修正版GPU1.289189秒／初PSO93.107942秒／CPU事前56.256191秒。generation必須cache hit・compiler0。独立seal60.446405秒、別child・全9fresh・live parent receiptなし／GPU0。同じ監査からgoldenとsource-only証明書を作成。現CUDA compile/link/cache/battle証明へ流用しません。旧成功6出力の全42,476,544byte保持。
+
+CPU観測のC通知が12段のPython専用profile chainへ伝播することを改善。`native_python_profile`は明示opt-inだけでPython call／return順・全比較を保持し、C通知の伝播を止めます。外部／不明callback・明示C consumer拒否、例外復元あり、旧ケース既定False。凍結packetの損傷3件を非filter版と比較し、全native指紋一致、28.490→3.897／54.184→5.871／71.885→7.069秒。新caseに広げる前に同様の全観測一致確認が必要。正本とCPU数値は変更0。
+
+最終compact `/tmp/nikke-original-shield-final-v1.zip`（96d36c82…）は関連20／制御476（Win1skip）成功、全1971payload SHA／checkout全byteと実GPU source・input／native／output一致を確認。sealed generation必須cache hit・Slang0。全raw reader終了後に失敗／成功rawをSHA／size／inode保持で疎化し計99,745,792byte回収、削除0。全266静的inventoryはpacking247／kind拒否10（旧13）、残り237をGPU対応数としないこと。
+
+次の候補は元ビスケット／リリのcover_revive30。decoy heal31、敵stack20/21、init18、蓄積放出等の元定義も残る。現CUDA／warm cache、公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／目標未達。Windowsは既存idle送信APIをユーザー依頼で再試行したが同じactive-turnエラー、新GPU実行依頼0。同じrun再送・UI制約回避はせず、開始可能になったら既存短い検証の状態／保存結果を取得します。

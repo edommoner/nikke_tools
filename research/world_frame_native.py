@@ -179,7 +179,9 @@ def observe(case):
      if changed:raise ValueError('Original input identity changed: '+','.join(changed))
      for c in expected['chars']:
       if timeline._NIKKE[c['name']]!=c['_weapon']:raise ValueError('Original weapon metadata changed')
-     capture['original_result']=timeline.simulate(run.squad,config=run.config,enemy=copy.deepcopy(case['enemy']),seed=run.seed,verbose=True)
+     from native_python_profile import python_observers_only
+     with python_observers_only(case.get('python_observers_only',False)):
+      capture['original_result']=timeline.simulate(run.squad,config=run.config,enemy=copy.deepcopy(case['enemy']),seed=run.seed,verbose=True)
      return capture['original_result']
     context.enter_context(patch.object(buff_manager.BuffManager,'_register_all',registered));context.enter_context(patch.object(engine_worker.sim,'execute',execute))
     engine_worker.evaluate(copy.deepcopy(original_run['body']));result=capture['original_result']

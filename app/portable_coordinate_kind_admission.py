@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 BASE=(0,2,3,4,6,7,8,24)
 EXTENSIONS=(
+ ('PORTABLE_COORDINATE_ORIGINAL_SHIELD_HEAL',(27,),False,'Existing shared protection healing and periodic instant handlers.'),
  ('PORTABLE_COORDINATE_ORIGINAL_FORCED_RELOAD',(23,),False,'Existing common reload request and lifecycle handlers.'),
  ('PORTABLE_COORDINATE_ORIGINAL_SOURCE_OPS',(15,33),False,'Existing named duration and forced skill-slot handlers.'),
  ('PORTABLE_COORDINATE_ORIGINAL_CLEANSE',(26,),False,'Existing allied cleanse and enemy overlay dispel handlers.'),
