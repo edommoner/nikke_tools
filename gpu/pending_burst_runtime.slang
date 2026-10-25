@@ -116,6 +116,9 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
 {
     uint parentTarget=s.target;
     uint count = s.pendingCount;
+#ifdef PORTABLE_COORDINATE_SAMPLED_BURSTS
+    beginSampledPendingBatch(s,count,when);
+#endif
     // Capture all amounts before routing/landing can change target state.
     for (uint index = 0; index < count && s.error == 0; index++)
     {
@@ -123,7 +126,7 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
 #ifdef PORTABLE_FULL_BURST_LANDING
         if(d.damagePending==2) continue;
 #endif
-#ifndef PORTABLE_PENDING_RECALCULATE_REFERENCE
+#if !defined(PORTABLE_PENDING_RECALCULATE_REFERENCE) && !defined(PORTABLE_COORDINATE_SAMPLED_BURSTS)
         // No event is dispatched during this calculation phase. Repeated
         // adjacent definitions with the same captured coefficient share it.
         if (index != 0 && row == s.pendingRow[index-1] && f64Equal(s.pendingCoefficient[index],s.pendingCoefficient[index-1]))
@@ -148,8 +151,15 @@ void firePendingBursts(inout Runtime s, uint64_t when, uint output)
             if(!f64Finite(coefficient)) { s.error=16;return; }
             if(f64Zero(coefficient)) { s.pendingAmount[index]=0;continue; }
         }
+#ifdef PORTABLE_COORDINATE_SAMPLED_BURSTS
+        beginSampledSkillFrame(s,0,row);uint sampledMeta=csMeta(s);
+        results[sampledMeta+61]=row;results[sampledMeta+62]=1;
+#endif
         uint target = s.target; s.target = 0; s.damageExclusion = row+1;
         WORLD_PENDING_SCOPE_BEGIN(s) s.pendingAmount[index] = damageValue(s,d.owner,coefficient,when,false,s.coreBonus); WORLD_PENDING_SCOPE_END(s)
+#ifdef PORTABLE_COORDINATE_SAMPLED_BURSTS
+        results[sampledMeta+62]=0;storeSampledPendingAmounts(s,index,d,s.pendingAmount[index]);
+#endif
         s.damageExclusion = 0; s.target = target;
     }
 #ifdef PORTABLE_FULL_BURST_LANDING

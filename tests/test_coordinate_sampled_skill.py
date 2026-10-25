@@ -41,7 +41,8 @@ class SkillTests(unittest.TestCase):
         from portable_coordinate_sampling_bank import LAYOUT as bank
         self.assertEqual(914352,bank['ROWS']+bank['PELLETS']*bank['ROW_WORDS']);self.assertLessEqual(914352+32*48,bank['META'])
         from portable_coordinate_sampled_skill_source_contract import project_sources
-        project_sources(ROOT)
+        from portable_coordinate_sampled_burst_source_contract import project_sources as burst_sources
+        project_sources(ROOT,burst_sources(ROOT))
         for name in ('gpu/damage_runtime.slang','gpu/dispatch_phases.slang','gpu/coordinate_sampled_skill_runtime.slang'):
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed\n'})
     def test_reference_contract_rejects_missing_calculations_and_target_reroll(self):

@@ -335,6 +335,8 @@ SUITES['coordinate-sampled-skill']=dict(SUITES['coordinate-sampled-parent'],scri
 SUITES['coordinate-sampled-skill']['support_files']=['research/portable-compiler-full--coordinate-sampled-skill-source-certificate.json','research/portable-coordinate-arcs-short-expected.json']
 SUITES['coordinate-sampled-skill']['upstream_documents']=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
 SUITES['coordinate-sampled-skill']['tests']+=['test_coordinate_physical_frontier.py']
+SUITES['coordinate-sampled-burst']=dict(SUITES['coordinate-sampled-skill'],script='research/verify-coordinate-sampled-burst-short.py',source='gpu/world_coordinate_sampling_burst_entry.slang',golden='research/portable-coordinate-sampled-burst-short-expected.json',inputs=89,native=83,output_words=1769472,development_only=False,tests=[*SUITES['coordinate-sampled-skill']['tests'],'test_coordinate_sampled_burst.py'])
+SUITES['coordinate-sampled-burst']['support_files']=['research/portable-compiler-full--coordinate-sampled-burst-source-certificate.json','research/portable-coordinate-arcs-short-expected.json']
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -2617,8 +2619,8 @@ def main(argv=None):
     for name in ('readback-index','readback-compare'):
         a=sub.add_parser(name);a.add_argument('--readback',type=Path,required=True);a.add_argument('--sha256',required=True);a.add_argument('--out',type=Path,required=True)
         if name=='readback-compare':a.add_argument('--index',type=Path,required=True);a.add_argument('--index-sha256',required=True)
-        else:a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328),default=786432)
-    a=sub.add_parser('readback-retain');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--reference-comparison-sha256',required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--candidate-comparison-sha256',required=True);a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328),default=786432);a.add_argument('--out',type=Path,required=True)
+        else:a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472),default=786432)
+    a=sub.add_parser('readback-retain');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--reference-comparison-sha256',required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--candidate-comparison-sha256',required=True);a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472),default=786432);a.add_argument('--reference-case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472));a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--reference-migration',choices=['parts-cleared-v1','leftmost-rejection-domains-v1'])
     a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
@@ -2705,7 +2707,9 @@ def main(argv=None):
         blocks_main(args);return
     elif a.command=='readback-retain':
         from portable_readback_blocks import main as blocks_main
-        blocks_main(['retain','--reference-capture',str(a.reference_capture),'--reference-comparison-sha256',a.reference_comparison_sha256,'--candidate-capture',str(a.candidate_capture),'--candidate-comparison-sha256',a.candidate_comparison_sha256,'--case-words',str(a.case_words),'--out',str(a.out)]);return
+        args=['retain','--reference-capture',str(a.reference_capture),'--reference-comparison-sha256',a.reference_comparison_sha256,'--candidate-capture',str(a.candidate_capture),'--candidate-comparison-sha256',a.candidate_comparison_sha256,'--case-words',str(a.case_words),'--out',str(a.out)]
+        if a.reference_case_words is not None:args+=['--reference-case-words',str(a.reference_case_words)]
+        blocks_main(args);return
     elif a.command=='replay':result=replay_capture(a.capture,a.source_package,a.source_capture,**(dict(reference_migration=a.reference_migration) if a.reference_migration else {}))
     elif a.command=='cache-check':result=check_compile_cache(a.capture,a.out)
     elif a.command=='compiler-stats':result=compiler_statistics(a.capture,a.out,top=a.top,caller=a.caller,runtime=a.runtime)

@@ -5,6 +5,9 @@
 #include "sampled_parent_damage_totals.slang"
 #ifdef PORTABLE_COORDINATE_SAMPLED_SKILLS
 #include "coordinate_sampled_skill_runtime.slang"
+#ifdef PORTABLE_COORDINATE_SAMPLED_BURSTS
+#include "coordinate_sampled_burst_runtime.slang"
+#endif
 #endif
 #endif
 uint csMeta(inout Runtime s){return s.resourceOutput+CS_META;}
@@ -25,10 +28,18 @@ bool initializeCoordinateSampling(inout Runtime s)
     for(uint row=0;row<s.count;row++)
     {
         uint kind=definition_kind(s.inputBase,row);
+#ifdef PORTABLE_COORDINATE_SAMPLED_BURSTS
+        if(kind!=0&&kind!=3&&kind!=4&&kind!=24)return false; // Existing burst-gauge instant.
+#else
         if(kind!=0&&kind!=3)return false;
+#endif
         if(kind==3)
         {
+#ifdef PORTABLE_COORDINATE_SAMPLED_BURSTS
+            if(definition_damagePending(s.inputBase,row)>2)return false;
+#else
             if(definition_damagePending(s.inputBase,row)!=0)return false;
+#endif
             if(definition_damageFlags(s.inputBase,row)!=262144U)s.quantityMask|=0x02000000U;
         }
     }
@@ -47,6 +58,9 @@ bool initializeCoordinateSampling(inout Runtime s)
     mtSeed(csRng(s),uint64_t(commands[input+1])|(uint64_t(commands[input+2])<<32));
 #ifdef PORTABLE_COORDINATE_SAMPLED_PARENT
     initializeSampledParentDamage(s);
+#ifdef PORTABLE_COORDINATE_SAMPLED_BURSTS
+    for(uint i=0;i<CSB_WORDS;i++)results[s.resourceOutput+CSB_BASE+i]=0;
+#endif
 #endif
     return true;
 }

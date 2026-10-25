@@ -175,6 +175,11 @@ def verify(root, overrides=None):
     sampled_skill_path=root/'research/portable-coordinate-sampled-skill-short-expected.json'
     sampled_skill_golden=json.loads(sampled_skill_path.read_text()) if sampled_skill_path.is_file() else None
     sampled_skill_matches=sampled_skill_golden['source_sha256']==sampled_skill_sources if sampled_skill_golden else None
+    sampled_burst_sources=source_hashes(root,'gpu/world_coordinate_sampling_burst_entry.slang')
+    sampled_burst_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in sampled_burst_sources.items()}
+    sampled_burst_path=root/'research/portable-coordinate-sampled-burst-short-expected.json'
+    sampled_burst_golden=json.loads(sampled_burst_path.read_text()) if sampled_burst_path.is_file() else None
+    sampled_burst_matches=sampled_burst_golden['source_sha256']==sampled_burst_sources if sampled_burst_golden else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -422,6 +427,17 @@ def verify(root, overrides=None):
                     target_packets_reuse_body_critical=True,cast_factors_frozen_across_children=True,
                     queue_and_named_hit_context_reused=True,depth_capacity=32,extra_runtime_bytes=0,extra_output_words=0,
                     remaining=['deferred burst skill sampling','weapon changes and healing in sampled battles','sampled group-owner and mixed effect worlds','original definitions and public admission'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_sampled_bursts=dict(suite='coordinate-sampled-burst',source_sha256=sampled_burst_sources,
+                    proof_available=sampled_burst_golden is not None,sealed_source_matches_current=sampled_burst_matches,
+                    input_count=len(sampled_burst_golden['entries']) if sampled_burst_golden else None,
+                    reference_kind='deterministic-common-cpu',native_reference_cli='coordinate-sampled-burst-common',
+                    pending_modes=['legacy-bonus','land-in-full-burst'],legacy_per_hit_critical=True,
+                    legacy_generation_before_optin_and_landing=True,optin_count_latched_at_cast=True,
+                    optin_stats_requeried_at_entry=True,optin_named_critical_context=True,
+                    pending_entries=512,hits_per_entry=256,output_words=1769472,
+                    retained_output_prefix_words=1507328,additional_output_bytes=1048576,additional_runtime_bytes=0,
+                    remaining=['weapon changes and healing in sampled battles','sampled group-owner and mixed effect worlds','original definitions and public admission'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 packet_integer_ratio=dict(suite='packet-ratio',source_sha256=ratio_sources,
                     proof_available=ratio_golden is not None,sealed_source_matches_current=ratio_matches,

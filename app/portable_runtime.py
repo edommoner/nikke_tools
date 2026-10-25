@@ -484,7 +484,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
             fields.update(KIND=3,DAMAGE_FLAGS=PARENT_FIXED_FLAG)
             packet=L['DAMAGE_DEFINITION_BASE']+index*8;words[packet+4:packet+6]=double_words(0)
         if world_frame and eff.get('type')=='damage' and words[L['DAMAGE_DEFINITION_BASE']+index*8+6]!=0:fields['DAMAGE_FLAGS'] &= ~256
-        if hit_critical and not parent_fixed_enabled(eff) and eff.get('type')=='damage' and eff.get('name') and words[L['DAMAGE_DEFINITION_BASE']+index*8+6]==0:fields['DAMAGE_FLAGS'] |= 131072
+        if hit_critical and not parent_fixed_enabled(eff) and eff.get('type')=='damage' and eff.get('name') and words[L['DAMAGE_DEFINITION_BASE']+index*8+6]!=1:fields['DAMAGE_FLAGS'] |= 131072
         from portable_projectile_chain_specs import ordinary as ordinary_stack,FLAG as COMPLETION_FLAG
         if ordinary_stack(eff):fields.update(KIND=0,STAT=92)
         if world_frame and any(t.startswith('weapon_hit:') for e,_ in effects for t in e.get('trigger',{}).get('timing',[])) and eff.get('type')=='damage' and fields['KIND']==3 and not parent_fixed_enabled(eff) and eff.get('name') and words[L['DAMAGE_DEFINITION_BASE']+index*8+6]!=1:fields['DAMAGE_FLAGS'] |= COMPLETION_FLAG

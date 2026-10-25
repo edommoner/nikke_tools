@@ -82,4 +82,19 @@ class ReadbackBlockTests(unittest.TestCase):
         self.assertEqual((old/'readback.bin').read_bytes()[0],0);self.assertEqual((new/'readback.bin').read_bytes()[0],1)
 
 
+    def test_expanded_stride_retains_exact_prefix_and_requires_zero_extra_words(self):
+        old,old_sha=self.capture('prefix-old',[('first',7)],words=1507328)
+        new,new_sha=self.capture('prefix-new',[('first',7)],words=1769472)
+        r=blocks.retain(old,old_sha,new,new_sha,case_words=1769472,reference_case_words=1507328)
+        self.assertTrue(r['all_reference_cases_retained']);self.assertEqual(r['retained_output_bytes'],1507328*4);self.assertTrue(r['appended_tail_required_zero'])
+        for offset,field in [(1769472*4-1,'nonzero_appended_tail'),(16,'output_prefix_sha256')]:
+            raw=bytearray((new/'readback.bin').read_bytes());raw[offset]=1;(new/'readback.bin').write_bytes(raw)
+            report=json.loads((new/'comparison.json').read_text());report['output_sha256']=blocks.digest(raw);report['entries'][0]['output_sha256']=blocks.digest(raw);(new/'comparison.json').write_text(json.dumps(report));h=blocks.digest((new/'comparison.json').read_bytes())
+            diff=blocks.retain(old,old_sha,new,h,case_words=1769472,reference_case_words=1507328)
+            self.assertFalse(diff['all_reference_cases_retained']);self.assertIn(field,diff['changed'][0]['fields'])
+            raw[offset]=0;(new/'readback.bin').write_bytes(raw)
+    def test_expanded_stride_rejects_wrong_full_anchor_and_reverse_prefix(self):
+        old,old_sha=self.capture('small',[('first',0)],words=1507328);new,new_sha=self.capture('large',[('first',0)],words=1769472)
+        with self.assertRaises(ValueError):blocks.retain(old,old_sha,new,'0'*64,case_words=1769472,reference_case_words=1507328)
+        with self.assertRaises(ValueError):blocks.retain(new,new_sha,old,old_sha,case_words=1507328,reference_case_words=1769472)
 if __name__=='__main__':unittest.main()

@@ -18,7 +18,7 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 MAX_INPUT_WORDS=131072
-MAX_OUTPUT_WORDS=1507328
+MAX_OUTPUT_WORDS=1769472
 READBACK_CHUNK_BYTES=8*1024*1024
 
 
@@ -87,6 +87,12 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source=='gpu/world_coordinate_sampling_burst_entry.slang' or output_words==1769472:
+        from portable_coordinate_sampled_burst_wire import SOURCE,INPUT_WORDS,OUTPUT_WORDS,check_schema
+        check_schema(ROOT)
+        if source!=SOURCE or (input_words,output_words)!=(INPUT_WORDS,OUTPUT_WORDS):
+            raise ValueError('Sampled burst requires its complete registered wire')
+        return
     if source in ('gpu/world_coordinate_group_entry.slang','gpu/world_coordinate_mixed_entry.slang','gpu/world_coordinate_sampling_entry.slang','gpu/world_coordinate_sampling_parent_entry.slang','gpu/world_coordinate_sampling_skill_entry.slang') or output_words==1507328:
         from portable_coordinate_group_wire import INPUT_WORDS,OUTPUT_WORDS,check_schema
         check_schema(ROOT)
@@ -121,7 +127,7 @@ def validate_composed_stride(source,input_words,output_words):
 def execute(source, entry, packed, input_words, output_words, backend='metal', *, readback_path=None):
     if backend not in ('metal', 'cuda'):
         raise ValueError('Explicit metal or cuda backend required; no CPU fallback')
-    if type(input_words) is not int or type(output_words) is not int or not 1<=input_words<=MAX_INPUT_WORDS or not 1<=output_words<=MAX_OUTPUT_WORDS or output_words>524288 and output_words not in (655360,786432,1048576,1310720,1507328):
+    if type(input_words) is not int or type(output_words) is not int or not 1<=input_words<=MAX_INPUT_WORDS or not 1<=output_words<=MAX_OUTPUT_WORDS or output_words>524288 and output_words not in (655360,786432,1048576,1310720,1507328,1769472):
         raise ValueError('Invalid portable word strides')
     validate_composed_stride(source,input_words,output_words)
     count, = struct.unpack_from('<I', packed)
@@ -183,7 +189,7 @@ def execute_batches(source, entry, batches, input_words, output_words, backend='
     success. Both adapters reuse their pipeline/context and two bounded buffers.
     """
     if backend not in ('metal','cuda'):raise ValueError('Explicit metal or cuda backend required; no CPU fallback')
-    if type(input_words) is not int or type(output_words) is not int or not 1<=input_words<=MAX_INPUT_WORDS or not 1<=output_words<=MAX_OUTPUT_WORDS or output_words>524288 and output_words not in (655360,786432,1048576,1310720,1507328):raise ValueError('Invalid portable word strides')
+    if type(input_words) is not int or type(output_words) is not int or not 1<=input_words<=MAX_INPUT_WORDS or not 1<=output_words<=MAX_OUTPUT_WORDS or output_words>524288 and output_words not in (655360,786432,1048576,1310720,1507328,1769472):raise ValueError('Invalid portable word strides')
     batches=list(batches)
     if not batches:raise ValueError('Empty portable dispatch sequence')
     counts=[]

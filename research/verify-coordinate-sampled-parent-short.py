@@ -24,7 +24,7 @@ def native_reference(domain):
 def compare(block,domain):
     if not domain[0].get('sampled_parent'):return parent.compare(block,domain)
     return compare_observed(block,domain,native_reference(domain))
-def compare_observed(block,domain,n,*,check_parent=True,trace_view=None):
+def compare_observed(block,domain,n,*,check_parent=True,trace_view=None,sampled_burst_totals=False):
     c,m,b,d=domain
     from portable_roster_team_history import legacy_view
     view,battle=legacy_view(block[:786432],n['battle'],parent.parent.L['WORLD_TEAM_HEAD_BASE'])
@@ -35,7 +35,7 @@ def compare_observed(block,domain,n,*,check_parent=True,trace_view=None):
     actual['healing_storage']=codec.storage.decoded_storage(view,m,c)
     from portable_sampled_damage_totals import exact_damage
     kinds={r['label']:r['kind'] for r in d['rows']}
-    actual['damage']=exact_damage(block,actual['damage'],n['landed_packets'],kinds)
+    actual['damage']=exact_damage(block,actual['damage'],n['landed_packets'],kinds,sampled_burst=sampled_burst_totals)
     changed=[key for key in battle if key!='scope' and actual[key]!=battle[key]]
     assert block[0]==0 and not changed,(c['name'],block[0],changed)
     expected_trace=n['skill_trace'] if trace_view is None else trace_view

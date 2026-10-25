@@ -85,8 +85,14 @@ void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient
     uint64_t critRate = b[normal ? S_crit_rate : S_crit_rate_skill], critDamage = b[normal ? S_crit_dmg : S_crit_dmg_skill];
 #ifdef PORTABLE_COORDINATE_SAMPLED_SKILLS
     uint64_t frozenCritRate=critRate;
+#ifdef PORTABLE_COORDINATE_SAMPLED_BURSTS
+    uint sampledRow=results[csMeta(s)+62]!=0?results[csMeta(s)+61]:basisRow;
+    bool sampledSkill=!physical&&sampledRow<s.count;
+    if(sampledSkill)critRate=sampledSkillCriticalFraction(s,sampledRow,critRate);
+#else
     bool sampledSkill=!physical&&basisRow<s.count;
     if(sampledSkill)critRate=sampledSkillCriticalFraction(s,basisRow,critRate);
+#endif
 #endif
     if((s.incomingMask&32)!=0) s.lastDamageCritRate=critRate;
     uint64_t f3 = f64Add(ONE,f64Mul(critRate,larger(0,f64Add(s.baseCritDamage,f64Div(critDamage,HUNDRED)))));
@@ -139,7 +145,11 @@ void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient
     factors[0]=f1; factors[1]=f2; factors[2]=f3; factors[3]=f4;
     factors[4]=f5; factors[5]=f6; factors[6]=f7;
 #ifdef PORTABLE_COORDINATE_SAMPLED_SKILLS
+#ifdef PORTABLE_COORDINATE_SAMPLED_BURSTS
+    if(sampledSkill)captureSampledSkillFactors(s,sampledRow,factors,frozenCritRate,
+#else
     if(sampledSkill)captureSampledSkillFactors(s,basisRow,factors,frozenCritRate,
+#endif
         larger(0,f64Add(s.baseCritDamage,f64Div(critDamage,HUNDRED))),
         f64Zero(core)?uint64_t(0):f64Mul(core,f64Add(coreBonus,f64Div(b[S_core_dmg_pct],HUNDRED))),
         uint(s.phase==5)|(uint(normal&&optimal)<<1),interceptFactor);

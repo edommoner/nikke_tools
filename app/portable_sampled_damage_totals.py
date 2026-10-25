@@ -15,10 +15,16 @@ def verify_layout():
     assert BASE+WORDS<=CF['END']
     return True
 
-def exact_damage(block, legacy_damage, packets, target_kinds):
+def exact_damage(block, legacy_damage, packets, target_kinds,*,sampled_burst=False):
     verify_layout()
     assert list(block[BASE:BASE+4])==[MAGIC,1,5,0], 'Exact damage header'
-    assert not any(block[BASE+WORDS:CF['END']]), 'Exact damage unused tail'
+    if type(sampled_burst) is not bool:raise ValueError('Explicit sampled burst totals profile required')
+    if sampled_burst:
+        from portable_coordinate_sampled_burst_wire import HEAD,HEAD_WORDS,ENTRIES,HITS
+        assert not any(block[BASE+WORDS:HEAD]) and not any(block[HEAD+HEAD_WORDS:CF['END']]), 'Exact damage unused tail'
+        assert block[HEAD]<=ENTRIES and block[HEAD+3]<=ENTRIES*HITS and not any(block[HEAD+4:HEAD+HEAD_WORDS]), 'Pending numeric header'
+    else:
+        assert not any(block[BASE+WORDS:CF['END']]), 'Exact damage unused tail'
     totals=[0]*5;counts=[0]*5;rounded=[0.0]*5
     for p in packets:
         kind=target_kinds.get(p['target'],0)

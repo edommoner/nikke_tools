@@ -276,7 +276,13 @@ void drainWorldSkills(inout Runtime s,uint64_t when,uint output)
 #ifdef PORTABLE_WORLD_PENDING_SKILLS
 void landWorldPending(inout Runtime s,Definition d,uint row,uint index,uint hit,uint64_t when,uint output)
 {
-    LandingReceipt r={};r.row=row;r.mask=0xffffffffU;r.hit=hit+1;r.hits=d.damageHits;r.depth=1;r.amount=pendingBatchAmount(s,index);r.when=when;r.epoch=s.enemyEpoch;
+    LandingReceipt r={};r.row=row;r.mask=0xffffffffU;r.hit=hit+1;r.hits=d.damageHits;r.depth=1;r.amount=
+#ifdef PORTABLE_COORDINATE_SAMPLED_BURSTS
+        sampledPendingAmount(s,index,hit);
+#else
+        pendingBatchAmount(s,index);
+#endif
+    r.when=when;r.epoch=s.enemyEpoch;
     uint saved=s.target;landWorldSkillReceipt(s,r,when,output);s.target=saved;
 }
 #endif

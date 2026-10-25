@@ -186,7 +186,7 @@ func run() throws {
     let outputWords = CommandLine.arguments.count >= 7 ? Int(CommandLine.arguments[6]) ?? 0 : 7
     let residentStride = CommandLine.arguments.count == 8 ? Int(CommandLine.arguments[7]) ?? 0 : 0
     guard CommandLine.arguments.count != 8 || (residentStride > 0 && residentStride <= 1048576 && residentStride % 8 == 0) else { throw ProbeError("Invalid resident stride") }
-    guard inputWords > 0 && inputWords <= 131072 && outputWords > 0 && (outputWords <= 524288 || outputWords == 655360 || outputWords == 786432 || outputWords == 1048576 || outputWords == 1310720 || outputWords == 1507328) else { throw ProbeError("Invalid wire layout") }
+    guard inputWords > 0 && inputWords <= 131072 && outputWords > 0 && (outputWords <= 524288 || outputWords == 655360 || outputWords == 786432 || outputWords == 1048576 || outputWords == 1310720 || outputWords == 1507328 || outputWords == 1769472) else { throw ProbeError("Invalid wire layout") }
     guard let device = MTLCreateSystemDefaultDevice() else { throw ProbeError("No Metal device") }
     let sequence = CommandLine.arguments[3] == "--batches"
     let paths: [[String: String]]
