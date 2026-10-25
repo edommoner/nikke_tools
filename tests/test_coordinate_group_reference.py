@@ -51,7 +51,7 @@ class CoordinateGroupReferenceTests(unittest.TestCase):
         row=next(r for r in frontier(ROOT)['dependencies'] if r['id']=='coordinate-shot-groups')
         self.assertEqual(row['classification'],'gpu_port_gap')
         self.assertTrue(row['native_coordinate_packet_adapter_available'])
-        self.assertFalse(row['physical_gpu_group_receipts_connected'])
+        self.assertTrue(row['physical_gpu_group_receipts_connected'])
         self.assertTrue(row['default_plain_packet_policy_preserved'])
     def test_group_scope_restores_native_callbacks_even_after_error(self):
         from calculator import timeline

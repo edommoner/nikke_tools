@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "/tmp/nikke-coordinate-group-develop-v2/research/verify-coordinate-group-short.py", line 72, in compare
+    parent.parent.compare_aim(block,domain,expected['coordinate_aim'])
+  File "/private/tmp/nikke-coordinate-group-develop-v2/research/verify-coordinate-aim-short.py", line 53, in compare_aim
+    for aim in f['aims']:words.extend([slots[aim['target']],*struct.unpack('<IIII',struct.pack('<dd',*aim['point']))])
+                                       ~~~~~^^^^^^^^^^^^^^^
+KeyError: '__enemy__:*'

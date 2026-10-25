@@ -63,7 +63,8 @@ def attack_group_shader_declarations():
     row = attack_group_layout()
     return ('static const uint '+','.join(f'AG_{key}={row[key]}' for key in
             ('HEADER', 'SLOTS', 'WORDS', 'LOG', 'LOG_CAP', 'PACKETS'))+';\n'
-            f'static const uint AG_COMPACT=AG_PACKETS+P_LANDINGS,AG_COMPACT_WORDS={row["OUTPUT_WORDS"]}-AG_COMPACT;\n')
+            '#ifdef PORTABLE_COORDINATE_GROUPS\nstatic const uint AG_COMPACT=1310720,AG_COMPACT_WORDS=186528;\n#else\n'
+            f'static const uint AG_COMPACT=AG_PACKETS+P_LANDINGS,AG_COMPACT_WORDS={row["OUTPUT_WORDS"]}-AG_COMPACT;\n#endif\n')
 
 
 def regions(profile):
@@ -168,7 +169,8 @@ def audit_live_sources(root):
         'gpu/world_coordinate_area_entry.slang': (
             'uint input=1+id.x*(P_INPUT_WORDS+C_INPUT+CA_INPUT),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;',
             'CoordinateScene c;c.input=input+P_INPUT_WORDS;',
-            'for(uint i=CP_BASE;i<P_OUTPUT_WORDS;i++)results[output+i]=0;'),
+            'for(uint i=CP_BASE;i<P_OUTPUT_WORDS;i++)results[output+i]=0;',
+            'for(uint i=CP_BASE;i<AG_COMPACT;i++)results[output+i]=0;'),
         'gpu/coordinate_skill_runtime.slang': ('CoordinateScene c;c.input=s.inputBase+P_INPUT_WORDS;',),
         'gpu/coordinate_area_runtime.slang': ('uint coordinateAreaInput(inout Runtime s){return s.inputBase+CA_BASE_INPUT;}',),
     }

@@ -69,7 +69,7 @@ class GenerationSeparationTests(unittest.TestCase):
 
     def test_composed_transport_review_cannot_hide_guard_or_dispatch_changes(self):
         source=(ROOT/'app/portable_backend.py').read_text()
-        for old,new in [('MAX_OUTPUT_WORDS=1310720','MAX_OUTPUT_WORDS=2621440'),
+        for old,new in [('MAX_OUTPUT_WORDS=1507328','MAX_OUTPUT_WORDS=2621440'),
                 ('source!=\'gpu/world_coordinate_composed_entry.slang\'','source!=\'gpu/world_attack_group_entry.slang\''),
                 ('validate_composed_stride(source,input_words,output_words)','validate_composed_stride(source,input_words,1048576)'),
                 ('Invalid portable word strides','Ignored portable word strides'),

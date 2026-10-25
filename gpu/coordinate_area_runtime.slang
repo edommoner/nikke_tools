@@ -13,7 +13,12 @@ bool validCoordinateAreaIR(inout Runtime s)
     for(uint slot=0;slot<128;slot++)
     {
         uint p=coordinateAreaRow(s,slot);
-        if(slot==0||slot>c.count){for(uint j=0;j<8;j++)if(commands[p+j]!=0)return false;continue;}
+#ifdef PORTABLE_COORDINATE_GROUPS
+        if(commands[p]==0)
+#else
+        if(slot==0||slot>c.count)
+#endif
+        {for(uint j=0;j<8;j++)if(commands[p+j]!=0)return false;continue;}
         uint index=commands[p];if(index==0||index>c.count)return false;
         uint row=cRow(c,index-1);if(commands[row+5]!=slot||commands[p+1]!=commands[row+4]||
 #ifndef PORTABLE_COORDINATE_PHYSICAL

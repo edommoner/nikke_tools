@@ -354,6 +354,8 @@ SUITES['coordinate-aim']['support_files']=[*SUITES['coordinate-matrix']['support
 SUITES['coordinate-control']=dict(SUITES['coordinate-aim'],script='research/verify-coordinate-control-short.py',source='gpu/world_coordinate_control_entry.slang',golden='research/portable-coordinate-control-short-expected.json',inputs=206,native=182,development_only=False,tests=[*SUITES['coordinate-aim']['tests'],'test_coordinate_control.py'])
 SUITES['coordinate-control']['tests']+=['test_coordinate_group_reference.py','test_battle_attack_group_runtime.py','test_battle_native_route.py','test_mixed_attack_groups.py','test_attack_group_runtime.py','test_portable_battle_attack_group.py']
 SUITES['coordinate-control']['support_files']=[*SUITES['coordinate-aim']['support_files'],'research/portable-coordinate-aim-short-expected.json','research/portable-compiler-full--coordinate-control-source-certificate.json']
+SUITES['coordinate-group']=dict(SUITES['coordinate-control'],script='research/verify-coordinate-group-short.py',source='gpu/world_coordinate_group_entry.slang',golden='research/portable-coordinate-group-short-expected.json',inputs=225,native=199,output_words=1507328,development_only=False,tests=[*SUITES['coordinate-control']['tests'],'test_coordinate_group_gpu.py'])
+SUITES['coordinate-group']['support_files']=[*SUITES['coordinate-control']['support_files'],'research/portable-coordinate-control-short-expected.json','research/portable-compiler-full--coordinate-group-source-certificate.json']
 SUITES['skill-part-codec']=dict(script='research/verify-skill-part-codec-short.py',source='gpu/skill_part_codec_probe.slang',
     golden='research/portable-skill-part-codec-short-expected.json',inputs=4,native=3,development_only=False,
     tests=['test_portable_skill_part_codec.py'])
@@ -2569,8 +2571,8 @@ def main(argv=None):
     for name in ('readback-index','readback-compare'):
         a=sub.add_parser(name);a.add_argument('--readback',type=Path,required=True);a.add_argument('--sha256',required=True);a.add_argument('--out',type=Path,required=True)
         if name=='readback-compare':a.add_argument('--index',type=Path,required=True);a.add_argument('--index-sha256',required=True)
-        else:a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720),default=786432)
-    a=sub.add_parser('readback-retain');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--reference-comparison-sha256',required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--candidate-comparison-sha256',required=True);a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720),default=786432);a.add_argument('--out',type=Path,required=True)
+        else:a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328),default=786432)
+    a=sub.add_parser('readback-retain');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--reference-comparison-sha256',required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--candidate-comparison-sha256',required=True);a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328),default=786432);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--reference-migration',choices=['parts-cleared-v1','leftmost-rejection-domains-v1'])
     a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')

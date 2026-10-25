@@ -30,10 +30,10 @@ def decoded_storage(block,metadata,case):
     from portable_specs import LIMITS as L
     actual=decode(block[:159744],metadata);rows=[]
     for carrier in actual['carriers']:
-        row=carrier['definition']
-        if not carrier['active'] or case['effects'][row].get('stat')!='heal_overcharge_store':continue
+        row=carrier['definition'];source=metadata.get('binding_source_indices',list(range(len(case['effects']))))[row]
+        if not carrier['active'] or case['effects'][source].get('stat')!='heal_overcharge_store':continue
         storage=carrier.get('protection',{});current=storage.get('current',{});capacity=storage.get('capacity',{})
-        rows.append(dict(row=row,owner=case['owners'][row],activated=carrier['activated'],end=carrier['end'],
+        rows.append(dict(row=source,owner=metadata.get('binding_owners',case['owners'])[row],activated=carrier['activated'],end=carrier['end'],
                          initialized=bool(storage),recipients=sorted(int(w) for w in capacity),
                          current=[current.get(str(w),0.0) for w in range(5)],
                          capacity=[capacity.get(str(w),0.0) for w in range(5)]))

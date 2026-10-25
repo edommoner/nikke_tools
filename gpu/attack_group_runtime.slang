@@ -4,7 +4,11 @@
 #include "composed_arena_layout.slang"
 #else
 static const uint AG_HEADER=800000,AG_SLOTS=800032,AG_WORDS=536,AG_LOG=820000,AG_LOG_CAP=64,AG_PACKETS=860000;
+#ifdef PORTABLE_COORDINATE_GROUPS
+static const uint AG_COMPACT=1310720,AG_COMPACT_WORDS=186528;
+#else
 static const uint AG_COMPACT=AG_PACKETS+P_LANDINGS,AG_COMPACT_WORDS=1048576-AG_COMPACT;
+#endif
 #endif
 uint agHead(inout Runtime s) { return s.resourceOutput+AG_HEADER; }
 uint agAt(inout Runtime s,uint index) { return s.resourceOutput+AG_SLOTS+index*AG_WORDS; }
@@ -74,7 +78,11 @@ bool initializeAttackGroups(inout Runtime s)
     if(commands[input+3]!=0) for(uint i=0;i<AG_COMPACT_WORDS;i++) results[s.resourceOutput+AG_COMPACT+i]=0;
     if(!actorRecipientsEnabled(s)||s.combat==0||s.landingPolicy!=1||s.targetCount!=1||commands[s.inputBase+P_WORLD_TEAM_INPUT_BASE+3]!=0) return false;
     #ifdef PORTABLE_COMPOSED_ARENA
-    for(uint slot=0;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]!=0&&commands[actorBinding(s,slot)]!=1&&commands[actorBinding(s,slot)]!=6) return false;
+    for(uint slot=0;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]!=0&&commands[actorBinding(s,slot)]!=1&&commands[actorBinding(s,slot)]!=6
+#ifdef PORTABLE_COORDINATE_GROUPS
+       &&commands[actorBinding(s,slot)]!=5
+#endif
+       ) return false;
 #else
     for(uint slot=0;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]!=0&&commands[actorBinding(s,slot)]!=5) return false;
 #endif
@@ -108,10 +116,7 @@ bool deliverAttackGroupShot(inout Runtime s,uint who,uint64_t when,uint output,u
     if(actorPoolCount(s)!=1) { s.error=64;return true; } // Coordinate physical probability/parts routing is unconnected.
 #endif
     if(!worldPhysicalNormal(s,who)||count>1024||results[head+3]!=0) { s.error=64;return true; }
-    uint group=0;while(group<32&&results[agAt(s,group)]!=0) group++;
-    if(group==32||results[head+1]>=0xffffffU||results[head+2]>=0x7ffffffU||results[head+10]==0&&results[head+5]>=AG_LOG_CAP) { s.error=64;return true; }
-    uint at=agAt(s,group);for(uint i=0;i<AG_WORDS;i++) results[at+i]=0;
-    results[at]=1;results[at+1]=who;results[at+2]=++results[head+1];results[at+3]=++results[head+2];results[at+5]=count;results[at+6]=1;storeNumber(at+8,when);results[head+3]=group+1;
+#include "attack_group_open.slang"
     uint saved=s.target;
     for(uint hit=0;hit<count&&s.error==0;hit++)
     {
@@ -135,35 +140,26 @@ bool deliverAttackGroupShot(inout Runtime s,uint who,uint64_t when,uint output,u
         }
         results[set+5]=0;results[actorPoolHead(s)+7]--;
     }
-    s.target=saved;results[head+3]=0;results[at]=2;
-    uint log=0xffffffffU,compact=0xffffffffU;
-    if(results[head+5]<AG_LOG_CAP)
-    {
-        log=s.resourceOutput+AG_LOG+results[head+5]++*AG_WORDS;
-        for(uint i=0;i<AG_WORDS;i++) results[log+i]=results[at+i];
-    }
-    if(results[head+10]!=0)
-    {
-        // Lossless variable-length history is independent of the 32 live
-        // group slots. No rolling hash, dropped target or overwritten record.
-        uint words=24+results[at+4]*4,used=results[head+11];
-        if(used>AG_COMPACT_WORDS||words>AG_COMPACT_WORDS-used) { s.error=64;return true; }
-        compact=s.resourceOutput+AG_COMPACT+used;results[head+11]+=words;
-        for(uint i=0;i<words;i++) results[compact+i]=results[at+i];
-    }
-    uint key=agKey(s,group),prior=results[head+4];bool seen[129];for(uint i=0;i<129;i++) seen[i]=false;
-    for(uint row=0;row<s.count&&s.error==0;row++)
-    {
-        Definition d=readDefinition(s.inputBase,row);if(d.owner!=who) continue;
-        for(uint slot=0;slot<d.triggerCount&&s.error==0;slot++)
-        {
-            uint p=s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS+slot*8;if(commands[p]!=62) continue;uint threshold=commands[p+4];
-            if(seen[threshold]) continue;seen[threshold]=true;if(results[at+4]<threshold) continue;
-            results[head+4]=key;results[head+6]++;
-            if(log!=0xffffffffU) results[log+10]++;
-            if(compact!=0xffffffffU) results[compact+10]++;
-            dispatch(s,0,62,who,int(threshold),when,output);
-        }
-    }
-    results[head+4]=prior;agRelease(s,key);return true;
+    s.target=saved;
+#include "attack_group_seal.slang"
+
 }
+
+#ifdef PORTABLE_COORDINATE_GROUPS
+bool beginCoordinatePhysicalGroup(inout Runtime s,uint who,uint64_t when,uint count)
+{
+    uint head=agHead(s);
+    if(count==0||(results[head+8]&(1U<<who))==0||!worldPhysicalNormal(s,who))return false;
+    if(s.error!=0)return true;
+    if(count>131072||results[head+3]!=0){s.error=64;return true;}
+#include "attack_group_open.slang"
+    return true;
+}
+bool finishCoordinatePhysicalGroup(inout Runtime s,uint who,uint64_t when,uint output)
+{
+    if(s.error!=0)return true;
+    uint head=agHead(s),pending=results[head+3];if(pending==0)return false;
+    uint group=pending-1,at=agAt(s,group);
+#include "attack_group_seal.slang"
+}
+#endif

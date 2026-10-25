@@ -33,9 +33,9 @@ class ControlTests(unittest.TestCase):
         with patch.object(timeline,'simulate',side_effect=AssertionError('Static only')):result=verify(ROOT)
         self.assertFalse(result['current']['address_plan_verified'])
         self.assertTrue(result['proposal']['address_plan_verified'])
-        self.assertFalse(result['proposed_addresses_implemented'])
-        self.assertFalse(result['physical_group_receipts_connected'])
-        self.assertFalse(result['add_sharing_connected'])
+        self.assertTrue(result['proposed_addresses_implemented'])
+        self.assertTrue(result['physical_group_receipts_connected'])
+        self.assertTrue(result['add_sharing_connected'])
         self.assertEqual(result['gpu_calls'],0)
 
 if __name__=='__main__':unittest.main()

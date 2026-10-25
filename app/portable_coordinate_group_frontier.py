@@ -1,7 +1,7 @@
 """Real current writer conflicts and a capacity-preserving static relocation plan.
 
-The proposal does not enable groups or change a shader address. Consumer and
-receipt integration are deliberately reported as remaining implementation.
+The legacy entry keeps dormant overlapping compaction. A separate complete
+coordinate-group entry relocates the full arena and uses actual packet receipts.
 """
 import hashlib,re
 from pathlib import Path
@@ -44,17 +44,25 @@ def verify(root=None):
         sources[name]=hashlib.sha256(text.encode()).hexdigest()
     transport=(root/'app/portable_backend.py').read_text()
     allowed=re.findall(r'output_words not in \(([^)]+)\)',transport)
-    assert len(allowed)==2 and all(output not in [int(v.strip()) for v in row.split(',')] for row in allowed)
+    assert len(allowed)==2 and all(output in [int(v.strip()) for v in row.split(',')] for row in allowed)
     sources['app/portable_backend.py']=hashlib.sha256(transport.encode()).hexdigest()
-    return dict(schema=1,passed=True,classification='gpu_port_gap',scope='Static current writer/caller audit and unimplemented relocation proposal',
-                current=current,proposal=proposal,proposed_group_compact_begin=relocated,
+    from portable_coordinate_group_wire import check_schema as group_schema
+    relocated=group_schema(root)
+    for name,tokens in {
+        'gpu/coordinate_physical_runtime.slang':['bool grouped=beginCoordinatePhysicalGroup(s,who,when,count*packets);','if(grouped)agCollect(s,results[agHead(s)+3]-1,slot,generation);','if(grouped)finishCoordinatePhysicalGroup(s,who,when,s.resourceOutput);','actorSetCapture(s,33,setIndex,0,128,0,who NAMED_ENEMY_ARGUMENT(0));'],
+        'gpu/attack_group_runtime.slang':['#include "attack_group_open.slang"','#include "attack_group_seal.slang"'],
+        'scripts/run-metal-probe.swift':['outputWords == 1507328'],
+    }.items():
+        text=(root/name).read_text();assert all(token in text for token in tokens),'Relocated group consumer drift: '+name
+        sources[name]=hashlib.sha256(text.encode()).hexdigest()
+    return dict(schema=1,passed=True,classification='gpu_port_gap',scope='Legacy guarded overlap and separate implemented private group profile; no calculation proof',
+                current=current,proposal=proposal,proposed_group_compact_begin=OUTPUT_WORDS,
                 proposed_group_compact_end=end,group_compact_words_retained=ag['COMPACT_WORDS'],
-                group_enabled_with_coordinate_physical=False,proposed_addresses_implemented=False,
-                proposed_transport_stride_registered=False,
-                physical_group_receipts_connected=False,add_sharing_connected=False,
-                remaining=['relocate actual group compact declarations/readers/writers',
-                           'bound coordinate initialization clear before relocated group writer',
-                           'connect coordinate physical packet receipts to group producer/delivery',
-                           'bind ADD/actor sharing and notifications before admitting combined worlds',
-                           'register complete relocated strides in host transport and validation wrappers'],
+                group_enabled_with_coordinate_physical=True,proposed_addresses_implemented=True,
+                proposed_transport_stride_registered=True,
+                physical_group_receipts_connected=True,add_sharing_connected=True,
+                add_sharing_scope='Shared Actor pool and frozen group handles; weighted allocation not verified',
+                proportional_add_sharing_verified=False,
+                relocated_profile=relocated,legacy_default_profile_group_guard_retained=True,
+                remaining=['current CUDA execution/cache proof','additional RNG, mixed scene and original definition coverage'],
                 source_sha256=sources,gpu_calls=0,native_battle_calls=0,calculation_verified=False,public_gpu_admitted=False)

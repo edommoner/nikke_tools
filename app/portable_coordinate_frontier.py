@@ -143,6 +143,11 @@ def verify(root, overrides=None):
     control_matches=control_golden['source_sha256']==control_sources if control_golden else None
     from portable_coordinate_group_frontier import verify as group_frontier
     group_plan=group_frontier(root)
+    group_sources=source_hashes(root,'gpu/world_coordinate_group_entry.slang')
+    group_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in group_sources.items()}
+    group_path=root/'research/portable-coordinate-group-short-expected.json'
+    group_golden=json.loads(group_path.read_text()) if group_path.is_file() else None
+    group_matches=group_golden['source_sha256']==group_sources if group_golden else None
     round_sources=source_hashes(root,'gpu/coordinate_round_probe.slang')
     round_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in round_sources.items()}
     round_path=root/'research/portable-coordinate-round-short-expected.json'
@@ -166,7 +171,7 @@ def verify(root, overrides=None):
              private_expected_entry='gpu/world_coordinate_physical_entry.slang',
              private_expected_packets_connected=True,
              remaining=[
-                        'manual-aim','sampling-rng','mixed-shot-groups'],
+                        'sampling-rng','uncovered-mixed-scenes','original-definitions'],
              depends_on=['landing-probability', 'physical-native-observation']),
         dict(id='coordinate-shot-groups', classification='gpu_port_gap',
              native='battle_attack_group_runtime.Producer.wrap_fire / packet_scope',
@@ -174,7 +179,8 @@ def verify(root, overrides=None):
              native_coordinate_packet_adapter_available=True,
              native_reference_cli='coordinate-group-common',
              default_plain_packet_policy_preserved=True,
-             physical_gpu_group_receipts_connected=False,
+             physical_gpu_group_receipts_connected=True,
+             group_runtime_source='gpu/world_coordinate_group_entry.slang',
              depends_on=['physical-packet-expansion', 'physical-native-observation']),
         dict(id='physical-native-observation', classification='reference_adapter',
              native='world_projectile_native.capture_projectile_shots',
@@ -288,6 +294,11 @@ def verify(root, overrides=None):
                     live_reload_fraction_controls_clip_classification=True,
                     public_gpu_admitted=False,all_characters_certified=False),
                 coordinate_group_integration=group_plan,
+                coordinate_gpu_shot_groups=dict(suite='coordinate-group',source_sha256=group_sources,
+                    proof_available=group_golden is not None,sealed_source_matches_current=group_matches,
+                    requires_new_metal_proof=not group_matches,input_count=len(group_golden['entries']) if group_golden else None,
+                    expanded_packet_receipts_connected=True,relocated_complete_stride=1507328,
+                    compact_history_words_retained=186528,public_gpu_admitted=False,all_characters_certified=False),
                 coordinate_skill_shape_contains_is_physical_landing=False,
                 angular_interval_algebra=dict(suite='coordinate-arcs',
                     sealed_source_matches_current=arc_source_matches, source_sha256=arc_sources,

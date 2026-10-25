@@ -27,9 +27,8 @@ class CompilerCertificateTests(unittest.TestCase):
         self.assertEqual(proof,certificate(suite,baseline,(ROOT/cli.SUITES[suite]['golden']).read_bytes()))
         current=backend.source_hashes(config['source'])
         from portable_coordinate_accum_emission_source_contract import project_sources
-        projected=dict(current)
-        for path,text in project_sources(ROOT).items():
-            if path in projected:projected[path]=cli.sha(text.encode())
+        from portable_coordinate_group_source_contract import historical_source_hashes
+        projected=historical_source_hashes(ROOT,config['source'],project_sources(ROOT))
         self.assertEqual(proof['source_sha256'],projected)
         if current!=proof['source_sha256']:
             # An exact historical inverse proves the prior source, never current

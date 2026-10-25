@@ -1,0 +1,465 @@
+{
+  "schema": 1,
+  "suite": "coordinate-group",
+  "scope": "Private shared coordinate packet/group executor; all-character/public admission pending",
+  "reference_kind": "deterministic-common-cpu",
+  "sealed": true,
+  "input_count": 225,
+  "native_oracles": 199,
+  "rejections": 26,
+  "new_group_cases": 17,
+  "new_rejections": 2,
+  "input_words": 109528,
+  "output_words": 1507328,
+  "compact_begin": 1310720,
+  "compact_end": 1497248,
+  "compact_words_retained": 186528,
+  "runtime_stride_bytes": 138952,
+  "frame_conformance": {
+    "native_inputs": 199,
+    "total_frames": 8060,
+    "old182_frames": 7878,
+    "new17_frames": 182,
+    "negative_partial_frames_excluded": true,
+    "gpu_calls": 0
+  },
+  "new_group_cases_totals": {
+    "groups": 112,
+    "expanded_physical_packets": 186,
+    "receipts": 134,
+    "notifications": 111,
+    "long_history_groups": 91
+  },
+  "cpu": {
+    "tests": 140,
+    "failures": 0
+  },
+  "control": {
+    "tests": 416,
+    "failures": 0,
+    "skipped": 1
+  },
+  "wrapper_attempts": 2,
+  "initial_v1_dispatches": 0,
+  "source_v2_gpu_dispatches": 1,
+  "actual_gpu_dispatches": 1,
+  "gpu_recomputations": 0,
+  "same_claim_retries": 0,
+  "replay_gpu_calls": 0,
+  "original_failure_captures_preserved": true,
+  "source_v2_comparator_failures": 4,
+  "successful_independent_seal": true,
+  "source_only_compiler_certificate": true,
+  "compiler_device_verification": false,
+  "windows_requests": 0,
+  "current_cuda_calculation_verified": false,
+  "cuda_current_cache_hit_verified": false,
+  "cuda_cache_rules_changed": false,
+  "strict_normalizer_changed": false,
+  "legacy_generated_cuda_msl_pairs_retained": 6,
+  "legacy_separate_gpu_reruns": 0,
+  "retention": {
+    "passed": true,
+    "gpu_calls": 0,
+    "old206_input_entries_retained": 206,
+    "old182_native_fingerprints_retained": 182,
+    "old_prefix_bytes_checked": 1080033280,
+    "old_raw_sha256": "2d9a3ceda8e8d811b5adb8cd0adb42b54d5120a335c1b39bc4175b218802def6",
+    "new_logical_prefix_sha256": "b57ea9d0c8cba7048ac8389e7551fbfc047efa0b8fab11028de86a74b76ff395",
+    "all_old_raw_bytes_identical": false,
+    "identical_raw_cases": 151,
+    "changed_cases": 55,
+    "changed_words": 165,
+    "actor_set_region": [
+      227352,
+      243992
+    ],
+    "differences_only_unleased_actor_set_storage": true,
+    "other_regions_retained": true,
+    "outside_actor_sets": [],
+    "changed": [
+      {
+        "index": 0,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 3,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 4,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 5,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 6,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 7,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 8,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 9,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 10,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 11,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 12,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 13,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 14,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 15,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 16,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 27,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 84,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 85,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 86,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 87,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 88,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 89,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 90,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 91,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 92,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 93,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 94,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 95,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 96,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 97,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 98,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 99,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 100,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 101,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 102,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 103,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 104,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 105,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 106,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 107,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 109,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 110,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 120,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 121,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 122,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 123,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 124,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 125,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 126,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 127,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 128,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 129,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 130,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 131,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      },
+      {
+        "index": 132,
+        "changed_words": 3,
+        "first": 227352,
+        "last": 227361
+      }
+    ],
+    "calculation_verified": false,
+    "scope": "CPU byte retention; full native battle/receipt comparison is the independent replay proof"
+  },
+  "protected_source_sha256": {
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "research/summarize-portable-cross-gpu.py": "01e8595eb20c4a3c1f94f524e81e812d2921fd240b17a33e6dbfb050320fb21a",
+    "app/portable_compile_cache.py": "d1dcc7cf1a5c7197b1dd63dd0d6bd1cc90192356eb42ad4a4e6b2f641c5cc505"
+  },
+  "core_probability_sha256": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+  "gpu_development_package_id": "c4051ef5a184a73aeb78cec23b8deae3bf2674000d22b5728e02e0c3ee2ed39e",
+  "replay_package_id": "71e9ab08ddf4e4c13386e755f09e5a14acc6e0c5acc37d686ff54b0d431bf4a9",
+  "final_compact_package_id": "1f82f1c3c82f58ea00b2eb4016a2b2176dffcb7f8627ee2d3feba63ede04e897",
+  "final_full_package_id": "7b1d7033598a6e150abfa85cadb74034594105b45514d1cd459509aa6bbc886e",
+  "package_projection": {
+    "passed": true,
+    "full_files": 3086,
+    "compact_files": 1785,
+    "all_retained_records_and_bytes_identical": true,
+    "gpu_calls": 0
+  },
+  "timing": {
+    "gpu_seconds": 3.717514791758731,
+    "pipeline_seconds": 91.5308049917221,
+    "shared_execute_seconds": 103.212539833,
+    "pipeline_warm_comparison": false
+  },
+  "calculation_verified": true,
+  "containment_verified": true,
+  "preservation_verified": null,
+  "raw_output_bytes": 1356595200,
+  "raw_output_sha256": "3d641b53f8fd6960a7792a0163732801b92d76778af77f0f0e4c81a6a2133b98",
+  "storage": {
+    "raw_deleted": false,
+    "full_byte_sha_inode_preserved": true,
+    "allocated_reclaimed": 4530688000
+  },
+  "weighted_add_allocation_verified": false,
+  "sampling_rng_connected": false,
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "remaining_model_gaps": 20,
+  "public_gpu_admitted": false,
+  "ui_backend": "cpu",
+  "remaining": [
+    "sampling RNG",
+    "weighted/proportional allocation and additional mixed scenes",
+    "all original character/effect definitions and certifications",
+    "bounded current CUDA execution/cache proof"
+  ]
+}

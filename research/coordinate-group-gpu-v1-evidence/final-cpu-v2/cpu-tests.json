@@ -1,0 +1,252 @@
+[
+  {
+    "pattern": "test_coordinate_physical_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.1777266249991953,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_coordinate_physical_common.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.43499216600321233,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_coordinate_physical_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.07288912497460842,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_portable_damage_factors.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.004293791018426418,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_coordinate_physical_frontier.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.1874424580018967,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_packet_integer_sum.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.038256790954619646,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_coordinate_quantity.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.7396306250011548,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_coordinate_accumulation_policy.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.07805804105009884,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_coordinate_accum_emission.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.168857124983333,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_portable_damage_accum_battle.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.26105729199480265,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_portable_damage_accum_core.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.05494829104281962,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_coordinate_core.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.0147626250982285,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_coordinate_round.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.07040154200512916,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_coordinate_cache.py",
+    "exit_code": 0,
+    "elapsed_seconds": 8.72053570789285,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_coordinate_matrix.py",
+    "exit_code": 0,
+    "elapsed_seconds": 14.471349874977022,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_coordinate_aim_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.4810228750575334,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_coordinate_aim_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.7867577499710023,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_coordinate_control.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.706019958015531,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_coordinate_group_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.926924749976024,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_battle_attack_group_runtime.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.5535036249784753,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_battle_native_route.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.1339510419638827,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_mixed_attack_groups.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.5011108750477433,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_attack_group_runtime.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.007422207971103489,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_portable_battle_attack_group.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.2958902089158073,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  },
+  {
+    "pattern": "test_coordinate_group_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.785278624971397,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 62603
+  }
+]

@@ -22,7 +22,11 @@ bool initializeCoordinatePhysical(inout Runtime s)
 {
     // This scratch occupies the dormant group compaction arena. No group
     // owner or group-trigger definition may share this particular profile.
+#ifdef PORTABLE_COORDINATE_GROUPS
+    if(s.target!=0||s.landingPolicy!=1)return false;
+#else
     if(commands[s.inputBase+104402]!=0||s.target!=0||s.landingPolicy!=1)return false;
+#endif
 #ifdef PORTABLE_COORDINATE_LIVE_CORE
     if(!validCoordinateCoreIR(s))return false;
 #endif
@@ -31,8 +35,10 @@ bool initializeCoordinatePhysical(inout Runtime s)
 #else
     if(focusAimEnabled(s))return false; // Explicit waypoints/layer2 need their own caller.
 #endif
+#ifndef PORTABLE_COORDINATE_GROUPS
     for(uint row=0;row<s.count;row++)for(uint slot=0;slot<readDefinition(s.inputBase,row).triggerCount;slot++)
         if(commands[s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS+slot*8]==62)return false;
+#endif
     for(uint i=CF_BASE;i<CF_END;i++)results[s.resourceOutput+i]=0;
 #ifdef PORTABLE_COORDINATE_GEOMETRY_CACHE
     initializeGeometryCache(s);
@@ -146,6 +152,29 @@ uint64_t coordinatePhysicalSample(inout Runtime s,uint who,Weapon w,uint64_t coe
     results[bank]=count;storeNumber(bank+10,when);results[bank+2]=1;
     return body;
 }
+#ifdef PORTABLE_COORDINATE_GROUPS
+void coordinateGroupBodyPacket(inout Runtime s,uint who,uint64_t amount,uint64_t when,bool extra,bool grouped)
+{
+    uint setIndex=0;while(setIndex<P_WORLD_ACTOR_SETS&&results[actorPoolSet(s,setIndex)+5]!=0)setIndex++;
+    if(setIndex==P_WORLD_ACTOR_SETS){s.error=64;return;}
+    actorSetCapture(s,33,setIndex,0,128,0,who NAMED_ENEMY_ARGUMENT(0));uint set=actorPoolSet(s,setIndex),n=results[set];
+    for(uint i=0;i<n&&s.error==0;i++)
+    {
+        uint entry=set+8+i*4,slot=results[entry],generation=results[entry+1],kind=commands[actorBinding(s,slot)];
+        if(results[actorPoolAt(s,slot)]!=generation||results[actorPoolAt(s,slot)+1]==0)continue;
+        if(kind!=5&&!worldOverlayLand(s,who,0,amount,false))continue;
+        storeNumber(actorPoolHead(s)+2,when);s.target=0;land(s,who,ACTOR_REF|slot,amount);
+        uint receipt=actorPoolHead(s)+18;if(results[receipt]==0||s.error!=0)continue;
+        coordinateTrace(s,who,slot,generation,amount,when,extra);
+        if(grouped)agCollect(s,results[agHead(s)+3]-1,slot,generation);
+        uint64_t credit=kind==5?actorNumber(receipt+2):amount;
+        counterPhysicalPacket(s,who,slot,generation,credit,results[receipt+1]!=0,when,s.resourceOutput);
+        if((s.healthMask&64)!=0&&s.error==0)dispatch(s,17,0,who,0,when,s.resourceOutput,amount);
+        if(slot==0&&damageAccumEnabled(s)&&s.error==0)dispatch(s,39,0,who,0,when,s.resourceOutput,amount);
+    }
+    results[set+5]=0;results[actorPoolHead(s)+7]--;
+}
+#endif
 [noinline]
 uint64_t coordinatePhysicalDeliver(inout Runtime s,uint who,uint64_t legacy)
 {
@@ -154,9 +183,15 @@ uint64_t coordinatePhysicalDeliver(inout Runtime s,uint who,uint64_t legacy)
     // The caller's normal landing phase clears these after finishWeaponShot.
     // Do it before publishing our packets, at the same semantic boundary.
     s.frameAmmoActive[who]=0;s.physicalGaugeOwner=0;
+#ifdef PORTABLE_COORDINATE_GROUPS
+    bool grouped=beginCoordinatePhysicalGroup(s,who,when,count*packets);
+#endif
     for(uint hit=0;hit<count&&s.error==0;hit++)for(uint i=0;i<packets&&s.error==0;i++)
     {
         uint at=bank+CF_TEMPLATE+i*CF_PACKET_WORDS,slot=results[at],gen=slot==0?1:coordinateLandingGeneration(s,slot,results[at+1]);uint64_t amount=actorNumber(at+2);
+#ifdef PORTABLE_COORDINATE_GROUPS
+        if(slot==0){coordinateGroupBodyPacket(s,who,amount,when,results[at+4]!=0,grouped);continue;}
+#endif
         if(s.error!=0)return legacy;if(!worldOverlayLand(s,who,0,amount,false))continue;
         storeNumber(actorPoolHead(s)+2,when);s.target=0;land(s,who,ACTOR_REF|slot,amount);if(s.error!=0)return legacy;
         coordinateTrace(s,who,slot,gen,amount,when,results[at+4]!=0);
@@ -168,5 +203,8 @@ uint64_t coordinatePhysicalDeliver(inout Runtime s,uint who,uint64_t legacy)
         if(slot==0&&damageAccumEnabled(s)&&s.error==0)dispatch(s,39,0,who,0,when,s.resourceOutput,amount);
 #endif
     }
+#ifdef PORTABLE_COORDINATE_GROUPS
+    if(grouped)finishCoordinatePhysicalGroup(s,who,when,s.resourceOutput);
+#endif
     return legacy;
 }

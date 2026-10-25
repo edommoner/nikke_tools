@@ -12,7 +12,7 @@ from portable_coordinate_core_cases import fixtures
 SOURCE='gpu/world_coordinate_core_entry.slang';STRICT_WIRE_DIMENSIONS=True
 suite=SimpleNamespace(INPUT=INPUT_WORDS,OUTPUT=OUTPUT_WORDS);cross=parent.cross
 
-def compile_case(case):
+def compile_case(case,*,allow_summons=False):
     metadata=authored_metadata(case)
     for name,weapon in zip(roster_names(case),case['combat']['weapons']):
         wire_type=weapon.get('base_weapon_type','MG' if weapon.get('mode')=='auto_warmup' else 'AR')
@@ -26,7 +26,13 @@ def compile_case(case):
     codec=parent.parent.parent.area.parent.parent
     words,meta,bindings=codec.parent.suite.compile_case(lowered)
     scene=dict(name=case['name'],patterns=case['patterns'],commands=[('capture',case['duration'],0,0)])
-    side,descriptors=compile_scene(scene,allow_core=True)
+    side,descriptors=compile_scene(scene,allow_core=True,allow_summons=allow_summons)
+    if allow_summons:
+        from portable_coordinate_scene_specs import LAYOUT as scene_layout
+        for index,row in enumerate(descriptors['rows']):
+            slots=[slot for slot,b in enumerate(bindings) if int(b.kind)==row['kind'] and b.identity==row['identity']]
+            if len(slots)!=1:raise ValueError('Mixed scene requires one exact actor binding')
+            row['slot']=slots[0];side[scene_layout['ROW_BASE']+index*scene_layout['ROW_WORDS']+5]=slots[0]
     area_case=copy.deepcopy(case)
     if area_case['enemy']['coord'].get('auto_aim') is None:area_case['enemy']['coord']['auto_aim']=[0,0]
     area=compile_area(area_case,descriptors,explosion_ranges=[metadata[n].get('spot_explosion_range') for n in roster_names(case)])

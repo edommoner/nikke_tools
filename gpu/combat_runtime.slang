@@ -303,7 +303,9 @@ void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
     s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0;
 #ifdef PORTABLE_WORLD_PROJECTILE
 #ifdef PORTABLE_ATTACK_GROUPS
+#ifndef PORTABLE_COORDINATE_GROUPS
     if(deliverAttackGroupShot(s,who,when,output,landedAmount,landedCount)) return;
+#endif
 #endif
     if(deliverAimedAreaShot(s,who,when,output,landedAmount,landedCount)) return;
 #endif
