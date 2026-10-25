@@ -2107,3 +2107,17 @@ model-checkへ全266プロファイルの完全元編成damage-ID静的監査を
 新CLI `entry-inventory --out UNIQUE.json` は開発checkout／full package専用。全266元profile準備をID監査と共用し、入力変換・literal kind一覧・全元定義coverageとhashをCPU battle／GPU禁止で出します。失敗を保存／上書き拒否。結果247/266・3.71秒・禁止呼出し0で、GPU受付／計算／全キャラはfalse。legacy world245/266と座標group結合後247/266を混同しないこと。compactでのコマンド実行は拒否し、比較用の関連モジュールだけを保持します。
 
 次の実在優先候補はkind9/10の固有ゲージcharge/consume（15/12キャラ）。入力変換だけを支持せず、既存共通resource handlerのsampled受付・実増減・cap・後続通知と最終readbackを検証します。新入口を実装するときは可能なら共有capability schemaによるCPU側の受付事前検査も用意し、今回のstatus64をGPU前に検出すること。アンの敵被回復量・他kind・元武器group対象モデル・召喚攻撃も残る。全キャラ0／UI CPU／全目標未達、Windows新依頼0・現CUDA/warm cache未取得のままです。
+
+## 2026-10-26 元ゲージ9/10・共有kind受付schemaと早期停止
+
+最新 `coordinate-original-resources`3、`docs/portable-original-resources.md`／`research/portable-original-resources-checkpoint.json`。E.H.全76／ネオン：ビジョンアイ全83定義を元5人編成・weapon・操作・成長のまま保持。E.H.初期資材10→弾倉1→全消費、敵24体死亡後の弾倉4／資材10と実cap clipping、ネオンのburstで100→0を実証。新resource入口で既存共通kind9/10 handlerを接続し、数値／wire／Runtime容量変更0。最終全resourceのpresence／値／base cap／定義別発火数を全battle／packet／RNG比較へ合成。今回のevery_stack通知はnativeもGPUも0で、正の伝播を認定しません。
+
+共通decl `portable_coordinate_kind_admission` からvital guard fragmentを生成し、SlangとCPUの両方で同じkind条件を使用。fragment不一致・未解釈の条件付きprofile macroは拒否。prepare_entriesは明示subset選択後に正例だけを検査し、native基準作成／GPU実行前に止めます。旧ゲージ9/10／旧センチ22／burst-control無効5をCPUで拒否、native開始0・GPU禁止のテストあり。期待されたdomain=NoneのGPU拒否ケースは維持。kindだけの条件であり、全面GPU受付・計算成功を表しません。
+
+entry-inventoryに--suite選択とkind_admissionを追加。resource入口は全266中247入力変換、kind拒否65、禁止CPU/GPU0。247-65をGPU対応率へ変換しないこと。従来world245と座標247も入口差なので分離します。source／compiler／data hashと各元定義／入力hashを保持、compactでcommandは拒否。profile準備とkind policyの読込みは1 invocation内で共用します。
+
+packet `/tmp/nikke-original-resources-develop-v1`（95b08ccd…）、capture `/tmp/nikke-original-resources-metal-v1` はM5全3一致。実GPU1／retry0、GPU0.570817秒／初PSO90.865717秒／CPU事前17.487625秒、生成必須cache hit/compiler0。resource macro未定義の旧clock入口はCUDA/MSL原生成物を両方全byte保持、厳密inverseと負例も成功。共有raw sourceは変わるので旧source readiness falseを隠さず、旧goldenを自動更新しません。現CUDA cache hitや実計算の証明へ流用しないこと。
+
+独立seal20.138357秒、別child・全3fresh・live parent receiptなし／GPU0。同じ監査からgoldenとsource-only証明書を作成。最終compact `/tmp/nikke-original-resources-final-v1.zip`（44c51fa9…）は機能19／制御476（Win1skip）成功。全1929payload SHA／checkout全byteと実GPU source・input・native・output一致を終了後に確認。全reader終了後のrawはbyte/SHA/size/inode保持で疎化、削除0。
+
+次の候補はammo13/14等の未受付kindと、それに依存する元ゲージevery_stackの正の通知。kind受付は共有declを更新し、生成fragmentも更新してから新source/goldenを独立検証すること。既存parent source inverseも維持すること。敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cache、公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／全目標未達。Windows新依頼0、idle送信APIへ同じrunを繰り返さないこと。

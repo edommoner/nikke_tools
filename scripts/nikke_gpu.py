@@ -369,6 +369,8 @@ SUITES['coordinate-original-revival']=dict(SUITES['coordinate-original'],script=
 SUITES['coordinate-original-revival']['support_files']=['research/portable-compiler-full--coordinate-original-revival-source-certificate.json',*SUITES['coordinate-original']['support_files']]
 SUITES['coordinate-original-burst-revival']=dict(SUITES['coordinate-original-revival'],script='research/verify-coordinate-original-burst-revival-short.py',source='gpu/world_coordinate_original_clock_entry.slang',golden='research/portable-coordinate-original-burst-revival-short-expected.json',inputs=4,native=4,development_only=False,tests=['test_original_burst_revival.py','test_original_revival.py','test_portable_revival.py','test_portable_parent_oracles.py','test_coordinate_original.py','test_original_entry_inventory.py'])
 SUITES['coordinate-original-burst-revival']['support_files']=['research/portable-compiler-full--coordinate-original-burst-revival-source-certificate.json',SUITES['coordinate-original-revival']['golden'],*SUITES['coordinate-original-revival']['support_files']]
+SUITES['coordinate-original-resources']=dict(SUITES['coordinate-original-burst-revival'],script='research/verify-coordinate-original-resources-short.py',source='gpu/world_coordinate_original_resource_entry.slang',golden='research/portable-coordinate-original-resources-short-expected.json',inputs=3,native=3,development_only=False,tests=['test_original_resources.py','test_coordinate_kind_admission.py','test_original_entry_inventory.py','test_coordinate_original.py'])
+SUITES['coordinate-original-resources']['support_files']=['research/portable-compiler-full--coordinate-original-resources-source-certificate.json',SUITES['coordinate-original-burst-revival']['golden'],*SUITES['coordinate-original-burst-revival']['support_files']]
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -812,13 +814,24 @@ def prepare_entries(adapter, m):
     if is_development(m) and hasattr(adapter, 'development_entries'):
         entries = entries + adapter.development_entries()
         data = None
+    source=SUITES.get(m['suite'],{}).get('source')
+    from portable_coordinate_kind_admission import KindAdmission
+    policy=KindAdmission(ROOT,source) if source else None
+    def check_kinds(rows):
+        if policy is None:return
+        for _,words,domain in rows:
+            if domain is not None:
+                result=policy.inspect(words)
+                if result['unsupported']:raise ValueError('GPU definition kinds rejected before native/GPU execution: '+str(result['unsupported']))
     selected = m.get('selected_cases', [])
     if not selected and data is not None:
+        check_kinds(entries)
         return entries, data
     names = [row[0] for row in entries]
     if len(set(selected)) != len(selected) or not set(selected) <= set(names):
         raise ValueError('Unknown or duplicate selected cases')
     entries = [row for row in entries if not selected or row[0] in selected]
+    check_kinds(entries)
     packed = array.array('I', [len(entries)])
     for _, words, _ in entries:
         packed.extend(words)
@@ -2815,7 +2828,7 @@ def main(argv=None):
     a.add_argument('--artifact-kind',choices=('ptx','cubin'),default='cubin');a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--require-hit',action='store_true')
     a=sub.add_parser('consumer-audit');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
-    a=sub.add_parser('entry-inventory');a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('entry-inventory');a.add_argument('--out',type=Path,required=True);a.add_argument('--suite',choices=('coordinate-original','coordinate-original-burst-revival','coordinate-original-resources'),default='coordinate-original')
     a=sub.add_parser('metal-device-probe',help='Bounded device visibility only; no kernel compilation or GPU dispatch');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('coordinate-parent-check',help='CPU-only live preflight/context reuse check against saved Metal fixtures; not GPU certification')
     a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -2929,7 +2942,7 @@ def main(argv=None):
         result=dict(suite=a.suite,cases=[row[0] for row in entries],gpu_calls=0)
     elif a.command=='entry-inventory':
         from portable_original_entry_inventory import run
-        result=run(a.out,write=write,forbid_gpu=forbid_gpu)
+        result=run(a.out,write=write,forbid_gpu=forbid_gpu,source=SUITES[a.suite]['source'])
     elif a.command=='inventory':
         if a.out.exists():raise ValueError('Inventory output already exists')
         inventory=module(ROOT/'research/audit-world-roster-input.py').main(destination=str(a.out.resolve()),quiet=True)

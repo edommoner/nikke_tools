@@ -234,6 +234,9 @@ def verify(root, overrides=None):
     burst_revival_sources=source_hashes(root,'gpu/world_coordinate_original_clock_entry.slang') if (root/'gpu/world_coordinate_original_clock_entry.slang').is_file() else {}
     burst_revival_path=root/'research/portable-coordinate-original-burst-revival-short-expected.json'
     burst_revival_golden=json.loads(burst_revival_path.read_text()) if burst_revival_path.is_file() else None
+    resource_original_sources=source_hashes(root,'gpu/world_coordinate_original_resource_entry.slang') if (root/'gpu/world_coordinate_original_resource_entry.slang').is_file() else {}
+    resource_original_path=root/'research/portable-coordinate-original-resources-short-expected.json'
+    resource_original_golden=json.loads(resource_original_path.read_text()) if resource_original_path.is_file() else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -651,6 +654,19 @@ def verify(root, overrides=None):
                         'Anne complete roster enemy heal_received_pct payload',
                         'current CUDA execution and public all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_original_resources=dict(suite='coordinate-original-resources',source_sha256=resource_original_sources,
+                    proof_available=resource_original_golden is not None,
+                    sealed_source_matches_current=resource_original_golden['source_sha256']==resource_original_sources if resource_original_golden else None,
+                    input_count=len(resource_original_golden['entries']) if resource_original_golden else None,
+                    original_definitions_weapons_preserved=True,reference_kind='deterministic-common-cpu',
+                    shared_gauge_handlers=True,admitted_kinds=[9,10],shared_slang_cpu_kind_declaration=True,
+                    checked=['stored values and base caps','actual charge/consume dispatch counts','cap-dependent callbacks','no spurious step notifications'],
+                    remaining=['positive gauge-step notifications in original rosters','other resource and ammo operation admission',
+                        'current CUDA execution and public all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                sampled_vital_kind_preflight=dict(shared_generated_guard=True,scope='definition kinds only',
+                    rejects_before_native_and_gpu=True,explicit_subsets_respected=True,expected_rejections_preserved=True,
+                    full_gpu_admission_verified=False),
                 static_original_entry_inventory=dict(command='entry-inventory --out UNIQUE.json',
                     scope='All default-growth/no-cube original coordinate input packing and literal kind catalog',
                     battle_and_gpu_forbidden=True,gpu_admission_verified=False),

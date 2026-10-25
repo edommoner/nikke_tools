@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`coordinate-original-resources`3 は元E.H.／ネオン：ビジョンアイの固有ゲージ加算・消費・上限を共通handlerへ接続したsealed suiteです。M5全3・独立監査・機能19／制御476成功（Win1skip）。sampled-vital kind条件を共通宣言からSlang／CPUへ生成し、正例の未対応kindをnative/GPU前に拒否します。`entry-inventory --suite coordinate-original-resources --out UNIQUE.json` で静的kind拒否を調べられますが、GPU受付全体の認定ではありません。[範囲と残件](portable-original-resources.md)。
+
 `coordinate-original-burst-revival`4 は元ラプンツェルのB1復活とセンチのスキル残り待機短縮を既存共通handlerへ接続したsealed suiteです。M5 Metal全4・独立監査・機能39／制御476成功（Win1skip）。`entry-inventory --out UNIQUE.json` は開発checkout／full packageで全266元profileの座標入力とkind一覧をCPU専用調査し、GPU受付・計算認定とは分けます。[範囲・初回失敗・残件](portable-original-burst-revival.md)。
 
 `coordinate-original-revival`3 は元マナ編成のdown／復活・条件状態解除を既存共通shaderで検証したsealed suiteです。`package --suite coordinate-original-revival --compact` を使います。M5 Metal・独立fresh監査・機能38／制御476成功（Windows1skip）。`model-check` は全266元編成の同名damageも静的分類し、未観測の非周期制限を実データの未対応から分けます。[範囲と残件](portable-original-revival.md)。

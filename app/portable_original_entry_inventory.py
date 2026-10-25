@@ -5,7 +5,7 @@ from unittest.mock import patch
 from contextlib import ExitStack
 from portable_original_identity_inventory import prepared_profiles
 
-def run(output,*,write,forbid_gpu):
+def run(output,*,write,forbid_gpu,source=None):
     output=Path(output)
     with output.open('x',encoding='utf-8') as stream:stream.write('{}\n')
     started=time.perf_counter();calls=dict(cpu_battle=0,gpu=0)
@@ -16,14 +16,17 @@ def run(output,*,write,forbid_gpu):
         if sys.flags.optimize:raise RuntimeError('Static entry inventory requires assertions enabled')
         import engine_worker,portable_backend,portable_runtime
         from calculator import timeline
-        from portable_coordinate_roster_input import compile_coordinate_battle,SOURCE
+        from portable_coordinate_roster_input import compile_coordinate_battle,SOURCE as DEFAULT_SOURCE
+        source=source or DEFAULT_SOURCE
+        from portable_coordinate_kind_admission import KindAdmission
+        policy=KindAdmission(Path(__file__).resolve().parents[1],source)
         from portable_specs import LIMITS as L,FIELDS as F
         root=Path(__file__).resolve().parents[1]
         sources=[root/p for p in ('app/portable_original_entry_inventory.py','app/portable_original_identity_inventory.py','app/portable_coordinate_roster_input.py','app/portable_world_roster_input.py','app/portable_runtime.py','app/engine_worker.py','app/effect_spec.py')]
         sources=sorted(set(sources+list((root/'app').glob('*.py'))+list((root/'data').glob('*.json'))+list((root/'research/upstream/nikke-calc-master/data').rglob('*.json'))+list((root/'research/upstream/nikke-calc-master/calculator').glob('*.py'))+list((root/'research/upstream/nikke-calc-master/runner').glob('*.py'))+[root/'research/audit-world-roster-input.py',root/'scripts/detail_coverage.py']))
-        report['source']=SOURCE
+        report['source']=source
         source_hashes=lambda:{p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}
-        report['source_sha256']=source_hashes();report['gpu_source_sha256']=portable_backend.source_hashes(SOURCE)
+        report['source_sha256']=source_hashes();report['gpu_source_sha256']=portable_backend.source_hashes(source)
         kinds=collections.defaultdict(list)
         def stop(kind):
             def forbidden(*args,**kwargs):calls[kind]+=1;raise AssertionError('Static entry inventory forbids '+kind)
@@ -43,16 +46,17 @@ def run(output,*,write,forbid_gpu):
                     found=sorted({words[L['DEFINITION_BASE']+i*L['DEFINITION_WORDS']+F['KIND']] for i in range(words[1])})
                     raw=array.array('I',words)
                     if sys.byteorder!='little':raw.byteswap()
-                    row.update(input_packed=True,input_words=len(words),input_sha256=hashlib.sha256(raw.tobytes()).hexdigest(),prepared_definitions=len(prepared['effects']),bound_definitions=len(metadata['effects']),definition_kinds=found)
+                    row.update(input_packed=True,input_words=len(words),input_sha256=hashlib.sha256(raw.tobytes()).hexdigest(),prepared_definitions=len(prepared['effects']),bound_definitions=len(metadata['effects']),definition_kinds=found,kind_admission=policy.inspect(words))
                     for kind in found:kinds[str(kind)].append(dict(character=name,favorite_stage=stage))
                 except (ValueError,TypeError,KeyError) as error:row['error']=str(error)
                 report['profiles'].append(row)
-        if report['source_sha256']!=source_hashes() or report['gpu_source_sha256']!=portable_backend.source_hashes(SOURCE):raise ValueError('Static entry inventory source changed during audit')
+        if report['source_sha256']!=source_hashes() or report['gpu_source_sha256']!=portable_backend.source_hashes(source):raise ValueError('Static entry inventory source changed during audit')
         if calls!=dict(cpu_battle=0,gpu=0):raise AssertionError('Static entry inventory made forbidden calls')
         report.update(passed=True,profile_count=len(report['profiles']),packed_profiles=sum(row['input_packed'] for row in report['profiles']),definition_kind_profiles=dict(kinds))
+        report['kind_rejected_profiles']=sum(bool(row.get('kind_admission',{}).get('unsupported')) for row in report['profiles'])
         report.pop('current_profile',None)
     except BaseException as error:
         report['error']=type(error).__name__+': '+str(error);raise
     finally:
         report['elapsed_seconds']=time.perf_counter()-started;write(output,report)
-    return {key:report[key] for key in ('stage','passed','profile_count','packed_profiles','forbidden_calls','calculation_verified','gpu_admission_verified','full_character_verified','elapsed_seconds')}
+    return {key:report[key] for key in ('stage','passed','profile_count','packed_profiles','kind_rejected_profiles','forbidden_calls','calculation_verified','gpu_admission_verified','full_character_verified','elapsed_seconds')}
