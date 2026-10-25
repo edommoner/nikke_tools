@@ -160,6 +160,11 @@ def verify(root, overrides=None):
     sample_path=root/'research/portable-coordinate-sample-short-expected.json'
     sample_golden=json.loads(sample_path.read_text()) if sample_path.is_file() else None
     sample_matches=sample_golden['source_sha256']==sample_sources if sample_golden else None
+    sampled_battle_sources=source_hashes(root,'gpu/world_coordinate_sampling_entry.slang')
+    sampled_battle_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in sampled_battle_sources.items()}
+    sampled_battle_path=root/'research/portable-coordinate-sampled-battle-short-expected.json'
+    sampled_battle_golden=json.loads(sampled_battle_path.read_text()) if sampled_battle_path.is_file() else None
+    sampled_battle_matches=sampled_battle_golden['source_sha256']==sampled_battle_sources if sampled_battle_golden else None
     round_sources=source_hashes(root,'gpu/coordinate_round_probe.slang')
     round_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in round_sources.items()}
     round_path=root/'research/portable-coordinate-round-short-expected.json'
@@ -207,6 +212,9 @@ def verify(root, overrides=None):
         dict(id='physical-rng', classification='gpu_port_gap',
              native='CharState._coord_pellet -> sample_landing',
              work='Preserve random draw count/order, angle requirement, front-most and reach routing',
+             private_physical_executor_implemented=True,shared_scalar_condition_rng_implemented=True,
+             sampled_damage_skills_admitted=False,parent_quantity_admitted=False,
+             native_reference_cli='coordinate-sampled-battle-common',
              depends_on=['physical-packet-expansion', 'numeric-policy']),
         dict(id='manual-coordinate-aim', classification='gpu_port_gap',
              native='CharState._aim_point / simulate._resolve_aims',
@@ -367,6 +375,17 @@ def verify(root, overrides=None):
                     native_reference_cli='coordinate-sampling-common',native_sampled_pellet_observation_available=True,
                     battle_connected=False,critical_sampling_connected=False,
                     remaining=['physical RNG state separate from boss target stream','per-pellet damage/critical and notification order','variable packet bank and parent quantity','shared group receipt delivery'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_sampled_battles=dict(suite='coordinate-sampled-battle',source_sha256=sampled_battle_sources,
+                    proof_available=sampled_battle_golden is not None,sealed_source_matches_current=sampled_battle_matches,
+                    input_count=len(sampled_battle_golden['entries']) if sampled_battle_golden else None,
+                    reference_kind='deterministic-common-cpu',native_reference_cli='coordinate-sampled-battle-common',
+                    physical_rng_separate_from_boss=True,per_pellet_snapshots=True,
+                    ordered_auto_and_charge_notifications=True,condition_rng=['not_core','prob'],
+                    reused_expected_only_scratch=True,logical_pellet_capacity=1024,target_capacity=127,
+                    admitted_definition_kinds=['buff'],sampled_damage_skills_admitted=False,parent_quantity_admitted=False,
+                    group_receipt_functions_reused=True,group_owner_examples_verified=False,
+                    remaining=['non-buff effects including weapon changes, healing, sampled damage/queue effects','parent reference quantity integer division','group-owner sampled worlds','original definitions and public admission'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 logical_pellets_equal_emitted_packets=False, dependencies=dependencies,
                 source_sha256={p: hashlib.sha256(t.encode()).hexdigest() for p, t in texts.items()},

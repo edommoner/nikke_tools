@@ -332,7 +332,11 @@ bool worldTeamEnabled(inout Runtime s) { return true; }
 #define WORLD_TEAM_END(s) if(worldTeamEnabled(s)) s.teamEvent=savedTeamEvent;
 #define WORLD_TEAM_GUARD(s,row,f) if(worldTeamEnabled(s)&&(f.event==44||f.event==45)&&teamBindingOwner(s.inputBase,row)!=0&&(s.downMask&(1U<<(teamBindingOwner(s.inputBase,row)-1)))!=0) continue;
 #define WORLD_TEAM_PELLET(s,w,who,when,output) if(worldTeamEnabled(s)&&w.mode!=1) notifyWorldTeam(s,who,when,output);
+#ifdef PORTABLE_COORDINATE_SAMPLING
+#define WORLD_TEAM_CHARGE(s,w,who,count,when,output) if(worldTeamEnabled(s)&&w.mode==1) notifySampledCoordinateChargeTeam(s,who,count,when,output);
+#else
 #define WORLD_TEAM_CHARGE(s,w,who,count,when,output) if(worldTeamEnabled(s)&&w.mode==1) for(uint teamHit=0;teamHit<count;teamHit++) notifyWorldTeam(s,who,when,output);
+#endif
 #define WORLD_TEAM_VALIDATE(s,d,input,j) for(uint teamSlot=0;teamSlot<d.triggerCount;teamSlot++) { uint teamEvent=commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+teamSlot*8];if((teamEvent==44||teamEvent==45)&&!worldTeamEnabled(s)) { s.error=64;break; } } if(s.error!=0) break;
 #define WORLD_TEAM_KIND(s,row,d,legacy) (worldTeamEnabled(s)&&(d.kind==25||d.kind==22) ? false : WORLD_PROJECTILE_KIND(d,WORLD_RELOAD_KIND(d,(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&(d.kind==5||d.kind==6||d.kind==7||d.kind==8||d.kind==27||d.kind==31||d.kind==33||d.kind==35||d.kind==30||WORLD_CONTROL_AMMO(s.inputBase,row,d.kind)) ? false : (legacy)))))
 #define WORLD_TEAM_CONDITION(s,row,d,at,kind,arg) WORLD_PROJECTILE_CONDITION(s,at,kind,arg) if(worldTeamEnabled(s)&&WORLD_CONTROL_ORIGIN(s.inputBase,row,teamBindingOwner(s.inputBase,row)!=0)&&WORLD_CONTROL_CONDITION_KIND(kind,teamAdditionalCondition(kind))) { if(!WORLD_CONTROL_CONDITION_VALID(at,kind,arg,validTeamAdditionalCondition(at,kind,arg))) return false;continue; }
@@ -362,7 +366,11 @@ bool worldFractionEnabled(inout Runtime s) { return targetCountersEnabled(s)&&co
 #define WORLD_FRACTION_INIT(s) initializeWorldFraction(s);
 #define WORLD_FRACTION_SAMPLE(s,who,critical,core,physical,flags) if(worldFractionEnabled(s)&&physical&&(flags&H_PART)==0) sampleWorldFraction(s,who,critical,core);
 #define WORLD_FRACTION_AUTO(s,w,who,when,output) if(worldFractionEnabled(s)&&w.mode!=1) { notifyWorldFraction(s,who,0,when,output);notifyWorldFraction(s,who,1,when,output); }
+#ifdef PORTABLE_COORDINATE_SAMPLING
+#define WORLD_FRACTION_CHARGE(s,w,who,count,when,output) if(worldFractionEnabled(s)&&w.mode==1) notifySampledCoordinateChargeFractions(s,who,count,when,output);
+#else
 #define WORLD_FRACTION_CHARGE(s,w,who,count,when,output) if(worldFractionEnabled(s)&&w.mode==1) for(uint fractionKind=0;fractionKind<2;fractionKind++) for(uint fractionHit=0;fractionHit<count;fractionHit++) notifyWorldFraction(s,who,fractionKind,when,output);
+#endif
 #define WORLD_FRACTION_VALIDATE(s,d,input,j) for(uint fractionSlot=0;fractionSlot<d.triggerCount;fractionSlot++) { uint fractionAt=input+P_EVENT_BASE+j*P_EVENT_WORDS+fractionSlot*8; if((commands[fractionAt]==22||commands[fractionAt]==23)&&!worldFractionEnabled(s)) { s.error=64;break; } } if(s.error!=0) break;
 #else
 #define WORLD_FRACTION_MODE(s) false
@@ -1145,6 +1153,9 @@ bool activationConditions(inout Runtime s, uint row, uint64_t when)
         }
         else if(commands[at] == C_PROB)
         {
+#ifdef PORTABLE_COORDINATE_SAMPLING
+            if(!f64Less(coordinateRandom53(csRng(s)),loadNumber(at+2)))return false;
+#else
             uint address=s.resourceOutput+P_PROBABILITY_STATE_BASE+(WORLD_TEAM_BUDGET(s,row)*5+owner)*2;
             uint64_t value=uint64_t(results[address]) | uint64_t(results[address+1])<<32;
             value=f64Add(value,loadNumber(at+2));
@@ -1152,6 +1163,7 @@ bool activationConditions(inout Runtime s, uint row, uint64_t when)
             if(passed) value=f64Add(value,ONE ^ F64_SIGN);
             storeNumber(address,value);
             if(!passed) return false;
+#endif
         }
         else if(!basicConditions(s,row,when,false,0xffffffff,i)) return false;
     }

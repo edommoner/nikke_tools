@@ -88,6 +88,14 @@ void sampleDamageFactorsForReach(inout Runtime s, uint who, uint64_t coefficient
     if (s.phase == 5) f3 = f64Add(f3,uint64_t(0x3fe00000) << 32);
     if(normal && hasRangeGeometry(s)) optimal=geometryRange(s,who,true,b[S_optimal_range_min],b[S_optimal_range_max_pct]);
     if (normal && optimal) f3 = f64Add(f3,uint64_t(0x3fd33333) << 32 | 0x33333333);
+#ifdef PORTABLE_COORDINATE_SAMPLING
+    if(physical)
+    {
+        captureCoordinateSampleBasis(s,critRate,critDamage,coreBonus,b[S_core_dmg_pct],normal&&optimal);
+        f3=ONE;if(s.phase==5)f3=f64Add(f3,uint64_t(0x3fe00000U)<<32);
+        if(normal&&optimal)f3=f64Add(f3,(uint64_t(0x3fd33333U)<<32)|uint64_t(0x33333333U));
+    }
+#endif
     factors[7] = f3; // Part receipts retain this shot's critical/range basis, without core.
     uint64_t core =
 #ifdef PORTABLE_COORDINATE_PHYSICAL

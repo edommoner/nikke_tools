@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/private/tmp/nikke-sampled-battle-develop-v4/scripts/nikke_gpu.py", line 2851, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/private/tmp/nikke-sampled-battle-develop-v4/scripts/nikke_gpu.py", line 2667, in main
+    elif a.command=='replay':result=replay_capture(a.capture,a.source_package,a.source_capture,**(dict(reference_migration=a.reference_migration) if a.reference_migration else {}))
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-sampled-battle-develop-v4/scripts/nikke_gpu.py", line 1207, in replay_capture
+    m=verify_package(ROOT);original,facts,evidence=replay_source(m,source_package,source_capture,reference_migration)
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-sampled-battle-develop-v4/scripts/nikke_gpu.py", line 1137, in replay_source
+    original=verify_package(source_package)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-sampled-battle-develop-v4/scripts/nikke_gpu.py", line 592, in verify_package
+    validate(m['payload_projection'],m['files'],m['suite'],SUITES[m['suite']],SMOKE_TESTS)
+  File "/private/tmp/nikke-sampled-battle-develop-v4/app/portable_package_projection.py", line 126, in validate
+    raise ValueError('Invalid compact package projection')
+ValueError: Invalid compact package projection

@@ -144,7 +144,13 @@ void finishWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint
     if (w.mode == 1 && w.infinite == 0) { if (!changedWeaponSession(s,who,epoch,mode)) s.ammo[who]--; dispatch(s,0,26,who,0,when,output); }
     dispatch(s,0,7,who,0,when,output);
     if (w.mode == 1) dispatch(s,0,PARTIAL_IS_FULL(w)?11:40,who,0,when,output);
-    for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,8,who,0,when,output,0,notCoreContext(s,who));
+    for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,8,who,0,when,output,0,
+#ifdef PORTABLE_COORDINATE_SAMPLING
+        sampledCoordinateNotCore(s,who,muzzle)
+#else
+        notCoreContext(s,who)
+#endif
+    );
     if (w.mode == 1 && PARTIAL_IS_FULL(w)) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,12,who,0,when,output
 #ifdef PORTABLE_PARENT_FIXED_DAMAGE
         ,(s.quantityMask&0x01000000U)!=0 ? f64Mul(landedAmount,f64FromI64(w.pellets)) : uint64_t(0)

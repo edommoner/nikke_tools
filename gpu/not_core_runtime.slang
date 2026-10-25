@@ -27,6 +27,10 @@ bool notCorePredicate(inout Runtime s,uint definition,uint owner)
     uint tag=(s.triggerHitCrit>>8)&7U;
     if(tag>5) { s.error=64;return false; }
     uint64_t core=tag==0?uint64_t(0):actorNumber(s.resourceOutput+P_NOT_CORE_SHOT_BASE+(tag-1)*2);
+#ifdef PORTABLE_COORDINATE_SAMPLING
+    uint64_t p=f64Add(ONE,core^F64_SIGN);
+    return f64Less(0,p)&&(!f64Less(p,ONE)||f64Less(coordinateRandom53(csRng(s)),p));
+#endif
     uint index=WORLD_TEAM_BUDGET(s,definition)*5+owner;
     if(index>=P_NOT_CORE_CELLS) { s.error=64;return false; }
     uint at=notCoreAddress(s.resourceOutput,index);

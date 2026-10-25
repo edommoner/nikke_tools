@@ -3,14 +3,20 @@ import random
 def verify(case,native):
     assert native['reference_kind']=='deterministic-common-cpu'
     points=native['sampled_points'];pellets=native['physical_pellets'];assert points and len(points)==len(pellets)
-    rng=random.Random(case['seed']);words=0
+    from portable_coordinate_sample_v1 import sample
+    rng=random.Random(case['seed']);words=0;observed_points=0
+    for draw in native['sampled_draws']:
+        assert draw['rng_before_index']==rng.getstate()[1][-1]
+        if draw['kind']=='point':
+            expected=sample(*draw['aim'],draw['radius'],rng,angle=draw['angle'],k=draw['k'])
+            assert list(expected)==draw['point'];count=4 if draw['angle'] else 2
+            assert draw['rng_words']==count;words+=count;observed_points+=1
+        else:
+            assert draw['kind']=='native-uniform' and rng.random()==draw['value'];words+=2
+        assert draw['rng_after_index']==rng.getstate()[1][-1]
+    assert observed_points==len(points)
     for p,row in zip(points,pellets,strict=True):
         assert not row['expected'] and p['aim']==row['aim'] and p['radius']==row['spread_radius']
-        assert p['rng_before_index']==rng.getstate()[1][-1]
-        rng.random();words+=2
-        if p['angle']:rng.random();words+=2
-        assert p['rng_words']==(4 if p['angle'] else 2) and p['rng_after_index']==rng.getstate()[1][-1]
-        rng.random();words+=2 # Canonical damage draws once even at 0%/100% crit.
         if row['grow']>0:assert all(e['is_crit']==row['packets'][0]['is_crit'] for e in row['packets'])
         else:assert len(row['packets'])==1 and not row['packets'][0]['extra']
     state=rng.getstate()[1];assert native['physical_rng']==dict(index=state[-1],state=list(state[:-1]))

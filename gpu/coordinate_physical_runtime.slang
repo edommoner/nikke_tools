@@ -7,7 +7,11 @@
 #include "coordinate_landing_resident_v1.slang"
 #include "packet_integer_sum.slang"
 
-uint cfBank(inout Runtime s,uint who){return s.resourceOutput+CF_BANK+who*CF_BANK_WORDS;}
+uint cfBank(inout Runtime s,uint who){return s.resourceOutput+CF_BANK
+#ifndef PORTABLE_COORDINATE_SAMPLING
+    +who*CF_BANK_WORDS
+#endif
+;}
 uint64_t coordinatePhysicalParentQuantity(inout Runtime s,uint who)
 {uint bank=cfBank(s,who);return results[bank+2]!=0?actorNumber(bank+14):uint64_t(0);}
 void captureCoordinatePhysicalBodyOnly(inout Runtime s,uint row,uint depth)
@@ -42,6 +46,9 @@ bool initializeCoordinatePhysical(inout Runtime s)
     for(uint i=CF_BASE;i<CF_END;i++)results[s.resourceOutput+i]=0;
 #ifdef PORTABLE_COORDINATE_GEOMETRY_CACHE
     initializeGeometryCache(s);
+#endif
+#ifdef PORTABLE_COORDINATE_SAMPLING
+    if(!initializeCoordinateSampling(s))return false;
 #endif
     return true;
 }
@@ -105,6 +112,9 @@ uint64_t coordinatePhysicalSample(inout Runtime s,uint who,Weapon w,uint64_t coe
         uint slot=results[frame+8+i*4],area=coordinateAreaRow(s,slot),row=cRow(coordinatePoolView(s),commands[area]-1);
         cfShape(s,clShapeAt(input,i),row);
     }
+#ifdef PORTABLE_COORDINATE_SAMPLING
+    return prepareCoordinateSampleBasis(s,who,w,coefficient,when,flags);
+#endif
 #ifdef PORTABLE_COORDINATE_GEOMETRY_CACHE
     if(!coordinateCachedLanding(s,input,output,count)){if(s.error==0)s.error=64;return 0;}
 #else
@@ -192,19 +202,16 @@ uint64_t coordinatePhysicalDeliver(inout Runtime s,uint who,uint64_t legacy)
 #ifdef PORTABLE_COORDINATE_GROUPS
         if(slot==0){coordinateGroupBodyPacket(s,who,amount,when,results[at+4]!=0,grouped);continue;}
 #endif
-        if(s.error!=0)return legacy;if(!worldOverlayLand(s,who,0,amount,false))continue;
-        storeNumber(actorPoolHead(s)+2,when);s.target=0;land(s,who,ACTOR_REF|slot,amount);if(s.error!=0)return legacy;
-        coordinateTrace(s,who,slot,gen,amount,when,results[at+4]!=0);
-        uint kind=commands[actorBinding(s,slot)];
-        if(kind==0)publishCounterLanding(s,who,ACTOR_REF|slot,amount,when,s.resourceOutput);
-        else if(kind==1)counterPhysicalPacket(s,who,slot,gen,amount,coordinatePartNeedsRetirement(s,slot,gen),when,s.resourceOutput);
-        if((s.healthMask&64)!=0&&s.error==0)dispatch(s,17,0,who,0,when,s.resourceOutput,amount);
-#ifdef PORTABLE_DAMAGE_ACCUM
-        if(slot==0&&damageAccumEnabled(s)&&s.error==0)dispatch(s,39,0,who,0,when,s.resourceOutput,amount);
-#endif
+#define CF_PACKET_EXTRA (results[at+4]!=0)
+#include "coordinate_physical_target_delivery.slang"
+#undef CF_PACKET_EXTRA
     }
 #ifdef PORTABLE_COORDINATE_GROUPS
     if(grouped)finishCoordinatePhysicalGroup(s,who,when,s.resourceOutput);
 #endif
     return legacy;
 }
+
+#ifdef PORTABLE_COORDINATE_SAMPLING
+#include "coordinate_sampling_runtime.slang"
+#endif
