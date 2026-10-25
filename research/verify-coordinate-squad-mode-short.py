@@ -28,7 +28,10 @@ def compare(block,domain):
     if not domain[0].get('squad_mode_state'):return parent.compare(block,domain)
     h=STATE_BASE;assert block[h+1]==2 and block[h+5]==MAGIC and block[h+29]==MAGIC
     clean=list(block);clean[h+1]=1;clean[h+5]=0;clean[h+16:h+30]=[0]*14
-    n=parent.compare(clean,domain);mode=n['squad_mode_state'];assert list(block[h+16:h+21])==list(map(int,mode['flags'])),'Physical CharState mode flag'
+    n=parent.compare(clean,domain);return compare_state(block,n)
+def compare_state(block,n):
+    h=STATE_BASE;assert block[h+1]==2 and block[h+5]==MAGIC and block[h+29]==MAGIC
+    mode=n['squad_mode_state'];assert list(block[h+16:h+21])==list(map(int,mode['flags'])),'Physical CharState mode flag'
     a=0xcbf29ce484222325;b=0x84222325cbf29ce4;mask=(1<<64)-1
     for row in mode['pumps']:
         for word in [*struct.unpack('<II',struct.pack('<d',row['time'])),row['mask']]:

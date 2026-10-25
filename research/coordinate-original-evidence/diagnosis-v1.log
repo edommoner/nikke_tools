@@ -1,0 +1,7 @@
+coordinate-original/Marciana/control/3s
+unsupported kinds []
+skill counts 0 1
+difference 0 gpu None native {'row': 31, 'created': 2.8999999999999946, 'landed': 2.916666666666661, 'amount': 3920080, 'share': 3920080, 'recipients': [0], 'hit': 1, 'hits': 1}
+damage definitions [(30, {'source': '스킬2', 'type': 'damage', 'name': '썬더볼트', 'trigger': {'timing': ['on_attack_count:10'], 'condition': []}, 'target': 'enemies_lowest_hp:3', 'stat': 'damage', 'values': {'1': 58.24, '2': 62.72, '3': 67.19, '4': 71.68, '5': 76.16, '6': 80.64, '7': 85.11, '8': 89.6, '9': 94.07, '10': 98.55}}), (31, {'source': '스킬3', 'type': 'damage', 'name': '드레이크 스페셜', 'trigger': {'timing': ['burst_cast'], 'condition': []}, 'target': 'enemies_in_range', 'stat': 'damage', 'values': {'1': 741.0, '2': 798.0, '3': 855.0, '4': 912.0, '5': 969.0, '6': 1026.0, '7': 1083.0, '8': 1140.0, '9': 1197.0, '10': 1254.0}})]
+coordinate-original/Delta-ninja-thief/control/3s
+unsupported kinds [(7, 1, '인법 카모플라쥬 해제 (직접 피격)')]

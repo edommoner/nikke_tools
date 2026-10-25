@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "status": "development-incomplete",
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "normal_ui": "CPU",
+  "suite": "coordinate-original",
+  "registered_inputs": 8,
+  "complete_definitions": [
+    68,
+    70,
+    79,
+    81
+  ],
+  "source": "gpu/world_coordinate_healing_entry.slang",
+  "gpu_source_unchanged_since_capture": true,
+  "package_id": "ab4b3b259b7c68bbb2fae071f27ec3bb391ea862368d1a7f57763eb9cb2818f9",
+  "package": "/tmp/nikke-coordinate-original-develop-v2",
+  "capture": "/tmp/nikke-coordinate-original-metal-v2",
+  "gpu_execution_verified": true,
+  "calculation_verified": false,
+  "sealed": false,
+  "gpu_executions": 1,
+  "gpu_retries": 0,
+  "gpu_seconds": 2.496399166760966,
+  "pipeline_seconds": 0.0030640363693237305,
+  "pipeline_cache_hit": true,
+  "native_preflight_seconds": 202.5738656660542,
+  "checks": {
+    "original_and_history_tests": 8,
+    "previous_selected_regressions": 37,
+    "control_tests": 476,
+    "control_skipped": 1,
+    "legacy_input_fingerprints": 340,
+    "legacy_native_domains": 291,
+    "saved_comparator_routes": 6
+  },
+  "post_capture_corrections": [
+    "Input full skill history, isolated word5 change across all8",
+    "Original fractional observer enabled; retained/omitted histories validated exactly"
+  ],
+  "post_capture_gpu_executions": 0,
+  "next": [
+    "Connect existing named removal kind1 to sampled coordinate admission using shared CUDA/Metal source and tests; trigger removal in an actual original Delta world",
+    "Freeze corrected original packet; verify all8 plus original hostile-world removal cases on Metal",
+    "Independent fresh seal/certificate only after all comparisons pass",
+    "Current bounded CUDA and warm compile cache execution when existing Windows chat can start"
+  ],
+  "remaining": [
+    "Original group bindings",
+    "Owner-aware duplicate damage observation",
+    "Public admission",
+    "All-character/effect certification"
+  ],
+  "windows_new_requests": 0,
+  "old_failed_harness": {
+    "path": "/tmp/nikke-coordinate-original-final-control-v3",
+    "reason": "Outer forbid_gpu intercepted transport functions that unit tests intentionally exercise with mocked low-level APIs; standard group runner v4 passes"
+  },
+  "records": [
+    {
+      "path": "research/coordinate-original-evidence/comparator-regression-v1.json",
+      "bytes": 428,
+      "sha256": "9e74b3e721f6ab1ad7becee533f34b1a3ca97bebc7a72a74590a2d19479ec25a"
+    },
+    {
+      "path": "research/coordinate-original-evidence/control-v2-tests.json",
+      "bytes": 10262,
+      "sha256": "fb6f4809680bfa4367e0ac47d0882c72351c62a8ab9a60f6d4087b8b1249b070"
+    },
+    {
+      "path": "research/coordinate-original-evidence/diagnosis-v1.log",
+      "bytes": 1042,
+      "sha256": "8339319d1e65931ee53988746962a8aa3adf1883e9961dc7a446a2e1126b402b"
+    },
+    {
+      "path": "research/coordinate-original-evidence/final-control-v4-tests.json",
+      "bytes": 10268,
+      "sha256": "ba156428567c070b3fb96794229bb98452059c0f6d8f46eda96c26c1b128f145"
+    },
+    {
+      "path": "research/coordinate-original-evidence/full-trace-input-v3.json",
+      "bytes": 1431,
+      "sha256": "6cfdc6139ea8fdf46dc4c086f82ec61fbd8de66345f2a1afa34301d58686106a"
+    },
+    {
+      "path": "research/coordinate-original-evidence/history-diagnosis-v1.json",
+      "bytes": 474,
+      "sha256": "fbc71c9f1d2d3a2b66d8ab3a4cb4f866567211b81676632730fe399a6ea65efb"
+    },
+    {
+      "path": "research/coordinate-original-evidence/legacy-native-v1.json",
+      "bytes": 200,
+      "sha256": "df4285244511d702f59da30a6e7be739e65de0823d55de365d5885286373cbc4"
+    },
+    {
+      "path": "research/coordinate-original-evidence/long-diagnosis-v1.log",
+      "bytes": 2866,
+      "sha256": "943007ef4ba09b595a36c59afdfbcd17602c9999a600b4d1568f94b3c129c3ce"
+    },
+    {
+      "path": "research/coordinate-original-evidence/metal-v2-comparison.json",
+      "bytes": 2025,
+      "sha256": "e91d41bf9f83ede1287e5ff2be4e96964ffae83038db01e7d52da116ec62d5fc"
+    },
+    {
+      "path": "research/coordinate-original-evidence/metal-v2-cpu.json",
+      "bytes": 540,
+      "sha256": "dca61463d3b3e82fa6556d2072d4a4f53e6481a7f8a9077c9fcad943e8f4afb6"
+    },
+    {
+      "path": "research/coordinate-original-evidence/metal-v2-device.json",
+      "bytes": 972,
+      "sha256": "6b1960b1a8de38ccfed7f79c40d48acbe4e12565574b8f029cb41247cb58d4fb"
+    },
+    {
+      "path": "research/coordinate-original-evidence/metal-v2-evidence.json",
+      "bytes": 60599,
+      "sha256": "315d35a869f5c5acc0ce6e8263344a001615355ba14fea28fcb66bb2e6516db8"
+    },
+    {
+      "path": "research/coordinate-original-evidence/metal-v2-execution.json",
+      "bytes": 4145,
+      "sha256": "a46fd692470eb940875f8ba9e6d7aadb439a5f74d3bed6efabb1b0e4f52175d8"
+    },
+    {
+      "path": "research/coordinate-original-evidence/metal-v2-result.json",
+      "bytes": 4141,
+      "sha256": "b9565e408e8faea11741ddbc181bd83a47fe88be41c71584a3e76a5b87802cfa"
+    },
+    {
+      "path": "research/coordinate-original-evidence/metal-v2-tests.json",
+      "bytes": 641,
+      "sha256": "5e09049bdf03101205a9f4f07395ff765a4a342a248538d8d2bfd9d3bb49b249"
+    },
+    {
+      "path": "research/coordinate-original-evidence/package-v1-source-changed.log",
+      "bytes": 912,
+      "sha256": "009e0fcb304f6d3d2314092d51421bb620df30b52e5f72ea3b9f241f83c72965"
+    },
+    {
+      "path": "research/coordinate-original-evidence/package-v2.log",
+      "bytes": 1603,
+      "sha256": "da49f4f21a13f285fb2f862e2774c8731f0c880e35be8cc4cd628c52f18ae6b2"
+    },
+    {
+      "path": "research/coordinate-original-evidence/tests-v5.log",
+      "bytes": 1423,
+      "sha256": "3cef103af6131db1d75896ae834b71294d0a8f6c3d87aa5d61b8a2e3b3debea6"
+    }
+  ]
+}

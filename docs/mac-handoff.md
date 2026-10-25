@@ -2023,3 +2023,15 @@ inventory再検査は245/266 packing・base185/203、未対応21profiles、全�
 次はauthored fixtureを増やす前に、元の完全編成input bridgeを優先します。既存static preparationからマルチャーナ編成68効果（本人14）、デルタ：ニンジャシーフ編成79効果（本人25）の全元定義・weapon/config SHAを抽出済み（`original-static-v1.json`、CPU battle/GPU0）。authored observerはweapon metadata／遅延／cover HP／操作を置換するため元編成正本に代用しません。`portable_world_roster_input` の全定義・owner・元正規化と座標sidecarを共通化し、real bodyを既存native reference＋user選択の共通座標mathだけで比較します。元の不都合な定義・武器を抜かないこと。down／復活・callback session合成と公開受付も残ります。
 
 inventory再検査は245/266 packing、base185/203、未対応21profiles／20model-gap分類、全キャラ認定0／UI CPU／全目標未達。Windows新依頼0。既存idle chatを開始できない送信APIの制約に対して同じ依頼を重複送信せず、開始可能になった既存短いCUDA検証の保存結果だけを取得します。
+
+## 2026-10-25 元の完全編成と座標実行器：開発途中
+
+最新は `docs/portable-coordinate-original.md`／`research/portable-coordinate-original-checkpoint.json`。worktree `/private/tmp/nikke-runtime-resident` の `coordinate-original`8を追加しました。マルチャーナ／デルタ：ニンジャシーフ、それぞれ4枠目ノア版も含む完全5人編成、3／30秒。全68／70／79／81定義と元weapon/config/base-stat hooksを保持し、元public body→実engine_worker→宣言座標worldのnativeを比較します。authored metadata/stat/delay置換はせず、全registered effects/owner/orderとrun identityを検査。観測ラベルはmanagerローカルのeffect/cacheコピーへ隔離し、共有parsed definitionsの汚染を防ぎます。
+
+固定packet `/tmp/nikke-coordinate-original-develop-v2`（ab4b3b25…）、capture `/tmp/nikke-coordinate-original-metal-v2`。M5 GPU実行2.496399秒・PSO cache hit0.003064秒・CPU事前202.573866秒。CUDA/MSL generation cache必須hit。実GPU1、retry0、全8の計算比較は失敗、sealなし。元失敗・claim・rawは保持。containment成功、preservationはnullのままです。
+
+失敗原因は、(1)元world adapterのburst-only traceで短いケースのskill historyが空、(2)30秒のfractional履歴省略が旧decoder未対応、(3)Deltaの元定義7・kind1 named removeがsampled入口未対応。元効果を削らないこと。現checkoutは(1)だけ元編成入口をfullへ訂正し全8input差分がword5だけと検査、(2)は実fractional native観測＋typed prefix/omission検査を追加。保存Marciana30秒でfractional3870＝2048＋1822、team3870＝1024＋2846、最終accumulatorを含む全battle fieldsが一致しました。skill trace／Deltaを含む全体の成功へ読み替えません。訂正後GPU0、次のpacketはnative fingerprintも新規に固定する必要があります。
+
+元経路4 inputの全byte保持、旧340input／291native指紋保持、共通比較器6経路の保存GPU block一致を確認。初期関連37検査、訂正後original/history8、最終共通制御476（Windows1skip）が成功。CPU観測の対象外関数でlocals取得を避け、CLIのdevelopment基準生成にケース別時間を出しました。途中package v1は作成中のtest修正をsource guardが拒否、最終制御v3は外側forbid_gpuがmocked transport検査まで遮断した検証wrapperの問題で、正規runner v4は全成功。原記録も保持しています。
+
+次は既存named remove handlerを新しいoriginal入口のsampled admissionへ接続し、Deltaの実被弾で解除が発火する元編成worldも追加します。その後、訂正済み8＋実解除ケースを固定してMetal、全比較成功後だけfresh seal／source certificateへ進めること。全キャラ認定0／公開UI CPU、packing245/266・base185/203・未対応21profiles/20分類の認定は変更していません。同名damageのowner-aware観測、multi_hit完全group binding、公開受付、現CUDA／warm cacheは残ります。Windows新依頼0。既存チャットを開始できないAPIへ依頼を繰り返さないでください。

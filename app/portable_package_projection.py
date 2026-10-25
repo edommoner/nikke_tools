@@ -12,7 +12,7 @@ import json
 from pathlib import PurePosixPath
 
 PROFILE = 'selected-suite-python-v1'
-SUPPORTED_SUITES = ('coordinate-healing', 'coordinate-auto-reload', 'coordinate-mode-actions', 'coordinate-burst-control', 'burst-control-policy', 'destructible-skill-retention', 'destructible-skill-misato-retention',
+SUPPORTED_SUITES = ('coordinate-original', 'coordinate-healing', 'coordinate-auto-reload', 'coordinate-mode-actions', 'coordinate-burst-control', 'burst-control-policy', 'destructible-skill-retention', 'destructible-skill-misato-retention',
                     'destructible-aoe-burst-rosters','destructible-body-lifesteal',
                     'destructible-body-lifesteal-retention',
                     'destructible-body-accum','destructible-body-accum-retention',

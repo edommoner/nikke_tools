@@ -37,6 +37,8 @@ def compare(block,domain):
     if not domain[0].get('coordinate_healing'):return parent.compare(block,domain)
     from world_coordinate_sampled_skill_native import creation_indices
     with creation_indices(domain[0]) as indices:n=native_reference(domain)
+    return compare_observed(block,domain,n,indices)
+def compare_observed(block,domain,n,indices):
     leaf=parent
     while Path(leaf.__file__).name!='verify-coordinate-manual-short.py':leaf=leaf.parent
     burst=leaf.parent.parent.parent

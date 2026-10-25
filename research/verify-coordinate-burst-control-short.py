@@ -48,6 +48,9 @@ def compare(block,domain):
         for control in lower['controls']:control.pop('burst',None)
         return original(lower)
     with patch.object(parent.parent,'compile_case',mask_case):n=parent.compare(clean,domain)
+    return compare_state(block,n)
+def compare_state(block,n):
+    h=STATE_BASE
     ticks=n['burst_controls']['ticks'];last=ticks[-1]
     assert block[h]==MAGIC and block[h+1]==last['cycles']
     assert list(block[h+2:h+4])==list(struct.unpack('<II',struct.pack('<d',last['stage_open'])))

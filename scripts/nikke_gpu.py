@@ -359,6 +359,8 @@ SUITES['coordinate-auto-reload']=dict(SUITES['coordinate-mode-actions'],script='
 SUITES['coordinate-auto-reload']['support_files']=['research/portable-compiler-full--coordinate-auto-reload-source-certificate.json',SUITES['coordinate-mode-actions']['golden'],*SUITES['coordinate-mode-actions']['support_files']]
 SUITES['coordinate-healing']=dict(SUITES['coordinate-auto-reload'],script='research/verify-coordinate-healing-short.py',source='gpu/world_coordinate_healing_entry.slang',golden='research/portable-coordinate-healing-short-expected.json',inputs=340,native=291,development_only=False,tests=['test_coordinate_healing.py','test_portable_parent_oracles.py','test_coordinate_route_migration.py','test_coordinate_physical_frontier.py'])
 SUITES['coordinate-healing']['support_files']=['research/portable-compiler-full--coordinate-healing-source-certificate.json',SUITES['coordinate-auto-reload']['golden'],*SUITES['coordinate-auto-reload']['support_files']]
+SUITES['coordinate-original']=dict(SUITES['coordinate-healing'],script='research/verify-coordinate-original-short.py',golden='research/portable-coordinate-original-short-expected.json',inputs=8,native=8,development_only=True,tests=['test_coordinate_original.py','test_coordinate_original_history.py','test_coordinate_healing.py','test_portable_parent_oracles.py'])
+SUITES['coordinate-original']['support_files']=[SUITES['coordinate-healing']['golden'],*SUITES['coordinate-healing']['support_files']]
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -824,10 +826,14 @@ def development_baseline(suite, cases):
         entries, data = prepare_entries(adapter, m)
         from portable_backend import source_hashes
         iw = adapter.suite.INPUT * 4
+        baselines=[]
+        for i,(name,words,domain) in enumerate(entries):
+            started=time.perf_counter()
+            fingerprint=native_hash(adapter,domain)
+            baselines.append(dict(name=name,input_sha256=sha(data[4+i*iw:4+(i+1)*iw]),native_sha256=fingerprint))
+            print(json.dumps(dict(phase='development_native',case_index=i,case_name=name,case_count=len(entries),elapsed_seconds=time.perf_counter()-started)),file=sys.stderr,flush=True)
         return dict(input_sha256=sha(data), source_sha256=source_hashes(SUITES[suite]['source']),
-                    entries=[dict(name=name, input_sha256=sha(data[4+i*iw:4+(i+1)*iw]),
-                                  native_sha256=native_hash(adapter, domain))
-                             for i,(name,words,domain) in enumerate(entries)])
+                    entries=baselines)
 
 
 def migrated_development_baseline(suite,source,records,name):

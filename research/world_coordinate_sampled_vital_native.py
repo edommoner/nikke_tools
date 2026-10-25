@@ -11,11 +11,12 @@ def observe(case,*,shot_codes=None):
     handlers={'handle_heal_hp_pct','handle_current_hp_reduce','handle_cover_heal_pct','_apply_lifesteal'}
     def profile(frame,event,answer):
         if previous is not None:previous(frame,event,answer)
-        v=frame.f_locals
         if frame.f_code in codes and event=='return' and answer:
+            v=frame.f_locals
             cs=v['self'];shots.append(dict(owner=names.index(cs.name),time=v['t'],mode=bool(cs._in_weapon_change),kind=frame.f_code.co_name,weapon_type=cs.weapon_type,pellets=cs.pellets,muzzles=cs.muzzles,coefficient=cs.weapon['damage_coeff']))
             if case.get('sampled_delivery'):shots[-1]['skill_damage']=cs._wc_is_skill_damage()
         if event=='return' and frame.f_code.co_name in handlers:
+            v=frame.f_locals
             bm=v.get('bm')
             if bm is None:raise ValueError('Canonical health manager missing')
             eff=v.get('eff');ev=v.get('ev');health.append(dict(kind=frame.f_code.co_name,time=v['t'],name=eff['name'] if eff else ev.skill_name,hp=[bm.state['hp'][n] for n in names],cover=[bm.state['cover_hp'][n] for n in names]))

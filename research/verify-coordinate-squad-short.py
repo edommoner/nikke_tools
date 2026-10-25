@@ -36,7 +36,9 @@ def compare(block,domain):
     clean=list(block);clean[SQUAD_BASE:]=[0]*(OUTPUT_WORDS-SQUAD_BASE)
     n=parent.parent.compare(clean[:1769472],domain)
     parent.compare_policy_state(clean,n,compile_case(domain[0])[0][109530])
-    h=SQUAD_BASE;count=len(domain[0].get('sequence',[]));assert list(block[h:h+4])==[MAGIC,1,n['squad_control']['sequence_index'],count]
+    return compare_state(block,n,len(domain[0].get('sequence',[])))
+def compare_state(block,n,count):
+    h=SQUAD_BASE;assert list(block[h:h+4])==[MAGIC,1,n['squad_control']['sequence_index'],count]
     # Forced focus or the previous live owner is observed at the last cover event.
     # The per-frame arbitration/aim fingerprints independently check its effects.
     flags=[int(row['cover_all']) for row in n['manual_actions']['characters']]

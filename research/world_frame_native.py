@@ -1,6 +1,6 @@
 """Observe full native simulate, including its actual boss/weapon/frame ordering."""
 import copy,sys,struct
-from contextlib import nullcontext
+from contextlib import nullcontext,ExitStack
 from unittest.mock import patch
 import engine_worker
 from calculator import timeline,buff_manager
@@ -107,7 +107,8 @@ def observe(case):
   if case.get('observe_target_counters'):
    from world_target_counter_battle_native import initialize
    initialize(bm,capture)
- metadata=authored_metadata(case)
+ original_run=case.get('original_run')
+ metadata={} if original_run is not None else authored_metadata(case)
  def stats(char):
   i=NAMES.index(char['name']);a=case['environment']['allies'][i]
   return {'atk':case['base_atk'][i],'hp':a['base_hp'],'def':a['base_defense']}
@@ -135,7 +136,9 @@ def observe(case):
   if effect.get('_portable_observer_row') is not None and effect.get('type')=='damage' and effect.get('tick_interval'):
    uid=carrier.uid
    if uid not in ids:ids[uid]=len(ids)+1
- with counter_observer,spawn_observer,fractional_observer,patch.dict(timeline._NIKKE,metadata),patch.dict(buff_manager._NIKKE,metadata),patch.object(timeline,'calc_base_stats',stats),patch.object(buff_manager.BuffManager,'_register_all',register),patch.object(timeline,'CharState',Character),patch.object(timeline,'BurstController',Controller),patch.object(timeline,'BossScript',Boss),patch.object(timeline.random,'Random',ObservedRNG),patch.dict(timeline._DELAYS['_exceptions'],{},clear=True),patch.dict(timeline._DELAYS['_defaults_by_weapon_type'],{'AR':{'post_reload_delay':0}},clear=True):
+ with counter_observer,spawn_observer,fractional_observer,patch.object(timeline,'CharState',Character),patch.object(timeline,'BurstController',Controller),patch.object(timeline,'BossScript',Boss),patch.object(timeline.random,'Random',ObservedRNG),ExitStack() as context:
+  if original_run is None:
+   for item in (patch.dict(timeline._NIKKE,metadata),patch.dict(buff_manager._NIKKE,metadata),patch.object(timeline,'calc_base_stats',stats),patch.object(buff_manager.BuffManager,'_register_all',register),patch.dict(timeline._DELAYS['_exceptions'],{},clear=True),patch.dict(timeline._DELAYS['_defaults_by_weapon_type'],{'AR':{'post_reload_delay':0}},clear=True)):context.enter_context(item)
   if case.get('observe_periodic_skills'):sys.setprofile(periodic_profile)
   squad=[dict(name=n,skill_levels=level) for n,level in zip(NAMES,levels)]
   if 'controls' in case:
@@ -150,7 +153,36 @@ def observe(case):
    config.update(resolve(case,NAMES)[0])
    for char,weapon in zip(squad,case['combat']['weapons']):
     if weapon.get('explicit_burst_stage'):char['burst_stage']=str(weapon['stage'])
-  try:result=timeline.simulate(squad,config=config,enemy=enemy,seed=case.get('seed',19),verbose=case.get('native_snapshot_logging',False))
+  try:
+   if original_run is None:result=timeline.simulate(squad,config=config,enemy=enemy,seed=case.get('seed',19),verbose=case.get('native_snapshot_logging',False))
+   else:
+    expected=original_run['prepared'];original_register=buff_manager.BuffManager._register_all
+    def registered(manager):
+     result=original_register(manager)
+     actual=[dict(effect=copy.deepcopy(e),owner=n) for e,n in manager._effects]
+     if actual!=expected['effects']:raise ValueError('Original registered definitions/owners/order changed')
+     capture['original_definitions_verified']=len(actual)
+     # Registration retains module-global parsed definitions. Keep observer
+     # annotations local, preserving aliases between ordered lookup and dispatch.
+     memo={}
+     manager._effects=copy.deepcopy(manager._effects,memo)
+     manager._char_effects_cache=copy.deepcopy(manager._char_effects_cache,memo)
+     manager._build_notify_index()
+     for i,(e,_) in enumerate(manager._effects):e['_portable_observer_row']=i
+     if case.get('observe_target_counters'):
+      from world_target_counter_battle_native import initialize
+      initialize(manager,capture)
+     return result
+    def execute(run):
+     chars=[{k:v for k,v in c.items() if k!='_weapon'} for c in expected['chars']]
+     changed=[k for k,a,b in [('roster',run.squad,chars),('config',run.config,expected['policies']['config']),('seed',run.seed,expected['policies']['seed']),('enemy',{**timeline.DEFAULT_ENEMY,**(run.enemy or {})},original_run['scalar_enemy'])] if a!=b]
+     if changed:raise ValueError('Original input identity changed: '+','.join(changed))
+     for c in expected['chars']:
+      if timeline._NIKKE[c['name']]!=c['_weapon']:raise ValueError('Original weapon metadata changed')
+     capture['original_result']=timeline.simulate(run.squad,config=run.config,enemy=copy.deepcopy(case['enemy']),seed=run.seed,verbose=True)
+     return capture['original_result']
+    context.enter_context(patch.object(buff_manager.BuffManager,'_register_all',registered));context.enter_context(patch.object(engine_worker.sim,'execute',execute))
+    engine_worker.evaluate(copy.deepcopy(original_run['body']));result=capture['original_result']
   finally:
    if case.get('observe_periodic_skills'):sys.setprofile(previous_profile)
  state=capture['state'];bm=capture['bm'];rng=capture['boss']._rng
@@ -164,6 +196,9 @@ def observe(case):
  if case.get('observe_skill_critical'):answer['skill_critical']=capture['skill_critical']
  if case.get('observe_base_copies'):answer['base_copies']=capture['base_copies']
  if case.get('observe_healing_storage'):answer['healing_storage']=capture['healing_storage']
+ if original_run is not None:
+  answer['original_input_identity']=dict(definitions=capture['original_definitions_verified'],chars_config_seed_weapon_verified=True,authored_metadata_overrides=False,authored_delays_overrides=False)
+  answer['scope']='Actual original prepared roster, original effects/weapon/config/base-stat hooks; declared coordinate world and scoped numeric policy only'
  if case.get('observe_pending_skills'):
   answer['pending_burst']=dict(count=len(capture['burst_controller']._pending_burst_dmg),enqueued=capture.get('pending_enqueued',0),fired=capture.get('pending_fired',0))
  if case.get('observe_overlay'):
