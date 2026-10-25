@@ -2221,3 +2221,15 @@ Windows既存chatはrev78 idle。ユーザー依頼の送信再試行もactive-t
 最終packet `/tmp/nikke-original-init-final-v1.zip`（d5274558…、1989files）は関連23／制御476成功（Windows1skip）。全payload SHA/checkout bytesとGPU source/input/native/output一致。reader終了後raw21,238,272byteをSHA/size/inode保持で疎化、15,794,176byte回収・削除0。現CUDAのcompile/cache/launchへ成功を流用しません。Windows新規依頼0。
 
 次は元ミハラ：ボンディングチェーンの敵stack追加20、アンカー：イノセントメイドのharmful stack減少21を、元条件と実対象の正例で検証。34/35/37、packing19、モデル／variant・現CUDA／公開GPU／全キャラも未完。静的247/266・kind拒否0を対応率へ読み替えず、全キャラ0／UI CPU／ゴール未達を維持します。
+
+## 2026-10-26 元ミハラenemy stack20・DoT対象接続
+
+最新 `coordinate-original-enemy-stack`4、`docs/portable-original-enemy-stacks.md`／`research/portable-original-enemy-stacks-checkpoint.json`。元ミハラ：ボンディングチェーンの完全5人編成・全77/78/77/77定義、対照4秒／命中上限11秒／実戦闘不能4秒／元burst引継ぎ8秒、seed3801。命中はDrake先頭のautoで元DoTを保持し、10→…→20と上限での再発火を比較。戦闘不能は10＋20を20へ制限、全入力/native指紋不変。CPU schedule入力0。
+
+初版GPU全status0・引継ぎ1件だけ一致。通常actor-recipientに無い専用periodic snapshotのDoT対象がstack操作から漏れ、加算2件が最終10のまま。`world_actor_stacks.slang` の固定shared macroだけ `worldPeriodicNamedMember` を照合し、周期領域へ論理slot／通常recipientへtag付きrefを渡す。変換・clamp・寿命・通知は同じ共通stack loop。旧cover CUDA/MSL原生成物は全byte保持、厳密inverse追加。host DoT期限readerも表示1e30ではなくwire doubleで比較し、無限大と有限1e30の回帰検査を追加。既存stack/source/resource観測器とreaderを共用し旧既定範囲保持。
+
+修正版packet `/tmp/nikke-original-enemy-stack-develop-v4`、capture `/tmp/nikke-original-enemy-stack-metal-v2` はM5全4一致。実GPU計2回（原比較失敗1保持・成功1）、retry0。修正版GPU1.499809秒／新PSO93.950324秒、変更のない対照／引継ぎの全14,158,848byte保持。別GPU禁止childで全4fresh48.621108秒、live parent receiptなしでseal。最終packet `/tmp/nikke-original-enemy-stack-final-v1.zip`（9dd7761e…、1997files）は関連29／制御476成功（Win1skip）、全payload byteとGPU source/input/native/output一致。
+
+初期data-only生成再利用はSlang0、実装修正はsource/keyが変わるためpaired Slang2回・新PSOが必要。共通source-reuseは変更を拒否し、最終同コードpacketはgeneration必須hit・Slang0。新PSOのファイル検査成功は実warm load／CUDA cache証明ではない。数値／wire／Runtime138952byte不変。全reader終了後、原失敗／成功rawをSHA/size/inode保持で疎化し42,074,112byte回収・削除0。静的inventory全266／247packing／19失敗／kind拒否0／受付拡張8は旧分類と全profile一致、GPU認定ではない。
+
+次はkind21。Anchor＋Mast/Moderniaの64秒CPU調査はFB開始4.316667／44.316667の2回、先頭B2 Mast・B3 Drakeの40秒待機を実notifyで確認、減算発火0。記録 `anchor-frontier.json` はPython observer filter opt-inの探索で、同条件正本とのfilter等価性は未監査・golden禁止。次は宣言burst rulesでB2/B3を交互選択する正例と、既定auto86秒候補を確認する（到達は未検証予測）。元ADD/世代に対する今回のDoT stack変更、21/34/35/37、packing19、モデル/variant・現CUDA/公開GPU/全キャラも未完。全キャラ0／UI CPU／ゴール未達。Windows新規依頼0、idle APIへ重複runを送らないこと。

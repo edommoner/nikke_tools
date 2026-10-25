@@ -13,7 +13,13 @@ bool actorStackBlocked(inout Runtime s,uint target)
 }
 bool actorStackAffected(inout Runtime s,uint row,ActorBits scope)
 {
+#ifdef PORTABLE_COORDINATE_EXISTING_HANDLERS
+    // Periodic snapshots take logical slots; recipient fields take tagged refs.
+    for(uint target=0;target<actorPoolCount(s);target++)
+        if(actorBitsHas(scope,target)&&(actorRecipientMember(s,row,target==0?0:ACTOR_REF|target)||worldPeriodicNamedMember(s,row,target))&&!actorStackBlocked(s,target)) return true;
+#else
     for(uint target=0;target<actorPoolCount(s);target++)
         if(actorBitsHas(scope,target)&&actorRecipientMember(s,row,target==0?0:ACTOR_REF|target)&&!actorStackBlocked(s,target)) return true;
+#endif
     return false;
 }

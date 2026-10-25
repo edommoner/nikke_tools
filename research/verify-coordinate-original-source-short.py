@@ -53,11 +53,17 @@ def verify_witness(case,native):
         assert len(ramp)==10 and cast+effect['ramp_interval']<=ramp[0]['created']<=cast+effect['ramp_interval']+1/60,'All original ramp damage ticks must execute on the actual frame grid'
     return True
 
-def compare_source_state(block,domain,native):
+def timer_expiry(block,row):
+    import struct
+    from portable_specs import LIMITS
+    at=LIMITS['STATE_BASE']+row*10+2
+    return struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
+
+def compare_source_state(block,domain,native,*,field='original_source',operations=('force_skill_use','named_buff_duration_extend')):
     from portable_runtime import decode
-    actual=decode(block[:159744],domain[1]);case=domain[0];observed=native['original_source'];selected=set(observed['selected_rows'])
+    actual=decode(block[:159744],domain[1]);case=domain[0];observed=native[field];selected=set(observed['selected_rows'])
     for index,source in enumerate(domain[1]['binding_source_indices']):
-        if case['effects'][source].get('stat') in ('force_skill_use','named_buff_duration_extend'):assert actual['timers'][index]['activations']==sum(e['row']==source for e in observed['dispatches']),'Each actual source operation must execute'
+        if case['effects'][source].get('stat') in operations:assert actual['timers'][index]['activations']==sum(e['row']==source for e in observed['dispatches']),'Each actual source operation must execute'
     expected=[{k:r[k] for k in ('row','owner','members','stack','activated','end')} for r in observed['final'] if r['end'] is None or r['end']>case['duration']];found=[]
     for index,carrier in enumerate(actual['carriers']):
         source=domain[1]['binding_source_indices'][carrier['definition']]
@@ -81,7 +87,7 @@ def compare_source_state(block,domain,native):
         timer=actual['timers'][bindings[row['row']]];assert (timer['every_due'],timer['every_interval'])==(row['due'],row['interval']),'Original periodic grids must match'
     for row in observed['final']:
         if row['dot']:
-            timer=actual['timers'][bindings[row['row']]];assert (timer['due'],timer['expiry'])==(row['dot']['next'],row['dot']['expiry']),'DoT next tick and expiry must match without phase reset'
+            binding=bindings[row['row']];timer=actual['timers'][binding];assert (timer['due'],timer_expiry(block,binding))==(row['dot']['next'],row['dot']['expiry']),'DoT next tick and expiry must match without phase reset'
     return native
 
 def compare(block,domain):

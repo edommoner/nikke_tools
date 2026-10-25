@@ -15,18 +15,22 @@ def snapshot(manager,case):
     return rows
 
 @contextmanager
-def capture(case):
+def capture(case,*,selected_rows=None):
     from calculator.buff_manager import BuffManager
     register=BuffManager._register_all;dispatch=BuffManager._dispatch_instant;maximum=BuffManager._apply_buff_max_stack_add;notify=BuffManager.notify
     result=dict(dispatches=[],notifications=[],final=[]);managers=[]
+    if selected_rows is None:storage=lambda manager:snapshot(manager,case)
+    else:
+        from world_original_source_native import carriers,clocks
+        selected_rows=set(selected_rows);storage=lambda manager:carriers(manager,case,selected_rows)
     def registered(manager):
         answer=register(manager);managers.append(manager);return answer
     def observe(handler,manager,effect,caster,t,*args,**kwargs):
         index=effect.get('_portable_observer_row')
         if type(index) is not int or not 0<=index<len(case['effects']) or effect['name']!=case['effects'][index]['name'] or case['names'][case['owners'][index]]!=caster:raise ValueError('Original stack dispatch identity mismatch')
-        row=dict(row=index,owner=case['names'].index(caster),time=t,stat=effect['stat'],before=snapshot(manager,case),partial_skips_before=manager.partial_skips)
+        row=dict(row=index,owner=case['names'].index(caster),time=t,stat=effect['stat'],before=storage(manager),partial_skips_before=manager.partial_skips)
         answer=handler(manager,effect,caster,t,*args,**kwargs)
-        row.update(after=snapshot(manager,case),partial_skips_after=manager.partial_skips);result['dispatches'].append(row);return answer
+        row.update(after=storage(manager),partial_skips_after=manager.partial_skips);result['dispatches'].append(row);return answer
     def dispatched(manager,effect,caster,t,*args,**kwargs):
         if effect.get('stat') not in OPS:return dispatch(manager,effect,caster,t,*args,**kwargs)
         return observe(dispatch,manager,effect,caster,t,*args,**kwargs)
@@ -36,4 +40,5 @@ def capture(case):
         return notify(manager,event,t,caster,**kwargs)
     with patch.object(BuffManager,'_register_all',registered),patch.object(BuffManager,'_dispatch_instant',dispatched),patch.object(BuffManager,'_apply_buff_max_stack_add',maximized),patch.object(BuffManager,'notify',notified):yield result
     if len(managers)!=1:raise ValueError('One original stack manager required')
-    result['final']=snapshot(managers[0],case)
+    result['final']=storage(managers[0])
+    if selected_rows is not None:result.update(selected_rows=sorted(selected_rows),final_clocks=clocks(managers[0]))

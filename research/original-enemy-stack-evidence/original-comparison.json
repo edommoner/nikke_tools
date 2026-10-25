@@ -1,0 +1,46 @@
+{
+  "calculation_verified": false,
+  "entries": [
+    {
+      "name": "coordinate-original-enemy-stack/Mihara/transfer",
+      "input_sha256": "607e252d25d691e9226a4b143153445436b1de0cafdd8940758ec9d5456e45d6",
+      "output_sha256": "6ea1ec1285507ba38e062b35973682a5b0a9a04653f059a0b16c7bb803ab0513",
+      "native_sha256": "8790b8b8cbd13100c3c5af5f9c11c0d7b868be5674f2e33190ce2263c375c33e"
+    }
+  ],
+  "mismatches": [
+    {
+      "index": 0,
+      "name": "coordinate-original-enemy-stack/Mihara/control",
+      "reason": "AssertionError: DoT next tick and expiry must match without phase reset"
+    },
+    {
+      "index": 1,
+      "name": "coordinate-original-enemy-stack/Mihara/hits",
+      "reason": "AssertionError: Preserved ordered binary64 aggregate"
+    },
+    {
+      "index": 2,
+      "name": "coordinate-original-enemy-stack/Mihara/down",
+      "reason": "AssertionError: Preserved ordered binary64 aggregate"
+    }
+  ],
+  "input_count": 4,
+  "native_oracles": 4,
+  "input_sha256": "9865128a381e8c16d9f785c49f101cb25ebf483d2a98a0c30bd26a1e2e2f0c05",
+  "output_sha256": "e88477456144be05cac2b6314f507386772ade313564a45f0273821686cfc70a",
+  "generated_normalized": {
+    "cuda": "76f62f64b7f5ed394160007282572955c857806c88c983126626293cede69cd3",
+    "metal": "ce3dab28994f637cfcfcdda94dde80fa6133d77228ea8587e6c6c00e264ae0a3"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 1,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 1
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "metal-cache-file-probe-v1",
+  "hit_snapshot": true,
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "driver_calls": 0,
+  "calculation_verified": false,
+  "context_current_verified": false,
+  "native_cache_revalidation_required": true,
+  "key": "45b656f24ef4a8fbe905ebfee27eb7893581e4337ea42a7fb0ad01290bddaef1",
+  "reference_identity": {
+    "consumer_sha256": "b82ce9f7d5de0886ab59dc9c51840089211e973293ad83651906ab25344106c1",
+    "device": "Apple M5",
+    "entry": "portableEvents",
+    "math_mode": "safe",
+    "os_build": "Version 26.6.2 (Build 25G83)",
+    "registry_id": "4294968313",
+    "resident_stride": "138952",
+    "schema": "1",
+    "source_sha256": "2021b07cddc8a6d418e54a0ead7f776265ea250202d136db611b436de5c9c56b",
+    "threads_per_threadgroup": "1"
+  },
+  "archive_bytes": 8603616,
+  "archive_sha256": "545e7afd9335422412dc92c310dc428559fd5ff0dd7e54012f1d4156cba45bbe",
+  "reason": null,
+  "reference_evidence_sha256": "6229d24b90d5ea82213c3d41ac28391b83ea39e42d1f281f88c59df56dfa7f65",
+  "generated_metal_sha256": "2021b07cddc8a6d418e54a0ead7f776265ea250202d136db611b436de5c9c56b"
+}
