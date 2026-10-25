@@ -162,7 +162,8 @@ def main():
   actual=read_overlay_result(values[i*L['WORLD_FRAME_OUTPUT_WORDS']:(i+1)*L['WORLD_FRAME_OUTPUT_WORDS']],meta,case);native=observe(case)
   if case.get('observe_overlay'):
    block=values[i*L['WORLD_FRAME_OUTPUT_WORDS']:(i+1)*L['WORLD_FRAME_OUTPUT_WORDS']];head=L['WORLD_OVERLAY_STATE_BASE'];number=lambda at:struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
-   actual.update(gauge=actual['ordinary']['queries'][-1]['combat']['gauge'],world_nodes=[dict(blocked=number(head+32+j*8+4),opens=block[head+32+j*8],**(dict(dispelled=bool(block[head+32+j*8+1]),dispels=block[head+32+j*8+6]) if case.get('observe_cleanse') else {})) for j in range(len(case['patterns']))])
+   from world_overlay_node_readback import read_nodes
+   actual.update(gauge=actual['ordinary']['queries'][-1]['combat']['gauge'],world_nodes=read_nodes(block,len(case['patterns']),cleanse=case.get('observe_cleanse',False)))
   if case.get('observe_charge_hold'):
    weapons=actual['ordinary']['queries'][-1]['combat']['weapons']
    charge=L['WORLD_OVERLAY_CHARGE_BASE']

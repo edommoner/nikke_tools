@@ -1,3 +1,6 @@
+#ifndef WORLD_ALLIED_RNG
+#define WORLD_ALLIED_RNG(s,legacy) legacy
+#endif
 #ifdef PORTABLE_BELOW_DEF
 #include "below_def_recipient_runtime.slang"
 #endif
@@ -101,8 +104,8 @@ uint selectRecipientLeaf(inout Runtime s, uint row, uint at, uint64_t when, out 
              kind==20 ? alliedHasHarmful(s,who) :
 #endif
              !f64Less(0,s.coverHP[who]))) pool[size++]=who;
-        uint ignored,mask=0,k=min(count,size),before=results[s.resourceOutput+P_REVIVAL_RNG_BASE];
-        uint sampled=mtSampleFive(s.resourceOutput+P_REVIVAL_RNG_BASE,size,k,ignored);order=0;
+        uint ignored,mask=0,k=min(count,size),before=results[WORLD_ALLIED_RNG(s,s.resourceOutput+P_REVIVAL_RNG_BASE)];
+        uint sampled=mtSampleFive(WORLD_ALLIED_RNG(s,s.resourceOutput+P_REVIVAL_RNG_BASE),size,k,ignored);order=0;
         uint poolMask=0;for(uint i=0;i<size;i++) poolMask|=1U<<pool[i];
         for(uint i=0;i<k;i++) { uint who=pool[((sampled>>(i*3))&7)-1];mask|=1U<<who;order|=uint64_t(who+1)<<(i*3); }
         alliedSampleRecord(s,d.owner,kind,k,poolMask,uint(order),before,when);
@@ -117,7 +120,7 @@ uint selectRecipientLeaf(inout Runtime s, uint row, uint at, uint64_t when, out 
         if(!revivalEnabled(s)) { s.error=64;order=0;return 0; }
         uint pool[5],size=0;for(uint who=0;who<5;who++) if((candidates&s.downMask&(1U<<who))!=0) pool[size++]=who;
         if(size==0) { order=0;return 0; }
-        uint ignored,mask=0;uint sampled=mtSampleFive(s.resourceOutput+P_REVIVAL_RNG_BASE,size,min(count,size),ignored);order=0;
+        uint ignored,mask=0;uint sampled=mtSampleFive(WORLD_ALLIED_RNG(s,s.resourceOutput+P_REVIVAL_RNG_BASE),size,min(count,size),ignored);order=0;
         for(uint i=0;i<min(count,size);i++) { uint who=pool[((sampled>>(i*3))&7)-1];mask|=1U<<who;order|=uint64_t(who+1)<<(i*3); }
         return mask;
 #else
@@ -202,7 +205,7 @@ void alliedSampleRecord(inout Runtime s,uint owner,uint kind,uint k,uint pool,ui
     if(at==0xffffffffU) { s.error=64;return; }
     results[at]=3;results[at+1]=owner|(kind<<3)|(k<<8);
     results[at+2]=pool;results[at+3]=order;results[at+4]=before;
-    results[at+5]=results[s.resourceOutput+P_REVIVAL_RNG_BASE];storeNumber(at+6,when);
+    results[at+5]=results[WORLD_ALLIED_RNG(s,s.resourceOutput+P_REVIVAL_RNG_BASE)];storeNumber(at+6,when);
     if(!orderedHistoryRecordDone(history,index,at)) s.error=64;
 #endif
 }

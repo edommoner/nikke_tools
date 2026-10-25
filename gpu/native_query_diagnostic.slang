@@ -45,7 +45,7 @@ void recordNativeQueryDiagnostic(inout Runtime s,uint who,uint target,uint exclu
     if(index>=2048) { results[head+3]++;return; }
     results[head+1]++;
     results[head+16+index*2]=results[s.resourceOutput+P_REVIVAL_BASE+6];
-    results[head+17+index*2]=results[s.resourceOutput+P_REVIVAL_RNG_BASE];
+    results[head+17+index*2]=results[WORLD_ALLIED_RNG(s,s.resourceOutput+P_REVIVAL_RNG_BASE)];
 #else
     uint64_t lower=PORTABLE_QUERY_WINDOW_LOWER,upper=PORTABLE_QUERY_WINDOW_UPPER;
     if(f64Less(when,lower) || f64Less(upper,when)) return;
@@ -55,7 +55,7 @@ void recordNativeQueryDiagnostic(inout Runtime s,uint who,uint target,uint exclu
     results[at]=hit ? 1U : 2U;results[at+1]=who;results[at+2]=target;
     results[at+3]=exclusion;results[at+4]=epoch;results[at+5]=s.phase;
     storeNumber(at+6,when);storeNumber(at+8,values[S_atk_flat]);storeNumber(at+10,values[S_atk_pct]);
-    results[at+12]=results[s.resourceOutput+P_REVIVAL_RNG_BASE];
+    results[at+12]=results[WORLD_ALLIED_RNG(s,s.resourceOutput+P_REVIVAL_RNG_BASE)];
     results[at+13]=results[s.resourceOutput+P_REVIVAL_BASE+6];
 #endif
 #endif

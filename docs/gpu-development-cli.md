@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`coordinate-original-cleanse`4 は元ココア／ミカ：スノーバディ／ロザンナの部分解除・全員解除・敵バフ解除を実証したsealed suiteです。`package --suite coordinate-original-cleanse --compact` を使います。味方抽選と座標射撃を同じMTへ接続し、実整数draw・全624語と632語の出力同一性を検査。M5保存出力の再照合・独立fresh監査・関連28／制御476が成功（Win1skip）。ボス攻撃のdebuff入力・現CUDAは未完了です。[範囲と最初の比較失敗](portable-original-cleanse.md)。
+
 `coordinate-original-stacks`4 は元ペッパー／ルピー／マルチャーナ：マリンスタディの現在スタック増加・上限・消費・再充填を検証したsealed suiteです。`package --suite coordinate-original-stacks --compact` を使います。既存共通16／17／19を接続し、M5保存出力の再照合と独立fresh監査、関連22／制御476検査が成功（Win1skip）。無期限は実wire bitsで照合し、有限1e30と区別します。静的kind拒否30をGPU対応数へ読み替えないこと。[検証範囲と初回比較失敗](portable-original-stacks.md)。
 
 `coordinate-original-ammo`4 は元のギロチン：ウィンタースレイヤー／ノワール／アルカナ：フォーチュンメイト／グレイブの割合・固定補充と負の割合、正のゲージ段階通知を検証したsealed suiteです。`package --suite coordinate-original-ammo --compact` を使います。共有kind宣言・既存共通handlerを使用し、M5 Metal全一致・独立fresh監査・関連23／制御476成功（Win1skip）。kind受付46拒否をGPU対応数へ読み替えないこと。現CUDA／全キャラ認定は未完了です。[検証範囲](portable-original-ammo.md)。

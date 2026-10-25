@@ -243,6 +243,9 @@ def verify(root, overrides=None):
     stack_original_sources=source_hashes(root,'gpu/world_coordinate_original_stack_entry.slang') if (root/'gpu/world_coordinate_original_stack_entry.slang').is_file() else {}
     stack_original_path=root/'research/portable-coordinate-original-stacks-short-expected.json'
     stack_original_golden=json.loads(stack_original_path.read_text()) if stack_original_path.is_file() else None
+    cleanse_original_sources=source_hashes(root,'gpu/world_coordinate_original_cleanse_entry.slang') if (root/'gpu/world_coordinate_original_cleanse_entry.slang').is_file() else {}
+    cleanse_original_path=root/'research/portable-coordinate-original-cleanse-short-expected.json'
+    cleanse_original_golden=json.loads(cleanse_original_path.read_text()) if cleanse_original_path.is_file() else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -690,6 +693,18 @@ def verify(root, overrides=None):
                     checked=['actual original dispatch counts','all final stack carriers and lifetime/membership',
                         'current-stack increase and duration refresh','cap and missing-carrier no-ops','consumption and later recharge'],
                     remaining=['other original stack operations and enemy mutation','removal and other unadmitted kinds',
+                        'current CUDA execution and public all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_original_cleanse=dict(suite='coordinate-original-cleanse',source_sha256=cleanse_original_sources,
+                    proof_available=cleanse_original_golden is not None,
+                    sealed_source_matches_current=cleanse_original_golden['source_sha256']==cleanse_original_sources if cleanse_original_golden else None,
+                    input_count=len(cleanse_original_golden['entries']) if cleanse_original_golden else None,
+                    original_definitions_weapons_preserved=True,reference_kind='deterministic-common-cpu',
+                    shared_resident_and_world_overlay_handlers=True,admitted_kinds=[26],
+                    shared_recipient_and_sampled_mt=True,integer_draw_receipts_and_full_mt_state_checked=True,
+                    checked=['empty actual cleanse','partial shared-carrier cleanse with three allies retained',
+                        'all-allied actual removal','enemy beneficial dispel and irremovable retention'],
+                    remaining=['boss attack debuff payload is unconnected','other original stack/resource operations',
                         'current CUDA execution and public all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 sampled_vital_kind_preflight=dict(shared_generated_guard=True,scope='definition kinds only',

@@ -2145,3 +2145,17 @@ packet `/tmp/nikke-original-ammo-develop-v1`（ea73aa56…）、capture `/tmp/ni
 独立seal44.644305秒、別child・全4fresh・live parent receiptなし／GPU0。同じ監査からgoldenとsource-only証明書を作成。現CUDA compile/link/cache/battleへ流用しません。最終compact `/tmp/nikke-original-stacks-final-v1.zip`（4eb6f0ce…）は関連22／制御476（Win1skip）成功。全1945payload SHA／checkout全byteとGPU source・全input／native／outputを終了後に検査。全reader終了後に原／replay rawをSHA／size／inode保持で疎化し各27,148,288byte回収、削除0。
 
 全266静的inventoryは247packing／kind拒否30（旧ammo46）。残り217をGPU対応数としないこと。次の実在候補は解除26（11profile）、15、未受付stack18／20／21など。敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cache、公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／全目標未達。Windowsはrev78 idleのまま、新規実行依頼0。既存APIへ同じrunを再送せず、開始可能になったら既存短い検証の状態／保存結果を取得します。
+
+## 2026-10-26 元編成cleanse26・射撃／味方抽選の共有MT
+
+最新 `coordinate-original-cleanse`4、`docs/portable-original-cleanse.md`／`research/portable-original-cleanse-checkpoint.json`。元ココア71定義6秒の対象なし、ココア＋ベスティ75定義16秒の5人→3人の部分解除、ミカ＋ベスティ／ドレイク77定義26秒の全員解除、ロザンナ76定義3秒の敵world通常buff2つ解除／解除不能1つ保持。元の完全5人編成・全効果・weapon／成長／操作を保持。実在するデメリットを使い、未接続のボス攻撃debuff入力と混同しないこと。既存kind26を共通decl／Slangのsampled受付へ接続しました。
+
+初期native正例で整数抽選のRNG観測不足を検出。sampling observerはglobal Randomの実getrandbitsだけを記録し、point内の二重計数を避けます。契約は全draw前後index・値・word数と最終全624語を再現。既存sampling参照5検査成功、旧元マナ3native指紋保持11.916020秒／GPU0。CPU RNG計算・数値規約・canonical本体は変更していません。
+
+GPU前の調査では味方抽選が独立revival bank、座標射撃がCS bankだったため、新入口だけ `WORLD_ALLIED_RNG` で同じCS MTへ接続。recipient計算／診断traceも同じindexを読み、終了時に既存recipient出力へ全632語を写し、2領域を全語比較します。Runtime／wire容量不変、共通Slang／同じテストをCUDA/Metalで使います。旧stack入口は新macro未定義でCUDA/MSL原生成物が全byte一致。厳密inverseはrecipient／program final／diagnostic差分も戻し、normalizerと旧goldenは不変です。旧raw source一致falseを隠さないこと。
+
+GPU前packet v1は未実行。v2 `/tmp/nikke-original-cleanse-develop-v2`（5ac7c508…）、capture `/tmp/nikke-original-cleanse-metal-v1` は全status0、比較は全4world_nodes fields不足で停止。元失敗・claim・raw保持。共通actor-pool decoderへ解除情報を接続し、`world_overlay_node_readback` を通常overlay／actor-pool／新比較器で共用。期待fieldsを削らず、破損flagの負例を追加。GPU source／全input／native指紋を保持するv3 `/tmp/nikke-original-cleanse-develop-v3`（89538b56…）のsaved replay `/tmp/nikke-original-cleanse-replay-v3` が全4fresh一致。GPU計1回2.614522秒／初PSO92.055633秒／CPU事前62.260447秒、generation必須hit・compiler0、retry0／host訂正後GPU0。
+
+独立seal67.274981秒、別child・全4fresh・live parent receiptなし／GPU0。同じ監査からgoldenとsource-only証明書を作成し、現CUDA compile/link/cache/battleへ流用しません。最終compact `/tmp/nikke-original-cleanse-final-v1.zip`（3f2da212…）は関連28／制御476（Win1skip）成功。全1952payload SHA／checkout全byteとGPU source・全input／native／outputを終了後検査。全reader終了後に原／replay rawをSHA／size／inode保持で疎化し各27,115,520byte回収、削除0。
+
+静的全266／247packing／kind拒否22（旧stack30）。残り225をGPU対応数としないこと。次は実在する未受付15／33／23／27等をstat・target・timingまで調べ、依存をまとめて正の発火を検証します。stack18/20/21、ボス攻撃debuff payload、敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cache、公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／目標未達。Windows新依頼0、idle送信APIへ重複runを依頼しません。

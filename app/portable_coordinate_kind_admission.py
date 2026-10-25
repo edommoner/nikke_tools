@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 BASE=(0,2,3,4,6,7,8,24)
 EXTENSIONS=(
+ ('PORTABLE_COORDINATE_ORIGINAL_CLEANSE',(26,),False,'Existing allied cleanse and enemy overlay dispel handlers.'),
  ('PORTABLE_COORDINATE_ORIGINAL_STACKS',(16,17,19),False,'Existing own-stack and current-stack increase handlers.'),
  ('PORTABLE_COORDINATE_ORIGINAL_AMMO',(13,14),False,'Existing shared percentage and flat ammo handlers.'),
  ('PORTABLE_COORDINATE_ORIGINAL_RESOURCES',(9,10),False,'Existing shared gauge charge/consume handlers.'),

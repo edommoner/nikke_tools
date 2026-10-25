@@ -1,4 +1,7 @@
         if(kind!=0&&kind!=2&&kind!=3&&kind!=4&&kind!=6&&kind!=7&&kind!=8&&kind!=24
+#ifdef PORTABLE_COORDINATE_ORIGINAL_CLEANSE
+            &&kind!=26 // Existing allied cleanse and enemy overlay dispel handlers.
+#endif
 #ifdef PORTABLE_COORDINATE_ORIGINAL_STACKS
             &&kind!=16&&kind!=17&&kind!=19 // Existing own-stack and current-stack increase handlers.
 #endif

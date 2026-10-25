@@ -14,8 +14,11 @@ def verify(case,native):
             expected=sample(*draw['aim'],draw['radius'],rng,angle=draw['angle'],k=draw['k'])
             assert list(expected)==draw['point'];count=4 if draw['angle'] else 2
             assert draw['rng_words']==count;words+=count;observed_points+=1
+        elif draw['kind']=='native-uniform':
+            assert rng.random()==draw['value'];words+=2
         else:
-            assert draw['kind']=='native-uniform' and rng.random()==draw['value'];words+=2
+            assert draw['kind']=='native-bits' and type(draw['bits']) is int and draw['bits']>=0
+            assert rng.getrandbits(draw['bits'])==draw['value'];words+=(draw['bits']+31)//32
         assert draw['rng_after_index']==rng.getstate()[1][-1]
     assert observed_points==len(points)
     for p,row in zip(points,pellets,strict=True):

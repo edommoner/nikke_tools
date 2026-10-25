@@ -8,6 +8,7 @@ from portable_actor_specs import compile_registry
 from portable_actor_pool_specs import compile_pools
 from portable_world_schedule_specs import compile_schedule
 from world_frame_native import observe
+from world_overlay_node_readback import read_nodes
 import world_actor_pool_cases as manual
 
 def module(name,path):
@@ -65,7 +66,7 @@ def decoded(block,meta,c,bindings):
   index+=1
  def number(at):return struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
  h=L['WORLD_ACTOR_POOL_OUTPUT_BASE'];p=L['WORLD_ACTOR_POOL_STATE_BASE'];over=L['WORLD_OVERLAY_STATE_BASE'];acct=L['DAMAGE_ACCOUNTING_STATE_BASE']
- actual.update(gauge=actual['ordinary']['queries'][-1]['combat']['gauge'],world_nodes=[dict(blocked=number(over+32+j*8+4),opens=block[over+32+j*8]) for j in range(len(c['patterns']))],actor_pools=dict(pools=[list(block[p+i*16:p+(i+1)*16]) for i in range(len(bindings))],score=block[h+8]+(block[h+9]<<32),spawned=block[h+4],overkill=number(h+16),notice_counts=list(block[h+10:h+14]),pending_notices=block[h+5],deaths=block[h+14]),actor_add_damage=[number(acct+30+i*2) for i in range(5)])
+ actual.update(gauge=actual['ordinary']['queries'][-1]['combat']['gauge'],world_nodes=read_nodes(block,len(c['patterns']),cleanse=c.get('observe_cleanse',False)),actor_pools=dict(pools=[list(block[p+i*16:p+(i+1)*16]) for i in range(len(bindings))],score=block[h+8]+(block[h+9]<<32),spawned=block[h+4],overkill=number(h+16),notice_counts=list(block[h+10:h+14]),pending_notices=block[h+5],deaths=block[h+14]),actor_add_damage=[number(acct+30+i*2) for i in range(5)])
  return actual
 
 def negatives(programs):
