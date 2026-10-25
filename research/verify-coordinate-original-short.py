@@ -17,7 +17,9 @@ def prepare():
     if sys.byteorder!='little':raw.byteswap()
     return rows,raw.tobytes()
 def native_reference(domain):
-    n=parent.native_reference(domain);n['original_input_identity']=n['battle'].pop('original_input_identity');return n
+    from world_original_removal_native import capture
+    with capture() as removals:n=parent.native_reference(domain)
+    n['original_input_identity']=n['battle'].pop('original_input_identity');n['original_named_removals']=removals;return n
 def compare(block,domain):
     from world_coordinate_sampled_skill_native import creation_indices
     with creation_indices(domain[0]) as indices:n=native_reference(domain)
@@ -30,5 +32,18 @@ def compare(block,domain):
     squad.compare_state(clean,n,0)
     clean[squad.SQUAD_BASE:]=[0]*(len(clean)-squad.SQUAD_BASE)
     policy.compare_policy_state(clean,n,domain[1]['coordinate_original_input']['policy_mask'])
+    if domain[0].get('removal_witness'):
+        from portable_runtime import decode
+        actual=decode(block[:159744],domain[1]);events=n['original_named_removals']
+        assert events,'Original direct hits must execute removal'
+        for source in {e['row'] for e in events}:
+            rows=[e for e in events if e['row']==source]
+            bindings=[i for i,j in enumerate(domain[1]['binding_source_indices']) if j==source]
+            assert len(bindings)==1,'Removal must have one exact compiler binding'
+            assert actual['timers'][bindings[0]]['activations']==len(rows),'Each actual named removal dispatch'
+        if '/defender/' in domain[0]['name']:
+            assert any(e['before']>0 and e['after']==0 for e in events),'Original stealth must actually be removed'
+            for target in {e['target'] for e in events}:
+                assert not any(r['active'] and r['effect']==target for r in actual['carriers']),'Removed original stealth cannot remain active'
     return n
 def validate_rejection(block,name):raise AssertionError('No original definition may be discarded as a rejection')

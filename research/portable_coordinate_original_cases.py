@@ -11,6 +11,11 @@ def fixtures():
             for duration in (3,30):
                 body=dict(m.body_for(squad,duration),burst_gauge_mode='accumulate',seed=2301+len(rows))
                 rows.append(dict(name='coordinate-original/'+label+'/'+('defender' if defender else 'control')+'/'+str(duration)+'s',body=body,coord=dict(auto_aim=[0.,0.],pierce_px=10.,explosion_scale=1.),patterns=[dict(id='original-world',kind='idle')]))
+    for defender in (False,True):
+        base=copy.deepcopy(next(r for r in rows if r['name']=='coordinate-original/Delta-ninja-thief/'+('defender' if defender else 'control')+'/3s'))
+        base['name']+='/direct-hits'
+        base['patterns'].append(dict(id='original-direct-hits',kind='attack',delay=1.,spec=dict(atk=10000,coeff=100,target='all',pierce=True,hits=3,interval=.1)))
+        base['removal_witness']=True;rows.append(base)
     return rows
 
 def prepare_case(row):
@@ -28,5 +33,5 @@ def prepare_case(row):
         sampled_vital=True,sampled_skill=True,sampled_burst=True,sampled_delivery=True,sampled_routed_delivery=True,coordinate_healing=True,observe_healing_storage=True,
         coordinate_packet_trace=False,control_mode=cfg.get('control_mode','solo'),
         observe_target_counters=True,observe_fractional_hits=True,manual_controls=True,cover_policies=True,squad_controls=True,squad_mode_state=True,burst_controls=True,sequence=[],
-        original_run=dict(body=copy.deepcopy(row['body']),prepared=p,scalar_enemy=copy.deepcopy(p['enemy'])))
+        removal_witness=row.get('removal_witness',False),original_run=dict(body=copy.deepcopy(row['body']),prepared=p,scalar_enemy=copy.deepcopy(p['enemy'])))
     return case,world

@@ -1,0 +1,13 @@
+test_canonical_or_unreviewed_comparator_changes_are_rejected (test_coordinate_original_history.ComparatorRefreshTests.test_canonical_or_unreviewed_comparator_changes_are_rejected) ... ok
+test_changed_prepared_input_is_rejected (test_coordinate_original_history.ComparatorRefreshTests.test_changed_prepared_input_is_rejected) ... ok
+test_comparator_refresh_keeps_golden_and_never_calls_native (test_coordinate_original_history.ComparatorRefreshTests.test_comparator_refresh_keeps_golden_and_never_calls_native) ... ok
+test_exact_retention_boundaries_keep_final_state_and_originals (test_coordinate_original_history.OriginalHistoryTests.test_exact_retention_boundaries_keep_final_state_and_originals) ... ok
+test_omission_without_overflow_is_rejected (test_coordinate_original_history.OriginalHistoryTests.test_omission_without_overflow_is_rejected) ... ok
+test_wrong_count_omissions_magic_and_reserved_words_are_rejected (test_coordinate_original_history.OriginalHistoryTests.test_wrong_count_omissions_magic_and_reserved_words_are_rejected) ... ok
+test_retained_shots_and_exact_omissions_preserve_source (test_coordinate_original_history.ProjectileHistoryTests.test_retained_shots_and_exact_omissions_preserve_source) ... ok
+test_wrong_identity_amount_omission_or_reserved_data_fails (test_coordinate_original_history.ProjectileHistoryTests.test_wrong_identity_amount_omission_or_reserved_data_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.020s
+
+OK

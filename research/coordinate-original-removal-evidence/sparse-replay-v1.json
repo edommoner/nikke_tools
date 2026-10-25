@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-coordinate-original-removal-replay-v2",
+  "raw_bytes": 70794240,
+  "raw_sha256": "5addbd9b6c77244262a9e93e81dc4a83da896fa48012e7c364743c2bb2557135",
+  "evidence_sha256": "9ad78a81adfb4b46a0edc52d658001e144115da36d0104a5a08e6b8af9365933",
+  "raw_inode": 511018346,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 402,
+  "zero_range_bytes": 67231744,
+  "allocated_before": 70795264,
+  "allocated_after": 3563520,
+  "allocated_reclaimed": 67231744,
+  "full_hash_verified": true
+}

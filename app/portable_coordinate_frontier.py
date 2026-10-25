@@ -220,6 +220,10 @@ def verify(root, overrides=None):
     healing_path=root/'research/portable-coordinate-healing-short-expected.json'
     healing_golden=json.loads(healing_path.read_text()) if healing_path.is_file() else None
     healing_matches=healing_golden['source_sha256']==healing_sources if healing_golden else None
+    original_sources=source_hashes(root,'gpu/world_coordinate_original_entry.slang') if (root/'gpu/world_coordinate_original_entry.slang').is_file() else {}
+    original_path=root/'research/portable-coordinate-original-short-expected.json'
+    original_golden=json.loads(original_path.read_text()) if original_path.is_file() else None
+    original_matches=original_golden['source_sha256']==original_sources if original_golden else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -581,6 +585,17 @@ def verify(root, overrides=None):
                     native_lifecycle_and_active_pool_compared=True,computed_cpu_action_schedule=False,
                     input_words=109968,output_words=1769856,extra_runtime_bytes=0,extra_output_words=0,
                     remaining=['complete original character profiles with original weapon/control metadata',
+                        'down/revival and callback session combinations','current CUDA execution and warm cache performance',
+                        'public admission and all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_original=dict(suite='coordinate-original',source_sha256=original_sources,
+                    proof_available=original_golden is not None,sealed_source_matches_current=original_matches,
+                    input_count=len(original_golden['entries']) if original_golden else None,
+                    reference_kind='deterministic-common-cpu',complete_original_roster_bridge=True,
+                    original_effects_weapons_controls_preserved=True,shared_named_removal_handler=True,
+                    retained_history_capacity=dict(team=1024,fractional=2048,projectile=2048),
+                    omissions_must_match_native=True,computed_cpu_action_schedule=False,
+                    remaining=['complete original group binding','owner-aware duplicate damage observation',
                         'down/revival and callback session combinations','current CUDA execution and warm cache performance',
                         'public admission and all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),

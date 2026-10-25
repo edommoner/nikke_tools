@@ -1,6 +1,6 @@
 # 共通GPU検証CLI
 
-開発中の `coordinate-original`8は元の完全編成68〜81効果を既存座標実行器へ接続する入口です。初回M5実行・readbackは成功しましたが、履歴設定／省略件数とDeltaの名前指定解除により比較未成功で、development-onlyを維持します。既存340のinput/native指紋を保持し、共通CLIは基準作成のケース別時間も記録します。[元編成の境界と次の作業](portable-coordinate-original.md)。
+最新の `coordinate-original`10は元の完全編成68〜81効果・武器・操作設定を保持し、実被弾での名前指定解除までM5 Metal全一致・独立fresh監査238.65秒でsealed登録済みです。保持履歴と省略件数の厳密な検査、比較器だけの固定source-bound再配布、private opt-in／公開拒否の別監査も共通CLIへ接続しました。[元編成と検証境界](portable-coordinate-original.md)。
 
 最新の `coordinate-healing`340（native291／拒否49）は回復貯蔵・分配・放出を座標戦闘へ接続し、保存Metal全件一致・独立fresh監査225.42秒でseal済みです。新16world＋拒否2、旧322全raw保持。新規GPU1回、観測器修正後の再GPU0。厳密な観測基準移行と監査内の静的入力再構築削減も共通CLIへ接続しました。[回復と元編成への接続境界](portable-coordinate-healing.md)。
 

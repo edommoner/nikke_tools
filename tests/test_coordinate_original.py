@@ -61,4 +61,21 @@ class OriginalTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'owner-aware'):
             a.compile_coordinate_battle(p)
 
+    def test_exact_source_inverse_and_wire_reject_unreviewed_changes(self):
+        from portable_coordinate_original_source_contract import project_sources,project_backend_source
+        from portable_backend import validate_composed_stride
+        old=json.loads((ROOT/'research/portable-coordinate-healing-short-expected.json').read_text())
+        for path,text in project_sources(ROOT).items():self.assertEqual(hashlib.sha256(text.encode()).hexdigest(),old['source_sha256'][path])
+        project_backend_source(ROOT);validate_composed_stride(a.SOURCE,a.INPUT_WORDS,a.OUTPUT_WORDS)
+        with self.assertRaises(ValueError):validate_composed_stride(a.SOURCE,a.INPUT_WORDS-1,a.OUTPUT_WORDS)
+        with self.assertRaises(AssertionError):project_sources(ROOT,{'gpu/coordinate_sampling_runtime.slang':(ROOT/'gpu/coordinate_sampling_runtime.slang').read_text()+'\n'})
+
+    def test_original_defender_stealth_is_removed_by_actual_direct_hits(self):
+        row=next(r for r in a.fixtures() if r['name'].endswith('defender/3s/direct-hits'))
+        c,p=a.prepare_case(row);_,m,b,d=a.compile_coordinate_battle(p)
+        n=a.native_reference((c,m,b,d));events=n['original_named_removals']
+        self.assertTrue(events)
+        self.assertTrue(any(e['before']>0 and e['after']==0 for e in events))
+        self.assertTrue(all(e['owner']=='델타 : 닌자 시프' for e in events))
+
 if __name__=='__main__':unittest.main()

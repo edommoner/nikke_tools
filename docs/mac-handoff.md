@@ -2035,3 +2035,18 @@ inventory再検査は245/266 packing、base185/203、未対応21profiles／20mod
 元経路4 inputの全byte保持、旧340input／291native指紋保持、共通比較器6経路の保存GPU block一致を確認。初期関連37検査、訂正後original/history8、最終共通制御476（Windows1skip）が成功。CPU観測の対象外関数でlocals取得を避け、CLIのdevelopment基準生成にケース別時間を出しました。途中package v1は作成中のtest修正をsource guardが拒否、最終制御v3は外側forbid_gpuがmocked transport検査まで遮断した検証wrapperの問題で、正規runner v4は全成功。原記録も保持しています。
 
 次は既存named remove handlerを新しいoriginal入口のsampled admissionへ接続し、Deltaの実被弾で解除が発火する元編成worldも追加します。その後、訂正済み8＋実解除ケースを固定してMetal、全比較成功後だけfresh seal／source certificateへ進めること。全キャラ認定0／公開UI CPU、packing245/266・base185/203・未対応21profiles/20分類の認定は変更していません。同名damageのowner-aware観測、multi_hit完全group binding、公開受付、現CUDA／warm cacheは残ります。Windows新依頼0。既存チャットを開始できないAPIへ依頼を繰り返さないでください。
+
+
+## 2026-10-25 元編成10入力・名前指定解除・履歴の厳密な再照合
+
+最新 `docs/portable-coordinate-original.md`／`research/portable-coordinate-original-checkpoint.json`。`coordinate-original`10（全native）がM5全一致・独立fresh監査238.653837秒でsealed登録済みです。元の68／70／79／81全定義とweapon/control/config/base-stat hooksを保持し、3／30秒の完全編成8＋Deltaの実被弾2。新入口は既存共通named-removal handlerへkind1受付を追加するだけ。1.0秒に実stealth1→0、1.1／1.2秒も解除通知、GPU activation3／残存carrier0を確認しました。
+
+GPU packet `/tmp/nikke-coordinate-original-removal-develop-v1`（0d8be0bb…）／capture `/tmp/nikke-coordinate-original-removal-metal-v1` は初8/10。Delta30秒の残2件はprojectile履歴2048の省略55／59を旧decoderが拒否。元raw／失敗／claimは保持。source-bound comparator訂正 packet v2（80575ac3…）へ入力・GPU・native指紋全10を保持し、新native基準計算0で再配布。GPU禁止saved replay v2が全10fresh一致。保持射撃全件のowner／時刻／実method由来mode／pellets／muzzles／予約0と省略件数を検査し、全damage／RNG／packet／最終状態を別途比較。team1024／fractional2048の省略も明示したままです。
+
+新shader GPU1回・4.390048秒、初PSO92.883551秒、CPU事前212.834851秒。同claim retry0／host修正後GPU0。独立監査は別child・live parent receiptなし、全10native domain fresh／GPU0。同じ監査からgoldenとsource-only certificateを作成。現CUDA compile／cache／battle証明へ流用しないこと。旧entryは新macro未定義のCUDA/MSL生成が旧healing基準と一致し、strict normalizerは不変です。
+
+最終sealed配布 `/tmp/nikke-coordinate-original-final-v2.zip`（68e3a051…）は機能53・制御476（Win1skip）成功、終了後に全1904payload SHA／checkout全byte一致を確認。全reader終了後に原とreplay rawをSHA／inode／size保持で4KiB疎化し、各67,231,744byte回収、削除0。旧世代のGPU再実行はしていません。
+
+model-gap監査の旧unconditional座標guardがprivate opt-in導入後のASTを認識できず、frontier検査が失敗していたため修正。既定False・literal bool guardと公開engine_workerのallowed enemy拒否を独立検査し、負例も追加。現在model-checkのoriginal proof/source match true、public admitted／all-char certified false。inventory245/266・base185/203・未対応21profiles/20分類、全キャラ0／UI CPU／目標未達は維持します。
+
+次はfresh監査238.65秒に余裕を作るCPU observerの対象外locals取得削減（world_coordinate_manual_native等）を行い、元編成multi_hit完全group binding・owner-aware同名damage観測・down/revivalとcallback sessionを進めます。ケース削減・時間短縮・監査timeout拡大で解決しないこと。Windowsは状態を1回確認しrev78 idleのまま、新依頼／GPU0。既存送信APIの同じエラーを繰り返し試さず、実行開始可能な状態になってから必要な短い検証だけに使います。

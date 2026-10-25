@@ -27,7 +27,12 @@ def compare(block,domain):
 def compare_observed(block,domain,n,*,check_parent=True,trace_view=None,sampled_burst_totals=False,sampled_manual=False):
     c,m,b,d=domain
     from portable_roster_team_history import legacy_view
-    view,battle=legacy_view(block[:786432],n['battle'],parent.parent.L['WORLD_TEAM_HEAD_BASE'],
+    prefix=block[:786432]
+    if c.get('original_run'):
+        from portable_coordinate_projectile_history import legacy_view as projectile_view
+        from calculator import timeline
+        prefix=projectile_view(prefix,n['sampled_live_shots'],timeline._MECHANICS['weapon_type_defaults'])
+    view,battle=legacy_view(prefix,n['battle'],parent.parent.L['WORLD_TEAM_HEAD_BASE'],
         fractional_head=parent.parent.L['WORLD_FRACTION_HEAD_BASE'] if c.get('original_run') else None)
     # Keep the legacy decoder and every battle field; replace only the explicit
     # integer total after independently checking the retained binary64 stream.

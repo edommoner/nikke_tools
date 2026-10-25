@@ -359,8 +359,8 @@ SUITES['coordinate-auto-reload']=dict(SUITES['coordinate-mode-actions'],script='
 SUITES['coordinate-auto-reload']['support_files']=['research/portable-compiler-full--coordinate-auto-reload-source-certificate.json',SUITES['coordinate-mode-actions']['golden'],*SUITES['coordinate-mode-actions']['support_files']]
 SUITES['coordinate-healing']=dict(SUITES['coordinate-auto-reload'],script='research/verify-coordinate-healing-short.py',source='gpu/world_coordinate_healing_entry.slang',golden='research/portable-coordinate-healing-short-expected.json',inputs=340,native=291,development_only=False,tests=['test_coordinate_healing.py','test_portable_parent_oracles.py','test_coordinate_route_migration.py','test_coordinate_physical_frontier.py'])
 SUITES['coordinate-healing']['support_files']=['research/portable-compiler-full--coordinate-healing-source-certificate.json',SUITES['coordinate-auto-reload']['golden'],*SUITES['coordinate-auto-reload']['support_files']]
-SUITES['coordinate-original']=dict(SUITES['coordinate-healing'],script='research/verify-coordinate-original-short.py',golden='research/portable-coordinate-original-short-expected.json',inputs=8,native=8,development_only=True,tests=['test_coordinate_original.py','test_coordinate_original_history.py','test_coordinate_healing.py','test_portable_parent_oracles.py'])
-SUITES['coordinate-original']['support_files']=[SUITES['coordinate-healing']['golden'],*SUITES['coordinate-healing']['support_files']]
+SUITES['coordinate-original']=dict(SUITES['coordinate-healing'],script='research/verify-coordinate-original-short.py',source='gpu/world_coordinate_original_entry.slang',golden='research/portable-coordinate-original-short-expected.json',inputs=10,native=10,development_only=False,tests=['test_coordinate_original.py','test_coordinate_original_history.py','test_coordinate_healing.py','test_portable_parent_oracles.py','test_coordinate_physical_frontier.py','test_portable_model_gap_audit.py'])
+SUITES['coordinate-original']['support_files']=['research/portable-compiler-full--coordinate-original-source-certificate.json',SUITES['coordinate-healing']['golden'],*SUITES['coordinate-healing']['support_files']]
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -706,7 +706,7 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
         raise ValueError('--case requires --develop')
     reused=None
     if baseline_package is not None:
-        if not develop or cases or reference_migration!='coordinate-healing-routed-adds-v1':raise ValueError('Unfiltered development observation migration required')
+        if not develop or cases or reference_migration not in ('coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1'):raise ValueError('Unfiltered development observation migration required')
         baseline_records=[r for r in records if not compact or r['path'] in selected]
         golden,reused=migrated_development_baseline(suite,baseline_package,baseline_records,reference_migration)
     else:
@@ -841,6 +841,9 @@ def migrated_development_baseline(suite,source,records,name):
     Saved replay still recomputes every native domain; no GPU run is authorized.
     """
     import copy
+    if name=='coordinate-original-projectile-history-v1':
+        from portable_original_history_repackage import baseline
+        return baseline(SimpleNamespace(**globals()),suite,source,records)
     from portable_coordinate_route_migration import verify,CASE
     with forbid_gpu():
         original=verify_saved_package(source)
@@ -2825,7 +2828,7 @@ def main(argv=None):
     a=sub.add_parser('storage-check',help='CPU-only free-space budget check; does not archive or delete files')
     a.add_argument('--required-bytes',type=int,default=0);a.add_argument('--reserve-bytes',type=int,default=1024**3);a.add_argument('--path',type=Path,default=ROOT)
     a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
-    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1'])
+    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1'])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True)
     for name in ('run','_child'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--smoke',action='store_true')

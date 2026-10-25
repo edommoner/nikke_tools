@@ -19,8 +19,14 @@ class GapAuditTests(unittest.TestCase):
   with self.assertRaisesRegex(AssertionError,'numeric source drift'):verify(ROOT,{path:changed})
  def test_coordinate_guard_change_requires_port_evidence(self):
   path='app/portable_world_roster_input.py';text=(ROOT/path).read_text()
-  changed=text.replace("enemy.get('coord') is not None or ", '');self.assertNotEqual(text,changed)
+  changed=text.replace("(enemy.get('coord') is not None and not coordinate) or ", '');self.assertNotEqual(text,changed)
   with self.assertRaisesRegex(AssertionError,'Coordinate GPU admission changed'):verify(ROOT,{path:changed})
+  changed=text.replace('coordinate=False','coordinate=True');self.assertNotEqual(text,changed)
+  with self.assertRaisesRegex(AssertionError,'Coordinate GPU admission changed'):verify(ROOT,{path:changed})
+ def test_private_bridge_does_not_certify_public_coordinate_admission(self):
+  r=verify(ROOT)['coordinate_world'];self.assertTrue(r['private_roster_opt_in_available']);self.assertTrue(r['public_enemy_coordinate_rejection_verified']);self.assertFalse(r['gpu_connected'])
+  path='app/engine_worker.py';text=(ROOT/path).read_text();changed=text.replace("allowed_enemy = {'def',", "allowed_enemy = {'coord', 'def',");self.assertNotEqual(text,changed)
+  with self.assertRaisesRegex(AssertionError,'Public coordinate admission changed'):verify(ROOT,{path:changed})
  def test_new_consumer_or_changed_spec_forces_review(self):
   base='research/upstream/nikke-calc-master/'
   path=base+'calculator/timeline.py';original=(ROOT/path).read_text()

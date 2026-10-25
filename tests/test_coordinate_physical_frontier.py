@@ -107,6 +107,11 @@ class FrontierTests(unittest.TestCase):
         self.assertTrue(auto['shared_post_delay_phase']);self.assertTrue(auto['pending_survives_ineligible_shot'])
         self.assertTrue(auto['session_change_clears_pending']);self.assertTrue(auto['exact_notification_damage_and_final_latch_compared'])
         self.assertFalse(auto['computed_cpu_action_schedule']);self.assertFalse(auto['public_gpu_admitted']);self.assertFalse(auto['all_characters_certified'])
+        original=result['coordinate_original']
+        self.assertTrue(original['complete_original_roster_bridge']);self.assertTrue(original['shared_named_removal_handler'])
+        self.assertTrue(original['omissions_must_match_native'])
+        self.assertEqual(original['retained_history_capacity'],dict(team=1024,fractional=2048,projectile=2048))
+        self.assertFalse(original['computed_cpu_action_schedule']);self.assertFalse(original['public_gpu_admitted']);self.assertFalse(original['all_characters_certified'])
         rows = {r['id']: r for r in result['dependencies']}
         self.assertEqual(len(rows), 7)
         self.assertEqual(rows['physical-native-observation']['common_policy_reference_cli'],

@@ -1,0 +1,21 @@
+{
+  "proof_available": true,
+  "sealed_source_matches_current": true,
+  "input_count": 10,
+  "public_gpu_admitted": false,
+  "all_characters_certified": false,
+  "retained_history_capacity": {
+    "team": 1024,
+    "fractional": 2048,
+    "projectile": 2048
+  },
+  "remaining": [
+    "complete original group binding",
+    "owner-aware duplicate damage observation",
+    "down/revival and callback session combinations",
+    "current CUDA execution and warm cache performance",
+    "public admission and all-character certification"
+  ],
+  "model_check_gpu_calls": 0,
+  "native_battle_calls": 0
+}

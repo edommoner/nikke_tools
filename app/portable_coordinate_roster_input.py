@@ -5,7 +5,7 @@ No CPU battle, target resolution, damage or time schedule enters the GPU input.
 """
 import copy,hashlib,json
 from portable_specs import LIMITS as L
-SOURCE='gpu/world_coordinate_healing_entry.slang'
+SOURCE='gpu/world_coordinate_original_entry.slang'
 INPUT_WORDS=109968
 OUTPUT_WORDS=1769856
 
