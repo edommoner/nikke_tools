@@ -357,6 +357,8 @@ SUITES['coordinate-mode-actions']=dict(SUITES['coordinate-burst-control'],script
 SUITES['coordinate-mode-actions']['support_files']=['research/portable-compiler-full--coordinate-mode-actions-source-certificate.json',SUITES['coordinate-burst-control']['golden'],*SUITES['coordinate-burst-control']['support_files']]
 SUITES['coordinate-auto-reload']=dict(SUITES['coordinate-mode-actions'],script='research/verify-coordinate-auto-reload-short.py',source='gpu/world_coordinate_auto_reload_entry.slang',golden='research/portable-coordinate-auto-reload-short-expected.json',inputs=322,native=275,development_only=False,tests=['test_coordinate_auto_reload.py','test_portable_parent_oracles.py','test_coordinate_parent_oracles.py','test_coordinate_physical_frontier.py'])
 SUITES['coordinate-auto-reload']['support_files']=['research/portable-compiler-full--coordinate-auto-reload-source-certificate.json',SUITES['coordinate-mode-actions']['golden'],*SUITES['coordinate-mode-actions']['support_files']]
+SUITES['coordinate-healing']=dict(SUITES['coordinate-auto-reload'],script='research/verify-coordinate-healing-short.py',source='gpu/world_coordinate_healing_entry.slang',golden='research/portable-coordinate-healing-short-expected.json',inputs=340,native=291,development_only=False,tests=['test_coordinate_healing.py','test_portable_parent_oracles.py','test_coordinate_route_migration.py','test_coordinate_physical_frontier.py'])
+SUITES['coordinate-healing']['support_files']=['research/portable-compiler-full--coordinate-healing-source-certificate.json',SUITES['coordinate-auto-reload']['golden'],*SUITES['coordinate-auto-reload']['support_files']]
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -494,6 +496,7 @@ SMOKE_TESTS.append('test_portable_sparse_raw.py')
 SMOKE_TESTS.append('test_portable_metal_device.py')
 SMOKE_TESTS.append('test_portable_required_cache_preflight.py')
 SMOKE_TESTS.append('test_portable_test_repackage.py')
+SMOKE_TESTS.append('test_portable_migration_receipt_reuse.py')
 SMOKE_TESTS.append('test_portable_scope_snapshot_audit.py')
 SMOKE_TESTS.append('test_portable_authored_case_purity.py')
 SMOKE_TESTS.append('test_portable_prepared_input.py')
@@ -628,7 +631,7 @@ def verify_package(root,*,historical_compiler=False):
     return m
 
 
-def make_package(suite, output, *, develop=False, cases=(), compact=False):
+def make_package(suite, output, *, develop=False, cases=(), compact=False, baseline_package=None, reference_migration=None):
     """Whitelist code + required public data; never reports/raw/settings/tools."""
     if SUITES[suite].get('compiler_only') and (develop or cases):raise ValueError('Compiler diagnostic has no battle development/cases')
     if SUITES[suite].get('development_only') and not develop:
@@ -699,7 +702,14 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False):
                                     suite_tests={key:config['tests'] for key,config in SUITES.items()})
     if cases and not develop:
         raise ValueError('--case requires --develop')
-    golden = development_baseline(suite, cases) if develop else load(ROOT/SUITES[suite]['golden'])
+    reused=None
+    if baseline_package is not None:
+        if not develop or cases or reference_migration!='coordinate-healing-routed-adds-v1':raise ValueError('Unfiltered development observation migration required')
+        baseline_records=[r for r in records if not compact or r['path'] in selected]
+        golden,reused=migrated_development_baseline(suite,baseline_package,baseline_records,reference_migration)
+    else:
+        if reference_migration is not None:raise ValueError('Observation migration requires --baseline-package')
+        golden = development_baseline(suite, cases) if develop else load(ROOT/SUITES[suite]['golden'])
     if golden['source_sha256']!=gpu_sources:raise ValueError('Golden GPU source closure is stale')
     # Early stale-golden detection, without importing native engine or building.
     for name, digest in golden['source_sha256'].items():
@@ -711,6 +721,7 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False):
              source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
              working_tree_dirty=bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip()),
              files=records, golden=golden, purpose='compiler-diagnostic' if SUITES[suite].get('compiler_only') else 'development' if develop else 'sealed', selected_cases=list(cases), runtime_requirements=['Python dependencies from the existing venv', 'Slang 2026.20', 'CUDA toolkit/driver on Windows or Swift/Metal on macOS'])
+    if reused is not None:m['baseline_migration']=reused
     if projection is not None:
         selected=set(selected)
         m['files']=[row for row in records if row['path'] in selected]
@@ -817,6 +828,31 @@ def development_baseline(suite, cases):
                     entries=[dict(name=name, input_sha256=sha(data[4+i*iw:4+(i+1)*iw]),
                                   native_sha256=native_hash(adapter, domain))
                              for i,(name,words,domain) in enumerate(entries)])
+
+
+def migrated_development_baseline(suite,source,records,name):
+    """Keep immutable old oracles only for an exact registered observer correction.
+    Saved replay still recomputes every native domain; no GPU run is authorized.
+    """
+    import copy
+    from portable_coordinate_route_migration import verify,CASE
+    with forbid_gpu():
+        original=verify_saved_package(source)
+        if original.get('purpose')!='development' or original.get('selected_cases')!=[] or original['suite']!=suite:raise ValueError('Matching full development baseline required')
+        old={r['path']:r['sha256'] for r in original['files']};new={r['path']:r['sha256'] for r in records}
+        critical={p for p in old.keys()|new.keys() if p.startswith(('gpu/','research/upstream/'))}
+        critical|={'app/portable_backend.py','app/portable_compile_cache.py','scripts/run-metal-probe.swift','app/portable_generation_cache.py','app/portable_slang_generation.py','app/portable_metal_cache.py','research/summarize-portable-cross-gpu.py','app/detail_gpu.py','app/engine_worker.py','app/effect_spec.py','app/engine_compat.py'}
+        if any(p not in old or old[p]!=new.get(p) for p in critical):raise ValueError('Frozen GPU/transport/canonical source changed')
+        adapter=open_suite(dict(suite=suite));entries,data=prepare_entries(adapter,dict(suite=suite,selected_cases=[]));g=copy.deepcopy(original['golden'])
+        iw=adapter.suite.INPUT*4
+        if sha(data)!=g['input_sha256'] or len(entries)!=len(g['entries']):raise ValueError('Migration changed prepared input')
+        reference=None
+        for i,(case,words,domain) in enumerate(entries):
+            row=g['entries'][i]
+            if row['name']!=case or row['input_sha256']!=sha(data[4+i*iw:4+(i+1)*iw]):raise ValueError('Migration changed an input/case')
+            if case==CASE:reference=native_value(adapter,domain);row['native_sha256']=adapter.cross.digest(reference)
+        receipt=verify(name,original,dict(suite=suite,files=records,golden=g),reference)
+        return g,dict(source_package_id=original['package_id'],source_package=str(Path(source).resolve()),receipt=receipt,native_domains_recomputed=1,retained_fingerprints=len(entries)-1,full_fresh_saved_replay_required=True,gpu_calls=0,calculation_verified=False)
 
 
 def native_value(adapter, domain):
@@ -1189,7 +1225,7 @@ def compare_readback(m, capture, adapter=None,*,parent_oracles=None):
 
 def replay_source(m, source_package, source_capture,reference_migration=None):
     """Validate an immutable successful Metal dispatch, including failed decode."""
-    original=verify_package(source_package)
+    original=verify_saved_package(source_package) if reference_migration=='coordinate-healing-routed-adds-v1' else verify_package(source_package)
     if not is_development(m) or not is_development(original) or m['suite']!=original['suite'] or m['golden']!=original['golden'] and reference_migration is None:
         raise ValueError('Replay requires identical development source/input/native baselines')
     if reference_migration is not None:verify_reference_migration(reference_migration,original,m)
@@ -1225,6 +1261,13 @@ def replay_source(m, source_package, source_capture,reference_migration=None):
     return original,facts,evidence
 
 def verify_reference_migration(name,original,m):
+    if name=='coordinate-healing-routed-adds-v1':
+        from portable_coordinate_route_migration import verify,CASE
+        with forbid_gpu():
+            adapter=open_suite(m);entries,_=prepare_entries(adapter,m)
+            domains=[d for n,_,d in entries if n==CASE]
+            if len(domains)!=1 or domains[0] is None:raise ValueError('Routed observation domain missing')
+            return verify(name,original,m,adapter.native_reference(domains[0]))
     if name=='leftmost-rejection-domains-v1':
         from portable_leftmost_replay_migration import verify
         with forbid_gpu():
@@ -1387,7 +1430,9 @@ def audited_comparison(module, capture):
         observed.append(result)
         return result
     with patch.object(module,'compare_readback',compare):
-        audit=module.audit_capture(capture)
+        from portable_migration_receipt_reuse import reuse
+        with reuse(module,capture) as checks:audit=module.audit_capture(capture)
+    if checks['reused_checks']:audit['migration_receipt_checks']=checks
     if not audit['calculation_verified'] or len(observed)!=1:
         raise ValueError('Seal requires exactly one successful independent comparison')
     return audit,observed[0]
@@ -1446,6 +1491,8 @@ def seal_development(package_root,capture,output,*,timeout=60,compiler_certifica
         independent_receipt=dict(schema='independent-metal-audit-v1',package_id=result['package_id'],capture=str(Path(capture).resolve()),
             **facts,elapsed_seconds=seconds,gpu_calls=0,calculation_verified=True,input_sha256=result['golden']['input_sha256'],output_sha256=result['golden']['output_sha256'],
             scope='One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls')
+        if 'migration_receipt_checks' in result['audit']:
+            independent_receipt['migration_receipt_checks']=result['audit']['migration_receipt_checks']
     raw=(json.dumps(result['golden'],ensure_ascii=False,indent=2)+'\n').encode('utf-8')
     source_certificate=None
     if manifest_raw is not None:
@@ -1764,6 +1811,8 @@ def metal_device_preflight(capture):
 def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_only=False,*,linked_package=None,linked_capture=None):
     parent_oracles=None
     m=verify_package(ROOT)
+    if m.get('baseline_migration') and not smoke and not cpu_only:
+        raise ValueError('Observation migration packets require saved replay; new GPU execution forbidden')
     if compiler_only(m) and not smoke:raise ValueError('Compiler diagnostic cannot execute a battle')
     if is_development(m) and backend!='metal':raise ValueError('Development execution requires Metal; seal before CUDA verification')
     if not 1<=timeout<=180:raise ValueError('Timeout must be 1..180')
@@ -2719,7 +2768,7 @@ def main(argv=None):
         if name=='readback-compare':a.add_argument('--index',type=Path,required=True);a.add_argument('--index-sha256',required=True)
         else:a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472,1769856),default=786432)
     a=sub.add_parser('readback-retain');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--reference-comparison-sha256',required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--candidate-comparison-sha256',required=True);a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472,1769856),default=786432);a.add_argument('--reference-case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472,1769856));a.add_argument('--input-extension',choices=INPUT_EXTENSION_CONTRACTS);a.add_argument('--out',type=Path,required=True)
-    a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--reference-migration',choices=['parts-cleared-v1','leftmost-rejection-domains-v1'])
+    a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--reference-migration',choices=['parts-cleared-v1','leftmost-rejection-domains-v1','coordinate-healing-routed-adds-v1'])
     a=sub.add_parser('metal-cache-probe');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--generated-metal',type=Path,required=True);a.add_argument('--cache',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--require-hit',action='store_true')
     a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
@@ -2770,7 +2819,7 @@ def main(argv=None):
     a=sub.add_parser('storage-check',help='CPU-only free-space budget check; does not archive or delete files')
     a.add_argument('--required-bytes',type=int,default=0);a.add_argument('--reserve-bytes',type=int,default=1024**3);a.add_argument('--path',type=Path,default=ROOT)
     a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
-    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups')
+    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1'])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True)
     for name in ('run','_child'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--smoke',action='store_true')
@@ -2943,7 +2992,7 @@ def main(argv=None):
         write(a.out,result)
         if a.require_hit and not result['hit_snapshot']:print(json.dumps(result,indent=2));raise SystemExit(2)
     elif a.command=='cache-probe':result=cache_probe(a.generated_cuda,a.cuda_root,a.compile_cache,a.out,artifact_kind=a.artifact_kind,ptxas_level=a.ptxas_level,require_hit=a.require_hit)
-    elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case,compact=a.compact)
+    elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case,compact=a.compact,baseline_package=a.baseline_package,reference_migration=a.reference_migration)
     elif a.command=='unpack':result=dict(package_id=unpack(a.archive,a.dest))
     elif a.command=='run':
         if a.backend!='metal' and (a.metal_pipeline_cache or a.require_metal_pipeline_cache):raise ValueError('Metal pipeline settings require Metal backend')

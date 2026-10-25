@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "required_bytes": 2623669508,
+  "reserve_bytes": 1073741824,
+  "free_bytes": 4152631296,
+  "input_bytes": 149556484,
+  "output_bytes": 2407004160,
+  "preparation_headroom_bytes": 67108864,
+  "prepared_input_present": false,
+  "gpu_calls": 0,
+  "calculation_verified": false
+}

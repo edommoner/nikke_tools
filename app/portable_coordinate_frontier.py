@@ -216,6 +216,10 @@ def verify(root, overrides=None):
     auto_reload_path=root/'research/portable-coordinate-auto-reload-short-expected.json'
     auto_reload_golden=json.loads(auto_reload_path.read_text()) if auto_reload_path.is_file() else None
     auto_reload_matches=auto_reload_golden['source_sha256']==auto_reload_sources if auto_reload_golden else None
+    healing_sources=source_hashes(root,'gpu/world_coordinate_healing_entry.slang') if (root/'gpu/world_coordinate_healing_entry.slang').is_file() else {}
+    healing_path=root/'research/portable-coordinate-healing-short-expected.json'
+    healing_golden=json.loads(healing_path.read_text()) if healing_path.is_file() else None
+    healing_matches=healing_golden['source_sha256']==healing_sources if healing_golden else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -568,6 +572,16 @@ def verify(root, overrides=None):
                     input_words=109968,output_words=1769856,extra_runtime_bytes=0,extra_output_words=0,
                     remaining=['automatic reload with down/revival and callback session changes',
                         'healing storage and mixed actor original definitions','current CUDA execution and warm cache performance',
+                        'public admission and all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_healing=dict(suite='coordinate-healing',source_sha256=healing_sources,
+                    proof_available=healing_golden is not None,sealed_source_matches_current=healing_matches,
+                    input_count=len(healing_golden['entries']) if healing_golden else None,
+                    reference_kind='deterministic-common-cpu',shared_storage_share_discharge_handlers=True,
+                    native_lifecycle_and_active_pool_compared=True,computed_cpu_action_schedule=False,
+                    input_words=109968,output_words=1769856,extra_runtime_bytes=0,extra_output_words=0,
+                    remaining=['complete original character profiles with original weapon/control metadata',
+                        'down/revival and callback session combinations','current CUDA execution and warm cache performance',
                         'public admission and all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 packet_integer_ratio=dict(suite='packet-ratio',source_sha256=ratio_sources,

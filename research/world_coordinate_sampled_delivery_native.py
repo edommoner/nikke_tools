@@ -6,9 +6,10 @@ def observe(case):
     from world_coordinate_sampled_vital_native import observe as vital
     from world_coordinate_group_native import bind_groups
     from world_coordinate_mixed_native import observe as routed
-    if not case.get('sampled_groups'):return vital(case)
+    if not case.get('sampled_groups') and not case.get('sampled_routed_delivery'):return vital(case)
     codes={timeline.CharState._fire.__code__,timeline.CharState._charge_fire.__code__}
     def inner(c):
+        if not c.get('sampled_groups'):return vital(c)
         with battle_attack_groups(routing='native',coordinate_packets=True) as data:n,t=vital(c,shot_codes=codes)
         bind_groups(n,data);return n,t
     n,t=routed(case,observer=inner)

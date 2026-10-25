@@ -2004,3 +2004,22 @@ model-checkに最新入口の証明を追加しsource match true、inventoryは2
 最終compact `/tmp/nikke-auto-reload-final-v2.zip`（85d28d12…／1871files／8,716,209byte）は選択33・制御470（Windows1skip）成功、終了後に全payload SHA／checkout全byte／実GPU source・input・native基準一致を確認。生成cache hit／compiler0、実GPU時のCUDA/MSL両生成物と全byte同一。追加GPU0。全reader終了後にrawを全byte/SHA/inode維持で4KiB疎化。完了source展開19件も全復元・全SHA検査後のlossless archiveへ移し、元ZIP・receiptを保持。raw削除0。
 
 inventory再検査は245/266 packing・base185/203、未対応21profiles、全キャラ認定0／UI CPU／目標未達。未対応20 model-gap分類の解消をpackingだけで認定しません。Windowsの送信API再試行はidle chatを開始できず未送信で、追加実行0。接続復旧を繰り返し依頼せず、ユーザーが開始した場合だけ既存短い検証の結果を取得します。次はpending装填とdown／復活・callbackでのmode／容量変更、healing storage／混在actor元定義、短いcurrent CUDA／warm cache確認を優先します。
+
+
+## 2026-10-25 sampled座標戦闘の回復貯蔵・分配・放出
+
+最新は `coordinate-healing`340（native291／拒否49）、`docs/portable-coordinate-healing.md` と `research/portable-coordinate-healing-checkpoint.json`。既存のHP超過回復貯蔵・ATK由来受療pool・heal_split・放出の同じSlang handlerを使い、新入口だけsampled admissionへkind32と既存整数総計初期化を接続。16world＋拒否2で期限・capacity・periodic・lifesteal・mode散弾・手動cover・別caster・active pool・ADDへのskillを合成。計算本体／容量／Runtime／wire／保護8ファイルは不変です。
+
+元GPU `/tmp/nikke-coordinate-healing-develop-v1`（ddd3ca4c…）／`/tmp/nikke-coordinate-healing-metal-v1` は339/340一致。1件は既存packet observerが空ev.targetをBODYと記録し、実 `_land` のADD routeを失ったため総計54,000を期待していました。GPU・native本体・exact bankは34,000／17件で一致。既存実landing observerを明示opt-inで再利用し、ADD2体への10packet／20,000のラベルだけを補正。旧nativeに投影すると原指紋に全一致する、source前後SHA固定migrationを追加しました。ダメージ／時刻／owner／generation・他入力・source変更は拒否。元失敗・claim・rawは保持しています。
+
+修正版packet `/tmp/nikke-coordinate-healing-develop-v2`（d291c83f…）は全input／GPU source同一、339入力の基準指紋を保持し変更観測1件だけ再作成。`package --baseline-package OLD --reference-migration coordinate-healing-routed-adds-v1 --develop --compact` で全340inputを再pack／hashしてから固定します。続くGPU禁止saved replay `/tmp/nikke-coordinate-healing-replay-v2` は全340／291native fresh一致。新CLIではbaseline_migration付きpacketの新GPU実行も拒否し、saved replayへ限定します。最終sealed packetにこの制限markerは付きません。
+
+独立sealの2回は240秒timeoutで終了・記録保持。重複migration guardとその全入力再構築を削減しました。成功したv4監査は225.422417秒、fresh guard1／同じ子内receipt再利用1、fresh静的入力構築1／再利用1、live parent receiptなし。静的入力はadapter・manifest・全domainのpickle stamp（deserializeなし）・両payload全SHA・receipt anchorsを再検査し、native値は再利用しません。全291native domainの計算比較はfreshです。同じ監査からgoldenと専用source certificateを作成しsealed登録。GPU／Windows180秒、CPU saved audit240秒は不変。
+
+実GPU計1回、同claim retry0／observer修正後の再GPU0。GPU.755795秒／初回PSO93.081245秒／CPU事前200.755415秒／通常比較8.978930秒（同じ親291を再利用）。旧322は全input／native／全2,279,574,528byteのraw保持。Slangペアgenerationは必須cache hit/compiler0で、CUDA/MSL原生成物と両方全byte同一。現CUDA／warm CUDA cache性能へ流用しません。全reader終了後に原rawとreplay rawをbyte/SHA/inode維持で疎化。完了source展開16件は全復元／全SHA検証後にlossless archive、元ZIPとreceiptを保持しraw削除0です。
+
+最終compact `/tmp/nikke-coordinate-healing-final-v1.zip`（a0f3be21…）は機能37・制御476（Windows専用1skip）成功。全1890filesの終了後payload SHA／checkout全byteと、実GPU source/input・修正版native基準との一致を確認。最終配布で全nativeを再作成しません。
+
+次はauthored fixtureを増やす前に、元の完全編成input bridgeを優先します。既存static preparationからマルチャーナ編成68効果（本人14）、デルタ：ニンジャシーフ編成79効果（本人25）の全元定義・weapon/config SHAを抽出済み（`original-static-v1.json`、CPU battle/GPU0）。authored observerはweapon metadata／遅延／cover HP／操作を置換するため元編成正本に代用しません。`portable_world_roster_input` の全定義・owner・元正規化と座標sidecarを共通化し、real bodyを既存native reference＋user選択の共通座標mathだけで比較します。元の不都合な定義・武器を抜かないこと。down／復活・callback session合成と公開受付も残ります。
+
+inventory再検査は245/266 packing、base185/203、未対応21profiles／20model-gap分類、全キャラ認定0／UI CPU／全目標未達。Windows新依頼0。既存idle chatを開始できない送信APIの制約に対して同じ依頼を重複送信せず、開始可能になった既存短いCUDA検証の保存結果だけを取得します。

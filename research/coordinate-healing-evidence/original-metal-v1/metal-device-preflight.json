@@ -1,0 +1,25 @@
+{
+  "schema": "metal-device-preflight-v1",
+  "passed": true,
+  "device_visible": true,
+  "gpu_calls": 0,
+  "kernel_calls": 0,
+  "calculation_verified": false,
+  "context_current_verified": false,
+  "scope": "Device visibility in this probe only; the bounded GPU child must acquire its own device",
+  "argv": [
+    "/usr/bin/swift",
+    "-module-cache-path",
+    "/tmp/nikke-scope-swift-module-cache-v1",
+    "/private/tmp/nikke-coordinate-healing-develop-v1/scripts/metal-device-probe.swift"
+  ],
+  "probe_sha256": "444f76f3f327a3f4b1137ddee63224b1f8e4efc9c0a6beb8a53b7ca5eeef1a85",
+  "timeout_seconds": 20,
+  "return_code": 0,
+  "stdout": "{\"device\":\"Apple M5\",\"device_visible\":true,\"kernel_calls\":0,\"max_buffer_length\":14302248960,\"registry_id\":\"4294968313\",\"schema\":\"metal-device-visibility-v1\"}\n",
+  "stderr": "",
+  "device": "Apple M5",
+  "registry_id": "4294968313",
+  "max_buffer_length": 14302248960,
+  "elapsed_seconds": 0.26580579101573676
+}
