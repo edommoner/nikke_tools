@@ -1,0 +1,52 @@
+[
+  {
+    "pattern": "test_coordinate_sample_v1.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.7710395409958437,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 71523
+  },
+  {
+    "pattern": "test_coordinate_sampling_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.3122057920554653,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 71523
+  },
+  {
+    "pattern": "test_coordinate_sampling_bank.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.2582488340558484,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 71523
+  },
+  {
+    "pattern": "test_packet_integer_ratio.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.04580624995287508,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 71523
+  },
+  {
+    "pattern": "test_coordinate_sampled_parent.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.6353548329789191,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 71523
+  }
+]

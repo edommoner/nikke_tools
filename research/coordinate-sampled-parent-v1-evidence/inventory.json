@@ -1,0 +1,258 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/compiler-certificate.json",
+      "bytes": 1100,
+      "sha256": "e98ec791886172d1549de0d2e20d849e8d4aab711b1005852e781e82d959d11b"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/frontier-tests.json",
+      "bytes": 254,
+      "sha256": "b6e1657c44fa30b7f6e6240ff270c67b7c818a5dfb12702af2e43d448239c74f"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/generated-retention.json",
+      "bytes": 189792,
+      "sha256": "5b11775b3aede97ee385f3e82b2113d3d4cc4cc23469bbeb9713938cedf671d5"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/initial-diagnostic.json",
+      "bytes": 304,
+      "sha256": "13d38048f5b36c5c93d15c8a1d16fb6f661343bfbfe633f48443625e2f6ee942"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/model-summary.json",
+      "bytes": 36425,
+      "sha256": "c223a4a521cd0614716fbd6e143af13836f678cf807430d40a1e682119bce186"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/native-contract-summary.json",
+      "bytes": 118812,
+      "sha256": "b2010cc681169dc556faad766512562600aa43043ac61b50ad6cc999c53f0088"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/old23-retention.json",
+      "bytes": 1308,
+      "sha256": "438b4b29bff9cf91dac77ce4181c07b913e5f0c851ad70a7e88adecf967c238f"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/package-projection.json",
+      "bytes": 138,
+      "sha256": "927df4ab8def54816773ca238f7675b7ccd6e5ad6e4ec3026f5b37af718c0d46"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/packet-ratio-final-cpu-v2/cpu-tests.json",
+      "bytes": 217,
+      "sha256": "5d9e277b7354658330ec3a2c292ebbd43a7a3a64aca60baae5ebb4904acf8bbb"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/packet-ratio-final-cpu-v2/cpu.json",
+      "bytes": 256,
+      "sha256": "838d7e496c232b77a751ca7ee9936d04ee9581e68d383bb4d90e1d033298513b"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/packet-ratio-final-cpu-v2/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/parent-fixed/artifacts.json",
+      "bytes": 5447,
+      "sha256": "baae6c2adc94cce78387bcec0d1252ffc38b655c01c01eeb2aaa7f067910f713"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/parent-fixed/comparison.json",
+      "bytes": 13845,
+      "sha256": "5cf649b8caba486f0e15659136cba5ec2f9517fdfa1386aab5c1c310f11747a8"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/parent-fixed/evidence.json",
+      "bytes": 58377,
+      "sha256": "0f9cfb7606c460976e6157978a4885d224f071b65631f40640e44d0453097fc7"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/parent-fixed/execution.json",
+      "bytes": 4147,
+      "sha256": "ff152ce5fb9d280852f1ffb1512b0a7e4b866592e6fbe7db3b86908bf2cbd36c"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/parent-fixed/result.json",
+      "bytes": 3979,
+      "sha256": "2c08fdc564ff156e4c92faa7279f69bac0e429b8838d48f72dbef86154d3d3cc"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/parent-fixed/run.json",
+      "bytes": 267,
+      "sha256": "562f86d6caa58e1cc6e1b124dc96f82b462f0084993984a2da0f5177059a4ace"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/parent-original/artifacts.json",
+      "bytes": 5447,
+      "sha256": "91cc29cd883c8b2e66761dbb361ab34a67aaf29675893729fb616a44a18d826e"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/parent-original/comparison.json",
+      "bytes": 13689,
+      "sha256": "803c8d9894d603c8371a4e1901927cc942893c5858ee951964601610f2470190"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/parent-original/evidence.json",
+      "bytes": 58262,
+      "sha256": "0b2ef868f35f56421d5cd7dd68e308736d2916931f810d300e0e3ce9aefc34b5"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/parent-original/execution.json",
+      "bytes": 4139,
+      "sha256": "a0c70d87c8178fe73479653c86c34c62b58a8e0d76833b189326420daa3ee9b2"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/parent-original/result.json",
+      "bytes": 4137,
+      "sha256": "3062a800d8a18c31c5312a1a9eb3e554584aa9fd475b7634fb3f34cbb840c72d"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/parent-original/run.json",
+      "bytes": 267,
+      "sha256": "4b2891fff5e8cb7cec174239ce9e63385c9f90606e710baf8e20df64d573a357"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/parent-storage-stop/run.json",
+      "bytes": 222,
+      "sha256": "838bb71d0c78fd77c7fee0dff75667e52961b1c358c287cf7a0b92cf476dea7c"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/parent-storage-stop/storage.json",
+      "bytes": 253,
+      "sha256": "3311962d948f4beaba5998618637ed5884d1482e731977a98540feadee0e1e2c"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/ratio-current/artifacts.json",
+      "bytes": 3383,
+      "sha256": "33bbede93b72e1e16ba0dfe4b618cb1d17c905b274adb7b75b22d88206241184"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/ratio-current/comparison-summary.json",
+      "bytes": 863,
+      "sha256": "892ad26f06f7fa9b448705346972bdef5b2b5cbbf00479308cca0ab21cf32798"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/ratio-current/evidence.json",
+      "bytes": 15139,
+      "sha256": "86eb8b77c77005d72d7ab5e36a1da7805c72336104dedebe3b1d9e21f30dd09e"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/ratio-current/execution.json",
+      "bytes": 1559,
+      "sha256": "38ce765feb49cbc34e054522d22a2e61c1f3c9c695a82eb1293670e10b604277"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/ratio-current/result.json",
+      "bytes": 1390,
+      "sha256": "a4ec5f1a11000adbf71dfce6284abd4464f254ce2185980de2e2a64b8dd80cc5"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/ratio-current/run.json",
+      "bytes": 267,
+      "sha256": "ef8f09d2dab89e2966c520e579a2182a60838d1a880a1a9c9115cb7cdd2f1d76"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/ratio-original/artifacts.json",
+      "bytes": 3383,
+      "sha256": "594ee86e96946c6afbd0d36073fcbeb9e1f225c2091be9ee686562da4350fd51"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/ratio-original/comparison-summary.json",
+      "bytes": 863,
+      "sha256": "69629be3a2d4a1109c758bb9be4b363a34a1a9d29e7b86cfbc1efc3dfa789ca0"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/ratio-original/evidence.json",
+      "bytes": 15155,
+      "sha256": "c7eaebc5cd55db698bf049b0a865996842bea94a60d3a17230357da66ee1e261"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/ratio-original/execution.json",
+      "bytes": 1558,
+      "sha256": "df96d85e7f7be7881a96bcae7519b8131a700b10ce17ad28a2087a8813dbbbae"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/ratio-original/result.json",
+      "bytes": 1390,
+      "sha256": "2b4e8e3e465c21b2f23a424cd8ac71728dd0c422d719ff3c18b823191af281a9"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/ratio-original/run.json",
+      "bytes": 267,
+      "sha256": "431d2657e7c993e659cb0df57367905d8358f1e74614fa5ebdc8fd240f9d7e7b"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/ratio-storage-stop/run.json",
+      "bytes": 222,
+      "sha256": "4b783024ddb95c75f922707fa6c75d355a975ffaaf614ee662e1717d992be8fe"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/ratio-storage-stop/storage.json",
+      "bytes": 245,
+      "sha256": "259c2bc1a2b2e1b3f9c17bfca6b22933d568ebf31abbf5afb32f3d4ae363e2bc"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/sampled-parent-final-control-v2/cpu-tests.json",
+      "bytes": 8934,
+      "sha256": "fdf527ed3271128335d5887f9cb97c35fff9ec1fd92262b2027d78a20b23ca08"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/sampled-parent-final-control-v2/cpu.json",
+      "bytes": 109,
+      "sha256": "bc45e3d39298f7219da3140078d6f10d93262192126d145de384a7dcb2799e8e"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/sampled-parent-final-control-v2/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/sampled-parent-final-cpu-v2/cpu-tests.json",
+      "bytes": 1087,
+      "sha256": "a4fd27727f5dd9facd58a6f7abd193f0ce6cc7fd093e4b9202cc63b01f87ca03"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/sampled-parent-final-cpu-v2/cpu.json",
+      "bytes": 247,
+      "sha256": "09ad006f5983312d15123da2383db4e620ab0d4adb49ec2647bfde5e910459af"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/sampled-parent-final-cpu-v2/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/storage-recovery-1.json",
+      "bytes": 689,
+      "sha256": "9b72be9b6ead8a73410156d536d43a90b1f4e13e7c443fcb815b7f200922342c"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/storage-recovery-2.json",
+      "bytes": 693,
+      "sha256": "e5bc7cae86217719b4b27288ba13e49f79179c92bd091c16ca8f77ffcec251ec"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/storage-recovery-3.json",
+      "bytes": 694,
+      "sha256": "ab72a7bf85c01fb41477b1432935b9932adb89ae105490e852b123e409141ecc"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/storage-recovery-4.json",
+      "bytes": 694,
+      "sha256": "092b95fbb47429ad7081b82a89703c72dc2fb37072da892b093539d17becfc4b"
+    },
+    {
+      "path": "research/coordinate-sampled-parent-v1-evidence/storage-recovery-5.json",
+      "bytes": 694,
+      "sha256": "dfe12f7fcd35ff3d9770acb39cd49aa1708169d2d48f885838b9171ece0d1aa9"
+    }
+  ],
+  "raw_included": false,
+  "personal_settings_included": false,
+  "gpu_calls": 0
+}

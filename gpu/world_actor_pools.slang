@@ -133,6 +133,9 @@ void actorPoolLand(inout Runtime s,uint who,uint slot,uint64_t amount)
     if(kind==6) { interruptReceipt=beginInterruptAimReceipt(s,who,slot,amount);if(s.error!=0) return;accumulateInterruptAimDamage(s,who,amount);if(s.error!=0) return; }
 #endif
     bool directTarget=kind==1 || kind==6;
+#ifdef PORTABLE_COORDINATE_SAMPLED_PARENT
+    if(kind==0 || kind==1)recordSampledParentDamage(s,who,amount);
+#endif
     if(kind==0 || kind==1)
     { s.total[who]=f64Add(s.total[who],amount);s.scoredDamage[who]=f64Add(s.scoredDamage[who],amount); }
     if(kind==0)

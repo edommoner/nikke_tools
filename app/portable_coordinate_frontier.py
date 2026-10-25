@@ -165,6 +165,16 @@ def verify(root, overrides=None):
     sampled_battle_path=root/'research/portable-coordinate-sampled-battle-short-expected.json'
     sampled_battle_golden=json.loads(sampled_battle_path.read_text()) if sampled_battle_path.is_file() else None
     sampled_battle_matches=sampled_battle_golden['source_sha256']==sampled_battle_sources if sampled_battle_golden else None
+    sampled_parent_sources=source_hashes(root,'gpu/world_coordinate_sampling_parent_entry.slang')
+    sampled_parent_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in sampled_parent_sources.items()}
+    sampled_parent_path=root/'research/portable-coordinate-sampled-parent-short-expected.json'
+    sampled_parent_golden=json.loads(sampled_parent_path.read_text()) if sampled_parent_path.is_file() else None
+    sampled_parent_matches=sampled_parent_golden['source_sha256']==sampled_parent_sources if sampled_parent_golden else None
+    ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
+    ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
+    ratio_path=root/'research/portable-packet-ratio-short-expected.json'
+    ratio_golden=json.loads(ratio_path.read_text()) if ratio_path.is_file() else None
+    ratio_matches=ratio_golden['source_sha256']==ratio_sources if ratio_golden else None
     round_sources=source_hashes(root,'gpu/coordinate_round_probe.slang')
     round_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in round_sources.items()}
     round_path=root/'research/portable-coordinate-round-short-expected.json'
@@ -387,6 +397,21 @@ def verify(root, overrides=None):
                     group_receipt_functions_reused=True,group_owner_examples_verified=False,
                     remaining=['non-buff effects including weapon changes, healing, sampled damage/queue effects','parent reference quantity integer division','group-owner sampled worlds','original definitions and public admission'],
                     public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_sampled_parent=dict(suite='coordinate-sampled-parent',source_sha256=sampled_parent_sources,
+                    proof_available=sampled_parent_golden is not None,sealed_source_matches_current=sampled_parent_matches,
+                    input_count=len(sampled_parent_golden['entries']) if sampled_parent_golden else None,
+                    reference_kind='deterministic-common-cpu',native_reference_cli='coordinate-sampled-parent-common',
+                    admitted_definition_kinds=['buff','dealt_fixed_damage'],
+                    parent_quantity='exact uint128 created physical packet sum / muzzle; one nearest-even binary64 rounding',
+                    whole_battle_integer_damage='persistent uint128 BODY/PART credits; ordered binary64 diagnostic retained',
+                    parent_children_consume_rng=False,extra_runtime_bytes=0,extra_output_words=0,
+                    group_owner_examples_verified=False,
+                    remaining=['ordinary damage skill RNG','weapon changes and healing in sampled battles','group-owner sampled worlds','original definitions and public admission'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                packet_integer_ratio=dict(suite='packet-ratio',source_sha256=ratio_sources,
+                    proof_available=ratio_golden is not None,sealed_source_matches_current=ratio_matches,
+                    input_count=len(ratio_golden['entries']) if ratio_golden else None,
+                    numerator_bits=128,divisor_min=1,divisor_max=1024,rounding='single nearest even'),
                 logical_pellets_equal_emitted_packets=False, dependencies=dependencies,
                 source_sha256={p: hashlib.sha256(t.encode()).hexdigest() for p, t in texts.items()},
                 model_gap_audit=model, gpu_calls=0, native_battle_calls=0,

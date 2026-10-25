@@ -3,7 +3,7 @@ import sys,types
 from unittest.mock import patch
 
 
-def observe(case):
+def observe(case,*,observer=None):
     import engine_worker
     from calculator import timeline
     from calculator.buff_manager import BuffManager
@@ -35,7 +35,7 @@ def observe(case):
         return notify(manager,event,t,caster,**kwargs)
     with patch.object(BuffManager,'notify',notified):
         sys.setprofile(profile)
-        try:result=common(case)
+        try:result=(common if observer is None else observer)(case)
         finally:sys.setprofile(previous)
     if errors:raise ValueError('Packet quantity observation failed: '+str(errors))
     result['landed_packets']=packets;result['full_charge_quantities']=notices

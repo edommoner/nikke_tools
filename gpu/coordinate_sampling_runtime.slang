@@ -1,5 +1,9 @@
 #include "coordinate_sampling_bank.slang"
 #include "coordinate_sample_v1.slang"
+#ifdef PORTABLE_COORDINATE_SAMPLED_PARENT
+#include "packet_integer_ratio.slang"
+#include "sampled_parent_damage_totals.slang"
+#endif
 uint csMeta(inout Runtime s){return s.resourceOutput+CS_META;}
 uint csRng(inout Runtime s){return s.resourceOutput+CS_RNG;}
 uint csRow(inout Runtime s,uint i){return s.resourceOutput+CS_ROWS+i*CS_ROW_WORDS;}
@@ -14,11 +18,22 @@ bool initializeCoordinateSampling(inout Runtime s)
 {
     // Damage effects need the same sampled skill RNG hook before admission.
     // Keep the initial physical path explicit rather than accepting EV skills.
+#ifdef PORTABLE_COORDINATE_SAMPLED_PARENT
+    for(uint row=0;row<s.count;row++)
+    {
+        uint kind=definition_kind(s.inputBase,row);
+        if(kind!=0&&!(kind==3&&definition_damageFlags(s.inputBase,row)==262144U))return false;
+    }
+#else
     for(uint row=0;row<s.count;row++)if(definition_kind(s.inputBase,row)!=0)return false;
     if((s.quantityMask&0x01000000U)!=0)return false;
+#endif
     uint input=s.inputBase+P_ENEMY_TARGET_META_BASE;
     if(commands[input]!=1)return false;
     mtSeed(csRng(s),uint64_t(commands[input+1])|(uint64_t(commands[input+2])<<32));
+#ifdef PORTABLE_COORDINATE_SAMPLED_PARENT
+    initializeSampledParentDamage(s);
+#endif
     return true;
 }
 uint64_t prepareCoordinateSampleBasis(inout Runtime s,uint who,Weapon w,uint64_t coefficient,uint64_t when,uint flags)
@@ -86,6 +101,28 @@ bool sampleCoordinatePhysicalPellet(inout Runtime s,Weapon w,uint who,uint64_t w
         for(uint i=0;i<n;i++){uint slot=results[h+CS_FRAME+i*4];if((results[at+8+slot/32]&(1U<<(slot%32)))!=0)results[h+1]++;}
     }
     else results[h+1]++;
+#ifdef PORTABLE_COORDINATE_SAMPLED_PARENT
+    if((s.quantityMask&0x01000000U)!=0&&s.error==0)
+    {
+        PacketIntegerSum total;total.low=actorNumber(h+50);total.high=actorNumber(h+52);
+        if(reach||front==0) {if(!packetIntegerAddAmount(total,actorNumber(at+2)))s.error=16;}
+        if(reach)
+        {
+            for(uint i=0;i<n;i++)
+            {
+                uint e=h+CS_FRAME+i*4,slot=results[e],kind=results[e+1];
+                if((results[at+8+slot/32]&(1U<<(slot%32)))!=0&&!packetIntegerAddAmount(total,actorNumber(at+(kind==1?4:6))))s.error=16;
+            }
+        }
+        else if(front!=0&&!packetIntegerAddAmount(total,actorNumber(at+(commands[actorBinding(s,front)]==1?4:6))))s.error=16;
+        storeNumber(h+50,total.low);storeNumber(h+52,total.high);
+        if(hit+1==results[h]&&s.error==0)
+        {
+            uint status;uint64_t quantity=packetIntegerRatio(total,w.muzzles,status);
+            if(status!=0)s.error=16;else storeNumber(h+14,quantity);
+        }
+    }
+#endif
     return true;
 }
 void notifySampledCoordinateChargeTeam(inout Runtime s,uint who,uint count,uint64_t when,uint output)
