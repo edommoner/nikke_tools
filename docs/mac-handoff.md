@@ -2159,3 +2159,13 @@ GPU前packet v1は未実行。v2 `/tmp/nikke-original-cleanse-develop-v2`（5ac7
 独立seal67.274981秒、別child・全4fresh・live parent receiptなし／GPU0。同じ監査からgoldenとsource-only証明書を作成し、現CUDA compile/link/cache/battleへ流用しません。最終compact `/tmp/nikke-original-cleanse-final-v1.zip`（3f2da212…）は関連28／制御476（Win1skip）成功。全1952payload SHA／checkout全byteとGPU source・全input／native／outputを終了後検査。全reader終了後に原／replay rawをSHA／size／inode保持で疎化し各27,115,520byte回収、削除0。
 
 静的全266／247packing／kind拒否22（旧stack30）。残り225をGPU対応数としないこと。次は実在する未受付15／33／23／27等をstat・target・timingまで調べ、依存をまとめて正の発火を検証します。stack18/20/21、ボス攻撃debuff payload、敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cache、公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／目標未達。Windows新依頼0、idle送信APIへ重複runを依頼しません。
+
+## 2026-10-26 entry-inventoryの演算逆引き・依存分類
+
+最新 `docs/portable-entry-operators.md`／`research/portable-entry-operators-checkpoint.json`。共通CLI `entry-inventory --suite coordinate-original-cleanse --out UNIQUE.json` はcompiled rowを実bindingで元sourceへ戻し、type／stat／target／timing／condition／scaling／参照先／field一覧、owner・name・元effect SHAを記録します。`operator_priorities` はプロファイル／元定義／compiled行の数を別々に計数、`kind_dependencies` は同一profileの必要kind集合、`packing_failures` は未変換を分離。対応するsourceが壊れた場合は普通のpacking gapへ変換せず監査全体を失敗にし、失敗保存／上書き拒否を維持。6検査は行順の逆引き、複数compiled行と元定義の区別、分類漏れ、不正provenanceを検証しました。
+
+全266／247packing／未変換19／kind拒否22を26演算記述へ分類、3.790879秒・監査内CPU battle／GPU0。数値code15はresourceではなく `named_buff_duration_extend`、23は `force_reload`、27は `shield_heal_pct`、31は `decoy_heal_pct`、33は `force_skill_use` です。codeだけで次の実装を判断しないこと。33だけでJulia（율리아）の愛蔵品1/2/3、15だけでクラスト／プリカ、両方でサクラが候補になります。次のGPU入口は15＋33をまとめ、元発火と期限／phaseを検証します。
+
+別のCPU調査では元Julia（율리아）77／79／79全定義、3秒・seed3201、愛蔵品1でスキル1の1定義、2/3で3定義が時刻0に実強制発動。元サクラ74全定義もスキル2の2定義が時刻0に発動。元body・全効果・weapon・成長identityを保持し、GPU禁止で観測。observer sourceと結果は `research/entry-operator-evidence/` に保存。これらはGPU受付／計算成功やregression goldenではありません。時計は時刻0で全て未登録だったため、空の前後一致を非空時計の保持証明へしません。最初のSakura probeは非空時計があるという仮説をassertが否定し、原失敗log `/tmp/nikke-original-force-probe-sakura-v1.log` を保持。実部位破壊によるサクラ2状態の延長・最終期限・tick位相は次の未検証項目です。
+
+今回GPU／数値本体変更0、current cleanse goldenとGPU source一致。Metal再実行0／Windows新実行0。前回のMetal実証の未完了分類（ボスdebuff・敵回復・武器groupモデル・召喚攻撃・現CUDA／warm cache・公開GPU／全キャラ）は維持。全キャラ0／UI CPU／目標未達です。新CLIは開発checkout／full package用で、compactのentry-inventory拒否は維持します。

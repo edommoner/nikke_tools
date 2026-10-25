@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+未受付項目の次の調査は `entry-inventory --suite coordinate-original-cleanse --out UNIQUE.json` から始めます。元source行・stat・target・timing・参照先の分類と、同一プロファイルのkind依存を自動出力します。入力変換失敗は別一覧で保持。静的監査だけでGPU対応数へ読み替えないこと。[分類方法と次候補](portable-entry-operators.md)。
+
 `coordinate-original-cleanse`4 は元ココア／ミカ：スノーバディ／ロザンナの部分解除・全員解除・敵バフ解除を実証したsealed suiteです。`package --suite coordinate-original-cleanse --compact` を使います。味方抽選と座標射撃を同じMTへ接続し、実整数draw・全624語と632語の出力同一性を検査。M5保存出力の再照合・独立fresh監査・関連28／制御476が成功（Win1skip）。ボス攻撃のdebuff入力・現CUDAは未完了です。[範囲と最初の比較失敗](portable-original-cleanse.md)。
 
 `coordinate-original-stacks`4 は元ペッパー／ルピー／マルチャーナ：マリンスタディの現在スタック増加・上限・消費・再充填を検証したsealed suiteです。`package --suite coordinate-original-stacks --compact` を使います。既存共通16／17／19を接続し、M5保存出力の再照合と独立fresh監査、関連22／制御476検査が成功（Win1skip）。無期限は実wire bitsで照合し、有限1e30と区別します。静的kind拒否30をGPU対応数へ読み替えないこと。[検証範囲と初回比較失敗](portable-original-stacks.md)。

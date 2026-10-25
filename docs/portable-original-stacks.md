@@ -10,7 +10,7 @@
 
 旧ammo入口は新stack macro未定義時のCUDA／MSL原生成物が全byte一致。strict source／transport inverseと祖先projectionを保持し、normalizerや旧goldenは変更しません。共有fragmentのraw hash変更により旧source readinessがfalseになることは隠しません。
 
-静的entry-inventoryは全266profile／247入力変換、kind拒否30（旧ammo46）。残りをGPU対応済みとして数えません。次の候補は解除26（11profile）、gauge等15、残るstack18／20／21などです。敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cacheと公開GPU／全キャラ認定も残ります。
+静的entry-inventoryは全266profile／247入力変換、kind拒否30（旧ammo46）。残りをGPU対応済みとして数えません。次の候補は解除26（11profile）、名前指定持続時間延長15、残るstack18／20／21などです。敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cacheと公開GPU／全キャラ認定も残ります。
 
 ## 実証の経路
 

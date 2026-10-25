@@ -5,6 +5,52 @@ from unittest.mock import patch
 from contextlib import ExitStack
 from portable_original_identity_inventory import prepared_profiles
 
+def rejected_effects(words,metadata,prepared,unsupported):
+    """Bind compiled rejections back to exact original rows, never row positions."""
+    from portable_specs import LIMITS as L,FIELDS as F
+    bindings=metadata['binding_source_indices'];effects=prepared['effects'];rows=[]
+    if len(bindings)!=words[1]:raise ValueError('Incomplete original rejection bindings')
+    for rejected in unsupported:
+        index=rejected['row'];kind=rejected['kind']
+        if type(index) is not int or not 0<=index<len(bindings):raise ValueError('Invalid compiled rejection row')
+        at=L['DEFINITION_BASE']+index*L['DEFINITION_WORDS']+F['KIND']
+        if words[at]!=kind:raise ValueError('Rejection kind differs from actual wire')
+        source=bindings[index]
+        if type(source) is not int or not 0<=source<len(effects):raise ValueError('Invalid original rejection source')
+        item=effects[source];effect=item['effect'];trigger=effect.get('trigger',{})
+        operator=dict(kind=kind,effect_type=effect.get('type'),stat=effect.get('stat'),
+            target=copy.deepcopy(effect.get('target','self')),timing=copy.deepcopy(trigger.get('timing',[])),
+            conditions=copy.deepcopy(trigger.get('condition',[])),scaling=effect.get('scaling'),
+            references={key:copy.deepcopy(effect[key]) for key in ('target_effect','target_skill','scaling_ref','remove_scope') if key in effect},
+            fields=sorted(effect))
+        rows.append(dict(compiled_row=index,source_row=source,owner=item['owner'],name=effect.get('name'),operator=operator,
+            effect_sha256=hashlib.sha256(json.dumps(effect,ensure_ascii=False,sort_keys=True).encode()).hexdigest()))
+    return rows
+
+def operator_priorities(profiles):
+    """Count profiles, original definitions and compiled bindings separately."""
+    groups={}
+    for profile in profiles:
+        for row in profile.get('rejected_effects',[]):
+            operator=row['operator'];key=json.dumps(operator,ensure_ascii=False,sort_keys=True)
+            group=groups.setdefault(key,dict(operator=copy.deepcopy(operator),definitions=[]))
+            group['definitions'].append(dict(character=profile['character'],favorite_stage=profile['favorite_stage'],
+                **{key:row[key] for key in ('compiled_row','source_row','owner','name','effect_sha256')}))
+    for group in groups.values():
+        definitions=group['definitions'];profiles=sorted({(row['character'],row['favorite_stage']) for row in definitions})
+        group['profiles']=[dict(character=name,favorite_stage=stage) for name,stage in profiles]
+        group.update(profile_count=len(profiles),original_definition_count=len({(row['character'],row['favorite_stage'],row['source_row']) for row in definitions}),compiled_definition_count=len(definitions))
+        definitions.sort(key=lambda row:(row['character'],row['favorite_stage'],row['compiled_row']))
+    return sorted(groups.values(),key=lambda group:(-group['profile_count'],-group['original_definition_count'],group['operator']['kind'],json.dumps(group['operator'],ensure_ascii=False,sort_keys=True)))
+
+def kind_dependencies(profiles):
+    groups=collections.defaultdict(list)
+    for profile in profiles:
+        required=tuple(sorted({row['kind'] for row in profile.get('kind_admission',{}).get('unsupported',[])}))
+        if required:groups[required].append(dict(character=profile['character'],favorite_stage=profile['favorite_stage']))
+    return [dict(required_kinds=list(required),profile_count=len(rows),profiles=sorted(rows,key=lambda row:(row['character'],row['favorite_stage'])))
+        for required,rows in sorted(groups.items(),key=lambda item:(-len(item[1]),item[0]))]
+
 def run(output,*,write,forbid_gpu,source=None):
     output=Path(output)
     with output.open('x',encoding='utf-8') as stream:stream.write('{}\n')
@@ -49,14 +95,19 @@ def run(output,*,write,forbid_gpu,source=None):
                     row.update(input_packed=True,input_words=len(words),input_sha256=hashlib.sha256(raw.tobytes()).hexdigest(),prepared_definitions=len(prepared['effects']),bound_definitions=len(metadata['effects']),definition_kinds=found,kind_admission=policy.inspect(words))
                     for kind in found:kinds[str(kind)].append(dict(character=name,favorite_stage=stage))
                 except (ValueError,TypeError,KeyError) as error:row['error']=str(error)
+                else:row['rejected_effects']=rejected_effects(words,metadata,prepared,row['kind_admission'].get('unsupported',[]))
                 report['profiles'].append(row)
         if report['source_sha256']!=source_hashes() or report['gpu_source_sha256']!=portable_backend.source_hashes(source):raise ValueError('Static entry inventory source changed during audit')
         if calls!=dict(cpu_battle=0,gpu=0):raise AssertionError('Static entry inventory made forbidden calls')
         report.update(passed=True,profile_count=len(report['profiles']),packed_profiles=sum(row['input_packed'] for row in report['profiles']),definition_kind_profiles=dict(kinds))
         report['kind_rejected_profiles']=sum(bool(row.get('kind_admission',{}).get('unsupported')) for row in report['profiles'])
+        report['operator_priorities']=operator_priorities(report['profiles'])
+        report['rejected_operator_categories']=len(report['operator_priorities'])
+        report['kind_dependencies']=kind_dependencies(report['profiles'])
+        report['packing_failures']=[{key:row[key] for key in ('character','favorite_stage','error','original_definitions_sha256')} for row in report['profiles'] if not row['input_packed']]
         report.pop('current_profile',None)
     except BaseException as error:
         report['error']=type(error).__name__+': '+str(error);raise
     finally:
         report['elapsed_seconds']=time.perf_counter()-started;write(output,report)
-    return {key:report[key] for key in ('stage','passed','profile_count','packed_profiles','kind_rejected_profiles','forbidden_calls','calculation_verified','gpu_admission_verified','full_character_verified','elapsed_seconds')}
+    return {key:report[key] for key in ('stage','passed','profile_count','packed_profiles','kind_rejected_profiles','rejected_operator_categories','forbidden_calls','calculation_verified','gpu_admission_verified','full_character_verified','elapsed_seconds')}
