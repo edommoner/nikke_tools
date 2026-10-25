@@ -10,7 +10,7 @@
 
 旧resource入口は新ammo macro未定義時のCUDA／MSL原生成物が両方全byte一致。source／transport inverseは厳密な差分とSHAを使い、祖先baselineに存在しなかった新fragmentを戻り値から除去します。normalizerを緩めず、旧goldenのsource hashも自動更新しません。
 
-静的entry-inventoryは266profile／247入力変換、kind拒否46（前入口65）。入力変換・kind条件・実GPU計算は別段階であり、残り201を対応済みとは数えません。次の実在候補にはstack上限19、解除26、stack追加16等があります。敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cache、公開GPU／全キャラ認定も残ります。
+静的entry-inventoryは266profile／247入力変換、kind拒否46（前入口65）。入力変換・kind条件・実GPU計算は別段階であり、残り201を対応済みとは数えません。次の実在候補には現在stack増加19、解除26、stack追加16等があります。敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cache、公開GPU／全キャラ認定も残ります。
 
 ## 実証
 

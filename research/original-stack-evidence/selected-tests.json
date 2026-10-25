@@ -1,0 +1,42 @@
+[
+  {
+    "pattern": "test_original_stacks.py",
+    "exit_code": 0,
+    "elapsed_seconds": 12.225171125028282,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 30148
+  },
+  {
+    "pattern": "test_original_ammo.py",
+    "exit_code": 0,
+    "elapsed_seconds": 10.468976957956329,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 30148
+  },
+  {
+    "pattern": "test_coordinate_kind_admission.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.30594237498007715,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 30148
+  },
+  {
+    "pattern": "test_coordinate_original.py",
+    "exit_code": 0,
+    "elapsed_seconds": 10.22742908296641,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 30148
+  }
+]

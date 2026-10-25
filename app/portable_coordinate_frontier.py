@@ -240,6 +240,9 @@ def verify(root, overrides=None):
     ammo_original_sources=source_hashes(root,'gpu/world_coordinate_original_ammo_entry.slang') if (root/'gpu/world_coordinate_original_ammo_entry.slang').is_file() else {}
     ammo_original_path=root/'research/portable-coordinate-original-ammo-short-expected.json'
     ammo_original_golden=json.loads(ammo_original_path.read_text()) if ammo_original_path.is_file() else None
+    stack_original_sources=source_hashes(root,'gpu/world_coordinate_original_stack_entry.slang') if (root/'gpu/world_coordinate_original_stack_entry.slang').is_file() else {}
+    stack_original_path=root/'research/portable-coordinate-original-stacks-short-expected.json'
+    stack_original_golden=json.loads(stack_original_path.read_text()) if stack_original_path.is_file() else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -676,6 +679,17 @@ def verify(root, overrides=None):
                     checked=['actual percentage and flat dispatches','effective capacity and upper clipping',
                         'negative percentage drain','positive original gauge-step reward and final resources'],
                     remaining=['other original stack and resource operations','enemy healing and original weapon group model',
+                        'current CUDA execution and public all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_original_stacks=dict(suite='coordinate-original-stacks',source_sha256=stack_original_sources,
+                    proof_available=stack_original_golden is not None,
+                    sealed_source_matches_current=stack_original_golden['source_sha256']==stack_original_sources if stack_original_golden else None,
+                    input_count=len(stack_original_golden['entries']) if stack_original_golden else None,
+                    original_definitions_weapons_preserved=True,reference_kind='deterministic-common-cpu',
+                    shared_stack_mutation_and_notice_handlers=True,admitted_kinds=[16,17,19],
+                    checked=['actual original dispatch counts','all final stack carriers and lifetime/membership',
+                        'current-stack increase and duration refresh','cap and missing-carrier no-ops','consumption and later recharge'],
+                    remaining=['other original stack operations and enemy mutation','removal and other unadmitted kinds',
                         'current CUDA execution and public all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 sampled_vital_kind_preflight=dict(shared_generated_guard=True,scope='definition kinds only',

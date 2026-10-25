@@ -2132,4 +2132,16 @@ packet `/tmp/nikke-original-ammo-develop-v1`（ea73aa56…）、capture `/tmp/ni
 
 最終compact `/tmp/nikke-original-ammo-final-v1.zip`（b8fdecda…）は関連23／制御476（Win1skip）成功。全1938payload SHA／checkout全byteとGPU source・全input／native／output指紋を終了後に検査。全reader終了後にrawをSHA／size／inode保持で疎化し27,058,176byte回収、削除0。全266静的inventoryは247packing／kind拒否46（旧resource65）。残り201をGPU対応数としないこと。
 
-次は実在するstack上限19（11profile）、解除26（11profile）、stack追加16等を優先し、元定義の実発火とreadbackを確認します。敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cache、公開GPU・全キャラ認定も未完。全キャラ0／UI CPU／全目標未達、Windows新規実行依頼0。既存idleチャット送信APIはユーザー依頼で再試行しても同じactive-turnエラー。検証の重複runは依頼せず、手動開始または実行開始可能な状態になってから既存短い検証の状態／保存結果を取得します。
+次は実在する現在stack増加19（11profile）、解除26（11profile）、stack追加16等を優先し、元定義の実発火とreadbackを確認します。敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cache、公開GPU・全キャラ認定も未完。全キャラ0／UI CPU／全目標未達、Windows新規実行依頼0。既存idleチャット送信APIはユーザー依頼で再試行しても同じactive-turnエラー。検証の重複runは依頼せず、手動開始または実行開始可能な状態になってから既存短い検証の状態／保存結果を取得します。
+
+## 2026-10-26 元編成stack16/17/19・実消費と再充填
+
+最新 `coordinate-original-stacks`4、`docs/portable-original-stacks.md`／`research/portable-original-stacks-checkpoint.json`。元ペッパー73／ルピー68／マルチャーナ：マリンスタディ80全定義を完全5人編成・元weapon／成長／操作のまま保持、6／10／6／6秒。既存共通16／17／19を新stack入口へ接続し、CPUとSlangのkind条件は同じ宣言から生成。数値／wire／Runtime容量変更0。19は上限増加ではなく現在stack増加です。旧ammo入口のmacro未定義CUDA/MSL原生成物を全byte保持、厳密inverseと祖先7検査も成功。
+
+ルピーの実100hitから3→4と15秒duration更新、マリンスタディ開始時1→5・idleで上限維持、宣言ADD6体存在中の3回消費5→2と退出後2→3再充填を観測。ペッパーは対象carrierなしの実無変更として保持。対象解決／stat再照会をしない受動snapshotを使い、既存全battle／packet／RNG／resourceと、全最終stack carrierのsource・membership・stack・activation・expiration、定義別dispatch数を比較。敵stack20/21・init18・shared partial-skip正例へ認定を広げないこと。
+
+初回packet `/tmp/nikke-original-stacks-develop-v1`（3f448b6e…）／capture `/tmp/nikke-original-stacks-metal-v1` は全status0、計算比較2/4。残2はhost比較器の無期限None対display sentinel1e30の誤り。原失敗・claim・raw保持。比較器は実wireの正の無限大bitsを判定し、有限1e30と区別するテストを追加。GPU source／全input／native指紋を保つpacket v2 `/tmp/nikke-original-stacks-develop-v2`（070d292e…）のGPU禁止saved replay `/tmp/nikke-original-stacks-replay-v2` がfresh全4一致。GPU計1回0.956482秒／初PSO92.513740秒／CPU事前40.028685秒、generation必須hit・compiler0、同claim retry0／訂正後GPU0。
+
+独立seal44.644305秒、別child・全4fresh・live parent receiptなし／GPU0。同じ監査からgoldenとsource-only証明書を作成。現CUDA compile/link/cache/battleへ流用しません。最終compact `/tmp/nikke-original-stacks-final-v1.zip`（4eb6f0ce…）は関連22／制御476（Win1skip）成功。全1945payload SHA／checkout全byteとGPU source・全input／native／outputを終了後に検査。全reader終了後に原／replay rawをSHA／size／inode保持で疎化し各27,148,288byte回収、削除0。
+
+全266静的inventoryは247packing／kind拒否30（旧ammo46）。残り217をGPU対応数としないこと。次の実在候補は解除26（11profile）、15、未受付stack18／20／21など。敵回復・元武器group対象モデル・召喚攻撃、現CUDA／warm cache、公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／全目標未達。Windowsはrev78 idleのまま、新規実行依頼0。既存APIへ同じrunを再送せず、開始可能になったら既存短い検証の状態／保存結果を取得します。
