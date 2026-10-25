@@ -1,0 +1,129 @@
+{
+  "calculation_verified": false,
+  "entries": [
+    {
+      "name": "coordinate-mode-actions/cover-post-delay-base-auto",
+      "input_sha256": "2b5b1707ba1fb852bec7f1a61b32f1c4877bd353fbac490d406f193a2c10d03d",
+      "output_sha256": "bcc3d393b1bd4b0a6414917bcc89e2422cefc1c80be0c3095f9a342b839e47de",
+      "native_sha256": "85e160e5eba1d022c474ef62d0c017e2a0e1612cc20db2111fc3b43f916c8842"
+    },
+    {
+      "name": "coordinate-mode-actions/tap-mode",
+      "input_sha256": "c24e978febb190ff892c314f39f1a968c5552eda2fee8b6835220e2b1d800e75",
+      "output_sha256": "dce652bbb3fa40dca65364960043b56b59a5cba1c4741c6a829fd7cb843b847c",
+      "native_sha256": "fe10f7efaa1f4ed451dfd244557e92be7d8135ba208bda2266c73b559ed0366a"
+    },
+    {
+      "name": "coordinate-mode-actions/tap-mode-cover",
+      "input_sha256": "c61e635a737fc7b69224a7ebabf36bd58dc77c90ebea183c38dfacfb5aa90441",
+      "output_sha256": "94ded8213acf22ce7bdb49015280f41c5232fbf744325c08e618f45b9e987381",
+      "native_sha256": "2197aacb1afaba50d651d7df8925f63c8fef26c98756f0a8de76d7684c97d47d"
+    },
+    {
+      "name": "coordinate-mode-actions/base-min-cycle-not-inherited",
+      "input_sha256": "79d38a08a5f18c4d3191a7189e45229ac0a41c216d9d04eeb61bf9cd93507f12",
+      "output_sha256": "7949ebe2a72e437164c9db7657491b70b2a6ab46f9d2ac6061549aacf4708507",
+      "native_sha256": "9302ae9a28fc4edf341af4665a898d82f9ae0a2f31cb4567a5a3c11b88af89f1"
+    }
+  ],
+  "mismatches": [
+    {
+      "index": 0,
+      "name": "coordinate-mode-actions/hold-active-mode",
+      "reason": "AssertionError: ('coordinate-mode-actions/hold-active-mode', 0, ['manual_control'])"
+    },
+    {
+      "index": 1,
+      "name": "coordinate-mode-actions/cover-then-hold",
+      "reason": "AssertionError: ('coordinate-mode-actions/cover-then-hold', 0, ['manual_control'])"
+    },
+    {
+      "index": 2,
+      "name": "coordinate-mode-actions/hold-then-cover",
+      "reason": "AssertionError: ('coordinate-mode-actions/hold-then-cover', 0, ['manual_control'])"
+    },
+    {
+      "index": 3,
+      "name": "coordinate-mode-actions/same-frame-ordered",
+      "reason": "AssertionError: ('coordinate-mode-actions/same-frame-ordered', 0, ['manual_control'])"
+    },
+    {
+      "index": 4,
+      "name": "coordinate-mode-actions/hold-release-before-ready",
+      "reason": "AssertionError: ('coordinate-mode-actions/hold-release-before-ready', 0, ['manual_control'])"
+    },
+    {
+      "index": 5,
+      "name": "coordinate-mode-actions/hold-none",
+      "reason": "AssertionError: ('coordinate-mode-actions/hold-none', 0, ['manual_control'])"
+    },
+    {
+      "index": 6,
+      "name": "coordinate-mode-actions/cover-post-delay-base-charge",
+      "reason": "AssertionError: ('coordinate-mode-actions/cover-post-delay-base-charge', 0, ['fractional_hits', 'team_hits', 'manual_control'])"
+    },
+    {
+      "index": 8,
+      "name": "coordinate-mode-actions/cover-post-delay-until-reload",
+      "reason": "AssertionError: ('coordinate-mode-actions/cover-post-delay-until-reload', 0, ['manual_control'])"
+    },
+    {
+      "index": 9,
+      "name": "coordinate-mode-actions/cover-post-delay-zero",
+      "reason": "AssertionError: ('coordinate-mode-actions/cover-post-delay-zero', 0, ['fractional_hits', 'team_hits', 'manual_control'])"
+    },
+    {
+      "index": 10,
+      "name": "coordinate-mode-actions/cover-post-delay-mode-expires",
+      "reason": "AssertionError: Roster retained team history length"
+    },
+    {
+      "index": 11,
+      "name": "coordinate-mode-actions/hold-mode-expires",
+      "reason": "AssertionError: Roster retained team history length"
+    },
+    {
+      "index": 12,
+      "name": "coordinate-mode-actions/hold-mode-auto",
+      "reason": "AssertionError: ('coordinate-mode-actions/hold-mode-auto', 0, ['manual_control'])"
+    },
+    {
+      "index": 13,
+      "name": "coordinate-mode-actions/entry-wait-cover-hold",
+      "reason": "AssertionError: ('coordinate-mode-actions/entry-wait-cover-hold', 0, ['manual_control'])"
+    },
+    {
+      "index": 14,
+      "name": "coordinate-mode-actions/automatic-reload-post-delay",
+      "reason": "AssertionError: ('coordinate-mode-actions/automatic-reload-post-delay', 0, ['manual_control'])"
+    },
+    {
+      "index": 15,
+      "name": "coordinate-mode-actions/automatic-reload-cover",
+      "reason": "AssertionError: ('coordinate-mode-actions/automatic-reload-cover', 0, ['fractional_hits', 'team_hits', 'manual_control'])"
+    },
+    {
+      "index": 19,
+      "name": "coordinate-mode-actions/blocked-cover-keeps-hold",
+      "reason": "AssertionError: ('coordinate-mode-actions/blocked-cover-keeps-hold', 0, ['manual_control'])"
+    }
+  ],
+  "input_count": 20,
+  "native_oracles": 20,
+  "input_sha256": "e74e0e2ae0a26b14e92e16221847b9d1d3b34bbcd14337f066551e1c7ee02dfb",
+  "output_sha256": "f969c8846cf29d39382956ea5e9caa51134835ad8ebac063a72588bafda40179",
+  "generated_normalized": {
+    "cuda": "1f7ad556d5ec0ba1c7867cd5682348e31cd13b1d0a14f4b60a4ce6cd29ac26be",
+    "metal": "f7cc1423fa00f5a99a9bc22050d8dff943f45446bb5948febcc9556d52d8da1b"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 4,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 4
+  }
+}

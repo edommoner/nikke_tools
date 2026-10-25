@@ -353,6 +353,8 @@ SUITES['coordinate-squad-mode']=dict(SUITES['coordinate-squad'],script='research
 SUITES['coordinate-squad-mode']['support_files']=['research/portable-compiler-full--coordinate-squad-mode-source-certificate.json',*SUITES['coordinate-squad']['support_files']]
 SUITES['coordinate-burst-control']=dict(SUITES['coordinate-squad-mode'],script='research/verify-coordinate-burst-control-short.py',source='gpu/world_coordinate_burst_control_entry.slang',golden='research/portable-coordinate-burst-control-short-expected.json',inputs=293,native=246,development_only=False,parent_oracle_reuse=True,tests=['test_coordinate_burst_control.py','test_burst_control_policy.py','test_coordinate_physical_frontier.py','test_portable_parent_oracles.py','test_coordinate_parent_oracles.py'])
 SUITES['coordinate-burst-control']['support_files']=['research/portable-compiler-full--coordinate-burst-control-source-certificate.json',SUITES['coordinate-squad-mode']['golden'],*SUITES['coordinate-squad-mode']['support_files']]
+SUITES['coordinate-mode-actions']=dict(SUITES['coordinate-burst-control'],script='research/verify-coordinate-mode-actions-short.py',source='gpu/world_coordinate_mode_actions_entry.slang',golden='research/portable-coordinate-mode-actions-short-expected.json',inputs=313,native=266,development_only=False,tests=['test_coordinate_mode_actions.py','test_portable_parent_oracles.py','test_coordinate_physical_frontier.py'])
+SUITES['coordinate-mode-actions']['support_files']=['research/portable-compiler-full--coordinate-mode-actions-source-certificate.json',SUITES['coordinate-burst-control']['golden'],*SUITES['coordinate-burst-control']['support_files']]
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -761,6 +763,8 @@ def open_suite(m):
         expected=adapter.suite.OUTPUT;configured=SUITES[m['suite']].get('output_words',786432)
         if type(expected) is not int or expected<1 or type(configured) is not int or configured!=expected:
             raise ValueError('Adapter output words disagree with transport allocation')
+        from portable_backend import validate_composed_stride
+        validate_composed_stride(adapter.SOURCE,adapter.suite.INPUT,expected)
     return adapter
 
 

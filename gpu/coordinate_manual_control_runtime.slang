@@ -37,7 +37,7 @@ void enterManualCover(inout Runtime s,uint who,uint64_t when,uint64_t duration,u
 #endif
     uint a=controlState(s,who),m=manualState(s,who);results[m]=f64Less(duration,0)?2U:1U;results[m+1]=0;results[m+6]=1;results[m+7]++;storeNumber(m+2,f64Less(duration,0)?ONE|F64_SIGN:f64Add(when,duration));storeNumber(m+4,when);
         results[m+9]=1;if(fresh)invalidateNativeNumeric(s);
-        if(s.weaponMode[who]==1){s.charging[who]=0;cancelChargeControl(s,who,true);}
+        if(s.weaponMode[who]==1){s.charging[who]=0;cancelChargeControl(s,who,true);s.nextShot[who]=when;}
         else{results[a]=0;storeNumber(a+2,ONE|F64_SIGN);storeNumber(a+4,ONE|F64_SIGN);storeNumber(a+6,ONE|F64_SIGN);results[a+14]=0xffffffff;}
         results[a+15]=priority;
         uint tag=commands[controlInput(s)+6];if(tag!=0xffffffffU)dispatch(s,0,31,who,int(tag),when,s.resourceOutput);

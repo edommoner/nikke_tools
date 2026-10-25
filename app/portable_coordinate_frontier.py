@@ -208,6 +208,10 @@ def verify(root, overrides=None):
     burst_control_path=root/'research/portable-coordinate-burst-control-short-expected.json'
     burst_control_golden=json.loads(burst_control_path.read_text()) if burst_control_path.is_file() else None
     burst_control_matches=burst_control_golden['source_sha256']==burst_control_sources if burst_control_golden else None
+    mode_action_sources=source_hashes(root,'gpu/world_coordinate_mode_actions_entry.slang') if (root/'gpu/world_coordinate_mode_actions_entry.slang').is_file() else {}
+    mode_action_path=root/'research/portable-coordinate-mode-actions-short-expected.json'
+    mode_action_golden=json.loads(mode_action_path.read_text()) if mode_action_path.is_file() else None
+    mode_action_matches=mode_action_golden['source_sha256']==mode_action_sources if mode_action_golden else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -538,6 +542,17 @@ def verify(root, overrides=None):
                     cover_down_ordering_receipts=True,input_words=109968,output_words=1769856,
                     extra_runtime_bytes=0,extra_output_words=0,output_padding_owned_words=18,
                     remaining=['explicit mode-sequence, post-delay, healing storage and mixed actor originals',
+                        'current CUDA execution and warm cache performance','public admission and all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_mode_actions=dict(suite='coordinate-mode-actions',source_sha256=mode_action_sources,
+                    proof_available=mode_action_golden is not None,sealed_source_matches_current=mode_action_matches,
+                    input_count=len(mode_action_golden['entries']) if mode_action_golden else None,
+                    reference_kind='deterministic-common-cpu',shared_manual_weapon_executor=True,
+                    explicit_hold_cover_during_mode=True,base_charge_cover_cancels_post_delay=True,
+                    canonical_static_base_clock_checked=True,computed_cpu_action_schedule=False,
+                    input_words=109968,output_words=1769856,extra_runtime_bytes=0,extra_output_words=0,
+                    remaining=['automatic reload notification and effect-expiry combinations',
+                        'healing storage and mixed actor original definitions',
                         'current CUDA execution and warm cache performance','public admission and all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 packet_integer_ratio=dict(suite='packet-ratio',source_sha256=ratio_sources,

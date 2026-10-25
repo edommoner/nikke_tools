@@ -1,0 +1,142 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "audit-phases.jsonl",
+      "bytes": 308,
+      "sha256": "ce840940fcdce1777056a0b85c6aa17459365e0ace554859e7f51e8d11d54aef"
+    },
+    {
+      "path": "comparison.json",
+      "bytes": 106874,
+      "sha256": "b3dd5bbcf80430d037c12903b6409d7ea87c2b107c73941cc188567e0b4983a6"
+    },
+    {
+      "path": "cpu-batch.json",
+      "bytes": 378,
+      "sha256": "c1885588c52fcb6bffd86d1b978b878035d2fafe847db8b7cb6dda5143147a85"
+    },
+    {
+      "path": "cpu-batch.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "cpu-batch.stdout.log",
+      "bytes": 58,
+      "sha256": "1df062f37eee959910ab246829178b72df1642ea0ffb65352567e4aa92d556d6"
+    },
+    {
+      "path": "cpu-tests.json",
+      "bytes": 433,
+      "sha256": "50c4039e39046e33417fcbceb44847fc0e5b6142b7b0b13dee6a6cfda9c8cdcc"
+    },
+    {
+      "path": "cpu.json",
+      "bytes": 549,
+      "sha256": "afd0762051147eb4a31a3645dede1a6fbb2492720fd22a2c5e124ea041092927"
+    },
+    {
+      "path": "evidence.json",
+      "bytes": 60388,
+      "sha256": "626184d6408e1b248c083f5ddeb86bab746d16c7f4e403cc36c4d34928a75170"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 5622,
+      "sha256": "282e568f6e12896325220860efec61e419cc4fcdaf97beca572eb7f2d689f5c8"
+    },
+    {
+      "path": "generated.cu.reflection.json",
+      "bytes": 415556,
+      "sha256": "e8ba84d9985924cb994674784ec6d10760400a18f1996cf53109e6b68de7cf60"
+    },
+    {
+      "path": "generated.metal.reflection.json",
+      "bytes": 415093,
+      "sha256": "24267df732b4fda279ba3a76f2c088a448156df36fbe3809a6c5d2cefd8f12b0"
+    },
+    {
+      "path": "generation-cache.json",
+      "bytes": 36523,
+      "sha256": "62820fcba5b77b0c187045c849ab6fb21b640d06c27628b1ec67217b2bfa266d"
+    },
+    {
+      "path": "input-preflight.json",
+      "bytes": 263,
+      "sha256": "4e1d8051e7c252791b6eb61bc90520345224f0a6d7f439810c30d55b0cf1caf4"
+    },
+    {
+      "path": "phases.jsonl",
+      "bytes": 47271,
+      "sha256": "f496918767b84b99b20ef514082e53e23bbd7ac1b9ae3905098e5eeb045483ed"
+    },
+    {
+      "path": "preparation.jsonl",
+      "bytes": 178255,
+      "sha256": "214bf2c910fc1e0e6442e615dcf1c015b473e5115d3d1b9614220fbd9583d700"
+    },
+    {
+      "path": "result.json",
+      "bytes": 5453,
+      "sha256": "a011a89753bb78afd6a215271916f577aecbb9c638c1dc1996a8e87aa4938706"
+    },
+    {
+      "path": "run.json",
+      "bytes": 267,
+      "sha256": "e23656be707a41789feea7212c3f112a250c9734b04704315ff4a793e5b91ec3"
+    },
+    {
+      "path": "runtime.json",
+      "bytes": 1096,
+      "sha256": "529e92ab9974a04b7e99e2432ed7ee3a208403372895825865e0438dcc8b2a52"
+    },
+    {
+      "path": "start.json",
+      "bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "storage-before-gpu.json",
+      "bytes": 290,
+      "sha256": "9e220950aeeb8d4d927d6395b5389dfa00aed8060f0dca9ad79199c51748962f"
+    },
+    {
+      "path": "storage.json",
+      "bytes": 298,
+      "sha256": "17012bda310a45ba15b73394f134d2934811e2392268caca174075dac8466dfa"
+    },
+    {
+      "path": "test_coordinate_mode_actions.py.stderr.log",
+      "bytes": 103,
+      "sha256": "20e850a69ad549bb421f7554a9f9936eec2ff3aa5c41ef1269d03de69b8afbaf"
+    },
+    {
+      "path": "test_coordinate_mode_actions.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_parent_oracles.py.stderr.log",
+      "bytes": 119,
+      "sha256": "6f7b5b9478071f07922cc348b2ef8197902347c5a85ce640e517bf392239e060"
+    },
+    {
+      "path": "test_portable_parent_oracles.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}

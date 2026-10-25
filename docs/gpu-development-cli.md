@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`coordinate-mode-actions`313（native266／拒否47）はmode中の明示hold／coverと射撃後待機を共通実行器で照合し、M5 Metal全件一致・別processのfresh seal済みです。元武器がchargeならcoverで待機時計も解除します。静的base時計とwire登録の矛盾をCPU／GPU計算前に拒否。旧293の入力・nativeは不変、raw287全byte保持／6件は未射撃charge武器のnextShotだけ変更し全差分を保存。[mode操作と待機](portable-coordinate-mode-actions.md)。
+
 `coordinate-burst-control`293の通常比較は、同じ親の実native事前値と生成イベント記録を既存ParentOraclesで再利用します。独立監査はfreshを維持。CPU専用 `coordinate-parent-check --source-package PATH --source-capture PATH --out NEW_PATH` で全件のfresh比較との一致・追加native0回・原capture保持を確認できます。このコマンドはGPU証明を作りません。[仕様と測定](portable-coordinate-parent-oracles.md)。
 
 最新のキャラmode状態入口は`coordinate-squad-mode`251（native213／拒否38）。mode終了から次char tickまでの状態を共通化し、全体遮蔽・調停前の方針要求と装填callback進入へ接続。M5 Metal全件一致・独立seal済み、旧222の全1,571,632,128byteを保持。`seal --compiler-certificate PATH`は同じfresh監査からgoldenとfull-source証明を作成し、別のnative再監査を省く。CUDA実機の成功は別途必要。[mode状態](portable-coordinate-squad-mode.md)／[共同seal](portable-joint-seal-certificate.md)を参照。

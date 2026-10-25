@@ -1,0 +1,127 @@
+{
+  "passed": true,
+  "items": [
+    {
+      "root": "/tmp/nikke-burst-control-develop-v1",
+      "archive": "/tmp/nikke-mode-actions-staging-archives-v1/nikke-burst-control-develop-v1.tar.gz",
+      "archive_sha256": "274d96a8b37dc060cd702cc62d55cf9cd8058dede8ae9c2866ba59f876356428",
+      "uncompressed_bytes": 66440650,
+      "archive_bytes": 11003251,
+      "files": 2380,
+      "restore_test_all_bytes": true,
+      "receipt_sha256": "da9a2cc362da9159593d683b03e9a78ace328a77f9c76292595351da98d2c1cf"
+    },
+    {
+      "root": "/tmp/nikke-coordinate-accum-emission-develop-v1",
+      "archive": "/tmp/nikke-mode-actions-staging-archives-v1/nikke-coordinate-accum-emission-develop-v1.tar.gz",
+      "archive_sha256": "d51746288b4a46fecf0f93f75358fd3a24ed51e8c9ecf7683d06c2d53ba0ec37",
+      "uncompressed_bytes": 70953026,
+      "archive_bytes": 10805243,
+      "files": 2055,
+      "restore_test_all_bytes": true,
+      "receipt_sha256": "9383bdadce573952e577307819976a38ce742ff6920766afccc7a836e78af630"
+    },
+    {
+      "root": "/tmp/nikke-coordinate-group-develop-v2",
+      "archive": "/tmp/nikke-mode-actions-staging-archives-v1/nikke-coordinate-group-develop-v2.tar.gz",
+      "archive_sha256": "8e95272a1052300361b4f42386f17f1b1f5c172b9eed5602b0cc511a93d12ee5",
+      "uncompressed_bytes": 65793187,
+      "archive_bytes": 11214603,
+      "files": 2273,
+      "restore_test_all_bytes": true,
+      "receipt_sha256": "544adf40d754563fa5b0acec57a88e023fce6906067b121c80afba0c32221de9"
+    },
+    {
+      "root": "/tmp/nikke-coordinate-mixed-develop-v3",
+      "archive": "/tmp/nikke-mode-actions-staging-archives-v1/nikke-coordinate-mixed-develop-v3.tar.gz",
+      "archive_sha256": "21933b0a5766a37dcc06d021e12976777cb2966047d36eceecf55bc5cb9bdee0",
+      "uncompressed_bytes": 66886871,
+      "archive_bytes": 11565864,
+      "files": 2340,
+      "restore_test_all_bytes": true,
+      "receipt_sha256": "7fd470d2dac3b69adc1379f8be840f93b589ed11f875d5ef35bc1d022bed0341"
+    },
+    {
+      "root": "/tmp/nikke-coordinate-physical-develop-v1",
+      "archive": "/tmp/nikke-mode-actions-staging-archives-v1/nikke-coordinate-physical-develop-v1.tar.gz",
+      "archive_sha256": "269357eab2c513d315257c8d2d49a39ddaea19fd25673c4844b6370429132b0e",
+      "uncompressed_bytes": 63870903,
+      "archive_bytes": 10321521,
+      "files": 3277,
+      "restore_test_all_bytes": true,
+      "receipt_sha256": "198483c6e22205d18c8eff778876051796ebbfd29529178e0bb67aa06cc24f8c"
+    },
+    {
+      "root": "/tmp/nikke-coordinate-physical-develop-v2",
+      "archive": "/tmp/nikke-mode-actions-staging-archives-v1/nikke-coordinate-physical-develop-v2.tar.gz",
+      "archive_sha256": "510c6f9433f7e507be07b3319cfbaffec2e8ce9c16e7c0b38a8931648a6143db",
+      "uncompressed_bytes": 64582591,
+      "archive_bytes": 10600097,
+      "files": 3357,
+      "restore_test_all_bytes": true,
+      "receipt_sha256": "a874cf7bb6b62b9fe7b61c667b175cef17801c3bd7425b617e1fd9186c7d802a"
+    },
+    {
+      "root": "/tmp/nikke-coordinate-physical-legacy97-v1",
+      "archive": "/tmp/nikke-mode-actions-staging-archives-v1/nikke-coordinate-physical-legacy97-v1.tar.gz",
+      "archive_sha256": "2f0fa0cf1a3fa3fa0376537abadd188b737bad62743105e4e519af9e7e64f681",
+      "uncompressed_bytes": 63750144,
+      "archive_bytes": 10312296,
+      "files": 3266,
+      "restore_test_all_bytes": true,
+      "receipt_sha256": "ad25ef54f6ad334cb908d9a82778a61e26ca8dae0c150c550e110b11b9036d1f"
+    },
+    {
+      "root": "/tmp/nikke-coordinate-quantity-develop-v1",
+      "archive": "/tmp/nikke-mode-actions-staging-archives-v1/nikke-coordinate-quantity-develop-v1.tar.gz",
+      "archive_sha256": "a0fb0e33f6bf87d1a8539a939020e3011c83928cde02f8adccba032127ac2516",
+      "uncompressed_bytes": 64384995,
+      "archive_bytes": 10434495,
+      "files": 3283,
+      "restore_test_all_bytes": true,
+      "receipt_sha256": "012dd33933abf0b98e0d32242f9278fd2f5d8710c87beac5c162ac73729c8563"
+    },
+    {
+      "root": "/tmp/nikke-coordinate-quantity-develop-v2",
+      "archive": "/tmp/nikke-mode-actions-staging-archives-v1/nikke-coordinate-quantity-develop-v2.tar.gz",
+      "archive_sha256": "607cfb0b687ccc18250bda2e75361d4fb875cb9ee4bdde34f7f52644fae53015",
+      "uncompressed_bytes": 64394963,
+      "archive_bytes": 10442057,
+      "files": 3285,
+      "restore_test_all_bytes": true,
+      "receipt_sha256": "dd480e363722a85b37746c79a46c97844fe3327683d72a1d0f1b4f3d2e2af94a"
+    },
+    {
+      "root": "/tmp/nikke-coordinate-quantity-old97-v1",
+      "archive": "/tmp/nikke-mode-actions-staging-archives-v1/nikke-coordinate-quantity-old97-v1.tar.gz",
+      "archive_sha256": "708ba31c944fb93ac5d80723fe4d5456c39d651f516d0b1e9bcb872af90b33f9",
+      "uncompressed_bytes": 64186846,
+      "archive_bytes": 10415031,
+      "files": 3284,
+      "restore_test_all_bytes": true,
+      "receipt_sha256": "45242cf48940b4ae7f43ce6bcc12d066160158dae224a3215c15d21e72309334"
+    },
+    {
+      "root": "/tmp/nikke-sampled-burst-develop-v2",
+      "archive": "/tmp/nikke-mode-actions-staging-archives-v1/nikke-sampled-burst-develop-v2.tar.gz",
+      "archive_sha256": "262abf652752072f351dcb9d4193d7dfaf576aa2cfe7d24513768ac106c35be9",
+      "uncompressed_bytes": 128134619,
+      "archive_bytes": 18686928,
+      "files": 2354,
+      "restore_test_all_bytes": true,
+      "receipt_sha256": "5b6edcc094ea6c6d1ed76c6281897460ac5ae70c81e36cf776c61edde28d10a5"
+    },
+    {
+      "root": "/tmp/nikke-sampled-burst-develop-v3",
+      "archive": "/tmp/nikke-mode-actions-staging-archives-v1/nikke-sampled-burst-develop-v3.tar.gz",
+      "archive_sha256": "2c0b5813ac5952a69cd57a4657a2d269973b7c1c5937dd129b753fb833bacc62",
+      "uncompressed_bytes": 128143565,
+      "archive_bytes": 18689369,
+      "files": 2354,
+      "restore_test_all_bytes": true,
+      "receipt_sha256": "1c9320ec80ea12c8e9a0c0ad316771ca824ff98fd0272391df20c18d0f510c81"
+    }
+  ],
+  "gpu_calls": 0,
+  "raw_deleted": false
+}

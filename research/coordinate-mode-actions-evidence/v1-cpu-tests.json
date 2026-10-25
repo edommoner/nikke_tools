@@ -1,0 +1,22 @@
+[
+  {
+    "pattern": "test_coordinate_mode_actions.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.752881249994971,
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3418
+  },
+  {
+    "pattern": "test_portable_parent_oracles.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.8099560000700876,
+    "tests": 20,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3418
+  }
+]

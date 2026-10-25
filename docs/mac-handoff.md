@@ -1976,3 +1976,18 @@ CPU専用 `coordinate-parent-check` は原成功Metal293のread-only fixtureか�
 次はmode中の明示sequence・post-delayのnative契約、healing storage／混在actorの元定義、短いcurrent CUDA検証。packing245/266・base185/203、未対応21profiles/20分類、全キャラ認定0/UI CPU/目標未達を維持します。
 
 最終compact `c325f597…`（1851 files／ZIP 8,530,451byte）は選択36件と共通制御446件（Windows専用1skip）が成功。終了後に全payload SHAとcheckout全byte一致を確認。archive `/tmp/nikke-coordinate-parent-final-v1.zip`、選択検査 `/tmp/nikke-coordinate-parent-final-tests-v1`、制御 `/tmp/nikke-coordinate-parent-final-control-v1`。GPU追加0。
+
+
+## 2026-10-25 mode中の明示操作・射撃後待機
+
+最新は `docs/portable-coordinate-mode-actions.md`／`research/portable-coordinate-mode-actions-checkpoint.json`。共通CLI `coordinate-mode-actions`313（native266／拒否47）がM5 Metal全一致・別process/GPU禁止fresh seal済み。mode中のhold／cover・同時順序・待機中cover・期限／auto／進入待機・自動装填／tap・元武器周期の非継承・遮蔽禁止を20worldで合成。正本は一時武器交換前のbase fire_modeで姿勢を処理するため、共通enterManualCoverでbase chargeのnextShotもcover時刻へリセット。Runtime138952byte/247field・入出力109968/1769856wordは不変。base SRの0.215秒とmode効果0.2秒を区別し、既存static normalizerとの不一致を新adapterで拒否。strict wire登録をopen_suiteでpacking/native前に検査し、必要監査JSONもpackage前に検査します。
+
+初16入力はsandbox No Metal deviceでカーネル前停止、claim保持。M5デバイス読み取り確認後の20入力初版にはbase待機0秒の入力矛盾があり、修正後も全20native指紋は不変。正しい入力では17一致・3実装差となり、時計リセットで全313一致。途中v4はJSON依存不足、v5はwire登録漏れをCPUで検出し作成子だけ明示中止。全原失敗・rawを保持。現rawの旧293は287全2031794688byte保持、6件のみ未射撃10秒charge武器のnextShotをcover進入時刻へ更新。全変更wordの位置・値・owner・未射撃を確認し、旧raw保持検査falseも残す。元20の17成功全120350208byteは保持、変化は実失敗3件だけ。待機配列の誤りを正本に従って直した後、native正本と比較項目は変更していません。
+
+固定GPU packet `/tmp/nikke-mode-actions-develop-v6`（55b8a8a3…）、capture `/tmp/nikke-mode-actions-metal-v6`、seal `/tmp/nikke-mode-actions-sealed-v6.json`、certificate `/tmp/nikke-mode-actions-source-certificate-v6.json`。GPU.706120秒／初回PSO93.681053秒／CPU事前186.553041秒／通常比較8.632057秒。親再利用266・追加native0、fresh監査へ再利用0。GPU実行は失敗2＋修正1、同claim retry0。共通CPU-only cache検査ではsealed Slangペアhit/compiler0・CUDA/MSL全byte原capture一致、Metal file probe hit。現CUDAとwarm GPU性能は未確認。
+
+最終compact `/tmp/nikke-mode-actions-final-v1.zip`（9954d281…／1856 files／8607700byte）は選択30・制御446（Windows1skip）成功、全payload SHA／checkout全byte一致とGPU packet source/input/native同一を確認。最終配布だけで全266nativeを再実行しない。全reader終了後にrawをbyte/SHA/inode保持で4KiB疎化。完了済みsource展開12件も全復元・全SHA検査後にlossless圧縮し、receiptは `research/coordinate-mode-actions-evidence/nikke-mode-actions-staging-archived-v1.json`、実tar/全file一覧は `/tmp/nikke-mode-actions-staging-archives-v1`。raw削除0。
+
+model-checkに最新入口の証明を追加しsource match true、inventoryは245/266 packing・base185/203・未対応21profiles/20 reference_model_gap分類を維持。全キャラ0／UI CPU／全目標未達。Windowsは既存チャットrev78 idleのままで、今回status確認1・新メッセージ/GPU0。次はmodeで中断したpending automatic reloadの通知とspeed effect期限の合成、zero-listener／healing storage／mixed actor元定義、短いcurrent CUDAとwarm cacheの検証を進めます。
+
+このMacの今回のsandbox内ではMetal deviceを列挙できず、読み取り確認と実Metal実行はrequire_escalatedで成功しました。次回もデバイス可視性を先に確認し、同claimを再利用しないこと。共通CLIへGPU0のMetal可視性事前検査を加え、CPU準備後のNo Metal device停止を避けることも次の効率化項目です。
