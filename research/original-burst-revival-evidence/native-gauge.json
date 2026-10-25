@@ -1,0 +1,11 @@
+{
+  "name": "coordinate-original-burst-revival/Rapunzel/only-B3-down",
+  "duration": 6,
+  "final_burst_gauge": 96.39999999999999,
+  "revival_attempts": [],
+  "down": [
+    2
+  ],
+  "scope": "Actual native accumulated gauge; no B3-chain precondition asserted",
+  "gpu_calls": 0
+}

@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`coordinate-original-burst-revival`4 は元ラプンツェルのB1復活とセンチのスキル残り待機短縮を既存共通handlerへ接続したsealed suiteです。M5 Metal全4・独立監査・機能39／制御476成功（Win1skip）。`entry-inventory --out UNIQUE.json` は開発checkout／full packageで全266元profileの座標入力とkind一覧をCPU専用調査し、GPU受付・計算認定とは分けます。[範囲・初回失敗・残件](portable-original-burst-revival.md)。
+
 `coordinate-original-revival`3 は元マナ編成のdown／復活・条件状態解除を既存共通shaderで検証したsealed suiteです。`package --suite coordinate-original-revival --compact` を使います。M5 Metal・独立fresh監査・機能38／制御476成功（Windows1skip）。`model-check` は全266元編成の同名damageも静的分類し、未観測の非周期制限を実データの未対応から分けます。[範囲と残件](portable-original-revival.md)。
 
 `coordinate-original-lifecycle`3 はハランの死亡通知とクルミのバーストによる同名DoT再付与を、完全元編成のままM5 Metal・独立fresh監査で照合したsealed suiteです。`package --suite coordinate-original-lifecycle --compact` を使います。元定義別の実発火数とtick位相を検査し、既存共通shaderを再利用します。死亡敵固有の感染判定・召喚攻撃payload・現CUDAは未完了です。[検証範囲](portable-original-lifecycle.md)。

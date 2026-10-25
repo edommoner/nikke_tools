@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-original-burst-revival-metal-v1",
+  "raw_bytes": 28317696,
+  "raw_sha256": "6b0a0a83cdecea2c956daacb1abd821a4f3e5dd20c472c2c4b0aa00e0dcdbb17",
+  "evidence_sha256": "09656c4e196ecbba5797329dd6acdd7e35c79d802d91dc0bdf008e91937f5653",
+  "raw_inode": 511089367,
+  "scan_block_bytes": 65536,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 50,
+  "zero_range_bytes": 22282240,
+  "allocated_before": 28319744,
+  "allocated_after": 6037504,
+  "allocated_reclaimed": 22282240,
+  "full_hash_verified": true
+}

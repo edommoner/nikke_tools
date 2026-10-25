@@ -231,6 +231,9 @@ def verify(root, overrides=None):
     lifecycle_original_golden=json.loads(lifecycle_original_path.read_text()) if lifecycle_original_path.is_file() else None
     revival_original_path=root/'research/portable-coordinate-original-revival-short-expected.json'
     revival_original_golden=json.loads(revival_original_path.read_text()) if revival_original_path.is_file() else None
+    burst_revival_sources=source_hashes(root,'gpu/world_coordinate_original_clock_entry.slang') if (root/'gpu/world_coordinate_original_clock_entry.slang').is_file() else {}
+    burst_revival_path=root/'research/portable-coordinate-original-burst-revival-short-expected.json'
+    burst_revival_golden=json.loads(burst_revival_path.read_text()) if burst_revival_path.is_file() else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -637,6 +640,20 @@ def verify(root, overrides=None):
                         'enemy healing-received payload blocks Anne complete roster',
                         'current CUDA execution and public all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_original_burst_revival=dict(suite='coordinate-original-burst-revival',source_sha256=burst_revival_sources,
+                    proof_available=burst_revival_golden is not None,
+                    sealed_source_matches_current=burst_revival_golden['source_sha256']==burst_revival_sources if burst_revival_golden else None,
+                    input_count=len(burst_revival_golden['entries']) if burst_revival_golden else None,
+                    original_definitions_weapons_preserved=True,reference_kind='deterministic-common-cpu',
+                    existing_shared_remaining_clock_handler=True,admitted_kind=22,
+                    revival_attempts_and_successes_checked_separately=True,multiple_actual_dead_candidates=True,
+                    remaining=['other original resource/stack/ammo operation admission',
+                        'Anne complete roster enemy heal_received_pct payload',
+                        'current CUDA execution and public all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                static_original_entry_inventory=dict(command='entry-inventory --out UNIQUE.json',
+                    scope='All default-growth/no-cube original coordinate input packing and literal kind catalog',
+                    battle_and_gpu_forbidden=True,gpu_admission_verified=False),
                 original_damage_identity_inventory=inspect_original_identities(),
                 packet_integer_ratio=dict(suite='packet-ratio',source_sha256=ratio_sources,
                     proof_available=ratio_golden is not None,sealed_source_matches_current=ratio_matches,

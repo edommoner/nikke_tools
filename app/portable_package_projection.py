@@ -12,7 +12,7 @@ import json
 from pathlib import PurePosixPath
 
 PROFILE = 'selected-suite-python-v1'
-SUPPORTED_SUITES = ('coordinate-original-revival', 'coordinate-original-lifecycle', 'coordinate-original-periodic', 'coordinate-original', 'coordinate-healing', 'coordinate-auto-reload', 'coordinate-mode-actions', 'coordinate-burst-control', 'burst-control-policy', 'destructible-skill-retention', 'destructible-skill-misato-retention',
+SUPPORTED_SUITES = ('coordinate-original-burst-revival', 'coordinate-original-revival', 'coordinate-original-lifecycle', 'coordinate-original-periodic', 'coordinate-original', 'coordinate-healing', 'coordinate-auto-reload', 'coordinate-mode-actions', 'coordinate-burst-control', 'burst-control-policy', 'destructible-skill-retention', 'destructible-skill-misato-retention',
                     'destructible-aoe-burst-rosters','destructible-body-lifesteal',
                     'destructible-body-lifesteal-retention',
                     'destructible-body-accum','destructible-body-accum-retention',
@@ -22,7 +22,7 @@ RUNTIME_ROOTS = ('research/run-world-bounded.py', 'research/portable_phase_audit
                  'research/summarize-portable-cross-gpu.py')
 # These registries describe commands outside this profile, not runtime imports.
 LITERAL_REGISTRIES = {'scripts/nikke_gpu.py'}
-UNSUPPORTED_COMMANDS = {'package', 'reference', 'inventory', 'consumer-audit', 'audit-legacy',
+UNSUPPORTED_COMMANDS = {'package', 'reference', 'inventory', 'entry-inventory', 'consumer-audit', 'audit-legacy',
                         'cases', 'compiler-certificate'}
 
 

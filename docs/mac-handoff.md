@@ -2093,3 +2093,17 @@ GPU packet `/tmp/nikke-original-revival-develop-v1`（942ef238…）、capture `
 model-checkへ全266プロファイルの完全元編成damage-ID静的監査を追加。非周期同名衝突0、周期はハラン／クルミのみ。非周期受付guardは保ち `unobserved-restriction` と分類し、実データの未対応として優先しないこと。元編成の全定義を検査するが、battle／packing／GPUの証明ではありません。cube・成長を任意追加した場合の保証へ拡張しないこと。
 
 アンは元の敵heal_received_pct/all_enemiesが未対応でpacking拒否、効果を削らないこと。ラプンツェル6秒probeはdownあり／復活未発火で認定なし。次は復活の実burst条件／複数候補・敵回復consumer、元武器group対象モデルと召喚攻撃payloadへ進めます。静的inventoryは245/266・base185/203、全キャラ0／UI CPU／目標未達。Windows新依頼0、現CUDA／warm cache未取得。既存idle送信APIへ重複runを依頼しないこと。
+
+## 2026-10-26 元B1復活・センチの共通skill clockとentry-inventory
+
+最新 `coordinate-original-burst-revival`4、`docs/portable-original-burst-revival.md`／`research/portable-original-burst-revival-checkpoint.json`。ラプンツェルの元編成6秒4world（無down／唯一B3 down／N102 down／センチ＋2候補down）を保持。実revive試行と成功を分け、候補2人から1人の復活、81.67%HP・ammo補充／再開を旧共通比較と合成。B3 downの未発火を連鎖条件だと早合点しないこと。直接native観測は最終ゲージ96.39999999999999%、試行0であり、正本は満タンからB1へ入ります。
+
+初回GPU `/tmp/nikke-original-burst-revival-metal-v1` は3/4一致、元センチのkind22だけsampled受付status64。元効果を抜かず、新入口 `gpu/world_coordinate_original_clock_entry.slang` で既存reduceSkillCooldownを接続しました。元の実発火で次deadlineが前倒しされ、GPU発火数と全periodic due/intervalも照合。数値／wire／Runtime容量は不変。新macro未定義の旧入口はCUDA/MSL原生成物を両方全byte保持、source/transport inverse・負例あり。共有raw sourceは変わるので旧goldenのsource一致falseを隠さず、旧goldenの自動書換えもしません。
+
+修正版packet `/tmp/nikke-original-burst-revival-develop-v2`（2b3247aa…）、capture `/tmp/nikke-original-burst-revival-metal-v2` は全4一致。元全4inputと追加clock観測前nativeの指紋を保持、既存GPU3件全21,238,272byte保持。実GPU計2（source変更後の新packet含む）／同claim retry0、初失敗・raw保存。新GPU0.621067秒／初PSO92.846710秒／CPU事前96.088091秒。generation必須hit/compiler0。独立seal103.516777秒、別child・live parent receiptなし・全4fresh／GPU0。同じ監査からgoldenとsource-only証明書を作成。現CUDA/warm cache証明へ流用しません。
+
+最終compact `/tmp/nikke-original-burst-revival-final-v1.zip`（55d35cc9…）は機能39／制御476（Win1skip）成功。全1923payload SHA／checkout全byteとGPU source／input／native／output一致を終了後に確認。既存復活35input／26native指紋も保持。全reader終了後に初失敗・成功のrawをSHA／size／inode保持で疎化、削除0。
+
+新CLI `entry-inventory --out UNIQUE.json` は開発checkout／full package専用。全266元profile準備をID監査と共用し、入力変換・literal kind一覧・全元定義coverageとhashをCPU battle／GPU禁止で出します。失敗を保存／上書き拒否。結果247/266・3.71秒・禁止呼出し0で、GPU受付／計算／全キャラはfalse。legacy world245/266と座標group結合後247/266を混同しないこと。compactでのコマンド実行は拒否し、比較用の関連モジュールだけを保持します。
+
+次の実在優先候補はkind9/10の固有ゲージcharge/consume（15/12キャラ）。入力変換だけを支持せず、既存共通resource handlerのsampled受付・実増減・cap・後続通知と最終readbackを検証します。新入口を実装するときは可能なら共有capability schemaによるCPU側の受付事前検査も用意し、今回のstatus64をGPU前に検出すること。アンの敵被回復量・他kind・元武器group対象モデル・召喚攻撃も残る。全キャラ0／UI CPU／全目標未達、Windows新依頼0・現CUDA/warm cache未取得のままです。
