@@ -2,6 +2,8 @@
 import hashlib,struct
 from pathlib import Path
 
+CONTRACTS=('coordinate-policy-v1','coordinate-squad-v1')
+
 def _scan(folder,report,words,keep=None):
     path=Path(folder)/'input.bin'
     if path.is_symlink():raise ValueError('Input extension audit rejects symlinks')
@@ -19,8 +21,11 @@ def _scan(folder,report,words,keep=None):
     return answers
 
 def verify_extension(reference,old,candidate,new,contract):
-    if contract!='coordinate-policy-v1':raise ValueError('Unknown input extension contract')
-    from portable_cover_policy_specs import INPUT_BASE,INPUT_WORDS,empty
+    if contract=='coordinate-policy-v1':
+        from portable_cover_policy_specs import INPUT_BASE,INPUT_WORDS,empty
+    elif contract=='coordinate-squad-v1':
+        from portable_squad_control_specs import INPUT_BASE,INPUT_WORDS,empty
+    else:raise ValueError('Unknown input extension contract')
     previous=_scan(reference,old,INPUT_BASE);current=_scan(candidate,new,INPUT_BASE+INPUT_WORDS,set(previous))
     suffix=struct.pack('<'+str(INPUT_WORDS)+'I',*empty());equivalent={}
     for name,raw in previous.items():

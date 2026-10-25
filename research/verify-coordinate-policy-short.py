@@ -38,10 +38,10 @@ def prepare():
     return rows,raw.tobytes()
 
 def native_reference(domain):return parent.native_reference(domain)
-def compare(block,domain):
-    n=parent.compare(block[:OUTPUT_BASE],domain)
-    if not domain[0].get('cover_policies'):assert not any(block[OUTPUT_BASE:]);return n
-    h=OUTPUT_BASE;w=compile_case(domain[0])[0];mask=w[INPUT_BASE+2]
+def compare_policy_state(block,n,mask):
+    if mask==0:
+        assert not any(block[OUTPUT_BASE:]);return
+    h=OUTPUT_BASE
     assert list(block[h:h+4])==[MAGIC,1,mask,5] and not any(block[h+4:h+16])
     for who,row in enumerate(n['cover_policy_state']):
         a=h+16+who*64;num=lambda at:struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
@@ -52,7 +52,12 @@ def compare(block,domain):
             kind=block[a+8+i*3];assert kind in (1,2);history.append([('cover','reload')[kind-1],num(a+9+i*3)])
         assert sorted(history)==row['reentry'],'Each policy anchor may be restored only once'
         assert not any(block[a+8+len(history)*3:a+64])
-    assert not any(block[h+336:]);return n
+    assert not any(block[h+336:]);return None
+
+def compare(block,domain):
+    n=parent.compare(block[:OUTPUT_BASE],domain)
+    if not domain[0].get('cover_policies'):assert not any(block[OUTPUT_BASE:]);return n
+    compare_policy_state(block,n,compile_case(domain[0])[0][INPUT_BASE+2]);return n
 
 def validate_rejection(block,name):
     if name.startswith('reject/policy/'):assert block[0]==64

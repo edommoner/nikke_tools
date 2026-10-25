@@ -68,6 +68,9 @@ bool initializeCoordinateSampling(inout Runtime s)
     initializeManualControls(s);
 #ifdef PORTABLE_COORDINATE_COVER_POLICIES
     if(!initializeCoverPolicies(s))return false;
+#ifdef PORTABLE_COORDINATE_SQUAD_ACTIONS
+    if(!initializeSquadControls(s))return false;
+#endif
 #endif
 #endif
 #ifdef PORTABLE_COORDINATE_SAMPLED_BURSTS

@@ -87,8 +87,9 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
-    if source=='gpu/world_coordinate_policy_entry.slang' or output_words==1769856:
-        if source!='gpu/world_coordinate_policy_entry.slang' or (input_words,output_words)!=(109656,1769856):raise ValueError('Cover policy requires its complete registered wire')
+    if source in ('gpu/world_coordinate_policy_entry.slang','gpu/world_coordinate_squad_entry.slang') or output_words==1769856:
+        expected={'gpu/world_coordinate_policy_entry.slang':109656,'gpu/world_coordinate_squad_entry.slang':109792}
+        if source not in expected or (input_words,output_words)!=(expected[source],1769856):raise ValueError('Cover policy requires its complete registered wire')
         return
     if source in ('gpu/world_coordinate_sampling_burst_entry.slang','gpu/world_coordinate_sampling_vital_entry.slang','gpu/world_coordinate_manual_entry.slang') or output_words==1769472:
         from portable_coordinate_sampled_burst_wire import SOURCE,INPUT_WORDS,OUTPUT_WORDS,check_schema

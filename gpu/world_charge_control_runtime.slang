@@ -11,6 +11,9 @@ uint controlThreshold(inout Runtime s,uint index) { return controlInput(s)+1016+
 #include "coordinate_manual_control_runtime.slang"
 #ifdef PORTABLE_COORDINATE_COVER_POLICIES
 #include "coordinate_cover_policy_runtime.slang"
+#ifdef PORTABLE_COORDINATE_SQUAD_ACTIONS
+#include "coordinate_squad_control_runtime.slang"
+#endif
 #endif
 #endif
 bool controlDefinition(uint input,uint row)
@@ -130,7 +133,11 @@ uint controlRequest(inout Runtime s,uint who,uint64_t when)
     uint a=controlState(s,who),input=controlOwnerInput(s,who),index=results[a+1];
     if(index<commands[input+1]&&!f64Less(when,loadNumber(controlSequence(s,who,index)))) return 100; // priority99 plus presence.
 #ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
-    if(manualOpen(s,who))return results[a+15]+1;
+    if(manualOpen(s,who)
+#ifdef PORTABLE_COORDINATE_SQUAD_ACTIONS
+        &&!squadCoverFlag(s,who)
+#endif
+    )return results[a+15]+1;
 #endif
     if(f64Less(when,actorNumber(a+6))&&(results[a+14]==0xffffffff||controlWindow(s,who,controlClick(s,who,results[a+14])))) return results[a+15]+1;
 #ifdef PORTABLE_COORDINATE_COVER_POLICIES
@@ -169,6 +176,9 @@ uint controlTrace(inout Runtime s,uint kind,uint who,uint64_t when)
 void arbitrateChargeControl(inout Runtime s,uint64_t when)
 {
     if(s.error!=0) return;
+#ifdef PORTABLE_COORDINATE_SQUAD_ACTIONS
+    pumpSquadControls(s,when);if(s.error!=0)return;
+#endif
     uint request[5],edge[5],count=0,h=controlHead(s),old=results[h+2],owner=old,preempted=0;
     for(uint who=0;who<5;who++)
     {

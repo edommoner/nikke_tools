@@ -1,6 +1,7 @@
 """CPU-only block index/diff for saved readbacks; never executes a GPU."""
 import argparse,hashlib,json,struct
 from pathlib import Path
+from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 
 SCHEMA='readback-block-index-v1'
 CASE_WORDS=786432
@@ -130,7 +131,7 @@ def main(argv=None):
         a=sub.add_parser(name);a.add_argument('--readback',type=Path,required=True);a.add_argument('--sha256',required=True);a.add_argument('--out',type=Path,required=True)
         if name=='compare':a.add_argument('--index',type=Path,required=True);a.add_argument('--index-sha256',required=True)
         else:a.add_argument('--case-words',type=int,choices=CASE_SHAPES,default=CASE_WORDS)
-    a=sub.add_parser('retain');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--reference-comparison-sha256',required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--candidate-comparison-sha256',required=True);a.add_argument('--case-words',type=int,choices=CASE_SHAPES,default=CASE_WORDS);a.add_argument('--reference-case-words',type=int,choices=CASE_SHAPES);a.add_argument('--input-extension',choices=('coordinate-policy-v1',));a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('retain');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--reference-comparison-sha256',required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--candidate-comparison-sha256',required=True);a.add_argument('--case-words',type=int,choices=CASE_SHAPES,default=CASE_WORDS);a.add_argument('--reference-case-words',type=int,choices=CASE_SHAPES);a.add_argument('--input-extension',choices=INPUT_EXTENSION_CONTRACTS);a.add_argument('--out',type=Path,required=True)
     a=p.parse_args(argv)
     if a.command=='index':result=scan(a.readback,a.sha256,case_words=a.case_words)
     elif a.command=='retain':result=retain(a.reference_capture,a.reference_comparison_sha256,a.candidate_capture,a.candidate_comparison_sha256,case_words=a.case_words,reference_case_words=a.reference_case_words,input_extension=a.input_extension)

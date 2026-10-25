@@ -1925,3 +1925,13 @@ native observerの全Python呼出し監視がcode objectをhashしていたた�
 詳細は `docs/portable-coordinate-cover-policy.md`／`research/portable-coordinate-policy-checkpoint.json`。現worktree `/private/tmp/nikke-runtime-resident`、branch `codex/runtime-resident`。旧manual169単独のcertificateは履歴としてexact inverseを維持。新方針の証明を旧入口の対応済み認定へ自動転記しない。次はcover_allと強制burst action producer、post-delay／zero-listener／knockdown・回復貯蔵の合成、mixed actor／元定義を優先する。Windowsは既存接続の送信APIがidleを開始できず、新規GPU要求0、現CUDA結果未取得。全キャラ認定0／20 model gap／UI CPU／目標未達を維持する。
 
 最終compactは1,832 files（full3,173）で全選択byte一致・checkout SHA一致。共通制御433件成功（Windows専用1skip）、frontier5件と静的cooldown負例1件も成功。最新inventoryは245/266 packing・base185/203で、全キャラ戦闘認定0を保持。
+
+## 2026-10-25 スクワッドfocus／全体遮蔽の共通GPU実行
+
+最新は `coordinate-squad`222（native189／拒否33）、`docs/portable-coordinate-squad.md` と `research/portable-coordinate-squad-checkpoint.json`。focus／cover_allのauthored literalを共通Slangへ接続し、burst tick後・カメラ調停前に処理する。focus解除とcover_allが同時でも旧ctrl_ownerを除外する順序をCPUで確認。全体遮蔽はカメラ維持を要求しない。武器変更・遮蔽禁止・部分装填・個別sequence／方針との18worldを追加。Runtime138952byte・247field／出力1769856wordは不変、方針padding48wordへ明示状態を割当て、入力+136word。
+
+固定GPU package `/tmp/nikke-squad-develop-v1`、元capture `/tmp/nikke-squad-metal-v1`。CPU121件151.241秒（batch151.537秒）／native189事前114.846秒。GPU0.661187秒／初回PSO92.310655秒。方針＋squad合成1件だけ旧host比較器の再packが拒否。原失敗は保持し、比較器を共通policy-state関数へ分離。修正版 `/tmp/nikke-squad-develop-v2` ではGPU source・全input・全native基準が厳密同一。`/tmp/nikke-squad-replay-v2` でGPU禁止replay全222一致、別processの独立sealも成功。元のstorage停止 `/tmp/nikke-squad-replay-v1` も保持。旧196全1,387,567,104byte／native／input prefixと固定の空拡張を保持し、実GPUは計1回・retry0。raw2本は全byte/SHA/inodeを維持した4KiB疎化で保持。13個の完了済みsource-package展開だけをtar.gzへ全復元テスト後に移し、receiptと元zipを残している。必要な古い展開はreceiptのtarを復元して再検証する。
+
+最終compact `/tmp/nikke-squad-final-compact-v1.zip` はfull3181→1840 files、全選択byteとcheckout SHA一致。共通CLIとblock検査器の入力拡張契約一覧を1か所にまとめ、二重parserの不一致を回帰検査した。新profile専用compiler-source証明書と現CUDA実機は未作成／未検証で、親policyの証明を代用しない。生成cacheのrunはhit／compiler0だがCUDA cache性能実測とは区別する。Windows新要求0。全キャラ0・20 model gap・UI CPU・目標未達。
+
+最優先の追加境界は、mode duration=.3とsquad t=.3が同じtickの操作。CPU観測ではpump前に `_in_weapon_change=True` でowner0を除外し、t=.5ではFalseで含む。現18worldにはこの同時境界を入れていない。`gpu/event_runtime.slang::clearMode` のlogical modeと、次char tickまで残るphysical状態を同一視しない。physicalModeIndex=-2はrevivalでも使うため一律判定へ置き換えず、native `_tick_weapon_change` の終了分岐を確認し、共通stateを保持・比較する。次にburst delay／wait_own_cooldown／patternと次FB予測への接続（`docs/portable-burst-control-next.md`）。効率化ではcoordinate adapterの比較を共通observed経路へまとめ、既存ParentOraclesの同じ親だけの再利用を検討する。独立auditはfreshのまま保つ。

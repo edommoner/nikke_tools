@@ -24,6 +24,14 @@ class InputExtensionTests(unittest.TestCase):
             if where=='entries':bad['entries'][0]['input_sha256']='0'*64
             else:bad[where]='0'*64
             with self.assertRaises(ValueError):verify_extension(self.old,old,self.new,bad,'coordinate-policy-v1')
+    def test_squad_default_extension_and_changed_prefix(self):
+        from portable_squad_control_specs import INPUT_BASE as B,INPUT_WORDS as W,empty as E
+        prefix=b'\1\0\0\0'*B;suffix=struct.pack('<'+str(W)+'I',*E())
+        old=self.write(self.old,[('old',prefix)])
+        new=self.write(self.new,[('old',prefix+suffix)])
+        same,r=verify_extension(self.old,old,self.new,new,'coordinate-squad-v1');self.assertTrue(same['old']);self.assertEqual(r['input_prefix_words'],109656)
+        new=self.write(self.new,[('old',b'\2'+prefix[1:]+suffix)])
+        same,_=verify_extension(self.old,old,self.new,new,'coordinate-squad-v1');self.assertFalse(same['old'])
     def test_unknown_contract_rejected_before_file_access(self):
         with self.assertRaisesRegex(ValueError,'Unknown'):verify_extension('/missing',{},'/missing',{},'ignore-input')
 if __name__=='__main__':unittest.main()

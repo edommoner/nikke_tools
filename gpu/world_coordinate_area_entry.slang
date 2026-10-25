@@ -21,7 +21,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
 {
     if(id.x>=commands[0])return;
-#ifdef PORTABLE_COORDINATE_COVER_POLICIES
+#ifdef PORTABLE_COORDINATE_SQUAD_ACTIONS
+    uint input=1+id.x*(P_INPUT_WORDS+C_INPUT+CA_INPUT+CC_INPUT+CI_INPUT+264U),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
+#elif defined(PORTABLE_COORDINATE_COVER_POLICIES)
     uint input=1+id.x*(P_INPUT_WORDS+C_INPUT+CA_INPUT+CC_INPUT+CI_INPUT+128U),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
 #elif defined(PORTABLE_COORDINATE_AUTHORED_AIM)
     uint input=1+id.x*(P_INPUT_WORDS+C_INPUT+CA_INPUT+CC_INPUT+CI_INPUT),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;

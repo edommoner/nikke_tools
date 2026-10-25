@@ -104,4 +104,11 @@ class ReadbackBlockTests(unittest.TestCase):
         self.assertTrue(blocks.compare(self.path,blocks.digest(raw),index)['all_blocks_equal'])
         changed=bytearray(raw);changed[-4]=3;self.path.write_bytes(changed)
         result=blocks.compare(self.path,blocks.digest(changed),index);self.assertEqual(result['changed_blocks'],[len(index['blocks'])-1]);self.assertEqual(len(result['samples'][0]['words']),768)
+class RetainCLIContractTests(unittest.TestCase):
+    def test_squad_contract_reaches_the_shared_verifier(self):
+        import contextlib,io
+        with tempfile.TemporaryDirectory() as folder,patch.object(blocks,'retain',return_value=dict(all_reference_cases_retained=True)) as verify,contextlib.redirect_stdout(io.StringIO()):
+            blocks.main(['retain','--reference-capture',folder,'--reference-comparison-sha256','0'*64,'--candidate-capture',folder,'--candidate-comparison-sha256','1'*64,'--input-extension','coordinate-squad-v1','--out',str(Path(folder)/'receipt.json')])
+            self.assertEqual(verify.call_args.kwargs['input_extension'],'coordinate-squad-v1')
+
 if __name__=='__main__':unittest.main()

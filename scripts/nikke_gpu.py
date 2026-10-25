@@ -20,6 +20,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT/p) for p in ('app', 'research', 'scripts')]
+from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 # No GPU/backend/native imports at startup: collect/audit must work without them.
 SUITES = {
     'projectile': dict(script='research/verify-world-projectile-short.py',
@@ -345,6 +346,7 @@ SUITES['coordinate-manual']=dict(SUITES['coordinate-sampled-delivery'],script='r
 SUITES['coordinate-manual']['support_files']=['research/portable-compiler-full--coordinate-manual-source-certificate.json',*SUITES['coordinate-sampled-delivery']['support_files']]
 SUITES['coordinate-policy']=dict(SUITES['coordinate-manual'],script='research/verify-coordinate-policy-short.py',source='gpu/world_coordinate_policy_entry.slang',golden='research/portable-coordinate-policy-short-expected.json',output_words=1769856,inputs=196,native=171,development_only=False,cpu_test_timeout=180,tests=[*SUITES['coordinate-manual']['tests'],'test_coordinate_policy.py'])
 SUITES['coordinate-policy']['support_files']=['research/portable-compiler-full--coordinate-policy-source-certificate.json',*SUITES['coordinate-manual']['support_files']]
+SUITES['coordinate-squad']=dict(SUITES['coordinate-policy'],script='research/verify-coordinate-squad-short.py',source='gpu/world_coordinate_squad_entry.slang',golden='research/portable-coordinate-squad-short-expected.json',inputs=222,native=189,development_only=False,cpu_test_timeout=180,tests=[*SUITES['coordinate-policy']['tests'],'test_coordinate_squad.py'])
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -2637,7 +2639,7 @@ def main(argv=None):
         a=sub.add_parser(name);a.add_argument('--readback',type=Path,required=True);a.add_argument('--sha256',required=True);a.add_argument('--out',type=Path,required=True)
         if name=='readback-compare':a.add_argument('--index',type=Path,required=True);a.add_argument('--index-sha256',required=True)
         else:a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472,1769856),default=786432)
-    a=sub.add_parser('readback-retain');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--reference-comparison-sha256',required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--candidate-comparison-sha256',required=True);a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472,1769856),default=786432);a.add_argument('--reference-case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472,1769856));a.add_argument('--input-extension',choices=('coordinate-policy-v1',));a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('readback-retain');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--reference-comparison-sha256',required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--candidate-comparison-sha256',required=True);a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472,1769856),default=786432);a.add_argument('--reference-case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472,1769856));a.add_argument('--input-extension',choices=INPUT_EXTENSION_CONTRACTS);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--reference-migration',choices=['parts-cleared-v1','leftmost-rejection-domains-v1'])
     a=sub.add_parser('metal-cache-probe');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--generated-metal',type=Path,required=True);a.add_argument('--cache',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--require-hit',action='store_true')
     a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
