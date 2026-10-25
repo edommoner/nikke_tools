@@ -359,3 +359,7 @@ coordinate-landingの必須CPU群に同じ比較経路・旧物理・frontierテ
 Windowsも同じ入力と比較器を使い、既存の低優先度・2GiB・180秒wrapperを維持する。
 この入口では射撃groupを無効化し、活core・手動aim・RNGなどは未接続。
 範囲と新旧回帰の証拠は `docs/portable-coordinate-physical-gpu.md` を参照。
+
+## 明示cover・holdの共通実行器
+
+`coordinate-manual` はsealed 169入力（native151・拒否18）。`package --suite coordinate-manual --compact` から共通手順を使う。静的な時刻・duration・untilだけをpackingし、cover・reload・charge・camera処理は共通Slang側で実行する。strict adapterとregistryのSOURCE不一致は入力準備前に拒否する。25の新規worldと旧136全byte保持をM5 Metalで確認済み。条件付きpolicy／cover_allと現CUDAは未検証。詳細は [手動操作の共通実行器](portable-coordinate-manual.md)。

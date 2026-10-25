@@ -370,7 +370,12 @@ void writeCombatQuery(inout Runtime s, uint output, uint states)
     for (uint who = 0; who < 5; who++)
     {
         uint at = states+64+who*8; storeNumber(at,s.ready[who]); storeNumber(at+2,s.chargeUntil[who]);
-        results[at+4] = s.charging[who]; results[at+5] = s.aim[who];
+#ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+        results[at+4] = uint(manualCharging(s,who));
+#else
+        results[at+4] = s.charging[who];
+#endif
+        results[at+5] = s.aim[who];
         results[at+6] = uint(s.modeIndex[who]+1); results[at+7] = s.modeShots[who];
     }
     for (uint who = 0; who < 5; who++) storeNumber(states+112+who*2,s.cooldownApplied[who]);

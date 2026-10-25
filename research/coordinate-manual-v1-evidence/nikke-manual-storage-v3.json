@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-manual-metal-v2",
+  "raw_bytes": 1196163072,
+  "raw_sha256": "dbdc17a69c8ce241954b9e7a2f2a74cb85505c02cf6bd7298f51f6031c0791a2",
+  "evidence_sha256": "83b8ccd6f3052e8f7dc5bdf9b6db544c380f5f75428b6def1d4430cb77ee7261",
+  "raw_inode": 510501960,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 5964,
+  "zero_range_bytes": 1167130624,
+  "allocated_before": 1196163072,
+  "allocated_after": 29032448,
+  "allocated_reclaimed": 1167130624,
+  "full_hash_verified": true
+}

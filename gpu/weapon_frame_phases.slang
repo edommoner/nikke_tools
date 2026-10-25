@@ -13,6 +13,9 @@ void prepareWeaponFrame(inout Runtime s,uint who,uint64_t when,uint output,out u
     target = aimedTarget(s,who); if (target == 0xffffffff) return;
     s.target = target; selectWeapon(s,who,when,w);
     if (s.error != 0) return; WORLD_MANUAL_SWAP(s,w,who,when) WORLD_CONTROL_TICK(s,who,when,output)
+#ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+    if(manualBeforeReload(s,w,who,when))return;
+#endif
     if(advanceModeEntry(s,w,who,when)) return;
     if(s.modeIndex[who]>=0 && w.sentinelMode==0 && w.shotLimit>=0 && uint(w.shotLimit)==commands[s.inputBase+P_MODE_BASE+uint(s.modeIndex[who])*P_MODE_WORDS+1]) w.shotLimit=int(w.capacity);
     if (!WORLD_MANUAL_ENABLED(s,who) && s.modeIndex[who] < 0 && f64Less(0,s.reloadUntil[who]) && hasInfiniteAmmo(s,who,when))
@@ -24,6 +27,9 @@ void prepareWeaponFrame(inout Runtime s,uint who,uint64_t when,uint output,out u
         if (!completeReload(s,w,who,when,output)) return; WORLD_RELOAD_AFTER_COMPLETE(s,who)
         selectWeapon(s,who,when,w); // A completion callback may change the mode.
     }
+#ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+    if(manualAfterReload(s,who,when))return;
+#endif
     if (s.modeIndex[who] < 0 && !f64Less(s.postReloadUntil[who],0))
     {
         if (f64Less(when,s.postReloadUntil[who])) return;

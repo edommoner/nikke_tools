@@ -56,11 +56,17 @@ bool initializeCoordinateSampling(inout Runtime s)
     for(uint row=0;row<s.count;row++)if(definition_kind(s.inputBase,row)!=0)return false;
     if((s.quantityMask&0x01000000U)!=0)return false;
 #endif
+#ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+    if(manualControls(s))s.quantityMask|=0x02000000U;
+#endif
     uint input=s.inputBase+P_ENEMY_TARGET_META_BASE;
     if(commands[input]!=1)return false;
     mtSeed(csRng(s),uint64_t(commands[input+1])|(uint64_t(commands[input+2])<<32));
 #ifdef PORTABLE_COORDINATE_SAMPLED_PARENT
     initializeSampledParentDamage(s);
+#ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+    initializeManualControls(s);
+#endif
 #ifdef PORTABLE_COORDINATE_SAMPLED_BURSTS
     for(uint i=0;i<CSB_WORDS;i++)results[s.resourceOutput+CSB_BASE+i]=0;
 #endif

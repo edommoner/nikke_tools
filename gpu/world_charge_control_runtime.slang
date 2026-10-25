@@ -7,6 +7,9 @@ uint controlOwnerInput(inout Runtime s,uint who) { return controlInput(s)+16+who
 uint controlClick(inout Runtime s,uint who,uint index) { return controlInput(s)+56+(who*8+index)*16; }
 uint controlSequence(inout Runtime s,uint who,uint index) { return controlInput(s)+696+(who*8+index)*8; }
 uint controlThreshold(inout Runtime s,uint index) { return controlInput(s)+1016+index*4; }
+#ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+#include "coordinate_manual_control_runtime.slang"
+#endif
 bool controlDefinition(uint input,uint row)
 {
     for(uint i=0;i<definition_triggerCount(input,row);i++) if(commands[input+P_EVENT_BASE+row*P_EVENT_WORDS+i*8]==39) return true;
@@ -23,7 +26,11 @@ void initializeChargeControl(inout Runtime s)
     {
         uint a=controlOwnerInput(s,who),nc=commands[a],ns=commands[a+1],first=commands[a+2],count=commands[a+3],kind=commands[a+4];
         if(kind!=0 && s.weaponMode[who]!=1) { s.error=64;return; } // Static charge controls require a charge base weapon.
-        if(nc>8||ns>8||first!=offset||first+count>total||count>256||kind>2||kind==0&&nc!=0||kind==2&&ns!=0) { s.error=64;return; }
+        if(nc>8||ns>8||first!=offset||first+count>total||count>256||kind>2||kind==0&&nc!=0
+#ifndef PORTABLE_COORDINATE_MANUAL_ACTIONS
+            ||kind==2&&ns!=0
+#endif
+        ) { s.error=64;return; }
         for(uint j=5;j<8;j++) if(commands[a+j]!=0) { s.error=64;return; }
         bool foundTap=false;
         for(uint i=0;i<8;i++)
@@ -46,7 +53,14 @@ void initializeChargeControl(inout Runtime s)
             {
                 uint64_t at=loadNumber(row),until=loadNumber(row+2);
                 if(!f64Finite(at)||f64Less(at,0)||f64Less(f64FromI64(180),at)||i!=0&&f64Less(at,loadNumber(row-8))||!f64Finite(until)||!f64Equal(until,ONE|F64_SIGN)&&(f64Less(until,0)||f64Less(f64FromI64(180),until))) { s.error=64;return; }
+#ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+                uint action=commands[row+4];
+                if(manualControls(s)){if(action>1||kind==2&&action==0){s.error=64;return;}}
+                else if(action!=0||kind==2){s.error=64;return;}
+                for(uint j=5;j<8;j++)if(commands[row+j]!=0)s.error=64;
+#else
                 for(uint j=4;j<8;j++) if(commands[row+j]!=0) s.error=64;
+#endif
             }
         }
         if(!partialOwnerMaskValid(s,who,foundTap)) { s.error=64;return; }
@@ -112,6 +126,9 @@ uint controlRequest(inout Runtime s,uint who,uint64_t when)
 {
     uint a=controlState(s,who),input=controlOwnerInput(s,who),index=results[a+1];
     if(index<commands[input+1]&&!f64Less(when,loadNumber(controlSequence(s,who,index)))) return 100; // priority99 plus presence.
+#ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+    if(manualOpen(s,who))return results[a+15]+1;
+#endif
     if(f64Less(when,actorNumber(a+6))&&(results[a+14]==0xffffffff||controlWindow(s,who,controlClick(s,who,results[a+14])))) return results[a+15]+1;
     uint selected=controlPick(s,who,false);if(selected==8) return 0;
     uint row=controlClick(s,who,selected);return commands[row]==0?0:commands[row+2]+1;
@@ -123,6 +140,9 @@ uint controlRequest(inout Runtime s,uint who,uint64_t when)
 void releaseChargeControl(inout Runtime s,uint who,uint64_t when)
 {
     uint a=controlState(s,who);
+#ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+    if(manualControls(s))exitManualCover(s,who,when);
+#endif
     if(!f64Less(when,actorNumber(a+6))) return;
     storeNumber(a+6,ONE|F64_SIGN);results[a+14]=0xffffffff;
     if(results[a+22]==0) return;
@@ -214,6 +234,10 @@ void advanceChargeControl(inout Runtime s,uint who,uint64_t when)
                 }
             }
         }
+#ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+        if(manualControls(s))pumpManualSequences(s,who,when);else
+#endif
+        {
         uint index=results[a+1],n=commands[input+1];
         while(index<n&&!f64Less(when,loadNumber(controlSequence(s,who,index))))
         {
@@ -221,6 +245,7 @@ void advanceChargeControl(inout Runtime s,uint who,uint64_t when)
             index++;
         }
         results[a+1]=index;
+        }
     }
     if(results[a+24]==2&&!f64Less(when,s.nextShot[who])&&WORLD_RELOAD_PHASE_EXPIRE(s,who)) results[a+24]=0;
 }
@@ -231,6 +256,9 @@ bool waitChargeControl(inout Runtime s,uint who,uint64_t charge,uint64_t when)
 }
 void startChargeControl(inout Runtime s,uint who,uint64_t charge,uint64_t when)
 {
+#ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+    if(manualControls(s))results[manualState(s,who)+9]=0;
+#endif
     uint a=controlState(s,who),input=controlOwnerInput(s,who),first=commands[input+2],end=first+commands[input+3];
     results[a]=0;storeNumber(a+2,ONE|F64_SIGN);storeNumber(a+4,ONE|F64_SIGN);results[a+24]=1;
     for(uint i=first;i<end;i++) results[s.resourceOutput+P_WORLD_CONTROL_FIRED_BASE+i/32]&=~(1U<<(i%32));
@@ -281,10 +309,24 @@ bool partialReadyCharge(inout Runtime s,uint who,uint64_t charge,uint64_t when,o
 void partialCancelCharge(inout Runtime s,uint who) {}
 #else
 bool partialControlHeader(inout Runtime s,uint p)
-{ return commands[p+1]==1 || commands[p+1]==2 && commands[p+5]>0 && commands[p+5]<32; }
-uint partialReservedStart(inout Runtime s,uint p) { return commands[p+1]==2?6:5; }
+{
+#ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+    if(commands[p+1]==3)return commands[p+5]<32&&(commands[p+6]<256||commands[p+6]==0xffffffffU)&&commands[p+7]==0x4d435631U;
+#endif
+    return commands[p+1]==1 || commands[p+1]==2 && commands[p+5]>0 && commands[p+5]<32;
+}
+uint partialReservedStart(inout Runtime s,uint p) {
+#ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+    if(commands[p+1]==3)return 8;
+#endif
+    return commands[p+1]==2?6:5;
+}
 bool partialOwnerEnabled(inout Runtime s,uint who)
-{ uint p=controlInput(s);return commands[p+1]==2 && (commands[p+5]&(1U<<who))!=0; }
+{ uint p=controlInput(s);return (commands[p+1]==2
+#ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+    ||commands[p+1]==3
+#endif
+    ) && (commands[p+5]&(1U<<who))!=0; }
 bool partialOwnerMaskValid(inout Runtime s,uint who,bool foundTap) { return partialOwnerEnabled(s,who)==foundTap; }
 bool validPartialClick(inout Runtime s,uint who,uint row,uint kind)
 {

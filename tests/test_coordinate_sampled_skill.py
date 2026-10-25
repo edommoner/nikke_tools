@@ -43,7 +43,8 @@ class SkillTests(unittest.TestCase):
         from portable_coordinate_sampled_skill_source_contract import project_sources
         from portable_coordinate_sampled_burst_source_contract import project_sources as burst_sources
         from portable_coordinate_sampled_vital_source_contract import project_sources as vital_sources
-        project_sources(ROOT,burst_sources(ROOT,vital_sources(ROOT)))
+        from portable_coordinate_manual_source_contract import project_sources as manual_sources
+        project_sources(ROOT,burst_sources(ROOT,vital_sources(ROOT,manual_sources(ROOT))))
         for name in ('gpu/damage_runtime.slang','gpu/dispatch_phases.slang','gpu/coordinate_sampled_skill_runtime.slang'):
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed\n'})
     def test_reference_contract_rejects_missing_calculations_and_target_reroll(self):

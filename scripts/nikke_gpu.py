@@ -341,6 +341,8 @@ SUITES['coordinate-sampled-vital']=dict(SUITES['coordinate-sampled-burst'],scrip
 SUITES['coordinate-sampled-vital']['support_files']=['research/portable-compiler-full--coordinate-sampled-vital-source-certificate.json','research/portable-coordinate-arcs-short-expected.json']
 SUITES['coordinate-sampled-delivery']=dict(SUITES['coordinate-sampled-vital'],script='research/verify-coordinate-sampled-delivery-short.py',golden='research/portable-coordinate-sampled-delivery-short-expected.json',inputs=136,native=126,development_only=False,cpu_test_timeout=120,tests=[*SUITES['coordinate-sampled-vital']['tests'],'test_coordinate_sampled_delivery.py','test_coordinate_group_reference.py','test_coordinate_group_gpu.py','test_coordinate_mixed.py'])
 SUITES['coordinate-sampled-delivery']['support_files']=['research/portable-compiler-full--coordinate-sampled-delivery-source-certificate.json','research/portable-coordinate-arcs-short-expected.json','research/portable-coordinate-sampled-vital-short-expected.json','research/portable-coordinate-group-short-expected.json']
+SUITES['coordinate-manual']=dict(SUITES['coordinate-sampled-delivery'],script='research/verify-coordinate-manual-short.py',source='gpu/world_coordinate_manual_entry.slang',golden='research/portable-coordinate-manual-short-expected.json',inputs=169,native=151,development_only=False,cpu_test_timeout=180,tests=[*SUITES['coordinate-sampled-delivery']['tests'],'test_coordinate_manual.py'])
+SUITES['coordinate-manual']['support_files']=['research/portable-compiler-full--coordinate-manual-source-certificate.json',*SUITES['coordinate-sampled-delivery']['support_files']]
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -743,6 +745,8 @@ def open_suite(m):
     if compiler_only(m):raise ValueError('Compiler diagnostic has no battle adapter')
     adapter=module(ROOT/SUITES[m['suite']]['script'])
     if getattr(adapter,'STRICT_WIRE_DIMENSIONS',False):
+        if getattr(adapter,'SOURCE',None)!=SUITES[m['suite']]['source']:
+            raise ValueError('Adapter GPU source disagrees with registered suite source')
         expected=adapter.suite.OUTPUT;configured=SUITES[m['suite']].get('output_words',786432)
         if type(expected) is not int or expected<1 or type(configured) is not int or configured!=expected:
             raise ValueError('Adapter output words disagree with transport allocation')

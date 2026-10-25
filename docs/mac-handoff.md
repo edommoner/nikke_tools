@@ -1909,3 +1909,9 @@ native observerの全Python呼出し監視がcode objectをhashしていたた�
 新しい実fixture再利用2検査と既存ParentOracles13検査を追加し、CPU86件91.286秒。既存71検査約89秒に追加分があるためsuiteのCPU枠だけ事前に120秒へ設定し、GPU/compiler/Windows枠は変更していません。終了故障注入のunitが実disk不足へ先に到達したため、この模擬testだけ容量成功と2回呼出しを検証して目的のtransport失敗へ到達させます。本番storage guardは不変。compact package b58be3b...は1585 files／7,281,453byte。GPU10.283秒・cached PSO0.003秒、事前native52は72.634秒。共通制御372件（Windows専用1skip）成功、全payload SHA/checkout一致も確認済み。
 
 現sourceの共通CLI inventoryは266 profiles／packing245（base185）、未対応21 profiles／20分類、CPU戦闘/GPU0。20分類は全てreference_model_gapで、現在のtyped補正modelの通常入口への接続、受取damage splitの保留仕様、空間・cover・敵回復/弾薬等が残る。小さな全20分類・未対応profile一覧とfull report SHAをevidenceへ保存。次は既存attack_group_runtimeのopen/sealを実戦producerへ接続するmulti_hit:2/:4（니힐리스타／벨로타）のnative契約を優先。受付だけを開いたpacking増加を対応済みにしない。CUDA compile負荷と短いcached実機検証も未完。全キャラ0/UI CPU/全目標未達、旧Windows7プロセス終了原因unknown/保全falseは維持。
+
+## 2026-10-25 明示cover／holdの共通GPU実行
+
+`coordinate-manual`169（native151／拒否18）はM5 Metal照合・独立seal済み。旧136全962592768byte・input/native指紋を保持。新規25worldで有限／None／時刻0、部分装填取消、mode auto／charge、camera preempt、cover_disabled、被弾、後から予約したhold、ゼロ射撃・全MT保持を検査。初版GPUは23差分を保存、CF領域clear後の初期化とbase autoの内部phase／見えるchargingの分離で解消。実GPU計2／同claim retry0。CPU112／control428（Win1skip）、Runtime138952byte・247fieldと入出力容量不変。GPU.484183秒／初回PSO91.796496秒。共通CLIがstrict SOURCE不一致を準備前に拒否し、fixture base再利用で入力生成の重複を削減。保存済みMetal cacheのfile probeはhitだがwarm GPUは再実行していない。Windows新要求0・現CUDA未取得。
+
+最新根拠は `research/portable-coordinate-manual-checkpoint.json`。現worktree `/private/tmp/nikke-runtime-resident`、branch `codex/runtime-resident`。復旧点は固定package `/tmp/nikke-manual-develop-v8` と成功capture `/tmp/nikke-manual-metal-v2`、失敗 `/tmp/nikke-manual-metal-v1`。rawは削除せず4KiB疎化で全byte/SHA/inode保持。次は条件付きcover/reload/burst policyとcover_all、post-delay中のcover・mode期限、named listenerなしの数値cache／reload速度条件、down／revival・healing storage合成を優先して契約→共通Slangへ進める。明示25worldから全入力・全元定義の対応を推定しない。元canonical7ファイル不変、全キャラ0／model gap20／UI CPU／目標未達。

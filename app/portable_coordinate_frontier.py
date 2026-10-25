@@ -188,6 +188,10 @@ def verify(root, overrides=None):
     sampled_delivery_path=root/'research/portable-coordinate-sampled-delivery-short-expected.json'
     sampled_delivery_golden=json.loads(sampled_delivery_path.read_text()) if sampled_delivery_path.is_file() else None
     sampled_delivery_matches=sampled_delivery_golden['source_sha256']==sampled_vital_sources if sampled_delivery_golden else None
+    manual_sources=source_hashes(root,'gpu/world_coordinate_manual_entry.slang')
+    manual_path=root/'research/portable-coordinate-manual-short-expected.json'
+    manual_golden=json.loads(manual_path.read_text()) if manual_path.is_file() else None
+    manual_matches=manual_golden['source_sha256']==manual_sources if manual_golden else False
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -466,6 +470,16 @@ def verify(root, overrides=None):
                     retired_add_child_handles=True,shared_gpu_source='coordinate-sampled-vital',
                     manual_cover_controls_packed=False,
                     remaining=['manual cover/control composition packing','further health/storage/instant combinations','mixed actor payloads and original definitions','public admission and all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_manual_actions=dict(suite='coordinate-manual',source_sha256=manual_sources,
+                    proof_available=manual_golden is not None,sealed_source_matches_current=manual_matches,
+                    input_count=len(manual_golden['entries']) if manual_golden else None,
+                    reference_kind='deterministic-common-cpu',common_runtime_connected=True,
+                    explicit_cover_hold_literals_packed=True,computed_cpu_action_schedule=False,
+                    charging_visibility_separate_from_phase=True,partial_reload_cancel=True,
+                    conditional_policies_connected=False,cover_all_connected=False,
+                    input_words=109528,output_words=1769472,additional_runtime_bytes=0,
+                    remaining=['conditional cover/reload/burst policies and cover_all','post-delay, zero-listener, knockdown and storage combinations','mixed actor payloads and original definitions','CUDA execution and public all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 packet_integer_ratio=dict(suite='packet-ratio',source_sha256=ratio_sources,
                     proof_available=ratio_golden is not None,sealed_source_matches_current=ratio_matches,

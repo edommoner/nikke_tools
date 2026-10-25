@@ -37,9 +37,9 @@ def compare(block,domain):
     with creation_indices(domain[0]) as indices:n=native_reference(domain)
     return compare_observed(block,domain,n,indices)
 
-def compare_observed(block,domain,n,indices):
+def compare_observed(block,domain,n,indices,*,manual=False):
     from world_coordinate_sampled_skill_native import trace_view
-    parent.parent.compare_observed(block[:BASE],domain,n,check_parent=False,trace_view=trace_view(n['skill_trace'],indices),sampled_burst_totals=True)
+    parent.parent.compare_observed(block[:BASE],domain,n,check_parent=False,trace_view=trace_view(n['skill_trace'],indices),sampled_burst_totals=True,sampled_manual=manual)
     expected=[0]*WORDS;h=HEAD
     batches=n['sampled_burst_batches'];last=batches[-1] if batches else dict(time=0,entries=[])
     assert block[h]==len(last['entries']),'Combined pending birth count'

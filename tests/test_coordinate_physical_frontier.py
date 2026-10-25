@@ -71,6 +71,12 @@ class FrontierTests(unittest.TestCase):
         self.assertFalse(landing['sampling_rng_connected'])
         self.assertFalse(landing['battle_connected'])
         self.assertEqual((result['gpu_calls'], result['native_battle_calls']), (0, 0))
+        manual=result['coordinate_manual_actions']
+        self.assertTrue(manual['common_runtime_connected']);self.assertTrue(manual['explicit_cover_hold_literals_packed'])
+        self.assertFalse(manual['computed_cpu_action_schedule']);self.assertTrue(manual['charging_visibility_separate_from_phase'])
+        self.assertFalse(manual['conditional_policies_connected']);self.assertFalse(manual['cover_all_connected'])
+        self.assertFalse(manual['public_gpu_admitted']);self.assertFalse(manual['all_characters_certified'])
+        self.assertIs(type(manual['sealed_source_matches_current']),bool)
         rows = {r['id']: r for r in result['dependencies']}
         self.assertEqual(len(rows), 7)
         self.assertEqual(rows['physical-native-observation']['common_policy_reference_cli'],

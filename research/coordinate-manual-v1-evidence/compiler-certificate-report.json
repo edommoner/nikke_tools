@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "compiler_suite": "compiler-full--coordinate-manual",
+  "certificate_target": "research/portable-compiler-full--coordinate-manual-source-certificate.json",
+  "baseline_suite": "coordinate-manual",
+  "baseline_golden_sha256": "c1b377fd56c8cf718ba3fed9a586d5082b2740504cbfcb84fb70cb476d09cf69",
+  "certificate_sha256": "5bd30fb7598f9f425dacf7adc53b38320644b208c131ce480cf87c6cc73b981c",
+  "metal_package_id": "8d4bee0afc0b4fda2c04df08507f56aa77e716c9275e73f6b2b9e3a35a87df89",
+  "metal_manifest_sha256": "83b0577892fd317b971e19a58a915f905b34c5ee7b6aeaee07fc03ef0ed4f3e1",
+  "metal_artifacts_sha256": "511d3fd4339a6b3705028a7ea5bf58b8d582f4b411c9e43421dae41a0e929cd5",
+  "metal_run_sha256": "dde702a54a94af210d93db0bf4add931369273355504388c069522bfb1c2b1f6",
+  "metal_input_count": 169,
+  "independent_metal_audit": true,
+  "compiler_verified": false,
+  "cache_hit_verified": false,
+  "calculation_verified": false,
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "scope": "Compiler source identity only; audited Metal baseline is a separate calculation proof"
+}

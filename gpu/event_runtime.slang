@@ -977,7 +977,11 @@ bool basicConditions(inout Runtime s, uint row, uint64_t when, bool runtime, uin
         }
         if (kind == C_BACK_ROW && owner != 1 && owner != 3) return false;
         if (kind == C_CAST && (s.castMask & (1U << owner)) == 0 || kind == C_NOT_CAST && (s.castMask & (1U << owner)) != 0) return false;
+#ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+        if (kind == C_STATIC && f64Zero(arg) || kind == C_CHARGING && !manualCharging(s,owner)) return false;
+#else
         if (kind == C_STATIC && f64Zero(arg) || kind == C_CHARGING && s.charging[owner] == 0) return false;
+#endif
         if (kind == C_BURST1_ALLY || kind == C_NO_BURST1_ALLY)
         {
             bool has = false; for (uint who = 0; who < 5; who++) if (who != owner && s.currentStage[who] == 1) has = true;

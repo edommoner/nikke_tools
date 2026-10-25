@@ -2,7 +2,10 @@
 import random
 def verify(case,native):
     assert native['reference_kind']=='deterministic-common-cpu'
-    points=native['sampled_points'];pellets=native['physical_pellets'];assert points and len(points)==len(pellets)
+    points=native['sampled_points'];pellets=native['physical_pellets'];assert len(points)==len(pellets)
+    # Cover/hold may suppress every shot. The draw stream and all 624 MT
+    # words below still prove the zero-consumption path; nonempty is a
+    # fixture witness, not a battle execution invariant.
     from portable_coordinate_sample_v1 import sample
     rng=random.Random(case['seed']);words=0;observed_points=0
     for draw in native['sampled_draws']:

@@ -87,10 +87,10 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
-    if source in ('gpu/world_coordinate_sampling_burst_entry.slang','gpu/world_coordinate_sampling_vital_entry.slang') or output_words==1769472:
+    if source in ('gpu/world_coordinate_sampling_burst_entry.slang','gpu/world_coordinate_sampling_vital_entry.slang','gpu/world_coordinate_manual_entry.slang') or output_words==1769472:
         from portable_coordinate_sampled_burst_wire import SOURCE,INPUT_WORDS,OUTPUT_WORDS,check_schema
         check_schema(ROOT)
-        if source not in (SOURCE,'gpu/world_coordinate_sampling_vital_entry.slang') or (input_words,output_words)!=(INPUT_WORDS,OUTPUT_WORDS):
+        if source not in (SOURCE,'gpu/world_coordinate_sampling_vital_entry.slang','gpu/world_coordinate_manual_entry.slang') or (input_words,output_words)!=(INPUT_WORDS,OUTPUT_WORDS):
             raise ValueError('Sampled burst requires its complete registered wire')
         return
     if source in ('gpu/world_coordinate_group_entry.slang','gpu/world_coordinate_mixed_entry.slang','gpu/world_coordinate_sampling_entry.slang','gpu/world_coordinate_sampling_parent_entry.slang','gpu/world_coordinate_sampling_skill_entry.slang') or output_words==1507328:

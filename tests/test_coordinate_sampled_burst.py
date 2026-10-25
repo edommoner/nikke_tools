@@ -47,7 +47,8 @@ class BurstTests(unittest.TestCase):
     def test_source_inverse_rejects_unknown_shader_and_consumer(self):
         from portable_coordinate_sampled_burst_source_contract import project_sources,project_backend_source
         from portable_coordinate_sampled_vital_source_contract import project_sources as vital_sources,project_backend_source as vital_backend
-        project_sources(ROOT,vital_sources(ROOT));project_backend_source(ROOT,vital_backend(ROOT))
+        from portable_coordinate_manual_source_contract import project_sources as manual_sources,project_backend_source as manual_backend
+        project_sources(ROOT,vital_sources(ROOT,manual_sources(ROOT)));project_backend_source(ROOT,vital_backend(ROOT,manual_backend(ROOT)))
         for name in ('gpu/portable_schema.slang','gpu/pending_burst_runtime.slang','gpu/coordinate_sampled_burst_runtime.slang','scripts/run-metal-probe.swift'):
             with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// changed\n'})
     def test_persistent_header_is_explicitly_separate_from_shot_scratch(self):
