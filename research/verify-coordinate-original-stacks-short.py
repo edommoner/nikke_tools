@@ -56,11 +56,11 @@ def stack_expiry(block,index):
     pair=block[at:at+2]
     return None if tuple(pair)==(0,0x7ff00000) else struct.unpack('<d',struct.pack('<II',*pair))[0]
 
-def compare_stack_state(block,domain,native):
+def compare_stack_state(block,domain,native,*,operations=('buff_stack_add','buff_stack_remove','buff_max_stack_add')):
     from portable_runtime import decode
     actual=decode(block[:159744],domain[1]);case=domain[0];observed=native['original_stacks']
     for index,source in enumerate(domain[1]['binding_source_indices']):
-        if case['effects'][source].get('stat') in ('buff_stack_add','buff_stack_remove','buff_max_stack_add') and case['effects'][source].get('type') in ('buff','instant'):
+        if case['effects'][source].get('stat') in operations and case['effects'][source].get('type') in ('buff','instant'):
             assert actual['timers'][index]['activations']==sum(r['row']==source for r in observed['dispatches']),'Every original stack operation must execute'
     expected=[row for row in observed['final'] if row['end'] is None or row['end']>case['duration']]
     found=[]

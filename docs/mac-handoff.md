@@ -2211,3 +2211,13 @@ CPU観測のC通知が12段のPython専用profile chainへ伝播することを�
 最終packet shared46240e73…（1981files）、decoy3b83f01d…（1993files）は関連22／27と各制御476成功（Win1skip）、全payload bytesとGPU source/input/native/output一致。reader終了後raw3つをSHA/size/inode保持で疎化し62,521,344byte回収・削除0。次は固定入口のまま元stack初期化18等を正発火で検証。残り18/20/21/34/35/37、packing19、モデル／variants、現CUDA／公開GPU／全キャラは未完、UI CPU。
 
 Windows既存chatはrev78 idle。ユーザー依頼の送信再試行もactive-turnエラーで拒否、新規CUDA実行なし。接続確認を再実行成功と数えず、APIへ同じrunを繰り返し送信しないこと。
+
+## 2026-10-26 元ソーダstack init18・固定入口の再利用
+
+最新 `coordinate-original-init`3、`docs/portable-original-stack-init.md`／`research/portable-original-stack-init-checkpoint.json`。元ソーダ：トゥインクルバニー全77定義、完全5人編成・武器・成長・autoを保持し、スキル1レベル1/4/10、各8秒・seed3701。元値表から40/45/50生成→実burst17消費→実射撃で3加算→最終26/31/36。初期作成でstack_reach通知を合成せず、後続の実再加算は通知。元期限・membership・全battle/packet/RNG/control/health比較を保持、CPU schedule入力0。
+
+同じ固定shared Slang入口を使用、GPU source・Runtime・wire・kind受付・数値変更0。既存stack observer/readerを再利用し発火数の対象operation引数だけ追加、旧既定範囲不変。共通source-reuseでCUDA/MSLと両reflection・identity・consumerの全一致、データ6→3・Slang追加0。M5 Metal全3status0・CPU一致、実GPU1回0.734364秒、pipeline同archive/key必須hit0.002836秒、retry0／失敗0。独立GPU禁止childで全3fresh41.951534秒、live parent receiptなしでseal。
+
+最終packet `/tmp/nikke-original-init-final-v1.zip`（d5274558…、1989files）は関連23／制御476成功（Windows1skip）。全payload SHA/checkout bytesとGPU source/input/native/output一致。reader終了後raw21,238,272byteをSHA/size/inode保持で疎化、15,794,176byte回収・削除0。現CUDAのcompile/cache/launchへ成功を流用しません。Windows新規依頼0。
+
+次は元ミハラ：ボンディングチェーンの敵stack追加20、アンカー：イノセントメイドのharmful stack減少21を、元条件と実対象の正例で検証。34/35/37、packing19、モデル／variant・現CUDA／公開GPU／全キャラも未完。静的247/266・kind拒否0を対応率へ読み替えず、全キャラ0／UI CPU／ゴール未達を維持します。

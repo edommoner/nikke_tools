@@ -1,3 +1,5 @@
+`coordinate-original-init`3 は元ソーダ：トゥインクルバニーのスキルレベル1/4/10で40/45/50スタック生成→burstで17消費→通常攻撃で再加算まで検証するsealed suiteです。固定shared入口・CUDA/MSL生成物を保持、M5 Metal全3と独立fresh監査に成功。`package --suite coordinate-original-init --compact` と既存run経路を使います。kind受付と全キャラ認定を分けます。[範囲と検証記録](portable-original-stack-init.md)。
+
 固定入口 `coordinate-original-shared`6 と元ライの `coordinate-original-decoy`3 を追加しました。両suiteは同一GPU sourceを使い、`source-reuse` が不変package・厳密なCUDA/MSL生成pair・consumer・追加コンパイル0をファイルだけで検査します。`entry-inventory --suite coordinate-original-shared --out UNIQUE.json` は受付拡張8profileを旧入口との差分として保持します。kind受付0拒否を全キャラ認定へ読み替えないこと。[使い方・実Metal cache・残件](portable-original-shared-entry.md)。
 
 # 共通GPU検証CLI

@@ -1,0 +1,1163 @@
+[
+  {
+    "level": 1,
+    "definitions": 77,
+    "elapsed": 12.183661042014137,
+    "observed": {
+      "dispatches": [
+        {
+          "row": 0,
+          "owner": 0,
+          "time": 0.0,
+          "stat": "buff_stack_init",
+          "before": [],
+          "partial_skips_before": 0,
+          "after": [
+            {
+              "row": 1,
+              "owner": 0,
+              "members": [
+                "소다 : 트윙클링 바니"
+              ],
+              "stack": 40,
+              "activated": 0.0,
+              "end": null
+            }
+          ],
+          "partial_skips_after": 0
+        },
+        {
+          "row": 10,
+          "owner": 0,
+          "time": 2.8999999999999946,
+          "stat": "buff_stack_remove",
+          "before": [
+            {
+              "row": 1,
+              "owner": 0,
+              "members": [
+                "소다 : 트윙클링 바니"
+              ],
+              "stack": 40,
+              "activated": 0.0,
+              "end": null
+            }
+          ],
+          "partial_skips_before": 0,
+          "after": [
+            {
+              "row": 1,
+              "owner": 0,
+              "members": [
+                "소다 : 트윙클링 바니"
+              ],
+              "stack": 23,
+              "activated": 0.0,
+              "end": null
+            }
+          ],
+          "partial_skips_after": 0
+        }
+      ],
+      "notifications": [
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:헬스업!:1",
+          "time": 1.2166666666666672
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:헬스업! 2:1",
+          "time": 1.2166666666666672
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:노트 위의 기억:1",
+          "time": 1.5166666666666662
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:노트 위의 기억 2:1",
+          "time": 1.5166666666666662
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:파워 업!:1",
+          "time": 2.6999999999999953
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:파워 업! 2:1",
+          "time": 2.6999999999999953
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:리스크 공유 4:1",
+          "time": 2.799999999999995
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:시간 연장 I:1",
+          "time": 2.799999999999995
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:시간 연장 II:1",
+          "time": 2.799999999999995
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:고 어헤드, 소다! 2:1",
+          "time": 2.8999999999999946
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:고 어헤드, 소다! 3:1",
+          "time": 2.8999999999999946
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:웨이크업!:1",
+          "time": 3.2833333333333266
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:너싱:1",
+          "time": 3.2833333333333266
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:골든 칩:24",
+          "time": 3.349999999999993
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:럭키 골든 칩 2:1",
+          "time": 3.349999999999993
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:골든 칩:25",
+          "time": 5.349999999999986
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:골든 칩:26",
+          "time": 7.349999999999979
+        }
+      ],
+      "final": [
+        {
+          "row": 1,
+          "owner": 0,
+          "members": [
+            "소다 : 트윙클링 바니"
+          ],
+          "stack": 26,
+          "activated": 7.349999999999979,
+          "end": null
+        }
+      ]
+    },
+    "native_sha": "feb00c060384c1c67f778f453fa89c5b4136b736c32eb6f4dca53a25a4d74c6d"
+  },
+  {
+    "level": 4,
+    "definitions": 77,
+    "elapsed": 12.09906250005588,
+    "observed": {
+      "dispatches": [
+        {
+          "row": 0,
+          "owner": 0,
+          "time": 0.0,
+          "stat": "buff_stack_init",
+          "before": [],
+          "partial_skips_before": 0,
+          "after": [
+            {
+              "row": 1,
+              "owner": 0,
+              "members": [
+                "소다 : 트윙클링 바니"
+              ],
+              "stack": 45,
+              "activated": 0.0,
+              "end": null
+            }
+          ],
+          "partial_skips_after": 0
+        },
+        {
+          "row": 10,
+          "owner": 0,
+          "time": 2.8999999999999946,
+          "stat": "buff_stack_remove",
+          "before": [
+            {
+              "row": 1,
+              "owner": 0,
+              "members": [
+                "소다 : 트윙클링 바니"
+              ],
+              "stack": 45,
+              "activated": 0.0,
+              "end": null
+            }
+          ],
+          "partial_skips_before": 0,
+          "after": [
+            {
+              "row": 1,
+              "owner": 0,
+              "members": [
+                "소다 : 트윙클링 바니"
+              ],
+              "stack": 28,
+              "activated": 0.0,
+              "end": null
+            }
+          ],
+          "partial_skips_after": 0
+        }
+      ],
+      "notifications": [
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:헬스업!:1",
+          "time": 1.2166666666666672
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:헬스업! 2:1",
+          "time": 1.2166666666666672
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:노트 위의 기억:1",
+          "time": 1.5166666666666662
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:노트 위의 기억 2:1",
+          "time": 1.5166666666666662
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:파워 업!:1",
+          "time": 2.6999999999999953
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:파워 업! 2:1",
+          "time": 2.6999999999999953
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:리스크 공유 4:1",
+          "time": 2.799999999999995
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:시간 연장 I:1",
+          "time": 2.799999999999995
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:시간 연장 II:1",
+          "time": 2.799999999999995
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:고 어헤드, 소다! 2:1",
+          "time": 2.8999999999999946
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:고 어헤드, 소다! 3:1",
+          "time": 2.8999999999999946
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:웨이크업!:1",
+          "time": 3.2833333333333266
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:너싱:1",
+          "time": 3.2833333333333266
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:골든 칩:29",
+          "time": 3.349999999999993
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:럭키 골든 칩 2:1",
+          "time": 3.349999999999993
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:골든 칩:30",
+          "time": 5.349999999999986
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:골든 칩:31",
+          "time": 7.349999999999979
+        }
+      ],
+      "final": [
+        {
+          "row": 1,
+          "owner": 0,
+          "members": [
+            "소다 : 트윙클링 바니"
+          ],
+          "stack": 31,
+          "activated": 7.349999999999979,
+          "end": null
+        }
+      ]
+    },
+    "native_sha": "38bd4c40af466df56ed187fc227d1fa71cc07b46b9b12f4a9000a801c390e976"
+  },
+  {
+    "level": 10,
+    "definitions": 77,
+    "elapsed": 12.240672874962911,
+    "observed": {
+      "dispatches": [
+        {
+          "row": 0,
+          "owner": 0,
+          "time": 0.0,
+          "stat": "buff_stack_init",
+          "before": [],
+          "partial_skips_before": 0,
+          "after": [
+            {
+              "row": 1,
+              "owner": 0,
+              "members": [
+                "소다 : 트윙클링 바니"
+              ],
+              "stack": 50,
+              "activated": 0.0,
+              "end": null
+            }
+          ],
+          "partial_skips_after": 0
+        },
+        {
+          "row": 10,
+          "owner": 0,
+          "time": 2.8999999999999946,
+          "stat": "buff_stack_remove",
+          "before": [
+            {
+              "row": 1,
+              "owner": 0,
+              "members": [
+                "소다 : 트윙클링 바니"
+              ],
+              "stack": 50,
+              "activated": 0.0,
+              "end": null
+            }
+          ],
+          "partial_skips_before": 0,
+          "after": [
+            {
+              "row": 1,
+              "owner": 0,
+              "members": [
+                "소다 : 트윙클링 바니"
+              ],
+              "stack": 33,
+              "activated": 0.0,
+              "end": null
+            }
+          ],
+          "partial_skips_after": 0
+        }
+      ],
+      "notifications": [
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:장비 옵션:1",
+          "time": 0.0
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:헬스업!:1",
+          "time": 1.2166666666666672
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:헬스업! 2:1",
+          "time": 1.2166666666666672
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:노트 위의 기억:1",
+          "time": 1.5166666666666662
+        },
+        {
+          "owner": 3,
+          "event": "stack_reach:노트 위의 기억 2:1",
+          "time": 1.5166666666666662
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:파워 업!:1",
+          "time": 2.6999999999999953
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:파워 업! 2:1",
+          "time": 2.6999999999999953
+        },
+        {
+          "owner": 2,
+          "event": "stack_reach:리스크 공유 4:1",
+          "time": 2.799999999999995
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:시간 연장 I:1",
+          "time": 2.799999999999995
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:시간 연장 II:1",
+          "time": 2.799999999999995
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:고 어헤드, 소다! 2:1",
+          "time": 2.8999999999999946
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:고 어헤드, 소다! 3:1",
+          "time": 2.8999999999999946
+        },
+        {
+          "owner": 1,
+          "event": "stack_reach:웨이크업!:1",
+          "time": 3.2833333333333266
+        },
+        {
+          "owner": 4,
+          "event": "stack_reach:너싱:1",
+          "time": 3.2833333333333266
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:골든 칩:34",
+          "time": 3.349999999999993
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:럭키 골든 칩 2:1",
+          "time": 3.349999999999993
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:골든 칩:35",
+          "time": 5.349999999999986
+        },
+        {
+          "owner": 0,
+          "event": "stack_reach:골든 칩:36",
+          "time": 7.349999999999979
+        }
+      ],
+      "final": [
+        {
+          "row": 1,
+          "owner": 0,
+          "members": [
+            "소다 : 트윙클링 바니"
+          ],
+          "stack": 36,
+          "activated": 7.349999999999979,
+          "end": null
+        }
+      ]
+    },
+    "native_sha": "04505fa5b7dcb851d33ed9e8359a5ce34c3013cfc611b59e174c17aeb0ea19aa"
+  }
+]
