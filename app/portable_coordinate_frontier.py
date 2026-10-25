@@ -224,6 +224,8 @@ def verify(root, overrides=None):
     original_path=root/'research/portable-coordinate-original-short-expected.json'
     original_golden=json.loads(original_path.read_text()) if original_path.is_file() else None
     original_matches=original_golden['source_sha256']==original_sources if original_golden else None
+    periodic_original_path=root/'research/portable-coordinate-original-periodic-short-expected.json'
+    periodic_original_golden=json.loads(periodic_original_path.read_text()) if periodic_original_path.is_file() else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -598,6 +600,16 @@ def verify(root, overrides=None):
                     remaining=['complete original group binding','owner-aware duplicate damage observation',
                         'down/revival and callback session combinations','current CUDA execution and warm cache performance',
                         'public admission and all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_original_periodic=dict(suite='coordinate-original-periodic',source_sha256=original_sources,
+                    proof_available=periodic_original_golden is not None,
+                    sealed_source_matches_current=periodic_original_golden['source_sha256']==original_sources if periodic_original_golden else None,
+                    input_count=len(periodic_original_golden['entries']) if periodic_original_golden else None,
+                    reference_kind='deterministic-common-cpu',original_periodic_definitions_preserved=True,
+                    duplicate_periodic_labels_supported=True,stable_owner_and_registration_identity=True,
+                    nonperiodic_damage_labels_must_be_unique=True,
+                    remaining=['same-label death-spread and simultaneous refresh combinations','nonperiodic duplicate damage identities',
+                        'current CUDA execution and public all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 packet_integer_ratio=dict(suite='packet-ratio',source_sha256=ratio_sources,
                     proof_available=ratio_golden is not None,sealed_source_matches_current=ratio_matches,

@@ -2050,3 +2050,18 @@ GPU packet `/tmp/nikke-coordinate-original-removal-develop-v1`（0d8be0bb…）�
 model-gap監査の旧unconditional座標guardがprivate opt-in導入後のASTを認識できず、frontier検査が失敗していたため修正。既定False・literal bool guardと公開engine_workerのallowed enemy拒否を独立検査し、負例も追加。現在model-checkのoriginal proof/source match true、public admitted／all-char certified false。inventory245/266・base185/203・未対応21profiles/20分類、全キャラ0／UI CPU／目標未達は維持します。
 
 次はfresh監査238.65秒に余裕を作るCPU observerの対象外locals取得削減（world_coordinate_manual_native等）を行い、元編成multi_hit完全group binding・owner-aware同名damage観測・down/revivalとcallback sessionを進めます。ケース削減・時間短縮・監査timeout拡大で解決しないこと。Windowsは状態を1回確認しrev78 idleのまま、新依頼／GPU0。既存送信APIの同じエラーを繰り返し試さず、実行開始可能な状態になってから必要な短い検証だけに使います。
+
+
+## 2026-10-25 元の同名DoT4・観測filter・group結合の共通化
+
+最新は `docs/portable-original-periodic.md`／`research/portable-original-periodic-checkpoint.json`。`coordinate-original-periodic`4はハラン／クルミ、3／30秒の完全5人編成、全72／70定義保持。元登録のrow IDとownerで同名DoTを照合し、名前だけで最後の定義へ結び付ける問題を解消。30秒で実DoT発火を確認してM5全一致・別process/GPU禁止fresh監査91.144139秒でsealed登録。非周期の同名はまだ明示拒否、death-spread／同時refresh組合せは残件です。
+
+packet `/tmp/nikke-original-periodic-develop-v1`（60a60b66…）、capture `/tmp/nikke-original-periodic-metal-v1`。共通shader／transport／numeric source変更0、生成とPSO cache必須hit、GPU2.361383秒・PSO0.003104秒・CPU事前82.305819秒。GPU1／同claim retry0、source-only certificateは同じfresh監査から作成。現CUDA計算／warm cache性能へ流用しないこと。Windows新依頼／GPU0。
+
+manual observerは対象codeを判定してからlocalsを取得するようにし、元編成10native指紋保持を200.573231秒で確認。新source-ID観測も含む旧healing340入力／291native全指紋保持は148.908552秒。独立監査との同条件速度比較ではありません。全sampled profileの数値・RNG・観測内容は維持します。
+
+`portable_group_binding` を通常group入力と座標元編成で共有し、既存53＋10入力は全byte保持。ベロータ71／ニヒリスター73全定義をprivate coordinateへ静的結合できました。ただしalive／1HP ADDの4native worldは最大1group1対象、2／4対象のmulti_hit通知と子damageは0。元のnative routing／対象モデル不足として残し、all-enemies routingへ置換したり未発火のpackingからGPU認定しないこと。
+
+最終 `/tmp/nikke-original-periodic-final-v2.zip`（519c3343…）は機能32・制御476（Win1skip）成功、終了後に全1911payload SHA／checkout全byte一致を確認。全reader終了後にrawをsize／SHA／inode保持で4KiB疎化し27,000,832byte回収、削除0。データを失った場合はGPU再実行で復元しないこと。
+
+model-checkでoriginal-periodic proof/source match true、全キャラ0／公開UI CPU／全目標未達。次は同名DoTの実死亡spread／refresh、nonperiodicのsource identityが必要な元定義、down/revivalとcallback sessionの組合せを優先し、multi_hitの正本対象展開を別model-gapとして調べます。既存original10・healing340の認定範囲と240秒fresh上限を維持してください。

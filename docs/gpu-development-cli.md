@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+最新の `coordinate-original-periodic`4はハラン／クルミの元72／70効果と武器を保持し、同名DoTをowner／登録IDで照合してM5全一致・独立fresh監査91.14秒でsealed登録済みです。shader変更0、生成／Metal pipeline cacheを必須再利用。groupのliteral結合も共通化し、元武器でmulti_hit対象数を満たせない部分は正本モデル側の不足として残しています。[同名DoTとgroupの境界](portable-original-periodic.md)。
+
 最新の `coordinate-original`10は元の完全編成68〜81効果・武器・操作設定を保持し、実被弾での名前指定解除までM5 Metal全一致・独立fresh監査238.65秒でsealed登録済みです。保持履歴と省略件数の厳密な検査、比較器だけの固定source-bound再配布、private opt-in／公開拒否の別監査も共通CLIへ接続しました。[元編成と検証境界](portable-coordinate-original.md)。
 
 最新の `coordinate-healing`340（native291／拒否49）は回復貯蔵・分配・放出を座標戦闘へ接続し、保存Metal全件一致・独立fresh監査225.42秒でseal済みです。新16world＋拒否2、旧322全raw保持。新規GPU1回、観測器修正後の再GPU0。厳密な観測基準移行と監査内の静的入力再構築削減も共通CLIへ接続しました。[回復と元編成への接続境界](portable-coordinate-healing.md)。

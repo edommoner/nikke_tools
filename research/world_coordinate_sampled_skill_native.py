@@ -40,7 +40,11 @@ def creation_indices(case):
     legacy_code=timeline.BurstController._fire_pending_burst_dmg.__code__
     calc_code=timeline.calc_damage.__code__
     def remember(ev,frame):
-        value=frame.f_locals;row=names[value['eff']['name']]
+        value=frame.f_locals
+        if case.get('source_effect_identity'):
+            from world_effect_identity import row as source_row
+            row=source_row(case,value['eff'],ev.caster)
+        else:row=names[value['eff']['name']]
         assert ev.skill_name==value['eff']['name'] and ev.t==value['t']
         events[id(ev)]=(row,int(value['_'])+1,int(value['hit_count']))
     def profile(frame,event,answer):
@@ -48,7 +52,12 @@ def creation_indices(case):
         if case.get('sampled_burst'):
             caller=frame.f_back
             if event=='return' and frame.f_code is calc_code and caller is not None and caller.f_code is legacy_code:
-                v=caller.f_locals;pending.append((names[v['eff']['name']],int(v['_'])+1,int(v['hit_count']),answer['damage'],v['eff']['name'],v['name'],v['t']))
+                v=caller.f_locals
+                if case.get('source_effect_identity'):
+                    from world_effect_identity import row as source_row
+                    source=source_row(case,v['eff'],v['name'])
+                else:source=names[v['eff']['name']]
+                pending.append((source,int(v['_'])+1,int(v['hit_count']),answer['damage'],v['eff']['name'],v['name'],v['t']))
             if event=='return' and frame.f_code is legacy_code:
                 assert len(answer)==len(pending),'Every native legacy packet needs its real hit-loop receipt'
                 for ev,(row,hit,hits,amount,name,owner,when) in zip(answer,pending,strict=True):
@@ -66,7 +75,10 @@ def creation_indices(case):
         if event=='call' and not (case.get('coordinate_packet_trace') and ev.target):
             value=events.get(id(ev))
             if value is None:
-                row=names[ev.skill_name]
+                if case.get('source_effect_identity'):
+                    from world_effect_identity import event_row
+                    row=event_row(case,ev)
+                else:row=names[ev.skill_name]
                 assert case['effects'][row]['stat']=='dealt_fixed_damage','Missing native creation hit index'
                 value=(row,1,1)
             row,hit,hits=value

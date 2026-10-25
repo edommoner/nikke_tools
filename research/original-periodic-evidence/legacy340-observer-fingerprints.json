@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "input_count": 340,
+  "native_domains": 291,
+  "elapsed_seconds": 148.90855158295017,
+  "gpu_calls": 0,
+  "scope": "Current observers preserve all sealed healing340 input/native fingerprints; not a new GPU calculation proof"
+}

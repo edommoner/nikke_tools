@@ -11,6 +11,10 @@ def observe(case):
     codes={getattr(timeline.CharState,k).__code__:k for k in methods}
     arb=timeline._arbitrate_control.__code__;charge=timeline.CharState._tick_charge.__code__
     burst_tick=timeline.BurstController.tick.__code__;burst_ticks=[]
+    squad_tick=timeline._pump_squad_seq.__code__
+    observed_codes=set(codes)|{arb,charge}
+    if case.get('burst_controls'):observed_codes.add(burst_tick)
+    if case.get('squad_controls'):observed_codes.add(squad_tick)
     def state(cs,bm=None):
         if bm is None:bm=managers[0]
         extra=dict(cover_all=bool(cs._cover_all)) if case.get('squad_controls') else {}
@@ -19,12 +23,13 @@ def observe(case):
     def profile(frame,event,answer):
         if previous is not None:previous(frame,event,answer)
         if event!='return':return
+        if frame.f_code not in observed_codes:return
         v=frame.f_locals
         if case.get('burst_controls') and frame.f_code==burst_tick:
             from world_burst_control_native import snapshot
             burst_ticks.append(snapshot(v['self'],v['t'],names))
         if frame.f_code==arb:characters.update(v['char_states']);managers[:]=[v['bm']]
-        if case.get('squad_controls') and frame.f_code==timeline._pump_squad_seq.__code__:
+        if case.get('squad_controls') and frame.f_code==squad_tick:
             q=v['bm'].state;forced=q.get('ctrl_focus_forced') or '';keep=v.get('keep') or ''
             squad_pumps.append(dict(time=v['t'],index=q['_squad_seq_i'],owner=names.index(q['ctrl_owner']) if q['ctrl_owner'] else -1,forced=names.index(forced)+1 if forced else 0,keep=(names.index(keep)+1 if keep else 0) if 'keep' in v else None))
             if case.get('squad_mode_state'):squad_pumps[-1]['mode_mask']=sum(1<<who for who,name in enumerate(names) if v['char_states'][name]._in_weapon_change)

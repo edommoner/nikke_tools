@@ -34,4 +34,7 @@ def prepare_case(row):
         coordinate_packet_trace=False,control_mode=cfg.get('control_mode','solo'),
         observe_target_counters=True,observe_fractional_hits=True,manual_controls=True,cover_policies=True,squad_controls=True,squad_mode_state=True,burst_controls=True,sequence=[],
         removal_witness=row.get('removal_witness',False),original_run=dict(body=copy.deepcopy(row['body']),prepared=p,scalar_enemy=copy.deepcopy(p['enemy'])))
+    if any(t.startswith('multi_hit:') for e in p['effects'] for t in e['effect'].get('trigger',{}).get('timing',[])):case['sampled_groups']=True
+    damage_names=[e['effect']['name'] for e in p['effects'] if e['effect'].get('type')=='damage']
+    if len(damage_names)!=len(set(damage_names)):case.update(source_effect_identity=True,observe_periodic_skills=True)
     return case,world

@@ -1,0 +1,11 @@
+{"phase": "development_native", "case_index": 0, "case_name": "coordinate-original-periodic/Harran/3s", "case_count": 4, "elapsed_seconds": 4.204245334025472}
+{"phase": "development_native", "case_index": 1, "case_name": "coordinate-original-periodic/Harran/30s", "case_count": 4, "elapsed_seconds": 38.55099887505639}
+{"phase": "development_native", "case_index": 2, "case_name": "coordinate-original-periodic/Kurumi/3s", "case_count": 4, "elapsed_seconds": 4.199996207957156}
+{"phase": "development_native", "case_index": 3, "case_name": "coordinate-original-periodic/Kurumi/30s", "case_count": 4, "elapsed_seconds": 37.34351458400488}
+{
+  "package_id": "60a60b6695a031885fc2d97fe46f078c247fadb701acd293c9b81677c2150de8",
+  "files": 1909,
+  "bytes": 8843827,
+  "archive_sha256": "468d1d53c98f8c055bd7e5b8fc0786794245b86bf42a077b49d7597ce2be709b",
+  "source_commit": "73799495a9f22a614e6bfa3d01487a1ff8e48f81"
+}

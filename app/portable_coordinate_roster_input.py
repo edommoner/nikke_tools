@@ -25,16 +25,19 @@ def compile_coordinate_battle(prepared):
     from runner.spec import build_config
     from portable_actor_specs import compile_registry
     from calculator.boss_pattern import validate
+    from portable_group_binding import lower,bind
     chars=prepared['chars'];names=[c['name'] for c in chars];enemy=prepared['enemy'];cfg=prepared['policies']['config']
     damage_names=[e['effect']['name'] for e in prepared['effects'] if e['effect'].get('type')=='damage']
-    if len(damage_names)!=len(set(damage_names)):raise ValueError('Original damage labels require owner-aware native observation')
+    if len(damage_names)!=len(set(damage_names)):
+        duplicates={n for n in damage_names if damage_names.count(n)>1}
+        if any(not e['effect'].get('tick_interval') for e in prepared['effects'] if e['effect'].get('type')=='damage' and e['effect']['name'] in duplicates):raise ValueError('Original nonperiodic damage labels require owner-aware native observation')
     patterns=enemy.get('patterns') or [dict(id='portable-empty-world',kind='idle')]
     case=dict(name='original-coordinate',names=names,duration=cfg['duration'],enemy=copy.deepcopy(enemy),patterns=copy.deepcopy(patterns),controls=[copy.deepcopy(c.get('control',{})) for c in chars],control_mode=cfg.get('control_mode','solo'))
-    words,meta=compile_world_battle(prepared,trace='full',allow_physical_interrupt=bool(cfg.get('aim_interrupt')),coordinate=True)
+    lowered,original,owners=lower(prepared)
+    words,meta=compile_world_battle(lowered,trace='full',allow_physical_interrupt=bool(cfg.get('aim_interrupt')),coordinate=True)
+    if owners:bind(words,meta,original)
     finalize_program(words)
     if len(words)!=104400:raise ValueError('Original base world stride changed')
-    for e in prepared['effects']:
-        if any(t.startswith('multi_hit:') for t in e['effect'].get('trigger',{}).get('timing',[])):raise ValueError('Original group triggers require explicit complete group binding')
     scene,desc=compile_scene(dict(patterns=patterns,commands=[('capture',cfg['duration'],0,0)]),allow_core=True,allow_summons=True,allow_world_nodes=True)
     _,bindings=compile_registry(validate(patterns,coord=True),pools=True)
     for i,row in enumerate(desc['rows']):
@@ -45,7 +48,7 @@ def compile_coordinate_battle(prepared):
     for control in area_case['controls']:control.pop('aim',None)
     if area_case['enemy']['coord'].get('auto_aim') is None:area_case['enemy']['coord']['auto_aim']=[0,0]
     with compiler_policy():area=compile_area(area_case,desc,explosion_ranges=[c['_weapon'].get('spot_explosion_range') for c in chars])
-    words += [0x41475331,2,0,1,0,0,0,0]+scene+area+compile_core(case,desc['patterns'])
+    words += [0x41475331,2,owners,1,0,0,0,0]+scene+area+compile_core(case,desc['patterns'])
     if len(words)!=108792:raise ValueError('Original coordinate core stride changed')
     words+=pack_aim(case,desc,meta)
     policy_chars=copy.deepcopy(chars)
@@ -60,4 +63,5 @@ def compile_coordinate_battle(prepared):
     if set(meta['binding_source_indices'])!=set(range(len(prepared['effects']))):raise ValueError('Original definition coverage is incomplete')
     if any(c.get('aim') for c in case['controls']):words[L['WORLD_META_BASE']+4]=0x46414330|int(bool(cfg.get('aim_interrupt')))
     meta['coordinate_original_input']=dict(all_effects_included=True,prepared_definitions=len(prepared['effects']),bound_definitions=len(meta['effects']),policy_mask=policy[2],original_weapon_metadata_preserved=True,original_controls_preserved=True,cpu_battle_executed=False,reference_kind='deterministic-common-cpu',physical_rng='sampled',definitions_sha256=hashlib.sha256(json.dumps(prepared['effects'],ensure_ascii=False,sort_keys=True).encode()).hexdigest())
+    if owners:meta['coordinate_original_input']['group_owners']=owners
     return words,meta,bindings,desc

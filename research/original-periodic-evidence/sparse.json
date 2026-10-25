@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-original-periodic-metal-v1",
+  "raw_bytes": 28317696,
+  "raw_sha256": "cf1666726cec708be95c771c797b9368497dd1a48ac18682ab6fd973867c66f8",
+  "evidence_sha256": "b0d4d766b068588c04697e3a56f75504c209b3bed63b964b5b56ca7aec0df220",
+  "raw_inode": 511040897,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 158,
+  "zero_range_bytes": 27000832,
+  "allocated_before": 28319744,
+  "allocated_after": 1318912,
+  "allocated_reclaimed": 27000832,
+  "full_hash_verified": true
+}

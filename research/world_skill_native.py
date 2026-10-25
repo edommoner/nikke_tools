@@ -8,7 +8,7 @@ def inspect(case):
  names={e['name']:i for i,e in enumerate(case['effects']) if e.get('type')=='damage'};records=[];active=[];event_rows={};handler_starts={};original=BossScript.route;previous=sys.getprofile()
  def profile(frame,event,arg):
   if previous is not None:previous(frame,event,arg)
-  if case.get('observe_periodic_skills') and frame.f_code.co_name=='_handle_damage_eff':
+  if (case.get('observe_periodic_skills') or case.get('source_effect_identity')) and frame.f_code.co_name=='_handle_damage_eff':
    eff=frame.f_locals.get('eff',{});row=eff.get('_portable_observer_row');events=frame.f_locals.get('_dot_events',[])
    if row is not None:
     if event=='call':handler_starts[id(frame)]=len(events)
@@ -22,7 +22,13 @@ def inspect(case):
    if event=='return':event_rows.pop(id(ev),None)
    return
   if event=='call':
-   row=dict(row=event_rows.get(id(ev),names[ev.skill_name]),created=ev.t,landed=frame.f_locals['t'],amount=ev.damage,share=ev.damage,recipients=[0])
+   source=event_rows.get(id(ev))
+   if source is None:
+    if case.get('source_effect_identity'):
+     from world_effect_identity import event_row
+     source=event_row(case,ev)
+    else:source=names[ev.skill_name]
+   row=dict(row=source,created=ev.t,landed=frame.f_locals['t'],amount=ev.damage,share=ev.damage,recipients=[0])
    records.append(row);active.append(row)
   elif event=='return':active.pop();event_rows.pop(id(ev),None)
  def route(boss,ev,*args,**kwargs):

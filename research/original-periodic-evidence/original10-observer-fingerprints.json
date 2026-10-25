@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "coordinate-original/Marciana/control/3s",
+      "seconds": 4.171954874997027
+    },
+    {
+      "name": "coordinate-original/Marciana/control/30s",
+      "seconds": 37.76451037498191
+    },
+    {
+      "name": "coordinate-original/Marciana/defender/3s",
+      "seconds": 4.145818250020966
+    },
+    {
+      "name": "coordinate-original/Marciana/defender/30s",
+      "seconds": 38.47652554209344
+    },
+    {
+      "name": "coordinate-original/Delta-ninja-thief/control/3s",
+      "seconds": 4.069693583995104
+    },
+    {
+      "name": "coordinate-original/Delta-ninja-thief/control/30s",
+      "seconds": 46.690953250043094
+    },
+    {
+      "name": "coordinate-original/Delta-ninja-thief/defender/3s",
+      "seconds": 4.232500207959674
+    },
+    {
+      "name": "coordinate-original/Delta-ninja-thief/defender/30s",
+      "seconds": 51.23219204193447
+    },
+    {
+      "name": "coordinate-original/Delta-ninja-thief/control/3s/direct-hits",
+      "seconds": 4.23910166695714
+    },
+    {
+      "name": "coordinate-original/Delta-ninja-thief/defender/3s/direct-hits",
+      "seconds": 4.341569917043671
+    }
+  ],
+  "inputs": 10,
+  "gpu_calls": 0,
+  "elapsed_seconds": 200.57323070894927,
+  "source_sha256": "e366c27c9af01b82da70914bb9f300d20a80cc8e53a4a1f1fcb16ce85ab4bf0e",
+  "scope": "Fresh current native fingerprints against sealed original10; no GPU execution or new calculation proof"
+}
