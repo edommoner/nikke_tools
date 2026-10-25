@@ -2187,3 +2187,15 @@ CPU観測のC通知が12段のPython専用profile chainへ伝播することを�
 最終compact `/tmp/nikke-original-shield-final-v1.zip`（96d36c82…）は関連20／制御476（Win1skip）成功、全1971payload SHA／checkout全byteと実GPU source・input／native／output一致を確認。sealed generation必須cache hit・Slang0。全raw reader終了後に失敗／成功rawをSHA／size／inode保持で疎化し計99,745,792byte回収、削除0。全266静的inventoryはpacking247／kind拒否10（旧13）、残り237をGPU対応数としないこと。
 
 次の候補は元ビスケット／リリのcover_revive30。decoy heal31、敵stack20/21、init18、蓄積放出等の元定義も残る。現CUDA／warm cache、公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／目標未達。Windowsは既存idle送信APIをユーザー依頼で再試行したが同じactive-turnエラー、新GPU実行依頼0。同じrun再送・UI制約回避はせず、開始可能になったら既存短い検証の状態／保存結果を取得します。
+
+## 2026-10-26 元編成cover revival30・終端診断の乱数副作用
+
+最新 `coordinate-original-cover`6、`docs/portable-original-cover-revival.md`／`research/portable-original-cover-revival-checkpoint.json`。元ビスケット全70／リリ68定義、完全5人編成・武器・成長・autoを保持。各候補なし6秒／実1人破壊46秒／実3人破壊46秒。元再装填中11.6／14.2秒に非貫通の宣言敵攻撃、43.466秒台の次burstで実復活。ビスケットは3人から2人、リリは3人から1人。定義／期間・元効果順と独立抽選を保持し、CPUスケジュール入力0。既存共通kind30を共有declへ接続、数値／wire／Runtime138952byte不変。
+
+初版 `/tmp/nikke-original-cover-metal-v1` は全status0／ビスケット3件一致、リリ3件はMT比較停止。短いリリはnative選択779／GPU780、MT全624語は同じ・末尾1語余分。先頭128履歴全一致、6.0秒のop40診断snapshotが元CPUに無いget_buffs相当の読取りで味方late caster-ATK対象を固定していた。新入口だけ既存nativeNumericDiagnostic規約をop40へ適用し、診断敵ATKの読取りで結果に寄与しない味方late selectorを解決しない。実戦中／明示op39の元順序は維持。RNG巻戻し・比較除外0。元CPUとGPUのlate random未解決状態も検査。
+
+凍結packet v2 `/tmp/nikke-original-cover-develop-v2`（0be6d765…）、capture `/tmp/nikke-original-cover-metal-v2` はM5全6一致。全6input／native指紋は初版から保持、旧成功3出力の21,238,272byte保持。旧shield入口CUDA/MSL原生成物も全byte保持、厳密inverseを追加。実GPU2／照合失敗1保持／成功1、同claim retry0。修正版GPU6.565994秒／初PSO92.013862秒／CPU事前93.599501秒、generation必須cache hit・compiler0。独立seal104.723796秒、別child・全6fresh・live parent receiptなし／GPU0。同じ監査からgoldenとsource-only証明書を作成。CUDA実計算・compile/cache証明へ流用しないこと。
+
+既存Python観測filterを再利用。凍結46秒poolケースを非filter版と各比較、ビスケット58.954→17.435秒／リリ66.683→22.199秒、全nativeとcreation-index指紋一致。旧ケース既定False。最終compact `/tmp/nikke-original-cover-final-v1.zip`（f50db8a4…）は関連26（旧味方抽選6を含む）／制御476（Win1skip）成功。全1974payload SHA／checkout全byteと実GPU source・input／native／output一致。sealed generation必須cache hit・Slang0。全reader終了後に失敗／成功rawをSHA／size／inode保持で疎化、62,390,272byte回収・削除0。
+
+全266静的inventoryはpacking247／kind拒否8（旧10）、残り239を対応数へ数えない。次は既存handler検証用の固定入口とdata-only追加経路でkind受付だけのsource変更によるcache無効化を減らす設計、元ライのdecoy heal31を優先候補。init18、敵stack20/21、蓄積放出34、feather35、弾消費37と19packing失敗も残る。現CUDA／warm cache・公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／目標未達。Windowsは既存chatをread-only確認しrev78 idle、新規run依頼0。API idleへの同じrun再送やUI制約回避は行わないこと。

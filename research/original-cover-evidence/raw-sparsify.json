@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-original-cover-metal-v2",
+  "raw_bytes": 42476544,
+  "raw_sha256": "3d1cd7a2de9b53d1361c8562cc2ca0f5248e6e5efaaee2bae94e79689dcf35f4",
+  "evidence_sha256": "329fee19c5f0c274d6805ebf7ccdb20cb5971d1aa1467a43f2f8589e86b4b7f5",
+  "raw_inode": 511274050,
+  "scan_block_bytes": 65536,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 76,
+  "zero_range_bytes": 31195136,
+  "allocated_before": 42479616,
+  "allocated_after": 11284480,
+  "allocated_reclaimed": 31195136,
+  "full_hash_verified": true
+}

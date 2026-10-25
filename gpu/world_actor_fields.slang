@@ -195,6 +195,13 @@ bool actorFieldCommand(inout Runtime s,uint at,uint op,uint64_t when)
     else
     {
         for(uint i=4;i<8;i++) if(commands[at+i]!=0) return false;
+#ifdef PORTABLE_COORDINATE_ORIGINAL_COVER_REVIVE
+        // The original battle has no finish-time get_buffs probe. Keep this
+        // diagnostic actor snapshot under the same policy as writePortableQuery.
+        // Explicit op39 queries retain their ordinary native query contract.
+        uint diagnostic=results[s.resourceOutput+P_NATIVE_QUERY_BASE+9];
+        if(nativeNumericEnabled(s)) results[s.resourceOutput+P_NATIVE_QUERY_BASE+9]=1;
+#endif
         // The native finish observer reads enemy ATK before numeric fields.
         // That reader resolves pending caster-ATK membership even on allies.
         if(nativeNumericEnabled(s)) { WORLD_ENEMY_ATTACK_SNAPSHOT(s,when) }
@@ -209,6 +216,9 @@ bool actorFieldCommand(inout Runtime s,uint at,uint op,uint64_t when)
             else { actorFieldRead(s,who,commands[b],commands[b+1],gen,scratch,when);for(uint i=0;i<12;i++) results[out+i]=results[scratch+i]; }
         }
         if(!nativeNumericEnabled(s)) { WORLD_ENEMY_ATTACK_SNAPSHOT(s,when) }
+#ifdef PORTABLE_COORDINATE_ORIGINAL_COVER_REVIVE
+        if(nativeNumericEnabled(s)) results[s.resourceOutput+P_NATIVE_QUERY_BASE+9]=diagnostic;
+#endif
         results[actorFieldHead(s)+2]=actorPoolCount(s);
     }
     return true;

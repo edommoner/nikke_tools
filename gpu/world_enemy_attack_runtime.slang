@@ -11,6 +11,11 @@ uint64_t collectWorldEnemyAttackFlat(inout Runtime s,uint target,uint64_t when)
     {
         uint row=s.orderedRows[i];Definition d=residentDefinition(s,row);
         if(d.kind!=0||d.stat!=S_atk_caster_based_pct||s.alive[row]==0||!f64Less(when,s.end[row])) continue;
+#ifdef PORTABLE_COORDINATE_ORIGINAL_COVER_REVIVE
+        // A final diagnostic must not resolve an allied late numeric selector.
+        // Actual enemy-ATK reads and explicit actor queries keep native ordering.
+        if(nativeNumericDiagnostic(s)&&d.enemyBuff==0) continue;
+#endif
         // Native resolves _by_stat's lazy row before testing enemy membership,
         // including allied rows. This observable resolution affects later ranks.
         if(s.lazyPending[row]!=0) ensureLazyRecipients(s,row,when);

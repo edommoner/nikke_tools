@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "case": "coordinate-original-cover/Lili/full",
+  "native_samples": 779,
+  "gpu_samples": 780,
+  "retained_ordered_prefix_equal": 128,
+  "complete_mt_words_equal": true,
+  "native_mt_index": 348,
+  "gpu_mt_index": 349,
+  "native_mt_words_consumed": 3468,
+  "gpu_mt_words_consumed": 3469,
+  "last_native_record": [
+    3,
+    408,
+    30,
+    3,
+    347,
+    348,
+    0,
+    0
+  ],
+  "last_gpu_record": [
+    3,
+    408,
+    30,
+    2,
+    348,
+    349,
+    0,
+    1075314688
+  ],
+  "gpu_late_carriers": [
+    {
+      "source": 2,
+      "flags": 1,
+      "recipients": 2
+    }
+  ],
+  "diagnosis": "Final diagnostic actor-field snapshot resolves and freezes an allied late numeric selector not queried by the original CPU battle",
+  "gpu_calls": 0,
+  "calculation_verified": false
+}

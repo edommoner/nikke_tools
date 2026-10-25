@@ -1,0 +1,52 @@
+[
+  {
+    "pattern": "test_original_cover.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.4405997500289232,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 45193
+  },
+  {
+    "pattern": "test_coordinate_kind_admission.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.30965091614052653,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 45193
+  },
+  {
+    "pattern": "test_coordinate_original.py",
+    "exit_code": 0,
+    "elapsed_seconds": 10.368156583048403,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 45193
+  },
+  {
+    "pattern": "test_native_python_profile.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.02400441700592637,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 45193
+  },
+  {
+    "pattern": "test_portable_ally_random_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.7802141250576824,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 45193
+  }
+]

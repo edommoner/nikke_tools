@@ -1,4 +1,7 @@
         if(kind!=0&&kind!=2&&kind!=3&&kind!=4&&kind!=6&&kind!=7&&kind!=8&&kind!=24
+#ifdef PORTABLE_COORDINATE_ORIGINAL_COVER_REVIVE
+            &&kind!=30 // Existing shared broken-cover revival and recipient handlers.
+#endif
 #ifdef PORTABLE_COORDINATE_ORIGINAL_SHIELD_HEAL
             &&kind!=27 // Existing shared protection healing and periodic instant handlers.
 #endif

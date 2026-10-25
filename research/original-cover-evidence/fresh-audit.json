@@ -1,0 +1,15 @@
+{
+  "schema": "independent-metal-audit-v1",
+  "package_id": "0be6d76541da46e794ebe2d17dc416af70212b4faf764ca63fafda6e2c30301c",
+  "capture": "/private/tmp/nikke-original-cover-metal-v2",
+  "child_pid": 44954,
+  "input_count": 6,
+  "native_cases": 6,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 104.72379566682503,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "eb34fba3c9b538e24031fb56bb14b48e8a552afba4b4db9c25e34d064684851a",
+  "output_sha256": "3d1cd7a2de9b53d1361c8562cc2ca0f5248e6e5efaaee2bae94e79689dcf35f4",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls"
+}
