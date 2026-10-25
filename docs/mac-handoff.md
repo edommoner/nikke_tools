@@ -2079,3 +2079,17 @@ model-checkでoriginal-periodic proof/source match true、全キャラ0／公開
 重要な分類: ハランの正例はBODY感染中のADD死亡通知であり、現正本の条件は「現在対象の状態」です。死亡敵自身の感染／生存ADDへのspreadを証明しません。召喚攻撃・自爆は既存共通処理があるという初期仮説を調査で否定し、schedulerとactor registryの2guardが未対応として拒否することを確認。guardを外していません。multi_hitの静的結合を対象ルーティング解決へ読み替えないこと。
 
 model-checkは新suiteのproof/source match true、public/all-char false。全キャラ認定0／UI CPU／全目標未達です。次は元nonperiodic同名damage identity、元武器のgroup対象モデル、down／復活・callback session、召喚攻撃payloadの設計へ進めます。Windowsは新依頼0、送信APIのidle制約へ同じrunを再送しないこと。現CUDA／warm cache実測は未取得のままです。
+
+## 2026-10-26 元マナ編成のdown／復活・状態解除とID分類
+
+最新 `coordinate-original-revival`3、`docs/portable-original-revival.md`／`research/portable-original-revival-checkpoint.json`。元マナ編成の全78定義、3秒のcontrol／1回down／2回downを保持。1回目は元「매터 감마」条件で96%HPへ即時復活、条件解除後の2回目は最終HP0。復活定義発火数・旧共通down/revive trace・ammo補充／再開時刻を、既存全battle／packet／RNG比較と合成しました。元public body・weapons・操作・成長を置換していません。
+
+既存world_revive_nativeをcapture/observeへ分け、旧・新でworld_revival_compareを共用。旧復活35input／26native指紋は全保持（0.991313秒、GPU0）。初期テストの架空ロスター名と、96%HPの再測定値を整数96と同一視する期待値を訂正し、元演算順によるbit単位の検査を保持。native／GPUの計算、許容幅は変えていません。元の失敗logとprobeは/tmpへ保持。
+
+GPU packet `/tmp/nikke-original-revival-develop-v1`（942ef238…）、capture `/tmp/nikke-original-revival-metal-v1` は全3一致。実GPU1回0.363236秒／PSO cache hit0.002823秒／CPU事前12.583214秒。生成cache必須hit・compiler0、旧CUDA/MSLと両方全byte一致。GPU source／numeric／wire／容量変更0、retry0。独立sealは15.100126秒、別child・live parent receiptなし・全3fresh／GPU0。同じ監査からgoldenとsource-only certificateを作成しsealed登録。現CUDA compile/link/cache/battleへ流用しないこと。
+
+最終compact `/tmp/nikke-original-revival-final-v1.zip`（691aaa80…）は機能38／制御476（Win1skip）成功。全1913payload SHAとcheckout全byte／GPU source・全input・native・output一致を終了後に検査。既存original17inputも全byte保持。全reader終了後のrawはSHA／size／inode保持で疎化し、削除0です。
+
+model-checkへ全266プロファイルの完全元編成damage-ID静的監査を追加。非周期同名衝突0、周期はハラン／クルミのみ。非周期受付guardは保ち `unobserved-restriction` と分類し、実データの未対応として優先しないこと。元編成の全定義を検査するが、battle／packing／GPUの証明ではありません。cube・成長を任意追加した場合の保証へ拡張しないこと。
+
+アンは元の敵heal_received_pct/all_enemiesが未対応でpacking拒否、効果を削らないこと。ラプンツェル6秒probeはdownあり／復活未発火で認定なし。次は復活の実burst条件／複数候補・敵回復consumer、元武器group対象モデルと召喚攻撃payloadへ進めます。静的inventoryは245/266・base185/203、全キャラ0／UI CPU／目標未達。Windows新依頼0、現CUDA／warm cache未取得。既存idle送信APIへ重複runを依頼しないこと。

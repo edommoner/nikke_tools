@@ -1,5 +1,6 @@
 """Read actual down/revive calls; never resolve targets or query stats in snapshots."""
 import copy,random
+from contextlib import contextmanager
 from unittest.mock import patch
 from calculator.buff_manager import BuffManager
 from calculator.timeline import CharState
@@ -7,7 +8,8 @@ from world_projectile_native import observe as projectile_native
 from world_frame_native import roster_names
 
 
-def observe(case):
+@contextmanager
+def capture(case):
     names=roster_names(case);events=[];identities={}
     down=BuffManager.knock_down;revive=BuffManager.revive;notify=BuffManager.notify
     on_down=CharState.on_down;on_revive=CharState.on_revive;resolve=BuffManager._resolve_target
@@ -43,6 +45,10 @@ def observe(case):
             return result
         return call
     with patch.object(BuffManager,'_resolve_target',resolved),patch.object(BuffManager,'knock_down',transition(down,'down')),patch.object(BuffManager,'revive',transition(revive,'revive')),patch.object(BuffManager,'notify',notified),patch.object(CharState,'on_down',action(on_down,'action-down')),patch.object(CharState,'on_revive',action(on_revive,'action-revive')):
+        yield events
+
+def observe(case):
+    with capture(case) as events:
         native,trace=projectile_native(case)
     native['revival_events']=events
     return native,trace

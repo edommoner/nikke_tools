@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-original-revival-metal-v1",
+  "raw_bytes": 21238272,
+  "raw_sha256": "428650b31a0a574024258a564b53b6b39d656c0607437762aec3921f61dc1442",
+  "evidence_sha256": "f0cb0fb37fac1cb54bc349963c353bfea2ec1cde7baf5f6e1d49968c798922f6",
+  "raw_inode": 511075124,
+  "scan_block_bytes": 65536,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 36,
+  "zero_range_bytes": 16252928,
+  "allocated_before": 21241856,
+  "allocated_after": 4988928,
+  "allocated_reclaimed": 16252928,
+  "full_hash_verified": true
+}

@@ -1,0 +1,42 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "coordinate-original-revival/Mana/control",
+      "input_sha256": "5286775757a83f45517f8b8a36685c6419e61981d023cc6f57332fa3139da8cc",
+      "output_sha256": "4a31c94ad4db2c7af26c9c063fb7ec14fd5e7189359919ae51cc23f6bdcc3037",
+      "native_sha256": "2ba4cfea072c0a4a9f33a9315ee0146d58ed176ce044ab4025cc7957f64f25e9"
+    },
+    {
+      "name": "coordinate-original-revival/Mana/once",
+      "input_sha256": "10041afafb99c6812b758cad5b74e3299e823471072a1e0be4014befdcb78e25",
+      "output_sha256": "946f4625337147c87db6dd1c66d52fd231c14496b2ac2240a8d78ad3aff2141b",
+      "native_sha256": "032634e7a1fde7c665a461db126936a84a2e3cb596b8eb0932fc16e0c4158b2b"
+    },
+    {
+      "name": "coordinate-original-revival/Mana/twice",
+      "input_sha256": "f65cbd3a41ca2cd2d96549a9a3a59b9e7261298da1f1d9e80dd870252205a8c1",
+      "output_sha256": "3566d276800c14119dabb3f9e51aa15f633398e532708525963e4af75d1b78b7",
+      "native_sha256": "c2dafd1f94e9e805bd5a49165650a6f1c39d7de4ef95b22b818b90995228d7d9"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 3,
+  "native_oracles": 3,
+  "input_sha256": "70a21c70d27b238931e9f9161ffc0434f179c36ac5d0174dd2348c06afd18c01",
+  "output_sha256": "428650b31a0a574024258a564b53b6b39d656c0607437762aec3921f61dc1442",
+  "generated_normalized": {
+    "cuda": "d4cd541ab55c38aa2924ecd08cbe906010f63413e9e54223ea2dac3b4491be14",
+    "metal": "f695eefed6708370f777fc97b037c4fa683c9a780bd9476404c634930a2a6ed1"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 3,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 3
+  }
+}
