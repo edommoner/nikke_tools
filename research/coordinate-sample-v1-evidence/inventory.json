@@ -1,0 +1,204 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "research/coordinate-sample-v1-evidence/metal-v1/run.json",
+      "source": "/tmp/nikke-coordinate-sample-metal-v1/run.json",
+      "bytes": 267,
+      "sha256": "47ebdd19115305989a205cd62fb1b8b6d945a0f6d51a3283ada822c0bac35259"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/metal-v1/result.json",
+      "source": "/tmp/nikke-coordinate-sample-metal-v1/result.json",
+      "bytes": 1389,
+      "sha256": "ca38d5ab93d0e03a58cb33df6586b8d3fe9589f706a283e8dc516b0097d4d012"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/metal-v1/comparison.json",
+      "source": "/tmp/nikke-coordinate-sample-metal-v1/comparison.json",
+      "bytes": 37210,
+      "sha256": "526c9494ccd53461bda48000e3db4b244a52acaa652cdfe38efe0789e539e936"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/metal-v1/evidence.json",
+      "source": "/tmp/nikke-coordinate-sample-metal-v1/evidence.json",
+      "bytes": 15576,
+      "sha256": "02a52d8c555790ae71e3f94584ec146bd6fc9f13f5a2d3e0226f741eecfce6aa"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/metal-v1/execution.json",
+      "source": "/tmp/nikke-coordinate-sample-metal-v1/execution.json",
+      "bytes": 1558,
+      "sha256": "e91e5da7a6f36e6f611be4e5abeaeb3d7b1eb01396748294b3976e0c8b0aa308"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/metal-v1/cpu.json",
+      "source": "/tmp/nikke-coordinate-sample-metal-v1/cpu.json",
+      "bytes": 541,
+      "sha256": "075a2ec99e30515516a6418e12522fe18def88c51f3db8120dd50a91775cf295"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/metal-v1/cpu-tests.json",
+      "source": "/tmp/nikke-coordinate-sample-metal-v1/cpu-tests.json",
+      "bytes": 216,
+      "sha256": "222990bca79ed819ea113f5e9b6a631121662f24a12cb1b29282850fee18c5c9"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/metal-v1/cpu-batch.json",
+      "source": "/tmp/nikke-coordinate-sample-metal-v1/cpu-batch.json",
+      "bytes": 337,
+      "sha256": "e865505ee35874cc07be9557aa779120e9e60f09b97fa2d6211f10991490f46f"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/metal-v1/stderr.log",
+      "source": "/tmp/nikke-coordinate-sample-metal-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/generation-v1/failure.json",
+      "source": "/tmp/nikke-coordinate-sample-generation-v1/failure.json",
+      "bytes": 106,
+      "sha256": "2cdc9b87d65026c5b4134bff06ebc0c9b5b77e830351bdecf6f0a24e32c96570"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/final-cpu-v1/run.json",
+      "source": "/tmp/nikke-coordinate-sample-final-cpu-v1/run.json",
+      "bytes": 237,
+      "sha256": "0ccb9cd53a630207156a52e2efb831546cf17395a575c8d252bbf246831a5a49"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/final-cpu-v1/result.json",
+      "source": "/tmp/nikke-coordinate-sample-final-cpu-v1/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/final-cpu-v1/cpu.json",
+      "source": "/tmp/nikke-coordinate-sample-final-cpu-v1/cpu.json",
+      "bytes": 250,
+      "sha256": "9353572d89452d2beff5dc8916777bc83114e265d5617fc4a5abe7a29f467f36"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/final-cpu-v1/cpu-tests.json",
+      "source": "/tmp/nikke-coordinate-sample-final-cpu-v1/cpu-tests.json",
+      "bytes": 439,
+      "sha256": "933c4ec33130b6cd7dc806e575d68a25bf7000c7207e5b590b4eea96dea0a1f3"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/final-cpu-v1/cpu-batch.json",
+      "source": "/tmp/nikke-coordinate-sample-final-cpu-v1/cpu-batch.json",
+      "bytes": 382,
+      "sha256": "37088b21ce3dba332335a3cff31a21d6bdd0aebe49e61b9434f0529d1b97f20a"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/final-control-v1/run.json",
+      "source": "/tmp/nikke-coordinate-sample-final-control-v1/run.json",
+      "bytes": 237,
+      "sha256": "f2ace64a5f0d05ec9c324de7472d6aef826d0dbd39bb410bdda67ef7f3a46370"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/final-control-v1/result.json",
+      "source": "/tmp/nikke-coordinate-sample-final-control-v1/result.json",
+      "bytes": 135,
+      "sha256": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/final-control-v1/cpu.json",
+      "source": "/tmp/nikke-coordinate-sample-final-control-v1/cpu.json",
+      "bytes": 109,
+      "sha256": "bc45e3d39298f7219da3140078d6f10d93262192126d145de384a7dcb2799e8e"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/final-control-v1/cpu-tests.json",
+      "source": "/tmp/nikke-coordinate-sample-final-control-v1/cpu-tests.json",
+      "bytes": 8936,
+      "sha256": "0b153142e31b2470eb244778ceb61f6b435bf05248859b43bd2869e217338944"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/final-control-v1/cpu-batch.json",
+      "source": "/tmp/nikke-coordinate-sample-final-control-v1/cpu-batch.json",
+      "bytes": 1912,
+      "sha256": "03a72d8c7a09388e514ec994c9e123876954debfdb036e9f0a8563836c733e7d"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/retention-v1.json",
+      "source": "/tmp/nikke-coordinate-sample-retention-v1.json",
+      "bytes": 3051,
+      "sha256": "2a52e4110536b84ae06db0c4b7c3e2ee653eb6b627327bf0ac8f7ca0fb6ead71"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/native-v1.json",
+      "source": "/tmp/nikke-coordinate-sample-native-v1.json",
+      "bytes": 898302,
+      "sha256": "4fcfee517a880e2de97956efcc4312173d2fa9ec03e4413bb11df5fd70146728"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/model-v1.json",
+      "source": "/tmp/nikke-coordinate-sample-model-v1.json",
+      "bytes": 298643,
+      "sha256": "43b6a494834d507bedbba7bb7ced1f9269b76afb906dd6a01c7470eebf321d5c"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/preparation/tests-v1.log",
+      "source": "/tmp/nikke-coordinate-sample-local-v1/tests-v1.log",
+      "bytes": 548,
+      "sha256": "c2158ceb4720c5875ecef534d832526a55694b7b7456840b4e7bb7e217bffd49"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/preparation/reference-tests-v1.log",
+      "source": "/tmp/nikke-coordinate-sample-local-v1/reference-tests-v1.log",
+      "bytes": 2865,
+      "sha256": "f856a23d4db6c4d33100b1762cdbdba0b5829c6aa7774df0a0ee874cc638219a"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/preparation/reference-tests-v2.log",
+      "source": "/tmp/nikke-coordinate-sample-local-v1/reference-tests-v2.log",
+      "bytes": 102,
+      "sha256": "62de378b578bd9359bba17c522ca345559491d42db29b8ad2e5b545550797c8a"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/preparation/generation-v1.log",
+      "source": "/tmp/nikke-coordinate-sample-local-v1/generation-v1.log",
+      "bytes": 1761,
+      "sha256": "db01dd54f2be1eb489dbeff43c7a2304048855bd54cb5e952ff85ca6ad2637fa"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/preparation/package-v1.log",
+      "source": "/tmp/nikke-coordinate-sample-local-v1/package-v1.log",
+      "bytes": 275,
+      "sha256": "7af22c3a5bec7e244e8261710c2c609095544c065e990529d51025ec7c822183"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/preparation/final-package-v1.log",
+      "source": "/tmp/nikke-coordinate-sample-local-v1/final-package-v1.log",
+      "bytes": 275,
+      "sha256": "1406ead5a9db0c6c1b2c2514ddf6ef5137523bff3b5dc135c538987bac3ed99c"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/preparation/final-full-v1.log",
+      "source": "/tmp/nikke-coordinate-sample-local-v1/final-full-v1.log",
+      "bytes": 275,
+      "sha256": "ea1c8f4a58f115e9195c9b7e6cf24731b8cfa689fa0bec97056a75c629c7ca8f"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/preparation/seal-v1.log",
+      "source": "/tmp/nikke-coordinate-sample-local-v1/seal-v1.log",
+      "bytes": 210,
+      "sha256": "efef163c478aaaff81da91702b438428d1a16eb713fe87d26e122e73182247b3"
+    },
+    {
+      "path": "research/coordinate-sample-v1-evidence/preparation/reference-v1.log",
+      "source": "/tmp/nikke-coordinate-sample-local-v1/reference-v1.log",
+      "bytes": 401,
+      "sha256": "7b512d0f8812bc90a8e80d7ac62c1cd8de42a8165d21b5216e8879af8533817c"
+    }
+  ],
+  "excluded": [
+    "raw buffers",
+    "generated CUDA/MSL artifacts",
+    "archives",
+    "personal sessions/settings"
+  ],
+  "gpu_calls": 0
+}

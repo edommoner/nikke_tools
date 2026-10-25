@@ -155,6 +155,11 @@ def verify(root, overrides=None):
     mixed_path=root/'research/portable-coordinate-mixed-short-expected.json'
     mixed_golden=json.loads(mixed_path.read_text()) if mixed_path.is_file() else None
     mixed_matches=mixed_golden['source_sha256']==mixed_sources if mixed_golden else None
+    sample_sources=source_hashes(root,'gpu/coordinate_sample_probe.slang')
+    sample_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in sample_sources.items()}
+    sample_path=root/'research/portable-coordinate-sample-short-expected.json'
+    sample_golden=json.loads(sample_path.read_text()) if sample_path.is_file() else None
+    sample_matches=sample_golden['source_sha256']==sample_sources if sample_golden else None
     round_sources=source_hashes(root,'gpu/coordinate_round_probe.slang')
     round_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in round_sources.items()}
     round_path=root/'research/portable-coordinate-round-short-expected.json'
@@ -354,6 +359,15 @@ def verify(root, overrides=None):
                     operations=['front-probability','reach-probability','core-open','core-under'],
                     battle_connected=False,sampling_rng_connected=False,cache_key_rounding_connected=False,
                     whole_geometry_capacity_certified=False),
+                deterministic_sample_points=dict(suite='coordinate-sample',
+                    source_sha256=sample_sources,proof_available=sample_golden is not None,
+                    sealed_source_matches_current=sample_matches,input_count=len(sample_golden['entries']) if sample_golden else None,
+                    existing_integer_mt_reused=True,uniform_bits=53,mt_words_per_uniform=2,
+                    no_angle_uniforms=1,angle_uniforms=2,complete_mt_state_compared=True,
+                    native_reference_cli='coordinate-sampling-common',native_sampled_pellet_observation_available=True,
+                    battle_connected=False,critical_sampling_connected=False,
+                    remaining=['physical RNG state separate from boss target stream','per-pellet damage/critical and notification order','variable packet bank and parent quantity','shared group receipt delivery'],
+                    public_gpu_admitted=False,all_characters_certified=False),
                 logical_pellets_equal_emitted_packets=False, dependencies=dependencies,
                 source_sha256={p: hashlib.sha256(t.encode()).hexdigest() for p, t in texts.items()},
                 model_gap_audit=model, gpu_calls=0, native_battle_calls=0,

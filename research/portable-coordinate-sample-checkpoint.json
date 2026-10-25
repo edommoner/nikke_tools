@@ -1,0 +1,164 @@
+{
+  "schema": 1,
+  "suite": "coordinate-sample",
+  "scope": "Shared sampled point producer and canonical CPU sampled-battle prerequisites; GPU battle caller unconnected",
+  "reference_kind": "deterministic-common-cpu",
+  "sealed": true,
+  "input_count": 107,
+  "native_oracles": 93,
+  "rejections": 14,
+  "sampled_points": 1296,
+  "input_words": 24,
+  "output_words": 1024,
+  "existing_integer_mt_reused": true,
+  "uniform_bits": 53,
+  "mt_words_per_uniform": 2,
+  "mt_state_words_compared": 624,
+  "complete_state_index_counts_and_unused_output_verified": true,
+  "interleaved_critical_uniform_and_target_sampling_verified": true,
+  "cpu": {
+    "tests": 12,
+    "failures": 0
+  },
+  "control": {
+    "tests": 416,
+    "failures": 0,
+    "skipped": 1
+  },
+  "native_battle_contracts": {
+    "suite": "coordinate-sampling-common",
+    "cases": 11,
+    "totals": {
+      "pellets": 63,
+      "packets": 77,
+      "physical_rng_words": 362
+    },
+    "full_canonical_damage_and_notifications": true,
+    "scoped_common_numeric_providers": true,
+    "critical_override_draw_reuse_verified": true,
+    "process_rng_and_patches_restored": true,
+    "gpu_calls": 0,
+    "packing_calls": 0
+  },
+  "actual_gpu_dispatches": 1,
+  "same_claim_retries": 0,
+  "independent_seal_gpu_calls": 0,
+  "gpu_package_id": "cd6e82a38ccd095c4c239131b5f692c9eb7ce9a7a0b8bb7a6134bd29e174d3ee",
+  "final_compact_package_id": "73f58f4d31fbaf80cdfc16600d93bae953fd1e918aa0d5f198f21ff0594d92ec",
+  "final_full_package_id": "3d6a5257c441566f316cebf425c4a68171be3848f16725bfb1166698d46e428e",
+  "projection": {
+    "passed": true,
+    "full_files": 3087,
+    "compact_files": 1713,
+    "all_retained_records_and_bytes_identical": true,
+    "gpu_calls": 0
+  },
+  "timing": {
+    "gpu_seconds": 0.018513749935664237,
+    "pipeline_seconds": 0.2786649465560913,
+    "gpu_child_seconds": 1.7588317920453846
+  },
+  "raw_output_bytes": 438272,
+  "raw_output_sha256": "e1f7eeab6eddc00dcc1104a03213ee535df8973b0f11891309d4a1428a4eb85b",
+  "calculation_verified": true,
+  "containment_verified": true,
+  "preservation_verified": null,
+  "legacy_source_retention": {
+    "passed": true,
+    "source_commit": "2b5b04664307eaed544946ca05d9ac5fc6f7aa4a",
+    "profiles": {
+      "gpu/world_coordinate_mixed_entry.slang": {
+        "files": 190,
+        "closure_sha256": "e2c212aa4731d697e1f134bb1de088f1763638d04438886905b9872a24e2973b",
+        "unchanged": true
+      },
+      "gpu/world_coordinate_group_entry.slang": {
+        "files": 189,
+        "closure_sha256": "36a7cdcd31dc1a81ce8a4b0475a93123ff553fa8c88424b016012318808aad4f",
+        "unchanged": true
+      },
+      "gpu/world_coordinate_control_entry.slang": {
+        "files": 188,
+        "closure_sha256": "0795fca42f2478a02f8f53f35e4ba72148ed90a5fee8ccbbdb3d10fab6d3a48b",
+        "unchanged": true
+      },
+      "gpu/world_coordinate_aim_entry.slang": {
+        "files": 187,
+        "closure_sha256": "19520b76556439e31640323cdbd74993be72ba27e388d91ec0ba375e57adfce7",
+        "unchanged": true
+      },
+      "gpu/world_coordinate_cache_entry.slang": {
+        "files": 184,
+        "closure_sha256": "bf810bb1ceacee7d41bc0b7ce68a1e19276beed931a5c2e427cd19b7b33be2c6",
+        "unchanged": true
+      },
+      "gpu/world_coordinate_core_entry.slang": {
+        "files": 180,
+        "closure_sha256": "13daf4a8a12f0c4567f24f0946b8e0b26959a51d3f783f4b59b2e7c2d2a482cb",
+        "unchanged": true
+      },
+      "gpu/world_coordinate_composed_entry.slang": {
+        "files": 163,
+        "closure_sha256": "c576ddc320d9d4a2645668f20ce36baeca98645cc9b8bd886305e72b5292af06",
+        "unchanged": true
+      },
+      "gpu/world_attack_group_entry.slang": {
+        "files": 153,
+        "closure_sha256": "974e3b7db7d5221c1447135c0d410c05ad531c3cc4cd9c2cb76dfb4215984d03",
+        "unchanged": true
+      },
+      "gpu/coordinate_numeric_probe.slang": {
+        "files": 127,
+        "closure_sha256": "bf29e163e3297d73d36f033f96ceff2a0f054c2d1d3d8a333c06bd3f50f85d43",
+        "unchanged": true
+      },
+      "gpu/coordinate_power_probe.slang": {
+        "files": 124,
+        "closure_sha256": "a6485e49eb445a112992fd0ca1afee4040538621960a711da88fbbfc32b93eb3",
+        "unchanged": true
+      }
+    },
+    "unique_sources": 193,
+    "protected_source_sha256": {
+      "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+      "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+      "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+      "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+      "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+      "research/summarize-portable-cross-gpu.py": "01e8595eb20c4a3c1f94f524e81e812d2921fd240b17a33e6dbfb050320fb21a",
+      "app/portable_compile_cache.py": "d1dcc7cf1a5c7197b1dd63dd0d6bd1cc90192356eb42ad4a4e6b2f641c5cc505"
+    },
+    "core_probability_sha256": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
+    "existing_mt_sha256": "6365293f4fe0269fba87b15aa866e617333f5012acef175a13fd7ed27152323a",
+    "mixed244_current_seal_retained": true,
+    "old_gpu_reruns": 0,
+    "compiler_calls": 0,
+    "gpu_calls": 0
+  },
+  "generation_cache_rejected_nonresident_before_compiler": true,
+  "generation_cache_guard_unchanged": true,
+  "generation_cache_hit_claimed": false,
+  "paired_slang_compiler_invocations": 2,
+  "nonresident_normal_generation_used": true,
+  "windows_requests": 0,
+  "current_cuda_calculation_verified": false,
+  "cuda_current_cache_hit_verified": false,
+  "cuda_cache_rules_changed": false,
+  "strict_normalizer_changed": false,
+  "raw_deleted": false,
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "remaining_model_gaps": 20,
+  "ui_backend": "cpu",
+  "public_gpu_admitted": false,
+  "sampled_gpu_battle_connected": false,
+  "remaining": [
+    "physical RNG state separate from boss target stream",
+    "per-pellet damage/critical and notification order",
+    "variable packet bank and parent quantity",
+    "shared group receipt delivery",
+    "summon attack/debuff payloads",
+    "all original character/effect definitions and public admission",
+    "bounded current CUDA validation"
+  ]
+}

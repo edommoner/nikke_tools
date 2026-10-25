@@ -1,0 +1,22 @@
+[
+  {
+    "pattern": "test_coordinate_sample_v1.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.9109272500500083,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 66479
+  },
+  {
+    "pattern": "test_coordinate_sampling_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.31681750004645437,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 66479
+  }
+]

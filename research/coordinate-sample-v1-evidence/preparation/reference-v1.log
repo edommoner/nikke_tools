@@ -1,0 +1,17 @@
+{
+  "suite": "coordinate-sampling-common",
+  "stage": "cpu-common-policy-contract",
+  "passed": true,
+  "cpu_reference_verified": true,
+  "calculation_verified": false,
+  "gpu_supported": false,
+  "case_count": 11,
+  "positive_contract_cases": 11,
+  "reference_model_gap_cases": 0,
+  "gpu_calls": {
+    "build": 0,
+    "execute": 0
+  },
+  "packing_calls": 0,
+  "elapsed_seconds": 1.3449525829637423
+}
