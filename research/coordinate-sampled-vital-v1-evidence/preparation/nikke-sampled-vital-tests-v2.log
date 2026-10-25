@@ -1,0 +1,13 @@
+F.......
+======================================================================
+FAIL: test_cover_repair_and_broken_cover_are_distinct (test_coordinate_sampled_vital.VitalTests.test_cover_repair_and_broken_cover_are_distinct)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-runtime-resident/tests/test_coordinate_sampled_vital.py", line 28, in test_cover_repair_and_broken_cover_are_distinct
+    self.assertEqual(self.answers['cover-broken-no-revive']['battle']['covers'][0]['hp'],0)
+AssertionError: 1000.0 != 0
+
+----------------------------------------------------------------------
+Ran 8 tests in 18.762s
+
+FAILED (failures=1)

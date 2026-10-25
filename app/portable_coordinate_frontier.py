@@ -180,6 +180,11 @@ def verify(root, overrides=None):
     sampled_burst_path=root/'research/portable-coordinate-sampled-burst-short-expected.json'
     sampled_burst_golden=json.loads(sampled_burst_path.read_text()) if sampled_burst_path.is_file() else None
     sampled_burst_matches=sampled_burst_golden['source_sha256']==sampled_burst_sources if sampled_burst_golden else None
+    sampled_vital_sources=source_hashes(root,'gpu/world_coordinate_sampling_vital_entry.slang')
+    sampled_vital_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in sampled_vital_sources.items()}
+    sampled_vital_path=root/'research/portable-coordinate-sampled-vital-short-expected.json'
+    sampled_vital_golden=json.loads(sampled_vital_path.read_text()) if sampled_vital_path.is_file() else None
+    sampled_vital_matches=sampled_vital_golden['source_sha256']==sampled_vital_sources if sampled_vital_golden else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -438,6 +443,16 @@ def verify(root, overrides=None):
                     pending_entries=512,hits_per_entry=256,output_words=1769472,
                     retained_output_prefix_words=1507328,additional_output_bytes=1048576,additional_runtime_bytes=0,
                     remaining=['weapon changes and healing in sampled battles','sampled group-owner and mixed effect worlds','original definitions and public admission'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_sampled_vital=dict(suite='coordinate-sampled-vital',source_sha256=sampled_vital_sources,
+                    proof_available=sampled_vital_golden is not None,sealed_source_matches_current=sampled_vital_matches,
+                    input_count=len(sampled_vital_golden['entries']) if sampled_vital_golden else None,
+                    reference_kind='deterministic-common-cpu',native_reference_cli='coordinate-sampled-vital-common',
+                    shared_weapon_modes=True,shared_body_cover_healing=True,shared_current_hp_reduce=True,
+                    live_mode_muzzles=True,first_coefficient=True,legacy_and_optin_pending=True,
+                    automatic_reload_cover_repair=True,manual_cover_controls_packed=False,
+                    input_words=109528,output_words=1769472,additional_runtime_bytes=0,
+                    remaining=['sampled group-owner and mixed effect worlds','further weapon-mode flags and control combinations','manual cover/control composition packing','further health/storage/instant combinations','original definitions and public admission'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 packet_integer_ratio=dict(suite='packet-ratio',source_sha256=ratio_sources,
                     proof_available=ratio_golden is not None,sealed_source_matches_current=ratio_matches,

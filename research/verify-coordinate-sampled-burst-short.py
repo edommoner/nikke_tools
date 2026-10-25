@@ -35,6 +35,10 @@ def compare(block,domain):
         return parent.compare(block[:BASE],domain)
     from world_coordinate_sampled_skill_native import creation_indices,trace_view
     with creation_indices(domain[0]) as indices:n=native_reference(domain)
+    return compare_observed(block,domain,n,indices)
+
+def compare_observed(block,domain,n,indices):
+    from world_coordinate_sampled_skill_native import trace_view
     parent.parent.compare_observed(block[:BASE],domain,n,check_parent=False,trace_view=trace_view(n['skill_trace'],indices),sampled_burst_totals=True)
     expected=[0]*WORDS;h=HEAD
     batches=n['sampled_burst_batches'];last=batches[-1] if batches else dict(time=0,entries=[])

@@ -7,7 +7,7 @@ def observe(case):
     from world_frame_native import roster_names
     n=quantities(case,observer=lambda c:sampled(c)[0]);verify(case,n);names=roster_names(case)
     for notice in n['full_charge_quantities']:
-        muzzles=case['combat']['weapons'][notice['owner']]['muzzles']
+        muzzles=notice['muzzles'] if case.get('sampled_vital') else case['combat']['weapons'][notice['owner']]['muzzles']
         total=sum(p['damage'] for row in n['physical_pellets'] if row['owner']==names[notice['owner']] and row['time']==notice['time'] for p in row['packets'])
         assert notice['dealt']==float(Fraction(total,muzzles))==total/muzzles,'Native exact integer parent ratio'
     return n,n['skill_trace']

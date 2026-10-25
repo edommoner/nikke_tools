@@ -31,7 +31,14 @@ def observe(case,*,observer=None):
                                 skill_name=ev.skill_name))
         except (KeyError,AttributeError,TypeError,ValueError) as error:errors.append(str(error))
     def notified(manager,event,t,caster,**kwargs):
-        if event=='full_charge_hit':notices.append(dict(owner=names.index(caster),time=t,dealt=kwargs.get('dealt')))
+        if event=='full_charge_hit':
+            row=dict(owner=names.index(caster),time=t,dealt=kwargs.get('dealt'))
+            if case.get('sampled_vital'):
+                frame=sys._getframe(1)
+                while frame is not None and not isinstance(frame.f_locals.get('self'),timeline.CharState):frame=frame.f_back
+                if frame is None:raise ValueError('Native full-charge character frame missing')
+                row['muzzles']=frame.f_locals['self'].muzzles
+            notices.append(row)
         return notify(manager,event,t,caster,**kwargs)
     with patch.object(BuffManager,'notify',notified):
         sys.setprofile(profile)

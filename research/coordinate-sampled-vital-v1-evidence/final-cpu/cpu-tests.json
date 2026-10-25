@@ -1,0 +1,92 @@
+[
+  {
+    "pattern": "test_coordinate_sample_v1.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.7965338749345392,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 79222
+  },
+  {
+    "pattern": "test_coordinate_sampling_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.3235268749995157,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 79222
+  },
+  {
+    "pattern": "test_coordinate_sampling_bank.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.27728166698943824,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 79222
+  },
+  {
+    "pattern": "test_packet_integer_ratio.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.04842154204379767,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 79222
+  },
+  {
+    "pattern": "test_coordinate_sampled_parent.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.6556479580467567,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 79222
+  },
+  {
+    "pattern": "test_coordinate_sampled_skill.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.442027333076112,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 79222
+  },
+  {
+    "pattern": "test_coordinate_physical_frontier.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.2850467500975356,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 79222
+  },
+  {
+    "pattern": "test_coordinate_sampled_burst.py",
+    "exit_code": 0,
+    "elapsed_seconds": 7.20654049993027,
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 79222
+  },
+  {
+    "pattern": "test_coordinate_sampled_vital.py",
+    "exit_code": 0,
+    "elapsed_seconds": 18.804642874980345,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 79222
+  }
+]

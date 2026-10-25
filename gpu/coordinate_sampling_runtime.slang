@@ -28,7 +28,10 @@ bool initializeCoordinateSampling(inout Runtime s)
     for(uint row=0;row<s.count;row++)
     {
         uint kind=definition_kind(s.inputBase,row);
-#ifdef PORTABLE_COORDINATE_SAMPLED_BURSTS
+#ifdef PORTABLE_COORDINATE_SAMPLED_VITAL
+        if(kind!=0&&kind!=2&&kind!=3&&kind!=4&&kind!=6&&kind!=7&&kind!=8&&kind!=24)return false; // Shared weapon/heal/reduce dispatch.
+        if(kind==2||kind==6||kind==7||kind==8)s.quantityMask|=0x02000000U; // Reuse exact totals even without a damage skill.
+#elif defined(PORTABLE_COORDINATE_SAMPLED_BURSTS)
         if(kind!=0&&kind!=3&&kind!=4&&kind!=24)return false; // Existing burst-gauge instant.
 #else
         if(kind!=0&&kind!=3)return false;

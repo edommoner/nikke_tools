@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-lost-hp-attack-retention-v1-metal",
+  "raw_bytes": 3196059648,
+  "raw_sha256": "a8b17ad7194060ebeb755cfb07190e89a1f4dbec8082337924197c8b84c7a9db",
+  "evidence_sha256": "969540b3e5b47a3fe928a5e9b997006df8edd596ba496f5f34872dd8b5b7051b",
+  "raw_inode": 507672199,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 24929,
+  "zero_range_bytes": 3060813824,
+  "allocated_before": 939982848,
+  "allocated_after": 135245824,
+  "allocated_reclaimed": 804737024,
+  "full_hash_verified": true
+}

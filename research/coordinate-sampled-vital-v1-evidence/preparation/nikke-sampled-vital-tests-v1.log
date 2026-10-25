@@ -1,0 +1,38 @@
+.....E..
+======================================================================
+ERROR: test_old89_inputs_and_full_wire_are_unchanged (test_coordinate_sampled_vital.VitalTests.test_old89_inputs_and_full_wire_are_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-runtime-resident/tests/test_coordinate_sampled_vital.py", line 33, in test_old89_inputs_and_full_wire_are_unchanged
+    rows,_=a.prepare();old,_=a.parent.prepare();self.assertEqual(rows[:89],old);self.assertEqual((len(rows),sum(x[2] is not None for x in rows)),(120,112))
+           ^^^^^^^^^^^
+  File "/private/tmp/nikke-runtime-resident/research/verify-coordinate-sampled-vital-short.py", line 16, in prepare
+    w,m,b,d=compile_case(c);rows.append((c['name'],w,(c,m,b,d)))
+            ^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-runtime-resident/research/verify-coordinate-sampled-battle-short.py", line 18, in compile_case
+    w,m,b,d=parent.compile_case(case,allow_world_nodes=True);seed=normalize_seed(case.get('seed',19))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-runtime-resident/research/verify-coordinate-group-short.py", line 33, in compile_case
+    words,meta,bindings,desc=core.compile_case(lowered,allow_summons=True,allow_world_nodes=allow_world_nodes)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-runtime-resident/research/verify-coordinate-core-short.py", line 27, in compile_case
+    words,meta,bindings=codec.parent.suite.compile_case(lowered)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-runtime-resident/research/verify-world-projectile.py", line 14, in compile_case
+    w,m,b=reload.compile_case(c);finalize_program(w);return w,m,b
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-runtime-resident/research/verify-world-reload.py", line 16, in compile_case
+    w,m,b=charge.compile_case(case);names=roster_names(case);effects=bound_effects([(e,names[o]) for e,o in zip(case['effects'],case['owners'])],m,names)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-runtime-resident/research/verify-world-charge-control.py", line 21, in compile_case
+    with patch.dict(timeline._NIKKE,authored_metadata(case)),patch.dict(timeline._DELAYS['_exceptions'],{},clear=True),patch.dict(timeline._DELAYS['_defaults_by_weapon_type'],{'AR':{'post_reload_delay':0}},clear=True):norm=normalize_static_controls(chars,case['base_atk'],case['enemy'],case['control_mode'])
+                                                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/nikke-runtime-resident/app/portable_charge_control_specs.py", line 41, in normalize_static_controls
+    if action['action']!='hold':raise ValueError('Non-hold sequence requires common physical control primitives')
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Non-hold sequence requires common physical control primitives
+
+----------------------------------------------------------------------
+Ran 8 tests in 15.424s
+
+FAILED (errors=1)
