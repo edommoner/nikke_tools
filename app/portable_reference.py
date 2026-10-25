@@ -75,6 +75,7 @@ REFERENCES['coordinate-skill']=('portable_coordinate_skill_cases','world_coordin
 REFERENCES['coordinate-physical-common']=('portable_coordinate_physical_common_cases','world_coordinate_physical_common_reference','portable_coordinate_physical_common_contracts')
 REFERENCES['coordinate-sampled-burst-common']=('portable_coordinate_sampled_burst_cases','world_coordinate_sampled_burst_native','portable_coordinate_sampled_burst_contracts')
 REFERENCES['coordinate-sampled-vital-common']=('portable_coordinate_sampled_vital_cases','world_coordinate_sampled_vital_native','portable_coordinate_sampled_vital_contracts')
+REFERENCES['coordinate-sampled-delivery-common']=('portable_coordinate_sampled_delivery_cases','world_coordinate_sampled_delivery_native','portable_coordinate_sampled_delivery_contracts')
 REFERENCES['coordinate-sampled-skill-common']=('portable_coordinate_sampled_skill_cases','world_coordinate_sampled_skill_native','portable_coordinate_sampled_skill_contracts')
 REFERENCES['coordinate-sampled-parent-common']=('portable_coordinate_sampled_parent_cases','world_coordinate_sampled_parent_native','portable_coordinate_sampling_contracts')
 REFERENCES['coordinate-sampled-battle-common']=('portable_coordinate_sampled_battle_cases','world_coordinate_sampling_native','portable_coordinate_sampling_contracts')
@@ -119,12 +120,12 @@ def run_reference(suite,output,*,write,forbid_gpu):
     with output.open('x',encoding='utf-8') as stream:stream.write('{}\n')
     started=time.perf_counter()
     report=dict(schema=1,suite=suite,stage='cpu-native-contract',passed=False,cpu_reference_verified=False,calculation_verified=False,gpu_supported=False,gpu_calls=dict(build=0,execute=0),packing_calls=0,python=sys.version,platform=platform.platform(),cases=[],reference_model_gap_cases=0,positive_contract_cases=0,full_character_verified=0,full_goal_complete=False)
-    if suite in ('coordinate-physical-common','coordinate-accumulation-policy','coordinate-aim-common','coordinate-group-common','coordinate-mixed-common','coordinate-sampling-common','coordinate-sampled-battle-common','coordinate-sampled-parent-common','coordinate-sampled-skill-common','coordinate-sampled-burst-common','coordinate-sampled-vital-common'):
+    if suite in ('coordinate-physical-common','coordinate-accumulation-policy','coordinate-aim-common','coordinate-group-common','coordinate-mixed-common','coordinate-sampling-common','coordinate-sampled-battle-common','coordinate-sampled-parent-common','coordinate-sampled-skill-common','coordinate-sampled-burst-common','coordinate-sampled-vital-common','coordinate-sampled-delivery-common'):
         report.update(stage='cpu-common-policy-contract',
                       reference_kind='deterministic-common-cpu',
                       numerical_contract='coordinate-landing-v1',
                       historical_native_equivalence=False)
-        if suite in ('coordinate-sampling-common','coordinate-sampled-battle-common','coordinate-sampled-parent-common','coordinate-sampled-skill-common','coordinate-sampled-burst-common','coordinate-sampled-vital-common'):report['numerical_contract']='coordinate-sample-v1 + coordinate-binary64-v1'
+        if suite in ('coordinate-sampling-common','coordinate-sampled-battle-common','coordinate-sampled-parent-common','coordinate-sampled-skill-common','coordinate-sampled-burst-common','coordinate-sampled-vital-common','coordinate-sampled-delivery-common'):report['numerical_contract']='coordinate-sample-v1 + coordinate-binary64-v1'
         if suite=='coordinate-aim-common':report['numerical_contract']='coordinate-landing-v1 + coordinate-area-matrix-common-v1'
     try:
         # Legacy native comparators contain assertions. Reject before importing

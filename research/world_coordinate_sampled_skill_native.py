@@ -38,6 +38,7 @@ def creation_indices(case):
     previous=sys.getprofile();events={};rows=[];pending=[]
     from calculator import timeline
     legacy_code=timeline.BurstController._fire_pending_burst_dmg.__code__
+    calc_code=timeline.calc_damage.__code__
     def remember(ev,frame):
         value=frame.f_locals;row=names[value['eff']['name']]
         assert ev.skill_name==value['eff']['name'] and ev.t==value['t']
@@ -46,7 +47,7 @@ def creation_indices(case):
         if previous is not None:previous(frame,event,answer)
         if case.get('sampled_burst'):
             caller=frame.f_back
-            if event=='return' and frame.f_code is timeline.calc_damage.__code__ and caller is not None and caller.f_code is legacy_code:
+            if event=='return' and frame.f_code is calc_code and caller is not None and caller.f_code is legacy_code:
                 v=caller.f_locals;pending.append((names[v['eff']['name']],int(v['_'])+1,int(v['hit_count']),answer['damage'],v['eff']['name'],v['name'],v['t']))
             if event=='return' and frame.f_code is legacy_code:
                 assert len(answer)==len(pending),'Every native legacy packet needs its real hit-loop receipt'

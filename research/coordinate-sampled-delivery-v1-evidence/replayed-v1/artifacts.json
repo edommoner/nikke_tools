@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "comparison.json",
+      "bytes": 47131,
+      "sha256": "b7bbbddd67eac3ca460b10efcd34866356039c9d39dba7664da26af92a116432"
+    },
+    {
+      "path": "evidence.json",
+      "bytes": 59090,
+      "sha256": "363d4fdd8b8c05d6f1125c10d3e0c365dc7f6628602f5a3c154c07fad341233d"
+    },
+    {
+      "path": "replay.json",
+      "bytes": 232,
+      "sha256": "6290ca475c7cafb8fa9777ff584e12335d435e42f17b2a8b27eb3f78b7e99496"
+    },
+    {
+      "path": "result.json",
+      "bytes": 47469,
+      "sha256": "d714d05cbeacbba9ed0c68cc86ccd0115fd8abf8c79be4d1528e16019261f74a"
+    },
+    {
+      "path": "run.json",
+      "bytes": 192,
+      "sha256": "8bdd7f072d19bb0c5f68d8036abe8f5a60a4a035f900525698b5334fcbdfb211"
+    },
+    {
+      "path": "source-execution.json",
+      "bytes": 4139,
+      "sha256": "8f46cb5ed9c113d2a4226b4d1d324b6ac080497ff4e7348781c0774eb4756c44"
+    },
+    {
+      "path": "storage.json",
+      "bytes": 584,
+      "sha256": "88532cb46bb5d70033c9ecf20247b9982984b2da2c1b63676bb511f458d2c22b"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}

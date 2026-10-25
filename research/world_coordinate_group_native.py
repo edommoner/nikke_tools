@@ -10,12 +10,16 @@ from world_coordinate_physical_common import observe as physical
 def observe(case):
     with battle_attack_groups(routing='native',coordinate_packets=True) as data:
         native=physical(case)
+    trace=native.pop('skill_trace')
+    bind_groups(native,data)
+    return native,trace
+
+def bind_groups(native,data):
     handle=lambda h:[int(h.kind),h.identity,h.generation]
     groups=[dict(row,targets=[handle(h) for h in row['targets']]) for row in data['groups']]
     notices=[dict(row,key=[row['key'].caster,row['key'].identity,row['key'].epoch],targets=[handle(h) for h in row['targets']]) for row in data['notifications']]
     receipts=[dict(row,target=handle(row['target'])) for row in data['physical_receipts']]
     children=[dict(row,targets=[handle(h) for h in row['targets']]) for row in data['children']]
     child_landings=[dict(row,target=handle(row['target'])) for row in data['child_landings']]
-    trace=native.pop('skill_trace')
     native.update(groups=groups,group_shots=data['shots'],group_notices=notices,group_receipts=receipts,group_children=children,group_child_landings=child_landings)
-    return native,trace
+    return native

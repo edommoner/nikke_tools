@@ -19,9 +19,17 @@ class StorageBudgetTests(unittest.TestCase):
             path=Path(folder);adapter=types.SimpleNamespace(suite=types.SimpleNamespace(INPUT=16))
             with patch.object(cli,'open_suite',return_value=adapter),patch('portable_capture_storage.shutil.disk_usage',return_value=types.SimpleNamespace(free=2**40)):
                 report=cli.capture_storage_preflight(self.manifest(),path)
-                self.assertEqual(report['required_bytes'],516+8*1048576*4)
+                self.assertEqual(report['preparation_headroom_bytes'],64*1024**2)
+                self.assertEqual(report['required_bytes'],516+8*1048576*4+report['preparation_headroom_bytes'])
                 (path/'input.bin').write_bytes(bytes(516));second=cli.capture_storage_preflight(self.manifest(),path,prepared=True)
                 self.assertEqual(second['required_bytes'],8*1048576*4);self.assertFalse(second['calculation_verified']);self.assertEqual(second['gpu_calls'],0)
+                self.assertEqual(second['preparation_headroom_bytes'],0)
+    def test_marginal_raw_budget_is_rejected_before_cpu_preparation(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path=Path(folder);payload=516+8*1048576*4
+            with patch.object(cli,'open_suite',return_value=types.SimpleNamespace(suite=types.SimpleNamespace(INPUT=16))),patch('portable_capture_storage.shutil.disk_usage',return_value=types.SimpleNamespace(free=payload+1024**3+64*1024**2-1)):
+                with self.assertRaisesRegex(ValueError,'Insufficient space'):cli.capture_storage_preflight(self.manifest(),path)
+            self.assertFalse((path/'input.bin').exists());self.assertFalse(cli.load(path/'storage.json')['passed'])
     def test_insufficient_storage_preserves_diagnostic_and_consumes_no_claim(self):
         with tempfile.TemporaryDirectory() as folder:
             path=Path(folder)

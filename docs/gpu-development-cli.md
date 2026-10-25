@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+武器skill指定と乱数BODY／ADD receipt groupを共通実行器で実証。sealed coordinate-sampled-delivery136（CPU正本126／拒10）がGPU禁止replay・独立sealで全一致。新14契約、CPU95／制御428（Win1skip）、旧120全849346560byte保持。GPU／compiler／transport／数値ソース変更0、旧13 CUDA-MSLペアを保持し生成cache hit・Slang0。Metal実archive hitでPSO91.958→.002588秒、GPU.480秒／子3.491秒。実GPU1／host修正版再GPU0。観測hookのcode identityを修正し、metal-cache-probe、package前の監査データ検査、準備64MiBの容量余裕を追加。現CUDA未取得／Windows新依頼0。手動cover・追加武器／回復混合・全元定義は残る。全キャラ0／20gap／UI CPU／未達。[乱数groupとcache](portable-coordinate-sampled-delivery.md)。
+
 乱数戦闘へ既存の武器変更／HP・遮蔽物回復／現在HP減少を接続。sealed coordinate-sampled-vital120（CPU正本112／拒8）がM5 Metal全一致・独立seal。新29契約、CPU63／制御421（Win1skip）、旧89全629932032byte・旧12 CUDA-MSLペア保持。実総口と初弾係数を受動観測し親量を検査、damageスキルなしの整数総計初期化漏れを修正。新GPU2／retry0、GPU.491秒／初回PSO91.958秒。容量追加0、通常run内のCPUゲートを使い事前CPUの重複を避ける。手動cover packing・追加武器flag／回復混合・sampled group・全元定義は残る。現CUDA未取得／Windows新依頼0、全キャラ0／20gap／UI CPU／未達。[武器変更と回復](portable-coordinate-sampled-vital.md)。
 
 乱数保留バーストの旧B3／opt-inを共通residentへ接続。sealed coordinate-sampled-burst89（CPU正本83／拒6）がM5 Metal全一致・独立seal。新24契約、旧62全373817344byte prefix・追加zero、旧11 CUDA-MSLペア保持。CPU55／制御421（Win1skip）／正本24。512entry×256hit bankを明示し出力+1MiB、Runtime不変。旧B3のbuff除外setterとmarker受付を修正し、修正前失敗保存・新GPU2回／同claim retry0。GPU.486秒／初回PSO92.568秒。異strideのreadback-retainを共通CLIへ追加。現CUDA未取得／Windows新依頼0。武器変更／heal・sampled group・全元定義は残る。全キャラ0／20gap／UI CPU／未達。[保留バースト](portable-coordinate-sampled-burst.md)。

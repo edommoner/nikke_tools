@@ -16,6 +16,10 @@ class CPUGroupTests(unittest.TestCase):
         validate_groups(self.root,[pattern])
         with self.assertRaisesRegex(ValueError,'immutable payload'):validate_dependency_files(self.root,[pattern],included=set())
         validate_dependency_files(self.root,[pattern],included=set(AUDIT_FILES[pattern]))
+    def test_new_mixed_data_dependency_blocks_before_test_import(self):
+        pattern='test_coordinate_mixed.py';(self.root/'tests'/pattern).write_text('raise AssertionError("must not import")')
+        with self.assertRaisesRegex(ValueError,'CPU audit dependency missing'):self.run_groups([pattern])
+        self.assertFalse((self.capture/'cpu-tests.json').exists())
     def setUp(self):
         t=tempfile.TemporaryDirectory();self.addCleanup(t.cleanup);self.root=Path(t.name).resolve();(self.root/'tests').mkdir();self.capture=self.root/'capture';self.capture.mkdir();self.names=[]
         self.addCleanup(self.clear_modules)

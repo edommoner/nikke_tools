@@ -2,7 +2,9 @@
 import contextlib,os,re,sys,time,unittest
 from pathlib import Path
 
-AUDIT_FILES = {'test_coordinate_physical_frontier.py': (
+AUDIT_FILES = {'test_coordinate_mixed.py': ('research/portable-coordinate-group-short-expected.json',),
+    'test_coordinate_sampled_delivery.py': ('research/portable-coordinate-sampled-vital-short-expected.json',),
+    'test_coordinate_physical_frontier.py': (
     'research/upstream/nikke-calc-master/docs/IMPL-STATUS.md',
     'research/portable-coordinate-arcs-short-expected.json',
     'tests/fixtures/coordinate-common-numeric-decision.json'),

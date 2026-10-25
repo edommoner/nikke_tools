@@ -1,0 +1,14 @@
+F.......
+======================================================================
+FAIL: test_add_retirement_preserves_typed_generation_and_children (test_coordinate_sampled_delivery.DeliveryTests.test_add_retirement_preserves_typed_generation_and_children)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/nikke-runtime-resident/tests/test_coordinate_sampled_delivery.py", line 25, in test_add_retirement_preserves_typed_generation_and_children
+    alive=self.answers['group-add-alive'];retired=self.answers['group-add-retirement'];self.assertTrue(any(r['target'][0]==5 for r in alive['group_receipts']));self.assertTrue(any(len(g['targets'])>=2 for g in retired['groups']))
+                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 8 tests in 21.885s
+
+FAILED (failures=1)

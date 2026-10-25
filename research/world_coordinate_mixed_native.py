@@ -3,7 +3,7 @@ import sys,types
 from world_coordinate_group_native import observe as grouped
 from world_frame_native import roster_names
 
-def observe(case):
+def observe(case,*,observer=None):
     previous=sys.getprofile();codes=set();packets=[];errors=[];names=roster_names(case)
     def profile(frame,event,answer):
         if previous is not None:previous(frame,event,answer)
@@ -24,7 +24,7 @@ def observe(case):
             packets.append(dict(owner=names.index(ev.caster),time=v['t'],label=label,generation=generation,damage=ev.damage,extra=ev.extra,skill_name=ev.skill_name))
         except (KeyError,AttributeError,ValueError) as error:errors.append(str(error))
     sys.setprofile(profile)
-    try:native,trace=grouped(case)
+    try:native,trace=(grouped if observer is None else observer)(case)
     finally:sys.setprofile(previous)
     if errors:raise ValueError('Mixed coordinate landing observation failed: '+str(errors))
     if not codes:raise ValueError('Canonical real landing function was not observed')

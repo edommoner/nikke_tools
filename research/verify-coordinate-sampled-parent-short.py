@@ -35,6 +35,7 @@ def compare_observed(block,domain,n,*,check_parent=True,trace_view=None,sampled_
     actual['healing_storage']=codec.storage.decoded_storage(view,m,c)
     from portable_sampled_damage_totals import exact_damage
     kinds={r['label']:r['kind'] for r in d['rows']}
+    if c.get('sampled_delivery'):kinds.update({actor.label:int(actor.kind) for actor in b})
     actual['damage']=exact_damage(block,actual['damage'],n['landed_packets'],kinds,sampled_burst=sampled_burst_totals)
     changed=[key for key in battle if key!='scope' and actual[key]!=battle[key]]
     assert block[0]==0 and not changed,(c['name'],block[0],changed)
@@ -42,7 +43,9 @@ def compare_observed(block,domain,n,*,check_parent=True,trace_view=None,sampled_
     assert codec.suite.reload.charge.team.skill_trace(view,m)==expected_trace,(c['name'],'skill trace')
     parent.parent.parent.parent.compare_aim(block,domain,n['coordinate_aim'])
     by_name={r['label']:r for r in d['rows']};trace=[]
+    if c.get('sampled_delivery'):by_name.update({actor.label:dict(slot=slot,kind=int(actor.kind)) for slot,actor in enumerate(b)})
     for p in n['landed_packets']:
+        if c.get('sampled_delivery') and p['target']:assert p['target'] in by_name,'Every actual routed label must bind to one typed actor'
         target=by_name.get(p['target']);slot=target['slot'] if target else 0;kind=target['kind'] if target else 0
         trace.append([p['owner'],slot,kind,p['generation'],*parent.parent.double_words(p['time']),*parent.parent.double_words(p['damage']),int(p['extra']),0,0,0])
     cp=parent.parent.physical.CP;start=cp['TRACE'];end=start+len(trace)*12

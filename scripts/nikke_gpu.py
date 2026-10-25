@@ -339,6 +339,8 @@ SUITES['coordinate-sampled-burst']=dict(SUITES['coordinate-sampled-skill'],scrip
 SUITES['coordinate-sampled-burst']['support_files']=['research/portable-compiler-full--coordinate-sampled-burst-source-certificate.json','research/portable-coordinate-arcs-short-expected.json']
 SUITES['coordinate-sampled-vital']=dict(SUITES['coordinate-sampled-burst'],script='research/verify-coordinate-sampled-vital-short.py',source='gpu/world_coordinate_sampling_vital_entry.slang',golden='research/portable-coordinate-sampled-vital-short-expected.json',inputs=120,native=112,development_only=False,tests=[*SUITES['coordinate-sampled-burst']['tests'],'test_coordinate_sampled_vital.py'])
 SUITES['coordinate-sampled-vital']['support_files']=['research/portable-compiler-full--coordinate-sampled-vital-source-certificate.json','research/portable-coordinate-arcs-short-expected.json']
+SUITES['coordinate-sampled-delivery']=dict(SUITES['coordinate-sampled-vital'],script='research/verify-coordinate-sampled-delivery-short.py',golden='research/portable-coordinate-sampled-delivery-short-expected.json',inputs=136,native=126,development_only=False,cpu_test_timeout=120,tests=[*SUITES['coordinate-sampled-vital']['tests'],'test_coordinate_sampled_delivery.py','test_coordinate_group_reference.py','test_coordinate_group_gpu.py','test_coordinate_mixed.py'])
+SUITES['coordinate-sampled-delivery']['support_files']=['research/portable-compiler-full--coordinate-sampled-delivery-source-certificate.json','research/portable-coordinate-arcs-short-expected.json','research/portable-coordinate-sampled-vital-short-expected.json','research/portable-coordinate-group-short-expected.json']
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -453,6 +455,7 @@ SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
 SMOKE_TESTS.append('test_portable_compiler_certificate.py')
 SMOKE_TESTS.append('test_portable_generation_cache.py')
 SMOKE_TESTS.append('test_portable_metal_cache.py')
+SMOKE_TESTS.append('test_portable_metal_cache_probe.py')
 SMOKE_TESTS.append('test_portable_generation_separation.py')
 SMOKE_TESTS.append('test_portable_definition_view.py')
 SMOKE_TESTS.append('test_portable_ptx_callgraph.py')
@@ -644,6 +647,8 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False):
         required.append(SUITES[suite]['script'])
     missing_required=set(required)-set(names)
     if missing_required:raise ValueError('Declared suite file missing from tracked payload: '+', '.join(sorted(missing_required)))
+    from portable_cpu_tests import validate_dependency_files
+    validate_dependency_files(ROOT,[*SUITES[suite]['tests'],*SMOKE_TESTS],included=set(names))
     from portable_backend import source_hashes
     gpu_sources=source_hashes(SUITES[suite]['source'])
     missing=set(gpu_sources)-set(names)
@@ -840,8 +845,11 @@ def capture_storage_preflight(m,capture,*,prepared=False):
     if prepared:
         path=capture/'input.bin'
         if path.is_symlink() or not path.is_file() or path.stat().st_size!=input_bytes:raise ValueError('Prepared storage input size differs')
-    budget=space_status(capture,output_bytes+(0 if prepared else input_bytes))
-    report=dict(budget,input_bytes=input_bytes,output_bytes=output_bytes,prepared_input_present=prepared,gpu_calls=0,calculation_verified=False)
+    # Fresh CPU imports, logs and preparation scratch also consume disk space.
+    # Reject a marginal budget before CPU work; keep the final GPU reserve intact.
+    preparation_headroom=0 if prepared else 64*1024**2
+    budget=space_status(capture,output_bytes+(0 if prepared else input_bytes)+preparation_headroom)
+    report=dict(budget,input_bytes=input_bytes,output_bytes=output_bytes,preparation_headroom_bytes=preparation_headroom,prepared_input_present=prepared,gpu_calls=0,calculation_verified=False)
     write(capture/('storage-before-gpu.json' if prepared else 'storage.json'),report)
     if not budget['passed']:raise ValueError('Insufficient space for uncompressed input/readback and reserve; see storage receipt')
     return report
@@ -2624,6 +2632,7 @@ def main(argv=None):
         else:a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472),default=786432)
     a=sub.add_parser('readback-retain');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--reference-comparison-sha256',required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--candidate-comparison-sha256',required=True);a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472),default=786432);a.add_argument('--reference-case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472));a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--reference-migration',choices=['parts-cleared-v1','leftmost-rejection-domains-v1'])
+    a=sub.add_parser('metal-cache-probe');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--generated-metal',type=Path,required=True);a.add_argument('--cache',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--require-hit',action='store_true')
     a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
     a=sub.add_parser('ptx-stats');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=8);a.add_argument('--callgraph',action='store_true')
@@ -2824,6 +2833,13 @@ def main(argv=None):
     elif a.command=='restore-raw':
         from portable_capture_storage import restore_raw
         result=restore_raw(a.capture,a.archive,check_records)
+    elif a.command=='metal-cache-probe':
+        from portable_metal_cache_probe import probe
+        reference=(a.reference_capture/'evidence.json').read_bytes();source=a.generated_metal.read_bytes()
+        result=probe(a.cache,json.loads(reference)['transport'],source,(ROOT/'scripts/run-metal-probe.swift').read_bytes())
+        result.update(reference_evidence_sha256=sha(reference),generated_metal_sha256=sha(source))
+        write(a.out,result)
+        if a.require_hit and not result['hit_snapshot']:print(json.dumps(result,indent=2));raise SystemExit(2)
     elif a.command=='cache-probe':result=cache_probe(a.generated_cuda,a.cuda_root,a.compile_cache,a.out,artifact_kind=a.artifact_kind,ptxas_level=a.ptxas_level,require_hit=a.require_hit)
     elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case,compact=a.compact)
     elif a.command=='unpack':result=dict(package_id=unpack(a.archive,a.dest))

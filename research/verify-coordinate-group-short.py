@@ -69,6 +69,11 @@ def compare(block,domain,*,expected=None):
     expected=native_reference(domain) if expected is None else expected;case,meta,bindings,desc=domain;cp=physical.CP
     physical.codec.compare_expected(block[:786432],domain[:3],dict(battle=expected['battle'],skill_trace=expected['skill_trace']))
     parent.parent.compare_aim(block,domain,expected['coordinate_aim'])
+    return compare_group_receipts(block,domain,expected)
+
+def compare_group_receipts(block,domain,expected,*,compare_packets=True):
+    if type(compare_packets) is not bool:raise ValueError("Explicit packet comparison policy required")
+    case,meta,bindings,desc=domain;cp=physical.CP
     head=800000;groups=expected['groups'];shots=expected['group_shots'];notices=expected['group_notices'];names=roster_names(case)
     assert block[head]==0x41475331 and block[head+1]==len(groups) and block[head+5]==min(len(groups),64) and block[head+6]==len(notices)
     assert block[head+3]==block[head+4]==0 and block[head+10]==1
@@ -82,7 +87,7 @@ def compare(block,domain,*,expected=None):
         assert [[group[26+j*4],group[27+j*4],group[25+j*4]] for j in range(group[4])]==g['targets']
         if i<64:assert block[820000+i*536:820000+i*536+words]==block[at:at+words]
         at+=words
-        if 'landed_packets' not in expected:
+        if compare_packets and 'landed_packets' not in expected:
             receipts=iter(r for r in expected['group_receipts'] if r['identity']==g['identity'])
             for pellet in expected['physical_pellets']:
                 if pellet['owner']!=g['owner'] or pellet['time']!=g['time']:continue
@@ -97,11 +102,12 @@ def compare(block,domain,*,expected=None):
                 if child['group_identity']!=g['identity']:continue
                 kind,identity,gen=child['target'];slot=next(i for i,b in enumerate(bindings) if int(b.kind)==kind and b.identity==identity)
                 trace.append([who,slot,kind,gen,*double_words(child['time']),*double_words(child['damage']),0,0,0,0])
-    if 'landed_packets' in expected:
+    if compare_packets and 'landed_packets' in expected:
         for packet in expected['landed_packets']:
             slot=next(i for i,b in enumerate(bindings) if b.label==packet['label'])
             trace.append([packet['owner'],slot,int(bindings[slot].kind),packet['generation'],*double_words(packet['time']),*double_words(packet['damage']),int(packet['extra']),0,0,0])
     assert block[head+11]==at-COMPACT and not any(block[at:]),'Full compact history and unused tail'
+    if not compare_packets:return expected
     start=cp['TRACE'];end=start+len(trace)*12
     assert block[cp['BASE']+2]==len(trace) and list(block[start:end])==sum(trace,[]),(case['name'],'actual routed coordinate packet trace')
     assert not any(block[end:start+cp['TRACE_COUNT']*12])

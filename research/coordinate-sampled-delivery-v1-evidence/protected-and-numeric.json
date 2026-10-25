@@ -1,0 +1,21 @@
+{
+  "protected_source_sha256": {
+    "app/detail_gpu.py": "7d90bc878b82b4c2666e1da5ffb99b5f1cedfbeeea7e3c667a18e133076ac270",
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "research/summarize-portable-cross-gpu.py": "01e8595eb20c4a3c1f94f524e81e812d2921fd240b17a33e6dbfb050320fb21a",
+    "app/portable_compile_cache.py": "d1dcc7cf1a5c7197b1dd63dd0d6bd1cc90192356eb42ad4a4e6b2f641c5cc505",
+    "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366"
+  },
+  "numeric_source_sha256": {
+    "gpu/packet_ratio_probe.slang": "ba123047bd6e24486d172573ae51ef7febd09005e8c6268f9f8847ea1f668e8f",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
+    "gpu/packet_integer_sum.slang": "aad3677bbb7f0f84fe59aedad0a2a0da328768e0ea64cb9ccf00d9bfcb06fe27",
+    "gpu/packet_integer_ratio.slang": "50df5513f8d2f30096166de6bb14882401477607529f9fcefa1f279ac221623f"
+  },
+  "numeric_input_count": 14045,
+  "numeric_gpu_rerun": 0,
+  "previous_capture": "/tmp/nikke-packet-ratio-standalone-metal-v1"
+}

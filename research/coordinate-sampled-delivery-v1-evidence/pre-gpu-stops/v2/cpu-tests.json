@@ -1,0 +1,132 @@
+[
+  {
+    "pattern": "test_coordinate_sample_v1.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.6546355410246179,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 80645
+  },
+  {
+    "pattern": "test_coordinate_sampling_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.26515958295203745,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 80645
+  },
+  {
+    "pattern": "test_coordinate_sampling_bank.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.19761920801829547,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 80645
+  },
+  {
+    "pattern": "test_packet_integer_ratio.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.04374291596468538,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 80645
+  },
+  {
+    "pattern": "test_coordinate_sampled_parent.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.578840583912097,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 80645
+  },
+  {
+    "pattern": "test_coordinate_sampled_skill.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.325424375012517,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 80645
+  },
+  {
+    "pattern": "test_coordinate_physical_frontier.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.147731625009328,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 80645
+  },
+  {
+    "pattern": "test_coordinate_sampled_burst.py",
+    "exit_code": 0,
+    "elapsed_seconds": 7.147468167007901,
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 80645
+  },
+  {
+    "pattern": "test_coordinate_sampled_vital.py",
+    "exit_code": 0,
+    "elapsed_seconds": 18.61322187492624,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 80645
+  },
+  {
+    "pattern": "test_coordinate_sampled_delivery.py",
+    "exit_code": 0,
+    "elapsed_seconds": 21.140437874943018,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 80645
+  },
+  {
+    "pattern": "test_coordinate_group_reference.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.1512011669110507,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 80645
+  },
+  {
+    "pattern": "test_coordinate_group_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 3.6820369999622926,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 80645
+  },
+  {
+    "pattern": "test_coordinate_mixed.py",
+    "exit_code": 1,
+    "elapsed_seconds": 15.248515625018626,
+    "tests": 9,
+    "failures": 0,
+    "errors": 1,
+    "skipped": 0,
+    "runner_pid": 80645
+  }
+]

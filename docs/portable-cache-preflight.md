@@ -1,5 +1,7 @@
 # CPU前処理より前のCUDAキャッシュ確認
 
+Metalのファイル専用事前点検は `metal-cache-probe` を使用します。[使い方と証明範囲](portable-metal-cache-probe.md)を参照してください。保存identityを使うadvisory snapshotであり、現在のdevice／OSやGPU計算の証拠にはしません。実行時のnative cache再検証は必須です。
+
 共通CLIのCUDA battle実行で、`--require-cache` と `--require-generation-cache` の両方を
 指定した場合は、単体テスト／正本計算／GPU実行claimより前にキャッシュを確認する。
 従来はCPU前処理後、実行子がキャッシュを読むまでmissを検出できなかった。
