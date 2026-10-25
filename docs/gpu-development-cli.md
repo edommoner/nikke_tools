@@ -1,3 +1,5 @@
+`coordinate-original-accum`4 は元ドロシーの期限切れ放出と元トロニーの4回の上限放出を、全73／74定義のまま検証するsealed suiteです。M5全4・独立fresh監査・関連26／制御480検査成功（Win1skip）、GPU source変更0・paired generation全byte保持／Slang0・実Metal必須pipeline hit。`package --suite coordinate-original-accum --compact` を使います。[蓄積実証・共有展開・保存](portable-original-accumulation.md)。
+
 `coordinate-original-harmful-stack`2 は元アンカーの3回目フルバーストでの有害stack3→2を、6秒対照／86秒autoで検証するsealed suiteです。M5・独立fresh監査・関連32／制御476検査成功（Win1skip）。固定raw4096件を保ち、全5031packetの時刻・対象・damageを共通SHAで照合します。`cases` のsuite引継ぎ漏れも修正しました。`package --suite coordinate-original-harmful-stack --compact` を使います。[実証・CPU効率・保存](portable-original-harmful-stacks.md)／[全順序packet codec](portable-coordinate-packet-history.md)。
 
 `coordinate-original-enemy-stack`4 は元ミハラの敵DoTスタックを、実命中・上限・戦闘不能・burst引継ぎまで検証するsealed suiteです。通常recipientから漏れていた周期DoT対象を共通stack処理へ接続し、M5全4・独立fresh監査・関連29／制御476検査成功（Windows1skip）。実装修正ではsource/cache identityを変え、data-only再利用は拒否します。`package --suite coordinate-original-enemy-stack --compact` を使います。[修正・証拠・次の減算候補](portable-original-enemy-stacks.md)。
@@ -441,3 +443,16 @@ python scripts/nikke_gpu.py refresh-tests \
 `coordinate-original-shield`9はラプンツェル：ピュアグレイス／モリ／キロの元全定義で、満タン・実損傷後の回復と再被弾・破壊を比較するsealed入口です。既存共通kind27と「シールド中」条件を接続し、M5 Metal全9一致・独立seal済みです。元計算を保つ明示opt-inのPython観測filterは3ケースで非filter版の全native指紋と一致を確認し、約7～10倍短縮しました。旧ケースの既定値はFalseです。[比較範囲・観測の適用条件](portable-original-shield-heal.md)を参照してください。CUDA／Metalは同じ入力・Slang・比較器を使いますが、現CUDA実行は未取得です。
 
 `coordinate-original-cover`6はビスケット／リリの元全定義で、候補なし・再装填中の実被弾による1人／3人破壊と次burstの復活を比較するsealed入口です。M5 Metal全6一致・独立seal済み、関連26／共通制御476検査成功（Win1skip）。既存の味方抽選境界6検査を再利用します。元CPUに存在しないfinish時の数値queryで、味方late selectorを解決して乱数や対象を変えないことも検査します。[遮蔽物復活と診断の境界](portable-original-cover-revival.md)参照。現CUDA実行は未取得です。
+
+## 不変payloadを共有する展開
+
+同じファイルシステムの既存不変packageを指定すると、展開時点から同じpath・size・SHAのpayloadだけをhardlinkで共有できます。
+
+```sh
+python scripts/nikke_gpu.py unpack --archive /tmp/new.zip --dest /tmp/new \
+  --reuse-payload-from /tmp/previous
+```
+
+通常のZIP全member検査に加え、参照manifestのidentityと全payloadを検査します。異なるファイルはZIPから作成、manifest自体は常に独立です。参照packageのコードは実行しません。symlinkや破損を拒否し、link失敗時の黙ったcopyへの切替はありません。両方のpayloadを不変として扱い、編集は開発checkoutで行って新しいpackageを作ってください。これは転送・領域共有の証明で、GPU計算やCUDA compiler cacheの証明ではありません。
+
+package内CLIは `sys.dont_write_bytecode`、所有する検証子は `PYTHONDONTWRITEBYTECODE=1` で新しいPython bytecodeの生成を抑制します。独立したimportや設定を解除する故障注入はこの範囲に含みません。sourceの実行・ハッシュ検査・既存キャッシュ読取りは保持し、ユーザーのグローバル設定は変更しません。これにより、短い検証packageごとに数MBの `__pycache__` が蓄積するのを防ぎます。

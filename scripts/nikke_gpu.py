@@ -19,6 +19,9 @@ from unittest.mock import patch
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+# Immutable proof snapshots need no per-copy bytecode files. Imports still
+# execute the same source; existing caches may be read but are never extended.
+if (ROOT/'gpu-package.json').is_file():sys.dont_write_bytecode=True
 CPU_SAVED_AUDIT_MAX_SECONDS=240  # GPU-forbidden full readback/native comparison only.
 sys.path[:0] = [str(ROOT/p) for p in ('app', 'research', 'scripts')]
 from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
@@ -395,6 +398,8 @@ SUITES['coordinate-original-enemy-stack']=dict(SUITES['coordinate-original-share
 SUITES['coordinate-original-enemy-stack']['support_files']=['research/portable-compiler-full--coordinate-original-enemy-stack-source-certificate.json',SUITES['coordinate-original-shared']['golden'],*SUITES['coordinate-original-shared']['support_files']]
 SUITES['coordinate-original-harmful-stack']=dict(SUITES['coordinate-original-enemy-stack'],script='research/verify-coordinate-original-harmful-stack-short.py',golden='research/portable-coordinate-original-harmful-stack-short-expected.json',inputs=2,native=2,development_only=False,tests=['test_coordinate_packet_history.py','test_original_harmful_stack.py','test_original_stacks.py','test_coordinate_kind_admission.py','test_coordinate_original.py','test_source_reuse.py','test_native_python_profile.py'])
 SUITES['coordinate-original-harmful-stack']['support_files']=['research/portable-compiler-full--coordinate-original-harmful-stack-source-certificate.json',SUITES['coordinate-original-enemy-stack']['golden'],*SUITES['coordinate-original-enemy-stack']['support_files']]
+SUITES['coordinate-original-accum']=dict(SUITES['coordinate-original-harmful-stack'],script='research/verify-coordinate-original-accum-short.py',golden='research/portable-coordinate-original-accum-short-expected.json',inputs=4,native=4,development_only=False,tests=['test_coordinate_packet_history.py','test_original_accum.py','test_coordinate_original.py','test_source_reuse.py','test_coordinate_sampled_skill.py'])
+SUITES['coordinate-original-accum']['support_files']=['research/portable-compiler-full--coordinate-original-accum-source-certificate.json',SUITES['coordinate-original-harmful-stack']['golden'],*SUITES['coordinate-original-harmful-stack']['support_files']]
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -504,7 +509,7 @@ for _baseline,_config in list(SUITES.items()):
 
 # Controller validation has no numeric program to execute. Keep its CPU work
 # separate from a selected suite's battle/native preflight.
-SMOKE_TESTS = ['test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
+SMOKE_TESTS = ['test_package_payload_reuse.py','test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
                'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py','test_portable_query_boundaries.py','test_portable_ptx_stats.py','test_portable_compiler_diagnostic.py']
 SMOKE_TESTS.append('test_portable_compiler_certificate.py')
 SMOKE_TESTS.append('test_portable_input_extension.py')
@@ -771,7 +776,7 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
                 archive_sha256=sha(Path(output).read_bytes()), source_commit=m['source_commit'])
 
 
-def unpack(archive, destination):
+def unpack(archive, destination, *, reuse_payload_from=None):
     # Validate every member before creating a destination. Never extractall().
     with zipfile.ZipFile(archive) as z:
         names = z.namelist()
@@ -791,9 +796,29 @@ def unpack(archive, destination):
             raw = z.read(row['path'])
             if len(raw) != row['bytes'] or sha(raw) != row['sha256']:
                 raise ValueError('Package member integrity failure')
+        reusable={}
+        if reuse_payload_from is not None:
+            # Transfer integrity only: never import or execute the source CLI.
+            source=Path(reuse_payload_from).resolve()
+            file_records(source,['gpu-package.json'])
+            reference=load(source/'gpu-package.json')
+            if reference.get('schema')!=SCHEMA or reference.get('package_id')!=package_id(reference):raise ValueError('Reuse package manifest identity mismatch')
+            check_records(source,reference['files'])
+            old={r['path']:r for r in reference['files']}
+            for row in m['files']:
+                if old.get(row['path'])!=row:continue
+                q=source/row['path']
+                if any(parent.is_symlink() for parent in q.parents if parent!=source and source in parent.parents):raise ValueError('Reuse payload has a symlink ancestor')
+                if stat.S_IMODE(q.stat().st_mode)==(0o666 if os.name=='nt' else 0o644):reusable[row['path']]=q
         destination.mkdir(parents=True, exist_ok=False)
         for name in names:
-            p = destination/name; p.parent.mkdir(parents=True, exist_ok=True); p.write_bytes(z.read(name))
+            p = destination/name; p.parent.mkdir(parents=True, exist_ok=True)
+            if name in reusable:
+                os.link(reusable[name],p)
+                # Both roots must remain immutable; a concurrent source edit
+                # cannot silently change the archive bytes being transferred.
+                if p.read_bytes()!=z.read(name):raise ValueError('Reuse payload changed during unpack')
+            else:p.write_bytes(z.read(name))
     # Transfer integrity is independent of this bootstrap CLI's suite registry.
     # The extracted package's own CLI performs semantic preflight before run.
     check_records(destination,m['files'])
@@ -1666,7 +1691,7 @@ def validation_environment(capture):
     env=os.environ.copy();env.pop('__PYVENV_LAUNCHER__',None)
     # Package sources, JSON and child logs use UTF-8 on every host. Scope this
     # to owned validation processes; never change the user's OS/Python setup.
-    env['PYTHONUTF8']='1';env['PYTHONIOENCODING']='utf-8'
+    env['PYTHONUTF8']='1';env['PYTHONIOENCODING']='utf-8';env['PYTHONDONTWRITEBYTECODE']='1'
     if platform.system()=='Darwin':
         cache=Path(env.get('NIKKE_METAL_MODULE_CACHE',str((capture/'swift-module-cache').resolve())))
         if not cache.is_absolute():raise ValueError('Absolute private Swift module cache required')
@@ -2860,7 +2885,7 @@ def main(argv=None):
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('source-reuse');a.add_argument('--out',type=Path,required=True);a.add_argument('--require-hit',action='store_true')
     for name in ('reference-package','candidate-package','reference-generation','candidate-generation'):a.add_argument('--'+name,type=Path,required=True)
-    a=sub.add_parser('entry-inventory');a.add_argument('--out',type=Path,required=True);a.add_argument('--suite',choices=('coordinate-original','coordinate-original-burst-revival','coordinate-original-resources','coordinate-original-ammo','coordinate-original-stacks','coordinate-original-cleanse','coordinate-original-source','coordinate-original-reload','coordinate-original-shield','coordinate-original-cover','coordinate-original-shared','coordinate-original-decoy','coordinate-original-init','coordinate-original-enemy-stack','coordinate-original-harmful-stack'),default='coordinate-original')
+    a=sub.add_parser('entry-inventory');a.add_argument('--out',type=Path,required=True);a.add_argument('--suite',choices=('coordinate-original','coordinate-original-burst-revival','coordinate-original-resources','coordinate-original-ammo','coordinate-original-stacks','coordinate-original-cleanse','coordinate-original-source','coordinate-original-reload','coordinate-original-shield','coordinate-original-cover','coordinate-original-shared','coordinate-original-decoy','coordinate-original-init','coordinate-original-enemy-stack','coordinate-original-harmful-stack','coordinate-original-accum'),default='coordinate-original')
     a=sub.add_parser('metal-device-probe',help='Bounded device visibility only; no kernel compilation or GPU dispatch');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('coordinate-parent-check',help='CPU-only live preflight/context reuse check against saved Metal fixtures; not GPU certification')
     a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -2883,7 +2908,7 @@ def main(argv=None):
     a.add_argument('--required-bytes',type=int,default=0);a.add_argument('--reserve-bytes',type=int,default=1024**3);a.add_argument('--path',type=Path,default=ROOT)
     a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
     a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1'])
-    a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True)
+    a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True);a.add_argument('--reuse-payload-from',type=Path,help='Share exact payload bytes with an existing immutable package on the same filesystem; never edit either payload')
     for name in ('run','_child'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--smoke',action='store_true')
         if name=='run':
@@ -3062,7 +3087,7 @@ def main(argv=None):
         if a.require_hit and not result['hit_snapshot']:print(json.dumps(result,indent=2));raise SystemExit(2)
     elif a.command=='cache-probe':result=cache_probe(a.generated_cuda,a.cuda_root,a.compile_cache,a.out,artifact_kind=a.artifact_kind,ptxas_level=a.ptxas_level,require_hit=a.require_hit)
     elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case,compact=a.compact,baseline_package=a.baseline_package,reference_migration=a.reference_migration)
-    elif a.command=='unpack':result=dict(package_id=unpack(a.archive,a.dest))
+    elif a.command=='unpack':result=dict(package_id=unpack(a.archive,a.dest,reuse_payload_from=a.reuse_payload_from))
     elif a.command=='run':
         if a.backend!='metal' and (a.metal_pipeline_cache or a.require_metal_pipeline_cache):raise ValueError('Metal pipeline settings require Metal backend')
         if a.require_metal_pipeline_cache and not a.metal_pipeline_cache:raise ValueError('--require-metal-pipeline-cache requires --metal-pipeline-cache')

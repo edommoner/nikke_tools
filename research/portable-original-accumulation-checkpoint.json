@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "milestone": "Original received-expiry and dealt-full accumulation releases with data-only shared source reuse",
+  "suite": "coordinate-original-accum",
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "ui_backend": "CPU",
+  "cuda_actual_execution_verified": false,
+  "cuda_compile_cache_hit_verified": false,
+  "windows_new_requests": 0,
+  "original": {
+    "cases": 4,
+    "definitions": [
+      73,
+      73,
+      74,
+      74
+    ],
+    "durations": [
+      1,
+      18,
+      1,
+      18
+    ],
+    "seed": 4001,
+    "full_original_effects_weapons_growth_and_auto": true,
+    "cpu_schedule_as_gpu_input": false,
+    "positive_contracts": [
+      "Dorothy: received accumulation reaches cap before expiry and releases only after carrier retirement",
+      "Trony: dealt accumulation reaches cap and releases four times with original split multiplier; consumed live amount and archive are zero; next carrier can collect"
+    ]
+  },
+  "final_packet": {
+    "package_id": "bccd155a439cb7c2072b9393c1d3bdb5f16f335f509341effedd2cce26365a25",
+    "payload_files": 1990,
+    "archive": "/tmp/nikke-original-accum-final-v1.zip"
+  },
+  "gpu": {
+    "dispatches": 1,
+    "retries": 0,
+    "failures": 0,
+    "status": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "source_modified": false,
+    "wire_modified": false,
+    "runtime_stride": 138952,
+    "input_words": 109968,
+    "output_words": 1769856,
+    "calculation_verified": true,
+    "elapsed_seconds": 1.7419628333300352,
+    "pipeline_seconds": 0.002725958824157715,
+    "pipeline_cache_hit": true,
+    "pipeline_cache_required": true
+  },
+  "fresh_audit": {
+    "schema": "independent-metal-audit-v1",
+    "package_id": "bf84a2241e37c83e7af3b8f92cc2ad655fb99856a6fbb84ce36bab2fcc88bc35",
+    "capture": "/private/tmp/nikke-original-accum-metal-v1",
+    "child_pid": 55513,
+    "input_count": 4,
+    "native_cases": 4,
+    "live_parent_receipt_present": false,
+    "elapsed_seconds": 55.96318420791067,
+    "gpu_calls": 0,
+    "calculation_verified": true,
+    "input_sha256": "7dfb976d7c84447c193f916daf8a373e0aa69f058cb9ca188da12e2cf1a84c3b",
+    "output_sha256": "5d3adc235de692eeed5a4e671015c383f22a0571f93ba9c88b85d1050425b754",
+    "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls"
+  },
+  "tests": {
+    "related": 26,
+    "control": 480,
+    "skipped": 1,
+    "all_passed": true
+  },
+  "source_reuse": {
+    "previous_cases": 2,
+    "new_cases": 4,
+    "paired_cuda_metal_all_bytes_retained": true,
+    "slang_invocations": 0,
+    "cuda_compile_cache_proof": false
+  },
+  "input_sha256": "7dfb976d7c84447c193f916daf8a373e0aa69f058cb9ca188da12e2cf1a84c3b",
+  "output_sha256": "5d3adc235de692eeed5a4e671015c383f22a0571f93ba9c88b85d1050425b754",
+  "inventory": {
+    "profiles": 266,
+    "packed": 247,
+    "packing_failures": 19,
+    "kind_rejected": 0,
+    "expanded_kind_profiles": 8,
+    "all_previous_profiles_equal": true,
+    "original_effect34_coverage": "representative BODY execution verified; not complete variant/character certification"
+  },
+  "tooling": {
+    "unpack_reuse_payload_from": true,
+    "reference_and_archive_all_hashes_verified": true,
+    "reference_code_executed": false,
+    "final_shared_files": 1986,
+    "final_logical_payload_bytes_shared": 56655264,
+    "bytecode_suppression": "Packaged CLI sys.dont_write_bytecode and owned-child environment; direct import/test overrides outside this scope may still cache",
+    "bytecode_files_after_fault_tests": 2
+  },
+  "storage": {
+    "reserve_bytes": 1073741824,
+    "failed_cpu_only_budget_before_cleanup": true,
+    "old_snapshot_bytecode_only_cleanup_packages": 24,
+    "old_snapshot_bytecode_allocated_reclaimed": 184180736,
+    "manifest_payload_hashes_before_after_verified": true,
+    "raw_deleted": false,
+    "raw_sparse_all_bytes_retained": true,
+    "raw_allocated_reclaimed": 21561344
+  },
+  "remaining": [
+    "kind35 original Ein feather refresh",
+    "kind37 original Cinderella Crystal Wave squad ammo consumption",
+    "19 original packing failures",
+    "ADD/target generations and remaining original accumulation variants/models",
+    "Current CUDA execution/compile/cache proof and Windows CPU Job smoke",
+    "Public GPU integration and complete character/effect certification"
+  ],
+  "evidence": {
+    "bytecode-inventory-summary.json": "08aefdac11ca4a0cf7a8896fc583268748ddd53a302d0a88567b2c1fd1ab2611",
+    "bytecode-prune-script.txt": "801bac3a0c5157d91e751f99984e7d2cf740ee5cfa858319d174cc24df05192b",
+    "bytecode-prune.json": "ca2015b1ab5cb1f708fe718390dc063c52eea63916d35cd87d248ffcb582198d",
+    "comparison.json": "caf6f849918a4ba24d1f3d0bdcebdb4085b4e93f116f50fb46192ae7a516757b",
+    "cpu.json": "ec4db5ab0f4e65396c6a48801fd1771a7536567eef228393bb22ba9920eff63d",
+    "current-observation-bytecode-cleanup.json": "466a9dd5553f542e699af33a2516dcd443b3a53a5d8cdee34dbe9781fd11c1d1",
+    "entry-inventory-retention.json": "1b9a193774255e4c69ff8067094bfe540cddab9e00b21906181f202cf930f0c7",
+    "evidence.json": "7bb7ec3216618ec22c73ea1c249e88b07923070be4185c540c341535f46da79a",
+    "execution.json": "d088901c460d4701ee6fdbc29d9a46f6c55c0a3386be487c5a63d554aff477e5",
+    "final-control.json": "263b63985c2af90896665a7ce40c8dbf8e599ee2d9b2acf356c43f9e87a0fe4a",
+    "final-generation.json": "d67e76d2375ae3db6ba30866ad12049e31c6ba7ffa73a9f87f14f7f4bcb6d0cb",
+    "final-payload.json": "062a9d79bbe6307cce5b9f11d2090b330b1e35749b0562a426a86179f527cef1",
+    "final-source-reuse.json": "022109024ba1b0b3dffb2a3c4c5b4db4ed782bf2193dd6a85c901a05415e4633",
+    "final-tests.json": "36e8615f5dab134d29745dcfe1b29086f961876e96d4c9dc1ccfbdd7302540cf",
+    "fresh-audit.json": "53e88ac819ccfcb7efd77b868e91e7edae8cf61d64aa186451d7ecaecd998d02",
+    "full-development-payload.json": "2132ee32c0548ec72b73c649c6ea507fc595d4c65d971a21f18845bb82c9b541",
+    "generation.json": "640329527a48398f74fabdfe4bb9cd6330756e11f4045e0fd410bcf968d9cafb",
+    "native-frontier-script.txt": "1a6b3792a48547c945c31c1e7730d2f3da5874a41efb11180b4db98f6e8e21d6",
+    "native-frontier.json": "edec7760518d141e19911fb441c73053042f83e522b020fb961afddfd7dd2974",
+    "observation-sharing-1.json": "e758a3c0c4340b34085ccad19a47a31bf957453a1639632abc653a097c7620dd",
+    "observation-sharing-2.json": "ce3e23021f5148dcb6e109dd70a769e1b1f811ccb7087d2c3c80b8788cf989d2",
+    "observation-sharing-3.json": "b09f2ba7d968851811d4a2742302cb3de51dab4e051050820da0eed9d2b75f43",
+    "result.json": "11a9a05e316f6f2bf64dcc420c173f9408b68d19ced55827201c744c63fddecb",
+    "run.json": "793e239f34c8bccc60e49d789007e5c894451d79fdead2290cf4b5da97edc84d",
+    "source-reuse.json": "be0bd4532132b73f94ee412bb35b3eba125425e45288923d041cf8f3fc6c3e27",
+    "sparse.json": "acc46624670b5da1a28e4c4525a29613467085cf67d1965558fb40e04fe99d9c",
+    "storage-preflight-before-bytecode-cleanup.json": "e2ca310ec844d50bd38b9e0f6d131e0a787e9489e6bf8efb7b2b321d51e256b9",
+    "storage.json": "49b517fbf939d5d028c368ded6191f5c45a9e7162d9906e3d8b3a5ed4d1d6b59"
+  }
+}

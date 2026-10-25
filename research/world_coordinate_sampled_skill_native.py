@@ -35,7 +35,7 @@ from contextlib import contextmanager
 def creation_indices(case):
     """Observe actual HitEvent objects and the native enclosing hit loop."""
     names={e['name']:i for i,e in enumerate(case['effects']) if e.get('type')=='damage'}
-    previous=sys.getprofile();events={};rows=[];pending=[]
+    previous=sys.getprofile();events={};rows=[];pending=[];accum_starts={}
     from calculator import timeline
     legacy_code=timeline.BurstController._fire_pending_burst_dmg.__code__
     calc_code=timeline.calc_damage.__code__
@@ -64,6 +64,23 @@ def creation_indices(case):
                     assert (ev.damage,ev.skill_name,ev.caster,ev.t)==(amount,name,owner,when)
                     events[id(ev)]=(row,hit,hits)
                 pending.clear()
+        # Accumulator discharge bypasses calc_damage and the hit loop. Capture
+        # the actual newly appended single HitEvent at that creation boundary;
+        # never infer a missing receipt from the later landing's stat/name.
+        if frame.f_code.co_name=='_handle_damage_eff':
+            v=frame.f_locals;eff=v.get('eff',{})
+            if eff.get('stat')=='accum_split_damage':
+                if event=='call':accum_starts[id(frame)]=len(v['_dot_events'])
+                elif event=='return':
+                    created=v['_dot_events'][accum_starts.pop(id(frame)):]
+                    assert len(created)<=1,'Accumulator discharge emits at most one real packet'
+                    for ev in created:
+                        assert ev.hit_tag=='accum_split_damage' and ev.skill_name==eff['name'] and ev.t==v['t'] and ev.caster==v['caster']
+                        if case.get('source_effect_identity'):
+                            from world_effect_identity import row as source_row
+                            row=source_row(case,eff,ev.caster)
+                        else:row=names[eff['name']]
+                        events[id(ev)]=(row,1,1)
         if frame.f_code.co_name=='_coord_skill_hits' and frame.f_back is not None and frame.f_back.f_code.co_name=='_handle_damage_eff':
             parent=frame.f_back
             if event=='call':remember(parent.f_locals['_dot_events'][-1],parent)

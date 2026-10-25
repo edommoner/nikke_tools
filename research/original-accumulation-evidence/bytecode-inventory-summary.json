@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "source_inventory": "/tmp/nikke-package-bytecode-inventory-v1.json",
+  "inventory_sha256": "9e16789c1464b9f6760885dec540dd7b3968b225fbd88c0602d50dfadd2707ed",
+  "inventory_packages": 870,
+  "inventory_allocated_bytes": 3776466944,
+  "prune_scope_packages": 24,
+  "prune_allocated_bytes": 184180736,
+  "all_payloads_verified": true,
+  "raw_deleted": false,
+  "gpu_calls": 0
+}

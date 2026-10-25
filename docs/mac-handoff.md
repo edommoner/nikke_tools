@@ -2249,3 +2249,15 @@ Python観測filterは不変selected-controlコードsnapshotから両adapterケ�
 最終 `/tmp/nikke-original-harmful-stack-final-v1.zip`（db9ccd15…、2010files）は関連32／制御476成功（Win1skip）、全payload hash/checkout bytesとGPU source/input/native/output一致、generation必須hit・Slang0。reader終了後に原／成功rawをSHA/size/inode保持で疎化し20,840,448byte回収・raw削除0。最初のdata-only世代では実Metal cache hit0.002942秒を確認したが計算は履歴上限で失敗、新コードの実warm PSO／CUDAへ成功を流用しません。
 
 静的全266／247packing／19失敗／kind拒否0／受付拡張8は旧全profileと一致。次は元Dorothy/Trony蓄積放出34、Ein feather35、Cinderella Crystal Wave弾消費37を既存共通handlerで正発火へ。今回のADD/世代・減算floorなどの他variant、packing19、現CUDA／warm cache、公開GPU／全キャラも未完。全キャラ0／UI CPU／ゴール未達、Windows新規依頼0。空き容量は依然小さく、次の検証もstorage gateを維持すること。
+
+## 2026-10-26 元Dorothy／Trony蓄積放出34・共有展開
+
+最新 `coordinate-original-accum`4、`docs/portable-original-accumulation.md`／`research/portable-original-accumulation-checkpoint.json`。元各73／74全定義、5人・武器／成長／auto・seed4001、各対照1秒／18秒。Dorothyは上限5.20秒でも放出せず13.366667秒expiryで1回、Tronyはcap到達5.20／8／10.766667／13.533333秒に4回、元split補正／live消費／archive zero／次carrierまで比較。通常のdamage式を通らない元単発のcreation receipt不足を共通observerで修正、着弾時の推定fallbackは増やしていません。既存accum observer/final reader/timer/全battle比較を再利用しGPU本体／数値／wire／Runtime変更0。
+
+不変dev `/tmp/nikke-original-accum-develop-v3`（bf84a224…）→M5 `/tmp/nikke-original-accum-metal-v1` は全4status0・一致、GPU1.741963秒／必須archive pipeline hit0.002726秒。GPU計1・失敗0・retry0。全4fresh独立監査55.963184秒、live parent receiptなし。全4input/nativeは先行対照限定コードsnapshotの探索値と一致。固定shared sourceのままdata-only2→4、共通source-reuseで両CUDA/MSL全byte保持／Slang0。CUDA実compile/cache/launchへ流用しないこと。
+
+最終packet `/tmp/nikke-original-accum-final-v1.zip`（bccd155a…、1990files）は関連26／制御480成功（Win1skip）、全payload SHA/checkout byteとGPU source/input/native/output一致、generation必須hit・Slang0。新共通CLI `unpack --reuse-payload-from` は既存不変packageの全hashとZIP全memberを検査して同一payloadだけhardlinkで共有（最終1986files／56,655,264byte）。manifestは別、参照コード実行0、異なるbyteは個別に展開、両payloadを絶対に編集しないこと。Macの通常644／Windows通常666を対象、Windowsでの新経路実機確認は未取得。
+
+容量reserve1GiBを維持。最初のCPU-only budget不足後、24元編成snapshotのmanifest外Python bytecodeだけを整理し全payload前後hash検査、184,180,736byte割当回収。raw/ZIP/結果/claim削除0。package CLIはsys.dont_write_bytecode、所有子はPYTHONDONTWRITEBYTECODE=1で再増加を抑制（独立import/故障注入は範囲外、最終検査後2cache・425,167byte）。rawは全reader終了後SHA/size/inode保持の疎化で21,561,344byte回収、削除0。空き容量は依然小さいので予算確認を続けること。
+
+新entry-inventory全266／247packing／19失敗／kind拒否0／拡張8は前の全profileと一致。34のBODY代表を実証、ADD/世代・全variantは未完。次は元Ein羽更新35・Cinderella Crystal Wave弾消費37、19packing失敗・モデル不足。現在CUDA／warm cache・Windows Job smoke・公開GPU／全キャラは未完、全キャラ0／UI CPU／目標未達。Windows新規依頼0、idle APIへ重複runを送らないこと。

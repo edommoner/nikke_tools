@@ -1,0 +1,16 @@
+import json,hashlib,sys,importlib.util,shutil
+from pathlib import Path
+root=Path('/private/tmp/nikke-runtime-resident');sys.path[:0]=[str(root/'app')]
+s=importlib.util.spec_from_file_location('bytecode_integrity_cli',root/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(s);s.loader.exec_module(cli)
+inventory=json.loads(Path('/tmp/nikke-package-bytecode-inventory-v1.json').read_text());selected=[r for r in inventory if Path(r['root']).name.startswith('nikke-original-') and 'accum' not in Path(r['root']).name][:24]
+rows=[];before=shutil.disk_usage('/tmp').free
+for record in selected:
+ package=Path(record['root']);m=json.loads((package/'gpu-package.json').read_text());assert m['package_id']==cli.package_id(m);cli.check_records(package,m['files']);listed={f['path'] for f in m['files']};files=[]
+ for p in package.rglob('*.pyc'):
+  assert not p.is_symlink() and '__pycache__' in p.parts and p.relative_to(package).as_posix() not in listed
+  files.append((p,p.stat().st_size,p.stat().st_blocks*512))
+ for p,_,_ in files:p.unlink()
+ cli.check_records(package,m['files'])
+ rows.append(dict(package=str(package),package_id=m['package_id'],removed_unlisted_bytecode_files=len(files),logical_bytes=sum(r[1] for r in files),allocated_bytes=sum(r[2] for r in files),all_manifest_payload_hashes_verified_before_after=True))
+r=dict(schema=1,scope='Only unlisted recreatable __pycache__/*.pyc in 24 original-effect package snapshots; no payload/source/ZIP/raw/result/claim changes',packages=rows,free_before=before,free_after=shutil.disk_usage('/tmp').free,gpu_calls=0,calculation_verified=False)
+Path('/tmp/nikke-package-bytecode-prune-v1.json').write_text(json.dumps(r,indent=2)+'\n');print(dict(packages=len(rows),allocated_bytes=sum(r['allocated_bytes'] for r in rows),free_before=before,free_after=r['free_after']))

@@ -1,0 +1,8 @@
+{
+  "scope": "Only recreatable unlisted Python bytecode from three completed current-turn observation snapshots; all manifest payload SHA verified; no source/ZIP/raw/result/claim removed",
+  "files": 1139,
+  "bytes": 14053275,
+  "free_before": 1106276352,
+  "free_after": 1123352576,
+  "gpu_calls": 0
+}
