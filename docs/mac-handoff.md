@@ -2261,3 +2261,13 @@ Python観測filterは不変selected-controlコードsnapshotから両adapterケ�
 容量reserve1GiBを維持。最初のCPU-only budget不足後、24元編成snapshotのmanifest外Python bytecodeだけを整理し全payload前後hash検査、184,180,736byte割当回収。raw/ZIP/結果/claim削除0。package CLIはsys.dont_write_bytecode、所有子はPYTHONDONTWRITEBYTECODE=1で再増加を抑制（独立import/故障注入は範囲外、最終検査後2cache・425,167byte）。rawは全reader終了後SHA/size/inode保持の疎化で21,561,344byte回収、削除0。空き容量は依然小さいので予算確認を続けること。
 
 新entry-inventory全266／247packing／19失敗／kind拒否0／拡張8は前の全profileと一致。34のBODY代表を実証、ADD/世代・全variantは未完。次は元Ein羽更新35・Cinderella Crystal Wave弾消費37、19packing失敗・モデル不足。現在CUDA／warm cache・Windows Job smoke・公開GPU／全キャラは未完、全キャラ0／UI CPU／目標未達。Windows新規依頼0、idle APIへ重複runを送らないこと。
+
+## 2026-10-26 元Ein羽35・Cinderella Crystal Wave弾換算37
+
+最新 `coordinate-original-owned`5、`docs/portable-original-owned-sources.md`／`research/portable-original-owned-checkpoint.json`。元74／88全定義・5人・成長／武器・seed4101、Ein1/12/40秒、Cinderella3/30秒（公開weapon_mode_swap=True）。Einは初期4枚→burst4.016667秒で6枚→40秒最終2枚、epoch1/2/2と次時計4.16/12.016667/44.016667。実tick・生存枚数分damageを比較、元推定寿命／間隔のLEGACY_WARNING保持。Cinderella対照0／正例8dispatch、40寄与につき追加39通知、部隊累計1737を元200発triggerのraw counterまで検査。実弾／mode／reload／damage全比較保持。CPU schedule入力0。
+
+既存ammo observerをcapture contextへ共用し旧observeは委譲。Ein40秒・Cinderella30秒でplain/observedの全nativeと外側creation indices一致（同時測定・性能benchmarkではない、全5透過性の主張なし）。別に全5fresh監査138.779740秒・live parent receiptなし。dev `/tmp/nikke-original-owned-develop-v1`（71c67141…）、M5 `/tmp/nikke-original-owned-metal-v1` 全status0／一致、実GPU1回3.254542秒、必須PSO hit.002838秒、失敗/retry0。GPU／数値／wire／Runtime変更0、既存4→5のCUDA/MSL全byte保持・Slang0。
+
+最終 `/tmp/nikke-original-owned-final-v1.zip`（25916dd1…、2004files）は関連29／制御480（Win1skip）成功、全payload SHA/checkout byteと実GPU source/input/native/output一致、generation必須hit・Slang0。owned-state readerは厳密AST同一の関数抽出だけで、元prepare/native/witness AST保持。実readbackの小さな状態fixtureでclock1ULP・population/epoch・counter1件等を壊す負例を実行し、長いnativeの重複を避けました。旧ammo referenceの25literal等・観測透過性テストも保持。1990payload／57,182,951byte共有展開、全raw reader終了後SHA/size/inode保持の疎化で26,542,080byte回収・raw削除0。
+
+静的全266/247packing/19失敗/kind拒否0/拡張8は前の全profileと一致。残り20の観測operator分類（code/message/descriptor/lane保持）はoriginal-owned-evidence/readiness-priorities.json。次はprojectile_dmg_pct／shield_dmg_pct／cover_def_pct等、reference-model-gapのtyped基盤を戦闘producer/consumerへ接続する作業を優先。単一観測分類の件数を完了予測に使わないこと。19packing失敗、移動／selector／damage-sharingモデル、ADD／世代・variant、同一現sourceでの旧suite集約、現CUDA／compile cache・Job smoke・公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／目標未達。Windows新規依頼0、idle APIに同じrunを再送しないこと。

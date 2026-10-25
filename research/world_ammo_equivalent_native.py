@@ -1,11 +1,13 @@
 """Read actual instant dispatches and squad notices; no extra state queries."""
 import inspect,sys
+from contextlib import contextmanager
 from calculator.buff_manager import BuffManager
 from world_frame_native import roster_names
 from world_projectile_native import observe as projectile_observe
 
 
-def observe(case):
+@contextmanager
+def capture(case):
     names=roster_names(case);notices=[];calls=[];frames={};managers=[];previous=sys.getprofile();errors=[]
     notify=BuffManager.notify.__code__;dispatch=inspect.unwrap(BuffManager._dispatch_instant).__code__
     def profile(frame,event,answer):
@@ -26,12 +28,17 @@ def observe(case):
                     frames[id(frame)]=len(calls);calls.append(dict(name=local['eff']['name'],owner=names.index(local['caster']),time=local['t'],from_tick=local['from_tick']))
                 elif event=='return':calls[frames.pop(id(frame))]['value']=local.get('val')
         except (KeyError,ValueError,TypeError,AttributeError) as error:errors.append(str(error))
+    data=dict(notices=notices,calls=calls)
     sys.setprofile(profile)
-    try:native,trace=projectile_observe(case)
+    try:yield data
     finally:sys.setprofile(previous)
     if errors:raise ValueError('Ammo-equivalent observation failed: '+str(errors))
     manager=managers[0];stacks=[]
     for carrier in manager._active:
         if carrier.effect.get('name')=='ammo-watch':stacks.append(dict(owner=names.index(carrier.caster),stack=carrier.stack))
-    native['ammo_equivalent']=dict(notices=notices,calls=calls,stacks=stacks,squad_count=manager._event_counts.get('__squad__',{}).get('squad_ammo_consume',0))
+    data.update(stacks=stacks,squad_count=manager._event_counts.get('__squad__',{}).get('squad_ammo_consume',0))
+
+def observe(case):
+    with capture(case) as data:native,trace=projectile_observe(case)
+    native['ammo_equivalent']=data
     return native,trace

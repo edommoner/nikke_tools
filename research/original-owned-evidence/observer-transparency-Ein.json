@@ -1,0 +1,17 @@
+{
+  "package_id": "71c671417dafa8dc92c0a3ab40feecf5bb1083a91e7b02f246de316d8e6f4a4b",
+  "index": 2,
+  "gpu_calls": 0,
+  "whole_suite_certified": false,
+  "scope": "Exact plain-versus-observed native result and outer creation receipts on this one original positive case",
+  "name": "coordinate-original-owned/Ein/40s",
+  "input_sha256": "433a7b29aae9dda1d26869d9fd04d0e35beea0a63ac2eb6e5c6b6eeb65a4082a",
+  "plain_seconds": 52.294794959016144,
+  "plain_sha256": "18b482cb6fece578d22f83fdb3e6e85a1c8e8f68b4d3e0a1901bad2ef0b3c4a5",
+  "plain_creation_sha256": "f014cba66169feb359fe4e185fdf58f44cf38f5e33c32d424bbf6764eb496c7f",
+  "observed_seconds": 54.02579124993645,
+  "instrumented_native_sha256": "e0abf2e186dc9e06610de7cbf8b4684cd3f62313a42742bb0927aa1f4d3affa5",
+  "observed_creation_sha256": "f014cba66169feb359fe4e185fdf58f44cf38f5e33c32d424bbf6764eb496c7f",
+  "observed_base_sha256": "18b482cb6fece578d22f83fdb3e6e85a1c8e8f68b4d3e0a1901bad2ef0b3c4a5",
+  "passed": true
+}

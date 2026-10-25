@@ -1,0 +1,54 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "coordinate-original-owned/Ein/1s",
+      "input_sha256": "d5e8bf7dc89e92c02d2826ea228b3e0c2bc6f0d8ff8e874cb3723ab56e878d1c",
+      "output_sha256": "6a6995a9b8b22ab4d4c4758f6f5a46a670d79c40a065930982dc3c6745f51165",
+      "native_sha256": "ffe65f08ff0187b59920ad6b57d9c7ff02d0348c7b3f1668840bdc310630ae91"
+    },
+    {
+      "name": "coordinate-original-owned/Ein/12s",
+      "input_sha256": "dc8b735bde48cfb7ac1f23fd9da36ecb92f5fa78495d6a26d7135621aeb50f91",
+      "output_sha256": "ddd268d583d496b7f555ec19b59b06b7d3d48047e632b69f7bf70d860ead176f",
+      "native_sha256": "00fec001333895b9135f6007381f09e5e63661a95421518a1905d34687a3de91"
+    },
+    {
+      "name": "coordinate-original-owned/Ein/40s",
+      "input_sha256": "433a7b29aae9dda1d26869d9fd04d0e35beea0a63ac2eb6e5c6b6eeb65a4082a",
+      "output_sha256": "e468431e001720728889d0b406e477904fcd68f69b6a78bddb15329fec2f367e",
+      "native_sha256": "e0abf2e186dc9e06610de7cbf8b4684cd3f62313a42742bb0927aa1f4d3affa5"
+    },
+    {
+      "name": "coordinate-original-owned/Cinderella-Crystal/3s",
+      "input_sha256": "7f69602b4280cc06f2131b16bbd3628a20077c1ec45ae5dcc8d6991c95d4f724",
+      "output_sha256": "4addce9d382d778565dc2c6620c38f3d23cef55a5090a86700d113a0ee523f3e",
+      "native_sha256": "9a5a3ab32ca060bc08ddb64817f85a2a9cb5ebef03fc136e26959c7dfde7a2e0"
+    },
+    {
+      "name": "coordinate-original-owned/Cinderella-Crystal/30s",
+      "input_sha256": "ec3fb1c4afec16db3e0e88c670bf61ce4b0577964918256c751449ec22fe6fb9",
+      "output_sha256": "328f40c6d5ad74fc505866e3ec7324e9d2689efa0204f66a9c53525a94eb0b41",
+      "native_sha256": "ac5c3671d1adb1ba65c766e9cef7493116d5897b249b760d19d7056b4a557b94"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 5,
+  "native_oracles": 5,
+  "input_sha256": "14f3ae04c6b12cefd023ee5a5abe95bfaf7e4456df71b75d23ed8a105cce82a9",
+  "output_sha256": "c1b4f04fa860b3c2c23fe917e54153e2b393b8d830ee2e9de4b5d8103d432d3c",
+  "generated_normalized": {
+    "cuda": "16a51faa15c8bde0179fa93129335f00c459acbc8b766125c5abe2277ac1f31b",
+    "metal": "08a9b3ff3372b79110e9a8d216ded9d1554cccf19d96db40298e4b4159261f32"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 5,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 5
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-original-owned-metal-v1",
+  "raw_bytes": 35397120,
+  "raw_sha256": "c1b4f04fa860b3c2c23fe917e54153e2b393b8d830ee2e9de4b5d8103d432d3c",
+  "evidence_sha256": "63dc606f64b0b8e54e23f32e3e9f09f2f5efc8230ba2ebe9ec83b42c173924bb",
+  "raw_inode": 511445246,
+  "scan_block_bytes": 65536,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 71,
+  "zero_range_bytes": 26542080,
+  "allocated_before": 35397632,
+  "allocated_after": 8855552,
+  "allocated_reclaimed": 26542080,
+  "full_hash_verified": true
+}
