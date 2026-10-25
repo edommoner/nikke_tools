@@ -1,0 +1,313 @@
+{
+  "expected_count": 6,
+  "actual_count": 4,
+  "expected_owner0": [
+    {
+      "event": 44,
+      "owner": 0,
+      "time": 0.0
+    },
+    {
+      "event": 45,
+      "owner": 0,
+      "time": 0.0
+    },
+    {
+      "event": 44,
+      "owner": 0,
+      "time": 0.31666666666666665
+    },
+    {
+      "event": 45,
+      "owner": 0,
+      "time": 0.31666666666666665
+    },
+    {
+      "event": 44,
+      "owner": 0,
+      "time": 0.41666666666666663
+    },
+    {
+      "event": 45,
+      "owner": 0,
+      "time": 0.41666666666666663
+    }
+  ],
+  "actual_owner0": [
+    {
+      "event": 44,
+      "owner": 0,
+      "time": 0.0
+    },
+    {
+      "event": 45,
+      "owner": 0,
+      "time": 0.0
+    },
+    {
+      "event": 44,
+      "owner": 0,
+      "time": 0.41666666666666663
+    },
+    {
+      "event": 45,
+      "owner": 0,
+      "time": 0.41666666666666663
+    }
+  ],
+  "native_owner0_shots": [
+    {
+      "owner": 0,
+      "time": 0.0,
+      "mode": false,
+      "kind": "_fire",
+      "weapon_type": "AR",
+      "pellets": 1,
+      "muzzles": 1,
+      "coefficient": 100
+    },
+    {
+      "owner": 0,
+      "time": 0.31666666666666665,
+      "mode": true,
+      "kind": "_fire",
+      "weapon_type": "AR",
+      "pellets": 1,
+      "muzzles": 1,
+      "coefficient": 100.0
+    },
+    {
+      "owner": 0,
+      "time": 0.41666666666666663,
+      "mode": false,
+      "kind": "_fire",
+      "weapon_type": "AR",
+      "pellets": 1,
+      "muzzles": 1,
+      "coefficient": 100
+    }
+  ],
+  "manual": [
+    {
+      "kind": "_enter_cover",
+      "time": 0.3,
+      "cover_all": true,
+      "phase": "ready",
+      "charging_visible": false,
+      "owner": 0,
+      "until": 0.4,
+      "until_reload": false,
+      "cancel_after_clip": false,
+      "ammo": 0,
+      "reload_until": 0.31666666666666665,
+      "sequence_index": 0
+    },
+    {
+      "kind": "_finish_reload",
+      "time": 0.31666666666666665,
+      "cover_all": true,
+      "phase": "ready",
+      "charging_visible": false,
+      "owner": 0,
+      "until": 0.4,
+      "until_reload": false,
+      "cancel_after_clip": false,
+      "ammo": 1,
+      "reload_until": -1.0,
+      "sequence_index": 0
+    },
+    {
+      "kind": "_exit_cover",
+      "time": 0.41666666666666663,
+      "cover_all": true,
+      "phase": "ready",
+      "charging_visible": false,
+      "owner": 0,
+      "until": -1.0,
+      "until_reload": false,
+      "cancel_after_clip": false,
+      "ammo": 1,
+      "reload_until": -1.0,
+      "sequence_index": 0
+    }
+  ],
+  "mode": {
+    "flags": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "pumps": [
+      {
+        "time": 0.0,
+        "mask": 0
+      },
+      {
+        "time": 0.016666666666666666,
+        "mask": 0
+      },
+      {
+        "time": 0.03333333333333333,
+        "mask": 0
+      },
+      {
+        "time": 0.05,
+        "mask": 0
+      },
+      {
+        "time": 0.06666666666666667,
+        "mask": 0
+      },
+      {
+        "time": 0.08333333333333333,
+        "mask": 0
+      },
+      {
+        "time": 0.09999999999999999,
+        "mask": 0
+      },
+      {
+        "time": 0.11666666666666665,
+        "mask": 0
+      },
+      {
+        "time": 0.13333333333333333,
+        "mask": 0
+      },
+      {
+        "time": 0.15,
+        "mask": 0
+      },
+      {
+        "time": 0.16666666666666666,
+        "mask": 0
+      },
+      {
+        "time": 0.18333333333333332,
+        "mask": 0
+      },
+      {
+        "time": 0.19999999999999998,
+        "mask": 0
+      },
+      {
+        "time": 0.21666666666666665,
+        "mask": 0
+      },
+      {
+        "time": 0.2333333333333333,
+        "mask": 0
+      },
+      {
+        "time": 0.24999999999999997,
+        "mask": 0
+      },
+      {
+        "time": 0.26666666666666666,
+        "mask": 0
+      },
+      {
+        "time": 0.2833333333333333,
+        "mask": 0
+      },
+      {
+        "time": 0.3,
+        "mask": 0
+      },
+      {
+        "time": 0.31666666666666665,
+        "mask": 0
+      },
+      {
+        "time": 0.3333333333333333,
+        "mask": 1
+      },
+      {
+        "time": 0.35,
+        "mask": 1
+      },
+      {
+        "time": 0.36666666666666664,
+        "mask": 1
+      },
+      {
+        "time": 0.3833333333333333,
+        "mask": 1
+      },
+      {
+        "time": 0.39999999999999997,
+        "mask": 1
+      },
+      {
+        "time": 0.41666666666666663,
+        "mask": 1
+      },
+      {
+        "time": 0.4333333333333333,
+        "mask": 0
+      },
+      {
+        "time": 0.44999999999999996,
+        "mask": 0
+      },
+      {
+        "time": 0.4666666666666666,
+        "mask": 0
+      },
+      {
+        "time": 0.4833333333333333,
+        "mask": 0
+      },
+      {
+        "time": 0.49999999999999994,
+        "mask": 0
+      },
+      {
+        "time": 0.5166666666666666,
+        "mask": 0
+      },
+      {
+        "time": 0.5333333333333333,
+        "mask": 0
+      },
+      {
+        "time": 0.55,
+        "mask": 0
+      },
+      {
+        "time": 0.5666666666666668,
+        "mask": 0
+      },
+      {
+        "time": 0.5833333333333335,
+        "mask": 0
+      },
+      {
+        "time": 0.6000000000000002,
+        "mask": 0
+      },
+      {
+        "time": 0.6166666666666669,
+        "mask": 0
+      },
+      {
+        "time": 0.6333333333333336,
+        "mask": 0
+      },
+      {
+        "time": 0.6500000000000004,
+        "mask": 0
+      },
+      {
+        "time": 0.6666666666666671,
+        "mask": 0
+      },
+      {
+        "time": 0.6833333333333338,
+        "mask": 0
+      }
+    ]
+  }
+}

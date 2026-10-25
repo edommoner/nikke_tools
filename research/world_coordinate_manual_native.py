@@ -22,6 +22,7 @@ def observe(case):
         if case.get('squad_controls') and frame.f_code==timeline._pump_squad_seq.__code__:
             q=v['bm'].state;forced=q.get('ctrl_focus_forced') or '';keep=v.get('keep') or ''
             squad_pumps.append(dict(time=v['t'],index=q['_squad_seq_i'],owner=names.index(q['ctrl_owner']) if q['ctrl_owner'] else -1,forced=names.index(forced)+1 if forced else 0,keep=(names.index(keep)+1 if keep else 0) if 'keep' in v else None))
+            if case.get('squad_mode_state'):squad_pumps[-1]['mode_mask']=sum(1<<who for who,name in enumerate(names) if v['char_states'][name]._in_weapon_change)
         if frame.f_code==charge and '_entry' in v:
             cs=v['self'];events.append(dict(kind='_charge_start',time=v['t'],**state(cs,v.get('bm'))))
         if frame.f_code in codes:
@@ -35,5 +36,6 @@ def observe(case):
     if case.get('squad_controls'):
         last=squad_pumps[-1];keeps=[p['keep'] for p in squad_pumps if p['keep'] is not None]
         n['squad_control']=dict(sequence_index=last['index'],forced_owner=last['forced'],last_keep=keeps[-1] if keeps else 0,pumps=squad_pumps)
+    if case.get('squad_mode_state'):n['squad_mode_state']=dict(flags=[bool(characters[name]._in_weapon_change) for name in names],pumps=[dict(time=p['time'],mask=p['mode_mask']) for p in squad_pumps])
     if case.get('cover_policies'):n['cover_policy_state']=[dict(cover_anchor=characters[name]._cover_ctrl_anchor,reload_anchor=characters[name]._reload_ctrl_anchor,kind=characters[name]._ctrl_anchor_kind,value=characters[name]._ctrl_anchor_val,reentry=sorted([list(v) for v in characters[name]._reentry_used if v[0] in ('cover','reload')])) for name in names]
     return n,t

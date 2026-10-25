@@ -5,11 +5,22 @@
 #define WEAPON_BODY_SUPPRESSED(s,who,hit) false
 #define WEAPON_BODY_AMOUNT(s,who,legacy) legacy
 #endif
+void latchWeaponShotLimit(inout Runtime s,inout Weapon w,uint who)
+{
+    if(s.modeIndex[who]>=0 && w.sentinelMode==0 && w.shotLimit>=0 && uint(w.shotLimit)==commands[s.inputBase+P_MODE_BASE+uint(s.modeIndex[who])*P_MODE_WORDS+1]) w.shotLimit=int(w.capacity);
+}
 [noinline]
 void prepareWeaponFrame(inout Runtime s,uint who,uint64_t when,uint output,out uint target,out Weapon w,out bool ready)
 {
     ready=false;
+#ifdef PORTABLE_COORDINATE_SQUAD_MODE_STATE
+    bool reloadModeEntered=false;
+#endif
     if (s.weaponEnabled[who] == 0 || (s.downMask & (1U << who)) != 0 || statusStunned(s,who)) return;
+#ifdef PORTABLE_COORDINATE_SQUAD_MODE_STATE
+    // Native checks alive/stun before synchronizing CharState's mode flag.
+    squadModeTickStart(s,who);
+#endif
     target = aimedTarget(s,who); if (target == 0xffffffff) return;
     s.target = target; selectWeapon(s,who,when,w);
     if (s.error != 0) return; WORLD_MANUAL_SWAP(s,w,who,when) WORLD_CONTROL_TICK(s,who,when,output)
@@ -20,18 +31,36 @@ void prepareWeaponFrame(inout Runtime s,uint who,uint64_t when,uint output,out u
     if(manualBeforeReload(s,w,who,when))return;
 #endif
     if(advanceModeEntry(s,w,who,when)) return;
-    if(s.modeIndex[who]>=0 && w.sentinelMode==0 && w.shotLimit>=0 && uint(w.shotLimit)==commands[s.inputBase+P_MODE_BASE+uint(s.modeIndex[who])*P_MODE_WORDS+1]) w.shotLimit=int(w.capacity);
+    latchWeaponShotLimit(s,w,who);
     if (!WORLD_MANUAL_ENABLED(s,who) && s.modeIndex[who] < 0 && f64Less(0,s.reloadUntil[who]) && hasInfiniteAmmo(s,who,when))
     { s.reloadUntil[who] = F64_SIGN | ONE; s.nextShot[who] = larger(s.nextShot[who],when); }
     if (!WORLD_MANUAL_ENABLED(s,who) && s.modeIndex[who] < 0 && f64Less(s.reloadUntil[who],0)) s.ammo[who] = min(s.ammo[who],int(w.capacity));
     if (WORLD_RELOAD_ACTIVE(s,who,!f64Less(s.reloadUntil[who],0)) && (s.modeIndex[who] < 0 || w.reloadAllowed != 0))
     {
         if (f64Less(when,s.reloadUntil[who])) return;
+#ifdef PORTABLE_COORDINATE_SQUAD_MODE_STATE
+        int previousReloadMode=s.modeIndex[who];
+#endif
         if (!completeReload(s,w,who,when,output)) return; WORLD_RELOAD_AFTER_COMPLETE(s,who)
         selectWeapon(s,who,when,w); // A completion callback may change the mode.
+#ifdef PORTABLE_COORDINATE_SQUAD_MODE_STATE
+        // A base reload callback may enter a mode during this same char tick.
+        squadModeReloadEntry(s,who);
+        if(squadModeStateEnabled(s)&&previousReloadMode<0&&s.modeIndex[who]>=0)
+        {
+            // Native enters _tick_weapon_change directly from base reload completion.
+            // The same-frame entry wait runs here; active cover is checked next tick.
+            reloadModeEntered=true;if(advanceModeEntry(s,w,who,when))return;
+            latchWeaponShotLimit(s,w,who);
+        }
+#endif
     }
 #ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
-    if(manualAfterReload(s,who,when))return;
+    if(
+#ifdef PORTABLE_COORDINATE_SQUAD_MODE_STATE
+        !reloadModeEntered&&
+#endif
+        manualAfterReload(s,who,when))return;
 #endif
     if (s.modeIndex[who] < 0 && !f64Less(s.postReloadUntil[who],0))
     {

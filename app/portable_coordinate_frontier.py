@@ -200,6 +200,10 @@ def verify(root, overrides=None):
     squad_path=root/'research/portable-coordinate-squad-short-expected.json'
     squad_golden=json.loads(squad_path.read_text()) if squad_path.is_file() else None
     squad_matches=squad_golden['source_sha256']==squad_sources if squad_golden else None
+    squad_mode_sources=source_hashes(root,'gpu/world_coordinate_squad_mode_entry.slang')
+    squad_mode_path=root/'research/portable-coordinate-squad-mode-short-expected.json'
+    squad_mode_golden=json.loads(squad_mode_path.read_text()) if squad_mode_path.is_file() else None
+    squad_mode_matches=squad_mode_golden['source_sha256']==squad_mode_sources if squad_mode_golden else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -508,6 +512,17 @@ def verify(root, overrides=None):
                     input_words=109792,output_words=1769856,extra_runtime_bytes=0,extra_output_words=0,
                     squad_sequence_capacity=16,output_padding_owned_words=48,
                     remaining=['exact physical mode-exit tick boundary','burst delay, own-cooldown wait, pattern and prediction composition','down, healing storage and mixed actor original definitions','CUDA execution and public all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_squad_mode_state=dict(suite='coordinate-squad-mode',source_sha256=squad_mode_sources,
+                    proof_available=squad_mode_golden is not None,sealed_source_matches_current=squad_mode_matches,
+                    input_count=len(squad_mode_golden['entries']) if squad_mode_golden else None,
+                    reference_kind='deterministic-common-cpu',character_mode_lifetime_connected=True,
+                    busy_state_shared_by=['squad cover_all','pre-arbitration cover/reload policies'],
+                    full_pre_pump_state_fingerprints=True,reload_callback_mode_entry_connected=True,
+                    same_frame_reload_entry_wait=True,shared_revive_handler_admitted=True,
+                    input_words=109792,output_words=1769856,extra_runtime_bytes=0,extra_output_words=0,
+                    wire_version=2,character_flag_count=5,
+                    remaining=['burst delay, own-cooldown wait, pattern and prediction composition','explicit mode-sequence, post-delay, healing storage and mixed actor originals','current CUDA execution and warm cache performance','public admission and all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 packet_integer_ratio=dict(suite='packet-ratio',source_sha256=ratio_sources,
                     proof_available=ratio_golden is not None,sealed_source_matches_current=ratio_matches,

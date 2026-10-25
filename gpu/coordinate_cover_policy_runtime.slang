@@ -48,7 +48,13 @@ bool policyReloadRequest(inout Runtime s,uint who,uint64_t when,out uint64_t anc
 {uint target=s.target;s.target=0;bool wanted=policyReloadRequestBody(s,who,when,anchor);s.target=target;return wanted;}
 uint coverPolicyRequest(inout Runtime s,uint who,uint64_t when)
 {
-    if(!policyOwner(s,who)||s.modeIndex[who]>=0)return 0;uint64_t anchor,duration;uint r=policyRow(s,who);
+    if(!policyOwner(s,who))return 0;
+#ifdef PORTABLE_COORDINATE_SQUAD_MODE_STATE
+    if(squadCharacterMode(s,who))return 0;
+#else
+    if(s.modeIndex[who]>=0)return 0;
+#endif
+    uint64_t anchor,duration;uint r=policyRow(s,who);
     if(policyBurstRequest(s,who,when,anchor,duration))return commands[r+1]+1;
     if(policyReloadRequest(s,who,when,anchor))return commands[r+5]+1;return 0;
 }

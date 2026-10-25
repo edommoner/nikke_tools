@@ -347,6 +347,8 @@ SUITES['coordinate-manual']['support_files']=['research/portable-compiler-full--
 SUITES['coordinate-policy']=dict(SUITES['coordinate-manual'],script='research/verify-coordinate-policy-short.py',source='gpu/world_coordinate_policy_entry.slang',golden='research/portable-coordinate-policy-short-expected.json',output_words=1769856,inputs=196,native=171,development_only=False,cpu_test_timeout=180,tests=[*SUITES['coordinate-manual']['tests'],'test_coordinate_policy.py'])
 SUITES['coordinate-policy']['support_files']=['research/portable-compiler-full--coordinate-policy-source-certificate.json',*SUITES['coordinate-manual']['support_files']]
 SUITES['coordinate-squad']=dict(SUITES['coordinate-policy'],script='research/verify-coordinate-squad-short.py',source='gpu/world_coordinate_squad_entry.slang',golden='research/portable-coordinate-squad-short-expected.json',inputs=222,native=189,development_only=False,cpu_test_timeout=180,tests=[*SUITES['coordinate-policy']['tests'],'test_coordinate_squad.py'])
+SUITES['coordinate-squad-mode']=dict(SUITES['coordinate-squad'],script='research/verify-coordinate-squad-mode-short.py',source='gpu/world_coordinate_squad_mode_entry.slang',golden='research/portable-coordinate-squad-mode-short-expected.json',inputs=251,native=213,development_only=False,cpu_test_timeout=180,tests=['test_coordinate_squad_mode.py','test_coordinate_physical_frontier.py'])
+SUITES['coordinate-squad-mode']['support_files']=['research/portable-compiler-full--coordinate-squad-mode-source-certificate.json',*SUITES['coordinate-squad']['support_files']]
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -1393,13 +1395,40 @@ print(json.dumps(dict(golden=g,package_id=p['package_id'],audit=a)))
     return result
 
 
-def seal_development(package_root,capture,output,*,timeout=60):
-    """Explicit GPU0 seal of a successful immutable Metal development capture."""
+def seal_development(package_root,capture,output,*,timeout=60,compiler_certificate=None):
+    """One fresh GPU0 audit can seal a battle and its exact compiler source."""
+    output=Path(output)
+    targets=[output] if compiler_certificate is None else [output,Path(compiler_certificate)]
+    if len({path.resolve() for path in targets})!=len(targets):raise ValueError('Seal outputs must be distinct')
+    for path in targets:
+        if path.exists() or path.is_symlink():raise FileExistsError(path)
+    manifest_path=Path(package_root)/'gpu-package.json'
+    manifest_raw=manifest_path.read_bytes() if compiler_certificate is not None else None
+    if manifest_raw is not None:
+        manifest=json.loads(manifest_raw);suite=manifest['suite'];diagnostic=compiler_alias(suite)
+        if manifest.get('selected_cases')!=[] or diagnostic not in SUITES or not full_compiler(dict(suite=diagnostic)):
+            raise ValueError('Compiler certificate requires an unfiltered registered full-world battle')
     result=audit_saved_metal(package_root,capture,timeout=timeout,development_only=True)
-    with output.open('x',encoding='utf-8') as stream:
-        json.dump(result['golden'],stream,ensure_ascii=False,indent=2);stream.write('\n')
-    return dict(sealed=True,gpu_calls=0,package_id=result['package_id'],
+    raw=(json.dumps(result['golden'],ensure_ascii=False,indent=2)+'\n').encode('utf-8')
+    source_certificate=None
+    if manifest_raw is not None:
+        if manifest_path.read_bytes()!=manifest_raw or result['package_id']!=manifest['package_id']:
+            raise ValueError('Seal compiler package changed during the fresh audit')
+        if not result['audit'].get('calculation_verified') or result['golden']['source_sha256']!=manifest['golden']['source_sha256']:
+            raise ValueError('Compiler certificate requires the same successfully audited battle source')
+        from portable_compiler_certificate import certificate
+        source_certificate=certificate(suite,result['golden'],raw)
+    with output.open('xb') as stream:stream.write(raw)
+    report=dict(sealed=True,gpu_calls=0,package_id=result['package_id'],
                 input_count=len(result['golden']['entries']),golden=str(output.resolve()))
+    if source_certificate is not None:
+        target=Path(compiler_certificate)
+        with target.open('x',encoding='utf-8') as stream:
+            json.dump(source_certificate,stream,ensure_ascii=False,indent=2);stream.write('\n')
+        report.update(compiler_certificate=str(target.resolve()),compiler_certificate_sha256=sha(target.read_bytes()),
+                      certificate_from_same_fresh_audit=True,independent_metal_audits=1,
+                      compiler_verified=False,cache_hit_verified=False)
+    return report
 
 
 def verify_saved_package(package_root,*,timeout=60):
@@ -2663,7 +2692,7 @@ def main(argv=None):
     for name in ('source-package','source-capture','cache-entry','phases','candidate','ptxas','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('module-check');a.add_argument('--jit-opt-level',type=int,choices=range(5));a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path,required=True);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
-    a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
+    a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=60);a.add_argument('--compiler-certificate',type=Path,help='Create a full-source certificate from this same fresh audit')
     a=sub.add_parser('compiler-certificate');a.add_argument('--suite',choices=[config['compiler_baseline_suite'] for config in SUITES.values() if config.get('compiler_baseline_suite')],required=True);a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=120)
     a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
     a=sub.add_parser('cache-probe');a.add_argument('--generated-cuda',type=Path,required=True);a.add_argument('--cuda-root',type=Path,required=True);a.add_argument('--compile-cache',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -2761,7 +2790,7 @@ def main(argv=None):
         with forbid_gpu():
             verify_package(ROOT)
             result=recover(SimpleNamespace(**globals()),a.source_package,a.source_capture,a.out,a.object_sha256)
-    elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out,timeout=a.timeout)
+    elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out,timeout=a.timeout,**(dict(compiler_certificate=a.compiler_certificate) if a.compiler_certificate is not None else {}))
     elif a.command=='compiler-certificate':
         with forbid_gpu():result=make_compiler_certificate(a.suite,a.package_root,a.capture,a.out,timeout=a.timeout)
     elif a.command=='cases':

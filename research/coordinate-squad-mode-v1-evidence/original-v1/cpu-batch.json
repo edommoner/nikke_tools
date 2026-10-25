@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "mode": "single-process-unittest",
+  "patterns": [
+    "test_coordinate_sample_v1.py",
+    "test_coordinate_sampling_reference.py",
+    "test_coordinate_sampling_bank.py",
+    "test_packet_integer_ratio.py",
+    "test_coordinate_sampled_parent.py",
+    "test_coordinate_sampled_skill.py",
+    "test_coordinate_physical_frontier.py",
+    "test_coordinate_sampled_burst.py",
+    "test_coordinate_sampled_vital.py",
+    "test_coordinate_sampled_delivery.py",
+    "test_coordinate_group_reference.py",
+    "test_coordinate_group_gpu.py",
+    "test_coordinate_mixed.py",
+    "test_coordinate_manual.py",
+    "test_coordinate_policy.py",
+    "test_coordinate_squad.py",
+    "test_coordinate_squad_mode.py"
+  ],
+  "timeout_seconds": 180,
+  "elapsed_seconds": 159.35283591703046,
+  "timed_out": false,
+  "exit_code": 0,
+  "gpu_calls": 0,
+  "scope": "Python group output in per-group logs; inherited native subprocess output in batch logs"
+}

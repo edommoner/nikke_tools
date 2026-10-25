@@ -1935,3 +1935,17 @@ native observerの全Python呼出し監視がcode objectをhashしていたた�
 最終compact `/tmp/nikke-squad-final-compact-v1.zip` はfull3181→1840 files、全選択byteとcheckout SHA一致。共通CLIとblock検査器の入力拡張契約一覧を1か所にまとめ、二重parserの不一致を回帰検査した。新profile専用compiler-source証明書と現CUDA実機は未作成／未検証で、親policyの証明を代用しない。生成cacheのrunはhit／compiler0だがCUDA cache性能実測とは区別する。Windows新要求0。全キャラ0・20 model gap・UI CPU・目標未達。
 
 最優先の追加境界は、mode duration=.3とsquad t=.3が同じtickの操作。CPU観測ではpump前に `_in_weapon_change=True` でowner0を除外し、t=.5ではFalseで含む。現18worldにはこの同時境界を入れていない。`gpu/event_runtime.slang::clearMode` のlogical modeと、次char tickまで残るphysical状態を同一視しない。physicalModeIndex=-2はrevivalでも使うため一律判定へ置き換えず、native `_tick_weapon_change` の終了分岐を確認し、共通stateを保持・比較する。次にburst delay／wait_own_cooldown／patternと次FB予測への接続（`docs/portable-burst-control-next.md`）。効率化ではcoordinate adapterの比較を共通observed経路へまとめ、既存ParentOraclesの同じ親だけの再利用を検討する。独立auditはfreshのまま保つ。
+
+## 2026-10-25 キャラmode状態・装填callbackからのmode進入
+
+最新は `coordinate-squad-mode`251（native213／拒否38）、`docs/portable-coordinate-squad-mode.md`／`research/portable-coordinate-squad-mode-checkpoint.json`。mode effect満了・弾数終了・トグル解除後も次の生存・非気絶char tickまで残る `_in_weapon_change` を5flagで保持し、全体遮蔽と調停前のcover/reload要求で共有。強制focusのownerはchar tick内でmode終了後すぐ方針へ入れる。気絶・復活、装填完了からのmode進入・待機の24worldと全pumpの2×64bit指紋・最終flagsを比較する。既存revival handler29をこのsourceへ接続。Runtime138952byte・247field／入出力サイズは不変、wire v2の固定markerと既存出力bankを使い、CPU操作表を入力しない。
+
+初版 `/tmp/nikke-squad-mode-develop-v1`／`/tmp/nikke-squad-mode-metal-v1` はCPU125検査159.353秒・native209事前122.209秒、247中246一致。装填完了callbackでmodeへ入る時、CPUはそのフレームのcover再判定を経ず `_tick_weapon_change` を開始するため、GPUにt=.31666666666666665のmode射撃とteam2通知が不足した。修正版は共通prepareWeaponFrameでこの経路を識別し、同じフレームの進入待機・shot limitを処理する。計算・正本の比較対象を削らず、4合成worldを追加。
+
+修正版 `/tmp/nikke-squad-mode-develop-v2`／`/tmp/nikke-squad-mode-metal-v2` は251全件一致。CPU正本・packingの旧247全fingerprintは不変。差分8検査13.200秒に選択し、全213 native事前123.470秒・全251 GPU比較は維持。初版の固定125検査も保持。GPU.714553秒／初回PSO91.490106秒。旧222全1,571,632,128byteと、初版で成功した246全1,741,538,304byte／input・nativeを保持し、装填進入1件のraw変化を明示。新Slang各1回の実GPU計2／同claim retry0。raw2本は全byte/SHA/inodeを維持して4KiB疎化。16個の古いsource-package展開だけを全復元テスト後に圧縮し、元zipとreceiptを保持した。
+
+`seal --compiler-certificate PATH` を追加し、同じGPU禁止fresh監査からgoldenと専用full-source証明を作成した（`docs/portable-joint-seal-certificate.md`）。既存pure certificate関数を再利用。filtered／probe、manifest変化、package・source・計算不一致、既存／同一出力を拒否し、従来の単独sealと既存certificate操作を保持する。23 CPU検査と実251入力で確認。新証明は専用compiler aliasを準備するが、CUDA compile/link/cache/GPU/resourceの成功にはしない。
+
+最終 `/tmp/nikke-squad-mode-final-compact-v1.zip` はfull3189→1832 files、全選択byte／checkout SHA一致。最終control443（Windows専用1skip）、frontier5、追加の進入待機positive witness1も成功。Windowsはrev78 idleのままで新しい実行依頼0。生成cache hit／compiler0と、現CUDA実行・warm cache性能未確認を分ける。packing245/266・base185/203、未対応21 profiles／20 model gap分類、全キャラ0／UI CPU／全目標未達を維持。
+
+次は未対応分類の現consumerを再確認し、burst delay／wait_own_cooldown／patternと予測時計（`docs/portable-burst-control-next.md`）、modeと個別sequence・post-delay・healing storage／actorの合成、元定義への接続を進める。coordinate ParentOraclesの再利用では、比較時だけ収集するcreation_indicesも事前観測へ含める必要がある。比較から単にnative呼出しを抜いてobserverの値を空にしない。独立監査はfreshを維持する。

@@ -88,6 +88,11 @@ class FrontierTests(unittest.TestCase):
         self.assertFalse(squad['cover_all_requests_camera']);self.assertTrue(squad['stable_equal_time_order'])
         self.assertFalse(squad['computed_cpu_action_schedule']);self.assertFalse(squad['public_gpu_admitted'])
         self.assertEqual(squad['extra_runtime_bytes'],0);self.assertEqual(squad['output_padding_owned_words'],48)
+        mode=result['coordinate_squad_mode_state']
+        self.assertTrue(mode['character_mode_lifetime_connected']);self.assertTrue(mode['same_frame_reload_entry_wait'])
+        self.assertEqual(mode['busy_state_shared_by'],['squad cover_all','pre-arbitration cover/reload policies'])
+        self.assertEqual(mode['wire_version'],2);self.assertEqual(mode['extra_runtime_bytes'],0)
+        self.assertFalse(mode['public_gpu_admitted']);self.assertFalse(mode['all_characters_certified'])
         rows = {r['id']: r for r in result['dependencies']}
         self.assertEqual(len(rows), 7)
         self.assertEqual(rows['physical-native-observation']['common_policy_reference_cli'],

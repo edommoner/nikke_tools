@@ -134,4 +134,50 @@ class CompilerCertificateTests(unittest.TestCase):
         c=certificate(self.suite,self.baseline,self.path.read_bytes());c['source_sha256']['new']='x';self.assertNotIn('new',self.baseline['source_sha256'])
         for field,value in [('entries',[]),('input_sha256',None),('output_sha256',None),('generated_normalized',{'cuda':'x'})]:
             with self.subTest(field=field),self.assertRaises(ValueError):certificate(self.suite,dict(self.baseline,**{field:value}),b'{}')
+class CombinedSealCertificateTests(unittest.TestCase):
+    setUp=CompilerCertificateTests.setUp
+    def seal(self,**kwargs):
+        with cli.forbid_gpu(),patch.object(cli,'audit_saved_metal',self.audit):
+            return cli.seal_development(self.package,self.capture,self.root/'sealed.json',compiler_certificate=self.root/'certificate.json',**kwargs)
+    def test_joint_output_has_one_fresh_audit_and_exact_existing_certificate(self):
+        r=self.seal();self.audit.assert_called_once_with(self.package,self.capture,timeout=60,development_only=True)
+        raw=(self.root/'sealed.json').read_bytes();self.assertEqual(json.loads(raw),self.baseline)
+        self.assertEqual(cli.load(self.root/'certificate.json'),certificate(self.suite,self.baseline,raw))
+        self.assertTrue(r['certificate_from_same_fresh_audit']);self.assertEqual(r['independent_metal_audits'],1)
+        self.assertEqual(r['gpu_calls'],0);self.assertFalse(r['compiler_verified']);self.assertFalse(r['cache_hit_verified'])
+    def test_existing_or_colliding_targets_stop_before_native_audit(self):
+        path=self.root/'sealed.json';path.write_text('preserve')
+        with self.assertRaises(FileExistsError):self.seal()
+        self.audit.assert_not_called();self.assertEqual(path.read_text(),'preserve')
+        with self.assertRaises(ValueError):cli.seal_development(self.package,self.capture,self.root/'same',compiler_certificate=self.root/'same')
+        self.audit.assert_not_called()
+    def test_filtered_battle_cannot_create_a_full_source_certificate(self):
+        self.m['selected_cases']=['one'];cli.write(self.package/'gpu-package.json',self.m)
+        with self.assertRaisesRegex(ValueError,'unfiltered'):self.seal()
+        self.audit.assert_not_called();self.assertFalse((self.root/'sealed.json').exists())
+    def test_probe_suite_cannot_issue_a_full_world_certificate(self):
+        self.m['suite']='coordinate-numeric';cli.write(self.package/'gpu-package.json',self.m)
+        with self.assertRaisesRegex(ValueError,'unfiltered registered full-world'):self.seal()
+        self.audit.assert_not_called()
+    def test_manifest_mutation_after_fresh_audit_is_rejected_without_outputs(self):
+        answer=self.audit.return_value
+        def changed(*args,**kwargs):
+            (self.package/'gpu-package.json').write_text('changed');return answer
+        self.audit.side_effect=changed
+        with self.assertRaisesRegex(ValueError,'changed'):self.seal()
+        self.assertFalse((self.root/'sealed.json').exists());self.assertFalse((self.root/'certificate.json').exists())
+    def test_wrong_package_or_failed_calculation_cannot_promote_proof(self):
+        for answer in [dict(self.audit.return_value,package_id='other'),dict(self.audit.return_value,audit=dict(calculation_verified=False))]:
+            self.audit.return_value=answer
+            with self.assertRaises(ValueError):self.seal()
+            self.assertFalse((self.root/'sealed.json').exists());self.assertFalse((self.root/'certificate.json').exists())
+    def test_mismatched_source_cannot_create_either_output(self):
+        self.audit.return_value=dict(self.audit.return_value,golden=dict(self.baseline,source_sha256={'other':'b'*64}))
+        with self.assertRaisesRegex(ValueError,'same successfully audited'):self.seal()
+        self.assertFalse((self.root/'sealed.json').exists())
+    def test_single_golden_mode_preserves_legacy_output_and_needs_no_manifest(self):
+        with patch.object(cli,'audit_saved_metal',self.audit):r=cli.seal_development(self.root/'absent',self.capture,self.root/'single.json')
+        self.audit.assert_called_once();self.assertTrue(r['sealed']);self.assertNotIn('compiler_certificate',r)
+        self.assertEqual(cli.load(self.root/'single.json'),self.baseline)
+
 if __name__=='__main__':unittest.main()
