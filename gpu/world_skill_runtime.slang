@@ -145,9 +145,17 @@ void initializeWorldSkills(inout Runtime s)
     WORLD_PERIODIC_INIT(s) for(uint i=P_WORLD_SKILL_HEAD_BASE;i<P_WORLD_SKILL_TRACE_BASE+128*48;i++) results[s.resourceOutput+i]=0;
     results[worldSkillHead(s)]=0x57534b31;
 }
-void logWorldSkill(inout Runtime s,LandingReceipt r,uint set,uint64_t share,uint64_t when)
+void logWorldSkill(inout Runtime s,LandingReceipt r,uint set,uint64_t share,uint64_t when
+#ifdef PORTABLE_COORDINATE_MIXED_NODES
+    ,bool directCoordinate=false
+#endif
+)
 {
-    uint h=worldSkillHead(s),n=results[set];results[h+2]=max(results[h+2],n);
+    uint h=worldSkillHead(s),n=
+#ifdef PORTABLE_COORDINATE_MIXED_NODES
+        directCoordinate?1:
+#endif
+        results[set];results[h+2]=max(results[h+2],n);
     if(s.traceTotal==0x7fffffff) { s.error=2;return; }s.traceTotal++;
     if(s.traceMode!=1)
     {
@@ -161,8 +169,16 @@ void logWorldSkill(inout Runtime s,LandingReceipt r,uint set,uint64_t share,uint
     uint at=s.resourceOutput+P_WORLD_SKILL_TRACE_BASE+index*48;
     results[at]=r.row;results[at+1]=r.hit;results[at+2]=r.hits;results[at+3]=n;
     storeNumber(at+4,r.when);storeNumber(at+6,when);storeNumber(at+8,r.amount);storeNumber(at+10,share);
-    for(uint i=0;i<4;i++) results[at+12+i]=results[set+1+i];
-    for(uint i=0;i<n;i++) { uint slot=results[set+8+i*4];results[at+16+i/4]|=(slot+1)<<((i%4)*8); }
+    for(uint i=0;i<4;i++) results[at+12+i]=
+#ifdef PORTABLE_COORDINATE_MIXED_NODES
+        directCoordinate?(i==0?1U:0U):
+#endif
+        results[set+1+i];
+    for(uint i=0;i<n;i++) { uint slot=
+#ifdef PORTABLE_COORDINATE_MIXED_NODES
+        directCoordinate?0U:
+#endif
+        results[set+8+i*4];results[at+16+i/4]|=(slot+1)<<((i%4)*8); }
 }
 // One Actor landing lifecycle for queued direct skills and immediate pending packets.
 [noinline]

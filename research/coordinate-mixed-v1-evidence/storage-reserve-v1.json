@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-accuracy-retention-gpu-v1-metal",
+  "raw_bytes": 3677356032,
+  "raw_sha256": "275517ac20fe52985d2dd062dcbd4f3737af384194f02ff498e7a4ba3d7ba2c3",
+  "evidence_sha256": "3451711c4f6c9a643527683e1c3724e0426ffecb13998e504183b254eb81970a",
+  "raw_inode": 507834336,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 28293,
+  "zero_range_bytes": 3525128192,
+  "allocated_before": 1068892160,
+  "allocated_after": 152227840,
+  "allocated_reclaimed": 916664320,
+  "full_hash_verified": true
+}

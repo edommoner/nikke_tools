@@ -124,7 +124,12 @@ void deliverCoordinateAreaTargets(inout Runtime s,LandingReceipt r,uint64_t when
         if(!worldOverlayLand(s,d.owner,0,amount,false))continue;
 #ifdef PORTABLE_COORDINATE_LIVE_CORE
         // This is a real separate native HitEvent, not an extra damage query.
-        LandingReceipt packet=r;packet.amount=amount;logWorldSkill(s,packet,traceSet,amount,when);
+        LandingReceipt packet=r;packet.amount=amount;
+#ifdef PORTABLE_COORDINATE_MIXED_NODES
+        logWorldSkill(s,packet,traceSet,amount,when,true);
+#else
+        logWorldSkill(s,packet,traceSet,amount,when);
+#endif
         if(s.error!=0)return;
 #endif
         storeNumber(actorPoolHead(s)+2,when);s.target=0;land(s,d.owner,ACTOR_REF|slot,amount);if(s.error!=0)return;

@@ -73,6 +73,7 @@ REFERENCES['attack-group-native-route']=('portable_battle_native_route_cases','w
 REFERENCES['attack-group-long']=('portable_long_group_cases','world_battle_native_route_native','portable_long_group_contracts')
 REFERENCES['coordinate-skill']=('portable_coordinate_skill_cases','world_coordinate_skill_native','portable_coordinate_skill_contracts')
 REFERENCES['coordinate-physical-common']=('portable_coordinate_physical_common_cases','world_coordinate_physical_common_reference','portable_coordinate_physical_common_contracts')
+REFERENCES['coordinate-mixed-common']=('portable_coordinate_mixed_cases','world_coordinate_mixed_native','portable_coordinate_mixed_contracts')
 REFERENCES['coordinate-group-common']=('portable_coordinate_group_cases','world_coordinate_group_native','portable_coordinate_group_contracts')
 REFERENCES['coordinate-aim-common']=('portable_coordinate_aim_cases','world_coordinate_aim_native','portable_coordinate_aim_contracts')
 REFERENCES['coordinate-accumulation-policy']=('portable_coordinate_accumulation_cases','world_coordinate_accumulation_native','portable_coordinate_accumulation_contracts')
@@ -112,7 +113,7 @@ def run_reference(suite,output,*,write,forbid_gpu):
     with output.open('x',encoding='utf-8') as stream:stream.write('{}\n')
     started=time.perf_counter()
     report=dict(schema=1,suite=suite,stage='cpu-native-contract',passed=False,cpu_reference_verified=False,calculation_verified=False,gpu_supported=False,gpu_calls=dict(build=0,execute=0),packing_calls=0,python=sys.version,platform=platform.platform(),cases=[],reference_model_gap_cases=0,positive_contract_cases=0,full_character_verified=0,full_goal_complete=False)
-    if suite in ('coordinate-physical-common','coordinate-accumulation-policy','coordinate-aim-common','coordinate-group-common'):
+    if suite in ('coordinate-physical-common','coordinate-accumulation-policy','coordinate-aim-common','coordinate-group-common','coordinate-mixed-common'):
         report.update(stage='cpu-common-policy-contract',
                       reference_kind='deterministic-common-cpu',
                       numerical_contract='coordinate-landing-v1',

@@ -61,7 +61,9 @@ bool initializeWorldOverlays(inout Runtime s)
             if(kind==5 && (commands[p+8]>commands[s.inputBase+P_WORLD_META_BASE+1] || commands[p+9]!=0 || commands[p+10]==0 || commands[p+10]>5)) return false;
             if(kind==6 && (!f64Zero(loadNumber(p+8)) || commands[p+10]!=0)) return false;
         }
+#ifndef PORTABLE_COORDINATE_MIXED_NODES
         if(kind==3 && ((commands[s.inputBase+P_GEOMETRY_BASE]&2)==0) || kind==4 && (commands[s.inputBase+P_GEOMETRY_BASE]&2)!=0) return false;
+#endif
     }
     return true;
 }

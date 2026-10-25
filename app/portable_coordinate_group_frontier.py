@@ -63,6 +63,7 @@ def verify(root=None):
                 physical_group_receipts_connected=True,add_sharing_connected=True,
                 add_sharing_scope='Shared Actor pool and frozen group handles; weighted allocation not verified',
                 proportional_add_sharing_verified=False,
+                proportional_add_sharing_scope='Historical coordinate-group225 proof only; see coordinate_mixed_world for valid split_damage',
                 relocated_profile=relocated,legacy_default_profile_group_guard_retained=True,
                 remaining=['current CUDA execution/cache proof','additional RNG, mixed scene and original definition coverage'],
                 source_sha256=sources,gpu_calls=0,native_battle_calls=0,calculation_verified=False,public_gpu_admitted=False)

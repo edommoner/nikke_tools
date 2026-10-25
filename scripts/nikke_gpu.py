@@ -356,6 +356,8 @@ SUITES['coordinate-control']['tests']+=['test_coordinate_group_reference.py','te
 SUITES['coordinate-control']['support_files']=[*SUITES['coordinate-aim']['support_files'],'research/portable-coordinate-aim-short-expected.json','research/portable-compiler-full--coordinate-control-source-certificate.json']
 SUITES['coordinate-group']=dict(SUITES['coordinate-control'],script='research/verify-coordinate-group-short.py',source='gpu/world_coordinate_group_entry.slang',golden='research/portable-coordinate-group-short-expected.json',inputs=225,native=199,output_words=1507328,development_only=False,tests=[*SUITES['coordinate-control']['tests'],'test_coordinate_group_gpu.py'])
 SUITES['coordinate-group']['support_files']=[*SUITES['coordinate-control']['support_files'],'research/portable-coordinate-control-short-expected.json','research/portable-compiler-full--coordinate-group-source-certificate.json']
+SUITES['coordinate-mixed']=dict(SUITES['coordinate-group'],script='research/verify-coordinate-mixed-short.py',source='gpu/world_coordinate_mixed_entry.slang',golden='research/portable-coordinate-mixed-short-expected.json',inputs=244,native=218,development_only=False,cpu_test_timeout=90,tests=[*SUITES['coordinate-group']['tests'],'test_coordinate_mixed.py'])
+SUITES['coordinate-mixed']['support_files']=[*SUITES['coordinate-group']['support_files'],'research/portable-coordinate-group-short-expected.json','research/portable-compiler-full--coordinate-mixed-source-certificate.json']
 SUITES['skill-part-codec']=dict(script='research/verify-skill-part-codec-short.py',source='gpu/skill_part_codec_probe.slang',
     golden='research/portable-skill-part-codec-short-expected.json',inputs=4,native=3,development_only=False,
     tests=['test_portable_skill_part_codec.py'])

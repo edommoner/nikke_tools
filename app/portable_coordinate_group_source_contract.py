@@ -3,7 +3,8 @@ import hashlib,json
 from pathlib import Path
 
 def project_sources(root,sources=None):
-    root=Path(root);sources=dict(sources or {});data=json.loads((root/'tests/fixtures/portable-coordinate-group-source-delta.json').read_text())
+    from portable_coordinate_mixed_source_contract import project_sources as project_mixed
+    root=Path(root);sources=project_mixed(root,sources);data=json.loads((root/'tests/fixtures/portable-coordinate-group-source-delta.json').read_text())
     for name,row in data['sources'].items():
         current=sources.get(name,(root/name).read_text())
         assert current==row['current'] and hashlib.sha256(current.encode()).hexdigest()==row['current_sha256'],'Unreviewed coordinate group source: '+name
@@ -12,7 +13,9 @@ def project_sources(root,sources=None):
     return sources
 
 def project_backend_source(root,source=None):
-    root=Path(root);row=json.loads((root/'tests/fixtures/portable-coordinate-group-source-delta.json').read_text())['transport'];current=(root/row['path']).read_text() if source is None else source
+    root=Path(root);row=json.loads((root/'tests/fixtures/portable-coordinate-group-source-delta.json').read_text())['transport'];
+    from portable_coordinate_mixed_source_contract import project_backend_source as project_mixed
+    current=project_mixed(root,source)
     if current!=row['current'] or hashlib.sha256(current.encode()).hexdigest()!=row['current_sha256']:raise ValueError('Unreviewed coordinate group transport')
     assert hashlib.sha256(row['baseline'].encode()).hexdigest()==row['baseline_sha256'];return row['baseline']
 

@@ -143,11 +143,18 @@ def verify(root, overrides=None):
     control_matches=control_golden['source_sha256']==control_sources if control_golden else None
     from portable_coordinate_group_frontier import verify as group_frontier
     group_plan=group_frontier(root)
+    from portable_coordinate_route_audit import verify as route_audit
+    route_policy=route_audit(root,overrides)
     group_sources=source_hashes(root,'gpu/world_coordinate_group_entry.slang')
     group_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in group_sources.items()}
     group_path=root/'research/portable-coordinate-group-short-expected.json'
     group_golden=json.loads(group_path.read_text()) if group_path.is_file() else None
     group_matches=group_golden['source_sha256']==group_sources if group_golden else None
+    mixed_sources=source_hashes(root,'gpu/world_coordinate_mixed_entry.slang')
+    mixed_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in mixed_sources.items()}
+    mixed_path=root/'research/portable-coordinate-mixed-short-expected.json'
+    mixed_golden=json.loads(mixed_path.read_text()) if mixed_path.is_file() else None
+    mixed_matches=mixed_golden['source_sha256']==mixed_sources if mixed_golden else None
     round_sources=source_hashes(root,'gpu/coordinate_round_probe.slang')
     round_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in round_sources.items()}
     round_path=root/'research/portable-coordinate-round-short-expected.json'
@@ -294,6 +301,17 @@ def verify(root, overrides=None):
                     live_reload_fraction_controls_clip_classification=True,
                     public_gpu_admitted=False,all_characters_certified=False),
                 coordinate_group_integration=group_plan,
+                coordinate_route_policy=route_policy,
+                coordinate_mixed_world=dict(suite='coordinate-mixed',source_sha256=mixed_sources,
+                    proof_available=mixed_golden is not None,sealed_source_matches_current=mixed_matches,
+                    requires_new_metal_proof=not mixed_matches,input_count=len(mixed_golden['entries']) if mixed_golden else None,
+                    reference_cli='coordinate-mixed-common',reference_kind='deterministic-common-cpu',
+                    scoped_nodes=['buff','shield','vanish','move','groggy','direct boss attack'],
+                    split_damage_routing_implemented=True,split_rounding='ordered binary64 reciprocal/multiply; nearest-even integer',
+                    direct_part_skill_trace_uses_native_body_slot=True,
+                    source_seal_is_not_cuda_execution=True,
+                    remaining=['sampling-rng','summon attack payloads','debuff payloads','original-definitions'],
+                    public_gpu_admitted=False,all_characters_certified=False),
                 coordinate_gpu_shot_groups=dict(suite='coordinate-group',source_sha256=group_sources,
                     proof_available=group_golden is not None,sealed_source_matches_current=group_matches,
                     requires_new_metal_proof=not group_matches,input_count=len(group_golden['entries']) if group_golden else None,

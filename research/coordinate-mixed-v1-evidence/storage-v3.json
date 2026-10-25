@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-coordinate-mixed-metal-v3",
+  "raw_bytes": 1471152128,
+  "raw_sha256": "7e3035df3599edcbd32ae60b1b1c8096908d1b1a817840fb4bb68b8b90929e64",
+  "evidence_sha256": "332f69c3cdee8a7298f5a6ffcd333ac0f76ae664b60417684af46a9cfd150639",
+  "raw_inode": 510211848,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 9336,
+  "zero_range_bytes": 1424171008,
+  "allocated_before": 1471152128,
+  "allocated_after": 46981120,
+  "allocated_reclaimed": 1424171008,
+  "full_hash_verified": true
+}

@@ -12,7 +12,7 @@ from portable_coordinate_core_cases import fixtures
 SOURCE='gpu/world_coordinate_core_entry.slang';STRICT_WIRE_DIMENSIONS=True
 suite=SimpleNamespace(INPUT=INPUT_WORDS,OUTPUT=OUTPUT_WORDS);cross=parent.cross
 
-def compile_case(case,*,allow_summons=False):
+def compile_case(case,*,allow_summons=False,allow_world_nodes=False):
     metadata=authored_metadata(case)
     for name,weapon in zip(roster_names(case),case['combat']['weapons']):
         wire_type=weapon.get('base_weapon_type','MG' if weapon.get('mode')=='auto_warmup' else 'AR')
@@ -26,7 +26,7 @@ def compile_case(case,*,allow_summons=False):
     codec=parent.parent.parent.area.parent.parent
     words,meta,bindings=codec.parent.suite.compile_case(lowered)
     scene=dict(name=case['name'],patterns=case['patterns'],commands=[('capture',case['duration'],0,0)])
-    side,descriptors=compile_scene(scene,allow_core=True,allow_summons=allow_summons)
+    side,descriptors=compile_scene(scene,allow_core=True,allow_summons=allow_summons,allow_world_nodes=allow_world_nodes)
     if allow_summons:
         from portable_coordinate_scene_specs import LAYOUT as scene_layout
         for index,row in enumerate(descriptors['rows']):

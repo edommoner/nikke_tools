@@ -21,8 +21,7 @@ from world_frame_native import roster_names
 SOURCE='gpu/world_coordinate_group_entry.slang';STRICT_WIRE_DIMENSIONS=True
 suite=SimpleNamespace(INPUT=INPUT_WORDS,OUTPUT=OUTPUT_WORDS);cross=parent.cross
 
-def compile_case(case):
-    lowered=copy.deepcopy(case);lowered['enemy'].pop('coord',None)
+def compile_case(case,*,allow_world_nodes=False):
     # The core compiler preserves authored coordinates and strips them only for
     # the static world compiler. Lower group trigger names, not battle results.
     lowered=copy.deepcopy(case)
@@ -31,7 +30,7 @@ def compile_case(case):
     for effect,owner in zip(lowered['effects'],lowered['owners']):
         if any(t.startswith('multi_hit:') for t in effect['trigger']['timing']):owners|=1<<owner
         effect['trigger']['timing']=['event:__portable_attack_group_1' if t.startswith('multi_hit:') else t for t in effect['trigger']['timing']]
-    words,meta,bindings,desc=core.compile_case(lowered,allow_summons=True)
+    words,meta,bindings,desc=core.compile_case(lowered,allow_summons=True,allow_world_nodes=allow_world_nodes)
     for row,index in enumerate(meta['binding_source_indices']):
         for slot,t in enumerate(case['effects'][index]['trigger']['timing']):
             if not t.startswith('multi_hit:'):continue
@@ -62,12 +61,12 @@ def native_reference(domain):
     with capture(domain[0]) as aimed:native,trace=observe(domain[0])
     verify(domain[0],native);native['skill_trace']=trace;native['coordinate_aim']=aimed;return native
 
-def compare(block,domain):
+def compare(block,domain,*,expected=None):
     if not domain[0]['name'].startswith('coordinate-group-common/'):
         result=parent.compare(block[:1310720],domain)
         assert not any(block[COMPACT:]),'Unused relocated history must remain zero'
         return result
-    expected=native_reference(domain);case,meta,bindings,desc=domain;cp=physical.CP
+    expected=native_reference(domain) if expected is None else expected;case,meta,bindings,desc=domain;cp=physical.CP
     physical.codec.compare_expected(block[:786432],domain[:3],dict(battle=expected['battle'],skill_trace=expected['skill_trace']))
     parent.parent.compare_aim(block,domain,expected['coordinate_aim'])
     head=800000;groups=expected['groups'];shots=expected['group_shots'];notices=expected['group_notices'];names=roster_names(case)
@@ -83,20 +82,25 @@ def compare(block,domain):
         assert [[group[26+j*4],group[27+j*4],group[25+j*4]] for j in range(group[4])]==g['targets']
         if i<64:assert block[820000+i*536:820000+i*536+words]==block[at:at+words]
         at+=words
-        receipts=iter(r for r in expected['group_receipts'] if r['identity']==g['identity'])
-        for pellet in expected['physical_pellets']:
-            if pellet['owner']!=g['owner'] or pellet['time']!=g['time']:continue
-            for p in pellet['packets']:
-                target=by_name.get(p['target'])
-                if target:slot=target['slot'];kind=target['kind'];gen=1
-                else:
-                    handle=next(receipts)['target'];kind,identity,gen=handle
-                    slot=next(i for i,b in enumerate(bindings) if int(b.kind)==kind and b.identity==identity)
-                trace.append([who,slot,kind,gen,*double_words(pellet['time']),*double_words(p['damage']),int(p['extra']),0,0,0])
-        for child in expected['group_child_landings']:
-            if child['group_identity']!=g['identity']:continue
-            kind,identity,gen=child['target'];slot=next(i for i,b in enumerate(bindings) if int(b.kind)==kind and b.identity==identity)
-            trace.append([who,slot,kind,gen,*double_words(child['time']),*double_words(child['damage']),0,0,0,0])
+        if 'landed_packets' not in expected:
+            receipts=iter(r for r in expected['group_receipts'] if r['identity']==g['identity'])
+            for pellet in expected['physical_pellets']:
+                if pellet['owner']!=g['owner'] or pellet['time']!=g['time']:continue
+                for p in pellet['packets']:
+                    target=by_name.get(p['target'])
+                    if target:slot=target['slot'];kind=target['kind'];gen=1
+                    else:
+                        handle=next(receipts)['target'];kind,identity,gen=handle
+                        slot=next(i for i,b in enumerate(bindings) if int(b.kind)==kind and b.identity==identity)
+                    trace.append([who,slot,kind,gen,*double_words(pellet['time']),*double_words(p['damage']),int(p['extra']),0,0,0])
+            for child in expected['group_child_landings']:
+                if child['group_identity']!=g['identity']:continue
+                kind,identity,gen=child['target'];slot=next(i for i,b in enumerate(bindings) if int(b.kind)==kind and b.identity==identity)
+                trace.append([who,slot,kind,gen,*double_words(child['time']),*double_words(child['damage']),0,0,0,0])
+    if 'landed_packets' in expected:
+        for packet in expected['landed_packets']:
+            slot=next(i for i,b in enumerate(bindings) if b.label==packet['label'])
+            trace.append([packet['owner'],slot,int(bindings[slot].kind),packet['generation'],*double_words(packet['time']),*double_words(packet['damage']),int(packet['extra']),0,0,0])
     assert block[head+11]==at-COMPACT and not any(block[at:]),'Full compact history and unused tail'
     start=cp['TRACE'];end=start+len(trace)*12
     assert block[cp['BASE']+2]==len(trace) and list(block[start:end])==sum(trace,[]),(case['name'],'actual routed coordinate packet trace')

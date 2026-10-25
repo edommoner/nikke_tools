@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+座標弾・groupへ有効なsplit_damageとbuff／shield／vanish／move／groggy／直接boss attackを合成。sealed coordinate-mixed244（共通CPU218／拒26）がM5 Metal全一致・独立seal、正例8484 frame、旧225全1356595200byte保持。均等配分・ADD途中消滅・対象順位／seed選択・tie偶数丸め／ゼロ丸めを含む新19契約。旧shareは現parserのnative_reference_exclusionとし、有効splitの移植と区別。距離モード切替と別PART packet診断traceを共通コードで修正し旧7 CUDA-MSLペア全byte保持。CPU149／control416（Win1skip）、修正版GPU3.724秒／初回PSO91.484秒。修正前旧sourceのwarm必須cache hitは.002612秒。CPU上限60停止はdispatch0、v3失敗／v4成功の実GPU計2／同claim retry0、原本保持。現CUDA未取得。次はsampling RNG・召喚攻撃／debuff payload・全元定義認定。全キャラ0／20gap／UI CPU／目標未達。[混在worldと割合配分](portable-coordinate-mixed.md)。
+
 `coordinate-group`225（共通CPU199／拒26）は座標packetのBODY／ADD receiptを共通groupへ接続したsealed profile。M5の保存readbackをGPU禁止replayで再照合し独立seal、GPU dispatch1回。`package --suite coordinate-group --compact` を使う。入力109528／出力1507328word、readback系の `--case-words 1507328` と実consumerを登録。旧6 CUDA-MSLペア保持、現CUDA未取得。[座標GPU group](portable-coordinate-group-gpu.md)を参照。
 
 `reference --suite coordinate-group-common --out /tmp/new.json` は座標弾の実packetとgroup receiptを比較するCPU17契約。full immutable packageから実行し、GPU／packingは0。`coordinate-control`のCPUゲートへ新8＋既存group31検査を追加した。GPU group接続は未完了。[group正本契約](portable-coordinate-group-reference.md)を参照。
