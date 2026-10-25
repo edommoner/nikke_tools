@@ -17,8 +17,17 @@ class CompilerCertificateTests(unittest.TestCase):
         cli.write(self.capture/'run.json',dict(package_id='saved',backend='metal'));cli.write(self.capture/'artifacts.json',dict(files=[]))
         self.audit=Mock(return_value=dict(package_id='saved',golden=self.baseline,audit=dict(calculation_verified=True)))
     def make(self,*,audit=None,sources=None,output=None):
-        with patch.object(cli,'ROOT',self.root),patch.object(cli,'verify_package',return_value=self.m),patch.object(cli,'audit_saved_metal',audit or self.audit),patch.object(backend,'source_hashes',return_value=sources or self.baseline['source_sha256']),cli.forbid_gpu():
+        with patch.object(cli,'ROOT',self.root),patch.object(cli,'verify_saved_package',return_value=self.m),patch.object(cli,'audit_saved_metal',audit or self.audit),patch.object(backend,'source_hashes',return_value=sources or self.baseline['source_sha256']),cli.forbid_gpu():
             return cli.make_compiler_certificate(self.suite,self.package,self.capture,output or self.root/'evidence')
+    def test_saved_verifier_uses_its_own_registry_and_propagates_failure(self):
+        import subprocess
+        script=self.package/'scripts/nikke_gpu.py';script.parent.mkdir()
+        script.write_text("import json\ndef verify_package(root):\n    if (root/'marker').read_text()!='saved-roots':raise ValueError('Saved registry mismatch')\n    return json.loads((root/'gpu-package.json').read_text())\n")
+        (self.package/'marker').write_text('saved-roots')
+        with patch.object(cli,'verify_package',side_effect=AssertionError('Latest registry must not reinterpret saved roots')):
+            self.assertEqual(cli.verify_saved_package(self.package),self.m)
+        (self.package/'marker').write_text('tampered')
+        with self.assertRaises(subprocess.CalledProcessError):cli.verify_saved_package(self.package)
     def test_historical_mixed_certificate_keeps_full_runtime_and_rejects_stale_current_sources(self):
         suite='attack-group-mixed';name=alias(suite);config=cli.SUITES[name]
         baseline=cli.load(ROOT/cli.SUITES[suite]['golden']);proof=cli.load(ROOT/config['golden'])

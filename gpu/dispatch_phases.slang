@@ -40,6 +40,9 @@ void advanceSkillDamageFrame(inout Runtime s, inout Frame frames[32], inout int 
             {
                 s.target=WORLD_SKILL_BASIS(s,damage.damageRoute>=2 || damage.damageRoute==1 ? 0 : f.target);
                 uint64_t partAmount=0,interruptAmount=0;uint interruptReach=0;
+#ifdef PORTABLE_COORDINATE_SAMPLED_SKILLS
+                beginSampledSkillFrame(s,uint(depth),uint(f.argument));
+#endif
 #ifdef PORTABLE_FULL_BURST_LANDING
                 uint parentExclusion=s.damageExclusion;if(damage.damagePending==2) s.damageExclusion=uint(f.argument)+1;
 #endif
@@ -72,6 +75,11 @@ void advanceSkillDamageFrame(inout Runtime s, inout Frame frames[32], inout int 
                 frames[depth].skillCritRate=s.lastDamageCritRate;
                 frames[depth].repeatPassive=order;frames[depth].healthNext=s.enemyEpoch;
             }
+#ifdef PORTABLE_COORDINATE_SAMPLED_SKILLS
+            if(f.cursor!=0&&s.error==0)
+                resampleSkillFrame(s,uint(depth),uint(f.argument),frames[depth].healthPrevious,
+                    frames[depth].healthValue,frames[depth].interruptAmount,frames[depth].skillCritRate);
+#endif
             if (s.error!=0) break;
 #ifdef PORTABLE_FULL_BURST_LANDING
             if(damage.damagePending==2 && damage.damageHits==0)

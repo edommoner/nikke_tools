@@ -1,5 +1,6 @@
 """Replay accepts a completed dispatch, never changed sources or control failure."""
 import copy
+from types import SimpleNamespace
 import importlib.util
 from pathlib import Path
 import tempfile
@@ -46,7 +47,8 @@ class ReplayTests(unittest.TestCase):
         def source(*args):return self.old,self.facts,cli.load(self.capture/'evidence.json')
         before=(self.capture/'comparison.json').read_bytes()
         with patch.object(cli,'verify_package',return_value=self.new),patch.object(cli,'replay_source',side_effect=source),\
-             patch.object(cli,'compare_readback',return_value=comparison) as compare:
+             patch.object(cli,'compare_readback',return_value=comparison) as compare,\
+             patch('portable_capture_storage.shutil.disk_usage',return_value=SimpleNamespace(free=2**40)):
             result=cli.replay_capture(destination,self.package,self.capture)
         compare.assert_called_once_with(self.new,destination)
         self.assertFalse(result['passed']);self.assertEqual(result['gpu_calls'],0)

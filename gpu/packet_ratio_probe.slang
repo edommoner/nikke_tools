@@ -1,6 +1,7 @@
-#define portableEvents legacyPacketRatioEvents
-#include "event_runtime.slang"
-#undef portableEvents
+// A standalone numeric probe must not depend on unrelated battle source/cache keys.
+#include "binary64.slang"
+StructuredBuffer<uint> commands;
+RWStructuredBuffer<uint> results;
 #include "packet_integer_sum.slang"
 #include "packet_integer_ratio.slang"
 [shader("compute")]

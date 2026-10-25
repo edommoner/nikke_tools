@@ -87,10 +87,10 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
-    if source in ('gpu/world_coordinate_group_entry.slang','gpu/world_coordinate_mixed_entry.slang','gpu/world_coordinate_sampling_entry.slang','gpu/world_coordinate_sampling_parent_entry.slang') or output_words==1507328:
+    if source in ('gpu/world_coordinate_group_entry.slang','gpu/world_coordinate_mixed_entry.slang','gpu/world_coordinate_sampling_entry.slang','gpu/world_coordinate_sampling_parent_entry.slang','gpu/world_coordinate_sampling_skill_entry.slang') or output_words==1507328:
         from portable_coordinate_group_wire import INPUT_WORDS,OUTPUT_WORDS,check_schema
         check_schema(ROOT)
-        if source not in ('gpu/world_coordinate_group_entry.slang','gpu/world_coordinate_mixed_entry.slang','gpu/world_coordinate_sampling_entry.slang','gpu/world_coordinate_sampling_parent_entry.slang') or (input_words,output_words)!=(INPUT_WORDS,OUTPUT_WORDS):
+        if source not in ('gpu/world_coordinate_group_entry.slang','gpu/world_coordinate_mixed_entry.slang','gpu/world_coordinate_sampling_entry.slang','gpu/world_coordinate_sampling_parent_entry.slang','gpu/world_coordinate_sampling_skill_entry.slang') or (input_words,output_words)!=(INPUT_WORDS,OUTPUT_WORDS):
             raise ValueError('Coordinate group requires the complete registered wire')
         return
     if output_words==1310720 or source=='gpu/world_coordinate_composed_entry.slang':

@@ -27,4 +27,8 @@ class RatioTests(unittest.TestCase):
         for at in range(8):
             c=list(b);c[at]^=1
             with self.assertRaises(AssertionError):a.compare(c,domain)
+    def test_standalone_source_identity_excludes_battle_implementation(self):
+        from portable_slang_generation import source_hashes
+        names=set(source_hashes(ROOT,'gpu/packet_ratio_probe.slang'))
+        self.assertEqual(names,{'gpu/packet_ratio_probe.slang','gpu/binary64.slang','gpu/packet_integer_sum.slang','gpu/packet_integer_ratio.slang'})
 if __name__=='__main__':unittest.main()

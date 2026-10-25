@@ -23,7 +23,9 @@ def native_reference(domain):
     n['coordinate_aim']=aim;return n
 def compare(block,domain):
     if not domain[0].get('sampled_parent'):return parent.compare(block,domain)
-    c,m,b,d=domain;n=native_reference(domain)
+    return compare_observed(block,domain,native_reference(domain))
+def compare_observed(block,domain,n,*,check_parent=True,trace_view=None):
+    c,m,b,d=domain
     from portable_roster_team_history import legacy_view
     view,battle=legacy_view(block[:786432],n['battle'],parent.parent.L['WORLD_TEAM_HEAD_BASE'])
     # Keep the legacy decoder and every battle field; replace only the explicit
@@ -36,7 +38,8 @@ def compare(block,domain):
     actual['damage']=exact_damage(block,actual['damage'],n['landed_packets'],kinds)
     changed=[key for key in battle if key!='scope' and actual[key]!=battle[key]]
     assert block[0]==0 and not changed,(c['name'],block[0],changed)
-    assert codec.suite.reload.charge.team.skill_trace(view,m)==n['skill_trace'],(c['name'],'skill trace')
+    expected_trace=n['skill_trace'] if trace_view is None else trace_view
+    assert codec.suite.reload.charge.team.skill_trace(view,m)==expected_trace,(c['name'],'skill trace')
     parent.parent.parent.parent.compare_aim(block,domain,n['coordinate_aim'])
     by_name={r['label']:r for r in d['rows']};trace=[]
     for p in n['landed_packets']:
@@ -47,6 +50,7 @@ def compare(block,domain):
     assert not any(block[end:start+cp['TRACE_COUNT']*12]),'Unused child/physical trace'
     rng=BANK['RNG'];state=n['physical_rng'];assert block[rng]==state['index'] and list(block[rng+8:rng+632])==state['state'],'Parent fixed packets must not consume critical RNG'
     assert block[rng+1]==parent.verify(c,n)['physical_rng_words']
+    if not check_parent:return n
     h=BANK['META'];who=block[h+54];when=struct.unpack('<d',struct.pack('<II',*block[h+10:h+12]))[0]
     notices=[x for x in n['full_charge_quantities'] if x['owner']==who and x['time']==when]
     assert notices,'Last shot must have a real native full-charge quantity'

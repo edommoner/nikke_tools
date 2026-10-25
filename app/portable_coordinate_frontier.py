@@ -170,6 +170,11 @@ def verify(root, overrides=None):
     sampled_parent_path=root/'research/portable-coordinate-sampled-parent-short-expected.json'
     sampled_parent_golden=json.loads(sampled_parent_path.read_text()) if sampled_parent_path.is_file() else None
     sampled_parent_matches=sampled_parent_golden['source_sha256']==sampled_parent_sources if sampled_parent_golden else None
+    sampled_skill_sources=source_hashes(root,'gpu/world_coordinate_sampling_skill_entry.slang')
+    sampled_skill_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in sampled_skill_sources.items()}
+    sampled_skill_path=root/'research/portable-coordinate-sampled-skill-short-expected.json'
+    sampled_skill_golden=json.loads(sampled_skill_path.read_text()) if sampled_skill_path.is_file() else None
+    sampled_skill_matches=sampled_skill_golden['source_sha256']==sampled_skill_sources if sampled_skill_golden else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -407,6 +412,16 @@ def verify(root, overrides=None):
                     parent_children_consume_rng=False,extra_runtime_bytes=0,extra_output_words=0,
                     group_owner_examples_verified=False,
                     remaining=['ordinary damage skill RNG','weapon changes and healing in sampled battles','group-owner sampled worlds','original definitions and public admission'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_sampled_skills=dict(suite='coordinate-sampled-skill',source_sha256=sampled_skill_sources,
+                    proof_available=sampled_skill_golden is not None,sealed_source_matches_current=sampled_skill_matches,
+                    input_count=len(sampled_skill_golden['entries']) if sampled_skill_golden else None,
+                    reference_kind='deterministic-common-cpu',native_reference_cli='coordinate-sampled-skill-common',
+                    admitted_definition_kinds=['buff','ordinary damage','dealt_fixed_damage'],
+                    critical_uniform_per_body_hit=1,critical_uniforms_at_zero_and_unit_rate=True,
+                    target_packets_reuse_body_critical=True,cast_factors_frozen_across_children=True,
+                    queue_and_named_hit_context_reused=True,depth_capacity=32,extra_runtime_bytes=0,extra_output_words=0,
+                    remaining=['deferred burst skill sampling','weapon changes and healing in sampled battles','sampled group-owner and mixed effect worlds','original definitions and public admission'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 packet_integer_ratio=dict(suite='packet-ratio',source_sha256=ratio_sources,
                     proof_available=ratio_golden is not None,sealed_source_matches_current=ratio_matches,

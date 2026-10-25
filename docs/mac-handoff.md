@@ -1,5 +1,7 @@
 # Mac GPU開発引き継ぎ
 
+通常damageのhit別critical・cast snapshot・子queueを共通residentへ接続。sealed coordinate-sampled-skill62（共通CPU59／拒3）がM5保存結果replay・独立sealで全一致。実GPU1／比較修正版の再計算0。CPU43／制御419（Win1skip）／正本22、旧38全229113856byteと旧10 CUDA-MSLペアを保持し旧拒否1件を正例へ移行。数値probeは125→4ソースへ独立し14045入力実証、生成コード／全449440byte保持・Metal cache hit。replay容量ゲートと保存版registry監査をCLIへ追加。保留バースト・武器変更／heal・sampled groupと全元定義は残る。現CUDA未取得、全キャラ0／20gap／UI CPU／未達。[乱数スキルとCLI](portable-coordinate-sampled-skill.md)。
+
 乱数物理射撃の親参照量を共通residentへ接続。sealed coordinate-sampled-parent39（共通CPU36／拒3）とpacket-ratio14045がM5 Metal全一致・独立seal。整数128bit÷muzzleを一度だけnearest-even丸めし、dealt_fixed_damageの既存通知／queueへ接続。大整数の旧double総計差も実計上の整数sidecarで解消し、従来double加算の検査を保持。CPU28／制御416（Win1skip）／正本16、旧23全138674176byteと旧9 CUDA-MSLペアを保持。容量追加0、実GPU計4／同claim retry0／raw削除0。戦闘GPU.464秒／初回PSO92.693秒、数値cache hit・GPU.002秒。現CUDA未取得／Windows新依頼0。通常damage RNG・武器変更／heal・sampled group owner・全元定義は残る。全キャラ0／20gap／UI CPU／未達。[親参照量・整数総計](portable-coordinate-sampled-parent.md)。
 
 乱数物理射撃を共通resident executorへ接続。sealed coordinate-sampled-battle23（共通CPU20／拒3）がM5 MetalのGPU禁止replay・独立sealに成功。1256ペレット／1397packet／5498 MT word、127対象・1024ペレットを検査。物理MTとboss MTを分離し、shot snapshot・個別critical・auto／charge通知・muzzle core平均・not_core／prob条件抽選を接続。期待値scratch再利用でRuntime138952byte／入力109528／出力1507328word不変。GPU.448525秒／初回PSO91.909787秒。1024件のteam履歴省略を厳密検査する比較viewへ修正、実GPU計2／修正版再計算0／retry0。旧11raw全66322432byte・旧8 CUDA-MSLペア保持。現受付buffのみ、非buff・親量・sampled group ownerと全元定義は残る。現CUDA未取得／Windows新要求0。全キャラ0／20gap／UI CPU／未達。[乱数射撃の接続](portable-coordinate-sampled-battle.md)。

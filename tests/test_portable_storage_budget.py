@@ -37,4 +37,21 @@ class StorageBudgetTests(unittest.TestCase):
             path=Path(folder);(path/'input.bin').write_bytes(b'bad')
             with self.assertRaisesRegex(ValueError,'size differs'):cli.capture_storage_preflight(self.manifest(),path,prepared=True)
 
+    def test_replay_budgets_full_logical_copies_and_rejects_before_allocation(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);source=root/'source';source.mkdir();dest=root/'dest';dest.mkdir()
+            names=('input.bin','readback.bin','evidence.json','generated.cu','generated.metal','execution.json')
+            for name in names:(source/name).write_bytes(b'bytes')
+            with patch('portable_capture_storage.shutil.disk_usage',return_value=types.SimpleNamespace(free=2**40)):
+                result=cli.replay_storage_preflight(dest,source);self.assertEqual(result['required_bytes'],30)
+            with patch('portable_capture_storage.shutil.disk_usage',return_value=types.SimpleNamespace(free=1)):
+                with self.assertRaisesRegex(ValueError,'Insufficient space'):cli.replay_storage_preflight(dest,source)
+            self.assertFalse((dest/'readback.bin').exists());self.assertFalse(cli.load(dest/'storage.json')['passed'])
+    def test_replay_route_stops_with_failure_receipt_before_copy_or_compare(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);source=root/'source';source.mkdir();dest=root/'dest'
+            for name in ('input.bin','readback.bin','evidence.json','generated.cu','generated.metal','execution.json'):(source/name).write_bytes(b'bytes')
+            with patch.object(cli,'verify_package',return_value=dict(package_id='new')),patch.object(cli,'replay_source',return_value=({}, {}, {})),patch('portable_capture_storage.shutil.disk_usage',return_value=types.SimpleNamespace(free=1)),patch.object(cli,'audit_replay_capture') as compare:
+                with self.assertRaisesRegex(ValueError,'Insufficient space'):cli.replay_capture(dest,root/'package',source)
+            compare.assert_not_called();self.assertEqual(cli.load(dest/'run.json')['status'],'failed');self.assertTrue((dest/'artifacts.json').is_file());self.assertFalse((dest/'readback.bin').exists());self.assertEqual((source/'readback.bin').read_bytes(),b'bytes')
 if __name__=='__main__':unittest.main()

@@ -3,6 +3,9 @@
 #ifdef PORTABLE_COORDINATE_SAMPLED_PARENT
 #include "packet_integer_ratio.slang"
 #include "sampled_parent_damage_totals.slang"
+#ifdef PORTABLE_COORDINATE_SAMPLED_SKILLS
+#include "coordinate_sampled_skill_runtime.slang"
+#endif
 #endif
 uint csMeta(inout Runtime s){return s.resourceOutput+CS_META;}
 uint csRng(inout Runtime s){return s.resourceOutput+CS_RNG;}
@@ -18,7 +21,18 @@ bool initializeCoordinateSampling(inout Runtime s)
 {
     // Damage effects need the same sampled skill RNG hook before admission.
     // Keep the initial physical path explicit rather than accepting EV skills.
-#ifdef PORTABLE_COORDINATE_SAMPLED_PARENT
+#ifdef PORTABLE_COORDINATE_SAMPLED_SKILLS
+    for(uint row=0;row<s.count;row++)
+    {
+        uint kind=definition_kind(s.inputBase,row);
+        if(kind!=0&&kind!=3)return false;
+        if(kind==3)
+        {
+            if(definition_damagePending(s.inputBase,row)!=0)return false;
+            if(definition_damageFlags(s.inputBase,row)!=262144U)s.quantityMask|=0x02000000U;
+        }
+    }
+#elif defined(PORTABLE_COORDINATE_SAMPLED_PARENT)
     for(uint row=0;row<s.count;row++)
     {
         uint kind=definition_kind(s.inputBase,row);

@@ -331,6 +331,10 @@ SUITES['coordinate-sampled-battle']=dict(script='research/verify-coordinate-samp
 SUITES['coordinate-sampled-battle']['support_files']=['research/portable-compiler-full--coordinate-sampled-battle-source-certificate.json']
 SUITES['coordinate-sampled-parent']=dict(SUITES['coordinate-sampled-battle'],script='research/verify-coordinate-sampled-parent-short.py',source='gpu/world_coordinate_sampling_parent_entry.slang',golden='research/portable-coordinate-sampled-parent-short-expected.json',inputs=39,native=36,development_only=False,tests=[*SUITES['coordinate-sampled-battle']['tests'],'test_packet_integer_ratio.py','test_coordinate_sampled_parent.py'])
 SUITES['coordinate-sampled-parent']['support_files']=['research/portable-compiler-full--coordinate-sampled-parent-source-certificate.json']
+SUITES['coordinate-sampled-skill']=dict(SUITES['coordinate-sampled-parent'],script='research/verify-coordinate-sampled-skill-short.py',source='gpu/world_coordinate_sampling_skill_entry.slang',golden='research/portable-coordinate-sampled-skill-short-expected.json',inputs=62,native=59,development_only=False,tests=[*SUITES['coordinate-sampled-parent']['tests'],'test_coordinate_sampled_skill.py'])
+SUITES['coordinate-sampled-skill']['support_files']=['research/portable-compiler-full--coordinate-sampled-skill-source-certificate.json','research/portable-coordinate-arcs-short-expected.json']
+SUITES['coordinate-sampled-skill']['upstream_documents']=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
+SUITES['coordinate-sampled-skill']['tests']+=['test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -1207,10 +1211,31 @@ def audit_replay_capture(m, capture, *, verify_artifacts=True,record_comparison=
                 original_failure_preserved=True,gpu_calls=0,gpu_retry_count=0,source_gpu_dispatches=1)
 
 
+def replay_storage_preflight(capture,source_capture):
+    """Budget every saved-result copy; a sparse source still needs full bytes."""
+    from portable_capture_storage import space_status
+    files=[]
+    for name in ('input.bin','readback.bin','evidence.json','generated.cu','generated.metal','execution.json'):
+        path=source_capture/name
+        if path.is_symlink() or not path.is_file():raise ValueError('Replay copy source missing or symlink: '+name)
+        files.append(dict(path=name,bytes=path.stat().st_size))
+    budget=space_status(capture,sum(row['bytes'] for row in files))
+    report=dict(budget,copied_files=files,gpu_calls=0,calculation_verified=False)
+    write(capture/'storage.json',report)
+    if not report['passed']:raise ValueError('Insufficient space for replay copies and reserve; see storage receipt')
+    return report
+
+
 def replay_capture(capture, source_package, source_capture,reference_migration=None):
     m=verify_package(ROOT);original,facts,evidence=replay_source(m,source_package,source_capture,reference_migration)
     capture.mkdir(parents=True,exist_ok=False)
-    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='metal',mode='replay',status='replaying',gpu_retry_count=0))
+    write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='metal',mode='replay',status='storage-preflight',gpu_retry_count=0))
+    try:replay_storage_preflight(capture,source_capture)
+    except BaseException as error:
+        write(capture/'failure.json',dict(error=type(error).__name__+': '+str(error),gpu_calls=0))
+        run=load(capture/'run.json');run['status']='failed';write(capture/'run.json',run)
+        collect(capture,capture/'artifacts.json');raise
+    run=load(capture/'run.json');run['status']='replaying';write(capture/'run.json',run)
     write(capture/'replay.json',dict(source_package=str(source_package.resolve()),source_capture=str(source_capture.resolve()),source_package_id=original['package_id']))
     if reference_migration:
         origin=load(capture/'replay.json');origin['reference_migration']=reference_migration;write(capture/'replay.json',origin)
@@ -1356,6 +1381,19 @@ def seal_development(package_root,capture,output,*,timeout=60):
                 input_count=len(result['golden']['entries']),golden=str(output.resolve()))
 
 
+def verify_saved_package(package_root,*,timeout=60):
+    """Verify historical compact roots with their own immutable registry."""
+    script="""import importlib.util,json,pathlib,sys
+root=pathlib.Path(sys.argv[1])
+s=importlib.util.spec_from_file_location('saved_package_verifier',root/'scripts/nikke_gpu.py')
+m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
+print(json.dumps(m.verify_package(root)))
+"""
+    root=package_root.resolve()
+    result=subprocess.run([sys.executable,'-c',script,str(root)],cwd=root,capture_output=True,text=True,check=True,timeout=timeout)
+    return json.loads(result.stdout)
+
+
 def make_compiler_certificate(suite,package_root,capture,output,*,timeout=120):
     """Re-audit saved Metal bytes using the shared seal; never run generation/GPU."""
     from portable_compiler_certificate import certificate
@@ -1365,7 +1403,7 @@ def make_compiler_certificate(suite,package_root,capture,output,*,timeout=120):
     if type(timeout) is not int or not 1<=timeout<=180:raise ValueError('CPU certificate timeout must be1..180 seconds')
     output.mkdir(parents=True,exist_ok=False)
     try:
-        package=verify_package(package_root);run=load(capture/'run.json')
+        package=verify_saved_package(package_root);run=load(capture/'run.json')
         anchors={str(path):sha(path.read_bytes()) for path in (package_root/'gpu-package.json',capture/'artifacts.json',capture/'run.json')}
         if package['suite']!=suite or compiler_only(package) or package.get('selected_cases') or run.get('backend')!='metal' or run.get('package_id')!=package['package_id']:
             raise ValueError('Unfiltered matching Metal battle package/capture required')
@@ -1379,7 +1417,7 @@ def make_compiler_certificate(suite,package_root,capture,output,*,timeout=120):
         if proof['package_id']!=package['package_id'] or proof['golden']!=baseline:raise ValueError('Audited Metal output differs from the registered battle baseline')
         result=certificate(suite,baseline,raw)
         if raw!=expected_path.read_bytes() or baseline['source_sha256']!=source_hashes(SUITES[suite]['source']):raise ValueError('Metal baseline changed during certificate preparation')
-        if verify_package(package_root)!=package or any(sha(Path(path).read_bytes())!=digest for path,digest in anchors.items()):raise ValueError('Saved Metal package/capture changed during certificate preparation')
+        if verify_saved_package(package_root)!=package or any(sha(Path(path).read_bytes())!=digest for path,digest in anchors.items()):raise ValueError('Saved Metal package/capture changed during certificate preparation')
         write(output/'source-certificate.json',result)
         report=dict(passed=True,compiler_suite=diagnostic,certificate_target=SUITES[diagnostic]['golden'],
             baseline_suite=suite,baseline_golden_sha256=sha(raw),certificate_sha256=sha((output/'source-certificate.json').read_bytes()),
