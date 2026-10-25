@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "package_id": "c325f5977d2ea9357b3f617c551b7797e95b2edacb28883c5142fd78fc87be7b",
+  "files": 1851,
+  "all_payload_hashes_verified": true,
+  "all_checkout_bytes_equal": true,
+  "gpu_calls": 0,
+  "groups": {
+    "selected": {
+      "groups": 5,
+      "tests": 36,
+      "skipped": 0,
+      "passed": true,
+      "elapsed_seconds": 68.87631725007668
+    },
+    "control": {
+      "groups": 43,
+      "tests": 446,
+      "skipped": 1,
+      "passed": true,
+      "elapsed_seconds": 6.732288542902097
+    }
+  }
+}

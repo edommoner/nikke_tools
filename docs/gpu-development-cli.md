@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`coordinate-burst-control`293の通常比較は、同じ親の実native事前値と生成イベント記録を既存ParentOraclesで再利用します。独立監査はfreshを維持。CPU専用 `coordinate-parent-check --source-package PATH --source-capture PATH --out NEW_PATH` で全件のfresh比較との一致・追加native0回・原capture保持を確認できます。このコマンドはGPU証明を作りません。[仕様と測定](portable-coordinate-parent-oracles.md)。
+
 最新のキャラmode状態入口は`coordinate-squad-mode`251（native213／拒否38）。mode終了から次char tickまでの状態を共通化し、全体遮蔽・調停前の方針要求と装填callback進入へ接続。M5 Metal全件一致・独立seal済み、旧222の全1,571,632,128byteを保持。`seal --compiler-certificate PATH`は同じfresh監査からgoldenとfull-source証明を作成し、別のnative再監査を省く。CUDA実機の成功は別途必要。[mode状態](portable-coordinate-squad-mode.md)／[共同seal](portable-joint-seal-certificate.md)を参照。
 
 最新のスクワッド操作入口は`coordinate-squad`222（native189／拒否33）。focus＋cover_allをカメラ調停前の共通実行器へ接続し、M5 Metal実行1回＋保存結果replay・独立sealで全件一致。旧196入力の全1,387,567,104byteと入力・native指紋を保持。型付き入力拡張は`readback-retain --input-extension coordinate-squad-v1`で監査する。CLIとblock検査器の契約一覧を共有し、二重parserの不一致を回帰検査する。武器変更終了tick、burst操作方針、現CUDA実機は残件。[スクワッド操作](portable-coordinate-squad.md)参照。

@@ -9,6 +9,7 @@ from portable_burst_control_specs import SOURCE,INPUT_BASE,STATE_BASE,MAGIC,WORD
 from portable_coordinate_burst_control_cases import fixtures
 from world_frame_native import roster_names
 from world_burst_control_native import resolve
+import world_coordinate_comparison_context as NATIVE_COMPARISON_CONTEXT
 INPUT_WORDS=INPUT_BASE+WORDS;OUTPUT_WORDS=parent.OUTPUT_WORDS;STRICT_WIRE_DIMENSIONS=True;suite=SimpleNamespace(INPUT=INPUT_WORDS,OUTPUT=OUTPUT_WORDS);cross=parent.cross
 
 def compile_case(case):
@@ -31,6 +32,9 @@ def prepare():
     return rows,raw.tobytes()
 
 def native_reference(domain):return parent.native_reference(domain)
+
+def native_comparison_adapter(domain):
+    return NATIVE_COMPARISON_CONTEXT.choose(parent.parent.parent.parent,domain)
 
 def compare(block,domain):
     if not domain[0].get('burst_controls'):return parent.compare(block,domain)

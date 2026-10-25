@@ -3,7 +3,7 @@ import copy,importlib.util,json,os,struct,sys,tempfile,threading,types,unittest
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'scripts')]
-from portable_parent_oracles import ParentOracles
+from portable_parent_oracles import ParentOracles,provider
 spec=importlib.util.spec_from_file_location('parent_oracle_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 OW=786432*4
 
@@ -88,6 +88,87 @@ def compare(block,domain):
                     self.preflight();result=self.compare()
                 self.assertTrue(result['calculation_verified']);self.assertEqual(result['parent_oracles']['reused_native_cases'],1)
                 self.assertEqual(self.leaf.calls['native'],1)
+
+    def context_fixture(self):
+        import contextlib
+        module=self.leaf;module.current_context=[];module.context_reads=0;module.restore_failure=False
+        original=module.native_reference
+        def native(domain):
+            value=original(domain);module.current_context.append(dict(amount=value['battle']['damage']));return value
+        module.native_reference=native
+        exec("def compare(block,domain):\n    calls['compare']+=1\n    result=native_reference(domain)\n    assert current_context==[dict(amount=result['battle']['damage'])]\n    assert block[1]==result['battle']['damage'],'Damage differs'\n    return result\n",module.__dict__)
+        @contextlib.contextmanager
+        def capture(domain):
+            module.current_context=[]
+            try:yield module.current_context
+            finally:module.current_context=[]
+        def validate(domain,value,context):assert context==[dict(amount=value['battle']['damage'])]
+        @contextlib.contextmanager
+        def restore(domain,value):
+            module.context_reads+=1;module.current_context=copy.deepcopy(value)
+            try:
+                yield
+                if module.restore_failure:raise RuntimeError('restore fixture failed')
+            finally:module.current_context=[]
+        module.NATIVE_COMPARISON_CONTEXT=types.SimpleNamespace(capture=capture,validate=validate,restore=restore)
+        return module.NATIVE_COMPARISON_CONTEXT
+
+    def test_explicit_delegation_preserves_original_provider_and_rejects_cycles(self):
+        wrapper=types.SimpleNamespace(native_comparison_adapter=lambda domain:self.adapter,compare=lambda *args:None)
+        found=provider(wrapper,self.adapter.prepare()[0][0][2]);self.assertIs(found[0],self.adapter.__dict__)
+        wrapper.native_comparison_adapter=lambda domain:wrapper
+        with self.assertRaisesRegex(ValueError,'Cyclic'):provider(wrapper,self.adapter.prepare()[0][0][2])
+        wrapper.native_comparison_adapter=lambda domain:None;self.assertIsNone(provider(wrapper,self.adapter.prepare()[0][0][2]))
+
+    def test_live_auxiliary_context_is_captured_once_restored_and_validated(self):
+        self.context_fixture();self.preflight();self.assertEqual(self.leaf.current_context,[])
+        self.assertEqual(self.snapshot.records[0]['context']['value'],[dict(amount=9)])
+        result=self.compare();self.assertTrue(result['calculation_verified']);self.assertEqual(self.leaf.calls['native'],1)
+        self.assertEqual(self.leaf.current_context,[]);self.assertEqual(result['parent_oracles']['reused_context_cases'],1)
+
+    def test_context_mutation_or_rebinding_cannot_reach_comparison(self):
+        for fault in ('value','provider','validator','domain'):
+            with self.subTest(fault=fault):
+                self.m,self.adapter=self.fixture();self.snapshot.close();self.snapshot=ParentOracles(self.m,self.capture);auxiliary=self.context_fixture()
+                with patch.object(cli,'open_suite',return_value=self.adapter):self.preflight()
+                if fault=='value':self.snapshot.records[0]['context']['value'][0]['amount']+=1
+                elif fault=='provider':self.adapter.NATIVE_COMPARISON_CONTEXT=copy.copy(auxiliary)
+                elif fault=='validator':auxiliary.validate=lambda *args:None
+                else:self.snapshot.records[0]['context']['domain']=copy.deepcopy(self.snapshot.records[0]['context']['domain'])
+                result=self.compare();self.assertFalse(result['calculation_verified']);self.assertIn('context',result['mismatches'][0]['reason'])
+                self.assertEqual(self.leaf.calls['compare'],0)
+
+    def test_auxiliary_capture_failure_restores_scope_and_never_stores_a_record(self):
+        auxiliary=self.context_fixture()
+        def broken(domain):raise RuntimeError('native fixture failed')
+        self.adapter.native_reference=broken
+        with self.assertRaisesRegex(RuntimeError,'native fixture failed'):self.preflight()
+        self.assertFalse(self.snapshot.records);self.assertFalse(self.snapshot.contexts);self.assertFalse(self.snapshot.observing);self.assertEqual(self.adapter.current_context,[])
+
+    def test_auxiliary_restore_exception_restores_native_provider(self):
+        auxiliary=self.context_fixture();self.preflight();original=self.adapter.native_reference
+        self.adapter.restore_failure=True
+        with self.assertRaisesRegex(RuntimeError,'restore fixture failed'):self.compare()
+        self.assertIs(self.adapter.native_reference,original);self.assertEqual(self.adapter.current_context,[]);self.assertEqual(self.adapter.calls['compare'],1)
+
+    def test_unfingerprintable_context_falls_back_to_fresh_comparison(self):
+        import contextlib
+        auxiliary=self.context_fixture();original=auxiliary.capture
+        @contextlib.contextmanager
+        def unsupported(domain):
+            with original(domain) as value:
+                yield value
+                value.append(lambda:None)
+        auxiliary.capture=unsupported;self.preflight();self.assertFalse(self.snapshot.usable)
+        result=self.compare();self.assertTrue(result['calculation_verified']);self.assertEqual(self.leaf.calls['native'],2)
+        self.assertEqual(result['parent_oracles']['reused_native_cases'],0)
+
+    def test_missing_capture_or_incomplete_protocol_is_rejected(self):
+        auxiliary=self.context_fixture();self.snapshot.prepare(self.adapter,self.adapter.prepare()[0]);before=self.snapshot.before(0)
+        value=self.adapter.native_reference(self.snapshot.entries[0][2])
+        with self.assertRaisesRegex(ValueError,'Missing live'):self.snapshot.remember(0,before,value,self.adapter.cross.digest)
+        self.snapshot.close();self.snapshot=ParentOracles(self.m,self.capture);auxiliary.restore=None
+        with self.assertRaisesRegex(ValueError,'Incomplete'):self.preflight()
 
     def test_unknown_protocol_remains_fresh(self):
         self.m,self.adapter=self.fixture('fallback');self.snapshot=ParentOracles(self.m,self.capture)

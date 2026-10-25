@@ -1965,3 +1965,14 @@ GPU.727458秒／初回PSO93.066173秒／CPU事前174.963130秒／通常全比較
 現inventoryは266/packing245・base203/185・未対応21profile/20reference-model-gap分類、全キャラ認定0/UI CPUで未達。Windowsは既存チャットを一度read-only確認しrev78/idleのまま、新メッセージ・新実行0、現CUDA／warm cache性能は未取得。次は明示mode-sequenceとpost-delay、healing storage／混在actorの元定義、共通CLIのParentOraclesに新adapterの通常比較をつなぐこと。独立監査はfreshのまま維持し、current-source CUDAは短い必要検証だけにします。
 
 最終compact package `c4de2a88…`（1846 files／ZIP 8,475,998byte／展開53,629,442byte）は専用12検査・全246 nativeのCPU再照合・共通制御446検査（Windows専用1skip）が成功し、終了後に全payload SHAとcheckout全byteの一致を検査済みです。最終captureは `/tmp/nikke-burst-control-final-cpu-v1` と `/tmp/nikke-burst-control-final-control-v1`、archiveは `/tmp/nikke-burst-control-final-v1.zip`。GPU追加実行はありません。
+
+
+## 2026-10-25 座標戦闘の通常比較での事前計算再利用
+
+最新は `docs/portable-coordinate-parent-oracles.md`／`research/portable-coordinate-parent-oracles-checkpoint.json`。coordinate-burst-control293の元leaf比較器を既存ParentOraclesへ接続し、実native観測で得たcreation_indicesも同じ親・threadだけで一度再利用します。全入力のfresh比較との完全一致、実native事前246／通常比較追加0／fresh246回をCPU専用CLIで確認。事前178.002秒／再利用比較8.661秒／fresh比較195.058秒。同一実行の順次測定で、独立benchmarkではありません。独立audit/replay/sealのfresh境界と元比較関数を維持し、source/input/native/provider/補助記録/所有者のstamp・原observer復元を検査。GPU/core/正本/golden変更0／実GPU追加0。全原capture artifact hash29件を終了後も再検査しました。
+
+CPU専用 `coordinate-parent-check` は原成功Metal293のread-only fixtureから新GPU claim/capture/certificateを作りません。固定実証packet `/tmp/nikke-coordinate-parent-develop-v2`、結果 `/tmp/nikke-coordinate-parent-check-v2`。最後に追加した原artifact再hash後条件は別の実29件再hashで検査し、fixture4件にはobserver復元assertを追加。Slangペアgeneration cache hit／compiler0・CUDA/MSL全byte原成功captureと同一、Metal file cache probe hit。現CUDA実行・warm GPU性能にはしません。Windowsへのcoordinate-landing40の送信を再試行したが、既存idleチャットを開始できない同じAPIエラーで未送信。再実行依頼の重複はしていません。
+
+次はmode中の明示sequence・post-delayのnative契約、healing storage／混在actorの元定義、短いcurrent CUDA検証。packing245/266・base185/203、未対応21profiles/20分類、全キャラ認定0/UI CPU/目標未達を維持します。
+
+最終compact `c325f597…`（1851 files／ZIP 8,530,451byte）は選択36件と共通制御446件（Windows専用1skip）が成功。終了後に全payload SHAとcheckout全byte一致を確認。archive `/tmp/nikke-coordinate-parent-final-v1.zip`、選択検査 `/tmp/nikke-coordinate-parent-final-tests-v1`、制御 `/tmp/nikke-coordinate-parent-final-control-v1`。GPU追加0。

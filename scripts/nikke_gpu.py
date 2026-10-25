@@ -351,7 +351,7 @@ SUITES['coordinate-policy']['support_files']=['research/portable-compiler-full--
 SUITES['coordinate-squad']=dict(SUITES['coordinate-policy'],script='research/verify-coordinate-squad-short.py',source='gpu/world_coordinate_squad_entry.slang',golden='research/portable-coordinate-squad-short-expected.json',inputs=222,native=189,development_only=False,cpu_test_timeout=180,tests=[*SUITES['coordinate-policy']['tests'],'test_coordinate_squad.py'])
 SUITES['coordinate-squad-mode']=dict(SUITES['coordinate-squad'],script='research/verify-coordinate-squad-mode-short.py',source='gpu/world_coordinate_squad_mode_entry.slang',golden='research/portable-coordinate-squad-mode-short-expected.json',inputs=251,native=213,development_only=False,cpu_test_timeout=180,tests=['test_coordinate_squad_mode.py','test_coordinate_physical_frontier.py'])
 SUITES['coordinate-squad-mode']['support_files']=['research/portable-compiler-full--coordinate-squad-mode-source-certificate.json',*SUITES['coordinate-squad']['support_files']]
-SUITES['coordinate-burst-control']=dict(SUITES['coordinate-squad-mode'],script='research/verify-coordinate-burst-control-short.py',source='gpu/world_coordinate_burst_control_entry.slang',golden='research/portable-coordinate-burst-control-short-expected.json',inputs=293,native=246,development_only=False,tests=['test_coordinate_burst_control.py','test_burst_control_policy.py','test_coordinate_physical_frontier.py'])
+SUITES['coordinate-burst-control']=dict(SUITES['coordinate-squad-mode'],script='research/verify-coordinate-burst-control-short.py',source='gpu/world_coordinate_burst_control_entry.slang',golden='research/portable-coordinate-burst-control-short-expected.json',inputs=293,native=246,development_only=False,parent_oracle_reuse=True,tests=['test_coordinate_burst_control.py','test_burst_control_policy.py','test_coordinate_physical_frontier.py','test_portable_parent_oracles.py','test_coordinate_parent_oracles.py'])
 SUITES['coordinate-burst-control']['support_files']=['research/portable-compiler-full--coordinate-burst-control-source-certificate.json',SUITES['coordinate-squad-mode']['golden'],*SUITES['coordinate-squad-mode']['support_files']]
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
@@ -943,9 +943,10 @@ def cpu_preflight(m,*,parent_oracles=None,input_capture=None):
             if progress is not None:progress.emit('cpu_native_oracle','entered',**facts)
             oracle_started=time.perf_counter()
             try:
-                value=native_value(adapter,domain)
-                if adapter.cross.digest(value) != expected['native_sha256']:
-                    raise ValueError('First CPU/input mismatch: '+name)
+                with parent_oracles.observe(i,before) if parent_oracles is not None else contextlib.nullcontext():
+                    value=native_value(adapter,domain)
+                    if adapter.cross.digest(value) != expected['native_sha256']:
+                        raise ValueError('First CPU/input mismatch: '+name)
             except BaseException as error:
                 if progress is not None:progress.emit('cpu_native_oracle','raised',elapsed_seconds=time.perf_counter()-oracle_started,exception=type(error).__name__,**facts)
                 raise
@@ -2713,6 +2714,8 @@ def main(argv=None):
     a.add_argument('--artifact-kind',choices=('ptx','cubin'),default='cubin');a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--require-hit',action='store_true')
     a=sub.add_parser('consumer-audit');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('coordinate-parent-check',help='CPU-only live preflight/context reuse check against saved Metal fixtures; not GPU certification')
+    a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     from portable_reference import REFERENCES
     a=sub.add_parser('saved-core-report-audit');a.add_argument('--report-root',type=Path,required=True);a.add_argument('--manifest-sha256',required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('layout-compare');a.add_argument('--before',type=Path,required=True);a.add_argument('--after',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -2804,6 +2807,9 @@ def main(argv=None):
         with forbid_gpu():
             verify_package(ROOT)
             result=recover(SimpleNamespace(**globals()),a.source_package,a.source_capture,a.out,a.object_sha256)
+    elif a.command=='coordinate-parent-check':
+        from portable_coordinate_parent_check import check
+        with forbid_gpu():result=check(a.source_package,a.source_capture,a.out)
     elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out,timeout=a.timeout,**(dict(compiler_certificate=a.compiler_certificate) if a.compiler_certificate is not None else {}))
     elif a.command=='compiler-certificate':
         with forbid_gpu():result=make_compiler_certificate(a.suite,a.package_root,a.capture,a.out,timeout=a.timeout)
