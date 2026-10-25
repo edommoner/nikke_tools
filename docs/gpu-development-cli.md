@@ -1,5 +1,7 @@
 # 共通GPU検証CLI
 
+`coordinate-original-lifecycle`3 はハランの死亡通知とクルミのバーストによる同名DoT再付与を、完全元編成のままM5 Metal・独立fresh監査で照合したsealed suiteです。`package --suite coordinate-original-lifecycle --compact` を使います。元定義別の実発火数とtick位相を検査し、既存共通shaderを再利用します。死亡敵固有の感染判定・召喚攻撃payload・現CUDAは未完了です。[検証範囲](portable-original-lifecycle.md)。
+
 最新の `coordinate-original-periodic`4はハラン／クルミの元72／70効果と武器を保持し、同名DoTをowner／登録IDで照合してM5全一致・独立fresh監査91.14秒でsealed登録済みです。shader変更0、生成／Metal pipeline cacheを必須再利用。groupのliteral結合も共通化し、元武器でmulti_hit対象数を満たせない部分は正本モデル側の不足として残しています。[同名DoTとgroupの境界](portable-original-periodic.md)。
 
 最新の `coordinate-original`10は元の完全編成68〜81効果・武器・操作設定を保持し、実被弾での名前指定解除までM5 Metal全一致・独立fresh監査238.65秒でsealed登録済みです。保持履歴と省略件数の厳密な検査、比較器だけの固定source-bound再配布、private opt-in／公開拒否の別監査も共通CLIへ接続しました。[元編成と検証境界](portable-coordinate-original.md)。

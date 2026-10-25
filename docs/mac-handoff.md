@@ -2065,3 +2065,17 @@ manual observerは対象codeを判定してからlocalsを取得するように�
 最終 `/tmp/nikke-original-periodic-final-v2.zip`（519c3343…）は機能32・制御476（Win1skip）成功、終了後に全1911payload SHA／checkout全byte一致を確認。全reader終了後にrawをsize／SHA／inode保持で4KiB疎化し27,000,832byte回収、削除0。データを失った場合はGPU再実行で復元しないこと。
 
 model-checkでoriginal-periodic proof/source match true、全キャラ0／公開UI CPU／全目標未達。次は同名DoTの実死亡spread／refresh、nonperiodicのsource identityが必要な元定義、down/revivalとcallback sessionの組合せを優先し、multi_hitの正本対象展開を別model-gapとして調べます。既存original10・healing340の認定範囲と240秒fresh上限を維持してください。
+
+## 2026-10-26 元編成DoTの別定義発火・死亡通知・tick位相
+
+最新は `coordinate-original-lifecycle`3、`docs/portable-original-lifecycle.md`、`research/portable-original-lifecycle-checkpoint.json`。完全5人編成のハラン72／クルミ70全定義を保持し、ハラン12秒の敵死亡前／感染後2world、クルミ6秒の実バースト再付与を共通GPUへ通しました。元public body／weapon／操作は置換していません。source-aware受動観測は元の発火元と保持timerを区別し、次tick位相を保つ期限更新を確認。既存original比較をcompare_observedへ分け、再計算せず全battle／packet／RNG・周期最終状態を共用します。
+
+固定GPU packet v1 `/tmp/nikke-original-lifecycle-develop-v1`（9134bac1…）とcapture `/tmp/nikke-original-lifecycle-metal-v1` は全3一致。実GPU1回0.965066秒／PSO cache hit0.002735秒／CPU事前43.059290秒。CUDA/MSL generation cache必須hit・compiler0、元生成物と両方全byte一致。GPU source／数値／wire／容量変更0。ハランの別定義row1は負例0／正例2回、クルミrow1は1回、独立timer0を保存readbackでも確認しました。
+
+発火回数を比較器へ追加したpacket v2 `/tmp/nikke-original-lifecycle-develop-v2`（32f78758…）は全input／native／GPU sourceを保持。GPU禁止replay `/tmp/nikke-original-lifecycle-replay-v2` は全3fresh一致。独立sealは47.556235秒、別child・live parent receiptなし・全3native fresh／GPU0。同じ監査からgoldenとsource-only certificateを作りsealed登録。現CUDA compile/link/cache/battleの証明ではありません。GPU retry／観測修正後の再GPU0。
+
+最終compact `/tmp/nikke-original-lifecycle-final-v1.zip`（6b35f276…）は機能13／制御476（Windows1skip）成功。全1914payloadのSHA・checkout全byteとGPU source／全入力・基準の一致を終了後に再検査。旧元編成14inputも全byte保持。最初の手動_tests起動はcapture directory未作成で検査前停止し、失敗logを保持、専用directory作成後のv2で成功。全reader終了後、原とreplayのrawはSHA／size／inodeを保ち疎化し各15,794,176byte回収、削除0です。
+
+重要な分類: ハランの正例はBODY感染中のADD死亡通知であり、現正本の条件は「現在対象の状態」です。死亡敵自身の感染／生存ADDへのspreadを証明しません。召喚攻撃・自爆は既存共通処理があるという初期仮説を調査で否定し、schedulerとactor registryの2guardが未対応として拒否することを確認。guardを外していません。multi_hitの静的結合を対象ルーティング解決へ読み替えないこと。
+
+model-checkは新suiteのproof/source match true、public/all-char false。全キャラ認定0／UI CPU／全目標未達です。次は元nonperiodic同名damage identity、元武器のgroup対象モデル、down／復活・callback session、召喚攻撃payloadの設計へ進めます。Windowsは新依頼0、送信APIのidle制約へ同じrunを再送しないこと。現CUDA／warm cache実測は未取得のままです。

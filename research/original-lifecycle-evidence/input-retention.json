@@ -1,0 +1,12 @@
+[
+  {
+    "suite": "coordinate-original",
+    "inputs": 10,
+    "input_bytes_unchanged": true
+  },
+  {
+    "suite": "coordinate-original-periodic",
+    "inputs": 4,
+    "input_bytes_unchanged": true
+  }
+]

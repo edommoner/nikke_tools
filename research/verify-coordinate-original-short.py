@@ -23,6 +23,8 @@ def native_reference(domain):
 def compare(block,domain):
     from world_coordinate_sampled_skill_native import creation_indices
     with creation_indices(domain[0]) as indices:n=native_reference(domain)
+    return compare_observed(block,domain,n,indices)
+def compare_observed(block,domain,n,indices):
     parent.compare_observed(block,domain,n,indices)
     burst=parent.parent.parent.parent
     if Path(burst.__file__).name!='verify-coordinate-burst-control-short.py':raise ValueError('Original control comparator chain changed')

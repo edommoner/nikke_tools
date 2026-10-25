@@ -226,6 +226,8 @@ def verify(root, overrides=None):
     original_matches=original_golden['source_sha256']==original_sources if original_golden else None
     periodic_original_path=root/'research/portable-coordinate-original-periodic-short-expected.json'
     periodic_original_golden=json.loads(periodic_original_path.read_text()) if periodic_original_path.is_file() else None
+    lifecycle_original_path=root/'research/portable-coordinate-original-lifecycle-short-expected.json'
+    lifecycle_original_golden=json.loads(lifecycle_original_path.read_text()) if lifecycle_original_path.is_file() else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -597,7 +599,7 @@ def verify(root, overrides=None):
                     original_effects_weapons_controls_preserved=True,shared_named_removal_handler=True,
                     retained_history_capacity=dict(team=1024,fractional=2048,projectile=2048),
                     omissions_must_match_native=True,computed_cpu_action_schedule=False,
-                    remaining=['complete original group binding','owner-aware duplicate damage observation',
+                    remaining=['original weapon multi-target group routing','nonperiodic duplicate damage identities',
                         'down/revival and callback session combinations','current CUDA execution and warm cache performance',
                         'public admission and all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
@@ -608,8 +610,19 @@ def verify(root, overrides=None):
                     reference_kind='deterministic-common-cpu',original_periodic_definitions_preserved=True,
                     duplicate_periodic_labels_supported=True,stable_owner_and_registration_identity=True,
                     nonperiodic_damage_labels_must_be_unique=True,
-                    remaining=['same-label death-spread and simultaneous refresh combinations','nonperiodic duplicate damage identities',
+                    remaining=['dead-enemy-specific infection predicate and spread recipients','nonperiodic duplicate damage identities',
                         'current CUDA execution and public all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_original_lifecycle=dict(suite='coordinate-original-lifecycle',source_sha256=original_sources,
+                    proof_available=lifecycle_original_golden is not None,
+                    sealed_source_matches_current=lifecycle_original_golden['source_sha256']==original_sources if lifecycle_original_golden else None,
+                    input_count=len(lifecycle_original_golden['entries']) if lifecycle_original_golden else None,
+                    reference_kind='deterministic-common-cpu',original_definitions_weapons_preserved=True,
+                    alternate_source_activation_counts_checked=True,same_label_tick_phase_preserved=True,
+                    death_predicate_scope='current target state; not dead-enemy identity',
+                    remaining=['dead-enemy-specific spread and non-BODY infection recipients',
+                        'armed summon attack and self-destruct payloads','current CUDA execution',
+                        'public admission and all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 packet_integer_ratio=dict(suite='packet-ratio',source_sha256=ratio_sources,
                     proof_available=ratio_golden is not None,sealed_source_matches_current=ratio_matches,
