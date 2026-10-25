@@ -21,6 +21,7 @@ def authored_metadata(case):
   rate=w.get('rate',1/w['interval']);maximum=w.get('rate_max',rate)
   metadata[n]=dict(timeline._NIKKE[n],weapon_type=w.get('base_weapon_type','MG' if w.get('mode')=='auto_warmup' else 'AR'),is_charge=w.get('mode')=='charge',input_type='DOWN_Charge' if w.get('mode')=='charge' else 'DOWN',burst_stage=str(w.get('stage',0)),fire_rate=rate,fire_rate_max=maximum,damage_coeff=w.get('coefficient',100),max_ammo=w['capacity'],reload_time=w['reload'],burst_energy=w.get('gauge',0),muzzles=w.get('muzzles',1),pellets=w.get('pellets',1),core_dmg_mult=200)
   if 'warmup' in w:metadata[n]['fire_rate_change_pershot']=(maximum-rate)/w['warmup']
+  if case.get('burst_controls') and w.get('stage')==4:metadata[n]['burst_stage']='A'
   if w.get('mode')=='charge':metadata[n].update(charge_time=w.get('charge',.2),full_charge_mult=w.get('full_charge_mult',100),fire_stance_hold=None)
  for n in names:metadata[n].update(copy.deepcopy(case.get('weapon_metadata',{})))
  if case.get('element_codes'):
@@ -144,6 +145,11 @@ def observe(case):
   if 'focus_aim_layer2' in case:config['aim_interrupt']=case['focus_aim_layer2']
   for key in ('control_mode','sequence'):
    if key in case:config[key]=copy.deepcopy(case[key])
+  if case.get('burst_controls'):
+   from world_burst_control_native import resolve
+   config.update(resolve(case,NAMES)[0])
+   for char,weapon in zip(squad,case['combat']['weapons']):
+    if weapon.get('explicit_burst_stage'):char['burst_stage']=str(weapon['stage'])
   try:result=timeline.simulate(squad,config=config,enemy=enemy,seed=case.get('seed',19),verbose=case.get('native_snapshot_logging',False))
   finally:
    if case.get('observe_periodic_skills'):sys.setprofile(previous_profile)

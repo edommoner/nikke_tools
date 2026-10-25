@@ -1,6 +1,8 @@
 // One candidate producer for real selection and the unobserved next-FB chain.
 // No Runtime, command buffer or CPU-computed prediction is owned by this module.
+#ifndef PORTABLE_BURST_CONTROL_SHARED_BINARY64
 #include "binary64.slang"
+#endif
 static const uint64_t BC_INF=uint64_t(0x7ff00000)<<32;
 static const uint64_t BC_EPS=(uint64_t(0x3e112e0b)<<32)|0xe826d695;
 struct BurstControlPolicy { uint words[176]; };

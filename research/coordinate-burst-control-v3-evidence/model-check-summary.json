@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "scope": "Source audit and dependency plan only",
+  "gpu_calls": 0,
+  "native_battle_calls": 0,
+  "calculation_verified": false,
+  "full_goal_complete": false,
+  "public_gpu_admitted": false,
+  "burst_controls": {
+    "suite": "coordinate-burst-control",
+    "proof_available": true,
+    "sealed_source_matches_current": true,
+    "input_count": 293,
+    "reference_kind": "deterministic-common-cpu",
+    "shared_candidate_selection_and_prediction": true,
+    "gpu_owned_stage_open_and_completed_cycles": true,
+    "tick_entry_stage_snapshot": true,
+    "operations": [
+      "delay",
+      "wait_own_cooldown",
+      "pattern",
+      "burst_sequence"
+    ],
+    "computed_cpu_action_schedule": false,
+    "full_post_tick_state_fingerprints": true,
+    "cover_down_ordering_receipts": true,
+    "input_words": 109968,
+    "output_words": 1769856,
+    "extra_runtime_bytes": 0,
+    "extra_output_words": 0,
+    "output_padding_owned_words": 18,
+    "remaining": [
+      "explicit mode-sequence, post-delay, healing storage and mixed actor originals",
+      "current CUDA execution and warm cache performance",
+      "public admission and all-character certification"
+    ],
+    "public_gpu_admitted": false,
+    "all_characters_certified": false
+  },
+  "full_report": {
+    "path": "/tmp/nikke-burst-control-model-check-final-v1.json",
+    "bytes": 574114,
+    "sha256": "b5b5aeb9c020aa78881adbb2e301241052f34afdd8bd871865a0f6290bd0ff18"
+  }
+}

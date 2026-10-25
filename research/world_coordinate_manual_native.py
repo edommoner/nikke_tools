@@ -10,6 +10,7 @@ def observe(case):
     methods=('_enter_cover','_exit_cover','_cancel_reload','_finish_reload','_reset_action')
     codes={getattr(timeline.CharState,k).__code__:k for k in methods}
     arb=timeline._arbitrate_control.__code__;charge=timeline.CharState._tick_charge.__code__
+    burst_tick=timeline.BurstController.tick.__code__;burst_ticks=[]
     def state(cs,bm=None):
         if bm is None:bm=managers[0]
         extra=dict(cover_all=bool(cs._cover_all)) if case.get('squad_controls') else {}
@@ -18,6 +19,9 @@ def observe(case):
         if previous is not None:previous(frame,event,answer)
         if event!='return':return
         v=frame.f_locals
+        if case.get('burst_controls') and frame.f_code==burst_tick:
+            from world_burst_control_native import snapshot
+            burst_ticks.append(snapshot(v['self'],v['t'],names))
         if frame.f_code==arb:characters.update(v['char_states']);managers[:]=[v['bm']]
         if case.get('squad_controls') and frame.f_code==timeline._pump_squad_seq.__code__:
             q=v['bm'].state;forced=q.get('ctrl_focus_forced') or '';keep=v.get('keep') or ''
@@ -38,4 +42,7 @@ def observe(case):
         n['squad_control']=dict(sequence_index=last['index'],forced_owner=last['forced'],last_keep=keeps[-1] if keeps else 0,pumps=squad_pumps)
     if case.get('squad_mode_state'):n['squad_mode_state']=dict(flags=[bool(characters[name]._in_weapon_change) for name in names],pumps=[dict(time=p['time'],mask=p['mode_mask']) for p in squad_pumps])
     if case.get('cover_policies'):n['cover_policy_state']=[dict(cover_anchor=characters[name]._cover_ctrl_anchor,reload_anchor=characters[name]._reload_ctrl_anchor,kind=characters[name]._ctrl_anchor_kind,value=characters[name]._ctrl_anchor_val,reentry=sorted([list(v) for v in characters[name]._reentry_used if v[0] in ('cover','reload')])) for name in names]
+    if case.get('burst_controls'):
+        if not burst_ticks:raise ValueError('Missing canonical burst ticks')
+        n['burst_controls']=dict(ticks=burst_ticks)
     return n,t

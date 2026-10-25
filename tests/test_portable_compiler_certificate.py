@@ -115,8 +115,20 @@ class CompilerCertificateTests(unittest.TestCase):
         self.make();original=(self.root/'evidence/report.json').read_bytes()
         with self.assertRaises(FileExistsError):self.make()
         self.assertEqual((self.root/'evidence/report.json').read_bytes(),original)
-        for budget in (0,181,True,'120'):
+        for budget in (0,241,True,'120'):
             with self.assertRaises(ValueError):cli.make_compiler_certificate(self.suite,self.package,self.capture,self.root/'budget',timeout=budget)
+    def test_saved_cpu_audit_budget_is_separate_from_the_gpu_execution_limit(self):
+        from types import SimpleNamespace
+        answer=dict(golden=dict(source_sha256={}),package_id='saved',audit=dict(calculation_verified=True))
+        with patch.object(cli.subprocess,'run',return_value=SimpleNamespace(stdout=json.dumps(answer))) as launch:
+            self.assertEqual(cli.audit_saved_metal(self.package,self.capture,timeout=240),answer)
+            self.assertEqual(launch.call_args.kwargs['timeout'],240)
+            for budget in (0,241,True,'240'):
+                with self.assertRaises(ValueError):cli.audit_saved_metal(self.package,self.capture,timeout=budget)
+            self.assertEqual(launch.call_count,1)
+        with patch.object(cli,'verify_package',return_value=self.m),self.assertRaisesRegex(ValueError,'1..180'):
+            cli.run_capture(self.root/'not-created','metal',181)
+        self.assertFalse((self.root/'not-created').exists())
     def test_current_and_historical_packets_resolve_the_same_immutable_certificate(self):
         name=alias(self.suite);config=cli.SUITES[name];entry=self.root/config['source'];entry.parent.mkdir(parents=True,exist_ok=True);entry.write_text('// full world fixture')
         baseline=dict(self.baseline,source_sha256={config['source']:cli.sha(entry.read_bytes())});cli.write(self.path,baseline)

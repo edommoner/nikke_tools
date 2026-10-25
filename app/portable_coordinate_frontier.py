@@ -204,6 +204,10 @@ def verify(root, overrides=None):
     squad_mode_path=root/'research/portable-coordinate-squad-mode-short-expected.json'
     squad_mode_golden=json.loads(squad_mode_path.read_text()) if squad_mode_path.is_file() else None
     squad_mode_matches=squad_mode_golden['source_sha256']==squad_mode_sources if squad_mode_golden else None
+    burst_control_sources=source_hashes(root,'gpu/world_coordinate_burst_control_entry.slang') if (root/'gpu/world_coordinate_burst_control_entry.slang').is_file() else {}
+    burst_control_path=root/'research/portable-coordinate-burst-control-short-expected.json'
+    burst_control_golden=json.loads(burst_control_path.read_text()) if burst_control_path.is_file() else None
+    burst_control_matches=burst_control_golden['source_sha256']==burst_control_sources if burst_control_golden else None
     ratio_sources=source_hashes(root,'gpu/packet_ratio_probe.slang')
     ratio_sources={name:hashlib.sha256(overrides[name].encode()).hexdigest() if name in overrides else digest for name,digest in ratio_sources.items()}
     ratio_path=root/'research/portable-packet-ratio-short-expected.json'
@@ -523,6 +527,18 @@ def verify(root, overrides=None):
                     input_words=109792,output_words=1769856,extra_runtime_bytes=0,extra_output_words=0,
                     wire_version=2,character_flag_count=5,
                     remaining=['burst delay, own-cooldown wait, pattern and prediction composition','explicit mode-sequence, post-delay, healing storage and mixed actor originals','current CUDA execution and warm cache performance','public admission and all-character certification'],
+                    public_gpu_admitted=False,all_characters_certified=False),
+                coordinate_burst_controls=dict(suite='coordinate-burst-control',source_sha256=burst_control_sources,
+                    proof_available=burst_control_golden is not None,sealed_source_matches_current=burst_control_matches,
+                    input_count=len(burst_control_golden['entries']) if burst_control_golden else None,
+                    reference_kind='deterministic-common-cpu',shared_candidate_selection_and_prediction=True,
+                    gpu_owned_stage_open_and_completed_cycles=True,tick_entry_stage_snapshot=True,
+                    operations=['delay','wait_own_cooldown','pattern','burst_sequence'],
+                    computed_cpu_action_schedule=False,full_post_tick_state_fingerprints=True,
+                    cover_down_ordering_receipts=True,input_words=109968,output_words=1769856,
+                    extra_runtime_bytes=0,extra_output_words=0,output_padding_owned_words=18,
+                    remaining=['explicit mode-sequence, post-delay, healing storage and mixed actor originals',
+                        'current CUDA execution and warm cache performance','public admission and all-character certification'],
                     public_gpu_admitted=False,all_characters_certified=False),
                 packet_integer_ratio=dict(suite='packet-ratio',source_sha256=ratio_sources,
                     proof_available=ratio_golden is not None,sealed_source_matches_current=ratio_matches,

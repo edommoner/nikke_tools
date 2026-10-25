@@ -1953,3 +1953,15 @@ native observerの全Python呼出し監視がcode objectをhashしていたた�
 ## 2026-10-25 burst操作の共通policy単体実証
 
 最新追加は `docs/portable-burst-control-policy.md` と `research/portable-burst-control-policy-checkpoint.json`。共通CLI `burst-control-policy` は347正本＋34拒否の381入力がM5 Metal全一致・別process/GPU禁止seal済み。候補producerをactual/予測で共有し、delay、本人wait、安定pattern順位、明示順序、再突入/A候補とepsilon境界を共通software binary64で検査。GPU1回、0.000918秒、pipeline0.129766秒。単独probeへresident generation cache指定した初回はcapture/claim前に拒否、指定修正後に実行。CPU3、共通制御443（Windows1skip）、保護8ファイル・旧world shaderは不変。実戦のcontrol.burst受付は未接続のまま。次は同じhelperをburstFrame/coordinateAimBurstEndへ接続し、stage_open/完了周期/tick冒頭候補をGPU保持、cooldown低下・full-end通知・reload into_fbを実戦照合し、旧251全raw保持後だけ受付を開く。固定package `/tmp/nikke-burst-policy-develop-v1`、capture `/tmp/nikke-burst-policy-metal-v1`、seal `/tmp/nikke-burst-policy-sealed-v1.json`。Windows追加0、現full battle CUDA/cache性能未取得。packing245/266・未対応21profiles/20分類・全キャラ0/UI CPU・全目標未達。
+
+## 2026-10-25 burst操作を共通戦闘実行器へ接続
+
+最新は `docs/portable-coordinate-burst-control.md`／`research/portable-coordinate-burst-control-checkpoint.json`。共通CLI `coordinate-burst-control` 293入力（native246／拒否47）がM5 Metal全一致・GPU禁止の別process監査＋同じ監査からのcompiler source certificateでseal済み。delay・本人wait・pattern・明示順序を共通candidate producerへ接続し、stage-open／完了周期／tick冒頭の候補段階をGPUが保持、次FB予測と同じ候補／delayを使います。既存Runtime247field/138952byte・出力1769856wordは不変、squad bank末尾18wordを所有。入力は固定176wordを足した109968wordです。旧251入力の全1776935424byte／input-prefix／nativeを保持。初版で一致した287入力の全2031794688byteも保持し、旧289全input/nativeが同じでrawが変わったのは実際の失敗2件だけ。初版のdown時boss_log逆順と再突入kind25の受付漏れを修正し、全員cover／先行down／最後の対象のcover等4編成を追加。原失敗とraw/claimは保持しています。
+
+GPU.727458秒／初回PSO93.066173秒／CPU事前174.963130秒／通常全比較195.023022秒。初期CPU監査180秒は実測に対して不足と判断して子だけ中止、GPU禁止のsaved seal/certificateだけ上限240秒へ分離（GPU/Windows/compiler/CPU test枠180は維持）。上限分離24件、native進捗journalの成功／指紋不一致／例外13件をCPU検査。journalは実GPU前の各ケース名・番号・件数・開始／終了／例外・時間を記録し、全体の生存／成功と混同しません。単体policy381はinclude調整後も全input/raw/CUDA/MSLが旧版と全byte同じ、新goldenを別名で登録し旧golden保持。
+
+固定package `/tmp/nikke-burst-control-develop-v3`（281dd15c…）、capture `/tmp/nikke-burst-control-metal-v3-ready-v1`、seal `/tmp/nikke-burst-control-sealed-v3.json`、certificate `/tmp/nikke-burst-control-source-certificate-v3.json`。v2準備は多重個別操作fixtureの誤った前提で中止、v3初回captureは容量検査でclaim/GPU前停止。元ソース展開16件を復元・全SHA検証付きでlossless圧縮して展開分だけ除去、全rawは削除せずSHA/inode/byte保持で4KiB疎化。
+
+現inventoryは266/packing245・base203/185・未対応21profile/20reference-model-gap分類、全キャラ認定0/UI CPUで未達。Windowsは既存チャットを一度read-only確認しrev78/idleのまま、新メッセージ・新実行0、現CUDA／warm cache性能は未取得。次は明示mode-sequenceとpost-delay、healing storage／混在actorの元定義、共通CLIのParentOraclesに新adapterの通常比較をつなぐこと。独立監査はfreshのまま維持し、current-source CUDAは短い必要検証だけにします。
+
+最終compact package `c4de2a88…`（1846 files／ZIP 8,475,998byte／展開53,629,442byte）は専用12検査・全246 nativeのCPU再照合・共通制御446検査（Windows専用1skip）が成功し、終了後に全payload SHAとcheckout全byteの一致を検査済みです。最終captureは `/tmp/nikke-burst-control-final-cpu-v1` と `/tmp/nikke-burst-control-final-control-v1`、archiveは `/tmp/nikke-burst-control-final-v1.zip`。GPU追加実行はありません。

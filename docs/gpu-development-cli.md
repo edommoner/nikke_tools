@@ -373,3 +373,9 @@ Windowsも同じ入力と比較器を使い、既存の低優先度・2GiB・180
 ## バースト候補policyの単体入口
 
 `burst-control-policy` は347正本＋34拒否の381入力を共有CUDA/Metal sourceで検査し、M5 Metalで実証・独立seal済みです。`package --suite burst-control-policy --compact` で固定packageを作成できます。これは候補・delay・wait・pattern・明示順序・次FB予測の単体契約で、worldのcontrol.burst受付は未接続です。[契約と残り](portable-burst-control-policy.md)を参照してください。
+
+## バースト操作の戦闘入口とCPU観測
+
+`coordinate-burst-control` は293入力（native246／拒否47）を共通候補producer／既存戦闘実行器で実行し、M5 Metal全一致・独立seal済みです。旧251入力の全rawを保持しています。`package --suite coordinate-burst-control --compact` を使います。[実装・配置・残り](portable-coordinate-burst-control.md)を参照してください。
+
+実GPU前のnative照合は `preparation.jsonl` の `cpu_native_oracle` でケース番号・名前・全件数・所要時間と失敗位置を観測できます。値の指紋が一致してから正常終了を記録し、失敗時は入力公開／GPU開始を止めます。processの生存はこの記録から推測しません。GPU禁止の `seal`／`compiler-certificate` のCPU監査だけ `--timeout 240` を明示可能です。293入力の通常比較195秒という実測に基づく分離で、GPU・Windows・compileの180秒上限は維持します。

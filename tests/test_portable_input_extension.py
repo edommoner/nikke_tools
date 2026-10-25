@@ -34,4 +34,13 @@ class InputExtensionTests(unittest.TestCase):
         same,_=verify_extension(self.old,old,self.new,new,'coordinate-squad-v1');self.assertFalse(same['old'])
     def test_unknown_contract_rejected_before_file_access(self):
         with self.assertRaisesRegex(ValueError,'Unknown'):verify_extension('/missing',{},'/missing',{},'ignore-input')
+    def test_burst_default_extension_requires_exact_disabled_descriptor(self):
+        from portable_burst_control_specs import INPUT_BASE as B,WORDS as W,empty as E
+        prefix=b'\1\0\0\0'*B;suffix=struct.pack('<'+str(W)+'I',*E())
+        old=self.write(self.old,[('old',prefix)]);new=self.write(self.new,[('old',prefix+suffix)])
+        same,r=verify_extension(self.old,old,self.new,new,'coordinate-burst-control-v1');self.assertTrue(same['old']);self.assertEqual(r['input_prefix_words'],109792)
+        for at in (0,8,len(suffix)-1):
+            changed=bytearray(suffix);changed[at]^=1
+            new=self.write(self.new,[('old',prefix+changed)])
+            same,_=verify_extension(self.old,old,self.new,new,'coordinate-burst-control-v1');self.assertFalse(same['old'])
 if __name__=='__main__':unittest.main()

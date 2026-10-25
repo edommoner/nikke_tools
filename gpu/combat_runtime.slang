@@ -195,15 +195,24 @@ uint effectiveStage(inout Runtime s, uint who, uint64_t when, out uint candidate
 void burstFrame(inout Runtime s, uint64_t when, uint output)
 {
     uint stages[5]; for (uint who = 0; who < 5; who++) { uint candidate;s.currentStage[who] = effectiveStage(s,who,when,candidate);stages[who]=candidate; }
+#ifdef PORTABLE_COORDINATE_BURST_CONTROLS
+    cacheBurstControlStages(s,stages);
+#endif
     if (s.phase == 5 && reached(when,s.fullEnd))
     { s.phase = 0; invalidateNativeNumeric(s); teamNotify(s,2,when,output); s.castMask = 0; logBurst(s,5,0xffffffff,when,output);
 #ifdef PORTABLE_COORDINATE_AUTHORED_AIM
+#ifdef PORTABLE_COORDINATE_BURST_CONTROLS
+      finishBurstControlCycle(s);
+#endif
       coordinateAimBurstEnd(s,when);
 #endif
     }
     if (s.phase == 0 && reached(s.gauge,HUNDRED))
     {
         s.gauge = 0; s.phase = 1; s.action = when; s.reentryDone = 0; s.reentrySlot = 0;
+#ifdef PORTABLE_COORDINATE_BURST_CONTROLS
+        openBurstControlStage(s,when);
+#endif
         logBurst(s,6,0xffffffff,when,output); WORLD_CONTROL_CYCLE(s) enterStage(s,1,when,output);
     }
     if (s.cooldownWaitMask != 0)
@@ -216,6 +225,11 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
     {
         uint picked = 5, candidates = 0; uint64_t earliest = FOREVER; s.cooldownWaitMask = 0;
         if (s.reentrySlot != 0) enterStage(s,s.phase,when,output);
+#ifdef PORTABLE_COORDINATE_BURST_CONTROLS
+        if(burstControls(s))chooseBurstControl(s,when,picked);
+        else
+#endif
+        {
         bool explicitCandidate=false;
         for(uint who=0;who<5;who++) if((stages[who]==s.phase || stages[who]==4) && (commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3]&1024U)!=0) explicitCandidate=true;
         for (uint who = 0; who < 5; who++) if (stages[who] == s.phase || stages[who] == 4)
@@ -226,6 +240,7 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
             if (s.phase < 3 && s.reentrySlot == 0 && !explicitCandidate) break;
         }
         if (picked == 5) { s.action = larger(s.action,earliest); s.cooldownWaitMask = candidates; }
+        }
         if (picked < 5)
         {
             uint stage = s.phase; s.castMask |= 1U << picked; s.casts[picked]++; WORLD_CONTROL_CAST(s,stage,picked)
@@ -246,11 +261,18 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
             for (uint row = 0; row < s.carrierCount; row++)
                 if (residentDefinition(s,row).owner == picked && residentDefinition(s,row).reentry != 0 && s.alive[row] != 0 && f64Less(when,s.end[row]) && basicConditions(s,row,when,true)) reentry = true;
             if (reentry && (s.reentryDone & (1U << stage)) == 0)
-            { s.reentryDone |= 1U << stage; s.reentrySlot = 1; s.action = f64Add(when,s.reentryDelay); }
+            { s.reentryDone |= 1U << stage; s.reentrySlot = 1; s.action = f64Add(when,s.reentryDelay);
+#ifdef PORTABLE_COORDINATE_BURST_CONTROLS
+              openBurstControlStage(s,s.action);
+#endif
+            }
             else
             {
                 s.reentrySlot = 0; s.phase++;
                 s.action = f64Add(when,s.phase == 4 ? FULL_DELAY : STAGE_DELAY);
+#ifdef PORTABLE_COORDINATE_BURST_CONTROLS
+                if(s.phase<4)openBurstControlStage(s,s.action);
+#endif
                 if (s.phase < 4) enterStage(s,s.phase,when,output);
             }
         }
@@ -265,6 +287,9 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
       invalidateNativeNumeric(s);
       teamNotify(s,1,when,output); reconcileBurstCooldowns(s,when); firePendingBursts(s,when,output); logBurst(s,4,0xffffffff,when,output); nativeFullBurstSnapshot(s,when); }
     s.gaugeCharging = uint(s.phase == 0);
+#ifdef PORTABLE_COORDINATE_BURST_CONTROLS
+    captureBurstControl(s,when);
+#endif
 }
 [noinline]
 bool changedWeaponSession(inout Runtime s, uint who, uint epoch, int originalMode)

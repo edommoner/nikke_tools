@@ -29,10 +29,23 @@ class PreparedInputTests(unittest.TestCase):
   cli.write(self.capture/'cpu.json',result)
   self.assertEqual(cli.read_prepared_transport_input(self.m,self.capture),(self.data,1))
   self.assertEqual(result['gpu_calls'],dict(build=0,execute=0));self.assertEqual(result['native_oracles'],1)
+  events=[json.loads(x) for x in (self.capture/'preparation.jsonl').read_text().splitlines()]
+  self.assertEqual([x['state'] for x in events],['entered','returned'])
+  self.assertTrue(all(x['case_index']==0 and x['case_name']=='native/one' and x['native_case'] for x in events));self.assertTrue(events[-1]['fingerprint_verified'])
  def test_failed_native_gate_cannot_publish_input_or_receipt(self):
   self.adapter.native_reference=lambda _:dict(amount=10)
   with patch.object(cli,'ROOT',self.root),patch.object(cli,'open_suite',return_value=self.adapter),patch.object(cli,'prepare_entries',return_value=(self.rows,self.data)),self.assertRaisesRegex(ValueError,'CPU/input mismatch'):
    cli.cpu_preflight(self.m,input_capture=self.capture)
+  self.assertFalse((self.capture/'input.bin').exists());self.assertFalse((self.capture/'input-preflight.json').exists())
+  events=[json.loads(x) for x in (self.capture/'preparation.jsonl').read_text().splitlines()]
+  self.assertEqual([x['state'] for x in events],['entered','raised']);self.assertEqual(events[-1]['exception'],'ValueError');self.assertNotIn('fingerprint_verified',events[-1])
+ def test_native_exception_is_journaled_without_inventing_a_successful_case(self):
+  def broken(_):raise RuntimeError('fixture failure')
+  self.adapter.native_reference=broken
+  with patch.object(cli,'ROOT',self.root),patch.object(cli,'open_suite',return_value=self.adapter),patch.object(cli,'prepare_entries',return_value=(self.rows,self.data)),self.assertRaisesRegex(RuntimeError,'fixture failure'):
+   cli.cpu_preflight(self.m,input_capture=self.capture)
+  events=[json.loads(x) for x in (self.capture/'preparation.jsonl').read_text().splitlines()]
+  self.assertEqual([x['state'] for x in events],['entered','raised']);self.assertEqual(events[-1]['case_index'],0);self.assertEqual(events[-1]['exception'],'RuntimeError')
   self.assertFalse((self.capture/'input.bin').exists());self.assertFalse((self.capture/'input-preflight.json').exists())
  def test_child_passes_verified_bytes_without_importing_or_repacking_adapter(self):
   import portable_backend

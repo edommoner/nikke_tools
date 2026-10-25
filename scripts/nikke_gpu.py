@@ -19,6 +19,7 @@ from unittest.mock import patch
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+CPU_SAVED_AUDIT_MAX_SECONDS=240  # GPU-forbidden full readback/native comparison only.
 sys.path[:0] = [str(ROOT/p) for p in ('app', 'research', 'scripts')]
 from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 # No GPU/backend/native imports at startup: collect/audit must work without them.
@@ -323,7 +324,7 @@ SUITES['coordinate-composed']=dict(SUITES['coordinate-generation'],script='resea
 SUITES['coordinate-arcs']=dict(script='research/verify-coordinate-arcs-short.py',source='gpu/coordinate_arc_probe.slang',golden='research/portable-coordinate-arcs-short-expected.json',inputs=135,native=126,output_words=4100,development_only=False,upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'],tests=['test_coordinate_arcs.py','test_coordinate_physical_frontier.py'])
 SUITES['coordinate-composed']['support_files']=[*SUITES['coordinate-generation'].get('support_files',[]),'research/portable-coordinate-arcs-short-expected.json']
 SUITES['coordinate-arc-scalar']=dict(script='research/verify-coordinate-arc-scalar-short.py',source='gpu/coordinate_arc_scalar_probe.slang',golden='research/portable-coordinate-arc-scalar-short-expected.json',inputs=640,native=632,output_words=4104,development_only=False,tests=['test_coordinate_arc_scalar.py','test_portable_model_gap_audit.py','test_coordinate_physical_frontier.py'],upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'],support_files=['research/portable-coordinate-arcs-short-expected.json'])
-SUITES['burst-control-policy']=dict(script='research/verify-burst-control-policy-short.py',source='gpu/burst_control_policy_probe.slang',golden='research/portable-burst-control-policy-short-expected.json',inputs=381,native=347,output_words=32,development_only=False,tests=['test_burst_control_policy.py'])
+SUITES['burst-control-policy']=dict(script='research/verify-burst-control-policy-short.py',source='gpu/burst_control_policy_probe.slang',golden='research/portable-burst-control-policy-shared-short-expected.json',inputs=381,native=347,output_words=32,development_only=False,tests=['test_burst_control_policy.py'])
 SUITES['coordinate-numeric']=dict(script='research/verify-coordinate-numeric-short.py',source='gpu/coordinate_numeric_probe.slang',golden='research/portable-coordinate-numeric-short-expected.json',inputs=2783,native=2771,output_words=16,development_only=False,tests=['test_coordinate_numeric_v1.py'])
 SUITES['coordinate-geometry']=dict(script='research/verify-coordinate-geometry-short.py',source='gpu/coordinate_geometry_probe.slang',golden='research/portable-coordinate-geometry-short-expected.json',inputs=1224,native=1209,output_words=4160,development_only=False,tests=['test_coordinate_geometry_v1.py','test_coordinate_numeric_v1.py'])
 SUITES['coordinate-power']=dict(script='research/verify-coordinate-power-short.py',source='gpu/coordinate_power_probe.slang',golden='research/portable-coordinate-power-short-expected.json',inputs=909,native=898,output_words=8,development_only=False,tests=['test_coordinate_power_v1.py','test_portable_numeric_design.py'])
@@ -350,6 +351,8 @@ SUITES['coordinate-policy']['support_files']=['research/portable-compiler-full--
 SUITES['coordinate-squad']=dict(SUITES['coordinate-policy'],script='research/verify-coordinate-squad-short.py',source='gpu/world_coordinate_squad_entry.slang',golden='research/portable-coordinate-squad-short-expected.json',inputs=222,native=189,development_only=False,cpu_test_timeout=180,tests=[*SUITES['coordinate-policy']['tests'],'test_coordinate_squad.py'])
 SUITES['coordinate-squad-mode']=dict(SUITES['coordinate-squad'],script='research/verify-coordinate-squad-mode-short.py',source='gpu/world_coordinate_squad_mode_entry.slang',golden='research/portable-coordinate-squad-mode-short-expected.json',inputs=251,native=213,development_only=False,cpu_test_timeout=180,tests=['test_coordinate_squad_mode.py','test_coordinate_physical_frontier.py'])
 SUITES['coordinate-squad-mode']['support_files']=['research/portable-compiler-full--coordinate-squad-mode-source-certificate.json',*SUITES['coordinate-squad']['support_files']]
+SUITES['coordinate-burst-control']=dict(SUITES['coordinate-squad-mode'],script='research/verify-coordinate-burst-control-short.py',source='gpu/world_coordinate_burst_control_entry.slang',golden='research/portable-coordinate-burst-control-short-expected.json',inputs=293,native=246,development_only=False,tests=['test_coordinate_burst_control.py','test_burst_control_policy.py','test_coordinate_physical_frontier.py'])
+SUITES['coordinate-burst-control']['support_files']=['research/portable-compiler-full--coordinate-burst-control-source-certificate.json',SUITES['coordinate-squad-mode']['golden'],*SUITES['coordinate-squad-mode']['support_files']]
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -916,7 +919,9 @@ def cpu_input_mismatch(m,entries,data,input_words,capture):
 
 
 def cpu_preflight(m,*,parent_oracles=None,input_capture=None):
+    from portable_phase_audit import Journal
     started = time.perf_counter()
+    progress=Journal(Path(input_capture)/'preparation.jsonl') if input_capture is not None else None
     (ROOT/'research/portable-build').mkdir(parents=True,exist_ok=True)
     # Patch before importing the adapter, so its from-import aliases are blocked.
     with forbid_gpu():
@@ -934,9 +939,17 @@ def cpu_preflight(m,*,parent_oracles=None,input_capture=None):
                 cpu_input_mismatch(m,entries,data,adapter.suite.INPUT,input_capture)
                 raise ValueError('First CPU/input mismatch: '+name)
             before=parent_oracles.before(i) if parent_oracles is not None else None
-            value=native_value(adapter,domain)
-            if adapter.cross.digest(value) != expected['native_sha256']:
-                raise ValueError('First CPU/input mismatch: '+name)
+            facts=dict(case_index=i,case_name=name,case_count=len(entries),native_case=domain is not None)
+            if progress is not None:progress.emit('cpu_native_oracle','entered',**facts)
+            oracle_started=time.perf_counter()
+            try:
+                value=native_value(adapter,domain)
+                if adapter.cross.digest(value) != expected['native_sha256']:
+                    raise ValueError('First CPU/input mismatch: '+name)
+            except BaseException as error:
+                if progress is not None:progress.emit('cpu_native_oracle','raised',elapsed_seconds=time.perf_counter()-oracle_started,exception=type(error).__name__,**facts)
+                raise
+            if progress is not None:progress.emit('cpu_native_oracle','returned',elapsed_seconds=time.perf_counter()-oracle_started,fingerprint_verified=True,**facts)
             if parent_oracles is not None:parent_oracles.remember(i,before,value,adapter.cross.digest)
         if parent_oracles is not None:parent_oracles.finish()
     from portable_typed_cuda_proof_audit import verify_cpu_gpu_calls
@@ -1375,7 +1388,7 @@ def audit_saved_metal(package_root,capture,*,timeout=60,development_only=False):
     # Use the package's own imports and auditors in a fresh process. Its files
     # are verified before native work; never patch a consumed package in place.
     # Legacy adapter chains use relative module paths: anchor their cwd too.
-    if type(timeout) is not int or not 1<=timeout<=180:raise ValueError('CPU seal timeout must be an integer from 1 to 180 seconds')
+    if type(timeout) is not int or not 1<=timeout<=CPU_SAVED_AUDIT_MAX_SECONDS:raise ValueError('CPU seal timeout must be an integer from 1 to 240 seconds')
     script = """import importlib.util,json,sys,pathlib
 root=pathlib.Path(sys.argv[1]);capture=pathlib.Path(sys.argv[2])
 s=importlib.util.spec_from_file_location('seal_controller',sys.argv[3])
@@ -1451,7 +1464,7 @@ def make_compiler_certificate(suite,package_root,capture,output,*,timeout=120):
     from portable_backend import source_hashes
     diagnostic=compiler_alias(suite)
     if diagnostic not in SUITES or not full_compiler(dict(suite=diagnostic)):raise ValueError('Registered full-world battle suite required')
-    if type(timeout) is not int or not 1<=timeout<=180:raise ValueError('CPU certificate timeout must be1..180 seconds')
+    if type(timeout) is not int or not 1<=timeout<=CPU_SAVED_AUDIT_MAX_SECONDS:raise ValueError('CPU certificate timeout must be1..240 seconds')
     output.mkdir(parents=True,exist_ok=False)
     try:
         package=verify_saved_package(package_root);run=load(capture/'run.json')

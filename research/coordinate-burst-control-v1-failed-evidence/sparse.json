@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-burst-control-metal-v1",
+  "raw_bytes": 2045953536,
+  "raw_sha256": "fe71b9ca2ad36b3d27cc31e4ef0362146938d147a512d69ba72ad4c4db788b6f",
+  "evidence_sha256": "53219b6b95196345797f5f71549ce85712e0bbec88ff7fe8cf727ce7171ed76e",
+  "raw_inode": 510708015,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 9687,
+  "zero_range_bytes": 1999175680,
+  "allocated_before": 2045956096,
+  "allocated_after": 46780416,
+  "allocated_reclaimed": 1999175680,
+  "full_hash_verified": true
+}

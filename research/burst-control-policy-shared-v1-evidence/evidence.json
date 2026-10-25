@@ -1,0 +1,58 @@
+{
+  "transport": {
+    "backend": "metal",
+    "cases": 381,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 0.0008619166910648346,
+    "input_bytes": 341380,
+    "library_compile_seconds": 0.0010960102081298828,
+    "output_bytes": 48768,
+    "pipeline_cache": {
+      "archive_bytes": 111216,
+      "archive_compile_seconds": 0,
+      "archive_sha256": "9a3244b059ad295e21d2758a55e4aa8199f64e7e2195ad888835266b1651c20c",
+      "enabled": true,
+      "hit": true,
+      "identity": {
+        "consumer_sha256": "b82ce9f7d5de0886ab59dc9c51840089211e973293ad83651906ab25344106c1",
+        "device": "Apple M5",
+        "entry": "portableEvents",
+        "math_mode": "safe",
+        "os_build": "Version 26.6.2 (Build 25G83)",
+        "registry_id": "4294968313",
+        "resident_stride": "0",
+        "schema": "1",
+        "source_sha256": "a471b299d43e45d75ac5482713671c3fdfbe31c046925dfc4c475cd969c9e17f",
+        "threads_per_threadgroup": "1"
+      },
+      "key": "95dcb6dc809510c1f928e85bebe7ba12199b6290938336f7ddc57443b4b09525",
+      "native_archive_miss_rejected": true,
+      "required": false,
+      "schema": 1
+    },
+    "pipeline_compile_seconds": 0.0002499818801879883,
+    "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "pipeline_os_build": "Version 26.6.2 (Build 25G83)",
+    "registry_id": "4294968313",
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "source_sha256": {
+    "gpu/burst_control_policy_probe.slang": "d41851398846d7ef4b259660e33bb81587b64f150e40f5585ade99e43d401dc9",
+    "gpu/burst_control_policy.slang": "67e178287eb06eaec483db76b28033995d7b8dc62ca004a75f2ed8d9dfc36152",
+    "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e"
+  },
+  "generated_sha256": {
+    "cuda": "ce6fd9e5f566ff63d9725c167a6356f69f4e5326ee61a5c239d689322ae25a1f",
+    "metal": "a471b299d43e45d75ac5482713671c3fdfbe31c046925dfc4c475cd969c9e17f"
+  },
+  "input_sha256": "3c1e4fbdc2c83e5fd913423aa73ffb647864bf9fb589b8afba8c9b8be799d69f",
+  "output_sha256": "dd328fd1a28f9fa452aadfcfeed07ef0a44508cc9735732856717e235d938ce0",
+  "gpu_execution_verified": true,
+  "backend": "metal"
+}

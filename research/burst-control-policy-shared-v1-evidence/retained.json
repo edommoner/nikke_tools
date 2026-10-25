@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "gpu_calls": 0,
+  "retained": {
+    "input.bin": {
+      "bytes": 341380,
+      "sha256": "3c1e4fbdc2c83e5fd913423aa73ffb647864bf9fb589b8afba8c9b8be799d69f",
+      "all_bytes_equal": true
+    },
+    "readback.bin": {
+      "bytes": 48768,
+      "sha256": "dd328fd1a28f9fa452aadfcfeed07ef0a44508cc9735732856717e235d938ce0",
+      "all_bytes_equal": true
+    },
+    "generated.cu": {
+      "bytes": 28282,
+      "sha256": "ce6fd9e5f566ff63d9725c167a6356f69f4e5326ee61a5c239d689322ae25a1f",
+      "all_bytes_equal": true
+    },
+    "generated.metal": {
+      "bytes": 27604,
+      "sha256": "a471b299d43e45d75ac5482713671c3fdfbe31c046925dfc4c475cd969c9e17f",
+      "all_bytes_equal": true
+    }
+  }
+}

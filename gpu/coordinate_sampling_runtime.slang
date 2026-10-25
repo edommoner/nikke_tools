@@ -30,6 +30,9 @@ bool initializeCoordinateSampling(inout Runtime s)
         uint kind=definition_kind(s.inputBase,row);
 #ifdef PORTABLE_COORDINATE_SAMPLED_VITAL
         if(kind!=0&&kind!=2&&kind!=3&&kind!=4&&kind!=6&&kind!=7&&kind!=8&&kind!=24
+#ifdef PORTABLE_COORDINATE_BURST_CONTROLS
+            &&((kind!=5&&kind!=25)||!burstControls(s)) // Existing shared cooldown/reentry handlers.
+#endif
 #ifdef PORTABLE_COORDINATE_SQUAD_MODE_STATE
             &&kind!=29 // Existing shared revival handler; mode flags survive on_down/on_revive.
 #endif
@@ -74,6 +77,9 @@ bool initializeCoordinateSampling(inout Runtime s)
     if(!initializeCoverPolicies(s))return false;
 #ifdef PORTABLE_COORDINATE_SQUAD_ACTIONS
     if(!initializeSquadControls(s))return false;
+#ifdef PORTABLE_COORDINATE_BURST_CONTROLS
+    if(!initializeBurstControls(s))return false;
+#endif
 #endif
 #endif
 #endif

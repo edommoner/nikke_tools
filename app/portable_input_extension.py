@@ -2,7 +2,7 @@
 import hashlib,struct
 from pathlib import Path
 
-CONTRACTS=('coordinate-policy-v1','coordinate-squad-v1')
+CONTRACTS=('coordinate-policy-v1','coordinate-squad-v1','coordinate-burst-control-v1')
 
 def _scan(folder,report,words,keep=None):
     path=Path(folder)/'input.bin'
@@ -25,6 +25,8 @@ def verify_extension(reference,old,candidate,new,contract):
         from portable_cover_policy_specs import INPUT_BASE,INPUT_WORDS,empty
     elif contract=='coordinate-squad-v1':
         from portable_squad_control_specs import INPUT_BASE,INPUT_WORDS,empty
+    elif contract=='coordinate-burst-control-v1':
+        from portable_burst_control_specs import INPUT_BASE,WORDS as INPUT_WORDS,empty
     else:raise ValueError('Unknown input extension contract')
     previous=_scan(reference,old,INPUT_BASE);current=_scan(candidate,new,INPUT_BASE+INPUT_WORDS,set(previous))
     suffix=struct.pack('<'+str(INPUT_WORDS)+'I',*empty());equivalent={}

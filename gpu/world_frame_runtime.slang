@@ -101,4 +101,17 @@ void worldReviveLog(inout Runtime s,uint who,uint downs,uint64_t when)
 { WorldSchedule w=frameSchedule(s);wsLog(w,6,who,downs,when);s.error=w.error; }
 
 void worldCoverBreakLog(inout Runtime s,uint node,uint64_t when)
-{ WorldSchedule w=frameSchedule(s);wsLog(w,7,node,0,when);s.error=w.error; }
+{
+    uint ordering=0;
+#ifdef PORTABLE_COORDINATE_BURST_CONTROLS
+    if(burstControls(s))
+    {
+        // Cover breaks before this landing can produce its down notice. The
+        // explicit ordinal also preserves interleaving across multiple targets.
+        uint h=s.resourceOutput+P_WORLD_FRAME_OUTPUT_BASE,downs=0;
+        for(uint i=0;i<results[h+6];i++)if((results[s.resourceOutput+P_WORLD_FRAME_HIT_BASE+i*16+3]&4U)!=0)downs++;
+        ordering=0x80000000U|downs;
+    }
+#endif
+    WorldSchedule w=frameSchedule(s);wsLog(w,7,node,ordering,when);s.error=w.error;
+}

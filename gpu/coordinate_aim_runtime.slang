@@ -118,6 +118,9 @@ void coordinateAimBurstStart(inout Runtime s,uint64_t when)
 void coordinateAimBurstEnd(inout Runtime s,uint64_t when)
 {
     uint h=ciHead(s);if(f64Less(0,actorNumber(h+10)))return;
+#ifdef PORTABLE_COORDINATE_BURST_CONTROLS
+    if(burstControls(s)){predictBurstControl(s,when);return;}
+#endif
     uint64_t at=when;
     for(uint stage=1;stage<=3;stage++)
     {

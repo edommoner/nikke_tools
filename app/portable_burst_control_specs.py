@@ -8,6 +8,13 @@ OWNERS = 5
 ROW_WORDS = 24
 SEQUENCES = 16
 PATTERN_CYCLES = 512
+INPUT_BASE = 109792
+SOURCE = 'gpu/world_coordinate_burst_control_entry.slang'
+STATE_BASE = 1769838
+
+
+def empty():
+    return [MAGIC, 1, 0, 0, OWNERS, ROW_WORDS, 16, 0] + [0] * (WORDS - 8)
 
 
 def number(value):
