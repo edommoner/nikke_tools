@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "records": [
+    {
+      "name": "shared",
+      "package_id": "46240e73775ce21c5b6a48bce91ec718577cad97f9f89dce3dd27449bd45dc1b",
+      "payload_files": 1981,
+      "all_payload_sha_and_checkout_bytes_equal": true,
+      "gpu_source_input_native_output_equal": true
+    },
+    {
+      "name": "decoy",
+      "package_id": "3b83f01d1d4eda92fe812b5381751a78e6c1d561ede8e381edaa6b59b726aa55",
+      "payload_files": 1993,
+      "all_payload_sha_and_checkout_bytes_equal": true,
+      "gpu_source_input_native_output_equal": true
+    }
+  ],
+  "gpu_calls": 0
+}

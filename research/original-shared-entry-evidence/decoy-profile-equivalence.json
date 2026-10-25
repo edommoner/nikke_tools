@@ -1,0 +1,97 @@
+{
+  "runs": [
+    {
+      "enabled": false,
+      "seconds": 10.865169666009024,
+      "native_sha256": "fa59493d6d2134f931d9d70cdc71215c939847a726388f365759d694ebbd1856",
+      "creation_indices_sha256": "83a481555e6dd15582b7b8158463a716a1258c5a8f75ac8986d2d900dceadd84",
+      "receipts": []
+    },
+    {
+      "enabled": true,
+      "seconds": 3.694437624886632,
+      "native_sha256": "fa59493d6d2134f931d9d70cdc71215c939847a726388f365759d694ebbd1856",
+      "creation_indices_sha256": "83a481555e6dd15582b7b8158463a716a1258c5a8f75ac8986d2d900dceadd84",
+      "receipts": [
+        {
+          "schema": 1,
+          "observers": [
+            {
+              "function": "inspect.<locals>.profile",
+              "file": "research/world_skill_native.py",
+              "source_sha256": "2ff31a8f500c13ac61c2f134a6bc69f261b475d9726c1228a2bf9855c7b0efe6"
+            },
+            {
+              "function": "observe.<locals>.profile",
+              "file": "research/world_coordinate_physical_native.py",
+              "source_sha256": "5cb7148e6aba286beabfc909d35b08e2c9d88d09c88f74e850f8a8abf81428a0"
+            },
+            {
+              "function": "observe.<locals>.profile",
+              "file": "research/world_coordinate_packet_quantity_native.py",
+              "source_sha256": "69f462b62db8886a1ec3e1d86ec0372ed508574d2e1619910c62fefe8f6545ee"
+            },
+            {
+              "function": "creation_indices.<locals>.profile",
+              "file": "research/world_coordinate_sampled_skill_native.py",
+              "source_sha256": "5bf25a5c98f2761fd447a265062be304c64a385bebe7b7960f5bad58d7966362"
+            },
+            {
+              "function": "observe.<locals>.profile",
+              "file": "research/world_coordinate_sampled_skill_native.py",
+              "source_sha256": "5bf25a5c98f2761fd447a265062be304c64a385bebe7b7960f5bad58d7966362"
+            },
+            {
+              "function": "capture.<locals>.prof",
+              "file": "research/world_full_burst_landing_native.py",
+              "source_sha256": "204ae3652d67e711bfa3c8c89e5025919e93e9da001ad57d8cd7fe044737793c"
+            },
+            {
+              "function": "observe.<locals>.profile",
+              "file": "research/world_coordinate_sampled_burst_native.py",
+              "source_sha256": "e6eeb6916522f9e71bfef87a34cb03727b04c4558fc390d4974c87dd81c52a22"
+            },
+            {
+              "function": "observe.<locals>.profile",
+              "file": "research/world_coordinate_sampled_vital_native.py",
+              "source_sha256": "add6ebc418b13ed7e4c18129fed543b6c3ff22de4ac783f9710a5752bd2ea8a8"
+            },
+            {
+              "function": "observe.<locals>.profile",
+              "file": "research/world_coordinate_mixed_native.py",
+              "source_sha256": "18d200f0c88bfd29dc2f41ed319ccb95ed018638e31d4c5c5eb230a067d9a0ba"
+            },
+            {
+              "function": "observe.<locals>.profile",
+              "file": "research/world_coordinate_manual_native.py",
+              "source_sha256": "e366c27c9af01b82da70914bb9f300d20a80cc8e53a4a1f1fcb16ce85ab4bf0e"
+            },
+            {
+              "function": "capture.<locals>.profile",
+              "file": "research/world_heal_charge_native.py",
+              "source_sha256": "c3844029702fdc422fe72b232984f9170ae9bfc31d6ba22d2d4f0eb29aa8e565"
+            },
+            {
+              "function": "creation_indices.<locals>.profile",
+              "file": "research/world_coordinate_sampled_skill_native.py",
+              "source_sha256": "5bf25a5c98f2761fd447a265062be304c64a385bebe7b7960f5bad58d7966362"
+            }
+          ],
+          "event_counts": {
+            "call": 575914,
+            "return_": 575914,
+            "c_call": 818035,
+            "c_return": 818035,
+            "c_exception": 0
+          },
+          "python_observer_order_preserved": true,
+          "gpu_calls": 0,
+          "calculation_verified": false
+        }
+      ]
+    }
+  ],
+  "full_native_and_creation_indices_equal": true,
+  "gpu_calls": 0,
+  "calculation_verified": false
+}

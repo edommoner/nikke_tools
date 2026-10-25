@@ -385,6 +385,10 @@ SUITES['coordinate-original-shield']=dict(SUITES['coordinate-original-reload'],s
 SUITES['coordinate-original-shield']['support_files']=['research/portable-compiler-full--coordinate-original-shield-source-certificate.json',SUITES['coordinate-original-reload']['golden'],*SUITES['coordinate-original-reload']['support_files']]
 SUITES['coordinate-original-cover']=dict(SUITES['coordinate-original-shield'],script='research/verify-coordinate-original-cover-short.py',source='gpu/world_coordinate_original_cover_entry.slang',golden='research/portable-coordinate-original-cover-short-expected.json',inputs=6,native=6,development_only=False,tests=['test_original_cover.py','test_coordinate_kind_admission.py','test_coordinate_original.py','test_native_python_profile.py','test_portable_ally_random_reference.py'])
 SUITES['coordinate-original-cover']['support_files']=['research/portable-compiler-full--coordinate-original-cover-source-certificate.json',SUITES['coordinate-original-shield']['golden'],*SUITES['coordinate-original-shield']['support_files']]
+SUITES['coordinate-original-shared']=dict(SUITES['coordinate-original-cover'],script='research/verify-coordinate-original-shared-short.py',source='gpu/world_coordinate_original_shared_entry.slang',golden='research/portable-coordinate-original-shared-short-expected.json',inputs=6,native=6,development_only=False,kind_baseline_source='gpu/world_coordinate_original_cover_entry.slang',tests=['test_source_reuse.py','test_original_shared_entry.py','test_original_cover.py','test_coordinate_kind_admission.py','test_coordinate_original.py'])
+SUITES['coordinate-original-shared']['support_files']=['research/portable-compiler-full--coordinate-original-shared-source-certificate.json',SUITES['coordinate-original-cover']['golden'],*SUITES['coordinate-original-cover']['support_files']]
+SUITES['coordinate-original-decoy']=dict(SUITES['coordinate-original-shared'],script='research/verify-coordinate-original-decoy-short.py',golden='research/portable-coordinate-original-decoy-short-expected.json',inputs=3,native=3,tests=['test_source_reuse.py','test_original_decoy.py','test_original_shield.py','test_coordinate_kind_admission.py','test_coordinate_original.py','test_native_python_profile.py'])
+SUITES['coordinate-original-decoy']['support_files']=['research/portable-compiler-full--coordinate-original-decoy-source-certificate.json',SUITES['coordinate-original-shared']['golden'],*SUITES['coordinate-original-shared']['support_files']]
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -2842,7 +2846,9 @@ def main(argv=None):
     a.add_argument('--artifact-kind',choices=('ptx','cubin'),default='cubin');a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--require-hit',action='store_true')
     a=sub.add_parser('consumer-audit');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
-    a=sub.add_parser('entry-inventory');a.add_argument('--out',type=Path,required=True);a.add_argument('--suite',choices=('coordinate-original','coordinate-original-burst-revival','coordinate-original-resources','coordinate-original-ammo','coordinate-original-stacks','coordinate-original-cleanse','coordinate-original-source','coordinate-original-reload','coordinate-original-shield','coordinate-original-cover'),default='coordinate-original')
+    a=sub.add_parser('source-reuse');a.add_argument('--out',type=Path,required=True);a.add_argument('--require-hit',action='store_true')
+    for name in ('reference-package','candidate-package','reference-generation','candidate-generation'):a.add_argument('--'+name,type=Path,required=True)
+    a=sub.add_parser('entry-inventory');a.add_argument('--out',type=Path,required=True);a.add_argument('--suite',choices=('coordinate-original','coordinate-original-burst-revival','coordinate-original-resources','coordinate-original-ammo','coordinate-original-stacks','coordinate-original-cleanse','coordinate-original-source','coordinate-original-reload','coordinate-original-shield','coordinate-original-cover','coordinate-original-shared','coordinate-original-decoy'),default='coordinate-original')
     a=sub.add_parser('metal-device-probe',help='Bounded device visibility only; no kernel compilation or GPU dispatch');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('coordinate-parent-check',help='CPU-only live preflight/context reuse check against saved Metal fixtures; not GPU certification')
     a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -2954,9 +2960,14 @@ def main(argv=None):
         with forbid_gpu():
             entries,_=prepare_entries(open_suite(dict(suite=a.suite)),dict(purpose='development'))
         result=dict(suite=a.suite,cases=[row[0] for row in entries],gpu_calls=0)
+    elif a.command=='source-reuse':
+        if a.out.exists():raise ValueError('Source reuse report already exists')
+        from portable_source_reuse import run
+        with forbid_gpu():result=run(SimpleNamespace(**globals()),a.reference_package,a.candidate_package,a.reference_generation,a.candidate_generation,require_hit=a.require_hit)
+        write(a.out,result)
     elif a.command=='entry-inventory':
         from portable_original_entry_inventory import run
-        result=run(a.out,write=write,forbid_gpu=forbid_gpu,source=SUITES[a.suite]['source'])
+        result=run(a.out,write=write,forbid_gpu=forbid_gpu,source=SUITES[a.suite]['source'],comparison_source=SUITES[a.suite].get('kind_baseline_source'))
     elif a.command=='inventory':
         if a.out.exists():raise ValueError('Inventory output already exists')
         inventory=module(ROOT/'research/audit-world-roster-input.py').main(destination=str(a.out.resolve()),quiet=True)

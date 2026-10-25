@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 BASE=(0,2,3,4,6,7,8,24)
 EXTENSIONS=(
+ ('PORTABLE_COORDINATE_EXISTING_HANDLERS',(18,20,21,31,34,35,37),False,'Private existing handlers; kind acceptance is not native battle certification.'),
  ('PORTABLE_COORDINATE_ORIGINAL_COVER_REVIVE',(30,),False,'Existing shared broken-cover revival and recipient handlers.'),
  ('PORTABLE_COORDINATE_ORIGINAL_SHIELD_HEAL',(27,),False,'Existing shared protection healing and periodic instant handlers.'),
  ('PORTABLE_COORDINATE_ORIGINAL_FORCED_RELOAD',(23,),False,'Existing common reload request and lifecycle handlers.'),

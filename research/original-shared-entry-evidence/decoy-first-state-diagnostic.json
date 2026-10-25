@@ -1,0 +1,85 @@
+[
+  {
+    "name": "coordinate-original-decoy/Rei/full",
+    "actual": [
+      {
+        "row": 2,
+        "owner": 0,
+        "members": [
+          "라이"
+        ],
+        "stack": 1,
+        "activated": 0.0,
+        "end": null,
+        "current": {
+          "라이": 3153384.0
+        },
+        "capacity": {
+          "라이": 3153384.0
+        }
+      }
+    ],
+    "native": [
+      {
+        "row": 2,
+        "owner": 0,
+        "members": [
+          "라이"
+        ],
+        "stack": 1,
+        "activated": 0.0,
+        "end": 240.0,
+        "current": {
+          "라이": 3153384.0
+        },
+        "capacity": {
+          "라이": 3153384.0
+        }
+      }
+    ]
+  },
+  {
+    "name": "coordinate-original-decoy/Rei/chipped",
+    "actual": [
+      {
+        "row": 2,
+        "owner": 0,
+        "members": [
+          "라이"
+        ],
+        "stack": 1,
+        "activated": 0.0,
+        "end": null,
+        "current": {
+          "라이": 1582726.139
+        },
+        "capacity": {
+          "라이": 3153384.0
+        }
+      }
+    ],
+    "native": [
+      {
+        "row": 2,
+        "owner": 0,
+        "members": [
+          "라이"
+        ],
+        "stack": 1,
+        "activated": 0.0,
+        "end": 240.0,
+        "current": {
+          "라이": 1582726.139
+        },
+        "capacity": {
+          "라이": 3153384.0
+        }
+      }
+    ]
+  },
+  {
+    "name": "coordinate-original-decoy/Rei/broken",
+    "actual": [],
+    "native": []
+  }
+]

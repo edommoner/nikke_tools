@@ -27,11 +27,11 @@ def rejected_effects(words,metadata,prepared,unsupported):
             effect_sha256=hashlib.sha256(json.dumps(effect,ensure_ascii=False,sort_keys=True).encode()).hexdigest()))
     return rows
 
-def operator_priorities(profiles):
+def operator_priorities(profiles,*,effect_key='rejected_effects'):
     """Count profiles, original definitions and compiled bindings separately."""
     groups={}
     for profile in profiles:
-        for row in profile.get('rejected_effects',[]):
+        for row in profile.get(effect_key,[]):
             operator=row['operator'];key=json.dumps(operator,ensure_ascii=False,sort_keys=True)
             group=groups.setdefault(key,dict(operator=copy.deepcopy(operator),definitions=[]))
             group['definitions'].append(dict(character=profile['character'],favorite_stage=profile['favorite_stage'],
@@ -51,7 +51,7 @@ def kind_dependencies(profiles):
     return [dict(required_kinds=list(required),profile_count=len(rows),profiles=sorted(rows,key=lambda row:(row['character'],row['favorite_stage'])))
         for required,rows in sorted(groups.items(),key=lambda item:(-len(item[1]),item[0]))]
 
-def run(output,*,write,forbid_gpu,source=None):
+def run(output,*,write,forbid_gpu,source=None,comparison_source=None):
     output=Path(output)
     with output.open('x',encoding='utf-8') as stream:stream.write('{}\n')
     started=time.perf_counter();calls=dict(cpu_battle=0,gpu=0)
@@ -66,6 +66,7 @@ def run(output,*,write,forbid_gpu,source=None):
         source=source or DEFAULT_SOURCE
         from portable_coordinate_kind_admission import KindAdmission
         policy=KindAdmission(Path(__file__).resolve().parents[1],source)
+        comparison=KindAdmission(Path(__file__).resolve().parents[1],comparison_source) if comparison_source else None
         from portable_specs import LIMITS as L,FIELDS as F
         root=Path(__file__).resolve().parents[1]
         sources=[root/p for p in ('app/portable_original_entry_inventory.py','app/portable_original_identity_inventory.py','app/portable_coordinate_roster_input.py','app/portable_world_roster_input.py','app/portable_runtime.py','app/engine_worker.py','app/effect_spec.py')]
@@ -73,6 +74,9 @@ def run(output,*,write,forbid_gpu,source=None):
         report['source']=source
         source_hashes=lambda:{p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}
         report['source_sha256']=source_hashes();report['gpu_source_sha256']=portable_backend.source_hashes(source)
+        if comparison is not None:
+            report.update(comparison_source=comparison_source,comparison_gpu_source_sha256=portable_backend.source_hashes(comparison_source),
+                expansion_scope='Definition kind scope only; expanded handlers retain separate runtime/model/native verification requirements')
         kinds=collections.defaultdict(list)
         def stop(kind):
             def forbidden(*args,**kwargs):calls[kind]+=1;raise AssertionError('Static entry inventory forbids '+kind)
@@ -95,14 +99,25 @@ def run(output,*,write,forbid_gpu,source=None):
                     row.update(input_packed=True,input_words=len(words),input_sha256=hashlib.sha256(raw.tobytes()).hexdigest(),prepared_definitions=len(prepared['effects']),bound_definitions=len(metadata['effects']),definition_kinds=found,kind_admission=policy.inspect(words))
                     for kind in found:kinds[str(kind)].append(dict(character=name,favorite_stage=stage))
                 except (ValueError,TypeError,KeyError) as error:row['error']=str(error)
-                else:row['rejected_effects']=rejected_effects(words,metadata,prepared,row['kind_admission'].get('unsupported',[]))
+                else:
+                    row['rejected_effects']=rejected_effects(words,metadata,prepared,row['kind_admission'].get('unsupported',[]))
+                    if comparison is not None:
+                        baseline=comparison.inspect(words);current=row['kind_admission']
+                        if not baseline['checked'] or not current['checked']:raise ValueError('Kind expansion requires two sampled-vital policies')
+                        still_rejected={(r['row'],r['kind']) for r in current['unsupported']}
+                        expanded=[r for r in baseline['unsupported'] if (r['row'],r['kind']) not in still_rejected]
+                        row.update(comparison_kind_admission=baseline,expanded_kind_effects=rejected_effects(words,metadata,prepared,expanded))
                 report['profiles'].append(row)
         if report['source_sha256']!=source_hashes() or report['gpu_source_sha256']!=portable_backend.source_hashes(source):raise ValueError('Static entry inventory source changed during audit')
+        if comparison is not None and report['comparison_gpu_source_sha256']!=portable_backend.source_hashes(comparison_source):raise ValueError('Comparison source changed during static inventory')
         if calls!=dict(cpu_battle=0,gpu=0):raise AssertionError('Static entry inventory made forbidden calls')
         report.update(passed=True,profile_count=len(report['profiles']),packed_profiles=sum(row['input_packed'] for row in report['profiles']),definition_kind_profiles=dict(kinds))
         report['kind_rejected_profiles']=sum(bool(row.get('kind_admission',{}).get('unsupported')) for row in report['profiles'])
         report['operator_priorities']=operator_priorities(report['profiles'])
         report['rejected_operator_categories']=len(report['operator_priorities'])
+        if comparison is not None:
+            report['expanded_kind_profiles']=sum(bool(r.get('expanded_kind_effects')) for r in report['profiles'])
+            report['expanded_kind_operator_priorities']=operator_priorities(report['profiles'],effect_key='expanded_kind_effects')
         report['kind_dependencies']=kind_dependencies(report['profiles'])
         report['packing_failures']=[{key:row[key] for key in ('character','favorite_stage','error','original_definitions_sha256')} for row in report['profiles'] if not row['input_packed']]
         report.pop('current_profile',None)
@@ -110,4 +125,6 @@ def run(output,*,write,forbid_gpu,source=None):
         report['error']=type(error).__name__+': '+str(error);raise
     finally:
         report['elapsed_seconds']=time.perf_counter()-started;write(output,report)
-    return {key:report[key] for key in ('stage','passed','profile_count','packed_profiles','kind_rejected_profiles','rejected_operator_categories','forbidden_calls','calculation_verified','gpu_admission_verified','full_character_verified','elapsed_seconds')}
+    result={key:report[key] for key in ('stage','passed','profile_count','packed_profiles','kind_rejected_profiles','rejected_operator_categories','forbidden_calls','calculation_verified','gpu_admission_verified','full_character_verified','elapsed_seconds')}
+    if comparison is not None:result['expanded_kind_profiles']=report['expanded_kind_profiles']
+    return result

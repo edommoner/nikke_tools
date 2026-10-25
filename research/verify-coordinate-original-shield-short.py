@@ -41,27 +41,29 @@ def verify_witness(case,native):
         assert [(r['row'],r['capacity']) for r in event['before']]==[(r['row'],r['capacity']) for r in event['after']],'Healing cannot create a protection object or change capacity'
     return True
 
-def compare_shields(block,domain,native):
+def compare_protections(block,domain,native,*,kind=1,stat='shield_heal_pct',field='original_shield'):
     from portable_runtime import decode
     c,m,_,_=domain;actual=decode(block[:159744],m);found=[]
     for index,carrier in enumerate(actual['carriers']):
         protection=carrier.get('protection',{})
-        if not carrier['active'] or protection.get('kind')!=1:continue
+        if not carrier['active'] or protection.get('kind')!=kind:continue
         source=m['binding_source_indices'][carrier['definition']];assert carrier['recipients']<32 and not carrier['lazy_pending']
-        found.append(dict(row=source,owner=c['owners'][source],members=[name for who,name in enumerate(c['names']) if carrier['recipients']&(1<<who)],stack=carrier['stacks'],activated=carrier['activated'],end=stacks.stack_expiry(block,carrier['slot']),current={c['names'][int(w)]:v for w,v in protection['current'].items()},capacity={c['names'][int(w)]:v for w,v in protection['capacity'].items()}))
+        found.append(dict(row=source,owner=c['owners'][source],members=[name for who,name in enumerate(c['names']) if carrier['recipients']&(1<<who)],stack=carrier['stacks'],activated=carrier['activated'],end=stacks.stack_expiry(block,index),current={c['names'][int(w)]:v for w,v in protection['current'].items()},capacity={c['names'][int(w)]:v for w,v in protection['capacity'].items()}))
     key=lambda r:(r['row'],r['owner'],str(r['members']))
-    assert sorted(found,key=key)==sorted(native['original_shield']['final'],key=key),'All original final shield objects, exact quantities and expiration must match'
+    assert sorted(found,key=key)==sorted(native[field]['final'],key=key),'All original final shield objects, exact quantities and expiration must match'
     for index,source in enumerate(m['binding_source_indices']):
-        if c['effects'][source].get('stat')=='shield_heal_pct':
-            assert actual['timers'][index]['activations']==sum(r['row']==source and not r['from_tick'] for r in native['original_shield']['requests']),'Every actual original heal request must execute'
+        if c['effects'][source].get('stat')==stat:
+            assert actual['timers'][index]['activations']==sum(r['row']==source and not r['from_tick'] for r in native[field]['requests']),'Every actual original heal request must execute'
     from portable_specs import LIMITS as L
     import struct
     bindings={source:index for index,source in enumerate(m['binding_source_indices'])}
-    for clock in native['original_shield']['clocks']:
+    for clock in native[field]['clocks']:
         row=bindings[clock['row']];timer=actual['timers'][row];at=L['STATE_BASE']+row*10+2
         expiry=None if tuple(block[at:at+2])==(0,0x7ff00000) else struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
         assert timer['active'] and timer['due']==clock['next'] and expiry==clock['expiry'],'Original instant healing clocks must preserve phase and exact expiry'
     return native
+
+def compare_shields(block,domain,native):return compare_protections(block,domain,native)
 
 def compare(block,domain):
     from world_coordinate_sampled_skill_native import creation_indices

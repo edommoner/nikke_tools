@@ -2199,3 +2199,15 @@ CPU観測のC通知が12段のPython専用profile chainへ伝播することを�
 既存Python観測filterを再利用。凍結46秒poolケースを非filter版と各比較、ビスケット58.954→17.435秒／リリ66.683→22.199秒、全nativeとcreation-index指紋一致。旧ケース既定False。最終compact `/tmp/nikke-original-cover-final-v1.zip`（f50db8a4…）は関連26（旧味方抽選6を含む）／制御476（Win1skip）成功。全1974payload SHA／checkout全byteと実GPU source・input／native／output一致。sealed generation必須cache hit・Slang0。全reader終了後に失敗／成功rawをSHA／size／inode保持で疎化、62,390,272byte回収・削除0。
 
 全266静的inventoryはpacking247／kind拒否8（旧10）、残り239を対応数へ数えない。次は既存handler検証用の固定入口とdata-only追加経路でkind受付だけのsource変更によるcache無効化を減らす設計、元ライのdecoy heal31を優先候補。init18、敵stack20/21、蓄積放出34、feather35、弾消費37と19packing失敗も残る。現CUDA／warm cache・公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／目標未達。Windowsは既存chatをread-only確認しrev78 idle、新規run依頼0。API idleへの同じrun再送やUI制約回避は行わないこと。
+
+## 2026-10-26 固定入口・data-only生成再利用・元分身回復31
+
+最新 `docs/portable-original-shared-entry.md`／`research/portable-original-shared-entry-checkpoint.json`。`coordinate-original-shared`6／`coordinate-original-decoy`3は同じ固定Slang入口を使用。既存handlerのkind18/20/21/31/34/35/37をまとめて受付へ接続し、今後のデータ追加によるsource変更を減らします。inventoryは全266／247packing／失敗19／kind拒否0／旧coverから拡張8profileを分離。受付は実戦認定ではなく全キャラ0です。
+
+共通CLI `source-reuse` は不変package・generation receipt・両CUDA/MSLとreflection・consumerを厳密照合し、データ6→3でsource生成pair保持／追加Slang0を確認。CUDA生成改変負例は拒否。Metalは初回PSO93.271503秒→同key/archive必須hit0.002885秒、Rei実GPU0.703215秒。CUDA実cache/launch未検証、keyとnormalizerの緩和0。
+
+元ライ72全定義・完全編成／weapon／成長・各8秒、満タン／実損傷後回復→再被弾／破壊の3ケース。初GPU全status0だがhost期限readerで2失敗。serialized index0とruntime slot2の混同を修正し、全GPU source/input/native/raw保持のsaved replayで全3一致。修正後GPU0、独立fresh3監査14.403379秒、既存6監査103.122062秒。旧cover6の全42MB／旧shield9のnativeと保存readback／旧cover CUDA/MSL全byteを保持。原失敗・claim保持、GPU計2・retry0。
+
+最終packet shared46240e73…（1981files）、decoy3b83f01d…（1993files）は関連22／27と各制御476成功（Win1skip）、全payload bytesとGPU source/input/native/output一致。reader終了後raw3つをSHA/size/inode保持で疎化し62,521,344byte回収・削除0。次は固定入口のまま元stack初期化18等を正発火で検証。残り18/20/21/34/35/37、packing19、モデル／variants、現CUDA／公開GPU／全キャラは未完、UI CPU。
+
+Windows既存chatはrev78 idle。ユーザー依頼の送信再試行もactive-turnエラーで拒否、新規CUDA実行なし。接続確認を再実行成功と数えず、APIへ同じrunを繰り返し送信しないこと。

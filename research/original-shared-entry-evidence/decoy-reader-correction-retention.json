@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "source_package_id": "55a4f32029d754026ada71e5f4fa1331d398517c812656b2bd9dbc7ad47319e6",
+  "corrected_package_id": "df4a7425c2ecb53645c96708b83372597944aa27bcc081b519736558276ae52a",
+  "gpu_source_input_native_fingerprints_equal": true,
+  "source_gpu_dispatches": 1,
+  "corrected_gpu_dispatches": 0,
+  "saved_replay_verified": true,
+  "gpu_calls": 0
+}

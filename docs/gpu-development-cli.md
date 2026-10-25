@@ -1,3 +1,5 @@
+固定入口 `coordinate-original-shared`6 と元ライの `coordinate-original-decoy`3 を追加しました。両suiteは同一GPU sourceを使い、`source-reuse` が不変package・厳密なCUDA/MSL生成pair・consumer・追加コンパイル0をファイルだけで検査します。`entry-inventory --suite coordinate-original-shared --out UNIQUE.json` は受付拡張8profileを旧入口との差分として保持します。kind受付0拒否を全キャラ認定へ読み替えないこと。[使い方・実Metal cache・残件](portable-original-shared-entry.md)。
+
 # 共通GPU検証CLI
 
 未受付項目の次の調査は `entry-inventory --suite coordinate-original-cleanse --out UNIQUE.json` から始めます。元source行・stat・target・timing・参照先の分類と、同一プロファイルのkind依存を自動出力します。入力変換失敗は別一覧で保持。静的監査だけでGPU対応数へ読み替えないこと。[分類方法と次候補](portable-entry-operators.md)。
