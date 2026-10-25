@@ -3,7 +3,8 @@ import hashlib,json
 from pathlib import Path
 def project_sources(root,sources=None):
     from portable_coordinate_original_enemy_stack_source_contract import project_sources as project_enemy_stacks
-    root=Path(root);out=project_enemy_stacks(root,sources);data=json.loads((root/'tests/fixtures/portable-coordinate-original-shared-source-delta.json').read_text())
+    from portable_coordinate_original_packet_history_source_contract import project_sources as project_history
+    root=Path(root);out=project_enemy_stacks(root,project_history(root,sources));data=json.loads((root/'tests/fixtures/portable-coordinate-original-shared-source-delta.json').read_text())
     for name,row in data['sources'].items():
         current=out.get(name,(root/name).read_text())
         assert current==row['current'] and hashlib.sha256(current.encode()).hexdigest()==row['current_sha256'],'Unreviewed original shared source: '+name

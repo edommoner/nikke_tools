@@ -56,9 +56,9 @@ def stack_expiry(block,index):
     pair=block[at:at+2]
     return None if tuple(pair)==(0,0x7ff00000) else struct.unpack('<d',struct.pack('<II',*pair))[0]
 
-def compare_stack_state(block,domain,native,*,operations=('buff_stack_add','buff_stack_remove','buff_max_stack_add')):
+def compare_stack_state(block,domain,native,*,operations=('buff_stack_add','buff_stack_remove','buff_max_stack_add'),field='original_stacks'):
     from portable_runtime import decode
-    actual=decode(block[:159744],domain[1]);case=domain[0];observed=native['original_stacks']
+    actual=decode(block[:159744],domain[1]);case=domain[0];observed=native[field]
     for index,source in enumerate(domain[1]['binding_source_indices']):
         if case['effects'][source].get('stat') in operations and case['effects'][source].get('type') in ('buff','instant'):
             assert actual['timers'][index]['activations']==sum(r['row']==source for r in observed['dispatches']),'Every original stack operation must execute'

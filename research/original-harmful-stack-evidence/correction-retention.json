@@ -1,0 +1,11 @@
+{
+  "both_input_and_native_fingerprints_retained": true,
+  "control_all_old_words_outside_new_64_word_proof_equal": true,
+  "long_retained_4096_packet_rows_equal": true,
+  "raw_prefix_capacity": 4096,
+  "new_history_words": 64,
+  "input_words": 109968,
+  "output_words": 1769856,
+  "gpu_retries": 0,
+  "scope": "Retained words and identities; calculation verification is separately audited"
+}

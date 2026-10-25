@@ -1,0 +1,33 @@
+{
+  "calculation_verified": false,
+  "entries": [],
+  "mismatches": [
+    {
+      "index": 0,
+      "name": "coordinate-original-harmful-stack/Anchor/control",
+      "reason": "KeyError: 'original_stacks'"
+    },
+    {
+      "index": 1,
+      "name": "coordinate-original-harmful-stack/Anchor/third-full-burst",
+      "reason": "ValueError: Expected GPU success status0; got status64"
+    }
+  ],
+  "input_count": 2,
+  "native_oracles": 2,
+  "input_sha256": "8bf54d09d31231411231db65f524535ebeffca76ecca664cae6838b90ed78fb1",
+  "output_sha256": "355b959ee5f6c96b6a74795dfac97372ab7a73457771881064557e57cbc20d65",
+  "generated_normalized": {
+    "cuda": "bf19f4433a742ac1651c9d83a9612f3d452557f6fac6a1653b9c2861b14faace",
+    "metal": "2021b07cddc8a6d418e54a0ead7f776265ea250202d136db611b436de5c9c56b"
+  },
+  "audit_gpu_calls": 0,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 0,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false
+  }
+}

@@ -55,8 +55,12 @@ def compare_observed(block,domain,n,*,check_parent=True,trace_view=None,sampled_
         target=by_name.get(p['target']);slot=target['slot'] if target else 0;kind=target['kind'] if target else 0
         trace.append([p['owner'],slot,kind,p['generation'],*parent.parent.double_words(p['time']),*parent.parent.double_words(p['damage']),int(p['extra']),0,0,0])
     cp=parent.parent.physical.CP;start=cp['TRACE'];end=start+len(trace)*12
-    assert block[cp['BASE']+2]==len(trace) and list(block[start:end])==sum(trace,[]),'Actual physical and parent child delivery'
-    assert not any(block[end:start+cp['TRACE_COUNT']*12]),'Unused child/physical trace'
+    if c.get('coordinate_packet_history')=='ordered-sha256-v1':
+        from portable_coordinate_packet_history import verify
+        verify(block,trace)
+    else:
+        assert block[cp['BASE']+2]==len(trace) and list(block[start:end])==sum(trace,[]),'Actual physical and parent child delivery'
+        assert not any(block[end:start+cp['TRACE_COUNT']*12]),'Unused child/physical trace'
     rng=BANK['RNG'];state=n['physical_rng'];assert block[rng]==state['index'] and list(block[rng+8:rng+632])==state['state'],'Parent fixed packets must not consume critical RNG'
     assert block[rng+1]==parent.verify(c,n)['physical_rng_words']
     if not check_parent:return n

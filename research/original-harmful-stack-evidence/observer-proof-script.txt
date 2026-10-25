@@ -1,0 +1,14 @@
+import sys,json,time,hashlib
+from pathlib import Path
+root=Path(sys.argv[1]).resolve();mode=sys.argv[2];output=Path(sys.argv[3]);sys.path[:0]=[str(root/p) for p in ['app','research','scripts']]
+import nikke_gpu as cli
+from world_coordinate_sampled_skill_native import creation_indices
+m=cli.verify_package(root);a=cli.open_suite(m);rows=[]
+with cli.forbid_gpu():
+ entries,data=a.prepare()
+ for name,words,domain in entries:
+  c=domain[0];c['python_observers_only']=mode=='fast';t=time.perf_counter()
+  with creation_indices(c) as indices:n=a.native_reference(domain)
+  row=dict(name=name,native_sha256=a.cross.digest(n),creation_indices_sha256=a.cross.digest(indices),elapsed_seconds=time.perf_counter()-t,input_words_sha256=hashlib.sha256(__import__('array').array('I',words).tobytes()).hexdigest(),observed=n['original_harmful_stacks']);rows.append(row);print(name,row['elapsed_seconds'],row['native_sha256'],flush=True)
+ assert cli.verify_package(root)['package_id']==m['package_id']
+output.write_text(json.dumps(dict(schema=1,mode=mode,source_package_id=m['package_id'],source_package_selected_cases=m['selected_cases'],inspected_adapter_cases=len(rows),input_dataset_is_manifest_dataset=False,scope='CPU-only observer equivalence using all adapter cases from an immutable selected-control code snapshot; not a GPU or whole-suite certification',gpu_calls=0,calculation_verified=False,input_sha256=hashlib.sha256(data).hexdigest(),rows=rows),ensure_ascii=False,indent=2)+'\n')

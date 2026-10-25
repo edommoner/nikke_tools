@@ -1,0 +1,72 @@
+[
+  {
+    "pattern": "test_coordinate_packet_history.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.045062500052154064,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 53421
+  },
+  {
+    "pattern": "test_original_harmful_stack.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.5043589579872787,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 53421
+  },
+  {
+    "pattern": "test_original_stacks.py",
+    "exit_code": 0,
+    "elapsed_seconds": 10.74438574980013,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 53421
+  },
+  {
+    "pattern": "test_coordinate_kind_admission.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.345234917011112,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 53421
+  },
+  {
+    "pattern": "test_coordinate_original.py",
+    "exit_code": 0,
+    "elapsed_seconds": 9.898835166823119,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 53421
+  },
+  {
+    "pattern": "test_source_reuse.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.10898904106579721,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 53421
+  },
+  {
+    "pattern": "test_native_python_profile.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.03807383286766708,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 53421
+  }
+]

@@ -278,5 +278,8 @@ void writePortableProgram(inout Runtime s,uint input,uint output,uint queries)
     results[output+7] = s.burstTraceTotal; results[output+8] = s.frameCount; WORLD_RELOAD_FINAL(s) WORLD_ALLIED_RNG_FINISH(s) LAZY_BANK_FINISH(output)
 #ifdef PORTABLE_WORLD_PROJECTILE
     if(nativeNumericEnabled(s) && !finishOrderedHistory(output+P_ORDERED_HISTORY_BASE,results[output+P_REVIVAL_BASE+6])) results[output]=64;
+#ifdef PORTABLE_COORDINATE_EXISTING_HANDLERS
+    if(s.error==0&&!finishCoordinatePacketHistory(s)) results[output]=64;
+#endif
 #endif
 }

@@ -1,5 +1,8 @@
 #include "coordinate_scene.slang"
 #include "coordinate_packet_layout.slang"
+#ifdef PORTABLE_COORDINATE_EXISTING_HANDLERS
+#include "coordinate_packet_history.slang"
+#endif
 CoordinateScene coordinatePoolView(inout Runtime s)
 {
     CoordinateScene c;c.input=s.inputBase+P_INPUT_WORDS;c.output=s.resourceOutput+CP_BASE;c.count=commands[c.input+2];c.state=actorPoolAt(s,0);c.error=0;c.poolStride=16;c.poolBySlot=1;c.poolStart=8;return c;
@@ -67,9 +70,20 @@ void storeCoordinatePacket(inout Runtime s,uint landing,LandingReceipt r)
 }
 void coordinateTrace(inout Runtime s,uint who,uint slot,uint gen,uint64_t amount,uint64_t when,bool extra)
 {
-    uint head=s.resourceOutput+CP_BASE,count=results[head+2];if(count>=CP_TRACE_COUNT){s.error=64;return;}
-    uint at=s.resourceOutput+CP_TRACE+count*CP_TRACE_WORDS;results[at]=who;results[at+1]=slot;results[at+2]=commands[actorBinding(s,slot)];results[at+3]=gen;
-    storeNumber(at+4,when);storeNumber(at+6,amount);results[at+8]=uint(extra);for(uint i=9;i<12;i++)results[at+i]=0;results[head+2]=count+1;
+    uint head=s.resourceOutput+CP_BASE,count=results[head+2];
+#ifdef PORTABLE_COORDINATE_EXISTING_HANDLERS
+    uint at=coordinateHistoryRecordAt(s,count);if(s.error!=0)return;
+#else
+    if(count>=CP_TRACE_COUNT){s.error=64;return;}
+    uint at=s.resourceOutput+CP_TRACE+count*CP_TRACE_WORDS;
+#endif
+    results[at]=who;results[at+1]=slot;results[at+2]=commands[actorBinding(s,slot)];results[at+3]=gen;
+    storeNumber(at+4,when);storeNumber(at+6,amount);results[at+8]=uint(extra);for(uint i=9;i<12;i++)results[at+i]=0;
+#ifdef PORTABLE_COORDINATE_EXISTING_HANDLERS
+    coordinateHistoryRecordDone(s,at);if(count<CP_TRACE_COUNT)results[head+2]=count+1;
+#else
+    results[head+2]=count+1;
+#endif
 }
 void moveCoordinateReceipt(inout Runtime s,uint fromIndex,uint toIndex)
 {

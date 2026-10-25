@@ -1,0 +1,15 @@
+{
+  "schema": "independent-metal-audit-v1",
+  "package_id": "97a4d4e6d87362b57d53cc4759008f72ef2a160fb9645a7de3a41e8705034fd3",
+  "capture": "/private/tmp/nikke-original-harmful-stack-metal-v3",
+  "child_pid": 53231,
+  "input_count": 2,
+  "native_cases": 2,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 52.86754775000736,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "8bf54d09d31231411231db65f524535ebeffca76ecca664cae6838b90ed78fb1",
+  "output_sha256": "045db61177621367b02d02fae78f8c0bdd573dad055ea9ffc89062c39d95623c",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls"
+}

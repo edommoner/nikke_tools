@@ -393,6 +393,8 @@ SUITES['coordinate-original-init']=dict(SUITES['coordinate-original-shared'],scr
 SUITES['coordinate-original-init']['support_files']=['research/portable-compiler-full--coordinate-original-init-source-certificate.json',SUITES['coordinate-original-shared']['golden'],*SUITES['coordinate-original-shared']['support_files']]
 SUITES['coordinate-original-enemy-stack']=dict(SUITES['coordinate-original-shared'],script='research/verify-coordinate-original-enemy-stack-short.py',golden='research/portable-coordinate-original-enemy-stack-short-expected.json',inputs=4,native=4,development_only=False,tests=['test_original_enemy_stack.py','test_original_stacks.py','test_original_source.py','test_coordinate_kind_admission.py','test_coordinate_original.py','test_source_reuse.py'])
 SUITES['coordinate-original-enemy-stack']['support_files']=['research/portable-compiler-full--coordinate-original-enemy-stack-source-certificate.json',SUITES['coordinate-original-shared']['golden'],*SUITES['coordinate-original-shared']['support_files']]
+SUITES['coordinate-original-harmful-stack']=dict(SUITES['coordinate-original-enemy-stack'],script='research/verify-coordinate-original-harmful-stack-short.py',golden='research/portable-coordinate-original-harmful-stack-short-expected.json',inputs=2,native=2,development_only=False,tests=['test_coordinate_packet_history.py','test_original_harmful_stack.py','test_original_stacks.py','test_coordinate_kind_admission.py','test_coordinate_original.py','test_source_reuse.py','test_native_python_profile.py'])
+SUITES['coordinate-original-harmful-stack']['support_files']=['research/portable-compiler-full--coordinate-original-harmful-stack-source-certificate.json',SUITES['coordinate-original-enemy-stack']['golden'],*SUITES['coordinate-original-enemy-stack']['support_files']]
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -2808,6 +2810,12 @@ def generation_capture(output,*,development=False,packet_stage=None):
     finally:collect(output,output/'artifacts.json')
 
 
+def case_names(suite):
+    with forbid_gpu():
+        entries,_=prepare_entries(open_suite(dict(suite=suite)),dict(suite=suite,purpose='development'))
+    return dict(suite=suite,cases=[row[0] for row in entries],gpu_calls=0)
+
+
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     sub.add_parser('list')
@@ -2852,7 +2860,7 @@ def main(argv=None):
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('source-reuse');a.add_argument('--out',type=Path,required=True);a.add_argument('--require-hit',action='store_true')
     for name in ('reference-package','candidate-package','reference-generation','candidate-generation'):a.add_argument('--'+name,type=Path,required=True)
-    a=sub.add_parser('entry-inventory');a.add_argument('--out',type=Path,required=True);a.add_argument('--suite',choices=('coordinate-original','coordinate-original-burst-revival','coordinate-original-resources','coordinate-original-ammo','coordinate-original-stacks','coordinate-original-cleanse','coordinate-original-source','coordinate-original-reload','coordinate-original-shield','coordinate-original-cover','coordinate-original-shared','coordinate-original-decoy','coordinate-original-init','coordinate-original-enemy-stack'),default='coordinate-original')
+    a=sub.add_parser('entry-inventory');a.add_argument('--out',type=Path,required=True);a.add_argument('--suite',choices=('coordinate-original','coordinate-original-burst-revival','coordinate-original-resources','coordinate-original-ammo','coordinate-original-stacks','coordinate-original-cleanse','coordinate-original-source','coordinate-original-reload','coordinate-original-shield','coordinate-original-cover','coordinate-original-shared','coordinate-original-decoy','coordinate-original-init','coordinate-original-enemy-stack','coordinate-original-harmful-stack'),default='coordinate-original')
     a=sub.add_parser('metal-device-probe',help='Bounded device visibility only; no kernel compilation or GPU dispatch');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('coordinate-parent-check',help='CPU-only live preflight/context reuse check against saved Metal fixtures; not GPU certification')
     a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -2961,9 +2969,7 @@ def main(argv=None):
     elif a.command=='compiler-certificate':
         with forbid_gpu():result=make_compiler_certificate(a.suite,a.package_root,a.capture,a.out,timeout=a.timeout)
     elif a.command=='cases':
-        with forbid_gpu():
-            entries,_=prepare_entries(open_suite(dict(suite=a.suite)),dict(purpose='development'))
-        result=dict(suite=a.suite,cases=[row[0] for row in entries],gpu_calls=0)
+        result=case_names(a.suite)
     elif a.command=='source-reuse':
         if a.out.exists():raise ValueError('Source reuse report already exists')
         from portable_source_reuse import run

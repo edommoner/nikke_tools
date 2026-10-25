@@ -2233,3 +2233,19 @@ Windows既存chatはrev78 idle。ユーザー依頼の送信再試行もactive-t
 初期data-only生成再利用はSlang0、実装修正はsource/keyが変わるためpaired Slang2回・新PSOが必要。共通source-reuseは変更を拒否し、最終同コードpacketはgeneration必須hit・Slang0。新PSOのファイル検査成功は実warm load／CUDA cache証明ではない。数値／wire／Runtime138952byte不変。全reader終了後、原失敗／成功rawをSHA/size/inode保持で疎化し42,074,112byte回収・削除0。静的inventory全266／247packing／19失敗／kind拒否0／受付拡張8は旧分類と全profile一致、GPU認定ではない。
 
 次はkind21。Anchor＋Mast/Moderniaの64秒CPU調査はFB開始4.316667／44.316667の2回、先頭B2 Mast・B3 Drakeの40秒待機を実notifyで確認、減算発火0。記録 `anchor-frontier.json` はPython observer filter opt-inの探索で、同条件正本とのfilter等価性は未監査・golden禁止。次は宣言burst rulesでB2/B3を交互選択する正例と、既定auto86秒候補を確認する（到達は未検証予測）。元ADD/世代に対する今回のDoT stack変更、21/34/35/37、packing19、モデル/variant・現CUDA/公開GPU/全キャラも未完。全キャラ0／UI CPU／ゴール未達。Windows新規依頼0、idle APIへ重複runを送らないこと。
+
+## 2026-10-26 元アンカーharmful stack21・全座標packet履歴
+
+最新 `coordinate-original-harmful-stack`2、`docs/portable-original-harmful-stacks.md`／`research/portable-original-harmful-stacks-checkpoint.json`。元Dora／Anchor Innocent Maid／Drake／Mast Romantic Maid／N102全82定義・完全成長／武器・auto、6秒対照と86秒、seed3901。78.783333秒の実3回目FBで有害stack3→2、membership／activation56.766667／無期限を保持し最終2、対照発火0・最終1。任意controlをgrowth profileへ入れる探索は入力境界に拒否され、その境界を変更せず既定autoを維持しました。
+
+Python観測filterは不変selected-controlコードsnapshotから両adapterケースを準備し、全native＋外側creation indicesを有効／無効で全一致。元snapshotのmanifestはcontrolのみで、whole-suite/GPU証明ではないことをreceiptへ明記。後の完全2入力packetはそのinput/native指紋と一致、86秒観測142.273／42.564秒（同時同値性検査の実測・制御benchmarkではない）。新caseだけopt-in、正本／旧case既定不変。共通CLI `cases` のm.suite不足を `case_names` APIへ集約して修正し、実列挙・simulate禁止を回帰検査。
+
+初GPU `/tmp/nikke-original-harmful-stack-metal-v1` はcontrol比較名のKeyErrorと、長期case約70秒のstatus64。CP raw trace4096が満杯で、native全5031の先頭4096は全word一致。比較器field引数を既存stack readerへ追加し、固定shared macroだけ全packet SHAを有効化。旧raw容量4096とinput109968/output1769856/Runtime138952は不変。64wordをCP_END1305752からのclear-tailに明示割当（次live1310720より前）、全12word（時計を含む）のSHAと先頭rawを共通sampled-parentで検査。raw tail935件は保持せず全件SHAに含む、digestから復元不可・上限1048576。markerありで欠けたheaderへのfallbackなし、markerなしの旧全raw比較維持。clock/prefix/hash/metadata破損・境界・arena・厳密inverseを検査。
+
+容量不足で `/tmp/nikke-original-harmful-stack-metal-v2` はGPU開始前に停止（reserve1GiBは維持）。今回作った5不変snapshotの同一payloadを共有し全hash再検査、ZIP/manifest/結果/raw/claim保持。論理共有226,592,712byte。歴史全体のcleanupはしていません。
+
+修正版packet `/tmp/nikke-original-harmful-stack-develop-v4`（97a4d4e6…）、capture `/tmp/nikke-original-harmful-stack-metal-v3` はM5全2一致。全315/5031packetのordered SHA一致、実GPU9.068120秒／新PSO91.563034秒。GPU計2（原比較失敗1保持・成功1）、storage拒否1はGPU0、retry0。両input/native指紋を保持、control全旧wordは新64word以外全一致、long先頭4096rowも全一致。旧cover CUDA/MSL原生成物も全byte保持。別GPU禁止childで全2fresh52.867548秒・live parent receiptなしでseal。
+
+最終 `/tmp/nikke-original-harmful-stack-final-v1.zip`（db9ccd15…、2010files）は関連32／制御476成功（Win1skip）、全payload hash/checkout bytesとGPU source/input/native/output一致、generation必須hit・Slang0。reader終了後に原／成功rawをSHA/size/inode保持で疎化し20,840,448byte回収・raw削除0。最初のdata-only世代では実Metal cache hit0.002942秒を確認したが計算は履歴上限で失敗、新コードの実warm PSO／CUDAへ成功を流用しません。
+
+静的全266／247packing／19失敗／kind拒否0／受付拡張8は旧全profileと一致。次は元Dorothy/Trony蓄積放出34、Ein feather35、Cinderella Crystal Wave弾消費37を既存共通handlerで正発火へ。今回のADD/世代・減算floorなどの他variant、packing19、現CUDA／warm cache、公開GPU／全キャラも未完。全キャラ0／UI CPU／ゴール未達、Windows新規依頼0。空き容量は依然小さく、次の検証もstorage gateを維持すること。

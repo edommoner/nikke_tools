@@ -1,3 +1,5 @@
+`coordinate-original-harmful-stack`2 は元アンカーの3回目フルバーストでの有害stack3→2を、6秒対照／86秒autoで検証するsealed suiteです。M5・独立fresh監査・関連32／制御476検査成功（Win1skip）。固定raw4096件を保ち、全5031packetの時刻・対象・damageを共通SHAで照合します。`cases` のsuite引継ぎ漏れも修正しました。`package --suite coordinate-original-harmful-stack --compact` を使います。[実証・CPU効率・保存](portable-original-harmful-stacks.md)／[全順序packet codec](portable-coordinate-packet-history.md)。
+
 `coordinate-original-enemy-stack`4 は元ミハラの敵DoTスタックを、実命中・上限・戦闘不能・burst引継ぎまで検証するsealed suiteです。通常recipientから漏れていた周期DoT対象を共通stack処理へ接続し、M5全4・独立fresh監査・関連29／制御476検査成功（Windows1skip）。実装修正ではsource/cache identityを変え、data-only再利用は拒否します。`package --suite coordinate-original-enemy-stack --compact` を使います。[修正・証拠・次の減算候補](portable-original-enemy-stacks.md)。
 
 `coordinate-original-init`3 は元ソーダ：トゥインクルバニーのスキルレベル1/4/10で40/45/50スタック生成→burstで17消費→通常攻撃で再加算まで検証するsealed suiteです。固定shared入口・CUDA/MSL生成物を保持、M5 Metal全3と独立fresh監査に成功。`package --suite coordinate-original-init --compact` と既存run経路を使います。kind受付と全キャラ認定を分けます。[範囲と検証記録](portable-original-stack-init.md)。
