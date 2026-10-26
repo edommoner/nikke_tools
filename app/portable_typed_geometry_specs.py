@@ -8,8 +8,11 @@ ROW_WORDS=18
 
 def normalize(spec,count,kind):
     if type(count) is not int or not 1<=count<=ROWS or type(kind) is not int or kind not in (2,3):raise ValueError('Bounded typed geometry kind/count required')
-    if not isinstance(spec,dict) or set(spec)-{'point','grow','shapes'}:raise ValueError('Unknown typed geometry field')
-    point=spec.get('point')
+    if not isinstance(spec,dict) or set(spec)-{'point','point_source','grow','shapes'}:raise ValueError('Unknown typed geometry field')
+    source=spec.get('point_source','fixed')
+    if source not in ('fixed','caster_aim'):raise ValueError('Unknown typed point source')
+    if source=='caster_aim' and 'point' in spec:raise ValueError('Live aim cannot contain a literal point')
+    point=spec.get('point') if source=='fixed' else [0.,0.]
     if not isinstance(point,list) or len(point)!=2:raise ValueError('Explicit typed geometry point required')
     point=[float(number(v)) for v in point];grow=float(number(spec.get('grow',0),nonnegative=True));shapes=spec.get('shapes')
     if not isinstance(shapes,list) or len(shapes)!=count:raise ValueError('One typed shape per binding required')
@@ -22,12 +25,15 @@ def normalize(spec,count,kind):
         elif r==0 and w>0 and h>0:tag=2
         else:raise ValueError('Invalid typed shape dimensions')
         rows.append(dict(kind=tag,x=x,y=y,r=r,w=w,h=h,rot=rot,z=z))
-    return dict(kind=kind,point=point,grow=grow,shapes=rows)
+    result=dict(kind=kind,point=point,grow=grow,shapes=rows)
+    if source=='caster_aim':result['point_source']=source
+    return result
 
 def pack(spec,count,kind):
     data=normalize(spec,count,kind);words=[0]*WORDS;words[:4]=[MAGIC,1,count,kind]
     def bits(v):return list(struct.unpack('<II',struct.pack('<d',v)))
     words[4:10]=sum((bits(v) for v in [*data['point'],data['grow']]),[])
+    if data.get('point_source')=='caster_aim':words[11]=1
     for i,row in enumerate(data['shapes']):
         at=16+i*ROW_WORDS;words[at]=row['kind'];words[at+2:at+16]=sum((bits(row[k]) for k in ('x','y','r','w','h','rot','z')),[])
     return words,data

@@ -1,0 +1,426 @@
+{
+  "schema": 1,
+  "scope": "Only unlisted recreatable __pycache__/*.pyc in historical mode/interrupt/squad snapshots; no payload/source/ZIP/raw/result/claim changes",
+  "packages": [
+    {
+      "package": "/private/tmp/nikke-squad-stage-retention-v3",
+      "package_id": "915cbf2378abbfa9a0fddef911feee11bf67995c7b47c4b46a9a401c776c71c3",
+      "removed_unlisted_bytecode_files": 525,
+      "logical_bytes": 5634757,
+      "allocated_bytes": 6668288,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-aim-retention-v2",
+      "package_id": "6b996fa158ddbcd960b83d297b7fed9bbceaa3871519d2bcbc2c41793f1168a7",
+      "removed_unlisted_bytecode_files": 504,
+      "logical_bytes": 5545784,
+      "allocated_bytes": 6549504,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-mode-capacity-regression-v2",
+      "package_id": "84b6568c11316544c87e224684aa38d5b0eb966e7e03f978a151e9cf8df02b05",
+      "removed_unlisted_bytecode_files": 335,
+      "logical_bytes": 4601070,
+      "allocated_bytes": 5287936,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-reach-regression-v3",
+      "package_id": "e8b273ca1c9448d3f1ca807cca4253218640648c94fd1b6b7878bb2defdbb109",
+      "removed_unlisted_bytecode_files": 320,
+      "logical_bytes": 4490722,
+      "allocated_bytes": 5144576,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-reach-regression-v1",
+      "package_id": "8fd2b85a912582654eb89276740c3237c3af40ff868f31e1f1e9cefa06a08eac",
+      "removed_unlisted_bytecode_files": 320,
+      "logical_bytes": 4490678,
+      "allocated_bytes": 5144576,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-source-regression-v2",
+      "package_id": "7b0f0c4494bfb3086c9ba5255828d28a2f6ed089bb61c897d708dbd1d1cefa52",
+      "removed_unlisted_bytecode_files": 320,
+      "logical_bytes": 4486031,
+      "allocated_bytes": 5144576,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-source-regression-v3",
+      "package_id": "b0f9513b7f09d340090ca2f2452b3225ec53a4155872d5c556200bab972d5fe6",
+      "removed_unlisted_bytecode_files": 320,
+      "logical_bytes": 4487521,
+      "allocated_bytes": 5144576,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-mode-capacity-regression-v1",
+      "package_id": "b0c00302dd6624c5874d1e49a5dd3e1a92a7b3884b01510b16d5e7567f353338",
+      "removed_unlisted_bytecode_files": 301,
+      "logical_bytes": 4358358,
+      "allocated_bytes": 4976640,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-source-regression-v1",
+      "package_id": "4d3468335c26b46cf10547d12b6a41ddde34985473b2e7a7d8d0de43d70a4245",
+      "removed_unlisted_bytecode_files": 297,
+      "logical_bytes": 4318958,
+      "allocated_bytes": 4931584,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-source-controller-v1",
+      "package_id": "4a564ad6b576bb6d848fc442ef30e081e9e51be6e4833f55b0f5f3ca87aa4b52",
+      "removed_unlisted_bytecode_files": 251,
+      "logical_bytes": 4246529,
+      "allocated_bytes": 4763648,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-reach-controller-v1",
+      "package_id": "4149030cdd5bd355efdf1358ec5b7da62075359ae37b9c9b37d26e406c661da1",
+      "removed_unlisted_bytecode_files": 251,
+      "logical_bytes": 4249784,
+      "allocated_bytes": 4763648,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-aim-reference-v1",
+      "package_id": "877b39ede2ce998e3434c15f464b0e89e30220beb0263e0189569bafe76b3222",
+      "removed_unlisted_bytecode_files": 312,
+      "logical_bytes": 4127046,
+      "allocated_bytes": 4759552,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-mode-capacity-old-rosters-v1",
+      "package_id": "b5c4b5306d9fe4a0967616e9820047885c223a0728eb014965cb3dde178caaee",
+      "removed_unlisted_bytecode_files": 229,
+      "logical_bytes": 3854621,
+      "allocated_bytes": 4325376,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-squad-stage-prior-rosters-v1",
+      "package_id": "d2bd141017eed5d45a61a3f9ad845d1c2eb0f31916150dbcb573e06013339a0f",
+      "removed_unlisted_bytecode_files": 253,
+      "logical_bytes": 3792250,
+      "allocated_bytes": 4321280,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-squad-stage-prior-callback-v1",
+      "package_id": "a74d05afc364ca502a73f4d6f588bf343ed7c440ad16b5fe7f84e8c2c861631b",
+      "removed_unlisted_bytecode_files": 250,
+      "logical_bytes": 3794259,
+      "allocated_bytes": 4300800,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-source-rosters-v1",
+      "package_id": "22fd37cd5902f466494d47f887f8dcf8ac889f44ed2874d93ba890b433bfa1a7",
+      "removed_unlisted_bytecode_files": 228,
+      "logical_bytes": 3823203,
+      "allocated_bytes": 4292608,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-reach-rosters-v2",
+      "package_id": "ccffc94f6ce925654caf5696c5272b1aa39aa41629a41919107e87459560f7a7",
+      "removed_unlisted_bytecode_files": 228,
+      "logical_bytes": 3823557,
+      "allocated_bytes": 4292608,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-source-rosters-v2",
+      "package_id": "521aae76b59f4866a4b89237c3f50b42c0f3a7df4e6a19f40c94ebf14ca4a106",
+      "removed_unlisted_bytecode_files": 228,
+      "logical_bytes": 3823292,
+      "allocated_bytes": 4292608,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-reach-rosters-v1",
+      "package_id": "824dec1d17f427c8eec4ce9ee0ebd7df056d1357cc7519a2c3ddaf26d76881e7",
+      "removed_unlisted_bytecode_files": 228,
+      "logical_bytes": 3823557,
+      "allocated_bytes": 4292608,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-aim-diagnostic-v3",
+      "package_id": "4ab0135625e0b18f5b9bede7ad1731472211f2d5851d967a6fbbfc4fbecbd8d1",
+      "removed_unlisted_bytecode_files": 256,
+      "logical_bytes": 3737522,
+      "allocated_bytes": 4259840,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-aim-metal-v2",
+      "package_id": "83563b95bda6d1c12cb639612fe6dc6b7cb91beb0e2637b84a2285819052d273",
+      "removed_unlisted_bytecode_files": 255,
+      "logical_bytes": 3733097,
+      "allocated_bytes": 4255744,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-squad-stage-prior-logical-v1",
+      "package_id": "f30b048115865fd152dacf6a8452dd19956e33f63425fcf3c834caa3f6fc488b",
+      "removed_unlisted_bytecode_files": 258,
+      "logical_bytes": 3714076,
+      "allocated_bytes": 4239360,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-squad-stage-retention-v2",
+      "package_id": "4dd5cba04df337721138934312511bf40314b8c90653d6fc4ab023c70e6c3245",
+      "removed_unlisted_bytecode_files": 235,
+      "logical_bytes": 3739949,
+      "allocated_bytes": 4227072,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-squad-stage-rosters-v5",
+      "package_id": "c4b6d8823bf6f5de7b8ca3ed4a34f182fb521878d288d18b5822b3a7d548ced9",
+      "removed_unlisted_bytecode_files": 251,
+      "logical_bytes": 3708862,
+      "allocated_bytes": 4210688,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-squad-stage-v5",
+      "package_id": "e5b8bfb3cca2f0b2f7288538c348af2aabd944fcb26e07f93bac7874ee8a3733",
+      "removed_unlisted_bytecode_files": 251,
+      "logical_bytes": 3706854,
+      "allocated_bytes": 4206592,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-squad-stage-v4",
+      "package_id": "f15571697d453a0c698c5b00430ed89a7a3d291ddf1793838112b65100ecb47f",
+      "removed_unlisted_bytecode_files": 251,
+      "logical_bytes": 3705757,
+      "allocated_bytes": 4206592,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-mode-capacity-instant-v1",
+      "package_id": "b169ad113b7f6ac1bc3e6c3aaba790755f2ec0da2ff25ddf1dcdc7a67ca71b1d",
+      "removed_unlisted_bytecode_files": 217,
+      "logical_bytes": 3619305,
+      "allocated_bytes": 4067328,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-mode-capacity-parts-v1",
+      "package_id": "14d5f7a3fdc884299e541f7d18ceda26e8d58d2cd8ad8c693d8f12aa3dd58b93",
+      "removed_unlisted_bytecode_files": 226,
+      "logical_bytes": 3579615,
+      "allocated_bytes": 4050944,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-mode-capacity-v1",
+      "package_id": "cadbf1a5088b0f116f75497f4220d4cc9faf8a4e5a286811c439951cce2e1877",
+      "removed_unlisted_bytecode_files": 215,
+      "logical_bytes": 3605792,
+      "allocated_bytes": 4046848,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-mode-capacity-rosters-v1",
+      "package_id": "3c02e033f1d0b317b4bc4880e930272fb52974da64b64ea5d96d53f4d93ef59e",
+      "removed_unlisted_bytecode_files": 222,
+      "logical_bytes": 3549291,
+      "allocated_bytes": 4005888,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-aim-diagnostic-v2",
+      "package_id": "fe9c28210bf59d30306b0a58530d123aaf260ab8c538499d50db1a6b908fd2dc",
+      "removed_unlisted_bytecode_files": 255,
+      "logical_bytes": 3473629,
+      "allocated_bytes": 3993600,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-aim-metal-v1",
+      "package_id": "e9c26838815dc71a5dac506b8c6bfd626c44f223fcd37fbf92eb9872da25c73e",
+      "removed_unlisted_bytecode_files": 254,
+      "logical_bytes": 3470217,
+      "allocated_bytes": 3989504,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-mode-capacity-sealed-v1",
+      "package_id": "524c2ee44292821f1378f8db7fe8c335463423e5bdeb62e5e008dc71b27cbf72",
+      "removed_unlisted_bytecode_files": 210,
+      "logical_bytes": 3550428,
+      "allocated_bytes": 3985408,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-reach-v3",
+      "package_id": "db6bec04d91c28b1ea6120ae63539d8bd7bd69df454f8e6f7b8094aab2c43313",
+      "removed_unlisted_bytecode_files": 220,
+      "logical_bytes": 3522023,
+      "allocated_bytes": 3981312,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-reach-v2",
+      "package_id": "2d1864d8215f4321bc84aa48e2ff5841bcfae3af4962105550a9f600eb8710b9",
+      "removed_unlisted_bytecode_files": 220,
+      "logical_bytes": 3522023,
+      "allocated_bytes": 3981312,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-reach-v1",
+      "package_id": "a28ae127995a80e55762d5d08b5686483da793c01fc97d79013b91fa365ece09",
+      "removed_unlisted_bytecode_files": 219,
+      "logical_bytes": 3517927,
+      "allocated_bytes": 3977216,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-source-v4",
+      "package_id": "a54b00271b6fffae68515f33bf25d0fb39db4d1265f51d7d21fab1c4c55c3b9d",
+      "removed_unlisted_bytecode_files": 219,
+      "logical_bytes": 3513348,
+      "allocated_bytes": 3969024,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-source-v2",
+      "package_id": "6016ca9a116d9c033ad27e89d8c574aed7a1141a697fe5aa27a72553992f2a33",
+      "removed_unlisted_bytecode_files": 219,
+      "logical_bytes": 3510812,
+      "allocated_bytes": 3964928,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-source-v3",
+      "package_id": "13d65a8240e61f39dfe10050c1eb56f3030ed08bab4f392263c8df71e9083c5a",
+      "removed_unlisted_bytecode_files": 219,
+      "logical_bytes": 3510811,
+      "allocated_bytes": 3964928,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-mode-capacity-ally-rosters-v1",
+      "package_id": "ed33fd14bb48f25f07486a3b4b2ee21ba96e397a0565702e3486ff59847bcf1a",
+      "removed_unlisted_bytecode_files": 218,
+      "logical_bytes": 3513054,
+      "allocated_bytes": 3956736,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-squad-stage-rosters-v4",
+      "package_id": "9755c051d3b5cf6bb3c157eff1c629ac83e03ebd26f433e7d06c93dc9ca846ad",
+      "removed_unlisted_bytecode_files": 250,
+      "logical_bytes": 3439152,
+      "allocated_bytes": 3940352,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-squad-stage-v3",
+      "package_id": "c6093f04bdbf12903b4d4e195132a544fd7b49718a00eae11213c75b3466b9b1",
+      "removed_unlisted_bytecode_files": 250,
+      "logical_bytes": 3437152,
+      "allocated_bytes": 3936256,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-squad-stage-v2",
+      "package_id": "fdbb6b5194b585b6286c4c241ddf9b6861a5ed3ec61475f42c3eb6e036f30847",
+      "removed_unlisted_bytecode_files": 248,
+      "logical_bytes": 3424257,
+      "allocated_bytes": 3919872,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-source-v1",
+      "package_id": "60af565eaf2ce7ee99e0b35f40fee42ac1689eaceed85f5044c1f642d945499c",
+      "removed_unlisted_bytecode_files": 215,
+      "logical_bytes": 3466521,
+      "allocated_bytes": 3915776,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-aim-release-v1",
+      "package_id": "e54d3eae265535e2fe3eae7323dc0a142547c33a5daa9d0bd133b7dd52d41dfd",
+      "removed_unlisted_bytecode_files": 249,
+      "logical_bytes": 3403177,
+      "allocated_bytes": 3911680,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-aim-release-v2",
+      "package_id": "59c23ddac3d4e92a0f715fe693491e331b5fb406201ade75b18c894ebb597335",
+      "removed_unlisted_bytecode_files": 249,
+      "logical_bytes": 3403177,
+      "allocated_bytes": 3911680,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-mode-capacity-ally-v1",
+      "package_id": "79b062582ee66ad105cfe522d8160f0be4ff0394a5378b48e98494de6f7e4b3e",
+      "removed_unlisted_bytecode_files": 205,
+      "logical_bytes": 3416880,
+      "allocated_bytes": 3833856,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-squad-stage-v1",
+      "package_id": "d308fd3655dff988a84b441c48fd254b47879006c8a50b4b7c1fcc0a07b7e5b6",
+      "removed_unlisted_bytecode_files": 236,
+      "logical_bytes": 3306862,
+      "allocated_bytes": 3780608,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-codec-v2",
+      "package_id": "8799152370ef3d393c97d83a0abbbdbf504b0e94d2568942cdf557d9f8b7ca64",
+      "removed_unlisted_bytecode_files": 11,
+      "logical_bytes": 378708,
+      "allocated_bytes": 401408,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-codec-v1",
+      "package_id": "de2277b62e2355716e68e23bd2409454930d4dc49ee2e35ea0d25a44e1741cda",
+      "removed_unlisted_bytecode_files": 10,
+      "logical_bytes": 151971,
+      "allocated_bytes": 172032,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-interrupt-codec-sealed-v1",
+      "package_id": "d419b17f9ed62c0e9ca4fc1ff54eace3c14861f878c1ac2bc4e5f6c73b9052f2",
+      "removed_unlisted_bytecode_files": 8,
+      "logical_bytes": 114380,
+      "allocated_bytes": 131072,
+      "all_manifest_payload_hashes_verified_before_after": true
+    },
+    {
+      "package": "/private/tmp/nikke-mode-capacity-codegen-v1",
+      "package_id": "cadbf1a5088b0f116f75497f4220d4cc9faf8a4e5a286811c439951cce2e1877",
+      "removed_unlisted_bytecode_files": 6,
+      "logical_bytes": 97402,
+      "allocated_bytes": 106496,
+      "all_manifest_payload_hashes_verified_before_after": true
+    }
+  ],
+  "free_before": 1343082496,
+  "free_after": 1558233088,
+  "gpu_calls": 0,
+  "calculation_verified": false
+}

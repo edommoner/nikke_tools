@@ -2,8 +2,13 @@
 from portable_typed_geometry_specs import normalize
 from coordinate_geometry_reference import evaluate
 
-def select(world,spec,kind):
+def select(world,spec,kind,*,point=None):
     data=normalize(spec,len(world.bindings),kind);candidates=[]
+    if data.get('point_source')=='caster_aim':
+        from portable_geometry_specs import number
+        if not isinstance(point,(tuple,list)) or len(point)!=2:raise ValueError('Live caster aim must be resolved before selection')
+        data['point']=[float(number(v)) for v in point]
+    elif point is not None:raise ValueError('Fixed geometry cannot override its literal point')
     if world.last is None or world.finished:return None
     for slot,(binding,shape) in enumerate(zip(world.bindings,data['shapes'],strict=True)):
         target=world.targets.rows[slot]
@@ -16,3 +21,15 @@ def select(world,spec,kind):
         candidates.append(((shape['z'],run.start_t,binding.node,slot),slot,target.handle))
     if not candidates:return None
     _,slot,handle=max(candidates,key=lambda row:row[0]);return slot,handle
+
+def caster_aim(manager,caster):
+    """Read the canonical aim bank, including its pre-arbitration previous frame."""
+    from calculator import timeline
+    geom=manager.state['enemy'].get(timeline.GEOM_KEY)
+    if geom is None:raise ValueError('Live typed aim requires canonical geometry')
+    got=manager.state.get('aim',{}).get(caster)
+    return got[0] if got else geom.auto_aim
+
+def select_for_caster(world,spec,kind,manager,caster):
+    point=caster_aim(manager,caster) if spec.get('point_source')=='caster_aim' else None
+    return select(world,spec,kind,point=point)

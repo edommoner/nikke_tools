@@ -1,0 +1,15 @@
+{
+  "schema": "independent-metal-audit-v1",
+  "package_id": "dc9cff052644ce628e5e978c1b2a42e9febb4de7cd5e1ae6376be518e75e4ca2",
+  "capture": "/private/tmp/nikke-typed-live-aim-metal-v1",
+  "child_pid": 67728,
+  "input_count": 35,
+  "native_cases": 22,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 203.87214929098263,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "5714a431f3bca1b2d7c107dd03850e2b6db850770394fb67e9f6461f8ecfd1e4",
+  "output_sha256": "dc88186fcc8e8a08e1edbfe54d80569de917ee814d44ff335a7b47ee70741fb7",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls"
+}

@@ -14,12 +14,7 @@ suite=parent.suite;cross=parent.cross;STRICT_WIRE_DIMENSIONS=True;NATIVE_COMPARI
 def prepare():
     rows,_=parent.prepare()
     for row in fixtures():
-        c,p=prepare_case(row);c['coordinate_packet_history']='ordered-sha256-v1';c['body']=copy.deepcopy(row['body'])
-        for key in ('declared_effects','typed_bindings','max_attacks','character','declared_projectile_probe','probe_kind','typed_geometry','expected_handles'):c[key]=copy.deepcopy(row[key])
-        c['coordinate_typed_probe']=True;c['spatial_typed_probe']=True;c['probe_source']=len(p['effects'])
-        for effect in row['declared_effects']:
-            p['effects'].append(dict(owner=c['names'][0],effect=copy.deepcopy(effect)));c['effects'].append(copy.deepcopy(effect));c['owners'].append(0)
-        w,m,b,d=compile_coordinate_typed(p,c['typed_bindings'],c['probe_source'],probe_kind=c['probe_kind'],max_attacks=c['max_attacks'],geometry=c['typed_geometry']);rows.append((c['name'],w,(c,m,b,d)))
+        rows.append(prepare_spatial(row))
     seed=rows[-len(fixtures())][1]
     for label,offset,value in [('magic',0,1),('version',1,2),('count',2,129),('kind',3,4),('grow-negative-high',9,0xbff00000),('header-reserved',10,1),('shape-kind',16,3),('shape-reserved',17,1),('shape-radius-zero-low',22,0),('shape-unused-tail',16+2*18,1)]:
         w=list(seed)
@@ -30,6 +25,25 @@ def prepare():
     for _,w,_ in rows:packed.extend(w)
     if sys.byteorder!='little':packed.byteswap()
     return rows,packed.tobytes()
+
+def prepare_spatial(row):
+    c,p=prepare_case(row);c['coordinate_packet_history']='ordered-sha256-v1';c['body']=copy.deepcopy(row['body'])
+    if row.get('declared_aim_controls'):
+        from portable_declared_aim_controls import apply
+        from portable_weapon_input import normalize_static_weapon
+        from calculator.timeline import _resolve_cameras,DEFAULT_CONFIG
+        c['declared_aim_controls']=copy.deepcopy(row['declared_aim_controls']);p['chars']=apply(p['chars'],c['declared_aim_controls'])
+        c['controls']=[copy.deepcopy(char.get('control',{})) for char in p['chars']]
+        p['policies']['controls']={char['name']:copy.deepcopy(char.get('control',{})) for char in p['chars']}
+        cameras=_resolve_cameras(p['chars'],{**DEFAULT_CONFIG,**p['policies']['config']})
+        c['combat']['weapons']=[normalize_static_weapon(char,atk,p['enemy'],camera=char['name'] in cameras) for char,atk in zip(p['chars'],p['base_atk'],strict=True)]
+    for key in ('declared_effects','typed_bindings','max_attacks','character','declared_projectile_probe','probe_kind','typed_geometry','expected_handles'):c[key]=copy.deepcopy(row[key])
+    c['coordinate_typed_probe']=True;c['spatial_typed_probe']=True;c['probe_source']=len(p['effects'])
+    for effect in row['declared_effects']:
+        p['effects'].append(dict(owner=c['names'][0],effect=copy.deepcopy(effect)));c['effects'].append(copy.deepcopy(effect));c['owners'].append(0)
+    w,m,b,d=compile_coordinate_typed(p,c['typed_bindings'],c['probe_source'],probe_kind=c['probe_kind'],max_attacks=c['max_attacks'],geometry=c['typed_geometry'])
+    if row.get('declared_aim_controls'):m['coordinate_original_input'].update(original_controls_preserved=False,declared_aim_controls=True)
+    return c['name'],w,(c,m,b,d)
 
 def native_reference(domain):
     if not domain[0].get('spatial_typed_probe'):return BASE_NATIVE(domain)

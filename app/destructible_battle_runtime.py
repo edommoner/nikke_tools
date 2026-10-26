@@ -88,8 +88,8 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
         def resolve_target(target,caster,*args,**kwargs):
             if target=='typed_point':
                 if typed_geometry is None:raise ValueError('Typed point selector requires explicit shapes')
-                from typed_geometry_reference import select as select_point
-                got=select_point(world,typed_geometry,int(world.bindings[0].handle.kind))
+                from typed_geometry_reference import select_for_caster
+                got=select_for_caster(world,typed_geometry,int(world.bindings[0].handle.kind),manager,caster)
                 return [] if got is None else [world.bindings[got[0]].label]
             if target=='all_projectiles':return [world.bindings[i].label for i in world.targets.select([ActorKind.PROJECTILE])]
             if isinstance(target,str) and target in CURRENT_TARGETS and typed_context():raise ValueError('Typed enemy recipient requires an explicit actor policy')
@@ -116,8 +116,8 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
                 from destructible_skill_specs import coefficient
                 coefficient(dict(effect,target='all_projectiles'),manager._char[caster])
                 if world.last!=t or world.finished:raise ValueError('Typed point damage left its owning battle frame')
-                from typed_geometry_reference import select as select_point
-                selected=select_point(world,typed_geometry,int(world.bindings[0].handle.kind))
+                from typed_geometry_reference import select_for_caster
+                selected=select_for_caster(world,typed_geometry,int(world.bindings[0].handle.kind),manager,caster)
                 if selected is None:return
                 context=dict(manager=manager,world=world,effect=effect,caster=caster,time=t,kind=selected[1].kind,selected=selected)
             elif effect.get('target')=='all_projectiles':

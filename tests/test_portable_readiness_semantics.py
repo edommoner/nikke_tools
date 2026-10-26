@@ -80,6 +80,9 @@ class ReadinessSemanticsTests(unittest.TestCase):
             self.assertEqual((spatial['inputs'],spatial['native_cases'],spatial['added_spatial_cases']),(28,18,8))
             self.assertTrue(spatial['live_world_generation_selection']);self.assertTrue(spatial['explicit_point_and_extra_attack'])
             for key in ('automatic_typed_weapon_aim_verified','canonical_consumer_verified','cuda_device_verified','in_game_rules_verified','full_character_verified'):self.assertFalse(spatial[key])
+            live=r['typed_live_aim_validation'];self.assertEqual((live['inputs'],live['native_cases'],live['added_live_aim_cases']),(35,22,4))
+            self.assertTrue(live['canonical_aim_bank_consumer_verified']);self.assertTrue(live['previous_frame_skill_aim_verified'])
+            for key in ('automatic_typed_weapon_aim_verified','canonical_consumer_verified','cuda_device_verified','in_game_rules_verified','full_character_verified'):self.assertFalse(live[key])
 
     def test_parts_field_has_a_source_but_never_invented_runtime_coverage(self):
         row=dict(phase='effect',kind='damage',category='fields',fields=['hits_parts'])

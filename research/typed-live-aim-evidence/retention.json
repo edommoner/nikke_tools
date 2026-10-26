@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "scope": "Old 28 exact input/native fingerprints and every output byte retained inside new 35-input batch",
+  "old_package_id": "c7d70f1d545a515216e2d46e44063d9e5b76ace07a972cf1f50f6f1c78c4cb5c",
+  "new_package_id": "dc9cff052644ce628e5e978c1b2a42e9febb4de7cd5e1ae6376be518e75e4ca2",
+  "old_cases": 28,
+  "output_prefix_bytes": 227584000,
+  "sha256": "bdd071a47ea0c76ff23ff69196c9e62851264d5bba7581252579e79de6b35c95",
+  "all_input_native_fingerprints_exact": true,
+  "all_output_bytes_exact": true,
+  "gpu_calls": 0
+}

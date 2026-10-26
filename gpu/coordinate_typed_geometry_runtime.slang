@@ -10,7 +10,9 @@ bool validTypedGeometry(inout Runtime s)
     if(commands[p]!=TG_MAGIC||commands[p+1]!=1||n<1||n>128||n!=commands[p+2320]||(kind!=2&&kind!=3))return false;
     for(uint i=4;i<10;i+=2)if(!f64Finite(cNumber(p+i)))return false;
     if(f64Less(cNumber(p+8),0))return false;
-    for(uint i=10;i<16;i++)if(commands[p+i]!=0)return false;
+    if(commands[p+11]>1)return false;
+    if(commands[p+11]==1&&(commands[p+4]!=0||commands[p+5]!=0||commands[p+6]!=0||commands[p+7]!=0))return false;
+    for(uint i=10;i<16;i++)if(i!=11&&commands[p+i]!=0)return false;
     for(uint slot=0;slot<128;slot++)
     {
         uint row=p+16+slot*18;
@@ -40,6 +42,7 @@ uint typedGeometryPick(inout Runtime s)
     if(!typedGeometryEnabled(s))return 0xffffffffU;
     uint p=DF_EXTRA(s),n=commands[p+2],kind=commands[p+3],best=0xffffffffU;
     uint64_t x=cNumber(p+4),y=cNumber(p+6),grow=cNumber(p+8);
+    if(commands[p+11]==1){Definition d=readDefinition(s.inputBase,commands[DF_DESCRIPTOR(s)]);coordinateAimPoint(s,d.owner,x,y);}
     WorldSchedule w=frameSchedule(s);
     for(uint slot=0;slot<n;slot++)
     {
