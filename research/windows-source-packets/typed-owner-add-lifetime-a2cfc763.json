@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "archive": "typed-owner-add-lifetime-a2cfc763.zip",
+  "bytes": 11439568,
+  "sha256": "82e0322e7b9d149dfa4db715e7e8defdf02f129971506b97766724e4fb8ded25",
+  "package_id": "a2cfc763901a55d82404e8294157b61020b17b33a31716935df14292f5753002",
+  "suite": "compiler-full--coordinate-typed-owner-add-lifetime",
+  "purpose": "compiler-diagnostic",
+  "contains_fixed_upstream_source_and_data": true,
+  "contains_personal_session_or_settings": false,
+  "contains_raw_gpu_buffers": false,
+  "source_closure_matches_sealed_metal103": true,
+  "mac_cpu_check": {
+    "package_id": "a2cfc763901a55d82404e8294157b61020b17b33a31716935df14292f5753002",
+    "tests_exit_code": 0,
+    "gpu_calls": 0,
+    "compile_calls": 0,
+    "test_host": "Mac CPU",
+    "windows_execution_verified": false
+  },
+  "windows_device_verified": false
+}
