@@ -21,11 +21,13 @@ def leaf(adapter,domain):
 
 def provider(adapter,domain):
     """Recognize existing compare call sites, leaving other protocols fresh."""
-    seen=set()
+    # Routes may return temporary wrapper objects. Retain them until resolution
+    # ends so Python cannot recycle an earlier id and report a false cycle.
+    seen={}
     while True:
         adapter,domain=leaf(adapter,domain)
         if id(adapter) in seen:raise ValueError('Cyclic native comparison adapter routing')
-        seen.add(id(adapter));route=getattr(adapter,'native_comparison_adapter',None)
+        seen[id(adapter)]=adapter;route=getattr(adapter,'native_comparison_adapter',None)
         if route is None:break
         if not callable(route):raise ValueError('Native comparison adapter route must be callable')
         adapter=route(domain)

@@ -19,6 +19,35 @@ from test_portable_cuda_artifact import NVRTC
 
 
 class CompileCLITests(unittest.TestCase):
+    def test_compile_plan_uses_diagnostic_policy_without_compiler_or_process(self):
+        normal=dict(package_id='plan-fixture',suite='coordinate-resident-arc',purpose='sealed')
+        with patch.object(cli,'verify_package',return_value=normal),patch.object(cli.subprocess,'run',side_effect=AssertionError('No process')),patch.object(backend,'compile_cuda_source',side_effect=AssertionError('No compiler')):
+            result=cli.compile_plan(self.root/'normal-plan.json','cubin',1,2048,60)
+            self.assertTrue(result['passed']);self.assertFalse(result['claim_created']);self.assertEqual(result['gpu_calls'],0)
+            with self.assertRaises(FileExistsError):cli.compile_plan(self.root/'normal-plan.json','cubin',1,2048,60)
+            normal.update(suite='compiler-full--coordinate-resident-arc',purpose='compiler-diagnostic')
+            result=cli.compile_plan(self.root/'incompatible.json','cubin',1,2048,60)
+            self.assertFalse(result['passed']);self.assertIn('PTX',result['error'])
+            result=cli.compile_plan(self.root/'ptx.json','ptx',None,2048,60)
+            self.assertTrue(result['passed'])
+        self.assertFalse((self.root/'compile-claimed-cuda.json').exists())
+
+    def test_preview_parent_child_audit_keep_the_same_ptx_diagnostic_invariant(self):
+        diagnostic=dict(suite='compiler-full--coordinate-resident-arc')
+        for stage in ('parent','child','audit'):
+            cli.compiler_diagnostic_policy(diagnostic,'ptx',None,2048,stage)
+            for kind,level,memory in [('cubin',1,2048),('ptx',1,2048),('ptx',None,1024)]:
+                with self.subTest(stage=stage,kind=kind,level=level,memory=memory),self.assertRaisesRegex(ValueError,'PTX'):
+                    cli.compiler_diagnostic_policy(diagnostic,kind,level,memory,stage)
+
+    def test_plan_rejects_development_and_invalid_budgets_before_execution(self):
+        normal=dict(package_id='plan-fixture',suite='coordinate-resident-arc',purpose='sealed')
+        with patch.object(cli,'verify_package',return_value=normal):
+            for index,(memory,timeout) in enumerate([(2048,61),(2048,0),(4097,60),(True,60),(2048,True)]):
+                self.assertFalse(cli.compile_plan(self.root/f'budget-{index}.json','cubin',1,memory,timeout)['passed'])
+            normal['purpose']='development'
+            self.assertFalse(cli.compile_plan(self.root/'development.json','cubin',1,2048,60)['passed'])
+
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
         self.root=Path(self.temp.name);self.capture=self.root/'capture';self.capture.mkdir()

@@ -1,0 +1,14 @@
+{
+  "schema": "resident-parent-final-binding-v2",
+  "proof_package_id": "922d299973b3019c64d5ff3cfbe7e919705da33f3acf8855ec61cc6bff454801",
+  "final_package_id": "814c08b1ff0d2957b2a027736dcbddb9a5327015516c7095421259da27e64c0c",
+  "changed_payload_files": [
+    "scripts/nikke_gpu.py",
+    "tests/test_portable_compile_cli.py"
+  ],
+  "entire_golden_equal": true,
+  "all_gpu_native_provider_and_comparator_files_equal": true,
+  "comparison_preflight_audit_methods_ast_equal": true,
+  "change_scope": "CLI summary and compile-plan, shared unchanged PTX diagnostic condition and fault tests; no numeric or comparison change",
+  "gpu_calls": 0
+}

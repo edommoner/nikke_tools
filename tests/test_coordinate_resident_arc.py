@@ -47,5 +47,17 @@ class ResidentArcTests(unittest.TestCase):
   self.assertEqual(text.count(needle),2)
   before,after=text.split('executeComposedCoordinateEvents(runtimeStates[id.x],id);')
   self.assertIn(needle,before);self.assertIn(needle,after)
+ def test_all_native_routes_keep_the_original_provider_and_full_tail_comparator(self):
+  from portable_parent_oracles import provider
+  rows,_=a.prepare();native=0
+  for _,_,domain in rows:
+   if domain is None:continue
+   wrapper=a.native_comparison_adapter(domain)
+   self.assertIs(wrapper.compare,a.compare)
+   expected=provider(a.parent,domain);actual=provider(a,domain)
+   self.assertIsNotNone(actual)
+   self.assertEqual(actual,expected)
+   self.assertIs(actual[3],domain);native+=1
+  self.assertEqual(native,63)
 
 if __name__=='__main__':unittest.main()

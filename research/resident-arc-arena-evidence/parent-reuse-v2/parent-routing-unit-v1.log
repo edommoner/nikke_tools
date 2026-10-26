@@ -1,0 +1,17 @@
+E......
+======================================================================
+ERROR: test_all_native_routes_keep_the_original_provider_and_full_tail_comparator (test_coordinate_resident_arc.ResidentArcTests.test_all_native_routes_keep_the_original_provider_and_full_tail_comparator)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/runtime-resident/tests/test_coordinate_resident_arc.py", line 57, in test_all_native_routes_keep_the_original_provider_and_full_tail_comparator
+    expected=provider(a.parent,domain);actual=provider(a,domain)
+                                              ^^^^^^^^^^^^^^^^^^
+  File "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/runtime-resident/app/portable_parent_oracles.py", line 27, in provider
+    if id(adapter) in seen:raise ValueError('Cyclic native comparison adapter routing')
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Cyclic native comparison adapter routing
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.606s
+
+FAILED (errors=1)

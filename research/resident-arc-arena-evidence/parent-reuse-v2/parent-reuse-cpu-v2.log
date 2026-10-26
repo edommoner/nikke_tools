@@ -1,0 +1,34 @@
+{
+  "schema": "resident-parent-reuse-cpu-v1",
+  "passed": true,
+  "mode": "saved-raw-fixture-regression",
+  "inputs": 106,
+  "native_cases": 63,
+  "preflight_native_calls": 63,
+  "additional_comparison_native_calls": 0,
+  "preflight_seconds": 411.33027579199916,
+  "comparison_seconds": 11.342570667002292,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 63,
+    "fresh_native_cases": 0,
+    "rejection_cases": 43,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 63
+  },
+  "all_comparison_entries_equal_original": true,
+  "original_independent_receipt_sha256": "b6d1cda306d31537d999b6180a3bc6d900fc5d573efcf737cf997d24d31667d3",
+  "package_id": "922d299973b3019c64d5ff3cfbe7e919705da33f3acf8855ec61cc6bff454801",
+  "changed_files": [
+    "app/portable_parent_oracles.py",
+    "research/verify-coordinate-resident-arc-short.py",
+    "tests/test_coordinate_resident_arc.py",
+    "tests/test_portable_parent_oracles.py"
+  ],
+  "gpu_calls": 0,
+  "new_gpu_capture": false,
+  "independent_audit": false,
+  "calculation_verified": false,
+  "scope": "Fresh same-process CPU preflight plus exact full106 comparison against original independently sealed Metal raw; no GPU execution or file cache of native values"
+}

@@ -10,7 +10,7 @@
   "output_words": 2064786,
   "arc_words": 32786,
   "runtime_reflection_unchanged": true,
-  "related_tests": 140,
+  "related_tests": 162,
   "control_tests": 580,
   "windows_snapshot_control_tests": 559,
   "mac_metal_status": "sealed: normal full106 plus fresh independent full106 passed",
@@ -41,5 +41,23 @@
   "windows_standalone_landing40_preservation_status": "unverified service identification",
   "windows_standalone_landing40_overall_passed": false,
   "windows_standalone_landing40_report_commit": "5f57e84a",
-  "windows_full_resident_cuda_calculation_verified": false
+  "windows_full_resident_cuda_calculation_verified": false,
+  "live_parent_reuse": {
+    "verified": true,
+    "inputs": 106,
+    "native_cases": 63,
+    "preflight_native_calls": 63,
+    "additional_comparison_native_calls": 0,
+    "reused_context_cases": 63,
+    "preflight_seconds": 411.33027579199916,
+    "comparison_seconds": 11.342570667002292,
+    "all_comparison_entries_equal_original": true,
+    "extra_gpu_calls": 0,
+    "independent_audit_reuse": false,
+    "proof": "resident-arc-arena-evidence/parent-reuse-v2/result.json"
+  },
+  "compile_plan_unit_tests": 11,
+  "windows_full_compile_status": "v1 correctly stopped before execution by PTX-only diagnostic policy; new sealed CUBIN packet814c08b1 passes compile-plan, not yet executed",
+  "windows_full_compile_attempts": 0,
+  "windows_cubin_plan_package_id": "814c08b1ff0d2957b2a027736dcbddb9a5327015516c7095421259da27e64c0c"
 }

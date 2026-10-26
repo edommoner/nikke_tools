@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "input_count": 106,
+  "native_oracles": 63,
+  "input_sha256": "7892c2b3f5800c602d96a92192b89094d746f1674aaa18fcac2436677c11923d",
+  "gpu_calls": {
+    "build": 0,
+    "execute": 0
+  },
+  "elapsed_seconds": 407.82454091600084,
+  "transport_input": {
+    "schema": 1,
+    "package_id": "922d299973b3019c64d5ff3cfbe7e919705da33f3acf8855ec61cc6bff454801",
+    "input_count": 106,
+    "input_words": 115680,
+    "input_bytes": 49048324,
+    "input_sha256": "7892c2b3f5800c602d96a92192b89094d746f1674aaa18fcac2436677c11923d"
+  }
+}

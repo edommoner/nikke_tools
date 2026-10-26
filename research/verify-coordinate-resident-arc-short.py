@@ -19,5 +19,9 @@ def logical(block):
 def compare(block,domain):
     adapter=parent.native_comparison_adapter(domain)
     return adapter.compare(logical(block),domain)
-def native_comparison_adapter(domain):return SimpleNamespace(compare=compare,native_reference=native_reference)
+def native_comparison_adapter(domain):
+    # Keep the full-tail comparator, but resolve its actual native call site
+    # through the existing parent route for same-process preflight reuse.
+    return SimpleNamespace(compare=compare,native_reference=native_reference,
+                           native_comparison_adapter=parent.native_comparison_adapter)
 def validate_rejection(block,name):parent.validate_rejection(logical(block),name)

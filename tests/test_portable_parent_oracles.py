@@ -89,6 +89,17 @@ def compare(block,domain):
                 self.assertTrue(result['calculation_verified']);self.assertEqual(result['parent_oracles']['reused_native_cases'],1)
                 self.assertEqual(self.leaf.calls['native'],1)
 
+    def test_temporary_comparison_routes_do_not_recycle_cycle_detection_ids(self):
+        def route(depth):
+            if depth==0:return self.leaf
+            return types.SimpleNamespace(compare=self.leaf.compare,
+                native_comparison_adapter=lambda domain:route(depth-1))
+        domain=self.adapter.prepare()[0][0][2]
+        self.assertEqual(provider(route(32),domain),provider(self.leaf,domain))
+        cycle=types.SimpleNamespace(compare=self.leaf.compare)
+        cycle.native_comparison_adapter=lambda domain:cycle
+        with self.assertRaisesRegex(ValueError,'Cyclic'):provider(cycle,domain)
+
     def context_fixture(self):
         import contextlib
         module=self.leaf;module.current_context=[];module.context_reads=0;module.restore_failure=False

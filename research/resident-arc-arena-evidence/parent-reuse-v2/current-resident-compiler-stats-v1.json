@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "source_bytes": 2684200,
+  "source_sha256": "a68713e6904f257905125383c3264f3a0916a7eb42e59f1b6e25402c64b98e93",
+  "functions": 1126,
+  "noinline_functions": 267,
+  "largest_functions": [
+    {
+      "name": "admitDefinitions_0",
+      "line": 16448,
+      "bytes": 130880,
+      "lines": 4547,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 527
+    },
+    {
+      "name": "applyDefinitionFrame_0",
+      "line": 70967,
+      "bytes": 75646,
+      "lines": 1194,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 149
+    },
+    {
+      "name": "executePortableCommands_0",
+      "line": 93063,
+      "bytes": 65918,
+      "lines": 1023,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 131
+    },
+    {
+      "name": "advanceDefinitionFrame_0",
+      "line": 72163,
+      "bytes": 60073,
+      "lines": 1826,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 222
+    },
+    {
+      "name": "coordinateUnitPower_0",
+      "line": 11296,
+      "bytes": 47559,
+      "lines": 1644,
+      "noinline": true,
+      "global_entry": false,
+      "branches": 194
+    }
+  ],
+  "scope": "Lexical generated-CUDA spans only; not compiler time, memory attribution, performance or correctness proof",
+  "source_integrity_verified": true,
+  "analysis_complete": true,
+  "calculation_verified": false,
+  "compiler_verified": false,
+  "gpu_calls": 0,
+  "nvrtc_compile_calls": 0
+}

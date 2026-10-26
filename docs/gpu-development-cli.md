@@ -1,3 +1,5 @@
+Windows向けコンパイルは固定packetのcwdで `compile-plan --artifact-kind cubin --ptxas-level 1 --memory-limit-mb 2048 --timeout 60 --out UNIQUE.json` を先に実行します。artifact互換性のみを検査し、compilerやGPUは実行しません。[PTX診断／sealed CUBIN経路と手順](portable-compile-plan.md)。
+
 `model-check --summary --out UNIQUE.json` は完全な監査JSONを保持し、stdoutだけを約1KBの状態・保存先・SHAへ絞ります。監査範囲を削る指定ではありません。通常のstdout全文も従来どおり利用できます。
 
 `snapshot-check --original-workspace EXISTING --validation-root ISOLATED --out ISOLATED/NEW.json` はCPU専用のWindows観測診断です。失敗段階と数値codeだけを記録し、compiler／GPUを起動しません。[制約・結果の意味](portable-windows-snapshot-check.md)。

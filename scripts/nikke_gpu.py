@@ -429,7 +429,7 @@ SUITES['coordinate-typed-owner-add-lifetime']=dict(SUITES['coordinate-typed-logi
 SUITES['coordinate-typed-owner-add-lifetime']['support_files']=list(dict.fromkeys([*SUITES['coordinate-typed-owner-add-lifetime'].get('support_files',()),'research/portable-coordinate-typed-logical-owner-short-expected.json','research/portable-compiler-full--coordinate-typed-owner-add-lifetime-source-certificate.json']))
 SUITES['coordinate-typed-owner-hp-death']=dict(SUITES['coordinate-typed-owner-add-lifetime'],script='research/verify-coordinate-typed-owner-hp-death-short.py',golden='research/portable-coordinate-typed-owner-hp-death-short-expected.json',inputs=106,native=63,development_only=False)
 SUITES['coordinate-typed-owner-hp-death']['support_files']=list(dict.fromkeys([*SUITES['coordinate-typed-owner-hp-death'].get('support_files',()),'research/portable-coordinate-typed-owner-add-lifetime-short-expected.json','research/portable-compiler-full--coordinate-typed-owner-hp-death-source-certificate.json']))
-SUITES['coordinate-resident-arc']=dict(SUITES['coordinate-typed-owner-hp-death'],script='research/verify-coordinate-resident-arc-short.py',source='gpu/world_coordinate_resident_arc_entry.slang',golden='research/portable-coordinate-resident-arc-short-expected.json',output_words=2064786,development_only=False,tests=[*SUITES['coordinate-typed-owner-hp-death']['tests'],'test_coordinate_arc_arena.py','test_coordinate_landing_arena.py','test_coordinate_resident_arc.py'])
+SUITES['coordinate-resident-arc']=dict(SUITES['coordinate-typed-owner-hp-death'],script='research/verify-coordinate-resident-arc-short.py',source='gpu/world_coordinate_resident_arc_entry.slang',golden='research/portable-coordinate-resident-arc-short-expected.json',output_words=2064786,development_only=False,tests=[*SUITES['coordinate-typed-owner-hp-death']['tests'],'test_coordinate_arc_arena.py','test_coordinate_landing_arena.py','test_coordinate_resident_arc.py','test_portable_parent_oracles.py'])
 SUITES['coordinate-resident-arc']['support_files']=[*SUITES['coordinate-resident-arc']['support_files'],'research/portable-coordinate-typed-owner-hp-death-short-expected.json','research/portable-compiler-full--coordinate-resident-arc-source-certificate.json']
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
@@ -908,6 +908,39 @@ def full_compiler(m):
     from portable_compiler_certificate import full_family
     config=SUITES.get(m.get('suite'),{})
     return config.get('compiler_only') is True and full_family(m.get('suite'),config.get('compiler_baseline_suite'))
+
+
+def compiler_diagnostic_policy(m,kind,level,memory_mb,stage):
+    """One existing PTX-only invariant for preview, parent, child and audit."""
+    if compiler_only(m) and (kind!='ptx' or level is not None or memory_mb!=2048):
+        messages={'parent':'Compiler diagnostic requires PTX and the fixed2GiB budget',
+                  'child':'Compiler diagnostic child requires PTX and2GiB',
+                  'audit':'Compiler diagnostic proof must use PTX and2GiB'}
+        raise ValueError(messages[stage])
+
+
+def compile_plan(output,artifact_kind,ptxas_level,memory_limit_mb,timeout):
+    """Check this immutable packet's compile policy without a process/claim."""
+    output=Path(output)
+    if output.exists():raise FileExistsError(output)
+    with forbid_gpu():
+        m=verify_package(ROOT);error=None
+        try:
+            if type(timeout) is not int or not 1<=timeout<=60:raise ValueError('Compile-only budget must be1..60 seconds')
+            if type(memory_limit_mb) is not int or not 64<=memory_limit_mb<=4096:raise ValueError('Compile-only memory must be64..4096 MiB')
+            from portable_backend import cuda_compile_options
+            cuda_compile_options(artifact_kind,ptxas_level)
+            if is_development(m):raise ValueError('Compile-only requires a sealed Metal package')
+            compiler_diagnostic_policy(m,artifact_kind,ptxas_level,memory_limit_mb,'parent')
+        except ValueError as exc:error=str(exc)
+    result=dict(schema='compile-plan-v1',passed=error is None,package_id=m['package_id'],suite=m['suite'],
+        purpose=m.get('purpose','sealed'),artifact_kind=artifact_kind,ptxas_level=ptxas_level,
+        memory_limit_mb=memory_limit_mb,timeout_seconds=timeout,error=error,
+        policy='PTX-only/2GiB/no-ptxas-level' if compiler_only(m) else 'sealed-battle compile-only transport',
+        gpu_calls=0,compiler_calls=0,claim_created=False,calculation_verified=False,
+        scope='Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified')
+    with output.open('x',encoding='utf-8') as stream:json.dump(result,stream,indent=2);stream.write('\n')
+    return result
 
 
 def prepare_entries(adapter, m):
@@ -2787,8 +2820,8 @@ def assemble_capture(capture,timeout,original_workspace,source_package,source_ca
 def compile_child(m,capture,backend):
     """Same compiler/cache as execution, with no CUDA driver admission."""
     if backend!='cuda' or is_development(m):raise ValueError('Compile-only requires a sealed CUDA package')
-    if compiler_only(m) and (os.environ.get('NIKKE_CUDA_ARTIFACT')!='ptx' or os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL','')!='' or os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB')!='2048'):
-        raise ValueError('Compiler diagnostic child requires PTX and2GiB')
+    compiler_diagnostic_policy(m,os.environ.get('NIKKE_CUDA_ARTIFACT'),os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL') or None,
+                               2048 if os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB')=='2048' else None,'child')
     import portable_backend
     from portable_phase_audit import Journal,observe
     journal=Journal(capture/'phases.jsonl')
@@ -2823,8 +2856,7 @@ def audit_compile_capture(m,capture,*,verify_artifacts=True):
     if verify_artifacts:check_records(capture,load(capture/'artifacts.json')['files'])
     facts=load(capture/'execution.json')
     if is_development(m) or type(facts['timeout_seconds']) is not int or not 1<=facts['timeout_seconds']<=60 or type(run['memory_limit_mb']) is not int or not 64<=run['memory_limit_mb']<=4096:raise ValueError('Compiler proof exceeds its bounded policy')
-    if compiler_only(m) and (run['artifact_kind']!='ptx' or run['ptxas_level'] is not None or run['memory_limit_mb']!=2048):
-        raise ValueError('Compiler diagnostic proof must use PTX and2GiB')
+    compiler_diagnostic_policy(m,run['artifact_kind'],run['ptxas_level'],run['memory_limit_mb'],'audit')
     rows=[];phase_error=None
     if (capture/'phases.jsonl').exists():
         for line in (capture/'phases.jsonl').read_text().splitlines():
@@ -2871,8 +2903,7 @@ def compile_capture(capture,timeout,original_workspace,artifact_kind='cubin',ptx
     if not original_workspace or not os.environ.get('NIKKE_CUDA_COMPILE_CACHE'):raise ValueError('Original workspace and dedicated compiler cache required')
     m=verify_package(ROOT)
     if is_development(m):raise ValueError('Compile-only requires a sealed Metal package')
-    if compiler_only(m) and (artifact_kind!='ptx' or ptxas_level is not None or memory_limit_mb!=2048):
-        raise ValueError('Compiler diagnostic requires PTX and the fixed2GiB budget')
+    compiler_diagnostic_policy(m,artifact_kind,ptxas_level,memory_limit_mb,'parent')
     capture.mkdir(parents=True,exist_ok=False)
     write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode='compile-only',status='compiling',artifact_kind=artifact_kind,ptxas_level=ptxas_level,memory_limit_mb=memory_limit_mb,gpu_retry_count=0))
     try:
@@ -3067,6 +3098,8 @@ def main(argv=None):
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
     a=sub.add_parser('ptx-stats');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=8);a.add_argument('--callgraph',action='store_true')
     a=sub.add_parser('ptx-partition');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--function');a.add_argument('--audit',action='store_true')
+    a=sub.add_parser('compile-plan',help='CPU-only immutable packet artifact/budget policy check before transport')
+    a.add_argument('--out',type=Path,required=True);a.add_argument('--artifact-kind',choices=('cubin','ptx'),default='cubin');a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--timeout',type=int,default=60)
     a=sub.add_parser('compile');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--artifact-kind',choices=('cubin','ptx'),default='cubin')
     a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
@@ -3180,6 +3213,7 @@ def main(argv=None):
         from portable_ptx_partition import saved_partition,audit_partition
         if a.audit and a.function:raise ValueError('Audit uses the stored focus; --function is creation only')
         result=audit_partition(a.cache_entry,a.phases,a.out) if a.audit else saved_partition(a.cache_entry,a.phases,a.out,a.function)
+    elif a.command=='compile-plan':result=compile_plan(a.out,a.artifact_kind,a.ptxas_level,a.memory_limit_mb,a.timeout)
     elif a.command=='compile':
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
         if a.compile_cache:os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
@@ -3412,7 +3446,7 @@ def main(argv=None):
     if a.command=='snapshot-check':
         if not result['snapshot_verified']:raise SystemExit(1)
         return
-    if a.command in ('cache-probe','metal-device-probe'):
+    if a.command in ('cache-probe','metal-device-probe','compile-plan'):
         if not result['passed']:raise SystemExit(1)
         return
     if a.command=='arena-check':
