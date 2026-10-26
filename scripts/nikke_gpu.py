@@ -415,6 +415,8 @@ SUITES['coordinate-typed-aim']=dict(SUITES['coordinate-typed-weapon'],script='re
 SUITES['coordinate-typed-aim']['tests']=[*SUITES['coordinate-typed-aim']['tests'],'test_coordinate_typed_aim_gpu.py']
 SUITES['coordinate-typed-actor']=dict(SUITES['coordinate-typed-aim'],script='research/verify-coordinate-typed-actor-short.py',source='gpu/world_coordinate_typed_actor_entry.slang',golden='research/portable-coordinate-typed-actor-short-expected.json',inputs=67,native=40,development_only=False)
 SUITES['coordinate-typed-actor']['tests']=[*SUITES['coordinate-typed-actor']['tests'],'test_coordinate_typed_actor_policy.py','test_coordinate_typed_actor_gpu.py']
+SUITES['coordinate-typed-owner']=dict(SUITES['coordinate-typed-actor'],script='research/verify-coordinate-typed-owner-short.py',source='gpu/world_coordinate_typed_owner_entry.slang',golden='research/portable-coordinate-typed-owner-short-expected.json',inputs=80,native=45,development_only=False)
+SUITES['coordinate-typed-owner']['tests']=[*SUITES['coordinate-typed-owner']['tests'],'test_coordinate_typed_owner_policy.py','test_coordinate_typed_owner_gpu.py','test_typed_owner_observer_migration.py']
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -565,6 +567,7 @@ SUITES['destructible-counter']['tests'].append('test_portable_packet_stage.py')
 
 
 SMOKE_TESTS.append('test_portable_comparison_groups.py')
+SMOKE_TESTS.append('test_typed_owner_observer_migration.py')
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
@@ -771,7 +774,7 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
         baseline_records=[r for r in records if not compact or r['path'] in selected]
         golden,native_expectations=reuse(SimpleNamespace(**globals()),suite,native_baseline_package,baseline_records,cases)
     elif baseline_package is not None:
-        if not develop or cases or reference_migration not in ('coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1'):raise ValueError('Unfiltered development observation migration required')
+        if not develop or cases or reference_migration not in ('coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1','coordinate-typed-owner-status-witness-v1'):raise ValueError('Unfiltered development observation migration required')
         baseline_records=[r for r in records if not compact or r['path'] in selected]
         golden,reused=migrated_development_baseline(suite,baseline_package,baseline_records,reference_migration)
     else:
@@ -938,6 +941,9 @@ def migrated_development_baseline(suite,source,records,name):
     Saved replay still recomputes every native domain; no GPU run is authorized.
     """
     import copy
+    if name=='coordinate-typed-owner-status-witness-v1':
+        from portable_typed_owner_observer_migration import baseline
+        return baseline(SimpleNamespace(**globals()),suite,source,records)
     if name=='coordinate-original-projectile-history-v1':
         from portable_original_history_repackage import baseline
         return baseline(SimpleNamespace(**globals()),suite,source,records)
@@ -1372,6 +1378,9 @@ def replay_source(m, source_package, source_capture,reference_migration=None):
     return original,facts,evidence
 
 def verify_reference_migration(name,original,m):
+    if name=='coordinate-typed-owner-status-witness-v1':
+        from portable_typed_owner_observer_migration import verify
+        return verify(SimpleNamespace(**globals()),original,m)
     if name=='coordinate-healing-routed-adds-v1':
         from portable_coordinate_route_migration import verify,CASE
         with forbid_gpu():
@@ -1412,7 +1421,7 @@ def audit_replay_capture(m, capture, *, verify_artifacts=True,record_comparison=
                 original_failure_preserved=True,gpu_calls=0,gpu_retry_count=0,source_gpu_dispatches=1)
 
 
-def replay_storage_preflight(capture,source_capture):
+def replay_storage_preflight(capture,source_capture,*,reuse_source_bytes=False):
     """Budget every saved-result copy; a sparse source still needs full bytes."""
     from portable_capture_storage import space_status
     files=[]
@@ -1420,18 +1429,32 @@ def replay_storage_preflight(capture,source_capture):
         path=source_capture/name
         if path.is_symlink() or not path.is_file():raise ValueError('Replay copy source missing or symlink: '+name)
         files.append(dict(path=name,bytes=path.stat().st_size))
-    budget=space_status(capture,sum(row['bytes'] for row in files))
-    report=dict(budget,copied_files=files,gpu_calls=0,calculation_verified=False)
+    budget=space_status(capture,64*1024**2 if reuse_source_bytes else sum(row['bytes'] for row in files))
+    report=dict(budget,reuse_source_bytes=reuse_source_bytes,copied_files=files,gpu_calls=0,calculation_verified=False)
     write(capture/'storage.json',report)
     if not report['passed']:raise ValueError('Insufficient space for replay copies and reserve; see storage receipt')
     return report
 
 
-def replay_capture(capture, source_package, source_capture,reference_migration=None,*,comparison_group_size=None,audit_timeout=180):
+def copy_replay_inputs(capture,source_capture,*,reuse_source_bytes=False):
+    if type(reuse_source_bytes) is not bool:raise ValueError('Explicit saved replay sharing flag required')
+    names=('input.bin','readback.bin','evidence.json','generated.cu','generated.metal')
+    records=file_records(source_capture,names)
+    for name in names:
+        if reuse_source_bytes:
+            os.link(source_capture/name,capture/name,follow_symlinks=False)
+            a=(source_capture/name).stat();b=(capture/name).stat()
+            if a.st_dev!=b.st_dev or a.st_ino!=b.st_ino:raise ValueError('Saved replay bytes not shared on the same filesystem')
+        else:(capture/name).write_bytes((source_capture/name).read_bytes())
+    check_records(capture,records);check_records(source_capture,records)
+    if reuse_source_bytes:write(capture/'shared-inputs.json',dict(files=records,source_capture=str(source_capture.resolve()),same_filesystem_hardlinks=True,source_files_modified=False,gpu_calls=0,calculation_verified=False))
+
+
+def replay_capture(capture, source_package, source_capture,reference_migration=None,*,comparison_group_size=None,audit_timeout=180,reuse_source_bytes=False):
     m=verify_package(ROOT);original,facts,evidence=replay_source(m,source_package,source_capture,reference_migration)
     capture.mkdir(parents=True,exist_ok=False)
     write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='metal',mode='replay',status='storage-preflight',gpu_retry_count=0))
-    try:replay_storage_preflight(capture,source_capture)
+    try:replay_storage_preflight(capture,source_capture,**(dict(reuse_source_bytes=True) if reuse_source_bytes else {}))
     except BaseException as error:
         write(capture/'failure.json',dict(error=type(error).__name__+': '+str(error),gpu_calls=0))
         run=load(capture/'run.json');run['status']='failed';write(capture/'run.json',run)
@@ -1441,9 +1464,13 @@ def replay_capture(capture, source_package, source_capture,reference_migration=N
     if reference_migration:
         origin=load(capture/'replay.json');origin['reference_migration']=reference_migration;write(capture/'replay.json',origin)
         write(capture/'reference-migration.json',verify_reference_migration(reference_migration,original,m))
-    for name in ('input.bin','readback.bin','evidence.json','generated.cu','generated.metal'):
-        (capture/name).write_bytes((source_capture/name).read_bytes())
-    (capture/'source-execution.json').write_bytes((source_capture/'execution.json').read_bytes())
+    try:
+        copy_replay_inputs(capture,source_capture,reuse_source_bytes=reuse_source_bytes)
+        (capture/'source-execution.json').write_bytes((source_capture/'execution.json').read_bytes())
+    except BaseException as error:
+        write(capture/'failure.json',dict(error=type(error).__name__+': '+str(error),gpu_calls=0))
+        run=load(capture/'run.json');run['status']='failed';write(capture/'run.json',run)
+        collect(capture,capture/'artifacts.json');raise
     try:
         if comparison_group_size is None:
             result=audit_replay_capture(m,capture,verify_artifacts=False,record_comparison=True)
@@ -2972,7 +2999,7 @@ def main(argv=None):
         if name=='readback-compare':a.add_argument('--index',type=Path,required=True);a.add_argument('--index-sha256',required=True)
         else:a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472,1769856),default=786432)
     a=sub.add_parser('readback-retain');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--reference-comparison-sha256',required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--candidate-comparison-sha256',required=True);a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472,1769856),default=786432);a.add_argument('--reference-case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472,1769856));a.add_argument('--input-extension',choices=INPUT_EXTENSION_CONTRACTS);a.add_argument('--out',type=Path,required=True)
-    a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--reference-migration',choices=['parts-cleared-v1','leftmost-rejection-domains-v1','coordinate-healing-routed-adds-v1']);a.add_argument('--comparison-group-size',type=int);a.add_argument('--audit-timeout',type=int,default=180)
+    a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--reference-migration',choices=['parts-cleared-v1','leftmost-rejection-domains-v1','coordinate-healing-routed-adds-v1','coordinate-typed-owner-status-witness-v1']);a.add_argument('--comparison-group-size',type=int);a.add_argument('--audit-timeout',type=int,default=180);a.add_argument('--reuse-source-bytes',action='store_true',help='Share immutable saved input/readback/generated bytes by hardlink; never edit either capture')
     a=sub.add_parser('metal-cache-probe');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--generated-metal',type=Path,required=True);a.add_argument('--cache',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--require-hit',action='store_true')
     a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
@@ -3026,7 +3053,7 @@ def main(argv=None):
     a=sub.add_parser('storage-check',help='CPU-only free-space budget check; does not archive or delete files')
     a.add_argument('--required-bytes',type=int,default=0);a.add_argument('--reserve-bytes',type=int,default=1024**3);a.add_argument('--path',type=Path,default=ROOT)
     a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
-    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--native-baseline-package',type=Path,help='Reuse expected native hashes only when CPU dependencies and prepared inputs match; fresh run/seal checks stay mandatory');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1'])
+    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--native-baseline-package',type=Path,help='Reuse expected native hashes only when CPU dependencies and prepared inputs match; fresh run/seal checks stay mandatory');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1','coordinate-typed-owner-status-witness-v1'])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True);a.add_argument('--reuse-payload-from',type=Path,help='Share exact payload bytes with an existing immutable package on the same filesystem; never edit either payload')
     for name in ('run','_child'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--smoke',action='store_true')
@@ -3072,7 +3099,7 @@ def main(argv=None):
         if a.reference_case_words is not None:args+=['--reference-case-words',str(a.reference_case_words)]
         if a.input_extension is not None:args+=['--input-extension',a.input_extension]
         blocks_main(args);return
-    elif a.command=='replay':result=replay_capture(a.capture,a.source_package,a.source_capture,**(dict(reference_migration=a.reference_migration) if a.reference_migration else {}),**(dict(comparison_group_size=a.comparison_group_size,audit_timeout=a.audit_timeout) if a.comparison_group_size is not None else {}))
+    elif a.command=='replay':result=replay_capture(a.capture,a.source_package,a.source_capture,**(dict(reference_migration=a.reference_migration) if a.reference_migration else {}),**(dict(comparison_group_size=a.comparison_group_size,audit_timeout=a.audit_timeout) if a.comparison_group_size is not None else {}),**(dict(reuse_source_bytes=True) if a.reuse_source_bytes else {}))
     elif a.command=='cache-check':result=check_compile_cache(a.capture,a.out)
     elif a.command=='compiler-stats':result=compiler_statistics(a.capture,a.out,top=a.top,caller=a.caller,runtime=a.runtime)
     elif a.command=='ptx-stats':result=ptx_statistics(a.cache_entry,a.phases,a.out,top=a.top,callgraph=a.callgraph)

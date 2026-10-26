@@ -20,6 +20,10 @@ bool validTypedGeometry(inout Runtime s)
 #ifdef PORTABLE_COORDINATE_TYPED_AIM
         if(i==14&&commands[p+i]==1&&commands[p+13]==1)continue;
 #endif
+#ifdef PORTABLE_COORDINATE_TYPED_OWNERS
+        if(i==12&&commands[p+i]==1&&commands[p+15]==2&&commands[p+14]==1&&commands[p+13]==1)continue;
+        if(i==15&&commands[p+i]==2&&commands[p+12]==1&&commands[p+14]==1&&commands[p+13]==1)continue;
+#endif
 #ifdef PORTABLE_COORDINATE_TYPED_ACTORS
         if(i==15&&commands[p+i]==1&&commands[p+14]==1&&commands[p+13]==1)continue;
 #endif

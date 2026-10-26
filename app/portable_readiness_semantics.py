@@ -286,6 +286,18 @@ def reference_readiness(issue):
             stale_and_unknown_owners_rejected=True,gpu_wire_connected=False,metal_verified=False,
             cuda_device_verified=False,canonical_consumer_verified=False,in_game_rules_verified=False,
             full_character_verified=False)
+        result['typed_owner_field_validation']=dict(suite='coordinate-typed-owner',inputs=80,native_cases=45,
+            rejected_cases=35,original_profile='Prim',original_definitions=71,declared_counter_audit_effects=2,
+            declared_actor_policy='body-owned-current-fields-v1',body_owner_required=True,
+            original_current_field_counts=[0,1,1,1,1],physical_handle_preserved=True,
+            counter_owner_distinct_from_aim_verified=True,actual_body_received_dmg_pct=17,
+            actual_add_received_dmg_pct=[0,0],gpu_wire_connected=True,metal_verified=True,
+            independently_audited=True,prior67_all_input_native_output_retained=True,
+            gpu_live_hp_shield_counter_generation_verified=True,projectile_owner_field_battle_verified=False,
+            gpu_dead_counter_generation_verified=False,gpu_stale_counter_rejection_verified=False,
+            add_owner_verified=False,cuda_device_verified=False,canonical_consumer_verified=False,
+            in_game_rules_verified=False,full_character_verified=False,
+            scope='explicit_BODY_owned_HP_shield_current_fields_and_actual_counter_completion_with_original_full_roster')
         result['typed_current_damage_validation']=dict(suite='coordinate-typed-actor',inputs=67,native_cases=40,
             declared_actor_policy='canonical-current-damage-v1',original_profile='Rei',original_definitions=73,
             original_current_skill_events=[0,5,5,5],literal_selector='enemies_nearest_in_range',

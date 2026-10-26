@@ -28,7 +28,7 @@ def fixtures():
 
 def prepare(row):
     from portable_coordinate_typed_weapon_cases import prepare as weapons
-    c,p=weapons(row);c.update(observe_enemy_fields=True,observe_named_state=True,observe_actor_pools=True,observe_counter_field_memberships=True)
+    c,p=weapons(row);c.update(observe_actor_status=True,observe_enemy_fields=True,observe_named_state=True,observe_actor_pools=True,observe_counter_field_memberships=True)
     c['declared_owner_counter']=copy.deepcopy(row.get('declared_owner_counter',[]))
     if c['declared_owner_counter']:
         from portable_typed_owner_declarations import declarations

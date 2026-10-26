@@ -1,5 +1,7 @@
 # 型付き対象の所有者と現在対象fieldのCPU契約
 
+この頁はCPU契約を固定した時点の記録です。現在の専用GPU接続・実証範囲は[共通GPU所有者field](portable-coordinate-typed-owner-gpu.md)を参照してください。
+
 `reference --suite coordinate-typed-owner-common --out UNIQUE.json` は、明示的な `body-owned-current-fields-v1` を検証するCPU専用の5ケースです。不変packageを展開して実行します。現GPU compilerはこのpolicyを明示拒否します。
 
 対象bindingはPROJECTILE／HP_SHIELDかつowner `[0,0,1]` を必須にします。所有者なし、ADD所有、異なるBODY世代をBODYへ推測しません。実worldのregistryから物理handleの完全な世代を照合し、同世代の破壊済み対象は所有者を保持、再登場後の古い世代は拒否します。event／impactの物理handleは書き換えず、敵fieldのrecipientと対象条件を問い合わせるときだけ宣言BODYへ投影します。policy無しの既存経路と通常current damageの照準選択は維持します。例外時にもglobal resolverとmanagerメソッドを復元します。

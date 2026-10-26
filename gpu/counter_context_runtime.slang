@@ -35,6 +35,13 @@ void endCounterContext(inout Runtime s)
 bool counterContextAdd(inout Runtime s,bool legacy)
 {
     uint pointer=counterContextEnabled(s) ? results[counterContextHead(s)+1] : 0;
+#ifdef PORTABLE_COORDINATE_TYPED_OWNERS
+    if(pointer!=0&&typedOwnerPolicyEnabled(s))
+    {
+        uint at=pointer-1,kind=results[at+5];
+        if(kind==2||kind==3||kind==4){typedOwnerContextTarget(s,kind,results[at+6],results[at+7]);return false;}
+    }
+#endif
     return pointer!=0 ? results[pointer-1+5]==5 : legacy;
 }
 uint counterContextTarget(inout Runtime s,uint legacy)
@@ -43,6 +50,9 @@ uint counterContextTarget(inout Runtime s,uint legacy)
     if(pointer==0) return legacy;
     uint at=pointer-1,kind=results[at+5];
     if(kind==0||kind==1) return 0; // Native logical_enemy maps parts to body.
+#ifdef PORTABLE_COORDINATE_TYPED_OWNERS
+    if((kind==2||kind==3||kind==4)&&typedOwnerPolicyEnabled(s))return typedOwnerContextTarget(s,kind,results[at+6],results[at+7]);
+#endif
     if(kind!=5) { s.error=64;return 128; }
     for(uint slot=1;slot<actorPoolCount(s);slot++)
         if(commands[actorBinding(s,slot)]==kind&&commands[actorBinding(s,slot)+1]==results[at+6])

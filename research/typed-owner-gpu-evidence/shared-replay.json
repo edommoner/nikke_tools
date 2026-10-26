@@ -1,0 +1,74 @@
+{
+  "receipt": {
+    "files": [
+      {
+        "path": "evidence.json",
+        "bytes": 64288,
+        "sha256": "da7737cd4d4f5476568550a916f80f116cbc5728d2fe4473bf8d43a91207cd63"
+      },
+      {
+        "path": "generated.cu",
+        "bytes": 2676113,
+        "sha256": "da2dbc13a9b27009cad0fe948f19ada7c176ab2f9f01abc58ab9312979f6ddd5"
+      },
+      {
+        "path": "generated.metal",
+        "bytes": 2836219,
+        "sha256": "6f60bfd077aff6577b4312d2aacc5961afe28aea830d7248912904d3bc2ae439"
+      },
+      {
+        "path": "input.bin",
+        "bytes": 37017604,
+        "sha256": "168327d0693ea88bde67fd8f91e7242f7d40d180a0b5e71a1775e93140b0ce7a"
+      },
+      {
+        "path": "readback.bin",
+        "bytes": 650240000,
+        "sha256": "29769f786ad6eaaab1918497e6b9967953f1c67964679f28824da5801359ea79"
+      }
+    ],
+    "source_capture": "/private/tmp/nikke-typed-owner-metal-v2",
+    "same_filesystem_hardlinks": true,
+    "source_files_modified": false,
+    "gpu_calls": 0,
+    "calculation_verified": false
+  },
+  "storage": {
+    "passed": true,
+    "required_bytes": 67108864,
+    "reserve_bytes": 1073741824,
+    "free_bytes": 1674371072,
+    "reuse_source_bytes": true,
+    "copied_files": [
+      {
+        "path": "input.bin",
+        "bytes": 37017604
+      },
+      {
+        "path": "readback.bin",
+        "bytes": 650240000
+      },
+      {
+        "path": "evidence.json",
+        "bytes": 64288
+      },
+      {
+        "path": "generated.cu",
+        "bytes": 2676113
+      },
+      {
+        "path": "generated.metal",
+        "bytes": 2836219
+      },
+      {
+        "path": "execution.json",
+        "bytes": 4147
+      }
+    ],
+    "gpu_calls": 0,
+    "calculation_verified": false
+  },
+  "actual_hardlink_identity_verified": true,
+  "source_files_removed": false,
+  "original_claim_kept": true
+}

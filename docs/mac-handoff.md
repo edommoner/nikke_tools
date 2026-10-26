@@ -2372,3 +2372,16 @@ dev `/tmp/nikke-coordinate-typed-develop-v2`（f1b700f2…）、M5 `/tmp/nikke-c
 実測development22d968b4…、保存Metal出力の全67/native40/拒27を24/24/19で実行し76.032/72.987/89.328秒、各180秒内。総239.598秒は旧単一child223.096秒より増加し、総短縮の主張なし。旧sealed67の全input/native/output/generated goldens完全一致、GPU新実行0。最終b58926cf…の差分はログ・失敗保存helperと追加unitのみ、native producer/比較器・他CLI関数AST保持。最終新12／seal8／関連84／制御500成功（Win1skip）、generation必須hit・Slang0。新しい全67 native再生成を最終版で行ったとは主張しない。原本/claim保持、全reader終了後の新replay raw疎化で439025664byte割当回収、raw SHA/size/inode保持・削除0。詳細docs/portable-comparison-groups.md、research/portable-comparison-groups-checkpoint.json。
 
 次はbody-owned-current-fields-v1を専用共有entry/headerへ接続し、元Prim全71と実counter完了子fieldをMetal比較。旧67はすべて保持、新ownerケースを含め全範囲group監査を実行すること。GPU本体・数値・正本・strict normalizer・CUDA cache本体は今回不変。現在CUDA、ownerのGPU、ゲームgap／全キャラ0／UI CPU／目標未達。Windowsへの新規依頼0、idle APIへ重複runを送らない。
+
+
+## 2026-10-26 BODY所有fieldを共通GPUへ接続
+
+最新sealed coordinate-typed-owner80/native45/拒35。docs/portable-coordinate-typed-owner-gpu.md、research/portable-coordinate-typed-owner-gpu-checkpoint.json。元Prim全71・完全5人・武器/成長、対照/BODY/ADD/手動typed/counterの5ケースを追加し旧67保持。body-owned-current-fields-v1はheader12=1/15=2とweapon13/aim14/live11必須、kind2/3・owner[0,0,1]を明示。物理kind/id/genは不変、field/対象条件queryだけ同世代DT→BODY。通常current damageはcaster canonical aimを維持。CPU compilerは明示owner counterの論理validator viewだけを投影、正本guard・実命令不変/例外時復元。strict full-hash inverse追加のみ、normalizer/数値/cache本体不変。Runtime138952、input115680/output2032000word保持。
+
+実GPU dev cf44aa64… capture /tmp/nikke-typed-owner-metal-v2、CPU preflight223.683332秒、Apple M5実GPU4.041898秒、library1.930172/pipeline93.763491秒、generation必須hit/実行時Slang0。初比較は新5だけCPUにnonzero_immunity_used空リストがなく失敗。全field/recipient/子fieldは既に一致。observe_actor_statusを追加し、5native再観測で追加キー以外の全hash一致、全入力/GPU/transport/正本を固定した専用migrationで保存結果を再監査。比較削除やnormalizer緩和0。
+
+修正immutable /tmp/nikke-typed-owner-gpu-replay-v4（4754c201…）の共通replay全80/native45 fresh監査294.003520秒、24/24/24/8 childが78.245/73.308/135.965/4.863秒、各180秒内、live-parent oracle0。元field0/1/1/1/1、別宣言counter監査2効果の実HP3/id10/gen1命中→完了→子fieldはcamera ADDでもBODY17/両ADD0。物理receipt/skill trace/RNGも比較。goldenは同じshared grouped auditの結果を登録、sealコマンド再計算0。旧67全input/nativeと544576000byte raw完全一致。GPU計1/retry0、追加GPU/Windows0。元failure/claim保持、reader終了後のSHA/size/inode保持疎化で525991936byte回収。replayの明示reuse-source-bytesはhardlink共有、全hash再検査、cross-device copy fallback0/失敗保存/通常copy維持。
+
+最終immutable /tmp/nikke-typed-owner-final-v1（93ea25a5…）はseal登録/golden/scoped readinessのみ、全CLI関数ASTと全native producer/tests/GPU、80golden保持。最終関連100/制御507成功（Win1skip）、旧replay6成功、generation必須hit/Slang0。最終版で新fresh native preflightを実行したという主張なし。固定migrationはv4自身のCLIから使うこと、現在の追加変更は厳密source表で拒否。
+
+次は固定同entryへdata-onlyでprojectile所有field、破壊済み同世代/再登場・古い世代counterを追加。これらは今のGPUでは未実証としてreadinessにFalseを明示。入力kind2許可をbattle実証へ数えない。新shader warm load/現CUDA compile-cache-launch、ADD所有/移動/他caller/variant、残るモデル/19packing失敗/旧suite現source集約、公開GPU/全キャラ未完。全キャラ0/UI CPU/目標未達。Windows idle APIへの重複runは送らない。

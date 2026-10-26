@@ -6,9 +6,15 @@ from portable_original_modifier_probe_input import pack_target_input
 from portable_target_modifier_input import lower_effect
 from destructible_skill_specs import coefficient
 
-def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None,coordinate_weapon_targets=False,coordinate_typed_aim=False,coordinate_typed_actors=False):
+def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None,coordinate_weapon_targets=False,coordinate_typed_aim=False,coordinate_typed_actors=False,coordinate_typed_owners=False):
     from coordinate_typed_actor_policy import owns_fields
-    if owns_fields(prepared.get('typed_actor_policy')):raise ValueError('Typed owner fields require a new shared GPU consumer')
+    if type(coordinate_typed_owners) is not bool:raise ValueError('Explicit typed owner consumer policy required')
+    field_policy=owns_fields(prepared.get('typed_actor_policy'))
+    if field_policy and not coordinate_typed_owners:raise ValueError('Typed owner fields require a new shared GPU consumer')
+    if coordinate_typed_owners:
+        if not coordinate_typed_actors or not field_policy:raise ValueError('Typed owner fields require their explicit actor policy and consumer')
+        from coordinate_typed_actor_policy import validate_bindings
+        validate_bindings(prepared['typed_actor_policy'],bindings)
     if type(coordinate_typed_actors) is not bool:raise ValueError('Explicit typed actor consumer policy required')
     if coordinate_typed_actors and not coordinate_typed_aim:raise ValueError('Typed actor policy requires frame aim')
     if prepared.get('typed_actor_policy') is not None and not coordinate_typed_actors:raise ValueError('Typed current damage requires its shared GPU consumer')
@@ -36,12 +42,16 @@ def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,
         if type(probe_kind) is not int or probe_kind not in (2,3) or type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Invalid typed coordinate weapon limits')
         original=prepared['effects'];lowered=copy.deepcopy(prepared)
         for dest,row in zip(lowered['effects'],original,strict=True):dest['effect']=lower_effect(row['effect'])
-        words,meta,actors,scene=compile_coordinate_battle(lowered,typed_aim_targets=aim_targets)
+        from contextlib import nullcontext
+        from portable_coordinate_typed_owner_input import compiler_policy as owner_compiler_policy
+        with owner_compiler_policy(bindings) if coordinate_typed_owners else nullcontext():
+            words,meta,actors,scene=compile_coordinate_battle(lowered,typed_aim_targets=aim_targets)
         extra,axes=pack_target_input(words,meta,original,prepared['enemy']['patterns'],bindings,None,probe_kind,max_attacks,weapon_only=True)
         from portable_typed_geometry_specs import pack
         shape_words,shape_meta=pack(geometry,len(bindings),probe_kind);extra[:2320]=shape_words;extra[13]=1
         if coordinate_typed_aim:extra[14]=1;scene['typed_aim_slots']=aim_targets;scene['typed_aim_add_slot']=257
         if coordinate_typed_actors:extra[15]=1
+        if coordinate_typed_owners:extra[12]=1;extra[15]=2
         meta['typed_geometry']=shape_meta
         meta['coordinate_typed_input']=dict(probe_source=None,probe_kind=probe_kind,axis_rows=axes,one_resident_runtime=True,shared_world_clock=True,automatic_typed_weapon_aim=coordinate_typed_aim,coordinate_weapon_targets=True)
         return words+extra,meta,actors,scene

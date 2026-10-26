@@ -1,8 +1,15 @@
 // Canonical current-damage selection stays separate from interception handles.
-bool typedActorPolicyEnabled(inout Runtime s){return commands[DF_EXTRA(s)+15]==1;}
+bool typedActorPolicyEnabled(inout Runtime s){return commands[DF_EXTRA(s)+15]==1
+#ifdef PORTABLE_COORDINATE_TYPED_OWNERS
+    ||typedOwnerPolicyEnabled(s)
+#endif
+    ;}
 bool validTypedActorPolicy(inout Runtime s)
 {
     if(!typedActorPolicyEnabled(s))return true;
+#ifdef PORTABLE_COORDINATE_TYPED_OWNERS
+    if(typedOwnerPolicyEnabled(s))return validTypedOwnerPolicy(s);
+#endif
     for(uint row=0;row<s.count;row++)
         if(definition_kind(s.inputBase,row)!=3&&definition_enemyBuff(s.inputBase,row)!=0&&definition_damageRoute(s.inputBase,row)==0)return false;
     return true;

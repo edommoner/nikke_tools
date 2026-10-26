@@ -1,0 +1,31 @@
+{
+  "changes": {
+    "app/portable_typed_owner_observer_migration.py": {
+      "before": null,
+      "after": "0b944d7e2b2487732e434f80aa6a36091cb9a1399c2152c79473c6f5305cd4ca"
+    },
+    "research/portable_coordinate_typed_owner_cases.py": {
+      "before": "19ec3fdf6a82254509262c88d56b14aaea7a17b35f0a905b2f8f160276ab815c",
+      "after": "c10aa432eb2037bcbb93fd737df4dd1191d79faea5fe5b40f7be157046fb28dc"
+    },
+    "scripts/nikke_gpu.py": {
+      "before": "7f8ac9af076f3a509c519bfc784177e9d0ffb26a7da7ff0fd3f0ae65f1ebbc1e",
+      "after": "6b3bb3cbc248ef65839e192a5ee4bb49e37581d4c10d9af8a056e94d2aa5f13d"
+    },
+    "tests/test_coordinate_typed_owner_gpu.py": {
+      "before": "157b3e3cf49a5b5d1d8870907d14141c2b049a1ff253ecc11778352c67b5bf4f",
+      "after": "27b4dac38271f656b6ab793506edb21d57bb133acdbebd1fff7f20a7efbdf1a5"
+    },
+    "tests/test_typed_owner_observer_migration.py": {
+      "before": null,
+      "after": "06c03cf246b42466e679a1c7d8f0a37d7c6962714d3420b54a58bed97e103a1c"
+    }
+  },
+  "case_names": [
+    "coordinate-typed-owner/control",
+    "coordinate-typed-owner/body",
+    "coordinate-typed-owner/adds",
+    "coordinate-typed-owner/manual-typed-with-adds",
+    "coordinate-typed-owner/counter-owner-with-adds"
+  ]
+}

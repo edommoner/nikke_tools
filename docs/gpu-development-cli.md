@@ -1,6 +1,8 @@
+最新sealed `coordinate-typed-owner`80（native45／拒否35）は、明示BODY所有のHPシールドとcurrent enemy field／実counter完了を共通Slangへ接続したsuiteです。元Prim全71定義を保持し、M5保存出力のfresh全範囲監査で一致、旧67全byte保持。`package --suite coordinate-typed-owner` を使います。GPU実行1回・retry0、観測修正後の追加GPU0、最終関連100／制御507成功。CUDA実行・全キャラは未完です。[実装・観測修正・保存結果の厳密な再利用](portable-coordinate-typed-owner-gpu.md)。
+
 `seal --comparison-group-size 24 --timeout 180` は全入力を逐次fresh childへ分割し、全範囲を厳密に集約します。`replay` は `--comparison-group-size 24 --audit-timeout 180` を使えます。未担当rawを含む全ハッシュを検査し、部分結果だけでは成功にしません。旧67全golden保持、GPU再実行0。総高速化ではなく、検証を省かずchild上限を守る経路です。[分割監査の使い方と実測](portable-comparison-groups.md)。
 
-`reference --suite coordinate-typed-owner-common --out UNIQUE.json` はBODY所有を明示した型付き対象と現在対象fieldのCPU契約5件です。元Prim全71定義を保持し、別宣言counter監査で物理handle／所有者／camera照準の分離を検査。GPU compilerは新policyを拒否し、GPU接続は未完です。[契約と検証範囲](portable-coordinate-typed-owner-reference.md)。
+`reference --suite coordinate-typed-owner-common --out UNIQUE.json` はBODY所有を明示した型付き対象と現在対象fieldのCPU契約5件です。元Prim全71定義を保持し、別宣言counter監査で物理handle／所有者／camera照準の分離を検査。このCPU referenceコマンド自体はGPU認定を行いません。専用GPU suiteの実証は本頁冒頭を参照してください。[CPU契約と当時の検証範囲](portable-coordinate-typed-owner-reference.md)。
 
 `coordinate-typed-actor` はsealed67入力（native40／拒否27）。元Reiの現在対象ダメージを、元定義を保ってBODY／ADD／手動typed照準へ接続し、M5実出力とfresh独立監査で一致しました。`package --suite coordinate-typed-actor`、CPU契約だけなら `reference --suite coordinate-typed-actor-common --out UNIQUE.json` を使います。敵fieldの所有権継承・現CUDA／全キャラは未完です。[現在対象ダメージの範囲](portable-coordinate-typed-actors.md)。
 

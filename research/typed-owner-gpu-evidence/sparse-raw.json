@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-typed-owner-metal-v2",
+  "raw_bytes": 650240000,
+  "raw_sha256": "29769f786ad6eaaab1918497e6b9967953f1c67964679f28824da5801359ea79",
+  "evidence_sha256": "da7737cd4d4f5476568550a916f80f116cbc5728d2fe4473bf8d43a91207cd63",
+  "raw_inode": 511814722,
+  "scan_block_bytes": 65536,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 1113,
+  "zero_range_bytes": 525991936,
+  "allocated_before": 650240000,
+  "allocated_after": 124248064,
+  "allocated_reclaimed": 525991936,
+  "full_hash_verified": true
+}
