@@ -27,11 +27,12 @@ class TypedLandings(ast.NodeTransformer):
         return node
 
 @contextmanager
-def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False,skill_shields=False,body_lifesteal=False,body_accumulation=False,typed_geometry=None):
+def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False,skill_shields=False,body_lifesteal=False,body_accumulation=False,typed_geometry=None,coordinate_weapon_targets=False):
     from calculator import timeline,buff_manager
     from runner import sim
     if type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Invalid typed battle observation capacity')
     if type(modifier_model) is not bool:raise ValueError('Explicit modifier model boolean required')
+    if type(coordinate_weapon_targets) is not bool or coordinate_weapon_targets and (not modifier_model or typed_geometry is None or weapon_shields or shield_owner is not None):raise ValueError('Coordinate weapon targets require their own explicit geometry/modifier policy')
     if type(hit_shields) is not bool or hit_shields and shield_owner is None:raise ValueError('Hit shields require an explicit shield owner and boolean policy')
     if type(weapon_shields) is not bool or weapon_shields and shield_owner is None:raise ValueError('Weapon shields require an explicit shield owner and boolean policy')
     if type(skill_shields) is not bool or skill_shields and shield_owner is None:raise ValueError('Skill shields require an explicit shield owner and boolean policy')
@@ -52,6 +53,8 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     data=dict(worlds=[],managers=[],activations=[],attacks=[],finished=[]);active=[];marked={};restores=[]
     from destructible_weapon_runtime import WeaponShots
     weapons=WeaponShots(timeline,data,shield_owner,hit_shields,body_lifesteal=body_lifesteal,body_accumulation=body_accumulation) if weapon_shields else None
+    from coordinate_typed_weapon_runtime import CoordinateWeaponShots
+    coordinate_weapons=CoordinateWeaponShots(timeline,data,typed_geometry) if coordinate_weapon_targets else None
     class Boss(old_boss):
         def __init__(self,*args,**kwargs):
             super().__init__(*args,**kwargs);self._nikke_typed_world=DestructibleWorld.from_clock(self,bindings);data['worlds'].append(self._nikke_typed_world)
@@ -147,6 +150,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
         # Passive sampled observers inspect this wrapper at the caller boundary.
         buffs=kwargs.get('buffs',args[1] if len(args)>1 else {})
         if not active and weapons is not None:return weapons.scalar(old_scalar,*args,**kwargs)
+        if not active and coordinate_weapons is not None:return coordinate_weapons.scalar(old_scalar,*args,**kwargs)
         context=active[-1] if active else None
         if context is None:return old_scalar(*args,**kwargs)
         from destructible_damage_policy import calculate
@@ -159,13 +163,15 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     def deliver_event(event,context):
         if context is None:return event
         if event.caster!=context['caster'] or event.t!=context['time']:raise ValueError('Typed packet owner/time mismatch')
-        if len(data['attacks'])>=max_attacks:raise ValueError('Typed battle attack observation capacity exceeded')
-        identity=len(data['attacks'])+1;marked[id(event)]=event
+        physical=context.get('coordinate_weapon',False);attacks=data['coordinate_weapon_attacks'] if physical else data['attacks']
+        if len(attacks)>=(2**23-1 if physical else max_attacks):raise ValueError('Typed battle attack observation capacity exceeded')
+        identity=(2**23 if physical else 0)+len(attacks)+1;marked[id(event)]=event
         record=dict(attack_id=identity,name=context['name'] if 'name' in context else context['effect'].get('name'),caster=event.caster,time=event.t,damage=float(event.damage),receipts=(),completed=False)
         if context.get('quantity_only'):record['quantity_only']=True
         if 'family' in context:record.update(family=context['family'],hit_tag=context['hit_tag'],weapon_mode_skill=context['weapon_mode_skill'])
         if modifier_model:record['coefficient']=context['coefficient']
-        data['attacks'].append(record)
+        if physical:record.update({k:context[k] for k in ('shot_identity','extra','critical')})
+        attacks.append(record)
         if context['kind']==ActorKind.PROJECTILE and 'selected' not in context:
             record['receipts']=projectiles(context['world'],context['manager'],event.caster,1,2,float(event.damage),1.,identity)
         else:
@@ -179,9 +185,15 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     def packet(*args,**kwargs):
         event=old_hit(*args,**kwargs);context=active[-1] if active else None
         if not active and weapons is not None:context=weapons.take(event)
+        if not active and coordinate_weapons is not None:
+            context=coordinate_weapons.take(event)
+            if context is not None:return event
         return deliver_event(event,context)
     def skip(event):
         if marked.get(id(event)) is event:return True
+        if coordinate_weapons is not None:
+            context=coordinate_weapons.landing(event)
+            if context is not None:deliver_event(event,context);return True
         if body_accumulation and event.hit_tag=='accum_split_damage':
             from destructible_shield_policy import select
             world=data['worlds'][-1];selected=select(world,shield_owner,hit_shields=hit_shields)
@@ -194,7 +206,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     manager_scope=patch.object(timeline,'BuffManager',manager_type(timeline.BuffManager)) if modifier_model else nullcontext()
     scalar_scope=patch.object(timeline,'calc_damage',scalar) if modifier_model else nullcontext()
     try:
-        with manager_scope,scalar_scope,weapons.scope() if weapons is not None else nullcontext(),patch.object(timeline,'BossScript',Boss),patch.object(buff_manager.BuffManager,'register_damage_handler',register),patch.object(timeline,'HitEvent',packet),patch.dict(old_simulate.__globals__,{'_nikke_skip_typed_body_landing':skip}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):yield data
+        with manager_scope,scalar_scope,weapons.scope() if weapons is not None else nullcontext(),coordinate_weapons.scope() if coordinate_weapons is not None else nullcontext(),patch.object(timeline,'BossScript',Boss),patch.object(buff_manager.BuffManager,'register_damage_handler',register),patch.object(timeline,'HitEvent',packet),patch.dict(old_simulate.__globals__,{'_nikke_skip_typed_body_landing':skip}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):yield data
     finally:
         for manager,wrapper,previous,old_instance,old_condition,missing in reversed(restores):
             if manager._damage_handler is wrapper:manager._damage_handler=previous

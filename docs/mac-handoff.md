@@ -1,5 +1,7 @@
 # Mac GPU開発引き継ぎ
 
+座標通常射撃→型付き対象のCPU契約を共通CLI `reference --suite coordinate-typed-weapon-common` へ追加。元の武器・効果を保持した6ケース、661実ペレット／666packet／typed278、散弾内世代固定・次射撃再選択・RL critical再利用・full_charge親量／通知後着弾・MT全624語を確認。fresh不変packageでCPU契約2.923秒、関連64／制御488成功（Win1skip）。旧35入力16,195,204byte・全356Slang・保護8file保持。GPU／Windows新実行0、型付き通常射撃のMetal接続は次段階。canonicalゲーム仕様／typed auto aim／全キャラ0／UI CPUは未達。[通常射撃CPU契約](portable-coordinate-typed-weapon-reference.md)。以下は履歴。
+
 共通CLIに `package --develop --native-baseline-package PATH` を追加。CPU依存／入力／caseが完全一致する固定基準から期待hashだけを引き継ぎ、GPU sourceと検査済みSlang ledger current部の変更だけを受付。runtime値／旧GPU出力は引き継がず、fresh preflight／独立seal・Windows制約は不変。実35入力pack3.482秒（native基準関数禁止）、通常CLI同一ID、runで22nativeを177.031秒で再計算して一致。関連60／制御488成功（Win1skip）、新GPU0／Windows0。8負例・境界検査とスキル手順を追加。GPU本体は実照準35から変更なし。次は通常武器のtyped命中・型付きauto aim、現CUDA/cache検証。全キャラ0／UI CPU／未達。[CPU期待基準の再利用](portable-development-expectations.md)。以下は履歴。
 
 固定pointに続き、正本の実照準bankを共通型付きスキルselectorへ接続。sealed `coordinate-typed-live-aim`35（native22／拒否13）がM5実GPU1回・独立GPU禁止監査203.872秒で一致。auto、スキル前／同フレームの照準切替、HPシールドを実証。照準操作は元編成の照合後に明示overlayし、元操作保持とは区別。旧28全227,584,000byte／input/native保持、旧164 shader source保持で旧compile/GPU0。関連60／制御480成功（Win1skip）、GPU2.360秒／初回PSO92.612秒、生成必須cache hit・Slang0。通常武器命中／型付きauto aim／移動・貫通・現CUDA・全キャラ0／UI CPUは未完。CPU基準のpackage/run重複計算が効率化候補。[実照準の接続](portable-typed-live-aim.md)。以下は履歴。

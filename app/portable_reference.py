@@ -83,6 +83,7 @@ REFERENCES['coordinate-sampling-common']=('portable_coordinate_sampling_cases','
 REFERENCES['coordinate-mixed-common']=('portable_coordinate_mixed_cases','world_coordinate_mixed_native','portable_coordinate_mixed_contracts')
 REFERENCES['coordinate-group-common']=('portable_coordinate_group_cases','world_coordinate_group_native','portable_coordinate_group_contracts')
 REFERENCES['coordinate-aim-common']=('portable_coordinate_aim_cases','world_coordinate_aim_native','portable_coordinate_aim_contracts')
+REFERENCES['coordinate-typed-weapon-common']=('portable_coordinate_typed_weapon_cases','world_coordinate_typed_weapon_native','portable_coordinate_typed_weapon_contracts')
 REFERENCES['coordinate-accumulation-policy']=('portable_coordinate_accumulation_cases','world_coordinate_accumulation_native','portable_coordinate_accumulation_contracts')
 
 
@@ -127,6 +128,10 @@ def run_reference(suite,output,*,write,forbid_gpu):
                       historical_native_equivalence=False)
         if suite in ('coordinate-sampling-common','coordinate-sampled-battle-common','coordinate-sampled-parent-common','coordinate-sampled-skill-common','coordinate-sampled-burst-common','coordinate-sampled-vital-common','coordinate-sampled-delivery-common'):report['numerical_contract']='coordinate-sample-v1 + coordinate-binary64-v1'
         if suite=='coordinate-aim-common':report['numerical_contract']='coordinate-landing-v1 + coordinate-area-matrix-common-v1'
+    if suite=='coordinate-typed-weapon-common':
+        report.update(stage='cpu-common-policy-contract',reference_kind='deterministic-common-cpu',
+                      numerical_contract='coordinate-sample-v1 + coordinate-binary64-v1 + declared-typed-geometry-v1',
+                      historical_native_equivalence=False,in_game_rules_verified=False)
     try:
         # Legacy native comparators contain assertions. Reject before importing
         # or running them; optimized Python must never certify those contracts.

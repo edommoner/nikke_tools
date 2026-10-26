@@ -20,9 +20,10 @@ def capture_typed(case):
     samples=[];original=destructible_damage_policy.calculate
     def calculate(*args,**kw):
         value=original(*args,**kw)
-        if kw['kind']==ActorKind.HP_SHIELD or case.get('skill_shield_interception_v1') or case.get('declared_projectile_probe') and kw['kind']==ActorKind.PROJECTILE:
+        if kw['kind']==ActorKind.HP_SHIELD or case.get('skill_shield_interception_v1') or (case.get('declared_projectile_probe') or case.get('coordinate_weapon_targets')) and kw['kind']==ActorKind.PROJECTILE:
             buffs=kw.get('buffs',args[1] if len(args)>1 else {})
-            row=dict(modifier=buffs.get('projectile_dmg_pct' if case.get('declared_projectile_probe') and kw['kind']==ActorKind.PROJECTILE else 'shield_dmg_pct',0.),factor5=value['factor5'],damage=value['damage'])
+            row=dict(modifier=buffs.get('projectile_dmg_pct' if (case.get('declared_projectile_probe') or case.get('coordinate_weapon_targets')) and kw['kind']==ActorKind.PROJECTILE else 'shield_dmg_pct',0.),factor5=value['factor5'],damage=value['damage'])
+            if case.get('coordinate_weapon_targets'):row['scalar_kind']=int(kw['kind'])
             if case.get('declared_projectile_probe'):row['shield_modifier']=buffs.get('shield_dmg_pct',0.)
             if case.get('declared_projectile_probe') and case.get('probe_kind')==3:row['projectile_modifier']=buffs.get('projectile_dmg_pct',0.)
             if case.get('skill_shield_interception_v1'):row.update(scalar_kind=int(kw['kind']),applied_modifier=buffs.get('shield_dmg_pct',0.) if kw['kind']==ActorKind.HP_SHIELD else 0.)
@@ -31,7 +32,9 @@ def capture_typed(case):
                 row['family_flags']={k:bool(hit.get(k,False)) for k in ('is_burst_damage','is_aoe_burst','is_single_burst')}
             samples.append(row)
         return value
-    with typed_battle(case['typed_bindings'],modifier_model=True,shield_owner=None if case.get('declared_projectile_probe') and case.get('probe_kind',2)==2 else BOSS,hit_shields=not case.get('declared_projectile_probe',False),weapon_shields=not case.get('declared_projectile_probe',False),max_attacks=case['max_attacks'],skill_shields=case.get('skill_shield_interception_v1',False),body_lifesteal=case.get('body_lifesteal_v1',False),body_accumulation=case.get('body_accumulation_v1',False),typed_geometry=case.get('typed_geometry')) as data,patch.object(destructible_damage_policy,'calculate',calculate),patch.object(BuffManager,'apply_shared_body_heal',heal):
+    physical=case.get('coordinate_weapon_targets',False)
+    probe=case.get('declared_projectile_probe',False)
+    with typed_battle(case['typed_bindings'],modifier_model=True,shield_owner=None if physical or probe and case.get('probe_kind',2)==2 else BOSS,hit_shields=not (probe or physical),weapon_shields=not (probe or physical),max_attacks=case['max_attacks'],skill_shields=case.get('skill_shield_interception_v1',False),body_lifesteal=case.get('body_lifesteal_v1',False),body_accumulation=case.get('body_accumulation_v1',False),typed_geometry=case.get('typed_geometry'),coordinate_weapon_targets=physical) as data,patch.object(destructible_damage_policy,'calculate',calculate),patch.object(BuffManager,'apply_shared_body_heal',heal):
         yield data,samples,heals
 
 def snapshot_typed(case,data,samples,heals,battle,shots):

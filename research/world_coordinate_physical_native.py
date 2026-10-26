@@ -3,7 +3,7 @@
 No selection, probability, damage, rounding or grouping is reimplemented here.
 The existing native observer still supplies the whole battle and traces.
 """
-import dataclasses
+import dataclasses,inspect
 import sys
 
 
@@ -14,7 +14,7 @@ def observe(case):
     # logical pellet. Coordinate shots intentionally do not have that shape.
     # Reuse the full battle/team/control observer before that narrow layer.
     from world_charge_control_native import observe as original
-    code = timeline.CharState._coord_pellet.__code__
+    code = inspect.unwrap(timeline.CharState._coord_pellet).__code__
     rows = []
     errors = []
     previous = sys.getprofile()

@@ -1,3 +1,5 @@
+`reference --suite coordinate-typed-weapon-common --out UNIQUE.json` は、元武器の実661ペレットと型付き対象278packetのCPU契約6件を検査します。散弾内のhandle固定・実着弾への遅延・親量・RNGを確認し、Metal/CUDA対応はまだ認定しません。[通常射撃CPU契約](portable-coordinate-typed-weapon-reference.md)。
+
 開発時のCPU基準重複計算は `package --develop --native-baseline-package PATH` で減らせます。CPU依存と入力が一致する固定基準の期待hashだけを引き継ぎ、fresh run／独立sealは維持します。実35入力の作成3.48秒、22nativeのrun再計算177.03秒・60／488検査成功。[適用条件と使い方](portable-development-expectations.md)。
 
 最新の `coordinate-typed-live-aim`35（native22／拒否13）は、正本の実照準bankを型付きスキルselectorへ渡すsealed suiteです。`package --suite coordinate-typed-live-aim --compact` を使います。M5実GPU・独立監査済み、旧28の全出力保持。操作overlayと元操作保持を区別し、通常武器命中／型付きauto aim／現CUDA／全キャラは未完です。[実照準の範囲と記録](portable-typed-live-aim.md)。

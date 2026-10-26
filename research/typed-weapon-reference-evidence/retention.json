@@ -1,0 +1,19 @@
+{
+  "package_id": "ee02e5aaa3d7ea86a386847b92eb06ba07d13d45d4d127c0471813619411f920",
+  "old35_input_count": 35,
+  "all_input_bytes_retained": 16195204,
+  "input_sha256": "5714a431f3bca1b2d7c107dd03850e2b6db850770394fb67e9f6461f8ecfd1e4",
+  "shader_files_exact": 356,
+  "protected_files_exact": [
+    "app/detail_gpu.py",
+    "app/engine_worker.py",
+    "app/effect_spec.py",
+    "app/engine_compat.py",
+    "gpu/binary64.slang",
+    "gpu/core_probability.slang",
+    "research/summarize-portable-cross-gpu.py",
+    "app/portable_compile_cache.py"
+  ],
+  "old_gpu_reruns": 0,
+  "gpu_calls": 0
+}
