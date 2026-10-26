@@ -1,0 +1,20 @@
+{
+  "schema": "resident-cubin-v4-distribution",
+  "package_id": "c187138ec7a98a0f3d89b796b4ba638f690bf01ee02b8fad82bdae6b815ee4eb",
+  "bytes": 11726479,
+  "sha256": "9f24bd7bdae17a8bb80d20223566a1ad30dedf7bd19a0605cd6c19cedc954ac2",
+  "source_package_id": "0064f91cb961cb10c2df7d19594d9179054ed84aed7325949537149c631af5c9",
+  "changed_existing_files": [
+    "tests/test_portable_metal_wire_refresh.py"
+  ],
+  "added_files": [
+    "research/resident-arc-arena-evidence/heavyarms-full-prerequisites-v1/heavyarms-full-static-v3.py"
+  ],
+  "cli_bytes_equal": true,
+  "all_gpu_and_native_and_comparator_files_equal": true,
+  "entire106_golden_equal": true,
+  "control_tests": 581,
+  "skipped": 1,
+  "plan_passed": true,
+  "scope": "LF fixture bytes and negative CRLF hash check only; added historical static CPU proof script is not a runtime dependency; production/GPU/native/comparator/CLI unchanged"
+}

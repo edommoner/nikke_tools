@@ -1,0 +1,20 @@
+{
+  "schema": "heavyarms-lock-observation-v1",
+  "passed": true,
+  "character": "스노우 화이트 : 헤비암즈",
+  "original_skill_definitions": 25,
+  "prepared_definitions": 91,
+  "observed_seconds": 0.25152087500100606,
+  "baseline_seconds": 0.2198059580005065,
+  "native_result_and_shots_equal": true,
+  "native_sha256": "978ff18dd06935cf24292d11f4fa79679912e75f394cbdd7c00a5022c28e9a37",
+  "activation_calls": 110,
+  "active_marker_samples": 110,
+  "named_query_calls": 0,
+  "named_query_true": 0,
+  "numeric_reader_samples": 0,
+  "gpu_calls": 0,
+  "gpu_supported": false,
+  "full_character_verified": false,
+  "scope": "Native logical named-marker observation only; dedicated Lock On selection, target-count extension and typed projectile full25 remain unverified"
+}

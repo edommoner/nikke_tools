@@ -19,9 +19,10 @@ class MetalWireRefreshTests(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory();root=Path(self.tmp.name);self.addCleanup(self.tmp.cleanup)
   self.source=root/'source';self.capture=root/'capture';self.source.mkdir();self.capture.mkdir();(self.source/'scripts').mkdir();self.output=root/'new.zip'
-  current=(ROOT/repair.PATH).read_text();before=current.replace(metal_guard(),metal_guard(LARGE_OUTPUT_WORDS[:-1]))
+  current=(ROOT/repair.PATH).read_text(encoding='utf-8');before=current.replace(metal_guard(),metal_guard(LARGE_OUTPUT_WORDS[:-1]))
   self.assertEqual(repair.sha(before.encode()),repair.REVIEWED_OLD_SHA)
-  (self.source/repair.PATH).write_text(before);(self.source/'oracle.py').write_text('frozen oracle');(self.source/'shader.slang').write_text('frozen arithmetic')
+  (self.source/repair.PATH).write_bytes(before.encode('utf-8'));(self.source/'oracle.py').write_text('frozen oracle');(self.source/'shader.slang').write_text('frozen arithmetic')
+  self.assertEqual(repair.sha((self.source/repair.PATH).read_bytes()),repair.REVIEWED_OLD_SHA)
   (self.source/'tests/fixtures').mkdir(parents=True);write(self.source/repair.LEDGER,dict(sources={},added_sources={}))
   self.manifest=dict(schema=1,suite='coordinate-resident-arc',purpose='development',selected_cases=[],files=[record(self.source,name) for name in [repair.PATH,repair.LEDGER,'oracle.py','shader.slang']],golden=dict(entries=[dict(input_sha256='input',native_sha256='native')],source_sha256={'shader.slang':'frozen'}))
   self.manifest['package_id']=package_id(self.manifest);write(self.source/'gpu-package.json',self.manifest)
@@ -47,6 +48,9 @@ class MetalWireRefreshTests(unittest.TestCase):
    self.assertEqual(z.read(repair.PATH),(ROOT/repair.PATH).read_bytes());self.assertEqual(json.loads(z.read(repair.LEDGER))['sources'][repair.PATH]['baseline_sha256'],repair.REVIEWED_OLD_SHA);self.assertNotIn('gpu-claimed-metal.json',z.namelist())
  def test_arbitrary_swift_edits_are_rejected(self):
   with self.assertRaisesRegex(ValueError,'Unreviewed'):repair.replacement((self.source/repair.PATH).read_bytes()+b'\n')
+ def test_crlf_bytes_do_not_bypass_the_reviewed_transport_hash(self):
+  raw=(self.source/repair.PATH).read_bytes();self.assertNotIn(b'\r\n',raw)
+  with self.assertRaisesRegex(ValueError,'Unreviewed'):repair.replacement(raw.replace(b'\n',b'\r\n'))
  def test_started_dispatch_or_saved_output_prevents_refresh(self):
   for name in ['readback.bin','evidence.json']:
    path=self.capture/name;path.write_bytes(b'partial')
