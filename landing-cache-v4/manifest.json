@@ -1,0 +1,15 @@
+{
+  "schema": "landing-cache-v4-shared-manifest",
+  "files": [
+    {
+      "path": "summary.json",
+      "bytes": 22386,
+      "sha256": "fd3d3464a0d18825c6e044f4bf5d6e67e2f2a4ad16e2b9079c96f528bd16bd90"
+    },
+    {
+      "path": "comparison.json",
+      "bytes": 13980,
+      "sha256": "666f29181dc43bd7bdabdd4287b6f3a267ee1195e7f3348711f2b96b02af60b2"
+    }
+  ]
+}
