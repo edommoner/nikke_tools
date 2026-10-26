@@ -1,0 +1,124 @@
+{
+  "cases": [
+    {
+      "name": "coordinate-typed-owner/control",
+      "input_sha256": "48294e49d941df33cdeea016a9a214daa792f3d027f5e19bd8263193dbd27bc9",
+      "native_sha256": "ecf5126eeff3f67870919da390f5f3e90dad74ba9a306422107eccc0452bcf7e",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "reference_kind": "deterministic-common-cpu",
+        "pellets": 40,
+        "packets": 40,
+        "physical_rng_words": 240,
+        "gpu_supported": false,
+        "typed_attacks": 20,
+        "typed_shots": 4,
+        "in_game_rules_verified": false,
+        "original_definitions": 71,
+        "declared_audit_definitions": 0,
+        "original_current_fields": 0,
+        "logical_owner_queries": 0,
+        "physical_identity_preserved": true,
+        "canonical_consumer_verified": false
+      }
+    },
+    {
+      "name": "coordinate-typed-owner/body",
+      "input_sha256": "d796dae7c39b4b1e019a08b43f4e23dce15ef3ca8223f81ff7cc669635de3502",
+      "native_sha256": "80af0bcd8f5fab6c75e6517ceee75fa06f1c634f635471c47bc5dfad69b30a6e",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "reference_kind": "deterministic-common-cpu",
+        "pellets": 256,
+        "packets": 260,
+        "physical_rng_words": 1544,
+        "gpu_supported": false,
+        "typed_attacks": 179,
+        "typed_shots": 40,
+        "in_game_rules_verified": false,
+        "original_definitions": 71,
+        "declared_audit_definitions": 0,
+        "original_current_fields": 1,
+        "logical_owner_queries": 0,
+        "physical_identity_preserved": true,
+        "canonical_consumer_verified": false
+      }
+    },
+    {
+      "name": "coordinate-typed-owner/adds",
+      "input_sha256": "ac184b600839dd32c97d269b40c03f7f327b717ccf1b2752b80494ba208905ce",
+      "native_sha256": "8d7915e479c6b66e164554156377c40e01b50b0d3806b6ed80b6e59b9f9a4fdc",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "reference_kind": "deterministic-common-cpu",
+        "pellets": 256,
+        "packets": 256,
+        "physical_rng_words": 1544,
+        "gpu_supported": false,
+        "typed_attacks": 0,
+        "typed_shots": 40,
+        "in_game_rules_verified": false,
+        "original_definitions": 71,
+        "declared_audit_definitions": 0,
+        "original_current_fields": 1,
+        "logical_owner_queries": 0,
+        "physical_identity_preserved": true,
+        "canonical_consumer_verified": false
+      }
+    },
+    {
+      "name": "coordinate-typed-owner/manual-typed-with-adds",
+      "input_sha256": "e268ea5f340dac678f45bef283b90918577083677748e869c89031c4d9b6c115",
+      "native_sha256": "db6d429f5e394e5a912583be4c985a81f440e4012ad4a6c2022c3715884f2d5b",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "reference_kind": "deterministic-common-cpu",
+        "pellets": 256,
+        "packets": 259,
+        "physical_rng_words": 1544,
+        "gpu_supported": false,
+        "typed_attacks": 117,
+        "typed_shots": 40,
+        "in_game_rules_verified": false,
+        "original_definitions": 71,
+        "declared_audit_definitions": 0,
+        "original_current_fields": 1,
+        "logical_owner_queries": 0,
+        "physical_identity_preserved": true,
+        "canonical_consumer_verified": false
+      }
+    },
+    {
+      "name": "coordinate-typed-owner/counter-owner-with-adds",
+      "input_sha256": "7e26a7b17873ca757721de7302cd86ff5714b85948e15af48b81aa79a212070e",
+      "native_sha256": "2a8377ffcac6f1180566c2be4b7c39ec78eb586db8feebea8137f017b9e37ff9",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "reference_kind": "deterministic-common-cpu",
+        "pellets": 256,
+        "packets": 260,
+        "physical_rng_words": 1544,
+        "gpu_supported": false,
+        "typed_attacks": 179,
+        "typed_shots": 40,
+        "in_game_rules_verified": false,
+        "original_definitions": 71,
+        "declared_audit_definitions": 2,
+        "original_current_fields": 1,
+        "logical_owner_queries": 2,
+        "physical_identity_preserved": true,
+        "canonical_consumer_verified": false
+      }
+    }
+  ],
+  "passed": true,
+  "roundtrip_native_fingerprints_verified": true,
+  "source_report_sha256": "a4c1f1a70576a98f84dd49f3347ff8742580fed5bde3b5f060691df4ba6029de",
+  "new_native_or_gpu_calls": 0,
+  "scope": "Stronger completion identity and actual BODY/ADD buff query assertions on the exact saved native values; CPU producers and case inputs unchanged."
+}

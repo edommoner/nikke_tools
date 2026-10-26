@@ -2356,3 +2356,10 @@ dev `/tmp/nikke-coordinate-typed-develop-v2`（f1b700f2…）、M5 `/tmp/nikke-c
 最終 `/tmp/nikke-typed-actor-final-v1.zip`（959199e6…）はseal登録とscoped分類の2file差分＋goldenだけ。全native producer／tests/data／GPU/transport全byte保持、全CLI関数ASTと全67prepared input/source/nativeを固定して同じfresh監査を再利用。最終版の新CPU preflightを実行したという主張はしない。最終関連84／制御488成功（Windows専用1skip）、最終generation必須hit・Slang0／sealed CUDA/MSL一致。全reader終了後rawのSHA/size/inodeを保持して疎化、439025664byte回収、削除0。
 
 新しい固定入口へdata-onlyケースを追加するときは、既存の生成／pipeline identityを保持して再構築を避ける。今回のarchive作成を現在CUDAのcompile/cache/launchやwarm Metal成功へ流用しない。次はcurrent enemy field／mutationとtyped event所有権・対象条件、他caller／世代・移動形状・skill/weapon同時interception。現CUDAと19packing失敗等の残るモデル／公開GPU／全キャラも未完。scoped証拠だけ分類へ追加し、reference_model_gap／全キャラ0／UI CPU／目標未達を維持。Windows新規依頼0、idle APIへ重複runを送らない。
+
+
+## 2026-10-26 型付き所有者fieldのCPU基盤
+
+`coordinate-typed-owner-common`5。詳細 `docs/portable-coordinate-typed-owner-reference.md`、`research/portable-coordinate-typed-owner-reference-checkpoint.json`。明示body-owned-current-fields-v1はbinding kind2/3とowner[0,0,1]必須。exact物理世代からlogical BODYへのqueryだけを投影し、event/impact handleを維持。未所有／ADD所有／異なるBODY世代／古いtyped世代を拒否、例外時patch復元。元Prim全71定義・完全5人・武器／成長を保持、1秒対照／8秒BODY／ADD／手動typed。別のcounter監査には原本後に明示2効果だけを追加し、実HPshield命中→counter完了→子buffを実行。camera ADDでも子fieldは所有BODY、実received query BODY17／両ADD0。元current fieldは0/1/1/1/1。
+
+不変CPU package v5 c106fbb2…の全5reference37.628665秒、最終owner unit5／関連84／制御488成功（Win1skip）。旧67/native40回帰はv4 e862a114…で181.761955秒、全prepared inputとgolden保持。最終31724c3b…はreadiness＋owner契約強化のみ、全5保存nativeとinput SHA照合後に強い契約を再監査しnative新生成0。362 Slang／保護正本・数値・cache・backend全byte保持、既存67 generation必須hit・Slang0。owner policyは旧GPU compilerで明示拒否、新GPU／Windows依頼0。共有Slang consumer/wireへ接続する前に、全ケースを保持してbounded fresh auditを分割集約できる共通CLI経路を整備すること。旧67独立監査223秒のためケース削減やguard緩和で済ませない。ゲームgap／全キャラ0／UI CPU／目標未達。

@@ -1,3 +1,5 @@
+`reference --suite coordinate-typed-owner-common --out UNIQUE.json` はBODY所有を明示した型付き対象と現在対象fieldのCPU契約5件です。元Prim全71定義を保持し、別宣言counter監査で物理handle／所有者／camera照準の分離を検査。GPU compilerは新policyを拒否し、GPU接続は未完です。[契約と検証範囲](portable-coordinate-typed-owner-reference.md)。
+
 `coordinate-typed-actor` はsealed67入力（native40／拒否27）。元Reiの現在対象ダメージを、元定義を保ってBODY／ADD／手動typed照準へ接続し、M5実出力とfresh独立監査で一致しました。`package --suite coordinate-typed-actor`、CPU契約だけなら `reference --suite coordinate-typed-actor-common --out UNIQUE.json` を使います。敵fieldの所有権継承・現CUDA／全キャラは未完です。[現在対象ダメージの範囲](portable-coordinate-typed-actors.md)。
 
 `coordinate-typed-aim` はsealed59入力（native36／拒否23）。型付きframe照準・手動・ADD優先・元の実FB追従を同じCUDA／Metal consumerへ接続し、M5実出力とfresh独立監査で全一致。`package --suite coordinate-typed-aim` と `arena-check --profile coordinate-typed-aim-v1` を使います。現在CUDA／論理current-enemy recipient／ゲーム規則／全キャラ認定は未完です。[範囲と証拠](portable-coordinate-typed-aim.md)。

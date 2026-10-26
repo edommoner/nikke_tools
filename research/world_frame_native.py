@@ -166,6 +166,11 @@ def observe(case):
       additions=case.get('declared_effects',[])
       if len(additions)!=1 or case.get('probe_source')!=len(actual):raise ValueError('One explicit typed probe after unchanged original definitions required')
       manager._effects.append((copy.deepcopy(additions[0]),case.get('probe_owner',NAMES[0])))
+     if case.get('declared_owner_counter'):
+      from portable_typed_owner_declarations import declarations
+      additions=declarations(case,expected['effects'])
+      if case.get('coordinate_typed_probe') or case['effects'][len(actual):]!=[e for e,_ in additions] or case['owners'][len(actual):]!=[0]*len(additions):raise ValueError('Declared owner audit must follow unchanged original definitions')
+      manager._effects.extend(additions)
      # Registration retains module-global parsed definitions. Keep observer
      # annotations local, preserving aliases between ordered lookup and dispatch.
      memo={}

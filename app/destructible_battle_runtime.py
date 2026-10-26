@@ -68,6 +68,10 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     from coordinate_typed_aim_runtime import TypedCoordinateAim
     if typed_actor_policy is not None and typed_aim_policy is None:raise ValueError('Typed actor policy requires frame aim')
     aims=TypedCoordinateAim(data,typed_geometry,typed_aim_policy,actor_policy=typed_actor_policy) if typed_aim_policy is not None else None
+    from coordinate_typed_actor_policy import owns_fields,validate_bindings
+    validate_bindings(typed_actor_policy,bindings)
+    from coordinate_typed_owner_runtime import OwnerQueries
+    owner_queries=OwnerQueries(data) if owns_fields(typed_actor_policy) else None
     class Boss(old_boss):
         def __init__(self,*args,**kwargs):
             super().__init__(*args,**kwargs);self._nikke_typed_world=DestructibleWorld.from_clock(self,bindings);data['worlds'].append(self._nikke_typed_world)
@@ -90,6 +94,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
             for effect,_ in manager._effects:modifier_axis(effect)
         if weapons is not None:weapons.validate_effects(manager)
         if aims is not None:aims.validate_effects(manager)
+        if owner_queries is not None:owner_queries.attach(manager)
         if skill_shields:
             clock=data['worlds'][-1].clock
             if clock.has_summons or any(r.p.kind in ('parts','interrupt') for r in clock._runs) or data['worlds'][-1].enemy.get('coord') is not None or data['worlds'][-1].enemy.get('has_parts'):
@@ -119,7 +124,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
             if isinstance(target,str) and target in CURRENT_TARGETS and typed_context() and typed_actor_policy is None:raise ValueError('Typed enemy recipient requires an explicit actor policy')
             return resolver(target,caster,*args,**kwargs)
         def conditions(values,caster,t,eff=None):
-            if typed_context() and any(isinstance(value,str) and (value in ('target_is_boss','target_is_add','target_stunned','not_target_stunned') or value.startswith(('target_state:','not_target_state:','target_stack_above:','target_stack_below:'))) for value in values):
+            if typed_context() and owner_queries is None and any(isinstance(value,str) and (value in ('target_is_boss','target_is_add','target_stunned','not_target_stunned') or value.startswith(('target_state:','not_target_state:','target_stack_above:','target_stack_below:'))) for value in values):
                 raise ValueError('Typed logical target condition requires an explicit actor policy')
             return condition_ok(values,caster,t,eff)
         @wraps(previous)
@@ -229,7 +234,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     manager_scope=patch.object(timeline,'BuffManager',manager_type(timeline.BuffManager)) if modifier_model else nullcontext()
     scalar_scope=patch.object(timeline,'calc_damage',scalar) if modifier_model else nullcontext()
     try:
-        with manager_scope,scalar_scope,weapons.scope() if weapons is not None else nullcontext(),coordinate_weapons.scope() if coordinate_weapons is not None else nullcontext(),patch.object(timeline,'BossScript',Boss),patch.object(buff_manager.BuffManager,'register_damage_handler',register),patch.object(timeline,'HitEvent',packet),patch.dict(old_simulate.__globals__,globals_patch),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):yield data
+        with owner_queries.scope() if owner_queries is not None else nullcontext(),manager_scope,scalar_scope,weapons.scope() if weapons is not None else nullcontext(),coordinate_weapons.scope() if coordinate_weapons is not None else nullcontext(),patch.object(timeline,'BossScript',Boss),patch.object(buff_manager.BuffManager,'register_damage_handler',register),patch.object(timeline,'HitEvent',packet),patch.dict(old_simulate.__globals__,globals_patch),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):yield data
     finally:
         for manager,wrapper,previous,old_instance,old_condition,missing in reversed(restores):
             if manager._damage_handler is wrapper:manager._damage_handler=previous

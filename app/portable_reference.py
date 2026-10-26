@@ -84,6 +84,7 @@ REFERENCES['coordinate-mixed-common']=('portable_coordinate_mixed_cases','world_
 REFERENCES['coordinate-group-common']=('portable_coordinate_group_cases','world_coordinate_group_native','portable_coordinate_group_contracts')
 REFERENCES['coordinate-aim-common']=('portable_coordinate_aim_cases','world_coordinate_aim_native','portable_coordinate_aim_contracts')
 REFERENCES['coordinate-typed-weapon-common']=('portable_coordinate_typed_weapon_cases','world_coordinate_typed_weapon_native','portable_coordinate_typed_weapon_contracts')
+REFERENCES['coordinate-typed-owner-common']=('portable_coordinate_typed_owner_cases','world_coordinate_typed_owner_native','portable_coordinate_typed_owner_contracts')
 REFERENCES['coordinate-typed-actor-common']=('portable_coordinate_typed_actor_cases','world_coordinate_typed_actor_native','portable_coordinate_typed_actor_contracts')
 REFERENCES['coordinate-typed-aim-common']=('portable_coordinate_typed_aim_cases','world_coordinate_typed_aim_native','portable_coordinate_typed_aim_contracts')
 REFERENCES['coordinate-accumulation-policy']=('portable_coordinate_accumulation_cases','world_coordinate_accumulation_native','portable_coordinate_accumulation_contracts')
@@ -130,12 +131,13 @@ def run_reference(suite,output,*,write,forbid_gpu):
                       historical_native_equivalence=False)
         if suite in ('coordinate-sampling-common','coordinate-sampled-battle-common','coordinate-sampled-parent-common','coordinate-sampled-skill-common','coordinate-sampled-burst-common','coordinate-sampled-vital-common','coordinate-sampled-delivery-common'):report['numerical_contract']='coordinate-sample-v1 + coordinate-binary64-v1'
         if suite=='coordinate-aim-common':report['numerical_contract']='coordinate-landing-v1 + coordinate-area-matrix-common-v1'
-    if suite in ('coordinate-typed-weapon-common','coordinate-typed-aim-common','coordinate-typed-actor-common'):
+    if suite in ('coordinate-typed-weapon-common','coordinate-typed-aim-common','coordinate-typed-actor-common','coordinate-typed-owner-common'):
         report.update(stage='cpu-common-policy-contract',reference_kind='deterministic-common-cpu',
                       numerical_contract='coordinate-sample-v1 + coordinate-binary64-v1 + declared-typed-geometry-v1',
                       historical_native_equivalence=False,in_game_rules_verified=False)
         if suite=='coordinate-typed-aim-common':report.update(declared_aim_policy='typed-before-body-v1',gpu_wire_connected=False)
         if suite=='coordinate-typed-actor-common':report.update(declared_actor_policy='canonical-current-damage-v1',enemy_field_ownership_connected=False)
+        if suite=='coordinate-typed-owner-common':report.update(declared_actor_policy='body-owned-current-fields-v1',gpu_wire_connected=False)
     try:
         # Legacy native comparators contain assertions. Reject before importing
         # or running them; optimized Python must never certify those contracts.

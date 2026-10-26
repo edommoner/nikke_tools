@@ -279,6 +279,13 @@ def reference_readiness(issue):
             automatic_typed_weapon_aim_verified=False,canonical_consumer_verified=False,
             cuda_device_verified=False,in_game_rules_verified=False,full_character_verified=False,
             scope='declared_v1_static_typed_shapes_inside_original_sampled_weapon_production')
+        result['typed_owner_field_reference']=dict(suite='coordinate-typed-owner-common',cases=5,
+            original_profile='Prim',original_definitions=71,declared_counter_audit_effects=2,
+            cpu_reference_verified=True,body_owner_required=True,physical_handle_preserved=True,
+            ordinary_current_field_receivers_verified=True,counter_owner_distinct_from_aim_verified=True,
+            stale_and_unknown_owners_rejected=True,gpu_wire_connected=False,metal_verified=False,
+            cuda_device_verified=False,canonical_consumer_verified=False,in_game_rules_verified=False,
+            full_character_verified=False)
         result['typed_current_damage_validation']=dict(suite='coordinate-typed-actor',inputs=67,native_cases=40,
             declared_actor_policy='canonical-current-damage-v1',original_profile='Rei',original_definitions=73,
             original_current_skill_events=[0,5,5,5],literal_selector='enemies_nearest_in_range',

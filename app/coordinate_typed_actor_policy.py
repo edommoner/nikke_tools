@@ -6,14 +6,23 @@ Enemy field/mutation inheritance still requires a separate ownership contract.
 """
 from enemy_recipient_specs import CURRENT_TARGETS
 MODE='canonical-current-damage-v1'
+FIELD_MODE='body-owned-current-fields-v1'
+
+def owns_fields(policy):return policy=={'mode':FIELD_MODE}
+
+def validate_bindings(policy,bindings):
+    if not owns_fields(policy):return
+    if not bindings or any(b.get('kind') not in (2,3) or b.get('owner')!=[0,0,1] for b in bindings):raise ValueError('Typed field policy requires explicit BODY-owned projectile/HP shield bindings')
 
 def normalize(policy):
-    if not isinstance(policy,dict) or policy!={'mode':MODE}:raise ValueError('Explicit canonical current-damage actor policy required')
+    if not isinstance(policy,dict) or set(policy)!={'mode'} or policy.get('mode') not in (MODE,FIELD_MODE):raise ValueError('Explicit canonical current-damage actor policy required')
     return dict(policy)
 
 def validate_effects(effects,policy):
     if policy is not None:normalize(policy)
     for effect in effects:
-        if effect.get('target') not in CURRENT_TARGETS:continue
+        target=effect.get('target')
+        current=any(isinstance(t,str) and t in CURRENT_TARGETS for t in target) if isinstance(target,list) else isinstance(target,str) and target in CURRENT_TARGETS
+        if not current:continue
         if policy is None:raise ValueError('Typed aim logical enemy recipient requires its own actor policy')
-        if effect.get('type')!='damage':raise ValueError('Typed current enemy fields/mutations require an ownership policy')
+        if effect.get('type')!='damage' and not owns_fields(policy):raise ValueError('Typed current enemy fields/mutations require an ownership policy')

@@ -7,6 +7,8 @@ from portable_target_modifier_input import lower_effect
 from destructible_skill_specs import coefficient
 
 def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None,coordinate_weapon_targets=False,coordinate_typed_aim=False,coordinate_typed_actors=False):
+    from coordinate_typed_actor_policy import owns_fields
+    if owns_fields(prepared.get('typed_actor_policy')):raise ValueError('Typed owner fields require a new shared GPU consumer')
     if type(coordinate_typed_actors) is not bool:raise ValueError('Explicit typed actor consumer policy required')
     if coordinate_typed_actors and not coordinate_typed_aim:raise ValueError('Typed actor policy requires frame aim')
     if prepared.get('typed_actor_policy') is not None and not coordinate_typed_actors:raise ValueError('Typed current damage requires its shared GPU consumer')
