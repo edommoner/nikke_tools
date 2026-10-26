@@ -1,0 +1,601 @@
+{
+  "schema": "resident-cubin-v4-saved-compile-report",
+  "outcome": "All requested prerequisite gates passed; single compile attempt timed out at outer60-second bound while NVRTC remained entered",
+  "distribution": {
+    "distribution_commit": "71134becf4fb6c3ad748003eedce11d6743ad0d4",
+    "archive_bytes": 11726479,
+    "archive_sha256": "9f24bd7bdae17a8bb80d20223566a1ad30dedf7bd19a0605cd6c19cedc954ac2",
+    "package_id": "c187138ec7a98a0f3d89b796b4ba638f690bf01ee02b8fad82bdae6b815ee4eb",
+    "archive_members": 3551,
+    "safe_paths_verified": true,
+    "manifest_identity_verified": true,
+    "full_package_verification": "deferred until after requested wire-refresh9 precheck"
+  },
+  "package_verification": {
+    "passed": true,
+    "package_id": "c187138ec7a98a0f3d89b796b4ba638f690bf01ee02b8fad82bdae6b815ee4eb",
+    "suite": "coordinate-resident-arc",
+    "purpose": "sealed",
+    "manifest_files": 3550,
+    "payload_bytes": 63204231,
+    "gpu_calls": 0
+  },
+  "v3_v4_payload_verification": {
+    "passed": true,
+    "source_package_id": "0064f91cb961cb10c2df7d19594d9179054ed84aed7325949537149c631af5c9",
+    "package_id": "c187138ec7a98a0f3d89b796b4ba638f690bf01ee02b8fad82bdae6b815ee4eb",
+    "changed_existing_files": [
+      "tests/test_portable_metal_wire_refresh.py"
+    ],
+    "added_files": [
+      "research/resident-arc-arena-evidence/heavyarms-full-prerequisites-v1/heavyarms-full-static-v3.py"
+    ],
+    "removed_files": [],
+    "cli_records_equal": true,
+    "all106_golden_equal": true,
+    "source_closure_equal": true
+  },
+  "configuration": {
+    "execution_permission": "require_escalated",
+    "python": "Existing base Python3.12.14/private gmpy2",
+    "slang": "Existing Slang2026.20",
+    "cuda": "Existing isolated NVRTC12.4",
+    "artifact": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_bytes": 2147483648,
+    "compile_timeout_seconds": 60,
+    "cpu_timeout_seconds": 180,
+    "generation_cache": false,
+    "compile_cache": "<EXISTING_DEDICATED_CUDA_CACHE>",
+    "original_workspace": "<EXISTING_ORIGINAL_WORKSPACE>"
+  },
+  "gates": {
+    "wire_refresh9": {
+      "passed": true,
+      "tests": 9,
+      "gpu_calls": 0
+    },
+    "package_verified": true,
+    "dependencies": {
+      "schema": 1,
+      "passed": true,
+      "dependencies": [],
+      "requirements_file": null,
+      "installation_performed": false,
+      "gpu_calls": 0,
+      "calculation_verified": false,
+      "scope": "Selected validation tests only; package metadata and import availability, not GPU or numerical correctness",
+      "suite": "coordinate-resident-arc",
+      "package_id": "c187138ec7a98a0f3d89b796b4ba638f690bf01ee02b8fad82bdae6b815ee4eb"
+    },
+    "common_cpu_smoke": {
+      "complete": true,
+      "groups": 60,
+      "tests": 581,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 10,
+      "rows_file": "cpu-tests.json"
+    },
+    "compile_cli11": {
+      "passed": true,
+      "tests": 11,
+      "gpu_calls": 0
+    },
+    "native_job_smoke": {
+      "smoke_verified": true,
+      "native_output_probe_verified": true,
+      "gpu_calls": 0,
+      "calculation_verified": false,
+      "preservation_verified": null,
+      "scope": "Packet run_job --smoke and audit_native_smoke; no numerical tests"
+    },
+    "native_output_probe": {
+      "python_sha256": "dea78bb78043f0d53ef4a475f85fa0312b90fa93c136a0686d17946781c60e16",
+      "script_sha256": "721bb96c6f55873129ba41a60b2d8c56823fc5e9a28baf7dd812e5a9fd4ab3ea",
+      "return_code": 0,
+      "elapsed_seconds": 0.12619849992915988,
+      "gpu_calls": 0
+    },
+    "compile_plan": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "c187138ec7a98a0f3d89b796b4ba638f690bf01ee02b8fad82bdae6b815ee4eb",
+      "suite": "coordinate-resident-arc",
+      "purpose": "sealed",
+      "artifact_kind": "cubin",
+      "ptxas_level": 1,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    },
+    "plan_comparison": {
+      "passed": true,
+      "exact_plan_equal": true,
+      "package_id": "c187138ec7a98a0f3d89b796b4ba638f690bf01ee02b8fad82bdae6b815ee4eb",
+      "gpu_calls": 0
+    }
+  },
+  "executions": {
+    "wire-tests": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 180,
+      "elapsed_seconds": 1.0624759001657367,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true
+    },
+    "verify": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 180,
+      "elapsed_seconds": 46.3286306001246,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true
+    },
+    "deps": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 180,
+      "elapsed_seconds": 11.504290199838579,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true
+    },
+    "cpu": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 180,
+      "elapsed_seconds": 83.92480949964374,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true
+    },
+    "compile-tests": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 180,
+      "elapsed_seconds": 0.8841150999069214,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true
+    },
+    "smoke": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 180,
+      "elapsed_seconds": 5.6668389001861215,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true
+    },
+    "plan": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 180,
+      "elapsed_seconds": 11.484289300162345,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true
+    },
+    "compile": {
+      "passed": false,
+      "timed_out": true,
+      "timeout_seconds": 60,
+      "elapsed_seconds": 60.04023510031402,
+      "child_exit_code": null,
+      "final_child_exit_code": 1,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true
+    }
+  },
+  "job_receipts": {
+    "wire-tests-cli": {
+      "child_pid": 102644,
+      "wrapper_pid": 49456,
+      "child_ppid": 49456,
+      "child_creation_filetime_ticks": "134375306901750644",
+      "pre_gate_verified": true,
+      "pre_gate_members": [
+        102644
+      ],
+      "memory_limit_bytes": 2147483648,
+      "pre_gate_peak_bytes": 7061504,
+      "post_wait_available": true,
+      "post_wait_members": [],
+      "final_observed_peak_bytes": 39055360,
+      "inspection_error": null
+    },
+    "verify-cli": {
+      "child_pid": 22892,
+      "wrapper_pid": 16156,
+      "child_ppid": 16156,
+      "child_creation_filetime_ticks": "134375306977354687",
+      "pre_gate_verified": true,
+      "pre_gate_members": [
+        22892
+      ],
+      "memory_limit_bytes": 2147483648,
+      "pre_gate_peak_bytes": 5857280,
+      "post_wait_available": true,
+      "post_wait_members": [],
+      "final_observed_peak_bytes": 39141376,
+      "inspection_error": null
+    },
+    "deps-cli": {
+      "child_pid": 82164,
+      "wrapper_pid": 126180,
+      "child_ppid": 126180,
+      "child_creation_filetime_ticks": "134375307526856605",
+      "pre_gate_verified": true,
+      "pre_gate_members": [
+        82164
+      ],
+      "memory_limit_bytes": 2147483648,
+      "pre_gate_peak_bytes": 5910528,
+      "post_wait_available": true,
+      "post_wait_members": [],
+      "final_observed_peak_bytes": 39682048,
+      "inspection_error": null
+    },
+    "cpu-cli": {
+      "child_pid": 69240,
+      "wrapper_pid": 110004,
+      "child_ppid": 110004,
+      "child_creation_filetime_ticks": "134375307940548753",
+      "pre_gate_verified": true,
+      "pre_gate_members": [
+        69240
+      ],
+      "memory_limit_bytes": 2147483648,
+      "pre_gate_peak_bytes": 5853184,
+      "post_wait_available": true,
+      "post_wait_members": [],
+      "final_observed_peak_bytes": 188129280,
+      "inspection_error": null
+    },
+    "compile-tests-cli": {
+      "child_pid": 49880,
+      "wrapper_pid": 142652,
+      "child_ppid": 142652,
+      "child_creation_filetime_ticks": "134375308932967691",
+      "pre_gate_verified": true,
+      "pre_gate_members": [
+        49880
+      ],
+      "memory_limit_bytes": 2147483648,
+      "pre_gate_peak_bytes": 5844992,
+      "post_wait_available": true,
+      "post_wait_members": [],
+      "final_observed_peak_bytes": 48246784,
+      "inspection_error": null
+    },
+    "smoke-cli": {
+      "child_pid": 41876,
+      "wrapper_pid": 70600,
+      "child_ppid": 70600,
+      "child_creation_filetime_ticks": "134375309054747704",
+      "pre_gate_verified": true,
+      "pre_gate_members": [
+        41876
+      ],
+      "memory_limit_bytes": 2147483648,
+      "pre_gate_peak_bytes": 5910528,
+      "post_wait_available": true,
+      "post_wait_members": [],
+      "final_observed_peak_bytes": 207785984,
+      "inspection_error": null
+    },
+    "smoke": {
+      "child_pid": 56468,
+      "wrapper_pid": 41876,
+      "child_ppid": 41876,
+      "child_creation_filetime_ticks": "134375309058601010",
+      "pre_gate_verified": true,
+      "pre_gate_members": [
+        56468
+      ],
+      "memory_limit_bytes": 2147483648,
+      "pre_gate_peak_bytes": 5857280,
+      "post_wait_available": true,
+      "post_wait_members": [],
+      "final_observed_peak_bytes": 51417088,
+      "inspection_error": null
+    },
+    "plan-cli": {
+      "child_pid": 79240,
+      "wrapper_pid": 86656,
+      "child_ppid": 86656,
+      "child_creation_filetime_ticks": "134375309188900619",
+      "pre_gate_verified": true,
+      "pre_gate_members": [
+        79240
+      ],
+      "memory_limit_bytes": 2147483648,
+      "pre_gate_peak_bytes": 4636672,
+      "post_wait_available": true,
+      "post_wait_members": [],
+      "final_observed_peak_bytes": 39460864,
+      "inspection_error": null
+    },
+    "compile-cli": {
+      "child_pid": 71548,
+      "wrapper_pid": 102220,
+      "child_ppid": 102220,
+      "child_creation_filetime_ticks": "134375309478232536",
+      "pre_gate_verified": true,
+      "pre_gate_members": [
+        71548
+      ],
+      "memory_limit_bytes": 2147483648,
+      "pre_gate_peak_bytes": 5836800,
+      "post_wait_available": true,
+      "post_wait_members": [],
+      "final_observed_peak_bytes": 645595136,
+      "inspection_error": null
+    },
+    "compile": {
+      "child_pid": 78624,
+      "wrapper_pid": 71548,
+      "child_ppid": 71548,
+      "child_creation_filetime_ticks": "134375309593931466",
+      "pre_gate_verified": true,
+      "pre_gate_members": [
+        78624
+      ],
+      "memory_limit_bytes": 2147483648,
+      "pre_gate_peak_bytes": 6922240,
+      "post_wait_available": false,
+      "post_wait_members": null,
+      "final_observed_peak_bytes": null,
+      "inspection_error": null
+    }
+  },
+  "monitoring": {
+    "smoke": {
+      "before_available": true,
+      "after_available": true,
+      "before_service_status": "unverified",
+      "after_service_status": "unverified",
+      "all_monitored_processes_preserved": true,
+      "missing_existing_process_count": 0,
+      "identified_nikke_service_preservation_verified": false,
+      "raw_process_paths_and_identities_shared": false
+    },
+    "compile": {
+      "before_available": true,
+      "after_available": false,
+      "before_service_status": "unverified",
+      "after_service_status": null,
+      "all_monitored_processes_preserved": null,
+      "missing_existing_process_count": null,
+      "identified_nikke_service_preservation_verified": null,
+      "raw_process_paths_and_identities_shared": false
+    }
+  },
+  "preservation_verified": null,
+  "calculation_verified": false,
+  "compile_observation": {
+    "parent_phase_events": 0,
+    "parent_phase_scope": "Outer wrapper does not instrument nested compiler calls; zero here does not mean NVRTC was not entered",
+    "inner_phase_events": 11,
+    "timeline_file": "compile-timeline.json",
+    "slang_build_seconds": 9.7541294,
+    "nvrtc_entered": true,
+    "nvrtc_return_observed": false,
+    "nvrtc_return_code": null,
+    "nvrtc_start_utc": "2026-10-26T23:29:42.866366+00:00",
+    "nvrtc_start_jst": "2026-10-27T08:29:42.866366+09:00",
+    "nvrtc_start_seconds_from_outer_pre_gate": 35.0065828,
+    "nvrtc_completed_duration_seconds": null,
+    "allocation_failure": null,
+    "compiler_success_verified": false,
+    "saved_capture_status": "compiling",
+    "status_note": "Saved status remains compiling because outer timeout killed the owner before finalization; not rewritten"
+  },
+  "source_and_cache_state": {
+    "sources": {
+      "cuda": {
+        "relative_path": "package/research/portable-build/world_coordinate_resident_arc_entry.cu",
+        "bytes": 2779210,
+        "sha256": "3c3cf096d5ea5db35fa5702ab182bcbc0d1eebe25b291ce032c22f73c43ad6c1",
+        "normalized_sha256": "b1a97508325194ab98643d2a2c307c99a007aa6d0be17b567dfccdb5fe91efc2",
+        "matches_sealed_normalized": true
+      },
+      "metal": {
+        "relative_path": "package/research/portable-build/world_coordinate_resident_arc_entry.metal",
+        "bytes": 2940274,
+        "sha256": "6a25dd41ba90a61c25b06db6f870ac09653c60d1dbbb89f60932ef33a26cc3d2",
+        "normalized_sha256": "c4f8eb68214aee1c999554ef205c55cb31688441e70dd9a0980fda0d51e93f5a",
+        "matches_sealed_normalized": true
+      }
+    },
+    "matching_cache_claims": [
+      {
+        "key": "370a9b8838259ecf57cc17fb2e9b6a04e83f0e23204875433d66fa75be4197d0",
+        "pid": 78624,
+        "bytes": 147,
+        "sha256": "4aafdc862bfc93fe4858c1d9a1fa71ca1870716006e013d5f2ab891b8db22897",
+        "completed_cache_artifact_exists": false,
+        "claim_retained": true,
+        "token_shared": false
+      }
+    ],
+    "cubin_in_capture_exists": false,
+    "cubin_in_build_exists": false,
+    "file_only_analysis": true,
+    "compile_reruns": 0
+  },
+  "cubin": null,
+  "completed_cache_artifact": null,
+  "retained_compile_claim": {
+    "package_id": "c187138ec7a98a0f3d89b796b4ba638f690bf01ee02b8fad82bdae6b815ee4eb",
+    "capture": "<CURRENT_COMPILE_CAPTURE>",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1
+  },
+  "standard_capture_receipts": {
+    "execution_json_exists": false,
+    "compiler_json_exists": false,
+    "result_json_exists": false,
+    "artifacts_json_exists": false,
+    "scope": "Absences retained; no synthetic success receipt or forced recovery"
+  },
+  "original_local_byte_provenance": [
+    {
+      "local_relative_path": "compile-plan.json",
+      "bytes": 592,
+      "sha256": "17d1134ab221cc9d59db90be871fcc25946c2b36b550a689cd59f598cb125d6e",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "plan-comparison.json",
+      "bytes": 157,
+      "sha256": "c3c3970845b4b3f1e02211994ffec53b056c876a91df216c3196c590b31389c3",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "cpu/cpu-tests.json",
+      "bytes": 13064,
+      "sha256": "1160440b9dfcfc4b8684d3dd0a02dd232a61cb057086200b9573d2b713698537",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile-tests/cpu-tests.json",
+      "bytes": 217,
+      "sha256": "cb4819aa5aed654494894506a55736058070619b56d09dae577d6fad923b4043",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "wire-tests/cpu-tests.json",
+      "bytes": 224,
+      "sha256": "b34011a1f58ed74d9070b508b0481307aa4f5f4811a8880cda5719bc1f5269b7",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile-cli/execution.json",
+      "bytes": 1094,
+      "sha256": "74226b323f5938683e73ee7f8a69d7a27877ca0b3da23dd58f84a3cd58c42cee",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile-cli/job.json",
+      "bytes": 1095,
+      "sha256": "55bdf356fbba5dc75c140ec061b39d76ecd413f4a19e0e542e943d1158414794",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile/job.json",
+      "bytes": 678,
+      "sha256": "69c71abcf82a7af314eab88423b485b9e5458f3202c5d5ebe3d8ae8942b28124",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile/run.json",
+      "bytes": 273,
+      "sha256": "4d6c5e6290d55755bf3db309393ae8ffa0e22b9bfdec072b3a396052e8e1ba5e",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile/runtime.json",
+      "bytes": 1206,
+      "sha256": "10058edf955f2acaa8111b92e0db4dbd4770eedadbad8d57d7a24b92901de9cc",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile/phases.jsonl",
+      "bytes": 1734,
+      "sha256": "679137812b7e9498d73c46cb2e2c15900b3833494f275a5280863d2ad5fd0298",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile/preparation.jsonl",
+      "bytes": 639,
+      "sha256": "bae66cb4a25281263e9dbad64c83143e011a74bcd1d3a3daf3e90a8d137eeb7b",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile/observation.json",
+      "bytes": 11229,
+      "sha256": "0a80a895967715dac7ff1a177340af794d72324920403211cdc558c7f141d8db",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "package/compile-claimed-cuda.json",
+      "bytes": 231,
+      "sha256": "ffe3b46b32dd39cc0550fc71be0024278c3db096c5cb1d67816af2435c82a446",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "saved-source-and-cache-state.json",
+      "bytes": 1261,
+      "sha256": "991f49696eb6758f3d156096f5f9ea2c8fbe8a091e1adafabf71c9629165d151",
+      "raw_content_shared": false
+    }
+  ],
+  "actions": {
+    "compile_attempts": 1,
+    "slang_builds": 1,
+    "nvrtc_compile_entries": 1,
+    "nvrtc_compile_returns": 0,
+    "offline_resource_usage": 0,
+    "cuda_driver_load": 0,
+    "cuda_context": 0,
+    "module_load": 0,
+    "kernel_launch": 0,
+    "normal_run": 0,
+    "full106_native_recalculation": 0,
+    "retries": 0,
+    "os_wmi_acl_service_changes": 0
+  },
+  "retention": {
+    "previous_v1_v2_v3_compile_claims_remain_zero": true,
+    "old_claims_failures_raw_and_cache_preserved": true,
+    "new_compile_and_cache_claims_retained": true,
+    "new_cache_artifact_not_created": true
+  },
+  "shared_path_policy": "Only repository-relative paths/placeholders; no raw/generated source/SDK/process snapshot/claim token shared; original bytes retained locally"
+}

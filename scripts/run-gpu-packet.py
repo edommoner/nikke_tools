@@ -8,7 +8,7 @@ from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
-COMPILE_STAGES=('compile-ptx','compile-cubin-o0')
+COMPILE_STAGES=('compile-ptx','compile-cubin-o0','compile-cubin-o1')
 OBJECT_STAGES={'recover-object':('source_package','source_capture','object_sha256'),'module-object':('source_package','source_capture','cache_entry','phases','ptxas'),
                'jit-link-object':('object_package','object_capture','object_sha256','nvjitlink')}
 LINKED_STAGE='gpu-linked'
@@ -96,7 +96,7 @@ def proof_arguments(plan):
         if not plan['original_workspace']:raise ValueError('Compilation requires an original workspace')
         kind='ptx' if plan['stage']=='compile-ptx' else 'cubin'
         arguments=['compile','--capture',plan['proof_capture'],'--timeout',str(plan['inner_gpu_timeout_seconds']),'--artifact-kind',kind,'--memory-limit-mb','2048','--original-workspace',plan['original_workspace']]
-        if kind=='cubin':arguments.extend(['--ptxas-level','0'])
+        if kind=='cubin':arguments.extend(['--ptxas-level','1' if plan['stage']=='compile-cubin-o1' else '0'])
         return arguments
     arguments=['run','--backend',plan['backend'],'--capture',plan['proof_capture'],'--timeout',str(plan['inner_gpu_timeout_seconds'])]
     if plan['stage']==LINKED_STAGE:

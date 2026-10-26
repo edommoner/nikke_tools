@@ -127,6 +127,14 @@ class PacketStageTests(unittest.TestCase):
         self.assertEqual(stage.proof_arguments(p),['compile','--capture',p['proof_capture'],'--timeout','60','--artifact-kind','cubin','--memory-limit-mb','2048','--original-workspace',p['original_workspace'],'--ptxas-level','0'])
         with self.assertRaisesRegex(ValueError,'CUDA backend'):stage.recipe('id','compile-cubin-o0','metal','/tmp/x','/tmp/original',180)
         with self.assertRaisesRegex(ValueError,'original workspace'):stage.recipe('id','compile-cubin-o0','cuda','/tmp/x',None,180)
+    def test_cubin_o1_preserves_separate_outer_and_inner_budgets(self):
+        for outer in (30,60,180):
+            p=stage.recipe('id','compile-cubin-o1','cuda','/tmp/isolated-stage','/tmp/original',outer)
+            self.assertEqual(p['timeout_seconds'],outer)
+            self.assertEqual(p['inner_gpu_timeout_seconds'],min(60,outer))
+            self.assertEqual(stage.proof_arguments(p),['compile','--capture',p['proof_capture'],'--timeout',str(min(60,outer)),'--artifact-kind','cubin','--memory-limit-mb','2048','--original-workspace',p['original_workspace'],'--ptxas-level','1'])
+        with self.assertRaisesRegex(ValueError,'CUDA backend'):stage.recipe('id','compile-cubin-o1','metal','/tmp/x','/tmp/original',180)
+        with self.assertRaisesRegex(ValueError,'original workspace'):stage.recipe('id','compile-cubin-o1','cuda','/tmp/x',None,180)
     def test_compile_result_cannot_promote_driver_or_gpu_work_to_compiler_only_success(self):
         good=dict(mode='compile-only',compiler_verified=True,calculation_verified=False,gpu_calls=0,driver_load_calls=0)
         for mode in stage.COMPILE_STAGES:

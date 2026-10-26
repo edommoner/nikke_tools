@@ -1,0 +1,24 @@
+{
+  "schema": "common-packet-cubin-o1-unit-v1",
+  "passed": true,
+  "package_id": "c46af35cd515e4d7a1ef2148f548751dc160039540e9bc3878e0191c29abadcc",
+  "baseline_package_id": "36f6cb6bc3af65b53f6ffd95bcc95019b748f8062da792ad8e322654530c63ba",
+  "changed_files": [
+    "scripts/run-gpu-packet.py",
+    "tests/test_portable_packet_stage.py"
+  ],
+  "all_gpu_native_comparator_cli_and106golden_unchanged": true,
+  "tests": 20,
+  "outer_timeout_maximum_seconds": 180,
+  "inner_compile_child_timeout_maximum_seconds": 60,
+  "memory_limit_mb": 2048,
+  "windows_executions": 0,
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "calculation_verified": false,
+  "source_sha256": {
+    "scripts/run-gpu-packet.py": "c4b415f1e714dd0b51bff3e8f76f9e6d6999078bd483c0ccd2637b8a863fb297",
+    "tests/test_portable_packet_stage.py": "ec887b2054f3cc313d2a3f785d86d3b2214e1075e7d08ac3bcfa18affea364bd"
+  },
+  "unit_log_sha256": "c2b965fc3077c795064962d6d9bf50b059d16f1c8974a78a72c99662643cc05d"
+}
