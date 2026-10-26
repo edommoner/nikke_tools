@@ -500,3 +500,14 @@ package内CLIは `sys.dont_write_bytecode`、所有する検証子は `PYTHONDON
 現在の永続worktreeは `.portable-recovery/runtime-resident`、新しい検証保存先は `.portable-recovery/proofs/`、生成cacheは `.portable-recovery/caches/slang-generation-v1` です。今回の消失rawを再作成するためのGPU再実行は行いません。再監査には元のbyteを復旧する必要があります。
 
 `reference --suite coordinate-typed-owner-add-lifetime-common --out NEW.json` はADD所有者のgraph退場・再出現4契約です。完全Prim71定義の実counter子field、同世代の退場、gen2発動、生存gen9への旧field非継承をCPUで確認します。別のpacking検査は既存shared wireを使い、新4件のGPU成功とは数えません。[契約・受動観測・証跡](portable-coordinate-typed-owner-add-lifetime-reference.md)を参照してください。
+
+
+## 2026-10-27 ADD所有者graph退場・再出現Metal103
+
+共通CLI `coordinate-typed-owner-add-lifetime` をseal済み登録。旧99保持＋4件、103/native60/拒43。元Prim71/完全5人/武器/成長、同じlogical-owner Slang entryで発動前後のgraph退場・旧field非継承・gen2発動を検証。最終gen9生存時に旧field値0。GPUの最終carrier/actor queryと戦闘履歴を照合、frame別visibilityはCPU witnessのみ。HPダメージ死亡は未検証。詳細 `docs/portable-coordinate-typed-owner-add-lifetime-gpu.md` と対応checkpoint。
+
+M5 GPU4.200283秒、CPU preflight375.653591秒、pipeline61.344455秒（miss）、child71.713265秒/180上限。fresh独立監査482.756267秒、20/20/20/20/20/3各180以内、同じ監査でgolden/certificate。新GPU1/retry0/WindowsGPU0。最終0b727fdc…は5file登録差分、全CLI関数AST/native producer/comparator/tests/GPU保持、関連120/制御517成功（Win1skip）、generation必須hit/Slang0。最終版のfresh native再生成なし。
+
+永続proof `.portable-recovery/proofs/owner-add-lifetime-gpu-20261027` に新raw/claim/全groupログ保持、reader終了後SHA/size/inode保持疎化で670760960byte回収。旧99input/native/記録output SHA保持、旧raw自体は未回収。現在の新103実証と旧capture消失を区別する。file-only Metal cache probe hitはwarm実機証明ではない。
+
+Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-landing40は固定配布・対応cacheの所在を確認できず、CUDA未実行。次の依頼は所在とsource certificateを明示した固定配布でcache triageから開始し、不足時に長いcompile/本体buildをしない。次はHPダメージによるADD死亡など実戦寿命の未対応分類。現CUDA/ゲームgap/公開consumer/全キャラ未完、UI CPU/全キャラ0/目標未達。

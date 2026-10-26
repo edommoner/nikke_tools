@@ -338,6 +338,18 @@ def reference_readiness(issue):
             gpu_battle_validation_pending=True,metal_verified=False,cuda_device_verified=False,
             hp_damage_death_verified=False,in_game_rules_verified=False,full_character_verified=False,
             scope='declared_ADD_graph_exit_and_reentry_CPU_contracts_only')
+        result['typed_owner_add_lifetime_validation']=dict(suite='coordinate-typed-owner-add-lifetime',inputs=103,
+            native_cases=60,rejected_cases=43,new_original_roster_cases=4,original_definitions=71,
+            metal_verified=True,independently_audited=True,proof_host_metal_verified=True,
+            graph_exit_before_after_child_verified=True,field_owner_generation_preserved=True,
+            old_field_hidden_on_live_generation9=True,second_generation_owner_activation_verified=True,
+            final_gpu_queries_verified=True,per_frame_visibility_trace_on_gpu_verified=False,
+            old99_input_native_and_recorded_output_hashes_verified=True,new103_capture_retained_on_proof_host=True,
+            prior_original99_capture_recovered=False,compiler_certificate_from_same_audit=True,
+            slang_compiler_calls_during_execution=0,new_shader_warm_pipeline_verified=False,
+            cuda_device_verified=False,hp_damage_death_verified=False,in_game_rules_verified=False,
+            canonical_consumer_verified=False,full_character_verified=False,
+            scope='declared_ADD_graph_exit_and_reentry_with_immutable_field_generation_and_final_GPU_queries')
         result['typed_current_damage_validation']=dict(suite='coordinate-typed-actor',inputs=67,native_cases=40,
             declared_actor_policy='canonical-current-damage-v1',original_profile='Rei',original_definitions=73,
             original_current_skill_events=[0,5,5,5],literal_selector='enemies_nearest_in_range',

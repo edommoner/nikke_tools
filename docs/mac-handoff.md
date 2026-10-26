@@ -2431,3 +2431,14 @@ dev `/tmp/nikke-coordinate-typed-develop-v2`（f1b700f2…）、M5 `/tmp/nikke-c
 強いv3全4契約40.211833秒成功、最終v4（2f6e0c5f…）はreadiness/CLIテスト登録/packing unitの3file差分。全CLI関数AST/native producer/comparator保持、新4件の最終再生成0。最終関連120/制御517成功（Win1skip）、全4件の共有wire packing/73定義/115680wordとgeneration必須hit/Slang0確認。旧ADD3をfresh CPUで実行しinput/native/trace全SHA保持。reference報告のlogical policy名をBODYが上書きするmetadata bugも修正、古い記録は保持。
 
 GPU/数値/正本/upstream/backend/CUDA compile cache/normalizer全byte・旧99golden保持。新GPU/Windows0、旧capture未取得の制限は維持。全proofは永続 .portable-recovery/proofs/owner-add-lifetime-20261027、要約はresearch/typed-owner-add-lifetime-reference-evidence/。次は同じ固定entryへ新4を追加し、旧99保持の新103入力をGPU検証。新しい寿命契約の検証として行い、失われたrawの再作成や旧capture再ラベルはしない。新4 Metal/CUDA/HP死亡/ゲーム仕様/公開consumer/全キャラ未完、全キャラ0/UI CPU/目標未達。
+
+
+## 2026-10-27 ADD所有者graph退場・再出現Metal103
+
+共通CLI `coordinate-typed-owner-add-lifetime` をseal済み登録。旧99保持＋4件、103/native60/拒43。元Prim71/完全5人/武器/成長、同じlogical-owner Slang entryで発動前後のgraph退場・旧field非継承・gen2発動を検証。最終gen9生存時に旧field値0。GPUの最終carrier/actor queryと戦闘履歴を照合、frame別visibilityはCPU witnessのみ。HPダメージ死亡は未検証。詳細 `docs/portable-coordinate-typed-owner-add-lifetime-gpu.md` と対応checkpoint。
+
+M5 GPU4.200283秒、CPU preflight375.653591秒、pipeline61.344455秒（miss）、child71.713265秒/180上限。fresh独立監査482.756267秒、20/20/20/20/20/3各180以内、同じ監査でgolden/certificate。新GPU1/retry0/WindowsGPU0。最終0b727fdc…は5file登録差分、全CLI関数AST/native producer/comparator/tests/GPU保持、関連120/制御517成功（Win1skip）、generation必須hit/Slang0。最終版のfresh native再生成なし。
+
+永続proof `.portable-recovery/proofs/owner-add-lifetime-gpu-20261027` に新raw/claim/全groupログ保持、reader終了後SHA/size/inode保持疎化で670760960byte回収。旧99input/native/記録output SHA保持、旧raw自体は未回収。現在の新103実証と旧capture消失を区別する。file-only Metal cache probe hitはwarm実機証明ではない。
+
+Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-landing40は固定配布・対応cacheの所在を確認できず、CUDA未実行。次の依頼は所在とsource certificateを明示した固定配布でcache triageから開始し、不足時に長いcompile/本体buildをしない。次はHPダメージによるADD死亡など実戦寿命の未対応分類。現CUDA/ゲームgap/公開consumer/全キャラ未完、UI CPU/全キャラ0/目標未達。
