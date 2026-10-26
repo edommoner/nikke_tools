@@ -1,0 +1,118 @@
+{
+  "package_id": "22d968b40e6bd1a43c2b38f08100fb928b1bc13badbd8e01975a133e6a162c70",
+  "independent_audit_seconds": 239.59836929198354,
+  "independent_comparison": {
+    "schema": "independent-metal-audit-groups-v1",
+    "child_pids": [
+      83308,
+      83360,
+      83435
+    ],
+    "groups": [
+      {
+        "child_pid": 83308,
+        "case_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "input_count": 24,
+        "native_cases": 18,
+        "elapsed_seconds": 76.03160995803773
+      },
+      {
+        "child_pid": 83360,
+        "case_indices": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47
+        ],
+        "input_count": 24,
+        "native_cases": 13,
+        "elapsed_seconds": 72.98708862485364
+      },
+      {
+        "child_pid": 83435,
+        "case_indices": [
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66
+        ],
+        "input_count": 19,
+        "native_cases": 9,
+        "elapsed_seconds": 89.32816025009379
+      }
+    ],
+    "input_count": 67,
+    "native_cases": 40,
+    "live_parent_receipt_present": false,
+    "per_group_timeout_seconds": 180
+  },
+  "passed": true,
+  "input_sha256": "712de740f4e8043ddd4467050c98d205e063913da4b175e911a94abd8c833f2c",
+  "output_sha256": "b0bcf4ed1f0157ef8319d0e426ff34215ee5cc0474d543c4b3829b7f6fb3b5a9",
+  "all67_sealed_goldens_equal": true,
+  "full_report": {
+    "bytes": 103868,
+    "sha256": "40da00ccfdee0edd1f213a5d248a9bf0b6fb21dbe87ab3aa87131c49795a3d56"
+  },
+  "new_gpu_calls": 0
+}

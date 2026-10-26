@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-comparison-groups-replay-v1",
+  "raw_bytes": 544576000,
+  "raw_sha256": "b0bcf4ed1f0157ef8319d0e426ff34215ee5cc0474d543c4b3829b7f6fb3b5a9",
+  "evidence_sha256": "6c0bc2f7706849ac97f9138b2ee0a8ce7b8c4b5645604d370c3c2762105939fb",
+  "raw_inode": 511798394,
+  "scan_block_bytes": 65536,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 928,
+  "zero_range_bytes": 439025664,
+  "allocated_before": 544579584,
+  "allocated_after": 105553920,
+  "allocated_reclaimed": 439025664,
+  "full_hash_verified": true
+}

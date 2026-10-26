@@ -2363,3 +2363,12 @@ dev `/tmp/nikke-coordinate-typed-develop-v2`（f1b700f2…）、M5 `/tmp/nikke-c
 `coordinate-typed-owner-common`5。詳細 `docs/portable-coordinate-typed-owner-reference.md`、`research/portable-coordinate-typed-owner-reference-checkpoint.json`。明示body-owned-current-fields-v1はbinding kind2/3とowner[0,0,1]必須。exact物理世代からlogical BODYへのqueryだけを投影し、event/impact handleを維持。未所有／ADD所有／異なるBODY世代／古いtyped世代を拒否、例外時patch復元。元Prim全71定義・完全5人・武器／成長を保持、1秒対照／8秒BODY／ADD／手動typed。別のcounter監査には原本後に明示2効果だけを追加し、実HPshield命中→counter完了→子buffを実行。camera ADDでも子fieldは所有BODY、実received query BODY17／両ADD0。元current fieldは0/1/1/1/1。
 
 不変CPU package v5 c106fbb2…の全5reference37.628665秒、最終owner unit5／関連84／制御488成功（Win1skip）。旧67/native40回帰はv4 e862a114…で181.761955秒、全prepared inputとgolden保持。最終31724c3b…はreadiness＋owner契約強化のみ、全5保存nativeとinput SHA照合後に強い契約を再監査しnative新生成0。362 Slang／保護正本・数値・cache・backend全byte保持、既存67 generation必須hit・Slang0。owner policyは旧GPU compilerで明示拒否、新GPU／Windows依頼0。共有Slang consumer/wireへ接続する前に、全ケースを保持してbounded fresh auditを分割集約できる共通CLI経路を整備すること。旧67独立監査223秒のためケース削減やguard緩和で済ませない。ゲームgap／全キャラ0／UI CPU／目標未達。
+
+
+## 2026-10-26 全範囲fresh native監査の分割実行
+
+共通CLI seal/replayに明示comparison-group-sizeを追加、既存比較器を再利用。部分結果はcalculation_verified=False、全index順序・重複／欠落・拒否・全体raw/input/generated／各native指紋・transport・immutable anchorsを集約して初めて全件成功。childはGPU禁止・ライブ親oracle0、各child上限1〜240秒、逐次。既存未指定経路は維持。最終版は各group stdout/stderr/部分JSONと失敗またはaggregateを別temp captureへ保持。
+
+実測development22d968b4…、保存Metal出力の全67/native40/拒27を24/24/19で実行し76.032/72.987/89.328秒、各180秒内。総239.598秒は旧単一child223.096秒より増加し、総短縮の主張なし。旧sealed67の全input/native/output/generated goldens完全一致、GPU新実行0。最終b58926cf…の差分はログ・失敗保存helperと追加unitのみ、native producer/比較器・他CLI関数AST保持。最終新12／seal8／関連84／制御500成功（Win1skip）、generation必須hit・Slang0。新しい全67 native再生成を最終版で行ったとは主張しない。原本/claim保持、全reader終了後の新replay raw疎化で439025664byte割当回収、raw SHA/size/inode保持・削除0。詳細docs/portable-comparison-groups.md、research/portable-comparison-groups-checkpoint.json。
+
+次はbody-owned-current-fields-v1を専用共有entry/headerへ接続し、元Prim全71と実counter完了子fieldをMetal比較。旧67はすべて保持、新ownerケースを含め全範囲group監査を実行すること。GPU本体・数値・正本・strict normalizer・CUDA cache本体は今回不変。現在CUDA、ownerのGPU、ゲームgap／全キャラ0／UI CPU／目標未達。Windowsへの新規依頼0、idle APIへ重複runを送らない。

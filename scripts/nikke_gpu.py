@@ -564,6 +564,8 @@ SUITES['destructible-counter']['tests'].append('test_portable_prepared_input.py'
 SUITES['destructible-counter']['tests'].append('test_portable_packet_stage.py')
 
 
+SMOKE_TESTS.append('test_portable_comparison_groups.py')
+
 def sha(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -1234,8 +1236,9 @@ def stream_input_fingerprints(path,count,stride):
     return digest.hexdigest(),rows
 
 
-def compare_readback(m, capture, adapter=None,*,parent_oracles=None):
+def compare_readback(m, capture, adapter=None,*,parent_oracles=None,case_indices=None):
     """Re-run existing native comparators; no GPU builds/executes allowed."""
+    if case_indices is not None and parent_oracles is not None:raise ValueError('Grouped comparison cannot reuse live-parent oracles')
     (ROOT/'research/portable-build').mkdir(parents=True, exist_ok=True)
     with forbid_gpu():
         fallback_receipt=None
@@ -1293,9 +1296,12 @@ def compare_readback(m, capture, adapter=None,*,parent_oracles=None):
                 from portable_backend import READBACK_CHUNK_BYTES
                 if stream is None or [r['receipt'] for r in markers]!=[stream] or stream.get('output_sha256')!=output_digest or stream.get('output_bytes')!=record['bytes'] or stream.get('chunk_bytes')!=READBACK_CHUNK_BYTES or stream.get('chunks')!=(record['bytes']+READBACK_CHUNK_BYTES-1)//READBACK_CHUNK_BYTES:
                     raise ValueError('CUDA file readback receipt mismatch')
+        from portable_comparison_groups import selection
+        selected=selection(len(entries),case_indices);selected_set=set(selected)
         results=[]; mismatches=[]; iw=adapter.suite.INPUT*4; ow=SUITES[m['suite']].get('output_words',786432)*4
         parts=readback_parts(capture/'readback.bin',len(entries),ow,output_digest)
         for i,((name,words,domain),part) in enumerate(zip(entries,parts,strict=True)):
+            if i not in selected_set:continue
             block=array.array('I'); block.frombytes(part)
             if sys.byteorder!='little': block.byteswap()
             try:
@@ -1321,8 +1327,9 @@ def compare_readback(m, capture, adapter=None,*,parent_oracles=None):
             generated[backend]=adapter.cross.normalized((capture/('generated.'+suffix)).read_bytes())
         if not is_development(m) and generated!=m['golden']['generated_normalized']:mismatches.append(dict(reason='generated code mismatch'))
         if not is_development(m) and output_digest!=m['golden']['output_sha256']:mismatches.append(dict(reason='full readback fingerprint mismatch'))
-        return dict(calculation_verified=not mismatches, entries=results, mismatches=mismatches,
-                    input_count=len(entries), native_oracles=sum(domain is not None for _,_,domain in entries),
+        return dict(calculation_verified=not mismatches and case_indices is None, entries=results, mismatches=mismatches,
+                    **(dict(comparison_subset_verified=not mismatches,case_indices=selected,total_input_count=len(entries)) if case_indices is not None else {}),
+                    input_count=len(selected), native_oracles=sum(entries[i][2] is not None for i in selected),
                     input_sha256=input_hash,output_sha256=output_digest,generated_normalized=generated,audit_gpu_calls=0,
                     **(dict(parent_oracles=parent_oracles.receipt()) if parent_oracles is not None else dict(parent_oracles=fallback_receipt) if fallback_receipt is not None else {}))
 
@@ -1401,7 +1408,7 @@ def audit_replay_capture(m, capture, *, verify_artifacts=True,record_comparison=
     result=compare_readback(m,capture)
     if record_comparison:write(capture/'comparison.json',result)
     return dict(result,passed=result['calculation_verified'],preservation_verified=None,sealed=False,
-                mode='saved-metal-replay',source_package_id=original['package_id'],source_execution_passed=facts['passed'],
+                mode='saved-metal-replay',transport_verified=True,source_package_id=original['package_id'],source_execution_passed=facts['passed'],
                 original_failure_preserved=True,gpu_calls=0,gpu_retry_count=0,source_gpu_dispatches=1)
 
 
@@ -1420,7 +1427,7 @@ def replay_storage_preflight(capture,source_capture):
     return report
 
 
-def replay_capture(capture, source_package, source_capture,reference_migration=None):
+def replay_capture(capture, source_package, source_capture,reference_migration=None,*,comparison_group_size=None,audit_timeout=180):
     m=verify_package(ROOT);original,facts,evidence=replay_source(m,source_package,source_capture,reference_migration)
     capture.mkdir(parents=True,exist_ok=False)
     write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='metal',mode='replay',status='storage-preflight',gpu_retry_count=0))
@@ -1438,7 +1445,14 @@ def replay_capture(capture, source_package, source_capture,reference_migration=N
         (capture/name).write_bytes((source_capture/name).read_bytes())
     (capture/'source-execution.json').write_bytes((source_capture/'execution.json').read_bytes())
     try:
-        result=audit_replay_capture(m,capture,verify_artifacts=False,record_comparison=True)
+        if comparison_group_size is None:
+            result=audit_replay_capture(m,capture,verify_artifacts=False,record_comparison=True)
+        else:
+            collect(capture,capture/'artifacts.json')
+            proof=audit_saved_metal(ROOT,capture,timeout=audit_timeout,development_only=True,comparison_group_size=comparison_group_size)
+            write(capture/'grouped-audit.json',proof)
+            write(capture/'comparison.json',proof['comparison'])
+            result=proof['audit']
         write(capture/'result.json',result)
         run=load(capture/'run.json');run['status']='finished';write(capture/'run.json',run)
     except BaseException as error:
@@ -1542,8 +1556,82 @@ def audited_comparison(module, capture):
     return audit,observed[0]
 
 
-def audit_saved_metal(package_root,capture,*,timeout=60,development_only=False):
+def audited_comparison_group(module,capture,indices):
+    """Partial native comparison never becomes a full calculation proof."""
+    observed=[];original=module.compare_readback
+    def compare(*args,**kwargs):
+        if kwargs:raise ValueError('Independent group cannot use comparison overrides')
+        result=original(*args,case_indices=indices)
+        observed.append(result);return result
+    with patch.object(module,'compare_readback',compare),module.forbid_gpu():
+        audit=module.audit_capture(capture)
+    if len(observed)!=1 or observed[0].get('comparison_subset_verified') is not True or audit.get('transport_verified') is not True or audit.get('calculation_verified') is not False:
+        raise ValueError('Exactly one successful partial comparison and capture envelope required')
+    return audit,observed[0]
+
+
+def audit_saved_metal_groups(package_root,capture,*,timeout,development_only,group_size):
+    """Every input exactly once, sequential fresh children with individual bounds."""
+    from portable_comparison_groups import partition,aggregate
+    if type(timeout) is not int or not 1<=timeout<=CPU_SAVED_AUDIT_MAX_SECONDS:raise ValueError('CPU seal timeout must be an integer from 1 to 240 seconds')
+    # Validate arguments before starting even the package-verification process.
+    partition(1,group_size)
+    root=Path(package_root).resolve();capture=Path(capture).resolve();started=time.perf_counter()
+    manifest=verify_saved_package(root,timeout=timeout)
+    planned=partition(len(manifest['golden']['entries']),group_size)
+    controller=Path(__file__).resolve();controller_sha=sha(controller.read_bytes())
+    manifest_sha=sha((root/'gpu-package.json').read_bytes())
+    names=set(r['path'] for r in load(capture/'artifacts.json')['files'])
+    names.update(('artifacts.json','input.bin','readback.bin','generated.cu','generated.metal'))
+    anchors=file_records(capture,names)
+    script="""import importlib.util,json,sys,pathlib,os
+root=pathlib.Path(sys.argv[1]);capture=pathlib.Path(sys.argv[2])
+s=importlib.util.spec_from_file_location('seal_controller',sys.argv[3])
+controller=importlib.util.module_from_spec(s);s.loader.exec_module(controller)
+s=importlib.util.spec_from_file_location('seal_cli',root/'scripts/nikke_gpu.py')
+m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
+p=m.verify_package(root)
+if (sys.argv[4]=='development' and not m.is_development(p)) or p.get('purpose','sealed') not in ('sealed','development') or m.load(capture/'run.json')['backend']!='metal':raise ValueError('Matching Metal battle capture required')
+a,r=controller.audited_comparison_group(m,capture,json.loads(sys.argv[5]))
+print(json.dumps(dict(package_id=p['package_id'],audit=a,comparison=r,child_pid=os.getpid(),live_parent_receipt_present='parent_oracles' in r)))
+"""
+    import tempfile
+    group_capture=Path(tempfile.mkdtemp(prefix='nikke-independent-groups-'))
+    write(group_capture/'plan.json',dict(package_id=manifest['package_id'],case_groups=planned,per_group_timeout_seconds=timeout,calculation_verified=False,gpu_calls=0))
+    groups=[]
+    for group_index,indices in enumerate(planned):
+        before=time.perf_counter()
+        prefix=group_capture/str(group_index)
+        try:
+            completed=subprocess.run([sys.executable,'-c',script,str(root),str(capture),str(controller),'development' if development_only else 'battle',json.dumps(indices)],
+                                     cwd=root,capture_output=True,text=True,check=True,timeout=timeout)
+            prefix.with_suffix('.stdout.log').write_text(completed.stdout,encoding='utf-8')
+            prefix.with_suffix('.stderr.log').write_text(completed.stderr,encoding='utf-8')
+            group=json.loads(completed.stdout);group['elapsed_seconds']=time.perf_counter()-before
+            if manifest_sha!=sha((root/'gpu-package.json').read_bytes()) or controller_sha!=sha(controller.read_bytes()):raise ValueError('Group package/controller changed')
+            check_records(capture,anchors);groups.append(group)
+            write(prefix.with_suffix('.json'),group)
+        except BaseException as error:
+            for suffix,key in (('stdout','stdout'),('stderr','stderr')):
+                value=getattr(error,key,None)
+                if value is not None:
+                    if isinstance(value,bytes):value=value.decode('utf-8',errors='replace')
+                    prefix.with_suffix('.'+suffix+'.log').write_text(value,encoding='utf-8')
+            write(group_capture/'failure.json',dict(group_index=group_index,case_indices=indices,error=type(error).__name__+': '+str(error),completed_groups=len(groups),calculation_verified=False,gpu_calls=0))
+            raise RuntimeError('Independent group failed; preserved logs: '+str(group_capture)) from error
+    if verify_saved_package(root,timeout=timeout)!=manifest:raise ValueError('Group package changed after comparison')
+    result=aggregate(manifest,groups,planned,timeout)
+    comparison=result['comparison'];golden=dict(input_sha256=comparison['input_sha256'],output_sha256=comparison['output_sha256'],source_sha256=manifest['golden']['source_sha256'],entries=comparison['entries'],generated_normalized=comparison['generated_normalized'])
+    for name,digest in golden['source_sha256'].items():
+        if sha((ROOT/name).read_bytes())!=digest:raise ValueError('Current source differs from verified Metal source')
+    write(group_capture/'aggregate.json',result)
+    return dict(result,golden=golden,package_id=manifest['package_id'],group_capture=str(group_capture),independent_audit_seconds=time.perf_counter()-started,
+                audit_anchors=dict(manifest_sha256=manifest_sha,controller_sha256=controller_sha,capture_files=anchors),gpu_calls=0)
+
+
+def audit_saved_metal(package_root,capture,*,timeout=60,development_only=False,comparison_group_size=None):
     """GPU0 audit in the saved package's own process/import context."""
+    if comparison_group_size is not None:return audit_saved_metal_groups(package_root,capture,timeout=timeout,development_only=development_only,group_size=comparison_group_size)
     # Use the package's own imports and auditors in a fresh process. Its files
     # are verified before native work; never patch a consumed package in place.
     # Legacy adapter chains use relative module paths: anchor their cwd too.
@@ -1570,7 +1658,7 @@ print(json.dumps(dict(golden=g,package_id=p['package_id'],audit=a,independent_co
     return result
 
 
-def seal_development(package_root,capture,output,*,timeout=60,compiler_certificate=None,audit_receipt=None):
+def seal_development(package_root,capture,output,*,timeout=60,compiler_certificate=None,audit_receipt=None,comparison_group_size=None):
     """One fresh GPU0 audit can seal a battle and its exact compiler source."""
     output=Path(output)
     targets=[output] if compiler_certificate is None else [output,Path(compiler_certificate)]
@@ -1584,17 +1672,23 @@ def seal_development(package_root,capture,output,*,timeout=60,compiler_certifica
         manifest=json.loads(manifest_raw);suite=manifest['suite'];diagnostic=compiler_alias(suite)
         if manifest.get('selected_cases')!=[] or diagnostic not in SUITES or not full_compiler(dict(suite=diagnostic)):
             raise ValueError('Compiler certificate requires an unfiltered registered full-world battle')
-    result=audit_saved_metal(package_root,capture,timeout=timeout,development_only=True)
+    result=audit_saved_metal(package_root,capture,timeout=timeout,development_only=True,**(dict(comparison_group_size=comparison_group_size) if comparison_group_size is not None else {}))
     independent_receipt=None
     if audit_receipt is not None:
         facts=result.get('independent_comparison',{})
-        if facts.get('live_parent_receipt_present') is not False or type(facts.get('child_pid')) is not int or facts['child_pid']<=0 or facts['child_pid']==os.getpid() or type(facts.get('input_count')) is not int or facts['input_count']!=len(result['golden']['entries']) or type(facts.get('native_cases')) is not int or not 0<=facts['native_cases']<=facts['input_count'] or not result['audit'].get('calculation_verified'):
+        grouped=comparison_group_size is not None
+        if grouped:
+            from portable_comparison_groups import validate_facts
+            validate_facts(facts,len(result['golden']['entries']),timeout)
+        elif facts.get('live_parent_receipt_present') is not False or type(facts.get('child_pid')) is not int or facts['child_pid']<=0 or facts['child_pid']==os.getpid() or type(facts.get('input_count')) is not int or facts['input_count']!=len(result['golden']['entries']) or type(facts.get('native_cases')) is not int or not 0<=facts['native_cases']<=facts['input_count']:
             raise ValueError('Independent audit receipt requires a fresh child comparison')
+        if not result['audit'].get('calculation_verified'):raise ValueError('Independent audit receipt requires a successful comparison')
         seconds=result.get('independent_audit_seconds')
-        if type(seconds) not in (int,float) or not 0<=seconds<=timeout+1:raise ValueError('Independent audit receipt requires its bounded elapsed time')
-        independent_receipt=dict(schema='independent-metal-audit-v1',package_id=result['package_id'],capture=str(Path(capture).resolve()),
+        if type(seconds) not in (int,float) or not 0<=seconds or (not grouped and seconds>timeout+1):raise ValueError('Independent audit receipt requires its bounded elapsed time')
+        independent_receipt=dict(package_id=result['package_id'],capture=str(Path(capture).resolve()),
             **facts,elapsed_seconds=seconds,gpu_calls=0,calculation_verified=True,input_sha256=result['golden']['input_sha256'],output_sha256=result['golden']['output_sha256'],
-            scope='One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls')
+            scope='Fresh GPU-forbidden child groups, each individually bounded, covering every input once; total elapsed includes all groups' if grouped else 'One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls')
+        independent_receipt['schema']='independent-metal-audit-groups-v1' if grouped else 'independent-metal-audit-v1'
         if 'migration_receipt_checks' in result['audit']:
             independent_receipt['migration_receipt_checks']=result['audit']['migration_receipt_checks']
     raw=(json.dumps(result['golden'],ensure_ascii=False,indent=2)+'\n').encode('utf-8')
@@ -2790,7 +2884,7 @@ def audit_capture(capture,verify_artifacts=True,*,record_comparison=False,parent
     return dict(sealed=not is_development(m) and not compiler_only(m),purpose=m.get('purpose','sealed'),
                 calculation_verified=bool(calc and transport_ok and containment),preservation_verified=preservation,
                 passed=bool(calc and transport_ok and containment and (backend!='cuda' or preservation is True)),
-                containment_verified=containment,comparison_error=error,first_difference=first_difference,phase=phases,gpu_retries=0,audit_gpu_calls=0)
+                containment_verified=containment,transport_verified=bool(transport_ok and containment and (backend!='cuda' or preservation is True)),comparison_error=error,first_difference=first_difference,phase=phases,gpu_retries=0,audit_gpu_calls=0)
 
 
 def collect(capture,output):
@@ -2878,7 +2972,7 @@ def main(argv=None):
         if name=='readback-compare':a.add_argument('--index',type=Path,required=True);a.add_argument('--index-sha256',required=True)
         else:a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472,1769856),default=786432)
     a=sub.add_parser('readback-retain');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--reference-comparison-sha256',required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--candidate-comparison-sha256',required=True);a.add_argument('--case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472,1769856),default=786432);a.add_argument('--reference-case-words',type=int,choices=(786432,1048576,1310720,1507328,1769472,1769856));a.add_argument('--input-extension',choices=INPUT_EXTENSION_CONTRACTS);a.add_argument('--out',type=Path,required=True)
-    a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--reference-migration',choices=['parts-cleared-v1','leftmost-rejection-domains-v1','coordinate-healing-routed-adds-v1'])
+    a=sub.add_parser('replay');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--reference-migration',choices=['parts-cleared-v1','leftmost-rejection-domains-v1','coordinate-healing-routed-adds-v1']);a.add_argument('--comparison-group-size',type=int);a.add_argument('--audit-timeout',type=int,default=180)
     a=sub.add_parser('metal-cache-probe');a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--generated-metal',type=Path,required=True);a.add_argument('--cache',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--require-hit',action='store_true')
     a=sub.add_parser('cache-check');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
@@ -2901,7 +2995,7 @@ def main(argv=None):
     for name in ('source-package','source-capture','cache-entry','phases','candidate','ptxas','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('module-check');a.add_argument('--jit-opt-level',type=int,choices=range(5));a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path,required=True);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
-    a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=60);a.add_argument('--compiler-certificate',type=Path,help='Create a full-source certificate from this same fresh audit');a.add_argument('--audit-receipt',type=Path,help='Record the same fresh child audit and elapsed time without repeating it')
+    a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=60);a.add_argument('--compiler-certificate',type=Path,help='Create a full-source certificate from this same fresh audit');a.add_argument('--audit-receipt',type=Path,help='Record the same fresh child audit and elapsed time without repeating it');a.add_argument('--comparison-group-size',type=int,help='All inputs once across sequential fresh children; timeout applies to each child')
     a=sub.add_parser('compiler-certificate');a.add_argument('--suite',choices=[config['compiler_baseline_suite'] for config in SUITES.values() if config.get('compiler_baseline_suite')],required=True);a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=120)
     a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
     a=sub.add_parser('cache-probe');a.add_argument('--generated-cuda',type=Path,required=True);a.add_argument('--cuda-root',type=Path,required=True);a.add_argument('--compile-cache',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -2978,7 +3072,7 @@ def main(argv=None):
         if a.reference_case_words is not None:args+=['--reference-case-words',str(a.reference_case_words)]
         if a.input_extension is not None:args+=['--input-extension',a.input_extension]
         blocks_main(args);return
-    elif a.command=='replay':result=replay_capture(a.capture,a.source_package,a.source_capture,**(dict(reference_migration=a.reference_migration) if a.reference_migration else {}))
+    elif a.command=='replay':result=replay_capture(a.capture,a.source_package,a.source_capture,**(dict(reference_migration=a.reference_migration) if a.reference_migration else {}),**(dict(comparison_group_size=a.comparison_group_size,audit_timeout=a.audit_timeout) if a.comparison_group_size is not None else {}))
     elif a.command=='cache-check':result=check_compile_cache(a.capture,a.out)
     elif a.command=='compiler-stats':result=compiler_statistics(a.capture,a.out,top=a.top,caller=a.caller,runtime=a.runtime)
     elif a.command=='ptx-stats':result=ptx_statistics(a.cache_entry,a.phases,a.out,top=a.top,callgraph=a.callgraph)
@@ -3015,7 +3109,7 @@ def main(argv=None):
     elif a.command=='coordinate-parent-check':
         from portable_coordinate_parent_check import check
         with forbid_gpu():result=check(a.source_package,a.source_capture,a.out)
-    elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out,timeout=a.timeout,**(dict(compiler_certificate=a.compiler_certificate) if a.compiler_certificate is not None else {}),**(dict(audit_receipt=a.audit_receipt) if a.audit_receipt is not None else {}))
+    elif a.command=='seal':result=seal_development(a.package_root,a.capture,a.out,timeout=a.timeout,**(dict(compiler_certificate=a.compiler_certificate) if a.compiler_certificate is not None else {}),**(dict(audit_receipt=a.audit_receipt) if a.audit_receipt is not None else {}),**(dict(comparison_group_size=a.comparison_group_size) if a.comparison_group_size is not None else {}))
     elif a.command=='compiler-certificate':
         with forbid_gpu():result=make_compiler_certificate(a.suite,a.package_root,a.capture,a.out,timeout=a.timeout)
     elif a.command=='cases':
