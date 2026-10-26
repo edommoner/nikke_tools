@@ -1,0 +1,204 @@
+{
+  "schema": "snapshot-explicit-pwsh-v3",
+  "preparation": {
+    "package_id": "f6c018d373246df4a1def340a5639544eafd4cc0b32cd4e92c3182b24c75a779",
+    "package_reused_read_only": true,
+    "previous_full_verification_receipt": "snapshot-v2/package-verification.json",
+    "selected_driver_records_verified": [
+      {
+        "path": "app/portable_windows_snapshot.py",
+        "bytes": 2635,
+        "sha256": "40a9912433cc321864b3988d99fed70bcdd9ac4d0c1ab5c59912b2d54c5ece37"
+      },
+      {
+        "path": "research/windows_validation_observer.py",
+        "bytes": 11443,
+        "sha256": "67e1957d85e97748937ac711a426383a8faab8acbb3bd8e47a53d8916c3d7517"
+      },
+      {
+        "path": "research/run-world-bounded.py",
+        "bytes": 10282,
+        "sha256": "10ef875f8157d85b44ecc28e868c2cc95330eb9b4c59ad22723840533fa8074c"
+      },
+      {
+        "path": "app/portable_job_limits.py",
+        "bytes": 1665,
+        "sha256": "0a270b292527cecb8b6b1f04faba4223609ae3d0f6844a7019ef8b79ed5e5e0c"
+      },
+      {
+        "path": "scripts/nikke_gpu.py",
+        "bytes": 351162,
+        "sha256": "ce4c943d0dc5680b3b516ff6c1276adfefaaba4eb37b768f5d5bde102f55da16"
+      }
+    ],
+    "powershell_executable": {
+      "path": "<CODEX_PRIMARY_RUNTIME>/dependencies/native/powershell/pwsh.exe",
+      "bytes": 301368,
+      "sha256": "362a356ce7f0940ec74f73a8fc2c990a2cc24a38a11c90bbd8eca947110ad139"
+    },
+    "original_workspace": "<ORIGINAL_WORKSPACE>",
+    "validation_root": "<EXPLICIT_PWSH_V3_DIAGNOSTIC_ROOT>",
+    "query_timeout_seconds": 20,
+    "outer_timeout_seconds": 30,
+    "queries_before_start_gate": 0,
+    "preparation_note": "Initial file-only manifest read needed explicit UTF-8; no query or bounded diagnostic had run"
+  },
+  "api_call": {
+    "reader": "windows_validation_observer.capture_snapshot",
+    "query_calls": 1,
+    "original_workspace": "<ORIGINAL_WORKSPACE>",
+    "validation_root": "<EXPLICIT_PWSH_V3_DIAGNOSTIC_ROOT>",
+    "powershell": "<CODEX_PRIMARY_RUNTIME>/dependencies/native/powershell/pwsh.exe",
+    "inner_query_timeout_seconds": 20
+  },
+  "result": {
+    "schema": "windows-snapshot-check-v1",
+    "snapshot_verified": false,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "scope": "One read-only process/listener snapshot; not a before/after preservation or CUDA calculation proof",
+    "error": {
+      "type": "RuntimeError",
+      "message": "Windows process snapshot unavailable (exit=1, stage=processes, category=0, hresult=-2146233088); no command lines retained"
+    },
+    "elapsed_seconds": 0.7845775000751019
+  },
+  "failure": {
+    "process_exit": 1,
+    "stage": "processes",
+    "category": 0,
+    "hresult": -2146233088,
+    "hresult_hex": "0x80131500"
+  },
+  "job_receipt": {
+    "schema": 1,
+    "records": [
+      {
+        "child_pid": 76416,
+        "wrapper_pid": 93508,
+        "pre_gate": {
+          "child_pid": 76416,
+          "child_ppid": 93508,
+          "parent_observation": "os_process_snapshot",
+          "observed_unix_ns": 1793046281059186000,
+          "wrapper_pid": 93508,
+          "child_creation_filetime_ticks": "134375198810391401",
+          "job_members": [
+            76416
+          ],
+          "job_peak_memory_bytes": 692224,
+          "job_memory_limit_bytes": 2147483648
+        },
+        "pre_gate_verified": true,
+        "post_wait": {
+          "child_pid": 76416,
+          "child_ppid": 93508,
+          "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+          "observed_unix_ns": 1793046282239993400,
+          "wrapper_pid": 93508,
+          "child_creation_filetime_ticks": "134375198810391401",
+          "job_members": [],
+          "job_peak_memory_bytes": 52441088,
+          "job_memory_limit_bytes": 2147483648
+        },
+        "inspection_error": null
+      }
+    ],
+    "observer_assigns_processes": false
+  },
+  "execution": {
+    "passed": false,
+    "timed_out": false,
+    "timeout_seconds": 30,
+    "elapsed_seconds": 1.205446199979633,
+    "child_exit_code": 1,
+    "final_child_exit_code": 1,
+    "error": null,
+    "cleanup_error": null,
+    "cleanup_wait_seconds": 5,
+    "observation_error": null,
+    "wait_completed_unix_ns": 1793046282242191700,
+    "below_normal_priority": true,
+    "phase": {
+      "events": 0,
+      "last_event": null,
+      "timed_calls": [],
+      "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_linked_artifact_observed": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retry_count": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false
+  },
+  "comparison": {
+    "previous_report_commit": "4f0f8a19dfc0df422324e8f6ec5482ca8090fc4d",
+    "previous_shell": "default powershell.exe",
+    "current_shell": "explicit bundled pwsh.exe",
+    "previous_failure": {
+      "process_exit": 1,
+      "stage": "processes",
+      "category": 0,
+      "hresult": -2146233088
+    },
+    "same_failure_metadata": true,
+    "root_cause": "unknown; no inference from matching numeric failures"
+  },
+  "original_byte_provenance": [
+    {
+      "path": "snapshot-check.json",
+      "bytes": 511,
+      "sha256": "e41ac1f5f74f41c7f57713ca1d55cf1807e98231eb43e1930bccb01b48f6a4a0",
+      "original_bytes_base64": "ew0KICAic2NoZW1hIjogIndpbmRvd3Mtc25hcHNob3QtY2hlY2stdjEiLA0KICAic25hcHNob3RfdmVyaWZpZWQiOiBmYWxzZSwNCiAgImdwdV9jYWxscyI6IDAsDQogICJjYWxjdWxhdGlvbl92ZXJpZmllZCI6IGZhbHNlLA0KICAicHJlc2VydmF0aW9uX3ZlcmlmaWVkIjogbnVsbCwNCiAgInNjb3BlIjogIk9uZSByZWFkLW9ubHkgcHJvY2Vzcy9saXN0ZW5lciBzbmFwc2hvdDsgbm90IGEgYmVmb3JlL2FmdGVyIHByZXNlcnZhdGlvbiBvciBDVURBIGNhbGN1bGF0aW9uIHByb29mIiwNCiAgImVycm9yIjogew0KICAgICJ0eXBlIjogIlJ1bnRpbWVFcnJvciIsDQogICAgIm1lc3NhZ2UiOiAiV2luZG93cyBwcm9jZXNzIHNuYXBzaG90IHVuYXZhaWxhYmxlIChleGl0PTEsIHN0YWdlPXByb2Nlc3NlcywgY2F0ZWdvcnk9MCwgaHJlc3VsdD0tMjE0NjIzMzA4OCk7IG5vIGNvbW1hbmQgbGluZXMgcmV0YWluZWQiDQogIH0sDQogICJlbGFwc2VkX3NlY29uZHMiOiAwLjc4NDU3NzUwMDA3NTEwMTkNCn0NCg=="
+    },
+    {
+      "path": "snapshot-cli/job.json",
+      "bytes": 1088,
+      "sha256": "e72e3ea163073d73acc216abf0b9116f79c310c3ef21d90e96914dda4ae3316c",
+      "original_bytes_base64": "ew0KICAic2NoZW1hIjogMSwNCiAgInJlY29yZHMiOiBbDQogICAgew0KICAgICAgImNoaWxkX3BpZCI6IDc2NDE2LA0KICAgICAgIndyYXBwZXJfcGlkIjogOTM1MDgsDQogICAgICAicHJlX2dhdGUiOiB7DQogICAgICAgICJjaGlsZF9waWQiOiA3NjQxNiwNCiAgICAgICAgImNoaWxkX3BwaWQiOiA5MzUwOCwNCiAgICAgICAgInBhcmVudF9vYnNlcnZhdGlvbiI6ICJvc19wcm9jZXNzX3NuYXBzaG90IiwNCiAgICAgICAgIm9ic2VydmVkX3VuaXhfbnMiOiAxNzkzMDQ2MjgxMDU5MTg2MDAwLA0KICAgICAgICAid3JhcHBlcl9waWQiOiA5MzUwOCwNCiAgICAgICAgImNoaWxkX2NyZWF0aW9uX2ZpbGV0aW1lX3RpY2tzIjogIjEzNDM3NTE5ODgxMDM5MTQwMSIsDQogICAgICAgICJqb2JfbWVtYmVycyI6IFsNCiAgICAgICAgICA3NjQxNg0KICAgICAgICBdLA0KICAgICAgICAiam9iX3BlYWtfbWVtb3J5X2J5dGVzIjogNjkyMjI0LA0KICAgICAgICAiam9iX21lbW9yeV9saW1pdF9ieXRlcyI6IDIxNDc0ODM2NDgNCiAgICAgIH0sDQogICAgICAicHJlX2dhdGVfdmVyaWZpZWQiOiB0cnVlLA0KICAgICAgInBvc3Rfd2FpdCI6IHsNCiAgICAgICAgImNoaWxkX3BpZCI6IDc2NDE2LA0KICAgICAgICAiY2hpbGRfcHBpZCI6IDkzNTA4LA0KICAgICAgICAicGFyZW50X29ic2VydmF0aW9uIjogInByZV9nYXRlX3NuYXBzaG90X3NhbWVfcHJvY2Vzc19oYW5kbGVfYWZ0ZXJfZXhpdCIsDQogICAgICAgICJvYnNlcnZlZF91bml4X25zIjogMTc5MzA0NjI4MjIzOTk5MzQwMCwNCiAgICAgICAgIndyYXBwZXJfcGlkIjogOTM1MDgsDQogICAgICAgICJjaGlsZF9jcmVhdGlvbl9maWxldGltZV90aWNrcyI6ICIxMzQzNzUxOTg4MTAzOTE0MDEiLA0KICAgICAgICAiam9iX21lbWJlcnMiOiBbXSwNCiAgICAgICAgImpvYl9wZWFrX21lbW9yeV9ieXRlcyI6IDUyNDQxMDg4LA0KICAgICAgICAiam9iX21lbW9yeV9saW1pdF9ieXRlcyI6IDIxNDc0ODM2NDgNCiAgICAgIH0sDQogICAgICAiaW5zcGVjdGlvbl9lcnJvciI6IG51bGwNCiAgICB9DQogIF0sDQogICJvYnNlcnZlcl9hc3NpZ25zX3Byb2Nlc3NlcyI6IGZhbHNlDQp9DQo="
+    },
+    {
+      "path": "snapshot-cli/execution.json",
+      "bytes": 1092,
+      "sha256": "a1a5764186f919f7d74acc92935dac4c42021251309489c329e0bda2b19af677",
+      "original_bytes_base64": "ew0KICAicGFzc2VkIjogZmFsc2UsDQogICJ0aW1lZF9vdXQiOiBmYWxzZSwNCiAgInRpbWVvdXRfc2Vjb25kcyI6IDMwLA0KICAiZWxhcHNlZF9zZWNvbmRzIjogMS4yMDU0NDYxOTk5Nzk2MzMsDQogICJjaGlsZF9leGl0X2NvZGUiOiAxLA0KICAiZmluYWxfY2hpbGRfZXhpdF9jb2RlIjogMSwNCiAgImVycm9yIjogbnVsbCwNCiAgImNsZWFudXBfZXJyb3IiOiBudWxsLA0KICAiY2xlYW51cF93YWl0X3NlY29uZHMiOiA1LA0KICAib2JzZXJ2YXRpb25fZXJyb3IiOiBudWxsLA0KICAid2FpdF9jb21wbGV0ZWRfdW5peF9ucyI6IDE3OTMwNDYyODIyNDIxOTE3MDAsDQogICJiZWxvd19ub3JtYWxfcHJpb3JpdHkiOiB0cnVlLA0KICAicGhhc2UiOiB7DQogICAgImV2ZW50cyI6IDAsDQogICAgImxhc3RfZXZlbnQiOiBudWxsLA0KICAgICJ0aW1lZF9jYWxscyI6IFtdLA0KICAgICJ0aW1pbmdfc2NvcGUiOiAiT2JzZXJ2ZWQgZnVuY3Rpb24gdGltZSBleGNsdWRlcyBpdHMgb3duIGVudHJ5L2V4aXQgam91cm5hbCB3cml0ZXM7IG5lc3RlZCBjYWxscyBvdmVybGFwOyBpbmNvbXBsZXRlIGNhbGxzIGhhdmUgbm8gZHVyYXRpb247IGxlZ2FjeSBqb3VybmFscyBtYXkgaGF2ZSBub25lIiwNCiAgICAibnZydGNfY29tcGlsZV9yZXR1cm5lZF9zdWNjZXNzIjogZmFsc2UsDQogICAgImN1ZGFfY29tcGlsZV9jYWNoZV9oaXRfdmVyaWZpZWQiOiBmYWxzZSwNCiAgICAiY3VkYV9saW5rZWRfYXJ0aWZhY3Rfb2JzZXJ2ZWQiOiBmYWxzZSwNCiAgICAiY3VkYV9sYXVuY2hfcmV0dXJuZWRfc3VjY2VzcyI6IGZhbHNlLA0KICAgICJjdWRhX3N5bmNocm9uaXplX3JldHVybmVkX3N1Y2Nlc3MiOiBmYWxzZSwNCiAgICAiY3VkYV9yZWFkYmFja19yZXR1cm5lZF9zdWNjZXNzIjogZmFsc2UsDQogICAgInNjb3BlIjogIk9ic2VydmVkIEFQSSByZXR1cm5zIG9ubHk7IGZ1bGwgb3V0cHV0IHZlcmlmaWNhdGlvbiByZXF1aXJlcyB0aGUgc2hhcmVkIHN1aXRlIHJlcG9ydCINCiAgfSwNCiAgImdwdV9yZXRyeV9jb3VudCI6IDAsDQogICJmdWxsX2NoYXJhY3Rlcl92ZXJpZmllZCI6IDAsDQogICJmdWxsX2dvYWxfY29tcGxldGUiOiBmYWxzZQ0KfQ0K"
+    },
+    {
+      "path": "snapshot-cli/stdout.log",
+      "bytes": 321,
+      "sha256": "5c56012c0bfe552c9404443d9ff2f576259709f247f6b7ef9134cbb1e0731297",
+      "original_bytes_base64": "eyJzbmFwc2hvdF92ZXJpZmllZCI6IGZhbHNlLCAicXVlcnlfY2FsbHMiOiAxLCAicHJlc2VydmF0aW9uX3ZlcmlmaWVkIjogbnVsbCwgImNhbGN1bGF0aW9uX3ZlcmlmaWVkIjogZmFsc2UsICJlbGFwc2VkX3NlY29uZHMiOiAwLjc4NDU3NzUwMDA3NTEwMTksICJlcnJvciI6IHsidHlwZSI6ICJSdW50aW1lRXJyb3IiLCAibWVzc2FnZSI6ICJXaW5kb3dzIHByb2Nlc3Mgc25hcHNob3QgdW5hdmFpbGFibGUgKGV4aXQ9MSwgc3RhZ2U9cHJvY2Vzc2VzLCBjYXRlZ29yeT0wLCBocmVzdWx0PS0yMTQ2MjMzMDg4KTsgbm8gY29tbWFuZCBsaW5lcyByZXRhaW5lZCJ9fQ0K"
+    }
+  ],
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "content_not_exported": true
+  },
+  "preservation_verified": null,
+  "calculation_verified": false,
+  "command_lines_saved": false,
+  "arbitrary_exception_messages_saved": false,
+  "redaction": "Successful snapshot executable paths would be replaced by basename before persistence; no snapshot obtained",
+  "actions": {
+    "query_attempts": 1,
+    "prior_process_listener_queries": 0,
+    "compile": 0,
+    "driver_load": 0,
+    "cuda_context": 0,
+    "module_load": 0,
+    "kernel_launch": 0,
+    "nvidia_smi": 0,
+    "retries": 0,
+    "fallbacks": 0,
+    "package_edits": 0
+  },
+  "previous_failures_claims_and_cache_retained": true,
+  "shared_path_policy": "Personal absolute paths replaced by environment placeholders. Exact API argument values and executable path remain in local preparation/query receipts only."
+}
