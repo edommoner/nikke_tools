@@ -552,6 +552,7 @@ SMOKE_TESTS.append('test_portable_prepared_input.py')
 SMOKE_TESTS.append('test_portable_arena_specs.py')
 SMOKE_TESTS.append('test_portable_package_projection.py')
 SMOKE_TESTS.append('test_portable_storage_budget.py')
+SMOKE_TESTS.append('test_portable_development_expectations.py')
 SUITES['destructible-counter']['tests'].append('test_portable_prepared_input.py')
 SUITES['destructible-counter']['tests'].append('test_portable_packet_stage.py')
 
@@ -677,12 +678,16 @@ def verify_package(root,*,historical_compiler=False):
     if 'payload_projection' in m:
         from portable_package_projection import validate
         validate(m['payload_projection'],m['files'],m['suite'],SUITES[m['suite']],SMOKE_TESTS)
+    if 'native_expectation_baseline' in m:
+        from portable_development_expectations import validate
+        validate(m)
     return m
 
 
-def make_package(suite, output, *, develop=False, cases=(), compact=False, baseline_package=None, reference_migration=None):
+def make_package(suite, output, *, develop=False, cases=(), compact=False, baseline_package=None, reference_migration=None, native_baseline_package=None):
     """Whitelist code + required public data; never reports/raw/settings/tools."""
     if SUITES[suite].get('compiler_only') and (develop or cases):raise ValueError('Compiler diagnostic has no battle development/cases')
+    if native_baseline_package is not None and (not develop or baseline_package is not None or reference_migration is not None):raise ValueError('Native expectations require --develop and exclude observation migration')
     if SUITES[suite].get('development_only') and not develop:
         raise ValueError('This suite requires --develop until an explicit Metal seal is registered')
     if compact:
@@ -751,8 +756,12 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
                                     suite_tests={key:config['tests'] for key,config in SUITES.items()})
     if cases and not develop:
         raise ValueError('--case requires --develop')
-    reused=None
-    if baseline_package is not None:
+    reused=None;native_expectations=None
+    if native_baseline_package is not None:
+        from portable_development_expectations import reuse
+        baseline_records=[r for r in records if not compact or r['path'] in selected]
+        golden,native_expectations=reuse(SimpleNamespace(**globals()),suite,native_baseline_package,baseline_records,cases)
+    elif baseline_package is not None:
         if not develop or cases or reference_migration not in ('coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1'):raise ValueError('Unfiltered development observation migration required')
         baseline_records=[r for r in records if not compact or r['path'] in selected]
         golden,reused=migrated_development_baseline(suite,baseline_package,baseline_records,reference_migration)
@@ -771,6 +780,7 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
              working_tree_dirty=bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip()),
              files=records, golden=golden, purpose='compiler-diagnostic' if SUITES[suite].get('compiler_only') else 'development' if develop else 'sealed', selected_cases=list(cases), runtime_requirements=['Python dependencies from the existing venv', 'Slang 2026.20', 'CUDA toolkit/driver on Windows or Swift/Metal on macOS'])
     if reused is not None:m['baseline_migration']=reused
+    if native_expectations is not None:m['native_expectation_baseline']=native_expectations
     if projection is not None:
         selected=set(selected)
         m['files']=[row for row in records if row['path'] in selected]
@@ -2915,7 +2925,7 @@ def main(argv=None):
     a=sub.add_parser('storage-check',help='CPU-only free-space budget check; does not archive or delete files')
     a.add_argument('--required-bytes',type=int,default=0);a.add_argument('--reserve-bytes',type=int,default=1024**3);a.add_argument('--path',type=Path,default=ROOT)
     a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
-    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1'])
+    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--native-baseline-package',type=Path,help='Reuse expected native hashes only when CPU dependencies and prepared inputs match; fresh run/seal checks stay mandatory');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1'])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True);a.add_argument('--reuse-payload-from',type=Path,help='Share exact payload bytes with an existing immutable package on the same filesystem; never edit either payload')
     for name in ('run','_child'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--smoke',action='store_true')
@@ -3098,7 +3108,7 @@ def main(argv=None):
         write(a.out,result)
         if a.require_hit and not result['hit_snapshot']:print(json.dumps(result,indent=2));raise SystemExit(2)
     elif a.command=='cache-probe':result=cache_probe(a.generated_cuda,a.cuda_root,a.compile_cache,a.out,artifact_kind=a.artifact_kind,ptxas_level=a.ptxas_level,require_hit=a.require_hit)
-    elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case,compact=a.compact,baseline_package=a.baseline_package,reference_migration=a.reference_migration)
+    elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case,compact=a.compact,baseline_package=a.baseline_package,reference_migration=a.reference_migration,native_baseline_package=a.native_baseline_package)
     elif a.command=='unpack':result=dict(package_id=unpack(a.archive,a.dest,reuse_payload_from=a.reuse_payload_from))
     elif a.command=='run':
         if a.backend!='metal' and (a.metal_pipeline_cache or a.require_metal_pipeline_cache):raise ValueError('Metal pipeline settings require Metal backend')

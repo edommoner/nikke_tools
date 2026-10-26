@@ -1,3 +1,5 @@
+開発時のCPU基準重複計算は `package --develop --native-baseline-package PATH` で減らせます。CPU依存と入力が一致する固定基準の期待hashだけを引き継ぎ、fresh run／独立sealは維持します。実35入力の作成3.48秒、22nativeのrun再計算177.03秒・60／488検査成功。[適用条件と使い方](portable-development-expectations.md)。
+
 最新の `coordinate-typed-live-aim`35（native22／拒否13）は、正本の実照準bankを型付きスキルselectorへ渡すsealed suiteです。`package --suite coordinate-typed-live-aim --compact` を使います。M5実GPU・独立監査済み、旧28の全出力保持。操作overlayと元操作保持を区別し、通常武器命中／型付きauto aim／現CUDA／全キャラは未完です。[実照準の範囲と記録](portable-typed-live-aim.md)。
 
 従来の `coordinate-typed-geometry`28（native18／拒否10）は固定pointと実生存世代から実攻撃対象を選ぶsealed suiteです。既存10の全出力と旧型付きCUDA/MSL生成物を保持。[範囲と検証記録](portable-typed-geometry.md)。
