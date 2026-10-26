@@ -1,0 +1,31 @@
+{
+  "schema": "model-check-summary-v1",
+  "passed": true,
+  "scope": "Source audit and dependency plan only",
+  "report": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/model-summary-v3-full.json",
+  "report_bytes": 962822,
+  "report_sha256": "27219b49d8968a0ac52959298b86f70546332058c57a83c4e42f3b871f0e844f",
+  "public_gpu_admitted": false,
+  "full_goal_complete": false,
+  "gpu_calls": 0,
+  "native_battle_calls": 0,
+  "missing_canonical_stat_consumers": [
+    "effect_range_pct",
+    "effect_target_count_add",
+    "enemy_movement_disable",
+    "force_move",
+    "lock_on"
+  ],
+  "numeric_policy_scope": "public coordinate frontend and complete policy admission",
+  "public_numeric_admission_remaining": true,
+  "private_numeric_evidence_suites": [
+    "coordinate-area",
+    "coordinate-shape",
+    "coordinate-numeric",
+    "coordinate-geometry",
+    "coordinate-power",
+    "coordinate-landing",
+    "coordinate-arc-arena",
+    "coordinate-landing-arena"
+  ]
+}

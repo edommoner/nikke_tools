@@ -1,0 +1,8 @@
+{
+  "schema": "model-check-summary-retention-v1",
+  "full_audit_bytes": 962822,
+  "stdout_bytes": 1017,
+  "full_report_bytes_equal_pre_summary_audit": true,
+  "full_report_sha256": "27219b49d8968a0ac52959298b86f70546332058c57a83c4e42f3b871f0e844f",
+  "gpu_calls": 0
+}

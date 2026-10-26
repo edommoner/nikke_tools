@@ -15,7 +15,7 @@
   "windows_snapshot_control_tests": 559,
   "mac_metal_status": "sealed: normal full106 plus fresh independent full106 passed",
   "windows_launch_verified": false,
-  "windows_new_stack_verified": false,
+  "windows_new_stack_verified": true,
   "public_gpu_admitted": false,
   "all_characters_supported": false,
   "ui": "CPU",
@@ -30,5 +30,16 @@
   "independent_audit_seconds": 536.437173667,
   "independent_native_cases": 63,
   "independent_gpu_calls": 0,
-  "independent_receipt_sha256": "b6d1cda306d31537d999b6180a3bc6d900fc5d573efcf737cf997d24d31667d3"
+  "independent_receipt_sha256": "b6d1cda306d31537d999b6180a3bc6d900fc5d573efcf737cf997d24d31667d3",
+  "windows_standalone_landing40_calculation_verified": true,
+  "windows_standalone_landing40_native_cases": 26,
+  "windows_standalone_landing40_nvrtc_calls": 0,
+  "windows_standalone_landing40_compiler_library_requests": 0,
+  "windows_new_stack_bytes": 2880,
+  "windows_old_stack_bytes": 199352,
+  "windows_standalone_landing40_preservation_verified": false,
+  "windows_standalone_landing40_preservation_status": "unverified service identification",
+  "windows_standalone_landing40_overall_passed": false,
+  "windows_standalone_landing40_report_commit": "5f57e84a",
+  "windows_full_resident_cuda_calculation_verified": false
 }

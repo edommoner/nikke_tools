@@ -3113,7 +3113,7 @@ def main(argv=None):
     from portable_arena_specs import PROFILES as ARENA_PROFILES
     a=sub.add_parser('arena-check');a.add_argument('--profile',choices=ARENA_PROFILES,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('numeric-audit');a.add_argument('--out',type=Path,required=True);a.add_argument('--samples',type=int,default=512);a.add_argument('--profile',choices=('coordinate-binary64-v1','coordinate-unit-power-v1'),default='coordinate-binary64-v1')
-    a=sub.add_parser('model-check');a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('model-check');a.add_argument('--out',type=Path,required=True);a.add_argument('--summary',action='store_true',help='Print bounded status; retain the complete audit unchanged in --out')
     a=sub.add_parser('reference');a.add_argument('--suite',choices=REFERENCES,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('phase-codegen');a.add_argument('--out',type=Path,required=True);a.add_argument('--slang-root',type=Path)
     a=sub.add_parser('sparsify-raw');a.add_argument('--block-size',type=int,choices=(4096,65536),default=65536);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--apply',action='store_true')
@@ -3375,7 +3375,17 @@ def main(argv=None):
     else:
         # Historical fixed reports remain supported by their existing sealers.
         runpy.run_path(str(ROOT/f'research/seal-world-v{a.version}-cuda.py'),run_name='__main__');return
-    print(json.dumps(result,ensure_ascii=False,indent=2))
+    display=result
+    if a.command=='model-check' and a.summary:
+        gaps=result['model_gap_audit'];numeric=gaps['coordinate_world']['numeric_frontend']
+        display=dict(schema='model-check-summary-v1',passed=result['passed'],scope=result['scope'],
+            report=str(a.out.resolve()),report_bytes=a.out.stat().st_size,report_sha256=sha(a.out.read_bytes()),
+            public_gpu_admitted=result['public_gpu_admitted'],full_goal_complete=result['full_goal_complete'],
+            gpu_calls=result['gpu_calls'],native_battle_calls=result['native_battle_calls'],
+            missing_canonical_stat_consumers=sorted(gaps['missing_stats']),
+            numeric_policy_scope=numeric['policy_implemented_scope'],public_numeric_admission_remaining=numeric['public_admission_remaining'],
+            private_numeric_evidence_suites=numeric['private_suites'])
+    print(json.dumps(display,ensure_ascii=False,indent=2))
     if a.command=='partition-object-recover':
         if not result.get('saved_object_cpu_verified'):raise SystemExit(1)
         if result.get('preservation_verified') is not True:raise SystemExit(2)

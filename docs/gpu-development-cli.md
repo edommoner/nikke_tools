@@ -1,3 +1,5 @@
+`model-check --summary --out UNIQUE.json` は完全な監査JSONを保持し、stdoutだけを約1KBの状態・保存先・SHAへ絞ります。監査範囲を削る指定ではありません。通常のstdout全文も従来どおり利用できます。
+
 `snapshot-check --original-workspace EXISTING --validation-root ISOLATED --out ISOLATED/NEW.json` はCPU専用のWindows観測診断です。失敗段階と数値codeだけを記録し、compiler／GPUを起動しません。[制約・結果の意味](portable-windows-snapshot-check.md)。
 
 `coordinate-arc-arena`140／`coordinate-landing-arena`40 は共通resource view格納のsealed Metal suiteです。旧logical出力を全保持し、追加scratchも全word照合します。通常のpackage→run→seal経路を使い、standaloneのためresident generation-cacheは指定しません。Windows新sourceのstackと実行は未確認。[容量・alias・証拠](portable-coordinate-arc-arena.md)。

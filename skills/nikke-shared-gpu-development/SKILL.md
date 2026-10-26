@@ -10,6 +10,7 @@ Work in the `nikke_tools` checkout. Read `docs/gpu-development-cli.md` for execu
 ## Choose the smallest useful action
 
 - Use `python scripts/nikke_gpu.py list` to find registered short suites. Current counts and source identities belong to the CLI/package manifest, not this skill.
+- Use `model-check --summary --out UNIQUE.json` for a current missing-feature audit with bounded stdout. The complete source audit stays in the output file; inspect only the relevant fields instead of loading the full historical/source report into the conversation.
 - For implementation changes, extend the shared Slang runtime, Python effect definitions and native comparison cases. Use CPU preflight before GPU execution. A changed GPU source requires a deliberately verified new Metal golden; never rewrite expected hashes merely to make a check pass.
 - Create an immutable package, unpack it in a fresh location, then run CPU preflight or bounded execution there. Existing verifiers write scratch files; keep those writes out of the development checkout.
 - Where the checkout CLI supports it, GPU-only development after freezing a CPU contract can use `package --develop --native-baseline-package PATH` to retain expected native fingerprints. Read `docs/portable-development-expectations.md` for eligibility. Fresh run preflight and independent seal remain mandatory; this is neither a runtime oracle cache nor CUDA cache evidence. Inspect mismatches and use ordinary `--develop` only for an intentional new CPU contract.

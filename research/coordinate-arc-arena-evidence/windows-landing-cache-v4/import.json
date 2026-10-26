@@ -1,0 +1,10 @@
+{
+  "commit": "5f57e84add86a3de88c4d6ffe3aed610c7a22cc0",
+  "manifest_sha256": "1f4fe688803f8dbb382d5661720333a46600c6e184499ba55d6022c5b1067b6c",
+  "comparison_sha256": "666f29181dc43bd7bdabdd4287b6f3a267ee1195e7f3348711f2b96b02af60b2",
+  "full40_entries_equal_current_metal_golden": true,
+  "full_input_and_output_equal": true,
+  "generated_normalized_pair_equal": true,
+  "extra_gpu_calls": 0,
+  "scope": "Mac verified all40 saved comparison entries and normalized CUDA/MSL against sealed Metal golden; original CUDA readback remains on Windows, not locally re-audited"
+}

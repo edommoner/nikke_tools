@@ -1,3 +1,5 @@
+Windowsのstandalone着弾40/native26は保存CUBIN必須cacheで起動・同期・readback・全出力指紋がMetalと一致しました。NVRTC0、compiler library要求0、STACK199352→2880byte。サービス識別未確認のためpreservation／CLI全体成功は認定せず、本体resident106のCUDA計算も未検証です。Macでは共有結果JSONの全40entry・input/output hash・正規化生成物ペアを照合し、Windows rawのローカル再監査とは区別しています。
+
 通常M5検証は修正版58daee47…の全106入力で成功しました（GPU4.240秒／子72.407秒）。独立sealも固定パッケージ内CLIから全106／native63／拒否43で成功しました（536.437秒・追加GPU0・独立7群各180秒以内）。sealed profileとして通常packageから利用できます。wireの初回失敗・CPU監査失敗・controller更新による独立監査中断を保存し、修正版のみ新しいclaimで実行しました。全byteの保持監査はtrace絶対参照20語のstride移動を検証し、残る旧861,567,920byteと追加tail全0を確認。詳細は[共通wireと監査](portable-wire-preflight.md)。以下の実装時点の記録は履歴です。
 
 # 共通resident実行器のarc tail

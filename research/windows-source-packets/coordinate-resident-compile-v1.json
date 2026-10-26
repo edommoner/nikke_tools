@@ -1,0 +1,11 @@
+{
+  "schema": "resident-compile-source-packet-v1",
+  "suite": "compiler-full--coordinate-resident-arc",
+  "package_id": "d1937cac48d8f5c10e94f3c71452c502a5c1472f5c3f7d54953abaab3caba6cd",
+  "bytes": 11539737,
+  "sha256": "3a1111aa91ea93d70d41871ba300f0d164abf74db5032fd92adca99a5e006304",
+  "compiler_cpu_tests": 204,
+  "mac_native_fresh_independent_inputs": 106,
+  "scope": "Compiler-only source inspection, not a new battle run or CUDA calculation proof; bounded Windows compile60s and offline resources only",
+  "gpu_calls": 0
+}
