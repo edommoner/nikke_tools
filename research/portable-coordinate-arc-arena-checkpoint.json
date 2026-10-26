@@ -35,5 +35,15 @@
   "resident_battle_changed": false,
   "public_ui": "CPU",
   "all_characters_supported": false,
-  "next_action": "Windows bounded compile-only CUBIN and offline resources before any new CUDA dispatch; then integrate verified shared storage into resident consumer."
+  "next_action": "Windows bounded compile-only CUBIN and offline resources before any new CUDA dispatch; then integrate verified shared storage into resident consumer.",
+  "source_commit": "4b34bad8",
+  "windows_request": {
+    "thread": "01a140bc-5f3b-7661-b720-50c945596eaa",
+    "package_id": "f82626e14602dde9ae6c9b19553511a35240e8bb0dca3d0792ecc3bffe8f4262",
+    "mode": "compile-only then offline resources",
+    "compile_timeout_seconds": 60,
+    "memory_limit_mb": 2048,
+    "gpu_calls_requested": 0,
+    "result_pending": true
+  }
 }

@@ -11,3 +11,5 @@ M5 Metalで `coordinate-arc-arena`140（通常正例126、格納安全性5、拒
 開発入口は共通CLIの `package --suite coordinate-arc-arena` と `package --suite coordinate-landing-arena` です。standaloneなのでresident generation-cache／full-world compiler certificateは使いません。Windowsではsealed packageを低優先度・2GiB・短時間上限でまずcompile-onlyし、保存CUBINをoffline解析します。stack減少と現CUDA計算はまだ未実証です。旧106入力のresident戦闘は今回変更しておらず、このprobeの成功を全戦闘・全キャラ対応とは数えません。
 
 証拠は `research/coordinate-arc-arena-evidence/` と2つのsealed goldenです。前段Windows結果は `research/cached-cuda-landing-evidence/windows/`／`resources/`。Windows native textは共有時にLF化されたため、receiptの元CRLF byte列との一致を確認し、`native-original-bytes.json` に原byteをbase64で保持しました。可読textはLF、出所JSONに両方のhashを記録しています。新しい資源観測ではありません。
+
+resident接続では、既存CF_LANDING直後にscratchを置けません。CL出力末尾915860の直後にCF_BANK916000、CF_END919840の後にGC_BASE920000～1048576があり、武器状態・Geometry cacheを破壊します。cache容量を削らず、新しいtail領域と明示wire／host上限／ownership監査を設計する必要があります。GPU-owned input用のresident版も同じ生成bodyから作り、commands→resultsの読取先変更だけを重ねます。旧profileとrawを保持した上で新profileを検証します。
