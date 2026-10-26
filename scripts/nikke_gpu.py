@@ -432,6 +432,7 @@ SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-sho
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
 SUITES['coordinate-landing']['support_files'] = ['research/portable-coordinate-arcs-short-expected.json']
+SUITES['coordinate-landing-cache-only']=dict(SUITES['coordinate-landing'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['coordinate-landing']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['coordinate-physical']=dict(script='research/verify-coordinate-physical-short.py',source='gpu/world_coordinate_physical_entry.slang',golden='research/portable-coordinate-physical-short-expected.json',inputs=23,native=17,output_words=1310720,development_only=False,tests=['test_coordinate_physical_gpu.py','test_coordinate_physical_common.py','test_coordinate_physical_reference.py','test_portable_damage_factors.py'])
 SUITES['coordinate-physical']['upstream_documents']=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
 SUITES['coordinate-physical']['support_files']=['research/portable-coordinate-arcs-short-expected.json']
@@ -541,6 +542,7 @@ SMOKE_TESTS = ['test_package_payload_reuse.py','test_portable_windows_cleanup.py
                'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py','test_portable_query_boundaries.py','test_portable_ptx_stats.py','test_portable_compiler_diagnostic.py']
 SMOKE_TESTS.append('test_portable_compiler_certificate.py')
 SMOKE_TESTS.append('test_portable_python_dependencies.py')
+SMOKE_TESTS.append('test_portable_cuda_cached_profile.py')
 SMOKE_TESTS.append('test_portable_input_extension.py')
 SMOKE_TESTS.append('test_portable_generation_cache.py')
 SMOKE_TESTS.append('test_portable_metal_cache.py')
@@ -1211,6 +1213,7 @@ def child(capture, backend, smoke=False, compile_only=False, module_only=False, 
         compile_child(m,capture,backend);return
     if module_only:
         module_child(m,capture,backend);return
+    from portable_cuda_cached_profile import library_guard
     protocol=load(capture/'run.json').get('input_protocol','legacy') if (capture/'run.json').exists() else 'legacy'
     if protocol==PREPARED_INPUT_PROTOCOL:
         data,input_words=Journal(capture/'preparation.jsonl').invoke('gpu_child_prepared_input',read_prepared_transport_input,m,capture)
@@ -1220,7 +1223,7 @@ def child(capture, backend, smoke=False, compile_only=False, module_only=False, 
     import portable_backend
     from portable_phase_audit import Journal, observe
     journal = Journal(capture/'phases.jsonl')
-    with saved_linked_provider(m,capture,backend,journal),observe(portable_backend,journal):
+    with library_guard(SUITES[m['suite']],backend,journal),saved_linked_provider(m,capture,backend,journal),observe(portable_backend,journal):
         raw,evidence = journal.invoke('shared_gpu_execute',portable_backend.execute,
                                      SUITES[m['suite']]['source'],'portableEvents',data,
                                      input_words,SUITES[m['suite']].get('output_words',786432),backend,readback_path=capture/'readback.bin')
@@ -2022,10 +2025,34 @@ def required_generation_cache_preflight(m,capture):
     _,result=required_generation_snapshot(m);write(capture/'generation-preflight.json',result);return True
 
 
+def required_cached_source_snapshot(m,capture):
+    """Standalone cached profile: inspect saved source, never execute it."""
+    from portable_cuda_cached_profile import validate
+    validate(SUITES[m['suite']],'cuda')
+    import portable_backend
+    source=Path(os.environ['NIKKE_CUDA_PREFLIGHT_SOURCE']);started=time.perf_counter()
+    with cache_file_checks_only() as blocked:
+        file_records(source.parent,[source.name]);data=source.read_bytes()
+        normalized=module(ROOT/'research/summarize-portable-cross-gpu.py').normalized
+        if normalized(data)!=m['golden']['generated_normalized']['cuda']:
+            raise ValueError('Saved CUDA source differs from the sealed Metal proof')
+        receipt=portable_backend.probe_cuda_source_cache(source,os.environ['NIKKE_CUDA_COMPILE_CACHE'],artifact_kind='cubin',ptxas_level=1)
+        if sha(source.read_bytes())!=sha(data):raise ValueError('Saved CUDA source changed during cache preflight')
+    result=dict(passed=receipt['hit'],stage='before-cpu-preflight',package_id=m['package_id'],cache=receipt,
+        saved_source_sha256=sha(data),saved_source_normalized=m['golden']['generated_normalized']['cuda'],
+        elapsed_seconds=time.perf_counter()-started,forbidden_attempts=blocked,gpu_calls=0,nvrtc_compile_calls=0,
+        calculation_verified=False,scope='File-only advisory snapshot; execution regenerates source and revalidates the required cache')
+    write(capture/'cache-preflight.json',result)
+    if not receipt['hit']:raise RuntimeError('Required CUDA cache miss before CPU preflight; no execution claim consumed')
+    return True
+
+
 def required_cuda_cache_preflight(m,capture):
     """Paired required-cache snapshot before CPU work; never a launch proof."""
     required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0');generation_required=os.environ.get('NIKKE_SLANG_GENERATION_REQUIRED','0')
     if required not in ('0','1') or generation_required not in ('0','1'):raise ValueError('Required cache flags must be0 or1')
+    if required=='1' and generation_required!='1' and SUITES[m['suite']].get('cuda_cache_profile'):
+        return required_cached_source_snapshot(m,capture)
     if required!='1' or generation_required!='1':return False
     started=time.perf_counter()
     if not os.environ.get('NIKKE_SLANG_GENERATION_CACHE') or not os.environ.get('NIKKE_CUDA_COMPILE_CACHE'):
@@ -2061,6 +2088,8 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
     if compiler_only(m) and not smoke:raise ValueError('Compiler diagnostic cannot execute a battle')
     if is_development(m) and backend!='metal':raise ValueError('Development execution requires Metal; seal before CUDA verification')
     if not 1<=timeout<=180:raise ValueError('Timeout must be 1..180')
+    from portable_cuda_cached_profile import validate as validate_cached_profile
+    validate_cached_profile(SUITES[m['suite']],backend,execute=not smoke and not cpu_only,linked=linked_package is not None)
     if backend=='cuda' and os.name!='nt' and not smoke and not cpu_only:raise ValueError('CUDA transport requires Windows')
     if bool(linked_package)!=bool(linked_capture):raise ValueError('Both saved CUBIN package and capture required')
     linked=linked_package is not None
@@ -2918,6 +2947,8 @@ def audit_capture(capture,verify_artifacts=True,*,record_comparison=False,parent
         calc &= bool(e['backend']==backend and e['transport']['command_status']=='completed' and e['transport']['cases']==len(m['golden']['entries']))
     from portable_phase_audit import summarize,verify_cuda_trace
     phases=summarize(capture/'phases.jsonl')
+    from portable_cuda_cached_profile import audit as audit_cached_profile
+    cache_profile=audit_cached_profile(SUITES[m['suite']],load(capture/'runtime.json'),[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()] if (capture/'phases.jsonl').exists() else []) if not load(capture/'run.json').get('mode')=='smoke' and SUITES[m['suite']].get('cuda_cache_profile') else None
     transport_ok=facts['passed']
     if backend=='cuda':
         transport_ok &= (phases['nvrtc_compile_returned_success'] or phases['cuda_compile_cache_hit_verified'] or phases['cuda_linked_artifact_observed']) and all(phases[k] for k in ('cuda_launch_returned_success','cuda_synchronize_returned_success','cuda_readback_returned_success'))
@@ -2931,7 +2962,7 @@ def audit_capture(capture,verify_artifacts=True,*,record_comparison=False,parent
     return dict(sealed=not is_development(m) and not compiler_only(m),purpose=m.get('purpose','sealed'),
                 calculation_verified=bool(calc and transport_ok and containment),preservation_verified=preservation,
                 passed=bool(calc and transport_ok and containment and (backend!='cuda' or preservation is True)),
-                containment_verified=containment,transport_verified=bool(transport_ok and containment and (backend!='cuda' or preservation is True)),comparison_error=error,first_difference=first_difference,phase=phases,gpu_retries=0,audit_gpu_calls=0)
+                containment_verified=containment,transport_verified=bool(transport_ok and containment and (backend!='cuda' or preservation is True)),comparison_error=error,first_difference=first_difference,phase=phases,gpu_retries=0,audit_gpu_calls=0,**(dict(cuda_cache_only_profile=cache_profile) if cache_profile else {}))
 
 
 def collect(capture,output):
@@ -3084,7 +3115,7 @@ def main(argv=None):
         if name=='run':
             a.add_argument('--cpu-only',action='store_true');a.add_argument('--timeout',type=int,default=180);a.add_argument('--original-workspace',type=Path);a.add_argument('--slang-root',type=Path);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
             a.add_argument('--metal-pipeline-cache',type=Path);a.add_argument('--require-metal-pipeline-cache',action='store_true')
-            a.add_argument('--require-cache',action='store_true');a.add_argument('--compile-cache',type=Path);a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--artifact-kind',choices=('cubin','ptx'));a.add_argument('--linked-package',type=Path);a.add_argument('--linked-capture',type=Path)
+            a.add_argument('--require-cache',action='store_true');a.add_argument('--compile-cache',type=Path);a.add_argument('--cached-cuda-source',type=Path);a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--artifact-kind',choices=('cubin','ptx'));a.add_argument('--linked-package',type=Path);a.add_argument('--linked-capture',type=Path)
         else:
             a.add_argument('--compile-only',action='store_true');a.add_argument('--module-only',action='store_true');a.add_argument('--assemble-only',action='store_true');a.add_argument('--partition-object-only',action='store_true');a.add_argument('--module-object-only',action='store_true');a.add_argument('--link-object-only',action='store_true');a.add_argument('--jit-link-object-only',action='store_true')
     for name in ('status','audit','collect','export'):
@@ -3294,6 +3325,9 @@ def main(argv=None):
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
         if a.compile_cache:os.environ['NIKKE_CUDA_COMPILE_CACHE']=str(a.compile_cache.resolve())
         if a.require_cache:os.environ['NIKKE_CUDA_CACHE_REQUIRED']='1'
+        if a.cached_cuda_source:
+            if a.backend!='cuda' or not a.require_cache or a.linked_package or a.linked_capture:raise ValueError('--cached-cuda-source requires --require-cache and the shared CUDA cache transport')
+            os.environ['NIKKE_CUDA_PREFLIGHT_SOURCE']=str(a.cached_cuda_source.resolve())
         if a.ptxas_level is not None:os.environ['NIKKE_CUDA_PTXAS_OPT_LEVEL']=str(a.ptxas_level)
         if a.artifact_kind:os.environ['NIKKE_CUDA_ARTIFACT']=a.artifact_kind
         result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**(dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}))

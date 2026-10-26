@@ -1,0 +1,18 @@
+{
+  "package_id": "49fb9d412c830096e44cd9cba63522506c3edbad1d237c555c6bb9cd4cc4361a",
+  "source_baseline_package_id": "06c781aa387cdd2617a64abae0bb462733e874a6b045e8c5612a0953c6820102",
+  "golden_source_input_native_output_unchanged": true,
+  "all_gpu_numerical_and_native_producer_comparator_bytes_unchanged": true,
+  "changed_files": [
+    "app/portable_cuda_cached_profile.py",
+    "app/portable_package_projection.py",
+    "app/portable_readiness_semantics.py",
+    "scripts/nikke_gpu.py",
+    "tests/test_portable_cuda_cached_profile.py"
+  ],
+  "profile": "compile-cache-only-v1",
+  "gpu_runs_on_mac": 0,
+  "windows_verification_pending": true,
+  "profile_policy_fault_injection_tests": 7,
+  "full_goal_complete": false
+}
