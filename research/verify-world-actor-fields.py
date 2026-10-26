@@ -31,6 +31,7 @@ def decoded(block,meta,c,bindings):
  for j in range(block[9]):
   at=L['CARRIER_STATE_BASE']+j*L['CARRIER_WORDS'];slot,definition=block[at:at+2];key=L['WORLD_ACTOR_FIELD_KEY_BASE']+slot*4
   if not block[at+4]&1 or block[key]==0:continue
+  if enemy_buff_plan(c['effects'][definition]) is None:continue
   actor=bindings[block[key]-1];end=num(at+5)
   carriers.append(dict(name=c['effects'][definition]['name'],owner=c['owners'][definition],actor=[int(actor.kind),actor.identity,block[key+1]],stack=block[at+3],activated=num(at+7),end=end))
  actual['enemy_fields']=dict(queries=[list(block[L['WORLD_ACTOR_FIELD_ALL_BASE']+i*12:L['WORLD_ACTOR_FIELD_ALL_BASE']+(i+1)*12]) for i in range(len(bindings))],carriers=carriers,explicit_queries=[list(block[L['WORLD_ACTOR_FIELD_QUERY_BASE']+i*16:L['WORLD_ACTOR_FIELD_QUERY_BASE']+(i+1)*16]) for i in range(len(c.get('field_queries',[])))],owned_snapshots=block[L['WORLD_ACTOR_POOL_OUTPUT_BASE']+7])

@@ -298,6 +298,16 @@ def reference_readiness(issue):
             add_owner_verified=False,cuda_device_verified=False,canonical_consumer_verified=False,
             in_game_rules_verified=False,full_character_verified=False,
             scope='explicit_BODY_owned_HP_shield_current_fields_and_actual_counter_completion_with_original_full_roster')
+        result['typed_owner_lifecycle_validation']=dict(suite='coordinate-typed-owner-lifecycle',inputs=88,
+            native_cases=53,rejected_cases=35,new_lifecycle_cases=8,original_definitions=71,
+            cpu_reference_verified=True,metal_verified=True,independently_audited=True,
+            projectile_owner_field_battle_verified=True,dead_owner_query_verified=True,
+            second_generation_counter_verified=True,late_stale_counter_suppression_verified=True,
+            physical_identity_preserved=True,prior80_all_input_native_output_retained=True,
+            warm_metal_pipeline_verified=True,slang_compiler_calls=0,
+            gpu_stale_context_rejection_verified=False,add_owner_verified=False,cuda_device_verified=False,
+            canonical_consumer_verified=False,in_game_rules_verified=False,full_character_verified=False,
+            scope='declared_BODY_owned_projectile_and_HP_shield_live_dead_reentry_and_stale_filter_contracts')
         result['typed_current_damage_validation']=dict(suite='coordinate-typed-actor',inputs=67,native_cases=40,
             declared_actor_policy='canonical-current-damage-v1',original_profile='Rei',original_definitions=73,
             original_current_skill_events=[0,5,5,5],literal_selector='enemies_nearest_in_range',

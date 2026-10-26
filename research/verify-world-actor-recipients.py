@@ -5,6 +5,7 @@ ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/
 from portable_specs import LIMITS as L
 from portable_backend import execute,source_hashes
 from portable_removal_specs import plan
+from portable_enemy_specs import enemy_buff_plan
 import world_actor_recipient_cases as cases
 s=importlib.util.spec_from_file_location('recipient_state',ROOT/'research/verify-world-actor-state.py');state=importlib.util.module_from_spec(s);s.loader.exec_module(state)
 SOURCE='gpu/world_actor_recipient_entry.slang';MAGIC=0x57523031
@@ -25,7 +26,7 @@ def decoded(block,meta,c,bindings):
   if block[key]&0x80000000:old[key:key+4]=array.array('I',[0]*4)
   if not block[p+4]&1:continue
   at=L['WORLD_ACTOR_RECIPIENT_BASE']+16+slot*L['WORLD_ACTOR_RECIPIENT_WORDS'];kind,count=block[at:at+2]
-  if kind==0:continue
+  if kind==0 or enemy_buff_plan(c['effects'][definition]) is None:continue
   handles=[];live=[]
   for i in range(count):
    target=(block[at+136+i//4]>>((i%4)*8))&255;b=bindings[target];h=[int(b.kind),b.identity,block[at+8+target]];handles.append(h)

@@ -2385,3 +2385,16 @@ dev `/tmp/nikke-coordinate-typed-develop-v2`（f1b700f2…）、M5 `/tmp/nikke-c
 最終immutable /tmp/nikke-typed-owner-final-v1（93ea25a5…）はseal登録/golden/scoped readinessのみ、全CLI関数ASTと全native producer/tests/GPU、80golden保持。最終関連100/制御507成功（Win1skip）、旧replay6成功、generation必須hit/Slang0。最終版で新fresh native preflightを実行したという主張なし。固定migrationはv4自身のCLIから使うこと、現在の追加変更は厳密source表で拒否。
 
 次は固定同entryへdata-onlyでprojectile所有field、破壊済み同世代/再登場・古い世代counterを追加。これらは今のGPUでは未実証としてreadinessにFalseを明示。入力kind2許可をbattle実証へ数えない。新shader warm load/現CUDA compile-cache-launch、ADD所有/移動/他caller/variant、残るモデル/19packing失敗/旧suite現source集約、公開GPU/全キャラ未完。全キャラ0/UI CPU/目標未達。Windows idle APIへの重複runは送らない。
+
+
+## 2026-10-26 所有者の寿命・世代88とwarm Metal
+
+最新sealed `coordinate-typed-owner-lifecycle`88/native53/拒35。docs/portable-coordinate-typed-owner-lifecycle.md、research/portable-coordinate-typed-owner-lifecycle-checkpoint.json。旧80保持、元Prim71全定義・完全5人・武器/成長、projectile所有field・破壊済み同世代query・再登場gen2 counter・late stale marker抑止・手動projectileの8入力を同じ共有entryへ追加。物理handle／BODY論理query／実counter子field／生死観測を照合。staleは1.25sにgen1 markerを実arm、後続世代で完了しないことを証明。内部不正contextのerror64直接実証／ADD所有とは区別。GPU source/transport/数値/正本/normalizer/cache consumer不変。
+
+実dev dcd09db2… capture /tmp/nikke-owner-lifecycle-metal-v1、CPU preflight297.821087秒、M5 GPU4.110688秒、library0.005774/pipeline0.002903秒。generation必須hit/Slang0、pipeline必須hit/archive compile0。初86/88差分はcounter markerを通常fieldへ列挙したdecoder2箇所。既存enemy_buff_plan分類へ統一しcounter資源比較は維持、native計算変更0。strict comparator refreshで全88input/native/GPU保持、修正replay8d9c2cf1…から保存rawのfresh全88/native53を4group（79.901/75.157/137.232/90.120秒、各180秒内）、計384.476683秒で成功。同じ監査でgolden登録、seal二重実行0。旧80の650240000byte raw完全一致。GPU1/retry0/追加GPU0。reader完了後raw SHA/size/inode保持疎化で573636608byte回収、失敗/claim/raw削除0。
+
+最終 /tmp/nikke-owner-lifecycle-final-v1（1f1c15b6…）はseal/readiness/goldenと非Mac filesystem unitの4file差分。全CLI関数AST/native producer/comparator/GPUと全golden保持。最終関連106／制御517成功（Win専用1skip）、generation必須hit/Slang0。最終fresh native再生成は未実行。固定comparator migrationはv3自身のCLIで使うこと。
+
+容量不足対策は共通compress-generation-cacheを追加。macOS派生JSON371entryの全key/byte/SHA/4artifactを保ち、割当2651963392→534904832byte、2117058560byte回収。元generation consumer/identity不変、固定packageの必須hit確認、compiler/GPU0。sandboxコピーの不正candidateは公開前拒否し原本保持。Windows操作／driver cache／latency証明ではない。docs/portable-cache-filesystem-compression.md、research/cache-filesystem-compression-evidence/。
+
+次は未対応のADD所有／対象操作をCPU契約から共通実行器へ接続。ゲームgap/移動/他caller/variant/19packing失敗/現source全suite集約/公開GPU/全キャラは未完、全キャラ0/UI CPU/目標未達。Windows新実行0、idle API再試行もactive turn不足で失敗、coordinate-landing依頼は未送信。既存runの再送をしない。

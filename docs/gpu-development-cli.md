@@ -482,3 +482,10 @@ python scripts/nikke_gpu.py unpack --archive /tmp/new.zip --dest /tmp/new \
 通常のZIP全member検査に加え、参照manifestのidentityと全payloadを検査します。異なるファイルはZIPから作成、manifest自体は常に独立です。参照packageのコードは実行しません。symlinkや破損を拒否し、link失敗時の黙ったcopyへの切替はありません。両方のpayloadを不変として扱い、編集は開発checkoutで行って新しいpackageを作ってください。これは転送・領域共有の証明で、GPU計算やCUDA compiler cacheの証明ではありません。
 
 package内CLIは `sys.dont_write_bytecode`、所有する検証子は `PYTHONDONTWRITEBYTECODE=1` で新しいPython bytecodeの生成を抑制します。独立したimportや設定を解除する故障注入はこの範囲に含みません。sourceの実行・ハッシュ検査・既存キャッシュ読取りは保持し、ユーザーのグローバル設定は変更しません。これにより、短い検証packageごとに数MBの `__pycache__` が蓄積するのを防ぎます。
+
+
+## 型付き所有者の寿命とキャッシュ容量
+
+`coordinate-typed-owner-lifecycle` はsealed88入力（native53／拒否35）。旧80を保持し、同じ共有entryへprojectile所有field・破壊済み同世代query・第2世代counter・古い世代counter抑止を追加しています。M5 Metalと全件fresh grouped監査で成功しました。`package --suite coordinate-typed-owner-lifecycle --compact` で固定packageを作れます。[比較修正・証拠・未対応範囲](portable-coordinate-typed-owner-lifecycle.md)を参照してください。現CUDA成功は未取得です。
+
+`compress-generation-cache --cache ABSOLUTE_CACHE --out NEW_CAPTURE --apply` はmacOSの派生paired生成cacheだけをfilesystem圧縮します。全key／論理byte／SHAと4artifactを検査して同内容をatomic公開し、既存consumerは変更しません。[容量予算・claim・失敗保存・実測](portable-cache-filesystem-compression.md)を参照してください。CUDA driver cache／latencyの実証とは区別します。

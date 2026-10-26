@@ -1,0 +1,13 @@
+{
+  "key": "1f76bf580167b30f487afad6b5cafbbc6314fc043c12a7ac3d61f1bb97009922",
+  "logical_bytes": 8497625,
+  "destination_bytes": 8497625,
+  "source_allocated": 8499200,
+  "compressed_allocated": 1753088,
+  "compressed_flags": 32,
+  "uf_compressed": 32,
+  "sha256": "aded600e4e101ee3a8db322b68c201d07717a7b2da28849697c61e4eb75a21ca",
+  "byte_exact": true,
+  "source_modified": false,
+  "stderr": ""
+}

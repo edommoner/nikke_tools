@@ -1,0 +1,18 @@
+{
+  "hit": true,
+  "compiler_invocations": 0,
+  "key": "1f76bf580167b30f487afad6b5cafbbc6314fc043c12a7ac3d61f1bb97009922",
+  "gpu_calls": 0,
+  "full_receipt": {
+    "bytes": 40294,
+    "sha256": "65efe760c947a97461e1d09658467ba41e92ffce996154089c15fd096948fefa"
+  },
+  "complete_plan": {
+    "bytes": 131238,
+    "sha256": "1c81f21744b3339e3e786a9534222ea43d2ceabe9d3273a074125211d4335bef"
+  },
+  "all_entry_records": {
+    "bytes": 245564,
+    "sha256": "04dbd6b909e0d4d383b5292842e3f8cac70d06503524a984fed0ff18f0e10188"
+  }
+}

@@ -417,6 +417,8 @@ SUITES['coordinate-typed-actor']=dict(SUITES['coordinate-typed-aim'],script='res
 SUITES['coordinate-typed-actor']['tests']=[*SUITES['coordinate-typed-actor']['tests'],'test_coordinate_typed_actor_policy.py','test_coordinate_typed_actor_gpu.py']
 SUITES['coordinate-typed-owner']=dict(SUITES['coordinate-typed-actor'],script='research/verify-coordinate-typed-owner-short.py',source='gpu/world_coordinate_typed_owner_entry.slang',golden='research/portable-coordinate-typed-owner-short-expected.json',inputs=80,native=45,development_only=False)
 SUITES['coordinate-typed-owner']['tests']=[*SUITES['coordinate-typed-owner']['tests'],'test_coordinate_typed_owner_policy.py','test_coordinate_typed_owner_gpu.py','test_typed_owner_observer_migration.py']
+SUITES['coordinate-typed-owner-lifecycle']=dict(SUITES['coordinate-typed-owner'],script='research/verify-coordinate-typed-owner-lifecycle-short.py',golden='research/portable-coordinate-typed-owner-lifecycle-short-expected.json',inputs=88,native=53,development_only=False)
+SUITES['coordinate-typed-owner-lifecycle']['tests']=[*SUITES['coordinate-typed-owner']['tests'],'test_coordinate_typed_owner_lifecycle.py','test_counter_field_decoder.py']
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -568,6 +570,8 @@ SUITES['destructible-counter']['tests'].append('test_portable_packet_stage.py')
 
 SMOKE_TESTS.append('test_portable_comparison_groups.py')
 SMOKE_TESTS.append('test_typed_owner_observer_migration.py')
+SMOKE_TESTS.append('test_portable_cache_fs_compression.py')
+SMOKE_TESTS.append('test_counter_field_decoder.py')
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
@@ -774,7 +778,7 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
         baseline_records=[r for r in records if not compact or r['path'] in selected]
         golden,native_expectations=reuse(SimpleNamespace(**globals()),suite,native_baseline_package,baseline_records,cases)
     elif baseline_package is not None:
-        if not develop or cases or reference_migration not in ('coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1','coordinate-typed-owner-status-witness-v1'):raise ValueError('Unfiltered development observation migration required')
+        if not develop or cases or reference_migration not in ('coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1','coordinate-typed-owner-status-witness-v1','coordinate-owner-counter-field-decoder-v1'):raise ValueError('Unfiltered development observation migration required')
         baseline_records=[r for r in records if not compact or r['path'] in selected]
         golden,reused=migrated_development_baseline(suite,baseline_package,baseline_records,reference_migration)
     else:
@@ -944,6 +948,9 @@ def migrated_development_baseline(suite,source,records,name):
     if name=='coordinate-typed-owner-status-witness-v1':
         from portable_typed_owner_observer_migration import baseline
         return baseline(SimpleNamespace(**globals()),suite,source,records)
+    if name=='coordinate-owner-counter-field-decoder-v1':
+        from portable_original_history_repackage import baseline
+        return baseline(SimpleNamespace(**globals()),suite,source,records,name=name)
     if name=='coordinate-original-projectile-history-v1':
         from portable_original_history_repackage import baseline
         return baseline(SimpleNamespace(**globals()),suite,source,records)
@@ -2990,6 +2997,8 @@ def case_names(suite):
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     sub.add_parser('list')
+    a=sub.add_parser('compress-generation-cache',help='Byte-exact filesystem compression; no generation/GPU')
+    a.add_argument('--cache',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--apply',action='store_true')
     a=sub.add_parser('refresh-tests',help='Copy an unclaimed development packet with explicit test-only updates')
     for name in ('source-package','source-capture','out'):a.add_argument('--'+name,type=Path,required=True)
     a.add_argument('--test',action='append',required=True)
@@ -3053,7 +3062,7 @@ def main(argv=None):
     a=sub.add_parser('storage-check',help='CPU-only free-space budget check; does not archive or delete files')
     a.add_argument('--required-bytes',type=int,default=0);a.add_argument('--reserve-bytes',type=int,default=1024**3);a.add_argument('--path',type=Path,default=ROOT)
     a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
-    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--native-baseline-package',type=Path,help='Reuse expected native hashes only when CPU dependencies and prepared inputs match; fresh run/seal checks stay mandatory');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1','coordinate-typed-owner-status-witness-v1'])
+    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--native-baseline-package',type=Path,help='Reuse expected native hashes only when CPU dependencies and prepared inputs match; fresh run/seal checks stay mandatory');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1','coordinate-typed-owner-status-witness-v1','coordinate-owner-counter-field-decoder-v1'])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True);a.add_argument('--reuse-payload-from',type=Path,help='Share exact payload bytes with an existing immutable package on the same filesystem; never edit either payload')
     for name in ('run','_child'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--smoke',action='store_true')
@@ -3079,6 +3088,9 @@ def main(argv=None):
     if a.command=='refresh-tests':
         from portable_test_repackage import refresh
         with forbid_gpu():result=refresh(SimpleNamespace(**globals()),a.source_package,a.source_capture,ROOT,a.test,a.out)
+    elif a.command=='compress-generation-cache':
+        from portable_cache_fs_compression import run
+        with forbid_gpu():result=run(a.cache,a.out,apply=a.apply)
     elif a.command=='list':
         result={}
         for name,config in SUITES.items():
