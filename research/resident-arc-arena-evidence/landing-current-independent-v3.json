@@ -1,0 +1,15 @@
+{
+  "package_id": "8978756486728b0d560fefd24bb768cf0539ace91a0e30b87f6ee95c6fd75a0a",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-arc-arena-20261027/landing-metal-current-v3",
+  "child_pid": 11215,
+  "input_count": 40,
+  "native_cases": 26,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 2.3645359170004667,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "5d14272715fb7c14d09c3a9a17da5e1fbfa4295fb54f3d9300c6a8523924a410",
+  "output_sha256": "1968d8b50d19b2cd966eeba164c486996fa6f56422c5b5e223bcb70bce9d4ffc",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "schema": "independent-metal-audit-v1"
+}

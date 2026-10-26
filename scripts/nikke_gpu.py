@@ -436,6 +436,7 @@ SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
 SUITES['coordinate-landing']['support_files'] = ['research/portable-coordinate-arcs-short-expected.json']
 SUITES['coordinate-landing-arena']=dict(SUITES['coordinate-landing'],script='research/verify-coordinate-landing-arena-short.py',source='gpu/coordinate_landing_arena_probe.slang',golden='research/portable-coordinate-landing-arena-short-expected.json',output_words=46582,development_only=False,tests=[*SUITES['coordinate-landing']['tests'],'test_coordinate_arc_arena.py','test_coordinate_landing_arena.py'])
+SUITES['coordinate-landing-arena-cache-only']=dict(SUITES['coordinate-landing-arena'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['coordinate-landing-arena']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['coordinate-landing-cache-only']=dict(SUITES['coordinate-landing'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['coordinate-landing']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['coordinate-physical']=dict(script='research/verify-coordinate-physical-short.py',source='gpu/world_coordinate_physical_entry.slang',golden='research/portable-coordinate-physical-short-expected.json',inputs=23,native=17,output_words=1310720,development_only=False,tests=['test_coordinate_physical_gpu.py','test_coordinate_physical_common.py','test_coordinate_physical_reference.py','test_portable_damage_factors.py'])
 SUITES['coordinate-physical']['upstream_documents']=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -588,7 +589,7 @@ SMOKE_TESTS.append('test_portable_comparison_groups.py')
 SMOKE_TESTS.append('test_typed_owner_observer_migration.py')
 SMOKE_TESTS.append('test_portable_cache_fs_compression.py')
 SMOKE_TESTS.append('test_counter_field_decoder.py')
-SMOKE_TESTS += ['test_portable_windows_observer.py','test_portable_snapshot_failure.py']
+SMOKE_TESTS += ['test_portable_windows_observer.py','test_portable_snapshot_failure.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py','test_resident_arc_retention.py']
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
@@ -2117,6 +2118,9 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
             compiler=compiler_root/'bin'/('slangc.exe' if os.name=='nt' else 'slangc')
             if not compiler.is_file():
                 raise ValueError('Slang compiler missing: '+str(compiler)+'; specify --slang-root')
+        if backend=='metal' and not smoke and not cpu_only:
+            from portable_wire_layout import check_metal
+            write(capture/'metal-wire-preflight.json',check_metal(ROOT,SUITES[m['suite']].get('output_words',786432)))
         if not smoke and not cpu_only:capture_storage_preflight(m,capture)
         if not linked and not smoke and not cpu_only:
             paired=backend=='cuda' and required_cuda_cache_preflight(m,capture)
@@ -3087,6 +3091,10 @@ def main(argv=None):
     a.add_argument('--artifact-kind',choices=('ptx','cubin'),default='cubin');a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--require-hit',action='store_true')
     a=sub.add_parser('consumer-audit');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('resident-arc-retain',help='Account for complete old/new raw bytes and exact trace-address relocation')
+    a.add_argument('--reference-capture',type=Path,required=True);a.add_argument('--candidate-capture',type=Path,required=True);a.add_argument('--reference-evidence-sha256',required=True);a.add_argument('--candidate-evidence-sha256',required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('refresh-metal-wire',help='Create a new immutable packet for one reviewed pre-device Swift admission failure')
+    a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('snapshot-check',help='One CPU-only Windows process/listener snapshot; no CUDA')
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--validation-root',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('validation-deps',help='Check pinned selected-test Python dependencies without installing')
@@ -3214,6 +3222,12 @@ def main(argv=None):
     elif a.command=='entry-inventory':
         from portable_original_entry_inventory import run
         result=run(a.out,write=write,forbid_gpu=forbid_gpu,source=SUITES[a.suite]['source'],comparison_source=SUITES[a.suite].get('kind_baseline_source'))
+    elif a.command=='resident-arc-retain':
+        from portable_resident_arc_retention import run as retain_arc
+        with forbid_gpu():result=retain_arc(a.reference_capture,a.candidate_capture,a.out,reference_evidence_sha256=a.reference_evidence_sha256,candidate_evidence_sha256=a.candidate_evidence_sha256)
+    elif a.command=='refresh-metal-wire':
+        from portable_metal_wire_refresh import refresh
+        with forbid_gpu():result=refresh(SimpleNamespace(**globals()),a.source_package,a.source_capture,a.out)
     elif a.command=='snapshot-check':
         from portable_windows_snapshot import check as snapshot_check
         with forbid_gpu():result=snapshot_check(a.original_workspace,a.validation_root,a.out)

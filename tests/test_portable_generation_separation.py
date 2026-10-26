@@ -69,13 +69,18 @@ class GenerationSeparationTests(unittest.TestCase):
 
     def test_composed_transport_review_cannot_hide_guard_or_dispatch_changes(self):
         source=(ROOT/'app/portable_backend.py').read_text()
-        for old,new in [(f'MAX_OUTPUT_WORDS={backend.MAX_OUTPUT_WORDS}','MAX_OUTPUT_WORDS=2621440'),
+        for old,new in [('from portable_wire_layout import MAX_INPUT_WORDS,MAX_OUTPUT_WORDS,LARGE_OUTPUT_WORDS','from portable_wire_layout import MAX_INPUT_WORDS,MAX_OUTPUT_WORDS,LARGE_OUTPUT_WORDS\nMAX_OUTPUT_WORDS=2621440'),
                 ('source!=\'gpu/world_coordinate_composed_entry.slang\'','source!=\'gpu/world_attack_group_entry.slang\''),
                 ('validate_composed_stride(source,input_words,output_words)','validate_composed_stride(source,input_words,1048576)'),
                 ('Invalid portable word strides','Ignored portable word strides'),
                 ('gpu_execution_verified=True','gpu_execution_verified=False')]:
             self.assertIn(old,source)
             with self.subTest(old=old),self.assertRaises(ValueError):historical_backend_source(ROOT,source.replace(old,new,1))
+
+    def test_wire_dependency_is_reviewed_not_an_unchecked_import(self):
+        from portable_coordinate_resident_arc_source_contract import project_sources
+        name='app/portable_wire_layout.py'
+        with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\nMAX_OUTPUT_WORDS=2621440\n'})
 
     def test_transport_only_edits_keep_key_pair_and_required_hit_without_compilation(self):
         h=self.helper();paths,hashes=h.build();receipt=h.receipt();before={k:p.read_bytes() for k,p in cache.artifact_paths(paths).items()}

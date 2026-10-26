@@ -14,6 +14,8 @@ class WindowsNameOnly:
 class RequiredCachePreflightTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name);(self.root/'gpu').mkdir();(self.root/'research/portable-build').mkdir(parents=True)
+        from portable_wire_layout import metal_guard
+        (self.root/'scripts').mkdir();(self.root/'scripts/run-metal-probe.swift').write_text(metal_guard()+'\n')
         self.source='gpu/main.slang';(self.root/self.source).write_bytes(b'#define PORTABLE_RESIDENT_RUNTIME\n')
         self.outputs={kind:self.root/('research/portable-build/main.'+suffix) for kind,suffix in [('cuda','cu'),('metal','metal')]}
         for k,p in self.outputs.items():p.write_bytes(('synthetic '+k).encode())

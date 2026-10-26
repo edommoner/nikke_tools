@@ -41,6 +41,8 @@ class DeviceTests(unittest.TestCase):
         with self.context(),patch.dict(os.environ,{'NIKKE_METAL_MODULE_CACHE':'relative'}),patch.object(device.subprocess,'run') as run:
             self.assertFalse(device.probe(self.root)['passed']);run.assert_not_called()
     def gate_context(self):
+        from portable_wire_layout import metal_guard
+        (self.root/'scripts/run-metal-probe.swift').write_text(metal_guard()+'\n')
         compiler=self.root/'slang/bin';compiler.mkdir(parents=True,exist_ok=True);(compiler/'slangc').write_text('fixture')
         stack=contextlib.ExitStack();stack.enter_context(patch.object(cli,'ROOT',self.root));stack.enter_context(patch.object(cli,'verify_package',return_value=dict(suite='coordinate-mode-actions',purpose='sealed',package_id='fixture')))
         stack.enter_context(patch.dict(os.environ,{'NIKKE_SLANG_ROOT':str(compiler.parent)}));stack.enter_context(patch.object(cli,'validate_generation_request'));stack.enter_context(patch.object(cli,'capture_storage_preflight'));stack.enter_context(patch.object(cli,'required_generation_cache_preflight',return_value=False));return stack

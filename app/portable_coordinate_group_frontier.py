@@ -43,8 +43,12 @@ def verify(root=None):
         assert all(text.count(s)==1 for s in snippets),'Coordinate/group consumer drift: '+name
         sources[name]=hashlib.sha256(text.encode()).hexdigest()
     transport=(root/'app/portable_backend.py').read_text()
-    allowed=re.findall(r'output_words not in \(([^)]+)\)',transport)
-    assert len(allowed)==2 and all(output in [int(v.strip()) for v in row.split(',')] for row in allowed)
+    from portable_wire_layout import LARGE_OUTPUT_WORDS,check_metal
+    assert transport.count('output_words not in LARGE_OUTPUT_WORDS')==2
+    assert 'from portable_wire_layout import MAX_INPUT_WORDS,MAX_OUTPUT_WORDS,LARGE_OUTPUT_WORDS' in transport
+    assert output in LARGE_OUTPUT_WORDS
+    check_metal(root,output)
+    sources['app/portable_wire_layout.py']=hashlib.sha256((root/'app/portable_wire_layout.py').read_bytes()).hexdigest()
     sources['app/portable_backend.py']=hashlib.sha256(transport.encode()).hexdigest()
     from portable_coordinate_group_wire import check_schema as group_schema
     relocated=group_schema(root)

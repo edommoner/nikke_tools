@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "package_id": "58daee4744855a23251c014814f2da1dc05c347fda66b16f32440dd091e85687",
+  "source_package_id": "ae70b296f28e6670e74cc815c826a547a2e02943bcc58f3d8c06b9ff2a553a6c",
+  "files": 3536,
+  "bytes": 11652718,
+  "archive_sha256": "06596f9c0ca879a95d80bdd19cbb2d0dc733b3009b6ca98dc24e4f188767f056",
+  "changed_files": [
+    "scripts/run-metal-probe.swift",
+    "tests/fixtures/portable-coordinate-resident-arc-source-delta.json"
+  ],
+  "golden_unchanged": true,
+  "all_other_payload_bytes_unchanged": true,
+  "original_claim_retained": true,
+  "gpu_calls": 0,
+  "native_battle_calls": 0,
+  "calculation_verified": false
+}

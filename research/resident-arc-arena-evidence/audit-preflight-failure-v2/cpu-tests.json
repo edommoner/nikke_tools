@@ -1,0 +1,22 @@
+[
+  {
+    "pattern": "test_typed_geometry.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.7433096660006413,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 10708
+  },
+  {
+    "pattern": "test_coordinate_typed.py",
+    "exit_code": 1,
+    "elapsed_seconds": 4.533016625000528,
+    "tests": 7,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 10708
+  }
+]

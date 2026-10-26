@@ -1,0 +1,28 @@
+{
+  "schema": "landing-arena-windows-packets-v4",
+  "packets": [
+    {
+      "path": "research/windows-source-packets/coordinate-windows-landing-current-v4.zip",
+      "bytes": 9181745,
+      "sha256": "e804853aed8f57142b83b240317710bb179452ad7ec8863176998846f8dd443b",
+      "package_id": "696e3194ade89645e4c218f071c80793be6023525474b317ae3258d82d152f7c",
+      "suite": "coordinate-landing-arena",
+      "cpu_tests": 47,
+      "inputs": 40,
+      "native": 26,
+      "gpu_calls": 0
+    },
+    {
+      "path": "research/windows-source-packets/coordinate-windows-landing-cache-v4.zip",
+      "bytes": 9181752,
+      "sha256": "69cbb0f9dc753f56da14e38ceb21b1de9aae06115848f5eb1fcdd2c833b10ac2",
+      "package_id": "6195042722501093978c6dd832e7cf9c9fd6e38ce61bf7a5fae5186e09d77306",
+      "suite": "coordinate-landing-arena-cache-only",
+      "cpu_tests": 54,
+      "inputs": 40,
+      "native": 26,
+      "gpu_calls": 0
+    }
+  ],
+  "scope": "Same Metal-sealed 40 inputs and exact GPU source; compile-only normal packet first, offline resources before any cached-only GPU request."
+}

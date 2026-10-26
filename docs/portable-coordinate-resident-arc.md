@@ -1,3 +1,5 @@
+通常M5検証は修正版58daee47…の全106入力で成功しました（GPU4.240秒／子72.407秒）。独立sealは固定パッケージ内CLIから進行中です。wireの初回失敗・CPU監査失敗・controller更新による独立監査中断を保存し、修正版のみ新しいclaimで実行しました。全byteの保持監査はtrace絶対参照20語のstride移動を検証し、残る旧861,567,920byteと追加tail全0を確認。詳細は[共通wireと監査](portable-wire-preflight.md)。以下の実装時点の記録は履歴です。
+
 # 共通resident実行器のarc tail
 
 `coordinate-resident-arc` は既存logical-owner／ADD寿命／実HP死亡までの全106入力（native63、拒否43）を保ち、着弾の区間配列を独立したGPU buffer領域へ置く開発profileです。現在はCPU検査とpaired Slang生成を通過し、通常Metal検証を実行中です。sealedと全キャラ対応はまだ認定していません。

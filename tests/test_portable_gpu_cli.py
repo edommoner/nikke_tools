@@ -203,6 +203,22 @@ class PacketTests(unittest.TestCase):
             self.assertFalse((root/'gpu-claimed-metal.json').exists())
             self.assertTrue((capture/'run.json').is_file())
 
+    def test_metal_wire_mismatch_stops_before_tests_native_device_and_claim(self):
+        from portable_wire_layout import metal_guard,LARGE_OUTPUT_WORDS
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);capture=root/'capture';sdk=root/'sdk';(sdk/'bin').mkdir(parents=True)
+            (sdk/'bin'/('slangc.exe' if os.name=='nt' else 'slangc')).write_text('unused compiler')
+            (root/'scripts').mkdir();(root/'scripts/run-metal-probe.swift').write_text(metal_guard(LARGE_OUTPUT_WORDS[:-1])+'\n')
+            with patch.object(cli,'ROOT',root),patch.dict(os.environ,{'NIKKE_SLANG_ROOT':str(sdk)}),\
+                 patch.object(cli,'verify_package',return_value=dict(suite='regression',purpose='development',package_id='wire-mismatch')),\
+                 patch.object(cli,'cpu_preflight',side_effect=AssertionError('Native forbidden')) as native,\
+                 patch.object(cli,'cpu_test_groups',side_effect=AssertionError('Tests forbidden')) as tests,\
+                 patch.object(cli,'metal_device_preflight',side_effect=AssertionError('Device forbidden')) as device,\
+                 patch.object(cli,'run_job',side_effect=AssertionError('GPU forbidden')) as job:
+                with self.assertRaisesRegex(ValueError,'admission differs'):cli.run_capture(capture,'metal',180)
+            native.assert_not_called();tests.assert_not_called();device.assert_not_called();job.assert_not_called()
+            self.assertFalse((root/'gpu-claimed-metal.json').exists())
+
     def test_status64_alone_cannot_satisfy_a_suite_execution_rejection_contract(self):
         import array
         from types import SimpleNamespace
