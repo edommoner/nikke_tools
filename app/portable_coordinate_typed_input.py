@@ -6,20 +6,33 @@ from portable_original_modifier_probe_input import pack_target_input
 from portable_target_modifier_input import lower_effect
 from destructible_skill_specs import coefficient
 
-def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None,coordinate_weapon_targets=False):
-    if prepared.get('typed_aim_policy') is not None:raise ValueError('Typed automatic aim requires a new shared GPU wire and consumer')
+def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None,coordinate_weapon_targets=False,coordinate_typed_aim=False):
+    if type(coordinate_typed_aim) is not bool:raise ValueError('Explicit typed aim consumer policy required')
+    aim_targets=None
+    if coordinate_typed_aim:
+        from coordinate_typed_aim_runtime import normalize
+        from enemy_recipient_specs import CURRENT_TARGETS
+        normalize(prepared.get('typed_aim_policy'))
+        if not coordinate_weapon_targets:raise ValueError('Typed aim requires coordinate weapon consumer')
+        if any(row['effect'].get('target') in CURRENT_TARGETS for row in prepared['effects']):raise ValueError('Typed aim logical enemy recipient requires its own actor policy')
+        labels=[b.get('label','') for b in bindings]
+        if any(label in ('__enemy__','__enemy__:*') for label in labels):raise ValueError('Typed aim label cannot alias logical enemy')
+        if not 1<=len(labels)<=128 or any(not label for label in labels) or len(set(labels))!=len(labels):raise ValueError('Declared distinct typed aim labels required')
+        aim_targets={label:129+i for i,label in enumerate(labels)}
+    elif prepared.get('typed_aim_policy') is not None:raise ValueError('Typed automatic aim requires a new shared GPU wire and consumer')
     if type(coordinate_weapon_targets) is not bool:raise ValueError('Explicit coordinate weapon policy required')
     if coordinate_weapon_targets:
         if probe_row is not None or not bindings or geometry is None or geometry.get('point_source')!='caster_aim' or geometry.get('grow',0)!=0:raise ValueError('Typed coordinate weapons require live aim, zero authored grow and no skill probe')
         if type(probe_kind) is not int or probe_kind not in (2,3) or type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Invalid typed coordinate weapon limits')
         original=prepared['effects'];lowered=copy.deepcopy(prepared)
         for dest,row in zip(lowered['effects'],original,strict=True):dest['effect']=lower_effect(row['effect'])
-        words,meta,actors,scene=compile_coordinate_battle(lowered)
+        words,meta,actors,scene=compile_coordinate_battle(lowered,typed_aim_targets=aim_targets)
         extra,axes=pack_target_input(words,meta,original,prepared['enemy']['patterns'],bindings,None,probe_kind,max_attacks,weapon_only=True)
         from portable_typed_geometry_specs import pack
         shape_words,shape_meta=pack(geometry,len(bindings),probe_kind);extra[:2320]=shape_words;extra[13]=1
+        if coordinate_typed_aim:extra[14]=1;scene['typed_aim_slots']=aim_targets;scene['typed_aim_add_slot']=257
         meta['typed_geometry']=shape_meta
-        meta['coordinate_typed_input']=dict(probe_source=None,probe_kind=probe_kind,axis_rows=axes,one_resident_runtime=True,shared_world_clock=True,automatic_typed_weapon_aim=False,coordinate_weapon_targets=True)
+        meta['coordinate_typed_input']=dict(probe_source=None,probe_kind=probe_kind,axis_rows=axes,one_resident_runtime=True,shared_world_clock=True,automatic_typed_weapon_aim=coordinate_typed_aim,coordinate_weapon_targets=True)
         return words+extra,meta,actors,scene
     if probe_row is None:
         if geometry is not None:raise ValueError('Typed geometry requires an explicit probe')

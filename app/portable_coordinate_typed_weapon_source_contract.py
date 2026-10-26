@@ -8,7 +8,8 @@ def checked(current,row):
     assert hashlib.sha256(row['baseline'].encode()).hexdigest()==row['baseline_sha256']
     return row['baseline']
 def project_sources(root,sources=None):
-    root=Path(root);out=dict(sources or {});data=ledger(root)
+    from portable_coordinate_typed_aim_source_contract import project_sources as aims
+    root=Path(root);out=aims(root,sources);data=ledger(root)
     for name,digest in data['added_sources'].items():assert hashlib.sha256((root/name).read_bytes()).hexdigest()==digest,'Unreviewed typed physical dependency: '+name
     for name,row in data['sources'].items():
         if name.endswith('.slang'):out[name]=checked(out.get(name,(root/name).read_text()),row)
@@ -16,5 +17,6 @@ def project_sources(root,sources=None):
 
 def project_backend_source(root,source=None):
     root=Path(root);name='app/portable_backend.py'
-    try:return checked((root/name).read_text() if source is None else source,ledger(root)['sources'][name])
+    from portable_coordinate_typed_aim_source_contract import project_backend_source as aims
+    try:return checked(aims(root,source),ledger(root)['sources'][name])
     except AssertionError as error:raise ValueError('Unreviewed typed physical transport') from error

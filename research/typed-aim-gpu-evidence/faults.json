@@ -1,0 +1,40 @@
+{
+  "case": "coordinate-typed-aim/manual-last-slot",
+  "retained_gpu_status": 0,
+  "last_typed_aim_id": 256,
+  "last_focus_id": 256,
+  "checks": [
+    {
+      "fault": "candidate-generation",
+      "offset": 1990113,
+      "rejected": true
+    },
+    {
+      "fault": "candidate-stream-digest",
+      "offset": 1990088,
+      "rejected": true
+    },
+    {
+      "fault": "last-candidate-id",
+      "offset": 1990083,
+      "rejected": true
+    },
+    {
+      "fault": "nine-bit-focus",
+      "offset": 258576,
+      "rejected": true
+    },
+    {
+      "fault": "unused-aim-tail",
+      "offset": 1990624,
+      "rejected": true
+    },
+    {
+      "fault": "resolved-frame-digest",
+      "offset": 919844,
+      "rejected": true
+    }
+  ],
+  "fresh_native_cases": 1,
+  "gpu_calls": 0
+}

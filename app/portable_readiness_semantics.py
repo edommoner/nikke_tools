@@ -279,6 +279,11 @@ def reference_readiness(issue):
             automatic_typed_weapon_aim_verified=False,canonical_consumer_verified=False,
             cuda_device_verified=False,in_game_rules_verified=False,full_character_verified=False,
             scope='declared_v1_static_typed_shapes_inside_original_sampled_weapon_production')
+        result['typed_coordinate_aim_validation']=dict(suite='coordinate-typed-aim',inputs=59,native_cases=36,
+            cpu_reference_verified=True,gpu_wire_connected=True,metal_verified=True,independent_audit_verified=True,
+            declared_policy='typed-before-body-v1',typed_slots=128,focus_id_bits=9,logical_add_id=257,
+            current_enemy_recipient_connected=False,cuda_device_verified=False,canonical_consumer_verified=False,
+            in_game_rules_verified=False,full_character_verified=False)
         result['typed_coordinate_aim_reference']=dict(suite='coordinate-typed-aim-common',cases=7,
             positive_contract_cases=6,logical_recipient_gap_cases=1,cpu_contract_verified=True,
             canonical_arbitration_preserved=True,frame_candidates_verified=True,manual_namespace_verified=True,

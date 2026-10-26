@@ -1,0 +1,15 @@
+{
+  "package_id": "36acee7f37ed722a54ea6a4a4dc6de3996855aecdd799663aedea4d6b466ed57",
+  "generated_normalized": {
+    "cuda": "2fea8cd0457d5df3b1f064e536cc09f86bc21d832cad773efbe9ab10ab522c3b",
+    "metal": "36ea0293a2033cda08e22026debafa699b5ab71fa3f2bcb6b8d3575c8dde6d0d"
+  },
+  "verified": true,
+  "cache_hit": true,
+  "compiler_invocations": 0,
+  "gpu_calls": 0,
+  "development_only": false,
+  "sealed_generated_baseline_verified": true,
+  "calculation_verified": false,
+  "executable_battle_verified": false
+}

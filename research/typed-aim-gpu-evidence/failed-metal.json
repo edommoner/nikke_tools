@@ -1,0 +1,81 @@
+{
+  "package_id": "93a17d563a0ccde0d83c022d8fd5bf7ffa52c83c50c2c56fcc7bd126c156e414",
+  "capture": "/tmp/nikke-typed-aim-metal-v2",
+  "passed": false,
+  "first_difference": {
+    "index": 50,
+    "name": "coordinate-typed-aim/adds-first",
+    "reason": "AssertionError: Preserved ordered binary64 aggregate"
+  },
+  "calculation_verified": false,
+  "gpu_retries": 0,
+  "input_count": 59,
+  "native_oracles": 36,
+  "compared_entries": 58,
+  "mismatches": [
+    {
+      "index": 50,
+      "name": "coordinate-typed-aim/adds-first",
+      "reason": "AssertionError: Preserved ordered binary64 aggregate"
+    }
+  ],
+  "input_sha256": "49f8f01aa42aaa31da9ab24cc249e1a760af4f85f663328aadcd8aa449653c83",
+  "output_sha256": "af9005088ab6d4e18a5b28bec25226a73e494533cbe2df62e66fe3125db2df31",
+  "transport": {
+    "backend": "metal",
+    "cases": 59,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 3.835494249826297,
+    "input_bytes": 27300484,
+    "library_compile_seconds": 1.9155529737472534,
+    "output_bytes": 479552000,
+    "pipeline_cache": {
+      "archive_bytes": 9227136,
+      "archive_compile_seconds": 93.53147304058075,
+      "archive_sha256": "c64f586ba78a80d7dc9d5fcf891adfd0c771c6775e03721308122d4a21db6a24",
+      "enabled": true,
+      "hit": false,
+      "identity": {
+        "consumer_sha256": "272e3dc37e0a5710e274f5ab64d9d4eaf7b280ab523ac9bbbff3d2b57f406c3b",
+        "device": "Apple M5",
+        "entry": "portableEvents",
+        "math_mode": "safe",
+        "os_build": "Version 26.6.2 (Build 25G83)",
+        "registry_id": "4294968313",
+        "resident_stride": "138952",
+        "schema": "1",
+        "source_sha256": "c1bdef53b16af061428c05582b83152194f5d8f0325813f4f9c0ec2cae7838a4",
+        "threads_per_threadgroup": "1"
+      },
+      "key": "2b4a3abab50e6e1c055e8994bed07da57ac87679dbba9b919ecf239b6e88671f",
+      "native_archive_miss_rejected": true,
+      "required": false,
+      "schema": 1
+    },
+    "pipeline_compile_seconds": 93.5323760509491,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "pipeline_os_build": "Version 26.6.2 (Build 25G83)",
+    "registry_id": "4294968313",
+    "runtime_buffer_bytes": 8198168,
+    "runtime_element_capacity": 59,
+    "runtime_physical_stride_verified": true,
+    "runtime_stride_bytes": 138952,
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 35,
+    "fresh_native_cases": 0,
+    "rejection_cases": 23,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 35
+  },
+  "comparison_sha256": "94d5765f2d151216a7e8f6f9a7944414488920b36a1c0fe835db9ead79bf4bf7"
+}

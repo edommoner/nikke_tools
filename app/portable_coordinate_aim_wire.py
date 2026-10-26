@@ -21,8 +21,8 @@ def check_schema(root=None):
     assert LAYOUT['BASE_INPUT']==core_words and LAYOUT['HEADER']+LAYOUT['ROWS']*LAYOUT['ROW_WORDS']==LAYOUT['SEQUENCE']
     assert LAYOUT['SEQUENCE']+LAYOUT['SEQUENCES']*4==LAYOUT['INPUT']
 
-def pack(case,descriptors,meta):
-    ir=compile_aim(case,descriptors,names=meta['names']);w=[0]*LAYOUT['INPUT']
+def pack(case,descriptors,meta,*,typed_targets=None):
+    ir=compile_aim(case,descriptors,names=meta['names'],typed_targets=typed_targets);w=[0]*LAYOUT['INPUT']
     w[:3]=[LAYOUT['MAGIC'],1,ir['mode']]
     for who,owner in enumerate(ir['owners']):
         w[8+who]=len(owner['entries'])

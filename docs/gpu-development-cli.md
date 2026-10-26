@@ -1,3 +1,5 @@
+`coordinate-typed-aim` はsealed59入力（native36／拒否23）。型付きframe照準・手動・ADD優先・元の実FB追従を同じCUDA／Metal consumerへ接続し、M5実出力とfresh独立監査で全一致。`package --suite coordinate-typed-aim` と `arena-check --profile coordinate-typed-aim-v1` を使います。現在CUDA／論理current-enemy recipient／ゲーム規則／全キャラ認定は未完です。[範囲と証拠](portable-coordinate-typed-aim.md)。
+
 `reference --suite coordinate-typed-aim-common --out UNIQUE.json` は型付き対象のframe照準契約7件（正例6／未対応拒否1）を検査します。CPU専用で、GPU wireはまだ拒否します。[照準契約と次の共有consumer](portable-coordinate-typed-aim.md)。
 
 `coordinate-typed-weapon` はsealed46入力（native29／拒17）。元の通常射撃をtyped対象へ接続し、M5 Metalと独立監査で一致しました。`package --suite coordinate-typed-weapon` を使い、compactはまだ指定しません。CPU観測は全指紋を保持して約2.58倍に短縮。`arena-check --profile coordinate-typed-weapon-v1` で同じbank配置を確認できます。現CUDA／typed auto aim／全キャラは未完です。[範囲と検証記録](portable-coordinate-typed-weapon.md)。

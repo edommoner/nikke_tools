@@ -37,6 +37,7 @@ class TypedCoordinateAim:
             if effect.get('target') in CURRENT_TARGETS:raise ValueError('Typed aim logical enemy recipient requires its own actor policy')
     def validate_namespace(self,boss):
         for binding in boss._nikke_typed_world.bindings:
+            if binding.label in ('__enemy__','__enemy__:*'):raise ValueError('Typed aim label cannot alias logical enemy')
             if binding.label=='core' or binding.label in boss.target_kinds:raise ValueError('Typed aim label cannot alias canonical core/target')
     def accepts_name(self,boss,label):
         world=getattr(boss,'_nikke_typed_world',None)
@@ -69,7 +70,7 @@ class TypedCoordinateAim:
             slot,handle=typed[id(g)];candidates.append(dict(label=g.name,slot=slot,handle=[int(handle.kind),handle.identity,handle.generation],point=[g.shape.x,g.shape.y],key=list(rank)))
         self.owner=boss;self.time=t;self.base=base;self.proxy=proxy;self.candidate=candidates[0]['label'] if candidates else ''
         boss.geom=proxy;enemy[timeline.GEOM_KEY]=proxy
-        self.data['coordinate_typed_aim_frames'].append(dict(time=t,candidate=self.candidate,candidates=candidates,canonical_auto=list(base.auto_aim),canonical_must_break=list(base.must_break)))
+        self.data['coordinate_typed_aim_frames'].append(dict(time=t,candidate=self.candidate,candidates=candidates,canonical_auto=list(base.auto_aim),canonical_must_break=list(base.must_break),canonical_has_adds=bool(boss.has_adds)))
     def choose(self,boss,original):
         if self.owner is not boss:raise ValueError('Typed candidate read before its frame capture')
         return original or self.candidate

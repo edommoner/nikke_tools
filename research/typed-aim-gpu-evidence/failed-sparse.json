@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-typed-aim-metal-v2",
+  "raw_bytes": 479552000,
+  "raw_sha256": "af9005088ab6d4e18a5b28bec25226a73e494533cbe2df62e66fe3125db2df31",
+  "evidence_sha256": "5cb8c6ac3b47cc1b66dbf1266c1d069bc7605be907de9b5ff738e12a33e58e8e",
+  "raw_inode": 511688874,
+  "scan_block_bytes": 65536,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 819,
+  "zero_range_bytes": 387514368,
+  "allocated_before": 479555584,
+  "allocated_after": 92041216,
+  "allocated_reclaimed": 387514368,
+  "full_hash_verified": true
+}

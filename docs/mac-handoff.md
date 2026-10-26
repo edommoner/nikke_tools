@@ -2326,3 +2326,18 @@ dev `/tmp/nikke-coordinate-typed-develop-v2`（f1b700f2…）、M5 `/tmp/nikke-c
 最終CPU package `/tmp/nikke-typed-aim-cpu-v3`（620ab20e…）。全7契約30.986秒、関連unit6件32.980秒、制御49group成功。既存46/native29のCPU回帰106.740秒・関連74成功、全入力byte/golden保持。v2→v3は新CPU照準の報告・分類・テストのみ4file差分、既存producer/compiler/comparator不変をreceiptへ固定。358 Slang・正本/数値/cache等8保護fileが前Metal最終packageと全byte一致。新GPU0、旧Metal46の成功を自動照準成功とは数えない。
 
 次は共有wire/consumerへ接続。BODY0/canonical1..127/core128を保持してtyped129..256、focusの8bit packingを専用profileで9bit×5へ更新する必要がある。slot容量削減/alias禁止。frame候補固定・元timed skill/調停順・前frame照準queriesを保持。現在compilerは新policyを明示拒否し、current-enemy recipient規則は未対応のまま。classification reference_model_gap／全キャラ0／UI CPU／目標未達。Windows idle送信を再試行したがactive turn不足で拒否、開始未確認・新規検証0。
+
+
+## 2026-10-26 型付きframe照準の共通GPU consumer
+
+最新sealed `coordinate-typed-aim`59（native36／拒23）。`docs/portable-coordinate-typed-aim.md` と `research/portable-coordinate-typed-aim-gpu-checkpoint.json`。旧46をすべて保持し、CPU正例6と全128slotを使う手動最終slotを追加。型付き候補をframe開始時に固定し、元の手動／camera／実FB追従を共通Slangへ接続。BODY0／canonical1..127／core128／typed129..256／内部ADD257、専用focusは9bit×5owner。手動wireの257／未宣言／範囲外とフラグ不整合を拒否。ordinary skill geometry/cache、元の完全編成・定義／所有者／順序／武器／成長を維持。
+
+初package作成は準備済み入力を再準備する契約のKeyErrorを検出し、raw／prepared両方を扱うよう修正。GPU0。初Metal試行はsandboxでdevice不可視・CPU/GPU前に停止、claim未消費。アクセス可能な環境の実初版 `/tmp/nikke-typed-aim-metal-v2` は58一致／ADD優先1差分。focus有効時に旧論理ADD sentinel0をBODY0として読んでいたため、専用257と物理recipient decoder・比較器を同時に更新。旧GPU結果／claimを保持した。
+
+修正版dev `/tmp/nikke-typed-aim-gpu-develop-v3`（884ef54a…）、capture `/tmp/nikke-typed-aim-metal-v3` は全59一致。GPU3.877019秒／新PSO93.967664秒、生成cache必須hit・追加Slang0。別GPU禁止childの全59 fresh独立監査172.055948秒、live parent receiptなし。実GPU計2（失敗1／成功1）・retry0。修正前後59のnative全指紋保持、入力変更は境界の期限だけindex52、実readbackの変更はADD index50のみで他58全word一致。元の旧46全373888000byteも保存結果と完全一致。実最終focus ID256を確認、candidate世代／ID／stream digest／9bit focus／未使用tail／全照準frame digestの6破損をすべて拒否。
+
+最終 `/tmp/nikke-typed-aim-final-v1.zip`（36acee7f…）は論理BODY／ADD名をtyped labelへ使えない追加拒否guard・seal登録・分類を反映。3guard行を除くと実行版のCPU producer全byte保持、全CLI関数ASTとGPU／数値／transport完全一致。最終CPU-only全59/native36は137.954392秒で成功、関連78／制御488成功（Win専用1skip）。全59 input/source/native・payload byteを実行版へ固定し、新GPU0。最終generation必須hit・Slang0、sealed CUDA/MSL生成物一致。PSO archive作成を現在CUDA compile/cacheや新shaderのwarm load成功へ流用しないこと。
+
+入力115680／出力2032000word、Runtime138952byte不変。typed tail220224から544wordだけをframe候補へ割当、既存物理history／overflow／DFS所有を保持。`arena-check --profile coordinate-typed-aim-v1` で監査。全reader完了後、初失敗／成功rawをSHA/size/inode保持で疎化し、計775028736byte回収、raw／claim削除0。新しいmanifest外bytecodeの大掃除は行わない。
+
+今回の自動照準は明示typed-before-body-v1の私有モデル。分類にはscoped GPU証拠だけを追加し、ゲーム仕様reference_model_gap／全キャラ0／UI CPUを維持。次は元Rei `enemies_nearest_in_range` 等のcurrent-enemy recipientとtyped owner規則を、元定義を落とさず接続。移動形状・他caller／variant、19packing失敗・残るモデル、現CUDA／warm cache・公開GPU／全キャラも未完。Windows新規GPU依頼0。idle送信APIのactive turn不足が既知なので、重複runを送らない。

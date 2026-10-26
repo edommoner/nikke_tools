@@ -6,7 +6,8 @@ from world_coordinate_typed_weapon_native import observe as weapons
 from world_destructible_weapon_roster_native import capture_typed
 
 def observe(row):
-    case,_=prepare(row);case['python_observers_only']=True
+    case=row if 'original_run' in row else prepare(row)[0]
+    case['python_observers_only']=True
     s=importlib.util.spec_from_file_location('typed_aim_original_observer',Path(__file__).with_name('verify-coordinate-original-short.py'));original=importlib.util.module_from_spec(s);s.loader.exec_module(original)
     def owner(c):
         n=original.native_reference((c,{},(),{}));return n,n['skill_trace']

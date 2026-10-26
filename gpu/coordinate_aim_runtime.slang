@@ -7,6 +7,10 @@ void coordinateDefaultAim(inout Runtime s,out uint64_t ax,out uint64_t ay)
 bool coordinateAimCenter(inout Runtime s,uint slot,out uint64_t ax,out uint64_t ay)
 {
     ax=0;ay=0;
+#ifdef PORTABLE_COORDINATE_TYPED_AIM
+    if(slot==257&&typedAimEnabled(s)){coordinateDefaultAim(s,ax,ay);return true;}
+    if(slot>=129)return typedAimCenter(s,slot,ax,ay);
+#endif
     if(slot==128){if(results[gcHead(s)+2]!=0){ax=actorNumber(gcSig(s)+4);ay=actorNumber(gcSig(s)+6);return f64Less(0,actorNumber(gcSig(s)+8));}uint64_t d,x=0,y=0;coordinateCoreGeometry(s,x,y,ax,ay,d);return f64Less(0,d);}
     uint frame=s.resourceOutput+CP_FRAME;
     for(uint i=0;i<results[frame+2];i++)if(results[frame+8+i*4]==slot)
@@ -14,7 +18,11 @@ bool coordinateAimCenter(inout Runtime s,uint slot,out uint64_t ax,out uint64_t 
     return false;
 }
 bool coordinateAimMustBreak(inout Runtime s,uint slot)
-{return slot!=128&&(commands[actorBinding(s,slot)]==6||commands[actorPoolDef(s,slot)+11]!=0&&f64Less(0,loadNumber(actorPoolDef(s,slot)+2)));}
+{
+#ifdef PORTABLE_COORDINATE_TYPED_AIM
+ if(slot>=129)return false;
+#endif
+ return slot!=128&&(commands[actorBinding(s,slot)]==6||commands[actorPoolDef(s,slot)+11]!=0&&f64Less(0,loadNumber(actorPoolDef(s,slot)+2)));}
 uint64_t coordinateAimReloadTotal(inout Runtime s,uint who,uint64_t when)
 {
     Weapon w;w.reloadTime=s.reloadTime[who];
@@ -90,10 +98,23 @@ void coordinateCaptureAims(inout Runtime s,uint64_t when)
         for(uint slot=1;slot<actorPoolCount(s);slot++)
         {uint64_t x,y;if(coordinateAimMustBreak(s,slot)&&coordinateAimCenter(s,slot,x,y)){if(lead==0||commands[actorBinding(s,slot)]==6&&commands[actorBinding(s,lead)]!=6)lead=slot;}}
     }
+    uint rest=0;
+#ifdef PORTABLE_COORDINATE_TYPED_AIM
+    if(typedAimEnabled(s))
+    {
+        // ADD is a logical auto point, never a typed shape center.
+        bool adds=typedAimHasAdds(s);
+        if(adds){rest=257;if(lead==0||commands[actorBinding(s,lead)]!=6)lead=257;}
+        else {rest=typedAimCandidate(s);if(lead==0)lead=rest;}
+    }
+#endif
     uint targets[5];uint64_t xs[5],ys[5];
     for(uint who=0;who<5;who++)
     {
-        targets[who]=0;coordinateDefaultAim(s,xs[who],ys[who]);
+        targets[who]=rest;coordinateDefaultAim(s,xs[who],ys[who]);
+#ifdef PORTABLE_COORDINATE_TYPED_AIM
+        if(rest!=0)coordinateAimCenter(s,rest,xs[who],ys[who]);
+#endif
         if((camera&(1U<<who))!=0&&lead!=0){targets[who]=lead;coordinateAimCenter(s,lead,xs[who],ys[who]);}
         uint pick=controlOwns(s,who)?coordinateAimPick(s,who,when):8;
         if(pick!=8){targets[who]=commands[ciRow(s,who,pick)];coordinateAimCenter(s,targets[who],xs[who],ys[who]);}
@@ -105,7 +126,13 @@ void coordinateCaptureAims(inout Runtime s,uint64_t when)
     }
     if(focusAimEnabled(s))
     {uint f=s.resourceOutput+P_FOCUS_STATE_BASE,mask=0;uint64_t packed=0;
-     for(uint who=0;who<5;who++){packed|=uint64_t(targets[who])<<(8*who);if((camera&(1U<<who))!=0||s.phase==5||liveMarker(s,who,S_focus_fire,when))mask|=1U<<who;}
+     for(uint who=0;who<5;who++){packed|=uint64_t(targets[who])<<(
+#ifdef PORTABLE_COORDINATE_TYPED_AIM
+     (typedAimEnabled(s)?9U:8U)*who
+#else
+     8*who
+#endif
+     );if((camera&(1U<<who))!=0||s.phase==5||liveMarker(s,who,S_focus_fire,when))mask|=1U<<who;}
      storeNumber(f,packed);results[f+2]=camera;results[f+3]=uint(s.phase==5);results[f+4]++;results[f+5]=mask;results[f+6]=0x46414331U;}
     uint h=ciHead(s);results[h+2]=1;results[h+3]++;
     ciHash(s,uint(when));ciHash(s,uint(when>>32));ciHash(s,results[controlHead(s)+2]);ciHash(s,camera);ciHash(s,uint(s.phase==5));ciHash(s,s.gaugeCharging);ciHash(s,s.castMask);
@@ -143,7 +170,11 @@ bool initializeCoordinateAim(inout Runtime s)
         {
             uint r=ciRow(s,who,i);if(i>=n){for(uint j=0;j<16;j++)if(commands[r+j]!=0)return false;continue;}
             uint slot=commands[r],kind=commands[r+2],code=commands[r+3];
-            if(slot==0||slot!=128&&slot>=actorPoolCount(s)||commands[r+1]>100||kind>1||code>(kind==0?3U:4U)||commands[r+4]>3||commands[r+5]>31||commands[r+4]==0&&commands[r+5]!=0||commands[r+7]>1)return false;
+            if(slot==0||slot!=128&&slot>=actorPoolCount(s)
+#ifdef PORTABLE_COORDINATE_TYPED_AIM
+               &&!typedAimValidSlot(s,slot)
+#endif
+               ||commands[r+1]>100||kind>1||code>(kind==0?3U:4U)||commands[r+4]>3||commands[r+5]>31||commands[r+4]==0&&commands[r+5]!=0||commands[r+7]>1)return false;
             for(uint j=12;j<16;j++)if(commands[r+j]!=0)return false;
             if(kind==0){for(uint j=6;j<12;j++)if(commands[r+j]!=0)return false;}
             else if(!f64Finite(loadNumber(r+8))||f64Less(f64FromI64(180),f64Abs(loadNumber(r+8)))||!f64Finite(loadNumber(r+10))||!f64Less(0,loadNumber(r+10))||f64Less(f64FromI64(180),loadNumber(r+10))||code!=4&&commands[r+6]!=0xffffffffU)return false;

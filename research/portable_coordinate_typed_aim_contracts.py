@@ -1,7 +1,7 @@
 """Frame candidates, real arbitration, shot aim and explicit unsupported selectors."""
 def verify(row,native):
     from portable_coordinate_typed_weapon_cases import prepare
-    case,_=prepare(row)
+    case=row if 'original_run' in row else prepare(row)[0]
     if case.get('expect_reference_gap'):
         assert native['reference_model_gap'] and native['blocked_before_first_frame']
         assert native['unhandled_selector']==case['expect_reference_gap']

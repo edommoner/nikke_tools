@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "execution_package_id": "884ef54af1dd1bdf3cc5da29067cbe595f2154602506abf7cba5cb080e14683f",
+  "final_package_id": "36acee7f37ed722a54ea6a4a4dc6de3996855aecdd799663aedea4d6b466ed57",
+  "payload_files_verified": 3441,
+  "existing_payload_files_exact": 3434,
+  "changed_files": [
+    "app/coordinate_typed_aim_runtime.py",
+    "app/portable_coordinate_aim_specs.py",
+    "app/portable_coordinate_typed_input.py",
+    "app/portable_readiness_semantics.py",
+    "scripts/nikke_gpu.py",
+    "tests/test_coordinate_typed_aim_gpu.py"
+  ],
+  "added_files": [
+    "research/portable-coordinate-typed-aim-short-expected.json"
+  ],
+  "reject_only_guards_exact": [
+    "app/coordinate_typed_aim_runtime.py",
+    "app/portable_coordinate_aim_specs.py",
+    "app/portable_coordinate_typed_input.py"
+  ],
+  "valid_domains_disjoint_from_reserved_names": true,
+  "all_cli_functions_ast_exact": true,
+  "all59_input_source_native_fingerprints_exact": true,
+  "input_bytes": 27300484,
+  "protected_files_exact": [
+    "app/detail_gpu.py",
+    "app/engine_worker.py",
+    "app/effect_spec.py",
+    "app/engine_compat.py",
+    "gpu/binary64.slang",
+    "gpu/core_probability.slang",
+    "research/summarize-portable-cross-gpu.py",
+    "app/portable_compile_cache.py"
+  ],
+  "new_gpu_calls": 0,
+  "scope": "Final namespace rejection, seal registration, readiness metadata and tests; GPU source/transport/numeric code exact. Final CPU-only preflight recorded separately."
+}

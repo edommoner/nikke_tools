@@ -9,7 +9,7 @@ SOURCE='gpu/world_coordinate_original_entry.slang'
 INPUT_WORDS=109968
 OUTPUT_WORDS=1769856
 
-def compile_coordinate_battle(prepared):
+def compile_coordinate_battle(prepared,*,typed_aim_targets=None):
     from portable_world_roster_input import compile_world_battle
     from portable_projectile_specs import finalize_program
     from portable_coordinate_scene_specs import compile_scene,LAYOUT as C
@@ -50,7 +50,7 @@ def compile_coordinate_battle(prepared):
     with compiler_policy():area=compile_area(area_case,desc,explosion_ranges=[c['_weapon'].get('spot_explosion_range') for c in chars])
     words += [0x41475331,2,owners,1,0,0,0,0]+scene+area+compile_core(case,desc['patterns'])
     if len(words)!=108792:raise ValueError('Original coordinate core stride changed')
-    words+=pack_aim(case,desc,meta)
+    words+=pack_aim(case,desc,meta,typed_targets=typed_aim_targets)
     policy_chars=copy.deepcopy(chars)
     for c in policy_chars:c.get('control',{}).pop('burst',None)
     policy=pack_cover(cover_normalize(policy_chars,prepared['base_atk'],enemy),names,meta['states']);words+=policy
@@ -61,7 +61,7 @@ def compile_coordinate_battle(prepared):
     seed=normalize_seed(prepared['policies']['seed']);words[META_BASE+1:META_BASE+3]=[seed&0xffffffff,seed>>32];meta['enemy_targeting']['seed']=seed
     if len(words)!=INPUT_WORDS:raise ValueError('Original complete coordinate stride changed')
     if set(meta['binding_source_indices'])!=set(range(len(prepared['effects']))):raise ValueError('Original definition coverage is incomplete')
-    if any(c.get('aim') for c in case['controls']):words[L['WORLD_META_BASE']+4]=0x46414330|int(bool(cfg.get('aim_interrupt')))
+    if typed_aim_targets is not None or any(c.get('aim') for c in case['controls']):words[L['WORLD_META_BASE']+4]=0x46414330|int(bool(cfg.get('aim_interrupt')))
     meta['coordinate_original_input']=dict(all_effects_included=True,prepared_definitions=len(prepared['effects']),bound_definitions=len(meta['effects']),policy_mask=policy[2],original_weapon_metadata_preserved=True,original_controls_preserved=True,cpu_battle_executed=False,reference_kind='deterministic-common-cpu',physical_rng='sampled',definitions_sha256=hashlib.sha256(json.dumps(prepared['effects'],ensure_ascii=False,sort_keys=True).encode()).hexdigest())
     if owners:meta['coordinate_original_input']['group_owners']=owners
     return words,meta,bindings,desc

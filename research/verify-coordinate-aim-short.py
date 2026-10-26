@@ -49,6 +49,8 @@ def compare_aim(block,domain,observed):
     # The logical-enemy sentinel denotes the geometric auto point, not an ADD
     # handle. Actual BODY/ADD routing is checked separately by group receipts.
     slots={r['label']:r['slot'] for r in domain[3]['rows']};slots.update({'':0,'core':128,'__enemy__:*':0})
+    slots.update(domain[3].get('typed_aim_slots',{}))
+    if domain[3].get('typed_aim_add_slot'):slots['__enemy__:*']=domain[3]['typed_aim_add_slot']
     h=A['STATE'];frames=observed['frames'];a=0xcbf29ce484222325;b=0x84222325cbf29ce4;mask=(1<<64)-1
     for f in frames:
         words=[*struct.unpack('<II',struct.pack('<d',f['time'])),f['owner']+1,f['camera_mask'],int(f['full_burst']),int(f['charging']),f['cast_mask']]

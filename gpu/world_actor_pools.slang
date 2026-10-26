@@ -182,6 +182,16 @@ uint actorPhysicalTarget(inout Runtime s,uint who,uint legacy)
     if(focusAimEnabled(s) && results[s.resourceOutput+P_FOCUS_STATE_BASE+6]==0x46414331U)
     {
         uint slot=uint(actorNumber(s.resourceOutput+P_FOCUS_STATE_BASE)>>(8*who))&255U;
+#ifdef PORTABLE_COORDINATE_TYPED_AIM
+        if(typedAimEnabled(s))
+        {
+            slot=uint(actorNumber(s.resourceOutput+P_FOCUS_STATE_BASE)>>(9*who))&511U;
+            // Typed physical packets route through their own sampled consumer.
+            // Their aim identity cannot index the canonical actor pool.
+            if(slot==257)return ACTOR_REF|focusFirstAdd(s);
+            if(slot>=128)return ACTOR_REF;
+        }
+#endif
         return ACTOR_REF|(slot==128 ? focusFirstAdd(s) : slot);
     }
     uint slot=0,order=0xffffffffU;

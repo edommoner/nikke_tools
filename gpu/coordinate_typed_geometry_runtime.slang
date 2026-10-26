@@ -17,6 +17,9 @@ bool validTypedGeometry(inout Runtime s)
 #ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
         if(i==13&&commands[p+i]==1&&commands[p+11]==1&&f64Zero(cNumber(p+8)))continue;
 #endif
+#ifdef PORTABLE_COORDINATE_TYPED_AIM
+        if(i==14&&commands[p+i]==1&&commands[p+13]==1)continue;
+#endif
         return false;
     }
     for(uint slot=0;slot<128;slot++)

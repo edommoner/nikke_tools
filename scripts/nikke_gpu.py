@@ -411,6 +411,8 @@ SUITES['coordinate-typed-live-aim']=dict(SUITES['coordinate-typed-geometry'],scr
 SUITES['coordinate-typed-live-aim']['tests']=[*SUITES['coordinate-typed-live-aim']['tests'],'test_coordinate_typed_weapon.py']
 SUITES['coordinate-typed-weapon']=dict(SUITES['coordinate-typed-live-aim'],script='research/verify-coordinate-typed-weapon-short.py',source='gpu/world_coordinate_typed_weapon_entry.slang',golden='research/portable-coordinate-typed-weapon-short-expected.json',inputs=46,native=29,development_only=False)
 SUITES['coordinate-typed-weapon']['tests']=[*SUITES['coordinate-typed-weapon']['tests'],'test_coordinate_typed_weapon_gpu.py','test_native_python_profile.py']
+SUITES['coordinate-typed-aim']=dict(SUITES['coordinate-typed-weapon'],script='research/verify-coordinate-typed-aim-short.py',source='gpu/world_coordinate_typed_aim_entry.slang',golden='research/portable-coordinate-typed-aim-short-expected.json',inputs=59,native=36,development_only=False)
+SUITES['coordinate-typed-aim']['tests']=[*SUITES['coordinate-typed-aim']['tests'],'test_coordinate_typed_aim_gpu.py']
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -3053,6 +3055,10 @@ def main(argv=None):
             from portable_coordinate_typed_specs import check_layout,SOURCE
             from portable_backend import source_hashes
             result.update(typed_layout=check_layout(ROOT),typed_consumer_source_sha256=source_hashes(SOURCE))
+        if a.profile=='coordinate-typed-aim-v1':
+            from portable_coordinate_typed_aim_specs import check_layout,SOURCE
+            from portable_backend import source_hashes
+            result.update(typed_aim_layout=check_layout(ROOT),typed_aim_consumer_source_sha256=source_hashes(SOURCE))
         if a.profile=='coordinate-typed-weapon-v1':
             from portable_coordinate_typed_weapon_specs import check_layout,SOURCE
             from portable_backend import source_hashes

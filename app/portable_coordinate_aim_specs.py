@@ -12,7 +12,7 @@ ANCHORS = ('combat_start', 'fb_end', 'own_fb_end', 'next_fb_start', 'own_buff_en
 CAPACITY_PER_OWNER = 8
 
 
-def compile_aim(case, descriptors, *, names):
+def compile_aim(case, descriptors, *, names, typed_targets=None):
     from calculator import timeline
     from calculator.boss_pattern import coord_spec
     if len(names) != 5 or len(set(names)) != 5:
@@ -30,6 +30,10 @@ def compile_aim(case, descriptors, *, names):
     slots = list(targets.values())
     if len(slots) != len(set(slots)) or any(type(s) is not int or not 1 <= s <= 127 for s in slots):
         raise ValueError('Distinct non-body coordinate target slots required')
+    if typed_targets is not None:
+        if isinstance(typed_targets,dict) and set(typed_targets)&{'__enemy__','__enemy__:*'}:raise ValueError('Typed aim label cannot alias logical enemy')
+        if not isinstance(typed_targets,dict) or set(typed_targets)&set(targets) or 'core' in typed_targets or any(not isinstance(k,str) or not k or type(v) is not int or not 129<=v<=256 for k,v in typed_targets.items()) or len(set(typed_targets.values()))!=len(typed_targets):raise ValueError('Distinct declared typed aim slots 129..256 required')
+        targets.update(typed_targets)
     owners = []
     for who, control in enumerate(controls):
         timeline.validate_control(control, names[who])
