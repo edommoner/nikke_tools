@@ -1,0 +1,895 @@
+{
+  "schema": "landing-current-v4-compile-resource-report",
+  "distribution": {
+    "distribution_commit": "0bf55b5f76b3d5595d590c7fe9418974076e2d81",
+    "archive_bytes": 9181745,
+    "archive_sha256": "e804853aed8f57142b83b240317710bb179452ad7ec8863176998846f8dd443b",
+    "package_id": "696e3194ade89645e4c218f071c80793be6023525474b317ae3258d82d152f7c",
+    "archive_members": 2067,
+    "safe_paths_verified": true,
+    "metadata_path": "research/windows-source-packets/coordinate-landing-arena-current-v4.json"
+  },
+  "package_verification": {
+    "passed": true,
+    "package_id": "696e3194ade89645e4c218f071c80793be6023525474b317ae3258d82d152f7c",
+    "suite": "coordinate-landing-arena",
+    "manifest_files": 2066,
+    "payload_bytes": 57597134,
+    "gpu_calls": 0
+  },
+  "execution_permission": "require_escalated for dependency, smoke, compile and offline-resource stages",
+  "configuration": {
+    "python": "Existing base Python 3.12.14",
+    "slang": "Existing Slang 2026.20",
+    "cuda": "Existing isolated NVRTC 12.4",
+    "artifact": "cubin",
+    "ptxas_level": 1,
+    "compile_cache": "<EXISTING_COORDINATE_LANDING_CURRENT_V4_COMPILE_CACHE>",
+    "generation_cache": false,
+    "original_workspace": "<ORIGINAL_WORKSPACE>",
+    "package_cwd": "<NEW_ISOLATED_PACKAGE>",
+    "memory_limit_bytes": 2147483648,
+    "compile_timeout_seconds": 60,
+    "other_stage_timeout_seconds": 30
+  },
+  "dependency_check": {
+    "schema": 1,
+    "passed": true,
+    "dependencies": [
+      {
+        "distribution": "gmpy2",
+        "module": "gmpy2",
+        "required_version": "2.2.1",
+        "passed": true,
+        "installed_version": "2.2.1",
+        "importable": true,
+        "module_path": "<PRIVATE_GMPY2_DEPENDENCIES>/gmpy2/__init__.py",
+        "loaded_version": "2.2.1",
+        "mpfr_version": "MPFR 4.2.1"
+      }
+    ],
+    "requirements_file": "requirements-validation.txt",
+    "installation_performed": false,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "scope": "Selected validation tests only; package metadata and import availability, not GPU or numerical correctness",
+    "suite": "coordinate-landing-arena",
+    "package_id": "696e3194ade89645e4c218f071c80793be6023525474b317ae3258d82d152f7c"
+  },
+  "job_smoke": {
+    "smoke_verified": true,
+    "native_output_probe_verified": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "scope": "Packet run_job --smoke and audit_native_smoke; no numerical tests"
+  },
+  "native_job_smoke": {
+    "python_sha256": "dea78bb78043f0d53ef4a475f85fa0312b90fa93c136a0686d17946781c60e16",
+    "script_sha256": "721bb96c6f55873129ba41a60b2d8c56823fc5e9a28baf7dd812e5a9fd4ab3ea",
+    "return_code": 0,
+    "elapsed_seconds": 0.13588960003107786,
+    "gpu_calls": 0
+  },
+  "compile_result": {
+    "mode": "compile-only",
+    "compiler_verified": true,
+    "passed": false,
+    "containment_verified": true,
+    "preservation_verified": false,
+    "calculation_verified": false,
+    "gpu_calls": 0,
+    "driver_load_calls": 0,
+    "phase": {
+      "events": 25,
+      "last_event": {
+        "elapsed_seconds": 4.1607193,
+        "monotonic_ns": 2880525531000000,
+        "pid": 32080,
+        "stage": "shared_cuda_compile_only",
+        "state": "returned",
+        "wall_time_ns": 1793051113390027200
+      },
+      "timed_calls": [
+        {
+          "stage": "slang_build",
+          "pid": 32080,
+          "state": "returned",
+          "elapsed_seconds": 2.1347657
+        },
+        {
+          "stage": "nvrtcCreateProgram",
+          "pid": 32080,
+          "state": "returned",
+          "elapsed_seconds": 0.0001003
+        },
+        {
+          "stage": "nvrtcCompileProgram",
+          "pid": 32080,
+          "state": "returned",
+          "elapsed_seconds": 3.730478
+        },
+        {
+          "stage": "nvrtcGetProgramLogSize",
+          "pid": 32080,
+          "state": "returned",
+          "elapsed_seconds": 7.1e-06
+        },
+        {
+          "stage": "nvrtcGetProgramLog",
+          "pid": 32080,
+          "state": "returned",
+          "elapsed_seconds": 8.9e-06
+        },
+        {
+          "stage": "nvrtcGetCUBINSize",
+          "pid": 32080,
+          "state": "returned",
+          "elapsed_seconds": 6.5e-06
+        },
+        {
+          "stage": "nvrtcGetCUBIN",
+          "pid": 32080,
+          "state": "returned",
+          "elapsed_seconds": 4.62e-05
+        },
+        {
+          "stage": "nvrtcDestroyProgram",
+          "pid": 32080,
+          "state": "returned",
+          "elapsed_seconds": 2.27e-05
+        },
+        {
+          "stage": "cuda_compile_artifact",
+          "pid": 32080,
+          "state": "returned",
+          "elapsed_seconds": 4.156445
+        },
+        {
+          "stage": "shared_cuda_compile_only",
+          "pid": 32080,
+          "state": "returned",
+          "elapsed_seconds": 4.1607193
+        }
+      ],
+      "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+      "nvrtc_compile_returned_success": true,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_linked_artifact_observed": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "error": null,
+    "gpu_retry_count": 0
+  },
+  "source": {
+    "entry": "gpu/coordinate_landing_arena_probe.slang",
+    "entry_source_sha256": "4069d5a01294e3555db5b030c3d270fcfe2ff0cfffe20bee48056be52f50c641",
+    "source_closure_files": 142,
+    "source_closure_map_sha256": "6ea9343012d29cba24aa9659b290b174792419c51445d7796a5fa868706dcdd7",
+    "generated_sha256": {
+      "cuda": "401cdcbe8ea12d66149885a529e9cd4afbf2c0f381e52d5f44b60c716179931a",
+      "metal": "5bd26c7a29548e3ee90a30fe56b8d6e4dadd0b44adde61dc8d5872d58e7b3bf1"
+    },
+    "generated_normalized": {
+      "cuda": "64055091da834e60a0eadae0e39acec082a08ed94f7609423280dfc4f5fe58ad",
+      "metal": "e0dd088ee49d3d780d3f5c16b79de2ba6ea8be9e1d8b11f9a8b12be4c53774c9"
+    },
+    "matches_sealed_package": true
+  },
+  "compile_artifact": {
+    "enabled": true,
+    "hit": false,
+    "key": "4d0fd1686e9653dc86a07d052cbed81d69aa5727e82d84f04dafd4a46467acde",
+    "artifact_sha256": "9096f45e0c1dfe2abafac736ff2e5bd3ff1525bf017092f4665a282d061de23e",
+    "artifact_bytes": 365392,
+    "identity_metadata": {
+      "schema": 1,
+      "artifact": "cubin",
+      "source_sha256": "401cdcbe8ea12d66149885a529e9cd4afbf2c0f381e52d5f44b60c716179931a",
+      "options": [
+        "--std=c++17",
+        "--gpu-architecture=sm_86",
+        "--fmad=false",
+        "--ptxas-options",
+        "-O1"
+      ],
+      "compiler_files": {
+        "nvrtc-builtins64_124.dll": "79888dba26c51475ea21fc7b47d2b9dd5b1ffaecc8e5ea22a49fa5f5a722eb43",
+        "nvrtc64_120_0.dll": "3aa3cd8aa10437e212760c0e1ed730807811ec3bc330216dbfde4b26211d2243"
+      },
+      "headers": {
+        "slang-cuda-prelude.h": "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
+      },
+      "header_paths_redacted": true,
+      "original_identity_sha256": "4d0fd1686e9653dc86a07d052cbed81d69aa5727e82d84f04dafd4a46467acde",
+      "identity_hash_scope": "Original identity includes local absolute header paths; stored unchanged locally. Shared metadata omits these paths."
+    }
+  },
+  "offline_resources": {
+    "tool": "Existing CUDA v11.3/bin/cuobjdump.exe",
+    "flag": "--dump-resource-usage",
+    "entries": [
+      {
+        "entry": "portableEvents",
+        "register_count": 149,
+        "stack_bytes": 2880,
+        "local_bytes": 0,
+        "shared_bytes": 0
+      }
+    ],
+    "previous_stack_bytes": 199352,
+    "stack_reduction_bytes": 196472,
+    "stack_reduction_percent": 98.5553192343192,
+    "scope": "Static CUBIN resources only; not measured CUDA runtime memory or performance",
+    "stdout_original_bytes": 186,
+    "stdout_original_sha256": "045937ffa46b0dfed05a70ad2b454a43be8f41483f4d797f8c74fb8b625066e5",
+    "stdout_original_base64": "DQpSZXNvdXJjZSB1c2FnZToNCiBDb21tb246DQogIEdMT0JBTDoyMDIgQ09OU1RBTlRbM106MzIgQ09OU1RBTlRbNF06ODAwDQogRnVuY3Rpb24gcG9ydGFibGVFdmVudHM6DQogIFJFRzoxNDkgU1RBQ0s6Mjg4MCBTSEFSRUQ6MCBMT0NBTDowIENPTlNUQU5UWzBdOjM1MiBURVhUVVJFOjAgU1VSRkFDRTowIFNBTVBMRVI6MA0K"
+  },
+  "executions": {
+    "deps-cli/execution.json": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "elapsed_seconds": 8.284412999637425,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793051063792236600,
+      "below_normal_priority": true,
+      "phase": {
+        "events": 0,
+        "last_event": null,
+        "timed_calls": [],
+        "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+        "nvrtc_compile_returned_success": false,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_linked_artifact_observed": false,
+        "cuda_launch_returned_success": false,
+        "cuda_synchronize_returned_success": false,
+        "cuda_readback_returned_success": false,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    },
+    "smoke-cli/execution.json": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "elapsed_seconds": 5.110538200009614,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793051079269198200,
+      "below_normal_priority": true,
+      "phase": {
+        "events": 0,
+        "last_event": null,
+        "timed_calls": [],
+        "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+        "nvrtc_compile_returned_success": false,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_linked_artifact_observed": false,
+        "cuda_launch_returned_success": false,
+        "cuda_synchronize_returned_success": false,
+        "cuda_readback_returned_success": false,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    },
+    "smoke/execution.json": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "elapsed_seconds": 4.613781599793583,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793051077084138700,
+      "below_normal_priority": true,
+      "phase": {
+        "events": 0,
+        "last_event": null,
+        "timed_calls": [],
+        "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+        "nvrtc_compile_returned_success": false,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_linked_artifact_observed": false,
+        "cuda_launch_returned_success": false,
+        "cuda_synchronize_returned_success": false,
+        "cuda_readback_returned_success": false,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    },
+    "compile-cli/execution.json": {
+      "passed": false,
+      "timed_out": false,
+      "timeout_seconds": 60,
+      "elapsed_seconds": 27.16377650015056,
+      "child_exit_code": 2,
+      "final_child_exit_code": 2,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793051115852752800,
+      "below_normal_priority": true,
+      "phase": {
+        "events": 0,
+        "last_event": null,
+        "timed_calls": [],
+        "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+        "nvrtc_compile_returned_success": false,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_linked_artifact_observed": false,
+        "cuda_launch_returned_success": false,
+        "cuda_synchronize_returned_success": false,
+        "cuda_readback_returned_success": false,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    },
+    "compile/execution.json": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 60,
+      "elapsed_seconds": 18.67079810006544,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793051113461077000,
+      "below_normal_priority": true,
+      "phase": {
+        "events": 25,
+        "last_event": {
+          "elapsed_seconds": 4.1607193,
+          "monotonic_ns": 2880525531000000,
+          "pid": 32080,
+          "stage": "shared_cuda_compile_only",
+          "state": "returned",
+          "wall_time_ns": 1793051113390027200
+        },
+        "timed_calls": [
+          {
+            "stage": "slang_build",
+            "pid": 32080,
+            "state": "returned",
+            "elapsed_seconds": 2.1347657
+          },
+          {
+            "stage": "nvrtcCreateProgram",
+            "pid": 32080,
+            "state": "returned",
+            "elapsed_seconds": 0.0001003
+          },
+          {
+            "stage": "nvrtcCompileProgram",
+            "pid": 32080,
+            "state": "returned",
+            "elapsed_seconds": 3.730478
+          },
+          {
+            "stage": "nvrtcGetProgramLogSize",
+            "pid": 32080,
+            "state": "returned",
+            "elapsed_seconds": 7.1e-06
+          },
+          {
+            "stage": "nvrtcGetProgramLog",
+            "pid": 32080,
+            "state": "returned",
+            "elapsed_seconds": 8.9e-06
+          },
+          {
+            "stage": "nvrtcGetCUBINSize",
+            "pid": 32080,
+            "state": "returned",
+            "elapsed_seconds": 6.5e-06
+          },
+          {
+            "stage": "nvrtcGetCUBIN",
+            "pid": 32080,
+            "state": "returned",
+            "elapsed_seconds": 4.62e-05
+          },
+          {
+            "stage": "nvrtcDestroyProgram",
+            "pid": 32080,
+            "state": "returned",
+            "elapsed_seconds": 2.27e-05
+          },
+          {
+            "stage": "cuda_compile_artifact",
+            "pid": 32080,
+            "state": "returned",
+            "elapsed_seconds": 4.156445
+          },
+          {
+            "stage": "shared_cuda_compile_only",
+            "pid": 32080,
+            "state": "returned",
+            "elapsed_seconds": 4.1607193
+          }
+        ],
+        "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+        "nvrtc_compile_returned_success": true,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_linked_artifact_observed": false,
+        "cuda_launch_returned_success": false,
+        "cuda_synchronize_returned_success": false,
+        "cuda_readback_returned_success": false,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    },
+    "resources-cli/execution.json": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "elapsed_seconds": 0.22803490003570914,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793051140059801400,
+      "below_normal_priority": true,
+      "phase": {
+        "events": 0,
+        "last_event": null,
+        "timed_calls": [],
+        "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+        "nvrtc_compile_returned_success": false,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_linked_artifact_observed": false,
+        "cuda_launch_returned_success": false,
+        "cuda_synchronize_returned_success": false,
+        "cuda_readback_returned_success": false,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    }
+  },
+  "job_receipts": {
+    "deps-cli/job.json": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 95200,
+          "wrapper_pid": 49344,
+          "pre_gate": {
+            "child_pid": 95200,
+            "child_ppid": 49344,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793051055547116100,
+            "wrapper_pid": 49344,
+            "child_creation_filetime_ticks": "134375246555117261",
+            "job_members": [
+              95200
+            ],
+            "job_peak_memory_bytes": 5914624,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 95200,
+            "child_ppid": 49344,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793051063790691300,
+            "wrapper_pid": 49344,
+            "child_creation_filetime_ticks": "134375246555117261",
+            "job_members": [],
+            "job_peak_memory_bytes": 38531072,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    },
+    "smoke-cli/job.json": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 83300,
+          "wrapper_pid": 6812,
+          "pre_gate": {
+            "child_pid": 83300,
+            "child_ppid": 6812,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793051074196462800,
+            "wrapper_pid": 6812,
+            "child_creation_filetime_ticks": "134375246741613086",
+            "job_members": [
+              83300
+            ],
+            "job_peak_memory_bytes": 5902336,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 83300,
+            "child_ppid": 6812,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793051079267484100,
+            "wrapper_pid": 6812,
+            "child_creation_filetime_ticks": "134375246741613086",
+            "job_members": [],
+            "job_peak_memory_bytes": 208158720,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    },
+    "smoke/job.json": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 124860,
+          "wrapper_pid": 83300,
+          "pre_gate": {
+            "child_pid": 124860,
+            "child_ppid": 83300,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793051074602643200,
+            "wrapper_pid": 83300,
+            "child_creation_filetime_ticks": "134375246745660639",
+            "job_members": [
+              124860
+            ],
+            "job_peak_memory_bytes": 5926912,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 124860,
+            "child_ppid": 83300,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793051077083633900,
+            "wrapper_pid": 83300,
+            "child_creation_filetime_ticks": "134375246745660639",
+            "job_members": [],
+            "job_peak_memory_bytes": 51400704,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    },
+    "compile-cli/job.json": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 82352,
+          "wrapper_pid": 92748,
+          "pre_gate": {
+            "child_pid": 82352,
+            "child_ppid": 92748,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793051088729425600,
+            "wrapper_pid": 92748,
+            "child_creation_filetime_ticks": "134375246886927639",
+            "job_members": [
+              82352
+            ],
+            "job_peak_memory_bytes": 5873664,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 82352,
+            "child_ppid": 92748,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793051115852752800,
+            "wrapper_pid": 92748,
+            "child_creation_filetime_ticks": "134375246886927639",
+            "job_members": [],
+            "job_peak_memory_bytes": 440975360,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    },
+    "compile/job.json": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 32080,
+          "wrapper_pid": 82352,
+          "pre_gate": {
+            "child_pid": 32080,
+            "child_ppid": 82352,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793051096986292900,
+            "wrapper_pid": 82352,
+            "child_creation_filetime_ticks": "134375246969490577",
+            "job_members": [
+              32080
+            ],
+            "job_peak_memory_bytes": 5869568,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 32080,
+            "child_ppid": 82352,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793051113459503800,
+            "wrapper_pid": 82352,
+            "child_creation_filetime_ticks": "134375246969490577",
+            "job_members": [],
+            "job_peak_memory_bytes": 415764480,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    },
+    "resources-cli/job.json": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 42608,
+          "wrapper_pid": 56792,
+          "pre_gate": {
+            "child_pid": 42608,
+            "child_ppid": 56792,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793051139946349500,
+            "wrapper_pid": 56792,
+            "child_creation_filetime_ticks": "134375247399084828",
+            "job_members": [
+              42608
+            ],
+            "job_peak_memory_bytes": 5853184,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 42608,
+            "child_ppid": 56792,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793051140058791500,
+            "wrapper_pid": 56792,
+            "child_creation_filetime_ticks": "134375247399084828",
+            "job_members": [],
+            "job_peak_memory_bytes": 11108352,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    }
+  },
+  "monitoring": {
+    "smoke": {
+      "before_service_status": "unverified",
+      "after_service_status": "unverified",
+      "all_monitored_processes_preserved": true,
+      "missing_existing_process_count": 0,
+      "identified_nikke_service_preservation_verified": false,
+      "termination_cause": null,
+      "raw_process_paths_and_identities_shared": false
+    },
+    "compile": {
+      "before_service_status": "unverified",
+      "after_service_status": "unverified",
+      "all_monitored_processes_preserved": true,
+      "missing_existing_process_count": 0,
+      "identified_nikke_service_preservation_verified": false,
+      "termination_cause": null,
+      "raw_process_paths_and_identities_shared": false
+    }
+  },
+  "environment_preservation": {
+    "status": "unverified",
+    "cli_preservation_verified": false,
+    "reason": "NIKKE service identification unverified before/after; monitored process loss count is zero",
+    "whole_stage_passed": false,
+    "compile_cli_exit_code": 2
+  },
+  "original_local_byte_provenance": [
+    {
+      "local_relative_path": "deps-cli/execution.json",
+      "bytes": 1091,
+      "sha256": "f1e495dde5724b1f5de146331aae318cc3f79e7df884bb2250a09a3f01b859b9",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke-cli/execution.json",
+      "bytes": 1091,
+      "sha256": "8cedab9478e84289ff4e50ee99e6d52182441add1d94f0252c804b04268110cf",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke/execution.json",
+      "bytes": 1091,
+      "sha256": "efb9202f9a816ee961e3aa531328eefb2da3fceb71ae83c1445cbaaab00b2dab",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile-cli/execution.json",
+      "bytes": 1092,
+      "sha256": "b763a1ad132982bf702f43e46f04c0315933895bb96bb6c6f2f932fb22204f45",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile/execution.json",
+      "bytes": 2806,
+      "sha256": "30a9d29b77ef19a04bfc8b1f8fa2679822f1434a35806dabc312b78c4d01e766",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "resources-cli/execution.json",
+      "bytes": 1093,
+      "sha256": "6f6a21848f0aa89493dccaf56fef60aeb361c18ed823506de35db90c30796ebd",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "deps-cli/job.json",
+      "bytes": 1089,
+      "sha256": "1c680a57eccbe29b06ec7c1be5c8a00b525ffaab6ff5794d65ee6490f08af9c8",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke-cli/job.json",
+      "bytes": 1085,
+      "sha256": "476ae540e1ab4cd7a7ec601abf28036356ae31bc4045f76b018cb6703464ef0d",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke/job.json",
+      "bytes": 1093,
+      "sha256": "cdd0297d4287d53c5846edb367e33a48c43f5eba0be6a4ff64f34350b0e809da",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile-cli/job.json",
+      "bytes": 1090,
+      "sha256": "b5939686b35248404cffafa6f8a13c796c49815042f421f607af584a7896f032",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile/job.json",
+      "bytes": 1090,
+      "sha256": "60d65dbfb4fea51932997f32ea3bdd614b1415a577843a2c8ff7b768ab74206b",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "resources-cli/job.json",
+      "bytes": 1089,
+      "sha256": "537f7279103863d937c0ca2da1add9e348b31a9f081c961fbc84825751460462",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "validation-deps.json",
+      "bytes": 892,
+      "sha256": "c262f1408fb53ecb3e56f600cb7d27807134a40231c1642bb06ccd5b88801ca1",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke/native-smoke.json",
+      "bytes": 1782,
+      "sha256": "54ae19555b151750be1d66ae16e2bbfa731c76b8dce03b1e23cd8b4b695fc738",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile/compiler.json",
+      "bytes": 16508,
+      "sha256": "fa55a3df67e0d5e2293f19646d80c86f831f2d66f4cf0166858bee960425e73d",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile/result.json",
+      "bytes": 2538,
+      "sha256": "d1ceff7f871c4096022376a99f11a2e19feb518fe66005330b170ffbb193d020",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "smoke/observation.json",
+      "bytes": 30309,
+      "sha256": "c17cc87f086762357935f82b6ee1064e2639980c4cffa60d9b6c724cfda81bb8",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile/observation.json",
+      "bytes": 30317,
+      "sha256": "4d31dc95c4f08a05d384236c53604dd91c09317c794e1efdb1e5939ea5594a74",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile-cli/stdout.log",
+      "bytes": 2631,
+      "sha256": "c6ad313f0280c62dc54a86416b790797d59bcdff62580b024124cd86a06d4cc8",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile-cli/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "compile/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "resources-cli/stdout.log",
+      "bytes": 186,
+      "sha256": "045937ffa46b0dfed05a70ad2b454a43be8f41483f4d797f8c74fb8b625066e5",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "resources-cli/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_content_shared": false
+    }
+  ],
+  "actions": {
+    "dependency_checks": 1,
+    "job_smoke": 1,
+    "slang_build": 1,
+    "nvrtc_compile": 1,
+    "offline_resource_usage": 1,
+    "driver_load": 0,
+    "cuda_context": 0,
+    "module_load": 0,
+    "kernel_launch": 0,
+    "nvidia_smi": 0,
+    "retries": 0,
+    "cached_only_packet_execution": 0,
+    "os_wmi_acl_service_changes": 0
+  },
+  "calculation_verified": false,
+  "full_character_verified": 0,
+  "retention": {
+    "existing_claims_and_captures_unchanged": true,
+    "existing_cache_retained_with_new_entry_added": true,
+    "new_package_compile_claim_retained": true
+  },
+  "shared_path_policy": "Personal absolute paths replaced by placeholders; raw compiler/cache identities, monitoring snapshots and claims retained locally only"
+}
