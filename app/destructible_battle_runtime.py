@@ -71,7 +71,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     from coordinate_typed_actor_policy import owns_fields,validate_bindings
     validate_bindings(typed_actor_policy,bindings)
     from coordinate_typed_owner_runtime import OwnerQueries
-    owner_queries=OwnerQueries(data) if owns_fields(typed_actor_policy) else None
+    owner_queries=OwnerQueries(data,typed_actor_policy) if owns_fields(typed_actor_policy) else None
     class Boss(old_boss):
         def __init__(self,*args,**kwargs):
             super().__init__(*args,**kwargs);self._nikke_typed_world=DestructibleWorld.from_clock(self,bindings);data['worlds'].append(self._nikke_typed_world)
@@ -94,7 +94,12 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
             for effect,_ in manager._effects:modifier_axis(effect)
         if weapons is not None:weapons.validate_effects(manager)
         if aims is not None:aims.validate_effects(manager)
-        if owner_queries is not None:owner_queries.attach(manager)
+        if owner_queries is not None:
+            from coordinate_typed_actor_policy import LOGICAL_FIELD_MODE
+            if typed_actor_policy=={'mode':LOGICAL_FIELD_MODE}:
+                from coordinate_typed_owner_runtime import attach_logical_registry
+                attach_logical_registry(manager,data['worlds'][-1])
+            owner_queries.attach(manager)
         if skill_shields:
             clock=data['worlds'][-1].clock
             if clock.has_summons or any(r.p.kind in ('parts','interrupt') for r in clock._runs) or data['worlds'][-1].enemy.get('coord') is not None or data['worlds'][-1].enemy.get('has_parts'):

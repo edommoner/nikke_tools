@@ -1,0 +1,23 @@
+{
+  "native_package_id": "063e347e7cf5edb9fb05f821bb5916bff7b5c43c4edabb4a7ff8630c5853b299",
+  "final_package_id": "8183df991f5ca4d1ab569fd11d72dbc7af6d86914cef7ec45757e94306db4f70",
+  "only_test_change": [
+    "tests/test_coordinate_typed_logical_owner.py"
+  ],
+  "native_producers_comparators_exact": true,
+  "all_gpu_upstream_and_protected_files_exact": true,
+  "protected_files": [
+    "app/detail_gpu.py",
+    "app/engine_worker.py",
+    "app/effect_spec.py",
+    "app/engine_compat.py",
+    "app/portable_compile_cache.py",
+    "app/portable_backend.py",
+    "gpu/binary64.slang",
+    "gpu/core_probability.slang",
+    "research/summarize-portable-cross-gpu.py"
+  ],
+  "all_final_payload_hashes_verified": true,
+  "final_new_native_run": false,
+  "final_gpu_dispatches": 0
+}

@@ -308,6 +308,13 @@ def reference_readiness(issue):
             gpu_stale_context_rejection_verified=False,add_owner_verified=False,cuda_device_verified=False,
             canonical_consumer_verified=False,in_game_rules_verified=False,full_character_verified=False,
             scope='declared_BODY_owned_projectile_and_HP_shield_live_dead_reentry_and_stale_filter_contracts')
+        result['typed_logical_owner_reference']=dict(suite='coordinate-typed-logical-owner-common',cases=3,
+            declared_actor_policy='logical-owned-current-fields-v1',original_definitions=71,
+            cpu_reference_verified=True,explicit_add_owner=[5,1,1],physical_handle_preserved=True,
+            actual_received_damage_pct=[0,0,17],shared_battle_registry_connected=True,
+            stale_unknown_unspawned_owner_unit_rejected=True,gpu_wire_connected=False,
+            metal_verified=False,cuda_device_verified=False,in_game_rules_verified=False,
+            full_character_verified=False,scope='declared_ADD_owned_projectile_and_HP_shield_real_counter_children_CPU_only')
         result['typed_current_damage_validation']=dict(suite='coordinate-typed-actor',inputs=67,native_cases=40,
             declared_actor_policy='canonical-current-damage-v1',original_profile='Rei',original_definitions=73,
             original_current_skill_events=[0,5,5,5],literal_selector='enemies_nearest_in_range',

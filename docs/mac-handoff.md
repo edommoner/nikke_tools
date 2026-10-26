@@ -2398,3 +2398,14 @@ dev `/tmp/nikke-coordinate-typed-develop-v2`（f1b700f2…）、M5 `/tmp/nikke-c
 容量不足対策は共通compress-generation-cacheを追加。macOS派生JSON371entryの全key/byte/SHA/4artifactを保ち、割当2651963392→534904832byte、2117058560byte回収。元generation consumer/identity不変、固定packageの必須hit確認、compiler/GPU0。sandboxコピーの不正candidateは公開前拒否し原本保持。Windows操作／driver cache／latency証明ではない。docs/portable-cache-filesystem-compression.md、research/cache-filesystem-compression-evidence/。
 
 次は未対応のADD所有／対象操作をCPU契約から共通実行器へ接続。ゲームgap/移動/他caller/variant/19packing失敗/現source全suite集約/公開GPU/全キャラは未完、全キャラ0/UI CPU/目標未達。Windows新実行0、idle API再試行もactive turn不足で失敗、coordinate-landing依頼は未送信。既存runの再送をしない。
+
+
+## 2026-10-26 ADD所有者のCPU契約
+
+`coordinate-typed-logical-owner-common`3を共通CLI referenceへ登録。docs/portable-coordinate-typed-logical-owner-reference.md、research/portable-coordinate-typed-logical-owner-reference-checkpoint.json。明示logical-owned-current-fields-v1だけ、型付きworldのproviderを実戦registry_for(manager, world.clock)へ登録し、直接BODY/ADD所有者のexact世代をquery。初v1は独立typed registryのためUnknown actorで失敗、失敗保持。旧BODY policyの意味/拒否は維持。未spawn/未知/古いADD世代は拒否、同世代の生死で所有者を消さず物理event/handle不変。root/label推測/BODY fallbackなし。
+
+元Prim全71・完全5人・武器/成長を保持し、別宣言counter2効果のHP shield/projectile/破壊済みshield3契約。通常元fieldはADD0、counter実完了のtarget_is_add子fieldは宣言ADD1[5,1,1]、receivedはBODY/ADD0/ADD1=0/0/17。v3新3は29.037947秒、旧BODY5は39.236259秒、旧寿命8は72.773368秒成功。旧13のinput/native/trace全SHA保持を前snapshot/既存結果へ照合。
+
+最終 /tmp/nikke-logical-owner-cpu-v4（8183df99…）はv3からunit fixture1fileのみ修正。typed-only初期registryを再現、実helper/producer/comparator不変。最終関連113/制御517成功（Win1skip）、generation必須hit/Slang0。Slang/upstream/正本/数値/transport/CUDA cache本体全byte保持、GPU/Windows0。最終native再生成なし、証拠はv3 producerとの全byte一致に固定。
+
+次は共有SlangのtypedOwnerContextTargetをexact logical actor pool slot/genへ接続し、counterContextAddも同ownerを使う。新wire flagと旧BODYflagを区別、compiler predicate検査viewも宣言ownerへ投影、元実命令/handleは保持。現GPUcompilerは新policyを明示拒否。旧88保持でMetalをfresh全監査。ADD Metal/CUDA/dead ADD実戦field lifetime/ADD再登場battle/ゲーム仕様/公開consumer/全キャラは未完、全キャラ0/UI CPU/目標未達。Windows idle送信を重複しない。

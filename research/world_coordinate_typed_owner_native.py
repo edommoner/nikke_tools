@@ -21,5 +21,5 @@ def observe(row):
     def owner(case):n=original.native_reference((case,{},(),{}));return n,n['skill_trace']
     with patch.object(module,'capture_typed',capture):n,trace=weapons(c,observer=owner)
     n['coordinate_typed_owner_queries']=captured['data']['coordinate_typed_owner_queries']
-    n['coordinate_typed_weapon']['scope']='Declared BODY-owned typed targets and current enemy fields; CPU reference only'
+    n['coordinate_typed_weapon']['scope']=('Declared logical-owned typed targets and current enemy fields; CPU reference only' if c.get('typed_actor_policy',{}).get('mode')=='logical-owned-current-fields-v1' else 'Declared BODY-owned typed targets and current enemy fields; CPU reference only')
     return n,trace

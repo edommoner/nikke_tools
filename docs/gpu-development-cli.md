@@ -489,3 +489,6 @@ package内CLIは `sys.dont_write_bytecode`、所有する検証子は `PYTHONDON
 `coordinate-typed-owner-lifecycle` はsealed88入力（native53／拒否35）。旧80を保持し、同じ共有entryへprojectile所有field・破壊済み同世代query・第2世代counter・古い世代counter抑止を追加しています。M5 Metalと全件fresh grouped監査で成功しました。`package --suite coordinate-typed-owner-lifecycle --compact` で固定packageを作れます。[比較修正・証拠・未対応範囲](portable-coordinate-typed-owner-lifecycle.md)を参照してください。現CUDA成功は未取得です。
 
 `compress-generation-cache --cache ABSOLUTE_CACHE --out NEW_CAPTURE --apply` はmacOSの派生paired生成cacheだけをfilesystem圧縮します。全key／論理byte／SHAと4artifactを検査して同内容をatomic公開し、既存consumerは変更しません。[容量予算・claim・失敗保存・実測](portable-cache-filesystem-compression.md)を参照してください。CUDA driver cache／latencyの実証とは区別します。
+
+
+`reference --suite coordinate-typed-logical-owner-common --out NEW.json` は元Prim全71定義のCPU3契約です。実counterの子fieldを宣言ADD1へ接続し、通常fieldのADD0経路と分離して照合します。共有戦闘registry・古い世代の拒否・物理命中handle保持を検査します。[ADD所有者CPU契約と次のGPU接続](portable-coordinate-typed-logical-owner-reference.md)参照。新policyはGPU compilerでまだ拒否し、Metal対応数へ加算しません。

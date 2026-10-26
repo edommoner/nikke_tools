@@ -7,7 +7,8 @@ from portable_target_modifier_input import lower_effect
 from destructible_skill_specs import coefficient
 
 def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None,coordinate_weapon_targets=False,coordinate_typed_aim=False,coordinate_typed_actors=False,coordinate_typed_owners=False):
-    from coordinate_typed_actor_policy import owns_fields
+    from coordinate_typed_actor_policy import owns_fields,LOGICAL_FIELD_MODE
+    if prepared.get('typed_actor_policy')=={'mode':LOGICAL_FIELD_MODE}:raise ValueError('Logical ADD ownership requires a new shared GPU consumer')
     if type(coordinate_typed_owners) is not bool:raise ValueError('Explicit typed owner consumer policy required')
     field_policy=owns_fields(prepared.get('typed_actor_policy'))
     if field_policy and not coordinate_typed_owners:raise ValueError('Typed owner fields require a new shared GPU consumer')
