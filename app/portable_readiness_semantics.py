@@ -245,6 +245,12 @@ def reference_readiness(issue):
             explicit_added_damage_probe=True,automatic_weapon_aim_verified=False,coordinates_verified=False,
             canonical_consumer_verified=False,cuda_device_verified=False,in_game_rules_verified=False,
             full_character_verified=False,scope='declared_v1_original_carrier_to_explicit_typed_probe_only')
+        result['typed_coordinate_modifier_validation']=dict(suite='coordinate-typed',inputs=10,native_cases=10,
+            axis_cases=4 if stat=='projectile_dmg_pct' else 5,original_carrier_profiles=3 if stat=='projectile_dmg_pct' else 4,
+            coordinate_battle_connected=True,one_resident_runtime=True,shared_world_clock=True,shared_sampled_rng=True,
+            explicit_added_damage_probe=True,metal_verified=True,independently_audited=True,
+            automatic_typed_weapon_aim_verified=False,canonical_consumer_verified=False,cuda_device_verified=False,
+            in_game_rules_verified=False,full_character_verified=False,scope='declared_typed_attack_in_complete_original_coordinate_battle')
         if stat=='projectile_dmg_pct':result['typed_modifier_battle_validation']=modifier_battle
         if stat=='shield_dmg_pct':
             result['typed_shield_battle_validation']=dict(suite='destructible-shield-battle',inputs=88,native_cases=58,rejected_cases=30,new_shield_cases=15,metal_verified=True,independently_audited=True,actual_scheduler_verified=True,same_frame_stack=True,explicit_boss_owner_generation=True,no_overflow=True,body_fallback=True,named_children=True,death_counter_children=True,respawn_generations=True,weapon_interception_verified=False,hit_shield_interception_verified=False,piercing_interception_verified=False,cuda_device_verified=False,in_game_rules_verified=False,original_full_profile_verified=False,scope='declared_plain_boss_skill_hp_shield_interception_only')

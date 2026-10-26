@@ -13,9 +13,9 @@ uint64_t destructibleModifierQuantity(inout Runtime s,uint axisTable,uint who,ui
     if(!f64Finite(value)) s.error=64;
     return value;
 }
-uint64_t destructibleModifierDamage(inout Runtime s,uint axisTable,uint who,uint kind,uint64_t coefficient,uint64_t when,out uint64_t factor5,out uint64_t projectile,out uint64_t shield)
+uint64_t destructibleModifierDamage(inout Runtime s,uint axisTable,uint who,uint kind,uint64_t coefficient,uint64_t when,out uint64_t factor5,out uint64_t projectile,out uint64_t shield,uint basisRow=P_DEFINITIONS)
 {
-    uint64_t factors[9];sampleDamageFactors(s,who,coefficient,when,factors,false,s.coreBonus);
+    uint64_t factors[9];sampleDamageFactors(s,who,coefficient,when,factors,false,s.coreBonus,0,ONE,false,false,basisRow);
     projectile=destructibleModifierQuantity(s,axisTable,who,2,when);
     shield=destructibleModifierQuantity(s,axisTable,who,3,when);
     if(kind==2) factors[4]=f64Add(factors[4],f64Div(projectile,HUNDRED));

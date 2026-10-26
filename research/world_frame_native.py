@@ -162,6 +162,10 @@ def observe(case):
      actual=[dict(effect=copy.deepcopy(e),owner=n) for e,n in manager._effects]
      if actual!=expected['effects']:raise ValueError('Original registered definitions/owners/order changed')
      capture['original_definitions_verified']=len(actual)
+     if case.get('coordinate_typed_probe'):
+      additions=case.get('declared_effects',[])
+      if len(additions)!=1 or case.get('probe_source')!=len(actual):raise ValueError('One explicit typed probe after unchanged original definitions required')
+      manager._effects.append((copy.deepcopy(additions[0]),case.get('probe_owner',NAMES[0])))
      # Registration retains module-global parsed definitions. Keep observer
      # annotations local, preserving aliases between ordered lookup and dispatch.
      memo={}

@@ -2287,3 +2287,23 @@ loweringとaxis packingを `portable_target_modifier_input` へ共通化し、�
 全reader終了後、3rawをSHA/size/inode保持で疎化し146,669,568byte回収、削除0。manifest外の再生成可能Python bytecodeだけを93旧snapshotで整理し、payload全hash前後検査・453,578,752byte割当回収。ZIP／source／結果／raw／claim保持、reserve1GiB維持。
 
 静的coord entry全266／247packing／19失敗／kind拒否0／拡張8は保持。別のcanonical compilerは245packing、観測20分類のcode／message／descriptor／lane／件数は旧記録と完全一致し、今回の宣言probe実証を添付しただけ。20分類はreference_model_gapのまま、packingをGPU対応率へ読み替えない。次は型付き対象consumerを共通座標resident・自動aimへ合成すること、cover_def_pctのincoming-coverモデル、selector／移動／damage-sharing、ADD世代／variant、同一現sourceへの旧suite集約と現在CUDA。全キャラ0／UI CPU／目標未達。Windows新規GPU依頼0、idle APIに同じrunを繰り返し送らないこと。
+
+## 2026-10-26 共通座標Runtimeへの型付き対象Frame合成
+
+最新 `coordinate-typed`10、`docs/portable-coordinate-typed-targets.md`／`research/portable-coordinate-typed-checkpoint.json`。元マルチャーナ3秒対照と、元Sakura／Anchor／Clay／Asuka／Rei／Mari／Misatoの完全5人編成・全効果／成長／武器を保持。宣言typed targetとevery:2s・係数100の追加攻撃1件を、元の座標射撃と同じRuntime／WorldSchedule／DFSへ接続。Clay3/12秒・Misato3/30秒で条件成立前後を検査。型付きへの自動aim／座標shapeの武器迎撃は未実装、Eleggのnearby座標selectorは閉世界の特殊化を流用せず未対応保持。公開GPU／全キャラの認定ではない。
+
+入力109968＋5712＝115680word、出力1769856＋262144＝2032000word。旧座標領域は保持し、typed state／clock／128receipt／DFS scratchを末尾へ配置。Runtime138952byte不変。既存typed処理をhooks/implへ抽出し、旧入口と新 `world_coordinate_typed_entry.slang` で共有。型付き攻撃も既存sampled skill frameの共通RNGを使用、CPU schedule入力0。binary64／core_probability・正本・strict normalizer不変。旧source監査は全file hashを固定したinverseだけを追加。
+
+初CPU探索でscalarラッパーのbuffs観測不足を修正。座標body着弾を抑止した型付きpacketは、元traceの時刻／owner／source／係数／damage／完了数を型付きreceiptへ明示対応させて別比較。CLI live-parent再利用にも両receipt集合の欠落／重複／改変検査を追加。初capture v1はそのcontext検査でGPU前に停止、v2は容量gateでGPU前に停止。どちらも結果／package保持・GPU0・claim削除0。
+
+dev `/tmp/nikke-coordinate-typed-develop-v2`（f1b700f2…）、M5 `/tmp/nikke-coordinate-typed-metal-v3` は全10status0・CPU一致、実GPU2.299065秒／初PSO92.531390秒、generation必須hit・Slang0。別GPU禁止childで全10fresh111.541363秒、live parent receiptなしでseal。元の座標battle・physical packet・RNG・allied health／gauge・元定義／通知を比較し、typed攻撃数は対照0／3秒各1／Clay12秒5／Misato30秒14。
+
+旧座標入口のCUDA/MSLと両reflectionは既存strict比較で一致。旧typedはアドレス式の抽出等で生成コードが変わったため、保存結果へ成功を流用せず、別のMetal19入力を1回実行。全19一致、GPU1.820227秒／初PSO66.785972秒、独立fresh3.735670秒。旧19の全79,691,776byteが保存結果と完全一致。GPU計2・計算失敗0・retry0、Windows新規GPU依頼0。
+
+最終 `/tmp/nikke-coordinate-typed-final-v1.zip`（a59582ac…、1971files）は関連53／制御480成功（Windows専用1skip）。最終変更は配置ツール・分類とreserved/counter検査。prepare/native/partition AST・native producer filesの一致、比較器がreserved検査2文の追加だけであることを検査し、完了済みfresh native監査を再利用。全payload SHA/checkout bytes、全10input/native/sourceと各出力SHA、最終reserved/counter検査を保存readback全件へ適用。新nativeを再計算したCPU preflightとは主張しない。新GPU実行0で最終検査済み。
+
+`arena-check --profile coordinate-typed-v1` が新しい全領域の所有・重複・consumer sourceを検査。reserved領域／counter context破損の負例も追加。共通source-reuseは修正前後のCUDA/MSL・reflection・identity・consumer全一致、最終generation必須hit・Slang0。新PSOのwarm hit／CUDA実compile/cache/launchは未証明。caseを増やすだけの次の検証は同じ固定入口を使い、生成・pipelineの再構築を避けること。
+
+全reader終了後に両rawをSHA/size/inode保持で疎化し120,651,776byte回収・削除0。130旧snapshotのmanifest外・再生成可能Python bytecodeだけを整理、全payload前後hash検査、451,768,320byte割当回収。source／ZIP／結果／raw／claimは保持。reserve1GiBを維持すること。
+
+静的全266profileの行／packing失敗／kind依存は前記録と完全一致。coord247packing／19失敗／kind拒否0／拡張8、canonical245packing・20分類のcode／message／descriptor／lane／件数も保持。private座標typed証拠だけを分類へ添付し、20はreference_model_gapのまま。次は型付き対象のidentity／livenessと座標shape・selectorの接続、その後の自動aim／武器consumer。cover_def_pct／移動／damage-sharing、ADD世代・variant、現CUDA／公開GPUも未完。全キャラ0／UI CPU／目標未達。Windowsのidle APIへ重複runを送らないこと。

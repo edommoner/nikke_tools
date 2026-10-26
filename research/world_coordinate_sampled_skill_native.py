@@ -14,6 +14,7 @@ def observe(case):
         if caller is None or caller.f_code.co_name not in ('_handle_damage_eff','_coord_skill_hits'):return
         try:
             values=caller.f_locals;eff=values['eff'];args=frame.f_locals;buffs=args['buffs'];cs=values.get('cs')
+            if case.get('coordinate_typed_probe') and eff.get('name') in {e['name'] for e in case['declared_effects']}:return # Independently compared in typed receipts, not a coordinate body landing.
             owner=values.get('caster') if cs is None else cs.name
             rows.append(dict(owner=names.index(owner),time=values['t'],name=eff.get('name',''),
                              target=values.get('g').name if caller.f_code.co_name=='_coord_skill_hits' else '',

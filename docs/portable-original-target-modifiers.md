@@ -15,3 +15,5 @@
 検証結果と失敗・cache・保持の出所は `research/portable-original-target-modifiers-checkpoint.json` に記録します。CUDA/MSLは同じSlang入口から生成し、同じ入力・native比較器・テストを使います。現CUDA実機の計算・compile cacheの成功は未取得です。分類は `reference_model_gap` を保持し、19packing失敗、座標・selector・全variant・公開統合を未完として残します。
 
 最終19入力はM5 Metal全status0・CPU一致、GPU1.744037秒。別GPU禁止childで全19を3.659128秒で独立監査しsealしました。元敵弾10入力の全input/nativeと約42MBの出力を保持。最終パッケージは関連45／制御480検査成功（Windows専用1skip）、全payload／checkoutと実GPUのsource/input/native/outputを照合しています。監査のhost修正前後もCUDA/MSLと両reflectionは全byte同一、generation cache必須hit・Slang0。新shaderのwarm PSOとCUDA実計算の証明にはしません。
+
+後続の[座標実行器との合成](portable-coordinate-typed-targets.md)で共通typed処理を抽出しました。元の19入力も新ソースでMetal／独立監査を再実行し、保存済み79,691,776byteの全出力を保持しています。追加の座標10入力の実証と自動aimの未対応は分けて扱います。

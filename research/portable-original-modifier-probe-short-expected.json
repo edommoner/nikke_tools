@@ -3,7 +3,8 @@
   "output_sha256": "a4a23aa6f147b5c7ee7f2d0c161155dd3e890efb791693527d5b587ce5783075",
   "source_sha256": {
     "gpu/destructible_original_modifier_entry.slang": "481e019b02b71d9a182648476294c290d2091c2c1dc6f2280ffaf44f71c3f02c",
-    "gpu/destructible_shield_battle_entry.slang": "1851ece4a0c15cca37d79a683c973a40ff7de3b79bfbb35b2cc15dd17a85255c",
+    "gpu/destructible_shield_battle_entry.slang": "6d0e8fda975c1f5f0e3c557b309475fb5bb4d2205cc1934a4fde8297affc4f9b",
+    "gpu/destructible_shield_frame_hooks.slang": "7935dd0a5eecfad3ee05cc27d86006292f7c180c0a5564e576d43d2b12d90c14",
     "gpu/world_projectile_chain_entry.slang": "69de5447fd6f2eb8439fda802bae0571fe82d49eb531359f42c4175436c604c9",
     "gpu/world_damage_accum_entry.slang": "7a70befe6d808850887e22cb33771d8bac781f3d6768cdaf62dd4f3fa19fbd23",
     "gpu/world_heal_charge_entry.slang": "b83b00992eeeca69aa84491875bf6dc0b4fe5e37ff6041fd5fee5a8503dfaa5f",
@@ -37,7 +38,7 @@
     "gpu/event_runtime.slang": "126947f5613510c870d979ef3d45ea3960812d69fd2f6ea928aee4c06bf5a1ea",
     "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
     "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
-    "gpu/portable_schema.slang": "dec889c9673bcfb8b14324dd57835f0ab332f3c644f763dd0e65762490f78731",
+    "gpu/portable_schema.slang": "ee63303751df18c80cd5d8589ea2810fd28e1ff7afc07b06017239e52d0ca0b6",
     "gpu/portable_scratch_layout.slang": "713d698693e05adc708869da6a41dfa0b49719dce5582a10def6d0c11e6f3c68",
     "gpu/stack_numeric.slang": "e0e6d885242ff64704e4890b5abacaa40d5ce7a275669ad65751de85685af671",
     "gpu/runtime_init.slang": "42138104b72985daa57788ad7ba1ca9b2db86dc208f63a089679895c8e36d1d9",
@@ -159,11 +160,12 @@
     "gpu/ordered_history_runtime.slang": "7d620776fb4f6076208fa4f585c6e0a7925a05de955fff9ea98f49024537eac8",
     "gpu/native_query_diagnostic.slang": "39f2a5cd720d09d9ed6fc01eb6b438d36902eea7e1b097e2995cc102d03a4a96",
     "gpu/native_snapshot_runtime.slang": "b11b2570c50b3ffa08e2b061a9e126f5183efbf1ec988ce95f95a80d8427e2f7",
+    "gpu/destructible_shield_frame_impl.slang": "c3727c894f0efb2a732831dc540a9ad66aa46d58efc8d0c202c98f928345e5dc",
     "gpu/destructible_target_core.slang": "a76de4e9c79097db495d652cb22814691cdb12e15ebbed5f5fec7ef86032a694",
     "gpu/destructible_world_runtime.slang": "1d85363f1222ca05f80e9bcce11f752ea61675b86b286920e494c9e7f4cef8fb",
-    "gpu/destructible_battle_runtime.slang": "97885366d06cbe5da0130977ad9cac2e130b6d3f6c15d4664b73abe9fe76b164",
-    "gpu/destructible_modifier_runtime.slang": "2e14d9430565113f2e7ee09af37ba007b808387f512ca7b4f4af2c9c458f5ac6",
-    "gpu/destructible_frame_runtime.slang": "0b37068ab3bd20df01c9231f8b39f7ddcad12eddab61b9143b408d68265488d5"
+    "gpu/destructible_battle_runtime.slang": "4647f70610701b966339ede261aaa593995500ae8636a220940e7e27c5ac16f3",
+    "gpu/destructible_modifier_runtime.slang": "0dd86bfd36c325db29c274e7b4aba3574fc10eb556c6d859c08a9e1ea1b0b501",
+    "gpu/destructible_frame_runtime.slang": "5cd49c97c7d05b656e2d956dcf289f9a4eb7505fffa7dc206fbcd17276e01560"
   },
   "entries": [
     {
@@ -282,7 +284,7 @@
     }
   ],
   "generated_normalized": {
-    "cuda": "06cc1e532cb1fd4aecf50c7efd743a01a7f76844384d18797fc636120faf1dae",
-    "metal": "a95d3aa870848a267226e32995e6063829835bb1e01a97bb41daf48ec4cd247c"
+    "cuda": "332ee1be6a4a856194da8bcf03cb7fe0a904c7a1b68d8db4464e80d30e8c9b94",
+    "metal": "a62b2c983101a96575fb5d125057886ec3d6e4e37427e146640a4d3217c117ed"
   }
 }

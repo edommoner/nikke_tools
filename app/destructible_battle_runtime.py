@@ -91,6 +91,10 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
             return condition_ok(values,caster,t,eff)
         @wraps(previous)
         def damage(effect,caster,t,*args,**kwargs):
+            if '_portable_observer_row' in effect and (effect.get('target')=='all_projectiles' or shield_owner is not None and effect.get('target')=='boss'):
+                row=effect['_portable_observer_row']
+                if type(row) is not int or not 0<=row<len(manager._effects) or manager._effects[row][0] is not effect:raise ValueError('Typed observer annotation must identify its exact registered definition')
+                effect={k:v for k,v in effect.items() if k!='_portable_observer_row'}
             context=None
             if body_accumulation and effect.get('stat')=='accum_split_damage':
                 from destructible_skill_shield_policy import accumulation_skill
@@ -122,6 +126,8 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
         manager._damage_handler=damage;manager._resolve_target=resolve_target;manager._condition_ok=conditions
         restores.append((manager,damage,previous,old_instance,old_condition,missing))
     def scalar(*args,**kwargs):
+        # Passive sampled observers inspect this wrapper at the caller boundary.
+        buffs=kwargs.get('buffs',args[1] if len(args)>1 else {})
         if not active and weapons is not None:return weapons.scalar(old_scalar,*args,**kwargs)
         context=active[-1] if active else None
         if context is None:return old_scalar(*args,**kwargs)

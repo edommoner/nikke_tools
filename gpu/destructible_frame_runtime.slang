@@ -68,6 +68,9 @@ bool advanceDestructibleSkillFrame(inout Runtime s,inout Frame frames[32],inout 
         uint selected=0;
         if(f.repeatLeft!=0&&DF_HAS_SAMPLE(s,row))
         {
+#ifdef PORTABLE_COORDINATE_TYPED_TARGETS
+            beginSampledSkillFrame(s,uint(depth),row);
+#endif
             frames[depth].healthPrevious=damageValue(s,d.owner,f.healthValue,f.time,false,s.coreBonus,d.damageFlags,ONE,false,false,row);
             frames[depth].skillCritRate=s.lastDamageCritRate;DF_AMOUNT(s,scratch,output,frames[depth].healthPrevious)
             for(uint slot=0;slot<count;slot++)

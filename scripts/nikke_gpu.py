@@ -404,6 +404,8 @@ SUITES['coordinate-original-owned']=dict(SUITES['coordinate-original-accum'],scr
 SUITES['coordinate-original-owned']['support_files']=['research/portable-compiler-full--coordinate-original-owned-source-certificate.json',SUITES['coordinate-original-accum']['golden'],*SUITES['coordinate-original-accum']['support_files']]
 SUITES['original-modifier-probe']=dict(script='research/verify-original-modifier-probe-short.py',source='gpu/destructible_original_modifier_entry.slang',golden='research/portable-original-modifier-probe-short-expected.json',inputs=19,native=19,output_words=1048576,development_only=False,parent_oracle_reuse=True,cpu_test_timeout=180,tests=['test_target_modifier_input.py','test_original_modifier_probe.py','test_destructible_weapon_rosters.py','test_portable_readiness_semantics.py','test_portable_definition_view.py'])
 SUITES['original-modifier-probe']['support_files']=['research/portable-destructible-weapon-shield-short-expected.json']
+SUITES['coordinate-typed']=dict(script='research/verify-coordinate-typed-short.py',source='gpu/world_coordinate_typed_entry.slang',golden='research/portable-coordinate-typed-short-expected.json',inputs=10,native=10,output_words=2032000,development_only=False,parent_oracle_reuse=True,cpu_test_timeout=180,tests=['test_coordinate_typed.py','test_target_modifier_input.py','test_original_modifier_probe.py','test_destructible_weapon_rosters.py','test_portable_definition_view.py','test_portable_readiness_semantics.py'])
+SUITES['coordinate-typed']['support_files']=['research/portable-original-modifier-probe-short-expected.json','research/portable-destructible-weapon-shield-short-expected.json','research/portable-coordinate-original-short-expected.json']
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -3032,6 +3034,10 @@ def main(argv=None):
         from portable_arena_specs import audit_live_sources,audit_profile
         if a.out.exists():raise ValueError('Arena audit output already exists')
         with forbid_gpu():result={**audit_live_sources(ROOT),**audit_profile(a.profile)}
+        if a.profile=='coordinate-typed-v1':
+            from portable_coordinate_typed_specs import check_layout,SOURCE
+            from portable_backend import source_hashes
+            result.update(typed_layout=check_layout(ROOT),typed_consumer_source_sha256=source_hashes(SOURCE))
         write(a.out,result)
     elif a.command=='numeric-audit':
         if a.profile=='coordinate-unit-power-v1':

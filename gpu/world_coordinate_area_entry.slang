@@ -21,7 +21,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
 {
     if(id.x>=commands[0])return;
-#ifdef PORTABLE_COORDINATE_BURST_CONTROLS
+#ifdef PORTABLE_COORDINATE_TYPED_TARGETS
+    uint input=1+id.x*115680U,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
+#elif defined(PORTABLE_COORDINATE_BURST_CONTROLS)
     uint input=1+id.x*(P_INPUT_WORDS+C_INPUT+CA_INPUT+CC_INPUT+CI_INPUT+440U),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
 #elif defined(PORTABLE_COORDINATE_SQUAD_ACTIONS)
     uint input=1+id.x*(P_INPUT_WORDS+C_INPUT+CA_INPUT+CC_INPUT+CI_INPUT+264U),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
@@ -67,6 +69,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     for(uint i=CP_BASE;i<P_OUTPUT_WORDS;i++)results[output+i]=0;
 #endif
     results[output+CP_BASE]=0x43534b31U;
+#ifdef PORTABLE_COORDINATE_TYPED_TARGETS
+    if(!initializeCoordinateTypedTargets(s)){results[output]=64;return;}
+#endif
     uint queries;executePortableCommands(s,input,output,queries);
     for(uint i=5;i<16;i++)results[output+CP_BASE+i]=0;
     writePortableProgram(s,input,output,queries);

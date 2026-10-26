@@ -71,6 +71,12 @@ class ReadinessSemanticsTests(unittest.TestCase):
             self.assertTrue(v['metal_verified']);self.assertTrue(v['independently_audited']);self.assertTrue(v['explicit_added_damage_probe'])
             for key in ('automatic_weapon_aim_verified','coordinates_verified','canonical_consumer_verified','cuda_device_verified','full_character_verified'):self.assertFalse(v[key])
 
+    def test_coordinate_typed_modifier_proof_does_not_admit_automatic_aim(self):
+        for stat,count in [('projectile_dmg_pct',4),('shield_dmg_pct',5)]:
+            r=reference_readiness(self.blocker(stat));v=r['typed_coordinate_modifier_validation']
+            self.assertEqual((v['inputs'],v['axis_cases']),(10,count));self.assertTrue(v['coordinate_battle_connected']);self.assertTrue(v['shared_sampled_rng'])
+            self.assertFalse(v['automatic_typed_weapon_aim_verified']);self.assertFalse(v['cuda_device_verified']);self.assertFalse(r['gpu_supported']);self.assertEqual(r['lane'],'reference_model_gap')
+
     def test_parts_field_has_a_source_but_never_invented_runtime_coverage(self):
         row=dict(phase='effect',kind='damage',category='fields',fields=['hits_parts'])
         result=reference_readiness(row)

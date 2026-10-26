@@ -24,7 +24,7 @@ bool initializeDestructibleBattle(inout Runtime s)
     for(uint slot=0;slot<count&&slot<128;slot++)
     { uint node=commands[extra+2328+slot*12];if(node>=w.count||(commands[wsNode(w,node)+1]&2)!=0) return false; }
     if(!dwValidate(w,extra+2328,count,DF_BASE(s.resourceOutput))) return false;
-    results[s.resourceOutput+786432]=0x44425431U;
+    results[DT_OUTPUT(s.resourceOutput,0)]=0x44425431U;
     results[DF_HEADER(s.resourceOutput)+4]=1;
     return true;
 }
@@ -43,10 +43,10 @@ void destructibleBattleCapture(inout Runtime s,uint scratch,uint selected,Frame 
 {
     results[scratch+530]=0;results[scratch+531]=0;
     if(selected==0) return;
-    uint head=s.resourceOutput+786432,index=results[head+1];
+    uint head=DT_OUTPUT(s.resourceOutput,0),index=results[head+1];
     if(index>=commands[DF_DESCRIPTOR(s)+1]) { s.error=64;return; }
     results[head+1]=index+1;
-    uint trace=s.resourceOutput+790000+index*1040;
+    uint trace=DT_OUTPUT(s.resourceOutput,3568)+index*1040;
     results[scratch+530]=trace;results[scratch+531]=index+1;
     results[trace]=index+1;results[trace+1]=uint(f.argument);results[trace+2]=d.owner;results[trace+3]=selected;
     dtStore(trace+4,f.time);dtStore(trace+6,dtNumber(scratch+532));dtStore(trace+8,dtNumber(scratch+534));

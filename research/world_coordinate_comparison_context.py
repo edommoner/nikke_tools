@@ -48,7 +48,12 @@ def validate(domain,native,receipts):
         if receipts is not None:raise ValueError('Unexpected coordinate creation receipts')
         return
     from world_coordinate_sampled_skill_native import trace_view
-    trace_view(native['skill_trace'],receipts)
+    if domain[0].get('coordinate_typed_probe'):
+        source=domain[0]['probe_source']
+        typed=[r for r in receipts if r['row']==source];ordinary=[r for r in receipts if r['row']!=source]
+        trace_view(native['typed_target_battle']['suppressed_body_trace'],typed)
+        trace_view(native['skill_trace'],ordinary)
+    else:trace_view(native['skill_trace'],receipts)
 
 @contextlib.contextmanager
 def restore(domain,receipts):

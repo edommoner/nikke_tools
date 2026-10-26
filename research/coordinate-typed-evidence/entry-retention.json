@@ -1,0 +1,17 @@
+{
+  "scope": "Static packing/classification, not GPU admission or character certification",
+  "profile_count": 266,
+  "packed_profiles": 247,
+  "packing_failures": 19,
+  "kind_rejected_profiles": 0,
+  "expanded_kind_profiles": 8,
+  "all_profile_rows_packing_failures_and_kind_dependencies_exact": true,
+  "current_report_sha256": "127ad7c03066a231b90be73ad94861b035c20e7726026dd8048f3f59b8389d35",
+  "previous_report_sha256": "59fcaed42ed73f9e606526850215c7046e839799d84fce2eb347fdc6356945ee",
+  "gpu_calls": 0,
+  "forbidden_calls": {
+    "cpu_battle": 0,
+    "gpu": 0
+  },
+  "full_character_verified": 0
+}
