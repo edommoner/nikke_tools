@@ -1,0 +1,180 @@
+{
+  "schema": "snapshot-permission-v5",
+  "preparation": {
+    "schema": "snapshot-permission-v5-preparation",
+    "package_id": "6c1b600cc98d89c490416c2d84dfe8b05c9cfd3230b723002b238f86cd3e378e",
+    "prior_execution_mode": "use_default",
+    "prior_execution_mode_evidence": "Saved v4 exec_command invocation omitted sandbox_permissions; tool default is use_default",
+    "prior_execution_command": "base Python -B run-snapshot-detail-once.py",
+    "prior_execution_result_chunk_id": "1a1fa9",
+    "requested_execution_mode": "require_escalated",
+    "original_workspace": "<ORIGINAL_WORKSPACE>",
+    "validation_root": "<SNAPSHOT_PERMISSION_V5_DIAGNOSTIC_ROOT>",
+    "package_path": "<VERIFIED_SNAPSHOT_DETAIL_V4_PACKAGE>",
+    "package_reused_read_only": true,
+    "query_attempts_before_authorized_execution": 0,
+    "outer_timeout_seconds": 30,
+    "inner_query_timeout_seconds": 20,
+    "driver_sha256": "6208f72e4f4d3cc95b1499f8a7d6b201d4a5afab2ff414ca8fd64dec6922af7b"
+  },
+  "execution_permission": {
+    "requested": "require_escalated",
+    "executed": true,
+    "tool_exit_code": 0,
+    "tool_result_chunk_id": "70dcbc",
+    "previous": "use_default"
+  },
+  "result": {
+    "schema": "windows-snapshot-check-v1",
+    "snapshot_verified": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "scope": "One read-only process/listener snapshot; not a before/after preservation or CUDA calculation proof",
+    "elapsed_seconds": 3.283153799828142,
+    "snapshot_metadata": {
+      "observed_unix_ns": 1793047528127618300,
+      "process_count": 18,
+      "process_role_counts": {
+        "unrelated": 12,
+        "service_candidate": 4,
+        "validation": 1,
+        "observer": 1
+      },
+      "listener_count": 0,
+      "identified_nikke_service_count": 0,
+      "service_status": "unverified",
+      "uncertain_process_count": 4,
+      "command_lines_saved": false,
+      "per_process_paths_and_identities_shared": false
+    }
+  },
+  "job_receipt": {
+    "schema": 1,
+    "records": [
+      {
+        "child_pid": 115332,
+        "wrapper_pid": 71716,
+        "pre_gate": {
+          "child_pid": 115332,
+          "child_ppid": 71716,
+          "parent_observation": "os_process_snapshot",
+          "observed_unix_ns": 1793047524568420500,
+          "wrapper_pid": 71716,
+          "child_creation_filetime_ticks": "134375211245307680",
+          "job_members": [
+            115332
+          ],
+          "job_peak_memory_bytes": 5840896,
+          "job_memory_limit_bytes": 2147483648
+        },
+        "pre_gate_verified": true,
+        "post_wait": {
+          "child_pid": 115332,
+          "child_ppid": 71716,
+          "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+          "observed_unix_ns": 1793047528173059700,
+          "wrapper_pid": 71716,
+          "child_creation_filetime_ticks": "134375211245307680",
+          "job_members": [],
+          "job_peak_memory_bytes": 139333632,
+          "job_memory_limit_bytes": 2147483648
+        },
+        "inspection_error": null
+      }
+    ],
+    "observer_assigns_processes": false
+  },
+  "execution": {
+    "passed": true,
+    "timed_out": false,
+    "timeout_seconds": 30,
+    "elapsed_seconds": 3.646187700331211,
+    "child_exit_code": 0,
+    "final_child_exit_code": 0,
+    "error": null,
+    "cleanup_error": null,
+    "cleanup_wait_seconds": 5,
+    "observation_error": null,
+    "wait_completed_unix_ns": 1793047528174669900,
+    "below_normal_priority": true,
+    "phase": {
+      "events": 0,
+      "last_event": null,
+      "timed_calls": [],
+      "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_linked_artifact_observed": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retry_count": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false
+  },
+  "comparison": {
+    "previous_report_commit": "9d05bddc6da6a237e66fcbdc955887ac3e3e8a82",
+    "previous_mode": "use_default",
+    "previous_snapshot_verified": false,
+    "previous_operation": 1,
+    "previous_type_id": 1,
+    "previous_native_code": 2,
+    "current_mode": "require_escalated",
+    "current_snapshot_verified": true,
+    "scope": "Observed outcome changed across execution permission boundary; no OS ACL/WMI/service cause asserted"
+  },
+  "original_local_byte_provenance": [
+    {
+      "local_relative_path": "snapshot.json",
+      "bytes": 11273,
+      "sha256": "ef1fd37f31e130395652b1be769d48ebfcbf29784063eb47172edd9d3c16815e",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "snapshot-cli/job.json",
+      "bytes": 1094,
+      "sha256": "58910da73dd38e110e23cf11271801801f3718d98623d710ceaacec7c1ed48d2",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "snapshot-cli/execution.json",
+      "bytes": 1091,
+      "sha256": "20f8d560768d2120358c5893f33ca56c80cf9244247a016198236cee51d8b75b",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "snapshot-cli/stdout.log",
+      "bytes": 11273,
+      "sha256": "ef1fd37f31e130395652b1be769d48ebfcbf29784063eb47172edd9d3c16815e",
+      "raw_content_shared": false
+    },
+    {
+      "local_relative_path": "snapshot-cli/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_content_shared": false
+    }
+  ],
+  "preservation_verified": null,
+  "calculation_verified": false,
+  "actions": {
+    "query_attempts": 1,
+    "prior_process_listener_queries": 0,
+    "compile": 0,
+    "slang_build": 0,
+    "cpu_numerical_tests": 0,
+    "driver_load": 0,
+    "cuda_context": 0,
+    "module_load": 0,
+    "kernel_launch": 0,
+    "nvidia_smi": 0,
+    "retries": 0,
+    "fallbacks": 0,
+    "os_wmi_service_acl_uac_defender_changes": 0
+  },
+  "existing_claims_failures_and_cache_retained": true,
+  "shared_path_policy": "Personal paths replaced by placeholders; raw snapshot/stdout and exact API paths retained locally only; shared manifest hashes shared bytes"
+}
