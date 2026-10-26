@@ -515,3 +515,9 @@ Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-la
 `reference --suite coordinate-typed-owner-hp-death-common --out NEW.json` は、graph終了と区別した実HP死亡3契約のCPU入口です。最終owner世代・死亡時のactive graph・子fieldの寿命を検査します。新3件はGPU未実証で、次の106入力接続対象です。[検証範囲](portable-coordinate-typed-owner-hp-death-reference.md)。Windowsにpinned upstreamがない場合は、検査済み `research/windows-source-packets/typed-owner-add-lifetime-a2cfc763.zip` を固定SHAでunpackできます。compiler-only packageであり、CUDA実行証明ではありません。
 
 上記a2cfc763…のWindows配布検証は完了しています（全3497file/source certificate、unpack/verify成功）。出所付きreceiptは `research/windows-source-packets/windows-receipt-a2cfc763.json`。生成/compile/driver/GPU0、現CUDA cache hit/launch/readbackは未実証です。
+
+## 2026-10-27 HP死亡106とPython依存事前検査
+
+`coordinate-typed-owner-hp-death`106/native63/拒43をseal済み登録。元定義・旧103を保持した実HP死亡3件、M5通常比較とGPU禁止fresh6群監査に成功。最終関連123/制御525（Win1skip）、generation必須hit/Slang0、実pipeline必須hit/追加compile0。詳細docs/portable-coordinate-typed-owner-hp-death-gpu.md。
+
+`validation-deps --out NEW.json`（checkoutでは`--suite coordinate-landing`）で、同梱pinに対する独立MPFR oracleのimport可用性を確認できます。通常runもテストworker/GPUより前に不足を検出します。インストールやGPU認定ではありません。詳細docs/portable-python-validation-dependencies.md。現在sourceのstandalone coordinate-landing40も旧input/native/outputを保持してMetal更新済み、Windowsへ専用小packetを共有。全本体CUDA/全キャラ認定は別の未完了事項です。

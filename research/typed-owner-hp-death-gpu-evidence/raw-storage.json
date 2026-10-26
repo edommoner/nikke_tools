@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/owner-hp-death-gpu-20261027/metal-v1",
+  "raw_bytes": 861568000,
+  "raw_sha256": "6323e3bad0e5b5591af5fb9d9f68bd36904578eea0e279a1daa19ab1046a9280",
+  "evidence_sha256": "bc36dc68a8d96e5325fedec9597205932742a0a77558a9a31e4c0e8c8e4f0ed5",
+  "raw_inode": 512250146,
+  "scan_block_bytes": 65536,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 1524,
+  "zero_range_bytes": 688259072,
+  "allocated_before": 861569024,
+  "allocated_after": 173309952,
+  "allocated_reclaimed": 688259072,
+  "full_hash_verified": true
+}

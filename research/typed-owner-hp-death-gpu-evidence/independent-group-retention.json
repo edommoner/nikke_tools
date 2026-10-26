@@ -1,0 +1,89 @@
+{
+  "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/owner-hp-death-gpu-20261027/audit-tmp/nikke-independent-groups-fi_tuver",
+  "records": {
+    "0.json": {
+      "bytes": 12540,
+      "sha256": "e47316ed671e75838a5a007225cd22e34cf46323bb75c5ce10662f65369a5d36"
+    },
+    "0.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "0.stdout.log": {
+      "bytes": 10148,
+      "sha256": "f42d4f8744650708101955aa70e8255985d421388dd98ecdf68a57097efd5507"
+    },
+    "1.json": {
+      "bytes": 12366,
+      "sha256": "3bdebe965ddc145d47089e4774793cc5cff1c86b407b18cb6c5fc4a2f1cfc6e5"
+    },
+    "1.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "1.stdout.log": {
+      "bytes": 9902,
+      "sha256": "dfff3061b9b218bef55468e8f266b78c432a400732916e6ee7351cdddced0306"
+    },
+    "2.json": {
+      "bytes": 12291,
+      "sha256": "0da8b7fc82d78c0f555a06bbc4ddced1d6a36bec14f0538b364fc3013b2f71f8"
+    },
+    "2.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "2.stdout.log": {
+      "bytes": 9827,
+      "sha256": "f09413e0b83a3cbf0e4077d0cb9125a37cda961af1f872f646d486e1a40d44e8"
+    },
+    "3.json": {
+      "bytes": 12263,
+      "sha256": "51c8b8429ba2781cee044a5a731be428632f30f3ba2a200eaa370bb3805135c0"
+    },
+    "3.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "3.stdout.log": {
+      "bytes": 9798,
+      "sha256": "41a1afd95a5223e1ba3cd6d983162627e84c421b376bc4b23d6636afe5078782"
+    },
+    "4.json": {
+      "bytes": 12552,
+      "sha256": "e9ba068de61afc6e103c862a2a41a1d5465a96e5dd18b2b1188e627ce9008924"
+    },
+    "4.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "4.stdout.log": {
+      "bytes": 10088,
+      "sha256": "8cd6f3ee7115b1dd9a8b201a5220ea5a6bb5978cc9cc002b2249a2222f3c6523"
+    },
+    "5.json": {
+      "bytes": 7440,
+      "sha256": "e9c9004434d60906e2675ecd4102b7fbb65c16e0e4ba1a248be21b38c50ba866"
+    },
+    "5.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "5.stdout.log": {
+      "bytes": 5704,
+      "sha256": "e4ec5e39fc4d628e846646bf8e1f266cd8d45cfc1935c0dc6211d6bc778a41ec"
+    },
+    "aggregate.json": {
+      "bytes": 45318,
+      "sha256": "bdd39959e5caba679065d888cd34d19e2b5a1645416d87725a71d65beeae09e1"
+    },
+    "plan.json": {
+      "bytes": 1325,
+      "sha256": "fe75ec25fe8f88024a2b89fe6f5d303918608ef5e3214719fc6b56ce82bc47e2"
+    }
+  },
+  "source_certificate": {
+    "bytes": 27863,
+    "sha256": "b328648e46d330ccb48ce26da5260411e3131df2697dd871b66616dac9c54b0e"
+  }
+}

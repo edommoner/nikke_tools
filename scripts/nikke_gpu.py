@@ -426,6 +426,8 @@ SUITES['coordinate-typed-logical-owner']['tests'].append('test_coordinate_typed_
 SUITES['coordinate-typed-logical-owner']['support_files']=list(dict.fromkeys([*SUITES['coordinate-typed-logical-owner'].get('support_files',()),'research/portable-compiler-full--coordinate-typed-logical-owner-source-certificate.json']))
 SUITES['coordinate-typed-owner-add-lifetime']=dict(SUITES['coordinate-typed-logical-owner'],script='research/verify-coordinate-typed-owner-add-lifetime-short.py',golden='research/portable-coordinate-typed-owner-add-lifetime-short-expected.json',inputs=103,native=60,development_only=False)
 SUITES['coordinate-typed-owner-add-lifetime']['support_files']=list(dict.fromkeys([*SUITES['coordinate-typed-owner-add-lifetime'].get('support_files',()),'research/portable-coordinate-typed-logical-owner-short-expected.json','research/portable-compiler-full--coordinate-typed-owner-add-lifetime-source-certificate.json']))
+SUITES['coordinate-typed-owner-hp-death']=dict(SUITES['coordinate-typed-owner-add-lifetime'],script='research/verify-coordinate-typed-owner-hp-death-short.py',golden='research/portable-coordinate-typed-owner-hp-death-short-expected.json',inputs=106,native=63,development_only=False)
+SUITES['coordinate-typed-owner-hp-death']['support_files']=list(dict.fromkeys([*SUITES['coordinate-typed-owner-hp-death'].get('support_files',()),'research/portable-coordinate-typed-owner-add-lifetime-short-expected.json','research/portable-compiler-full--coordinate-typed-owner-hp-death-source-certificate.json']))
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
@@ -538,6 +540,7 @@ for _baseline,_config in list(SUITES.items()):
 SMOKE_TESTS = ['test_package_payload_reuse.py','test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
                'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py','test_portable_query_boundaries.py','test_portable_ptx_stats.py','test_portable_compiler_diagnostic.py']
 SMOKE_TESTS.append('test_portable_compiler_certificate.py')
+SMOKE_TESTS.append('test_portable_python_dependencies.py')
 SMOKE_TESTS.append('test_portable_input_extension.py')
 SMOKE_TESTS.append('test_portable_generation_cache.py')
 SMOKE_TESTS.append('test_portable_metal_cache.py')
@@ -723,7 +726,7 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
         if ((p.parts[0] in ('app','gpu','scripts','research','tests') and p.suffix in ('.py','.slang','.swift'))
             or (p.parts[0]=='app' and p.suffix=='.cu')
             or (p.parts[:2]==('tests','fixtures') and p.suffix=='.json')
-            or name=='research/portable-mode-session-contract.json'
+            or name in ('research/portable-mode-session-contract.json','requirements-validation.txt')
             or name=='research/portable-world-counter-landing-short-expected.json'
             # Shared controller tests bind the full-entry certificate to this Metal baseline.
             or name in ('research/portable-compiler-full-heal-share-source-certificate.json','research/portable-world-heal-share-regression-short-expected.json','research/portable-compiler-full--attack-group-long-source-certificate.json','research/portable-world-attack-group-long-short-expected.json','research/portable-compiler-full--attack-group-mixed-source-certificate.json','research/portable-world-attack-group-mixed-short-expected.json')
@@ -1918,6 +1921,9 @@ def cpu_test_groups(m,capture,smoke=False):
     patterns=SMOKE_TESTS if smoke else SUITES[m['suite']]['tests']
     validate_groups(ROOT,patterns)
     validate_dependency_files(ROOT,patterns,included={r['path'] for r in m.get('files',[])})
+    from portable_python_dependencies import check as check_dependencies
+    dependencies=check_dependencies(ROOT,patterns);write(capture/'python-dependencies.json',dependencies)
+    if not dependencies['passed']:raise ValueError('Validation Python dependencies unavailable; run validation-deps and inspect requirements-validation.txt')
     timeout=SUITES[m['suite']].get('cpu_test_timeout',60)
     if type(timeout) is not int or not 1<=timeout<=180:raise ValueError('Invalid bounded CPU test timeout')
     if not patterns:
@@ -3045,6 +3051,8 @@ def main(argv=None):
     a.add_argument('--artifact-kind',choices=('ptx','cubin'),default='cubin');a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--require-hit',action='store_true')
     a=sub.add_parser('consumer-audit');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('validation-deps',help='Check pinned selected-test Python dependencies without installing')
+    a.add_argument('--suite',choices=SUITES);a.add_argument('--smoke',action='store_true');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('source-reuse');a.add_argument('--out',type=Path,required=True);a.add_argument('--require-hit',action='store_true')
     for name in ('reference-package','candidate-package','reference-generation','candidate-generation'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('entry-inventory');a.add_argument('--out',type=Path,required=True);a.add_argument('--suite',choices=('coordinate-original','coordinate-original-burst-revival','coordinate-original-resources','coordinate-original-ammo','coordinate-original-stacks','coordinate-original-cleanse','coordinate-original-source','coordinate-original-reload','coordinate-original-shield','coordinate-original-cover','coordinate-original-shared','coordinate-original-decoy','coordinate-original-init','coordinate-original-enemy-stack','coordinate-original-harmful-stack','coordinate-original-accum','coordinate-original-owned'),default='coordinate-original')
@@ -3168,6 +3176,17 @@ def main(argv=None):
     elif a.command=='entry-inventory':
         from portable_original_entry_inventory import run
         result=run(a.out,write=write,forbid_gpu=forbid_gpu,source=SUITES[a.suite]['source'],comparison_source=SUITES[a.suite].get('kind_baseline_source'))
+    elif a.command=='validation-deps':
+        from portable_python_dependencies import check as check_dependencies
+        manifest=verify_package(ROOT) if (ROOT/'gpu-package.json').is_file() else None
+        suite=manifest['suite'] if manifest else a.suite
+        if suite is None or a.suite is not None and a.suite!=suite:raise ValueError('Select a suite matching the immutable package')
+        with a.out.open('x',encoding='utf-8') as stream:
+            result=check_dependencies(ROOT,SMOKE_TESTS if a.smoke else SUITES[suite]['tests'])
+            result.update(suite=suite,package_id=manifest['package_id'] if manifest else None)
+            json.dump(result,stream,ensure_ascii=False,indent=2);stream.write('\n')
+        if not result['passed']:
+            print(json.dumps(result,ensure_ascii=False,indent=2));raise SystemExit(1)
     elif a.command=='inventory':
         if a.out.exists():raise ValueError('Inventory output already exists')
         inventory=module(ROOT/'research/audit-world-roster-input.py').main(destination=str(a.out.resolve()),quiet=True)

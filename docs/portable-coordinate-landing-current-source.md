@@ -9,3 +9,5 @@ compact development packetから関連36検査・CPU40/native26比較1.825020秒
 Windows配布はresearch/windows-source-packets/coordinate-landing-current-v3.zip（9085930byte/SHA76923a31…）。固定upstreamを含むcompact sealed packetで、CUDA生成物147383byte・出力2207360byteの小さな検証です。目的は共通数値規約のCUDA比較と、この正確なsourceのCUBIN cache確認。全戦闘本体のcold buildを依頼しません。Windowsの計算結果はまだ未取得です。
 
 proofは永続 .portable-recovery/proofs/owner-hp-death-gpu-20261027/、小さな証跡はresearch/numeric-landing-current-source-evidence/と対応checkpoint。Metal106入力のfield/HP死亡の本体証明とは分けます。
+
+Windows v4は依存確認・36検査・40/native26比較・NVRTC2.586690秒/ret0・module読込まで成功し、cuLaunchKernelがcode2で失敗しました。成功launch0/readbackなし/計算未認定。保存CUBIN311824byte/SHAe8550ca1…をfile-only cache-probeでhit確認（0.086559秒、compile/driver/GPU追加0）。GPU空き容量やstack/localは保存記録に無く原因未確定。内Job peak2098597888byteは上限近傍ですが因果関係は未証明です。report commit6ed21084…のJSON2blob（3367byte）をMacでhash検査、package/input/generated指紋も一致。CUBIN/Job原本のMac独立監査ではありません。次は同じcacheを必須にしてcompiler DLLを載せない実行profileを明示的に検証する候補。原失敗/claim保持、cold再試行やcap増大をしない。

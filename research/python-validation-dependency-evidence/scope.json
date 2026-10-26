@@ -1,0 +1,13 @@
+{
+  "selected_oracle_only": true,
+  "requirements_file": "requirements-validation.txt",
+  "pin": "gmpy2==2.2.1",
+  "new_fault_injection_tests": 8,
+  "control_tests": 525,
+  "skipped": 1,
+  "installation_by_tool": false,
+  "gpu_calls": 0,
+  "repository_skill_validated": true,
+  "installed_skill_validated": true,
+  "validator_dependency": "PyYAML==6.0.2 in proof-only target; existing Python environments unchanged"
+}

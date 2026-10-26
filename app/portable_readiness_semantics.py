@@ -358,6 +358,15 @@ def reference_readiness(issue):
             shared_input_packing_verified=True,metal_verified=False,cuda_device_verified=False,
             canonical_consumer_verified=False,in_game_rules_verified=False,full_character_verified=False,
             scope='finite_HP_ADD_kills_CPU_contracts_only_not_graph_exit_or_hit_count_retirement')
+        result['typed_owner_hp_death_validation']=dict(suite='coordinate-typed-owner-hp-death',inputs=106,
+            native_cases=63,rejected_cases=43,metal_verified=True,independently_audited=True,
+            gpu_damage_retirement_reason_verified=True,final_hp_damage_alive_and_owner_generation_verified=True,
+            final_owned_field_hidden=True,old103_original_raw_byte_prefix_preserved=True,
+            new_capture_retained_on_proof_host=True,compiler_certificate_from_same_audit=True,
+            warm_metal_pipeline_verified=True,pipeline_archive_compiles_during_run=0,
+            per_frame_visibility_trace_on_gpu_verified=False,graph_active_at_kill_is_cpu_witness_only=True,
+            cuda_device_verified=False,in_game_rules_verified=False,canonical_consumer_verified=False,
+            full_character_verified=False,scope='finite_HP_ADD_damage_kills_and_owned_field_final_GPU_state')
         result['typed_current_damage_validation']=dict(suite='coordinate-typed-actor',inputs=67,native_cases=40,
             declared_actor_policy='canonical-current-damage-v1',original_profile='Rei',original_definitions=73,
             original_current_skill_events=[0,5,5,5],literal_selector='enemies_nearest_in_range',

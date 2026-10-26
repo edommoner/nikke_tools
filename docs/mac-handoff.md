@@ -2448,3 +2448,15 @@ Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-la
 共通reference `coordinate-typed-owner-hp-death-common` を追加。元Prim全71・完全5人/武器/成長・別監査2効果を保持。HP1/1000000 ADDへ実ダメージ、同一攻撃子field先行/遅い子field前死亡/可視field後死亡の3件。hit_add前後の受動観測でdealtがHPへ到達しalive→dead、graphはactive/世代1のままを検査。3件27.509402秒CPU成功。最終742c8a98…は分類/負例unitの2file差分、producer/CLI/GPU保持、22検査・制御517成功（Win1skip）、生成必須hit/Slang0。新3件GPU0、Metal/CUDA未実証。詳細docs/portable-coordinate-typed-owner-hp-death-reference.md、対応checkpoint。次は旧103保持の106へ接続。
 
 Windows c7e4d149探索では現sourceのgenerated/cache未特定、GPU0。package作成は固定upstream未導入で停止。再buildせず、Mac CPU検査済みcompiler-only ZIPを17b52569で共有。research/windows-source-packets/typed-owner-add-lifetime-a2cfc763.zip（11439568byte/SHA82e0322e…、package a2cfc763…）に固定upstream/dataを同梱。新source cache不在時に旧cacheを流用しない。現CUDAのcompile/cache/launch/readback成功は未確認。WindowsでもZIP SHA・全3497payload・pinned source certificateの確認完了。unpack62.820553秒/verify14.818706秒、各BelowNormal/2GiB/180秒以内、終了0。research/windows-source-packets/windows-receipt-a2cfc763.jsonに既存チャットの出所付き結果を保持。追加compile/driver/GPU0、現CUDA計算成功とは区別。
+
+## 2026-10-27 HPダメージ死亡Metal106・依存事前チェック
+
+最新sealed coordinate-typed-owner-hp-death106/native63/拒43。元Prim71/完全5人/武器/成長と旧103保持、同一攻撃子field先行・遅いfield前死亡・可視field後死亡を共通entryへdata-only追加。GPU/backend/数値/正本/normalizer不変。M5 GPU4.185487秒、CPU preflight411.900620秒、pipeline0.003058秒（必須hit/compile0）、child6.520327秒/180上限。fresh6群20/20/20/20/20/6の独立監査534.033338秒、各180以内、同じ監査でgolden/certificate。旧103原raw837184000byteと新prefixをbyte一致、GPU退場理由1・被ダメージ1/1/1000000・gen1/dead/field0。kill時graph activeはCPU witness、最終GPU graphはinactive。追加診断の誤ったfinal-active要求失敗も保持、native/GPU比較器変更0。
+
+最終9a30395d…は分類/登録とPython依存チェック8file差分。変更CLI関数make_package/main/cpu_test_groups、他全関数AST/native producer/comparator/GPU保持。関連123/制御525（Win1skip）、generation必須hit/Slang0。最終native全再生成0。proofは永続 .portable-recovery/proofs/owner-hp-death-gpu-20261027、全groupログもpersistent TMPDIR、reader終了後SHA/size/inode保持疎化で688259072byte回収、raw/claim削除0。小さな証跡はtyped-owner-hp-death-gpu-evidence/と対応checkpoint。
+
+以前の07e1d178の数値40goldenは共通source変更でstale。現在sourceで小さなMetal40/独立監査を行い旧input/native/output完全保持、GPU0.403115秒/child2.503813秒、全GPUコード変更0、旧raw復元ではない。compact sealed v3はWindowsでgmpy2不足によりCPU import時停止、compile/GPU0。v4はpin同梱とvalidation-depsを追加し、専用dependenciesを一時PYTHONPATHで利用。既存envへのinstall/SDK/PATH変更なし。Mac36/525成功、新Windows runは最初のCUDA GPUだけを依頼中。全本体CUDA成功へ拡大しない。
+
+現在inventoryは266profile中245入力変換/21失敗、203base中185変換、20model-gap分類。全profile input/issue/順位保持。過去の19失敗を現状として使わない。HP死亡/field寿命の私有共通契約成立と、canonical/public consumer・ゲーム仕様・全キャラ認定は別。次は本体CUDAの段階別成立と、残20分類・公開consumerへの接続を優先し、固定entryへ小ケースを足すだけで全キャラ達成へ読み替えない。全キャラ0/UI CPU/目標未達。
+
+Windows v4は依存確認・36検査・40/native26比較・NVRTC2.586690秒/ret0・module読込まで成功し、cuLaunchKernelがcode2で失敗しました。成功launch0/readbackなし/計算未認定。保存CUBIN311824byte/SHAe8550ca1…をfile-only cache-probeでhit確認（0.086559秒、compile/driver/GPU追加0）。GPU空き容量やstack/localは保存記録に無く原因未確定。内Job peak2098597888byteは上限近傍ですが因果関係は未証明です。report commit6ed21084…のJSON2blob（3367byte）をMacでhash検査、package/input/generated指紋も一致。CUBIN/Job原本のMac独立監査ではありません。次は同じcacheを必須にしてcompiler DLLを載せない実行profileを明示的に検証する候補。原失敗/claim保持、cold再試行やcap増大をしない。

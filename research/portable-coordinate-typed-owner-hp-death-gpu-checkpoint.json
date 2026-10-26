@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "suite": "coordinate-typed-owner-hp-death",
+  "inputs": 106,
+  "native_cases": 63,
+  "rejections": 43,
+  "metal_verified": true,
+  "fresh_independent_audit_verified": true,
+  "source_certificate_from_same_audit": true,
+  "old103_original_raw_byte_prefix_preserved": true,
+  "gpu_damage_kill_retirement_reason_verified": true,
+  "gpu_final_hp_damage_alive_and_owner_generation_verified": true,
+  "final_owned_field_hidden": true,
+  "per_frame_visibility_trace_on_gpu_verified": false,
+  "graph_active_at_kill_is_cpu_witness_only": true,
+  "new_capture_retained_on_proof_host": true,
+  "original99_capture_recovered": false,
+  "metal_pipeline_required_hit": true,
+  "pipeline_archive_compiles_during_run": 0,
+  "cuda_full_battle_device_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "persistent_proof_path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/owner-hp-death-gpu-20261027",
+  "artifacts": {
+    "extra-diagnostic-failure.json": {
+      "bytes": 539,
+      "sha256": "6654435dc511557e91e1fef7835f5eddf3a073457b29f6c35b350fe7bd3f0bcb"
+    },
+    "final-control-v1.json": {
+      "bytes": 190,
+      "sha256": "9f78954e3e9f63dbbbe65405dc9daf98ecdf21664505e438adfd0f9d7e2dc104"
+    },
+    "final-related-v1.json": {
+      "bytes": 189,
+      "sha256": "da0fa132c05f45f891a3826b36586fb33b9701b23027a17187b7b183443436bb"
+    },
+    "generation.json": {
+      "bytes": 27697,
+      "sha256": "a2a1fe69f8b8810b8d91c3bde46b80f3696595d28df82b50cf28ff1537e715e6"
+    },
+    "independent-audit.json": {
+      "bytes": 3124,
+      "sha256": "ed6474b2a075d05b09d21883164e51cbf604c26eaa98e3a61a6e4d2d1a4674de"
+    },
+    "independent-group-retention.json": {
+      "bytes": 2919,
+      "sha256": "6304aea9078e2cf1df9e79323a01d74f684e7730f0d3999de01e35c8b95e3fde"
+    },
+    "inventory-summary.json": {
+      "bytes": 35119,
+      "sha256": "356cdd9bfd7b3e94e57d5d96d4d5e98a72d12a12242e1bd9f2c5caa47b83d20c"
+    },
+    "metal-summary.json": {
+      "bytes": 11435,
+      "sha256": "b6b574e85c076b875f05ffbfd788334435a24efe51e1f4d88cff7f5962566a04"
+    },
+    "package-binding.json": {
+      "bytes": 918,
+      "sha256": "b2ed66ef53a29021e8e586751e104f01f89ab67a0fde03ad458259e28132430c"
+    },
+    "raw-storage.json": {
+      "bytes": 758,
+      "sha256": "f18d45480d2401e53c1b1e0f7e3db157ceb15ecae35543f2cc1e1747513ef186"
+    },
+    "readback-observations.json": {
+      "bytes": 1816,
+      "sha256": "e07be158f8b0e4666c993c8a1c4f0e7b4a24f8fff9b6cd5b6994f3916b21bcf1"
+    }
+  }
+}
