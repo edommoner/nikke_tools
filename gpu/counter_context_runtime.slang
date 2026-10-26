@@ -39,7 +39,7 @@ bool counterContextAdd(inout Runtime s,bool legacy)
     if(pointer!=0&&typedOwnerPolicyEnabled(s))
     {
         uint at=pointer-1,kind=results[at+5];
-        if(kind==2||kind==3||kind==4){typedOwnerContextTarget(s,kind,results[at+6],results[at+7]);return false;}
+        if(kind==2||kind==3||kind==4){uint target=typedOwnerContextTarget(s,kind,results[at+6],results[at+7]);return target!=0&&target!=128&&s.error==0;}
     }
 #endif
     return pointer!=0 ? results[pointer-1+5]==5 : legacy;

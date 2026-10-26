@@ -6,9 +6,12 @@ from portable_original_modifier_probe_input import pack_target_input
 from portable_target_modifier_input import lower_effect
 from destructible_skill_specs import coefficient
 
-def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None,coordinate_weapon_targets=False,coordinate_typed_aim=False,coordinate_typed_actors=False,coordinate_typed_owners=False):
+def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None,coordinate_weapon_targets=False,coordinate_typed_aim=False,coordinate_typed_actors=False,coordinate_typed_owners=False,coordinate_logical_owners=False):
     from coordinate_typed_actor_policy import owns_fields,LOGICAL_FIELD_MODE
-    if prepared.get('typed_actor_policy')=={'mode':LOGICAL_FIELD_MODE}:raise ValueError('Logical ADD ownership requires a new shared GPU consumer')
+    logical_policy=prepared.get('typed_actor_policy')=={'mode':LOGICAL_FIELD_MODE}
+    if type(coordinate_logical_owners) is not bool:raise ValueError('Explicit logical owner consumer policy required')
+    if logical_policy and not coordinate_logical_owners:raise ValueError('Logical ADD ownership requires a new shared GPU consumer')
+    if coordinate_logical_owners and (not logical_policy or not coordinate_typed_owners):raise ValueError('Logical ownership requires its explicit policy and owner consumer')
     if type(coordinate_typed_owners) is not bool:raise ValueError('Explicit typed owner consumer policy required')
     field_policy=owns_fields(prepared.get('typed_actor_policy'))
     if field_policy and not coordinate_typed_owners:raise ValueError('Typed owner fields require a new shared GPU consumer')
@@ -45,14 +48,14 @@ def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,
         for dest,row in zip(lowered['effects'],original,strict=True):dest['effect']=lower_effect(row['effect'])
         from contextlib import nullcontext
         from portable_coordinate_typed_owner_input import compiler_policy as owner_compiler_policy
-        with owner_compiler_policy(bindings) if coordinate_typed_owners else nullcontext():
+        with owner_compiler_policy(bindings,prepared.get('typed_actor_policy')) if coordinate_typed_owners else nullcontext():
             words,meta,actors,scene=compile_coordinate_battle(lowered,typed_aim_targets=aim_targets)
-        extra,axes=pack_target_input(words,meta,original,prepared['enemy']['patterns'],bindings,None,probe_kind,max_attacks,weapon_only=True)
+        extra,axes=pack_target_input(words,meta,original,prepared['enemy']['patterns'],bindings,None,probe_kind,max_attacks,weapon_only=True,logical_owner_bindings=coordinate_logical_owners)
         from portable_typed_geometry_specs import pack
         shape_words,shape_meta=pack(geometry,len(bindings),probe_kind);extra[:2320]=shape_words;extra[13]=1
         if coordinate_typed_aim:extra[14]=1;scene['typed_aim_slots']=aim_targets;scene['typed_aim_add_slot']=257
         if coordinate_typed_actors:extra[15]=1
-        if coordinate_typed_owners:extra[12]=1;extra[15]=2
+        if coordinate_typed_owners:extra[12]=3 if coordinate_logical_owners else 1;extra[15]=2
         meta['typed_geometry']=shape_meta
         meta['coordinate_typed_input']=dict(probe_source=None,probe_kind=probe_kind,axis_rows=axes,one_resident_runtime=True,shared_world_clock=True,automatic_typed_weapon_aim=coordinate_typed_aim,coordinate_weapon_targets=True)
         return words+extra,meta,actors,scene

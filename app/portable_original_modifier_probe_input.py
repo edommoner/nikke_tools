@@ -12,13 +12,17 @@ SOURCE='gpu/destructible_original_modifier_entry.slang'
 INPUT_WORDS=110112
 OUTPUT_WORDS=1048576
 
-def pack_target_input(words,meta,original,patterns,bindings,probe_row,probe_kind,max_attacks,*,weapon_only=False):
+def pack_target_input(words,meta,original,patterns,bindings,probe_row,probe_kind,max_attacks,*,weapon_only=False,logical_owner_bindings=False):
     """Same typed input block at either arena base; no battle/schedule evaluation."""
     if type(weapon_only) is not bool or weapon_only and probe_row is not None:raise ValueError('Weapon-only descriptor cannot name a skill probe')
+    if type(logical_owner_bindings) is not bool or logical_owner_bindings and not weapon_only:raise ValueError('Logical owners require their explicit weapon-only descriptor')
+    if logical_owner_bindings:
+        from coordinate_typed_actor_policy import validate_bindings,LOGICAL_FIELD_MODE
+        validate_bindings({'mode':LOGICAL_FIELD_MODE},bindings)
     axes=pack_axes(words,meta,[r['effect'] for r in original]);source=0xffffffff if weapon_only else meta['binding_source_indices'].index(probe_row)
     _,_,rows=compile_bindings([dict(id=p['id']) for p in patterns],bindings)
     if any(int(r.handle.kind)!=probe_kind for r in rows):raise ValueError('Probe binding kind must match its declared typed route')
-    if probe_kind==3 and any(r.owner is None or (int(r.owner.kind),r.owner.identity,r.owner.generation)!=(0,0,1) for r in rows):raise ValueError('HP probe requires the explicit boss owner generation')
+    if probe_kind==3 and not logical_owner_bindings and any(r.owner is None or (int(r.owner.kind),r.owner.identity,r.owner.generation)!=(0,0,1) for r in rows):raise ValueError('HP probe requires the explicit boss owner generation')
     extra=[0]*5712;extra[2320]=len(rows)
     for slot,row in enumerate(rows):
         at=2328+slot*12;owner=[0xffffffff,0,0] if row.owner is None else [int(row.owner.kind),row.owner.identity,row.owner.generation]

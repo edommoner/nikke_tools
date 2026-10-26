@@ -20,6 +20,9 @@ bool validTypedGeometry(inout Runtime s)
 #ifdef PORTABLE_COORDINATE_TYPED_AIM
         if(i==14&&commands[p+i]==1&&commands[p+13]==1)continue;
 #endif
+#ifdef PORTABLE_COORDINATE_LOGICAL_OWNERS
+        if((i==12||i==15)&&commands[p+12]==3&&commands[p+15]==2&&commands[p+14]==1&&commands[p+13]==1)continue;
+#endif
 #ifdef PORTABLE_COORDINATE_TYPED_OWNERS
         if(i==12&&commands[p+i]==1&&commands[p+15]==2&&commands[p+14]==1&&commands[p+13]==1)continue;
         if(i==15&&commands[p+i]==2&&commands[p+12]==1&&commands[p+14]==1&&commands[p+13]==1)continue;
@@ -34,7 +37,13 @@ bool validTypedGeometry(inout Runtime s)
         uint row=p+16+slot*18;
         if(slot>=n){for(uint i=0;i<18;i++)if(commands[row+i]!=0)return false;continue;}
         uint binding=p+2328+slot*12;
-        if(kind==3&&(commands[binding+5]!=0||commands[binding+6]!=0||commands[binding+7]!=1))return false;
+        bool logicalWeaponOwner=false;
+#ifdef PORTABLE_COORDINATE_LOGICAL_OWNERS
+        logicalWeaponOwner=commands[p+12]==3&&commands[p+15]==2&&coordinateTypedWeapons(s);
+#endif
+        // Ordinary shield probes retain BODY-only admission. The explicit
+        // logical weapon policy is validated by validTypedOwnerPolicy below.
+        if(kind==3&&!logicalWeaponOwner&&(commands[binding+5]!=0||commands[binding+6]!=0||commands[binding+7]!=1))return false;
         if(commands[p+2328+slot*12+1]!=kind||commands[row+1]!=0||commands[row+16]!=0||commands[row+17]!=0)return false;
         for(uint i=2;i<16;i+=2)if(!f64Finite(cNumber(row+i)))return false;
         if(commands[row]==1){if(!f64Less(0,cNumber(row+6))||!f64Zero(cNumber(row+8))||!f64Zero(cNumber(row+10)))return false;}

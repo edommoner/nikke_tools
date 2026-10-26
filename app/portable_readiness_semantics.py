@@ -315,6 +315,18 @@ def reference_readiness(issue):
             stale_unknown_unspawned_owner_unit_rejected=True,gpu_wire_connected=False,
             metal_verified=False,cuda_device_verified=False,in_game_rules_verified=False,
             full_character_verified=False,scope='declared_ADD_owned_projectile_and_HP_shield_real_counter_children_CPU_only')
+        result['typed_logical_owner_validation']=dict(suite='coordinate-typed-logical-owner',inputs=99,
+            native_cases=56,rejected_cases=43,new_original_roster_cases=3,original_definitions=71,
+            cpu_reference_verified=True,metal_verified=True,independently_audited=True,
+            declared_actor_policy='logical-owned-current-fields-v1',explicit_add_owner=[5,1,1],
+            ordinary_field_actor=[5,0,1],actual_received_damage_pct=[0,0,17],
+            physical_handle_preserved=True,dead_typed_target_query_verified=True,
+            owner_generation_mismatch_after_landing_rejected=True,prior88_all_input_native_output_retained=True,
+            compiler_certificate_from_same_audit=True,slang_compiler_calls_during_execution=0,
+            new_shader_warm_metal_pipeline_verified=False,add_respawn_battle_verified=False,
+            dead_add_field_lifetime_battle_verified=False,cuda_device_verified=False,
+            canonical_consumer_verified=False,in_game_rules_verified=False,full_character_verified=False,
+            scope='declared_ADD_owned_projectile_and_HP_shield_real_counter_children_and_exact_owner_generation')
         result['typed_current_damage_validation']=dict(suite='coordinate-typed-actor',inputs=67,native_cases=40,
             declared_actor_policy='canonical-current-damage-v1',original_profile='Rei',original_definitions=73,
             original_current_skill_events=[0,5,5,5],literal_selector='enemies_nearest_in_range',
