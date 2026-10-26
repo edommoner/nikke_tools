@@ -1,0 +1,13 @@
+{
+  "package_id": "c01e415c9ef544ec77d40e36b8f7b507ef09f66a66c079b43e0054454eb2fbb2",
+  "suite": "coordinate-landing",
+  "purpose": "sealed",
+  "archive": {
+    "bytes": 9085930,
+    "sha256": "76923a31240526dd979f5a2037d1c2c4d17cac8a51a6f275230dbf7287d58973"
+  },
+  "old40_expected_results_retained": true,
+  "contains_personal_settings_or_raw": false,
+  "mac_metal_verified": true,
+  "windows_cuda_verified": false
+}
