@@ -1,4 +1,4 @@
-本体CUDA v1はPTX診断packetへCUBINを依頼したため、実コンパイル前に正しく停止しました。claim／compiler／driver0。既存のsealed戦闘packetを使うCUBIN用経路へ切り替え、共通`compile-plan`を先に実行する手順へ修正しました。制約は緩和せず、関連162／共通580／compile-plan11検査に成功しています。[計画検査](portable-compile-plan.md)。本体のCUDAコンパイル成立や実戦一致はまだ認定していません。
+本体CUDA v2はCUBIN計画・依存検査に成功しましたが、CPU smokeのMac用device検査fixtureがWindowsにもslangcを作っており、必要なslangc.exeがなく停止しました。実コンパイル／GPU／claim0を保存。v3はCLIのos参照だけをproxyで差し替え、POSIXとWindowsそれぞれに正しいSDK名だけを作ってdeviceゲートまで到達する検査を通しました。実OSやSDK・計算本体は変更しません。制御580・device8成功、同一106goldenと全GPU／正本／比較器／CLIのbyte保持を確認し、planも成功しました。本体CUDAの成立は未確認です。[計画検査](portable-compile-plan.md)。
 
 同一実行内の正本再利用を既存CLIへ接続し、全106入力を保存Metal rawでCPUのみ回帰しました。fresh正本63回／411.330秒の後、追加正本計算0・既存比較器と観測context63件を使う比較11.343秒で、全entry・input/output・生成物指紋が元の認証済み比較と一致。GPU追加0。独立sealは引き続き別childでfresh計算し、保存native値を読むcacheは作りません。経路の一時オブジェクトID再利用を循環と誤認していた検査は、解決中の実オブジェクトを保持して修正。真の循環は拒否します。最初のCPU回帰fixtureはreflection2ファイル不足で停止し、成功済みfresh CPU63件と失敗を保存。修正版は生成物ペア／input／raw全SHAをCPU正本より先に検証しました。
 

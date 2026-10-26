@@ -1,5 +1,5 @@
 """Route real blockers without inventing a consumer, support or unlock claim."""
-import copy,sys,unittest
+import copy,hashlib,json,sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app')]
 from portable_readiness_semantics import reference_readiness,work_lanes
@@ -7,6 +7,29 @@ from portable_readiness import issue,summarize
 
 
 class ReadinessSemanticsTests(unittest.TestCase):
+    def test_resident_and_standalone_cuda_evidence_keep_distinct_support_scopes(self):
+        independent=(ROOT/'tests/fixtures/resident-arc-independent-v2.json').read_bytes()
+        comparison=(ROOT/'tests/fixtures/landing-arc-cuda-comparison-v4.json').read_bytes()
+        transport=(ROOT/'tests/fixtures/landing-arc-cuda-summary-v4.json').read_bytes()
+        metal=json.loads(independent);cuda=json.loads(comparison);summary=json.loads(transport)
+        for stat in ('projectile_dmg_pct','shield_dmg_pct'):
+            r=reference_readiness(self.blocker(stat));m=r['resident_arc_validation'];c=r['standalone_landing_cuda_validation']
+            self.assertEqual(m['evidence_sha256'],hashlib.sha256(independent).hexdigest())
+            self.assertEqual((m['inputs'],m['native_cases']),(metal['input_count'],metal['native_cases']))
+            self.assertTrue(metal['calculation_verified']);self.assertTrue(m['metal_verified']);self.assertFalse(m['cuda_device_verified'])
+            self.assertEqual(c['evidence_sha256'],hashlib.sha256(comparison).hexdigest())
+            self.assertEqual(c['transport_evidence_sha256'],hashlib.sha256(transport).hexdigest())
+            self.assertEqual((c['inputs'],c['native_cases']),(cuda['input_count'],cuda['native_oracles']))
+            self.assertTrue(cuda['calculation_verified']);self.assertEqual(cuda['mismatches'],[])
+            self.assertEqual(c['nvrtc_calls'],summary['actions']['nvrtc_calls'])
+            self.assertEqual(c['compiler_library_requests'],summary['compiler_library_requests'])
+            self.assertEqual(c['required_cubin_cache_hit'],summary['actual_cache']['hit'])
+            returned={r['stage']:r['return_code'] for r in summary['gpu_api_returns'] if r['state']=='returned'}
+            self.assertTrue(c['launch_sync_readback_verified']);self.assertEqual([returned[s] for s in ('cuLaunchKernel','cuCtxSynchronize','cuMemcpyDtoH_v2')],[0,0,0])
+            self.assertEqual(c['overall_stage_passed'],summary['result']['passed'])
+            self.assertFalse(c['full_resident_battle_verified']);self.assertFalse(c['overall_stage_passed'])
+            self.assertEqual(r['lane'],'reference_model_gap');self.assertFalse(r['gpu_supported']);self.assertFalse(r['full_character_verified'])
+
     def test_ammo_equivalent_has_native_contracts_but_no_admission_claim(self):
         row=dict(phase='effect',category='effect',kind='instant',stat='squad_ammo_consume_as',target='self',scaling=None)
         result=reference_readiness(row)

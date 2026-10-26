@@ -57,7 +57,26 @@
     "proof": "resident-arc-arena-evidence/parent-reuse-v2/result.json"
   },
   "compile_plan_unit_tests": 11,
-  "windows_full_compile_status": "v1 correctly stopped before execution by PTX-only diagnostic policy; new sealed CUBIN packet814c08b1 passes compile-plan, not yet executed",
+  "windows_full_compile_status": "v2 plan/dependency success; CPU smoke stopped at wrong fake SDK executable name, no compiler/claim. v3 fixes fixture and passes Mac580/platform8/compile-plan; actual Windows result pending",
   "windows_full_compile_attempts": 0,
-  "windows_cubin_plan_package_id": "814c08b1ff0d2957b2a027736dcbddb9a5327015516c7095421259da27e64c0c"
+  "windows_cubin_plan_package_id": "0064f91cb961cb10c2df7d19594d9179054ed84aed7325949537149c631af5c9",
+  "latest_inventory": {
+    "profiles": 266,
+    "packed": 245,
+    "failed": 21,
+    "categories": 20,
+    "all_previous_inputs_issues_and_ranking_retained": true,
+    "proof": "resident-arc-arena-evidence/classification-v1/retention.json"
+  },
+  "next_full_profile": {
+    "character": "스노우 화이트 : 헤비암즈",
+    "original_definitions": 25,
+    "required_stats": [
+      "lock_on",
+      "effect_target_count_add"
+    ],
+    "required_selector": "all_projectiles",
+    "existing_opt_in_pack_first_failure": "lock_on",
+    "gpu_verified": false
+  }
 }

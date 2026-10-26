@@ -1,0 +1,141 @@
+{
+  "schema": "heavyarms-full-prerequisites-v1",
+  "character": "스노우 화이트 : 헤비암즈",
+  "original_skill_definitions": 25,
+  "source_indices": [
+    0,
+    20,
+    24
+  ],
+  "original_requirements": [
+    {
+      "index": 0,
+      "effect": {
+        "source": "스킬1",
+        "type": "buff",
+        "name": "록 온",
+        "trigger": {
+          "timing": [
+            "every:0.2s"
+          ],
+          "condition": [
+            "during_charge"
+          ]
+        },
+        "target": "enemies_nearest:1",
+        "stat": "lock_on",
+        "polarity": "neutral",
+        "max_stack": 5,
+        "duration": -1
+      }
+    },
+    {
+      "index": 20,
+      "effect": {
+        "source": "스킬3",
+        "type": "buff",
+        "name": "세븐스 드워프 풀 액티브 5",
+        "trigger": {
+          "timing": [
+            "burst_cast"
+          ],
+          "condition": []
+        },
+        "target": "self",
+        "stat": "effect_target_count_add",
+        "target_effect": "록 온",
+        "polarity": "beneficial",
+        "fixed_value": 10.0,
+        "duration_bullets": 2,
+        "note": "스킬3 효과 2 `[최대 [록 온] 대상 수 10 ▲] [지속]`. 원문 순서로는 효과 3(게이지)보다 앞이지만 이름 번호는 기존 참조를 흔들지 않으려 빈 번호 5를 쓴다. 단일 보스라 록 온 대상이 1기뿐이어서 무영향"
+      }
+    },
+    {
+      "index": 24,
+      "effect": {
+        "source": "스킬3",
+        "type": "damage",
+        "name": "세븐스 드워프 풀 액티브 4",
+        "trigger": {
+          "timing": [
+            "burst_cast"
+          ],
+          "condition": []
+        },
+        "target": "all_projectiles",
+        "stat": "damage",
+        "values": {
+          "1": 24.76,
+          "2": 26.66,
+          "3": 28.57,
+          "4": 30.47,
+          "5": 32.38,
+          "6": 34.28,
+          "7": 36.19,
+          "8": 38.09,
+          "9": 40.0,
+          "10": 41.9
+        }
+      }
+    }
+  ],
+  "default_profile_effect_blockers": [
+    {
+      "index": 0,
+      "owner": "스노우 화이트 : 헤비암즈",
+      "name": "록 온",
+      "issue": {
+        "phase": "effect",
+        "category": "effect",
+        "kind": "buff",
+        "stat": "lock_on",
+        "target": "enemies_nearest:1",
+        "scaling": null,
+        "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"lock_on\", \"target\": \"enemies_nearest:1\"}",
+        "diagnostic_source": "structured_reason",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported buff stat"
+      }
+    },
+    {
+      "index": 20,
+      "owner": "스노우 화이트 : 헤비암즈",
+      "name": "세븐스 드워프 풀 액티브 5",
+      "issue": {
+        "phase": "effect",
+        "category": "effect",
+        "kind": "buff",
+        "stat": "effect_target_count_add",
+        "target": "self",
+        "scaling": null,
+        "code": "{\"category\": \"effect\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"effect_target_count_add\", \"target\": \"self\"}",
+        "diagnostic_source": "structured_reason",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported buff stat"
+      }
+    },
+    {
+      "index": 24,
+      "owner": "스노우 화이트 : 헤비암즈",
+      "name": "세븐스 드워프 풀 액티브 4",
+      "issue": {
+        "phase": "effect",
+        "category": "recipient",
+        "kind": "damage",
+        "stat": "damage",
+        "target": "all_projectiles",
+        "scaling": null,
+        "code": "{\"category\": \"recipient\", \"kind\": \"damage\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"damage\", \"target\": \"all_projectiles\"}",
+        "diagnostic_source": "message_fallback",
+        "error_type": "UnsupportedPortable",
+        "message": "Unported enemy damage selector"
+      }
+    }
+  ],
+  "coordinate_probe_first_failure": "lock_on",
+  "probe_result_scope": "Existing opt-in all_projectiles lowering cannot admit the complete original25; unchanged validation rejects the first original lock marker",
+  "cpu_battle_calls": 0,
+  "gpu_calls": 0,
+  "full_profile_gpu_verified": false,
+  "next_contract": "Observe generic named enemy carrier behavior and identify remaining lock/target-count consumers before connecting the complete original25; do not remove those effects"
+}

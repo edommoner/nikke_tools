@@ -6,6 +6,10 @@ ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/
 import portable_metal_device as device
 s=importlib.util.spec_from_file_location('metal_device_cli_test',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(s);s.loader.exec_module(cli)
 
+class PlatformNameOnly:
+    def __init__(self,name):self.name=name
+    def __getattr__(self,name):return getattr(os,name)
+
 class DeviceTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name)
@@ -40,19 +44,23 @@ class DeviceTests(unittest.TestCase):
             self.assertFalse(device.probe(self.root)['passed']);run.assert_not_called()
         with self.context(),patch.dict(os.environ,{'NIKKE_METAL_MODULE_CACHE':'relative'}),patch.object(device.subprocess,'run') as run:
             self.assertFalse(device.probe(self.root)['passed']);run.assert_not_called()
-    def gate_context(self):
+    def gate_context(self,platform_name=None):
         from portable_wire_layout import metal_guard
         (self.root/'scripts/run-metal-probe.swift').write_text(metal_guard()+'\n')
-        compiler=self.root/'slang/bin';compiler.mkdir(parents=True,exist_ok=True);(compiler/'slangc').write_text('fixture')
+        name=platform_name or os.name
+        compiler=self.root/('slang-'+name)/'bin';compiler.mkdir(parents=True,exist_ok=True)
+        (compiler/('slangc.exe' if name=='nt' else 'slangc')).write_text('fixture')
         stack=contextlib.ExitStack();stack.enter_context(patch.object(cli,'ROOT',self.root));stack.enter_context(patch.object(cli,'verify_package',return_value=dict(suite='coordinate-mode-actions',purpose='sealed',package_id='fixture')))
+        stack.enter_context(patch.object(cli,'os',PlatformNameOnly(name)))
         stack.enter_context(patch.dict(os.environ,{'NIKKE_SLANG_ROOT':str(compiler.parent)}));stack.enter_context(patch.object(cli,'validate_generation_request'));stack.enter_context(patch.object(cli,'capture_storage_preflight'));stack.enter_context(patch.object(cli,'required_generation_cache_preflight',return_value=False));return stack
     def test_no_device_stops_before_cpu_native_transport_and_claim(self):
-        capture=self.root/'capture'
-        with self.gate_context(),patch.object(device,'probe',return_value=dict(passed=False,gpu_calls=0)),patch.object(cli,'cpu_test_groups') as tests,patch.object(cli,'cpu_preflight') as native,patch.object(cli,'run_job') as job:
-            with self.assertRaisesRegex(RuntimeError,'before CPU preparation'):cli.run_capture(capture,'metal',180)
-            tests.assert_not_called();native.assert_not_called();job.assert_not_called()
-        self.assertFalse((self.root/'gpu-claimed-metal.json').exists());self.assertFalse(cli.load(capture/'metal-device-preflight.json')['passed'])
-        self.assertEqual(cli.load(capture/'run.json')['status'],'failed')
+        for name in ('posix','nt'):
+            capture=self.root/('capture-'+name)
+            with self.subTest(platform=name),self.gate_context(name),patch.object(device,'probe',return_value=dict(passed=False,gpu_calls=0)),patch.object(cli,'cpu_test_groups') as tests,patch.object(cli,'cpu_preflight') as native,patch.object(cli,'run_job') as job:
+                with self.assertRaisesRegex(RuntimeError,'before CPU preparation'):cli.run_capture(capture,'metal',180)
+                tests.assert_not_called();native.assert_not_called();job.assert_not_called()
+            self.assertFalse((self.root/'gpu-claimed-metal.json').exists());self.assertFalse(cli.load(capture/'metal-device-preflight.json')['passed'])
+            self.assertEqual(cli.load(capture/'run.json')['status'],'failed')
     def test_cpu_only_and_smoke_do_not_query_metal(self):
         for label,kwargs in [('cpu',dict(cpu_only=True)),('smoke',dict(smoke=True))]:
             with self.gate_context(),patch.object(cli,'metal_device_preflight') as probe,patch.object(cli,'cpu_test_groups',side_effect=ValueError('test boundary')):

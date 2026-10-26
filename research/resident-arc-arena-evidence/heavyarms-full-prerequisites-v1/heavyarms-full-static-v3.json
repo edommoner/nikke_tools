@@ -1,0 +1,21 @@
+{
+  "schema": "original-projectile-full-static-v1",
+  "passed": false,
+  "completed": [],
+  "error": "UnsupportedPortable: Unported buff stat",
+  "forbidden_calls": {
+    "cpu_battle": 0,
+    "gpu": 0
+  },
+  "diagnostics": [
+    {
+      "name": "록 온",
+      "type": "buff",
+      "stat": "lock_on",
+      "target": "enemies_nearest:1",
+      "source": "스킬1"
+    }
+  ],
+  "gpu_admission_verified": false,
+  "calculation_verified": false
+}

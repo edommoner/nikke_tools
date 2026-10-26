@@ -1,6 +1,6 @@
 # Mac GPU開発引き継ぎ
 
-全106入力の同一実行内正本再利用をCPU保存raw回帰で確認しました。fresh63件411.330秒→比較時の追加正本0、既存比較11.343秒で元の全106結果と一致、GPU追加0・独立seal再利用0。共有比較器の一時wrapperをfalse cycleと誤認する問題も修正。元の計算器／normalizerは保持しています。Windowsの本体v1はPTX専用diagnosticへCUBINを指定していたため実行前停止（compile／claim0）。同じGPUソースのsealed戦闘packet814c08b1…でCUBIN/O1/2GiB/60秒のcompile-planに成功し、次の配布物を作成済みです。旧PTX制約を維持し、親／child／監査／planで共有。関連162／制御580／plan11検査成功。[実装・範囲・失敗保持](portable-coordinate-resident-arc.md)。以下は履歴。
+共通resident arcはMetal全106入力を独立認証済みで、正本63件を同一実行内で再利用する比較も全件保持しました（fresh411.330秒・比較11.343秒、追加GPU0）。CUDA着弾40は必須CUBIN cacheで一致、NVRTC0。本体v1は形式不一致、v2はWindowsの偽SDK名slangc/slangc.exeの不一致でCPU smoke停止し、どちらも実コンパイル／claim0です。v3（0064f91c…）はplatform別fixtureを修正し、Mac制御580・SDK検査8（POSIX/Windows両方）・CUBIN/O1/2GiB/60秒plan成功。GPU／正本／比較器／CLI／106goldenはv2と保持。全266の再分類も入力・issue・順位を保ち245変換／21失敗／20未対応。次の元25定義はlock_on／effect_target_count_add／all_projectilesの契約が必要です。[現在の範囲](portable-coordinate-resident-arc.md)。以下は履歴。
 
 共通resident arcの全106入力は修正版58daee47…でM5通常検証に成功しました。GPU4.240秒、子72.407秒、Runtime reflection不変。独立監査も536.437秒で全106入力に成功し、sealed登録しました（7群・fresh native63・追加GPU0）。旧prefixの差は既存trace参照20語のcase-base移動だけで、残り861,567,920byte一致・新tail全0を専用監査で確認しました。wire事前検査・狭い修復器・保持監査をCLI化し、共通制御580（Windows1skip）が成功。Windows CIMは正規承認contextで取得成功、新着弾40の固定通常／cache-only packetはCPU47／54検査成功。Windowsの着弾40/native26はCUBIN必須cacheで実launch／sync／readback成功、Metal保存golden全byte指紋と一致、NVRTC／compiler library要求0。STACK199352→2880byteをoffline確認。サービス識別は未確認のためCLI全体exit2／preservation未確認を保持し、本体106のCUDA成功とは区別します。計算一致／preservation／全キャラ認定は別の証拠として扱います。[wireと監査](portable-wire-preflight.md)。以下は履歴。
 
