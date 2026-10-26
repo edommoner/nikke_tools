@@ -531,3 +531,6 @@ Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-la
 `validation-deps --out NEW.json`（checkoutでは`--suite coordinate-landing`）で、同梱pinに対する独立MPFR oracleのimport可用性を確認できます。通常runもテストworker/GPUより前に不足を検出します。インストールやGPU認定ではありません。詳細docs/portable-python-validation-dependencies.md。現在sourceのstandalone coordinate-landing40も旧input/native/outputを保持してMetal更新済み、Windowsへ専用小packetを共有。全本体CUDA/全キャラ認定は別の未完了事項です。
 
 `coordinate-landing-cache-only` は保存CUBINを必須にする明示profileです。`--require-cache --compile-cache ABS --cached-cuda-source SAVED_generated.cu --artifact-kind cubin --ptxas-level 1` を要求し、CPUより前の保存source/probeと実行子の再検証を両方行います。NVRTC DLL要求を拒否し、通常の計算比較は維持します。[使用条件と未実証範囲](portable-cached-cuda-landing.md)。
+
+
+`reference --suite heavyarms-lock-marker-native --out NEW.json` は、元25効果を保持するLock Onの3秒／30秒CPU契約です。名前付き状態の生成・stack・解除と診断照会を検査し、観測なしのfresh正本と全結果・射撃履歴を比較します。専用の対象選択／対象数拡張／元25効果のGPU対応は未完で、`reference_model_gap`を維持します。[契約の範囲](portable-coordinate-resident-arc.md)を参照してください。

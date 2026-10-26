@@ -1,0 +1,67 @@
+{
+  "schema": "heavyarms-lock-contract-v2",
+  "passed": true,
+  "package_id": "36f6cb6bc3af65b53f6ffd95bcc95019b748f8062da792ad8e322654530c63ba",
+  "zip_sha256": "85f0249272e88ea9dbf789ec321c87e24f208d82fbd15c72e9781a84f86aebba",
+  "comparison_package_id": "c187138ec7a98a0f3d89b796b4ba638f690bf01ee02b8fad82bdae6b815ee4eb",
+  "changed_files": [
+    "app/portable_cpu_tests.py",
+    "app/portable_model_gap_audit.py",
+    "app/portable_reference.py",
+    "scripts/nikke_gpu.py"
+  ],
+  "added_files": [
+    "research/portable_heavyarms_lock_cases.py",
+    "research/portable_heavyarms_lock_contracts.py",
+    "research/resident-arc-arena-evidence/heavyarms-lock-observation-v1/heavyarms-lock-observe-v1.py",
+    "research/upstream/nikke-calc-master/docs/IMPL-STATUS.md",
+    "research/world_heavyarms_lock_native.py",
+    "tests/test_heavyarms_lock_reference.py"
+  ],
+  "gpu_sources_and_full106_golden_unchanged": true,
+  "related_groups": 27,
+  "related_tests": 167,
+  "reference_cases": 2,
+  "reference_model_gap_cases": 2,
+  "gpu_calls": 0,
+  "gpu_supported": false,
+  "full_character_verified": false,
+  "prior_v1_failure": "Reference passed; new unit lacked declared IMPL-STATUS.md dependency. Original packet/log preserved; v2 declares and packages document, no skipped check",
+  "files": [
+    {
+      "path": "batch-unit.log",
+      "bytes": 112,
+      "sha256": "3f8a4f20163dad94a2ce92fbf1fabf92a8e068d47a1589a661bf8aa307ed9ba9"
+    },
+    {
+      "path": "reference.json",
+      "bytes": 272665,
+      "sha256": "ab7a75867eb3a28c95f97577624a455e4b7425aceb3dc378e36839db67f4789d"
+    },
+    {
+      "path": "reference.log",
+      "bytes": 394,
+      "sha256": "661d43ba39e48e996b0ce8ac36a4e3e87287c746d8fd9c163e0aa3fc29a1f71c"
+    },
+    {
+      "path": "related-batch.json",
+      "bytes": 1419,
+      "sha256": "7b51acde8e543d6d74f7379b977b517a3f6ca42ce5b0e6642c97ef1def8a09b7"
+    },
+    {
+      "path": "related-tests.json",
+      "bytes": 5905,
+      "sha256": "a1c41a1c6c5fe1d90b28646ea29ae949b041512b6cc83fbaaa79d10cce3a3e05"
+    },
+    {
+      "path": "related.log",
+      "bytes": 61,
+      "sha256": "b0c126e74ee62451cfc54d917f50d3c1dfb4c9a0a66769e2d81b1b1a88126e93"
+    },
+    {
+      "path": "v1-missing-dependency-failure.log",
+      "bytes": 1898,
+      "sha256": "155f185d4eafe65939312aada5ca09a3767c2b4155d5e0b67c5747cc5234d4e1"
+    }
+  ]
+}

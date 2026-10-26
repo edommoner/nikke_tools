@@ -21,3 +21,14 @@ Windowsのstandalone着弾40/native26は保存CUBIN必須cacheで起動・同期
 Windowsでは既定PowerShellと明示pwshの両方でprocesses段階が同じ数値codeで失敗しました。queryそのものとrow変換を分け、有限type ID／error-family IDと数値codeだけを記録するCPU診断を追加しました。queryを繰り返すfallbackやゲート省略はありません。新診断は `coordinate-arc-arena` のsealed packageを輸送用に使い、CLI `snapshot-check` だけを実行します。GPU sourceの6file closureと既存arc goldenは不変で、追加GPUは不要です。16故障検査と共通制御559（Windows専用1skip）が成功。PowerShell failureを解消するまでは新CUBINのstack量・CUDA実行結果は未取得です。
 
 証拠は `research/resident-arc-arena-evidence/`、Windowsの保存診断は `research/coordinate-arc-arena-evidence/` にあります。現UIはCPU、全キャラ・全特殊効果対応は未完了です。
+
+
+## 元25効果のLock On契約
+
+`reference --suite heavyarms-lock-marker-native --out NEW.json` は、スノーホワイト：ヘビーアームズの元25効果を保持した3秒／30秒のCPU入口です。効果の削除やstatの置換はしません。生成された名前付き状態のcaster・対象・無限寿命・stack上限5、攻撃時の名前付き解除を観測し、観測なしのfresh実行と全結果・物理射撃履歴が一致することを検査します。
+
+3秒は生成12／解除2、30秒は生成110／解除15です。状態生成直後と解除直後に、診断用の`enemy_has_state`／`_has_target_state`／`_target_stack`を明示的に呼びます。これらは戦闘本体が自然に発行した照会とは区別します。先行の受動観測では自動発行されたnamed queryは0でした。
+
+これは名前付きcarrierのCPU契約であり、専用のLock On対象選択、対象数10追加、元25効果の型付き敵弾damage、Metal／CUDAの実行証明ではありません。`reference_model_gap=true`を維持します。元定義・対象・stack・解除・照会・対応範囲を壊す負例と、観測器が戦闘結果を変えた負例を検査します。source auditの「consumerなし」はstat文字列を直接読む専用consumerの検索範囲を意味し、汎用の名前付き状態まで存在しないとは扱いません。
+
+固定package `36f6cb6bc3af65b53f6ffd95bcc95019b748f8062da792ad8e322654530c63ba` で共通CLIの2契約が1.495秒、関連27群167検査とCPU batch制御13検査が成功しました。GPU sourceと全106goldenはv4から不変です。最初のCPU packetでは新ユニットの監査文書依存が欠落して失敗し、v2で依存と同梱を明示しました。原失敗は `research/resident-arc-arena-evidence/heavyarms-lock-contract-v2/v1-missing-dependency-failure.log` に保持しています。

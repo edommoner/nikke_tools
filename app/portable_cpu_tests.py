@@ -16,6 +16,8 @@ AUDIT_FILES = {'test_coordinate_power_v1.py': ('requirements-validation.txt',),'
     'tests/fixtures/coordinate-common-numeric-decision.json')}
 
 
+AUDIT_FILES['test_heavyarms_lock_reference.py']=AUDIT_FILES['test_portable_model_gap_audit.py']
+
 def validate_dependency_files(root,patterns,included=None):
     """Reject missing audit data before tests/native work or execution claims."""
     root=Path(root)

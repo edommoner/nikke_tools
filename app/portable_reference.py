@@ -86,6 +86,7 @@ REFERENCES['coordinate-aim-common']=('portable_coordinate_aim_cases','world_coor
 REFERENCES['coordinate-typed-weapon-common']=('portable_coordinate_typed_weapon_cases','world_coordinate_typed_weapon_native','portable_coordinate_typed_weapon_contracts')
 REFERENCES['coordinate-typed-owner-add-lifetime-common']=('portable_coordinate_typed_owner_add_lifetime_cases','world_coordinate_typed_owner_add_lifetime_native','portable_coordinate_typed_owner_add_lifetime_contracts')
 REFERENCES['coordinate-typed-owner-hp-death-common']=('portable_coordinate_typed_owner_hp_death_cases','world_coordinate_typed_owner_hp_death_native','portable_coordinate_typed_owner_hp_death_contracts')
+REFERENCES['heavyarms-lock-marker-native']=('portable_heavyarms_lock_cases','world_heavyarms_lock_native','portable_heavyarms_lock_contracts')
 REFERENCES['coordinate-typed-logical-owner-common']=('portable_coordinate_typed_logical_owner_cases','world_coordinate_typed_owner_native','portable_coordinate_typed_logical_owner_contracts')
 REFERENCES['coordinate-typed-owner-common']=('portable_coordinate_typed_owner_cases','world_coordinate_typed_owner_native','portable_coordinate_typed_owner_contracts')
 REFERENCES['coordinate-typed-owner-lifecycle-common']=('portable_coordinate_typed_owner_lifecycle_cases','world_coordinate_typed_owner_lifecycle_native','portable_coordinate_typed_owner_lifecycle_contracts')

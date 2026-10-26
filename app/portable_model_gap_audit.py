@@ -17,6 +17,8 @@ def verify(root,overrides=None):
   row=next(line for line in status if line.startswith('| `'+stat+'` |'));assert '❌' in row,'Implementation status changed: '+stat
   readers=[name for name,values in strings.items() if stat in values];assert not readers,'New canonical consumer requires review: '+stat
   missing[stat]=dict(native_consumers=readers,status_row=row,scope=list(MODULES))
+  if stat=='lock_on':
+   missing[stat].update(consumer_search_scope='Explicit stat-literal readers only; generic named carriers may still exist',generic_named_marker_contract='heavyarms-lock-marker-native',dedicated_spatial_selection_verified=False,target_count_extension_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}
  functions=lambda name,fn:[n for n in ast.walk(trees[name]) if isinstance(n,ast.FunctionDef) and n.name==fn]
  ranked=functions('calculator/boss_pattern.py','_ranked');assert len(ranked)==1

@@ -1,0 +1,17 @@
+{
+  "suite": "heavyarms-lock-marker-native",
+  "stage": "cpu-native-contract",
+  "passed": true,
+  "cpu_reference_verified": true,
+  "calculation_verified": false,
+  "gpu_supported": false,
+  "case_count": 2,
+  "positive_contract_cases": 0,
+  "reference_model_gap_cases": 2,
+  "gpu_calls": {
+    "build": 0,
+    "execute": 0
+  },
+  "packing_calls": 0,
+  "elapsed_seconds": 1.4951268750010058
+}
