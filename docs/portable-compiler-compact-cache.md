@@ -1,5 +1,7 @@
 # Compiler専用compactと現在のPTX cache owner
 
+現在は `compiler-full--coordinate-resident-arc` もcompact化できます。固定942b009e…はfull3,546→compact2,066ファイルで、残存全byte／GPU source／pinned reference／fixture／goldenを保持。Macの共通packet `tests`段階でcompiler20群207検査、`smoke`段階で60群585検査（1skip）、既存生成cacheの必須hit・Slang0・sealed指紋一致、PTX/2GiB/60秒planが成功しました。入力/native0の診断用であり、本体106のCUDA計算成功やWindows高速化は未実証です。以下の旧attack-group-mixedの記録も保持します。
+
 `compiler-full--attack-group-mixed` のcompiler-onlyパッケージを既存Python依存解決器でcompact化できるようにした。アダプターがNoneなのはliteral `compiler_only=True` の場合だけ許可し、CPU20群・共通smoke39群をrootとして残す。他の未検証compiler aliasのcompact受付は広げていない。通常suiteのroot集合・GPU source・pinned reference・fixture・goldenは保持する。
 
 ## パッケージとCPU検証
@@ -31,3 +33,12 @@ python scripts/nikke_gpu.py package \
 現在のsource/ownerで保存PTXを使えることが確認できたので、次は既存のmodule-object/JIT-link経路をこのproducerへ接続し、短いCUDA計算を確認する。後段でowner/source/cache/claimの照合を省略しない。今回ptxas/link/driverは実行していない。
 
 raw・Windowsの詳細compiler/Job/phase資料は両hostに保存し、追加公開していない。小さいMac検証・保持記録は `research/compiler-compact-cache-evidence/` と `research/portable-compiler-compact-cache-checkpoint.json`。数値基準の回答待ち、全キャラ0/20gap/UI CPU、全目標未達は継続する。
+
+
+## 共通packetによるコンパイラ関連テスト
+
+`run-gpu-packet.py --stage tests --backend cuda --capture NEW --timeout 180 --original-workspace ORIGINAL` は、固定packetを検査後、既存の`cpu_test_groups`／`_tests`を呼びます。compiler-only packetに戦闘adapterやnative preflightを作らず、登録された全群の順序・件数・終了状態を親でも再検査します。結果は`cpu_tests_verified`で、`cpu_reference_verified`／`calculation_verified`／`compiler_verified`はfalseです。counterはpacket controllerの呼出し範囲であり、テスト内部の偽SDK／偽transportは実機証拠になりません。tests段階にも排他的なclaim・fresh Job・start gate・BelowNormal・2GiB・観測とcleanupを使います。
+
+最初のローカルv4では、worker全体への追加build禁止が既存の偽SDK生成cache検査を止めました。追加guardは取り消し、既存のテスト実行方式・全検査を維持し、結果scopeの負例も含めてv6を固定し、207検査が成功しました。旧失敗2ログをresident-ptx-compact-v1へ保存しています。元のCPU/auditのGPU禁止ガードやnormalizerは変更していません。
+
+次のWindows検証は、共通tests→smoke→generationで現在のpaired cacheを1回準備し、sealed指紋を確認した場合のみ、生成cache必須で共通compile-ptxを1回使います。外側180秒・内側compiler child60秒／2GiBは既存仕様。旧v4 CUBINの未完了compile/cache claimには触れません。PTXとCUBINは別artifact identityであり、PTX成功だけをCUDA計算成功としません。object／link／driver／kernelはこの依頼に含めません。

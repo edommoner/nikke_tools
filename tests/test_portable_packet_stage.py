@@ -8,6 +8,30 @@ spec=importlib.util.spec_from_file_location('packet_stage',ROOT/'scripts/run-gpu
 class PacketStageTests(unittest.TestCase):
     def request(self,mode,base):
         return {key:('a'*64 if key=='object_sha256' else str((base/key).resolve())) for key in stage.OBJECT_STAGES[mode]}
+    def test_cpu_test_receipt_cannot_certify_battle_gpu_or_incomplete_groups(self):
+        rows=[dict(pattern='test_one.py',exit_code=0,tests=3,failures=0,errors=0)]
+        proof=dict(mode='cpu-tests-only',package_id='id',cpu_tests_verified=True,cpu_reference_verified=False,calculation_verified=False,compiler_verified=False,gpu_calls=0,driver_load_calls=0,native_preflight_calls=0,groups=1,tests=3)
+        self.assertTrue(stage.verified_tests(proof,'id',['test_one.py'],rows))
+        for change in (dict(package_id='other'),dict(calculation_verified=True),dict(compiler_verified=True),dict(gpu_calls=False),dict(driver_load_calls=1),dict(native_preflight_calls=1),dict(cpu_reference_verified=True),dict(groups=2),dict(tests=4),dict(groups=True),dict(tests=True)):
+            with self.subTest(change=change):self.assertFalse(stage.verified_tests(dict(proof,**change),'id',['test_one.py'],rows))
+        for bad in ([],rows*2,[dict(rows[0],tests=0)],[dict(rows[0],exit_code=1)],[dict(rows[0],pattern='other.py')]):
+            self.assertFalse(stage.verified_tests(proof,'id',['test_one.py'],bad))
+    def test_cpu_stage_result_never_promotes_forged_calculation_success(self):
+        rows=[dict(pattern='test_one.py',exit_code=0,tests=1,failures=0,errors=0)]
+        good=dict(mode='cpu-tests-only',package_id='id',cpu_tests_verified=True,cpu_reference_verified=False,calculation_verified=False,compiler_verified=False,gpu_calls=0,driver_load_calls=0,native_preflight_calls=0,groups=1,tests=1)
+        for forged in (False,True):
+            with tempfile.TemporaryDirectory() as d:
+                root=Path(d)/'packet';root.mkdir();folder=Path(d)/'stage'
+                def bounded(*args,**kwargs):
+                    proof=folder/'proof';proof.mkdir();(proof/'result.json').write_text(json.dumps(dict(good,calculation_verified=forged)));(proof/'cpu-tests.json').write_text(json.dumps(rows));return dict(passed=True)
+                cli=SimpleNamespace(SUITES=dict(fixture=dict(tests=['test_one.py'])),bounded_module=lambda:SimpleNamespace(run_bounded=bounded),validation_environment=lambda _:dict())
+                with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='id',suite='fixture')),patch.object(stage,'load_module',return_value=cli),patch.object(stage,'is_windows',return_value=False):
+                    result=stage.run_stage(folder,'tests','metal',180)
+                self.assertEqual(result['stage_verified'],not forged);self.assertEqual(result['cpu_tests_verified'],not forged);self.assertFalse(result['calculation_verified'])
+    def test_cpu_tests_stage_has_its_own_claim_and_no_execution_arguments(self):
+        p=stage.recipe('id','tests','cuda','/tmp/isolated-tests','/tmp/original',180)
+        self.assertEqual(stage.proof_arguments(p),['_tests','--capture',p['proof_capture']])
+        self.assertNotIn('--backend',stage.proof_arguments(p));self.assertEqual(p['memory_limit_mb'],2048)
     def test_saved_linked_battle_uses_existing_run_and_fixed_bounds(self):
         with tempfile.TemporaryDirectory() as d:
             base=Path(d);request={key:str((base/key).resolve()) for key in stage.LINKED_FIELDS}

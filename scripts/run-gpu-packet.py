@@ -13,7 +13,7 @@ OBJECT_STAGES={'recover-object':('source_package','source_capture','object_sha25
                'jit-link-object':('object_package','object_capture','object_sha256','nvjitlink')}
 LINKED_STAGE='gpu-linked'
 LINKED_FIELDS=('linked_package','linked_capture')
-STAGES=('cpu','smoke','generation','gpu',LINKED_STAGE,*COMPILE_STAGES,*OBJECT_STAGES)
+STAGES=('tests','cpu','smoke','generation','gpu',LINKED_STAGE,*COMPILE_STAGES,*OBJECT_STAGES)
 
 def is_windows():return os.name=='nt'
 
@@ -32,6 +32,34 @@ def verified_generation(proof,package_id):
         and proof.get('calculation_verified') is False and proof.get('executable_battle_verified') is False
         and all(type(proof.get(key,0)) is int and proof.get(key,0)==0 for key in ('gpu_calls','driver_load_calls','nvrtc_compile_calls'))
         and 'gpu_calls' in proof)
+
+def verified_tests(proof,package_id,patterns,rows):
+    from portable_cpu_tests import complete
+    return bool(proof and proof.get('mode')=='cpu-tests-only' and proof.get('package_id')==package_id
+        and proof.get('cpu_tests_verified') is True and proof.get('cpu_reference_verified') is False
+        and proof.get('calculation_verified') is False and proof.get('compiler_verified') is False
+        and all(type(proof.get(key)) is int and proof[key]==0 for key in ('gpu_calls','driver_load_calls','native_preflight_calls'))
+        and all(type(proof.get(key)) is int for key in ('groups','tests'))
+        and complete(rows,patterns) and proof.get('groups')==len(rows)
+        and proof.get('tests')==sum(r['tests'] for r in rows))
+
+
+def run_tests(cli,plan):
+    """Use the common CPU worker; no battle adapter or execution claim."""
+    manifest=cli.verify_package(ROOT)
+    if manifest['package_id']!=plan['package_id']:raise ValueError('Packet changed before CPU tests')
+    proof=Path(plan['proof_capture']);proof.mkdir(exist_ok=False)
+    try:
+        with cli.forbid_gpu():rows=cli.cpu_test_groups(manifest,proof)
+        result=dict(mode='cpu-tests-only',package_id=manifest['package_id'],cpu_tests_verified=True,
+                    groups=len(rows),tests=sum(r['tests'] for r in rows),cpu_reference_verified=False,
+                    counter_scope='Packet controller calls; unit-test doubles are not runtime calculation evidence',
+                    calculation_verified=False,compiler_verified=False,gpu_calls=0,driver_load_calls=0,native_preflight_calls=0)
+        if not verified_tests(result,manifest['package_id'],cli.SUITES[manifest['suite']]['tests'],rows):
+            raise ValueError('Incomplete CPU test receipt')
+        save(proof/'result.json',result)
+    finally:cli.collect(proof,proof/'artifacts.json')
+
 
 def object_request(stage,value):
     if stage not in (*OBJECT_STAGES,LINKED_STAGE):
@@ -82,6 +110,7 @@ def recipe(package_id,stage,backend,capture,original_workspace,timeout,request=N
     return plan
 
 def proof_arguments(plan):
+    if plan['stage']=='tests':return ['_tests','--capture',plan['proof_capture']]
     if plan['stage']=='recover-object':
         request=object_request('recover-object',plan['object_request'])
         return ['recover-object','--source-package',request['source_package'],'--source-capture',request['source_capture'],'--out',plan['proof_capture'],'--object-sha256',request['object_sha256']]
@@ -130,7 +159,10 @@ def child(folder):
     # These observers time the original functions; none replaces their checks.
     from portable_phase_audit import Journal
     journal=Journal(folder/'preparation.jsonl')
-    os.chdir(ROOT);sys.argv=[str(ROOT/'scripts/nikke_gpu.py'),*proof_arguments(plan)]
+    os.chdir(ROOT)
+    if plan['stage']=='tests':
+        journal.invoke('packet_cpu_tests',run_tests,cli,plan);return
+    sys.argv=[str(ROOT/'scripts/nikke_gpu.py'),*proof_arguments(plan)]
     with contextlib.ExitStack() as stack:
         for name in ('verify_package','cpu_test_groups','cpu_preflight','run_job'):
             if not hasattr(cli,name):continue
@@ -182,14 +214,19 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None)
     comparison=observation.get('comparison',{})
     process_preserved=comparison.get('all_monitored_processes_preserved')
     environment_preserved=bool(process_preserved is True and comparison.get('identified_nikke_service_preservation_verified') is True and facts.get('observation_error') is None) if is_windows() else None
-    key={'cpu':'cpu_verified','smoke':'smoke_verified','generation':'verified','gpu':'passed',LINKED_STAGE:'passed',**{name:'compiler_verified' for name in COMPILE_STAGES},**{name:'object_verified' for name in OBJECT_STAGES}}[stage]
+    key={'tests':'cpu_tests_verified','cpu':'cpu_verified','smoke':'smoke_verified','generation':'verified','gpu':'passed',LINKED_STAGE:'passed',**{name:'compiler_verified' for name in COMPILE_STAGES},**{name:'object_verified' for name in OBJECT_STAGES}}[stage]
     compiler_verified=bool(proof and proof.get('mode')=='compile-only' and proof.get('compiler_verified') is True and proof.get('calculation_verified') is False and type(proof.get('gpu_calls')) is int and proof['gpu_calls']==0 and type(proof.get('driver_load_calls')) is int and proof['driver_load_calls']==0)
     generation_verified=verified_generation(proof,manifest['package_id'])
     if stage not in COMPILE_STAGES:compiler_verified=False
     diagnostic_verified=verified_object(proof,stage) if stage in OBJECT_STAGES else False
-    verified=compiler_verified if stage in COMPILE_STAGES else diagnostic_verified if stage in OBJECT_STAGES else generation_verified if stage=='generation' else bool(proof and proof.get(key))
+    tests_verified=False
+    if stage=='tests':
+        rows_path=folder/'proof/cpu-tests.json';rows=json.loads(rows_path.read_text()) if rows_path.is_file() else []
+        tests_verified=verified_tests(proof,manifest['package_id'],cli.SUITES[manifest['suite']]['tests'],rows)
+    verified=tests_verified if stage=='tests' else compiler_verified if stage in COMPILE_STAGES else diagnostic_verified if stage in OBJECT_STAGES else generation_verified if stage=='generation' else bool(proof and proof.get(key))
     stage_verified=bool(facts['passed'] and verified)
-    result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,compiler_verified=compiler_verified,generation_verified=generation_verified if stage=='generation' else False,calculation_verified=bool(stage not in (*COMPILE_STAGES,*OBJECT_STAGES,'generation') and proof and proof.get('calculation_verified')),cpu_verified=bool(proof and proof.get('cpu_verified')),smoke_verified=bool(proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
+    result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,compiler_verified=compiler_verified,generation_verified=generation_verified if stage=='generation' else False,calculation_verified=bool(stage not in (*COMPILE_STAGES,*OBJECT_STAGES,'generation','tests') and proof and proof.get('calculation_verified')),cpu_verified=bool(proof and proof.get('cpu_verified')),smoke_verified=bool(proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
+    if stage=='tests':result.update(cpu_tests_verified=tests_verified,cpu_reference_verified=False)
     if stage in OBJECT_STAGES:result.update(diagnostic_verified=diagnostic_verified,object_verified=diagnostic_verified,link_verified=bool(diagnostic_verified and stage=='jit-link-object'))
     save(folder/'stage-result.json',result);return result
 

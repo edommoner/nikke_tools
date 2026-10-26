@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "timed_out": false,
+  "timeout_seconds": 179.9621873750002,
+  "elapsed_seconds": 2.3153781660003006,
+  "child_exit_code": 0,
+  "final_child_exit_code": 0,
+  "error": null,
+  "cleanup_error": null,
+  "cleanup_wait_seconds": 5,
+  "observation_error": null,
+  "wait_completed_unix_ns": 1793058846069091000,
+  "below_normal_priority": false,
+  "phase": {
+    "events": 0,
+    "last_event": null,
+    "timed_calls": [],
+    "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+    "nvrtc_compile_returned_success": false,
+    "cuda_compile_cache_hit_verified": false,
+    "cuda_linked_artifact_observed": false,
+    "cuda_launch_returned_success": false,
+    "cuda_synchronize_returned_success": false,
+    "cuda_readback_returned_success": false,
+    "scope": "Observed API returns only; full output verification requires the shared suite report"
+  },
+  "gpu_retry_count": 0,
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

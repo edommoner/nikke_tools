@@ -534,3 +534,6 @@ Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-la
 
 
 `reference --suite heavyarms-lock-marker-native --out NEW.json` は、元25効果を保持するLock Onの3秒／30秒CPU契約です。名前付き状態の生成・stack・解除と診断照会を検査し、観測なしのfresh正本と全結果・射撃履歴を比較します。専用の対象選択／対象数拡張／元25効果のGPU対応は未完で、`reference_model_gap`を維持します。[契約の範囲](portable-coordinate-resident-arc.md)を参照してください。
+
+
+`run-gpu-packet.py --stage tests` は、compiler-onlyを含む固定packetの登録CPU test群だけを共通workerで実行する段階です。戦闘adapter/native preflightを要求せず、全群receiptの完全性を親でも確認します。`cpu_tests_verified`と正本比較・compiler・GPU計算を区別します。Windowsは`--backend cuda --timeout 180 --original-workspace ORIGINAL`を指定し、既存のfresh Job／2GiB／開始gateを使います。[compiler compact/cache](portable-compiler-compact-cache.md)を参照してください。
