@@ -1,0 +1,15 @@
+{
+  "cases": 3,
+  "all_input_native_trace_sha_exact": true,
+  "current_report": {
+    "bytes": 10555007,
+    "sha256": "cf0c4bc6bc7bf3e2e47cadc9feab299569d2299b53be2ec2fd3f3544aa41c152"
+  },
+  "historical_report": {
+    "bytes": 4260,
+    "sha256": "4f2a3ba3e955b63fb4d6fa3656add71360fa3e12370aa8e7a5037ccac54c1e8f"
+  },
+  "current_report_policy": "logical-owned-current-fields-v1",
+  "policy_header_corrected_without_changing_native_results": true,
+  "elapsed_seconds": 28.653644374999658
+}

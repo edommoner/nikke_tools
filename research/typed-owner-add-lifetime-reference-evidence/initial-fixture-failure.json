@@ -1,0 +1,16 @@
+{
+  "report": {
+    "bytes": 127641,
+    "sha256": "ebb5a56016dc6b10e350ada2af4bd75309912d3a7e98aff19d29cc0c88dff74a"
+  },
+  "log": {
+    "bytes": 1389,
+    "sha256": "d51d6088bf7fb74b93d94dee0d48c7faaca90eb64816ecf328ab7e3f71661426"
+  },
+  "error": "AssertionError: ",
+  "case": "coordinate-typed-owner-add-lifetime/owner-dead-before-child",
+  "cause": "The intended dead-before-child input armed its counter before graph exit; revised the declared marker to arm once at1.25s after exit0.5s",
+  "runtime_and_comparator_unchanged_by_fixture_fix": true,
+  "original_failure_preserved": true,
+  "gpu_calls": 0
+}

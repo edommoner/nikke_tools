@@ -2421,3 +2421,13 @@ dev `/tmp/nikke-coordinate-typed-develop-v2`（f1b700f2…）、M5 `/tmp/nikke-c
 現在のworktreeは /Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/runtime-resident。永続proofは同親のproofs/logical-owner-20261027、永続generation cacheはcaches/slang-generation-v1。source/docsの固定pinned upstreamをprimaryからコピーし、GAMEPLAY/timelineの既存source contract SHA一致を確認。現在のCPU検査とCUDA/MSL生成基準一致/必須cache hitは別記録。readinessはhistorical success/raw unavailable/current host GPU未確認を明示。詳細docs/portable-coordinate-typed-logical-owner-gpu.md、research/portable-coordinate-typed-logical-owner-recovery.json。
 
 次はADD実生死・再出現/field lifetimeの新契約へ進む。raw再監査は原本復旧まで停止。今後の新しい成果を一時領域だけに置かない。現CUDA/新sourcewarmMetal/ゲームgap/公開consumer/19packing失敗/全キャラは未完、全キャラ0/UI CPU/目標未達。Windows idleへの重複依頼なし。
+
+## 2026-10-27 ADD所有者のgraph退場・再出現CPU4契約
+
+`coordinate-typed-owner-add-lifetime-common`4を共通referenceへ追加。docs/portable-coordinate-typed-owner-add-lifetime-reference.md、research/portable-coordinate-typed-owner-add-lifetime-reference-checkpoint.json。元Prim71全定義/完全5人/武器/成長と8秒を保持。別宣言counter2効果で、発動前退場・発動後退場・旧field非継承・gen2所有者への発動を検査。再出現はuntil1s/repeat0で最終gen9が生存中、旧gen1/gen2 fieldのreceived=0。physical id10/gen1、子fieldの宣言owner世代を保持。graph終了の退場であり、HPダメージ死亡とは区別。
+
+受動observerは既存OwnerQueries.projectとDestructibleWorld.synchronizeをwrapし、carrier/recipient/current actor/visibleの変化だけを記録。数値buff query/RNG/攻撃/clock追加0、観測なし/ありの完全native・trace一致を検査。初v1は退場前にcounter完了して契約失敗。入力を退場0.5→1.25秒1回armへ修正し、比較器/実行器保持。失敗は永続proofへ残す。v2成功後、再出現を無制限として生存新世代への非継承を強化。
+
+強いv3全4契約40.211833秒成功、最終v4（2f6e0c5f…）はreadiness/CLIテスト登録/packing unitの3file差分。全CLI関数AST/native producer/comparator保持、新4件の最終再生成0。最終関連120/制御517成功（Win1skip）、全4件の共有wire packing/73定義/115680wordとgeneration必須hit/Slang0確認。旧ADD3をfresh CPUで実行しinput/native/trace全SHA保持。reference報告のlogical policy名をBODYが上書きするmetadata bugも修正、古い記録は保持。
+
+GPU/数値/正本/upstream/backend/CUDA compile cache/normalizer全byte・旧99golden保持。新GPU/Windows0、旧capture未取得の制限は維持。全proofは永続 .portable-recovery/proofs/owner-add-lifetime-20261027、要約はresearch/typed-owner-add-lifetime-reference-evidence/。次は同じ固定entryへ新4を追加し、旧99保持の新103入力をGPU検証。新しい寿命契約の検証として行い、失われたrawの再作成や旧capture再ラベルはしない。新4 Metal/CUDA/HP死亡/ゲーム仕様/公開consumer/全キャラ未完、全キャラ0/UI CPU/目標未達。

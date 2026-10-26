@@ -498,3 +498,5 @@ package内CLIは `sys.dont_write_bytecode`、所有する検証子は `PYTHONDON
 `coordinate-typed-logical-owner` は99入力（native56／拒否43）のsealed基準です。旧88を保持したM5 Metalとfresh独立監査の成功を観測済みですが、一時領域の消失により元raw/captureは現在未取得です。[履歴証拠・復旧状態・未対応範囲](portable-coordinate-typed-logical-owner-gpu.md)を参照してください。新しいsource診断は `compiler-full--coordinate-typed-logical-owner` から固定できます。source certificateをCUDA compile/cache/launch成功へ数えません。
 
 現在の永続worktreeは `.portable-recovery/runtime-resident`、新しい検証保存先は `.portable-recovery/proofs/`、生成cacheは `.portable-recovery/caches/slang-generation-v1` です。今回の消失rawを再作成するためのGPU再実行は行いません。再監査には元のbyteを復旧する必要があります。
+
+`reference --suite coordinate-typed-owner-add-lifetime-common --out NEW.json` はADD所有者のgraph退場・再出現4契約です。完全Prim71定義の実counter子field、同世代の退場、gen2発動、生存gen9への旧field非継承をCPUで確認します。別のpacking検査は既存shared wireを使い、新4件のGPU成功とは数えません。[契約・受動観測・証跡](portable-coordinate-typed-owner-add-lifetime-reference.md)を参照してください。

@@ -330,6 +330,14 @@ def reference_readiness(issue):
             dead_add_field_lifetime_battle_verified=False,cuda_device_verified=False,
             canonical_consumer_verified=False,in_game_rules_verified=False,full_character_verified=False,
             scope='declared_ADD_owned_projectile_and_HP_shield_real_counter_children_and_exact_owner_generation')
+        result['typed_owner_add_lifetime_reference']=dict(suite='coordinate-typed-owner-add-lifetime-common',cases=4,
+            cpu_reference_verified=True,original_definitions=71,declared_audit_effects=2,
+            graph_exit_before_and_after_child_verified=True,old_field_hidden_on_live_new_generation=True,
+            second_generation_owner_activation_verified=True,passive_observer_transparency_verified=True,
+            physical_handle_preserved=True,shared_input_packing_verified=True,
+            gpu_battle_validation_pending=True,metal_verified=False,cuda_device_verified=False,
+            hp_damage_death_verified=False,in_game_rules_verified=False,full_character_verified=False,
+            scope='declared_ADD_graph_exit_and_reentry_CPU_contracts_only')
         result['typed_current_damage_validation']=dict(suite='coordinate-typed-actor',inputs=67,native_cases=40,
             declared_actor_policy='canonical-current-damage-v1',original_profile='Rei',original_definitions=73,
             original_current_skill_events=[0,5,5,5],literal_selector='enemies_nearest_in_range',
