@@ -1,0 +1,139 @@
+{
+  "schema": "saved-resource-diagnostic-v1",
+  "scope": "Export of previously saved observations only; no diagnostic tool rerun",
+  "cubin": {
+    "bytes": 311824,
+    "sha256": "e8550ca15285946512e684fd7a6c919337d1918883bf119565371c7d238694b1"
+  },
+  "static_resource_usage": {
+    "observation": {
+      "started_utc": "2026-10-26T19:20:50.789843+00:00",
+      "finished_utc": "2026-10-26T19:20:50.814839+00:00",
+      "scope": "saved CUBIN static analysis"
+    },
+    "entries": [
+      {
+        "entry": "portableEvents",
+        "register_count": 149,
+        "stack_bytes": 199352,
+        "local_bytes": 0,
+        "shared_bytes": 0
+      }
+    ],
+    "common": {
+      "global_bytes": 202,
+      "constant_3_bytes": 32,
+      "constant_4_bytes": 800
+    },
+    "runtime_memory_usage_measured": false
+  },
+  "gpu_memory_snapshot": {
+    "observation": {
+      "started_utc": "2026-10-26T19:20:50.822647+00:00",
+      "finished_utc": "2026-10-26T19:20:50.902079+00:00",
+      "scope": "current observation, not failure-time snapshot"
+    },
+    "gpu_name": "NVIDIA GeForce RTX 3070 Ti",
+    "unit": "MiB",
+    "total": 8192,
+    "used": 5238,
+    "free": 2780,
+    "failure_time_snapshot": false
+  },
+  "tools": {
+    "cuobjdump": {
+      "installation_label": "CUDA v11.3/bin/cuobjdump.exe",
+      "exact_version": null,
+      "version_status": "No version output saved; installation label is not an exact binary version",
+      "resource_usage_supported": true
+    },
+    "nvidia_smi": {
+      "executable": "nvidia-smi.exe",
+      "exact_version": null,
+      "version_status": "Not included in saved memory-only query"
+    }
+  },
+  "executions": {
+    "cuobjdump-help": {
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.8980457000434399,
+      "below_normal_priority": true,
+      "cleanup_error": null,
+      "observation_error": null
+    },
+    "resource-usage": {
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.023947200272232294,
+      "below_normal_priority": true,
+      "cleanup_error": null,
+      "observation_error": null
+    },
+    "gpu-memory-current": {
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.07741540018469095,
+      "below_normal_priority": true,
+      "cleanup_error": null,
+      "observation_error": null
+    }
+  },
+  "failure_cause": "unknown; static resources and current memory do not establish launch-failure cause",
+  "export_actions": {
+    "tool_reexecution": 0,
+    "compile": 0,
+    "cuda_context": 0,
+    "kernel_launch": 0
+  },
+  "original_evidence": [
+    {
+      "path": "cuobjdump-help/stdout.log",
+      "bytes": 3108,
+      "sha256": "280cc3638f528a169424541b94a5a16b90292357a4f59e3149da72ffaf7c559c"
+    },
+    {
+      "path": "cuobjdump-help/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "cuobjdump-help/execution.json",
+      "bytes": 1093,
+      "sha256": "07a17a8efb8ca2ea12b2382dfbf2555cbab048239b2ae486c0ccfcec5806f69a"
+    },
+    {
+      "path": "resource-usage/stdout.log",
+      "bytes": 202,
+      "sha256": "4841c4ae9a27af1814db4d3b777309174ffc3921994c6efabde419f47076f7d7"
+    },
+    {
+      "path": "resource-usage/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "resource-usage/execution.json",
+      "bytes": 1095,
+      "sha256": "a59d9395bc9088c8e5533bbce381447dac738f0cce1383c85457f7bef6d06761"
+    },
+    {
+      "path": "gpu-memory-current/stdout.log",
+      "bytes": 46,
+      "sha256": "36f82c1198ddf8b563c9e5aad1626a8f7f0414ecb707dc1c9af453625a39f956"
+    },
+    {
+      "path": "gpu-memory-current/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "gpu-memory-current/execution.json",
+      "bytes": 1094,
+      "sha256": "7a8cd21abb000bd3a40abd3f6eb20461fa9dc280d2a2f9f515af05c18ce0cd8d"
+    }
+  ]
+}
