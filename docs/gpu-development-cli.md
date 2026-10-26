@@ -1,3 +1,5 @@
+`coordinate-typed-actor` はsealed67入力（native40／拒否27）。元Reiの現在対象ダメージを、元定義を保ってBODY／ADD／手動typed照準へ接続し、M5実出力とfresh独立監査で一致しました。`package --suite coordinate-typed-actor`、CPU契約だけなら `reference --suite coordinate-typed-actor-common --out UNIQUE.json` を使います。敵fieldの所有権継承・現CUDA／全キャラは未完です。[現在対象ダメージの範囲](portable-coordinate-typed-actors.md)。
+
 `coordinate-typed-aim` はsealed59入力（native36／拒否23）。型付きframe照準・手動・ADD優先・元の実FB追従を同じCUDA／Metal consumerへ接続し、M5実出力とfresh独立監査で全一致。`package --suite coordinate-typed-aim` と `arena-check --profile coordinate-typed-aim-v1` を使います。現在CUDA／論理current-enemy recipient／ゲーム規則／全キャラ認定は未完です。[範囲と証拠](portable-coordinate-typed-aim.md)。
 
 `reference --suite coordinate-typed-aim-common --out UNIQUE.json` は型付き対象のframe照準契約7件（正例6／未対応拒否1）を検査します。CPU専用で、GPU wireはまだ拒否します。[照準契約と次の共有consumer](portable-coordinate-typed-aim.md)。

@@ -123,7 +123,12 @@ void actorFieldSelectOrder(inout Runtime s,inout uint order[128],inout uint coun
         return;
     }
     if(route==1) { order[0]=0;count=1;return; }
-    uint first=COUNTER_FIELDS_FIRST(s,route,(inherited&ACTOR_REF)!=0 ? actorFieldLogicalSlot(s,inherited) : actorFieldLogicalSlot(s,actorPhysicalTarget(s,who,0)));
+    uint legacyFirst=(inherited&ACTOR_REF)!=0 ? actorFieldLogicalSlot(s,inherited) : actorFieldLogicalSlot(s,actorPhysicalTarget(s,who,0));
+#ifdef PORTABLE_COORDINATE_TYPED_ACTORS
+    uint first=typedActorCurrentDamageFirst(s,definition,route,legacyFirst);
+#else
+    uint first=COUNTER_FIELDS_FIRST(s,route,legacyFirst);
+#endif
     if(route==0) { order[0]=first;count=first<128 ? 1 : 0;return; }
     if(route==6)
     {

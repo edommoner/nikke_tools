@@ -2341,3 +2341,18 @@ dev `/tmp/nikke-coordinate-typed-develop-v2`（f1b700f2…）、M5 `/tmp/nikke-c
 入力115680／出力2032000word、Runtime138952byte不変。typed tail220224から544wordだけをframe候補へ割当、既存物理history／overflow／DFS所有を保持。`arena-check --profile coordinate-typed-aim-v1` で監査。全reader完了後、初失敗／成功rawをSHA/size/inode保持で疎化し、計775028736byte回収、raw／claim削除0。新しいmanifest外bytecodeの大掃除は行わない。
 
 今回の自動照準は明示typed-before-body-v1の私有モデル。分類にはscoped GPU証拠だけを追加し、ゲーム仕様reference_model_gap／全キャラ0／UI CPUを維持。次は元Rei `enemies_nearest_in_range` 等のcurrent-enemy recipientとtyped owner規則を、元定義を落とさず接続。移動形状・他caller／variant、19packing失敗・残るモデル、現CUDA／warm cache・公開GPU／全キャラも未完。Windows新規GPU依頼0。idle送信APIのactive turn不足が既知なので、重複runを送らない。
+
+
+## 2026-10-26 元Reiの現在対象ダメージ・typed照準合成
+
+最新sealed `coordinate-typed-actor`67（native40／拒27）。`docs/portable-coordinate-typed-actors.md`／`research/portable-coordinate-typed-actor-checkpoint.json`。旧59を全保持し、元Reiの完全5人・73全定義・元武器／成長で1秒対照と12秒BODY／ADD／手動typed＋ADDの4契約を追加。元S1 `선두 제압 2` の `hit_count:100`／`enemies_nearest_in_range` は0／5／5／5回実発動。BODYと手動typedはBODY、ADD autoは先頭の実生存ADDへ着弾し、元traceとpacketの全時刻・量・数・recipientを照合。定義削除／追加probe／CPU射撃scheduleは0。
+
+`typed_actor_policy={"mode":"canonical-current-damage-v1"}` とcompilerの明示opt-inで通常current damageだけを元canonical敵選択へ接続。policy無しの旧gap検査を維持、敵buff／状態変更／typed所有権継承と対象条件は未対応guardを維持。CPU validatorをnative登録／compilerで共用し、GPUにもcurrent enemy fieldの拒否を追加。typed header15=1はweapon13／frame aim14／live aim11を必要とし、旧9bit namespace・arena・input115680/output2032000/Runtime138952を保持。source監査は既知full-hash inverseだけ追加。数値・正本・strict normalizer・CUDA compile cache本体は不変。
+
+最初のCPU契約はBODYの敵選択関数query数で発動を判断して失敗。BODY直接着弾はqueryを呼ばないため、既存の実packet／元traceによる発動・着弾検査へ修正。4件reference42.011秒で成功。観測は元実resolverの受動wrapperだけ、queryの追加呼び出しは0。
+
+実行dev `/tmp/nikke-typed-actor-gpu-develop-v1`（103f948f…）、capture `/tmp/nikke-typed-actor-metal-v1` はM5全67一致。CPU preflight185.208515秒、実GPU4.069825秒／新PSO94.331620秒、生成cache必須hit・実行時Slang0。GPU1回、失敗/retry0。GPU禁止のfresh独立監査223.096155秒は全67／native40一致、live parent receiptなし。旧59の全input/nativeと479552000byte出力を保存結果へ完全一致。実readbackのrecipientを構造上一貫した生存ADDへ差し替える負例、amount/landing-clockの1ULP差、source row改変をすべて拒否。
+
+最終 `/tmp/nikke-typed-actor-final-v1.zip`（959199e6…）はseal登録とscoped分類の2file差分＋goldenだけ。全native producer／tests/data／GPU/transport全byte保持、全CLI関数ASTと全67prepared input/source/nativeを固定して同じfresh監査を再利用。最終版の新CPU preflightを実行したという主張はしない。最終関連84／制御488成功（Windows専用1skip）、最終generation必須hit・Slang0／sealed CUDA/MSL一致。全reader終了後rawのSHA/size/inodeを保持して疎化、439025664byte回収、削除0。
+
+新しい固定入口へdata-onlyケースを追加するときは、既存の生成／pipeline identityを保持して再構築を避ける。今回のarchive作成を現在CUDAのcompile/cache/launchやwarm Metal成功へ流用しない。次はcurrent enemy field／mutationとtyped event所有権・対象条件、他caller／世代・移動形状・skill/weapon同時interception。現CUDAと19packing失敗等の残るモデル／公開GPU／全キャラも未完。scoped証拠だけ分類へ追加し、reference_model_gap／全キャラ0／UI CPU／目標未達を維持。Windows新規依頼0、idle APIへ重複runを送らない。

@@ -36,6 +36,11 @@ def compare(block,domain):
     from portable_coordinate_typed_weapon_comparison import compare as compare_weapons
     from portable_coordinate_typed_aim_comparison import compare as compare_aims,HEAD,END
     with creation_indices(domain[0]) as indices:n=native_reference(domain)
+    return compare_observed(block,domain,n,indices)
+
+def compare_observed(block,domain,n,indices):
+    from portable_coordinate_typed_weapon_comparison import compare as compare_weapons
+    from portable_coordinate_typed_aim_comparison import compare as compare_aims,HEAD,END
     parent.original.compare_observed(block[:COORDINATE_OUTPUT_WORDS],domain,n,indices)
     # Existing physical consumer retains its complete unused-tail assertion.
     # The separate declared aim owner is checked in full before zero projection.

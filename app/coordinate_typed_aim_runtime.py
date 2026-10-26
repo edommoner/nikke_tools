@@ -28,13 +28,16 @@ class AimGeometry:
         return target.kind if target is not None else self._nikke_canonical_geometry.kind(name)
 
 class TypedCoordinateAim:
-    def __init__(self,data,spec,policy):
+    def __init__(self,data,spec,policy,*,actor_policy=None):
+        self.actor_policy=actor_policy
+        if actor_policy is not None:
+            from coordinate_typed_actor_policy import normalize as normalize_actor
+            normalize_actor(actor_policy)
         self.policy=normalize(policy);self.data=data;self.spec=spec;self.owner=None;self.time=None;self.base=None;self.proxy=None;self.targets=();self.candidate=''
         data['coordinate_typed_aim_frames']=[]
     def validate_effects(self,manager):
-        from enemy_recipient_specs import CURRENT_TARGETS
-        for effect,_ in manager._effects:
-            if effect.get('target') in CURRENT_TARGETS:raise ValueError('Typed aim logical enemy recipient requires its own actor policy')
+        from coordinate_typed_actor_policy import validate_effects
+        validate_effects((effect for effect,_ in manager._effects),self.actor_policy)
     def validate_namespace(self,boss):
         for binding in boss._nikke_typed_world.bindings:
             if binding.label in ('__enemy__','__enemy__:*'):raise ValueError('Typed aim label cannot alias logical enemy')

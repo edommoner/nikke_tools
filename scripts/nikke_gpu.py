@@ -413,6 +413,8 @@ SUITES['coordinate-typed-weapon']=dict(SUITES['coordinate-typed-live-aim'],scrip
 SUITES['coordinate-typed-weapon']['tests']=[*SUITES['coordinate-typed-weapon']['tests'],'test_coordinate_typed_weapon_gpu.py','test_native_python_profile.py']
 SUITES['coordinate-typed-aim']=dict(SUITES['coordinate-typed-weapon'],script='research/verify-coordinate-typed-aim-short.py',source='gpu/world_coordinate_typed_aim_entry.slang',golden='research/portable-coordinate-typed-aim-short-expected.json',inputs=59,native=36,development_only=False)
 SUITES['coordinate-typed-aim']['tests']=[*SUITES['coordinate-typed-aim']['tests'],'test_coordinate_typed_aim_gpu.py']
+SUITES['coordinate-typed-actor']=dict(SUITES['coordinate-typed-aim'],script='research/verify-coordinate-typed-actor-short.py',source='gpu/world_coordinate_typed_actor_entry.slang',golden='research/portable-coordinate-typed-actor-short-expected.json',inputs=67,native=40,development_only=False)
+SUITES['coordinate-typed-actor']['tests']=[*SUITES['coordinate-typed-actor']['tests'],'test_coordinate_typed_actor_policy.py','test_coordinate_typed_actor_gpu.py']
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']

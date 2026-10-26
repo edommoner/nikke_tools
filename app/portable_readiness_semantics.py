@@ -279,6 +279,13 @@ def reference_readiness(issue):
             automatic_typed_weapon_aim_verified=False,canonical_consumer_verified=False,
             cuda_device_verified=False,in_game_rules_verified=False,full_character_verified=False,
             scope='declared_v1_static_typed_shapes_inside_original_sampled_weapon_production')
+        result['typed_current_damage_validation']=dict(suite='coordinate-typed-actor',inputs=67,native_cases=40,
+            declared_actor_policy='canonical-current-damage-v1',original_profile='Rei',original_definitions=73,
+            original_current_skill_events=[0,5,5,5],literal_selector='enemies_nearest_in_range',
+            current_damage_connected=True,enemy_field_ownership_connected=False,
+            metal_verified=True,independent_audit_verified=True,cuda_device_verified=False,
+            canonical_consumer_verified=False,in_game_rules_verified=False,full_character_verified=False,
+            scope='original_current_damage_with_declared_static_typed_aim_and_body_add_receivers')
         result['typed_coordinate_aim_validation']=dict(suite='coordinate-typed-aim',inputs=59,native_cases=36,
             cpu_reference_verified=True,gpu_wire_connected=True,metal_verified=True,independent_audit_verified=True,
             declared_policy='typed-before-body-v1',typed_slots=128,focus_id_bits=9,logical_add_id=257,

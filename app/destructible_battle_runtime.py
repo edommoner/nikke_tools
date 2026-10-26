@@ -36,7 +36,7 @@ class TypedLandings(ast.NodeTransformer):
         return node
 
 @contextmanager
-def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False,skill_shields=False,body_lifesteal=False,body_accumulation=False,typed_geometry=None,coordinate_weapon_targets=False,typed_aim_policy=None):
+def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False,skill_shields=False,body_lifesteal=False,body_accumulation=False,typed_geometry=None,coordinate_weapon_targets=False,typed_aim_policy=None,typed_actor_policy=None):
     from calculator import timeline,buff_manager
     from runner import sim
     if type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Invalid typed battle observation capacity')
@@ -66,7 +66,8 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     coordinate_weapons=CoordinateWeaponShots(timeline,data,typed_geometry) if coordinate_weapon_targets else None
     if typed_aim_policy is not None and not coordinate_weapon_targets:raise ValueError('Typed aim requires the declared coordinate weapon producer')
     from coordinate_typed_aim_runtime import TypedCoordinateAim
-    aims=TypedCoordinateAim(data,typed_geometry,typed_aim_policy) if typed_aim_policy is not None else None
+    if typed_actor_policy is not None and typed_aim_policy is None:raise ValueError('Typed actor policy requires frame aim')
+    aims=TypedCoordinateAim(data,typed_geometry,typed_aim_policy,actor_policy=typed_actor_policy) if typed_aim_policy is not None else None
     class Boss(old_boss):
         def __init__(self,*args,**kwargs):
             super().__init__(*args,**kwargs);self._nikke_typed_world=DestructibleWorld.from_clock(self,bindings);data['worlds'].append(self._nikke_typed_world)
@@ -115,7 +116,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
                 got=select_for_caster(world,typed_geometry,int(world.bindings[0].handle.kind),manager,caster)
                 return [] if got is None else [world.bindings[got[0]].label]
             if target=='all_projectiles':return [world.bindings[i].label for i in world.targets.select([ActorKind.PROJECTILE])]
-            if isinstance(target,str) and target in CURRENT_TARGETS and typed_context():raise ValueError('Typed enemy recipient requires an explicit actor policy')
+            if isinstance(target,str) and target in CURRENT_TARGETS and typed_context() and typed_actor_policy is None:raise ValueError('Typed enemy recipient requires an explicit actor policy')
             return resolver(target,caster,*args,**kwargs)
         def conditions(values,caster,t,eff=None):
             if typed_context() and any(isinstance(value,str) and (value in ('target_is_boss','target_is_add','target_stunned','not_target_stunned') or value.startswith(('target_state:','not_target_state:','target_stack_above:','target_stack_below:'))) for value in values):

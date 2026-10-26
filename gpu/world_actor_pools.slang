@@ -188,6 +188,9 @@ uint actorPhysicalTarget(inout Runtime s,uint who,uint legacy)
             slot=uint(actorNumber(s.resourceOutput+P_FOCUS_STATE_BASE)>>(9*who))&511U;
             // Typed physical packets route through their own sampled consumer.
             // Their aim identity cannot index the canonical actor pool.
+#ifdef PORTABLE_COORDINATE_TYPED_ACTORS
+            if(typedActorPolicyEnabled(s)&&slot==0)return ACTOR_REF|focusFirstAdd(s);
+#endif
             if(slot==257)return ACTOR_REF|focusFirstAdd(s);
             if(slot>=128)return ACTOR_REF;
         }

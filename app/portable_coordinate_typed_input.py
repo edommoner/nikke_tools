@@ -6,7 +6,10 @@ from portable_original_modifier_probe_input import pack_target_input
 from portable_target_modifier_input import lower_effect
 from destructible_skill_specs import coefficient
 
-def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None,coordinate_weapon_targets=False,coordinate_typed_aim=False):
+def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None,coordinate_weapon_targets=False,coordinate_typed_aim=False,coordinate_typed_actors=False):
+    if type(coordinate_typed_actors) is not bool:raise ValueError('Explicit typed actor consumer policy required')
+    if coordinate_typed_actors and not coordinate_typed_aim:raise ValueError('Typed actor policy requires frame aim')
+    if prepared.get('typed_actor_policy') is not None and not coordinate_typed_actors:raise ValueError('Typed current damage requires its shared GPU consumer')
     if type(coordinate_typed_aim) is not bool:raise ValueError('Explicit typed aim consumer policy required')
     aim_targets=None
     if coordinate_typed_aim:
@@ -14,7 +17,12 @@ def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,
         from enemy_recipient_specs import CURRENT_TARGETS
         normalize(prepared.get('typed_aim_policy'))
         if not coordinate_weapon_targets:raise ValueError('Typed aim requires coordinate weapon consumer')
-        if any(row['effect'].get('target') in CURRENT_TARGETS for row in prepared['effects']):raise ValueError('Typed aim logical enemy recipient requires its own actor policy')
+        from coordinate_typed_actor_policy import validate_effects
+        actor_policy=prepared.get('typed_actor_policy') if coordinate_typed_actors else None
+        if coordinate_typed_actors:
+            from coordinate_typed_actor_policy import normalize as normalize_actor
+            normalize_actor(actor_policy)
+        validate_effects((row['effect'] for row in prepared['effects']),actor_policy)
         labels=[b.get('label','') for b in bindings]
         if any(label in ('__enemy__','__enemy__:*') for label in labels):raise ValueError('Typed aim label cannot alias logical enemy')
         if not 1<=len(labels)<=128 or any(not label for label in labels) or len(set(labels))!=len(labels):raise ValueError('Declared distinct typed aim labels required')
@@ -31,6 +39,7 @@ def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,
         from portable_typed_geometry_specs import pack
         shape_words,shape_meta=pack(geometry,len(bindings),probe_kind);extra[:2320]=shape_words;extra[13]=1
         if coordinate_typed_aim:extra[14]=1;scene['typed_aim_slots']=aim_targets;scene['typed_aim_add_slot']=257
+        if coordinate_typed_actors:extra[15]=1
         meta['typed_geometry']=shape_meta
         meta['coordinate_typed_input']=dict(probe_source=None,probe_kind=probe_kind,axis_rows=axes,one_resident_runtime=True,shared_world_clock=True,automatic_typed_weapon_aim=coordinate_typed_aim,coordinate_weapon_targets=True)
         return words+extra,meta,actors,scene

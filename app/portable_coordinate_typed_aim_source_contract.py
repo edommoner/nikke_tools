@@ -8,11 +8,13 @@ def checked(current,row):
     assert hashlib.sha256(row['baseline'].encode()).hexdigest()==row['baseline_sha256']
     return row['baseline']
 def project_sources(root,sources=None):
-    root=Path(root);out=dict(sources or {});data=ledger(root)
+    from portable_coordinate_typed_actor_source_contract import project_sources as actors
+    root=Path(root);out=actors(root,sources);data=ledger(root)
     for name,digest in data['added_sources'].items():assert hashlib.sha256(out.get(name,(root/name).read_text()).encode()).hexdigest()==digest,'Unreviewed typed aim dependency'
     for name,row in data['sources'].items():
         if name.endswith('.slang'):out[name]=checked(out.get(name,(root/name).read_text()),row)
     return out
 
 def project_backend_source(root,source=None):
-    root=Path(root);name='app/portable_backend.py';return checked((root/name).read_text() if source is None else source,ledger(root)['sources'][name])
+    from portable_coordinate_typed_actor_source_contract import project_backend_source as actors
+    root=Path(root);name='app/portable_backend.py';return checked(actors(root,source),ledger(root)['sources'][name])

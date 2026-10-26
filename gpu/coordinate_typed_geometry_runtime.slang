@@ -20,6 +20,9 @@ bool validTypedGeometry(inout Runtime s)
 #ifdef PORTABLE_COORDINATE_TYPED_AIM
         if(i==14&&commands[p+i]==1&&commands[p+13]==1)continue;
 #endif
+#ifdef PORTABLE_COORDINATE_TYPED_ACTORS
+        if(i==15&&commands[p+i]==1&&commands[p+14]==1&&commands[p+13]==1)continue;
+#endif
         return false;
     }
     for(uint slot=0;slot<128;slot++)
@@ -34,6 +37,9 @@ bool validTypedGeometry(inout Runtime s)
         else if(commands[row]==2){if(!f64Zero(cNumber(row+6))||!f64Less(0,cNumber(row+8))||!f64Less(0,cNumber(row+10)))return false;}
         else return false;
     }
+#ifdef PORTABLE_COORDINATE_TYPED_ACTORS
+    if(!validTypedActorPolicy(s))return false;
+#endif
     return true;
 }
 bool typedGeometryBefore(inout Runtime s,uint left,uint right)
