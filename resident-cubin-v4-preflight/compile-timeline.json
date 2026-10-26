@@ -1,0 +1,173 @@
+{
+  "schema": "resident-v4-saved-compile-timeline",
+  "origin": {
+    "label": "Observed outer compile Job pre-gate; not an inferred compiler start",
+    "unix_ns": 1793057347859783400,
+    "utc": "2026-10-26T23:29:07.859783+00:00",
+    "jst": "2026-10-27T08:29:07.859783+09:00"
+  },
+  "events": [
+    {
+      "stage": "inner_before_observation",
+      "state": "entered",
+      "pid": 71548,
+      "journal": "preparation.jsonl",
+      "wall_time_unix_ns": 1793057359432733800,
+      "utc": "2026-10-26T23:29:19.432734+00:00",
+      "seconds_from_outer_pre_gate": 11.5729504
+    },
+    {
+      "stage": "inner_before_observation",
+      "state": "returned",
+      "pid": 71548,
+      "elapsed_seconds": 2.1186552,
+      "journal": "preparation.jsonl",
+      "wall_time_unix_ns": 1793057361554236700,
+      "utc": "2026-10-26T23:29:21.554237+00:00",
+      "seconds_from_outer_pre_gate": 13.6944533
+    },
+    {
+      "stage": "gpu_child_verify_package",
+      "state": "entered",
+      "pid": 78624,
+      "journal": "preparation.jsonl",
+      "wall_time_unix_ns": 1793057361588947700,
+      "utc": "2026-10-26T23:29:21.588948+00:00",
+      "seconds_from_outer_pre_gate": 13.7291643
+    },
+    {
+      "stage": "gpu_child_verify_package",
+      "state": "returned",
+      "pid": 78624,
+      "elapsed_seconds": 11.2833529,
+      "journal": "preparation.jsonl",
+      "wall_time_unix_ns": 1793057372873053200,
+      "utc": "2026-10-26T23:29:32.873053+00:00",
+      "seconds_from_outer_pre_gate": 25.0132698
+    },
+    {
+      "stage": "slang_build",
+      "state": "entered",
+      "pid": 78624,
+      "journal": "phases.jsonl",
+      "wall_time_unix_ns": 1793057372881455800,
+      "utc": "2026-10-26T23:29:32.881456+00:00",
+      "seconds_from_outer_pre_gate": 25.0216724
+    },
+    {
+      "stage": "slang_build",
+      "state": "returned",
+      "pid": 78624,
+      "elapsed_seconds": 9.7541294,
+      "journal": "phases.jsonl",
+      "wall_time_unix_ns": 1793057382636491500,
+      "utc": "2026-10-26T23:29:42.636492+00:00",
+      "seconds_from_outer_pre_gate": 34.7767081
+    },
+    {
+      "stage": "shared_cuda_compile_only",
+      "state": "entered",
+      "pid": 78624,
+      "journal": "phases.jsonl",
+      "wall_time_unix_ns": 1793057382781470200,
+      "utc": "2026-10-26T23:29:42.781470+00:00",
+      "seconds_from_outer_pre_gate": 34.9216868
+    },
+    {
+      "stage": "cuda_compile_artifact",
+      "state": "entered",
+      "pid": 78624,
+      "journal": "phases.jsonl",
+      "wall_time_unix_ns": 1793057382784028300,
+      "utc": "2026-10-26T23:29:42.784029+00:00",
+      "seconds_from_outer_pre_gate": 34.9242449
+    },
+    {
+      "stage": "cuda_compiler_library",
+      "state": "entered",
+      "pid": 78624,
+      "name": "nvrtc64_120_0.dll",
+      "journal": "phases.jsonl",
+      "wall_time_unix_ns": 1793057382853647200,
+      "utc": "2026-10-26T23:29:42.853647+00:00",
+      "seconds_from_outer_pre_gate": 34.9938638
+    },
+    {
+      "stage": "cuda_compiler_library",
+      "state": "loaded",
+      "pid": 78624,
+      "name": "nvrtc64_120_0.dll",
+      "journal": "phases.jsonl",
+      "wall_time_unix_ns": 1793057382858715200,
+      "utc": "2026-10-26T23:29:42.858715+00:00",
+      "seconds_from_outer_pre_gate": 34.9989318
+    },
+    {
+      "stage": "cuda_compiler_library",
+      "state": "entered",
+      "pid": 78624,
+      "name": "nvrtc-builtins64_124.dll",
+      "journal": "phases.jsonl",
+      "wall_time_unix_ns": 1793057382859718500,
+      "utc": "2026-10-26T23:29:42.859718+00:00",
+      "seconds_from_outer_pre_gate": 34.9999351
+    },
+    {
+      "stage": "cuda_compiler_library",
+      "state": "loaded",
+      "pid": 78624,
+      "name": "nvrtc-builtins64_124.dll",
+      "journal": "phases.jsonl",
+      "wall_time_unix_ns": 1793057382861727500,
+      "utc": "2026-10-26T23:29:42.861727+00:00",
+      "seconds_from_outer_pre_gate": 35.0019441
+    },
+    {
+      "stage": "nvrtcCreateProgram",
+      "state": "entered",
+      "pid": 78624,
+      "journal": "phases.jsonl",
+      "wall_time_unix_ns": 1793057382862237900,
+      "utc": "2026-10-26T23:29:42.862238+00:00",
+      "seconds_from_outer_pre_gate": 35.0024545
+    },
+    {
+      "stage": "nvrtcCreateProgram",
+      "state": "returned",
+      "pid": 78624,
+      "return_code": 0,
+      "elapsed_seconds": 0.0019903,
+      "journal": "phases.jsonl",
+      "wall_time_unix_ns": 1793057382864831900,
+      "utc": "2026-10-26T23:29:42.864832+00:00",
+      "seconds_from_outer_pre_gate": 35.0050485
+    },
+    {
+      "stage": "nvrtcCompileProgram",
+      "state": "entered",
+      "pid": 78624,
+      "journal": "phases.jsonl",
+      "wall_time_unix_ns": 1793057382866366200,
+      "utc": "2026-10-26T23:29:42.866366+00:00",
+      "seconds_from_outer_pre_gate": 35.0065828
+    }
+  ],
+  "parent_phase_events": 0,
+  "inner_phase_events": 11,
+  "inner_preparation_events": 4,
+  "nvrtc_start": {
+    "utc": "2026-10-26T23:29:42.866366+00:00",
+    "jst": "2026-10-27T08:29:42.866366+09:00",
+    "seconds_from_outer_pre_gate": 35.0065828
+  },
+  "nvrtc_return_observed": false,
+  "nvrtc_return_code": null,
+  "compiler_success_verified": false,
+  "allocation_failure": null,
+  "allocation_failure_scope": "No inference: NVRTC entered only, then outer budget expired",
+  "open_nvrtc_wall_interval_until_outer_cleanup_seconds": 24.9945298,
+  "open_interval_scope": "Includes cleanup/end observation; not a completed NVRTC duration",
+  "outer_timeout_seconds": 60,
+  "outer_elapsed_seconds": 60.04023510031402,
+  "outer_cleanup_completed_utc": "2026-10-26T23:30:07.860896+00:00"
+}
