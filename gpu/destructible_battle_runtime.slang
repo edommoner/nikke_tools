@@ -9,7 +9,11 @@ bool initializeDestructibleBattle(inout Runtime s)
 #endif
     if((!weaponOnly&&commands[descriptor]>=s.count)||commands[descriptor+1]<1||commands[descriptor+1]>128||commands[descriptor+2]!=1||commands[descriptor+3]!=0x44425431U) return false;
     for(uint i=4;i<16;i++) if(commands[descriptor+i]!=0) return false;
+#ifdef PORTABLE_COORDINATE_TYPED_TARGETS
+    if(!validTypedGeometry(s))return false;
+#else
     for(uint i=0;i<2320;i++) if(commands[extra+i]!=0) return false;
+#endif
     for(uint i=2321;i<2328;i++) if(commands[extra+i]!=0) return false;
     for(uint i=3864;i<5120;i++) if(commands[extra+i]!=0) return false;
     if(!worldFrameEnabled(s)) return false;

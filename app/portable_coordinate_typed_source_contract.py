@@ -6,9 +6,10 @@ def ledger(root):
     return json.loads((Path(root)/'tests/fixtures/portable-coordinate-typed-source-delta.json').read_text())
 
 def project_sources(root,sources=None):
-    root=Path(root);out=dict(sources or {});data=ledger(root)
+    from portable_typed_geometry_source_contract import project_sources as geometry
+    root=Path(root);out=geometry(root,sources);data=ledger(root)
     for name,digest in data['added_sources'].items():
-        assert hashlib.sha256((root/name).read_bytes()).hexdigest()==digest,'Unreviewed typed composition dependency: '+name
+        assert hashlib.sha256(out.get(name,(root/name).read_text()).encode()).hexdigest()==digest,'Unreviewed typed composition dependency: '+name
     for name,row in data['sources'].items():
         current=out.get(name,(root/name).read_text())
         assert current==row['current'] and hashlib.sha256(current.encode()).hexdigest()==row['current_sha256'],'Unreviewed typed composition source: '+name

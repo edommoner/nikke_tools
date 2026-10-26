@@ -1,0 +1,131 @@
+{
+  "scope": "Additional eight native cases only; not GPU proof",
+  "package_id": "add318223f4f4cd346b75a4e5f505922fccc9ffbf044346f4d699fd906f34b6f",
+  "results": [
+    {
+      "name": "coordinate-typed-geometry/destroy-front-reselect",
+      "passed": true,
+      "seconds": 5.768796500051394,
+      "handles": [
+        [
+          2,
+          10,
+          1
+        ],
+        [
+          2,
+          11,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "coordinate-typed-geometry/rotated-rectangle-miss",
+      "passed": true,
+      "seconds": 5.7227830409538,
+      "handles": [
+        [
+          2,
+          11,
+          1
+        ],
+        [
+          2,
+          11,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "coordinate-typed-geometry/grow-rotated-rectangle",
+      "passed": true,
+      "seconds": 5.730167000088841,
+      "handles": [
+        [
+          2,
+          10,
+          1
+        ],
+        [
+          2,
+          10,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "coordinate-typed-geometry/birth-order-tie",
+      "passed": true,
+      "seconds": 5.975723874988034,
+      "handles": [
+        [
+          2,
+          11,
+          1
+        ],
+        [
+          2,
+          11,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "coordinate-typed-geometry/expiry-reselect",
+      "passed": true,
+      "seconds": 5.774778041988611,
+      "handles": [
+        [
+          2,
+          10,
+          1
+        ],
+        [
+          2,
+          11,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "coordinate-typed-geometry/generation-reopen",
+      "passed": true,
+      "seconds": 5.817803292069584,
+      "handles": [
+        [
+          2,
+          10,
+          1
+        ],
+        [
+          2,
+          10,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "coordinate-typed-geometry/hp-shield-front",
+      "passed": true,
+      "seconds": 7.226209499873221,
+      "handles": [
+        [
+          3,
+          10,
+          1
+        ],
+        [
+          3,
+          11,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "coordinate-typed-geometry/point-misses-all",
+      "passed": true,
+      "seconds": 3.389365541981533,
+      "handles": []
+    }
+  ]
+}

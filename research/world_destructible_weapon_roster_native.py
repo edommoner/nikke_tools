@@ -31,7 +31,7 @@ def capture_typed(case):
                 row['family_flags']={k:bool(hit.get(k,False)) for k in ('is_burst_damage','is_aoe_burst','is_single_burst')}
             samples.append(row)
         return value
-    with typed_battle(case['typed_bindings'],modifier_model=True,shield_owner=None if case.get('declared_projectile_probe') and case.get('probe_kind',2)==2 else BOSS,hit_shields=not case.get('declared_projectile_probe',False),weapon_shields=not case.get('declared_projectile_probe',False),max_attacks=case['max_attacks'],skill_shields=case.get('skill_shield_interception_v1',False),body_lifesteal=case.get('body_lifesteal_v1',False),body_accumulation=case.get('body_accumulation_v1',False)) as data,patch.object(destructible_damage_policy,'calculate',calculate),patch.object(BuffManager,'apply_shared_body_heal',heal):
+    with typed_battle(case['typed_bindings'],modifier_model=True,shield_owner=None if case.get('declared_projectile_probe') and case.get('probe_kind',2)==2 else BOSS,hit_shields=not case.get('declared_projectile_probe',False),weapon_shields=not case.get('declared_projectile_probe',False),max_attacks=case['max_attacks'],skill_shields=case.get('skill_shield_interception_v1',False),body_lifesteal=case.get('body_lifesteal_v1',False),body_accumulation=case.get('body_accumulation_v1',False),typed_geometry=case.get('typed_geometry')) as data,patch.object(destructible_damage_policy,'calculate',calculate),patch.object(BuffManager,'apply_shared_body_heal',heal):
         yield data,samples,heals
 
 def snapshot_typed(case,data,samples,heals,battle,shots):

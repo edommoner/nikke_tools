@@ -29,7 +29,7 @@ def regions():
     from portable_arena_specs import Region
     rows=[Region('input','coordinate-complete-input',0,COORDINATE_INPUT_WORDS),Region('output','coordinate-complete-output',0,COORDINATE_OUTPUT_WORDS)]
     for domain,base,table in [
-        ('input',COORDINATE_INPUT_WORDS,[('reserved-prefix',0,2320),('binding-count',2320,8),('bindings',2328,1536),('reserved-bindings-tail',3864,1256),('descriptor',5120,16),('axes-header',5136,32),('axes',5168,256),('routes',5424,256),('owner-policy',5680,32)]),
+        ('input',COORDINATE_INPUT_WORDS,[('typed-geometry-or-zero',0,2320),('binding-count',2320,8),('bindings',2328,1536),('reserved-bindings-tail',3864,1256),('descriptor',5120,16),('axes-header',5136,32),('axes',5168,256),('routes',5424,256),('owner-policy',5680,32)]),
         ('output',COORDINATE_OUTPUT_WORDS,[('header',0,16),('reserved-prefix',16,1008),('targets',1024,1792),('clock',2816,16),('reserved-clock-tail',2832,736),('attack-receipts',3568,128*1040),('reserved-receipt-tail',136688,16880),('dfs-scratch',153568,32*544),('clear-tail',170976,91168)])]:
         rows.extend(Region(domain,'typed-'+domain+'-'+name,base+offset,words) for name,offset,words in table)
     return rows,INPUT_WORDS,OUTPUT_WORDS

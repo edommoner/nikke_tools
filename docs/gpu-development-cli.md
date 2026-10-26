@@ -1,4 +1,6 @@
-最新のprivate合成入口は `coordinate-typed`10（関連53／制御480・Metal独立監査済み）です。元の座標射撃と型付き対象Frameが同じRuntime・時計・RNGで動きます。型付きへの自動aim／公開GPU／全キャラは未完です。[合成範囲と配置検査](portable-coordinate-typed-targets.md)を参照してください。
+`coordinate-typed-geometry`28（native18／拒否10）は固定pointと実生存世代から実攻撃対象を選ぶsealed suiteです。`package --suite coordinate-typed-geometry --compact` を使います。M5実GPUと独立監査済み、既存10の全出力と旧型付きCUDA/MSL生成物を保持。通常武器の自動照準・現CUDA・全キャラ認定は未対応です。[範囲と検証記録](portable-typed-geometry.md)。
+
+従来のprivate合成入口は `coordinate-typed`10（関連53／制御480・Metal独立監査済み）です。元の座標射撃と型付き対象Frameが同じRuntime・時計・RNGで動きます。型付きへの自動aim／公開GPU／全キャラは未完です。[合成範囲と配置検査](portable-coordinate-typed-targets.md)を参照してください。
 
 `coordinate-original-owned`5 は元アインの羽4→6→2枚と、元シンデレラ：クリスタルウェーブの弾換算8回を検証するsealed suiteです。M5全5・独立fresh監査・関連29／制御480検査成功（Win1skip）、元推定モデルの警告を保持。固定shared source・生成CUDA/MSL全byte保持／Slang0・実Metal必須pipeline hit。`package --suite coordinate-original-owned --compact` を使います。[観測透過性・状態負例・残る分類](portable-original-owned-sources.md)。
 

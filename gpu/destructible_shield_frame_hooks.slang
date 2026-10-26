@@ -24,5 +24,10 @@
 #define DF_ATTACK_ID(s,scratch,descriptor) results[scratch+531]
 #define DF_COMPLETE(s,scratch) if(results[scratch+531]!=0) results[results[scratch+530]+10]=1;
 #define DF_ROW_ENABLED(s,row) ((row)<(s).count&&commands[DT_INPUT(s,5424)+(row)]!=0)
+#ifdef PORTABLE_COORDINATE_TYPED_TARGETS
+#define DF_BODY_FALLBACK(s,row) (commands[DT_INPUT(s,5424)+(row)]==3||commands[DT_INPUT(s,5424)+(row)]==4)
+#define DF_MATCH(s,row,at,selected) (results[at+3]!=0&&(commands[DT_INPUT(s,5424)+(row)]==5?typedGeometryFrameMatch(s,at):(DF_BODY_FALLBACK(s,row)?((selected)==0&&(results[at]==3||commands[DT_INPUT(s,5424)+(row)]==4&&results[at]==4))&&results[at+10]==commands[DT_INPUT(s,5681)]&&results[at+11]==commands[DT_INPUT(s,5682)]&&results[at+12]==commands[DT_INPUT(s,5683)]:results[at]==2)))
+#else
 #define DF_BODY_FALLBACK(s,row) (commands[DT_INPUT(s,5424)+(row)]>=3)
 #define DF_MATCH(s,row,at,selected) (results[at+3]!=0&&(DF_BODY_FALLBACK(s,row)?((selected)==0&&(results[at]==3||(commands[DT_INPUT(s,5424)+(row)]==4&&results[at]==4))&&results[at+10]==commands[DT_INPUT(s,5681)]&&results[at+11]==commands[DT_INPUT(s,5682)]&&results[at+12]==commands[DT_INPUT(s,5683)]):results[at]==2))
+#endif

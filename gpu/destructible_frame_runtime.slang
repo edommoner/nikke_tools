@@ -35,6 +35,9 @@ bool dwFrameDescriptorValid(inout Runtime s,uint at)
 }
 bool destructibleActivationHasTargets(inout Runtime s,uint row)
 {
+#ifdef PORTABLE_COORDINATE_TYPED_TARGETS
+    if(DF_ROW_ENABLED(s,row)&&commands[DT_INPUT(s,5424)+row]==5)return typedGeometryPick(s)!=0xffffffffU;
+#endif
     if(!DF_ROW_ENABLED(s,row)||DF_BODY_FALLBACK(s,row)) return true;
     uint count=commands[DF_EXTRA(s)+2320],base=DF_BASE(s.resourceOutput);
     for(uint slot=0;slot<count;slot++) { uint at=dtAt(base,slot);if(DF_MATCH(s,row,at,0)) return true; }
@@ -70,6 +73,7 @@ bool advanceDestructibleSkillFrame(inout Runtime s,inout Frame frames[32],inout 
         {
 #ifdef PORTABLE_COORDINATE_TYPED_TARGETS
             beginSampledSkillFrame(s,uint(depth),row);
+            if(commands[DT_INPUT(s,5424)+row]==5)results[scratch+536]=typedGeometryPick(s);
 #endif
             frames[depth].healthPrevious=damageValue(s,d.owner,f.healthValue,f.time,false,s.coreBonus,d.damageFlags,ONE,false,false,row);
             frames[depth].skillCritRate=s.lastDamageCritRate;DF_AMOUNT(s,scratch,output,frames[depth].healthPrevious)

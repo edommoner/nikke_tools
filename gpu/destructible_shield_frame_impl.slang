@@ -12,6 +12,9 @@ uint64_t modifierFrameDamage(inout Runtime s,uint who,uint64_t coefficient,uint6
     if(normal||optimal||physical||!f64Equal(coreBonus,s.coreBonus)||!f64Equal(charge,ONE)||!DF_ROW_ENABLED(s,row)||skillHPBasisMode(s,row)!=0||(flags&~(H_NAMED_SKILL|524288U))!=0) { s.error=64;return 0; }
     uint64_t factor5,projectile,shield;
     uint kind=commands[DT_INPUT(s,5424)+row];
+#ifdef PORTABLE_COORDINATE_TYPED_TARGETS
+    if(kind==5){uint slot=typedGeometryFrameSlot(s);if(slot==0xffffffffU){s.error=64;return 0;}kind=results[dtAt(DF_BASE(s.resourceOutput),slot)];}
+#endif
     if(kind==4)
     {
         uint count=commands[DF_EXTRA(s)+2320],base=DF_BASE(s.resourceOutput);bool found=false;
@@ -82,6 +85,10 @@ bool validShieldBattleRoutes(inout Runtime s)
     {
         uint route=commands[DT_INPUT(s,5424)+row];
         if(route==0) continue;
+#ifdef PORTABLE_COORDINATE_TYPED_TARGETS
+        if(route==5){if(!typedGeometryEnabled(s)||row!=commands[DF_DESCRIPTOR(s)])return false;}
+        else
+#endif
         if((route!=2&&route!=3&&!(hitShields&&route==4))||row>=s.count||skillHPBasisMode(s,row)!=0) return false;
         Definition d=readDefinition(s.inputBase,row);
 #ifdef PORTABLE_DESTRUCTIBLE_ROSTER_SKILL
@@ -92,4 +99,3 @@ bool validShieldBattleRoutes(inout Runtime s)
     }
     return true;
 }
-

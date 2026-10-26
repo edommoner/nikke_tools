@@ -4,6 +4,7 @@
 #define DT_OUTPUT(output,offset) ((output)+1769856+(offset))
 #include "destructible_shield_frame_hooks.slang"
 #include "world_coordinate_original_shared_entry.slang"
+#include "coordinate_typed_geometry_runtime.slang"
 #include "destructible_shield_frame_impl.slang"
 bool initializeCoordinateTypedTargets(inout Runtime s)
 {

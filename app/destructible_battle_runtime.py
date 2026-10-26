@@ -27,7 +27,7 @@ class TypedLandings(ast.NodeTransformer):
         return node
 
 @contextmanager
-def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False,skill_shields=False,body_lifesteal=False,body_accumulation=False):
+def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False,skill_shields=False,body_lifesteal=False,body_accumulation=False,typed_geometry=None):
     from calculator import timeline,buff_manager
     from runner import sim
     if type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Invalid typed battle observation capacity')
@@ -41,6 +41,10 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
         from destructible_shield_policy import validate_owner
         validate_owner(shield_owner)
         if not modifier_model:raise ValueError('Shield interception requires the declared modifier model')
+    if typed_geometry is not None:
+        from portable_typed_geometry_specs import normalize
+        if not bindings or any(b['kind']!=bindings[0]['kind'] for b in bindings):raise ValueError('Typed point geometry requires one explicit actor kind')
+        normalize(typed_geometry,len(bindings),int(bindings[0]['kind']))
     old_simulate=timeline.simulate;old_alias=sim.simulate
     if old_simulate is not old_alias:raise ValueError('Native battle aliases differ before typed extension')
     old_boss=timeline.BossScript;old_register=buff_manager.BuffManager.register_damage_handler;old_hit=timeline.HitEvent
@@ -82,6 +86,11 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
             frames=state(manager).event_stack;target=frames[-1].target if frames else None
             return target is not None and target.kind in (ActorKind.PROJECTILE,ActorKind.HP_SHIELD,ActorKind.HIT_SHIELD)
         def resolve_target(target,caster,*args,**kwargs):
+            if target=='typed_point':
+                if typed_geometry is None:raise ValueError('Typed point selector requires explicit shapes')
+                from typed_geometry_reference import select as select_point
+                got=select_point(world,typed_geometry,int(world.bindings[0].handle.kind))
+                return [] if got is None else [world.bindings[got[0]].label]
             if target=='all_projectiles':return [world.bindings[i].label for i in world.targets.select([ActorKind.PROJECTILE])]
             if isinstance(target,str) and target in CURRENT_TARGETS and typed_context():raise ValueError('Typed enemy recipient requires an explicit actor policy')
             return resolver(target,caster,*args,**kwargs)
@@ -91,7 +100,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
             return condition_ok(values,caster,t,eff)
         @wraps(previous)
         def damage(effect,caster,t,*args,**kwargs):
-            if '_portable_observer_row' in effect and (effect.get('target')=='all_projectiles' or shield_owner is not None and effect.get('target')=='boss'):
+            if '_portable_observer_row' in effect and (effect.get('target') in ('all_projectiles','typed_point') or shield_owner is not None and effect.get('target')=='boss'):
                 row=effect['_portable_observer_row']
                 if type(row) is not int or not 0<=row<len(manager._effects) or manager._effects[row][0] is not effect:raise ValueError('Typed observer annotation must identify its exact registered definition')
                 effect={k:v for k,v in effect.items() if k!='_portable_observer_row'}
@@ -102,7 +111,16 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
                 active.append(None)
                 try:return previous(effect,caster,t,*args,**kwargs)
                 finally:assert active.pop() is None
-            if effect.get('target')=='all_projectiles':
+            if effect.get('target')=='typed_point':
+                if typed_geometry is None:raise ValueError('Typed point damage requires explicit geometry')
+                from destructible_skill_specs import coefficient
+                coefficient(dict(effect,target='all_projectiles'),manager._char[caster])
+                if world.last!=t or world.finished:raise ValueError('Typed point damage left its owning battle frame')
+                from typed_geometry_reference import select as select_point
+                selected=select_point(world,typed_geometry,int(world.bindings[0].handle.kind))
+                if selected is None:return
+                context=dict(manager=manager,world=world,effect=effect,caster=caster,time=t,kind=selected[1].kind,selected=selected)
+            elif effect.get('target')=='all_projectiles':
                 if set(effect)-FIELDS or effect.get('type')!='damage' or effect.get('stat')!='damage':raise ValueError('Typed battle currently requires a plain projectile skill')
                 if world.last!=t or world.finished:raise ValueError('Projectile skill is outside the owning battle frame')
                 data['activations'].append(dict(name=effect.get('name'),caster=caster,time=t))
@@ -148,7 +166,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
         if 'family' in context:record.update(family=context['family'],hit_tag=context['hit_tag'],weapon_mode_skill=context['weapon_mode_skill'])
         if modifier_model:record['coefficient']=context['coefficient']
         data['attacks'].append(record)
-        if context['kind']==ActorKind.PROJECTILE:
+        if context['kind']==ActorKind.PROJECTILE and 'selected' not in context:
             record['receipts']=projectiles(context['world'],context['manager'],event.caster,1,2,float(event.damage),1.,identity)
         else:
             from destructible_impact_runtime import deliver
