@@ -1,0 +1,23 @@
+{
+  "schema": "coordinate-resident-arc-checkpoint-v1",
+  "full_goal_complete": false,
+  "development_only": true,
+  "package_id": "ae70b296f28e6670e74cc815c826a547a2e02943bcc58f3d8c06b9ff2a553a6c",
+  "inputs": 106,
+  "native_cases": 63,
+  "rejections": 43,
+  "previous_prefix_words": 2032000,
+  "output_words": 2064786,
+  "arc_words": 32786,
+  "runtime_reflection_unchanged": true,
+  "related_tests": 140,
+  "control_tests": 555,
+  "windows_snapshot_control_tests": 559,
+  "mac_metal_status": "normal run in progress; no result yet",
+  "mac_metal_session": 95303,
+  "windows_launch_verified": false,
+  "windows_new_stack_verified": false,
+  "public_gpu_admitted": false,
+  "all_characters_supported": false,
+  "ui": "CPU"
+}

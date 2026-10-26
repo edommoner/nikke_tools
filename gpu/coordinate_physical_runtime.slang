@@ -4,7 +4,11 @@
 #include "coordinate_geometry_v1.slang"
 #include "coordinate_power_v1.slang"
 #include "coordinate_quadrature_v1.slang"
+#ifdef PORTABLE_COORDINATE_ARC_ARENA
+#include "coordinate_landing_resident_arena.slang"
+#else
 #include "coordinate_landing_resident_v1.slang"
+#endif
 #include "packet_integer_sum.slang"
 
 uint cfBank(inout Runtime s,uint who){return s.resourceOutput+CF_BANK

@@ -82,6 +82,13 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 void portableEvents(uint3 id:SV_DispatchThreadID)
 {
     if(id.x>=commands[0])return;
+#ifdef PORTABLE_COORDINATE_ARC_ARENA
+    uint arcBase=id.x*P_OUTPUT_WORDS+CRA_BASE;
+    for(uint i=0;i<CRA_WORDS;i++)results[arcBase+i]=0;
+#endif
     executeComposedCoordinateEvents(runtimeStates[id.x],id);
+#ifdef PORTABLE_COORDINATE_ARC_ARENA
+    for(uint i=0;i<CRA_WORDS;i++)results[arcBase+i]=0;
+#endif
 }
 #endif

@@ -1,5 +1,7 @@
 # Mac GPU開発引き継ぎ
 
+開発profile `coordinate-resident-arc` を共通戦闘実行器へ接続しました。既存全106入力（native63／拒否43）とCPU指紋を保持し、出力tail32,786語を追加、Runtime reflectionは旧版と完全一致。関連140／制御555成功、固定ae70b296…の通常Metal検証が進行中です（まだsealedではありません）。Windowsのprocess観測は既定／明示pwshとも失敗し、compiler/GPU0。有限operation/type/error-family IDのCPU診断を追加、制御559成功。raw／claims／旧失敗を保持。[接続と現在の検証範囲](portable-coordinate-resident-arc.md)。以下は履歴。
+
 共通arc区間のresource view版を追加し、M5 Metalでarc140／着弾40を全word照合・fresh独立sealしました。旧arc135／着弾40のinput/nativeとlogical出力hashを全保持し、1024区間・127対象・5098cutを維持。Windows旧CUBINのSTACK199,352byteとcache-onlyでもlaunch code2の失敗を保存。次は新sourceの短いcompile-only／offline資源検査でstack量を確認し、その後にCUDA実行を判断します。現resident106本体・公開UI・全キャラ対応は今回変更していません。[配置と検証範囲](portable-coordinate-arc-arena.md)。以下は履歴。
 
 通常の元武器による実射撃をtyped対象へ共通接続。sealed `coordinate-typed-weapon`46（native29／拒17）がM5 Metal・GPU禁止fresh監査131.445秒で全一致。散弾内handle固定／次射撃再選択、canonicalとの奥行きmerge、RL critical共有、親量と実着弾順、history2457件（保持2048＋全件SHA）を確認。旧35全284480000byte／input/native保持。既存Python観測filterで全46指紋を保ちCPU269.180→104.266秒（2.58倍）。関連74／制御488成功（Win1skip）、GPU1／retry0、GPU3.861秒／初回PSO93.762秒。生成必須cache hit・run追加Slang0、Runtime追加0。finalは配置監査・対応metadata・seal登録だけで計算／proof関数ASTを保持、再GPU0。raw全byte／SHA／inode保持の疎化で364113920byte回収。現CUDA／typed auto aim／canonicalゲーム仕様／全キャラ0／UI CPUは未達。[通常射撃のtyped接続](portable-coordinate-typed-weapon.md)。以下は履歴。

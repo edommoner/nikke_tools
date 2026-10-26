@@ -30,6 +30,8 @@ def check(workspace,validation_root,output,*,reader=None):
             if isinstance(error,RuntimeError) and (message in ('Windows process capture requires Windows','Invalid process snapshot; no command lines retained','Windows process snapshot unavailable; no command lines retained') or re.fullmatch(r'Windows process snapshot unavailable \(exit=(?:-?\d+|None), stage=(?:setup|processes|listeners|serialize|unknown), category=(?:-?\d+|None), hresult=(?:-?\d+|None)\); no command lines retained',message)):
                 safe=message
             result['error']=dict(type=type(error).__name__,message=safe)
+            from windows_validation_observer import SnapshotFailure
+            if isinstance(error,SnapshotFailure):result['error']['diagnostic']=error.diagnostic
             if isinstance(error,subprocess.TimeoutExpired):result['error']['timeout_seconds']=error.timeout
         result['elapsed_seconds']=time.perf_counter()-started
         json.dump(result,stream,indent=2);stream.write('\n')

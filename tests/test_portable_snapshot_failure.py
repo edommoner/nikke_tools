@@ -69,4 +69,27 @@ class SnapshotDiagnosticTests(unittest.TestCase):
    original=root/'original';original.mkdir()
    with self.assertRaisesRegex(ValueError,'inside'):check(original,validation,root/'outside.json',reader=lambda *a:self.fail())
 
+class SnapshotDetailTests(unittest.TestCase):
+ def test_process_query_and_row_conversion_have_distinct_operation_ids(self):
+  for operation in (1,2):
+   result=subprocess.CompletedProcess([],1,stdout=json.dumps(dict(snapshot_error=dict(stage='processes',category=0,hresult=-2146233088,operation=operation,type_id=4,inner_type_id=1,error_id_kind=1,native_code=7,inner_hresult=-1))))
+   with self.assertRaises(observer.SnapshotFailure) as caught:observer.snapshot_data(result)
+   self.assertEqual(caught.exception.diagnostic['operation'],operation)
+   self.assertEqual(caught.exception.diagnostic['native_code'],7)
+ def test_detail_values_are_finite_numeric_metadata(self):
+  values=dict(operation=99,type_id='SECRET',inner_type_id=True,error_id_kind=11,native_code=2**40,inner_hresult='SECRET',message='SECRET')
+  cleaned=observer.snapshot_failure_details(values)
+  self.assertTrue(all(value is None for value in cleaned.values()));self.assertNotIn('SECRET',json.dumps(cleaned));self.assertNotIn('message',cleaned)
+ def test_diagnostic_report_preserves_only_sanitized_failure_details(self):
+  def read(*args):raise observer.SnapshotFailure('Windows process snapshot unavailable (exit=1, stage=processes, category=0, hresult=-1); no command lines retained',dict(operation=1,type_id=4,error_id_kind=1,raw='SECRET'))
+  result=SnapshotDiagnosticTests().invoke(read)
+  self.assertEqual(result['error']['diagnostic']['error_id_kind'],1);self.assertNotIn('SECRET',json.dumps(result))
+ def test_native_query_is_not_repeated_to_collect_details(self):
+  result=subprocess.CompletedProcess([],1,stdout='{}',stderr='SECRET')
+  with patch.object(observer,'os',types.SimpleNamespace(name='nt')),patch.object(observer.subprocess,'run',return_value=result) as run:
+   with self.assertRaises(RuntimeError):observer.capture_snapshot('C:/original','C:/validation')
+  script=run.call_args.args[0][-1]
+  self.assertEqual(script.count('Get-CimInstance Win32_Process'),1);self.assertEqual(script.count('Get-NetTCPConnection -State Listen'),1)
+  self.assertNotIn('Message=',script);self.assertNotIn('FullyQualifiedErrorId=',script)
+
 if __name__=='__main__':unittest.main()

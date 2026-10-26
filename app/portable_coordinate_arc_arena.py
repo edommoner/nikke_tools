@@ -43,7 +43,7 @@ def function(source,name):
         end+=1
     return source[match.start():end]
 
-def transform(source,name):
+def transform(source,name,*,scratch_offset="CL_OUTPUT"):
     text=function(source,name);at=text.index('{');head,body=text[:at],text[at:]
     head=re.sub(r'\b(?:(?:inout|out)\s+)?CoordinateArcSet\s+(\w+)',r'inout ArcArenaView \1',head)
     anchor,slots=LOCALS.get(name,('',{}));seen=[]
@@ -53,7 +53,7 @@ def transform(source,name):
         seen.extend(names)
         def value(v):
             slot=slots[v]
-            return f'arcArenaView(output,CL_OUTPUT,{slot}U)' if anchor=='output' else f'arcArenaSibling({anchor},{slot}U)'
+            return f'arcArenaView(output,{scratch_offset},{slot}U)' if anchor=='output' else f'arcArenaSibling({anchor},{slot}U)'
         return 'ArcArenaView '+','.join(v+'='+value(v) for v in names)+';'
     body=re.sub(r'\bCoordinateArcSet\s+([^;{}]+);',declaration,body)
     if set(seen)!=set(slots):raise ValueError('Arena lifetime declaration drift: '+name)
@@ -73,14 +73,16 @@ def schemas(root):
     root=Path(root)
     groups=[('coordinate_arc_sets.slang',SETS),('coordinate_arc_scalar.slang',SCALAR),('coordinate_geometry_v1.slang',GEOMETRY),('coordinate_prepared_arcs_v1.slang',PREPARED),('coordinate_landing_arc_refs.slang',REFS),('coordinate_landing_v1.slang',LANDING)]
     header='// Generated canonical bodies with resource views; arithmetic and iteration order retained.\n'
-    sets=header;rest=header
+    sets=header;rest=header;resident=header
     for filename,names in groups:
         source=(root/'gpu'/filename).read_text()
         for name in names:
             converted=transform(source,name)
             if name in SETS:sets+=converted
-            else:rest+=converted
-    return {'coordinate_arc_arena_layout.slang':layout_schema(),'coordinate_arc_arena_ops.slang':sets,'coordinate_landing_arena_ops.slang':rest}
+            else:
+                rest+=converted
+                resident+=transform(source,name,scratch_offset="CRA_SCRATCH_OFFSET").replace("commands[","results[")
+    return {'coordinate_arc_arena_layout.slang':layout_schema(),'coordinate_arc_arena_ops.slang':sets,'coordinate_landing_arena_ops.slang':rest,'coordinate_landing_resident_arena_ops.slang':resident}
 
 def check(root):
     root=Path(root);landing.check_schema(root);landing.check_arc_references(root);landing.check_prepared_arcs(root)

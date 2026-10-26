@@ -1,0 +1,7 @@
+{
+  "commit": "222f543b76feef3e34920382297f147986eb6d52",
+  "shared_redacted_blobs_sha_verified": true,
+  "local_original_paths_not_transported": true,
+  "gpu_calls": 0,
+  "scope": "Exact verification of the shared redacted report; not restoration of unshared original native buffers or paths."
+}

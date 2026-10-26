@@ -43,6 +43,18 @@ def normalize_snapshot(rows,listeners,workspace,validation_root,observer_script=
  return dict(schema=1,observed_unix_ns=time.time_ns(),processes=saved,listeners=[dict(pid=int(r['pid']),port=int(r['port'])) for r in listeners],nikke_service_pids=sorted(services),service_status=status,uncertain_process_pids=sorted(set(candidates+unknown)),command_lines_saved=False)
 
 
+def snapshot_failure_details(data):
+ """Finite operation/type IDs and numeric native codes only."""
+ data=data if isinstance(data,dict) else {}
+ bounds=dict(operation=(1,5),type_id=(0,15),inner_type_id=(0,15),error_id_kind=(0,10),native_code=(-2147483648,2147483647),inner_hresult=(-2147483648,2147483647))
+ return {key:value if type(value) is int and low<=value<=high else None for key,(low,high) in bounds.items() for value in [data.get(key)]}
+
+
+class SnapshotFailure(RuntimeError):
+ def __init__(self,message,details):
+  super().__init__(message);self.diagnostic=snapshot_failure_details(details)
+
+
 def snapshot_data(result):
  """Keep only numeric/stage failure metadata; never echo PowerShell output."""
  try:data=json.loads(result.stdout)
@@ -53,7 +65,7 @@ def snapshot_data(result):
   stage=error.get('stage');stage=stage if stage in ('setup','processes','listeners','serialize') else 'unknown'
   code=result.returncode if type(result.returncode) is int else None
   numeric={key:value if type(value) is int else None for key,value in ((key,error.get(key)) for key in ('category','hresult'))}
-  raise RuntimeError('Windows process snapshot unavailable (exit='+str(code)+', stage='+stage+', category='+str(numeric['category'])+', hresult='+str(numeric['hresult'])+'); no command lines retained') from None
+  raise SnapshotFailure('Windows process snapshot unavailable (exit='+str(code)+', stage='+stage+', category='+str(numeric['category'])+', hresult='+str(numeric['hresult'])+'); no command lines retained',error) from None
  if not isinstance(data,dict) or 'snapshot_error' in data or not isinstance(data.get('rows'),list) or not isinstance(data.get('listeners'),list):
   raise RuntimeError('Invalid process snapshot; no command lines retained') from None
  return data
@@ -61,18 +73,59 @@ def snapshot_data(result):
 
 def capture_snapshot(workspace,validation_root,powershell='powershell.exe'):
  if os.name!='nt':raise RuntimeError('Windows process capture requires Windows')
- script="""$stage='setup'
+ script="""function SnapshotTypeId($value) {
+ if($null -eq $value){return 0}
+ switch($value.GetType().FullName) {
+  'Microsoft.Management.Infrastructure.CimException' {return 1}
+  'System.Management.Automation.CommandNotFoundException' {return 2}
+  'System.Management.Automation.MethodInvocationException' {return 3}
+  'System.Management.Automation.RuntimeException' {return 4}
+  'System.Management.Automation.PSInvalidOperationException' {return 5}
+  'System.UnauthorizedAccessException' {return 6}
+  'System.OutOfMemoryException' {return 7}
+  'System.Management.Automation.PropertyNotFoundException' {return 8}
+  'System.Management.Automation.MethodException' {return 9}
+  'System.TypeLoadException' {return 10}
+  'System.Management.Automation.CmdletInvocationException' {return 11}
+  'System.DllNotFoundException' {return 12}
+  'System.IO.FileNotFoundException' {return 13}
+  'System.Reflection.TargetInvocationException' {return 14}
+  'System.ArgumentOutOfRangeException' {return 15}
+  default {return 0}
+ }
+}
+$stage='setup';$operation=0
 try {
  [Console]::OutputEncoding=[System.Text.UTF8Encoding]::new($false)
  $ErrorActionPreference='Stop'
- $stage='processes'
- $rows=@(Get-CimInstance Win32_Process | Where-Object {$_.Name -match '^(python|pythonw|node)\\.exe$'} | ForEach-Object { [ordered]@{ ProcessId=$_.ProcessId; ParentProcessId=$_.ParentProcessId; Name=$_.Name; ExecutablePath=$_.ExecutablePath; CommandLine=$_.CommandLine; CreationTicks=if($_.CreationDate){$_.CreationDate.ToUniversalTime().ToFileTimeUtc().ToString()}else{$null} } })
- $stage='listeners'
- $ports=@(Get-NetTCPConnection -State Listen | Where-Object {$_.LocalPort -in @(4317,4333)} | ForEach-Object { [ordered]@{pid=$_.OwningProcess;port=$_.LocalPort} })
- $stage='serialize'
+ $stage='processes';$operation=1
+ $rawProcesses=@(Get-CimInstance Win32_Process)
+ $operation=2
+ $rows=@($rawProcesses | Where-Object {$_.Name -match '^(python|pythonw|node)\\.exe$'} | ForEach-Object { [ordered]@{ ProcessId=$_.ProcessId; ParentProcessId=$_.ParentProcessId; Name=$_.Name; ExecutablePath=$_.ExecutablePath; CommandLine=$_.CommandLine; CreationTicks=if($_.CreationDate){$_.CreationDate.ToUniversalTime().ToFileTimeUtc().ToString()}else{$null} } })
+ $stage='listeners';$operation=3
+ $rawListeners=@(Get-NetTCPConnection -State Listen)
+ $operation=4
+ $ports=@($rawListeners | Where-Object {$_.LocalPort -in @(4317,4333)} | ForEach-Object { [ordered]@{pid=$_.OwningProcess;port=$_.LocalPort} })
+ $stage='serialize';$operation=5
  [ordered]@{rows=$rows;listeners=$ports} | ConvertTo-Json -Depth 6 -Compress
 } catch {
- [ordered]@{snapshot_error=[ordered]@{stage=$stage;category=[int]$_.CategoryInfo.Category;hresult=[int]$_.Exception.HResult}} | ConvertTo-Json -Depth 3 -Compress
+ $failure=$_;$ex=$failure.Exception;$native=$null;$innerHresult=$null
+ try {if($ex.PSObject.Properties['NativeErrorCode']){$native=[int]$ex.NativeErrorCode}} catch {}
+ if($null -ne $ex.InnerException){$innerHresult=[int]$ex.InnerException.HResult}
+ $kind=0
+ switch -Regex ([string]$failure.FullyQualifiedErrorId) {
+  'CouldNotAutoLoad|Modules_ModuleNotFound' {$kind=1;break}
+  'CommandNotFound' {$kind=2;break}
+  'AccessDenied|UnauthorizedAccess' {$kind=3;break}
+  'MethodNotFound|MethodInvocation' {$kind=4;break}
+  'ConstrainedLanguage' {$kind=5;break}
+  'NotSupported' {$kind=6;break}
+  'OutOfMemory' {$kind=7;break}
+  'InvalidClass' {$kind=8;break}
+  'HRESULT' {$kind=9;break}
+  'NoMatching' {$kind=10;break}
+ }
+ [ordered]@{snapshot_error=[ordered]@{stage=$stage;category=[int]$failure.CategoryInfo.Category;hresult=[int]$ex.HResult;operation=$operation;type_id=(SnapshotTypeId $ex);inner_type_id=(SnapshotTypeId $ex.InnerException);error_id_kind=$kind;native_code=$native;inner_hresult=$innerHresult}} | ConvertTo-Json -Depth 3 -Compress
  exit 1
 }
 """

@@ -10,7 +10,7 @@ from pathlib import Path
 WORLD_INPUT_WORDS = 104400
 WORLD_OUTPUT_WORDS = 786432
 LEGACY_OUTPUT_WORDS = 1048576
-PROFILES = ('coordinate', 'attack-group', 'combined-legacy', 'combined-v1', 'coordinate-typed-v1', 'coordinate-typed-weapon-v1', 'coordinate-typed-aim-v1')
+PROFILES = ('coordinate', 'attack-group', 'combined-legacy', 'combined-v1', 'coordinate-typed-v1', 'coordinate-typed-weapon-v1', 'coordinate-typed-aim-v1', 'coordinate-resident-arc-v1')
 
 
 @dataclass(frozen=True)
@@ -68,6 +68,9 @@ def attack_group_shader_declarations():
 
 
 def regions(profile):
+    if profile=='coordinate-resident-arc-v1':
+        from portable_coordinate_resident_arc_specs import regions as arc_regions
+        return arc_regions()
     if profile=='coordinate-typed-aim-v1':
         from portable_coordinate_typed_aim_specs import regions as aim_regions
         return aim_regions()
