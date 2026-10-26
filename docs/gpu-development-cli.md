@@ -1,3 +1,5 @@
+`reference --suite coordinate-typed-aim-common --out UNIQUE.json` は型付き対象のframe照準契約7件（正例6／未対応拒否1）を検査します。CPU専用で、GPU wireはまだ拒否します。[照準契約と次の共有consumer](portable-coordinate-typed-aim.md)。
+
 `coordinate-typed-weapon` はsealed46入力（native29／拒17）。元の通常射撃をtyped対象へ接続し、M5 Metalと独立監査で一致しました。`package --suite coordinate-typed-weapon` を使い、compactはまだ指定しません。CPU観測は全指紋を保持して約2.58倍に短縮。`arena-check --profile coordinate-typed-weapon-v1` で同じbank配置を確認できます。現CUDA／typed auto aim／全キャラは未完です。[範囲と検証記録](portable-coordinate-typed-weapon.md)。
 
 `reference --suite coordinate-typed-weapon-common --out UNIQUE.json` は、元武器の実packetとtyped対象のCPU契約7件を検査します。散弾内のhandle固定・実着弾への遅延・親量・RNG・history超過を確認します。このCPUコマンド単独ではGPU認定を行いません。[通常射撃CPU契約](portable-coordinate-typed-weapon-reference.md)。

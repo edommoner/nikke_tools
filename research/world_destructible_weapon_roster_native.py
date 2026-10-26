@@ -34,7 +34,7 @@ def capture_typed(case):
         return value
     physical=case.get('coordinate_weapon_targets',False)
     probe=case.get('declared_projectile_probe',False)
-    with typed_battle(case['typed_bindings'],modifier_model=True,shield_owner=None if physical or probe and case.get('probe_kind',2)==2 else BOSS,hit_shields=not (probe or physical),weapon_shields=not (probe or physical),max_attacks=case['max_attacks'],skill_shields=case.get('skill_shield_interception_v1',False),body_lifesteal=case.get('body_lifesteal_v1',False),body_accumulation=case.get('body_accumulation_v1',False),typed_geometry=case.get('typed_geometry'),coordinate_weapon_targets=physical) as data,patch.object(destructible_damage_policy,'calculate',calculate),patch.object(BuffManager,'apply_shared_body_heal',heal):
+    with typed_battle(case['typed_bindings'],modifier_model=True,shield_owner=None if physical or probe and case.get('probe_kind',2)==2 else BOSS,hit_shields=not (probe or physical),weapon_shields=not (probe or physical),max_attacks=case['max_attacks'],skill_shields=case.get('skill_shield_interception_v1',False),body_lifesteal=case.get('body_lifesteal_v1',False),body_accumulation=case.get('body_accumulation_v1',False),typed_geometry=case.get('typed_geometry'),coordinate_weapon_targets=physical,typed_aim_policy=case.get('typed_aim_policy')) as data,patch.object(destructible_damage_policy,'calculate',calculate),patch.object(BuffManager,'apply_shared_body_heal',heal):
         yield data,samples,heals
 
 def snapshot_typed(case,data,samples,heals,battle,shots):

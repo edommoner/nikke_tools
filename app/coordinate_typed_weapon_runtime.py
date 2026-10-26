@@ -18,31 +18,14 @@ class CoordinateWeaponShots:
         self.data['coordinate_weapon_shots']=[];self.data['coordinate_weapon_attacks']=[]
 
     def snapshot(self,character,geom,t,manager,buffs,caller):
-        from calculator import aim,boss_pattern
-        from portable_typed_geometry_specs import normalize
         if not self.data['worlds'] or not self.data['managers'] or manager is not self.data['managers'][-1]:raise ValueError('Coordinate weapon requires its owning manager')
         world=self.data['worlds'][-1]
         if world.last!=t or world.finished or geom is None:raise ValueError('Coordinate weapon left its live coordinate frame')
         if t!=self.last_time:self.shots.clear();self.last_time=t
         key=(id(caller),id(buffs),character.name)
         if key in self.shots:return self.shots[key]
-        literal=normalize(self.spec,len(world.bindings),int(world.bindings[0].handle.kind));rows=[];typed={}
-        canonical={}
-        for run in world.clock._runs:
-            for j,target in enumerate(run.targets):canonical[target.spec.name]=(target.spec.z,run.start_t,run.p.idx,j,0)
-        for target in geom.targets:
-            if target.name not in canonical:raise ValueError('Canonical geometry lost its world identity')
-            rows.append((canonical[target.name],target))
-        for slot,(binding,shape) in enumerate(zip(world.bindings,literal['shapes'],strict=True)):
-            target=world.targets.rows[slot]
-            if target is None or not target.alive:continue
-            if binding.label in canonical:raise ValueError('Typed and canonical target labels must be distinct')
-            run=world.clock._runs[binding.node]
-            if not run.active or run.opens!=target.handle.generation:raise ValueError('Typed weapon requires the owning live generation')
-            sh=aim.Shape(**{k:shape[k] for k in ('x','y','r','w','h','rot')})
-            g=boss_pattern.GeomTarget(binding.label,'typed_projectile' if int(target.handle.kind)==2 else 'typed_hp_shield',sh)
-            rows.append(((shape['z'],run.start_t,binding.node,slot,1),g));typed[id(g)]=(slot,target.handle)
-        rows.sort(key=lambda row:row[0],reverse=True)
+        from coordinate_typed_geometry_runtime import live_rows
+        rows,typed,_=live_rows(world,geom,self.spec)
         proxy=SimpleNamespace(targets=tuple(g for _,g in rows),core=geom.core,auto_aim=geom.auto_aim,pierce_px=geom.pierce_px,explosion_scale=geom.explosion_scale)
         record=dict(identity=len(self.data['coordinate_weapon_shots'])+1,owner=character.name,time=t,
             targets=[dict(label=g.name,kind=g.kind,key=list(rank),handle=None if id(g) not in typed else [int(typed[id(g)][1].kind),typed[id(g)][1].identity,typed[id(g)][1].generation]) for rank,g in rows])

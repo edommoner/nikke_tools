@@ -26,7 +26,7 @@ def verify(case,native):
     if label=='projectile-miss':assert not attacks and native['physical_pellets']
     elif label=='canonical-front':
         assert all(p['target']=='front-part' for row in native['physical_pellets'] if not row['grow'] for p in row['packets'])
-    else:assert attacks and any(r['receipts'][0]['delivered'] for r in attacks)
+    elif case.get('typed_aim_policy') is None:assert attacks and any(r['receipts'][0]['delivered'] for r in attacks)
     assert all(r['landed_same_shot']==0 for r in typed['full_charge_boundaries']),'Physical typed landing must follow full-charge notification'
     if label in ('projectile-front','shield-front','projectile-mixed-reach'):
         assert native['full_charge_quantities'] and typed['full_charge_boundaries']

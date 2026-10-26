@@ -34,4 +34,16 @@ def prepare(row):
     from portable_coordinate_original_cases import prepare_case
     case,world=prepare_case(row)
     case.update({key:copy.deepcopy(row[key]) for key in ('body','coordinate_weapon_targets','typed_bindings','typed_geometry','max_attacks','character')})
+    for key in ('typed_aim_policy','typed_aim_witness','expect_reference_gap'):
+        if key in row:case[key]=copy.deepcopy(row[key])
+    if row.get('typed_aim_policy') is not None:world['typed_aim_policy']=copy.deepcopy(row['typed_aim_policy'])
+    if row.get('declared_aim_controls'):
+        from portable_declared_aim_controls import apply
+        from portable_weapon_input import normalize_static_weapon
+        from calculator.timeline import _resolve_cameras,DEFAULT_CONFIG
+        case['declared_aim_controls']=copy.deepcopy(row['declared_aim_controls']);world['chars']=apply(world['chars'],case['declared_aim_controls'])
+        case['controls']=[copy.deepcopy(char.get('control',{})) for char in world['chars']]
+        world['policies']['controls']={char['name']:copy.deepcopy(char.get('control',{})) for char in world['chars']}
+        cameras=_resolve_cameras(world['chars'],{**DEFAULT_CONFIG,**world['policies']['config']})
+        case['combat']['weapons']=[normalize_static_weapon(char,atk,world['enemy'],camera=char['name'] in cameras) for char,atk in zip(world['chars'],world['base_atk'],strict=True)]
     return case,world

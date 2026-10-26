@@ -2317,3 +2317,12 @@ dev `/tmp/nikke-coordinate-typed-develop-v2`（f1b700f2…）、M5 `/tmp/nikke-c
 全reader終了後に両rawをSHA/size/inode保持で疎化し120,651,776byte回収・削除0。130旧snapshotのmanifest外・再生成可能Python bytecodeだけを整理、全payload前後hash検査、451,768,320byte割当回収。source／ZIP／結果／raw／claimは保持。reserve1GiBを維持すること。
 
 静的全266profileの行／packing失敗／kind依存は前記録と完全一致。coord247packing／19失敗／kind拒否0／拡張8、canonical245packing・20分類のcode／message／descriptor／lane／件数も保持。private座標typed証拠だけを分類へ添付し、20はreference_model_gapのまま。次は型付き対象のidentity／livenessと座標shape・selectorの接続、その後の自動aim／武器consumer。cover_def_pct／移動／damage-sharing、ADD世代・variant、現CUDA／公開GPUも未完。全キャラ0／UI CPU／目標未達。Windowsのidle APIへ重複runを送らないこと。
+
+
+## 2026-10-26 型付き自動照準のCPU契約
+
+共通CLI `reference --suite coordinate-typed-aim-common` を追加。元完全編成・全定義・武器・成長を保持し、明示 `typed-before-body-v1` のframe候補をcanonical調停器へ接続。fallback/期限切れ、散弾破壊後の次frame、手動canonical/typed、ADD優先、元実FB追従の6正例と、元Reiの `enemies_nearest_in_range` を最初のframe前に拒否する1件。ordinary skill geometry/cacheと元定義登録一致検査を保持。詳細 `docs/portable-coordinate-typed-aim.md`。
+
+最終CPU package `/tmp/nikke-typed-aim-cpu-v3`（620ab20e…）。全7契約30.986秒、関連unit6件32.980秒、制御49group成功。既存46/native29のCPU回帰106.740秒・関連74成功、全入力byte/golden保持。v2→v3は新CPU照準の報告・分類・テストのみ4file差分、既存producer/compiler/comparator不変をreceiptへ固定。358 Slang・正本/数値/cache等8保護fileが前Metal最終packageと全byte一致。新GPU0、旧Metal46の成功を自動照準成功とは数えない。
+
+次は共有wire/consumerへ接続。BODY0/canonical1..127/core128を保持してtyped129..256、focusの8bit packingを専用profileで9bit×5へ更新する必要がある。slot容量削減/alias禁止。frame候補固定・元timed skill/調停順・前frame照準queriesを保持。現在compilerは新policyを明示拒否し、current-enemy recipient規則は未対応のまま。classification reference_model_gap／全キャラ0／UI CPU／目標未達。Windows idle送信を再試行したがactive turn不足で拒否、開始未確認・新規検証0。

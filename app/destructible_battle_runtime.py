@@ -17,7 +17,16 @@ from enemy_recipient_specs import CURRENT_TARGETS
 from reference_rewrite import rewrite_reference
 
 class TypedLandings(ast.NodeTransformer):
-    def __init__(self):self.counts=dict(land=0)
+    def __init__(self,*,typed_aim=False):
+        self.typed_aim=typed_aim;self.counts=dict(land=0)
+        if typed_aim:self.counts['aim_name']=0
+    def visit_Compare(self,node):
+        self.generic_visit(node)
+        if self.typed_aim and ast.unparse(node)=="e['at'] not in boss.target_kinds":
+            self.counts['aim_name']+=1
+            guard=ast.parse("not _nikke_typed_aim_name(boss,e['at'])",mode='eval').body
+            return ast.copy_location(ast.BoolOp(op=ast.And(),values=[node,guard]),node)
+        return node
     def visit_FunctionDef(self,node):
         self.generic_visit(node)
         if node.name=='_land':
@@ -27,7 +36,7 @@ class TypedLandings(ast.NodeTransformer):
         return node
 
 @contextmanager
-def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False,skill_shields=False,body_lifesteal=False,body_accumulation=False,typed_geometry=None,coordinate_weapon_targets=False):
+def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=None,hit_shields=False,weapon_shields=False,skill_shields=False,body_lifesteal=False,body_accumulation=False,typed_geometry=None,coordinate_weapon_targets=False,typed_aim_policy=None):
     from calculator import timeline,buff_manager
     from runner import sim
     if type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Invalid typed battle observation capacity')
@@ -55,11 +64,21 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     weapons=WeaponShots(timeline,data,shield_owner,hit_shields,body_lifesteal=body_lifesteal,body_accumulation=body_accumulation) if weapon_shields else None
     from coordinate_typed_weapon_runtime import CoordinateWeaponShots
     coordinate_weapons=CoordinateWeaponShots(timeline,data,typed_geometry) if coordinate_weapon_targets else None
+    if typed_aim_policy is not None and not coordinate_weapon_targets:raise ValueError('Typed aim requires the declared coordinate weapon producer')
+    from coordinate_typed_aim_runtime import TypedCoordinateAim
+    aims=TypedCoordinateAim(data,typed_geometry,typed_aim_policy) if typed_aim_policy is not None else None
     class Boss(old_boss):
         def __init__(self,*args,**kwargs):
             super().__init__(*args,**kwargs);self._nikke_typed_world=DestructibleWorld.from_clock(self,bindings);data['worlds'].append(self._nikke_typed_world)
+            if aims is not None:aims.validate_namespace(self)
         def begin_frame(self,t,enemy):
-            result=super().begin_frame(t,enemy);self._nikke_typed_world.synchronize(t);return result
+            if aims is not None:aims.restore(self,t,enemy)
+            result=super().begin_frame(t,enemy);self._nikke_typed_world.synchronize(t)
+            if aims is not None:aims.capture(self,t,enemy)
+            return result
+        def aim_target(self,camera,layer2):
+            target=super().aim_target(camera,layer2)
+            return aims.choose(self,target) if aims is not None else target
         def finish(self,t):
             result=super().finish(t);self._nikke_typed_world.synchronize(t,finished=True);data['finished'].append(float(t));return result
     def register(manager,handler):
@@ -69,6 +88,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
             from destructible_damage_policy import modifier_axis
             for effect,_ in manager._effects:modifier_axis(effect)
         if weapons is not None:weapons.validate_effects(manager)
+        if aims is not None:aims.validate_effects(manager)
         if skill_shields:
             clock=data['worlds'][-1].clock
             if clock.has_summons or any(r.p.kind in ('parts','interrupt') for r in clock._runs) or data['worlds'][-1].enemy.get('coord') is not None or data['worlds'][-1].enemy.get('has_parts'):
@@ -201,12 +221,14 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
                 context=dict(manager=data['managers'][-1],world=world,caster=event.caster,time=event.t,kind=selected[1].kind,selected=selected,coefficient=0.,name=event.skill_name,quantity_only=True)
                 deliver_event(event,context);return True
         return False
-    rewritten=rewrite_reference(old_simulate,TypedLandings(),dict(land=1),compose=True)
+    counts=dict(land=1);globals_patch={'_nikke_skip_typed_body_landing':skip}
+    if aims is not None:counts['aim_name']=1;globals_patch['_nikke_typed_aim_name']=aims.accepts_name
+    rewritten=rewrite_reference(old_simulate,TypedLandings(typed_aim=aims is not None),counts,compose=True)
     from destructible_damage_policy import manager_type
     manager_scope=patch.object(timeline,'BuffManager',manager_type(timeline.BuffManager)) if modifier_model else nullcontext()
     scalar_scope=patch.object(timeline,'calc_damage',scalar) if modifier_model else nullcontext()
     try:
-        with manager_scope,scalar_scope,weapons.scope() if weapons is not None else nullcontext(),coordinate_weapons.scope() if coordinate_weapons is not None else nullcontext(),patch.object(timeline,'BossScript',Boss),patch.object(buff_manager.BuffManager,'register_damage_handler',register),patch.object(timeline,'HitEvent',packet),patch.dict(old_simulate.__globals__,{'_nikke_skip_typed_body_landing':skip}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):yield data
+        with manager_scope,scalar_scope,weapons.scope() if weapons is not None else nullcontext(),coordinate_weapons.scope() if coordinate_weapons is not None else nullcontext(),patch.object(timeline,'BossScript',Boss),patch.object(buff_manager.BuffManager,'register_damage_handler',register),patch.object(timeline,'HitEvent',packet),patch.dict(old_simulate.__globals__,globals_patch),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):yield data
     finally:
         for manager,wrapper,previous,old_instance,old_condition,missing in reversed(restores):
             if manager._damage_handler is wrapper:manager._damage_handler=previous

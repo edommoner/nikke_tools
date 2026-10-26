@@ -279,6 +279,13 @@ def reference_readiness(issue):
             automatic_typed_weapon_aim_verified=False,canonical_consumer_verified=False,
             cuda_device_verified=False,in_game_rules_verified=False,full_character_verified=False,
             scope='declared_v1_static_typed_shapes_inside_original_sampled_weapon_production')
+        result['typed_coordinate_aim_reference']=dict(suite='coordinate-typed-aim-common',cases=7,
+            positive_contract_cases=6,logical_recipient_gap_cases=1,cpu_contract_verified=True,
+            canonical_arbitration_preserved=True,frame_candidates_verified=True,manual_namespace_verified=True,
+            ordinary_skill_geometry_preserved=True,logical_gap_selector='enemies_nearest_in_range',
+            gpu_wire_connected=False,metal_verified=False,cuda_device_verified=False,
+            canonical_consumer_verified=False,in_game_rules_verified=False,full_character_verified=False,
+            scope='declared_typed_before_body_frame_candidates_with_existing_manual_and_focus_resolver')
         if stat=='projectile_dmg_pct':result['typed_modifier_battle_validation']=modifier_battle
         if stat=='shield_dmg_pct':
             result['typed_shield_battle_validation']=dict(suite='destructible-shield-battle',inputs=88,native_cases=58,rejected_cases=30,new_shield_cases=15,metal_verified=True,independently_audited=True,actual_scheduler_verified=True,same_frame_stack=True,explicit_boss_owner_generation=True,no_overflow=True,body_fallback=True,named_children=True,death_counter_children=True,respawn_generations=True,weapon_interception_verified=False,hit_shield_interception_verified=False,piercing_interception_verified=False,cuda_device_verified=False,in_game_rules_verified=False,original_full_profile_verified=False,scope='declared_plain_boss_skill_hp_shield_interception_only')

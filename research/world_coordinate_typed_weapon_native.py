@@ -28,4 +28,5 @@ def observe(case,*,observer=None):
     native['coordinate_typed_weapon']=dict(typed=legacy['typed'],attacks=rows,
         shots=data['coordinate_weapon_shots'],modifier_samples=samples,healing=heals,full_charge_boundaries=notices,
         scope='Declared sampled typed geometry; no automatic typed aim or gameplay certification')
+    if case.get('typed_aim_policy') is not None:native['coordinate_typed_aim']=data['coordinate_typed_aim_frames']
     return native,trace

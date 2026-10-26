@@ -7,6 +7,7 @@ from portable_target_modifier_input import lower_effect
 from destructible_skill_specs import coefficient
 
 def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None,coordinate_weapon_targets=False):
+    if prepared.get('typed_aim_policy') is not None:raise ValueError('Typed automatic aim requires a new shared GPU wire and consumer')
     if type(coordinate_weapon_targets) is not bool:raise ValueError('Explicit coordinate weapon policy required')
     if coordinate_weapon_targets:
         if probe_row is not None or not bindings or geometry is None or geometry.get('point_source')!='caster_aim' or geometry.get('grow',0)!=0:raise ValueError('Typed coordinate weapons require live aim, zero authored grow and no skill probe')
