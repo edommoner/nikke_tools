@@ -8,6 +8,7 @@ import engine_worker
 from portable_specs import LIMITS as L,FIELDS as F
 from destructible_battle_runtime import typed_battle
 from destructible_damage_policy import modifier_axis
+from portable_target_modifier_input import lower_effect,pack_axes
 from destructible_modifier_battle_cases import fixtures
 s=importlib.util.spec_from_file_location('modifier_battle_base',ROOT/'research/verify-destructible-battle-short.py');battle=importlib.util.module_from_spec(s);s.loader.exec_module(battle)
 suite=types.SimpleNamespace(INPUT=109824,OUTPUT=1048576);cross=battle.cross
@@ -15,16 +16,10 @@ AXES={'projectile_dmg_pct':2,'shield_dmg_pct':3}
 
 def compile_case(c):
     lowered=copy.deepcopy(c)
-    for effect in lowered['effects']:
-        if modifier_axis(effect):
-            effect['stat']='atk_dmg_pct'
+    lowered['effects']=[lower_effect(effect) for effect in lowered['effects']]
     w,(_,meta,bindings)=battle.compile_case(lowered)
     extra=[0x444d4231]+[0]*287
-    for row,index in enumerate(meta['binding_source_indices']):
-        axis=AXES.get(c['effects'][index].get('stat'),0);extra[32+row]=axis
-        if axis:
-            at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS'];assert w[at+F['KIND']]==0
-            w[at+F['KIND']]=4;w[at+F['STAT']]=0
+    extra[32:288]=pack_axes(w,meta,c['effects'])
     w.extend(extra);return w,(c,meta,bindings)
 
 def prepare():

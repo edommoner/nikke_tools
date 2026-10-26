@@ -6,6 +6,7 @@ carrier representation after ordinary world compilation. No battle is run.
 import copy,struct
 from portable_specs import LIMITS as L,FIELDS as F
 from destructible_damage_policy import modifier_axis
+from portable_target_modifier_input import lower_effect,pack_axes
 from destructible_world_runtime import compile_bindings
 from portable_projectile_roster_input import compile_projectile_battle
 
@@ -36,7 +37,7 @@ def compile_weapon_shield_roster(prepared,bindings,*,hit_shields=True,max_attack
                     accumulation_skill(effect)
                 else:skill(effect,chars[item['owner']],allow_split=body_accumulation)
             elif effect.get('target') in ('boss','all_projectiles'):raise ValueError('Roster policy currently routes weapons only')
-        if modifier_axis(effect):dest['effect']['stat']='atk_dmg_pct'
+        if modifier_axis(effect):dest['effect']=lower_effect(effect)
     words,meta=compile_projectile_battle(lowered)
     patterns=prepared['enemy'].get('patterns') or [dict(id='portable-empty-world',kind='idle')]
     _,_,rows=compile_bindings([dict(id=p['id']) for p in patterns],bindings)
@@ -49,12 +50,12 @@ def compile_weapon_shield_roster(prepared,bindings,*,hit_shields=True,max_attack
     extra[5680:5686]=[0x48534936 if body_accumulation else 0x48534935 if body_lifesteal else 0x48534934 if skill_shields else 0x48534933,0,0,1,int(hit_shields),1]
     if body_lifesteal:extra[5686]=1
     if body_accumulation:extra[5687]=1
+    axes=pack_axes(words,meta,[r['effect'] for r in original])
     for row,index in enumerate(meta['binding_source_indices']):
-        axis=modifier_axis(original[index]['effect'])
+        axis=axes[row]
         if skill_shields and original[index]['effect'].get('type')=='damage' and original[index]['effect'].get('stat')!='accum_split_damage':extra[5424+row]=4 if hit_shields else 3
         if axis:
-            at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS'];assert words[at+F['KIND']]==0
-            words[at+F['KIND']]=4;words[at+F['STAT']]=0;extra[5168+row]=axis
+            extra[5168+row]=axis
     words.extend(extra);assert len(words)==INPUT_WORDS
     meta['real_prepared_input']['declared_weapon_shield_policy']=dict(hit_shields=hit_shields,max_attacks=max_attacks,weapon_only=not skill_shields,in_game_rules_verified=False)
     return words,meta

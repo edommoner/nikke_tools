@@ -1,3 +1,5 @@
+元敵弾・HPシールド補正の最新private検証は `original-modifier-probe`19（関連45／制御480・Metal独立監査済み）です。宣言追加の型付き攻撃への元carrier接続であり、座標／自動aim・公開GPU・全キャラは未完です。[実証範囲と保持](portable-original-target-modifiers.md)を参照してください。
+
 `coordinate-original-owned`5 は元アインの羽4→6→2枚と、元シンデレラ：クリスタルウェーブの弾換算8回を検証するsealed suiteです。M5全5・独立fresh監査・関連29／制御480検査成功（Win1skip）、元推定モデルの警告を保持。固定shared source・生成CUDA/MSL全byte保持／Slang0・実Metal必須pipeline hit。`package --suite coordinate-original-owned --compact` を使います。[観測透過性・状態負例・残る分類](portable-original-owned-sources.md)。
 
 `coordinate-original-accum`4 は元ドロシーの期限切れ放出と元トロニーの4回の上限放出を、全73／74定義のまま検証するsealed suiteです。M5全4・独立fresh監査・関連26／制御480検査成功（Win1skip）、GPU source変更0・paired generation全byte保持／Slang0・実Metal必須pipeline hit。`package --suite coordinate-original-accum --compact` を使います。[蓄積実証・共有展開・保存](portable-original-accumulation.md)。

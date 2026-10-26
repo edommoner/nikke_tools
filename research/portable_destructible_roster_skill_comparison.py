@@ -8,7 +8,7 @@ spec=importlib.util.spec_from_file_location('shared_skill_weapon_comparison',Pat
 prior=importlib.util.module_from_spec(spec);spec.loader.exec_module(prior)
 
 
-def compare(block,domain,native):
+def compare(block,domain,native,*,sample_key='shield_samples'):
     c,m,p,w=domain;n=native;roster=prior.roster
     actual,_,_,diff=roster.compare(block,p,(w,m),n['battle'],n['projectile_shots']);assert block[0]==0 and not diff,(c['name'],block[0],diff[:8])
     # The reference's end-of-battle query owns these final HP quantities too.
@@ -27,10 +27,14 @@ def compare(block,domain,native):
             assert [row['healing'] for row in rows]==healed,(c['name'],'body_healing',rows,healed)
     names=c['body']['squad'];case=dict(c,names=names,effects=[r['effect'] for r in p['effects']],owners=[names.index(r['owner']) for r in p['effects']])
     chars={r['name']:r for r in p['chars']};metadata=[]
-    for packet,sample in zip(n['packet_samples'],n['shield_samples'],strict=True):
+    for packet,sample in zip(n['packet_samples'],n[sample_key],strict=True):
         source=packet['source']
         if source is None:metadata.append(None);continue
         e=p['effects'][source]
+        if c.get('declared_projectile_probe'):
+            from destructible_skill_specs import coefficient
+            assert source==c['probe_source'] and e['effect']['target']==('all_projectiles' if c.get('probe_kind',2)==2 else 'boss'),'Only the explicit declared probe may use the plain Frame metadata'
+            coefficient(dict(e['effect'],target='all_projectiles'),chars[e['owner']]);metadata.append([0]*5);continue
         if packet.get('quantity_only'):
             from destructible_skill_shield_policy import accumulation_skill
             plan=accumulation_skill(e['effect']);metadata.append([1,3,plan['route'],16,128 if plan['route']==2 else plan['count']]);continue

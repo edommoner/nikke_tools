@@ -6,6 +6,7 @@ from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 import engine_worker
 from destructible_damage_policy import modifier_axis
+from portable_target_modifier_input import lower_effect,pack_axes
 from destructible_battle_runtime import typed_battle
 from destructible_shield_policy import BOSS
 from destructible_skill_specs import coefficient
@@ -21,7 +22,7 @@ def fixtures():
 def compile_case(c,*,allow_weapon_only=False):
     lowered=copy.deepcopy(c);routes={}
     for index,effect in enumerate(lowered['effects']):
-        if modifier_axis(effect):effect['stat']='atk_dmg_pct'
+        if modifier_axis(effect):effect.update(lower_effect(effect))
         if effect.get('target')=='all_projectiles':routes[index]=2
         elif c.get('shield_interception_v1') and effect.get('target')=='boss' and effect.get('type')=='damage':
             # Validate the same plain skill contract before any target exists.
@@ -30,11 +31,8 @@ def compile_case(c,*,allow_weapon_only=False):
     if routes:lowered['effects'][next(iter(routes))]['target']='all_projectiles'
     w,(_,meta,bindings)=battle.compile_case(lowered,weapon_only=not routes)
     extra=[0]*576;extra[0]=0x444d4231;extra[544:548]=[0x48534931,0,0,1]
-    for row,index in enumerate(meta['binding_source_indices']):
-        axis=modifier_axis(c['effects'][index]);extra[32+row]=axis;extra[288+row]=routes.get(index,0)
-        if axis:
-            at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS'];assert w[at+F['KIND']]==0
-            w[at+F['KIND']]=4;w[at+F['STAT']]=0
+    extra[32:288]=pack_axes(w,meta,c['effects'])
+    for row,index in enumerate(meta['binding_source_indices']):extra[288+row]=routes.get(index,0)
     w.extend(extra);assert len(w)==suite.INPUT
     return w,(c,meta,bindings)
 

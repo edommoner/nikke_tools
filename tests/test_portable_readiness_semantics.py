@@ -63,6 +63,14 @@ class ReadinessSemanticsTests(unittest.TestCase):
             self.assertFalse(r['typed_foundation_validation']['battle_producers_verified'])
             self.assertFalse(r['gpu_supported']);self.assertFalse(r['runtime_validation_performed'])
 
+    def test_original_modifier_probe_is_bounded_and_keeps_the_reference_gap(self):
+        for stat,count in [('projectile_dmg_pct',10),('shield_dmg_pct',9)]:
+            r=reference_readiness(self.blocker(stat));v=r['typed_original_modifier_validation']
+            self.assertEqual((v['inputs'],v['native_cases'],v['axis_cases']),(19,19,count))
+            self.assertEqual(r['lane'],'reference_model_gap');self.assertFalse(r['gpu_supported'])
+            self.assertTrue(v['metal_verified']);self.assertTrue(v['independently_audited']);self.assertTrue(v['explicit_added_damage_probe'])
+            for key in ('automatic_weapon_aim_verified','coordinates_verified','canonical_consumer_verified','cuda_device_verified','full_character_verified'):self.assertFalse(v[key])
+
     def test_parts_field_has_a_source_but_never_invented_runtime_coverage(self):
         row=dict(phase='effect',kind='damage',category='fields',fields=['hits_parts'])
         result=reference_readiness(row)

@@ -19,22 +19,24 @@ def observe(case):
     samples=[];original=destructible_damage_policy.calculate
     def calculate(*args,**kw):
         value=original(*args,**kw)
-        if kw['kind']==ActorKind.HP_SHIELD or case.get('skill_shield_interception_v1'):
+        if kw['kind']==ActorKind.HP_SHIELD or case.get('skill_shield_interception_v1') or case.get('declared_projectile_probe') and kw['kind']==ActorKind.PROJECTILE:
             buffs=kw.get('buffs',args[1] if len(args)>1 else {})
-            row=dict(modifier=buffs.get('shield_dmg_pct',0.),factor5=value['factor5'],damage=value['damage'])
+            row=dict(modifier=buffs.get('projectile_dmg_pct' if case.get('declared_projectile_probe') and kw['kind']==ActorKind.PROJECTILE else 'shield_dmg_pct',0.),factor5=value['factor5'],damage=value['damage'])
+            if case.get('declared_projectile_probe'):row['shield_modifier']=buffs.get('shield_dmg_pct',0.)
+            if case.get('declared_projectile_probe') and case.get('probe_kind')==3:row['projectile_modifier']=buffs.get('projectile_dmg_pct',0.)
             if case.get('skill_shield_interception_v1'):row.update(scalar_kind=int(kw['kind']),applied_modifier=buffs.get('shield_dmg_pct',0.) if kw['kind']==ActorKind.HP_SHIELD else 0.)
             if case.get('skill_shield_interception_v1'):
                 hit=kw.get('hit_type',args[3] if len(args)>3 else {})
                 row['family_flags']={k:bool(hit.get(k,False)) for k in ('is_burst_damage','is_aoe_burst','is_single_burst')}
             samples.append(row)
         return value
-    with typed_battle(case['typed_bindings'],modifier_model=True,shield_owner=BOSS,hit_shields=True,weapon_shields=True,max_attacks=case['max_attacks'],skill_shields=case.get('skill_shield_interception_v1',False),body_lifesteal=case.get('body_lifesteal_v1',False),body_accumulation=case.get('body_accumulation_v1',False)) as data,patch.object(destructible_damage_policy,'calculate',calculate),patch.object(BuffManager,'apply_shared_body_heal',heal):
+    with typed_battle(case['typed_bindings'],modifier_model=True,shield_owner=None if case.get('declared_projectile_probe') and case.get('probe_kind',2)==2 else BOSS,hit_shields=not case.get('declared_projectile_probe',False),weapon_shields=not case.get('declared_projectile_probe',False),max_attacks=case['max_attacks'],skill_shields=case.get('skill_shield_interception_v1',False),body_lifesteal=case.get('body_lifesteal_v1',False),body_accumulation=case.get('body_accumulation_v1',False)) as data,patch.object(destructible_damage_policy,'calculate',calculate),patch.object(BuffManager,'apply_shared_body_heal',heal):
         if case.get('declared_effects'):
             previous_effects=BuffManager._register_all
             def register_extra(manager):
                 result=previous_effects(manager)
                 import copy
-                for effect in case['declared_effects']:manager._effects.append((copy.deepcopy(effect),case['body']['squad'][0]))
+                for effect in case['declared_effects']:manager._effects.append((copy.deepcopy(effect),case.get('probe_owner',case['body']['squad'][0])))
                 manager._build_notify_index()
                 return result
             with patch.object(BuffManager,'_register_all',register_extra):battle,shots=roster.native_reference(case['body'])
@@ -47,7 +49,7 @@ def observe(case):
         targets.append(None if r is None else dict(handle=[int(r.handle.kind),r.handle.identity,r.handle.generation],alive=r.alive,remaining=r.remaining,capacity=r.capacity,expires=r.expires,owner=None if r.owner is None else [int(r.owner.kind),r.owner.identity,r.owner.generation]))
     attacks=[]
     for r in data['attacks']:
-        if not case.get('skill_shield_interception_v1'):assert 'family' in r,'Weapon-only roster must not silently intercept skill packets'
+        if not case.get('skill_shield_interception_v1') and not case.get('declared_projectile_probe'):assert 'family' in r,'Weapon-only roster must not silently intercept skill packets'
         attacks.append(dict(attack_id=r['attack_id'],owner=names.index(r['caster']),time=r['time'],damage=r['damage'],completed=r['completed'],receipts=[dict(slot=slot,handle=[int(h.kind),h.identity,h.generation],delivered=v['delivered'],broken=v['broken'],took=v['took']) for slot,h,v in r['receipts']]))
     if case.get('body_accumulation_v1'):
         scalar=iter(samples);ordered=[]
@@ -57,8 +59,9 @@ def observe(case):
             else:ordered.append(next(scalar))
         assert next(scalar,None) is None;samples=ordered
     samples_expected=[r['damage'] for r in attacks];assert [r['damage'] for r in samples]==samples_expected
-    result=dict(battle=battle,projectile_shots=shots,typed=dict(time=world.last,finished=world.finished,state=targets,attacks=attacks),shield_samples=samples,healing=heals)
-    if case.get('skill_shield_interception_v1'):
+    result=dict(battle=battle,projectile_shots=shots,typed=dict(time=world.last,finished=world.finished,state=targets,attacks=attacks),healing=heals)
+    result['modifier_samples' if case.get('declared_projectile_probe') else 'shield_samples']=samples
+    if case.get('skill_shield_interception_v1') or case.get('declared_projectile_probe'):
         packets=[]
         for r in data['attacks']:
             source=None

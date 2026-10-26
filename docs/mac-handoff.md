@@ -2271,3 +2271,19 @@ Python観測filterは不変selected-controlコードsnapshotから両adapterケ�
 最終 `/tmp/nikke-original-owned-final-v1.zip`（25916dd1…、2004files）は関連29／制御480（Win1skip）成功、全payload SHA/checkout byteと実GPU source/input/native/output一致、generation必須hit・Slang0。owned-state readerは厳密AST同一の関数抽出だけで、元prepare/native/witness AST保持。実readbackの小さな状態fixtureでclock1ULP・population/epoch・counter1件等を壊す負例を実行し、長いnativeの重複を避けました。旧ammo referenceの25literal等・観測透過性テストも保持。1990payload／57,182,951byte共有展開、全raw reader終了後SHA/size/inode保持の疎化で26,542,080byte回収・raw削除0。
 
 静的全266/247packing/19失敗/kind拒否0/拡張8は前の全profileと一致。残り20の観測operator分類（code/message/descriptor/lane保持）はoriginal-owned-evidence/readiness-priorities.json。次はprojectile_dmg_pct／shield_dmg_pct／cover_def_pct等、reference-model-gapのtyped基盤を戦闘producer/consumerへ接続する作業を優先。単一観測分類の件数を完了予測に使わないこと。19packing失敗、移動／selector／damage-sharingモデル、ADD／世代・variant、同一現sourceでの旧suite集約、現CUDA／compile cache・Job smoke・公開GPU／全キャラ認定も未完。全キャラ0／UI CPU／目標未達。Windows新規依頼0、idle APIに同じrunを再送しないこと。
+
+## 2026-10-26 元敵弾・HPシールド補正の共通Frame接続
+
+最新 `original-modifier-probe`19、`docs/portable-original-target-modifiers.md`／`research/portable-original-target-modifiers-checkpoint.json`。元の完全5人編成・全効果／成長／武器を保持し、every:2s・係数100の宣言攻撃を1件だけ追加。敵弾側サクラ7.74／アンカー25.6／エレグ59.66／クレイFB前0→後45.05、HP側アスカ601.01／レイ700.5／マリ100.09／ミサト回復前0→後150。別caster・他axisの非混入負例も比較。CPU射撃schedule入力0。宣言V1型付きtargetの元carrier→factor5を検証した範囲で、自動照準／座標／元武器の自動迎撃や全キャラの認定ではない。
+
+loweringとaxis packingを `portable_target_modifier_input` へ共通化し、既存modifier18／shield88と元Rei/Misato8画像のwire SHA保持。エレグ `target_and_nearby:2` はBODY1体・部位／ADD／座標なしを検査したprivate compiler内だけの特殊化。元定義と一般selector拒否を保持。HP probeは別のliteral boss damage／型／所有者／世代違いを拒否。
+
+元敵弾10は独立監査2.472478秒。HP追加初版はアスカ2件status64、元during_shieldのpredicate受付がtyped入口にないことを確認し失敗結果／claim保持。新5行入口 `destructible_original_modifier_entry.slang` が既存の共通predicate受付とhasProtection consumerを有効化。既存GPU本体・数値・wire・Runtime138952変更0。修正版dev `/tmp/nikke-original-modifier-hp-develop-v2`（1d9b9816…）、capture `/tmp/nikke-original-modifier-hp-metal-v2` は全19status0・一致、実GPU1.744037秒／新PSO65.467683秒。別GPU禁止childの全19fresh3.659128秒、live parent receiptなし。計GPU3（敵弾10成功・19失敗・19修正成功）、retry0。
+
+元10の全input/native・41,943,040byte出力完全一致。失敗19から修正したのはアスカindex10/11のみ、他17全word一致。旧typed sourceの単体監査に厳密な既知receipt inverseを追加した際、全監査合成で二重適用を検出。inverseを単体verify_retained_sourcesへ限定し、既存の全hash/literal検査を維持。失敗CPU control記録も保持。GPUの再実行不要。
+
+最終 `/tmp/nikke-original-modifier-final-v2.zip`（b7178643…、1956files）は関連45／制御480成功（Windows専用1skip）。全payload SHA/checkout byte・元GPU source/input/native/output一致。共通source-reuseで監査修正前後のCUDA/MSLと両reflection・identity・consumer全一致、generation必須hit・Slang0。初版19のPSO必須hit.002517秒は計算失敗だったため成功cache実証へ流用しない。新shaderのwarm PSO／CUDA実compile/cache/launchは未証明。
+
+全reader終了後、3rawをSHA/size/inode保持で疎化し146,669,568byte回収、削除0。manifest外の再生成可能Python bytecodeだけを93旧snapshotで整理し、payload全hash前後検査・453,578,752byte割当回収。ZIP／source／結果／raw／claim保持、reserve1GiB維持。
+
+静的coord entry全266／247packing／19失敗／kind拒否0／拡張8は保持。別のcanonical compilerは245packing、観測20分類のcode／message／descriptor／lane／件数は旧記録と完全一致し、今回の宣言probe実証を添付しただけ。20分類はreference_model_gapのまま、packingをGPU対応率へ読み替えない。次は型付き対象consumerを共通座標resident・自動aimへ合成すること、cover_def_pctのincoming-coverモデル、selector／移動／damage-sharing、ADD世代／variant、同一現sourceへの旧suite集約と現在CUDA。全キャラ0／UI CPU／目標未達。Windows新規GPU依頼0、idle APIに同じrunを繰り返し送らないこと。

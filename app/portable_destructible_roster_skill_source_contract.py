@@ -15,6 +15,12 @@ def project_sources(root,sources=None):
 def verify_retained_sources(root,source,expected):
     from portable_attack_group_source_contract import retained_source_hashes
     actual=retained_source_hashes(root,source)
-    for name,text in project_sources(root).items():
+    projected=project_sources(root)
+    # This older typed fixture predates only the coordinate receipt copy in
+    # this file. Other coordinate files have already reached older ledgers.
+    from portable_coordinate_full_burst_source_contract import project_file
+    name='gpu/full_burst_landing_runtime.slang'
+    if name not in projected:projected[name]=project_file(root,name)
+    for name,text in projected.items():
         if name in actual:actual[name]=hashlib.sha256(text.encode()).hexdigest()
     assert actual==expected,'Retained source differs beyond exact roster-skill delta'
