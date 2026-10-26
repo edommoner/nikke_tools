@@ -2442,3 +2442,9 @@ M5 GPU4.200283秒、CPU preflight375.653591秒、pipeline61.344455秒（miss）�
 永続proof `.portable-recovery/proofs/owner-add-lifetime-gpu-20261027` に新raw/claim/全groupログ保持、reader終了後SHA/size/inode保持疎化で670760960byte回収。旧99input/native/記録output SHA保持、旧raw自体は未回収。現在の新103実証と旧capture消失を区別する。file-only Metal cache probe hitはwarm実機証明ではない。
 
 Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-landing40は固定配布・対応cacheの所在を確認できず、CUDA未実行。次の依頼は所在とsource certificateを明示した固定配布でcache triageから開始し、不足時に長いcompile/本体buildをしない。次はHPダメージによるADD死亡など実戦寿命の未対応分類。現CUDA/ゲームgap/公開consumer/全キャラ未完、UI CPU/全キャラ0/目標未達。
+
+## 2026-10-27 HPダメージ死亡CPU3とWindows固定配布
+
+共通reference `coordinate-typed-owner-hp-death-common` を追加。元Prim全71・完全5人/武器/成長・別監査2効果を保持。HP1/1000000 ADDへ実ダメージ、同一攻撃子field先行/遅い子field前死亡/可視field後死亡の3件。hit_add前後の受動観測でdealtがHPへ到達しalive→dead、graphはactive/世代1のままを検査。3件27.509402秒CPU成功。最終742c8a98…は分類/負例unitの2file差分、producer/CLI/GPU保持、22検査・制御517成功（Win1skip）、生成必須hit/Slang0。新3件GPU0、Metal/CUDA未実証。詳細docs/portable-coordinate-typed-owner-hp-death-reference.md、対応checkpoint。次は旧103保持の106へ接続。
+
+Windows c7e4d149探索では現sourceのgenerated/cache未特定、GPU0。package作成は固定upstream未導入で停止。再buildせず、Mac CPU検査済みcompiler-only ZIPを17b52569で共有。research/windows-source-packets/typed-owner-add-lifetime-a2cfc763.zip（11439568byte/SHA82e0322e…、package a2cfc763…）に固定upstream/dataを同梱。新source cache不在時に旧cacheを流用しない。現CUDAのcompile/cache/launch/readback成功は未確認。WindowsでもZIP SHA・全3497payload・pinned source certificateの確認完了。unpack62.820553秒/verify14.818706秒、各BelowNormal/2GiB/180秒以内、終了0。research/windows-source-packets/windows-receipt-a2cfc763.jsonに既存チャットの出所付き結果を保持。追加compile/driver/GPU0、現CUDA計算成功とは区別。

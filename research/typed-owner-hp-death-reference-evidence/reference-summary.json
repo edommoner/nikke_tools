@@ -1,0 +1,1343 @@
+{
+  "suite": "coordinate-typed-owner-hp-death-common",
+  "passed": true,
+  "case_count": 3,
+  "elapsed_seconds": 27.50940166700002,
+  "gpu_calls": {
+    "build": 0,
+    "execute": 0
+  },
+  "packing_calls": 0,
+  "original_report": {
+    "bytes": 10364022,
+    "sha256": "1ddb45578f1528f4979faa89ded9456e1aa3fd97c446ac7ef074c03ced731401"
+  },
+  "cases": [
+    {
+      "name": "coordinate-typed-owner-hp-death/same-packet-after-child",
+      "input_sha256": "484f2db4b34f5455e8b8c679e1ca50d80a610d8085f1ed09a5a9f318fc8d0402",
+      "native_sha256": "e8665e2e446a4dff02bafe61b66c9a6028dd15bb3324d5d2fd3e5a9b1a57304b",
+      "trace_sha256": "3274bd9d12362687c619921024452b32c1d95c2d93a694b20ebe28e5e5bbea7c",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "reference_kind": "deterministic-common-cpu",
+        "pellets": 256,
+        "packets": 260,
+        "physical_rng_words": 1544,
+        "gpu_supported": false,
+        "typed_attacks": 174,
+        "typed_shots": 40,
+        "in_game_rules_verified": false,
+        "original_definitions": 71,
+        "declared_audit_effects": 2,
+        "owner": [
+          5,
+          1,
+          1
+        ],
+        "hp_death_time": 0.0,
+        "counter_completion_time": 0.0,
+        "graph_active_at_hp_death": true
+      },
+      "owner_hp_death": {
+        "hits": [
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 0.0,
+                "hp": 1.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": false,
+                "dealt": 1.0,
+                "hp": 1.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 0.0,
+                "hp": 1.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": false,
+                "dealt": 1.0,
+                "hp": 1.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          }
+        ]
+      },
+      "owner_visibility": {
+        "owner_queries": [
+          {
+            "time": 0.0,
+            "owner": [
+              5,
+              1,
+              1
+            ],
+            "alive": true,
+            "role": "target-is-add"
+          },
+          {
+            "time": 0.0,
+            "owner": [
+              5,
+              1,
+              1
+            ],
+            "alive": true,
+            "role": "logical-recipient"
+          }
+        ],
+        "field_visibility_transitions": [
+          {
+            "time": 0.016666666666666666,
+            "field_actor": [
+              5,
+              1,
+              1
+            ],
+            "current_actor": [
+              5,
+              1,
+              1
+            ],
+            "current_alive": false,
+            "visible": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "coordinate-typed-owner-hp-death/dead-before-late-child",
+      "input_sha256": "dc803f3668453a3bfc0bd7f93530e053ea81130949fa5804c25c4afb0d9ce9ff",
+      "native_sha256": "467eb123fef767fa29eb9257f5141428f49233e2f6999c4308066b219a6f3db4",
+      "trace_sha256": "3274bd9d12362687c619921024452b32c1d95c2d93a694b20ebe28e5e5bbea7c",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "reference_kind": "deterministic-common-cpu",
+        "pellets": 256,
+        "packets": 260,
+        "physical_rng_words": 1544,
+        "gpu_supported": false,
+        "typed_attacks": 179,
+        "typed_shots": 40,
+        "in_game_rules_verified": false,
+        "original_definitions": 71,
+        "declared_audit_effects": 2,
+        "owner": [
+          5,
+          1,
+          1
+        ],
+        "hp_death_time": 0.0,
+        "counter_completion_time": 1.3333333333333335,
+        "graph_active_at_hp_death": true
+      },
+      "owner_hp_death": {
+        "hits": [
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 0.0,
+                "hp": 1.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": false,
+                "dealt": 1.0,
+                "hp": 1.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 0.0,
+                "hp": 1.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": false,
+                "dealt": 1.0,
+                "hp": 1.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          }
+        ]
+      },
+      "owner_visibility": {
+        "owner_queries": [
+          {
+            "time": 1.3333333333333335,
+            "owner": [
+              5,
+              1,
+              1
+            ],
+            "alive": false,
+            "role": "target-is-add"
+          },
+          {
+            "time": 1.3333333333333335,
+            "owner": [
+              5,
+              1,
+              1
+            ],
+            "alive": false,
+            "role": "logical-recipient"
+          }
+        ],
+        "field_visibility_transitions": [
+          {
+            "time": 1.35,
+            "field_actor": [
+              5,
+              1,
+              1
+            ],
+            "current_actor": [
+              5,
+              1,
+              1
+            ],
+            "current_alive": false,
+            "visible": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "coordinate-typed-owner-hp-death/visible-field-before-later-death",
+      "input_sha256": "ab6a157b8620bef91257aec78ac6a2aa5feb021efa4447e28453b86b104d87a1",
+      "native_sha256": "0310b571efc76c649a5d891a908a44999a2ca3b0bc82547113e10a141cd5aff3",
+      "trace_sha256": "3274bd9d12362687c619921024452b32c1d95c2d93a694b20ebe28e5e5bbea7c",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "reference_kind": "deterministic-common-cpu",
+        "pellets": 256,
+        "packets": 260,
+        "physical_rng_words": 1544,
+        "gpu_supported": false,
+        "typed_attacks": 149,
+        "typed_shots": 40,
+        "in_game_rules_verified": false,
+        "original_definitions": 71,
+        "declared_audit_effects": 2,
+        "owner": [
+          5,
+          1,
+          1
+        ],
+        "hp_death_time": 1.3333333333333335,
+        "counter_completion_time": 0.0,
+        "graph_active_at_hp_death": true
+      },
+      "owner_hp_death": {
+        "hits": [
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 0.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 61084.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 61084.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 122168.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 122168.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 183252.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 183252.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 206102.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 206102.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 228952.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 228952.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 251802.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 40426.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 251802.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 292228.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 292228.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 315078.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 315078.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 337928.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 31638.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 337928.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 369566.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 369566.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 392416.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 392416.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 415266.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.0,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 415266.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 438116.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 438116.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 499200.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 499200.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 560284.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 560284.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 621368.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 621368.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 682452.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 682452.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 743536.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 743536.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 804620.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 804620.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 865704.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 865704.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 926788.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 926788.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 987872.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#1",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 987872.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": false,
+                "dealt": 1000000.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 0.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 22850.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 22850.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 45700.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 45700.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 68550.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 68550.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 91400.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 91400.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 114250.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 114250.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 137100.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 137100.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 159950.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 159950.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 182800.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 182800.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 205650.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 0.6666666666666671,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 22850.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 205650.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 228500.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 1.0000000000000013,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 287637.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 228500.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 516137.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 1.0000000000000013,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 301114.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 516137.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 817251.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 1.3333333333333335,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 817251.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 878335.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 1.3333333333333335,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 878335.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": true,
+                "dealt": 939419.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          },
+          {
+            "time": 1.3333333333333335,
+            "label": "__enemy__:owner-adds#2",
+            "damage": 61084.0,
+            "before": [
+              {
+                "alive": true,
+                "dealt": 939419.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "after": [
+              {
+                "alive": false,
+                "dealt": 1000000.0,
+                "hp": 1000000.0,
+                "hit_hp": 0,
+                "graph_active": true,
+                "generation": 1
+              }
+            ],
+            "accepted": true
+          }
+        ]
+      },
+      "owner_visibility": {
+        "owner_queries": [
+          {
+            "time": 0.0,
+            "owner": [
+              5,
+              1,
+              1
+            ],
+            "alive": true,
+            "role": "target-is-add"
+          },
+          {
+            "time": 0.0,
+            "owner": [
+              5,
+              1,
+              1
+            ],
+            "alive": true,
+            "role": "logical-recipient"
+          }
+        ],
+        "field_visibility_transitions": [
+          {
+            "time": 0.016666666666666666,
+            "field_actor": [
+              5,
+              1,
+              1
+            ],
+            "current_actor": [
+              5,
+              1,
+              1
+            ],
+            "current_alive": true,
+            "visible": true
+          },
+          {
+            "time": 1.35,
+            "field_actor": [
+              5,
+              1,
+              1
+            ],
+            "current_actor": [
+              5,
+              1,
+              1
+            ],
+            "current_alive": false,
+            "visible": false
+          }
+        ]
+      }
+    }
+  ]
+}

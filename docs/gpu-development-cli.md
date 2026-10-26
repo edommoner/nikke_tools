@@ -511,3 +511,7 @@ M5 GPU4.200283秒、CPU preflight375.653591秒、pipeline61.344455秒（miss）�
 永続proof `.portable-recovery/proofs/owner-add-lifetime-gpu-20261027` に新raw/claim/全groupログ保持、reader終了後SHA/size/inode保持疎化で670760960byte回収。旧99input/native/記録output SHA保持、旧raw自体は未回収。現在の新103実証と旧capture消失を区別する。file-only Metal cache probe hitはwarm実機証明ではない。
 
 Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-landing40は固定配布・対応cacheの所在を確認できず、CUDA未実行。次の依頼は所在とsource certificateを明示した固定配布でcache triageから開始し、不足時に長いcompile/本体buildをしない。次はHPダメージによるADD死亡など実戦寿命の未対応分類。現CUDA/ゲームgap/公開consumer/全キャラ未完、UI CPU/全キャラ0/目標未達。
+
+`reference --suite coordinate-typed-owner-hp-death-common --out NEW.json` は、graph終了と区別した実HP死亡3契約のCPU入口です。最終owner世代・死亡時のactive graph・子fieldの寿命を検査します。新3件はGPU未実証で、次の106入力接続対象です。[検証範囲](portable-coordinate-typed-owner-hp-death-reference.md)。Windowsにpinned upstreamがない場合は、検査済み `research/windows-source-packets/typed-owner-add-lifetime-a2cfc763.zip` を固定SHAでunpackできます。compiler-only packageであり、CUDA実行証明ではありません。
+
+上記a2cfc763…のWindows配布検証は完了しています（全3497file/source certificate、unpack/verify成功）。出所付きreceiptは `research/windows-source-packets/windows-receipt-a2cfc763.json`。生成/compile/driver/GPU0、現CUDA cache hit/launch/readbackは未実証です。
