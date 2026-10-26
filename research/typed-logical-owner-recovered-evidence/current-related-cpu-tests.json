@@ -1,0 +1,202 @@
+[
+  {
+    "pattern": "test_typed_geometry.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.8319141669999226,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_coordinate_typed.py",
+    "exit_code": 0,
+    "elapsed_seconds": 4.796329750000041,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_target_modifier_input.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.9971286659999805,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_original_modifier_probe.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.833364667000069,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_destructible_weapon_rosters.py",
+    "exit_code": 0,
+    "elapsed_seconds": 10.354030875000035,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_portable_definition_view.py",
+    "exit_code": 0,
+    "elapsed_seconds": 1.0890962080000008,
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_portable_readiness_semantics.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.14862229100003788,
+    "tests": 19,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_coordinate_typed_weapon.py",
+    "exit_code": 0,
+    "elapsed_seconds": 6.758173250000027,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_coordinate_typed_weapon_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 11.349405083000192,
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_native_python_profile.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.05915541600006691,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_coordinate_typed_aim_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.22983304099989255,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_coordinate_typed_actor_policy.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.0947376249998797,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_coordinate_typed_actor_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.1266717080000035,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_coordinate_typed_owner_policy.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.06453591699983008,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_coordinate_typed_owner_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.13443733300005078,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_typed_owner_observer_migration.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.06779645799997525,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_coordinate_typed_owner_lifecycle.py",
+    "exit_code": 0,
+    "elapsed_seconds": 20.76782495899988,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_counter_field_decoder.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.09715583299998798,
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_coordinate_typed_logical_owner.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.07781225000007908,
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  },
+  {
+    "pattern": "test_coordinate_typed_logical_owner_gpu.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.14361800000006042,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 3499
+  }
+]

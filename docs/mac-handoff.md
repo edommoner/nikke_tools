@@ -2409,3 +2409,15 @@ dev `/tmp/nikke-coordinate-typed-develop-v2`（f1b700f2…）、M5 `/tmp/nikke-c
 最終 /tmp/nikke-logical-owner-cpu-v4（8183df99…）はv3からunit fixture1fileのみ修正。typed-only初期registryを再現、実helper/producer/comparator不変。最終関連113/制御517成功（Win1skip）、generation必須hit/Slang0。Slang/upstream/正本/数値/transport/CUDA cache本体全byte保持、GPU/Windows0。最終native再生成なし、証拠はv3 producerとの全byte一致に固定。
 
 次は共有SlangのtypedOwnerContextTargetをexact logical actor pool slot/genへ接続し、counterContextAddも同ownerを使う。新wire flagと旧BODYflagを区別、compiler predicate検査viewも宣言ownerへ投影、元実命令/handleは保持。現GPUcompilerは新policyを明示拒否。旧88保持でMetalをfresh全監査。ADD Metal/CUDA/dead ADD実戦field lifetime/ADD再登場battle/ゲーム仕様/公開consumer/全キャラは未完、全キャラ0/UI CPU/目標未達。Windows idle送信を重複しない。
+
+## 2026-10-27 ADD所有者Metal99・一時領域消失と回収
+
+共通Slang logical ownerを接続し、99/native56/拒43のM5通常比較と別child5つのfresh独立監査に成功したことを観測。元Prim71/完全5人/武器/成長を保持、通常field ADD0・宣言owner ADD1、received=0/0/17。header12=3/15=2を新policyに限定、旧BODY12=1と旧拒否12=2保持。physical kind/id/genは保持し、counter条件とfield recipientを同じactor pool exact ownerへ解決。数値/正本/upstream/normalizer/CUDA compile cache本体不変、backendはentry whitelist追加のみ。
+
+初版HP guard失敗を保存rawで診断し、新logical weaponだけ受付を修正。修正版2b99038d…は全99期待値不変、旧88全715264000byte保持、変更rawは88/90/95。CPU preflight327.520719秒、GPU4.182172秒、pipeline94.638508秒、child103.824826秒。世代拒否95は実landing/counter後、owner要求2/実1で64。fresh監査418.076018秒、各180以内、同じ監査からgolden/source certificate生成。最終metadata726ddf4c…は登録等4file差分、関連117/制御517成功（Win1skip）。GPU計2/retry0、CUDA/Windows0。
+
+その後の実行環境更新後、/private/tmpのworktree・capture・ZIP・cache、TMPDIRの監査receiptが見えなくなった。原因未確定。Git indexから17fileを回収し19df7cafへコミット。golden/source certificateは元Git blobと一致。元rawとcaptureは未回収のため、現在のreplay成功やraw保持を主張しない。失われた証跡ファイルを偽って再作成せず、過去のツール観測と新しいCPU検査の出所を分ける。GPU再実行による復元はしない。
+
+現在のworktreeは /Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/runtime-resident。永続proofは同親のproofs/logical-owner-20261027、永続generation cacheはcaches/slang-generation-v1。source/docsの固定pinned upstreamをprimaryからコピーし、GAMEPLAY/timelineの既存source contract SHA一致を確認。現在のCPU検査とCUDA/MSL生成基準一致/必須cache hitは別記録。readinessはhistorical success/raw unavailable/current host GPU未確認を明示。詳細docs/portable-coordinate-typed-logical-owner-gpu.md、research/portable-coordinate-typed-logical-owner-recovery.json。
+
+次はADD実生死・再出現/field lifetimeの新契約へ進む。raw再監査は原本復旧まで停止。今後の新しい成果を一時領域だけに置かない。現CUDA/新sourcewarmMetal/ゲームgap/公開consumer/19packing失敗/全キャラは未完、全キャラ0/UI CPU/目標未達。Windows idleへの重複依頼なし。

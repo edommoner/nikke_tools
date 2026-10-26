@@ -492,3 +492,9 @@ package内CLIは `sys.dont_write_bytecode`、所有する検証子は `PYTHONDON
 
 
 `reference --suite coordinate-typed-logical-owner-common --out NEW.json` は元Prim全71定義のCPU3契約です。実counterの子fieldを宣言ADD1へ接続し、通常fieldのADD0経路と分離して照合します。共有戦闘registry・古い世代の拒否・物理命中handle保持を検査します。[ADD所有者CPU契約と次のGPU接続](portable-coordinate-typed-logical-owner-reference.md)参照。新policyはGPU compilerでまだ拒否し、Metal対応数へ加算しません。
+
+## ADD所有者の共有GPUと復旧上の制限
+
+`coordinate-typed-logical-owner` は99入力（native56／拒否43）のsealed基準です。旧88を保持したM5 Metalとfresh独立監査の成功を観測済みですが、一時領域の消失により元raw/captureは現在未取得です。[履歴証拠・復旧状態・未対応範囲](portable-coordinate-typed-logical-owner-gpu.md)を参照してください。新しいsource診断は `compiler-full--coordinate-typed-logical-owner` から固定できます。source certificateをCUDA compile/cache/launch成功へ数えません。
+
+現在の永続worktreeは `.portable-recovery/runtime-resident`、新しい検証保存先は `.portable-recovery/proofs/`、生成cacheは `.portable-recovery/caches/slang-generation-v1` です。今回の消失rawを再作成するためのGPU再実行は行いません。再監査には元のbyteを復旧する必要があります。
