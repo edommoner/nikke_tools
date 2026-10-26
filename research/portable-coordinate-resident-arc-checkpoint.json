@@ -1,7 +1,7 @@
 {
   "schema": "coordinate-resident-arc-checkpoint-v1",
   "full_goal_complete": false,
-  "development_only": true,
+  "development_only": false,
   "package_id": "58daee4744855a23251c014814f2da1dc05c347fda66b16f32440dd091e85687",
   "inputs": 106,
   "native_cases": 63,
@@ -13,7 +13,7 @@
   "related_tests": 140,
   "control_tests": 580,
   "windows_snapshot_control_tests": 559,
-  "mac_metal_status": "normal full106 passed; immutable-packet independent seal running",
+  "mac_metal_status": "sealed: normal full106 plus fresh independent full106 passed",
   "windows_launch_verified": false,
   "windows_new_stack_verified": false,
   "public_gpu_admitted": false,
@@ -26,5 +26,9 @@
   "raw_sha256": "4ecc755e4f17e2eaaa9c9eb013bbcaa2fb27422893982f910894287df96ced09",
   "trace_address_relocations": 20,
   "windows_snapshot_acquired": true,
-  "windows_preservation_verified": null
+  "windows_preservation_verified": null,
+  "independent_audit_seconds": 536.437173667,
+  "independent_native_cases": 63,
+  "independent_gpu_calls": 0,
+  "independent_receipt_sha256": "b6d1cda306d31537d999b6180a3bc6d900fc5d573efcf737cf997d24d31667d3"
 }

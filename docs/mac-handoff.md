@@ -1,6 +1,6 @@
 # Mac GPU開発引き継ぎ
 
-共通resident arcの全106入力は修正版58daee47…でM5通常検証に成功しました。GPU4.240秒、子72.407秒、Runtime reflection不変。独立監査は固定パッケージ自身のCLIから実行中です。旧prefixの差は既存trace参照20語のcase-base移動だけで、残り861,567,920byte一致・新tail全0を専用監査で確認しました。wire事前検査・狭い修復器・保持監査をCLI化し、共通制御580（Windows1skip）が成功。Windows CIMは正規承認contextで取得成功、新着弾40の固定通常／cache-only packetはCPU47／54検査成功。次は短いcompile-onlyとoffline stack確認です。計算一致／preservation／全キャラ認定は別の証拠として扱います。[wireと監査](portable-wire-preflight.md)。以下は履歴。
+共通resident arcの全106入力は修正版58daee47…でM5通常検証に成功しました。GPU4.240秒、子72.407秒、Runtime reflection不変。独立監査も536.437秒で全106入力に成功し、sealed登録しました（7群・fresh native63・追加GPU0）。旧prefixの差は既存trace参照20語のcase-base移動だけで、残り861,567,920byte一致・新tail全0を専用監査で確認しました。wire事前検査・狭い修復器・保持監査をCLI化し、共通制御580（Windows1skip）が成功。Windows CIMは正規承認contextで取得成功、新着弾40の固定通常／cache-only packetはCPU47／54検査成功。次は短いcompile-onlyとoffline stack確認です。計算一致／preservation／全キャラ認定は別の証拠として扱います。[wireと監査](portable-wire-preflight.md)。以下は履歴。
 
 開発profile `coordinate-resident-arc` を共通戦闘実行器へ接続しました。既存全106入力（native63／拒否43）とCPU指紋を保持し、出力tail32,786語を追加、Runtime reflectionは旧版と完全一致。関連140／制御555成功、固定ae70b296…の通常Metal検証が進行中です（まだsealedではありません）。Windowsのprocess観測は既定／明示pwshとも失敗し、compiler/GPU0。有限operation/type/error-family IDのCPU診断を追加、制御559成功。raw／claims／旧失敗を保持。[接続と現在の検証範囲](portable-coordinate-resident-arc.md)。以下は履歴。
 

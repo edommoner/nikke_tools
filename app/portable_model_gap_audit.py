@@ -63,5 +63,14 @@ def verify(root,overrides=None):
  coordinate_port['private_roster_opt_in_available']=True
  coordinate_port['public_enemy_coordinate_rejection_verified']=True
  coordinate_port['numeric_frontend']=dict(classification='gpu_numeric_implementation_gap',host_math_affects_selection=True,common_policy_selected=True,selected_policy=decision['selected_policy'],policy_implemented=False,decision_fixture=decision_path,decision_sha256=hashlib.sha256(decision_raw).hexdigest(),fixture=fixture_path,fixture_sha256=hashlib.sha256((root/fixture_path).read_bytes()).hexdigest(),private_suites=['coordinate-area','coordinate-shape'],private_evidence_does_not_certify_public_admission=True)
+ # The historical decision is immutable. Its implementation flag describes
+ # public admission, not the subsequently implemented private numeric kernels.
+ coordinate_port['numeric_frontend'].update(
+  policy_implemented_scope='public coordinate frontend and complete policy admission',
+  private_suites=['coordinate-area','coordinate-shape','coordinate-numeric','coordinate-geometry','coordinate-power','coordinate-landing','coordinate-arc-arena','coordinate-landing-arena'],
+  private_suite_list_scope='Evidence locations only; inspect each sealed golden and capture before claiming execution coverage',
+  resident_integration_suite='coordinate-resident-arc',
+  resident_integration_scope='Private integration; current execution and independent seal status live in portable-coordinate-resident-arc-checkpoint.json',
+  public_admission_remaining=True)
  result=dict(passed=True,missing_stats=missing,coordinate_world=coordinate_port,target_and_nearby=dict(explicit_ranked_branch=False,fallback='current aimed logical enemy only',nearby_spatial_world=False),enemy_ammo=dict(allied_filter=True,enemy_ammunition_state=False,named_completion_outside_target_loop=True),enemy_healing=dict(allied_heal_consumer_present='heal_received_pct' in strings['calculator/buff_manager.py'],enemy_healing_path_verified=False),historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={**{base+name:hashlib.sha256(value.encode()).hexdigest() for name,value in text.items()},gate_path:hashlib.sha256(gate_text.encode()).hexdigest(),public_path:hashlib.sha256(public_text.encode()).hexdigest()})
  return result
