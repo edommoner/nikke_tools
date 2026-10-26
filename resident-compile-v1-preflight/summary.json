@@ -1,0 +1,107 @@
+{
+  "schema": "resident-compile-v1-policy-preflight",
+  "distribution": {
+    "distribution_commit": "6041d2bd12e83f6ca115694d384130a582d3a63e",
+    "archive_bytes": 11539737,
+    "archive_sha256": "3a1111aa91ea93d70d41871ba300f0d164abf74db5032fd92adca99a5e006304",
+    "package_id": "d1937cac48d8f5c10e94f3c71452c502a5c1472f5c3f7d54953abaab3caba6cd",
+    "archive_members": 3536,
+    "safe_paths_verified": true
+  },
+  "package_verification": {
+    "passed": true,
+    "package_id": "d1937cac48d8f5c10e94f3c71452c502a5c1472f5c3f7d54953abaab3caba6cd",
+    "suite": "compiler-full--coordinate-resident-arc",
+    "manifest_files": 3535,
+    "payload_bytes": 62749157,
+    "gpu_calls": 0
+  },
+  "outcome": "stopped before compile: requested CUBIN/O1 conflicts with immutable compiler-diagnostic policy",
+  "requested": {
+    "artifact": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_bytes": 2147483648,
+    "timeout_seconds": 60,
+    "backend": "cuda"
+  },
+  "packet_policy": {
+    "suite": "compiler-full--coordinate-resident-arc",
+    "purpose": "compiler-diagnostic",
+    "compiler_only": true,
+    "full_compiler": true,
+    "allowed_artifact": "ptx",
+    "ptxas_level_must_be_omitted": true,
+    "required_memory_limit_bytes": 2147483648,
+    "compile_help_backend_flag": false,
+    "compile_backend_is_implicitly_cuda": true,
+    "guards": [
+      {
+        "file": "scripts/nikke_gpu.py",
+        "function": "compile_capture",
+        "line": 2874,
+        "rejection": "Compiler diagnostic requires PTX and the fixed2GiB budget"
+      },
+      {
+        "file": "scripts/nikke_gpu.py",
+        "function": "compile_child",
+        "line": 2790,
+        "rejection": "Compiler diagnostic child requires PTX and2GiB"
+      },
+      {
+        "file": "scripts/nikke_gpu.py",
+        "function": "audit_compile_capture",
+        "line": 2826,
+        "rejection": "Compiler diagnostic proof must use PTX and2GiB"
+      }
+    ]
+  },
+  "source_certificate": {
+    "verified_by_package_verifier": true,
+    "path": "research/portable-compiler-full--coordinate-resident-arc-source-certificate.json",
+    "sha256": "44f73a6fb9a77c45e86b3f1aaf36e7d31e80fbb50122abbb5777fa72c05549fb",
+    "proof_kind": "compiler-source-only",
+    "baseline_suite": "coordinate-resident-arc",
+    "baseline_path": "research/portable-coordinate-resident-arc-short-expected.json",
+    "baseline_golden_sha256": "a116549024dcec8f8c4762ac25720c5f58212478f8ebca0714dffb65f3e71871",
+    "source_closure_files": 256,
+    "source_closure_map_sha256": "386c3429311f5db2c91a093c0895c434a63e1977d6b271475782d57825c8b92c",
+    "expected_generated_normalized": {
+      "cuda": "b1a97508325194ab98643d2a2c307c99a007aa6d0be17b567dfccdb5fe91efc2",
+      "metal": "c4f8eb68214aee1c999554ef205c55cb31688441e70dd9a0980fda0d51e93f5a"
+    },
+    "compiler_cli_sha256": "9b2eb2c07ad88aa87fbb176125f8e659dc17c64f688b8b51b95b5281f343e300"
+  },
+  "remaining_gates": {
+    "dependency_check": "not run: incompatible compile policy detected first",
+    "cpu_tests": "not run on Windows; Mac-reported204 not counted as local verification",
+    "job_smoke": "not run",
+    "generated_source_verification": "not run; no Slang generation",
+    "compile": "not attempted",
+    "offline_resources": "not attempted"
+  },
+  "actual_generated_cuda": null,
+  "cubin": null,
+  "compile_cache_key": null,
+  "job_receipts": null,
+  "preservation_verified": null,
+  "actions": {
+    "package_verification": 1,
+    "compile_attempts": 0,
+    "slang_builds": 0,
+    "nvrtc_calls": 0,
+    "driver_load": 0,
+    "cuda_context": 0,
+    "module_load": 0,
+    "kernel_launch": 0,
+    "cpu_tests": 0,
+    "job_smoke": 0,
+    "claim_creation": 0,
+    "cache_writes": 0,
+    "retries": 0,
+    "artifact_fallbacks": 0,
+    "packet_edits": 0
+  },
+  "existing_claims_captures_and_cache_retained": true,
+  "next_requirement": "A new immutable package whose parent/child/audit policy explicitly admits compiler-only CUBIN/O1; do not edit this verified packet or substitute PTX",
+  "shared_path_policy": "Only repository-relative paths; no personal paths/raw/SDK shared"
+}
