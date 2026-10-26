@@ -1,8 +1,0 @@
-{
-  "status": "failed",
-  "exception": "subprocess.TimeoutExpired",
-  "timeout_seconds": 240,
-  "gpu_calls": 0,
-  "golden_created": false,
-  "scope": "Receipt-only duplicate-check reduction still exceeded existing audit budget; no GPU retry"
-}

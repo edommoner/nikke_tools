@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "package_id": "49fb9d412c830096e44cd9cba63522506c3edbad1d237c555c6bb9cd4cc4361a",
+  "suite": "coordinate-landing-cache-only",
+  "profile": {
+    "profile": "compile-cache-only-v1",
+    "required_cache_hit_verified": true,
+    "nvrtc_calls": 0,
+    "compiler_library_requests": 0,
+    "calculation_verified": false,
+    "scope": "Compiler-free cached transport policy only; full calculation still requires the existing readback comparison and native trace audit"
+  },
+  "run_attempts": 1,
+  "terminal": true,
+  "cpu_tests_passed": 43,
+  "inputs": 40,
+  "native_oracles": 26,
+  "cpu_preflight_passed": true,
+  "input_bytes": 330244,
+  "input_sha256": "5d14272715fb7c14d09c3a9a17da5e1fbfa4295fb54f3d9300c6a8523924a410",
+  "calculation_verified": false,
+  "transport_verified": false,
+  "cache": {
+    "hit": true,
+    "key": "f06f565fe469d632f4e0aef205213d7f455b805e76194b19f615da71cc93773d",
+    "artifact_bytes": 311824,
+    "artifact_sha256": "e8550ca15285946512e684fd7a6c919337d1918883bf119565371c7d238694b1",
+    "source_sha256": "b62f552343123f178558cd37e916563bc2f031932c0462f07aaadc46365936cd"
+  },
+  "compiler_dll_policy": {
+    "marker_recorded": true,
+    "compiler_library_requests": 0,
+    "nvrtc_calls": 0,
+    "cache_preflight_forbidden_attempts": []
+  },
+  "gpu_api": {
+    "module_load_return_code": 0,
+    "launch_api_calls": 1,
+    "launch_return_code": 2,
+    "successful_launches": 0,
+    "launch_seconds": 0.0214401,
+    "sync_calls": 0,
+    "readback_calls": 0
+  },
+  "readback_exists": false,
+  "all40_gpu_comparison": "unavailable: missing readback",
+  "jobs": {
+    "outer": {
+      "pre_gate_verified": true,
+      "limit_bytes": 2147483648,
+      "peak_bytes": 2193674240,
+      "post_empty": true,
+      "inspection_error": null
+    },
+    "inner": {
+      "pre_gate_verified": true,
+      "limit_bytes": 2147483648,
+      "peak_bytes": 2093342720,
+      "post_empty": true,
+      "inspection_error": null
+    }
+  },
+  "execution": {
+    "outer": {
+      "child_exit_code": 1,
+      "timed_out": false,
+      "elapsed_seconds": 77.69971029972658,
+      "cleanup_error": null,
+      "observation_error": null
+    },
+    "inner": {
+      "child_exit_code": 1,
+      "timed_out": false,
+      "elapsed_seconds": 14.947044900152832,
+      "cleanup_error": null,
+      "observation_error": null
+    }
+  },
+  "observations": {
+    "outer": {
+      "missing": 0,
+      "process_preserved": true,
+      "service_before": "unverified",
+      "service_after": "unverified"
+    },
+    "inner": {
+      "missing": 0,
+      "process_preserved": true,
+      "service_before": "unverified",
+      "service_after": "unverified"
+    }
+  },
+  "environment_preservation_verified": false,
+  "service_status": "unverified",
+  "cause": "unknown; compiler-free cache profile still returned launch error 2; resource/cap causality not established",
+  "old_cold_failure_preserved": true,
+  "retry": false,
+  "cap_sdk_user_settings_changed": false,
+  "full_battle106_or_all_character_verified": false
+}

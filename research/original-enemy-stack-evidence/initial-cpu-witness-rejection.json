@@ -1,6 +1,0 @@
-{
-  "stage": "CPU baseline before GPU",
-  "reason": "Four-second control had not yet transferred its original DoT",
-  "log_sha256": "eb4e66b4a1ca7aaa553b1239956908c63f2a2dd7623d8006c1c712b3fc575879",
-  "gpu_calls": 0
-}

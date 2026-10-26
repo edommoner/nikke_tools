@@ -1,5 +1,0 @@
-#define PORTABLE_WORLD_FRAME
-#define PORTABLE_WORLD_OVERLAYS
-#define PORTABLE_WORLD_ACTORS
-#define PORTABLE_WORLD_ACTOR_POOLS
-#include "event_runtime.slang"

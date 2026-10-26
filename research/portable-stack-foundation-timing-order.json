@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "windows_execution_and_transfer_terminal": true,
-  "mac_global_gates_complete": true,
-  "verification_processes": [],
-  "checked_at_utc": "2026-10-19T18:29:48.136039+00:00",
-  "windows_report_sha256": "ad5c645dbdc269e5f7898b63e900749a0f5341d1755bfb4721ad60e0507e5cf7",
-  "source_commit": "851625603c9079008bedfb892b80ba36575daeeb"
-}

@@ -1,8 +1,0 @@
-{
-  "passed": true,
-  "prototype_cases": 27,
-  "baseline": "portable-sources-baseline-prototype-metal.json",
-  "baseline_sha256": "200c87876a32976e36855d19d7e937c53aef151206f428393f6d38da7c508ad6",
-  "baseline_scope": "Historical uncommitted pre-memoization source snapshot, before CPU numeric invalidation correction; exact complete decoded GPU results compared",
-  "comparison": "Same externally decoded results across the old eight-word source record and new twelve-word memoized record"
-}

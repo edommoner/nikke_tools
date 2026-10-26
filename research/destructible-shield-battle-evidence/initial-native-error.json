@@ -1,8 +1,0 @@
-{
-  "stage": "local-native-development",
-  "error": "NameError: cannot access free variable manager where it is not associated with a value in enclosing scope",
-  "cause": "The new packet callback used the registration closure name rather than context[manager]",
-  "corrected": "Use the manager captured in the active native handler context",
-  "gpu_calls": 0,
-  "repeated_gpu_execution": false
-}

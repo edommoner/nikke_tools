@@ -1,8 +1,0 @@
-{
-  "passed": true,
-  "validator": "skill-creator/scripts/quick_validate.py",
-  "repository_and_installed_passed": true,
-  "dependency": "PyYAML6.0.3 in isolated /tmp directory",
-  "repository_sha256": "81d5086a7580b317ef0ac6469e7288f4641f63b6cbd96a2a28122a55529366b4",
-  "installed_matches_repository": true
-}

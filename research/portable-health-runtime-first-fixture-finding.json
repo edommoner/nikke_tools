@@ -1,9 +1,0 @@
-{
-  "passed": false,
-  "kind": "Diagnostic fixture reused query slot0 instead of assigning slot1",
-  "captured_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/research/portable-build/health-runtime-20261020T074214805252Z",
-  "gpu_numeric_mismatch": false,
-  "classification": "Authored query-slot defect;GPU correctly overwrote slot0",
-  "resolution": "Second query now writes slot1;first raw/input retained",
-  "first_input_sha256": "7d14e7f022d6f2136a0f521814c94e3755f8db933336f3cdb1ea6f18ee22c517"
-}

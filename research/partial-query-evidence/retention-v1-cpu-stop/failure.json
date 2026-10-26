@@ -1,4 +1,0 @@
-{
-  "error": "ValueError: CPU tests failed: test_portable_scratch_layout.py",
-  "gpu_retries": 0
-}

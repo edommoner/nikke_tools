@@ -1,6 +1,0 @@
-{
-  "rejected_before_preparation": true,
-  "archive_created": false,
-  "gpu_calls": 0,
-  "reason": "CPU audit dependency missing from immutable payload: research/portable-coordinate-group-short-expected.json"
-}

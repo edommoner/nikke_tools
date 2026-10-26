@@ -1,6 +1,0 @@
-{
-  "issue": "Initial add-context fixture used on_attack, whose target context is reset to body by the shared native policy",
-  "native_observation": "Matching global code contributed[-25,0] to body/add; combined target_is_add stayed false",
-  "correction": "Use the inherited hit_count event8 in both authored effect timing and notifications; retain the expected[0,-25] add contribution. Expected code comparison and quantities are unchanged.",
-  "gpu_implementation_changed": false
-}

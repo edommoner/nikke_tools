@@ -1,8 +1,0 @@
-{
-  "records": 2667,
-  "bytes": 40404440,
-  "identical": true,
-  "before_seconds": 0.26542258402332664,
-  "after_seconds": 0.06753666594158858,
-  "scope": "One ordered Mac comparison, affected by execution order and filesystem caching; not Windows speed proof"
-}

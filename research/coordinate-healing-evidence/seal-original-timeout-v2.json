@@ -1,9 +1,0 @@
-{
-  "status": "failed",
-  "exception": "subprocess.TimeoutExpired",
-  "timeout_seconds": 240,
-  "gpu_calls": 0,
-  "golden_created": false,
-  "compiler_certificate_created": false,
-  "scope": "First independent fresh seal child terminated at existing CPU-only budget; saved replay340 remains passed; no GPU retry"
-}

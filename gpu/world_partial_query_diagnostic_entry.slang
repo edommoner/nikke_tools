@@ -1,5 +1,0 @@
-#define PORTABLE_NATIVE_QUERY_DIAGNOSTIC
-#define PORTABLE_QUERY_MISSES_ONLY
-#define PORTABLE_QUERY_WINDOW_LOWER ((uint64_t(0x3fc99999U)<<32)|0x9999999aU)
-#define PORTABLE_QUERY_WINDOW_UPPER ((uint64_t(0x3fe99999U)<<32)|0x9999999aU)
-#include "world_partial_charge_entry.slang"

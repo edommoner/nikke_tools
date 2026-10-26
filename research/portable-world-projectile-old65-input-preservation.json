@@ -1,7 +1,0 @@
-{
-  "passed": true,
-  "input_count": 65,
-  "input_sha256": "06df6b8129bd08352f7cf621dd9d50d02cd902a4f0ea8d60de9216bc3c84dacd",
-  "gpu_calls": 0,
-  "scope": "All prior reload input bytes preserved after reserved-word packing correction"
-}

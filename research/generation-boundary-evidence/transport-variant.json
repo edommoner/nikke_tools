@@ -1,9 +1,0 @@
-{
-  "operation": "temporary_transport_variant_package",
-  "original_bytes": 8388608,
-  "variant_bytes": 4194304,
-  "original_backend_sha256": "d99974383efa85227de4f449d7667dca80aec388187050e07dff47543adebbcc",
-  "variant_backend_sha256": "2d512cd853ab510e17e62fd8599371e24739516c3cbd4e2d300614f577ea8962",
-  "generation_source_changed": false,
-  "gpu_calls": 0
-}

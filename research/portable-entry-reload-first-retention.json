@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "unchanged_input_output_blocks": 36,
-  "changed_index": 34,
-  "reason": "negative fixture used existing valid mode policy1; corrected to invalid2",
-  "initial_failure_preserved": true,
-  "source_sha256_unchanged": true,
-  "gpu_calls": 0
-}

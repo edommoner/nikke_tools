@@ -1,7 +1,0 @@
-{
-  "scope": "Initial code-specific real profile comparison stopped in the fixed-profile observer, not a completed GPU/CPU difference verdict",
-  "failure": "AssertionError: This fixed-profile oracle needs an explicit active-mode gate projection",
-  "correction": "Observe the actual native auto/charge firing method while mode fields are installed; compare mode identity,mode shots,effective firing path and its availability gate. Keep original damage,ammo,burst,HP and timestamp checks.",
-  "profiles_or_effects_filtered": false,
-  "end_time_changed": false
-}
