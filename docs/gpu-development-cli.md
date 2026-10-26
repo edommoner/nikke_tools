@@ -1,3 +1,5 @@
+`coordinate-arc-arena`140／`coordinate-landing-arena`40 は共通resource view格納のsealed Metal suiteです。旧logical出力を全保持し、追加scratchも全word照合します。通常のpackage→run→seal経路を使い、standaloneのためresident generation-cacheは指定しません。Windows新sourceのstackと実行は未確認。[容量・alias・証拠](portable-coordinate-arc-arena.md)。
+
 最新sealed `coordinate-typed-owner`80（native45／拒否35）は、明示BODY所有のHPシールドとcurrent enemy field／実counter完了を共通Slangへ接続したsuiteです。元Prim全71定義を保持し、M5保存出力のfresh全範囲監査で一致、旧67全byte保持。`package --suite coordinate-typed-owner` を使います。GPU実行1回・retry0、観測修正後の追加GPU0、最終関連100／制御507成功。CUDA実行・全キャラは未完です。[実装・観測修正・保存結果の厳密な再利用](portable-coordinate-typed-owner-gpu.md)。
 
 `seal --comparison-group-size 24 --timeout 180` は全入力を逐次fresh childへ分割し、全範囲を厳密に集約します。`replay` は `--comparison-group-size 24 --audit-timeout 180` を使えます。未担当rawを含む全ハッシュを検査し、部分結果だけでは成功にしません。旧67全golden保持、GPU再実行0。総高速化ではなく、検証を省かずchild上限を守る経路です。[分割監査の使い方と実測](portable-comparison-groups.md)。

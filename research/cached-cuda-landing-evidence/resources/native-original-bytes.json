@@ -1,0 +1,16 @@
+{
+  "schema": "native-output-bytes-v1",
+  "files": {
+    "resource-usage.txt": {
+      "bytes": 202,
+      "sha256": "4841c4ae9a27af1814db4d3b777309174ffc3921994c6efabde419f47076f7d7",
+      "base64": "DQpSZXNvdXJjZSB1c2FnZToNCiBDb21tb246DQogIEdMT0JBTDoyMDIgQ09OU1RBTlRbM106MzIgQ09OU1RBTlRbNF06ODAwDQogRnVuY3Rpb24gcG9ydGFibGVFdmVudHM6DQogIFJFRzoxNDkgU1RBQ0s6MTk5MzUyIFNIQVJFRDowIExPQ0FMOjAgQ09OU1RBTlRbMF06MzUyIENPTlNUQU5UWzJdOjggVEVYVFVSRTowIFNVUkZBQ0U6MCBTQU1QTEVSOjANCg=="
+    },
+    "gpu-memory-current.csv": {
+      "bytes": 46,
+      "sha256": "36f82c1198ddf8b563c9e5aad1626a8f7f0414ecb707dc1c9af453625a39f956",
+      "base64": "TlZJRElBIEdlRm9yY2UgUlRYIDMwNzAgVGksIDgxOTIsIDUyMzgsIDI3ODANCg=="
+    }
+  },
+  "scope": "CRLF bytes restored from shared LF blobs and matched original saved receipt length and SHA; no native command rerun."
+}

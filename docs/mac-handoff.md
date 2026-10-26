@@ -1,5 +1,7 @@
 # Mac GPU開発引き継ぎ
 
+共通arc区間のresource view版を追加し、M5 Metalでarc140／着弾40を全word照合・fresh独立sealしました。旧arc135／着弾40のinput/nativeとlogical出力hashを全保持し、1024区間・127対象・5098cutを維持。Windows旧CUBINのSTACK199,352byteとcache-onlyでもlaunch code2の失敗を保存。次は新sourceの短いcompile-only／offline資源検査でstack量を確認し、その後にCUDA実行を判断します。現resident106本体・公開UI・全キャラ対応は今回変更していません。[配置と検証範囲](portable-coordinate-arc-arena.md)。以下は履歴。
+
 通常の元武器による実射撃をtyped対象へ共通接続。sealed `coordinate-typed-weapon`46（native29／拒17）がM5 Metal・GPU禁止fresh監査131.445秒で全一致。散弾内handle固定／次射撃再選択、canonicalとの奥行きmerge、RL critical共有、親量と実着弾順、history2457件（保持2048＋全件SHA）を確認。旧35全284480000byte／input/native保持。既存Python観測filterで全46指紋を保ちCPU269.180→104.266秒（2.58倍）。関連74／制御488成功（Win1skip）、GPU1／retry0、GPU3.861秒／初回PSO93.762秒。生成必須cache hit・run追加Slang0、Runtime追加0。finalは配置監査・対応metadata・seal登録だけで計算／proof関数ASTを保持、再GPU0。raw全byte／SHA／inode保持の疎化で364113920byte回収。現CUDA／typed auto aim／canonicalゲーム仕様／全キャラ0／UI CPUは未達。[通常射撃のtyped接続](portable-coordinate-typed-weapon.md)。以下は履歴。
 
 座標通常射撃→型付き対象のCPU契約を共通CLI `reference --suite coordinate-typed-weapon-common` へ追加。元の武器・効果を保持した6ケース、661実ペレット／666packet／typed278、散弾内世代固定・次射撃再選択・RL critical再利用・full_charge親量／通知後着弾・MT全624語を確認。fresh不変packageでCPU契約2.923秒、関連64／制御488成功（Win1skip）。旧35入力16,195,204byte・全356Slang・保護8file保持。GPU／Windows新実行0、型付き通常射撃のMetal接続は次段階。canonicalゲーム仕様／typed auto aim／全キャラ0／UI CPUは未達。[通常射撃CPU契約](portable-coordinate-typed-weapon-reference.md)。以下は履歴。
