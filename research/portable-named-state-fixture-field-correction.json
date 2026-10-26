@@ -1,7 +1,0 @@
-{
-  "issue": "New base-weapon hand expectations used time, which is absent from combat query readback",
-  "actual_failure": "KeyError: time after complete GPU dispatch and old1882-byte parity",
-  "correction": "Use explicit hand damage for the six base-weapon cases and attack-buff fields for the two mode cases. All65 cases retain full native controller comparison, including damage and weapon state. GPU input scripts and numerical quantities are unchanged.",
-  "native_unit_tests_passed": 195,
-  "metal_component_cases_passed": 65
-}

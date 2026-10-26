@@ -1,9 +1,0 @@
-{
-  "schema": 1,
-  "package_id": "3e2fe9b0e0b51bc58603268f3f4227effd3ced46fab54433459b8e1b1b6e342f",
-  "backend": "metal",
-  "mode": "gpu",
-  "status": "failed",
-  "gpu_retry_count": 0,
-  "input_protocol": "prepared-v1"
-}

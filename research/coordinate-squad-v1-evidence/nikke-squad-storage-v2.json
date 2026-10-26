@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "required_bytes": 1690000000,
-  "reserve_bytes": 1073741824,
-  "free_bytes": 2782507008,
-  "gpu_calls": 0,
-  "calculation_verified": false,
-  "scope": "Free-space budget only; no archive integrity or cleanup"
-}

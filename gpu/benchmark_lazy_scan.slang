@@ -1,3 +1,0 @@
-#define PORTABLE_LAZY_CACHE_SCAN_REFERENCE 1
-#define PORTABLE_LAZY_ALL_PENDING_REFERENCE 1
-#include "event_runtime.slang"

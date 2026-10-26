@@ -1,8 +1,0 @@
-{
-  "status": "unavailable",
-  "app": "com.openai.codex",
-  "tool_error": "Computer Use is not allowed to use the app 'com.openai.codex' for safety reasons.",
-  "windows_message_sent": false,
-  "new_windows_execution_requested": false,
-  "alternative_ui_automation_attempted": false
-}

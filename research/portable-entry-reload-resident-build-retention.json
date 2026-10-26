@@ -1,9 +1,0 @@
-{
-  "schema": 1,
-  "cases": 32,
-  "all_case_records_identical": true,
-  "gpu_calls": 0,
-  "packing_calls": 0,
-  "scope": "Full native reference case records retained across resident host build changes; entry_reload GPU admission remains unsupported",
-  "reference_report": "/tmp/nikke-entry-reload-resident-build-reference.json"
-}

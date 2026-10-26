@@ -1,8 +1,0 @@
-{
-  "suite": "coordinate-original-harmful-stack",
-  "cases": [
-    "coordinate-original-harmful-stack/Anchor/control",
-    "coordinate-original-harmful-stack/Anchor/third-full-burst"
-  ],
-  "gpu_calls": 0
-}

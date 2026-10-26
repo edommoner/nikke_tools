@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "name": "coordinate-squad/policy-composition",
-  "input_index": 208,
-  "native_sha256": "7efe92456c582965759dc29f21ad24bcec8bba3ba88538784cd5ad52acc57b9d",
-  "source_capture": "/tmp/nikke-squad-metal-v1",
-  "gpu_calls": 0,
-  "scope": "Corrected common policy-state validator against saved complete raw and fresh original native world"
-}

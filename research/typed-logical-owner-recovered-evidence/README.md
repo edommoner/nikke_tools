@@ -1,1 +1,0 @@
-These are new CPU checks after recovery on the current host. They are not reconstructions of the missing Metal execution, raw readback, or independent audit receipts. Historical GPU observations and current availability are separated in ../portable-coordinate-typed-logical-owner-recovery.json. No GPU execution was used to reconstruct raw.

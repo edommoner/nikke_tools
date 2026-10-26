@@ -1,7 +1,0 @@
-{
-  "passed": true,
-  "gpu_calls": 0,
-  "files": 29,
-  "scope": "post CPU fixture check: every original capture artifact hash reverified",
-  "artifacts_sha256": "feda25386d013bb7f44e6cf3d364c3ba415e964c20aa59c751a8eaddbcfa1e89"
-}

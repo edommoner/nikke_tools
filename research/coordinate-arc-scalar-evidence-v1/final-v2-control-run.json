@@ -1,9 +1,0 @@
-{
-  "schema": 1,
-  "package_id": "7d18e4a6a2564807c55adca9ed40df72fa3fda346e577e4a08e7a671163a3511",
-  "backend": "metal",
-  "mode": "cpu-only",
-  "status": "finished",
-  "gpu_retry_count": 0,
-  "finished_unix_ns": 1792864594097734000
-}

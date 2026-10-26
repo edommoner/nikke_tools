@@ -1,6 +1,0 @@
-{"monotonic_ns": 918184753459708, "pid": 82663, "stage": "cpu_worker_verify_package", "state": "entered", "wall_time_ns": 1792819034851792000}
-{"elapsed_seconds": 0.08818975, "monotonic_ns": 918184841767291, "pid": 82663, "stage": "cpu_worker_verify_package", "state": "returned", "wall_time_ns": 1792819034940097000}
-{"monotonic_ns": 918344877737250, "pid": 82847, "stage": "gpu_child_verify_package", "state": "entered", "wall_time_ns": 1792819194971088000}
-{"elapsed_seconds": 0.090454292, "monotonic_ns": 918344968458416, "pid": 82847, "stage": "gpu_child_verify_package", "state": "returned", "wall_time_ns": 1792819195061806000}
-{"monotonic_ns": 918344970680750, "pid": 82847, "stage": "gpu_child_prepared_input", "state": "entered", "wall_time_ns": 1792819195064029000}
-{"elapsed_seconds": 0.018882166, "monotonic_ns": 918344989668291, "pid": 82847, "stage": "gpu_child_prepared_input", "state": "returned", "wall_time_ns": 1792819195083015000}

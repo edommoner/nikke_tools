@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "package_id": "06c781aa387cdd2617a64abae0bb462733e874a6b045e8c5612a0953c6820102",
+  "distribution_commit": "e04afabdbec026a670ada6097924dd4853f142a8",
+  "scope": "saved coordinate-landing40 diagnostics and file-only cache identity; no new execution proof",
+  "original_gpu_result": {
+    "cpu_tests_passed": 36,
+    "input_count": 40,
+    "native_oracles": 26,
+    "cpu_preflight_passed": true,
+    "calculation_verified": false,
+    "launch_return_code": 2,
+    "successful_launches": 0,
+    "readback_exists": false,
+    "input_sha256": "5d14272715fb7c14d09c3a9a17da5e1fbfa4295fb54f3d9300c6a8523924a410",
+    "generated_normalized": {
+      "cuda": "225d8e9ea12b5ffde532b3a94f75bfff4e1752db463afda614f0b93a81f9460c",
+      "metal": "099fda9c04ec1978b9032d9ed600bdfeed252e379e7a34935247af8ad1105a8d"
+    }
+  },
+  "cache_probe": {
+    "verified": true,
+    "hit": true,
+    "key": "f06f565fe469d632f4e0aef205213d7f455b805e76194b19f615da71cc93773d",
+    "artifact_kind": "cubin",
+    "options": [
+      "--std=c++17",
+      "--gpu-architecture=sm_86",
+      "--fmad=false",
+      "--ptxas-options",
+      "-O1"
+    ],
+    "artifact_bytes": 311824,
+    "artifact_sha256": "e8550ca15285946512e684fd7a6c919337d1918883bf119565371c7d238694b1",
+    "elapsed_seconds": 0.08655880019068718,
+    "nvrtc_compile_calls": 0,
+    "driver_load_calls": 0,
+    "gpu_calls": 0
+  },
+  "saved_resource_observations": {
+    "gpu_free_or_total_api_recorded": false,
+    "stack_or_local_attribute_api_recorded": false,
+    "matching_resource_log_files": [],
+    "gpu_free_bytes": null,
+    "gpu_total_bytes": null,
+    "launch_stack_or_local_bytes": null,
+    "status": "unobserved in saved records",
+    "cause": "unknown; GPU availability, compiler DLL residency, stack/local resource and Job cap relationship not established"
+  },
+  "saved_job_and_preservation": {
+    "limit_bytes": 2147483648,
+    "outer_recorded_peak_bytes": 2199347200,
+    "inner_recorded_peak_bytes": 2098597888,
+    "both_post_jobs_empty": true,
+    "both_missing": 0,
+    "service": "unverified",
+    "environment_preservation_verified": false
+  },
+  "dependency_provenance": {
+    "original_v3_package_id": "c01e415c9ef544ec77d40e36b8f7b507ef09f66a66c079b43e0054454eb2fbb2",
+    "original_failure": "ModuleNotFoundError: gmpy2",
+    "original_failure_sha256": "34f02eab1e2f8afab01693c88caa70e86d4b92d2d69a6d408b2f8ecb8b880a74",
+    "isolated_setup": "Copied only gmpy2 2.2.1 package/libs/dist-info from existing validation-only env; no global install",
+    "setup_receipt_sha256": "f2b91df45cca4e38d4759ca02c7c6e724db11fd8c9cb8e9c07fc179ec62ff850",
+    "import_receipt_sha256": "2b3ded1e94968fc32a109450876f07c6496aae2c53430d04a2506908dece4dc4",
+    "gmpy2_version": "2.2.1",
+    "mpfr_version": "MPFR 4.2.1",
+    "python_bits": 64,
+    "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "temporary_PYTHONPATH": true,
+    "existing_env_sdk_path_os_modified": false
+  },
+  "original_capture_and_claims_preserved": true,
+  "new_compile_calls": 0,
+  "new_driver_load_calls": 0,
+  "new_gpu_calls": 0,
+  "raw_cubin_sdk_or_personal_paths_included": false
+}

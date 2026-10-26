@@ -1,9 +1,0 @@
-{
-  "schema": 1,
-  "package_id": "f50db8a46ea7e403107fa51dbce2a0c369b87cf87b1e71377065fe035feef3b8",
-  "payload_files": 1974,
-  "all_payload_sha_and_checkout_bytes_equal": true,
-  "gpu_source_input_native_output_equal": true,
-  "calculation_verified": true,
-  "gpu_calls": 0
-}

@@ -1,4 +1,0 @@
-{"monotonic_ns": 954657184007333, "pid": 20706, "stage": "shared_gpu_execute", "state": "entered", "wall_time_ns": 1792855507447304000}
-{"monotonic_ns": 954657184156541, "pid": 20706, "stage": "slang_build", "state": "entered", "wall_time_ns": 1792855507447453000}
-{"elapsed_seconds": 2.181418917, "monotonic_ns": 954659365623416, "pid": 20706, "stage": "slang_build", "state": "returned", "wall_time_ns": 1792855509628919000}
-{"elapsed_seconds": 12.371664417, "monotonic_ns": 954669555793916, "pid": 20706, "stage": "shared_gpu_execute", "state": "returned", "wall_time_ns": 1792855519819082000}

@@ -1,8 +1,0 @@
-{
-  "passed": false,
-  "stage": "fixture-loading",
-  "error": "AttributeError: 'tuple' object has no attribute 'read_text'",
-  "script_sha256": "4f16d2f60ea310432aca21118f5b2666747e76fe3581cb33116aa9e5704a01b3",
-  "location": "verify-portable-api.py:cover_cases",
-  "fix": "Restore the single cover fixture path; keep the pending fixture in the tracked input list and its separate request cases"
-}

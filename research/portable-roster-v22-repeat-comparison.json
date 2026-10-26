@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "batches": 8,
-  "required_cases": 32,
-  "input_and_output_hashes_identical": true,
-  "first": "portable-roster-battles-v22-initial-summary.json",
-  "final": "portable-roster-battles-metal.json",
-  "scope": "Boundary descriptor guard correction and added fixture tests leave all 32 real-profile GPU results identical"
-}

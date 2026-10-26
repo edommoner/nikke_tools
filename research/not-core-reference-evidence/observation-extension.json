@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "gpu_calls": 0,
-  "all27_prior_contract_fields_preserved": true,
-  "new_fields": [
-    "instant_calls",
-    "instant_calls_sha256"
-  ]
-}

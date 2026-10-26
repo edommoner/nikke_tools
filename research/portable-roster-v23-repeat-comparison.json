@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "batches": 9,
-  "required_cases": 34,
-  "input_and_output_hashes_identical": true,
-  "first": "portable-roster-battles-v23-initial-summary.json",
-  "final": "portable-roster-battles-metal.json",
-  "scope": "Mode-entry capacity correction leaves all 34 real-profile GPU results identical; original CPU comparisons independently pass in final code"
-}

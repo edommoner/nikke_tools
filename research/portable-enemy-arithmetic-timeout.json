@@ -1,7 +1,0 @@
-{
-  "passed": false,
-  "gpu_execution_verified": false,
-  "stage": "execution-failed",
-  "error": "Metal timeout: portable_stage=library_compile\nportable_stage=pipeline_compile",
-  "scope": "Shared arithmetic noinline; pipeline compilation still exceeded 120 seconds"
-}

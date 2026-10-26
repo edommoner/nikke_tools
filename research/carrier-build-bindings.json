@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "abi": "detail_lifecycle_carriers_v48",
-  "workspace_bytes_per_squad": 1103888,
-  "source_sha256": "9ed73c00bc168cffb2405970e7c0a5c09f8d16b6c53e9389be519c57fc0b2884",
-  "native_binary_sha256": "76b39cf56059436464e90e7ee7086595f6d945d7c318dfe7a9c75b0b5ba71853",
-  "ptx_sha256": "ce2aaa722acb1f91e076f154f49730dffc41750a5ccb93189dda8e14910c0701",
-  "scope": "Build bindings and PTX layout only; battle verification still pending."
-}

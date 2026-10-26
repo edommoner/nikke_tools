@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "timestamp_utc": "2026-10-19T16:24:08.668520+00:00",
-  "verification_processes": [],
-  "all_metal_gates_terminal": true,
-  "windows_execution_and_transfer_terminal": true,
-  "windows_source_commit": "43f43a54535992d6992e0b3042c99c2e6c809bd4",
-  "scope": "Snapshot after all 16 Metal gates, native CPU 15 and full fixed-source Windows transfer terminal; before isolated optimization verification and then sequential timing"
-}

@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "tests": 5,
-  "failures": 0,
-  "errors": 0,
-  "gpu_calls": 0,
-  "full_log_local": "/tmp/nikke-sampled-parent-local-v1/frontier-tests-v2.log",
-  "full_log_sha256": "c4a870259b1b5f26134a0d6ae63b40927f009612eaae36707ecd46d1f45349bc"
-}
