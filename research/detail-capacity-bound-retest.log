@@ -1,7 +1,0 @@
-test_out_of_bounds_groups_reject_before_any_cuda_access (test_detail_charge_immunity.ChargeImmunityTests.test_out_of_bounds_groups_reject_before_any_cuda_access) ... ok
-
-----------------------------------------------------------------------
-Ran 1 test in 0.016s
-
-OK
-{"passed": true, "tests_run": 57, "initial_passed": 56, "focused_rerun_passed": 1}

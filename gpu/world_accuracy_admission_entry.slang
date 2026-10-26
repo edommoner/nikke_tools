@@ -1,2 +1,0 @@
-#define PORTABLE_WORLD_PROJECTILE_DIAGNOSTIC
-#include "world_entry_reload_resident_entry.slang"

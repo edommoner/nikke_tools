@@ -1,9 +1,0 @@
-{"case": "full-auto-180", "passed": true, "members": [{"name": "\ubaa8\ub354\ub2c8\uc544", "cpu": 812411146, "gpu": 812411146}, {"name": "\ub8e8\uc8fc", "cpu": 99135247, "gpu": 99135247}, {"name": "\ub9c8\uc2a4\ud2b8 : \ub85c\ub9dd\ud2f1 \uba54\uc774\ub4dc", "cpu": 181905764, "gpu": 181905764}, {"name": "\ub3c4\ub77c", "cpu": 92271490, "gpu": 92271490}, {"name": "\uc580", "cpu": 167749058, "gpu": 167749058}], "bursts_equal": true}
-{"case": "full-mast3-180", "passed": true, "members": [{"name": "\ubaa8\ub354\ub2c8\uc544", "cpu": 777946645, "gpu": 777946645}, {"name": "\ub8e8\uc8fc", "cpu": 85393186, "gpu": 85393186}, {"name": "\ub9c8\uc2a4\ud2b8 : \ub85c\ub9dd\ud2f1 \uba54\uc774\ub4dc", "cpu": 152840824, "gpu": 152840824}, {"name": "\ub3c4\ub77c", "cpu": 87756871, "gpu": 87756871}, {"name": "\uc580", "cpu": 147650647, "gpu": 147650647}], "bursts_equal": true}
-{"case": "owned-equipment-cube-collection-60", "passed": true, "members": [{"name": "\ubaa8\ub354\ub2c8\uc544", "cpu": 184109313, "gpu": 184109313}, {"name": "\ub8e8\uc8fc", "cpu": 36665021, "gpu": 36665021}, {"name": "\ub9c8\uc2a4\ud2b8 : \ub85c\ub9dd\ud2f1 \uba54\uc774\ub4dc", "cpu": 71406692, "gpu": 71406692}, {"name": "\ub3c4\ub77c", "cpu": 36302360, "gpu": 36302360}, {"name": "\uc580", "cpu": 66693146, "gpu": 66693146}], "bursts_equal": true}
-{"case": "positions-element-core-growth-60", "passed": true, "members": [{"name": "\uc580", "cpu": 33925649, "gpu": 33925649}, {"name": "\ub3c4\ub77c", "cpu": 19581820, "gpu": 19581820}, {"name": "\ub8e8\uc8fc", "cpu": 19495897, "gpu": 19495897}, {"name": "\ubaa8\ub354\ub2c8\uc544", "cpu": 180505046, "gpu": 180505046}, {"name": "\ub9c8\uc2a4\ud2b8 : \ub85c\ub9dd\ud2f1 \uba54\uc774\ub4dc", "cpu": 37856489, "gpu": 37856489}], "bursts_equal": true}
-.....
-----------------------------------------------------------------------
-Ran 5 tests in 94.731s
-
-OK

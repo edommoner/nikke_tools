@@ -1,8 +1,0 @@
-/private/tmp/nikke-runtime-resident/research/upstream/nikke-calc-master/scraper/profile_fetch.py:187: ResourceWarning: unclosed file <_io.TextIOWrapper name='/private/tmp/nikke-runtime-resident/research/upstream/nikke-calc-master/scraper/nikke_scraped.json' mode='r' encoding='utf-8'>
-  d = json.load(open(os.path.join(HERE, "nikke_scraped.json"), encoding="utf-8"))
-ResourceWarning: Enable tracemalloc to get the object allocation traceback
-...........
-----------------------------------------------------------------------
-Ran 11 tests in 1.014s
-
-OK

@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "package_id": "68e3a0519417046f2a24dffc08cb2587b940d2ffc78d81aaea562128157ec074",
-  "files": 1904,
-  "all_payload_hashes_verified": true,
-  "checkout_payload_byte_identical": true,
-  "gpu_calls": 0,
-  "scope": "Post-test fixed distribution bytes; no native or GPU recalculation"
-}

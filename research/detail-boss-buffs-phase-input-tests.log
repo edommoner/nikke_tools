@@ -1,8 +1,0 @@
-test_bad_rows_are_rejected_before_cuda (test_detail_boss_buffs.BossBuffInputs.test_bad_rows_are_rejected_before_cuda) ... ok
-test_boss_received_damage_is_an_inactive_real_definition (test_detail_boss_buffs.BossBuffInputs.test_boss_received_damage_is_an_inactive_real_definition) ... ok
-test_every_fixture_compiles_without_cpu_combat (test_detail_boss_buffs.BossBuffInputs.test_every_fixture_compiles_without_cpu_combat) ... ok
-
-----------------------------------------------------------------------
-Ran 3 tests in 0.224s
-
-OK

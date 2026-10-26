@@ -1,4 +1,0 @@
-{
-  "error": "TimeoutExpired: Command '['/Users/edo/Documents/ChatGPT/nikke_tools/.venv/bin/python', '/private/tmp/nikke-body-accum-develop-v3/scripts/nikke_gpu.py', '_tests', '--capture', '/private/tmp/nikke-body-accum-cpu-v3']' timed out after 90 seconds",
-  "gpu_retries": 0
-}

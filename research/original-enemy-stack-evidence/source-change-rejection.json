@@ -1,8 +1,0 @@
-{
-  "gpu_calls": 0,
-  "source_reuse_refused": true,
-  "reason": "GPU source changed; data-only reuse is unavailable",
-  "stderr_sha256": "9df56736c163e07623328fb2dffd207b50814e403f3bdd254aa34dee226600b9",
-  "reference_package_id": "b132947c281f78038a7d118bcf2b38b5bc9338868e40d675a0a3a528fe4de68b",
-  "candidate_package_id": "c93d7efc341d3da737866d2a693d653b48a372ed945aa7af1c476ab3b46e31b5"
-}

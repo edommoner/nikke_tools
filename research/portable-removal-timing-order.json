@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "timestamp_utc": "2026-10-19T15:42:52.906466+00:00",
-  "verification_processes": [],
-  "all_metal_gates_terminal": true,
-  "windows_execution_and_transfer_terminal": true,
-  "windows_source_commit": "9047790eea544c91df2124a05a4a7f65d066aca9",
-  "scope": "All correctness gates and the 22-part Windows transfer terminal before isolated parity/control and sequential timing"
-}

@@ -1,8 +1,0 @@
-{
-  "passed": true,
-  "old_profiles_preserved": 74,
-  "current_profiles": 82,
-  "excluded_fields": [
-    "cpu_reference_wall_seconds"
-  ]
-}

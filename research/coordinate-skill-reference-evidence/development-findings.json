@@ -1,9 +1,0 @@
-{
-  "kind": "Observed local development failures; not a successful calculation receipt",
-  "previous_impact_source_sha256": "230ef43042356f5220a3e17d898f947dfc9e30187606f83dc5399a09a4da27d9",
-  "initial_probe_error": "ValueError: Unknown world actor (explicit handle required): stop",
-  "initial_cause": "The unconditional _land_target publication treated private interrupt as canonical PART",
-  "contract_fault_test_error": "AssertionError not raised for notification/packet order mutation in destroy-before-second",
-  "contract_fix": "Literal event-kind sequence is now checked in addition to packet list, totals and notice count",
-  "native_math_unchanged": true
-}

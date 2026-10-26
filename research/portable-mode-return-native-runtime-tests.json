@@ -1,8 +1,0 @@
-{
-  "passed": true,
-  "tests": 15,
-  "outputs": {
-    "staged-native": "../Users/edo/Documents/ChatGPT/nikke_tools/research/upstream/nikke-calc-master/scraper/profile_fetch.py:187: ResourceWarning: unclosed file <_io.TextIOWrapper name='/Users/edo/Documents/ChatGPT/nikke_tools/research/upstream/nikke-calc-master/scraper/nikke_scraped.json' mode='r' encoding='utf-8'>\n  d = json.load(open(os.path.join(HERE, \"nikke_scraped.json\"), encoding=\"utf-8\"))\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n.......\n----------------------------------------------------------------------\nRan 9 tests in 0.605s\n\nOK\n",
-    "source-native": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n"
-  }
-}

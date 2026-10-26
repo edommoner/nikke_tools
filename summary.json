@@ -1,0 +1,281 @@
+{
+  "schema": "coordinate-landing-arena-windows-compile-report-v1",
+  "distribution": {
+    "distribution_commit": "4b34bad86380cbd28117af0f6ac593af79d4060d",
+    "archive_bytes": 9114484,
+    "archive_sha256": "fb9ff354b30e040c1cdaef142f5b745220a07120e29418cc117d36cb46883b8f",
+    "package_id": "f82626e14602dde9ae6c9b19553511a35240e8bb0dca3d0792ecc3bffe8f4262",
+    "archive_members": 2051,
+    "safe_paths_verified": true,
+    "package_verification": "pending"
+  },
+  "package_verification": {
+    "passed": true,
+    "package_id": "f82626e14602dde9ae6c9b19553511a35240e8bb0dca3d0792ecc3bffe8f4262",
+    "suite": "coordinate-landing-arena",
+    "manifest_files": 2050,
+    "payload_bytes": 57264119,
+    "verification": "package-local verify_package; identities/records/golden/source closure",
+    "gpu_calls": 0
+  },
+  "outcome": "stopped: inner before-gate process snapshot failed; compiler never admitted",
+  "attempts": {
+    "package_cli_compile": 1,
+    "slang_build": 0,
+    "nvrtc_compile": 0,
+    "offline_resource_usage": 0,
+    "retries": 0,
+    "cuda_context": 0,
+    "module_load": 0,
+    "kernel_launch": 0,
+    "nvidia_smi": 0
+  },
+  "requested_configuration": {
+    "python": "3.12 base runtime",
+    "slang": "2026.20 existing Windows SDK",
+    "cuda": "existing isolated CUDA 12.4 NVRTC",
+    "artifact": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_bytes": 2147483648,
+    "inner_timeout_seconds": 60,
+    "outer_timeout_seconds": 60,
+    "generation_cache": false,
+    "compile_cache": "existing dedicated coordinate-landing-current-v4 compile-cache"
+  },
+  "source": {
+    "entry_source": "gpu/coordinate_landing_arena_probe.slang",
+    "entry_source_sha256": "4069d5a01294e3555db5b030c3d270fcfe2ff0cfffe20bee48056be52f50c641",
+    "source_closure_files": 142,
+    "source_closure_map_sha256": "c897ff0b48d61b1bdcc9423eb06901c84ffe710e178746965582404f6ceb8aad",
+    "expected_generated_normalized": {
+      "cuda": "64055091da834e60a0eadae0e39acec082a08ed94f7609423280dfc4f5fe58ad",
+      "metal": "e0dd088ee49d3d780d3f5c16b79de2ba6ea8be9e1d8b11f9a8b12be4c53774c9"
+    },
+    "actual_generated_source": null
+  },
+  "cubin": null,
+  "compile_cache_key": null,
+  "resource_usage": null,
+  "previous_stack_bytes": 199352,
+  "stack_comparison": "unavailable: new CUBIN not produced",
+  "result": {
+    "mode": "compile-only",
+    "compiler_verified": false,
+    "passed": false,
+    "containment_verified": false,
+    "preservation_verified": false,
+    "calculation_verified": false,
+    "gpu_calls": 0,
+    "driver_load_calls": 0,
+    "phase": {
+      "events": 0,
+      "last_event": null,
+      "timed_calls": [],
+      "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_linked_artifact_observed": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "error": null,
+    "gpu_retry_count": 0
+  },
+  "executions": {
+    "outer": {
+      "passed": false,
+      "timed_out": false,
+      "timeout_seconds": 60,
+      "elapsed_seconds": 9.570705799851567,
+      "child_exit_code": 1,
+      "final_child_exit_code": 1,
+      "error": null,
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": null,
+      "wait_completed_unix_ns": 1793044757571703700,
+      "below_normal_priority": true,
+      "phase": {
+        "events": 0,
+        "last_event": null,
+        "timed_calls": [],
+        "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+        "nvrtc_compile_returned_success": false,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_linked_artifact_observed": false,
+        "cuda_launch_returned_success": false,
+        "cuda_synchronize_returned_success": false,
+        "cuda_readback_returned_success": false,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    },
+    "inner": {
+      "passed": false,
+      "timed_out": false,
+      "timeout_seconds": 60,
+      "elapsed_seconds": 1.4030768000520766,
+      "child_exit_code": null,
+      "final_child_exit_code": 1,
+      "error": "RuntimeError: Windows process snapshot unavailable; no command lines retained",
+      "cleanup_error": null,
+      "cleanup_wait_seconds": 5,
+      "observation_error": "RuntimeError: Windows process snapshot unavailable; no command lines retained",
+      "wait_completed_unix_ns": 1793044756931818000,
+      "below_normal_priority": true,
+      "phase": {
+        "events": 0,
+        "last_event": null,
+        "timed_calls": [],
+        "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+        "nvrtc_compile_returned_success": false,
+        "cuda_compile_cache_hit_verified": false,
+        "cuda_linked_artifact_observed": false,
+        "cuda_launch_returned_success": false,
+        "cuda_synchronize_returned_success": false,
+        "cuda_readback_returned_success": false,
+        "scope": "Observed API returns only; full output verification requires the shared suite report"
+      },
+      "gpu_retry_count": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false
+    }
+  },
+  "jobs": {
+    "compile-cli": {
+      "pre_gate_verified": true,
+      "start_gate_exists": true,
+      "pre_gate": {
+        "child_pid": 18660,
+        "child_ppid": 15424,
+        "parent_observation": "os_process_snapshot",
+        "observed_unix_ns": 1793044748023395800,
+        "wrapper_pid": 15424,
+        "child_creation_filetime_ticks": "134375183480046821",
+        "job_members": [
+          18660
+        ],
+        "job_peak_memory_bytes": 528384,
+        "job_memory_limit_bytes": 2147483648
+      },
+      "post_wait": {
+        "child_pid": 18660,
+        "child_ppid": 15424,
+        "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+        "observed_unix_ns": 1793044757570697400,
+        "wrapper_pid": 15424,
+        "child_creation_filetime_ticks": "134375183480046821",
+        "job_members": [],
+        "job_peak_memory_bytes": 130134016,
+        "job_memory_limit_bytes": 2147483648
+      },
+      "inspection_error": null
+    },
+    "compile": {
+      "pre_gate_verified": true,
+      "start_gate_exists": false,
+      "pre_gate": {
+        "child_pid": 70780,
+        "child_ppid": 18660,
+        "parent_observation": "os_process_snapshot",
+        "observed_unix_ns": 1793044756060575100,
+        "wrapper_pid": 18660,
+        "child_creation_filetime_ticks": "134375183560386183",
+        "job_members": [
+          70780
+        ],
+        "job_peak_memory_bytes": 2269184,
+        "job_memory_limit_bytes": 2147483648
+      },
+      "post_wait": {
+        "child_pid": 70780,
+        "child_ppid": 18660,
+        "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+        "observed_unix_ns": 1793044756931818000,
+        "wrapper_pid": 18660,
+        "child_creation_filetime_ticks": "134375183560386183",
+        "job_members": [],
+        "job_peak_memory_bytes": 42696704,
+        "job_memory_limit_bytes": 2147483648
+      },
+      "inspection_error": null
+    }
+  },
+  "preparation_phases": [
+    {
+      "monotonic_ns": 2874168203000000,
+      "pid": 18660,
+      "stage": "inner_before_observation",
+      "state": "entered",
+      "wall_time_ns": 1793044756061583700
+    },
+    {
+      "elapsed_seconds": 0.8553405,
+      "exception": "RuntimeError",
+      "monotonic_ns": 2874169062000000,
+      "pid": 18660,
+      "stage": "inner_before_observation",
+      "state": "raised",
+      "wall_time_ns": 1793044756919137700
+    },
+    {
+      "monotonic_ns": 2874169062000000,
+      "pid": 18660,
+      "stage": "inner_after_observation",
+      "state": "entered",
+      "wall_time_ns": 1793044756931818000
+    },
+    {
+      "elapsed_seconds": 0.5025557,
+      "exception": "RuntimeError",
+      "monotonic_ns": 2874169578000000,
+      "pid": 18660,
+      "stage": "inner_after_observation",
+      "state": "raised",
+      "wall_time_ns": 1793044757436363700
+    }
+  ],
+  "environment_preservation": {
+    "status": "unverified",
+    "reason": "RuntimeError: Windows process snapshot unavailable; no command lines retained",
+    "snapshot_before_available": false,
+    "snapshot_after_available": false,
+    "cli_preservation_verified": false
+  },
+  "stdout_and_stderr": [
+    {
+      "path": "compile-cli/stdout.log",
+      "bytes": 918,
+      "sha256": "2c8df873671b186e71fc8bdde74dd741d94e3b0a70d526eff233e5e5756161ba",
+      "original_bytes_base64": "ew0KICAibW9kZSI6ICJjb21waWxlLW9ubHkiLA0KICAiY29tcGlsZXJfdmVyaWZpZWQiOiBmYWxzZSwNCiAgInBhc3NlZCI6IGZhbHNlLA0KICAiY29udGFpbm1lbnRfdmVyaWZpZWQiOiBmYWxzZSwNCiAgInByZXNlcnZhdGlvbl92ZXJpZmllZCI6IGZhbHNlLA0KICAiY2FsY3VsYXRpb25fdmVyaWZpZWQiOiBmYWxzZSwNCiAgImdwdV9jYWxscyI6IDAsDQogICJkcml2ZXJfbG9hZF9jYWxscyI6IDAsDQogICJwaGFzZSI6IHsNCiAgICAiZXZlbnRzIjogMCwNCiAgICAibGFzdF9ldmVudCI6IG51bGwsDQogICAgInRpbWVkX2NhbGxzIjogW10sDQogICAgInRpbWluZ19zY29wZSI6ICJPYnNlcnZlZCBmdW5jdGlvbiB0aW1lIGV4Y2x1ZGVzIGl0cyBvd24gZW50cnkvZXhpdCBqb3VybmFsIHdyaXRlczsgbmVzdGVkIGNhbGxzIG92ZXJsYXA7IGluY29tcGxldGUgY2FsbHMgaGF2ZSBubyBkdXJhdGlvbjsgbGVnYWN5IGpvdXJuYWxzIG1heSBoYXZlIG5vbmUiLA0KICAgICJudnJ0Y19jb21waWxlX3JldHVybmVkX3N1Y2Nlc3MiOiBmYWxzZSwNCiAgICAiY3VkYV9jb21waWxlX2NhY2hlX2hpdF92ZXJpZmllZCI6IGZhbHNlLA0KICAgICJjdWRhX2xpbmtlZF9hcnRpZmFjdF9vYnNlcnZlZCI6IGZhbHNlLA0KICAgICJjdWRhX2xhdW5jaF9yZXR1cm5lZF9zdWNjZXNzIjogZmFsc2UsDQogICAgImN1ZGFfc3luY2hyb25pemVfcmV0dXJuZWRfc3VjY2VzcyI6IGZhbHNlLA0KICAgICJjdWRhX3JlYWRiYWNrX3JldHVybmVkX3N1Y2Nlc3MiOiBmYWxzZSwNCiAgICAic2NvcGUiOiAiT2JzZXJ2ZWQgQVBJIHJldHVybnMgb25seTsgZnVsbCBvdXRwdXQgdmVyaWZpY2F0aW9uIHJlcXVpcmVzIHRoZSBzaGFyZWQgc3VpdGUgcmVwb3J0Ig0KICB9LA0KICAiZXJyb3IiOiBudWxsLA0KICAiZ3B1X3JldHJ5X2NvdW50IjogMA0KfQ0K"
+    },
+    {
+      "path": "compile-cli/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes_base64": ""
+    },
+    {
+      "path": "compile/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes_base64": ""
+    },
+    {
+      "path": "compile/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes_base64": ""
+    }
+  ],
+  "retention": {
+    "original_failures_claims_and_cache_intentionally_modified": false,
+    "new_package_compile_claim_retained": true,
+    "prior_snapshot_preservation_not_reasserted": true
+  },
+  "scope": "Compilation/resource diagnostic only; no calculation or full-character verification"
+}

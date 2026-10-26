@@ -1,9 +1,0 @@
-{"name": "fixed", "passed": true}
-{"name": "accumulated", "passed": true}
-{"name": "capped", "passed": true}
-{"name": "recast", "passed": true}
-{"name": "remove", "passed": true}
-{"name": "nested", "passed": true}
-{"name": "raw-staged-dot-burst", "passed": true, "cpu": 595801272, "gpu": 595801272}
-{"name": "raw-staged-dot-sources-and-counters", "passed": true, "cpu": 397005100, "gpu": 397005100}
-{"name": "staged-frozen-count-live-damage-buffs", "passed": true}

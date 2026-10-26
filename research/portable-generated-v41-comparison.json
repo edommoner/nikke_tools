@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "source_commit": "70f90181245ff1ca5d0930bc2e332762d99ebde1",
-  "gpu_rerun": false,
-  "normalized_sha256": {
-    "cuda": "f0d80c9b5cba4a624ddbe96be14af037d01979e4bca85d2d04dc7c4ce8eeb084",
-    "metal": "5cabb2a40722dfe87080d5c59b44dfe592867e92db07935b1ced73238bb8efb0"
-  }
-}

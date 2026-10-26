@@ -1,9 +1,0 @@
-{
-  "scope": "Controller sources unchanged since launching independent seal v3; metadata receipt checks may reuse only inside that child; battle comparisons remain fresh",
-  "source_sha256": {
-    "scripts/nikke_gpu.py": "bee50abe95e9c410a2ef3b69c14f18595485255d18dd085fd8b25a60e2fd5540",
-    "app/portable_migration_receipt_reuse.py": "5e11c0e9c076047820734a85a6f9df2247fd804b6c0416b6d3e7a9788851b123"
-  },
-  "gpu_calls": 0,
-  "calculation_verified": false
-}

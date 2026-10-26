@@ -1,9 +1,0 @@
-{
-  "passed": true,
-  "annotation_only": true,
-  "unchanged_formula_and_layout": true,
-  "abi": "detail_damage_basis_predicates_v50",
-  "old_source_sha256": "0537d7dcd49eb9c013e5ec2bf43422144b17873a0e982f8a1fe3c6d5d1885357",
-  "new_source_sha256": "6b03fe5422631d35cc2a93ce7bfe685dd7cf90fa289b8ba64ff8ae8b1dded93b",
-  "scope": "Exact text identity after removing noinline markers on three shared functions (five declarations/definitions) and their comment. Not a GPU numerical acceptance report."
-}
