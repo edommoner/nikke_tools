@@ -280,6 +280,9 @@ void writePortableProgram(inout Runtime s,uint input,uint output,uint queries)
     if(nativeNumericEnabled(s) && !finishOrderedHistory(output+P_ORDERED_HISTORY_BASE,results[output+P_REVIVAL_BASE+6])) results[output]=64;
 #ifdef PORTABLE_COORDINATE_EXISTING_HANDLERS
     if(s.error==0&&!finishCoordinatePacketHistory(s)) results[output]=64;
+#ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
+    if(s.error==0&&!finishCoordinateTypedWeaponHistory(s)) results[output]=64;
+#endif
 #endif
 #endif
 }

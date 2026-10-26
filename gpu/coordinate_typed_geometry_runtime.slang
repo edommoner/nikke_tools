@@ -12,7 +12,13 @@ bool validTypedGeometry(inout Runtime s)
     if(f64Less(cNumber(p+8),0))return false;
     if(commands[p+11]>1)return false;
     if(commands[p+11]==1&&(commands[p+4]!=0||commands[p+5]!=0||commands[p+6]!=0||commands[p+7]!=0))return false;
-    for(uint i=10;i<16;i++)if(i!=11&&commands[p+i]!=0)return false;
+    for(uint i=10;i<16;i++)if(i!=11&&commands[p+i]!=0)
+    {
+#ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
+        if(i==13&&commands[p+i]==1&&commands[p+11]==1&&f64Zero(cNumber(p+8)))continue;
+#endif
+        return false;
+    }
     for(uint slot=0;slot<128;slot++)
     {
         uint row=p+16+slot*18;

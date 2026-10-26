@@ -6,7 +6,20 @@ from portable_original_modifier_probe_input import pack_target_input
 from portable_target_modifier_input import lower_effect
 from destructible_skill_specs import coefficient
 
-def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None):
+def compile_coordinate_typed(prepared,bindings=(),probe_row=None,*,probe_kind=2,max_attacks=128,geometry=None,coordinate_weapon_targets=False):
+    if type(coordinate_weapon_targets) is not bool:raise ValueError('Explicit coordinate weapon policy required')
+    if coordinate_weapon_targets:
+        if probe_row is not None or not bindings or geometry is None or geometry.get('point_source')!='caster_aim' or geometry.get('grow',0)!=0:raise ValueError('Typed coordinate weapons require live aim, zero authored grow and no skill probe')
+        if type(probe_kind) is not int or probe_kind not in (2,3) or type(max_attacks) is not int or not 1<=max_attacks<=128:raise ValueError('Invalid typed coordinate weapon limits')
+        original=prepared['effects'];lowered=copy.deepcopy(prepared)
+        for dest,row in zip(lowered['effects'],original,strict=True):dest['effect']=lower_effect(row['effect'])
+        words,meta,actors,scene=compile_coordinate_battle(lowered)
+        extra,axes=pack_target_input(words,meta,original,prepared['enemy']['patterns'],bindings,None,probe_kind,max_attacks,weapon_only=True)
+        from portable_typed_geometry_specs import pack
+        shape_words,shape_meta=pack(geometry,len(bindings),probe_kind);extra[:2320]=shape_words;extra[13]=1
+        meta['typed_geometry']=shape_meta
+        meta['coordinate_typed_input']=dict(probe_source=None,probe_kind=probe_kind,axis_rows=axes,one_resident_runtime=True,shared_world_clock=True,automatic_typed_weapon_aim=False,coordinate_weapon_targets=True)
+        return words+extra,meta,actors,scene
     if probe_row is None:
         if geometry is not None:raise ValueError('Typed geometry requires an explicit probe')
         if bindings:raise ValueError('Disabled typed route cannot own targets')

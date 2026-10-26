@@ -12,9 +12,10 @@ SOURCE='gpu/destructible_original_modifier_entry.slang'
 INPUT_WORDS=110112
 OUTPUT_WORDS=1048576
 
-def pack_target_input(words,meta,original,patterns,bindings,probe_row,probe_kind,max_attacks):
+def pack_target_input(words,meta,original,patterns,bindings,probe_row,probe_kind,max_attacks,*,weapon_only=False):
     """Same typed input block at either arena base; no battle/schedule evaluation."""
-    axes=pack_axes(words,meta,[r['effect'] for r in original]);source=meta['binding_source_indices'].index(probe_row)
+    if type(weapon_only) is not bool or weapon_only and probe_row is not None:raise ValueError('Weapon-only descriptor cannot name a skill probe')
+    axes=pack_axes(words,meta,[r['effect'] for r in original]);source=0xffffffff if weapon_only else meta['binding_source_indices'].index(probe_row)
     _,_,rows=compile_bindings([dict(id=p['id']) for p in patterns],bindings)
     if any(int(r.handle.kind)!=probe_kind for r in rows):raise ValueError('Probe binding kind must match its declared typed route')
     if probe_kind==3 and any(r.owner is None or (int(r.owner.kind),r.owner.identity,r.owner.generation)!=(0,0,1) for r in rows):raise ValueError('HP probe requires the explicit boss owner generation')
@@ -22,7 +23,8 @@ def pack_target_input(words,meta,original,patterns,bindings,probe_row,probe_kind
     for slot,row in enumerate(rows):
         at=2328+slot*12;owner=[0xffffffff,0,0] if row.owner is None else [int(row.owner.kind),row.owner.identity,row.owner.generation]
         extra[at:at+8]=[row.node,int(row.handle.kind),row.handle.identity,*struct.unpack('<II',struct.pack('<d',row.capacity)),*owner]
-    extra[5120:5124]=[source,max_attacks,1,0x44425431];extra[5136]=0x444d4231;extra[5168:5424]=axes;extra[5424+source]=probe_kind;extra[5680:5684]=[0x48534931,0,0,1]
+    extra[5120:5124]=[source,max_attacks,1,0x44425431];extra[5136]=0x444d4231;extra[5168:5424]=axes;extra[5680:5684]=[0x48534931,0,0,1]
+    if not weapon_only:extra[5424+source]=probe_kind
     return extra,axes
 
 def compile_probe(prepared,bindings,probe_row,*,max_attacks=128,probe_kind=2):

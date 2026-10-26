@@ -4,6 +4,9 @@ bool initializeDestructibleBattle(inout Runtime s)
 {
     uint descriptor=DF_DESCRIPTOR(s),extra=DF_EXTRA(s),count=commands[extra+2320];
     bool weaponOnly=false;
+#ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
+    weaponOnly=coordinateTypedWeapons(s)&&commands[descriptor]==0xffffffffU;
+#endif
 #ifdef PORTABLE_DESTRUCTIBLE_WEAPON
     weaponOnly=destructibleWeaponEnabled(s)&&commands[descriptor]==0xffffffffU;
 #endif

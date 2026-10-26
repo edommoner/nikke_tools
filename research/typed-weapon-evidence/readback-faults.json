@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "package_id": "83af97803d89614f77956fe6e3f01dd9d40d5f57a360073f4bb077462ca4ec0a",
+  "actual_saved_readback_baseline_passed": true,
+  "rejected_corruptions": [
+    "packet_damage",
+    "packet_generation",
+    "packet_critical",
+    "whole_stream_sha",
+    "typed_remaining_hp",
+    "unused_tail"
+  ],
+  "overflow_total_packets": 2457,
+  "retained_capacity": 2048,
+  "saved_raw_sha256_unchanged": "e10b909bd4769b2403be549d65f8cb71c9803e0b70b410c0198be780733d51c4",
+  "gpu_calls": 0,
+  "calculation_verified": false
+}

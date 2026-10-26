@@ -1,0 +1,15 @@
+{
+  "schema": "independent-metal-audit-v1",
+  "package_id": "83af97803d89614f77956fe6e3f01dd9d40d5f57a360073f4bb077462ca4ec0a",
+  "capture": "/private/tmp/nikke-typed-weapon-metal-v1",
+  "child_pid": 73948,
+  "input_count": 46,
+  "native_cases": 29,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 131.4453125828877,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "de3c60b0c01fb8afc7e7c1766887e633fd2b8806827bad52ef98918fec793413",
+  "output_sha256": "e10b909bd4769b2403be549d65f8cb71c9803e0b70b410c0198be780733d51c4",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls"
+}

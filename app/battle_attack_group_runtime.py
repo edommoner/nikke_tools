@@ -35,8 +35,9 @@ class LandScope(ast.NodeTransformer):
         return node
 
 class Producer:
-    def __init__(self,*,coordinate_packets=False):
+    def __init__(self,*,coordinate_packets=False,coordinate_typed_packets=False):
         self.coordinate_packets=coordinate_packets
+        self.coordinate_typed_packets=coordinate_typed_packets
         self.next_id=0;self.pending={};self.shots={};self.active=[];self.deliveries=[];self.contexts=[];self.damage_contexts=[];self.child_targets={};self.visibility=[];self.restores=[]
         self.data=dict(shots=[],groups=[],notifications=[],children=[],child_landings=[],managers=[])
         if coordinate_packets:self.data['physical_receipts']=[]
@@ -54,7 +55,7 @@ class Producer:
                     raise ValueError('Coordinate shot groups require expanded normal packets')
             elif any(not _is_normal(ev) or ev.to is not None or ev.rule or ev.target or ev.extra or ev.split or ev.part_damage or ev.interrupt_damage for ev in answer):
                 raise ValueError('Shot groups require plain logical normal packets')
-            packet_limit=131072 if self.coordinate_packets else 1024
+            packet_limit=262144 if self.coordinate_typed_packets else 131072 if self.coordinate_packets else 1024
             if len(self.shots)>=32 or len(answer)>packet_limit or len({id(ev) for ev in answer})!=len(answer):raise ValueError('Pending shot group capacity or packet identity')
             self.next_id+=1
             if self.next_id>=2**24:raise ValueError('Shot identity capacity exceeded')
@@ -112,7 +113,7 @@ class Producer:
         return out
 
 @contextmanager
-def battle_attack_groups(*,routing,coordinate_packets=False):
+def battle_attack_groups(*,routing,coordinate_packets=False,coordinate_typed_packets=False):
     if routing not in ('native','all-logical-enemies'):raise ValueError('Explicit native or all-logical-enemies shot routing required')
     from calculator import timeline,buff_manager
     from runner import sim
@@ -120,8 +121,9 @@ def battle_attack_groups(*,routing,coordinate_packets=False):
     if timeline.simulate is not sim.simulate:raise ValueError('Native simulation aliases differ')
     if getattr(timeline.BossScript,'_nikke_attack_group_scope',False):raise ValueError('Nested shot producer scopes are unsupported')
     if type(coordinate_packets) is not bool:raise ValueError('Explicit boolean coordinate packet policy required')
+    if type(coordinate_typed_packets) is not bool or coordinate_typed_packets and not coordinate_packets:raise ValueError('Typed physical packets require coordinate routing')
     if coordinate_packets and routing!='native':raise ValueError('Coordinate packets require native routing')
-    runtime=Producer(coordinate_packets=coordinate_packets);old_sim=timeline.simulate;old_boss=timeline.BossScript;old_hit=timeline.HitEvent
+    runtime=Producer(coordinate_packets=coordinate_packets,coordinate_typed_packets=coordinate_typed_packets);old_sim=timeline.simulate;old_boss=timeline.BossScript;old_hit=timeline.HitEvent
     manager_type=buff_manager.BuffManager;old_register=manager_type.register_damage_handler;old_notify=manager_type.notify;old_resolve=manager_type._resolve_target
     old_landing=manager_type.publish_landing;old_add=manager_type.land_add_with_impact;old_publish=impact_runtime.publish_impact
     class Boss(old_boss):

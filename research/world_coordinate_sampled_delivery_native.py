@@ -10,7 +10,7 @@ def observe(case):
     codes={timeline.CharState._fire.__code__,timeline.CharState._charge_fire.__code__}
     def inner(c):
         if not c.get('sampled_groups'):return vital(c)
-        with battle_attack_groups(routing='native',coordinate_packets=True) as data:n,t=vital(c,shot_codes=codes)
+        with battle_attack_groups(routing='native',coordinate_packets=True,coordinate_typed_packets=c.get('coordinate_weapon_targets',False)) as data:n,t=vital(c,shot_codes=codes)
         bind_groups(n,data);return n,t
     n,t=routed(case,observer=inner)
     n['landed_packets']=[dict(row,target='' if row['label']=='__enemy__' else row['label']) for row in n['landed_packets']]

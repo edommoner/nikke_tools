@@ -95,6 +95,9 @@ uint64_t prepareCoordinateSampleBasis(inout Runtime s,uint who,Weapon w,uint64_t
     results[h]=w.pellets*w.muzzles;results[h+1]=0;results[h+2]=1;results[h+3]=n;
     storeNumber(h+10,when);results[h+12]=w.pellets;results[h+13]=w.muzzles;results[h+54]=who;
     for(uint i=0;i<n*4;i++)results[h+CS_FRAME+i]=results[frame+8+i];
+#ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
+    ctwSnapshot(s,who,w,coefficient,when);
+#endif
     return 0;
 }
 bool sampledCoordinateContains(inout Runtime s,uint slot,uint64_t px,uint64_t py,uint64_t grow)
@@ -120,6 +123,10 @@ bool sampleCoordinatePhysicalPellet(inout Runtime s,Weapon w,uint who,uint64_t w
     uint64_t ax=actorNumber(input+4),ay=actorNumber(input+6),radius=actorNumber(input+8),grow=actorNumber(input+10),k=actorNumber(input+12);
     uint coreAt=clShapeAt(input,CL_TARGETS);bool hasCore=results[input+3]!=0;
     bool angle=n!=0||hasCore&&(!f64Equal(actorNumber(coreAt+2),ax)||!f64Equal(actorNumber(coreAt+4),ay));
+#ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
+    bool typedWeapons=coordinateTypedWeapons(s);
+    if(typedWeapons&&results[h+64]!=0)angle=true;
+#endif
     uint64_t px,py,u,v;uint status;coordinateSamplePoint(csRng(s),ax,ay,radius,k,angle,px,py,u,v,status);
     if(status!=0){s.error=status;return true;}
     uint front=0;
@@ -129,6 +136,9 @@ bool sampleCoordinatePhysicalPellet(inout Runtime s,Weapon w,uint who,uint64_t w
         if(front==0&&sampledCoordinateContains(s,slot,px,py,0))front=slot;
         if(f64Less(0,grow)&&sampledCoordinateContains(s,slot,px,py,grow))results[at+8+slot/32]|=1U<<(slot%32);
     }
+#ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
+    if(typedWeapons)front=ctwSelectPellet(s,hit,front,px,py,grow);
+#endif
     bool inCore=false;
     if(hasCore)
     {
@@ -137,18 +147,29 @@ bool sampleCoordinatePhysicalPellet(inout Runtime s,Weapon w,uint who,uint64_t w
         inCore=coordinateShapeContains(d,0);
     }
     bool critical=f64Less(coordinateRandom53(csRng(s)),actorNumber(h+40)),reach=f64Less(0,grow),core=reach?inCore:front==0&&inCore;
-    bool part=front!=0&&commands[actorBinding(s,front)]==1,body=front==0&&!inCore;
+    bool part=front!=0&&front!=0xffffffffU&&commands[actorBinding(s,front)]==1,body=front==0&&!inCore;
     results[at]=front;results[at+1]=uint(critical)|(uint(core)<<1)|(uint(part)<<2)|(uint(body)<<3)|(uint(reach)<<4);
     uint64_t factors[9];for(uint i=0;i<9;i++)factors[i]=actorNumber(h+20+i*2);
     factors[7]=sampledCoordinateF3(s,critical,false);factors[2]=sampledCoordinateF3(s,critical,core);
+#ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
+    if(typedWeapons)ctwSampleAmount(s,hit,critical,reach);
+    if(front!=0xffffffffU||reach)
+    {
+#endif
     storeNumber(at+2,damageFromFactors(s,factors,false));factors[2]=factors[7];
     storeNumber(at+4,damageFromFactors(s,factors,true));factors[8]=actorNumber(h+38);storeNumber(at+6,damageFromFactors(s,factors,true));
+#ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
+    }
+#endif
     storeNumber(h+4,part?ONE:uint64_t(0));storeNumber(h+6,body?ONE:uint64_t(0));
     sampleWorldFraction(s,who,critical?ONE:uint64_t(0),core?ONE:uint64_t(0));
     if(reach)
     {
         results[h+1]++;
         for(uint i=0;i<n;i++){uint slot=results[h+CS_FRAME+i*4];if((results[at+8+slot/32]&(1U<<(slot%32)))!=0)results[h+1]++;}
+#ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
+        if(typedWeapons)results[h+1]+=ctwReachCount(s,hit);
+#endif
     }
     else results[h+1]++;
 #ifdef PORTABLE_COORDINATE_SAMPLED_PARENT
@@ -164,7 +185,10 @@ bool sampleCoordinatePhysicalPellet(inout Runtime s,Weapon w,uint who,uint64_t w
                 if((results[at+8+slot/32]&(1U<<(slot%32)))!=0&&!packetIntegerAddAmount(total,actorNumber(at+(kind==1?4:6))))s.error=16;
             }
         }
-        else if(front!=0&&!packetIntegerAddAmount(total,actorNumber(at+(commands[actorBinding(s,front)]==1?4:6))))s.error=16;
+        else if(front!=0&&front!=0xffffffffU&&!packetIntegerAddAmount(total,actorNumber(at+(commands[actorBinding(s,front)]==1?4:6))))s.error=16;
+#ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
+        if(typedWeapons)ctwParentAdd(s,hit,reach,total);
+#endif
         storeNumber(h+50,total.low);storeNumber(h+52,total.high);
         if(hit+1==results[h]&&s.error==0)
         {
@@ -211,6 +235,9 @@ uint64_t deliverSampledCoordinateShot(inout Runtime s,uint who,uint64_t legacy)
     {
         uint at=csRow(s,hit),front=results[at],flags=results[at+1];bool reach=(flags&16)!=0;
         if(reach||front==0)coordinateGroupBodyPacket(s,who,actorNumber(at+2),when,false,grouped);
+#ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
+        if(coordinateTypedWeapons(s)){ctwDeliverTargets(s,who,hit,reach,when);continue;}
+#endif
         for(uint i=0;i<n&&s.error==0;i++)
         {
             uint e=h+CS_FRAME+i*4,slot=results[e],targetKind=results[e+1];

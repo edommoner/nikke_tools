@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "unfiltered_package_id": "4feda7abb17971f18954fc0df58a52dc1d2411e97ac609cde455248d2910c0e3",
+  "filtered_package_id": "1f72a1647f777ffc8314621133f988d5628d73ad9352b8754a4b3cd1b03b6b04",
+  "all46_input_source_native_fingerprints_exact": true,
+  "native_cases": 29,
+  "old_native_seconds": 269.1798139559105,
+  "filtered_native_seconds": 104.26576879178174,
+  "full_case_count": 46,
+  "omitted_cases": 0,
+  "filter": "existing native_python_profile.python_observers_only",
+  "scope": "CPU observation overhead only; no numeric or GPU cache claim",
+  "gpu_calls": 0,
+  "calculation_verified": false
+}

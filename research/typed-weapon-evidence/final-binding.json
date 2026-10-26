@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "execution_package_id": "83af97803d89614f77956fe6e3f01dd9d40d5f57a360073f4bb077462ca4ec0a",
+  "final_package_id": "bfeafd0945788a4f6b6e66c8f6ab72f44b6b05f1f0cfe15be8e37d2182cb55a9",
+  "all46_input_source_native_fingerprints_exact": true,
+  "input_bytes": 21285124,
+  "existing_payload_files_exact": 3418,
+  "changed_files": [
+    "app/portable_arena_specs.py",
+    "app/portable_readiness_semantics.py",
+    "scripts/nikke_gpu.py",
+    "tests/test_coordinate_typed_weapon.py",
+    "tests/test_coordinate_typed_weapon_gpu.py"
+  ],
+  "added_files": [
+    "app/portable_coordinate_typed_weapon_specs.py",
+    "research/portable-coordinate-typed-weapon-short-expected.json"
+  ],
+  "calculation_and_proof_functions_ast_exact": [
+    "native_value",
+    "native_hash",
+    "cpu_preflight",
+    "compare_readback",
+    "run_capture",
+    "audit_capture",
+    "audit_saved_metal",
+    "seal_development",
+    "run_job",
+    "required_generation_cache_preflight",
+    "required_cuda_cache_preflight",
+    "generation_capture"
+  ],
+  "existing_arena_functions_unchanged": true,
+  "final_extra_scope": "static arena inventory, audited support metadata, seal registration and their tests",
+  "new_simulation_or_gpu_calls": 0,
+  "additional_gpu_required": false
+}

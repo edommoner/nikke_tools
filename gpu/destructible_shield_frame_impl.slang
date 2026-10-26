@@ -57,6 +57,16 @@ bool validShieldBattleRoutes(inout Runtime s)
 {
     uint base=DT_INPUT(s,5680);
     bool weapons=false;
+#ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
+    if(coordinateTypedWeapons(s))
+    {
+        if(commands[DF_DESCRIPTOR(s)]!=0xffffffffU)return false;
+        for(uint i=0;i<256;i++)if(commands[DT_INPUT(s,5424)+i]!=0)return false;
+        if(commands[base]!=0x48534931U||commands[base+1]!=0||commands[base+2]!=0||commands[base+3]!=1)return false;
+        for(uint i=4;i<32;i++)if(commands[base+i]!=0)return false;
+        return true;
+    }
+#endif
 #ifdef PORTABLE_DESTRUCTIBLE_WEAPON
     weapons=destructibleWeaponEnabled(s);
     if(weapons&&!validDestructibleWeapons(s)) return false;

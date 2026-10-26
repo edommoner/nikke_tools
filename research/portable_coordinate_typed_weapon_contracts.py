@@ -41,4 +41,5 @@ def verify(case,native):
         multi=[rows for rows in by_shot.values() if len(rows)>1]
         assert multi and any(not r['receipts'][0]['delivered'] for rows in multi for r in rows[1:]),'Later pellets retain the destroyed generation'
         assert any(r['receipts'][0]['handle'][1]==11 and r['receipts'][0]['delivered'] for r in attacks),'A later shot must reselect the back actor'
+    if label=='shield-stream-overflow':assert len(attacks)>2048,'Whole-stream proof must exceed retained raw capacity'
     return dict(result,typed_attacks=len(attacks),typed_shots=len(typed['shots']),gpu_supported=False,in_game_rules_verified=False)

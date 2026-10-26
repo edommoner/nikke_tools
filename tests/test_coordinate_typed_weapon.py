@@ -48,5 +48,9 @@ class CoordinateTypedWeaponTests(unittest.TestCase):
             row=result['typed_coordinate_weapon_reference'];self.assertTrue(row['cpu_contract_verified'])
             for flag in ('metal_verified','cuda_device_verified','automatic_typed_weapon_aim_verified','canonical_consumer_verified','in_game_rules_verified','full_character_verified'):
                 self.assertFalse(row[flag])
+            gpu=result['typed_coordinate_weapon_validation'];self.assertEqual((gpu['inputs'],gpu['native_cases']),(46,29))
+            self.assertTrue(gpu['metal_verified']);self.assertTrue(gpu['all_physical_receipts_hashed'])
+            for flag in ('cuda_device_verified','automatic_typed_weapon_aim_verified','canonical_consumer_verified','in_game_rules_verified','full_character_verified'):
+                self.assertFalse(gpu[flag])
 
 if __name__=='__main__':unittest.main()

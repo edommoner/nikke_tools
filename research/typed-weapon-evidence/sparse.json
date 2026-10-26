@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "operation": "sparsify-raw",
+  "apply": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "raw_deleted": false,
+  "passed": true,
+  "capture": "/private/tmp/nikke-typed-weapon-metal-v1",
+  "raw_bytes": 373888000,
+  "raw_sha256": "e10b909bd4769b2403be549d65f8cb71c9803e0b70b410c0198be780733d51c4",
+  "evidence_sha256": "488ddb5e7d101365a9c2b0fc846dac95967ae9e2f316e083666c99114b3efb2e",
+  "raw_inode": 511653520,
+  "scan_block_bytes": 4096,
+  "filesystem_allocation_unit": 4096,
+  "zero_ranges": 1587,
+  "zero_range_bytes": 364113920,
+  "allocated_before": 373891072,
+  "allocated_after": 9777152,
+  "allocated_reclaimed": 364113920,
+  "full_hash_verified": true
+}

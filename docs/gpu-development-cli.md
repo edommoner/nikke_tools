@@ -1,4 +1,6 @@
-`reference --suite coordinate-typed-weapon-common --out UNIQUE.json` は、元武器の実661ペレットと型付き対象278packetのCPU契約6件を検査します。散弾内のhandle固定・実着弾への遅延・親量・RNGを確認し、Metal/CUDA対応はまだ認定しません。[通常射撃CPU契約](portable-coordinate-typed-weapon-reference.md)。
+`coordinate-typed-weapon` はsealed46入力（native29／拒17）。元の通常射撃をtyped対象へ接続し、M5 Metalと独立監査で一致しました。`package --suite coordinate-typed-weapon` を使い、compactはまだ指定しません。CPU観測は全指紋を保持して約2.58倍に短縮。`arena-check --profile coordinate-typed-weapon-v1` で同じbank配置を確認できます。現CUDA／typed auto aim／全キャラは未完です。[範囲と検証記録](portable-coordinate-typed-weapon.md)。
+
+`reference --suite coordinate-typed-weapon-common --out UNIQUE.json` は、元武器の実packetとtyped対象のCPU契約7件を検査します。散弾内のhandle固定・実着弾への遅延・親量・RNG・history超過を確認します。このCPUコマンド単独ではGPU認定を行いません。[通常射撃CPU契約](portable-coordinate-typed-weapon-reference.md)。
 
 開発時のCPU基準重複計算は `package --develop --native-baseline-package PATH` で減らせます。CPU依存と入力が一致する固定基準の期待hashだけを引き継ぎ、fresh run／独立sealは維持します。実35入力の作成3.48秒、22nativeのrun再計算177.03秒・60／488検査成功。[適用条件と使い方](portable-development-expectations.md)。
 

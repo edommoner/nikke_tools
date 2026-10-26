@@ -151,7 +151,11 @@ bool beginCoordinatePhysicalGroup(inout Runtime s,uint who,uint64_t when,uint co
     uint head=agHead(s);
     if(count==0||(results[head+8]&(1U<<who))==0||!worldPhysicalNormal(s,who))return false;
     if(s.error!=0)return true;
-    if(count>131072||results[head+3]!=0){s.error=64;return true;}
+    uint maximum=131072;
+#ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
+    if(coordinateTypedWeapons(s))maximum=262144;
+#endif
+    if(count>maximum||results[head+3]!=0){s.error=64;return true;}
 #include "attack_group_open.slang"
     return true;
 }

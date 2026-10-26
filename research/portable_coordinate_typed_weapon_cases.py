@@ -15,8 +15,9 @@ def fixtures():
         ('shield-front','레이',3,1e30,[dict(x=0.,y=0.,r=10000.,z=2.)]),
         ('projectile-mixed-reach','사쿠라',2,1e30,[dict(x=0.,y=0.,r=10.,z=2.)]),
         ('canonical-front','사쿠라',2,1e30,[dict(x=0.,y=0.,r=10000.,z=2.)]),
+        ('shield-stream-overflow','레이',3,1e30,[dict(x=0.,y=0.,r=10000.,z=2.)]),
     ):
-        duration=1 if label=='shotgun-frozen-generation' else 3
+        duration=30 if label=='shield-stream-overflow' else 1 if label=='shotgun-frozen-generation' else 3
         body=dict(factory.body_for(factory.policy.roster_for(character),duration),burst_gauge_mode='accumulate',seed=4301)
         patterns=[dict(id='typed-weapon-world',kind='idle',until=dict(time=duration))]
         if label=='canonical-front':patterns.append(dict(id='front-part',kind='parts',targets=[dict(name='front-part',hp=1e30,x=0.,y=0.,r=10000.,z=3.)]))

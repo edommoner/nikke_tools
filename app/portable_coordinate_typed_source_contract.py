@@ -17,6 +17,7 @@ def project_sources(root,sources=None):
     return out
 
 def project_backend_source(root,source=None):
-    root=Path(root);row=ledger(root)['transport'];current=(root/'app/portable_backend.py').read_text() if source is None else source
+    from portable_coordinate_typed_weapon_source_contract import project_backend_source as weapons
+    root=Path(root);row=ledger(root)['transport'];current=weapons(root,source)
     if current!=row['current'] or hashlib.sha256(current.encode()).hexdigest()!=row['current_sha256']:raise ValueError('Unreviewed coordinate typed transport')
     assert hashlib.sha256(row['baseline'].encode()).hexdigest()==row['baseline_sha256'];return row['baseline']
