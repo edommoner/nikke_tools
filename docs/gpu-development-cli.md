@@ -1,3 +1,5 @@
+`snapshot-check --original-workspace EXISTING --validation-root ISOLATED --out ISOLATED/NEW.json` はCPU専用のWindows観測診断です。失敗段階と数値codeだけを記録し、compiler／GPUを起動しません。[制約・結果の意味](portable-windows-snapshot-check.md)。
+
 `coordinate-arc-arena`140／`coordinate-landing-arena`40 は共通resource view格納のsealed Metal suiteです。旧logical出力を全保持し、追加scratchも全word照合します。通常のpackage→run→seal経路を使い、standaloneのためresident generation-cacheは指定しません。Windows新sourceのstackと実行は未確認。[容量・alias・証拠](portable-coordinate-arc-arena.md)。
 
 最新sealed `coordinate-typed-owner`80（native45／拒否35）は、明示BODY所有のHPシールドとcurrent enemy field／実counter完了を共通Slangへ接続したsuiteです。元Prim全71定義を保持し、M5保存出力のfresh全範囲監査で一致、旧67全byte保持。`package --suite coordinate-typed-owner` を使います。GPU実行1回・retry0、観測修正後の追加GPU0、最終関連100／制御507成功。CUDA実行・全キャラは未完です。[実装・観測修正・保存結果の厳密な再利用](portable-coordinate-typed-owner-gpu.md)。

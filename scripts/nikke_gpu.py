@@ -586,6 +586,7 @@ SMOKE_TESTS.append('test_portable_comparison_groups.py')
 SMOKE_TESTS.append('test_typed_owner_observer_migration.py')
 SMOKE_TESTS.append('test_portable_cache_fs_compression.py')
 SMOKE_TESTS.append('test_counter_field_decoder.py')
+SMOKE_TESTS += ['test_portable_windows_observer.py','test_portable_snapshot_failure.py']
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
@@ -3084,6 +3085,8 @@ def main(argv=None):
     a.add_argument('--artifact-kind',choices=('ptx','cubin'),default='cubin');a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--require-hit',action='store_true')
     a=sub.add_parser('consumer-audit');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('inventory');a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('snapshot-check',help='One CPU-only Windows process/listener snapshot; no CUDA')
+    a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--validation-root',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('validation-deps',help='Check pinned selected-test Python dependencies without installing')
     a.add_argument('--suite',choices=SUITES);a.add_argument('--smoke',action='store_true');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('source-reuse');a.add_argument('--out',type=Path,required=True);a.add_argument('--require-hit',action='store_true')
@@ -3209,6 +3212,9 @@ def main(argv=None):
     elif a.command=='entry-inventory':
         from portable_original_entry_inventory import run
         result=run(a.out,write=write,forbid_gpu=forbid_gpu,source=SUITES[a.suite]['source'],comparison_source=SUITES[a.suite].get('kind_baseline_source'))
+    elif a.command=='snapshot-check':
+        from portable_windows_snapshot import check as snapshot_check
+        with forbid_gpu():result=snapshot_check(a.original_workspace,a.validation_root,a.out)
     elif a.command=='validation-deps':
         from portable_python_dependencies import check as check_dependencies
         manifest=verify_package(ROOT) if (ROOT/'gpu-package.json').is_file() else None
@@ -3376,6 +3382,9 @@ def main(argv=None):
         return
     if a.command=='storage-check':
         if not result['passed']:raise SystemExit(2)
+        return
+    if a.command=='snapshot-check':
+        if not result['snapshot_verified']:raise SystemExit(1)
         return
     if a.command in ('cache-probe','metal-device-probe'):
         if not result['passed']:raise SystemExit(1)

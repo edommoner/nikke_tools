@@ -43,18 +43,41 @@ def normalize_snapshot(rows,listeners,workspace,validation_root,observer_script=
  return dict(schema=1,observed_unix_ns=time.time_ns(),processes=saved,listeners=[dict(pid=int(r['pid']),port=int(r['port'])) for r in listeners],nikke_service_pids=sorted(services),service_status=status,uncertain_process_pids=sorted(set(candidates+unknown)),command_lines_saved=False)
 
 
+def snapshot_data(result):
+ """Keep only numeric/stage failure metadata; never echo PowerShell output."""
+ try:data=json.loads(result.stdout)
+ except (ValueError,TypeError):data=None
+ if result.returncode:
+  error=data.get('snapshot_error') if isinstance(data,dict) else None
+  error=error if isinstance(error,dict) else {}
+  stage=error.get('stage');stage=stage if stage in ('setup','processes','listeners','serialize') else 'unknown'
+  code=result.returncode if type(result.returncode) is int else None
+  numeric={key:value if type(value) is int else None for key,value in ((key,error.get(key)) for key in ('category','hresult'))}
+  raise RuntimeError('Windows process snapshot unavailable (exit='+str(code)+', stage='+stage+', category='+str(numeric['category'])+', hresult='+str(numeric['hresult'])+'); no command lines retained') from None
+ if not isinstance(data,dict) or 'snapshot_error' in data or not isinstance(data.get('rows'),list) or not isinstance(data.get('listeners'),list):
+  raise RuntimeError('Invalid process snapshot; no command lines retained') from None
+ return data
+
+
 def capture_snapshot(workspace,validation_root,powershell='powershell.exe'):
  if os.name!='nt':raise RuntimeError('Windows process capture requires Windows')
- script="""[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new($false)
-$ErrorActionPreference='Stop'
-$rows=@(Get-CimInstance Win32_Process | Where-Object {$_.Name -match '^(python|pythonw|node)\\.exe$'} | ForEach-Object { [ordered]@{ ProcessId=$_.ProcessId; ParentProcessId=$_.ParentProcessId; Name=$_.Name; ExecutablePath=$_.ExecutablePath; CommandLine=$_.CommandLine; CreationTicks=if($_.CreationDate){$_.CreationDate.ToUniversalTime().ToFileTimeUtc().ToString()}else{$null} } })
-$ports=@(Get-NetTCPConnection -State Listen | Where-Object {$_.LocalPort -in @(4317,4333)} | ForEach-Object { [ordered]@{pid=$_.OwningProcess;port=$_.LocalPort} })
-[ordered]@{rows=$rows;listeners=$ports} | ConvertTo-Json -Depth 6 -Compress
+ script="""$stage='setup'
+try {
+ [Console]::OutputEncoding=[System.Text.UTF8Encoding]::new($false)
+ $ErrorActionPreference='Stop'
+ $stage='processes'
+ $rows=@(Get-CimInstance Win32_Process | Where-Object {$_.Name -match '^(python|pythonw|node)\\.exe$'} | ForEach-Object { [ordered]@{ ProcessId=$_.ProcessId; ParentProcessId=$_.ParentProcessId; Name=$_.Name; ExecutablePath=$_.ExecutablePath; CommandLine=$_.CommandLine; CreationTicks=if($_.CreationDate){$_.CreationDate.ToUniversalTime().ToFileTimeUtc().ToString()}else{$null} } })
+ $stage='listeners'
+ $ports=@(Get-NetTCPConnection -State Listen | Where-Object {$_.LocalPort -in @(4317,4333)} | ForEach-Object { [ordered]@{pid=$_.OwningProcess;port=$_.LocalPort} })
+ $stage='serialize'
+ [ordered]@{rows=$rows;listeners=$ports} | ConvertTo-Json -Depth 6 -Compress
+} catch {
+ [ordered]@{snapshot_error=[ordered]@{stage=$stage;category=[int]$_.CategoryInfo.Category;hresult=[int]$_.Exception.HResult}} | ConvertTo-Json -Depth 3 -Compress
+ exit 1
+}
 """
  result=subprocess.run([powershell,'-NoProfile','-NonInteractive','-Command',script],capture_output=True,encoding='utf-8-sig',timeout=20)
- if result.returncode:raise RuntimeError('Windows process snapshot unavailable; no command lines retained')
- try:data=json.loads(result.stdout)
- except (ValueError,TypeError):raise RuntimeError('Invalid process snapshot; no command lines retained') from None
+ data=snapshot_data(result)
  observer_script=str(Path(sys.argv[0]).resolve()) if sys.argv[0].endswith('.py') else None
  return normalize_snapshot(data['rows'],data['listeners'],workspace,validation_root,observer_script)
 

@@ -31,11 +31,11 @@
   "control_skipped": 1,
   "windows_current_launch_verified": false,
   "windows_old_stack_bytes": 199352,
-  "windows_new_compile_pending": true,
+  "windows_new_compile_pending": false,
   "resident_battle_changed": false,
   "public_ui": "CPU",
   "all_characters_supported": false,
-  "next_action": "Windows bounded compile-only CUBIN and offline resources before any new CUDA dispatch; then integrate verified shared storage into resident consumer.",
+  "next_action": "CPU-only snapshot-check to identify redacted stage/code; do not retry consumed compile claim. Preserve full resident capacities and separate new tail arena.",
   "source_commit": "4b34bad8",
   "windows_request": {
     "thread": "01a140bc-5f3b-7661-b720-50c945596eaa",
@@ -44,6 +44,8 @@
     "compile_timeout_seconds": 60,
     "memory_limit_mb": 2048,
     "gpu_calls_requested": 0,
-    "result_pending": true
+    "result_pending": false,
+    "report_commit": "7701ed4b03b54682a786fc67bc881f57b882959d",
+    "outcome": "before-gate process snapshot failed; Slang/NVRTC/resource/GPU all zero"
   }
 }

@@ -13,3 +13,5 @@ M5 Metalで `coordinate-arc-arena`140（通常正例126、格納安全性5、拒
 証拠は `research/coordinate-arc-arena-evidence/` と2つのsealed goldenです。前段Windows結果は `research/cached-cuda-landing-evidence/windows/`／`resources/`。Windows native textは共有時にLF化されたため、receiptの元CRLF byte列との一致を確認し、`native-original-bytes.json` に原byteをbase64で保持しました。可読textはLF、出所JSONに両方のhashを記録しています。新しい資源観測ではありません。
 
 resident接続では、既存CF_LANDING直後にscratchを置けません。CL出力末尾915860の直後にCF_BANK916000、CF_END919840の後にGC_BASE920000～1048576があり、武器状態・Geometry cacheを破壊します。cache容量を削らず、新しいtail領域と明示wire／host上限／ownership監査を設計する必要があります。GPU-owned input用のresident版も同じ生成bodyから作り、commands→resultsの読取先変更だけを重ねます。旧profileとrawを保持した上で新profileを検証します。
+
+Windows v1はcompile前snapshot失敗で停止し、Slang／NVRTC／CUBIN／資源解析／GPUすべて0でした。原失敗を保持し、再実行はしていません。共通CLIへ観測のみのCPU診断を追加しました。[失敗とsnapshot-check](portable-windows-snapshot-check.md)。
