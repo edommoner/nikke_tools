@@ -116,6 +116,7 @@ SUITES = {
                    source='gpu/world_reload_entry.slang', inputs=65, native=46,
                    tests=['test_portable_world_reload.py']),
 }
+SUITES['original-shield-weapons']=dict(SUITES['original-projectile-weapons'],script='research/verify-original-shield-weapons.py',golden='research/portable-original-shield-weapons-v1-expected.json',inputs=15,native=10,development_only=True,tests=[*SUITES['original-projectile-weapons']['tests'],'test_original_shield_weapons.py'])
 SUITES['lost-hp-diagnostic']=dict(SUITES['lost-hp-roster'],source='gpu/world_projectile_admission_entry.slang')
 SUITES['stun']=dict(script='research/verify-world-stun-short.py',golden='research/portable-world-stun-short-expected.json',
                    source='gpu/world_projectile_entry.slang',inputs=46,native=36,
