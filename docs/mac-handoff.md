@@ -2546,3 +2546,14 @@ Windowsは既存継続tail1..5の最終結果取得時に接続不能。最後�
 新sourceの共通smokeで、既存の厳密なsource逆投影監査に新しいifdef hookが未登録と判明。sealed-v1の失敗は保持。元9cとM5実証v4の実ファイルから、2変更file/2追加fileだけの完全一致deltaを独立fixtureへ記録し、既存Frame/武器監査の前段へ接続した。旧baseline/生成コードnormalizer/数値比較は変更せず、1byte mutation拒否・元Frame7検査・武器8検査・新query8検査を実行。全smokeの再確認が必要。
 
 最終query配布packet b283876eは共通66群/641検査（Windows専用1skip）と選択18検査/native6＋拒否3のCPU事前検証に成功。GPU追加0。research/windows-source-packets/named-target-count-query-v1.zip/.jsonへsourceだけを保存。Windowsにはまだ新queryの実行を依頼していない。元full106 transactionの保存結果を先に確認する。
+
+
+### 2026-10-27: 対象数queryを実物理shot寿命へ接続
+
+code30bd0d6eまでで`named-target-count-shots`を共通CLIへ追加。元source20(+10/2射撃)を変更しないauto/charge2ケースと、timing/recipient派生3ケース。既存physical consumerの前後から共通capacity readerを読み、全実射撃の残数/発動時刻/queryをGPUで記録。trace100件は明示的な観測上限であり、overflowを拒否。全戦闘/ダメージ/射撃/skill trace/counter contextの比較を維持し、CPUスケジュール入力なし。
+
+固定v3 6a7b2a2eがM5で全9入力/native5＋拒否4成功、別fresh child監査でseal済み。原定義2→1→0、scatter/muzzleが消費回数を増やさないこと、発動同frameの非bound/bound差、allied独立clockを照合。初版の空buff最適化による観測漏れとv2の静的charge待機0.2/正本0.215差は保持。全射撃比較を削らずprivate entry側観測を直し、待機は起動前に静的正本と照合。元native指紋9件全保持。
+
+quantity reader refactor後、旧query9入力/native6を新M5で再検証し、全input/readback byteを保存v4と完全一致確認。v2 goldenを別名でfresh seal。full106厳密生成ハッシュも元基準を維持。ただしsource mapは変わるため新full106のgolden/certificate付替え不可。現在Windowsの元固定ownerは変更していない。
+
+新しい分類metadataはprivate physical modelの成立だけを追加。fresh inventoryの全266profile行/input/issues/20順位/laneは旧lock-capacity inventoryと一致。全キャラ0/UI CPU/全25・空間selector・公開consumer・CUDA未完了。Windowsの接続復旧要求は未回答で、元tail1..5/admissionはterminal未取得。再依頼しない。

@@ -19,6 +19,10 @@ def reference_readiness(issue):
             required_extensions=['explicit_world_or_quantity_model','typed_target_lifecycle_and_producer_contracts','shared_execution_and_current_CUDA_Metal_battle_validation'],
             note='Pinned source leaves movement/lock/range/target-count unimplemented. target_and_nearby falls back to one aimed target without a nearby spatial model; all_projectiles returns before damage. Enemy ammunition is filtered out by the allied instant handler, though its named completion still emits. Enemy healing has no verified recipient path. Keep these effects rejected; source audits and typed-state core do not certify battle support')
         if issue.get('stat')=='effect_target_count_add':
+            result['declared_physical_target_count_query']=dict(suite='named-target-count-shots',native_cases=5,rejected_cases=4,
+                metal_verified=True,independently_audited=True,cuda_verified=False,physical_shot_lifetime_verified=True,
+                admitted_targets=['self','all_allies'],original_modifier_definition_cases=2,
+                selection_consumer_connected=False,original_full_profile_verified=False)
             result['declared_shared_target_count_query']=dict(suite='named-target-count-query',native_cases=6,rejected_cases=3,
                 metal_verified=True,independently_audited=True,cuda_verified=False,physical_shot_lifetime_verified=False,
                 selection_consumer_connected=False,original_full_profile_verified=False)

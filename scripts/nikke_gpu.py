@@ -30,10 +30,10 @@ from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 SUITES = {
     'named-target-count-shots':dict(script='research/verify-target-count-shots.py',
         golden='research/portable-named-target-count-shots-expected.json',source='gpu/world_effect_target_count_shot_entry.slang',
-        inputs=9,native=5,input_words=104400,output_words=786432,development_only=True,
+        inputs=9,native=5,input_words=104400,output_words=786432,development_only=False,
         tests=['test_effect_target_count_shots.py']),
     'named-target-count-query':dict(script='research/verify-named-target-count-query.py',
-        golden='research/portable-named-target-count-query-expected.json',
+        golden='research/portable-named-target-count-query-v2-expected.json',
         source='gpu/effect_target_count_entry.slang',inputs=9,native=6,
         input_words=86016,output_words=159744,development_only=False,
         upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'],

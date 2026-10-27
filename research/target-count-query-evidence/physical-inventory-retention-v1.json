@@ -1,0 +1,16 @@
+{
+  "schema": "named-target-count-shot-classification-retention-v1",
+  "profiles": 266,
+  "packed_profiles": 245,
+  "packing_failures": 21,
+  "priority_categories": 20,
+  "all_profile_rows_and_inputs_identical": true,
+  "issues_classification_and_lanes_identical": true,
+  "priority_order_descriptors_and_messages_identical": true,
+  "only_priority_readiness_metadata_extended": true,
+  "full_character_verified": 0,
+  "public_gpu_admitted": false,
+  "normal_ui": "CPU",
+  "gpu_calls": 0,
+  "scope": "Fresh complete inventory; private shot model added without new default admission"
+}

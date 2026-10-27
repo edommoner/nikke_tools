@@ -41,6 +41,12 @@ def verify(root,overrides=None):
   source='gpu/effect_target_count_entry.slang',metal_verified=True,independently_audited=True,cuda_verified=False,
   physical_shot_lifetime_verified=False,selection_consumer_connected=False,original_full_profile_verified=False,
   evidence='research/target-count-query-evidence/metal-shared-query-v1.json')
+ missing['effect_target_count_add']['declared_physical_shot_query']=dict(suite='named-target-count-shots',native_cases=5,rejected_cases=4,
+  original_modifier_definition_cases=2,derived_timing_and_recipient_cases=3,admitted_targets=['self','all_allies'],
+  metal_verified=True,independently_audited=True,cuda_verified=False,physical_shot_lifetime_verified=True,
+  whole_battle_and_skill_trace_compared=True,all_shots_compared=True,trace_capacity=100,
+  selection_consumer_connected=False,original_full_profile_verified=False,
+  evidence='research/target-count-query-evidence/metal-physical-shots-v1.json')
  missing['effect_target_count_add']['required_consumer_contract']=dict(marker=definitions[0]['name'],additional_targets=10,duration_bullets=2,
   distinct_target_capacity=True,does_not_increase_per_target_marker_stack=True,implementation_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}
