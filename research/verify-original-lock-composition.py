@@ -5,7 +5,7 @@ from types import SimpleNamespace
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts','tests')]
 from portable_heavyarms_original_composition import prepare_case,compile_case,native_reference as native
 from portable_heavyarms_original_composition import composition
-from portable_original_lock_layout import check,banks_and_project
+from portable_original_lock_layout import check,banks_and_project,history_budget
 from portable_specs import LIMITS as L,FIELDS as F
 SOURCE='gpu/world_original_lock_composition_entry.slang'
 suite=SimpleNamespace(SOURCE=SOURCE,INPUT=109536,OUTPUT=1310720);cross=composition.cross
@@ -16,6 +16,7 @@ def native_reference(domain,*,candidate_observer=None):
     n=composition.native_reference(domain,enemy_carrier=True,candidate_observer=candidate_observer)
     # Keep static original-input proof alongside every calculated battle field.
     n['original_input_identity']=n['battle'].pop('original_input_identity')
+    n['history_budget']=history_budget(n)
     return n
 
 def compare(block,domain):
@@ -24,8 +25,10 @@ def compare(block,domain):
     identity=n['original_input_identity']
     if identity!=dict(definitions=len(c['effects']),chars_config_seed_weapon_verified=True,authored_metadata_overrides=False,authored_delays_overrides=False):raise AssertionError('Original native input identity changed')
     if set(m['binding_source_indices'])!=set(range(len(c['effects']))):raise AssertionError('Original source definition discarded')
-    projected,pulses,packets,quotas=banks_and_project(block,n)
-    composition.live.parent.parent.parent.compare_observed(projected,domain,n,candidates,manual=False,packet_bindings=True,pulse_rows=pulses,packet_rows=packets,quota_rows=quotas)
+    projected,pulses,packets,quotas,fractions,teams=banks_and_project(block,n)
+    observed_meta=dict(m,_original_fraction_rows=fractions,_original_team_rows=teams)
+    observed_domain=(c,observed_meta,b)
+    composition.live.parent.parent.parent.compare_observed(projected,observed_domain,n,candidates,manual=False,packet_bindings=True,pulse_rows=pulses,packet_rows=packets,quota_rows=quotas)
     if composition.typed.decode(block,domain)!=n['typed']:raise AssertionError('Complete original typed state/receipts differ')
     return n
 

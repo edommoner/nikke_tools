@@ -21,13 +21,24 @@ class OriginalLocks(unittest.TestCase):
         from portable_charge_control_specs import WORDS
         self.assertEqual(m['_control_policy'],w[suite.L['WORLD_CONTROL_INPUT_BASE']:suite.L['WORLD_CONTROL_INPUT_BASE']+WORDS])
     def test_extended_banks_are_disjoint_and_unowned_tail_is_rejected(self):
-        from portable_original_lock_layout import BASE,PULSES,PACKETS,END,OUTPUT,PULSE_CAPACITY,PACKET_CAPACITY,QUOTAS,QUOTA_CAPACITY,banks_and_project
+        from portable_original_lock_layout import BASE,PULSES,PACKETS,END,OUTPUT,PULSE_CAPACITY,PACKET_CAPACITY,QUOTAS,QUOTA_CAPACITY,FRACTIONS,FRACTION_CAPACITY,TEAMS,TEAM_CAPACITY,banks_and_project
         from portable_packet_fates import END as old_end
-        self.assertEqual(BASE,old_end);self.assertEqual(PACKETS,PULSES+PULSE_CAPACITY*16);self.assertEqual(QUOTAS,PACKETS+PACKET_CAPACITY*16);self.assertEqual(END,QUOTAS+QUOTA_CAPACITY*20);self.assertLess(END,OUTPUT)
-        n=dict(lock_pulses=[],lock_packet_trace=[],target_count_shots=[])
-        for pos in (PULSES,PACKETS,QUOTAS,END,OUTPUT-1):
+        self.assertEqual(BASE,old_end);self.assertEqual(PACKETS,PULSES+PULSE_CAPACITY*16);self.assertEqual(QUOTAS,PACKETS+PACKET_CAPACITY*16);self.assertEqual(FRACTIONS,QUOTAS+QUOTA_CAPACITY*20);self.assertEqual(TEAMS,FRACTIONS+FRACTION_CAPACITY*8);self.assertEqual(END,TEAMS+TEAM_CAPACITY*8);self.assertLess(END,OUTPUT)
+        n=dict(lock_pulses=[],lock_packet_trace=[],target_count_shots=[],battle=dict(fractional_hits=[],team_hits=[]))
+        for pos in (PULSES,PACKETS,QUOTAS,FRACTIONS,TEAMS,END,OUTPUT-1):
             b=[0]*OUTPUT;b[pos]=1
             with self.subTest(pos=pos),self.assertRaisesRegex(AssertionError,'padding|tail'):banks_and_project(b,n)
+    def test_native_budget_refuses_overflow_before_gpu_and_keeps_scope_explicit(self):
+        from portable_original_lock_layout import history_budget
+        n=dict(lock_pulses=[],lock_packet_trace=[],target_count_shots=[],lock_shots=[],skill_trace=[],receipt_fates=[],typed=dict(attacks=[]),battle=dict(fractional_hits=[],team_hits=[],projectile_shots=[],reload_events=[],enemy_spawn_notifications=[],manual_control=dict(notifications=[],arbitration=[])))
+        self.assertEqual(len(history_budget(n)),13)
+        for key,capacity in [('lock_pulses',256),('lock_packet_trace',512),('target_count_shots',2048),('skill_trace',128)]:
+            bad=copy.deepcopy(n);bad[key]=[None]*(capacity+1)
+            with self.subTest(history=key),self.assertRaisesRegex(ValueError,'exceeds declared capacity'):history_budget(bad)
+        for key,capacity in [('fractional_hits',8192),('team_hits',4096)]:
+            bad=copy.deepcopy(n);bad['battle'][key]=[None]*(capacity+1)
+            with self.subTest(history=key),self.assertRaisesRegex(ValueError,'exceeds declared capacity'):history_budget(bad)
+
     def test_exact_source_inverse_preserves_every_shared_dependency(self):
         from portable_original_lock_source_contract import project_sources
         d=json.loads((ROOT/'tests/fixtures/portable-original-lock-source-delta.json').read_text());old=project_sources(ROOT)
@@ -44,4 +55,6 @@ class OriginalLocks(unittest.TestCase):
         self.assertTrue(n['typed']['attacks'])
         self.assertGreater(len(n['target_count_shots']),100)
         self.assertLessEqual(len(n['target_count_shots']),2048)
+        self.assertGreater(len(n['battle']['fractional_hits']),2048)
+        self.assertGreater(len(n['battle']['team_hits']),1024)
 if __name__=='__main__':unittest.main()

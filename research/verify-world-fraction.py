@@ -21,10 +21,13 @@ def compile_case(case):
  w.extend(compile_clock(case['combat']['weapons'],case['post_fire_delays']));assert len(w)==INPUT
  return w,m,b
 def decoded(block,meta,case,bindings):
- r=spawn.decoded(block,meta,case,bindings);head=L['WORLD_FRACTION_HEAD_BASE'];count=block[head+1];mask=block[head+2];assert block[head]==0x57465231 and count<=2048 and mask<1024 and not any(block[head+3:head+8]);notes=[]
+ r=spawn.decoded(block,meta,case,bindings);head=L['WORLD_FRACTION_HEAD_BASE'];count=block[head+1];mask=block[head+2];rows=meta.get('_original_fraction_rows');assert block[head]==0x57465231 and (count<=2048 if rows is None else len(rows)==count) and mask<1024 and not any(block[head+3:head+8]);notes=[]
+ if rows is not None and any(block[L['WORLD_FRACTION_TRACE_BASE']:L['WORLD_FRACTION_TRACE_BASE']+2048*8]):raise AssertionError('Relocated fraction trace must leave its old bank empty')
  number=lambda at:struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
  for i in range(count):
-  at=L['WORLD_FRACTION_TRACE_BASE']+i*8;packed=block[at+1];assert block[at] in (22,23) and packed&7<5 and packed<32;notes.append(dict(event=block[at],owner=packed&7,time=number(at+2),fraction=number(at+4),fired=(packed>>3)&1,created=bool(packed&16),after=number(at+6)))
+  at=L['WORLD_FRACTION_TRACE_BASE']+i*8;row=list(block[at:at+8]) if rows is None else rows[i];packed=row[1];assert len(row)==8 and row[0] in (22,23) and packed&7<5 and packed<32
+  value=lambda pos:struct.unpack('<d',struct.pack('<II',*row[pos:pos+2]))[0]
+  notes.append(dict(event=row[0],owner=packed&7,time=value(2),fraction=value(4),fired=(packed>>3)&1,created=bool(packed&16),after=value(6)))
  r['fractional_hits']=notes;r['fractional_accumulators']=[dict(event=22+kind,owner=who,value=number(L['WORLD_FRACTION_STATE_BASE']+who*8+kind*2)) for who in range(5) for kind in (1,0) if mask&(1<<(who*2+kind))];return r
 def prepare():
  rows=fixtures();programs=[compile_case(c) for c in rows];seed=programs[0][0];bad=[]

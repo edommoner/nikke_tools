@@ -32,7 +32,7 @@ SUITES = {
         golden='research/portable-original-lock-composition-v1-expected.json',source='gpu/world_original_lock_composition_entry.slang',
         inputs=8,native=4,input_words=109536,output_words=1310720,development_only=True,
         support_files=['research/portable-destructible-original-battle-short-expected.json','research/target-count-query-evidence/lock-projectile-composition-v1-failure-diagnostic.json'],
-        tests=['test_original_lock_composition.py','test_packet_fates.py','test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_generation_separation.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py']),
+        tests=['test_original_lock_composition.py','test_portable_world_fraction.py','test_portable_world_team.py','test_packet_fates.py','test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_generation_separation.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py']),
     'enemy-lock-carriers':dict(script='research/verify-lock-enemy-carriers.py',
         golden='research/portable-enemy-lock-carriers-v1-expected.json',source='gpu/world_lock_enemy_carrier_entry.slang',
         inputs=7,native=4,input_words=104400,output_words=806912,development_only=False,

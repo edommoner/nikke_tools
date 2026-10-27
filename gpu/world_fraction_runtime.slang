@@ -1,3 +1,9 @@
+#ifndef WF_TRACE_CAPACITY
+#define WF_TRACE_CAPACITY P_WORLD_FRACTION_TRACE_COUNT
+#endif
+#ifndef WF_TRACE_AT
+#define WF_TRACE_AT(s,index) ((s).resourceOutput+P_WORLD_FRACTION_TRACE_BASE+(index)*8)
+#endif
 // One software-binary64 fractional event accumulator for CUDA and Metal.
 // Per-shot rates are captured by the common physical damage calculation.
 void initializeWorldFraction(inout Runtime s)
@@ -30,8 +36,8 @@ void notifyWorldFraction(inout Runtime s,uint who,uint kind,uint64_t when,uint o
         if(!f64Less(value,ONE)) { value=f64Add(value,ONE^F64_SIGN);fired=true; }
         storeNumber(state+kind*2,value);
     }
-    uint count=results[head+1];WORLD_ROSTER_TRACE_BEGIN(s,head,count,P_WORLD_FRACTION_TRACE_COUNT,3)
-    uint at=s.resourceOutput+P_WORLD_FRACTION_TRACE_BASE+count*8;results[head+1]=count+1;
+    uint count=results[head+1];WORLD_ROSTER_TRACE_BEGIN(s,head,count,WF_TRACE_CAPACITY,3)
+    uint at=WF_TRACE_AT(s,count);results[head+1]=count+1;
     results[at]=22+kind;results[at+1]=who|(uint(fired)<<3)|(((results[head+2]>>(who*2+kind))&1U)<<4);
     storeNumber(at+2,when);storeNumber(at+4,frac);storeNumber(at+6,value);WORLD_ROSTER_TRACE_END
     if(fired) dispatch(s,0,22+kind,who,0,when,output);
