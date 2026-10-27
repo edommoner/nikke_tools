@@ -1,6 +1,6 @@
 # 共通イベントフレームのGPU所有領域
 
-`coordinate-resident-frames` は、既存resident arcの全106入力／native63／拒否43と、入力115680word・出力2064786word・全出力比較器を保持する開発profileです。効果・計算式・処理順序を変えず、dispatch内の32個のFrameの保存場所だけをRuntime bufferへ移します。全106のMetal計算実証とCUDAの物理stack測定は未完了です。
+`coordinate-resident-frames` は、既存resident arcの全106入力／native63／拒否43と、入力115680word・出力2064786word・全出力比較器を保持する開発profileです。効果・計算式・処理順序を変えず、dispatch内の32個のFrameの保存場所だけをRuntime bufferへ移します。全106のMetal通常実行は成功し、fresh独立監査を実行中です。CUDAの物理stack測定は未完了です。
 
 各ケースのRuntime末尾へ1024個のuint（4096byte）を追加します。CUDA／Metalのreflectionはともにstride143048、既存fieldの後のoffset138952で一致しました。commands／results／runtimeStatesの3資源、48byteのCUDA引数形式、既存入力・出力bankと容量は同じです。従来のローカルFrame配列経路も残ります。
 
@@ -19,3 +19,11 @@ uint64は上下32bitで保存し、signed argumentはbitcastします。floatへ
 Frame移動のGPU source変更は専用の `portable-dispatch-frame-source-delta.json` で、current本文・SHAと旧baseline本文・SHAを固定します。旧監査を呼ぶ前にこの明示逆変換を行い、既存baselineやstrict生成コードnormalizerを変えません。追加dependencyやfieldの未登録変更も拒否します。定義を切り出した後の改変拒否テストは、新しい共通定義の実ファイルを検査します。
 
 最初の共通制御の停止記録（未登録のsource逆変換と旧定義位置を読むテスト）は保存しています。GPU結果を成功へ書き換えず、監査修正を含む別固定packageで再検査します。全106のMetal実行・fresh独立seal・既存出力保持を確認した後、Windowsで必要な短い新sourceのコンパイル／資源測定を行います。物理stack削減や既存CUDA起動失敗の解消は、その実測前に主張しません。
+
+## 全106のMetal通常実行
+
+固定package `full106-frames-v2` で28群176テスト、fresh native63件／拒否43件、M5実GPU106件が成功しました。GPU4.103676秒、pipeline60.329996秒、含まれる子実行74.991052秒／180上限、再実行0。Runtimeの既存247fieldと3資源／48byte形式も保持しました。CPU preflightは410.717786秒で、比較では同じlive parentの63件を再利用しfresh追加計算0。保存CPU結果や独立監査への再利用はありません。
+
+旧版と新版の875,469,264byteを8MiBずつ直接比較し、全部一致しました。SHA256は `4ecc755e4f17e2eaaa9c9eb013bbcaa2fb27422893982f910894287df96ced09`。全106の入力・native・output各fingerprintも旧版と一致しました。
+
+fresh独立監査は同じ固定package自身のCLI／cwdで開始済みです。20入力ずつの新規GPU禁止childが全106を1回ずつ比較し、各180秒以内で監査します。同じ監査からgoldenとcompiler certificateを生成する予定ですが、完了前はsealed登録へ進めません。Windowsの追加実行は行っていません。

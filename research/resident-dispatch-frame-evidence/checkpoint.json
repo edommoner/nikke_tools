@@ -39,10 +39,14 @@
     "rejections": 43,
     "all_fingerprints_unchanged": true
   },
-  "full106_Frame_GPU_verified": false,
+  "full106_Frame_GPU_verified": true,
   "new_CUDA_stack_measured": false,
   "new_CUDA_launch_verified": false,
   "full_character_verified": false,
   "full_goal_complete": false,
-  "scope": "Probe bit/state isolation proof and same-input native contract; full battle and physical CUDA resource validation remain required"
+  "scope": "Probe bit/state isolation proof and same-input native contract; full battle and physical CUDA resource validation remain required",
+  "full106_Frame_independent_audit": "pending",
+  "full106_Frame_suite": "coordinate-resident-frames",
+  "full106_Frame_primary_evidence": "research/resident-dispatch-frame-evidence/primary106.json",
+  "old106_raw_bytes_retained": 875469264
 }
