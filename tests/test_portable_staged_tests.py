@@ -67,14 +67,26 @@ class StagedTestGroupsTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'incomplete or failed'):self.run_group(0)
         p=self.f.root/'tests0';self.assertTrue((p/'failure.json').is_file());self.assertFalse((p/'result.json').exists())
         self.assertEqual(len(cli.load(p/'cpu-tests.json')),1);self.assertEqual(self.f.calls,[])
+    def test_windows_plan_and_test_recipe_require_original_workspace_on_every_host(self):
+        f=self.f
+        requests={'preflight-plan':dict(gpu_capture=str(f.gpu),group_size='10',test_group_size='2'),
+                  'preflight-test-group':dict(transaction=str(f.tx),group_index='0')}
+        with patch.object(packet,'is_windows',return_value=True):
+            for stage,request in requests.items():
+                with self.subTest(stage=stage):
+                    with self.assertRaisesRegex(ValueError,'explicit original workspace'):
+                        packet.recipe('owned',stage,'cuda',f.root/stage,None,180,request)
+                    r=packet.recipe('owned',stage,'cuda',f.root/stage,f.root/'original',180,request)
+                    self.assertEqual(r['original_workspace'],str(f.root/'original'))
+                    self.assertEqual(r['memory_limit_mb'],2048)
     def test_wrapper_forwards_exact_plan_and_one_group_with_no_gpu_option(self):
         f=self.f;request=dict(gpu_capture=str(f.gpu),group_size='10',test_group_size='2')
-        p=packet.recipe('owned','preflight-plan','metal',f.root/'plan-stage',None,180,request)
+        p=packet.recipe('owned','preflight-plan','metal',f.root/'plan-stage',f.root/'original',180,request)
         args=packet.proof_arguments(p);self.assertIn('--test-group-size',args);self.assertEqual(args[-1],'2')
         for value in ('0','01','-1','١',True):
             with self.subTest(value=value),self.assertRaises(ValueError):packet.object_request('preflight-plan',dict(request,test_group_size=value))
         request=dict(transaction=str(f.tx),group_index='1')
-        p=packet.recipe('owned','preflight-test-group','metal',f.root/'test-stage',None,180,request)
+        p=packet.recipe('owned','preflight-test-group','metal',f.root/'test-stage',f.root/'original',180,request)
         self.assertEqual(packet.proof_arguments(p),['preflight-test-group','--capture',str(f.root/'test-stage/proof'),'--transaction',str(f.tx),'--group-index','1'])
         r=self.begin();self.assertTrue(packet.verified_staged(r,'preflight-plan','owned'))
         self.assertFalse(packet.verified_staged(dict(r,cpu_tests_verified=True),'preflight-plan','owned'))
