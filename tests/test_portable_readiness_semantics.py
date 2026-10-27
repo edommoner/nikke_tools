@@ -7,6 +7,19 @@ from portable_readiness import issue,summarize
 
 
 class ReadinessSemanticsTests(unittest.TestCase):
+    def test_resident_frame_seal_keeps_missing_reference_and_cuda_gates_closed(self):
+        raw=(ROOT/'tests/fixtures/resident-frames-independent-v2.json').read_bytes();audit=json.loads(raw)
+        for stat in ('projectile_dmg_pct','shield_dmg_pct'):
+            result=reference_readiness(self.blocker(stat));frame=result['resident_frames_validation']
+            self.assertEqual(frame['evidence_sha256'],hashlib.sha256(raw).hexdigest())
+            self.assertEqual((frame['inputs'],frame['native_cases']),(audit['input_count'],audit['native_cases']))
+            self.assertEqual([i for g in audit['groups'] for i in g['case_indices']],list(range(106)))
+            self.assertTrue(all(g['elapsed_seconds']<=audit['per_group_timeout_seconds'] for g in audit['groups']))
+            self.assertTrue(audit['certificate_from_same_audit']);self.assertEqual(audit['gpu_calls'],0);self.assertFalse(audit['live_parent_receipt_present'])
+            self.assertTrue(frame['metal_verified']);self.assertTrue(frame['independently_audited'])
+            self.assertEqual((frame['frame_slots'],frame['extra_runtime_bytes']),(32,4096))
+            for key in ('cuda_device_verified','cuda_physical_stack_reduction_verified','canonical_consumer_verified','full_character_verified'):self.assertIs(frame[key],False)
+            self.assertEqual(result['lane'],'reference_model_gap');self.assertFalse(result['gpu_supported'])
     def test_resident_and_standalone_cuda_evidence_keep_distinct_support_scopes(self):
         independent=(ROOT/'tests/fixtures/resident-arc-independent-v2.json').read_bytes()
         comparison=(ROOT/'tests/fixtures/landing-arc-cuda-comparison-v4.json').read_bytes()

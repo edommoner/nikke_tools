@@ -71,8 +71,11 @@ def verify(root,overrides=None):
   policy_implemented_scope='public coordinate frontend and complete policy admission',
   private_suites=['coordinate-area','coordinate-shape','coordinate-numeric','coordinate-geometry','coordinate-power','coordinate-landing','coordinate-arc-arena','coordinate-landing-arena'],
   private_suite_list_scope='Evidence locations only; inspect each sealed golden and capture before claiming execution coverage',
-  resident_integration_suite='coordinate-resident-arc',
-  resident_integration_scope='Private integration; current execution and independent seal status live in portable-coordinate-resident-arc-checkpoint.json',
+  resident_integration_suite='coordinate-resident-frames',
+  resident_integration_prior_suite='coordinate-resident-arc',
+  resident_integration_scope='Private full106 dispatch-frame integration; independent seal in resident-dispatch-frame-evidence/independent106.json',
+  resident_frame_metal_verified=True,resident_frame_independently_audited=True,
+  resident_frame_cuda_device_verified=False,resident_frame_public_admission_verified=False,
   public_admission_remaining=True)
  result=dict(passed=True,missing_stats=missing,coordinate_world=coordinate_port,target_and_nearby=dict(explicit_ranked_branch=False,fallback='current aimed logical enemy only',nearby_spatial_world=False),enemy_ammo=dict(allied_filter=True,enemy_ammunition_state=False,named_completion_outside_target_loop=True),enemy_healing=dict(allied_heal_consumer_present='heal_received_pct' in strings['calculator/buff_manager.py'],enemy_healing_path_verified=False),historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={**{base+name:hashlib.sha256(value.encode()).hexdigest() for name,value in text.items()},gate_path:hashlib.sha256(gate_text.encode()).hexdigest(),public_path:hashlib.sha256(public_text.encode()).hexdigest()})
  return result

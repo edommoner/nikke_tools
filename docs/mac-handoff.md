@@ -2479,3 +2479,10 @@ Windows v4は依存確認・36検査・40/native26比較・NVRTC2.586690秒/ret0
 固定配布v3は `research/windows-source-packets/coordinate-resident-device-v3.json` と同名ZIP。前v2からCLIと回帰testの2fileだけを変更、全GPU/入力/native/goldenは同一。現CUDA実計算の結果は非公開の永続proof `.portable-recovery/proofs/resident-arc-arena-20261027` とWindowsの既存captureを確認する。終了結果・claimを確認してから次へ進み、観測不足を理由に再送しない。Windows結果の公開やraw移動は行わず、同一accountの接続内で最小原本とSHAを取得する。
 
 266profile/245入力変換/21失敗と20model-gap、全キャラ認定0/UI CPUは継続。専用Lock On/移動/範囲/対象数等の不足と、private kernelの実証を区別する。最初の4入力のdevice接続確認後も、現sourceの全106 CUDA、全特殊効果、canonical/public consumer接続は未完了。
+
+
+## 2026-10-27 resident Frame全106独立seal
+
+`coordinate-resident-frames` はsealed登録。共通Frame32個をケース別Runtime末尾4096byteへ移し、既存247field／入力115680／出力2064786／3binding・CUDA48byteを保持。全106通常Metalは28群176テスト／native63＋拒否43成功、M5 GPU4.103676秒、CPU410.717786秒、比較時はlive parent63を再利用しfresh追加0／file値cache0。旧全875469264byteも全byte一致。別6childの独立監査は513.541770秒・各180秒以内／最長134.245456秒、live parentなし、追加GPU0。同じ監査からgoldenとcompiler certificateを生成した。`research/resident-dispatch-frame-evidence/independent106.json` と `docs/portable-resident-dispatch-frames.md` を参照。
+
+次は `compiler-full--coordinate-resident-frames` の固定compact packetを検査し、Windowsで必要な短いgeneration/PTX/object/link/resource確認へ進む。新Frameの物理CUDA stack削減・起動成功はまだ未実証。未対応分類はprivate Metal基盤の成立だけを追記し、20model-gap／全キャラ0／UI CPUを保持する。古い失敗claimを消したり再送しない。原本と実行状態は永続proof `resident-frame-arena-20261027` の最新continuationと既存Windowsチャットを確認する。

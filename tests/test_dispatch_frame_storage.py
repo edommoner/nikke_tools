@@ -51,7 +51,9 @@ class DispatchFrameStorageTests(unittest.TestCase):
   for key in ('inputs','native','output_words'):self.assertEqual(old[key],new[key])
   s=importlib.util.spec_from_file_location('full_frame_test',ROOT/new['script']);a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
   for name in ('prepare','compare','native_reference','native_comparison_adapter','validate_rejection'):self.assertIs(getattr(a,name),getattr(a.parent,name))
-  self.assertEqual((new['inputs'],new['native']),(106,63));self.assertTrue(new['development_only'])
+  self.assertEqual((new['inputs'],new['native']),(106,63));self.assertFalse(new['development_only'])
   self.assertNotEqual(old['source'],new['source']);self.assertNotEqual(old['golden'],new['golden'])
+  from portable_package_projection import SUPPORTED_SUITES
+  self.assertIn('compiler-full--coordinate-resident-frames',SUPPORTED_SUITES);self.assertNotIn('coordinate-resident-frames',SUPPORTED_SUITES)
 
 if __name__=='__main__':unittest.main()

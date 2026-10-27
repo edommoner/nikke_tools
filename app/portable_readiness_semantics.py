@@ -382,6 +382,15 @@ def reference_readiness(issue):
             evidence_sha256='b6d1cda306d31537d999b6180a3bc6d900fc5d573efcf737cf997d24d31667d3',
             cuda_device_verified=False,canonical_consumer_verified=False,full_character_verified=False,
             scope='complete_private106_with_resource_backed_arc_storage; not full CUDA or public admission')
+        result['resident_frames_validation']=dict(suite='coordinate-resident-frames',inputs=106,
+            native_cases=63,rejected_cases=43,metal_verified=True,independently_audited=True,
+            frame_slots=32,extra_runtime_bytes=4096,runtime_stride=143048,
+            prior_runtime_fields_unchanged=247,all_old_raw_bytes_preserved=875469264,
+            evidence='research/resident-dispatch-frame-evidence/independent106.json',
+            evidence_sha256='a8678140c094a8cdfab78453d206f638ae57c19c4e251c188571ffb6bfbe3440',
+            cuda_device_verified=False,cuda_physical_stack_reduction_verified=False,
+            canonical_consumer_verified=False,full_character_verified=False,
+            scope='complete_private106_with_resource_backed_dispatch_frames; not full CUDA or public admission')
         result['standalone_landing_cuda_validation']=dict(suite='coordinate-landing-arena-cache-only',
             inputs=40,native_cases=26,rejected_cases=14,metal_cuda_comparison_entries_equal=True,
             required_cubin_cache_hit=True,nvrtc_calls=0,compiler_library_requests=0,

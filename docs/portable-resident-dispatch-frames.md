@@ -1,6 +1,6 @@
 # 共通イベントフレームのGPU所有領域
 
-`coordinate-resident-frames` は、既存resident arcの全106入力／native63／拒否43と、入力115680word・出力2064786word・全出力比較器を保持する開発profileです。効果・計算式・処理順序を変えず、dispatch内の32個のFrameの保存場所だけをRuntime bufferへ移します。全106のMetal通常実行は成功し、fresh独立監査を実行中です。CUDAの物理stack測定は未完了です。
+`coordinate-resident-frames` は、既存resident arcの全106入力／native63／拒否43と、入力115680word・出力2064786word・全出力比較器を保持するsealed profileです。効果・計算式・処理順序を変えず、dispatch内の32個のFrameの保存場所だけをRuntime bufferへ移します。全106のMetal通常実行とfresh独立監査に成功しています。CUDAの物理stack測定は未完了です。
 
 各ケースのRuntime末尾へ1024個のuint（4096byte）を追加します。CUDA／Metalのreflectionはともにstride143048、既存fieldの後のoffset138952で一致しました。commands／results／runtimeStatesの3資源、48byteのCUDA引数形式、既存入力・出力bankと容量は同じです。従来のローカルFrame配列経路も残ります。
 
@@ -26,4 +26,10 @@ Frame移動のGPU source変更は専用の `portable-dispatch-frame-source-delta
 
 旧版と新版の875,469,264byteを8MiBずつ直接比較し、全部一致しました。SHA256は `4ecc755e4f17e2eaaa9c9eb013bbcaa2fb27422893982f910894287df96ced09`。全106の入力・native・output各fingerprintも旧版と一致しました。
 
-fresh独立監査は同じ固定package自身のCLI／cwdで開始済みです。20入力ずつの新規GPU禁止childが全106を1回ずつ比較し、各180秒以内で監査します。同じ監査からgoldenとcompiler certificateを生成する予定ですが、完了前はsealed登録へ進めません。Windowsの追加実行は行っていません。
+fresh独立監査は同じ固定package自身のCLI／cwdで完了しました。新規GPU禁止childが全106を1回ずつ比較し、同じ監査からgoldenとcompiler certificateを生成しました。このMetal検証段階でのWindows追加実行は0回です。
+
+## 独立sealの完了
+
+6個の新規GPU禁止childで20/20/20/20/20/6入力を1回ずつ比較し、全106／native63が成功しました。合計513.541770秒、最長group134.245456秒／各180秒上限、live parentの再利用false、追加GPU0。同じ監査からgoldenとcompiler certificateを生成し、`coordinate-resident-frames` をsealed登録しました。既存全875MBのraw、失敗記録、元packageは保持しています。
+
+compiler診断用の `compiler-full--coordinate-resident-frames --compact` を明示登録しました。実装・GPU source・upstream・fixture・goldenは保持し、選択外のPython研究／testだけを除く従来のprojectionです。全106のbattle packet自体はcompactへ拡張していません。Windowsではこの固定compiler packetのCPU検査・generation・短いPTX／object／link経路を使い、物理resourceを確認してから実計算へ進めます。

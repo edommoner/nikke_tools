@@ -1,0 +1,39 @@
+{
+  "schema": "resident-frames-compiler-source-packet-v1",
+  "suite": "compiler-full--coordinate-resident-frames",
+  "package_id": "7b43de128c4aacaa28c78a76dc6ef5d7002b8fac50dd166bebdc01a6597b6021",
+  "archive_bytes": 9256533,
+  "archive_sha256": "28ea99f14834aea7234ff6157d28f802f600d8798e0f2d8934b4d9924199b0f9",
+  "source_commit": "c23ab251ff56c4cc297106a815cdf1a2b76fbebf",
+  "full_world_baseline": "coordinate-resident-frames",
+  "baseline_inputs": 106,
+  "baseline_native_domains": 63,
+  "compiler_packet_inputs": 0,
+  "compiler_packet_native_domains": 0,
+  "retention": {
+    "schema": "compiler-frames-payload-retention-v1",
+    "passed": true,
+    "full_files": 3560,
+    "compact_files": 2074,
+    "omitted_unselected_python": 1486,
+    "all_retained_bytes_and_golden_equal": true,
+    "all_GPU_upstream_fixtures_retained": true,
+    "GPU_calls": 0
+  },
+  "Mac_tests": 207,
+  "Mac_smoke": {
+    "groups": 60,
+    "tests": 591,
+    "skipped": 1
+  },
+  "Mac_generation_cache_hit": true,
+  "Mac_Slang_invocations": 0,
+  "compile_plan": {
+    "passed": true,
+    "artifact_kind": "ptx",
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "policy": "PTX-only/2GiB/no-ptxas-level"
+  },
+  "scope": "Exact independently sealed full106 source; compiler diagnostic only, no CUDA calculation claim"
+}

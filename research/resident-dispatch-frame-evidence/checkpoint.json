@@ -45,8 +45,12 @@
   "full_character_verified": false,
   "full_goal_complete": false,
   "scope": "Probe bit/state isolation proof and same-input native contract; full battle and physical CUDA resource validation remain required",
-  "full106_Frame_independent_audit": "pending",
+  "full106_Frame_independent_audit": "passed",
   "full106_Frame_suite": "coordinate-resident-frames",
   "full106_Frame_primary_evidence": "research/resident-dispatch-frame-evidence/primary106.json",
-  "old106_raw_bytes_retained": 875469264
+  "old106_raw_bytes_retained": 875469264,
+  "full106_Frame_independent_evidence": "research/resident-dispatch-frame-evidence/independent106.json",
+  "full106_Frame_sealed": true,
+  "compiler_certificate_from_same_audit": true,
+  "independent_extra_GPU_calls": 0
 }

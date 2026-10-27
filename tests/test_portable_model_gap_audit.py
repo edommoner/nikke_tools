@@ -16,6 +16,7 @@ class GapAuditTests(unittest.TestCase):
  def test_coordinate_host_math_policy_gap_is_source_bound_and_not_admitted(self):
   r=verify(ROOT)['coordinate_world'];n=r['numeric_frontend'];self.assertEqual(n['classification'],'gpu_numeric_implementation_gap');self.assertTrue(n['host_math_affects_selection']);self.assertTrue(n['common_policy_selected']);self.assertEqual(n['selected_policy'],'deterministic-shared-numeric');self.assertFalse(n['policy_implemented']);self.assertFalse(r['gpu_connected'])
   self.assertIn('public coordinate frontend',n['policy_implemented_scope']);self.assertTrue(n['public_admission_remaining']);self.assertIn('coordinate-landing-arena',n['private_suites']);self.assertIn('Evidence locations only',n['private_suite_list_scope'])
+  self.assertEqual(n['resident_integration_suite'],'coordinate-resident-frames');self.assertTrue(n['resident_frame_independently_audited']);self.assertFalse(n['resident_frame_cuda_device_verified']);self.assertFalse(n['resident_frame_public_admission_verified'])
   path='research/upstream/nikke-calc-master/calculator/aim.py';text=(ROOT/path).read_text();changed=text.replace('math.cos(th)','1.0');self.assertNotEqual(text,changed)
   with self.assertRaisesRegex(AssertionError,'numeric source drift'):verify(ROOT,{path:changed})
  def test_coordinate_guard_change_requires_port_evidence(self):
