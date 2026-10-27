@@ -2557,3 +2557,5 @@ code30bd0d6eまでで`named-target-count-shots`を共通CLIへ追加。元source
 quantity reader refactor後、旧query9入力/native6を新M5で再検証し、全input/readback byteを保存v4と完全一致確認。v2 goldenを別名でfresh seal。full106厳密生成ハッシュも元基準を維持。ただしsource mapは変わるため新full106のgolden/certificate付替え不可。現在Windowsの元固定ownerは変更していない。
 
 新しい分類metadataはprivate physical modelの成立だけを追加。fresh inventoryの全266profile行/input/issues/20順位/laneは旧lock-capacity inventoryと一致。全キャラ0/UI CPU/全25・空間selector・公開consumer・CUDA未完了。Windowsの接続復旧要求は未回答で、元tail1..5/admissionはterminal未取得。再依頼しない。
+
+最終物理packet2aafcadfは共通66群/641検査（Windows専用1skip）と自身の8検査/native5＋拒否4 CPU事前検証に成功。query refactor packet56286944は自身の18検査/native6＋拒否3 CPU事前検証成功。両packetの全Python/Slang/Swift code SHAは一致し、共通検査を重複実行しない。配布はwindows-source-packets/named-target-count-shots-v1.zipとnamed-target-count-query-v2.zip（sourceのみ）。Windowsへの新規依頼は送っていない。
