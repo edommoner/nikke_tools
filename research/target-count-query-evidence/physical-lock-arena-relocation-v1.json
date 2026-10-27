@@ -1,0 +1,80 @@
+{
+  "schema": "physical-lock-arena-relocation-v1",
+  "passed": true,
+  "all_old_inputs": 7,
+  "pairs": [
+    {
+      "old_index": 0,
+      "new_index": 0,
+      "input_bytes_identical": true,
+      "legacy_prefix_accounted_words": 786432,
+      "relocation_verified": true
+    },
+    {
+      "old_index": 1,
+      "new_index": 1,
+      "input_bytes_identical": true,
+      "legacy_prefix_accounted_words": 786432,
+      "relocation_verified": true
+    },
+    {
+      "old_index": 2,
+      "new_index": 2,
+      "input_bytes_identical": true,
+      "legacy_prefix_accounted_words": 786432,
+      "relocation_verified": true
+    },
+    {
+      "old_index": 3,
+      "new_index": 6,
+      "input_bytes_identical": true,
+      "legacy_prefix_accounted_words": 786432,
+      "relocation_verified": false
+    },
+    {
+      "old_index": 4,
+      "new_index": 7,
+      "input_bytes_identical": true,
+      "legacy_prefix_accounted_words": 786432,
+      "relocation_verified": false
+    },
+    {
+      "old_index": 5,
+      "new_index": 8,
+      "input_bytes_identical": true,
+      "legacy_prefix_accounted_words": 786432,
+      "relocation_verified": false
+    },
+    {
+      "old_index": 6,
+      "new_index": 9,
+      "input_bytes_identical": true,
+      "legacy_prefix_accounted_words": 786432,
+      "relocation_verified": false
+    }
+  ],
+  "legacy_words_accounted": 5505024,
+  "old_readback_sha256": "17392be13a9b10b60b39822493102b9f51440ec2739d705ead655ccdfa2751b7",
+  "new_readback_sha256": "f32aa2d1872cc0e9eab022a5433891f788c14e95a37e3ec54b4cf4d243c4d61a",
+  "arena_layout": {
+    "old_output_words": 786432,
+    "new_output_words": 806912
+  },
+  "declared_relocated_regions": {
+    "old_actor_query": [
+      243992,
+      1024
+    ],
+    "old_actor_sets": [
+      227352,
+      16640
+    ],
+    "old_actor_receipts": [
+      245016,
+      512
+    ]
+  },
+  "candidate_ownership_metadata_change": "Old released actor set flag0 becomes separate scratch flag1; all other candidate words retained",
+  "gpu_calls": 0,
+  "scope": "All old prefix words compared after explicit relocation/restoration; not raw hash equality"
+}

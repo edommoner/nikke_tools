@@ -30,10 +30,10 @@ from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 SUITES = {
     'physical-generation-locks':dict(script='research/verify-physical-locks.py',
         golden='research/portable-physical-generation-locks-v2-expected.json',source='gpu/world_physical_locks_entry.slang',
-        inputs=10,native=6,input_words=104400,output_words=806912,development_only=True,
+        inputs=10,native=6,input_words=104400,output_words=806912,development_only=False,
         tests=['test_named_generation_locks.py','test_physical_generation_locks.py','test_generation_lock_executor.py']),
     'named-generation-locks':dict(script='research/verify-generation-locks.py',
-        golden='research/portable-named-generation-locks-v2-expected.json',source='gpu/world_generation_locks_entry.slang',
+        golden='research/portable-named-generation-locks-v3-expected.json',source='gpu/world_generation_locks_entry.slang',
         inputs=16,native=10,input_words=92208,output_words=253952,development_only=False,
         tests=['test_named_generation_locks.py','test_generation_lock_executor.py']),
     'named-target-count-shots':dict(script='research/verify-target-count-shots.py',

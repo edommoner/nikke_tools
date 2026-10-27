@@ -1,3 +1,5 @@
+`physical-generation-locks`最新版は専用arenaの10入力（native6/raw拒否4）、入力104400/出力806912wordです。全32個の既存スキル対象setを保ち、full_chargeのキューダメージ・死亡・再召喚を追加して独立Metal sealしました。旧幅を受け入れず、Python/Slang/Swiftで一致を検査します。[移設と検証境界](portable-heavyarms-lock-selection.md)。
+
 `physical-generation-locks`は、既存の充填周期と実射撃通知を、元index20の2射撃上限・世代付きmembership・発射snapshotへ合成した明示モデルです。Metal7入力（native3/raw拒否4）を独立seal。`package --suite physical-generation-locks`から通常のrun/seal経路を使います。元index0は周期観測用self marker projectionで、距離選択・実ハイド・順番攻撃・元全25効果は未完了です。[検証境界](portable-heavyarms-lock-selection.md)。
 
 `named-generation-locks`は実敵poolと名前付き上限readerに接続した明示membership契約です。M5 Metalで16入力（native10/raw拒否6）を独立seal。`package --suite named-generation-locks`から通常のrun/seal経路を使います。外部provider順のみで距離選択・充填event・元全25効果は未接続です。[範囲と失敗履歴](portable-heavyarms-lock-selection.md)。

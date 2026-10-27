@@ -28,6 +28,14 @@ class PhysicalLockTests(unittest.TestCase):
   self.assertLess(CANDIDATE,SNAPSHOTS);self.assertLessEqual(END,OUTPUT);check_metal(ROOT,OUTPUT)
   import portable_backend
   with self.assertRaisesRegex(ValueError,'separate arena wire'):portable_backend.validate_composed_stride(suite.SOURCE,suite.INPUT,786432)
+  with self.assertRaisesRegex(ValueError,'separate arena wire'):portable_backend.validate_composed_stride('gpu/world_projectile_entry.slang',suite.INPUT,OUTPUT)
+ def test_transport_guard_changes_are_exactly_reviewed_not_excluded(self):
+  import json
+  from portable_physical_lock_arena_source_contract import project_sources
+  data=json.loads((ROOT/'tests/fixtures/portable-physical-lock-arena-source-delta.json').read_text());out=project_sources(ROOT)
+  for name in ('app/portable_wire_layout.py','scripts/run-metal-probe.swift'):
+   self.assertEqual(out[name],data['sources'][name]['baseline'])
+   with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed'})
  def test_no_cpu_period_or_shot_schedule_is_used_for_packing(self):
   import portable_backend
   from calculator import timeline

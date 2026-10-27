@@ -103,3 +103,16 @@ Metalで3正例/4raw負例が全成功し、別fresh GPU禁止childで全7入力
 既存のactor/set/receipt/query領域を明示利用し、strideを増やさない。候補128、周期記録63、発射snapshot31の各上限で停止し、省略して成功にはしない。既存query traceの100物理shot上限も保持する。原本入力の通常set操作と診断queryの競合はGPU admissionで拒否する。GPU0.041235208秒、cold pipeline8.204335秒、実dispatch1/retry0。Windows追加要求0、CUDA実機は未確認。証跡は`research/target-count-query-evidence/metal-physical-locks-v1.json`。
 
 共通coreを取得/snapshot関数へ抽出した従来`named-generation-locks`も16入力を新Metal実行・独立sealし、元input5,901,316byte/readback16,252,928byteを全保持した。v2 goldenを新規作成し、旧goldenと旧captureは保存。共通smoke66group/641検査（skip1）、全266profile/issue/20順位保持、default full106のCUDA/MSL厳密正規化hash保持（生成のみ）も成功。個別Metal計2dispatchで同claim再試行0。全キャラ認定0/20分類/UI CPUは維持する。
+
+
+## スキルとの共有setを保つ専用arenaとfull_charge配送
+
+最新版`physical-generation-locks`は出力末尾に専用arenaを追加し、出力806,912word/入力104,400wordとした。従来786,432wordの位置は保持する。候補520word、周期63×16word、発射31×520wordを既存のactor query/receipt/setから分離し、全32個の生存スキル対象set容量を維持する。従来版のsnapshotは所有権0のsetを借りていたため、スキルallocatorと併用する前に分離が必要だった。候補全word・全snapshot・空き領域/末尾paddingまで比較する。Python/Slang/Swiftの幅を揃え、別entryがこの幅を使う場合や、旧幅のまま呼ぶ場合は起動前に拒否する。
+
+3つのfull_chargeスキル合成を追加し、native6/raw拒否4の全10入力が新Metalとfresh独立sealに成功。全敵へのキューダメージによる死亡、bossだけへのダメージ、死亡後の再召喚を含む。このダメージは通知直後には配送されず、snapshotの世代を保持した後にキューから着弾する。旧世代のsnapshotを新世代やBODYへ読み替えないことを検査した。照準距離・実ハイド・順番攻撃・全25効果認定の未完了は変わらない。
+
+初版で再召喚ケースの最終graph_state[0][6]だけが0対1となった。native最終観測はfinishによるADD退場後のuntil_cleared述語を導出していたため、このarena entryだけ、GPUの実pool退場後に同じ最終述語を導出する。終了eventや死亡通知は追加せず、ログ/ダメージ/他状態の比較も維持する。旧defaultの終了graph観測へ一般化する移行・再認定は残件。失敗packet/rawを保持し、修正版の全10入力を新たにsealした。
+
+旧7入力は全input byteが同じで、旧出力の全wordを明示された移設先か従来prefixへ対応付けて照合した。候補setの解放flag0だけは、独立scratchのflag1へ明示変更した。raw hashの完全一致とは主張しない。`physical-lock-arena-relocation-v1.json`に全領域の対応を記録。従来external-command core16入力は全input/readback byteを保持し、新v3 goldenへ切り替えた。旧golden/rawは保存する。
+
+共通smokeの最初の失敗は新wire幅の厳密source監査への登録漏れであり、wire/Swift/backend/schemaの前後全文を新しい完全一致ledgerに追加して修正した。normalizerを変更したり、依存hashの確認を省略したりしていない。旧default106のCUDA/MSL生成は既存の厳密正規化hashと一致（生成のみ）。今回の実GPUはarena2回（初版失敗含む）/external core2回、同claim retry0。最後のexternal coreは生成Metalの全byte一致を確認してpipeline必須hitで実行した。Windows追加要求0。

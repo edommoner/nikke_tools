@@ -2586,3 +2586,14 @@ sealed `physical-generation-locks`7入力（native3/拒否4）はM5 Metalと別f
 共通coreの取得/snapshot関数抽出後、従来named-generation-locks16入力も新Metal・独立sealし、全input/readback byteを保持。新v2 goldenへCLIを接続し旧版は保存。実GPU計2/同claim retry0。固定packet共通smoke66group/641（skip1）成功、全266profile/issue/20順位を保持、default106 CUDA/MSL厳密正規化hash保持（生成のみ）。新sourceのCUDA認定ではない。
 
 証跡はpersistent proofsの`physical-locks-v1-package`/`physical-locks-v1-metal`/`physical-locks-v1-independent.json`、および`lock-refactor-v1-package`/`lock-refactor-v1-metal`。Windowsの既存continuation保存結果は接続利用不可で未取得、再送/再実行なし。次は実ハイドevent、full_charge effectが敵状態を変えるときのsnapshot順、sequential delivery・途中死亡・元全25効果への接続。距離モデルは依然未確定で、公開情報を実機認定へ昇格させない。
+
+
+### 2026-10-27 ロック専用arenaとキュースキルの合成
+
+最新版physical-generation-locksは10入力/native6/拒否4をMetal＋fresh独立監査でseal。出力806912wordへ専用arenaを追加し、旧786432word prefixの位置と全32生存actor set容量を保持。候補/周期receipt/snapshotはactor query/receipt/setを借りない。新3ケースはfull_chargeで全敵を倒すキューダメージ、boss限定ダメージ、死亡後の再召喚。old generation snapshotの保持と新世代取得を比較した。
+
+初版v1は再召喚の最終graph_state[0][6]だけが不一致。finish退場後のuntil_cleared観測をGPUの実poolから導出するopt-in修正でv2成功。close/death通知は不変。旧defaultの同観測の移行・再認定は別途必要。失敗raw保持。旧7入力の全input byte/全旧output wordをprefixまたは明示移設先へ照合（候補解放flag0→独立scratch flag1だけ明示変更）。従来external core16は全byte保持し新v3 golden。
+
+共通smokeでwire幅の厳密source依存登録漏れが見つかり、host wire/Swift/backend/schemaの全文inverse ledgerへ登録して修正。GPU再実行不要。default106のCUDA/MSL厳密正規化hashは保持（生成のみ）。arena GPU計2（失敗1含む）、external core GPU計2、同claim retry0。最後のexternal coreは生成Metal全byte同一を確認してpipeline必須hit。Windows保存結果は接続利用不可、再送/再実行0。全266profile/issue/20順位保持、245変換/21失敗/全キャラ認定0/UI CPU。
+
+証跡はpersistent proofs physical-lock-arena-v2-package/physical-lock-arena-v2-metal/physical-lock-arena-v2-independent.json とlock-core-arena-refactor-v2-package/-metal/-independent.json。次は実ハイドevent、順番攻撃のsnapshot consumer、元全25効果。距離・対象種別・tie順は未確定のまま。
