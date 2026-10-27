@@ -15,7 +15,9 @@ LINKED_STAGE='gpu-linked'
 LINKED_FIELDS=('linked_package','linked_capture')
 RECOVERY_STAGE='recover-readback'
 RECOVERY_FIELDS=('source_package','source_capture','output_sha256')
-STAGES=('tests','cpu','smoke','generation','gpu',LINKED_STAGE,RECOVERY_STAGE,*COMPILE_STAGES,*OBJECT_STAGES)
+NATIVE_GROUP_STAGE='audit-native-group'
+NATIVE_GROUP_FIELDS=('source_package','source_capture','group_index','group_size')
+STAGES=('tests','cpu','smoke','generation','gpu',LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE,*COMPILE_STAGES,*OBJECT_STAGES)
 
 def is_windows():return os.name=='nt'
 
@@ -64,16 +66,20 @@ def run_tests(cli,plan):
 
 
 def object_request(stage,value):
-    if stage not in (*OBJECT_STAGES,LINKED_STAGE,RECOVERY_STAGE):
+    if stage not in (*OBJECT_STAGES,LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE):
         if value is not None:raise ValueError('Only saved-object or saved-linked GPU stages accept a request')
         return None
-    fields=RECOVERY_FIELDS if stage==RECOVERY_STAGE else LINKED_FIELDS if stage==LINKED_STAGE else OBJECT_STAGES[stage]
+    fields=NATIVE_GROUP_FIELDS if stage==NATIVE_GROUP_STAGE else RECOVERY_FIELDS if stage==RECOVERY_STAGE else LINKED_FIELDS if stage==LINKED_STAGE else OBJECT_STAGES[stage]
     if type(value) is not dict or set(value)!=set(fields):raise ValueError('Exact saved-object request fields required')
     result={}
     for key in fields:
         item=value[key]
         if not isinstance(item,str) or not item or any(c in item for c in ('\x00','\r','\n')):raise ValueError('Invalid saved-object request value')
-        if key in ('object_sha256','output_sha256'):
+        if key in ('group_index','group_size'):
+            if not item.isascii() or not item.isdigit() or str(int(item))!=item or not (0 if key=='group_index' else 1)<=int(item)<=65536:
+                raise ValueError('Canonical bounded native group integer required')
+            result[key]=item
+        elif key in ('object_sha256','output_sha256'):
             if len(item)!=64 or any(c not in '0123456789abcdef' for c in item):raise ValueError('Exact saved-object SHA256 required')
             result[key]=item
         else:
@@ -103,12 +109,38 @@ def verified_readback(proof):
         and all(type(proof.get(k)) is int and proof[k]==0 for k in ('gpu_calls','driver_load_calls','native_tool_calls')))
 
 
+def verified_native_group(proof,request):
+    if not proof or proof.get('mode')!='saved-native-group-only' or proof.get('backend')!='cuda':return False
+    if proof.get('group_index')!=int(request['group_index']) or proof.get('group_size')!=int(request['group_size']):return False
+    if proof.get('source_package')!=request['source_package'] or proof.get('source_capture')!=request['source_capture']:return False
+    group=proof.get('group',{});audit=group.get('audit',{});comparison=group.get('comparison',{})
+    from portable_comparison_groups import partition
+    count=comparison.get('total_input_count');bound=proof.get('per_group_timeout_seconds')
+    if type(count) is not int or not 1<=count<=65536 or type(bound) is not int or not 1<=bound<=180:return False
+    planned=partition(count,int(request['group_size']));index=int(request['group_index'])
+    if index>=len(planned) or proof.get('planned')!=planned:return False
+    indices=planned[index];pid=group.get('child_pid');elapsed=group.get('elapsed_seconds');native=comparison.get('native_oracles')
+    if (comparison.get('case_indices')!=indices or comparison.get('input_count')!=len(indices)
+        or len(comparison.get('entries',[]))!=len(indices) or group.get('package_id')!=proof.get('package_id')
+        or type(pid) is not int or pid<=0 or pid==os.getpid()
+        or type(elapsed) not in (int,float) or not 0<=elapsed<=bound+1
+        or type(native) is not int or not 0<=native<=len(indices)):return False
+    return bool(proof.get('comparison_subset_verified') is True and proof.get('calculation_verified') is False
+        and type(proof.get('gpu_calls')) is int and proof['gpu_calls']==0
+        and group.get('live_parent_receipt_present') is False
+        and comparison.get('comparison_subset_verified') is True and comparison.get('calculation_verified') is False
+        and comparison.get('mismatches')==[] and 'parent_oracles' not in comparison
+        and type(comparison.get('audit_gpu_calls')) is int and comparison['audit_gpu_calls']==0
+        and audit.get('transport_core_verified') is True and audit.get('containment_verified') is True
+        and audit.get('calculation_verified') is False and audit.get('comparison_error') is None)
+
+
 def recipe(package_id,stage,backend,capture,original_workspace,timeout,request=None):
     if stage not in STAGES or backend not in ('metal','cuda') or type(timeout) is not int or not 1<=timeout<=180:raise ValueError('Invalid packet stage or budget')
-    if stage in (*COMPILE_STAGES,*OBJECT_STAGES,LINKED_STAGE,RECOVERY_STAGE) and backend!='cuda':raise ValueError('Compilation requires CUDA backend')
+    if stage in (*COMPILE_STAGES,*OBJECT_STAGES,LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE) and backend!='cuda':raise ValueError('Compilation requires CUDA backend')
     request=object_request(stage,request)
     capture=Path(capture).resolve();original=Path(original_workspace).resolve() if original_workspace else None
-    if stage in (*COMPILE_STAGES,*OBJECT_STAGES,LINKED_STAGE,RECOVERY_STAGE) and original is None:raise ValueError('Compilation requires an original workspace')
+    if stage in (*COMPILE_STAGES,*OBJECT_STAGES,LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE) and original is None:raise ValueError('Compilation requires an original workspace')
     if capture==ROOT or ROOT in capture.parents:raise ValueError('Stage capture must be outside the immutable package')
     if original is not None and (original==ROOT or original==capture or original in capture.parents):raise ValueError('Use an isolated capture outside the original workspace')
     if is_windows() and original is None:raise ValueError('Windows requires an explicit original workspace')
@@ -125,6 +157,11 @@ def proof_arguments(plan):
     if plan['stage']==RECOVERY_STAGE:
         request=object_request(RECOVERY_STAGE,plan['object_request'])
         return [RECOVERY_STAGE,'--source-package',request['source_package'],'--source-capture',request['source_capture'],'--out',plan['proof_capture'],'--output-sha256',request['output_sha256']]
+    if plan['stage']==NATIVE_GROUP_STAGE:
+        request=object_request(NATIVE_GROUP_STAGE,plan['object_request'])
+        return ['saved-battle-audit','--backend','cuda','--package-root',request['source_package'],
+            '--capture',request['source_capture'],'--group-index',request['group_index'],'--group-size',request['group_size'],
+            '--timeout',str(plan['timeout_seconds']),'--out',str(Path(plan['proof_capture'])/'result.json')]
     if plan['stage']=='recover-object':
         request=object_request('recover-object',plan['object_request'])
         return ['recover-object','--source-package',request['source_package'],'--source-capture',request['source_capture'],'--out',plan['proof_capture'],'--object-sha256',request['object_sha256']]
@@ -204,7 +241,8 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None)
     journal=Journal(folder/'preparation.jsonl')
     journal.emit('packet_header_prepare','returned',elapsed_seconds=time.monotonic()-started)
     # A claim is durable before any launch; a missing result never permits retry.
-    save(ROOT/('packet-stage-claimed-'+stage+'-'+backend+'.json'),dict(package_id=manifest['package_id'],capture=str(folder),created_unix_ns=time.time_ns()))
+    claim_stage=stage+('-'+plan['object_request']['group_index'] if stage==NATIVE_GROUP_STAGE else '')
+    save(ROOT/('packet-stage-claimed-'+claim_stage+'-'+backend+'.json'),dict(package_id=manifest['package_id'],capture=str(folder),created_unix_ns=time.time_ns()))
     bounded=cli.bounded_module();env=cli.validation_environment(folder)
     if stage=='generation':env['NIKKE_SLANG_GENERATION_REQUIRED']='0'
     env['NIKKE_VALIDATION_JOB_MEMORY_MB']='2048'
@@ -233,7 +271,7 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None)
     comparison=observation.get('comparison',{})
     process_preserved=comparison.get('all_monitored_processes_preserved')
     environment_preserved=bool(process_preserved is True and comparison.get('identified_nikke_service_preservation_verified') is True and facts.get('observation_error') is None) if is_windows() else None
-    key={'tests':'cpu_tests_verified','cpu':'cpu_verified','smoke':'smoke_verified','generation':'verified','gpu':'passed',LINKED_STAGE:'passed',RECOVERY_STAGE:'passed',**{name:'compiler_verified' for name in COMPILE_STAGES},**{name:'object_verified' for name in OBJECT_STAGES}}[stage]
+    key={'tests':'cpu_tests_verified','cpu':'cpu_verified','smoke':'smoke_verified','generation':'verified','gpu':'passed',LINKED_STAGE:'passed',RECOVERY_STAGE:'passed',NATIVE_GROUP_STAGE:'comparison_subset_verified',**{name:'compiler_verified' for name in COMPILE_STAGES},**{name:'object_verified' for name in OBJECT_STAGES}}[stage]
     compiler_verified=bool(proof and proof.get('mode')=='compile-only' and proof.get('compiler_verified') is True and proof.get('calculation_verified') is False and type(proof.get('gpu_calls')) is int and proof['gpu_calls']==0 and type(proof.get('driver_load_calls')) is int and proof['driver_load_calls']==0)
     generation_verified=verified_generation(proof,manifest['package_id'])
     if stage not in COMPILE_STAGES:compiler_verified=False
@@ -244,6 +282,8 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None)
         tests_verified=verified_tests(proof,manifest['package_id'],cli.SUITES[manifest['suite']]['tests'],rows)
     verified=tests_verified if stage=='tests' else compiler_verified if stage in COMPILE_STAGES else diagnostic_verified if stage in OBJECT_STAGES else generation_verified if stage=='generation' else bool(proof and proof.get(key))
     if stage==RECOVERY_STAGE:verified=verified_readback(proof)
+    if stage==NATIVE_GROUP_STAGE:
+        verified=verified_native_group(proof,plan['object_request'])
     stage_verified=bool(facts['passed'] and verified)
     result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,compiler_verified=compiler_verified,generation_verified=generation_verified if stage=='generation' else False,calculation_verified=bool(stage not in (*COMPILE_STAGES,*OBJECT_STAGES,'generation','tests') and proof and proof.get('calculation_verified')),cpu_verified=bool(proof and proof.get('cpu_verified')),smoke_verified=bool(proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
     if stage=='tests':result.update(cpu_tests_verified=tests_verified,cpu_reference_verified=False)

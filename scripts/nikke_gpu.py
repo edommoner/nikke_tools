@@ -596,6 +596,7 @@ SUITES['destructible-counter']['tests'].append('test_portable_packet_stage.py')
 
 
 SMOKE_TESTS.append('test_portable_comparison_groups.py')
+SMOKE_TESTS.append('test_portable_native_group_stage.py')
 SMOKE_TESTS.append('test_typed_owner_observer_migration.py')
 SMOKE_TESTS.append('test_portable_cache_fs_compression.py')
 SMOKE_TESTS.append('test_counter_field_decoder.py')
@@ -1675,15 +1676,48 @@ def audited_comparison_group(module,capture,indices):
     return audit,observed[0]
 
 
+def audited_battle_comparison_group(module,capture,indices,backend):
+    if backend=='metal':return audited_comparison_group(module,capture,indices)
+    if backend!='cuda' or module.load(capture/'run.json').get('backend')!='cuda':
+        raise ValueError('Matching CUDA capture required')
+    observed=[];original=module.compare_readback
+    def compare(*args,**kwargs):
+        if kwargs:raise ValueError('Independent group cannot use comparison overrides')
+        result=original(*args,case_indices=indices);observed.append(result);return result
+    with patch.object(module,'compare_readback',compare),module.forbid_gpu():
+        audit=module.audit_capture(capture)
+    if len(observed)!=1 or observed[0].get('comparison_subset_verified') is not True or audit.get('calculation_verified') is not False:
+        raise ValueError('Exactly one successful partial comparison required')
+    # The ordinary CUDA audit already verifies the native API trace and Job.
+    # Its transport_verified also includes service preservation; keep that
+    # fact false when unidentified while exposing the calculation boundary.
+    facts=module.load(capture/'execution.json');phase=audit['phase']
+    core=bool(facts.get('passed') is True and audit.get('containment_verified') is True
+        and (phase['nvrtc_compile_returned_success'] or phase['cuda_compile_cache_hit_verified'] or phase['cuda_linked_artifact_observed'])
+        and all(phase[k] for k in ('cuda_launch_returned_success','cuda_synchronize_returned_success','cuda_readback_returned_success')))
+    if not core or type(audit.get('preservation_verified')) is not bool or audit.get('transport_verified') is not audit['preservation_verified']:
+        raise ValueError('CUDA calculation transport envelope not verified')
+    return dict(audit,transport_core_verified=True),observed[0]
+
+
 def audit_saved_metal_groups(package_root,capture,*,timeout,development_only,group_size):
+    return audit_saved_battle_groups(package_root,capture,timeout=timeout,
+        development_only=development_only,group_size=group_size,backend='metal')
+
+
+def audit_saved_battle_groups(package_root,capture,*,timeout,development_only=False,group_size,backend,group_index=None):
     """Every input exactly once, sequential fresh children with individual bounds."""
     from portable_comparison_groups import partition,aggregate
+    if backend not in ('metal','cuda') or backend=='cuda' and development_only:raise ValueError('CUDA grouped audit requires a sealed battle')
+    if os.name=='nt' and group_index is None:raise ValueError('Windows requires one bounded native group per packet stage')
+    if group_index is not None and (type(group_index) is not int or group_index<0):raise ValueError('Native group index outside plan')
     if type(timeout) is not int or not 1<=timeout<=CPU_SAVED_AUDIT_MAX_SECONDS:raise ValueError('CPU seal timeout must be an integer from 1 to 240 seconds')
     # Validate arguments before starting even the package-verification process.
     partition(1,group_size)
     root=Path(package_root).resolve();capture=Path(capture).resolve();started=time.perf_counter()
     manifest=verify_saved_package(root,timeout=timeout)
     planned=partition(len(manifest['golden']['entries']),group_size)
+    if group_index is not None and (type(group_index) is not int or not 0<=group_index<len(planned)):raise ValueError('Native group index outside plan')
     controller=Path(__file__).resolve();controller_sha=sha(controller.read_bytes())
     manifest_sha=sha((root/'gpu-package.json').read_bytes())
     names=set(r['path'] for r in load(capture/'artifacts.json')['files'])
@@ -1696,19 +1730,22 @@ controller=importlib.util.module_from_spec(s);s.loader.exec_module(controller)
 s=importlib.util.spec_from_file_location('seal_cli',root/'scripts/nikke_gpu.py')
 m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
 p=m.verify_package(root)
-if (sys.argv[4]=='development' and not m.is_development(p)) or p.get('purpose','sealed') not in ('sealed','development') or m.load(capture/'run.json')['backend']!='metal':raise ValueError('Matching Metal battle capture required')
-a,r=controller.audited_comparison_group(m,capture,json.loads(sys.argv[5]))
+backend=sys.argv[6]
+if (sys.argv[4]=='development' and not m.is_development(p)) or p.get('purpose','sealed') not in ('sealed','development') or m.load(capture/'run.json')['backend']!=backend or backend=='cuda' and m.is_development(p):raise ValueError('Matching sealed CUDA or Metal battle capture required')
+a,r=controller.audited_battle_comparison_group(m,capture,json.loads(sys.argv[5]),backend)
 print(json.dumps(dict(package_id=p['package_id'],audit=a,comparison=r,child_pid=os.getpid(),live_parent_receipt_present='parent_oracles' in r)))
 """
     import tempfile
     group_capture=Path(tempfile.mkdtemp(prefix='nikke-independent-groups-'))
     write(group_capture/'plan.json',dict(package_id=manifest['package_id'],case_groups=planned,per_group_timeout_seconds=timeout,calculation_verified=False,gpu_calls=0))
     groups=[]
+    requested_group_index=group_index
     for group_index,indices in enumerate(planned):
+        if requested_group_index is not None and group_index!=requested_group_index:continue
         before=time.perf_counter()
         prefix=group_capture/str(group_index)
         try:
-            completed=subprocess.run([sys.executable,'-c',script,str(root),str(capture),str(controller),'development' if development_only else 'battle',json.dumps(indices)],
+            completed=subprocess.run([sys.executable,'-c',script,str(root),str(capture),str(controller),'development' if development_only else 'battle',json.dumps(indices),backend],
                                      cwd=root,capture_output=True,text=True,check=True,timeout=timeout)
             prefix.with_suffix('.stdout.log').write_text(completed.stdout,encoding='utf-8')
             prefix.with_suffix('.stderr.log').write_text(completed.stderr,encoding='utf-8')
@@ -1725,10 +1762,22 @@ print(json.dumps(dict(package_id=p['package_id'],audit=a,comparison=r,child_pid=
             write(group_capture/'failure.json',dict(group_index=group_index,case_indices=indices,error=type(error).__name__+': '+str(error),completed_groups=len(groups),calculation_verified=False,gpu_calls=0))
             raise RuntimeError('Independent group failed; preserved logs: '+str(group_capture)) from error
     if verify_saved_package(root,timeout=timeout)!=manifest:raise ValueError('Group package changed after comparison')
-    result=aggregate(manifest,groups,planned,timeout)
+    if requested_group_index is not None:
+        for name,digest in manifest['golden']['source_sha256'].items():
+            if sha((ROOT/name).read_bytes())!=digest:raise ValueError('Current source differs from verified battle source')
+        result=dict(mode='saved-native-group-only',backend=backend,package_id=manifest['package_id'],
+            group_index=requested_group_index,group_size=group_size,planned=planned,
+            source_package=str(root),source_capture=str(capture),per_group_timeout_seconds=timeout,
+            group=groups[0],comparison_subset_verified=True,calculation_verified=False,
+            full_goal_complete=False,gpu_calls=0,group_capture=str(group_capture),
+            independent_audit_seconds=time.perf_counter()-started,
+            audit_anchors=dict(manifest_sha256=manifest_sha,controller_sha256=controller_sha,capture_files=anchors))
+        write(group_capture/'subset.json',result)
+        return result
+    result=aggregate(manifest,groups,planned,timeout,backend=backend)
     comparison=result['comparison'];golden=dict(input_sha256=comparison['input_sha256'],output_sha256=comparison['output_sha256'],source_sha256=manifest['golden']['source_sha256'],entries=comparison['entries'],generated_normalized=comparison['generated_normalized'])
     for name,digest in golden['source_sha256'].items():
-        if sha((ROOT/name).read_bytes())!=digest:raise ValueError('Current source differs from verified Metal source')
+        if sha((ROOT/name).read_bytes())!=digest:raise ValueError('Current source differs from verified battle source')
     write(group_capture/'aggregate.json',result)
     return dict(result,golden=golden,package_id=manifest['package_id'],group_capture=str(group_capture),independent_audit_seconds=time.perf_counter()-started,
                 audit_anchors=dict(manifest_sha256=manifest_sha,controller_sha256=controller_sha,capture_files=anchors),gpu_calls=0)
@@ -1761,6 +1810,34 @@ print(json.dumps(dict(golden=g,package_id=p['package_id'],audit=a,independent_co
     for name,digest in result['golden']['source_sha256'].items():
         if sha((ROOT/name).read_bytes())!=digest:raise ValueError('Current source differs from verified Metal source')
     return result
+
+
+def aggregate_saved_native_groups(package_root,receipts,backend,group_size,timeout):
+    """Aggregate exact hash-only receipts; never load native state from disk."""
+    from portable_comparison_groups import partition,aggregate
+    if type(timeout) is not int or not 1<=timeout<=CPU_SAVED_AUDIT_MAX_SECONDS:raise ValueError('Bounded native audit timeout required')
+    root=Path(package_root).resolve();manifest=verify_saved_package(root,timeout=timeout)
+    planned=partition(len(manifest['golden']['entries']),group_size)
+    if len(receipts)!=len(planned):raise ValueError('Exactly one receipt for every native group required')
+    groups=[];anchors=None;source_capture=None
+    for index,path in enumerate(receipts):
+        row=load(path)
+        if (row.get('mode')!='saved-native-group-only' or row.get('backend')!=backend
+            or row.get('package_id')!=manifest['package_id'] or row.get('group_index')!=index
+            or row.get('group_size')!=group_size or row.get('per_group_timeout_seconds')!=timeout
+            or row.get('planned')!=planned or row.get('comparison_subset_verified') is not True
+            or row.get('calculation_verified') is not False or type(row.get('gpu_calls')) is not int or row['gpu_calls']!=0):
+            raise ValueError('Native group receipt identity/scope mismatch')
+        current=row['audit_anchors']
+        if current['manifest_sha256']!=sha((root/'gpu-package.json').read_bytes()):raise ValueError('Native group manifest anchor mismatch')
+        if current['controller_sha256']!=sha(Path(__file__).read_bytes()):raise ValueError('Native group controller differs from aggregating immutable CLI')
+        if anchors is None:anchors=current;source_capture=row['source_capture']
+        if current!=anchors or row['source_capture']!=source_capture:raise ValueError('Native groups used different original evidence or controllers')
+        groups.append(row['group'])
+    result=aggregate(manifest,groups,planned,timeout,backend=backend)
+    return dict(result,mode='saved-native-groups-only',backend=backend,package_id=manifest['package_id'],
+        source_capture=source_capture,audit_anchors=anchors,gpu_calls=0,full_goal_complete=False,
+        scope='Fresh original native comparisons in source-host children; receipt aggregation does not re-read remote raw')
 
 
 def seal_development(package_root,capture,output,*,timeout=60,compiler_certificate=None,audit_receipt=None,comparison_group_size=None):
@@ -3133,6 +3210,13 @@ def main(argv=None):
     for name in ('source-package','source-capture','out'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('recover-readback');a.add_argument('--output-sha256',required=True)
     for name in ('source-package','source-capture','out'):a.add_argument('--'+name,type=Path,required=True)
+    a=sub.add_parser('saved-battle-audit');a.add_argument('--backend',choices=('metal','cuda'),required=True)
+    a.add_argument('--group-size',type=int,required=True);a.add_argument('--group-index',type=int);a.add_argument('--timeout',type=int,default=180)
+    for name in ('package-root','capture','out'):a.add_argument('--'+name,type=Path,required=True)
+    a=sub.add_parser('aggregate-native-groups');a.add_argument('--backend',choices=('metal','cuda'),required=True)
+    a.add_argument('--group-size',type=int,required=True);a.add_argument('--timeout',type=int,default=180)
+    a.add_argument('--receipt',type=Path,action='append',required=True)
+    for name in ('package-root','out'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('module-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     for name in ('source-package','source-capture','cache-entry','phases','ptxas','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('partition-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
@@ -3263,6 +3347,18 @@ def main(argv=None):
         with forbid_gpu():
             verify_package(ROOT)
             result=recover(SimpleNamespace(**globals()),a.source_package,a.source_capture,a.out,a.output_sha256)
+    elif a.command=='saved-battle-audit':
+        output=a.out.resolve();readonly=[a.package_root.resolve(),a.capture.resolve()]
+        if output.exists() or output.is_symlink():raise FileExistsError(output)
+        if any(output==p or p in output.parents for p in readonly):raise ValueError('Saved audit output must be outside original evidence')
+        with forbid_gpu():result=audit_saved_battle_groups(a.package_root,a.capture,backend=a.backend,group_size=a.group_size,group_index=a.group_index,timeout=a.timeout)
+        output.parent.mkdir(parents=True,exist_ok=True);write(output,result)
+    elif a.command=='aggregate-native-groups':
+        output=a.out.resolve()
+        if output.exists() or output.is_symlink():raise FileExistsError(output)
+        if a.package_root.resolve() in output.parents or any(output==p.resolve() for p in a.receipt):raise ValueError('Aggregation output must be outside original evidence')
+        with forbid_gpu():result=aggregate_saved_native_groups(a.package_root,a.receipt,a.backend,a.group_size,a.timeout)
+        output.parent.mkdir(parents=True,exist_ok=True);write(output,result)
     elif a.command=='metal-device-probe':
         from portable_metal_device import probe
         if a.out.exists() or a.out.is_symlink():raise FileExistsError(a.out)
@@ -3447,6 +3543,14 @@ def main(argv=None):
             numeric_policy_scope=numeric['policy_implemented_scope'],public_numeric_admission_remaining=numeric['public_admission_remaining'],
             private_numeric_evidence_suites=numeric['private_suites'])
     print(json.dumps(display,ensure_ascii=False,indent=2))
+    if a.command in ('saved-battle-audit','aggregate-native-groups') and result.get('mode')!='saved-native-group-only':
+        if not result['audit'].get('calculation_verified'):raise SystemExit(1)
+        if result['audit'].get('preservation_verified') is False:raise SystemExit(2)
+        return
+    if result.get('mode')=='saved-native-group-only':
+        if not result.get('comparison_subset_verified'):raise SystemExit(1)
+        if result['group']['audit'].get('preservation_verified') is False:raise SystemExit(2)
+        return
     if result.get('mode')=='recover-readback-only':
         if not result.get('calculation_verified') or not result.get('containment_verified'):raise SystemExit(1)
         if result.get('preservation_verified') is not True:raise SystemExit(2)

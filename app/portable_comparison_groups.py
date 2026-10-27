@@ -2,6 +2,7 @@
 import os
 
 SCHEMA='independent-metal-audit-groups-v1'
+CUDA_SCHEMA='independent-cuda-audit-groups-v1'
 
 
 def selection(count,indices):
@@ -18,8 +19,9 @@ def partition(count,size):
     return [list(range(start,min(start+size,count))) for start in range(0,count,size)]
 
 
-def aggregate(manifest,groups,planned,timeout):
+def aggregate(manifest,groups,planned,timeout,*,backend='metal'):
     """Never accept saved/live-parent oracles, missing rejects, overlaps or gaps."""
+    if backend not in ('metal','cuda'):raise ValueError('Explicit Metal or CUDA audit backend required')
     expected=manifest['golden']['entries'];count=len(expected)
     if not groups or len(groups)!=len(planned) or [i for part in planned for i in part]!=list(range(count)):
         raise ValueError('Comparison groups must cover every input exactly once')
@@ -33,7 +35,12 @@ def aggregate(manifest,groups,planned,timeout):
             raise ValueError('Comparison group input identity/count mismatch')
         if r.get('comparison_subset_verified') is not True or r.get('calculation_verified') is not False or r.get('mismatches')!=[] or 'parent_oracles' in r or r.get('audit_gpu_calls')!=0:
             raise ValueError('Comparison group is incomplete, failed or reused')
-        if a.get('transport_verified') is not True or a.get('calculation_verified') is not False or a.get('passed') is not False or a.get('comparison_error') is not None:
+        envelope_verified=a.get('transport_verified') is True
+        if backend=='cuda':
+            preservation=a.get('preservation_verified')
+            envelope_verified=(a.get('transport_core_verified') is True and a.get('containment_verified') is True
+                and type(preservation) is bool and a.get('transport_verified') is preservation)
+        if not envelope_verified or a.get('calculation_verified') is not False or a.get('passed') is not False or a.get('comparison_error') is not None:
             raise ValueError('Independent capture envelope not verified')
         shared={k:r[k] for k in ('input_sha256','output_sha256','generated_normalized')}
         if shared['input_sha256']!=manifest['golden']['input_sha256']:raise ValueError('Comparison input fingerprint mismatch')
@@ -53,13 +60,14 @@ def aggregate(manifest,groups,planned,timeout):
     if 'output_sha256' in manifest['golden'] and common['output_sha256']!=manifest['golden']['output_sha256']:raise ValueError('Full output fingerprint mismatch')
     if 'generated_normalized' in manifest['golden'] and common['generated_normalized']!=manifest['golden']['generated_normalized']:raise ValueError('Generated code fingerprint mismatch')
     comparison=dict(common,entries=entries,mismatches=[],input_count=count,native_oracles=native,calculation_verified=True,audit_gpu_calls=0)
-    final_audit=dict(audit,calculation_verified=True,passed=True)
+    final_audit=dict(audit,calculation_verified=True,passed=backend=='metal' or audit['preservation_verified'] is True)
     if audit.get('mode')=='saved-metal-replay':final_audit.update(comparison)
-    return dict(comparison=comparison,audit=final_audit,independent_comparison=dict(schema=SCHEMA,child_pids=pids,groups=facts,input_count=count,native_cases=native,live_parent_receipt_present=False,per_group_timeout_seconds=timeout))
+    return dict(comparison=comparison,audit=final_audit,independent_comparison=dict(schema=SCHEMA if backend=='metal' else CUDA_SCHEMA,child_pids=pids,groups=facts,input_count=count,native_cases=native,live_parent_receipt_present=False,per_group_timeout_seconds=timeout))
 
 
-def validate_facts(facts,count,timeout):
-    if facts.get('schema')!=SCHEMA or facts.get('input_count')!=count or facts.get('live_parent_receipt_present') is not False or facts.get('per_group_timeout_seconds')!=timeout:
+def validate_facts(facts,count,timeout,*,backend='metal'):
+    if backend not in ('metal','cuda'):raise ValueError('Explicit Metal or CUDA audit backend required')
+    if facts.get('schema')!=(SCHEMA if backend=='metal' else CUDA_SCHEMA) or facts.get('input_count')!=count or facts.get('live_parent_receipt_present') is not False or facts.get('per_group_timeout_seconds')!=timeout:
         raise ValueError('Independent grouped receipt identity mismatch')
     rows=facts.get('groups');pids=facts.get('child_pids')
     if not isinstance(rows,list) or not rows or not isinstance(pids,list) or len(rows)!=len(pids) or [r.get('child_pid') for r in rows]!=pids or len(set(pids))!=len(pids) or any(type(p) is not int or p<=0 or p==os.getpid() for p in pids):raise ValueError('Fresh independent comparison child required')

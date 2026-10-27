@@ -21,6 +21,18 @@ class CoverageTests(unittest.TestCase):
     def test_all_inputs_once_including_last_short_group(self):
         m,g,p=self.fixture();self.assertEqual(partition(3,2),p);r=aggregate(m,g,p,180)
         self.assertTrue(r['comparison']['calculation_verified']);self.assertEqual(len(r['comparison']['entries']),3);self.assertTrue(r['audit']['passed']);validate_facts(r['independent_comparison'],3,180)
+    def test_cuda_calculation_does_not_promote_unknown_service_or_weaken_metal(self):
+        m,g,p=self.fixture()
+        for row in g:row['audit'].update(transport_verified=False,transport_core_verified=True,containment_verified=True,preservation_verified=False)
+        r=aggregate(m,g,p,180,backend='cuda')
+        self.assertTrue(r['audit']['calculation_verified']);self.assertFalse(r['audit']['passed'])
+        self.assertFalse(r['audit']['transport_verified']);self.assertFalse(r['audit']['preservation_verified'])
+        validate_facts(r['independent_comparison'],3,180,backend='cuda')
+        with self.assertRaises(ValueError):validate_facts(r['independent_comparison'],3,180)
+        with self.assertRaises(ValueError):aggregate(m,g,p,180)
+        for key,value in (('transport_core_verified',False),('containment_verified',False),('preservation_verified',None),('transport_verified',True)):
+            bad=copy.deepcopy(g);bad[0]['audit'][key]=value
+            with self.subTest(key=key),self.assertRaises(ValueError):aggregate(m,bad,p,180,backend='cuda')
     def test_no_missing_overlapping_reordered_duplicate_or_boolean_indices(self):
         m,g,_=self.fixture()
         for p in ([[0,1]],[[0,1],[1,2]],[[1,0],[2]],[[0,0],[1,2]],[[False,1],[2]]):
@@ -113,6 +125,15 @@ def audit_capture(capture):
             with patch.object(cli,'ROOT',other):r=cli.audit_saved_metal_groups(root,capture,timeout=30,development_only=True,group_size=2)
             self.assertTrue(r['audit']['calculation_verified']);self.assertEqual(r['comparison']['native_oracles'],3);self.assertEqual(len(set(r['independent_comparison']['child_pids'])),2)
             logs=Path(r['group_capture']);self.addCleanup(lambda:__import__('shutil').rmtree(logs));self.assertTrue((logs/'0.stdout.log').is_file());self.assertTrue((logs/'1.json').is_file());self.assertTrue((logs/'aggregate.json').is_file())
+    def test_single_group_is_fresh_and_cannot_claim_full_calculation(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            base=Path(tmp);root,other,capture=self.fixture(base)
+            with patch.object(cli,'ROOT',other):r=cli.audit_saved_battle_groups(root,capture,timeout=30,group_size=2,group_index=1,backend='metal')
+            self.assertFalse(r['calculation_verified']);self.assertTrue(r['comparison_subset_verified'])
+            self.assertEqual(r['group']['comparison']['case_indices'],[2]);self.assertEqual(r['planned'],[[0,1],[2]])
+            self.assertNotEqual(r['group']['child_pid'],os.getpid());self.assertFalse(r['group']['live_parent_receipt_present'])
+            logs=Path(r['group_capture']);self.addCleanup(lambda:__import__('shutil').rmtree(logs))
+            self.assertFalse((logs/'0.json').exists());self.assertTrue((logs/'1.json').exists());self.assertFalse((logs/'aggregate.json').exists())
     def test_failed_child_stops_later_groups_and_keeps_stderr(self):
         with tempfile.TemporaryDirectory() as tmp:
             base=Path(tmp);root,other,capture=self.fixture(base)
