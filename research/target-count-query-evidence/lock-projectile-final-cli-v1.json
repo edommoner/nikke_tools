@@ -1,0 +1,57 @@
+{
+  "schema": "lock-projectile-final-cli-v1",
+  "passed": true,
+  "normal_packages": [
+    {
+      "label": "live9",
+      "package_id": "ff94adb2f5e65d2f72ea0849be42deaa35928791a3b8de02b4e8f7e10589489c",
+      "source_commit": "2f2458fc0b11fd6eb86812261edb9f37ba6d70e3",
+      "normal_package_created": true
+    },
+    {
+      "label": "packet8",
+      "package_id": "2427609fc80be42567460498bb31067a928389e7564b413016d097e837b3e845",
+      "source_commit": "2f2458fc0b11fd6eb86812261edb9f37ba6d70e3",
+      "normal_package_created": true
+    },
+    {
+      "label": "cover23",
+      "package_id": "7697e4706b9653d72c81ce0e95fa38f46c2a3c4dde5968c3431b0cd70ffdf271",
+      "source_commit": "2f2458fc0b11fd6eb86812261edb9f37ba6d70e3",
+      "normal_package_created": true
+    },
+    {
+      "label": "physical10",
+      "package_id": "0e546e2a5efdae4bf0d0e31a5b7bb41bd4526bec2980ed4512eb9c054adb8f32",
+      "source_commit": "2f2458fc0b11fd6eb86812261edb9f37ba6d70e3",
+      "normal_package_created": true
+    },
+    {
+      "label": "external16",
+      "package_id": "3589dbf67ee17b2fab5fc968f5583f383fe6516ebf836338698261b0874176ee",
+      "source_commit": "2f2458fc0b11fd6eb86812261edb9f37ba6d70e3",
+      "normal_package_created": true
+    }
+  ],
+  "unsealed_composition_normal_distribution_rejected": true,
+  "composition_calculation_verified": false,
+  "original_failed_capture_unchanged": true,
+  "final_gpu_calls": 0,
+  "windows_new_requests": 0,
+  "tests": {
+    "cpu": {
+      "groups": 9,
+      "tests": 57,
+      "skipped": 0,
+      "receipt_sha256": "516c6da632f3bf42b56f0696ac5ab968818fd233d456d240e672f00bff4a3cd8"
+    },
+    "smoke": {
+      "groups": 67,
+      "tests": 652,
+      "skipped": 1,
+      "receipt_sha256": "cee306403abf3d02cc9d8bee4354ea349d82717e183712d8d71983a075d3bc52"
+    }
+  },
+  "composition_still_unsealed": true,
+  "failure_diagnostic_sha256": "3ca3b205297507275b2b620c9592e64d7e106924abc84ca6785e12763bc568f0"
+}

@@ -2681,3 +2681,5 @@ code76b931c6、固定packet5e895206のMetal1回は全比較失敗。rawはlock-p
 **次の優先作業**は実配送／抑止されたnative仮packetのdispositionを明示して両側の履歴契約を揃えること。保存rawで全項目を診断してから、必要な実装修正と新CPU契約を固定する。失敗captureへ新基準を付け替えたり同claimを再実行しない。新合成はdevelopment_onlyのまま、seal/CUDA実行/全25/公開admissionへ進めない。距離・死亡振替も未確定。
 
 共有layout変更を受けた既存live9/packet8/cover23/physical10/external16は生成厳密hash/input/nativeを先に確認、required Metal pipeline hitで各1回＋fresh独立seal、全input/readback byte保持。goldenはlivev2/packetv3/coverv4/physicalv6/externalv7へ更新し旧版を保持。本体106 CUDA/MSL厳密生成hashも保持（生成のみ）。実GPUは新失敗1＋旧成功5、同claim retry0、Windows新依頼0。共通67群652（Win1skip）と専用9群57はCPU-only成功。全inventory fieldは前回と一致、266/245packing/21失敗/20分類/全キャラ0/UI CPU。model-check成功、全目標未達。証跡はtarget-count-query-evidence/lock-projectile-composition-v1-failure-diagnostic.json / lock-projectile-legacy-retention-v1.json / lock-projectile-required-generation-v1.json。private継続点はprivate-continuation-v29.json。
+
+最終source2f2458fcから従来5通常packageを作成しsource/golden guardを確認。新合成を--developなしでpackageするとnative/ファイル作成前に拒否する実CLI負例も成功。追加GPU0。最終通常入口と失敗維持の記録はlock-projectile-final-cli-v1.json。ローカルjobは残っていない。
