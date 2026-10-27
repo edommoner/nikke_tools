@@ -117,6 +117,13 @@ SUITES = {
                    tests=['test_portable_world_reload.py']),
 }
 SUITES['original-shield-weapons']=dict(SUITES['original-projectile-weapons'],script='research/verify-original-shield-weapons.py',golden='research/portable-original-shield-weapons-v1-expected.json',inputs=15,native=10,development_only=False,entry_inventory_input_policy='body-owned-hp-shield-v1',tests=[*SUITES['original-projectile-weapons']['tests'],'test_original_shield_weapons.py','test_original_entry_inventory.py','test_portable_readiness.py'])
+SUITES['original-catalogue']=dict(SUITES['original-shield-weapons'],script='research/verify-original-catalogue.py',golden='research/portable-original-catalogue-development-expected.json',inputs=None,native=None,development_only=True,selection_required=True,tests=[*SUITES['original-shield-weapons']['tests'],'test_original_catalogue.py'])
+SUITES['original-catalogue'].pop('entry_inventory_input_policy')
+SUITES['original-catalogue-initial']=dict(SUITES['original-catalogue'],golden='research/portable-original-catalogue-initial-v1-expected.json',inputs=4,native=4,selection_required=False,frozen_cases=[
+    'original-catalogue/hp-shield/모더니아/favorite-0/3s',
+    'original-catalogue/hp-shield/모더니아/favorite-0/30s',
+    'original-catalogue/projectile/앨리스/favorite-0/30s',
+    'original-catalogue/hp-shield/프리바티 : 언카인드 메이드/favorite-0/30s'])
 SUITES['lost-hp-diagnostic']=dict(SUITES['lost-hp-roster'],source='gpu/world_projectile_admission_entry.slang')
 SUITES['stun']=dict(script='research/verify-world-stun-short.py',golden='research/portable-world-stun-short-expected.json',
                    source='gpu/world_projectile_entry.slang',inputs=46,native=36,
@@ -1058,9 +1065,37 @@ def compile_plan(output,artifact_kind,ptxas_level,memory_limit_mb,timeout):
     return result
 
 
+def selection_catalog(adapter):
+    flag=getattr(adapter,'SELECTED_PREPARATION',False)
+    if flag is False:return None
+    if flag is not True or not callable(getattr(adapter,'case_catalog',None)) or not callable(getattr(adapter,'prepare_selected',None)):raise ValueError('Complete explicit selected-preparation protocol required')
+    if hasattr(adapter,'development_entries'):raise ValueError('Selected catalogue cannot mix implicit development entries')
+    names=adapter.case_catalog()
+    if not isinstance(names,(list,tuple)) or not names or any(not isinstance(n,str) or not n for n in names) or len(set(names))!=len(names):raise ValueError('Distinct nonempty catalogue names required')
+    return list(names)
+
+def resolve_selection(adapter,catalog,selected):
+    limit=getattr(adapter,'MAX_SELECTED_CASES',None)
+    if type(limit) is not int or not 1<=limit<=8:raise ValueError('Bounded selected case limit required')
+    if not isinstance(selected,list) or not 1<=len(selected)<=limit or any(not isinstance(n,str) or not n for n in selected) or len(set(selected))!=len(selected) or not set(selected)<=set(catalog):raise ValueError('Explicit bounded, known, distinct selected cases required')
+    return [name for name in catalog if name in selected]
+
 def prepare_entries(adapter, m):
-    entries, data = adapter.prepare()
-    if is_development(m) and hasattr(adapter, 'development_entries'):
+    selected=m.get('selected_cases',[]);catalog=selection_catalog(adapter);selective=catalog is not None
+    if selective:
+        config=SUITES[m['suite']]
+        if 'frozen_cases' in config:
+            if selected:raise ValueError('Registered frozen cohort cannot be overridden by --case')
+            wanted=resolve_selection(adapter,catalog,config['frozen_cases'])
+        else:
+            if not is_development(m):raise ValueError('Unfrozen catalogue requires a development package')
+            wanted=resolve_selection(adapter,catalog,selected)
+        entries,data=adapter.prepare_selected(list(wanted))
+        if not isinstance(entries,(list,tuple)) or any(not isinstance(r,(list,tuple)) or len(r)!=3 or r[2] is None for r in entries) or [r[0] for r in entries]!=wanted:raise ValueError('Every selected case must be prepared once, in catalogue order, with a native domain')
+        iw=getattr(getattr(adapter,'suite',None),'INPUT',None)
+        if type(iw) is not int or iw<=0 or any(not isinstance(r[1],(list,tuple,array.array)) or len(r[1])!=iw for r in entries):raise ValueError('Complete selected input wire required')
+    else:entries, data = adapter.prepare()
+    if not selective and is_development(m) and hasattr(adapter, 'development_entries'):
         entries = entries + adapter.development_entries()
         data = None
     source=SUITES.get(m['suite'],{}).get('source')
@@ -1072,8 +1107,7 @@ def prepare_entries(adapter, m):
             if domain is not None:
                 result=policy.inspect(words)
                 if result['unsupported']:raise ValueError('GPU definition kinds rejected before native/GPU execution: '+str(result['unsupported']))
-    selected = m.get('selected_cases', [])
-    if not selected and data is not None:
+    if not selective and not selected and data is not None:
         check_kinds(entries)
         return entries, data
     names = [row[0] for row in entries]
@@ -1085,7 +1119,9 @@ def prepare_entries(adapter, m):
     for _, words, _ in entries:
         packed.extend(words)
     if sys.byteorder != 'little': packed.byteswap()
-    return entries, packed.tobytes()
+    raw=packed.tobytes()
+    if selective and data is not None and data!=raw:raise ValueError('Selected prepared bytes differ from canonical packing')
+    return entries, raw
 
 
 def development_baseline(suite, cases):
@@ -3317,10 +3353,14 @@ def generation_capture(output,*,development=False,packet_stage=None):
     finally:collect(output,output/'artifacts.json')
 
 
-def case_names(suite):
+def case_names(suite,match=None):
     with forbid_gpu():
-        entries,_=prepare_entries(open_suite(dict(suite=suite)),dict(suite=suite,purpose='development'))
-    return dict(suite=suite,cases=[row[0] for row in entries],gpu_calls=0)
+        adapter=open_suite(dict(suite=suite));names=selection_catalog(adapter)
+        if names is None:
+            entries,_=prepare_entries(adapter,dict(suite=suite,purpose='development'));names=[row[0] for row in entries]
+        elif 'frozen_cases' in SUITES[suite]:names=resolve_selection(adapter,names,SUITES[suite]['frozen_cases'])
+        total=len(names);names=[name for name in names if match is None or match in name]
+    return dict(suite=suite,cases=names,total_cases=total,matched_cases=len(names),gpu_calls=0)
 
 
 def main(argv=None):
@@ -3388,7 +3428,7 @@ def main(argv=None):
     a.add_argument('--original-workspace',type=Path,required=True);a.add_argument('--slang-root',type=Path);a.add_argument('--compile-cache',type=Path,required=True);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
     a=sub.add_parser('seal');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=60);a.add_argument('--compiler-certificate',type=Path,help='Create a full-source certificate from this same fresh audit');a.add_argument('--audit-receipt',type=Path,help='Record the same fresh child audit and elapsed time without repeating it');a.add_argument('--comparison-group-size',type=int,help='All inputs once across sequential fresh children; timeout applies to each child')
     a=sub.add_parser('compiler-certificate');a.add_argument('--suite',choices=[config['compiler_baseline_suite'] for config in SUITES.values() if config.get('compiler_baseline_suite')],required=True);a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=120)
-    a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True)
+    a=sub.add_parser('cases');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--match',help='Filter names without preparing unselected catalogue profiles')
     a=sub.add_parser('cache-probe');a.add_argument('--generated-cuda',type=Path,required=True);a.add_argument('--cuda-root',type=Path,required=True);a.add_argument('--compile-cache',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a.add_argument('--artifact-kind',choices=('ptx','cubin'),default='cubin');a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--require-hit',action='store_true')
     a=sub.add_parser('consumer-audit');a.add_argument('--out',type=Path,required=True)
@@ -3535,7 +3575,7 @@ def main(argv=None):
     elif a.command=='compiler-certificate':
         with forbid_gpu():result=make_compiler_certificate(a.suite,a.package_root,a.capture,a.out,timeout=a.timeout)
     elif a.command=='cases':
-        result=case_names(a.suite)
+        result=case_names(a.suite,a.match)
     elif a.command=='source-reuse':
         if a.out.exists():raise ValueError('Source reuse report already exists')
         from portable_source_reuse import run

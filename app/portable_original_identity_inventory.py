@@ -2,7 +2,7 @@
 import collections,copy,importlib.util
 from pathlib import Path
 
-def prepared_profiles():
+def profile_bodies():
     import engine_worker
     root=Path(__file__).resolve().parents[1]
     spec=importlib.util.spec_from_file_location('original_identity_rosters',root/'research/audit-world-roster-input.py');policy=importlib.util.module_from_spec(spec);spec.loader.exec_module(policy)
@@ -13,7 +13,12 @@ def prepared_profiles():
             body=dict(body_for(policy.roster_for(name),30),burst_gauge_mode='accumulate')
             body['profile']['chars'][name]['favorite_stage']=stage
             if stage:body['profile']['chars'][name]['collection_stage']='SR15'
-            yield name,stage,engine_worker.evaluate(dict(body,_portable_static_inputs=True))
+            yield name,stage,body
+
+def prepared_profiles():
+    import engine_worker
+    for name,stage,body in profile_bodies():
+        yield name,stage,engine_worker.evaluate(dict(body,_portable_static_inputs=True))
 
 def inspect():
     profiles=0;duplicates=[]
