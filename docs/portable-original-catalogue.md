@@ -10,9 +10,25 @@ python scripts/nikke_gpu.py package --suite original-catalogue --develop \
 
 未知名・重複・空選択・上限超過はprepare前に拒否する。失敗profileの消去やexpected rejectionへの変換はしない。選択順はcatalogue順へ正規化し、返された行とnative domain、全wire/packed bytesを照合する。未選択profileは準備しない。固定したcase群も同じadapter/selection protocolを使い、callerの`--case`で上書きできない。任意選択は開発専用であり、sealed suiteの基準を迂回しない。
 
-## 初回4入力の結果と次の優先項目
+## 完全なスキル履歴を共通実行器で保持（2026-10-28）
 
-`original-catalogue-initial` はAlice projectile30秒、Modernia shield3/30秒、Privaty Unkind Maid shield30秒の固定群。まだ開発専用で、sealされていない。元266profileの全recordは前回inventoryと完全一致し、静的変換254/失敗12/分類13も不変。静的受理数はGPU対応数ではない。
+現行の `original-catalogue-initial` は同じ4入力をM5 Metalで全比較し、別fresh GPU禁止childの独立監査も成功したsealed群。`original-catalogue`の任意選択は引き続き開発専用。固定群は `package --suite original-catalogue-initial --out NEW.zip` → `unpack` → 固定packetの `run` で使う。goldenは独立sealの出力をそのまま登録した。
+
+新entry `gpu/world_coordinate_typed_history_entry.slang` は既存owner entryに記録領域の宣言だけを追加する。共通`logWorldSkill`は同じ48word schema/時計/順序で書き、先頭128行を旧位置、以降1,920行を武器専用入口で未使用だったtyped skill receipt領域1,773,424..1,865,584wordへ保存する。全容量2,048行で、input115680/output2032000word、Runtime138952byteと全field reflectionは不変。新entryは既存weapon/aim/owner/current-fieldの明示flagを要求し、typed skill probeと領域を共有しない。旧entryは従来128行のままである。
+
+比較は既存の厳密なskill行デコーダーを128行のpageごとに使い、元source binding・実HitEventのcreation identity・順序・hit/hits・2つの時刻・amount/share・全recipientとbitmapを全行照合する。全件数/最大対象数/予約header/未使用prefix/未使用continuationも検査する。その後に限り、コピーした表示を旧128行へ射影し、既存の全battle/typed/武器/乱数/通知/回復/最終状態の比較器へ渡す。元nativeの1,618行もreadbackも変更しない。短縮・trace抑制・未検査の後半切捨てはない。
+
+固定d90c5f9a/package3edf0819…で136unit・fresh CPU全4（77.54秒）、M5実GPU1回（4.746秒）、fresh独立監査（89.35秒、GPU0）が成功。新sourceの初回PSO62.16秒、実行内Slang0・必須paired generation hit。事前のgeneration-onlyはCUDA/MSL+reflectionを2回のSlang呼出しで生成し、GPU0。履歴行数はAlice2/Modernia3秒32/Modernia30秒1618/Maid17。全4の入力とCPU指紋は前回と同一、前回成功3件の全24,384,000byteも完全一致し、前回Moderniaの失敗は保存した。別のGPU再実行やclaim再利用はない。
+
+unitは0/127/128/129/1618/2048行、先頭/境界/最終行改ざん、件数/bitmap/予約語/未使用領域/creation欠落、2049超過を検査。実GPUで境界2048/2049をstressしたとは扱わない。新しいsource/transportの全byteを登録し、既存の厳密なinverse chainへ接続。normalizerやCPU正本、効果定義、ダメージ/着弾/時計処理は変更していない。
+
+`original-catalogue-initial-cache-only` は同じ4入力・source・golden・比較器に既存のCUBIN/O1必須、compile cache必須とpaired generation必須を適用する。Windowsへ送る前にその固定packetの`compile-plan`を使う。新sourceは旧128件kernelと異なるため、旧sourceのCUBINを流用せずexact keyを要求する。現CUDA実機/実CUBIN hitは未確認、Windows新依頼0。既存Windows transactionは接続断で終端不明のままなので再送しない。
+
+証跡 `research/target-count-query-evidence/metal-original-catalogue-history-v1.json`。これは宣言したBODY-owned typed worldでの元3profile/4入力の限定認定。全キャラ・全条件・任意mixed world・2,048超過・他の履歴bank・公開GPU受付は残る。次は同じ選択CLIで未実証の元profileへ展開し、model gap12件とruntime容量/対象経路の未対応を区別して進める。
+
+## 初回128件版の失敗記録
+
+`original-catalogue-initial` はAlice projectile30秒、Modernia shield3/30秒、Privaty Unkind Maid shield30秒の固定群。この初版は開発専用で、sealしなかった。元266profileの全recordは前回inventoryと完全一致し、静的変換254/失敗12/分類13も不変。静的受理数はGPU対応数ではない。
 
 固定94eb6df1/package3591b6f8…で129unitと全4nativeのCPU gateが成功（77.39秒）。M5 Metalは1回実行し、3件は全比較一致したがModernia30秒はstatus8で停止したため、全体の計算成功/独立認定はFalse。失敗readback/claimは保持し、同claimの再実行はしない。GPU2.370秒、必須pipeline hit0.00297秒、paired generation hit/Slang0。生成CUDA/MSLは旧shield suiteと原byteも同一。CUDAの新実機検証/実CUBIN hitは未確認、Windows新依頼0。
 

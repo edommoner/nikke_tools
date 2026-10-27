@@ -1,3 +1,7 @@
+# 2026-10-28 共通スキル履歴1,618件をMetalで全照合・独立seal
+
+`original-catalogue-initial`の元4入力を共通記録器の2,048件bankへ接続し、M5 Metal全一致・fresh GPU禁止監査でseal。入力/CPU指紋は旧4件全保持、旧成功3件の24,384,000byte完全一致。新entryは武器専用の未使用typed receipt領域へ128行以降を保存し、全行を既存decoderで比較した後に限り旧比較viewへ射影する。input115680/output2032000・Runtime138952byte/全field reflection不変、damage/時計/効果/正本/normalizer変更0。固定d90c5f9a/package3edf0819…、136unit/CPU77.54秒/GPU4.746秒/PSO62.16秒/独立89.35秒。通常sealed入口と同じ基準のCUBIN/O1+paired generation必須cache入口を登録。CUDA現実機未確認・Windows新依頼0・旧transaction再送なし。次は未実証元profile/他履歴bank/model gapを同じ選択CLIで進める。全キャラ/全特殊効果・公開GPU受付は未達。[設計・証跡・限界](portable-original-catalogue.md)。以下は前段の履歴。
+
 # 2026-10-28 元profile選択CLIと実履歴容量の未対応
 
 `original-catalogue`で1,064名から1〜4件だけをprepare/compileする開発経路を実装。元266profileの全inventory recordを保持。固定4件は129unit/CPU全4成功、M5実GPU1回で3件一致、Modernia30秒はスキル履歴128件上限でstatus8。CPU実履歴1,618件が次の優先課題。係数変更と復帰は元定義から検査し、通常攻撃扱いの武器変更をskill damageと混同しない。最終guard15unitは超過をGPU前に拒否するが容量対応/全4認定は未完了。必須generation/pipeline hit・Slang0、Windows新依頼0。詳細は[元profile選択と未対応容量](portable-original-catalogue.md)。失敗packet3591b6f8…/captureは保持し再実行しない。全キャラ/全特殊効果・CUDA現実機・公開GPU受付は未達。

@@ -1,6 +1,6 @@
 # 元profileの選択開発
 
-`cases --suite original-catalogue --match TEXT` は全profileを準備せずmetadataだけを列挙する。`package --suite original-catalogue --develop --case NAME --out NEW.zip` は明示1〜4件だけを元定義のまま共通compilerへ渡す。固定群`original-catalogue-initial`も同じ経路を使うが、Modernia30秒の全1,618件スキル履歴が現在128件bankを超えるため未seal。CPU gateで超過を拒否し、短縮や履歴省略で成功にしない。[選択規約・検査・次の容量拡張](portable-original-catalogue.md)。
+`cases --suite original-catalogue --match TEXT` は全profileを準備せずmetadataだけを列挙する。`package --suite original-catalogue --develop --case NAME --out NEW.zip` は明示1〜4件だけを元定義のまま共通compilerへ渡す。固定群`original-catalogue-initial`は共通の2,048行bankを使い、Modernia30秒の全1,618件を含む4入力がM5 Metal・独立監査でsealed。`package --suite original-catalogue-initial --out NEW.zip`から通常の固定packet実行を使う。`original-catalogue-initial-cache-only`は同じ計算/入力/goldenにCUBIN/O1・compile cache必須とpaired generation必須を適用する。実CUDA未確認、全キャラ認定ではない。[選択規約・検査・次の容量拡張](portable-original-catalogue.md)。
 
 `physical-generation-locks`最新版は専用arenaの10入力（native6/raw拒否4）、入力104400/出力806912wordです。全32個の既存スキル対象setを保ち、full_chargeのキューダメージ・死亡・再召喚を追加して独立Metal sealしました。旧幅を受け入れず、Python/Slang/Swiftで一致を検査します。[移設と検証境界](portable-heavyarms-lock-selection.md)。
 

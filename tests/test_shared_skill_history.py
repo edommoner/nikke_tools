@@ -72,4 +72,13 @@ class SharedSkillHistory(unittest.TestCase):
             with self.subTest(source=source,iw=iw,ow=ow),self.assertRaises(ValueError):validate_composed_stride(source,iw,ow)
         self.assertNotIn('WORLD_SKILL_TRACE_CAPACITY',(ROOT/'gpu/world_coordinate_typed_owner_entry.slang').read_text())
 
+    def test_sealed_cohort_and_cached_cuda_use_identical_calculation_and_cases(self):
+        import nikke_gpu as cli
+        base=cli.SUITES['original-catalogue-initial'];cached=cli.SUITES['original-catalogue-initial-cache-only']
+        for key in ('source','script','golden','frozen_cases','input_words','output_words','native','inputs'):self.assertEqual(base[key],cached[key])
+        self.assertEqual(base['source'],history.SOURCE);self.assertEqual(len(base['frozen_cases']),4)
+        self.assertFalse(base['development_only']);self.assertTrue(cached['require_paired_generation'])
+        self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
+        self.assertTrue(cli.SUITES['original-catalogue']['development_only'])
+
 if __name__=='__main__':unittest.main()
