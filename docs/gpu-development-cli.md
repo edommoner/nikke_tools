@@ -537,3 +537,6 @@ Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-la
 
 
 `run-gpu-packet.py --stage tests` は、compiler-onlyを含む固定packetの登録CPU test群だけを共通workerで実行する段階です。戦闘adapter/native preflightを要求せず、全群receiptの完全性を親でも確認します。`cpu_tests_verified`と正本比較・compiler・GPU計算を区別します。Windowsは`--backend cuda --timeout 180 --original-workspace ORIGINAL`を指定し、既存のfresh Job／2GiB／開始gateを使います。[compiler compact/cache](portable-compiler-compact-cache.md)を参照してください。
+
+
+`coordinate-resident-device` は全106と同じsource/ABI/全出力比較器の先頭4入力を使うsealed実機確認です。全106や全キャラ認定を置き換えません。[入力と独立Metal実証の範囲](portable-coordinate-resident-device.md)。Windowsのpackage全byte監査は大きいpayloadを最大4readerで毎回検査します。保存checksum・CPU正本結果のcacheは使いません。[CPU比較診断](portable-package-byte-verification.md)。

@@ -2468,3 +2468,14 @@ Windows c7e4d149探索では現sourceのgenerated/cache未特定、GPU0。packag
 現在inventoryは266profile中245入力変換/21失敗、203base中185変換、20model-gap分類。全profile input/issue/順位保持。過去の19失敗を現状として使わない。HP死亡/field寿命の私有共通契約成立と、canonical/public consumer・ゲーム仕様・全キャラ認定は別。次は本体CUDAの段階別成立と、残20分類・公開consumerへの接続を優先し、固定entryへ小ケースを足すだけで全キャラ達成へ読み替えない。全キャラ0/UI CPU/目標未達。
 
 Windows v4は依存確認・36検査・40/native26比較・NVRTC2.586690秒/ret0・module読込まで成功し、cuLaunchKernelがcode2で失敗しました。成功launch0/readbackなし/計算未認定。保存CUBIN311824byte/SHAe8550ca1…をfile-only cache-probeでhit確認（0.086559秒、compile/driver/GPU追加0）。GPU空き容量やstack/localは保存記録に無く原因未確定。内Job peak2098597888byteは上限近傍ですが因果関係は未証明です。report commit6ed21084…のJSON2blob（3367byte）をMacでhash検査、package/input/generated指紋も一致。CUBIN/Job原本のMac独立監査ではありません。次は同じcacheを必須にしてcompiler DLLを載せない実行profileを明示的に検証する候補。原失敗/claim保持、cold再試行やcap増大をしない。
+
+
+## 2026-10-27 共通本体の短い実機profileと全byte監査
+
+現在の作業checkoutは `.portable-recovery/runtime-resident`、branch `codex/runtime-resident`。全106のresident arc sourceを保持し、先頭4入力/native4の `coordinate-resident-device` をsealed登録。Marciana controlと元定義modifier3件だけの範囲で、全キャラ4件認定にはしない。M5でGPU0.419713秒、別fresh childのnative4独立監査15.297366秒に成功。全readback33,036,576byteは保存Metal106の先頭rawと全byte一致。元106/native63/rej43の登録・goldenは維持。詳細 `docs/portable-coordinate-resident-device.md`。
+
+共通runnerは現在packetのIDとhistorical compilerの別IDを区別するよう修正。元packageの全byte検査とlineage admissionはそのまま。Windowsの大きいpackage全byte検査を最大4threadへ変更、各gateで全byteを新規SHA計算。Macと128未満は逐次。並列経路は同じ長さの改変・消失・非regular・重複・unsafe pathを拒否。Mac関連49/共通591成功（Windows専用1skip）。`research/benchmark-package-byte-check.py` は逐次→並列各1回のCPU診断で、意味・GPU計算認定とは別。
+
+固定配布v3は `research/windows-source-packets/coordinate-resident-device-v3.json` と同名ZIP。前v2からCLIと回帰testの2fileだけを変更、全GPU/入力/native/goldenは同一。現CUDA実計算の結果は非公開の永続proof `.portable-recovery/proofs/resident-arc-arena-20261027` とWindowsの既存captureを確認する。終了結果・claimを確認してから次へ進み、観測不足を理由に再送しない。Windows結果の公開やraw移動は行わず、同一accountの接続内で最小原本とSHAを取得する。
+
+266profile/245入力変換/21失敗と20model-gap、全キャラ認定0/UI CPUは継続。専用Lock On/移動/範囲/対象数等の不足と、private kernelの実証を区別する。最初の4入力のdevice接続確認後も、現sourceの全106 CUDA、全特殊効果、canonical/public consumer接続は未完了。
