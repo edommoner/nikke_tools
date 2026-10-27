@@ -1,0 +1,161 @@
+{
+  "schema": 1,
+  "stage": "literal-logical-actor-input-lowering",
+  "passed": true,
+  "cases": [
+    {
+      "name": "logical-actor-geometry/Belorta/four-live",
+      "input_sha256": "c0b6a462f740565b76daafa41c32d42a8f230072a965a7811cf7da10e173bdd6",
+      "words": 115680,
+      "original_definitions": 68,
+      "legacy_prefix_identical": true,
+      "wire": {
+        "colliders": 3,
+        "actors": 4,
+        "gpu_admitted": false,
+        "health_copied": false,
+        "lifecycle_copied": false,
+        "rotation_policy": "coordinate-area-matrix-common-v1"
+      }
+    },
+    {
+      "name": "logical-actor-geometry/Belorta/three-enemies",
+      "input_sha256": "fef51cdcd071e82e5d79f1ad98e2f1d6ba1e0080037ad3e758185df7d10a9445",
+      "words": 115680,
+      "original_definitions": 68,
+      "legacy_prefix_identical": true,
+      "wire": {
+        "colliders": 2,
+        "actors": 3,
+        "gpu_admitted": false,
+        "health_copied": false,
+        "lifecycle_copied": false,
+        "rotation_policy": "coordinate-area-matrix-common-v1"
+      }
+    },
+    {
+      "name": "logical-actor-geometry/Belorta/one-outside",
+      "input_sha256": "64dd32ce11981afacfa1fb1e72cabf354e9904eb333121f9be1ac6e3b5570da8",
+      "words": 115680,
+      "original_definitions": 68,
+      "legacy_prefix_identical": true,
+      "wire": {
+        "colliders": 3,
+        "actors": 4,
+        "gpu_admitted": false,
+        "health_copied": false,
+        "lifecycle_copied": false,
+        "rotation_policy": "coordinate-area-matrix-common-v1"
+      }
+    },
+    {
+      "name": "logical-actor-geometry/Belorta/part-not-enemy",
+      "input_sha256": "7ac435d3623cef87927b1530a9927d94860eeaa1025e1dce4b2252e52045a343",
+      "words": 115680,
+      "original_definitions": 68,
+      "legacy_prefix_identical": true,
+      "wire": {
+        "colliders": 2,
+        "actors": 4,
+        "gpu_admitted": false,
+        "health_copied": false,
+        "lifecycle_copied": false,
+        "rotation_policy": "coordinate-area-matrix-common-v1"
+      }
+    },
+    {
+      "name": "logical-actor-geometry/Belorta/retirement",
+      "input_sha256": "325771444208b271d893816cf65512671a2fc07efe0f732a573873a9aa25df69",
+      "words": 115680,
+      "original_definitions": 68,
+      "legacy_prefix_identical": true,
+      "wire": {
+        "colliders": 3,
+        "actors": 4,
+        "gpu_admitted": false,
+        "health_copied": false,
+        "lifecycle_copied": false,
+        "rotation_policy": "coordinate-area-matrix-common-v1"
+      }
+    },
+    {
+      "name": "logical-actor-geometry/Belorta/four-live-long",
+      "input_sha256": "b1456218146753bbde63e27a6c34b38afcff571625d2ca2c5a2e0a8454d04984",
+      "words": 115680,
+      "original_definitions": 68,
+      "legacy_prefix_identical": true,
+      "wire": {
+        "colliders": 3,
+        "actors": 4,
+        "gpu_admitted": false,
+        "health_copied": false,
+        "lifecycle_copied": false,
+        "rotation_policy": "coordinate-area-matrix-common-v1"
+      }
+    }
+  ],
+  "elapsed_seconds": 0.1242243329907069,
+  "input_ownership": {
+    "address_plan_verified": true,
+    "input_words": 115680,
+    "output_words": 1769856,
+    "overlaps": [],
+    "regions": [
+      {
+        "domain": "input",
+        "name": "complete-coordinate-input",
+        "base": 0,
+        "words": 109968,
+        "end": 109968
+      },
+      {
+        "domain": "input",
+        "name": "logical-collider-header",
+        "base": 109968,
+        "words": 32,
+        "end": 110000
+      },
+      {
+        "domain": "input",
+        "name": "logical-collider-rows",
+        "base": 110000,
+        "words": 4064,
+        "end": 114064
+      },
+      {
+        "domain": "input",
+        "name": "logical-slot-map",
+        "base": 114064,
+        "words": 128,
+        "end": 114192
+      },
+      {
+        "domain": "input",
+        "name": "logical-reserved-tail",
+        "base": 114192,
+        "words": 1488,
+        "end": 115680
+      }
+    ]
+  },
+  "sources": {
+    "app/portable_logical_geometry_wire.py": "af53fc5637a81e7454b40d08f9d3d0b92e6b6cd868001f8072bb15daaaffaed9",
+    "gpu/logical_actor_geometry_layout.slang": "b2cb23b1a3ebed5d6fee8ed5af88db7068d6be8d4756e89b56fe5d3d84d8cb09",
+    "tests/test_logical_geometry_wire.py": "a4ec70c07aaacf1c514b1f4c06d37a94a467509aa3b12b4e844dcf3aef858dd3",
+    "scripts/nikke_gpu.py": "006ceb61e644fefaace20ffdd774217a34f6adbd221322f5d0788a7e6bb99efe"
+  },
+  "tests": {
+    "logical_actor_geometry": 10,
+    "logical_geometry_wire": 8,
+    "battle_attack_group_runtime": 9,
+    "reference_rewrite": 3,
+    "passed": 30
+  },
+  "calculation_verified": false,
+  "gpu_wire_connected": false,
+  "gpu_calls": 0,
+  "slang_compiles": 0,
+  "windows_new_requests": 0,
+  "full_goal_complete": false,
+  "next": "Connect shared sampled shot snapshot and generation-bound BODY/ADD landing; then wire admission and fixed Metal packet/fresh seal"
+}

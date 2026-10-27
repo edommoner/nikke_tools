@@ -42,6 +42,16 @@ CLIは全6件をGPU/packing禁止で実行し、`reference_model_gap=True`、`hi
 3. 既存CUDAMetal共通Slang entryから明示的に有効化し、旧entryの生成byte/既存goldenは保持する。完全なsource inverseとRuntime/arena監査が先。
 4. 元6件のfull native期待から固定packetを作り、M5実GPU1回＋GPU禁止fresh sealを行う。CUDAは同じ計算/テストとbounded cache経路を使い、旧Windows transactionが終端不明な間は新runを送らない。
 
+### literal入力wireの実装
+
+`portable_logical_geometry_wire.compile_logical_geometry` は従来の座標入力109,968語を全byte保持し、末尾5,712語にLAG1/version1の明示bankを追加する。header32、最大127行×32語、actor slot逆引き128語、残り1,488語はzero予約。各行は既存actor slot/kind/identity/source/run/ordinalとliteralな形状・z・共通binary64回転係数だけを持つ。HP・世代・spawn時刻・着弾予定・damageは入れない。全体128 actorの上限は元registry compilerがBODY/PART込みで検査する。
+
+raw検査は既存registry headerとADD bindingの一致、行と逆引きの一対一、common matrix bytes、全予約語zeroを要求する。別label/PART/BODYへのbinding、重複slot、非有限形状、不正型、容量超過を拒否する。Slang定数は同じPython layoutから生成し、既存arena auditorで入力所有権を検査する。このbankは旧typed bankと同サイズだが別protocolで、typed actorやHPへ読み替えない。
+
+専用8検査で元6条件すべての全68定義保持と既存入力一致、最大127 collider＋BODY、実PARTとの分離、raw破損、共通回転、入力非変更を確認。既存幾何10/group9/source rewrite3も成功。共通CLIのoriginal-catalogue検査リストへ登録した。誤ったファイル名でsource rewrite検査を指定した最初のコマンドは0件/終了5であり、実在の`test_reference_rewrite.py`の3件を改めて実行した。0件を成功には含めない。
+
+今回の追加はstatic入力lowering。新Slang entry、Swift admission、snapshot/landing consumer、Metal実行・独立sealは未実装。`gpu_wire_connected=False`と全キャラ未認定を維持する。旧GPU source/生成物/cache identityを変更せず、Windows新依頼・GPU実行・Slangコンパイルは0。
+
 今回GPU/Slang変更とGPU実行は0。全キャラ/全特殊効果/公開GPU受付は未達。
 
 ## 固定packetでの最終検査
