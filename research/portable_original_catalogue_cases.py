@@ -35,6 +35,23 @@ def prepare(row):
     c,p=original(row);c['catalogue_profile']=copy.deepcopy(row['catalogue_profile'])
     return c,p
 
+def verify_original_weapon_change(case,attacks):
+    """Witness the authored coefficient transition, independently of damage class."""
+    original=case['original_run'];prepared=original['prepared'];character=case['names'][0]
+    changes=[r['effect'] for r in prepared['effects'] if r['owner']==character and r['effect']['type']=='weapon_change']
+    assert len(changes)==1,'Expected one original weapon change'
+    change=changes[0];char=prepared['chars'][0]
+    level=char['skill_levels'][change['source'].removeprefix('스킬')]
+    mode=change['damage_coeff'][str(level)];base=char['_weapon']['damage_coeff']
+    assert base!=mode,'Witness requires distinct authored coefficients'
+    own=[a for a in attacks if a['owner']==0]
+    changed=[i for i,a in enumerate(own) if a['coefficient']==mode]
+    assert changed,'Original weapon change must actually fire'
+    first,last=changed[0],changed[-1]
+    assert any(a['coefficient']==base for a in own[:first]),'Missing normal fire before weapon change'
+    assert any(a['coefficient']==base for a in own[last+1:]),'Missing restored normal fire after weapon change'
+    assert all(a['coefficient']==mode and a['weapon_mode_skill']==bool(change.get('skill_damage',False)) for a in own[first:last+1]),'Mode fire must retain its authored coefficient and damage class'
+
 def verify(case,native):
     from portable_coordinate_typed_weapon_contracts import verify as weapons
     weapons(case,native);identity=native['original_input_identity']
@@ -48,8 +65,7 @@ def verify(case,native):
     # or changes to the original effect/weapon implementation.
     attacks=native['coordinate_typed_weapon']['attacks'];name=case['name']
     if name=='original-catalogue/hp-shield/모더니아/favorite-0/30s':
-        own=[a for a in attacks if a['owner']==0]
-        assert any(a['weapon_mode_skill'] for a in own) and any(not a['weapon_mode_skill'] for a in own),'Original Modernia must enter its real skill-weapon mode'
+        verify_original_weapon_change(case,attacks)
     if name=='original-catalogue/projectile/앨리스/favorite-0/30s':
         assert any(a['owner']==0 for a in attacks) and any(a['owner']==0 for a in native['coordinate_typed_weapon']['full_charge_boundaries']),'Original Alice must actually fire full-charge shots'
     if name=='original-catalogue/hp-shield/프리바티 : 언카인드 메이드/favorite-0/30s':

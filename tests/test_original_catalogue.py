@@ -95,4 +95,16 @@ class OriginalCatalogue(unittest.TestCase):
         names=['original-catalogue/hp-shield/모더니아/favorite-0/3s','original-catalogue/projectile/모더니아/favorite-0/30s']
         rows=selected_rows(names);before=copy.deepcopy(rows[1]);rows[0]['body']['profile']['chars']['모더니아']['favorite_stage']=99
         self.assertEqual(rows[1],before)
+
+    def test_modernia_witness_requires_original_mode_entry_and_restoration(self):
+        from portable_original_catalogue_cases import prepare,verify_original_weapon_change
+        case,_=prepare(selected_rows(['original-catalogue/hp-shield/모더니아/favorite-0/30s'])[0])
+        def shot(coefficient,skill=False):return dict(owner=0,coefficient=coefficient,weapon_mode_skill=skill)
+        normal=case['original_run']['prepared']['chars'][0]['_weapon']['damage_coeff']
+        change=next(r['effect'] for r in case['original_run']['prepared']['effects'] if r['owner']=='모더니아' and r['effect']['type']=='weapon_change')
+        mode=change['damage_coeff']['10']
+        valid=[shot(normal),shot(mode),shot(mode),shot(normal)]
+        verify_original_weapon_change(case,valid)
+        for rows in ([shot(normal)],valid[1:],valid[:-1],[shot(normal),shot(mode,True),shot(normal)],[shot(normal),shot(mode),shot(normal),shot(mode),shot(normal)]):
+            with self.subTest(rows=rows),self.assertRaises(AssertionError):verify_original_weapon_change(case,rows)
 if __name__=='__main__':unittest.main()
