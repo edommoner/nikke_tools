@@ -16,7 +16,9 @@ python scripts/nikke_gpu.py entry-inventory --suite original-shield-weapons \
 
 source closureは履歴の古い静的報告ではなく、直前に固定したincoming packetの全GPU source byteと照合した。今回の変更にGPU/数値/計算/packing/比較/goldenは含まれないため、計算証明の再実行はしない。専用7＋既存inventory11/readiness15/semantics22検査が成功。Windows status取得はhost unavailableで終端不明、run再送0。詳細は`research/target-count-query-evidence/selected-original-entry-inventory-v1.json`。
 
-この監査を使って既存の専用実証も先に確認し、未対応の元operatorを選択してからcatalogueのbounded開発packetへ進む。Ann/Velvetの敵数量、cover_def_pctの正本inert、未知のLock On距離をally選択やno-opで置換しない。全キャラ/全特殊効果/公開GPU受付は未達。以下は従来の全件監査の説明。
+この監査を使って既存の専用実証も先に確認し、未対応の元operatorを選択してからcatalogueのbounded開発packetへ進む。Ann/Velvetの敵数量、cover_def_pctの正本inert、未知のLock On距離をally選択やno-opで置換しない。全キャラ/全特殊効果/公開GPU受付は未達。最終f096e7fc/package10bb432e…は固定packet自身で選択監査成功、24群216unit/CUBIN O1・2GiB・60秒compile-plan policy成功。直前packetとの差は既存3ファイルの監査/CLI変更と新test1ファイルのみ。既存identityの全関数、全calculation/packing/native/比較ソースとgoldenは保持し、CLIはmain以外・inventoryはrun以外の既存関数/class ASTを保持する。native全sweep/GPU再実行0。最終記録`selected-entry-final-checks-v1.json`。
+
+以下は従来の全件監査の説明。
 
 # 実際の共通入口で未対応項目を調べる
 
