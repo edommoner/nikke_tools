@@ -1,5 +1,24 @@
 # Lock Onの次の実装契約
 
+## 2026-10-27 公開情報の追加調査と判断
+
+ユーザーの指定に従い、実機環境の準備を待たず、日本語・英語・韓国語・中国語の検索で公開情報を調べた。同文の転載数を独立した実測の数に数えない。以下は公開情報からの判断であり、ゲーム実機の認定ではない。
+
+| 資料 | 確認内容と限界 |
+| --- | --- |
+| [公式英語 Motion Demonstration](https://www.youtube.com/watch?v=dAA6z4_03lw)（2025-12-29） | 公式チャンネル、紹介文、ブラウザーで射撃モーション画面を確認。表示された画面は単一の的とbeta環境の注意書きがあり、中心距離と外形距離を区別する実験にはならない。 |
+| [公式日本語 NIKKE紹介](https://www.youtube.com/watch?v=fEE8KIzOQr8)（2025-12-29） | 公式チャンネルと10秒のキャラクター紹介画面を確認。距離式の証拠として扱わない。 |
+| [Level Infinite公式発表](https://press.levelinfinite.com/en-US/GODDESS-OF-VICTORY-NIKKE-REVEALS-MAJOR-NEW-YEAR-UPDATE-FEATURING-LEGEN)（2025-12-29） | キャラクター追加の一次資料。空間選択の規則の説明はない。 |
+| [GameWith スキル表](https://gamewith.jp/nikke/article/show/537776) | 充填中0.2秒ごとの未ロック敵選択、照準線を基準とすること、通常5機、通常攻撃/ハイド解除の記述。中心座標・境界・奥行き・同距離順は不明。第三者による記載。 |
+| [Prydwen 個別解説](https://www.prydwen.gg/nikke/characters/snow-white-heavy-arms) | 取得順で循環して攻撃し、このキャラの順番攻撃は挑発で順序が変わらないとする個別解説がある。制御実験の座標・フレームログは確認できていない。補助仮説に留める。 |
+| [Raison Detre スキル情報](https://volx.jp/nikke-snow-white-heavy-arms-spec-skill/)（更新2026-01-28） | 一般の順番攻撃について、対象数を超える回数では先頭へ戻り、挑発/ヘイトは順番を変えると説明。Prydwenのキャラ固有の説明とは区別が必要。一般則をこのキャラへ自動適用しない。 |
+
+設計判断：公開記述上の基準は照準であり、プレイヤーからのワールド距離や既存typed aimのz/birth順を最近傍へ代用する根拠はない。一方、画面上の中心と外形のどちらを測るか、照準線への3D距離か、対象actor種別、同距離順は今回の資料では判定できない。距離モデルは保留し、特定の式を実機仕様として確定しない。順番攻撃も上記の記述の違いを解決するまで認定しない。
+
+実装境界：`app/named_generation_locks.py`はCPUの明示参照モデルのみ。外部providerから渡された世代付きhandle列の順序を保持し、生存確認・既ロック除外・名前付き上限query・snapshot・明示解除を扱う。距離値やソート処理は含めない。fixtureの対象種別指定、死亡/世代更新時の除外、上限低下時に追加を止める規則は工学上の明示契約であり、ゲームで確認済みの挙動ではない。保存順も実際のsequential delivery順を認定しない。
+
+11単体検査でtyped identity、既ロック除外、世代更新、死亡/欠落、snapshot保持、provider順保持、元index20のquota寿命とcaster/name分離、不正入力の原子性を確認した。GPU wire、充填event、元全25効果のbattle、実機認定は未接続。default admissionと全キャラ認定数は更新しない。この調査のための追加CUDA実行・Windows操作はない。
+
 公開スキル表では、充填中の0.2秒ごとに照準に近い未ロック敵を選び、対象上限は通常5体、バースト効果で10体追加、通常攻撃か遮蔽で解除と記載されている。[公開スキル記述](https://nikke.cannedjar.com/nikke/snow-white--heavy-arms/details)
 
 これは第三者サイトの公開記述を設計の根拠として保存したもので、ゲーム実機の再現確認ではない。元データの命令として扱わず、`tests/fixtures/heavyarms-lock-published-contract.json`へ出所・観測日・未確定事項・実機未検証を固定した。

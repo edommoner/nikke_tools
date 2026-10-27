@@ -2559,3 +2559,10 @@ quantity reader refactor後、旧query9入力/native6を新M5で再検証し、�
 新しい分類metadataはprivate physical modelの成立だけを追加。fresh inventoryの全266profile行/input/issues/20順位/laneは旧lock-capacity inventoryと一致。全キャラ0/UI CPU/全25・空間selector・公開consumer・CUDA未完了。Windowsの接続復旧要求は未回答で、元tail1..5/admissionはterminal未取得。再依頼しない。
 
 最終物理packet2aafcadfは共通66群/641検査（Windows専用1skip）と自身の8検査/native5＋拒否4 CPU事前検証に成功。query refactor packet56286944は自身の18検査/native6＋拒否3 CPU事前検証成功。両packetの全Python/Slang/Swift code SHAは一致し、共通検査を重複実行しない。配布はwindows-source-packets/named-target-count-shots-v1.zipとnamed-target-count-query-v2.zip（sourceのみ）。Windowsへの新規依頼は送っていない。
+
+
+### 2026-10-27 Lock On公開情報調査
+
+ユーザーは実機環境の用意を待たず公開情報から判断する方針へ変更した。公式紹介・モーション動画と日英のスキル表/解説を調査したが、中心/外形/奥行き/同距離順の実装を決める根拠は得られていない。距離モデルは保留。順番攻撃の挑発への反応には一般説明とキャラ固有解説の違いがある。出所と判断は `docs/portable-heavyarms-lock-selection.md` 冒頭に保存。
+
+`app/named_generation_locks.py` と専用11テストを追加。既存ActorRegistry/ActorSnapshotと名前付きquota readerを再利用するCPU参照モデルで、外部のhandle列をその順で受け取る。距離の計算/ソートを含めない。死亡/世代更新/上限低下時の扱いは明示的なモデル上の契約に留め、ゲーム仕様へ昇格しない。11テスト成功、diff check成功。GPU接続/全25効果/全キャラ認定は未完了。GPUソース/正本は変更しておらず、今回の追加GPU/Windows実行は0。依頼済みWindows continuationの保存結果取得待ちは継続し、再依頼していない。
