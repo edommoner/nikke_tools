@@ -40,11 +40,11 @@ def compile_case(c):
     with patch.object(typed.base,'compile_case',live.compile_case):words,domain=typed.compile_case(c)
     return words,domain[1],domain[2]
 
-def native_reference(domain,*,candidate_observer=None):
+def native_reference(domain,*,candidate_observer=None,enemy_carrier=False):
     c,meta,bindings=domain;before=copy.deepcopy(c)
     def run(diagnostics,observer=None):
         with typed_battle(c['typed_bindings'],max_attacks=c['max_attacks']) as data:
-            with capture(c,delivery_model=MODEL,diagnostics=diagnostics,candidate_observer=observer) as result:
+            with capture(c,delivery_model=MODEL,diagnostics=diagnostics,candidate_observer=observer,enemy_carrier=enemy_carrier) as result:
                 battle,trace=baseline(c)
         result.update(battle=battle,skill_trace=trace,typed=typed.typed_observation(c,data),receipt_fates=native_fates(c,trace,data['body_dispositions']));return result
     n=run(True,candidate_observer);plain=run(False)

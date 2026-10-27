@@ -24,8 +24,13 @@ def compile_case(parent,case,*,model):
     from world_frame_native import roster_names,authored_metadata
     from world_authored_roster import skill_levels
     chars=[dict(name=n,skill_levels=lv) for n,lv in zip(roster_names(case),skill_levels(case))]
-    with patch.dict(timeline._NIKKE,authored_metadata(case)),patch.dict(timeline._DELAYS['_exceptions'],{},clear=True),patch.dict(timeline._DELAYS['_defaults_by_weapon_type'],{'AR':{'post_reload_delay':0}},clear=True):
-        delays=normalize_static_clock(chars,case['base_atk'],case['enemy'])
+    if case.get('original_run') is not None:
+        original=case['original_run']['prepared']
+        if [char['name'] for char in original['chars']]!=roster_names(case) or original['base_atk']!=case['base_atk']:raise ValueError('Original shot clock identities differ')
+        delays=normalize_static_clock(original['chars'],case['base_atk'],case['enemy'])
+    else:
+        with patch.dict(timeline._NIKKE,authored_metadata(case)),patch.dict(timeline._DELAYS['_exceptions'],{},clear=True),patch.dict(timeline._DELAYS['_defaults_by_weapon_type'],{'AR':{'post_reload_delay':0}},clear=True):
+            delays=normalize_static_clock(chars,case['base_atk'],case['enemy'])
     if delays!=case['post_fire_delays']:raise ValueError('Physical post-fire delays differ from native static normalization')
     c=copy.deepcopy(case);indices=[]
     for i,effect in enumerate(case['effects']):

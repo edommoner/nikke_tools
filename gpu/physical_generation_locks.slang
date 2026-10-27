@@ -2,6 +2,12 @@
 #ifdef PORTABLE_LOCK_PACKET_BINDINGS
 #include "lock_packet_runtime.slang"
 #endif
+#ifndef PL_PULSE_CAPACITY
+#define PL_PULSE_CAPACITY 63U
+#endif
+#ifndef PL_PULSE_AT
+#define PL_PULSE_AT(s,index) ((s).resourceOutput+PL_PULSES+(index)*16)
+#endif
 // No new timer: acquisitions are called by the real periodic activation path.
 uint physicalLockHead(inout Runtime s){return s.resourceOutput+PL_HEAD;}
 bool initializePhysicalLocks(inout Runtime s)
@@ -44,7 +50,7 @@ bool initializePhysicalLocks(inout Runtime s)
 void physicalLockPulse(inout Runtime s,uint row,uint64_t when)
 {
     if(row!=s.lockPulseRow)return;
-    if(s.lockPulseCount>=63){s.error=64;return;}
+    if(s.lockPulseCount>=PL_PULSE_CAPACITY){s.error=64;return;}
     uint source=s.resourceOutput+PL_CANDIDATE;for(uint i=0;i<P_WORLD_ACTOR_SET_WORDS;i++)results[source+i]=0;
     uint order[128],count=0;
     for(uint slot=0;slot<actorPoolCount(s);slot++)
@@ -52,7 +58,7 @@ void physicalLockPulse(inout Runtime s,uint row,uint64_t when)
     actorSortSpawnOrder(s,order,count);results[source]=count;results[source+5]=1;
     for(uint i=0;i<count;i++)
     {uint slot=order[i],b=actorBinding(s,slot),e=source+8+i*4;results[source+1+slot/32]|=1U<<(slot%32);results[e]=slot;results[e+1]=results[actorPoolAt(s,slot)];results[e+2]=commands[b];results[e+3]=commands[b+1];}
-    uint index=s.lockPulseCount,dst=s.resourceOutput+PL_PULSES+index*16;GenerationLockReceipt r;
+    uint index=s.lockPulseCount,dst=PL_PULSE_AT(s,index);GenerationLockReceipt r;
     if(!generationLockAcquireSet(s,s.locks.who,s.locks.name,5,128,source,when,r)){s.error=64;return;}
     generationLockWriteReceipt(dst,r);storeNumber(dst+8,when);
     s.lockPulseCount++;results[physicalLockHead(s)+1]=s.lockPulseCount;

@@ -4,7 +4,7 @@ void lockEnemyCarrierCapture(inout Runtime s,uint row,uint64_t when,uint index)
     physicalLockPulse(s,row,when);if(s.error!=0)return;
     // Obtain an ordinary actor-set lease, initially empty. No private pool.
     actorSetCapture(s,0,index);if(s.error!=0)return;
-    uint pulse=s.resourceOutput+PL_PULSES+(s.lockPulseCount-1)*16;
+    uint pulse=PL_PULSE_AT(s,s.lockPulseCount-1);
     if(results[pulse+3]==0xffffffffU)return;
     if(s.locks.count==0){s.error=64;return;}
     uint slot=s.locks.slots[s.locks.count-1],generation=s.locks.generations[s.locks.count-1];

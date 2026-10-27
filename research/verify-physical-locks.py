@@ -43,7 +43,7 @@ def compare(block,domain):
  c,m,bindings=domain;candidates=[];n=observe(c,candidate_observer=lambda values:candidates.append(tuple(values)))
  return compare_observed(block,domain,n,candidates)
 
-def compare_observed(block,domain,n,candidates,*,manual=False,packet_bindings=False):
+def compare_observed(block,domain,n,candidates,*,manual=False,packet_bindings=False,pulse_rows=None,packet_rows=None):
  c,m,bindings=domain
  if block[0]!=0:raise AssertionError((c['name'],'status',block[0]))
  actual=parent.decoded(block,m,c,bindings);changed=[k for k in n['battle'] if k!='scope' and actual[k]!=n['battle'][k]]
@@ -52,10 +52,12 @@ def compare_observed(block,domain,n,candidates,*,manual=False,packet_bindings=Fa
  if decode(block,m)!=n['target_count_shots']:raise AssertionError('Physical two-shot quota trace changed')
  h=HEAD;head=list(block[h:h+16]);want=[0x504c3031,len(n['lock_pulses']),len(n['lock_shots']),len(n['lock_clears']),0,m['physical_lock_pulse_row']]+[0]*10
  if head!=want:raise AssertionError(('lock header',head,want))
+ if pulse_rows is not None and len(pulse_rows)!=len(n['lock_pulses']):raise AssertionError('Complete external pulse history required')
  for i,p in enumerate(n['lock_pulses']):
   at=PULSES+i*16;want=[*p['receipt'],*struct.unpack('<II',struct.pack('<d',p['time'])),*([0]*6)]
-  if list(block[at:at+16])!=want:raise AssertionError(('charge activation',i,list(block[at:at+16]),want))
- start=PULSES+len(n['lock_pulses'])*16
+  actual=list(block[at:at+16]) if pulse_rows is None else pulse_rows[i]
+  if actual!=want:raise AssertionError(('charge activation',i,actual,want))
+ start=PULSES+(len(n['lock_pulses']) if pulse_rows is None else 0)*16
  if any(block[start:CANDIDATE]):raise AssertionError('Unexpected pulse tail')
  for i,shot in enumerate(n['lock_shots']):
   at=SNAPSHOTS+i*SET_WORDS;want=[0]*L['WORLD_ACTOR_SET_WORDS'];want[0]=len(shot['handles']);want[6]=0x474c3031;want[7]=shot['revision']
@@ -73,7 +75,7 @@ def compare_observed(block,domain,n,candidates,*,manual=False,packet_bindings=Fa
   if any(block[tail:manual_base]):raise AssertionError('Unexpected lock snapshot padding')
   if packet_bindings:
    from portable_lock_packet_trace import compare as compare_packets
-   compare_packets(block,n,m)
+   compare_packets(block,n,m,trace_rows=packet_rows)
   elif any(block[manual_base+manual_words:OUTPUT]):raise AssertionError('Unexpected lock/manual padding')
  elif any(block[tail:OUTPUT]):raise AssertionError('Unexpected snapshot tail')
  want=[0]*SET_WORDS

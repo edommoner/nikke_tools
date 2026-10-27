@@ -11,7 +11,7 @@ from world_physical_locks_native import capture as capture_physical,baseline
 from live_lock_delivery_policy import select_live,MODEL as LIVE_MODEL
 
 @contextmanager
-def capture(case,*,candidate_observer=None,delivery_model=None,diagnostics=True):
+def capture(case,*,candidate_observer=None,delivery_model=None,diagnostics=True,enemy_carrier=False):
     if delivery_model not in (None,LIVE_MODEL):raise ValueError('Unknown declared lock delivery model')
     name=case['packet_skill'];snaps=[];events=[];starts={};packets={};manual={}
     def shot(manager,t,snapshot):snaps.append((t,snapshot))
@@ -65,7 +65,7 @@ def capture(case,*,candidate_observer=None,delivery_model=None,diagnostics=True)
         h=selected.handle
         binding=next(b for b in actor_bindings(boss) if int(b.kind)==int(h.kind) and b.identity==h.identity)
         return [(binding.label,1.0)]
-    with patch.object(BossScript,'route',route),capture_physical(case,candidate_observer=candidate_observer,shot_observer=shot,primary_observer=primary()) as result:
+    with patch.object(BossScript,'route',route),capture_physical(case,candidate_observer=candidate_observer,shot_observer=shot,primary_observer=primary(),enemy_carrier=enemy_carrier) as result:
         yield result
     if packets:raise AssertionError('Unconsumed native packet observations')
     result.update(manual);result['lock_packet_trace']=events

@@ -1,5 +1,11 @@
 #include "lock_packet_layout.slang"
 #include "lock_delivery_policy.slang"
+#ifndef LP_DIAGNOSTIC_CAPACITY
+#define LP_DIAGNOSTIC_CAPACITY LP_TRACE_CAPACITY
+#endif
+#ifndef LP_TRACE_AT
+#define LP_TRACE_AT(output,index) ((output)+LP_TRACE+(index)*16)
+#endif
 bool lockPacketRow(inout Runtime s,uint row)
 {return definition_kind(s.inputBase,row)==3&&(definition_damageFlags(s.inputBase,row)&H_SEQUENTIAL)!=0;}
 bool initializeLockPackets(inout Runtime s)
@@ -20,8 +26,8 @@ bool lockPacketTrace(inout Runtime s,LandingReceipt r,uint phase,uint packet)
     if(r.lockSnapshot==0||r.lockSnapshot>s.lockShotCount||r.lockSnapshot>31||r.hit<1||r.hit>r.hits||r.hits>256){s.error=64;return false;}
     uint token=r.lockSnapshot-1,snap=s.resourceOutput+PL_SNAPSHOTS+token*P_WORLD_ACTOR_SET_WORDS;
     if(!f64Equal(actorNumber(s.resourceOutput+LP_SHOT_TIMES+token*2),r.when)||results[snap+6]!=0x474c3031U||results[snap]>128){s.error=64;return false;}
-    uint head=s.resourceOutput+LP_HEAD,index=results[head+1];if(index>=LP_TRACE_CAPACITY){s.error=64;return false;}
-    uint at=s.resourceOutput+LP_TRACE+index*16,ordinal=lockDeliveryIndex(r.hit,results[snap]),slot=0xffffffffU,gen=0,current=0,status=LD_EMPTY;
+    uint head=s.resourceOutput+LP_HEAD,index=results[head+1];if(index>=LP_DIAGNOSTIC_CAPACITY){s.error=64;return false;}
+    uint at=LP_TRACE_AT(s.resourceOutput,index),ordinal=lockDeliveryIndex(r.hit,results[snap]),slot=0xffffffffU,gen=0,current=0,status=LD_EMPTY;
     if(ordinal!=0xffffffffU)
     {
         uint entry=snap+8+ordinal*4;slot=results[entry];gen=results[entry+1];bool present=slot<actorPoolCount(s),alive=false;
