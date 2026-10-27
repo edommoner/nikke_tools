@@ -14,4 +14,6 @@ raw拒否5件はowner marker/actor policy/owner generation/無効modifier axis/�
 
 通常の`package --suite original-shield-weapons`はsealed goldenを使う。`original-shield-weapons-cache-only`は同じscript/source/golden/input/nativeのCUBIN/O1必須＋paired generation必須経路。cache不在をcold compileへfallbackしない。Windows新規依頼/再送/追加pollは0で、前回のhost unavailableを終端扱いにしていない。実CUDA/CUBIN hitは未検証。4carrierという範囲はpinned parsed_skills.jsonを使うcatalog検査で固定し、この依存はpackage前のAUDIT_FILES検査にも登録する。
 
+最終登録36b4304f/cache package fad27828…の`unit-check`12群117検査は6.16秒で成功。CUBIN/O1/2GiB/60秒のcompile-planも受理、実compile/GPU0。Metal packageとの全payload差分は依存登録/分類/CLI登録/test/sealed goldenの5ファイルだけで、CLIとCPU batchの全関数/クラスAST、全numeric/packing/native/比較ソース、全input/native期待は不変。変更のない約128秒のfull native sweepは重ねない。fresh inventoryは266中245packing/21失敗、全キャラ0/UI CPUを保持し、新scopeがself/all_allies両分類に現れることを確認した。最終証跡 `research/target-count-query-evidence/original-shield-weapons-final-checks-v1.json`。
+
 残る範囲はcanonical敵target-world、kind/owner/geometryの任意編成への受付、実機との一致、全分岐/全育成/全キャラ認定、公開GPU admission。宣言したシールドの等価実行と、これらの認定を分ける。
