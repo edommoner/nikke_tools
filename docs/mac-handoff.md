@@ -2577,3 +2577,12 @@ quantity reader refactor後、旧query9入力/native6を新M5で再検証し、�
 関連CPU参照/入力/逆投影/分類検査は成功。固定v2packetの共通smoke66groupも成功、GPU0。full106 CUDA/MSLの厳密正規化hashは旧基準と同一（生成のみ、新source full106のCUDA再認定とは別）。全266profile行/issue/20順位が前回inventoryと完全一致、245変換/21失敗/全キャラ認定0/UI CPUを保持。部分実証はmodel-checkの別フィールドへ記録し、公開admissionは閉じたまま。
 
 次：充填中0.2秒event→元index20の2射撃寿命→通常攻撃/ハイドevent→発射前snapshot→sequential deliveryを同じresident battleへ接続する。このentryは元index20を有限時間へ派生したfixtureであり、元全25効果認定ではない。距離式/対象種別/tie breakは保留。Windows既存continuationの保存結果は接続利用不可で未取得のまま、再送/再実行しない。
+
+
+### 2026-10-27 充填周期から実射撃snapshotへの合成
+
+sealed `physical-generation-locks`7入力（native3/拒否4）はM5 Metalと別fresh GPU禁止sealが成功。元index0の0.2秒/during_chargeをself markerへ投影した既存周期activationでmembershipを駆動し、元index20を変えない2射撃上限と同一battleへ合成した。実on_attackで解除、GPU full_charge callback後・物理着弾前の集合を保存。fixtureには敵状態を変えるfull_charge効果はなく、原全25効果のイベント順は未認定。0.45秒充填で複数取得と再取得/15→15→5、短充填で空集合の射撃、取得後の実HP死亡による発射前除外を検査。候補128/周期63/発射snapshot31、stride不変。GPU .041235208秒/cold PSO8.204335秒。
+
+共通coreの取得/snapshot関数抽出後、従来named-generation-locks16入力も新Metal・独立sealし、全input/readback byteを保持。新v2 goldenへCLIを接続し旧版は保存。実GPU計2/同claim retry0。固定packet共通smoke66group/641（skip1）成功、全266profile/issue/20順位を保持、default106 CUDA/MSL厳密正規化hash保持（生成のみ）。新sourceのCUDA認定ではない。
+
+証跡はpersistent proofsの`physical-locks-v1-package`/`physical-locks-v1-metal`/`physical-locks-v1-independent.json`、および`lock-refactor-v1-package`/`lock-refactor-v1-metal`。Windowsの既存continuation保存結果は接続利用不可で未取得、再送/再実行なし。次は実ハイドevent、full_charge effectが敵状態を変えるときのsnapshot順、sequential delivery・途中死亡・元全25効果への接続。距離モデルは依然未確定で、公開情報を実機認定へ昇格させない。

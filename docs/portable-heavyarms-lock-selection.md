@@ -90,3 +90,16 @@ M5 Metalで10正例/6raw負例が成功し、別fresh GPU禁止childで全16入�
 初回は空statへのloweringでkindが4となるのを0へ戻す処理がなく、GPU admissionが全正例を拒否した。新入力で既存query adapterと同じkind/stat/name/recipient key変換を適用し、GPU前の回帰検査を追加した。失敗captureは保持。Slangソースは初回と同一で、修正版はpipeline cache必須hit、GPU 0.019384125秒。実GPU計2回/同claim retry0。CUDAは同一ソースの生成までで実機未検証。Windows追加依頼0。
 
 CLIは通常の`package --suite named-generation-locks`→固定packetから`run`→保存結果の`seal`を使う。旧entryに対する変更はopt-in macro内だけとし、sourceの逆投影は新しい完全一致ledgerで検査する。既存のgenerated-code normalizerや旧goldenを緩めない。`model-check`はこの部分実証を別フィールドへ記録し、従来の未対応分類/公開admission/全キャラ認定0を維持する。証跡は`research/target-count-query-evidence/metal-generation-locks-v1.json`。
+
+
+## 充填周期・実射撃・元2射撃上限を合成（明示モデル）
+
+`physical-generation-locks`は既存の周期activationと`during_charge`判定から共通membership取得を呼ぶ。充填開始からの独自タイマーや、CPUが作った発動/射撃scheduleは入力しない。元index20の定義を保った2射撃上限を同じresident battleで読み、実物理shotの既存消費処理へ接続した。通常攻撃の通知でmembershipを自動解除し、その物理着弾より前に取得した集合をimmutable snapshotへ保存する。
+
+元index0はname/timing/condition/max_stackを保持する一方、statを空にし、targetをselfへ変更した**周期観測用projection**である。元の最近傍enemy carrierや全25効果を実装した証拠ではない。候補は各周期に実GPU上でBODY/ADDの生存・世代から新しくcaptureするが、順位は既存の明示set順だけであり距離規則にはしていない。通常攻撃解除は実eventに接続済み。実ハイドeventへの自動接続とsequential deliveryは未完了。
+
+Metalで3正例/4raw負例が全成功し、別fresh GPU禁止childで全7入力を独立sealした。0.45秒充填で複数ロック→実射撃解除→次充填の再取得、元2射撃効果の15→15→5、0.1秒充填で周期gridをまたがず空集合で撃つ場合、取得後の実HP死亡が発射snapshotから除外される場合を検査した。通常戦闘全出力・skill trace・全物理上限消費traceを保持し、全周期receipt/時刻と全発射snapshotを比較する。snapshotの位置はGPUではfull_charge callback後・物理着弾前であり、このfixtureには敵状態を変えるfull_charge効果はない。元全25効果とのイベント順の検証は別途必要。
+
+既存のactor/set/receipt/query領域を明示利用し、strideを増やさない。候補128、周期記録63、発射snapshot31の各上限で停止し、省略して成功にはしない。既存query traceの100物理shot上限も保持する。原本入力の通常set操作と診断queryの競合はGPU admissionで拒否する。GPU0.041235208秒、cold pipeline8.204335秒、実dispatch1/retry0。Windows追加要求0、CUDA実機は未確認。証跡は`research/target-count-query-evidence/metal-physical-locks-v1.json`。
+
+共通coreを取得/snapshot関数へ抽出した従来`named-generation-locks`も16入力を新Metal実行・独立sealし、元input5,901,316byte/readback16,252,928byteを全保持した。v2 goldenを新規作成し、旧goldenと旧captureは保存。共通smoke66group/641検査（skip1）、全266profile/issue/20順位保持、default full106のCUDA/MSL厳密正規化hash保持（生成のみ）も成功。個別Metal計2dispatchで同claim再試行0。全キャラ認定0/20分類/UI CPUは維持する。

@@ -55,6 +55,13 @@ def verify(root,overrides=None):
   charging_events_connected=False,spatial_selection_verified=False,sequential_delivery_connected=False,
   game_verified=False,original_full_profile_verified=False,public_admission=False,
   evidence='research/target-count-query-evidence/metal-generation-locks-v1.json')
+ missing['lock_on']['declared_physical_membership_executor']=dict(suite='physical-generation-locks',native_cases=3,rejected_cases=4,
+  source='gpu/world_physical_locks_entry.slang',metal_verified=True,independently_audited=True,cuda_verified=False,
+  original_index20_preserved=True,physical_two_shot_lifetime_connected=True,native_periodic_charging_connected=True,
+  native_on_attack_clear_connected=True,pre_landing_snapshot_connected=True,automatic_cover_clear_verified=False,
+  pulse_projection='Original index0 cadence/condition, self marker projection; no nearest-target consumer',
+  spatial_selection_verified=False,sequential_delivery_connected=False,original_full_profile_verified=False,game_verified=False,
+  public_admission=False,evidence='research/target-count-query-evidence/metal-physical-locks-v1.json')
  missing['effect_target_count_add']['required_consumer_contract']=dict(marker=definitions[0]['name'],additional_targets=10,duration_bullets=2,
   distinct_target_capacity=True,does_not_increase_per_target_marker_stack=True,implementation_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}
