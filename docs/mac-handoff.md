@@ -2520,3 +2520,14 @@ Windowsの新CLI用smokeは622件成功したが、full106のbeginは選択177�
 `effect_target_count_policy.query`を追加。通常reader/namespace/cache/carrierを変えず、指定target_effectの固定整数modifierだけを既存get_buffs/planのローカルviewで読む。元Heavyarms全25定義のindex20(+10/2射撃)を保持した4条件(3/30秒×本体/3ADD)を共通CLI `reference --suite heavyarms-target-count-native` へ登録。固定packet49dc4e97で13単体/透過性検査と4参照契約成功、関連58検査成功。実射撃イベントで2射撃消費・5→15→5を検査し、observer無しの全戦闘/trace/入力を完全保持。通常numeric計算と他targetの値を混ぜないことも検査。詳細はportable-heavyarms-lock-selection.mdとresearch/target-count-query-evidence/。空間選択への接続とGPU実装は未完了、20model-gap/266profile/245変換/21失敗/全キャラ0を保持。
 
 Windows固定9c825fa5の選択177テストは全14群成功。native0..7は計80入力/native45成功したが、native8が180秒timeout(case87途中、case80..86 returned記録)。群8全体は未成立、result/artifacts無し、9/10未実行。全Job post0/missing0/監視cleanup0、GPU/compile0。完了済みnative/テスト、旧失敗、claimsは保持。元packet/transactionを編集せず、group8をそのまま再送しない。まだGPUへ進めない。private-continuation-v10以降の状態を優先して確認する。
+
+
+### 2026-10-27: 同じ未実行GPU試行のnative tail継続
+
+共通CLIへ`continuation-package`/`preflight-resume`を追加（code7cbc0c58、配布0993b8fe）。元sealed packetの全数値/native/データ/選択テスト/goldenを保持し、制御3fileとhelper/test3fileだけを差し替える。元owner自身のregistryと全payload、入力、host/Python、全選択テスト、成功native連続prefix、clean timeout/Job/観測原本を照合する。未成功の部分returnedは引継がず、値cacheなし。append-only所有claimを作り、同じ未使用GPU保存先へ未完了tailだけ小分けで進む。通常の実行と独立全件fresh監査は維持。詳細docs/portable-staged-native-preflight.md。
+
+M5で実際のCPU-only timeoutを保持したまま成功prefix2入力を引継ぎ、残2入力をfresh実行→Metal1回→独立fresh4入力の全比較が成功。GPU0.413175秒/子2.118125秒、必須generation/pipeline cache、既存raw SHA d1dc8ecdd94b881503bcc588e34103103dce402fc6adbfaa56924484c0545879を維持。元失敗はfalse、元result/artifactsは不在のまま。要約research/shared-native-group-evidence/metal-native-tail-continuation-v1.json。
+
+固定full106継続capsule04515f96（research/windows-source-packets/native-tail-continuation-v1.zip）は元9c825fa5のnumerical byte-lineage監査とMac共通640テスト/66群成功（Windows専用1skip）。Windowsへ新隔離root nikke-native-tail-cont-v1-diagnosticでsmoke→resume(group_size5)→最初tail0/global80..84だけを依頼済み。成功80入力/native45と元177テストは再実行しない。各Job2GiB/BelowNormal/180秒、GPU/compiler0の依頼。現在の実行状態は既存Windowsチャットと永続proof resident-frame-arena-20261027/private-continuation-v11.json以降を優先。旧9c失敗8と全claimsは保持。全106 CUDAと保存CUBIN実行は未成立。
+
+Lock Onの既存typedAim候補順は距離順ではなくz→birth→node→slot順。typedGeometryの形状距離は包含判定用であり、その先頭候補を最近傍Lock Onとして転用できない。独自順位と既ロック集合が未接続であり、対象数queryCPU4契約だけでは全25効果/GPU認定へ昇格しない。266profile/245変換/21失敗/20model-gap/全キャラ認定0/UI CPUを保持。
