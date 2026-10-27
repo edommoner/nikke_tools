@@ -30,7 +30,7 @@ from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 SUITES = {
     'original-lock-controls':dict(script='research/verify-original-lock-controls.py',
         golden='research/portable-original-lock-controls-v1-expected.json',source='gpu/world_original_lock_composition_entry.slang',
-        inputs=17,native=9,input_words=109536,output_words=1310720,development_only=True,
+        inputs=17,native=9,input_words=109536,output_words=1310720,development_only=True,cpu_test_timeout=120,
         support_files=['research/portable-destructible-original-battle-short-expected.json','research/target-count-query-evidence/lock-projectile-composition-v1-failure-diagnostic.json'],
         tests=['test_original_lock_controls.py','test_original_lock_composition.py','test_portable_world_fraction.py','test_portable_world_team.py','test_packet_fates.py','test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_generation_separation.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py']),
     'original-lock-composition':dict(script='research/verify-original-lock-composition.py',
