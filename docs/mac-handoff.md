@@ -2607,3 +2607,12 @@ sealed `physical-generation-locks`7入力（native3/拒否4）はM5 Metalと別f
 共通CLI `reference --suite physical-lock-cover-native` を追加。実CharState `_enter_cover` の `event:cover` を使う5ケース（充填中、別caster、禁止、空集合、リロード待ち）が固定packet4acdadd2で成功。通知はcharging取消後。既存observerは同casterの実cover通知でmembershipを解除し、通常攻撃前snapshotと遮蔽後の再取得を検証。通知callbackは透明性比較用の2回目nativeへ漏らさず、全battle/trace/input一致検査を維持する。
 
 自身の8群59検査と共通66群642検査（Win1skip）、model-checkが成功。旧Metal10入力/native6の全指紋保持、全packaged GPU source byte保持。追加GPU0/Windows依頼0。証拠はresearch/target-count-query-evidence/physical-lock-cover-native-v1.json。cover入力は現physical GPU入口で全5ケース拒否を保持し、CPU契約をGPU成功へ昇格させない。次は既存enterManualCover/event31+tagとcaster照合、共通arenaの合成配置監査→接続→Metal。新しい状態機・CPU通知スケジュールは作らない。順番攻撃/元全25/距離とfull106 CUDA再認定は未完。Windows既存continuationのterminal取得待ちは変更せず再送しない。
+
+
+### 2026-10-27 実ハイドを共通物理実行器へ合成・Metal実証
+
+sealed physical-lock-coverは23入力/native11＋拒否12でM5 Metal＋fresh独立監査が成功。既存手動遮蔽producerと同じweapon/reload/event実行器を使用し、event31+cover tag+lock casterの一致で解除。充填取消後の通知、別caster、禁止、空集合、リロード待ち、遮蔽後の再取得と発射前snapshotを検証。手動80wordはsnapshot後804096の余白へ置き、input104400/output806912・live actor set32個を保持。全posture/padding/戦闘/skill/射撃/quota/candidateを比較。既存manual observerをcaptureとして抽出し、透明性比較用2回目nativeを観測scopeへ混ぜない。
+
+新GPU1（.046597秒）＋共有source変更後のlegacy10/16各1、同claim retry0。3packetともfresh独立seal。legacy2は旧生成CUDA/MSL全byte同一を先に確認し、pipeline必須cache hitで各約.002秒。legacy全input/readback byte保持。物理10はv3、external16はv4、cover23はv1 goldenへ接続し旧golden保持。通常配布3packet作成成功。最終cover db363dc0は専用57・共通642検査（Win1skip）成功、GPU追加0。証拠はtarget-count-query-evidenceのmetal-physical-lock-cover-v1／legacy-retention／sealed-preflight-v1等。
+
+全inventory fieldは旧arena版と一致、266profile/245変換/21失敗/20分類/全キャラ0/UI CPU。default106 CUDA/MSL厳密生成hash不変（生成のみ、現在source CUDA認定ではない）。誤ったmain entryを指定したCPU生成診断は失敗記録を残し、正しいportableEvents指定で保持を確認。Windows既存continuation statusを1回確認したがhost unavailableでterminal未取得、再送/再実行0。次はsnapshotを消費する順番攻撃と元全25効果。距離/tie/対象種別・ゲーム仕様は未確定のまま。

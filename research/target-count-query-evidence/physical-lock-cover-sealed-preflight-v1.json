@@ -1,0 +1,49 @@
+{
+  "schema": "physical-cover-final-sealed-preflight-v1",
+  "packages": [
+    {
+      "suite": "physical-lock-cover",
+      "package_id": "db363dc0bfa787e99dc0e2848a4dd2fc4a04029e014f6373780386d9c5e30709",
+      "archive_sha256": "f804fc25ded2337e90e5abbdcc5563e4c4fb8cd17cd08620d19e3934e133ae45",
+      "source_commit": "8571f9e890f6255fdbe65c15fb94f5b57566741b"
+    },
+    {
+      "suite": "physical-generation-locks",
+      "package_id": "e8707dcf3bcbedf80a694811a0cb02134584960109ef744ee9a3ba36f26eae28",
+      "archive_sha256": "1372acd3a46e504e6ff10bb6c3668bda54ef1e32e63b9500329f3fc5ae62c9d0",
+      "source_commit": "8571f9e890f6255fdbe65c15fb94f5b57566741b"
+    },
+    {
+      "suite": "named-generation-locks",
+      "package_id": "8fcb06f26a6e827d542113bebe6ebeb0728468b661e44bea14f369e860d7c81f",
+      "archive_sha256": "03bd34999fb594e639f3a89db24bee83e4e0ea8b85bfe9c27b7c477b9b00ca6b",
+      "source_commit": "8571f9e890f6255fdbe65c15fb94f5b57566741b"
+    }
+  ],
+  "checks": {
+    "cpu": {
+      "groups": 8,
+      "tests": 57,
+      "skipped": 0,
+      "passed": true
+    },
+    "smoke": {
+      "groups": 66,
+      "tests": 642,
+      "skipped": 1,
+      "passed": true
+    }
+  },
+  "unchanged_code_files_compared": 2931,
+  "metadata_only_changes": [
+    "app/portable_model_gap_audit.py",
+    "scripts/nikke_gpu.py"
+  ],
+  "additional_GPU_calls": 0,
+  "current_cover_metal23_verified": true,
+  "legacy10_and16_current_source_metal_verified": true,
+  "independent_seals": 3,
+  "Windows_new_requests": 0,
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}
