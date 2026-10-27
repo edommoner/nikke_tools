@@ -1,5 +1,7 @@
 # 2026-10-28 元4編成のburst合成を独立seal・観測器の不足を修正
 
+最終cache packet f7ca339e…（9cbcad76）は20群197unit/compile-plan policy成功。初版の比較golden同梱不足を既存support_files/AUDIT_FILESで修正。独立sealから全計算/観測/比較moduleを保持し、native/GPU全再実行0。最終検査の詳細は `research/target-count-query-evidence/original-catalogue-burst-final-checks-v1.json`。
+
 `original-catalogue-burst`はRapi RH/SBS/Red Hood/Cinderellaの元30秒4編成を同じ共通実行器でseal。全318定義を保持し、付着/蓄積・即時起爆、gauge3段、武器変更、HP由来ATK/最大HP更新と連続攻撃を実行。全skill160行/物理6344receiptの既存全件SHA+保持prefix/全状態を比較。初回GPU比較は成功したが独立observerのstale scalar codeで失敗したため、実caller+現在のscalar returnへ観測を修正。元4入力/native/GPU source全保持のstrict replay・fresh GPU禁止監査101.22秒で成功した。GPU実行1回のみ4.036秒、generation/pipeline必須hit・Slang0/PSO.00327秒。canonical/GPU/数値/効果/normalizer変更0。単一監査failure/timeoutの詳細を共通CLIがcapture隣へ保存する。Rapi no-other-B1とRH B1/B2は未観測で、次に実入力へ接続する。CUDA cache-only入口は同じkernel/基準を使うが実CUDA未確認、Windows新依頼0・旧transaction再送なし。全キャラ/全特殊効果は未達。[設計・失敗・証拠・次の条件](portable-original-catalogue-burst.md)。以下は前段の履歴。
 
 # 2026-10-28 共通スキル履歴1,618件をMetalで全照合・独立seal

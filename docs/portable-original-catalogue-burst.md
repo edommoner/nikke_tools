@@ -34,3 +34,11 @@
 元定義が入力にあることと、条件分岐が実際に発火したことを区別する。Rapiの「他のB1がいない」編成側、Red HoodのB1/B2側は今回未観測。incoming attack/decoyの被弾処理、複数論理敵・PART/混在typed world、favorite variantもこの4入力で認定しない。次はこれら未観測の元条件を実編成・実操作へ接続し、既存の専用実証と照合して優先する。全キャラ・全特殊効果・公開GPU受付は未達。
 
 出所と各元effectの発火/未観測行は `research/target-count-query-evidence/metal-original-catalogue-burst-v1.json`。未観測をGPU未実装と断定せず、今回の停止は`independent_reference_observer_gap`として記録する。
+
+## 最終パッケージの確認
+
+最終9cbcad76/package f7ca339e…は20群197unitとCUBIN/O1/2GiB/60秒のcompile-plan policyが成功（compiler/GPU0）。初版の梱包は比較用initial goldenの不足を検出したため保存し、既存support_files/AUDIT_FILESへ依存を登録した。比較を削除せず、次から欠落はCPU/native前に止める。
+
+独立sealしたpacketからの差はsuite登録、比較golden/依存、追加test、失敗ログの保存先だけ。全GPU/CPU正本/観測器/比較moduleは同一。CLI関数ASTは単一failureのmkdtempに永続のcapture親dirを指定した箇所以外は完全一致で、successful comparisonは変えていない。このためnative全再計算やGPU実行を重ねない。全体model-checkも資料のあるcheckoutで成功し、公開GPU受付False/全ゴール未達は不変。
+
+旧transport監査を直接呼ぶ経路も、現行sourceの全byteが登録済み値に一致するときだけ既存inverse chainへ通すよう修正した。既にprojectedな値はその層の従来の全byte検査を使い、未知値/newline改ざんは拒否する。既存の保留burst12・生成分離7・history8検査で確認した。詳細 `research/target-count-query-evidence/original-catalogue-burst-final-checks-v1.json`。
