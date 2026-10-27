@@ -9,7 +9,14 @@ END=FLAGS+CAPACITY
 def native_fates(case,trace,dispositions):
     flags=[0]*len(trace)
     for event in dispositions:
-        sources=[i for i,e in enumerate(case['effects']) if e.get('name')==event['name'] and case['owners'][i]==case['names'].index(event['caster'])]
+        owner=case['names'].index(event['caster'])
+        sources=[i for i,e in enumerate(case['effects']) if e.get('type')=='damage' and e.get('name')==event['name'] and case['owners'][i]==owner]
+        if 'source_row' in event:
+            source=event['source_row']
+            if type(source) is not int or source not in sources:raise AssertionError('Suppressed native packet has invalid registration identity')
+            sources=[source]
+        elif case.get('source_effect_identity'):
+            raise AssertionError('Suppressed native packet is missing registration identity')
         if len(sources)!=1:raise AssertionError('Suppressed native packet has ambiguous source identity')
         matches=[i for i,r in enumerate(trace) if r['row']==sources[0] and (r['created'],r['landed'],r['amount'])==(event['created'],event['landed'],event['amount'])]
         if len(matches)!=1 or flags[matches[0]]:raise AssertionError('Suppressed native packet missing/duplicated in complete skill history')

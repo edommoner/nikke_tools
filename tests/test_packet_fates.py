@@ -6,7 +6,7 @@ import portable_packet_fates as fates
 
 class FateTests(unittest.TestCase):
     def sample(self):
-        case=dict(names=['a','b','c','d','e'],owners=[0,0],effects=[dict(name='typed'),dict(name='child')])
+        case=dict(names=['a','b','c','d','e'],owners=[0,0],effects=[dict(name='typed',type='damage'),dict(name='child',type='damage')])
         trace=[dict(row=0,created=.2,landed=.22,amount=40.,share=40.,hit=1,hits=1,recipients=[0]),dict(row=1,created=.2,landed=.22,amount=50.,share=50.,hit=1,hits=1,recipients=[0])]
         events=[dict(caster='a',name='typed',created=.2,landed=.22,amount=40.)]
         native=dict(skill_trace=trace,receipt_fates=fates.native_fates(case,trace,events))
@@ -31,6 +31,27 @@ class FateTests(unittest.TestCase):
         c,t,e,_,_=self.sample()
         for trace,events in [(t[1:],e),(t,e+e),(t,[dict(e[0],amount=41.)])]:
             with self.assertRaises(AssertionError):fates.native_fates(c,trace,events)
+
+    def test_duplicate_labels_require_exact_damage_registration_and_owner(self):
+        c,t,e,_,_=self.sample()
+        c['effects'][1]['name']='typed'
+        with self.assertRaisesRegex(AssertionError,'ambiguous'):fates.native_fates(c,t,e)
+        c['source_effect_identity']=True
+        for source in (0,1):
+            event=dict(e[0],source_row=source,amount=t[source]['amount'])
+            result=fates.native_fates(c,t,[event])
+            self.assertEqual([r['index'] for r in result if not r['actor_effects_allowed']],[source])
+        for source in (True,-1,2,'0'):
+            with self.subTest(source=source),self.assertRaisesRegex(AssertionError,'registration'):fates.native_fates(c,t,[dict(e[0],source_row=source)])
+        with self.assertRaisesRegex(AssertionError,'missing registration'):fates.native_fates(c,t,e)
+        c['owners'][0]=1
+        with self.assertRaisesRegex(AssertionError,'registration'):fates.native_fates(c,t,[dict(e[0],source_row=0)])
+
+    def test_same_label_buff_does_not_alias_damage_source(self):
+        c,t,e,_,_=self.sample();c['effects'][1].update(name='typed',type='buff')
+        result=fates.native_fates(c,t,e)
+        self.assertFalse(result[0]['actor_effects_allowed'])
+        with self.assertRaisesRegex(AssertionError,'registration'):fates.native_fates(c,t,[dict(e[0],source_row=1)])
 
     def test_resident_cache_entry_reuses_same_calculation_and_requires_both_hits(self):
         import nikke_gpu as cli

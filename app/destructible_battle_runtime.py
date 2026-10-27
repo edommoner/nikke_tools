@@ -59,7 +59,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     if old_simulate is not old_alias:raise ValueError('Native battle aliases differ before typed extension')
     old_boss=timeline.BossScript;old_register=buff_manager.BuffManager.register_damage_handler;old_hit=timeline.HitEvent
     old_scalar=timeline.calc_damage
-    data=dict(worlds=[],managers=[],activations=[],attacks=[],finished=[],body_dispositions=[]);active=[];marked={};marked_worlds={};restores=[]
+    data=dict(worlds=[],managers=[],activations=[],attacks=[],finished=[],body_dispositions=[]);active=[];marked={};marked_worlds={};marked_sources={};restores=[]
     from destructible_weapon_runtime import WeaponShots
     weapons=WeaponShots(timeline,data,shield_owner,hit_shields,body_lifesteal=body_lifesteal,body_accumulation=body_accumulation) if weapon_shields else None
     from coordinate_typed_weapon_runtime import CoordinateWeaponShots
@@ -134,6 +134,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
             return condition_ok(values,caster,t,eff)
         @wraps(previous)
         def damage(effect,caster,t,*args,**kwargs):
+            observer_row=effect.get('_portable_observer_row')
             if '_portable_observer_row' in effect and (effect.get('target') in ('all_projectiles','typed_point') or shield_owner is not None and effect.get('target')=='boss'):
                 row=effect['_portable_observer_row']
                 if type(row) is not int or not 0<=row<len(manager._effects) or manager._effects[row][0] is not effect:raise ValueError('Typed observer annotation must identify its exact registered definition')
@@ -172,6 +173,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
                 selected=select(world,shield_owner,hit_shields=hit_shields)
                 if selected is not None:
                     context=dict(manager=manager,world=world,effect=effect,caster=caster,time=t,kind=selected[1].kind,selected=selected)
+            if context is not None and observer_row is not None:context['source_row']=observer_row
             active.append(context)
             try:return previous(dict(effect,target='boss') if context is not None and not skill_shields else effect,caster,t,*args,**kwargs)
             finally:assert active.pop() is context
@@ -197,6 +199,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
         physical=context.get('coordinate_weapon',False);attacks=data['coordinate_weapon_attacks'] if physical else data['attacks']
         if len(attacks)>=(2**23-1 if physical else max_attacks):raise ValueError('Typed battle attack observation capacity exceeded')
         identity=(2**23 if physical else 0)+len(attacks)+1;marked[id(event)]=event;marked_worlds[id(event)]=context['world']
+        if 'source_row' in context:marked_sources[id(event)]=context['source_row']
         record=dict(attack_id=identity,name=context['name'] if 'name' in context else context['effect'].get('name'),caster=event.caster,time=event.t,damage=float(event.damage),receipts=(),completed=False)
         if context.get('quantity_only'):record['quantity_only']=True
         if 'family' in context:record.update(family=context['family'],hit_tag=context['hit_tag'],weapon_mode_skill=context['weapon_mode_skill'])
@@ -223,7 +226,9 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     def skip(event):
         if marked.get(id(event)) is event:
             world=marked_worlds[id(event)]
-            data['body_dispositions'].append(dict(caster=event.caster,name=event.skill_name,created=event.t,landed=world.last,amount=event.damage))
+            disposition=dict(caster=event.caster,name=event.skill_name,created=event.t,landed=world.last,amount=event.damage)
+            if id(event) in marked_sources:disposition['source_row']=marked_sources[id(event)]
+            data['body_dispositions'].append(disposition)
             return True
         if coordinate_weapons is not None:
             context=coordinate_weapons.landing(event)

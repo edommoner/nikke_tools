@@ -237,3 +237,11 @@ default106のCUDA/MSL厳密生成hashは不変（生成のみ）。旧physical10
 ## cover23の現source再認定を復旧（2026-10-27）
 
 claim前Metal cache gateを実装・テストしたhost修正版a4f9ac2eの固定packetで、旧失敗と同じkey6fb2d307…のmissがtests/native/worker/claim前に停止することを確認。旧packetのGPU source全closure、全input/native指紋、旧claim SHAを保持した。新packetの未使用claimで初回cache作成を明示して1回だけMetal23を実行し、別fresh監査でv2 goldenを作成した。全CUDA/MSL生成byte・入力・74,235,904byteの出力が元cover23と同一。現checkoutの通常cover23 package作成も復旧対象となる。配送対象slotをHPへ適用するconsumerは引き続き未接続。
+
+## 公開情報再確認：実機待ちをせず進める境界
+
+ユーザーのネット調査指定に従い、ファミ通のスキル全文（0.2秒、未ロック敵、照準線基準、通常5機、攻撃/ハイド解除、バースト+10）とPrydwenの取得順循環・キャラ固有の挑発例外を再確認した。NIKKE.GGの死亡時振替は検索索引本文で確認できるが、直接取得は403であり振替先の決定法は得られていない。Level Infinite公式発表にも距離式の説明はない。今回の追加検索では、中心/外形/3D距離や同距離順を区別できる制御実験は見つからなかった。既存の判断を維持し、判明した状態・寿命・配送順のモデルを使って開発を進める。距離順位と死亡時の決定的な振替は未確定事項として保持する。全キャラ認定や実機一致へ昇格させない。再確認の出所と取得方法は `research/target-count-query-evidence/heavyarms-online-delivery-reassessment-v1.json` の `recheck` に記録。今回は調査記録のみで、計算変更・GPU実行・Windows依頼はない。
+
+## 2026-10-28 発生元IDの保持と次の変換制限
+
+型付きパケットの登録行IDを生成時からBODY抑止監査まで保持し、受動的なnative履歴観測にも渡した。同名のbuffをdamage発生元へ誤対応させず、登録IDの型・名前・owner・damage種別を検査する。共通CLIの固定packetで10グループ65テスト、既存12入力/native7のCPU事前検査に成功。旧7ケースの全履歴と旧typed8戦闘指紋は保持。同名のtyped/通常damageはnativeで別の発生元として観測できるが、GPU入力変換は依然 `Multiple named non-buff carriers are not ported` で拒否する。複数typed定義も短いadapterの1定義制限が残る。今回の変更を同名複数効果のGPU認定へ昇格させない。発見時の失敗と最終receiptは `research/target-count-query-evidence/packet-source-identity-native-v1.json`。GPUコード変更・GPU実行・Windows依頼は0。元index0の敵carrier/空間順位と全25効果の接続が引き続き優先課題。

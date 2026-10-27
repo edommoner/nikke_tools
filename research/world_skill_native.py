@@ -8,6 +8,13 @@ def inspect(case):
  names={e['name']:i for i,e in enumerate(case['effects']) if e.get('type')=='damage'};records=[];active=[];event_rows={};handler_starts={};event_counts={};original=BossScript.route;previous=sys.getprofile()
  def profile(frame,event,arg):
   if previous is not None:previous(frame,event,arg)
+  if case.get('source_effect_identity') and frame.f_globals.get('__name__')=='destructible_battle_runtime' and frame.f_code.co_name=='packet' and event=='return':
+   context=frame.f_locals.get('context')
+   if context is not None and 'source_row' in context and arg is not None:
+    source=context['source_row']
+    if type(source) is not int or not 0<=source<len(case['effects']):raise AssertionError('Invalid typed creation source identity')
+    if case['effects'][source].get('name')!=arg.skill_name or case['names'][case['owners'][source]]!=arg.caster:raise AssertionError('Typed creation source label/owner mismatch')
+    event_rows[id(arg)]=source
   if (case.get('observe_periodic_skills') or case.get('source_effect_identity') or case.get('observe_dynamic_skill_hits')) and frame.f_code.co_name=='_handle_damage_eff':
    eff=frame.f_locals.get('eff',{});row=eff.get('_portable_observer_row');events=frame.f_locals.get('_dot_events',[])
    if row is not None or case.get('observe_dynamic_skill_hits'):

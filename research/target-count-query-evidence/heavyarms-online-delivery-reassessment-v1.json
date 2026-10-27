@@ -8,7 +8,10 @@
       "url": "https://www.prydwen.gg/nikke/characters/snow-white-heavy-arms",
       "access": "page_text",
       "kind": "third_party_character_explanation",
-      "claims": ["cycle_in_lock_acquisition_order", "character_specific_taunt_order_exception"]
+      "claims": [
+        "cycle_in_lock_acquisition_order",
+        "character_specific_taunt_order_exception"
+      ]
     },
     {
       "url": "https://nikke.gg/snow-white-heavy-arms-analysis-should-you-pull/",
@@ -16,7 +19,9 @@
       "author": "lzzy",
       "article_updated_date": "2026-01-08",
       "kind": "third_party_author_analysis",
-      "claims": ["redirect_dead_lock_target_attack_to_remaining_locked_targets"],
+      "claims": [
+        "redirect_dead_lock_target_attack_to_remaining_locked_targets"
+      ],
       "media_inspected": false,
       "deterministic_retarget_algorithm_specified": false
     },
@@ -24,13 +29,21 @@
       "url": "https://www.famitsu.com/article/202512/62211",
       "access": "search_index_text",
       "kind": "third_party_published_skill_text",
-      "claims": ["nearest_unlocked_to_crosshair", "charging_interval_0.2_seconds", "ordinary_capacity_5", "clear_on_attack_or_cover", "burst_capacity_add_10"]
+      "claims": [
+        "nearest_unlocked_to_crosshair",
+        "charging_interval_0.2_seconds",
+        "ordinary_capacity_5",
+        "clear_on_attack_or_cover",
+        "burst_capacity_add_10"
+      ]
     },
     {
       "url": "https://volx.jp/nikke-snow-white-heavy-arms-spec-skill/",
       "access": "page_and_search_index_text",
       "kind": "third_party_general_sequential_description",
-      "claims": ["general_sequential_taunt_changes_order"],
+      "claims": [
+        "general_sequential_taunt_changes_order"
+      ],
       "apply_general_rule_to_heavyarms_automatically": false
     }
   ],
@@ -55,5 +68,29 @@
   ],
   "gpu_executions": 0,
   "windows_requests": 0,
-  "full_character_certification_added": 0
+  "full_character_certification_added": 0,
+  "recheck": {
+    "observed_date": "2026-10-27",
+    "request": "Use public online information rather than waiting for a game environment",
+    "famitsu_access": "full_page_text",
+    "famitsu_skill_lines": [
+      52,
+      55,
+      61,
+      65,
+      78,
+      81
+    ],
+    "prydwen_access": "full_page_text",
+    "prydwen_delivery_line": 252,
+    "nikke_gg_access": "search_index_text_direct_open_403",
+    "official_press_url": "https://press.levelinfinite.com/en-US/GODDESS-OF-VICTORY-NIKKE-REVEALS-MAJOR-NEW-YEAR-UPDATE-FEATURING-LEGEN",
+    "official_press_has_distance_algorithm": false,
+    "independent_controlled_distance_experiment_found": false,
+    "new_independent_sources_for_distance_algorithm": 0,
+    "decision_changed": false,
+    "implementation_policy": "Use documented acquisition timing, capacity, clear conditions and explicitly labelled acquisition-order delivery; keep distance metric and deterministic dead-target replacement unresolved. Do not substitute world-depth order for crosshair proximity.",
+    "gpu_executions": 0,
+    "windows_requests": 0
+  }
 }

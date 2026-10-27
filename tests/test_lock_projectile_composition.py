@@ -53,6 +53,21 @@ class CompositionTests(unittest.TestCase):
         entries,_=original.prepare()
         for (_,_,domain),expected in zip(entries,golden['entries']):self.assertEqual(suite.cross.digest(original.native_reference(domain)),expected['native_sha256'])
 
+    def test_native_same_name_packets_keep_distinct_creation_rows(self):
+        import copy
+        c=copy.deepcopy(suite.fixtures()[0]);c['source_effect_identity']=True;c['observe_periodic_skills']=True
+        source=next(i for i,e in enumerate(c['effects']) if e.get('target')=='all_projectiles')
+        c['effects'].append(dict(copy.deepcopy(c['effects'][source]),target='boss'));c['owners'].append(c['owners'][source])
+        duplicate=len(c['effects'])-1
+        from portable_runtime import UnsupportedPortable
+        with self.assertRaisesRegex(UnsupportedPortable,'Multiple named non-buff carriers'):suite.compile_case(c)
+        observed=suite.native_reference((c,None,None))
+        suppressed=[observed['skill_trace'][f['index']]['row'] for f in observed['receipt_fates'] if not f['actor_effects_allowed']]
+        self.assertEqual(suppressed,[source])
+        self.assertEqual(len(observed['typed']['attacks']),1)
+        rows=[r['row'] for r in observed['skill_trace'] if r['row'] in (source,duplicate)]
+        self.assertEqual(rows,[source,duplicate])
+
     def test_source_inverse_requires_every_reviewed_layout_and_schema_byte(self):
         from portable_lock_typed_source_contract import project_sources
         ledger=json.loads((ROOT/'tests/fixtures/portable-lock-typed-source-delta.json').read_text());old=project_sources(ROOT)

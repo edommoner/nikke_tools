@@ -98,7 +98,7 @@ def observe(case):
    super()._close(run,t,outcome,events);ends.append([run.p.idx,{'cleared':1,'expired':2,'followed':3,'end':4}[outcome],*bits(t)])
  def register(bm):
   bm._effects=copy.deepcopy(effects);bm._build_notify_index()
-  if case.get('observe_periodic_skills') or case.get('observe_healing_storage') or case.get('observe_skill_clocks'):
+  if case.get('observe_periodic_skills') or case.get('observe_healing_storage') or case.get('observe_skill_clocks') or case.get('source_effect_identity'):
    for index,(effect,_) in enumerate(bm._effects):effect['_portable_observer_row']=index
   if case.get('observe_authored_effect_lookup'):
    # The authored roster replaces registration, so native ordered lookups
