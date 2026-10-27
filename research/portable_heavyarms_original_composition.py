@@ -7,15 +7,29 @@ def load(name,path):
 composition=load('original_lock_composition','research/verify-lock-projectile-composition.py')
 enemy=load('original_lock_enemy','research/verify-lock-enemy-carriers.py')
 
-def prepare_case(duration=3,adds=0,*,cover=None):
+def prepare_case(duration=3,adds=0,*,cover=None,parts=False,injury=False,break_parts=False,mary_first=False,mary_low=False):
     from portable_heavyarms_lock_cases import fixtures,source_definitions,NAME
     from portable_coordinate_original_cases import prepare_case as original_case
     from portable_charge_clock_specs import normalize_static_clock
     row=copy.deepcopy(next(r for r in fixtures() if r['body'].get('duration')==duration))
+    if any(type(v) is not bool for v in (parts,injury,break_parts,mary_first,mary_low)):raise ValueError('Explicit literal parts/injury scenario flags required')
+    if break_parts and not parts or mary_low and not (injury and mary_first):raise ValueError('Invalid original scenario combination')
+    if mary_first:row['body']['squad'][1],row['body']['squad'][4]=row['body']['squad'][4],row['body']['squad'][1]
     patterns=[dict(id='typed',kind='idle',until=dict(time=duration))]
-    if adds:patterns.insert(0,dict(id='lock-wave',kind='summon',spec=dict(count=adds,hp=1e30)))
+    if parts:
+        patterns.insert(0,dict(id='original-parts',kind='parts',delay=.5,targets=[dict(name='original-part-'+str(i),hp=1 if break_parts else 1e30,reach=1) for i in range(2)]))
+    if injury:
+        patterns.insert(0,dict(id='original-injury',kind='attack',delay=.5,spec=dict(atk=300000,coeff=100,target='all',pierce=True,hits=3,interval=.1)))
+        patterns.append(dict(id='original-after-heal',kind='attack',delay=5.,spec=dict(atk=300000,coeff=100,target='all',pierce=True)))
+    if mary_low:patterns.append(dict(id='original-low-mary',kind='attack',delay=.8,spec=dict(atk=2000000,coeff=100,target='slot:2',pierce=True)))
+    if adds:patterns.insert(0,dict(id='lock-wave',kind='summon',delay=3. if parts else 0.,spec=dict(count=adds,hp=1e30)))
     row.update(name='original-heavyarms/'+str(duration)+'s/'+str(adds)+'adds',coord=None,patterns=patterns)
     row['body']['enemy']['patterns']=copy.deepcopy(patterns)
+    if parts:row['name']+='/parts'
+    if injury:row['name']+='/injury'
+    if break_parts:row['name']+='/broken-parts'
+    if mary_first:row['name']+='/mary-first'
+    if mary_low:row['name']+='/low-mary'
     original,prepared=original_case(row)
     c=copy.deepcopy(composition.fixtures()[0])
     for key in ('name','names','duration','seed','enemy','patterns','effects','owners','base_atk','skill_levels','controls','combat','environment','original_run','control_mode'):c[key]=original[key]

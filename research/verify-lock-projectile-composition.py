@@ -1,5 +1,6 @@
 """One battle clock, independent typed and frozen-lock recipient consumers."""
 import array,copy,importlib.util,sys
+from contextlib import nullcontext
 from pathlib import Path
 from unittest.mock import patch
 from types import SimpleNamespace
@@ -43,12 +44,20 @@ def compile_case(c):
 def native_reference(domain,*,candidate_observer=None,enemy_carrier=False):
     c,meta,bindings=domain;before=copy.deepcopy(c)
     def run(diagnostics,observer=None):
-        with typed_battle(c['typed_bindings'],max_attacks=c['max_attacks']) as data:
+        if c.get('observe_original_healing'):
+            from world_heal_share_native import capture as capture_healing
+            healing=capture_healing(c)
+        else:healing=nullcontext(None)
+        with healing as healed,typed_battle(c['typed_bindings'],max_attacks=c['max_attacks']) as data:
             with capture(c,delivery_model=MODEL,diagnostics=diagnostics,candidate_observer=observer,enemy_carrier=enemy_carrier) as result:
                 battle,trace=baseline(c)
-        result.update(battle=battle,skill_trace=trace,typed=typed.typed_observation(c,data),receipt_fates=native_fates(c,trace,data['body_dispositions']));return result
+        result.update(battle=battle,skill_trace=trace,typed=typed.typed_observation(c,data),receipt_fates=native_fates(c,trace,data['body_dispositions']))
+        if healed is not None:
+            from portable_heal_share_trace import native_records
+            result['healing_calls']=native_records(healed['events'])
+        return result
     n=run(True,candidate_observer);plain=run(False)
-    if n['battle']!=plain['battle'] or n['skill_trace']!=plain['skill_trace'] or n['typed']!=plain['typed'] or n['receipt_fates']!=plain['receipt_fates'] or c!=before:raise AssertionError('Composed diagnostics changed full native model/input')
+    if n['battle']!=plain['battle'] or n['skill_trace']!=plain['skill_trace'] or n['typed']!=plain['typed'] or n['receipt_fates']!=plain['receipt_fates'] or n.get('healing_calls')!=plain.get('healing_calls') or c!=before:raise AssertionError('Composed diagnostics changed full native model/input')
     return n
 
 def compare(block,domain):

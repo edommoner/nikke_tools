@@ -28,6 +28,11 @@ sys.path[:0] = [str(ROOT/p) for p in ('app', 'research', 'scripts')]
 from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 # No GPU/backend/native imports at startup: collect/audit must work without them.
 SUITES = {
+    'original-lock-health-parts':dict(script='research/verify-original-lock-health-parts.py',
+        golden='research/portable-original-lock-health-parts-v1-expected.json',source='gpu/world_original_lock_health_parts_entry.slang',
+        inputs=11,native=7,input_words=109536,output_words=1310720,development_only=True,cpu_test_timeout=120,
+        support_files=['research/portable-original-lock-composition-v1-expected.json','research/portable-destructible-original-battle-short-expected.json','research/target-count-query-evidence/lock-projectile-composition-v1-failure-diagnostic.json'],
+        tests=['test_original_lock_health_parts.py','test_portable_heal_share_trace.py','test_portable_world_fraction.py','test_portable_world_team.py','test_packet_fates.py','test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_generation_separation.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py']),
     'original-lock-controls':dict(script='research/verify-original-lock-controls.py',
         golden='research/portable-original-lock-controls-v1-expected.json',source='gpu/world_original_lock_composition_entry.slang',
         inputs=17,native=9,input_words=109536,output_words=1310720,development_only=False,cpu_test_timeout=120,
@@ -506,6 +511,7 @@ SUITES['coordinate-landing-cache-only']=dict(SUITES['coordinate-landing'],cuda_c
 SUITES['lock-delivery-cache-only']=dict(SUITES['lock-delivery-policy'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['lock-delivery-policy']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['lock-packet-cache-only']=dict(SUITES['lock-packet-bindings'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['lock-packet-bindings']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['live-lock-delivery-cache-only']=dict(SUITES['live-lock-delivery'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['live-lock-delivery']['tests'],'test_portable_cuda_cached_profile.py'])
+SUITES['original-lock-health-parts-cache-only']=dict(SUITES['original-lock-health-parts'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-lock-health-parts']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['original-lock-controls-cache-only']=dict(SUITES['original-lock-controls'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-lock-controls']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['original-lock-composition-cache-only']=dict(SUITES['original-lock-composition'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-lock-composition']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['enemy-lock-carriers-diagnostic']=dict(SUITES['enemy-lock-carriers'],source='gpu/world_lock_enemy_carrier_diagnostic_entry.slang',development_only=True)
