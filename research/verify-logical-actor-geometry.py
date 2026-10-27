@@ -43,6 +43,10 @@ def compare(block,domain):
     assert len(block)==suite.OUTPUT and block[0]==0,'Complete successful logical actor output required'
     from world_coordinate_sampled_skill_native import creation_indices
     with creation_indices(domain[0]) as indices:n=native_reference(domain)
+    return compare_observed(block,domain,n,indices)
+
+def compare_observed(block,domain,n,indices):
+    assert len(block)==suite.OUTPUT and block[0]==0,'Complete successful logical actor output required'
     view,legacy,legacy_indices=compare_and_project(block,domain,n,indices)
     base.compare_observed(view[:1769856],domain,legacy,legacy_indices)
     groups.compare_group_receipts(view[:1507328],domain,n,compare_packets=False)
