@@ -52,13 +52,11 @@ def verify_original_weapon_change(case,attacks):
     assert any(a['coefficient']==base for a in own[last+1:]),'Missing restored normal fire after weapon change'
     assert all(a['coefficient']==mode and a['weapon_mode_skill']==bool(change.get('skill_damage',False)) for a in own[first:last+1]),'Mode fire must retain its authored coefficient and damage class'
 
-def require_skill_history_capacity(native):
-    # Current owner entry uses logWorldSkill's complete 128 x 48-word bank.
-    # Check the actual native history, not the duration or character identity.
-    count=len(native['skill_trace'])
-    if count>128:raise ValueError(f'Original catalogue requires shared skill-history capacity extension: {count} > 128; complete history must be retained')
+def require_skill_history_capacity(native,capacity=128):
+    from portable_skill_history import require_capacity
+    require_capacity(native,capacity)
 
-def verify(case,native):
+def verify(case,native,*,skill_history_capacity=128):
     from portable_coordinate_typed_weapon_contracts import verify as weapons
     weapons(case,native);identity=native['original_input_identity']
     assert identity==dict(definitions=len(case['effects']),chars_config_seed_weapon_verified=True,authored_metadata_overrides=False,authored_delays_overrides=False)
@@ -79,5 +77,5 @@ def verify(case,native):
         for a in attacks:
             if a['owner']==0:by_shot.setdefault(a['shot_identity'],[]).append(a)
         assert any(len(rows)>1 for rows in by_shot.values()),'Original shotgun must deliver several real pellets in one shot'
-    require_skill_history_capacity(native)
+    require_skill_history_capacity(native,skill_history_capacity)
     return native

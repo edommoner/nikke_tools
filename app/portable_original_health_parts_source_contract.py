@@ -4,6 +4,9 @@ from pathlib import Path
 
 def project_sources(root,sources=None):
     root=Path(root);out=dict(sources or {})
+    if (root/'gpu/world_coordinate_typed_history_entry.slang').exists():
+        from portable_skill_history_source_contract import project_sources as history
+        out=history(root,out)
     ledger=json.loads((root/'tests/fixtures/portable-original-health-parts-source-delta.json').read_text())
     for name,digest in ledger['added_sources'].items():
         if hashlib.sha256(out.get(name,(root/name).read_text()).encode()).hexdigest()!=digest:raise AssertionError('Unreviewed original health/parts dependency: '+name)

@@ -117,7 +117,7 @@ SUITES = {
                    tests=['test_portable_world_reload.py']),
 }
 SUITES['original-shield-weapons']=dict(SUITES['original-projectile-weapons'],script='research/verify-original-shield-weapons.py',golden='research/portable-original-shield-weapons-v1-expected.json',inputs=15,native=10,development_only=False,entry_inventory_input_policy='body-owned-hp-shield-v1',tests=[*SUITES['original-projectile-weapons']['tests'],'test_original_shield_weapons.py','test_original_entry_inventory.py','test_portable_readiness.py'])
-SUITES['original-catalogue']=dict(SUITES['original-shield-weapons'],script='research/verify-original-catalogue.py',golden='research/portable-original-catalogue-development-expected.json',inputs=None,native=None,development_only=True,selection_required=True,tests=[*SUITES['original-shield-weapons']['tests'],'test_original_catalogue.py'])
+SUITES['original-catalogue']=dict(SUITES['original-shield-weapons'],script='research/verify-original-catalogue.py',source='gpu/world_coordinate_typed_history_entry.slang',golden='research/portable-original-catalogue-development-expected.json',inputs=None,native=None,development_only=True,selection_required=True,tests=[*SUITES['original-shield-weapons']['tests'],'test_original_catalogue.py','test_shared_skill_history.py'])
 SUITES['original-catalogue'].pop('entry_inventory_input_policy')
 SUITES['original-catalogue-initial']=dict(SUITES['original-catalogue'],golden='research/portable-original-catalogue-initial-v1-expected.json',inputs=4,native=4,selection_required=False,frozen_cases=[
     'original-catalogue/hp-shield/모더니아/favorite-0/3s',

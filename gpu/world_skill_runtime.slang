@@ -145,9 +145,18 @@ LandingReceipt loadWorldSkillReceipt(uint at)
     return r;
 }
 uint worldSkillHead(inout Runtime s) { return s.resourceOutput+P_WORLD_SKILL_HEAD_BASE; }
+#ifndef WORLD_SKILL_TRACE_CAPACITY
+#define WORLD_SKILL_TRACE_CAPACITY 128U
+#define WORLD_SKILL_TRACE_AT(s,index) ((s).resourceOutput+P_WORLD_SKILL_TRACE_BASE+(index)*48U)
+#endif
 void initializeWorldSkills(inout Runtime s)
 {
     if(!worldSkillsEnabled(s)) return;
+#ifdef PORTABLE_WORLD_SKILL_HISTORY
+    if(!WORLD_SKILL_HISTORY_ADMIT(s)) { s.error=64;return; }
+    for(uint i=128;i<WORLD_SKILL_TRACE_CAPACITY;i++)
+        for(uint j=0;j<48;j++) results[WORLD_SKILL_TRACE_AT(s,i)+j]=0;
+#endif
 #ifdef PORTABLE_DAMAGE_ACCUM
     if(damageAccumEnabled(s)) { results[damageAccumHeader(s)]=0;results[damageAccumHeader(s)+1]=0; }
 #endif
@@ -174,8 +183,8 @@ void logWorldSkill(inout Runtime s,LandingReceipt r,uint set,uint64_t share,uint
         return;
 #endif
     }
-    uint index=results[h+1];if(index==128) { s.error=8;return; }results[h+1]++;
-    uint at=s.resourceOutput+P_WORLD_SKILL_TRACE_BASE+index*48;
+    uint index=results[h+1];if(index==WORLD_SKILL_TRACE_CAPACITY) { s.error=8;return; }results[h+1]++;
+    uint at=WORLD_SKILL_TRACE_AT(s,index);
     results[at]=r.row;results[at+1]=r.hit;results[at+2]=r.hits;results[at+3]=n;
     storeNumber(at+4,r.when);storeNumber(at+6,when);storeNumber(at+8,r.amount);storeNumber(at+10,share);
     for(uint i=0;i<4;i++) results[at+12+i]=
