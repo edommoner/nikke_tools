@@ -475,6 +475,8 @@ SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
 SUITES['coordinate-landing']['support_files'] = ['research/portable-coordinate-arcs-short-expected.json']
 SUITES['coordinate-landing-arena']=dict(SUITES['coordinate-landing'],script='research/verify-coordinate-landing-arena-short.py',source='gpu/coordinate_landing_arena_probe.slang',golden='research/portable-coordinate-landing-arena-short-expected.json',output_words=46582,development_only=False,tests=[*SUITES['coordinate-landing']['tests'],'test_coordinate_arc_arena.py','test_coordinate_landing_arena.py'])
+for _metal_gate_suite in ('physical-lock-cover','lock-packet-bindings'):
+    SUITES[_metal_gate_suite]['tests'].append('test_required_metal_cache_preflight.py')
 SUITES['coordinate-landing-arena-cache-only']=dict(SUITES['coordinate-landing-arena'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['coordinate-landing-arena']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['coordinate-landing-cache-only']=dict(SUITES['coordinate-landing'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['coordinate-landing']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['lock-delivery-cache-only']=dict(SUITES['lock-delivery-policy'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['lock-delivery-policy']['tests'],'test_portable_cuda_cached_profile.py'])
@@ -593,6 +595,7 @@ SMOKE_TESTS.append('test_portable_input_extension.py')
 SMOKE_TESTS.append('test_portable_generation_cache.py')
 SMOKE_TESTS.append('test_portable_metal_cache.py')
 SMOKE_TESTS.append('test_portable_metal_cache_probe.py')
+SMOKE_TESTS.append('test_required_metal_cache_preflight.py')
 SMOKE_TESTS.append('test_portable_generation_separation.py')
 SMOKE_TESTS.append('test_portable_definition_view.py')
 SMOKE_TESTS.append('test_portable_ptx_callgraph.py')
@@ -2308,7 +2311,10 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
         if not linked and not smoke and not cpu_only:
             paired=backend=='cuda' and required_cuda_cache_preflight(m,capture)
             if not paired:required_generation_cache_preflight(m,capture)
-        if backend=='metal' and not smoke and not cpu_only:metal_device_preflight(capture)
+        if backend=='metal' and not smoke and not cpu_only:
+            device=metal_device_preflight(capture)
+            from portable_required_metal_cache import preflight as metal_cache_preflight
+            metal_cache_preflight(SimpleNamespace(**globals()),m,capture,device)
         if not staged and not smoke and not cpu_only and SUITES[m['suite']].get('parent_oracle_reuse'):
             from portable_parent_oracles import ParentOracles
             parent_oracles=ParentOracles(m,capture)

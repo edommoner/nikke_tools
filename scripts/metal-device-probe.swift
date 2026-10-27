@@ -10,6 +10,7 @@ if let device = device {
     result["device"] = device.name
     result["registry_id"] = String(device.registryID)
     result["max_buffer_length"] = device.maxBufferLength
+    result["os_build"] = ProcessInfo.processInfo.operatingSystemVersionString
 }
 let data = try JSONSerialization.data(withJSONObject: result, options: [.sortedKeys])
 FileHandle.standardOutput.write(data)

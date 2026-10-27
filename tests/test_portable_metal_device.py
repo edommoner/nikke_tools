@@ -14,13 +14,14 @@ class DeviceTests(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name)
         (self.root/'scripts').mkdir();self.script=self.root/'scripts/metal-device-probe.swift';self.script.write_text('// fixture probe')
-        self.value=dict(schema='metal-device-visibility-v1',device_visible=True,kernel_calls=0,device='Apple fixture',registry_id='42',max_buffer_length=2**32)
+        self.value=dict(schema='metal-device-visibility-v1',device_visible=True,kernel_calls=0,device='Apple fixture',registry_id='42',max_buffer_length=2**32,os_build='fixture OS build')
     def context(self):
         stack=contextlib.ExitStack();stack.enter_context(patch.object(device.sys,'platform','darwin'));stack.enter_context(patch.object(device.shutil,'which',return_value='/usr/bin/swift'));stack.enter_context(patch.dict(os.environ,{'NIKKE_METAL_MODULE_CACHE':str(self.root/'modules')}));return stack
     def response(self,code=0,value=None):return subprocess.CompletedProcess([],code,json.dumps(self.value if value is None else value),'')
     def test_visible_device_is_only_an_advisory_and_bounded_without_shell(self):
         with self.context(),patch.object(device.subprocess,'run',return_value=self.response()) as run:r=device.probe(self.root)
         self.assertTrue(r['passed']);self.assertTrue(r['device_visible']);self.assertFalse(r['calculation_verified']);self.assertFalse(r['context_current_verified']);self.assertEqual(r['gpu_calls'],0)
+        self.assertEqual(r['os_build'],'fixture OS build')
         argv=run.call_args.args[0];self.assertEqual(argv,['/usr/bin/swift','-module-cache-path',str(self.root/'modules'),str(self.script.resolve())])
         self.assertEqual(run.call_args.kwargs['timeout'],20);self.assertNotIn('shell',run.call_args.kwargs)
     def test_no_device_has_no_success_identity(self):

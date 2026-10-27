@@ -30,7 +30,9 @@ def probe(root):
         if value['device_visible']:
             if child.returncode!=0 or not isinstance(value.get('device'),str) or not value['device'] or not isinstance(value.get('registry_id'),str) or not value['registry_id'].isdecimal() or type(value.get('max_buffer_length')) is not int or value['max_buffer_length']<=0:
                 raise ValueError('Invalid visible Metal device identity')
+            if 'os_build' in value and (not isinstance(value['os_build'],str) or not value['os_build']):raise ValueError('Invalid Metal OS build identity')
             result.update(passed=True,device_visible=True,device=value['device'],registry_id=value['registry_id'],max_buffer_length=value['max_buffer_length'])
+            if 'os_build' in value:result['os_build']=value['os_build']
         elif child.returncode!=2:raise ValueError('Invalid unavailable Metal device return code')
     except (OSError,ValueError,TypeError,subprocess.TimeoutExpired) as error:
         result['error']=type(error).__name__+': '+str(error)
