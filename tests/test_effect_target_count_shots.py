@@ -45,6 +45,13 @@ class NamedTargetCountShotTests(unittest.TestCase):
     def test_registered_adapter_retains_whole_battle_comparator_and_raw_rejections(self):
         entries,data=self.adapter.prepare();self.assertEqual((len(entries),sum(d is not None for _,_,d in entries)),(9,5));self.assertEqual(len(data),(1+9*INPUT)*4)
         self.assertEqual(OUTPUT,786432)
+    def test_charge_literal_disagreement_is_rejected_before_battle_or_gpu(self):
+        from calculator import timeline
+        import portable_backend
+        c=copy.deepcopy(self.cases[1]);c['post_fire_delays'][0]=.2
+        def forbidden(*a,**kw):raise AssertionError('Execution before static clock validation')
+        with patch.object(timeline,'simulate',forbidden),patch.object(portable_backend,'build',forbidden),patch.object(portable_backend,'execute',forbidden),self.assertRaisesRegex(ValueError,'post-fire delays differ'):
+            compile_case(self.adapter.parent,c,model=MODEL)
     def test_modified_battle_cannot_be_hidden_by_capacity_observer(self):
         import world_effect_target_count_shot_native as observer
         original=observer.baseline;calls=[]

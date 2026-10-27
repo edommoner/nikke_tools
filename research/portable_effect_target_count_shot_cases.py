@@ -13,7 +13,7 @@ def fixtures():
     add('original-auto-pellets-muzzles')
     c=add('original-charge');c['duration']=1.2
     c['combat']['weapons'][0].update(mode='charge',base_weapon_type='SR',charge=.1,interval=.3,min_cycle=.3,full_charge_mult=100,gauge_mult=100)
-    c['post_fire_delays'][0]=.2
+    c['post_fire_delays'][0]=.215
     c=add('battle-start-same-frame',False);c['effects'][0]['trigger']['timing']=['battle_start']
     c=add('attack-bound-same-frame',False);c['effects'][0]['trigger']['timing']=['on_attack'];c['effects'][0]['max_trigger']=1
     c=add('allied-independent-clocks',False);c['duration']=.9;c['effects'][0].update(target='all_allies');c['effects'][0]['trigger']['timing']=['battle_start']

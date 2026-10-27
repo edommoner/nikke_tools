@@ -16,6 +16,17 @@ assert TRACE+CAPACITY*WORDS==L['QUERY_BASE']+L['COMMANDS']*L['QUERY_WORDS']
 
 def compile_case(parent,case,*,model):
     if model!=MODEL:raise ValueError('Explicit named capacity shot model required')
+    # Match the independent observer's literal normalization before execution.
+    # CharState construction reads static weapon mechanics; it never ticks.
+    from unittest.mock import patch
+    from calculator import timeline
+    from portable_charge_clock_specs import normalize_static_clock
+    from world_frame_native import roster_names,authored_metadata
+    from world_authored_roster import skill_levels
+    chars=[dict(name=n,skill_levels=lv) for n,lv in zip(roster_names(case),skill_levels(case))]
+    with patch.dict(timeline._NIKKE,authored_metadata(case)),patch.dict(timeline._DELAYS['_exceptions'],{},clear=True),patch.dict(timeline._DELAYS['_defaults_by_weapon_type'],{'AR':{'post_reload_delay':0}},clear=True):
+        delays=normalize_static_clock(chars,case['base_atk'],case['enemy'])
+    if delays!=case['post_fire_delays']:raise ValueError('Physical post-fire delays differ from native static normalization')
     c=copy.deepcopy(case);indices=[]
     for i,effect in enumerate(case['effects']):
         if validate_effect(effect):
