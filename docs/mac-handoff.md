@@ -1,3 +1,9 @@
+# 2026-10-28 元ニヒリスター70定義の実2敵通知をMetalで検証
+
+`logical-actor-rosters` sealed5。元SR/全70定義のままBODY+ADD、範囲外、PART、37度矩形、30秒を検査。実group20/通知19/子着弾38の長時間も全比較。固定66df6953/package b38e3b9d…、M5 GPU2.434174秒、必須pipeline hit0.002745秒、generation必須hit/Slang0。旧GPU entry/CUDA/MSL/reflection全byteと旧13goldenを保持し、旧GPU再実行0。71unitとfresh独立監査5件107.573248秒が成功。共通比較器の旧全検査文は固定AST一致で保持する。
+
+最初のPART対照assertはPART単独初弾の敵集合0を考慮していなかった。実native診断を保存し、最大1敵・実BODY1・実PART着弾・通知子なしを検査する形へ修正。源effect/武器/時刻は変更していない。通常/cached CLIを登録し、分類は明示モデルの元2敵通知だけを検証済みとし、既定gap/公開拒否/全キャラ未認定を維持。現CUDAは未検証、Windows新依頼0。詳細は[元ニヒリスター](portable-logical-actor-rosters.md)。以下は履歴。
+
 最終e0e2b430の通常a254a809…/cache-only9f583a9b…を固定。通常own CLIの65unit/model-check/required generation sealed baseline hit・Slang0、cache側のCUBIN O1・2GiB・60秒compile-planと必須flag負例を確認。追加GPU0。model-check用固定文書とarc基準の同梱、共通receipt includeの厳密source監査も完了。Windows statusはhost unavailable durable、旧終端不明で新runなし。次は他の元キャラの実複数敵通知・武器/幾何/世代の組合せへ広げる。private継続点logical-actor-metal-sealed-continuation-v1.json。
 
 # 2026-10-28 実ADD幾何をM5 Metal・独立sealで検証

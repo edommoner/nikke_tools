@@ -1,0 +1,42 @@
+{
+  "package_id": "b38e3b9d25865b7140e9dd70f25564fd5f275de77020bae0ddca0b445a21060e",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/logical-Nihilister-metal-v1-metal",
+  "schema": "independent-metal-audit-groups-v1",
+  "child_pids": [
+    58599,
+    58608
+  ],
+  "groups": [
+    {
+      "child_pid": 58599,
+      "case_indices": [
+        0,
+        1,
+        2
+      ],
+      "input_count": 3,
+      "native_cases": 3,
+      "elapsed_seconds": 33.490341666998575
+    },
+    {
+      "child_pid": 58608,
+      "case_indices": [
+        3,
+        4
+      ],
+      "input_count": 2,
+      "native_cases": 2,
+      "elapsed_seconds": 73.62399883299076
+    }
+  ],
+  "input_count": 5,
+  "native_cases": 5,
+  "live_parent_receipt_present": false,
+  "per_group_timeout_seconds": 180,
+  "elapsed_seconds": 107.57324758300092,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "5d80725b6ff0b0e5a782942adb0775277e8b54a045ee84ab695cd002c493c779",
+  "output_sha256": "328b92ed276ad50d2d0a573af66ed331d69380d04034f59961900eaa68aa25bd",
+  "scope": "Fresh GPU-forbidden child groups, each individually bounded, covering every input once; total elapsed includes all groups"
+}

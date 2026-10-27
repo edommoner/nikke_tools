@@ -111,6 +111,15 @@ def reference_readiness(issue):
             historical_canonical_equivalence=False,in_game_rules_verified=False,
             evidence='tests/fixtures/logical-actor-independent-v1.json',
             evidence_sha256='533334e9533a45aedd4857e43d404519c34dd350d185de53a73f8c0a7779383e')
+        if issue['operator']['descriptor']=='multi_hit:2':
+            result['declared_logical_actor_roster_validation']=dict(
+                suite='logical-actor-rosters',original_roster='니힐리스타',original_roster_definitions=70,
+                inputs=5,native_cases=5,metal_verified=True,independently_audited=True,
+                rotated_rectangle_verified=True,actual_PART_exclusion=True,
+                current_cuda_verified=False,default_producer_installed=False,
+                in_game_rules_verified=False,full_character_verified=False,
+                evidence='tests/fixtures/logical-Nihilister-independent-v1.json',
+                evidence_sha256='84540782b106c153ade02a448d709fcda395a56c2dd83c7142fb95078155b887')
         result['reference_suites'].append('attack-group-native-route')
         result['reference_suites'].append('attack-group-long')
         result['long_group_metal_validation']=dict(suite='attack-group-long',inputs=60,native_cases=48,rejected_cases=12,long180s_cases=6,new_full_group_records=927,omitted_group_records=0,old53_full_raw_retained=True,independently_audited=True,compact_history='lossless_variable_records_after_schema_landing_bank',current_cuda_verified=False)

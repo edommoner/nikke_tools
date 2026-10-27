@@ -61,4 +61,23 @@ class LogicalGeometryRosters(unittest.TestCase):
         tail=ast.dump(ast.Module(body=function.body[1:],type_ignores=[]),include_attributes=False)
         self.assertEqual(hashlib.sha256(tail.encode()).hexdigest(),fixture['comparison_tail_ast_sha256'])
 
+    def test_sealed_original_scope_keeps_default_and_cuda_gates_closed(self):
+        import nikke_gpu
+        from portable_readiness_semantics import reference_readiness
+        config=nikke_gpu.SUITES['logical-actor-rosters'];self.assertFalse(config['development_only'])
+        self.assertEqual(config['inputs'],5);self.assertEqual(config['native'],5)
+        cached=nikke_gpu.SUITES['logical-actor-rosters-cache-only']
+        self.assertEqual(cached['golden'],config['golden']);self.assertTrue(cached['require_paired_generation'])
+        raw=(ROOT/'tests/fixtures/logical-Nihilister-independent-v1.json').read_bytes();audit=json.loads(raw)
+        self.assertTrue(audit['calculation_verified']);self.assertEqual(audit['gpu_calls'],0)
+        self.assertFalse(audit['live_parent_receipt_present'])
+        self.assertEqual([i for g in audit['groups'] for i in g['case_indices']],list(range(5)))
+        def readiness(descriptor):return reference_readiness(dict(phase='effect',category='trigger',operator=dict(domain='timing',descriptor=descriptor)))
+        r=readiness('multi_hit:2');m=r['declared_logical_actor_roster_validation']
+        self.assertEqual(m['evidence_sha256'],hashlib.sha256(raw).hexdigest())
+        self.assertTrue(m['metal_verified']);self.assertFalse(m['current_cuda_verified'])
+        self.assertFalse(m['full_character_verified']);self.assertFalse(r['gpu_supported'])
+        self.assertEqual(r['lane'],'reference_model_gap')
+        self.assertNotIn('declared_logical_actor_roster_validation',readiness('multi_hit:4'))
+
 if __name__=='__main__':unittest.main()

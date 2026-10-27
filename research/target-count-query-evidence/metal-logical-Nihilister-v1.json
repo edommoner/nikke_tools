@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "stage": "original-Nihilister-shared-logical-GPU",
+  "passed": true,
+  "source_commit": "66df69531ee644688e20d071feff5a8aef42d9f8",
+  "package_id": "b38e3b9d25865b7140e9dd70f25564fd5f275de77020bae0ddca0b445a21060e",
+  "inputs": 5,
+  "native_cases": 5,
+  "statuses": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "original_roster_definitions": 70,
+  "contracts": [
+    {
+      "name": "logical-actor-rosters/Nihilister/two-enemies",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_roster_preserved": true,
+        "original_definition_count": 70,
+        "actual_groups": 2,
+        "threshold_notifications": 1,
+        "actual_child_landings": 2,
+        "part_is_not_an_enemy": true,
+        "gpu_supported": false,
+        "historical_canonical_equivalence": false,
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "logical-actor-rosters/Nihilister/one-outside",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_roster_preserved": true,
+        "original_definition_count": 70,
+        "actual_groups": 2,
+        "threshold_notifications": 0,
+        "actual_child_landings": 0,
+        "part_is_not_an_enemy": true,
+        "gpu_supported": false,
+        "historical_canonical_equivalence": false,
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "logical-actor-rosters/Nihilister/part-not-enemy",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_roster_preserved": true,
+        "original_definition_count": 70,
+        "actual_groups": 2,
+        "threshold_notifications": 0,
+        "actual_child_landings": 0,
+        "part_is_not_an_enemy": true,
+        "gpu_supported": false,
+        "historical_canonical_equivalence": false,
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "logical-actor-rosters/Nihilister/rotated-rectangle",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_roster_preserved": true,
+        "original_definition_count": 70,
+        "actual_groups": 2,
+        "threshold_notifications": 1,
+        "actual_child_landings": 2,
+        "part_is_not_an_enemy": true,
+        "gpu_supported": false,
+        "historical_canonical_equivalence": false,
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "logical-actor-rosters/Nihilister/two-enemies-long",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_roster_preserved": true,
+        "original_definition_count": 70,
+        "actual_groups": 20,
+        "threshold_notifications": 19,
+        "actual_child_landings": 38,
+        "part_is_not_an_enemy": true,
+        "gpu_supported": false,
+        "historical_canonical_equivalence": false,
+        "in_game_rules_verified": false
+      }
+    }
+  ],
+  "device": "Apple M5",
+  "gpu_seconds": 2.434174499998335,
+  "pipeline_seconds": 0.002744913101196289,
+  "library_seconds": 0.004075050354003906,
+  "pipeline_required_hit": true,
+  "runtime_stride_bytes": 138952,
+  "generation": {
+    "hit": true,
+    "compiler_invocations": 0
+  },
+  "all_old_generated_bytes_identical": {
+    "generated.cu": true,
+    "generated.metal": true,
+    "generated.cu.reflection.json": true,
+    "generated.metal.reflection.json": true
+  },
+  "old_golden_unchanged": true,
+  "unit_tests": {
+    "groups": 10,
+    "tests": 71,
+    "passed": true
+  },
+  "cpu_preflight": {
+    "passed": true,
+    "input_count": 5,
+    "native_oracles": 5,
+    "input_sha256": "5d80725b6ff0b0e5a782942adb0775277e8b54a045ee84ab695cd002c493c779",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 92.07795416600129,
+    "transport_input": {
+      "schema": 1,
+      "package_id": "b38e3b9d25865b7140e9dd70f25564fd5f275de77020bae0ddca0b445a21060e",
+      "input_count": 5,
+      "input_words": 115680,
+      "input_bytes": 2313604,
+      "input_sha256": "5d80725b6ff0b0e5a782942adb0775277e8b54a045ee84ab695cd002c493c779"
+    }
+  },
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 5,
+    "fresh_native_cases": 0,
+    "rejection_cases": 0,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 5
+  },
+  "independent": {
+    "package_id": "b38e3b9d25865b7140e9dd70f25564fd5f275de77020bae0ddca0b445a21060e",
+    "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/logical-Nihilister-metal-v1-metal",
+    "schema": "independent-metal-audit-groups-v1",
+    "child_pids": [
+      58599,
+      58608
+    ],
+    "groups": [
+      {
+        "child_pid": 58599,
+        "case_indices": [
+          0,
+          1,
+          2
+        ],
+        "input_count": 3,
+        "native_cases": 3,
+        "elapsed_seconds": 33.490341666998575
+      },
+      {
+        "child_pid": 58608,
+        "case_indices": [
+          3,
+          4
+        ],
+        "input_count": 2,
+        "native_cases": 2,
+        "elapsed_seconds": 73.62399883299076
+      }
+    ],
+    "input_count": 5,
+    "native_cases": 5,
+    "live_parent_receipt_present": false,
+    "per_group_timeout_seconds": 180,
+    "elapsed_seconds": 107.57324758300092,
+    "gpu_calls": 0,
+    "calculation_verified": true,
+    "input_sha256": "5d80725b6ff0b0e5a782942adb0775277e8b54a045ee84ab695cd002c493c779",
+    "output_sha256": "328b92ed276ad50d2d0a573af66ed331d69380d04034f59961900eaa68aa25bd",
+    "scope": "Fresh GPU-forbidden child groups, each individually bounded, covering every input once; total elapsed includes all groups"
+  },
+  "input_sha256": "5d80725b6ff0b0e5a782942adb0775277e8b54a045ee84ab695cd002c493c779",
+  "output_sha256": "328b92ed276ad50d2d0a573af66ed331d69380d04034f59961900eaa68aa25bd",
+  "actual_gpu_runs": 1,
+  "gpu_retries": 0,
+  "old_GPU_cases_reexecuted": 0,
+  "windows_new_requests": 0,
+  "current_cuda_verified": false,
+  "full_character_verified": false,
+  "in_game_geometry_verified": false,
+  "full_goal_complete": false,
+  "retained_failure": {
+    "file": "logical-Nihilister-part-diagnostic-v1.json",
+    "cause": "Initial PART-only shot produces an empty logical enemy group, not exactly one BODY enemy; the contract now requires at most one enemy and a real BODY-only group without notifications"
+  },
+  "proof_sha256": {
+    "logical-Nihilister-metal-v1-metal/artifacts.json": "d9767e52fc59fabb421fd060561e478b31eea39550cbce3b8a1fea27e71c9bda",
+    "logical-Nihilister-metal-v1-metal/comparison.json": "2bdd9c881906766b29970827f8f1a8bc6ea830ebec8d5c0fdc7a47bb004a61c9",
+    "logical-Nihilister-metal-v1-metal/evidence.json": "6e0ddb09d7d71ca7886d84760fb7a2f29fac85107077fa0cc94e8530e931e860",
+    "logical-Nihilister-metal-v1-independent.json": "84540782b106c153ade02a448d709fcda395a56c2dd83c7142fb95078155b887",
+    "logical-Nihilister-reference-v2.json": "fcbdd059b0ee72acda547c095ec03b2223da7230551dde79333a8602ae74213e",
+    "research/portable-logical-actor-rosters-v1-expected.json": "0ae37955e42f25d3665f22b1d0c7e10149d78bd96294a2792ddaf8c8c2da86d2",
+    "research/portable-compiler-full--logical-actor-rosters-source-certificate.json": "c8784cbe06d53466f462bbb5baf0732cee4a5bd5a89fa3e8f2a7fc69d4d35abb"
+  }
+}

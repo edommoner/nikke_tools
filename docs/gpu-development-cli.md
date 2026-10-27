@@ -1,3 +1,5 @@
+`logical-actor-rosters`は元ニヒリスター全70定義の実2敵通知・範囲外/PART対照・回転矩形・30秒のsealed5入力。前のlogical actor entry/全比較を共有し、CUDA/MSL全byte保持、M5 Metal/独立監査成功。必須Metal pipeline hitでPSO約0.0027秒。`package --suite logical-actor-rosters --out NEW.zip`とown CLIを使う。cache-only版も同じ計算だが現CUDA実機は未確認。[範囲・元スキル・実測](portable-logical-actor-rosters.md)。
+
 `logical-actor-geometry`は実ADD colliderのsealed13入力（元6条件＋raw拒否7条件）。`package --suite logical-actor-geometry --out NEW.zip`から固定packetのown CLIを使う。M5 Metal全比較・GPU禁止の独立監査に成功し、元の全battle・物理packet・group・2,048行スキル履歴を比較する。`logical-actor-geometry-cache-only`は同じ計算に既存CUBIN/O1・compile cache必須・paired generation必須を適用するが、現CUDA実機hitは未確認。全キャラや既定CPUの幾何認定ではない。[範囲と実測](portable-logical-actor-geometry.md)。
 
 `reference --suite logical-actor-geometry-common --out NEW.json`は元ベロータの実RLをBODY＋実ADD形状へ接続するCPU契約6件。元4敵通知/防御低下/子攻撃を検査し、PARTを敵数へ数えない。このCPU referenceコマンド自体はGPU認定を行わず、実Metalの別証拠は上記sealed suiteに保存する。[設計と移植手順](portable-logical-actor-geometry.md)。
