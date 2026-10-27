@@ -12,6 +12,11 @@ class GapAuditTests(unittest.TestCase):
   self.assertEqual(r['actor_capacity'],128);self.assertFalse(r['spatial_selection_verified'])
   self.assertFalse(r['public_admission']);self.assertFalse(r['original_full_profile_verified'])
   self.assertFalse(lock['unlocked_candidate_exclusion_verified'])
+ def test_enemy_lock_carrier_proof_does_not_certify_distance_or_full_profile(self):
+  r=verify(ROOT);p=r['missing_stats']['lock_on']['declared_enemy_carrier_executor']
+  self.assertEqual(p['original_indices_preserved'],[0,1,2,6,20]);self.assertTrue(p['actual_enemy_carriers']);self.assertTrue(p['metal_verified'])
+  for key in ('cuda_verified','spatial_selection_verified','full_profile_verified','game_verified','public_admission'):self.assertFalse(p[key])
+  self.assertFalse(r['full_goal_complete'])
  def test_lock_capacity_is_not_the_observed_canonical_marker_stack(self):
   r=verify(ROOT);lock=r['missing_stats']['lock_on'];public=lock['published_skill_contract']
   self.assertTrue(lock['marker_stack_count_is_not_distinct_target_count']);self.assertFalse(lock['unlocked_candidate_exclusion_verified'])

@@ -109,6 +109,12 @@ def verify(root,overrides=None):
   diagnostic_trace_required=True,diagnostic_history_capacity=128,
   spatial_selection_verified=False,dead_retarget_policy_verified=False,full_profile_verified=False,game_verified=False,public_admission=False,
   evidence='research/target-count-query-evidence/metal-packet-fates-v3.json')
+ missing['lock_on']['declared_enemy_carrier_executor']=dict(suite='enemy-lock-carriers',native_cases=4,rejected_cases=3,
+  source='gpu/world_lock_enemy_carrier_entry.slang',original_indices_preserved=[0,1,2,6,20],
+  actual_enemy_carriers=True,existing_actor_carrier_executor=True,empty_dead_carriers_preserved=True,
+  metal_verified=True,independently_sealed=True,cuda_verified=False,
+  spatial_selection_verified=False,full_profile_verified=False,game_verified=False,public_admission=False,
+  evidence='research/target-count-query-evidence/metal-enemy-lock-carriers-v4.json')
  missing['effect_target_count_add']['required_consumer_contract']=dict(marker=definitions[0]['name'],additional_targets=10,duration_bullets=2,
   distinct_target_capacity=True,does_not_increase_per_target_marker_stack=True,implementation_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}

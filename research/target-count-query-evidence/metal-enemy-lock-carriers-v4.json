@@ -1,0 +1,153 @@
+{
+  "schema": "metal-enemy-lock-carriers-v4",
+  "observed_date": "2026-10-28",
+  "code_commit": "32630ddf3dc11d1f7e4322e97c60d25a5f7a3100",
+  "package_id": "eee190247f39f02f967fe1d17741caf0495c6c8d4d07cef302d24498df215003",
+  "native_cases": 4,
+  "rejected_cases": 3,
+  "metal_calculation_verified": true,
+  "independently_sealed": true,
+  "audit_receipt_sha256": "ca554b3da94576f55a60f89c6026166c67c6a22664f7f7593801c0a2f9fd9cbd",
+  "golden_sha256": "c3ff667805d1fdafcbfef6798d70b693c69b2b123a26faa24a5d2fef0094f069",
+  "receipts": {
+    "result.json": "78f411680abd47a51f2256fa8fb57104ce58bbf13f5e8a0c21ea5c1b94f04ad1",
+    "cpu.json": "58e510b1e4cc9dca2a6f0adf26c61683b55593d5bb67105bb3850e2e7f336198",
+    "cpu-tests.json": "b497398dcc4172d2e86df1d852d4969e9be4bc06e0ead174596a1cbce4f737e4",
+    "artifacts.json": "1a939a7a0f3803365b0ce0905372d6cbe7ce34dea0133bf76ce13fd3624001f4",
+    "readback.bin": "918334a72863eae2f1202d7548a582326ed216fea08ba66a86351e56edf2c985"
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 7,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 0.05084995833749417,
+    "input_bytes": 2923204,
+    "library_compile_seconds": 0.001583099365234375,
+    "output_bytes": 22593536,
+    "pipeline_cache": {
+      "archive_bytes": 6008928,
+      "archive_compile_seconds": 0,
+      "archive_sha256": "8be1aa4a90f717adb329311b088955f4c6b44c603b0034a4a6f7cb7ad64e2eea",
+      "enabled": true,
+      "hit": true,
+      "identity": {
+        "consumer_sha256": "80ad3f35e458e2f3a3f48a3997243e0906ac0719a04c352c4e901aeb753e268f",
+        "device": "Apple M5",
+        "entry": "portableEvents",
+        "math_mode": "safe",
+        "os_build": "Version 27.0.1 (Build 26A434)",
+        "registry_id": "4294968346",
+        "resident_stride": "0",
+        "schema": "1",
+        "source_sha256": "899dc00a5e76b3cd3cba33c76f6a08c2a2e8c49cc5f77aa4d69ae6f73146851a",
+        "threads_per_threadgroup": "1"
+      },
+      "key": "f9878c1d9b89c8dd452bb09dfa86f2cb89556aee8bd8cb0feefdc8f840f2234a",
+      "native_archive_miss_rejected": true,
+      "required": true,
+      "schema": 1
+    },
+    "pipeline_compile_seconds": 0.001817941665649414,
+    "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "pipeline_os_build": "Version 27.0.1 (Build 26A434)",
+    "registry_id": "4294968346",
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "tests": {
+    "groups": 7,
+    "tests": 53,
+    "passed": true
+  },
+  "original_indices_preserved": [
+    0,
+    1,
+    2,
+    6,
+    20
+  ],
+  "original_marker_target": "enemies_nearest:1",
+  "original_marker_stat": "lock_on",
+  "static_lowering": "stat-only to existing named enemy marker kind4; original target, cadence, max_stack and lifetime preserved",
+  "candidate_provider": "explicit body/spawn-order provider, not game distance metric",
+  "shared_executor": "existing MODE25 actor-set iteration -> MODE19 carrier activation; existing expiry, stacks, name predicates, generation keys and removals",
+  "new_simulation_clock": false,
+  "private_actor_pool": false,
+  "native_observer_correction": "Classify every actual enemy carrier with its retained immutable enemy_recipient_key, including empty post-death recipients; retain every row",
+  "native_calculation_changed": false,
+  "failures": [
+    {
+      "capture": "enemy-lock-carriers-v1-metal",
+      "result_sha256": "40044c3fbe12b9b9f1f49e56f4ce09dd491391ac3a9ae4bd318e9e6d8c0a01a6",
+      "first_difference": {
+        "index": 0,
+        "name": "enemy-carrier/charge-two-shot-quota",
+        "reason": "ValueError: Expected GPU success status0; got status64"
+      },
+      "transport_verified": true,
+      "readback_sha256": "ce2f4e8e67d88261484e94fc354e6da84b7778ddb968a9c1193aae70e4e235c3",
+      "retried": false
+    },
+    {
+      "capture": "enemy-lock-carriers-v2-metal",
+      "result_sha256": "28cdeb9c651280c309ed3320cbf772309cc71275d0240d1fc2c3a7134b4b0765",
+      "first_difference": {
+        "index": 0,
+        "name": "enemy-carrier/charge-two-shot-quota",
+        "reason": "ValueError: Expected GPU success status0; got status64"
+      },
+      "transport_verified": true,
+      "readback_sha256": "ce2f4e8e67d88261484e94fc354e6da84b7778ddb968a9c1193aae70e4e235c3",
+      "retried": false
+    },
+    {
+      "capture": "enemy-lock-carriers-admission-v1-metal",
+      "result_sha256": "c357d373350c33d8b681d40b30dafb97cf41991e89ae97970b9e9c68241af4c7",
+      "first_difference": null,
+      "transport_verified": false,
+      "readback_sha256": null,
+      "retried": false
+    },
+    {
+      "capture": "enemy-lock-carriers-admission-v2-metal",
+      "result_sha256": "4aafe9f66def064be3799b6788992d3b32699ba0af9b5c2a7981149ad00c3dc1",
+      "first_difference": {
+        "index": 0,
+        "name": "enemy-carrier/charge-two-shot-quota",
+        "reason": "ValueError: Expected GPU success status0; got status64"
+      },
+      "transport_verified": true,
+      "readback_sha256": "33c17a993dfaece6511d57ac70ae7ba61ea874897e5cdfe7775f2974e6a43db4",
+      "retried": false
+    },
+    {
+      "capture": "enemy-lock-carriers-v3-metal",
+      "result_sha256": "cf016dbff5b1a5acff2a1d930f1fbfc4b7c114c7fe0e79c339757240685f4160",
+      "first_difference": {
+        "index": 1,
+        "name": "enemy-carrier/charge-live-death",
+        "reason": "AssertionError: ('enemy-carrier/charge-live-death', 'complete battle', ['named_state'])"
+      },
+      "transport_verified": true,
+      "readback_sha256": "918334a72863eae2f1202d7548a582326ed216fea08ba66a86351e56edf2c985",
+      "retried": false
+    }
+  ],
+  "diagnostic_saved_comparison": "enemy-lock-carriers-v3-observer-diagnostic.json (CPU-only, not a seal)",
+  "gpu_executions": 5,
+  "admission_v1_gpu_executions": 0,
+  "claim_retries": 0,
+  "windows_requests": 0,
+  "cuda_hardware_verified": false,
+  "legacy_gpu_goldens_recertified": false,
+  "full25_verified": false,
+  "spatial_selection_verified": false,
+  "dead_projectile_retarget_policy_verified": false,
+  "public_admission": false,
+  "full_goal_complete": false
+}

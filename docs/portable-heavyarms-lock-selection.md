@@ -245,3 +245,11 @@ claim前Metal cache gateを実装・テストしたhost修正版a4f9ac2eの固�
 ## 2026-10-28 発生元IDの保持と次の変換制限
 
 型付きパケットの登録行IDを生成時からBODY抑止監査まで保持し、受動的なnative履歴観測にも渡した。同名のbuffをdamage発生元へ誤対応させず、登録IDの型・名前・owner・damage種別を検査する。共通CLIの固定packetで10グループ65テスト、既存12入力/native7のCPU事前検査に成功。旧7ケースの全履歴と旧typed8戦闘指紋は保持。同名のtyped/通常damageはnativeで別の発生元として観測できるが、GPU入力変換は依然 `Multiple named non-buff carriers are not ported` で拒否する。複数typed定義も短いadapterの1定義制限が残る。今回の変更を同名複数効果のGPU認定へ昇格させない。発見時の失敗と最終receiptは `research/target-count-query-evidence/packet-source-identity-native-v1.json`。GPUコード変更・GPU実行・Windows依頼は0。元index0の敵carrier/空間順位と全25効果の接続が引き続き優先課題。
+
+## 2026-10-28 元の敵ロックcarrierと状態照会をMetal接続
+
+`enemy-lock-carriers` は元index0/1/2/6/20を保持し、自己向けの観測用markerを元の敵向けtargetへ戻した。入力変換ではlock_onを既存の名前付きenemy markerへ下ろすが、原定義のtarget・0.2秒・max_stack・寿命は変更しない。候補順位は既存の明示body/spawn-order providerであり、ゲームの照準距離を認定しない。ロック取得で選んだ世代付きhandleを既存actor-setのleaseに渡し、MODE25→MODE19で既存carrierを活性化する。独自のtimer・actor pool・buff実行器は追加しない。元の名前付き被ダメージ増加と通常攻撃/ハイド解除も既存consumerへ接続した。
+
+固定32630ddfの7入力（native4、拒否3）はApple M5の実MetalとGPU禁止の独立sealに成功。実GPU時間0.05085秒、PSO必須hit、7グループ53テスト成功。通常、死亡、短チャージ、死亡後再召喚を戦闘全体・履歴・ロックsnapshot・敵状態まで比較する。死亡したcarrierの空recipientをnative観測器が味方へ誤分類していた点は、実carrierに残るimmutable enemy_recipient_keyで修正し、空carrierを含む全行保持のテストを追加した。計算本体や比較対象を省いて合わせていない。v1/v2初期化拒否、診断entryのwire拒否、診断stage404、v3観測分類差分を保持し、同じclaimは再実行していない。証跡は `research/target-count-query-evidence/metal-enemy-lock-carriers-v4.json`。
+
+CUDA/Metalは同じSlang・入力・比較器を使用する。`enemy-lock-carriers-cache-only` は同じsealed計算の既存CUBIN必須hit経路で、standaloneなのでresident用generation flagを要求しない。CUDA実機/CUBIN hitは今回未検証、Windows依頼0。共通ファイルのopt-in変更について旧sourceの正確な逆投影を保持するが、旧suiteのcurrent-source GPU再認定は別途必要。旧goldenを新sourceへ書き換えて成功扱いにはしない。次はこの敵carrier接続を既存typed projectile/順番配送と合成し、元の全25定義へ進める。距離式、死亡時の振替規則、公開admission、全キャラ認定は未完了。
