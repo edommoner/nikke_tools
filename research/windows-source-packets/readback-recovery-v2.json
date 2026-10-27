@@ -1,0 +1,29 @@
+{
+  "schema": "readback-recovery-packet-v2",
+  "package_id": "f3c284caa2a3d00fff9a9b3ab6b68e9d6551fdf0468ac46a4b66547c2dde1df3",
+  "suite": "resident-frames-device",
+  "archive_bytes": 9598661,
+  "archive_sha256": "9782db7d9dd0306410b1136d6daebd8baf402a144dfd85cc1ec33dcbc36ebc31",
+  "source_commit": "18d4c7dc252eff686b7ed37e40a6daa87d78b593",
+  "Mac_cpu_checks": {
+    "tests": {
+      "groups": 7,
+      "tests": 62,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "smoke": {
+      "groups": 61,
+      "tests": 598,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    }
+  },
+  "original_device_golden_equal": true,
+  "gpu_and_protected_sources_equal": true,
+  "Windows_requested_stage": "recover-readback",
+  "GPU_or_compiler_reexecution": false,
+  "scope": "Fresh CPU audit of existing readback; original timeout remains unsuccessful; no new GPU admission"
+}
