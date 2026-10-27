@@ -13,7 +13,9 @@ OBJECT_STAGES={'recover-object':('source_package','source_capture','object_sha25
                'jit-link-object':('object_package','object_capture','object_sha256','nvjitlink')}
 LINKED_STAGE='gpu-linked'
 LINKED_FIELDS=('linked_package','linked_capture')
-STAGES=('tests','cpu','smoke','generation','gpu',LINKED_STAGE,*COMPILE_STAGES,*OBJECT_STAGES)
+RECOVERY_STAGE='recover-readback'
+RECOVERY_FIELDS=('source_package','source_capture','output_sha256')
+STAGES=('tests','cpu','smoke','generation','gpu',LINKED_STAGE,RECOVERY_STAGE,*COMPILE_STAGES,*OBJECT_STAGES)
 
 def is_windows():return os.name=='nt'
 
@@ -62,16 +64,16 @@ def run_tests(cli,plan):
 
 
 def object_request(stage,value):
-    if stage not in (*OBJECT_STAGES,LINKED_STAGE):
+    if stage not in (*OBJECT_STAGES,LINKED_STAGE,RECOVERY_STAGE):
         if value is not None:raise ValueError('Only saved-object or saved-linked GPU stages accept a request')
         return None
-    fields=LINKED_FIELDS if stage==LINKED_STAGE else OBJECT_STAGES[stage]
+    fields=RECOVERY_FIELDS if stage==RECOVERY_STAGE else LINKED_FIELDS if stage==LINKED_STAGE else OBJECT_STAGES[stage]
     if type(value) is not dict or set(value)!=set(fields):raise ValueError('Exact saved-object request fields required')
     result={}
     for key in fields:
         item=value[key]
         if not isinstance(item,str) or not item or any(c in item for c in ('\x00','\r','\n')):raise ValueError('Invalid saved-object request value')
-        if key=='object_sha256':
+        if key in ('object_sha256','output_sha256'):
             if len(item)!=64 or any(c not in '0123456789abcdef' for c in item):raise ValueError('Exact saved-object SHA256 required')
             result[key]=item
         else:
@@ -92,12 +94,21 @@ def verified_object(proof,stage):
         and all(type(proof.get(k,0)) is int and proof.get(k,0)==0 for k in ('gpu_calls','driver_load_calls','nvrtc_compile_calls')))
 
 
+def verified_readback(proof):
+    return bool(proof and proof.get('mode')=='recover-readback-only'
+        and proof.get('calculation_verified') is True and proof.get('containment_verified') is True
+        and proof.get('preservation_verified') is True
+        and proof.get('original_outer_timed_out') is True
+        and proof.get('original_stage_verified') is False and proof.get('original_capture_modified') is False
+        and all(type(proof.get(k)) is int and proof[k]==0 for k in ('gpu_calls','driver_load_calls','native_tool_calls')))
+
+
 def recipe(package_id,stage,backend,capture,original_workspace,timeout,request=None):
     if stage not in STAGES or backend not in ('metal','cuda') or type(timeout) is not int or not 1<=timeout<=180:raise ValueError('Invalid packet stage or budget')
-    if stage in (*COMPILE_STAGES,*OBJECT_STAGES,LINKED_STAGE) and backend!='cuda':raise ValueError('Compilation requires CUDA backend')
+    if stage in (*COMPILE_STAGES,*OBJECT_STAGES,LINKED_STAGE,RECOVERY_STAGE) and backend!='cuda':raise ValueError('Compilation requires CUDA backend')
     request=object_request(stage,request)
     capture=Path(capture).resolve();original=Path(original_workspace).resolve() if original_workspace else None
-    if stage in (*COMPILE_STAGES,*OBJECT_STAGES,LINKED_STAGE) and original is None:raise ValueError('Compilation requires an original workspace')
+    if stage in (*COMPILE_STAGES,*OBJECT_STAGES,LINKED_STAGE,RECOVERY_STAGE) and original is None:raise ValueError('Compilation requires an original workspace')
     if capture==ROOT or ROOT in capture.parents:raise ValueError('Stage capture must be outside the immutable package')
     if original is not None and (original==ROOT or original==capture or original in capture.parents):raise ValueError('Use an isolated capture outside the original workspace')
     if is_windows() and original is None:raise ValueError('Windows requires an explicit original workspace')
@@ -111,6 +122,9 @@ def recipe(package_id,stage,backend,capture,original_workspace,timeout,request=N
 
 def proof_arguments(plan):
     if plan['stage']=='tests':return ['_tests','--capture',plan['proof_capture']]
+    if plan['stage']==RECOVERY_STAGE:
+        request=object_request(RECOVERY_STAGE,plan['object_request'])
+        return [RECOVERY_STAGE,'--source-package',request['source_package'],'--source-capture',request['source_capture'],'--out',plan['proof_capture'],'--output-sha256',request['output_sha256']]
     if plan['stage']=='recover-object':
         request=object_request('recover-object',plan['object_request'])
         return ['recover-object','--source-package',request['source_package'],'--source-capture',request['source_capture'],'--out',plan['proof_capture'],'--object-sha256',request['object_sha256']]
@@ -219,7 +233,7 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None)
     comparison=observation.get('comparison',{})
     process_preserved=comparison.get('all_monitored_processes_preserved')
     environment_preserved=bool(process_preserved is True and comparison.get('identified_nikke_service_preservation_verified') is True and facts.get('observation_error') is None) if is_windows() else None
-    key={'tests':'cpu_tests_verified','cpu':'cpu_verified','smoke':'smoke_verified','generation':'verified','gpu':'passed',LINKED_STAGE:'passed',**{name:'compiler_verified' for name in COMPILE_STAGES},**{name:'object_verified' for name in OBJECT_STAGES}}[stage]
+    key={'tests':'cpu_tests_verified','cpu':'cpu_verified','smoke':'smoke_verified','generation':'verified','gpu':'passed',LINKED_STAGE:'passed',RECOVERY_STAGE:'passed',**{name:'compiler_verified' for name in COMPILE_STAGES},**{name:'object_verified' for name in OBJECT_STAGES}}[stage]
     compiler_verified=bool(proof and proof.get('mode')=='compile-only' and proof.get('compiler_verified') is True and proof.get('calculation_verified') is False and type(proof.get('gpu_calls')) is int and proof['gpu_calls']==0 and type(proof.get('driver_load_calls')) is int and proof['driver_load_calls']==0)
     generation_verified=verified_generation(proof,manifest['package_id'])
     if stage not in COMPILE_STAGES:compiler_verified=False
@@ -229,6 +243,7 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None)
         rows_path=folder/'proof/cpu-tests.json';rows=json.loads(rows_path.read_text()) if rows_path.is_file() else []
         tests_verified=verified_tests(proof,manifest['package_id'],cli.SUITES[manifest['suite']]['tests'],rows)
     verified=tests_verified if stage=='tests' else compiler_verified if stage in COMPILE_STAGES else diagnostic_verified if stage in OBJECT_STAGES else generation_verified if stage=='generation' else bool(proof and proof.get(key))
+    if stage==RECOVERY_STAGE:verified=verified_readback(proof)
     stage_verified=bool(facts['passed'] and verified)
     result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,compiler_verified=compiler_verified,generation_verified=generation_verified if stage=='generation' else False,calculation_verified=bool(stage not in (*COMPILE_STAGES,*OBJECT_STAGES,'generation','tests') and proof and proof.get('calculation_verified')),cpu_verified=bool(proof and proof.get('cpu_verified')),smoke_verified=bool(proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
     if stage=='tests':result.update(cpu_tests_verified=tests_verified,cpu_reference_verified=False)

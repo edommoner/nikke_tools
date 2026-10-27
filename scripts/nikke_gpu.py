@@ -438,7 +438,7 @@ SUITES['coordinate-resident-device']=dict(SUITES['coordinate-resident-arc'],scri
 SUITES['coordinate-resident-device']['support_files']=[*SUITES['coordinate-resident-arc']['support_files'],'research/portable-coordinate-resident-arc-short-expected.json']
 SUITES['coordinate-resident-frames']=dict(SUITES['coordinate-resident-arc'],script='research/verify-coordinate-resident-frames-short.py',source='gpu/world_coordinate_resident_frames_entry.slang',golden='research/portable-coordinate-resident-frames-short-expected.json',development_only=False,tests=[*SUITES['coordinate-resident-arc']['tests'],'test_dispatch_frame_storage.py'])
 SUITES['dispatch-frame-storage']=dict(script='research/verify-dispatch-frame-storage-short.py',source='gpu/dispatch_frame_storage_probe.slang',golden='research/portable-dispatch-frame-storage-short-expected.json',inputs=5,native=5,output_words=1040,development_only=False,tests=['test_dispatch_frame_storage.py'])
-SUITES['resident-frames-device']=dict(SUITES['coordinate-resident-frames'],script='research/verify-resident-frames-device-short.py',golden='research/portable-resident-frames-device-short-expected.json',inputs=4,native=4,development_only=False,tests=[*SUITES['coordinate-resident-device']['tests'],'test_dispatch_frame_storage.py','test_resident_frames_device.py'])
+SUITES['resident-frames-device']=dict(SUITES['coordinate-resident-frames'],script='research/verify-resident-frames-device-short.py',golden='research/portable-resident-frames-device-short-expected.json',inputs=4,native=4,development_only=False,tests=[*SUITES['coordinate-resident-device']['tests'],'test_dispatch_frame_storage.py','test_resident_frames_device.py','test_portable_readback_recovery.py'])
 SUITES['resident-frames-device']['support_files']=[*SUITES['coordinate-resident-device']['support_files'],'research/portable-coordinate-resident-frames-short-expected.json']
 SUITES['coordinate-landing']=dict(script='research/verify-coordinate-landing-short.py',source='gpu/coordinate_landing_probe.slang',golden='research/portable-coordinate-landing-short-expected.json',inputs=40,native=26,output_words=13796,development_only=False,tests=['test_coordinate_landing_v1.py','test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 'test_coordinate_physical_reference.py', 'test_coordinate_physical_frontier.py']
@@ -568,6 +568,7 @@ SMOKE_TESTS.append('test_portable_ptx_partition.py')
 SMOKE_TESTS.append('test_portable_partition_object.py')
 SMOKE_TESTS.append('test_portable_module_object.py')
 SMOKE_TESTS.append('test_portable_object_recovery.py')
+SMOKE_TESTS.append('test_portable_readback_recovery.py')
 SMOKE_TESTS.append('test_portable_device_linker.py')
 SMOKE_TESTS.append('test_portable_native_process.py')
 SMOKE_TESTS.append('test_portable_job_limits.py')
@@ -3130,6 +3131,8 @@ def main(argv=None):
     for name in ('object-package','object-capture','nvjitlink','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('recover-object');a.add_argument('--object-sha256',required=True)
     for name in ('source-package','source-capture','out'):a.add_argument('--'+name,type=Path,required=True)
+    a=sub.add_parser('recover-readback');a.add_argument('--output-sha256',required=True)
+    for name in ('source-package','source-capture','out'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('module-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     for name in ('source-package','source-capture','cache-entry','phases','ptxas','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('partition-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
@@ -3255,6 +3258,11 @@ def main(argv=None):
         with forbid_gpu():
             verify_package(ROOT)
             result=recover(SimpleNamespace(**globals()),a.source_package,a.source_capture,a.out,a.object_sha256)
+    elif a.command=='recover-readback':
+        from portable_readback_recovery import recover
+        with forbid_gpu():
+            verify_package(ROOT)
+            result=recover(SimpleNamespace(**globals()),a.source_package,a.source_capture,a.out,a.output_sha256)
     elif a.command=='metal-device-probe':
         from portable_metal_device import probe
         if a.out.exists() or a.out.is_symlink():raise FileExistsError(a.out)
@@ -3439,6 +3447,10 @@ def main(argv=None):
             numeric_policy_scope=numeric['policy_implemented_scope'],public_numeric_admission_remaining=numeric['public_admission_remaining'],
             private_numeric_evidence_suites=numeric['private_suites'])
     print(json.dumps(display,ensure_ascii=False,indent=2))
+    if result.get('mode')=='recover-readback-only':
+        if not result.get('calculation_verified') or not result.get('containment_verified'):raise SystemExit(1)
+        if result.get('preservation_verified') is not True:raise SystemExit(2)
+        return
     if a.command=='partition-object-recover':
         if not result.get('saved_object_cpu_verified'):raise SystemExit(1)
         if result.get('preservation_verified') is not True:raise SystemExit(2)

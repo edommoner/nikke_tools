@@ -24,21 +24,9 @@ def snapshot(cli, package, capture):
     return result
 
 
-def verify_original(cli, package, capture):
-    package = Path(package).resolve(); capture = Path(capture).resolve()
+def verify_terminal_timeout(cli, capture):
+    """Shared terminal outer-timeout / successful inner Job admission."""
     outer = capture.parent
-    manifest = cli.verify_package(package, historical_compiler=True)
-    run = cli.load(capture / 'run.json')
-    if run.get('package_id') != manifest['package_id'] or run.get('status') != 'processing':
-        raise ValueError('Recovery requires the original incomplete module capture')
-    if any((capture / name).exists() for name in MISSING):
-        raise ValueError('Recovery does not replace an existing result or artifact list')
-    plan = cli.load(outer / 'recipe.json')
-    packet = cli.module(cli.ROOT / 'scripts/run-gpu-packet.py')
-    expected = packet.recipe(manifest['package_id'], 'module-object', 'cuda', outer,
-        plan['original_workspace'], plan['timeout_seconds'], plan['object_request'])
-    if plan != expected or Path(plan['proof_capture']).resolve() != capture:
-        raise ValueError('Recovery packet recipe mismatch')
     facts = cli.load(outer / 'execution.json')
     inner = cli.load(capture / 'execution.json')
     if (facts.get('timed_out') is not True or facts.get('passed') is not False
@@ -66,6 +54,24 @@ def verify_original(cli, package, capture):
     comparison = compare_snapshots(observation['before'], observation['after'])
     if observation['comparison'] != comparison or comparison['missing_existing_processes']:
         raise ValueError('Recovery outer observation mismatch or missing process')
+
+
+def verify_original(cli, package, capture):
+    package = Path(package).resolve(); capture = Path(capture).resolve()
+    outer = capture.parent
+    manifest = cli.verify_package(package, historical_compiler=True)
+    run = cli.load(capture / 'run.json')
+    if run.get('package_id') != manifest['package_id'] or run.get('status') != 'processing':
+        raise ValueError('Recovery requires the original incomplete module capture')
+    if any((capture / name).exists() for name in MISSING):
+        raise ValueError('Recovery does not replace an existing result or artifact list')
+    plan = cli.load(outer / 'recipe.json')
+    packet = cli.module(cli.ROOT / 'scripts/run-gpu-packet.py')
+    expected = packet.recipe(manifest['package_id'], 'module-object', 'cuda', outer,
+        plan['original_workspace'], plan['timeout_seconds'], plan['object_request'])
+    if plan != expected or Path(plan['proof_capture']).resolve() != capture:
+        raise ValueError('Recovery packet recipe mismatch')
+    verify_terminal_timeout(cli, capture)
     request = cli.load(capture / 'object-request.json')
     original_request = {key: request[key] for key in plan['object_request']}
     if original_request != plan['object_request'] or request.get('source_kind') != 'module':

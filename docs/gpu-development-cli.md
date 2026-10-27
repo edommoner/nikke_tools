@@ -148,6 +148,8 @@ python scripts/nikke_gpu.py run --backend metal --cpu-only --smoke --capture /tm
 
 共通wrapperの保存CUBIN戦闘は `gpu-linked` を使用します。2キーrequest・既存出所監査・全stage制限と現full objectの未完了監査は [保存リンク実行](portable-saved-linked-stage.md) を参照してください。
 
+CUDA子が正常終了し親の比較だけが外側timeoutで中断した場合は、[readback回収](portable-readback-recovery.md)の`recover-readback`を使います。元失敗と欠落記録を保持し、別CPU監査で元比較器を実行します。GPUの再実行はありません。
+
 現行suite・入力数・source identityはCLI/package manifestを正とします。最新状態と次の作業は [Mac引き継ぎ](mac-handoff.md)、過去の進捗は [履歴](gpu-development-cli-history.md) に分けています。
 
 座標形状の実戦接続・数値方針gapは [座標area](portable-coordinate-area.md) を参照してください。Metal52入力は一致済みですが、host trig差によりWindows入力検査が停止しており、両GPU完成とは扱いません。
