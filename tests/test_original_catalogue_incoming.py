@@ -41,12 +41,14 @@ class OriginalCatalogueIncoming(unittest.TestCase):
 
     def test_decoy_witness_rejects_missing_absorption_and_missing_hp_delivery(self):
         case=dict(catalogue_profile=dict(scene_witness=dict(family='Cinderella',scenario='broken')))
-        native=dict(battle=dict(hits=[dict(owner=0,decoy=100,hp=10,down=False),dict(owner=0,decoy=0,hp=10,down=False)]))
+        native=dict(battle=dict(hits=[dict(owner=0,damage=110,decoy=100,hp=0,down=False),dict(owner=0,damage=10,decoy=0,hp=10,down=False)]))
         verify(case,native)
-        for field,value in [('decoy',0),('hp',0)]:
+        for field,value in [('decoy',0),('hp',1),('damage',100)]:
             bad=copy.deepcopy(native);bad['battle']['hits'][0][field]=value
             with self.assertRaises(AssertionError):verify(case,bad)
         bad=copy.deepcopy(native);bad['battle']['hits'][1]['decoy']=10
+        with self.assertRaises(AssertionError):verify(case,bad)
+        bad=copy.deepcopy(native);bad['battle']['hits'][1]['hp']=0
         with self.assertRaises(AssertionError):verify(case,bad)
 
 if __name__=='__main__':unittest.main()

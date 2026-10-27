@@ -17,5 +17,7 @@ def verify(case,native):
         if witness['scenario']=='chipped':
             assert all(h['decoy']>0 and h['hp']==0 for h in hits),'An intact decoy must absorb both attacks'
         else:
-            assert hits[0]['hp']>0 and hits[1]['decoy']==0 and hits[1]['hp']>0,'After real decoy exhaustion the next attack must reach original HP'
+            # Canonical decoy ends the entire absorbed hit; excess does not
+            # overflow into HP. Only the next hit reaches HP after exhaustion.
+            assert hits[0]['damage']>hits[0]['decoy'] and hits[0]['hp']==0 and hits[1]['decoy']==0 and hits[1]['hp']>0,('After real decoy exhaustion the next attack must reach original HP',hits)
     else:raise AssertionError('Unknown original incoming witness')
