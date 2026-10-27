@@ -116,7 +116,7 @@ SUITES = {
                    source='gpu/world_reload_entry.slang', inputs=65, native=46,
                    tests=['test_portable_world_reload.py']),
 }
-SUITES['original-shield-weapons']=dict(SUITES['original-projectile-weapons'],script='research/verify-original-shield-weapons.py',golden='research/portable-original-shield-weapons-v1-expected.json',inputs=15,native=10,development_only=True,tests=[*SUITES['original-projectile-weapons']['tests'],'test_original_shield_weapons.py'])
+SUITES['original-shield-weapons']=dict(SUITES['original-projectile-weapons'],script='research/verify-original-shield-weapons.py',golden='research/portable-original-shield-weapons-v1-expected.json',inputs=15,native=10,development_only=False,tests=[*SUITES['original-projectile-weapons']['tests'],'test_original_shield_weapons.py'])
 SUITES['lost-hp-diagnostic']=dict(SUITES['lost-hp-roster'],source='gpu/world_projectile_admission_entry.slang')
 SUITES['stun']=dict(script='research/verify-world-stun-short.py',golden='research/portable-world-stun-short-expected.json',
                    source='gpu/world_projectile_entry.slang',inputs=46,native=36,
@@ -518,6 +518,7 @@ SUITES['lock-packet-cache-only']=dict(SUITES['lock-packet-bindings'],cuda_cache_
 SUITES['live-lock-delivery-cache-only']=dict(SUITES['live-lock-delivery'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['live-lock-delivery']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['original-lock-health-parts-cache-only']=dict(SUITES['original-lock-health-parts'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-lock-health-parts']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['original-projectile-weapons-cache-only']=dict(SUITES['original-projectile-weapons'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-projectile-weapons']['tests'],'test_portable_cuda_cached_profile.py'])
+SUITES['original-shield-weapons-cache-only']=dict(SUITES['original-shield-weapons'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-shield-weapons']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['original-lock-controls-cache-only']=dict(SUITES['original-lock-controls'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-lock-controls']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['original-lock-composition-cache-only']=dict(SUITES['original-lock-composition'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-lock-composition']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['enemy-lock-carriers-diagnostic']=dict(SUITES['enemy-lock-carriers'],source='gpu/world_lock_enemy_carrier_diagnostic_entry.slang',development_only=True)

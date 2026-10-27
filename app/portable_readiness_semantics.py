@@ -312,6 +312,19 @@ def reference_readiness(issue):
                 nearby_selector_verified=False,in_game_rules_verified=False,full_character_verified=False,public_admission=False,
                 evidence='research/target-count-query-evidence/metal-original-projectile-weapons-v1.json',
                 scope='original_physical_weapons_in_declared_body_owned_typed_world')
+        else:
+            result['original_physical_shield_modifier_validation']=dict(suite='original-shield-weapons',inputs=15,native_cases=10,rejected_cases=5,
+                original_profiles=['Rei','Asuka','Mari','Misato'],parsed_stat_carriers=4,durations_seconds=[3,12,22,30],
+                original_weapons_effects_and_owners_preserved=True,original_growth_config_preserved=True,explicit_added_damage_probe=False,
+                automatic_typed_weapon_aim_verified=True,body_owner_explicit=True,physical_kind_preserved=True,
+                self_and_all_allies_recipients_verified=True,full_charge_and_passive_state_proc_verified=True,
+                explicit_cover_cases=2,cover_expiry_and_reactivation_verified=True,original_controls_preserved_in_cover_cases=False,
+                total_physical_receipts=9237,maximum_case_physical_receipts=2457,retained_physical_receipts_per_case=2048,all_physical_receipts_hashed=True,
+                metal_verified=True,independently_audited=True,metal_pipeline_required_cache_hit=True,cuda_device_verified=False,
+                canonical_consumer_verified=False,piercing_multi_target_verified=False,parts_verified=False,
+                in_game_rules_verified=False,full_character_verified=False,public_admission=False,
+                evidence='research/target-count-query-evidence/metal-original-shield-weapons-v1.json',
+                scope='original_physical_weapons_and_cover_in_declared_body_owned_hp_shield_world')
         result['typed_owner_field_reference']=dict(suite='coordinate-typed-owner-common',cases=5,
             original_profile='Prim',original_definitions=71,declared_counter_audit_effects=2,
             cpu_reference_verified=True,body_owner_required=True,physical_handle_preserved=True,
@@ -456,7 +469,7 @@ def reference_readiness(issue):
             result['typed_aoe_burst_shield_validation']=dict(suite='destructible-aoe-burst-rosters',inputs=18,native_cases=16,rejected_cases=2,metal_verified=True,independently_audited=True,aoe_burst_positive_case_verified=True,aoe_specific_modifier=435.6,allied_shield_modifier=150.,hp_hit_slot_order_and_body_fallback=True,original_roster_definitions=[78,83],original_selectors_and_family_flags_preserved=True,prior14_all_input_native_raw_retained=True,cuda_device_verified=False,piercing_verified=False,lifesteal_accumulation_verified=False,in_game_rules_verified=False,original_full_profile_verified=False,scope='declared_single_boss_original_aoe_burst_and_hp_hit_shield_mixtures')
             result['typed_body_lifesteal_shield_validation']=dict(suite='destructible-body-lifesteal-retention',inputs=31,native_cases=26,rejected_cases=5,metal_verified=True,independently_audited=True,body_only_lifesteal=True,original_milk_definitions=4,prepared_definitions=77,actual_healing_totals_checked=True,body_hp_and_capped_healing_verified=True,old_aoe18_all_input_native_raw_retained=True,old_lifesteal13_relocated_scratch_address_cases=6,accumulation_verified=False,heal_sharing_verified=False,piercing_verified=False,cuda_device_verified=False,in_game_rules_verified=False,original_full_profile_verified=False,scope='declared_single_boss_unshared_body_lifesteal_after_hp_hit_shield_interception')
             result['typed_weapon_shield_battle_validation']['original_roster_validation']=dict(suite='destructible-weapon-rosters',profile='미사토',inputs=2,durations_seconds=[3,30],original_skill_definitions=5,prepared_definitions=71,positive_shield_modifier_packets=22,positive_heal_deliveries=10,metal_verified=True,independently_audited=True,declared_single_boss_world=True,full_character_verified=False,cuda_device_verified=False)
-            result['note']+=' Separate scoped weapon proof now covers frozen shot factors, per-pellet HP/hit/body selection and auto/charge/tap/mode/muzzle contracts. Coordinates, parts, piercing, post-landing lifesteal/accumulation, per-target defense and full profiles remain unverified.'
+            result['note']+=' Earlier non-coordinate weapon proof covers frozen shot factors, per-pellet HP/hit/body selection and auto/charge/tap/mode/muzzle contracts. That scope does not establish coordinates, parts, piercing, post-landing lifesteal/accumulation, per-target defense or full profiles; current coordinate evidence is recorded separately.'
     elif stat=='cover_def_pct':
         from effect_spec import SCOPED_INERT
         if stat in SCOPED_INERT:

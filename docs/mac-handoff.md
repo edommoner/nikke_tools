@@ -1,5 +1,9 @@
 # Mac GPU開発引き継ぎ
 
+2026-10-28追加：`original-shield-weapons`をsealed15入力（native10/raw拒否5）に登録。shield_dmg_pctの元4carrier（レイ/アスカ/マリ/ミサト）を3/30秒の実編成/実武器/元全効果で共通座標typed owner実行器へ接続。マリ12秒/ミサト22秒は明示ハイド操作を元identity検査後に適用し、効果失効と元条件による再発動を検査する。元操作不変とは記録せず、操作overlayのcaseはoriginal_controls_preserved=False。元定義73/74/70/71、追加damage/timer/計算複製なし。全9,237着弾、最大2,457件は先頭2,048＋全streamSHAを比較する。
+
+固定53ca72b3/packageaba59d6b…はM5 Metal＋独立fresh seal成功。86unit/CPU128.25秒/GPU3.81635秒/必須pipeline hit0.00294秒/独立149.61秒。live native/context10件再利用、独立GPU0、実GPU1/retry0。生成も必須hit/Slang0、前回projectileの生成CUDA/MSL全byteと同一、406 GPUファイル不変。未対応分類に元物理shieldのscopeを追記し、旧non-coordinate証跡の未検証範囲と新座標証跡を混同しない。`original-shield-weapons-cache-only`は同じ計算/goldenのCUBIN/O1必須＋paired generation必須。Windows追加0、実CUDA/cache hitは未確認。canonical target-world/任意world・混成/全分岐・育成/実機/公開受付/全キャラは未達。[元シールド補正](portable-original-shield-weapons.md)参照。
+
 2026-10-28追加：`original-projectile-weapons`をsealed13入力（native8/raw拒否5）として登録。元サクラ3/30秒、アンカー3/30秒、クレイ3/12/30秒、発射体未出現対照を、既存typed BODY owner/自動照準/元武器へ接続した。元全効果/owner/実武器/育成/configを保持し、模擬damageや別timerなし。サクラ全体7.74%、アンカー本人25.6%、クレイ全体45.05%の実条件発火と失効を意味契約にする。全5,367着弾、最大2,186件で先頭2,048件＋全streamSHAを既存比較器で検査。固定540142c4/package7fa83104…はM5 Metal＋fresh独立seal成功、58unit/CPU81.06秒/GPU3.04524秒/初回PSO62.10秒/独立97.21秒、実GPU1/retry0。406 GPUファイルは前checkpointからbyte不変、旧suite再認定とは別。
 
 同じ計算/goldenの`original-projectile-weapons-cache-only`をCUBIN/O1必須＋paired generation必須へ登録。生成事前準備は2compiler/GPU0、実runは必須cache hit/Slang0。Metal archiveのCPU file snapshotも成功、実warm runやCUDA hitの認定にはしない。Windows既存statusはhost unavailable、新規依頼/再送0。未対応分類にprobe実証と元物理武器実証を区別して追加し、canonical target-world/Elegg nearby/実機/全キャラ/公開受付は未達のまま。次はshield_dmg_pctの元武器と現在敵fieldの未検証profileを優先し、Eleggのnearbyを削除して通さない。詳細 [元武器接続](portable-original-projectile-weapons.md)。

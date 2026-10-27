@@ -1,0 +1,152 @@
+{
+  "schema": "metal-original-shield-weapons-v1",
+  "source_commit": "53ca72b34f62fa81301d156067a60bb8b58558ed",
+  "package_id": "aba59d6b569f9f80d9aff7850fe712bcc5de6440877b5e1c795a1d1fdf3e5756",
+  "input_count": 15,
+  "native_cases": 10,
+  "rejected_cases": 5,
+  "source": "gpu/world_coordinate_typed_owner_entry.slang",
+  "input_words": 115680,
+  "output_words": 2032000,
+  "runtime_stride_bytes": 138952,
+  "original_profiles": [
+    "Rei",
+    "Asuka",
+    "Mari",
+    "Misato"
+  ],
+  "parsed_stat_carriers": 4,
+  "original_roster_definitions": [
+    73,
+    74,
+    70,
+    71
+  ],
+  "original_effects_weapons_growth_config_preserved": true,
+  "explicit_cover_cases": 2,
+  "controls_changed_only_by_declared_operations": true,
+  "manual_operations_applied_after_original_identity_check": true,
+  "explicit_added_damage_probe": false,
+  "prior_noncoordinate_and_rei_coordinate_proofs_are_not_new_profile_certifications": true,
+  "actual_metal_device": "Apple M5",
+  "gpu_execution_verified": true,
+  "calculation_verified": true,
+  "independently_sealed": true,
+  "independent_audit_sha256": "8d26cb23389a72ff1d15130044a4f1a5661689278150a25c221d122efabcbd91",
+  "independent_elapsed_seconds": 149.60983937499986,
+  "independent_gpu_calls": 0,
+  "input_sha256": "f9e96210305cec6619e071fcaee510a4f04b413d5b2bd75229fb00b8e9f4bccf",
+  "output_sha256": "cfe349ab6c5c7b4c4f965fc14449049f79429bd803e390311e8a612b0904bd87",
+  "generated_normalized": {
+    "cuda": "dbc1c88211b5b74a3e7850f54dd6eafa0420fd3e9194dbbc1c3c19dd3635e260",
+    "metal": "8e66dd2a28f1794166794a29b64fb2c6efecefa853dee22ff21b86b35cdd09d4"
+  },
+  "unit_groups": 10,
+  "unit_tests": 86,
+  "unit_elapsed_seconds": 5.823316623995197,
+  "cpu_native_preflight_seconds": 128.2473639170057,
+  "gpu_seconds": 3.816354708338622,
+  "pipeline_compile_seconds": 0.002940058708190918,
+  "metal_pipeline_cache_required": true,
+  "metal_pipeline_cache_hit": true,
+  "metal_pipeline_cache_key": "0baeeeb86ab2be1bc9366a17ddc24c7a8754325e88bf7c14a03a7b3cac94b393",
+  "generation_cache_required": true,
+  "generation_cache_hit": true,
+  "generation_compiler_invocations": 0,
+  "all_generated_cuda_and_metal_bytes_identical_to_previous_projectile_suite": true,
+  "previous_projectile_suite_package_id": "7fa831043032a627e70491b3c44eae2770e578d824e7ab126e4fbced42f8f389",
+  "unchanged_gpu_files_since_previous_checkpoint": 406,
+  "gpu_file_map_sha256": "0c75cd06a2919dcfd348e769cf1970993b31eab65256b35541bc32f150ff35af",
+  "unchanged_source_is_not_old_suite_recertification": true,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 10,
+    "fresh_native_cases": 0,
+    "rejection_cases": 5,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 10
+  },
+  "physical_receipts": [
+    {
+      "name": "original-shield-weapons/Rei/3s",
+      "physical_receipts": 156,
+      "retained": 156,
+      "physical_shots": 112
+    },
+    {
+      "name": "original-shield-weapons/Rei/30s",
+      "physical_receipts": 2457,
+      "retained": 2048,
+      "physical_shots": 2080
+    },
+    {
+      "name": "original-shield-weapons/Asuka/3s",
+      "physical_receipts": 161,
+      "retained": 161,
+      "physical_shots": 116
+    },
+    {
+      "name": "original-shield-weapons/Asuka/30s",
+      "physical_receipts": 1396,
+      "retained": 1396,
+      "physical_shots": 1018
+    },
+    {
+      "name": "original-shield-weapons/Mari/3s",
+      "physical_receipts": 175,
+      "retained": 175,
+      "physical_shots": 85
+    },
+    {
+      "name": "original-shield-weapons/Mari/30s",
+      "physical_receipts": 1535,
+      "retained": 1535,
+      "physical_shots": 770
+    },
+    {
+      "name": "original-shield-weapons/Misato/3s",
+      "physical_receipts": 175,
+      "retained": 175,
+      "physical_shots": 85
+    },
+    {
+      "name": "original-shield-weapons/Misato/30s",
+      "physical_receipts": 1555,
+      "retained": 1555,
+      "physical_shots": 791
+    },
+    {
+      "name": "original-shield-weapons/Mari/cover-expiry",
+      "physical_receipts": 646,
+      "retained": 646,
+      "physical_shots": 322
+    },
+    {
+      "name": "original-shield-weapons/Misato/cover-expiry",
+      "physical_receipts": 981,
+      "retained": 981,
+      "physical_shots": 423
+    }
+  ],
+  "physical_receipt_total": 9237,
+  "whole_stream_sha256_compared": true,
+  "retained_prefix_and_unused_tail_compared": true,
+  "gpu_executions": 1,
+  "gpu_retries": 0,
+  "windows_new_requests": 0,
+  "windows_status": "Previous host unavailable observation retained; no additional poll, request or resend this milestone.",
+  "cuda_verified": false,
+  "in_game_rules_verified": false,
+  "piercing_multi_target_verified": false,
+  "parts_verified": false,
+  "public_gpu_admission": false,
+  "full_character_certification": 0,
+  "full_goal_complete": false,
+  "remaining": [
+    "Canonical enemy typed target-world admission",
+    "Other worlds, mixed profiles and conditional branches",
+    "Current CUDA hardware and CUBIN cache validation",
+    "In-game model certification and public admission"
+  ]
+}

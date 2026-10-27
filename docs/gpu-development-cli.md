@@ -592,7 +592,9 @@ CUDAの短い検証には `original-lock-composition-cache-only` を使用する
 `original-lock-controls` はsealed17入力（native9/raw拒否8）。`original-lock-composition` の旧8入力を保持し、実編成の明示ハイド4条件と30秒16ADDの15対象burst飽和を同じ共通実行器へ追加する。通常のpackage/unpack/runを使う。元25定義・実編成91定義・実武器/育成/configを保持するが、操作は元identity検査後の明示overlayと区別する。全25entry呼出しと全条件分岐の認定は分ける。新GPU source/wire/runtime追加0、旧8出力40MiB保持。`original-lock-controls-cache-only` は同じ計算とgoldenにCUBIN/O1のcompile-cache必須とresident paired generation-cache必須を適用する。現CUDA実機は未確認。CPU auditの旧比較golden依存はAUDIT_FILESにも登録し、梱包漏れをnative生成前に拒否する。[範囲・証跡・残件](portable-heavyarms-lock-selection.md)を参照。
 
 
-## 元武器の発射体ダメージ補正
+## 元武器の発射体・敵シールド補正
+
+敵シールド側の`original-shield-weapons`はsealed15入力（native10/raw拒否5）。元4carrierの全定義と実武器、マリ/ミサトのハイド失効・復帰を共通typed owner/自動照準/物理streamへ接続する。catalogのcarrier追加はCPU unit検査、検査用parsed_skills.jsonの梱包漏れはpackage前の依存検査で検出する。通常package/run/sealを使う。`original-shield-weapons-cache-only`は同じ計算のCUBIN/O1必須＋paired generation必須でcold fallback禁止。Metal独立seal済み、実CUDA/CUBIN hit未検証。[詳細](portable-original-shield-weapons.md)。
 
 元武器の`original-projectile-weapons`はsealed13入力（native8/raw拒否5）。サクラ・アンカー・クレイの元全効果と実武器を既存typed owner/照準/着弾へ接続し、追加damage probeなしで補正の受け手・発動・失効を検査する。最大2,186物理receiptは先頭2,048件と全streamSHAを比較する。通常のpackage/run/seal経路を使用。`original-projectile-weapons-cache-only`は同じ計算のCUBIN/O1必須＋paired generation必須経路で、cold fallbackを許さない。Metal独立seal済み、現CUDA実機とCUBIN hitは未検証。[詳細と認定境界](portable-original-projectile-weapons.md)。
 
