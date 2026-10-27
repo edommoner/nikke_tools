@@ -33,5 +33,6 @@ class EnemyLockTests(unittest.TestCase):
             self.assertEqual(projected[name],row['baseline'])
             with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{name:row['current']+'\n// mutation'})
         validate_composed_stride(suite.SOURCE,104400,806912)
+        validate_composed_stride('gpu/world_lock_enemy_carrier_diagnostic_entry.slang',104400,806912)
         with self.assertRaises(ValueError):validate_composed_stride(suite.SOURCE,104400,786432)
 if __name__=='__main__':unittest.main()
