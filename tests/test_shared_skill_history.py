@@ -81,4 +81,12 @@ class SharedSkillHistory(unittest.TestCase):
         self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
         self.assertTrue(cli.SUITES['original-catalogue']['development_only'])
 
+    def test_direct_and_already_projected_transport_use_the_same_exact_inverse(self):
+        from portable_coordinate_resident_arc_source_contract import ledger,project_backend_source
+        row=ledger(ROOT)['sources']['app/portable_backend.py']
+        self.assertEqual(project_backend_source(ROOT),row['baseline'])
+        self.assertEqual(project_backend_source(ROOT,row['current']),row['baseline'])
+        for text in ((ROOT/'app/portable_backend.py').read_text()+'\n',row['current']+'\n'):
+            with self.assertRaises(ValueError):project_backend_source(ROOT,text)
+
 if __name__=='__main__':unittest.main()

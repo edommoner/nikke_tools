@@ -39,7 +39,6 @@ def creation_indices(case):
     previous=sys.getprofile();events={};rows=[];pending=[];accum_starts={}
     from calculator import timeline
     legacy_code=timeline.BurstController._fire_pending_burst_dmg.__code__
-    calc_code=timeline.calc_damage.__code__
     def remember(ev,frame):
         value=frame.f_locals
         if case.get('source_effect_identity'):
@@ -52,7 +51,10 @@ def creation_indices(case):
         if previous is not None:previous(frame,event,answer)
         if case.get('sampled_burst'):
             caller=frame.f_back
-            if event=='return' and frame.f_code is calc_code and caller is not None and caller.f_code is legacy_code:
+            # Typed scalar hooks can be installed after this outer observer.
+            # Observe the live boundary, as the inner burst observer does,
+            # rather than the delegate hidden behind that boundary.
+            if event=='return' and caller is not None and caller.f_code is legacy_code and frame.f_code is timeline.calc_damage.__code__:
                 v=caller.f_locals
                 if case.get('source_effect_identity'):
                     from world_effect_identity import row as source_row

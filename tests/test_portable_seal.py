@@ -51,6 +51,40 @@ class SealTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'Raw mismatch'):cli.audited_comparison(module,'capture')
         self.assertIs(module.compare_readback,compare)
 
+    def test_rejected_independent_result_exposes_actual_mismatch_without_retry(self):
+        mismatch=dict(name='original',reason='late landing differs')
+        compare=Mock(return_value=dict(calculation_verified=False,mismatches=[mismatch]))
+        module=SimpleNamespace(compare_readback=compare)
+        def audit(capture):
+            module.compare_readback({},capture)
+            return dict(calculation_verified=False,first_difference=mismatch)
+        module.audit_capture=audit
+        with self.assertRaisesRegex(ValueError,'late landing differs'):cli.audited_comparison(module,'capture')
+        compare.assert_called_once();self.assertIs(module.compare_readback,compare)
+
+    def test_nested_observer_error_is_not_hidden_by_cleanup_guard(self):
+        try:
+            try:raise AssertionError('missing actual creation receipt')
+            finally:raise ValueError('profiler changed during cleanup')
+        except ValueError as error:
+            self.assertEqual(cli.comparison_exception_details(error),'ValueError: profiler changed during cleanup | caused by AssertionError: missing actual creation receipt')
+        self.assertEqual(cli.comparison_exception_details(ValueError('ordinary')),'ValueError: ordinary')
+        cyclic=ValueError('cycle');cyclic.__cause__=cyclic
+        self.assertEqual(cli.comparison_exception_details(cyclic),'ValueError: cycle')
+
+    def test_failed_child_and_timeout_preserve_full_utf8_outputs_without_success(self):
+        for error in (subprocess.CalledProcessError(1,['fixture'],output='partial stdout',stderr='失敗の詳細'),
+                      subprocess.TimeoutExpired(['fixture'],30,output=b'partial timeout',stderr='中断'.encode())):
+            with self.subTest(error=type(error).__name__),tempfile.TemporaryDirectory() as tmp:
+                original=tempfile.mkdtemp
+                with patch('tempfile.mkdtemp',side_effect=lambda **kwargs:original(dir=tmp,**kwargs)),patch.object(cli.subprocess,'run',side_effect=error) as run:
+                    with self.assertRaisesRegex(RuntimeError,'preserved logs') as caught:cli.audit_saved_metal(Path(tmp),Path(tmp),timeout=30)
+                run.assert_called_once();self.assertIs(caught.exception.__cause__,error)
+                folders=list(Path(tmp).glob('nikke-independent-audit-failure-*'));self.assertEqual(len(folders),1)
+                expected=error.stderr.decode() if isinstance(error.stderr,bytes) else error.stderr
+                self.assertEqual((folders[0]/'stderr.log').read_text(encoding='utf-8'),expected)
+                facts=json.loads((folders[0]/'failure.json').read_text());self.assertFalse(facts['calculation_verified']);self.assertEqual(facts['gpu_calls'],0)
+
 
     def test_independent_seal_uses_package_relative_oracle_from_another_checkout(self):
         # Old research adapters contain relative spec_from_file_location paths.
@@ -93,7 +127,8 @@ def audit_capture(capture):
             with patch.object(cli,'ROOT',other):
                 audited=cli.audit_saved_metal(package,capture,timeout=90)
                 self.assertEqual(audited['package_id'],'frozen')
-                with self.assertRaises(subprocess.CalledProcessError):cli.seal_development(package,capture,base/'not-development.json',timeout=90)
+                with self.assertRaisesRegex(RuntimeError,'preserved logs') as failed:cli.seal_development(package,capture,base/'not-development.json',timeout=90)
+                self.assertIsInstance(failed.exception.__cause__,subprocess.CalledProcessError)
             self.assertFalse((base/'not-development.json').exists())
 
 

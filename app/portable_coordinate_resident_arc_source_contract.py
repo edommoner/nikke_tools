@@ -16,4 +16,11 @@ def project_sources(root,sources=None):
         if name!='app/portable_backend.py':out[name]=checked(out.get(name,(root/name).read_text()),row)
     return out
 def project_backend_source(root,source=None):
-    root=Path(root);name='app/portable_backend.py';return checked((root/name).read_text() if source is None else source,ledger(root)['sources'][name],error_type=ValueError)
+    root=Path(root);name='app/portable_backend.py';source=(root/name).read_text() if source is None else source
+    if (root/'gpu/world_coordinate_typed_history_entry.slang').exists():
+        from portable_skill_history_source_contract import ledger as history_ledger
+        # Direct historical audits start with current transport; composed
+        # callers may already supply this layer's exact reviewed input.
+        if source==history_ledger(root)['sources'][name]['current']:
+            source=project_sources(root,{name:source})[name]
+    return checked(source,ledger(root)['sources'][name],error_type=ValueError)

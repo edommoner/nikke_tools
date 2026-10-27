@@ -117,7 +117,7 @@ SUITES = {
                    tests=['test_portable_world_reload.py']),
 }
 SUITES['original-shield-weapons']=dict(SUITES['original-projectile-weapons'],script='research/verify-original-shield-weapons.py',golden='research/portable-original-shield-weapons-v1-expected.json',inputs=15,native=10,development_only=False,entry_inventory_input_policy='body-owned-hp-shield-v1',tests=[*SUITES['original-projectile-weapons']['tests'],'test_original_shield_weapons.py','test_original_entry_inventory.py','test_portable_readiness.py'])
-SUITES['original-catalogue']=dict(SUITES['original-shield-weapons'],script='research/verify-original-catalogue.py',source='gpu/world_coordinate_typed_history_entry.slang',golden='research/portable-original-catalogue-development-expected.json',inputs=None,native=None,development_only=True,selection_required=True,tests=[*SUITES['original-shield-weapons']['tests'],'test_original_catalogue.py','test_shared_skill_history.py'])
+SUITES['original-catalogue']=dict(SUITES['original-shield-weapons'],script='research/verify-original-catalogue.py',source='gpu/world_coordinate_typed_history_entry.slang',golden='research/portable-original-catalogue-development-expected.json',inputs=None,native=None,development_only=True,selection_required=True,tests=[*SUITES['original-shield-weapons']['tests'],'test_original_catalogue.py','test_shared_skill_history.py','test_native_creation_scalar_scope.py','test_portable_seal.py','test_portable_comparison_groups.py'])
 SUITES['original-catalogue'].pop('entry_inventory_input_policy')
 SUITES['original-catalogue-initial']=dict(SUITES['original-catalogue'],golden='research/portable-original-catalogue-initial-v1-expected.json',inputs=4,native=4,development_only=False,selection_required=False,frozen_cases=[
     'original-catalogue/hp-shield/모더니아/favorite-0/3s',
@@ -1461,6 +1461,15 @@ def stream_input_fingerprints(path,count,stride):
     return digest.hexdigest(),rows
 
 
+def comparison_exception_details(error):
+    """Retain nested observer failures that cleanup guards can otherwise mask."""
+    parts=[];seen=set()
+    while error is not None and id(error) not in seen:
+        seen.add(id(error));parts.append(type(error).__name__+': '+str(error))
+        error=error.__cause__ if error.__cause__ is not None else None if error.__suppress_context__ else error.__context__
+    return ' | caused by '.join(parts)
+
+
 def compare_readback(m, capture, adapter=None,*,parent_oracles=None,case_indices=None):
     """Re-run existing native comparators; no GPU builds/executes allowed."""
     if case_indices is not None and parent_oracles is not None:raise ValueError('Grouped comparison cannot reuse live-parent oracles')
@@ -1545,7 +1554,7 @@ def compare_readback(m, capture, adapter=None,*,parent_oracles=None,case_indices
                 if actual!=expected:mismatches.append(dict(index=i,name=name,reason='fingerprint mismatch'))
                 results.append(row)
             except (AssertionError,ValueError,KeyError,IndexError) as error:
-                mismatches.append(dict(index=i,name=name,reason=type(error).__name__+': '+str(error)))
+                mismatches.append(dict(index=i,name=name,reason=comparison_exception_details(error)))
         # Reuse strict normalizer; no new normalization exceptions.
         generated={}
         for backend,suffix in [('cuda','cu'),('metal','metal')]:
@@ -1785,6 +1794,13 @@ def check_compile_cache(capture, output):
     return result
 
 
+def independent_comparison_failure(audit, observed):
+    """Keep the failure that the independent gate rejects; never change status."""
+    fields=('calculation_verified','transport_verified','comparison_error','first_difference')
+    return json.dumps(dict(audit={k:audit.get(k) for k in fields},
+        comparisons=[{k:r.get(k) for k in ('calculation_verified','comparison_subset_verified','comparison_error','mismatches')} for r in observed]),ensure_ascii=False)
+
+
 def audited_comparison(module, capture):
     """Use the original comparator's result from this fresh independent audit."""
     observed=[]
@@ -1798,7 +1814,7 @@ def audited_comparison(module, capture):
         with reuse(module,capture) as checks:audit=module.audit_capture(capture)
     if checks['reused_checks']:audit['migration_receipt_checks']=checks
     if not audit['calculation_verified'] or len(observed)!=1:
-        raise ValueError('Seal requires exactly one successful independent comparison')
+        raise ValueError('Seal requires exactly one successful independent comparison: '+independent_comparison_failure(audit,observed))
     return audit,observed[0]
 
 
@@ -1812,7 +1828,7 @@ def audited_comparison_group(module,capture,indices):
     with patch.object(module,'compare_readback',compare),module.forbid_gpu():
         audit=module.audit_capture(capture)
     if len(observed)!=1 or observed[0].get('comparison_subset_verified') is not True or audit.get('transport_verified') is not True or audit.get('calculation_verified') is not False:
-        raise ValueError('Exactly one successful partial comparison and capture envelope required')
+        raise ValueError('Exactly one successful partial comparison and capture envelope required: '+independent_comparison_failure(audit,observed))
     return audit,observed[0]
 
 
@@ -1943,8 +1959,19 @@ g=dict(input_sha256=r['input_sha256'],output_sha256=r['output_sha256'],source_sh
 print(json.dumps(dict(golden=g,package_id=p['package_id'],audit=a,independent_comparison=dict(child_pid=os.getpid(),input_count=r.get('input_count',len(r['entries'])),native_cases=r.get('native_oracles'),live_parent_receipt_present='parent_oracles' in r))))
 """
     started=time.perf_counter()
-    completed=subprocess.run([sys.executable,'-c',script,str(package_root.resolve()),str(capture.resolve()),str(Path(__file__).resolve()),'development' if development_only else 'battle'],
-                             cwd=package_root.resolve(),capture_output=True,text=True,check=True,timeout=timeout)
+    try:
+        completed=subprocess.run([sys.executable,'-c',script,str(package_root.resolve()),str(capture.resolve()),str(Path(__file__).resolve()),'development' if development_only else 'battle'],
+                                 cwd=package_root.resolve(),capture_output=True,text=True,check=True,timeout=timeout)
+    except (subprocess.CalledProcessError,subprocess.TimeoutExpired) as error:
+        import tempfile
+        failure=Path(tempfile.mkdtemp(prefix='nikke-independent-audit-failure-'))
+        for suffix in ('stdout','stderr'):
+            value=getattr(error,suffix,None)
+            if isinstance(value,bytes):value=value.decode('utf-8',errors='replace')
+            (failure/(suffix+'.log')).write_text(value or '',encoding='utf-8')
+        write(failure/'failure.json',dict(error_type=type(error).__name__,timeout_seconds=timeout,
+            package_root=str(package_root.resolve()),capture=str(capture.resolve()),calculation_verified=False,gpu_calls=0))
+        raise RuntimeError('Independent Metal audit failed; preserved logs: '+str(failure)) from error
     result=json.loads(completed.stdout)
     result['independent_audit_seconds']=time.perf_counter()-started
     for name,digest in result['golden']['source_sha256'].items():
