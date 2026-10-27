@@ -133,3 +133,39 @@ def check_command(metadata, command):
     if metadata and command in UNSUPPORTED_COMMANDS:
         raise ValueError('Compact package supports its selected suite and saved-result tools; '
                          'use the full checkout/package for ' + command)
+
+
+def validate_historical(root,manifest,cli):
+    """Validate old roots with their verified owning registry, never new tests.
+
+    The caller has already checked every payload byte. This fresh process
+    runs only the original projection validator; it does not rehash the whole
+    package, execute native references or load a GPU/compiler.
+    """
+    import os,subprocess,sys
+    from pathlib import Path
+    root=Path(root).resolve()
+    names=['gpu-package.json','scripts/nikke_gpu.py','app/portable_package_projection.py']
+    before=cli.file_records(root,names)
+    records={row['path']:row for row in manifest['files']}
+    if cli.load(root/'gpu-package.json')!=manifest or any(records.get(row['path'])!=row for row in before if row['path']!='gpu-package.json'):
+        raise ValueError('Historical registry differs from verified payload')
+    expected=next(row['sha256'] for row in before if row['path']=='gpu-package.json')
+    script="""import hashlib,importlib.util,json,pathlib,sys
+root=pathlib.Path(sys.argv[1]);raw=(root/'gpu-package.json').read_bytes()
+if hashlib.sha256(raw).hexdigest()!=sys.argv[2]:raise ValueError('Historical manifest changed')
+s=importlib.util.spec_from_file_location('historical_projection_owner',root/'scripts/nikke_gpu.py')
+owner=importlib.util.module_from_spec(s);s.loader.exec_module(owner)
+m=json.loads(raw)
+if m['package_id']!=owner.package_id(m):raise ValueError('Historical identity changed')
+from portable_package_projection import validate
+validate(m['payload_projection'],m['files'],m['suite'],owner.SUITES[m['suite']],owner.SMOKE_TESTS)
+print(json.dumps(dict(package_id=m['package_id'],manifest_sha256=sys.argv[2],projection_verified=True,gpu_calls=0,native_calls=0)))
+"""
+    env=os.environ.copy();env['PYTHONDONTWRITEBYTECODE']='1'
+    result=subprocess.run([sys.executable,'-B','-c',script,str(root),expected],cwd=root,env=env,
+        capture_output=True,text=True,check=True,timeout=30)
+    proof=json.loads(result.stdout)
+    if (proof!=dict(package_id=manifest['package_id'],manifest_sha256=expected,projection_verified=True,gpu_calls=0,native_calls=0)
+        or cli.file_records(root,names)!=before):raise ValueError('Historical projection ownership changed')
+    return proof

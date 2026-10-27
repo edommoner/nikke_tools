@@ -598,6 +598,7 @@ SUITES['destructible-counter']['tests'].append('test_portable_packet_stage.py')
 SMOKE_TESTS.append('test_portable_comparison_groups.py')
 SMOKE_TESTS.append('test_portable_native_group_stage.py')
 SMOKE_TESTS.append('test_portable_staged_preflight.py')
+SMOKE_TESTS.append('test_portable_historical_projection.py')
 SMOKE_TESTS.append('test_typed_owner_observer_migration.py')
 SMOKE_TESTS.append('test_portable_cache_fs_compression.py')
 SMOKE_TESTS.append('test_counter_field_decoder.py')
@@ -731,8 +732,9 @@ def verify_package(root,*,historical_compiler=False):
     if missing:raise ValueError('GPU source missing from immutable payload: '+', '.join(sorted(missing)))
     if any(records[name]!=digest for name,digest in sources.items()):raise ValueError('GPU source record differs from golden')
     if 'payload_projection' in m:
-        from portable_package_projection import validate
-        validate(m['payload_projection'],m['files'],m['suite'],SUITES[m['suite']],SMOKE_TESTS)
+        from portable_package_projection import validate,validate_historical
+        if historical_compiler and root.resolve()!=ROOT.resolve():validate_historical(root,m,SimpleNamespace(**globals()))
+        else:validate(m['payload_projection'],m['files'],m['suite'],SUITES[m['suite']],SMOKE_TESTS)
     if 'native_expectation_baseline' in m:
         from portable_development_expectations import validate
         validate(m)

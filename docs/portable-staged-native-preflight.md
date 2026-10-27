@@ -45,6 +45,8 @@ python scripts/nikke_gpu.py staged-run --backend metal --transaction /new/begin 
 
 CUDAは`staged-gpu-linked` stageから既存の監査済みCUBINを使用する。mandatoryなpaired generation cacheを要求し、live NVRTCへのfallbackはない。GPU子は既存60秒上限、全stageは180秒上限を維持する。
 
+古いcompact compiler packageは、全payload byteを検査した後、その検証済みowner CLIの元registry／projection監査器で登録rootを検査する。現在のテスト一覧を古いpackageへ押し付けない。owner script・manifest・監査器のSHAを前後で照合し、追加のnative参照計算・Slang／NVRTC／assemblerを実行しない。これにより新しいCLIからも保存CUBINの出所監査を維持して再利用できる。
+
 静的入力をGPU直前に再生成して全指紋を照合し、専用`staged-prepared-v1` protocolで渡す。通常runの`cpu.json`は後付けしない。GPU実行claimも一度だけ作成する。
 
 GPU後は`pending_native_audit=true`、`calculation_verified=false`、runは`awaiting-native-audit`となる。完了したdispatchとsealed readback SHAの一致は記録するが、計算成功や全キャラ対応へ昇格しない。生成物・raw・標準artifactsを保存した後、[共通fresh分割監査](portable-shared-native-groups.md)を全群実行・集約して初めて計算一致を判定する。GPUの再実行は不要。
