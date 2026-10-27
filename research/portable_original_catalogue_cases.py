@@ -83,7 +83,9 @@ def verify(case,native,*,skill_history_capacity=128):
     attacks=native['coordinate_typed_weapon']['attacks'];name=case['name']
     if profile.get('variant'):
         ticks=native['burst_controls']['ticks']
-        expected_stage=1 if profile['variant']=='Rapi-no-B1' else 3 if profile['variant']=='Rapi-with-B1' else 4
+        # Red Hood's canonical automatic order remains B3 even for logical A.
+        # Explicit sequence selects B1/B2 without rewriting that order.
+        expected_stage=1 if profile['variant']=='Rapi-no-B1' else 3
         assert ticks and all(t['stages'][0]==expected_stage for t in ticks),'Original live role must follow the real party'
         assert ticks[-1]['cycles']>=1,'Role witness must actually enter full burst'
     if name=='original-catalogue/hp-shield/모더니아/favorite-0/30s':
