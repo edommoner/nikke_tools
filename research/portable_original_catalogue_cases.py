@@ -16,6 +16,10 @@ def catalog(*,include_roles=False):
         extra=profiles()
         if rows.keys()&extra.keys():raise ValueError('Duplicate original role identity')
         rows.update(extra)
+        from portable_original_incoming_profiles import profiles as incoming
+        extra=incoming()
+        if rows.keys()&extra.keys():raise ValueError('Duplicate original incoming identity')
+        rows.update(extra)
     return rows
 
 def selected_rows(names):
@@ -26,7 +30,7 @@ def selected_rows(names):
     for name in names:
         descriptor=entries[name];body=copy.deepcopy(descriptor['body']);duration=descriptor['duration'];kind=descriptor['kind']
         body.update(duration=duration,seed=4301)
-        patterns=[dict(id='world',kind='idle',until=dict(time=duration))];body['enemy']['patterns']=copy.deepcopy(patterns)
+        patterns=copy.deepcopy(descriptor.get('patterns',[dict(id='world',kind='idle',until=dict(time=duration))]));body['enemy']['patterns']=copy.deepcopy(patterns)
         rows.append(dict(name=name,character=descriptor['character'],body=body,patterns=patterns,
             coord=dict(auto_aim=[0.,0.],pierce_px=10.,explosion_scale=1.),coordinate_weapon_targets=True,max_attacks=128,
             typed_bindings=[dict(node='world',kind=kind,identity=10,capacity=1e30,owner=[0,0,1],label='entry-inventory-typed')],
@@ -34,6 +38,7 @@ def selected_rows(names):
             typed_aim_policy=dict(mode='typed-before-body-v1'),typed_actor_policy=dict(mode='body-owned-current-fields-v1'),
             catalogue_profile={k:descriptor[k] for k in ('character','favorite_stage','kind','duration')}))
         if 'variant' in descriptor:rows[-1]['catalogue_profile']['variant']=descriptor['variant']
+        if 'scene_witness' in descriptor:rows[-1]['catalogue_profile']['scene_witness']=copy.deepcopy(descriptor['scene_witness'])
         if 'declared_burst_sequence' in descriptor:rows[-1]['declared_burst_sequence']=copy.deepcopy(descriptor['declared_burst_sequence'])
     return rows
 
@@ -98,6 +103,8 @@ def verify(case,native,*,skill_history_capacity=128):
             if a['owner']==0:by_shot.setdefault(a['shot_identity'],[]).append(a)
         assert any(len(rows)>1 for rows in by_shot.values()),'Original shotgun must deliver several real pellets in one shot'
     require_skill_history_capacity(native,skill_history_capacity)
+    from portable_original_incoming_contracts import verify as incoming
+    incoming(case,native)
     return native
 
 def verify_role_casts(case,burst_trace):
