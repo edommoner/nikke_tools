@@ -8,7 +8,7 @@
 
 `coordinate_logical_actor_geometry`は、配置されたADD labelへliteralな円/回転矩形を結ぶ明示scope。登録済みADD以外、重複、未知形状、非有限値を拒否する。BODY/PART/typed actorへの偽装や、独立HP/敵pool/時計を追加しない。1〜127個のcollider上限は全GPU actor容量の認定ではなく、GPU統合時には既存BODY/PART等を含む全体容量も検査する必要がある。
 
-実際の`_fire`/`_charge_fire`ごとに生存世代と幾何を固定し、既存`_coord_pellet`と共通sampling/shape数値規約にpoint抽選・critical・係数・packet順を計算させる。新しく計算式を持たない。前面ADDを通常のbody-hitとして通知する分類だけを明示し、PART分類と既存coreチャンネルは保つ。この戻り値境界はchecked source rewriteで外側5returnだけを検査する。内部のdamage/hit helperは書換えない。投影対象外の射撃は元の関数へそのまま返す。
+元のpublic requestがexpected modeであることをidentity検査した後、既存`common_sampling_policy`を適用する。元numeric policy保持や既定CPU同値とは主張しない。実際の`_fire`/`_charge_fire`ごとに生存世代と幾何を固定し、既存`_coord_pellet`と共通sampling/shape数値規約にpoint抽選・critical・係数・packet順を計算させる。新しく計算式を持たない。前面ADDを通常のbody-hitとして通知する分類だけを明示し、PART分類と既存coreチャンネルは保つ。この戻り値境界はchecked source rewriteで外側5returnだけを検査する。内部のdamage/hit helperは書換えない。投影対象外の射撃は元の関数へそのまま返す。
 
 作られたpacketの同一objectを既存`_land`へ渡し、landing中だけ宛先を世代付き論理labelへ接続する。通常routing/HP/overkill/lifesteal/counterは元処理を使い、終わればeventのtarget/toを戻す。同じlabelでも別世代ならlive filterを通さない。group子packetは元の凍結集合のvisibilityを使う。新scopeが親の1対象visibilityで子集合を上書きしない。既存の32 group/128 targetのcollectorと通知器を再利用する。
 
@@ -43,3 +43,7 @@ CLIは全6件をGPU/packing禁止で実行し、`reference_model_gap=True`、`hi
 4. 元6件のfull native期待から固定packetを作り、M5実GPU1回＋GPU禁止fresh sealを行う。CUDAは同じ計算/テストとbounded cache経路を使い、旧Windows transactionが終端不明な間は新runを送らない。
 
 今回GPU/Slang変更とGPU実行は0。全キャラ/全特殊効果/公開GPU受付は未達。
+
+## 固定packetでの最終検査
+
+固定27466a62/package0175fe99…のown CLIがCPU全6条件を2.34秒で検証し、全native/receipt/point/draw/624語RNGをprivate5,351,260byteに保存した。30秒では実group15/元4敵通知15/子着弾60、retirementは死んだ3ADDへ子を配らずBODY1着弾。専用10検査と元group等の検査成功、固定packetの25群226unit/CUBIN O1・2GiB・60秒compile-plan policyも成功。旧GPU entryの生成cache必須hit/Slang0、CUDA/MSL/両reflectionの原byteを直前のsealed captureから保持したが、新しい論理幾何のGPU実証ではない。GPU/Windows新run0。出所・失敗・範囲は`logical-actor-geometry-cpu-v1.json`と`logical-actor-reference-final-checks-v1.json`。
