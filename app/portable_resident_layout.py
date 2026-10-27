@@ -1,6 +1,33 @@
 """Fail-closed reflection contract for the optional GPU-owned Runtime buffer."""
 import json
+import re
 from pathlib import Path
+
+def _fields(state,stride,alignment,*,base=0,prefix='',depth=0):
+    """Flatten numeric struct leaves without guessing aggregate size/alignment."""
+    if depth>8:raise ValueError('Resident Runtime nesting limit exceeded')
+    fields=[];end=0;names=set()
+    for field in state['fields']:
+        name=field['name'];t=field['type'];binding=field['binding'];count=1
+        if not isinstance(name,str) or not re.fullmatch(r'[A-Za-z_]\w*',name) or name in names:raise ValueError('Invalid resident Runtime field name')
+        names.add(name);offset=binding['offset'];size=binding['size']
+        if type(offset) is not int or type(size) is not int or binding['kind']!='uniform' or offset<end or size<=0 or offset+size>stride:raise ValueError('Invalid resident Runtime field layout')
+        if t['kind']=='struct':
+            sizes=t['sizes']
+            if len(sizes)!=1 or sizes[0]['kind']!='uniform' or sizes[0]['value']!=size or sizes[0]['alignment'] not in (4,8):raise ValueError('Unknown resident Runtime aggregate layout')
+            align=sizes[0]['alignment']
+            if (base+offset)%align:raise ValueError('Invalid resident Runtime aggregate alignment')
+            fields.extend(_fields(t,size,align,base=base+offset,prefix=prefix+name+'.',depth=depth+1))
+        else:
+            if t['kind']=='array':count=t['elementCount'];t=t['elementType']
+            width={'uint32':4,'int32':4,'uint64':8}.get(t.get('scalarType'))
+            if t['kind']!='scalar' or width is None or type(count) is not int or count<=0:raise ValueError('Unknown resident Runtime field')
+            if (base+offset)%width or size!=count*width:raise ValueError('Invalid resident Runtime field layout')
+            fields.append(dict(name=prefix+name,scalar=t['scalarType'],count=count,offset=base+offset,size=size))
+        end=offset+size
+        if len(fields)>4096:raise ValueError('Resident Runtime leaf limit exceeded')
+    if not fields or (end+alignment-1)//alignment*alignment!=stride:raise ValueError('Resident Runtime trailing layout changed')
+    return fields
 
 
 def _layout(resource):
@@ -10,16 +37,7 @@ def _layout(resource):
     if len(sizes)!=1 or sizes[0]['kind']!='uniform':raise ValueError('Unknown resident Runtime size')
     stride=sizes[0]['value'];alignment=sizes[0]['alignment']
     if type(stride) is not int or not 0<stride<=1048576 or alignment!=8 or stride%8:raise ValueError('Invalid resident Runtime stride')
-    fields=[];end=0
-    for field in state['fields']:
-        t=field['type'];binding=field['binding'];count=1
-        if t['kind']=='array':count=t['elementCount'];t=t['elementType']
-        width={'uint32':4,'int32':4,'uint64':8}.get(t.get('scalarType'))
-        if t['kind']!='scalar' or width is None or type(count) is not int or count<=0:raise ValueError('Unknown resident Runtime field')
-        offset=binding['offset'];size=binding['size']
-        if binding['kind']!='uniform' or offset<end or offset%width or size!=count*width or offset+size>stride:raise ValueError('Invalid resident Runtime field layout')
-        fields.append(dict(name=field['name'],scalar=t['scalarType'],count=count,offset=offset,size=size));end=offset+size
-    if not fields or (end+7)//8*8!=stride:raise ValueError('Resident Runtime trailing layout changed')
+    fields=_fields(state,stride,alignment)
     return dict(stride=stride,alignment=alignment,fields=fields)
 
 

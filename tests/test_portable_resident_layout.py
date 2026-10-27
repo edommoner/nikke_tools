@@ -50,5 +50,27 @@ class ResidentLayoutTests(unittest.TestCase):
         for raw in (b'',b'struct Runtime_0\n{};\nstruct Runtime_1\n{};'):
             with self.assertRaisesRegex(ValueError,'Unknown generated'):cuda_layout_assertions(raw,dict(stride=16,alignment=8))
 
+    def nested(self,target):
+        d=document(target);s=d['parameters'][2]['type']['resultType']
+        child=dict(kind='struct',name='Nested',sizes=[dict(kind='uniform',value=8,alignment=4)],fields=[dict(name='slots',type=dict(kind='array',elementCount=2,elementType=dict(kind='scalar',scalarType='uint32')),binding=dict(kind='uniform',offset=0,size=8))])
+        s['fields'][0]=dict(name='locks',type=child,binding=dict(kind='uniform',offset=0,size=8));return d
+
+    def test_nested_numeric_state_has_exact_absolute_leaf_offsets(self):
+        plan=self.plan({t:self.nested(t) for t in ('cuda','metal')})
+        self.assertEqual(plan['fields'],[dict(name='locks.slots',scalar='uint32',count=2,offset=0,size=8),dict(name='large',scalar='uint64',count=1,offset=8,size=8)])
+
+    def test_nested_malformed_or_backend_different_state_is_rejected(self):
+        for fault in ('size','alignment','overlap','duplicate','float','array-struct','trailing','backend-name'):
+            docs={t:self.nested(t) for t in ('cuda','metal')};s=docs['metal']['parameters'][2]['type']['resultType'];f=s['fields'][0];child=f['type']
+            if fault=='size':child['sizes'][0]['value']=4
+            elif fault=='alignment':f['binding']['offset']=1
+            elif fault=='overlap':s['fields'][1]['binding']['offset']=4
+            elif fault=='duplicate':child['fields'].append(copy.deepcopy(child['fields'][0]))
+            elif fault=='float':child['fields'][0]['type']['elementType']['scalarType']='float64'
+            elif fault=='array-struct':f['type']=dict(kind='array',elementCount=1,elementType=child)
+            elif fault=='trailing':child['fields'][0]['type']['elementCount']=1;child['fields'][0]['binding']['size']=4
+            else:child['fields'][0]['name']='changed'
+            with self.subTest(fault=fault),self.assertRaises(ValueError):self.plan(docs)
+
 
 if __name__=='__main__':unittest.main()

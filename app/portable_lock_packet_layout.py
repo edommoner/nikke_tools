@@ -14,7 +14,7 @@ MAGIC=0x4c503031
 
 def shader_layout():
     values=dict(TOKENS=TOKENS,QUEUE_CAPACITY=QUEUE_CAPACITY,SHOT_TIMES=SHOT_TIMES,HEAD=HEAD,TRACE=TRACE,TRACE_CAPACITY=TRACE_CAPACITY,MAGIC=MAGIC)
-    return '// Generated from portable_lock_packet_layout.py.\n'+'\n'.join('static const uint LP_'+k+' = '+str(v)+'U;' for k,v in values.items())+'\n'
+    return '// Generated from portable_lock_packet_layout.py.\n'+'\n'.join('static const uint LP_'+k+' = '+str(v)+'U'+('+PL_LAYOUT_OFFSET' if k in ('TOKENS','SHOT_TIMES','HEAD','TRACE') else '')+';' for k,v in values.items())+'\n'
 
 def check(root):
     from pathlib import Path

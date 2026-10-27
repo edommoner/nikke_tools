@@ -5,7 +5,7 @@ BASE=END
 WORDS=80
 
 def shader_layout():
-    return '// Generated from portable_physical_lock_cover_layout.py.\nstatic const uint PL_COVER_BASE = '+str(BASE)+'U;\n'
+    return '// Generated from portable_physical_lock_cover_layout.py.\n#ifndef PL_LAYOUT_OFFSET\n#define PL_LAYOUT_OFFSET 0U\n#endif\nstatic const uint PL_COVER_BASE = '+str(BASE)+'U+PL_LAYOUT_OFFSET;\n'
 
 def check(root):
     from pathlib import Path

@@ -86,6 +86,11 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source=='gpu/world_lock_projectile_entry.slang':
+        from portable_lock_typed_layout import check,INPUT,OUTPUT
+        check(ROOT)
+        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Lock/projectile composition requires its complete disjoint arenas')
+        return
     if source in ('gpu/world_lock_packet_entry.slang','gpu/world_lock_delivery_entry.slang'):
         from portable_lock_packet_layout import check,INPUT,OUTPUT
         check(ROOT)

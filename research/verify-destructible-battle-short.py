@@ -54,14 +54,18 @@ def prepare():
 def native_reference(domain):
     c,m,b=domain;names=roster_names(c)
     with typed_battle(c['typed_bindings'],max_attacks=c['max_attacks']) as data:n=observe(c)
-    from effect_runtime import state
-    assert len(data['managers'])==1
-    runtime=state(data['managers'][0]);assert not runtime.event_stack and not runtime.impact_stack and not runtime.activation_stack,'Native typed context leaked'
     if c.get('observe_target_counters'):
         # Same full-counter comparison contract as verify-world-counter-landings:
         # notification profiling is a CPU-only observation; exact completions,
         # resources/epochs, packets, death set and resulting battle stay compared.
         n['target_counters'].pop('events')
+    return dict(battle=n,typed=typed_observation(c,data))
+
+def typed_observation(c,data):
+    names=roster_names(c)
+    from effect_runtime import state
+    assert len(data['managers'])==1
+    runtime=state(data['managers'][0]);assert not runtime.event_stack and not runtime.impact_stack and not runtime.activation_stack,'Native typed context leaked'
     world=data['worlds'][0];state=[]
     for r in world.targets.rows:
         state.append(None if r is None else dict(handle=[int(r.handle.kind),r.handle.identity,r.handle.generation],alive=r.alive,remaining=r.remaining,capacity=r.capacity,expires=r.expires,owner=None if r.owner is None else [int(r.owner.kind),r.owner.identity,r.owner.generation]))
@@ -69,7 +73,7 @@ def native_reference(domain):
     for r in data['attacks']:
         receipts=[dict(slot=slot,handle=[int(h.kind),h.identity,h.generation],delivered=receipt['delivered'],broken=receipt['broken'],took=receipt['took']) for slot,h,receipt in r['receipts']]
         attacks.append(dict(attack_id=r['attack_id'],owner=names.index(r['caster']),time=r['time'],damage=r['damage'],completed=r['completed'],receipts=receipts))
-    return dict(battle=n,typed=dict(time=world.last,finished=world.finished,state=state,attacks=attacks))
+    return dict(time=world.last,finished=world.finished,state=state,attacks=attacks)
 def decode(block,domain,*,sampled_coefficients=None,sampled_rows=None,sampled_packets=None,sampled_skill_metadata=None):
     c,m,b=domain;assert block[0]==0,('battle status',block[0]);assert block[786432]==0x44425431 and not any(block[786434:786448])
     header=789248;assert block[header+2]==1 and block[header+3] in (0,1) and block[header+4]==1 and not any(block[header+5:header+16])
