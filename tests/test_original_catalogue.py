@@ -19,7 +19,7 @@ class OriginalCatalogue(unittest.TestCase):
         from calculator import timeline
         with patch.object(engine_worker,'evaluate',side_effect=AssertionError('Listing must be metadata only')),patch.object(timeline,'simulate',side_effect=AssertionError('No battle')):
             rows=catalog();listed=cli.case_names('original-catalogue',match='모더니아')
-        self.assertEqual(len(rows),1064);self.assertEqual(len(listed['cases']),4);self.assertEqual(listed['total_cases'],1064)
+        self.assertEqual(len(rows),1064);self.assertEqual(len(listed['cases']),4);self.assertEqual(listed['total_cases'],1068)
         self.assertFalse(listed['gpu_calls']);self.assertEqual({r['favorite_stage'] for r in rows.values()},{0,1,2,3})
 
     def test_only_explicit_selected_names_are_prepared_and_input_is_canonical(self):

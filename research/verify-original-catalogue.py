@@ -10,13 +10,14 @@ suite=base.suite;cross=base.cross
 STRICT_WIRE_DIMENSIONS=True;NATIVE_COMPARISON_CONTEXT=base.NATIVE_COMPARISON_CONTEXT
 SELECTED_PREPARATION=True
 
-def case_catalog():return list(catalog())
+def case_catalog():return list(catalog(include_roles=True))
 def prepare():raise ValueError('Original catalogue requires explicit --case selection or a registered frozen cohort')
 def prepare_selected(names):
     rows=[]
     for row in selected_rows(names):
         c,p=prepare_case(row)
         w,m,b,d=base.compile_coordinate_typed(p,c['typed_bindings'],probe_kind=c['catalogue_profile']['kind'],geometry=c['typed_geometry'],coordinate_weapon_targets=True,coordinate_typed_aim=True,coordinate_typed_actors=True,coordinate_typed_owners=True)
+        if c.get('declared_burst_sequence'):m['coordinate_original_input'].update(original_controls_preserved=False,declared_burst_sequence_applied_after_identity_check=True)
         rows.append((c['name'],w,(c,m,b,d)))
     return rows,None
 
@@ -29,6 +30,10 @@ def compare(block,domain):
     with creation_indices(domain[0]) as indices:n=native_reference(domain)
     view,legacy,legacy_indices=compare_and_project(block,domain,n,indices)
     base.base.parent.parent.compare_observed(view,domain,legacy,legacy_indices)
+    if domain[0]['catalogue_profile'].get('variant'):
+        from portable_runtime import decode
+        from portable_original_catalogue_cases import verify_role_casts
+        verify_role_casts(domain[0],decode(block[:159744],domain[1])['burst_trace'])
     return n
 
 def validate_rejection(block,name):raise AssertionError('Selected original profiles cannot be converted into expected rejections')

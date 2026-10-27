@@ -190,14 +190,18 @@ def observe(case):
       if timeline._NIKKE[c['name']]!=c['_weapon']:raise ValueError('Original weapon metadata changed')
      from native_python_profile import python_observers_only
      squad=run.squad
+     config=run.config
      if case.get('declared_aim_controls'):
       from portable_declared_aim_controls import apply
       squad=apply(squad,case['declared_aim_controls'])
      if case.get('declared_manual_sequences'):
       from portable_declared_manual_sequences import apply
       squad=apply(squad,case['declared_manual_sequences'])
+     if case.get('declared_burst_sequence'):
+      from portable_declared_burst_sequence import apply
+      config=apply(config,expected['chars'],case['declared_burst_sequence'])
      with python_observers_only(case.get('python_observers_only',False)):
-      capture['original_result']=timeline.simulate(squad,config=run.config,enemy=copy.deepcopy(case['enemy']),seed=run.seed,verbose=True)
+      capture['original_result']=timeline.simulate(squad,config=config,enemy=copy.deepcopy(case['enemy']),seed=run.seed,verbose=True)
      return capture['original_result']
     context.enter_context(patch.object(buff_manager.BuffManager,'_register_all',registered));context.enter_context(patch.object(engine_worker.sim,'execute',execute))
     engine_worker.evaluate(copy.deepcopy(original_run['body']));result=capture['original_result']
@@ -218,7 +222,9 @@ def observe(case):
   answer['original_input_identity']=dict(definitions=capture['original_definitions_verified'],chars_config_seed_weapon_verified=True,authored_metadata_overrides=False,authored_delays_overrides=False)
   if case.get('declared_aim_controls'):answer['original_input_identity'].update(original_controls_preserved=False,declared_aim_controls_applied_after_identity_check=True)
   if case.get('declared_manual_sequences'):answer['original_input_identity'].update(original_controls_preserved=False,declared_manual_sequences_applied_after_identity_check=True)
+  if case.get('declared_burst_sequence'):answer['original_input_identity'].update(original_controls_preserved=False,declared_burst_sequence_applied_after_identity_check=True)
   answer['scope']='Actual original prepared roster, original effects/weapon/config/base-stat hooks; declared coordinate world and scoped numeric policy only'
+  if case.get('declared_burst_sequence'):answer['scope']+='; declared burst sequence applied after original identity verification'
  if case.get('observe_pending_skills'):
   answer['pending_burst']=dict(count=len(capture['burst_controller']._pending_burst_dmg),enqueued=capture.get('pending_enqueued',0),fired=capture.get('pending_fired',0))
  if case.get('observe_overlay'):
