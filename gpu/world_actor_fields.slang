@@ -51,6 +51,11 @@ bool actorFieldsDefinitionValid(inout Runtime s,uint row,Definition d)
         if(kind==C_SHIELD)
         { if(s.combat==0 || commands[at+1]!=0 || !f64Zero(arg)) return false;continue; }
 #endif
+#ifdef PORTABLE_LOCK_ENEMY_CARRIER
+        // Existing owner charging predicate; it does not query target geometry.
+        if(kind==C_CHARGING)
+        { if(s.combat==0 || commands[at+1]!=0 || !f64Zero(arg)) return false;continue; }
+#endif
         if(kind==C_FOCUSING || kind==C_NO_BROKEN_COVER_ALLY)
         { if(!validStatePredicate(s.inputBase,row,at,s.combat)) return false;continue; }
         if(kind==C_SELF_UNDYING)
