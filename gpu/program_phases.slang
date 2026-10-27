@@ -72,6 +72,9 @@ void initializePortableProgram(inout Runtime s,uint input,uint output,out bool r
     if(!validTargetCountDefinitions(s)) { results[output]=64;return; }
 #ifdef PORTABLE_GENERATION_LOCKS
     if(!initializeGenerationLocks(s)) { results[output]=64;return; }
+#ifdef PORTABLE_PHYSICAL_LOCKS
+    if(!initializePhysicalLocks(s)) { results[output]=64;return; }
+#endif
 #endif
 #endif
     PROJECTILE_ADMIT_STAGE(s,26) if(!initializeRevival(s)) { results[output]=64;return; }

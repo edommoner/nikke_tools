@@ -139,6 +139,9 @@ struct Runtime
     uint modeEntryPhase[5]; // 0=done/no wait,1=first physical tick,2=waiting
 #ifdef PORTABLE_GENERATION_LOCKS
     GenerationLocks locks;
+#ifdef PORTABLE_PHYSICAL_LOCKS
+    uint lockPulseCount,lockShotCount,lockClearCount,lockPulseRow;
+#endif
 #endif
     uint automaticAddAim, enemyAttackOrder, enemySpawnOrder, combatStarted, combat, targetCount, target, aim[5], targetAlive[8], targetGeneration[8], targetHits[8];
     uint64_t targetHP[8], targetMaxHP[8], targetDamage[8], targetDefense[8];
@@ -1433,6 +1436,9 @@ void advanceBuffActivation(inout Runtime s, inout DISPATCH_FRAMES(frames), inout
 void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, uint64_t when, uint output, uint64_t landingAmount = 0, uint notifyContext = 0)
 {
     if (owner >= 5) { s.error = 64; return; }
+#ifdef PORTABLE_PHYSICAL_LOCKS
+    if(mode==0&&event==7)physicalLockAttack(s,owner,when);
+#endif
     uint previousHitCrit=s.triggerHitCrit;
     WORLD_INITIAL_SPAWN_OBSERVE(s,mode,event,owner,when) s.sourceTime=when; syncHealth(s,when);
     WORLD_TEAM_BEGIN(s) COUNTER_CONTEXT_BEGIN(s) WORLD_STATE_DISPATCH_BEGIN(s) uint entryTarget = s.target;
@@ -1937,6 +1943,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "effect_target_count_runtime.slang"
 #ifdef PORTABLE_GENERATION_LOCKS
 #include "named_generation_locks.slang"
+#ifdef PORTABLE_PHYSICAL_LOCKS
+#include "physical_generation_locks.slang"
+#endif
 #endif
 #ifdef PORTABLE_EFFECT_TARGET_COUNT_SHOTS
 #include "effect_target_count_shot_runtime.slang"

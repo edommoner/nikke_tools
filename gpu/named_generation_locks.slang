@@ -33,45 +33,44 @@ uint generationLockPrune(inout Runtime s)
     }
     s.locks.count=kept;return removed;
 }
-bool generationLockCommand(inout Runtime s,uint at,uint64_t when)
+bool generationLockAcquire(inout Runtime s,uint who,uint name,uint base,uint limit,uint packed,uint64_t when)
 {
-    if(commands[at]==45)
+    uint candidate=packed&255U,receipt=packed>>8;
+    if(who>=5||name>=P_DEFINITIONS||limit==0||limit>128||base>limit||candidate>=32||receipt>=P_COMMANDS)return false;
+    if(s.locks.configured!=0&&(s.locks.who!=who||s.locks.name!=name))return false;
+    uint source=actorPoolSet(s,candidate);if(results[source+5]!=1||results[source]>128)return false;
+    uint capacity;uint64_t total;
+    if(!namedTargetCountValue(s,who,name,base,limit,when,capacity,total))return false;
+    // Validate the entire frozen provider list before changing membership.
+    uint seen[4];for(uint i=0;i<4;i++)seen[i]=0;
+    for(uint i=0;i<results[source];i++)
     {
-        uint who=commands[at+3],name=commands[at+4],base=commands[at+5],limit=commands[at+6],packed=commands[at+7];
-        uint candidate=packed&255U,receipt=packed>>8;
-        if(who>=5||name>=P_DEFINITIONS||limit==0||limit>128||base>limit||candidate>=32||receipt>=P_COMMANDS)return false;
-        if(s.locks.configured!=0&&(s.locks.who!=who||s.locks.name!=name))return false;
-        uint source=actorPoolSet(s,candidate);if(results[source+5]!=1||results[source]>128)return false;
-        uint capacity;uint64_t total;
-        if(!namedTargetCountValue(s,who,name,base,limit,when,capacity,total))return false;
-        // Validate the entire frozen provider list before changing membership.
-        uint seen[4];for(uint i=0;i<4;i++)seen[i]=0;
-        for(uint i=0;i<results[source];i++)
-        {
-            uint e=source+8+i*4,slot=results[e];if(slot>=actorPoolCount(s))return false;
-            uint b=actorBinding(s,slot);
-            if(commands[b]!=results[e+2]||commands[b+1]!=results[e+3]||results[e+1]==0||results[e+1]>=0x80000000U||(seen[slot/32]&(1U<<(slot%32)))!=0)return false;
-            seen[slot/32]|=1U<<(slot%32);
-        }
-        s.locks.configured=1;s.locks.who=who;s.locks.name=name;
-        uint removed=generationLockPrune(s),selected=0xffffffffU,gen=0;
-        if(s.locks.count<capacity)for(uint i=0;i<results[source];i++)
-        {
-            uint e=source+8+i*4,slot=results[e],g=results[e+1],p=actorPoolAt(s,slot);
-            if(results[p+1]==0||results[p]!=g)continue;
-            bool locked=false;for(uint j=0;j<s.locks.count;j++)if(s.locks.slots[j]==slot&&s.locks.generations[j]==g)locked=true;
-            if(locked)continue;
-            selected=slot;gen=g;s.locks.slots[s.locks.count]=slot;s.locks.generations[s.locks.count]=g;s.locks.count++;break;
-        }
-        if(removed!=0||selected!=0xffffffffU){if(s.locks.revision==0x7fffffffU)return false;s.locks.revision++;}
-        uint dst=s.resourceOutput+P_WORLD_ACTOR_RECEIPT_BASE+receipt*8;
-        results[dst]=capacity;results[dst+1]=s.locks.count;results[dst+2]=s.locks.revision;
-        results[dst+3]=selected==0xffffffffU?selected:commands[actorBinding(s,selected)];
-        results[dst+4]=selected==0xffffffffU?0:commands[actorBinding(s,selected)+1];results[dst+5]=gen;results[dst+6]=removed;results[dst+7]=GL_MAGIC;
-        return true;
+        uint e=source+8+i*4,slot=results[e];if(slot>=actorPoolCount(s))return false;
+        uint b=actorBinding(s,slot);
+        if(commands[b]!=results[e+2]||commands[b+1]!=results[e+3]||results[e+1]==0||results[e+1]>=0x80000000U||(seen[slot/32]&(1U<<(slot%32)))!=0)return false;
+        seen[slot/32]|=1U<<(slot%32);
     }
-    uint index=commands[at+3],reason=commands[at+4];
-    if(index>=32||reason>2||commands[at+5]!=0||commands[at+6]!=0||commands[at+7]!=0)return false;
+    s.locks.configured=1;s.locks.who=who;s.locks.name=name;
+    uint removed=generationLockPrune(s),selected=0xffffffffU,gen=0;
+    if(s.locks.count<capacity)for(uint i=0;i<results[source];i++)
+    {
+        uint e=source+8+i*4,slot=results[e],g=results[e+1],p=actorPoolAt(s,slot);
+        if(results[p+1]==0||results[p]!=g)continue;
+        bool locked=false;for(uint j=0;j<s.locks.count;j++)if(s.locks.slots[j]==slot&&s.locks.generations[j]==g)locked=true;
+        if(locked)continue;
+        selected=slot;gen=g;s.locks.slots[s.locks.count]=slot;s.locks.generations[s.locks.count]=g;s.locks.count++;break;
+    }
+    if(removed!=0||selected!=0xffffffffU){if(s.locks.revision==0x7fffffffU)return false;s.locks.revision++;}
+    uint dst=s.resourceOutput+P_WORLD_ACTOR_RECEIPT_BASE+receipt*8;
+    results[dst]=capacity;results[dst+1]=s.locks.count;results[dst+2]=s.locks.revision;
+    results[dst+3]=selected==0xffffffffU?selected:commands[actorBinding(s,selected)];
+    results[dst+4]=selected==0xffffffffU?0:commands[actorBinding(s,selected)+1];results[dst+5]=gen;results[dst+6]=removed;results[dst+7]=GL_MAGIC;
+    return true;
+}
+bool generationLockSnapshot(inout Runtime s,uint index,uint reason)
+{
+
+    if(index>=32||reason>2)return false;
     uint removed=generationLockPrune(s);if(removed!=0){if(s.locks.revision==0x7fffffffU)return false;s.locks.revision++;}
     if(reason!=0&&s.locks.revision==0x7fffffffU)return false;
     uint dst=actorPoolSet(s,index);if(results[dst+5]!=0||results[dst+6]!=0)return false;
@@ -84,4 +83,11 @@ bool generationLockCommand(inout Runtime s,uint at,uint64_t when)
     }
     if(reason!=0){s.locks.count=0;s.locks.revision++;}
     return true;
+}
+
+bool generationLockCommand(inout Runtime s,uint at,uint64_t when)
+{
+    if(commands[at]==45)return generationLockAcquire(s,commands[at+3],commands[at+4],commands[at+5],commands[at+6],commands[at+7],when);
+    if(commands[at+5]!=0||commands[at+6]!=0||commands[at+7]!=0)return false;
+    return generationLockSnapshot(s,commands[at+3],commands[at+4]);
 }

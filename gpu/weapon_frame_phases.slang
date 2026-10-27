@@ -141,6 +141,9 @@ void advanceWeaponCharge(inout Runtime s,inout Weapon w,uint who,uint64_t when,u
 void captureWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint output,uint target,uint modeShots,int mode,uint epoch,inout uint64_t landedAmount,inout uint landedCount,inout uint landedTarget,out uint completedShots,out bool scheduleAutoReload,out uint64_t shotInterval,out bool last,out bool ready)
 {
     ready=false;
+#ifdef PORTABLE_PHYSICAL_LOCKS
+    physicalLockSnapshot(s,who,when);if(s.error!=0)return;
+#endif
 #ifdef PORTABLE_CHARGE_COLLECT_REFERENCE
     scheduleAutoReload = w.mode == 1 && w.delayCover != 0 && !f64Less(readStat(s,who,S_reload_speed_pct,when),HUNDRED);
 #else
