@@ -3,6 +3,7 @@ import hashlib,json,sys,tempfile,types,unittest,zipfile
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'app'))
 import portable_metal_wire_refresh as repair
+from unittest.mock import patch
 from portable_wire_layout import metal_guard,LARGE_OUTPUT_WORDS
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -19,7 +20,7 @@ class MetalWireRefreshTests(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory();root=Path(self.tmp.name);self.addCleanup(self.tmp.cleanup)
   self.source=root/'source';self.capture=root/'capture';self.source.mkdir();self.capture.mkdir();(self.source/'scripts').mkdir();self.output=root/'new.zip'
-  current=(ROOT/repair.PATH).read_text(encoding='utf-8');before=current.replace(metal_guard(),metal_guard(LARGE_OUTPUT_WORDS[:-1]))
+  historical=json.loads((ROOT/repair.LEDGER).read_text())['sources'][repair.PATH];self.expected=historical['current'].encode();before=historical['baseline']
   self.assertEqual(repair.sha(before.encode()),repair.REVIEWED_OLD_SHA)
   (self.source/repair.PATH).write_bytes(before.encode('utf-8'));(self.source/'oracle.py').write_text('frozen oracle');(self.source/'shader.slang').write_text('frozen arithmetic')
   self.assertEqual(repair.sha((self.source/repair.PATH).read_bytes()),repair.REVIEWED_OLD_SHA)
@@ -45,7 +46,10 @@ class MetalWireRefreshTests(unittest.TestCase):
    m=json.loads(z.read('gpu-package.json'));self.assertEqual(m['golden'],self.manifest['golden']);self.assertNotEqual(m['package_id'],self.manifest['package_id'])
    for row in self.manifest['files']:
     if row['path'] not in (repair.PATH,repair.LEDGER):self.assertEqual(z.read(row['path']),(self.source/row['path']).read_bytes())
-   self.assertEqual(z.read(repair.PATH),(ROOT/repair.PATH).read_bytes());self.assertEqual(json.loads(z.read(repair.LEDGER))['sources'][repair.PATH]['baseline_sha256'],repair.REVIEWED_OLD_SHA);self.assertNotIn('gpu-claimed-metal.json',z.namelist())
+   self.assertEqual(z.read(repair.PATH),self.expected);self.assertEqual(repair.sha(self.expected),repair.REVIEWED_NEW_SHA);self.assertEqual(json.loads(z.read(repair.LEDGER))['sources'][repair.PATH]['baseline_sha256'],repair.REVIEWED_OLD_SHA);self.assertNotIn('gpu-claimed-metal.json',z.namelist())
+ def test_future_widths_do_not_change_the_pinned_historical_repair(self):
+  with patch.object(repair,'LARGE_OUTPUT_WORDS',(*LARGE_OUTPUT_WORDS,3000000)):
+   self.assertEqual(repair.replacement((self.source/repair.PATH).read_bytes()),self.expected)
  def test_arbitrary_swift_edits_are_rejected(self):
   with self.assertRaisesRegex(ValueError,'Unreviewed'):repair.replacement((self.source/repair.PATH).read_bytes()+b'\n')
  def test_crlf_bytes_do_not_bypass_the_reviewed_transport_hash(self):

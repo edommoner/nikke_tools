@@ -10,12 +10,17 @@ from portable_wire_layout import LARGE_OUTPUT_WORDS,metal_guard
 PATH='scripts/run-metal-probe.swift'
 LEDGER='tests/fixtures/portable-coordinate-resident-arc-source-delta.json'
 REVIEWED_OLD_SHA='272e3dc37e0a5710e274f5ab64d9d4eaf7b280ab523ac9bbbff3d2b57f406c3b'
+REVIEWED_OLD_WIDTHS=(655360,786432,1048576,1310720,1507328,1769472,1769856,2032000)
+REVIEWED_NEW_WIDTHS=(*REVIEWED_OLD_WIDTHS,2064786)
+REVIEWED_NEW_SHA='c791a19517aa1ffb573b0c90e322cb3bd9435cb9d7954a5c5059e72086476a74'
 def sha(raw):return hashlib.sha256(raw).hexdigest()
 def replacement(raw):
     if sha(raw)!=REVIEWED_OLD_SHA:raise ValueError('Unreviewed Swift transport; no automatic repair')
-    text=raw.decode();before=metal_guard(LARGE_OUTPUT_WORDS[:-1]);after=metal_guard()
+    text=raw.decode();before=metal_guard(REVIEWED_OLD_WIDTHS);after=metal_guard(REVIEWED_NEW_WIDTHS)
     if text.splitlines().count(before)!=1 or text.count('MTLCreateSystemDefaultDevice()')!=1 or text.index(before)>text.index('MTLCreateSystemDefaultDevice()'):raise ValueError('Reviewed pre-device admission guard changed')
-    return text.replace(before,after,1).encode()
+    result=text.replace(before,after,1).encode()
+    if sha(result)!=REVIEWED_NEW_SHA:raise ValueError('Historical Swift target changed')
+    return result
 
 def refresh(api,source,capture,output):
     source,capture=map(lambda p:Path(p).resolve(),(source,capture));output=Path(output).absolute()
