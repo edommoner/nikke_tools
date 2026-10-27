@@ -1,3 +1,5 @@
+最終e0e2b430の通常a254a809…/cache-only9f583a9b…を固定。通常own CLIの65unit/model-check/required generation sealed baseline hit・Slang0、cache側のCUBIN O1・2GiB・60秒compile-planと必須flag負例を確認。追加GPU0。model-check用固定文書とarc基準の同梱、共通receipt includeの厳密source監査も完了。Windows statusはhost unavailable durable、旧終端不明で新runなし。次は他の元キャラの実複数敵通知・武器/幾何/世代の組合せへ広げる。private継続点logical-actor-metal-sealed-continuation-v1.json。
+
 # 2026-10-28 実ADD幾何をM5 Metal・独立sealで検証
 
 `logical-actor-geometry` sealed13（元6＋拒否7）。固定5ed97fd4/package e4d6f280…のown CLIがCPU63検査・fresh native6・M5 Metal全比較に成功。GPU2.514622秒、初回PSO58.345348秒、事前CPU102.617612秒。比較はlive ParentOracles6件再利用/追加native0。独立GPU禁止fresh監査も全13件で成功（128.944960秒）。通常goldenとfull-source compiler証明を同じ監査で作成。実GPU1、retry0、Slang必須cache hit/Slang0。未対応分類には別の明示モデル証拠を追加し、既定戦闘のgapと全キャラ未認定を保つ。

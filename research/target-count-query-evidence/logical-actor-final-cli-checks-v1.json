@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "stage": "sealed-logical-actor-final-cli-checks",
+  "passed": true,
+  "source_commit": "e0e2b4308c66370669a08e3566fab7c0a55b5580",
+  "normal_package_id": "a254a809a72295d5cbeb20106d9e9693610e77fe87987f677c4fd569d2ae3256",
+  "cached_package_id": "9f583a9b81ca76261f5477cff6df0a1d3bcf8f0ad062c6583a405e3be8993637",
+  "unit_checks": {
+    "schema": "unit-check-v1",
+    "package_id": "a254a809a72295d5cbeb20106d9e9693610e77fe87987f677c4fd569d2ae3256",
+    "suite": "logical-actor-geometry",
+    "passed": true,
+    "unit_tests_verified": true,
+    "full_native_preflight_executed": false,
+    "cpu_verified": false,
+    "calculation_verified": false,
+    "gpu_execution_verified": false,
+    "gpu_calls": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false,
+    "groups": 9,
+    "tests": 65
+  },
+  "generation": {
+    "verified": true,
+    "cache_hit": true,
+    "compiler_invocations": 0,
+    "sealed_generated_baseline_verified": true
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "9f583a9b81ca76261f5477cff6df0a1d3bcf8f0ad062c6583a405e3be8993637",
+    "suite": "logical-actor-geometry-cache-only",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "cache_required_negative": {
+    "passed": true,
+    "attempts": [
+      {
+        "label": "missing-cache",
+        "exit_code": 1,
+        "expected_error_present": true,
+        "capture_created": false,
+        "claim_created": false
+      },
+      {
+        "label": "missing-paired-generation",
+        "exit_code": 1,
+        "expected_error_present": true,
+        "capture_created": false,
+        "claim_created": false
+      }
+    ],
+    "gpu_calls": 0,
+    "compiler_calls": 0
+  },
+  "model_audit": {
+    "passed": true,
+    "missing_canonical_stat_consumers": [
+      "effect_range_pct",
+      "effect_target_count_add",
+      "enemy_movement_disable",
+      "force_move",
+      "lock_on"
+    ],
+    "public_gpu_admitted": false,
+    "full_goal_complete": false,
+    "report_sha256": "9a12ddba72ec1bc99442da643ecae38ee43c78e32044f3f693a94bc256726d85"
+  },
+  "preserved_earlier_failures": [
+    {
+      "packet": "logical-actor-final-v1-package",
+      "error": "Missing pinned IMPL-STATUS.md"
+    },
+    {
+      "packet": "logical-actor-final-v2-package",
+      "error": "Missing required arc baseline"
+    },
+    {
+      "packet": "logical-actor-final-v3-package",
+      "error": "Group source audit expected agCollect in parent file rather than exact shared receipt include"
+    }
+  ],
+  "windows_status": {
+    "host": "remote-control:env_e_6ac12920046c8331afb50b0234aeba48",
+    "thread_id": "01a140bc-5f3b-7661-b720-50c945596eaa",
+    "read_only_poll": "host unavailable durable",
+    "old_transaction_terminal_known": false,
+    "new_run_requests": 0
+  },
+  "additional_gpu_calls": 0,
+  "current_cuda_verified": false,
+  "full_goal_complete": false,
+  "receipts_sha256": {
+    "logical-actor-final-v4-package/gpu-package.json": "cbcf52c2d827c37cbfa7a0f2f31fc1d3bd986b3e727abc152ea3483ab2fea83d",
+    "logical-actor-cache-final-v4-package/gpu-package.json": "f658e8ca3a8085bc9f3acfaea5d7f51128cecca0ca114ade2d4824d1d2befbe3",
+    "logical-actor-final-v4-units/result.json": "c24a73d5c7db817c9b07ad399b0ca274dd9af96cccdbc2c114fb959ad18e4835",
+    "logical-actor-final-v4-generation/generation.json": "142a136a4d9e099888a0fbe1df90f911813779152cf7344ad26a2ff237bc1dcb",
+    "logical-actor-cache-final-v4-compile-plan.json": "ee52562268d7707923308c8af83c096cc5e4586404c9bfd549a529b4325573e8",
+    "logical-actor-cache-final-v4-negative/result.json": "9e1d2e5f1918157cbb0b7bee8ea96ea4440c553ff434d7fd367f362dbd9e03c2"
+  }
+}

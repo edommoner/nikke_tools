@@ -82,3 +82,6 @@ package e4d6f280…（archive 0a05c4c1…）のown CLIは単体63件・fresh nat
 同じpacketのown CLIからGPU禁止fresh子5群で全13入力を再比較し、独立sealとfull-source compiler証明を同時作成した（128.944960秒、live parent再利用なし、GPU0）。code生成cacheは実runでrequired hit/Slang0。初回360秒指定はCLIの1〜180秒制約によりcapture/claim作成前に拒否され、capture不存在を確認して許容180秒へ修正した。GPU実行の再試行ではない。失敗を成功の実行数へ含めない。
 
 通常suiteをsealed goldenへ登録し、同じ計算を既存CUBIN/O1＋必須compile cache＋paired generationへ渡すcache-only routeも用意した。Windows新依頼0、CUDA実機/CUBIN hitは未検証。未対応分類には今回の明示モデルの証拠を別フィールドで追加し、既定producer未設置/reference_model_gap/公開GPU拒否/全キャラ未認定は維持する。CPU reference CLIの契約自体はGPU証明ではない。小さな出所は `metal-logical-actor-geometry-v1.json`、独立receiptは `tests/fixtures/logical-actor-independent-v1.json`。
+
+
+最終e0e2b430の通常packet a254a809…とcache-only9f583a9b…を作成。own CLIの9群65unit、model-check、CUBIN/O1・2GiB・60秒compile-plan、sealed生成baselineまでのrequired generation hit/Slang0が成功した。cache-only実CLIでcache指定なし、CUBIN/source指定ありでもpaired generationなしをcapture/claim前に拒否。追加GPU0。最初の3packetでmodel-checkに必要な固定文書/arc基準と、共通includeを検査するgroup監査の依存漏れが判明し、元のhash/条件を保持して修正した。各旧packet/成功captureは不変で保持。全体の未対応5stat・公開拒否・全キャラ未認定・現CUDA未確認は維持する。Windows旧状態の読み取りはhost unavailableで、終端不明のまま新runを送っていない。最終出所は `logical-actor-final-cli-checks-v1.json`。
