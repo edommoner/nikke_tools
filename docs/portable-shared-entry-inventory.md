@@ -14,6 +14,12 @@ python scripts/nikke_gpu.py entry-inventory --suite original-shield-weapons --ou
 
 現在の観測では全266profile中、legacy worldは245、元共通座標は247、宣言した発射体/敵シールド入口は254が変換できる。247からの差はSakura/Anchor/Clay/Asuka/Rei/Mari/Misatoの7profile。元266件の定義identityは同一で、GPU source/計算実装の追加ではない。残る12profileの失敗を13の元stat/target分類で保持する。全キャラ認定0・通常UI CPU・公開GPU受付Falseは変えない。
 
+これは選択入口の失敗一覧で、全入口での未実装一覧ではない。特にHeavyarmsは別の専用entryで元25効果の限定合成実証が既にある。新規probeを作る前に、12件を既存専用entry/実証のscopeとも照合する。
+
 `multi_hit:2/4`はNihilister/Belortaの元定義のまま共通入力へ下ろせ、実際のgroup owner maskも存在する。既に単体/実射撃/長時間/混成の限定実証があり、同じprobeを作り直す優先度は低い。一方、現在の座標modelで複数の論理敵へ同時に当てる経路や、既定CPUのproducerとは別問題である。PARTをBODY/ADDと同じ敵数へ置き換えたり、単体typed shieldを敵数として数えたりしない。変換成功からthreshold発火を推定しない。
 
 次はこの一覧をruntimeの未実証条件と照合し、受理される元profileの選択・固定・bounded実行をCLIで反復できる経路を優先する。12件のmodel gapは別に残し、既存の実証や単なる変換を全効果対応へ昇格しない。今回の変更は監査/診断/CLI routingだけで、Metal/CUDA計算とWindows実行の追加はない。
+
+固定93919181/package d389bd5d…で14群143検査（11.62秒）と3入口の実監査が成功。全input SHA/元定義identityを保持し、以前のsealed packetとの差分は監査/診断/CLI/testの5ファイルのみ。GPU/計算/packing/native/比較器とgoldenは不変で、全CLI関数はmainの本command解析・dispatch以外AST同一。GPU再実行はしない。CUBIN/O1/2GiB/60秒のcompile-planもpolicy検査だけ成功（compiler/GPU0）。証跡 `research/target-count-query-evidence/shared-entry-inventory-v1.json`。
+
+旧診断testのmanifestにsuiteが欠けた2件は、実在projectile suiteを指定するfixtureへ修正した。prepare_entries/run_capture/wire guardを緩めていない。今回のsuite packetはglobal model-check用のpinned IMPL-STATUS.mdを含まない（以前のpacketも同じ）。全体のmodel-checkは必要資料が揃う開発checkoutで成功し、packet内の未実行/失敗を成功へ読み替えない。unit-checkは専用の小さなCPU reference testを含み得るが、全native sweep/GPU認定を実行したとは記録しない。

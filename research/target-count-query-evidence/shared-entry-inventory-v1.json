@@ -1,0 +1,278 @@
+{
+  "schema": "shared-entry-inventory-v1",
+  "source_commit": "939191813b1ae97ec8705d4fe1f767e3c519ff9a",
+  "package_id": "d389bd5d0f6263dee215e128acf0e535ec7e7ef27048f01507212c4501c8400a",
+  "previous_sealed_package_id": "fad27828918039ba4467fc93776897966400a7289ba3307291fccb1d9b6a52d8",
+  "changed_payload_files": [
+    "app/portable_original_entry_inventory.py",
+    "app/portable_readiness.py",
+    "scripts/nikke_gpu.py",
+    "tests/test_original_entry_inventory.py",
+    "tests/test_portable_readiness.py"
+  ],
+  "all_other_payload_bytes_identical": true,
+  "all_gpu_sources_identical": true,
+  "sealed_input_native_and_output_expectations_identical": true,
+  "cli_change_is_only_entry_inventory_parser_and_dispatch": true,
+  "all_other_cli_functions_classes_ast_identical": true,
+  "packet_payload_all_hashes_verified": true,
+  "unit_groups": 14,
+  "unit_tests": 143,
+  "unit_elapsed_seconds": 11.61975958502444,
+  "unit_gpu_calls": 0,
+  "full_native_sweep_repeated": false,
+  "full_native_sweep_reason": "Only inventory/diagnostics/CLI routing/test changes; every calculation, packing, native and comparison implementation is unchanged.",
+  "inventories": {
+    "original": {
+      "report_sha256": "2124c42d7b9b66537d54fcc91d272656b501914749950a0bcc0cd470929ab9eb",
+      "input_policy": "original-coordinate-v1",
+      "source": "gpu/world_coordinate_original_shared_entry.slang",
+      "profiles": 266,
+      "packed": 247,
+      "failed": 19,
+      "packing_categories": 17,
+      "kind_rejected_profiles": 0,
+      "elapsed_seconds": 4.666901082993718,
+      "source_and_input_identities_retained": true
+    },
+    "projectile": {
+      "report_sha256": "bd4df6904c506f818ab0623d3af0f29002d9b9c9f5dc98c7aeb8617ee96a7ff3",
+      "input_policy": "body-owned-projectile-v1",
+      "source": "gpu/world_coordinate_typed_owner_entry.slang",
+      "profiles": 266,
+      "packed": 254,
+      "failed": 12,
+      "packing_categories": 13,
+      "kind_rejected_profiles": 0,
+      "elapsed_seconds": 5.131609916003072,
+      "source_and_input_identities_retained": true
+    },
+    "shield": {
+      "report_sha256": "7afccf89c984ad3445015f8e0faebad106e068edaa3af8380350d4b0050cfb59",
+      "input_policy": "body-owned-hp-shield-v1",
+      "source": "gpu/world_coordinate_typed_owner_entry.slang",
+      "profiles": 266,
+      "packed": 254,
+      "failed": 12,
+      "packing_categories": 13,
+      "kind_rejected_profiles": 0,
+      "elapsed_seconds": 5.135741625010269,
+      "source_and_input_identities_retained": true
+    }
+  },
+  "legacy_inventory": {
+    "profiles": 266,
+    "packed": 245,
+    "report_sha256": "99f59e8f3f3b6b662349be9133826c0c62e2cf3c9863210b608992252aed56e4"
+  },
+  "newly_packable_by_input_policy": [
+    {
+      "character": "사쿠라",
+      "favorite_stage": 0
+    },
+    {
+      "character": "앵커",
+      "favorite_stage": 0
+    },
+    {
+      "character": "클레이",
+      "favorite_stage": 0
+    },
+    {
+      "character": "아스카",
+      "favorite_stage": 0
+    },
+    {
+      "character": "레이",
+      "favorite_stage": 0
+    },
+    {
+      "character": "마리",
+      "favorite_stage": 0
+    },
+    {
+      "character": "미사토",
+      "favorite_stage": 0
+    }
+  ],
+  "remaining_profiles": [
+    {
+      "character": "앤 : 미라클 페어리",
+      "favorite_stage": 0,
+      "program_error": "Unported buff recipient selector"
+    },
+    {
+      "character": "유니",
+      "favorite_stage": 0,
+      "program_error": "Unported buff stat"
+    },
+    {
+      "character": "얀",
+      "favorite_stage": 0,
+      "program_error": "Unported buff stat"
+    },
+    {
+      "character": "솔져 O.W.",
+      "favorite_stage": 0,
+      "program_error": "Unported buff stat"
+    },
+    {
+      "character": "벨벳",
+      "favorite_stage": 0,
+      "program_error": "Unported health recipient selector"
+    },
+    {
+      "character": "스노우 화이트 : 헤비암즈",
+      "favorite_stage": 0,
+      "program_error": "Unported buff stat"
+    },
+    {
+      "character": "일레그",
+      "favorite_stage": 0,
+      "program_error": "Unported enemy damage selector"
+    },
+    {
+      "character": "베이",
+      "favorite_stage": 0,
+      "program_error": "Unported buff stat"
+    },
+    {
+      "character": "베이",
+      "favorite_stage": 1,
+      "program_error": "Unported buff stat"
+    },
+    {
+      "character": "베이",
+      "favorite_stage": 2,
+      "program_error": "Unported buff stat"
+    },
+    {
+      "character": "베이",
+      "favorite_stage": 3,
+      "program_error": "Unported buff stat"
+    },
+    {
+      "character": "레이 (가칭)",
+      "favorite_stage": 0,
+      "program_error": "Unported buff stat"
+    }
+  ],
+  "remaining_source_categories": [
+    {
+      "stat": "cover_def_pct",
+      "target": "allies_top_atk:3",
+      "effect_type": "buff",
+      "affected_profiles": 1
+    },
+    {
+      "stat": "enemy_movement_disable",
+      "target": "enemies_in_range",
+      "effect_type": "buff",
+      "affected_profiles": 1
+    },
+    {
+      "stat": "force_move",
+      "target": "enemies_in_range",
+      "effect_type": "buff",
+      "affected_profiles": 1
+    },
+    {
+      "stat": "heal_received_pct",
+      "target": "all_enemies",
+      "effect_type": "buff",
+      "affected_profiles": 1
+    },
+    {
+      "stat": "split_damage",
+      "target": "target_and_nearby:2",
+      "effect_type": "damage",
+      "affected_profiles": 1
+    },
+    {
+      "stat": "ammo_charge_pct",
+      "target": "all_enemies",
+      "effect_type": "instant",
+      "affected_profiles": 1
+    },
+    {
+      "stat": "received_dmg_split",
+      "target": "all_allies",
+      "effect_type": "buff",
+      "affected_profiles": 4
+    },
+    {
+      "stat": "received_dmg_split",
+      "target": "self_cover",
+      "effect_type": "buff",
+      "affected_profiles": 4
+    },
+    {
+      "stat": "effect_range_pct",
+      "target": "allies_with_buff:섬멸 태세",
+      "effect_type": "buff",
+      "affected_profiles": 1
+    },
+    {
+      "stat": "effect_target_count_add",
+      "target": "allies_with_buff:섬멸 태세",
+      "effect_type": "buff",
+      "affected_profiles": 1
+    },
+    {
+      "stat": "effect_target_count_add",
+      "target": "self",
+      "effect_type": "buff",
+      "affected_profiles": 1
+    },
+    {
+      "stat": "lock_on",
+      "target": "enemies_nearest:1",
+      "effect_type": "buff",
+      "affected_profiles": 1
+    },
+    {
+      "stat": "damage",
+      "target": "all_projectiles",
+      "effect_type": "damage",
+      "affected_profiles": 1
+    }
+  ],
+  "multi_hit_interpretation": "Original Belorta and Nihilister lower and own groups. Static packing does not prove multiple logical enemies were hit; do not count PART or typed shields as BODY/ADD enemies.",
+  "initial_test_fixture_errors": {
+    "names": [
+      "test_development_cannot_run_on_cuda",
+      "test_development_selection_is_explicit_and_repacked"
+    ],
+    "cause": "Existing test manifests omitted suite. The affected prepare_entries/run_capture/registered_entry_wire_preflight functions are unchanged from the prior commit. Tests now name the real projectile suite; guards unchanged."
+  },
+  "packet_model_audit": {
+    "verified": false,
+    "reason": "Optional global model-check requires pinned IMPL-STATUS.md omitted from this suite packet; prior sealed packet also omitted it. No packet edited to bypass this dependency."
+  },
+  "checkout_model_audit_sha256": "b5dfef989c2097c60114dab134f017e08dad5d9bd84712513c221d66b996a8cc",
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "d389bd5d0f6263dee215e128acf0e535ec7e7ef27048f01507212c4501c8400a",
+    "suite": "original-shield-weapons-cache-only",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "new_gpu_executions": 0,
+  "new_compiler_calls": 0,
+  "windows_requests": 0,
+  "public_gpu_admission": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "next_action": "Implement explicit original-profile catalogue selection and immutable bounded development packets using actual shared compilers. Map the 12 generic-entry failures to existing dedicated-entry evidence first, especially Heavyarms. Do not compile unselected invalid profiles or silently drop selected failures."
+}

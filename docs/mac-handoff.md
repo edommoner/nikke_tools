@@ -4,6 +4,10 @@
 
 監査は全266中、legacy world245/元座標247/宣言typed254で別の数。247との差は7carrierで、GPU対応数を増やしたのではない。12profileの失敗を13の元stat/target分類へ絞れた。multi_hit2/4のNihilister/Belortaは共通入力とgroup ownerを既に持ち、旧単体/実射撃/長時間/混成の限定証跡もある。複数論理敵への座標着弾と既定producerは別に残るため、PARTやtyped shieldを敵数へ読み替えない。次は現共通入口で受理される元profileを選択・固定・bounded実行するCLI経路を整備し、未実証条件を反復検証する。新しいprobeを既存証跡と重ねて作らない。[監査の使い方](portable-shared-entry-inventory.md)。
 
+固定93919181/package d389bd5d…で14群143検査（11.62秒）と3入口の全監査成功。全266元定義identity/既存input SHAを保持。旧sealed packetとのpayload差分5ファイルは監査/診断/CLI/testのみで、全GPU/計算/packing/native/比較とgoldenは不変、mainの本command解析/dispatch以外の全CLI関数ASTも同じ。compiler/GPU/Windows追加0、full native sweep再実行0、compile-planはpolicyのみpassed。旧test manifestのsuite欠落2件をfixture修正し本体guardを保持した。
+
+global model-checkは今回/旧suite packetともpinned IMPL-STATUS未同梱で実行できず、必要資料があるcheckoutで成功した。packetの成功とはしない。12profileはgeneric typed入口の失敗であり、Heavyarmsなど別専用entryの既存実証も必ず照合する。次はaccepted profileを明示選択して固定するcatalogue経路（現prepare_entriesは全prepare後にcase filterのため全profile混在では失敗候補も先にcompileする）を整備する。選択外profileを黙ってdrop/rejection成功へ置換しない。証跡 `shared-entry-inventory-v1.json`。
+
 2026-10-28追加：`original-shield-weapons`をsealed15入力（native10/raw拒否5）に登録。shield_dmg_pctの元4carrier（レイ/アスカ/マリ/ミサト）を3/30秒の実編成/実武器/元全効果で共通座標typed owner実行器へ接続。マリ12秒/ミサト22秒は明示ハイド操作を元identity検査後に適用し、効果失効と元条件による再発動を検査する。元操作不変とは記録せず、操作overlayのcaseはoriginal_controls_preserved=False。元定義73/74/70/71、追加damage/timer/計算複製なし。全9,237着弾、最大2,457件は先頭2,048＋全streamSHAを比較する。
 
 固定53ca72b3/packageaba59d6b…はM5 Metal＋独立fresh seal成功。86unit/CPU128.25秒/GPU3.81635秒/必須pipeline hit0.00294秒/独立149.61秒。live native/context10件再利用、独立GPU0、実GPU1/retry0。生成も必須hit/Slang0、前回projectileの生成CUDA/MSL全byteと同一、406 GPUファイル不変。未対応分類に元物理shieldのscopeを追記し、旧non-coordinate証跡の未検証範囲と新座標証跡を混同しない。`original-shield-weapons-cache-only`は同じ計算/goldenのCUBIN/O1必須＋paired generation必須。Windows追加0、実CUDA/cache hitは未確認。canonical target-world/任意world・混成/全分岐・育成/実機/公開受付/全キャラは未達。[元シールド補正](portable-original-shield-weapons.md)参照。
