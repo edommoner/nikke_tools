@@ -28,6 +28,11 @@ sys.path[:0] = [str(ROOT/p) for p in ('app', 'research', 'scripts')]
 from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 # No GPU/backend/native imports at startup: collect/audit must work without them.
 SUITES = {
+    'named-target-count-query':dict(script='research/verify-named-target-count-query.py',
+        golden='research/portable-named-target-count-query-expected.json',
+        source='gpu/effect_target_count_entry.slang',inputs=9,native=6,
+        input_words=86016,output_words=159744,development_only=True,
+        tests=['test_portable_effect_target_count.py','test_effect_target_count_policy.py']),
     'projectile': dict(script='research/verify-world-projectile-short.py',
                        golden='research/portable-world-projectile-short-expected.json',
                        source='gpu/world_projectile_entry.slang', inputs=63, native=52,

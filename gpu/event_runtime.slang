@@ -1927,6 +1927,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "admission_runtime.slang"
 #include "portable_mt19937.slang"
 #include "enemy_target_runtime.slang"
+#ifdef PORTABLE_EFFECT_TARGET_COUNT
+#include "effect_target_count_runtime.slang"
+#endif
 #include "program_phases.slang"
 
 #ifdef PORTABLE_RESIDENT_RUNTIME

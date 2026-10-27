@@ -62,8 +62,15 @@ void initializePortableProgram(inout Runtime s,uint input,uint output,out bool r
     // Preserve existing rejection paths; close raw numeric-stat gaps before
     // any activation/query can silently ignore an unsupported buff identity.
     for(uint row=0;row<s.count;row++)
-        if(definition_kind(input,row)==0 && !validPortableBuffStat(definition_stat(input,row)))
+        if(definition_kind(input,row)==0 && !validPortableBuffStat(definition_stat(input,row))
+#ifdef PORTABLE_EFFECT_TARGET_COUNT
+           && definition_stat(input,row)!=TC_STAT
+#endif
+        )
         { PROJECTILE_ADMIT_STAGE(s,25) results[output]=64;return; }
+#ifdef PORTABLE_EFFECT_TARGET_COUNT
+    if(!validTargetCountDefinitions(s)) { results[output]=64;return; }
+#endif
     PROJECTILE_ADMIT_STAGE(s,26) if(!initializeRevival(s)) { results[output]=64;return; }
 #ifdef PORTABLE_HEAL_CHARGE
     if(healChargeEnabled(s)) for(uint word=0;word<8+512*20+8;word++) results[output+771072+word]=0;
@@ -135,6 +142,9 @@ void executePortableCommands(inout Runtime s,uint input,uint output,out uint que
             if (s.combat == 0 && event == 2) s.phase = 0;
             dispatch(s,0,event,commands[at+4],int(commands[at+5]),when,output);
         }
+#ifdef PORTABLE_EFFECT_TARGET_COUNT
+        else if(op==44) { if(!targetCountCommand(s,at,when,output,queries)) { s.error=64;break; } }
+#endif
         else if (op == 4 && s.combat != 0) { if (s.clockMode != 0) { s.error = 64; break; } squadFrame(s,when,output); s.frameCount++; }
         WORLD_ACTOR_COMMAND(s,at) WORLD_POOL_COMMAND(s,at) WORLD_FIELDS_COMMAND(s,at) WORLD_STATE_COMMAND(s,at) COUNTER_COMMAND(s,at) else if (op == 26)
         {
