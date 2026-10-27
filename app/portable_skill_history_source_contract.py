@@ -16,5 +16,8 @@ def project_sources(root,sources=None):
     return out
 def project_backend_source(root,source=None):
     root=Path(root);name='app/portable_backend.py'
+    if (root/'gpu/world_coordinate_logical_actor_entry.slang').exists():
+        from portable_logical_geometry_source_contract import project_backend_source as logical_backend
+        source=logical_backend(root,source)
     try:return checked((root/name).read_text() if source is None else source,ledger(root)['sources'][name])
     except AssertionError as error:raise ValueError('Unreviewed shared skill history transport') from error

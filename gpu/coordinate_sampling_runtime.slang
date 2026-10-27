@@ -289,5 +289,9 @@ uint64_t deliverSampledCoordinateShot(inout Runtime s,uint who,uint64_t legacy)
         }
     }
     if(grouped)finishCoordinatePhysicalGroup(s,who,when,s.resourceOutput);
+#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS
+    for(uint i=0;i<LAG_PELLET_WORDS;i++)results[s.resourceOutput+LAG_PELLET_BASE+i]=0;
+    for(uint i=0;i<LAG_HEAD_WORDS;i++)results[lagHead(s)+i]=0;
+#endif
     return legacy;
 }

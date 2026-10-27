@@ -18,7 +18,7 @@
     },
     "gpu/coordinate_sampling_runtime.slang": {
       "before_sha256": "d7fdfd2adac30564cb909dacf5a4c0d04fdb5f43e9982af7b761275f3e885abf",
-      "after_sha256": "c0966222be364ecfc54e5dd20f99016633fadd259ab5410b8e256b8c08fee63e",
+      "after_sha256": "bee8086ab3258de0c03d8aef963d92897dcc603c1cc5d17bb2f6745a4a1078c4",
       "changes": [
         {
           "before": "uint csRow(inout Runtime s,uint i){return s.resourceOutput+CS_ROWS+i*CS_ROW_WORDS;}",
@@ -55,6 +55,10 @@
         {
           "before": "            uint gen=coordinateLandingGeneration(s,slot,results[e+3]);uint64_t amount=actorNumber(at+(targetKind==1?4:6));bool extra=reach;",
           "after": "#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS\n            if(lagActive(s)&&targetKind==5)\n            {\n                coordinateGroupDirectPacket(s,who,slot,results[e+3],lagAmount(s,hit,5),when,reach,grouped);continue;\n            }\n#endif\n            uint gen=coordinateLandingGeneration(s,slot,results[e+3]);uint64_t amount=actorNumber(at+(targetKind==1?4:6));bool extra=reach;"
+        },
+        {
+          "before": "    if(grouped)finishCoordinatePhysicalGroup(s,who,when,s.resourceOutput);\n    return legacy;",
+          "after": "    if(grouped)finishCoordinatePhysicalGroup(s,who,when,s.resourceOutput);\n#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS\n    for(uint i=0;i<LAG_PELLET_WORDS;i++)results[s.resourceOutput+LAG_PELLET_BASE+i]=0;\n    for(uint i=0;i<LAG_HEAD_WORDS;i++)results[lagHead(s)+i]=0;\n#endif\n    return legacy;"
         }
       ]
     },
@@ -89,6 +93,16 @@
         {
           "before": "#elif defined(PORTABLE_COORDINATE_TYPED_TARGETS)\nstatic const uint P_OUTPUT_WORDS = 2032000U;",
           "after": "#elif defined(PORTABLE_COORDINATE_TYPED_TARGETS) || defined(PORTABLE_COORDINATE_LOGICAL_ACTORS)\nstatic const uint P_OUTPUT_WORDS = 2032000U;"
+        }
+      ]
+    },
+    "app/portable_backend.py": {
+      "before_sha256": "aa9b913cee13174e26fd0d5d7e5cfc6fc19b582d188dea86f1cb258552630f43",
+      "after_sha256": "a950c60a413b9a1241652f5effe517f2941a987ddcc2a6b7df2a5eceb530bc31",
+      "changes": [
+        {
+          "before": "    if source=='gpu/world_coordinate_resident_frames_entry.slang':",
+          "after": "    if source=='gpu/world_coordinate_logical_actor_entry.slang':\n        from portable_logical_geometry_wire import check_schema,LAYOUT,SCRATCH\n        check_schema(ROOT)\n        if (input_words,output_words)!=(LAYOUT['BASE']+LAYOUT['WORDS'],SCRATCH['OUTPUT_WORDS']):raise ValueError('Logical ADD geometry requires its complete registered wire')\n        return\n    if source=='gpu/world_coordinate_resident_frames_entry.slang':"
         }
       ]
     }

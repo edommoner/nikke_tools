@@ -17,6 +17,9 @@ def project_sources(root,sources=None):
     return out
 def project_backend_source(root,source=None):
     root=Path(root);name='app/portable_backend.py';source=(root/name).read_text() if source is None else source
+    if (root/'gpu/world_coordinate_logical_actor_entry.slang').exists():
+        from portable_logical_geometry_source_contract import project_backend_source as logical_backend
+        source=logical_backend(root,source)
     if (root/'gpu/world_coordinate_typed_history_entry.slang').exists():
         from portable_skill_history_source_contract import ledger as history_ledger
         # Direct historical audits start with current transport; composed

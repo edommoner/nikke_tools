@@ -10,7 +10,7 @@ from portable_arena_specs import audit_regions
 class LogicalGeometryRuntime(unittest.TestCase):
     def test_exact_historical_projection_and_shared_receipt_tail(self):
         sources=project_sources(ROOT)
-        self.assertEqual(len(sources),5)
+        self.assertEqual(len(sources),6)
         self.assertNotIn('PORTABLE_COORDINATE_LOGICAL_ACTORS',''.join(sources.values()))
 
     def test_full_input_and_output_have_disjoint_owners(self):

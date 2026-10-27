@@ -114,6 +114,11 @@ def validate_composed_stride(source,input_words,output_words):
         check(ROOT)
         if source!='gpu/world_physical_locks_entry.slang' or (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Physical locks require their separate arena wire')
         return
+    if source=='gpu/world_coordinate_logical_actor_entry.slang':
+        from portable_logical_geometry_wire import check_schema,LAYOUT,SCRATCH
+        check_schema(ROOT)
+        if (input_words,output_words)!=(LAYOUT['BASE']+LAYOUT['WORDS'],SCRATCH['OUTPUT_WORDS']):raise ValueError('Logical ADD geometry requires its complete registered wire')
+        return
     if source=='gpu/world_coordinate_resident_frames_entry.slang':
         from portable_coordinate_resident_arc_specs import check_layout,INPUT_WORDS,OUTPUT_WORDS
         check_layout(ROOT)
