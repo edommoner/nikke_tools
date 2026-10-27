@@ -20,6 +20,9 @@ class ResidentFrameDeviceTests(unittest.TestCase):
   self.assertTrue(set(cli.SUITES['coordinate-resident-device']['tests'])<=set(short['tests']))
   self.assertIn('test_dispatch_frame_storage.py',short['tests'])
   from portable_package_projection import SUPPORTED_SUITES
-  self.assertIn('resident-frames-device',SUPPORTED_SUITES);self.assertNotIn('coordinate-resident-frames',SUPPORTED_SUITES)
+  self.assertIn('resident-frames-device',SUPPORTED_SUITES);self.assertIn('coordinate-resident-frames',SUPPORTED_SUITES)
+  from portable_package_projection import roots_for
+  self.assertIn(full['script'],roots_for(full,cli.SMOKE_TESTS))
+  self.assertIn(short['script'],roots_for(short,cli.SMOKE_TESTS))
 
 if __name__=='__main__':unittest.main()
