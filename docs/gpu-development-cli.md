@@ -563,3 +563,6 @@ Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-la
 
 
 `lock-delivery-policy` はsealed63入力（共通CPU policy46／raw拒否17）。発射前snapshotのhit番号→型付き世代付きslot選択部品だけをCUDA/Metal共通で検査し、M5 Metal＋fresh独立監査で一致。標準package/run/seal経路を使う。CPUテストには実 `on_attack`／`full_charge_fire`／gauge消費順の検査も含める。実着弾キュー・HP・ゲームの再対象化規則・全25効果の認定には使わない。詳細は [snapshot選択部品](portable-heavyarms-lock-selection.md)。
+
+
+`lock-delivery-cache-only` は同じsealed63入力・同じgoldenを使うcompiler-free CUDA入口。既存cache規約をそのまま再利用し、`--require-cache --compile-cache ABS --cached-cuda-source SAVED_generated.cu --artifact-kind cubin --ptxas-level 1` を必須にする。保存sourceのstrict normalized hashとCUBIN hitをCPU/native前に検査し、実行子でもexact-byte cacheを再検証、NVRTCロードを拒否する。非residentなのでgeneration-cache flagは使わない。現在の実CUDA cache hit/launchは未実証。Windowsへ新規依頼は送っていない。
