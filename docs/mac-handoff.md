@@ -2600,3 +2600,10 @@ sealed `physical-generation-locks`7入力（native3/拒否4）はM5 Metalと別f
 
 
 最終固定packet779d20cc（code b9c090ca）は自身の7群54検査と共通66群642検査（Windows専用1skip）がCPU-onlyで成功。GPU追加0。新幅806912を追加しても旧wire修復が変化しないよう、修復元・先の幅列と先SHAを歴史時点へ固定。共通CLIのGPU前必須検査にweapon source・generation separation・historical wire repairを登録し、repo内スキルにも反映。CPU-onlyの先行失敗3件は保持。証跡はresearch/target-count-query-evidence/physical-lock-arena-sealed-preflight-v4.json。全目標は未完了。
+
+
+### 2026-10-27 実ハイド通知の次接続契約
+
+共通CLI `reference --suite physical-lock-cover-native` を追加。実CharState `_enter_cover` の `event:cover` を使う5ケース（充填中、別caster、禁止、空集合、リロード待ち）が固定packet4acdadd2で成功。通知はcharging取消後。既存observerは同casterの実cover通知でmembershipを解除し、通常攻撃前snapshotと遮蔽後の再取得を検証。通知callbackは透明性比較用の2回目nativeへ漏らさず、全battle/trace/input一致検査を維持する。
+
+自身の8群59検査と共通66群642検査（Win1skip）、model-checkが成功。旧Metal10入力/native6の全指紋保持、全packaged GPU source byte保持。追加GPU0/Windows依頼0。証拠はresearch/target-count-query-evidence/physical-lock-cover-native-v1.json。cover入力は現physical GPU入口で全5ケース拒否を保持し、CPU契約をGPU成功へ昇格させない。次は既存enterManualCover/event31+tagとcaster照合、共通arenaの合成配置監査→接続→Metal。新しい状態機・CPU通知スケジュールは作らない。順番攻撃/元全25/距離とfull106 CUDA再認定は未完。Windows既存continuationのterminal取得待ちは変更せず再送しない。
