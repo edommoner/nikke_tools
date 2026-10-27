@@ -3,7 +3,8 @@ import hashlib,json
 from pathlib import Path
 
 def project_sources(root,sources=None):
-    root=Path(root);out=dict(sources or {})
+    from portable_packet_fates_source_contract import project_sources as fates
+    root=Path(root);out=fates(root,sources)
     ledger=json.loads((root/'tests/fixtures/portable-lock-typed-source-delta.json').read_text())
     for name,digest in ledger['added_sources'].items():
         if hashlib.sha256(out.get(name,(root/name).read_text()).encode()).hexdigest()!=digest:raise AssertionError('Unreviewed lock/projectile composition dependency: '+name)

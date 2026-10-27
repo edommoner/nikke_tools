@@ -59,7 +59,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
     if old_simulate is not old_alias:raise ValueError('Native battle aliases differ before typed extension')
     old_boss=timeline.BossScript;old_register=buff_manager.BuffManager.register_damage_handler;old_hit=timeline.HitEvent
     old_scalar=timeline.calc_damage
-    data=dict(worlds=[],managers=[],activations=[],attacks=[],finished=[]);active=[];marked={};restores=[]
+    data=dict(worlds=[],managers=[],activations=[],attacks=[],finished=[],body_dispositions=[]);active=[];marked={};marked_worlds={};restores=[]
     from destructible_weapon_runtime import WeaponShots
     weapons=WeaponShots(timeline,data,shield_owner,hit_shields,body_lifesteal=body_lifesteal,body_accumulation=body_accumulation) if weapon_shields else None
     from coordinate_typed_weapon_runtime import CoordinateWeaponShots
@@ -196,7 +196,7 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
         if event.caster!=context['caster'] or event.t!=context['time']:raise ValueError('Typed packet owner/time mismatch')
         physical=context.get('coordinate_weapon',False);attacks=data['coordinate_weapon_attacks'] if physical else data['attacks']
         if len(attacks)>=(2**23-1 if physical else max_attacks):raise ValueError('Typed battle attack observation capacity exceeded')
-        identity=(2**23 if physical else 0)+len(attacks)+1;marked[id(event)]=event
+        identity=(2**23 if physical else 0)+len(attacks)+1;marked[id(event)]=event;marked_worlds[id(event)]=context['world']
         record=dict(attack_id=identity,name=context['name'] if 'name' in context else context['effect'].get('name'),caster=event.caster,time=event.t,damage=float(event.damage),receipts=(),completed=False)
         if context.get('quantity_only'):record['quantity_only']=True
         if 'family' in context:record.update(family=context['family'],hit_tag=context['hit_tag'],weapon_mode_skill=context['weapon_mode_skill'])
@@ -221,7 +221,10 @@ def typed_battle(bindings,*,max_attacks=128,modifier_model=False,shield_owner=No
             if context is not None:return event
         return deliver_event(event,context)
     def skip(event):
-        if marked.get(id(event)) is event:return True
+        if marked.get(id(event)) is event:
+            world=marked_worlds[id(event)]
+            data['body_dispositions'].append(dict(caster=event.caster,name=event.skill_name,created=event.t,landed=world.last,amount=event.damage))
+            return True
         if coordinate_weapons is not None:
             context=coordinate_weapons.landing(event)
             if context is not None:deliver_event(event,context);return True

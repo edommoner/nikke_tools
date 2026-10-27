@@ -20,13 +20,18 @@
 #define DF_RECEIPT(s,scratch,output,cursor) (results[scratch+530]+16+(cursor)*8)
 #define DF_ATTACK_ID(s,scratch,descriptor) results[scratch+531]
 #define DF_COMPLETE(s,scratch) if(results[scratch+531]!=0) results[results[scratch+530]+10]=1;
+#define WORLD_PACKET_CAPTURE(s,r,index,fallback) if(compositionSuppressedReceipt(s,r,index,when)) return s.error==0; if(!lockDeliveryCapture(s,r,index)) { fallback }
 #define portableEvents unusedNormalLockEntry
-#include "world_lock_delivery_entry.slang"
+#include "world_lock_packet_entry.slang"
+#include "live_lock_delivery_runtime.slang"
 #undef portableEvents
 #include "destructible_target_core.slang"
 #include "destructible_world_runtime.slang"
 #include "destructible_battle_runtime.slang"
+#include "packet_fates_runtime.slang"
+#define pushSkillHit compositionPushSkillHit
 #include "destructible_frame_runtime.slang"
+#undef pushSkillHit
 
 [shader("compute")]
 [numthreads(1,1,1)]
@@ -38,6 +43,7 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     initializeRuntime(runtimeStates[id.x]);bool ready;
     initializePortableProgram(runtimeStates[id.x],input,output,ready);if(!ready)return;
     if(!initializeDestructibleBattle(runtimeStates[id.x])){results[output]=64;return;}
+    if(!initializePacketFates(runtimeStates[id.x])){results[output]=64;return;}
     uint queries;executePortableCommands(runtimeStates[id.x],input,output,queries);
     writePortableProgram(runtimeStates[id.x],input,output,queries);
 }

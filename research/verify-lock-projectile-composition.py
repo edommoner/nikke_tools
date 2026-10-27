@@ -9,6 +9,7 @@ def module(name,path):
 live=module('lock_typed_live','research/verify-live-lock-delivery.py')
 typed=module('lock_typed_battle','research/verify-destructible-battle-short.py')
 from portable_lock_typed_layout import SOURCE,INPUT,OUTPUT,check,lock_view
+from portable_packet_fates import check as check_fates,native_fates,compare_and_project
 from world_lock_packet_native import capture
 from world_physical_locks_native import baseline
 from live_lock_delivery_policy import MODEL
@@ -26,10 +27,16 @@ def fixtures():
         c['typed_bindings']=[dict(node='typed',kind=2,identity=10+i,capacity=capacity) for i in range(count)]
         c['effects'].append(copy.deepcopy(source_definitions()[24]));c['owners'].append(0)
         rows.append(c)
+    for label,timing in [('named-child','weapon_hit:'+source_definitions()[24]['name']),('counter-child','event:target_counter_complete:marker')]:
+        c=copy.deepcopy(rows[0]);c['name']='lock-projectile/'+label
+        if label=='counter-child':
+            from target_counter_cases import marker
+            e=marker(threshold=1,attackers='owner',actor=dict(kind='projectile',identity=10,generation=1));e['target']='boss';e['trigger']['timing']=['battle_start'];c['effects'].append(e);c['owners'].append(0)
+        c['effects'].append(dict(name=label,source='스킬2',type='damage',stat='damage',fixed_value=50.,target='boss',trigger=dict(timing=[timing],condition=[])));c['owners'].append(0);rows.append(c)
     return rows
 
 def compile_case(c):
-    check(ROOT)
+    check(ROOT);check_fates(ROOT)
     with patch.object(typed.base,'compile_case',live.compile_case):words,domain=typed.compile_case(c)
     return words,domain[1],domain[2]
 
@@ -39,14 +46,15 @@ def native_reference(domain,*,candidate_observer=None):
         with typed_battle(c['typed_bindings'],max_attacks=c['max_attacks']) as data:
             with capture(c,delivery_model=MODEL,diagnostics=diagnostics,candidate_observer=observer) as result:
                 battle,trace=baseline(c)
-        result.update(battle=battle,skill_trace=trace,typed=typed.typed_observation(c,data));return result
+        result.update(battle=battle,skill_trace=trace,typed=typed.typed_observation(c,data),receipt_fates=native_fates(c,trace,data['body_dispositions']));return result
     n=run(True,candidate_observer);plain=run(False)
-    if n['battle']!=plain['battle'] or n['skill_trace']!=plain['skill_trace'] or n['typed']!=plain['typed'] or c!=before:raise AssertionError('Composed diagnostics changed full native model/input')
+    if n['battle']!=plain['battle'] or n['skill_trace']!=plain['skill_trace'] or n['typed']!=plain['typed'] or n['receipt_fates']!=plain['receipt_fates'] or c!=before:raise AssertionError('Composed diagnostics changed full native model/input')
     return n
 
 def compare(block,domain):
     candidates=[];n=native_reference(domain,candidate_observer=lambda values:candidates.append(tuple(values)))
-    live.parent.parent.parent.compare_observed(lock_view(block),domain,n,candidates,manual=bool(domain[0].get('physical_cover_composition')),packet_bindings=True)
+    projection=compare_and_project(block,n)
+    live.parent.parent.parent.compare_observed(projection,domain,n,candidates,manual=bool(domain[0].get('physical_cover_composition')),packet_bindings=True)
     actual=typed.decode(block,domain)
     if actual!=n['typed']:raise AssertionError(('Composed typed state/attacks',actual,n['typed']))
     return n
@@ -56,7 +64,7 @@ def prepare():
     for c in fixtures():
         w,m,b=compile_case(c);entries.append((c['name'],w,(c,m,b)))
     seed=entries[0][1]
-    for name,at,value in [('typed-magic',109523,0),('typed-node',104400+2328,32),('typed-capacity',109521,0),('typed-reserved',104400+2336,1)]:
+    for name,at,value in [('typed-magic',109523,0),('typed-node',104400+2328,32),('typed-capacity',109521,0),('typed-reserved',104400+2336,1),('trace-required',5,0)]:
         w=list(seed);w[at]=value;entries.append(('reject/lock-projectile/'+name,w,None))
     raw=array.array('I',[len(entries)])
     for _,w,_ in entries:raw.extend(w)

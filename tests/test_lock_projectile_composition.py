@@ -12,7 +12,7 @@ class CompositionTests(unittest.TestCase):
 
     def test_original_projectile_definition_and_live_lock_packets_share_one_clock(self):
         from portable_heavyarms_lock_cases import source_definitions
-        for c in suite.fixtures():self.assertEqual(c['effects'][-1],source_definitions()[24])
+        for c in suite.fixtures():self.assertEqual([e for e in c['effects'] if e.get('target')=='all_projectiles'],[source_definitions()[24]])
         n=self.observed[0];self.assertEqual(len(n['typed']['attacks']),1)
         attack=n['typed']['attacks'][0];self.assertTrue(attack['completed']);self.assertEqual(len(attack['receipts']),3)
         self.assertTrue(all(r['delivered'] and r['took']>0 for r in attack['receipts']))
@@ -38,7 +38,14 @@ class CompositionTests(unittest.TestCase):
     def test_static_composition_never_simulates_or_selects_recipients(self):
         from calculator import timeline
         with patch.object(timeline,'simulate',side_effect=AssertionError('No CPU schedule in packing')):
-            entries,_=suite.prepare();self.assertEqual(len(entries),9);self.assertEqual(sum(d is not None for _,_,d in entries),5)
+            entries,_=suite.prepare();self.assertEqual(len(entries),12);self.assertEqual(sum(d is not None for _,_,d in entries),7)
+
+    def test_no_native_history_rows_removed_and_reentrant_append_order_is_preserved(self):
+        old=json.loads((ROOT/'research/target-count-query-evidence/lock-projectile-composition-v1-failure-diagnostic.json').read_text())
+        for n,row in zip(self.observed,old['rows'][:5]):self.assertEqual(n['skill_trace'],row['native_skill_trace'])
+        self.assertEqual([r['disposition'] for r in self.observed[5]['receipt_fates'][:2]],['suppressed_native_body','ordinary_world_route'])
+        self.assertEqual([r['disposition'] for r in self.observed[6]['receipt_fates'][:2]],['ordinary_world_route','suppressed_native_body'])
+        self.assertEqual(len(self.observed[6]['battle']['target_counters']['completions']),1)
 
     def test_reusable_typed_observer_preserves_all_original_battle_fingerprints(self):
         original=suite.module('lock_typed_original_retention','research/verify-destructible-original-battle-short.py')
