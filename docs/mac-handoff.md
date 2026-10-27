@@ -2616,3 +2616,14 @@ sealed physical-lock-coverは23入力/native11＋拒否12でM5 Metal＋fresh独�
 新GPU1（.046597秒）＋共有source変更後のlegacy10/16各1、同claim retry0。3packetともfresh独立seal。legacy2は旧生成CUDA/MSL全byte同一を先に確認し、pipeline必須cache hitで各約.002秒。legacy全input/readback byte保持。物理10はv3、external16はv4、cover23はv1 goldenへ接続し旧golden保持。通常配布3packet作成成功。最終cover db363dc0は専用57・共通642検査（Win1skip）成功、GPU追加0。証拠はtarget-count-query-evidenceのmetal-physical-lock-cover-v1／legacy-retention／sealed-preflight-v1等。
 
 全inventory fieldは旧arena版と一致、266profile/245変換/21失敗/20分類/全キャラ0/UI CPU。default106 CUDA/MSL厳密生成hash不変（生成のみ、現在source CUDA認定ではない）。誤ったmain entryを指定したCPU生成診断は失敗記録を残し、正しいportableEvents指定で保持を確認。Windows既存continuation statusを1回確認したがhost unavailableでterminal未取得、再送/再実行0。次はsnapshotを消費する順番攻撃と元全25効果。距離/tie/対象種別・ゲーム仕様は未確定のまま。
+
+
+### 2026-10-27 順番攻撃のsnapshot選択部品とCUDA cache専用入口
+
+実通知を追加観測し、on_attack → full_charge_fire → 元index8 named hit通知2回 → weapon hit通知を固定。元index4/8/9を変更せず加えたfixtureではhit予算2→消費後0、発射前snapshotは2対象。キューでlive membershipや消費後gaugeを読み直さず、発射時snapshot番号とhit予算を保持する必要がある。通知観測へ配送policyは注入しない。
+
+共通整数部品cycle-frozen-slot-v1をPython／Slangへ追加し、CLI lock-delivery-policy63入力（共通policy46／raw拒否17）がM5 Metal1回＋fresh独立監査で一致。全6kind/128対象/256hit、空/欠落/死亡/世代違い、整数上限/重複/予約wordを比較。死んだslotを圧縮して別対象へずらさない明示policy。ゲームの途中死亡・挑発・再対象化の実測規則とは別で、実着弾キュー/HP/全25効果へ未接続。
+
+legacy cover23/physical10/external16の全source閉包は151/150/134fileで不変、追加旧GPU/compile0。locked probeの独立sealはpackage14bf0314、Metal source/code e01389f9。最終通常package a2e38df1はpolicy/実順序5検査と共通642（Win1skip）が成功。最終cache専用efba68b8は12検査成功。lock-delivery-cache-onlyは既存compile-cache-only-v1を再利用し、required CUBIN/O1・保存source・事前file-only hitを要求、NVRTC loader禁止。immutable CLIにcache条件を渡さない負例はcapture/claim作成前に停止。実CUDA cache hit/launchは未実証、Windows新依頼0。通常probe63GPUは1回、retry0。
+
+証跡はtarget-count-query-evidence/metal-lock-delivery-policy-v1.json、lock-delivery-native-order-v1.json、lock-delivery-final-preflight-v1.json。model-check成功、public GPU/全キャラ/全目標は未達。次はLandingReceiptに発射時snapshot tokenとhit予算を結び、landWorldSkillReceiptの既存actor set/land/counter/heal経路へ接続。予約word/所有権を監査し、live32setを診断snapshotに使わない。距離/tie/挑発のゲーム規則を勝手に確定しない。Windowsの旧continuation terminal未取得・再送禁止は継続。
