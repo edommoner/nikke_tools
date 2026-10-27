@@ -18,6 +18,13 @@ def reference_readiness(issue):
         result.update(lane='reference_model_gap',native_consumer='missing_canonical_world_or_quantity_consumer',consumer_source='app/portable_model_gap_audit.py; app/portable_missing_consumer_audit.py; calculator/boss_pattern.py:_ranked; calculator/timeline.py:_register_instant_handlers',
             required_extensions=['explicit_world_or_quantity_model','typed_target_lifecycle_and_producer_contracts','shared_execution_and_current_CUDA_Metal_battle_validation'],
             note='Pinned source leaves movement/lock/range/target-count unimplemented. target_and_nearby falls back to one aimed target without a nearby spatial model; all_projectiles returns before damage. Enemy ammunition is filtered out by the allied instant handler, though its named completion still emits. Enemy healing has no verified recipient path. Keep these effects rejected; source audits and typed-state core do not certify battle support')
+        if issue.get('stat')=='effect_target_count_add':
+            result.update(contract_coverage='declared_cpu_query_only',
+                declared_target_count_query=dict(suite='heavyarms-target-count-native',cases=4,original_definitions=25,
+                    model='named-effect-target-count-v1',reader='app/effect_target_count_policy.py:query',
+                    scope='Named capacity and existing native carrier lifetime only; inspect reference evidence',
+                    selection_consumer_connected=False,gpu_supported=False),
+                required_extensions=['named_target_count_query_to_actual_selector','spatial_lock_and_original_full25_battle_integration','current_CUDA_and_Metal_validation'])
         if issue.get('stat')=='lock_on':
             result.update(native_consumer='generic_named_carrier_present_dedicated_lock_model_missing',contract_coverage='native_named_marker_only',
                 native_marker_contract=dict(suite='heavyarms-lock-marker-native',original_definitions=25,worlds=['boss_only','three_live_adds'],

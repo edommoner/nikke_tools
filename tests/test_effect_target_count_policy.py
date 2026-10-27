@@ -17,6 +17,16 @@ class EffectTargetCountPolicyTests(unittest.TestCase):
     def q(self,bm,who=0,name='록 온',t=1.1,**changes):
         args=dict(base_count=5,capacity_limit=128,model=MODEL);args.update(changes)
         return query(bm,NAMES[who],name,t,**args)
+    def test_registered_cpu_contract_keeps_default_admission_closed(self):
+        from portable_reference import REFERENCES
+        from portable_readiness_semantics import reference_readiness
+        from portable_model_gap_audit import verify
+        self.assertIn('heavyarms-target-count-native',REFERENCES)
+        r=reference_readiness(dict(phase='effect',kind='buff',stat=STAT,target='self',scaling=None))
+        self.assertEqual(r['lane'],'reference_model_gap');self.assertFalse(r['gpu_supported'])
+        self.assertEqual(r['declared_target_count_query']['cases'],4);self.assertFalse(r['declared_target_count_query']['selection_consumer_connected'])
+        r=verify(ROOT)['missing_stats'][STAT]
+        self.assertFalse(r['required_consumer_contract']['implementation_verified']);self.assertFalse(r['declared_query_reader']['gpu_supported'])
     def test_original_modifier_adds_ten_targets_and_two_shots_remove_it(self):
         bm=self.activate();self.assertEqual(self.q(bm)['capacity'],15)
         bm.consume_bullet_buffs(NAMES[0],2.);self.assertEqual(self.q(bm,t=2.1)['capacity'],15)

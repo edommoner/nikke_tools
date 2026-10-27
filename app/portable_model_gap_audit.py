@@ -36,6 +36,7 @@ def verify(root,overrides=None):
  assert definitions[20]['target_effect']==definitions[0]['name'] and definitions[24]['target']=='all_projectiles'
  missing['lock_on']['published_skill_contract']=dict(fixture=contract_path,sha256=hashlib.sha256(contract_raw.encode()).hexdigest(),source=contract['source'],
   evidence_kind=contract['evidence_kind'],in_game_validation_performed=False,selection=contract['selection'],target_capacity=contract['target_capacity'],clear_events=contract['clear_events'],unresolved_rules=contract['unresolved_rules'])
+ missing['effect_target_count_add']['declared_query_reader']=dict(path='app/effect_target_count_policy.py',model='named-effect-target-count-v1',reference_suite='heavyarms-target-count-native',selection_consumer_connected=False,gpu_supported=False)
  missing['effect_target_count_add']['required_consumer_contract']=dict(marker=definitions[0]['name'],additional_targets=10,duration_bullets=2,
   distinct_target_capacity=True,does_not_increase_per_target_marker_stack=True,implementation_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}
