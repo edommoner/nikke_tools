@@ -1,0 +1,89 @@
+{
+  "schema": "original-health-parts-final-checks-v1",
+  "passed": true,
+  "source_commit": "77de10f791ebeaf0b9d018bcc4eca864b7524a25",
+  "suite": "original-lock-health-parts-cache-only",
+  "package_id": "8815c31b7bc595f00bee05896c49dc3881938e21e5d8ba2adc09bfa3f22ff0cc",
+  "manifest_sha256": "69a60f319a76ff021ebf33dd37013eb2809d030ec5f7de58de5a7484bc3db278",
+  "unit_only_receipt": {
+    "schema": "unit-check-v1",
+    "package_id": "8815c31b7bc595f00bee05896c49dc3881938e21e5d8ba2adc09bfa3f22ff0cc",
+    "suite": "original-lock-health-parts-cache-only",
+    "passed": true,
+    "unit_tests_verified": true,
+    "full_native_preflight_executed": false,
+    "cpu_verified": false,
+    "calculation_verified": false,
+    "gpu_execution_verified": false,
+    "gpu_calls": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false,
+    "groups": 13,
+    "tests": 111
+  },
+  "cpu_test_groups": 13,
+  "cpu_tests": 111,
+  "cpu_test_skipped": 0,
+  "unit_elapsed_seconds": 22.479133457993157,
+  "unit_result_sha256": "3f7e756eb31336238db4796b18724af7c11a5918101f29d3f720ca40848f49af",
+  "unit_cpu_tests_sha256": "d46505ff8a4c0e5852b790b90499b27bc87df329297a7890eeff0e5e1b0f2ab4",
+  "unit_artifacts_sha256": "2256fc5b7ecaad192c8925dd58245f62ca6283ea1aea9d3bc9f87e8779d2a23e",
+  "payload_delta": {
+    "schema": "original-health-parts-final-payload-delta-v1",
+    "gpu_package_id": "66bef7186f8f2ef7f93957be2a21e20d7a565ac5e1d4dc693a485b57f8515551",
+    "final_package_id": "8815c31b7bc595f00bee05896c49dc3881938e21e5d8ba2adc09bfa3f22ff0cc",
+    "changed_files": [
+      "app/portable_model_gap_audit.py",
+      "scripts/nikke_gpu.py",
+      "tests/test_original_lock_health_parts.py",
+      "tests/test_portable_model_gap_audit.py"
+    ],
+    "added_files": [
+      "research/portable-original-lock-health-parts-v1-expected.json",
+      "tests/test_portable_unit_check.py"
+    ],
+    "removed_files": [],
+    "changed_existing_cli_functions": [
+      "main"
+    ],
+    "added_cli_functions": [
+      "unit_capture"
+    ],
+    "all_gpu_and_numeric_native_packing_comparison_sources_unchanged": true,
+    "full_run_cpu_preflight_and_gpu_child_functions_unchanged": true,
+    "all_input_and_native_expectations_unchanged": true,
+    "gpu_calls": 0,
+    "calculation_verified": false
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "8815c31b7bc595f00bee05896c49dc3881938e21e5d8ba2adc09bfa3f22ff0cc",
+    "suite": "original-lock-health-parts-cache-only",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "compile_plan_sha256": "006f9fd07958c635bb61ff83289e0c3156602bdd04c5fd7670be343082586a55",
+  "metal_proof": "metal-original-health-parts-v2.json",
+  "full_native_sweep_repeated_after_metadata_only_changes": false,
+  "full_native_and_metal_calculation_remain_bound_to_sealed_gpu_package": true,
+  "protected_sources_and_strict_normalizer_unchanged": true,
+  "model_audit_tests": 14,
+  "model_audit_sha256": "b5dfef989c2097c60114dab134f017e08dad5d9bd84712513c221d66b996a8cc",
+  "inventory_summary": "original-health-parts-next-priorities-v1.json",
+  "additional_gpu_calls": 0,
+  "windows_new_execution_requests": 0,
+  "cuda_device_verified": false,
+  "actual_cubin_cache_hit_verified": false,
+  "full_goal_complete": false
+}
