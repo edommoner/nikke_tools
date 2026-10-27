@@ -87,9 +87,9 @@ uint collectTargetCounters(inout Runtime s,uint action,uint64_t when)
     }
     return start;
 }
-void advanceTargetCounter(inout Runtime s,inout Frame frames[32],inout int depth)
+void advanceTargetCounter(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int depth)
 {
-    Frame f=frames[depth];uint h=counterHead(s);
+    Frame f=DISPATCH_FRAME_LOAD(frames,depth);uint h=counterHead(s);
     if(f.event==0) { frames[depth].event=1;frames[depth].cursor=uint(f.argument);return; }
     if(f.cursor>=uint(f.value)) { depth--;return; }
     uint src=counterReady(s,f.cursor),slot=results[src],at=counterResource(s,slot),row=results[src+3];

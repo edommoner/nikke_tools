@@ -124,14 +124,14 @@ uint64_t takeHealCharge(inout Runtime s,uint owner,uint name,uint row,uint64_t w
     traceHealCharge(s,3,row,owner,when,amount,0,0,amount);return amount;
 }
 [noinline]
-void advanceHealChargeDischarge(inout Runtime s,inout Frame frames[32],inout int depth,Frame f)
+void advanceHealChargeDischarge(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int depth,Frame f)
 {
     uint encoded=f.cursor<21 ? uint(f.value>>(f.cursor*3))&7 : 0;
     if(encoded==0) { depth--;return; }frames[depth].cursor++;
     uint who=encoded-1;if((s.downMask&(1U<<who))!=0) return;
     uint64_t amount=f64Mul(f.healthValue,healMultiplier(s,who,f.owner,f.time));
     if(!f64Finite(amount)) { s.error=16;return; }
-    if(healShareFrameEnabled(s)) { pushFrame(s,frames,depth,31,0,who,int(f.owner),f.time);if(s.error==0) beginHealShareFrame(s,frames[depth],amount,f.owner); }
+    if(healShareFrameEnabled(s)) { pushFrame(s,frames,depth,31,0,who,int(f.owner),f.time);if(s.error==0) BEGIN_DISPATCH_HEAL_SHARE(s,frames,depth,amount,f.owner); }
     else
     {
         uint64_t before=s.hp[who];s.hp[who]=storageBodyHeal(s,who,amount,f.time);

@@ -16,7 +16,7 @@ uint skillCriticalHit(inout Runtime s,Definition d,uint64_t fraction)
     if(fired!=0) value=f64Add(value,ONE^F64_SIGN);
     results[at]=1;storeNumber(at+1,value);return fired;
 }
-void pushSkillHit(inout Runtime s,inout Frame frames[32],inout int depth,Definition d,uint64_t fraction,uint64_t when)
+void pushSkillHit(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int depth,Definition d,uint64_t fraction,uint64_t when)
 {
     uint critical=skillCriticalHit(s,d,fraction);
     pushFrame(s,frames,depth,0,49,d.owner,int(d.name),when);

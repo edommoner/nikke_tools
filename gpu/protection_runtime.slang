@@ -174,9 +174,9 @@ void endProtectionObject(inout Runtime s,uint object)
     uint slot=results[protectionAddress(s,object)+21];queueCarrierEnd(s,slot);
 }
 [noinline]
-void advanceProtectionHit(inout Runtime s,inout Frame frames[32],inout int depth)
+void advanceProtectionHit(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int depth)
 {
-    Frame f=frames[depth];uint command=incomingCommandAddress(s,uint(f.argument));
+    Frame f=DISPATCH_FRAME_LOAD(frames,depth);uint command=incomingCommandAddress(s,uint(f.argument));
     if(f.event==0)
     {
         uint hit=s.resourceOutput+f.repeatPassive;

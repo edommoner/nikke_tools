@@ -41,8 +41,20 @@ void beginHealShareFrame(inout Runtime s,inout Frame frame,uint64_t amount,uint 
     frame.mode=31;frame.event=0;frame.argument=int(source);frame.cursor=0;
     frame.value=plan.weights;frame.healthValue=amount;frame.repeatLeft=plan.total;frame.repeatPassive=plan.members;
 }
+#ifdef PORTABLE_RESIDENT_FRAME_STACK
+[ForceInline]
+void beginResourceHealShareFrame(inout Runtime s,inout DispatchFrameStack frames,int depth,uint64_t amount,uint source)
+{
+    Frame frame=loadDispatchFrame(frames,uint(depth));
+    beginHealShareFrame(s,frame,amount,source);
+    storeDispatchFrame(frames,uint(depth),frame);
+}
+#define BEGIN_DISPATCH_HEAL_SHARE(s,frames,depth,amount,source) beginResourceHealShareFrame(s,frames,depth,amount,source)
+#else
+#define BEGIN_DISPATCH_HEAL_SHARE(s,frames,depth,amount,source) beginHealShareFrame(s,frames[depth],amount,source)
+#endif
 [noinline]
-void advanceHealShareFrame(inout Runtime s,inout Frame frames[32],inout int depth,Frame f)
+void advanceHealShareFrame(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int depth,Frame f)
 {
     uint who=f.cursor;
     while(who<5 && uint((f.value>>(who*10))&1023)==0) who++;

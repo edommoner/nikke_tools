@@ -155,7 +155,7 @@ void actorFieldSelectOrder(inout Runtime s,inout uint order[128],inout uint coun
     count=min(count,limit);
 }
 [noinline]
-void beginActorFields(inout Runtime s,inout Frame frames[32],inout int depth,uint row,Frame parent)
+void beginActorFields(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int depth,uint row,Frame parent)
 {
     uint index=0;while(index<P_WORLD_ACTOR_SETS && results[actorPoolSet(s,index)+5]!=0) index++;
     if(index==P_WORLD_ACTOR_SETS) { s.error=64;return; }
@@ -165,9 +165,9 @@ void beginActorFields(inout Runtime s,inout Frame frames[32],inout int depth,uin
     if(s.error==0) results[actorFieldHead(s)+1]++;
 }
 [noinline]
-void advanceActorFields(inout Runtime s,inout Frame frames[32],inout int depth)
+void advanceActorFields(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int depth)
 {
-    Frame f=frames[depth];uint index=uint(f.value),at=actorPoolSet(s,index);
+    Frame f=DISPATCH_FRAME_LOAD(frames,depth);uint index=uint(f.value),at=actorPoolSet(s,index);
     if(f.cursor>=results[at])
     { results[at+5]=0;results[actorPoolHead(s)+7]--;depth--;return; }
     uint entry=at+8+f.cursor*4,slot=results[entry],generation=results[entry+1];frames[depth].cursor++;

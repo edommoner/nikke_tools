@@ -116,10 +116,10 @@ void revivalRemember(inout Runtime s,uint who,uint slot)
 #endif
 }
 // Called by the existing DFS; child activation finishes before the next lost row.
-void advanceRevival(inout Runtime s,inout Frame frames[32],inout int depth)
+void advanceRevival(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int depth)
 {
 #ifdef PORTABLE_WORLD_PROJECTILE
-    Frame f=frames[depth];uint who=f.owner,bit=1U<<who,base=revivalAt(s);
+    Frame f=DISPATCH_FRAME_LOAD(frames,depth);uint who=f.owner,bit=1U<<who,base=revivalAt(s);
     if(f.mode==28)
     {
         uint encoded=f.cursor<21 ? uint(f.value>>(f.cursor*3))&7 : 0;

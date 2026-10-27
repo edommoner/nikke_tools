@@ -43,7 +43,7 @@ bool destructibleActivationHasTargets(inout Runtime s,uint row)
     for(uint slot=0;slot<count;slot++) { uint at=dtAt(base,slot);if(DF_MATCH(s,row,at,0)) return true; }
     return false;
 }
-bool advanceDestructibleSkillFrame(inout Runtime s,inout Frame frames[32],inout int depth,inout Frame f,uint output)
+bool advanceDestructibleSkillFrame(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int depth,inout Frame f,uint output)
 {
     uint descriptor=DF_DESCRIPTOR(s),row=uint(f.argument);
     if(!DF_ROW_ENABLED(s,row)) return false;
@@ -84,13 +84,13 @@ bool advanceDestructibleSkillFrame(inout Runtime s,inout Frame frames[32],inout 
                 { uint p=scratch+selected*4;results[p]=slot;results[p+1]=results[at];results[p+2]=results[at+1];results[p+3]=results[at+2];selected++; }
             }
         }
-        results[scratch+512]=selected;DF_SELECTION(s,scratch,output,selected,f,d) frames[depth].repeatRow=1;f=frames[depth];
+        results[scratch+512]=selected;DF_SELECTION(s,scratch,output,selected,f,d) frames[depth].repeatRow=1;f=DISPATCH_FRAME_LOAD(frames,depth);
     }
     uint selected=results[scratch+512];
     if(f.repeatRow==4)
     {
         // Let the ordinary end-of-skill path own gauge/completion handling.
-        DF_COMPLETE(s,scratch) frames[depth].cursor=f.repeatLeft;frames[depth].value=selected!=0?1U:0U;f=frames[depth];return false;
+        DF_COMPLETE(s,scratch) frames[depth].cursor=f.repeatLeft;frames[depth].value=selected!=0?1U:0U;f=DISPATCH_FRAME_LOAD(frames,depth);return false;
     }
     if(f.cursor>=selected)
     {

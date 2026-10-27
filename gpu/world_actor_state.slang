@@ -13,7 +13,7 @@ uint actorStatePushQuery(inout Runtime s,uint target)
 }
 void actorStatePopQuery(inout Runtime s,uint previous)
 { if(actorStateEnabled(s)) results[actorFieldHead(s)+3]=previous; }
-void actorStateEvent(inout Runtime s,Frame frames[32],int depth,uint entryOwner,uint entryTarget)
+void actorStateEvent(inout Runtime s,DISPATCH_FRAMES(frames),int depth,uint entryOwner,uint entryTarget)
 {
     if(!actorStateEnabled(s)) return;
     uint owner=entryOwner,target=entryTarget;

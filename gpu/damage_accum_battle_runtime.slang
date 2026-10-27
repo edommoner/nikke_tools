@@ -52,7 +52,7 @@ void refreshDamageAccumRates(inout Runtime s)
     }
 }
 [noinline]
-void advanceDamageAccumNotices(inout Runtime s,inout Frame frames[32],inout int depth,Frame f)
+void advanceDamageAccumNotices(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int depth,Frame f)
 {
     if(!damageAccumEnabled(s)) { depth--;return; }
     uint base=damageAccumBase(s);

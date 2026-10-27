@@ -4,7 +4,7 @@
 // dispatch body; nested loops and all arithmetic/side effects stay in order.
 
 [noinline]
-void advanceSkillDamageFrame(inout Runtime s, inout Frame frames[32], inout int depth, Frame f, uint output)
+void advanceSkillDamageFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inout int depth, Frame f, uint output)
 {
     do
     {
@@ -122,7 +122,7 @@ void advanceSkillDamageFrame(inout Runtime s, inout Frame frames[32], inout int 
 }
 
 [noinline]
-void advanceIncomingFrame(inout Runtime s, inout Frame frames[32], inout int depth, Frame f, uint output)
+void advanceIncomingFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inout int depth, Frame f, uint output)
 {
     do
     {
@@ -230,7 +230,7 @@ void advanceIncomingFrame(inout Runtime s, inout Frame frames[32], inout int dep
 }
 
 [noinline]
-void applyDefinitionFrame(inout Runtime s,inout Frame frames[32],inout int depth,Frame f,uint output,Definition d,uint row,uint recipientMask,uint64_t recipientOrder)
+void applyDefinitionFrame(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int depth,Frame f,uint output,Definition d,uint row,uint recipientMask,uint64_t recipientOrder)
 {
     do
     {
@@ -474,7 +474,7 @@ void applyDefinitionFrame(inout Runtime s,inout Frame frames[32],inout int depth
 }
 
 [noinline]
-void advanceDefinitionFrame(inout Runtime s, inout Frame frames[32], inout int depth, Frame f, uint output)
+void advanceDefinitionFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inout int depth, Frame f, uint output)
 {
     uint row=s.count,passive=0;
     do

@@ -19,6 +19,11 @@ def runtime_initializer():
     if body.count(private) != 1:
         raise ValueError('Unknown private Runtime declaration')
     body=body.replace(private,'')
+    # Every pushed frame is fully initialized by its shared setter. Keep this
+    # optional scratch separate from the historical common state initializer.
+    private_frames='#ifdef PORTABLE_RESIDENT_FRAME_STACK\n    uint dispatchFrameWords[1024];\n#endif'
+    if body.count(private_frames)!=1:raise ValueError('Unknown private dispatch frame storage')
+    body=body.replace(private_frames,'')
     bank_guard=re.compile(r'#ifndef PORTABLE_WORLD_PROJECTILE\n(.*?)\n#endif',re.S)
     guarded=bank_guard.findall(body)
     normalize=lambda text:re.sub(r'\s+','',text)

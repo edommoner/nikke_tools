@@ -83,21 +83,8 @@ bool projectileCarrierStat(uint stat)
     return false;
 #endif
 }
-struct Frame
-{
-#ifdef PORTABLE_ATTACK_GROUPS
-    uint attackGroup;
-#endif
-#ifdef PORTABLE_PARENT_FIXED_DAMAGE
-    uint64_t notifyDealt;
-#endif
-    uint hitCrit;
-    uint64_t skillCritRate,interruptAmount;
-    uint interruptReach;
-    uint mode, event, owner, cursor, target, repeatRow, repeatLeft, repeatPassive;
-    int argument;
-    uint64_t value, time, healthValue, healthPrevious, healthNext, gaugeFlat;
-};
+#include "dispatch_frame_type.slang"
+
 struct Runtime
 {
     uint triggerHitCrit;
@@ -166,10 +153,14 @@ struct Runtime
     uint64_t periodDue[P_DEFINITIONS], periodPrevious[P_DEFINITIONS];
     uint64_t due[P_DEFINITIONS], expiry[P_DEFINITIONS], end[P_CARRIERS], total[5], baseAttack[5];
     uint64_t defense, probability, coreBonus, baseCrit, baseCritDamage;
+#ifdef PORTABLE_RESIDENT_FRAME_STACK
+    uint dispatchFrameWords[1024];
+#endif
 };
 #ifdef PORTABLE_RESIDENT_RUNTIME
 RWStructuredBuffer<Runtime> runtimeStates;
 #endif
+#include "dispatch_frame_storage.slang"
 
 #include "runtime_init.slang"
 #include "definition_runtime.slang"
@@ -1265,7 +1256,7 @@ void clearMode(inout Runtime s, uint who, uint64_t when)
 }
 
 [noinline]
-void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mode, uint event, uint owner, int argument, uint64_t when, uint64_t value = 0)
+void pushFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inout int depth, uint mode, uint event, uint owner, int argument, uint64_t when, uint64_t value = 0)
 {
     if (depth == 31) { s.error = 1; return; }
     depth++;
@@ -1278,7 +1269,7 @@ void pushFrame(inout Runtime s, inout Frame frames[32], inout int depth, uint mo
 #ifdef PORTABLE_ATTACK_GROUPS
     f.attackGroup=mode!=0||event==62||(event<64&&(inherited&(1U<<(event%32)))!=0)?results[agHead(s)+4]:0;
 #endif
-    frames[depth] = f; COUNTER_CONTEXT_PUSH(s,depth,mode,event) s.maxDepth = max(s.maxDepth,uint(depth+1));
+    DISPATCH_FRAME_STORE(frames,depth,f); COUNTER_CONTEXT_PUSH(s,depth,mode,event) s.maxDepth = max(s.maxDepth,uint(depth+1));
 }
 
 #include "element_runtime.slang"
@@ -1338,9 +1329,9 @@ uint64_t buffAudienceOrder(inout Runtime s, uint row)
 }
 
 [noinline]
-void advanceBuffActivation(inout Runtime s, inout Frame frames[32], inout int depth)
+void advanceBuffActivation(inout Runtime s, inout DISPATCH_FRAMES(frames), inout int depth)
 {
-    Frame f = frames[depth];
+    Frame f = DISPATCH_FRAME_LOAD(frames,depth);
             uint slot = uint(f.argument); Definition buff = readDefinition(s.inputBase,f.repeatRow);
             if (f.event == 0)
             {
@@ -1439,7 +1430,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
     uint previousHitCrit=s.triggerHitCrit;
     WORLD_INITIAL_SPAWN_OBSERVE(s,mode,event,owner,when) s.sourceTime=when; syncHealth(s,when);
     WORLD_TEAM_BEGIN(s) COUNTER_CONTEXT_BEGIN(s) WORLD_STATE_DISPATCH_BEGIN(s) uint entryTarget = s.target;
-    Frame frames[32]; int depth = -1;
+    DISPATCH_FRAMES(frames); DISPATCH_FRAMES_INIT(frames,s) int depth = -1;
     if ((s.healthMask&32)!=0) pushFrame(s,frames,depth,16,0,0,0,when);
     pushFrame(s,frames,depth,mode,event,owner,argument,when);
     if(mode==0 && s.error==0) frames[depth].hitCrit=notifyContext;
@@ -1480,7 +1471,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint who = 0; while ((s.hpDirtyMask & (1U << who)) == 0) who++;
             s.hpDirtyMask &= ~(1U << who); syncHealthActor(s,who,frames[depth].time,false); continue;
         }
-        COUNTER_FRAME(s,frames,depth) COUNTER_CONTEXT_SAMPLE(s,depth) WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = frames[depth]; s.triggerHitCrit=f.hitCrit;
+        COUNTER_FRAME(s,frames,depth) COUNTER_CONTEXT_SAMPLE(s,depth) WORLD_STATE_DISPATCH_FRAME(s,frames,depth) Frame f = DISPATCH_FRAME_LOAD(frames,depth); s.triggerHitCrit=f.hitCrit;
 #ifdef PORTABLE_ATTACK_GROUPS
         results[agHead(s)+4]=f.attackGroup;
 #endif
@@ -1690,7 +1681,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             {
                 uint64_t amount;
                 if(!prepareLifestealAmount(s,f.owner,f.healthValue,f.time,amount) || s.error!=0) { depth--;continue; }
-                beginHealShareFrame(s,frames[depth],amount,f.owner);continue;
+                BEGIN_DISPATCH_HEAL_SHARE(s,frames,depth,amount,f.owner);continue;
             }
             depth--;
             if (applyLifestealState(s,f.owner,f.healthValue,f.time) && s.error == 0)
@@ -1704,7 +1695,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             uint64_t base = heal.healthScaling != 0 ? effectiveMaxHP(s,heal.owner,f.time) : s.baseHP[f.owner];
             uint64_t amount = f64Mul(f64Div(f64Mul(base,heal.value),HUNDRED),healMultiplier(s,f.owner,heal.owner,f.time));
             if (!f64Finite(amount)) { s.error = 16; break; }
-            if(healShareFrameEnabled(s)) { beginHealShareFrame(s,frames[depth],amount,heal.owner);continue; }
+            if(healShareFrameEnabled(s)) { BEGIN_DISPATCH_HEAL_SHARE(s,frames,depth,amount,heal.owner);continue; }
             depth--;
             uint64_t before = s.hp[f.owner];
             s.hp[f.owner] = storageBodyHeal(s,f.owner,amount,f.time);

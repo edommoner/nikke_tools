@@ -8,7 +8,8 @@ def checked(current,row,*,error_type=AssertionError):
     if hashlib.sha256(row['baseline'].encode()).hexdigest()!=row['baseline_sha256']:raise error_type('Resident arc baseline changed')
     return row['baseline']
 def project_sources(root,sources=None):
-    root=Path(root);out=dict(sources or {});data=ledger(root)
+    from portable_dispatch_frame_source_contract import project_sources as frames
+    root=Path(root);out=frames(root,sources);data=ledger(root)
     for name,digest in data['added_sources'].items():
         if hashlib.sha256(out.get(name,(root/name).read_text()).encode()).hexdigest()!=digest:raise AssertionError('Unreviewed resident arc dependency: '+name)
     for name,row in data['sources'].items():

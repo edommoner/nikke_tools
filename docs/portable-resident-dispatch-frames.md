@@ -1,0 +1,21 @@
+# 共通イベントフレームのGPU所有領域
+
+`coordinate-resident-frames` は、既存resident arcの全106入力／native63／拒否43と、入力115680word・出力2064786word・全出力比較器を保持する開発profileです。効果・計算式・処理順序を変えず、dispatch内の32個のFrameの保存場所だけをRuntime bufferへ移します。全106のMetal計算実証とCUDAの物理stack測定は未完了です。
+
+各ケースのRuntime末尾へ1024個のuint（4096byte）を追加します。CUDA／Metalのreflectionはともにstride143048、既存fieldの後のoffset138952で一致しました。commands／results／runtimeStatesの3資源、48byteのCUDA引数形式、既存入力・出力bankと容量は同じです。従来のローカルFrame配列経路も残ります。
+
+共通の `dispatch_frame_type.slang` を実行器と境界probeが使います。`DispatchFrameRef` はケース番号とslot番号を持つviewで、個々のfieldのget/setがGPU所有のuint領域を読み書きします。Frame全体の読み出し・push時の保存は明示helperを使い、回復分配の既存inout consumerにも同じFrame値を渡します。[Slangのget/set accessor](https://docs.shader-slang.org/en/latest/external/slang/docs/language-reference/types-struct.html)で実装しています。
+
+uint64は上下32bitで保存し、signed argumentはbitcastします。floatへ変換しません。paddingは全Frame保存時にゼロにします。index32以上の読み書きはerror1として隣接領域へ書かず、既存pushのdepth31制限も維持します。手動の32段イベントstackの順序・分岐・通知を変更しません。
+
+## 実証済み範囲
+
+共通CLIのsealed `dispatch-frame-storage` は5入力。32slot全部、NaN payload／signed zeroを含むraw64bit、符号付きargument、ケース間guard、field更新、既存Frameへのinout更新、範囲外読み／書きを検査します。M5で20800byte全部がCPU期待値と一致しました（GPU0.000112秒）。別fresh childの独立監査も成功し、追加GPU実行は0です。これはbit／領域のprobeであり、63件のnative battleや全キャラの認定ではありません。
+
+従来のresident arc経路を再生成し、保存済みCUDA2684200byteとMetal2843972byteが全byte一致しました。共通initializerも従来と一致しています。全106の新しいCPU基準では、入力・native fingerprintが旧106とすべて一致しました。
+
+## 厳密監査と次の検証
+
+Frame移動のGPU source変更は専用の `portable-dispatch-frame-source-delta.json` で、current本文・SHAと旧baseline本文・SHAを固定します。旧監査を呼ぶ前にこの明示逆変換を行い、既存baselineやstrict生成コードnormalizerを変えません。追加dependencyやfieldの未登録変更も拒否します。定義を切り出した後の改変拒否テストは、新しい共通定義の実ファイルを検査します。
+
+最初の共通制御の停止記録（未登録のsource逆変換と旧定義位置を読むテスト）は保存しています。GPU結果を成功へ書き換えず、監査修正を含む別固定packageで再検査します。全106のMetal実行・fresh独立seal・既存出力保持を確認した後、Windowsで必要な短い新sourceのコンパイル／資源測定を行います。物理stack削減や既存CUDA起動失敗の解消は、その実測前に主張しません。

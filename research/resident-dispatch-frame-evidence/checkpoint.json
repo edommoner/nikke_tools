@@ -1,0 +1,48 @@
+{
+  "schema": "resident-dispatch-frame-checkpoint-v1",
+  "probe_suite": "dispatch-frame-storage",
+  "input_count": 5,
+  "slots_per_case": 32,
+  "words_per_frame": 32,
+  "GPU_calculation_verified": true,
+  "device": "Apple M5",
+  "GPU_seconds": 0.00011224999616388232,
+  "raw_readback_bytes": 20800,
+  "input_sha256": "e3c776a6403e28b0180a7f158f6cc736d095e960b07279f1b5c93f8140e2f331",
+  "output_sha256": "eac2058d3cca7ca942b9cc1f56efb34782363362cd757fd8593bf77536304b35",
+  "independent_fresh_audit": {
+    "native_domains": 5,
+    "seconds": 0.4141200420053792,
+    "GPU_calls": 0,
+    "live_parent_reused": false
+  },
+  "CPU_controls": {
+    "groups": 60,
+    "tests": 591,
+    "skipped": 1
+  },
+  "legacy_generation": {
+    "cuda": {
+      "bytes": 2684200,
+      "sha256": "a68713e6904f257905125383c3264f3a0916a7eb42e59f1b6e25402c64b98e93",
+      "old_generated_bytes_identical": true
+    },
+    "metal": {
+      "bytes": 2843972,
+      "sha256": "c4f8eb68214aee1c999554ef205c55cb31688441e70dd9a0980fda0d51e93f5a",
+      "old_generated_bytes_identical": true
+    }
+  },
+  "full106_input_native_retention": {
+    "inputs": 106,
+    "native_domains": 63,
+    "rejections": 43,
+    "all_fingerprints_unchanged": true
+  },
+  "full106_Frame_GPU_verified": false,
+  "new_CUDA_stack_measured": false,
+  "new_CUDA_launch_verified": false,
+  "full_character_verified": false,
+  "full_goal_complete": false,
+  "scope": "Probe bit/state isolation proof and same-input native contract; full battle and physical CUDA resource validation remain required"
+}
