@@ -1,3 +1,9 @@
+# 2026-10-28 実ADD幾何をM5 Metal・独立sealで検証
+
+`logical-actor-geometry` sealed13（元6＋拒否7）。固定5ed97fd4/package e4d6f280…のown CLIがCPU63検査・fresh native6・M5 Metal全比較に成功。GPU2.514622秒、初回PSO58.345348秒、事前CPU102.617612秒。比較はlive ParentOracles6件再利用/追加native0。独立GPU禁止fresh監査も全13件で成功（128.944960秒）。通常goldenとfull-source compiler証明を同じ監査で作成。実GPU1、retry0、Slang必須cache hit/Slang0。未対応分類には別の明示モデル証拠を追加し、既定戦闘のgapと全キャラ未認定を保つ。
+
+次は通常sealed packetとcache-only packetのCPU/compile-planを確認し、他キャラ・複数形状・世代遷移など未認定の組合せへ広げる。新CUBIN/cache hit・現CUDAは未実証。旧Windows transactionの終端不明の間は新runを送らない。詳細は[実ADD幾何](portable-logical-actor-geometry.md)、出所はmetal-logical-actor-geometry-v1.json。以下は履歴。
+
 # 2026-10-28 実ADD幾何の共通runtime配線・paired生成（Metal未実行）
 
 新world_coordinate_logical_actor_entryは通常shot snapshotへ実ADDを合流し、元shape math/整数親量/landing/receipt/groupを共有する。Runtime138,952byte不変、新CUDA/MSL生成成功、旧history entryのCUDA/MSL/両reflection全byte保持。新required生成cache hit/Slang0。CPU契約6件の全nativeを保持、既存full native chainでも6件のgroup/子/point/draw/RNG等10項目を完全照合。関連43検査成功。初回観測self問題・逆順rewrite・旧arena逆投影の接続漏れの失敗を保存し修正。GPU/Windows新依頼0、公開受付/全キャラ認定は未完。

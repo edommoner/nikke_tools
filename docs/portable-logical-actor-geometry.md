@@ -71,3 +71,14 @@ BODYは凍結したBODY世代へ、ADDは実slot/凍結世代へ直接着弾す�
 ## 固定packetでの最終検査
 
 固定27466a62/package0175fe99…のown CLIがCPU全6条件を2.34秒で検証し、全native/receipt/point/draw/624語RNGをprivate5,351,260byteに保存した。30秒では実group15/元4敵通知15/子着弾60、retirementは死んだ3ADDへ子を配らずBODY1着弾。専用10検査と元group等の検査成功、固定packetの25群226unit/CUBIN O1・2GiB・60秒compile-plan policyも成功。旧GPU entryの生成cache必須hit/Slang0、CUDA/MSL/両reflectionの原byteを直前のsealed captureから保持したが、新しい論理幾何のGPU実証ではない。GPU/Windows新run0。出所・失敗・範囲は`logical-actor-geometry-cpu-v1.json`と`logical-actor-reference-final-checks-v1.json`。
+
+
+## 実M5 Metalと独立seal（固定5ed97fd4）
+
+通常CLI `logical-actor-geometry` は元6条件＋raw拒否7の13入力を固定し、元の全battle/物理packet/RNG/現在状態/group/2,048行skill履歴比較を再利用する。新scratchは射撃終了時に解放し、既存historyを検証・投影した後の全tailをzero検査する。Swiftの汎用転送は既に115,680入力/2,032,000出力を受け付けていたため、そのguardは変更せず、Pythonのsource別gateへ新entryと完全strideを明示登録した。異幅/未知sourceを拒否する。
+
+package e4d6f280…（archive 0a05c4c1…）のown CLIは単体63件・fresh native6件の事前検証に成功し、M5 Metal1回で全13入力が一致した。BODY+ADD3の元4敵通知/防御低下/子攻撃、3敵/範囲外/PART対照、1HP退場、30秒を含む。入力約6MB/出力105,664,000byte。Runtime138,952byteは不変。GPU2.514622秒、初回library1.916919秒/pipeline58.345348秒、CPU事前照合102.617612秒。通常比較はlive ParentOraclesで6native/6contextを再利用し、追加fresh native0・保存GPU期待の再利用0。実GPU1、retry0。
+
+同じpacketのown CLIからGPU禁止fresh子5群で全13入力を再比較し、独立sealとfull-source compiler証明を同時作成した（128.944960秒、live parent再利用なし、GPU0）。code生成cacheは実runでrequired hit/Slang0。初回360秒指定はCLIの1〜180秒制約によりcapture/claim作成前に拒否され、capture不存在を確認して許容180秒へ修正した。GPU実行の再試行ではない。失敗を成功の実行数へ含めない。
+
+通常suiteをsealed goldenへ登録し、同じ計算を既存CUBIN/O1＋必須compile cache＋paired generationへ渡すcache-only routeも用意した。Windows新依頼0、CUDA実機/CUBIN hitは未検証。未対応分類には今回の明示モデルの証拠を別フィールドで追加し、既定producer未設置/reference_model_gap/公開GPU拒否/全キャラ未認定は維持する。CPU reference CLIの契約自体はGPU証明ではない。小さな出所は `metal-logical-actor-geometry-v1.json`、独立receiptは `tests/fixtures/logical-actor-independent-v1.json`。

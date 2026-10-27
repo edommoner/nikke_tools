@@ -102,6 +102,15 @@ def reference_readiness(issue):
             part_excluded_from_enemy_count=True,declared_geometry_only=True,
             gpu_wire_connected=False,metal_verified=False,cuda_verified=False,
             historical_canonical_equivalence=False,in_game_rules_verified=False)
+        result['declared_logical_actor_geometry_metal_validation']=dict(
+            suite='logical-actor-geometry',inputs=13,native_cases=6,rejected_cases=7,
+            original_roster='벨로타',original_roster_definitions=68,
+            actual_BODY_ADD_geometry=True,part_excluded_from_enemy_count=True,
+            metal_verified=True,independently_audited=True,current_cuda_verified=False,
+            declared_model_only=True,default_producer_installed=False,
+            historical_canonical_equivalence=False,in_game_rules_verified=False,
+            evidence='tests/fixtures/logical-actor-independent-v1.json',
+            evidence_sha256='533334e9533a45aedd4857e43d404519c34dd350d185de53a73f8c0a7779383e')
         result['reference_suites'].append('attack-group-native-route')
         result['reference_suites'].append('attack-group-long')
         result['long_group_metal_validation']=dict(suite='attack-group-long',inputs=60,native_cases=48,rejected_cases=12,long180s_cases=6,new_full_group_records=927,omitted_group_records=0,old53_full_raw_retained=True,independently_audited=True,compact_history='lossless_variable_records_after_schema_landing_bank',current_cuda_verified=False)

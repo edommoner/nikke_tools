@@ -1,0 +1,174 @@
+{
+  "schema": 1,
+  "stage": "independently-sealed-logical-actor-geometry",
+  "passed": true,
+  "source_commit": "5ed97fd43505f7abf3fc39cdcc3d3f483702b028",
+  "package_id": "e4d6f280f00719475a62735a7af54cb5e66947745206d70e9555ff8b82d0d977",
+  "archive_sha256": "0a05c4c19db1240e2047d7fd4844991e553dca405cda0a5f76702c13e1bb7045",
+  "input_count": 13,
+  "native_cases": 6,
+  "rejected_cases": 7,
+  "statuses": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64,
+    64
+  ],
+  "original_roster_definitions": 68,
+  "device": "Apple M5",
+  "gpu_seconds": 2.514622375005274,
+  "pipeline_compile_seconds": 58.34534800052643,
+  "library_compile_seconds": 1.9169189929962158,
+  "runtime_stride_bytes": 138952,
+  "output_bytes": 105664000,
+  "cpu_preflight": {
+    "passed": true,
+    "input_count": 13,
+    "native_oracles": 6,
+    "input_sha256": "ca6538e82b5fbb42c92a788cc22e314b07388d1be35e3eaca60b94ee22b85228",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 102.6176117080031,
+    "transport_input": {
+      "schema": 1,
+      "package_id": "e4d6f280f00719475a62735a7af54cb5e66947745206d70e9555ff8b82d0d977",
+      "input_count": 13,
+      "input_words": 115680,
+      "input_bytes": 6015364,
+      "input_sha256": "ca6538e82b5fbb42c92a788cc22e314b07388d1be35e3eaca60b94ee22b85228"
+    }
+  },
+  "unit_tests": {
+    "groups": 9,
+    "passed": true,
+    "tests": 63
+  },
+  "live_oracle_reuse": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 6,
+    "fresh_native_cases": 0,
+    "rejection_cases": 7,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 6
+  },
+  "generation_cache": {
+    "hit": true,
+    "compiler_invocations": 0,
+    "key": "bd1b81595a80fcf8ec2398bdd611802ffbe9cf365f4929829c81cb5e87e1f293"
+  },
+  "independent": {
+    "package_id": "e4d6f280f00719475a62735a7af54cb5e66947745206d70e9555ff8b82d0d977",
+    "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/logical-actor-metal-v1-metal",
+    "schema": "independent-metal-audit-groups-v1",
+    "child_pids": [
+      57854,
+      57875,
+      57900,
+      57901,
+      57902
+    ],
+    "groups": [
+      {
+        "child_pid": 57854,
+        "case_indices": [
+          0,
+          1,
+          2
+        ],
+        "input_count": 3,
+        "native_cases": 3,
+        "elapsed_seconds": 33.778076667003916
+      },
+      {
+        "child_pid": 57875,
+        "case_indices": [
+          3,
+          4,
+          5
+        ],
+        "input_count": 3,
+        "native_cases": 3,
+        "elapsed_seconds": 85.62397087500722
+      },
+      {
+        "child_pid": 57900,
+        "case_indices": [
+          6,
+          7,
+          8
+        ],
+        "input_count": 3,
+        "native_cases": 0,
+        "elapsed_seconds": 2.9577557090087794
+      },
+      {
+        "child_pid": 57901,
+        "case_indices": [
+          9,
+          10,
+          11
+        ],
+        "input_count": 3,
+        "native_cases": 0,
+        "elapsed_seconds": 2.965384041002835
+      },
+      {
+        "child_pid": 57902,
+        "case_indices": [
+          12
+        ],
+        "input_count": 1,
+        "native_cases": 0,
+        "elapsed_seconds": 2.9687933749955846
+      }
+    ],
+    "input_count": 13,
+    "native_cases": 6,
+    "live_parent_receipt_present": false,
+    "per_group_timeout_seconds": 180,
+    "elapsed_seconds": 128.94496024999535,
+    "gpu_calls": 0,
+    "calculation_verified": true,
+    "input_sha256": "ca6538e82b5fbb42c92a788cc22e314b07388d1be35e3eaca60b94ee22b85228",
+    "output_sha256": "b3cded4818690ca4b314287a035d96455edeb0b250cc9cff8672eeb7e855900a",
+    "scope": "Fresh GPU-forbidden child groups, each individually bounded, covering every input once; total elapsed includes all groups"
+  },
+  "input_sha256": "ca6538e82b5fbb42c92a788cc22e314b07388d1be35e3eaca60b94ee22b85228",
+  "output_sha256": "b3cded4818690ca4b314287a035d96455edeb0b250cc9cff8672eeb7e855900a",
+  "actual_gpu_runs": 1,
+  "gpu_retries": 0,
+  "windows_new_requests": 0,
+  "current_cuda_verified": false,
+  "default_battle_admission": false,
+  "in_game_rules_verified": false,
+  "full_character_verified": false,
+  "full_goal_complete": false,
+  "pre_capture_argument_rejection": {
+    "requested_timeout": 360,
+    "allowed_max": 180,
+    "capture_created": false,
+    "claim_created": false,
+    "gpu_calls": 0
+  },
+  "proof_sha256": {
+    "logical-actor-metal-v1-metal/artifacts.json": "ef8f48d0445cd65f5b8b87bb0c3e3f29053b997c73922deafb8c2306ef3a4650",
+    "logical-actor-metal-v1-metal/comparison.json": "d90834d2bb164d89da62458846253bd23d93643b1def491ec1c17c32622f4324",
+    "logical-actor-metal-v1-metal/evidence.json": "d430bf05c6edf647fb3152b85e88581a744f9b0117b332bcb869a48c5370051a",
+    "logical-actor-metal-v1-metal/result.json": "4d8ff41c3a86275f9c10b662abb55d3d71f90d3ee5f287fbaa6d061fc46024d0",
+    "logical-actor-metal-v1-independent.json": "533334e9533a45aedd4857e43d404519c34dd350d185de53a73f8c0a7779383e",
+    "research/portable-logical-actor-geometry-v1-expected.json": "d00771705e9fdf4149d39b1e64c44745f936a5fd1fae526bc36d07404f1a7867",
+    "research/portable-compiler-full--logical-actor-geometry-source-certificate.json": "d7ced534f7c002216e9e4ec6675dc0e2eb1d749623df92cdc449de45b80f7c4b"
+  }
+}

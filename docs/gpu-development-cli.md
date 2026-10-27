@@ -1,3 +1,5 @@
+`logical-actor-geometry`は実ADD colliderのsealed13入力（元6条件＋raw拒否7条件）。`package --suite logical-actor-geometry --out NEW.zip`から固定packetのown CLIを使う。M5 Metal全比較・GPU禁止の独立監査に成功し、元の全battle・物理packet・group・2,048行スキル履歴を比較する。`logical-actor-geometry-cache-only`は同じ計算に既存CUBIN/O1・compile cache必須・paired generation必須を適用するが、現CUDA実機hitは未確認。全キャラや既定CPUの幾何認定ではない。[範囲と実測](portable-logical-actor-geometry.md)。
+
 `reference --suite logical-actor-geometry-common --out NEW.json`は元ベロータの実RLをBODY＋実ADD形状へ接続するCPU契約6件。元4敵通知/防御低下/子攻撃を検査し、PARTを敵数へ数えない。新しい明示モデルでGPU wire未接続、Metal/CUDA認定ではない。[設計と移植手順](portable-logical-actor-geometry.md)。
 
 `entry-inventory --character NAME --favorite-stage 0 --suite original-shield-weapons --out NEW.json`は指定profileだけを準備する静的監査。元owner/source行/effect hashと既存対応分類を`profile_explanations`へ出し、部分結果と全体を区別する。[使い方・制約・全266保持](portable-shared-entry-inventory.md)。
