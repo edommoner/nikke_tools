@@ -33,3 +33,11 @@ fresh独立監査は同じ固定package自身のCLI／cwdで完了しました�
 6個の新規GPU禁止childで20/20/20/20/20/6入力を1回ずつ比較し、全106／native63が成功しました。合計513.541770秒、最長group134.245456秒／各180秒上限、live parentの再利用false、追加GPU0。同じ監査からgoldenとcompiler certificateを生成し、`coordinate-resident-frames` をsealed登録しました。既存全875MBのraw、失敗記録、元packageは保持しています。
 
 compiler診断用の `compiler-full--coordinate-resident-frames --compact` を明示登録しました。実装・GPU source・upstream・fixture・goldenは保持し、選択外のPython研究／testだけを除く従来のprojectionです。全106のbattle packet自体はcompactへ拡張していません。Windowsではこの固定compiler packetのCPU検査・generation・短いPTX／object／link経路を使い、物理resourceを確認してから実計算へ進めます。
+
+## 短いCUDA接続用の別profile
+
+`resident-frames-device` は先頭4入力のsealed profileです。元のprefix選択器、全106と同じFrame source・native provider・全出力比較器をそのまま使います。全106のsuiteや認定範囲を置き換えません。選択55テストとMac CPU正本4件、M5 GPU4件（0.411577秒／pipeline cache hit）、fresh独立監査4件（17.404445秒／追加GPU0）が成功しました。33,036,576byte全体が保存済み全106の先頭4出力と同一です。
+
+固定配布は `research/windows-source-packets/resident-frames-device-v1.json` と同名ZIP。compactは3574→2143ファイルで、除去は選択外Pythonだけ、保持した全ファイルとgoldenがfull版と同一。Macで再度55テスト／正本4件と共通591テストを通しました。
+
+Windowsは既存の `gpu-linked` 経路と、全106 sourceから生成した保存CUBINを使います。full producer／PTX／object／linkの出所検査とfresh選択test／native4を維持し、生成cacheを必須にします。追加compile・fallback・retryはせず、2GiB／BelowNormal／外180秒・GPU child60秒を守ります。CUDA実計算の成功はまだ確認していません。
