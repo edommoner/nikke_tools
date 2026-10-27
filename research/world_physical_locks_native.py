@@ -1,5 +1,6 @@
 """Transparent observations of native periodic activation and real shots."""
 import copy
+from contextlib import nullcontext
 from unittest.mock import patch
 from calculator import timeline
 from calculator.buff_manager import BuffManager
@@ -10,7 +11,7 @@ from world_projectile_native import observe as baseline
 from world_effect_target_count_shot_native import state as shot_state
 MAGIC=0x474c3031
 
-def observe(case,*,candidate_observer=None,clear_observer=None,notification_observer=None):
+def observe(case,*,candidate_observer=None,clear_observer=None,notification_observer=None,primary_observer=None):
  before=copy.deepcopy(case);names=roster_names(case);owner=case.get('lock_owner',0);caster=names[owner];bosses=[];models={};pulses=[];shots=[];consumed=[];clears=[]
  init=timeline.BossScript.__init__;activate=BuffManager._activate;charge=timeline.CharState._charge_fire;auto=timeline.CharState._fire;notify=BuffManager.notify;consume=BuffManager.consume_bullet_buffs
  def initialized(boss,*a,**kw):init(boss,*a,**kw);bosses.append(boss)
@@ -48,7 +49,7 @@ def observe(case,*,candidate_observer=None,clear_observer=None,notification_obse
   return notify(bm,event,t,who,*a,**kw)
  def used(bm,who,t=0.):
   old=shot_state(bm,who,t);answer=consume(bm,who,t);consumed.append(dict(who=names.index(who),time=t,before=old,after=shot_state(bm,who,t)));return answer
- with patch.object(timeline.BossScript,'__init__',initialized),patch.object(BuffManager,'_activate',activated),patch.object(timeline.CharState,'_charge_fire',fired(charge)),patch.object(timeline.CharState,'_fire',fired(auto)),patch.object(BuffManager,'notify',notified),patch.object(BuffManager,'consume_bullet_buffs',used):native,trace=baseline(case)
+ with patch.object(timeline.BossScript,'__init__',initialized),patch.object(BuffManager,'_activate',activated),patch.object(timeline.CharState,'_charge_fire',fired(charge)),patch.object(timeline.CharState,'_fire',fired(auto)),patch.object(BuffManager,'notify',notified),patch.object(BuffManager,'consume_bullet_buffs',used),(primary_observer if primary_observer is not None else nullcontext()):native,trace=baseline(case)
  plain,plain_trace=baseline(case)
  if native!=plain or trace!=plain_trace or case!=before:raise AssertionError('Lock observer changed complete battle/trace/input')
  return dict(battle=native,skill_trace=trace,target_count_shots=consumed,lock_pulses=pulses,lock_shots=shots,lock_clears=clears)

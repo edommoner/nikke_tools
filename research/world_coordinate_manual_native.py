@@ -1,11 +1,13 @@
 """Passive observations of canonical manual primitives and their final state."""
 import sys
+from contextlib import contextmanager
 
-def observe(case):
+@contextmanager
+
+def capture(case):
     import engine_worker
     from calculator import timeline
     from world_frame_native import roster_names
-    from world_coordinate_sampled_delivery_native import observe as parent
     names=roster_names(case);previous=sys.getprofile();events=[];characters={};managers=[];squad_pumps=[]
     methods=('_enter_cover','_exit_cover','_cancel_reload','_finish_reload','_reset_action')+(('_auto_reload',) if case.get('observe_auto_reload') else ())
     codes={getattr(timeline.CharState,k).__code__:k for k in methods}
@@ -39,16 +41,21 @@ def observe(case):
             cs=v['self'];characters[cs.name]=cs
             events.append(dict(kind=codes[frame.f_code],time=v['t'],**state(cs,v.get('bm'))))
     sys.setprofile(profile)
-    try:n,t=parent(case)
+    observed={}
+    try:yield observed
     finally:sys.setprofile(previous)
     if set(characters)!=set(names):raise ValueError('Missing canonical manual character state')
-    n['manual_actions']=dict(events=events,characters=[state(characters[name]) for name in names])
+    observed['manual_actions']=dict(events=events,characters=[state(characters[name]) for name in names])
     if case.get('squad_controls'):
         last=squad_pumps[-1];keeps=[p['keep'] for p in squad_pumps if p['keep'] is not None]
-        n['squad_control']=dict(sequence_index=last['index'],forced_owner=last['forced'],last_keep=keeps[-1] if keeps else 0,pumps=squad_pumps)
-    if case.get('squad_mode_state'):n['squad_mode_state']=dict(flags=[bool(characters[name]._in_weapon_change) for name in names],pumps=[dict(time=p['time'],mask=p['mode_mask']) for p in squad_pumps])
-    if case.get('cover_policies'):n['cover_policy_state']=[dict(cover_anchor=characters[name]._cover_ctrl_anchor,reload_anchor=characters[name]._reload_ctrl_anchor,kind=characters[name]._ctrl_anchor_kind,value=characters[name]._ctrl_anchor_val,reentry=sorted([list(v) for v in characters[name]._reentry_used if v[0] in ('cover','reload')])) for name in names]
+        observed['squad_control']=dict(sequence_index=last['index'],forced_owner=last['forced'],last_keep=keeps[-1] if keeps else 0,pumps=squad_pumps)
+    if case.get('squad_mode_state'):observed['squad_mode_state']=dict(flags=[bool(characters[name]._in_weapon_change) for name in names],pumps=[dict(time=p['time'],mask=p['mode_mask']) for p in squad_pumps])
+    if case.get('cover_policies'):observed['cover_policy_state']=[dict(cover_anchor=characters[name]._cover_ctrl_anchor,reload_anchor=characters[name]._reload_ctrl_anchor,kind=characters[name]._ctrl_anchor_kind,value=characters[name]._ctrl_anchor_val,reentry=sorted([list(v) for v in characters[name]._reentry_used if v[0] in ('cover','reload')])) for name in names]
     if case.get('burst_controls'):
         if not burst_ticks:raise ValueError('Missing canonical burst ticks')
-        n['burst_controls']=dict(ticks=burst_ticks)
-    return n,t
+        observed['burst_controls']=dict(ticks=burst_ticks)
+
+def observe(case):
+    from world_coordinate_sampled_delivery_native import observe as parent
+    with capture(case) as observed:n,t=parent(case)
+    n.update(observed);return n,t

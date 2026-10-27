@@ -86,6 +86,11 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source=='gpu/world_physical_lock_cover_entry.slang':
+        from portable_physical_lock_cover_layout import check,INPUT,OUTPUT
+        check(ROOT)
+        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Physical cover requires the complete lock/manual arena wire')
+        return
     if source=='gpu/world_physical_locks_entry.slang' or output_words==806912:
         from portable_physical_lock_layout import check,INPUT,OUTPUT
         check(ROOT)

@@ -48,8 +48,9 @@ def native_reference(domain):
     with capture(domain[0]) as aim:n,t=observe(domain[0])
     n['coordinate_aim']=aim;return n
 
-def compare_manual(block,n):
+def compare_manual(block,n,*,base=None):
     from portable_manual_control_specs import BASE,MAGIC
+    if base is not None:BASE=base
     data=n['manual_actions'];events=data['events']
     for who,row in enumerate(data['characters']):
         at=BASE+who*16;entered=[e for e in events if e['owner']==who and e['kind']=='_enter_cover'];exited=[e for e in events if e['owner']==who and e['kind']=='_exit_cover']

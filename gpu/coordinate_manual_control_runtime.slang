@@ -1,5 +1,10 @@
 // Persistent explicit-cover state in the unused sampled output tail.
+#ifdef PORTABLE_PHYSICAL_LOCK_COVER
+#include "physical_lock_cover_layout.slang"
+static const uint CMC_BASE=PL_COVER_BASE;
+#else
 static const uint CMC_BASE=919744U;
+#endif
 static const uint CMC_WORDS=80U;
 uint manualState(inout Runtime s,uint who){return s.resourceOutput+CMC_BASE+who*16;}
 bool manualControls(inout Runtime s){return commands[controlInput(s)+1]==3;}

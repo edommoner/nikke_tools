@@ -1438,6 +1438,9 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
     if (owner >= 5) { s.error = 64; return; }
 #ifdef PORTABLE_PHYSICAL_LOCKS
     if(mode==0&&event==7)physicalLockAttack(s,owner,when);
+#ifdef PORTABLE_PHYSICAL_LOCK_COVER
+    if(mode==0&&event==31&&uint(argument)==commands[controlInput(s)+6])physicalLockAttack(s,owner,when);
+#endif
 #endif
     uint previousHitCrit=s.triggerHitCrit;
     WORLD_INITIAL_SPAWN_OBSERVE(s,mode,event,owner,when) s.sourceTime=when; syncHealth(s,when);

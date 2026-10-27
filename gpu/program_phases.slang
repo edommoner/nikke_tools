@@ -74,6 +74,10 @@ void initializePortableProgram(inout Runtime s,uint input,uint output,out bool r
     if(!initializeGenerationLocks(s)) { results[output]=64;return; }
 #ifdef PORTABLE_PHYSICAL_LOCKS
     if(!initializePhysicalLocks(s)) { results[output]=64;return; }
+#ifdef PORTABLE_PHYSICAL_LOCK_COVER
+    if(manualControls(s)&&commands[controlInput(s)+6]>=256){results[output]=64;return;}
+    initializeManualControls(s);if(s.error!=0){results[output]=64;return;}
+#endif
 #endif
 #endif
 #endif
