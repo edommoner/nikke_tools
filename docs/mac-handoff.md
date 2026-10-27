@@ -1,3 +1,5 @@
+最終b390bad5の通常1b700538…/cache-only16917e53…を固定。own CLIの72unit/model-check/required generation sealed baseline hit・Slang0と、CUBIN O1・2GiB・60秒compile-plan/必須flag負例が成功。追加GPU0。出所logical-Nihilister-final-checks-v1.json、private継続点logical-Nihilister-sealed-continuation-v1.json。既知の元multi_hit2/4はこの明示幾何モデルで検証できたが、既定producer/残る5stat/敵quantity/現CUDA/全キャラは未完。次は未対応分類の新しい実戦consumerを優先し、同じ形状fixtureの反復だけへ縮小しない。
+
 # 2026-10-28 元ニヒリスター70定義の実2敵通知をMetalで検証
 
 `logical-actor-rosters` sealed5。元SR/全70定義のままBODY+ADD、範囲外、PART、37度矩形、30秒を検査。実group20/通知19/子着弾38の長時間も全比較。固定66df6953/package b38e3b9d…、M5 GPU2.434174秒、必須pipeline hit0.002745秒、generation必須hit/Slang0。旧GPU entry/CUDA/MSL/reflection全byteと旧13goldenを保持し、旧GPU再実行0。71unitとfresh独立監査5件107.573248秒が成功。共通比較器の旧全検査文は固定AST一致で保持する。

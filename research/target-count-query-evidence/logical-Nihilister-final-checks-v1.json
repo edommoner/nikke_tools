@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "stage": "original-Nihilister-final-cli-checks",
+  "passed": true,
+  "source_commit": "b390bad51afd945f9a28d692014d52888f697bce",
+  "normal_package_id": "1b700538a6afd44f29b20f4b51a9bce51bf559b285cd90d4ef12961670cb3883",
+  "cached_package_id": "16917e530c25b582231cb3213a779eb1c37f74a92358c46e99453f6d2bd54178",
+  "unit_checks": {
+    "schema": "unit-check-v1",
+    "package_id": "1b700538a6afd44f29b20f4b51a9bce51bf559b285cd90d4ef12961670cb3883",
+    "suite": "logical-actor-rosters",
+    "passed": true,
+    "unit_tests_verified": true,
+    "full_native_preflight_executed": false,
+    "cpu_verified": false,
+    "calculation_verified": false,
+    "gpu_execution_verified": false,
+    "gpu_calls": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false,
+    "groups": 10,
+    "tests": 72
+  },
+  "generation": {
+    "verified": true,
+    "cache_hit": true,
+    "compiler_invocations": 0,
+    "sealed_generated_baseline_verified": true
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "16917e530c25b582231cb3213a779eb1c37f74a92358c46e99453f6d2bd54178",
+    "suite": "logical-actor-rosters-cache-only",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "negative_cache_gates": {
+    "passed": true,
+    "attempts": [
+      {
+        "label": "missing-cache",
+        "exit_code": 1,
+        "expected_error_present": true,
+        "capture_created": false,
+        "claim_created": false
+      },
+      {
+        "label": "missing-paired-generation",
+        "exit_code": 1,
+        "expected_error_present": true,
+        "capture_created": false,
+        "claim_created": false
+      }
+    ],
+    "gpu_calls": 0,
+    "compiler_calls": 0
+  },
+  "model": {
+    "passed": true,
+    "report_sha256": "9a12ddba72ec1bc99442da643ecae38ee43c78e32044f3f693a94bc256726d85",
+    "missing_canonical_stat_consumers": [
+      "effect_range_pct",
+      "effect_target_count_add",
+      "enemy_movement_disable",
+      "force_move",
+      "lock_on"
+    ],
+    "public_gpu_admitted": false,
+    "full_goal_complete": false
+  },
+  "additional_gpu_calls": 0,
+  "old_GPU_cases_reexecuted": 0,
+  "windows_new_requests": 0,
+  "current_cuda_verified": false,
+  "full_goal_complete": false,
+  "receipts_sha256": {
+    "logical-Nihilister-final-v1-package/gpu-package.json": "4865adfb33a31978d7572d2575d85df064e2aa918b203a8b108e5fa18327d237",
+    "logical-Nihilister-cache-final-v1-package/gpu-package.json": "7050476e48e6f3808985ad8caea5b9c4004f1f03d899f4028cebefec999c3708",
+    "logical-Nihilister-final-v1-units/result.json": "86a714359cdad97bd9507d4490e0b5a32e21d8df68b42ef71bf7b36f76794cef",
+    "logical-Nihilister-final-v1-generation/generation.json": "36bf9a81001dc803e0e80b3a9eefba45de360e03c390a882005fafc5c6fa2df1",
+    "logical-Nihilister-cache-final-v1-compile-plan.json": "f5fe6e564e18671dd1e1836ff0abea923c4ac24df578addf8a5e32468b7072d1",
+    "logical-Nihilister-cache-final-v1-negative/result.json": "9e1d2e5f1918157cbb0b7bee8ea96ea4440c553ff434d7fd367f362dbd9e03c2"
+  }
+}

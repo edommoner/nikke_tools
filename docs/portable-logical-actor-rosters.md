@@ -19,3 +19,5 @@ GPUは前のベロータsuiteと**同じentry**で、CUDA/MSL/両reflection全by
 `package --suite logical-actor-rosters --out NEW.zip`で固定し、own CLIを使う。`logical-actor-rosters-cache-only`は同じ計算/goldenへ既存CUBIN O1・compile cache必須・paired generation必須を適用する。現CUDA/CUBIN hitは未検証であり、旧Windows transaction終端不明の間は新runを送らない。未対応分類には2敵通知だけの元ニヒリスター証拠を別に追加し、既定producer未設置・reference_model_gap・公開GPU拒否・全キャラ未認定を維持する。
 
 出所は `research/target-count-query-evidence/metal-logical-Nihilister-v1.json`、独立receiptは `tests/fixtures/logical-Nihilister-independent-v1.json`。大きなnative/readback/生成物はprivate proofに保持する。
+
+最終b390bad5の通常packet1b700538…/cache-only16917e53…のown CLIで、10群72unit・model-check・sealed生成baselineまでのrequired generation hit/Slang0を確認した。cache側のCUBIN O1・2GiB・60秒compile-plan、必須cacheなし/paired generationなしのcapture/claim前拒否も成功。追加GPU0、元の5条件/旧13条件の再実行なし。単体/静的監査を新たなGPU認定へ数えない。証跡は `logical-Nihilister-final-checks-v1.json`。
