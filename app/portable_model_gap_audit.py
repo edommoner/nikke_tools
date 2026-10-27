@@ -137,6 +137,17 @@ def verify(root,overrides=None):
   spatial_selection_verified=False,death_retarget_verified=False,parts_and_injury_branches_verified=False,
   all_conditional_branches_verified=False,game_verified=False,public_admission=False,full_character_certified=False,
   evidence='research/target-count-query-evidence/metal-original-lock-controls-v3.json')
+ missing['lock_on']['original_parts_and_healing_composition']=dict(suite='original-lock-health-parts',native_cases=7,rejected_cases=4,
+  source='gpu/world_original_lock_health_parts_entry.slang',original_source_definitions=25,complete_roster_definitions=91,
+  original_effects_weapons_growth_config_preserved=True,formation_variant_declared_as_original_input=True,
+  reached_part_actors=2,actual_part_destruction_verified=True,actual_injury_healing_and_cpr_verified=True,
+  original_burst_healing_verified=True,hp_condition_true_false_and_later_damage_verified=True,
+  existing_healing_diagnostic_rows_compared=204,observed_heal_source_preserved=True,
+  hp_and_adjacent_hp_observer_notification_stream_serialized=False,
+  early_explicit_entry_wire_gate=True,metal_verified=True,independently_sealed=True,cuda_verified=False,
+  lock_part_selection_verified=False,spatial_selection_verified=False,death_retarget_verified=False,
+  all_conditional_branches_verified=False,full_profile_verified=False,game_verified=False,public_admission=False,full_character_certified=False,
+  evidence='research/target-count-query-evidence/metal-original-health-parts-v2.json')
  missing['effect_target_count_add']['required_consumer_contract']=dict(marker=definitions[0]['name'],additional_targets=10,duration_bullets=2,
   distinct_target_capacity=True,does_not_increase_per_target_marker_stack=True,implementation_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}

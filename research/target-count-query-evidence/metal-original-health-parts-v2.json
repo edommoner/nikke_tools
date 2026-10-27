@@ -1,0 +1,201 @@
+{
+  "schema": "metal-original-health-parts-v2",
+  "passed": true,
+  "package_id": "66bef7186f8f2ef7f93957be2a21e20d7a565ac5e1d4dc693a485b57f8515551",
+  "source_commit": "338d2280d8ff4ab9bca5fc32bf2bec4d6190c05b",
+  "archive_sha256": "631495b4ca4b6448aff9991786715b642e1005545fd95203208a597fff92b470",
+  "inputs": 11,
+  "native_cases": 7,
+  "rejected_cases": 4,
+  "actual_metal_gpu_verified": true,
+  "independently_sealed": true,
+  "independent_audit": {
+    "package_id": "66bef7186f8f2ef7f93957be2a21e20d7a565ac5e1d4dc693a485b57f8515551",
+    "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/original-lock-health-parts-v2-metal",
+    "child_pid": 47313,
+    "input_count": 11,
+    "native_cases": 7,
+    "live_parent_receipt_present": false,
+    "elapsed_seconds": 136.1172757089953,
+    "gpu_calls": 0,
+    "calculation_verified": true,
+    "input_sha256": "e20c1186138e8f682b8f210d9bc5891038672caaf04077e0cf433d43321b9180",
+    "output_sha256": "767f716e466463248f0c2046ca44b78567d488ee3fe0ac68020b8fb940dd2cca",
+    "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+    "schema": "independent-metal-audit-v1"
+  },
+  "independent_audit_receipt_sha256": "7913d08f295ff9b175a335a05c62e988ae6fb73f99af9d201392cf755197e158",
+  "original_heavyarms_definitions": 25,
+  "complete_roster_definitions": 91,
+  "all_original_definitions_growth_weapon_and_config_preserved": true,
+  "explicit_formation_variant_preserved_as_real_input": true,
+  "part_cases": {
+    "two_reached_parts": true,
+    "actual_destruction": true,
+    "live_nodes_not_static_has_parts_flag": true,
+    "late_adds_at_seconds": 3
+  },
+  "healing_cases": {
+    "actual_injury_and_positive_healing": true,
+    "original_cpr_and_burst": true,
+    "mary_hp_condition_true_and_false": true,
+    "later_incoming_damage_consumer": true,
+    "passive_condition_audit_package_id": "718a776aca3e9d61b85eb5954721aedf28959b7c99b115f2e5c0eee7b1cf9255"
+  },
+  "healing_diagnostic": {
+    "rows_by_case": [
+      12,
+      12,
+      12,
+      42,
+      42,
+      42,
+      42
+    ],
+    "rows": 204,
+    "source_observed": true,
+    "capacity_per_case": 512,
+    "existing_portable_heal_share_projection": true,
+    "hp_and_adjacent_hp_observer_only_notices_not_serialized": true
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 11,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 2.2171107916656183,
+    "input_bytes": 4819588,
+    "library_compile_seconds": 1.6026378870010376,
+    "output_bytes": 57671680,
+    "pipeline_cache": {
+      "archive_bytes": 6630224,
+      "archive_compile_seconds": 9.612398028373718,
+      "archive_sha256": "3f5a411624a3b86c130862a8c2fe3da66c5524b0e97d8236a4f7193f8f28b783",
+      "enabled": true,
+      "hit": false,
+      "identity": {
+        "consumer_sha256": "80ad3f35e458e2f3a3f48a3997243e0906ac0719a04c352c4e901aeb753e268f",
+        "device": "Apple M5",
+        "entry": "portableEvents",
+        "math_mode": "safe",
+        "os_build": "Version 27.0.1 (Build 26A434)",
+        "registry_id": "4294968346",
+        "resident_stride": "140008",
+        "schema": "1",
+        "source_sha256": "f99de2c04f7d48b27bf5aed766f97d70c9946cef671e7e3cb51d61f02a70a509",
+        "threads_per_threadgroup": "1"
+      },
+      "key": "569bdea1f5459dfb595d8f93e1c9ca39903329e849ace68585a22c37da4ace2f",
+      "native_archive_miss_rejected": true,
+      "required": false,
+      "schema": 1
+    },
+    "pipeline_compile_seconds": 9.613042950630188,
+    "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "pipeline_os_build": "Version 27.0.1 (Build 26A434)",
+    "registry_id": "4294968346",
+    "runtime_buffer_bytes": 1540088,
+    "runtime_element_capacity": 11,
+    "runtime_physical_stride_verified": true,
+    "runtime_stride_bytes": 140008,
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "runtime_stride": 140008,
+  "cpu_test_groups": 11,
+  "cpu_tests": 95,
+  "cpu_unit_seconds": 22.439448874996742,
+  "cpu_native_preflight_seconds": 132.43276825000066,
+  "entries": [
+    {
+      "name": "original-heavyarms/30s/0adds/parts",
+      "input_sha256": "9bb8e6566d576e7107dad4bff6d882ce5ed4550c9bc3c1c8cfb188336c022279",
+      "output_sha256": "1c4a0b34b74afede4c9ae5ff1ef301b6848b6ca8bcdc995a57be164d28e80316",
+      "native_sha256": "896549757a861a130c2bf85607730dd7cb00b3b03e56136cc2572d29c7d7fd05"
+    },
+    {
+      "name": "original-heavyarms/30s/0adds/parts/broken-parts",
+      "input_sha256": "4675177f875be692cf03d8e60eb49e48ce45367a483b31d93cf59f5227e5b3a7",
+      "output_sha256": "d1d576c741ab60edb5065b1202cc4c48f08ae4b3d458417752e735db4942f112",
+      "native_sha256": "e9affdcf4b45e0de1ee3dff92b080673a87e2d3fdb2a819358158b47d8b0ccd2"
+    },
+    {
+      "name": "original-heavyarms/30s/0adds/injury",
+      "input_sha256": "80ab1e35f4bcab42fb09092fa022db7b194114dfca537a4f9c86d987c7ba73a4",
+      "output_sha256": "b57b749856dd20f358c9f8a260c678ae73c53bae459ec71b1f19f03a3abab559",
+      "native_sha256": "5623fdf3cd3e6c678ee63605cef60998b8cacfe0ff9169ad8b17e6c1bec62d90"
+    },
+    {
+      "name": "original-heavyarms/30s/0adds/injury/mary-first",
+      "input_sha256": "bc661ec0fd18110d0bfa40d127faaf38afe7319dce1bb058d17077de4d38473c",
+      "output_sha256": "533cdfc925af6ce1c631830db0e119174e8db232c681288b000db8bae636901e",
+      "native_sha256": "a60ccb4e23817b66b4ba6e2add4f5278314cfe21b2307fe53ef06d57a1c879e0"
+    },
+    {
+      "name": "original-heavyarms/30s/0adds/injury/mary-first/low-mary",
+      "input_sha256": "e8e5528f8f59b18ee689b39e83f70e9332306007e2825c5139cd7b8b0d4d3b22",
+      "output_sha256": "aa105b8b8039d9af4050eb027554132f6a8d2b99284fb2e97a5df5aea1d4646a",
+      "native_sha256": "3108598f83d6adb685388e506113cec868920dec15dc4286e105333e2b1a5332"
+    },
+    {
+      "name": "original-heavyarms/30s/0adds/parts/injury/mary-first",
+      "input_sha256": "cf5aec9d165b0f3e744ef30539c7fa16a00a9589c867eafb88c18be1193af08f",
+      "output_sha256": "27f5adb11196672a1aed4488020651c735d3b9c6c633b3187589acc843caf2b9",
+      "native_sha256": "9f63b6e217f40a529aacdf626f6d6e6df7ba9a9060cc4b1d44a64db50992203c"
+    },
+    {
+      "name": "original-heavyarms/30s/3adds/parts/injury/mary-first",
+      "input_sha256": "87153aeaacf40e0d176406aa5e49a27bc4dd4312e2e2ed1fb324d520d6767707",
+      "output_sha256": "325e10d6b9b8c00e342bf3f3a0098e14d4af3f7276ed9b3b3684dc8f8b6ca063",
+      "native_sha256": "d3b9b2465df35ede11a542a0ef05e3124487197722febc863c6dc279c3798911"
+    },
+    {
+      "name": "reject/original-lock/typed-magic",
+      "input_sha256": "e89753b8e89f9b66b5170837021313b0b6190eeafa6491418eb11815a1a2e45d",
+      "output_sha256": "8cffeb012036aa4b8b03ed7c4e59404261d9fff131f046c5a158b6907ed4dbac",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/original-lock/trace-required",
+      "input_sha256": "3943fe6985770f43feae2bac236312874cbaba0da6e6481fdac03f724bf273b5",
+      "output_sha256": "25c33916f9d0a6a5cb5efd4912d225a072780d04197e9fadb2253a48048aae32",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/original-lock/not-enemy",
+      "input_sha256": "3e57f4e5cc857462cf9b3f40ec7ddc5036979b2f13293b6cf8416878f6582d48",
+      "output_sha256": "2a0e9852347adf55e6f8886f3dd090622fd361a3b8653a4dd20408df3c5792a5",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/original-lock/wrong-charge-condition",
+      "input_sha256": "b2144ff03f91209fcac15d4fd09cf18f78b1ea6a21b2e79642ad97401fe29bba",
+      "output_sha256": "59fb413931d19a0f7eeed14eed7484419940fc66c9ec305e9f974d8281650f49",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "generated_normalized": {
+    "cuda": "cf9d65b54605cb3f9e5a0a3aae34b451a995b4e9a95cb3c5b0215e21c40e3e14",
+    "metal": "f99de2c04f7d48b27bf5aed766f97d70c9946cef671e7e3cb51d61f02a70a509"
+  },
+  "input_sha256": "e20c1186138e8f682b8f210d9bc5891038672caaf04077e0cf433d43321b9180",
+  "output_sha256": "767f716e466463248f0c2046ca44b78567d488ee3fe0ac68020b8fb940dd2cca",
+  "first_capture_failed_before_gpu_and_preserved": true,
+  "gpu_execution_count": 1,
+  "same_claim_retry_count": 0,
+  "windows_new_execution_requests": 0,
+  "cuda_hardware_verified": false,
+  "cubin_cache_hit_verified": false,
+  "lock_part_selection_verified": false,
+  "spatial_selection_verified": false,
+  "death_retarget_verified": false,
+  "all_conditional_branches_verified": false,
+  "full_profile_verified": false,
+  "public_gpu_admitted": false,
+  "full_character_certified": 0,
+  "full_goal_complete": false
+}

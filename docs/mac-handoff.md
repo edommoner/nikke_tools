@@ -1,5 +1,13 @@
 # Mac GPU開発引き継ぎ
 
+2026-10-28追加：`original-lock-health-parts` をsealed11入力（native7/raw拒否4）として登録。元Heavyarms25定義/実編成91定義を維持し、実PART2個への命中と破壊、負傷/CPR、メアリーを先に置く実編成のburst回復、回復後HP条件の真偽と5秒後の実被ダメージ、3秒後ADD出現との同居を共通実行器へ接続。静的has_partsはFalseのままでlive nodeが決める。原操作/育成/武器/configを維持し、編成変更は元bodyとして明示する。
+
+固定338d2280/package66bef718…がM5 Metal全比較とfresh GPU禁止seal（136.12秒）に成功。11群95テスト、CPU事前照合132.43秒、実GPU2.21711秒/冷PSO9.61304秒、generation必須hit・Slang0。既存heal-share diagnosticの呼出し/配分/clamp/元heal_source/通知順204行を全比較。既存projectionはHP/adjacent_hpの観測専用通知をserializeしないため、それら全通知列の認定ではない。PARTをLock On候補へ入れる規則、距離/同距離順、死亡時振替、全分岐/他キャラ/公開受付は未達のまま。
+
+初版718a776a…はCPU74/全11照合成功後、hostのentry登録漏れでGPU計算前に停止。消費済みclaim/失敗は保持しretry0。修正版は明示entryと完全wireを登録し、既存ガードとexact inverseを維持。共通CLIはpackage/runのCPU準備前にもexplicit wireを検査し、不明entry/幅違いを拒否する（関連79検査）。既存GPU405ファイルは前回f51bbe9eと全byte同じ、追加は既存回復logを有効化する3行のentryだけ。v1/v2の全golden/input/native期待と生成CUDA/MSL原byteも同一。
+
+Windowsは既存status取得がhost unavailableで、再依頼/追加実行0。CUDA用`original-lock-health-parts-cache-only`は同じ計算/goldenのCUBIN/O1必須＋paired generation必須。実CUDA/CUBIN hitは未確認。追加した`unit-check`は固定packetの既存CPU unit群だけをbounded実行し、完全native事前検査/calculation/GPU認定はFalseのまま記録する。登録/監査器だけの変更確認に利用し、数値変更時のrun/sealを省かない。次は他の未対応分類/実編成を優先し、未知のLock On規則は保留を維持する。証跡 [Metal](../research/target-count-query-evidence/metal-original-health-parts-v2.json)、[HP条件](../research/target-count-query-evidence/original-mary-hp-condition-v1.json)。
+
 2026-10-28追加：`original-lock-controls` をsealed17入力（native9・raw拒否8）で登録。元全25効果/実編成91定義/実武器/育成/configを保持し、本人ハイド（取得前/充填中・本体/3ADD）、別キャラのハイド、30秒16ADDの15対象飽和を既存manual/lock/typed実行器へ接続した。ハイドは原入力identity検査後の明示操作overlayであり、元の操作を一切変えていないという主張ではない。source row2の0.35秒発火・実敵marker削除・state_end通知・再取得をCPU受動観測し、全native指紋も固定基準と一致。従来の24entryと合わせて元25entryの呼出しを観測できたが、全条件分岐/全キャラ認定ではない。
 
 固定1754ba71、package2b01f589…がM5 Metal全比較と別fresh GPU禁止seal（94.64秒）に成功。元burstで15対象を2回snapshotし、その後5へ戻る。10群76テスト、fresh CPU事前検査90.96秒、GPU2.59235秒、warm PSO0.00227秒。生成cache/PSOは必須hit、Slang0、実GPU1/retry0、旧8caseの全input/nativeと全出力41943040byteを既存CLI `readback-retain` で保持。CUDA/MSL原byteも旧版と同一、wire/runtime不変。梱包漏れで止まったv2はCPU失敗/GPU0/claim0のまま保持し、既存AUDIT_FILESへ依存JSONを登録して梱包前停止へ改善（関連16テスト）。件数のためだけにfixture9を再生成したunitの重複を除き、同じ4テストは38.15秒で成功（以前85.91秒）。件数はCLI gate、旧8入力のbyte照合はunitと保持監査に残す。

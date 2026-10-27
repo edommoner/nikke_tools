@@ -1,5 +1,19 @@
 # Lock Onの次の実装契約
 
+## 2026-10-28 実パーツ・負傷・回復条件を同じ実行器で検証
+
+`original-lock-health-parts`は7つの30秒実編成とraw拒否4件。元25定義/実編成91定義を削らず、永続PART2個/破壊可能PART2個、通常編成の負傷とCPR、メアリーを先に配置した実編成のburst回復、メアリー低HP、パーツ＋負傷、パーツ＋負傷＋遅延ADDを実行する。編成変更は元bodyの変更として保存し、元input identityで効果/owner順/実武器/育成/configを検査する。単なるhas_parts=Trueではなく、元base flagはFalseで実live nodeに支配させる。PART上の実extra_hits/extra_dealt、破壊通知、全戦闘状態を照合する。
+
+HP条件の独立した受動監査は、元の防御効果が高HP時だけ発火し、低HP時は発火せず、5秒後の全5人の実被ダメージが変わることを確認した。観測を加えた全native指紋は固定基準と同一。このCPU監査は初版package718a776a…に属するが、修正版66bef718…の全golden/input/native期待とGPU sourceが初版と完全一致することを別途検査しており、出所を付替えていない。
+
+新entryは`PORTABLE_HEAL_SHARE_DIAGNOSTIC`を定義して既存original composition entryをincludeするだけ。回復・条件判定・part着弾・敵攻撃の計算/時計/通知器は複製していない。既存diagnosticの204行（12/12/12/42/42/42/42）を、元heal_sourceを保持して既存native_records/gpu_recordsで全比較した。観測専用のHP/adjacent_hp通知を既存projectionが除く範囲は明示して保持し、それを全通知履歴の証明へ拡大しない。Runtime140008byte/input109536/output1310720word、512行の既存healing bank、全fraction/team/lock/typed history容量は不変。
+
+固定338d2280/package66bef718…のM5実GPU1回が全11入力成功、別fresh GPU禁止sealも成功（136.12秒）。95unit/CPU全11、GPU2.21711秒/PSO9.61304秒、必須generation hit/Slang0。初版はentry未登録でGPU計算前に停止し、失敗とclaimを保持したまま別packageへ修正。ガードを広く解除せず、明示entry/完全wireだけを登録しexact inverseを追加した。さらにCLIのpackage/run開始時にも同じentry-wire検査を行い、再発時のCPU全件照合を避ける。関連79テスト成功。
+
+既存GPU405ファイルはf51bbe9eから全byte不変。初版/修正版のCUDA/MSL原byteも全同一で、hostの登録修正による余計なcompiler呼出しは0。source保持は旧suiteのcurrent-source GPU再認定ではなく、既存の古い証明書を昇格させない。`original-lock-health-parts-cache-only`は同じ計算/入力/golden/比較器をCUBIN/O1必須とresident paired generation必須に接続する。現CUDA実機/実CUBIN hitは未確認、Windows新依頼0。
+
+これでPARTへのLock On規則や距離/同距離順、死亡時振替、全条件分岐、全キャラを認定していない。公開GPU admission/UIは従来通り。証跡は `target-count-query-evidence/metal-original-health-parts-v2.json`、`original-mary-hp-condition-v1.json`、`original-health-parts-legacy-source-retention-v1.json`、`original-health-parts-v1-predevice-failure.json`。
+
 ## 2026-10-28 元ハイド解除と15対象バーストを実編成へ接続
 
 `original-lock-controls` は旧8入力を保持した17入力（native9/raw拒否8）の共通CUDA/Metal suite。実編成/実武器/全91定義（Heavyarms元25定義を含む）はそのまま使う。本人の0秒/0.35秒ハイド、本体のみ/3ADD、別ownerのハイドをliteral `control.sequence` で与え、nativeの本来の入力identity検査後とGPUの静的packingへ同じ宣言を適用する。育成profileへのcontrol混入を拒否する既存境界は変更しない。`portable_declared_manual_sequences.apply` は既存owner・非空8件以内・有限で順序付きの時刻/duration・明示coverのみを受け付け、既存sequenceの上書きを拒否する。canonical CPU4ファイルとupstreamは未変更。

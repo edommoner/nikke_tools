@@ -590,3 +590,14 @@ CUDAの短い検証には `original-lock-composition-cache-only` を使用する
 
 
 `original-lock-controls` はsealed17入力（native9/raw拒否8）。`original-lock-composition` の旧8入力を保持し、実編成の明示ハイド4条件と30秒16ADDの15対象burst飽和を同じ共通実行器へ追加する。通常のpackage/unpack/runを使う。元25定義・実編成91定義・実武器/育成/configを保持するが、操作は元identity検査後の明示overlayと区別する。全25entry呼出しと全条件分岐の認定は分ける。新GPU source/wire/runtime追加0、旧8出力40MiB保持。`original-lock-controls-cache-only` は同じ計算とgoldenにCUBIN/O1のcompile-cache必須とresident paired generation-cache必須を適用する。現CUDA実機は未確認。CPU auditの旧比較golden依存はAUDIT_FILESにも登録し、梱包漏れをnative生成前に拒否する。[範囲・証跡・残件](portable-heavyarms-lock-selection.md)を参照。
+
+
+## 固定パッケージのunit検査だけを再確認する
+
+```sh
+python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
+```
+
+固定packetをcwdにして実行する。既存cpu_test_groupsを同じbounded子プロセス/GPU禁止/依存ファイル検査で実行し、必要な専用CPU参照テストも保持する。一方、追加の全nativeケース事前照合は行わず、resultはunit_tests_verifiedだけを立て、cpu_verified/calculation_verified/gpu_execution_verifiedはFalseのまま保存する。空の検査群・不正packet・未登録composed wire・既存capture上書きを拒否する。失敗はログとartifactを保持する。登録/監査器のみの変更で数値コードと固定input/native期待が不変と確認できた場合の反復に使い、数値変更のrun/native/sealを代替しない。
+
+`original-lock-health-parts`はsealed11入力（native7/raw拒否4）。実PART2個/破壊、負傷/CPR、元burst回復とHP条件、遅延ADDとの同居を全原定義で検証する。新entryは既存回復diagnosticを有効化するだけで、計算/時計は共有。204行の回復呼出し/配分/clamp/heal_received通知を元source付きで照合する。既存projectionが観測専用HP/adjacent_hp通知をserializeしない範囲は残す。`original-lock-health-parts-cache-only`は同じ計算/goldenのCUBIN/O1必須＋paired generation必須。現CUDA実機は未確認。[範囲と残件](portable-heavyarms-lock-selection.md)。

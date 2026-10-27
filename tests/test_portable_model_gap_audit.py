@@ -33,6 +33,13 @@ class GapAuditTests(unittest.TestCase):
   self.assertTrue(p['metal_verified']);self.assertTrue(p['independently_sealed']);self.assertTrue(p['burst_target_saturation_verified'])
   for key in ('cuda_verified','spatial_selection_verified','death_retarget_verified','parts_and_injury_branches_verified','all_conditional_branches_verified','game_verified','public_admission','full_character_certified'):self.assertFalse(p[key])
   self.assertFalse(r['full_goal_complete'])
+ def test_original_parts_healing_probe_does_not_promote_unknown_selection_or_all_branches(self):
+  r=verify(ROOT);p=r['missing_stats']['lock_on']['original_parts_and_healing_composition']
+  self.assertEqual((p['native_cases'],p['rejected_cases']),(7,4));self.assertEqual(p['reached_part_actors'],2)
+  self.assertEqual(p['existing_healing_diagnostic_rows_compared'],204)
+  for key in ('actual_part_destruction_verified','actual_injury_healing_and_cpr_verified','original_burst_healing_verified','hp_condition_true_false_and_later_damage_verified','metal_verified','independently_sealed'):self.assertTrue(p[key])
+  for key in ('cuda_verified','lock_part_selection_verified','spatial_selection_verified','death_retarget_verified','all_conditional_branches_verified','full_profile_verified','game_verified','public_admission','full_character_certified','hp_and_adjacent_hp_observer_notification_stream_serialized'):self.assertFalse(p[key])
+  self.assertFalse(r['full_goal_complete'])
  def test_lock_capacity_is_not_the_observed_canonical_marker_stack(self):
   r=verify(ROOT);lock=r['missing_stats']['lock_on'];public=lock['published_skill_contract']
   self.assertTrue(lock['marker_stack_count_is_not_distinct_target_count']);self.assertFalse(lock['unlocked_candidate_exclusion_verified'])

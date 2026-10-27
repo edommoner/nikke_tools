@@ -20,3 +20,10 @@ python scripts/nikke_gpu.py resident-arc-retain --reference-capture OLD \
 M5の新106出力ではtraceアドレス20語がcase stride差だけ移動し、実trace recordとの整合を確認しました。それ以外の旧領域861,567,920 byteは一致し、新tail13,901,264 byteも全0。raw自体は同一ではなく、新goldenは移動後のアドレスを含む全byteのhashを保持します。新しいnative監査は別途実行します。生rawと元失敗は保存し、retention監査を計算成功の代用にしません。
 
 WindowsのCIM照会はsandbox内でCimException/native code2でした。Microsoftの[MI_Result定義](https://learn.microsoft.com/en-us/windows/win32/api/mi/ne-mi-mi_result)ではアクセス拒否です。同じ固定queryを正規の`require_escalated`経路で1回実行するとsnapshot取得に成功しました。実行境界で結果が変わったことを示すもので、OS側の根本原因やサービスpreservation成功は主張しません。WMI／ACL／サービス／セキュリティ設定は変更していません。今後の短いWindows検証は、この確認済みの実行権限contextでbounded Jobを使います。
+
+
+## 明示entryとwireの早期検査
+
+共通CLIはinput_words/output_words/sourceを明示したbattle suiteについて、`portable_backend.validate_composed_stride`をpackage作成開始時とrunのCPU準備前にも呼ぶ。既存の実execute側検査/Swift-Python幅検査も残す。`entry-wire-preflight.json`はこのCPU-only検査のreceiptであり、計算/デバイス実行の証明ではない。不明なcomposed entryや幅違いはnative/単体検査/claim前に停止する。compiler-onlyとsmoke、明示wireを持たない旧metadataはこの新検査の対象外で、従来の実行時検査は変更しない。
+
+original health/partsの初版は74unitと全11入力のCPU照合後に未登録entryを検出した。新しいearly gateの負例では、packageはgit列挙/CPU基準作成/出力前、runはunit/native/GPU worker/capture作成前に止まることを確認した。登録は明示sourceと109536/1310720の完全wireに限り、任意entryや切り詰めたwireは受け付けない。

@@ -1,0 +1,14 @@
+{
+  "schema": "original-health-parts-legacy-source-retention-v1",
+  "baseline_commit": "f51bbe9e28e375226ca5595edb6467bf736f8a7e",
+  "existing_gpu_files": 405,
+  "all_existing_gpu_file_bytes_unchanged": true,
+  "added_gpu_files": {
+    "gpu/world_original_lock_health_parts_entry.slang": "0ab5c284e6cc277841209b36d0aaed76bd2a2dec9164de1ed4af3f08ac6182ed"
+  },
+  "compiler_invocations": 0,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "current_legacy_gpu_recertification": false,
+  "scope": "Exact source retention from the last published work; prior known stale source certificates remain stale and are not promoted"
+}

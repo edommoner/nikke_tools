@@ -30,9 +30,9 @@ from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 SUITES = {
     'original-lock-health-parts':dict(script='research/verify-original-lock-health-parts.py',
         golden='research/portable-original-lock-health-parts-v1-expected.json',source='gpu/world_original_lock_health_parts_entry.slang',
-        inputs=11,native=7,input_words=109536,output_words=1310720,development_only=True,cpu_test_timeout=120,
+        inputs=11,native=7,input_words=109536,output_words=1310720,development_only=False,cpu_test_timeout=120,
         support_files=['research/portable-original-lock-composition-v1-expected.json','research/portable-destructible-original-battle-short-expected.json','research/target-count-query-evidence/lock-projectile-composition-v1-failure-diagnostic.json'],
-        tests=['test_original_lock_health_parts.py','test_portable_cpu_batch.py','test_portable_heal_share_trace.py','test_portable_world_fraction.py','test_portable_world_team.py','test_packet_fates.py','test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_generation_separation.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py']),
+        tests=['test_original_lock_health_parts.py','test_portable_cpu_batch.py','test_portable_unit_check.py','test_portable_heal_share_trace.py','test_portable_world_fraction.py','test_portable_world_team.py','test_packet_fates.py','test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_generation_separation.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py']),
     'original-lock-controls':dict(script='research/verify-original-lock-controls.py',
         golden='research/portable-original-lock-controls-v1-expected.json',source='gpu/world_original_lock_composition_entry.slang',
         inputs=17,native=9,input_words=109536,output_words=1310720,development_only=False,cpu_test_timeout=120,
@@ -624,6 +624,7 @@ for _baseline,_config in list(SUITES.items()):
 # separate from a selected suite's battle/native preflight.
 SMOKE_TESTS = ['test_package_payload_reuse.py','test_portable_windows_cleanup.py','test_portable_gpu_cli.py',
                'test_portable_compile_cache.py','test_portable_cuda_artifact.py','test_portable_module_check.py','test_portable_weapon_phases.py','test_portable_offline_assembly.py','test_portable_readback_stream.py','test_portable_regression_compact.py','test_portable_file_transport.py','test_portable_cpu_batch.py','test_portable_query_boundaries.py','test_portable_ptx_stats.py','test_portable_compiler_diagnostic.py']
+SMOKE_TESTS.append('test_portable_unit_check.py')
 SMOKE_TESTS.append('test_portable_compiler_certificate.py')
 SMOKE_TESTS.append('test_portable_python_dependencies.py')
 SMOKE_TESTS.append('test_portable_cuda_cached_profile.py')
@@ -2184,6 +2185,27 @@ def cpu_test_groups(m,capture,smoke=False):
     return rows
 
 
+def unit_capture(capture):
+    """Check immutable packet unit groups; never substitute for run/native/seal."""
+    m=verify_package(ROOT)
+    if not SUITES[m['suite']].get('tests'):raise ValueError('Unit-check requires registered nonempty unit groups')
+    wire=registered_entry_wire_preflight(SUITES[m['suite']])
+    capture=Path(capture);capture.mkdir(parents=True,exist_ok=False)
+    result=dict(schema='unit-check-v1',package_id=m['package_id'],suite=m['suite'],passed=False,
+                unit_tests_verified=False,full_native_preflight_executed=False,cpu_verified=False,
+                calculation_verified=False,gpu_execution_verified=False,gpu_calls=0,full_character_verified=0,full_goal_complete=False)
+    try:
+        if wire is not None:write(capture/'entry-wire-preflight.json',wire)
+        with forbid_gpu():rows=cpu_test_groups(m,capture)
+        result.update(passed=True,unit_tests_verified=True,groups=len(rows),tests=sum(r['tests'] for r in rows))
+        return result
+    except BaseException as error:
+        result['error']=type(error).__name__+': '+str(error)
+        raise
+    finally:
+        write(capture/'result.json',result);collect(capture,capture/'artifacts.json')
+
+
 def validate_generation_request(m):
     if not os.environ.get('NIKKE_SLANG_GENERATION_CACHE'):return
     import re
@@ -3395,6 +3417,7 @@ def main(argv=None):
         if storage_command=='archive-raw':a.add_argument('--remove-original',action='store_true')
     a=sub.add_parser('storage-check',help='CPU-only free-space budget check; does not archive or delete files')
     a.add_argument('--required-bytes',type=int,default=0);a.add_argument('--reserve-bytes',type=int,default=1024**3);a.add_argument('--path',type=Path,default=ROOT)
+    a=sub.add_parser('unit-check',help='Bounded immutable unit groups only; no full native preflight or GPU proof');a.add_argument('--capture',type=Path,required=True)
     a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
     a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--native-baseline-package',type=Path,help='Reuse expected native hashes only when CPU dependencies and prepared inputs match; fresh run/seal checks stay mandatory');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1','coordinate-typed-owner-status-witness-v1','coordinate-owner-counter-field-decoder-v1'])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True);a.add_argument('--reuse-payload-from',type=Path,help='Share exact payload bytes with an existing immutable package on the same filesystem; never edit either payload')
@@ -3673,6 +3696,7 @@ def main(argv=None):
         outside(a.out,[ROOT,a.transaction,a.gpu_capture])
         with forbid_gpu():result=admit(SimpleNamespace(**globals()),verify_package(ROOT),a.transaction,a.backend,a.gpu_capture)
         write(a.out,result)
+    elif a.command=='unit-check':result=unit_capture(a.capture)
     elif a.command=='_tests':
         from portable_cpu_tests import run_groups,complete
         from portable_phase_audit import Journal
