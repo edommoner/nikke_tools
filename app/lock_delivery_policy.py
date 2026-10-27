@@ -17,6 +17,7 @@ class Selection:
 
 def select(snapshot,hit,hits,views,*,model):
     if model!=MODEL or not isinstance(snapshot,LockSnapshot):raise ValueError('Explicit frozen-slot delivery model required')
+    if type(snapshot.handles) is not tuple:raise ValueError('Immutable snapshot handles required')
     if type(snapshot.revision) is not int or not 0<=snapshot.revision<=MAX_REVISION:raise ValueError('Invalid snapshot revision')
     if type(hit) is not int or type(hits) is not int or not 1<=hit<=hits<=256:raise ValueError('Invalid bounded hit ordinal')
     handles=tuple(snapshot.handles);rows=tuple(views)

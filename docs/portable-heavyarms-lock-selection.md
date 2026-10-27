@@ -136,3 +136,14 @@ sealed `physical-lock-cover` は23入力（native11／raw拒否12）をM5 Metal�
 GPU .046597秒、cold pipeline10.418701秒、独立監査8.449739秒。共通CPU642（Win1skip）・専用57検査が成功。共有source更新後の旧物理10／external16も新Metalとfresh sealを行い、全shader/input/output byteを保持。旧2入口は生成byteの同一確認後にpipeline必須cache hitを使用し、pipeline時間は各約.002秒。旧goldenを保持し、新v3/v4へCLIを更新する。default106の厳密CUDA/MSL生成hashも不変（生成のみ、CUDA再認定ではない）。全inventory fieldは旧arena版と一致、245変換/21失敗/20分類/全キャラ0/UI CPUを保持する。
 
 証拠は `research/target-count-query-evidence/metal-physical-lock-cover-v1.json` と `physical-lock-cover-legacy-retention-v1.json`。今回はMetal3回、同claim retry0、Windows追加依頼0。距離選択・sequential delivery・元全25効果・現sourceのCUDA実機認定は未完了。
+
+
+## 発射snapshotからヒット番号への共通選択部品（2026-10-27）
+
+実CPU通知の追加観測では、`on_attack` → `full_charge_fire` → 元index8のnamed hit通知2回 → weapon hit通知、となった。元index4/8/9を変更せず追加したfixtureで、順番攻撃のhit予算は2、元index9の消費後は0になる。発射前snapshotは2対象を保持する。したがって、キュー生成時に現在membershipを読み直すことも、着弾時に消費後のgaugeからhit予算を読み直すこともできない。観測自体はターゲット選択policyを注入せず、全25効果の成立を認定しない。
+
+`lock-delivery-policy` はsnapshotのslotとhit番号の対応だけを検証する共通整数部品。明示した `cycle-frozen-slot-v1` では `(hit-1) % snapshot_count` を使い、選択済みslotの型・identity・generationを保持する。current viewが欠落／死亡／別世代なら専用statusを返し、生きた別slotへ圧縮・再対象化しない。空集合は割り算前に分岐する。これは工学上の明示policyであり、ゲームの途中死亡・挑発・再対象化の実測規則ではない。`ready`も着弾・ダメージ成功ではなく、同世代の生存が確認できたことだけを表す。
+
+同じSlang関数をCUDA/Metalへ生成し、Metal63入力（共通CPU policy46／raw拒否17）と別fresh GPU禁止監査で一致。128対象、256hit、全6kind、型別同identity、全5status、整数境界、重複identity、予約領域を検査。Python APIは可変listをsnapshotとして受け取らない。既存cover23/physical10/external16のGPU source閉包は全byte不変なので再コンパイル・再実行しない。
+
+このprobeは実着弾キューやHP・カウンターを実行しない。次はpacketにsnapshot番号と発射時hit予算を保持し、既存 `landWorldSkillReceipt` のactor set／land処理へ接続する必要がある。元の32 actor setを借りてsnapshotを上書きせず、既存receipt codecの予約word／所有権を先に監査する。公開admission・全キャラ認定0・UI CPU・距離未確定を保持する。証跡は `target-count-query-evidence/metal-lock-delivery-policy-v1.json` と `lock-delivery-native-order-v1.json`。

@@ -560,3 +560,6 @@ Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-la
 
 
 `physical-lock-cover` はsealed23入力（native11／拒否12）。既存手動遮蔽producerをLock Onの実充填・snapshotへ合成し、入力/出力幅を増やさずM5 Metal＋fresh監査で一致した。通常のpackage→CPU-only→run→保存結果監査を使う。旧physical10/external16も現sourceで再sealし、旧goldenは保持。spatial selector/sequential/full25/CUDA実機の認定ではない。詳細は [実ハイド合成](portable-heavyarms-lock-selection.md)。
+
+
+`lock-delivery-policy` はsealed63入力（共通CPU policy46／raw拒否17）。発射前snapshotのhit番号→型付き世代付きslot選択部品だけをCUDA/Metal共通で検査し、M5 Metal＋fresh独立監査で一致。標準package/run/seal経路を使う。CPUテストには実 `on_attack`／`full_charge_fire`／gauge消費順の検査も含める。実着弾キュー・HP・ゲームの再対象化規則・全25効果の認定には使わない。詳細は [snapshot選択部品](portable-heavyarms-lock-selection.md)。

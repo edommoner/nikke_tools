@@ -34,6 +34,8 @@ class DeliveryTests(unittest.TestCase):
         for hit,hits,rows,model in [(True,3,views,MODEL),(0,3,views,MODEL),(4,3,views,MODEL),(1,257,views,MODEL),(1,3,views+views[:1],MODEL),(1,3,views,'game-default')]:
             with self.subTest(hit=hit,hits=hits),self.assertRaises(ValueError):select(snapshot,hit,hits,rows,model=model)
             self.assertEqual(snapshot,before)
+        from named_generation_locks import LockSnapshot
+        with self.assertRaisesRegex(ValueError,'Immutable'):select(LockSnapshot(snapshot.revision,list(snapshot.handles)),1,3,views,model=MODEL)
 
     def test_probe_covers_all_kinds_statuses_limits_and_reserved_words(self):
         rows,_=probe.prepare();positive=[c for _,_,c in rows if c is not None]

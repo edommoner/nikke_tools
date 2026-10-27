@@ -70,6 +70,12 @@ def verify(root,overrides=None):
   input_words=104400,output_words=806912,extra_wire_words=0,
   spatial_selection_verified=False,sequential_delivery_connected=False,original_full_profile_verified=False,
   game_verified=False,public_admission=False,evidence='research/target-count-query-evidence/metal-physical-lock-cover-v1.json')
+ missing['lock_on']['declared_frozen_slot_selector']=dict(suite='lock-delivery-policy',common_policy_cases=46,rejected_cases=17,
+  model='cycle-frozen-slot-v1',metal_verified=True,independently_audited=True,cuda_verified=False,
+  preserves_typed_generation=True,capacity=128,max_hits=256,compacts_dead_slots=False,
+  actual_battle_queue_connected=False,sequential_delivery_connected=False,spatial_selection_verified=False,
+  game_verified=False,original_full_profile_verified=False,public_admission=False,
+  evidence='research/target-count-query-evidence/metal-lock-delivery-policy-v1.json')
  missing['effect_target_count_add']['required_consumer_contract']=dict(marker=definitions[0]['name'],additional_targets=10,duration_bullets=2,
   distinct_target_capacity=True,does_not_increase_per_target_marker_stack=True,implementation_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}
