@@ -29,7 +29,14 @@ bool initializePhysicalLocks(inout Runtime s)
     }
     if(s.lockPulseRow==P_DEFINITIONS)return false;
     for(uint step=0;step<commands[s.inputBase+2];step++)
-    {uint op=commands[s.inputBase+P_COMMAND_BASE+step*8];if((op>=34&&op<=38)||(op>=41&&op<=46))return false;}
+    {uint op=commands[s.inputBase+P_COMMAND_BASE+step*8];
+#ifdef PORTABLE_LOCK_ENEMY_CARRIER
+     // Existing named-state readback is observational, not a lock command.
+     if((op>=34&&op<=38)||(op>=42&&op<=46))return false;
+#else
+     if((op>=34&&op<=38)||(op>=41&&op<=46))return false;
+#endif
+    }
     s.locks.configured=1;s.locks.who=owner;s.locks.name=name;
     for(uint i=PL_BASE;i<PL_OUTPUT;i++)results[s.resourceOutput+i]=0;
     uint h=physicalLockHead(s);results[h]=0x504c3031U;results[h+4]=owner;results[h+5]=s.lockPulseRow;return true;

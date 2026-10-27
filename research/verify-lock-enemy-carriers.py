@@ -24,7 +24,7 @@ def fixtures():
         c['effects'][marker]=copy.deepcopy(source_definitions()[0])
         for i in (1,2,6):c['effects'].append(copy.deepcopy(source_definitions()[i]));c['owners'].append(0)
         c['observe_named_state']=True;c['source_effect_identity']=True
-        c['state_queries']=[[0,5,1,1,'록 온'],[0,0,0,1,'록 온']]
+        c['state_queries']=[[0,5,0,1,'록 온'],[0,5,1,1,'록 온'],[0,0,0,1,'록 온']]
         rows.append(c)
     return rows
 

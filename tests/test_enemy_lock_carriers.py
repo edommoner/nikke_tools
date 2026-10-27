@@ -23,6 +23,8 @@ class EnemyLockTests(unittest.TestCase):
         self.assertEqual([len(s['handles']) for s in n['lock_shots']],[2,2])
         self.assertIn('named_state',n['battle'])
         self.assertTrue(n['battle']['named_state']['context_restored'])
+        queries=n['battle']['named_state']['queries']
+        self.assertEqual([(q['identity'],q['present'],q['stack']) for q in queries],[(0,True,1),(1,False,0),(0,True,1)])
     def test_exact_source_inverse_and_wire_guard(self):
         from portable_lock_enemy_carrier_source_contract import project_sources
         from portable_backend import validate_composed_stride
