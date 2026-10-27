@@ -70,6 +70,9 @@ void initializePortableProgram(inout Runtime s,uint input,uint output,out bool r
         { PROJECTILE_ADMIT_STAGE(s,25) results[output]=64;return; }
 #ifdef PORTABLE_EFFECT_TARGET_COUNT
     if(!validTargetCountDefinitions(s)) { results[output]=64;return; }
+#ifdef PORTABLE_GENERATION_LOCKS
+    if(!initializeGenerationLocks(s)) { results[output]=64;return; }
+#endif
 #endif
     PROJECTILE_ADMIT_STAGE(s,26) if(!initializeRevival(s)) { results[output]=64;return; }
 #ifdef PORTABLE_HEAL_CHARGE
@@ -143,6 +146,9 @@ void executePortableCommands(inout Runtime s,uint input,uint output,out uint que
             dispatch(s,0,event,commands[at+4],int(commands[at+5]),when,output);
         }
 #ifdef PORTABLE_EFFECT_TARGET_COUNT
+#ifdef PORTABLE_GENERATION_LOCKS
+        else if(op==45||op==46) { if(!generationLockCommand(s,at,when)) { s.error=64;break; } }
+#endif
         else if(op==44) { if(!targetCountCommand(s,at,when,output,queries)) { s.error=64;break; } }
 #endif
         else if (op == 4 && s.combat != 0) { if (s.clockMode != 0) { s.error = 64; break; } squadFrame(s,when,output); s.frameCount++; }

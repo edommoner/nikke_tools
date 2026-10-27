@@ -28,6 +28,10 @@ sys.path[:0] = [str(ROOT/p) for p in ('app', 'research', 'scripts')]
 from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 # No GPU/backend/native imports at startup: collect/audit must work without them.
 SUITES = {
+    'named-generation-locks':dict(script='research/verify-generation-locks.py',
+        golden='research/portable-named-generation-locks-expected.json',source='gpu/world_generation_locks_entry.slang',
+        inputs=16,native=10,input_words=92208,output_words=253952,development_only=True,
+        tests=['test_named_generation_locks.py','test_generation_lock_executor.py']),
     'named-target-count-shots':dict(script='research/verify-target-count-shots.py',
         golden='research/portable-named-target-count-shots-expected.json',source='gpu/world_effect_target_count_shot_entry.slang',
         inputs=9,native=5,input_words=104400,output_words=786432,development_only=False,

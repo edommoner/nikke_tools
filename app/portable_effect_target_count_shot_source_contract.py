@@ -5,7 +5,8 @@ from pathlib import Path
 def ledger(root):return json.loads((Path(root)/'tests/fixtures/portable-effect-target-count-shot-source-delta.json').read_text())
 
 def project_sources(root,sources=None):
-    root=Path(root);out=dict(sources or {});data=ledger(root)
+    from portable_generation_lock_source_contract import project_sources as locks
+    root=Path(root);out=locks(root,sources);data=ledger(root)
     for name,digest in data['added_sources'].items():
         if hashlib.sha256(out.get(name,(root/name).read_text()).encode()).hexdigest()!=digest:
             raise AssertionError('Unreviewed physical target-count dependency: '+name)

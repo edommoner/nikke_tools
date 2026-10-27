@@ -17,6 +17,9 @@ void storeNumber(uint at, uint64_t value) { results[at] = uint(value); results[a
 uint64_t smaller(uint64_t a, uint64_t b) { return f64Less(a,b) ? a : b; }
 uint64_t larger(uint64_t a, uint64_t b) { return f64Less(a,b) ? b : a; }
 
+#ifdef PORTABLE_GENERATION_LOCKS
+struct GenerationLocks { uint count,revision,configured,who,name;uint slots[128];uint generations[128]; };
+#endif
 struct Definition { uint _wireInput,_wireRow,_overrideMask,_route,_hits;
 property uint owner { get { return definition_owner(_wireInput,_wireRow); } }
 property uint kind { get { return definition_kind(_wireInput,_wireRow); } }
@@ -134,6 +137,9 @@ struct Runtime
     uint pellets[5], muzzles[5], inputBase;
     uint64_t modeEnd[5], reentryDelay, modeEntryUntil[5];
     uint modeEntryPhase[5]; // 0=done/no wait,1=first physical tick,2=waiting
+#ifdef PORTABLE_GENERATION_LOCKS
+    GenerationLocks locks;
+#endif
     uint automaticAddAim, enemyAttackOrder, enemySpawnOrder, combatStarted, combat, targetCount, target, aim[5], targetAlive[8], targetGeneration[8], targetHits[8];
     uint64_t targetHP[8], targetMaxHP[8], targetDamage[8], targetDefense[8];
     uint64_t scoredDamage[5], addScoredDamage[5], addOverkill[5], targetScoredDamage[8], targetDealt[8];
@@ -1929,6 +1935,9 @@ void tick(inout Runtime s, uint64_t when, uint output)
 #include "enemy_target_runtime.slang"
 #ifdef PORTABLE_EFFECT_TARGET_COUNT
 #include "effect_target_count_runtime.slang"
+#ifdef PORTABLE_GENERATION_LOCKS
+#include "named_generation_locks.slang"
+#endif
 #ifdef PORTABLE_EFFECT_TARGET_COUNT_SHOTS
 #include "effect_target_count_shot_runtime.slang"
 #endif

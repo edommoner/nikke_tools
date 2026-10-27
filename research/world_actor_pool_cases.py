@@ -37,7 +37,7 @@ def fixtures(base):
  add('query-unknown-notspawned-stale',[wave(delay=.2)],[query(0,5,0,1,0),query(.25,5,0,2,1),query(.25,5,99,1,2),query(.25,0,0,1,3)])
  return rows
 
-def native(case,L):
+def native(case,L,*,action_observer=None):
  enemy={'def':0,'core_px':0};patterns=validate(copy.deepcopy(case['patterns']),squad_size=5);notices=[0]*4;deaths=0
  class Boss(BossScript):
   def _destroy(self,*args,**kwargs):
@@ -65,6 +65,7 @@ def native(case,L):
   return 0,accepted,deaths-before,took,boss.add_overkill-over
  for t,op,args,amount in case['actions']:
   advance(t)
+  if action_observer is not None:action_observer(t,op,args,reg,boss)
   if op==34:
    who,k,id,gen,index=args;status,accepted,killed,took,over=land(k,id,gen,amount,t);receipts[index]=[status,1,accepted,killed,*bits(took),*bits(over)]
   elif op==37:
