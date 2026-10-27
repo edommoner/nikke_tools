@@ -209,7 +209,12 @@ void finishWeaponShot(inout Runtime s,inout Weapon w,uint who,uint64_t when,uint
     );
     if(burstSpeed && w.mode==1)
     { if(WORLD_PACKET_NORMAL(s,who)) { markNativeNumericLanded(s,who);s.normalLandedMask|=1U<<who; }WORLD_PHYSICAL_GAUGE(s) addBurstGauge(s,burstHitGain(s,who,w.gain,count,w.gaugeMultiplier,when)); }
+#ifdef PORTABLE_EFFECT_TARGET_COUNT_SHOTS
+    // The observation contract includes shots before activation and after expiry.
+    WORLD_TEAM_CHARGE(s,w,who,count,when,output) WORLD_NORMAL_ONLY(s,who) consumeBulletBuffs(s,who,when,output);
+#else
     WORLD_TEAM_CHARGE(s,w,who,count,when,output) if (s.bulletCount != 0) WORLD_NORMAL_ONLY(s,who) consumeBulletBuffs(s,who,when,output);
+#endif
     WORLD_FRACTION_CHARGE(s,w,who,count,when,output) if (last) for (uint muzzle = 0; muzzle < w.muzzles && s.error == 0; muzzle++) dispatch(s,0,14,who,0,when,output);
     WORLD_CHARGE_FINISH(s,w,who) if (changedWeaponSession(s,who,epoch,mode)) return; // Preserve a callback's new session.
     if (mode >= 0)
