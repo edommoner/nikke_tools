@@ -52,6 +52,20 @@ raw検査は既存registry headerとADD bindingの一致、行と逆引きの一
 
 今回の追加はstatic入力lowering。新Slang entry、Swift admission、snapshot/landing consumer、Metal実行・独立sealは未実装。`gpu_wire_connected=False`と全キャラ未認定を維持する。旧GPU source/生成物/cache identityを変更せず、Windows新依頼・GPU実行・Slangコンパイルは0。
 
+### 共通shot snapshot・着弾consumerの実装（実GPU未認定）
+
+新`world_coordinate_logical_actor_entry.slang`は既存original shared entryを使い、通常射撃のCS_FRAMEへ生存中の実ADD handleを追加する。z→既存poolのbirth→node→ordinal→provenanceの降順で既存PART/妨害物と合流する。技能のCP_FRAMEは変更しない。形状は既存software binary64の判定へ渡し、ADDの非core通常量も既存`damageFromFactors`から取得する。整数親量は既存PacketIntegerSumへ渡す。独自のHP・時計・sampler・damage式は追加しない。
+
+BODYは凍結したBODY世代へ、ADDは実slot/凍結世代へ直接着弾する。死亡/別世代への配送は拒み、通常landingのreceipt tailを元のBODY/ADD routingと新direct routingで共有する。通知のbody-hit分類、distinct group、credit/overkill、counter/lifestealは元のconsumerを使う。skill扱いの武器変更では新幾何を有効にしない。新scratchは既存skill履歴continuation直後の2,048語＋16語で、全入出力領域の所有権と非重複を検査する。履歴は既存2,048行/48語の共通codecで、新headerのmagic/versionを明示admitする。
+
+固定compiler-only snapshotから新entryのCUDA/MSL生成と両reflection検査に成功（約4.18秒）。Runtimeは既存と同じ138,952byte、alignment8、CUDA constants48byte。旧history entryも現sourceから生成し、保存済みCUDA/MSL/両reflectionの原byteが全て一致した（約4.15秒）。この生成・reflection検査はCUDAコンパイルやGPU実行証明ではない。共通code変更の逆投影は5既存sourceと5追加shaderを厳密hash/差分で固定し、旧監査chainへ接続した。normalizer/旧goldenは変更しない。
+
+全戦闘の既存観測chainとの合成で、初回はshot wrapperのlocalsにある`self`がLogicalGeometryになり失敗した。wrapperをchecked ASTのshot scopeへ変え、元の`self/t/bm`と関数名を保持した。group/passive wrapperより前に設置する順序を要求し、逆順はaliasを復元して拒否する。最初の逆順rewriteのNameError、旧arena監査へ逆投影を未接続だった回帰失敗2件も成功に数えない。修正後の旧group/source rewrite/arena19検査は全成功。CPU契約6件の全native出力は変更前の固定結果と完全一致した。
+
+既存full native chainも新modelへ合成し、元効果/武器/設定のidentity、物理packet、全point/draw/RNG、group/子着弾を保持する。新しい比較器を作るための別battleではない。common CLIの検査群へ専用source/arena4件と実full native合成/逆順拒否2件を追加した。新runtimeのSwift wire admission、GPU suite/全出力比較への登録、固定packetのMetal実行＋fresh sealは次の作業であり、まだ未実施。公開受付・全キャラ認定・現CUDA実機認定は変更しない。Windows新依頼0。
+
+最終的に全6件を既存full native observerへ通し、group/実receipt/子/子着弾/全point/全draw/624語RNG＋index/logical shot/packet/pellet channelの全10項目が固定CPU契約と完全一致した（85.46秒）。軽量な元CPU契約の再照合は全native byte相当を1.37秒で保持。両者を同じ検証費用やGPU認定とは扱わない。新entryのrequired paired generation cacheは0.43秒、hit/Slang0を既存receipt監査で確認し、cold receiptも別途保持した。CUBIN/NVRTC cacheやCUDA実機hitの証明ではない。出所・失敗・保持結果は`logical-actor-runtime-generation-v1.json`、詳細はprivate proofへ保存する。
+
 今回GPU/Slang変更とGPU実行は0。全キャラ/全特殊効果/公開GPU受付は未達。
 
 ## 固定packetでの最終検査

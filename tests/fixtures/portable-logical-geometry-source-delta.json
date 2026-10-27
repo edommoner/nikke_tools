@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "baseline_commit": "adcfa4b8",
+  "files": {
+    "gpu/coordinate_physical_runtime.slang": {
+      "before_sha256": "9ff3988b32c2f2c7fcd84ac0ddbdab958a5e10171af6fb0de4fab6ea4c530ac9",
+      "after_sha256": "1f7bdcfd1967bad16c2ac41457171bf4624eebe5aa4bd057041aadff11693dfd",
+      "changes": [
+        {
+          "before": "        if(kind!=5&&!worldOverlayLand(s,who,0,amount,false))continue;\n        storeNumber(actorPoolHead(s)+2,when);s.target=0;land(s,who,ACTOR_REF|slot,amount);\n        uint receipt=actorPoolHead(s)+18;if(results[receipt]==0||s.error!=0)continue;\n        coordinateTrace(s,who,slot,generation,amount,when,extra);\n        if(grouped)agCollect(s,results[agHead(s)+3]-1,slot,generation);\n        uint64_t credit=kind==5?actorNumber(receipt+2):amount;\n        counterPhysicalPacket(s,who,slot,generation,credit,results[receipt+1]!=0,when,s.resourceOutput);\n        if((s.healthMask&64)!=0&&s.error==0)dispatch(s,17,0,who,0,when,s.resourceOutput,amount);\n        if(slot==0&&damageAccumEnabled(s)&&s.error==0)dispatch(s,39,0,who,0,when,s.resourceOutput,amount);",
+          "after": "#include \"coordinate_group_actor_receipt.slang\""
+        },
+        {
+          "before": "    results[set+5]=0;results[actorPoolHead(s)+7]--;\n}\n#endif",
+          "after": "    results[set+5]=0;results[actorPoolHead(s)+7]--;\n}\n#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS\nvoid coordinateGroupDirectPacket(inout Runtime s,uint who,uint slot,uint generation,uint64_t amount,uint64_t when,bool extra,bool grouped)\n{\n    if(slot>=actorPoolCount(s)||generation==0){s.error=64;return;}\n    uint kind=commands[actorBinding(s,slot)],state=actorPoolAt(s,slot);\n    if(kind!=0&&kind!=5){s.error=64;return;}\n    if(results[state]!=generation||results[state+1]==0)return;\n    do\n    {\n#include \"coordinate_group_actor_receipt.slang\"\n    }while(false);\n}\n#endif\n#endif"
+        }
+      ]
+    },
+    "gpu/coordinate_sampling_runtime.slang": {
+      "before_sha256": "d7fdfd2adac30564cb909dacf5a4c0d04fdb5f43e9982af7b761275f3e885abf",
+      "after_sha256": "c0966222be364ecfc54e5dd20f99016633fadd259ab5410b8e256b8c08fee63e",
+      "changes": [
+        {
+          "before": "uint csRow(inout Runtime s,uint i){return s.resourceOutput+CS_ROWS+i*CS_ROW_WORDS;}",
+          "after": "uint csRow(inout Runtime s,uint i){return s.resourceOutput+CS_ROWS+i*CS_ROW_WORDS;}\n#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS\n#include \"logical_actor_geometry_runtime.slang\"\n#endif"
+        },
+        {
+          "before": "    for(uint i=0;i<n*4;i++)results[h+CS_FRAME+i]=results[frame+8+i];",
+          "after": "    for(uint i=0;i<n*4;i++)results[h+CS_FRAME+i]=results[frame+8+i];\n#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS\n    lagSnapshot(s,who);\n#endif"
+        },
+        {
+          "before": "    uint area=coordinateAreaRow(s,slot),r=cRow(coordinatePoolView(s),commands[area]-1);uint kind=commands[r+4];",
+          "after": "#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS\n    uint logical=lagActive(s)?lagShape(s,slot):0;if(logical!=0)return lagContains(s,logical,px,py,grow);\n#endif\n    uint area=coordinateAreaRow(s,slot),r=cRow(coordinatePoolView(s),commands[area]-1);uint kind=commands[r+4];"
+        },
+        {
+          "before": "    bool part=front!=0&&front!=0xffffffffU&&commands[actorBinding(s,front)]==1,body=front==0&&!inCore;",
+          "after": "    bool part=front!=0&&front!=0xffffffffU&&commands[actorBinding(s,front)]==1,body=front==0&&!inCore;\n#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS\n    if(lagActive(s)&&front!=0&&front!=0xffffffffU&&commands[actorBinding(s,front)]==5)body=true;\n#endif"
+        },
+        {
+          "before": "    storeNumber(at+2,damageFromFactors(s,factors,false));factors[2]=factors[7];",
+          "after": "    storeNumber(at+2,damageFromFactors(s,factors,false));factors[2]=factors[7];\n#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS\n    if(lagActive(s))storeNumber(lagPellet(s,hit),damageFromFactors(s,factors,false));\n#endif"
+        },
+        {
+          "before": "                if((results[at+8+slot/32]&(1U<<(slot%32)))!=0&&!packetIntegerAddAmount(total,actorNumber(at+(kind==1?4:6))))s.error=16;",
+          "after": "                if((results[at+8+slot/32]&(1U<<(slot%32)))!=0&&!packetIntegerAddAmount(total,\n#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS\n                    lagAmount(s,hit,kind)\n#else\n                    actorNumber(at+(kind==1?4:6))\n#endif\n                ))s.error=16;"
+        },
+        {
+          "before": "        else if(front!=0&&front!=0xffffffffU&&!packetIntegerAddAmount(total,actorNumber(at+(commands[actorBinding(s,front)]==1?4:6))))s.error=16;",
+          "after": "        else if(front!=0&&front!=0xffffffffU&&!packetIntegerAddAmount(total,\n#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS\n            lagAmount(s,hit,commands[actorBinding(s,front)])\n#else\n            actorNumber(at+(commands[actorBinding(s,front)]==1?4:6))\n#endif\n        ))s.error=16;"
+        },
+        {
+          "before": "        if(reach||front==0)coordinateGroupBodyPacket(s,who,actorNumber(at+2),when,false,grouped);",
+          "after": "#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS\n        if(lagActive(s))\n        {\n            if(reach||front==0)coordinateGroupDirectPacket(s,who,0,results[lagHead(s)+1],actorNumber(at+2),when,false,grouped);\n        }\n        else\n#endif\n        if(reach||front==0)coordinateGroupBodyPacket(s,who,actorNumber(at+2),when,false,grouped);"
+        },
+        {
+          "before": "            uint gen=coordinateLandingGeneration(s,slot,results[e+3]);uint64_t amount=actorNumber(at+(targetKind==1?4:6));bool extra=reach;",
+          "after": "#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS\n            if(lagActive(s)&&targetKind==5)\n            {\n                coordinateGroupDirectPacket(s,who,slot,results[e+3],lagAmount(s,hit,5),when,reach,grouped);continue;\n            }\n#endif\n            uint gen=coordinateLandingGeneration(s,slot,results[e+3]);uint64_t amount=actorNumber(at+(targetKind==1?4:6));bool extra=reach;"
+        }
+      ]
+    },
+    "gpu/world_coordinate_area_entry.slang": {
+      "before_sha256": "226b1f93464ce4ac5c5800d4697e01dcd7f34794afaf402a115f27a16f4db4d0",
+      "after_sha256": "7cf67b5b933f01f51e68da5613c3fe8aeb585de2512bb116b235842b963fc5e6",
+      "changes": [
+        {
+          "before": "#ifdef PORTABLE_COORDINATE_TYPED_TARGETS\n    uint input=1+id.x*115680U",
+          "after": "#if defined(PORTABLE_COORDINATE_TYPED_TARGETS) || defined(PORTABLE_COORDINATE_LOGICAL_ACTORS)\n    uint input=1+id.x*115680U"
+        },
+        {
+          "before": "    uint queries;executePortableCommands(s,input,output,queries);",
+          "after": "#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS\n    for(uint i=1769856U;i<LAG_OUTPUT_WORDS;i++)results[output+i]=0;\n    if(!validLogicalActorGeometry(s)){results[output]=64;return;}\n#endif\n    uint queries;executePortableCommands(s,input,output,queries);"
+        }
+      ]
+    },
+    "app/portable_specs.py": {
+      "before_sha256": "84344d11bdc94f9702fdb28480230d779a304bdee4170523be693a24b1c61b0f",
+      "after_sha256": "8160a7d43504b2f8c0a0b0a3f8d14cd2aec08ded918e429a31469a6a2e59a5b6",
+      "changes": [
+        {
+          "before": "'#elif defined(PORTABLE_COORDINATE_TYPED_TARGETS)','static const uint P_OUTPUT_WORDS = 2032000U;'",
+          "after": "'#elif defined(PORTABLE_COORDINATE_TYPED_TARGETS) || defined(PORTABLE_COORDINATE_LOGICAL_ACTORS)','static const uint P_OUTPUT_WORDS = 2032000U;'"
+        }
+      ]
+    },
+    "gpu/portable_schema.slang": {
+      "before_sha256": "e0eee1c1ab479a9bf5902ae1ead145e78a657d8f2ca9ea5eb8d32d8661520932",
+      "after_sha256": "a8ec213baa9e432e4cc24401da793a8d0bc49ca6ab6768f6c9d3add4fff07c85",
+      "changes": [
+        {
+          "before": "#elif defined(PORTABLE_COORDINATE_TYPED_TARGETS)\nstatic const uint P_OUTPUT_WORDS = 2032000U;",
+          "after": "#elif defined(PORTABLE_COORDINATE_TYPED_TARGETS) || defined(PORTABLE_COORDINATE_LOGICAL_ACTORS)\nstatic const uint P_OUTPUT_WORDS = 2032000U;"
+        }
+      ]
+    }
+  },
+  "added_sources": {
+    "gpu/logical_actor_geometry_layout.slang": "e8117810f361001be6408497862e799a693ae28da839cf9aa07e588208aa7c5c",
+    "gpu/logical_actor_geometry_history.slang": "e03bb201aa988893ae48891cfb72596b7e06a091bef597c045de838c8e1ebdfe",
+    "gpu/logical_actor_geometry_runtime.slang": "69f358a09f9b7799dd67d68f806049c28215826434561ae749f5e055a4b7f2bc",
+    "gpu/world_coordinate_logical_actor_entry.slang": "ccfe4194ec5066bdec36959e51ad9411f355986242a9e3d38064b721e3498519",
+    "gpu/coordinate_group_actor_receipt.slang": "75d2bff23d98ff85f263325783101997e221397378150ee211bbeb055db0770b"
+  }
+}

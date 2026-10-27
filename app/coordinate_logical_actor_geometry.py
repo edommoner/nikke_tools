@@ -52,6 +52,14 @@ class LogicalPelletChannels(ast.NodeTransformer):
         template=ast.parse('_nikke_logical_pellet_channels(locals().get("front"), None)',mode='eval').body
         template.args[1]=node.value;node.value=ast.copy_location(template,node.value);return node
 
+class LogicalShot(ast.NodeTransformer):
+    def __init__(self,name):self.name=name;self.counts=dict(shot=0)
+    def visit_FunctionDef(self,node):
+        if node.name==self.name:
+            scope=ast.parse('with _nikke_logical_geometry_shot(self,t,bm):\n pass').body[0]
+            scope.body=node.body;node.body=[ast.copy_location(scope,node.body[0])];self.counts['shot']+=1
+        return node
+
 class LogicalGeometry:
     def __init__(self,spec):
         self.spec=normalize(spec);self.boss=None;self.bindings={};self.frame_time=None;self.frames=[];self.pending={};self.routing=[];self.suspended=0
@@ -86,14 +94,19 @@ class LogicalGeometry:
         if manager not in self.data['managers']:self.data['managers'].append(manager)
         return proxy,logical,registry.view(ActorKind.BODY,'__enemy__').handle
 
+    @contextmanager
+    def shot(self,character,t,manager):
+        frame=dict(character=character,manager=manager,time=t,snapshot=None,normal=not character._wc_is_skill_damage())
+        self.frames.append(frame)
+        try:yield
+        finally:assert self.frames.pop() is frame
+
     def fire(self,original):
-        @wraps(original)
-        def call(character,t,manager,*args,**kwargs):
-            frame=dict(character=character,manager=manager,time=t,snapshot=None,normal=not character._wc_is_skill_damage())
-            self.frames.append(frame)
-            try:return original(character,t,manager,*args,**kwargs)
-            finally:assert self.frames.pop() is frame
-        return call
+        # Keep the real method's self/t/bm locals and code identity boundary
+        # available to existing passive full-battle profilers.
+        from calculator import timeline
+        if original.__globals__ is not timeline.__dict__:raise ValueError('Install logical geometry before passive shot/group wrappers')
+        return rewrite_reference(original,LogicalShot(original.__name__),dict(shot=1),compose=getattr(original,'_nikke_reference_code',None) is original.__code__)
 
     def pellet(self,original,fallback):
         @wraps(original)
@@ -158,7 +171,7 @@ def logical_actor_geometry(spec):
     pellet=timeline.CharState._coord_pellet
     rewritten_pellet=rewrite_reference(pellet,LogicalPelletChannels(),dict(returns=5),compose=getattr(pellet,'_nikke_reference_code',None) is pellet.__code__)
     try:
-        with patch.object(timeline,'BossScript',Boss),patch.object(timeline.CharState,'_fire',runtime.fire(timeline.CharState._fire)),patch.object(timeline.CharState,'_charge_fire',runtime.fire(timeline.CharState._charge_fire)),patch.object(timeline.CharState,'_coord_pellet',runtime.pellet(rewritten_pellet,pellet)),patch.dict(original.__globals__,{'_nikke_logical_geometry_land':runtime.land,'_nikke_logical_pellet_channels':runtime.channels}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):
+        with patch.object(timeline,'BossScript',Boss),patch.object(timeline.CharState,'_fire',runtime.fire(timeline.CharState._fire)),patch.object(timeline.CharState,'_charge_fire',runtime.fire(timeline.CharState._charge_fire)),patch.object(timeline.CharState,'_coord_pellet',runtime.pellet(rewritten_pellet,pellet)),patch.dict(original.__globals__,{'_nikke_logical_geometry_land':runtime.land,'_nikke_logical_pellet_channels':runtime.channels,'_nikke_logical_geometry_shot':runtime.shot}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):
             yield runtime.data
             if runtime.pending or runtime.frames or runtime.routing or runtime.suspended:raise ValueError('Logical geometry packet or frame leaked')
     finally:runtime.pending.clear()

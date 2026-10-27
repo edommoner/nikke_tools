@@ -17,15 +17,38 @@ VERSION=1
 LAYOUT=dict(BASE=109968,WORDS=5712,HEADER=32,ROWS=127,ROW_WORDS=32,
             ROW_BASE=32,MAP_BASE=4096,MAP_WORDS=128)
 FIELDS=('x','y','r','w','h','rot','z')
+SCRATCH=dict(PELLET_BASE=1865584,PELLET_WORDS=2048,HEAD_BASE=1867632,HEAD_WORDS=16,
+             OUTPUT_WORDS=2032000)
 
 def shader_schema():
     return '// Generated from portable_logical_geometry_wire; input descriptors only.\n'+''.join(
         f'static const uint LAG_{key}={value}U;\n' for key,value in
-        dict(MAGIC=MAGIC,VERSION=VERSION,**LAYOUT).items())
+        dict(MAGIC=MAGIC,VERSION=VERSION,**LAYOUT,**SCRATCH).items())
+
+def history_schema():
+    from portable_skill_history import shader_layout
+    source=shader_layout();lines=source.splitlines(keepends=True)
+    if not lines[-1].startswith('#define WORLD_SKILL_HISTORY_ADMIT(s) '):raise ValueError('History admission schema changed')
+    lines[0]='// Generated logical geometry admission; common skill-history addresses.\n'
+    lines[-1]='#define WORLD_SKILL_HISTORY_ADMIT(s) (commands[(s).inputBase+109968U]==0x4c414731U && commands[(s).inputBase+109969U]==1U)\n'
+    return ''.join(lines)
 
 def check_schema(root=None):
     path=Path(root or Path(__file__).resolve().parents[1])/'gpu/logical_actor_geometry_layout.slang'
     if path.read_text()!=shader_schema():raise ValueError('Logical geometry shader schema drift')
+    history=path.parent/'logical_actor_geometry_history.slang'
+    if history.read_text()!=history_schema():raise ValueError('Logical geometry history schema drift')
+
+def output_regions():
+    from portable_arena_specs import Region
+    from portable_skill_history import BASE,END
+    if END!=SCRATCH['PELLET_BASE']:raise ValueError('Logical scratch overlaps skill history')
+    return [Region('output','complete-coordinate-output',0,1769856),
+            Region('output','logical-reserved-prefix',1769856,BASE-1769856),
+            Region('output','common-skill-history',BASE,END-BASE),
+            Region('output','logical-pellet-amounts',END,SCRATCH['PELLET_WORDS']),
+            Region('output','logical-shot-header',SCRATCH['HEAD_BASE'],16),
+            Region('output','logical-reserved-suffix',SCRATCH['HEAD_BASE']+16,SCRATCH['OUTPUT_WORDS']-SCRATCH['HEAD_BASE']-16)]
 
 def input_regions():
     from portable_arena_specs import Region

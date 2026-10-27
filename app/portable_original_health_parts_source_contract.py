@@ -4,6 +4,9 @@ from pathlib import Path
 
 def project_sources(root,sources=None):
     root=Path(root);out=dict(sources or {})
+    if (root/'gpu/world_coordinate_logical_actor_entry.slang').exists():
+        from portable_logical_geometry_source_contract import project_sources as logical
+        out=logical(root,out)
     if (root/'gpu/world_coordinate_typed_history_entry.slang').exists():
         from portable_skill_history_source_contract import project_sources as history
         out=history(root,out)

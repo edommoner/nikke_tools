@@ -176,18 +176,23 @@ void coordinateGroupBodyPacket(inout Runtime s,uint who,uint64_t amount,uint64_t
     {
         uint entry=set+8+i*4,slot=results[entry],generation=results[entry+1],kind=commands[actorBinding(s,slot)];
         if(results[actorPoolAt(s,slot)]!=generation||results[actorPoolAt(s,slot)+1]==0)continue;
-        if(kind!=5&&!worldOverlayLand(s,who,0,amount,false))continue;
-        storeNumber(actorPoolHead(s)+2,when);s.target=0;land(s,who,ACTOR_REF|slot,amount);
-        uint receipt=actorPoolHead(s)+18;if(results[receipt]==0||s.error!=0)continue;
-        coordinateTrace(s,who,slot,generation,amount,when,extra);
-        if(grouped)agCollect(s,results[agHead(s)+3]-1,slot,generation);
-        uint64_t credit=kind==5?actorNumber(receipt+2):amount;
-        counterPhysicalPacket(s,who,slot,generation,credit,results[receipt+1]!=0,when,s.resourceOutput);
-        if((s.healthMask&64)!=0&&s.error==0)dispatch(s,17,0,who,0,when,s.resourceOutput,amount);
-        if(slot==0&&damageAccumEnabled(s)&&s.error==0)dispatch(s,39,0,who,0,when,s.resourceOutput,amount);
+#include "coordinate_group_actor_receipt.slang"
     }
     results[set+5]=0;results[actorPoolHead(s)+7]--;
 }
+#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS
+void coordinateGroupDirectPacket(inout Runtime s,uint who,uint slot,uint generation,uint64_t amount,uint64_t when,bool extra,bool grouped)
+{
+    if(slot>=actorPoolCount(s)||generation==0){s.error=64;return;}
+    uint kind=commands[actorBinding(s,slot)],state=actorPoolAt(s,slot);
+    if(kind!=0&&kind!=5){s.error=64;return;}
+    if(results[state]!=generation||results[state+1]==0)return;
+    do
+    {
+#include "coordinate_group_actor_receipt.slang"
+    }while(false);
+}
+#endif
 #endif
 [noinline]
 uint64_t coordinatePhysicalDeliver(inout Runtime s,uint who,uint64_t legacy)

@@ -1,3 +1,9 @@
+# 2026-10-28 実ADD幾何の共通runtime配線・paired生成（Metal未実行）
+
+新world_coordinate_logical_actor_entryは通常shot snapshotへ実ADDを合流し、元shape math/整数親量/landing/receipt/groupを共有する。Runtime138,952byte不変、新CUDA/MSL生成成功、旧history entryのCUDA/MSL/両reflection全byte保持。新required生成cache hit/Slang0。CPU契約6件の全nativeを保持、既存full native chainでも6件のgroup/子/point/draw/RNG等10項目を完全照合。関連43検査成功。初回観測self問題・逆順rewrite・旧arena逆投影の接続漏れの失敗を保存し修正。GPU/Windows新依頼0、公開受付/全キャラ認定は未完。
+
+次はSwiftの新wire受付、共通CLIの開発suiteと既存全battle/group/history比較＋新scratch監査を登録し、固定packetでMetal1回＋fresh sealへ進む。新entryの実GPUはまだ0であり、生成成功を計算成功と扱わない。旧Windows transactionの終端不明の間は新runを送らない。詳細は[実ADD幾何](portable-logical-actor-geometry.md)、小さな出所はlogical-actor-runtime-generation-v1.json、private詳細はresident-frame-arena-20261027/logical-runtime-source-v1およびlogical-full-existing-native-six-v1.json。以下は履歴。
+
 最終0175fe99…（27466a62）のown CLIはCPU契約6件2.34秒、25群226unit/compile-plan policy成功。旧GPU entryのgeneration必須hit/Slang0・CUDA/MSL/reflection全byte保持。新logical geometryのwire/Metalは未接続。private full native約5.35MB、公開は小さなSHA/件数/境界記録のみ。次はこのCPU契約を固定基準に共通wire/actor pool/Metalへ接続する。
 
 # 2026-10-28 実ADD幾何と元RLの4敵通知をCPU契約へ接続

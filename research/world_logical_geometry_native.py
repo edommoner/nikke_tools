@@ -17,7 +17,7 @@ def observe(case):
         assert all(timeline._NIKKE[n]==w for n,w in original_weapon.items())
         enemy=copy.deepcopy(run.enemy);enemy.update(coord=copy.deepcopy(case['coord']),patterns=copy.deepcopy(case['patterns']))
         answer=timeline.simulate(run.squad,config=run.config,enemy=enemy,seed=run.seed,verbose=True);captured['result']=answer;return answer
-    with battle_attack_groups(routing='native',coordinate_packets=True) as groups,logical_actor_geometry(case['logical_geometry']) as geometry,common_sampling_policy(points,draws),patch.object(engine_worker.sim,'execute',execute):
+    with logical_actor_geometry(case['logical_geometry']) as geometry,battle_attack_groups(routing='native',coordinate_packets=True) as groups,common_sampling_policy(points,draws),patch.object(engine_worker.sim,'execute',execute):
         engine_worker.evaluate(copy.deepcopy(body))
         captured['physical_rng_state']=copy.deepcopy(timeline.random.getstate())
     assert case==before and len(geometry['managers'])==len(geometry['bosses'])==1
