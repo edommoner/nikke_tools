@@ -152,6 +152,8 @@ CUDA子が正常終了し親の比較だけが外側timeoutで中断した場合
 
 [共通fresh分割監査](portable-shared-native-groups.md)の`saved-battle-audit`／`aggregate-native-groups`はCUDAとMetalの既存保存比較を共有します。Windowsは`audit-native-group` stageで1群ずつ実行し、部分成功と全入力一致、環境保全を区別します。
 
+[起動前fresh検査の段階分割](portable-staged-native-preflight.md)は、sealed packetの全native検査を短いJobへ分け、全群の検証後に一度だけGPUを起動する明示的な経路です。通常runのpreflightや独立保存比較を省略する機能ではありません。
+
 現行suite・入力数・source identityはCLI/package manifestを正とします。最新状態と次の作業は [Mac引き継ぎ](mac-handoff.md)、過去の進捗は [履歴](gpu-development-cli-history.md) に分けています。
 
 座標形状の実戦接続・数値方針gapは [座標area](portable-coordinate-area.md) を参照してください。Metal52入力は一致済みですが、host trig差によりWindows入力検査が停止しており、両GPU完成とは扱いません。

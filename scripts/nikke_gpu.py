@@ -597,6 +597,7 @@ SUITES['destructible-counter']['tests'].append('test_portable_packet_stage.py')
 
 SMOKE_TESTS.append('test_portable_comparison_groups.py')
 SMOKE_TESTS.append('test_portable_native_group_stage.py')
+SMOKE_TESTS.append('test_portable_staged_preflight.py')
 SMOKE_TESTS.append('test_typed_owner_observer_migration.py')
 SMOKE_TESTS.append('test_portable_cache_fs_compression.py')
 SMOKE_TESTS.append('test_counter_field_decoder.py')
@@ -1070,6 +1071,7 @@ def forbid_gpu():
 
 
 PREPARED_INPUT_PROTOCOL='prepared-v1'
+STAGED_INPUT_PROTOCOL='staged-prepared-v1'
 
 
 def transport_input_receipt(m,data,input_words):
@@ -1117,6 +1119,11 @@ def publish_transport_input(m,capture,data,input_words):
 
 
 def read_prepared_transport_input(m,capture):
+    run=load(capture/'run.json') if (capture/'run.json').exists() else {}
+    if run.get('input_protocol')==STAGED_INPUT_PROTOCOL:
+        if run.get('mode')!='staged-gpu':raise ValueError('Staged protocol requires an explicit staged GPU run')
+        from portable_staged_preflight import read_gpu_input
+        return read_gpu_input(SimpleNamespace(**globals()),m,capture)
     for name in ('input.bin','input-preflight.json','cpu.json'):
         p=capture/name
         if p.is_symlink() or not p.is_file():raise ValueError('Prepared transport input/gate missing or linked: '+name)
@@ -1274,7 +1281,9 @@ def child(capture, backend, smoke=False, compile_only=False, module_only=False, 
         module_child(m,capture,backend);return
     from portable_cuda_cached_profile import library_guard
     protocol=load(capture/'run.json').get('input_protocol','legacy') if (capture/'run.json').exists() else 'legacy'
-    if protocol==PREPARED_INPUT_PROTOCOL:
+    if (capture/'run.json').exists() and load(capture/'run.json').get('mode')=='staged-gpu' and protocol!=STAGED_INPUT_PROTOCOL:
+        raise ValueError('Staged run must retain its native admission protocol')
+    if protocol in (PREPARED_INPUT_PROTOCOL,STAGED_INPUT_PROTOCOL):
         data,input_words=Journal(capture/'preparation.jsonl').invoke('gpu_child_prepared_input',read_prepared_transport_input,m,capture)
     elif protocol=='legacy':
         data,input_words=Journal(capture/'preparation.jsonl').invoke('gpu_child_legacy_input',prepare_legacy_child_input,m,capture)
@@ -1969,7 +1978,7 @@ def copy_generated(capture, suite, *, partial=False):
 
 def audit_generation_capture(m,capture):
     runtime=load(capture/'runtime.json') if (capture/'runtime.json').exists() else {}
-    active=runtime.get('generation_cache_enabled',False) and load(capture/'run.json').get('mode') in ('gpu','compile-only','module-only')
+    active=runtime.get('generation_cache_enabled',False) and load(capture/'run.json').get('mode') in ('gpu','staged-gpu','compile-only','module-only')
     if not active:
         if (capture/'generation-cache.json').exists():raise ValueError('Unexpected Slang generation cache receipt')
         return None
@@ -2217,9 +2226,16 @@ def metal_device_preflight(capture):
     return receipt
 
 
-def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_only=False,*,linked_package=None,linked_capture=None):
+def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_only=False,*,linked_package=None,linked_capture=None,preflight_transaction=None):
     parent_oracles=None
     m=verify_package(ROOT)
+    staged=preflight_transaction is not None
+    if staged:
+        if smoke or cpu_only or is_development(m) or compiler_only(m) or backend=='cuda' and linked_package is None or not 1<=timeout<=60:
+            raise ValueError('Staged GPU run requires sealed battle, bounded GPU budget and saved CUDA artifact')
+        if backend=='cuda' and os.environ.get('NIKKE_SLANG_GENERATION_REQUIRED')!='1':raise ValueError('Staged CUDA requires a mandatory paired generation cache')
+        from portable_staged_preflight import context as staged_context
+        staged_context(SimpleNamespace(**globals()),preflight_transaction,backend,capture)
     if m.get('baseline_migration') and not smoke and not cpu_only:
         raise ValueError('Observation migration packets require saved replay; new GPU execution forbidden')
     if compiler_only(m) and not smoke:raise ValueError('Compiler diagnostic cannot execute a battle')
@@ -2234,8 +2250,8 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
     if not smoke and not cpu_only:validate_generation_request(m)
     capture.mkdir(parents=True,exist_ok=False)
     write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend=backend,
-                                mode='cpu-only' if cpu_only else 'smoke' if smoke else 'gpu',status='preflight',gpu_retry_count=0,
-                                **(dict(input_protocol=PREPARED_INPUT_PROTOCOL) if not cpu_only and not smoke else {})))
+                                mode='staged-gpu' if staged else 'cpu-only' if cpu_only else 'smoke' if smoke else 'gpu',status='preflight',gpu_retry_count=0,
+                                **(dict(input_protocol=STAGED_INPUT_PROTOCOL if staged else PREPARED_INPUT_PROTOCOL) if not cpu_only and not smoke else {})))
     try:
         if linked:
             request=dict(package=str(Path(linked_package).resolve()),capture=str(Path(linked_capture).resolve()))
@@ -2257,24 +2273,31 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
             paired=backend=='cuda' and required_cuda_cache_preflight(m,capture)
             if not paired:required_generation_cache_preflight(m,capture)
         if backend=='metal' and not smoke and not cpu_only:metal_device_preflight(capture)
-        if not smoke and not cpu_only and SUITES[m['suite']].get('parent_oracle_reuse'):
+        if not staged and not smoke and not cpu_only and SUITES[m['suite']].get('parent_oracle_reuse'):
             from portable_parent_oracles import ParentOracles
             parent_oracles=ParentOracles(m,capture)
         # Reject broken test payloads before expensive full native battles.
         # Both gates still complete before the exclusive GPU claim/start.
-        cpu_test_groups(m,capture,smoke)
-        options=dict(parent_oracles=parent_oracles) if parent_oracles is not None else {}
-        if not cpu_only and not smoke:options['input_capture']=capture
-        pre=(dict(passed=True,controller_only=True,input_count=0,native_oracles=0,gpu_calls=0)
-             if smoke else cpu_preflight(m,**options))
-        write(capture/'cpu.json',pre)
+        if staged:
+            from portable_staged_preflight import prepare_gpu_input
+            with forbid_gpu():prepare_gpu_input(SimpleNamespace(**globals()),m,preflight_transaction,capture,backend)
+        else:
+            cpu_test_groups(m,capture,smoke)
+            options=dict(parent_oracles=parent_oracles) if parent_oracles is not None else {}
+            if not cpu_only and not smoke:options['input_capture']=capture
+            pre=(dict(passed=True,controller_only=True,input_count=0,native_oracles=0,gpu_calls=0)
+                 if smoke else cpu_preflight(m,**options))
+            write(capture/'cpu.json',pre)
         if parent_oracles is not None:parent_oracles.check(verify_package(ROOT),capture)
         if cpu_only:
             write(capture/'result.json',dict(cpu_verified=True,gpu_calls=0,calculation_verified=False,preservation_verified=None,status='cpu-only'))
         else:
             # Durable exclusive claim prevents same-package/backend GPU retries, even after a crash.
             if not smoke:capture_storage_preflight(m,capture,prepared=True)
-            if not smoke:
+            if staged:
+                from portable_staged_preflight import claim_execution
+                claim_execution(SimpleNamespace(**globals()),preflight_transaction,capture)
+            elif not smoke:
                 claim=ROOT/('gpu-claimed-'+backend+'.json')
                 with claim.open('x',encoding='utf-8') as stream:
                     json.dump(dict(capture=str(capture),package_id=m['package_id'],started_unix_ns=time.time_ns()),stream)
@@ -2287,7 +2310,10 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
             if not smoke:
                 # Child publishes generated files before comparing; failed compilation may lack them.
                 copy_generated(capture,m['suite'],partial=True)
-                result=audit_capture(capture,verify_artifacts=False,record_comparison=True,**(dict(parent_oracles=parent_oracles) if parent_oracles is not None else {}))
+                if staged:
+                    from portable_staged_preflight import finish_gpu
+                    result=finish_gpu(SimpleNamespace(**globals()),m,capture,facts,backend)
+                else:result=audit_capture(capture,verify_artifacts=False,record_comparison=True,**(dict(parent_oracles=parent_oracles) if parent_oracles is not None else {}))
             else:
                 marker=load(capture/'smoke.json') if (capture/'smoke.json').exists() else {}
                 smoke_ok=facts['passed']
@@ -2297,7 +2323,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
                     if smoke_ok:smoke_ok &= audit_native_smoke(capture,jobs[0]['child_pid'])
                 result=dict(smoke_verified=bool(smoke_ok),gpu_calls=0,calculation_verified=False,preservation_verified=None,status='smoke')
             write(capture/'result.json',result)
-        run=load(capture/'run.json');run.update(status='finished',finished_unix_ns=time.time_ns());write(capture/'run.json',run)
+        run=load(capture/'run.json');run.update(status='awaiting-native-audit' if staged else 'finished',finished_unix_ns=time.time_ns());write(capture/'run.json',run)
     except BaseException as error:
         write(capture/'failure.json',dict(error=type(error).__name__+': '+str(error),gpu_retries=0))
         run=load(capture/'run.json');run['status']='failed';write(capture/'run.json',run)
@@ -3057,8 +3083,9 @@ def audit_capture(capture,verify_artifacts=True,*,record_comparison=False,parent
     if load(capture/'run.json').get('mode')=='replay':
         return audit_replay_capture(m,capture,verify_artifacts=verify_artifacts)
     protocol=load(capture/'run.json').get('input_protocol','legacy')
-    if protocol not in ('legacy',PREPARED_INPUT_PROTOCOL):raise ValueError('Unknown transport input protocol')
-    if protocol==PREPARED_INPUT_PROTOCOL:read_prepared_transport_input(m,capture)
+    if protocol not in ('legacy',PREPARED_INPUT_PROTOCOL,STAGED_INPUT_PROTOCOL):raise ValueError('Unknown transport input protocol')
+    if load(capture/'run.json').get('mode')=='staged-gpu' and protocol!=STAGED_INPUT_PROTOCOL:raise ValueError('Staged run must retain its native admission protocol')
+    if protocol in (PREPARED_INPUT_PROTOCOL,STAGED_INPUT_PROTOCOL):read_prepared_transport_input(m,capture)
     facts=load(capture/'execution.json')
     if load(capture/'run.json')['backend']=='metal' and (capture/'evidence.json').exists():
         from portable_metal_cache import verify as verify_metal_cache
@@ -3218,6 +3245,13 @@ def main(argv=None):
     a.add_argument('--group-size',type=int,required=True);a.add_argument('--timeout',type=int,default=180)
     a.add_argument('--receipt',type=Path,action='append',required=True)
     for name in ('package-root','out'):a.add_argument('--'+name,type=Path,required=True)
+    a=sub.add_parser('preflight-begin');a.add_argument('--backend',choices=('metal','cuda'),required=True)
+    a.add_argument('--group-size',type=int,required=True)
+    for name in ('capture','gpu-capture'):a.add_argument('--'+name,type=Path,required=True)
+    a=sub.add_parser('preflight-native-group');a.add_argument('--group-index',type=int,required=True)
+    for name in ('transaction','capture'):a.add_argument('--'+name,type=Path,required=True)
+    a=sub.add_parser('staged-preflight-check');a.add_argument('--backend',choices=('metal','cuda'),required=True)
+    for name in ('transaction','gpu-capture','out'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('module-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
     for name in ('source-package','source-capture','cache-entry','phases','ptxas','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('partition-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
@@ -3265,10 +3299,11 @@ def main(argv=None):
     a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
     a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--native-baseline-package',type=Path,help='Reuse expected native hashes only when CPU dependencies and prepared inputs match; fresh run/seal checks stay mandatory');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1','coordinate-typed-owner-status-witness-v1','coordinate-owner-counter-field-decoder-v1'])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True);a.add_argument('--reuse-payload-from',type=Path,help='Share exact payload bytes with an existing immutable package on the same filesystem; never edit either payload')
-    for name in ('run','_child'):
+    for name in ('run','_child','staged-run'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--smoke',action='store_true')
-        if name=='run':
-            a.add_argument('--cpu-only',action='store_true');a.add_argument('--timeout',type=int,default=180);a.add_argument('--original-workspace',type=Path);a.add_argument('--slang-root',type=Path);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
+        if name in ('run','staged-run'):
+            if name=='staged-run':a.add_argument('--transaction',type=Path,required=True)
+            a.add_argument('--cpu-only',action='store_true');a.add_argument('--timeout',type=int,default=60 if name=='staged-run' else 180);a.add_argument('--original-workspace',type=Path);a.add_argument('--slang-root',type=Path);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
             a.add_argument('--metal-pipeline-cache',type=Path);a.add_argument('--require-metal-pipeline-cache',action='store_true')
             a.add_argument('--require-cache',action='store_true');a.add_argument('--compile-cache',type=Path);a.add_argument('--cached-cuda-source',type=Path);a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--artifact-kind',choices=('cubin','ptx'));a.add_argument('--linked-package',type=Path);a.add_argument('--linked-capture',type=Path)
         else:
@@ -3497,7 +3532,7 @@ def main(argv=None):
     elif a.command=='cache-probe':result=cache_probe(a.generated_cuda,a.cuda_root,a.compile_cache,a.out,artifact_kind=a.artifact_kind,ptxas_level=a.ptxas_level,require_hit=a.require_hit)
     elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case,compact=a.compact,baseline_package=a.baseline_package,reference_migration=a.reference_migration,native_baseline_package=a.native_baseline_package)
     elif a.command=='unpack':result=dict(package_id=unpack(a.archive,a.dest,reuse_payload_from=a.reuse_payload_from))
-    elif a.command=='run':
+    elif a.command in ('run','staged-run'):
         if a.backend!='metal' and (a.metal_pipeline_cache or a.require_metal_pipeline_cache):raise ValueError('Metal pipeline settings require Metal backend')
         if a.require_metal_pipeline_cache and not a.metal_pipeline_cache:raise ValueError('--require-metal-pipeline-cache requires --metal-pipeline-cache')
         if a.metal_pipeline_cache:os.environ['NIKKE_METAL_PIPELINE_CACHE']=str(a.metal_pipeline_cache.resolve())
@@ -3512,7 +3547,21 @@ def main(argv=None):
             os.environ['NIKKE_CUDA_PREFLIGHT_SOURCE']=str(a.cached_cuda_source.resolve())
         if a.ptxas_level is not None:os.environ['NIKKE_CUDA_PTXAS_OPT_LEVEL']=str(a.ptxas_level)
         if a.artifact_kind:os.environ['NIKKE_CUDA_ARTIFACT']=a.artifact_kind
-        result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**(dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}))
+        options=dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}
+        if a.command=='staged-run':options['preflight_transaction']=a.transaction
+        result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**options)
+    elif a.command=='preflight-begin':
+        from portable_staged_preflight import begin
+        with forbid_gpu():result=begin(SimpleNamespace(**globals()),a.capture,a.backend,a.gpu_capture,a.group_size)
+    elif a.command=='preflight-native-group':
+        from portable_staged_preflight import group
+        with forbid_gpu():result=group(SimpleNamespace(**globals()),a.transaction,a.group_index,a.capture)
+    elif a.command=='staged-preflight-check':
+        from portable_staged_preflight import admit,outside
+        if a.out.exists() or a.out.is_symlink():raise FileExistsError(a.out)
+        outside(a.out,[ROOT,a.transaction,a.gpu_capture])
+        with forbid_gpu():result=admit(SimpleNamespace(**globals()),verify_package(ROOT),a.transaction,a.backend,a.gpu_capture)
+        write(a.out,result)
     elif a.command=='_tests':
         from portable_cpu_tests import run_groups,complete
         from portable_phase_audit import Journal
@@ -3534,6 +3583,12 @@ def main(argv=None):
         # Historical fixed reports remain supported by their existing sealers.
         runpy.run_path(str(ROOT/f'research/seal-world-v{a.version}-cuda.py'),run_name='__main__');return
     display=result
+    if a.command=='preflight-native-group':
+        display={k:result[k] for k in ('mode','package_id','group_index','native_cases','native_group_verified','all_native_preflight_verified','calculation_verified','gpu_calls')}
+        display.update(input_count=len(result['case_indices']),report=str((a.capture/'result.json').resolve()))
+    elif a.command=='staged-preflight-check':
+        display={k:result[k] for k in ('schema','package_id','native_cases','input_count','groups','all_native_preflight_verified','calculation_verified','gpu_calls')}
+        display['report']=str(a.out.resolve())
     if a.command=='model-check' and a.summary:
         gaps=result['model_gap_audit'];numeric=gaps['coordinate_world']['numeric_frontend']
         display=dict(schema='model-check-summary-v1',passed=result['passed'],scope=result['scope'],
@@ -3544,6 +3599,9 @@ def main(argv=None):
             numeric_policy_scope=numeric['policy_implemented_scope'],public_numeric_admission_remaining=numeric['public_admission_remaining'],
             private_numeric_evidence_suites=numeric['private_suites'])
     print(json.dumps(display,ensure_ascii=False,indent=2))
+    if result.get('mode')=='staged-gpu-pending-native-audit':
+        if not result.get('gpu_execution_completed') or not result.get('readback_fingerprint_matches'):raise SystemExit(1)
+        return
     if a.command in ('saved-battle-audit','aggregate-native-groups') and result.get('mode')!='saved-native-group-only':
         if not result['audit'].get('calculation_verified'):raise SystemExit(1)
         if result['audit'].get('preservation_verified') is False:raise SystemExit(2)
