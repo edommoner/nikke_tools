@@ -76,6 +76,13 @@ def verify(root,overrides=None):
   actual_battle_queue_connected=False,sequential_delivery_connected=False,spatial_selection_verified=False,
   game_verified=False,original_full_profile_verified=False,public_admission=False,
   evidence='research/target-count-query-evidence/metal-lock-delivery-policy-v1.json')
+ missing['lock_on']['declared_queued_snapshot_binding']=dict(suite='lock-packet-bindings',native_cases=4,rejected_cases=4,
+  source='gpu/world_lock_packet_entry.slang',metal_verified=True,independently_audited=True,cuda_verified=False,
+  actual_queue_connected=True,latched_snapshot_and_hit_budget=True,queue_capacity=2048,extra_wire_words=0,
+  periodic_snapshot_word_preserved=True,diagnostic_trace_capacity=38,selected_slot_applied_to_landing=False,
+  sequential_delivery_connected=False,spatial_selection_verified=False,game_verified=False,
+  original_full_profile_verified=False,public_admission=False,
+  evidence='research/target-count-query-evidence/metal-lock-packet-bindings-v1.json')
  missing['effect_target_count_add']['required_consumer_contract']=dict(marker=definitions[0]['name'],additional_targets=10,duration_bullets=2,
   distinct_target_capacity=True,does_not_increase_per_target_marker_stack=True,implementation_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}

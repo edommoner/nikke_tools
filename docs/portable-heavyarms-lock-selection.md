@@ -147,3 +147,16 @@ GPU .046597秒、cold pipeline10.418701秒、独立監査8.449739秒。共通CPU
 同じSlang関数をCUDA/Metalへ生成し、Metal63入力（共通CPU policy46／raw拒否17）と別fresh GPU禁止監査で一致。128対象、256hit、全6kind、型別同identity、全5status、整数境界、重複identity、予約領域を検査。Python APIは可変listをsnapshotとして受け取らない。既存cover23/physical10/external16のGPU source閉包は全byte不変なので再コンパイル・再実行しない。
 
 このprobeは実着弾キューやHP・カウンターを実行しない。次はpacketにsnapshot番号と発射時hit予算を保持し、既存 `landWorldSkillReceipt` のactor set／land処理へ接続する必要がある。元の32 actor setを借りてsnapshotを上書きせず、既存receipt codecの予約word／所有権を先に監査する。公開admission・全キャラ認定0・UI CPU・距離未確定を保持する。証跡は `target-count-query-evidence/metal-lock-delivery-policy-v1.json` と `lock-delivery-native-order-v1.json`。
+
+
+## 実着弾キューへのsnapshotリンク（2026-10-27）
+
+sealed `lock-packet-bindings` は8入力（native4／raw拒否4）をMetalとfresh独立監査で照合した。通常充填、短い充填の空snapshot、配送前の全敵ダメージによる死亡と次世代再出現、ハイド後の4hit/3targetを含む。元index4/8/9と元index20を保持するpartial fixtureであり、元全25効果ではない。snapshot番号と既存receiptのhit/hitsをstore/load両地点で照合する。選択slotのlive statusも記録するが、実際の着弾対象はまだ従来のnamed routingのままで、snapshot slotへ配送する処理は未接続。
+
+既存receipt at+7は周期snapshot番号に使用されるため再利用しない。全2048 queue slotのtoken bankを804176..806224、31shotの時刻を806224..806286、headerを806288..806304、16word×38件の診断traceを806304..806912へ置く。入力104400/出力806912word、live actor set32個、queue2048は不変。診断38件を超えると拒否し、queue容量を減らしたりtraceを黙って捨てない。loadでtokenを解放し、終了時の全2048wordがzeroであること、全shot時刻・alignment・trace・tailを比較する。
+
+既存native観測器は名前参照の可変hit数を1としていた。新しい明示flag下だけ、実 `_handle_damage_eff` がappendした自身のHitEvent数と順番を読み、正本の計算や通知を変更せずhit/hitsを観測する。旧caseのflagはfalseのまま。全battle・HP・skill/射撃trace・quota・候補を保持する透明性比較も継続する。GPU .047511秒、fresh監査4.013988秒。
+
+default106のCUDA/MSL厳密生成hashは不変（生成のみ）。旧physical10/external16は新sourceでMetalと独立sealを完了し、全shader/input/output byteを保持、新v4/v5 goldenへ接続。旧cover23の現source再認定は、必須pipeline cacheが未保存でGPU起動前に停止したため未完了。旧sealed cover packetは保持し、失敗packetのclaimを消さず再送しない。現checkoutのcover23通常packageはsource相違のguardで拒否される。次にpre-claimのMetal cache調査・復旧経路を整備する必要がある。
+
+証跡は `target-count-query-evidence/metal-lock-packet-bindings-v1.json`、`lock-packet-legacy10-16-retention-v1.json`、`lock-packet-legacy23-predevice-failure-v1.json`。全inventory fieldを保持し、全キャラ0・public GPU false・UI CPUは維持する。次の機能はsnapshot slotを既存actor land/counter/heal処理へ適用するconsumer。距離・挑発・再対象化の実機仕様は未認定。
