@@ -1,0 +1,32 @@
+{
+  "schema": "physical-lock-cover-legacy-retention-v1",
+  "cases": [
+    {
+      "suite_cases": 10,
+      "pipeline_required_hit": true,
+      "pipeline_compile_seconds": 0.0018500089645385742,
+      "gpu_seconds": 0.04549633333226666,
+      "generated_cuda_all_bytes_equal": true,
+      "generated_metal_all_bytes_equal": true,
+      "input_all_bytes_equal": true,
+      "output_all_bytes_equal": true,
+      "input_sha256": "da951950f7ff590dea65c04f635136ed96adb56384f908d29cc9e64ecc72e5d7",
+      "output_sha256": "f32aa2d1872cc0e9eab022a5433891f788c14e95a37e3ec54b4cf4d243c4d61a"
+    },
+    {
+      "suite_cases": 16,
+      "pipeline_required_hit": true,
+      "pipeline_compile_seconds": 0.001295924186706543,
+      "gpu_seconds": 0.019279666666989215,
+      "generated_cuda_all_bytes_equal": true,
+      "generated_metal_all_bytes_equal": true,
+      "input_all_bytes_equal": true,
+      "output_all_bytes_equal": true,
+      "input_sha256": "1f006d28b9badcff012c99464b2dc8e560fddc737ad423c741b274f214d9055e",
+      "output_sha256": "f9eafe5a270b628790c5292ba52d46b8127057647168f0a5a56cd80523cfb840"
+    }
+  ],
+  "gpu_calls": 2,
+  "same_claim_retries": 0,
+  "Windows_new_requests": 0
+}

@@ -63,6 +63,13 @@ def verify(root,overrides=None):
   pulse_projection='Original index0 cadence/condition, self marker projection; no nearest-target consumer',
   spatial_selection_verified=False,sequential_delivery_connected=False,original_full_profile_verified=False,game_verified=False,
   public_admission=False,evidence='research/target-count-query-evidence/metal-physical-lock-arena-v2.json')
+ missing['lock_on']['declared_physical_cover_composition']=dict(suite='physical-lock-cover',native_cases=11,rejected_cases=12,
+  source='gpu/world_physical_lock_cover_entry.slang',metal_verified=True,independently_audited=True,cuda_verified=False,
+  shared_manual_control_producer=True,automatic_cover_clear_verified=True,
+  owner_scoped_cover_tag=True,full_manual_posture_compared=True,live_actor_set_capacity=32,
+  input_words=104400,output_words=806912,extra_wire_words=0,
+  spatial_selection_verified=False,sequential_delivery_connected=False,original_full_profile_verified=False,
+  game_verified=False,public_admission=False,evidence='research/target-count-query-evidence/metal-physical-lock-cover-v1.json')
  missing['effect_target_count_add']['required_consumer_contract']=dict(marker=definitions[0]['name'],additional_targets=10,duration_bullets=2,
   distinct_target_capacity=True,does_not_increase_per_target_marker_stack=True,implementation_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}

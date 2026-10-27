@@ -1,0 +1,15 @@
+{
+  "schema": "physical-lock-cover-old10-retention-v1",
+  "old_cases": 10,
+  "input_payload_bytes_retained": 4176000,
+  "output_bytes_retained": 32276480,
+  "input_count_header_changed": [
+    10,
+    23
+  ],
+  "old_output_sha256": "f32aa2d1872cc0e9eab022a5433891f788c14e95a37e3ec54b4cf4d243c4d61a",
+  "new_output_prefix_sha256": "f32aa2d1872cc0e9eab022a5433891f788c14e95a37e3ec54b4cf4d243c4d61a",
+  "all_bytes_equal": true,
+  "old_native_fingerprints_retained": true,
+  "extra_GPU_calls": 0
+}

@@ -125,3 +125,14 @@ Metalで3正例/4raw負例が全成功し、別fresh GPU禁止childで全7入力
 physical observerは実通知だけを観測し、別の非観測native実行と全battle/trace/inputの一致を毎回検査する。外側の通知patchではこの透明性確認用の2回目も数えてしまうため、通知callbackは元observerの1回目のscope内に限定する。空集合の遮蔽もrevisionを1進める明示契約であり、ゲーム実測の認定ではない。
 
 現在の104400入力wordのphysical入口は、既存の手動遮蔽制御を持たず5ケース全てをGPU前に拒否する。このCPU契約をMetal/CUDA成功へ昇格させない。次の接続では既存 `enterManualCover` → event31＋cover tagを使い、lock casterとtagの一致時にだけ解除する必要がある。手動状態の919744word領域を現physical専用arenaへ単純に足さず、共通arena監査で他の制御・履歴との非重複を先に確認する。距離規則、sequential delivery、元全25効果は引き続き未完了。
+
+
+## 実ハイドと充填membershipのGPU合成（2026-10-27）
+
+sealed `physical-lock-cover` は23入力（native11／raw拒否12）をM5 Metalとfresh独立監査で照合した。旧10入力の全入力payloadと全32,276,480byteのGPU出力を保持し、新5ケースは既存の手動遮蔽producerと同じweapon/reload/event実行器を使う。`event31`とcover tagの一致、さらにlock casterの一致で解除する。遮蔽禁止は通知を発生させず、別casterの遮蔽はロックを変えない。空集合の遮蔽もrevisionを進め、充填取消後・遮蔽後の再取得・発射前snapshotと通常攻撃での解除をnativeと照合する。
+
+既存 `coordinate_manual_control_runtime.slang` の計算を共用し、手動状態80wordだけをlock snapshotの直後804096へ置く。入力104400／出力806912wordは不変、actor set32個の容量を保持。手動状態80wordと残りpadding、全戦闘/skill trace/射撃/二射撃quota/候補bufferを比較する。observerも既存 `world_coordinate_manual_native.capture`、比較器も `compare_manual` を再利用する。独立nativeの透明性確認用2回目へprofileや通知callbackを漏らさない。
+
+GPU .046597秒、cold pipeline10.418701秒、独立監査8.449739秒。共通CPU642（Win1skip）・専用57検査が成功。共有source更新後の旧物理10／external16も新Metalとfresh sealを行い、全shader/input/output byteを保持。旧2入口は生成byteの同一確認後にpipeline必須cache hitを使用し、pipeline時間は各約.002秒。旧goldenを保持し、新v3/v4へCLIを更新する。default106の厳密CUDA/MSL生成hashも不変（生成のみ、CUDA再認定ではない）。全inventory fieldは旧arena版と一致、245変換/21失敗/20分類/全キャラ0/UI CPUを保持する。
+
+証拠は `research/target-count-query-evidence/metal-physical-lock-cover-v1.json` と `physical-lock-cover-legacy-retention-v1.json`。今回はMetal3回、同claim retry0、Windows追加依頼0。距離選択・sequential delivery・元全25効果・現sourceのCUDA実機認定は未完了。

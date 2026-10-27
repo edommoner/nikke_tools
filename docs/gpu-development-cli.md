@@ -557,3 +557,6 @@ Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-la
 
 
 `reference --suite physical-lock-cover-native --out NEW.json` は、Lock Onモデルの実ハイド通知5ケースをCPUのみで検査する。GPUの物理入口が遮蔽入力を拒否することも専用testで保持する。CUDA/Metal接続の成功ではない。`physical-generation-locks` のGPU前testにこの5検査を追加し、既存54検査と合わせて実行する。詳細は [Lock Onの実ハイド契約](portable-heavyarms-lock-selection.md)。
+
+
+`physical-lock-cover` はsealed23入力（native11／拒否12）。既存手動遮蔽producerをLock Onの実充填・snapshotへ合成し、入力/出力幅を増やさずM5 Metal＋fresh監査で一致した。通常のpackage→CPU-only→run→保存結果監査を使う。旧physical10/external16も現sourceで再sealし、旧goldenは保持。spatial selector/sequential/full25/CUDA実機の認定ではない。詳細は [実ハイド合成](portable-heavyarms-lock-selection.md)。
