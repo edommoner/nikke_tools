@@ -36,6 +36,8 @@ Moderniaの元weapon_changeは通常攻撃扱いのMGであり、`weapon_mode_sk
 
 実際の未対応は共通`logWorldSkill`の128×48word履歴bank。GPUは129件目で停止し、同じ30秒nativeは1,618件を生成する。新しいcatalogue native検査はこの実件数超過をpackage/runのCPU gateで拒否するため、同じ容量不足でGPUを消費しない。0/127/128受理、129/2048拒否・入力履歴不変を含む15unit成功。共通CLIの既存controller49検査も成功。これは容量対応そのものではなく、未対応を実行前に検出する変更である。
 
-次は**全1,618件の履歴を保持・照合できる共通bank/記録器/decoder**への拡張を優先する。秒数短縮、traceMode抑制、先頭128件だけの照合では解消しない。既存のphysical全件SHA/保持prefix方式を再利用できるか検討し、全rowのsemantic schemaと順序を明示する。旧出力・reserved領域とstrict source ledgerを保持し、新sourceは別packageでMetalを実証してからsealする。現在のguardを成功扱いへ変換しない。
+当時は**全1,618件の履歴を保持・照合できる共通bank/記録器/decoder**への拡張を次の優先課題とした。現在は上節のとおり独立sealまで完了した。秒数短縮、traceMode抑制、先頭128件だけの照合では解消しない。既存のphysical全件SHA/保持prefix方式を再利用できるか検討し、全rowのsemantic schemaと順序を明示する。旧出力・reserved領域とstrict source ledgerを保持し、新sourceは別packageでMetalを実証してからsealする。現在のguardを成功扱いへ変換しない。
 
 証跡は `research/target-count-query-evidence/original-catalogue-development-v1.json`。BODY所有1typed対象の宣言worldであり、実ゲーム距離規則、任意mixed world、全条件/全キャラ/公開GPU受付の認定ではない。
+
+最終d85b55a7/package8a2bb6d4…は16群165unitとCUBIN/O1/2GiB/60秒のcompile-plan policyが成功（compiler/GPU0）。sealed packetからのpayload差分はCLIのsuite登録・追加の登録一致test・独立goldenの3ファイルだけで、全CLI関数AST、既存test、全GPU/host計算/compiler/native/比較器は同一。従ってnative/GPUの全再実行は重ねない。Metal archiveのfile-only probeもhit snapshotだが、実warm launchや現device contextの再検証とは区別する。全体model-checkは資料の揃うcheckoutで成功。詳細 `target-count-query-evidence/original-catalogue-history-final-checks-v1.json`。
