@@ -83,6 +83,9 @@ void worldFrameFinish(inout Runtime s)
     WorldSchedule w=frameSchedule(s);wsFinish(w,wsLoad(w.input+6));s.error=w.error;
 #ifdef PORTABLE_WORLD_ACTOR_POOLS
     if(s.error==0) actorPoolsSync(s,wsLoad(w.input+6));
+#ifdef PORTABLE_PHYSICAL_LOCK_ARENA
+    if(s.error==0) physicalLockFinalizeGraph(s);
+#endif
 #endif
 #ifdef PORTABLE_WORLD_ACTORS
     if(s.error==0) worldActorsApply(s);

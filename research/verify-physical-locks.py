@@ -40,7 +40,7 @@ def compile_case(c):
 def native_reference(domain):return observe(domain[0])
 
 def compare(block,domain):
- c,m,bindings=domain;n=observe(c)
+ c,m,bindings=domain;candidates=[];n=observe(c,candidate_observer=lambda values:candidates.append(tuple(values)))
  if block[0]!=0:raise AssertionError((c['name'],'status',block[0]))
  actual=parent.decoded(block,m,c,bindings);changed=[k for k in n['battle'] if k!='scope' and actual[k]!=n['battle'][k]]
  if changed:raise AssertionError((c['name'],'complete battle',changed))
@@ -61,6 +61,13 @@ def compare(block,domain):
   if list(block[at:at+len(want)])!=want:raise AssertionError(('emission snapshot',i,list(block[at:at+16]),want[:16]))
  tail=SNAPSHOTS+len(n['lock_shots'])*SET_WORDS
  if any(block[tail:OUTPUT]):raise AssertionError('Unexpected snapshot tail')
+ want=[0]*SET_WORDS
+ if candidates:
+  want[0]=len(candidates[-1]);want[5]=1
+  for i,handle in enumerate(candidates[-1]):
+   slot=next(k for k,b in enumerate(bindings) if int(b.kind)==int(handle.kind) and b.identity==handle.identity)
+   want[1+slot//32]|=1<<(slot%32);want[8+i*4:12+i*4]=[slot,handle.generation,int(handle.kind),handle.identity]
+ if list(block[CANDIDATE:CANDIDATE+SET_WORDS])!=want:raise AssertionError('Complete final provider candidate buffer differs')
  if any(block[L['WORLD_ACTOR_POOL_QUERY_BASE']:L['WORLD_ACTOR_POOL_QUERY_BASE']+64*16]):raise AssertionError('Actor query bank borrowed')
  if any(block[L['WORLD_ACTOR_RECEIPT_BASE']:L['WORLD_ACTOR_RECEIPT_BASE']+64*8]):raise AssertionError('Actor receipt bank borrowed')
  if any(block[L['COUNTER_CONTEXT_BASE']:L['COUNTER_CONTEXT_BASE']+1096]):raise AssertionError('Counter context not restored')

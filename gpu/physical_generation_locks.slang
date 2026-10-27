@@ -56,3 +56,18 @@ void physicalLockAttack(inout Runtime s,uint who,uint64_t when)
     if(s.locks.revision==0x7fffffffU){s.error=64;return;}
     s.locks.count=0;s.locks.revision++;s.lockClearCount++;results[physicalLockHead(s)+3]=s.lockClearCount;
 }
+
+// Native final observation derives until_cleared after finish retires live adds.
+// This is a final snapshot field, never a new close event or death notice.
+void physicalLockFinalizeGraph(inout Runtime s)
+{
+    uint nodes=commands[s.inputBase+P_WORLD_FRAME_INPUT_BASE+1];
+    for(uint n=0;n<nodes;n++)
+    {
+        uint d=s.inputBase+P_WORLD_FRAME_INPUT_BASE+16+n*64,g=s.resourceOutput+P_WORLD_FRAME_OUTPUT_BASE+16+n*24;
+        if(commands[s.inputBase+P_WORLD_ACTOR_NODE_BASE+n*4]!=2||(commands[d+1]&2)==0||results[g+1]==0)continue;
+        bool live=false;for(uint slot=1;slot<actorPoolCount(s);slot++)
+            if(commands[actorBinding(s,slot)]==5&&commands[actorBinding(s,slot)+3]==n&&results[actorPoolAt(s,slot)+1]!=0)live=true;
+        results[g+6]=uint(!live);
+    }
+}

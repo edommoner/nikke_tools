@@ -10,7 +10,7 @@ from world_projectile_native import observe as baseline
 from world_effect_target_count_shot_native import state as shot_state
 MAGIC=0x474c3031
 
-def observe(case):
+def observe(case,*,candidate_observer=None):
  before=copy.deepcopy(case);names=roster_names(case);owner=case.get('lock_owner',0);caster=names[owner];bosses=[];models={};pulses=[];shots=[];consumed=[];clears=[]
  init=timeline.BossScript.__init__;activate=BuffManager._activate;charge=timeline.CharState._charge_fire;auto=timeline.CharState._fire;notify=BuffManager.notify;consume=BuffManager.consume_bullet_buffs
  def initialized(boss,*a,**kw):init(boss,*a,**kw);bosses.append(boss)
@@ -27,7 +27,9 @@ def observe(case):
   return [r.handle for r in sorted(live,key=key)]
  def activated(bm,effect,who,t,*a,**kw):
   if effect.get('name')=='록 온' and effect.get('stat')=='' and who==caster:
-   m,reg=model(bm);cap=m.capacity(t);answer=m.core.acquire(registry_views(reg),provider(reg),capacity=cap);h=answer.selected
+   m,reg=model(bm);cap=m.capacity(t);choices=provider(reg)
+   if candidate_observer is not None:candidate_observer(choices)
+   answer=m.core.acquire(registry_views(reg),choices,capacity=cap);h=answer.selected
    pulses.append(dict(time=t,receipt=[cap,len(answer.snapshot.handles),answer.snapshot.revision,int(h.kind) if h else 0xffffffff,h.identity if h else 0,h.generation if h else 0,len(answer.removed),MAGIC]))
   return activate(bm,effect,who,t,*a,**kw)
  def fired(original):
