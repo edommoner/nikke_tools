@@ -25,6 +25,7 @@ class LogicalGeometryCLI(unittest.TestCase):
         self.assertTrue(cached['require_paired_generation'])
         self.assertEqual(config['upstream_documents'],['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'])
         self.assertTrue((ROOT/config['upstream_documents'][0]).is_file())
+        self.assertIn('research/portable-coordinate-arcs-short-expected.json',config['support_files'])
         self.assertTrue(nikke_gpu.registered_entry_wire_preflight(config)['passed'])
         self.assertTrue(check_metal(ROOT,2032000)['passed'])
         for source,iw,ow in [(config['source'],109968,2032000),(config['source'],115680,1769856),('gpu/unregistered_logical.slang',115680,2032000)]:
