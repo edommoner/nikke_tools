@@ -38,7 +38,7 @@ def inspect(case):
     if id(ev) not in event_counts:raise AssertionError('Missing actual native emission budget')
     row['_actual_hits']=event_counts[id(ev)]
    records.append(row);active.append(row)
-  elif event=='return':active.pop();event_rows.pop(id(ev),None)
+  elif event=='return':active.pop();event_rows.pop(id(ev),None);event_counts.pop(id(ev),None)
  def route(boss,ev,*args,**kwargs):
   result=original(boss,ev,*args,**kwargs)
   if ev.skill_name in names and active:
