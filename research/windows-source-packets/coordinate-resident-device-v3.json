@@ -1,0 +1,22 @@
+{
+  "schema": "resident-device-packet-v3",
+  "suite": "coordinate-resident-device",
+  "package_id": "ac73618551478c2336da14bca4711d9fd4406f9e0b9b455fa43cbf8cb9e7f653",
+  "archive_bytes": 9459867,
+  "archive_sha256": "e9f578fc58754dbd0cb72436a7c80416a2b621e4919ee5c2c08af2c5c7302b60",
+  "source_commit": "4cd8d958f1a3632fbebee456d656eac2298c13f2",
+  "scope": "Same four original prefix cases, GPU source and sealed Metal golden; maximum4 fresh file readers on Windows package checks",
+  "only_changed_payload_from_v2": [
+    "scripts/nikke_gpu.py",
+    "tests/test_portable_gpu_cli.py"
+  ],
+  "source_and_golden_preserved": true,
+  "checksum_cache": false,
+  "fresh_native_repeated_on_mac": false,
+  "mac_cpu_smoke": {
+    "groups": 60,
+    "tests": 591,
+    "skipped": 1
+  },
+  "cuda_calculation_verified": false
+}
