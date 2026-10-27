@@ -2544,3 +2544,5 @@ Windowsは既存継続tail1..5の最終結果取得時に接続不能。最後�
 新sourceのfull106は正規化後の生成コードが一致する一方、source graph SHAはevent_runtime/program_phases/新helperで変わる。既存golden/certificateを新packetへ自動的に付け替えない。現在のWindowsは元の固定packet/CUBINを使い続け、新source full106の再sealは未実施。
 
 新sourceの共通smokeで、既存の厳密なsource逆投影監査に新しいifdef hookが未登録と判明。sealed-v1の失敗は保持。元9cとM5実証v4の実ファイルから、2変更file/2追加fileだけの完全一致deltaを独立fixtureへ記録し、既存Frame/武器監査の前段へ接続した。旧baseline/生成コードnormalizer/数値比較は変更せず、1byte mutation拒否・元Frame7検査・武器8検査・新query8検査を実行。全smokeの再確認が必要。
+
+最終query配布packet b283876eは共通66群/641検査（Windows専用1skip）と選択18検査/native6＋拒否3のCPU事前検証に成功。GPU追加0。research/windows-source-packets/named-target-count-query-v1.zip/.jsonへsourceだけを保存。Windowsにはまだ新queryの実行を依頼していない。元full106 transactionの保存結果を先に確認する。
