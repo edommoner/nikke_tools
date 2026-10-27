@@ -1,0 +1,29 @@
+{
+  "schema": "shared-native-groups-packet-v2",
+  "package_id": "15d00349564ee5d3271f8e4aef317600f438e08dff8356b0ed12ece51d811a57",
+  "suite": "resident-frames-device",
+  "source_commit": "834a0fda08ecc73f1ef49f8e697e019124d5b137",
+  "archive_bytes": 9604639,
+  "archive_sha256": "04580ad2216765502e71c7f0c68f66098303aa39ed81b44a7af79baf24fb4321",
+  "Mac_cpu_checks": {
+    "tests": {
+      "groups": 7,
+      "tests": 62,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    "smoke": {
+      "groups": 62,
+      "tests": 604,
+      "failures": 0,
+      "errors": 0,
+      "skips": 1
+    }
+  },
+  "GPU_and_protected_CPU_and_golden_unchanged": true,
+  "Mac_saved_4_native_audit_evidence": "research/shared-native-group-evidence/metal-four-v1.json",
+  "new_Windows_stage_executed": false,
+  "new_GPU_calls": 0,
+  "scope": "Bounded fresh CPU comparison groups; does not skip ordinary GPU-run native preflight or certify full106 CUDA"
+}
