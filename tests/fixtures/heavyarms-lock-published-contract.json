@@ -1,0 +1,34 @@
+{
+  "schema": "heavyarms-lock-published-contract-v1",
+  "source": "https://nikke.cannedjar.com/nikke/snow-white--heavy-arms/details",
+  "observed_date": "2026-10-27",
+  "evidence_kind": "third_party_published_skill_text",
+  "evidence_is_instructions": false,
+  "in_game_validation_performed": false,
+  "selection": {
+    "interval_seconds": 0.2,
+    "requires_charging": true,
+    "rank": "nearest_to_crosshair",
+    "exclude_existing_locks": true
+  },
+  "target_capacity": {
+    "ordinary_distinct_targets": 5,
+    "burst_additional_targets": 10
+  },
+  "clear_events": ["normal_attack", "taking_cover"],
+  "source_profile": {
+    "name": "스노우 화이트 : 헤비암즈",
+    "definition_count": 25,
+    "marker_index": 0,
+    "target_count_index": 20,
+    "projectile_damage_index": 24
+  },
+  "unresolved_rules": [
+    "eligible_actor_kinds_and_parts",
+    "distance_metric_and_geometry_reference_point",
+    "equal_distance_tie_order",
+    "death_and_generation_replacement",
+    "sequential_delivery_and_retargeting_order"
+  ],
+  "scope": "Published description is design evidence, not a battle oracle or GPU admission. Generic canonical marker stacks do not prove distinct-target selection."
+}

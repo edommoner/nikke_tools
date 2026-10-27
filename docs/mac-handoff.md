@@ -2508,3 +2508,9 @@ Windowsの新CLI用smokeは622件成功したが、full106のbeginは選択177�
 固定full packet 7e142c00 (`research/windows-source-packets/staged-unit-tests-v1.zip`) はMacで選択177テストを14fresh群で完走、最長46.30秒/合計129.37秒、共通629テスト成功(Windows専用1skip)。同コードdevice packet e5a04816は元62テスト4群→native4件2群→M5 GPU1回→独立fresh native4件2群で完全一致。必須generation/pipeline cacheを使用しSlang呼出0、共有Swift module cache利用時のGPU子1.86秒。raw SHA d1dc8ecdd94b881503bcc588e34103103dce402fc6adbfaa56924484c0545879を維持。public要約はshared-native-group-evidence/metal-staged-tests-*.json。
 
 全106 GPU/protected CPU/golden/入力SHA7892c2b3を保持し、旧compiler owner7b43de12のownregistry監査も成功。Windowsでは新固定packetでCPU smoke/plan/選択テスト群から開始する。全群とJobが成功するまでnative/GPUへ進めない。保存済みCUBINを使い追加compile不要、GPU子60秒/各stage180秒/2GiB/BelowNormalを維持。今回の成立は新しいゲーム効果や全キャラ対応の証明ではなく、Lock On/対象数/投射物と残20分類、全キャラ0/UI CPUは継続。
+
+### 2026-10-27: Lock Onの対象数とmarker stackを分離
+
+`docs/portable-heavyarms-lock-selection.md`に次のconsumer契約と公開記述の出所を記録。元25定義のcanonical named-marker stack1..5は、異なる5体へのLock Onではない。公開記述の未ロック候補除外・通常5体/+10体・攻撃/遮蔽解除を、第三者資料/実機未検証として固定。対象種別・距離の測り方/参照点・tie・死亡/世代・sequential順は未確定のまま。classifierにmarker stackとdistinct target countの区別、除外未検証を追加し、effect_target_count_addの10体/2射撃consumerを具体化した。
+
+全266profile行、入力、issues、20順位のcode/message/descriptor、laneは前inventoryと全一致。変わったのはreadiness注記だけ。245入力変換/21失敗/全キャラ0/UI CPUを保持。関連61テスト成功。Windowsでは別固定commit48cb1f2fの630テストpacketを検証中で、今回classifier変更を実行中controllerへ混入しない。

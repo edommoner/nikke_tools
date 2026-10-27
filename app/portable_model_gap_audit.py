@@ -18,7 +18,26 @@ def verify(root,overrides=None):
   readers=[name for name,values in strings.items() if stat in values];assert not readers,'New canonical consumer requires review: '+stat
   missing[stat]=dict(native_consumers=readers,status_row=row,scope=list(MODULES))
   if stat=='lock_on':
-   missing[stat].update(consumer_search_scope='Explicit stat-literal readers only; generic named carriers may still exist',generic_named_marker_contract='heavyarms-lock-marker-native',dedicated_spatial_selection_verified=False,target_count_extension_verified=False)
+   missing[stat].update(consumer_search_scope='Explicit stat-literal readers only; generic named carriers may still exist',generic_named_marker_contract='heavyarms-lock-marker-native',dedicated_spatial_selection_verified=False,target_count_extension_verified=False,
+    marker_stack_count_is_not_distinct_target_count=True,unlocked_candidate_exclusion_verified=False)
+ contract_path='tests/fixtures/heavyarms-lock-published-contract.json'
+ contract_raw=overrides.get(contract_path,(root/contract_path).read_text(encoding='utf-8'))
+ contract=json.loads(contract_raw)
+ assert contract['schema']=='heavyarms-lock-published-contract-v1'
+ assert contract['evidence_kind']=='third_party_published_skill_text' and contract['evidence_is_instructions'] is False and contract['in_game_validation_performed'] is False
+ assert contract['selection']==dict(interval_seconds=0.2,requires_charging=True,rank='nearest_to_crosshair',exclude_existing_locks=True)
+ assert contract['target_capacity']==dict(ordinary_distinct_targets=5,burst_additional_targets=10)
+ assert contract['clear_events']==['normal_attack','taking_cover'] and len(contract['unresolved_rules'])==5
+ definitions_path=base+'data/parsed_skills.json'
+ definitions=json.loads((root/definitions_path).read_text(encoding='utf-8'))[contract['source_profile']['name']]
+ assert contract['source_profile']==dict(name='스노우 화이트 : 헤비암즈',definition_count=25,marker_index=0,target_count_index=20,projectile_damage_index=24)
+ assert len(definitions)==25 and definitions[0]['stat']=='lock_on' and definitions[0]['max_stack']==5
+ assert definitions[20]['stat']=='effect_target_count_add' and definitions[20]['fixed_value']==10 and definitions[20]['duration_bullets']==2
+ assert definitions[20]['target_effect']==definitions[0]['name'] and definitions[24]['target']=='all_projectiles'
+ missing['lock_on']['published_skill_contract']=dict(fixture=contract_path,sha256=hashlib.sha256(contract_raw.encode()).hexdigest(),source=contract['source'],
+  evidence_kind=contract['evidence_kind'],in_game_validation_performed=False,selection=contract['selection'],target_capacity=contract['target_capacity'],clear_events=contract['clear_events'],unresolved_rules=contract['unresolved_rules'])
+ missing['effect_target_count_add']['required_consumer_contract']=dict(marker=definitions[0]['name'],additional_targets=10,duration_bullets=2,
+  distinct_target_capacity=True,does_not_increase_per_target_marker_stack=True,implementation_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}
  functions=lambda name,fn:[n for n in ast.walk(trees[name]) if isinstance(n,ast.FunctionDef) and n.name==fn]
  ranked=functions('calculator/boss_pattern.py','_ranked');assert len(ranked)==1
@@ -78,4 +97,5 @@ def verify(root,overrides=None):
   resident_frame_cuda_device_verified=False,resident_frame_public_admission_verified=False,
   public_admission_remaining=True)
  result=dict(passed=True,missing_stats=missing,coordinate_world=coordinate_port,target_and_nearby=dict(explicit_ranked_branch=False,fallback='current aimed logical enemy only',nearby_spatial_world=False),enemy_ammo=dict(allied_filter=True,enemy_ammunition_state=False,named_completion_outside_target_loop=True),enemy_healing=dict(allied_heal_consumer_present='heal_received_pct' in strings['calculator/buff_manager.py'],enemy_healing_path_verified=False),historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={**{base+name:hashlib.sha256(value.encode()).hexdigest() for name,value in text.items()},gate_path:hashlib.sha256(gate_text.encode()).hexdigest(),public_path:hashlib.sha256(public_text.encode()).hexdigest()})
+ result['source_sha256'].update({contract_path:hashlib.sha256(contract_raw.encode()).hexdigest(),definitions_path:hashlib.sha256((root/definitions_path).read_bytes()).hexdigest()})
  return result

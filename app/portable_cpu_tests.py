@@ -13,7 +13,9 @@ AUDIT_FILES = {'test_coordinate_power_v1.py': ('requirements-validation.txt',),'
     'tests/fixtures/coordinate-common-numeric-decision.json'),
     'test_portable_model_gap_audit.py': (
     'research/upstream/nikke-calc-master/docs/IMPL-STATUS.md',
-    'tests/fixtures/coordinate-common-numeric-decision.json')}
+    'tests/fixtures/coordinate-common-numeric-decision.json',
+    'tests/fixtures/heavyarms-lock-published-contract.json',
+    'research/upstream/nikke-calc-master/data/parsed_skills.json')}
 
 
 AUDIT_FILES['test_heavyarms_lock_reference.py']=AUDIT_FILES['test_portable_model_gap_audit.py']

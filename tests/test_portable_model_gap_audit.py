@@ -1,11 +1,25 @@
 """Routing requires source evidence; source drift cannot become noop admission."""
-import sys,unittest
+import json,sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app')]
 from portable_model_gap_audit import verify,MISSING_STATS
 class GapAuditTests(unittest.TestCase):
  def test_current_sources_distinguish_missing_models_from_missing_ports(self):
   r=verify(ROOT);self.assertEqual(set(r['missing_stats']),set(MISSING_STATS));self.assertFalse(r['gpu_supported']);self.assertTrue(r['enemy_ammo']['named_completion_outside_target_loop']);self.assertFalse(r['target_and_nearby']['nearby_spatial_world'])
+ def test_lock_capacity_is_not_the_observed_canonical_marker_stack(self):
+  r=verify(ROOT);lock=r['missing_stats']['lock_on'];public=lock['published_skill_contract']
+  self.assertTrue(lock['marker_stack_count_is_not_distinct_target_count']);self.assertFalse(lock['unlocked_candidate_exclusion_verified'])
+  self.assertTrue(public['selection']['exclude_existing_locks']);self.assertEqual(public['target_capacity'],dict(ordinary_distinct_targets=5,burst_additional_targets=10))
+  self.assertFalse(public['in_game_validation_performed']);self.assertEqual(len(public['unresolved_rules']),5)
+  target=r['missing_stats']['effect_target_count_add']['required_consumer_contract']
+  self.assertTrue(target['distinct_target_capacity']);self.assertTrue(target['does_not_increase_per_target_marker_stack']);self.assertEqual(target['duration_bullets'],2);self.assertFalse(target['implementation_verified'])
+  self.assertFalse(r['gpu_supported']);self.assertFalse(r['full_goal_complete'])
+  path=public['fixture'];original=json.loads((ROOT/path).read_text())
+  for key,value in [('exclude_existing_locks',False),('interval_seconds',0.1)]:
+   changed=json.loads(json.dumps(original));changed['selection'][key]=value
+   with self.subTest(key=key),self.assertRaises(AssertionError):verify(ROOT,{path:json.dumps(changed)})
+  original['in_game_validation_performed']=True
+  with self.assertRaises(AssertionError):verify(ROOT,{path:json.dumps(original)})
  def test_coordinate_geometry_is_a_port_gap_with_an_existing_native_consumer(self):
   r=verify(ROOT)['coordinate_world'];self.assertEqual(r['classification'],'gpu_port_gap');self.assertTrue(r['native_model_available']);self.assertFalse(r['gpu_connected'])
   self.assertTrue({'acos','atan2','cos','hypot','radians','sin'} <= set(r['native_math_calls']));self.assertTrue(r['native_pow_operator'])

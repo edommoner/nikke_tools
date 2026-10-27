@@ -1,0 +1,15 @@
+{
+  "schema": "lock-capacity-classification-retention-v1",
+  "profiles": 266,
+  "packed_profiles": 245,
+  "packing_failures": 21,
+  "priority_categories": 20,
+  "all_profile_rows_identical": true,
+  "priority_order_codes_messages_and_descriptors_unchanged": true,
+  "work_lanes_unchanged": true,
+  "issues_unchanged": true,
+  "full_character_verified": 0,
+  "gpu_calls": 0,
+  "cpu_battle_calls": 0,
+  "scope": "Published lock targeting requirement added; generic marker stacks remain a narrower canonical contract. No new GPU admission."
+}

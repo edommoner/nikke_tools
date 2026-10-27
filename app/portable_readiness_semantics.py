@@ -22,7 +22,9 @@ def reference_readiness(issue):
             result.update(native_consumer='generic_named_carrier_present_dedicated_lock_model_missing',contract_coverage='native_named_marker_only',
                 native_marker_contract=dict(suite='heavyarms-lock-marker-native',original_definitions=25,worlds=['boss_only','three_live_adds'],
                     carrier_stack_remove_and_named_query=True,selection_scope='Canonical logical aim proxy; first live ADD in declared world, not spatial Lock On',
-                    spatial_selection_verified=False,target_count_extension_verified=False,full_original_typed_projectile_verified=False),
+                    spatial_selection_verified=False,target_count_extension_verified=False,full_original_typed_projectile_verified=False,
+                    marker_stack_count_is_not_distinct_target_count=True,unlocked_candidate_exclusion_verified=False,
+                    published_selection_contract='tests/fixtures/heavyarms-lock-published-contract.json'),
                 required_extensions=['dedicated_spatial_lock_selection_and_target_count_model','shared_marker_lifecycle_and_recipient_integration','current_CUDA_and_Metal_full_original_profile_validation'],
                 note='The original full25 native profile creates a generic named marker, caps stack5, removes it on attack and filters live logical enemies by that name. This is a CPU contract; dedicated spatial Lock On selection, target-count extension and full25 typed-projectile battle remain unverified. Keep default admission closed')
         if issue.get('target')=='all_projectiles':
