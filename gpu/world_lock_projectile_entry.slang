@@ -1,6 +1,7 @@
 // Static wiring only. One WorldSchedule/DFS stack owns both existing executors.
 #define PORTABLE_LOCK_TYPED_COMPOSITION
 #define PORTABLE_PROJECTILE_CHAIN
+#define PORTABLE_FULL_BURST_LANDING
 #define PL_LAYOUT_OFFSET 262144U
 #define PL_LAYOUT_OUTPUT 1310720U
 #define PORTABLE_RESIDENT_RUNTIME
