@@ -33,12 +33,15 @@ uint generationLockPrune(inout Runtime s)
     }
     s.locks.count=kept;return removed;
 }
-bool generationLockAcquire(inout Runtime s,uint who,uint name,uint base,uint limit,uint packed,uint64_t when)
+struct GenerationLockReceipt {uint capacity,count,revision,kind,identity,generation,removed,magic;};
+void generationLockWriteReceipt(uint dst,GenerationLockReceipt r)
+{results[dst]=r.capacity;results[dst+1]=r.count;results[dst+2]=r.revision;results[dst+3]=r.kind;results[dst+4]=r.identity;results[dst+5]=r.generation;results[dst+6]=r.removed;results[dst+7]=r.magic;}
+bool generationLockAcquireSet(inout Runtime s,uint who,uint name,uint base,uint limit,uint source,uint64_t when,out GenerationLockReceipt result)
 {
-    uint candidate=packed&255U,receipt=packed>>8;
-    if(who>=5||name>=P_DEFINITIONS||limit==0||limit>128||base>limit||candidate>=32||receipt>=P_COMMANDS)return false;
+    result={};
+    if(who>=5||name>=P_DEFINITIONS||limit==0||limit>128||base>limit)return false;
     if(s.locks.configured!=0&&(s.locks.who!=who||s.locks.name!=name))return false;
-    uint source=actorPoolSet(s,candidate);if(results[source+5]!=1||results[source]>128)return false;
+    if(results[source+5]!=1||results[source]>128)return false;
     uint capacity;uint64_t total;
     if(!namedTargetCountValue(s,who,name,base,limit,when,capacity,total))return false;
     // Validate the entire frozen provider list before changing membership.
@@ -61,19 +64,24 @@ bool generationLockAcquire(inout Runtime s,uint who,uint name,uint base,uint lim
         selected=slot;gen=g;s.locks.slots[s.locks.count]=slot;s.locks.generations[s.locks.count]=g;s.locks.count++;break;
     }
     if(removed!=0||selected!=0xffffffffU){if(s.locks.revision==0x7fffffffU)return false;s.locks.revision++;}
-    uint dst=s.resourceOutput+P_WORLD_ACTOR_RECEIPT_BASE+receipt*8;
-    results[dst]=capacity;results[dst+1]=s.locks.count;results[dst+2]=s.locks.revision;
-    results[dst+3]=selected==0xffffffffU?selected:commands[actorBinding(s,selected)];
-    results[dst+4]=selected==0xffffffffU?0:commands[actorBinding(s,selected)+1];results[dst+5]=gen;results[dst+6]=removed;results[dst+7]=GL_MAGIC;
+    result.capacity=capacity;result.count=s.locks.count;result.revision=s.locks.revision;
+    result.kind=selected==0xffffffffU?selected:commands[actorBinding(s,selected)];
+    result.identity=selected==0xffffffffU?0:commands[actorBinding(s,selected)+1];result.generation=gen;result.removed=removed;result.magic=GL_MAGIC;
     return true;
 }
-bool generationLockSnapshot(inout Runtime s,uint index,uint reason)
+bool generationLockAcquire(inout Runtime s,uint who,uint name,uint base,uint limit,uint packed,uint64_t when)
+{
+    uint candidate=packed&255U,receipt=packed>>8;if(candidate>=32||receipt>=P_COMMANDS)return false;
+    GenerationLockReceipt r;if(!generationLockAcquireSet(s,who,name,base,limit,actorPoolSet(s,candidate),when,r))return false;
+    generationLockWriteReceipt(s.resourceOutput+P_WORLD_ACTOR_RECEIPT_BASE+receipt*8,r);return true;
+}
+bool generationLockSnapshotAt(inout Runtime s,uint dst,uint reason)
 {
 
-    if(index>=32||reason>2)return false;
+    if(reason>2)return false;
     uint removed=generationLockPrune(s);if(removed!=0){if(s.locks.revision==0x7fffffffU)return false;s.locks.revision++;}
     if(reason!=0&&s.locks.revision==0x7fffffffU)return false;
-    uint dst=actorPoolSet(s,index);if(results[dst+5]!=0||results[dst+6]!=0)return false;
+    if(results[dst+5]!=0||results[dst+6]!=0)return false;
     for(uint i=0;i<P_WORLD_ACTOR_SET_WORDS;i++)results[dst+i]=0;
     results[dst]=s.locks.count;results[dst+6]=GL_MAGIC;results[dst+7]=s.locks.revision;
     for(uint i=0;i<s.locks.count;i++)
@@ -85,6 +93,8 @@ bool generationLockSnapshot(inout Runtime s,uint index,uint reason)
     return true;
 }
 
+bool generationLockSnapshot(inout Runtime s,uint index,uint reason)
+{if(index>=32)return false;return generationLockSnapshotAt(s,actorPoolSet(s,index),reason);}
 bool generationLockCommand(inout Runtime s,uint at,uint64_t when)
 {
     if(commands[at]==45)return generationLockAcquire(s,commands[at+3],commands[at+4],commands[at+5],commands[at+6],commands[at+7],when);

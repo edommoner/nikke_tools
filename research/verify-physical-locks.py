@@ -3,11 +3,12 @@ import array,copy,importlib.util,struct,sys
 from pathlib import Path
 from types import SimpleNamespace
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts','tests')]
-from portable_effect_target_count_shot_specs import compile_case as pack,decode,INPUT,OUTPUT
+from portable_effect_target_count_shot_specs import compile_case as pack,decode,INPUT
 from portable_effect_target_count_shot_cases import fixtures as bases
 from portable_heavyarms_lock_cases import source_definitions
 from portable_specs import LIMITS as L,FIELDS as F
 from effect_target_count_policy import MODEL
+from portable_physical_lock_layout import OUTPUT,HEAD,PULSES,CANDIDATE,SNAPSHOTS,END,BASE,SET_WORDS
 from world_physical_locks_native import observe
 
 def module(name,path):
@@ -24,6 +25,11 @@ def fixtures():
   c['patterns']=[dict(id='wave',kind='summon',spec=dict(count=16,hp=hp))]
   w=c['combat']['weapons'][0];w.update(charge=charge,interval=charge+.215,min_cycle=charge+.215)
   rows.append(c)
+ for name,target,rebirth in [('full-charge-queued-kill','all_enemies',False),('full-charge-body-only','boss',False),('full-charge-queued-rebirth','all_enemies',True)]:
+  c=copy.deepcopy(rows[0]);c['name']='physical-locks/'+name;c['patterns'][0]['spec']['hp']=1e8
+  if rebirth:c['patterns'][0].update(after=['start','wave'],repeat=0,until=dict(targets_cleared=True))
+  c['effects'].append(dict(name='full-charge-payload',source='스킬1',type='damage',stat='damage',fixed_value=1e8,target=target,trigger=dict(timing=['full_charge'],condition=[])))
+  c['owners'].append(0);rows.append(c)
  return rows
 
 def compile_case(c):
@@ -40,23 +46,23 @@ def compare(block,domain):
  if changed:raise AssertionError((c['name'],'complete battle',changed))
  if parent.reload.charge.team.skill_trace(block,m)!=n['skill_trace']:raise AssertionError('Skill trace changed')
  if decode(block,m)!=n['target_count_shots']:raise AssertionError('Physical two-shot quota trace changed')
- h=L['WORLD_ACTOR_POOL_QUERY_BASE']+63*16;head=list(block[h:h+16]);want=[0x504c3031,len(n['lock_pulses']),len(n['lock_shots']),len(n['lock_clears']),0,m['physical_lock_pulse_row']]+[0]*10
+ h=HEAD;head=list(block[h:h+16]);want=[0x504c3031,len(n['lock_pulses']),len(n['lock_shots']),len(n['lock_clears']),0,m['physical_lock_pulse_row']]+[0]*10
  if head!=want:raise AssertionError(('lock header',head,want))
  for i,p in enumerate(n['lock_pulses']):
-  at=L['WORLD_ACTOR_POOL_QUERY_BASE']+i*16;want=[*p['receipt'],*struct.unpack('<II',struct.pack('<d',p['time'])),*([0]*6)]
+  at=PULSES+i*16;want=[*p['receipt'],*struct.unpack('<II',struct.pack('<d',p['time'])),*([0]*6)]
   if list(block[at:at+16])!=want:raise AssertionError(('charge activation',i,list(block[at:at+16]),want))
-  at=L['WORLD_ACTOR_RECEIPT_BASE']+i*8
-  if list(block[at:at+8])!=p['receipt']:raise AssertionError('Pulse receipt changed')
- start=L['WORLD_ACTOR_POOL_QUERY_BASE']+len(n['lock_pulses'])*16
- if any(block[start:h]):raise AssertionError('Unexpected pulse tail')
+ start=PULSES+len(n['lock_pulses'])*16
+ if any(block[start:CANDIDATE]):raise AssertionError('Unexpected pulse tail')
  for i,shot in enumerate(n['lock_shots']):
-  at=L['WORLD_ACTOR_SET_BASE']+(i+1)*L['WORLD_ACTOR_SET_WORDS'];want=[0]*L['WORLD_ACTOR_SET_WORDS'];want[0]=len(shot['handles']);want[6]=0x474c3031;want[7]=shot['revision']
+  at=SNAPSHOTS+i*SET_WORDS;want=[0]*L['WORLD_ACTOR_SET_WORDS'];want[0]=len(shot['handles']);want[6]=0x474c3031;want[7]=shot['revision']
   for j,(kind,identity,generation) in enumerate(shot['handles']):
    slot=next(k for k,b in enumerate(bindings) if int(b.kind)==kind and b.identity==identity)
    want[1+slot//32]|=1<<(slot%32);want[8+j*4:12+j*4]=[slot,generation,kind,identity]
   if list(block[at:at+len(want)])!=want:raise AssertionError(('emission snapshot',i,list(block[at:at+16]),want[:16]))
- tail=L['WORLD_ACTOR_SET_BASE']+(len(n['lock_shots'])+1)*L['WORLD_ACTOR_SET_WORDS']
- if any(block[tail:L['WORLD_ACTOR_SET_BASE']+32*L['WORLD_ACTOR_SET_WORDS']]):raise AssertionError('Unexpected snapshot tail')
+ tail=SNAPSHOTS+len(n['lock_shots'])*SET_WORDS
+ if any(block[tail:OUTPUT]):raise AssertionError('Unexpected snapshot tail')
+ if any(block[L['WORLD_ACTOR_POOL_QUERY_BASE']:L['WORLD_ACTOR_POOL_QUERY_BASE']+64*16]):raise AssertionError('Actor query bank borrowed')
+ if any(block[L['WORLD_ACTOR_RECEIPT_BASE']:L['WORLD_ACTOR_RECEIPT_BASE']+64*8]):raise AssertionError('Actor receipt bank borrowed')
  if any(block[L['COUNTER_CONTEXT_BASE']:L['COUNTER_CONTEXT_BASE']+1096]):raise AssertionError('Counter context not restored')
  return n
 

@@ -29,8 +29,8 @@ from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 # No GPU/backend/native imports at startup: collect/audit must work without them.
 SUITES = {
     'physical-generation-locks':dict(script='research/verify-physical-locks.py',
-        golden='research/portable-physical-generation-locks-expected.json',source='gpu/world_physical_locks_entry.slang',
-        inputs=7,native=3,input_words=104400,output_words=786432,development_only=False,
+        golden='research/portable-physical-generation-locks-v2-expected.json',source='gpu/world_physical_locks_entry.slang',
+        inputs=10,native=6,input_words=104400,output_words=806912,development_only=True,
         tests=['test_named_generation_locks.py','test_physical_generation_locks.py','test_generation_lock_executor.py']),
     'named-generation-locks':dict(script='research/verify-generation-locks.py',
         golden='research/portable-named-generation-locks-v2-expected.json',source='gpu/world_generation_locks_entry.slang',

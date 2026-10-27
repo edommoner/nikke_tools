@@ -1,5 +1,6 @@
+#include "physical_lock_layout.slang"
 // No new timer: acquisitions are called by the real periodic activation path.
-uint physicalLockHead(inout Runtime s){return s.resourceOutput+P_WORLD_ACTOR_POOL_QUERY_BASE+63*16;}
+uint physicalLockHead(inout Runtime s){return s.resourceOutput+PL_HEAD;}
 bool initializePhysicalLocks(inout Runtime s)
 {
     s.lockPulseCount=0;s.lockShotCount=0;s.lockClearCount=0;s.lockPulseRow=P_DEFINITIONS;
@@ -23,26 +24,30 @@ bool initializePhysicalLocks(inout Runtime s)
     for(uint step=0;step<commands[s.inputBase+2];step++)
     {uint op=commands[s.inputBase+P_COMMAND_BASE+step*8];if((op>=34&&op<=38)||(op>=41&&op<=46))return false;}
     s.locks.configured=1;s.locks.who=owner;s.locks.name=name;
-    for(uint i=0;i<64*16;i++)results[s.resourceOutput+P_WORLD_ACTOR_POOL_QUERY_BASE+i]=0;
+    for(uint i=PL_BASE;i<PL_OUTPUT;i++)results[s.resourceOutput+i]=0;
     uint h=physicalLockHead(s);results[h]=0x504c3031U;results[h+4]=owner;results[h+5]=s.lockPulseRow;return true;
 }
 void physicalLockPulse(inout Runtime s,uint row,uint64_t when)
 {
     if(row!=s.lockPulseRow)return;
     if(s.lockPulseCount>=63){s.error=64;return;}
-    actorSetCapture(s,33,0);if(s.error!=0)return;
-    uint index=s.lockPulseCount;
-    if(!generationLockAcquire(s,s.locks.who,s.locks.name,5,128,index<<8,when)){s.error=64;return;}
-    uint source=s.resourceOutput+P_WORLD_ACTOR_RECEIPT_BASE+index*8,dst=s.resourceOutput+P_WORLD_ACTOR_POOL_QUERY_BASE+index*16;
-    for(uint i=0;i<8;i++)results[dst+i]=results[source+i];storeNumber(dst+8,when);
-    results[actorPoolSet(s,0)+5]=0;results[actorPoolHead(s)+7]--;
+    uint source=s.resourceOutput+PL_CANDIDATE;for(uint i=0;i<P_WORLD_ACTOR_SET_WORDS;i++)results[source+i]=0;
+    uint order[128],count=0;
+    for(uint slot=0;slot<actorPoolCount(s);slot++)
+    {uint kind=commands[actorBinding(s,slot)];if((kind==0||kind==5)&&results[actorPoolAt(s,slot)+1]!=0)order[count++]=slot;}
+    actorSortSpawnOrder(s,order,count);results[source]=count;results[source+5]=1;
+    for(uint i=0;i<count;i++)
+    {uint slot=order[i],b=actorBinding(s,slot),e=source+8+i*4;results[source+1+slot/32]|=1U<<(slot%32);results[e]=slot;results[e+1]=results[actorPoolAt(s,slot)];results[e+2]=commands[b];results[e+3]=commands[b+1];}
+    uint index=s.lockPulseCount,dst=s.resourceOutput+PL_PULSES+index*16;GenerationLockReceipt r;
+    if(!generationLockAcquireSet(s,s.locks.who,s.locks.name,5,128,source,when,r)){s.error=64;return;}
+    generationLockWriteReceipt(dst,r);storeNumber(dst+8,when);
     s.lockPulseCount++;results[physicalLockHead(s)+1]=s.lockPulseCount;
 }
 void physicalLockSnapshot(inout Runtime s,uint who,uint64_t when)
 {
     if(who!=s.locks.who)return;
     if(s.lockShotCount>=31){s.error=64;return;}
-    if(!generationLockSnapshot(s,s.lockShotCount+1,0)){s.error=64;return;}
+    if(!generationLockSnapshotAt(s,s.resourceOutput+PL_SNAPSHOTS+s.lockShotCount*P_WORLD_ACTOR_SET_WORDS,0)){s.error=64;return;}
     s.lockShotCount++;results[physicalLockHead(s)+2]=s.lockShotCount;
 }
 void physicalLockAttack(inout Runtime s,uint who,uint64_t when)

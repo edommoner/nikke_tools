@@ -1,3 +1,4 @@
+#define PORTABLE_PHYSICAL_LOCK_ARENA
 #define PORTABLE_GENERATION_LOCKS
 #define PORTABLE_PHYSICAL_LOCKS
 #include "world_effect_target_count_shot_entry.slang"

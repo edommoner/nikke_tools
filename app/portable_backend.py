@@ -86,6 +86,11 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source=='gpu/world_physical_locks_entry.slang':
+        from portable_physical_lock_layout import check,INPUT,OUTPUT
+        check(ROOT)
+        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Physical locks require their separate arena wire')
+        return
     if source=='gpu/world_coordinate_resident_frames_entry.slang':
         from portable_coordinate_resident_arc_specs import check_layout,INPUT_WORDS,OUTPUT_WORDS
         check_layout(ROOT)

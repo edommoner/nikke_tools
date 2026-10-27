@@ -3,7 +3,8 @@ import hashlib,json
 from pathlib import Path
 
 def project_sources(root,sources=None):
- root=Path(root);out=dict(sources or {});data=json.loads((root/'tests/fixtures/portable-physical-lock-source-delta.json').read_text())
+ from portable_physical_lock_arena_source_contract import project_sources as arena
+ root=Path(root);out=arena(root,sources);data=json.loads((root/'tests/fixtures/portable-physical-lock-source-delta.json').read_text())
  for name,digest in data['added_sources'].items():
   if hashlib.sha256(out.get(name,(root/name).read_text()).encode()).hexdigest()!=digest:raise AssertionError('Unreviewed target-count dependency: '+name)
  for name,row in data['sources'].items():
