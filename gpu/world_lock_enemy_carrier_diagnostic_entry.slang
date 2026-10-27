@@ -1,0 +1,2 @@
+#define PORTABLE_WORLD_PROJECTILE_DIAGNOSTIC
+#include "world_lock_enemy_carrier_entry.slang"
