@@ -202,3 +202,13 @@ class PartsInventoryCountTests(unittest.TestCase):
             self.assertEqual(len(cases),result['recorded_cases'])
             self.assertEqual(sum(bool(c['contract'].get('reference_model_gap')) for c in cases),result['reference_model_gap_cases'])
         finally:sys.path.pop(0)
+
+
+class LockOnReadinessTests(unittest.TestCase):
+ def test_generic_marker_evidence_does_not_promote_spatial_or_gpu_support(self):
+  from portable_readiness_semantics import reference_readiness
+  r=reference_readiness(dict(phase='effect',kind='buff',stat='lock_on',target='enemies_nearest:1'))
+  self.assertEqual(r['lane'],'reference_model_gap');self.assertEqual(r['contract_coverage'],'native_named_marker_only')
+  self.assertFalse(r['gpu_supported']);self.assertFalse(r['gpu_admission_verified'])
+  marker=r['native_marker_contract'];self.assertTrue(marker['carrier_stack_remove_and_named_query']);self.assertEqual(marker['original_definitions'],25)
+  self.assertFalse(marker['spatial_selection_verified']);self.assertFalse(marker['target_count_extension_verified']);self.assertFalse(marker['full_original_typed_projectile_verified'])

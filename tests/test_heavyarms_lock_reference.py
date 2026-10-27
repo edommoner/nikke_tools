@@ -30,6 +30,17 @@ class HeavyarmsLockReferenceTests(unittest.TestCase):
             elif fault=='original':o['original_definitions'][4]['name']='modified definition'
             else:o['spatial_selection_verified']=True
             with self.subTest(fault=fault),self.assertRaises(AssertionError):verify(case,native)
+    def test_natural_add_selector_queries_remain_separate_from_diagnostic_probes(self):
+        for case,(native,_) in zip(self.cases[2:],self.results[2:],strict=True):
+            result=verify(case,native);self.assertEqual(result['marker_recipient'],'__enemy__:lock-wave#1')
+            self.assertEqual(result['natural_named_queries'],case['expected_natural_queries'])
+            for fault in ('missing','boss-positive','order','diagnostic-leak'):
+                broken=copy.deepcopy(native);queries=broken['heavyarms_lock']['natural_queries']
+                if fault=='missing':queries.pop()
+                elif fault=='boss-positive':queries[0]['present']=True
+                elif fault=='order':queries[0],queries[1]=queries[1],queries[0]
+                else:queries.append(dict(target='__enemy__',name='록 온',present=False))
+                with self.subTest(case=case['name'],fault=fault),self.assertRaises(AssertionError):verify(case,broken)
     def test_changed_battle_under_observer_is_rejected(self):
         source=factory();original=source.native_reference;calls=[]
         def changed(body):

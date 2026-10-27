@@ -1,5 +1,5 @@
 """Complete source profile: no removed or rewritten Lock On definitions."""
-import importlib.util,json
+import copy,importlib.util,json
 from pathlib import Path
 NAME='스노우 화이트 : 헤비암즈'
 
@@ -15,4 +15,10 @@ def factory():
 
 def fixtures():
     source=factory()
-    return [dict(name='heavyarms-lock-marker/'+str(duration)+'s',body=dict(source.body_for(source.policy.roster_for(NAME),duration),burst_gauge_mode='accumulate',seed=2427)) for duration in (3,30)]
+    rows=[dict(name='heavyarms-lock-marker/'+str(duration)+'s',body=dict(source.body_for(source.policy.roster_for(NAME),duration),burst_gauge_mode='accumulate',seed=2427)) for duration in (3,30)]
+    for base,queries in zip(rows[:],(88,820),strict=True):
+        case=copy.deepcopy(base);case['name']+='-three-adds'
+        assert 'patterns' not in case['body']['enemy']
+        case['body']['enemy']['patterns']=[dict(id='lock-wave',kind='summon',spec=dict(count=3,hp=1e30))]
+        case.update(expected_marker_target='__enemy__:lock-wave#1',expected_natural_queries=queries);rows.append(case)
+    return rows

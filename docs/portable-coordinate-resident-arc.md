@@ -25,10 +25,12 @@ Windowsでは既定PowerShellと明示pwshの両方でprocesses段階が同じ�
 
 ## 元25効果のLock On契約
 
-`reference --suite heavyarms-lock-marker-native --out NEW.json` は、スノーホワイト：ヘビーアームズの元25効果を保持した3秒／30秒のCPU入口です。効果の削除やstatの置換はしません。生成された名前付き状態のcaster・対象・無限寿命・stack上限5、攻撃時の名前付き解除を観測し、観測なしのfresh実行と全結果・物理射撃履歴が一致することを検査します。
+`reference --suite heavyarms-lock-marker-native --out NEW.json` は、スノーホワイト：ヘビーアームズの元25効果を保持した単体boss／生存ADD3体の各3秒／30秒、計4ケースのCPU入口です。効果の削除やstatの置換はしません。生成された名前付き状態のcaster・対象・無限寿命・stack上限5、攻撃時の名前付き解除を観測し、観測なしのfresh実行と全結果・物理射撃履歴が一致することを検査します。
 
-3秒は生成12／解除2、30秒は生成110／解除15です。状態生成直後と解除直後に、診断用の`enemy_has_state`／`_has_target_state`／`_target_stack`を明示的に呼びます。これらは戦闘本体が自然に発行した照会とは区別します。先行の受動観測では自動発行されたnamed queryは0でした。
+両worldとも3秒は生成12／解除2、30秒は生成110／解除15です。状態生成直後と解除直後に、診断用の`enemy_has_state`／`_has_target_state`／`_target_stack`を明示的に呼びます。これらは戦闘本体が自然に発行した照会とは区別します。単体bossでは自然なnamed queryは0でした。生存ADD3体では最初のADDにmarkerが付き、本来のselectorから3秒88／30秒820件のnamed queryが発行されました。boss→ADD1→ADD2→ADD3の順序と、markerのあるADD1だけがtrueになることを検査し、診断probeはその件数から除外します。これはcanonicalのlogical aim近似であり、専用の空間Lock Onではありません。
 
 これは名前付きcarrierのCPU契約であり、専用のLock On対象選択、対象数10追加、元25効果の型付き敵弾damage、Metal／CUDAの実行証明ではありません。`reference_model_gap=true`を維持します。元定義・対象・stack・解除・照会・対応範囲を壊す負例と、観測器が戦闘結果を変えた負例を検査します。source auditの「consumerなし」はstat文字列を直接読む専用consumerの検索範囲を意味し、汎用の名前付き状態まで存在しないとは扱いません。
 
 固定package `36f6cb6bc3af65b53f6ffd95bcc95019b748f8062da792ad8e322654530c63ba` で共通CLIの2契約が1.495秒、関連27群167検査とCPU batch制御13検査が成功しました。GPU sourceと全106goldenはv4から不変です。最初のCPU packetでは新ユニットの監査文書依存が欠落して失敗し、v2で依存と同梱を明示しました。原失敗は `research/resident-arc-arena-evidence/heavyarms-lock-contract-v2/v1-missing-dependency-failure.log` に保持しています。
+
+4契約の固定package `e7ba31890ce889f444dd9ec7541a347969123ecbaf8335dbac6aafc9f2530683` で元25定義・自然なnamed query・観測透明性が成功し、marker5検査／readiness21検査も成功しました。旧boss2契約のinput／native結果／物理射撃履歴は、自然照会の空配列を追加した以外は全保持。全266profileのinput・issue・優先順位も保持し、245変換／21失敗／20model gapは不変です。名前付きcarrierは存在し、専用空間選択・対象数拡張・元25のtyped projectile GPU戦闘が未完、という範囲へreadinessを明確化しました。
