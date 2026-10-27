@@ -2490,3 +2490,13 @@ Windows v4は依存確認・36検査・40/native26比較・NVRTC2.586690秒/ret0
 `coordinate-resident-frames` はsealed登録。共通Frame32個をケース別Runtime末尾4096byteへ移し、既存247field／入力115680／出力2064786／3binding・CUDA48byteを保持。全106通常Metalは28群176テスト／native63＋拒否43成功、M5 GPU4.103676秒、CPU410.717786秒、比較時はlive parent63を再利用しfresh追加0／file値cache0。旧全875469264byteも全byte一致。別6childの独立監査は513.541770秒・各180秒以内／最長134.245456秒、live parentなし、追加GPU0。同じ監査からgoldenとcompiler certificateを生成した。`research/resident-dispatch-frame-evidence/independent106.json` と `docs/portable-resident-dispatch-frames.md` を参照。
 
 次は `compiler-full--coordinate-resident-frames` の固定compact packetを検査し、Windowsで必要な短いgeneration/PTX/object/link/resource確認へ進む。新Frameの物理CUDA stack削減・起動成功はまだ未実証。未対応分類はprivate Metal基盤の成立だけを追記し、20model-gap／全キャラ0／UI CPUを保持する。古い失敗claimを消したり再送しない。原本と実行状態は永続proof `resident-frame-arena-20261027` の最新continuationと既存Windowsチャットを確認する。
+
+### 2026-10-27: fresh CPU事前検査の段階化と保存compiler owner監査
+
+`docs/portable-staged-native-preflight.md` を参照。begin→fresh native群→一度だけGPU→独立fresh native群集約を共通CLIへ追加。通常runとCPU検査は維持。値cacheや後付けcpu.jsonは作らず、hash-only transaction・全case coverage・host/manifest/claim・Windows各stage Job/180秒を検査する。GPU直後はpending/calculation=falseのまま。
+
+固定device v3のM5実機4入力はfresh preflight2+2→GPU1回→独立fresh2+2で計算一致。GPU子16.93秒、生成cache必須hit/Slang呼出0、readback33,036,576 bytes SHA d1dc8ecdd94b881503bcc588e34103103dce402fc6adbfaa56924484c0545879。初期v1/v2のcompact登録テスト失敗は保持し、検査修正後の別packetを使用。結果要約 `research/shared-native-group-evidence/metal-staged-four-v1.json`。
+
+旧compact compiler ownerは現在のテストregistryを使うと誤拒否されていた。全payloadを検査した後、検証済み旧owner自身のregistry/projectionをfresh CPUで照合するよう修正。実在7b43de12の静的監査成功、追加compile/GPU0、関連49検査成功。固定full106 packet `research/windows-source-packets/staged-native-preflight-v1.zip` (38544c0b)。GPU/保護CPU/goldenと全106入力SHAを保持。Mac選択177検査/108.65秒、共通621検査(Windows専用1skip)成功。Windows新stageはまだ未実証。既存CUBINの追加コンパイルは不要、fresh CPU全群とJob観測が成功するまでGPUへ進めない。
+
+未対応分類266profile/245入力変換/21失敗、20model-gap、全キャラ認定0/UI CPUを維持。Heavyarms空間Lock On/対象数、移動/共有damageなどのゲームgapは未解決。今回の実行器/検証経路の成立を全キャラ対応へ読み替えない。Windows保存結果はprivate readbackで受領し、公的ブランチにraw/PTX/CUBINを送らない。

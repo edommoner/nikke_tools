@@ -1,0 +1,30 @@
+{
+  "schema": "metal-staged-native-protocol-v1",
+  "package_id": "169a64b9b9cf59205bc553c3c514b1c0c9f87eafbaea8adfe6e245ca9362b5a3",
+  "input_count": 4,
+  "fresh_native_preflight_cases": 4,
+  "preflight_groups": 2,
+  "independent_post_native_cases": 4,
+  "post_groups": 2,
+  "calculation_verified": true,
+  "transport_verified": true,
+  "readback_bytes": 33036576,
+  "readback_sha256": "d1dc8ecdd94b881503bcc588e34103103dce402fc6adbfaa56924484c0545879",
+  "input_sha256": "f807a69c2d426c072a92d7b4ce95c7038e735ad0452a306f96d37f68b5af7b2b",
+  "generated_normalized": {
+    "cuda": "2380f6f3dcbf9df591284341f9c614d04d08909d66d6d916dcaa476e5e8306a2",
+    "metal": "64480dad8c8e15bb3398128a689c581c53e81134045f94ae3239d1677c40c135"
+  },
+  "GPU_child_seconds": 16.929534249997232,
+  "GPU_dispatches": 1,
+  "additional_audit_gpu_calls": 0,
+  "gpu_retry": 0,
+  "ordinary_cpu_json_created": false,
+  "pending_result_preserved": true,
+  "original_failed_packets_retained": [
+    "staged-preflight-device-v1",
+    "staged-preflight-device-v2"
+  ],
+  "full_goal_complete": false,
+  "scope": "Fresh split CPU -> actual M5 Metal -> independent fresh split native audit. CUDA/106 and all character/effect support remain separate."
+}

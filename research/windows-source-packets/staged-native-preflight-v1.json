@@ -1,0 +1,27 @@
+{
+  "schema": "staged-native-preflight-packet-v1",
+  "source_commit": "2b007f4f",
+  "suite": "coordinate-resident-frames",
+  "archive_bytes": 9587215,
+  "archive_sha256": "ba1cefdae058ff8621d2fd7bbb44a7a8eb523b9a8ae59b963c47a5d3b02b51c2",
+  "package_id": "38544c0bd7180254525c01026646afe0ec881bdd08aecb23d29ba21047accc40",
+  "input_count": 106,
+  "native_cases": 63,
+  "input_sha256": "7892c2b3f5800c602d96a92192b89094d746f1674aaa18fcac2436677c11923d",
+  "GPU_protected_CPU_golden_unchanged": true,
+  "native_calls": 0,
+  "gpu_calls": 0,
+  "smoke": {
+    "groups": 64,
+    "tests": 621,
+    "skips": 1
+  },
+  "selected": {
+    "groups": 28,
+    "tests": 177,
+    "skips": 0,
+    "elapsed_seconds": 108.64666287599539
+  },
+  "Windows_new_stages_executed": false,
+  "scope": "Full106 immutable shared validation path. Fresh CPU groups required before one saved-CUBIN GPU dispatch; final independent native groups required afterward. Not full character support."
+}
