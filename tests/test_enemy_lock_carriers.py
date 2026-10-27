@@ -25,6 +25,21 @@ class EnemyLockTests(unittest.TestCase):
         self.assertTrue(n['battle']['named_state']['context_restored'])
         queries=n['battle']['named_state']['queries']
         self.assertEqual([(q['identity'],q['present'],q['stack']) for q in queries],[(0,True,1),(1,False,0),(0,True,1)])
+    def test_dead_enemy_carrier_remains_observed_under_immutable_receiver_key(self):
+        import world_actor_state_native as state
+        old=state.before_finish;counts=[];empty_keys=[]
+        def observe(case,boss,manager,names,when):
+            carriers=[ab for ab in manager._active if not ab.effect.get('_boss_bound') and ab.effect.get('type')=='buff']
+            counts.append(len(carriers))
+            empty_keys.extend(getattr(ab,'enemy_recipient_key',None) for ab in carriers if ab.effect.get('stat')=='lock_on' and ab.target_chars==[])
+            return old(case,boss,manager,names,when)
+        with patch.object(state,'before_finish',observe):n=suite.native_reference((suite.fixtures()[1],None,None))
+        named=n['battle']['named_state']
+        self.assertTrue(empty_keys);self.assertTrue(all(key is not None and key.bindings for key in empty_keys))
+        self.assertEqual(named['allied_carriers'],[])
+        self.assertIn(False,named['enemy_memberships'])
+        self.assertEqual(counts,[len(named['enemy_memberships'])]*2)
+
     def test_exact_source_inverse_and_wire_guard(self):
         from portable_lock_enemy_carrier_source_contract import project_sources
         from portable_backend import validate_composed_stride
