@@ -28,6 +28,10 @@ sys.path[:0] = [str(ROOT/p) for p in ('app', 'research', 'scripts')]
 from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 # No GPU/backend/native imports at startup: collect/audit must work without them.
 SUITES = {
+    'original-projectile-weapons':dict(script='research/verify-original-projectile-weapons.py',
+        golden='research/portable-original-projectile-weapons-v1-expected.json',source='gpu/world_coordinate_typed_owner_entry.slang',
+        inputs=13,native=8,input_words=115680,output_words=2032000,development_only=True,parent_oracle_reuse=True,cpu_test_timeout=120,
+        tests=['test_original_projectile_weapons.py','test_coordinate_typed_owner_policy.py','test_destructible_damage_policy.py','test_portable_parent_oracles.py','test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_generation_separation.py','test_portable_wire_layout.py']),
     'original-lock-health-parts':dict(script='research/verify-original-lock-health-parts.py',
         golden='research/portable-original-lock-health-parts-v1-expected.json',source='gpu/world_original_lock_health_parts_entry.slang',
         inputs=11,native=7,input_words=109536,output_words=1310720,development_only=False,cpu_test_timeout=120,
