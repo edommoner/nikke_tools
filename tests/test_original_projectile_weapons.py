@@ -41,4 +41,21 @@ class OriginalProjectileWeapons(unittest.TestCase):
     def test_actor_policy_is_required_and_never_implicit(self):
         c,p=prepare(fixtures()[2]);p['typed_actor_policy']=None
         with self.assertRaises(ValueError):adapter.compile_coordinate_typed(p,c['typed_bindings'],probe_kind=2,geometry=c['typed_geometry'],coordinate_weapon_targets=True,coordinate_typed_aim=True,coordinate_typed_actors=True,coordinate_typed_owners=True)
+    def test_classification_distinguishes_real_weapons_from_probes_and_keeps_missing_reference(self):
+        from portable_readiness_semantics import reference_readiness
+        for stat in ('projectile_dmg_pct','shield_dmg_pct'):
+            r=reference_readiness(dict(phase='effect',category='effect',kind='buff',stat=stat,target='all_allies'))
+            self.assertEqual(r['lane'],'reference_model_gap');self.assertFalse(r['gpu_supported']);self.assertFalse(r['full_character_verified'])
+            key='original_physical_projectile_modifier_validation'
+            if stat=='shield_dmg_pct':self.assertNotIn(key,r);continue
+            proof=r[key];self.assertEqual(proof['original_profiles'],['Sakura','Anchor','Clay'])
+            self.assertEqual((proof['inputs'],proof['native_cases'],proof['rejected_cases']),(13,8,5))
+            self.assertTrue(proof['metal_verified']);self.assertTrue(proof['all_physical_receipts_hashed'])
+            self.assertFalse(proof['explicit_added_damage_probe']);self.assertFalse(proof['nearby_selector_verified']);self.assertFalse(proof['public_admission'])
+    def test_cached_cli_uses_the_same_sealed_calculation_and_forbids_cold_fallback(self):
+        import nikke_gpu as cli
+        normal=cli.SUITES['original-projectile-weapons'];cached=cli.SUITES['original-projectile-weapons-cache-only']
+        for key in ('script','source','golden','inputs','native','input_words','output_words','development_only','parent_oracle_reuse'):self.assertEqual(normal[key],cached[key])
+        self.assertFalse(normal['development_only']);self.assertTrue(normal['parent_oracle_reuse'])
+        self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1');self.assertIs(cached['require_paired_generation'],True)
 if __name__=='__main__':unittest.main()

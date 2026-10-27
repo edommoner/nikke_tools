@@ -302,6 +302,16 @@ def reference_readiness(issue):
             automatic_typed_weapon_aim_verified=False,canonical_consumer_verified=False,
             cuda_device_verified=False,in_game_rules_verified=False,full_character_verified=False,
             scope='declared_v1_static_typed_shapes_inside_original_sampled_weapon_production')
+        if stat=='projectile_dmg_pct':
+            result['original_physical_projectile_modifier_validation']=dict(suite='original-projectile-weapons',inputs=13,native_cases=8,rejected_cases=5,
+                original_profiles=['Sakura','Anchor','Clay'],durations_seconds=[3,12,30],original_weapons_effects_and_owners_preserved=True,
+                explicit_added_damage_probe=False,automatic_typed_weapon_aim_verified=True,body_owner_explicit=True,physical_kind_preserved=True,
+                self_and_all_allies_recipients_verified=True,original_count_full_burst_proc_and_expiry_verified=True,
+                total_physical_receipts=5367,maximum_case_physical_receipts=2186,retained_physical_receipts_per_case=2048,all_physical_receipts_hashed=True,
+                metal_verified=True,independently_audited=True,cuda_device_verified=False,canonical_consumer_verified=False,
+                nearby_selector_verified=False,in_game_rules_verified=False,full_character_verified=False,public_admission=False,
+                evidence='research/target-count-query-evidence/metal-original-projectile-weapons-v1.json',
+                scope='original_physical_weapons_in_declared_body_owned_typed_world')
         result['typed_owner_field_reference']=dict(suite='coordinate-typed-owner-common',cases=5,
             original_profile='Prim',original_definitions=71,declared_counter_audit_effects=2,
             cpu_reference_verified=True,body_owner_required=True,physical_handle_preserved=True,
