@@ -1,3 +1,5 @@
+`original-catalogue-roles`は元RapiのB1編成条件とRed Hoodの明示B1/B2を30秒4条件でMetal独立sealした固定群。`original-catalogue-roles-cache-only`は同じ計算・入力・goldenのCUBIN/O1とpaired generation必須。任意選択catalogueは元1,064＋role4の1,068名。[範囲と使い方](portable-original-catalogue-roles.md)。
+
 `original-catalogue-burst`は元Rapi RH/SBS/Red Hood/Cinderella各30秒のsealed4入力。`package --suite original-catalogue-burst`から既存の固定packet実行を使う。`original-catalogue-burst-cache-only`は同じkernel/入力/goldenにCUBIN/O1・compile cache必須とpaired generation必須を適用。初版の独立観測器の不足はsource/CPU指紋を変えずに修正し、保存GPU結果のstrict replayとfresh独立sealで認定した。独立監査のfailure/timeoutログはcaptureの隣へ保存され、nested causeも比較理由に残る。[実証範囲と未観測条件](portable-original-catalogue-burst.md)。
 
 # 元profileの選択開発

@@ -1,3 +1,7 @@
+# 2026-10-28 元のB1条件と明示バースト順をMetalで独立seal
+
+`original-catalogue-roles`はRapi no/with B1の実編成とRed Hood 123/12の明示操作、各30秒4入力を同じ共通実行器でseal。元90/91/81/81定義を保持し、全skill31/38/6/6行と全戦闘状態・全burst tickを比較した。実owner/stage receiptも必須検査する。明示burst操作は元identity検査後にcopyして適用し、元操作保持Falseを記録。初版の自動候補順の期待誤りはGPU前に修正し失敗を保持。固定8c3a1706/package acc12615…、174unit/CPU100.11秒/GPU4.47774秒/独立115.38秒。生成/Metal必須hit・Slang0、GPU実行1回/retry0。CUDA/MSL/reflection全byteは前burstと同一。既存cache-only経路へ同じ計算/goldenを登録するがCUDA現実機未確認。Windows新実行0、全キャラ/全特殊効果/公開受付は未達。次は実被弾/decoy、混成worldと他の未実証元profile。[設計と証拠](portable-original-catalogue-roles.md)。以下は履歴。
+
 # 2026-10-28 元4編成のburst合成を独立seal・観測器の不足を修正
 
 最終cache packet f7ca339e…（9cbcad76）は20群197unit/compile-plan policy成功。初版の比較golden同梱不足を既存support_files/AUDIT_FILESで修正。独立sealから全計算/観測/比較moduleを保持し、native/GPU全再実行0。最終検査の詳細は `research/target-count-query-evidence/original-catalogue-burst-final-checks-v1.json`。
