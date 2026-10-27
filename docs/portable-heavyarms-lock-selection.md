@@ -1,5 +1,19 @@
 # Lock Onの次の実装契約
 
+## 2026-10-28 元ハイド解除と15対象バーストを実編成へ接続
+
+`original-lock-controls` は旧8入力を保持した17入力（native9/raw拒否8）の共通CUDA/Metal suite。実編成/実武器/全91定義（Heavyarms元25定義を含む）はそのまま使う。本人の0秒/0.35秒ハイド、本体のみ/3ADD、別ownerのハイドをliteral `control.sequence` で与え、nativeの本来の入力identity検査後とGPUの静的packingへ同じ宣言を適用する。育成profileへのcontrol混入を拒否する既存境界は変更しない。`portable_declared_manual_sequences.apply` は既存owner・非空8件以内・有限で順序付きの時刻/duration・明示coverのみを受け付け、既存sequenceの上書きを拒否する。canonical CPU4ファイルとupstreamは未変更。
+
+新しいハイド時計/解除処理は追加せず、既存manual normalize/pack、共通control executor、元row2 `remove_named_buff`、actor carrier、lock generation clear、既存manual比較を使う。原入力・effect/owner順・武器の検査を済ませてから操作overlayを適用したことをnative identityに明示する。CPU受動観測では0.35秒に元row2が発火し、実敵`__enemy__`のmarkerが消え、state_end通知後に取得が再開する。観測on/offのmutationと固定native全指紋は同一。呼出しcoverageは従来24entry＋今回row2で全25entryに達したが、全分岐の認定ではない。
+
+30秒16ADDでは実元burstにより15個の異なるhandleを2射撃でsnapshotし、その後5へ戻ることを必須契約にした。単なるcapacity変数の値ではなく、全pulse/shot/packet/typed/battle/通知履歴と最終状態を比較する。生存対象のみであり、距離式と死亡時再配送を仮定していない。PART/負傷・回復の分岐、空間順位、死亡時振替、他キャラ/variant、全キャラ/公開受付は残る。
+
+固定1754ba71/package2b01f589…のM5実GPU1回が全17入力一致、別fresh GPU禁止childのsealも成功。GPU2.59235秒・PSO0.00227秒、generation/PSO必須hit、Slang0、Runtime140008byte・input109536/output1310720word不変。既存CLI `readback-retain` で旧8caseのinput/native/outputと全41943040byteを保持した。生成CUDA/MSLは正規化前の全byteも同一であり、既存CUBIN再利用に適するsourceであるが、現CUDA実機/実cache hitは未確認。
+
+v1はCPU群の実測から上限を調整するためGPU未実行。v2は旧比較goldenの梱包漏れをCPU gateで検出しGPU0/claim0、成功へ書換えない。修正は既存AUDIT_FILESにも依存を登録し、同じ漏れをnative準備前に止める。関連16controller検査成功。CPU群のfixture全再生成という重複を除いた後も同じ4テストは成功し38.15秒（以前85.91秒）。比較や旧入力の保持検査を削って高速化していない。GPUの再実行0。
+
+通常は `package --suite original-lock-controls --out NEW.zip` → `unpack` → 固定packetの `run` を使う。`original-lock-controls-cache-only` は同じscript/source/input/golden/比較器を使うCUBIN/O1必須・paired generation必須の経路。cache不在なら既存compile-planで別途予算を検証し、fallback compileは行わない。Windowsの新実行依頼0、既存status取得はhost unavailable、終端判定や再送はしない。証跡は `target-count-query-evidence/metal-original-lock-controls-v3.json`、`original-lock-controls-cli-retention-v1.json`、`original-cover-source-activation-v1.json`。
+
 ## 2026-10-27 配送dispositionを保持した発射体合成をMetalでseal
 
 共通CLI `lock-projectile-composition` は12入力（native7／拒否5）をM5 Metal＋別fresh GPU禁止監査でsealした。元の5条件に、名前付き完了通知の子攻撃とtypedカウンター完了の子攻撃を追加。履歴行の削除や比較項目の除外で前回差分を通していない。元5件のnative skill trace全行は、前回の失敗診断に保存した値と完全一致する。

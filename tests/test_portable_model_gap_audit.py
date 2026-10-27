@@ -25,6 +25,14 @@ class GapAuditTests(unittest.TestCase):
   self.assertTrue(p['actual_enemy_marker_sequential_and_projectile_executors_composed']);self.assertTrue(p['metal_verified'])
   for key in ('cuda_verified','spatial_selection_verified','all_conditional_branches_verified','game_verified','public_admission','full_profile_verified','full_character_certified'):self.assertFalse(p[key])
   self.assertFalse(r['full_goal_complete'])
+ def test_original_control_probe_preserves_remaining_spatial_and_character_gaps(self):
+  r=verify(ROOT);p=r['missing_stats']['lock_on']['original_control_and_saturation_composition']
+  self.assertEqual((p['native_cases'],p['rejected_cases']),(9,8));self.assertEqual(p['cover_source_row'],2)
+  self.assertEqual(p['native_activation_entry_coverage_across_suites'],25);self.assertTrue(p['native_entry_coverage_is_not_all_branch_certification'])
+  self.assertEqual(p['burst_distinct_targets'],15);self.assertEqual(p['burst_uses_before_base_restored'],2)
+  self.assertTrue(p['metal_verified']);self.assertTrue(p['independently_sealed']);self.assertTrue(p['burst_target_saturation_verified'])
+  for key in ('cuda_verified','spatial_selection_verified','death_retarget_verified','parts_and_injury_branches_verified','all_conditional_branches_verified','game_verified','public_admission','full_character_certified'):self.assertFalse(p[key])
+  self.assertFalse(r['full_goal_complete'])
  def test_lock_capacity_is_not_the_observed_canonical_marker_stack(self):
   r=verify(ROOT);lock=r['missing_stats']['lock_on'];public=lock['published_skill_contract']
   self.assertTrue(lock['marker_stack_count_is_not_distinct_target_count']);self.assertFalse(lock['unlocked_candidate_exclusion_verified'])

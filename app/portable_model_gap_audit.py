@@ -126,6 +126,17 @@ def verify(root,overrides=None):
   spatial_selection_verified=False,burst_target_saturation_verified=False,all_conditional_branches_verified=False,game_verified=False,public_admission=False,
   full_profile_verified=False,full_character_certified=False,
   evidence='research/target-count-query-evidence/metal-original-lock-composition-v4.json')
+ missing['lock_on']['original_control_and_saturation_composition']=dict(suite='original-lock-controls',native_cases=9,rejected_cases=8,
+  source='gpu/world_original_lock_composition_entry.slang',original_source_definitions=25,complete_roster_definitions=91,
+  explicit_manual_sequences_applied_after_original_identity_check=True,original_effects_weapons_growth_config_preserved=True,
+  cover_source_row=2,actual_enemy_marker_removal_observed=True,cover_empty_and_other_owner_cases=True,
+  native_activation_entry_coverage_across_suites=25,native_entry_coverage_is_not_all_branch_certification=True,
+  burst_target_saturation_verified=True,burst_distinct_targets=15,burst_uses_before_base_restored=2,
+  legacy_cases_retained=8,legacy_output_bytes_retained=41943040,
+  metal_verified=True,independently_sealed=True,cuda_verified=False,
+  spatial_selection_verified=False,death_retarget_verified=False,parts_and_injury_branches_verified=False,
+  all_conditional_branches_verified=False,game_verified=False,public_admission=False,full_character_certified=False,
+  evidence='research/target-count-query-evidence/metal-original-lock-controls-v3.json')
  missing['effect_target_count_add']['required_consumer_contract']=dict(marker=definitions[0]['name'],additional_targets=10,duration_bullets=2,
   distinct_target_capacity=True,does_not_increase_per_target_marker_stack=True,implementation_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}

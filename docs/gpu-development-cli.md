@@ -587,3 +587,6 @@ Windowsの短いCUBIN検証を準備するときは `enemy-lock-carriers-cache-o
 `original-lock-composition` は元25定義を含む実編成91定義・実武器を、3/30秒×本体/3ADDの8入力（native4、raw拒否4）で実行するsealed suite。通常の `package --suite original-lock-composition --out NEW.zip` → `unpack` → 固定packetの `run` を使う。5専用履歴bankと13種類のnative履歴容量チェックを含み、比較のために射撃/通知行を落とさない。対象順位は明示providerであり、実機の距離規則や全条件分岐・全キャラの認定を含まない。
 
 CUDAの短い検証には `original-lock-composition-cache-only` を使用する。同じSlang/入力/比較器/goldenを参照し、CUBIN/O1のcompile-cache必須hitに加えて、residentのpaired generation-cache必須hitを要求する。artifactがない場合は既存compile-planを先に使い、cache fallbackや未承認の長時間compileを行わない。Macの生成cache hitとCUDAのCUBIN hitは区別し、後者は今回未検証。
+
+
+`original-lock-controls` はsealed17入力（native9/raw拒否8）。`original-lock-composition` の旧8入力を保持し、実編成の明示ハイド4条件と30秒16ADDの15対象burst飽和を同じ共通実行器へ追加する。通常のpackage/unpack/runを使う。元25定義・実編成91定義・実武器/育成/configを保持するが、操作は元identity検査後の明示overlayと区別する。全25entry呼出しと全条件分岐の認定は分ける。新GPU source/wire/runtime追加0、旧8出力40MiB保持。`original-lock-controls-cache-only` は同じ計算とgoldenにCUBIN/O1のcompile-cache必須とresident paired generation-cache必須を適用する。現CUDA実機は未確認。CPU auditの旧比較golden依存はAUDIT_FILESにも登録し、梱包漏れをnative生成前に拒否する。[範囲・証跡・残件](portable-heavyarms-lock-selection.md)を参照。

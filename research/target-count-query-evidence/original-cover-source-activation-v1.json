@@ -1,0 +1,476 @@
+{
+  "schema": "original-cover-source-activation-v1",
+  "package_id": "2b01f589a8eaf4b43d2628b5f6ca21aa927149f661e94b60276b73106d57a99d",
+  "case": "original-heavyarms/3s/3adds/cover-0-0.35",
+  "expected_native_sha256": "bdae46956c5bc796d4ca129dc5add2c63bc15332b19fa58cb53bbd5bca55a7a0",
+  "actual_native_sha256": "bdae46956c5bc796d4ca129dc5add2c63bc15332b19fa58cb53bbd5bca55a7a0",
+  "activation_calls": [
+    {
+      "time": 0.35,
+      "source_row": 2,
+      "name": "록 온 해제 (엄폐)",
+      "target": "enemies_with_buff:록 온",
+      "stat": "remove_named_buff"
+    },
+    {
+      "time": 1.816666666666665,
+      "source_row": 1,
+      "name": "록 온 해제 (공격)",
+      "target": "enemies_with_buff:록 온",
+      "stat": "remove_named_buff"
+    },
+    {
+      "time": 1.816666666666665,
+      "source_row": 5,
+      "name": "오토 파이어 레디1 제거",
+      "target": "self",
+      "stat": "remove_named_buff"
+    },
+    {
+      "time": 1.816666666666665,
+      "source_row": 10,
+      "name": "세븐스 드워프 V+VI 제거",
+      "target": "self",
+      "stat": "remove_named_buff"
+    },
+    {
+      "time": 0.35,
+      "source_row": 2,
+      "name": "록 온 해제 (엄폐)",
+      "target": "enemies_with_buff:록 온",
+      "stat": "remove_named_buff"
+    },
+    {
+      "time": 1.816666666666665,
+      "source_row": 1,
+      "name": "록 온 해제 (공격)",
+      "target": "enemies_with_buff:록 온",
+      "stat": "remove_named_buff"
+    },
+    {
+      "time": 1.816666666666665,
+      "source_row": 5,
+      "name": "오토 파이어 레디1 제거",
+      "target": "self",
+      "stat": "remove_named_buff"
+    },
+    {
+      "time": 1.816666666666665,
+      "source_row": 10,
+      "name": "세븐스 드워프 V+VI 제거",
+      "target": "self",
+      "stat": "remove_named_buff"
+    }
+  ],
+  "actual_enemy_marker_removals": [
+    {
+      "time": 0.35,
+      "owner": 0,
+      "before": [
+        {
+          "owner": 0,
+          "members": [
+            "__enemy__"
+          ]
+        }
+      ],
+      "after": [],
+      "events": [
+        {
+          "event": "event:state_end:록 온",
+          "time": 0.35,
+          "owner": 0,
+          "remaining": []
+        }
+      ]
+    },
+    {
+      "time": 0.35,
+      "owner": 0,
+      "before": [
+        {
+          "owner": 0,
+          "members": [
+            "__enemy__"
+          ]
+        }
+      ],
+      "after": [],
+      "events": [
+        {
+          "event": "event:state_end:록 온",
+          "time": 0.35,
+          "owner": 0,
+          "remaining": []
+        }
+      ]
+    }
+  ],
+  "activation_code": {
+    "file": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/original-lock-controls-v3-package/app/reference_health_runtime.py",
+    "name": "activate"
+  },
+  "lock_clears": [
+    0.35,
+    1.816666666666665
+  ],
+  "pulses": [
+    {
+      "time": 0.21666666666666665,
+      "receipt": [
+        5,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1196175409
+      ]
+    },
+    {
+      "time": 0.8000000000000008,
+      "receipt": [
+        5,
+        1,
+        3,
+        0,
+        0,
+        1,
+        0,
+        1196175409
+      ]
+    },
+    {
+      "time": 1.0000000000000013,
+      "receipt": [
+        5,
+        2,
+        4,
+        5,
+        0,
+        1,
+        0,
+        1196175409
+      ]
+    },
+    {
+      "time": 1.2000000000000006,
+      "receipt": [
+        5,
+        3,
+        5,
+        5,
+        1,
+        1,
+        0,
+        1196175409
+      ]
+    },
+    {
+      "time": 1.4,
+      "receipt": [
+        5,
+        4,
+        6,
+        5,
+        2,
+        1,
+        0,
+        1196175409
+      ]
+    },
+    {
+      "time": 1.6166666666666658,
+      "receipt": [
+        5,
+        4,
+        6,
+        4294967295,
+        0,
+        0,
+        0,
+        1196175409
+      ]
+    },
+    {
+      "time": 1.816666666666665,
+      "receipt": [
+        5,
+        4,
+        6,
+        4294967295,
+        0,
+        0,
+        0,
+        1196175409
+      ]
+    },
+    {
+      "time": 2.2166666666666637,
+      "receipt": [
+        5,
+        1,
+        8,
+        0,
+        0,
+        1,
+        0,
+        1196175409
+      ]
+    },
+    {
+      "time": 2.416666666666663,
+      "receipt": [
+        5,
+        2,
+        9,
+        5,
+        0,
+        1,
+        0,
+        1196175409
+      ]
+    },
+    {
+      "time": 2.6166666666666623,
+      "receipt": [
+        5,
+        3,
+        10,
+        5,
+        1,
+        1,
+        0,
+        1196175409
+      ]
+    },
+    {
+      "time": 2.8166666666666615,
+      "receipt": [
+        5,
+        4,
+        11,
+        5,
+        2,
+        1,
+        0,
+        1196175409
+      ]
+    }
+  ],
+  "manual_actions": {
+    "events": [
+      {
+        "kind": "_charge_start",
+        "time": 0.0,
+        "phase": "charging",
+        "charging_visible": true,
+        "owner": 0,
+        "until": -1.0,
+        "until_reload": false,
+        "cancel_after_clip": false,
+        "ammo": 14,
+        "reload_until": -1.0,
+        "sequence_index": 0
+      },
+      {
+        "kind": "_charge_start",
+        "time": 0.0,
+        "phase": "charging",
+        "charging_visible": true,
+        "owner": 2,
+        "until": -1.0,
+        "until_reload": false,
+        "cancel_after_clip": false,
+        "ammo": 14,
+        "reload_until": -1.0,
+        "sequence_index": 0
+      },
+      {
+        "kind": "_charge_start",
+        "time": 0.0,
+        "phase": "charging",
+        "charging_visible": true,
+        "owner": 3,
+        "until": -1.0,
+        "until_reload": false,
+        "cancel_after_clip": false,
+        "ammo": 14,
+        "reload_until": -1.0,
+        "sequence_index": 0
+      },
+      {
+        "kind": "_enter_cover",
+        "time": 0.35,
+        "phase": "ready",
+        "charging_visible": false,
+        "owner": 0,
+        "until": 0.6,
+        "until_reload": false,
+        "cancel_after_clip": false,
+        "ammo": 14,
+        "reload_until": -1.0,
+        "sequence_index": 1
+      },
+      {
+        "kind": "_exit_cover",
+        "time": 0.6000000000000002,
+        "phase": "ready",
+        "charging_visible": false,
+        "owner": 0,
+        "until": -1.0,
+        "until_reload": false,
+        "cancel_after_clip": false,
+        "ammo": 14,
+        "reload_until": -1.0,
+        "sequence_index": 1
+      },
+      {
+        "kind": "_charge_start",
+        "time": 0.6000000000000002,
+        "phase": "charging",
+        "charging_visible": true,
+        "owner": 0,
+        "until": -1.0,
+        "until_reload": false,
+        "cancel_after_clip": false,
+        "ammo": 14,
+        "reload_until": -1.0,
+        "sequence_index": 1
+      },
+      {
+        "kind": "_charge_start",
+        "time": 1.3833333333333333,
+        "phase": "charging",
+        "charging_visible": true,
+        "owner": 2,
+        "until": -1.0,
+        "until_reload": false,
+        "cancel_after_clip": false,
+        "ammo": 13,
+        "reload_until": -1.0,
+        "sequence_index": 0
+      },
+      {
+        "kind": "_charge_start",
+        "time": 1.8999999999999981,
+        "phase": "charging",
+        "charging_visible": true,
+        "owner": 3,
+        "until": -1.0,
+        "until_reload": false,
+        "cancel_after_clip": false,
+        "ammo": 13,
+        "reload_until": -1.0,
+        "sequence_index": 0
+      },
+      {
+        "kind": "_charge_start",
+        "time": 2.199999999999997,
+        "phase": "charging",
+        "charging_visible": true,
+        "owner": 0,
+        "until": -1.0,
+        "until_reload": false,
+        "cancel_after_clip": false,
+        "ammo": 13,
+        "reload_until": -1.0,
+        "sequence_index": 1
+      },
+      {
+        "kind": "_charge_start",
+        "time": 2.7833333333333283,
+        "phase": "charging",
+        "charging_visible": true,
+        "owner": 2,
+        "until": -1.0,
+        "until_reload": false,
+        "cancel_after_clip": false,
+        "ammo": 12,
+        "reload_until": -1.0,
+        "sequence_index": 0
+      }
+    ],
+    "characters": [
+      {
+        "phase": "charging",
+        "charging_visible": true,
+        "owner": 0,
+        "until": -1.0,
+        "until_reload": false,
+        "cancel_after_clip": false,
+        "ammo": 13,
+        "reload_until": -1.0,
+        "sequence_index": 1
+      },
+      {
+        "phase": "ready",
+        "charging_visible": false,
+        "owner": 1,
+        "until": -1.0,
+        "until_reload": false,
+        "cancel_after_clip": false,
+        "ammo": 204,
+        "reload_until": -1.0,
+        "sequence_index": 0
+      },
+      {
+        "phase": "charging",
+        "charging_visible": true,
+        "owner": 2,
+        "until": -1.0,
+        "until_reload": false,
+        "cancel_after_clip": false,
+        "ammo": 12,
+        "reload_until": -1.0,
+        "sequence_index": 0
+      },
+      {
+        "phase": "charging",
+        "charging_visible": true,
+        "owner": 3,
+        "until": -1.0,
+        "until_reload": false,
+        "cancel_after_clip": false,
+        "ammo": 13,
+        "reload_until": -1.0,
+        "sequence_index": 0
+      },
+      {
+        "phase": "ready",
+        "charging_visible": false,
+        "owner": 4,
+        "until": -1.0,
+        "until_reload": false,
+        "cancel_after_clip": false,
+        "ammo": 16,
+        "reload_until": -1.0,
+        "sequence_index": 0
+      }
+    ]
+  },
+  "gpu_calls": 0,
+  "passed": true,
+  "original_cover_activation_calls": [
+    {
+      "time": 0.35,
+      "source_row": 2,
+      "name": "록 온 해제 (엄폐)",
+      "target": "enemies_with_buff:록 온",
+      "stat": "remove_named_buff"
+    },
+    {
+      "time": 0.35,
+      "source_row": 2,
+      "name": "록 온 해제 (엄폐)",
+      "target": "enemies_with_buff:록 온",
+      "stat": "remove_named_buff"
+    }
+  ],
+  "full_profile_verified": false,
+  "all_conditional_branches_verified": false,
+  "game_verified": false,
+  "full_goal_complete": false,
+  "scope": "Passive CPU mutation evidence; GPU behavior is independently compared by the complete shared battle verifier"
+}

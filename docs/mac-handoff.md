@@ -1,5 +1,11 @@
 # Mac GPU開発引き継ぎ
 
+2026-10-28追加：`original-lock-controls` をsealed17入力（native9・raw拒否8）で登録。元全25効果/実編成91定義/実武器/育成/configを保持し、本人ハイド（取得前/充填中・本体/3ADD）、別キャラのハイド、30秒16ADDの15対象飽和を既存manual/lock/typed実行器へ接続した。ハイドは原入力identity検査後の明示操作overlayであり、元の操作を一切変えていないという主張ではない。source row2の0.35秒発火・実敵marker削除・state_end通知・再取得をCPU受動観測し、全native指紋も固定基準と一致。従来の24entryと合わせて元25entryの呼出しを観測できたが、全条件分岐/全キャラ認定ではない。
+
+固定1754ba71、package2b01f589…がM5 Metal全比較と別fresh GPU禁止seal（94.64秒）に成功。元burstで15対象を2回snapshotし、その後5へ戻る。10群76テスト、fresh CPU事前検査90.96秒、GPU2.59235秒、warm PSO0.00227秒。生成cache/PSOは必須hit、Slang0、実GPU1/retry0、旧8caseの全input/nativeと全出力41943040byteを既存CLI `readback-retain` で保持。CUDA/MSL原byteも旧版と同一、wire/runtime不変。梱包漏れで止まったv2はCPU失敗/GPU0/claim0のまま保持し、既存AUDIT_FILESへ依存JSONを登録して梱包前停止へ改善（関連16テスト）。件数のためだけにfixture9を再生成したunitの重複を除き、同じ4テストは38.15秒で成功（以前85.91秒）。件数はCLI gate、旧8入力のbyte照合はunitと保持監査に残す。
+
+`original-lock-controls-cache-only` は同じ計算/goldenにCUBIN/O1必須＋paired生成必須を適用する。CUDAハードウェア/実CUBIN hitは未検証。Windowsは既存transactionのstatusを1回確認したがhost unavailable、終端判定/再送/追加実行0。次は実編成のPART/負傷・回復条件を優先し、距離/同距離順と死亡時振替は未確定のまま保持。公開GPU受付・全キャラ認定0・UI CPU・20model gapは継続。証跡 [Metalと独立監査](../research/target-count-query-evidence/metal-original-lock-controls-v3.json)、[旧出力保持](../research/target-count-query-evidence/original-lock-controls-cli-retention-v1.json)、[元cover効果](../research/target-count-query-evidence/original-cover-source-activation-v1.json)。
+
 2026-10-28更新：`original-lock-composition` を追加し、Heavyarms元全25定義、装備/共通込み本人34定義、実編成91定義を実武器・元configのまま3/30秒×本体/3ADDで実行。固定8fd51499、package0d4b4748…のnative4+拒否4がApple M5 Metalと独立GPU禁止sealに成功。9群71テスト、実GPU2.2474秒、冷PSO9.3935秒、fresh CPU比較49.34秒。13種類のnative履歴容量をclaim前に監査し、30秒の射撃742回/取得110回/配送190行/skill113行/端数通知2240行/team1120行を全行比較、省略0。既存wire内の未使用領域に5bankを割当て、旧bankゼロ・新全row/padding/tailを検査する。v1のmetadata/照会上限差分、v3の既定通知省略差分を保持、v2はGPU未実行。同claim再実行0。
 
 CPU受動監査は各caseの全native fingerprintを固定goldenと一致させたまま、30秒で元25定義中24定義のactivation entryを観測した。未観測は元row2（cover）。entry呼出しはGPU全分岐認定ではない。次は実編成のcover入力を既存manual制御へ接続し、元row2を通す。実編成でのburst15対象飽和、parts/負傷/healのworld、距離/同距離順、死亡時振替、他キャラ/variant、CUDA実機、既存suiteのcurrent-source GPU再認定も残る。公開GPU受付・全キャラ認定0・UI CPU・20model gapは継続。
