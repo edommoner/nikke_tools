@@ -581,3 +581,9 @@ Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-la
 `enemy-lock-carriers` は元Lock On/解除/名前付き敵被ダメージ増加と、既存2射撃上限を共通actor carrier実行器へ接続する部分suite。7入力（native4、raw拒否3）のMetal独立seal済みgoldenを使う。全25定義、照準距離規則、全キャラ/公開GPU認定は含まない。通常の `package --suite enemy-lock-carriers --out NEW.zip` → `unpack` → 固定packetの `run` を使用する。
 
 Windowsの短いCUBIN検証を準備するときは `enemy-lock-carriers-cache-only` を使う。同じSlang/入力/golden/比較器を参照し、既存compile-cache、保存CUDA source、`--require-cache`、CUBIN/O1を要求する。standalone suiteなのでresident専用のgeneration-cache flagは付けない。未検証のCUBINを存在すると仮定せず、必要な場合は既存compile-planを先に通す。今回のMac作業ではCUDA実行・CUBIN hitは未実証である。`enemy-lock-carriers-diagnostic` は既存admission観測器を有効にする開発専用entryで、通常goldenの代わりに使わない。
+
+### 元のHeavyarms全定義を含む実編成の合成
+
+`original-lock-composition` は元25定義を含む実編成91定義・実武器を、3/30秒×本体/3ADDの8入力（native4、raw拒否4）で実行するsealed suite。通常の `package --suite original-lock-composition --out NEW.zip` → `unpack` → 固定packetの `run` を使う。5専用履歴bankと13種類のnative履歴容量チェックを含み、比較のために射撃/通知行を落とさない。対象順位は明示providerであり、実機の距離規則や全条件分岐・全キャラの認定を含まない。
+
+CUDAの短い検証には `original-lock-composition-cache-only` を使用する。同じSlang/入力/比較器/goldenを参照し、CUBIN/O1のcompile-cache必須hitに加えて、residentのpaired generation-cache必須hitを要求する。artifactがない場合は既存compile-planを先に使い、cache fallbackや未承認の長時間compileを行わない。Macの生成cache hitとCUDAのCUBIN hitは区別し、後者は今回未検証。

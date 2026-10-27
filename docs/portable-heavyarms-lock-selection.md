@@ -253,3 +253,15 @@ claim前Metal cache gateを実装・テストしたhost修正版a4f9ac2eの固�
 固定32630ddfの7入力（native4、拒否3）はApple M5の実MetalとGPU禁止の独立sealに成功。実GPU時間0.05085秒、PSO必須hit、7グループ53テスト成功。通常、死亡、短チャージ、死亡後再召喚を戦闘全体・履歴・ロックsnapshot・敵状態まで比較する。死亡したcarrierの空recipientをnative観測器が味方へ誤分類していた点は、実carrierに残るimmutable enemy_recipient_keyで修正し、空carrierを含む全行保持のテストを追加した。計算本体や比較対象を省いて合わせていない。v1/v2初期化拒否、診断entryのwire拒否、診断stage404、v3観測分類差分を保持し、同じclaimは再実行していない。証跡は `research/target-count-query-evidence/metal-enemy-lock-carriers-v4.json`。
 
 CUDA/Metalは同じSlang・入力・比較器を使用する。`enemy-lock-carriers-cache-only` は同じsealed計算の既存CUBIN必須hit経路で、standaloneなのでresident用generation flagを要求しない。CUDA実機/CUBIN hitは今回未検証、Windows依頼0。共通ファイルのopt-in変更について旧sourceの正確な逆投影を保持するが、旧suiteのcurrent-source GPU再認定は別途必要。旧goldenを新sourceへ書き換えて成功扱いにはしない。次はこの敵carrier接続を既存typed projectile/順番配送と合成し、元の全25定義へ進める。距離式、死亡時の振替規則、公開admission、全キャラ認定は未完了。
+
+## 2026-10-28 元25定義・実編成91定義の合成をMetal実証
+
+`original-lock-composition` は元のHeavyarms全25定義、装備/共通分を含む本人34定義、支援4人を含む91定義を削除せず、実武器・実設定・実base statで実行する。元の登録順/owner/武器/configをnative実行時にも照合し、自己向けmarkerへの置換や架空の射撃間隔を使わない。既存の敵carrier・世代ロック・実射撃snapshot・順番配送queue・typed敵弾・fate監査を1つの時計へ接続した。候補順位は明示body/spawn-order providerであり、未確定の照準距離モデルの実機認定ではない。
+
+固定8fd51499、package 0d4b4748…の3/30秒×本体のみ/3ADDの4戦闘とraw拒否4入力が、Apple M5 MetalとGPU禁止の独立sealに成功。9群71検査も成功。30秒は射撃742回・ロック取得110回・順番配送リンク190行・skill113行・端数通知2240行・team通知1120行を全行比較し、通知省略0。元のraw/履歴を省いて合わせず、既存1310720ワード内の未使用領域へ5つの専用bankを配置した。旧bankは空のままであること、新bankの全行/全padding/末尾を検査する。全13種類の履歴容量をfresh native事前検査で確認し、不足はGPU claim前に拒否する。v1のmetadata不足/照会100件上限とv3の通知省略差分を保持、v2は基準固定のみでGPU未実行。同claim再実行0。
+
+実GPU2.2474秒、冷PSO約9.3935秒、CPU事前比較約49.34秒。paired Slang生成は必須cache hit・compiler0。旧7suiteと本体106のCUDA/MSL生成はstrict normalized SHAが従来と同一で、normalizer除外は追加しない。旧source mapのGPU再認定は未完了で、旧goldenを新sourceへ書き換えていない。`original-lock-composition-cache-only` は同じ計算/goldenを使い、CUBIN cacheとpaired generationの両方の必須hitを要求する。Windowsは旧transactionのstatus読取り1回だけを試みたがhost unavailableでterminalとは判断せず、再送/追加GPU実行0。
+
+この実証は全定義を含む特定の実編成/worldでの等価性であり、全条件分岐・実機・全キャラ認定ではない。全編成でのcover、parts、負傷/heal、距離と死亡時振替、他キャラ/variantの検査は残る。公開admissionとUI CPU、全キャラ認定0を維持。証跡 `research/target-count-query-evidence/metal-original-lock-composition-v4.json`、生成保持 `original-lock-legacy-generation-retention-v2.json`。
+
+追加のCPU受動監査では、各caseをdiagnostics有/無の2回観測し、固定goldenの全native fingerprintを保持した。30秒では元row0..24のうち24定義に `_activate` entryがあり、未観測はrow2のevent:coverだけだった。3秒ではrow16/17/23も未観測。entry呼出しは実効果適用やGPU全分岐の認定ではなく、次の未対応分類の根拠である。特にparts対象や負傷状態はこのworldに存在しない。出所 `research/target-count-query-evidence/original-lock-native-activation-coverage-v1.json`。

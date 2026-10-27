@@ -115,6 +115,17 @@ def verify(root,overrides=None):
   metal_verified=True,independently_sealed=True,cuda_verified=False,
   spatial_selection_verified=False,full_profile_verified=False,game_verified=False,public_admission=False,
   evidence='research/target-count-query-evidence/metal-enemy-lock-carriers-v4.json')
+ missing['lock_on']['complete_original_roster_composition']=dict(suite='original-lock-composition',native_cases=4,rejected_cases=4,
+  source='gpu/world_original_lock_composition_entry.slang',original_source_definitions=25,complete_roster_definitions=91,
+  durations_seconds=[3,30],additional_enemies=[0,3],original_weapons_controls_config_preserved=True,
+  actual_enemy_marker_sequential_and_projectile_executors_composed=True,
+  complete_fraction_team_quota_and_packet_histories=True,preclaim_native_history_budgets=13,
+  observed_native_activation_indices=[i for i in range(25) if i!=2],unobserved_native_activation_indices=[2],
+  native_activation_evidence='research/target-count-query-evidence/original-lock-native-activation-coverage-v1.json',
+  metal_verified=True,independently_sealed=True,cuda_verified=False,
+  spatial_selection_verified=False,burst_target_saturation_verified=False,all_conditional_branches_verified=False,game_verified=False,public_admission=False,
+  full_profile_verified=False,full_character_certified=False,
+  evidence='research/target-count-query-evidence/metal-original-lock-composition-v4.json')
  missing['effect_target_count_add']['required_consumer_contract']=dict(marker=definitions[0]['name'],additional_targets=10,duration_bullets=2,
   distinct_target_capacity=True,does_not_increase_per_target_marker_stack=True,implementation_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}

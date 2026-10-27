@@ -17,6 +17,14 @@ class GapAuditTests(unittest.TestCase):
   self.assertEqual(p['original_indices_preserved'],[0,1,2,6,20]);self.assertTrue(p['actual_enemy_carriers']);self.assertTrue(p['metal_verified'])
   for key in ('cuda_verified','spatial_selection_verified','full_profile_verified','game_verified','public_admission'):self.assertFalse(p[key])
   self.assertFalse(r['full_goal_complete'])
+ def test_complete_original_roster_probe_retains_remaining_model_and_branch_gaps(self):
+  r=verify(ROOT);p=r['missing_stats']['lock_on']['complete_original_roster_composition']
+  self.assertEqual(p['original_source_definitions'],25);self.assertEqual(p['complete_roster_definitions'],91)
+  self.assertEqual(p['durations_seconds'],[3,30]);self.assertEqual(p['preclaim_native_history_budgets'],13)
+  self.assertEqual(p['unobserved_native_activation_indices'],[2]);self.assertEqual(len(p['observed_native_activation_indices']),24)
+  self.assertTrue(p['actual_enemy_marker_sequential_and_projectile_executors_composed']);self.assertTrue(p['metal_verified'])
+  for key in ('cuda_verified','spatial_selection_verified','all_conditional_branches_verified','game_verified','public_admission','full_profile_verified','full_character_certified'):self.assertFalse(p[key])
+  self.assertFalse(r['full_goal_complete'])
  def test_lock_capacity_is_not_the_observed_canonical_marker_stack(self):
   r=verify(ROOT);lock=r['missing_stats']['lock_on'];public=lock['published_skill_contract']
   self.assertTrue(lock['marker_stack_count_is_not_distinct_target_count']);self.assertFalse(lock['unlocked_candidate_exclusion_verified'])

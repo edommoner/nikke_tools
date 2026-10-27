@@ -39,6 +39,12 @@ class OriginalLocks(unittest.TestCase):
             bad=copy.deepcopy(n);bad['battle'][key]=[None]*(capacity+1)
             with self.subTest(history=key),self.assertRaisesRegex(ValueError,'exceeds declared capacity'):history_budget(bad)
 
+    def test_shared_cli_cache_profile_requires_paired_resident_generation(self):
+        import nikke_gpu as cli
+        normal=cli.SUITES['original-lock-composition'];cached=cli.SUITES['original-lock-composition-cache-only']
+        for key in ('script','source','golden','inputs','native','input_words','output_words'):self.assertEqual(normal[key],cached[key])
+        self.assertFalse(normal['development_only']);self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1');self.assertIs(cached['require_paired_generation'],True)
+
     def test_exact_source_inverse_preserves_every_shared_dependency(self):
         from portable_original_lock_source_contract import project_sources
         d=json.loads((ROOT/'tests/fixtures/portable-original-lock-source-delta.json').read_text());old=project_sources(ROOT)
