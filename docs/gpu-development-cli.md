@@ -1,3 +1,5 @@
+`reference --suite logical-actor-geometry-common --out NEW.json`は元ベロータの実RLをBODY＋実ADD形状へ接続するCPU契約6件。元4敵通知/防御低下/子攻撃を検査し、PARTを敵数へ数えない。新しい明示モデルでGPU wire未接続、Metal/CUDA認定ではない。[設計と移植手順](portable-logical-actor-geometry.md)。
+
 `entry-inventory --character NAME --favorite-stage 0 --suite original-shield-weapons --out NEW.json`は指定profileだけを準備する静的監査。元owner/source行/effect hashと既存対応分類を`profile_explanations`へ出し、部分結果と全体を区別する。[使い方・制約・全266保持](portable-shared-entry-inventory.md)。
 
 `original-catalogue-incoming`は元Red Hood B2の挑発/被弾後回復とCinderellaデコイの破壊/実HP被弾/元burst復帰を30秒4条件でMetal独立seal。`original-catalogue-incoming-cache-only`は同じ計算・入力・goldenのCUBIN/O1とpaired generation必須。任意catalogueは1,072名。[範囲と使い方](portable-original-catalogue-incoming.md)。

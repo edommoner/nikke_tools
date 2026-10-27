@@ -1,3 +1,7 @@
+# 2026-10-28 実ADD幾何と元RLの4敵通知をCPU契約へ接続
+
+`logical-actor-geometry-common`は元ベロータ5人/全68定義を保持し、既存WorldSchedule/actor registry、sampled `_coord_pellet`、既存landing/groupでBODY＋実ADDを結ぶ新しい明示モデル。元multi_hit:4→敵def field/追加攻撃、3敵/範囲外/PART非算入、実死亡後の子対象、30秒を6条件へ固定する。元damage/sampler/HP/clockの複製なし。ADD前面はbody-hit creditを保持し、元PART/coreチャンネルと投影外fallbackを保つ。全aliasとevent復元、世代filter、元effect/owner/実武器/config/seed、全SimResultとpoint/draw/RNGを検査。既定CPU同値ではなくCPU reference/model gapのまま、GPU wire/Metal/CUDA未接続。既存typedoptin追加より古いaudit2引数期待を変更前HEAD同一sourceで確認し、3引数＋両False default＋型依存guardへ厳密修正。Windows新run0。次は共通wire/arena/source保持→同じ6条件でMetal接続。全体未達。[詳細](portable-logical-actor-geometry.md)。以下は履歴。
+
 最終packet10bb432e…（f096e7fc）は選択監査実行/24群216unit/compile-plan policy成功。計算/packing/native/比較/goldenを保持し、native全sweep/GPU再実行0。詳細`target-count-query-evidence/selected-entry-final-checks-v1.json`。
 
 # 2026-10-28 元profile選択監査を共通CLIへ接続

@@ -84,6 +84,7 @@ REFERENCES['coordinate-mixed-common']=('portable_coordinate_mixed_cases','world_
 REFERENCES['coordinate-group-common']=('portable_coordinate_group_cases','world_coordinate_group_native','portable_coordinate_group_contracts')
 REFERENCES['coordinate-aim-common']=('portable_coordinate_aim_cases','world_coordinate_aim_native','portable_coordinate_aim_contracts')
 REFERENCES['coordinate-typed-weapon-common']=('portable_coordinate_typed_weapon_cases','world_coordinate_typed_weapon_native','portable_coordinate_typed_weapon_contracts')
+REFERENCES['logical-actor-geometry-common']=('portable_logical_geometry_cases','world_logical_geometry_native','portable_logical_geometry_contracts')
 REFERENCES['coordinate-typed-owner-add-lifetime-common']=('portable_coordinate_typed_owner_add_lifetime_cases','world_coordinate_typed_owner_add_lifetime_native','portable_coordinate_typed_owner_add_lifetime_contracts')
 REFERENCES['coordinate-typed-owner-hp-death-common']=('portable_coordinate_typed_owner_hp_death_cases','world_coordinate_typed_owner_hp_death_native','portable_coordinate_typed_owner_hp_death_contracts')
 REFERENCES['heavyarms-target-count-native']=('portable_effect_target_count_cases','world_effect_target_count_native','portable_effect_target_count_contracts')
@@ -147,6 +148,10 @@ def run_reference(suite,output,*,write,forbid_gpu):
         if suite=='coordinate-typed-actor-common':report.update(declared_actor_policy='canonical-current-damage-v1',enemy_field_ownership_connected=False)
         if suite in ('coordinate-typed-logical-owner-common','coordinate-typed-owner-add-lifetime-common','coordinate-typed-owner-hp-death-common'):report.update(declared_actor_policy='logical-owned-current-fields-v1',gpu_wire_connected=False)
         if suite in ('coordinate-typed-owner-common','coordinate-typed-owner-lifecycle-common'):report.update(declared_actor_policy='body-owned-current-fields-v1',gpu_wire_connected=False)
+    if suite=='logical-actor-geometry-common':
+        report.update(stage='cpu-common-policy-contract',reference_kind='declared-logical-actor-geometry-cpu',
+            numerical_contract='coordinate-sample-v1 + coordinate-binary64-v1 + declared-logical-actor-colliders-v1',
+            historical_native_equivalence=False,in_game_rules_verified=False,gpu_wire_connected=False)
     try:
         # Legacy native comparators contain assertions. Reject before importing
         # or running them; optimized Python must never certify those contracts.

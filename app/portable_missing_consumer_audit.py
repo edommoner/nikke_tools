@@ -24,8 +24,9 @@ def verify(root):
     scoped=root/'app/battle_attack_group_runtime.py'
     assert producer_calls==['app/battle_attack_group_runtime.py'],'Unreviewed attack producer requires a fresh semantic audit'
     scoped_tree=ast.parse(scoped.read_text());scope=next(n for n in scoped_tree.body if isinstance(n,ast.FunctionDef) and n.name=='battle_attack_groups')
-    assert [a.arg for a in scope.args.kwonlyargs]==['routing','coordinate_packets']
-    assert scope.args.kw_defaults[0] is None and isinstance(scope.args.kw_defaults[1],ast.Constant) and scope.args.kw_defaults[1].value is False
+    assert [a.arg for a in scope.args.kwonlyargs]==['routing','coordinate_packets','coordinate_typed_packets']
+    assert scope.args.kw_defaults[0] is None and all(isinstance(n,ast.Constant) and n.value is False for n in scope.args.kw_defaults[1:])
+    assert any(isinstance(n,ast.If) and ast.unparse(n.test)=='type(coordinate_typed_packets) is not bool or (coordinate_typed_packets and (not coordinate_packets))' and len(n.body)==1 and isinstance(n.body[0],ast.Raise) for n in scope.body)
     assert any(isinstance(n,ast.If) and ast.unparse(n.test)=="coordinate_packets and routing != 'native'" and len(n.body)==1 and isinstance(n.body[0],ast.Raise) for n in scope.body)
     assert any(isinstance(n,ast.If) and ast.unparse(n.test)=="routing not in ('native', 'all-logical-enemies')" and len(n.body)==1 and isinstance(n.body[0],ast.Raise) for n in scope.body)
     # Only the declared scene model may override the canonical route. Native
