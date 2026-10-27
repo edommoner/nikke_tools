@@ -124,7 +124,7 @@ SUITES['original-catalogue-initial']=dict(SUITES['original-catalogue'],golden='r
     'original-catalogue/hp-shield/모더니아/favorite-0/30s',
     'original-catalogue/projectile/앨리스/favorite-0/30s',
     'original-catalogue/hp-shield/프리바티 : 언카인드 메이드/favorite-0/30s'])
-SUITES['original-catalogue-burst']=dict(SUITES['original-catalogue'],golden='research/portable-original-catalogue-burst-v1-expected.json',inputs=4,native=4,development_only=False,selection_required=False,frozen_cases=[
+SUITES['original-catalogue-burst']=dict(SUITES['original-catalogue'],golden='research/portable-original-catalogue-burst-v1-expected.json',support_files=['research/portable-original-catalogue-initial-v1-expected.json'],inputs=4,native=4,development_only=False,selection_required=False,frozen_cases=[
     'original-catalogue/hp-shield/라피 : 레드 후드/favorite-0/30s',
     'original-catalogue/hp-shield/홍련 : 흑영/favorite-0/30s',
     'original-catalogue/hp-shield/레드 후드/favorite-0/30s',

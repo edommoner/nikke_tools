@@ -44,4 +44,12 @@ class OriginalCatalogueBurst(unittest.TestCase):
         self.assertEqual(current['source_sha256'],prior['source_sha256'])
         self.assertEqual(current['generated_normalized'],prior['generated_normalized'])
 
+    def test_comparison_golden_is_a_required_package_and_cpu_audit_dependency(self):
+        from portable_cpu_tests import AUDIT_FILES,validate_dependency_files
+        prior=cli.SUITES['original-catalogue-initial']['golden']
+        self.assertIn(prior,self.config['support_files'])
+        self.assertIn(prior,AUDIT_FILES['test_original_catalogue_burst.py'])
+        with self.assertRaisesRegex(ValueError,'missing from immutable payload'):
+            validate_dependency_files(ROOT,['test_original_catalogue_burst.py'],included=[])
+
 if __name__=='__main__':unittest.main()
