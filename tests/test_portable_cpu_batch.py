@@ -7,6 +7,13 @@ from portable_cpu_tests import run_groups,complete,validate_groups,validate_depe
 s=importlib.util.spec_from_file_location('batch_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(s);s.loader.exec_module(cli)
 
 class CPUGroupTests(unittest.TestCase):
+    def test_named_capacity_policy_source_audit_requires_its_pinned_document(self):
+        pattern='test_effect_target_count_policy.py'
+        for name in AUDIT_FILES[pattern]:
+            if name.endswith('IMPL-STATUS.md'):continue
+            path=self.root/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_text('fixture')
+        with self.assertRaisesRegex(ValueError,'IMPL-STATUS.md'):
+            validate_dependency_files(self.root,[pattern])
     def test_audit_dependency_is_checked_before_worker_and_requires_manifest_record(self):
         pattern='test_coordinate_physical_frontier.py';(self.root/'tests'/pattern).write_text('# never imported')
         with self.assertRaisesRegex(ValueError,'CPU audit dependency missing'):self.run_groups([pattern])

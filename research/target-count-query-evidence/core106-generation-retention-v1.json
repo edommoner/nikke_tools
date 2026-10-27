@@ -1,0 +1,13 @@
+{
+  "current": {
+    "cuda": "2380f6f3dcbf9df591284341f9c614d04d08909d66d6d916dcaa476e5e8306a2",
+    "metal": "64480dad8c8e15bb3398128a689c581c53e81134045f94ae3239d1677c40c135"
+  },
+  "original": {
+    "cuda": "2380f6f3dcbf9df591284341f9c614d04d08909d66d6d916dcaa476e5e8306a2",
+    "metal": "64480dad8c8e15bb3398128a689c581c53e81134045f94ae3239d1677c40c135"
+  },
+  "identical": true,
+  "gpu_calls": 0,
+  "scope": "Generation only; not execution"
+}

@@ -31,7 +31,8 @@ SUITES = {
     'named-target-count-query':dict(script='research/verify-named-target-count-query.py',
         golden='research/portable-named-target-count-query-expected.json',
         source='gpu/effect_target_count_entry.slang',inputs=9,native=6,
-        input_words=86016,output_words=159744,development_only=True,
+        input_words=86016,output_words=159744,development_only=False,
+        upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'],
         tests=['test_portable_effect_target_count.py','test_effect_target_count_policy.py']),
     'projectile': dict(script='research/verify-world-projectile-short.py',
                        golden='research/portable-world-projectile-short-expected.json',
@@ -788,8 +789,6 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
         required.append(SUITES[suite]['script'])
     missing_required=set(required)-set(names)
     if missing_required:raise ValueError('Declared suite file missing from tracked payload: '+', '.join(sorted(missing_required)))
-    from portable_cpu_tests import validate_dependency_files
-    validate_dependency_files(ROOT,[*SUITES[suite]['tests'],*SMOKE_TESTS],included=set(names))
     from portable_backend import source_hashes
     gpu_sources=source_hashes(SUITES[suite]['source'])
     missing=set(gpu_sources)-set(names)
@@ -802,6 +801,8 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
     if not license_path.is_file() or not (upstream/'data/parsed_nikke.json').is_file():
         raise ValueError('Pinned upstream source/data must be installed first')
     names.append(license_path.relative_to(ROOT).as_posix())
+    from portable_cpu_tests import validate_dependency_files
+    validate_dependency_files(ROOT,[*SUITES[suite]['tests'],*SMOKE_TESTS],included=set(names))
     contract_name='research/portable-mode-session-contract.json'
     if contract_name in names:
         contract=load(ROOT/contract_name)

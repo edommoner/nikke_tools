@@ -2531,3 +2531,12 @@ M5で実際のCPU-only timeoutを保持したまま成功prefix2入力を引継�
 固定full106継続capsule04515f96（research/windows-source-packets/native-tail-continuation-v1.zip）は元9c825fa5のnumerical byte-lineage監査とMac共通640テスト/66群成功（Windows専用1skip）。Windowsへ新隔離root nikke-native-tail-cont-v1-diagnosticでsmoke→resume(group_size5)→最初tail0/global80..84だけを依頼済み。成功80入力/native45と元177テストは再実行しない。各Job2GiB/BelowNormal/180秒、GPU/compiler0の依頼。現在の実行状態は既存Windowsチャットと永続proof resident-frame-arena-20261027/private-continuation-v11.json以降を優先。旧9c失敗8と全claimsは保持。全106 CUDAと保存CUBIN実行は未成立。
 
 Lock Onの既存typedAim候補順は距離順ではなくz→birth→node→slot順。typedGeometryの形状距離は包含判定用であり、その先頭候補を最近傍Lock Onとして転用できない。独自順位と既ロック集合が未接続であり、対象数queryCPU4契約だけでは全25効果/GPU認定へ昇格しない。266profile/245変換/21失敗/20model-gap/全キャラ認定0/UI CPUを保持。
+
+
+### 2026-10-27: 名前付き対象数queryの共通GPU実証
+
+code2d0167f4と後続修正で`named-target-count-query`を共通CLIへ登録。専用adapter/model・private stat93で通常compilerの拒否を保持し、共通carrier/event/recipient/stack/expiry/名前付き削除から対象数を読む。固定v4 0b13b4d1で選択17テスト→M5 Metal9入力/native6＋拒否3→独立fresh全9監査が成功、goldenを確定。GPU0.002709秒/pipeline必須hit。full106既存entryのCUDA/MSL生成は以前の厳密な正規化後ハッシュと一致（生成のみ）。詳細portable-heavyarms-lock-selection.mdとtarget-count-query-evidence/metal-shared-query-v1.json。
+
+元の2射撃durationはこの外部イベントadapterで拒否。fixtureは元+10を使う時間契約の派生であり、全25定義やLock On選択を実装済みとしない。次は実物理shot寿命への接続を優先する。通常入場/20model-gap/全キャラ0/UI CPUを保持。
+
+Windowsは既存継続tail1..5の最終結果取得時に接続不能。最後の観測はtail4/global100..104成功、tail5/case105実行中という報告で、terminal/admission未確認。再送しない。userへ接続復旧を依頼済み。復旧後は既存結果のみ取得し、全106/native63のadmission成立前にGPUを起動しない。現在のMac作業コードを実行中の04515capsuleへ混入しない。

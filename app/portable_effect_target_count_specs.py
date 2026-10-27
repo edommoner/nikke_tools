@@ -65,7 +65,7 @@ def decode(words,meta):
     import struct
     rows=[]
     for q in meta['named_target_count']['queries']:
-        at=L['QUERY_BASE']+q['index']*L['QUERY_WORDS'];row=words[at:at+L['QUERY_WORDS']]
+        at=L['QUERY_BASE']+q['index']*L['QUERY_WORDS'];row=list(words[at:at+L['QUERY_WORDS']])
         if row[9]!=MAGIC:raise ValueError('Missing named target-count query output')
         number=lambda i:struct.unpack('<d',struct.pack('<II',*row[i:i+2]))[0]
         if number(0)!=q['time'] or row[2:6]!=[q['who'],meta['states'][q['marker']],q['base_count'],q['capacity_limit']]:

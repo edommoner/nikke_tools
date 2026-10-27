@@ -31,6 +31,13 @@ class NamedCapacityGPUContractTests(unittest.TestCase):
         self.assertEqual((self.chars,self.case),before);self.assertEqual(w[L['DEFINITION_BASE']+F['STAT']],STAT)
         self.assertEqual(w[L['DEFINITION_BASE']+F['TARGET_NAME']],m['states']['록 온'])
         self.assertFalse(m['named_target_count']['physical_shot_lifetime_verified']);self.assertFalse(m['named_target_count']['full_profile_verified'])
+    def test_attack_fixture_uses_the_compiler_event_identity(self):
+        from detail_gpu import EVENT
+        for case in fixtures():
+            if case['name'].endswith(('ordered-stacks','refresh-before-expiry','named-removal')):
+                w,_=self.compile(case)
+                actual=[w[L['COMMAND_BASE']+i*8+3] for i,c in enumerate(case['script']) if not isinstance(c,dict) and c[0]>0]
+                self.assertTrue(actual);self.assertEqual(actual,[EVENT['on_attack']]*len(actual))
     def test_default_admission_and_physical_shot_duration_remain_closed(self):
         with self.assertRaises(UnsupportedPortable):ordinary(self.chars,[(self.case['effects'][0],NAMES[0])],[[0,0,0,0,0,-1,0,0]],[1000]*5)
         c=copy.deepcopy(self.case);c['effects'][0]['duration_bullets']=2
@@ -46,5 +53,17 @@ class NamedCapacityGPUContractTests(unittest.TestCase):
         spec=importlib.util.spec_from_file_location('capacity_adapter_test',ROOT/'research/verify-named-target-count-query.py');adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
         entries,data=adapter.prepare();self.assertEqual(len(entries),9);self.assertEqual(sum(d is not None for _,_,d in entries),6)
         self.assertEqual(len(data),(1+9*L['INPUT_WORDS'])*4)
+    def test_real_device_query_words_decode_for_array_and_list(self):
+        import array
+        from portable_effect_target_count_specs import decode
+        _,meta=self.compile();meta['named_target_count']['queries']=meta['named_target_count']['queries'][:1]
+        # First 32-word query returned by M5, not a CPU-produced GPU input.
+        row=[0,0,0,1,5,128,15,0,1076101120,1413697841]+[0]*22
+        words=[0]*L['OUTPUT_WORDS'];at=L['QUERY_BASE'];words[at:at+32]=row
+        want=[dict(time=0.,who=0,marker='록 온',base_count=5,capacity_limit=128,capacity=15,additional_targets=10.)]
+        for value in (words,array.array('I',words),tuple(words)):
+            self.assertEqual(decode(value,meta),want)
+        words[at+2]=1
+        with self.assertRaisesRegex(ValueError,'context differs'):decode(words,meta)
 
 if __name__=='__main__':unittest.main()
