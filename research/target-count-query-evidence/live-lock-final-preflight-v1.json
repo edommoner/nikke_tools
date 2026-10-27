@@ -1,0 +1,91 @@
+{
+  "schema": "live-lock-final-preflight-v1",
+  "passed": true,
+  "packages": [
+    {
+      "label": "live9",
+      "package_id": "890c43a33311053f6734def1fcf8a057eb2b98ce6aefe26fb811000867414a97",
+      "source_commit": "ea3e27ee7fdc9d695cfbc6d466b8ebc67ad1e6d6",
+      "manifest_sha256": "1f7337086e68564303315dc984fa6ade8bb26fba33d8ec0c85ef367011175a0e",
+      "package_created": true,
+      "cpu": {
+        "groups": 9,
+        "tests": 58,
+        "skipped": 0,
+        "tests_sha256": "4dcc9fb7b79c682f6515f7db755fd8984466d1e0b5ee1e482b65a2cdca673d87",
+        "cpu_sha256": "d5fb5ddb596929209fc32dd610b6a175304bbdc48f958d62cbe3686223c67f6e"
+      },
+      "smoke": {
+        "groups": 67,
+        "tests": 652,
+        "skipped": 1,
+        "tests_sha256": "93a256358d83ed8f14359033d75d8256972026d921ed801abb9be93ee547c3b8",
+        "cpu_sha256": "bc45e3d39298f7219da3140078d6f10d93262192126d145de384a7dcb2799e8e"
+      }
+    },
+    {
+      "label": "live-cache9",
+      "package_id": "da3dd160de7998d4abdcc14846dbc0b7c0af5477314f1b43c1d80335741e0068",
+      "source_commit": "ea3e27ee7fdc9d695cfbc6d466b8ebc67ad1e6d6",
+      "manifest_sha256": "ea6245879e285296c2dcd3d56269cdc9fa2f93e88ff7eae8bb0fb80ba339ad40",
+      "package_created": true,
+      "cpu": {
+        "groups": 10,
+        "tests": 65,
+        "skipped": 0,
+        "tests_sha256": "5ee3fd7f968928dae8b4661d4a6efc4952e22d04edd696c137866da4a5c38db7",
+        "cpu_sha256": "7614868f3764751cde1a16d2a8be919e5b1ebf60a32488cc2840158b08f74c9b"
+      }
+    },
+    {
+      "label": "packet8",
+      "package_id": "5938c31cd81a9dacd8524d0380da10ebca2d20698c421ef277100670afe6a63b",
+      "source_commit": "ea3e27ee7fdc9d695cfbc6d466b8ebc67ad1e6d6",
+      "manifest_sha256": "5fa80334fef3adf3f716eb4aa5be0c87d0971af05bdea51157725c3e9bbbed76",
+      "package_created": true
+    },
+    {
+      "label": "cover23",
+      "package_id": "2f9036b3280d6252741a74a585c220fbd07e291d8b85040053b330e336c682f8",
+      "source_commit": "ea3e27ee7fdc9d695cfbc6d466b8ebc67ad1e6d6",
+      "manifest_sha256": "c2df1589e18c60a1f4ecf50fd37881f3f917f39cb0fe75b4c1d2659eafb1609e",
+      "package_created": true
+    },
+    {
+      "label": "physical10",
+      "package_id": "eab0b849b27658857d9a8b71b52c7d9c2e8bf3edb120eb78d59ca97f65eeea85",
+      "source_commit": "ea3e27ee7fdc9d695cfbc6d466b8ebc67ad1e6d6",
+      "manifest_sha256": "8979fe110f3e4e5bdc8e982058e26f2f2488ea06bf7d8ff438569778968879aa",
+      "package_created": true
+    },
+    {
+      "label": "external16",
+      "package_id": "de3588148f7670d36d0b5af5f483ef3f68e316bafc6db489473639337aabd5c5",
+      "source_commit": "ea3e27ee7fdc9d695cfbc6d466b8ebc67ad1e6d6",
+      "manifest_sha256": "5f1192d8936a9be9fd8637f4be116cd6f6c1870dfd0dc417c44cebb1c3b5a8f8",
+      "package_created": true
+    }
+  ],
+  "cache_only_missing_flags": {
+    "schema": "live-lock-cache-only-missing-flags-v1",
+    "passed": true,
+    "package_id": "da3dd160de7998d4abdcc14846dbc0b7c0af5477314f1b43c1d80335741e0068",
+    "exit_code": 1,
+    "required_cache_guard_observed": true,
+    "capture_created": false,
+    "gpu_claim_consumed": false,
+    "cpu_worker_started": false,
+    "gpu_calls": 0,
+    "cuda_hardware_certification": false
+  },
+  "model_check": {
+    "passed": true,
+    "sha256": "5d0e1ed8a4ee1cf5553a0517a6ba4ea6e187a036fbdc86df1566df05b638300f",
+    "public_gpu_admitted": false,
+    "full_goal_complete": false
+  },
+  "protected_sources_unchanged": true,
+  "final_gpu_calls": 0,
+  "full_character_verified": 0,
+  "windows_new_requests": 0
+}
