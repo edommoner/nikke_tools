@@ -32,7 +32,7 @@ SUITES = {
         golden='research/portable-original-lock-health-parts-v1-expected.json',source='gpu/world_original_lock_health_parts_entry.slang',
         inputs=11,native=7,input_words=109536,output_words=1310720,development_only=True,cpu_test_timeout=120,
         support_files=['research/portable-original-lock-composition-v1-expected.json','research/portable-destructible-original-battle-short-expected.json','research/target-count-query-evidence/lock-projectile-composition-v1-failure-diagnostic.json'],
-        tests=['test_original_lock_health_parts.py','test_portable_heal_share_trace.py','test_portable_world_fraction.py','test_portable_world_team.py','test_packet_fates.py','test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_generation_separation.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py']),
+        tests=['test_original_lock_health_parts.py','test_portable_cpu_batch.py','test_portable_heal_share_trace.py','test_portable_world_fraction.py','test_portable_world_team.py','test_packet_fates.py','test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_generation_separation.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py']),
     'original-lock-controls':dict(script='research/verify-original-lock-controls.py',
         golden='research/portable-original-lock-controls-v1-expected.json',source='gpu/world_original_lock_composition_entry.slang',
         inputs=17,native=9,input_words=109536,output_words=1310720,development_only=False,cpu_test_timeout=120,
@@ -814,8 +814,19 @@ def verify_package(root,*,historical_compiler=False):
     return m
 
 
+def registered_entry_wire_preflight(config):
+    """Validate an explicitly declared battle wire without CPU battles or devices."""
+    if config.get('compiler_only') or not {'source','input_words','output_words'}<=config.keys():return None
+    source=config['source'];iw=config['input_words'];ow=config['output_words']
+    if not isinstance(source,str) or any(type(v) is not int or v<=0 for v in (iw,ow)):raise ValueError('Invalid explicit suite wire declaration')
+    from portable_backend import validate_composed_stride
+    validate_composed_stride(source,iw,ow)
+    return dict(schema='registered-entry-wire-v1',source=source,input_words=iw,output_words=ow,passed=True,gpu_calls=0,native_battle_calls=0)
+
+
 def make_package(suite, output, *, develop=False, cases=(), compact=False, baseline_package=None, reference_migration=None, native_baseline_package=None):
     """Whitelist code + required public data; never reports/raw/settings/tools."""
+    registered_entry_wire_preflight(SUITES[suite])
     if SUITES[suite].get('compiler_only') and (develop or cases):raise ValueError('Compiler diagnostic has no battle development/cases')
     if native_baseline_package is not None and (not develop or baseline_package is not None or reference_migration is not None):raise ValueError('Native expectations require --develop and exclude observation migration')
     if SUITES[suite].get('development_only') and not develop:
@@ -2304,6 +2315,7 @@ def metal_device_preflight(capture):
 def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_only=False,*,linked_package=None,linked_capture=None,preflight_transaction=None):
     parent_oracles=None
     m=verify_package(ROOT)
+    entry_wire=None if smoke else registered_entry_wire_preflight(SUITES[m['suite']])
     staged=preflight_transaction is not None
     if staged:
         if smoke or cpu_only or is_development(m) or compiler_only(m) or backend=='cuda' and linked_package is None or not 1<=timeout<=60:
@@ -2328,6 +2340,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
                                 mode='staged-gpu' if staged else 'cpu-only' if cpu_only else 'smoke' if smoke else 'gpu',status='preflight',gpu_retry_count=0,
                                 **(dict(input_protocol=STAGED_INPUT_PROTOCOL if staged else PREPARED_INPUT_PROTOCOL) if not cpu_only and not smoke else {})))
     try:
+        if entry_wire is not None:write(capture/'entry-wire-preflight.json',entry_wire)
         if linked:
             request=dict(package=str(Path(linked_package).resolve()),capture=str(Path(linked_capture).resolve()))
             write(capture/'linked-artifact-request.json',request)

@@ -6,6 +6,12 @@ import portable_wire_layout as wire
 ROOT=Path(__file__).resolve().parents[1]
 
 class WireLayoutTests(unittest.TestCase):
+ def test_new_composed_entry_requires_the_complete_explicit_wire(self):
+  import portable_backend
+  source='gpu/world_original_lock_health_parts_entry.slang'
+  portable_backend.validate_composed_stride(source,109536,1310720)
+  for name,iw,ow in [(source,109535,1310720),(source,109536,1310719),('gpu/unregistered_health_entry.slang',109536,1310720)]:
+   with self.subTest(name=name,iw=iw,ow=ow),self.assertRaises(ValueError):portable_backend.validate_composed_stride(name,iw,ow)
  def test_current_swift_and_python_have_the_same_limits(self):
   self.assertTrue(wire.check_metal(ROOT,2064786)['passed'])
   import portable_backend

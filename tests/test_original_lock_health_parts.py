@@ -39,6 +39,14 @@ class HealthParts(unittest.TestCase):
         self.assertLessEqual(BASE+8+COUNT*WORDS,parts)
         self.assertEqual(suite.suite.INPUT,109536);self.assertEqual(suite.suite.OUTPUT,1310720)
         self.assertEqual((ROOT/suite.SOURCE).read_text(),'// Reuse the existing healing diagnostic and the same complete shared executor.\n#define PORTABLE_HEAL_SHARE_DIAGNOSTIC\n#include "world_original_lock_composition_entry.slang"\n')
+    def test_exact_source_inverse_retains_legacy_backend_and_refuses_unreviewed_changes(self):
+        from portable_original_health_parts_source_contract import project_sources
+        d=json.loads((ROOT/'tests/fixtures/portable-original-health-parts-source-delta.json').read_text());out=project_sources(ROOT)
+        self.assertEqual(out['app/portable_backend.py'],d['sources']['app/portable_backend.py']['baseline'])
+        with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{'app/portable_backend.py':d['sources']['app/portable_backend.py']['current']+'\n# mutation'})
+        from portable_original_lock_source_contract import project_sources as complete
+        previous=json.loads((ROOT/'tests/fixtures/portable-original-lock-source-delta.json').read_text())
+        self.assertEqual(complete(ROOT)['app/portable_backend.py'],previous['sources']['app/portable_backend.py']['baseline'])
     def test_shared_cache_profile_requires_the_same_calculation_and_paired_generation(self):
         import nikke_gpu as cli
         normal=cli.SUITES['original-lock-health-parts'];cached=cli.SUITES['original-lock-health-parts-cache-only']

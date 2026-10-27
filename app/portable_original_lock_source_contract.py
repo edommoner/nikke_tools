@@ -3,7 +3,8 @@ import hashlib,json
 from pathlib import Path
 
 def project_sources(root,sources=None):
-    root=Path(root);out=dict(sources or {})
+    from portable_original_health_parts_source_contract import project_sources as health_parts
+    root=Path(root);out=health_parts(root,sources)
     ledger=json.loads((root/'tests/fixtures/portable-original-lock-source-delta.json').read_text())
     for name,digest in ledger['added_sources'].items():
         if hashlib.sha256(out.get(name,(root/name).read_text()).encode()).hexdigest()!=digest:raise AssertionError('Unreviewed original lock dependency: '+name)

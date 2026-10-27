@@ -75,6 +75,26 @@ class CPUGroupTests(unittest.TestCase):
         self.assertTrue(complete(good,['test_a.py']))
         for rows in ([],[dict(good[0],pattern='test_b.py')],[dict(good[0],exit_code=1)],[dict(good[0],tests=0)],[dict(good[0],errors=1)]):self.assertFalse(complete(rows,['test_a.py']))
 
+class EntryWirePreflightTests(unittest.TestCase):
+    def test_unregistered_entry_rejects_package_before_git_native_or_output(self):
+        config=dict(source='gpu/unregistered_health_entry.slang',input_words=109536,output_words=1310720,tests=[])
+        with tempfile.TemporaryDirectory() as folder,patch.dict(cli.SUITES,fixture=config),patch.object(cli,'development_baseline') as native,patch.object(cli.subprocess,'check_output') as git:
+            target=Path(folder)/'packet.zip'
+            with self.assertRaisesRegex(ValueError,'registered shared entry'):cli.make_package('fixture',target,develop=True)
+            native.assert_not_called();git.assert_not_called();self.assertFalse(target.exists())
+    def test_unregistered_entry_rejects_run_before_unit_native_capture_or_claim(self):
+        config=dict(source='gpu/unregistered_health_entry.slang',input_words=109536,output_words=1310720,tests=[])
+        with tempfile.TemporaryDirectory() as folder,patch.dict(cli.SUITES,fixture=config),patch.object(cli,'verify_package',return_value=dict(suite='fixture')),patch.object(cli,'cpu_test_groups') as units,patch.object(cli,'cpu_preflight') as native,patch.object(cli,'run_job') as gpu:
+            target=Path(folder)/'capture'
+            with self.assertRaisesRegex(ValueError,'registered shared entry'):cli.run_capture(target,'metal',180)
+            units.assert_not_called();native.assert_not_called();gpu.assert_not_called();self.assertFalse(target.exists())
+    def test_exact_wire_is_reported_without_weakening_other_suites(self):
+        config=dict(source='gpu/world_original_lock_health_parts_entry.slang',input_words=109536,output_words=1310720)
+        r=cli.registered_entry_wire_preflight(config);self.assertTrue(r['passed']);self.assertEqual(r['gpu_calls'],0)
+        self.assertIsNone(cli.registered_entry_wire_preflight(dict(tests=[])))
+        self.assertIsNone(cli.registered_entry_wire_preflight(dict(config,compiler_only=True)))
+        with self.assertRaisesRegex(ValueError,'Invalid explicit suite wire'):cli.registered_entry_wire_preflight(dict(config,input_words=True))
+
 class CPUParentTests(unittest.TestCase):
     def test_suite_cpu_budget_is_bounded_recorded_and_separate_from_gpu(self):
         self.capture.mkdir()
