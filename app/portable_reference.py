@@ -88,6 +88,7 @@ REFERENCES['coordinate-typed-owner-add-lifetime-common']=('portable_coordinate_t
 REFERENCES['coordinate-typed-owner-hp-death-common']=('portable_coordinate_typed_owner_hp_death_cases','world_coordinate_typed_owner_hp_death_native','portable_coordinate_typed_owner_hp_death_contracts')
 REFERENCES['heavyarms-target-count-native']=('portable_effect_target_count_cases','world_effect_target_count_native','portable_effect_target_count_contracts')
 REFERENCES['heavyarms-lock-marker-native']=('portable_heavyarms_lock_cases','world_heavyarms_lock_native','portable_heavyarms_lock_contracts')
+REFERENCES['physical-lock-cover-native']=('portable_physical_lock_cover_cases','world_physical_lock_cover_native','portable_physical_lock_cover_contracts')
 REFERENCES['coordinate-typed-logical-owner-common']=('portable_coordinate_typed_logical_owner_cases','world_coordinate_typed_owner_native','portable_coordinate_typed_logical_owner_contracts')
 REFERENCES['coordinate-typed-owner-common']=('portable_coordinate_typed_owner_cases','world_coordinate_typed_owner_native','portable_coordinate_typed_owner_contracts')
 REFERENCES['coordinate-typed-owner-lifecycle-common']=('portable_coordinate_typed_owner_lifecycle_cases','world_coordinate_typed_owner_lifecycle_native','portable_coordinate_typed_owner_lifecycle_contracts')
@@ -117,6 +118,7 @@ def source_identity():
     paths += sorted((ROOT/'research').glob('*cases.py'))
     paths += sorted((ROOT/'research').glob('portable_*contracts.py'))
     paths += sorted((ROOT/'research').glob('verify-world*.py'))
+    paths += [ROOT/'research/verify-physical-locks.py']
     paths += sorted((ROOT/'scripts').glob('*cases.py'))
     paths += sorted((ROOT/'research/upstream/nikke-calc-master/data').rglob('*.json'))
     paths += sorted((ROOT/'data').glob('*.json'))

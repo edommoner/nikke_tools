@@ -10,7 +10,7 @@ from world_projectile_native import observe as baseline
 from world_effect_target_count_shot_native import state as shot_state
 MAGIC=0x474c3031
 
-def observe(case,*,candidate_observer=None):
+def observe(case,*,candidate_observer=None,clear_observer=None,notification_observer=None):
  before=copy.deepcopy(case);names=roster_names(case);owner=case.get('lock_owner',0);caster=names[owner];bosses=[];models={};pulses=[];shots=[];consumed=[];clears=[]
  init=timeline.BossScript.__init__;activate=BuffManager._activate;charge=timeline.CharState._charge_fire;auto=timeline.CharState._fire;notify=BuffManager.notify;consume=BuffManager.consume_bullet_buffs
  def initialized(boss,*a,**kw):init(boss,*a,**kw);bosses.append(boss)
@@ -40,8 +40,11 @@ def observe(case,*,candidate_observer=None):
    return original(actor,t,bm,*a,**kw)
   return wrapped
  def notified(bm,event,t,who=None,*a,**kw):
-  if event=='on_attack' and who==caster:
-   m,reg=model(bm);m.clear('normal_attack');clears.append(t)
+  if notification_observer is not None:notification_observer(bm,event,t,who)
+  if event in ('on_attack','event:cover') and who==caster:
+   reason='normal_attack' if event=='on_attack' else 'taking_cover'
+   m,reg=model(bm);before=m.clear(reason);clears.append(t)
+   if clear_observer is not None:clear_observer(event,t,before,m.core.snapshot())
   return notify(bm,event,t,who,*a,**kw)
  def used(bm,who,t=0.):
   old=shot_state(bm,who,t);answer=consume(bm,who,t);consumed.append(dict(who=names.index(who),time=t,before=old,after=shot_state(bm,who,t)));return answer

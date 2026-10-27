@@ -116,3 +116,12 @@ Metalで3正例/4raw負例が全成功し、別fresh GPU禁止childで全7入力
 旧7入力は全input byteが同じで、旧出力の全wordを明示された移設先か従来prefixへ対応付けて照合した。候補setの解放flag0だけは、独立scratchのflag1へ明示変更した。raw hashの完全一致とは主張しない。`physical-lock-arena-relocation-v1.json`に全領域の対応を記録。従来external-command core16入力は全input/readback byteを保持し、新v3 goldenへ切り替えた。旧golden/rawは保存する。
 
 共通smokeの最初の失敗は新wire幅の厳密source監査への登録漏れであり、wire/Swift/backend/schemaの前後全文を新しい完全一致ledgerに追加して修正した。normalizerを変更したり、依存hashの確認を省略したりしていない。旧default106のCUDA/MSL生成は既存の厳密正規化hashと一致（生成のみ）。今回の実GPUはarena2回（初版失敗含む）/external core2回、同claim retry0。最後のexternal coreは生成Metalの全byte一致を確認してpipeline必須hitで実行した。Windows追加要求0。
+
+
+## 実ハイド通知のCPU契約（2026-10-27）
+
+`reference --suite physical-lock-cover-native --out NEW.json` を共通CLIへ追加。実CharStateの明示遮蔽制御から発生する `event:cover` を観測し、充填取消後に同casterのmembershipを解除する。充填中、別caster、cover_disabled、取得前の空集合、duration未指定のリロード終了待ちの5ケース。通常攻撃前snapshotとclear、遮蔽後の再取得も比較する。独自のタイマーやCPUで作った通知列をGPUへ渡さない。
+
+physical observerは実通知だけを観測し、別の非観測native実行と全battle/trace/inputの一致を毎回検査する。外側の通知patchではこの透明性確認用の2回目も数えてしまうため、通知callbackは元observerの1回目のscope内に限定する。空集合の遮蔽もrevisionを1進める明示契約であり、ゲーム実測の認定ではない。
+
+現在の104400入力wordのphysical入口は、既存の手動遮蔽制御を持たず5ケース全てをGPU前に拒否する。このCPU契約をMetal/CUDA成功へ昇格させない。次の接続では既存 `enterManualCover` → event31＋cover tagを使い、lock casterとtagの一致時にだけ解除する必要がある。手動状態の919744word領域を現physical専用arenaへ単純に足さず、共通arena監査で他の制御・履歴との非重複を先に確認する。距離規則、sequential delivery、元全25効果は引き続き未完了。
