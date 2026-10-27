@@ -1,6 +1,6 @@
 # 元profileを選択して共通実行器へ渡す
 
-`original-catalogue` は元266profile × 発射体/HPシールド × 3/30秒の1,064名と、[元role条件4名](portable-original-catalogue-roles.md)の計1,068名を列挙する開発入口。`cases` はmetadataだけを読み、全profileのprepare/compile/battleを実行しない。明示した1〜4件だけを準備し、元効果/owner順/実武器/育成/configを保持したまま既存の共通typed owner compilerへ渡す。明示操作を適用するrole caseは元identityの検査後に適用したことを別flagで示す。別の計算器やキャラ固有handlerは追加していない。
+`original-catalogue` は元266profile × 発射体/HPシールド × 3/30秒の1,064名と、[元role条件4名](portable-original-catalogue-roles.md)・[実被弾4名](portable-original-catalogue-incoming.md)の計1,072名を列挙する開発入口。`cases` はmetadataだけを読み、全profileのprepare/compile/battleを実行しない。明示した1〜4件だけを準備し、元効果/owner順/実武器/育成/configを保持したまま既存の共通typed owner compilerへ渡す。明示操作を適用するrole caseは元identityの検査後に適用したことを別flagで示す。別の計算器やキャラ固有handlerは追加していない。
 
 ```sh
 python scripts/nikke_gpu.py cases --suite original-catalogue --match 모더니아

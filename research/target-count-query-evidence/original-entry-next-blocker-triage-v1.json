@@ -1,0 +1,81 @@
+{
+  "schema": "original-entry-next-blocker-triage-v1",
+  "scope": "Static per-definition source diagnostics only; not GPU admission, not a new canonical model",
+  "profiles": [
+    {
+      "character": "앤 : 미라클 페어리",
+      "favorite_stage": 0,
+      "blockers": [
+        {
+          "index": 2,
+          "owner": "앤 : 미라클 페어리",
+          "name": "요정의 장난 2",
+          "issue": {
+            "phase": "effect",
+            "category": "recipient",
+            "kind": "buff",
+            "stat": "heal_received_pct",
+            "target": "all_enemies",
+            "scaling": null,
+            "code": "{\"category\": \"recipient\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_received_pct\", \"target\": \"all_enemies\"}",
+            "diagnostic_source": "structured_reason",
+            "error_type": "UnsupportedPortable",
+            "message": "Unported buff recipient selector"
+          }
+        }
+      ]
+    },
+    {
+      "character": "벨벳",
+      "favorite_stage": 0,
+      "blockers": [
+        {
+          "index": 1,
+          "owner": "벨벳",
+          "name": "탄환 가져오기 2",
+          "issue": {
+            "phase": "effect",
+            "category": "recipient",
+            "kind": "instant",
+            "stat": "ammo_charge_pct",
+            "target": "all_enemies",
+            "scaling": null,
+            "code": "{\"category\": \"recipient\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"ammo_charge_pct\", \"target\": \"all_enemies\"}",
+            "diagnostic_source": "message_fallback",
+            "error_type": "UnsupportedPortable",
+            "message": "Unported health recipient selector"
+          }
+        }
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "category": "cover_def_pct",
+      "source": "app/effect_spec.py:SCOPED_INERT",
+      "action": "Keep canonical-model-gap classification; adding top-attack recipients alone does not establish an incoming cover-defense consumer"
+    },
+    {
+      "character": "앤 : 미라클 페어리",
+      "stat": "heal_received_pct",
+      "target": "all_enemies",
+      "action": "Investigate enemy-side healing recipient/consumer contract; do not replace with ally selection or no-op"
+    },
+    {
+      "character": "벨벳",
+      "stat": "ammo_charge_pct",
+      "target": "all_enemies",
+      "action": "Investigate enemy ammo operation contract; generic health-selector wording does not imply missing allied-heal rank selection"
+    }
+  ],
+  "source_sha256": {
+    "app/effect_spec.py": "3bdf3a6314ee7c0aacf5c4d303a476462bdcaf4465473d8f8414d43430b7905d",
+    "app/portable_original_entry_inventory.py": "427d769412e379e89b82de66150499a561deaa345de5bfcd90089bf2ad4447c1",
+    "app/portable_runtime.py": "b16501886b0d474e9a1f22e23000dab181f469c704af87c814b91ffcda287260"
+  },
+  "native_battles": 0,
+  "gpu_runs": 0,
+  "canonical_changes": 0,
+  "inventory_counts_changed": false,
+  "full_goal_complete": false
+}
