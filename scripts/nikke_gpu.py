@@ -30,7 +30,7 @@ from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 SUITES = {
     'named-generation-locks':dict(script='research/verify-generation-locks.py',
         golden='research/portable-named-generation-locks-expected.json',source='gpu/world_generation_locks_entry.slang',
-        inputs=16,native=10,input_words=92208,output_words=253952,development_only=True,
+        inputs=16,native=10,input_words=92208,output_words=253952,development_only=False,
         tests=['test_named_generation_locks.py','test_generation_lock_executor.py']),
     'named-target-count-shots':dict(script='research/verify-target-count-shots.py',
         golden='research/portable-named-target-count-shots-expected.json',source='gpu/world_effect_target_count_shot_entry.slang',

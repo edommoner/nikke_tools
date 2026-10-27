@@ -1,3 +1,5 @@
+`named-generation-locks`は実敵poolと名前付き上限readerに接続した明示membership契約です。M5 Metalで16入力（native10/raw拒否6）を独立seal。`package --suite named-generation-locks`から通常のrun/seal経路を使います。外部provider順のみで距離選択・充填event・元全25効果は未接続です。[範囲と失敗履歴](portable-heavyarms-lock-selection.md)。
+
 Windows向けコンパイルは固定packetのcwdで `compile-plan --artifact-kind cubin --ptxas-level 1 --memory-limit-mb 2048 --timeout 60 --out UNIQUE.json` を先に実行します。artifact互換性のみを検査し、compilerやGPUは実行しません。[PTX診断／sealed CUBIN経路と手順](portable-compile-plan.md)。
 
 `model-check --summary --out UNIQUE.json` は完全な監査JSONを保持し、stdoutだけを約1KBの状態・保存先・SHAへ絞ります。監査範囲を削る指定ではありません。通常のstdout全文も従来どおり利用できます。

@@ -47,6 +47,14 @@ def verify(root,overrides=None):
   whole_battle_and_skill_trace_compared=True,all_shots_compared=True,trace_capacity=100,
   selection_consumer_connected=False,original_full_profile_verified=False,
   evidence='research/target-count-query-evidence/metal-physical-shots-v1.json')
+ missing['lock_on']['declared_shared_membership_executor']=dict(suite='named-generation-locks',native_cases=10,rejected_cases=6,
+  source='gpu/world_generation_locks_entry.slang',metal_verified=True,independently_audited=True,cuda_verified=False,
+  actual_world_actor_pools=True,actor_capacity=128,admitted_actor_kinds=['BODY','PART','ADD'],
+  provider_order='explicit existing frozen actor set; no distance ranking',named_capacity_reader_connected=True,
+  modifier_fixture='original index20 derived to finite time; physical two-shot composition remains separate',
+  charging_events_connected=False,spatial_selection_verified=False,sequential_delivery_connected=False,
+  game_verified=False,original_full_profile_verified=False,public_admission=False,
+  evidence='research/target-count-query-evidence/metal-generation-locks-v1.json')
  missing['effect_target_count_add']['required_consumer_contract']=dict(marker=definitions[0]['name'],additional_targets=10,duration_bullets=2,
   distinct_target_capacity=True,does_not_increase_per_target_marker_stack=True,implementation_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}

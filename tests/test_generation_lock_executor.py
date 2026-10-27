@@ -27,6 +27,18 @@ class LockExecutorTests(unittest.TestCase):
   self.assertEqual(w[at+suite.F['KIND']],0);self.assertEqual(w[at+suite.F['STAT']],93)
   self.assertEqual(w[at+suite.F['TARGET_NAME']],m['states']['록 온'])
   self.assertEqual(w[suite.L['RECIPIENT_BASE']+6],1)
+ def test_new_hooks_have_exact_inverse_and_reject_mutations(self):
+  import json
+  from portable_generation_lock_source_contract import project_sources
+  data=json.loads((ROOT/'tests/fixtures/portable-generation-lock-source-delta.json').read_text())
+  projected=project_sources(ROOT)
+  for name,row in data['sources'].items():
+   self.assertEqual(projected[name],row['baseline'])
+   with self.subTest(name=name),self.assertRaisesRegex(AssertionError,'Unreviewed'):
+    project_sources(ROOT,{name:row['current']+'\n// changed'})
+  for name in data['added_sources']:
+   with self.subTest(name=name),self.assertRaisesRegex(AssertionError,'Unreviewed'):
+    project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// changed'})
  def test_cpu_oracles_do_not_build_or_execute_gpu(self):
   from unittest.mock import patch
   import portable_backend

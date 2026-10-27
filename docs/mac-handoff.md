@@ -2566,3 +2566,14 @@ quantity reader refactor後、旧query9入力/native6を新M5で再検証し、�
 ユーザーは実機環境の用意を待たず公開情報から判断する方針へ変更した。公式紹介・モーション動画と日英のスキル表/解説を調査したが、中心/外形/奥行き/同距離順の実装を決める根拠は得られていない。距離モデルは保留。順番攻撃の挑発への反応には一般説明とキャラ固有解説の違いがある。出所と判断は `docs/portable-heavyarms-lock-selection.md` 冒頭に保存。
 
 `app/named_generation_locks.py` と専用11テストを追加。既存ActorRegistry/ActorSnapshotと名前付きquota readerを再利用するCPU参照モデルで、外部のhandle列をその順で受け取る。距離の計算/ソートを含めない。死亡/世代更新/上限低下時の扱いは明示的なモデル上の契約に留め、ゲーム仕様へ昇格しない。11テスト成功、diff check成功。GPU接続/全25効果/全キャラ認定は未完了。GPUソース/正本は変更しておらず、今回の追加GPU/Windows実行は0。依頼済みWindows continuationの保存結果取得待ちは継続し、再依頼していない。
+
+
+### 2026-10-27 実敵poolと名前付きquotaへのLock membership接続
+
+新sealed CLI `named-generation-locks`（16入力/native10/拒否6）はM5 Metal実GPUと別fresh GPU禁止sealが成功。既存WorldSchedule/actor poolの生存・世代を参照し、名前付きquota readerから上限を読む。取得済み除外、死亡/世代更新、15体取得後の上限15→5、明示通常攻撃/ハイド解除、解除前immutable snapshot、BODY/PART/ADD、128体候補表を比較した。候補表128は24取得で検査。明示provider順のみで距離rank・ゲーム仕様は認定していない。
+
+初回v1はmodifierを空statへlowerしたkind4を0へ戻す処理がなく、正例がGPU admission拒否。新入力v2で既存query adapterと同じ変換へ修正、CPU gateを追加。失敗rawは保持、実GPU計2/同claim retry0。v2 GPU0.019384125秒、Metal pipeline必須hit。Windows新依頼0。CUDAは共通Slang生成のみ。保存先はpersistent proofsの`generation-locks-v2-package`/`generation-locks-v2-metal`/`generation-locks-v2-independent.json`。
+
+関連CPU参照/入力/逆投影/分類検査は成功。固定v2packetの共通smoke66groupも成功、GPU0。full106 CUDA/MSLの厳密正規化hashは旧基準と同一（生成のみ、新source full106のCUDA再認定とは別）。全266profile行/issue/20順位が前回inventoryと完全一致、245変換/21失敗/全キャラ認定0/UI CPUを保持。部分実証はmodel-checkの別フィールドへ記録し、公開admissionは閉じたまま。
+
+次：充填中0.2秒event→元index20の2射撃寿命→通常攻撃/ハイドevent→発射前snapshot→sequential deliveryを同じresident battleへ接続する。このentryは元index20を有限時間へ派生したfixtureであり、元全25効果認定ではない。距離式/対象種別/tie breakは保留。Windows既存continuationの保存結果は接続利用不可で未取得のまま、再送/再実行しない。

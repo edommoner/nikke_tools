@@ -6,6 +6,12 @@ from portable_model_gap_audit import verify,MISSING_STATS
 class GapAuditTests(unittest.TestCase):
  def test_current_sources_distinguish_missing_models_from_missing_ports(self):
   r=verify(ROOT);self.assertEqual(set(r['missing_stats']),set(MISSING_STATS));self.assertFalse(r['gpu_supported']);self.assertTrue(r['enemy_ammo']['named_completion_outside_target_loop']);self.assertFalse(r['target_and_nearby']['nearby_spatial_world'])
+ def test_private_membership_proof_keeps_spatial_and_full_profile_open(self):
+  lock=verify(ROOT)['missing_stats']['lock_on'];r=lock['declared_shared_membership_executor']
+  self.assertTrue(r['actual_world_actor_pools']);self.assertTrue(r['named_capacity_reader_connected'])
+  self.assertEqual(r['actor_capacity'],128);self.assertFalse(r['spatial_selection_verified'])
+  self.assertFalse(r['public_admission']);self.assertFalse(r['original_full_profile_verified'])
+  self.assertFalse(lock['unlocked_candidate_exclusion_verified'])
  def test_lock_capacity_is_not_the_observed_canonical_marker_stack(self):
   r=verify(ROOT);lock=r['missing_stats']['lock_on'];public=lock['published_skill_contract']
   self.assertTrue(lock['marker_stack_count_is_not_distinct_target_count']);self.assertFalse(lock['unlocked_candidate_exclusion_verified'])

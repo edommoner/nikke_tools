@@ -75,3 +75,18 @@ M5で全5正例と4不正raw入力の拒否に成功し、別fresh CPU監査で�
 共通readerのrefactor後も、従来query9入力の全readback byteを新Metal実行と照合して完全一致。新しいv2 goldenは独立fresh監査から作成し、旧goldenを上書きしない。既存full106のCUDA/MSLは厳密な正規化後の生成ハッシュが元基準と一致（生成のみ）。変更sourceのfull106再seal・CUDA実機検証は未完了。
 
 この証拠は元modifier定義を保持した専用の5人編成fixtureであり、Heavyarms全25効果の実行認定ではない。Lock Onの順位、既ロック集合、実敵pool/充填イベント/発射snapshot/全投射物consumerへの接続は引き続き必要。266profile/245入力変換/21失敗/20分類と全キャラ認定0、UI CPUは維持する。証跡はresearch/target-count-query-evidence/metal-physical-shots-v1.json。
+
+
+## 実敵プールへ接続した世代付きmembership（明示モデル）
+
+`named-generation-locks`は同じSlangの状態処理をCUDA/Metalへ生成し、既存WorldSchedule/actor poolの生存・世代と、既存の名前付き上限readerへ接続する。対象の生死や取得済み集合をCPUで事前計算して入力しない。既存のimmutable actor setを明示providerとして受け取り、その順で生存・同世代・未取得の先頭を1体取得する。これはproviderの既定BODY/PART/ADD順・ADD出生順を最近傍の仕様に採用することを意味しない。照準距離の順位付けは未接続である。
+
+状態は型付きidentityと世代を保持し、死亡/世代更新時に除外、上限低下時には既存ロックを勝手に縮めず追加だけを停止する。取得順snapshotは既存set出力の未使用slotを明示予約して保存する。snapshot宛先の重複と既存set writerとの競合はGPU起動時に拒否する。通常攻撃/ハイドに相当する明示解除を受け、解除前snapshotを保持する。これらの寿命規則は参照モデルの契約で、ゲーム実機の認定ではない。
+
+M5 Metalで10正例/6raw負例が成功し、別fresh GPU禁止childで全16入力を独立監査してgoldenを作成した。全pool・landing receipt・敵状態・候補setを従来native observerと比較し、ロック取得receiptと全520word snapshotも照合する。15体取得後の15→5、caster/name分離、死亡、3世代目への再出現と古い候補の拒否、取得前spawn待ち、明示解除、BODY/PART/ADD同一idの区別、128体の候補表を含む。128体の候補表では24回の取得を検査し、128ロックを取得したと主張しない。既存actor poolの128容量を保持し、typed projectile/shield領域はこのentryの対象外。
+
+このfixtureのmodifierは元index20を有限時間へ派生したもの。元の2射撃定義を保つ物理証明は別suiteのままで、このstate entryとの合成、充填中0.2秒event、物理通常攻撃/ハイドeventの自動接続、発射前snapshot、sequential deliveryと元全25効果は未完了。
+
+初回は空statへのloweringでkindが4となるのを0へ戻す処理がなく、GPU admissionが全正例を拒否した。新入力で既存query adapterと同じkind/stat/name/recipient key変換を適用し、GPU前の回帰検査を追加した。失敗captureは保持。Slangソースは初回と同一で、修正版はpipeline cache必須hit、GPU 0.019384125秒。実GPU計2回/同claim retry0。CUDAは同一ソースの生成までで実機未検証。Windows追加依頼0。
+
+CLIは通常の`package --suite named-generation-locks`→固定packetから`run`→保存結果の`seal`を使う。旧entryに対する変更はopt-in macro内だけとし、sourceの逆投影は新しい完全一致ledgerで検査する。既存のgenerated-code normalizerや旧goldenを緩めない。`model-check`はこの部分実証を別フィールドへ記録し、従来の未対応分類/公開admission/全キャラ認定0を維持する。証跡は`research/target-count-query-evidence/metal-generation-locks-v1.json`。
