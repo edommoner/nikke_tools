@@ -104,6 +104,9 @@ void storeWorldSkillReceipt(inout Runtime s,uint at,LandingReceipt r)
     if(!worldSkillsEnabled(s)) { storeLandingReceipt(at,r);return; }
     results[at]=r.row;results[at+1]=r.hit|(r.hits<<9)|(r.depth<<18);
     storeNumber(at+2,r.amount);storeNumber(at+4,r.when);results[at+6]=r.epoch;results[at+7]=0;WORLD_PERIODIC_STORE(s,at,r)
+#ifdef PORTABLE_LOCK_PACKET_BINDINGS
+    lockPacketStore(s,at,r);if(s.error!=0)return;
+#endif
 #ifdef PORTABLE_ATTACK_GROUPS
     uint groupPacket=(at-s.resourceOutput-P_LANDING_STATE_BASE)/P_LANDING_WORDS;
     if(groupPacket>=P_LANDINGS) { s.error=64;return; }
@@ -121,6 +124,9 @@ LandingReceipt loadWorldSkillReceipt(uint at)
 {
     LandingReceipt r={};uint counts=results[at+1];r.row=results[at];r.mask=0xffffffffU;
     r.hit=counts&511;r.hits=(counts>>9)&511;r.depth=counts>>18;r.amount=actorNumber(at+2);r.when=actorNumber(at+4);r.epoch=results[at+6];WORLD_PERIODIC_LOAD(r,at)
+#ifdef PORTABLE_LOCK_PACKET_BINDINGS
+    r.lockSnapshot=lockPacketLoad(at);
+#endif
 #ifdef PORTABLE_ATTACK_GROUPS
     uint groupOutput=(at/P_OUTPUT_WORDS)*P_OUTPUT_WORDS,groupPacket=(at-groupOutput-P_LANDING_STATE_BASE)/P_LANDING_WORDS;
     r.attackGroup=groupPacket<P_LANDINGS?results[groupOutput+AG_PACKETS+groupPacket]:0;
@@ -184,6 +190,9 @@ void logWorldSkill(inout Runtime s,LandingReceipt r,uint set,uint64_t share,uint
 [noinline]
 bool landWorldSkillReceipt(inout Runtime s,LandingReceipt r,uint64_t when,uint output)
 {
+#ifdef PORTABLE_LOCK_PACKET_BINDINGS
+    if(!lockPacketObserveLoaded(s,r))return false;
+#endif
     Definition d=readDefinition(s.inputBase,r.row);
 #ifdef PORTABLE_DESTRUCTIBLE_BODY_ACCUM
     if(d.kind==34&&destructibleAccumLanding(s,r,when,output)) return s.error==0;

@@ -43,7 +43,7 @@ def compare(block,domain):
  c,m,bindings=domain;candidates=[];n=observe(c,candidate_observer=lambda values:candidates.append(tuple(values)))
  return compare_observed(block,domain,n,candidates)
 
-def compare_observed(block,domain,n,candidates,*,manual=False):
+def compare_observed(block,domain,n,candidates,*,manual=False,packet_bindings=False):
  c,m,bindings=domain
  if block[0]!=0:raise AssertionError((c['name'],'status',block[0]))
  actual=parent.decoded(block,m,c,bindings);changed=[k for k in n['battle'] if k!='scope' and actual[k]!=n['battle'][k]]
@@ -64,11 +64,17 @@ def compare_observed(block,domain,n,candidates,*,manual=False):
    want[1+slot//32]|=1<<(slot%32);want[8+j*4:12+j*4]=[slot,generation,kind,identity]
   if list(block[at:at+len(want)])!=want:raise AssertionError(('emission snapshot',i,list(block[at:at+16]),want[:16]))
  tail=SNAPSHOTS+len(n['lock_shots'])*SET_WORDS
- if manual:
+ if manual or packet_bindings:
   from portable_physical_lock_cover_layout import BASE as manual_base,WORDS as manual_words
-  manual_module=module('physical_manual_compare','research/verify-coordinate-manual-short.py')
-  manual_module.compare_manual(block,n,base=manual_base)
-  if any(block[tail:manual_base]) or any(block[manual_base+manual_words:OUTPUT]):raise AssertionError('Unexpected lock/manual padding')
+  if manual:
+   manual_module=module('physical_manual_compare','research/verify-coordinate-manual-short.py')
+   manual_module.compare_manual(block,n,base=manual_base)
+  elif any(block[manual_base:manual_base+manual_words]):raise AssertionError('Unexpected manual posture')
+  if any(block[tail:manual_base]):raise AssertionError('Unexpected lock snapshot padding')
+  if packet_bindings:
+   from portable_lock_packet_trace import compare as compare_packets
+   compare_packets(block,n,m)
+  elif any(block[manual_base+manual_words:OUTPUT]):raise AssertionError('Unexpected lock/manual padding')
  elif any(block[tail:OUTPUT]):raise AssertionError('Unexpected snapshot tail')
  want=[0]*SET_WORDS
  if candidates:

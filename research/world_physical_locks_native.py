@@ -11,7 +11,7 @@ from world_projectile_native import observe as baseline
 from world_effect_target_count_shot_native import state as shot_state
 MAGIC=0x474c3031
 
-def observe(case,*,candidate_observer=None,clear_observer=None,notification_observer=None,primary_observer=None):
+def observe(case,*,candidate_observer=None,clear_observer=None,notification_observer=None,primary_observer=None,shot_observer=None):
  before=copy.deepcopy(case);names=roster_names(case);owner=case.get('lock_owner',0);caster=names[owner];bosses=[];models={};pulses=[];shots=[];consumed=[];clears=[]
  init=timeline.BossScript.__init__;activate=BuffManager._activate;charge=timeline.CharState._charge_fire;auto=timeline.CharState._fire;notify=BuffManager.notify;consume=BuffManager.consume_bullet_buffs
  def initialized(boss,*a,**kw):init(boss,*a,**kw);bosses.append(boss)
@@ -38,6 +38,7 @@ def observe(case,*,candidate_observer=None,clear_observer=None,notification_obse
    if actor.name==caster:
     m,reg=model(bm);snap=m.capture(reg,t).state
     shots.append(dict(time=t,revision=snap.revision,handles=[[int(h.kind),h.identity,h.generation] for h in snap.handles]))
+    if shot_observer is not None:shot_observer(bm,t,snap)
    return original(actor,t,bm,*a,**kw)
   return wrapped
  def notified(bm,event,t,who=None,*a,**kw):

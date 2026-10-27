@@ -1,4 +1,7 @@
 #include "physical_lock_layout.slang"
+#ifdef PORTABLE_LOCK_PACKET_BINDINGS
+#include "lock_packet_runtime.slang"
+#endif
 // No new timer: acquisitions are called by the real periodic activation path.
 uint physicalLockHead(inout Runtime s){return s.resourceOutput+PL_HEAD;}
 bool initializePhysicalLocks(inout Runtime s)
@@ -48,6 +51,9 @@ void physicalLockSnapshot(inout Runtime s,uint who,uint64_t when)
     if(who!=s.locks.who)return;
     if(s.lockShotCount>=31){s.error=64;return;}
     if(!generationLockSnapshotAt(s,s.resourceOutput+PL_SNAPSHOTS+s.lockShotCount*P_WORLD_ACTOR_SET_WORDS,0)){s.error=64;return;}
+#ifdef PORTABLE_LOCK_PACKET_BINDINGS
+    storeNumber(s.resourceOutput+LP_SHOT_TIMES+s.lockShotCount*2,when);
+#endif
     s.lockShotCount++;results[physicalLockHead(s)+2]=s.lockShotCount;
 }
 void physicalLockAttack(inout Runtime s,uint who,uint64_t when)

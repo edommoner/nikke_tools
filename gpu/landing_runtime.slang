@@ -1,6 +1,9 @@
 // Codec only changes representation. binary64 payloads and event order are exact.
 struct LandingReceipt
 {
+#ifdef PORTABLE_LOCK_PACKET_BINDINGS
+    uint lockSnapshot;
+#endif
 #ifdef PORTABLE_ATTACK_GROUPS
     uint attackGroup;
 #endif
@@ -65,6 +68,9 @@ void enqueueLanding(inout Runtime s,uint row,uint target,uint mask,uint order,ui
 {
     LandingReceipt receipt;receipt.row=row;receipt.target=target;receipt.mask=mask;receipt.order=order;
     receipt.amount=amount;receipt.when=when;receipt.hit=hit;receipt.hits=hits;receipt.depth=depth;receipt.epoch=epoch;receipt.partAmount=partAmount;receipt.interruptAmount=interruptAmount;receipt.interruptReach=interruptReach;
+#ifdef PORTABLE_LOCK_PACKET_BINDINGS
+    receipt.lockSnapshot=0;
+#endif
 #ifdef PORTABLE_ATTACK_GROUPS
     receipt.attackGroup=0;
 #endif

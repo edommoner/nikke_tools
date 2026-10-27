@@ -5,15 +5,20 @@ from world_actor_pool_native import actor_bindings
 from world_frame_native import observe
 def inspect(case):
  from calculator.boss_pattern import BossScript
- names={e['name']:i for i,e in enumerate(case['effects']) if e.get('type')=='damage'};records=[];active=[];event_rows={};handler_starts={};original=BossScript.route;previous=sys.getprofile()
+ names={e['name']:i for i,e in enumerate(case['effects']) if e.get('type')=='damage'};records=[];active=[];event_rows={};handler_starts={};event_counts={};original=BossScript.route;previous=sys.getprofile()
  def profile(frame,event,arg):
   if previous is not None:previous(frame,event,arg)
-  if (case.get('observe_periodic_skills') or case.get('source_effect_identity')) and frame.f_code.co_name=='_handle_damage_eff':
+  if (case.get('observe_periodic_skills') or case.get('source_effect_identity') or case.get('observe_dynamic_skill_hits')) and frame.f_code.co_name=='_handle_damage_eff':
    eff=frame.f_locals.get('eff',{});row=eff.get('_portable_observer_row');events=frame.f_locals.get('_dot_events',[])
-   if row is not None:
+   if row is not None or case.get('observe_dynamic_skill_hits'):
     if event=='call':handler_starts[id(frame)]=len(events)
     elif event=='return':
-     for item in events[handler_starts.pop(id(frame),len(events)):]:event_rows.setdefault(id(item),row)
+     emitted=events[handler_starts.pop(id(frame),len(events)):]
+     if row is not None:
+      for item in emitted:event_rows.setdefault(id(item),row)
+     if case.get('observe_dynamic_skill_hits'):
+      own=[item for item in emitted if item.skill_name==eff.get('name')]
+      for hit,item in enumerate(own,1):event_counts[id(item)]=(hit,len(own))
    return
   if frame.f_code.co_name!='_land':return
   ev=frame.f_locals.get('ev')
@@ -29,6 +34,9 @@ def inspect(case):
      source=event_row(case,ev)
     else:source=names[ev.skill_name]
    row=dict(row=source,created=ev.t,landed=frame.f_locals['t'],amount=ev.damage,share=ev.damage,recipients=[0])
+   if case.get('observe_dynamic_skill_hits'):
+    if id(ev) not in event_counts:raise AssertionError('Missing actual native emission budget')
+    row['_actual_hits']=event_counts[id(ev)]
    records.append(row);active.append(row)
   elif event=='return':active.pop();event_rows.pop(id(ev),None)
  def route(boss,ev,*args,**kwargs):
@@ -55,4 +63,5 @@ def inspect(case):
    if named is not None:hits=named.deferred_bonus_hits
   key=(row['row'],row['created']);hit=counts.get(key,0)%hits+1;counts[key]=counts.get(key,0)+1
   row.update(hit=hit,hits=hits)
+  if case.get('observe_dynamic_skill_hits'):row['hit'],row['hits']=row.pop('_actual_hits')
  native['target_counters'].pop('events');return native,records
