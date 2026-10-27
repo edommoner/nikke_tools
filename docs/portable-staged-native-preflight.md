@@ -35,6 +35,23 @@ python scripts/run-gpu-packet.py --stage preflight-begin --backend cuda \
 
 native群も同じ形で1回1群、BelowNormal・2GiB・fresh Job／開始gate・外側180秒以内に限定する。GPU直前には各CPU stageのterminal exit0、Job終了後の空membership、PIDと時刻の対応、監視／cleanup errorなし、既存process欠落0も検査する。サービス未識別を成功へ変更しない。
 
+## 選択テスト自体が180秒に収まらない場合
+
+Windowsのfull106では、native参照計算より前の選択177テストも一括では180秒を超えた。失敗したbeginとclaimを保持し、以下の明示した別経路で新しいpacketを用いる。テスト数・元の登録順・assertion・拒否入力は変えない。
+
+```sh
+python scripts/nikke_gpu.py preflight-plan --backend metal \
+  --capture /new/plan --gpu-capture /new/gpu --group-size 10 --test-group-size 2
+python scripts/nikke_gpu.py preflight-test-group \
+  --transaction /new/plan --capture /new/tests0 --group-index 0
+# 元registryの全テスト群を、元の順で各群一度だけ実行する。
+# 全群成功後に、同じtransactionで全native群を実行する。
+```
+
+`preflight-plan`は静的入力と登録テストの固定分割をtransactionへ保存し、GPU所有claimを消費するが、`cpu_tests_verified=false`である。各`preflight-test-group`は元の`portable_cpu_tests.run_groups`を使用する別fresh child。元のテスト・依存確認・全stdout/stderr・件数・runner PID・終了記録を保存する。native群の開始時とGPU直前に全登録テストの順序・coverage・全原本byte・nonce・unique PIDとWindows Job/監視を再検査する。欠落、失敗、同群のreplay、別transaction、ログをinventoryから削る変更は拒否する。一括の`cpu-tests.json`を後付けしない。
+
+Windows wrapperのrequestは、`preflight-plan`が`gpu_capture`・`group_size`・`test_group_size`（数値はASCII十進文字列）、`preflight-test-group`が`transaction`・`group_index`。各段階を従来と同じBelowNormal/fresh Job/2GiB/180秒以内で実行する。GPU子の60秒上限は変えない。通常`run`と通常`preflight-begin`は引き続き全選択テストを一括実行する。
+
 ## GPU段階と独立監査
 
 ```sh

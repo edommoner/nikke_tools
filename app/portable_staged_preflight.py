@@ -53,6 +53,8 @@ def context(cli,transaction,backend=None,gpu_capture=None):
     if (not isinstance(indices,list) or any(type(i) is not int or not 0<=i<len(m['golden']['entries']) for i in indices)
         or indices!=sorted(set(indices)) or len(indices)!=cli.SUITES[m['suite']]['native']):
         raise ValueError('Staged native membership changed')
+    from portable_staged_tests import validate_plan
+    validate_plan(cli,m,c)
     claim=cli.load(cli.ROOT/('gpu-claimed-'+c['backend']+'.json'))
     expected=dict(package_id=m['package_id'],capture=c['gpu_capture'],transaction=str(transaction),transaction_nonce=c['nonce'])
     if claim!=expected:raise ValueError('Staged GPU ownership claim mismatch')
@@ -85,12 +87,13 @@ def terminal_cpu_stage(cli,proof,m,stage):
         outer_files=cli.file_records(outer,['recipe.json','execution.json','job.json','observation.json']))
 
 
-def begin(cli,capture,backend,gpu_capture,group_size):
+def begin(cli,capture,backend,gpu_capture,group_size,*,test_group_size=None):
     from portable_phase_audit import Journal
     if backend not in ('metal','cuda'):raise ValueError('Explicit staged backend required')
     partition(1,group_size)
     m=cli.verify_package(cli.ROOT)
     if cli.is_development(m) or cli.compiler_only(m):raise ValueError('Staged preflight requires a sealed battle')
+    if test_group_size is not None:partition(len(cli.SUITES[m['suite']]['tests']),test_group_size)
     capture=outside(capture,[cli.ROOT]);gpu_capture=outside(gpu_capture,[cli.ROOT,capture])
     if gpu_capture.exists():raise FileExistsError(gpu_capture)
     capture.mkdir(parents=True,exist_ok=False);nonce=uuid.uuid4().hex
@@ -99,7 +102,7 @@ def begin(cli,capture,backend,gpu_capture,group_size):
     j=Journal(capture/'phases.jsonl')
     try:
         with cli.forbid_gpu():
-            j.invoke('staged_cpu_tests',cli.cpu_test_groups,m,capture)
+            if test_group_size is None:j.invoke('staged_cpu_tests',cli.cpu_test_groups,m,capture)
             adapter,entries,data,receipt=j.invoke('staged_static_input',static_input,cli,m)
         native_indices=[i for i,(_,_,d) in enumerate(entries) if d is not None]
         if len(native_indices)!=cli.SUITES[m['suite']]['native']:raise ValueError('Staged native count differs from registered suite')
@@ -107,13 +110,16 @@ def begin(cli,capture,backend,gpu_capture,group_size):
         c=dict(schema=SCHEMA,package_id=m['package_id'],manifest_sha256=cli.sha((cli.ROOT/'gpu-package.json').read_bytes()),
             package_root=str(cli.ROOT.resolve()),transaction=str(capture),nonce=nonce,backend=backend,gpu_capture=str(gpu_capture),
             host=host(cli),group_size=group_size,case_groups=partition(len(entries),group_size),native_indices=native_indices,input=receipt)
+        if test_group_size is not None:
+            from portable_staged_tests import plan
+            c.update(test_group_size=test_group_size,test_groups=plan(cli,m,test_group_size))
         exclusive(capture/'transaction.json',c)
         if cli.verify_package(cli.ROOT)!=m:raise ValueError('Staged package changed during begin')
         j.emit('staged_begin_complete','returned')
-        result=dict(mode='staged-preflight-begin-only',package_id=m['package_id'],transaction_nonce=nonce,
+        result=dict(mode='staged-preflight-begin-only' if test_group_size is None else 'staged-preflight-plan-only',package_id=m['package_id'],transaction_nonce=nonce,
             transaction_ready=True,native_groups=len(c['case_groups']),native_oracles_run=0,
             counter_scope='Transaction preflight only; CPU unit-test work is not counted as native preflight',
-            cpu_tests_verified=True,calculation_verified=False,gpu_calls=0,driver_load_calls=0)
+            cpu_tests_verified=test_group_size is None,calculation_verified=False,gpu_calls=0,driver_load_calls=0)
         exclusive(capture/'result.json',result);return result
     except BaseException as e:
         exclusive(capture/'failure.json',dict(error=type(e).__name__+': '+str(e),gpu_calls=0));raise
@@ -130,7 +136,9 @@ def group(cli,transaction,index,capture):
     j=Journal(capture/'phases.jsonl')
     try:
         cli.check_records(transaction,cli.load(transaction/'artifacts.json')['files'])
-        terminal_cpu_stage(cli,transaction,m,'preflight-begin')
+        terminal_cpu_stage(cli,transaction,m,'preflight-plan' if 'test_groups' in c else 'preflight-begin')
+        from portable_staged_tests import admit_tests
+        admit_tests(cli,m,c)
         with cli.forbid_gpu():
             adapter,entries,data,receipt=j.invoke('staged_static_input',static_input,cli,m)
             if receipt!=c['input'] or data!=(transaction/'input.bin').read_bytes():raise ValueError('Staged prepared input changed')
@@ -158,10 +166,9 @@ def admit(cli,m,transaction,backend,gpu_capture):
     transaction=Path(transaction).resolve();actual,c=context(cli,transaction,backend,gpu_capture)
     if actual!=m:raise ValueError('Staged execution package differs')
     cli.check_records(transaction,cli.load(transaction/'artifacts.json')['files'])
-    from portable_cpu_tests import complete
-    if not complete(cli.load(transaction/'cpu-tests.json'),cli.SUITES[m['suite']]['tests']):
-        raise ValueError('Staged original CPU tests incomplete')
-    stages=[dict(capture=str(transaction),**terminal_cpu_stage(cli,transaction,m,'preflight-begin'))]
+    from portable_staged_tests import admit_tests
+    test_stages=admit_tests(cli,m,c)
+    stages=[dict(capture=str(transaction),**terminal_cpu_stage(cli,transaction,m,'preflight-plan' if 'test_groups' in c else 'preflight-begin'))]+test_stages
     expected=cli.transport_input_receipt(m,(transaction/'input.bin').read_bytes(),c['input']['input_words'])
     if expected!=c['input']:raise ValueError('Staged input receipt changed')
     pids=[];native=0;entries=[];anchors=[]

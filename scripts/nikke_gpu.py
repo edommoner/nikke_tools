@@ -598,6 +598,7 @@ SUITES['destructible-counter']['tests'].append('test_portable_packet_stage.py')
 SMOKE_TESTS.append('test_portable_comparison_groups.py')
 SMOKE_TESTS.append('test_portable_native_group_stage.py')
 SMOKE_TESTS.append('test_portable_staged_preflight.py')
+SMOKE_TESTS.append('test_portable_staged_tests.py')
 SMOKE_TESTS.append('test_portable_historical_projection.py')
 SMOKE_TESTS.append('test_typed_owner_observer_migration.py')
 SMOKE_TESTS.append('test_portable_cache_fs_compression.py')
@@ -3247,6 +3248,11 @@ def main(argv=None):
     a.add_argument('--group-size',type=int,required=True);a.add_argument('--timeout',type=int,default=180)
     a.add_argument('--receipt',type=Path,action='append',required=True)
     for name in ('package-root','out'):a.add_argument('--'+name,type=Path,required=True)
+    a=sub.add_parser('preflight-plan');a.add_argument('--backend',choices=('metal','cuda'),required=True)
+    a.add_argument('--group-size',type=int,required=True);a.add_argument('--test-group-size',type=int,required=True)
+    for name in ('capture','gpu-capture'):a.add_argument('--'+name,type=Path,required=True)
+    a=sub.add_parser('preflight-test-group');a.add_argument('--group-index',type=int,required=True)
+    for name in ('transaction','capture'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('preflight-begin');a.add_argument('--backend',choices=('metal','cuda'),required=True)
     a.add_argument('--group-size',type=int,required=True)
     for name in ('capture','gpu-capture'):a.add_argument('--'+name,type=Path,required=True)
@@ -3552,6 +3558,12 @@ def main(argv=None):
         options=dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}
         if a.command=='staged-run':options['preflight_transaction']=a.transaction
         result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**options)
+    elif a.command=='preflight-plan':
+        from portable_staged_preflight import begin
+        with forbid_gpu():result=begin(SimpleNamespace(**globals()),a.capture,a.backend,a.gpu_capture,a.group_size,test_group_size=a.test_group_size)
+    elif a.command=='preflight-test-group':
+        from portable_staged_tests import run_group
+        with forbid_gpu():result=run_group(SimpleNamespace(**globals()),a.transaction,a.group_index,a.capture)
     elif a.command=='preflight-begin':
         from portable_staged_preflight import begin
         with forbid_gpu():result=begin(SimpleNamespace(**globals()),a.capture,a.backend,a.gpu_capture,a.group_size)
