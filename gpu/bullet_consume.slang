@@ -3,6 +3,11 @@
 [noinline]
 void consumeBulletBuffs(inout Runtime s, uint who, uint64_t when, uint output)
 {
+#ifdef PORTABLE_EFFECT_TARGET_COUNT_SHOTS
+    uint tcCapacity,tcRemaining,tcSkipped,tcPresent;uint64_t tcTotal,tcActivated;
+    targetCountShotBefore(s,who,when,tcCapacity,tcRemaining,tcSkipped,tcPresent,tcTotal,tcActivated);
+    if(s.error!=0)return;
+#endif
     uint retired[P_CARRIERS], count = 0; bool changed = false;
 #ifdef PORTABLE_BULLET_SCAN_REFERENCE
     uint visits = s.orderedCount;
@@ -48,4 +53,7 @@ void consumeBulletBuffs(inout Runtime s, uint who, uint64_t when, uint output)
         syncHealth(s,when);
         if (s.hpWatchCount != 0) dispatch(s,7,0,0,0,when,output);
     }
+#ifdef PORTABLE_EFFECT_TARGET_COUNT_SHOTS
+    targetCountShotAfter(s,who,when,tcCapacity,tcRemaining,tcSkipped,tcPresent,tcTotal,tcActivated);
+#endif
 }

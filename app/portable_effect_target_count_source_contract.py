@@ -6,7 +6,8 @@ def ledger(root):
     return json.loads((Path(root)/'tests/fixtures/portable-effect-target-count-source-delta.json').read_text())
 
 def project_sources(root,sources=None):
-    root=Path(root);out=dict(sources or {});data=ledger(root)
+    from portable_effect_target_count_shot_source_contract import project_sources as shots
+    root=Path(root);out=shots(root,sources);data=ledger(root)
     for name,digest in data['added_sources'].items():
         current=out.get(name,(root/name).read_text())
         if hashlib.sha256(current.encode()).hexdigest()!=digest:raise AssertionError('Unreviewed target-count dependency: '+name)
