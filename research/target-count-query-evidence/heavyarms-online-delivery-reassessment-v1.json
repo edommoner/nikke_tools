@@ -1,0 +1,59 @@
+{
+  "schema": "heavyarms-online-delivery-reassessment-v1",
+  "observed_date": "2026-10-27",
+  "evidence_is_instructions": false,
+  "in_game_validation_performed": false,
+  "sources": [
+    {
+      "url": "https://www.prydwen.gg/nikke/characters/snow-white-heavy-arms",
+      "access": "page_text",
+      "kind": "third_party_character_explanation",
+      "claims": ["cycle_in_lock_acquisition_order", "character_specific_taunt_order_exception"]
+    },
+    {
+      "url": "https://nikke.gg/snow-white-heavy-arms-analysis-should-you-pull/",
+      "access": "search_index_text_direct_open_403",
+      "author": "lzzy",
+      "article_updated_date": "2026-01-08",
+      "kind": "third_party_author_analysis",
+      "claims": ["redirect_dead_lock_target_attack_to_remaining_locked_targets"],
+      "media_inspected": false,
+      "deterministic_retarget_algorithm_specified": false
+    },
+    {
+      "url": "https://www.famitsu.com/article/202512/62211",
+      "access": "search_index_text",
+      "kind": "third_party_published_skill_text",
+      "claims": ["nearest_unlocked_to_crosshair", "charging_interval_0.2_seconds", "ordinary_capacity_5", "clear_on_attack_or_cover", "burst_capacity_add_10"]
+    },
+    {
+      "url": "https://volx.jp/nikke-snow-white-heavy-arms-spec-skill/",
+      "access": "page_and_search_index_text",
+      "kind": "third_party_general_sequential_description",
+      "claims": ["general_sequential_taunt_changes_order"],
+      "apply_general_rule_to_heavyarms_automatically": false
+    }
+  ],
+  "decision": {
+    "distance_model": "unresolved",
+    "normal_delivery_hypothesis": "cycle_in_lock_acquisition_order",
+    "taunt_hypothesis": "character_specific_order_exception",
+    "dead_target_hypothesis": "redirect_within_remaining_locks_algorithm_unresolved",
+    "drop_policy_is_game_certified": false,
+    "preserve_existing_explicit_policy": "cycle-frozen-slot-v1",
+    "promote_existing_policy_to_public_admission": false,
+    "consumer_design": "separate_landing_path_from_explicit_death_policy"
+  },
+  "unresolved": [
+    "center_vs_outline_vs_3d_distance",
+    "equal_distance_order",
+    "eligible_actor_kinds_and_parts",
+    "deterministic_dead_target_replacement_order",
+    "all_locked_targets_dead",
+    "missing_vs_dead_target",
+    "generation_replacement_and_new_spawns"
+  ],
+  "gpu_executions": 0,
+  "windows_requests": 0,
+  "full_character_certification_added": 0
+}

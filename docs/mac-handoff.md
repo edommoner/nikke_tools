@@ -2651,3 +2651,9 @@ code9553193f、実GPUpacket20bc39f3、GPU .047511秒、fresh監査4.013988秒。
 最終normal cover2811e20e（67検査）、packet378c39f4（49）、CUDA cache profile285cb08d（56）がCPU-only成功、共通67群652（Win1skip）成功。3通常package作成成功、cover23のstale source guard問題は解消。現在のsource model-check成功、public/full character/full goalは未達のまま。今回実GPUは新host修正packetで1回、旧claim retry0、Windows新依頼0。数値/GPUソースは変更せず、その他入口の再GPUは行わない。
 
 証跡はtarget-count-query-evidence/metal-cache-preclaim-cover23-v1.jsonとmetal-cache-preclaim-final-preflight-v1.json。private-continuation-v27.jsonが次の状態。次は発射snapshot slotを既存actor land/counter/heal処理へ適用する共通consumer。距離/tie/挑発・途中死亡再対象化のゲーム規則、元全25とcurrent CUDA実機は未認定。Windows旧continuationのterminal確認待ち・再送禁止は継続。
+
+### 2026-10-27 公開情報による配送policy再評価
+
+ユーザー指定のオンライン調査を追加。Prydwenの取得順循環と挑発例外はキャラ固有説明で、一般順番攻撃説明を無条件適用しない。新たにNIKKE.GGの索引本文（直接open403、動画/再現ログ未確認）で、予定ロック対象が配送前に死亡すると残りロック対象へ振替という記述を確認。現在の`cycle-frozen-slot-v1`の死亡dropをゲーム仕様としてconsumerへ採用しない。既存63/packet8の部分実証はそのまま保持し、ゲーム認定へ昇格しない。距離式・tie・actor種別、具体的な振替順は未確定。
+
+次の実装では既存land/counter/heal経路への接続と死亡policyを分離し、生存対象の配送と未確定死亡policyの境界を明示する。公開情報だけから振替をnext/first/randomへ決め打ちしない。調査記録は`heavyarms-online-delivery-reassessment-v1.json`、判断は`docs/portable-heavyarms-lock-selection.md`冒頭。今回は文書/出所記録のみでGPU/Windows追加0、計算/golden/公開admission変更0。旧Windows continuationを再依頼しない。
