@@ -1,0 +1,49 @@
+{
+  "schema": "original-lock-final-preflight-v1",
+  "source_commit": "7b31389c7e4a0db721519de0bae0e4af07247894",
+  "packages": [
+    {
+      "kind": "normal",
+      "package_id": "64f91aca51cdf7ec3b9ef546fb7a07473409fcce09dd730169a6ac302e15db61",
+      "manifest_sha256": "5e7ffef6778843d76be4fc04eb97aa06b82312fd9a5c4155d4b2786de8f52a32",
+      "groups": 9,
+      "tests": 72,
+      "inputs": 8,
+      "native_oracles": 4,
+      "input_sha256": "e9c446913bb3bb71d53cb594b25ad3310f090dc0e327a82cf0a8ff9cbc68e7aa",
+      "receipts": {
+        "result.json": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731",
+        "cpu.json": "9033bbfe1e9e1b9fdcd7c5e61a0fd404eba0d4f4bf71fd51e4aff21ef607378d",
+        "cpu-tests.json": "86fa417b0975c5963a9e7a5eaee72c773c8d6103c2dd169fdead32e9e90fc609",
+        "artifacts.json": "105112e99c9b5d70103b233562dfb6d6c06eaca18a870ca474439df34f75e74a"
+      }
+    },
+    {
+      "kind": "cache",
+      "package_id": "5176a54d10772876b39060e10db62da654301d2560d460c1e633ebb39af7dc38",
+      "manifest_sha256": "35c1c2c06cd234a8cd3f4629ad7aa573963db71c3fb8a43e5d925100fe733cbf",
+      "groups": 10,
+      "tests": 81,
+      "inputs": 8,
+      "native_oracles": 4,
+      "input_sha256": "e9c446913bb3bb71d53cb594b25ad3310f090dc0e327a82cf0a8ff9cbc68e7aa",
+      "receipts": {
+        "result.json": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731",
+        "cpu.json": "98ae672ef89769752eb1af5d122b71f7e22a642569e762de7beeb2e6491f8c4d",
+        "cpu-tests.json": "b191702636512c0dad3c1e78bd2232fb030f9388a6775f1a6521a4cb3bdff539",
+        "artifacts.json": "ac31c795836925852f08c4c3a3b7948e544d3e6248ff0fbc204e32381448c13e"
+      }
+    }
+  ],
+  "model_check_sha256": "2cfbe1cb322a3ad2aab65e8706db9572664f4aca984c2ab46d3184091510a2fc",
+  "protected_canonical_upstream_and_normalizer_unchanged": true,
+  "old_current_source_gpu_goldens_not_rewritten": true,
+  "old_generated_cuda_metal8_identical": true,
+  "full_character_certified": false,
+  "public_admission": false,
+  "cuda_hardware_verified": false,
+  "cuda_cubin_cache_hit_verified": false,
+  "extra_gpu_calls": 0,
+  "windows_execution_requests": 0,
+  "full_goal_complete": false
+}
