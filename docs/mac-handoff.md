@@ -2627,3 +2627,16 @@ sealed physical-lock-coverは23入力/native11＋拒否12でM5 Metal＋fresh独�
 legacy cover23/physical10/external16の全source閉包は151/150/134fileで不変、追加旧GPU/compile0。locked probeの独立sealはpackage14bf0314、Metal source/code e01389f9。最終通常package a2e38df1はpolicy/実順序5検査と共通642（Win1skip）が成功。最終cache専用efba68b8は12検査成功。lock-delivery-cache-onlyは既存compile-cache-only-v1を再利用し、required CUBIN/O1・保存source・事前file-only hitを要求、NVRTC loader禁止。immutable CLIにcache条件を渡さない負例はcapture/claim作成前に停止。実CUDA cache hit/launchは未実証、Windows新依頼0。通常probe63GPUは1回、retry0。
 
 証跡はtarget-count-query-evidence/metal-lock-delivery-policy-v1.json、lock-delivery-native-order-v1.json、lock-delivery-final-preflight-v1.json。model-check成功、public GPU/全キャラ/全目標は未達。次はLandingReceiptに発射時snapshot tokenとhit予算を結び、landWorldSkillReceiptの既存actor set/land/counter/heal経路へ接続。予約word/所有権を監査し、live32setを診断snapshotに使わない。距離/tie/挑発のゲーム規則を勝手に確定しない。Windowsの旧continuation terminal未取得・再送禁止は継続。
+
+
+### 2026-10-27 実キューのsnapshotリンク・可変hit予算をMetal実証
+
+sealed lock-packet-bindingsは8入力/native4＋拒否4でM5 Metalとfresh独立監査が成功。元index4/8/9/20を保持するpartial fixture（全25ではない）。実receiptのstore/loadにsnapshot番号・既存hit/hitsを結び、空snapshot、待機中のADD死亡→次世代再出現、ハイド後4hit/3targetを比較。選択slot/statusは診断のみで、実着弾の対象は従来named routingのまま。次はslotをactor land/counter/healへ適用するconsumer。
+
+receipt at+7は周期snapshot所有なので流用しない。別bank804176から2048token、31shot時刻、38件×16wordの診断traceを余白に配置。input104400/output806912、live set32、queue2048は保持。38件を超えると拒否、全2048同時queueをstress実証したものではない。終了時2048token全zero、全shot時刻/alignment/trace/tailを比較。native観測器の可変hitを1とする既知観測不足を新flag下で実emission listから観測し、配送後は補助id表も解放。native計算・正本4fileは変更しない。
+
+code9553193f、実GPUpacket20bc39f3、GPU .047511秒、fresh監査4.013988秒。最終normal06d01666は専用39/共通642（Win1skip）成功、cache専用06c63eafは46検査成功。CUBIN必須・NVRTC禁止の既存profileを再利用。実immutable CLIのcache要件なし負例はcapture/claim前停止。追加GPU0。default106 CUDA/MSL厳密生成hashは保持（生成のみ）。全inventory fieldは旧cover版と一致、266/245/21/20分類/全キャラ0/UI CPU。
+
+旧physical10/external16はrequired pipeline hitで新Metal＋独立sealし全shader/input/output byteを保持、新v4/v5 golden。旧cover23は、生成byteは同一だが保存cache未生成のためpipeline_lockでrequired miss。GPU dispatch前の失敗、readbackなし、失敗claimを保持し再送しない。現sourceの再認定は未完了で、現CLIの通常packageはstale golden source guardで実際に拒否を確認。旧配布physical-cover-sealed-v1-0.zipは保持。実GPU成功3/起動前失敗1/retry0/Windows新依頼0。
+
+優先する復旧：テスト付きpre-claim Metal cache確認経路を実装してこの失敗を再発させず、正規の復旧経路を検証してcover23を再認定する。旧claim削除、同packet再送、旧goldenの付替えは不可。次にsnapshot target consumerを接続する。距離/tie/挑発/再対象化のゲーム実測規則と全25/current CUDA認定は未完了。証跡はtarget-count-query-evidence/metal-lock-packet-bindings-v1、lock-packet-final-preflight-v1、lock-packet-legacy23-predevice-failure-v1等。
