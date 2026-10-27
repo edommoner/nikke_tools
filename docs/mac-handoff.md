@@ -2640,3 +2640,14 @@ code9553193f、実GPUpacket20bc39f3、GPU .047511秒、fresh監査4.013988秒。
 旧physical10/external16はrequired pipeline hitで新Metal＋独立sealし全shader/input/output byteを保持、新v4/v5 golden。旧cover23は、生成byteは同一だが保存cache未生成のためpipeline_lockでrequired miss。GPU dispatch前の失敗、readbackなし、失敗claimを保持し再送しない。現sourceの再認定は未完了で、現CLIの通常packageはstale golden source guardで実際に拒否を確認。旧配布physical-cover-sealed-v1-0.zipは保持。実GPU成功3/起動前失敗1/retry0/Windows新依頼0。
 
 優先する復旧：テスト付きpre-claim Metal cache確認経路を実装してこの失敗を再発させず、正規の復旧経路を検証してcover23を再認定する。旧claim削除、同packet再送、旧goldenの付替えは不可。次にsnapshot target consumerを接続する。距離/tie/挑発/再対象化のゲーム実測規則と全25/current CUDA認定は未完了。証跡はtarget-count-query-evidence/metal-lock-packet-bindings-v1、lock-packet-final-preflight-v1、lock-packet-legacy23-predevice-failure-v1等。
+
+
+### 2026-10-27 claim前Metal cache gateとcover23通常入口の復旧
+
+既存metal-cache-probeのbounded archive readerを共通化し、required Metal runのCPU tests/native/worker/claim前へgateを追加。現在device/registry/OS build（SwiftのProcessInfoから取得）、再生成MSL・Swift実行子・resident strideでnativeと同じkeyを計算。source generationはCPUのみ、pipeline compile/dispatch0。miss/破損/OS違いは記録して停止。実行子のcache lock/hash/native failOnBinaryArchiveMiss再検証は維持し、required requestの途中でwarmへfallbackしない。
+
+実修正a4f9ac2eの固定packet a92c3e17で、前回と同じ6fb2d307…のcache missがtests/native/worker/claim前に停止することを実証。旧失敗packet9553193fのsource全closure・input/native指紋一致と旧claim SHA/旧capture全artifact hashを確認。その新packetの未使用claimで明示した初回warm requestを1回だけ実行、Metal23成功＋fresh独立監査でcover v2 goldenへ復旧。旧claimは削除/再送しない。全CUDA/MSL/input/output byteが元cover23と同一。GPU .046675秒、archive作成 .006080秒。作成後はfile-only probeと現在identity gateの実正例もGPU追加0で成功。file hitはnative hit認定とは別。
+
+最終normal cover2811e20e（67検査）、packet378c39f4（49）、CUDA cache profile285cb08d（56）がCPU-only成功、共通67群652（Win1skip）成功。3通常package作成成功、cover23のstale source guard問題は解消。現在のsource model-check成功、public/full character/full goalは未達のまま。今回実GPUは新host修正packetで1回、旧claim retry0、Windows新依頼0。数値/GPUソースは変更せず、その他入口の再GPUは行わない。
+
+証跡はtarget-count-query-evidence/metal-cache-preclaim-cover23-v1.jsonとmetal-cache-preclaim-final-preflight-v1.json。private-continuation-v27.jsonが次の状態。次は発射snapshot slotを既存actor land/counter/heal処理へ適用する共通consumer。距離/tie/挑発・途中死亡再対象化のゲーム規則、元全25とcurrent CUDA実機は未認定。Windows旧continuationのterminal確認待ち・再送禁止は継続。
