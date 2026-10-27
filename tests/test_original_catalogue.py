@@ -107,4 +107,12 @@ class OriginalCatalogue(unittest.TestCase):
         verify_original_weapon_change(case,valid)
         for rows in ([shot(normal)],valid[1:],valid[:-1],[shot(normal),shot(mode,True),shot(normal)],[shot(normal),shot(mode),shot(normal),shot(mode),shot(normal)]):
             with self.subTest(rows=rows),self.assertRaises(AssertionError):verify_original_weapon_change(case,rows)
+
+    def test_complete_skill_history_capacity_fails_before_gpu_instead_of_truncating(self):
+        from portable_original_catalogue_cases import require_skill_history_capacity
+        for count in (0,127,128):require_skill_history_capacity(dict(skill_trace=[None]*count))
+        for count in (129,2048):
+            native=dict(skill_trace=[None]*count)
+            with self.assertRaisesRegex(ValueError,f'{count} > 128'):require_skill_history_capacity(native)
+            self.assertEqual(len(native['skill_trace']),count)
 if __name__=='__main__':unittest.main()

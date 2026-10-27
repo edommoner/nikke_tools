@@ -1,3 +1,7 @@
+# 元profileの選択開発
+
+`cases --suite original-catalogue --match TEXT` は全profileを準備せずmetadataだけを列挙する。`package --suite original-catalogue --develop --case NAME --out NEW.zip` は明示1〜4件だけを元定義のまま共通compilerへ渡す。固定群`original-catalogue-initial`も同じ経路を使うが、Modernia30秒の全1,618件スキル履歴が現在128件bankを超えるため未seal。CPU gateで超過を拒否し、短縮や履歴省略で成功にしない。[選択規約・検査・次の容量拡張](portable-original-catalogue.md)。
+
 `physical-generation-locks`最新版は専用arenaの10入力（native6/raw拒否4）、入力104400/出力806912wordです。全32個の既存スキル対象setを保ち、full_chargeのキューダメージ・死亡・再召喚を追加して独立Metal sealしました。旧幅を受け入れず、Python/Slang/Swiftで一致を検査します。[移設と検証境界](portable-heavyarms-lock-selection.md)。
 
 `physical-generation-locks`は、既存の充填周期と実射撃通知を、元index20の2射撃上限・世代付きmembership・発射snapshotへ合成した明示モデルです。Metal7入力（native3/raw拒否4）を独立seal。`package --suite physical-generation-locks`から通常のrun/seal経路を使います。元index0は周期観測用self marker projectionで、距離選択・実ハイド・順番攻撃・元全25効果は未完了です。[検証境界](portable-heavyarms-lock-selection.md)。

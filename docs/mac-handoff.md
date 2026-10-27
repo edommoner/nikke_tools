@@ -1,3 +1,7 @@
+# 2026-10-28 元profile選択CLIと実履歴容量の未対応
+
+`original-catalogue`で1,064名から1〜4件だけをprepare/compileする開発経路を実装。元266profileの全inventory recordを保持。固定4件は129unit/CPU全4成功、M5実GPU1回で3件一致、Modernia30秒はスキル履歴128件上限でstatus8。CPU実履歴1,618件が次の優先課題。係数変更と復帰は元定義から検査し、通常攻撃扱いの武器変更をskill damageと混同しない。最終guard15unitは超過をGPU前に拒否するが容量対応/全4認定は未完了。必須generation/pipeline hit・Slang0、Windows新依頼0。詳細は[元profile選択と未対応容量](portable-original-catalogue.md)。失敗packet3591b6f8…/captureは保持し再実行しない。全キャラ/全特殊効果・CUDA現実機・公開GPU受付は未達。
+
 # Mac GPU開発引き継ぎ
 
 2026-10-28追加：共通入口ごとの静的監査を既存`entry-inventory`へ接続。`--suite original-projectile-weapons`/`original-shield-weapons`は実`compile_coordinate_typed`、明示BODY owner、kind2/3・1対象の宣言worldを使う。元準備/KindAdmission/source逆対応/診断/禁止contextを再利用し、原effect/ownerを保つ。変換失敗は同じgroup/target-modifier lowering後の定義診断も持ち、変換前のstat/target/source identityを保持。未知policy/不一致source/axis provenance/CPU battle/GPU/上書きを拒否する。
