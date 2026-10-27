@@ -5,6 +5,7 @@ from pathlib import Path
 AUDIT_FILES = {'test_coordinate_power_v1.py': ('requirements-validation.txt',),'test_coordinate_landing_v1.py': ('requirements-validation.txt',),
     'test_coordinate_healing.py': ('research/portable-coordinate-auto-reload-short-expected.json',),'test_coordinate_auto_reload.py': ('research/portable-coordinate-mode-actions-short-expected.json',),
     'test_coordinate_mode_actions.py': ('research/portable-coordinate-burst-control-short-expected.json',),
+    'test_original_lock_controls.py': ('research/portable-original-lock-composition-v1-expected.json',),
     'test_coordinate_mixed.py': ('research/portable-coordinate-group-short-expected.json',),
     'test_coordinate_sampled_delivery.py': ('research/portable-coordinate-sampled-vital-short-expected.json',),
     'test_coordinate_physical_frontier.py': (

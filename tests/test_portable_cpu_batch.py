@@ -7,6 +7,15 @@ from portable_cpu_tests import run_groups,complete,validate_groups,validate_depe
 s=importlib.util.spec_from_file_location('batch_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(s);s.loader.exec_module(cli)
 
 class CPUGroupTests(unittest.TestCase):
+    def test_original_roster_retention_data_is_required_before_native_or_import(self):
+        pattern='test_original_lock_controls.py';name='research/portable-original-lock-composition-v1-expected.json'
+        self.assertEqual(AUDIT_FILES[pattern],(name,))
+        (self.root/'tests'/pattern).write_text('raise AssertionError("must not import")')
+        with self.assertRaisesRegex(ValueError,'CPU audit dependency missing'):self.run_groups([pattern])
+        self.assertFalse((self.capture/'cpu-tests.json').exists())
+        path=self.root/name;path.parent.mkdir(parents=True);path.write_text('{}')
+        with self.assertRaisesRegex(ValueError,'immutable payload'):validate_dependency_files(self.root,[pattern],included=set())
+        validate_dependency_files(self.root,[pattern],included={name})
     def test_named_capacity_policy_source_audit_requires_its_pinned_document(self):
         pattern='test_effect_target_count_policy.py'
         for name in AUDIT_FILES[pattern]:
