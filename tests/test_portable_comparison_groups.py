@@ -122,9 +122,22 @@ def audit_capture(capture):
     def test_real_fresh_children_import_only_immutable_package_and_preserve_all_groups(self):
         with tempfile.TemporaryDirectory() as tmp:
             base=Path(tmp);root,other,capture=self.fixture(base)
-            with patch.object(cli,'ROOT',other):r=cli.audit_saved_metal_groups(root,capture,timeout=30,development_only=True,group_size=2)
+            receipts=[]
+            with patch.object(cli,'ROOT',other):
+                for index in (0,1):
+                    row=cli.audit_saved_battle_groups(root,capture,timeout=30,development_only=True,group_size=2,group_index=index,backend='metal')
+                    receipt=base/('group'+str(index)+'.json');cli.write(receipt,row);receipts.append(receipt)
+                    logs=Path(row['group_capture']);self.addCleanup(lambda p=logs:__import__('shutil').rmtree(p))
+                    self.assertTrue((logs/(str(index)+'.stdout.log')).is_file());self.assertTrue((logs/(str(index)+'.json')).is_file())
+                    self.assertFalse((logs/'aggregate.json').exists());self.assertFalse(row['calculation_verified'])
+                r=cli.aggregate_saved_native_groups(root,receipts,'metal',2,30)
             self.assertTrue(r['audit']['calculation_verified']);self.assertEqual(r['comparison']['native_oracles'],3);self.assertEqual(len(set(r['independent_comparison']['child_pids'])),2)
-            logs=Path(r['group_capture']);self.addCleanup(lambda:__import__('shutil').rmtree(logs));self.assertTrue((logs/'0.stdout.log').is_file());self.assertTrue((logs/'1.json').is_file());self.assertTrue((logs/'aggregate.json').is_file())
+    def test_windows_rejects_whole_coordinator_before_package_io(self):
+        # Module proxy leaves the real OS/pathlib/subprocess platform intact.
+        proxy=SimpleNamespace(**{**vars(os),'name':'nt'})
+        with patch.object(cli,'os',proxy),patch.object(cli,'verify_saved_package',side_effect=AssertionError('No package IO')):
+            with self.assertRaisesRegex(ValueError,'one bounded native group'):
+                cli.audit_saved_metal_groups(Path('unused'),Path('unused'),timeout=30,development_only=True,group_size=2)
     def test_single_group_is_fresh_and_cannot_claim_full_calculation(self):
         with tempfile.TemporaryDirectory() as tmp:
             base=Path(tmp);root,other,capture=self.fixture(base)
@@ -138,7 +151,7 @@ def audit_capture(capture):
         with tempfile.TemporaryDirectory() as tmp:
             base=Path(tmp);root,other,capture=self.fixture(base)
             p=root/'scripts/nikke_gpu.py';p.write_text(p.read_text().replace("label=runpy.run_path('research/oracle.py')['VALUE']","raise ValueError('injected-native-failure')"))
-            with patch.object(cli,'ROOT',other),self.assertRaisesRegex(RuntimeError,'preserved logs:') as error:cli.audit_saved_metal_groups(root,capture,timeout=30,development_only=True,group_size=2)
+            with patch.object(cli,'ROOT',other),self.assertRaisesRegex(RuntimeError,'preserved logs:') as error:cli.audit_saved_battle_groups(root,capture,timeout=30,development_only=True,group_size=2,backend='metal',group_index=0)
             logs=Path(str(error.exception).split('preserved logs: ',1)[1]);self.addCleanup(lambda:__import__('shutil').rmtree(logs));self.assertIn('injected-native-failure',(logs/'0.stderr.log').read_text());self.assertEqual(cli.load(logs/'failure.json')['completed_groups'],0);self.assertFalse((logs/'1.json').exists());self.assertFalse((logs/'aggregate.json').exists())
     def test_timeout_keeps_partial_logs_and_stops_before_any_success(self):
         import subprocess
@@ -146,7 +159,7 @@ def audit_capture(capture):
             base=Path(tmp);root,other,capture=self.fixture(base)
             manifest=cli.load(root/'gpu-package.json')
             with patch.object(cli,'verify_saved_package',return_value=manifest),patch.object(cli.subprocess,'run',side_effect=subprocess.TimeoutExpired(['group'],1,output=b'partial-out',stderr=b'partial-err')),self.assertRaisesRegex(RuntimeError,'preserved logs:') as error:
-                cli.audit_saved_metal_groups(root,capture,timeout=1,development_only=True,group_size=2)
+                cli.audit_saved_battle_groups(root,capture,timeout=1,development_only=True,group_size=2,backend='metal',group_index=0)
             logs=Path(str(error.exception).split('preserved logs: ',1)[1]);self.addCleanup(lambda:__import__('shutil').rmtree(logs));self.assertEqual((logs/'0.stdout.log').read_text(),'partial-out');self.assertEqual((logs/'0.stderr.log').read_text(),'partial-err');self.assertFalse((logs/'aggregate.json').exists())
 
 if __name__=='__main__':unittest.main()
