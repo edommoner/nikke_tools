@@ -5,6 +5,38 @@ from unittest.mock import patch
 from contextlib import ExitStack
 from portable_original_identity_inventory import prepared_profiles
 
+INPUT_POLICIES=('original-coordinate-v1','body-owned-projectile-v1','body-owned-hp-shield-v1')
+TYPED_SOURCE='gpu/world_coordinate_typed_owner_entry.slang'
+
+def compile_inventory_world(world,input_policy):
+    """Use the real compiler; never edit original effects or add a damage probe."""
+    if input_policy not in INPUT_POLICIES:raise ValueError('Unknown original entry input policy')
+    if input_policy==INPUT_POLICIES[0]:
+        from portable_coordinate_roster_input import compile_coordinate_battle
+        return compile_coordinate_battle(world)
+    from portable_coordinate_typed_input import compile_coordinate_typed
+    from portable_coordinate_typed_specs import INPUT_WORDS
+    prepared=copy.deepcopy(world);kind=2 if input_policy=='body-owned-projectile-v1' else 3
+    prepared.update(typed_aim_policy=dict(mode='typed-before-body-v1'),typed_actor_policy=dict(mode='body-owned-current-fields-v1'))
+    bindings=[dict(node='world',kind=kind,identity=10,capacity=1e30,owner=[0,0,1],label='entry-inventory-typed')]
+    geometry=dict(point_source='caster_aim',shapes=[dict(x=0.,y=0.,r=10000.,z=1.)])
+    result=compile_coordinate_typed(prepared,bindings,probe_kind=kind,geometry=geometry,coordinate_weapon_targets=True,coordinate_typed_aim=True,coordinate_typed_actors=True,coordinate_typed_owners=True)
+    if len(result[0])!=INPUT_WORDS or result[1]['coordinate_typed_input']['probe_source'] is not None:raise AssertionError('Complete weapon-only inventory wire required')
+    return result
+
+def inspect_input_effects(prepared,input_policy):
+    """Diagnose original rows using the selected compiler's existing lowering."""
+    if input_policy not in INPUT_POLICIES:raise ValueError('Unknown original entry input policy')
+    from portable_readiness import inspect_effects
+    from portable_group_binding import lower
+    def lower_one(item):
+        if input_policy!=INPUT_POLICIES[0]:
+            from portable_target_modifier_input import lower_effect
+            item['effect']=lower_effect(item['effect'])
+        single=dict(prepared,effects=[item]);lowered,_,_=lower(single)
+        return lowered['effects'][0]['effect']
+    return inspect_effects(prepared,input_lowering=lower_one)
+
 def rejected_effects(words,metadata,prepared,unsupported):
     """Bind compiled rejections back to exact original rows, never row positions."""
     from portable_specs import LIMITS as L,FIELDS as F
@@ -51,7 +83,7 @@ def kind_dependencies(profiles):
     return [dict(required_kinds=list(required),profile_count=len(rows),profiles=sorted(rows,key=lambda row:(row['character'],row['favorite_stage'])))
         for required,rows in sorted(groups.items(),key=lambda item:(-len(item[1]),item[0]))]
 
-def run(output,*,write,forbid_gpu,source=None,comparison_source=None):
+def run(output,*,write,forbid_gpu,source=None,comparison_source=None,input_policy='original-coordinate-v1'):
     output=Path(output)
     with output.open('x',encoding='utf-8') as stream:stream.write('{}\n')
     started=time.perf_counter();calls=dict(cpu_battle=0,gpu=0)
@@ -60,10 +92,17 @@ def run(output,*,write,forbid_gpu,source=None,comparison_source=None):
         scope='Default-growth/no-cube complete original rosters, all base/favorite stages; literal idle coordinate world; static packing and kind catalog only')
     try:
         if sys.flags.optimize:raise RuntimeError('Static entry inventory requires assertions enabled')
+        if input_policy not in INPUT_POLICIES:raise ValueError('Unknown original entry input policy')
         import engine_worker,portable_backend,portable_runtime
         from calculator import timeline
         from portable_coordinate_roster_input import compile_coordinate_battle,SOURCE as DEFAULT_SOURCE
-        source=source or DEFAULT_SOURCE
+        source=source or (DEFAULT_SOURCE if input_policy==INPUT_POLICIES[0] else TYPED_SOURCE)
+        if input_policy!=INPUT_POLICIES[0] and source!=TYPED_SOURCE:raise ValueError('Typed weapon inventory requires its exact BODY-owner entry')
+        if input_policy==INPUT_POLICIES[0] and source==TYPED_SOURCE:raise ValueError('BODY-owner entry requires an explicit typed weapon input policy')
+        report['input_policy']=input_policy
+        if input_policy!=INPUT_POLICIES[0]:
+            report['scope']='Complete original rosters in a declared one-actor BODY-owned typed weapon world; static compilation and definition kinds only, no runtime admission or battle certification'
+            report['declared_typed_world']=dict(kind=2 if input_policy=='body-owned-projectile-v1' else 3,actors=1,identity=10,owner=[0,0,1],capacity=1e30,point_source='caster_aim',shape=dict(x=0.,y=0.,r=10000.,z=1.),automatic_aim='typed-before-body-v1',actor_policy='body-owned-current-fields-v1',extra_damage_probe=False)
         from portable_coordinate_kind_admission import KindAdmission
         policy=KindAdmission(Path(__file__).resolve().parents[1],source)
         comparison=KindAdmission(Path(__file__).resolve().parents[1],comparison_source) if comparison_source else None
@@ -90,7 +129,7 @@ def run(output,*,write,forbid_gpu,source=None,comparison_source=None):
                 row['original_definitions_sha256']=hashlib.sha256(json.dumps(prepared['effects'],ensure_ascii=False,sort_keys=True).encode()).hexdigest()
                 world=copy.deepcopy(prepared);world['enemy'].update(coord=dict(auto_aim=[0.,0.],pierce_px=10.,explosion_scale=1.),patterns=[dict(id='world',kind='idle')])
                 try:
-                    words,metadata,_,_=compile_coordinate_battle(world)
+                    words,metadata,_,_=compile_inventory_world(world,input_policy)
                     if prepared!=original:raise AssertionError('Static entry packing mutated original input')
                     if set(metadata['binding_source_indices'])!=set(range(len(prepared['effects']))):raise AssertionError('Static entry discarded original definitions')
                     found=sorted({words[L['DEFINITION_BASE']+i*L['DEFINITION_WORDS']+F['KIND']] for i in range(words[1])})
@@ -98,8 +137,18 @@ def run(output,*,write,forbid_gpu,source=None,comparison_source=None):
                     if sys.byteorder!='little':raw.byteswap()
                     row.update(input_packed=True,input_words=len(words),input_sha256=hashlib.sha256(raw.tobytes()).hexdigest(),prepared_definitions=len(prepared['effects']),bound_definitions=len(metadata['effects']),definition_kinds=found,kind_admission=policy.inspect(words))
                     for kind in found:kinds[str(kind)].append(dict(character=name,favorite_stage=stage))
-                except (ValueError,TypeError,KeyError) as error:row['error']=str(error)
+                except (ValueError,TypeError,KeyError) as error:
+                    from portable_readiness import issue
+                    row.update(error=str(error),program_issue=issue(error,phase='program'))
+                    row['effect_blockers']=inspect_input_effects(prepared,input_policy)
                 else:
+                    row['group_producer_owner_mask']=metadata.get('coordinate_original_input',{}).get('group_owners',0)
+                    row['original_multi_hit_sources']=[dict(source_row=i,owner=item['owner'],name=item['effect'].get('name'),timing=t)
+                        for i,item in enumerate(prepared['effects']) for t in item['effect'].get('trigger',{}).get('timing',[]) if t.startswith('multi_hit:')]
+                    if input_policy!=INPUT_POLICIES[0]:
+                        typed=metadata['coordinate_typed_input'];axes=typed['axis_rows']
+                        if len(axes)!=256 or any(axes[len(metadata['binding_source_indices']):]):raise ValueError('Invalid inventory modifier axis provenance')
+                        row['typed_modifier_bindings']=[dict(compiled_row=i,source_row=metadata['binding_source_indices'][i],axis=axis) for i,axis in enumerate(axes) if axis]
                     row['rejected_effects']=rejected_effects(words,metadata,prepared,row['kind_admission'].get('unsupported',[]))
                     if comparison is not None:
                         baseline=comparison.inspect(words);current=row['kind_admission']
@@ -120,11 +169,15 @@ def run(output,*,write,forbid_gpu,source=None,comparison_source=None):
             report['expanded_kind_operator_priorities']=operator_priorities(report['profiles'],effect_key='expanded_kind_effects')
         report['kind_dependencies']=kind_dependencies(report['profiles'])
         report['packing_failures']=[{key:row[key] for key in ('character','favorite_stage','error','original_definitions_sha256')} for row in report['profiles'] if not row['input_packed']]
+        from portable_readiness import summarize
+        report['packing_priorities']=summarize([row for row in report['profiles'] if not row['input_packed']])
+        report['packing_diagnostics_scope']='Original per-definition diagnostics use the selected input lowering; each validator reports only its first failure. Whole-program failure and definition-kind rejection remain separate; not exhaustive semantics or admission.'
         report.pop('current_profile',None)
     except BaseException as error:
         report['error']=type(error).__name__+': '+str(error);raise
     finally:
         report['elapsed_seconds']=time.perf_counter()-started;write(output,report)
     result={key:report[key] for key in ('stage','passed','profile_count','packed_profiles','kind_rejected_profiles','rejected_operator_categories','forbidden_calls','calculation_verified','gpu_admission_verified','full_character_verified','elapsed_seconds')}
+    result.update(input_policy=report['input_policy'],source=report['source'],packing_failures=len(report['packing_failures']),packing_operator_categories=len(report['packing_priorities']),scope=report['scope'])
     if comparison is not None:result['expanded_kind_profiles']=report['expanded_kind_profiles']
     return result

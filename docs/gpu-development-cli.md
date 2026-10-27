@@ -594,6 +594,8 @@ CUDAの短い検証には `original-lock-composition-cache-only` を使用する
 
 ## 元武器の発射体・敵シールド補正
 
+未対応の選定では`entry-inventory --suite original-projectile-weapons --out NEW.json`または`--suite original-shield-weapons`を使用できる。実際のtyped compiler/元定義/source行対応/KindAdmissionを用い、選択入口のlowering後に失敗する元stat・targetを分類する。現在254/266変換だが、GPU受付・計算認定はFalse。legacy245/元座標247と混同しない。[使用範囲と次の開発経路](portable-shared-entry-inventory.md)。
+
 敵シールド側の`original-shield-weapons`はsealed15入力（native10/raw拒否5）。元4carrierの全定義と実武器、マリ/ミサトのハイド失効・復帰を共通typed owner/自動照準/物理streamへ接続する。catalogのcarrier追加はCPU unit検査、検査用parsed_skills.jsonの梱包漏れはpackage前の依存検査で検出する。通常package/run/sealを使う。`original-shield-weapons-cache-only`は同じ計算のCUBIN/O1必須＋paired generation必須でcold fallback禁止。Metal独立seal済み、実CUDA/CUBIN hit未検証。[詳細](portable-original-shield-weapons.md)。
 
 元武器の`original-projectile-weapons`はsealed13入力（native8/raw拒否5）。サクラ・アンカー・クレイの元全効果と実武器を既存typed owner/照準/着弾へ接続し、追加damage probeなしで補正の受け手・発動・失効を検査する。最大2,186物理receiptは先頭2,048件と全streamSHAを比較する。通常のpackage/run/seal経路を使用。`original-projectile-weapons-cache-only`は同じ計算のCUBIN/O1必須＋paired generation必須経路で、cold fallbackを許さない。Metal独立seal済み、現CUDA実機とCUBIN hitは未検証。[詳細と認定境界](portable-original-projectile-weapons.md)。

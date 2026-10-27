@@ -15,6 +15,17 @@ spec=importlib.util.spec_from_file_location('readiness_cli',ROOT/'scripts/nikke_
 cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 class ReadinessTests(unittest.TestCase):
+    def test_selected_input_lowering_changes_validation_but_keeps_original_diagnostic_identity(self):
+        effect=dict(type='buff',stat='projectile_dmg_pct',target='self',trigger=dict(timing=['battle_start'],condition=[]),fixed_value=1)
+        prepared=dict(effects=[dict(owner='source-owner',effect=effect)]);before=copy.deepcopy(prepared)
+        self.assertEqual(inspect_effects(prepared)[0]['issue']['stat'],'projectile_dmg_pct')
+        def lowered(item):item['effect']['stat']='atk_dmg_pct';return item['effect']
+        self.assertEqual(inspect_effects(prepared,input_lowering=lowered),[])
+        def still_invalid(item):item['effect']['stat']='not-a-real-stat';return item['effect']
+        observed=inspect_effects(prepared,input_lowering=still_invalid)
+        self.assertEqual(observed[0]['owner'],'source-owner');self.assertEqual(observed[0]['issue']['stat'],'projectile_dmg_pct')
+        self.assertEqual(prepared,before)
+        with self.assertRaises(TypeError):inspect_effects(prepared,input_lowering='not callable')
     def test_missing_fields_are_structured_and_wording_independent(self):
         effect=dict(type='buff',stat='atk_pct',target='self',future_copy_from='allies_top_hp:1',
                     trigger=dict(timing=['battle_start'],condition=[]),fixed_value=1)
@@ -117,15 +128,15 @@ class ReadinessTests(unittest.TestCase):
         class Adapter:
             def prepare(self):return [('a',[1,2],None)],b'original'
             def development_entries(self):return [('new',[3,4],None)]
-        entries,data=cli.prepare_entries(Adapter(),dict(purpose='development',selected_cases=['new']))
+        entries,data=cli.prepare_entries(Adapter(),dict(suite='projectile',purpose='development',selected_cases=['new']))
         self.assertEqual([r[0] for r in entries],['new'])
         self.assertEqual(data,bytes.fromhex('010000000300000004000000'))
-        entries,data=cli.prepare_entries(Adapter(),dict(purpose='sealed'))
+        entries,data=cli.prepare_entries(Adapter(),dict(suite='projectile',purpose='sealed'))
         self.assertEqual(data,b'original');self.assertEqual(len(entries),1)
-        with self.assertRaises(ValueError):cli.prepare_entries(Adapter(),dict(purpose='development',selected_cases=['typo']))
+        with self.assertRaises(ValueError):cli.prepare_entries(Adapter(),dict(suite='projectile',purpose='development',selected_cases=['typo']))
 
     def test_development_cannot_run_on_cuda(self):
-        with patch.object(cli,'verify_package',return_value=dict(purpose='development')):
+        with patch.object(cli,'verify_package',return_value=dict(suite='projectile',purpose='development')):
             with self.assertRaisesRegex(ValueError,'requires Metal'):
                 cli.run_capture(Path('/nonexistent'), 'cuda',180)
 

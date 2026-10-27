@@ -5,6 +5,7 @@ its first failure for that effect; hidden downstream requirements remain unknown
 Whole-program compilation is retained as the authoritative packing check.
 """
 from collections import Counter, defaultdict
+import copy
 import json
 from portable_readiness_semantics import reference_readiness
 
@@ -55,15 +56,17 @@ def diagnostic_sources(rows):
             for phase,counter in counts.items()}
 
 
-def inspect_effects(prepared):
+def inspect_effects(prepared,*,input_lowering=None):
     from portable_world_overlay_specs import compiler_effect
     from portable_target_counter_program import compiler_effects
     from portable_runtime import validate_effect
     result = []
+    if input_lowering is not None and not callable(input_lowering):raise TypeError('Explicit callable input lowering required')
     for index, item in enumerate(prepared['effects']):
         effect = item['effect']
         try:
-            lowered = compiler_effects([compiler_effect(effect)])[0]
+            candidate=input_lowering(copy.deepcopy(item)) if input_lowering is not None else effect
+            lowered = compiler_effects([compiler_effect(candidate)])[0]
             validate_effect(lowered, combat={}, world_frame=True)
         except (ValueError, KeyError, TypeError) as error:
             result.append(dict(index=index, owner=item['owner'], name=effect.get('name'),

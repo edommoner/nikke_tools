@@ -30,7 +30,7 @@ from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 SUITES = {
     'original-projectile-weapons':dict(script='research/verify-original-projectile-weapons.py',
         golden='research/portable-original-projectile-weapons-v1-expected.json',source='gpu/world_coordinate_typed_owner_entry.slang',
-        inputs=13,native=8,input_words=115680,output_words=2032000,development_only=False,parent_oracle_reuse=True,cpu_test_timeout=120,
+        inputs=13,native=8,input_words=115680,output_words=2032000,development_only=False,parent_oracle_reuse=True,cpu_test_timeout=120,entry_inventory_input_policy='body-owned-projectile-v1',
         tests=['test_original_projectile_weapons.py','test_portable_readiness_semantics.py','test_coordinate_typed_owner_policy.py','test_destructible_damage_policy.py','test_portable_parent_oracles.py','test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_generation_separation.py','test_portable_wire_layout.py']),
     'original-lock-health-parts':dict(script='research/verify-original-lock-health-parts.py',
         golden='research/portable-original-lock-health-parts-v1-expected.json',source='gpu/world_original_lock_health_parts_entry.slang',
@@ -116,7 +116,7 @@ SUITES = {
                    source='gpu/world_reload_entry.slang', inputs=65, native=46,
                    tests=['test_portable_world_reload.py']),
 }
-SUITES['original-shield-weapons']=dict(SUITES['original-projectile-weapons'],script='research/verify-original-shield-weapons.py',golden='research/portable-original-shield-weapons-v1-expected.json',inputs=15,native=10,development_only=False,tests=[*SUITES['original-projectile-weapons']['tests'],'test_original_shield_weapons.py'])
+SUITES['original-shield-weapons']=dict(SUITES['original-projectile-weapons'],script='research/verify-original-shield-weapons.py',golden='research/portable-original-shield-weapons-v1-expected.json',inputs=15,native=10,development_only=False,entry_inventory_input_policy='body-owned-hp-shield-v1',tests=[*SUITES['original-projectile-weapons']['tests'],'test_original_shield_weapons.py','test_original_entry_inventory.py','test_portable_readiness.py'])
 SUITES['lost-hp-diagnostic']=dict(SUITES['lost-hp-roster'],source='gpu/world_projectile_admission_entry.slang')
 SUITES['stun']=dict(script='research/verify-world-stun-short.py',golden='research/portable-world-stun-short-expected.json',
                    source='gpu/world_projectile_entry.slang',inputs=46,native=36,
@@ -3403,7 +3403,7 @@ def main(argv=None):
     a.add_argument('--suite',choices=SUITES);a.add_argument('--smoke',action='store_true');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('source-reuse');a.add_argument('--out',type=Path,required=True);a.add_argument('--require-hit',action='store_true')
     for name in ('reference-package','candidate-package','reference-generation','candidate-generation'):a.add_argument('--'+name,type=Path,required=True)
-    a=sub.add_parser('entry-inventory');a.add_argument('--out',type=Path,required=True);a.add_argument('--suite',choices=('coordinate-original','coordinate-original-burst-revival','coordinate-original-resources','coordinate-original-ammo','coordinate-original-stacks','coordinate-original-cleanse','coordinate-original-source','coordinate-original-reload','coordinate-original-shield','coordinate-original-cover','coordinate-original-shared','coordinate-original-decoy','coordinate-original-init','coordinate-original-enemy-stack','coordinate-original-harmful-stack','coordinate-original-accum','coordinate-original-owned'),default='coordinate-original')
+    a=sub.add_parser('entry-inventory');a.add_argument('--out',type=Path,required=True);a.add_argument('--suite',choices=('coordinate-original','coordinate-original-burst-revival','coordinate-original-resources','coordinate-original-ammo','coordinate-original-stacks','coordinate-original-cleanse','coordinate-original-source','coordinate-original-reload','coordinate-original-shield','coordinate-original-cover','coordinate-original-shared','coordinate-original-decoy','coordinate-original-init','coordinate-original-enemy-stack','coordinate-original-harmful-stack','coordinate-original-accum','coordinate-original-owned','original-projectile-weapons','original-shield-weapons'),default='coordinate-original')
     a=sub.add_parser('metal-device-probe',help='Bounded device visibility only; no kernel compilation or GPU dispatch');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('coordinate-parent-check',help='CPU-only live preflight/context reuse check against saved Metal fixtures; not GPU certification')
     a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -3543,7 +3543,7 @@ def main(argv=None):
         write(a.out,result)
     elif a.command=='entry-inventory':
         from portable_original_entry_inventory import run
-        result=run(a.out,write=write,forbid_gpu=forbid_gpu,source=SUITES[a.suite]['source'],comparison_source=SUITES[a.suite].get('kind_baseline_source'))
+        result=run(a.out,write=write,forbid_gpu=forbid_gpu,source=SUITES[a.suite]['source'],comparison_source=SUITES[a.suite].get('kind_baseline_source'),input_policy=SUITES[a.suite].get('entry_inventory_input_policy','original-coordinate-v1'))
     elif a.command=='resident-arc-retain':
         from portable_resident_arc_retention import run as retain_arc
         with forbid_gpu():result=retain_arc(a.reference_capture,a.candidate_capture,a.out,reference_evidence_sha256=a.reference_evidence_sha256,candidate_evidence_sha256=a.candidate_evidence_sha256)

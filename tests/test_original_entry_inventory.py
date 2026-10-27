@@ -1,5 +1,5 @@
 """Static packing is auditable without admitting or executing a GPU battle."""
-import importlib.util,json,sys,tempfile,unittest
+import copy,contextlib,importlib.util,io,json,sys,tempfile,unittest
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'research'),str(ROOT/'scripts')]
@@ -7,6 +7,69 @@ import engine_worker
 import portable_original_entry_inventory as inventory
 from nikke_gpu import write,forbid_gpu
 class EntryInventoryTests(unittest.TestCase):
+    def prepared(self,name):
+        spec=importlib.util.spec_from_file_location('entry_inventory_test_roster',ROOT/'research/audit-world-roster-input.py');policy=importlib.util.module_from_spec(spec);spec.loader.exec_module(policy)
+        from detail_coverage import body_for
+        return engine_worker.evaluate(dict(body_for(policy.roster_for(name),30),burst_gauge_mode='accumulate',_portable_static_inputs=True))
+
+    def test_typed_modes_keep_originals_and_record_actual_group_lowering_and_modifier_axes(self):
+        profiles=[(name,0,self.prepared(name)) for name in ('아스카','벨로타','니힐리스타','일레그')]
+        before=copy.deepcopy(profiles)
+        for mode,kind in [('body-owned-projectile-v1',2),('body-owned-hp-shield-v1',3)]:
+            with self.subTest(mode=mode),tempfile.TemporaryDirectory() as directory:
+                output=Path(directory)/'typed.json'
+                with patch.object(inventory,'prepared_profiles',return_value=iter(profiles)):
+                    result=inventory.run(output,write=write,forbid_gpu=forbid_gpu,source=inventory.TYPED_SOURCE,input_policy=mode)
+                report=json.loads(output.read_text());self.assertEqual(result['forbidden_calls'],dict(cpu_battle=0,gpu=0))
+                self.assertEqual(report['input_policy'],mode);self.assertEqual(report['declared_typed_world']['kind'],kind)
+                self.assertFalse(report['declared_typed_world']['extra_damage_probe']);self.assertFalse(result['gpu_admission_verified'])
+                rows={r['character']:r for r in report['profiles']}
+                for name in ('아스카','벨로타','니힐리스타'):
+                    row=rows[name];self.assertTrue(row['input_packed']);self.assertEqual(row['input_words'],115680);self.assertEqual(row['kind_admission']['unsupported'],[])
+                self.assertTrue(rows['아스카']['typed_modifier_bindings']);self.assertEqual({r['axis'] for r in rows['아스카']['typed_modifier_bindings']},{3})
+                for name,count in [('벨로타',2),('니힐리스타',1)]:
+                    self.assertEqual(len(rows[name]['original_multi_hit_sources']),count);self.assertEqual(rows[name]['group_producer_owner_mask'],1)
+                self.assertFalse(rows['일레그']['input_packed']);self.assertIn('program_issue',rows['일레그']);self.assertTrue(report['packing_priorities'])
+                blockers=rows['일레그']['effect_blockers'];self.assertTrue(blockers)
+                self.assertNotIn('projectile_dmg_pct',{e['issue'].get('stat') for e in blockers})
+                self.assertIn('target_and_nearby:2',{e['issue'].get('target') for e in blockers})
+        self.assertEqual(profiles,before)
+
+    def test_input_policy_and_source_pair_fail_before_preparing_profiles(self):
+        for mode,source in [('unknown',None),('body-owned-projectile-v1','gpu/world_coordinate_original_entry.slang'),('original-coordinate-v1',inventory.TYPED_SOURCE)]:
+            with tempfile.TemporaryDirectory() as directory:
+                output=Path(directory)/'failed.json'
+                with patch.object(inventory,'prepared_profiles',side_effect=AssertionError('No profile work before policy validation')):
+                    with self.assertRaises(ValueError):inventory.run(output,write=write,forbid_gpu=forbid_gpu,input_policy=mode,source=source)
+                report=json.loads(output.read_text());self.assertFalse(report['passed']);self.assertEqual(report['forbidden_calls'],dict(cpu_battle=0,gpu=0))
+
+    def test_invalid_axis_provenance_aborts_instead_of_becoming_a_packing_gap(self):
+        p=self.prepared('아스카');original=inventory.compile_inventory_world
+        def corrupt(*args):
+            w,m,b,d=original(*args);m['coordinate_typed_input']['axis_rows']=[];return w,m,b,d
+        with tempfile.TemporaryDirectory() as directory:
+            output=Path(directory)/'failed.json'
+            with patch.object(inventory,'prepared_profiles',return_value=iter([('아스카',0,p)])),patch.object(inventory,'compile_inventory_world',corrupt):
+                with self.assertRaisesRegex(ValueError,'axis provenance'):inventory.run(output,write=write,forbid_gpu=forbid_gpu,input_policy='body-owned-hp-shield-v1')
+            self.assertFalse(json.loads(output.read_text())['passed'])
+
+    def test_typed_packing_cannot_execute_a_cpu_battle(self):
+        from calculator import timeline
+        p=self.prepared('아스카')
+        def bad(*args,**kwargs):return timeline.simulate([])
+        with tempfile.TemporaryDirectory() as directory:
+            output=Path(directory)/'failed.json'
+            with patch.object(inventory,'prepared_profiles',return_value=iter([('아스카',0,p)])),patch('portable_coordinate_typed_input.compile_coordinate_typed',bad):
+                with self.assertRaisesRegex(AssertionError,'forbids cpu_battle'):inventory.run(output,write=write,forbid_gpu=forbid_gpu,input_policy='body-owned-hp-shield-v1')
+            report=json.loads(output.read_text());self.assertFalse(report['passed']);self.assertEqual(report['forbidden_calls']['cpu_battle'],1)
+
+    def test_cli_routes_each_suite_to_its_real_input_policy(self):
+        import nikke_gpu
+        for name,policy in [('coordinate-original','original-coordinate-v1'),('original-projectile-weapons','body-owned-projectile-v1'),('original-shield-weapons','body-owned-hp-shield-v1')]:
+            with patch.object(inventory,'run',return_value={'passed':True}) as run,contextlib.redirect_stdout(io.StringIO()):
+                nikke_gpu.main(['entry-inventory','--suite',name,'--out','/tmp/not-written-entry-inventory.json'])
+            self.assertEqual(run.call_args.kwargs['input_policy'],policy)
+            self.assertEqual(run.call_args.kwargs['source'],nikke_gpu.SUITES[name]['source'])
     def test_rejections_bind_original_sources_and_keep_distinct_operators(self):
         from portable_specs import LIMITS as L,FIELDS as F
         words=[0]*(L['DEFINITION_BASE']+2*L['DEFINITION_WORDS']);words[1]=2
