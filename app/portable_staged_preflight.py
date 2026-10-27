@@ -47,7 +47,11 @@ def context(cli,transaction,backend=None,gpu_capture=None):
         or backend is not None and c.get('backend')!=backend
         or gpu_capture is not None and c.get('gpu_capture')!=str(Path(gpu_capture).resolve())):
         raise ValueError('Staged transaction identity/source/host mismatch')
-    if json.dumps(c['case_groups'])!=json.dumps(partition(len(m['golden']['entries']),c['group_size'])):
+    if 'resume_parent' in c:
+        from portable_staged_continuation import tail_groups
+        expected_groups=tail_groups(len(m['golden']['entries']),c['resume_parent']['completed_inputs'],c['group_size'])
+    else:expected_groups=partition(len(m['golden']['entries']),c['group_size'])
+    if json.dumps(c['case_groups'])!=json.dumps(expected_groups):
         raise ValueError('Staged native plan changed')
     indices=c.get('native_indices')
     if (not isinstance(indices,list) or any(type(i) is not int or not 0<=i<len(m['golden']['entries']) for i in indices)
@@ -136,9 +140,8 @@ def group(cli,transaction,index,capture):
     j=Journal(capture/'phases.jsonl')
     try:
         cli.check_records(transaction,cli.load(transaction/'artifacts.json')['files'])
-        terminal_cpu_stage(cli,transaction,m,'preflight-plan' if 'test_groups' in c else 'preflight-begin')
-        from portable_staged_tests import admit_tests
-        admit_tests(cli,m,c)
+        from portable_staged_continuation import gate
+        gate(cli,m,c)
         with cli.forbid_gpu():
             adapter,entries,data,receipt=j.invoke('staged_static_input',static_input,cli,m)
             if receipt!=c['input'] or data!=(transaction/'input.bin').read_bytes():raise ValueError('Staged prepared input changed')
@@ -162,17 +165,11 @@ def group(cli,transaction,index,capture):
     finally:cli.collect(capture,capture/'artifacts.json')
 
 
-def admit(cli,m,transaction,backend,gpu_capture):
-    transaction=Path(transaction).resolve();actual,c=context(cli,transaction,backend,gpu_capture)
-    if actual!=m:raise ValueError('Staged execution package differs')
-    cli.check_records(transaction,cli.load(transaction/'artifacts.json')['files'])
-    from portable_staged_tests import admit_tests
-    test_stages=admit_tests(cli,m,c)
-    stages=[dict(capture=str(transaction),**terminal_cpu_stage(cli,transaction,m,'preflight-plan' if 'test_groups' in c else 'preflight-begin'))]+test_stages
-    expected=cli.transport_input_receipt(m,(transaction/'input.bin').read_bytes(),c['input']['input_words'])
-    if expected!=c['input']:raise ValueError('Staged input receipt changed')
-    pids=[];native=0;entries=[];anchors=[]
-    for index,indices in enumerate(c['case_groups']):
+def native_evidence(cli,m,c,group_indices):
+    transaction=Path(c['transaction'])
+    pids=[];native=0;entries=[];anchors=[];stages=[]
+    for index in group_indices:
+        indices=c['case_groups'][index]
         claim=cli.load(transaction/('group-claim-'+str(index)+'.json'));proof=Path(claim['capture']).resolve()
         if type(claim.get('group_index')) is not int or claim!={'capture':str(proof),'nonce':c['nonce'],'group_index':index}:raise ValueError('Staged native group claim mismatch')
         cli.check_records(proof,cli.load(proof/'artifacts.json')['files'])
@@ -198,11 +195,26 @@ def admit(cli,m,transaction,backend,gpu_capture):
         stages.append(dict(capture=str(proof),**envelope))
         names=['result.json','artifacts.json','phases.jsonl']
         anchors.append(dict(capture=str(proof),files=cli.file_records(proof,names)))
+    return dict(native=native,entries=entries,pids=pids,stages=stages,anchors=anchors)
+
+
+def admit(cli,m,transaction,backend,gpu_capture):
+    transaction=Path(transaction).resolve();actual,c=context(cli,transaction,backend,gpu_capture)
+    if actual!=m:raise ValueError('Staged execution package differs')
+    cli.check_records(transaction,cli.load(transaction/'artifacts.json')['files'])
+    from portable_staged_continuation import gate
+    admitted=gate(cli,m,c);stages=admitted['stages'];prefix=admitted['evidence']
+    expected=cli.transport_input_receipt(m,(transaction/'input.bin').read_bytes(),c['input']['input_words'])
+    if expected!=c['input']:raise ValueError('Staged input receipt changed')
+    evidence=native_evidence(cli,m,c,range(len(c['case_groups'])))
+    pids=prefix['pids']+evidence['pids'];native=prefix['native']+evidence['native'];entries=prefix['entries']+evidence['entries'];anchors=prefix['anchors']+evidence['anchors'];stages+=evidence['stages']
+    if len(set(pids))!=len(pids):raise ValueError('Continuation reused a native child PID')
     if native!=len(c['native_indices']) or len(entries)!=len(m['golden']['entries']):raise ValueError('Staged native preflight incomplete')
     return dict(schema=SCHEMA,package_id=m['package_id'],transaction=str(transaction),transaction_nonce=c['nonce'],
         transaction_sha256=cli.sha((transaction/'transaction.json').read_bytes()),host=c['host'],input=c['input'],
         native_cases=native,input_count=len(entries),groups=len(pids),fresh_child_pids=pids,stage_envelopes=stages,
-        group_anchors=anchors,all_native_preflight_verified=True,calculation_verified=False,gpu_calls=0)
+        group_anchors=anchors,continuation_parent=admitted.get('parent'),original_timeout=admitted.get('failed'),
+        all_native_preflight_verified=True,calculation_verified=False,gpu_calls=0)
 
 
 def prepare_gpu_input(cli,m,transaction,capture,backend):

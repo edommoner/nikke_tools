@@ -17,7 +17,7 @@ RECOVERY_STAGE='recover-readback'
 RECOVERY_FIELDS=('source_package','source_capture','output_sha256')
 NATIVE_GROUP_STAGE='audit-native-group'
 NATIVE_GROUP_FIELDS=('source_package','source_capture','group_index','group_size')
-STAGED_FIELDS={'preflight-plan':('gpu_capture','group_size','test_group_size'),'preflight-test-group':('transaction','group_index'),'preflight-begin':('gpu_capture','group_size'),'preflight-native-group':('transaction','group_index'),
+STAGED_FIELDS={'preflight-resume':('parent_transaction','group_size'),'preflight-plan':('gpu_capture','group_size','test_group_size'),'preflight-test-group':('transaction','group_index'),'preflight-begin':('gpu_capture','group_size'),'preflight-native-group':('transaction','group_index'),
     'staged-gpu-linked':('transaction','linked_package','linked_capture')}
 STAGES=('tests','cpu','smoke','generation','gpu',LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE,*STAGED_FIELDS,*COMPILE_STAGES,*OBJECT_STAGES)
 
@@ -118,6 +118,9 @@ def verified_staged(proof,stage,package_id):
             and proof.get('pending_native_audit') is True and proof.get('readback_fingerprint_matches') is True
             and proof.get('staged_preflight_verified') is True and proof.get('error') is None)
     if proof.get('package_id')!=package_id or any(type(proof.get(k)) is not int or proof[k]!=0 for k in ('gpu_calls','driver_load_calls')):return False
+    if stage=='preflight-resume':return (proof.get('mode')=='staged-preflight-resume-only' and proof.get('transaction_ready') is True
+        and proof.get('original_failed_stage_verified') is False and proof.get('native_values_reused') is False
+        and proof.get('cpu_test_evidence_retained_from_same_attempt') is True and type(proof.get('native_oracles_run')) is int and proof['native_oracles_run']==0)
     if stage=='preflight-plan':return proof.get('mode')=='staged-preflight-plan-only' and proof.get('transaction_ready') is True and proof.get('cpu_tests_verified') is False and type(proof.get('native_oracles_run')) is int and proof['native_oracles_run']==0
     if stage=='preflight-test-group':return proof.get('mode')=='staged-preflight-test-group-only' and proof.get('test_group_verified') is True and proof.get('all_cpu_tests_verified') is False and type(proof.get('tests')) is int and proof['tests']>0
     if stage=='preflight-begin':return proof.get('mode')=='staged-preflight-begin-only' and proof.get('transaction_ready') is True and proof.get('cpu_tests_verified') is True and type(proof.get('native_oracles_run')) is int and proof['native_oracles_run']==0
@@ -177,6 +180,7 @@ def proof_arguments(plan):
     if plan['stage']=='tests':return ['_tests','--capture',plan['proof_capture']]
     if plan['stage'] in STAGED_FIELDS:
         stage=plan['stage'];request=object_request(stage,plan['object_request'])
+        if stage=='preflight-resume':return [stage,'--capture',plan['proof_capture'],'--backend',plan['backend'],'--parent-transaction',request['parent_transaction'],'--group-size',request['group_size']]
         if stage=='preflight-plan':return [stage,'--capture',plan['proof_capture'],'--backend',plan['backend'],'--gpu-capture',request['gpu_capture'],'--group-size',request['group_size'],'--test-group-size',request['test_group_size']]
         if stage=='preflight-test-group':return [stage,'--capture',plan['proof_capture'],'--transaction',request['transaction'],'--group-index',request['group_index']]
         if stage=='preflight-begin':return [stage,'--capture',plan['proof_capture'],'--backend',plan['backend'],'--gpu-capture',request['gpu_capture'],'--group-size',request['group_size']]
@@ -302,7 +306,7 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None)
     process_preserved=comparison.get('all_monitored_processes_preserved')
     environment_preserved=bool(process_preserved is True and comparison.get('identified_nikke_service_preservation_verified') is True and facts.get('observation_error') is None) if is_windows() else None
     key={'tests':'cpu_tests_verified','cpu':'cpu_verified','smoke':'smoke_verified','generation':'verified','gpu':'passed',LINKED_STAGE:'passed',RECOVERY_STAGE:'passed',NATIVE_GROUP_STAGE:'comparison_subset_verified',
-        'preflight-plan':'transaction_ready','preflight-test-group':'test_group_verified','preflight-begin':'transaction_ready','preflight-native-group':'native_group_verified','staged-gpu-linked':'gpu_execution_completed',
+        'preflight-resume':'transaction_ready','preflight-plan':'transaction_ready','preflight-test-group':'test_group_verified','preflight-begin':'transaction_ready','preflight-native-group':'native_group_verified','staged-gpu-linked':'gpu_execution_completed',
         **{name:'compiler_verified' for name in COMPILE_STAGES},**{name:'object_verified' for name in OBJECT_STAGES}}[stage]
     compiler_verified=bool(proof and proof.get('mode')=='compile-only' and proof.get('compiler_verified') is True and proof.get('calculation_verified') is False and type(proof.get('gpu_calls')) is int and proof['gpu_calls']==0 and type(proof.get('driver_load_calls')) is int and proof['driver_load_calls']==0)
     generation_verified=verified_generation(proof,manifest['package_id'])
