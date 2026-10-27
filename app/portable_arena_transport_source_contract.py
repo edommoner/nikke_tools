@@ -7,7 +7,8 @@ def historical_backend_source(root,source=None):
     from portable_coordinate_physical_source_contract import project_backend_source
     root=Path(root)
     row=json.loads((root/'tests/fixtures/portable-arena-transport-source-delta.json').read_text())
-    current=project_backend_source(root,source)
+    from portable_physical_lock_arena_source_contract import project_backend_source as physical_locks
+    current=project_backend_source(root,physical_locks(root,source))
     if current!=row['current'] or hashlib.sha256(current.encode()).hexdigest()!=row['current_sha256']:
         raise ValueError('Unreviewed composed transport source')
     baseline=row['baseline']
