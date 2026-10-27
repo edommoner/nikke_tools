@@ -160,3 +160,8 @@ sealed `lock-packet-bindings` は8入力（native4／raw拒否4）をMetalとfre
 default106のCUDA/MSL厳密生成hashは不変（生成のみ）。旧physical10/external16は新sourceでMetalと独立sealを完了し、全shader/input/output byteを保持、新v4/v5 goldenへ接続。旧cover23の現source再認定は、必須pipeline cacheが未保存でGPU起動前に停止したため未完了。旧sealed cover packetは保持し、失敗packetのclaimを消さず再送しない。現checkoutのcover23通常packageはsource相違のguardで拒否される。次にpre-claimのMetal cache調査・復旧経路を整備する必要がある。
 
 証跡は `target-count-query-evidence/metal-lock-packet-bindings-v1.json`、`lock-packet-legacy10-16-retention-v1.json`、`lock-packet-legacy23-predevice-failure-v1.json`。全inventory fieldを保持し、全キャラ0・public GPU false・UI CPUは維持する。次の機能はsnapshot slotを既存actor land/counter/heal処理へ適用するconsumer。距離・挑発・再対象化の実機仕様は未認定。
+
+
+## cover23の現source再認定を復旧（2026-10-27）
+
+claim前Metal cache gateを実装・テストしたhost修正版a4f9ac2eの固定packetで、旧失敗と同じkey6fb2d307…のmissがtests/native/worker/claim前に停止することを確認。旧packetのGPU source全closure、全input/native指紋、旧claim SHAを保持した。新packetの未使用claimで初回cache作成を明示して1回だけMetal23を実行し、別fresh監査でv2 goldenを作成した。全CUDA/MSL生成byte・入力・74,235,904byteの出力が元cover23と同一。現checkoutの通常cover23 package作成も復旧対象となる。配送対象slotをHPへ適用するconsumerは引き続き未接続。

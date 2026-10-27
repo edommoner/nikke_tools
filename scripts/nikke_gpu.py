@@ -37,7 +37,7 @@ SUITES = {
         inputs=63,native=46,input_words=1032,output_words=16,development_only=False,
         tests=['test_lock_delivery_policy.py','test_lock_delivery_event_order.py']),
     'physical-lock-cover':dict(script='research/verify-physical-lock-cover.py',
-        golden='research/portable-physical-lock-cover-v1-expected.json',source='gpu/world_physical_lock_cover_entry.slang',
+        golden='research/portable-physical-lock-cover-v2-expected.json',source='gpu/world_physical_lock_cover_entry.slang',
         inputs=23,native=11,input_words=104400,output_words=806912,development_only=False,
         tests=['test_physical_lock_cover_gpu.py','test_physical_lock_cover_reference.py','test_physical_generation_locks.py','test_named_generation_locks.py','test_portable_wire_layout.py','test_portable_weapon_phases.py','test_portable_generation_separation.py','test_portable_metal_wire_refresh.py']),
     'physical-generation-locks':dict(script='research/verify-physical-locks.py',

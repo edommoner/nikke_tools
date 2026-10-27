@@ -16,13 +16,14 @@ def preflight(api,manifest,capture,device):
     if required not in ('0','1'):raise ValueError('Required Metal cache flag must be0 or1')
     if required!='1':return False
     started=time.perf_counter();root=Path(api.ROOT);capture=Path(capture)
-    report=dict(schema='required-metal-cache-preflight-v1',passed=False,package_id=manifest['package_id'],gpu_calls=0,pipeline_compile_calls=0,calculation_verified=False,source_generation_api_calls=0,native_cache_revalidation_required=True)
+    report=dict(schema='required-metal-cache-preflight-v1',passed=False,package_id=manifest['package_id'],gpu_calls=0,pipeline_compile_calls=0,calculation_verified=False,context_current_verified=False,source_generation_api_calls=0,native_cache_revalidation_required=True)
     try:
         cache=Path(os.environ.get('NIKKE_METAL_PIPELINE_CACHE',''))
         if not cache.is_absolute() or not cache.is_dir() or cache.is_symlink():raise ValueError('Existing absolute private Metal cache required')
         import portable_backend
         source=api.SUITES[manifest['suite']]['source']
-        outputs,hashes=portable_backend.build(source,'portableEvents');report['source_generation_api_calls']=1
+        report['source_generation_api_calls']=1
+        outputs,hashes=portable_backend.build(source,'portableEvents')
         if hashes!=manifest['golden']['source_sha256']:raise ValueError('Metal source identity changed during preflight')
         plan=portable_backend.resident_plan(source,'portableEvents',outputs)
         request=identity(outputs['metal'].read_bytes(),(root/'scripts/run-metal-probe.swift').read_bytes(),device,stride=plan['stride'] if plan else 0)

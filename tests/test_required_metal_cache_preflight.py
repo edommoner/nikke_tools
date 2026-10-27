@@ -53,6 +53,9 @@ class RequiredMetalTests(unittest.TestCase):
     def test_optional_mode_never_generates_source(self):
         with patch.dict(os.environ,NIKKE_METAL_PIPELINE_REQUIRED='0'),patch.object(portable_backend,'build') as build:self.assertFalse(self.run_gate())
         build.assert_not_called();self.assertFalse((self.capture/'metal-cache-preflight.json').exists())
+    def test_source_generation_failure_is_recorded_without_cache_or_dispatch(self):
+        with self.context(),patch.object(portable_backend,'build',side_effect=RuntimeError('generation failed')),patch.object(gate,'probe_identity') as probe,self.assertRaisesRegex(RuntimeError,'generation failed'):self.run_gate()
+        probe.assert_not_called();report=cli.load(self.capture/'metal-cache-preflight.json');self.assertEqual(report['source_generation_api_calls'],1);self.assertFalse(report['passed'])
     def test_missing_os_build_is_not_inferred_from_saved_result(self):
         for field in ('os_build','registry_id','device'):
             value=dict(self.device);value.pop(field)
