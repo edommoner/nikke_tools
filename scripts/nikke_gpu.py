@@ -635,9 +635,18 @@ def file_records(root, names):
     return records
 
 
-def check_records(root, records):
+def check_records(root, records, *, parallel=False):
     names = [safe_name(r['path']) for r in records]
-    if len(names) != len(set(names)) or file_records(root, names) != sorted(records, key=lambda r:r['path']):
+    if len(names) != len(set(names)):
+        raise ValueError('Artifact bytes/SHA/size mismatch')
+    if parallel and len(names)>=128:
+        # Windows per-file open latency dominates immutable payload checks.
+        # Read every byte again at every gate; no metadata or digest cache.
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=4) as readers:
+            actual=list(readers.map(lambda name:file_records(root,[name])[0],sorted(names)))
+    else:actual=file_records(root,names)
+    if actual != sorted(records, key=lambda r:r['path']):
         raise ValueError('Artifact bytes/SHA/size mismatch')
 
 
@@ -694,7 +703,7 @@ def verify_package(root,*,historical_compiler=False):
     if m.get('purpose','sealed') not in ('sealed','development','compiler-diagnostic') or (not is_development(m) and m.get('selected_cases')):
         raise ValueError('Invalid package purpose/case selection')
     if compiler_only(m)!=(m.get('purpose')=='compiler-diagnostic'):raise ValueError('Compiler diagnostic purpose mismatch')
-    check_records(root, m['files'])
+    check_records(root, m['files'],parallel=os.name=='nt')
     historical_layout=historical_compiler_layout(root,m) if historical_compiler else None
     golden = m['golden'] if is_development(m) else load(root/(historical_layout[0] if historical_layout else SUITES[m['suite']]['golden']))
     if golden != m['golden']:

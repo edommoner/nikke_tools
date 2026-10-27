@@ -16,6 +16,45 @@ cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
 class PacketTests(unittest.TestCase):
+    def test_parallel_package_checks_read_every_file_with_at_most_four_workers(self):
+        import threading
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            for i in range(128):(root/str(i)).write_bytes(str(i).encode())
+            expected=cli.file_records(root,map(str,range(128)));original=cli.file_records
+            barrier=threading.Barrier(4);lock=threading.Lock();state=dict(active=0,peak=0);seen=[]
+            def read(where,names):
+                self.assertEqual(len(names),1)
+                with lock:
+                    seen.extend(names);state['active']+=1;state['peak']=max(state['peak'],state['active']);first=len(seen)<=4
+                try:
+                    if first:barrier.wait(timeout=5)
+                    return original(where,names)
+                finally:
+                    with lock:state['active']-=1
+            with patch.object(cli,'file_records',side_effect=read):cli.check_records(root,list(reversed(expected)),parallel=True)
+            self.assertEqual(sorted(seen),sorted(map(str,range(128))));self.assertEqual(state['peak'],4);self.assertEqual(state['active'],0)
+    def test_parallel_package_checks_do_not_cache_equal_length_content_or_missing_files(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            for i in range(128):(root/str(i)).write_bytes(b'original')
+            expected=cli.file_records(root,map(str,range(128)))
+            cli.check_records(root,expected,parallel=True)
+            (root/'127').write_bytes(b'modified')
+            with self.assertRaisesRegex(ValueError,'bytes/SHA/size'):cli.check_records(root,expected,parallel=True)
+            (root/'127').unlink()
+            with self.assertRaisesRegex(ValueError,'regular artifact'):cli.check_records(root,expected,parallel=True)
+            (root/'127').mkdir()
+            with self.assertRaisesRegex(ValueError,'regular artifact'):cli.check_records(root,expected,parallel=True)
+    def test_parallel_package_duplicate_and_unsafe_records_stop_before_reading(self):
+        for records in ([dict(path='same')]*128,[dict(path='../escape')]*128):
+            with self.subTest(records=records[:1]),patch.object(cli,'file_records') as read,self.assertRaises(ValueError):
+                cli.check_records(ROOT,records,parallel=True)
+            read.assert_not_called()
+    def test_small_package_stays_on_the_existing_sequential_reader(self):
+        with patch.object(cli,'file_records',return_value=[]) as read:
+            cli.check_records(ROOT,[],parallel=True)
+        read.assert_called_once_with(ROOT,[])
     def test_owned_validation_child_uses_utf8_without_changing_parent(self):
         with tempfile.TemporaryDirectory() as directory,patch.dict(os.environ,{'PYTHONUTF8':'0','PYTHONIOENCODING':'cp932'}):
             root=Path(directory);target=root/'diagnostic.json';before=dict(os.environ)
