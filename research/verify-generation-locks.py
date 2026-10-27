@@ -48,7 +48,8 @@ def compile_case(c):
  name=c['lock_marker'];names=meta['states']
  for symbol in (name,'록 온'):
   if symbol not in names:names[symbol]=len(names)
- row=L['DEFINITION_BASE'];words[row+F['STAT']]=93;words[row+F['TARGET_NAME']]=names['록 온']
+ row=L['DEFINITION_BASE'];words[row+F['KIND']]=0;words[row+F['STAT']]=93;words[row+F['TARGET_NAME']]=names['록 온']
+ words[L['RECIPIENT_BASE']+6]=1
  # The original modifier is explicitly derived to a finite external time window.
  for step in range(words[2]):
   at=L['COMMAND_BASE']+step*8

@@ -22,6 +22,11 @@ class LockExecutorTests(unittest.TestCase):
   c=suite.fixtures()[-1];w,m,b=suite.compile_case(c);r=suite.observe(c)
   self.assertEqual(len(b),128);self.assertEqual(len(r['snapshots'][31]['handles']),24)
   self.assertEqual(r['pool'],suite.parent.manual.native(c,suite.L))
+ def test_named_modifier_lowering_restores_buff_kind_before_device_admission(self):
+  c=suite.fixtures()[0];w,m,b=suite.compile_case(c);at=suite.L['DEFINITION_BASE']
+  self.assertEqual(w[at+suite.F['KIND']],0);self.assertEqual(w[at+suite.F['STAT']],93)
+  self.assertEqual(w[at+suite.F['TARGET_NAME']],m['states']['록 온'])
+  self.assertEqual(w[suite.L['RECIPIENT_BASE']+6],1)
  def test_cpu_oracles_do_not_build_or_execute_gpu(self):
   from unittest.mock import patch
   import portable_backend
