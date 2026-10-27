@@ -1,0 +1,60 @@
+{
+  "schema": "original-catalogue-roles-final-checks-v1",
+  "source_commit": "7fdc2b269e4ab98ead3ad593eb9cd9dde9a6b30a",
+  "package_id": "9fb47503762183329fca2331452b45e455ead6e882b1bbc8353b29f9b07beae6",
+  "archive_sha256": "095d126a089b7c59492fc6caac2354fd15b4d228ace109d9e267b944ef2a3f2b",
+  "unit_check": {
+    "passed": true,
+    "groups": 22,
+    "tests": 205,
+    "full_native_preflight_executed": false,
+    "calculation_verified": false,
+    "gpu_calls": 0
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "9fb47503762183329fca2331452b45e455ead6e882b1bbc8353b29f9b07beae6",
+    "suite": "original-catalogue-roles-cache-only",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "payload_delta": {
+    "changed": [
+      "app/portable_cpu_tests.py",
+      "scripts/nikke_gpu.py"
+    ],
+    "added": [
+      "research/portable-original-catalogue-roles-v1-expected.json",
+      "tests/test_original_catalogue_roles_sealed.py"
+    ],
+    "removed": [],
+    "function_asts_identical": {
+      "app/portable_cpu_tests.py": true,
+      "scripts/nikke_gpu.py": true
+    },
+    "input_native_gpu_source_baselines_identical": true,
+    "sealed_golden_is_exact_independent_output": true,
+    "gpu_rerun_needed": false,
+    "prior_diagnostic_failure": "Whole development entries were compared to sealed entries, which add independently verified output hashes. Compare every original name/input/native field and require exact sealed golden separately."
+  },
+  "model_check": {
+    "passed": true,
+    "report_sha256": "66b70764d8646b38d763d99382e87e823f302f28d2158c81c3fd040667f11391",
+    "scope": "source audit only",
+    "full_goal_complete": false,
+    "public_gpu_admitted": false
+  },
+  "extra_native_battles": 0,
+  "extra_gpu_runs": 0
+}

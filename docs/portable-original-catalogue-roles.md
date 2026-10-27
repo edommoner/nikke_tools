@@ -22,3 +22,8 @@ Red Hoodは元のlogical Aを保つ。canonicalの自動候補順はB3のまま�
 使い方は`package --suite original-catalogue-roles --out NEW.zip`→新規unpack→固定packet自身の`run`。`original-catalogue-roles-cache-only`は同じsource/入力/golden/比較器にCUBIN/O1必須・paired generation必須を適用する。現CUDA実機/実CUBIN hitは未確認。Windows旧transactionはhost unavailableで終端不明、追加run/再送0。
 
 任意選択catalogueは元1,064名に実role操作4名を追加して1,068名。元266profileのinventoryを増やしたのではなく、全キャラ/全特殊効果・公開GPU受付は未達。次はRed Hood B2/decoyの実被弾、異なる論理敵/PART/typed混成、未実証元profileを優先する。未知のLock On距離を既存順位で埋めない。出所と範囲は`research/target-count-query-evidence/metal-original-catalogue-roles-v1.json`。
+
+
+## 最終cache packet
+
+固定7fdc2b26/package9fb47503…は22群205unitとCUBIN/O1/2GiB/60秒compile-plan policy成功。独立sealしたpacketとの差は既存2ファイルの登録/依存dataと、新golden・固定入力testの2ファイルだけ。両既存moduleの全関数/class AST、全計算/入力/CPU観測/比較ソースと全input/native/GPU source期待を保持し、goldenはfresh独立監査の出力と全一致するためnative/GPUの再計算0。全体model-checkも成功、canonical未対応5stat/公開受付False/全ゴール未達は維持する。証跡`original-catalogue-roles-final-checks-v1.json`。
