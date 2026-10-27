@@ -112,6 +112,7 @@ def begin(cli,capture,backend,gpu_capture,group_size):
         j.emit('staged_begin_complete','returned')
         result=dict(mode='staged-preflight-begin-only',package_id=m['package_id'],transaction_nonce=nonce,
             transaction_ready=True,native_groups=len(c['case_groups']),native_oracles_run=0,
+            counter_scope='Transaction preflight only; CPU unit-test work is not counted as native preflight',
             cpu_tests_verified=True,calculation_verified=False,gpu_calls=0,driver_load_calls=0)
         exclusive(capture/'result.json',result);return result
     except BaseException as e:

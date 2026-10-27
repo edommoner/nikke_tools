@@ -54,6 +54,10 @@ class DispatchFrameStorageTests(unittest.TestCase):
   self.assertEqual((new['inputs'],new['native']),(106,63));self.assertFalse(new['development_only'])
   self.assertNotEqual(old['source'],new['source']);self.assertNotEqual(old['golden'],new['golden'])
   from portable_package_projection import SUPPORTED_SUITES
-  self.assertIn('compiler-full--coordinate-resident-frames',SUPPORTED_SUITES);self.assertNotIn('coordinate-resident-frames',SUPPORTED_SUITES)
+  self.assertIn('compiler-full--coordinate-resident-frames',SUPPORTED_SUITES);self.assertIn('coordinate-resident-frames',SUPPORTED_SUITES)
+  from portable_package_projection import roots_for
+  roots=roots_for(new,nikke_gpu.SMOKE_TESTS)
+  self.assertIn(new['script'],roots);self.assertIn('tests/test_dispatch_frame_storage.py',roots)
+  self.assertIn('tests/test_portable_staged_preflight.py',roots)
 
 if __name__=='__main__':unittest.main()
