@@ -1,3 +1,7 @@
+# 2026-10-28 元profile選択監査を共通CLIへ接続
+
+`entry-inventory`へ`--character`反復指定/`--favorite-stage`を追加。元metadataで全選択を検証後、指定profileだけprepareする。元owner/source行/name/effect SHAと既存reference_readinessを結合した`profile_explanations`を出し、部分結果に全体admissionを付けない。未知名/存在しないstage/重複は準備前拒否、failureも保存。favorite bodyの共有defaults混入をdeepcopyで防止する。実Ann/Velvet2件0.87秒/Cinderella1件0.82秒、全266対照4.53秒。旧全profile行/input SHA/定義identity/未対応順位を保持し、選択3行も全体行と一致。専用7/既存inventory11/readiness15/semantics22検査成功。元GPU/数値/正本/packing/比較/golden変更0、追加GPU/compile0、Windowsstatusはhost unavailable・再送0。既存model-gap調査を重ねず、敵向けconsumer不足とGPU lower不足をこの入口で確認してから次の変更を選ぶ。全体未達。[詳細と証跡](portable-shared-entry-inventory.md)。以下は履歴。
+
 最終cache packetb9cf55d4…（a41de72f）は23群209unit/compile-plan policy成功。全計算/観測/比較・元input/native期待と独立goldenを保持し、最終登録によるnative/GPU再実行0。詳細`target-count-query-evidence/original-catalogue-incoming-final-checks-v1.json`。
 
 # 2026-10-28 元B2・デコイの実被弾を共通実行器で独立seal

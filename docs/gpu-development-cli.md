@@ -1,3 +1,5 @@
+`entry-inventory --character NAME --favorite-stage 0 --suite original-shield-weapons --out NEW.json`は指定profileだけを準備する静的監査。元owner/source行/effect hashと既存対応分類を`profile_explanations`へ出し、部分結果と全体を区別する。[使い方・制約・全266保持](portable-shared-entry-inventory.md)。
+
 `original-catalogue-incoming`は元Red Hood B2の挑発/被弾後回復とCinderellaデコイの破壊/実HP被弾/元burst復帰を30秒4条件でMetal独立seal。`original-catalogue-incoming-cache-only`は同じ計算・入力・goldenのCUBIN/O1とpaired generation必須。任意catalogueは1,072名。[範囲と使い方](portable-original-catalogue-incoming.md)。
 
 `original-catalogue-roles`は元RapiのB1編成条件とRed Hoodの明示B1/B2を30秒4条件でMetal独立sealした固定群。`original-catalogue-roles-cache-only`は同じ計算・入力・goldenのCUBIN/O1とpaired generation必須。任意選択catalogueは元1,064＋role4の1,068名。[範囲と使い方](portable-original-catalogue-roles.md)。

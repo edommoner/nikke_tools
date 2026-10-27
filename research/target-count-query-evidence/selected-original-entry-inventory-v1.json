@@ -1,0 +1,219 @@
+{
+  "schema": "selected-original-entry-inventory-v1",
+  "scope": "Preparation-time filter and existing source diagnostics; not a GPU feature or calculation certificate",
+  "full_control": {
+    "profiles": 266,
+    "packed_profiles": 254,
+    "failures": 12,
+    "elapsed_seconds": 4.534665208993829,
+    "report_sha256": "a58927830b02af57456b6d52079c2bbeaec087c1c3fb87c1fbdeab159393dce7"
+  },
+  "all_previous_profile_rows_and_priorities_retained": true,
+  "retained_fields": [
+    "profiles",
+    "definition_kind_profiles",
+    "operator_priorities",
+    "packing_failures",
+    "packing_priorities",
+    "kind_dependencies",
+    "packed_profiles",
+    "profile_count",
+    "kind_rejected_profiles"
+  ],
+  "prior_report_sha256": "7afccf89c984ad3445015f8e0faebad106e068edaa3af8380350d4b0050cfb59",
+  "gpu_source_matches_current_pinned_packet": "b9cf55d4de4b112a7bf8d09126c9996c3933a6272eedeea7e88d4a0689f5e306",
+  "selected_reports": [
+    {
+      "report": "selected-entry-anne-velvet-v1.json",
+      "report_sha256": "b8c4d3927896e2e1c6d6e64bb73b6c77681678276557622a8b9ec7752e1ee869",
+      "profile_count": 2,
+      "packed_profiles": 0,
+      "elapsed_seconds": 0.8707761249970645,
+      "profile_selection": {
+        "characters": [
+          "앤 : 미라클 페어리",
+          "벨벳"
+        ],
+        "favorite_stage": 0,
+        "all_profiles": false,
+        "applied_before_preparation": true
+      },
+      "profile_explanations": [
+        {
+          "character": "앤 : 미라클 페어리",
+          "favorite_stage": 0,
+          "original_definitions_sha256": "2153ca679f513fc3fb46e95698ed456b12d51e1430adc58b12cfdf1a6143a964",
+          "input_packed": false,
+          "blockers": [
+            {
+              "source_row": 2,
+              "owner": "앤 : 미라클 페어리",
+              "name": "요정의 장난 2",
+              "effect_sha256": "756a0fe76d5c7c4db7c8317e0450ddc1e0d3f640ef41fa1dd1bf972fded276c1",
+              "issue": {
+                "phase": "effect",
+                "category": "recipient",
+                "kind": "buff",
+                "stat": "heal_received_pct",
+                "target": "all_enemies",
+                "scaling": null,
+                "code": "{\"category\": \"recipient\", \"kind\": \"buff\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"heal_received_pct\", \"target\": \"all_enemies\"}",
+                "diagnostic_source": "structured_reason",
+                "error_type": "UnsupportedPortable",
+                "message": "Unported buff recipient selector"
+              },
+              "reference_readiness": {
+                "lane": "reference_model_gap",
+                "native_consumer": "missing_canonical_world_or_quantity_consumer",
+                "contract_coverage": "not_indexed",
+                "gpu_supported": false,
+                "gpu_admission_verified": false,
+                "full_character_verified": false,
+                "runtime_validation_performed": false,
+                "consumer_source": "app/portable_model_gap_audit.py; app/portable_missing_consumer_audit.py; calculator/boss_pattern.py:_ranked; calculator/timeline.py:_register_instant_handlers",
+                "required_extensions": [
+                  "explicit_world_or_quantity_model",
+                  "typed_target_lifecycle_and_producer_contracts",
+                  "shared_execution_and_current_CUDA_Metal_battle_validation"
+                ],
+                "note": "Pinned source leaves movement/lock/range/target-count unimplemented. target_and_nearby falls back to one aimed target without a nearby spatial model; all_projectiles returns before damage. Enemy ammunition is filtered out by the allied instant handler, though its named completion still emits. Enemy healing has no verified recipient path. Keep these effects rejected; source audits and typed-state core do not certify battle support"
+              }
+            }
+          ],
+          "program_issue": {
+            "phase": "program",
+            "category": "recipient",
+            "kind": null,
+            "stat": null,
+            "target": "self",
+            "scaling": null,
+            "reason": "Unported buff recipient selector",
+            "code": "{\"category\": \"recipient\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported buff recipient selector\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+            "diagnostic_source": "structured_reason",
+            "error_type": "UnsupportedPortable",
+            "message": "Unported buff recipient selector"
+          },
+          "rejected_effects": [],
+          "gpu_admission_verified": false,
+          "calculation_verified": false,
+          "full_character_verified": false,
+          "scope": "Exact selected original rows; existing first-failure diagnostics and work routing, no predicted unlocks or runtime proof"
+        },
+        {
+          "character": "벨벳",
+          "favorite_stage": 0,
+          "original_definitions_sha256": "151b002e96ec4e0fbb0ca4c7f43769247aeb824d84824b95e4b04540b06c9b4e",
+          "input_packed": false,
+          "blockers": [
+            {
+              "source_row": 1,
+              "owner": "벨벳",
+              "name": "탄환 가져오기 2",
+              "effect_sha256": "b2bb227759ef8de3042fe6b1c5570790db1da44299753c4dd1ab0fbe643c8ce7",
+              "issue": {
+                "phase": "effect",
+                "category": "recipient",
+                "kind": "instant",
+                "stat": "ammo_charge_pct",
+                "target": "all_enemies",
+                "scaling": null,
+                "code": "{\"category\": \"recipient\", \"kind\": \"instant\", \"phase\": \"effect\", \"scaling\": null, \"stat\": \"ammo_charge_pct\", \"target\": \"all_enemies\"}",
+                "diagnostic_source": "message_fallback",
+                "error_type": "UnsupportedPortable",
+                "message": "Unported health recipient selector"
+              },
+              "reference_readiness": {
+                "lane": "reference_model_gap",
+                "native_consumer": "missing_canonical_world_or_quantity_consumer",
+                "contract_coverage": "not_indexed",
+                "gpu_supported": false,
+                "gpu_admission_verified": false,
+                "full_character_verified": false,
+                "runtime_validation_performed": false,
+                "consumer_source": "app/portable_model_gap_audit.py; app/portable_missing_consumer_audit.py; calculator/boss_pattern.py:_ranked; calculator/timeline.py:_register_instant_handlers",
+                "required_extensions": [
+                  "explicit_world_or_quantity_model",
+                  "typed_target_lifecycle_and_producer_contracts",
+                  "shared_execution_and_current_CUDA_Metal_battle_validation"
+                ],
+                "note": "Pinned source leaves movement/lock/range/target-count unimplemented. target_and_nearby falls back to one aimed target without a nearby spatial model; all_projectiles returns before damage. Enemy ammunition is filtered out by the allied instant handler, though its named completion still emits. Enemy healing has no verified recipient path. Keep these effects rejected; source audits and typed-state core do not certify battle support"
+              }
+            }
+          ],
+          "program_issue": {
+            "phase": "program",
+            "category": "recipient",
+            "kind": null,
+            "stat": null,
+            "target": "self",
+            "scaling": null,
+            "reason": "Unported health recipient selector",
+            "code": "{\"category\": \"recipient\", \"kind\": null, \"phase\": \"program\", \"reason\": \"Unported health recipient selector\", \"scaling\": null, \"stat\": null, \"target\": \"self\"}",
+            "diagnostic_source": "message_fallback",
+            "error_type": "UnsupportedPortable",
+            "message": "Unported health recipient selector"
+          },
+          "rejected_effects": [],
+          "gpu_admission_verified": false,
+          "calculation_verified": false,
+          "full_character_verified": false,
+          "scope": "Exact selected original rows; existing first-failure diagnostics and work routing, no predicted unlocks or runtime proof"
+        }
+      ],
+      "forbidden_calls": {
+        "cpu_battle": 0,
+        "gpu": 0
+      }
+    },
+    {
+      "report": "selected-entry-cinderella-v1.json",
+      "report_sha256": "d4b6083d7c5a94359355b4c3fcca50fb528702fd5d83a1fa836b929eb8a05e55",
+      "profile_count": 1,
+      "packed_profiles": 1,
+      "elapsed_seconds": 0.8188607080082875,
+      "profile_selection": {
+        "characters": [
+          "신데렐라"
+        ],
+        "favorite_stage": 0,
+        "all_profiles": false,
+        "applied_before_preparation": true
+      },
+      "profile_explanations": [
+        {
+          "character": "신데렐라",
+          "favorite_stage": 0,
+          "original_definitions_sha256": "627acf0b4a73c4c0c1ba6d2dc3a2ce202d048f858629e5bcc84ac38584436366",
+          "input_packed": true,
+          "blockers": [],
+          "program_issue": null,
+          "rejected_effects": [],
+          "gpu_admission_verified": false,
+          "calculation_verified": false,
+          "full_character_verified": false,
+          "scope": "Exact selected original rows; existing first-failure diagnostics and work routing, no predicted unlocks or runtime proof"
+        }
+      ],
+      "forbidden_calls": {
+        "cpu_battle": 0,
+        "gpu": 0
+      }
+    }
+  ],
+  "selection_rows_equal_to_full_control": true,
+  "tests": {
+    "selected": 7,
+    "existing_inventory": 11,
+    "readiness": 15,
+    "readiness_semantics": 22,
+    "failures": 0
+  },
+  "gpu_runs": 0,
+  "compiler_calls": 0,
+  "native_battles_in_inventory_commands": 0,
+  "windows": {
+    "new_runs": 0,
+    "last_status_request": "host unavailable, terminal unknown; no resend"
+  },
+  "full_goal_complete": false
+}

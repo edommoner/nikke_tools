@@ -117,6 +117,7 @@ SUITES = {
                    tests=['test_portable_world_reload.py']),
 }
 SUITES['original-shield-weapons']=dict(SUITES['original-projectile-weapons'],script='research/verify-original-shield-weapons.py',golden='research/portable-original-shield-weapons-v1-expected.json',inputs=15,native=10,development_only=False,entry_inventory_input_policy='body-owned-hp-shield-v1',tests=[*SUITES['original-projectile-weapons']['tests'],'test_original_shield_weapons.py','test_original_entry_inventory.py','test_portable_readiness.py'])
+SUITES['original-shield-weapons']['tests'].append('test_original_entry_selection.py')
 SUITES['original-catalogue']=dict(SUITES['original-shield-weapons'],script='research/verify-original-catalogue.py',source='gpu/world_coordinate_typed_history_entry.slang',golden='research/portable-original-catalogue-development-expected.json',inputs=None,native=None,development_only=True,selection_required=True,tests=[*SUITES['original-shield-weapons']['tests'],'test_original_catalogue.py','test_shared_skill_history.py','test_native_creation_scalar_scope.py','test_portable_seal.py','test_portable_comparison_groups.py','test_original_catalogue_roles.py','test_burst_control_policy.py'])
 SUITES['original-catalogue'].pop('entry_inventory_input_policy')
 SUITES['original-catalogue']['tests'].append('test_original_catalogue_incoming.py')
@@ -3487,6 +3488,8 @@ def main(argv=None):
     a=sub.add_parser('source-reuse');a.add_argument('--out',type=Path,required=True);a.add_argument('--require-hit',action='store_true')
     for name in ('reference-package','candidate-package','reference-generation','candidate-generation'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('entry-inventory');a.add_argument('--out',type=Path,required=True);a.add_argument('--suite',choices=('coordinate-original','coordinate-original-burst-revival','coordinate-original-resources','coordinate-original-ammo','coordinate-original-stacks','coordinate-original-cleanse','coordinate-original-source','coordinate-original-reload','coordinate-original-shield','coordinate-original-cover','coordinate-original-shared','coordinate-original-decoy','coordinate-original-init','coordinate-original-enemy-stack','coordinate-original-harmful-stack','coordinate-original-accum','coordinate-original-owned','original-projectile-weapons','original-shield-weapons'),default='coordinate-original')
+    a.add_argument('--character',action='append',help='Prepare only these exact original character names; repeat for multiple names')
+    a.add_argument('--favorite-stage',type=int,help='Select an existing original favorite stage, 0..3; unavailable combinations fail before preparation')
     a=sub.add_parser('metal-device-probe',help='Bounded device visibility only; no kernel compilation or GPU dispatch');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('coordinate-parent-check',help='CPU-only live preflight/context reuse check against saved Metal fixtures; not GPU certification')
     a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -3626,7 +3629,10 @@ def main(argv=None):
         write(a.out,result)
     elif a.command=='entry-inventory':
         from portable_original_entry_inventory import run
-        result=run(a.out,write=write,forbid_gpu=forbid_gpu,source=SUITES[a.suite]['source'],comparison_source=SUITES[a.suite].get('kind_baseline_source'),input_policy=SUITES[a.suite].get('entry_inventory_input_policy','original-coordinate-v1'))
+        selection={}
+        if a.character is not None:selection['characters']=a.character
+        if a.favorite_stage is not None:selection['favorite_stage']=a.favorite_stage
+        result=run(a.out,write=write,forbid_gpu=forbid_gpu,source=SUITES[a.suite]['source'],comparison_source=SUITES[a.suite].get('kind_baseline_source'),input_policy=SUITES[a.suite].get('entry_inventory_input_policy','original-coordinate-v1'),**selection)
     elif a.command=='resident-arc-retain':
         from portable_resident_arc_retention import run as retain_arc
         with forbid_gpu():result=retain_arc(a.reference_capture,a.candidate_capture,a.out,reference_evidence_sha256=a.reference_evidence_sha256,candidate_evidence_sha256=a.candidate_evidence_sha256)

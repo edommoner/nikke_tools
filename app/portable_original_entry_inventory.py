@@ -83,7 +83,25 @@ def kind_dependencies(profiles):
     return [dict(required_kinds=list(required),profile_count=len(rows),profiles=sorted(rows,key=lambda row:(row['character'],row['favorite_stage'])))
         for required,rows in sorted(groups.items(),key=lambda item:(-len(item[1]),item[0]))]
 
-def run(output,*,write,forbid_gpu,source=None,comparison_source=None,input_policy='original-coordinate-v1'):
+def profile_explanation(row,prepared):
+    """Join existing classifications to exact original owners, never guess a fix."""
+    from portable_readiness_semantics import reference_readiness
+    blockers=[]
+    for blocker in row.get('effect_blockers',[]):
+        index=blocker['index']
+        if type(index) is not int or not 0<=index<len(prepared['effects']):raise ValueError('Invalid original blocker source row')
+        original=prepared['effects'][index];effect=original['effect']
+        if (original['owner'],effect.get('name'))!=(blocker['owner'],blocker['name']):raise ValueError('Original blocker owner or name differs')
+        blockers.append(dict(source_row=index,owner=original['owner'],name=effect.get('name'),
+            effect_sha256=hashlib.sha256(json.dumps(effect,ensure_ascii=False,sort_keys=True).encode()).hexdigest(),
+            issue=copy.deepcopy(blocker['issue']),reference_readiness=reference_readiness(blocker['issue'])))
+    return dict(character=row['character'],favorite_stage=row['favorite_stage'],original_definitions_sha256=row['original_definitions_sha256'],
+        input_packed=row['input_packed'],blockers=blockers,program_issue=copy.deepcopy(row.get('program_issue')),
+        rejected_effects=copy.deepcopy(row.get('rejected_effects',[])),
+        gpu_admission_verified=False,calculation_verified=False,full_character_verified=False,
+        scope='Exact selected original rows; existing first-failure diagnostics and work routing, no predicted unlocks or runtime proof')
+
+def run(output,*,write,forbid_gpu,source=None,comparison_source=None,input_policy='original-coordinate-v1',characters=None,favorite_stage=None):
     output=Path(output)
     with output.open('x',encoding='utf-8') as stream:stream.write('{}\n')
     started=time.perf_counter();calls=dict(cpu_battle=0,gpu=0)
@@ -93,6 +111,10 @@ def run(output,*,write,forbid_gpu,source=None,comparison_source=None,input_polic
     try:
         if sys.flags.optimize:raise RuntimeError('Static entry inventory requires assertions enabled')
         if input_policy not in INPUT_POLICIES:raise ValueError('Unknown original entry input policy')
+        selected=characters is not None or favorite_stage is not None
+        if selected:
+            report['profile_selection']=dict(characters=copy.deepcopy(characters),favorite_stage=favorite_stage,all_profiles=False,applied_before_preparation=True)
+            report['profile_explanations']=[]
         import engine_worker,portable_backend,portable_runtime
         from calculator import timeline
         from portable_coordinate_roster_input import compile_coordinate_battle,SOURCE as DEFAULT_SOURCE
@@ -103,6 +125,7 @@ def run(output,*,write,forbid_gpu,source=None,comparison_source=None,input_polic
         if input_policy!=INPUT_POLICIES[0]:
             report['scope']='Complete original rosters in a declared one-actor BODY-owned typed weapon world; static compilation and definition kinds only, no runtime admission or battle certification'
             report['declared_typed_world']=dict(kind=2 if input_policy=='body-owned-projectile-v1' else 3,actors=1,identity=10,owner=[0,0,1],capacity=1e30,point_source='caster_aim',shape=dict(x=0.,y=0.,r=10000.,z=1.),automatic_aim='typed-before-body-v1',actor_policy='body-owned-current-fields-v1',extra_damage_probe=False)
+        if selected:report['scope']+='; explicitly selected profiles only, not an all-profile inventory'
         from portable_coordinate_kind_admission import KindAdmission
         policy=KindAdmission(Path(__file__).resolve().parents[1],source)
         comparison=KindAdmission(Path(__file__).resolve().parents[1],comparison_source) if comparison_source else None
@@ -122,7 +145,11 @@ def run(output,*,write,forbid_gpu,source=None,comparison_source=None,input_polic
             return forbidden
         with forbid_gpu(),ExitStack() as guards:
             for module,name,kind in [(timeline,'simulate','cpu_battle'),(timeline.CharState,'tick','cpu_battle'),(portable_backend,'build','gpu'),(portable_backend,'execute','gpu'),(portable_backend,'execute_batches','gpu'),(portable_runtime,'execute','gpu'),(portable_runtime,'execute_batches','gpu')]:guards.enter_context(patch.object(module,name,stop(kind)))
-            for name,stage,prepared in prepared_profiles():
+            if selected:
+                from portable_original_identity_inventory import selected_prepared_profiles
+                profiles=selected_prepared_profiles(characters,favorite_stage)
+            else:profiles=prepared_profiles()
+            for name,stage,prepared in profiles:
                 report['current_profile']=dict(character=name,favorite_stage=stage)
                 row=dict(character=name,favorite_stage=stage,input_packed=False,gpu_admission_verified=False)
                 original=copy.deepcopy(prepared)
@@ -156,6 +183,7 @@ def run(output,*,write,forbid_gpu,source=None,comparison_source=None,input_polic
                         still_rejected={(r['row'],r['kind']) for r in current['unsupported']}
                         expanded=[r for r in baseline['unsupported'] if (r['row'],r['kind']) not in still_rejected]
                         row.update(comparison_kind_admission=baseline,expanded_kind_effects=rejected_effects(words,metadata,prepared,expanded))
+                if selected:report['profile_explanations'].append(profile_explanation(row,prepared))
                 report['profiles'].append(row)
         if report['source_sha256']!=source_hashes() or report['gpu_source_sha256']!=portable_backend.source_hashes(source):raise ValueError('Static entry inventory source changed during audit')
         if comparison is not None and report['comparison_gpu_source_sha256']!=portable_backend.source_hashes(comparison_source):raise ValueError('Comparison source changed during static inventory')
@@ -180,4 +208,5 @@ def run(output,*,write,forbid_gpu,source=None,comparison_source=None,input_polic
     result={key:report[key] for key in ('stage','passed','profile_count','packed_profiles','kind_rejected_profiles','rejected_operator_categories','forbidden_calls','calculation_verified','gpu_admission_verified','full_character_verified','elapsed_seconds')}
     result.update(input_policy=report['input_policy'],source=report['source'],packing_failures=len(report['packing_failures']),packing_operator_categories=len(report['packing_priorities']),scope=report['scope'])
     if comparison is not None:result['expanded_kind_profiles']=report['expanded_kind_profiles']
+    if selected:result['profile_selection']=report['profile_selection']
     return result

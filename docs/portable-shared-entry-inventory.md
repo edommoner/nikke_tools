@@ -1,3 +1,23 @@
+# 対象profileを準備前に選択する（2026-10-28）
+
+同じ未対応の再調査を避けるため、共通CLIの既存監査へ`--character`と`--favorite-stage`を追加した。指定しなければ従来の全266profile監査と同じ。キャラ名は繰り返し指定でき、favorite未指定ならそのキャラの元全段階、favoriteだけならその段階を持つ元profileを選ぶ。
+
+```sh
+python scripts/nikke_gpu.py entry-inventory --suite original-shield-weapons \
+  --character '앤 : 미라클 페어리' --character '벨벳' --favorite-stage 0 \
+  --out NEW_SELECTED.json
+```
+
+選択は元metadataで全件検証してからprepareへ渡す。未知名、重複、空選択、bool/範囲外stage、指定キャラに存在しない段階を拒否し、既知名だけを部分実行しない。元のmetadata順を保つ。favoriteごとのbodyはyield時にdeepcopyし、後の段階による共有defaultの更新を混入させない。元body/effect/武器・育成を変更する選択機構ではない。
+
+選択報告は`profile_selection.all_profiles=False`と`applied_before_preparation=True`を持ち、部分結果を全体のinventoryと扱わない。`profile_explanations`は元source行、owner、name、元effect SHAと全定義SHAへ既存の`reference_readiness`を結合する。whole-program失敗、定義のfirst failure、kind拒否をそのまま区別し、新しい分類器やGPU受付を作らない。未知の後続要件や、1件を修正すればprofile全体が通るという予測はしない。元owner/名前/行の不一致は監査自体を失敗させる。
+
+実CLIでAnn/Velvetの2profileだけを準備し、元本人の敵向け`heal_received_pct`/`ammo_charge_pct`が既存の`reference_model_gap`であることを0.87秒で出力した。Cinderellaだけの受理対照は0.82秒。全266監査は4.53秒で、以前の全profile行・入力hash・元定義identity・kind依存・未対応順位と完全一致した。選択した3行も全体対照の同じ行と完全一致。単発測定であり一般的な速度倍率は主張しない。監査コマンドのbattle/GPU/compiler呼出しは0。
+
+source closureは履歴の古い静的報告ではなく、直前に固定したincoming packetの全GPU source byteと照合した。今回の変更にGPU/数値/計算/packing/比較/goldenは含まれないため、計算証明の再実行はしない。専用7＋既存inventory11/readiness15/semantics22検査が成功。Windows status取得はhost unavailableで終端不明、run再送0。詳細は`research/target-count-query-evidence/selected-original-entry-inventory-v1.json`。
+
+この監査を使って既存の専用実証も先に確認し、未対応の元operatorを選択してからcatalogueのbounded開発packetへ進む。Ann/Velvetの敵数量、cover_def_pctの正本inert、未知のLock On距離をally選択やno-opで置換しない。全キャラ/全特殊効果/公開GPU受付は未達。以下は従来の全件監査の説明。
+
 # 実際の共通入口で未対応項目を調べる
 
 開発の優先順位は、使用する入口の`entry-inventory`から決める。従来の`inventory`はlegacy world compilerの分類であり、共通座標入力やtyped modifier loweringの受理範囲とは異なる。いずれも静的変換で、GPU受付・計算・全キャラ認定を表さない。

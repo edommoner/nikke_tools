@@ -20,6 +20,28 @@ def prepared_profiles():
     for name,stage,body in profile_bodies():
         yield name,stage,engine_worker.evaluate(dict(body,_portable_static_inputs=True))
 
+def selected_profile_bodies(characters=None,favorite_stage=None):
+    """Validate the entire metadata selection before preparing any character."""
+    if characters is not None and (type(characters) is not list or not characters or any(type(n) is not str or not n for n in characters) or len(set(characters))!=len(characters)):
+        raise ValueError('Select distinct nonempty original character names')
+    if favorite_stage is not None and (type(favorite_stage) is not int or not 0<=favorite_stage<=3):
+        raise ValueError('Favorite stage must be an integer from 0 to 3')
+    # body_for can share nested defaults between yields. Snapshot each selected
+    # body immediately, before the next favorite stage updates those defaults.
+    known=set();selected=[]
+    for name,stage,body in profile_bodies():
+        known.add(name)
+        if (characters is None or name in characters) and (favorite_stage is None or stage==favorite_stage):selected.append((name,stage,copy.deepcopy(body)))
+    if characters is not None and set(characters)-known:raise ValueError('Unknown original character selection')
+    if not selected:raise ValueError('No original profile matches the selection')
+    if characters is not None and set(characters)-{name for name,_,_ in selected}:raise ValueError('Requested character lacks this original favorite stage')
+    return selected
+
+def selected_prepared_profiles(characters=None,favorite_stage=None):
+    import engine_worker
+    for name,stage,body in selected_profile_bodies(characters,favorite_stage):
+        yield name,stage,engine_worker.evaluate(dict(body,_portable_static_inputs=True))
+
 def inspect():
     profiles=0;duplicates=[]
     for name,stage,prepared in prepared_profiles():
