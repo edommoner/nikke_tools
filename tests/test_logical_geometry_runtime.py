@@ -34,4 +34,11 @@ class LogicalGeometryRuntime(unittest.TestCase):
             with self.subTest(name=name),self.assertRaises(ValueError):
                 project_sources(ROOT,{name:(ROOT/name).read_text()+'\n// unreviewed source\n'})
 
+    def test_existing_group_audit_checks_the_actual_shared_receipt_include(self):
+        import hashlib
+        from portable_coordinate_group_frontier import verify
+        result=verify(ROOT);self.assertTrue(result['passed'])
+        name='gpu/coordinate_group_actor_receipt.slang'
+        self.assertEqual(result['source_sha256'][name],hashlib.sha256((ROOT/name).read_bytes()).hexdigest())
+
 if __name__=='__main__':unittest.main()

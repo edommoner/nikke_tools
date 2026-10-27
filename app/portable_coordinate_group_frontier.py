@@ -57,8 +57,17 @@ def verify(root=None):
         'gpu/attack_group_runtime.slang':['#include "attack_group_open.slang"','#include "attack_group_seal.slang"'],
         'scripts/run-metal-probe.swift':['outputWords == 1507328'],
     }.items():
-        text=(root/name).read_text();assert all(token in text for token in tokens),'Relocated group consumer drift: '+name
-        sources[name]=hashlib.sha256(text.encode()).hexdigest()
+        raw=(root/name).read_text();text=raw
+        if name=='gpu/coordinate_physical_runtime.slang' and (root/'gpu/world_coordinate_logical_actor_entry.slang').exists():
+            from portable_logical_geometry_source_contract import project_sources
+            project_sources(root)  # Exact full source and receipt-tail identity.
+            include='#include "coordinate_group_actor_receipt.slang"'
+            assert text.count(include)==2,'Shared receipt call sites changed'
+            tail=(root/'gpu/coordinate_group_actor_receipt.slang').read_text()
+            text=text.replace(include,tail)
+            sources['gpu/coordinate_group_actor_receipt.slang']=hashlib.sha256(tail.encode()).hexdigest()
+        assert all(token in text for token in tokens),'Relocated group consumer drift: '+name
+        sources[name]=hashlib.sha256(raw.encode()).hexdigest()
     return dict(schema=1,passed=True,classification='gpu_port_gap',scope='Legacy guarded overlap and separate implemented private group profile; no calculation proof',
                 current=current,proposal=proposal,proposed_group_compact_begin=OUTPUT_WORDS,
                 proposed_group_compact_end=end,group_compact_words_retained=ag['COMPACT_WORDS'],
