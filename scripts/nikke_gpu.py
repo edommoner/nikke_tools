@@ -28,6 +28,10 @@ sys.path[:0] = [str(ROOT/p) for p in ('app', 'research', 'scripts')]
 from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 # No GPU/backend/native imports at startup: collect/audit must work without them.
 SUITES = {
+    'lock-delivery-policy':dict(script='research/verify-lock-delivery.py',
+        golden='research/portable-lock-delivery-policy-v1-expected.json',source='gpu/lock_delivery_probe.slang',
+        inputs=63,native=46,input_words=1032,output_words=16,development_only=True,
+        tests=['test_lock_delivery_policy.py']),
     'physical-lock-cover':dict(script='research/verify-physical-lock-cover.py',
         golden='research/portable-physical-lock-cover-v1-expected.json',source='gpu/world_physical_lock_cover_entry.slang',
         inputs=23,native=11,input_words=104400,output_words=806912,development_only=False,
