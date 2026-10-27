@@ -1,0 +1,71 @@
+{
+  "schema": "packet-fates-final-preflight-v1",
+  "passed": true,
+  "packages": [
+    {
+      "kind": "normal",
+      "package_id": "e0b00e1e7e7fbfd8ab455dc5436d74718658b64912f4d575b332c4fbd686882f",
+      "source_commit": "a1bef9076ea51c7dafb73f3aa7c581eb4f2c6c7d",
+      "manifest_sha256": "a6061f3cd8eb4f496efc1431acb10abd473a23533cbcef5463eb9d978faea0cb",
+      "tests": 62,
+      "groups": 10,
+      "skipped": 0,
+      "tests_sha256": "51dd1c2c20fb37b5bb43727d8f50a3e1ae0f99a48c7d8e958cb98ddaa2cc4b24",
+      "cpu_sha256": "205931d07bdd2e969ab0cce6adf39322fe37ab3b1d7d1a530b4eee0143e8cff7"
+    },
+    {
+      "kind": "cache",
+      "package_id": "4eadc5e8ef610a41b3b47b78a77bfb9baa6a27ef5cc3e1a4ada56eaf38f95d0b",
+      "source_commit": "a1bef9076ea51c7dafb73f3aa7c581eb4f2c6c7d",
+      "manifest_sha256": "40a393a1f601245db9435fe245559ac45c985f4c9e2e36026441194de256a2af",
+      "tests": 71,
+      "groups": 11,
+      "skipped": 0,
+      "tests_sha256": "2a39a66885afe20948992226be8a20a5f5028acfcdbf35fdb107e8e39081171c",
+      "cpu_sha256": "bb47d92eaf2d1c3c949fd921d64831baafe52d18315b4b20f17cc62cc98ea036"
+    }
+  ],
+  "smoke": {
+    "groups": 67,
+    "tests": 654,
+    "skipped": 1,
+    "receipt_sha256": "bcbcfd797532b5ec0928143ba374736bdef5fd67faa4ecb5ddcb469e442e1327"
+  },
+  "generation": {
+    "package_id": "e0b00e1e7e7fbfd8ab455dc5436d74718658b64912f4d575b332c4fbd686882f",
+    "generated_normalized": {
+      "cuda": "8a2cd06caba26d62c82470248a109d00aa7a4e3bc5af9bdb6dacaca3cb822041",
+      "metal": "7fe7f894f5342cc251502465b912466024f71076489941ac3a0e89d678aff469"
+    },
+    "verified": true,
+    "cache_hit": true,
+    "compiler_invocations": 0,
+    "gpu_calls": 0,
+    "sealed_generated_baseline_verified": true,
+    "calculation_verified": false
+  },
+  "cache_policy_negative": {
+    "schema": "packet-fates-resident-cache-missing-generation-v1",
+    "passed": true,
+    "package_id": "4eadc5e8ef610a41b3b47b78a77bfb9baa6a27ef5cc3e1a4ada56eaf38f95d0b",
+    "exit_code": 1,
+    "cubin_options_supplied": true,
+    "paired_generation_guard_observed": true,
+    "capture_created": false,
+    "worker_started": false,
+    "gpu_claim_consumed": false,
+    "gpu_calls": 0,
+    "cuda_compile_cache_hit_claimed": false,
+    "cuda_hardware_verified": false
+  },
+  "model_check": {
+    "passed": true,
+    "sha256": "7cc4cf2933a26c7c3a7c34188447f3ce69c5edd2a14612d6c051f78f85db82cc",
+    "public_gpu_admitted": false,
+    "full_goal_complete": false
+  },
+  "protected_canonical_and_normalizer_unchanged": true,
+  "known_preexisting_historical_source_guard_failures": 4,
+  "current_cuda_hardware_verified": false,
+  "final_gpu_calls": 0
+}

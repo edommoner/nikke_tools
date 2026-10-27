@@ -2699,3 +2699,5 @@ v3はCPU payload/inputを固定v1と監査してnative期待指紋だけ再利�
 追加でtests/test_destructible_battle.pyの21件を実行し17成功、過去fixtureのsource guard4件が失敗。変更前0dc09543の隔離snapshotでも同じ4guardが失敗することを再現して記録した。既存監査課題で、fixture/guardを弱めない。新12の認定と旧履歴の全面再認定は分ける。
 
 証跡はmetal-packet-fates-v3.json、packet-fates-failure-and-default-retention-v1.json、packet-fates-legacy-source-retention-v1.json、preexisting-typed-source-guards-v1.json。次の本体機能は元全25（特に元index0の実敵carrierと順位provider）への合成。距離/死亡振替/終了frameに残る監査receipt/全2048同時queueは未検証。全キャラ0/UI CPU/公開admission falseのまま。private継続点はprivate-continuation-v30.json。
+
+最終通常source a1bef907のnormal/cache2packageを作成し、それぞれ10群62／11群71検査とnative7のfresh CPU-onlyが成功。共通67群654（Win1skip）も成功。normal固定packetのrequired generationはsealed generated baselineまで検証しhit/コンパイラ0/GPU0。実immutable cache CLIでCUBIN側の必須flagを全て与えてもpaired generation指定なしならcapture/worker/claim前に停止する負例が成功。通常CUDA cache hit/launch認定ではない。追加GPU0。packet-fates-final-preflight-v1.jsonに全manifest/receipt hashを保存。ローカルjobは残っていない。
