@@ -1,3 +1,6 @@
+#ifndef WORLD_PACKET_CAPTURE
+#define WORLD_PACKET_CAPTURE(s,r,index,fallback) fallback
+#endif
 // Codec and late recipient binding only. Effect quantities, binary64 damage,
 // hit multiplicity, gauge, Actor HP, counter completion and healing are shared.
 bool worldSkillsEnabled(inout Runtime s)
@@ -202,7 +205,7 @@ bool landWorldSkillReceipt(inout Runtime s,LandingReceipt r,uint64_t when,uint o
 #ifdef PORTABLE_ATTACK_GROUPS
     if(r.attackGroup!=0) agCapture(s,r.attackGroup,index);else
 #endif
-    WORLD_PERIODIC_CAPTURE_PACKET(s,r,index,actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner NAMED_ENEMY_ARGUMENT(r.row));)if(s.error!=0) return false;
+    WORLD_PACKET_CAPTURE(s,r,index,WORLD_PERIODIC_CAPTURE_PACKET(s,r,index,actorSetCapture(s,33,index,d.damageRoute,d.damageCount,0,d.owner NAMED_ENEMY_ARGUMENT(r.row));))if(s.error!=0) return false;
     uint set=actorPoolSet(s,index),n=results[set];uint64_t share=r.amount;
     if((d.damageFlags&H_SPLIT)!=0&&n>1)
     {

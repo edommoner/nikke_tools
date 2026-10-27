@@ -28,6 +28,11 @@ sys.path[:0] = [str(ROOT/p) for p in ('app', 'research', 'scripts')]
 from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 # No GPU/backend/native imports at startup: collect/audit must work without them.
 SUITES = {
+    'live-lock-delivery':dict(script='research/verify-live-lock-delivery.py',
+        golden='research/portable-live-lock-delivery-v1-expected.json',source='gpu/world_lock_delivery_entry.slang',
+        inputs=9,native=4,input_words=104400,output_words=806912,development_only=True,
+        support_files=['research/portable-lock-packet-bindings-v1-expected.json'],
+        tests=['test_live_lock_delivery.py','test_lock_packet_bindings.py','test_lock_delivery_policy.py','test_lock_delivery_event_order.py','test_portable_weapon_phases.py','test_portable_generation_separation.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py']),
     'lock-packet-bindings':dict(script='research/verify-lock-packets.py',
         golden='research/portable-lock-packet-bindings-v1-expected.json',source='gpu/world_lock_packet_entry.slang',
         inputs=8,native=4,input_words=104400,output_words=806912,development_only=False,
@@ -475,7 +480,7 @@ SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
 SUITES['coordinate-landing']['support_files'] = ['research/portable-coordinate-arcs-short-expected.json']
 SUITES['coordinate-landing-arena']=dict(SUITES['coordinate-landing'],script='research/verify-coordinate-landing-arena-short.py',source='gpu/coordinate_landing_arena_probe.slang',golden='research/portable-coordinate-landing-arena-short-expected.json',output_words=46582,development_only=False,tests=[*SUITES['coordinate-landing']['tests'],'test_coordinate_arc_arena.py','test_coordinate_landing_arena.py'])
-for _metal_gate_suite in ('physical-lock-cover','lock-packet-bindings'):
+for _metal_gate_suite in ('physical-lock-cover','lock-packet-bindings','live-lock-delivery'):
     SUITES[_metal_gate_suite]['tests'].append('test_required_metal_cache_preflight.py')
 SUITES['coordinate-landing-arena-cache-only']=dict(SUITES['coordinate-landing-arena'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['coordinate-landing-arena']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['coordinate-landing-cache-only']=dict(SUITES['coordinate-landing'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['coordinate-landing']['tests'],'test_portable_cuda_cached_profile.py'])
