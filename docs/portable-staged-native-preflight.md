@@ -69,3 +69,23 @@ CUDAは`staged-gpu-linked` stageから既存の監査済みCUBINを使用する�
 GPU後は`pending_native_audit=true`、`calculation_verified=false`、runは`awaiting-native-audit`となる。完了したdispatchとsealed readback SHAの一致は記録するが、計算成功や全キャラ対応へ昇格しない。生成物・raw・標準artifactsを保存した後、[共通fresh分割監査](portable-shared-native-groups.md)を全群実行・集約して初めて計算一致を判定する。GPUの再実行は不要。
 
 CUDAのサービス保全が未確認なら計算一致後も環境保全／全体passedはfalse。transaction、CPU群、元の失敗とclaims、GPU rawと監査原本は保持する。
+
+## native群のtimeout後、同じ未実行GPU試行のtailだけを小分けで継続
+
+`continuation-package --base-package /original/package --out /new/controller.zip`は、元sealed packetの全payloadを保持し、3つの制御ファイルと継続用helper/testだけを変更した固定capsuleを作る。新しいゲーム機能やnative/数値/データ/元のテストの変更は混入できない。CLIの既存計算/監査関数、静的input生成、fresh nativeループ、GPU入力/実行後gateのASTも保持する。元registryを元owner自身で検査し、最新のSMOKE一覧を元packetへ押し付けない。
+
+```sh
+python scripts/nikke_gpu.py continuation-package --base-package /original/package --out /new/controller.zip
+# 新しく展開したcapsule自身のCLI/cwdで実行する
+python scripts/nikke_gpu.py preflight-resume --backend metal \
+  --parent-transaction /original/plan/proof --capture /new/resume \
+  --group-size 5
+```
+
+既存の全選択テストと、失敗直前までの連続した成功native群を、同じhost/Python・元manifest・全入力・全原本anchors・Job/観測で再検査する。失敗はcleanなbounded timeoutだけを対象とし、未成功群やreturnedだけの部分結果を成功へ昇格しない。元のresult/artifactsが無い場所へ後付け記録を作らない。元のGPU captureとexecution claimが未使用であることを確認し、元packetへappend-onlyの継続所有claimを作る。
+
+新transactionは元のGPU保存先を保ち、未完了caseだけを厳密に小さい群へ分割する。元の成功記録と失敗のbytes/SHAを`original-evidence.json`へ固定し、各tail群とGPU直前に再照合する。保存するのは指紋と検証記録のみで、native結果値・状態・contextのcacheではない。元の選択テストは同じ試行の記録として保持し、新しい制御ロジックはcapsuleのCPU-only Job smokeで別途検査する。
+
+Windows wrapperは`--stage preflight-resume --backend cuda`、requestは`parent_transaction`（絶対path）と`group_size`（ASCII十進文字列）の正確な2キー。新capsuleの共通wrapperでCPU-only smoke成功後、resumeを1回実行する。その後、通常の`preflight-native-group`で新transactionのtail indexを各1回実行する。BelowNormal/fresh Job/start gate/2GiB/各stage180秒を維持する。元の失敗群をそのまま再送しない。初版は普通のsealed ownerからの一段の継続に限定し、追加失敗時は自動retryしない。
+
+全入力を元prefix+fresh tailで検査した後も、GPU子60秒・CUDA保存CUBIN/生成cache必須・実行後の独立fresh native全件照合を維持する。元の失敗stageはfalseのままであり、継続後の計算成立と区別する。原本source/input/runtimeが変わった場合は継続を拒否する。

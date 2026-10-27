@@ -1,0 +1,95 @@
+{
+  "schema": "native-tail-continuation-metal-proof-v1",
+  "controller_commit": "7cbc0c58",
+  "package_id": "04b47582ea1419633a656349afa14336dba85a25981579cb10138046066e6ae0",
+  "backend": "metal",
+  "input_count": 4,
+  "native_cases": 4,
+  "retained_prefix_inputs": 2,
+  "fresh_tail_inputs": 2,
+  "original_timeout_passed": false,
+  "admission_verified": true,
+  "native_values_reused": false,
+  "original_tests_retained": true,
+  "post_gpu_independent_native_cases": 4,
+  "gpu_dispatches": 1,
+  "gpu_execution_verified": true,
+  "calculation_verified": true,
+  "transport_verified": true,
+  "containment_verified": true,
+  "preservation_verified": null,
+  "readback_sha256": "d1dc8ecdd94b881503bcc588e34103103dce402fc6adbfaa56924484c0545879",
+  "input_sha256": "f807a69c2d426c072a92d7b4ce95c7038e735ad0452a306f96d37f68b5af7b2b",
+  "transport": {
+    "device": "Apple M5",
+    "gpu_seconds": 0.41317454166710377,
+    "pipeline_cache": {
+      "archive_bytes": 9637136,
+      "archive_compile_seconds": 0,
+      "archive_sha256": "e79710d90be8b865470678d324a8ad10d6cbac5e2473979dd2db2b411baded46",
+      "enabled": true,
+      "hit": true,
+      "identity": {
+        "consumer_sha256": "c791a19517aa1ffb573b0c90e322cb3bd9435cb9d7954a5c5059e72086476a74",
+        "device": "Apple M5",
+        "entry": "portableEvents",
+        "math_mode": "safe",
+        "os_build": "Version 27.0.1 (Build 26A434)",
+        "registry_id": "4294968346",
+        "resident_stride": "143048",
+        "schema": "1",
+        "source_sha256": "64480dad8c8e15bb3398128a689c581c53e81134045f94ae3239d1677c40c135",
+        "threads_per_threadgroup": "1"
+      },
+      "key": "a626428695c38c26f6d066f9b07c96d485b427ee14414d2bc24a5cc206203609",
+      "native_archive_miss_rejected": true,
+      "required": true,
+      "schema": 1
+    },
+    "input_bytes": 1850884,
+    "output_bytes": 33036576
+  },
+  "gpu_child_seconds": 2.1181253329996252,
+  "full_goal_complete": false,
+  "full_character_verified": 0,
+  "scope": "Controller-only continuation of an unexecuted GPU attempt. Four-input proof; full106 CUDA and gameplay gaps remain.",
+  "anchors": [
+    {
+      "file": "native-tail-mac-controller-v1-aggregate.json",
+      "bytes": 11723,
+      "sha256": "e17cd0ed44cccff85c32b141ff000f9770b55eda05998e21b611334362c55d4e"
+    },
+    {
+      "file": "native-tail-mac-controller-v1-admission.json",
+      "bytes": 14565,
+      "sha256": "c12119648ecc74bb3f9e948187441d6a64a2654f0a0ce89a4adbc02ea05672d7"
+    },
+    {
+      "file": "native-tail-mac-controller-v1-resume/stage-result.json",
+      "bytes": 1034,
+      "sha256": "a5704b68580d7a585d9f36073441ffc02f13e5955cf87c78ef79cf58adc45077"
+    },
+    {
+      "file": "native-tail-mac-controller-v1-tail0/stage-result.json",
+      "bytes": 1472,
+      "sha256": "c01b89120a126ca69ef42719e866bdf2c15073b28eac3d0257a53b28725ee468"
+    },
+    {
+      "file": "native-tail-mac-controller-v1-tail1/stage-result.json",
+      "bytes": 1478,
+      "sha256": "64d89f7caaec7058d14930c25ec8c9da3bffba00558f57dbc4d2e002f34a0dae"
+    },
+    {
+      "file": "native-tail-mac-seed-v1-failed1/stage-result.json",
+      "bytes": 564,
+      "sha256": "5ee989025cd0a2bfd95c5798e52c76aa3582b9c9bc7a95466db9a2a2d7b02fb0"
+    },
+    {
+      "file": "native-tail-mac-seed-v1-gpu/evidence.json",
+      "bytes": 65705,
+      "sha256": "e383e4da206335d11122481c96ed5f68ceb8513231b97de427ca19d7701b2974"
+    }
+  ],
+  "original_failed_result_absent": true,
+  "original_failed_artifacts_absent": true
+}
