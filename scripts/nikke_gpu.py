@@ -30,7 +30,7 @@ from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 SUITES = {
     'lock-projectile-composition':dict(script='research/verify-lock-projectile-composition.py',
         golden='research/portable-lock-projectile-composition-v1-expected.json',source='gpu/world_lock_projectile_entry.slang',
-        inputs=12,native=7,input_words=109536,output_words=1310720,development_only=True,
+        inputs=12,native=7,input_words=109536,output_words=1310720,development_only=False,
         support_files=['research/portable-lock-packet-bindings-v1-expected.json','research/portable-destructible-original-battle-short-expected.json','research/target-count-query-evidence/lock-projectile-composition-v1-failure-diagnostic.json'],
         tests=['test_lock_projectile_composition.py','test_packet_fates.py','test_live_lock_delivery.py','test_lock_packet_bindings.py','test_portable_resident_layout.py','test_portable_resident_transport.py','test_portable_weapon_phases.py','test_portable_generation_separation.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py']),
     'live-lock-delivery':dict(script='research/verify-live-lock-delivery.py',
@@ -492,6 +492,7 @@ SUITES['coordinate-landing-cache-only']=dict(SUITES['coordinate-landing'],cuda_c
 SUITES['lock-delivery-cache-only']=dict(SUITES['lock-delivery-policy'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['lock-delivery-policy']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['lock-packet-cache-only']=dict(SUITES['lock-packet-bindings'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['lock-packet-bindings']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['live-lock-delivery-cache-only']=dict(SUITES['live-lock-delivery'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['live-lock-delivery']['tests'],'test_portable_cuda_cached_profile.py'])
+SUITES['lock-projectile-cache-only']=dict(SUITES['lock-projectile-composition'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['lock-projectile-composition']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['coordinate-physical']=dict(script='research/verify-coordinate-physical-short.py',source='gpu/world_coordinate_physical_entry.slang',golden='research/portable-coordinate-physical-short-expected.json',inputs=23,native=17,output_words=1310720,development_only=False,tests=['test_coordinate_physical_gpu.py','test_coordinate_physical_common.py','test_coordinate_physical_reference.py','test_portable_damage_factors.py'])
 SUITES['coordinate-physical']['upstream_documents']=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
 SUITES['coordinate-physical']['support_files']=['research/portable-coordinate-arcs-short-expected.json']

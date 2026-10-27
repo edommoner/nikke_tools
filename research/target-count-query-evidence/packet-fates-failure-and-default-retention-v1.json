@@ -1,0 +1,23 @@
+{
+  "schema": "packet-fates-failure-and-default-retention-v1",
+  "passed": true,
+  "failed_captures": [
+    {
+      "capture": "lock-projectile-composition-v1-metal",
+      "all_artifacts_verified": true,
+      "result_still_failed": true,
+      "result_sha256": "d33babefd4635b750d5b4b7e621394fffb867fa8bc46d69dd87012d9598e3ea8"
+    },
+    {
+      "capture": "packet-fates-v1-metal",
+      "all_artifacts_verified": true,
+      "result_still_failed": true,
+      "result_sha256": "e40473006d06a34ee8a42edef0f3d7188ba8f338374bafc49f1cfaba23b6c92a"
+    }
+  ],
+  "default106_complete_source_closure_unchanged": true,
+  "default106_generation_calls": 0,
+  "legacy_gpu_calls": 0,
+  "original_failed_claims_retried": 0,
+  "current_diagnostic_gpu_calls": 0
+}

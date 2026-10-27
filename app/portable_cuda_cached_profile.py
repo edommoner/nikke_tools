@@ -20,6 +20,12 @@ def validate(config,backend,*,execute=True,linked=False,environment=None):
     source=env.get('NIKKE_CUDA_PREFLIGHT_SOURCE','')
     if not source or not Path(source).is_absolute() or not Path(source).is_file():
         raise ValueError('Cached CUDA profile requires an existing absolute --cached-cuda-source')
+    paired=config.get('require_paired_generation',False)
+    if type(paired) is not bool:raise ValueError('Invalid paired generation policy')
+    if paired:
+        generation=env.get('NIKKE_SLANG_GENERATION_CACHE','')
+        if env.get('NIKKE_SLANG_GENERATION_REQUIRED')!='1' or not generation or not Path(generation).is_absolute() or not Path(generation).is_dir():
+            raise ValueError('Resident cached CUDA profile requires --require-generation-cache and an existing absolute --generation-cache')
     return True
 
 @contextlib.contextmanager
@@ -55,6 +61,15 @@ def audit(config,runtime,rows):
     if any(r.get('stage','').lower().startswith('nvrtc') or
            r.get('stage')=='cuda_cache_only_library' and (r.get('state')!='allowed' or r.get('name','').lower().startswith('nvrtc')) for r in rows):
         raise ValueError('Cached CUDA profile observed a forbidden compiler request')
+    paired=config.get('require_paired_generation',False)
+    if type(paired) is not bool:raise ValueError('Invalid paired generation policy')
+    if paired:
+        generation=[r.get('receipt',{}) for r in rows if r.get('stage')=='slang_generation_cache' and r.get('state')=='verified']
+        if (runtime.get('generation_cache_required') is not True or runtime.get('generation_cache_enabled') is not True
+            or len(generation)!=1 or generation[0].get('hit') is not True or generation[0].get('compiler_invocations')!=0
+            or any(r.get('stage')=='slang_compiler' for r in rows)):
+            raise ValueError('Resident cached CUDA profile requires an observed paired generation hit with zero compiler calls')
     return dict(profile=PROFILE,required_cache_hit_verified=True,nvrtc_calls=0,
+                **(dict(paired_generation_hit_verified=True,slang_compiler_calls=0) if paired else {}),
                 compiler_library_requests=0,calculation_verified=False,
                 scope='Compiler-free cached transport policy only; full calculation still requires the existing readback comparison and native trace audit')

@@ -2683,3 +2683,19 @@ code76b931c6、固定packet5e895206のMetal1回は全比較失敗。rawはlock-p
 共有layout変更を受けた既存live9/packet8/cover23/physical10/external16は生成厳密hash/input/nativeを先に確認、required Metal pipeline hitで各1回＋fresh独立seal、全input/readback byte保持。goldenはlivev2/packetv3/coverv4/physicalv6/externalv7へ更新し旧版を保持。本体106 CUDA/MSL厳密生成hashも保持（生成のみ）。実GPUは新失敗1＋旧成功5、同claim retry0、Windows新依頼0。共通67群652（Win1skip）と専用9群57はCPU-only成功。全inventory fieldは前回と一致、266/245packing/21失敗/20分類/全キャラ0/UI CPU。model-check成功、全目標未達。証跡はtarget-count-query-evidence/lock-projectile-composition-v1-failure-diagnostic.json / lock-projectile-legacy-retention-v1.json / lock-projectile-required-generation-v1.json。private継続点はprivate-continuation-v29.json。
 
 最終source2f2458fcから従来5通常packageを作成しsource/golden guardを確認。新合成を--developなしでpackageするとnative/ファイル作成前に拒否する実CLI負例も成功。追加GPU0。最終通常入口と失敗維持の記録はlock-projectile-final-cli-v1.json。ローカルjobは残っていない。
+
+### 2026-10-27 抑止packetも共通キューへ保持し、合成12入力をseal
+
+配送履歴差分を解消。従来のnative skill trace全行（BODY要求も含む）は保持し、別receipt_fatesでsuppressed_native_bodyとordinary_world_routeを明示する。GPUは凍結数量の監査receiptを既存2048slotキューへ置き、同じdrainの次frameでlogする。抑止receiptはActor land/counter/healへ入らず二重ダメージなし。typed counter子の後・named-hit子の前にenqueueする局所wrapperでnative append順に揃えた。既存完了通知/前提queryをPROJECTILE_CHAIN/FULL_BURST_LANDINGで接続し、新handlerや第二時計を作らない。
+
+144word bank（1069056..1069200、header16＋flag128）の全word/unused/tailを比較してから旧arena projectorへ渡す。旧全word、32actor sets/128typed targets/2048queue/31snapshot/38link trace、input109536/output1310720/resident140008は不変。traceMode1必須。元index24と元4/8/9/20のpartial fixtureで、元index0はself projectionのまま。
+
+新v1 0f5e2a40/code8d3a9b33は旧5条件とcounter-childが全比較成功、named-childが完了flag未接続で64。失敗保持。8e43b374は前提query未接続でCPU生成失敗、GPU/claim0。修正3c21e08eの固定v3 8422e8a3はnative7＋拒否5の全12入力でM5 Metal成功、fresh GPU禁止監査でseal。GPU .113912秒、PSO9.358276秒、独立監査12.005718秒。履歴を除外しないテストも成功。今turn GPU2（失敗1＋成功1）/同claim retry0/legacy GPU0。前回5e895206の失敗とv1失敗は全artifact hash再検査で保持し付替えない。
+
+v3はCPU payload/inputを固定v1と監査してnative期待指紋だけ再利用、package時native0。run内部ではfresh全CPU/nativeを実行し、独立sealもfresh。GPU量や保存GPU結果の引継ぎではない。旧live9/packet8/cover23/physical10/external16と本体106の全GPU source閉包が不変のため、旧生成/GPUを繰り返さない。旧goldenは維持。
+
+通常CLI lock-projectile-compositionはsealed12へ更新。lock-projectile-cache-onlyは同じ計算・goldenに既存CUBIN/O1/保存source/required CUBIN/NVRTC禁止を適用し、さらにrequired paired generationを実行前から要求。監査も生成hit/Slang0を検査する。既存standalone profileは追加要件なし。現在のCUDA実機は未検証。Windows既存continuationのstatusを1回試したがhost unavailable、terminal未取得・再送なし。
+
+追加でtests/test_destructible_battle.pyの21件を実行し17成功、過去fixtureのsource guard4件が失敗。変更前0dc09543の隔離snapshotでも同じ4guardが失敗することを再現して記録した。既存監査課題で、fixture/guardを弱めない。新12の認定と旧履歴の全面再認定は分ける。
+
+証跡はmetal-packet-fates-v3.json、packet-fates-failure-and-default-retention-v1.json、packet-fates-legacy-source-retention-v1.json、preexisting-typed-source-guards-v1.json。次の本体機能は元全25（特に元index0の実敵carrierと順位provider）への合成。距離/死亡振替/終了frameに残る監査receipt/全2048同時queueは未検証。全キャラ0/UI CPU/公開admission falseのまま。private継続点はprivate-continuation-v30.json。

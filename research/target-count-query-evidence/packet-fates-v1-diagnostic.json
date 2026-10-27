@@ -1,0 +1,72 @@
+{
+  "schema": "packet-fates-v1-diagnostic",
+  "calculation_verified": false,
+  "sealed": false,
+  "gpu_calls": 0,
+  "source_commit": "8d3a9b33e3049e93d8aad0eb6299b3c20157b612",
+  "original_result_sha256": "e40473006d06a34ee8a42edef0f3d7188ba8f338374bafc49f1cfaba23b6c92a",
+  "reason": "Named child requires existing PORTABLE_PROJECTILE_CHAIN admission/completion flag. All cases retained.",
+  "rows": [
+    {
+      "name": "lock-projectile/live",
+      "status": 0,
+      "all_fields_passed": true
+    },
+    {
+      "name": "lock-projectile/broken",
+      "status": 0,
+      "all_fields_passed": true
+    },
+    {
+      "name": "lock-projectile/late",
+      "status": 0,
+      "all_fields_passed": true
+    },
+    {
+      "name": "lock-projectile/capacity128",
+      "status": 0,
+      "all_fields_passed": true
+    },
+    {
+      "name": "lock-projectile/cover",
+      "status": 0,
+      "all_fields_passed": true
+    },
+    {
+      "name": "lock-projectile/named-child",
+      "status": 64,
+      "all_fields_passed": false,
+      "difference": "Suppressed packet queue/disposition counters differ"
+    },
+    {
+      "name": "lock-projectile/counter-child",
+      "status": 0,
+      "all_fields_passed": true
+    },
+    {
+      "name": "reject/lock-projectile/typed-magic",
+      "status": 64,
+      "rejected_as_expected": true
+    },
+    {
+      "name": "reject/lock-projectile/typed-node",
+      "status": 64,
+      "rejected_as_expected": true
+    },
+    {
+      "name": "reject/lock-projectile/typed-capacity",
+      "status": 64,
+      "rejected_as_expected": true
+    },
+    {
+      "name": "reject/lock-projectile/typed-reserved",
+      "status": 64,
+      "rejected_as_expected": true
+    },
+    {
+      "name": "reject/lock-projectile/trace-required",
+      "status": 64,
+      "rejected_as_expected": true
+    }
+  ]
+}

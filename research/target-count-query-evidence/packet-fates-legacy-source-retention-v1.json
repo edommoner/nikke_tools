@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "source": "world_lock_delivery_entry",
+      "closure_files": 157,
+      "exact_source_closure_retained": true
+    },
+    {
+      "source": "world_lock_packet_entry",
+      "closure_files": 155,
+      "exact_source_closure_retained": true
+    },
+    {
+      "source": "world_physical_lock_cover_entry",
+      "closure_files": 154,
+      "exact_source_closure_retained": true
+    },
+    {
+      "source": "world_physical_locks_entry",
+      "closure_files": 153,
+      "exact_source_closure_retained": true
+    },
+    {
+      "source": "world_generation_locks_entry",
+      "closure_files": 137,
+      "exact_source_closure_retained": true
+    }
+  ],
+  "legacy_generation_calls": 0,
+  "legacy_gpu_calls": 0
+}

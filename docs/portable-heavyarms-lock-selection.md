@@ -1,5 +1,27 @@
 # Lock Onの次の実装契約
 
+## 2026-10-27 配送dispositionを保持した発射体合成をMetalでseal
+
+共通CLI `lock-projectile-composition` は12入力（native7／拒否5）をM5 Metal＋別fresh GPU禁止監査でsealした。元の5条件に、名前付き完了通知の子攻撃とtypedカウンター完了の子攻撃を追加。履歴行の削除や比較項目の除外で前回差分を通していない。元5件のnative skill trace全行は、前回の失敗診断に保存した値と完全一致する。
+
+実際のtyped配送は従来のexecutorで同frameに処理する。その後nativeが作る本体向け仮packetに対応する**監査receipt**を、GPUでも既存LandingReceipt/2048slotキューへenqueueし、既存drainの次frame時刻で記録する。数量はtyped処理が既に凍結したbinary64をcopyし、ダメージを再計算しない。履歴の従来recipients列はnative dispatcher入口の要求（BODY）として保持し、別の `receipt_fates` が `suppressed_native_body` / `ordinary_world_route` とActor副作用の可否を明示する。抑止receiptはlog後に戻り、land/counter/healへ入らない。実typedのHP・counter・通知と、全battle状態も従来通り比較する。
+
+enqueueはtyped target-counterの子処理後、通常のnamed-hit子処理前に行う。既存 `pushSkillHit` 呼出しの局所wrapperだけを合成entryへ配線し、nativeのappend順と一致させる。子効果を削除したり、二つ目の時計を作ったりしない。名前付き完了を扱う既存PORTABLE_PROJECTILE_CHAINと、その既存前提PORTABLE_FULL_BURST_LANDINGを有効化した。新しい完了通知handlerは追加していない。
+
+144wordのfate bankを1069056..1069200へ追加（header16＋既存skill trace128行のflag128）。全flag・未使用行・header予約word・残りtailを照合してから、旧lock arenaの厳密projectorへ渡す。旧領域の全wordと32 actor sets/128 typed targets/2048queue/31shot snapshot/38link traceは保持。input109536/output1310720、resident Runtime140008byteは不変。traceMode1を要求し、診断を省いたまま成功にしない。現scopeはこれら7条件であり、終了frameで未drainの監査receiptや2048同時queue、全25定義を認定したものではない。
+
+最初の新packet0f5e2a40（code8d3a9b33）は、従来5条件とcounter-childは全比較成功したが、named-childが既存完了flag未接続でadmission64。失敗を保持。8e43b374では前提のfull-burst queryが未接続でCPU生成エラーとなりGPU/claim0。修正3c21e08eの固定packet8422e8a3は全12成功、GPU0.113912秒、PSO9.358276秒、独立監査12.005718秒。今回実GPU2（失敗1＋成功1）、同claim retry0。前回の5e895206の失敗も全artifact hashを再確認して保持し、成功へ付替えない。
+
+v3 package作成は `--native-baseline-package` で、CPU全payload/inputの一致を監査したv1の期待指紋だけを再利用。変更はGPU entryと既存inverse ledgerのGPU current部だけと検証され、package時native再計算0。run内部では全CPU/native gateをfresh実行し、sealもfresh独立監査。保存GPU出力の再利用ではない。
+
+今回は旧live9/packet8/cover23/physical10/external16と本体106の全GPU source閉包が前回と一致。旧生成/旧GPUの再実行0で既存goldenを保持する。変更は新合成entryとその専用実装へ隔離した。CPU typed observerの追加dataは観測のみで、従来元発射体8件の全native指紋も保持する。
+
+`lock-projectile-cache-only` は同じ12入力・同じgolden・同じ共通計算のCUBIN/O1専用入口。既存の保存CUDA source/required CUBIN hit/NVRTC禁止に加えて、`--require-generation-cache --generation-cache ABS` を実行前から要求する。監査でもpaired generation hit/Slang呼出し0を要求し、CUBINだけhitしてSlangを再生成するfallbackを認めない。従来standaloneのcache profileは変更しない。現CUDA実機は未検証で、Windows新実行依頼0（既存continuationのstatus取得を1回試したがhost unavailable、再送なし）。
+
+証跡は `target-count-query-evidence/metal-packet-fates-v3.json` / `packet-fates-v1-diagnostic.json` / `packet-fates-failure-and-default-retention-v1.json`。全25定義、元index0の敵carrier/距離順位、死亡振替、公開GPU/全キャラ認定は引き続き未完了。
+
+追加の既存typed battleテスト21件は17成功、保存fixtureのsource guard4件が失敗した。変更前0dc09543のコードを独立領域へ展開して同じ4guardを実行し、全件同じ不一致を再現した。guardや旧fixtureを弱めて通していない。今回の新12入力はfresh capture/native/独立監査による認定で、旧履歴全体の再認定ではない。旧source guardの更新/再実証は残件として `target-count-query-evidence/preexisting-typed-source-guards-v1.json` に記録する。
+
 ## 2026-10-27 発射体との合成と、残っている配送履歴の差分
 
 `lock-projectile-composition`は既存のtyped発射体executorとlive lock executorを同じWorldSchedule/DFS stackへ配線する開発入口。元index24のall_projectiles定義を変更せず追加した5ケース（生存3体、破壊3体、burst後に出現する空対象、128体、ハイド）と不正typed wire4件を使う。元index4/8/9/20も保持するが、index0は周期self projectionのままで、全25定義の認定ではない。新しいダメージ計算・第二の戦闘時計・CPU配送表を導入しない。

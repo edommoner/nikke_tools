@@ -68,4 +68,22 @@ class CachedProfileTests(unittest.TestCase):
             self.assertTrue(cli.required_cuda_cache_preflight(manifest,capture))
             self.assertEqual(json.loads((capture/'cache-preflight.json').read_text())['gpu_calls'],0)
 
+    def test_resident_profile_requires_both_caches_before_execution(self):
+        config=dict(self.config,require_paired_generation=True)
+        with self.assertRaisesRegex(ValueError,'require-generation-cache'):profile.validate(config,'cuda',environment=self.env)
+        env=dict(self.env,NIKKE_SLANG_GENERATION_REQUIRED='1',NIKKE_SLANG_GENERATION_CACHE=str(self.root))
+        self.assertTrue(profile.validate(config,'cuda',environment=env))
+        for key,value in [('NIKKE_SLANG_GENERATION_REQUIRED','0'),('NIKKE_SLANG_GENERATION_CACHE','relative'),('NIKKE_SLANG_GENERATION_CACHE',str(self.root/'missing'))]:
+            with self.assertRaises(ValueError):profile.validate(config,'cuda',environment=dict(env,**{key:value}))
+
+    def test_resident_audit_requires_paired_hit_and_no_slang_compiler(self):
+        config=dict(self.config,require_paired_generation=True)
+        runtime=dict(cache_required='1',compile_cache_enabled=True,cuda_artifact_kind='cubin',ptxas_optimization_level='1',generation_cache_required=True,generation_cache_enabled=True)
+        base=[dict(stage='cuda_cache_only_profile',state='required',profile=profile.PROFILE),dict(stage='cuda_compile_cache',state='verified',receipt=dict(enabled=True,hit=True,artifact_bytes=1,key='a'*64,artifact_sha256='b'*64))]
+        generation=dict(stage='slang_generation_cache',state='verified',receipt=dict(hit=True,compiler_invocations=0))
+        self.assertTrue(profile.audit(config,runtime,[*base,generation])['paired_generation_hit_verified'])
+        for rows in [base,[*base,generation,generation],[*base,dict(generation,receipt=dict(hit=False,compiler_invocations=2))],[*base,generation,dict(stage='slang_compiler',state='entered')]]:
+            with self.assertRaises(ValueError):profile.audit(config,runtime,rows)
+        with self.assertRaises(ValueError):profile.audit(config,dict(runtime,generation_cache_required=False),[*base,generation])
+
 if __name__=='__main__':unittest.main()

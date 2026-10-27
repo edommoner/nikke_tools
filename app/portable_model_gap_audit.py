@@ -93,12 +93,22 @@ def verify(root,overrides=None):
   spatial_selection_verified=False,game_verified=False,original_full_profile_verified=False,public_admission=False,
   evidence='research/target-count-query-evidence/metal-live-lock-delivery-v1.json')
  missing['lock_on']['development_projectile_composition']=dict(suite='lock-projectile-composition',native_cases=5,rejected_cases=4,
+  historical=True,source_commit='76b931c68796668ba9247a10194e041f46dc1ddb',superseded_by='declared_projectile_delivery_fates',
   source='gpu/world_lock_projectile_entry.slang',original_index24_preserved=True,single_world_clock=True,
   disjoint_typed_and_lock_arenas=True,resident_runtime_stride_bytes=140008,
   metal_transport_executed=True,metal_verified=False,independently_sealed=False,cuda_verified=False,
   unresolved_comparison='Native suppressed BODY surrogate appears in skill history; actual typed receipts agree. Do not omit history rows.',
   full_profile_verified=False,game_verified=False,public_admission=False,
   evidence='research/target-count-query-evidence/lock-projectile-composition-v1-failure-diagnostic.json')
+ missing['lock_on']['declared_projectile_delivery_fates']=dict(suite='lock-projectile-composition',native_cases=7,rejected_cases=5,
+  source='gpu/world_lock_projectile_entry.slang',metal_verified=True,independently_sealed=True,cuda_verified=False,
+  original_index24_preserved=True,single_world_clock=True,single_receipt_queue=True,
+  native_history_rows_preserved=True,explicit_suppressed_body_disposition=True,
+  suppressed_receipts_do_not_enter_actor_hp_counter_heal=True,named_and_counter_child_append_order_verified=True,
+  disjoint_fate_bank_words=144,typed_targets=128,actor_sets=32,queue_capacity=2048,
+  diagnostic_trace_required=True,diagnostic_history_capacity=128,
+  spatial_selection_verified=False,dead_retarget_policy_verified=False,full_profile_verified=False,game_verified=False,public_admission=False,
+  evidence='research/target-count-query-evidence/metal-packet-fates-v3.json')
  missing['effect_target_count_add']['required_consumer_contract']=dict(marker=definitions[0]['name'],additional_targets=10,duration_bullets=2,
   distinct_target_capacity=True,does_not_increase_per_target_marker_stack=True,implementation_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}

@@ -1,7 +1,7 @@
 """No row exemptions: all fate words, unused slots and tail are checked."""
 import copy,sys,unittest
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','tests')]
+ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts','tests')]
 import portable_packet_fates as fates
 
 class FateTests(unittest.TestCase):
@@ -31,5 +31,11 @@ class FateTests(unittest.TestCase):
         c,t,e,_,_=self.sample()
         for trace,events in [(t[1:],e),(t,e+e),(t,[dict(e[0],amount=41.)])]:
             with self.assertRaises(AssertionError):fates.native_fates(c,trace,events)
+
+    def test_resident_cache_entry_reuses_same_calculation_and_requires_both_hits(self):
+        import nikke_gpu as cli
+        normal=cli.SUITES['lock-projectile-composition'];cached=cli.SUITES['lock-projectile-cache-only']
+        for key in ('script','golden','source','input_words','output_words','inputs','native'):self.assertEqual(normal[key],cached[key])
+        self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1');self.assertIs(cached['require_paired_generation'],True)
 
 if __name__=='__main__':unittest.main()
