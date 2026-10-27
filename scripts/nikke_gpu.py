@@ -1824,6 +1824,7 @@ def aggregate_saved_native_groups(package_root,receipts,backend,group_size,timeo
         row=load(path)
         if (row.get('mode')!='saved-native-group-only' or row.get('backend')!=backend
             or row.get('package_id')!=manifest['package_id'] or row.get('group_index')!=index
+            or type(row.get('group_index')) is not int or type(row.get('group_size')) is not int or type(row.get('per_group_timeout_seconds')) is not int
             or row.get('group_size')!=group_size or row.get('per_group_timeout_seconds')!=timeout
             or row.get('planned')!=planned or row.get('comparison_subset_verified') is not True
             or row.get('calculation_verified') is not False or type(row.get('gpu_calls')) is not int or row['gpu_calls']!=0):

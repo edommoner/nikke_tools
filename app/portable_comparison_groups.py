@@ -27,7 +27,7 @@ def aggregate(manifest,groups,planned,timeout,*,backend='metal'):
         raise ValueError('Comparison groups must cover every input exactly once')
     common=None;entries=[];native=0;pids=[];facts=[];audit=None
     for group,indices in zip(groups,planned,strict=True):
-        selection(count,indices);r=group['comparison'];a=group['audit'];pid=group['child_pid'];seconds=group['elapsed_seconds']
+        selection(count,indices);r=group['comparison'];selection(count,r.get('case_indices'));a=group['audit'];pid=group['child_pid'];seconds=group['elapsed_seconds']
         if type(pid) is not int or pid<=0 or pid==os.getpid() or pid in pids or group.get('live_parent_receipt_present') is not False:
             raise ValueError('Fresh independent comparison child required')
         if type(seconds) not in (int,float) or not 0<=seconds<=timeout+1:raise ValueError('Comparison group exceeded its bound')

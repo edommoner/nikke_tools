@@ -42,7 +42,7 @@ class CoverageTests(unittest.TestCase):
         for size in (0,-1,True,1.5):
             with self.assertRaises(ValueError):partition(3,size)
     def test_stale_reused_partial_failed_or_unbounded_child_never_certifies(self):
-        mutations=[lambda x:x.update(package_id='other'),lambda x:x.update(child_pid=os.getpid()),lambda x:x.update(live_parent_receipt_present=True),lambda x:x.update(elapsed_seconds=182),lambda x:x['comparison'].update(calculation_verified=True),lambda x:x['comparison'].update(parent_oracles={}),lambda x:x['comparison'].update(comparison_subset_verified=False),lambda x:x['comparison'].update(input_count=True),lambda x:x['comparison'].update(input_sha256='stale'),lambda x:x['audit'].update(transport_verified=False),lambda x:x['comparison']['entries'][0].update(native_sha256='changed'),lambda x:x['comparison'].update(native_oracles=True)]
+        mutations=[lambda x:x.update(package_id='other'),lambda x:x.update(child_pid=os.getpid()),lambda x:x.update(live_parent_receipt_present=True),lambda x:x.update(elapsed_seconds=182),lambda x:x['comparison'].update(calculation_verified=True),lambda x:x['comparison'].update(parent_oracles={}),lambda x:x['comparison'].update(comparison_subset_verified=False),lambda x:x['comparison'].update(input_count=True),lambda x:x['comparison'].update(input_sha256='stale'),lambda x:x['audit'].update(transport_verified=False),lambda x:x['comparison']['entries'][0].update(native_sha256='changed'),lambda x:x['comparison'].update(native_oracles=True),lambda x:x['comparison'].update(case_indices=[False,1])]
         for mutate in mutations:
             m,g,p=self.fixture();mutate(g[0])
             with self.subTest(mutate=mutate),self.assertRaises(ValueError):aggregate(m,g,p,180)

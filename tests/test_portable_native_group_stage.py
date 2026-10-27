@@ -31,9 +31,9 @@ class NativeGroupStageTests(unittest.TestCase):
     def test_partial_proof_cannot_become_whole_calculation_or_change_source(self):
         root=Path('/fixture');proof=self.proof(root);request=self.request(root)
         self.assertTrue(stage.verified_native_group(proof,request))
-        changes=[dict(calculation_verified=True),dict(gpu_calls=False),dict(group_index=1),dict(source_capture='/other'),dict(planned=[[0,1]]),dict(per_group_timeout_seconds=181)]
+        changes=[dict(calculation_verified=True),dict(group_index=False),dict(gpu_calls=False),dict(group_index=1),dict(source_capture='/other'),dict(planned=[[0,1]]),dict(per_group_timeout_seconds=181)]
         for change in changes:self.assertFalse(stage.verified_native_group(dict(proof,**change),request))
-        for mutate in (lambda x:x['group'].update(live_parent_receipt_present=True),lambda x:x['group']['comparison'].update(case_indices=[1,2]),lambda x:x['group']['audit'].update(containment_verified=False)):
+        for mutate in (lambda x:x['group'].update(live_parent_receipt_present=True),lambda x:x['group']['comparison'].update(case_indices=[1,2]),lambda x:x['group']['audit'].update(containment_verified=False),lambda x:x.update(planned=[[False,1],[2]]),lambda x:x['group']['comparison'].update(case_indices=[False,1])):
             bad=copy.deepcopy(proof);mutate(bad);self.assertFalse(stage.verified_native_group(bad,request))
     def test_claims_allow_distinct_groups_and_reject_same_group_replay(self):
         with tempfile.TemporaryDirectory() as tmp:

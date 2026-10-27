@@ -1,0 +1,55 @@
+{
+  "schema": "shared-native-groups-metal-four-v1",
+  "controller_commit": "1fdab95aab39920fe4c7eca8b0c5490fcf27d7fa",
+  "controller_package_id": "78e15f595171e337eecab5b872f7473e4f3565e85545492ddbbac17cc12fd9e8",
+  "source_package_id": "500d7c12a735f5a4beabf044a5c02af6a8c673fdb860c36a78b39993cc14d890",
+  "backend": "metal",
+  "input_count": 4,
+  "native_cases": 4,
+  "fresh_child_count": 2,
+  "case_groups": [
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "group_seconds": [
+    12.33704870800284,
+    12.69155441699695
+  ],
+  "per_group_timeout_seconds": 180,
+  "calculation_verified": true,
+  "passed": true,
+  "live_parent_reuse": false,
+  "GPU_calls": 0,
+  "compiler_calls": 0,
+  "input_sha256": "f807a69c2d426c072a92d7b4ce95c7038e735ad0452a306f96d37f68b5af7b2b",
+  "output_sha256": "d1dc8ecdd94b881503bcc588e34103103dce402fc6adbfaa56924484c0545879",
+  "entries_equal_independent_sealed_golden": true,
+  "sealed_golden": "research/portable-resident-frames-device-short-expected.json",
+  "sealed_golden_sha256": "f627fdc28b3f316d359555818f69802ab7a2b25d279f656984cd704d07c76871",
+  "Mac_controls": {
+    "tests": {
+      "groups": 7,
+      "tests": 62,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    "smoke": {
+      "groups": 62,
+      "tests": 604,
+      "failures": 0,
+      "errors": 0,
+      "skips": 1
+    }
+  },
+  "Windows_new_stage_executed": false,
+  "full106_cuda_verified": false,
+  "full_character_verified": false,
+  "scope": "Shared saved-result CPU audit only; no new GPU run or gameplay-model admission"
+}

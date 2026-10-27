@@ -111,16 +111,20 @@ def verified_readback(proof):
 
 def verified_native_group(proof,request):
     if not proof or proof.get('mode')!='saved-native-group-only' or proof.get('backend')!='cuda':return False
-    if proof.get('group_index')!=int(request['group_index']) or proof.get('group_size')!=int(request['group_size']):return False
+    if type(proof.get('group_index')) is not int or type(proof.get('group_size')) is not int or proof['group_index']!=int(request['group_index']) or proof['group_size']!=int(request['group_size']):return False
     if proof.get('source_package')!=request['source_package'] or proof.get('source_capture')!=request['source_capture']:return False
     group=proof.get('group',{});audit=group.get('audit',{});comparison=group.get('comparison',{})
-    from portable_comparison_groups import partition
+    from portable_comparison_groups import partition,selection
     count=comparison.get('total_input_count');bound=proof.get('per_group_timeout_seconds')
     if type(count) is not int or not 1<=count<=65536 or type(bound) is not int or not 1<=bound<=180:return False
     planned=partition(count,int(request['group_size']));index=int(request['group_index'])
     if index>=len(planned) or proof.get('planned')!=planned:return False
+    try:
+        for part in proof['planned']:selection(count,part)
+        selection(count,comparison.get('case_indices'))
+    except ValueError:return False
     indices=planned[index];pid=group.get('child_pid');elapsed=group.get('elapsed_seconds');native=comparison.get('native_oracles')
-    if (comparison.get('case_indices')!=indices or comparison.get('input_count')!=len(indices)
+    if (comparison.get('case_indices')!=indices or type(comparison.get('input_count')) is not int or comparison['input_count']!=len(indices)
         or len(comparison.get('entries',[]))!=len(indices) or group.get('package_id')!=proof.get('package_id')
         or type(pid) is not int or pid<=0 or pid==os.getpid()
         or type(elapsed) not in (int,float) or not 0<=elapsed<=bound+1
