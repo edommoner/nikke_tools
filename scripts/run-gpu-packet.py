@@ -170,7 +170,12 @@ def child(folder):
             def observed(*args,_fn=original,_name=name,**kwargs):
                 def checked():
                     result=_fn(*args,**kwargs)
-                    if _name=='verify_package' and result.get('package_id')!=plan['package_id']:raise ValueError('Packet changed after stage gate')
+                    # Saved-artifact admission also verifies its historical
+                    # producer package. Its identity must stay distinct; the
+                    # full verifier and lineage admission still check it.
+                    if _name=='verify_package':
+                        verified_root=Path(args[0] if args else kwargs['root']).resolve()
+                        if verified_root==ROOT.resolve() and result.get('package_id')!=plan['package_id']:raise ValueError('Packet changed after stage gate')
                     return result
                 return journal.invoke('packet_'+_name,checked)
             stack.enter_context(patch.object(cli,name,observed))

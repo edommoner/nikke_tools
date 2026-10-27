@@ -23,3 +23,5 @@ compactは3559→2129ファイル。除いた1430ファイルは選択外researc
 Windowsでは共通 `run-gpu-packet.py --stage gpu-linked` を使い、対応sourceの保存済みcompiler packageとJIT-link proofを2キーrequestで指定します。出所・全byte・生成source一致の既存監査を通し、新しいSlang/NVRTC/ptxas/linkは行いません。fresh CPU事前検査、BelowNormal、2GiB、全stage180秒、GPU child60秒、claimと終了処理は既存経路です。失敗時の自動再実行やcompile fallbackはありません。
 
 このprofileのCUDA計算実証は未完了です。計算一致、実行containment、サービス保全を別々に記録します。未対応分類、全キャラ・全特殊効果、公開consumer/UIへの接続は引き続き未完了です。
+
+wrapperのstage ID固定検査は、現在のpacket rootを検査するときだけ現在IDと比較します。保存artifactの元compiler packageは別IDである必要があり、その完全な検証結果を元のlineage admissionへ渡します。元packageのbyte破損と現在packetのID改変がどちらも拒否されることを回帰検査します。旧packageやclaimを変更せず、修正版は別の固定packageとして配布します。

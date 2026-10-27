@@ -200,6 +200,34 @@ class PacketStageTests(unittest.TestCase):
                 events=[json.loads(line) for line in (folder/'preparation.jsonl').read_text().splitlines()]
                 self.assertEqual([e['state'] for e in events if e['stage']=='packet_verify_package'],['entered','raised' if corruption!='none' else 'returned'])
                 self.assertEqual(events[-1]['stage'],'packet_shared_cli');self.assertEqual(events[-1]['state'],'raised' if corruption!='none' else 'returned')
+    def test_saved_producer_verification_keeps_distinct_identity_and_byte_checks(self):
+        for fault in ('none','producer_bytes','current_identity'):
+            with self.subTest(fault=fault),tempfile.TemporaryDirectory() as d:
+                root=Path(d)/'packet';root.mkdir();producer=Path(d)/'producer';producer.mkdir()
+                folder=Path(d)/'stage';folder.mkdir();calls=[]
+                plan=stage.recipe('current','gpu-linked','cuda',folder,Path(d)/'original',180,
+                                  dict(linked_package=str(producer),linked_capture=str(Path(d)/'link')))
+                (folder/'recipe.json').write_text(json.dumps(plan));(folder/'start.json').write_text('{}')
+                def verify(root,*,historical_compiler=False):
+                    where=root
+                    calls.append((where,historical_compiler))
+                    if where.resolve()==producer.resolve():
+                        self.assertTrue(historical_compiler)
+                        if fault=='producer_bytes':raise ValueError('Producer artifact bytes mismatch')
+                        return dict(package_id='original-compiler')
+                    return dict(package_id='changed' if fault=='current_identity' else 'current')
+                cli=SimpleNamespace(verify_package=verify)
+                def main():
+                    cli.verify_package(root=root)  # keyword form remains guarded
+                    self.assertEqual(cli.verify_package(producer,historical_compiler=True)['package_id'],'original-compiler')
+                    calls.append('admission')
+                cli.main=main
+                with patch.object(stage,'ROOT',root),patch.object(stage,'load_module',return_value=cli),patch.object(stage,'packet_header',return_value=dict(package_id='current')),patch.object(stage.os,'chdir'),patch.object(sys,'argv',list(sys.argv)):
+                    if fault=='none':stage.child(folder)
+                    else:
+                        with self.assertRaisesRegex(ValueError,'Producer artifact bytes' if fault=='producer_bytes' else 'Packet changed after stage gate'):stage.child(folder)
+                self.assertEqual('admission' in calls,fault=='none')
+                self.assertEqual(len([c for c in calls if isinstance(c,tuple)]),1 if fault=='current_identity' else 2)
     def test_missing_containment_gate_never_enters_shared_cli(self):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d)/'packet';root.mkdir();folder=Path(d)/'stage';folder.mkdir()
