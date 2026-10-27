@@ -1,5 +1,13 @@
 # Lock Onの次の実装契約
 
+## 2026-10-28 ネット調査による選択規則の判断
+
+実機環境を待たず公開情報で判断する指定に従い、日本語・英語・韓国語の公開記述を照合した。スキル記述で支持されるのは、照準を基準に未ロック敵を充填中0.2秒ごとに選ぶこと、通常5対象、バーストで10対象追加、通常攻撃/ハイドで解除すること。[公式発表](https://press.levelinfinite.com/en-US/GODDESS-OF-VICTORY-NIKKE-REVEALS-MAJOR-NEW-YEAR-UPDATE-FEATURING-LEGEN)はキャラ追加の一次資料だが距離式は説明していない。[公式番組を出所とするスキル全文](https://www.famitsu.com/article/202512/62211)は取得できたが、番組動画自体の今回の取得は失敗したため、映像を確認したとは扱わない。
+
+[Prydwen](https://www.prydwen.gg/nikke/characters/snow-white-heavy-arms)には取得順循環と挑発で順番が変わらないというキャラ固有の説明がある。[NIKKE.GG](https://nikke.gg/snow-white-heavy-arms-analysis-should-you-pull/)の死亡時振替は検索索引で読めるが、直接取得は403で振替先の決定法は不明。[韓国プレイヤーの実使用分析](https://gall.dcinside.com/mgallery/board/view/?id=gov&no=4485865)にも照準基準と対象数表示、単一ロックへ攻撃を集中させる説明がある。ただしリンク画像は今回未確認であり、中心/外形/奥行き/同距離を区別する実験とは扱わない。[記者のゲームプレイ分析](https://trees.gamemeca.com/view.php?gid=1769754)からも距離式は確定できない。
+
+判断：照準基準の取得規則は設計根拠として使う。数値距離式、同距離順、PART候補資格、死亡時の決定的な振替先は未確定のまま保持する。現行の明示provider順や死亡policyを黙って変更せず、既存typed aimの奥行き/birth/slot順を最近傍としない。実機環境の提供待ちで他のGPU対応を止めない。新しい制御実験か公式数値仕様が得られた時に再調査し、同じスキル文章の転載を何度も探索する作業は重ねない。計算変更/GPU実行/Windows依頼は0。出所・取得制約・判断は `research/target-count-query-evidence/heavyarms-online-selection-decision-20261028.json`。
+
 ## 2026-10-28 実パーツ・負傷・回復条件を同じ実行器で検証
 
 `original-lock-health-parts`は7つの30秒実編成とraw拒否4件。元25定義/実編成91定義を削らず、永続PART2個/破壊可能PART2個、通常編成の負傷とCPR、メアリーを先に配置した実編成のburst回復、メアリー低HP、パーツ＋負傷、パーツ＋負傷＋遅延ADDを実行する。編成変更は元bodyの変更として保存し、元input identityで効果/owner順/実武器/育成/configを検査する。単なるhas_parts=Trueではなく、元base flagはFalseで実live nodeに支配させる。PART上の実extra_hits/extra_dealt、破壊通知、全戦闘状態を照合する。
