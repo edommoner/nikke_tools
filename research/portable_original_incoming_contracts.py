@@ -12,12 +12,13 @@ def verify(case,native):
             heals=[h for h in native['sampled_health_returns'] if h['kind']=='_apply_lifesteal' and 4.<h['time']<12.]
             assert any(h['hp'][0]>hits[1]['hp_after'] for h in heals),'Original B2 lifesteal must actually restore injured HP'
     elif witness['family']=='Cinderella':
-        assert len(hits)==2 and all(h['owner']==0 for h in hits)
+        assert len(hits)==3 and all(h['owner']==0 for h in hits)
         assert hits[0]['decoy']>0,'Original decoy must absorb a real attack'
         if witness['scenario']=='chipped':
-            assert all(h['decoy']>0 and h['hp']==0 for h in hits),'An intact decoy must absorb both attacks'
+            assert all(h['decoy']>0 and h['hp']==0 for h in hits),'An intact decoy must absorb each attack'
         else:
             # Canonical decoy ends the entire absorbed hit; excess does not
             # overflow into HP. Only the next hit reaches HP after exhaustion.
             assert hits[0]['damage']>hits[0]['decoy'] and hits[0]['hp']==0 and hits[1]['decoy']==0 and hits[1]['hp']>0,('After real decoy exhaustion the next attack must reach original HP',hits)
+            assert hits[2]['decoy']>0 and hits[2]['hp']==0,'Original burst must restore a decoy for the later real attack'
     else:raise AssertionError('Unknown original incoming witness')

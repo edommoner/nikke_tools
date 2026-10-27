@@ -17,6 +17,6 @@ def profiles():
     body=next(body for name,stage,body in profile_bodies() if name=='신데렐라' and stage==0)
     for scenario,amount in [('chipped',400000),('broken',3500000)]:
         rows['original-catalogue/incoming/Cinderella-'+scenario+'/30s']=dict(character='신데렐라',favorite_stage=0,kind=3,duration=30,body=copy.deepcopy(body),
-            patterns=[dict(id='world',kind='idle',until=dict(time=30)),attack('decoy-first',4.,amount,target='slot:1',ignore=True,pierce=False),attack('decoy-check',5.,100000,target='slot:1',ignore=True,pierce=False)],
+            patterns=[dict(id='world',kind='idle',until=dict(time=30)),attack('decoy-first',4.,amount,target='slot:1',ignore=True,pierce=False),attack('decoy-gap',4.1,100000,target='slot:1',ignore=True,pierce=False),attack('decoy-restored',5.,100000,target='slot:1',ignore=True,pierce=False)],
             scene_witness=dict(family='Cinderella',scenario=scenario))
     return rows
