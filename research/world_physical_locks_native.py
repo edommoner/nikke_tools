@@ -12,7 +12,8 @@ from world_effect_target_count_shot_native import state as shot_state
 MAGIC=0x474c3031
 
 @contextmanager
-def capture(case,*,candidate_observer=None,clear_observer=None,notification_observer=None,primary_observer=None,shot_observer=None):
+def capture(case,*,candidate_observer=None,clear_observer=None,notification_observer=None,primary_observer=None,shot_observer=None,enemy_carrier=False):
+ if type(enemy_carrier) is not bool:raise ValueError('Explicit enemy carrier policy required')
  names=roster_names(case);owner=case.get('lock_owner',0);caster=names[owner];bosses=[];models={};pulses=[];shots=[];consumed=[];clears=[]
  init=timeline.BossScript.__init__;activate=BuffManager._activate;charge=timeline.CharState._charge_fire;auto=timeline.CharState._fire;notify=BuffManager.notify;consume=BuffManager.consume_bullet_buffs
  def initialized(boss,*a,**kw):init(boss,*a,**kw);bosses.append(boss)
@@ -28,11 +29,15 @@ def capture(case,*,candidate_observer=None,clear_observer=None,notification_obse
    return (5,bosses[-1]._runs[b.run].adds[b.slot].order)
   return [r.handle for r in sorted(live,key=key)]
  def activated(bm,effect,who,t,*a,**kw):
-  if effect.get('name')=='록 온' and effect.get('stat')=='' and who==caster:
+  if effect.get('name')=='록 온' and effect.get('stat')==('lock_on' if enemy_carrier else '') and who==caster:
    m,reg=model(bm);cap=m.capacity(t);choices=provider(reg)
    if candidate_observer is not None:candidate_observer(choices)
    answer=m.core.acquire(registry_views(reg),choices,capacity=cap);h=answer.selected
    pulses.append(dict(time=t,receipt=[cap,len(answer.snapshot.handles),answer.snapshot.revision,int(h.kind) if h else 0xffffffff,h.identity if h else 0,h.generation if h else 0,len(answer.removed),MAGIC]))
+   if enemy_carrier:
+    if h is None:return
+    if len(a)>1 or 'targets' in kw:raise ValueError('Lock carrier already has an explicit target override')
+    return activate(bm,effect,who,t,*a,targets=[reg.exact(h).label],**kw)
   return activate(bm,effect,who,t,*a,**kw)
  def fired(original):
   def wrapped(actor,t,bm,*a,**kw):

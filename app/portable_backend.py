@@ -101,6 +101,11 @@ def validate_composed_stride(source,input_words,output_words):
         check(ROOT)
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Physical cover requires the complete lock/manual arena wire')
         return
+    if source=='gpu/world_lock_enemy_carrier_entry.slang':
+        from portable_physical_lock_layout import check,INPUT,OUTPUT
+        check(ROOT)
+        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Enemy lock carriers require the complete physical arena wire')
+        return
     if source=='gpu/world_physical_locks_entry.slang' or output_words==806912:
         from portable_physical_lock_layout import check,INPUT,OUTPUT
         check(ROOT)

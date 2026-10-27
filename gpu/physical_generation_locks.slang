@@ -16,7 +16,11 @@ bool initializePhysicalLocks(inout Runtime s)
         Definition d=readDefinition(s.inputBase,row);
         if(d.name==name&&d.owner==owner)
         {
+#ifdef PORTABLE_LOCK_ENEMY_CARRIER
+            if(s.lockPulseRow!=P_DEFINITIONS||d.kind!=4||d.stat!=0||d.enemyBuff!=1||d.damageRoute!=6||d.damageCount!=1||d.conditionCount!=1||d.bulletDuration!=0||
+#else
             if(s.lockPulseRow!=P_DEFINITIONS||d.kind!=4||d.stat!=0||d.enemyBuff!=0||d.target!=0||d.conditionCount!=1||d.bulletDuration!=0||
+#endif
                 !f64Equal(definition_period(s.inputBase,row),f64Div(ONE,f64FromI64(5))))return false;
             uint cond=s.inputBase+P_CONDITION_BASE+row*P_CONDITION_WORDS;
             if(commands[cond]!=C_CHARGING||commands[cond+1]!=0||!f64Zero(loadNumber(cond+2)))return false;

@@ -3,7 +3,8 @@ import hashlib,json
 from pathlib import Path
 
 def project_sources(root,sources=None):
-    root=Path(root);out=dict(sources or {})
+    from portable_lock_enemy_carrier_source_contract import project_sources as enemy
+    root=Path(root);out=enemy(root,sources)
     ledger=json.loads((root/'tests/fixtures/portable-packet-fates-source-delta.json').read_text())
     for name,digest in ledger['added_sources'].items():
         if hashlib.sha256(out.get(name,(root/name).read_text()).encode()).hexdigest()!=digest:raise AssertionError('Unreviewed packet fates dependency: '+name)

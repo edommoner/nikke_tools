@@ -159,7 +159,12 @@ void beginActorFields(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int de
 {
     uint index=0;while(index<P_WORLD_ACTOR_SETS && results[actorPoolSet(s,index)+5]!=0) index++;
     if(index==P_WORLD_ACTOR_SETS) { s.error=64;return; }
-    Definition d=readDefinition(s.inputBase,row);actorSetCapture(s,33,index,d.damageRoute,d.damageCount,parent.target,d.owner NAMED_ENEMY_ARGUMENT(row));
+    Definition d=readDefinition(s.inputBase,row);
+#ifdef PORTABLE_LOCK_ENEMY_CARRIER
+    if(row==s.lockPulseRow) lockEnemyCarrierCapture(s,row,parent.time,index);
+    else
+#endif
+    actorSetCapture(s,33,index,d.damageRoute,d.damageCount,parent.target,d.owner NAMED_ENEMY_ARGUMENT(row));
     if(s.error!=0) return;
     pushFrame(s,frames,depth,25,parent.event,d.owner,int(row),parent.time,index);
     if(s.error==0) results[actorFieldHead(s)+1]++;

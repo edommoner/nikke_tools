@@ -236,7 +236,7 @@ void applyDefinitionFrame(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
     {
         if (d.kind == 0 || d.kind == 4)
         {
-#ifdef PORTABLE_PHYSICAL_LOCKS
+#if defined(PORTABLE_PHYSICAL_LOCKS) && !defined(PORTABLE_LOCK_ENEMY_CARRIER)
             physicalLockPulse(s,row,f.time);if(s.error!=0)break;
 #endif
             uint sourceRow=row; uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;
