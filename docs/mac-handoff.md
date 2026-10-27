@@ -4,6 +4,8 @@
 
 同じ計算/goldenの`original-projectile-weapons-cache-only`をCUBIN/O1必須＋paired generation必須へ登録。生成事前準備は2compiler/GPU0、実runは必須cache hit/Slang0。Metal archiveのCPU file snapshotも成功、実warm runやCUDA hitの認定にはしない。Windows既存statusはhost unavailable、新規依頼/再送0。未対応分類にprobe実証と元物理武器実証を区別して追加し、canonical target-world/Elegg nearby/実機/全キャラ/公開受付は未達のまま。次はshield_dmg_pctの元武器と現在敵fieldの未検証profileを優先し、Eleggのnearbyを削除して通さない。詳細 [元武器接続](portable-original-projectile-weapons.md)。
 
+最終e704391d/cache package eff7ddd9…の`unit-check`10群91検査（3.87秒）とcompile-plan成功。実compile/GPU0。Metal packageとの全payload差分はreadiness/CLI登録/test/goldenの4ファイルだけで、全CLI関数AST/全計算・native・packing・比較ソース/全input/native期待は不変。fresh inventoryは266中245packing/21失敗、全キャラ0/UI CPUを維持し新しい元武器scopeを記録した。変更のない全native sweepは再計算しない。最終証跡 `original-projectile-weapons-final-checks-v1.json`。
+
 2026-10-28ネット調査：ユーザーは実機提供ではなくネット情報での判断を指定。日英韓の公開情報を照合し、照準基準の未ロック取得/0.2秒/通常5/バースト+10/攻撃・ハイド解除を設計根拠として維持。中心vs外形vs3D、同距離順、PART候補、死亡時振替先の数値規則は得られず、現行の明示policyを実機仕様へ昇格しない。実機環境の回答待ちは解除し、他のGPU開発を継続する。新規制御実験/公式数値仕様が出るまで同じ転載の再探索は不要。計算/GPU/Windows追加0。詳細は [調査判断](portable-heavyarms-lock-selection.md) と `research/target-count-query-evidence/heavyarms-online-selection-decision-20261028.json`。
 
 2026-10-28追加：`original-lock-health-parts` をsealed11入力（native7/raw拒否4）として登録。元Heavyarms25定義/実編成91定義を維持し、実PART2個への命中と破壊、負傷/CPR、メアリーを先に置く実編成のburst回復、回復後HP条件の真偽と5秒後の実被ダメージ、3秒後ADD出現との同居を共通実行器へ接続。静的has_partsはFalseのままでlive nodeが決める。原操作/育成/武器/configを維持し、編成変更は元bodyとして明示する。

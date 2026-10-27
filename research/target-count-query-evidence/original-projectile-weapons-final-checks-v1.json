@@ -1,0 +1,63 @@
+{
+  "schema": "original-projectile-weapons-final-checks-v1",
+  "source_commit": "e704391d5bf03dd6846f11613f68ed588d2b2ba4",
+  "package_id": "eff7ddd9806f3e7f04789058453635debac5e1ef81cc6bbc29d819698405c7cc",
+  "metal_source_commit": "540142c442fca2af2267601237a25dbe6b89854c",
+  "metal_package_id": "7fa831043032a627e70491b3c44eae2770e578d824e7ab126e4fbced42f8f389",
+  "changed_payload_files": [
+    "app/portable_readiness_semantics.py",
+    "research/portable-original-projectile-weapons-v1-expected.json",
+    "scripts/nikke_gpu.py",
+    "tests/test_original_projectile_weapons.py"
+  ],
+  "all_other_payload_files_byte_identical": true,
+  "all_cli_functions_and_classes_ast_identical": true,
+  "input_and_all_native_expectations_identical": true,
+  "all_gpu_sources_identical": true,
+  "new_golden_matches_independently_sealed_readback": true,
+  "unit_groups": 10,
+  "unit_tests": 91,
+  "unit_elapsed_seconds": 3.870355083970935,
+  "unit_gpu_calls": 0,
+  "full_native_sweep_repeated": false,
+  "full_native_sweep_reason": "Only metadata, registration, tests and the sealed golden changed; every numeric, packing, native and comparison source is byte identical to the independently sealed package.",
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "eff7ddd9806f3e7f04789058453635debac5e1ef81cc6bbc29d819698405c7cc",
+    "suite": "original-projectile-weapons-cache-only",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "readiness_inventory_sha256": "80dd3d7e0030b1f34bd8b2a6dd9752bc403e01dcc8b0874d7c4399cf1cf01881",
+  "scoped_original_weapon_inventory_entries": 2,
+  "model_check_sha256": "b5dfef989c2097c60114dab134f017e08dad5d9bd84712513c221d66b996a8cc",
+  "cuda_verified": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "inventory": {
+    "profile_count": 266,
+    "base_count": 203,
+    "packed_profiles": 245,
+    "packed_base": 185,
+    "full_character_verified": 0,
+    "normal_ui": "CPU",
+    "full_goal_complete": false,
+    "packing_failures": 21
+  },
+  "next_priority": {
+    "stat": "shield_dmg_pct",
+    "scope": "Original physical weapon and current enemy fields in the declared typed world; retain the whole original effect set.",
+    "deferred": "Elegg target_and_nearby selector remains required; do not remove it to obtain packing success."
+  }
+}
