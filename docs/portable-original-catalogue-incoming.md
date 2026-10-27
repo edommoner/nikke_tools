@@ -22,3 +22,7 @@ Red Hood B2の操作は前のrole suiteと同じliteral B1→B2→B3指定。元
 未対応分類の追加確認では、AnnとVelvetの失敗は元本人の敵向けoperatorであり、味方rank selectorの欠落とは異なる。前者は`heal_received_pct/all_enemies`、後者は`ammo_charge_pct/all_enemies`。敵側consumerを確認する前にallyへ読み替えない。`cover_def_pct`は元正本のSCOPED_INERTに含まれるため、対象上位3人の受付だけで対応済みにしない。出所は`original-entry-next-blocker-triage-v1.json`。静的分類をGPU実証件数へ加えず、元inventoryの母数は不変。
 
 任意選択は元1,064＋role4＋incoming4の1,072名。別のprofileを追加した数ではない。混成BODY/PART/ADD/typed world、元周期条件のFalse側、他のprofile/育成、canonical不足、全キャラ/全特殊効果/公開GPU受付は未達。証跡は`research/target-count-query-evidence/metal-original-catalogue-incoming-v1.json`。
+
+## 最終cache packet
+
+固定a41de72f/package b9cf55d4…は23群209unitとCUBIN/O1/2GiB/60秒compile-plan policy成功。独立sealしたpacketからの差はCLI/CPU依存の登録dataと新golden/固定入力testの4ファイルのみ。両既存moduleの全関数/class AST、全計算・入力・観測・比較ソースと元input/native/GPU source期待、独立goldenの全byteを保持する。最終登録によるnative/GPU再実行0。全体model-checkも成功し、従来のcanonical未対応5stat/公開受付False/全体未達を維持する。詳細`original-catalogue-incoming-final-checks-v1.json`。

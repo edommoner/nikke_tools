@@ -1,3 +1,5 @@
+最終cache packetb9cf55d4…（a41de72f）は23群209unit/compile-plan policy成功。全計算/観測/比較・元input/native期待と独立goldenを保持し、最終登録によるnative/GPU再実行0。詳細`target-count-query-evidence/original-catalogue-incoming-final-checks-v1.json`。
+
 # 2026-10-28 元B2・デコイの実被弾を共通実行器で独立seal
 
 `original-catalogue-incoming`は元Red Hood B2/autoとCinderella chipped/broken各30秒の4入力、元81/81/74/74定義を保持。挑発中だけのvictim変更、実HP被弾後の吸血、デコイ一発全体吸収→次弾HP→元burst復帰を既存処理で全照合した。全skill217行、全battle/武器/通知/回復/乱数/全burst tickを比較。固定05cc2d69/package854ea3ad…、178unit/CPU81.73秒/M5 GPU3.82519秒/独立94.51秒、生成/PSO必須hit・Slang0/PSO.00311秒。GPU実行1/retry0、元GPU/数値/CPU正本/効果変更0。初版2件の誤った検査期待はGPU前に失敗保存、元burstを抑止せずliteral4.1秒攻撃を足して実分岐を確認。CUDA cache-onlyは同じ計算/golden、現CUDA実機未確認・Windows新run0。全キャラ/全特殊効果は未達。Ann/Velvetの失敗を本人の敵向けoperatorへ特定し、味方selector不足と混同しない。cover_def_pctの正本inertも保持。次は敵向けconsumer契約と混成world/周期False側などの残件。[詳細と証拠](portable-original-catalogue-incoming.md)。以下は履歴。
