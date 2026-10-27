@@ -2597,3 +2597,6 @@ sealed `physical-generation-locks`7入力（native3/拒否4）はM5 Metalと別f
 共通smokeでwire幅の厳密source依存登録漏れが見つかり、host wire/Swift/backend/schemaの全文inverse ledgerへ登録して修正。GPU再実行不要。default106のCUDA/MSL厳密正規化hashは保持（生成のみ）。arena GPU計2（失敗1含む）、external core GPU計2、同claim retry0。最後のexternal coreは生成Metal全byte同一を確認してpipeline必須hit。Windows保存結果は接続利用不可、再送/再実行0。全266profile/issue/20順位保持、245変換/21失敗/全キャラ認定0/UI CPU。
 
 証跡はpersistent proofs physical-lock-arena-v2-package/physical-lock-arena-v2-metal/physical-lock-arena-v2-independent.json とlock-core-arena-refactor-v2-package/-metal/-independent.json。次は実ハイドevent、順番攻撃のsnapshot consumer、元全25効果。距離・対象種別・tie順は未確定のまま。
+
+
+最終固定packet779d20cc（code b9c090ca）は自身の7群54検査と共通66群642検査（Windows専用1skip）がCPU-onlyで成功。GPU追加0。新幅806912を追加しても旧wire修復が変化しないよう、修復元・先の幅列と先SHAを歴史時点へ固定。共通CLIのGPU前必須検査にweapon source・generation separation・historical wire repairを登録し、repo内スキルにも反映。CPU-onlyの先行失敗3件は保持。証跡はresearch/target-count-query-evidence/physical-lock-arena-sealed-preflight-v4.json。全目標は未完了。
