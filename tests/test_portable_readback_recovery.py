@@ -17,7 +17,11 @@ class ReadbackRecoveryTests(unittest.TestCase):
         f=objects.RecoveryTests();f.setUp();self.addCleanup(f.doCleanups)
         self.package=f.package.resolve();self.capture=f.capture.resolve();self.outer=f.outer.resolve();self.packet=f.packet
         self.output=(f.f.root/'readback-audit').resolve();self.manifest=copy.deepcopy(f.f.base.m)
-        self.manifest.update(files=[]);self.manifest['golden']['output_sha256']=cli.sha(b'saved-gpu-output')
+        (self.package/'scripts/nikke_gpu.py').write_bytes(b'# verified original controller fixture')
+        self.manifest.update(schema=cli.SCHEMA,files=cli.file_records(self.package,['scripts/nikke_gpu.py']))
+        self.manifest['golden']['output_sha256']=cli.sha(b'saved-gpu-output')
+        self.manifest['package_id']=cli.package_id(self.manifest)
+        cli.write(self.package/'gpu-package.json',self.manifest)
         self.digest=self.manifest['golden']['output_sha256']
         cli.write(self.capture/'run.json',dict(package_id=self.manifest['package_id'],mode='gpu',backend='cuda',status='preflight'))
         linked=(f.f.root/'linked-stage'/'proof').resolve();linked.mkdir(parents=True)
@@ -38,7 +42,7 @@ class ReadbackRecoveryTests(unittest.TestCase):
         self.original.audit_capture=self.audit
         self.original.module=lambda _:self.packet
         self.controller=types.SimpleNamespace(**vars(cli));self.controller.ROOT=ROOT
-        self.controller.verify_package=Mock(return_value=self.manifest)
+        self.controller.verify_package=Mock(side_effect=lambda root: self.manifest if root==ROOT else (_ for _ in ()).throw(AssertionError('Current registry used for historical package')))
         self.controller.module=lambda _:self.original
 
     def recover(self,**kwargs):
@@ -93,8 +97,9 @@ class ReadbackRecoveryTests(unittest.TestCase):
         self.audit.side_effect=lambda *a,**k:((self.capture/'late.log').write_bytes(b'changed') and self.audit.return_value)
         with self.assertRaisesRegex(ValueError,'changed during'):self.recover()
         self.assertFalse((self.output/'result.json').exists())
-        bad=copy.deepcopy(self.manifest);bad['files']=[dict(path='app/portable_backend.py',sha256='wrong')]
-        self.controller.verify_package.side_effect=[bad,self.manifest]
+        bad=copy.deepcopy(self.manifest);path=self.package/'app/changed.py';path.parent.mkdir(exist_ok=True);path.write_bytes(b'changed dependency')
+        bad['files']+=cli.file_records(self.package,['app/changed.py']);bad['package_id']=cli.package_id(bad)
+        cli.write(self.package/'gpu-package.json',bad)
         with self.assertRaisesRegex(ValueError,'dependency changed'):self.recover(output=self.output.with_name('drift'))
 
     def test_wrapper_exact_request_and_proof_scope(self):

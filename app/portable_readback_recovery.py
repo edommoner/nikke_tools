@@ -8,6 +8,17 @@ from pathlib import Path
 from portable_object_recovery import MISSING, verify_terminal_timeout
 
 
+def verify_payload(cli, package):
+    """Byte bootstrap only; semantic projection belongs to the saved CLI."""
+    manifest = cli.load(package / 'gpu-package.json')
+    if manifest.get('schema') != cli.SCHEMA or manifest.get('package_id') != cli.package_id(manifest):
+        raise ValueError('Invalid original package identity')
+    if sum(row['path'] == 'scripts/nikke_gpu.py' for row in manifest['files']) != 1:
+        raise ValueError('Original controller must be in the verified payload')
+    cli.check_records(package, manifest['files'])
+    return manifest
+
+
 def snapshot(cli, package, capture):
     result = {}
     for label, folder in (('outer', capture.parent), ('proof', capture)):
@@ -73,7 +84,7 @@ def recover(cli, package, capture, output, expected_output_sha256):
     try:
         # Load the verified original controller; new recovery code does not
         # substitute its own suite, comparator, numeric policy or normalizer.
-        source_manifest = cli.verify_package(package)
+        source_manifest = verify_payload(cli, package)
         controller_manifest = cli.verify_package(cli.ROOT)
         current = {row['path']: row['sha256'] for row in controller_manifest['files']}
         for row in source_manifest['files']:
