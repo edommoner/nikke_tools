@@ -9,5 +9,15 @@
   },
   "identical": true,
   "gpu_calls": 0,
-  "scope": "Generation only; not execution"
+  "scope": "Strict normalized generation equality only. Source map changed; old golden/certificates are not silently rebound to a new packet. Existing frozen Windows owner remains unchanged.",
+  "source_hashes_equal": false,
+  "changed_source_files": [
+    "gpu/effect_target_count_runtime.slang",
+    "gpu/event_runtime.slang",
+    "gpu/program_phases.slang"
+  ],
+  "original_source_map_sha256": "5661f6276507deb8202fc651fb1c2e835c6ae4fa4189a94ef0e1f5199afdc45c",
+  "current_source_map_sha256": "1cb1793101adf6e3f483e768c94924ce130fffe63bf1672d975140aa22fba892",
+  "original_frozen_packets_still_unchanged": true,
+  "current_full106_reseal_verified": false
 }

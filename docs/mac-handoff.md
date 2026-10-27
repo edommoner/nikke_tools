@@ -2540,3 +2540,7 @@ code2d0167f4と後続修正で`named-target-count-query`を共通CLIへ登録。
 元の2射撃durationはこの外部イベントadapterで拒否。fixtureは元+10を使う時間契約の派生であり、全25定義やLock On選択を実装済みとしない。次は実物理shot寿命への接続を優先する。通常入場/20model-gap/全キャラ0/UI CPUを保持。
 
 Windowsは既存継続tail1..5の最終結果取得時に接続不能。最後の観測はtail4/global100..104成功、tail5/case105実行中という報告で、terminal/admission未確認。再送しない。userへ接続復旧を依頼済み。復旧後は既存結果のみ取得し、全106/native63のadmission成立前にGPUを起動しない。現在のMac作業コードを実行中の04515capsuleへ混入しない。
+
+新sourceのfull106は正規化後の生成コードが一致する一方、source graph SHAはevent_runtime/program_phases/新helperで変わる。既存golden/certificateを新packetへ自動的に付け替えない。現在のWindowsは元の固定packet/CUBINを使い続け、新source full106の再sealは未実施。
+
+新sourceの共通smokeで、既存の厳密なsource逆投影監査に新しいifdef hookが未登録と判明。sealed-v1の失敗は保持。元9cとM5実証v4の実ファイルから、2変更file/2追加fileだけの完全一致deltaを独立fixtureへ記録し、既存Frame/武器監査の前段へ接続した。旧baseline/生成コードnormalizer/数値比較は変更せず、1byte mutation拒否・元Frame7検査・武器8検査・新query8検査を実行。全smokeの再確認が必要。
