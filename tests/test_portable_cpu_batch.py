@@ -83,6 +83,17 @@ class CPUParentTests(unittest.TestCase):
         # These synthetic suites isolate CPU failure/timeout gates and have no
         # adapter. Exercise the real storage gate in its dedicated tests.
         s=contextlib.ExitStack();s.enter_context(patch.object(cli,'capture_storage_preflight'));s.enter_context(patch.object(cli,'ROOT',self.root));s.enter_context(patch.object(cli,'SUITES',dict(fixture=dict(tests=[self.pattern]))));s.enter_context(patch.object(cli,'verify_package',return_value=self.m));s.enter_context(patch.object(cli,'cpu_preflight',return_value=dict(passed=True)));s.enter_context(patch.object(cli,'os',types.SimpleNamespace(**dict(vars(os),name='nt'))));return s
+    def test_shared_smoke_budget_is_separate_from_the_default_unit_budget(self):
+        for smoke,timeout in ((False,60),(True,180)):
+            self.capture=self.root/('shared-smoke' if smoke else 'suite-tests');self.capture.mkdir()
+            def child(*args,**kwargs):
+                cli.write(self.capture/'cpu-tests.json',[dict(pattern=self.pattern,exit_code=0,tests=1,failures=0,errors=0)])
+                return types.SimpleNamespace(returncode=0,stdout=b'',stderr=b'')
+            with self.context(),patch.object(cli,'SMOKE_TESTS',[self.pattern]),patch.object(cli.subprocess,'run',side_effect=child) as run:
+                rows=cli.cpu_test_groups(self.m,self.capture,smoke=smoke)
+            self.assertEqual(len(rows),1);self.assertEqual(run.call_args.kwargs['timeout'],timeout)
+            receipt=cli.load(self.capture/'cpu-batch.json');self.assertEqual(receipt['timeout_seconds'],timeout)
+            self.assertEqual(receipt['timeout_policy'],'shared-smoke' if smoke else 'suite-unit-tests');self.assertEqual(receipt['gpu_calls'],0)
     def test_failed_unit_gate_skips_full_native_battles_and_gpu(self):
         with self.context(),patch.object(cli,'cpu_test_groups',side_effect=ValueError('test payload absent')),patch.object(cli,'cpu_preflight') as native,patch.object(cli,'run_job') as job,self.assertRaisesRegex(ValueError,'test payload absent'):
             cli.run_capture(self.capture,'cuda',60,cpu_only=True)

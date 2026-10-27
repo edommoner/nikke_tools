@@ -1,0 +1,256 @@
+{
+  "schema": "saved-stage-timings",
+  "events": [
+    {
+      "stage": "packet_header_prepare",
+      "state": "returned",
+      "pid": 143424,
+      "elapsed_seconds": 0.07800000021234155,
+      "packet_stage": "tests",
+      "journal": "tests/preparation.jsonl",
+      "wall_time_unix_ns": 1793059187596460500,
+      "seconds_from_stage_pre_gate": -0.1077871
+    },
+    {
+      "stage": "packet_bounded_stage",
+      "state": "entered",
+      "pid": 143424,
+      "packet_stage": "tests",
+      "journal": "tests/preparation.jsonl",
+      "wall_time_unix_ns": 1793059187667349800,
+      "seconds_from_stage_pre_gate": -0.0368978
+    },
+    {
+      "stage": "packet_before_observation",
+      "state": "entered",
+      "pid": 143424,
+      "packet_stage": "tests",
+      "journal": "tests/preparation.jsonl",
+      "wall_time_unix_ns": 1793059187704749900,
+      "seconds_from_stage_pre_gate": 0.0005023
+    },
+    {
+      "stage": "packet_before_observation",
+      "state": "returned",
+      "pid": 143424,
+      "elapsed_seconds": 2.1239847,
+      "packet_stage": "tests",
+      "journal": "tests/preparation.jsonl",
+      "wall_time_unix_ns": 1793059189829433300,
+      "seconds_from_stage_pre_gate": 2.1251857
+    },
+    {
+      "stage": "packet_cpu_tests",
+      "state": "entered",
+      "pid": 129904,
+      "packet_stage": "tests",
+      "journal": "tests/preparation.jsonl",
+      "wall_time_unix_ns": 1793059189856465200,
+      "seconds_from_stage_pre_gate": 2.1522176
+    },
+    {
+      "stage": "cpu_worker_verify_package",
+      "state": "entered",
+      "pid": 127652,
+      "packet_stage": "tests",
+      "journal": "tests/proof/preparation.jsonl",
+      "wall_time_unix_ns": 1793059196955801500,
+      "seconds_from_stage_pre_gate": 9.2515539
+    },
+    {
+      "stage": "cpu_worker_verify_package",
+      "state": "returned",
+      "pid": 127652,
+      "elapsed_seconds": 6.4290891,
+      "packet_stage": "tests",
+      "journal": "tests/proof/preparation.jsonl",
+      "wall_time_unix_ns": 1793059203386269400,
+      "seconds_from_stage_pre_gate": 15.6820218
+    },
+    {
+      "stage": "packet_cpu_tests",
+      "state": "returned",
+      "pid": 129904,
+      "elapsed_seconds": 49.1521415,
+      "packet_stage": "tests",
+      "journal": "tests/preparation.jsonl",
+      "wall_time_unix_ns": 1793059239008838400,
+      "seconds_from_stage_pre_gate": 51.3045908
+    },
+    {
+      "stage": "packet_after_observation",
+      "state": "entered",
+      "pid": 143424,
+      "packet_stage": "tests",
+      "journal": "tests/preparation.jsonl",
+      "wall_time_unix_ns": 1793059239053773000,
+      "seconds_from_stage_pre_gate": 51.3495254
+    },
+    {
+      "stage": "packet_after_observation",
+      "state": "returned",
+      "pid": 143424,
+      "elapsed_seconds": 2.1484197,
+      "packet_stage": "tests",
+      "journal": "tests/preparation.jsonl",
+      "wall_time_unix_ns": 1793059241203554900,
+      "seconds_from_stage_pre_gate": 53.4993073
+    },
+    {
+      "stage": "packet_bounded_stage",
+      "state": "returned",
+      "pid": 143424,
+      "elapsed_seconds": 53.5371802,
+      "packet_stage": "tests",
+      "journal": "tests/preparation.jsonl",
+      "wall_time_unix_ns": 1793059241205816000,
+      "seconds_from_stage_pre_gate": 53.5015684
+    },
+    {
+      "stage": "packet_header_prepare",
+      "state": "returned",
+      "pid": 86852,
+      "elapsed_seconds": 0.09299999987706542,
+      "packet_stage": "smoke",
+      "journal": "smoke/preparation.jsonl",
+      "wall_time_unix_ns": 1793059287028684300,
+      "seconds_from_stage_pre_gate": -0.0975306
+    },
+    {
+      "stage": "packet_bounded_stage",
+      "state": "entered",
+      "pid": 86852,
+      "packet_stage": "smoke",
+      "journal": "smoke/preparation.jsonl",
+      "wall_time_unix_ns": 1793059287088295700,
+      "seconds_from_stage_pre_gate": -0.0379192
+    },
+    {
+      "stage": "packet_before_observation",
+      "state": "entered",
+      "pid": 86852,
+      "packet_stage": "smoke",
+      "journal": "smoke/preparation.jsonl",
+      "wall_time_unix_ns": 1793059287127395200,
+      "seconds_from_stage_pre_gate": 0.0011803
+    },
+    {
+      "stage": "packet_before_observation",
+      "state": "returned",
+      "pid": 86852,
+      "elapsed_seconds": 2.1482832,
+      "packet_stage": "smoke",
+      "journal": "smoke/preparation.jsonl",
+      "wall_time_unix_ns": 1793059289275767000,
+      "seconds_from_stage_pre_gate": 2.1495521
+    },
+    {
+      "stage": "packet_shared_cli",
+      "state": "entered",
+      "pid": 86340,
+      "packet_stage": "smoke",
+      "journal": "smoke/preparation.jsonl",
+      "wall_time_unix_ns": 1793059289287192700,
+      "seconds_from_stage_pre_gate": 2.1609778
+    },
+    {
+      "stage": "packet_verify_package",
+      "state": "entered",
+      "pid": 86340,
+      "packet_stage": "smoke",
+      "journal": "smoke/preparation.jsonl",
+      "wall_time_unix_ns": 1793059289311938500,
+      "seconds_from_stage_pre_gate": 2.1857236
+    },
+    {
+      "stage": "packet_verify_package",
+      "state": "returned",
+      "pid": 86340,
+      "elapsed_seconds": 6.6865713,
+      "packet_stage": "smoke",
+      "journal": "smoke/preparation.jsonl",
+      "wall_time_unix_ns": 1793059295999278000,
+      "seconds_from_stage_pre_gate": 8.8730631
+    },
+    {
+      "stage": "packet_cpu_test_groups",
+      "state": "entered",
+      "pid": 86340,
+      "packet_stage": "smoke",
+      "journal": "smoke/preparation.jsonl",
+      "wall_time_unix_ns": 1793059296003334500,
+      "seconds_from_stage_pre_gate": 8.8771196
+    },
+    {
+      "stage": "cpu_worker_verify_package",
+      "state": "entered",
+      "pid": 35488,
+      "packet_stage": "smoke",
+      "journal": "smoke/proof/preparation.jsonl",
+      "wall_time_unix_ns": 1793059296427971100,
+      "seconds_from_stage_pre_gate": 9.3017562
+    },
+    {
+      "stage": "cpu_worker_verify_package",
+      "state": "returned",
+      "pid": 35488,
+      "elapsed_seconds": 6.4449304,
+      "packet_stage": "smoke",
+      "journal": "smoke/proof/preparation.jsonl",
+      "wall_time_unix_ns": 1793059302874372900,
+      "seconds_from_stage_pre_gate": 15.748158
+    },
+    {
+      "stage": "packet_cpu_test_groups",
+      "state": "raised",
+      "pid": 86340,
+      "elapsed_seconds": 60.1387152,
+      "exception": "TimeoutExpired",
+      "packet_stage": "smoke",
+      "journal": "smoke/preparation.jsonl",
+      "wall_time_unix_ns": 1793059356142636300,
+      "seconds_from_stage_pre_gate": 69.0164214
+    },
+    {
+      "stage": "packet_shared_cli",
+      "state": "raised",
+      "pid": 86340,
+      "elapsed_seconds": 67.4092989,
+      "exception": "TimeoutExpired",
+      "packet_stage": "smoke",
+      "journal": "smoke/preparation.jsonl",
+      "wall_time_unix_ns": 1793059356697318300,
+      "seconds_from_stage_pre_gate": 69.5711034
+    },
+    {
+      "stage": "packet_after_observation",
+      "state": "entered",
+      "pid": 86852,
+      "packet_stage": "smoke",
+      "journal": "smoke/preparation.jsonl",
+      "wall_time_unix_ns": 1793059356744951300,
+      "seconds_from_stage_pre_gate": 69.6187364
+    },
+    {
+      "stage": "packet_after_observation",
+      "state": "returned",
+      "pid": 86852,
+      "elapsed_seconds": 2.1990155,
+      "packet_stage": "smoke",
+      "journal": "smoke/preparation.jsonl",
+      "wall_time_unix_ns": 1793059358944531500,
+      "seconds_from_stage_pre_gate": 71.8183166
+    },
+    {
+      "stage": "packet_bounded_stage",
+      "state": "returned",
+      "pid": 86852,
+      "elapsed_seconds": 71.8566575,
+      "packet_stage": "smoke",
+      "journal": "smoke/preparation.jsonl",
+      "wall_time_unix_ns": 1793059358945535600,
+      "seconds_from_stage_pre_gate": 71.8193207
+    }
+  ],
+  "origin_scope": "Per-stage observed pre-gate Job timestamp; negative header events precede that gate"
+}

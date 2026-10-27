@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 # execute the same source; existing caches may be read but are never extended.
 if (ROOT/'gpu-package.json').is_file():sys.dont_write_bytecode=True
 CPU_SAVED_AUDIT_MAX_SECONDS=240  # GPU-forbidden full readback/native comparison only.
+CPU_SMOKE_TIMEOUT_SECONDS=180  # Shared control registry; independent of suite-specific unit budget.
 sys.path[:0] = [str(ROOT/p) for p in ('app', 'research', 'scripts')]
 from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 # No GPU/backend/native imports at startup: collect/audit must work without them.
@@ -1968,7 +1969,7 @@ def cpu_test_groups(m,capture,smoke=False):
     from portable_python_dependencies import check as check_dependencies
     dependencies=check_dependencies(ROOT,patterns);write(capture/'python-dependencies.json',dependencies)
     if not dependencies['passed']:raise ValueError('Validation Python dependencies unavailable; run validation-deps and inspect requirements-validation.txt')
-    timeout=SUITES[m['suite']].get('cpu_test_timeout',60)
+    timeout=CPU_SMOKE_TIMEOUT_SECONDS if smoke else SUITES[m['suite']].get('cpu_test_timeout',60)
     if type(timeout) is not int or not 1<=timeout<=180:raise ValueError('Invalid bounded CPU test timeout')
     if not patterns:
         write(capture/'cpu-tests.json',[]);return []
@@ -1983,6 +1984,7 @@ def cpu_test_groups(m,capture,smoke=False):
         raise
     finally:
         write(capture/'cpu-batch.json',dict(schema=1,mode='single-process-unittest',patterns=list(patterns),timeout_seconds=timeout,
+            timeout_policy='shared-smoke' if smoke else 'suite-unit-tests',
             elapsed_seconds=time.perf_counter()-started,timed_out=timed_out,exit_code=completed.returncode if completed else None,
             gpu_calls=0,scope='Python group output in per-group logs; inherited native subprocess output in batch logs'))
     (capture/'cpu-batch.stdout.log').write_bytes(completed.stdout);(capture/'cpu-batch.stderr.log').write_bytes(completed.stderr)

@@ -409,7 +409,7 @@ Macの実capture2,082,471,936byteは5,849,675byteへ圧縮でき、全展開byte
 
 ## CPU群のまとめ実行
 
-run/cpu-only/smokeは全登録群を1個のfresh CPU workerへ渡します。群別ログ/receiptを保ち、欠落・zero tests・途中失敗・不完全receipt・CPU timeout（既定60秒／明示した統合suiteは90秒）はGPU前に停止。詳細[CPUまとめ実行](portable-cpu-batch.md)。通常run childの出力は明示file modeで固定8MiBずつ保存し、全件監査を維持します。詳細[共通file転送](portable-file-transfer.md)。
+run/cpu-only/smokeは全登録群を1個のfresh CPU workerへ渡します。群別ログ/receiptを保ち、欠落・zero tests・途中失敗・不完全receipt・CPU timeout（suite単体は既定60秒／明示した統合suiteは90秒、共通smokeは180秒）はGPU前に停止。詳細[CPUまとめ実行](portable-cpu-batch.md)。通常run childの出力は明示file modeで固定8MiBずつ保存し、全件監査を維持します。詳細[共通file転送](portable-file-transfer.md)。
 # body蓄積と固定量放出の保持49入力
 
 `destructible-body-accum-retention` は旧31の位置を維持して新18を追加した、Metal／native照合・独立seal済みの入口です。`--compact` に対応し、全60 CPU検査と全40 native照合を保持します。単独 `destructible-body-accum` 18入力は開発用なので `--develop` が必要です。実キャラのbody蓄積と、宣言poolの盾放出を区別し、元ドロシーの貫通受付は開放しません。詳細は [body蓄積・固定量放出](portable-destructible-body-accum.md)。

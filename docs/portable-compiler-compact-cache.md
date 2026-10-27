@@ -42,3 +42,10 @@ raw・Windowsの詳細compiler/Job/phase資料は両hostに保存し、追加公
 最初のローカルv4では、worker全体への追加build禁止が既存の偽SDK生成cache検査を止めました。追加guardは取り消し、既存のテスト実行方式・全検査を維持し、結果scopeの負例も含めてv6を固定し、207検査が成功しました。旧失敗2ログをresident-ptx-compact-v1へ保存しています。元のCPU/auditのGPU禁止ガードやnormalizerは変更していません。
 
 次のWindows検証は、共通tests→smoke→generationで現在のpaired cacheを1回準備し、sealed指紋を確認した場合のみ、生成cache必須で共通compile-ptxを1回使います。外側180秒・内側compiler child60秒／2GiBは既存仕様。旧v4 CUBINの未完了compile/cache claimには触れません。PTXとCUBINは別artifact identityであり、PTX成功だけをCUDA計算成功としません。object／link／driver／kernelはこの依頼に含めません。
+
+
+## v2：共通smokeのCPU枠を分離
+
+Windows v1はtests207成功後、smokeが34/60群・354検査でCPU worker60秒timeoutしました。外側180秒には達せず、generation／PTX compileは未実行。保存報告`ee7bf329`をmanifest/SHA検証して回収しました。v2は共通smokeの枠を180秒へ明示分離し、compiler単体testsの既定60秒／compiler child60秒／2GiBは保持します。Mac固定33415559…でtests207／smoke586成功、生成cacheはv1と同じkeyで必須hit・Slang0、PTX plan成功。GPU・upstream・goldenはv1から全保持。未対応分類を精密化したLock OnのCPU4契約のコードも同梱しています。
+
+新しいv2だけで共通tests→smoke→generation→生成cache必須のcompile-ptxを使います。旧v1の段階を再実行したり、claimを消したりしません。Windows v2の成功はまだ確認していません。
