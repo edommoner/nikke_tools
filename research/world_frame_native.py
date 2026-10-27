@@ -193,6 +193,9 @@ def observe(case):
      if case.get('declared_aim_controls'):
       from portable_declared_aim_controls import apply
       squad=apply(squad,case['declared_aim_controls'])
+     if case.get('declared_manual_sequences'):
+      from portable_declared_manual_sequences import apply
+      squad=apply(squad,case['declared_manual_sequences'])
      with python_observers_only(case.get('python_observers_only',False)):
       capture['original_result']=timeline.simulate(squad,config=run.config,enemy=copy.deepcopy(case['enemy']),seed=run.seed,verbose=True)
      return capture['original_result']
@@ -214,6 +217,7 @@ def observe(case):
  if original_run is not None:
   answer['original_input_identity']=dict(definitions=capture['original_definitions_verified'],chars_config_seed_weapon_verified=True,authored_metadata_overrides=False,authored_delays_overrides=False)
   if case.get('declared_aim_controls'):answer['original_input_identity'].update(original_controls_preserved=False,declared_aim_controls_applied_after_identity_check=True)
+  if case.get('declared_manual_sequences'):answer['original_input_identity'].update(original_controls_preserved=False,declared_manual_sequences_applied_after_identity_check=True)
   answer['scope']='Actual original prepared roster, original effects/weapon/config/base-stat hooks; declared coordinate world and scoped numeric policy only'
  if case.get('observe_pending_skills'):
   answer['pending_burst']=dict(count=len(capture['burst_controller']._pending_burst_dmg),enqueued=capture.get('pending_enqueued',0),fired=capture.get('pending_fired',0))

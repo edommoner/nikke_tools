@@ -23,18 +23,20 @@ def compare(block,domain):
     candidates=[];n=native_reference(domain,candidate_observer=lambda values:candidates.append(tuple(values)))
     c,m,b=domain
     identity=n['original_input_identity']
-    if identity!=dict(definitions=len(c['effects']),chars_config_seed_weapon_verified=True,authored_metadata_overrides=False,authored_delays_overrides=False):raise AssertionError('Original native input identity changed')
+    expected_identity=dict(definitions=len(c['effects']),chars_config_seed_weapon_verified=True,authored_metadata_overrides=False,authored_delays_overrides=False)
+    if c.get('declared_manual_sequences'):expected_identity.update(original_controls_preserved=False,declared_manual_sequences_applied_after_identity_check=True)
+    if identity!=expected_identity:raise AssertionError('Original native input identity changed')
     if set(m['binding_source_indices'])!=set(range(len(c['effects']))):raise AssertionError('Original source definition discarded')
     projected,pulses,packets,quotas,fractions,teams=banks_and_project(block,n)
     observed_meta=dict(m,_original_fraction_rows=fractions,_original_team_rows=teams)
     observed_domain=(c,observed_meta,b)
-    composition.live.parent.parent.parent.compare_observed(projected,observed_domain,n,candidates,manual=False,packet_bindings=True,pulse_rows=pulses,packet_rows=packets,quota_rows=quotas)
+    composition.live.parent.parent.parent.compare_observed(projected,observed_domain,n,candidates,manual=bool(c.get('physical_cover_composition')),packet_bindings=True,pulse_rows=pulses,packet_rows=packets,quota_rows=quotas)
     if composition.typed.decode(block,domain)!=n['typed']:raise AssertionError('Complete original typed state/receipts differ')
     return n
 
-def prepare():
+def prepare(*,cases=None):
     check(ROOT);entries=[]
-    for c in fixtures():
+    for c in fixtures() if cases is None else cases:
         words,meta,bindings=compile_case(c);entries.append((c['name'],words,(c,meta,bindings)))
     seed=entries[0][1];meta=entries[0][2][1];row=meta['physical_lock_pulse_row']
     for name,at,value in [('typed-magic',109523,0),('trace-required',5,0),('not-enemy',L['HEALTH_DEFINITION_BASE']+row*L['HEALTH_DEFINITION_WORDS']+3,0),('wrong-charge-condition',L['CONDITION_BASE']+row*L['CONDITION_WORDS'],0)]:
