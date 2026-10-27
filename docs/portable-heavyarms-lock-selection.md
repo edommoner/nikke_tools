@@ -1,5 +1,19 @@
 # Lock Onの次の実装契約
 
+## 2026-10-27 発射体との合成と、残っている配送履歴の差分
+
+`lock-projectile-composition`は既存のtyped発射体executorとlive lock executorを同じWorldSchedule/DFS stackへ配線する開発入口。元index24のall_projectiles定義を変更せず追加した5ケース（生存3体、破壊3体、burst後に出現する空対象、128体、ハイド）と不正typed wire4件を使う。元index4/8/9/20も保持するが、index0は周期self projectionのままで、全25定義の認定ではない。新しいダメージ計算・第二の戦闘時計・CPU配送表を導入しない。
+
+従来のtyped領域786432..1048576を全保持し、lock/manual/queue-link領域の全20480wordを1048576..1069056へ移す。32 live actor sets、128 typed targets、31 lock snapshots、2048 queue slots、38件の診断上限を保持する。既存登録の出力幅1310720、入力109536を用い、追加tailの全zero検査と、旧lock全wordの一対一移設検査を行う。旧entryの既定offsetは0で生成code不変。以後の拡張本体は新entryに留め、旧entryのsource閉包に追加includeしない。
+
+最初のCPU生成はresident reflectionがGenerationLocksの入れ子structを拒否して停止した（GPU/claim0）。既存の数値leaf検証を入れ子にも適用し、structの反射size/alignment、親子範囲、絶対offset、末尾、重複name、深さ/leaf上限を確認するよう修正。scalar/arrayだけの旧plan形式は変えない。CUDA/Metalの全plan一致、sizeof/alignof static_assert、48byteのCUDA bindingを維持。実反射はRuntime140008byte、locks1044byte、全7leafの絶対配置を両backendで照合した。生成cacheはこの検証器のSHAを既にkeyに含むため、旧keyへ付替えない。関連reflection5検査（入れ子負例8種）とgeneration-cache13検査が成功。
+
+code76b931c6、固定packet5e895206の9入力をM5 Metalで1回実行した。5正例のstatus0、不正4件は64。全5件のbattle/HP/状態とtyped state/全receiptはnativeと一致。ただしtyped対象が実在する4件のskill traceに差があり、全比較は失敗、sealなし。空対象1件のみ全比較成功であり、それを全合成成功へ読み替えない。
+
+原因の切り分け：native typed拡張は通常handlerのscalar/通知を使うため本体向けHitEventを生成し、実際の発射体への配送後、次frameの`_land`に挿入したskip guardで本体着弾を抑止する。既存`world_skill_native.inspect`はそのwrapper呼出しをBODY recipientのskill traceとして記録する。一方、GPUは同frameの実typed receiptだけを記録し、本体仮packetを生成しない。battle/typed出力が一致していても、この履歴差分は残す。比較器から行を除く、失敗captureを成功に変更する、同claimを再送することは行わない。次に、実配送と抑止された仮packetのdispositionを明示して両側の履歴契約を揃える必要がある。原正本の計算や厳密normalizerは変更しない。
+
+失敗raw/claim/artifactsはpersistent proofsのlock-projectile-composition-v1-metalに保持。全9件のCPU-only再診断は`target-count-query-evidence/lock-projectile-composition-v1-failure-diagnostic.json`。新合成はdevelopment_onlyのまま、GPU対応数/全25/全キャラ認定は追加しない。Windowsの新実行依頼は0。
+
 ## 2026-10-27 発射snapshotから既存着弾経路への接続
 
 共通CLI `live-lock-delivery` は9入力（明示モデル4正例、未確定死亡policy/不正wireの拒否5）をM5 Metalで1回実行し、別fresh GPU禁止childの全出力/native比較でsealした。`require-live-frozen-slot-v1`は発射時snapshotの取得順とhit番号から生存・同世代の対象へ配送する。空snapshotは空集合とし、BODYへfallbackしない。死亡・欠落・世代違いを検出した場合はerror64で停止する。これは未知の振替を実装したことにも、死亡時dropを採用したことにもならない。

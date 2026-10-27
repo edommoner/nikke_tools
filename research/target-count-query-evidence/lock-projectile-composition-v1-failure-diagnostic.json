@@ -1,0 +1,690 @@
+{
+  "schema": "lock-projectile-composition-v1-failure-diagnostic",
+  "source_commit": "76b931c68796668ba9247a10194e041f46dc1ddb",
+  "package_id": "5e8952066cc0712efc9a225c355cf1d616c2b18c7a6ad80c3923fb9b414b3ebb",
+  "calculation_verified": false,
+  "sealed": false,
+  "all_fields_comparison_preserved": true,
+  "same_claim_retries": 0,
+  "diagnostic_gpu_calls": 0,
+  "original_result_sha256": "d33babefd4635b750d5b4b7e621394fffb867fa8bc46d69dd87012d9598e3ea8",
+  "original_artifacts_sha256": "b9c92a9c5dc544f50c6a29c01d8b4e408601c83c04829ea01fc2223fb645739a",
+  "original_readback_sha256": "54975f60b8ff0fe1050a2b15994eea48f477c88b33438960c612d282c43e932d",
+  "rows": [
+    {
+      "index": 0,
+      "name": "lock-projectile/live",
+      "status": 0,
+      "whole_battle_differences": [],
+      "gpu_skill_trace": [
+        {
+          "row": 4,
+          "hit": 1,
+          "hits": 2,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022.0,
+          "share": 1022.0,
+          "recipients": [
+            0
+          ]
+        },
+        {
+          "row": 4,
+          "hit": 2,
+          "hits": 2,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022.0,
+          "share": 1022.0,
+          "recipients": [
+            1
+          ]
+        },
+        {
+          "row": 4,
+          "hit": 1,
+          "hits": 2,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497.0,
+          "share": 1497.0,
+          "recipients": [
+            0
+          ]
+        },
+        {
+          "row": 4,
+          "hit": 2,
+          "hits": 2,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497.0,
+          "share": 1497.0,
+          "recipients": [
+            1
+          ]
+        }
+      ],
+      "native_skill_trace": [
+        {
+          "row": 6,
+          "created": 0.19999999999999998,
+          "landed": 0.21666666666666665,
+          "amount": 405,
+          "share": 405,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 1
+        },
+        {
+          "row": 4,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022,
+          "share": 1022,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 2
+        },
+        {
+          "row": 4,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022,
+          "share": 1022,
+          "recipients": [
+            1
+          ],
+          "hit": 2,
+          "hits": 2
+        },
+        {
+          "row": 4,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497,
+          "share": 1497,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 2
+        },
+        {
+          "row": 4,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497,
+          "share": 1497,
+          "recipients": [
+            1
+          ],
+          "hit": 2,
+          "hits": 2
+        }
+      ],
+      "skill_trace_equal": false,
+      "typed_state_and_all_receipts_equal": true,
+      "complete_comparison_passed": false,
+      "complete_comparison_error": "Skill trace changed"
+    },
+    {
+      "index": 1,
+      "name": "lock-projectile/broken",
+      "status": 0,
+      "whole_battle_differences": [],
+      "gpu_skill_trace": [
+        {
+          "row": 4,
+          "hit": 1,
+          "hits": 2,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022.0,
+          "share": 1022.0,
+          "recipients": [
+            0
+          ]
+        },
+        {
+          "row": 4,
+          "hit": 2,
+          "hits": 2,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022.0,
+          "share": 1022.0,
+          "recipients": [
+            1
+          ]
+        },
+        {
+          "row": 4,
+          "hit": 1,
+          "hits": 2,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497.0,
+          "share": 1497.0,
+          "recipients": [
+            0
+          ]
+        },
+        {
+          "row": 4,
+          "hit": 2,
+          "hits": 2,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497.0,
+          "share": 1497.0,
+          "recipients": [
+            1
+          ]
+        }
+      ],
+      "native_skill_trace": [
+        {
+          "row": 6,
+          "created": 0.19999999999999998,
+          "landed": 0.21666666666666665,
+          "amount": 405,
+          "share": 405,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 1
+        },
+        {
+          "row": 4,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022,
+          "share": 1022,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 2
+        },
+        {
+          "row": 4,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022,
+          "share": 1022,
+          "recipients": [
+            1
+          ],
+          "hit": 2,
+          "hits": 2
+        },
+        {
+          "row": 4,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497,
+          "share": 1497,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 2
+        },
+        {
+          "row": 4,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497,
+          "share": 1497,
+          "recipients": [
+            1
+          ],
+          "hit": 2,
+          "hits": 2
+        }
+      ],
+      "skill_trace_equal": false,
+      "typed_state_and_all_receipts_equal": true,
+      "complete_comparison_passed": false,
+      "complete_comparison_error": "Skill trace changed"
+    },
+    {
+      "index": 2,
+      "name": "lock-projectile/late",
+      "status": 0,
+      "whole_battle_differences": [],
+      "gpu_skill_trace": [
+        {
+          "row": 4,
+          "hit": 1,
+          "hits": 2,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022.0,
+          "share": 1022.0,
+          "recipients": [
+            0
+          ]
+        },
+        {
+          "row": 4,
+          "hit": 2,
+          "hits": 2,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022.0,
+          "share": 1022.0,
+          "recipients": [
+            1
+          ]
+        },
+        {
+          "row": 4,
+          "hit": 1,
+          "hits": 2,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497.0,
+          "share": 1497.0,
+          "recipients": [
+            0
+          ]
+        },
+        {
+          "row": 4,
+          "hit": 2,
+          "hits": 2,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497.0,
+          "share": 1497.0,
+          "recipients": [
+            1
+          ]
+        }
+      ],
+      "native_skill_trace": [
+        {
+          "row": 4,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022,
+          "share": 1022,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 2
+        },
+        {
+          "row": 4,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022,
+          "share": 1022,
+          "recipients": [
+            1
+          ],
+          "hit": 2,
+          "hits": 2
+        },
+        {
+          "row": 4,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497,
+          "share": 1497,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 2
+        },
+        {
+          "row": 4,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497,
+          "share": 1497,
+          "recipients": [
+            1
+          ],
+          "hit": 2,
+          "hits": 2
+        }
+      ],
+      "skill_trace_equal": true,
+      "typed_state_and_all_receipts_equal": true,
+      "complete_comparison_passed": true
+    },
+    {
+      "index": 3,
+      "name": "lock-projectile/capacity128",
+      "status": 0,
+      "whole_battle_differences": [],
+      "gpu_skill_trace": [
+        {
+          "row": 4,
+          "hit": 1,
+          "hits": 2,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022.0,
+          "share": 1022.0,
+          "recipients": [
+            0
+          ]
+        },
+        {
+          "row": 4,
+          "hit": 2,
+          "hits": 2,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022.0,
+          "share": 1022.0,
+          "recipients": [
+            1
+          ]
+        },
+        {
+          "row": 4,
+          "hit": 1,
+          "hits": 2,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497.0,
+          "share": 1497.0,
+          "recipients": [
+            0
+          ]
+        },
+        {
+          "row": 4,
+          "hit": 2,
+          "hits": 2,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497.0,
+          "share": 1497.0,
+          "recipients": [
+            1
+          ]
+        }
+      ],
+      "native_skill_trace": [
+        {
+          "row": 6,
+          "created": 0.19999999999999998,
+          "landed": 0.21666666666666665,
+          "amount": 405,
+          "share": 405,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 1
+        },
+        {
+          "row": 4,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022,
+          "share": 1022,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 2
+        },
+        {
+          "row": 4,
+          "created": 0.4666666666666666,
+          "landed": 0.4833333333333333,
+          "amount": 1022,
+          "share": 1022,
+          "recipients": [
+            1
+          ],
+          "hit": 2,
+          "hits": 2
+        },
+        {
+          "row": 4,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497,
+          "share": 1497,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 2
+        },
+        {
+          "row": 4,
+          "created": 1.1333333333333342,
+          "landed": 1.1500000000000008,
+          "amount": 1497,
+          "share": 1497,
+          "recipients": [
+            1
+          ],
+          "hit": 2,
+          "hits": 2
+        }
+      ],
+      "skill_trace_equal": false,
+      "typed_state_and_all_receipts_equal": true,
+      "complete_comparison_passed": false,
+      "complete_comparison_error": "Skill trace changed"
+    },
+    {
+      "index": 4,
+      "name": "lock-projectile/cover",
+      "status": 0,
+      "whole_battle_differences": [],
+      "gpu_skill_trace": [
+        {
+          "row": 5,
+          "hit": 1,
+          "hits": 4,
+          "created": 1.0000000000000013,
+          "landed": 1.016666666666668,
+          "amount": 1497.0,
+          "share": 1497.0,
+          "recipients": [
+            0
+          ]
+        },
+        {
+          "row": 5,
+          "hit": 2,
+          "hits": 4,
+          "created": 1.0000000000000013,
+          "landed": 1.016666666666668,
+          "amount": 1497.0,
+          "share": 1497.0,
+          "recipients": [
+            1
+          ]
+        },
+        {
+          "row": 5,
+          "hit": 3,
+          "hits": 4,
+          "created": 1.0000000000000013,
+          "landed": 1.016666666666668,
+          "amount": 1497.0,
+          "share": 1497.0,
+          "recipients": [
+            2
+          ]
+        },
+        {
+          "row": 5,
+          "hit": 4,
+          "hits": 4,
+          "created": 1.0000000000000013,
+          "landed": 1.016666666666668,
+          "amount": 1497.0,
+          "share": 1497.0,
+          "recipients": [
+            0
+          ]
+        },
+        {
+          "row": 5,
+          "hit": 1,
+          "hits": 2,
+          "created": 1.6833333333333322,
+          "landed": 1.6999999999999988,
+          "amount": 1497.0,
+          "share": 1497.0,
+          "recipients": [
+            0
+          ]
+        },
+        {
+          "row": 5,
+          "hit": 2,
+          "hits": 2,
+          "created": 1.6833333333333322,
+          "landed": 1.6999999999999988,
+          "amount": 1497.0,
+          "share": 1497.0,
+          "recipients": [
+            1
+          ]
+        }
+      ],
+      "native_skill_trace": [
+        {
+          "row": 7,
+          "created": 0.19999999999999998,
+          "landed": 0.21666666666666665,
+          "amount": 405,
+          "share": 405,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 1
+        },
+        {
+          "row": 5,
+          "created": 1.0000000000000013,
+          "landed": 1.016666666666668,
+          "amount": 1497,
+          "share": 1497,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 4
+        },
+        {
+          "row": 5,
+          "created": 1.0000000000000013,
+          "landed": 1.016666666666668,
+          "amount": 1497,
+          "share": 1497,
+          "recipients": [
+            1
+          ],
+          "hit": 2,
+          "hits": 4
+        },
+        {
+          "row": 5,
+          "created": 1.0000000000000013,
+          "landed": 1.016666666666668,
+          "amount": 1497,
+          "share": 1497,
+          "recipients": [
+            2
+          ],
+          "hit": 3,
+          "hits": 4
+        },
+        {
+          "row": 5,
+          "created": 1.0000000000000013,
+          "landed": 1.016666666666668,
+          "amount": 1497,
+          "share": 1497,
+          "recipients": [
+            0
+          ],
+          "hit": 4,
+          "hits": 4
+        },
+        {
+          "row": 5,
+          "created": 1.6833333333333322,
+          "landed": 1.6999999999999988,
+          "amount": 1497,
+          "share": 1497,
+          "recipients": [
+            0
+          ],
+          "hit": 1,
+          "hits": 2
+        },
+        {
+          "row": 5,
+          "created": 1.6833333333333322,
+          "landed": 1.6999999999999988,
+          "amount": 1497,
+          "share": 1497,
+          "recipients": [
+            1
+          ],
+          "hit": 2,
+          "hits": 2
+        }
+      ],
+      "skill_trace_equal": false,
+      "typed_state_and_all_receipts_equal": true,
+      "complete_comparison_passed": false,
+      "complete_comparison_error": "Skill trace changed"
+    },
+    {
+      "index": 5,
+      "name": "reject/lock-projectile/typed-magic",
+      "status": 64,
+      "rejection_expected": 64,
+      "rejection_matches": true
+    },
+    {
+      "index": 6,
+      "name": "reject/lock-projectile/typed-node",
+      "status": 64,
+      "rejection_expected": 64,
+      "rejection_matches": true
+    },
+    {
+      "index": 7,
+      "name": "reject/lock-projectile/typed-capacity",
+      "status": 64,
+      "rejection_expected": 64,
+      "rejection_matches": true
+    },
+    {
+      "index": 8,
+      "name": "reject/lock-projectile/typed-reserved",
+      "status": 64,
+      "rejection_expected": 64,
+      "rejection_matches": true
+    }
+  ],
+  "interpretation": "Native typed extension creates a surrogate body HitEvent, then suppresses its _land via the real skip guard. Existing world_skill_native records that wrapper call as BODY receipt; GPU typed executor records actual typed receipts only. Do not drop rows or relax the comparator. Define and compare delivery dispositions explicitly before a new certification.",
+  "predevice_generation_failure": "Initial resident reflection rejected nested GenerationLocks; extended strict reflection before this GPU packet. No claim/GPU at that failure."
+}

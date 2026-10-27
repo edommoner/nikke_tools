@@ -1,0 +1,15 @@
+{
+  "schema": "lock-projectile-classification-and-failure-retention-v1",
+  "passed": true,
+  "all_inventory_fields_unchanged": true,
+  "profile_count": 266,
+  "packed_profiles": 245,
+  "packing_failures": 21,
+  "priorities": 20,
+  "full_character_verified": 0,
+  "normal_ui": "CPU",
+  "failed_capture_all_artifacts_reverified": true,
+  "failed_capture_result_sha256": "d33babefd4635b750d5b4b7e621394fffb867fa8bc46d69dd87012d9598e3ea8",
+  "comparison_still_failed": true,
+  "gpu_calls": 0
+}

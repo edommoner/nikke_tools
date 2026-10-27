@@ -92,6 +92,13 @@ def verify(root,overrides=None):
   full_sequential_delivery_verified=False,canonical_battle_equivalence=False,
   spatial_selection_verified=False,game_verified=False,original_full_profile_verified=False,public_admission=False,
   evidence='research/target-count-query-evidence/metal-live-lock-delivery-v1.json')
+ missing['lock_on']['development_projectile_composition']=dict(suite='lock-projectile-composition',native_cases=5,rejected_cases=4,
+  source='gpu/world_lock_projectile_entry.slang',original_index24_preserved=True,single_world_clock=True,
+  disjoint_typed_and_lock_arenas=True,resident_runtime_stride_bytes=140008,
+  metal_transport_executed=True,metal_verified=False,independently_sealed=False,cuda_verified=False,
+  unresolved_comparison='Native suppressed BODY surrogate appears in skill history; actual typed receipts agree. Do not omit history rows.',
+  full_profile_verified=False,game_verified=False,public_admission=False,
+  evidence='research/target-count-query-evidence/lock-projectile-composition-v1-failure-diagnostic.json')
  missing['effect_target_count_add']['required_consumer_contract']=dict(marker=definitions[0]['name'],additional_targets=10,duration_bullets=2,
   distinct_target_capacity=True,does_not_increase_per_target_marker_stack=True,implementation_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}

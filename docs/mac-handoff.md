@@ -2669,3 +2669,15 @@ code9553193f、実GPUpacket20bc39f3、GPU .047511秒、fresh監査4.013988秒。
 全inventory fieldが従来と一致、266profile/245packing/21失敗/20分類/全キャラ0/UI CPU。model-check成功、公開admissionは閉じたまま。Windows旧continuation statusを1回確認したがhost unavailable、terminal未取得で再送しない。証跡はtarget-count-query-evidence/metal-live-lock-delivery-v1.jsonとlive-lock-delivery-legacy-retention-v1.json。次は元全25への合成・発射体consumer、距離順位providerと死亡時振替の未確定契約をそれぞれ分離して進める。
 
 最終通常source ea3e27eeから6package作成成功。新live890c43a3は9群58検査、cache専用da3dd160は10群65、共通67群652（Win1skip）がCPU-onlyで成功。実immutable cache CLIで必須flagを省略するとcapture/claim/worker前停止を確認。GPU追加0。通常legacy packet5938c31c/cover2f9036b3/physical eab0b849/external de358814もsource/golden guardを通過して作成済み。最終証跡はlive-lock-final-preflight-v1.json、private継続点はprivate-continuation-v28.json。
+
+### 2026-10-27 ロック＋元発射体攻撃の同一battle合成（開発用、履歴差分あり）
+
+新entry world_lock_projectile_entry / CLI lock-projectile-compositionは、既存typed発射体処理とlive lock配送を同一WorldSchedule/DFS stackへ配線。元index24を変更せずpartial fixtureへ追加したnative5＋拒否4。全25ではなく、index0はself projectionのまま。typed全領域を保持し、lock/manual/link全20480wordを1048576以降へ移し、既存登録stride1310720/input109536で領域衝突を解消した。32 actor sets/128 typed targets/31 snapshots/2048queue/38traceは不変。
+
+初回CPU生成はresident Runtimeの入れ子GenerationLocksを反射検証器が拒否。数値structのleafへサイズ/親子範囲/絶対offset/末尾/名前/深さ・leaf上限を厳密検証するよう拡張し、CUDA/Metalの全plan一致、sizeof/alignof assertion、48byte bindingを維持。実Runtime140008byte/locks1044byteを照合。reflection5検査（入れ子負例8種）、生成cache13検査成功。flat planは不変。現在の検証器SHAを含むpaired生成cacheについて、固定packetのrequired hit/コンパイラ0/GPU0も実証。CUDAコンパイル・実CUDA成功とは別。
+
+code76b931c6、固定packet5e895206のMetal1回は全比較失敗。rawはlock-projectile-composition-v1-metalに保持し、claim再送なし。5正例status0/4拒否64、全5battle状態とtyped全receiptは一致するが、typedが存在する4件でskill traceが異なる。native typed拡張がscalar/通知用のBODY仮HitEventを作り、実typed配送後の次frame _landでskipするのに、world_skill_native.inspectがそのwrapper呼出しをBODY receiptとして記録する。GPUは実typed receiptのみ。空対象1件だけ全比較成功。比較器から行を削除/除外しない。失敗全artifact hashを再監査済み。
+
+**次の優先作業**は実配送／抑止されたnative仮packetのdispositionを明示して両側の履歴契約を揃えること。保存rawで全項目を診断してから、必要な実装修正と新CPU契約を固定する。失敗captureへ新基準を付け替えたり同claimを再実行しない。新合成はdevelopment_onlyのまま、seal/CUDA実行/全25/公開admissionへ進めない。距離・死亡振替も未確定。
+
+共有layout変更を受けた既存live9/packet8/cover23/physical10/external16は生成厳密hash/input/nativeを先に確認、required Metal pipeline hitで各1回＋fresh独立seal、全input/readback byte保持。goldenはlivev2/packetv3/coverv4/physicalv6/externalv7へ更新し旧版を保持。本体106 CUDA/MSL厳密生成hashも保持（生成のみ）。実GPUは新失敗1＋旧成功5、同claim retry0、Windows新依頼0。共通67群652（Win1skip）と専用9群57はCPU-only成功。全inventory fieldは前回と一致、266/245packing/21失敗/20分類/全キャラ0/UI CPU。model-check成功、全目標未達。証跡はtarget-count-query-evidence/lock-projectile-composition-v1-failure-diagnostic.json / lock-projectile-legacy-retention-v1.json / lock-projectile-required-generation-v1.json。private継続点はprivate-continuation-v29.json。
