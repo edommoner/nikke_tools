@@ -6,6 +6,8 @@
 
 `original-lock-controls-cache-only` は同じ計算/goldenにCUBIN/O1必須＋paired生成必須を適用する。CUDAハードウェア/実CUBIN hitは未検証。Windowsは既存transactionのstatusを1回確認したがhost unavailable、終端判定/再送/追加実行0。次は実編成のPART/負傷・回復条件を優先し、距離/同距離順と死亡時振替は未確定のまま保持。公開GPU受付・全キャラ認定0・UI CPU・20model gapは継続。証跡 [Metalと独立監査](../research/target-count-query-evidence/metal-original-lock-controls-v3.json)、[旧出力保持](../research/target-count-query-evidence/original-lock-controls-cli-retention-v1.json)、[元cover効果](../research/target-count-query-evidence/original-cover-source-activation-v1.json)。
 
+登録bff94e61後の固定cache-only package08d237bc…でも、11群86テストと17入力/native9のfresh CPU照合が成功（GPU0）。CPU群67.18秒、元Metal計算/packing/native/比較器と全入力指紋は不変。モデル監査13検査も成功し全体未達を保持。最終証跡 `research/target-count-query-evidence/original-lock-controls-final-preflight-v1.json`。
+
 2026-10-28更新：`original-lock-composition` を追加し、Heavyarms元全25定義、装備/共通込み本人34定義、実編成91定義を実武器・元configのまま3/30秒×本体/3ADDで実行。固定8fd51499、package0d4b4748…のnative4+拒否4がApple M5 Metalと独立GPU禁止sealに成功。9群71テスト、実GPU2.2474秒、冷PSO9.3935秒、fresh CPU比較49.34秒。13種類のnative履歴容量をclaim前に監査し、30秒の射撃742回/取得110回/配送190行/skill113行/端数通知2240行/team1120行を全行比較、省略0。既存wire内の未使用領域に5bankを割当て、旧bankゼロ・新全row/padding/tailを検査する。v1のmetadata/照会上限差分、v3の既定通知省略差分を保持、v2はGPU未実行。同claim再実行0。
 
 CPU受動監査は各caseの全native fingerprintを固定goldenと一致させたまま、30秒で元25定義中24定義のactivation entryを観測した。未観測は元row2（cover）。entry呼出しはGPU全分岐認定ではない。次は実編成のcover入力を既存manual制御へ接続し、元row2を通す。実編成でのburst15対象飽和、parts/負傷/healのworld、距離/同距離順、死亡時振替、他キャラ/variant、CUDA実機、既存suiteのcurrent-source GPU再認定も残る。公開GPU受付・全キャラ認定0・UI CPU・20model gapは継続。
