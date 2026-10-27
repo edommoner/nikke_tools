@@ -2657,3 +2657,13 @@ code9553193f、実GPUpacket20bc39f3、GPU .047511秒、fresh監査4.013988秒。
 ユーザー指定のオンライン調査を追加。Prydwenの取得順循環と挑発例外はキャラ固有説明で、一般順番攻撃説明を無条件適用しない。新たにNIKKE.GGの索引本文（直接open403、動画/再現ログ未確認）で、予定ロック対象が配送前に死亡すると残りロック対象へ振替という記述を確認。現在の`cycle-frozen-slot-v1`の死亡dropをゲーム仕様としてconsumerへ採用しない。既存63/packet8の部分実証はそのまま保持し、ゲーム認定へ昇格しない。距離式・tie・actor種別、具体的な振替順は未確定。
 
 次の実装では既存land/counter/heal経路への接続と死亡policyを分離し、生存対象の配送と未確定死亡policyの境界を明示する。公開情報だけから振替をnext/first/randomへ決め打ちしない。調査記録は`heavyarms-online-delivery-reassessment-v1.json`、判断は`docs/portable-heavyarms-lock-selection.md`冒頭。今回は文書/出所記録のみでGPU/Windows追加0、計算/golden/公開admission変更0。旧Windows continuationを再依頼しない。
+
+### 2026-10-27 生存snapshotを実着弾へ配送
+
+共通Slangの新entry world_lock_delivery_entry、CLI live-lock-deliveryを追加。発射時のfrozen slotをtransient actor setへsingleton captureし、既存land/counter/healをそのまま使う。実queue4正例と5拒否をM5 Metal＋fresh独立監査でseal。充填/ハイド後のBODY→ADD循環、空集合でBODY fallbackしないこと、ADDのskill counter完了・吸血HP回復を全battle/traceと照合。死亡/欠落/世代違いは未確定policyとしてerror64で拒否、振替やdropをゲーム仕様にしない。元index4/8/9/20は保持、index0はself projection、元全25/距離/全キャラは未完了。
+
+実装4c0c114c、実GPU packet15aa4c45、GPU .057052秒、cold archive11.105610秒、独立監査6.390641秒。実パケットの9群57検査と共通67群652（Win1skip）が成功。観測contextを再利用可能に抽出し、従来受動packet4件のnative SHAを保持。新policyの全battle一致はfresh同policy基準との比較で、canonical equivalenceと混同しない。
+
+一度だけ追加した共有hook以外は新entryのみに実装includeを置き、今後の拡張でlegacy source閉包を不要に変えない。今回変わった従来packet8/cover23/physical10/external16はrequired pipeline hitで各1回Metal＋fresh独立seal、全shader厳密hash/input/native/readback byte保持。通常goldenをv2/v3/v5/v6へ更新、旧版を保持。本体106のCUDA/MSL厳密生成hashも不変（生成のみ）。新cache専用CLIは同じ9入力に既存CUBIN/O1/required cache/保存source/NVRTC禁止profileを適用。実CUDA未確認。今回実GPU計5、retry0。診断スクリプトのnormalizer戻り値誤用2件はCPU失敗として保持しnormalizerは未変更。
+
+全inventory fieldが従来と一致、266profile/245packing/21失敗/20分類/全キャラ0/UI CPU。model-check成功、公開admissionは閉じたまま。Windows旧continuation statusを1回確認したがhost unavailable、terminal未取得で再送しない。証跡はtarget-count-query-evidence/metal-live-lock-delivery-v1.jsonとlive-lock-delivery-legacy-retention-v1.json。次は元全25への合成・発射体consumer、距離順位providerと死亡時振替の未確定契約をそれぞれ分離して進める。

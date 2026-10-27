@@ -1,5 +1,21 @@
 # Lock Onの次の実装契約
 
+## 2026-10-27 発射snapshotから既存着弾経路への接続
+
+共通CLI `live-lock-delivery` は9入力（明示モデル4正例、未確定死亡policy/不正wireの拒否5）をM5 Metalで1回実行し、別fresh GPU禁止childの全出力/native比較でsealした。`require-live-frozen-slot-v1`は発射時snapshotの取得順とhit番号から生存・同世代の対象へ配送する。空snapshotは空集合とし、BODYへfallbackしない。死亡・欠落・世代違いを検出した場合はerror64で停止する。これは未知の振替を実装したことにも、死亡時dropを採用したことにもならない。
+
+新しい処理はtransient actor setへ宛先を1つcaptureするだけで、`landWorldSkillReceipt` → `land` → `counterPhysicalPacket` → healという既存処理を通る。新しいダメージ計算、CPU計算済み配送表、HP/counter/healの複製はない。snapshot専用arena、live actor set32、queue2048、input104400/output806912、診断trace38は不変。今回の実配送fixtureはBODY/ADDで、全actor種別や2048同時queueの認定ではない。
+
+充填2対象のBODY→ADD、4hit/3対象の循環、通常攻撃解除後のsnapshot保持、ハイド、空snapshot、実ADDダメージによるskill counter完了と吸血回復を照合した。配送前死亡→再出現ケースは拒否正例。元index4/8/9/20を保持するpartial fixtureで、index0は周期self projectionのまま。全25定義・距離選択・ゲーム準拠の再対象化は未完了。明示selectorのため正本の未実装recipientを拡張しており、canonical battle equivalenceとは主張しない。
+
+CPU観測器のpatch scopeをcontext managerへ抽出した。元の受動観測はobserver無しのfresh正本との全battle/trace/input一致を保持し、従来packet4件の全native SHAも保持する。新規約はfreshな同規約の再実行で全battle/trace/inputを比較し、追加診断の有無による差がないことを検査する。比較対象をcanonicalと黙って読み替えない。
+
+`WORLD_PACKET_CAPTURE`を一度だけ共有着弾境界へ追加し、既定は完全な従来fallback。拡張本体は新entryからだけincludeし、将来その本体を変更する度に全legacy source閉包へ入ることを避ける。今回の共有hookによるsource変更は新exact inverse ledgerで監査。従来packet8/cover23/physical10/external16は生成CUDA/MSLの既存厳密hashと全input/native指紋を先に確認し、required pipeline hitで各1回Metal＋fresh独立sealした。全input/readback byteを保持。新goldenは順にv2/v3/v5/v6、旧版は保存。本体106の厳密生成hashも保持（生成のみ、現在sourceのCUDA認定へ付替えない）。
+
+実装code4c0c114c、packet15aa4c45。新consumerのGPU時間0.057052秒、初回archive作成11.105610秒、独立監査6.390641秒。追加GPUは新1＋従来4、同claim retry0。最初の独立生成比較スクリプトでnormalizerの戻り値を誤ってhashしたCPU診断失敗2件は記録し、既存normalizer自体は変更していない。実計算失敗ではない。
+
+`live-lock-delivery-cache-only` は同じsource/入力/比較器/goldenを既存のCUBIN必須・O1・required cache・保存CUDA source検査・NVRTC禁止profileへ接続した入口。新しいCUDA実機成功ではない。Windowsは旧continuationのstatusだけを1回確認したがhost unavailable、再送/再実行は行っていない。証拠は `target-count-query-evidence/metal-live-lock-delivery-v1.json` と `live-lock-delivery-legacy-retention-v1.json`。
+
 ## 2026-10-27 追加検索：配送前死亡の記述と実装判断
 
 実機環境を待たず公開情報で判断するという指定に従い、英日韓の追加検索を行った。今回の判断は次の通り。資料の記述を開発指示や独立した戦闘oracleとして実行しない。

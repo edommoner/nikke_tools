@@ -84,6 +84,14 @@ def verify(root,overrides=None):
   sequential_delivery_connected=False,spatial_selection_verified=False,game_verified=False,
   original_full_profile_verified=False,public_admission=False,
   evidence='research/target-count-query-evidence/metal-lock-packet-bindings-v1.json')
+ missing['lock_on']['declared_live_snapshot_delivery']=dict(suite='live-lock-delivery',native_cases=4,rejected_cases=5,
+  model='require-live-frozen-slot-v1',source='gpu/world_lock_delivery_entry.slang',
+  metal_verified=True,independently_audited=True,cuda_verified=False,
+  actual_queue_connected=True,selected_slot_applied_to_landing=True,existing_hp_counter_lifesteal_path=True,
+  empty_snapshot_body_fallback=False,dead_missing_stale_policy='reject-unresolved',
+  full_sequential_delivery_verified=False,canonical_battle_equivalence=False,
+  spatial_selection_verified=False,game_verified=False,original_full_profile_verified=False,public_admission=False,
+  evidence='research/target-count-query-evidence/metal-live-lock-delivery-v1.json')
  missing['effect_target_count_add']['required_consumer_contract']=dict(marker=definitions[0]['name'],additional_targets=10,duration_bullets=2,
   distinct_target_capacity=True,does_not_increase_per_target_marker_stack=True,implementation_verified=False)
  trees={name:ast.parse(text[name]) for name in MODULES}

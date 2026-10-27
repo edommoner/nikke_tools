@@ -30,11 +30,11 @@ from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 SUITES = {
     'live-lock-delivery':dict(script='research/verify-live-lock-delivery.py',
         golden='research/portable-live-lock-delivery-v1-expected.json',source='gpu/world_lock_delivery_entry.slang',
-        inputs=9,native=4,input_words=104400,output_words=806912,development_only=True,
+        inputs=9,native=4,input_words=104400,output_words=806912,development_only=False,
         support_files=['research/portable-lock-packet-bindings-v1-expected.json'],
         tests=['test_live_lock_delivery.py','test_lock_packet_bindings.py','test_lock_delivery_policy.py','test_lock_delivery_event_order.py','test_portable_weapon_phases.py','test_portable_generation_separation.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py']),
     'lock-packet-bindings':dict(script='research/verify-lock-packets.py',
-        golden='research/portable-lock-packet-bindings-v1-expected.json',source='gpu/world_lock_packet_entry.slang',
+        golden='research/portable-lock-packet-bindings-v2-expected.json',source='gpu/world_lock_packet_entry.slang',
         inputs=8,native=4,input_words=104400,output_words=806912,development_only=False,
         tests=['test_lock_packet_bindings.py','test_lock_delivery_policy.py','test_lock_delivery_event_order.py','test_portable_weapon_phases.py','test_portable_generation_separation.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py']),
     'lock-delivery-policy':dict(script='research/verify-lock-delivery.py',
@@ -42,15 +42,15 @@ SUITES = {
         inputs=63,native=46,input_words=1032,output_words=16,development_only=False,
         tests=['test_lock_delivery_policy.py','test_lock_delivery_event_order.py']),
     'physical-lock-cover':dict(script='research/verify-physical-lock-cover.py',
-        golden='research/portable-physical-lock-cover-v2-expected.json',source='gpu/world_physical_lock_cover_entry.slang',
+        golden='research/portable-physical-lock-cover-v3-expected.json',source='gpu/world_physical_lock_cover_entry.slang',
         inputs=23,native=11,input_words=104400,output_words=806912,development_only=False,
         tests=['test_physical_lock_cover_gpu.py','test_physical_lock_cover_reference.py','test_physical_generation_locks.py','test_named_generation_locks.py','test_portable_wire_layout.py','test_portable_weapon_phases.py','test_portable_generation_separation.py','test_portable_metal_wire_refresh.py']),
     'physical-generation-locks':dict(script='research/verify-physical-locks.py',
-        golden='research/portable-physical-generation-locks-v4-expected.json',source='gpu/world_physical_locks_entry.slang',
+        golden='research/portable-physical-generation-locks-v5-expected.json',source='gpu/world_physical_locks_entry.slang',
         inputs=10,native=6,input_words=104400,output_words=806912,development_only=False,
         tests=['test_physical_lock_cover_reference.py','test_named_generation_locks.py','test_physical_generation_locks.py','test_generation_lock_executor.py','test_portable_wire_layout.py','test_portable_weapon_phases.py','test_portable_generation_separation.py','test_portable_metal_wire_refresh.py']),
     'named-generation-locks':dict(script='research/verify-generation-locks.py',
-        golden='research/portable-named-generation-locks-v5-expected.json',source='gpu/world_generation_locks_entry.slang',
+        golden='research/portable-named-generation-locks-v6-expected.json',source='gpu/world_generation_locks_entry.slang',
         inputs=16,native=10,input_words=92208,output_words=253952,development_only=False,
         tests=['test_named_generation_locks.py','test_generation_lock_executor.py']),
     'named-target-count-shots':dict(script='research/verify-target-count-shots.py',
@@ -486,6 +486,7 @@ SUITES['coordinate-landing-arena-cache-only']=dict(SUITES['coordinate-landing-ar
 SUITES['coordinate-landing-cache-only']=dict(SUITES['coordinate-landing'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['coordinate-landing']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['lock-delivery-cache-only']=dict(SUITES['lock-delivery-policy'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['lock-delivery-policy']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['lock-packet-cache-only']=dict(SUITES['lock-packet-bindings'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['lock-packet-bindings']['tests'],'test_portable_cuda_cached_profile.py'])
+SUITES['live-lock-delivery-cache-only']=dict(SUITES['live-lock-delivery'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['live-lock-delivery']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['coordinate-physical']=dict(script='research/verify-coordinate-physical-short.py',source='gpu/world_coordinate_physical_entry.slang',golden='research/portable-coordinate-physical-short-expected.json',inputs=23,native=17,output_words=1310720,development_only=False,tests=['test_coordinate_physical_gpu.py','test_coordinate_physical_common.py','test_coordinate_physical_reference.py','test_portable_damage_factors.py'])
 SUITES['coordinate-physical']['upstream_documents']=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
 SUITES['coordinate-physical']['support_files']=['research/portable-coordinate-arcs-short-expected.json']
