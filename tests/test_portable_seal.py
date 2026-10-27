@@ -76,9 +76,8 @@ class SealTests(unittest.TestCase):
         for error in (subprocess.CalledProcessError(1,['fixture'],output='partial stdout',stderr='失敗の詳細'),
                       subprocess.TimeoutExpired(['fixture'],30,output=b'partial timeout',stderr='中断'.encode())):
             with self.subTest(error=type(error).__name__),tempfile.TemporaryDirectory() as tmp:
-                original=tempfile.mkdtemp
-                with patch('tempfile.mkdtemp',side_effect=lambda **kwargs:original(dir=tmp,**kwargs)),patch.object(cli.subprocess,'run',side_effect=error) as run:
-                    with self.assertRaisesRegex(RuntimeError,'preserved logs') as caught:cli.audit_saved_metal(Path(tmp),Path(tmp),timeout=30)
+                with patch.object(cli.subprocess,'run',side_effect=error) as run:
+                    with self.assertRaisesRegex(RuntimeError,'preserved logs') as caught:cli.audit_saved_metal(Path(tmp),Path(tmp)/'capture',timeout=30)
                 run.assert_called_once();self.assertIs(caught.exception.__cause__,error)
                 folders=list(Path(tmp).glob('nikke-independent-audit-failure-*'));self.assertEqual(len(folders),1)
                 expected=error.stderr.decode() if isinstance(error.stderr,bytes) else error.stderr

@@ -124,6 +124,11 @@ SUITES['original-catalogue-initial']=dict(SUITES['original-catalogue'],golden='r
     'original-catalogue/hp-shield/모더니아/favorite-0/30s',
     'original-catalogue/projectile/앨리스/favorite-0/30s',
     'original-catalogue/hp-shield/프리바티 : 언카인드 메이드/favorite-0/30s'])
+SUITES['original-catalogue-burst']=dict(SUITES['original-catalogue'],golden='research/portable-original-catalogue-burst-v1-expected.json',inputs=4,native=4,development_only=False,selection_required=False,frozen_cases=[
+    'original-catalogue/hp-shield/라피 : 레드 후드/favorite-0/30s',
+    'original-catalogue/hp-shield/홍련 : 흑영/favorite-0/30s',
+    'original-catalogue/hp-shield/레드 후드/favorite-0/30s',
+    'original-catalogue/hp-shield/신데렐라/favorite-0/30s'],tests=[*SUITES['original-catalogue']['tests'],'test_original_catalogue_burst.py'])
 SUITES['lost-hp-diagnostic']=dict(SUITES['lost-hp-roster'],source='gpu/world_projectile_admission_entry.slang')
 SUITES['stun']=dict(script='research/verify-world-stun-short.py',golden='research/portable-world-stun-short-expected.json',
                    source='gpu/world_projectile_entry.slang',inputs=46,native=36,
@@ -527,6 +532,7 @@ SUITES['original-lock-health-parts-cache-only']=dict(SUITES['original-lock-healt
 SUITES['original-projectile-weapons-cache-only']=dict(SUITES['original-projectile-weapons'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-projectile-weapons']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['original-shield-weapons-cache-only']=dict(SUITES['original-shield-weapons'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-shield-weapons']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['original-catalogue-initial-cache-only']=dict(SUITES['original-catalogue-initial'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-catalogue-initial']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
+SUITES['original-catalogue-burst-cache-only']=dict(SUITES['original-catalogue-burst'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-catalogue-burst']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['original-lock-controls-cache-only']=dict(SUITES['original-lock-controls'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-lock-controls']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['original-lock-composition-cache-only']=dict(SUITES['original-lock-composition'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-lock-composition']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['enemy-lock-carriers-diagnostic']=dict(SUITES['enemy-lock-carriers'],source='gpu/world_lock_enemy_carrier_diagnostic_entry.slang',development_only=True)
@@ -1964,7 +1970,7 @@ print(json.dumps(dict(golden=g,package_id=p['package_id'],audit=a,independent_co
                                  cwd=package_root.resolve(),capture_output=True,text=True,check=True,timeout=timeout)
     except (subprocess.CalledProcessError,subprocess.TimeoutExpired) as error:
         import tempfile
-        failure=Path(tempfile.mkdtemp(prefix='nikke-independent-audit-failure-'))
+        failure=Path(tempfile.mkdtemp(prefix='nikke-independent-audit-failure-',dir=capture.resolve().parent))
         for suffix in ('stdout','stderr'):
             value=getattr(error,suffix,None)
             if isinstance(value,bytes):value=value.decode('utf-8',errors='replace')

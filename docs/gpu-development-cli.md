@@ -1,3 +1,5 @@
+`original-catalogue-burst`は元Rapi RH/SBS/Red Hood/Cinderella各30秒のsealed4入力。`package --suite original-catalogue-burst`から既存の固定packet実行を使う。`original-catalogue-burst-cache-only`は同じkernel/入力/goldenにCUBIN/O1・compile cache必須とpaired generation必須を適用。初版の独立観測器の不足はsource/CPU指紋を変えずに修正し、保存GPU結果のstrict replayとfresh独立sealで認定した。独立監査のfailure/timeoutログはcaptureの隣へ保存され、nested causeも比較理由に残る。[実証範囲と未観測条件](portable-original-catalogue-burst.md)。
+
 # 元profileの選択開発
 
 `cases --suite original-catalogue --match TEXT` は全profileを準備せずmetadataだけを列挙する。`package --suite original-catalogue --develop --case NAME --out NEW.zip` は明示1〜4件だけを元定義のまま共通compilerへ渡す。固定群`original-catalogue-initial`は共通の2,048行bankを使い、Modernia30秒の全1,618件を含む4入力がM5 Metal・独立監査でsealed。`package --suite original-catalogue-initial --out NEW.zip`から通常の固定packet実行を使う。`original-catalogue-initial-cache-only`は同じ計算/入力/goldenにCUBIN/O1・compile cache必須とpaired generation必須を適用する。実CUDA未確認、全キャラ認定ではない。[選択規約・検査・次の容量拡張](portable-original-catalogue.md)。

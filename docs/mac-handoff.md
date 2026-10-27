@@ -1,3 +1,7 @@
+# 2026-10-28 元4編成のburst合成を独立seal・観測器の不足を修正
+
+`original-catalogue-burst`はRapi RH/SBS/Red Hood/Cinderellaの元30秒4編成を同じ共通実行器でseal。全318定義を保持し、付着/蓄積・即時起爆、gauge3段、武器変更、HP由来ATK/最大HP更新と連続攻撃を実行。全skill160行/物理6344receiptの既存全件SHA+保持prefix/全状態を比較。初回GPU比較は成功したが独立observerのstale scalar codeで失敗したため、実caller+現在のscalar returnへ観測を修正。元4入力/native/GPU source全保持のstrict replay・fresh GPU禁止監査101.22秒で成功した。GPU実行1回のみ4.036秒、generation/pipeline必須hit・Slang0/PSO.00327秒。canonical/GPU/数値/効果/normalizer変更0。単一監査failure/timeoutの詳細を共通CLIがcapture隣へ保存する。Rapi no-other-B1とRH B1/B2は未観測で、次に実入力へ接続する。CUDA cache-only入口は同じkernel/基準を使うが実CUDA未確認、Windows新依頼0・旧transaction再送なし。全キャラ/全特殊効果は未達。[設計・失敗・証拠・次の条件](portable-original-catalogue-burst.md)。以下は前段の履歴。
+
 # 2026-10-28 共通スキル履歴1,618件をMetalで全照合・独立seal
 
 `original-catalogue-initial`の元4入力を共通記録器の2,048件bankへ接続し、M5 Metal全一致・fresh GPU禁止監査でseal。入力/CPU指紋は旧4件全保持、旧成功3件の24,384,000byte完全一致。新entryは武器専用の未使用typed receipt領域へ128行以降を保存し、全行を既存decoderで比較した後に限り旧比較viewへ射影する。input115680/output2032000・Runtime138952byte/全field reflection不変、damage/時計/効果/正本/normalizer変更0。固定d90c5f9a/package3edf0819…、136unit/CPU77.54秒/GPU4.746秒/PSO62.16秒/独立89.35秒。通常sealed入口と同じ基準のCUBIN/O1+paired generation必須cache入口を登録。CUDA現実機未確認・Windows新依頼0・旧transaction再送なし。次は未実証元profile/他履歴bank/model gapを同じ選択CLIで進める。全キャラ/全特殊効果・公開GPU受付は未達。[設計・証跡・限界](portable-original-catalogue.md)。最終cache packet8a2bb6d4…は16群165unit/compile-plan policy成功、CLI関数AST/既存test/全計算source保持でnative再実行0。checkout model-checkも成功。以下は前段の履歴。
