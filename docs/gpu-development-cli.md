@@ -546,3 +546,5 @@ Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-la
 
 
 `coordinate-resident-device` は全106と同じsource/ABI/全出力比較器の先頭4入力を使うsealed実機確認です。全106や全キャラ認定を置き換えません。[入力と独立Metal実証の範囲](portable-coordinate-resident-device.md)。Windowsのpackage全byte監査は大きいpayloadを最大4readerで毎回検査します。保存checksum・CPU正本結果のcacheは使いません。[CPU比較診断](portable-package-byte-verification.md)。
+
+選択テスト自体がWindowsの180秒を超えるsealed battleでは、[fresh事前検査](portable-staged-native-preflight.md)の`preflight-plan --test-group-size 2`と全`preflight-test-group`を使う。通常の全テストを省略せず、全receiptをnative開始時とGPU直前に監査する。

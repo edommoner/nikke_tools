@@ -2500,3 +2500,11 @@ Windows v4は依存確認・36検査・40/native26比較・NVRTC2.586690秒/ret0
 旧compact compiler ownerは現在のテストregistryを使うと誤拒否されていた。全payloadを検査した後、検証済み旧owner自身のregistry/projectionをfresh CPUで照合するよう修正。実在7b43de12の静的監査成功、追加compile/GPU0、関連49検査成功。固定full106 packet `research/windows-source-packets/staged-native-preflight-v1.zip` (38544c0b)。GPU/保護CPU/goldenと全106入力SHAを保持。Mac選択177検査/108.65秒、共通621検査(Windows専用1skip)成功。Windows新stageはまだ未実証。既存CUBINの追加コンパイルは不要、fresh CPU全群とJob観測が成功するまでGPUへ進めない。
 
 未対応分類266profile/245入力変換/21失敗、20model-gap、全キャラ認定0/UI CPUを維持。Heavyarms空間Lock On/対象数、移動/共有damageなどのゲームgapは未解決。今回の実行器/検証経路の成立を全キャラ対応へ読み替えない。Windows保存結果はprivate readbackで受領し、公的ブランチにraw/PTX/CUBINを送らない。
+
+### 2026-10-27: 選択テストもfresh群へ分割
+
+Windowsの新CLI用smokeは622件成功したが、full106のbeginは選択177件の途中で180秒へ達した。旧packet/claim/失敗原本を保持し、GPU/native前検査は起動していない。選択テストは削らず、新しい `preflight-plan --test-group-size 2`→全 `preflight-test-group`→全native群→GPU→独立native群の経路を追加。通常run/通常beginは不変。全登録群の順序/全ログ/nonce/PID/Job終了・観測をnative前とGPU前に監査し、合成cpu-tests.jsonは作らない。`docs/portable-staged-native-preflight.md` を参照。
+
+固定full packet 7e142c00 (`research/windows-source-packets/staged-unit-tests-v1.zip`) はMacで選択177テストを14fresh群で完走、最長46.30秒/合計129.37秒、共通629テスト成功(Windows専用1skip)。同コードdevice packet e5a04816は元62テスト4群→native4件2群→M5 GPU1回→独立fresh native4件2群で完全一致。必須generation/pipeline cacheを使用しSlang呼出0、共有Swift module cache利用時のGPU子1.86秒。raw SHA d1dc8ecdd94b881503bcc588e34103103dce402fc6adbfaa56924484c0545879を維持。public要約はshared-native-group-evidence/metal-staged-tests-*.json。
+
+全106 GPU/protected CPU/golden/入力SHA7892c2b3を保持し、旧compiler owner7b43de12のownregistry監査も成功。Windowsでは新固定packetでCPU smoke/plan/選択テスト群から開始する。全群とJobが成功するまでnative/GPUへ進めない。保存済みCUBINを使い追加compile不要、GPU子60秒/各stage180秒/2GiB/BelowNormalを維持。今回の成立は新しいゲーム効果や全キャラ対応の証明ではなく、Lock On/対象数/投射物と残20分類、全キャラ0/UI CPUは継続。
