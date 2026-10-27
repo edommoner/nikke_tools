@@ -575,3 +575,9 @@ Windows既存チャットへの送信APIは今回成功。07e1d178/coordinate-la
 `lock-projectile-composition` は元index24の発射体攻撃と実ロック配送を単一battleへ合成する**開発用**9入力（native5／拒否4）。`package --suite lock-projectile-composition --develop` で固定する。typed領域を全保持し、lock/manual/link領域を1048576以降へ移した既存登録幅1310720を使用。常駐Runtimeの入れ子数値structもCUDA/Metalの厳密reflection比較を通す。初回Metalの全battleとtyped receiptは一致したが、抑止されるnative BODY仮packetの履歴が4ケースで異なり、sealしていない。比較器の履歴行を削除・除外しない。保存失敗rawから配送dispositionの契約を調べる。通常CUDA実行・全25認定へ使わない。
 
 更新：`lock-projectile-composition` は配送dispositionと全履歴を保持するsealed12入力（native7／拒否5）へ進んだ。通常の `package --suite lock-projectile-composition` と固定packetの `run` を使う。GPU実行のrun自体がfresh CPU/native gateを実行するため、別のCPU-only実行を習慣的に重ねる必要はない（失敗の切り分けにはCPU-onlyを使う）。前回の失敗raw/goldenなしの9入力は保存。元全25の認定ではない。`lock-projectile-cache-only` は同じ計算をCUBIN/O1必須にし、`--require-cache --compile-cache ABS --cached-cuda-source SAVED.cu --artifact-kind cubin --ptxas-level 1` と `--require-generation-cache --generation-cache ABS` の両方を要求する。欠落はcapture/worker/claim前に停止。paired生成とCUBINの実hitは実行子でも再検証する。CUDA実機未確認。[履歴と副作用の契約](portable-heavyarms-lock-selection.md)を参照。
+
+### 敵ロックcarrierの共通実行
+
+`enemy-lock-carriers` は元Lock On/解除/名前付き敵被ダメージ増加と、既存2射撃上限を共通actor carrier実行器へ接続する部分suite。7入力（native4、raw拒否3）のMetal独立seal済みgoldenを使う。全25定義、照準距離規則、全キャラ/公開GPU認定は含まない。通常の `package --suite enemy-lock-carriers --out NEW.zip` → `unpack` → 固定packetの `run` を使用する。
+
+Windowsの短いCUBIN検証を準備するときは `enemy-lock-carriers-cache-only` を使う。同じSlang/入力/golden/比較器を参照し、既存compile-cache、保存CUDA source、`--require-cache`、CUBIN/O1を要求する。standalone suiteなのでresident専用のgeneration-cache flagは付けない。未検証のCUBINを存在すると仮定せず、必要な場合は既存compile-planを先に通す。今回のMac作業ではCUDA実行・CUBIN hitは未実証である。`enemy-lock-carriers-diagnostic` は既存admission観測器を有効にする開発専用entryで、通常goldenの代わりに使わない。
