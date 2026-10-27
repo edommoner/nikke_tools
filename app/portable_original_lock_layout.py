@@ -3,9 +3,11 @@ from portable_packet_fates import END as BASE
 from portable_lock_typed_layout import OUTPUT
 PULSE_CAPACITY=256
 PACKET_CAPACITY=512
+QUOTA_CAPACITY=2048
 PULSES=BASE
 PACKETS=PULSES+PULSE_CAPACITY*16
-END=PACKETS+PACKET_CAPACITY*16
+QUOTAS=PACKETS+PACKET_CAPACITY*16
+END=QUOTAS+QUOTA_CAPACITY*20
 assert END<=OUTPUT and BASE%8==0
 
 def shader_layout():
@@ -13,7 +15,9 @@ def shader_layout():
         '#define PL_PULSE_CAPACITY '+str(PULSE_CAPACITY)+'U\n'
         '#define PL_PULSE_AT(s,index) ((s).resourceOutput+'+str(PULSES)+'U+(index)*16U)\n'
         '#define LP_DIAGNOSTIC_CAPACITY '+str(PACKET_CAPACITY)+'U\n'
-        '#define LP_TRACE_AT(output,index) ((output)+'+str(PACKETS)+'U+(index)*16U)\n')
+        '#define LP_TRACE_AT(output,index) ((output)+'+str(PACKETS)+'U+(index)*16U)\n'
+        '#define TCS_TRACE_CAPACITY '+str(QUOTA_CAPACITY)+'U\n'
+        '#define TCS_TRACE_AT(s,index) ((s).resourceOutput+'+str(QUOTAS)+'U+(index)*20U)\n')
 
 def check(root):
     from pathlib import Path
@@ -21,15 +25,15 @@ def check(root):
 
 def banks_and_project(block,native):
     if len(block)!=OUTPUT:raise AssertionError('Complete original lock arena required')
-    counts=[len(native['lock_pulses']),len(native['lock_packet_trace'])]
+    counts=[len(native['lock_pulses']),len(native['lock_packet_trace']),len(native['target_count_shots'])]
     banks=[]
-    for start,capacity,count in zip((PULSES,PACKETS),(PULSE_CAPACITY,PACKET_CAPACITY),counts,strict=True):
+    for start,capacity,width,count in zip((PULSES,PACKETS,QUOTAS),(PULSE_CAPACITY,PACKET_CAPACITY,QUOTA_CAPACITY),(16,16,20),counts,strict=True):
         if count>capacity:raise AssertionError('Original lock history capacity exceeded')
-        banks.append([list(block[start+i*16:start+(i+1)*16]) for i in range(count)])
-        if any(block[start+count*16:start+capacity*16]):raise AssertionError('Unexpected original lock history padding')
+        banks.append([list(block[start+i*width:start+(i+1)*width]) for i in range(count)])
+        if any(block[start+count*width:start+capacity*width]):raise AssertionError('Unexpected original lock history padding')
     if any(block[END:]):raise AssertionError('Unowned original lock tail')
     # Bank records are compared in full by the common comparators. Only the
     # copied legacy projection is zeroed after all new memory was accounted for.
     projected=list(block);projected[BASE:]=[0]*(OUTPUT-BASE)
     from portable_packet_fates import compare_and_project
-    return compare_and_project(projected,native),banks[0],banks[1]
+    return compare_and_project(projected,native),banks[0],banks[1],banks[2]

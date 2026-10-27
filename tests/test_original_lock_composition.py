@@ -18,12 +18,14 @@ class OriginalLocks(unittest.TestCase):
         self.assertEqual(c['controls'],[char['control'] for char in p['chars']])
         self.assertEqual(c['original_run']['prepared']['chars'],p['chars'])
         self.assertEqual(len(w),109536)
+        from portable_charge_control_specs import WORDS
+        self.assertEqual(m['_control_policy'],w[suite.L['WORLD_CONTROL_INPUT_BASE']:suite.L['WORLD_CONTROL_INPUT_BASE']+WORDS])
     def test_extended_banks_are_disjoint_and_unowned_tail_is_rejected(self):
-        from portable_original_lock_layout import BASE,PULSES,PACKETS,END,OUTPUT,PULSE_CAPACITY,PACKET_CAPACITY,banks_and_project
+        from portable_original_lock_layout import BASE,PULSES,PACKETS,END,OUTPUT,PULSE_CAPACITY,PACKET_CAPACITY,QUOTAS,QUOTA_CAPACITY,banks_and_project
         from portable_packet_fates import END as old_end
-        self.assertEqual(BASE,old_end);self.assertEqual(PACKETS,PULSES+PULSE_CAPACITY*16);self.assertEqual(END,PACKETS+PACKET_CAPACITY*16);self.assertLess(END,OUTPUT)
-        n=dict(lock_pulses=[],lock_packet_trace=[])
-        for pos in (PULSES,PACKETS,END,OUTPUT-1):
+        self.assertEqual(BASE,old_end);self.assertEqual(PACKETS,PULSES+PULSE_CAPACITY*16);self.assertEqual(QUOTAS,PACKETS+PACKET_CAPACITY*16);self.assertEqual(END,QUOTAS+QUOTA_CAPACITY*20);self.assertLess(END,OUTPUT)
+        n=dict(lock_pulses=[],lock_packet_trace=[],target_count_shots=[])
+        for pos in (PULSES,PACKETS,QUOTAS,END,OUTPUT-1):
             b=[0]*OUTPUT;b[pos]=1
             with self.subTest(pos=pos),self.assertRaisesRegex(AssertionError,'padding|tail'):banks_and_project(b,n)
     def test_exact_source_inverse_preserves_every_shared_dependency(self):
@@ -40,4 +42,6 @@ class OriginalLocks(unittest.TestCase):
         self.assertLessEqual(len(n['skill_trace']),128)
         self.assertEqual(len(n['receipt_fates']),len(n['skill_trace']))
         self.assertTrue(n['typed']['attacks'])
+        self.assertGreater(len(n['target_count_shots']),100)
+        self.assertLessEqual(len(n['target_count_shots']),2048)
 if __name__=='__main__':unittest.main()

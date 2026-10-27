@@ -49,17 +49,18 @@ def compile_case(parent,case,*,model):
     meta['named_count_physical']=dict(model=model,row=row,marker=name,original_definition=copy.deepcopy(effect),base_count=5,capacity_limit=128)
     return words,meta,bindings
 
-def decode(block,meta):
+def decode(block,meta,*,trace_rows=None):
     h=list(block[HEAD:HEAD+16]);context=meta['named_count_physical']
-    if h[:2]!=[MAGIC,1] or h[2]>CAPACITY or h[3:6]!=[meta['states'][context['marker']],5,128] or any(h[6:]):
+    if h[:2]!=[MAGIC,1] or (trace_rows is None and h[2]>CAPACITY) or h[3:6]!=[meta['states'][context['marker']],5,128] or any(h[6:]):
         raise ValueError('Invalid named shot observation header')
+    if trace_rows is not None and len(trace_rows)!=h[2]:raise ValueError('Complete external shot quota history required')
     number=lambda r,i:struct.unpack('<d',struct.pack('<II',*r[i:i+2]))[0]
     events=[]
     for index in range(h[2]):
-        row=list(block[TRACE+index*WORDS:TRACE+(index+1)*WORDS])
+        row=list(block[TRACE+index*WORDS:TRACE+(index+1)*WORDS]) if trace_rows is None else trace_rows[index]
         if row[0]>=5 or any(v not in (0,1) for v in [*row[11:14],row[16]]) or row[17]:raise ValueError('Invalid named shot context')
         events.append(dict(who=row[0],time=number(row,2),
             before=dict(capacity=row[4],additional=number(row,6),remaining=row[1],present=bool(row[12]),activated=number(row,14),skipped=bool(row[11])),
             after=dict(capacity=row[5],additional=number(row,8),remaining=row[10],present=bool(row[13]),activated=number(row,18),skipped=bool(row[16]))))
-    if any(block[TRACE+h[2]*WORDS:TRACE+CAPACITY*WORDS]):raise ValueError('Unexpected named shot trace tail')
+    if any(block[TRACE+(h[2] if trace_rows is None else 0)*WORDS:TRACE+CAPACITY*WORDS]):raise ValueError('Unexpected named shot trace tail')
     return events

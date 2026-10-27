@@ -24,8 +24,8 @@ def compare(block,domain):
     identity=n['original_input_identity']
     if identity!=dict(definitions=len(c['effects']),chars_config_seed_weapon_verified=True,authored_metadata_overrides=False,authored_delays_overrides=False):raise AssertionError('Original native input identity changed')
     if set(m['binding_source_indices'])!=set(range(len(c['effects']))):raise AssertionError('Original source definition discarded')
-    projected,pulses,packets=banks_and_project(block,n)
-    composition.live.parent.parent.parent.compare_observed(projected,domain,n,candidates,manual=False,packet_bindings=True,pulse_rows=pulses,packet_rows=packets)
+    projected,pulses,packets,quotas=banks_and_project(block,n)
+    composition.live.parent.parent.parent.compare_observed(projected,domain,n,candidates,manual=False,packet_bindings=True,pulse_rows=pulses,packet_rows=packets,quota_rows=quotas)
     if composition.typed.decode(block,domain)!=n['typed']:raise AssertionError('Complete original typed state/receipts differ')
     return n
 

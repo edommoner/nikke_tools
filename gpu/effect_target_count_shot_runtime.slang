@@ -1,5 +1,11 @@
 // Diagnostic trace owns ordinary unused query slots1..63, never query0.
-static const uint TCS_CAPACITY=100U;
+#ifndef TCS_TRACE_CAPACITY
+#define TCS_TRACE_CAPACITY 100U
+#endif
+#ifndef TCS_TRACE_AT
+#define TCS_TRACE_AT(s,index) (tcsHead(s)+16+(index)*20)
+#endif
+static const uint TCS_CAPACITY=TCS_TRACE_CAPACITY;
 uint tcsHead(inout Runtime s){return s.resourceOutput+P_QUERY_BASE+P_QUERY_WORDS;}
 bool initializeTargetCountShotPlan(inout Runtime s)
 {
@@ -46,7 +52,7 @@ void targetCountShotAfter(inout Runtime s,uint who,uint64_t when,uint capacity,u
     if(s.error!=0)return;uint head=tcsHead(s),count=results[head+2];
     if(count>=TCS_CAPACITY){s.error=64;return;}
     TargetCountShotState after=targetCountShotState(s,who,when);if(s.error!=0)return;
-    uint at=head+16+count*20;results[head+2]=count+1;
+    uint at=TCS_TRACE_AT(s,count);results[head+2]=count+1;
     results[at]=who;results[at+1]=remaining;storeNumber(at+2,when);results[at+4]=capacity;results[at+5]=after.capacity;
     storeNumber(at+6,total);storeNumber(at+8,after.total);results[at+10]=after.remaining;results[at+11]=skipped;
     results[at+12]=present;results[at+13]=after.present;storeNumber(at+14,activated);results[at+16]=after.skipped;results[at+17]=0;storeNumber(at+18,after.activated);

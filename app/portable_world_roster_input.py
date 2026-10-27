@@ -149,7 +149,9 @@ def compile_world_battle(prepared, *, trace='burst', allow_physical_interrupt=Fa
         from portable_manual_control_specs import pack as pack_controls
         policy=pack_controls(controls,bound,names,meta['states'],camera_mask)
         words.extend(policy);meta['_control_policy']=policy
-    else:words.extend(controls_policy(controls, bound, names, meta['states'], camera_mask))
+    else:
+        policy=controls_policy(controls,bound,names,meta['states'],camera_mask)
+        words.extend(policy);meta['_control_policy']=policy
     words.extend(pack_reload((e for e,_ in bound),manual_swap=[c.get('weapon_mode_swap',False) for c in chars]))
     words[0] = 0x5045568c
     words[L['TARGET_COUNTER_INPUT_BASE']+6] = 23

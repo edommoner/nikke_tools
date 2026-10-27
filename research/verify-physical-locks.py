@@ -43,13 +43,13 @@ def compare(block,domain):
  c,m,bindings=domain;candidates=[];n=observe(c,candidate_observer=lambda values:candidates.append(tuple(values)))
  return compare_observed(block,domain,n,candidates)
 
-def compare_observed(block,domain,n,candidates,*,manual=False,packet_bindings=False,pulse_rows=None,packet_rows=None):
+def compare_observed(block,domain,n,candidates,*,manual=False,packet_bindings=False,pulse_rows=None,packet_rows=None,quota_rows=None):
  c,m,bindings=domain
  if block[0]!=0:raise AssertionError((c['name'],'status',block[0]))
  actual=parent.decoded(block,m,c,bindings);changed=[k for k in n['battle'] if k!='scope' and actual[k]!=n['battle'][k]]
  if changed:raise AssertionError((c['name'],'complete battle',changed))
  if parent.reload.charge.team.skill_trace(block,m)!=n['skill_trace']:raise AssertionError('Skill trace changed')
- if decode(block,m)!=n['target_count_shots']:raise AssertionError('Physical two-shot quota trace changed')
+ if decode(block,m,trace_rows=quota_rows)!=n['target_count_shots']:raise AssertionError('Physical two-shot quota trace changed')
  h=HEAD;head=list(block[h:h+16]);want=[0x504c3031,len(n['lock_pulses']),len(n['lock_shots']),len(n['lock_clears']),0,m['physical_lock_pulse_row']]+[0]*10
  if head!=want:raise AssertionError(('lock header',head,want))
  if pulse_rows is not None and len(pulse_rows)!=len(n['lock_pulses']):raise AssertionError('Complete external pulse history required')
