@@ -1,0 +1,93 @@
+{
+  "schema": "target-count-query-native-v1",
+  "source_commit": "9ab122a4",
+  "package_id": "49dc4e97c73f67dc03d1b25e9dd3814d9791a0e8bb4d267e3a512fed0e5fc628",
+  "reference_report_sha256": "4b880edabbb75b2d217d87e7b26ba5f9ea61bcd652c5f21c6483d49564099b14",
+  "reference_report_bytes": 251433,
+  "unit_tests": 13,
+  "related_tests": 58,
+  "case_count": 4,
+  "elapsed_seconds": 2.0403287500012084,
+  "source_sha256": {
+    "app/effect_target_count_policy.py": "b7b1dd975b85031a1e6f3d8349d4bf6d2279e5c3076098daa2e09648427591a8",
+    "app/destructible_damage_policy.py": "ffc46d330c2ece938c8b1a4770397e51a9f8d2c6b3ddf3b89ad5e89f5804740a",
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8",
+    "research/world_effect_target_count_native.py": "4b7b2b1c16394b64b6cc944828519e7f7a88ef6ca18648ee994ba15fd51bf2bf",
+    "research/portable_effect_target_count_cases.py": "fec6f0d1c6040965841bb5e5052f0f49567edab7833a0bb9023bb872aa0f72d3",
+    "research/portable_effect_target_count_contracts.py": "8609da7ddcd22c9743f7e26da0d592b4d1278cfd549572faa31a607477e32cbf",
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "research/upstream/nikke-calc-master/data/parsed_skills.json": "81e2934af7c91b69a49b71721d5f53af25b5ebf006595d3e929db4582ff23137"
+  },
+  "cases": [
+    {
+      "name": "heavyarms-target-count-query/3s",
+      "input_sha256": "55440c0b9eebeed04474668bd2127b52a3f04599ae0f6ae522a38a79a910f9ae",
+      "native_sha256": "3ba250e11bf8a4d96679ac487d02efddc44328dcd858cbba7001cf02c2580359",
+      "trace_sha256": "1f734962c74df36995acfaa5fd21e124f16a89c51351c9e77b2cc8d2872fd512",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 25,
+        "named_target_count_query_verified": true,
+        "actual_activation_events": 1,
+        "actual_final_shot_removals": 0,
+        "selection_consumer_connected": false,
+        "gpu_supported": false
+      }
+    },
+    {
+      "name": "heavyarms-target-count-query/30s",
+      "input_sha256": "e9a7c67b53476291a9661321c5e3d04dcac3978d25d6c18f22124447407b598e",
+      "native_sha256": "86e2eaf0b55d8ce22dafbc551738e790de075821034301fa75041f7e63571648",
+      "trace_sha256": "901f9f47bcfdeee5d5ee4d435855c37be8a2b1ca57999089a8a68e58bfbc30a6",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 25,
+        "named_target_count_query_verified": true,
+        "actual_activation_events": 1,
+        "actual_final_shot_removals": 1,
+        "selection_consumer_connected": false,
+        "gpu_supported": false
+      }
+    },
+    {
+      "name": "heavyarms-target-count-query/3s-three-adds",
+      "input_sha256": "d099637505ac23bd091060d38384716c2b95a6b98889c126c868602801276e44",
+      "native_sha256": "0c0d87cc2f4db3052c37a615352b45e8b363a5217d9af4ffd87684b30bd37119",
+      "trace_sha256": "0ec8fb0930c0e1e7f6d89605887f16d54b394168e06ccaacd62bc66b9860fa81",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 25,
+        "named_target_count_query_verified": true,
+        "actual_activation_events": 1,
+        "actual_final_shot_removals": 0,
+        "selection_consumer_connected": false,
+        "gpu_supported": false
+      }
+    },
+    {
+      "name": "heavyarms-target-count-query/30s-three-adds",
+      "input_sha256": "4b58983d38dd247b7bc2c43032e3bf1eb98a1c6313ef106c37a65a85be2ede70",
+      "native_sha256": "659b5c9944f2d4e13227c563f2065ce6749d8651a3e4387c1d92a4e70165b20a",
+      "trace_sha256": "c8b40b4ee51e7df743f8de7f889814bca2c486f971ae6d797b121baf8dafef79",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 25,
+        "named_target_count_query_verified": true,
+        "actual_activation_events": 1,
+        "actual_final_shot_removals": 1,
+        "selection_consumer_connected": false,
+        "gpu_supported": false
+      }
+    }
+  ],
+  "gpu_calls": 0,
+  "packing_calls": 0,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "scope": "Explicit CPU target-count query and original carrier lifetimes. Complete battle/trace/input equality retained. Actual spatial selection and CUDA/Metal consumer integration remain unimplemented."
+}

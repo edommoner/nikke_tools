@@ -2514,3 +2514,9 @@ Windowsの新CLI用smokeは622件成功したが、full106のbeginは選択177�
 `docs/portable-heavyarms-lock-selection.md`に次のconsumer契約と公開記述の出所を記録。元25定義のcanonical named-marker stack1..5は、異なる5体へのLock Onではない。公開記述の未ロック候補除外・通常5体/+10体・攻撃/遮蔽解除を、第三者資料/実機未検証として固定。対象種別・距離の測り方/参照点・tie・死亡/世代・sequential順は未確定のまま。classifierにmarker stackとdistinct target countの区別、除外未検証を追加し、effect_target_count_addの10体/2射撃consumerを具体化した。
 
 全266profile行、入力、issues、20順位のcode/message/descriptor、laneは前inventoryと全一致。変わったのはreadiness注記だけ。245入力変換/21失敗/全キャラ0/UI CPUを保持。関連61テスト成功。Windowsでは別固定commit48cb1f2fの630テストpacketを検証中で、今回classifier変更を実行中controllerへ混入しない。
+
+### 2026-10-27: 対象数queryの実装とWindows native8 timeout
+
+`effect_target_count_policy.query`を追加。通常reader/namespace/cache/carrierを変えず、指定target_effectの固定整数modifierだけを既存get_buffs/planのローカルviewで読む。元Heavyarms全25定義のindex20(+10/2射撃)を保持した4条件(3/30秒×本体/3ADD)を共通CLI `reference --suite heavyarms-target-count-native` へ登録。固定packet49dc4e97で13単体/透過性検査と4参照契約成功、関連58検査成功。実射撃イベントで2射撃消費・5→15→5を検査し、observer無しの全戦闘/trace/入力を完全保持。通常numeric計算と他targetの値を混ぜないことも検査。詳細はportable-heavyarms-lock-selection.mdとresearch/target-count-query-evidence/。空間選択への接続とGPU実装は未完了、20model-gap/266profile/245変換/21失敗/全キャラ0を保持。
+
+Windows固定9c825fa5の選択177テストは全14群成功。native0..7は計80入力/native45成功したが、native8が180秒timeout(case87途中、case80..86 returned記録)。群8全体は未成立、result/artifacts無し、9/10未実行。全Job post0/missing0/監視cleanup0、GPU/compile0。完了済みnative/テスト、旧失敗、claimsは保持。元packet/transactionを編集せず、group8をそのまま再送しない。まだGPUへ進めない。private-continuation-v10以降の状態を優先して確認する。
