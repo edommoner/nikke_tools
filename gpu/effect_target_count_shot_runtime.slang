@@ -3,7 +3,7 @@
 #define TCS_TRACE_CAPACITY 100U
 #endif
 #ifndef TCS_TRACE_AT
-#define TCS_TRACE_AT(s,index) (tcsHead(s)+16+(index)*20)
+#define TCS_TRACE_AT(s,index) (head+16+(index)*20)
 #endif
 static const uint TCS_CAPACITY=TCS_TRACE_CAPACITY;
 uint tcsHead(inout Runtime s){return s.resourceOutput+P_QUERY_BASE+P_QUERY_WORDS;}
