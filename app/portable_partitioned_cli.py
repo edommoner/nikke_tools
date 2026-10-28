@@ -9,7 +9,10 @@ from types import SimpleNamespace
 
 ADDED=('app/portable_partitioned_transport.py','app/portable_partitioned_cli.py','app/portable_partitioned_addresses.py',
        'app/portable_partitioned_native.py','tests/test_portable_partitioned_transport.py',
-       'tests/test_portable_partitioned_addresses.py','tests/test_portable_partitioned_native.py')
+       'tests/test_portable_partitioned_addresses.py','tests/test_portable_partitioned_native.py',
+       'app/portable_partitioned_cuda_trace.py','app/portable_partitioned_cuda_observer.py',
+       'tests/test_portable_partitioned_cuda_trace.py','tests/test_portable_partitioned_cuda_observer.py',
+       'app/portable_partitioned_cuda_origin.py','tests/test_portable_partitioned_cuda_origin.py')
 MODE='partitioned-file-diagnostic-v1'
 
 
@@ -130,6 +133,22 @@ def child(cli,capture,backend):
 
 def dispatch(cli,original,argv=None):
     args=list(sys.argv[1:] if argv is None else argv)
+    if args and args[0]=='partitioned-origin-smoke':
+        p=argparse.ArgumentParser();p.add_argument('command');p.add_argument('--capture',type=Path,required=True)
+        p.add_argument('--original-workspace',type=Path);p.add_argument('--timeout',type=int,default=30);a=p.parse_args(args)
+        from portable_partitioned_cuda_origin import smoke as smoke_origin
+        result=smoke_origin(cli,a.capture,a.original_workspace,a.timeout);print(json.dumps(result,indent=2))
+        if not result['passed']:raise SystemExit(1)
+        return result
+    if args and args[0]=='partitioned-origin-audit':
+        p=argparse.ArgumentParser();p.add_argument('command')
+        for flag in ('source-package','source-capture','capture','original-workspace','slang-root','generation-cache'):p.add_argument('--'+flag,type=Path,required=True)
+        p.add_argument('--timeout',type=int,default=180);a=p.parse_args(args)
+        from portable_partitioned_cuda_origin import run as audit_origin
+        result=audit_origin(cli,a.source_package,a.source_capture,a.capture,a.original_workspace,a.slang_root,a.generation_cache,a.timeout)
+        print(json.dumps(result,indent=2))
+        if not result['passed']:raise SystemExit(1)
+        return result
     if args and args[0]=='partitioned-native-audit':
         p=argparse.ArgumentParser();p.add_argument('command')
         for flag in ('source-package','capture','out'):p.add_argument('--'+flag,type=Path,required=True)
@@ -150,6 +169,10 @@ def dispatch(cli,original,argv=None):
         return result
     if args and args[0]=='_child':
         p=argparse.ArgumentParser();p.add_argument('command');p.add_argument('--capture',type=Path,required=True);p.add_argument('--backend',required=True);a=p.parse_args(args)
+        if cli.load(a.capture/'run.json').get('mode')=='partitioned-cuda-origin-audit-v1':
+            if a.backend!='cuda':raise ValueError('Saved CUDA origin audit requires its host-bound CUDA identity')
+            from portable_partitioned_cuda_origin import child as audit_origin_child
+            return audit_origin_child(cli,a.capture.resolve())
         return child(cli,a.capture.resolve(),a.backend)
     if args and args[0] in ('run','staged-run','preflight-begin','preflight-plan','preflight-resume','preflight-native-group','preflight-test-group'):
         raise ValueError('Use the explicit Metal-only partitioned diagnostic entry')

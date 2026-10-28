@@ -6,8 +6,8 @@ calculation, or infer launch dimensions which the legacy observer did not log.
 import re
 
 
-def verify(rows,layout,transports,*,pid):
-    try:return _verify(rows,layout,transports,pid)
+def verify(rows,layout,transports,*,pid,require_arguments=False):
+    try:return _verify(rows,layout,transports,pid) and (not require_arguments or verify_arguments(rows,layout,transports))
     except (ValueError,KeyError,TypeError,IndexError,OverflowError):return False
 
 
@@ -74,3 +74,50 @@ def _verify(rows,layout,transports,pid):
         if not end<calls[cursor][1]:return False
         total+=batch['cases']
     return total==layout['input_count'] and cursor==len(calls)-1
+
+
+def verify_arguments(rows,layout,transports):
+    """Bind additional observed arguments to their actual native boundaries."""
+    def paired(stage,native):
+        markers=[(i,r) for i,r in enumerate(rows) if r['stage']==stage]
+        calls=[(i,r) for i,r in enumerate(rows) if r['stage']==native]
+        if not markers or len(markers)!=len(calls) or len(markers)%2:raise ValueError('Incomplete argument observation')
+        result=[]
+        for j in range(0,len(markers),2):
+            (a,x),(b,y)=markers[j:j+2];(c,u),(d,v)=calls[j:j+2]
+            if not a<c<d<b or x['state']!='entered' or y['state']!='returned' or y.get('return_code')!=0:raise ValueError('Argument/native boundaries differ')
+            result.append((x,y))
+        return result
+    allocations=paired('partitioned_cuda_allocation','cuMemAlloc_v2')
+    if len(allocations)!=3:return False
+    sizes=[layout['maximum_input_buffer_bytes'],layout['maximum_output_buffer_bytes'],layout['maximum_runtime_buffer_bytes']]
+    addresses=[]
+    for i,((a,b),size) in enumerate(zip(allocations,sizes,strict=True)):
+        address=b['device_address']
+        if (a.get('index')!=i or b.get('index')!=i or a.get('byte_count')!=size or b.get('byte_count')!=size
+            or type(address) is not int or not 0<address<2**64-size
+            or any(not (address+size<=p or p+s<=address) for p,s in zip(addresses,sizes))):return False
+        addresses.append(address)
+    uploads=paired('partitioned_cuda_upload','cuMemcpyHtoD_v2');launches=paired('partitioned_cuda_launch','cuLaunchKernel')
+    if len(uploads)!=2*len(layout['batches']) or len(launches)!=len(layout['batches']):return False
+    constant=None;function=None
+    for i,batch in enumerate(layout['batches']):
+        for slot in (0,1):
+            a,b=uploads[2*i+slot];facts={k:a[k] for k in ('batch','slot','destination_device','byte_count')}
+            if slot:facts['parameters']=a['parameters']
+            if any(b.get(k)!=v for k,v in facts.items()) or facts['batch']!=i or facts['slot']!=slot:return False
+            if slot==0:
+                if facts['destination_device']!=addresses[0] or facts['byte_count']!=batch['input_bytes']:return False
+            else:
+                if type(facts['destination_device']) is not int or facts['destination_device']<=0:return False
+                if constant is not None and constant!=facts['destination_device']:return False
+                constant=facts['destination_device']
+                if facts['byte_count']!=48 or facts['parameters']!=[addresses[0],batch['input_bytes']//4,addresses[1],batch['output_bytes']//4,addresses[2],max(b['cases'] for b in layout['batches'])]:return False
+        a,b=launches[i];facts={k:a[k] for k in ('batch','function','grid','block','shared_bytes','default_stream','null_kernel_parameters')}
+        if (any(b.get(k)!=v for k,v in facts.items()) or facts['batch']!=i or facts['grid']!=[batch['cases'],1,1]
+            or facts['block']!=[1,1,1] or facts['shared_bytes']!=0 or facts['default_stream'] is not True or facts['null_kernel_parameters'] is not True
+            or type(facts['function']) is not int or facts['function']<=0 or function is not None and function!=facts['function']):return False
+        function=facts['function']
+        if any(transports[i].get(k)!=layout[v] for k,v in (('runtime_stride_bytes','runtime_stride_bytes'),('runtime_buffer_bytes','maximum_runtime_buffer_bytes'))):return False
+        if transports[i].get('runtime_element_capacity')!=max(b['cases'] for b in layout['batches']):return False
+    return all(r['device_address']==addresses[1] for r in rows if r['stage']=='cuda_readback_file' and r['state']=='entered')

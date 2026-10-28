@@ -3,7 +3,7 @@ import hashlib,json,os,struct,sys,tempfile,unittest
 from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import Mock,patch
-ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app')]
+ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'research')]
 import portable_partitioned_transport as partitioned
 
 
@@ -51,10 +51,21 @@ class PartitionedTransportTests(unittest.TestCase):
         self.assertEqual(counts,[2,2,1]);self.assertEqual(sizes,[24,24,12]);self.assertEqual(kwargs['resident'],dict(stride=24))
         return [None]*len(batches),self.sequence(batches,kwargs['output_paths'],'cuda')
 
-    def run_transport(self,backend='metal'):
+    def run_transport(self,backend='metal',**kwargs):
         return partitioned.execute(self.source,'entry',self.packed,2,3,backend,readback_path=self.dest,
             expected_input_sha256=digest(self.packed),expected_output_sha256=digest(self.expected),expected_source_sha256=self.hashes,
-            expected_generated_normalized=self.generated,batch_size=2,adapter=self.adapter)
+            expected_generated_normalized=self.generated,batch_size=2,adapter=self.adapter,**kwargs)
+
+    def test_argument_observation_cannot_publish_a_backend_without_native_receipts(self):
+        from portable_phase_audit import Journal
+        with self.assertRaisesRegex(ValueError,'Incomplete observed'):
+            self.run_transport('cuda',cuda_argument_journal=Journal(self.root/'phases.jsonl'))
+        self.assertFalse(self.dest.exists());self.assertEqual(self.seen,[2,2,1])
+        self.assertTrue(self.dest.with_name(self.dest.name+'.batches').is_dir())
+
+    def test_metal_cannot_claim_cuda_argument_observation(self):
+        with self.assertRaisesRegex(ValueError,'requires CUDA'):self.run_transport('metal',cuda_argument_journal=object())
+        self.adapter.build.assert_not_called()
 
     def test_both_adapters_keep_all_rows_status_words_tail_and_full_hash(self):
         for name in ('metal','cuda'):

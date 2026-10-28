@@ -1,3 +1,15 @@
+# 2026-10-29 実CUDA引数の共通観測・Windows元admit/CUBIN再監査成功
+
+共通partitioned transportへ任意のcuda_argument_journalを接続。元NativeFunctionへ同じ引数objectを一度だけ渡し、3allocationの実byte/address、input/48byte定数ABI、各grid/block/shared/streamを検査する。NVRTC fallbackや元API観測なしのdriverを拒否し、実観測のないbackendは完成outputを公開しない。sequence traceのrequire_arguments=Trueが各receiptと実API境界を照合する。計算/Slang/正本/厳密normalizerは変更0。実CUDAでの引数認定はまだ行っていない。
+
+元66c50b92のadmitをbounded再評価する入口がなく、最初のWindows読み取りはmetadataだけ取得して停止した。新CPU-only entry partitioned-origin-smoke/auditを追加し、既存run_job/start gate/BelowNormal/2GiB・旧admit/saved_linked_admission・Job/snapshot監査・native出力probeを再利用。新GPU claim/ledger/実行許可は発行0。
+
+固定97e9477e/2161file、source branch codex/cuda-partitioned-origin-v1-source commit11b1719e。元2147file・既存CLI関数・全goldenを保持、own42＋checkout119テスト、Mac CPU smokeが成功。Windows smokeは11.202秒、元admit/CUBIN監査は155.448秒（子のreadonly再評価127.033秒）で成功。双方exit0/timeoutなし/Job post0/cleanup・観測error0、2GiBとstart gateを確認。CPU監査Job peak153800704byteはGPU実行時のmemory測定ではない。元106/native63のadmissionを再評価し、6,636,880byteの同じCUBIN（70fff521…）と旧phase172803byte/fc933ba9…、全32API境界、旧claim/ledgerの保持を確認した。GPU/compiler/native戦闘追加0。process保持True、service識別未確認でenvironment=Falseを維持する。
+
+保存結果15file/166606byteをreport branch固定cc75ccefから取得。Macで同じJob監査器・元失敗sequence・linked receipt keyと全golden一致を再検査した。環境raw snapshotは転送せず、source-host結果を保持する。詳細portable-partitioned-file-transport.md、証跡partitioned-cuda-origin-v1.json、原本B/partitioned-origin-windows-v1-report。
+
+次はこのCPU receiptを新しい単発のCUDA実行ownerへ結び、元claim/ledgerを再利用しないこと。保存CUBINを同じsource/header/imageで再検査し、7batch全106・全raw/logical fingerprint・実引数traceを検査する。元producer全体の約127秒の再監査をGPU子の60秒へ再投入しない。新ownerのCPU preflightと実行時artifact revalidationの境界を明示し、上限増加/SDK再compile/GPU再送で回避しない。実CUDA成功・現在の全suite・全char/効果・公開defaultは未達。以下は履歴。
+
 # 2026-10-29 保存済み分割Metalの独立native監査・全106一致
 
 `partitioned-native-audit`を共通CLI/immutable dispatcherへ追加した。実行済みv4の失敗rawと元sourceを変更せず、別packetのfresh GPU禁止childで元adapterのsemantic compare/rejection/stage validatorsを実行する。明示source-pinned address viewを使い、全input/output/native/strict generated指紋を保持する。既存partition/selection/validate_factsを再利用し、群単位のcalculationはFalse、全入力の重複・欠落なし集約だけTrueとする。

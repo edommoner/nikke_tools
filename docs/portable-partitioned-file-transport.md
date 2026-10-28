@@ -65,3 +65,24 @@ python scripts/nikke_gpu.py partitioned-native-audit --source-package EXECUTED_P
 
 
 2026-10-29結果：固定d2197957 packetの分割独立監査は全106/native63で成功した。別々の7 fresh child、16/16/16/16/16/16/10入力、各240秒以内（最大120.13秒）、集約506.70秒。入力再構築30.82秒、元semantic/native比較466.04秒。全row/input/native/生成code指紋が旧goldenへ一致し、raw SHAは元capture、logical SHAは旧goldenにそれぞれ一致した。全20参照を毎群検査した。GPU/compiler/Windows追加0、旧raw・失敗stage・golden変更0。新しい独立計算監査だけcalculation_verified=Trueで、旧stageはFalseのまま。v7 native controllerは現在の開発sourceと全byte同一。own packet26 unitと開発checkoutの関連108 unit成功。証跡 `research/target-count-query-evidence/partitioned-saved-native-v1.json`。これは旧固定106 corpusの認定であり、全キャラ・全特殊効果・現在すべてのsuite・公開GPU・CUDA成功の認定ではない。
+
+
+## 実CUDA引数の観測とGPU禁止の出所再監査
+
+`portable_partitioned_cuda_observer.observe` は既存 `portable_phase_audit.observe` の内側で動く。元のNativeFunctionへ同じ引数objectを一度だけ渡す。3 allocationの実要求byte数と返されたdevice address、各input upload、48byteのSlang定数ABI（input/output/runtime pointerと容量）、全launchの実grid/block/shared/streamを検査・記録する。誤ったサイズ・ABI・後続gridは該当driver呼出しの前に拒否する。DLLは同じjournalの既存NativeLibraryを要求し、NVRTC等のfallback DLLはロード前に拒否する。driver queryや計算コードを追加しない。
+
+共通transportの `cuda_argument_journal=journal` で接続し、実観測を欠くbackendは完成readbackを公開できない。`portable_partitioned_cuda_trace.verify(..., require_arguments=True)` は追加receiptと元API境界の入れ子・順序を照合し、割当pointerと実readback/全ABI/各geometryを結び付ける。flag省略時の旧sequence規則とlegacy一回launch監査は保持する。これらの実引数検査は現在CPU fault injectionで検査済みであり、実CUDAの寸法を測定した証拠にはしない。
+
+Windowsの旧66c50b92失敗には元own CLIのadmitをboundedに再評価する入口がなかった。このため新しいCPU-only入口を追加した。新claim/ledger/実行許可を発行しない。immutable packet cwdで次を実行する。
+
+```text
+python scripts/nikke_gpu.py partitioned-origin-smoke --capture NEW_SMOKE --original-workspace ORIGINAL --timeout 30
+python scripts/nikke_gpu.py partitioned-origin-audit --source-package FAILED_OWNER --source-capture FAILED_OUTER --capture NEW_CPU_AUDIT --original-workspace ORIGINAL --slang-root SDK --generation-cache CACHE --timeout 180
+```
+
+smokeは元run_job/start gate/低優先度/2GiBと、Windowsでは既存native出力probeを再利用する。smoke成功後だけ後者へ進む。後者のJob全体は180秒以下、元CLIを読む子は150秒以下である。元package ID/全file hash/全goldenを検査してから元CLIをimportし、そのままadmitとsaved_linked_admissionをGPU/compile/DLL禁止下で再評価する。元の3alloc成功→launch code2→context destroy成功という全32境界、元inner/outer Jobとprocess snapshot、元claim/ledgerを前後検査する。source/claimの変更・compiler・未知のdriver境界・readbackのある別失敗は拒否する。サービス未識別を環境保持成功へ置換しない。新GPU ownerへの接続は引き続き未完了。
+
+固定97e9477e/2161file packetは元2147fileの全byte・既存CLI関数・goldenを保持し、own42 unitとMac CPU smokeが成功。source archiveは9,635,447byte、SHA `5fff13fb57b3d8af87967caf4d0d48270a57e771c76a3b59d4053c2e7b588ed1`。GitHub `codex/cuda-partitioned-origin-v1-source` の固定11b1719eで共有。WindowsにはCPU smokeと出所監査だけを依頼した。GPU/compile/native戦闘の再実行は依頼していない。
+
+
+Windows結果：CPU smoke11.202秒、origin audit155.448秒で双方成功（GPU/compile/native戦闘0）。readonly元admit/CUBIN再評価そのものは127.033秒で、Job全体180秒/子150秒以内。元106/native63、同じCUBIN6,636,880byte/SHA70fff521…、全32API境界、旧claim/ledger保持を確認した。process保持True、サービス未識別でenvironment=Falseを維持する。report固定cc75ccefの15file/166606byteをMacへ輸送し、同じJob監査器とlinked receipt key/元失敗sequence/goldenを再検査した。環境raw snapshotは未転送である。新しいGPU許可はまだFalse。次の実行ownerはこの固定CPU receiptを保持し、GPU子ではsource/header/CUBIN/imageと小さなreceipt anchorsを再検査する設計が必要。元producer chainの127秒を60秒GPU budgetへ重複投入しない。証跡 `partitioned-cuda-origin-v1.json`。

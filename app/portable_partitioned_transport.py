@@ -4,7 +4,7 @@ CUDA and Metal use their existing sequence adapters and one pipeline/context.
 A full baseline fingerprint is mandatory: row independence is verified by the
 complete ordered output, never inferred merely from the ability to split input.
 """
-import hashlib,importlib.util,json,os,struct
+import contextlib,hashlib,importlib.util,json,os,struct
 from pathlib import Path
 
 SCHEMA='partitioned-file-transport-v1'
@@ -57,10 +57,11 @@ def generated_baseline(adapter,outputs,expected):
 
 
 def execute(source,entry,packed,input_words,output_words,backend,*,readback_path,expected_input_sha256,
-            expected_output_sha256,expected_source_sha256,expected_generated_normalized,batch_size=16,adapter=None,address_profile=None):
+            expected_output_sha256,expected_source_sha256,expected_generated_normalized,batch_size=16,adapter=None,address_profile=None,cuda_argument_journal=None):
     if adapter is None:import portable_backend as adapter
     from portable_wire_layout import MAX_INPUT_WORDS,MAX_OUTPUT_WORDS,LARGE_OUTPUT_WORDS
     if backend not in ('metal','cuda'):raise ValueError('Explicit partitioned backend required')
+    if cuda_argument_journal is not None and backend!='cuda':raise ValueError('CUDA argument observation requires CUDA')
     if (type(input_words) is not int or type(output_words) is not int or not 1<=input_words<=MAX_INPUT_WORDS
         or not 1<=output_words<=MAX_OUTPUT_WORDS or output_words>524288 and output_words not in LARGE_OUTPUT_WORDS):raise ValueError('Invalid registered partitioned word strides')
     if os.environ.get('NIKKE_SLANG_GENERATION_REQUIRED')!='1':raise ValueError('Partitioned transport requires a mandatory paired generation cache')
@@ -105,8 +106,14 @@ def execute(source,entry,packed,input_words,output_words,backend,*,readback_path
         if inp.stat().st_size!=len(raw) or digest_file(inp)!=layout['batches'][i]['input_sha256']:raise RuntimeError('Partitioned input file differs before dispatch')
     with (parts/'plan.json').open('x') as f:json.dump(layout,f,indent=2)
     if backend=='cuda':
-        raw,transports=adapter.execute_cuda_batches(outputs['cuda'],entry,batches,[r['output_bytes'] for r in layout['batches']],
-            [r['cases'] for r in layout['batches']],**({'resident':resident} if resident else {}),output_paths=output_paths)
+        if cuda_argument_journal is not None:
+            from portable_partitioned_cuda_observer import observe as observe_cuda_arguments
+            if not resident:raise ValueError('CUDA argument observation requires the resident ABI')
+            observation=observe_cuda_arguments(cuda_argument_journal,layout)
+        else:observation=contextlib.nullcontext()
+        with observation:
+            raw,transports=adapter.execute_cuda_batches(outputs['cuda'],entry,batches,[r['output_bytes'] for r in layout['batches']],
+                [r['cases'] for r in layout['batches']],**({'resident':resident} if resident else {}),output_paths=output_paths)
         if raw!=[None]*len(batches):raise RuntimeError('Partitioned CUDA unexpectedly returned whole readbacks')
     else:
         if adapter.platform.system()!='Darwin':raise RuntimeError('Partitioned Metal requires macOS')
@@ -153,6 +160,7 @@ def execute(source,entry,packed,input_words,output_words,backend,*,readback_path
         command_status='completed',session_dispatches=len(batches),pipeline_instances=1,buffer_allocations=3 if resident else 2,
         input_bytes=len(packed),output_bytes=total),gpu_execution_verified=True,sealed_output_fingerprint_matches=joined.hexdigest()==expected_output_sha256,
         wire_address_profile=address_profile,address_view=address_view,logical_wire_equivalence_verified=address_view is not None,
+        cuda_arguments_observed=cuda_argument_journal is not None,
         calculation_verified=False,scope='Raw output is unchanged. An explicit source-pinned address view, when present, has a separate logical digest. Native audit and feature admission remain separate.')
     with (parts/'validated.json').open('x') as f:json.dump(evidence,f,indent=2)
     os.link(partial,destination);partial.unlink()
