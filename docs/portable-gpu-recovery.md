@@ -33,3 +33,7 @@ Slang/cacheペアはrequestからrecipeとbounded child環境へ固定する。S
 CPU引き継ぎ成功後、同じpacketのstaged-gpu-linkedを新しいGPU captureへ1回だけ実行する。Slang/cacheの同じ明示ペアを使う。GPU子60秒・outer180秒・2GiBを維持し、既存saved_linked_providerがCUBINと厳密CUDA sourceを再検査する。admit bridgeは元完全inventoryと新CPU stage/ledger/入力を各境界で照合する。native値を保存してGPUへ供給しない。
 
 引き継ぎCPU成功は計算成功ではない。staged GPU終了後も元finish_gpuのpending_native_audit/calculation=Falseを保持し、別fresh saved-result native監査が必要。Macのcache hitやcontroller testsから、実Windows GPU、全キャラ、公開default受付を認定しない。
+
+## Windows実行結果
+
+固定66c50b92のCPU引き継ぎは59.477秒/exit0で成功し、必須生成hit/コンパイラ0と106/native63の保持を確認した。同ownerのGPUを1回実行したところ、cuMemAlloc3回は成功したがcuLaunchKernelがcode2を返し、sync/readback未到達だった。outer148.286秒/inner48.041秒、両Job残存0。旧claim・新claim・ledgerは保持し再実行しない。期待出力875469264byte、Job peakの記録だけではVRAMとホストcommitのどちらかを確定できない。保存resource情報を調査し、全入力を維持する共通batch/streamingを次に検証する。

@@ -22,6 +22,10 @@ class RecoveryTests(unittest.TestCase):
     def setUp(self):
         self.f=fixture.StagedPreflightTests();self.f.setUp();self.addCleanup(self.f.doCleanups);f=self.f
         self.flow=bridged_flow();p=patch.dict(sys.modules,{'portable_staged_preflight':self.flow});p.start();self.addCleanup(p.stop)
+        # Keep logical transport fixtures independent of the actual OS, as the
+        # original staged fixture does. OriginTerminalTests below still use
+        # the real Job receipt checker on every platform, without a skip.
+        p=patch.object(self.flow,'os',SimpleNamespace(name='posix',fsync=os.fsync,getpid=os.getpid));p.start();self.addCleanup(p.stop)
         p=patch.object(self.flow,'host',return_value=dict(platform='fixture',python_sha256='pinned'));p.start();self.addCleanup(p.stop)
         self.pkg=f.root/'new-owner';self.pkg.mkdir();self.tx=f.root/'recovery-proof';self.gpu=f.root/'new-gpu'
         self.m=copy.deepcopy(f.m);self.m.update(package_id='new-owner',controller_gpu_recovery=dict(base_package_id='owned'))

@@ -1,3 +1,13 @@
+# 2026-10-29 immutable recovery接続・CUDA launchでcode2
+
+元04515f96の計算/data/test/registry/goldenを保持するcapsuleを実装。CLI/flowの必要なbridgeだけをAST差込みし、9個の入力/claim/finish関数とnative loopを保持。新owner/nonce/transactionを安定した排他ledgerへ結合し、旧claimを触らない。固定66c50b92/commit18cde163のproduction codeは旧テスト成功版9d995acdと全byte同一（差は追加testのみ）。元28群177unit、新capsule9検査、関連stage31/preflight13/origin11/continuation10成功。Mac必須生成hit/compiler0は0.57秒。
+
+Windows source2153file検証後のpreflight-recoverは59.477秒/exit0で成功。generation2.927秒・元証拠26.800秒・静的入力10.404秒・CUBIN出所12.409秒。元106/native63を再計算せず新transactionを作成。続くstaged GPUを同じ固定ownerで1回だけ実行したが、cuLaunchKernelがcode2。3回のcuMemAlloc/context/moduleは成功、sync/readback未到達。outer148.286秒/inner48.041秒、両exit1/timeoutなし、generation hit/Slang0。原本JSON4個をbytes/SHA照合し保存。後処理のevidence.json不足は副次エラーである。
+
+新旧claimとledgerを保持し再実行0、両Job post0/monitor cleanup error0、process保持True/service未識別でenvironment=False。Job peakはouter2182651904/inner2023596032byte、上限2GiB。これだけでhost commit/VRAM不足を断定しない。全106の期待readbackは875469264byte。次は保存PTX/CUBIN/resource metadataの読取り依頼の結果を取得し、既存共通batch/streamingを用いて全入力を維持しながら一括出力割当を減らす設計を検証する。GPU再実行/claim削除/上限拡大で代替しない。
+
+Windows taskのread-only metadataはcursor52a33edf-b45e-47e6-bdf6-6851a2c039ed:17で取得済み、idle。GPU/driver/SDK tool/compile/native/unit追加0。保存metadataではinput49048324/output875469264/scratch15163088byte（stride143048×106）。launch106block×1threadはソースからの導出でAPI引数記録ではない。既存CUBIN resource出力はREG254/STACK17056/LOCAL0/SHARED0、PTX entryはlocal0/virtual50。PTX全体のmax local宣言5192/max virtual15299を物理資源使用量へ読み替えない。元journal172803byte/SHA fc933ba9…はmetadataだけ取得、full bytesは未回収。3alloc成功→launch code2→context destroy成功、sync/readback無しを確認。未対応分類/model-checkのSHA e061e679は維持。現在の全106 CUDA計算成功・公開default・全キャラは未達。詳細portable-gpu-recovery.md、証跡cuda-gpu-recovery-v1.json。
+
 # 2026-10-29 元preflightをown CLIで再監査するCPU経路
 
 元04515f96の106/native63を再計算せず再監査するstaged-origin-check/audit-staged-originを実装。旧package自身のstaged-preflight-checkを別Pythonで呼び、当時の完全receiptとの一致とhost/nonce/input/countを確認する。元source/transaction/continuation親/各stage/timeoutの全file name・bytes・SHAを前後照合し、リンク/読取り失敗/追加/変更を拒否。workspace全体は探索しない。新ownerへのGPU admissionやCUBIN/cache検証は未実装で、execution/recovery/calculationはFalse。旧claimを触らず、GPU/compiler/native再計算0。

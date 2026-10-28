@@ -1,0 +1,232 @@
+{
+  "schema": "cuda-gpu-recovery-development-v1",
+  "source": {
+    "package_id": "66c50b923e5786c58989121324f206f880341db76bbb27992b81f27962adb58a",
+    "base_package_id": "04515f96e6ed68a969627db49b9c6f13ffedfae3349ed2a363420a30f70e4ae5",
+    "lineage_verified": true,
+    "original_tests_preserved": 177,
+    "original_unit_evidence_package_id": "9d995acad2aa48f0331896b541a2e8d93c13cf7e34208db6801e86628d963624",
+    "original_unit_evidence_sha256": "c76ef8ecbc427292d69c4a3be614d735e90894c902275b3248d0e09aeb1df354",
+    "changed_from_tested_v1": [
+      "tests/test_portable_gpu_recovery.py"
+    ],
+    "production_code_bytes_identical": true,
+    "recovery_tests": 9,
+    "gpu_calls": 0,
+    "calculation_verified": false
+  },
+  "transport": {
+    "branch": "codex/cuda-gpu-recovery-v1-source",
+    "commit": "4e4909d52d253308c1f57a92613924d2c07f04d1",
+    "archive_bytes": 9612977,
+    "archive_sha256": "c9a82d8e12fcfa31abe2bca3dfc657ccb9964de4ac856cb1369ff5a4f3fff881"
+  },
+  "legacy_units": {
+    "package_id": "9d995acad2aa48f0331896b541a2e8d93c13cf7e34208db6801e86628d963624",
+    "groups": 28,
+    "tests": 177,
+    "verified": true
+  },
+  "mac_generation": {
+    "package_id": "9d995acad2aa48f0331896b541a2e8d93c13cf7e34208db6801e86628d963624",
+    "hit": true,
+    "compiler_invocations": 0,
+    "elapsed_seconds": 0.5696542919904459
+  },
+  "model_sha256": "e061e679b910efd5f05ff38b20539ac922df305dcf389cd21a62f8ab544a7835",
+  "original_result_files": [
+    {
+      "name": "cuda-gpu-recovery-windows-prepare-audit-v1.json",
+      "bytes": 391,
+      "sha256": "f2cb8f6b64ba518fae0cedfa4943854715b17137e3753f733ad69b39e38141e7"
+    },
+    {
+      "name": "cuda-gpu-recovery-windows-prepare-stage-v1.json",
+      "bytes": 1025,
+      "sha256": "1e5ca3c143599524956fa5214bc803d617d73d53f96690148d9192dae2c5a0e9"
+    },
+    {
+      "name": "cuda-gpu-recovery-windows-failure-audit-v1.json",
+      "bytes": 706,
+      "sha256": "908abb978f7bd61f0df1c6d6c3fc5125a2a78b6a33d5ab8e3797f2d158ba059e"
+    },
+    {
+      "name": "cuda-gpu-recovery-windows-failure-stage-v1.json",
+      "bytes": 1321,
+      "sha256": "58838fcfdb990ac9a7089d05b549634ff94730e92996ec1b54d39d3d701650cb"
+    }
+  ],
+  "windows_prepare": {
+    "result": {
+      "calculation_verified": false,
+      "driver_load_calls": 0,
+      "gpu_calls": 0,
+      "input_count": 106,
+      "mode": "staged-preflight-recovery-only",
+      "native_cases": 63,
+      "native_oracles_run": 0,
+      "native_values_reused": false,
+      "original_claims_modified": false,
+      "original_failure_promoted": false,
+      "package_id": "66c50b923e5786c58989121324f206f880341db76bbb27992b81f27962adb58a",
+      "transaction_ready": true
+    },
+    "elapsed_seconds": 59.477,
+    "transaction": "C:/Users/owner/Documents/Codex/nikke-cuda-gpu-recovery-v1/prepare/proof",
+    "generation_seconds": 2.927,
+    "origin_seconds": 26.8,
+    "static_input_seconds": 10.404,
+    "linked_seconds": 12.409
+  },
+  "windows_gpu": {
+    "result": {
+      "mode": "staged-gpu-pending-native-audit",
+      "package_id": "66c50b923e5786c58989121324f206f880341db76bbb27992b81f27962adb58a",
+      "gpu_execution_completed": false,
+      "readback_fingerprint_matches": false,
+      "staged_preflight_verified": false,
+      "pending_native_audit": true,
+      "calculation_verified": false,
+      "containment_verified": null,
+      "preservation_verified": false,
+      "passed": false,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\owner\\\\Documents\\\\Codex\\\\nikke-cuda-gpu-recovery-v1\\\\gpu-v1\\\\proof\\\\evidence.json'",
+      "gpu_retries": 0,
+      "scope": "Dispatch and sealed-output fingerprint only; fresh saved-result native audit remains required"
+    },
+    "stage_verified": false,
+    "outer_seconds": 148.286,
+    "inner_seconds": 48.041,
+    "outer_exit_code": 1,
+    "inner_exit_code": 1,
+    "timed_out": false,
+    "launch_return_code": 2,
+    "launch_attempts": 1,
+    "memalloc_successes": 3,
+    "synchronization_reached": false,
+    "readback_reached": false,
+    "readback_expected_bytes": 875469264,
+    "readback_generated": false,
+    "generation_hit": true,
+    "compiler_invocations": 0,
+    "inner_job_peak_bytes": 2023596032,
+    "outer_job_peak_bytes": 2182651904,
+    "job_memory_limit_bytes": 2147483648,
+    "post_job_members": 0,
+    "process_preservation_verified": true,
+    "environment_preservation_verified": false,
+    "underlying_memory_cause": "Not established: no contemporaneous device free-memory/resource accounting. Job peaks are observations, not proof of the launch failure cause."
+  },
+  "old_claims_modified": false,
+  "ledger_preserved": true,
+  "protected_cpu_changes": 0,
+  "gpu_source_changes": 0,
+  "calculation_verified": false,
+  "full_goal_complete": false,
+  "next_action": "Verify a shared bounded batch/stream plan retaining all 106 inputs and exact complete output order/fingerprint; GPU and native are not to be rerun to recover this failed attempt.",
+  "saved_resource_projection": {
+    "scope": "Read-only Windows saved-file/tool projection; no fresh driver or SDK tool call and no original metadata bytes recovered here",
+    "device_name_persisted": false,
+    "input_bytes": 49048324,
+    "output_bytes": 875469264,
+    "runtime_stride_bytes": 143048,
+    "runtime_capacity": 106,
+    "scratch_bytes": 15163088,
+    "derived_launch_grid": [
+      106,
+      1,
+      1
+    ],
+    "derived_launch_block": [
+      1,
+      1,
+      1
+    ],
+    "launch_arguments_recorded": false,
+    "cubin_report": {
+      "registers": 254,
+      "stack_bytes": 17056,
+      "local_bytes": 0,
+      "shared_bytes": 0
+    },
+    "ptx": {
+      "bytes": 12933075,
+      "functions": 269,
+      "entry_declared_local_bytes": 0,
+      "entry_virtual_registers": 50,
+      "max_declared_local_bytes": 5192,
+      "max_virtual_registers": 15299
+    },
+    "full_journal": {
+      "bytes": 172803,
+      "sha256": "fc933ba9aaf274404390a9ad3189219ed331d1536d7c5b96db9006df35f10a55",
+      "bytes_recovered": false
+    },
+    "api_sequence": [
+      {
+        "stage": "cuInit",
+        "return_code": 0
+      },
+      {
+        "stage": "cuDeviceGet",
+        "return_code": 0
+      },
+      {
+        "stage": "cuDeviceComputeCapability",
+        "return_code": 0
+      },
+      {
+        "stage": "cuDeviceGetName",
+        "return_code": 0
+      },
+      {
+        "stage": "cuCtxCreate_v2",
+        "return_code": 0
+      },
+      {
+        "stage": "cuModuleLoadData",
+        "return_code": 0
+      },
+      {
+        "stage": "cuModuleGetFunction",
+        "return_code": 0
+      },
+      {
+        "stage": "cuModuleGetGlobal_v2",
+        "return_code": 0
+      },
+      {
+        "stage": "cuMemAlloc_v2",
+        "return_code": 0
+      },
+      {
+        "stage": "cuMemAlloc_v2",
+        "return_code": 0
+      },
+      {
+        "stage": "cuMemAlloc_v2",
+        "return_code": 0
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "return_code": 0
+      },
+      {
+        "stage": "cuMemsetD8_v2",
+        "return_code": 0
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "return_code": 0
+      },
+      {
+        "stage": "cuLaunchKernel",
+        "return_code": 2
+      },
+      {
+        "stage": "cuCtxDestroy_v2",
+        "return_code": 0
+      }
+    ]
+  }
+}
