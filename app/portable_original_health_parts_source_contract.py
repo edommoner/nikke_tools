@@ -4,6 +4,9 @@ from pathlib import Path
 
 def project_sources(root,sources=None):
     root=Path(root);out=dict(sources or {})
+    if (root/'gpu/world_enemy_healing_entry.slang').exists():
+        from portable_enemy_healing_source_contract import project_sources as healing
+        out=healing(root,out)
     if (root/'gpu/world_coordinate_logical_actor_entry.slang').exists():
         from portable_logical_geometry_source_contract import project_sources as logical
         out=logical(root,out)

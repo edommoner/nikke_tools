@@ -43,7 +43,7 @@ def multiplier(manager,label,t,fields=None):
     return value,excluded
 
 class HealingFrame(ast.NodeTransformer):
-    def __init__(self):self.counts=dict(frame=0)
+    def __init__(self):self.counts=dict(frame=0,result=0)
     def visit_Call(self,node):
         self.generic_visit(node)
         if isinstance(node.func,ast.Attribute) and ast.unparse(node.func)=='boss.begin_frame':
@@ -51,6 +51,11 @@ class HealingFrame(ast.NodeTransformer):
             result=ast.parse('_nikke_enemy_healing_frame(bm,boss,None,None)',mode='eval').body
             result.args[2:]=node.args;self.counts['frame']+=1;return ast.copy_location(result,node)
         return node
+    def visit_Return(self,node):
+        if isinstance(node.value,ast.Name) and node.value.id=='result':
+            self.counts['result']+=1
+            return ast.copy_location(ast.Return(ast.Call(func=ast.Name(id='_nikke_enemy_healing_result',ctx=ast.Load()),args=[node.value],keywords=[])),node)
+        return self.generic_visit(node)
 
 class EnemyHealing:
     def __init__(self,spec):
@@ -69,6 +74,10 @@ class EnemyHealing:
                 if spec.hp is None or not math.isfinite(spec.hp) or spec.hp<=0 or spec.hit_hp or spec.hit_hp_after:raise ValueError('Healing requires finite damage-owned ADD health')
                 self.bound[label]=b
         self.boss=boss;self.manager=manager
+
+    def result(self,result):
+        self.data['public_summary']=dict(add_char_total=dict(result.add_char_total),add_total=result.add_total,add_overkill=result.add_overkill)
+        return result
 
     def frame(self,manager,boss,t,enemy):
         if self.boss is None:self.bind(manager,boss)
@@ -103,10 +112,20 @@ def enemy_healing(spec):
     from runner import sim
     if timeline.simulate is not sim.simulate:raise ValueError('Native simulation aliases differ')
     original=timeline.simulate;runtime=EnemyHealing(spec)
-    rewritten=rewrite_reference(original,HealingFrame(),dict(frame=2),compose=True)
-    with patch.dict(original.__globals__,{'_nikke_enemy_healing_frame':runtime.frame}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):
+    rewritten=rewrite_reference(original,HealingFrame(),dict(frame=2,result=1),compose=True)
+    with patch.dict(original.__globals__,{'_nikke_enemy_healing_frame':runtime.frame,'_nikke_enemy_healing_result':runtime.result}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):
         try:yield runtime.data
         finally:
             if runtime.boss is not None:
                 runtime.data['final_scored_damage']=dict(runtime.boss.add_dealt)
                 runtime.data['final_overkill']=runtime.boss.add_overkill
+                runtime.data['final_adds']=[]
+                for binding in bindings([run.p for run in runtime.boss._runs]):
+                    if binding.kind!=ActorKind.ADD:continue
+                    run=runtime.boss._runs[binding.run]
+                    if run.opens==0:
+                        runtime.data['final_adds'].append(dict(label=binding.label,generation=0));continue
+                    add=run.adds[binding.slot]
+                    runtime.data['final_adds'].append(dict(label=binding.label,generation=run.opens,
+                        alive=bool(run.active and add.alive),gone=add.gone,dealt=add.dealt,
+                        hits=add.hits,born=add.spawn_t,order=add.order))

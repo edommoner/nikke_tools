@@ -6,6 +6,10 @@ def project_sources(root,sources=None):
     root=Path(root)
     ledger=json.loads((root/'tests/fixtures/portable-logical-geometry-source-delta.json').read_text())
     projected=dict(sources or {})
+    if (root/'gpu/world_enemy_healing_entry.slang').exists():
+        from portable_enemy_healing_source_contract import project_sources as healing
+        selected=set(projected)|set(ledger['files'])
+        projected={name:value for name,value in healing(root,projected).items() if name in selected}
     for name,digest in ledger['added_sources'].items():
         source=projected.get(name,(root/name).read_text())
         if hashlib.sha256(source.encode()).hexdigest()!=digest:raise ValueError('Logical geometry dependency changed: '+name)

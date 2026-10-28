@@ -1,3 +1,9 @@
+# 2026-10-28 敵回復の共通wire・Slang consumerを実装（実機認定前）
+
+EHL1/version1のliteral bankを既存logical prefixへ追加し、新入力120,048/出力2,032,000wordの明示entryを登録。既存pool同期後にsource-openを消費し、既存の世代付き敵carrierとbinary64 ADD HPを使う。hit/score/overkillを回復では変えず、raw小数creditと公開キャラ別roundを別に比較する。元6編成/69定義とraw拒否8件の開発専用 `enemy-healing` を共通CLIへ追加。新24検査・旧logical source5検査成功。初回旧source検査の戻りmap件数差を検出し、既存6件の返却契約を保持して修正。失敗は保存し、旧テスト期待値は変更しない。
+
+次は固定packet自身のnative事前検査→paired生成→Metal1回→fresh GPU禁止seal。wire/Slang/登録の成立は実GPU成功ではない。Windows新依頼0、旧transactionの終端不明を維持。詳細[敵回復](portable-enemy-healing.md)。以下は履歴。
+
 # 2026-10-28 敵回復consumerの元アンCPU契約を実装（GPU未接続）
 
 `enemy-healing-common`は元アン全69定義、既存idle source/ADD HP/世代/回復倍率で6条件を検証。元Lv10約0.2107/Lv1約0.5659が実回復量へ反映。回復が実際の生存/累積得点へ影響する検査、上限/死亡拒否、未期限切れ旧世代の除外、二重t0とalias復元を含む。新時計/HP heap/効果の置換なし。

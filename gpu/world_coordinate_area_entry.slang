@@ -21,7 +21,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
 {
     if(id.x>=commands[0])return;
-#if defined(PORTABLE_COORDINATE_TYPED_TARGETS) || defined(PORTABLE_COORDINATE_LOGICAL_ACTORS)
+#if defined(PORTABLE_ENEMY_HEALING)
+    uint input=1+id.x*EHL_INPUT_WORDS,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
+#elif defined(PORTABLE_COORDINATE_TYPED_TARGETS) || defined(PORTABLE_COORDINATE_LOGICAL_ACTORS)
     uint input=1+id.x*115680U,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
 #elif defined(PORTABLE_COORDINATE_BURST_CONTROLS)
     uint input=1+id.x*(P_INPUT_WORDS+C_INPUT+CA_INPUT+CC_INPUT+CI_INPUT+440U),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
@@ -75,6 +77,10 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS
     for(uint i=1769856U;i<LAG_OUTPUT_WORDS;i++)results[output+i]=0;
     if(!validLogicalActorGeometry(s)){results[output]=64;return;}
+#endif
+#ifdef PORTABLE_ENEMY_HEALING
+    if(!initializeEnemyHealing(s)){results[output]=64;return;}
+    enemyHealingFrame(s,0);if(s.error!=0){results[output]=s.error;return;}
 #endif
     uint queries;executePortableCommands(s,input,output,queries);
     for(uint i=5;i<16;i++)results[output+CP_BASE+i]=0;

@@ -1,6 +1,6 @@
 # 元アンの回復量低下を実ADD回復へ接続するCPU契約
 
-`reference --suite enemy-healing-common --out NEW.json`は、元アン：ミラクルフェアリーの5人編成/全69定義を保持し、元の敵向け`heal_received_pct`を実際の有限ADD回復へ接続する。privateな明示環境モデルであり、既定CPUやゲームの回復規則への同値、GPU実証ではない。GPU入力変換/Slang consumer/Metal実行はまだない。
+`reference --suite enemy-healing-common --out NEW.json`は、元アン：ミラクルフェアリーの5人編成/全69定義を保持し、元の敵向け`heal_received_pct`を実際の有限ADD回復へ接続する。privateな明示環境モデルであり、既定CPUやゲームの回復規則への同値、GPU実証ではない。GPU入力変換と共通Slang consumerを実装中。Metal実行・独立監査は未成立。
 
 ## 既存処理の所有権
 
@@ -37,3 +37,13 @@
 4. 小数HPを含む既存score/overkill経路を監査し、内部float creditとキャラ別最終roundを共通化する。元の全状態/履歴/HP/得点比較へ回復receiptを追加し、固定packetでMetal1回＋独立fresh sealへ進む。
 
 CPU専用11検査は実倍率、HP上限、score/hit維持、実生存差、死亡拒否、未期限切れ旧世代、入力/容量/HP型拒否、二重t0、alias復元、小数creditと公開roundを含む。分類はreference_model_gapを維持し、別の宣言CPU契約として記録する。今回GPU/CUDA/Windows新実行は0。
+
+## 共通GPUへの実装経路（実機認定前）
+
+`enemy-healing`は開発専用suite。元6条件とraw拒否8件を同じCUDA/Metal adapterへ渡す。入力は既存logical geometry prefix115,680wordを保持し、EHL1/version1の4,368wordを追加した120,048word。32行×136wordに既存node番号・flat binary64量・最大127個の既存actor slotを順序付きで保持する。CPUで計算した時刻列/HP/世代は渡さない。source graph/registry/有限HPのowner bytesを既存compilerから再照合する。private packing scope外では敵heal_received_pctの受付を変更しない。
+
+共通Slangは既存world frameのpool同期直後・overlay/tick前に回復し、初期frame0も既存source generationを一度だけ消費する。出力1,867,648以降の旧未使用領域にheader16・node別seen32・最大1,024件×32wordのreceiptを置く。HPは従来pool+4、stack/寿命/世代付き敵carrierは従来consumer、数値は従来software binary64である。見えない旧世代は既存actorFieldMemberで除外し、hit/score/overkillを書き換えない。stride/entryを明示登録し、旧entryへの新stride混入をCPUで拒否する。
+
+比較器は全回復receipt・未使用row/予約word、全ADDの最終HP/hit/世代/退場・raw得点/overkillと実SimResultのキャラ別roundを先に検査する。その後、検証済みの追加bankだけをゼロへ投影し、従来の全battle/physical/group/skill-history比較器をそのまま実行する。旧nativeの値や比較項目を置換しない。既存6ファイルの変更は固定9b3f84ccからの全文SHA/完全一致inverseで記録し、旧source監査へ合成する。生成コードnormalizerは変更しない。
+
+現時点のwire8/新runtime gate5/元モデル11の計24検査と、旧logical source/arena5検査が成功。完全native事前検査、paired生成、Metal実行、fresh独立sealはこれから行う。開発suiteの登録や単体検査をGPU成功と扱わない。

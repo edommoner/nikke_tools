@@ -253,6 +253,9 @@ void admitDefinitions(inout Runtime s,uint input)
 #ifdef PORTABLE_DAMAGE_ACCUM
         accumEnemy=d.kind==0 && d.stat>=81U && d.stat<=83U;
 #endif
+#ifdef PORTABLE_ENEMY_HEALING
+        accumEnemy=accumEnemy || d.kind==0 && d.stat==S_heal_received_pct;
+#endif
         if (d.enemyBuff != 0 && (d.enemyBuff != 1 || !(d.kind==0 || d.kind==4 && (d.flags&56)!=0 || d.kind==4 && d.stat==0 || d.kind==19) || s.combat == 0 || d.lazyGroup != 0 ||
             !WORLD_ENEMY_ATTACK_STAT(s,d,(d.stat == S_enemy_def_down_pct || d.stat == S_def_caster_based_pct || d.stat == S_received_dmg_pct || accumEnemy || projectileCarrierStat(d.stat) || namedMagnitudeStat(d.stat) || d.stat == S_taunt || d.stat == S_stun || d.kind==4 && (d.flags&56)!=0 || d.kind==4 && d.stat==0 || d.kind==19)) ||
             !validEnemyRoute(s.inputBase,d.damageRoute) || d.damageCount == 0 || d.damageCount > 256 || d.damageHits != 0 || d.damageNormal != 0 || !f64Zero(d.damageGauge) || d.damagePending != 0 || d.pendingHits != 0 ||
