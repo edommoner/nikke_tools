@@ -1,0 +1,49 @@
+{
+  "schema": "resident-append-gpu-guard-attempt-v1",
+  "package_id": "002dd93b637952d4f30b21360a8d2a2ab1e1f025f851eb71be016324dab454be",
+  "capture": "C:\\Users\\owner\\Documents\\Codex\\nikke-resident-append-v1\\gpu",
+  "stage_verified": false,
+  "passed": false,
+  "calculation_verified": false,
+  "containment_pre_gate_verified": true,
+  "environment_preserved": false,
+  "process_preserved": true,
+  "guard_rejection": "ValueError: Cached CUDA profile requires an existing absolute --cached-cuda-source",
+  "execution": {
+    "passed": false,
+    "timed_out": false,
+    "elapsed_seconds": 8.502767799887806,
+    "timeout_seconds": 179.84299999987707,
+    "child_exit_code": 1,
+    "final_child_exit_code": 1,
+    "below_normal_priority": true,
+    "error": null,
+    "cleanup_error": null,
+    "observation_error": null
+  },
+  "jobs": [
+    {
+      "pre_gate_verified": true,
+      "post_members": 0,
+      "peak_bytes": 68464640,
+      "limit_bytes": 2147483648,
+      "inspection_error": null
+    }
+  ],
+  "launch_calls": 0,
+  "sync_calls": 0,
+  "readback_calls": 0,
+  "slang_compiler_calls": 0,
+  "nvrtc_calls": 0,
+  "driver_load_calls": 0,
+  "paired_generation_cache_hit": null,
+  "cubin_cache_hit": null,
+  "cache_hit_note": "Cached-profile argument guard rejected before runtime cache admission; earlier file-only cache probe remains separate evidence",
+  "output_sha256": null,
+  "proof_exists": false,
+  "outer_wrapper_claim_exists": true,
+  "inner_gpu_claim_exists": false,
+  "retries": 0,
+  "original_compile_stage_verified": false,
+  "original_compile_claims_modified": false
+}

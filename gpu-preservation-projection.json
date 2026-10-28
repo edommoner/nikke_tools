@@ -1,0 +1,12 @@
+{
+  "schema": "gpu-guard-preservation-projection-v1",
+  "process_preserved": true,
+  "environment_preserved": false,
+  "service_status_before": "unverified",
+  "service_status_after": "unverified",
+  "service_preservation_verified": false,
+  "missing_process_count": 0,
+  "observation_error": null,
+  "cleanup_error": null,
+  "inner_gpu_job_created": false
+}

@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "C:\Users\owner\Documents\Codex\nikke-resident-append-v1\package\scripts\run-gpu-packet.py", line 415, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\Users\owner\Documents\Codex\nikke-resident-append-v1\package\scripts\run-gpu-packet.py", line 407, in main
+    if args._child:child(args.capture.resolve());return
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Codex\nikke-resident-append-v1\package\scripts\run-gpu-packet.py", line 312, in child
+    journal.invoke('packet_shared_cli',cli.main)
+  File "C:\Users\owner\Documents\Codex\nikke-resident-append-v1\package\research\portable_phase_audit.py", line 26, in invoke
+    result = function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Codex\nikke-resident-append-v1\package\scripts\nikke_gpu.py", line 3851, in main
+    result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Codex\nikke-resident-append-v1\package\scripts\nikke_gpu.py", line 2480, in run_capture
+    validate_cached_profile(SUITES[m['suite']],backend,execute=not smoke and not cpu_only,linked=linked_package is not None)
+  File "C:\Users\owner\Documents\Codex\nikke-resident-append-v1\package\app\portable_cuda_cached_profile.py", line 22, in validate
+    raise ValueError('Cached CUDA profile requires an existing absolute --cached-cuda-source')
+ValueError: Cached CUDA profile requires an existing absolute --cached-cuda-source

@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "package_id": "002dd93b637952d4f30b21360a8d2a2ab1e1f025f851eb71be016324dab454be",
+  "stage": "gpu",
+  "bounded_execution_verified": false,
+  "proof_result": null,
+  "compiler_verified": false,
+  "generation_verified": false,
+  "calculation_verified": false,
+  "cpu_verified": false,
+  "smoke_verified": false,
+  "whole_stage_process_preservation_verified": true,
+  "whole_stage_environment_preservation_verified": false,
+  "stage_verified": false,
+  "stage_complete": false,
+  "gpu_retries": 0,
+  "full_goal_complete": false
+}
