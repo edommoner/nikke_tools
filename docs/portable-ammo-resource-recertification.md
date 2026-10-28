@@ -18,3 +18,5 @@ v1の同梱漏れ、v2のroutingテスト、v3のGPU一覧誤用による失敗p
 今回の再認定は上記7条件に限る。ADD実戦・敵回復・logical actorなど他の変更されたsource閉包の再認定は残る。全キャラ/全特殊効果や公開GPU受付を認定しない。敵武器・容量変更、flat/forced reload、self-destruct/付随debuff等も引き続き未対応。Windowsへの新run依頼0、現在sourceのCUDA実機は未確認。共有actor/数値consumerの拡張は新entry側へ置き、不要な旧source変更と再認定を避ける。
 
 証跡: research/target-count-query-evidence/original-ammo-resource-recert-v1.json。独立監査receipt: tests/fixtures/original-ammo-current-independent-v2.json / original-resources-current-independent-v2.json。GPU raw・失敗・cacheはpersistent proof領域に保持し、GitHub payloadには含めない。
+
+最終CLI848c51b5の両通常packetでsource-baseline一致、必須paired generation hit/Slang0とsealed生成baseline一致、CUBIN/O1・2GiB・60秒compile-planを確認した（GPU/compiler/claim0）。新しい4つのsource/証跡検査は実compact ammo packet内でも成功。最終準備はoriginal-ammo-resource-final-cli-v1.jsonに記録。これはCUDA実機やキャッシュhitの認定ではない。
