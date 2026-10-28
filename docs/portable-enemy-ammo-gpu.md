@@ -23,3 +23,5 @@
 Metal実GPU0.8562025秒、初回pipeline59.394478秒、library1.987327秒。GPU禁止のfresh child監査124.232063秒で全20入力/全出力を再照合しsealした。Runtime stride138,952byteは不変。v2のkind11初期化失敗とv5の128通知上限失敗のraw/claimは保持し、再送や成功への付替えはない。途中v3 compact未対応、v4 native期待値再利用不可、600秒指定の上限違反はすべてGPU/claim前に停止した記録として保持する。
 
 CLI enemy-ammoをsealed通常入口へ更新。enemy-ammo-cache-onlyは同じ計算・goldenにCUBIN/O1・必須compile cache・NVRTC禁止・必須paired generationを適用する。Windows実GPU/キャッシュhitは未確認で、新しいWindows実行依頼は0。共有numeric抽出とresource記録hookによる旧スイートの現source再認定は残件。従来成功証跡を今回sourceへ付替えず、全キャラ/default受付は未認定のまま。証跡はresearch/target-count-query-evidence/enemy-ammo-metal-v1.jsonとtests/fixtures/enemy-ammo-independent-v1.json。
+
+最終CLI42e1a623の通常source/golden一致をsource-baselineで確認。cache-only固定packetdde986afのCUBIN/O1・2GiB・60秒compile-planは成功（compiler/GPU/claim0）。追加のwire/証跡9、cache profile9、未対応分類24テストも成功。Windows既存threadのread-only statusはhost unavailableで、保存結果取得や新run依頼はしていない。最終準備記録はenemy-ammo-final-cli-v1.json。
