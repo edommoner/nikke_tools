@@ -1,3 +1,5 @@
+最終70f11e25のlogical/rosters通常・cache固定packetは76/95/104/123unit成功。通常2packetのsealed生成はrequired hit/Slang0、cache2packetのCUBIN/O1・2GiB・60秒planも成功（実compile/GPU/Windows0）。model-checkも成功し未対応canonical5種/公開受付/現CUDA/全体未達を保持。敵回復runは固定packetで継続中で、再依頼・再実行しない。記録logical-named-admission-final-cli-v4.json。
+
 # 2026-10-28 共通source検査を固定packetで実証・旧18入力を現source再認定
 
 固定5433f8e9のlogical13/元Nihilister5は75/94unit・fresh全native・M5各1回・fresh GPU禁止独立sealが成功。GPU2.509929/2.429060秒、独立監査147.150955/116.157589秒。後者は必須Metal pipeline cache hitでPSO0.002954秒。旧input全byte・全entry/native hash・readback計146,304,000byteを保持。新v3 goldenと同一監査のcurrent source証明書を登録し、v1/v2 golden/証明書は履歴として保持する。source-baselineは親logicalの全sourceが検証済みrosters development closureへ含まれることを実パッケージで検査し、登録source current=False/計算認定Falseと明示した。

@@ -1,0 +1,81 @@
+{
+  "schema": "logical-named-admission-final-cli-v4",
+  "source_commit": "70f11e25",
+  "checks": [
+    {
+      "suite": "logical-actor-geometry",
+      "package_id": "374f99ab5b7be7d56cc564ffa7d5c919a1868f99a6b389d65354d61b8a1da0a9",
+      "passed": true,
+      "tests": 76,
+      "groups": 11,
+      "calculation_verified": false,
+      "gpu_calls": 0,
+      "generation": {
+        "verified": true,
+        "cache_hit": true,
+        "compiler_invocations": 0,
+        "sealed_generated_baseline_verified": true,
+        "gpu_calls": 0
+      }
+    },
+    {
+      "suite": "logical-actor-rosters",
+      "package_id": "5a011c30e228b7b58af3688e4f37a88e4732ce2bf54f782488b49f5c56ad258f",
+      "passed": true,
+      "tests": 95,
+      "groups": 13,
+      "calculation_verified": false,
+      "gpu_calls": 0,
+      "generation": {
+        "verified": true,
+        "cache_hit": true,
+        "compiler_invocations": 0,
+        "sealed_generated_baseline_verified": true,
+        "gpu_calls": 0
+      }
+    },
+    {
+      "suite": "logical-actor-geometry-cache-only",
+      "package_id": "4db3671b1f9e1fdf20e2c0dc00c5554998fb5faa929d65da72786b2f2f416dd6",
+      "passed": true,
+      "tests": 104,
+      "groups": 13,
+      "calculation_verified": false,
+      "gpu_calls": 0,
+      "compile_plan": {
+        "passed": true,
+        "artifact_kind": "cubin",
+        "ptxas_level": 1,
+        "memory_limit_mb": 2048,
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "suite": "logical-actor-rosters-cache-only",
+      "package_id": "c1dfaee035475bc5b67317bda16556e1c8a5ae749a3d5b067d2255e963ef945f",
+      "passed": true,
+      "tests": 123,
+      "groups": 15,
+      "calculation_verified": false,
+      "gpu_calls": 0,
+      "compile_plan": {
+        "passed": true,
+        "artifact_kind": "cubin",
+        "ptxas_level": 1,
+        "memory_limit_mb": 2048,
+        "timeout_seconds": 60
+      }
+    }
+  ],
+  "model_check_passed": true,
+  "missing_canonical_stats": [
+    "enemy_movement_disable",
+    "force_move",
+    "effect_range_pct",
+    "effect_target_count_add",
+    "lock_on"
+  ],
+  "enemy_healing_current_source_pending": true,
+  "current_cuda_verified": false,
+  "full_goal_complete": false
+}
