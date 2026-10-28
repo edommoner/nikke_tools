@@ -20,6 +20,15 @@ class NamedRangeWire(unittest.TestCase):
         check_schema(ROOT);validate_composed_stride(SOURCE,INPUT,OUTPUT)
         with self.assertRaises(ValueError):validate_composed_stride(SOURCE,115680,OUTPUT)
         with self.assertRaises(ValueError):validate_composed_stride(SOURCE,INPUT,1769856)
+    def test_older_named_enemy_audit_receives_each_checked_inverse_once(self):
+        from portable_named_enemy_source_contract import project_sources
+        import json
+        projected,_=project_sources(ROOT)
+        ledger=json.loads((ROOT/'tests/fixtures/portable-named-range-battle-source-delta.json').read_text())
+        self.assertEqual(projected['gpu/stack_runtime.slang'],ledger['files']['gpu/stack_runtime.slang']['before'])
+        # Earlier callers must reject altered new dependencies as well.
+        with self.assertRaises((ValueError,AssertionError)):
+            project_sources(ROOT,{'gpu/stack_runtime.slang':(ROOT/'gpu/stack_runtime.slang').read_text()+'\n// changed'})
     def test_raw_cases_and_checked_source_inverse_are_complete(self):
         from portable_named_range_battle_source_contract import project_sources
         import json

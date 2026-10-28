@@ -43,7 +43,7 @@ class HealthParts(unittest.TestCase):
         from portable_original_health_parts_source_contract import project_sources
         d=json.loads((ROOT/'tests/fixtures/portable-original-health-parts-source-delta.json').read_text());out=project_sources(ROOT)
         self.assertEqual(out['app/portable_backend.py'],d['sources']['app/portable_backend.py']['baseline'])
-        with self.assertRaisesRegex(AssertionError,'Unreviewed'):project_sources(ROOT,{'app/portable_backend.py':d['sources']['app/portable_backend.py']['current']+'\n# mutation'})
+        with self.assertRaisesRegex((AssertionError,ValueError),'Unreviewed'):project_sources(ROOT,{'app/portable_backend.py':d['sources']['app/portable_backend.py']['current']+'\n# mutation'})
         from portable_original_lock_source_contract import project_sources as complete
         previous=json.loads((ROOT/'tests/fixtures/portable-original-lock-source-delta.json').read_text())
         self.assertEqual(complete(ROOT)['app/portable_backend.py'],previous['sources']['app/portable_backend.py']['baseline'])

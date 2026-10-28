@@ -27,7 +27,7 @@ class NamedEnemyGpuTests(unittest.TestCase):
         sources,changed=project_sources(ROOT);self.assertEqual(len(changed),8)
         for name in changed:
             current=(ROOT/name).read_text()
-            with self.subTest(name=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:current+'\n// unreviewed\n'})
+            with self.subTest(name=name),self.assertRaises((AssertionError,ValueError)):project_sources(ROOT,{name:current+'\n// unreviewed\n'})
         name='gpu/named_enemy_recipient_runtime.slang'
         with self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text().replace('name>P_DEFINITIONS','name>99999')})
     def test_every_dynamic_definition_capture_forwards_its_identity(self):

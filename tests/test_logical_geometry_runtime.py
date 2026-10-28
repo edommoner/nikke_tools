@@ -10,7 +10,10 @@ from portable_arena_specs import audit_regions
 class LogicalGeometryRuntime(unittest.TestCase):
     def test_exact_historical_projection_and_shared_receipt_tail(self):
         sources=project_sources(ROOT)
-        self.assertEqual(len(sources),6)
+        ledger=json.loads((ROOT/'tests/fixtures/portable-logical-geometry-source-delta.json').read_text())
+        self.assertTrue(set(ledger['files']).issubset(sources))
+        radial=json.loads((ROOT/'tests/fixtures/portable-named-range-battle-source-delta.json').read_text())
+        self.assertEqual(sources['gpu/stack_runtime.slang'],radial['files']['gpu/stack_runtime.slang']['before'])
         self.assertNotIn('PORTABLE_COORDINATE_LOGICAL_ACTORS',''.join(sources.values()))
 
     def test_full_input_and_output_have_disjoint_owners(self):

@@ -8,8 +8,10 @@ def project_sources(root,sources=None):
     projected=dict(sources or {})
     if (root/'gpu/world_enemy_healing_entry.slang').exists():
         from portable_enemy_healing_source_contract import project_sources as healing
-        selected=set(projected)|set(ledger['files'])
-        projected={name:value for name,value in healing(root,projected).items() if name in selected}
+        # Keep every checked inverse for earlier contracts (including the
+        # named-enemy/stack composition). Dropping those dependencies makes
+        # an older caller reload current source in the middle of its inverse.
+        projected=healing(root,projected)
     for name,digest in ledger['added_sources'].items():
         source=projected.get(name,(root/name).read_text())
         if hashlib.sha256(source.encode()).hexdigest()!=digest:raise ValueError('Logical geometry dependency changed: '+name)
