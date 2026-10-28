@@ -58,6 +58,7 @@ class EnemyHealingRuntime(unittest.TestCase):
         self.assertEqual(len(raw),4+14*INPUT_WORDS*4)
         self.assertEqual(sum(domain is not None for _,_,domain in rows),6)
         self.assertEqual(len(rows[0][2][0]['effects']),69)
+        self.assertTrue(all(domain[0]['sampled_groups'] for _,_,domain in rows if domain is not None))
 
 
 if __name__=='__main__':

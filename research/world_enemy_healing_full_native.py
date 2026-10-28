@@ -10,7 +10,8 @@ def prepare_case(row):
     case, prepared = original_case(row)
     case.update(logical_geometry=copy.deepcopy(row['logical_geometry']),
                 enemy_healing=copy.deepcopy(row['enemy_healing']),
-                enemy_healing_contract=copy.deepcopy(row['contract']))
+                enemy_healing_contract=copy.deepcopy(row['contract']),
+                sampled_groups=True)
     words, meta, bindings, scene = compile_enemy_healing(prepared, case['logical_geometry'], case['enemy_healing'])
     return words, (case, meta, bindings, scene)
 
