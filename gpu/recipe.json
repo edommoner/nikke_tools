@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "package_id": "e65d79b7b90ef6c31a28c8f34cb7b7ef3c5c99ac5447a1bbc3ae93c3df1f4376",
+  "stage": "gpu-cached",
+  "backend": "cuda",
+  "capture": "C:\\Users\\owner\\Documents\\Codex\\nikke-resident-append-v2\\gpu",
+  "proof_capture": "C:\\Users\\owner\\Documents\\Codex\\nikke-resident-append-v2\\gpu\\proof",
+  "original_workspace": "C:\\Users\\owner\\Documents\\ChatGPT\\nikke tools",
+  "timeout_seconds": 180,
+  "inner_gpu_timeout_seconds": 60,
+  "preparation_scope": "Immutable package manifest only; never enumerate/hash original workspace, historical captures or SDK trees",
+  "memory_limit_mb": 2048,
+  "object_request": {
+    "cached_cuda_source": "C:\\Users\\owner\\Documents\\Codex\\nikke-resident-append-v1\\compile\\proof\\generated.cu",
+    "slang_root": "C:\\Users\\owner\\Documents\\ChatGPT\\nikke tools\\.tools\\slang-2026.20-Windows-AMD64",
+    "generation_cache": "C:\\Users\\owner\\Documents\\Codex\\nikke-resident-append-v1\\generation-cache",
+    "compile_cache": "C:\\Users\\owner\\Documents\\Codex\\nikke-resident-append-v1\\cuda-cache"
+  }
+}

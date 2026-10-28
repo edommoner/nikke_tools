@@ -1,0 +1,160 @@
+{
+  "schema": "resident-append-v2-report-files-v1",
+  "branch": "codex/cuda-resident-append-v2-report",
+  "files": [
+    {
+      "path": "tests/stage-result.json",
+      "bytes": 1114,
+      "sha256": "8a0dc8fbf0c50c3be93e5d8c544a1743bfab5f4448b744e3b7fbafe57f13e516"
+    },
+    {
+      "path": "tests/execution.json",
+      "bytes": 1107,
+      "sha256": "d605ea377e48835bdf2be8d85375b703b5260492aad9b583aac3bb940a8aeaef"
+    },
+    {
+      "path": "tests/job.json",
+      "bytes": 1099,
+      "sha256": "7f95fac5a76bc4b49c29c8ec38800ebfa977edd3aac147f26ccbb2f822ed9f5f"
+    },
+    {
+      "path": "tests/recipe.json",
+      "bytes": 634,
+      "sha256": "e045d8235a79ed4da3bafaff6193aa6be665882f14497fe51fbb392d06dbe18d"
+    },
+    {
+      "path": "tests/preparation.jsonl",
+      "bytes": 1446,
+      "sha256": "960e824e4e7e4f8315c60f5c755b26e8d8c633b7a8b6c37438edd66c506d36a0"
+    },
+    {
+      "path": "tests/proof/result.json",
+      "bytes": 464,
+      "sha256": "5a63d6dbe77a99910d9ca279a52f12e3918db6ff09a79920ee1269c9aaf7db56"
+    },
+    {
+      "path": "tests/proof/cpu-tests.json",
+      "bytes": 877,
+      "sha256": "909bcbaece5f764d0fc05245396d7a74709e15189da073c8a886c7b5a74a62f6"
+    },
+    {
+      "path": "tests/proof/preparation.jsonl",
+      "bytes": 321,
+      "sha256": "1f3acd32efbc6cfe2728221bbf7f2c5df1ab56b92e8383b34d6272b1bf04eedf"
+    },
+    {
+      "path": "tests/proof/artifacts.json",
+      "bytes": 2547,
+      "sha256": "d3daf34fb4678b5522a16e8eb910078d94e165be942a48eee22866a231bf7c12"
+    },
+    {
+      "path": "gpu/stage-result.json",
+      "bytes": 8135,
+      "sha256": "61e1c031bc83fc60c6f40787cbda6d28aae89b09ab16ca9aa3d2834b4616bc06"
+    },
+    {
+      "path": "gpu/execution.json",
+      "bytes": 1109,
+      "sha256": "9b81a265e3326587d788c970f34937119446f194b84f9946e5c65b055a8ba6cf"
+    },
+    {
+      "path": "gpu/job.json",
+      "bytes": 1090,
+      "sha256": "a5df7ed9607659d9b9558a7bba76b1c852e6bc2ea625e4f2775b5c102a8d64fd"
+    },
+    {
+      "path": "gpu/recipe.json",
+      "bytes": 1099,
+      "sha256": "b977f8131f81661fea42d22f78ed0ff1d6c46d37a184114d2b7e81b7b2c8d985"
+    },
+    {
+      "path": "gpu/preparation.jsonl",
+      "bytes": 3015,
+      "sha256": "e6e67337d58a0b567acf67cf0fbb20d987a1585ea4c7ae47137094d7d0691346"
+    },
+    {
+      "path": "gpu/environment-preflight.json",
+      "bytes": 478,
+      "sha256": "424a61b877f82371233f64f68e6ffc33bf3d505ade856d1c34e364888e1bd899"
+    },
+    {
+      "path": "gpu/proof/result.json",
+      "bytes": 6793,
+      "sha256": "26d034fa05e001e0575aaabd0389f05e8a7cc0d388c8a234908c8ac92a3abd67"
+    },
+    {
+      "path": "gpu/proof/evidence.json",
+      "bytes": 52326,
+      "sha256": "e687222edca0b760873e8ddad862b4795f077122d357800354dfcbdb168253e7"
+    },
+    {
+      "path": "gpu/proof/comparison.json",
+      "bytes": 3486,
+      "sha256": "935e8513569161e53c359e5acdaa135b24b4a22b09b3b4114a6fbedeb70a0c6f"
+    },
+    {
+      "path": "gpu/proof/cpu-tests.json",
+      "bytes": 880,
+      "sha256": "e1236f3e35f42cdf941675ae3392ae721397f6d8c2d46340acaebea039b65f23"
+    },
+    {
+      "path": "gpu/proof/runtime.json",
+      "bytes": 1256,
+      "sha256": "5c81327ec5e6f3b07d22bd1f8e6bb9327c8f99d35f4c82fbeb9f88c5d1396681"
+    },
+    {
+      "path": "gpu/proof/execution.json",
+      "bytes": 6755,
+      "sha256": "06d3878b6d0d5c0e496276dfe0ec9259e63b25907bbbeb43352f4c614089d690"
+    },
+    {
+      "path": "gpu/proof/job.json",
+      "bytes": 1094,
+      "sha256": "74c0e13851a62b27667ae66ee9aa10feae44dc2481ff5e898e0d7702b17da0dc"
+    },
+    {
+      "path": "gpu/proof/phases.jsonl",
+      "bytes": 41476,
+      "sha256": "7a5fde08de38a95d6fdc87933539f20a94b50c00d665b208bf4a3f73b65ca13a"
+    },
+    {
+      "path": "gpu/proof/preparation.jsonl",
+      "bytes": 6548,
+      "sha256": "34fca9b0a210c4209e154e5ab532fd163fccfcda7a4be7e1b2c09a7b74f51681"
+    },
+    {
+      "path": "gpu/proof/artifacts.json",
+      "bytes": 5552,
+      "sha256": "eaab75e062aa5786ce806049dc53eff30b2cb728cffb0ca198bdd3d692c1fc15"
+    },
+    {
+      "path": "gpu/proof/cache-preflight.json",
+      "bytes": 60541,
+      "sha256": "bf4720f4baff13129f0d8d12640dffd702e76efb3992187725f1a47eee1555a5"
+    },
+    {
+      "path": "gpu/proof/input-preflight.json",
+      "bytes": 259,
+      "sha256": "ea32c25dfe7995fcb25bd355a5eee588b48ea0a307374a6026ec746c1abf1f40"
+    },
+    {
+      "path": "gpu/proof/audit-phases.jsonl",
+      "bytes": 313,
+      "sha256": "1b88f81c0ebf20ebc3224b4dc6c5a59a47d6824dd172f872b3fe965e5bec4fd7"
+    },
+    {
+      "path": "validation-summary.json",
+      "bytes": 4288,
+      "sha256": "46da5391dc38aa9b2bc0fcc244cdccc49ccf1209ac4b608b27dc72cdd3be1a02"
+    },
+    {
+      "path": "preservation-projection.json",
+      "bytes": 983,
+      "sha256": "00b977a7a42be04856395b1c63ec667b422e52a0f3d9407c5fd1537b8dd7245c"
+    }
+  ],
+  "calculation_verified": true,
+  "passed": false,
+  "preservation_verified": false,
+  "scope": "Nine descriptor/storage probes only; original v1 failure unchanged"
+}

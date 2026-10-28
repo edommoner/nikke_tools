@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "cpu-batch.json",
+      "bytes": 504,
+      "sha256": "5c4b9b405224b90c67357541db4423fb53abb61f54021f425131380dbc3a8ec5"
+    },
+    {
+      "path": "cpu-batch.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "cpu-batch.stdout.log",
+      "bytes": 59,
+      "sha256": "cd13e1f37a203e6bb9ac41c6e020d81506cdd204dfe963b56ae413dfc896d230"
+    },
+    {
+      "path": "cpu-tests.json",
+      "bytes": 877,
+      "sha256": "909bcbaece5f764d0fc05245396d7a74709e15189da073c8a886c7b5a74a62f6"
+    },
+    {
+      "path": "preparation.jsonl",
+      "bytes": 321,
+      "sha256": "1f3acd32efbc6cfe2728221bbf7f2c5df1ab56b92e8383b34d6272b1bf04eedf"
+    },
+    {
+      "path": "python-dependencies.json",
+      "bytes": 294,
+      "sha256": "949f44c1d5c30171fce6065ddec4a59765f3f5f70646be42ee7fb608e793dca5"
+    },
+    {
+      "path": "result.json",
+      "bytes": 464,
+      "sha256": "5a63d6dbe77a99910d9ca279a52f12e3918db6ff09a79920ee1269c9aaf7db56"
+    },
+    {
+      "path": "test_portable_cuda_cached_profile.py.stderr.log",
+      "bytes": 112,
+      "sha256": "b6335b93c991bf96c40fad0236eea41f9ca6cb4e6872bad0b478d4c0e91d6b33"
+    },
+    {
+      "path": "test_portable_cuda_cached_profile.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_packet_stage.py.stderr.log",
+      "bytes": 139,
+      "sha256": "ca5a6575aabd6bb82c93b0b7776c06a29da4bfb31496c1f1abda09789145497e"
+    },
+    {
+      "path": "test_portable_packet_stage.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_scope_snapshot_audit.py.stderr.log",
+      "bytes": 111,
+      "sha256": "7761886c7ea0fa6e8e31901d9bf883ae345dc51033a36e69f6856473acdd5272"
+    },
+    {
+      "path": "test_portable_scope_snapshot_audit.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_resident_append_probe.py.stderr.log",
+      "bytes": 107,
+      "sha256": "5cf72ca145078314eb8611993fd224374b702fbd3a6692dfd5f1f0fb0b458fe9"
+    },
+    {
+      "path": "test_resident_append_probe.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}

@@ -1,0 +1,69 @@
+{
+  "calculation_verified": true,
+  "entries": [
+    {
+      "name": "resident-append/empty",
+      "input_sha256": "ec5e205c93c123dfdc826e0666e78fae0739879ff6e6b7dbe4cdce05ffbd4350",
+      "output_sha256": "4ed10c189217b19d335de78ff64ce1745eb130047774a3d622a76942ae7cd8ac",
+      "native_sha256": "0f753c88d6ac4c8ec453f22bcd1583396b919fe9cf481ec374257c0df2dfdf57"
+    },
+    {
+      "name": "resident-append/enemy-first",
+      "input_sha256": "365382e37b8e5ed63b832c5d001159b6fa4484dc8f8954a9511ba35dcbb62f3c",
+      "output_sha256": "56e1a6c65b03b929477b2639dcce2cec3de75b7241e60580e0a6f746e933a773",
+      "native_sha256": "d51cdfc94cb0bbae9b86a4768471efee86b3a591acc1e889adf955032102aae9"
+    },
+    {
+      "name": "resident-append/enemy-last",
+      "input_sha256": "6258ae2b7649460eed78273ddd363b969bf2522c65e6af7f393e62d599fecfd0",
+      "output_sha256": "b85d2e79b20fe2652f0543da11a0776985b496734491ab76a82b7ca6ee4cc6c2",
+      "native_sha256": "7868200ce4f33606640ff8463b67402380202dc7b11d2510e27a92009204eb28"
+    },
+    {
+      "name": "resident-append/enemy-refresh",
+      "input_sha256": "be1c40eb427df3c4fb0dc73793de0597595c92a2ed9612652df8e9abce36fbd4",
+      "output_sha256": "5cab2edfe3d18b3668f6091484b7d0d197465f0ae1db2e11f60e60bbd99925c7",
+      "native_sha256": "3d1304e5794cbad9f3f432cec8a5ee45ce300091ab962670a59fd15d217c47ac"
+    },
+    {
+      "name": "resident-append/infinite-first",
+      "input_sha256": "ed5c6e053359842646802a8c8ac8c4e78b1aa3f288526e1abcd07b28d4ac2a4d",
+      "output_sha256": "0c78e96990e760212428d993d4b64bdf8949136d91cf158a835988197b6d80b1",
+      "native_sha256": "0a9d567cbc414da875bac963709e3f29f530012b11c2f693cbd7de354eb63bc9"
+    },
+    {
+      "name": "resident-append/infinite-last",
+      "input_sha256": "00c40f059fb316ac8556a9c8b5094b971fa4174ef28eba658db4eb590325d374",
+      "output_sha256": "82e471abed378299cf6612247afea798b7123fabee072102e401decee552dd45",
+      "native_sha256": "19c7a574af7febac9d83f13ac9a88800c45154609d579017bdad6e9e0b7700bd"
+    },
+    {
+      "name": "resident-append/infinite-refresh",
+      "input_sha256": "aa5657c628fe442089b7c89834b1a42d5b2cba8a04f9e29ecd94a034f7423358",
+      "output_sha256": "21370c3552c98aa11610fa6c84e52527dca25d536d53f5efa9ce09aa36be1ae9",
+      "native_sha256": "f9c2519dfc552646d5e8c0b01f15b7a545a641381c8b5bc31c0d567d7dbb5282"
+    },
+    {
+      "name": "resident-append/watch-duplicate-owner",
+      "input_sha256": "8c24d19ece37b0f37348ed2d8b174d86f7b186b03464e57971b27051f78fab1c",
+      "output_sha256": "99b5c839587490a649bec1b0a11ba9f18ded418063db57df84cdfbe22760bffc",
+      "native_sha256": "387124fd850671a45a0fe036c5071c048bf3bbdb8926fe7a15ed1e4d0654239c"
+    },
+    {
+      "name": "resident-append/watch-all-2048",
+      "input_sha256": "6e8cd97096d705845eb53ec98e9896f81ce033d5f9cff80be7c0cbc96f448e3e",
+      "output_sha256": "eede0ac4534ec292c176b9bb91c1c8633302e310cdb2d9b26f15bd82d069bb7b",
+      "native_sha256": "cb136bd83e80acc69c18f2c0c89940d4f287107e4c22b0e2b06ac66ce7614c55"
+    }
+  ],
+  "mismatches": [],
+  "input_count": 9,
+  "native_oracles": 9,
+  "input_sha256": "67d0bff5791d425500d3f3566b9982796917707192ffaa52497860047bcbaad8",
+  "output_sha256": "d4f8ab1b3b4217fdfdfe9a6ddddf7e0976fde568e6c422bc02175f16afe0c3c3",
+  "generated_normalized": {
+    "cuda": "584ec4e6df20a705d470b991ba34ad2cc9814bf76ebdee84e362f8072e508cd6",
+    "metal": "7e713c28f75d5210ddf74b0908fba192c8ab88de35ffaf446123f007de0d8b68"
+  },
+  "audit_gpu_calls": 0
+}

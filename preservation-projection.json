@@ -1,0 +1,32 @@
+{
+  "schema": "resident-append-v2-preservation-projection-v1",
+  "scopes": {
+    "tests_outer": {
+      "process_preserved": true,
+      "missing_process_count": 0,
+      "service_status_before": "unverified",
+      "service_status_after": "unverified",
+      "service_preservation_verified": false,
+      "observation_error": null,
+      "cleanup_error": null
+    },
+    "gpu_outer": {
+      "process_preserved": true,
+      "missing_process_count": 0,
+      "service_status_before": "unverified",
+      "service_status_after": "unverified",
+      "service_preservation_verified": false,
+      "observation_error": null,
+      "cleanup_error": null
+    },
+    "gpu_inner": {
+      "process_preserved": true,
+      "missing_process_count": 0,
+      "service_status_before": "unverified",
+      "service_status_after": "unverified",
+      "service_preservation_verified": false,
+      "observation_error": null,
+      "cleanup_error": null
+    }
+  }
+}

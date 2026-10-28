@@ -1,0 +1,42 @@
+[
+  {
+    "pattern": "test_resident_append_probe.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.09333210019394755,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86428
+  },
+  {
+    "pattern": "test_portable_scope_snapshot_audit.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.06499229976907372,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86428
+  },
+  {
+    "pattern": "test_portable_cuda_cached_profile.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.1487252996303141,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86428
+  },
+  {
+    "pattern": "test_portable_packet_stage.py",
+    "exit_code": 0,
+    "elapsed_seconds": 2.2081704000011086,
+    "tests": 35,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 86428
+  }
+]
