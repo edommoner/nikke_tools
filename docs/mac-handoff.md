@@ -1,3 +1,5 @@
+最終e47a74a7のimmutable cache packet bb8f984f…は通常の全検査を含む4群45unit成功。sealed paired generationは必須hit/Slang0、CUBIN O1・2GiB・60秒compile-planも成功（実compiler/GPU/claim0）。通常/cacheで計算/golden/sourceが同一であることも検査した。追加GPUなし。記録named-effect-range-final-cli-v1.json。次は`coordinate_area_runtime.slang`のcast時grow/snapshotを実actor setとqueueへ結び、既存世代付きcarrierとlandingを使う。基準半径は宣言値として保持し、ゲーム式の認定と混同しない。
+
 # 2026-10-28 効果名別範囲を共通実行器の実状態→幾何選択へ接続
 
 新named-effect-rangeは元マリの500%/9秒/marker限定recipientを保持した5条件＋派生7＋raw拒否9。新entryは既存event初期化/command/serializerを再利用し、final checkpointの実carrierからordered percent→factor→declared radiusを読んで、既存決定的circle/rectangle選択へ渡す。既存GPU source変更0。stat引数だけを共通化したnative readerは旧target-count10検査も成功。
