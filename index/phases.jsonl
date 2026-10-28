@@ -1,0 +1,6 @@
+{"monotonic_ns": 3051272000000000, "pid": 139872, "stage": "wire_index_controller", "state": "entered", "wall_time_ns": 1793221859862728800}
+{"elapsed_seconds": 3.5040368, "monotonic_ns": 3051275500000000, "pid": 139872, "stage": "wire_index_controller", "state": "returned", "wall_time_ns": 1793221863368071000}
+{"monotonic_ns": 3051275515000000, "pid": 139872, "stage": "wire_index_original_owner", "state": "entered", "wall_time_ns": 1793221863379710700}
+{"elapsed_seconds": 4.0836908, "monotonic_ns": 3051279609000000, "pid": 139872, "stage": "wire_index_original_owner", "state": "returned", "wall_time_ns": 1793221867464956200}
+{"monotonic_ns": 3051279765000000, "pid": 139872, "stage": "wire_index_all_saved_rows", "state": "entered", "wall_time_ns": 1793221867630662700}
+{"elapsed_seconds": 3.0797182, "monotonic_ns": 3051282843000000, "pid": 139872, "stage": "wire_index_all_saved_rows", "state": "returned", "wall_time_ns": 1793221870712695800}

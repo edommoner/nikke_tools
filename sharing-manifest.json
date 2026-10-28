@@ -1,0 +1,53 @@
+{
+  "schema": "saved-wire-index-report-files-v1",
+  "branch": "codex/cuda-saved-index-v1-report",
+  "files": [
+    {
+      "path": "index/index.json",
+      "bytes": 1073383,
+      "sha256": "59e93b3a71baecce71c5dcfdb4b3e79dd07f7bb02e923dad0a9b14cbf25a58d7"
+    },
+    {
+      "path": "index/result.json",
+      "bytes": 432,
+      "sha256": "101d72dce4e54a87779295c785d30e1d11e70d917f9b356d7158a656131e5585"
+    },
+    {
+      "path": "index/execution.json",
+      "bytes": 1788,
+      "sha256": "53edc14c4868cae3e39be6e36ae676e99cfd366701b142136e136c163aaad726"
+    },
+    {
+      "path": "index/job.json",
+      "bytes": 1099,
+      "sha256": "17ef1dd83fa20317ffb46704e7c084e02a16ffbc590987b11a4701577b86e49f"
+    },
+    {
+      "path": "index/runtime.json",
+      "bytes": 1030,
+      "sha256": "b54440c392768d8ee132b61a6b25f6a5159cfe0cd86a6e40dd6d941a7abe943d"
+    },
+    {
+      "path": "index/phases.jsonl",
+      "bytes": 961,
+      "sha256": "28745512eae4c198180ece032913fa1404c0160b88c17b958cc205702a033872"
+    },
+    {
+      "path": "index/artifacts.json",
+      "bytes": 1827,
+      "sha256": "0451383ef94e7be4ddf96adb4511d93531e5399b50b80142f3e7d60aa8b750f0"
+    },
+    {
+      "path": "index/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "index-summary.json",
+      "bytes": 1734,
+      "sha256": "811d30bbdb80ba58327692e3250ac51014ce2499d71cf2c108bce5b5ccd8924c"
+    }
+  ],
+  "calculation_verified": false,
+  "original_stage_passed": false
+}

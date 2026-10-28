@@ -1,0 +1,75 @@
+{
+  "package_id": "096bee6f817970d904334ab6d0a252be92819e3aaed070647c4c1dbdf0e3bf85",
+  "source_package_id": "e2f6470dbd561236dd6690dad2b600b0c839ff0447665ce6307ff9ff54bfdae8",
+  "capture": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-saved-index-v1\\index",
+  "index_passed": true,
+  "original_stage_passed": false,
+  "calculation_verified": false,
+  "input_count": 106,
+  "raw_sha256": "bc59f8bbfbe00f2f88888fe7ad28d88a29addac98cf7e97c39876cd1b6ee344c",
+  "logical_sha256": "3153bd799133d04e7f7d6b7c3373ca7549ad568445cd9156a6c5fa1e377358de",
+  "mismatching_cases": [
+    9,
+    68,
+    69,
+    70,
+    71,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105
+  ],
+  "mismatching_count": 23,
+  "status_distribution": {
+    "0": 63,
+    "64": 43
+  },
+  "page_words": 16384,
+  "pages": 13462,
+  "active_references_checked": 20,
+  "numeric_words_modified": 0,
+  "raw_modified": false,
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "native_calls": 0,
+  "execution": {
+    "passed": true,
+    "timed_out": false,
+    "elapsed_seconds": 15.581706200260669,
+    "timeout_seconds": 180,
+    "child_exit_code": 0,
+    "final_child_exit_code": 0,
+    "below_normal_priority": true,
+    "error": null,
+    "cleanup_error": null,
+    "observation_error": null
+  },
+  "jobs": [
+    {
+      "pre_gate_verified": true,
+      "post_members": 0,
+      "peak_bytes": 123351040,
+      "limit_bytes": 2147483648,
+      "inspection_error": null
+    }
+  ],
+  "monitor": {
+    "process_preserved": true,
+    "missing_process_count": 0,
+    "service_preservation_verified": false
+  }
+}
