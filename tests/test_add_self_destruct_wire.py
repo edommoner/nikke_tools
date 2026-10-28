@@ -81,5 +81,28 @@ class AddSelfDestructWireTests(unittest.TestCase):
             with self.subTest(offset=offset),self.assertRaises(AssertionError):
                 broken=array.array('I',block);broken[offset]=99;m.compare_retirements(broken,native)
 
+    def test_current_proof_and_cache_profile_share_one_calculation(self):
+        from portable_readiness_semantics import enemy_ammo_prerequisites
+        from portable_backend import source_hashes
+        r=enemy_ammo_prerequisites()['declared_add_self_destruct_validation'];raw=(ROOT/r['evidence']).read_bytes();proof=json.loads(raw)
+        self.assertEqual(hashlib.sha256(raw).hexdigest(),r['evidence_sha256']);self.assertTrue(proof['calculation_verified'])
+        self.assertEqual((proof['input_count'],proof['native_cases'],proof['gpu_calls']),(14,8,0))
+        golden_raw=(ROOT/'research/portable-add-self-destruct-v1-expected.json').read_bytes();golden=json.loads(golden_raw)
+        self.assertEqual(golden['source_sha256'],source_hashes(r['source']));self.assertEqual(golden['output_sha256'],proof['output_sha256'])
+        cert=json.loads((ROOT/'research/portable-compiler-full--add-self-destruct-source-certificate.json').read_text())
+        self.assertEqual(cert['baseline_golden_sha256'],hashlib.sha256(golden_raw).hexdigest())
+        sys.path.insert(0,str(ROOT/'scripts'));import nikke_gpu
+        normal=nikke_gpu.SUITES['add-self-destruct'];cached=nikke_gpu.SUITES['add-self-destruct-cache-only']
+        for key in ('script','source','golden','inputs','native','input_words','output_words'):self.assertEqual(normal[key],cached[key])
+        self.assertTrue(cached['require_paired_generation']);self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
+        self.assertFalse(r['ammo_connected']);self.assertFalse(r['cuda_verified']);self.assertFalse(r['default_producer_installed'])
+
+    def test_source_audit_keeps_utf8_under_a_cp932_default_locale(self):
+        read=Path.read_text
+        def cp932_default(path,*args,**kwargs):
+            kwargs.setdefault('encoding','cp932');return read(path,*args,**kwargs)
+        with patch.object(Path,'read_text',cp932_default):restored=project_sources(ROOT)
+        self.assertIn('gpu/world_frame_runtime.slang',restored)
+
 
 if __name__=='__main__':unittest.main()

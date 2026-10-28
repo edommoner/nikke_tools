@@ -663,3 +663,7 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 ## ADD実戦の現ソースと自爆CPU契約
 
 `add-attack-battle`17入力を共有numeric/resource hook変更後に再認定し、通常/cache-onlyのgoldenをv2へ更新。全旧input/native/entry/readback byte不変、full-source certificateも同じfresh sealで生成した。`reference --suite add-self-destruct-native --out NEW.json`は最終射撃queueと同frame退場/死亡event/敵数の正本4部品契約（packing/GPU0）。自爆のGPU受付は引き続き閉じる。詳細[ADD実戦](portable-add-attack-battle.md)、[自爆の接続点](portable-add-self-destruct.md)。
+
+## ADD自爆の14入力
+
+`add-self-destruct`は元70/76定義の実編成8条件＋不正6をM5保存出力/fresh独立sealで検証した通常入口。`package --suite add-self-destruct`を使う。`add-self-destruct-cache-only`は同じ計算/goldenにCUBIN/O1・必須compile cache/NVRTC禁止・必須paired generationを適用。初回array/list比較器失敗を保持し、計算を変えず既存replayで全14を再照合した。GPU実行は計1回。敵弾薬との合成/現在CUDA/公開GPU受付は未検証。[実装と証拠の境界](portable-add-self-destruct.md)。

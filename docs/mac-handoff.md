@@ -2997,3 +2997,11 @@ v2はkind11のactor受付漏れstatus64、v5は通知128上限status8で失敗�
 次の自爆を共通CLI reference --suite add-self-destruct-nativeへ登録。canonical BossScriptを変更せず、単発/間隔3発/同時3発/飛び越し回収の4条件を検査。最後のAttackHitをqueueした同じbegin_frameでalive false・enemy_death・enemy_count1になり、queueは残る。初回CLIのcalculator import path不足失敗を保存し、正規engine_worker初期化後に成功。4unit（改変負例/fresh CLI/出所/未対応分類結合）とreadiness24成功。これはCPU部品のみでfull battle/GPU/default falseを明示。詳細portable-add-self-destruct.md、証跡add-self-destruct-native-contract-v1.json。
 
 次は自爆の元実編成full battle契約を作り、queue済み最終射撃・同frame死亡通知/敵数・until-cleared/再出現へ既存pool/時計/incomingを使って接続する。敵回復/logicalの現source再認定も残る。Lock Onの距離は保留、全キャラ/default受付は未認定。
+
+### 2026-10-28 ADD自爆を共有GPUへ接続
+
+add-self-destructの元実編成8＋不正6をM5実行1回とfresh独立sealで成功。元ニヒリスター70/E.H.76定義不変、18自爆/33射撃/165被弾、0秒/間隔/同時/再出現/BODY混在/HP先行撃破/時間切れ/E.H.死亡resourceを全比較。既存cursor/pool/clock/notices/incoming/resource consumerを使い、最終queue後のreason3/敵数更新と全spawn後・incoming前の死亡通知を接続。未発射世代のrun.opens/_Add.firedも比較。Runtime138,952byte不変。
+
+GPU49a58f13/packetd01a085d。初回38unit/CPU8/必須生成hit/Slang0後に全正例0/不正64、比較器array slice対list不一致で6case失敗。raw/claim保持。3998ad48で純receipt検査とarray/list改変負例を追加し、新packetc52145efが元golden/critical GPU/transport/canonical/input/native一致を検査、immutable hardlinkで保存出力をreplay。GPU再実行0。全14 replay成功後、fresh GPU禁止seal126.237991秒、同時source certificate。GPU0.598816秒/cold pipeline58.053059秒、dispatch1/retry0。
+
+通常/cache-only登録と分類へscoped Metal成功を追加し、CPU部品4の分類は別のまま。UTF-8台帳をCP932模擬でも検査。次は敵magazineとの合成/付随debuffと、今回hookで変わった旧ADD/敵弾薬sourceの必要な再認定。全キャラ/default/UIは未認定、CUDA実機未確認、Windows新依頼0。詳細portable-add-self-destruct.md、証跡add-self-destruct-metal-v1.json。
