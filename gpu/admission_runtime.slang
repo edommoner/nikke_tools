@@ -223,7 +223,11 @@ void admitDefinitions(inout Runtime s,uint input)
         if ((d.kind == 2 || d.kind == 13 || d.kind == 14) && (d.target > 1 || !f64Finite(d.value))) { s.error = 64; break; }
         PROJECTILE_ADMIT_STAGE(s,403)
          s.lazyEnabled |= uint(d.lazyGroup != 0);
-        if ((WORLD_RELOAD_FORCE_KIND(d.kind) || d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 22 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30 || d.kind==29) && !validRecipientPlan(input+P_RECIPIENT_BASE+j*8,d.enemyBuff != 0,input)) { s.error = 64; break; }
+        if ((WORLD_RELOAD_FORCE_KIND(d.kind) || d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 22 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30 || d.kind==29) && !(
+#ifdef PORTABLE_ENEMY_AMMO
+            enemyAmmoDefinition(s,j,d)?enemyAmmoRecipientValid(s,j,d):
+#endif
+            validRecipientPlan(input+P_RECIPIENT_BASE+j*8,d.enemyBuff != 0,input))) { s.error = 64; break; }
         if (d.lazyGroup != 0)
         {
             uint plan = input+P_RECIPIENT_BASE+j*8, selector = commands[plan];

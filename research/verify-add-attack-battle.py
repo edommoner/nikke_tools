@@ -42,6 +42,11 @@ def compare(block,domain):
     from world_coordinate_sampled_skill_native import creation_indices
     assert len(block)==suite.OUTPUT and block[0]==0
     with creation_indices(domain[0]) as indices:n=native_reference(domain)
+    return compare_observed(block,domain,n,indices)
+
+
+def compare_observed(block,domain,n,indices):
+    assert len(block)==suite.OUTPUT and block[0]==0
     h=A['OUTPUT_BASE'];assert block[h]==0x41444231 and block[h+1]==len(n['queued_add_attacks'])
     assert not any(block[h+2:h+A['STATE_BASE']])
     for slot,b in enumerate(domain[2]):

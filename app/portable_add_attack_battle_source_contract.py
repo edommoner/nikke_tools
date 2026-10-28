@@ -5,6 +5,9 @@ from pathlib import Path
 
 def project_sources(root,sources=None):
     root=Path(root);ledger=json.loads((root/'tests/fixtures/portable-add-attack-battle-source-delta.json').read_text());out=dict(sources or {})
+    if (root/'gpu/world_enemy_ammo_entry.slang').exists():
+        from portable_enemy_ammo_source_contract import project_sources as ammo
+        out=ammo(root,out)
     for name,digest in ledger['added_sources'].items():
         if hashlib.sha256(out.get(name,(root/name).read_text()).encode()).hexdigest()!=digest:raise ValueError('Unreviewed ADD battle dependency: '+name)
     for name,row in ledger['files'].items():

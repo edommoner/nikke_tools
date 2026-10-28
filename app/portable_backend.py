@@ -86,6 +86,11 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source=='gpu/world_enemy_ammo_entry.slang':
+        from portable_enemy_ammo_wire import check_schema,LAYOUT
+        check_schema(ROOT)
+        if (input_words,output_words)!=(LAYOUT['INPUT_WORDS'],LAYOUT['OUTPUT_WORDS']):raise ValueError('Enemy ammo requires complete actor and resource banks')
+        return
     if source=='gpu/world_add_attack_battle_entry.slang':
         from portable_add_attack_battle_wire import check_schema,LAYOUT
         check_schema(ROOT)

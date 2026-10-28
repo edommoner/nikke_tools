@@ -352,6 +352,10 @@ void applyDefinitionFrame(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
         else if (d.kind == 24) { if (recipientMask != 0) addBurstGauge(s,d.value); }
         WORLD_RELOAD_DISPATCH(s,d,recipientOrder,f.time) else if (d.kind == 13 || d.kind == 14)
         {
+#ifdef PORTABLE_ENEMY_AMMO
+            if(enemyAmmoDefinition(s,row,d))applyEnemyAmmoInstant(s,d,row,f.time);
+            else
+#endif
             applyAmmoInstant(s,d,recipientMask,f.time);
             // The percentage form emits its named completion even with no recipients.
             if (d.kind == 13 && d.target != 0 && s.error == 0)
@@ -605,6 +609,10 @@ void advanceDefinitionFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inou
 #endif
             ))
         {
+#ifdef PORTABLE_ENEMY_AMMO
+            if(enemyAmmoDefinition(s,row,d)){recipientMask=1;recipientOrder=0;}
+            else
+#endif
             if(d.kind==15 && d.budget<0 && !hasDurationExtensionMembers(s,row)) recipientMask=0;
             else if (d.enemyBuff != 0 || (d.kind==15 || d.kind==26) && d.target==2)
             { recipientMask = enemyDamageMask(s,d,f.target,enemyOrder) << 5; recipientOrder = 0; }

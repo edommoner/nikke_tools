@@ -7,7 +7,7 @@ whole-magazine reloads are a declared CPU model, not game/default admission.
 """
 import ast,math
 from contextlib import contextmanager
-from dataclasses import dataclass
+from dataclasses import dataclass,asdict
 from types import FunctionType
 from unittest.mock import patch
 from impact_specs import ActorKind
@@ -69,6 +69,17 @@ def source_label(hit):
     return ADD_PREFIX+hit.source if hit.source else '__enemy__'
 
 
+def validate_enemy_effects(effects,squad_names):
+    """Shared native/static boundary of the fixed enemy magazine model."""
+    for eff,_ in effects:
+        target=eff.get('target','self')
+        allied=target in ('self','all_allies') if isinstance(target,str) else False
+        if isinstance(target,str):allied|=target in squad_names or target.startswith('allies_')
+        if allied:continue
+        if eff.get('stat')=='ammo_charge_pct' and target!='all_enemies':raise ValueError('Only all_enemies percentage routing is connected')
+        if eff.get('type')=='weapon_change' or eff.get('stat') in ('max_ammo_pct','max_ammo_flat','infinite_ammo','force_reload','ammo_charge_flat'):raise ValueError('Enemy weapon/capacity/other ammo operators are outside the fixed magazine model')
+
+
 class EnemyAmmo:
     def __init__(self,spec):
         self.spec=normalize(spec);self.manager=None;self.boss=None;self.registry=None
@@ -94,13 +105,7 @@ class EnemyAmmo:
             if run.p.summon is not None and run.p.summon.attack is not None:
                 if any(b.label not in labels for b in configured.values() if b.kind==ActorKind.ADD and boss._runs[b.run] is run):raise ValueError('Every attacking ADD needs its declared magazine')
         # Capacity/mode changes need a richer provider, not silent fixed values.
-        for eff,_ in manager._effects:
-            target=eff.get('target','self')
-            allied=target in ('self','all_allies') if isinstance(target,str) else False
-            if isinstance(target,str):allied|=target in manager.squad_names or target.startswith('allies_')
-            if allied:continue
-            if eff.get('stat')=='ammo_charge_pct' and target!='all_enemies':raise ValueError('Only all_enemies percentage routing is connected')
-            if eff.get('type')=='weapon_change' or eff.get('stat') in ('max_ammo_pct','max_ammo_flat','infinite_ammo','force_reload','ammo_charge_flat'):raise ValueError('Enemy weapon/capacity/other ammo operators are outside the fixed magazine model')
+        validate_enemy_effects(manager._effects,manager.squad_names)
         self.manager=manager;self.boss=boss;self.registry=registry_for(manager,boss)
 
     def refresh(self,t):
@@ -188,9 +193,13 @@ class EnemyAmmo:
             self.data['final'].append(dict(label=mag.name,actor=handle_value(key),alive=alive,capacity=mag.capacity,remaining=mag.ammo,reloading_until=mag.reloading_until))
         if self.pending:raise ValueError('Queued attacks were not consumed by the native delivery boundary')
 
+    def result(self,result):
+        self.data['public_squad_hits']=[asdict(hit) for hit in result.squad_hits]
+        return result
+
 
 class AmmoFrame(ast.NodeTransformer):
-    def __init__(self):self.counts=dict(frame=0,attack=0)
+    def __init__(self):self.counts=dict(frame=0,attack=0,result=0)
     def visit_Call(self,node):
         self.generic_visit(node)
         if isinstance(node.func,ast.Attribute) and ast.unparse(node.func)=='boss.begin_frame':
@@ -200,6 +209,11 @@ class AmmoFrame(ast.NodeTransformer):
             if len(node.args)!=2 or node.keywords:raise ValueError('Native attack delivery call changed')
             call=ast.Call(func=ast.Name(id='_nikke_enemy_ammo_attack',ctx=ast.Load()),args=[node.func,*node.args],keywords=[]);self.counts['attack']+=1;return ast.copy_location(call,node)
         return node
+    def visit_Return(self,node):
+        if isinstance(node.value,ast.Name) and node.value.id=='result':
+            self.counts['result']+=1
+            return ast.copy_location(ast.Return(ast.Call(func=ast.Name(id='_nikke_enemy_ammo_result',ctx=ast.Load()),args=[node.value],keywords=[])),node)
+        return self.generic_visit(node)
 
 
 @contextmanager
@@ -208,11 +222,11 @@ def enemy_ammo(spec):
     from runner import sim
     if timeline.simulate is not sim.simulate:raise ValueError('Native simulation aliases differ')
     runtime=EnemyAmmo(spec);original=timeline.simulate;register=timeline._register_instant_handlers
-    rewritten=rewrite_reference(original,AmmoFrame(),dict(frame=2,attack=1),compose=True)
+    rewritten=rewrite_reference(original,AmmoFrame(),dict(frame=2,attack=1,result=1),compose=True)
     def install(manager,states,burst):
         answer=register(manager,states,burst)
         manager.register_instant_handler('ammo_charge_pct',runtime.install(manager,manager._instant_handlers['ammo_charge_pct']))
         return answer
-    with patch.dict(original.__globals__,{'_nikke_enemy_ammo_frame':runtime.frame,'_nikke_enemy_ammo_attack':runtime.attack}),patch.object(timeline,'_register_instant_handlers',install),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):
+    with patch.dict(original.__globals__,{'_nikke_enemy_ammo_frame':runtime.frame,'_nikke_enemy_ammo_attack':runtime.attack,'_nikke_enemy_ammo_result':runtime.result}),patch.object(timeline,'_register_instant_handlers',install),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):
         yield runtime.data
         runtime.finish()

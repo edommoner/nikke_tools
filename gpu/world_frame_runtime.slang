@@ -22,6 +22,9 @@ void worldFrameBegin(inout Runtime s,uint64_t when)
 #ifdef PORTABLE_ADD_ATTACK_BATTLE
     if(s.error==0)addAttackBattleFrame(s,when,addAttackFirst);
 #endif
+#ifdef PORTABLE_ENEMY_AMMO
+    if(s.error==0)enemyAmmoRefresh(s,when);
+#endif
 #else
     wsBegin(w,when,0);s.error=w.error;
 #endif
@@ -79,6 +82,9 @@ void worldFrameDeliver(inout Runtime s,uint64_t when,uint output)
     {
         uint record=head+WS_LOG+cursor*6;cursor++;results[head+5]=cursor;
         if(results[record]!=3) continue;
+#ifdef PORTABLE_ENEMY_AMMO
+        if(!enemyAmmoAttempt(s,cursor-1,results[record+1],when))continue;
+#endif
         uint query=results[head+7];if(query>=1024) { s.error=2;break; }
         results[head+7]=query+1;results[head+8]=query;
 #ifdef PORTABLE_ADD_ATTACK_BATTLE
@@ -99,6 +105,9 @@ void worldFrameFinish(inout Runtime s)
     if(s.error==0) actorPoolsSync(s,wsLoad(w.input+6));
 #ifdef PORTABLE_ADD_ATTACK_BATTLE
     if(s.error==0)addAttackBattleFinish(s);
+#endif
+#ifdef PORTABLE_ENEMY_AMMO
+    if(s.error==0)enemyAmmoFinish(s);
 #endif
 #ifdef PORTABLE_PHYSICAL_LOCK_ARENA
     if(s.error==0) physicalLockFinalizeGraph(s);
