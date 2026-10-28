@@ -1,3 +1,9 @@
+# 2026-10-28 元87定義battleの固定CPU契約・共通reader統合が成功
+
+最終2f64d278/cache packet 7afe87dd…のown CLIで5群51unit、fresh全4world CPU reference（3.222秒）、model-checkが成功。重複していた対象数演算を既存共通queryへ統合し、4worldのinput/native/trace全指紋を保持した。default callerのrecipient受付は変更せず、静的なallies_with_buffを明示opt-inする。
+
+既存selection-only21のsealed生成も必須cache hit/Slang0、CUBIN O1・2GiB・60秒plan成功。これは新battle4worldのGPU認定ではない。今回GPU/Windows新実行0、battle wire/Metalは未接続、全目標未達。packet v1のmodel-check依存不足は失敗を保持して既存arc goldenを明示同梱しv2/v3で解消。次は新battle cast/queue snapshot/landingを同じ共通Slangへ接続する。最終証跡named-range-battle-cpu-final-v3.json。以下は履歴。
+
 固定CPU packet v1のown CLIで50unit・全4world fresh reference・旧sealed21のrequired generation hitが成功。追加のmodel-checkはarc golden未同梱でCPU停止。producer側auditとは区別し、必要な既存arc goldenを明示support_filesへ追加する。元失敗/packetは保持、計算sourceと旧Metal期待値の変更なし。
 
 # 2026-10-28 範囲の元87定義battle CPU接続・出所訂正
