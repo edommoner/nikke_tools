@@ -1,3 +1,9 @@
+# 2026-10-28 次の未対応分類を元3編成のselected entry-inventoryで具体化
+
+既存共通CLI entry-inventory --suite original-shield-weapons --character 유니 --character 얀 --character 벨벳 --favorite-stage 0 を再利用し、元69/71/76定義の3profileを全定義保持で静的監査。3packing失敗・各1観測カテゴリ、CPU battle/GPU0。Yuni row5のenemy_movement_disableはburst時5秒、Yan row4のforce_moveはburst時2秒で、数値量を持たない状態効果。Velvet row1はbattle_start/burst_enter:2のall_enemies ammo_charge_pct（level10 -5%）。新しい状態/射撃/リロードproviderが必要で、既存allied operatorのdivision→multiply→ties-even round→clampを共通規約として使える。名前付き完了は非空nameなら受信者loop後に一度、空loopでも発行する。
+
+source監査と作業分類へ共通の敵弾薬前提を追加し、移動状態の空間/寿命依存を明示。24 readiness/14 model-gap検査が成功。再監査で全original definition SHAと拒否理由が従来と同一、受付は開けていない。次の優先候補は敵弾薬の世代付き状態と実shot/reload consumerであり、移動やLock Onの未確定空間規則を仮実装へ置換しない。選択3件だけの監査で全profileの優先順位/解除数を予測しない。記録selected-movement-ammo-prerequisites-v1.json。以下は履歴。
+
 最終70f11e25のlogical/rosters通常・cache固定packetは76/95/104/123unit成功。通常2packetのsealed生成はrequired hit/Slang0、cache2packetのCUBIN/O1・2GiB・60秒planも成功（実compile/GPU/Windows0）。model-checkも成功し未対応canonical5種/公開受付/現CUDA/全体未達を保持。敵回復runは固定packetで継続中で、再依頼・再実行しない。記録logical-named-admission-final-cli-v4.json。
 
 # 2026-10-28 共通source検査を固定packetで実証・旧18入力を現source再認定

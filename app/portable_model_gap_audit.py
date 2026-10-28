@@ -214,6 +214,8 @@ def verify(root,overrides=None):
   resident_frame_cuda_device_verified=False,resident_frame_public_admission_verified=False,
   public_admission_remaining=True)
  result=dict(passed=True,missing_stats=missing,coordinate_world=coordinate_port,target_and_nearby=dict(explicit_ranked_branch=False,fallback='current aimed logical enemy only',nearby_spatial_world=False),enemy_ammo=dict(allied_filter=True,enemy_ammunition_state=False,named_completion_outside_target_loop=True),enemy_healing=dict(allied_heal_consumer_present='heal_received_pct' in strings['calculator/buff_manager.py'],enemy_healing_path_verified=False),historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={**{base+name:hashlib.sha256(value.encode()).hexdigest() for name,value in text.items()},gate_path:hashlib.sha256(gate_text.encode()).hexdigest(),public_path:hashlib.sha256(public_text.encode()).hexdigest()})
+ from portable_readiness_semantics import enemy_ammo_prerequisites
+ result['enemy_ammo']['prerequisites']=enemy_ammo_prerequisites()
  result['source_sha256'].update({contract_path:hashlib.sha256(contract_raw.encode()).hexdigest(),definitions_path:hashlib.sha256((root/definitions_path).read_bytes()).hexdigest()})
  result['enemy_healing']['declared_source_contract']=dict(suite='enemy-healing-common',cases=6,
   source='app/enemy_healing_model.py',original_profile='앤 : 미라클 페어리',original_definitions=69,

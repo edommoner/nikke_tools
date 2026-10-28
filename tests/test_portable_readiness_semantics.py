@@ -7,6 +7,24 @@ from portable_readiness import issue,summarize
 
 
 class ReadinessSemanticsTests(unittest.TestCase):
+    def test_enemy_ammo_has_shared_math_but_requires_enemy_state_and_real_producers(self):
+        from portable_model_gap_audit import verify
+        r=reference_readiness(dict(phase='effect',kind='instant',stat='ammo_charge_pct',target='all_enemies'))
+        p=r['enemy_ammo_prerequisites']
+        self.assertEqual(p,verify(ROOT)['enemy_ammo']['prerequisites'])
+        self.assertIn('ties-to-even',p['rounding']);self.assertIn('empty loop',p['named_completion'])
+        self.assertIn('enemy shot consumption',p['required_producers'])
+        for key in ('enemy_state_defined','enemy_instant_connected','enemy_shot_reload_connected','original_profile_gpu_verified','default_producer_installed'):
+            self.assertFalse(p[key])
+        self.assertEqual(r['lane'],'reference_model_gap');self.assertFalse(r['gpu_supported'])
+    def test_movement_duration_states_keep_spatial_dependencies_explicit(self):
+        for stat in ('enemy_movement_disable','force_move'):
+            r=reference_readiness(dict(phase='effect',kind='buff',stat=stat,target='enemies_in_range'))
+            p=r['movement_prerequisites'];self.assertEqual(p['operator_model'],'duration state')
+            self.assertFalse(p['numeric_magnitude_consumer_required']);self.assertTrue(p['duration_carrier_required'])
+            self.assertTrue(p['world_position_provider_required']);self.assertTrue(p['spatial_recipient_model_required'])
+            self.assertEqual(p['force_destination_and_motion_policy_required'],stat=='force_move')
+            self.assertFalse(p['current_world_consumer_verified']);self.assertFalse(r['gpu_supported'])
     def test_resident_frame_seal_keeps_missing_reference_and_cuda_gates_closed(self):
         raw=(ROOT/'tests/fixtures/resident-frames-independent-v2.json').read_bytes();audit=json.loads(raw)
         for stat in ('projectile_dmg_pct','shield_dmg_pct'):

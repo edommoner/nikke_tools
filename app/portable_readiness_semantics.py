@@ -1,6 +1,20 @@
 """Conservative work routing for observed blockers, never feature admission."""
 
 
+def enemy_ammo_prerequisites():
+    """Existing numeric operator and the missing enemy state/producer boundary."""
+    return dict(native_operator='calculator/timeline.py:handle_ammo_charge_pct',
+        shared_numeric_operator='gpu/ammo_instant_runtime.slang:applyAmmoInstant',
+        arithmetic_order='round(max_ammo * (value / 100)); clamp(current + change, 0, max_ammo)',
+        rounding='binary64 division then multiplication; ties-to-even integer round',
+        named_completion='For a nonempty effect name, native handler notifies once after its recipient loop, including an empty loop',
+        required_state=['actor generation and liveness','weapon/mode and capacity modifiers','effective magazine capacity','remaining ammunition','reload deadline and full-magazine cancellation'],
+        required_producers=['enemy shot consumption','enemy reload completion','original instant event and completion order'],
+        enemy_state_defined=False,enemy_instant_connected=False,
+        enemy_shot_reload_connected=False,original_profile_gpu_verified=False,
+        current_cuda_verified=False,default_producer_installed=False)
+
+
 def reference_readiness(issue):
     result=dict(lane='reference_review',native_consumer='not_audited',contract_coverage='not_indexed',
         gpu_supported=False,gpu_admission_verified=False,full_character_verified=False,
@@ -18,6 +32,16 @@ def reference_readiness(issue):
         result.update(lane='reference_model_gap',native_consumer='missing_canonical_world_or_quantity_consumer',consumer_source='app/portable_model_gap_audit.py; app/portable_missing_consumer_audit.py; calculator/boss_pattern.py:_ranked; calculator/timeline.py:_register_instant_handlers',
             required_extensions=['explicit_world_or_quantity_model','typed_target_lifecycle_and_producer_contracts','shared_execution_and_current_CUDA_Metal_battle_validation'],
             note='Pinned source leaves movement/lock/range/target-count unimplemented. target_and_nearby falls back to one aimed target without a nearby spatial model; all_projectiles returns before damage. Enemy ammunition is filtered out by the allied instant handler, though its named completion still emits. Pinned default enemy healing has no verified recipient path. Keep these effects rejected; source audits and typed-state core do not certify battle support')
+        if issue.get('kind')=='instant' and issue.get('stat')=='ammo_charge_pct' and issue.get('target')=='all_enemies':
+            result['enemy_ammo_prerequisites']=enemy_ammo_prerequisites()
+        if issue.get('stat') in ('enemy_movement_disable','force_move'):
+            result['movement_prerequisites']=dict(operator_model='duration state',
+                numeric_magnitude_consumer_required=False,duration_carrier_required=True,
+                spatial_recipient_model_required=True,world_position_provider_required=True,
+                simultaneous_status_precedence_required=True,
+                force_destination_and_motion_policy_required=issue.get('stat')=='force_move',
+                current_world_consumer_verified=False,current_cuda_verified=False,
+                default_producer_installed=False)
         if issue.get('kind')=='buff' and issue.get('stat')=='heal_received_pct' and issue.get('target')=='all_enemies':
             result['declared_enemy_healing_contract']=dict(suite='enemy-healing-common',cases=6,
                 original_roster='앤 : 미라클 페어리',original_definitions=69,
