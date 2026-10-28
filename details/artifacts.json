@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "detail-request.json",
+      "bytes": 250014,
+      "sha256": "17fe8c36b42e06c715c96c9134317bb401787422f11d1373c6f7ca55c295f3ab"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 1782,
+      "sha256": "008e5b73f7f5e889016546023847c97f1b6ce62fdcd1a34f962bced21872283e"
+    },
+    {
+      "path": "index.json",
+      "bytes": 1285722,
+      "sha256": "de24ecaeeb1830b2833f83a5031d73b280b2c123e59102ad9f5592a227f15628"
+    },
+    {
+      "path": "job.json",
+      "bytes": 1090,
+      "sha256": "a844ddba0e2bfed802d66f89eb49a6d8b11fa199d99ad2b7c344760d20fd6e05"
+    },
+    {
+      "path": "observation.json",
+      "bytes": 21053,
+      "sha256": "a17d945fab95348ad955653819db93c7d80298695561a191fc3874cb4845f885"
+    },
+    {
+      "path": "phases.jsonl",
+      "bytes": 954,
+      "sha256": "6e69ddc5d505ce9d7de9c639cf2dcdbfad0c15a5f4089b5493d1608d98404683"
+    },
+    {
+      "path": "preparation.jsonl",
+      "bytes": 636,
+      "sha256": "af687445d41c4f589441d0ef1bbc9ccc1563d58857d2e35e5fe13a378e0ef80a"
+    },
+    {
+      "path": "result.json",
+      "bytes": 432,
+      "sha256": "ede267bb4e749e50fb5485f8d91a285bd3a447695e5eaa07a3844eb76bb507a4"
+    },
+    {
+      "path": "run.json",
+      "bytes": 475,
+      "sha256": "4b699a571a8bf67a903c3368d6e41a0b1fd1fa5d1f0b76856949cbf65166cd09"
+    },
+    {
+      "path": "runtime.json",
+      "bytes": 1030,
+      "sha256": "b54440c392768d8ee132b61a6b25f6a5159cfe0cd86a6e40dd6d941a7abe943d"
+    },
+    {
+      "path": "start.json",
+      "bytes": 4,
+      "sha256": "e3566b3a06430868d71e9287dfd6c6c520a3da027aabea01951d407ee131dc2f"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}
