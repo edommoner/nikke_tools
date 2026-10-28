@@ -28,6 +28,16 @@ class EffectRange(unittest.TestCase):
         answer=query(bm,NAMES[1],e['target_effect'],.1,base_radius=1.,model=MODEL)
         self.assertEqual(answer['radius'],6.);self.assertEqual(before,(bm._active,bm._plan_cache,bm._buffs_cache,bm.state))
         self.assertEqual(maps,(b._STAT_TO_BUFF,b._BUFFS_ZERO));self.assertNotIn('effect_range_pct',bm.get_buffs(NAMES[1],'__enemy__',.1))
+    def test_readback_array_and_list_share_the_same_wire_contract(self):
+        import array
+        from portable_effect_range_specs import OUTPUT,OUTPUT_BASE,MAGIC,words,decode
+        q=dict(who=1,marker='test',time=.1,targets=[[1,2.,0.,1.,0.,0.,0.]])
+        meta=dict(named_range_selection=dict(selection=q),states=dict(test=2))
+        raw=[0]*OUTPUT;row=[0]*32;row[:4]=[MAGIC,1,2,1];row[14:16]=[1,1]
+        for at,value in ((4,500.),(6,6.),(8,1.),(10,6.),(12,.1),(16,1.)):row[at:at+2]=words(value)
+        raw[OUTPUT_BASE:OUTPUT_BASE+32]=row
+        expected=dict(percent=500.,factor=6.,base_radius=1.,radius=6.,selected=[0],distances=[1.])
+        self.assertEqual(decode(raw,meta),expected);self.assertEqual(decode(array.array('I',raw),meta),expected)
     def test_invalid_numeric_and_unreviewed_target_contracts_fail_closed(self):
         for changes in (dict(fixed_value=True),dict(fixed_value=float('nan')),dict(fixed_value=-101.),dict(target='all_enemies'),dict(target_effect=''),dict(scaling='max_ammo')):
             with self.subTest(changes=changes),self.assertRaises(ValueError):validate_effect(dict(original()[1],**changes))

@@ -48,7 +48,7 @@ def compile_program(chars,effects,script,base_atk,selection,*,model):
     return w+tail,m
 
 def decode(output,meta):
-    row=output[OUTPUT_BASE:OUTPUT_BASE+32];q=meta['named_range_selection']['selection']
+    row=list(output[OUTPUT_BASE:OUTPUT_BASE+32]);q=meta['named_range_selection']['selection']
     if row[:4]!=[MAGIC,q['who'],meta['states'][q['marker']],len(q['targets'])] or row[15]!=1 or number(row,12)!=q['time']:raise AssertionError('Named range output context differs')
     if row[14]>>len(q['targets']) or any(row[16+2*len(q['targets']):]):raise AssertionError('Unexpected radial-selection output padding')
     return dict(percent=number(row,4),factor=number(row,6),base_radius=number(row,8),radius=number(row,10),selected=[i for i in range(len(q['targets'])) if row[14]&(1<<i)],distances=[number(row,16+2*i) for i in range(len(q['targets']))])
