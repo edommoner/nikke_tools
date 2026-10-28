@@ -17,7 +17,16 @@ def reference_readiness(issue):
     if issue.get('phase')=='effect' and not issue.get('fields') and issue.get('scaling') is None and (issue.get('kind')=='buff' and issue.get('stat') in missing_stats or missing_target or missing_enemy_quantity):
         result.update(lane='reference_model_gap',native_consumer='missing_canonical_world_or_quantity_consumer',consumer_source='app/portable_model_gap_audit.py; app/portable_missing_consumer_audit.py; calculator/boss_pattern.py:_ranked; calculator/timeline.py:_register_instant_handlers',
             required_extensions=['explicit_world_or_quantity_model','typed_target_lifecycle_and_producer_contracts','shared_execution_and_current_CUDA_Metal_battle_validation'],
-            note='Pinned source leaves movement/lock/range/target-count unimplemented. target_and_nearby falls back to one aimed target without a nearby spatial model; all_projectiles returns before damage. Enemy ammunition is filtered out by the allied instant handler, though its named completion still emits. Enemy healing has no verified recipient path. Keep these effects rejected; source audits and typed-state core do not certify battle support')
+            note='Pinned source leaves movement/lock/range/target-count unimplemented. target_and_nearby falls back to one aimed target without a nearby spatial model; all_projectiles returns before damage. Enemy ammunition is filtered out by the allied instant handler, though its named completion still emits. Pinned default enemy healing has no verified recipient path. Keep these effects rejected; source audits and typed-state core do not certify battle support')
+        if issue.get('kind')=='buff' and issue.get('stat')=='heal_received_pct' and issue.get('target')=='all_enemies':
+            result['declared_enemy_healing_contract']=dict(suite='enemy-healing-common',cases=6,
+                original_roster='앤 : 미라클 페어리',original_definitions=69,
+                cpu_reference_verified=True,actual_finite_ADD_health=True,existing_world_source_clock=True,
+                existing_heal_received_multiplier=True,existing_recipient_generation_visibility=True,
+                declarations=['literal idle source nodes','configured finite damage-owned ADD recipients','flat healing amounts'],
+                gpu_wire_connected=False,metal_verified=False,current_cuda_verified=False,
+                default_producer_installed=False,historical_canonical_equivalence=False,in_game_rules_verified=False)
+            result['note']+=' A separate declared CPU contract now consumes the original Anne reduction in real ADD healing, preserving health ownership, damage accounting and source generations; default and GPU admission remain closed.'
         if issue.get('stat')=='effect_target_count_add':
             result['declared_physical_target_count_query']=dict(suite='named-target-count-shots',native_cases=5,rejected_cases=4,
                 metal_verified=True,independently_audited=True,cuda_verified=False,physical_shot_lifetime_verified=True,

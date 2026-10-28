@@ -86,6 +86,7 @@ REFERENCES['coordinate-aim-common']=('portable_coordinate_aim_cases','world_coor
 REFERENCES['coordinate-typed-weapon-common']=('portable_coordinate_typed_weapon_cases','world_coordinate_typed_weapon_native','portable_coordinate_typed_weapon_contracts')
 REFERENCES['logical-actor-geometry-common']=('portable_logical_geometry_cases','world_logical_geometry_native','portable_logical_geometry_contracts')
 REFERENCES['logical-actor-rosters-common']=('portable_logical_geometry_roster_cases','world_logical_geometry_native','portable_logical_geometry_roster_contracts')
+REFERENCES['enemy-healing-common']=('portable_enemy_healing_cases','world_enemy_healing_native','portable_enemy_healing_contracts')
 REFERENCES['coordinate-typed-owner-add-lifetime-common']=('portable_coordinate_typed_owner_add_lifetime_cases','world_coordinate_typed_owner_add_lifetime_native','portable_coordinate_typed_owner_add_lifetime_contracts')
 REFERENCES['coordinate-typed-owner-hp-death-common']=('portable_coordinate_typed_owner_hp_death_cases','world_coordinate_typed_owner_hp_death_native','portable_coordinate_typed_owner_hp_death_contracts')
 REFERENCES['heavyarms-target-count-native']=('portable_effect_target_count_cases','world_effect_target_count_native','portable_effect_target_count_contracts')
@@ -152,6 +153,9 @@ def run_reference(suite,output,*,write,forbid_gpu):
     if suite in ('logical-actor-geometry-common','logical-actor-rosters-common'):
         report.update(stage='cpu-common-policy-contract',reference_kind='declared-logical-actor-geometry-cpu',
             numerical_contract='coordinate-sample-v1 + coordinate-binary64-v1 + declared-logical-actor-colliders-v1',
+            historical_native_equivalence=False,in_game_rules_verified=False,gpu_wire_connected=False)
+    if suite=='enemy-healing-common':
+        report.update(stage='cpu-common-policy-contract',reference_kind='declared-source-node-enemy-healing-cpu',
             historical_native_equivalence=False,in_game_rules_verified=False,gpu_wire_connected=False)
     try:
         # Legacy native comparators contain assertions. Reject before importing
