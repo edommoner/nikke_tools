@@ -1,0 +1,43 @@
+{
+  "package_id": "babcd09c6802bb191523eb8859d6da033c0b7f2cb61099a2ee6f174ec9a2b8d3",
+  "archive_bytes": 10750776,
+  "archive_sha256": "a1b5b4045df762f33b7976e766d3d9f01ce4e47951933fcb9c248524a0ca90fa",
+  "suite": "compiler-full--coordinate-resident-frames",
+  "changed_payload_files": [
+    "tests/test_portable_compiler_diagnostic.py"
+  ],
+  "all_gpu_and_golden_bytes_identical_to_v2": true,
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "babcd09c6802bb191523eb8859d6da033c0b7f2cb61099a2ee6f174ec9a2b8d3",
+    "suite": "compiler-full--coordinate-resident-frames",
+    "purpose": "compiler-diagnostic",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "PTX-only/2GiB/no-ptxas-level",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "mac_packet_cpu_tests": {
+    "mode": "cpu-tests-only",
+    "package_id": "babcd09c6802bb191523eb8859d6da033c0b7f2cb61099a2ee6f174ec9a2b8d3",
+    "cpu_tests_verified": true,
+    "groups": 20,
+    "tests": 210,
+    "cpu_reference_verified": false,
+    "counter_scope": "Packet controller calls; unit-test doubles are not runtime calculation evidence",
+    "calculation_verified": false,
+    "compiler_verified": false,
+    "gpu_calls": 0,
+    "driver_load_calls": 0,
+    "native_preflight_calls": 0
+  },
+  "gpu_calls": 0
+}
