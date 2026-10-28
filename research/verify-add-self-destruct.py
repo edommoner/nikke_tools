@@ -44,11 +44,9 @@ def native_reference(domain):
     require_capacity(n);return n
 
 
-def compare(block,domain):
+def compare_retirements(block,n):
     import struct
-    from world_coordinate_sampled_skill_native import creation_indices
     assert len(block)==suite.OUTPUT and block[0]==0
-    with creation_indices(domain[0]) as indices:n=native_reference(domain)
     head=S['OUTPUT_BASE'];count=block[head+1]
     assert block[head]==MAGIC and count==block[head+2]==len(n['self_destruct']) and not any(block[head+3:head+16])
     for i,r in enumerate(n['self_destruct']):
@@ -56,10 +54,19 @@ def compare(block,domain):
         time=struct.unpack('<d',struct.pack('<II',*block[at+4:at+6]))[0]
         assert dict(time=time,node=node,slot=slot,generation=generation,fired=fired)==r
         record=block[at+6];w=L['WORLD_FRAME_OUTPUT_BASE']+2832+record*6
-        assert block[w:w+3]==[5,node,slot] and list(block[w+3:w+5])==list(block[at+4:at+6])
+        assert record<block[L['WORLD_FRAME_OUTPUT_BASE']+2] and generation>0 and fired>0 and slot>0
+        assert list(block[w:w+3])==[5,node,slot] and list(block[w+3:w+5])==list(block[at+4:at+6])
         assert block[at+7]==1 and not any(block[at+8:at+12])
     end=head+S['HEADER']+S['ROWS']*S['ROW_WORDS'];assert not any(block[head+S['HEADER']+count*S['ROW_WORDS']:end])
     clean=list(block);clean[head:end]=[0]*(end-head)
+    return clean
+
+
+def compare(block,domain):
+    from world_coordinate_sampled_skill_native import creation_indices
+    assert len(block)==suite.OUTPUT and block[0]==0
+    with creation_indices(domain[0]) as indices:n=native_reference(domain)
+    clean=compare_retirements(block,n)
     base.compare_observed(clean,domain,n,indices)
     spec=importlib.util.spec_from_file_location('self_destruct_resource_parent',ROOT/'research/verify-coordinate-original-resources-short.py');resources=importlib.util.module_from_spec(spec);spec.loader.exec_module(resources)
     resources.compare_resource_state(clean,domain,n)

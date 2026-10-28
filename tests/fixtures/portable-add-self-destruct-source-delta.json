@@ -38,7 +38,7 @@
     "gpu/world_add_self_destruct_entry.slang": "676c98cb1531db40f35e990193c6f8c64d96a87ada5971ba9f7ad0e24b28d001",
     "gpu/add_self_destruct_runtime.slang": "6124bdec9abfa2f4463b57c20dabdd861816f003f0764fe9c8afbce5c7aa790a",
     "gpu/add_self_destruct_layout.slang": "aa379e2997f67743e757ecff0550b9f95b0efc9e83ba7acd2ad15d45003a6465",
-    "research/verify-add-self-destruct.py": "dd02504e615e70e915bc481732e42bfa712518bfc7af4d205a1104a413bb699d",
+    "research/verify-add-self-destruct.py": "ac923d8e6ead8d2c7474cda29c00b63640f93d37e39bbe90b92999424c4272dc",
     "research/world_add_self_destruct_battle_native.py": "a24cc689ed4bd92abb3a4fb0eed16ec39f6b12a285ee346db7a6c949ecaa76b5",
     "research/portable_add_self_destruct_cases.py": "c792a7d11c40b611f17e8b3db8ec7bbd5f60f8c24d7a61ca0a7382fff4c2227a"
   },

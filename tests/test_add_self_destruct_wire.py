@@ -66,5 +66,20 @@ class AddSelfDestructWireTests(unittest.TestCase):
             block[state+1]=1
             with self.assertRaises(AssertionError):m.compare_observed(block,domain,n,[])
 
+    def test_owned_receipts_accept_real_uint32_arrays_and_reject_corruption(self):
+        import array
+        from portable_specs import LIMITS as L
+        from portable_add_self_destruct_wire import MAGIC
+        spec=importlib.util.spec_from_file_location('self_receipt_compare',ROOT/'research/verify-add-self-destruct.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+        block=array.array('I',[0])*S['OUTPUT_WORDS'];h=S['OUTPUT_BASE'];at=h+S['HEADER'];frame=L['WORLD_FRAME_OUTPUT_BASE'];record=frame+2832
+        block[h:h+3]=array.array('I',[MAGIC,1,1]);block[at:at+8]=array.array('I',[0,1,1,1,0,0,0,1])
+        block[frame+2]=1;block[record:record+3]=array.array('I',[5,0,1])
+        native=dict(self_destruct=[dict(time=0.,node=0,slot=1,generation=1,fired=1)])
+        for words in (block,list(block)):
+            clean=m.compare_retirements(words,native);self.assertEqual(clean[h:h+3],[0,0,0]);self.assertEqual(clean[record:record+3],[5,0,1])
+        for offset in (record,h+2,at+12):
+            with self.subTest(offset=offset),self.assertRaises(AssertionError):
+                broken=array.array('I',block);broken[offset]=99;m.compare_retirements(broken,native)
+
 
 if __name__=='__main__':unittest.main()
