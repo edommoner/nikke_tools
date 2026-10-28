@@ -1,0 +1,37 @@
+{
+  "schema": "enemy-healing-final-cli-v2",
+  "source_commit": "2842d83d",
+  "normal_package_id": "4cdb20dada5260fbc2b992096d19d5d4984d7b5ee5208673662fa681b8de9763",
+  "cache_package_id": "5ba6bd3637a990978826a8288033fd10d4f25dcd87329db843dde8fe002679d5",
+  "unit_tests": 122,
+  "unit_groups": 15,
+  "generation_required_hit": true,
+  "slang_compiler_calls": 0,
+  "sealed_generated_baseline_verified": true,
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "5ba6bd3637a990978826a8288033fd10d4f25dcd87329db843dde8fe002679d5",
+    "suite": "enemy-healing-cache-only",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "failed_v1": {
+    "reason": "New source certificate omitted from support_files; fixed in v2 without calculation changes",
+    "gpu_calls": 0,
+    "claim_created": false
+  },
+  "extra_gpu_calls": 0,
+  "current_cuda_verified": false,
+  "full_goal_complete": false
+}

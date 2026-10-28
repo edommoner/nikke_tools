@@ -1,3 +1,7 @@
+# 2026-10-28 敵回復の最終normal/cache packet検査成功
+
+最終2842d83dの通常4cdb20da…/cache-only5ba6bd36…を固定。own CLIの15群122unitが成功、sealed paired生成は必須hit/Slang0。CUBIN O1・2GiB・60秒compile-planも成功（実compile/GPU/claim0）。元Metal14件/独立監査の計算source/全期待値を保持。v1の証明書同梱漏れはGPU前CPU gateで検出し、失敗packet/rawを保持してv2で修正した。Windows新依頼0。現CUDA/全キャラは未完。最終証跡enemy-healing-final-cli-v2.json。以下は履歴。
+
 最終packet v1のCPU unit gateは新source証明書の同梱漏れを検出（GPU/claim0）。producerの明示support_filesへ追加し、検査を維持して別v2へ固定する。失敗packetとログを保持し、元Metal/golden/source bytesは変更しない。
 
 # 2026-10-28 敵回復14入力のfresh独立監査が成功・通常CLIへ登録
