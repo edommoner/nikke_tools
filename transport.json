@@ -1,0 +1,11 @@
+{
+  "schema": "source-packet-transport-v1",
+  "package_id": "d754f360c151136eed613956e96c19d24f1d7527416248ddfce45753b9f4d79e",
+  "source_commit": "928f3a33e4c8aca98253c0f53c25d3e1c1fe44a5",
+  "files": 3879,
+  "archive_bytes": 13040209,
+  "archive_sha256": "7bcfae5534338f1e564331806c7b666b6e823dac7f97f332e075b60a2d165818",
+  "purpose": "CPU-only original staged preflight audit",
+  "raw_compiler_sdk_payloads": false,
+  "unit_tests": 101
+}
