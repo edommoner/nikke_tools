@@ -25,7 +25,7 @@ void initializeHPWatches(inout Runtime s)
                 if (definition_owner(s.inputBase,s.hpWatchSlots[i]/8) == owner && commands[prior] == commands[at] && commands[prior+4] == commands[at+4]) seen = true;
             }
 #endif
-            if (!seen) s.hpWatchSlots[s.hpWatchCount++] = row*8+slot;
+            if (!seen) { s.hpWatchSlots[s.hpWatchCount] = row*8+slot; s.hpWatchCount++; }
         }
     }
 }

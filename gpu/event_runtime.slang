@@ -1019,7 +1019,7 @@ void markEntry(inout Runtime s, uint row)
     uint enemyPosition = 0; while (enemyPosition < s.enemyBuffCount && s.enemyBuffRows[enemyPosition] != row) enemyPosition++;
     if (enemyPosition < s.enemyBuffCount)
     { for (uint i = enemyPosition; i+1 < s.enemyBuffCount; i++) s.enemyBuffRows[i] = s.enemyBuffRows[i+1]; s.enemyBuffCount--; }
-    if (residentDefinition(s,row).enemyBuff != 0) s.enemyBuffRows[s.enemyBuffCount++] = row;
+    if (residentDefinition(s,row).enemyBuff != 0) { s.enemyBuffRows[s.enemyBuffCount] = row; s.enemyBuffCount++; }
     // Keep the boolean-stat index in precisely the same activation order.
     uint position = 0; while (position < s.infiniteRowCount && s.infiniteRows[position] != row) position++;
     if (position < s.infiniteRowCount)
@@ -1028,7 +1028,7 @@ void markEntry(inout Runtime s, uint row)
         s.infiniteRowCount--;
     }
     Definition indexed = residentDefinition(s,row);
-    if (indexed.kind == 0 && indexed.stat == S_infinite_ammo) s.infiniteRows[s.infiniteRowCount++] = row;
+    if (indexed.kind == 0 && indexed.stat == S_infinite_ammo) { s.infiniteRows[s.infiniteRowCount] = row; s.infiniteRowCount++; }
 }
 
 bool excludedDamageBuff(inout Runtime s, uint resident, uint who)
@@ -1997,7 +1997,7 @@ void portableEvents(uint3 id : SV_DispatchThreadID)
     writePortableProgram(s,input,output,queries);
 }
 
-#ifdef PORTABLE_RESIDENT_RUNTIME
+#if defined(PORTABLE_RESIDENT_RUNTIME) && !defined(PORTABLE_RESIDENT_APPEND_PROBE)
 [shader("compute")]
 [numthreads(1,1,1)]
 void portableEvents(uint3 id : SV_DispatchThreadID)

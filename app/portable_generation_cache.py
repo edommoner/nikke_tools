@@ -45,6 +45,9 @@ def validate_pair(paths,entry):
     if b'actorStateQueryScopeSnapshot_' in paths['cuda'].read_bytes():
         from portable_scope_snapshot_audit import audit
         audit(paths['cuda'].read_bytes(),paths['metal'].read_bytes())
+    if b'markEntry_' in paths['cuda'].read_bytes() or b'initializeHPWatches_' in paths['cuda'].read_bytes():
+        from portable_scope_snapshot_audit import audit_resident_appends
+        audit_resident_appends(paths['cuda'].read_bytes(),paths['metal'].read_bytes())
     return plan
 
 def artifact_paths(paths):

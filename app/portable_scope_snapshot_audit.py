@@ -83,3 +83,27 @@ def audit_staged(cuda,metal):
         if len(published)!=4 or len(restored)!=4 or [m.group(1).strip() for m in restored]!=[m.group(1) for m in calls]:raise ValueError('Staged scope must publish and restore every word across dispatch')
         targets[target]=dict(function=name,snapshot=helper,published_words=4,restored_words=4,sha256=hashlib.sha256(raw).hexdigest())
     return dict(schema=1,generated_staged_scope_verified=True,targets=targets,gpu_calls=0,calculation_verified=False)
+
+
+def audit_resident_appends(cuda,metal):
+    """Each stored index uses the count before increment, on both targets."""
+    targets={}
+    for target,raw in [('cuda',cuda),('metal',metal)]:
+        text=raw.decode();facts=[]
+        for consumer,array,count in [('markEntry','enemyBuffRows','enemyBuffCount'),('markEntry','infiniteRows','infiniteRowCount'),('initializeHPWatches','hpWatchSlots','hpWatchCount')]:
+            name,body,_=function(text,consumer)
+            updates=list(re.finditer(r'(\w+)->('+count+r'_\d+)\s*=\s*\1->\2\s*\+\s*1U?\s*;',body))
+            stores=list(re.finditer(r'(\w+)->'+array+r'_\d+\[([^;\n]+?)\]\s*=\s*[^;\n]+;',body))
+            if len(updates)!=1 or not stores:raise ValueError('One known resident append required: '+array)
+            increment=updates[0];store=stores[-1];base,field=increment.group(1,2);index=store.group(2).strip()
+            if store.group(1)!=base:raise ValueError('Resident append changes storage owner')
+            if index==base+'->'+field:
+                if store.end()>increment.start():raise ValueError('Resident append uses incremented count: '+array)
+                mode='store-before-increment'
+            else:
+                snapshots=list(re.finditer(r'\buint\s+'+re.escape(index)+r'\s*=\s*'+re.escape(base+'->'+field)+r'\s*;',body))
+                if len(snapshots)!=1 or not snapshots[0].end()<=increment.start()<store.start():raise ValueError('Resident append lost scalar index: '+array)
+                mode='scalar-before-increment'
+            facts.append(dict(function=name,array=array,count=count,index_policy=mode))
+        targets[target]=dict(sha256=hashlib.sha256(raw).hexdigest(),appends=facts)
+    return dict(schema=1,generated_resident_appends_verified=True,targets=targets,gpu_calls=0,calculation_verified=False)

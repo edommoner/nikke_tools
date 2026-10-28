@@ -85,6 +85,9 @@ def _build_resident(root,compiler,source,entry,hashes,directory):
         if b'actorStateQueryScopeSnapshot_' in staged['cuda'].read_bytes():
             from portable_scope_snapshot_audit import audit as audit_scope_snapshot
             audit_scope_snapshot(staged['cuda'].read_bytes(),staged['metal'].read_bytes())
+        if b'markEntry_' in staged['cuda'].read_bytes() or b'initializeHPWatches_' in staged['cuda'].read_bytes():
+            from portable_scope_snapshot_audit import audit_resident_appends
+            audit_resident_appends(staged['cuda'].read_bytes(),staged['metal'].read_bytes())
         staged['cuda'].write_bytes(cuda_layout_assertions(staged['cuda'].read_bytes(),plan))
         if source_hashes(root,source)!=hashes:
             raise RuntimeError('GPU sources changed during build; discard generated outputs')

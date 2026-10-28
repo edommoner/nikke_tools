@@ -6,6 +6,56 @@ from unittest.mock import patch,Mock
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 spec=importlib.util.spec_from_file_location('packet_stage',ROOT/'scripts/run-gpu-packet.py');stage=importlib.util.module_from_spec(spec);spec.loader.exec_module(stage)
 class PacketStageTests(unittest.TestCase):
+    def test_cached_gpu_request_binds_source_both_caches_and_fixed_cubin_options(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d).resolve();request={k:str(base/k) for k in stage.CACHED_GPU_FIELDS}
+            plan=stage.recipe('id',stage.CACHED_GPU_STAGE,'cuda',base/'capture',base/'original',180,request)
+            args=stage.proof_arguments(plan)
+            self.assertEqual(args[0],'run');self.assertEqual(plan['inner_gpu_timeout_seconds'],60);self.assertEqual(plan['memory_limit_mb'],2048)
+            for flag,value in [('--cached-cuda-source',request['cached_cuda_source']),('--compile-cache',request['compile_cache']),('--generation-cache',request['generation_cache']),('--slang-root',request['slang_root']),('--artifact-kind','cubin'),('--ptxas-level','1')]:
+                self.assertEqual(args[args.index(flag)+1],value)
+            self.assertIn('--require-cache',args);self.assertIn('--require-generation-cache',args)
+            env=stage.cached_gpu_environment(request)
+            self.assertEqual(env['NIKKE_CUDA_PREFLIGHT_SOURCE'],request['cached_cuda_source']);self.assertEqual(env['NIKKE_CUDA_CACHE_REQUIRED'],'1')
+            for bad in ({k:v for k,v in request.items() if k!='cached_cuda_source'},dict(request,compile_cache='relative'),dict(request,extra='unexpected')):
+                with self.assertRaises(ValueError):stage.recipe('id',stage.CACHED_GPU_STAGE,'cuda',base/'out',base/'original',180,bad)
+            with self.assertRaises(ValueError):stage.recipe('id',stage.CACHED_GPU_STAGE,'metal',base/'out',base/'original',180,request)
+            with self.assertRaises(ValueError):stage.recipe('id',stage.CACHED_GPU_STAGE,'cuda',base/'out',None,180,request)
+
+    def test_cached_gpu_environment_drift_stops_before_child_marker(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d).resolve();folder=base/'capture';folder.mkdir();request={k:str(base/k) for k in stage.CACHED_GPU_FIELDS}
+            plan=stage.recipe('id',stage.CACHED_GPU_STAGE,'cuda',folder,base/'original',180,request);stage.save(folder/'recipe.json',plan)
+            env=stage.cached_gpu_environment(request);env['NIKKE_CUDA_CACHE_REQUIRED']='0'
+            with patch.object(stage,'packet_header',return_value=dict(package_id='id')),patch.object(stage,'load_module'),patch.dict(stage.os.environ,env,clear=True):
+                with self.assertRaisesRegex(ValueError,'bounded child environment'):stage.child(folder)
+            self.assertFalse((folder/'child.json').exists())
+
+    def test_cached_gpu_requires_sealed_paired_cache_profile_before_claim(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d).resolve();root=base/'packet';root.mkdir();request={k:str(base/k) for k in stage.CACHED_GPU_FIELDS}
+            for purpose,config in [('development',dict(cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True)),('sealed',{}),('sealed',dict(cuda_cache_profile='compile-cache-only-v1'))]:
+                cli=SimpleNamespace(SUITES={'fixture':config})
+                with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='id',suite='fixture',purpose=purpose)),patch.object(stage,'load_module',return_value=cli):
+                    with self.assertRaisesRegex(ValueError,'sealed paired resident'):stage.run_stage(base/'out',stage.CACHED_GPU_STAGE,'cuda',180,base/'original',request)
+            self.assertFalse((root/('packet-stage-claimed-'+stage.CACHED_GPU_STAGE+'-cuda.json')).exists())
+
+    def test_cached_gpu_keeps_failed_preservation_result_and_exclusive_claim(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d).resolve();root=base/'packet';root.mkdir();folder=base/'capture';request={k:str(base/k) for k in stage.CACHED_GPU_FIELDS};calls=[]
+            def bounded(*args,**kwargs):
+                calls.append(kwargs['env'])
+                for k,v in stage.cached_gpu_environment(request).items():self.assertEqual(kwargs['env'][k],v)
+                self.assertEqual(kwargs['env']['NIKKE_VALIDATION_JOB_MEMORY_MB'],'2048')
+                (folder/'proof').mkdir();stage.save(folder/'proof/result.json',dict(passed=False,calculation_verified=True,preservation_verified=False))
+                return dict(passed=True)
+            cli=SimpleNamespace(SUITES={'fixture':dict(cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True)},validation_environment=lambda _:dict(),bounded_module=lambda:SimpleNamespace(run_bounded=bounded))
+            with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='id',suite='fixture',purpose='sealed')),patch.object(stage,'load_module',return_value=cli),patch.object(stage,'is_windows',return_value=False),patch.object(stage,'required_generation_environment',return_value={}):
+                result=stage.run_stage(folder,stage.CACHED_GPU_STAGE,'cuda',180,base/'original',request)
+                self.assertTrue(result['calculation_verified']);self.assertFalse(result['stage_verified']);self.assertFalse(result['proof_result']['preservation_verified'])
+                with self.assertRaises(FileExistsError):stage.run_stage(base/'again',stage.CACHED_GPU_STAGE,'cuda',180,base/'original',request)
+            self.assertEqual(len(calls),1)
+
     def test_failure_audit_stage_never_promotes_calculation_or_allows_gpu_settings(self):
         with tempfile.TemporaryDirectory() as d:
             base=Path(d).resolve();request=dict(source_package=str(base/'saved-package'),source_capture=str(base/'saved-capture'),expected_package_id='a'*64)

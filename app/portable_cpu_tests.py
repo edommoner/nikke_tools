@@ -32,6 +32,7 @@ AUDIT_FILES['test_effect_range.py']=('research/upstream/nikke-calc-master/data/p
 AUDIT_FILES['test_portable_scope_snapshot_audit.py']=(
     'tests/fixtures/portable-resident-scalar-generated.json',
     'tests/fixtures/portable-healing-hp-snapshot-delta.json')
+AUDIT_FILES['test_resident_append_probe.py']=('tests/fixtures/portable-resident-scalar-generated.json',)
 
 def validate_dependency_files(root,patterns,included=None):
     """Reject missing audit data before tests/native work or execution claims."""

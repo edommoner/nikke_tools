@@ -4,7 +4,7 @@
   "files": {
     "gpu/event_runtime.slang": {
       "baseline_sha256": "738a3d7d808f12cc08bee774b52e84c90322251a5c1a4a1283a61522c89a78a7",
-      "current_sha256": "21d666d4c26078aec8dc4376c050b45aa59d58f9c9ea8dc62e8d44004cdbf907",
+      "current_sha256": "b3cf180896b108eec0096e6e7b420f75425900be1dfb56b791ef7a303e2f3ada",
       "changes": [
         {
           "baseline": "#include \"dispatch_phases.slang\"\n\n",
@@ -13,6 +13,18 @@
         {
           "baseline": "uint64_t before = s.hp[f.owner];",
           "current": "uint64_t before = bodyHPBeforeHeal(s,f.owner);"
+        },
+        {
+          "baseline": "if (residentDefinition(s,row).enemyBuff != 0) s.enemyBuffRows[s.enemyBuffCount++] = row;",
+          "current": "if (residentDefinition(s,row).enemyBuff != 0) { s.enemyBuffRows[s.enemyBuffCount] = row; s.enemyBuffCount++; }"
+        },
+        {
+          "baseline": "if (indexed.kind == 0 && indexed.stat == S_infinite_ammo) s.infiniteRows[s.infiniteRowCount++] = row;",
+          "current": "if (indexed.kind == 0 && indexed.stat == S_infinite_ammo) { s.infiniteRows[s.infiniteRowCount] = row; s.infiniteRowCount++; }"
+        },
+        {
+          "baseline": "#ifdef PORTABLE_RESIDENT_RUNTIME\n[shader(\"compute\")]",
+          "current": "#if defined(PORTABLE_RESIDENT_RUNTIME) && !defined(PORTABLE_RESIDENT_APPEND_PROBE)\n[shader(\"compute\")]"
         }
       ]
     },
@@ -35,6 +47,16 @@
           "current": "    from portable_enemy_ammo_combined_source_contract import project_resident_scalars\n    out=project_resident_scalars(root,out)\n"
         }
       ]
+    },
+    "gpu/hp_edge_runtime.slang": {
+      "baseline_sha256": "05532900999737ca6f9f47d440dbc158c95cd7d6267cb6e4e7d115d4e49aef13",
+      "changes": [
+        {
+          "baseline": "if (!seen) s.hpWatchSlots[s.hpWatchCount++] = row*8+slot;",
+          "current": "if (!seen) { s.hpWatchSlots[s.hpWatchCount] = row*8+slot; s.hpWatchCount++; }"
+        }
+      ],
+      "current_sha256": "277939df6999f2a419d8207e3e527a45e5aa5296dabc8edf5af27e5c6596a018"
     }
   },
   "scope": "Exact scalar snapshot source inverse only, never GPU proof"
