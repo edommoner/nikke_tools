@@ -1,3 +1,5 @@
+最終330e9603/cache固定packet6b4d8009は6群53unit成功。sealed paired生成は必須hit/Slang0、source-baseline current、CUBIN/O1・2GiB・60秒compile-plan、model-checkも成功（追加GPU/実CUDA/Windows依頼0）。記録enemy-ammo-self-destruct-final-cli-v1.json。GPU実計算とfresh独立監査は先の固定2d5ad371の16入力証拠であり、このunit-checkをfresh全native実行と扱わない。
+
 # 2026-10-29 敵弾薬と自爆を同じSlang実行器でMetal実証
 
 固定2d5ad371の元Velvet76定義8world＋raw拒否8がM5/同出力のfresh GPU禁止独立sealで一致。14自爆/26試行/許可18発/実被弾90件、GPU0.803771秒/cold PSO58.212479秒/独立144.576577秒。unit43とfresh8 nativeの実行前照合、generation必須hit/Slang0、stride138952不変。CPU入力に計算済みschedule/弾薬/退場を入れず、入力117632word/出力2032000wordの幅を維持する。自爆記録をresource履歴の後1943776wordへ分離し、同世代・同時刻の実queueだけが退場後のmagazineを使える。empty/reloadも元scheduleで退場、HP/time退場は射撃なし。元時計/actor/割合演算/incoming/resource consumerと比較器を共用。
