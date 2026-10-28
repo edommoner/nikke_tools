@@ -1,0 +1,61 @@
+{
+  "schema": "add-attack-battle-metal-evidence-v1",
+  "source_commit": "44a543f843f8b4278242098ea8bca263f497fdd7",
+  "package_id": "52b7150c12a118daff2c23d27426a32a631e0f30483b430b04ef7e35fd3276bc",
+  "inputs": 17,
+  "native_cases": 6,
+  "rejections": 11,
+  "original_definitions": 70,
+  "rows": [
+    {
+      "name": "add-attack-battle/Nihilister/alive",
+      "queued_attacks": 50,
+      "incoming_hits": 250
+    },
+    {
+      "name": "add-attack-battle/Nihilister/dead",
+      "queued_attacks": 2,
+      "incoming_hits": 10
+    },
+    {
+      "name": "add-attack-battle/Nihilister/renewal",
+      "queued_attacks": 32,
+      "incoming_hits": 160
+    },
+    {
+      "name": "add-attack-battle/Nihilister/interleaved",
+      "queued_attacks": 100,
+      "incoming_hits": 500
+    },
+    {
+      "name": "add-attack-battle/Nihilister/random",
+      "queued_attacks": 50,
+      "incoming_hits": 100
+    },
+    {
+      "name": "add-attack-battle/Nihilister/slots-pierce",
+      "queued_attacks": 50,
+      "incoming_hits": 100
+    }
+  ],
+  "queued_attacks": 284,
+  "incoming_hits": 1120,
+  "device": "Apple M5",
+  "gpu_seconds": 0.6929241666803136,
+  "pipeline_compile_seconds": 58.33051097393036,
+  "runtime_stride_bytes": 138952,
+  "output_bytes": 138176000,
+  "independent_audit_seconds": 106.09132266699453,
+  "independent_audit_gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "9e7818ecc9bf870bc7edd7c07ffe6143302857119fb5beb6c1f20fa35f322188",
+  "output_sha256": "9a8300ff9e9d74c93ce10373b3aa4206735c8154b0fed68f1de183294a9bd99b",
+  "unit_tests": 34,
+  "actual_actor_pool_connected": true,
+  "ammo_connected": false,
+  "cuda_verified": false,
+  "default_admission_added": false,
+  "legacy_enemy_healing_raw_cuda_metal_unchanged": true,
+  "legacy_golden_recertified": false,
+  "full_goal_complete": false
+}

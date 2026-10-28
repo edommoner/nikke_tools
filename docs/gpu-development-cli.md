@@ -649,3 +649,5 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 `reference --suite enemy-ammo-common --out NEW.json` は元ヴェルヴェット全76定義の6つのCPU契約。固定容量の宣言モデルで既存敵攻撃・frame・世代・実被ダメージへ接続し、割合演算は元ハンドラのコード本体を再利用する。武器変更/容量バフ/self-destructは未対応。Metal/CUDA/defaultは未接続。[敵弾薬の設計と境界](portable-enemy-ammo.md)。
 
 `package --suite add-attack-schedule --out NEW.zip`はADD射撃生成部品のsealed19入力（元BossScript8/拒否11）を梱包する。`add-attack-schedule-cache-only`は同じ計算にCUBIN/O1必須・NVRTC禁止を適用し、standaloneなのでresident生成cache指定を使わない。M5/独立監査成功、現CUDA・実戦actor pool・敵弾薬は未接続。[部品と残件](portable-add-attack-schedule.md)。
+
+`package --suite add-attack-battle --out NEW.zip`は本体actor poolから既存incoming実行器へ接続したsealed17入力（元70定義の6編成/拒否11）。M5とfresh独立監査で284発・1,120被弾が一致。`add-attack-battle-cache-only`は同じ計算にCUBIN/O1・NVRTC禁止・paired generation必須を適用する。現CUDA・敵弾薬・defaultは未確認。[実戦接続](portable-add-attack-battle.md)。

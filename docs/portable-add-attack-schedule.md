@@ -1,5 +1,7 @@
 # ADD射撃の共通生成部品
 
+後続の`add-attack-battle`は同じcursorを本体の実actor poolへ接続し、元ニヒリスター70定義の17入力・284発・1,120被弾がM5と独立sealで一致した。単独componentの刺激モデルをHP実証へ読み替えたものではなく、別の実戦captureで検証している。[実戦接続と残件](portable-add-attack-battle.md)。
+
 登録6fde3ca2の通常/キャッシュ専用固定packageはunit-check12/21成功。キャッシュ版のCUBIN/O1・2GiB・60秒compile-plan成功（compiler/GPU0、実コンパイル成立の証明ではない）。既存GPU421ファイルと保護CPU4ファイルのbyte保持、旧enemy-healingの登録sourceが現状と一致することも確認した。記録は`target-count-query-evidence/add-attack-registered-cli-checks-v1.json`。Windowsの既存保存結果statusはhost unavailable/durableで、追加run/再送なし。
 
 敵弾薬の全6 CPU契約をGPUへ接続する前提として、ADD自身の射撃producerが不足していた。既存`compile_schedule`は`Summon attack lifecycle is not connected`として拒否する。本体の受付を開く前に、既存graph時計と元`BossScript`の実AttackHitを比較する`add-attack-schedule`を共通CLIへ登録した。

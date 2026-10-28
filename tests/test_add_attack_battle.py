@@ -53,5 +53,17 @@ class AddAttackBattleTests(unittest.TestCase):
         self.assertIn('addAttackEmit(s,w,node,slot,results[p],index,when)',runtime)
         self.assertIn('collectWorldEnemyAttackFlat(s,0,when)',runtime)
 
+    def test_registered_proof_and_cached_profile_keep_ammo_and_cuda_unverified(self):
+        from portable_readiness_semantics import enemy_ammo_prerequisites
+        p=enemy_ammo_prerequisites();r=p['declared_add_battle_validation'];raw=(ROOT/r['evidence']).read_bytes();a=json.loads(raw)
+        self.assertEqual(hashlib.sha256(raw).hexdigest(),r['evidence_sha256'])
+        self.assertEqual((a['input_count'],a['native_cases']),(17,6));self.assertTrue(a['calculation_verified'])
+        self.assertEqual(a['gpu_calls'],0);self.assertFalse(r['ammo_connected']);self.assertFalse(r['cuda_verified'])
+        self.assertFalse(p['enemy_shot_reload_connected'])
+        sys.path.insert(0,str(ROOT/'scripts'));import nikke_gpu
+        normal=nikke_gpu.SUITES['add-attack-battle'];cached=nikke_gpu.SUITES['add-attack-battle-cache-only']
+        for key in ('script','source','golden','inputs','native','input_words','output_words'):self.assertEqual(normal[key],cached[key])
+        self.assertTrue(cached['require_paired_generation']);self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
+
 
 if __name__=='__main__':unittest.main()

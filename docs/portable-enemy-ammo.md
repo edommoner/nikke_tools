@@ -1,5 +1,7 @@
 # 敵弾薬の共通実行契約
 
+前提producerは`add-attack-battle`として実actor poolと既存incoming damageまで接続し、元ニヒリスター70定義の17入力をM5/独立監査で実証した。敵弾薬の充填・消費・リロードをその実戦queueへ結ぶ作業は未完了。[接続済みの範囲](portable-add-attack-battle.md)。
+
 GPU本体はADD自身の射撃をまだ拒否するため、その前提producerを`add-attack-schedule`として先に実装した。元graph時計とCUDA/Metal共通cursorで187発/19入力をM5＋fresh独立監査まで実証。死亡は部品用の明示刺激であり、本体actor pool/HP・弾薬消費との接続は未完了。[生成部品の境界と次の接続](portable-add-attack-schedule.md)。
 
 `reference --suite enemy-ammo-common --out NEW.json` は、ヴェルヴェットの元76効果・実武器・育成・owner順を保持した6つのCPU契約を実行する。既存のlogical collider/world actor実行器を使い、元の敵攻撃関数へ実際に配送し、味方への被ダメージ・HP記録まで照合する。元データや既定CPU入口を変更するものではなく、GPUへの接続は未完了。
