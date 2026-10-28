@@ -12,7 +12,15 @@ def enemy_ammo_prerequisites():
         required_producers=['enemy shot consumption','enemy reload completion','original instant event and completion order'],
         enemy_state_defined=False,enemy_instant_connected=False,
         enemy_shot_reload_connected=False,original_profile_gpu_verified=False,
-        current_cuda_verified=False,default_producer_installed=False)
+        current_cuda_verified=False,default_producer_installed=False,
+        declared_cpu_contract=dict(suite='enemy-ammo-common',cases=6,
+            source='app/enemy_ammo_model.py',original_profile='벨벳',original_definitions=76,
+            capacity_model='fixed-declared',original_operator_code_reused=True,
+            original_frame_and_attack_producers=True,original_scheduled_attempts_retained=True,
+            generation_owned_remaining_and_reload=True,
+            unsupported=['enemy weapon changes','capacity modifiers','flat ammo and forced reload','self-destruct launch timing'],
+            gpu_wire_connected=False,metal_verified=False,cuda_verified=False,default_path_installed=False,
+            scope='Opt-in CPU contract location; inspect the reference report for execution evidence, not canonical enemy state'))
 
 
 def reference_readiness(issue):

@@ -1,5 +1,13 @@
 最終4883442aの敵回復normal/cache固定packetは107/135unit成功。sealed生成はrequired cache hit/Slang0、CUBIN/O1・2GiB・60秒plan成功（追加GPU/実CUDA compile0）。model-check成功、全source棚卸しの21 current/179 stale/2 unavailableを保持。現CUDA/公開受付/全キャラ未達。元32再認定の全run/sealは終了済みで再実行しない。新しいCUDA依頼0、Windowsstatusのみhost unavailable/durable。次は敵弾薬のCPU契約とCUDA成立経路の切分けを優先し、履歴goldenの一括再実行・巨大GPU本文の追加を先行しない。記録enemy-healing-named-admission-final-cli-v5.json。
 
+# 2026-10-28 敵弾薬の元ハンドラ・実射撃をCPU契約へ接続
+
+`reference --suite enemy-ammo-common --out NEW.json`を追加。元ヴェルヴェット76効果・実武器・育成・owner順を維持した6worldで、割合演算は元handlerのcode identityを保持し、対象/状態closureだけを差し替える。既存BODY/ADD handle/generation、元frame、元attack callback/被ダメージHPへ接続。source表示名とADD_PREFIX付きregistry labelの不一致を修正。独自の敵clockやdamage計算は追加しない。共通CLIは6契約/2.550秒成功、関連61検査成功、model-check成功。証跡`target-count-query-evidence/enemy-ammo-cpu-contract-v1.json`。
+
+固定容量・初期残弾・whole reloadを明示するopt-in CPUモデル。元scheduled attempts/counterを維持し、blocked shotの再予約はしない。Lv1/-2.95%とLv10/-5%の容量16での0/-1発差、空対象loop後の名前付き完了、reload期限/中断、世代reset/dead/staleを検査。武器変更/容量バフ/flat充填/force reload/self-destructは未対応。GPU本文/wire・過去golden・canonical CPU4ファイルは変更0。現Metal/CUDA/default/全キャラの認定ではない。設計は`portable-enemy-ammo.md`。
+
+Windows既存chatのstatus取得は今回もhost unavailable/durable。追加run/再送なし。CUDA成立経路を先に切り分けるレビュー順を維持し、既存保存結果を取得できた時に次のbounded/cache検証を決める。Mac側はこのCPU契約を固定してから共通GPU資源状態へ接続する。以下は履歴。
+
 # 2026-10-28 全登録source棚卸しを共通CLIへ追加・レビューの順序を維持
 
 source-baseline --all-registeredを追加。source/golden組をde-duplicateしentryごとに一度hash、producer rootだけでcurrent/stale/unavailableを出す。全202組/224登録名/114source entryの結果は21 current・179 stale・2 unavailable（attack-magnitudeのgolden欠落）。source差分の多くは過去のschema/admission等も含むため、今回の32件だけで全登録を現source認定済みとしない。11 source-baseline境界検査が成功。数値/受付/正規化/過去goldenは変更していない。summaryはregistered-source-closure-inventory-v2-summary.json、全差分は共通CLIで再現する。

@@ -17,6 +17,12 @@ class ReadinessSemanticsTests(unittest.TestCase):
         for key in ('enemy_state_defined','enemy_instant_connected','enemy_shot_reload_connected','original_profile_gpu_verified','default_producer_installed'):
             self.assertFalse(p[key])
         self.assertEqual(r['lane'],'reference_model_gap');self.assertFalse(r['gpu_supported'])
+        declared=p['declared_cpu_contract']
+        self.assertEqual(declared,verify(ROOT)['enemy_ammo']['declared_source_contract'])
+        self.assertEqual((declared['suite'],declared['cases'],declared['original_definitions']),('enemy-ammo-common',6,76))
+        self.assertEqual(declared['capacity_model'],'fixed-declared')
+        self.assertTrue(declared['original_operator_code_reused'])
+        for key in ('gpu_wire_connected','metal_verified','cuda_verified','default_path_installed'):self.assertFalse(declared[key])
     def test_movement_duration_states_keep_spatial_dependencies_explicit(self):
         for stat in ('enemy_movement_disable','force_move'):
             r=reference_readiness(dict(phase='effect',kind='buff',stat=stat,target='enemies_in_range'))

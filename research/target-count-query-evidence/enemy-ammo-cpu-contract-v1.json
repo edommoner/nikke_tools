@@ -1,0 +1,162 @@
+{
+  "suite": "enemy-ammo-common",
+  "stage": "cpu-common-policy-contract",
+  "passed": true,
+  "cpu_reference_verified": true,
+  "calculation_verified": false,
+  "gpu_supported": false,
+  "case_count": 6,
+  "reference_model_gap_cases": 6,
+  "gpu_calls": {
+    "build": 0,
+    "execute": 0
+  },
+  "packing_calls": 0,
+  "elapsed_seconds": 2.550070458004484,
+  "reference_kind": "declared-enemy-magazine-attempt-v1",
+  "capacity_model": "fixed-declared",
+  "source_schedule_policy": "retain original scheduled attempts; never retime blocked attempts",
+  "schema": "enemy-ammo-cpu-contract-evidence-v1",
+  "reference_report_sha256": "c3055d3c3aa84c8e4a6259b712ef963acefb8f657ec38da90867d352123401a3",
+  "reference_report_bytes": 6514777,
+  "source_sha256": {
+    "app/enemy_ammo_model.py": "6e263a2d2517ee67290af085a60c104569baef41c4e9551414e2043dbf6c3d9e",
+    "app/portable_reference.py": "2694d6ac2888899012ac902208a666c3d7783cd660b6660fc5cea1caa3d9cc36",
+    "research/portable_enemy_ammo_cases.py": "781a35d3b5df9ba8305dabef698ebcdcfd592f390e7313c73bd7cce507cfee51",
+    "research/portable_enemy_ammo_contracts.py": "f4b20f7eabb851eb9dba7ac01dc46bbee0e38b0890b1c8b00847e621ccec2ecf",
+    "research/upstream/nikke-calc-master/calculator/timeline.py": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299",
+    "research/world_enemy_ammo_native.py": "da9e80de041712af002aa64c267a90cab06da0ff271fda02c995bf76fd17848a"
+  },
+  "cases": [
+    {
+      "name": "enemy-ammo/Velvet/level10",
+      "input_sha256": "1ef4244de9a6304c065a6e205893f9f1fbb6da2462f26e63ea117b041601398b",
+      "native_sha256": "f902bd6633fe4bcfc7b86cb4160793d246527ca9e408e8579429bf1c9d458f7d",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 76,
+        "native_percentage_operator_reused": true,
+        "real_incoming_HP": true,
+        "attempts": 50,
+        "fired": 40,
+        "original_scheduled_attempts_retained": true,
+        "generations": 3,
+        "capacity_model": "fixed-declared",
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "enemy-ammo/Velvet/level1",
+      "input_sha256": "235e108a73f165c0fa13ea34d4abb46537f72d8c99868e9a1a45e327a516e60c",
+      "native_sha256": "c80ae5196282140230aa425da5f4866fc3ae7d3222301615695cd22d1e53c799",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 76,
+        "native_percentage_operator_reused": true,
+        "real_incoming_HP": true,
+        "attempts": 50,
+        "fired": 40,
+        "original_scheduled_attempts_retained": true,
+        "generations": 3,
+        "capacity_model": "fixed-declared",
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "enemy-ammo/Velvet/late-empty",
+      "input_sha256": "dc3abb02bf51254f485ca0bbaa5dc2458e72bf5952503bcb3830ce96d92f3895",
+      "native_sha256": "dcdd1886ac085264412a4412450e1d26c8d82fdcf50080893a231f6bf46b5a3b",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 76,
+        "native_percentage_operator_reused": true,
+        "real_incoming_HP": true,
+        "attempts": 34,
+        "fired": 30,
+        "original_scheduled_attempts_retained": true,
+        "generations": 2,
+        "capacity_model": "fixed-declared",
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "enemy-ammo/Velvet/renewal",
+      "input_sha256": "c28129dc17f75d791841181d69f3e1427fbab34918a5ca5ecaad3ffea694f158",
+      "native_sha256": "6265e437e8b9584b8169842c47994a9cf8bc4538b1b148e967eb76773a108608",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 76,
+        "native_percentage_operator_reused": true,
+        "real_incoming_HP": true,
+        "attempts": 32,
+        "fired": 12,
+        "original_scheduled_attempts_retained": true,
+        "generations": 4,
+        "capacity_model": "fixed-declared",
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "enemy-ammo/Velvet/dead",
+      "input_sha256": "e3132269fa29bb20b7c8e1fa0c406a2dd425fb8f9caf8999b06b96c7c9b4882a",
+      "native_sha256": "282d94402ea88739aacbecdea7a1a2c78c862206c304b494bd1d1a9155cc4205",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 76,
+        "native_percentage_operator_reused": true,
+        "real_incoming_HP": true,
+        "attempts": 2,
+        "fired": 2,
+        "original_scheduled_attempts_retained": true,
+        "generations": 2,
+        "capacity_model": "fixed-declared",
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "in_game_rules_verified": false
+      }
+    },
+    {
+      "name": "enemy-ammo/Velvet/body",
+      "input_sha256": "89c8914d95a766e0732ec326e0bd73b28a8b420efd9422b4df4eceeba0b70359",
+      "native_sha256": "4610adce7ee272f980d1a8b86f211316594ca2ef5cba9a6b6f41dbcf646753b2",
+      "trace_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": true,
+        "original_definitions": 76,
+        "native_percentage_operator_reused": true,
+        "real_incoming_HP": true,
+        "attempts": 25,
+        "fired": 20,
+        "original_scheduled_attempts_retained": true,
+        "generations": 3,
+        "capacity_model": "fixed-declared",
+        "gpu_wire_connected": false,
+        "gpu_supported": false,
+        "in_game_rules_verified": false
+      }
+    }
+  ],
+  "related_tests": 61,
+  "windows_new_run_requests": 0,
+  "windows_status": "host unavailable or failed; no terminal conclusion",
+  "full_goal_complete": false
+}
