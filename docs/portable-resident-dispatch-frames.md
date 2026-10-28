@@ -41,3 +41,10 @@ compiler診断用の `compiler-full--coordinate-resident-frames --compact` を�
 固定配布は `research/windows-source-packets/resident-frames-device-v1.json` と同名ZIP。compactは3574→2143ファイルで、除去は選択外Pythonだけ、保持した全ファイルとgoldenがfull版と同一。Macで再度55テスト／正本4件と共通591テストを通しました。
 
 Windowsは既存の `gpu-linked` 経路と、全106 sourceから生成した保存CUBINを使います。full producer／PTX／object／linkの出所検査とfresh選択test／native4を維持し、生成cacheを必須にします。追加compile・fallback・retryはせず、2GiB／BelowNormal／外180秒・GPU child60秒を守ります。CUDA実計算の成功はまだ確認していません。
+
+
+## 2026-10-29 更新前scalar／配列index修正後の全106再認定
+
+現sourceのpackage964297f3はM5全106入力／native63／拒否43を1回実行し、全旧input/output/native指紋を保持した。GPU4.133649秒、cold pipeline62.416137秒、CPU正本430.231123秒、unit28群114.828383秒。14個のfresh GPU禁止childで全106を独立比較し582.646344秒、追加GPU0、live parent再利用false。新v2 goldenと、同じfresh監査のgoldenから既存helperで作ったsource-only certificateを登録し、旧基準は保持した。
+
+約875MBの全出力は保存した。独立監査を起動する時にTMPDIRの指定が抜けていたため、終了後の全14群log／aggregateを永続proof rootへコピーし、全byte照合した。元tempと失敗記録は削除しない。現full CUDA計算は未認定。別のappend9契約のCUDA成功から全106へ外挿しない。証跡research/target-count-query-evidence/resident-append-full106-metal-v1.json。

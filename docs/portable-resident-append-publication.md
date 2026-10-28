@@ -30,6 +30,8 @@ python scripts/run-gpu-packet.py --stage gpu-cached --backend cuda --capture NEW
 
 実際のNEW／ORIGINAL／REQUESTは絶対パスで指定する。既存のBelowNormal、fresh Job、2GiB、開始gate、外180秒／GPU子60秒を使い、CUBIN O1・compile cacheとpaired generationの必須hitを要求する。子で環境のずれを拒否し、compiler fallbackはしない。新stage固有のclaimを排他的に作成し、旧claimを消さない。登録外profile、不正request、環境改変、重複claim、計算成功でも環境保全falseになる結果の保持をCPU検査する。
 
+独立した`tests`段階は今回のようにorchestrationを変更した時のCPU-only Job検査に使う。通常の変更で毎回二重実行する前提ではない。`gpu-cached`自身も共通`run`のCPU test／native事前検査を実行し、これを省くflagは追加していない。今回の保存記録では両段階とも56検査であり、専用Job検査の追加時間15.210338秒と、通常GPU段階32.371456秒を分ける。
+
 v2packet `e65d79b7…`はv1と全golden／GPU source／入力が同一。変更は共通CLI、wrapper、wrapper testの3ファイルだけ。保存済みCUBINを再コンパイルせず検証する。CUDA実計算の結果は別receiptで確定する。全106のMetal再認定・独立監査も別証拠であり、この9入力から推定しない。
 
 ## CUDAとの照合結果

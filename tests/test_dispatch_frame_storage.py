@@ -6,6 +6,23 @@ import portable_dispatch_frames as frames
 s=importlib.util.spec_from_file_location('frame_probe_test',ROOT/'research/verify-dispatch-frame-storage-short.py');probe=importlib.util.module_from_spec(s);s.loader.exec_module(probe)
 
 class DispatchFrameStorageTests(unittest.TestCase):
+ def test_recertified_full106_retains_every_old_result_and_binds_current_source_certificate(self):
+  import json,hashlib
+  sys.path.insert(0,str(ROOT/'scripts'));import nikke_gpu
+  from portable_backend import source_hashes
+  suite=nikke_gpu.SUITES['coordinate-resident-frames']
+  old=json.loads((ROOT/'research/portable-coordinate-resident-frames-short-expected.json').read_text())
+  raw=(ROOT/suite['golden']).read_bytes();new=json.loads(raw)
+  for field in ('entries','input_sha256','output_sha256'):self.assertEqual(old[field],new[field])
+  self.assertEqual(len(new['entries']),106)
+  self.assertEqual(new['source_sha256'],source_hashes(suite['source']))
+  diagnostic=nikke_gpu.SUITES[nikke_gpu.compiler_alias('coordinate-resident-frames')]
+  cert=json.loads((ROOT/diagnostic['golden']).read_text())
+  self.assertEqual(cert['source_sha256'],new['source_sha256'])
+  self.assertEqual(cert['generated_normalized'],new['generated_normalized'])
+  self.assertEqual(cert['baseline_golden_sha256'],hashlib.sha256(raw).hexdigest())
+  self.assertFalse(cert['calculation_verified']);self.assertFalse(cert['executable_battle_verified'])
+
  def test_historical_inverse_accepts_only_reviewed_sources_and_retains_all_old_baselines(self):
   from portable_dispatch_frame_source_contract import ledger,project_sources
   data=ledger(ROOT);old=project_sources(ROOT)

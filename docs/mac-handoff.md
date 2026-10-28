@@ -1,3 +1,15 @@
+# 2026-10-29 Resident配列追加3箇所を修正・CUDA/Metal9契約一致・Metal全106独立一致
+
+fd15fec6の共有markEntry／initializeHPWatchesを「格納→加算」へ変更。旧CUDAが加算後indexを再読する3箇所を修正し、既存生成器とpaired cache読込へ生成順guardを接続。空／最終512／refresh／owner重複／全2048watchを、実共有関数の9入力でCUDA/Metal全word一致。新gpu-cached wrapperは保存source・SDK・両cacheの4キーを固定し、CUBIN O1／必須hit／Job／2GiB／180秒・子60秒を保持する。
+
+Windows固定report 7f2e988fのcalculation/containment true、process保持true・missing0。Slang/NVRTC0、launch/sync/readback各1、host dispatch0.328秒、GPU子11.219秒／外32.371秒。service未識別のpreservation／全体passed／transport_verified falseを保持する。元v1の引数欠落失敗とclaimは残し、GPU再実行ではなく新wrapperの初回実GPUだけを実施。全battle/全キャラのCUDA成功ではない。出所・全指紋はresident-append-cross-gpu-v1.json。
+
+現sourceのcoordinate-resident-frames全106（native63／拒否43）もM5で1回成功、14個のfresh GPU禁止childの独立seal成功。全旧entry/input/output/native指紋を保持。GPU4.134秒／cold pipeline62.416秒、CPU正本430.231秒、unit114.828秒、独立監査582.646秒。約875MBの全raw、旧golden、失敗を保持。独立group logsは永続Bへ全byte照合して保存、元tempも削除していない。新v2 goldenと同じfresh監査から既存certificate helperで作成したsource-only証明書を登録し、旧v1は保持。証明書はCUDA compile/cache/実計算の認定ではない。証跡resident-append-full106-metal-v1.json、詳細portable-resident-append-publication.md。
+
+現full sourceのcompiler-only packet20d328a5をb7ff2c64/codex/cuda-resident-frames-v2-sourceへ共有し、既存Windowsチャットへtests→generation→PTXのみ1回を依頼済み。新rootはC:/Users/owner/Documents/Codex/nikke-resident-frames-v2。内compile60秒／外180秒／2GiB、driver/GPU0、fallback/retry禁止。結果は未取得なので再送せず既存turnを確認する。own compile-planのPTX＋O1指定はpolicy拒否を保持し、O1指定なしの新receiptが成功。パッケージ/transport/要求範囲はresident-frame-current-compiler-packet-v2.json。
+
+次は現full sourceのCUDA接続を既存の限定compiler段階で進め、保存済み旧106 CUDA失敗との差分を再評価する。大きい本体を無制限に再compileしない。今回の9probeとMetal106だけで未対応分類を消さない。5 canonical consumer欠落／20model gap／全キャラ0／UI CPU／公開受付falseを維持。Lock Onは公開記述を根拠に取得・解除を進め、距離式は未確定のまま、実機環境の回答待ちでは止めない。以下は履歴。
+
 # 2026-10-29 CUDAの更新前scalar消失を2箇所修正・Metal3ケース独立一致
 
 保存CUDAの厳密生成基準2380f6f3…と一致するコードで2つの具体的な差を確認した。通常回復のbefore HPがCUDAでは更新後HPの再読となり累積回復が0になる。findCarrierの後置incrementも更新後countを配列index/戻り値へ使う。Metalには更新前の値が残る。共通SlangのbodyHPBeforeHeal/carrierCountBeforeAllocateというnoinline scalar境界で修正した。本修正のGPU差分はevent_runtime/carrier_runtimeの2file。正本4file/厳密normalizer/wire/runtime_init shaderは変更0。現在の開発closureを使うので、旧凍結ownerとの全source一致は主張しない。

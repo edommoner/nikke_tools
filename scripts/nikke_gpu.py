@@ -542,7 +542,7 @@ SUITES['coordinate-resident-arc']['tests']=[*SUITES['coordinate-resident-arc']['
 SUITES['coordinate-resident-arc']['upstream_documents']=[*SUITES['coordinate-resident-arc'].get('upstream_documents',[]),'research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
 SUITES['coordinate-resident-device']=dict(SUITES['coordinate-resident-arc'],script='research/verify-coordinate-resident-device-short.py',golden='research/portable-coordinate-resident-device-short-expected.json',inputs=4,native=4,development_only=False,tests=['test_coordinate_resident_device.py','test_coordinate_resident_arc.py','test_portable_parent_oracles.py','test_portable_linked_artifact.py'])
 SUITES['coordinate-resident-device']['support_files']=[*SUITES['coordinate-resident-arc']['support_files'],'research/portable-coordinate-resident-arc-short-expected.json']
-SUITES['coordinate-resident-frames']=dict(SUITES['coordinate-resident-arc'],script='research/verify-coordinate-resident-frames-short.py',source='gpu/world_coordinate_resident_frames_entry.slang',golden='research/portable-coordinate-resident-frames-short-expected.json',development_only=False,tests=[*SUITES['coordinate-resident-arc']['tests'],'test_dispatch_frame_storage.py'])
+SUITES['coordinate-resident-frames']=dict(SUITES['coordinate-resident-arc'],script='research/verify-coordinate-resident-frames-short.py',source='gpu/world_coordinate_resident_frames_entry.slang',golden='research/portable-coordinate-resident-frames-short-v2-expected.json',development_only=False,tests=[*SUITES['coordinate-resident-arc']['tests'],'test_dispatch_frame_storage.py'])
 SUITES['dispatch-frame-storage']=dict(script='research/verify-dispatch-frame-storage-short.py',source='gpu/dispatch_frame_storage_probe.slang',golden='research/portable-dispatch-frame-storage-short-expected.json',inputs=5,native=5,output_words=1040,development_only=False,tests=['test_dispatch_frame_storage.py'])
 SUITES['resident-append']=dict(script='research/verify-resident-append-short.py',source='gpu/resident_append_probe.slang',golden='research/portable-resident-append-short-expected.json',inputs=9,native=9,output_words=3616,development_only=False,tests=['test_resident_append_probe.py','test_portable_scope_snapshot_audit.py'],require_paired_generation=True)
 SUITES['resident-append-cache-only']=dict(SUITES['resident-append'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['resident-append']['tests'],'test_portable_cuda_cached_profile.py','test_portable_packet_stage.py'])
@@ -683,7 +683,7 @@ for _baseline,_config in list(SUITES.items()):
         tests=SUITES['compiler-full']['tests']+['test_portable_compiler_certificate.py','test_portable_seal.py'])
 
 # Keep historical certificates immutable while selecting the current recertification.
-for _recertified in ('coordinate-original-resources','coordinate-original-ammo','add-attack-battle'):
+for _recertified in ('coordinate-original-resources','coordinate-original-ammo','add-attack-battle','coordinate-resident-frames'):
     SUITES[compiler_alias(_recertified)]['golden']='research/portable-'+compiler_alias(_recertified)+'-v2-source-certificate.json'
 
 # Controller validation has no numeric program to execute. Keep its CPU work
