@@ -45,3 +45,23 @@ rawファイルはそのまま保存し、1row分のRAM view上で参照indexだ
 共通CLIの`partitioned-address-audit --source-package PACKET --capture FAILED_FLAT_CAPTURE --out NEW.json`は保存データだけを監査する。GPU/compiler/native追加0、原本anchorsと既存Metal cache監査を再利用する。旧stageはFalseを保持する。現在のtransport/診断controllerはpacket metadataでprofileを明示し、rawとlogicalの区別に対応する。`output_sha256`はrawのまま、`address_view.logical_view_sha256`を別記する。legacy flatの`sealed_output_fingerprint_matches`はrawが異なる限りFalseのままにし、profileの論理一致は別flagで判定する。失敗時の終了codeも1にした。新統合はunit/source contract確認までで、GPUをもう一度実行した証拠ではない。独立post-GPU native監査とCUDA sequence trace/admissionは次の段階。
 
 このprofileは観測した5箇所だけを特別扱いしない。全32slot×全106rowについて、sourceで宣言されたreference/receipt IDの組を検査し、全数値・status・参照先を含む全row hashと全体hashを照合する。rawファイルは付替えない。現69f25d90 packetの13＋5unitが成功し、plan/splitとCUDA/Metalのsequence呼出しASTが実行済み旧packetと同一であることを確認した。Windows追加実行0。
+
+
+## 保存結果の独立native監査
+
+新しいimmutable診断packet自身のcwdから実行する。旧packet・raw・失敗stageを変更しない。
+
+```text
+python scripts/nikke_gpu.py partitioned-native-audit --source-package EXECUTED_PACKET --capture FAILED_FLAT_CAPTURE --out NEW_AUDIT_DIR --timeout 240 --group-size 16
+```
+
+独立packetは全goldenと元のnative/GPU/data/test payloadを保持し、既存CLI関数のAST一致も検査する。最初に既存address監査・Metal pipeline cache監査で実dispatchとrawを確認する。その後、既存のpartition/selection/validate_factsを使って全入力を重複・欠落なく分割し、各群をfresh GPU禁止childで比較する。各childは全inputを元adapterで再構築し、元のsemantic compare/rejection/stage validator、native指紋、全row指紋、全体logical指紋とpaired strict generated指紋を検査する。live parent/native結果の持越しはしない。rawは毎群boundedに読むが、比較対象はその群だけ。群単位の成功はcalculation_verified=Falseで、全群のexact coverage・異なるPID・上限・同一raw/論理viewを検査した集約だけが全corpusの独立計算監査となる。
+
+初版051dc854 packetの一括CPU比較は240秒でtimeoutし、v6-native-auditの失敗とwire監査を保持した。GPU/compiler追加0。上限を増やさず、d2197957 packetで16件ずつの分割へ変更した。CPU段階と各native比較のjournalを追加し、時間の内訳を追えるようにした。失敗した旧stageを成功へ変更する処理はない。全キャラ・公開受付の認定とは別である。
+
+## CUDA sequence traceの別プロトコル
+
+`portable_partitioned_cuda_trace.verify`はCPU-onlyの新しい監査器。legacy `verify_cuda_trace`の一回launch規則を変更せず、同じcontext内の全batchについてcache-only CUBIN receipt、全driver境界の順序と成功return、各出力zero、launch/sync、全chunkのdevice address/bytes、file receipt、最後のcontext destroyを照合する。後続batchの失敗・不足・余分なAPI・別PID・壊れたstreamを故障注入で拒否する。旧observerが記録しないgrid/blockやallocationの実byte数は認定しない。Windows実行許可や計算証拠ではなく、新しいbounded実行ownerへの接続は未完了。
+
+
+2026-10-29結果：固定d2197957 packetの分割独立監査は全106/native63で成功した。別々の7 fresh child、16/16/16/16/16/16/10入力、各240秒以内（最大120.13秒）、集約506.70秒。入力再構築30.82秒、元semantic/native比較466.04秒。全row/input/native/生成code指紋が旧goldenへ一致し、raw SHAは元capture、logical SHAは旧goldenにそれぞれ一致した。全20参照を毎群検査した。GPU/compiler/Windows追加0、旧raw・失敗stage・golden変更0。新しい独立計算監査だけcalculation_verified=Trueで、旧stageはFalseのまま。v7 native controllerは現在の開発sourceと全byte同一。own packet26 unitと開発checkoutの関連108 unit成功。証跡 `research/target-count-query-evidence/partitioned-saved-native-v1.json`。これは旧固定106 corpusの認定であり、全キャラ・全特殊効果・現在すべてのsuite・公開GPU・CUDA成功の認定ではない。

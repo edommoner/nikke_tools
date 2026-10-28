@@ -1,3 +1,13 @@
+# 2026-10-29 保存済み分割Metalの独立native監査・全106一致
+
+`partitioned-native-audit`を共通CLI/immutable dispatcherへ追加した。実行済みv4の失敗rawと元sourceを変更せず、別packetのfresh GPU禁止childで元adapterのsemantic compare/rejection/stage validatorsを実行する。明示source-pinned address viewを使い、全input/output/native/strict generated指紋を保持する。既存partition/selection/validate_factsを再利用し、群単位のcalculationはFalse、全入力の重複・欠落なし集約だけTrueとする。
+
+初版051dc854の一括CPU監査は240秒timeoutで失敗保存。上限を増やさず分割版d2197957へ移行し、全106/native63・7 fresh childが成功した。群の秒数73.62/28.63/57.84/92.32/50.68/120.13/81.04、集約506.70秒。入力再構築30.82秒、元native比較466.04秒で、時間の主体はCPU戦闘シミュレーション。各比較をjournalへ記録し、最も長いshield-stream-overflowは30.36秒だった。GPU/compiler/Windows追加0、raw/期待hash/旧失敗stage変更0。新独立監査のみcalculation_verified=True、旧stage=False・public=False・全goal=Falseを維持。v7 controllerと開発sourceはbyte同一、own packet26＋checkout関連108テスト成功。
+
+別のCUDA sequence trace監査器を追加した。全7launch/sync/readback・cache-only CUBIN・zero/全chunk address/bytes/receipt・context destroyを検査し、後続失敗や欠落を拒否。legacy一回launch監査は変更0。旧observerが記録しない実launch寸法/allocation byteは未認定で、CPU故障5テストのみ・CUDA新ownerへの接続は未完。消費済みWindows claim/ledgerを再使用せず、新しいbounded owner、実引数観測、保存CUBIN再利用へ接続すること。上限増加/常駐テスト/GPU再送はしない。
+
+全キャラ/全特殊効果/現在の全suite・公開受付は未達。旧固定106の独立計算認定と混同しない。詳細[分割転送](portable-partitioned-file-transport.md)、証跡 `partitioned-saved-native-v1.json`。以下は履歴。
+
 # 2026-10-29 全106の共通分割file transport・M5論理wire一致
 
 共通partitioned transportとprivate Metal CLIを実装。106を16×6＋10に分け、既存CUDA execute_cuda_batches(output_paths)／Swift --batchesの1context/pipeline・3bufferを再利用する。GPU計算/正本/厳密生成normalizer変更0。最大input7403524/output132146304/runtime2288768byte、全output875469264byteを保持。原本2148file中2147はbyte同一、CLIはmain dispatcherのみ追加、元registry/goldenを保持。

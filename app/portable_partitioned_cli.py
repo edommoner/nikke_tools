@@ -8,7 +8,8 @@ from pathlib import Path
 from types import SimpleNamespace
 
 ADDED=('app/portable_partitioned_transport.py','app/portable_partitioned_cli.py','app/portable_partitioned_addresses.py',
-       'tests/test_portable_partitioned_transport.py','tests/test_portable_partitioned_addresses.py')
+       'app/portable_partitioned_native.py','tests/test_portable_partitioned_transport.py',
+       'tests/test_portable_partitioned_addresses.py','tests/test_portable_partitioned_native.py')
 MODE='partitioned-file-diagnostic-v1'
 
 
@@ -129,6 +130,14 @@ def child(cli,capture,backend):
 
 def dispatch(cli,original,argv=None):
     args=list(sys.argv[1:] if argv is None else argv)
+    if args and args[0]=='partitioned-native-audit':
+        p=argparse.ArgumentParser();p.add_argument('command')
+        for flag in ('source-package','capture','out'):p.add_argument('--'+flag,type=Path,required=True)
+        p.add_argument('--timeout',type=int,default=240);p.add_argument('--group-size',type=int,default=16);a=p.parse_args(args)
+        from portable_partitioned_native import run as native_audit
+        with cli.forbid_gpu():result=native_audit(cli,a.source_package,a.capture,a.out,a.timeout,a.group_size)
+        print(json.dumps({k:result[k] for k in ('schema','package_id','calculation_verified','original_stage_passed','gpu_calls','elapsed_seconds')},indent=2))
+        return result
     if args and args[0]=='partitioned-run':
         p=argparse.ArgumentParser();p.add_argument('command');p.add_argument('--capture',type=Path,required=True);p.add_argument('--backend',choices=('metal',),default='metal')
         p.add_argument('--batch-size',type=int,default=16);p.add_argument('--timeout',type=int,default=180)

@@ -3493,6 +3493,7 @@ def main(argv=None):
     a=sub.add_parser('gpu-recovery-package');a.add_argument('--base-package',type=Path,required=True);a.add_argument('--origin-auditor',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('partitioned-file-package');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('partitioned-address-audit');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('partitioned-native-audit');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=240);a.add_argument('--group-size',type=int,default=16)
     a=sub.add_parser('preflight-resume');a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--group-size',type=int,required=True)
     for name in ('capture','parent-transaction'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('preflight-plan');a.add_argument('--backend',choices=('metal','cuda'),required=True)
@@ -3832,6 +3833,10 @@ def main(argv=None):
         options=dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}
         if a.command=='staged-run':options['preflight_transaction']=a.transaction
         result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**options)
+    elif a.command=='partitioned-native-audit':
+        from portable_partitioned_native import run as native_audit
+        with forbid_gpu():report=native_audit(SimpleNamespace(**globals()),a.source_package,a.capture,a.out,a.timeout,a.group_size)
+        result={k:report[k] for k in ('schema','package_id','calculation_verified','original_stage_passed','gpu_calls','elapsed_seconds')}
     elif a.command=='partitioned-address-audit':
         from portable_partitioned_addresses import audit
         with forbid_gpu():report=audit(SimpleNamespace(**globals()),a.source_package,a.capture,a.out)
