@@ -2973,3 +2973,11 @@ v3はCPU payload/inputを固定v1と監査してnative期待指紋だけ再利�
 証跡はmetal-packet-fates-v3.json、packet-fates-failure-and-default-retention-v1.json、packet-fates-legacy-source-retention-v1.json、preexisting-typed-source-guards-v1.json。次の本体機能は元全25（特に元index0の実敵carrierと順位provider）への合成。距離/死亡振替/終了frameに残る監査receipt/全2048同時queueは未検証。全キャラ0/UI CPU/公開admission falseのまま。private継続点はprivate-continuation-v30.json。
 
 最終通常source a1bef907のnormal/cache2packageを作成し、それぞれ10群62／11群71検査とnative7のfresh CPU-onlyが成功。共通67群654（Win1skip）も成功。normal固定packetのrequired generationはsealed generated baselineまで検証しhit/コンパイラ0/GPU0。実immutable cache CLIでCUBIN側の必須flagを全て与えてもpaired generation指定なしならcapture/worker/claim前に停止する負例が成功。通常CUDA cache hit/launch認定ではない。追加GPU0。packet-fates-final-preflight-v1.jsonに全manifest/receipt hashを保存。ローカルjobは残っていない。
+
+### 2026-10-28 元ヴェルヴェットの敵弾薬を実Metalへ接続
+
+共通CLI enemy-ammoの元76定義/6戦闘条件＋raw拒否14をM5 Metalとfresh GPU禁止全出力監査でseal。固定0d3bce27、packet34cbe45d、GPU0.8562025秒、cold pipeline59.394478秒、独立監査124.232063秒。既存ADD/BODY incomingの前へ世代magazine/残弾/reload gateを接続し、元射撃試行を保持。Lv1/Lv10、空対象、再出現、死亡、BODYを全battle/履歴/通知と比較。resource通知各800/合計4,800を省略せず、従来128prefix＋専用tail4,096容量で保存。味方/敵の割合・flat数値はammo_instant_numeric.slangの同じ関数（standalone713は別独立seal）。Runtime138,952byte不変。
+
+v2はkind11のactor受付漏れstatus64、v5は通知128上限status8で失敗しraw/claimを全保持。resource op3/実行flag付きkind11の専用gateと共通logの容量/offset hookで修正。CPU基準を通常経路で再計算し、現在sourceの正確なinverse ledgerを保持、厳密normalizer/保護CPUは未変更。通常CLIと必須CUBIN/O1/compile cache/paired generationのcache-only入口を登録した。Windows新run依頼0、CUDA実機未確認。
+
+次は共有numeric抽出/resource hook後の旧スイート現source再認定をまとめ、未対応の敵武器/容量変更、flat/forced reload、self-destruct/付随debuff等へ進む。旧成功を現sourceへ付替えない。全キャラ/default受付は未認定。詳細docs/portable-enemy-ammo-gpu.md、証跡target-count-query-evidence/enemy-ammo-metal-v1.json、独立receipt tests/fixtures/enemy-ammo-independent-v1.json。

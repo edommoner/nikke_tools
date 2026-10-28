@@ -1,0 +1,15 @@
+{
+  "package_id": "34cbe45d3dc84300870a49633c6c8f40762e8452ea2a8a42ec3e3f892ef81afa",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/enemy-ammo-metal-v6-capture",
+  "child_pid": 71978,
+  "input_count": 20,
+  "native_cases": 6,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 124.23206337500596,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "7f6cf4ef635fcd2d006f36c8aaae92582860521f91d4e1b80ddbd3699161722a",
+  "output_sha256": "d527b625632b13c291ead1209aa9830dfcb91cd992461141d1c7cc731c8b92d6",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "schema": "independent-metal-audit-v1"
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "ammo-instant-numeric-metal-v1",
+  "package_id": "93b8addf1df592b76f6dea11f2ef7d1d0178663fe90df2b522e0d864cb04f5cc",
+  "inputs": 713,
+  "native_cases": 705,
+  "wire_rejections": 8,
+  "expected_numeric_domain_errors": 82,
+  "original_handlers_used": true,
+  "allied_enemy_numeric_functions_shared": true,
+  "device": "Apple M5",
+  "gpu_seconds": 9.820834384299815e-05,
+  "independent_audit_seconds": 1.4573856249917299,
+  "calculation_verified": true,
+  "independent_gpu_calls": 0,
+  "input_sha256": "b26881fd23938f5af41f455ecf519b788bbdf36170615cec4667830e2ae0b006",
+  "output_sha256": "a826d4f182e8192494bb4d7742122ba550e26beddb1432006ae7441e5b6a7baa",
+  "v1_cli_passed": false,
+  "v1_raw_preserved": true,
+  "v1_domain_status_schema_corrected": true,
+  "global_cli_success_guard_changed": false,
+  "cuda_verified": false,
+  "full_goal_complete": false
+}

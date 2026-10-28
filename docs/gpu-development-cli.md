@@ -651,3 +651,7 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 `package --suite add-attack-schedule --out NEW.zip`はADD射撃生成部品のsealed19入力（元BossScript8/拒否11）を梱包する。`add-attack-schedule-cache-only`は同じ計算にCUBIN/O1必須・NVRTC禁止を適用し、standaloneなのでresident生成cache指定を使わない。M5/独立監査成功、現CUDA・実戦actor pool・敵弾薬は未接続。[部品と残件](portable-add-attack-schedule.md)。
 
 `package --suite add-attack-battle --out NEW.zip`は本体actor poolから既存incoming実行器へ接続したsealed17入力（元70定義の6編成/拒否11）。M5とfresh独立監査で284発・1,120被弾が一致。`add-attack-battle-cache-only`は同じ計算にCUBIN/O1・NVRTC禁止・paired generation必須を適用する。現CUDA・敵弾薬・defaultは未確認。[実戦接続](portable-add-attack-battle.md)。
+
+## 元ヴェルヴェットの敵弾薬実戦
+
+`enemy-ammo`は元76定義の6戦闘条件＋不正14入力を実M5 Metal/独立GPU禁止監査でsealした20入力。`package --suite enemy-ammo`から固定packetを作る。敵BODY/ADDの固定宣言magazine・残弾・reload・世代・完了通知を既存incoming実行器へ接続し、4,800件のresource通知を全保持する。`enemy-ammo-cache-only`は同じ計算/goldenのCUBIN/O1・必須compile cache/NVRTC禁止・必須paired generation入口。現在のCUDA実機は未確認。敵武器変更/容量バフ/flat/forced reload/default受付/全キャラ認定は含まない。[実装・失敗履歴・実測](portable-enemy-ammo-gpu.md)。
