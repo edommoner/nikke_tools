@@ -5,6 +5,9 @@ from pathlib import Path
 
 def project_sources(root,sources=None):
     root=Path(root);ledger=json.loads((root/'tests/fixtures/portable-enemy-ammo-source-delta.json').read_text());out=dict(sources or {})
+    if (root/'gpu/world_add_self_destruct_entry.slang').exists():
+        from portable_add_self_destruct_source_contract import project_sources as self_destruct
+        out=self_destruct(root,out)
     for name,digest in ledger['added_sources'].items():
         if hashlib.sha256(out.get(name,(root/name).read_text()).encode()).hexdigest()!=digest:raise ValueError('Unreviewed enemy ammo dependency: '+name)
     for name,row in ledger['files'].items():

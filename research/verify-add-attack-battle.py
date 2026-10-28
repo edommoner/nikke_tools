@@ -52,6 +52,9 @@ def compare_observed(block,domain,n,indices):
     for slot,b in enumerate(domain[2]):
         at=h+A['STATE_BASE']+slot*2
         if int(b.kind)!=5:assert not any(block[at:at+2]);continue
+        if 'firing_cursors' in n:
+            assert list(block[at:at+2])==n['firing_cursors'][slot],'Every canonical generation/fired cursor, including unshot generations'
+            continue
         rows=[r for r in n['queued_add_attacks'] if r['slot']==slot]
         if not rows:assert not any(block[at:at+2]);continue
         generation=rows[-1]['generation']

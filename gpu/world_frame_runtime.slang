@@ -78,6 +78,9 @@ void worldFrameDeliver(inout Runtime s,uint64_t when,uint output)
         for(uint i=0;i<count && s.error==0;i++)
         { worldFrameNotice(s,(packed>>(i*3))&7,when,output);if(s.error==0) results[record+5]++; }
     }
+#ifdef PORTABLE_ADD_SELF_DESTRUCT
+    if(s.error==0)deliverAddSelfDestructNotices(s,when,output);
+#endif
     WORLD_STATE_DROP_GONE(s) while(cursor<end && s.error==0)
     {
         uint record=head+WS_LOG+cursor*6;cursor++;results[head+5]=cursor;

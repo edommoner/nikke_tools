@@ -16,7 +16,11 @@ bool initializeAddAttackBattle(inout Runtime s)
         if(commands[source]!=2||commands[source+1]!=count||count>127||commands[row+1]>0x7fffffffU||commands[s.inputBase+WF_INPUT+16+node*64+6]!=0)return false;
         uint64_t interval=loadNumber(row+2);
         if(!f64Finite(interval)||f64Less(interval,0)||commands[row+1]==0&&!f64Zero(interval))return false;
+#ifdef PORTABLE_ADD_SELF_DESTRUCT
+        if(!validAddSelfDestructRow(s,row))return false;
+#else
         for(uint i=4;i<8;i++)if(commands[row+i]!=0)return false;
+#endif
         uint p=row+8;
         if(commands[p]!=32||commands[p+1]!=0||commands[p+2]!=0||commands[p+3]>1)return false;
         for(uint i=4;i<8;i++)if(commands[p+i]!=0)return false;
@@ -32,7 +36,12 @@ bool initializeAddAttackBattle(inout Runtime s)
         }
     }
     for(uint i=0;i<ADB_MAP_BASE+ADB_MAP_ROWS*2;i++)results[adbHead(s)+i]=0;
-    results[adbHead(s)]=ADB_MAGIC;return true;
+    results[adbHead(s)]=ADB_MAGIC;
+#ifdef PORTABLE_ADD_SELF_DESTRUCT
+    return initializeAddSelfDestruct(s);
+#else
+    return true;
+#endif
 }
 
 void addAttackEmit(inout Runtime s,inout WorldSchedule w,uint node,uint slot,uint generation,uint index,uint64_t when)
@@ -62,11 +71,18 @@ void addAttackBattleFrame(inout Runtime s,uint64_t when,uint first)
         {
             uint b=actorBinding(s,slot);if(commands[b]!=5||commands[b+3]!=node)continue;
             uint p=actorPoolAt(s,slot),index,cursor=head+ADB_STATE_BASE+slot*2;
+#ifdef PORTABLE_ADD_SELF_DESTRUCT
+            while(s.error==0&&nextWorldAddAttack(cursor,results[p],results[p+1]!=0,f64Add(actorNumber(p+8),loadNumber(row+5)),commands[row+1],loadNumber(row+2),when,index))
+#else
             while(s.error==0&&nextWorldAddAttack(cursor,results[p],results[p+1]!=0,actorNumber(p+8),commands[row+1],loadNumber(row+2),when,index))
+#endif
             {
                 addAttackEmit(s,w,node,slot,results[p],index,when);
                 results[wsState(w,node)+4]++;
             }
+#ifdef PORTABLE_ADD_SELF_DESTRUCT
+            if(s.error==0)retireAddAfterFinalShot(s,node,slot,cursor,when);
+#endif
         }
     }
     for(uint n=0;n<64;n++)results[head+ADB_BODY_BASE+n]=0;
