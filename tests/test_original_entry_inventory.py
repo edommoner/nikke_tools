@@ -65,11 +65,22 @@ class EntryInventoryTests(unittest.TestCase):
 
     def test_cli_routes_each_suite_to_its_real_input_policy(self):
         import nikke_gpu
-        for name,policy in [('coordinate-original','original-coordinate-v1'),('original-projectile-weapons','body-owned-projectile-v1'),('original-shield-weapons','body-owned-hp-shield-v1')]:
-            with patch.object(inventory,'run',return_value={'passed':True}) as run,contextlib.redirect_stdout(io.StringIO()):
-                nikke_gpu.main(['entry-inventory','--suite',name,'--out','/tmp/not-written-entry-inventory.json'])
-            self.assertEqual(run.call_args.kwargs['input_policy'],policy)
-            self.assertEqual(run.call_args.kwargs['source'],nikke_gpu.SUITES[name]['source'])
+        with tempfile.TemporaryDirectory() as directory,patch.object(nikke_gpu,'ROOT',Path(directory)):
+            for name,policy in [('coordinate-original','original-coordinate-v1'),('original-projectile-weapons','body-owned-projectile-v1'),('original-shield-weapons','body-owned-hp-shield-v1')]:
+                with patch.object(inventory,'run',return_value={'passed':True}) as run,contextlib.redirect_stdout(io.StringIO()):
+                    nikke_gpu.main(['entry-inventory','--suite',name,'--out',str(Path(directory)/'unused.json')])
+                self.assertEqual(run.call_args.kwargs['input_policy'],policy)
+                self.assertEqual(run.call_args.kwargs['source'],nikke_gpu.SUITES[name]['source'])
+
+    def test_compact_packet_rejects_inventory_before_its_producer_runs(self):
+        import nikke_gpu
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);(root/'gpu-package.json').write_text(json.dumps(dict(payload_projection=dict(profile='selected-suite-python-v1'))))
+            with patch.object(nikke_gpu,'ROOT',root),patch.object(inventory,'run') as run:
+                with self.assertRaisesRegex(ValueError,'full checkout/package'):
+                    nikke_gpu.main(['entry-inventory','--suite','coordinate-original','--out',str(root/'unused.json')])
+                run.assert_not_called()
+            self.assertFalse((root/'unused.json').exists())
     def test_rejections_bind_original_sources_and_keep_distinct_operators(self):
         from portable_specs import LIMITS as L,FIELDS as F
         words=[0]*(L['DEFINITION_BASE']+2*L['DEFINITION_WORDS']);words[1]=2
