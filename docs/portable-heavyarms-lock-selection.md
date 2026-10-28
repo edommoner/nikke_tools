@@ -1,5 +1,11 @@
 # Lock Onの次の実装契約
 
+## 2026-10-28 追加判断：振替は発射前、発射後の死亡は失発という公開記述
+
+[NIKKE.GGの著者記事](https://nikke.gg/snow-white-heavy-arms-analysis-should-you-pull/)（lzzy、掲載上の更新2026-01-08）の検索索引本文で、順番攻撃の**発射前**に予定対象が死亡した場合は残りのロック対象へ振替、**発射後から着弾前**に死亡した場合は失発するという区別を確認した。直接取得は403、画像/動画は今回未確認で、制御実験としての認定ではない。同一記事の再取得は独立した根拠を増やさない。[Prydwen](https://www.prydwen.gg/nikke/characters/snow-white-heavy-arms)の取得順循環・固有の挑発例外は本文で再確認した。
+
+設計上の判断は、発射時の振替policyと着弾時の既存世代/生存検査を分けること。発射済みpacketを着弾時に別敵へ自動振替する根拠にはしない。振替先、全滅、同frame順、PART資格、中心/外形/奥行き距離は未確定であり、既存の明示dropモデルやgoldenを変更しない。実機待ちを解消するための公開情報上の判断であり、全25効果/公開GPU受付へ昇格しない。出所・取得制約は `research/target-count-query-evidence/heavyarms-online-launch-boundary-20261028.json`。この調査によるGPU/Windows追加実行0。
+
 ## 2026-10-28 ネット調査による選択規則の判断
 
 実機環境を待たず公開情報で判断する指定に従い、日本語・英語・韓国語の公開記述を照合した。スキル記述で支持されるのは、照準を基準に未ロック敵を充填中0.2秒ごとに選ぶこと、通常5対象、バーストで10対象追加、通常攻撃/ハイドで解除すること。[公式発表](https://press.levelinfinite.com/en-US/GODDESS-OF-VICTORY-NIKKE-REVEALS-MAJOR-NEW-YEAR-UPDATE-FEATURING-LEGEN)はキャラ追加の一次資料だが距離式は説明していない。[公式番組を出所とするスキル全文](https://www.famitsu.com/article/202512/62211)は取得できたが、番組動画自体の今回の取得は失敗したため、映像を確認したとは扱わない。

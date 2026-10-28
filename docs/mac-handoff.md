@@ -2,7 +2,7 @@
 
 `enemy-healing-common`は元アン全69定義、既存idle source/ADD HP/世代/回復倍率で6条件を検証。元Lv10約0.2107/Lv1約0.5659が実回復量へ反映。回復が実際の生存/累積得点へ影響する検査、上限/死亡拒否、未期限切れ旧世代の除外、二重t0とalias復元を含む。新時計/HP heap/効果の置換なし。
 
-小数回復後の撃破ではraw score/overkillが小数になるが、公開SimResultは元からキャラ別round→合算だった。失敗診断を保持し、内部ledgerと公開roundを別々に検査する。GPUで途中int変換しないことが次の数値要件。専用11検査成功。既定consumer未設置/GPU wire/Metal/CUDA未接続、分類はreference_model_gap。次は[敵回復wire/phase/小数credit設計](portable-enemy-healing.md)に従い共通GPUへ接続する。以下は履歴。
+小数回復後の撃破ではraw score/overkillが小数になるが、公開SimResultは元からキャラ別round→合算だった。失敗診断を保持し、内部ledgerと公開roundを別々に検査する。GPUで途中int変換しないことが次の数値要件。専用11検査成功。既定consumer未設置/GPU wire/Metal/CUDA未接続、分類はreference_model_gap。次は[敵回復wire/phase/小数credit設計](portable-enemy-healing.md)に従い共通GPUへ接続する。固定5fb6a02c/package c8d95305…のown CLIで参照6件（7.11秒）・11群83unit・model-checkが成功。GPU追加0。出所 `research/target-count-query-evidence/enemy-healing-cpu-final-v1.json`。以下は履歴。
 
 最終b390bad5の通常1b700538…/cache-only16917e53…を固定。own CLIの72unit/model-check/required generation sealed baseline hit・Slang0と、CUBIN O1・2GiB・60秒compile-plan/必須flag負例が成功。追加GPU0。出所logical-Nihilister-final-checks-v1.json、private継続点logical-Nihilister-sealed-continuation-v1.json。既知の元multi_hit2/4はこの明示幾何モデルで検証できたが、既定producer/残る5stat/敵quantity/現CUDA/全キャラは未完。次は未対応分類の新しい実戦consumerを優先し、同じ形状fixtureの反復だけへ縮小しない。
 
