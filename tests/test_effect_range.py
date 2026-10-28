@@ -62,6 +62,11 @@ class EffectRange(unittest.TestCase):
         self.assertEqual((a['input_count'],a['native_cases']),(21,12));self.assertFalse(proof['battle_damage_delivery_verified'])
         self.assertFalse(proof['current_cuda_verified']);self.assertFalse(proof['default_producer_installed']);self.assertFalse(r['gpu_supported'])
         self.assertEqual(r['lane'],'reference_model_gap')
+    def test_current_source_recertification_retains_every_historical_result(self):
+        old=json.loads((ROOT/'research/portable-named-effect-range-v1-expected.json').read_text())
+        new=json.loads((ROOT/'research/portable-named-effect-range-v2-expected.json').read_text())
+        for key in ('input_sha256','output_sha256','entries'):self.assertEqual(old[key],new[key])
+        self.assertNotEqual(old['source_sha256'],new['source_sha256'])
     def test_invalid_numeric_and_unreviewed_target_contracts_fail_closed(self):
         for changes in (dict(fixed_value=True),dict(fixed_value=float('nan')),dict(fixed_value=-101.),dict(target='all_enemies'),dict(target_effect=''),dict(scaling='max_ammo')):
             with self.subTest(changes=changes),self.assertRaises(ValueError):validate_effect(dict(original()[1],**changes))

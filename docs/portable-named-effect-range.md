@@ -1,3 +1,7 @@
+## 現sourceでの旧selection21再認定
+
+共通stack admission修正後の固定5369e834/package f052572f…で、M5全21入力とfresh独立sealが成功。input/出力13,418,496byteと全native/entry hashを旧版から保持。旧v1 goldenとv2 receiptは履歴として残し、新v2 golden/v4 receiptを通常・cache-onlyへ登録した。GPU0.003406秒、独立監査1.23757秒。前版v3の再認定はunit testが古い登録goldenを読むためGPU前停止。明示development packetの検証済みmanifest sourceへテストを接続し、通常source一致検査は維持した。新battle認定とのscope混同はしない。
+
 # 2026-10-28 元87定義の範囲battleをM5で独立認証
 
 新named-range-battleは元AsukaWILLE/Rei(가칭)/Miranda/Dora/Maryの全87定義を保ち、拡大範囲・小基準半径・遅延spawn・死亡ADDの4worldを共通Slangへ接続。cast時の実carrierから範囲・対象数を読み、既存actor集合/世代付きsnapshot/queue/HP/landingで配送する。入力に選択結果やCPU damageを保存しない。

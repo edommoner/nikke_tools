@@ -1,3 +1,11 @@
+# 2026-10-28 範囲battle通常/cache検査・旧selection21の現source再認定が成功
+
+登録aa4c32e1の通常/cache固定packetは7群53unit/9群81unit成功。sealed paired generationはrequired hit/Slang0、CUBIN/O1・2GiB・60秒compile-plan成功（実compile/GPU/Windows0）。結果はnamed-range-battle-registered-v6.json。
+
+旧selection21はsource変更を正しく拒否した。development packet内だけ検証済みmanifestの新source基準を読むようテストを修正（5369e834）、通常goldenのcurrent一致は維持。固定f052572f…のM5全21とfresh独立seal（1.23757秒）が成功。GPU0.003406秒、旧input全byte/出力13,418,496byte/全entry/native hashを保持し、v1を残してv2 goldenへ登録。v3はCPU testでGPU前停止し失敗を保持。証拠named-effect-range-current-source-v4.json。
+
+新battle16と旧selection21は別scope。旧logical13/rosters5/healing14の現共通source再認定はまだ必要。default正本consumer5種/公開数値受付/現CUDA/全キャラは未達のまま。Windowsstatusはhost unavailable durableで追加実行・再送0。以下は履歴。
+
 # 2026-10-28 元範囲battle全16入力の保存再監査・独立seal成功
 
 固定240a9788/package8b532626…の修正比較器で、保存v3出力全16入力をfresh16群で再監査成功（242.42秒）。続いて別fresh8群（2入力/群・各180秒上限）で独立seal成功（216.40秒）、同じ監査から期待値とfull-source compiler証明書を生成。元4worldの各54cast/実選択/元87定義の全battle比較とraw拒否12を含む。元失敗/claim/rawを保持、追加GPU0/Windows再実行0。通常named-range-battleと同じ計算のcache-onlyを登録し、CUBIN/O1・paired generation必須を継承。キャッシュ実hit/現CUDA/実ゲーム半径・最近傍/default consumer/全キャラは未認定。

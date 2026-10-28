@@ -1,0 +1,22 @@
+{
+  "schema": "named-effect-range-current-source-recert-v4",
+  "source_commit": "5369e83435f724ae8c823719e38de8ad93f5695f",
+  "package_id": "f052572fbbae07ae6408cc956baaa647f458dc88b70164475abb12ae2061c0db",
+  "inputs": 21,
+  "native_cases": 12,
+  "metal_verified": true,
+  "independently_audited": true,
+  "independent_seconds": 1.2375736249960028,
+  "gpu_seconds": 0.0034060000034514815,
+  "pipeline_compile_seconds": 0.0013589859008789062,
+  "all_previous_input_and_output_bytes_retained": true,
+  "all_previous_native_and_entry_hashes_retained": true,
+  "input_sha256": "cc0b5f62f15c85d1e686598dbf637b1f2a185a4ccdd1da79e77ea5636646414b",
+  "output_sha256": "deddd9fc5d1358e7c4dea616c7e77db1c1e7efde4061caa656e91b0117b4b197",
+  "old_golden_preserved": "research/portable-named-effect-range-v1-expected.json",
+  "new_golden": "research/portable-named-effect-range-v2-expected.json",
+  "predevice_v3_failure_preserved": true,
+  "current_cuda_verified": false,
+  "full_goal_complete": false,
+  "scope": "Selection-only model, not full battle certificate; a separate named-range-battle proof exists"
+}
