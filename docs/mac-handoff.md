@@ -2,6 +2,8 @@
 
 # 2026-10-28 敵弾薬の元ハンドラ・実射撃をCPU契約へ接続
 
+ADD部品の登録6fde3ca2後も通常/キャッシュ専用固定packageで12/21unit成功、CUBIN/O1・2GiB・60秒plan成功（compiler/GPU0）。旧GPU421ファイル・保護CPU4ファイルの全byte保持、旧enemy-healing source-baseline currentを確認。追加GPU0。現Windows statusはhost unavailable/durable、既存結果取得のみ待ち、新runなし。小証跡`target-count-query-evidence/add-attack-registered-cli-checks-v1.json`。
+
 後続：GPUの既存scheduleはADD射撃を拒否することを確認し、`add-attack-schedule`の共通cursorを先行実装。固定39a1908b/package468ff5fb…の8正例/11拒否（全187発）がM5/独立fresh GPU禁止監査で成功。GPU0.008248秒・監査1.487986秒。旧GPU本体source変更0。初版はfinish退場後のcleared診断1項目だけ失敗しraw/claim保持、別packageで修正。関連67検査成功。`add-attack-schedule-cache-only`は同じ計算のCUBIN/O1必須・NVRTC禁止、standaloneでresident生成cache指定不可。現CUDA/battle actor pool/弾薬未接続。詳細`portable-add-attack-schedule.md`と`target-count-query-evidence/add-attack-metal-component-v1.json`。
 
 固定b8416750/package39a7382f…（3,816file/ZIP12,939,983byte）を別展開し、own CLIでも6契約2.641秒・新規8検査成功。全input/native/trace/contract指紋をcheckoutから保持し、実行後の全payloadも検証。container suiteのenemy-healing Metalは再実行0。梱包receiptは`target-count-query-evidence/enemy-ammo-frozen-cli-receipt-v1.json`。

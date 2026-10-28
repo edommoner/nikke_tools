@@ -1,5 +1,7 @@
 # ADD射撃の共通生成部品
 
+登録6fde3ca2の通常/キャッシュ専用固定packageはunit-check12/21成功。キャッシュ版のCUBIN/O1・2GiB・60秒compile-plan成功（compiler/GPU0、実コンパイル成立の証明ではない）。既存GPU421ファイルと保護CPU4ファイルのbyte保持、旧enemy-healingの登録sourceが現状と一致することも確認した。記録は`target-count-query-evidence/add-attack-registered-cli-checks-v1.json`。Windowsの既存保存結果statusはhost unavailable/durableで、追加run/再送なし。
+
 敵弾薬の全6 CPU契約をGPUへ接続する前提として、ADD自身の射撃producerが不足していた。既存`compile_schedule`は`Summon attack lifecycle is not connected`として拒否する。本体の受付を開く前に、既存graph時計と元`BossScript`の実AttackHitを比較する`add-attack-schedule`を共通CLIへ登録した。
 
 `gpu/world_add_attack_cursor.slang`の`nextWorldAddAttack`は、呼出し側から実generation/alive/bornを受け、2wordのgeneration/firedだけを所有する。元と同じ`born + index * interval`と既存`wsReached`を使う。新世代でindexを0へ戻し、生存中のdueだけを順に取り出す。Pythonで計算した発射リストや出現時刻はGPUへ渡さない。CUDA/Metalは同じSlangを使い、Runtime本体や旧GPUソースの変更はない。
