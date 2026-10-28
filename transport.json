@@ -1,0 +1,13 @@
+{
+  "schema": "staged-failure-controller-transport-v1",
+  "source_commit": "b8d5cdc4e48ea33ee25805627823fc1fe17893f9",
+  "package_id": "ebe7d2dbdc4697077f1cffc2b9997f2400db5912787af6e5764ecf392d496a7e",
+  "archive_bytes": 13029265,
+  "archive_sha256": "bbd51b943b5417c069a128e9be6bb803532092e82ac7e455f75e530a978ed8ce",
+  "files": 3875,
+  "source_only": true,
+  "compiled_and_raw_binaries": false,
+  "identical_tested_payload_package_id": "754fcea8ada39be67da03e080b3fe16ecefc5ff75ac2b02068e204efb7911525",
+  "mac_unit_tests": 90,
+  "execution_permitted": false
+}
