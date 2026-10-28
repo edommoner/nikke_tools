@@ -1,0 +1,44 @@
+{
+  "schema": "compile-preservation-projection-v1",
+  "original_compile_stage_verified": false,
+  "original_claims_modified": false,
+  "scopes": {
+    "outer": {
+      "process_preserved": true,
+      "environment_preserved": false,
+      "service_status_before": "unverified",
+      "service_status_after": "unverified",
+      "service_preservation_verified": false,
+      "missing_process_count": 0,
+      "observation_error": null,
+      "cleanup_error": null
+    },
+    "inner": {
+      "process_preserved": true,
+      "environment_preserved": false,
+      "service_status_before": "unverified",
+      "service_status_after": "unverified",
+      "service_preservation_verified": false,
+      "missing_process_count": 0,
+      "observation_error": null,
+      "cleanup_error": null
+    }
+  },
+  "inner_outer_differ": false,
+  "new_cpu_probe_execution": {
+    "passed": true,
+    "timed_out": false,
+    "elapsed_seconds": 0.4117678999900818,
+    "exit": 0,
+    "below_normal_priority": true,
+    "memory_limit_bytes": 2147483648,
+    "pre_gate_verified": true,
+    "job_post_members": 0,
+    "job_peak_bytes": 57020416,
+    "inspection_error": null,
+    "gpu_calls": 0,
+    "slang_calls": 0,
+    "nvrtc_calls": 0,
+    "driver_calls": 0
+  }
+}
