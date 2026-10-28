@@ -50,6 +50,7 @@ class EnemyHealingRuntime(unittest.TestCase):
         suite=nikke_gpu.SUITES['enemy-healing']
         self.assertTrue(suite['development_only'])
         self.assertEqual((suite['inputs'],suite['native']),(14,6))
+        self.assertTrue(nikke_gpu.registered_entry_wire_preflight(suite)['passed'])
         spec=importlib.util.spec_from_file_location('enemy_healing_adapter_test',ROOT/suite['script'])
         adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
         rows,raw=adapter.prepare()
