@@ -42,6 +42,18 @@ def native_reference(domain):
 
 def words(value):return list(struct.unpack('<II',struct.pack('<d',float(value))))
 
+def selection_words(domain,n,indices,cast_keys):
+    from world_coordinate_sampled_skill_native import trace_view
+    _,m,bindings,_=domain;by_label={b.label:i for i,b in enumerate(bindings)};selection=[]
+    # The legacy trace has placeholder hit numbers. Bind it to the observed
+    # native HitEvent creation loop, exactly as the shared battle comparer does.
+    for trace in trace_view(n['skill_trace'],indices):
+        row=m['binding_source_indices'].index(trace['row']);adds=cast_keys.get((row,trace['created']),[])
+        selection.extend([row,trace['hit'],len(adds),0])
+        for actor in adds:
+            slot=by_label[actor['label']];kind,identity,generation=actor['handle'];selection.extend([slot,kind,identity,generation])
+    return selection
+
 def compare_observed(block,domain,n,indices):
     assert len(block)==OUTPUT and block[0]==0,'Complete successful named range battle output required'
     c,m,bindings,_=domain;casts=n['named_range_battle']['casts'];count=len(casts);head=list(block[OUT:OUT+OUT_HEADER])
@@ -63,13 +75,7 @@ def compare_observed(block,domain,n,indices):
     # new ADD cast keys are compared explicitly; no native trace is removed.
     from portable_arena_specs import coordinate_layout
     cp=coordinate_layout(1048576)
-    selection=[]
-    for trace in n['skill_trace']:
-        row=m['binding_source_indices'].index(trace['row']);adds=cast_keys.get((row,trace['created']),[])
-        # Legacy B3 pending packets do not own a coordinate cast snapshot.
-        selection.extend([row,trace['hit'],len(adds),0])
-        for actor in adds:
-            slot=by_label[actor['label']];kind,identity,generation=actor['handle'];selection.extend([slot,kind,identity,generation])
+    selection=selection_words(domain,n,indices,cast_keys)
     used=block[cp['BASE']+3]
     assert block[cp['BASE']+4]==len(n['skill_trace']) and used==len(selection),('All cast selections',block[cp['BASE']+4],len(n['skill_trace']),used,len(selection))
     assert list(block[cp['SELECTION']:cp['SELECTION']+used])==selection,'Every frozen coordinate/radial selection'

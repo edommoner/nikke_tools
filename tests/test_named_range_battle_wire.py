@@ -29,6 +29,13 @@ class NamedRangeWire(unittest.TestCase):
         # Earlier callers must reject altered new dependencies as well.
         with self.assertRaises((ValueError,AssertionError)):
             project_sources(ROOT,{'gpu/stack_runtime.slang':(ROOT/'gpu/stack_runtime.slang').read_text()+'\n// changed'})
+    def test_selection_uses_verified_creation_hit_instead_of_legacy_placeholder(self):
+        s=importlib.util.spec_from_file_location('range_selection_test',ROOT/'research/verify-named-range-battle.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
+        trace=dict(row=7,created=1.,landed=2.,amount=10.,hit=1,hits=1)
+        actual=dict(trace,hit=2,hits=3);domain=(None,dict(binding_source_indices=[7]),[],None)
+        self.assertEqual(a.selection_words(domain,dict(skill_trace=[trace]),[actual],{}),[0,2,0,0])
+        with self.assertRaises(AssertionError):a.selection_words(domain,dict(skill_trace=[trace]),[dict(actual,amount=11.)],{})
+        with self.assertRaises(AssertionError):a.selection_words(domain,dict(skill_trace=[trace]),[dict(actual,hit=4)],{})
     def test_raw_cases_and_checked_source_inverse_are_complete(self):
         from portable_named_range_battle_source_contract import project_sources
         import json

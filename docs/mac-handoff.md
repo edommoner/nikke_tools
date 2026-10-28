@@ -1,3 +1,9 @@
+# 2026-10-28 範囲battle M5実行・命中番号比較器修正
+
+固定628dd82d/package ee3ab93f…のown CLIが6群48unit/fresh native4（175.65秒）/required generation hitを通過しM5 Metalで16入力を1回実行。GPU2.29904秒、冷PSO58.4064秒。正例4件status0/各54cast recordは一致、raw拒否12件成立。ただし全selection比較は旧traceの仮hit1を使って停止。既存trace_viewで実HitEvent生成番号を厳密に結び、同一GPU保存出力のexpanded1件をfresh CPUで診断すると全既存battle比較が成功（41.44秒、102creation receipts）。全16の固定再監査と独立sealは未完、成功golden未登録。同claim再試行0/GPU追加0/Windows追加0。証拠named-range-battle-metal-v3.json。
+
+共通source inverseの二重healing巻戻しと途中の検査済み依存dropを修正（f1de08fc）。新wire5/旧logical5/旧named6/元health-parts6検査が成功、改変sourceの拒否を維持。旧logical生成CUDA/MSLは今回の共通admission修正で変わり、旧goldenの現source再認定は未完。正規化器/保護CPU/旧証明書の書換えなし。次は修正版固定packetで保存v3出力を全件replay/独立sealし、現CUDAは引き続き未認定とする。全目標未達。以下は履歴。
+
 # 2026-10-28 範囲battle初回Metalの初期化拒否を修正・再検証前
 
 v2はM5実GPUが完了したが正例4件すべてstage15/status64で初期化拒否、raw拒否8件は成立。失敗/raw/claimを保持し同claim再実行0。元Asukaのnamed-enemy MODE24..27とstack演算の併存が原因。新entryへ既存PORTABLE_NAMED_ENEMYを接続し、既存named validatorが検査する4wordだけstack検査から委譲。不正tag/name/flags/reservedを拒否する4件追加（全16入力）。新wire3/旧logical source5検査とpaired CUDA/MSL生成成功。修正版Metalは未検証、全目標未達。証拠named-range-battle-admission-v2.json。以下は履歴。
