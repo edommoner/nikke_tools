@@ -1,5 +1,5 @@
 """ADD schedule is authored input; its independent oracle is original BossScript."""
-import copy,importlib.util,struct,sys,unittest
+import copy,hashlib,importlib.util,json,struct,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/'app'),str(ROOT/'research')]
@@ -53,6 +53,24 @@ class AddAttackScheduleTests(unittest.TestCase):
         self.assertEqual(len(raw),4+len(rows)*INPUT_WORDS*4)
         for name,_,domain in rows:
             if domain is not None:self.assertIsInstance(m.native_reference(domain)['queued_attacks'],list)
+
+    def test_readiness_anchors_the_independent_component_scope(self):
+        from portable_readiness_semantics import enemy_ammo_prerequisites
+        p=enemy_ammo_prerequisites();c=p['declared_add_firing_component']
+        raw=(ROOT/c['evidence']).read_bytes();r=json.loads(raw)
+        self.assertEqual(hashlib.sha256(raw).hexdigest(),c['evidence_sha256'])
+        self.assertEqual((r['input_count'],r['native_cases']),(19,8))
+        self.assertTrue(r['calculation_verified']);self.assertEqual(r['gpu_calls'],0)
+        self.assertFalse(c['full_battle_actor_pool_connected']);self.assertFalse(c['ammo_connected'])
+        self.assertFalse(c['cuda_verified']);self.assertFalse(p['enemy_shot_reload_connected'])
+
+    def test_registered_cache_path_preserves_every_case_and_requires_cubin(self):
+        sys.path.insert(0,str(ROOT/'scripts'))
+        import nikke_gpu
+        regular=nikke_gpu.SUITES['add-attack-schedule'];cached=nikke_gpu.SUITES['add-attack-schedule-cache-only']
+        for key in ('script','source','golden','inputs','native','input_words','output_words'):self.assertEqual(regular[key],cached[key])
+        self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
+        self.assertNotIn('require_paired_generation',cached,'Standalone probe cannot require resident generation cache')
 
 
 if __name__=='__main__':unittest.main()

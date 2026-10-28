@@ -647,3 +647,5 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 `original-lock-health-parts`はsealed11入力（native7/raw拒否4）。実PART2個/破壊、負傷/CPR、元burst回復とHP条件、遅延ADDとの同居を全原定義で検証する。新entryは既存回復diagnosticを有効化するだけで、計算/時計は共有。204行の回復呼出し/配分/clamp/heal_received通知を元source付きで照合する。既存projectionが観測専用HP/adjacent_hp通知をserializeしない範囲は残す。`original-lock-health-parts-cache-only`は同じ計算/goldenのCUBIN/O1必須＋paired generation必須。現CUDA実機は未確認。[範囲と残件](portable-heavyarms-lock-selection.md)。
 
 `reference --suite enemy-ammo-common --out NEW.json` は元ヴェルヴェット全76定義の6つのCPU契約。固定容量の宣言モデルで既存敵攻撃・frame・世代・実被ダメージへ接続し、割合演算は元ハンドラのコード本体を再利用する。武器変更/容量バフ/self-destructは未対応。Metal/CUDA/defaultは未接続。[敵弾薬の設計と境界](portable-enemy-ammo.md)。
+
+`package --suite add-attack-schedule --out NEW.zip`はADD射撃生成部品のsealed19入力（元BossScript8/拒否11）を梱包する。`add-attack-schedule-cache-only`は同じ計算にCUBIN/O1必須・NVRTC禁止を適用し、standaloneなのでresident生成cache指定を使わない。M5/独立監査成功、現CUDA・実戦actor pool・敵弾薬は未接続。[部品と残件](portable-add-attack-schedule.md)。

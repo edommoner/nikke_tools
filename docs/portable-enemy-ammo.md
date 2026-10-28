@@ -1,5 +1,7 @@
 # 敵弾薬の共通実行契約
 
+GPU本体はADD自身の射撃をまだ拒否するため、その前提producerを`add-attack-schedule`として先に実装した。元graph時計とCUDA/Metal共通cursorで187発/19入力をM5＋fresh独立監査まで実証。死亡は部品用の明示刺激であり、本体actor pool/HP・弾薬消費との接続は未完了。[生成部品の境界と次の接続](portable-add-attack-schedule.md)。
+
 `reference --suite enemy-ammo-common --out NEW.json` は、ヴェルヴェットの元76効果・実武器・育成・owner順を保持した6つのCPU契約を実行する。既存のlogical collider/world actor実行器を使い、元の敵攻撃関数へ実際に配送し、味方への被ダメージ・HP記録まで照合する。元データや既定CPU入口を変更するものではなく、GPUへの接続は未完了。
 
 `app/enemy_ammo_model.py` はBODY/ADDの既存handle/generationに、明示した容量・初期残弾・リロード秒数を結び付ける。既存の`boss.begin_frame`を一度だけ呼び、そこで作られた攻撃オブジェクトと当時の世代を保持して、元の配送位置で残弾を消費する。ADDの`AttackHit.source`は表示名であり、world actorの`ADD_PREFIX`付きlabelへ変換する。未知のsource、失われたqueue identityをBODYへ代用しない。古い世代の発射は新しい同名ADDの弾を消費しない。
