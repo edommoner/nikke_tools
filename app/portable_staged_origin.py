@@ -108,7 +108,12 @@ def check(cli,package_root,capture,output,expected_package_id):
     try:
         failure=failure_check(cli,root,outer,output/'failure-audit.json',expected_package_id)
         before=inventory(cli,roots)
-        stdout,stderr=readmit(root,saved['transaction'],outer/'proof',output/'admission.json')
+        try:stdout,stderr=readmit(root,saved['transaction'],outer/'proof',output/'admission.json')
+        except (subprocess.CalledProcessError,subprocess.TimeoutExpired) as error:
+            def decoded(value):return value.decode('utf-8',errors='replace') if isinstance(value,bytes) else value
+            exclusive(output/'owner-output.json',dict(stdout=decoded(error.stdout),stderr=decoded(error.stderr),
+                error=type(error).__name__,returncode=getattr(error,'returncode',None)))
+            raise
         exclusive(output/'owner-output.json',dict(stdout=stdout,stderr=stderr))
         actual=cli.load(output/'admission.json')
         if actual!=saved:raise ValueError('Original own-CLI admission differs from failed execution receipt')

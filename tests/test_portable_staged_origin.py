@@ -85,6 +85,17 @@ class StagedOriginTests(unittest.TestCase):
             with self.subTest(path=p),self.assertRaises(ValueError):origin.check(cli,f.root,f.outer,p,f.m['package_id'])
             self.assertFalse(p.exists())
 
+    def test_failed_or_timed_out_owner_keeps_its_output_without_replaying(self):
+        f=self.f
+        for i,error in enumerate((subprocess.CalledProcessError(1,['old-cli'],output='partial receipt',stderr='bad old receipt'),
+            subprocess.TimeoutExpired(['old-cli'],120,output=b'partial timeout',stderr=b'timeout detail'))):
+            out=f.base/('failed-owner-'+str(i))
+            with patch('portable_continuation_package.owner_snapshot',return_value=dict(manifest=f.m)),patch.object(origin,'readmit',side_effect=error) as run,self.assertRaises(type(error)):
+                origin.check(cli,f.root,f.outer,out,f.m['package_id'])
+            self.assertEqual(run.call_count,1);self.assertFalse(cli.load(out/'result.json')['passed'])
+            self.assertIsInstance(cli.load(out/'owner-output.json')['stdout'],str)
+            self.assertFalse((out/'origin-inventory.json').exists())
+
     def test_legacy_process_uses_own_cli_and_never_selects_run_or_native_command(self):
         f=self.f;script=f.root/'scripts/nikke_gpu.py'
         script.write_text('import json,sys,pathlib\nassert sys.argv[1] == "staged-preflight-check"\nassert "--backend" in sys.argv and "cuda" in sys.argv\npathlib.Path(sys.argv[sys.argv.index("--out")+1]).write_text(json.dumps({"own_cli":True}))\nprint("own receipt only")\n')
