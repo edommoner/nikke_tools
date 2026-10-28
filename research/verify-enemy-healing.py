@@ -82,8 +82,10 @@ def compare_healing(block,domain,native):
     # are checked independently, without replacing any existing native field.
     account=L['DAMAGE_ACCOUNTING_STATE_BASE']
     raw=[data['final_scored_damage'].get(name,0.) for name in case['names']]
-    assert [number(account+30+i*2) for i in range(5)]==raw
-    assert number(L['WORLD_ACTOR_POOL_OUTPUT_BASE']+16)==data['final_overkill']
+    actual_raw=[number(account+30+i*2) for i in range(5)]
+    assert actual_raw==raw,dict(case=case['name'],field='raw_add_score',gpu=actual_raw,native=raw)
+    actual_overkill=number(L['WORLD_ACTOR_POOL_OUTPUT_BASE']+16)
+    assert actual_overkill==data['final_overkill'],dict(case=case['name'],field='raw_add_overkill',gpu=actual_overkill,native=data['final_overkill'])
     assert [round(value) for value in raw]==[data['public_summary']['add_char_total'][name] for name in case['names']]
     for row in data['final_adds']:
         at=L['WORLD_ACTOR_POOL_STATE_BASE']+slots[row['label']]*16

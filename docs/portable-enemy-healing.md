@@ -44,6 +44,14 @@ CPU専用11検査は実倍率、HP上限、score/hit維持、実生存差、死�
 
 共通Slangは既存world frameのpool同期直後・overlay/tick前に回復し、初期frame0も既存source generationを一度だけ消費する。出力1,867,648以降の旧未使用領域にheader16・node別seen32・最大1,024件×32wordのreceiptを置く。HPは従来pool+4、stack/寿命/世代付き敵carrierは従来consumer、数値は従来software binary64である。見えない旧世代は既存actorFieldMemberで除外し、hit/score/overkillを書き換えない。stride/entryを明示登録し、旧entryへの新stride混入をCPUで拒否する。
 
-比較器は全回復receipt・未使用row/予約word、全ADDの最終HP/hit/世代/退場・raw得点/overkillと実SimResultのキャラ別roundを先に検査する。その後、検証済みの追加bankだけをゼロへ投影し、従来の全battle/physical/group/skill-history比較器をそのまま実行する。旧nativeの値や比較項目を置換しない。既存6ファイルの変更は固定9b3f84ccからの全文SHA/完全一致inverseで記録し、旧source監査へ合成する。生成コードnormalizerは変更しない。
+比較器は全回復receipt・未使用row/予約word、全ADDの最終HP/hit/世代/退場・raw得点/overkillと実SimResultのキャラ別roundを先に検査する。その後、検証済みの追加bankだけをゼロへ投影し、従来の全battle/physical/group/skill-history比較器をそのまま実行する。旧nativeの値や比較項目を置換しない。既存7ファイル（初版6）の変更は固定9b3f84ccからの全文SHA/完全一致inverseで記録し、旧source監査へ合成する。生成コードnormalizerは変更しない。
 
 現時点のwire8/新runtime gate5/元モデル11の計24検査と、旧logical source/arena5検査が成功。完全native事前検査、paired生成、Metal実行、fresh独立sealはこれから行う。開発suiteの登録や単体検査をGPU成功と扱わない。
+
+## 最初のMetal実行で見つかった同射撃内の死亡後packet
+
+v4/package2d9216cb…はM5で14入力を1回実行し、5正例＋8拒否が全比較成功、死亡済み1件だけ過剰ダメージ不一致。実GPU4.8772秒、冷PSO58.8500秒、fresh CPU約580秒。成功したtransportを計算全成功へ昇格させず、raw/claim/失敗を保持。GPU再試行0。共通CLIのfresh保存group3監査でも同じ失敗を保持した。
+
+回復receipt/得点/最終HPを保存readbackと最小native health診断で切り分け、GPU85404対CPU498896のraw overkillに特定。既存logical direct配送が、前のpelletで死亡した同世代ADDを`alive==0`で早期dropしていた。正本hit_addはその残packetを過剰ダメージへ加算する。新修正はstale世代の拒否を残し、同世代は既存ActorPoolLandへ渡すだけ。既存の不受理receiptにより命中/得点/counter/group/traceは発生しない。別のHP/算術/通知器は追加しない。HP1への10→20の実hit_addがscore1/overkill29/hits0になる回帰検査も追加した。
+
+比較器のraw score/overkill assertに項目/実値/期待値の説明を追加し、比較内容は維持。旧logical entryの同じconsumerにも作用するため、旧13/5入力の現source再認定も必要。古いgolden/証明書を新sourceへ付け替えない。新固定packetで14入力のMetal＋fresh独立sealを行う。まだ修正版のGPU成功はない。

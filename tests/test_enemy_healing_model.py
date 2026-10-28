@@ -40,6 +40,19 @@ class EnemyHealingModel(unittest.TestCase):
         n=self.native['dead'];self.assertEqual(n['battle']['add_total'],2)
         self.assertTrue(all(r['status']=='dead-or-inactive' for r in n['enemy_healing']['receipts']))
 
+    def test_frozen_packet_to_dead_same_generation_still_owns_overkill(self):
+        from calculator.sim_result import HitEvent
+        enemy=copy.deepcopy(timeline.DEFAULT_ENEMY)
+        boss=BossScript(validate([dict(id='wave',kind='summon',spec=dict(count=1,hp=1.))]),enemy,lambda *_:True)
+        boss.begin_frame(0.,enemy);add=boss._runs[0].adds[0]
+        hit=lambda amount:HitEvent(t=0.,caster='probe',damage=amount,is_crit=False,hit_tag='normal')
+        self.assertTrue(boss.hit_add(hit(10),add.id,0.))
+        self.assertFalse(boss.hit_add(hit(20),add.id,0.))
+        self.assertFalse(add.alive);self.assertEqual(add.dealt,1.)
+        self.assertEqual(boss.add_dealt,{'probe':1.})
+        self.assertEqual(boss.add_overkill,29.)
+        self.assertEqual(add.hits,0)
+
     def test_unexpired_old_generation_reduction_is_excluded_on_rebirth(self):
         rows=[r for r in self.native['renewal']['enemy_healing']['receipts'] if r['excluded_stale_fields']]
         self.assertEqual(len(rows),2)

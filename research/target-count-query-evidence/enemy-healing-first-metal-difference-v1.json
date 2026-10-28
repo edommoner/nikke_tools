@@ -1,0 +1,39 @@
+{
+  "schema": "enemy-healing-first-metal-difference-v1",
+  "producer_source_commit": "4f56bc8eb7790fa9dc7dfff63a658c58cdc66bc9",
+  "package_id": "2d9216cb4de1d1605ecf454e405745974b3936b0d077b0a026c3d0e4118c07be",
+  "calculation_verified": false,
+  "transport_verified": true,
+  "input_count": 14,
+  "passed_entries": 13,
+  "mismatches": [
+    {
+      "index": 3,
+      "name": "enemy-healing/Anne/dead",
+      "reason": "AssertionError: "
+    }
+  ],
+  "isolated_health_difference": {
+    "difference": {
+      "case": "enemy-healing/Anne/dead",
+      "field": "raw_add_overkill",
+      "gpu": 85404.0,
+      "native": 498896.0
+    },
+    "gpu_calls": 0,
+    "scope": "Saved GPU plus minimal native health diagnostic; full fresh group failure preserved separately"
+  },
+  "device": "Apple M5",
+  "gpu_seconds": 4.877203500000178,
+  "library_compile_seconds": 1.9734479188919067,
+  "pipeline_compile_seconds": 58.85000205039978,
+  "cpu_preflight_seconds": 579.5654400830099,
+  "gpu_executions": 1,
+  "gpu_retries": 0,
+  "independent_saved_group_audit_passed": false,
+  "raw_and_failed_claim_retained": true,
+  "fix": "Allow frozen same-generation dead ADD packets through the existing ActorPoolLand overkill-only branch; keep stale generations rejected and unsuccessful receipts out of counters/groups/traces.",
+  "legacy_logical_current_source_recertification_required": true,
+  "full_goal_complete": false,
+  "windows_requests": 0
+}

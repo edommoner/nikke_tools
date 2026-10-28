@@ -186,7 +186,10 @@ void coordinateGroupDirectPacket(inout Runtime s,uint who,uint slot,uint generat
     if(slot>=actorPoolCount(s)||generation==0){s.error=64;return;}
     uint kind=commands[actorBinding(s,slot)],state=actorPoolAt(s,slot);
     if(kind!=0&&kind!=5){s.error=64;return;}
-    if(results[state]!=generation||results[state+1]==0)return;
+    // A frozen same-generation packet still owns its overkill after an
+    // earlier pellet killed the ADD. ActorPoolLand records that amount and
+    // returns an unaccepted receipt, so no hit/counter/group is published.
+    if(results[state]!=generation)return;
     do
     {
 #include "coordinate_group_actor_receipt.slang"

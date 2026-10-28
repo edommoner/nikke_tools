@@ -1,3 +1,11 @@
+# 2026-10-28 敵回復M5実行13/14一致・死亡後overkillを修正
+
+v4のfresh CPU6件（約580秒）/89unit/必須generation hitが成功し、M5 Metal1回で14入力を実行。5正例＋8拒否は全比較一致、dead1件のraw overkillがGPU85404/CPU498896。GPU4.8772秒・冷PSO58.8500秒。失敗/raw/消費済みclaimを保持し、同実行の再試行0。fresh保存group3監査でも同じ失敗を確認。計算全体はfalseのまま。
+
+原因は回復ではなく、共通logical direct配送で同射撃内の死亡済み・同世代ADDをearly dropしていたこと。既存ActorPoolLandのoverkill-only経路へ渡す1条件の修正と回帰検査を追加し、stale世代拒否、命中/counter/group/trace抑止を保持した。新25検査＋旧logical source5検査が成功。比較器は項目/実値/期待値の説明だけ追加し、比較を弱めない。旧logical13/5の現source再認定も後続で必要。
+
+次は修正版を別packetへ固定してMetal14件＋fresh独立seal。現在sourceでGPU成功未確認。Windows新依頼0。詳細[敵回復](portable-enemy-healing.md)、小さな失敗出所 `research/target-count-query-evidence/enemy-healing-first-metal-difference-v1.json`。以下は履歴。
+
 # 2026-10-28 敵回復14入力の完全CPU基準とpaired生成が完了
 
 固定4f56bc8e/package1581f245…の元6条件は完全観測で参照値を固定（1件約70〜104秒）。Anneにmulti_hit定義がないため欠けていたgroup空集合の観測を有効化し、旧v2のCPU作成は明示中断/GPU0・ログ保持。短い3秒診断で6種類の空group記録と実回復2件/元69定義を確認した。本来の6条件は短縮していない。
