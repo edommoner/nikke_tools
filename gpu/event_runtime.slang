@@ -403,7 +403,11 @@ bool worldEnemyAttackEnabled(inout Runtime s) { return targetCountersEnabled(s)&
 #define WORLD_ENEMY_ATTACK_ADMIT(s,d,at,kind,arg) if(worldEnemyAttackEnabled(s)&&d.enemyBuff!=0&&(d.stat==S_atk_pct||d.stat==S_atk_caster_based_pct)&&(kind==C_HP_ABOVE||kind==C_HP_BELOW||kind==C_HP_MAX)) { if(commands[at+1]!=0||!f64Finite(arg)||kind==C_HP_MAX&&!f64Zero(arg)) return false;continue; }
 #define WORLD_ENEMY_ATTACK_DAMAGE_MEMBER(s,row,who,when,legacy) ((legacy)||worldEnemyAttackDamageMember(s,row,who,when))
 #define WORLD_ENEMY_ATTACK_STAT(s,d,legacy) ((legacy)||(worldEnemyAttackEnabled(s)&&(d.stat==S_atk_pct||d.stat==S_atk_caster_based_pct)))
+#ifdef PORTABLE_ADD_ATTACK_BATTLE
+#define WORLD_ENEMY_ATTACK_CAPTURE(s,frames,depth,f) if(f.mode==8&&f.cursor==0&&scheduledArgument(uint(f.argument))&&worldEnemyAttackEnabled(s)) frames[depth].gaugeFlat=larger(0,f64Add(loadNumber(incomingDamageAddress(s,uint(f.argument))),addAttackBasis(s,uint(f.argument),f.time)));
+#else
 #define WORLD_ENEMY_ATTACK_CAPTURE(s,frames,depth,f) if(f.mode==8&&f.cursor==0&&scheduledArgument(uint(f.argument))&&worldEnemyAttackEnabled(s)) frames[depth].gaugeFlat=larger(0,f64Add(loadNumber(incomingDamageAddress(s,uint(f.argument))),collectWorldEnemyAttackFlat(s,0,f.time)));
+#endif
 #define WORLD_ENEMY_ATTACK_VALUE(s,frames,depth,f,legacy) (worldEnemyAttackEnabled(s)&&scheduledArgument(uint(f.argument)) ? frames[depth].gaugeFlat : (legacy))
 #define WORLD_ENEMY_ATTACK_SNAPSHOT(s,when) if(worldEnemyAttackEnabled(s)) for(uint slot=0;slot<actorPoolCount(s);slot++) storeNumber(s.resourceOutput+P_WORLD_ENEMY_ATTACK_BASE+slot*2,collectWorldEnemyAttackFlat(s,slot==0?0:ACTOR_REF|slot,when));
 #define WORLD_ENEMY_ATTACK_SKIP(d) if(d.stat==S_atk_pct||d.stat==S_atk_caster_based_pct) continue;

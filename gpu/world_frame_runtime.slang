@@ -14,8 +14,14 @@ void worldFrameBegin(inout Runtime s,uint64_t when)
         return;
     }
 #ifdef PORTABLE_WORLD_ACTOR_POOLS
+#ifdef PORTABLE_ADD_ATTACK_BATTLE
+    uint addAttackFirst=results[w.output+2];
+#endif
     wsBegin(w,when,actorPoolsCleared(s));s.error=w.error;
     if(s.error==0) actorPoolsSync(s,when);
+#ifdef PORTABLE_ADD_ATTACK_BATTLE
+    if(s.error==0)addAttackBattleFrame(s,when,addAttackFirst);
+#endif
 #else
     wsBegin(w,when,0);s.error=w.error;
 #endif
@@ -75,7 +81,12 @@ void worldFrameDeliver(inout Runtime s,uint64_t when,uint output)
         if(results[record]!=3) continue;
         uint query=results[head+7];if(query>=1024) { s.error=2;break; }
         results[head+7]=query+1;results[head+8]=query;
+#ifdef PORTABLE_ADD_ATTACK_BATTLE
+        uint incomingArgument=addAttackDeliveryArgument(s,cursor-1,results[record+1]);
+        dispatch(s,8,0,0,int(incomingArgument),when,output);
+#else
         dispatch(s,8,0,0,int(0x80000000U|results[record+1]),when,output);
+#endif
         if(s.error==0) results[record+5]=query+1;
     }
 }
@@ -86,6 +97,9 @@ void worldFrameFinish(inout Runtime s)
     WorldSchedule w=frameSchedule(s);wsFinish(w,wsLoad(w.input+6));s.error=w.error;
 #ifdef PORTABLE_WORLD_ACTOR_POOLS
     if(s.error==0) actorPoolsSync(s,wsLoad(w.input+6));
+#ifdef PORTABLE_ADD_ATTACK_BATTLE
+    if(s.error==0)addAttackBattleFinish(s);
+#endif
 #ifdef PORTABLE_PHYSICAL_LOCK_ARENA
     if(s.error==0) physicalLockFinalizeGraph(s);
 #endif

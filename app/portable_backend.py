@@ -86,6 +86,11 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source=='gpu/world_add_attack_battle_entry.slang':
+        from portable_add_attack_battle_wire import check_schema,LAYOUT
+        check_schema(ROOT)
+        if (input_words,output_words)!=(LAYOUT['INPUT_WORDS'],LAYOUT['OUTPUT_WORDS']):raise ValueError('ADD attack battle requires its complete logical and firing wire')
+        return
     if source in ('gpu/world_lock_projectile_entry.slang','gpu/world_original_lock_composition_entry.slang','gpu/world_original_lock_health_parts_entry.slang'):
         from portable_lock_typed_layout import check,INPUT,OUTPUT
         check(ROOT)

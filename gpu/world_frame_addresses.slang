@@ -5,7 +5,12 @@ static const uint WF_TARGETS=P_WORLD_FRAME_TARGET_BASE, WF_HITS=P_WORLD_FRAME_HI
 bool worldFrameEnabled(inout Runtime s) { return commands[s.inputBase+WF_INPUT]!=0; }
 bool scheduledArgument(uint arg) { return (arg&0x80000000U)!=0; }
 uint incomingCommandAddress(inout Runtime s,uint arg)
-{ return s.inputBase+(scheduledArgument(arg)?WF_PAYLOAD+(arg&31U)*16:P_COMMAND_BASE+arg*8); }
+{
+#ifdef PORTABLE_ADD_ATTACK_BATTLE
+    if((arg&0xc0000000U)==0xc0000000U)return s.inputBase+ADB_BASE+ADB_ROW_BASE+(arg&31U)*ADB_ROW_WORDS+8;
+#endif
+    return s.inputBase+(scheduledArgument(arg)?WF_PAYLOAD+(arg&31U)*16:P_COMMAND_BASE+arg*8);
+}
 uint incomingDamageAddress(inout Runtime s,uint arg)
 { return scheduledArgument(arg)?incomingCommandAddress(s,arg)+8:s.inputBase+P_INCOMING_BASE+arg*P_INCOMING_WORDS; }
 uint enemyRuleAddress(inout Runtime s,uint arg)

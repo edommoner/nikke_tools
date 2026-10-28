@@ -8,6 +8,9 @@ def project_sources(root, sources=None):
     root = Path(root)
     ledger = json.loads((root/'tests/fixtures/portable-enemy-healing-source-delta.json').read_text())
     projected = dict(sources or {})
+    if (root/'gpu/world_add_attack_battle_entry.slang').exists():
+        from portable_add_attack_battle_source_contract import project_sources as add_attacks
+        projected=add_attacks(root,projected)
     if (root/'gpu/world_named_range_battle_entry.slang').exists():
         from portable_named_range_battle_source_contract import project_sources as radial
         projected=radial(root,projected)
