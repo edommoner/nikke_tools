@@ -1,0 +1,84 @@
+{
+  "schema": "enemy-healing-metal-live-parent-v5",
+  "source_commit": "688de06e57342e9caf39cbc3dd5b3aaf552f786c",
+  "package_id": "80c86ed00b6d7ae5df346a4fccc5cbb8fb2b69ec2108cc89888c3b3ef52b409c",
+  "calculation_verified": true,
+  "independent_seal_complete": false,
+  "inputs": 14,
+  "native_cases": 6,
+  "rejected_cases": 8,
+  "device": "Apple M5",
+  "gpu_seconds": 4.886496083345264,
+  "pipeline_compile_seconds": 58.76805305480957,
+  "fresh_cpu_preflight_seconds": 587.4911412910005,
+  "parent_oracles": {
+    "scope": "live-parent-preflight",
+    "reused_native_cases": 6,
+    "fresh_native_cases": 0,
+    "rejection_cases": 8,
+    "saved_results_used": false,
+    "independent_audit_reuse": false,
+    "reused_context_cases": 6
+  },
+  "input_sha256": "9f6cb77a1f9208fd91808a8772fb2be4900d5b7f21f81c3c53c33424a4f1c9d8",
+  "output_sha256": "606b67c2dca42df621daa4b62140b01e6dfa8ffdfa91f60c6dddb0104ae0dd1d",
+  "generated_normalized": {
+    "cuda": "b8911a8f9981b3d7b4f9acd3c0ddd4001e2dfff3d900ed6f51c8f5741dbef9bf",
+    "metal": "e23e253ebd0a06dc770368648f2c27aedbd46870a7931e5793814a4620adc5a9"
+  },
+  "corrected_dead_case": {
+    "old_overkill": 85404.0,
+    "new_overkill": 498896.0,
+    "old_attempted_lands": 2833,
+    "new_attempted_lands": 2839
+  },
+  "other13_output_bytes_retained": true,
+  "byte_audit": {
+    "schema": "enemy-healing-dead-fix-byte-audit-v1",
+    "passed": true,
+    "input_sha256": "9f6cb77a1f9208fd91808a8772fb2be4900d5b7f21f81c3c53c33424a4f1c9d8",
+    "unchanged_cases": [
+      0,
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "changed_cases": [
+      {
+        "case_index": 3,
+        "word_offsets": [
+          39311,
+          41871,
+          225295,
+          225297
+        ]
+      }
+    ],
+    "dead_case": {
+      "old_overkill": 85404.0,
+      "new_overkill": 498896.0,
+      "old_attempted_lands": 2833,
+      "new_attempted_lands": 2839
+    },
+    "changes_only_query_and_final_overkill_and_attempt_diagnostic": true,
+    "all14_shared_comparisons_passed": true,
+    "gpu_calls": 0,
+    "independent_seal_pending": true,
+    "full_goal_complete": false
+  },
+  "gpu_executions_this_packet": 1,
+  "gpu_retries": 0,
+  "current_cuda_verified": false,
+  "public_gpu_admitted": false,
+  "full_goal_complete": false,
+  "windows_requests": 0
+}

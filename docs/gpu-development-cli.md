@@ -2,7 +2,7 @@
 
 `supplement-test-golden --source-package P --source-capture FAILED_UNITS --donor-package SEALED --baseline-suite NAME --out NEW.zip` は、未claimの開発packetで不足した**別suiteのgolden JSON1個だけ**を、検証済みsealed donorから補う。元producer自身のregistryでpathを解決し、既存全payload・入力/CPU期待指紋は変更しない。元失敗/rootを保持し、新packet自身のunit-check→fresh native preflight→GPU→独立sealを行う。数値変更・golden差替え・実行済みclaimの再試行には使わない。敵回復v3→v4で元3,758ファイルを保持し、32,392byteの検査依存だけを追加、native再計算0で89unitへ復旧した。Slangも必須cache hit/追加compile0。
 
-`reference --suite enemy-healing-common --out NEW.json`は元アン全69定義の敵回復量低下を、既存source node/ADD HPへ接続するCPU契約6件。実倍率・HP変化・再出現・小数撃破creditと最終roundを検査する。GPU wireは未接続、既定admissionは閉じたまま。[設計・数値境界・次のMetal接続](portable-enemy-healing.md)。
+`reference --suite enemy-healing-common --out NEW.json`は元アン全69定義の敵回復量低下を、既存source node/ADD HPへ接続するCPU契約6件。実倍率・HP変化・再出現・小数撃破creditと最終roundを検査する。別のsealed `enemy-healing`14入力（元native6/拒否8）は共有wire・M5 Metal・fresh独立監査で一致。`enemy-healing-cache-only`は同じ計算に既存CUBIN/O1・paired generation必須を適用する。現CUDAと既定admissionは未認定。[設計・数値境界・次のMetal接続](portable-enemy-healing.md)。
 
 `logical-actor-rosters`は元ニヒリスター全70定義の実2敵通知・範囲外/PART対照・回転矩形・30秒のsealed5入力。前のlogical actor entry/全比較を共有し、CUDA/MSL全byte保持、M5 Metal/独立監査成功。必須Metal pipeline hitでPSO約0.0027秒。`package --suite logical-actor-rosters --out NEW.zip`とown CLIを使う。cache-only版も同じ計算だが現CUDA実機は未確認。[範囲・元スキル・実測](portable-logical-actor-rosters.md)。
 

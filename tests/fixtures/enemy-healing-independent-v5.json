@@ -1,0 +1,159 @@
+{
+  "package_id": "80c86ed00b6d7ae5df346a4fccc5cbb8fb2b69ec2108cc89888c3b3ef52b409c",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/Anne-enemy-healing-metal-v5",
+  "schema": "independent-metal-audit-groups-v1",
+  "child_pids": [
+    62185,
+    62214,
+    62247,
+    62275,
+    62322,
+    62380,
+    62417,
+    62419,
+    62423,
+    62424,
+    62425,
+    62430,
+    62431,
+    62432
+  ],
+  "groups": [
+    {
+      "child_pid": 62185,
+      "case_indices": [
+        0
+      ],
+      "input_count": 1,
+      "native_cases": 1,
+      "elapsed_seconds": 115.29051045898814
+    },
+    {
+      "child_pid": 62214,
+      "case_indices": [
+        1
+      ],
+      "input_count": 1,
+      "native_cases": 1,
+      "elapsed_seconds": 116.10376149999502
+    },
+    {
+      "child_pid": 62247,
+      "case_indices": [
+        2
+      ],
+      "input_count": 1,
+      "native_cases": 1,
+      "elapsed_seconds": 115.33892091699818
+    },
+    {
+      "child_pid": 62275,
+      "case_indices": [
+        3
+      ],
+      "input_count": 1,
+      "native_cases": 1,
+      "elapsed_seconds": 99.42683212499833
+    },
+    {
+      "child_pid": 62322,
+      "case_indices": [
+        4
+      ],
+      "input_count": 1,
+      "native_cases": 1,
+      "elapsed_seconds": 79.21606633299962
+    },
+    {
+      "child_pid": 62380,
+      "case_indices": [
+        5
+      ],
+      "input_count": 1,
+      "native_cases": 1,
+      "elapsed_seconds": 116.080902917005
+    },
+    {
+      "child_pid": 62417,
+      "case_indices": [
+        6
+      ],
+      "input_count": 1,
+      "native_cases": 0,
+      "elapsed_seconds": 3.027338583007804
+    },
+    {
+      "child_pid": 62419,
+      "case_indices": [
+        7
+      ],
+      "input_count": 1,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0500429999956395
+    },
+    {
+      "child_pid": 62423,
+      "case_indices": [
+        8
+      ],
+      "input_count": 1,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0442158749938244
+    },
+    {
+      "child_pid": 62424,
+      "case_indices": [
+        9
+      ],
+      "input_count": 1,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0460954169975594
+    },
+    {
+      "child_pid": 62425,
+      "case_indices": [
+        10
+      ],
+      "input_count": 1,
+      "native_cases": 0,
+      "elapsed_seconds": 3.035827250001603
+    },
+    {
+      "child_pid": 62430,
+      "case_indices": [
+        11
+      ],
+      "input_count": 1,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0384962079988327
+    },
+    {
+      "child_pid": 62431,
+      "case_indices": [
+        12
+      ],
+      "input_count": 1,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0529542500007665
+    },
+    {
+      "child_pid": 62432,
+      "case_indices": [
+        13
+      ],
+      "input_count": 1,
+      "native_cases": 0,
+      "elapsed_seconds": 3.0394567089970224
+    }
+  ],
+  "input_count": 14,
+  "native_cases": 6,
+  "live_parent_receipt_present": false,
+  "per_group_timeout_seconds": 180,
+  "elapsed_seconds": 667.0902725409978,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "9f6cb77a1f9208fd91808a8772fb2be4900d5b7f21f81c3c53c33424a4f1c9d8",
+  "output_sha256": "606b67c2dca42df621daa4b62140b01e6dfa8ffdfa91f60c6dddb0104ae0dd1d",
+  "scope": "Fresh GPU-forbidden child groups, each individually bounded, covering every input once; total elapsed includes all groups"
+}

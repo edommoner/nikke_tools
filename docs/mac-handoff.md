@@ -1,3 +1,13 @@
+# 2026-10-28 敵回復14入力のfresh独立監査が成功・通常CLIへ登録
+
+固定688de06e/package80c86ed0…のM5全14入力を、別fresh GPU禁止14群（元native6/拒否8、各180秒上限、計667.090秒）で全比較した。親oracle再利用0・追加GPU0。同じsealのgolden/source証明書を登録し、通常enemy-healingと同じ計算のenemy-healing-cache-onlyを追加。後者はCUBIN/O1とpaired generation必須。旧CPU契約とdefault gapは保持し、別の限定Metal証拠を分類へ追記。現CUDA/公開admission/全キャラは未認定。v4失敗とraw/claimは保持。小さな最終証跡enemy-healing-metal-sealed-v5.json。以下は履歴。
+
+# 2026-10-28 修正版敵回復14入力がM5 Metal全一致（fresh独立監査中）
+
+固定688de06e/package80c86ed0…のown CLIが90unit・fresh CPU6件・必須paired生成cache hitを通過し、M5 Metalで14入力全比較に成功。GPU4.886496秒、冷PSO58.768053秒。親のfresh native6件/creation context6件を再利用し、追加native0。前回失敗deadはraw overkill498896へ一致。他13入力の全readback byteは保持し、deadの差分4wordはquery/最終/全体overkillと着弾試行数2833→2839だけだった。比較を弱めていない。v4の失敗/claim/rawを保持し、v5は別sourceで1回/retry0。
+
+同じproducer rootのown CLI `seal` をgroup-size1/各180秒・GPU禁止fresh14群で開始した。現在その完了とsource証明書/independent receipt待ち。未確認のまま通常goldenへ登録しない。実行中rootを変更しない。小さな一次結果 `research/target-count-query-evidence/enemy-healing-metal-live-parent-v5.json`。旧18入力は上記修正sourceで再認定/登録済み。Windows新依頼0、全目標未達。以下は履歴。
+
 # 2026-10-28 共通配送修正後の旧18入力をMetal・独立監査で再認定
 
 固定688de06eのlogical13/package4093b5b9…と元Nihilister5/packagebae48b53…は、own CLIの65/84unit・fresh全native・M5 Metal各1回・fresh GPU禁止独立sealが成功。GPU2.518804/2.435720秒、独立監査140.324/115.503秒。後者のpaired generation/pipelineは必須hitでPSO0.002840秒。全18入力・CPU指紋・全readback byteを旧保存結果から保持した。retirementの追加passive監査は正本結果の透明性、全ADD pool/score/global overkill、hit_addに帰属するowner別overkillも照合。ただし同ケースの同世代死亡後packetは0であり、Anne deadの回帰を代替しない。

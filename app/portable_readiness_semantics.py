@@ -26,6 +26,7 @@ def reference_readiness(issue):
                 declarations=['literal idle source nodes','configured finite damage-owned ADD recipients','flat healing amounts'],
                 gpu_wire_connected=False,metal_verified=False,current_cuda_verified=False,
                 default_producer_installed=False,historical_canonical_equivalence=False,in_game_rules_verified=False)
+            result['declared_enemy_healing_metal_validation']={'suite': 'enemy-healing', 'inputs': 14, 'native_cases': 6, 'rejected_cases': 8, 'metal_verified': True, 'independently_audited': True, 'evidence': 'tests/fixtures/enemy-healing-independent-v5.json', 'evidence_sha256': 'e1ad6920d244fd893287b5da1fb56ffeea9203d3db451c2738d45c42b7fb9ad3', 'gpu_wire_connected': True, 'raw_fractional_credit_and_per_owner_rounding': True, 'same_generation_dead_packet_overkill_verified': True, 'current_cuda_verified': False, 'default_producer_installed': False, 'historical_canonical_equivalence': False, 'in_game_rules_verified': False, 'scope': 'Declared source-node finite ADD healing; original Anne 69 definitions, six scenarios only'}
             result['note']+=' A separate declared CPU contract now consumes the original Anne reduction in real ADD healing, preserving health ownership, damage accounting and source generations; default and GPU admission remain closed.'
         if issue.get('stat')=='effect_target_count_add':
             result['declared_physical_target_count_query']=dict(suite='named-target-count-shots',native_cases=5,rejected_cases=4,

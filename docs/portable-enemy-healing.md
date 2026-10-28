@@ -1,3 +1,9 @@
+# 2026-10-28 M5 Metalとfresh独立監査で14入力をseal
+
+修正版688de06e/package80c86ed0…は14入力すべて全比較成功。GPU4.886496秒、冷PSO58.768053秒、fresh事前CPU587.491141秒。親のnative6/creation context6を再利用した比較の追加native0。別fresh GPU禁止14群は667.090273秒、親結果再利用0で全一致した。同時作成golden/source証明書を通常CLIへ登録。旧18入力も同sourceで再認定済み、全旧input/native/readback byteを保持した。
+
+死亡条件のv4との差は4word（query/最終/全体overkillとattempted lands）のみ。他13件の全readback byteは同一。失敗v4/raw/claimを保持し、再試行していない。元69定義/6条件の宣言モデルを検証した範囲であり、ゲーム幾何/デフォルトproducer/全キャラ/現CUDAの認定ではない。通常enemy-healingと同一計算のenemy-healing-cache-onlyを使える。CUBIN/O1/paired generationの必須guardは従来profileを再利用する。以下は設計・実装の履歴。
+
 # 元アンの回復量低下を実ADD回復へ接続するCPU契約
 
 `reference --suite enemy-healing-common --out NEW.json`は、元アン：ミラクルフェアリーの5人編成/全69定義を保持し、元の敵向け`heal_received_pct`を実際の有限ADD回復へ接続する。privateな明示環境モデルであり、既定CPUやゲームの回復規則への同値、GPU実証ではない。GPU入力変換と共通Slang consumerを実装中。Metal実行・独立監査は未成立。
