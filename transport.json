@@ -1,0 +1,38 @@
+{
+  "schema": "partitioned-cuda-owner-source-proof-v1",
+  "package_id": "e2f6470dbd561236dd6690dad2b600b0c839ff0447665ce6307ff9ff54bfdae8",
+  "base_package_id": "04515f96e6ed68a969627db49b9c6f13ffedfae3349ed2a363420a30f70e4ae5",
+  "archive_bytes": 9660762,
+  "archive_sha256": "620021d1385aa189055191acfcf86de36d06723d75aa8b3f550587cb20f118ad",
+  "files": 2166,
+  "original_files_preserved": 2147,
+  "changed_original_files": [
+    "scripts/nikke_gpu.py"
+  ],
+  "original_cli_functions_preserved": true,
+  "original_golden_unchanged": true,
+  "packet_tests": 52,
+  "development_tests": 129,
+  "mac_cpu_smoke": {
+    "calculation_verified": false,
+    "containment_verified": null,
+    "full_goal_complete": false,
+    "gpu_execution_verified": false,
+    "mode": "partitioned-cuda-owner-v1",
+    "package_id": "e2f6470dbd561236dd6690dad2b600b0c839ff0447665ce6307ff9ff54bfdae8",
+    "passed": true,
+    "prepared": false,
+    "preservation_verified": false,
+    "public_gpu_admitted": false,
+    "shared_metal_wire_equivalence_verified": false,
+    "stage": "smoke"
+  },
+  "batch_size": 16,
+  "input_count": 106,
+  "maximum_gpu_seconds": 60,
+  "maximum_job_memory_bytes": 2147483648,
+  "compiler_fallback_permitted": false,
+  "shader_changed": false,
+  "public_gpu_admitted": false,
+  "scope": "Fresh single-use owner after preserved CUDA launch failure; CPU preparation reuses the fixed bounded native-admission receipt and revalidates the exact saved CUBIN. One GPU attempt only."
+}
