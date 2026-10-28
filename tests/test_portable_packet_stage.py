@@ -6,6 +6,38 @@ from unittest.mock import patch,Mock
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 spec=importlib.util.spec_from_file_location('packet_stage',ROOT/'scripts/run-gpu-packet.py');stage=importlib.util.module_from_spec(spec);spec.loader.exec_module(stage)
 class PacketStageTests(unittest.TestCase):
+    def test_staged_environment_failure_precedes_claim_native_and_job(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d);root=base/'packet';root.mkdir()
+            bounded=Mock(side_effect=AssertionError('Must not load a job or launch a child'))
+            cli=SimpleNamespace(validation_environment=lambda _:dict(NIKKE_SLANG_GENERATION_CACHE=str(base)),bounded_module=bounded)
+            request={k:str(base/k) for k in ('transaction','linked_package','linked_capture')}
+            capture=base/'capture'
+            with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='id',suite='fixture')),\
+                patch.object(stage,'load_module',return_value=cli),patch.object(stage,'is_windows',return_value=False):
+                with self.assertRaisesRegex(ValueError,'NIKKE_SLANG_ROOT'):
+                    stage.run_stage(capture,'staged-gpu-linked','cuda',180,base/'original',request)
+            bounded.assert_not_called()
+            self.assertEqual(list(root.glob('*claimed*')),[])
+            receipt=json.loads((capture/'environment-preflight.json').read_text())
+            self.assertFalse(receipt['passed']);self.assertFalse(receipt['claim_created'])
+            self.assertEqual(receipt['gpu_calls'],0)
+
+    def test_staged_generation_paths_are_only_advisory_on_both_platforms(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d);compiler=base/'compiler';(compiler/'bin').mkdir(parents=True);cache=base/'cache';cache.mkdir()
+            env=dict(NIKKE_SLANG_ROOT=str(compiler),NIKKE_SLANG_GENERATION_CACHE=str(cache))
+            for windows,filename in ((False,'slangc'),(True,'slangc.exe')):
+                with self.subTest(windows=windows),patch.object(stage,'is_windows',return_value=windows):
+                    with self.assertRaisesRegex(ValueError,'compiler missing'):stage.required_generation_environment(env)
+                    path=compiler/'bin'/filename;path.write_bytes(b'fixture never executed')
+                    receipt=stage.required_generation_environment(env)
+                    self.assertTrue(receipt['passed']);self.assertFalse(receipt['cache_hit_verified'])
+                    self.assertFalse(receipt['compiler_identity_verified']);self.assertEqual(receipt['compiler_calls'],0)
+                    path.unlink()
+            for key in env:
+                with self.subTest(key=key),self.assertRaises(ValueError):stage.required_generation_environment(dict(env,**{key:'relative'}))
+
     def request(self,mode,base):
         return {key:('a'*64 if key=='object_sha256' else str((base/key).resolve())) for key in stage.OBJECT_STAGES[mode]}
     def test_cpu_test_receipt_cannot_certify_battle_gpu_or_incomplete_groups(self):

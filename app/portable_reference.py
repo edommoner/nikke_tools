@@ -88,6 +88,7 @@ REFERENCES['logical-actor-geometry-common']=('portable_logical_geometry_cases','
 REFERENCES['logical-actor-rosters-common']=('portable_logical_geometry_roster_cases','world_logical_geometry_native','portable_logical_geometry_roster_contracts')
 REFERENCES['enemy-healing-common']=('portable_enemy_healing_cases','world_enemy_healing_native','portable_enemy_healing_contracts')
 REFERENCES['enemy-ammo-common']=('portable_enemy_ammo_cases','world_enemy_ammo_native','portable_enemy_ammo_contracts')
+REFERENCES['enemy-ammo-self-destruct-common']=('portable_enemy_ammo_self_destruct_cases','world_enemy_ammo_self_destruct_native','portable_enemy_ammo_self_destruct_contracts')
 REFERENCES['add-self-destruct-native']=('world_add_self_destruct_native',)*3
 REFERENCES['named-range-battle-common']=('portable_named_range_battle_cases','world_named_range_battle_native','portable_named_range_battle_contracts')
 REFERENCES['coordinate-typed-owner-add-lifetime-common']=('portable_coordinate_typed_owner_add_lifetime_cases','world_coordinate_typed_owner_add_lifetime_native','portable_coordinate_typed_owner_add_lifetime_contracts')
@@ -101,6 +102,21 @@ REFERENCES['coordinate-typed-owner-lifecycle-common']=('portable_coordinate_type
 REFERENCES['coordinate-typed-actor-common']=('portable_coordinate_typed_actor_cases','world_coordinate_typed_actor_native','portable_coordinate_typed_actor_contracts')
 REFERENCES['coordinate-typed-aim-common']=('portable_coordinate_typed_aim_cases','world_coordinate_typed_aim_native','portable_coordinate_typed_aim_contracts')
 REFERENCES['coordinate-accumulation-policy']=('portable_coordinate_accumulation_cases','world_coordinate_accumulation_native','portable_coordinate_accumulation_contracts')
+
+
+def validate_reference_payload(included):
+    """Full packets expose every reference command; require its registry roots.
+
+    This supplements selected-test dependency checks. It does not claim a
+    complete dynamic import closure or apply to intentionally compact packets.
+    """
+    included=set(included);missing=[]
+    for suite,modules in REFERENCES.items():
+        for module in modules:
+            candidates=[folder+'/'+module.replace('.','/')+'.py' for folder in ('app','research')]
+            if not any(path in included for path in candidates):missing.append(suite+':'+module)
+    if missing:raise ValueError('Native reference module missing from tracked payload: '+', '.join(sorted(set(missing))))
+    return dict(reference_suites=len(REFERENCES),registry_roots_verified=True,dynamic_import_closure_verified=False)
 
 
 def digest(value):
@@ -162,10 +178,11 @@ def run_reference(suite,output,*,write,forbid_gpu):
     if suite=='enemy-healing-common':
         report.update(stage='cpu-common-policy-contract',reference_kind='declared-source-node-enemy-healing-cpu',
             historical_native_equivalence=False,in_game_rules_verified=False,gpu_wire_connected=False)
-    if suite=='enemy-ammo-common':
+    if suite in ('enemy-ammo-common','enemy-ammo-self-destruct-common'):
         report.update(stage='cpu-common-policy-contract',reference_kind='declared-enemy-magazine-attempt-v1',
             historical_native_equivalence=False,in_game_rules_verified=False,gpu_wire_connected=False,
             capacity_model='fixed-declared',source_schedule_policy='retain original scheduled attempts; never retime blocked attempts')
+        if suite=='enemy-ammo-self-destruct-common':report['reference_kind']='declared-enemy-magazine-final-queue-v1'
     if suite=='add-self-destruct-native':
         report.update(stage='cpu-native-component-contract',reference_kind='canonical-add-final-shot-retirement',
             full_battle_validation=False,gpu_wire_connected=False,in_game_rules_verified=False)

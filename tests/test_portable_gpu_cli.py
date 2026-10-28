@@ -83,7 +83,7 @@ class PacketTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'regular artifact'):cli.file_records(root,['member'])
 
     def test_source_edit_during_native_baseline_cannot_publish_a_mixed_snapshot(self):
-        import portable_backend
+        import portable_backend,portable_reference
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder).resolve()
             for directory in ('gpu','app','scripts','research/upstream/nikke-calc-master/data'):(root/directory).mkdir(parents=True)
@@ -94,12 +94,30 @@ class PacketTests(unittest.TestCase):
                 (root/'app/model.py').write_text('after')
                 return dict(source_sha256={'gpu/main.slang':cli.sha((root/'gpu/main.slang').read_bytes())})
             with patch.object(cli,'ROOT',root),patch.object(portable_backend,'ROOT',root),\
+                 patch.dict(portable_reference.REFERENCES,{},clear=True),\
                  patch.dict(cli.SUITES,fixture=dict(source='gpu/main.slang',golden='golden.json',tests=[])),\
                  patch.object(cli.subprocess,'check_output',return_value=b'gpu/main.slang\0app/model.py\0scripts/nikke_gpu.py\0'),\
                  patch.object(cli,'development_baseline',side_effect=changed),cli.forbid_gpu():
                 with self.assertRaisesRegex(ValueError,'sources changed during native baseline'):
                     cli.make_package('fixture',root/'package.zip',develop=True)
             self.assertFalse((root/'package.zip').exists())
+
+    def test_untracked_reference_registry_root_stops_before_native_or_archive(self):
+        import portable_backend,portable_reference
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder).resolve()
+            for name,value in [('gpu/main.slang','// kernel'),('scripts/nikke_gpu.py','# fixture'),
+                ('research/upstream/nikke-calc-master/LICENSE','license'),
+                ('research/upstream/nikke-calc-master/data/parsed_nikke.json','{}')]:
+                p=root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(value)
+            with patch.object(cli,'ROOT',root),patch.object(portable_backend,'ROOT',root),\
+                patch.dict(cli.SUITES,fixture=dict(source='gpu/main.slang',golden='future.json',tests=[])),\
+                patch.dict(portable_reference.REFERENCES,{'new':('new_cases','new_native','new_contracts')},clear=True),\
+                patch.object(cli.subprocess,'check_output',return_value=b'gpu/main.slang\0scripts/nikke_gpu.py\0'),\
+                patch.object(cli,'development_baseline',side_effect=AssertionError('Native must not start')) as native,cli.forbid_gpu():
+                with self.assertRaisesRegex(ValueError,'Native reference module missing from tracked payload'):
+                    cli.make_package('fixture',root/'packet.zip',develop=True)
+            native.assert_not_called();self.assertFalse((root/'packet.zip').exists())
 
     def test_untracked_gpu_include_stops_packaging_before_native_baseline_or_archive(self):
         import portable_backend

@@ -5,6 +5,9 @@ from pathlib import Path
 
 def project_sources(root,sources=None):
     root=Path(root);ledger=json.loads((root/'tests/fixtures/portable-add-self-destruct-source-delta.json').read_text(encoding='utf-8'));out=dict(sources or {})
+    if (root/'app/enemy_ammo_self_destruct_model.py').exists():
+        from portable_enemy_ammo_self_destruct_source_contract import project_sources as final_queue
+        out=final_queue(root,out)
     for name,digest in ledger['added_sources'].items():
         if hashlib.sha256(out.get(name,(root/name).read_text(encoding='utf-8')).encode()).hexdigest()!=digest:raise ValueError('Unreviewed ADD self-destruct dependency: '+name)
     for name,row in ledger['files'].items():

@@ -1,3 +1,11 @@
+# 2026-10-28 敵弾薬と自爆のCPU合成契約・梱包漏れguard
+
+元Velvet76定義のenemy-ammo-self-destruct-commonは固定packetで8契約/新7unit成功。関連敵弾薬24・自爆wire8・readiness24・CLI50・registry payload3検査が成功。実自爆時の既存AttackHit object/世代/frameを証拠に退場後の弾倉へ接続し、元scheduler/割合演算/被弾/完了通知を共用する。空弾倉/リロード中でも元scheduled countで退場、HP撃破/時間切れに射撃を生成しない。既定enemy-ammoは自爆拒否を維持。新CPU inverseを既存監査へ合成し、旧Metal goldenを改変しない。GPU source/保護CPU変更0、GPU合成は出力所有権とqueue資格のSlang接続が次。新契約の実Metal/CUDA/default/全キャラは未達。
+
+初版packetは未追跡module漏れでreferenceのimport前後に失敗し保持。修正版を別展開して成功。full packageで全reference登録rootがtracked payloadへ入ることをZIP作成前に検査するguardを実装（動的import全closureの保証ではない）。小証跡enemy-ammo-self-destruct-native-contract-v1.json。先の自爆M5実証の最終d7d82948/cache packetは50unit/必須生成hit/Slang0/source current/compile plan/model-checkを確認し、add-self-destruct-final-cli-v1.jsonへ記録した。
+
+Windowsは既存04515f96の保存事前検査177unit/106入力/native63成功と、保存PTX/object/CUBINを確認。再compile/事前検査再実行なしのstaged-gpu-linkedを1回だけ依頼し、設定行の失敗を報告した。GPU前にSlang compiler identity absentで終了。GPU子48.64秒/exit1、外181.59秒/timeout、driver/launch/sync/readback0、post0/消失0/監視cleanupエラー0。stage/サービス保全は未認定、旧claim保持/retry0。帰属不明を成功にしない。Mac共通runnerへ設定pathのpreclaim早期guardを追加し26検査成功。compiler/cacheの本検証は省略しない。証跡staged-cuda-environment-failure-v1.json。次は保存失敗metadataの回収と、元CPU事前検査/キャッシュを保持する新固定controllerへの正当な移行設計であり、旧claimの再使用はしない。
+
 最終4883442aの敵回復normal/cache固定packetは107/135unit成功。sealed生成はrequired cache hit/Slang0、CUBIN/O1・2GiB・60秒plan成功（追加GPU/実CUDA compile0）。model-check成功、全source棚卸しの21 current/179 stale/2 unavailableを保持。現CUDA/公開受付/全キャラ未達。元32再認定の全run/sealは終了済みで再実行しない。新しいCUDA依頼0、Windowsstatusのみhost unavailable/durable。次は敵弾薬のCPU契約とCUDA成立経路の切分けを優先し、履歴goldenの一括再実行・巨大GPU本文の追加を先行しない。記録enemy-healing-named-admission-final-cli-v5.json。
 
 # 2026-10-28 敵弾薬の元ハンドラ・実射撃をCPU契約へ接続

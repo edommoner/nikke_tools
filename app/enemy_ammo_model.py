@@ -81,6 +81,11 @@ def validate_enemy_effects(effects,squad_names):
 
 
 class EnemyAmmo:
+    allows_self_destruct=False
+
+    def retired_queue_allowed(self,hit,t,key):
+        return False
+
     def __init__(self,spec):
         self.spec=normalize(spec);self.manager=None;self.boss=None;self.registry=None
         self.bound={};self.current={};self.history={};self.pending={}
@@ -98,7 +103,7 @@ class EnemyAmmo:
         for row in self.spec:
             b=configured.get(row['label'])
             if b is None or b.kind not in (ActorKind.BODY,ActorKind.ADD):raise ValueError('Magazine must bind a real BODY/ADD actor')
-            if b.kind==ActorKind.ADD and boss._runs[b.run].p.summon.self_destruct:raise ValueError('Self-destruct launch timing is outside this magazine model')
+            if b.kind==ActorKind.ADD and boss._runs[b.run].p.summon.self_destruct and not self.allows_self_destruct:raise ValueError('Self-destruct launch timing is outside this magazine model')
             self.bound[b.label]=b
         for run in boss._runs:
             if run.p.kind=='attack' and '__enemy__' not in labels:raise ValueError('Every body attack needs its declared magazine')
@@ -176,8 +181,10 @@ class EnemyAmmo:
         except ValueError as error:
             if str(error)!='Stale world actor generation':raise
             return
-        if not view.alive:record['status']='dead';return
-        mag=self.current[label];record.update(before=mag.ammo,after=mag.ammo)
+        if not view.alive:
+            if not self.retired_queue_allowed(hit,t,key):record['status']='dead';return
+            record['retired_queue']=True
+        mag=self.history[key] if not view.alive else self.current[label];record.update(before=mag.ammo,after=mag.ammo)
         if mag.reloading_until>0:record['status']='reloading';return
         if mag.ammo==0:
             mag.reloading_until=t+mag.reload_seconds
@@ -217,11 +224,11 @@ class AmmoFrame(ast.NodeTransformer):
 
 
 @contextmanager
-def enemy_ammo(spec):
+def enemy_ammo(spec,*,runtime_class=EnemyAmmo):
     from calculator import timeline
     from runner import sim
     if timeline.simulate is not sim.simulate:raise ValueError('Native simulation aliases differ')
-    runtime=EnemyAmmo(spec);original=timeline.simulate;register=timeline._register_instant_handlers
+    runtime=runtime_class(spec);original=timeline.simulate;register=timeline._register_instant_handlers
     rewritten=rewrite_reference(original,AmmoFrame(),dict(frame=2,attack=1,result=1),compose=True)
     def install(manager,states,burst):
         answer=register(manager,states,burst)

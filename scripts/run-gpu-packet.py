@@ -265,6 +265,21 @@ def child(folder):
             stack.enter_context(patch.object(cli,name,observed))
         journal.invoke('packet_shared_cli',cli.main)
 
+def required_generation_environment(env):
+    """Cheap path gate, not cache/identity validation or permission to run."""
+    for name in ('NIKKE_SLANG_ROOT','NIKKE_SLANG_GENERATION_CACHE'):
+        value=env.get(name)
+        if not value or not Path(value).is_absolute() or not Path(value).is_dir():
+            raise ValueError('Staged CUDA requires an existing absolute '+name)
+    compiler=Path(env['NIKKE_SLANG_ROOT'])/'bin'/('slangc.exe' if is_windows() else 'slangc')
+    if not compiler.is_file() or compiler.stat().st_size==0:
+        raise ValueError('Staged CUDA Slang compiler missing: '+str(compiler))
+    return dict(passed=True,slang_root=str(Path(env['NIKKE_SLANG_ROOT']).resolve()),
+        generation_cache=str(Path(env['NIKKE_SLANG_GENERATION_CACHE']).resolve()),
+        compiler_path=str(compiler.resolve()),compiler_identity_verified=False,
+        cache_hit_verified=False,gpu_calls=0,compiler_calls=0)
+
+
 def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None):
     started=time.monotonic()
     cli=load_module('packet_stage_cli',ROOT/'scripts/nikke_gpu.py');manifest=packet_header(cli)
@@ -273,12 +288,19 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None)
     from portable_phase_audit import Journal
     journal=Journal(folder/'preparation.jsonl')
     journal.emit('packet_header_prepare','returned',elapsed_seconds=time.monotonic()-started)
+    env=cli.validation_environment(folder)
+    if stage=='staged-gpu-linked':
+        env['NIKKE_SLANG_GENERATION_REQUIRED']='1'
+        try:environment=required_generation_environment(env)
+        except (ValueError,OSError) as error:
+            save(folder/'environment-preflight.json',dict(passed=False,error=str(error),gpu_calls=0,compiler_calls=0,claim_created=False))
+            raise
+        save(folder/'environment-preflight.json',environment)
     # A claim is durable before any launch; a missing result never permits retry.
     claim_stage=stage+('-'+plan['object_request']['group_index'] if stage in (NATIVE_GROUP_STAGE,'preflight-native-group','preflight-test-group') else '')
     save(ROOT/('packet-stage-claimed-'+claim_stage+'-'+backend+'.json'),dict(package_id=manifest['package_id'],capture=str(folder),created_unix_ns=time.time_ns()))
-    bounded=cli.bounded_module();env=cli.validation_environment(folder)
+    bounded=cli.bounded_module()
     if stage=='generation':env['NIKKE_SLANG_GENERATION_REQUIRED']='0'
-    if stage=='staged-gpu-linked':env['NIKKE_SLANG_GENERATION_REQUIRED']='1'
     env['NIKKE_VALIDATION_JOB_MEMORY_MB']='2048'
     env['PYTHONPATH']=os.pathsep.join([*site.getsitepackages(),env.get('PYTHONPATH','')])
     interpreter=getattr(sys,'_base_executable',sys.executable) if is_windows() else sys.executable

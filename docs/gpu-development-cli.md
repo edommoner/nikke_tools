@@ -1,3 +1,7 @@
+`staged-gpu-linked` は明示的な既存絶対パスの `NIKKE_SLANG_ROOT` / `NIKKE_SLANG_GENERATION_CACHE` と空でないplatform用slangcをclaim・子起動前に検査し、`environment-preflight.json`へ保存する。設定不足は重いtransaction再検査より先に拒否する。これは存在確認のみであり、compiler identity/cache hit/全stage証拠は従来のbounded実行で再検証する。失敗captureと旧claimを編集したり、自動retryしたりしない。
+
+`reference --suite enemy-ammo-self-destruct-common --out NEW.json` は元Velvet76定義・8条件のCPU合成契約。実自爆のqueue済み射撃だけを同世代/同frameの弾倉へ配送する。既存clock/割合演算/完了通知/被弾を共用し、弾切れで自爆を延期しない。GPU wire/defaultは未接続。詳細は[ADD自爆と敵弾薬](portable-add-self-destruct.md)。full packetの生成は全reference登録rootのtracked payload所属を検査し、未追跡factory等があればnative計算/ZIP作成前に拒否する。compact packetと動的import全closureはこの検査の範囲外。
+
 `source-baseline --all-registered --out NEW.json` はproducer checkoutの全登録source/golden組を棚卸しする。cache aliasを同じ組へまとめ、source entryごとに一度だけclosureをhashする。`current`/`stale`/`unavailable`と全体一致flagを出し、GPU/native/compileは0。固定packet内では全登録の網羅を主張できないため拒否する。21 current/179 stale/2 unavailableという現棚卸しはsourceの状態であり、計算・CUDA・全キャラの認定数ではない。詳細差分は出力file、stdoutはsummaryだけ。
 
 旧logical13/rosters5は共通named/stack admission修正後の現sourceで再認定し、通常登録goldenをv3へ更新した。旧v1/v2と各source証明書を保持し、新v3はfresh独立監査と同時にcurrent source証明書を生成する。入力・全native/entry・readback全byteは従来と同一。`source-baseline` は開発source検査を行うが、この実行/再認定を代替しない。

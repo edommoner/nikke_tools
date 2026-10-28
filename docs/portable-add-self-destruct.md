@@ -1,4 +1,17 @@
 # ADD自爆と最終射撃の共通GPU接続
+
+## 敵弾薬との合成：共通CPU契約
+
+`reference --suite enemy-ammo-self-destruct-common --out NEW.json` は元ヴェルヴェット76定義の8条件を検査する。正本 `_retire(...,"자폭",...)` の時点で存在する実際のAttackHit objectを観測し、同じactor世代・同じframeでだけ退場後の弾倉へ配送する。HP撃破、時間切れ、別object、別世代、後続frameにはこの資格を与えない。既存EnemyAmmoのframe/attack/割合演算/完了通知/リロード処理を共用し、既定modelのself-destruct拒否は維持する。
+
+単発0秒、間隔3発、同時3発、空弾倉、リロード中の最終射撃、until-cleared再出現、発射前HP撃破、時間切れを検査。弾薬で拒否されたattemptも元のscheduled counterを進め、自爆を延期しない。退場済み世代のreloadは完了しない。固定容量の明示モデルであり、ゲーム仕様の実測ではない。GPU入口の合成には出力領域の所有権分離と、退場後のexact queued source資格のSlang接続が必要で、まだ未実装である。
+
+固定packetで8契約・新7unit成功。関連敵弾薬24検査・自爆wire8検査・readiness24検査も成功。旧goldenを変更せず、新CPU hookのexact inverseを既存監査へ合成。旧enemy-ammoのMetal証拠はself-destruct共有hook追加前の履歴であり、全現source一致という誤ったunit条件を、承認済みexact inverseによる全source保持検査へ修正した。現source再認定とは区別する。
+
+初回参照のADD名二重prefixと、初回packetの未追跡module梱包漏れは失敗記録を保持し、別実行/別packetで修正した。共通CLIにはfull packetの全reference登録rootを梱包前に検査するguardを追加した。compact packetの全reference受付や動的import全closureを保証するものではない。
+
+証跡 `research/target-count-query-evidence/enemy-ammo-self-destruct-native-contract-v1.json`。保護CPU4ファイル・GPU計算source変更0、この合成のMetal/CUDA認定とdefault受付は未完了。
+
 専用CLI `add-self-destruct` の元実編成8条件＋不正6入力を、M5 Metalの保存出力とfresh GPU禁止独立監査で検証した。元ニヒリスター70定義、E.H.76定義を変更せず、18自爆/33射撃/165被弾の全戦闘・状態・通知を比較。通常/cache-onlyの14入力を登録した。実CUDA、敵弾薬との合成、公開default受付、全キャラ認定は含まない。
 
 ## 先に固定したCPU部品契約

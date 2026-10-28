@@ -943,6 +943,9 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
     names.append(license_path.relative_to(ROOT).as_posix())
     from portable_cpu_tests import validate_dependency_files
     validate_dependency_files(ROOT,[*SUITES[suite]['tests'],*SMOKE_TESTS],included=set(names))
+    if not compact:
+        from portable_reference import validate_reference_payload
+        validate_reference_payload(names)
     contract_name='research/portable-mode-session-contract.json'
     if contract_name in names:
         contract=load(ROOT/contract_name)
