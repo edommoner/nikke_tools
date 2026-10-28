@@ -1,0 +1,137 @@
+{
+  "package_id": "97e9477eed96614e1ab8a916effb99ec939d9be17a6757fea11e6135b63e1872",
+  "root": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-partitioned-origin-v1",
+  "captures": {
+    "smoke": {
+      "capture": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-partitioned-origin-v1\\smoke",
+      "result": {
+        "mode": "partitioned-cuda-origin-smoke-v1",
+        "package_id": "97e9477eed96614e1ab8a916effb99ec939d9be17a6757fea11e6135b63e1872",
+        "passed": true,
+        "containment_verified": true,
+        "gpu_calls": 0,
+        "compiler_calls": 0,
+        "native_battle_calls": 0,
+        "calculation_verified": false,
+        "execution_permitted": false
+      },
+      "execution": {
+        "passed": true,
+        "timed_out": false,
+        "elapsed_seconds": 11.202191199641675,
+        "timeout_seconds": 30,
+        "child_exit_code": 0,
+        "final_child_exit_code": 0,
+        "below_normal_priority": true,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "jobs": [
+        {
+          "pre_gate_verified": true,
+          "post_members": [],
+          "peak_bytes": 84840448,
+          "memory_limit_bytes": 2147483648,
+          "inspection_error": null
+        }
+      ],
+      "monitor": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      }
+    },
+    "audit": {
+      "capture": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-partitioned-origin-v1\\audit",
+      "result": {
+        "mode": "partitioned-cuda-origin-audit-v1",
+        "package_id": "97e9477eed96614e1ab8a916effb99ec939d9be17a6757fea11e6135b63e1872",
+        "passed": true,
+        "containment_verified": true,
+        "native_admission_revalidated": true,
+        "process_preserved": true,
+        "preservation_verified": false,
+        "execution_permitted": false,
+        "calculation_verified": false,
+        "gpu_calls": 0,
+        "compiler_calls": 0,
+        "native_calls": 0,
+        "full_goal_complete": false
+      },
+      "execution": {
+        "passed": true,
+        "timed_out": false,
+        "elapsed_seconds": 155.44820090010762,
+        "timeout_seconds": 180,
+        "child_exit_code": 0,
+        "final_child_exit_code": 0,
+        "below_normal_priority": true,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "jobs": [
+        {
+          "pre_gate_verified": true,
+          "post_members": [],
+          "peak_bytes": 153800704,
+          "memory_limit_bytes": 2147483648,
+          "inspection_error": null
+        }
+      ],
+      "monitor": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      }
+    }
+  },
+  "origin": {
+    "original_package_id": "66c50b923e5786c58989121324f206f880341db76bbb27992b81f27962adb58a",
+    "native_admission_revalidated": true,
+    "input_count": 106,
+    "native_cases": 63,
+    "native_admission_sha256": "4e1d83c798ac8266528c7255600973ca5ab73a10c439f617441db832ccc25e04",
+    "original_stage_passed": false,
+    "claims_modified": false,
+    "original_failure_sha256": "fc933ba9aaf274404390a9ad3189219ed331d1536d7c5b96db9006df35f10a55",
+    "original_failure_bytes": 172803,
+    "linked_receipt": {
+      "key": "6e5f7a1c6836bc78d99ea2d48f0434739a93eaf62805d6f27d598fb985c384c6",
+      "artifact_bytes": 6636880,
+      "artifact_sha256": "70fff521f9287679f116db936da5d912d0c2c9cddbc5fd576b71d407f2afa70a",
+      "enabled": true,
+      "reused": true
+    },
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "native_calls": 0,
+    "execution_permitted": false
+  },
+  "audit_saved_files": [
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-partitioned-origin-v1\\audit\\result.json",
+      "bytes": 444,
+      "sha256": "af7f8f33b9e4e187ebcb04cfecfee5585140d3096cf15925cc0a99c0506a8a6e"
+    },
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-partitioned-origin-v1\\audit\\origin.json",
+      "bytes": 145548,
+      "sha256": "c13670407bba85393ec6791f550a0d152e30cac8a2ab45d696b2c6c9eb37a551"
+    },
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-partitioned-origin-v1\\audit\\execution.json",
+      "bytes": 1642,
+      "sha256": "c70857efbda39db4c5e2b05155f1663ad1462e4237bf92cd1e18fddfa46176fa"
+    }
+  ]
+}

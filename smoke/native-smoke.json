@@ -1,0 +1,50 @@
+{
+  "python_executable": "C:\\Users\\owner\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "python_sha256": "dea78bb78043f0d53ef4a475f85fa0312b90fa93c136a0686d17946781c60e16",
+  "script_sha256": "721bb96c6f55873129ba41a60b2d8c56823fc5e9a28baf7dd812e5a9fd4ab3ea",
+  "argv": [
+    "C:\\Users\\owner\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-I",
+    "-S",
+    "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-partitioned-origin-v1\\package\\app\\portable_native_output_probe.py",
+    "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-partitioned-origin-v1\\smoke\\native-smoke.probe.partial.cubin"
+  ],
+  "inspection": {
+    "child_pid": 145712,
+    "child_ppid": 122904,
+    "parent_observation": "os_process_snapshot",
+    "observed_unix_ns": 1793217431289764100,
+    "wrapper_pid": 122904,
+    "child_creation_filetime_ticks": "134376910311289600",
+    "job_members": [
+      122904,
+      145712
+    ],
+    "job_peak_memory_bytes": 84840448,
+    "job_memory_limit_bytes": 2147483648
+  },
+  "native_launch": {
+    "protocol": "create-suspended-v1",
+    "created_suspended": true,
+    "creation_flags": 16388,
+    "primary_thread_id": 101728,
+    "resume_previous_count": 1
+  },
+  "return_code": 0,
+  "output_probe": {
+    "api": "CreateFileW",
+    "close_winerror": null,
+    "closed": true,
+    "created": true,
+    "expected_bytes": 20,
+    "expected_sha256": "96c983487a24dd4ab33bcb22f7d17bd28a8971851b1ab111398ad34139d87314",
+    "failed_operation": null,
+    "flushed": true,
+    "protocol": "native-file-output-v1",
+    "status": "verified",
+    "winerror": null,
+    "written_bytes": 20
+  },
+  "elapsed_seconds": 0.3074997002258897,
+  "gpu_calls": 0
+}

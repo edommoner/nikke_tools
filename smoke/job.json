@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "records": [
+    {
+      "child_pid": 122904,
+      "wrapper_pid": 49652,
+      "pre_gate": {
+        "child_pid": 122904,
+        "child_ppid": 49652,
+        "parent_observation": "os_process_snapshot",
+        "observed_unix_ns": 1793217423029175200,
+        "wrapper_pid": 49652,
+        "child_creation_filetime_ticks": "134376910229977917",
+        "job_members": [
+          122904
+        ],
+        "job_peak_memory_bytes": 4677632,
+        "job_memory_limit_bytes": 2147483648
+      },
+      "pre_gate_verified": true,
+      "post_wait": {
+        "child_pid": 122904,
+        "child_ppid": 49652,
+        "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+        "observed_unix_ns": 1793217431500992200,
+        "wrapper_pid": 49652,
+        "child_creation_filetime_ticks": "134376910229977917",
+        "job_members": [],
+        "job_peak_memory_bytes": 84840448,
+        "job_memory_limit_bytes": 2147483648
+      },
+      "inspection_error": null
+    }
+  ],
+  "observer_assigns_processes": false
+}

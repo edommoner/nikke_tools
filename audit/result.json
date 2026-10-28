@@ -1,0 +1,15 @@
+{
+  "mode": "partitioned-cuda-origin-audit-v1",
+  "package_id": "97e9477eed96614e1ab8a916effb99ec939d9be17a6757fea11e6135b63e1872",
+  "passed": true,
+  "containment_verified": true,
+  "native_admission_revalidated": true,
+  "process_preserved": true,
+  "preservation_verified": false,
+  "execution_permitted": false,
+  "calculation_verified": false,
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "native_calls": 0,
+  "full_goal_complete": false
+}

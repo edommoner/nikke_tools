@@ -1,0 +1,11 @@
+{
+  "mode": "partitioned-cuda-origin-smoke-v1",
+  "package_id": "97e9477eed96614e1ab8a916effb99ec939d9be17a6757fea11e6135b63e1872",
+  "passed": true,
+  "containment_verified": true,
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "native_battle_calls": 0,
+  "calculation_verified": false,
+  "execution_permitted": false
+}
