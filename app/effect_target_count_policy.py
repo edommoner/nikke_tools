@@ -21,7 +21,7 @@ def validate_effect(effect):
     return True
 
 
-def _reader(fn,expected):
+def _reader(fn,expected,stat=STAT):
     """Retain native wrappers, including previously cloned modifier readers."""
     if fn.__code__ is not expected.__code__:
         raise ValueError('Unreviewed native target-count numeric reader')
@@ -30,28 +30,28 @@ def _reader(fn,expected):
         cells=fn.__closure__ or ()
         positions=[i for i,cell in enumerate(cells) if isinstance(cell.cell_contents,types.FunctionType) and cell.cell_contents.__code__ is wrapped.__code__]
         if len(positions)!=1:raise ValueError('Unreviewed native target-count wrapper closure')
-        index=positions[0];child=_reader(cells[index].cell_contents,wrapped)
+        index=positions[0];child=_reader(cells[index].cell_contents,wrapped,stat)
         return _clone(fn,fn.__globals__,tuple(types.CellType(child) if i==index else cell for i,cell in enumerate(cells)))
     scope=dict(fn.__globals__)
-    if '_STAT_TO_BUFF' not in scope or '_BUFFS_ZERO' not in scope or STAT in scope['_STAT_TO_BUFF'] or STAT in scope['_BUFFS_ZERO']:
+    if '_STAT_TO_BUFF' not in scope or '_BUFFS_ZERO' not in scope or stat in scope['_STAT_TO_BUFF'] or stat in scope['_BUFFS_ZERO']:
         raise ValueError('Native target-count consumer changed; re-audit explicit model')
-    scope['_STAT_TO_BUFF']=dict(scope['_STAT_TO_BUFF'],**{STAT:STAT})
-    scope['_BUFFS_ZERO']=dict(scope['_BUFFS_ZERO'],**{STAT:0.})
+    scope['_STAT_TO_BUFF']=dict(scope['_STAT_TO_BUFF'],**{stat:stat})
+    scope['_BUFFS_ZERO']=dict(scope['_BUFFS_ZERO'],**{stat:0.})
     return _clone(fn,scope)
 
 
 class _Query:
     """Ephemeral view: only matching carriers; no mutation of a live manager."""
-    def __init__(self,manager,marker):
+    def __init__(self,manager,marker,stat=STAT):
         from calculator.buff_manager import BuffManager
         self._manager=manager
-        self._active=[ab for ab in manager._active if ab.effect.get('stat')==STAT and ab.effect.get('target_effect')==marker]
+        self._active=[ab for ab in manager._active if ab.effect.get('stat')==stat and ab.effect.get('target_effect')==marker]
         self._plan_cache={};self._buffs_cache={}
         if type(manager)._build_plan is not BuffManager._build_plan:
             raise ValueError('Unreviewed native target-count plan builder')
         self._build_plan=types.MethodType(BuffManager._build_plan,self)
-        self._plan_step=types.MethodType(_reader(type(manager)._plan_step,BuffManager._plan_step),self)
-        self.get_buffs=types.MethodType(_reader(type(manager).get_buffs,BuffManager.get_buffs),self)
+        self._plan_step=types.MethodType(_reader(type(manager)._plan_step,BuffManager._plan_step,stat),self)
+        self.get_buffs=types.MethodType(_reader(type(manager).get_buffs,BuffManager.get_buffs,stat),self)
     def __getattr__(self,name):return getattr(self._manager,name)
 
 

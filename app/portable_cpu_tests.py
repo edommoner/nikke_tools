@@ -28,6 +28,7 @@ AUDIT_FILES['test_heavyarms_lock_reference.py']=AUDIT_FILES['test_portable_model
 for _test in ('test_effect_target_count_policy.py','test_effect_target_count_reference.py','test_portable_effect_target_count.py','test_effect_target_count_shots.py'):
     AUDIT_FILES[_test]=('research/upstream/nikke-calc-master/data/parsed_skills.json',)
 AUDIT_FILES['test_effect_target_count_policy.py']=AUDIT_FILES['test_portable_model_gap_audit.py']
+AUDIT_FILES['test_effect_range.py']=('research/upstream/nikke-calc-master/data/parsed_skills.json',)
 
 def validate_dependency_files(root,patterns,included=None):
     """Reject missing audit data before tests/native work or execution claims."""
