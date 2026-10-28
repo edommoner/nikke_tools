@@ -1,3 +1,15 @@
+# 2026-10-29 全106の共通分割file transport・M5論理wire一致
+
+共通partitioned transportとprivate Metal CLIを実装。106を16×6＋10に分け、既存CUDA execute_cuda_batches(output_paths)／Swift --batchesの1context/pipeline・3bufferを再利用する。GPU計算/正本/厳密生成normalizer変更0。最大input7403524/output132146304/runtime2288768byte、全output875469264byteを保持。原本2148file中2147はbyte同一、CLIはmain dispatcherのみ追加、元registry/goldenを保持。
+
+実行固定9a69d35dのfresh CPU全106/native63は391.973392秒で一致。M5全7dispatchは11.216289秒、必須generation/compiler0、Metal pipeline7hit。旧flat wire検査はRaw SHA 0a737874…対旧4ecc755e…で失敗し、child14.217147秒/exit1。旧親CLIはFalseを返しつつexit0だったため現codeでexit1へ修正。原本/partial/claimは保持しGPU再実行0。
+
+保存raw比較で101rowは全byte一致、残るrow16/28/29/30/31も各1word、すべてDFS scratch depth1の+530（row word1924498）だった。destructibleBattleCaptureが保存するresults配列内の絶対word indexで、差は16×2064786。数値/state差ではない。source4file SHAを固定する明示address profileを実装し、全20参照のID・参照先・boundsを検査。rawを変えずRAM内の論理viewだけ5参照を付替え、全106のrow hashと全体4ecc755e…が一致。GPU原本raw0a737874…、期待hash、旧失敗判定は変更0。
+
+現69f25d90 packetはsource-pinned profileを明示しraw SHAとlogical SHAを別記する。出力rawの付替え/数値正規化は行わない。source/call AST比較でplan/split/CUDA・Metal sequenceの引数は実行済みv4と同一。現packet自身13＋5unit成功、既存batch8/file15/stream4/CLI50成功。現profile統合の追加device実行ではなく、旧実GPU出力へのread-only監査とsource/unit証拠である。計算認定/独立post-GPU native監査/CUDA新owner・sequence traceは未完。Windows追加0、消費済み旧claim/ledgerを再使用しない。
+
+model-checkはe061e679…で従来同一、未対応分類/公開default/全キャラ認定は維持。次はこの明示wire viewを使う保存結果の独立native監査と、共通sequence API trace・bounded CUDA実行経路への接続。詳細portable-partitioned-file-transport.md、証跡partitioned-file-transport-v1.json。
+
 # 2026-10-29 immutable recovery接続・CUDA launchでcode2
 
 元04515f96の計算/data/test/registry/goldenを保持するcapsuleを実装。CLI/flowの必要なbridgeだけをAST差込みし、9個の入力/claim/finish関数とnative loopを保持。新owner/nonce/transactionを安定した排他ledgerへ結合し、旧claimを触らない。固定66c50b92/commit18cde163のproduction codeは旧テスト成功版9d995acdと全byte同一（差は追加testのみ）。元28群177unit、新capsule9検査、関連stage31/preflight13/origin11/continuation10成功。Mac必須生成hit/compiler0は0.57秒。

@@ -1,3 +1,5 @@
+`partitioned-file-package --source-package OLD --out NEW.zip` は全入力を保持する共通分割file transportのMetal診断packetを作る。新packetの `partitioned-run` はfresh全CPU比較後、最大16件分のbufferを再利用する。source固定のaddress profileはraw SHAと論理view SHAを分離し、数値/statusを変更しない。`partitioned-address-audit` は保存済み旧flat失敗をread-onlyで検査する。CUDAの新実行許可とは区別する。[分割file契約](portable-partitioned-file-transport.md)。
+
 `gpu-recovery-package --base-package OLD --origin-auditor AUDITOR --out NEW.zip` は、元計算/registry/goldenを保持するcontroller capsuleを作る。新packetの `preflight-recover` が完全証拠とキャッシュを再確認して新owner/ledgerへ結合し、既存staged-gpu-linkedへ接続する。[引き継ぎ契約](portable-gpu-recovery.md)。CPU引き継ぎをGPU計算成功と扱わない。
 
 元の全件事前検査は `staged-origin-check` / CPU-only `audit-staged-origin` で旧packet自身のCLIを呼び再監査し、参照した証拠の全file name/bytes/SHAを固定する。native計算の再実行やGPU recovery admissionとは区別する。[元preflight監査](portable-staged-failure-audit.md)。

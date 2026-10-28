@@ -3492,6 +3492,7 @@ def main(argv=None):
     a=sub.add_parser('continuation-package');a.add_argument('--base-package',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('gpu-recovery-package');a.add_argument('--base-package',type=Path,required=True);a.add_argument('--origin-auditor',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('partitioned-file-package');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('partitioned-address-audit');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('preflight-resume');a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--group-size',type=int,required=True)
     for name in ('capture','parent-transaction'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('preflight-plan');a.add_argument('--backend',choices=('metal','cuda'),required=True)
@@ -3831,6 +3832,11 @@ def main(argv=None):
         options=dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}
         if a.command=='staged-run':options['preflight_transaction']=a.transaction
         result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**options)
+    elif a.command=='partitioned-address-audit':
+        from portable_partitioned_addresses import audit
+        with forbid_gpu():report=audit(SimpleNamespace(**globals()),a.source_package,a.capture,a.out)
+        result={k:report[k] for k in ('profile','input_count','logical_wire_equivalence_verified','original_stage_passed','raw_gpu_bytes_modified','numeric_words_modified','gpu_calls','calculation_verified')}
+        result.update(address_fields=len(report['logical_address_changes']),report=str(a.out.resolve()))
     elif a.command=='partitioned-file-package':
         from portable_partitioned_cli import make
         with forbid_gpu():result=make(SimpleNamespace(**globals()),a.source_package,a.out)

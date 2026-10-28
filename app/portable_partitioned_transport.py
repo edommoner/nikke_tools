@@ -57,7 +57,7 @@ def generated_baseline(adapter,outputs,expected):
 
 
 def execute(source,entry,packed,input_words,output_words,backend,*,readback_path,expected_input_sha256,
-            expected_output_sha256,expected_source_sha256,expected_generated_normalized,batch_size=16,adapter=None):
+            expected_output_sha256,expected_source_sha256,expected_generated_normalized,batch_size=16,adapter=None,address_profile=None):
     if adapter is None:import portable_backend as adapter
     from portable_wire_layout import MAX_INPUT_WORDS,MAX_OUTPUT_WORDS,LARGE_OUTPUT_WORDS
     if backend not in ('metal','cuda'):raise ValueError('Explicit partitioned backend required')
@@ -76,6 +76,10 @@ def execute(source,entry,packed,input_words,output_words,backend,*,readback_path
     # Preserve the existing registered entry/wire checks before compilation.
     adapter.validate_composed_stride(source,input_words,output_words)
     if not isinstance(expected_source_sha256,dict) or not expected_source_sha256 or adapter.source_hashes(source)!=expected_source_sha256:raise ValueError('Partitioned source differs from complete sealed source')
+    if address_profile is not None:
+        from portable_partitioned_addresses import PROFILE,check_source
+        if address_profile!=PROFILE:raise ValueError('Unknown partitioned address profile')
+        check_source(adapter.ROOT,source,output_words)
     destination=Path(readback_path)
     if not destination.is_absolute() or destination.is_symlink():raise ValueError('Fresh absolute partitioned output required')
     destination=destination.resolve();partial=destination.with_name(destination.name+'.partial');parts=destination.with_name(destination.name+'.batches')
@@ -136,13 +140,20 @@ def execute(source,entry,packed,input_words,output_words,backend,*,readback_path
             elif transport.get('file_readback_chunk_bytes')!=adapter.READBACK_CHUNK_BYTES:raise RuntimeError('Partitioned Metal did not use bounded file writes')
             records.append(dict(**row,output_sha256=digest.hexdigest(),transport=transport))
         target.flush();os.fsync(target.fileno())
-    if total!=layout['output_bytes'] or joined.hexdigest()!=expected_output_sha256:raise RuntimeError('Complete ordered partitioned output differs from sealed baseline')
+    if total!=layout['output_bytes']:raise RuntimeError('Incomplete ordered partitioned output')
+    address_view=None
+    if address_profile is not None:
+        from portable_partitioned_addresses import view_file
+        address_view=view_file(partial,layout)
+        if address_view['raw_joined_output_sha256']!=joined.hexdigest() or address_view['logical_view_sha256']!=expected_output_sha256:raise RuntimeError('Complete typed-address wire view differs from sealed baseline')
+    elif joined.hexdigest()!=expected_output_sha256:raise RuntimeError('Complete ordered partitioned output differs from sealed baseline')
     if adapter.source_hashes(source)!=hashes or {k:hashlib.sha256(p.read_bytes()).hexdigest() for k,p in outputs.items()}!=generated:raise RuntimeError('Partitioned source changed during dispatch')
     evidence=dict(schema=SCHEMA,backend=backend,source_sha256=hashes,generated_sha256=generated,input_sha256=expected_input_sha256,
         output_sha256=joined.hexdigest(),plan=layout,dispatches=records,transport=dict(backend=backend,cases=layout['input_count'],
         command_status='completed',session_dispatches=len(batches),pipeline_instances=1,buffer_allocations=3 if resident else 2,
-        input_bytes=len(packed),output_bytes=total),gpu_execution_verified=True,sealed_output_fingerprint_matches=True,
-        calculation_verified=False,scope='Complete frozen-output identity only; independent native audit and feature admission remain separate')
+        input_bytes=len(packed),output_bytes=total),gpu_execution_verified=True,sealed_output_fingerprint_matches=joined.hexdigest()==expected_output_sha256,
+        wire_address_profile=address_profile,address_view=address_view,logical_wire_equivalence_verified=address_view is not None,
+        calculation_verified=False,scope='Raw output is unchanged. An explicit source-pinned address view, when present, has a separate logical digest. Native audit and feature admission remain separate.')
     with (parts/'validated.json').open('x') as f:json.dump(evidence,f,indent=2)
     os.link(partial,destination);partial.unlink()
     if os.name!='nt':

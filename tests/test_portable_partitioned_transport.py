@@ -145,5 +145,53 @@ class PartitionedTransportTests(unittest.TestCase):
         with self.assertRaises(ValueError):controller.run(c,self.root/'new','cuda',16,60)
         c.verify_package.assert_not_called()
 
+    def test_address_profile_keeps_raw_bytes_and_compares_a_separate_logical_view(self):
+        import portable_partitioned_addresses as addresses
+        self.adapter.READBACK_CHUNK_BYTES=8*1024*1024
+        packed=struct.pack('<4I',3,101,102,103)
+        def row(local,number):
+            value=bytearray(addresses.WORDS*4);field=addresses.DFS_BASE+530
+            struct.pack_into('<II',value,field*4,local*addresses.WORDS+addresses.RECEIPT_BASE,1)
+            struct.pack_into('<I',value,addresses.RECEIPT_BASE*4,1);struct.pack_into('<I',value,40,number)
+            return value
+        expected=hashlib.sha256()
+        for i in range(3):expected.update(row(i,101+i))
+        def sequence(batches,paths,kind):
+            records=[]
+            for data,path in zip(batches,paths,strict=True):
+                words=struct.unpack('<'+'I'*(len(data)//4),data);count=words[0]
+                with path.open('wb') as f:
+                    for i,number in enumerate(words[1:]):f.write(row(i,number))
+                size=count*addresses.WORDS*4
+                r=dict(cases=count,command_status='completed',input_bytes=len(data),output_bytes=size,file_readback_chunk_bytes=8*1024*1024)
+                if kind=='cuda':r['readback_stream']=dict(output_bytes=size,output_sha256=partitioned.digest_file(path),chunk_bytes=8*1024*1024,chunks=(size+8*1024*1024-1)//(8*1024*1024))
+                records.append(r)
+            return records
+        def metal(argv):
+            manifest=json.loads(Path(argv[3]).read_text());batches=[Path(r['input']).read_bytes() for r in manifest]
+            records=sequence(batches,[Path(r['output']) for r in manifest],'metal')
+            return SimpleNamespace(returncode=0,stdout=json.dumps(dict(batches=records,pipeline_instances=1,buffer_allocations=3)),stderr='')
+        def cuda(src,entry,batches,sizes,counts,**kw):return [None]*len(batches),sequence(batches,kw['output_paths'],'cuda')
+        self.adapter.run_metal_command.side_effect=metal;self.adapter.execute_cuda_batches.side_effect=cuda
+        for backend in ('metal','cuda'):
+            self.dest=self.root/('address-'+backend)
+            with patch.object(addresses,'check_source') as check:
+                _,proof=partitioned.execute(self.source,'entry',packed,1,addresses.WORDS,backend,readback_path=self.dest,
+                    expected_input_sha256=digest(packed),expected_output_sha256=expected.hexdigest(),expected_source_sha256=self.hashes,
+                    expected_generated_normalized=self.generated,batch_size=2,adapter=self.adapter,address_profile=addresses.PROFILE)
+            check.assert_called_once();self.assertFalse(proof['sealed_output_fingerprint_matches']);self.assertTrue(proof['logical_wire_equivalence_verified'])
+            self.assertEqual(proof['address_view']['logical_view_sha256'],expected.hexdigest());self.assertEqual(proof['output_sha256'],partitioned.digest_file(self.dest))
+            self.assertNotEqual(proof['output_sha256'],expected.hexdigest());self.assertEqual(proof['address_view']['numeric_words_modified'],0)
+            with self.dest.open('rb') as f:f.seek((2*addresses.WORDS+addresses.DFS_BASE+530)*4);self.assertEqual(struct.unpack('<I',f.read(4))[0],addresses.RECEIPT_BASE)
+
+    def test_failed_diagnostic_has_nonzero_cli_exit(self):
+        import contextlib,io
+        import portable_partitioned_cli as controller
+        args=['partitioned-run','--capture',str(self.root/'new')]
+        for option in ('slang-root','generation-cache','metal-pipeline-cache','swift-module-cache'):args.extend(['--'+option,str(self.root/option)])
+        with patch.object(controller,'run',return_value=dict(passed=False)),contextlib.redirect_stdout(io.StringIO()),self.assertRaises(SystemExit) as done:
+            controller.dispatch(SimpleNamespace(),lambda _:self.fail('No fallback'),args)
+        self.assertEqual(done.exception.code,1)
+
 
 if __name__=='__main__':unittest.main()

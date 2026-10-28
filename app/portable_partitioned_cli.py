@@ -7,7 +7,8 @@ import argparse,ast,copy,hashlib,json,os,subprocess,sys,tempfile,time,zipfile
 from pathlib import Path
 from types import SimpleNamespace
 
-ADDED=('app/portable_partitioned_transport.py','app/portable_partitioned_cli.py','tests/test_portable_partitioned_transport.py')
+ADDED=('app/portable_partitioned_transport.py','app/portable_partitioned_cli.py','app/portable_partitioned_addresses.py',
+       'tests/test_portable_partitioned_transport.py','tests/test_portable_partitioned_addresses.py')
 MODE='partitioned-file-diagnostic-v1'
 
 
@@ -48,6 +49,9 @@ def make(cli,source,output):
                 original_names_sha256=cli.sha(json.dumps(sorted(names|omitted),separators=(',',':')).encode()))
         m['partitioned_diagnostic']=dict(schema=MODE,base_package_id=old['package_id'],base_manifest_sha256=cli.sha((source/'gpu-package.json').read_bytes()),
             added=list(ADDED),replaced=['scripts/nikke_gpu.py'],cuda_execution_admitted=False)
+        from portable_partitioned_addresses import PROFILE,check_source
+        check_source(source,info['config']['source'],info['config']['output_words'])
+        m['partitioned_diagnostic']['wire_address_profile']=PROFILE
         m['source_commit']=subprocess.check_output(['git','rev-parse','HEAD'],cwd=cli.ROOT,text=True).strip()
         m['working_tree_dirty']=bool(subprocess.check_output(['git','status','--porcelain'],cwd=cli.ROOT,text=True).strip());m['package_id']=cli.package_id(m)
         if owner_snapshot(cli,source)!=info:raise ValueError('Original baseline changed during diagnostic packaging')
@@ -79,12 +83,14 @@ def run(cli,capture,backend,batch_size,timeout):
         with cli.forbid_gpu():cpu=j.invoke('partitioned_fresh_preflight',cli.cpu_preflight,m,input_capture=capture)
         exclusive(capture/'cpu.json',cpu)
         recipe=dict(mode=MODE,package_id=m['package_id'],backend='metal',batch_size=batch_size,timeout_seconds=timeout,
-            input_words=iw,output_words=ow,cpu_sha256=cli.sha((capture/'cpu.json').read_bytes()),input_sha256=m['golden']['input_sha256'])
+            input_words=iw,output_words=ow,cpu_sha256=cli.sha((capture/'cpu.json').read_bytes()),input_sha256=m['golden']['input_sha256'],
+            wire_address_profile=m['partitioned_diagnostic']['wire_address_profile'])
         exclusive(capture/'run.json',recipe)
         exclusive(cli.ROOT/'partitioned-metal-claimed.json',dict(package_id=m['package_id'],capture=str(capture),recipe=recipe))
         facts=cli.run_job(capture,'metal',timeout)
         evidence=cli.load(capture/'evidence.json') if (capture/'evidence.json').is_file() else None
-        result=dict(mode=MODE,package_id=m['package_id'],passed=bool(facts.get('passed') and evidence and evidence.get('sealed_output_fingerprint_matches')),
+        result=dict(mode=MODE,package_id=m['package_id'],passed=bool(facts.get('passed') and evidence and evidence.get('logical_wire_equivalence_verified')
+                and evidence.get('wire_address_profile')==m['partitioned_diagnostic']['wire_address_profile']),
             gpu_execution_verified=bool(evidence and evidence.get('gpu_execution_verified')),preflight_native_oracles=cpu['native_oracles'],
             input_count=count,calculation_verified=False,pending_independent_native_audit=True,full_goal_complete=False)
         exclusive(capture/'result.json',result);return result
@@ -107,7 +113,8 @@ def child(cli,capture,backend):
     if (run.get('mode')!=MODE or run.get('package_id')!=m['package_id'] or run.get('backend')!='metal'
         or claim!=dict(package_id=m['package_id'],capture=str(capture),recipe=run)
         or run.get('cpu_sha256')!=cli.sha((capture/'cpu.json').read_bytes()) or cpu.get('passed') is not True
-        or cpu.get('input_count')!=len(m['golden']['entries']) or cpu.get('native_oracles')!=cli.SUITES[m['suite']]['native']):raise ValueError('Partitioned fresh preflight or claim changed')
+        or cpu.get('input_count')!=len(m['golden']['entries']) or cpu.get('native_oracles')!=cli.SUITES[m['suite']]['native']
+        or run.get('wire_address_profile')!=m['partitioned_diagnostic'].get('wire_address_profile')):raise ValueError('Partitioned fresh preflight or claim changed')
     packed=(capture/'input.bin').read_bytes()
     receipt=cli.transport_input_receipt(m,packed,run['input_words'])
     if receipt!=cli.load(capture/'input-preflight.json') or receipt!=cpu['transport_input']:raise ValueError('Partitioned prepared input changed')
@@ -116,7 +123,7 @@ def child(cli,capture,backend):
         _,evidence=journal.invoke('partitioned_file_execute',partitioned.execute,cli.SUITES[m['suite']]['source'],'portableEvents',
             packed,run['input_words'],run['output_words'],'metal',readback_path=capture/'readback.bin',batch_size=run['batch_size'],
             expected_input_sha256=m['golden']['input_sha256'],expected_output_sha256=m['golden']['output_sha256'],
-            expected_source_sha256=m['golden']['source_sha256'],expected_generated_normalized=m['golden']['generated_normalized'])
+            expected_source_sha256=m['golden']['source_sha256'],expected_generated_normalized=m['golden']['generated_normalized'],address_profile=run['wire_address_profile'])
     cli.copy_generated(capture,m['suite']);cli.write(capture/'evidence.json',evidence)
 
 
@@ -129,7 +136,9 @@ def dispatch(cli,original,argv=None):
         a=p.parse_args(args)
         for k,e in (('slang_root','NIKKE_SLANG_ROOT'),('generation_cache','NIKKE_SLANG_GENERATION_CACHE'),('metal_pipeline_cache','NIKKE_METAL_PIPELINE_CACHE'),('swift_module_cache','NIKKE_METAL_MODULE_CACHE')):os.environ[e]=str(getattr(a,k).resolve())
         os.environ['NIKKE_SLANG_GENERATION_REQUIRED']='1';os.environ['NIKKE_METAL_PIPELINE_REQUIRED']='1'
-        result=run(cli,a.capture,a.backend,a.batch_size,a.timeout);print(json.dumps(result,indent=2));return result
+        result=run(cli,a.capture,a.backend,a.batch_size,a.timeout);print(json.dumps(result,indent=2))
+        if not result['passed']:raise SystemExit(1)
+        return result
     if args and args[0]=='_child':
         p=argparse.ArgumentParser();p.add_argument('command');p.add_argument('--capture',type=Path,required=True);p.add_argument('--backend',required=True);a=p.parse_args(args)
         return child(cli,a.capture.resolve(),a.backend)
