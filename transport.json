@@ -1,0 +1,14 @@
+{
+  "schema": "saved-wire-details-source-v1",
+  "package_id": "3d61b6db5b2078dd2f481cf86c7922820d3b50cd6075158924f7d027707e8360",
+  "archive_bytes": 9642113,
+  "archive_sha256": "6b4b782b90bfa8be0ff9e1e5b1603d2fe05d378b94bd3154a5a1fbafe5cc02d6",
+  "request_bytes": 250014,
+  "request_sha256": "17fe8c36b42e06c715c96c9134317bb401787422f11d1373c6f7ca55c295f3ab",
+  "packet_tests": 47,
+  "reference_subblocks_verified": 3056,
+  "maximum_diagnostic_words": 8192,
+  "gpu_calls_permitted": false,
+  "original_files_preserved": 2147,
+  "golden_unchanged": true
+}
