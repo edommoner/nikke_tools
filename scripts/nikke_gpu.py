@@ -3490,6 +3490,7 @@ def main(argv=None):
     a.add_argument('--receipt',type=Path,action='append',required=True)
     for name in ('package-root','out'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('continuation-package');a.add_argument('--base-package',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('gpu-recovery-package');a.add_argument('--base-package',type=Path,required=True);a.add_argument('--origin-auditor',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('preflight-resume');a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--group-size',type=int,required=True)
     for name in ('capture','parent-transaction'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('preflight-plan');a.add_argument('--backend',choices=('metal','cuda'),required=True)
@@ -3829,6 +3830,9 @@ def main(argv=None):
         options=dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}
         if a.command=='staged-run':options['preflight_transaction']=a.transaction
         result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**options)
+    elif a.command=='gpu-recovery-package':
+        from portable_gpu_recovery_package import make
+        with forbid_gpu():result=make(SimpleNamespace(**globals()),a.base_package,a.origin_auditor,a.out)
     elif a.command=='continuation-package':
         from portable_continuation_package import make
         with forbid_gpu():result=make(SimpleNamespace(**globals()),a.base_package,a.out)

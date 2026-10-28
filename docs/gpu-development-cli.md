@@ -1,3 +1,5 @@
+`gpu-recovery-package --base-package OLD --origin-auditor AUDITOR --out NEW.zip` は、元計算/registry/goldenを保持するcontroller capsuleを作る。新packetの `preflight-recover` が完全証拠とキャッシュを再確認して新owner/ledgerへ結合し、既存staged-gpu-linkedへ接続する。[引き継ぎ契約](portable-gpu-recovery.md)。CPU引き継ぎをGPU計算成功と扱わない。
+
 元の全件事前検査は `staged-origin-check` / CPU-only `audit-staged-origin` で旧packet自身のCLIを呼び再監査し、参照した証拠の全file name/bytes/SHAを固定する。native計算の再実行やGPU recovery admissionとは区別する。[元preflight監査](portable-staged-failure-audit.md)。
 
 保存済みのGPU前失敗は `staged-failure-check` / CPU-only `audit-staged-failure` でpackage/制御フロー/Job/監視/input/claimを結合検査する。診断成功を再実行許可やnative/cache再認定にしない。staged GPU入口には `--slang-root` と `--generation-cache` の明示ペア指定も追加し、recipeと子環境へ固定する。[失敗監査と設定規約](portable-staged-failure-audit.md)。
