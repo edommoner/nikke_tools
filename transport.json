@@ -1,0 +1,28 @@
+{
+  "package_id": "20d328a5ceae2f23cbad6c956ca2ee1bd4344dc1ef4ee2b7d266a4a620ae8574",
+  "archive_bytes": 10750637,
+  "archive_sha256": "36281b60dfeeafc15a97486e645f2a05207ed8167b073f65d91ee86ef1f617d8",
+  "suite": "compiler-full--coordinate-resident-frames",
+  "scope": "Current full resident frame source diagnostic only; no GPU run or calculation proof",
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "20d328a5ceae2f23cbad6c956ca2ee1bd4344dc1ef4ee2b7d266a4a620ae8574",
+    "suite": "compiler-full--coordinate-resident-frames",
+    "purpose": "compiler-diagnostic",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "PTX-only/2GiB/no-ptxas-level",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "mac_metal_audit_sha256": "fc093ea0f158bcae9ca51f11c20ff64f9201c5b644c75420e469d5a996b19bf1",
+  "gpu_calls": 0,
+  "compiler_calls_for_package": 0
+}

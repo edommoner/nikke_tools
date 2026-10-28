@@ -1,0 +1,18 @@
+{
+  "schema": "compile-plan-v1",
+  "passed": true,
+  "package_id": "20d328a5ceae2f23cbad6c956ca2ee1bd4344dc1ef4ee2b7d266a4a620ae8574",
+  "suite": "compiler-full--coordinate-resident-frames",
+  "purpose": "compiler-diagnostic",
+  "artifact_kind": "ptx",
+  "ptxas_level": null,
+  "memory_limit_mb": 2048,
+  "timeout_seconds": 60,
+  "error": null,
+  "policy": "PTX-only/2GiB/no-ptxas-level",
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "claim_created": false,
+  "calculation_verified": false,
+  "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+}
