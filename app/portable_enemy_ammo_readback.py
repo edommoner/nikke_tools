@@ -69,4 +69,34 @@ def compare_ammo(block,domain,native):
     assert reloads==data['reloads'] and attempts==data['attempts'],'Real resource gates and native frame deadlines'
     assert not any(block[head+E['EVENT_BASE']+events*16:head+E['EVENT_BASE']+E['EVENTS']*16])
     clean=list(block);end=head+E['EVENT_BASE']+E['EVENTS']*16;clean[head:end]=[0]*(end-head)
+    return compare_resources(clean,domain,native)
+
+
+def compare_resources(block,domain,native):
+    """Audit every shared resource receipt before projecting its legacy prefix."""
+    from portable_resource_decode import resource_readback
+    case,meta,*_=domain;observed=native['original_resources'];h=L['RESOURCE_HEADER_BASE']
+    count,total=block[h:h+2];assert count==total==len(observed['ordered_notifications']) and count<=E['RESOURCE_CAPACITY']
+    assert not any(block[h+2:h+8])
+    number=lambda words,at:struct.unpack('<d',struct.pack('<II',*words[at:at+2]))[0]
+    continuation=E['OUTPUT_BASE']+E['RESOURCE_BASE'];trace=[]
+    for i in range(count):
+        at=L['RESOURCE_TRACE_BASE']+i*8 if i<128 else continuation+(i-128)*8
+        event,owner,key,reserved=block[at:at+4]
+        assert event in (26,30) and owner<5 and key<len(meta['resource_names']) and reserved==0
+        trace.append(dict(event=event,owner=owner,resource=meta['resource_names'][key],time=number(block,at+4),boundary=number(block,at+6)))
+    assert trace==observed['ordered_notifications'],'Every gauge boundary and ammo consumption notice in native order'
+    end=continuation+(E['RESOURCE_CAPACITY']-128)*8
+    assert not any(block[continuation+max(0,count-128)*8:end]),'Unused resource history continuation'
+    clean=list(block);clean[h]=min(count,128);clean[continuation:end]=[0]*(end-continuation)
+    decoded=resource_readback(clean,meta,L,lambda at:number(clean,at))
+    for who,owner in enumerate(case['names']):
+        state=observed['final'].get(owner,{})
+        assert {key for key in state if not key.startswith('_gauge_max:')}<=set(meta['resource_names'])
+        for key in meta['resource_names']:
+            cap='_gauge_max:'+key
+            assert decoded['resources'][who][key]==dict(present=key in state,value=state.get(key,0),cap_present=cap in state,base_cap=state.get(cap)),'Every final shared resource quantity and cap'
+    for index,source in enumerate(meta['binding_source_indices']):
+        if case['effects'][source].get('stat') in ('gauge_charge','gauge_consume','gauge_consume_as_ammo'):
+            assert block[L['STATE_BASE']+index*10+8]==sum(r['row']==source for r in observed['dispatches']),'Every original resource dispatch activation'
     return clean

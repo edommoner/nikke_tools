@@ -17,4 +17,6 @@ static const uint EAM_HISTORY_WORDS=12U;
 static const uint EAM_EVENT_BASE=7184U;
 static const uint EAM_EVENTS=2048U;
 static const uint EAM_EVENT_WORDS=16U;
+static const uint EAM_RESOURCE_BASE=39952U;
+static const uint EAM_RESOURCE_CAPACITY=4096U;
 static const uint EAM_OUTPUT_WORDS=2032000U;

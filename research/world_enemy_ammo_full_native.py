@@ -14,6 +14,8 @@ def prepare_case(row):
 
 
 def observe(domain):
-    with enemy_ammo(domain[0]['enemy_ammo']) as ammo:n=incoming_battle(domain)
+    from world_original_resource_native import capture
+    with capture(domain[0],include_ammo=True) as resources,enemy_ammo(domain[0]['enemy_ammo']) as ammo:n=incoming_battle(domain)
     n['enemy_ammo']=ammo
+    n['original_resources']=resources
     return n

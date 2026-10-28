@@ -104,13 +104,17 @@ bool nextResourceBoundary(inout Runtime s, uint who, uint key, uint64_t cursor, 
     }
     return found;
 }
+#ifndef RESOURCE_TRACE_CAPACITY
+#define RESOURCE_TRACE_CAPACITY P_TRACE
+#define RESOURCE_TRACE_AT(output,index) ((output)+P_RESOURCE_TRACE_BASE+(index)*8)
+#endif
 void logResourceNotification(inout Runtime s, uint event, uint who, uint key, uint64_t when, uint64_t boundary, uint output)
 {
     if (s.resourceTraceTotal == 0x7fffffff) { s.error = 2; return; }
     s.resourceTraceTotal++;
     if (s.traceMode != 1) return;
-    if (s.resourceTraceCount == P_TRACE) { s.error = 8; return; }
-    uint at = output+P_RESOURCE_TRACE_BASE+s.resourceTraceCount++*8;
+    if (s.resourceTraceCount == RESOURCE_TRACE_CAPACITY) { s.error = 8; return; }
+    uint index=s.resourceTraceCount++, at = RESOURCE_TRACE_AT(output,index);
     results[at] = event; results[at+1] = who; results[at+2] = key; results[at+3] = 0;
     storeNumber(at+4,when); storeNumber(at+6,boundary);
 }

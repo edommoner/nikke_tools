@@ -61,6 +61,8 @@ class EnemyAmmoWireTests(unittest.TestCase):
         self.assertEqual(E['HISTORY_BASE'],E['STATE_BASE']+E['ROWS']*E['STATE_WORDS'])
         self.assertEqual(E['EVENT_BASE'],E['HISTORY_BASE']+E['HISTORIES']*E['HISTORY_WORDS'])
         self.assertLessEqual(E['OUTPUT_BASE']+E['EVENT_BASE']+E['EVENTS']*E['EVENT_WORDS'],E['OUTPUT_WORDS'])
+        self.assertEqual(E['RESOURCE_BASE'],E['EVENT_BASE']+E['EVENTS']*E['EVENT_WORDS'])
+        self.assertLessEqual(E['OUTPUT_BASE']+E['RESOURCE_BASE']+(E['RESOURCE_CAPACITY']-128)*8,E['OUTPUT_WORDS'])
         validate_composed_stride('gpu/world_enemy_ammo_entry.slang',117632,2032000)
         with self.assertRaises(ValueError):validate_composed_stride('gpu/world_add_attack_battle_entry.slang',117632,2032000)
 
@@ -69,6 +71,21 @@ class EnemyAmmoWireTests(unittest.TestCase):
         self.assertIn('prepareAmmoInstant(13,d.value,flat,fraction)',s)
         self.assertIn('ammoInstantResult(13,capacity,int(before),flat,fraction,after)',s)
         self.assertNotIn('f64ToI64',s)
+
+    def test_resource_history_crosses_prefix_without_losing_or_ignoring_receipts(self):
+        from portable_enemy_ammo_readback import compare_resources
+        block=[0]*E['OUTPUT_WORDS'];count=129;header=L['RESOURCE_HEADER_BASE'];tail=E['OUTPUT_BASE']+E['RESOURCE_BASE']
+        block[header:header+2]=[count,count];expected=[]
+        for i in range(count):
+            at=L['RESOURCE_TRACE_BASE']+i*8 if i<128 else tail+(i-128)*8
+            block[at:at+4]=[26,0,0,0];expected.append(dict(event=26,owner=0,resource='g',time=0.0,boundary=0.0))
+        domain=(dict(names=['caster'],effects=[]),dict(resource_names=['g'],binding_source_indices=[]))
+        native=dict(original_resources=dict(ordered_notifications=expected,final={},dispatches=[]))
+        projected=compare_resources(block,domain,native)
+        self.assertEqual(projected[header:header+2],[128,129]);self.assertFalse(any(projected[tail:tail+8]))
+        for at in (tail,tail+8):
+            with self.subTest(corrupt_word=at),self.assertRaises(AssertionError):
+                broken=block.copy();broken[at]=99;compare_resources(broken,domain,native)
 
 
 if __name__=='__main__':unittest.main()
