@@ -1,0 +1,46 @@
+{
+  "schema": "resident-frames-v2-compiler-diagnostic-summary-v1",
+  "package_id": "20d328a5ceae2f23cbad6c956ca2ee1bd4344dc1ef4ee2b7d266a4a620ae8574",
+  "suite": "compiler-full--coordinate-resident-frames",
+  "stopped_after": "tests",
+  "stage_verified": false,
+  "failure_test": "test_portable_compiler_diagnostic.CompilerDiagnosticTests.test_stale_full_entry_cannot_publish_a_current_compiler_packet",
+  "expected_error": "source closure is stale",
+  "observed_error": "CPU audit dependency missing from immutable payload: tests/fixtures/portable-healing-hp-snapshot-delta.json",
+  "execution": {
+    "passed": false,
+    "timed_out": false,
+    "elapsed_seconds": 23.407870300114155,
+    "timeout_seconds": 59.82799999974668,
+    "child_exit_code": 1,
+    "final_child_exit_code": 1,
+    "below_normal_priority": true,
+    "error": null,
+    "cleanup_error": null,
+    "observation_error": null
+  },
+  "jobs": [
+    {
+      "pre_gate_verified": true,
+      "post_members": 0,
+      "peak_bytes": 121118720,
+      "limit_bytes": 2147483648,
+      "inspection_error": null
+    }
+  ],
+  "process_preserved": true,
+  "missing_process_count": 0,
+  "service_preservation_verified": false,
+  "generation_executed": false,
+  "ptx_compile_executed": false,
+  "gpu_calls": 0,
+  "driver_load_calls": 0,
+  "runtime_compiler_calls": 0,
+  "retries": 0,
+  "calculation_verified": false,
+  "scope": "Registered unit-test stage failed; no full source generation, PTX compilation or GPU execution started",
+  "completed_test_groups": 6,
+  "tests_run": 72,
+  "test_failures": 1,
+  "test_errors": 0
+}

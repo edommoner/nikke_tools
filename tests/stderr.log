@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "C:\Users\owner\Documents\Codex\nikke-resident-frames-v2\package\scripts\run-gpu-packet.py", line 438, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\Users\owner\Documents\Codex\nikke-resident-frames-v2\package\scripts\run-gpu-packet.py", line 430, in main
+    if args._child:child(args.capture.resolve());return
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Codex\nikke-resident-frames-v2\package\scripts\run-gpu-packet.py", line 311, in child
+    journal.invoke('packet_cpu_tests',run_tests,cli,plan);return
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Codex\nikke-resident-frames-v2\package\research\portable_phase_audit.py", line 26, in invoke
+    result = function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Codex\nikke-resident-frames-v2\package\scripts\run-gpu-packet.py", line 65, in run_tests
+    with cli.forbid_gpu():rows=cli.cpu_test_groups(manifest,proof)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Codex\nikke-resident-frames-v2\package\scripts\nikke_gpu.py", line 2310, in cpu_test_groups
+    raise ValueError('CPU tests failed: '+failed)
+ValueError: CPU tests failed: test_portable_compiler_diagnostic.py

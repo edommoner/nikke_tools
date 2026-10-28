@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "cpu-batch.json",
+      "bytes": 1112,
+      "sha256": "d5cadfaa74ea0c61320630284bf11f6bb816a183588ffae26809b0e4396d7ce2"
+    },
+    {
+      "path": "cpu-batch.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "cpu-batch.stdout.log",
+      "bytes": 60,
+      "sha256": "d7dcda0e48826744eb99a43e3defd7403b55d94a9b66c9a72c8c98622064f3a2"
+    },
+    {
+      "path": "cpu-tests.json",
+      "bytes": 1308,
+      "sha256": "9e43728faff5267b1ebd1044672ebcdbfa1f24ab3f5f9f0de9be578173ddb9c1"
+    },
+    {
+      "path": "preparation.jsonl",
+      "bytes": 321,
+      "sha256": "c424f7c9b1dd06ea6dface338b27ae0ff16040c4677e3b75682bf57e533d20c7"
+    },
+    {
+      "path": "python-dependencies.json",
+      "bytes": 294,
+      "sha256": "949f44c1d5c30171fce6065ddec4a59765f3f5f70646be42ee7fb608e793dca5"
+    },
+    {
+      "path": "test_portable_compile_cache.py.stderr.log",
+      "bytes": 116,
+      "sha256": "21f288d1fccbe6c56443ff806fe84798344ab755613465417ce2fb9bfe11beee"
+    },
+    {
+      "path": "test_portable_compile_cache.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_compile_cli.py.stderr.log",
+      "bytes": 115,
+      "sha256": "2cda51e244b7d27219515d4851161516ea4543237a84ec684aacfe00dcff51ef"
+    },
+    {
+      "path": "test_portable_compile_cli.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_compiler_diagnostic.py.stderr.log",
+      "bytes": 1251,
+      "sha256": "dd9ad627bf82aa769e349a91c49f1d8919f35eaa011755443db150cbca8f00d1"
+    },
+    {
+      "path": "test_portable_compiler_diagnostic.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_generation_cache.py.stderr.log",
+      "bytes": 117,
+      "sha256": "55cfc2285f483de2fa521b20e02e3c8cfcacd0206253fb915ea68c84ed62266d"
+    },
+    {
+      "path": "test_portable_generation_cache.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_offline_assembly.py.stderr.log",
+      "bytes": 118,
+      "sha256": "2f245f12f5e55013b1fd0fb637cb15863a189062767a88305473eb26062122cc"
+    },
+    {
+      "path": "test_portable_offline_assembly.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test_portable_phase_codegen.py.stderr.log",
+      "bytes": 109,
+      "sha256": "f3672f8b42dd9d25a434c99d1a762ee01705bbc4c881d0b86fa1a84d7620849b"
+    },
+    {
+      "path": "test_portable_phase_codegen.py.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}

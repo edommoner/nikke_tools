@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "package_id": "20d328a5ceae2f23cbad6c956ca2ee1bd4344dc1ef4ee2b7d266a4a620ae8574",
+  "stage": "tests",
+  "backend": "cuda",
+  "capture": "C:\\Users\\owner\\Documents\\Codex\\nikke-resident-frames-v2\\tests",
+  "proof_capture": "C:\\Users\\owner\\Documents\\Codex\\nikke-resident-frames-v2\\tests\\proof",
+  "original_workspace": "C:\\Users\\owner\\Documents\\ChatGPT\\nikke tools",
+  "timeout_seconds": 60,
+  "inner_gpu_timeout_seconds": 60,
+  "preparation_scope": "Immutable package manifest only; never enumerate/hash original workspace, historical captures or SDK trees",
+  "memory_limit_mb": 2048
+}

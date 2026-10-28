@@ -1,0 +1,74 @@
+{
+  "schema": "resident-frames-v2-report-files-v1",
+  "branch": "codex/cuda-resident-frames-v2-report",
+  "files": [
+    {
+      "path": "tests/stage-result.json",
+      "bytes": 634,
+      "sha256": "3fc9d5bf8367826a73df79cecadd814ca0d7978f834775ab8c78349ae6e072fc"
+    },
+    {
+      "path": "tests/execution.json",
+      "bytes": 1108,
+      "sha256": "e47b476e88b5c6f3dffc5b4f2ba610f2866fb9ec9c8fe468f93b87e9ff902bd3"
+    },
+    {
+      "path": "tests/job.json",
+      "bytes": 1086,
+      "sha256": "5dc63a387a14062ddca7234f064c3b1ce2b04524645c3141661c368cea443db9"
+    },
+    {
+      "path": "tests/recipe.json",
+      "bytes": 634,
+      "sha256": "0cc277e40933aef3975aada94e15508e728b5bd1c012dbdd4fd26d5db94ca46f"
+    },
+    {
+      "path": "tests/preparation.jsonl",
+      "bytes": 1460,
+      "sha256": "b0c4ad44a49ecd3837cb2342ef0d70e149a8ad913cae471b9d0708f0bfcfe6f1"
+    },
+    {
+      "path": "tests/stderr.log",
+      "bytes": 1413,
+      "sha256": "aeb13bfd06204db0cbc6a458884459ee0c1225697df24dd0ddec9912873ba4b0"
+    },
+    {
+      "path": "tests/proof/cpu-tests.json",
+      "bytes": 1308,
+      "sha256": "9e43728faff5267b1ebd1044672ebcdbfa1f24ab3f5f9f0de9be578173ddb9c1"
+    },
+    {
+      "path": "tests/proof/cpu-batch.json",
+      "bytes": 1112,
+      "sha256": "d5cadfaa74ea0c61320630284bf11f6bb816a183588ffae26809b0e4396d7ce2"
+    },
+    {
+      "path": "tests/proof/artifacts.json",
+      "bytes": 3099,
+      "sha256": "e078a825afc7585bda8ff9d9f740a387e31b8eeb611562aa8530f47966318f7f"
+    },
+    {
+      "path": "tests/proof/preparation.jsonl",
+      "bytes": 321,
+      "sha256": "c424f7c9b1dd06ea6dface338b27ae0ff16040c4677e3b75682bf57e533d20c7"
+    },
+    {
+      "path": "tests/proof/test_portable_compiler_diagnostic.py.stderr.log",
+      "bytes": 1251,
+      "sha256": "dd9ad627bf82aa769e349a91c49f1d8919f35eaa011755443db150cbca8f00d1"
+    },
+    {
+      "path": "validation-summary.json",
+      "bytes": 1630,
+      "sha256": "641a3be7678d11867135603fb8fb580d69b7b2131845a1b58d2629883e0e5c0c"
+    },
+    {
+      "path": "compile-plan.json",
+      "bytes": 598,
+      "sha256": "73709da66d9988ad7c45454db424fbd5ca2a02d6371ecef2c234929791cb2bf0"
+    }
+  ],
+  "stopped_after": "tests",
+  "ptx_compile_executed": false,
+  "calculation_verified": false
+}

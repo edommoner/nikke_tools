@@ -1,0 +1,18 @@
+...............F
+======================================================================
+FAIL: test_stale_full_entry_cannot_publish_a_current_compiler_packet (test_portable_compiler_diagnostic.CompilerDiagnosticTests.test_stale_full_entry_cannot_publish_a_current_compiler_packet)
+----------------------------------------------------------------------
+ValueError: CPU audit dependency missing from immutable payload: tests/fixtures/portable-healing-hp-snapshot-delta.json
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\owner\Documents\Codex\nikke-resident-frames-v2\package\tests\test_portable_compiler_diagnostic.py", line 176, in test_stale_full_entry_cannot_publish_a_current_compiler_packet
+    with self.assertRaisesRegex(ValueError,'source closure is stale'):cli.make_package('compiler-full',output)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "source closure is stale" does not match "CPU audit dependency missing from immutable payload: tests/fixtures/portable-healing-hp-snapshot-delta.json"
+
+----------------------------------------------------------------------
+Ran 16 tests in 1.711s
+
+FAILED (failures=1)
