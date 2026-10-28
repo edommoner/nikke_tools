@@ -1,0 +1,32 @@
+{
+  "schema": "logical-delivery-final-cli-v1",
+  "source_commit": "6b1143642c33f311eac9cd9bbeac2ebd8088cb45",
+  "normal_package_id": "32bf85b4cb8154fa43cc2cf189b42861795fa489c59463cb3f94bb0c9b5988f4",
+  "cache_package_id": "6f1992728cd6ce3a7ae7d52ddb63b7dce0421cbc6b61cc745ac7571c7f67a050",
+  "unit_tests": 116,
+  "unit_groups": 14,
+  "generation_required_hit": true,
+  "slang_compiler_calls": 0,
+  "sealed_generated_baseline_verified": true,
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "6f1992728cd6ce3a7ae7d52ddb63b7dce0421cbc6b61cc745ac7571c7f67a050",
+    "suite": "logical-actor-rosters-cache-only",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "extra_gpu_calls": 0,
+  "current_cuda_verified": false,
+  "full_goal_complete": false
+}

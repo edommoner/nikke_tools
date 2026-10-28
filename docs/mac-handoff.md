@@ -4,7 +4,7 @@
 
 通常logical geometry/rostersのCLIを新v2 goldenへ更新。旧v1 goldenと旧source証明書のbyteを別ファイルで保存し、fresh sealと同時生成したcurrent source証明書を登録した。分類にはfixed source688de06eの再認定だけを追記し、default/全キャラ/現CUDAは閉じたまま。継承test dataは登録golden名から参照するよう修正し、証明書/履歴の8JSONも明示同梱。新4検査・入口4/5検査が成功。小さな出所 `research/target-count-query-evidence/logical-dead-overkill-recertification-v1.json`。
 
-Anne修正版v5/package80c86ed0…は14入力/全native期待指紋をv4から保持し、90unitとpaired生成が成功。own CLIのfresh CPU照合→新Metal1回を開始、完了/独立sealは未確認。v4消費済みclaimの再試行0。実行中rootを変更しない。Windows新依頼0。以下は履歴。
+Anne修正版v5/package80c86ed0…は14入力/全native期待指紋をv4から保持し、90unitとpaired生成が成功。own CLIのfresh CPU照合→新Metal1回を開始、完了/独立sealは未確認。v4消費済みclaimの再試行0。実行中rootを変更しない。Windows新依頼0。最終6b114364の通常32bf85b4…/cache-only6f199272…は固定own CLIで14群116unit、sealed paired生成必須hit/Slang0、CUBIN O1・2GiB・60秒compile-plan成功。追加GPU/Windows0。出所 `research/target-count-query-evidence/logical-delivery-final-cli-v1.json`。以下は履歴。
 
 # 2026-10-28 敵回復M5実行13/14一致・死亡後overkillを修正
 
