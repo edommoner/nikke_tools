@@ -102,5 +102,15 @@ class StagedFailureTests(unittest.TestCase):
             audit.check(cli,self.root,self.outer,self.base/'bad-owner.json','b'*64)
         owner.assert_not_called();self.assertFalse(cli.load(self.base/'bad-owner.json')['passed'])
 
+    def test_actual_windows_diagnostic_keeps_failure_and_execution_scopes_separate(self):
+        result=json.loads((ROOT/'tests/fixtures/staged-failure-windows-audit-v1.json').read_text(encoding='utf-8'))
+        stage_result=json.loads((ROOT/'tests/fixtures/staged-failure-windows-stage-v1.json').read_text(encoding='utf-8'))
+        self.assertEqual(stage_result['proof_result'],result)
+        self.assertTrue(stage_result['stage_verified']);self.assertFalse(stage_result['calculation_verified'])
+        self.assertEqual(result['input_count'],106);self.assertTrue(result['execution_claim_consumed'])
+        self.assertTrue(packet.verified_failure(result,dict(expected_package_id=result['package_id'])))
+        for key in ('execution_permitted','native_admission_revalidated','linked_artifact_revalidated','host_revalidated','calculation_verified','environment_preservation_verified'):
+            self.assertFalse(result[key])
+
 
 if __name__=='__main__':unittest.main()

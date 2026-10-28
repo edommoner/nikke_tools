@@ -19,3 +19,15 @@ passedはこの失敗の診断成立だけ。`execution_permitted`/`native_admis
 `staged-gpu-linked` は `--slang-root ABSOLUTE_SDK --generation-cache ABSOLUTE_CACHE` をペアで受け取る。両方をrecipeへ固定し、bounded childの環境とも一致することをstart gate前に検査する。親環境を変更せず、従来の引数なし環境指定は保持する。partial/relative指定と別stageへの適用は拒否。compiler/cache identityと実cache hitの本検査は省略しない。旧packetは引数追加のために編集しない。
 
 Windows保存phaseの小さなprojectionを回帰fixtureへ保存した。projectionは元journal全体やJob検証の代わりにはならず、full_capture_audited=Falseを保持する。実データでの監査は別の固定stage報告へ記録する。
+
+## Windows原本での実行
+
+固定ソースpacket `ebe7d2db…` はMacで90unitを実行した `754fcea8…` と全file recordが同一。GitHubのsource専用branchから13,029,265byteのZIPだけを取得し、3875fileを検証してからCPU監査を1回実行した。元04515f96の106入力・制御フロー・Job・監視・claim検査が成功し、stage終了0。GPU/compiler/native再計算、unit/smoke再実行は0。サービス識別は未確認のためenvironment preservation=Falseを保持する。
+
+元Windows JSONはproof storageにbytes/SHA付きで保持し、公開fixtureはJSONをcanonicalな改行で保存する。stageのproof_resultと診断結果の一致、再実行/native/cache/host認定がFalseであることを回帰検査する。監査成功後も旧execution claimは消費済みである。
+
+## 次の実行経路に残る要件
+
+新しいrecovery capsuleは元packetのnative/GPU/data/test byteとsuite/goldenを保持し、変更をcontrollerの必要部分へ限定する必要がある。失敗の判定だけでなく、元106/native63の全事前検査、host、保存CUBINとpaired generationを再検証し、元claimを触らず新しいowner/nonce/captureへ結合する。旧read/prepare/claim/finishの境界を維持し、SDK設定不足は重い再監査より前に拒否する。
+
+これは未実装の要件であり、現在の監査stageからGPUへ進む分岐は存在しない。新controllerを作る際も、正本変更、古い失敗の成功扱い、GPU前の全native再計算、上限拡大、自動retryで代替しない。GPU後の独立計算監査は別に必要で、Macでの実行を優先する。

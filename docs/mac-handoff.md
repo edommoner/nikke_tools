@@ -1,3 +1,5 @@
+Windows原本のCPU監査は固定ebe7d2dbで終了0/30.154169秒、予算179.797秒・BelowNormal・stage_verified=True。元04515f96の106入力/AST/両Job/監視/消費済みclaimを確認。元結果2JSON計11,102byteを再実行せず回収しbytes/SHA一致を検証、fixturesへ保存した。execution metadataはscalar projectionだけを記録し、元1107byteのSHAも保持。GPU/compiler/native/旧unit/smokeの追加実行0、process保持True/service識別未確認なのでenvironment=False。execution_permitted/native/cache/host再認定はFalseのまま。元claimは消費済みで編集しない。実fixture追加後のfailure7検査とmodel-checkも成功。source-only ZIP13.03MB/3875fileの転送だけを使い、巨大履歴checkoutを避けた。記録staged-failure-windows-v1.json。次は既存事前検査とCUBINを保持するimmutable recovery protocolの実装。
+
 # 2026-10-29 staged CUDA失敗監査と明示生成設定
 
 元04515f96の消費済みexecution claimを再使用する既存経路はなく、その拒否を維持する。新CPU専用staged-failure-check / audit-staged-failureは、package owner・AST関数一致・7phase・両Job/監視・prepared全row/nonce/transaction/claimを既存監査器で検査する。passedでもexecution_permitted/native_admission_revalidated/linked_artifact_revalidated/host_revalidated/calculationはFalse。新しいimmutable recovery protocolは未実装であり、この診断でGPU再実行を許可しない。
