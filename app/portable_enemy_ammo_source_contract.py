@@ -5,6 +5,8 @@ from pathlib import Path
 
 def project_sources(root,sources=None):
     root=Path(root);ledger=json.loads((root/'tests/fixtures/portable-enemy-ammo-source-delta.json').read_text());out=dict(sources or {})
+    from portable_enemy_ammo_combined_source_contract import project_resident_scalars
+    out=project_resident_scalars(root,out)
     if (root/'gpu/world_add_self_destruct_entry.slang').exists():
         from portable_add_self_destruct_source_contract import project_sources as self_destruct
         out=self_destruct(root,out)

@@ -1,3 +1,10 @@
+// Return a scalar value before carrierCount changes on either backend.
+[noinline]
+uint carrierCountBeforeAllocate(inout Runtime s)
+{
+    return s.carrierCount;
+}
+
 // Definition counters/timers keep their immutable row. Resident slots own only
 // target membership, stack, activation time, expiry and captured HP quantities.
 [noinline]
@@ -35,7 +42,7 @@ uint findCarrier(inout Runtime s, uint definition, uint recipients, uint64_t whe
         if (s.alive[slot] == 0 && s.lazyPending[slot] == 0)
         { resetBulletCarrier(s,slot); discardLazy(s,slot); s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot; }
     if (s.carrierCount == P_CARRIERS) { s.error = 64; return definition; }
-    uint slot = s.carrierCount++; s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot;
+    uint slot = carrierCountBeforeAllocate(s); s.carrierCount = slot+1; s.carrierDefinition[slot] = definition; s.multiCarrier[definition] = 1; return slot;
 }
 
 // One GPU-owned LIFO reservation pool for end/stack notices. Compact metadata

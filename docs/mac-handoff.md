@@ -1,3 +1,17 @@
+# 2026-10-29 CUDAの更新前scalar消失を2箇所修正・Metal3ケース独立一致
+
+保存CUDAの厳密生成基準2380f6f3…と一致するコードで2つの具体的な差を確認した。通常回復のbefore HPがCUDAでは更新後HPの再読となり累積回復が0になる。findCarrierの後置incrementも更新後countを配列index/戻り値へ使う。Metalには更新前の値が残る。共通SlangのbodyHPBeforeHeal/carrierCountBeforeAllocateというnoinline scalar境界で修正した。本修正のGPU差分はevent_runtime/carrier_runtimeの2file。正本4file/厳密normalizer/wire/runtime_init shaderは変更0。現在の開発closureを使うので、旧凍結ownerとの全source一致は主張しない。
+
+固定v5/8c87f24bの元ミサトHP・owner/body・owner/addsの3ケースがM5 Metalで成功し、別fresh GPU禁止sealも成功（45.438秒）。入力/全native期待は旧106の対応3件と完全一致。own28群179検査115.022秒、CPU全3照合39.586秒、実GPU2.317秒、冷pipeline62.332秒/library2.216秒、child84.573秒。generation必須hit/Slang0、pipelineを永続cacheへ保存。現在のapp/gpu/scripts全1222fileは実行済みpacketとbyte一致。root CLIテストだけ後からsynthetic data依存へ追従して51成功、計算codeは不変。
+
+選択3件の全outputは既存source-pinned typed address viewで旧Metal基準と完全一致。ミサトだけcorpus位置9→0のDFS receipt参照1wordが変わり、既存4file ABI/receipt ID/boundsを検査したRAM内viewで全word一致した。rawは変更せず、最初のraw-only差分記録も保持。元875MB CUDA失敗・claims・goldenを変更/再実行しない。
+
+生成時とgeneration cache pair再検査へ2箇所のsnapshot→更新→利用監査を接続し、実生成断片の負例テストを追加した。これは全生成codeが安全という認定ではない。追加静的確認で、v5 CUDAのmarkEntryにenemyBuffRows/infiniteRowsの後置incrementも更新後indexを使うことを発見した。Metal側は更新前indexを保持している。次はこの2つと他の更新前値の利用を監査・修正してからCUDA compile/runへ進むこと。v5をWindowsへ送らず、Windows新依頼0。現在の3件Metal成功をCUDAや全106/全キャラへ拡大しない。
+
+v2はcompactで旧inverse接続が欠落、v3は未追跡の新fixtureがtracked whitelistに入らず、v4は共通initializer生成器が既存Lock用optional宣言を未認識で停止。すべて失敗/packetを保持しdevice0。厳密inverseをcompactでも必ず接続し、fixture2件をGit登録＋AUDIT_FILESへ明示した。既知optional宣言は専用initializeGenerationLocks/initializePhysicalLocksが全fieldを初期化することを確認して、共通generatorからexact blockだけを分離した。runtime_init全byte一致を保持し未知guardの拒否は維持する。最終v5のみdevice1回。
+
+model-checkは成功。差分80pathはevent_runtime/carrier_runtimeのsource SHAだけで、5つの未実装canonical consumer/20model gap/全キャラ0/UI CPU/公開受付Falseは不変。証跡resident-scalar-snapshot-root-causes-v1.json、原本B/resident-scalar-snapshot-v5-metal、independent/sealed/logical-retentionも同proof root。以下は履歴。
+
 # 2026-10-29 保存CUDA差分をCPUだけで23ケースへ限定
 
 共通CLIに`partitioned-saved-index`と`partitioned-index-compare`を追加。既存hash helper/source-pinned address view/Job監査を再利用し、旧raw・失敗判定・claimsを変更しない。Windows index15.582秒、詳細13.713秒、GPU/compile/native追加0。固定report8c349c2cとa2a2a2e1からmetadataだけを取得した。全106statusはMetalと一致、83行は論理全byte一致、差分23行/191個64KiBページ/315個4KiB block。最大8ケースの8192uint32を輸送し、Macで全875MB参照/row/sample SHAを検査してword比較した。

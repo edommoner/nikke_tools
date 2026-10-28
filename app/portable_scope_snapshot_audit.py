@@ -26,7 +26,42 @@ def audit(cuda,metal):
         result[target]=dict(function=name,snapshot=helper,sha256=hashlib.sha256(raw).hexdigest(),value_before_store=True)
     answer=dict(schema=1,generated_scope_snapshot_verified=True,targets=result,gpu_calls=0,calculation_verified=False)
     if b'stagedScopeSnapshot_' in cuda or b'stagedScopeSnapshot_' in metal:answer['staged']=audit_staged(cuda,metal)
+    if b'findCarrier_' in cuda or b'findCarrier_' in metal:answer['resident_scalars']=audit_resident_scalars(cuda,metal)
     return answer
+
+
+def audit_resident_scalars(cuda,metal):
+    """Guard the two observed CUDA lvalue reloads across resident writes.
+
+    Exact source inverses and this generated publication check are distinct
+    from arithmetic/native/GPU comparison. No code is rewritten by the audit.
+    """
+    targets={}
+    for target,raw in [('cuda',cuda),('metal',metal)]:
+        text=raw.decode();facts={}
+        for helper,consumer,field,kind in [('bodyHPBeforeHeal','dispatch','hp','healing'),('carrierCountBeforeAllocate','findCarrier','carrierCount','carrier')]:
+            reader,read,annotation=function(text,helper);name,body,_=function(text,consumer)
+            if target=='cuda' and '__noinline__' not in annotation:raise ValueError('Resident scalar reader must remain noinline')
+            if re.search(r'(?:->|\.)\w+(?:\[[^;\n]+?\])?\s*=(?!=)',read) or re.search(r'(?m)^\s*\*[^;\n]+?\s*=',read):raise ValueError('Resident snapshot reader writes state')
+            if not re.search(r'\breturn\s+[^;]*'+field+r'_\d+',read):raise ValueError('Resident snapshot must read the original field')
+            calls=list(re.finditer(r'\b(?:uint|ulonglong|ulong)\s+(\w+)\s*=\s*'+reader+r'\([^;]+;',body))
+            if len(calls)!=1:raise ValueError('One materialized scalar snapshot required')
+            call=calls[0];value=re.escape(call.group(1));tail=body[call.end():]
+            if kind=='healing':
+                mutate=re.search(r'\bstorageBodyHeal_\d+\([^;]+;',tail)
+                store=re.search(r'->hp_\d+\[[^;\n]+?\]\s*=\s*[^;]+;',tail)
+                account=re.search(r'->healing_\d+\[[^;\n]+?\]\s*=\s*[^;]+;',tail)
+                sync=re.search(r'\bsyncHealthActor_\d+\([^;]+;',tail)
+                if not all((mutate,store,account,sync)) or not mutate.end()<=store.start()<account.start()<sync.start():raise ValueError('Healing snapshot/mutation/accounting order changed')
+                if not re.search(r'\b'+value+r'\s*\^\s*9223372036854775808(?:ULL|UL)?\b',account.group()):raise ValueError('Healing accounting reloads overwritten HP')
+            else:
+                mutate=re.search(r'->carrierCount_\d+\s*=\s*'+value+r'\s*\+\s*1U?\s*;',tail)
+                store=re.search(r'->carrierDefinition_\d+\[\s*'+value+r'\s*\]\s*=',tail)
+                returned=re.search(r'\breturn\s+'+value+r'\s*;',tail)
+                if not all((mutate,store,returned)) or not mutate.end()<=store.start()<returned.start():raise ValueError('Carrier allocation does not retain the pre-increment slot')
+            facts[kind]=dict(reader=reader,consumer=name,scalar_before_write=True)
+        targets[target]=dict(sha256=hashlib.sha256(raw).hexdigest(),**facts)
+    return dict(schema=1,generated_resident_scalars_verified=True,targets=targets,gpu_calls=0,calculation_verified=False)
 
 
 def audit_staged(cuda,metal):

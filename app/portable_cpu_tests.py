@@ -29,6 +29,9 @@ for _test in ('test_effect_target_count_policy.py','test_effect_target_count_ref
     AUDIT_FILES[_test]=('research/upstream/nikke-calc-master/data/parsed_skills.json',)
 AUDIT_FILES['test_effect_target_count_policy.py']=AUDIT_FILES['test_portable_model_gap_audit.py']
 AUDIT_FILES['test_effect_range.py']=('research/upstream/nikke-calc-master/data/parsed_skills.json',)
+AUDIT_FILES['test_portable_scope_snapshot_audit.py']=(
+    'tests/fixtures/portable-resident-scalar-generated.json',
+    'tests/fixtures/portable-healing-hp-snapshot-delta.json')
 
 def validate_dependency_files(root,patterns,included=None):
     """Reject missing audit data before tests/native work or execution claims."""

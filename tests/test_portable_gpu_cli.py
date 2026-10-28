@@ -15,6 +15,16 @@ spec=importlib.util.spec_from_file_location('nikke_gpu_cli',ROOT/'scripts/nikke_
 cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
 
 
+def smoke_data_files(root=None):
+    """Synthetic packets still carry the real smoke groups' declared data."""
+    from portable_cpu_tests import AUDIT_FILES
+    names=sorted({n for pattern in cli.SMOKE_TESTS for n in AUDIT_FILES.get(pattern,())})
+    if root is not None:
+        for name in names:
+            p=root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes((ROOT/name).read_bytes())
+    return names
+
+
 class PacketTests(unittest.TestCase):
     def test_parallel_package_checks_read_every_file_with_at_most_four_workers(self):
         import threading
@@ -90,13 +100,14 @@ class PacketTests(unittest.TestCase):
             (root/'gpu/main.slang').write_text('// kernel\n');(root/'app/model.py').write_text('before')
             (root/'scripts/nikke_gpu.py').write_text('# fixture CLI\n')
             upstream=root/'research/upstream/nikke-calc-master';(upstream/'LICENSE').write_text('fixture license');(upstream/'data/parsed_nikke.json').write_text('{}')
+            data=smoke_data_files(root)
             def changed(*args):
                 (root/'app/model.py').write_text('after')
                 return dict(source_sha256={'gpu/main.slang':cli.sha((root/'gpu/main.slang').read_bytes())})
             with patch.object(cli,'ROOT',root),patch.object(portable_backend,'ROOT',root),\
                  patch.dict(portable_reference.REFERENCES,{},clear=True),\
                  patch.dict(cli.SUITES,fixture=dict(source='gpu/main.slang',golden='golden.json',tests=[])),\
-                 patch.object(cli.subprocess,'check_output',return_value=b'gpu/main.slang\0app/model.py\0scripts/nikke_gpu.py\0'),\
+                 patch.object(cli.subprocess,'check_output',return_value=('\0'.join(['gpu/main.slang','app/model.py','scripts/nikke_gpu.py',*data])+'\0').encode()),\
                  patch.object(cli,'development_baseline',side_effect=changed),cli.forbid_gpu():
                 with self.assertRaisesRegex(ValueError,'sources changed during native baseline'):
                     cli.make_package('fixture',root/'package.zip',develop=True)
@@ -110,10 +121,11 @@ class PacketTests(unittest.TestCase):
                 ('research/upstream/nikke-calc-master/LICENSE','license'),
                 ('research/upstream/nikke-calc-master/data/parsed_nikke.json','{}')]:
                 p=root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(value)
+            data=smoke_data_files(root)
             with patch.object(cli,'ROOT',root),patch.object(portable_backend,'ROOT',root),\
                 patch.dict(cli.SUITES,fixture=dict(source='gpu/main.slang',golden='future.json',tests=[])),\
                 patch.dict(portable_reference.REFERENCES,{'new':('new_cases','new_native','new_contracts')},clear=True),\
-                patch.object(cli.subprocess,'check_output',return_value=b'gpu/main.slang\0scripts/nikke_gpu.py\0'),\
+                patch.object(cli.subprocess,'check_output',return_value=('\0'.join(['gpu/main.slang','scripts/nikke_gpu.py',*data])+'\0').encode()),\
                 patch.object(cli,'development_baseline',side_effect=AssertionError('Native must not start')) as native,cli.forbid_gpu():
                 with self.assertRaisesRegex(ValueError,'Native reference module missing from tracked payload'):
                     cli.make_package('fixture',root/'packet.zip',develop=True)
@@ -312,7 +324,7 @@ class PacketTests(unittest.TestCase):
             def batch(*args,**kwargs):
                 cli.write(capture/'cpu-tests.json',[dict(pattern=p,exit_code=0,tests=1,failures=0,errors=0,skipped=0) for p in cli.SMOKE_TESTS])
                 return SimpleNamespace(returncode=0,stdout=b'',stderr=b'')
-            with patch.object(cli,'verify_package',return_value=dict(suite='regression',purpose='sealed',package_id='smoke-test')),\
+            with patch.object(cli,'verify_package',return_value=dict(suite='regression',purpose='sealed',package_id='smoke-test',files=[dict(path=n) for n in smoke_data_files()])),\
                  patch.object(cli,'os',SimpleNamespace(**dict(vars(os),name='posix'))),\
                  patch.object(cli,'cpu_preflight',side_effect=AssertionError('Native battle forbidden')) as native,\
                  patch.object(cli.subprocess,'run',side_effect=batch) as tests,\
@@ -335,6 +347,16 @@ class PacketTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError,'CPU test file missing'):
                     cli.run_capture(Path(folder)/'capture','cuda',30,smoke=True)
             tests.assert_not_called();job.assert_not_called()
+
+    def test_missing_declared_snapshot_data_stops_before_tests_native_or_job(self):
+        with tempfile.TemporaryDirectory() as folder:
+            manifest=dict(suite='regression',purpose='sealed',package_id='missing-data',files=[])
+            with patch.object(cli,'verify_package',return_value=manifest),\
+                 patch.object(cli,'SMOKE_TESTS',['test_portable_scope_snapshot_audit.py']),\
+                 patch.object(cli,'cpu_preflight') as native,patch.object(cli.subprocess,'run') as tests,patch.object(cli,'run_job') as job:
+                with self.assertRaisesRegex(ValueError,'CPU audit dependency missing from immutable payload'):
+                    cli.run_capture(Path(folder)/'capture','cuda',30,smoke=True)
+            native.assert_not_called();tests.assert_not_called();job.assert_not_called()
 
     def test_windows_temporary_environment_reaches_child_without_changing_parent(self):
         from types import SimpleNamespace

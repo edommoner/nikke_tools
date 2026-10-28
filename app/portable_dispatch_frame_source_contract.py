@@ -9,7 +9,7 @@ def project_sources(root,sources=None):
     from portable_effect_target_count_source_contract import project_sources as target_count
     root=Path(root)
     try:out=target_count(root,sources)
-    except AssertionError as error:raise AssertionError('Unreviewed dispatch frame source extension: '+str(error)) from error
+    except (AssertionError,ValueError) as error:raise AssertionError('Unreviewed dispatch frame source extension: '+str(error)) from error
     data=ledger(root)
     for name,digest in data['added_sources'].items():
         actual=out.get(name,(root/name).read_text())

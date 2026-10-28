@@ -24,6 +24,11 @@ def runtime_initializer():
     private_frames='#ifdef PORTABLE_RESIDENT_FRAME_STACK\n    uint dispatchFrameWords[1024];\n#endif'
     if body.count(private_frames)!=1:raise ValueError('Unknown private dispatch frame storage')
     body=body.replace(private_frames,'')
+    # These opt-in fields have their own checked initialization before commands.
+    # Keep the historical common initializer byte-identical; reject drift.
+    private_locks='#ifdef PORTABLE_GENERATION_LOCKS\n    GenerationLocks locks;\n#ifdef PORTABLE_PHYSICAL_LOCKS\n    uint lockPulseCount,lockShotCount,lockClearCount,lockPulseRow;\n#endif\n#endif'
+    if body.count(private_locks)!=1:raise ValueError('Unknown private generation-lock storage')
+    body=body.replace(private_locks,'')
     bank_guard=re.compile(r'#ifndef PORTABLE_WORLD_PROJECTILE\n(.*?)\n#endif',re.S)
     guarded=bank_guard.findall(body)
     normalize=lambda text:re.sub(r'\s+','',text)

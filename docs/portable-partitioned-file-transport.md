@@ -129,3 +129,17 @@ python scripts/nikke_gpu.py partitioned-index-compare --reference METAL_INDEX.js
 比較コマンドは不一致でも診断完了としてexit0を返す。`all_logical_rows_equal`と`changed_cases`を読むこと。`calculation_verified`は常にFalseで、この結果をsealやGPU受付へ流用しない。出力はexclusiveで旧診断を上書きしない。
 
 2026-10-29：保存CUDA全106の83rowは論理全byte一致、23row/191ページ/315個の4KiB blockが異なる。全statusはMetalと同じ0:63/64:43。Windows最初のindex15.582秒、詳細index13.713秒で完了し、GPU/compile/native追加0。詳細report固定a2a2a2e1の10file/1296393byteを取得。Macの全875469264byte参照検査と8sample比較が成功した。ミサトの最初のHP照会にはhealing 283571/282542/282456/281928/280623対CUDAの全0があり、addsケースのcarrier pass49/50ではslot71/72だけが入れ替わる。owner/body等ではtotal damageの差もある。slot差を正規化・除外せず、数値差を丸めと断定しない。根本原因・修正・CUDA計算の再認定は未完了。元失敗/capture/claims/goldenは不変。
+
+
+## Resident scalar snapshotのCUDA生成差
+
+保存済みCUDAソースの厳密正規化SHA `2380f6f3…` は旧失敗ownerの生成基準と同じである。通常回復の`before = s.hp[owner]`がCUDA生成後には更新後HPの再読になり、累積回復量へ`HP-HP`を加算していた。`findCarrier`の`slot = s.carrierCount++`も、CUDAでは増加後countで定義を書き、同じ増加後countを返していた。Metalには両方の更新前scalarが残る。旧rawの回復0とslot差に対応する生成差であり、ドライバーや丸めの問題と説明しない。
+
+共通Slangに読み取り専用のnoinline scalar境界`bodyHPBeforeHeal`と`carrierCountBeforeAllocate`を設け、更新前の値を明示的に保持する。CPU正本・wire・初期化shader・厳密normalizerは変更しない。`portable_scope_snapshot_audit.audit_resident_scalars`は生成CUDA/MSLのsnapshot→更新→利用順を確認し、キャッシュのpair再検査にも接続する。古い生成物を正規化で通す修正ではなく、新sourceには新しい生成/CUBIN identityが必要。
+
+新しいpublic fixtureは`git add`で共通CLIのtracked-file whitelistへ登録してからpackageする。未追跡fixtureを後からimmutable packetへコピーしない。CPU groupの外部fixtureは`portable_cpu_tests.AUDIT_FILES`へ登録し、梱包漏れをnative/device前に止める。今回の監査fixture2件も明示依存にした。
+
+源泉の診断は `resident-scalar-snapshot-root-causes-v1.json`。この生成検査はGPU計算成功を意味しない。新sourceのM5/nativeとCUDA実機は別々に認定し、旧106 CUDA失敗・raw・claims・goldenを保持する。
+
+
+この修正の固定v5/8c87f24bは現sourceの選択3入力でMetal＋独立fresh native照合成功（28群179検査、GPU2.317秒、冷PSO62.332秒、独立45.438秒）。旧Metalの対応3行もtyped address viewで全word一致。ただし追加監査で、同じ生成CUDAのmarkEntryにはenemyBuffRows/infiniteRowsのpost-increment index問題が残る。2つのsnapshot guardだけで全生成物を認定せず、この追加修正前にWindowsへcompile/runを依頼しない。元全106/current全suite/全キャラは未完了。

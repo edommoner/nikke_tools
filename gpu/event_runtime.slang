@@ -1439,6 +1439,14 @@ void advanceBuffActivation(inout Runtime s, inout DISPATCH_FRAMES(frames), inout
 
 #include "dispatch_phases.slang"
 
+// A scalar call boundary keeps CUDA codegen from retaining an HP lvalue
+// across storageBodyHeal's write. Both backends use the same snapshot.
+[noinline]
+uint64_t bodyHPBeforeHeal(inout Runtime s,uint who)
+{
+    return s.hp[who];
+}
+
 [noinline]
 void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, uint64_t when, uint output, uint64_t landingAmount = 0, uint notifyContext = 0)
 {
@@ -1719,7 +1727,7 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if (!f64Finite(amount)) { s.error = 16; break; }
             if(healShareFrameEnabled(s)) { BEGIN_DISPATCH_HEAL_SHARE(s,frames,depth,amount,heal.owner);continue; }
             depth--;
-            uint64_t before = s.hp[f.owner];
+            uint64_t before = bodyHPBeforeHeal(s,f.owner);
             s.hp[f.owner] = storageBodyHeal(s,f.owner,amount,f.time);
             s.healing[f.owner] = f64Add(s.healing[f.owner],larger(0,f64Add(s.hp[f.owner],before ^ F64_SIGN)));
             syncHealthActor(s,f.owner,f.time);
