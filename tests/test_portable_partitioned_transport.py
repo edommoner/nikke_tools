@@ -204,5 +204,14 @@ class PartitionedTransportTests(unittest.TestCase):
             controller.dispatch(SimpleNamespace(),lambda _:self.fail('No fallback'),args)
         self.assertEqual(done.exception.code,1)
 
+    def test_failed_logical_view_is_retained_without_publishing_or_changing_raw(self):
+        import portable_partitioned_addresses as addresses
+        view=dict(raw_joined_output_sha256=digest(self.expected),logical_view_sha256='0'*64,numeric_words_modified=0)
+        with patch.object(addresses,'check_source'),patch.object(addresses,'view_file',return_value=view),self.assertRaisesRegex(RuntimeError,'typed-address wire view differs'):
+            self.run_transport('cuda',address_profile=addresses.PROFILE)
+        parts=self.dest.with_name(self.dest.name+'.batches');partial=self.dest.with_name(self.dest.name+'.partial')
+        self.assertEqual(json.loads((parts/'address-view.json').read_text()),view)
+        self.assertEqual(partial.read_bytes(),self.expected);self.assertFalse(self.dest.exists())
+
 
 if __name__=='__main__':unittest.main()

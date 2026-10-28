@@ -86,3 +86,25 @@ smokeは元run_job/start gate/低優先度/2GiBと、Windowsでは既存native�
 
 
 Windows結果：CPU smoke11.202秒、origin audit155.448秒で双方成功（GPU/compile/native戦闘0）。readonly元admit/CUBIN再評価そのものは127.033秒で、Job全体180秒/子150秒以内。元106/native63、同じCUBIN6,636,880byte/SHA70fff521…、全32API境界、旧claim/ledger保持を確認した。process保持True、サービス未識別でenvironment=Falseを維持する。report固定cc75ccefの15file/166606byteをMacへ輸送し、同じJob監査器とlinked receipt key/元失敗sequence/goldenを再検査した。環境raw snapshotは未転送である。新しいGPU許可はまだFalse。次の実行ownerはこの固定CPU receiptを保持し、GPU子ではsource/header/CUBIN/imageと小さなreceipt anchorsを再検査する設計が必要。元producer chainの127秒を60秒GPU budgetへ重複投入しない。証跡 `partitioned-cuda-origin-v1.json`。
+
+
+## 固定CPU受付を使う単発CUDA実行
+
+`partitioned-cuda-package --source-package OLD_SEALED --metal-reference SAVED_NATIVE_RESULT --out NEW.zip` は、独立監査済みMetal/native全106の参照を固定した専用packetを作る。既存Metal-only packetの許可を変更せず、新packetにのみCUDA ownerを登録する。次はすべて新packet自身のcwdで実行する。
+
+```text
+python scripts/nikke_gpu.py partitioned-cuda-smoke --capture SMOKE --original-workspace ORIGINAL --timeout 30
+python scripts/nikke_gpu.py partitioned-cuda-prepare --capture PREPARED --gpu-capture GPU_CAPTURE --auditor-root ORIGIN_PACKET --auditor-capture ORIGIN_AUDIT --original-workspace ORIGINAL --slang-root SDK --generation-cache CACHE --timeout 180
+python scripts/nikke_gpu.py partitioned-cuda-run --capture GPU_CAPTURE --prepared PREPARED --original-workspace ORIGINAL --timeout 60
+```
+
+各段階の成功後だけ次へ進む。CPU準備は新packetの全inputを再構築し、全row SHAを元goldenへ照合する。成功済み97e9477eのorigin SHA c1367040…、元のJobと受付、元claim/ledgerを検査し、元のread_verifiedでCUDA source/header/CUBIN本体も照合する。source-hostのnative値やPythonオブジェクトは持ち越さず、fingerprint receiptだけを使う。状態はhost/新package/nonce/予定GPU保存先へ結合する。
+
+GPU起動時には元失敗とconsumed claimのhashから安定した新ledgerを作り、新ownerのexclusive claimへ結合する。別copyの同一packetからも重複実行できない。旧claimは変更しない。失敗したGPU保存先やclaim/ledgerを削除して再送しない。GPU子は小さなreceipt anchors・元claim・全input・source/generation・source/header/CUBIN imageを再検査する。約127秒の元producer全体監査は繰り返さず、NVRTC/Slang fallbackを禁止する。CUDA driver cacheも無効化する。
+
+同じ共通transport/同じSlangから全106を16×6＋10に分け、実allocation/48byte ABI/grid/block/全streamを監査する。logical SHAだけでなく、保存した分割Metalの全875469264byteのraw SHAとも一致させる。新段階はcalculation_verified=Falseを維持し、まずshared_metal_wire_equivalence_verifiedを明示する。fresh independent native比較や全char認定をしたとは扱わない。GPU jobはBelowNormal/2GiB/60秒以下、prepareはCPUだけ180秒以下。環境保持と計算は別flagで、サービス未確認を成功へ置換しない。
+
+初版固定e2f6470d/2166fileはown52＋checkout129テストとMac CPU smokeが成功。元2147file・既存CLI関数・全goldenを保持し、shader/正本/normalizer変更0。source branch codex/cuda-partitioned-v1-source 固定24c11faaで共有した。Windowsには3段階を順番に各1回、失敗時停止の条件で依頼した。実CUDAの結果は別receiptに記録する。
+
+
+Windows実行結果：固定e2f6470dはsmoke8.246秒、prepare42.079秒、GPU27.561秒、全Job post0/timeout0。7launch/7sync/106 chunk readbackは全return0で完了し、旧code2は今回発生しなかった。全106のrawはbc59f8bb…、論理viewもsealed baselineと不一致のため元stage/計算はFalseのまま。全875MBのpartialと7batchを保持し、再実行0。report固定d48d5050から38file/360328byteを取得し、Macでは末尾の既知のpost-readback failureを明示したAPI-prefix projectionだけを同じ監査器で検査した。全traceは失敗のままで、計算成功へ置換しない。source/code/claimsを維持して保存データのCPU差分調査へ進む。今後のtransportは計算済みaddress-view JSONを不一致判定前に保存するが、既存captureはbackfillしない。現checkoutの関連130テスト成功、実行済みpacketのown52テスト成功。証跡 `partitioned-cuda-single-attempt-v1.json`。

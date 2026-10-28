@@ -13,6 +13,8 @@ ADDED=('app/portable_partitioned_transport.py','app/portable_partitioned_cli.py'
        'app/portable_partitioned_cuda_trace.py','app/portable_partitioned_cuda_observer.py',
        'tests/test_portable_partitioned_cuda_trace.py','tests/test_portable_partitioned_cuda_observer.py',
        'app/portable_partitioned_cuda_origin.py','tests/test_portable_partitioned_cuda_origin.py')
+CUDA_ADDED=('app/portable_partitioned_cuda_receipt.py','app/portable_partitioned_cuda_owner.py',
+            'tests/test_portable_partitioned_cuda_receipt.py','tests/test_portable_partitioned_cuda_owner.py')
 MODE='partitioned-file-diagnostic-v1'
 
 
@@ -28,7 +30,7 @@ def main(argv=None):
     return ast.unparse(ast.fix_missing_locations(tree))+'\n'
 
 
-def make(cli,source,output):
+def make(cli,source,output,*,cuda_reference=None):
     from portable_continuation_package import owner_snapshot
     from portable_staged_preflight import outside
     source=Path(source).resolve();output=outside(output,[source])
@@ -36,9 +38,18 @@ def make(cli,source,output):
     info=owner_snapshot(cli,source);old=info['manifest']
     if old['suite']!='coordinate-resident-frames' or old.get('purpose')!='sealed' or old.get('partitioned_diagnostic'):raise ValueError('Original sealed complete resident-frame baseline required')
     payload={r['path']:(source/r['path']).read_bytes() for r in old['files']}
-    if set(ADDED)&set(payload):raise ValueError('Partitioned helpers already exist in base')
+    added=ADDED+CUDA_ADDED if cuda_reference is not None else ADDED
+    if set(added)&set(payload):raise ValueError('Partitioned helpers already exist in base')
     payload['scripts/nikke_gpu.py']=patched_cli(payload['scripts/nikke_gpu.py'].decode()).encode()
-    for name in ADDED:payload[name]=(cli.ROOT/name).read_bytes()
+    for name in added:payload[name]=(cli.ROOT/name).read_bytes()
+    reference=None
+    if cuda_reference is not None:
+        raw=Path(cuda_reference).read_bytes();reference=json.loads(raw)
+        if (cli.sha(raw)!='ca3c24a8079cc43003e199566a0a822f98085f77a66bae260c5483b5ca579c3d'
+            or reference.get('calculation_verified') is not True or reference['comparison']['entries']!=old['golden']['entries']
+            or reference['comparison']['logical_output_sha256']!=old['golden']['output_sha256']
+            or reference['comparison']['input_count']!=106 or reference['comparison']['native_oracles']!=63):raise ValueError('The verified complete Metal/native reference is required')
+        payload['research/partitioned-cuda-native-reference.json']=raw
     with tempfile.TemporaryDirectory(prefix='nikke-partitioned-packet-') as tmp:
         root=Path(tmp)
         for name,raw in payload.items():
@@ -52,10 +63,14 @@ def make(cli,source,output):
             projection.update(retained_files=len(names),original_files=len(names|omitted),
                 original_names_sha256=cli.sha(json.dumps(sorted(names|omitted),separators=(',',':')).encode()))
         m['partitioned_diagnostic']=dict(schema=MODE,base_package_id=old['package_id'],base_manifest_sha256=cli.sha((source/'gpu-package.json').read_bytes()),
-            added=list(ADDED),replaced=['scripts/nikke_gpu.py'],cuda_execution_admitted=False)
+            added=[*added,*(['research/partitioned-cuda-native-reference.json'] if reference is not None else [])],replaced=['scripts/nikke_gpu.py'],cuda_execution_admitted=reference is not None)
         from portable_partitioned_addresses import PROFILE,check_source
         check_source(source,info['config']['source'],info['config']['output_words'])
         m['partitioned_diagnostic']['wire_address_profile']=PROFILE
+        if reference is not None:
+            m['partitioned_cuda_execution']=dict(schema='partitioned-cuda-owner-v1',batch_size=16,maximum_gpu_seconds=60,
+                native_reference_sha256=cli.sha(payload['research/partitioned-cuda-native-reference.json']),
+                origin_audit_sha256='c13670407bba85393ec6791f550a0d152e30cac8a2ab45d696b2c6c9eb37a551')
         m['source_commit']=subprocess.check_output(['git','rev-parse','HEAD'],cwd=cli.ROOT,text=True).strip()
         m['working_tree_dirty']=bool(subprocess.check_output(['git','status','--porcelain'],cwd=cli.ROOT,text=True).strip());m['package_id']=cli.package_id(m)
         if owner_snapshot(cli,source)!=info:raise ValueError('Original baseline changed during diagnostic packaging')
@@ -133,6 +148,19 @@ def child(cli,capture,backend):
 
 def dispatch(cli,original,argv=None):
     args=list(sys.argv[1:] if argv is None else argv)
+    if args and args[0] in ('partitioned-cuda-smoke','partitioned-cuda-prepare','partitioned-cuda-run'):
+        p=argparse.ArgumentParser();p.add_argument('command');p.add_argument('--capture',type=Path,required=True)
+        p.add_argument('--original-workspace',type=Path);p.add_argument('--timeout',type=int)
+        for flag in ('auditor-root','auditor-capture','gpu-capture','prepared','slang-root','generation-cache'):p.add_argument('--'+flag,type=Path)
+        a=p.parse_args(args);stage={'partitioned-cuda-smoke':'smoke','partitioned-cuda-prepare':'prepare','partitioned-cuda-run':'gpu'}[a.command]
+        required=('auditor_root','auditor_capture','gpu_capture','slang_root','generation_cache','original_workspace') if stage=='prepare' else ('prepared','original_workspace') if stage=='gpu' else ()
+        if any(getattr(a,n) is None for n in required):p.error('Stage-specific source/preflight arguments required')
+        from portable_partitioned_cuda_owner import run as run_cuda
+        result=run_cuda(cli,stage,a.capture,a.original_workspace,auditor_root=a.auditor_root,auditor_capture=a.auditor_capture,gpu_capture=a.gpu_capture,
+            prepare_capture=a.prepared,slang_root=a.slang_root,generation_cache=a.generation_cache,timeout=a.timeout)
+        print(json.dumps(result,indent=2))
+        if not result['passed']:raise SystemExit(1)
+        return result
     if args and args[0]=='partitioned-origin-smoke':
         p=argparse.ArgumentParser();p.add_argument('command');p.add_argument('--capture',type=Path,required=True)
         p.add_argument('--original-workspace',type=Path);p.add_argument('--timeout',type=int,default=30);a=p.parse_args(args)
@@ -169,6 +197,10 @@ def dispatch(cli,original,argv=None):
         return result
     if args and args[0]=='_child':
         p=argparse.ArgumentParser();p.add_argument('command');p.add_argument('--capture',type=Path,required=True);p.add_argument('--backend',required=True);a=p.parse_args(args)
+        if cli.load(a.capture/'run.json').get('mode')=='partitioned-cuda-owner-v1':
+            if a.backend!='cuda':raise ValueError('CUDA owner requires its explicit backend')
+            from portable_partitioned_cuda_owner import child as cuda_child
+            return cuda_child(cli,a.capture.resolve())
         if cli.load(a.capture/'run.json').get('mode')=='partitioned-cuda-origin-audit-v1':
             if a.backend!='cuda':raise ValueError('Saved CUDA origin audit requires its host-bound CUDA identity')
             from portable_partitioned_cuda_origin import child as audit_origin_child

@@ -3492,6 +3492,10 @@ def main(argv=None):
     a=sub.add_parser('continuation-package');a.add_argument('--base-package',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('gpu-recovery-package');a.add_argument('--base-package',type=Path,required=True);a.add_argument('--origin-auditor',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('partitioned-file-package');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('partitioned-cuda-package');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--metal-reference',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    for name in ('partitioned-cuda-smoke','partitioned-cuda-prepare','partitioned-cuda-run'):
+        a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--original-workspace',type=Path);a.add_argument('--timeout',type=int)
+        for flag in ('auditor-root','auditor-capture','gpu-capture','prepared','slang-root','generation-cache'):a.add_argument('--'+flag,type=Path)
     a=sub.add_parser('partitioned-address-audit');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('partitioned-native-audit');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--timeout',type=int,default=240);a.add_argument('--group-size',type=int,default=16)
     a=sub.add_parser('partitioned-origin-smoke');a.add_argument('--capture',type=Path,required=True);a.add_argument('--original-workspace',type=Path);a.add_argument('--timeout',type=int,default=30)
@@ -3837,7 +3841,7 @@ def main(argv=None):
         options=dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}
         if a.command=='staged-run':options['preflight_transaction']=a.transaction
         result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**options)
-    elif a.command in ('partitioned-origin-smoke','partitioned-origin-audit'):
+    elif a.command in ('partitioned-origin-smoke','partitioned-origin-audit','partitioned-cuda-smoke','partitioned-cuda-prepare','partitioned-cuda-run'):
         from portable_partitioned_cli import dispatch
         return dispatch(SimpleNamespace(**globals()),main,argv)
     elif a.command=='partitioned-native-audit':
@@ -3852,6 +3856,9 @@ def main(argv=None):
     elif a.command=='partitioned-file-package':
         from portable_partitioned_cli import make
         with forbid_gpu():result=make(SimpleNamespace(**globals()),a.source_package,a.out)
+    elif a.command=='partitioned-cuda-package':
+        from portable_partitioned_cli import make
+        with forbid_gpu():result=make(SimpleNamespace(**globals()),a.source_package,a.out,cuda_reference=a.metal_reference)
     elif a.command=='gpu-recovery-package':
         from portable_gpu_recovery_package import make
         with forbid_gpu():result=make(SimpleNamespace(**globals()),a.base_package,a.origin_auditor,a.out)

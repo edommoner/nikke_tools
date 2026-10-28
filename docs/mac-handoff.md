@@ -1,3 +1,15 @@
+# 2026-10-29 CUDA全106の実API成功・出力差分を検出（再実行禁止）
+
+固定e2f6470d/2166file、source固定24c11faaの単発CUDA ownerを実装。固定97e9477e CPU監査と独立Metal/native参照ca3c24a8を結合し、fresh静的input再構築とsource/header/CUBIN照合を維持する。約127秒の元producer監査をGPU子で繰り返さない。新しい専用claimと旧失敗・claimに結ぶ安定ledgerで重複実行を拒否。旧claim/ledgerは保持。元2147file/既存CLI関数/全goldenを保持し、shader/正本/厳密normalizer変更0。own52＋checkout129テスト、Mac CPU smoke成功。
+
+Windows smoke8.246秒/prepare42.079秒/実GPU27.561秒、各1回・timeout0。GPUの全7launch/syncと106 chunk readback、context destroyは成功、全CUDA return0。実grid16×6＋10/block1、入力7403524/output132146304/runtime2288768byteを実引数で確認。GPU Job peak1874407424byte/2GiB以下・post0。旧code2は今回再発しなかったが原因の断定はしない。生成cache hit・Slang/NVRTC/native戦闘0。smokeで既存7process消失が観測され原因unknown、prepare/GPUはprocess保持True。サービス未確認で環境保持False。
+
+一方、全875469264byteのCUDA raw SHA bc59f8bb…は分割Metal0a737874…と異なり、論理viewも旧4ecc755e…と不一致。共通transportはstrict検査で例外を出し、元stageはFalse・計算未認定のまま保存した。CUDA logical SHA自体は旧失敗controllerが保存しておらず未知。部分/全7batch/output/input/claim/ledgerを保持し、GPU再実行/再compile/上限増加は行わない。
+
+Windows report固定d48d5050の38file/360328byteをMacへ取得。全phaseは末尾の出力検査RuntimeErrorで失敗のまま。同じ監査器で、明示的にそのenclosing failureを保持したAPI-prefix projectionだけを検査し、全7実引数/API/stream/cleanupを確認した。これはhardware completionの証拠であり、whole trace・計算検証の成功へ置換しない。詳細partitioned-cuda-single-attempt-v1.json、原本B/partitioned-cuda-windows-v1-report、API projectionはB/partitioned-cuda-v1-api-projection.json。
+
+次は保存済みCUDAの全row/status/logical hashとMetalの差分をCPU-onlyで特定すること。GPUを再送しない。今後の共通transportには、失敗直前に既に計算済みのaddress-view JSONを保存する診断改善と負例testを追加したが、旧captureは編集しない。旧source固定106の比較であり、現全suite・全char/効果・公開GPUは未達。以下は履歴。
+
 # 2026-10-29 実CUDA引数の共通観測・Windows元admit/CUBIN再監査成功
 
 共通partitioned transportへ任意のcuda_argument_journalを接続。元NativeFunctionへ同じ引数objectを一度だけ渡し、3allocationの実byte/address、input/48byte定数ABI、各grid/block/shared/streamを検査する。NVRTC fallbackや元API観測なしのdriverを拒否し、実観測のないbackendは完成outputを公開しない。sequence traceのrequire_arguments=Trueが各receiptと実API境界を照合する。計算/Slang/正本/厳密normalizerは変更0。実CUDAでの引数認定はまだ行っていない。

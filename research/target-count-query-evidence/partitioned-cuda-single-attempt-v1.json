@@ -1,0 +1,365 @@
+{
+  "schema": "partitioned-cuda-single-attempt-v1",
+  "source_commit": "24c11faa5b2ab65dc06f29af10386e868766c3bb",
+  "source_proof": {
+    "schema": "partitioned-cuda-owner-source-proof-v1",
+    "package_id": "e2f6470dbd561236dd6690dad2b600b0c839ff0447665ce6307ff9ff54bfdae8",
+    "base_package_id": "04515f96e6ed68a969627db49b9c6f13ffedfae3349ed2a363420a30f70e4ae5",
+    "archive_bytes": 9660762,
+    "archive_sha256": "620021d1385aa189055191acfcf86de36d06723d75aa8b3f550587cb20f118ad",
+    "files": 2166,
+    "original_files_preserved": 2147,
+    "changed_original_files": [
+      "scripts/nikke_gpu.py"
+    ],
+    "original_cli_functions_preserved": true,
+    "original_golden_unchanged": true,
+    "packet_tests": 52,
+    "development_tests": 129,
+    "mac_cpu_smoke": {
+      "calculation_verified": false,
+      "containment_verified": null,
+      "full_goal_complete": false,
+      "gpu_execution_verified": false,
+      "mode": "partitioned-cuda-owner-v1",
+      "package_id": "e2f6470dbd561236dd6690dad2b600b0c839ff0447665ce6307ff9ff54bfdae8",
+      "passed": true,
+      "prepared": false,
+      "preservation_verified": false,
+      "public_gpu_admitted": false,
+      "shared_metal_wire_equivalence_verified": false,
+      "stage": "smoke"
+    },
+    "batch_size": 16,
+    "input_count": 106,
+    "maximum_gpu_seconds": 60,
+    "maximum_job_memory_bytes": 2147483648,
+    "compiler_fallback_permitted": false,
+    "shader_changed": false,
+    "public_gpu_admitted": false,
+    "scope": "Fresh single-use owner after preserved CUDA launch failure; CPU preparation reuses the fixed bounded native-admission receipt and revalidates the exact saved CUBIN. One GPU attempt only."
+  },
+  "windows_transport": {
+    "commit": "d48d5050ec6025c884b7cc3db1d24518f5649a48",
+    "files": [
+      {
+        "path": "claims/ledger/eb4ceb7b7f39d7e52b20ec65dfc9391f16b8282cf6d589b124922372661a1973.json",
+        "bytes": 296,
+        "sha256": "5463a47b20d1a3e6d6521039199767d9a53778c5ea71e3d527813e94a1bf6a9d"
+      },
+      {
+        "path": "claims/partitioned-cuda-execution-claimed.json",
+        "bytes": 296,
+        "sha256": "5463a47b20d1a3e6d6521039199767d9a53778c5ea71e3d527813e94a1bf6a9d"
+      },
+      {
+        "path": "claims/partitioned-cuda-preflight-claimed.json",
+        "bytes": 1110,
+        "sha256": "16d955b2afcda77c7a1df8e01295a10ef2f99c98e900b30e158fc820a9ce9024"
+      },
+      {
+        "path": "gpu/artifacts.json",
+        "bytes": 1686,
+        "sha256": "aeae0533c9b51e8b8ed0f3c5ec4aa638d0dc9d7355953a4fd42a5643d1cbe648"
+      },
+      {
+        "path": "gpu/execution.json",
+        "bytes": 27406,
+        "sha256": "67bbb50090bd4e65f1a2a73c22981871db6743129d0f977f98d41c15bb49a845"
+      },
+      {
+        "path": "gpu/job.json",
+        "bytes": 1095,
+        "sha256": "35ff4c64441a63b144208c466bc684bf7ac849db5d1713a63443ba660201c742"
+      },
+      {
+        "path": "gpu/phases.jsonl",
+        "bytes": 180421,
+        "sha256": "b13940dbdf5b69b744b29ed10a0c77c1e53d924db5367b121289f22658e5324b"
+      },
+      {
+        "path": "gpu/preparation.jsonl",
+        "bytes": 636,
+        "sha256": "f2c82f6cc4bce93cb69a4245d9eafb2e48819db9fdb16b414518c3e7d97ad685"
+      },
+      {
+        "path": "gpu/readback.bin.batches/intent.json",
+        "bytes": 2595,
+        "sha256": "f34f918884c7ed4d23cb543cbd483b1fb66e1372cc7ad4288817a3432d107bce"
+      },
+      {
+        "path": "gpu/readback.bin.batches/plan.json",
+        "bytes": 2256,
+        "sha256": "17a3a0a1558abf35cbaf40663c97f37fd6ee78ed494ebd0228d22bf34e9d9bef"
+      },
+      {
+        "path": "gpu/result.json",
+        "bytes": 407,
+        "sha256": "07c53fe9f6198e09bb975d752c2fdd02ea7223ec12187d23c1f735499ca98544"
+      },
+      {
+        "path": "gpu/run.json",
+        "bytes": 468,
+        "sha256": "bc630d66597073e3618d66ad01c096122b99e79061c01a15cf05e34f107862e9"
+      },
+      {
+        "path": "gpu/runtime.json",
+        "bytes": 1213,
+        "sha256": "8d818f866b109dad0a1fa308a26377b041448eb3a60de6a273a00053e34b684f"
+      },
+      {
+        "path": "gpu/stderr.log",
+        "bytes": 1917,
+        "sha256": "94806dd9f8d589b44e91971747425692f0e689d6cccf8b420b931d4696291b7d"
+      },
+      {
+        "path": "prepare/artifacts.json",
+        "bytes": 2286,
+        "sha256": "87c676e066c88ae6d5b7c43091d95d55947e3d5b82b7cf3dd4ca1db88b8456dc"
+      },
+      {
+        "path": "prepare/execution.json",
+        "bytes": 1970,
+        "sha256": "d0054640d0739c92b6f2f167d139664a1bbc65ef4c86143912f8d5bace51b314"
+      },
+      {
+        "path": "prepare/generation.json",
+        "bytes": 40614,
+        "sha256": "1b6cdaf3c37936dedd39547181a9f7c6b3ff2297438fbee29c976145c48e108a"
+      },
+      {
+        "path": "prepare/input-preflight.json",
+        "bytes": 262,
+        "sha256": "cd4d3d3bac40f01aa3f681adea3f4018b693144e99e57e26a6be6437c82c0780"
+      },
+      {
+        "path": "prepare/job.json",
+        "bytes": 1099,
+        "sha256": "e33800c925601109267dae31be91a7bf9891f3c6f2ea7c172e274d329fc8e085"
+      },
+      {
+        "path": "prepare/phases.jsonl",
+        "bytes": 1322,
+        "sha256": "057a85bdfbc00c8eed8d6f79b198e00da4528703a78a793cea3eb285be7821fc"
+      },
+      {
+        "path": "prepare/pinned-cubin.json",
+        "bytes": 62712,
+        "sha256": "9af157b219e4087537dd96327c4edb5a6f47d1e958e46d31c6a335838266823b"
+      },
+      {
+        "path": "prepare/preparation.jsonl",
+        "bytes": 640,
+        "sha256": "8cfb093bbdda85e170fa85fd6b72662d1e55529bcd0908ade623a4b8764063e1"
+      },
+      {
+        "path": "prepare/prepared.json",
+        "bytes": 1110,
+        "sha256": "16d955b2afcda77c7a1df8e01295a10ef2f99c98e900b30e158fc820a9ce9024"
+      },
+      {
+        "path": "prepare/result.json",
+        "bytes": 409,
+        "sha256": "836292dd27bb1a1d37b3b5cf4601d729e49b95073368d43e497146a8b3b77efc"
+      },
+      {
+        "path": "prepare/run.json",
+        "bytes": 666,
+        "sha256": "90f7476b617f5998eeb453c72513a69015a8dea18988b1521457887358484fee"
+      },
+      {
+        "path": "prepare/runtime.json",
+        "bytes": 1213,
+        "sha256": "8d818f866b109dad0a1fa308a26377b041448eb3a60de6a273a00053e34b684f"
+      },
+      {
+        "path": "prepare/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "sharing-manifest.json",
+        "bytes": 6235,
+        "sha256": "df83027a6120bbd265ba9e3504457d3166d7530f61d310f4ee3cb7f9417b10c5"
+      },
+      {
+        "path": "single-attempt-summary.json",
+        "bytes": 9906,
+        "sha256": "95d0db14f186f62ab5674602de23c4bd4d4f93c248a93c5027be7c8953352339"
+      },
+      {
+        "path": "smoke/artifacts.json",
+        "bytes": 2445,
+        "sha256": "788ccb7992844de2cab5e2ec0de455f442100c095c0f1a02f69c940b4d0e8550"
+      },
+      {
+        "path": "smoke/execution.json",
+        "bytes": 1652,
+        "sha256": "9378b920daee3f6fb2c80a996baf1b365064e3650e7c18518a5a83188a9b2df6"
+      },
+      {
+        "path": "smoke/job.json",
+        "bytes": 1098,
+        "sha256": "814468fcb161b9726444d21438df7bf930d77b17742d292393699811e9dd3bce"
+      },
+      {
+        "path": "smoke/phases.jsonl",
+        "bytes": 670,
+        "sha256": "926ad6b12946be97f96c53a45993eea55dbd21180b3738be1762084999f2ee61"
+      },
+      {
+        "path": "smoke/preparation.jsonl",
+        "bytes": 640,
+        "sha256": "13a90848c4f6dbd32413b37e7233a92b3e24ab3085681a287c840e65633abb5e"
+      },
+      {
+        "path": "smoke/result.json",
+        "bytes": 408,
+        "sha256": "9a6a048315aac146489c37fbc961ff2796d2e2e100ee7523aed41379037ae95c"
+      },
+      {
+        "path": "smoke/run.json",
+        "bytes": 139,
+        "sha256": "f4fe9301b26135b315a34a1c37c831f9740767db7e0db0bcb56de83ecf1d6521"
+      },
+      {
+        "path": "smoke/runtime.json",
+        "bytes": 1030,
+        "sha256": "b54440c392768d8ee132b61a6b25f6a5159cfe0cd86a6e40dd6d941a7abe943d"
+      },
+      {
+        "path": "smoke/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "jobs": {
+    "smoke": {
+      "result": {
+        "calculation_verified": false,
+        "containment_verified": true,
+        "full_goal_complete": false,
+        "gpu_execution_verified": false,
+        "mode": "partitioned-cuda-owner-v1",
+        "package_id": "e2f6470dbd561236dd6690dad2b600b0c839ff0447665ce6307ff9ff54bfdae8",
+        "passed": true,
+        "prepared": false,
+        "preservation_verified": false,
+        "public_gpu_admitted": false,
+        "shared_metal_wire_equivalence_verified": false,
+        "stage": "smoke"
+      },
+      "execution": {
+        "passed": true,
+        "timed_out": false,
+        "elapsed_seconds": 8.245784299913794,
+        "child_exit_code": 0,
+        "final_child_exit_code": 0,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "job_peak_bytes": 84795392
+    },
+    "prepare": {
+      "result": {
+        "calculation_verified": false,
+        "containment_verified": true,
+        "full_goal_complete": false,
+        "gpu_execution_verified": false,
+        "mode": "partitioned-cuda-owner-v1",
+        "package_id": "e2f6470dbd561236dd6690dad2b600b0c839ff0447665ce6307ff9ff54bfdae8",
+        "passed": true,
+        "prepared": true,
+        "preservation_verified": false,
+        "public_gpu_admitted": false,
+        "shared_metal_wire_equivalence_verified": false,
+        "stage": "prepare"
+      },
+      "execution": {
+        "passed": true,
+        "timed_out": false,
+        "elapsed_seconds": 42.07890259986743,
+        "child_exit_code": 0,
+        "final_child_exit_code": 0,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "job_peak_bytes": 395296768
+    },
+    "gpu": {
+      "result": {
+        "calculation_verified": false,
+        "containment_verified": true,
+        "full_goal_complete": false,
+        "gpu_execution_verified": false,
+        "mode": "partitioned-cuda-owner-v1",
+        "package_id": "e2f6470dbd561236dd6690dad2b600b0c839ff0447665ce6307ff9ff54bfdae8",
+        "passed": false,
+        "prepared": false,
+        "preservation_verified": false,
+        "public_gpu_admitted": false,
+        "shared_metal_wire_equivalence_verified": false,
+        "stage": "gpu"
+      },
+      "execution": {
+        "passed": false,
+        "timed_out": false,
+        "elapsed_seconds": 27.561167299747467,
+        "child_exit_code": 1,
+        "final_child_exit_code": 1,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "job_peak_bytes": 1874407424
+    }
+  },
+  "actual_api": {
+    "completed_native_api_prefix_verified": true,
+    "whole_trace_passed": false,
+    "enclosing_failure": {
+      "elapsed_seconds": 20.1041017,
+      "exception": "RuntimeError",
+      "monotonic_ns": 3049823281000000,
+      "pid": 131500,
+      "stage": "partitioned_cuda_shared_execute",
+      "state": "raised",
+      "wall_time_ns": 1793220411146309800
+    },
+    "launches": 7,
+    "synchronizations": 7,
+    "streamed_readback_calls": 106,
+    "cases": [
+      16,
+      16,
+      16,
+      16,
+      16,
+      16,
+      10
+    ],
+    "explicit_buffer_bytes": [
+      7403524,
+      132146304,
+      2288768
+    ],
+    "retained_output_bytes": 875469264
+  },
+  "actual_raw_output_sha256": "bc59f8bbfbe00f2f88888fe7ad28d88a29addac98cf7e97c39876cd1b6ee344c",
+  "expected_partitioned_metal_raw_sha256": "0a737874d7e32912167b90e2f48a0ebf8176d79861cd6b5843fc09204ed9f829",
+  "expected_logical_output_sha256": "4ecc755e4f17e2eaaa9c9eb013bbcaa2fb27422893982f910894287df96ced09",
+  "actual_logical_sha_not_saved_by_failed_old_controller": true,
+  "input_sha256": "7892c2b3f5800c602d96a92192b89094d746f1674aaa18fcac2436677c11923d",
+  "compiled_cubin_sha256": "70fff521f9287679f116db936da5d912d0c2c9cddbc5fd576b71d407f2afa70a",
+  "gpu_retries": 0,
+  "compiler_calls": 0,
+  "native_battle_calls": 0,
+  "shader_changed": false,
+  "canonical_cpu_changed": false,
+  "strict_normalizer_changed": false,
+  "original_stage_passed": false,
+  "calculation_verified": false,
+  "full_goal_complete": false,
+  "future_diagnostic_change": "Persist computed address-view metadata before rejecting a mismatch; old captures are never backfilled.",
+  "next": "CPU-only comparison of retained CUDA rows/logical view against saved Metal/native baseline; do not rerun GPU."
+}

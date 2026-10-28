@@ -30,6 +30,14 @@ def fixture(counts=(16,16,16,16,16,16,10)):
 
 
 class SequenceTraceTests(unittest.TestCase):
+    def test_existing_generation_observation_is_allowed_but_unknown_observations_are_rejected(self):
+        rows,layout,transports=fixture()
+        rows.insert(0,dict(stage='slang_generation_request',state='observed',pid=77,monotonic_ns=0,key='d'*64))
+        for i,r in enumerate(rows):r['monotonic_ns']=i
+        self.assertTrue(verify(rows,layout,transports,pid=77))
+        rows[0]['stage']='unknown_observation'
+        self.assertFalse(verify(rows,layout,transports,pid=77))
+
     def test_all106_and_final_short_batch_with_single_context_cleanup(self):
         rows,layout,transports=fixture()
         self.assertTrue(verify(rows,layout,transports,pid=77))

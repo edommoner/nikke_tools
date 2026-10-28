@@ -1,3 +1,5 @@
+固定CUDA単発入口は `partitioned-cuda-package` → packet自身の `partitioned-cuda-smoke` → `partitioned-cuda-prepare` → `partitioned-cuda-run --timeout 60`。全106・16件batch・新しい専用claim/ledger・保存CUBINのみ。現在のe2f6470dは全API完了したが出力差分で失敗保存済みであり、同じrunを再送しない。保存結果のCPU比較を優先する。詳細 [分割転送](portable-partitioned-file-transport.md)。
+
 固定packetのWindows保存失敗再監査は `partitioned-origin-smoke` → 成功時だけ `partitioned-origin-audit`。既存run_job/2GiB/180秒以下で元admitと保存CUBINの出所を再評価し、新GPU claimや実行許可は発行しない。引数と境界は [分割転送](portable-partitioned-file-transport.md) 参照。
 
 保存済み分割Metal結果の独立比較は、immutable診断packet自身の `partitioned-native-audit --source-package EXECUTED_PACKET --capture CAPTURE --out NEW_DIR --timeout 240 --group-size 16` を使う。各fresh CPU群と全入力集約を分離し、GPU再実行はしない。詳細は [分割転送](portable-partitioned-file-transport.md)。

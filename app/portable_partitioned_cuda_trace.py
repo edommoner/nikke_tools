@@ -15,7 +15,8 @@ def _verify(rows,layout,transports,pid):
     from portable_backend import READBACK_CHUNK_BYTES
     from portable_phase_audit import valid_cache_hit,valid_linked_artifact
     if type(pid) is not int or pid<=0 or not rows:return False
-    if any(not isinstance(r,dict) or not isinstance(r.get('stage'),str) or type(r.get('pid')) is not int or r['pid']!=pid or r.get('state') not in ('entered','returned','verified') for r in rows):return False
+    if any(not isinstance(r,dict) or not isinstance(r.get('stage'),str) or type(r.get('pid')) is not int or r['pid']!=pid
+           or not (r.get('state') in ('entered','returned','verified') or r.get('stage')=='slang_generation_request' and r.get('state')=='observed') for r in rows):return False
     if any(type(r['monotonic_ns']) is not int for r in rows) or any(a['monotonic_ns']>b['monotonic_ns'] for a,b in zip(rows,rows[1:])):return False
     batches=layout['batches']
     if not batches or len(batches)!=len(transports):return False

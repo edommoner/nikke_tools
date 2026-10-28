@@ -152,6 +152,7 @@ def execute(source,entry,packed,input_words,output_words,backend,*,readback_path
     if address_profile is not None:
         from portable_partitioned_addresses import view_file
         address_view=view_file(partial,layout)
+        with (parts/'address-view.json').open('x') as f:json.dump(address_view,f,indent=2)
         if address_view['raw_joined_output_sha256']!=joined.hexdigest() or address_view['logical_view_sha256']!=expected_output_sha256:raise RuntimeError('Complete typed-address wire view differs from sealed baseline')
     elif joined.hexdigest()!=expected_output_sha256:raise RuntimeError('Complete ordered partitioned output differs from sealed baseline')
     if adapter.source_hashes(source)!=hashes or {k:hashlib.sha256(p.read_bytes()).hexdigest() for k,p in outputs.items()}!=generated:raise RuntimeError('Partitioned source changed during dispatch')
