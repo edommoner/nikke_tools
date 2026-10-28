@@ -1,0 +1,11 @@
+# ADD自爆の正本契約とGPU接続点
+
+共通CLI `python scripts/nikke_gpu.py reference --suite add-self-destruct-native --out NEW.json` は、固定されたcanonical BossScriptのbegin_frame/_add_attacks/_retireをそのまま呼ぶ。独自scheduler、CPU計算済みqueueをGPUへ渡す入力、正本の変更はない。単発、3発の間隔あり、同時3発、次frameで残り2発をまとめて回収する4条件を同じliteral factoryから実行し、入力と元メソッドの保持を検査する。
+
+正本では最後のAttackHitをself.attacksへ入れた後、同じbegin_frame内でsourceを自爆退場させる。その呼出しが返る時点でsource.aliveはfalse、enemy_countはBODYのみの1、enemy_deathがeventsに存在し、最終射撃はqueueに残る。0秒の単発/同時3発ではspawnとdeathが同じ返り値に並ぶ。粗いframeでは残り複数発もqueueされたまま退場する。退場後のframeに余分な射撃や死亡eventは出ない。次frameでの被弾による破壊通知と同じ規則だと決めつけない。
+
+GPU側では、現在のlive actor poolを読む既存ADD射撃cursor、WorldSchedule時計、既存死亡通知/敵数更新とincoming実行器を使う必要がある。最終射撃の生成を退場前に終え、その射撃のsource slot/generationは退場後も保持する。別世代へ再対象化したり、消えたsourceを理由に最後のqueue済み射撃を落としたりしない。until-cleared、HP撃破、再出現、同frameのbuff callbackとincomingの順序は、full battleのCPU契約を追加してからGPUで照合する。
+
+この段階はCPU部品のみ。共通CLIのpacking/build/executeは0、full_battle_validation/gpu_supportedはfalse。現在のADD packerと敵弾薬モデルのself_destruct拒否は維持する。4unitには最終射撃削除/生存flag/死亡eventの改変負例、fresh CLI起動、canonical/observer source hashと未対応分類の結合検査がある。初回CLIはpinned calculator path初期化の不足で失敗し、その出力を保存。engine_worker経由で正規初期化する修正版で4条件が成功した。
+
+証跡はresearch/target-count-query-evidence/add-self-destruct-native-contract-v1.json。Lock Onの未確定距離式を推測で埋めることなく、既存正本にconsumerがある次の実装候補として扱う。GPU受付・全キャラ対応数は増やさない。

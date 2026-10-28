@@ -64,6 +64,14 @@ class AddAttackBattleTests(unittest.TestCase):
         normal=nikke_gpu.SUITES['add-attack-battle'];cached=nikke_gpu.SUITES['add-attack-battle-cache-only']
         for key in ('script','source','golden','inputs','native','input_words','output_words'):self.assertEqual(normal[key],cached[key])
         self.assertTrue(cached['require_paired_generation']);self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
+        from portable_backend import source_hashes
+        current_raw=(ROOT/normal['golden']).read_bytes();current=json.loads(current_raw)
+        old=json.loads((ROOT/'research/portable-add-attack-battle-v1-expected.json').read_text())
+        self.assertEqual(current['source_sha256'],source_hashes(normal['source']))
+        self.assertEqual(current['entries'],old['entries']);self.assertEqual(current['output_sha256'],old['output_sha256'])
+        cert=json.loads((ROOT/nikke_gpu.SUITES['compiler-full--add-attack-battle']['golden']).read_text())
+        self.assertEqual(cert['baseline_golden_sha256'],hashlib.sha256(current_raw).hexdigest())
+        self.assertEqual(cert['source_sha256'],current['source_sha256'])
 
 
 if __name__=='__main__':unittest.main()

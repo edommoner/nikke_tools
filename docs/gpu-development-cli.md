@@ -659,3 +659,7 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 ## 弾薬・ゲージの現ソース再認定
 
 `coordinate-original-ammo`4条件と`coordinate-original-resources`3条件を共有数値/通知hook追加後のM5 Metalとfresh独立sealで再認定。通常goldenとfull-compiler証明書をv2へ切り替え、旧版は保持する。全旧input/native/entry/readback byte不変。compactの台帳依存を保持する修正と監査合成/CLI fixtureの修正も同梱する。[再認定と事前失敗の記録](portable-ammo-resource-recertification.md)。他の旧source全体やCUDA実機の再認定ではない。
+
+## ADD実戦の現ソースと自爆CPU契約
+
+`add-attack-battle`17入力を共有numeric/resource hook変更後に再認定し、通常/cache-onlyのgoldenをv2へ更新。全旧input/native/entry/readback byte不変、full-source certificateも同じfresh sealで生成した。`reference --suite add-self-destruct-native --out NEW.json`は最終射撃queueと同frame退場/死亡event/敵数の正本4部品契約（packing/GPU0）。自爆のGPU受付は引き続き閉じる。詳細[ADD実戦](portable-add-attack-battle.md)、[自爆の接続点](portable-add-self-destruct.md)。

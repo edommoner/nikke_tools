@@ -88,6 +88,7 @@ REFERENCES['logical-actor-geometry-common']=('portable_logical_geometry_cases','
 REFERENCES['logical-actor-rosters-common']=('portable_logical_geometry_roster_cases','world_logical_geometry_native','portable_logical_geometry_roster_contracts')
 REFERENCES['enemy-healing-common']=('portable_enemy_healing_cases','world_enemy_healing_native','portable_enemy_healing_contracts')
 REFERENCES['enemy-ammo-common']=('portable_enemy_ammo_cases','world_enemy_ammo_native','portable_enemy_ammo_contracts')
+REFERENCES['add-self-destruct-native']=('world_add_self_destruct_native',)*3
 REFERENCES['named-range-battle-common']=('portable_named_range_battle_cases','world_named_range_battle_native','portable_named_range_battle_contracts')
 REFERENCES['coordinate-typed-owner-add-lifetime-common']=('portable_coordinate_typed_owner_add_lifetime_cases','world_coordinate_typed_owner_add_lifetime_native','portable_coordinate_typed_owner_add_lifetime_contracts')
 REFERENCES['coordinate-typed-owner-hp-death-common']=('portable_coordinate_typed_owner_hp_death_cases','world_coordinate_typed_owner_hp_death_native','portable_coordinate_typed_owner_hp_death_contracts')
@@ -165,6 +166,9 @@ def run_reference(suite,output,*,write,forbid_gpu):
         report.update(stage='cpu-common-policy-contract',reference_kind='declared-enemy-magazine-attempt-v1',
             historical_native_equivalence=False,in_game_rules_verified=False,gpu_wire_connected=False,
             capacity_model='fixed-declared',source_schedule_policy='retain original scheduled attempts; never retime blocked attempts')
+    if suite=='add-self-destruct-native':
+        report.update(stage='cpu-native-component-contract',reference_kind='canonical-add-final-shot-retirement',
+            full_battle_validation=False,gpu_wire_connected=False,in_game_rules_verified=False)
     try:
         # Legacy native comparators contain assertions. Reject before importing
         # or running them; optimized Python must never certify those contracts.

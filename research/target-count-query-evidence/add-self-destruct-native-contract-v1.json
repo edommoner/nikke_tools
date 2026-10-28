@@ -1,0 +1,72 @@
+{
+  "schema": "add-self-destruct-native-contract-v1",
+  "suite": "add-self-destruct-native",
+  "case_count": 4,
+  "cpu_reference_verified": true,
+  "packing_calls": 0,
+  "gpu_calls": {
+    "build": 0,
+    "execute": 0
+  },
+  "full_battle_validation": false,
+  "gpu_supported": false,
+  "reference_report_sha256": "59dfaaac3d788dad355f54128ce9bf58f4e95a7a4352ed332e86e2de3d683879",
+  "canonical_source_sha256": "ccbfde085e5c809b07215b15177a08d725cd56a2691fd26675a9b19b01296565",
+  "observer_source_sha256": "42490f2b3317073f916ff95bacb857a1ef0bbbd73b129d5957d12acd2a9159d9",
+  "cases": [
+    {
+      "name": "add-self-destruct/single",
+      "input_sha256": "b3334ccda962d55295741cbdb73a00c6c97b1c2ffba80b83a3d8fddb091ce97e",
+      "native_sha256": "2c40751754a4c744051809fad45b90e380e4a521e84c2b5172b060c69b36bf74",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "queued_shots": 1,
+        "retirement_time": 0.0,
+        "final_shots_queued_after_source_retirement": true,
+        "scope": "Canonical BossScript component only; no full battle or GPU admission"
+      }
+    },
+    {
+      "name": "add-self-destruct/three-spaced",
+      "input_sha256": "a6db2431657ccca7b82a2063e3623792c3ac441e0df562857a2e64aa368112fb",
+      "native_sha256": "07db3f4ae53f7bdb987ab53e9d9819b7af9288cd3f68c02fc5db1cedc9ca3450",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "queued_shots": 3,
+        "retirement_time": 0.4,
+        "final_shots_queued_after_source_retirement": true,
+        "scope": "Canonical BossScript component only; no full battle or GPU admission"
+      }
+    },
+    {
+      "name": "add-self-destruct/three-coincident",
+      "input_sha256": "f5aa2a33727d13587de1369da10832a21cc987b888e8113f93adefc2671db76f",
+      "native_sha256": "bd06e91ef05bc94d5e6704fd6f97de3691849a84375df4a2884d9199384b1540",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "queued_shots": 3,
+        "retirement_time": 0.0,
+        "final_shots_queued_after_source_retirement": true,
+        "scope": "Canonical BossScript component only; no full battle or GPU admission"
+      }
+    },
+    {
+      "name": "add-self-destruct/catchup",
+      "input_sha256": "2a9405f3b091311de1c4bef0111e5c0903b194c76434876d1a4fbadda9a6a618",
+      "native_sha256": "a2f8703ddae1c90561560910442b44add2e8668e233c3483f5f547b655b97c52",
+      "contract": {
+        "verified": true,
+        "reference_model_gap": false,
+        "queued_shots": 3,
+        "retirement_time": 0.6,
+        "final_shots_queued_after_source_retirement": true,
+        "scope": "Canonical BossScript component only; no full battle or GPU admission"
+      }
+    }
+  ],
+  "next_gpu_requirement": "Preserve final queued hits after source retirement; connect same-frame death events and live enemy count before delivery without introducing another scheduler",
+  "full_goal_complete": false
+}

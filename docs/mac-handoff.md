@@ -2989,3 +2989,11 @@ v2はkind11のactor受付漏れstatus64、v5は通知128上限status8で失敗�
 先に監査の逆変換再適用、compactでの台帳Python依存漏れ、routingテストのcompact環境誤用、監査PythonをGPU一覧へ混入したテストを修正。217ファイルの復元include graph全体を旧goldenと照合し、未知/改変source拒否とcompact制限は維持。v1/v2/v3失敗はGPU/claim0、raw/log全保持、v4で各GPU1回/retry0。詳細docs/portable-ammo-resource-recertification.md、証跡original-ammo-resource-recert-v1.json。
 
 次はADD実戦17/敵回復14/logical13等の現source再認定を整理し、敵の武器/容量変更等へ進む。全179履歴を無差別再実行しない。今回Windows新依頼0、現在CUDA実機・全キャラ/default受付は未認定。
+
+### 2026-10-28 ADD17現source再認定と自爆4部品契約
+
+固定a1881e09 / packete9ce00dcの元ADD17入力をM5 Metal各1回＋fresh GPU禁止joint sealで成功。全旧input/native/entry/readback138,176,000byteを保持。元ニヒリスター70定義/6編成、284発/1,120被弾、11拒否。unit35成功、required generation hit/Slang0、Runtime138,952byte不変。GPU0.694337秒、cold pipeline58.155649秒、独立監査104.990122秒。v2 golden/certificateを登録し、旧v1は保持。通常/cache-onlyと分類のreceipt参照もv2へ。現在のCUDA実機未確認、Windows新依頼0。証跡add-attack-battle-current-recert-v2.json。
+
+次の自爆を共通CLI reference --suite add-self-destruct-nativeへ登録。canonical BossScriptを変更せず、単発/間隔3発/同時3発/飛び越し回収の4条件を検査。最後のAttackHitをqueueした同じbegin_frameでalive false・enemy_death・enemy_count1になり、queueは残る。初回CLIのcalculator import path不足失敗を保存し、正規engine_worker初期化後に成功。4unit（改変負例/fresh CLI/出所/未対応分類結合）とreadiness24成功。これはCPU部品のみでfull battle/GPU/default falseを明示。詳細portable-add-self-destruct.md、証跡add-self-destruct-native-contract-v1.json。
+
+次は自爆の元実編成full battle契約を作り、queue済み最終射撃・同frame死亡通知/敵数・until-cleared/再出現へ既存pool/時計/incomingを使って接続する。敵回復/logicalの現source再認定も残る。Lock Onの距離は保留、全キャラ/default受付は未認定。

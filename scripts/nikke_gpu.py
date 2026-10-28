@@ -412,7 +412,7 @@ SUITES['coordinate-math']=dict(script='research/verify-coordinate-math-short.py'
 SUITES['coordinate-shape']=dict(script='research/verify-coordinate-shape-short.py',source='gpu/coordinate_shape_probe.slang',golden='research/portable-coordinate-shape-short-expected.json',inputs=158,native=150,output_words=8,development_only=False,tests=['test_coordinate_math.py','test_coordinate_shape.py'])
 SUITES['add-attack-schedule']=dict(script='research/verify-add-attack-schedule.py',source='gpu/world_add_attack_probe.slang',golden='research/portable-add-attack-schedule-v1-expected.json',inputs=19,native=8,input_words=2592,output_words=74256,development_only=False,tests=['test_add_attack_schedule.py','test_portable_world_schedule.py'])
 SUITES['add-attack-schedule-cache-only']=dict(SUITES['add-attack-schedule'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['add-attack-schedule']['tests'],'test_portable_cuda_cached_profile.py'])
-SUITES['add-attack-battle']=dict(script='research/verify-add-attack-battle.py',source='gpu/world_add_attack_battle_entry.slang',golden='research/portable-add-attack-battle-v1-expected.json',inputs=17,native=6,input_words=116464,output_words=2032000,development_only=False,parent_oracle_reuse=True,tests=['test_add_attack_battle.py','test_reference_rewrite.py','test_portable_wire_layout.py','test_portable_parent_oracles.py'])
+SUITES['add-attack-battle']=dict(script='research/verify-add-attack-battle.py',source='gpu/world_add_attack_battle_entry.slang',golden='research/portable-add-attack-battle-v2-expected.json',support_files=['research/portable-add-attack-battle-v1-expected.json','research/portable-compiler-full--add-attack-battle-v2-source-certificate.json'],inputs=17,native=6,input_words=116464,output_words=2032000,development_only=False,parent_oracle_reuse=True,tests=['test_add_attack_battle.py','test_reference_rewrite.py','test_portable_wire_layout.py','test_portable_parent_oracles.py'])
 SUITES['add-attack-battle-cache-only']=dict(SUITES['add-attack-battle'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['add-attack-battle']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['ammo-instant-numeric']=dict(script='research/verify-ammo-instant-numeric.py',source='gpu/ammo_instant_numeric_probe.slang',golden='research/portable-ammo-instant-numeric-v1-expected.json',inputs=713,native=705,input_words=16,output_words=8,development_only=False,tests=['test_ammo_instant_numeric.py'])
 SUITES['ammo-instant-numeric-cache-only']=dict(SUITES['ammo-instant-numeric'],cuda_cache_profile='compile-cache-only-v1',tests=['test_ammo_instant_numeric.py','test_portable_cuda_cached_profile.py'])
@@ -677,7 +677,7 @@ for _baseline,_config in list(SUITES.items()):
         tests=SUITES['compiler-full']['tests']+['test_portable_compiler_certificate.py','test_portable_seal.py'])
 
 # Keep historical certificates immutable while selecting the current recertification.
-for _recertified in ('coordinate-original-resources','coordinate-original-ammo'):
+for _recertified in ('coordinate-original-resources','coordinate-original-ammo','add-attack-battle'):
     SUITES[compiler_alias(_recertified)]['golden']='research/portable-'+compiler_alias(_recertified)+'-v2-source-certificate.json'
 
 # Controller validation has no numeric program to execute. Keep its CPU work
