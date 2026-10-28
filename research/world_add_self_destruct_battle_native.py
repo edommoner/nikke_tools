@@ -15,7 +15,7 @@ def prepare_case(row):
     return words,(case,meta,bindings,scene)
 
 
-def observe(domain):
+def observe(domain,*,include_ammo=False):
     rows=[];old=timeline.BossScript;lookup={b.label:i for i,b in enumerate(domain[2])};cursors=[[0,0] for _ in domain[2]]
     class Boss(old):
         def _retire(self,run,add,why,t,events,log=True):
@@ -28,6 +28,6 @@ def observe(domain):
                 run=self._runs[b.run]
                 if run.opens and run.p.summon.attack is not None:cursors[slot]=[run.opens,run.adds[b.slot].fired]
             return result
-    with patch.object(timeline,'BossScript',Boss),resource_capture(domain[0]) as resources:n=common_observe(domain)
+    with patch.object(timeline,'BossScript',Boss),resource_capture(domain[0],include_ammo=include_ammo) as resources:n=common_observe(domain)
     n['self_destruct']=rows;n['original_resources']=resources;n['firing_cursors']=cursors
     return n

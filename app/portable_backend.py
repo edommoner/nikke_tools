@@ -86,6 +86,11 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source=='gpu/world_enemy_ammo_self_destruct_entry.slang':
+        from portable_enemy_ammo_self_destruct_wire import check_schema,LAYOUT
+        check_schema(ROOT)
+        if (input_words,output_words)!=(LAYOUT['INPUT_WORDS'],LAYOUT['OUTPUT_WORDS']):raise ValueError('Final-queue magazines require both complete banks and disjoint receipts')
+        return
     if source=='gpu/world_enemy_ammo_entry.slang':
         from portable_enemy_ammo_wire import check_schema,LAYOUT
         check_schema(ROOT)

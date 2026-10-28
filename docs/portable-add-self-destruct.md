@@ -4,7 +4,7 @@
 
 `reference --suite enemy-ammo-self-destruct-common --out NEW.json` は元ヴェルヴェット76定義の8条件を検査する。正本 `_retire(...,"자폭",...)` の時点で存在する実際のAttackHit objectを観測し、同じactor世代・同じframeでだけ退場後の弾倉へ配送する。HP撃破、時間切れ、別object、別世代、後続frameにはこの資格を与えない。既存EnemyAmmoのframe/attack/割合演算/完了通知/リロード処理を共用し、既定modelのself-destruct拒否は維持する。
 
-単発0秒、間隔3発、同時3発、空弾倉、リロード中の最終射撃、until-cleared再出現、発射前HP撃破、時間切れを検査。弾薬で拒否されたattemptも元のscheduled counterを進め、自爆を延期しない。退場済み世代のreloadは完了しない。固定容量の明示モデルであり、ゲーム仕様の実測ではない。GPU入口の合成には出力領域の所有権分離と、退場後のexact queued source資格のSlang接続が必要で、まだ未実装である。
+単発0秒、間隔3発、同時3発、空弾倉、リロード中の最終射撃、until-cleared再出現、発射前HP撃破、時間切れを検査。弾薬で拒否されたattemptも元のscheduled counterを進め、自爆を延期しない。退場済み世代のreloadは完了しない。固定容量の明示モデルであり、ゲーム仕様の実測ではない。後続では出力所有権と退場後のqueue資格をSlangへ接続し、[専用合成入口のMetal実証](portable-enemy-ammo-self-destruct.md)に成功した。この節のCPU契約と、後続GPU実証の範囲を分けて保持する。
 
 固定packetで8契約・新7unit成功。関連敵弾薬24検査・自爆wire8検査・readiness24検査も成功。旧goldenを変更せず、新CPU hookのexact inverseを既存監査へ合成。旧enemy-ammoのMetal証拠はself-destruct共有hook追加前の履歴であり、全現source一致という誤ったunit条件を、承認済みexact inverseによる全source保持検査へ修正した。現source再認定とは区別する。
 

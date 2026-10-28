@@ -1,3 +1,11 @@
+# 2026-10-29 敵弾薬と自爆を同じSlang実行器でMetal実証
+
+固定2d5ad371の元Velvet76定義8world＋raw拒否8がM5/同出力のfresh GPU禁止独立sealで一致。14自爆/26試行/許可18発/実被弾90件、GPU0.803771秒/cold PSO58.212479秒/独立144.576577秒。unit43とfresh8 nativeの実行前照合、generation必須hit/Slang0、stride138952不変。CPU入力に計算済みschedule/弾薬/退場を入れず、入力117632word/出力2032000wordの幅を維持する。自爆記録をresource履歴の後1943776wordへ分離し、同世代・同時刻の実queueだけが退場後のmagazineを使える。empty/reloadも元scheduleで退場、HP/time退場は射撃なし。元時計/actor/割合演算/incoming/resource consumerと比較器を共用。
+
+新golden/同sealのcompiler-source-only証明書/独立receiptを登録し、通常とcache-only入口へ接続した。compiler証明書自体のcalculationはFalseであり、実計算の根拠はgolden/receipt。新proof-binding5検査/readiness24検査と、旧ammo9/self8/CLI50の検査が成功。unitで8戦闘を繰り返す重複を除き、full nativeは固定package準備/実行前/独立sealで検査する。旧goldenは変更せず、新shared hookは別exact inverseで旧監査へ合成する。
+
+現CUDA/公開default/全キャラは未達。Windowsは既存04515f96のGPU前失敗claimを保持し、今回の新規依頼0。次は通常/cache固定CLIの登録後確認、次の未対応consumerと既存CUDA preflight/cacheを保持するcontroller移行の設計。巨大な旧golden群を一括再実行しない。詳細portable-enemy-ammo-self-destruct.md、証跡enemy-ammo-self-destruct-metal-v1.json。
+
 # 2026-10-28 敵弾薬と自爆のCPU合成契約・梱包漏れguard
 
 元Velvet76定義のenemy-ammo-self-destruct-commonは固定packetで8契約/新7unit成功。関連敵弾薬24・自爆wire8・readiness24・CLI50・registry payload3検査が成功。実自爆時の既存AttackHit object/世代/frameを証拠に退場後の弾倉へ接続し、元scheduler/割合演算/被弾/完了通知を共用する。空弾倉/リロード中でも元scheduled countで退場、HP撃破/時間切れに射撃を生成しない。既定enemy-ammoは自爆拒否を維持。新CPU inverseを既存監査へ合成し、旧Metal goldenを改変しない。GPU source/保護CPU変更0、GPU合成は出力所有権とqueue資格のSlang接続が次。新契約の実Metal/CUDA/default/全キャラは未達。

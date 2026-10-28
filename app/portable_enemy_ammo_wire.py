@@ -37,7 +37,7 @@ def compiler_policy():
     with patch.object(portable_runtime,'validate_effect',validate):yield
 
 
-def pack(spec,patterns,bindings):
+def pack(spec,patterns,bindings,*,allow_self_destruct=False):
     rules=normalize(spec);slots={b.label:i for i,b in enumerate(bindings)};declared={r['label'] for r in rules}
     words=[0]*LAYOUT['WORDS'];words[:4]=[MAGIC,1,len(rules),len(bindings)]
     for index,row in enumerate(rules):
@@ -49,7 +49,7 @@ def pack(spec,patterns,bindings):
     for p in patterns:
         if p.kind=='attack' and '__enemy__' not in declared:raise ValueError('Every body attack needs its declared magazine')
         if p.summon is not None and p.summon.attack is not None:
-            if p.summon.self_destruct:raise ValueError('Self-destruct enemy magazines are not connected')
+            if p.summon.self_destruct and not allow_self_destruct:raise ValueError('Self-destruct enemy magazines are not connected')
             if any(b.label not in declared for b in bindings if int(b.kind)==5 and b.run==p.idx):raise ValueError('Every attacking ADD needs its declared magazine')
     return words
 

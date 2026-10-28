@@ -122,7 +122,13 @@ bool enemyAmmoAttempt(inout Runtime s,uint record,uint node,uint64_t when)
     uint at=eamEvent(s,7);if(s.error!=0)return false;
     results[at+1]=record;results[at+2]=slot;results[at+3]=generation;results[at+7]=results[s.resourceOutput+WF_OUTPUT+WS_LOG+record*6+2];storeNumber(at+8,when);results[at+10]=node;
     if(results[actor]!=generation){results[at+6]=5;return false;}
-    if(results[actor+1]==0){results[at+6]=4;return false;}
+#ifdef PORTABLE_ENEMY_AMMO_SELF_DESTRUCT
+    bool retiredQueue=enemyAmmoRetiredQueue(s,record,node,slot,generation,when);
+    if(retiredQueue)results[at+11]=1;
+#else
+    bool retiredQueue=false;
+#endif
+    if(results[actor+1]==0&&!retiredQueue){results[at+6]=4;return false;}
     uint before=results[p+1];results[at+4]=before;results[at+5]=before;
     if(f64Less(0,actorNumber(p+2))){results[at+6]=2;return false;}
     if(before==0)

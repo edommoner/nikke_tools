@@ -4,7 +4,7 @@ from portable_enemy_ammo_wire import LAYOUT as E
 from portable_specs import LIMITS as L
 
 
-def compare_ammo(block,domain,native):
+def compare_ammo(block,domain,native,*,allow_retired_queue=False):
     case,meta,bindings,_=domain;data=native['enemy_ammo'];head=E['OUTPUT_BASE']
     number=lambda at:struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
     actor=lambda slot,gen:[int(bindings[slot].kind),bindings[slot].identity,gen]
@@ -63,7 +63,13 @@ def compare_ammo(block,domain,native):
             original=L['WORLD_FRAME_OUTPUT_BASE']+2832+record*6
             assert block[original]==3 and block[original+1]==node and block[original+2]==index
             assert (block[original+5]!=0)==(status==1),'Blocked attempts cannot select targets, draw RNG or issue damage'
-            attempts.append(row);assert not any(block[at+11:at+16])
+            if allow_retired_queue:
+                assert block[at+11] in (0,1)
+                if block[at+11]:
+                    assert status<=3 and slot>0
+                    row['retired_queue']=True
+            else:assert block[at+11]==0
+            attempts.append(row);assert not any(block[at+12:at+16])
         else:raise AssertionError('Unknown enemy ammo receipt kind')
     assert charges==data['charges'],'Original percentage quantities, recipient order and completion snapshots'
     assert reloads==data['reloads'] and attempts==data['attempts'],'Real resource gates and native frame deadlines'

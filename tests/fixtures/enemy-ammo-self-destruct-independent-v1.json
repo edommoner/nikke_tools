@@ -1,0 +1,15 @@
+{
+  "package_id": "2d5ad3717219b93653a5b2943880606169df7530bfaab57c189d081ba96e9eaf",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/enemy-ammo-self-destruct-metal-v1-capture",
+  "child_pid": 79219,
+  "input_count": 16,
+  "native_cases": 8,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 144.5765767499979,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "a8f3b89cf3d1b56a3aaad958cac8d58a8e7e1107290137a16501465621a85b1f",
+  "output_sha256": "973712bc1fd1fc74d3d8f522f5ae5ebcbcae40cea6c52580222b51b0f7e72895",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "schema": "independent-metal-audit-v1"
+}
