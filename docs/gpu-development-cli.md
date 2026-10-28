@@ -655,3 +655,7 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 ## 元ヴェルヴェットの敵弾薬実戦
 
 `enemy-ammo`は元76定義の6戦闘条件＋不正14入力を実M5 Metal/独立GPU禁止監査でsealした20入力。`package --suite enemy-ammo`から固定packetを作る。敵BODY/ADDの固定宣言magazine・残弾・reload・世代・完了通知を既存incoming実行器へ接続し、4,800件のresource通知を全保持する。`enemy-ammo-cache-only`は同じ計算/goldenのCUBIN/O1・必須compile cache/NVRTC禁止・必須paired generation入口。現在のCUDA実機は未確認。敵武器変更/容量バフ/flat/forced reload/default受付/全キャラ認定は含まない。[実装・失敗履歴・実測](portable-enemy-ammo-gpu.md)。
+
+## 弾薬・ゲージの現ソース再認定
+
+`coordinate-original-ammo`4条件と`coordinate-original-resources`3条件を共有数値/通知hook追加後のM5 Metalとfresh独立sealで再認定。通常goldenとfull-compiler証明書をv2へ切り替え、旧版は保持する。全旧input/native/entry/readback byte不変。compactの台帳依存を保持する修正と監査合成/CLI fixtureの修正も同梱する。[再認定と事前失敗の記録](portable-ammo-resource-recertification.md)。他の旧source全体やCUDA実機の再認定ではない。

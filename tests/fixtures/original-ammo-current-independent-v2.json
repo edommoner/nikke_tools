@@ -1,0 +1,15 @@
+{
+  "package_id": "ce3531665aef52d08796948090297a8bffceef59b91ff474118c60671d76c12f",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/original-ammo-current-recert-v4-metal",
+  "child_pid": 76337,
+  "input_count": 4,
+  "native_cases": 4,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 66.20469375001267,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "c878c86123c780e3061fb91ecf03aaad272a412d93d0a74d41d13f0cd447532d",
+  "output_sha256": "6bc6495208db962c230902e9770adac3537496257926c018e1861cfa65fbcc10",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "schema": "independent-metal-audit-v1"
+}

@@ -2981,3 +2981,11 @@ v3はCPU payload/inputを固定v1と監査してnative期待指紋だけ再利�
 v2はkind11のactor受付漏れstatus64、v5は通知128上限status8で失敗しraw/claimを全保持。resource op3/実行flag付きkind11の専用gateと共通logの容量/offset hookで修正。CPU基準を通常経路で再計算し、現在sourceの正確なinverse ledgerを保持、厳密normalizer/保護CPUは未変更。通常CLIと必須CUBIN/O1/compile cache/paired generationのcache-only入口を登録した。Windows新run依頼0、CUDA実機未確認。
 
 次は共有numeric抽出/resource hook後の旧スイート現source再認定をまとめ、未対応の敵武器/容量変更、flat/forced reload、self-destruct/付随debuff等へ進む。旧成功を現sourceへ付替えない。全キャラ/default受付は未認定。詳細docs/portable-enemy-ammo-gpu.md、証跡target-count-query-evidence/enemy-ammo-metal-v1.json、独立receipt tests/fixtures/enemy-ammo-independent-v1.json。
+
+### 2026-10-28 弾薬4/ゲージ3の現source再認定とcompact監査修正
+
+0321513aのcoordinate-original-ammo4、coordinate-original-resources3を各1回M5 Metal実行＋fresh GPU禁止joint seal（golden/source certificate）で成功。旧全input/native/entry/readback byteを保持し、通常golden/full-compiler aliasをv2へ登録、旧ファイルも保持。GPU1.712281/0.573241秒、cold pipeline58.125915/59.786975秒、独立監査66.204694/22.437469秒。required generation hit/Slang0。実packetテスト35/28成功。
+
+先に監査の逆変換再適用、compactでの台帳Python依存漏れ、routingテストのcompact環境誤用、監査PythonをGPU一覧へ混入したテストを修正。217ファイルの復元include graph全体を旧goldenと照合し、未知/改変source拒否とcompact制限は維持。v1/v2/v3失敗はGPU/claim0、raw/log全保持、v4で各GPU1回/retry0。詳細docs/portable-ammo-resource-recertification.md、証跡original-ammo-resource-recert-v1.json。
+
+次はADD実戦17/敵回復14/logical13等の現source再認定を整理し、敵の武器/容量変更等へ進む。全179履歴を無差別再実行しない。今回Windows新依頼0、現在CUDA実機・全キャラ/default受付は未認定。

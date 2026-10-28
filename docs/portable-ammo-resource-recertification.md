@@ -1,0 +1,20 @@
+# 弾薬・ゲージの現共有ソース再認定
+
+共有ammo数値関数の抽出とresource通知記録hookの追加後、coordinate-original-ammoの元4条件とcoordinate-original-resourcesの元3条件を現ソース0321513aで再認定した。入力、全native指紋、各caseの全entry指紋、readback全byteは旧版と一致。生成CUDA/MSLは旧版と異なるため、過去captureを現ソースの成功へ付替えず、各suiteでMetalを1回実行し、その後fresh GPU禁止childで全出力を再照合した。
+
+弾薬4条件は実packetの35unit成功、GPU1.712281秒、cold pipeline58.125915秒、独立監査66.204694秒。ゲージ3条件は28unit成功、GPU0.573241秒、cold pipeline59.786975秒、独立監査22.437469秒。生成は両方required cache hit、Slang呼出し0。2つのsource certificateは同じ独立sealから生成し、別の重複native監査を行わない。通常CLIのgoldenとfull-compiler aliasはv2へ切り替え、旧golden/旧certificateを変更せずsupport_filesにも保持する。ソース証明はCUDA compile/cache/実機成功の証明ではない。
+
+## 事前検査で修正した開発経路
+
+- 複合transport監査が、すでに逆変換した完全一致の出力を新しい逆変換へ再投入していた。既知before/after hashと変更箇所の往復を確認し、合成時は現sourceを再監査して同じhistorical transportへ戻ることを検査する。未知の中間sourceや改変を認めず、旧APIのAssertionError契約も維持する。
+- compact payloadが、JSON台帳で監査対象として読むPythonファイルを省いていた。tests/fixtures/*source-delta.jsonのfiles/sources/added_sourcesとtransport.pathの明示パスを追加の依存rootにする。元の公開whitelist内にあるPythonだけを保持し、そのimport/file依存も辿る。台帳内の古いソース本文や任意JSON文字列を指示/依存として解釈しない。修正版でも各packetは約1,470ファイル・約5.3MBを省ける。
+- CLI routingテストがcompactで禁止しているentry-inventoryを呼んでいた。通常環境のroutingを専用fixtureで検査し、compactでproducer実行前に拒否する独立負例を追加した。制限は緩めない。
+- 古いGPU監査テストがPython/Swift監査ファイルまでGPUソース一覧と比較していた。既存historical_source_hashesで復元したinclude graph全217ファイルをcollectし、旧golden全体との完全一致を検査する。normalizerや計算結果の除外は追加しない。
+
+v1の同梱漏れ、v2のroutingテスト、v3のGPU一覧誤用による失敗packet/capture/logは保持。全てGPU起動前、claim無しを確認した。修正版v4のGPU実行は各1回、retry0。保護CPU正本・生成normalizerは変更しない。追加の投影9、inventory12、復元closure7、証明書24テストも成功。最終のソース/証跡4テストでは、現closureとv2証明書、全旧出力、独立監査receiptを結び付けている。
+
+## 未対応と次の検証
+
+今回の再認定は上記7条件に限る。ADD実戦・敵回復・logical actorなど他の変更されたsource閉包の再認定は残る。全キャラ/全特殊効果や公開GPU受付を認定しない。敵武器・容量変更、flat/forced reload、self-destruct/付随debuff等も引き続き未対応。Windowsへの新run依頼0、現在sourceのCUDA実機は未確認。共有actor/数値consumerの拡張は新entry側へ置き、不要な旧source変更と再認定を避ける。
+
+証跡: research/target-count-query-evidence/original-ammo-resource-recert-v1.json。独立監査receipt: tests/fixtures/original-ammo-current-independent-v2.json / original-resources-current-independent-v2.json。GPU raw・失敗・cacheはpersistent proof領域に保持し、GitHub payloadには含めない。
