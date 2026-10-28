@@ -1,0 +1,19 @@
+{
+  "package_id": "e65d79b7b90ef6c31a28c8f34cb7b7ef3c5c99ac5447a1bbc3ae93c3df1f4376",
+  "archive_bytes": 10670879,
+  "archive_sha256": "40956b24491dbc7438e83afc41d7360dfe1d1aadc3f77b816c28b0d1b900cb48",
+  "suite": "resident-append-cache-only",
+  "inputs": 9,
+  "canonical_battle_cases": 0,
+  "scope": "Same shared descriptor probe; cached GPU path forwarding only",
+  "previous_package_id": "002dd93b637952d4f30b21360a8d2a2ab1e1f025f851eb71be016324dab454be",
+  "all_golden_fields_identical": true,
+  "changed_payload_files": [
+    "scripts/nikke_gpu.py",
+    "scripts/run-gpu-packet.py",
+    "tests/test_portable_packet_stage.py"
+  ],
+  "compile_required": false,
+  "request_file": "request.json",
+  "gpu_retries": 0
+}
