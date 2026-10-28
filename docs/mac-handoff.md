@@ -1,3 +1,5 @@
+最終358687dfの旧selection通常/cache固定packetは24/52unit成功。sealed paired生成はrequired hit/Slang0、CUBIN/O1・2GiB・60秒plan成功。最終model-checkも成功しcanonical consumer5種/公開受付/全目標未達を保持。追加GPU0/Windows0。記録named-range-final-cli-v7.json。
+
 # 2026-10-28 範囲battle通常/cache検査・旧selection21の現source再認定が成功
 
 登録aa4c32e1の通常/cache固定packetは7群53unit/9群81unit成功。sealed paired generationはrequired hit/Slang0、CUBIN/O1・2GiB・60秒compile-plan成功（実compile/GPU/Windows0）。結果はnamed-range-battle-registered-v6.json。
