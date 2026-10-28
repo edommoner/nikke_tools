@@ -1,5 +1,7 @@
 # 実actor poolから共通被ダメージ実行器へのADD射撃
 
+最終登録4542661bの通常/キャッシュ専用固定packageはunit-check35/44成功。関連82検査成功、sealed生成の必須cache hit/Slang0、現source-baseline一致、CUBIN/O1・2GiB・60秒compile-planも成功した。追加GPU/実CUDA compileは0。Windows既存chatのstatus取得はhost unavailable/durableで、新run/再送なし。証跡`target-count-query-evidence/add-attack-battle-final-cli-v1.json`。
+
 固定17入力のM5実行は全一致（GPU0.692924秒、冷PSO58.330511秒、readback138,176,000byte）。34unitとfresh CPU6編成の事前照合、必須生成cache hit/Slang追加0、Swift/reflectionの実stride138,952byteも検査した。fresh GPU禁止childによる全17入力の独立sealも106.091323秒で成功した。計284発と1,120被弾の全履歴を既存比較器で照合し、通常登録goldenをこの独立結果から作成した。証跡`target-count-query-evidence/add-attack-battle-metal-v1.json`、監査`tests/fixtures/add-attack-battle-independent-v1.json`。
 
 既存敵回復入口を現sourceで再生成したCUDA/MSLは、過去の実GPUcaptureから全raw byteが同一。新機能guardが無効な計算の保持を確認したが、旧goldenを新raw source hashへ書換えず、現source再認定とCUDA compile/cache実機証明は別に残す。

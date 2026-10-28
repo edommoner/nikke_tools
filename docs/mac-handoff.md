@@ -2,6 +2,8 @@
 
 # 2026-10-28 敵弾薬の元ハンドラ・実射撃をCPU契約へ接続
 
+最終4542661bのADD実戦normal/cache固定packetは35/44unit成功、関連82検査成功。sealed生成必須hit/Slang0・新entryのregistered source current・CUBIN/O1/2GiB/60秒plan成功（追加GPU/実CUDA compile0）。保護CPU4ファイルはbyte不変。Windows既存statusはhost unavailable/durable、新runなし。次は敵弾薬6ケースのCPU契約をこの実戦queueに接続する。最終小証跡`target-count-query-evidence/add-attack-battle-final-cli-v1.json`。
+
 後続`add-attack-battle`は実actor poolの世代/生存/bornを共通cursorに接続し、既存WS_LOGとincoming実行器を共用。固定44a543f8/package52b7150c…の元ニヒリスター70定義6編成＋拒否11、284発/1,120被弾の全戦闘がM5/独立seal成功。GPU0.692924秒・冷PSO58.330511秒・独立監査106.091323秒、readback138,176,000byte。34unit/fresh CPU6・必須生成cache hit/Slang0・stride138,952byteを確認。通常goldenとCUBIN/O1/NVRTC禁止/paired generation必須cache-onlyを登録。敵弾薬、self-destruct、攻撃debuff、現CUDA、default、全キャラは未完了。
 
 旧敵回復入口の生成CUDA/MSLは以前の実GPUcaptureから全raw byte同一。guard付き共有sourceの正確な逆変換は過去監査で検査するが、旧goldenのraw source closureは別であり自動昇格しない。旧current suiteの再認定は、次の敵弾薬接続までsource変更をまとめてから行い、179履歴の一括実行は避ける。設計`portable-add-attack-battle.md`、小証跡`target-count-query-evidence/add-attack-battle-metal-v1.json`。新raw/claimは永続proofに保持。
