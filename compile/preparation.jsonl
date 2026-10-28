@@ -1,0 +1,13 @@
+{"elapsed_seconds": 0.10899999970570207, "monotonic_ns": 3055845593000000, "pid": 57188, "stage": "packet_header_prepare", "state": "returned", "wall_time_ns": 1793226433452316800}
+{"monotonic_ns": 3055845656000000, "pid": 57188, "stage": "packet_bounded_stage", "state": "entered", "wall_time_ns": 1793226433513639100}
+{"monotonic_ns": 3055845687000000, "pid": 57188, "stage": "packet_before_observation", "state": "entered", "wall_time_ns": 1793226433552321800}
+{"elapsed_seconds": 2.3344878, "monotonic_ns": 3055848031000000, "pid": 57188, "stage": "packet_before_observation", "state": "returned", "wall_time_ns": 1793226435887839700}
+{"monotonic_ns": 3055848046000000, "pid": 117624, "stage": "packet_shared_cli", "state": "entered", "wall_time_ns": 1793226435910535100}
+{"monotonic_ns": 3055848093000000, "pid": 117624, "stage": "packet_verify_package", "state": "entered", "wall_time_ns": 1793226435952369400}
+{"elapsed_seconds": 3.9875615, "monotonic_ns": 3055852078000000, "pid": 117624, "stage": "packet_verify_package", "state": "returned", "wall_time_ns": 1793226439941266100}
+{"monotonic_ns": 3055852078000000, "pid": 117624, "stage": "packet_run_job", "state": "entered", "wall_time_ns": 1793226439944889000}
+{"elapsed_seconds": 12.673011, "monotonic_ns": 3055864750000000, "pid": 117624, "stage": "packet_run_job", "state": "returned", "wall_time_ns": 1793226452618558400}
+{"elapsed_seconds": 16.9523216, "exception": "SystemExit", "monotonic_ns": 3055865000000000, "pid": 117624, "stage": "packet_shared_cli", "state": "raised", "wall_time_ns": 1793226452865642800}
+{"monotonic_ns": 3055865046000000, "pid": 57188, "stage": "packet_after_observation", "state": "entered", "wall_time_ns": 1793226452906194900}
+{"elapsed_seconds": 2.2573487, "monotonic_ns": 3055867296000000, "pid": 57188, "stage": "packet_after_observation", "state": "returned", "wall_time_ns": 1793226455164622300}
+{"elapsed_seconds": 21.6514717, "monotonic_ns": 3055867296000000, "pid": 57188, "stage": "packet_bounded_stage", "state": "returned", "wall_time_ns": 1793226455167152300}

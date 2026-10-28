@@ -1,0 +1,154 @@
+{
+  "schema": "resident-append-report-files-v1",
+  "branch": "codex/cuda-resident-append-v1-report",
+  "files": [
+    {
+      "path": "tests/stage-result.json",
+      "bytes": 1114,
+      "sha256": "d67b7d2a8b18b1dee74ca4a4d77e89c62d6cd8aee37279635e58e5989c2b3fd7"
+    },
+    {
+      "path": "tests/execution.json",
+      "bytes": 1108,
+      "sha256": "35b5fe3a013e3ab7129565b256bb4b98de383f877cd6f7e9a95cc3aada9c53c5"
+    },
+    {
+      "path": "tests/job.json",
+      "bytes": 1095,
+      "sha256": "f26052282b859dd112013b9036c6267af53b47015675ce90f2a1ce1e51547617"
+    },
+    {
+      "path": "tests/recipe.json",
+      "bytes": 634,
+      "sha256": "ece9666fc0d991bbd53d92f4badfd760eda59adf36d7665c1c7556cf3d4b9a65"
+    },
+    {
+      "path": "tests/preparation.jsonl",
+      "bytes": 1444,
+      "sha256": "2064c66c92717ffe7e6f6a6181e95914fcebc84d69c54d38388d56ebbb900d77"
+    },
+    {
+      "path": "tests/proof/result.json",
+      "bytes": 464,
+      "sha256": "603019ff396102f9caea1996c3d737091a4ee36df9484165788cdd15a1fa6e8a"
+    },
+    {
+      "path": "tests/proof/cpu-tests.json",
+      "bytes": 666,
+      "sha256": "145adab3b03147d59b4ea1535037a98141e129d12c057618a10491c6040b06bc"
+    },
+    {
+      "path": "tests/proof/preparation.jsonl",
+      "bytes": 322,
+      "sha256": "fbbaf60f8d9e60109d1062b0c345c97c4104cbfa1e5d16ebff0238260f5db76b"
+    },
+    {
+      "path": "generation/stage-result.json",
+      "bytes": 16435,
+      "sha256": "8b1d4d3f1a5fde5a8b5d443b86feab974e2702e294907414cb85ad9cc7be30a2"
+    },
+    {
+      "path": "generation/execution.json",
+      "bytes": 1107,
+      "sha256": "4debc303aaa4c88c2b553c42b7a3ef7fd9fd9f5f661607aafea0e44a6363443c"
+    },
+    {
+      "path": "generation/job.json",
+      "bytes": 1099,
+      "sha256": "8923ad501aa2cf56c4f764c575a90f27a8be95bc06da0d23c3b670402429182f"
+    },
+    {
+      "path": "generation/recipe.json",
+      "bytes": 754,
+      "sha256": "cb340d1fcd569354cbb9515c7011a4c77ecc8c36fb182da3fe0a679db3ada8f6"
+    },
+    {
+      "path": "generation/preparation.jsonl",
+      "bytes": 1761,
+      "sha256": "8139c54a5400a7642242303ebba296290fd1a00f498ddb4230164cfa32e63621"
+    },
+    {
+      "path": "generation/proof/generation.json",
+      "bytes": 15384,
+      "sha256": "4052846043e7eff565fb4c1f1df83c3b50d69635a3c4aa370e700e9e6e665e81"
+    },
+    {
+      "path": "generation/proof/phases.jsonl",
+      "bytes": 35857,
+      "sha256": "172b976bdfd433aed3716473a94f24817fe4a917f51aa0fe78771d840c2b5930"
+    },
+    {
+      "path": "compile/stage-result.json",
+      "bytes": 5736,
+      "sha256": "fdf56075628370860e7a6e131a6acfa772e1eb796a10a8cb44ecd30ff93e8e25"
+    },
+    {
+      "path": "compile/execution.json",
+      "bytes": 1108,
+      "sha256": "62d082c3104fc75106226182ab247d039877d2934a7cae5af7ae69fd0201035c"
+    },
+    {
+      "path": "compile/job.json",
+      "bytes": 1094,
+      "sha256": "6d11b1d30851c1cf55cb8f1e599cd38c1e40da0299c0c4b2f7b37f2b0a43e2b1"
+    },
+    {
+      "path": "compile/recipe.json",
+      "bytes": 650,
+      "sha256": "f58f9aae59683d70e720048036f31cbb78ec0360a264496efa6f5b42aa682033"
+    },
+    {
+      "path": "compile/preparation.jsonl",
+      "bytes": 2083,
+      "sha256": "12788b8233346cd6f1c5f67b63f59b7e615f9e27a3a821c0aaced0dfb587258d"
+    },
+    {
+      "path": "compile/proof/result.json",
+      "bytes": 4637,
+      "sha256": "688227a42f3db196c7d17d9915498274d0dc907da6ed7945130636bf6a1e872a"
+    },
+    {
+      "path": "compile/proof/compiler.json",
+      "bytes": 16058,
+      "sha256": "46fbea5f6912fd7014b7e0cefcef5aae181aa13aa37d906b74aabb531a6df41e"
+    },
+    {
+      "path": "compile/proof/execution.json",
+      "bytes": 4990,
+      "sha256": "72e7061c46fd99664b87ab5a84ae8fae0fab9580a9b110fa2a42680071aab78f"
+    },
+    {
+      "path": "compile/proof/job.json",
+      "bytes": 1094,
+      "sha256": "da3cdc6035c854140881ab12b82c3284305c7d32b0a452f18402dbc5f4222519"
+    },
+    {
+      "path": "compile/proof/runtime.json",
+      "bytes": 1236,
+      "sha256": "d0600b995862a25c424f4b6ec4782df70e5cd9509d6c7036d4f8a2cdc405a925"
+    },
+    {
+      "path": "compile/proof/phases.jsonl",
+      "bytes": 37328,
+      "sha256": "a5a400e0d8be14bdd115f42fdecf1698f1fb6bbb0576eeb9641a9fb140d1a431"
+    },
+    {
+      "path": "compile/proof/preparation.jsonl",
+      "bytes": 958,
+      "sha256": "624c02b9563a1f6073f6c67ca65c195d05fa22c9e5b3c61cae537c654825729e"
+    },
+    {
+      "path": "validation-summary.json",
+      "bytes": 3754,
+      "sha256": "98d7c9cd453c2854917e18fbc4064c7a6cb7578cbcf2893bc02cad89ddf046dc"
+    },
+    {
+      "path": "windows-compile-plan.json",
+      "bytes": 595,
+      "sha256": "b50761ffd2674fccaaa087529084455ca44dbde621a77754016ee75197e26f5c"
+    }
+  ],
+  "gpu_executed": false,
+  "stage_stopped_after": "compile-cubin-o1",
+  "calculation_verified": false
+}

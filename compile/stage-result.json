@@ -1,0 +1,194 @@
+{
+  "schema": 1,
+  "package_id": "002dd93b637952d4f30b21360a8d2a2ab1e1f025f851eb71be016324dab454be",
+  "stage": "compile-cubin-o1",
+  "bounded_execution_verified": false,
+  "proof_result": {
+    "mode": "compile-only",
+    "compiler_verified": true,
+    "passed": false,
+    "containment_verified": true,
+    "preservation_verified": false,
+    "calculation_verified": false,
+    "gpu_calls": 0,
+    "driver_load_calls": 0,
+    "phase": {
+      "events": 56,
+      "last_event": {
+        "elapsed_seconds": 1.1931823,
+        "monotonic_ns": 3055862390000000,
+        "pid": 77844,
+        "stage": "shared_cuda_compile_only",
+        "state": "returned",
+        "wall_time_ns": 1793226450246991500
+      },
+      "timed_calls": [
+        {
+          "stage": "slang_generation_identity",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.6852691
+        },
+        {
+          "stage": "slang_generation_read_entry",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.0061066
+        },
+        {
+          "stage": "slang_reflection_plan",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.0299383
+        },
+        {
+          "stage": "slang_layout_assertions",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.0126015
+        },
+        {
+          "stage": "slang_generation_validate_pair",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.06716
+        },
+        {
+          "stage": "slang_generation_identity",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.7107919
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.0023138
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.002832
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.0023542
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.0032829
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.0025844
+        },
+        {
+          "stage": "slang_build",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 1.6793946
+        },
+        {
+          "stage": "slang_reflection_plan",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.0055325
+        },
+        {
+          "stage": "slang_layout_assertions",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.0008028
+        },
+        {
+          "stage": "slang_generation_validate_pair",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.0170111
+        },
+        {
+          "stage": "nvrtcCreateProgram",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.0001255
+        },
+        {
+          "stage": "nvrtcCompileProgram",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 0.8797624
+        },
+        {
+          "stage": "nvrtcGetProgramLogSize",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 9e-06
+        },
+        {
+          "stage": "nvrtcGetProgramLog",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 7.3e-06
+        },
+        {
+          "stage": "nvrtcGetCUBINSize",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 5.7e-06
+        },
+        {
+          "stage": "nvrtcGetCUBIN",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 8.8e-06
+        },
+        {
+          "stage": "nvrtcDestroyProgram",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 2.6e-05
+        },
+        {
+          "stage": "cuda_compile_artifact",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 1.1890498
+        },
+        {
+          "stage": "shared_cuda_compile_only",
+          "pid": 77844,
+          "state": "returned",
+          "elapsed_seconds": 1.1931823
+        }
+      ],
+      "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+      "nvrtc_compile_returned_success": true,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_linked_artifact_observed": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "error": null,
+    "gpu_retry_count": 0
+  },
+  "compiler_verified": true,
+  "generation_verified": false,
+  "calculation_verified": false,
+  "cpu_verified": false,
+  "smoke_verified": false,
+  "whole_stage_process_preservation_verified": true,
+  "whole_stage_environment_preservation_verified": false,
+  "stage_verified": false,
+  "stage_complete": false,
+  "gpu_retries": 0,
+  "full_goal_complete": false
+}

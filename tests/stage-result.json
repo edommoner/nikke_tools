@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "package_id": "002dd93b637952d4f30b21360a8d2a2ab1e1f025f851eb71be016324dab454be",
+  "stage": "tests",
+  "bounded_execution_verified": true,
+  "proof_result": {
+    "mode": "cpu-tests-only",
+    "package_id": "002dd93b637952d4f30b21360a8d2a2ab1e1f025f851eb71be016324dab454be",
+    "cpu_tests_verified": true,
+    "groups": 3,
+    "tests": 21,
+    "cpu_reference_verified": false,
+    "counter_scope": "Packet controller calls; unit-test doubles are not runtime calculation evidence",
+    "calculation_verified": false,
+    "compiler_verified": false,
+    "gpu_calls": 0,
+    "driver_load_calls": 0,
+    "native_preflight_calls": 0
+  },
+  "compiler_verified": false,
+  "generation_verified": false,
+  "calculation_verified": false,
+  "cpu_verified": false,
+  "smoke_verified": false,
+  "whole_stage_process_preservation_verified": true,
+  "whole_stage_environment_preservation_verified": false,
+  "stage_verified": true,
+  "stage_complete": true,
+  "gpu_retries": 0,
+  "full_goal_complete": false,
+  "cpu_tests_verified": true,
+  "cpu_reference_verified": false
+}

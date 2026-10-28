@@ -1,0 +1,18 @@
+{
+  "schema": "compile-plan-v1",
+  "passed": true,
+  "package_id": "002dd93b637952d4f30b21360a8d2a2ab1e1f025f851eb71be016324dab454be",
+  "suite": "resident-append-cache-only",
+  "purpose": "sealed",
+  "artifact_kind": "cubin",
+  "ptxas_level": 1,
+  "memory_limit_mb": 2048,
+  "timeout_seconds": 60,
+  "error": null,
+  "policy": "sealed-battle compile-only transport",
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "claim_created": false,
+  "calculation_verified": false,
+  "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+}

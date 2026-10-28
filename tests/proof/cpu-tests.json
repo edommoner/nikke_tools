@@ -1,0 +1,32 @@
+[
+  {
+    "pattern": "test_resident_append_probe.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.12094840034842491,
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 129708
+  },
+  {
+    "pattern": "test_portable_scope_snapshot_audit.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.07796919997781515,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 129708
+  },
+  {
+    "pattern": "test_portable_cuda_cached_profile.py",
+    "exit_code": 0,
+    "elapsed_seconds": 0.18454189971089363,
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "runner_pid": 129708
+  }
+]

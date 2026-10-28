@@ -1,0 +1,120 @@
+{
+  "package_id": "002dd93b637952d4f30b21360a8d2a2ab1e1f025f851eb71be016324dab454be",
+  "suite": "resident-append-cache-only",
+  "input_count": 9,
+  "canonical_battle_cases": 0,
+  "scope": "Shared markEntry/initializeHPWatches descriptor/storage probe only; no all-battle or all-character certification",
+  "stages": {
+    "tests": {
+      "capture": "C:\\Users\\owner\\Documents\\Codex\\nikke-resident-append-v1\\tests",
+      "stage_verified": true,
+      "compiler_verified": false,
+      "seconds": 14.956132400315255,
+      "exit": 0,
+      "timeout": false,
+      "process_preserved": true,
+      "environment_preserved": false,
+      "jobs": [
+        {
+          "pre_gate_verified": true,
+          "post_members": 0,
+          "peak_bytes": 120315904,
+          "limit_bytes": 2147483648,
+          "inspection_error": null
+        }
+      ],
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "tests": 21,
+      "groups": 3
+    },
+    "generation": {
+      "capture": "C:\\Users\\owner\\Documents\\Codex\\nikke-resident-append-v1\\generation",
+      "stage_verified": true,
+      "compiler_verified": false,
+      "seconds": 14.52338880021125,
+      "exit": 0,
+      "timeout": false,
+      "process_preserved": true,
+      "environment_preserved": false,
+      "jobs": [
+        {
+          "pre_gate_verified": true,
+          "post_members": 0,
+          "peak_bytes": 371253248,
+          "limit_bytes": 2147483648,
+          "inspection_error": null
+        }
+      ],
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "cache_hit": false,
+      "compiler_invocations": 2,
+      "sealed_generated_baseline_verified": true
+    },
+    "compile": {
+      "capture": "C:\\Users\\owner\\Documents\\Codex\\nikke-resident-append-v1\\compile",
+      "stage_verified": false,
+      "compiler_verified": true,
+      "seconds": 21.65019590035081,
+      "exit": 2,
+      "timeout": false,
+      "process_preserved": true,
+      "environment_preserved": false,
+      "jobs": [
+        {
+          "pre_gate_verified": true,
+          "post_members": 0,
+          "peak_bytes": 216829952,
+          "limit_bytes": 2147483648,
+          "inspection_error": null
+        }
+      ],
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "inner_execution": {
+        "passed": true,
+        "timed_out": false,
+        "elapsed_seconds": 12.557266399729997,
+        "child_exit_code": 0,
+        "final_child_exit_code": 0,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "generation_cache": {
+        "hit": true,
+        "key": "84812cc9481c6aa5ff1553c7764495be2595a68848bfb1f8d2b83c9484ef9428",
+        "compiler_invocations": 0
+      },
+      "nvrtc_compile_calls": 1,
+      "nvrtc_return_codes": [
+        0
+      ],
+      "cubin": {
+        "bytes": 41560,
+        "sha256": "6a96d0a6b6b7c95637b1125235354115b93128a2b0e9b0d3d7b4728308f1abc8"
+      },
+      "inner_jobs": [
+        {
+          "pre_gate_verified": true,
+          "post_members": 0,
+          "peak_bytes": 88645632,
+          "limit_bytes": 2147483648,
+          "inspection_error": null
+        }
+      ]
+    }
+  },
+  "stopped_after": "compile-cubin-o1",
+  "gpu_executed": false,
+  "gpu_calls": 0,
+  "driver_load_calls": 0,
+  "retries": 0,
+  "output_sha256": null,
+  "expected_output_sha256": "d4f8ab1b3b4217fdfdfe9a6ddddf7e0976fde568e6c422bc02175f16afe0c3c3",
+  "reason": "Compilation succeeded; compile stage failed because environment preservation was unverified. No GPU stage was started."
+}
