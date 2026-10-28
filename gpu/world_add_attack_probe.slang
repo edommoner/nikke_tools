@@ -102,6 +102,19 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
             adsFrame(w,input,t,0);accumulated=f64Add(t,uint64_t(0x3f911111)<<32|0x11111111);
         }
     }
-    if(finish!=0 && w.error==0)wsFinish(w,through);
+    if(finish!=0 && w.error==0)
+    {
+        wsFinish(w,through);
+        // Native finish retires every surviving ADD. The reusable graph does
+        // not own actor liveness; this component caller owns that final view.
+        uint offset=0;
+        for(uint n=0;n<w.count;n++)
+        {
+            uint row=decl+16+n*8,s=wsState(w,n),generation=results[s+1];
+            for(uint slot=0;slot<commands[row];slot++)results[output+ADS_STATE+(offset+slot)*4+2]=generation;
+            if(commands[row]!=0 && generation!=0 && (commands[wsNode(w,n)+1]&2)!=0)results[s+6]=1;
+            offset+=commands[row];
+        }
+    }
     results[output]=w.error;
 }

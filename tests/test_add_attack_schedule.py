@@ -29,6 +29,7 @@ class AddAttackScheduleTests(unittest.TestCase):
         self.assertEqual(initial,[[0,1,1,0],[0,2,1,0],[1,0,1,0],[2,1,1,0],[2,1,1,1],[2,1,1,2]])
         renewed=[r for r in n['queued_attacks'] if r[0]==0 and r[2]==2]
         self.assertTrue(renewed);self.assertEqual(renewed[0][:4],[0,1,2,0])
+        self.assertEqual(n['states'][0][6],1,'Original finish retires the renewed ADDs too')
 
     def test_expiration_wins_over_a_same_time_due_shot(self):
         c=fixtures()[-1];_,p=compile_add_schedule(c);n=observe(c,p)
