@@ -6,6 +6,14 @@ import portable_dispatch_frames as frames
 s=importlib.util.spec_from_file_location('frame_probe_test',ROOT/'research/verify-dispatch-frame-storage-short.py');probe=importlib.util.module_from_spec(s);s.loader.exec_module(probe)
 
 class DispatchFrameStorageTests(unittest.TestCase):
+ def test_frame_profiles_declare_all_pinned_audit_data_before_packaging(self):
+  sys.path.insert(0,str(ROOT/'scripts'));import nikke_gpu
+  from portable_cpu_tests import AUDIT_FILES
+  required=set(AUDIT_FILES['test_dispatch_frame_storage.py'])
+  for name in ('coordinate-resident-frames','resident-frames-device'):
+   config=nikke_gpu.SUITES[name]
+   with self.subTest(suite=name):self.assertTrue(required<=set(config['support_files'])|{config['golden']})
+
  def test_recertified_full106_retains_every_old_result_and_binds_current_source_certificate(self):
   import json,hashlib
   sys.path.insert(0,str(ROOT/'scripts'));import nikke_gpu
