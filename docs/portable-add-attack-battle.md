@@ -23,3 +23,5 @@
 固定a1881e09 / packete9ce00dcの元17入力をM5 Metalで1回実行し、fresh GPU禁止childで全出力を再照合した。元ニヒリスター全70定義/6編成、284発/1,120被弾と11拒否を維持。全旧input/native/各entry/readbackの138,176,000byteが完全一致し、Runtime138,952byte不変。unit35成功。実GPU0.6943365秒、cold pipeline58.155649秒、独立監査104.990122秒。実行時required generation hit/Slang0。新しいv2 goldenとfull-source certificateは同じjoint sealで作成し、旧v1は不変で保持。通常/cache-only登録と未対応分類の証跡参照をv2へ更新した。現在のCUDA実機は未確認、Windows新依頼0。
 
 次の未対応self-destructについて、共通CLI reference --suite add-self-destruct-nativeで正本4条件を観測できるようにした。最終射撃をqueueした同じbegin_frameで退場/死亡event/敵数更新が起きるため、退場後の生存判定でqueue済み射撃を消してはいけない。これはCPU部品契約で、GPU/全戦闘/ゲーム仕様の認定ではない。詳細portable-add-self-destruct.md。再認定の証跡はtarget-count-query-evidence/add-attack-battle-current-recert-v2.json。
+
+最終CLIffb0dbd2のcache-only packetで、current source一致、sealed生成baselineを含むrequired generation hit/Slang0、CUBIN/O1・2GiB・60秒compile-planを確認（GPU/compiler/claim0）。実immutable packet内のsource/証跡6テストも成功。追加compiler certificate24、自爆CPU4、readiness24テスト成功。準備記録add-attack-battle-final-cli-v2.json。
