@@ -1,3 +1,5 @@
+最終4883442aの敵回復normal/cache固定packetは107/135unit成功。sealed生成はrequired cache hit/Slang0、CUBIN/O1・2GiB・60秒plan成功（追加GPU/実CUDA compile0）。model-check成功、全source棚卸しの21 current/179 stale/2 unavailableを保持。現CUDA/公開受付/全キャラ未達。元32再認定の全run/sealは終了済みで再実行しない。新しいCUDA依頼0、Windowsstatusのみhost unavailable/durable。次は敵弾薬のCPU契約とCUDA成立経路の切分けを優先し、履歴goldenの一括再実行・巨大GPU本文の追加を先行しない。記録enemy-healing-named-admission-final-cli-v5.json。
+
 # 2026-10-28 全登録source棚卸しを共通CLIへ追加・レビューの順序を維持
 
 source-baseline --all-registeredを追加。source/golden組をde-duplicateしentryごとに一度hash、producer rootだけでcurrent/stale/unavailableを出す。全202組/224登録名/114source entryの結果は21 current・179 stale・2 unavailable（attack-magnitudeのgolden欠落）。source差分の多くは過去のschema/admission等も含むため、今回の32件だけで全登録を現source認定済みとしない。11 source-baseline境界検査が成功。数値/受付/正規化/過去goldenは変更していない。summaryはregistered-source-closure-inventory-v2-summary.json、全差分は共通CLIで再現する。
