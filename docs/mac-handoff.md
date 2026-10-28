@@ -1,3 +1,11 @@
+# 2026-10-28 敵回復14入力の完全CPU基準とpaired生成が完了
+
+固定4f56bc8e/package1581f245…の元6条件は完全観測で参照値を固定（1件約70〜104秒）。Anneにmulti_hit定義がないため欠けていたgroup空集合の観測を有効化し、旧v2のCPU作成は明示中断/GPU0・ログ保持。短い3秒診断で6種類の空group記録と実回復2件/元69定義を確認した。本来の6条件は短縮していない。
+
+CUDA/MSLのpaired生成が成功。v3のunitは継承検査が使う旧logical goldenの同梱漏れを検出。共通CLIの限定 `supplement-test-golden` で、sealed donor1b700538…からgolden1ファイル32,392byteだけを加えたv4/package2d9216cb…を作り、元3,758ファイル・全入力/CPU期待指紋を完全保持した。own CLIの12群89検査成功、paired必須cache hit/Slang追加0。今後の通常packageのsupport_filesにも依存を登録し、新toolの7検査/入口5検査も成功。元失敗とパッケージは変更しない。
+
+v4のown CLIでfresh CPU事前照合→Metal1回の実行を開始した。完了/独立sealはまだ確認していない。Windowsの既存statusはhost unavailable durable、再送/新実行0。実行中coordinator/rootを変更しない。小さな出所 `research/target-count-query-evidence/enemy-healing-predevice-v1.json`。以下は履歴。
+
 # 2026-10-28 敵回復の共通wire・Slang consumerを実装（実機認定前）
 
 EHL1/version1のliteral bankを既存logical prefixへ追加し、新入力120,048/出力2,032,000wordの明示entryを登録。既存pool同期後にsource-openを消費し、既存の世代付き敵carrierとbinary64 ADD HPを使う。hit/score/overkillを回復では変えず、raw小数creditと公開キャラ別roundを別に比較する。元6編成/69定義とraw拒否8件の開発専用 `enemy-healing` を共通CLIへ追加。新24検査・旧logical source5検査成功。初回旧source検査の戻りmap件数差を検出し、既存6件の返却契約を保持して修正。失敗は保存し、旧テスト期待値は変更しない。

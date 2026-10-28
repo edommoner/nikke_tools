@@ -127,7 +127,7 @@ SUITES['original-catalogue']['tests'].append('test_logical_geometry_full_native.
 SUITES['original-catalogue']['tests'].append('test_original_catalogue_incoming.py')
 SUITES['logical-actor-geometry']=dict(SUITES['original-catalogue'],script='research/verify-logical-actor-geometry.py',source='gpu/world_coordinate_logical_actor_entry.slang',golden='research/portable-logical-actor-geometry-v1-expected.json',inputs=13,native=6,development_only=False,selection_required=False,parent_oracle_reuse=True,upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'],support_files=list(dict.fromkeys([*SUITES['original-catalogue'].get('support_files',[]),'research/portable-coordinate-arcs-short-expected.json'])),tests=['test_logical_geometry_cli.py','test_logical_actor_geometry.py','test_logical_geometry_wire.py','test_logical_geometry_runtime.py','test_logical_geometry_full_native.py','test_reference_rewrite.py','test_portable_arena_specs.py','test_portable_parent_oracles.py','test_portable_wire_layout.py'])
 SUITES['logical-actor-rosters']=dict(SUITES['logical-actor-geometry'],script='research/verify-logical-actor-rosters.py',golden='research/portable-logical-actor-rosters-v1-expected.json',inputs=5,native=5,development_only=False,support_files=[*SUITES['logical-actor-geometry'].get('support_files',[]),'research/portable-logical-actor-geometry-v1-expected.json'],tests=[*SUITES['logical-actor-geometry']['tests'],'test_logical_geometry_rosters.py','test_enemy_healing_model.py'])
-SUITES['enemy-healing']=dict(SUITES['logical-actor-geometry'],input_words=120048,output_words=2032000,script='research/verify-enemy-healing.py',source='gpu/world_enemy_healing_entry.slang',golden='research/portable-enemy-healing-v1-expected.json',inputs=14,native=6,development_only=True,tests=[*SUITES['logical-actor-geometry']['tests'],'test_enemy_healing_model.py','test_enemy_healing_wire.py','test_enemy_healing_runtime.py'])
+SUITES['enemy-healing']=dict(SUITES['logical-actor-geometry'],input_words=120048,output_words=2032000,support_files=[*SUITES['logical-actor-geometry'].get('support_files',[]),'research/portable-logical-actor-geometry-v1-expected.json'],script='research/verify-enemy-healing.py',source='gpu/world_enemy_healing_entry.slang',golden='research/portable-enemy-healing-v1-expected.json',inputs=14,native=6,development_only=True,tests=[*SUITES['logical-actor-geometry']['tests'],'test_enemy_healing_model.py','test_enemy_healing_wire.py','test_enemy_healing_runtime.py'])
 SUITES['original-catalogue-initial']=dict(SUITES['original-catalogue'],golden='research/portable-original-catalogue-initial-v1-expected.json',inputs=4,native=4,development_only=False,selection_required=False,frozen_cases=[
     'original-catalogue/hp-shield/모더니아/favorite-0/3s',
     'original-catalogue/hp-shield/모더니아/favorite-0/30s',
@@ -716,6 +716,7 @@ SMOKE_TESTS.append('test_portable_historical_projection.py')
 SMOKE_TESTS.append('test_typed_owner_observer_migration.py')
 SMOKE_TESTS.append('test_portable_cache_fs_compression.py')
 SMOKE_TESTS.append('test_counter_field_decoder.py')
+SMOKE_TESTS.append('test_portable_test_golden_supplement.py')
 SMOKE_TESTS += ['test_portable_windows_observer.py','test_portable_snapshot_failure.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py','test_resident_arc_retention.py']
 
 def sha(data):
@@ -3424,6 +3425,9 @@ def main(argv=None):
     a=sub.add_parser('refresh-tests',help='Copy an unclaimed development packet with explicit test-only updates')
     for name in ('source-package','source-capture','out'):a.add_argument('--'+name,type=Path,required=True)
     a.add_argument('--test',action='append',required=True)
+    a=sub.add_parser('supplement-test-golden',help='Add a missing test golden from a sealed donor; retain frozen calculation bytes')
+    for name in ('source-package','source-capture','donor-package','out'):a.add_argument('--'+name,type=Path,required=True)
+    a.add_argument('--baseline-suite',required=True)
     a=sub.add_parser('generation');a.add_argument('--packet-stage',type=Path);a.add_argument('--develop',action='store_true');a.add_argument('--out',type=Path,required=True);a.add_argument('--generation-cache',type=Path,required=True);a.add_argument('--require-generation-cache',action='store_true');a.add_argument('--slang-root',type=Path)
     for name in ('readback-index','readback-compare'):
         a=sub.add_parser(name);a.add_argument('--readback',type=Path,required=True);a.add_argument('--sha256',required=True);a.add_argument('--out',type=Path,required=True)
@@ -3548,6 +3552,9 @@ def main(argv=None):
     if a.command=='refresh-tests':
         from portable_test_repackage import refresh
         with forbid_gpu():result=refresh(SimpleNamespace(**globals()),a.source_package,a.source_capture,ROOT,a.test,a.out)
+    elif a.command=='supplement-test-golden':
+        from portable_test_golden_supplement import supplement
+        with forbid_gpu():result=supplement(SimpleNamespace(**globals()),a.source_package,a.source_capture,a.donor_package,a.baseline_suite,a.out)
     elif a.command=='compress-generation-cache':
         from portable_cache_fs_compression import run
         with forbid_gpu():result=run(a.cache,a.out,apply=a.apply)
