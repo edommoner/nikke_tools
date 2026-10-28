@@ -1,4 +1,4 @@
-"""Original Mari modifier plus explicit derived lifetime/numeric/shape cases."""
+"""Original Rei (source label provisional) modifier plus explicit derived lifetime/numeric/shape cases."""
 import copy,json
 from pathlib import Path
 

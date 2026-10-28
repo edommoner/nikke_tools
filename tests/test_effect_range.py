@@ -7,7 +7,7 @@ from effect_range_policy import query,MODEL,validate_effect
 from test_target_counter_runtime import manager,NAMES
 class EffectRange(unittest.TestCase):
     def test_original_modifier_is_byte_preserved_and_changes_real_selection(self):
-        rows=fixtures();self.assertEqual(rows[0]['effects'][1],original()[1])
+        rows=fixtures();self.assertEqual(original()[0],'레이 (가칭)');self.assertEqual(rows[0]['effects'][1],original()[1])
         expanded=native(rows[0]);ordinary=native(rows[1])
         self.assertEqual(expanded['radius'],6.);self.assertEqual(ordinary['radius'],1.)
         self.assertEqual(expanded['selected'],[0,1,2,4]);self.assertEqual(ordinary['selected'],[0])

@@ -1,10 +1,18 @@
+# 2026-10-28 範囲の元87定義battle CPU接続・出所訂正
+
+前回範囲500%をマリと説明したが、実sourceは레이 (가칭)/index4。METAと定義11件が存在しis_preview=False。辞書や既存21 golden/input/rawは変更せず、元マリのキャラ認定へ使わない。旧case label original-Mariは履歴として保持。
+
+新reference named-range-battle-commonはAsukaWILLE/Rei(가칭)/Miranda/Dora/Maryの全87定義・実武器/育成/config/seedを保持。cast時のnamed range/count queryと既存logical candidate順/geometry filterを接続し、同じHitEventと既存ActorRegistry/route/HP/landで配送。元worldの全54cast/landingで、初期2回の0%/2体→52回の500%/3体を確認。小基準半径・遅延spawn・死亡ADDの4worldが共通CLI fresh CPU契約に成功、約2.98秒、GPU/packing0。stale/dead frozen actorは除外し、次世代へ当てず振替もしない明示モデル。空間最近傍/ゲーム半径の認定とは別。
+
+このbattleのGPU wire/Metalは未接続。既存sealed21のMetal証拠を今回へ付け替えない。既存GPUファイル変更0で旧source/goldenを保持。次はCP cast/queue snapshotとpacket hookへ接続し、literal versioned tail・cast/selection全出力比較を追加。詳細portable-named-effect-range.md、CPU証拠named-range-battle-cpu-v1.json。以下は履歴。
+
 最終e47a74a7のimmutable cache packet bb8f984f…は通常の全検査を含む4群45unit成功。sealed paired generationは必須hit/Slang0、CUBIN O1・2GiB・60秒compile-planも成功（実compiler/GPU/claim0）。通常/cacheで計算/golden/sourceが同一であることも検査した。追加GPUなし。記録named-effect-range-final-cli-v1.json。次は`coordinate_area_runtime.slang`のcast時grow/snapshotを実actor setとqueueへ結び、既存世代付きcarrierとlandingを使う。基準半径は宣言値として保持し、ゲーム式の認定と混同しない。
 
 # 2026-10-28 効果名別範囲を共通実行器の実状態→幾何選択へ接続
 
-新named-effect-rangeは元マリの500%/9秒/marker限定recipientを保持した5条件＋派生7＋raw拒否9。新entryは既存event初期化/command/serializerを再利用し、final checkpointの実carrierからordered percent→factor→declared radiusを読んで、既存決定的circle/rectangle選択へ渡す。既存GPU source変更0。stat引数だけを共通化したnative readerは旧target-count10検査も成功。
+新named-effect-rangeは元レイ（データ上の名称「レイ（仮称）」）の500%/9秒/marker限定recipientを保持した5条件＋派生7＋raw拒否9。新entryは既存event初期化/command/serializerを再利用し、final checkpointの実carrierからordered percent→factor→declared radiusを読んで、既存決定的circle/rectangle選択へ渡す。既存GPU source変更0。stat引数だけを共通化したnative readerは旧target-count10検査も成功。
 
-固定6b1369a0のM5実GPU1回（0.003541秒、冷PSO3.095670秒）はdecoder配列型で比較停止。失敗/claim/rawを保持。9415c8f0のdecoder修正だけを別固定packetへ作り、既存CLI replayの全source/input/native guardで保存readbackを再監査し全21成功、GPU追加0。fresh独立GPU禁止sealも1.305107秒で全一致。全world compiler証明書はscope guardが拒否、限定sealだけを作成した。通常/cache CLI登録済み。現CUDA/実world世代/生死/ダメージ配送/ゲーム半径規則/全キャラ/defaultは未認定。次はこのconsumerを実actor setと元Asuka/Mariのbattleへ接続する。Windows旧transaction statusはhost unavailable durable、終端未取得・再送なし。証跡named-effect-range-metal-v2.json、詳細portable-named-effect-range.md。以下は履歴。
+固定6b1369a0のM5実GPU1回（0.003541秒、冷PSO3.095670秒）はdecoder配列型で比較停止。失敗/claim/rawを保持。9415c8f0のdecoder修正だけを別固定packetへ作り、既存CLI replayの全source/input/native guardで保存readbackを再監査し全21成功、GPU追加0。fresh独立GPU禁止sealも1.305107秒で全一致。全world compiler証明書はscope guardが拒否、限定sealだけを作成した。通常/cache CLI登録済み。現CUDA/実world世代/生死/ダメージ配送/ゲーム半径規則/全キャラ/defaultは未認定。次はこのconsumerを実actor setと元Asuka/Reiのbattleへ接続する。Windows旧transaction statusはhost unavailable durable、終端未取得・再送なし。証跡named-effect-range-metal-v2.json、詳細portable-named-effect-range.md。以下は履歴。
 
 # 2026-10-28 敵回復の最終normal/cache packet検査成功
 
