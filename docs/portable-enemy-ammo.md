@@ -11,3 +11,5 @@
 容量固定以外の武器変更・容量バフ・flat充填・強制リロード、self-destruct敵の発射時刻規則は未対応として拒否する。取り込む割合効果の敵selectorは`all_enemies`に限定する。既定のcanonical敵状態、全キャラ、Metal/CUDA、公開GPU受付の対応へ読み替えない。未対応監査とreadinessにはこのopt-in CPU契約を別欄で示し、既定入口の不足flagは維持する。
 
 次の共有GPU接続では、既存`applyAmmoInstant`のsoft-binary64数値演算を再利用し、既存world actor generationとframe/敵攻撃producerへ資源状態を接続する。別の敵scheduler・独自丸め・別GPU専用のスキル定義は作らない。wire/容量/履歴所有権の監査、CPU preflight、固定Metal実行、独立sealが必要。現Windowsの保存結果は接続エラーで取得できず、新しいCUDA実行や再送はしていない。
+
+固定b8416750/package39a7382f…へ梱包し、別展開先をcwdにしたown CLIでもCPU6契約（2.641秒）と新規8検査が成功した。checkoutとの全input/native/trace/contract指紋が一致し、実行後にも全3,816 payload fileをown `verify_package`で検証した。元のenemy-healing計算suiteを梱包containerとして使っただけで、今回そのMetal14入力やCUDAを再実行したわけではない。小さな梱包証跡は`research/target-count-query-evidence/enemy-ammo-frozen-cli-receipt-v1.json`、完全reportとZIPは永続proofに保持する。

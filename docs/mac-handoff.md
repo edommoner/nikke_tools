@@ -2,6 +2,8 @@
 
 # 2026-10-28 敵弾薬の元ハンドラ・実射撃をCPU契約へ接続
 
+固定b8416750/package39a7382f…（3,816file/ZIP12,939,983byte）を別展開し、own CLIでも6契約2.641秒・新規8検査成功。全input/native/trace/contract指紋をcheckoutから保持し、実行後の全payloadも検証。container suiteのenemy-healing Metalは再実行0。梱包receiptは`target-count-query-evidence/enemy-ammo-frozen-cli-receipt-v1.json`。
+
 `reference --suite enemy-ammo-common --out NEW.json`を追加。元ヴェルヴェット76効果・実武器・育成・owner順を維持した6worldで、割合演算は元handlerのcode identityを保持し、対象/状態closureだけを差し替える。既存BODY/ADD handle/generation、元frame、元attack callback/被ダメージHPへ接続。source表示名とADD_PREFIX付きregistry labelの不一致を修正。独自の敵clockやdamage計算は追加しない。共通CLIは6契約/2.550秒成功、関連61検査成功、model-check成功。証跡`target-count-query-evidence/enemy-ammo-cpu-contract-v1.json`。
 
 固定容量・初期残弾・whole reloadを明示するopt-in CPUモデル。元scheduled attempts/counterを維持し、blocked shotの再予約はしない。Lv1/-2.95%とLv10/-5%の容量16での0/-1発差、空対象loop後の名前付き完了、reload期限/中断、世代reset/dead/staleを検査。武器変更/容量バフ/flat充填/force reload/self-destructは未対応。GPU本文/wire・過去golden・canonical CPU4ファイルは変更0。現Metal/CUDA/default/全キャラの認定ではない。設計は`portable-enemy-ammo.md`。
