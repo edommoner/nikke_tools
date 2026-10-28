@@ -1,0 +1,29 @@
+{
+  "package_id": "002dd93b637952d4f30b21360a8d2a2ab1e1f025f851eb71be016324dab454be",
+  "archive_bytes": 10669765,
+  "archive_sha256": "b1fbd7aaa5b10d641ed33fa16b830aebee8d880290c63b454467326bcd591fd8",
+  "suite": "resident-append-cache-only",
+  "inputs": 9,
+  "canonical_battle_cases": 0,
+  "scope": "Real shared markEntry/initializeHPWatches descriptor and storage probe only",
+  "mac_source_package_id": "8ea059d2105893b584ab6f2323aaecbe86daace34f9dcfeab5513fe3fbadf22d",
+  "mac_independent_audit_sha256": "1f1fc54551261b7240f6ee9e81e45093aece395c1bc2f3de91c812b8c49afd17",
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "002dd93b637952d4f30b21360a8d2a2ab1e1f025f851eb71be016324dab454be",
+    "suite": "resident-append-cache-only",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  }
+}
