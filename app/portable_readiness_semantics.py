@@ -120,6 +120,16 @@ def reference_readiness(issue):
             historical_canonical_equivalence=False,in_game_rules_verified=False,
             evidence='tests/fixtures/logical-actor-independent-v1.json',
             evidence_sha256='533334e9533a45aedd4857e43d404519c34dd350d185de53a73f8c0a7779383e')
+        result['shared_delivery_recertification']=dict(
+            source_commit='688de06e57342e9caf39cbc3dd5b3aaf552f786c',
+            suites=['logical-actor-geometry','logical-actor-rosters'],inputs=18,native_cases=11,rejected_cases=7,
+            independently_audited=True,all_old_input_and_readback_bytes_retained=True,
+            includes_post_death_shot_regression=False,current_cuda_verified=False,
+            default_producer_installed=False,full_character_verified=False,
+            evidence=[dict(path='tests/fixtures/logical-dead-overkill-independent-v1.json',
+                           sha256='9ba2faa510eb298467b532ea3546bdcc8ef879c62f09a186bd0acf3eee82df42'),
+                      dict(path='tests/fixtures/rosters-dead-overkill-independent-v1.json',
+                           sha256='c4356c5e83215361f2860ff4d2e51aa414dc5101e1a249f257d20802f0512272')])
         if issue['operator']['descriptor']=='multi_hit:2':
             result['declared_logical_actor_roster_validation']=dict(
                 suite='logical-actor-rosters',original_roster='니힐리스타',original_roster_definitions=70,

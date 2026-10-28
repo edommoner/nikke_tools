@@ -1,0 +1,94 @@
+{
+  "schema": "logical-dead-overkill-recertification-v1",
+  "source_commit": "688de06e57342e9caf39cbc3dd5b3aaf552f786c",
+  "cases": [
+    {
+      "suite": "logical-actor-geometry",
+      "package_id": "4093b5b93097e421816ebf25cc387cd0b6e492f6303b29e640a3768b7154b847",
+      "inputs": 13,
+      "native_cases": 6,
+      "golden_sha256": "77bcb486a2b3462f106c387ffe75f4ab20effe3ee3bc79945362870beca3ba91",
+      "certificate_sha256": "39ecd23f8f01e70315c23467de049a9d5b8161147912ec88f259948066c38419",
+      "historical_certificate_sha256": "d7ced534f7c002216e9e4ec6675dc0e2eb1d749623df92cdc449de45b80f7c4b",
+      "independent_receipt_sha256": "9ba2faa510eb298467b532ea3546bdcc8ef879c62f09a186bd0acf3eee82df42",
+      "independent_seconds": 140.3239305419993,
+      "gpu_seconds": 2.5188035833270987,
+      "pipeline_compile_seconds": 59.633442997932434,
+      "pipeline_cache_hit": false,
+      "all_old_input_and_readback_bytes_retained": true,
+      "gpu_executions": 1,
+      "gpu_retries": 0,
+      "current_cuda_verified": false
+    },
+    {
+      "suite": "logical-actor-rosters",
+      "package_id": "bae48b537d3ca3739c91eab9bffe4f1452ea44807240c519d82de5550fd06eec",
+      "inputs": 5,
+      "native_cases": 5,
+      "golden_sha256": "c865ce96e1b9c56a5f0778f7880b1d6128582dcbbee541ea4b14ce5e75196a6a",
+      "certificate_sha256": "bc4ff3a6652d6f1f8743a61173b1b1441c12a8c7948748a8d0295274dfc6544a",
+      "historical_certificate_sha256": "c8784cbe06d53466f462bbb5baf0732cee4a5bd5a89fa3e8f2a7fc69d4d35abb",
+      "independent_receipt_sha256": "c4356c5e83215361f2860ff4d2e51aa414dc5101e1a249f257d20802f0512272",
+      "independent_seconds": 115.50272504200984,
+      "gpu_seconds": 2.4357199583319016,
+      "pipeline_compile_seconds": 0.0028399229049682617,
+      "pipeline_cache_hit": true,
+      "all_old_input_and_readback_bytes_retained": true,
+      "gpu_executions": 1,
+      "gpu_retries": 0,
+      "current_cuda_verified": false
+    }
+  ],
+  "raw_ledger_retention": {
+    "schema": "logical-dead-packet-ledger-retention-v2",
+    "passed": true,
+    "case": "logical-actor-geometry/Belorta/retirement",
+    "passive_observer_transparent": true,
+    "native_packet_calls": 3,
+    "same_generation_dead_packets": 0,
+    "raw_scored_damage": {
+      "벨로타": 3.0
+    },
+    "raw_overkill": 680115.0,
+    "all_ADD_pool_words_verified": true,
+    "unchanged_cases": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "changed_word_offsets": [],
+    "changes_only_canonical_overkill_fields": true,
+    "gpu_calls": 0,
+    "full_goal_complete": false,
+    "targeted_case": 4,
+    "changed_cases": [],
+    "hit_add_attributed_overkill_by_owner": {
+      "벨로타": 635313.0
+    },
+    "unattributed_overkill": 44802.0,
+    "scope": "All13 old readbacks byte-identical; targeted retirement has no post-death same-generation packets, so the new Anne dead case remains required"
+  },
+  "rosters_retention": {
+    "passed": true,
+    "cases": 5,
+    "all_inputs_and_readback_bytes_retained": true,
+    "input_sha256": "5d80725b6ff0b0e5a782942adb0775277e8b54a045ee84ab695cd002c493c779",
+    "output_sha256": "328b92ed276ad50d2d0a573af66ed331d69380d04034f59961900eaa68aa25bd",
+    "gpu_calls": 0,
+    "full_goal_complete": false
+  },
+  "public_gpu_admitted": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "windows_requests": 0
+}

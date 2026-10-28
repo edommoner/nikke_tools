@@ -1,0 +1,51 @@
+{
+  "package_id": "bae48b537d3ca3739c91eab9bffe4f1452ea44807240c519d82de5550fd06eec",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/rosters-dead-overkill-metal-v1",
+  "schema": "independent-metal-audit-groups-v1",
+  "child_pids": [
+    61876,
+    61897,
+    61903
+  ],
+  "groups": [
+    {
+      "child_pid": 61876,
+      "case_indices": [
+        0,
+        1
+      ],
+      "input_count": 2,
+      "native_cases": 2,
+      "elapsed_seconds": 24.539382834002026
+    },
+    {
+      "child_pid": 61897,
+      "case_indices": [
+        2,
+        3
+      ],
+      "input_count": 2,
+      "native_cases": 2,
+      "elapsed_seconds": 25.345635125006083
+    },
+    {
+      "child_pid": 61903,
+      "case_indices": [
+        4
+      ],
+      "input_count": 1,
+      "native_cases": 1,
+      "elapsed_seconds": 65.11941995800589
+    }
+  ],
+  "input_count": 5,
+  "native_cases": 5,
+  "live_parent_receipt_present": false,
+  "per_group_timeout_seconds": 180,
+  "elapsed_seconds": 115.50272504200984,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "5d80725b6ff0b0e5a782942adb0775277e8b54a045ee84ab695cd002c493c779",
+  "output_sha256": "328b92ed276ad50d2d0a573af66ed331d69380d04034f59961900eaa68aa25bd",
+  "scope": "Fresh GPU-forbidden child groups, each individually bounded, covering every input once; total elapsed includes all groups"
+}
