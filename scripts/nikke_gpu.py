@@ -3532,7 +3532,8 @@ def main(argv=None):
     a=sub.add_parser('storage-check',help='CPU-only free-space budget check; does not archive or delete files')
     a.add_argument('--required-bytes',type=int,default=0);a.add_argument('--reserve-bytes',type=int,default=1024**3);a.add_argument('--path',type=Path,default=ROOT)
     a=sub.add_parser('unit-check',help='Bounded immutable unit groups only; no full native preflight or GPU proof');a.add_argument('--capture',type=Path,required=True)
-    a=sub.add_parser('source-baseline',help='Registered or verified development source closure only; no calculation proof');a.add_argument('--suite',required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('source-baseline',help='Registered or verified development source closure only; no calculation proof')
+    group=a.add_mutually_exclusive_group(required=True);group.add_argument('--suite');group.add_argument('--all-registered',action='store_true');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
     a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--native-baseline-package',type=Path,help='Reuse expected native hashes only when CPU dependencies and prepared inputs match; fresh run/seal checks stay mandatory');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1','coordinate-typed-owner-status-witness-v1','coordinate-owner-counter-field-decoder-v1'])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True);a.add_argument('--reuse-payload-from',type=Path,help='Share exact payload bytes with an existing immutable package on the same filesystem; never edit either payload')
@@ -3819,11 +3820,12 @@ def main(argv=None):
         write(a.out,result)
     elif a.command=='unit-check':result=unit_capture(a.capture)
     elif a.command=='source-baseline':
-        from portable_source_baseline import check as source_baseline_check
+        from portable_source_baseline import check as source_baseline_check,inventory as source_inventory
         if a.out.exists():raise ValueError('Source baseline output already exists')
-        with forbid_gpu():proof=source_baseline_check(ROOT,SimpleNamespace(**globals()),a.suite)
+        with forbid_gpu():proof=source_inventory(ROOT,SimpleNamespace(**globals())) if a.all_registered else source_baseline_check(ROOT,SimpleNamespace(**globals()),a.suite)
         write(a.out,proof)
-        result={k:proof[k] for k in ('schema','suite','verified','origin','registered_source_current','calculation_verified','gpu_calls')}
+        keys=('schema','audit_completed','counts','baseline_pairs','registered_names','all_registered_source_current','calculation_verified','gpu_calls') if a.all_registered else ('schema','suite','verified','origin','registered_source_current','calculation_verified','gpu_calls')
+        result={k:proof[k] for k in keys}
         result['report']=str(a.out.resolve());result['report_sha256']=sha(a.out.read_bytes())
     elif a.command=='_tests':
         from portable_cpu_tests import run_groups,complete

@@ -1,3 +1,9 @@
+# 2026-10-28 全登録source棚卸しを共通CLIへ追加・レビューの順序を維持
+
+source-baseline --all-registeredを追加。source/golden組をde-duplicateしentryごとに一度hash、producer rootだけでcurrent/stale/unavailableを出す。全202組/224登録名/114source entryの結果は21 current・179 stale・2 unavailable（attack-magnitudeのgolden欠落）。source差分の多くは過去のschema/admission等も含むため、今回の32件だけで全登録を現source認定済みとしない。11 source-baseline境界検査が成功。数値/受付/正規化/過去goldenは変更していない。summaryはregistered-source-closure-inventory-v2-summary.json、全差分は共通CLIで再現する。
+
+参照レビュー309e305/0e1f71bの方針を再確認：共通Slangと薄いbackendを維持し、巨大GPU本文の追加を続ける前にCUDA compiler/cache成立経路を確認する。独立監査を削らず、同条件Windows再試行・上限拡大はしない。179履歴を一括再実行する方向へ作業を広げず、現runtimeの証拠と未対応consumerのCPU契約を優先する。次は敵弾薬の世代付き状態/実shot/reload契約をCPUで固め、Windows既存transactionの保存状態が取得できた後に必要な短いCUDA検証を設計する。最新statusはhost unavailable/durable、追加runなし。以下は履歴。
+
 # 2026-10-28 敵回復14も現sourceでM5・独立監査成功
 
 固定5433f8e9/package343fa678…の敵回復14入力は100unit・fresh native6・M5 1回・fresh GPU禁止14群sealが成功。GPU4.863728秒、冷PSO59.320956秒、独立監査666.033136秒。input/全entry/native hashとreadback113,792,000byteを旧v1から保持した。新v2 golden/同一監査のcurrent source証明書を登録し、旧v1 golden/証明書を保存。旧18入力の再認定に続くこの14入力も完了したが、他の登録スイートの現source整合性・default consumer・現CUDA・全キャラ認定は別途確認が必要。

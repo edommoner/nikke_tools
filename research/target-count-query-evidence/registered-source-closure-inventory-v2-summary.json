@@ -1,0 +1,149 @@
+{
+  "schema": "registered-source-closure-inventory-v1",
+  "audit_completed": true,
+  "scope": "Distinct registered nondevelopment/noncompiler source+golden pairs; source identities only",
+  "counts": {
+    "current": 21,
+    "stale": 179,
+    "unavailable": 2
+  },
+  "baseline_pairs": 202,
+  "unique_source_entries": 114,
+  "registered_names": 224,
+  "all_registered_source_current": false,
+  "registry_selection_sha256": "56b34308e159515f8368f5c10ca6900049f127db86eb50fe57ca286be3faedff",
+  "auditor_source_sha256": "987750ef8ee40939f496f8243b602103201d2cc5ce4cf34bf3dd47eac70c27d3",
+  "gpu_calls": 0,
+  "native_battle_calls": 0,
+  "compiler_invocations": 0,
+  "calculation_verified": false,
+  "full_goal_complete": false,
+  "report_sha256": "9ac51a6315753bd733b9867b3e82ba4478091c21e77278997cada393e216f4e8",
+  "current_suites": [
+    [
+      "burst-control-policy"
+    ],
+    [
+      "coordinate-arc-arena"
+    ],
+    [
+      "coordinate-arcs"
+    ],
+    [
+      "coordinate-math"
+    ],
+    [
+      "coordinate-round"
+    ],
+    [
+      "coordinate-scene"
+    ],
+    [
+      "coordinate-shape"
+    ],
+    [
+      "damage-accum-core",
+      "saved-core-report-audit"
+    ],
+    [
+      "damage-factors"
+    ],
+    [
+      "destructible-target-core"
+    ],
+    [
+      "dispatch-frame-storage"
+    ],
+    [
+      "named-effect-range",
+      "named-effect-range-cache-only"
+    ],
+    [
+      "heal-share-plan"
+    ],
+    [
+      "interrupt-packet-codec"
+    ],
+    [
+      "lock-delivery-cache-only",
+      "lock-delivery-policy"
+    ],
+    [
+      "ordered-history"
+    ],
+    [
+      "packet-ratio"
+    ],
+    [
+      "logical-actor-geometry",
+      "logical-actor-geometry-cache-only"
+    ],
+    [
+      "logical-actor-rosters",
+      "logical-actor-rosters-cache-only"
+    ],
+    [
+      "enemy-healing",
+      "enemy-healing-cache-only"
+    ],
+    [
+      "named-range-battle",
+      "named-range-battle-cache-only"
+    ]
+  ],
+  "unavailable": [
+    {
+      "suites": [
+        "attack-magnitude-diagnostic"
+      ],
+      "source": "gpu/world_projectile_admission_entry.slang",
+      "golden": "research/portable-world-attack-magnitude-short-expected.json",
+      "status": "unavailable",
+      "reason": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/runtime-resident/research/portable-world-attack-magnitude-short-expected.json'"
+    },
+    {
+      "suites": [
+        "attack-magnitude"
+      ],
+      "source": "gpu/world_projectile_entry.slang",
+      "golden": "research/portable-world-attack-magnitude-short-expected.json",
+      "status": "unavailable",
+      "reason": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/runtime-resident/research/portable-world-attack-magnitude-short-expected.json'"
+    }
+  ],
+  "frequent_source_differences": [
+    [
+      "gpu/portable_schema.slang",
+      178
+    ],
+    [
+      "gpu/admission_runtime.slang",
+      176
+    ],
+    [
+      "gpu/effect_target_count_runtime.slang",
+      176
+    ],
+    [
+      "gpu/program_phases.slang",
+      176
+    ],
+    [
+      "gpu/stack_runtime.slang",
+      176
+    ],
+    [
+      "gpu/world_actor_fields.slang",
+      176
+    ],
+    [
+      "gpu/world_actor_status.slang",
+      176
+    ],
+    [
+      "gpu/world_frame_runtime.slang",
+      176
+    ]
+  ],
+  "next_policy": "Keep historical proofs immutable; prioritize current runtime and CPU contracts with bounded CUDA compiler/cache verification, not bulk reruns of every historical baseline"
+}

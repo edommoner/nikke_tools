@@ -2,10 +2,10 @@
 import copy,json,sys,tempfile,unittest
 from pathlib import Path
 from types import SimpleNamespace
-from unittest.mock import Mock
+from unittest.mock import Mock,patch
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'app'))
 from portable_slang_generation import source_hashes
-from portable_source_baseline import check
+from portable_source_baseline import check,inventory
 
 class SourceBaseline(unittest.TestCase):
     def setUp(self):
@@ -54,5 +54,31 @@ class SourceBaseline(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'Invalid package'):check(self.root,self.cli,'parent')
     def test_unknown_suite_is_rejected(self):
         with self.assertRaisesRegex(ValueError,'Unknown'):check(self.root,self.cli,'invented')
+    def test_inventory_groups_aliases_and_excludes_nonregistered_profiles(self):
+        self.cli.SUITES['cached-parent']=dict(self.cli.SUITES['parent'])
+        self.cli.SUITES['development']=dict(self.cli.SUITES['parent'],development_only=True)
+        self.cli.SUITES['compiler']=dict(self.cli.SUITES['parent'],compiler_only=True)
+        r=inventory(self.root,self.cli)
+        self.assertEqual((r['baseline_pairs'],r['registered_names']),(3,4))
+        self.assertEqual(r['counts'],dict(current=3,stale=0,unavailable=0));self.assertTrue(r['all_registered_source_current'])
+        self.assertFalse(r['calculation_verified']);self.assertEqual(r['native_battle_calls'],0)
+        self.cli.verify_package.assert_not_called()
+    def test_inventory_reports_stale_and_absent_or_malformed_goldens(self):
+        self.stale();(self.root/'unrelated.json').unlink();(self.root/'child.json').write_text('[]')
+        r=inventory(self.root,self.cli)
+        self.assertEqual(r['counts'],dict(current=0,stale=1,unavailable=2));self.assertFalse(r['all_registered_source_current'])
+        self.assertEqual(next(x for x in r['rows'] if x['status']=='stale')['changed_files'],['gpu/parent.slang'])
+    def test_inventory_hashes_each_source_once_for_different_baselines(self):
+        (self.root/'alternate.json').write_bytes((self.root/'parent.json').read_bytes())
+        self.cli.SUITES['alternate']=dict(source='gpu/parent.slang',golden='alternate.json')
+        with patch('portable_source_baseline.source_hashes',wraps=source_hashes) as hashes:
+            r=inventory(self.root,self.cli)
+        self.assertEqual(hashes.call_count,3);self.assertEqual(r['baseline_pairs'],4)
+    def test_inventory_does_not_claim_global_coverage_from_a_packet(self):
+        self.packet()
+        with self.assertRaisesRegex(ValueError,'producer checkout'):inventory(self.root,self.cli)
+    def test_empty_inventory_is_not_all_current(self):
+        self.cli.SUITES={};r=inventory(self.root,self.cli)
+        self.assertEqual(r['baseline_pairs'],0);self.assertFalse(r['all_registered_source_current'])
 
 if __name__=='__main__':unittest.main()
