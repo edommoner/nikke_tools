@@ -1,3 +1,9 @@
+# 2026-10-28 効果名別範囲を共通実行器の実状態→幾何選択へ接続
+
+新named-effect-rangeは元マリの500%/9秒/marker限定recipientを保持した5条件＋派生7＋raw拒否9。新entryは既存event初期化/command/serializerを再利用し、final checkpointの実carrierからordered percent→factor→declared radiusを読んで、既存決定的circle/rectangle選択へ渡す。既存GPU source変更0。stat引数だけを共通化したnative readerは旧target-count10検査も成功。
+
+固定6b1369a0のM5実GPU1回（0.003541秒、冷PSO3.095670秒）はdecoder配列型で比較停止。失敗/claim/rawを保持。9415c8f0のdecoder修正だけを別固定packetへ作り、既存CLI replayの全source/input/native guardで保存readbackを再監査し全21成功、GPU追加0。fresh独立GPU禁止sealも1.305107秒で全一致。全world compiler証明書はscope guardが拒否、限定sealだけを作成した。通常/cache CLI登録済み。現CUDA/実world世代/生死/ダメージ配送/ゲーム半径規則/全キャラ/defaultは未認定。次はこのconsumerを実actor setと元Asuka/Mariのbattleへ接続する。Windows旧transaction statusはhost unavailable durable、終端未取得・再送なし。証跡named-effect-range-metal-v2.json、詳細portable-named-effect-range.md。以下は履歴。
+
 # 2026-10-28 敵回復の最終normal/cache packet検査成功
 
 最終2842d83dの通常4cdb20da…/cache-only5ba6bd36…を固定。own CLIの15群122unitが成功、sealed paired生成は必須hit/Slang0。CUBIN O1・2GiB・60秒compile-planも成功（実compile/GPU/claim0）。元Metal14件/独立監査の計算source/全期待値を保持。v1の証明書同梱漏れはGPU前CPU gateで検出し、失敗packet/rawを保持してv2で修正した。Windows新依頼0。現CUDA/全キャラは未完。最終証跡enemy-healing-final-cli-v2.json。以下は履歴。

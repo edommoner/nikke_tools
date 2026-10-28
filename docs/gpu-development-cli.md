@@ -1,3 +1,5 @@
+`named-effect-range` はsealed21入力（native12/拒否9）。共通event実行後のcarrierから効果名別範囲を読み、既存決定的geometryで実際にcolliderを選ぶ。元マリ5条件を含むが全編成battle/配送の認定ではない。`named-effect-range-cache-only` は同じ計算のCUBIN/O1/paired generation必須入口。M5実GPU1回と保存readback replay・fresh独立監査済み。現CUDAは未確認。[範囲と失敗保持](portable-named-effect-range.md)。
+
 共通direct配送の死亡後overkill修正後、`logical-actor-geometry`13/`logical-actor-rosters`5を現source688de06eのMetal・fresh独立sealで再認定し、v2 goldenを登録した。全旧input/native/readback byteを保持。cache-only版も同じv2計算で、CUBIN/O1・compile cache/paired generation必須を維持する。現CUDA実機成功ではない。旧v1 golden/証明書は保存済み。[再認定出所](../research/target-count-query-evidence/logical-dead-overkill-recertification-v1.json)。
 
 `supplement-test-golden --source-package P --source-capture FAILED_UNITS --donor-package SEALED --baseline-suite NAME --out NEW.zip` は、未claimの開発packetで不足した**別suiteのgolden JSON1個だけ**を、検証済みsealed donorから補う。元producer自身のregistryでpathを解決し、既存全payload・入力/CPU期待指紋は変更しない。元失敗/rootを保持し、新packet自身のunit-check→fresh native preflight→GPU→独立sealを行う。数値変更・golden差替え・実行済みclaimの再試行には使わない。敵回復v3→v4で元3,758ファイルを保持し、32,392byteの検査依存だけを追加、native再計算0で89unitへ復旧した。Slangも必須cache hit/追加compile0。

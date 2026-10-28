@@ -38,6 +38,21 @@ class EffectRange(unittest.TestCase):
         raw[OUTPUT_BASE:OUTPUT_BASE+32]=row
         expected=dict(percent=500.,factor=6.,base_radius=1.,radius=6.,selected=[0],distances=[1.])
         self.assertEqual(decode(raw,meta),expected);self.assertEqual(decode(array.array('I',raw),meta),expected)
+    def test_scoped_seal_does_not_open_battle_default_or_cuda_admission(self):
+        import hashlib,nikke_gpu
+        from portable_backend import source_hashes
+        from portable_readiness_semantics import reference_readiness
+        config=nikke_gpu.SUITES['named-effect-range'];self.assertFalse(config['development_only'])
+        golden=json.loads((ROOT/config['golden']).read_text());self.assertEqual(golden['source_sha256'],source_hashes(config['source']))
+        cached=nikke_gpu.SUITES['named-effect-range-cache-only'];self.assertEqual(cached['golden'],config['golden'])
+        self.assertTrue(cached['require_paired_generation']);self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
+        r=reference_readiness(dict(phase='effect',kind='buff',stat='effect_range_pct',target='self'))
+        proof=r['declared_named_range_selection'];raw=(ROOT/proof['evidence']).read_bytes();a=json.loads(raw)
+        self.assertEqual(hashlib.sha256(raw).hexdigest(),proof['evidence_sha256'])
+        self.assertTrue(a['calculation_verified']);self.assertFalse(a['live_parent_receipt_present']);self.assertEqual(a['gpu_calls'],0)
+        self.assertEqual((a['input_count'],a['native_cases']),(21,12));self.assertFalse(proof['battle_damage_delivery_verified'])
+        self.assertFalse(proof['current_cuda_verified']);self.assertFalse(proof['default_producer_installed']);self.assertFalse(r['gpu_supported'])
+        self.assertEqual(r['lane'],'reference_model_gap')
     def test_invalid_numeric_and_unreviewed_target_contracts_fail_closed(self):
         for changes in (dict(fixed_value=True),dict(fixed_value=float('nan')),dict(fixed_value=-101.),dict(target='all_enemies'),dict(target_effect=''),dict(scaling='max_ammo')):
             with self.subTest(changes=changes),self.assertRaises(ValueError):validate_effect(dict(original()[1],**changes))
