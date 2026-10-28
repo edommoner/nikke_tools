@@ -10,10 +10,11 @@ STAT='effect_target_count_add'
 MODEL='named-effect-target-count-v1'
 
 
-def validate_effect(effect):
+def validate_effect(effect,*,allow_marked_allies=False):
     if effect.get('stat')!=STAT:return False
-    value=effect.get('fixed_value')
-    if (effect.get('type')!='buff' or effect.get('target') not in ('self','all_allies')
+    if type(allow_marked_allies) is not bool:raise ValueError('Explicit boolean recipient policy required')
+    value=effect.get('fixed_value');target=effect.get('target')
+    if (effect.get('type')!='buff' or not (target in ('self','all_allies') or allow_marked_allies and isinstance(target,str) and target.startswith('allies_with_buff:') and target.split(':',1)[1])
         or not isinstance(effect.get('target_effect'),str) or not effect['target_effect']
         or type(value) not in (int,float) or not math.isfinite(value) or not 0<=value<=2147483647 or value!=int(value)
         or any(effect.get(k) is not None for k in ('scaling','scaling_ref','values','tick_interval','tick_start'))):
@@ -55,17 +56,17 @@ class _Query:
     def __getattr__(self,name):return getattr(self._manager,name)
 
 
-def query(manager,caster,marker,when,*,base_count,capacity_limit,model):
+def query(manager,caster,marker,when,*,base_count,capacity_limit,model,allow_marked_allies=False):
     """Read exact-name capacity; selection, firing and world admission are separate."""
     from calculator.buff_manager import BuffManager
-    if (model!=MODEL or not isinstance(manager,BuffManager) or caster not in manager.squad_names
+    if (type(allow_marked_allies) is not bool or model!=MODEL or not isinstance(manager,BuffManager) or caster not in manager.squad_names
         or not isinstance(marker,str) or not marker or type(when) not in (int,float) or not math.isfinite(when) or when<0
         or type(capacity_limit) is not int or not 1<=capacity_limit<=2147483647
         or type(base_count) is not int or not 0<=base_count<=capacity_limit):
         raise ValueError('Explicit finite named target-count context required')
-    for effect,_ in manager._effects:validate_effect(effect)
+    for effect,_ in manager._effects:validate_effect(effect,allow_marked_allies=allow_marked_allies)
     for ab in manager._active:
-        if validate_effect(ab.effect) and ab.target_chars is None:
+        if validate_effect(ab.effect,allow_marked_allies=allow_marked_allies) and ab.target_chars is None:
             raise ValueError('Lazy target-count recipients require a separate contract')
     view=_Query(manager,marker)
     value=view.get_buffs(caster,'__enemy__',when)[STAT]

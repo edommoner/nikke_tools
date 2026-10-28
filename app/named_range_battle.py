@@ -8,28 +8,18 @@ import ast,copy,math
 from contextlib import contextmanager
 from unittest.mock import patch
 from effect_range_policy import query,MODEL
-from effect_target_count_policy import _Query
+from effect_target_count_policy import query as count_query,MODEL as COUNT_MODEL
 from coordinate_logical_actor_geometry import normalize as shapes
 from reference_rewrite import rewrite_reference
 from world_actor_runtime import registry_for
 from impact_specs import ActorKind
 
-COUNT='effect_target_count_add'
-
 def capacity(manager,caster,marker,t,base):
-    for effect,_ in manager._effects:
-        if effect.get('stat')!=COUNT:continue
-        value=effect.get('fixed_value');target=effect.get('target')
-        if (effect.get('type')!='buff' or type(value) not in (int,float) or not math.isfinite(value) or value<0 or int(value)!=value
-            or type(effect.get('target_effect')) is not str or not effect['target_effect']
-            or not (target in ('self','all_allies') or type(target) is str and target.startswith('allies_with_buff:') and target.split(':',1)[1])
-            or any(effect.get(k) is not None for k in ('scaling','values','tick_interval','tick_start'))):raise ValueError('Explicit fixed integral named capacity required')
-    for active in manager._active:
-        if active.effect.get('stat')==COUNT and active.target_chars is None:raise ValueError('Unresolved named capacity lifecycle')
-    total=_Query(manager,marker,COUNT).get_buffs(caster,'__enemy__',t)[COUNT]
-    value=base+total
-    if not math.isfinite(value) or value!=int(value) or not 0<=value<=128:raise ValueError('Named capacity outside actor pool')
-    return total,int(value)
+    # This is the same exact-integral capacity reader used by lock/query suites.
+    # Only the explicit static marked-allied recipient admission is extended.
+    value=count_query(manager,caster,marker,t,base_count=base,capacity_limit=128,
+                      model=COUNT_MODEL,allow_marked_allies=True)
+    return value['additional_targets'],value['capacity']
 
 def normalize(rules,geometry):
     colliders=shapes(geometry)

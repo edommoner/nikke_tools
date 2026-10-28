@@ -71,6 +71,14 @@ class EffectTargetCountPolicyTests(unittest.TestCase):
             def get_buffs(self,*a,**kw):return super().get_buffs(*a,**kw)
         bm.__class__=Changed
         with self.assertRaisesRegex(ValueError,'Unreviewed'):self.q(bm)
+    def test_marked_allies_require_explicit_static_recipient_admission(self):
+        marker=dict(type='buff',stat='',target='self',name='marked',duration=-1,fixed_value=1,trigger=dict(timing=['battle_start'],condition=[]))
+        effect=self.effect(target='allies_with_buff:marked')
+        bm=manager([marker,effect],[1,0]);bm.notify('battle_start',0.,NAMES[1]);bm._activate(bm._effects[1][0],NAMES[0],1.)
+        with self.assertRaises(ValueError):self.q(bm,who=1)
+        self.assertEqual(self.q(bm,who=1,allow_marked_allies=True)['capacity'],15)
+        self.assertEqual(self.q(bm,who=0,allow_marked_allies=True)['capacity'],5)
+        with self.assertRaises(ValueError):self.q(bm,who=1,allow_marked_allies=1)
     def test_composes_with_existing_declared_modifier_query_class(self):
         from destructible_damage_policy import manager_type
         seed=manager([]);cls=manager_type(type(seed));bm=cls(seed.squad,state=copy.deepcopy(seed.state))

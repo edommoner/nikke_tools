@@ -2,7 +2,7 @@
 
 範囲500%は元マリではなく、pinned parsed_skillsの `레이 (가칭)`（レイ、データ上の仮称）index4である。メタデータではis_preview=False、元11定義も存在する。表示名だけからpreviewと分類しない。前回説明の帰属を訂正する。元スキル辞書/数値/既存golden/input/readbackは変更せず、旧packet中のoriginal-Mariというcase labelは履歴として保持する。既存21入力の計算証拠は効果辞書そのものに対応し、元マリのキャラ対応の証拠にはしない。
 
-`reference --suite named-range-battle-common --out NEW.json` は元アスカWILLE＋レイ（仮称）＋ミランダ＋ドラー＋メアリーの全87定義・実武器・育成/config/seedを保持し、15秒の4worldを検証する。新時計/HP/ダメージ式はない。元HitEventの生成直後に同じobjectへfrozen recipientsを指定し、既存ActorRegistryの生存・世代を着弾時に再検査して、既存route/landへ渡す。生存/同世代のcaptured targetsのみ配送し、stale/deadを別対象へ振替しない明示モデル。元engine/upstreamは変更しない。キャスト途中でダメージを再計算せず、元creation observerが追跡するHitEvent identityも保持する。
+`reference --suite named-range-battle-common --out NEW.json` は元アスカWILLE＋レイ（仮称）＋ミランダ＋ドラー＋メアリーの全87定義・実武器・育成/config/seedを保持し、15秒の4worldを検証する。新時計/HP/ダメージ式はない。対象数は既存effect_target_count_policy.queryへ明示のstatic marked-allied受付を加え、同じ整数変換・加算・上限検査を再利用する。旧callerの既定受付はself/all_alliesだけを維持し、旧GPU受付を拡張しない。元HitEventの生成直後に同じobjectへfrozen recipientsを指定し、既存ActorRegistryの生存・世代を着弾時に再検査して、既存route/landへ渡す。生存/同世代のcaptured targetsのみ配送し、stale/deadを別対象へ振替しない明示モデル。元engine/upstreamは変更しない。キャスト途中でダメージを再計算せず、元creation observerが追跡するHitEvent identityも保持する。
 
 通常worldでは全54cast/54landing。初めの2castはpercent0/capacity2、その後52castは500%/capacity3となり、実敵集合が2→3へ増えた。small-base controlでは元効果を変更せず基準半径だけ1→.1、最大2対象。遅延spawn前はBODY1、spawn後は最大3。retirementでは死亡ADDを選ばずBODYのみ、実ADD得点3。ActorRegistryを使う別境界検査は同じidentityのgeneration1→2を古いpacketが命中しないことを検査する。
 
