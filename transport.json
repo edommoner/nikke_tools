@@ -1,0 +1,28 @@
+{
+  "schema": "partitioned-cuda-origin-source-proof-v1",
+  "package_id": "97e9477eed96614e1ab8a916effb99ec939d9be17a6757fea11e6135b63e1872",
+  "base_package_id": "04515f96e6ed68a969627db49b9c6f13ffedfae3349ed2a363420a30f70e4ae5",
+  "archive_bytes": 9635447,
+  "archive_sha256": "5fff13fb57b3d8af87967caf4d0d48270a57e771c76a3b59d4053c2e7b588ed1",
+  "files": 2161,
+  "original_files_preserved": 2147,
+  "changed_original_files": [
+    "scripts/nikke_gpu.py"
+  ],
+  "all_original_cli_functions_preserved": true,
+  "original_golden_unchanged": true,
+  "packet_unit_tests": 42,
+  "mac_cpu_smoke": {
+    "mode": "partitioned-cuda-origin-smoke-v1",
+    "package_id": "97e9477eed96614e1ab8a916effb99ec939d9be17a6757fea11e6135b63e1872",
+    "passed": true,
+    "containment_verified": null,
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "native_battle_calls": 0,
+    "calculation_verified": false,
+    "execution_permitted": false
+  },
+  "cuda_execution_admitted": false,
+  "scope": "CPU-only bounded original-admission reread plus shared observed transport; no GPU execution requested or admitted"
+}
