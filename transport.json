@@ -1,0 +1,25 @@
+{
+  "schema": "source-packet-transport-v1",
+  "package_id": "66c50b923e5786c58989121324f206f880341db76bbb27992b81f27962adb58a",
+  "source_commit": "18cde1635756ccd965490558cf1179025f478e66",
+  "files": 2153,
+  "archive_bytes": 9612977,
+  "archive_sha256": "c9a82d8e12fcfa31abe2bca3dfc657ccb9964de4ac856cb1369ff5a4f3fff881",
+  "raw_compiler_sdk_payloads": false,
+  "scope": "Immutable controller recovery; same original calculation/registry/golden/test bytes",
+  "verification": {
+    "package_id": "66c50b923e5786c58989121324f206f880341db76bbb27992b81f27962adb58a",
+    "base_package_id": "04515f96e6ed68a969627db49b9c6f13ffedfae3349ed2a363420a30f70e4ae5",
+    "lineage_verified": true,
+    "original_tests_preserved": 177,
+    "original_unit_evidence_package_id": "9d995acad2aa48f0331896b541a2e8d93c13cf7e34208db6801e86628d963624",
+    "original_unit_evidence_sha256": "c76ef8ecbc427292d69c4a3be614d735e90894c902275b3248d0e09aeb1df354",
+    "changed_from_tested_v1": [
+      "tests/test_portable_gpu_recovery.py"
+    ],
+    "production_code_bytes_identical": true,
+    "recovery_tests": 9,
+    "gpu_calls": 0,
+    "calculation_verified": false
+  }
+}
