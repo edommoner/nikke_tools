@@ -38,5 +38,18 @@
   "mac_fix": "Preclaim file-only required_generation_environment path gate; compiler identity/cache hit remain checked in original bounded execution",
   "mac_packet_stage_tests": 26,
   "mac_fixed_packet_id": "2b0b8a89974112e560e21bbfc790a044a5ccdb6a4eca81cd63092dfb1f2a27d3",
-  "mac_fixed_packet_archive_sha256": "9160863cebf77b11da98b97312946eedbb2f944cd50c6a6f318db107659ed03d"
+  "mac_fixed_packet_archive_sha256": "9160863cebf77b11da98b97312946eedbb2f944cd50c6a6f318db107659ed03d",
+  "saved_failure_metadata": {
+    "path": "C:/Users/owner/Documents/Codex/nikke-native-tail-cont-v1-diagnostic/staged-gpu-attempt-failure-v1.json",
+    "bytes": 2355,
+    "sha256": "c978dacc08e9815a6ad7ee9e0ee1643928800953e7aaea3d63595295eb3655d2"
+  },
+  "wrapper_capture": "C:/Users/owner/Documents/Codex/nikke-staged-unit-tests-v2-diagnostic/gpu-v1",
+  "wrapper_claim": "C:/Users/owner/Documents/Codex/nikke-native-tail-cont-v1-diagnostic/package/packet-stage-claimed-staged-gpu-linked-cuda.json",
+  "execution_claim": "C:/Users/owner/Documents/Codex/nikke-native-tail-cont-v1-diagnostic/resume-v1/proof/gpu-execution-claimed.json",
+  "wrapper_terminal_exists": true,
+  "proof_execution_exists": true,
+  "proof_result_exists": false,
+  "post_failure_metadata_reads_only": true,
+  "mac_staged_preflight_tests": 13
 }
