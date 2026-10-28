@@ -1,3 +1,11 @@
+# 2026-10-28 元87定義の範囲battleをM5で独立認証
+
+新named-range-battleは元AsukaWILLE/Rei(가칭)/Miranda/Dora/Maryの全87定義を保ち、拡大範囲・小基準半径・遅延spawn・死亡ADDの4worldを共通Slangへ接続。cast時の実carrierから範囲・対象数を読み、既存actor集合/世代付きsnapshot/queue/HP/landingで配送する。入力に選択結果やCPU damageを保存しない。
+
+初回v2はnamed-enemyとstackのメタデータ併存を拒否。共通admissionを修正したv3はM5実行2.29904秒、全cast記録一致後に比較器の旧hit仮番号で停止。既存trace_viewで実HitEvent生成番号に結び、同じGPU出力をv5の保存replay全16群（242.42秒）・fresh独立8群（216.40秒）で全比較。元失敗/raw/claimは保持しGPU再実行0。全16のgolden/同一監査のsource証明書を登録し、通常/cache-only経路を追加した。
+
+旧selection-only21の証拠は別scopeで保持する。今回の共通stack admission変更で旧source goldenのcurrent一致は失われ、現source再認定は未完。証拠を新sourceへ付替えない。新範囲battleも宣言した半径成長モデル・既存logical候補順の認定であり、ゲームの半径/面積式・最近傍・全条件分岐・公開GPU・現CUDAの認定ではない。小さな証跡 `research/target-count-query-evidence/named-range-battle-sealed-v5.json`。以下は履歴。
+
 # 2026-10-28 出所訂正と元87定義の戦闘CPU接続
 
 範囲500%は元マリではなく、pinned parsed_skillsの `레이 (가칭)`（レイ、データ上の仮称）index4である。メタデータではis_preview=False、元11定義も存在する。表示名だけからpreviewと分類しない。前回説明の帰属を訂正する。元スキル辞書/数値/既存golden/input/readbackは変更せず、旧packet中のoriginal-Mariというcase labelは履歴として保持する。既存21入力の計算証拠は効果辞書そのものに対応し、元マリのキャラ対応の証拠にはしない。

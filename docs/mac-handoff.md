@@ -1,3 +1,9 @@
+# 2026-10-28 元範囲battle全16入力の保存再監査・独立seal成功
+
+固定240a9788/package8b532626…の修正比較器で、保存v3出力全16入力をfresh16群で再監査成功（242.42秒）。続いて別fresh8群（2入力/群・各180秒上限）で独立seal成功（216.40秒）、同じ監査から期待値とfull-source compiler証明書を生成。元4worldの各54cast/実選択/元87定義の全battle比較とraw拒否12を含む。元失敗/claim/rawを保持、追加GPU0/Windows再実行0。通常named-range-battleと同じ計算のcache-onlyを登録し、CUBIN/O1・paired generation必須を継承。キャッシュ実hit/現CUDA/実ゲーム半径・最近傍/default consumer/全キャラは未認定。
+
+モデル監査と作業分類は共通の証拠記述を使い、effect_range_pct/target_countの未対応分類を残したまま限定battle証拠を併記する。旧sourceのnamed-effect-range/旧logical/healingは共通stack admission変更による現source再認定が必要で、旧goldenのSHAを付替えない。旧範囲testのsource一致検査はこの未完を検出している。次は新normal/cache固定packetのunit/generation/compile-plan確認と旧範囲の現source再認定。証跡named-range-battle-sealed-v5.json、独立receipt named-range-battle-independent-v5.json。全目標未達。以下は履歴。
+
 # 2026-10-28 範囲battle M5実行・命中番号比較器修正
 
 固定628dd82d/package ee3ab93f…のown CLIが6群48unit/fresh native4（175.65秒）/required generation hitを通過しM5 Metalで16入力を1回実行。GPU2.29904秒、冷PSO58.4064秒。正例4件status0/各54cast recordは一致、raw拒否12件成立。ただし全selection比較は旧traceの仮hit1を使って停止。既存trace_viewで実HitEvent生成番号を厳密に結び、同一GPU保存出力のexpanded1件をfresh CPUで診断すると全既存battle比較が成功（41.44秒、102creation receipts）。全16の固定再監査と独立sealは未完、成功golden未登録。同claim再試行0/GPU追加0/Windows追加0。証拠named-range-battle-metal-v3.json。

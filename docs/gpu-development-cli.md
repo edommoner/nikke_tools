@@ -1,3 +1,5 @@
+`named-range-battle` は元87定義・各54castの4world＋raw拒否12のsealed16入力。`package --suite named-range-battle --out NEW.zip` からown CLIを使う。`named-range-battle-cache-only` は同じ計算/goldenにCUBIN/O1・paired generation必須を適用する。元M5出力を保存replayとfresh独立sealで全比較済み、追加GPU0。現CUDA/実ゲーム半径/空間最近傍/defaultは未認定。[範囲](portable-named-effect-range.md)。
+
 `reference --suite named-range-battle-common --out NEW.json` は元アスカWILLE＋レイ（source名레이 (가칭)、is_preview=False）の全87定義でcast範囲・実敵集合・着弾を検査するCPU4world。前回「マリ」とした出所表記を訂正。今回のbattleのGPU wire/Metalは未接続で、既存sealed21とは別の範囲。[出所と実戦接続](portable-named-effect-range.md)。
 
 `named-effect-range` はsealed21入力（native12/拒否9）。共通event実行後のcarrierから効果名別範囲を読み、既存決定的geometryで実際にcolliderを選ぶ。元レイ（データ上の名称「レイ（仮称）」）5条件を含むが全編成battle/配送の認定ではない。`named-effect-range-cache-only` は同じ計算のCUBIN/O1/paired generation必須入口。M5実GPU1回と保存readback replay・fresh独立監査済み。現CUDAは未確認。[範囲と失敗保持](portable-named-effect-range.md)。
