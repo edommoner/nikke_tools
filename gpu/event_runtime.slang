@@ -478,8 +478,11 @@ bool worldPendingEnabled(inout Runtime s) { return WORLD_PENDING_ENABLED(s); }
 #else
 #define WORLD_HEAL_CHARGE_KIND(d,legacy) legacy
 #endif
-#define WORLD_SKILL_KIND(s,row,d,legacy) WORLD_HEAL_CHARGE_KIND(d,WORLD_TEAM_KIND(s,row,d,((legacy)&&!(worldSkillsEnabled(s)&&d.kind==3)&&!WORLD_PENDING_KIND(s,d))))
-#define WORLD_SKILL_DEFINITION(s,row,d,legacy) WORLD_HEAL_CHARGE_KIND(d,WORLD_TEAM_KIND(s,row,d,(worldSkillsEnabled(s)&&d.kind==3 ? !validWorldSkillDefinition(s,row,d) : WORLD_PENDING_KIND(s,d) ? false : (legacy))))
+#ifndef WORLD_ENEMY_AMMO_RESOURCE_KIND
+#define WORLD_ENEMY_AMMO_RESOURCE_KIND(s,row,d,legacy) legacy
+#endif
+#define WORLD_SKILL_KIND(s,row,d,legacy) WORLD_ENEMY_AMMO_RESOURCE_KIND(s,row,d,WORLD_HEAL_CHARGE_KIND(d,WORLD_TEAM_KIND(s,row,d,((legacy)&&!(worldSkillsEnabled(s)&&d.kind==3)&&!WORLD_PENDING_KIND(s,d)))))
+#define WORLD_SKILL_DEFINITION(s,row,d,legacy) WORLD_ENEMY_AMMO_RESOURCE_KIND(s,row,d,WORLD_HEAL_CHARGE_KIND(d,WORLD_TEAM_KIND(s,row,d,(worldSkillsEnabled(s)&&d.kind==3 ? !validWorldSkillDefinition(s,row,d) : WORLD_PENDING_KIND(s,d) ? false : (legacy)))))
 #define WORLD_SKILL_INHERITS(s,event,legacy) ((legacy)||(worldSkillsEnabled(s)&&event==49))
 #define WORLD_SKILL_BASIS(s,legacy) (worldSkillsEnabled(s) ? 0U : (legacy))
 #define WORLD_SKILL_SCOPE_BEGIN(s) uint skillQueryScope=0;if(worldSkillsEnabled(s)) skillQueryScope=actorStatePushQuery(s,0);
