@@ -1,0 +1,21 @@
+{
+  "schema": "enemy-healing-named-admission-recert-v3",
+  "source_commit": "5433f8e97f2368c1abb54b15be9f2206fd6f3998",
+  "package_id": "343fa678a0d977ba3f19407090a0611c95ae4ca08e917ce5a0d3d5759766467a",
+  "inputs": 14,
+  "native_cases": 6,
+  "independently_audited": true,
+  "independent_seconds": 666.0331357910036,
+  "gpu_seconds": 4.863727624993771,
+  "pipeline_seconds": 59.320955991744995,
+  "all_old_entries_input_and_readback_bytes_retained": true,
+  "readback_bytes": 113792000,
+  "evidence": "tests/fixtures/enemy-healing-named-admission-independent-v3.json",
+  "evidence_sha256": "9c84d3c24bda0c654ed707a04bd63a6a4a4fcd6f6daa1a972cd74496b45bbc38",
+  "gpu_retries": 0,
+  "audit_gpu_calls": 0,
+  "current_cuda_verified": false,
+  "default_producer_installed": false,
+  "full_character_verified": false,
+  "full_goal_complete": false
+}

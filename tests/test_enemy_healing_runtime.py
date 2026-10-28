@@ -46,6 +46,14 @@ class EnemyHealingRuntime(unittest.TestCase):
         self.assertLessEqual(end,OUTPUT['OUTPUT_WORDS'])
         self.assertLessEqual(INPUT_WORDS,131072)
 
+    def test_current_source_recertification_keeps_historical_battle_and_certificate(self):
+        import hashlib
+        old_raw=(ROOT/'research/portable-enemy-healing-v1-expected.json').read_bytes()
+        old=json.loads(old_raw);new=json.loads((ROOT/'research/portable-enemy-healing-v2-expected.json').read_text())
+        for field in ('entries','input_sha256','output_sha256'):self.assertEqual(old[field],new[field])
+        certificate=json.loads((ROOT/'research/portable-compiler-full--enemy-healing-v1-source-certificate.json').read_text())
+        self.assertEqual(certificate['baseline_golden_sha256'],hashlib.sha256(old_raw).hexdigest())
+        self.assertNotEqual(old['source_sha256'],new['source_sha256'])
     def test_sealed_cli_keeps_default_and_cuda_admission_closed(self):
         import nikke_gpu
         suite=nikke_gpu.SUITES['enemy-healing']

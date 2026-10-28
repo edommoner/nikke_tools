@@ -1,3 +1,9 @@
+# 2026-10-28 敵回復14も現sourceでM5・独立監査成功
+
+固定5433f8e9/package343fa678…の敵回復14入力は100unit・fresh native6・M5 1回・fresh GPU禁止14群sealが成功。GPU4.863728秒、冷PSO59.320956秒、独立監査666.033136秒。input/全entry/native hashとreadback113,792,000byteを旧v1から保持した。新v2 golden/同一監査のcurrent source証明書を登録し、旧v1 golden/証明書を保存。旧18入力の再認定に続くこの14入力も完了したが、他の登録スイートの現source整合性・default consumer・現CUDA・全キャラ認定は別途確認が必要。
+
+元Anne69定義・6worldの限定証拠を作業分類とsource監査へ更新。敵回復runtime6/readiness24検査が成功し、公開/正本受付は閉じたまま。記録enemy-healing-named-admission-recert-v3.json。次は登録後のnormal/cache固定packet検査・全登録goldenのsource整合性棚卸しと、敵弾薬の世代付きstate/shot/reload consumerへの接続。Windowsstatusはhost unavailable/durable、再依頼0。以下は履歴。
+
 # 2026-10-28 次の未対応分類を元3編成のselected entry-inventoryで具体化
 
 既存共通CLI entry-inventory --suite original-shield-weapons --character 유니 --character 얀 --character 벨벳 --favorite-stage 0 を再利用し、元69/71/76定義の3profileを全定義保持で静的監査。3packing失敗・各1観測カテゴリ、CPU battle/GPU0。Yuni row5のenemy_movement_disableはburst時5秒、Yan row4のforce_moveはburst時2秒で、数値量を持たない状態効果。Velvet row1はbattle_start/burst_enter:2のall_enemies ammo_charge_pct（level10 -5%）。新しい状態/射撃/リロードproviderが必要で、既存allied operatorのdivision→multiply→ties-even round→clampを共通規約として使える。名前付き完了は非空nameなら受信者loop後に一度、空loopでも発行する。

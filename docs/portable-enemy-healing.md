@@ -1,3 +1,7 @@
+# 2026-10-28 共通named/stack admission変更後の再認定
+
+現在の共通source（5433f8e9）で元14入力をM5とfresh独立14群で再認定。元input/全entry/native hash・readback113,792,000byteは保持。GPU4.863728秒、独立監査666.033136秒。v1 goldenとそのcompiler source証明書を保存し、新v2 golden/current証明書を同じ監査から登録した。source-baselineの検証済みdevelopment closureを使ってsource検査を行い、過去の証明書pairの整合性と実計算検査は維持した。通常/cache-onlyは同じ計算、現CUDA/正本/全キャラは未認定。証拠enemy-healing-named-admission-recert-v3.json。以下は履歴。
+
 # 2026-10-28 M5 Metalとfresh独立監査で14入力をseal
 
 修正版688de06e/package80c86ed0…は14入力すべて全比較成功。GPU4.886496秒、冷PSO58.768053秒、fresh事前CPU587.491141秒。親のnative6/creation context6を再利用した比較の追加native0。別fresh GPU禁止14群は667.090273秒、親結果再利用0で全一致した。同時作成golden/source証明書を通常CLIへ登録。旧18入力も同sourceで再認定済み、全旧input/native/readback byteを保持した。
