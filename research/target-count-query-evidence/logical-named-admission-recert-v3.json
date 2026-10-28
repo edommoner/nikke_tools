@@ -1,0 +1,49 @@
+{
+  "schema": "logical-named-admission-recert-v3",
+  "source_commit": "5433f8e97f2368c1abb54b15be9f2206fd6f3998",
+  "suites": [
+    {
+      "suite": "logical-actor-geometry",
+      "package_id": "8b47340372bb1880845f180e35eac6ac914ef44eb364b1bc4a4236c7f027816a",
+      "inputs": 13,
+      "native_cases": 6,
+      "independent_seconds": 147.15095533400017,
+      "all_previous_entries_input_readback_retained": true,
+      "gpu_seconds": 2.5099292499944568,
+      "pipeline_seconds": 60.026546001434326,
+      "pipeline_cache_hit": false,
+      "unit_tests": 75,
+      "unit_groups": 11,
+      "current_cuda_verified": false
+    },
+    {
+      "suite": "logical-actor-rosters",
+      "package_id": "eaa63fa389441f36982d060d43765a02b1aed33334399a44ce4fe949b5121cb1",
+      "inputs": 5,
+      "native_cases": 5,
+      "independent_seconds": 116.15758883301169,
+      "all_previous_entries_input_readback_retained": true,
+      "gpu_seconds": 2.429060041657067,
+      "pipeline_seconds": 0.0029540061950683594,
+      "pipeline_cache_hit": true,
+      "unit_tests": 94,
+      "unit_groups": 13,
+      "current_cuda_verified": false
+    }
+  ],
+  "evidence": [
+    {
+      "path": "tests/fixtures/logical-named-admission-independent-v3.json",
+      "sha256": "8f56c2e6c85eddb7dc9d13ebd5a8462c1752b8589ae802ac027af8b0a55ba9b9"
+    },
+    {
+      "path": "tests/fixtures/rosters-named-admission-independent-v3.json",
+      "sha256": "78d859f0f030b4f0f1fd43f3ec72c99e1034d7b8791773ff53c15221bc70770b"
+    }
+  ],
+  "source_baseline_development_proof": "logical-source-baseline-development-v3.json",
+  "gpu_retries": 0,
+  "current_cuda_verified": false,
+  "enemy_healing_recertification_pending": true,
+  "full_goal_complete": false
+}

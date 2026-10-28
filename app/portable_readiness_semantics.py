@@ -128,15 +128,15 @@ def reference_readiness(issue):
             evidence='tests/fixtures/logical-actor-independent-v1.json',
             evidence_sha256='533334e9533a45aedd4857e43d404519c34dd350d185de53a73f8c0a7779383e')
         result['shared_delivery_recertification']=dict(
-            source_commit='688de06e57342e9caf39cbc3dd5b3aaf552f786c',
+            source_commit='5433f8e97f2368c1abb54b15be9f2206fd6f3998',
             suites=['logical-actor-geometry','logical-actor-rosters'],inputs=18,native_cases=11,rejected_cases=7,
             independently_audited=True,all_old_input_and_readback_bytes_retained=True,
             includes_post_death_shot_regression=False,current_cuda_verified=False,
             default_producer_installed=False,full_character_verified=False,
-            evidence=[dict(path='tests/fixtures/logical-dead-overkill-independent-v1.json',
-                           sha256='9ba2faa510eb298467b532ea3546bdcc8ef879c62f09a186bd0acf3eee82df42'),
-                      dict(path='tests/fixtures/rosters-dead-overkill-independent-v1.json',
-                           sha256='c4356c5e83215361f2860ff4d2e51aa414dc5101e1a249f257d20802f0512272')])
+            evidence=[dict(path='tests/fixtures/logical-named-admission-independent-v3.json',
+                           sha256='8f56c2e6c85eddb7dc9d13ebd5a8462c1752b8589ae802ac027af8b0a55ba9b9'),
+                      dict(path='tests/fixtures/rosters-named-admission-independent-v3.json',
+                           sha256='78d859f0f030b4f0f1fd43f3ec72c99e1034d7b8791773ff53c15221bc70770b')])
         if issue['operator']['descriptor']=='multi_hit:2':
             result['declared_logical_actor_roster_validation']=dict(
                 suite='logical-actor-rosters',original_roster='니힐리스타',original_roster_definitions=70,

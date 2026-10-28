@@ -1,3 +1,11 @@
+# 2026-10-28 共通source検査を固定packetで実証・旧18入力を現source再認定
+
+固定5433f8e9のlogical13/元Nihilister5は75/94unit・fresh全native・M5各1回・fresh GPU禁止独立sealが成功。GPU2.509929/2.429060秒、独立監査147.150955/116.157589秒。後者は必須Metal pipeline cache hitでPSO0.002954秒。旧input全byte・全entry/native hash・readback計146,304,000byteを保持。新v3 goldenと同一監査のcurrent source証明書を登録し、v1/v2 golden/証明書は履歴として保持する。source-baselineは親logicalの全sourceが検証済みrosters development closureへ含まれることを実パッケージで検査し、登録source current=False/計算認定Falseと明示した。
+
+新6境界検査に加え、現source/過去証明書pair・保持結果の5検査、既存CLI/rosters検査が成功。未対応分類は新source18件の限定証拠だけへ更新し、default/全キャラ/現CUDAを開けない。詳細証拠logical-named-admission-recert-v3.json。
+
+敵回復14の同source固定packetもfresh native6の作成・14群100unit・必須paired生成hitが成功。own CLI runを開始し、まだfresh CPU照合中でGPU/独立sealは未完。PIDやcaptureの状態だけを成功証拠にしない。producer rootを変更しても実行中の固定packet rootは変更しない。Windows追加0、全目標未達。次は敵回復runの終了確認・同readbackの旧byte保持照合・fresh独立seal。以下は履歴。
+
 # 2026-10-28 再認定用の共通source-baseline検査を実装
 
 旧logical/rosters/healingのgolden/証明書は整合するが、現sourceとは異なる。全てを現sourceへ付替えず、共通CLI source-baselineで通常の厳密一致と検証済みdevelopment closureを区別する。親/peerを認めるのは要求sourceの全file/SHAがactive manifestのclosureに含まれる時だけ。登録source current/計算認定/GPU認定は別field。旧golden/証明書pairの検査とfresh native/Metal/sealを残す。選択suiteの個別test分岐も共通helperへ統合。6境界検査・既存範囲8検査と現登録範囲のCLI source-checkが成功。temp alias初版の失敗はtest root.resolveで修正し、Slang生成器は変更なし。次は固定packetで旧32入力（logical13/rosters5/healing14）を現source再認定。Windows追加0、全目標未達。以下は履歴。

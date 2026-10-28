@@ -1,3 +1,5 @@
+旧logical13/rosters5は共通named/stack admission修正後の現sourceで再認定し、通常登録goldenをv3へ更新した。旧v1/v2と各source証明書を保持し、新v3はfresh独立監査と同時にcurrent source証明書を生成する。入力・全native/entry・readback全byteは従来と同一。`source-baseline` は開発source検査を行うが、この実行/再認定を代替しない。
+
 `source-baseline --suite SUITE --out NEW.json` はsourceだけを検査する。通常は登録goldenのclosureが現sourceと完全一致する必要がある。検証済みdevelopment packet内だけは、そのmanifest closureに要求suiteの全sourceが同じSHAで含まれる場合に限り開発sourceを認め、登録goldenが現sourceかを別fieldへ記録する。過去golden/証明書の整合性、native、GPU、独立sealは省略せず、計算成功を主張しない。無関係suite・改変manifest・sealed stale sourceは拒否する。
 
 `named-range-battle` は元87定義・各54castの4world＋raw拒否12のsealed16入力。`package --suite named-range-battle --out NEW.zip` からown CLIを使う。`named-range-battle-cache-only` は同じ計算/goldenにCUBIN/O1・paired generation必須を適用する。元M5出力を保存replayとfresh独立sealで全比較済み、追加GPU0。現CUDA/実ゲーム半径/空間最近傍/defaultは未認定。[範囲](portable-named-effect-range.md)。

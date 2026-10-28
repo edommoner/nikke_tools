@@ -132,7 +132,7 @@
     "gpu/removal_runtime.slang": "e457125116d618de53ca81d78c2f4eabe9e07d7b205a954624c9ae2e3266a694",
     "gpu/duration_extend_runtime.slang": "22bfef6f3e944dba99ee826d8c3277623828b34b817f0ca5e6999988004d6faa",
     "gpu/trigger_reduction_runtime.slang": "dfab7a78e75e09ab8d0a3295e0cd7201b45fa84439e88300916f47cf5ed6fe36",
-    "gpu/stack_runtime.slang": "0d668b768a7672bce5df2b0993e89971ffc749304e307e5ca6548da18652dc16",
+    "gpu/stack_runtime.slang": "27ff740a41b8b794123c602615b53a4dd02f84c7bee698eec1feedbd6e0a1619",
     "gpu/status_runtime.slang": "2e7dbbfd9efe39987ddc868c5fd2c73d48a117fdbd6e099f15e4ac7f74f0054a",
     "gpu/event_candidate_runtime.slang": "24444651fbf85e3c3c44342c2db7e45da3cf5230a0524726b31a8050e7e7b19c",
     "gpu/pending_burst_runtime.slang": "7890ab99e5a0f1be342a877e304ca946c2d49b445afc407adb336f691e582a29",
@@ -195,7 +195,7 @@
     "gpu/admission_runtime.slang": "94d81e2119e6fb4f10387ea266c4dbdce262c65dadca98ecf042da0cd2d3c2f2",
     "gpu/portable_mt19937.slang": "6365293f4fe0269fba87b15aa866e617333f5012acef175a13fd7ed27152323a",
     "gpu/enemy_target_runtime.slang": "830fd22f28d105ea6b4e0ad4d334e774e36eebab698c1096a163cfdb712d9d1f",
-    "gpu/effect_target_count_runtime.slang": "9586de257eea14fb3520c1379164a7c963f43f171f2f8b13cb46bb1dc98df637",
+    "gpu/effect_target_count_runtime.slang": "f89ea9bfe7a0d956e1886bcfeb14f508852ab5aef00f0162d838bbebb98062cc",
     "gpu/named_generation_locks.slang": "b643c4eb1dd1f28545ab7ff69be9ba13f3ec227c443bd13972caa6bf23e5ac50",
     "gpu/physical_generation_locks.slang": "8e8d611dd01fdc1e1ceeb7e1eeacae337b8ed1a282e40b36f73c40d836cd42ea",
     "gpu/physical_lock_layout.slang": "09fbbee54ed94b719335e39f78f7725559dadf6200fa78dc310bc5636b4eb98a",
@@ -203,13 +203,13 @@
     "gpu/lock_packet_layout.slang": "d4a979b4f14dbe2098c41f94744d34a7f4384fde59922d4b2ccf3a34088aa6d4",
     "gpu/lock_delivery_policy.slang": "3765effd0479aa515e49703f61deacdf599850168460f769c0b7c3b45a398506",
     "gpu/effect_target_count_shot_runtime.slang": "3941f6c7a4dca33ac57f0dab20c39d04da4778d83c5b9ba3bb7aee76b09d3a89",
-    "gpu/program_phases.slang": "9406489d1d523ea01487a049dd0b65a8c83f6bdfea90e3475c3adae7fe180c14",
+    "gpu/program_phases.slang": "dcaf0e67d8f95d29650972ab456863803ceca5253ee38d57d68de9c8fa1ae508",
     "gpu/focus_aim_runtime.slang": "ea4c502e8dba870f02723259820780753510af99a2efc50804dd1d88e7681f55",
     "gpu/native_numeric_query_runtime.slang": "2e979426e3b798095113e8e5f2028ce3f16af64a013fac289c89f9eb20f1ae4e",
     "gpu/ordered_history_runtime.slang": "7d620776fb4f6076208fa4f585c6e0a7925a05de955fff9ea98f49024537eac8",
     "gpu/native_query_diagnostic.slang": "39f2a5cd720d09d9ed6fc01eb6b438d36902eea7e1b097e2995cc102d03a4a96",
     "gpu/native_snapshot_runtime.slang": "b11b2570c50b3ffa08e2b061a9e126f5183efbf1ec988ce95f95a80d8427e2f7",
-    "gpu/world_coordinate_area_entry.slang": "74bf1fbfc3ebf5453ec9af47e236defbd8977be7550c4dba56ad06da8197a10f",
+    "gpu/world_coordinate_area_entry.slang": "7523ae1dbf8ff54e7aee58372b391eac4ade96ca6314e800d95a7391bba4aed4",
     "gpu/coordinate_skill_runtime.slang": "6c50c7a748f38533935280fa9517975066a769d533555ab61b92abadecc328d2",
     "gpu/coordinate_scene.slang": "1a3726f1534b5f93e31c1a72eb3d3a1307ca079e23e327b537d641c4236f3ed8",
     "gpu/coordinate_scene_layout.slang": "b305e295cfda56d41be1a5d90dd4925ac337f44bf16bb5d5da89395294f148ec",
@@ -259,12 +259,12 @@
     "gpu/burst_control_policy.slang": "67e178287eb06eaec483db76b28033995d7b8dc62ca004a75f2ed8d9dfc36152"
   },
   "generated_normalized": {
-    "cuda": "46600734ba051b23cdfd4376a74af49822279b98bb64334fb5fa385fc6e3ba35",
-    "metal": "f02aa823a19fd6f67fd4cf4aff76bfefbb9761f0550428d1dedd7f59c3bfd6dd"
+    "cuda": "286e635ae1391333a673798852098b3a47eeb445dcf23bc49368f4489e27b4dc",
+    "metal": "d2cf08b9ba270d81cfd100b1b329d986364e8c5beb4f492ee6f0d59fd0fedd2c"
   },
   "entries": [],
   "input_sha256": null,
   "baseline_suite": "logical-actor-rosters",
-  "baseline_golden_sha256": "c865ce96e1b9c56a5f0778f7880b1d6128582dcbbee541ea4b14ce5e75196a6a",
+  "baseline_golden_sha256": "647ce732d6f7ffc8086ee5f8199e29beab9122b2dc4fb91cacbfd0813c11e71c",
   "scope": "Exact full world source from the independently audited Metal logical-actor-rosters capture; not CUDA compile/link/cache/battle/resource proof"
 }
