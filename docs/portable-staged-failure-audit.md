@@ -34,7 +34,7 @@ Windows保存phaseの小さなprojectionを回帰fixtureへ保存した。projec
 
 元package、transaction、continuation親、各unit/native stageと元timeoutのcaptureを明示参照から列挙し、全ファイル名/bytes/SHAを再監査の前後で照合する。リンク、special file、追加ファイル、変更を拒否し、original workspace全体を探索しない。新directoryへfailure-audit.json/admission.json/owner-output.json/origin-inventory.json/result.jsonを排他的に保存する。失敗も保存し、同じdirectoryを上書きしない。
 
-Windowsは固定packetのwrapperで `--stage audit-staged-origin --backend cuda --timeout 180` を使う。requestは失敗監査と同じ3キー。既存のBelowNormal/fresh Job/2GiB/監視を使い、旧CLI子120秒は全stage180秒に内包される。unit/native/GPU/compileを再実行しない。Mac fixtureで検査済みだが、実Windowsの元106/native63に対する実行は未確認。
+Windowsは固定packetのwrapperで `--stage audit-staged-origin --backend cuda --timeout 180` を使う。requestは失敗監査と同じ3キー。既存のBelowNormal/fresh Job/2GiB/監視を使い、旧CLI子120秒は全stage180秒に内包される。unit/native/GPU/compileを再実行しない。固定d754f360の実Windows監査は78.906553秒/exit0、stage_verified=Trueで成功。元106/native63、34root/4916fileを再監査し、元結果JSON2個計2467byteをMacへ回収してbytes/SHA一致を確認した。Job残存0、監視/cleanupエラー0。サービス識別は未確認のためenvironment=False。
 
 成功時にnative_admission_revalidated/host_revalidatedだけがTrueになる。execution_permitted/recovery_admission_verified/linked_artifact_revalidated/calculation_verifiedはFalseを維持する。inventoryは監査対象の固定記録であり、それだけを将来のGPU admissionに使用してよいという証明ではない。新ownerへの一意な引き継ぎ、CUBIN/cache再検証、GPU後の独立監査は必要。
 

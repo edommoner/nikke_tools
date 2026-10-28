@@ -1,0 +1,117 @@
+{
+  "schema": "staged-origin-controller-evidence-v1",
+  "implementation_commit": "928f3a33e4c8aca98253c0f53c25d3e1c1fe44a5",
+  "package_id": "d754f360c151136eed613956e96c19d24f1d7527416248ddfce45753b9f4d79e",
+  "files": 3879,
+  "unit_result": {
+    "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/staged-origin-controller-v3-units/result.json",
+    "sha256": "da4fe7bd349cfbb77724407ff98846c3a6502b31560d282fc3a7ed62f87ba99b",
+    "result": {
+      "schema": "unit-check-v1",
+      "package_id": "d754f360c151136eed613956e96c19d24f1d7527416248ddfce45753b9f4d79e",
+      "suite": "enemy-ammo-self-destruct-cache-only",
+      "passed": true,
+      "unit_tests_verified": true,
+      "full_native_preflight_executed": false,
+      "cpu_verified": false,
+      "calculation_verified": false,
+      "gpu_execution_verified": false,
+      "gpu_calls": 0,
+      "full_character_verified": 0,
+      "full_goal_complete": false,
+      "groups": 9,
+      "tests": 101
+    }
+  },
+  "unit_seconds": 10.454308542015497,
+  "source_transport": {
+    "branch": "codex/staged-origin-controller-v1-source",
+    "commit": "0f5243641b5505f5a55bd5d202684e1b32cc3408",
+    "archive_bytes": 13040209,
+    "archive_sha256": "7bcfae5534338f1e564331806c7b666b6e823dac7f97f332e075b60a2d165818"
+  },
+  "model_sha256": "e061e679b910efd5f05ff38b20539ac922df305dcf389cd21a62f8ab544a7835",
+  "model_scope": "Unchanged source/missing-feature audit; not calculation proof",
+  "windows_scope": "One CPU-only audit passed; original result bytes recovered and verified. No numerical replay or recovery execution.",
+  "execution_permitted": false,
+  "recovery_admission_verified": false,
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "native_calls": 0,
+  "protected_cpu_changes": 0,
+  "gpu_source_changes": 0,
+  "full_goal_complete": false,
+  "windows_result": {
+    "report": {
+      "calculation_verified": false,
+      "claims_modified": false,
+      "compiler_calls": 0,
+      "environment_preservation_verified": false,
+      "evidence_files": 4916,
+      "evidence_roots": 34,
+      "execution_permitted": false,
+      "gpu_calls": 0,
+      "host_revalidated": true,
+      "input_count": 106,
+      "inventory_sha256": "9e763d0dd5436e1aa7bca3ac7b0cbc7e7e73379d7332b83de52463890c0150a4",
+      "linked_artifact_revalidated": false,
+      "mode": "saved-staged-origin-audit",
+      "native_admission_revalidated": true,
+      "native_calls": 0,
+      "native_cases": 63,
+      "native_values_reused": false,
+      "package_id": "04515f96e6ed68a969627db49b9c6f13ffedfae3349ed2a363420a30f70e4ae5",
+      "passed": true,
+      "process_preservation_verified": true,
+      "recovery_admission_verified": false,
+      "schema": "staged-origin-check-v1",
+      "scope": "Complete old preflight revalidated without numerical replay. No recovery admission, CUBIN/cache validation or execution permission."
+    },
+    "execution_projection": {
+      "scope": "Whitelisted tool-output projection; not an original execution file byte copy",
+      "execution": {
+        "passed": true,
+        "timed_out": false,
+        "timeout_seconds": 179.84400000004098,
+        "elapsed_seconds": 78.9065525000915,
+        "child_exit_code": 0,
+        "final_child_exit_code": 0,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null,
+        "below_normal_priority": true,
+        "gpu_retry_count": 0
+      },
+      "jobs": [
+        {
+          "pre_gate_verified": true,
+          "post_members": 0,
+          "peak_bytes": 152555520,
+          "memory_limit_bytes": 2147483648,
+          "inspection_error": null
+        }
+      ],
+      "monitor": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      }
+    },
+    "originals": [
+      {
+        "name": "staged-origin-windows-audit-v1.json",
+        "bytes": 888,
+        "sha256": "bb08cc84630a1910edf4757e91d5c20b3fe3a68556b2a1b03ec9ddb73a151bb2"
+      },
+      {
+        "name": "staged-origin-windows-stage-v1.json",
+        "bytes": 1579,
+        "sha256": "cd171e0daa36ec21a60d62d5eafe8d4ca7b5e2b1b6a86a69243c7eae80c6a9e7"
+      }
+    ]
+  }
+}

@@ -1,3 +1,5 @@
+元の全件事前検査は `staged-origin-check` / CPU-only `audit-staged-origin` で旧packet自身のCLIを呼び再監査し、参照した証拠の全file name/bytes/SHAを固定する。native計算の再実行やGPU recovery admissionとは区別する。[元preflight監査](portable-staged-failure-audit.md)。
+
 保存済みのGPU前失敗は `staged-failure-check` / CPU-only `audit-staged-failure` でpackage/制御フロー/Job/監視/input/claimを結合検査する。診断成功を再実行許可やnative/cache再認定にしない。staged GPU入口には `--slang-root` と `--generation-cache` の明示ペア指定も追加し、recipeと子環境へ固定する。[失敗監査と設定規約](portable-staged-failure-audit.md)。
 
 `enemy-ammo-self-destruct` は元Velvet76定義・正例8＋raw拒否8のsealed共通battle。通常のpackage/unpack/run/独立sealを使う。`enemy-ammo-self-destruct-cache-only` は同じ計算でCUBIN/O1/NVRTC禁止・paired generation必須。M5とfresh独立監査が一致したが、現CUDA/default/全キャラ認定は含まない。[入力・所有権・実証範囲](portable-enemy-ammo-self-destruct.md)。

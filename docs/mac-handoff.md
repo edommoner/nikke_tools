@@ -1,3 +1,9 @@
+# 2026-10-29 元preflightをown CLIで再監査するCPU経路
+
+元04515f96の106/native63を再計算せず再監査するstaged-origin-check/audit-staged-originを実装。旧package自身のstaged-preflight-checkを別Pythonで呼び、当時の完全receiptとの一致とhost/nonce/input/countを確認する。元source/transaction/continuation親/各stage/timeoutの全file name・bytes・SHAを前後照合し、リンク/読取り失敗/追加/変更を拒否。workspace全体は探索しない。新ownerへのGPU admissionやCUBIN/cache検証は未実装で、execution/recovery/calculationはFalse。旧claimを触らず、GPU/compiler/native再計算0。
+
+固定d754f360/commit928f3a33の9群101unitは10.454秒で成功。既存CLI50/stage31/failure7/preflight13も成功し、model-checkは従来と同じSHA e061e679…。source-only ZIP13,040,209byte/3879fileをartifact branch codex/staged-origin-controller-v1-source/0f524364で共有。Windowsも全byte一致後にCPU監査1回が78.906553秒/exit0で成功。106/native63を再計算せず再監査し34root/4916fileを固定、Job post0/cleanup監視error0。元結果2JSON計2467byteを回収しbytes/SHAとstage内reportの一致を照合。process保持True/service未識別でenvironment=False。native/host再監査Trueだがrecovery実行許可とCUBIN/cache検証はFalseを維持。元Slang/cacheの正確なpath/keyもmetadataから取得済み。次はこの完全証拠を保持するimmutable recovery owner/nonce/claimを実装し、保存CUBINと必須generation cacheを再検証して短いCUDA成立へ接続する。全キャラ/default/残consumerは未達。詳細portable-staged-failure-audit.md、記録staged-origin-controller-v1.json。
+
 Windows原本のCPU監査は固定ebe7d2dbで終了0/30.154169秒、予算179.797秒・BelowNormal・stage_verified=True。元04515f96の106入力/AST/両Job/監視/消費済みclaimを確認。元結果2JSON計11,102byteを再実行せず回収しbytes/SHA一致を検証、fixturesへ保存した。execution metadataはscalar projectionだけを記録し、元1107byteのSHAも保持。GPU/compiler/native/旧unit/smokeの追加実行0、process保持True/service識別未確認なのでenvironment=False。execution_permitted/native/cache/host再認定はFalseのまま。元claimは消費済みで編集しない。実fixture追加後のfailure7検査とmodel-checkも成功。source-only ZIP13.03MB/3875fileの転送だけを使い、巨大履歴checkoutを避けた。記録staged-failure-windows-v1.json。次は既存事前検査とCUBINを保持するimmutable recovery protocolの実装。
 
 # 2026-10-29 staged CUDA失敗監査と明示生成設定

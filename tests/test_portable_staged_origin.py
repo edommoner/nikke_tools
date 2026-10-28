@@ -113,5 +113,15 @@ class StagedOriginTests(unittest.TestCase):
             with self.subTest(key=key):self.assertFalse(packet.verified_origin(dict(report,**{key:value}),request))
         with self.assertRaises(ValueError):packet.recipe('controller',packet.ORIGIN_STAGE,'metal',f.base/'new',None,180,request)
 
+    def test_actual_windows_receipt_preserves_recovery_and_cache_boundaries(self):
+        report=json.loads((ROOT/'tests/fixtures/staged-origin-windows-audit-v1.json').read_text())
+        stage=json.loads((ROOT/'tests/fixtures/staged-origin-windows-stage-v1.json').read_text())
+        self.assertEqual(stage['proof_result'],report);self.assertTrue(stage['stage_verified'])
+        self.assertTrue(failure_fixture.packet.verified_origin(report,dict(expected_package_id=report['package_id'])))
+        self.assertEqual((report['input_count'],report['native_cases'],report['evidence_roots'],report['evidence_files']),(106,63,34,4916))
+        self.assertFalse(report['environment_preservation_verified']);self.assertFalse(stage['calculation_verified'])
+        for key in ('execution_permitted','recovery_admission_verified','linked_artifact_revalidated','native_values_reused','claims_modified'):
+            self.assertIs(report[key],False)
+
 
 if __name__=='__main__':unittest.main()
