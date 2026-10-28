@@ -16,7 +16,11 @@ bool validTargetCountDefinitions(inout Runtime s)
         if(d.bulletDuration!=0)return false;
 #endif
         uint plan=s.inputBase+P_RECIPIENT_BASE+row*8;
-        if(commands[plan]!=0&&commands[plan]!=1)return false;
+        if(commands[plan]!=0&&commands[plan]!=1
+#ifdef PORTABLE_NAMED_RANGE_BATTLE
+           &&commands[plan]!=12
+#endif
+        )return false;
     }
 #ifdef PORTABLE_EFFECT_TARGET_COUNT_SHOTS
     return initializeTargetCountShotPlan(s);

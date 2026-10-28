@@ -66,6 +66,9 @@ void initializePortableProgram(inout Runtime s,uint input,uint output,out bool r
 #ifdef PORTABLE_EFFECT_TARGET_COUNT
            && definition_stat(input,row)!=TC_STAT
 #endif
+#ifdef PORTABLE_NAMED_RANGE_BATTLE
+           && definition_stat(input,row)!=94U
+#endif
         )
         { PROJECTILE_ADMIT_STAGE(s,25) results[output]=64;return; }
 #ifdef PORTABLE_EFFECT_TARGET_COUNT

@@ -23,6 +23,8 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     if(id.x>=commands[0])return;
 #if defined(PORTABLE_ENEMY_HEALING)
     uint input=1+id.x*EHL_INPUT_WORDS,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
+#elif defined(PORTABLE_NAMED_RANGE_BATTLE)
+    uint input=1+id.x*NRB_INPUT,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
 #elif defined(PORTABLE_COORDINATE_TYPED_TARGETS) || defined(PORTABLE_COORDINATE_LOGICAL_ACTORS)
     uint input=1+id.x*115680U,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
 #elif defined(PORTABLE_COORDINATE_BURST_CONTROLS)
@@ -77,6 +79,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS
     for(uint i=1769856U;i<LAG_OUTPUT_WORDS;i++)results[output+i]=0;
     if(!validLogicalActorGeometry(s)){results[output]=64;return;}
+#ifdef PORTABLE_NAMED_RANGE_BATTLE
+    if(!initializeNamedRangeBattle(s)){results[output]=64;return;}
+#endif
 #endif
 #ifdef PORTABLE_ENEMY_HEALING
     if(!initializeEnemyHealing(s)){results[output]=64;return;}

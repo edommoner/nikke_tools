@@ -114,6 +114,11 @@ def validate_composed_stride(source,input_words,output_words):
         check(ROOT)
         if source!='gpu/world_physical_locks_entry.slang' or (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Physical locks require their separate arena wire')
         return
+    if source=='gpu/world_named_range_battle_entry.slang':
+        from portable_named_range_battle_wire import check_schema,INPUT,OUTPUT
+        check_schema(ROOT)
+        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Named radial battle requires its complete declared wire')
+        return
     if source=='gpu/world_enemy_healing_entry.slang':
         from portable_enemy_healing_wire import check_schema,INPUT_WORDS,OUTPUT
         check_schema(ROOT)

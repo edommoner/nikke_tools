@@ -8,6 +8,9 @@ def project_sources(root, sources=None):
     root = Path(root)
     ledger = json.loads((root/'tests/fixtures/portable-enemy-healing-source-delta.json').read_text())
     projected = dict(sources or {})
+    if (root/'gpu/world_named_range_battle_entry.slang').exists():
+        from portable_named_range_battle_source_contract import project_sources as radial
+        projected=radial(root,projected)
     for name, digest in ledger['added_sources'].items():
         source = projected.get(name, (root/name).read_text())
         if hashlib.sha256(source.encode()).hexdigest() != digest:

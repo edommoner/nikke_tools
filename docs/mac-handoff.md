@@ -1,3 +1,9 @@
+# 2026-10-28 範囲battleの共通Slang実装・検証前
+
+元4world＋raw拒否8の新named-range-battleを実装。NRB1/version1のliteral tail544word（input116224/output2032000）に元damage row/base count/base radius/BODY colliderだけを保持し、元range/count定義をprivate stat94/93へ対応付ける。対象数は既存namedTargetCountValue、範囲はordered software binary64、候補順は既存actorSetCaptureへ接続。共通CP cast/queueにADD世代とBODY ordinalを固定し、既存ActorPool/land/counter/healへ配送する。新ダメージ式/HP/時計なし。全54cast record/全selectionと既存full battle比較を追加。GPU未実行、goldenなし。
+
+共有4ファイルのopt-in差分を厳密な全文SHA inverseで保持し、既存healing/logical source監査へ合成。新wire3検査・旧logical runtime5検査が成功。旧source証明書は履歴であり、変更後sourceへ付替えない。次は固定packetのfresh native・paired生成・M5 Metal1回・fresh独立seal。以下は履歴。
+
 # 2026-10-28 元87定義battleの固定CPU契約・共通reader統合が成功
 
 最終2f64d278/cache packet 7afe87dd…のown CLIで5群51unit、fresh全4world CPU reference（3.222秒）、model-checkが成功。重複していた対象数演算を既存共通queryへ統合し、4worldのinput/native/trace全指紋を保持した。default callerのrecipient受付は変更せず、静的なallies_with_buffを明示opt-inする。
