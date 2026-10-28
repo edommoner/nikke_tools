@@ -1,0 +1,1089 @@
+{
+  "passed": false,
+  "timed_out": false,
+  "timeout_seconds": 60,
+  "elapsed_seconds": 27.561167299747467,
+  "child_exit_code": 1,
+  "final_child_exit_code": 1,
+  "error": null,
+  "cleanup_error": null,
+  "cleanup_wait_seconds": 5,
+  "observation_error": null,
+  "wait_completed_unix_ns": 1793220411201103300,
+  "below_normal_priority": true,
+  "phase": {
+    "events": 416,
+    "last_event": {
+      "elapsed_seconds": 20.1041017,
+      "exception": "RuntimeError",
+      "monotonic_ns": 3049823281000000,
+      "pid": 131500,
+      "stage": "partitioned_cuda_shared_execute",
+      "state": "raised",
+      "wall_time_ns": 1793220411146309800
+    },
+    "timed_calls": [
+      {
+        "stage": "partitioned_cuda_verify_owner",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 3.112748
+      },
+      {
+        "stage": "partitioned_cuda_prepared_input",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.1270677
+      },
+      {
+        "stage": "slang_generation_identity",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.577462
+      },
+      {
+        "stage": "slang_generation_read_entry",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0305802
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0190073
+      },
+      {
+        "stage": "slang_layout_assertions",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0236241
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.2512719
+      },
+      {
+        "stage": "slang_generation_validate_pair",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.3083522
+      },
+      {
+        "stage": "slang_generation_identity",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.5543688
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0040655
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0023361
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0036864
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.002025
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0024043
+      },
+      {
+        "stage": "slang_build",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 1.62489
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0043585
+      },
+      {
+        "stage": "slang_layout_assertions",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0172944
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.2481532
+      },
+      {
+        "stage": "slang_generation_validate_pair",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.278296
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0048823
+      },
+      {
+        "stage": "cuda_pinned_linked_artifact",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0318461
+      },
+      {
+        "stage": "cuInit",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0241049
+      },
+      {
+        "stage": "cuDeviceGet",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 1.55e-05
+      },
+      {
+        "stage": "cuDeviceComputeCapability",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 1.2e-05
+      },
+      {
+        "stage": "cuDeviceGetName",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 1.48e-05
+      },
+      {
+        "stage": "cuCtxCreate_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0642096
+      },
+      {
+        "stage": "cuModuleLoadData",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0039923
+      },
+      {
+        "stage": "cuModuleGetFunction",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0084541
+      },
+      {
+        "stage": "cuModuleGetGlobal_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 1.5e-05
+      },
+      {
+        "stage": "cuMemAlloc_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0001585
+      },
+      {
+        "stage": "cuMemAlloc_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0002625
+      },
+      {
+        "stage": "cuMemAlloc_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0001744
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007542
+      },
+      {
+        "stage": "cuMemsetD8_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 5.4e-05
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 4.47e-05
+      },
+      {
+        "stage": "cuLaunchKernel",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0018757
+      },
+      {
+        "stage": "cuCtxSynchronize",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 2.315057
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007372
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008696
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0011275
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007136
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007196
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007313
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008546
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007283
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.000718
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0010185
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007125
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.000716
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007391
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.000724
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008169
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0005717
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0006545
+      },
+      {
+        "stage": "cuMemsetD8_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 4.74e-05
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 4.2e-05
+      },
+      {
+        "stage": "cuLaunchKernel",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 3.59e-05
+      },
+      {
+        "stage": "cuCtxSynchronize",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.6361137
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008003
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.000729
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.000997
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008227
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007524
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007468
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007514
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0010228
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.000861
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007614
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007416
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0010344
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007872
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007677
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007379
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0009823
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0010187
+      },
+      {
+        "stage": "cuMemsetD8_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 5.43e-05
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 3.88e-05
+      },
+      {
+        "stage": "cuLaunchKernel",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 5.96e-05
+      },
+      {
+        "stage": "cuCtxSynchronize",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 3.7020174
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007888
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007504
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007385
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0011104
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007502
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008916
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008423
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0016708
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008648
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007555
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007567
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007465
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.001024
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0009403
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007503
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008078
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008025
+      },
+      {
+        "stage": "cuMemsetD8_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 4.72e-05
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 4.87e-05
+      },
+      {
+        "stage": "cuLaunchKernel",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 3.34e-05
+      },
+      {
+        "stage": "cuCtxSynchronize",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 1.8424317
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007908
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0009833
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007187
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008386
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0009793
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008652
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007142
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007253
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007305
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.000896
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007398
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007292
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0011071
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008948
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0009281
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007851
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0005784
+      },
+      {
+        "stage": "cuMemsetD8_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 4.29e-05
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 5.77e-05
+      },
+      {
+        "stage": "cuLaunchKernel",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 5.91e-05
+      },
+      {
+        "stage": "cuCtxSynchronize",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.8108045
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0012019
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007073
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007506
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007718
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0009495
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008599
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007706
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.000746
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.000739
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0009116
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007335
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007713
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008027
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0009525
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007627
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0006116
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.000609
+      },
+      {
+        "stage": "cuMemsetD8_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 4.75e-05
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 6.02e-05
+      },
+      {
+        "stage": "cuLaunchKernel",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 5.94e-05
+      },
+      {
+        "stage": "cuCtxSynchronize",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.8770906
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007514
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007642
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0012519
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008708
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008058
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0011512
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008574
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.000757
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0011896
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008829
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0010135
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0012697
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008567
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008346
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0012651
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0005911
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0004057
+      },
+      {
+        "stage": "cuMemsetD8_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 4.99e-05
+      },
+      {
+        "stage": "cuMemcpyHtoD_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 5.88e-05
+      },
+      {
+        "stage": "cuLaunchKernel",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 6.42e-05
+      },
+      {
+        "stage": "cuCtxSynchronize",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.8264625
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.000745
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008057
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0010194
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007945
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007519
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007304
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0011157
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0008331
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0007772
+      },
+      {
+        "stage": "cuMemcpyDtoH_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0006444
+      },
+      {
+        "stage": "cuCtxDestroy_v2",
+        "pid": 131500,
+        "state": "returned",
+        "elapsed_seconds": 0.0298346
+      },
+      {
+        "stage": "partitioned_cuda_shared_execute",
+        "pid": 131500,
+        "state": "raised",
+        "elapsed_seconds": 20.1041017
+      }
+    ],
+    "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+    "nvrtc_compile_returned_success": false,
+    "cuda_compile_cache_hit_verified": false,
+    "cuda_linked_artifact_observed": true,
+    "cuda_launch_returned_success": true,
+    "cuda_synchronize_returned_success": true,
+    "cuda_readback_returned_success": true,
+    "scope": "Observed API returns only; full output verification requires the shared suite report"
+  },
+  "gpu_retry_count": 0,
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}

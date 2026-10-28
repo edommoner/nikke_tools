@@ -1,0 +1,346 @@
+{
+  "schema": "partitioned-cuda-single-attempt-summary-v1",
+  "package_id": "e2f6470dbd561236dd6690dad2b600b0c839ff0447665ce6307ff9ff54bfdae8",
+  "root": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-partitioned-v1",
+  "stages": {
+    "smoke": {
+      "capture": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-partitioned-v1\\smoke",
+      "result": {
+        "calculation_verified": false,
+        "containment_verified": true,
+        "full_goal_complete": false,
+        "gpu_execution_verified": false,
+        "mode": "partitioned-cuda-owner-v1",
+        "package_id": "e2f6470dbd561236dd6690dad2b600b0c839ff0447665ce6307ff9ff54bfdae8",
+        "passed": true,
+        "prepared": false,
+        "preservation_verified": false,
+        "public_gpu_admitted": false,
+        "shared_metal_wire_equivalence_verified": false,
+        "stage": "smoke"
+      },
+      "execution": {
+        "passed": true,
+        "timed_out": false,
+        "elapsed_seconds": 8.245784299913794,
+        "timeout_seconds": 30,
+        "child_exit_code": 0,
+        "final_child_exit_code": 0,
+        "below_normal_priority": true,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "jobs": [
+        {
+          "pre_gate_verified": true,
+          "post_members": 0,
+          "peak_bytes": 84795392,
+          "limit_bytes": 2147483648,
+          "inspection_error": null
+        }
+      ],
+      "monitor": {
+        "all_monitored_processes_preserved": false,
+        "missing_existing_process_count": 7,
+        "identified_nikke_service_preservation_verified": false,
+        "termination_cause": "unknown"
+      }
+    },
+    "prepare": {
+      "capture": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-partitioned-v1\\prepare",
+      "result": {
+        "calculation_verified": false,
+        "containment_verified": true,
+        "full_goal_complete": false,
+        "gpu_execution_verified": false,
+        "mode": "partitioned-cuda-owner-v1",
+        "package_id": "e2f6470dbd561236dd6690dad2b600b0c839ff0447665ce6307ff9ff54bfdae8",
+        "passed": true,
+        "prepared": true,
+        "preservation_verified": false,
+        "public_gpu_admitted": false,
+        "shared_metal_wire_equivalence_verified": false,
+        "stage": "prepare"
+      },
+      "execution": {
+        "passed": true,
+        "timed_out": false,
+        "elapsed_seconds": 42.07890259986743,
+        "timeout_seconds": 180,
+        "child_exit_code": 0,
+        "final_child_exit_code": 0,
+        "below_normal_priority": true,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "jobs": [
+        {
+          "pre_gate_verified": true,
+          "post_members": 0,
+          "peak_bytes": 395296768,
+          "limit_bytes": 2147483648,
+          "inspection_error": null
+        }
+      ],
+      "monitor": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_process_count": 0,
+        "identified_nikke_service_preservation_verified": false,
+        "termination_cause": null
+      }
+    },
+    "gpu": {
+      "capture": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-partitioned-v1\\gpu",
+      "result": {
+        "calculation_verified": false,
+        "containment_verified": true,
+        "full_goal_complete": false,
+        "gpu_execution_verified": false,
+        "mode": "partitioned-cuda-owner-v1",
+        "package_id": "e2f6470dbd561236dd6690dad2b600b0c839ff0447665ce6307ff9ff54bfdae8",
+        "passed": false,
+        "prepared": false,
+        "preservation_verified": false,
+        "public_gpu_admitted": false,
+        "shared_metal_wire_equivalence_verified": false,
+        "stage": "gpu"
+      },
+      "execution": {
+        "passed": false,
+        "timed_out": false,
+        "elapsed_seconds": 27.561167299747467,
+        "timeout_seconds": 60,
+        "child_exit_code": 1,
+        "final_child_exit_code": 1,
+        "below_normal_priority": true,
+        "error": null,
+        "cleanup_error": null,
+        "observation_error": null
+      },
+      "jobs": [
+        {
+          "pre_gate_verified": true,
+          "post_members": 0,
+          "peak_bytes": 1874407424,
+          "limit_bytes": 2147483648,
+          "inspection_error": null
+        }
+      ],
+      "monitor": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_process_count": 0,
+        "identified_nikke_service_preservation_verified": false,
+        "termination_cause": null
+      }
+    }
+  },
+  "failure": "RuntimeError: Complete typed-address wire view differs from sealed baseline",
+  "generation": {
+    "hit": true,
+    "key": "e6dbdfe05a71af7f6cafcc19b3eba45d268a8eb89f04b9fad27834deaa68c39a",
+    "compiler_invocations": 0
+  },
+  "cuda_api_returns": {
+    "cuInit": 1,
+    "cuDeviceGet": 1,
+    "cuDeviceComputeCapability": 1,
+    "cuDeviceGetName": 1,
+    "cuCtxCreate_v2": 1,
+    "cuModuleLoadData": 1,
+    "cuModuleGetFunction": 1,
+    "cuModuleGetGlobal_v2": 1,
+    "cuMemAlloc_v2": 3,
+    "cuMemcpyHtoD_v2": 14,
+    "cuMemsetD8_v2": 7,
+    "cuLaunchKernel": 7,
+    "cuCtxSynchronize": 7,
+    "cuMemcpyDtoH_v2": 106,
+    "cuCtxDestroy_v2": 1
+  },
+  "cuda_nonzero_returns": [],
+  "actual_allocations": [
+    {
+      "index": 0,
+      "bytes": 7403524,
+      "code": 0
+    },
+    {
+      "index": 1,
+      "bytes": 132146304,
+      "code": 0
+    },
+    {
+      "index": 2,
+      "bytes": 2288768,
+      "code": 0
+    }
+  ],
+  "actual_launches": [
+    {
+      "batch": 0,
+      "grid": [
+        16,
+        1,
+        1
+      ],
+      "block": [
+        1,
+        1,
+        1
+      ],
+      "shared_bytes": 0,
+      "return_code": 0
+    },
+    {
+      "batch": 1,
+      "grid": [
+        16,
+        1,
+        1
+      ],
+      "block": [
+        1,
+        1,
+        1
+      ],
+      "shared_bytes": 0,
+      "return_code": 0
+    },
+    {
+      "batch": 2,
+      "grid": [
+        16,
+        1,
+        1
+      ],
+      "block": [
+        1,
+        1,
+        1
+      ],
+      "shared_bytes": 0,
+      "return_code": 0
+    },
+    {
+      "batch": 3,
+      "grid": [
+        16,
+        1,
+        1
+      ],
+      "block": [
+        1,
+        1,
+        1
+      ],
+      "shared_bytes": 0,
+      "return_code": 0
+    },
+    {
+      "batch": 4,
+      "grid": [
+        16,
+        1,
+        1
+      ],
+      "block": [
+        1,
+        1,
+        1
+      ],
+      "shared_bytes": 0,
+      "return_code": 0
+    },
+    {
+      "batch": 5,
+      "grid": [
+        16,
+        1,
+        1
+      ],
+      "block": [
+        1,
+        1,
+        1
+      ],
+      "shared_bytes": 0,
+      "return_code": 0
+    },
+    {
+      "batch": 6,
+      "grid": [
+        10,
+        1,
+        1
+      ],
+      "block": [
+        1,
+        1,
+        1
+      ],
+      "shared_bytes": 0,
+      "return_code": 0
+    }
+  ],
+  "storage": {
+    "passed": true,
+    "required_bytes": 1867095740,
+    "reserve_bytes": 1073741824,
+    "free_bytes": 230408744960
+  },
+  "input": {
+    "input_bytes": 49048324,
+    "input_count": 106,
+    "input_sha256": "7892c2b3f5800c602d96a92192b89094d746f1674aaa18fcac2436677c11923d",
+    "input_words": 115680,
+    "package_id": "e2f6470dbd561236dd6690dad2b600b0c839ff0447665ce6307ff9ff54bfdae8",
+    "schema": 1
+  },
+  "output": {
+    "partial_path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-partitioned-v1\\gpu\\readback.bin.partial",
+    "bytes": 875469264,
+    "raw_sha256": "bc59f8bbfbe00f2f88888fe7ad28d88a29addac98cf7e97c39876cd1b6ee344c",
+    "expected_logical_sha256": "4ecc755e4f17e2eaaa9c9eb013bbcaa2fb27422893982f910894287df96ced09",
+    "saved_metal_raw_sha256": "0a737874d7e32912167b90e2f48a0ebf8176d79861cd6b5843fc09204ed9f829",
+    "logical_match": false,
+    "logical_sha256": null,
+    "logical_sha_note": "Failed view was not serialized before exception; no new logical-view audit executed"
+  },
+  "compiled_artifact": {
+    "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-resident-frames-compiler-v1-diagnostic\\jit-link-object-v1\\proof\\jit-linked.cubin",
+    "bytes": 6636880,
+    "sha256": "70fff521f9287679f116db936da5d912d0c2c9cddbc5fd576b71d407f2afa70a",
+    "copied_sha256": "70fff521f9287679f116db936da5d912d0c2c9cddbc5fd576b71d407f2afa70a",
+    "key": "6e5f7a1c6836bc78d99ea2d48f0434739a93eaf62805d6f27d598fb985c384c6"
+  },
+  "source": {
+    "entry": "gpu/world_coordinate_resident_frames_entry.slang",
+    "entry_sha256": "c8a609773a753df312a3714958fe61e6b73a48c66a1afb120f957801b5851dc8",
+    "closure_files": 259,
+    "generated_cuda_sha256": "dd6be197cdaad7cbe027cec877ce50ad09b21ec36135d0e4fac64726119309e7"
+  },
+  "claims": [
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-partitioned-v1\\package\\partitioned-cuda-preflight-claimed.json",
+      "bytes": 1110,
+      "sha256": "16d955b2afcda77c7a1df8e01295a10ef2f99c98e900b30e158fc820a9ce9024"
+    },
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-partitioned-v1\\package\\partitioned-cuda-execution-claimed.json",
+      "bytes": 296,
+      "sha256": "5463a47b20d1a3e6d6521039199767d9a53778c5ea71e3d527813e94a1bf6a9d"
+    },
+    {
+      "path": "C:\\Users\\owner\\Documents\\Codex\\nikke-cuda-gpu-recovery-v1\\.partitioned-cuda-claims\\eb4ceb7b7f39d7e52b20ec65dfc9391f16b8282cf6d589b124922372661a1973.json",
+      "bytes": 296,
+      "sha256": "5463a47b20d1a3e6d6521039199767d9a53778c5ea71e3d527813e94a1bf6a9d"
+    }
+  ],
+  "new_attempts": 1,
+  "retries": 0,
+  "compiler_calls": 0,
+  "native_battle_calls": 0,
+  "calculation_verified": false
+}

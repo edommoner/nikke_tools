@@ -1,0 +1,68 @@
+{
+  "schema": "partitioned-file-transport-v1",
+  "input_count": 106,
+  "input_words": 115680,
+  "output_words": 2064786,
+  "batch_size": 16,
+  "batches": [
+    {
+      "first_case": 0,
+      "cases": 16,
+      "input_bytes": 7403524,
+      "input_sha256": "43769aef47dafa864ecf9ce76377ab7b20888470cae21f09cdf126dbbe151e5f",
+      "output_bytes": 132146304
+    },
+    {
+      "first_case": 16,
+      "cases": 16,
+      "input_bytes": 7403524,
+      "input_sha256": "8e0d9508ad490449d6d471f36369d06ee7eb1c3c560ecbfc429c129a2582d194",
+      "output_bytes": 132146304
+    },
+    {
+      "first_case": 32,
+      "cases": 16,
+      "input_bytes": 7403524,
+      "input_sha256": "c4377d3f4390f8776ba7e14f6cb54009cc4fbd24a13ae9e7a62e22cc4b9cf262",
+      "output_bytes": 132146304
+    },
+    {
+      "first_case": 48,
+      "cases": 16,
+      "input_bytes": 7403524,
+      "input_sha256": "ebcbbc0deedf6def0786baca2a9ee9f339e1b83eaaf5bcc875db2b1700ea61ae",
+      "output_bytes": 132146304
+    },
+    {
+      "first_case": 64,
+      "cases": 16,
+      "input_bytes": 7403524,
+      "input_sha256": "4b05030bca2db38f083f4a9ada4ca11ecd7df6150cacd96ad5b4f9b6081db9cc",
+      "output_bytes": 132146304
+    },
+    {
+      "first_case": 80,
+      "cases": 16,
+      "input_bytes": 7403524,
+      "input_sha256": "8f49bf12df3f3c6ef7851c27890a953e06b73ba9d6c03ed0fc60a244e935d685",
+      "output_bytes": 132146304
+    },
+    {
+      "first_case": 96,
+      "cases": 10,
+      "input_bytes": 4627204,
+      "input_sha256": "d7edfa148a0a0bcbfbe3a06bb4abfd3d83a402bfd2c049fbe49542dd6d4b535c",
+      "output_bytes": 82591440
+    }
+  ],
+  "input_sha256": "7892c2b3f5800c602d96a92192b89094d746f1674aaa18fcac2436677c11923d",
+  "input_bytes": 49048324,
+  "output_bytes": 875469264,
+  "maximum_input_buffer_bytes": 7403524,
+  "maximum_output_buffer_bytes": 132146304,
+  "maximum_runtime_buffer_bytes": 2288768,
+  "runtime_stride_bytes": 143048,
+  "staging_bytes": 1799986876,
+  "staging_scope": "Batch inputs plus retained batch outputs plus joined output; original input and reserve are additional",
+  "allocation_scope": "Explicit buffer sizes only; not total Job commit, VRAM availability or driver stack usage"
+}

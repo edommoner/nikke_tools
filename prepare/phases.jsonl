@@ -1,0 +1,8 @@
+{"monotonic_ns": 3049742812000000, "pid": 137592, "stage": "partitioned_cuda_verify_owner", "state": "entered", "wall_time_ns": 1793220330678957000}
+{"elapsed_seconds": 3.1587128, "monotonic_ns": 3049745968000000, "pid": 137592, "stage": "partitioned_cuda_verify_owner", "state": "returned", "wall_time_ns": 1793220333838749000}
+{"monotonic_ns": 3049745984000000, "pid": 137592, "stage": "partitioned_cuda_generation", "state": "entered", "wall_time_ns": 1793220333840278100}
+{"elapsed_seconds": 3.1787834, "monotonic_ns": 3049749156000000, "pid": 137592, "stage": "partitioned_cuda_generation", "state": "returned", "wall_time_ns": 1793220337020660300}
+{"monotonic_ns": 3049749156000000, "pid": 137592, "stage": "partitioned_cuda_static_input", "state": "entered", "wall_time_ns": 1793220337022332400}
+{"elapsed_seconds": 10.72702, "monotonic_ns": 3049759890000000, "pid": 137592, "stage": "partitioned_cuda_static_input", "state": "returned", "wall_time_ns": 1793220347750607600}
+{"monotonic_ns": 3049759890000000, "pid": 137592, "stage": "partitioned_cuda_pin_admission", "state": "entered", "wall_time_ns": 1793220347751110400}
+{"elapsed_seconds": 21.0016601, "monotonic_ns": 3049780890000000, "pid": 137592, "stage": "partitioned_cuda_pin_admission", "state": "returned", "wall_time_ns": 1793220368753126100}

@@ -1,0 +1,4 @@
+{"monotonic_ns": 3049721437000000, "pid": 135980, "stage": "partitioned_cuda_verify_owner", "state": "entered", "wall_time_ns": 1793220309295624100}
+{"elapsed_seconds": 3.2905357, "monotonic_ns": 3049724718000000, "pid": 135980, "stage": "partitioned_cuda_verify_owner", "state": "returned", "wall_time_ns": 1793220312586656600}
+{"monotonic_ns": 3049724734000000, "pid": 135980, "stage": "partitioned_cuda_native_job_smoke", "state": "entered", "wall_time_ns": 1793220312589170400}
+{"elapsed_seconds": 0.1211526, "monotonic_ns": 3049724843000000, "pid": 135980, "stage": "partitioned_cuda_native_job_smoke", "state": "returned", "wall_time_ns": 1793220312711587300}

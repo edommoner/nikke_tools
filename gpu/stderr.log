@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "C:\Users\owner\Documents\Codex\nikke-cuda-partitioned-v1\package\scripts\nikke_gpu.py", line 4318, in <module>
+    main()
+  File "C:\Users\owner\Documents\Codex\nikke-cuda-partitioned-v1\package\scripts\nikke_gpu.py", line 4316, in main
+    return dispatch(SimpleNamespace(**globals()), _pre_partitioned_main, argv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Codex\nikke-cuda-partitioned-v1\package\app\portable_partitioned_cli.py", line 203, in dispatch
+    return cuda_child(cli,a.capture.resolve())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Codex\nikke-cuda-partitioned-v1\package\app\portable_partitioned_cuda_owner.py", line 90, in child
+    _,evidence=journal.invoke('partitioned_cuda_shared_execute',execute,cli.SUITES[m['suite']]['source'],'portableEvents',packed,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Codex\nikke-cuda-partitioned-v1\package\research\portable_phase_audit.py", line 26, in invoke
+    result = function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\owner\Documents\Codex\nikke-cuda-partitioned-v1\package\app\portable_partitioned_transport.py", line 155, in execute
+    if address_view['raw_joined_output_sha256']!=joined.hexdigest() or address_view['logical_view_sha256']!=expected_output_sha256:raise RuntimeError('Complete typed-address wire view differs from sealed baseline')
+                                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Complete typed-address wire view differs from sealed baseline

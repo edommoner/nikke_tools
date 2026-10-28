@@ -1,0 +1,4 @@
+{"monotonic_ns": 3049797718000000, "pid": 76476, "stage": "inner_before_observation", "state": "entered", "wall_time_ns": 1793220385579118200}
+{"elapsed_seconds": 2.0672634, "monotonic_ns": 3049799781000000, "pid": 76476, "stage": "inner_before_observation", "state": "returned", "wall_time_ns": 1793220387646803000}
+{"monotonic_ns": 3049823343000000, "pid": 76476, "stage": "inner_after_observation", "state": "entered", "wall_time_ns": 1793220411201103300}
+{"elapsed_seconds": 1.9020573, "monotonic_ns": 3049825234000000, "pid": 76476, "stage": "inner_after_observation", "state": "returned", "wall_time_ns": 1793220413104050500}

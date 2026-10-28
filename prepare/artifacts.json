@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "execution.json",
+      "bytes": 1970,
+      "sha256": "d0054640d0739c92b6f2f167d139664a1bbc65ef4c86143912f8d5bace51b314"
+    },
+    {
+      "path": "generation.json",
+      "bytes": 40614,
+      "sha256": "1b6cdaf3c37936dedd39547181a9f7c6b3ff2297438fbee29c976145c48e108a"
+    },
+    {
+      "path": "input-preflight.json",
+      "bytes": 262,
+      "sha256": "cd4d3d3bac40f01aa3f681adea3f4018b693144e99e57e26a6be6437c82c0780"
+    },
+    {
+      "path": "job.json",
+      "bytes": 1099,
+      "sha256": "e33800c925601109267dae31be91a7bf9891f3c6f2ea7c172e274d329fc8e085"
+    },
+    {
+      "path": "observation.json",
+      "bytes": 21059,
+      "sha256": "c1b4a4c004e715817013dbc1334bf9c2e67aeb5923f33d702b43ced341b8a960"
+    },
+    {
+      "path": "phases.jsonl",
+      "bytes": 1322,
+      "sha256": "057a85bdfbc00c8eed8d6f79b198e00da4528703a78a793cea3eb285be7821fc"
+    },
+    {
+      "path": "pinned-cubin.json",
+      "bytes": 62712,
+      "sha256": "9af157b219e4087537dd96327c4edb5a6f47d1e958e46d31c6a335838266823b"
+    },
+    {
+      "path": "preparation.jsonl",
+      "bytes": 640,
+      "sha256": "8cfb093bbdda85e170fa85fd6b72662d1e55529bcd0908ade623a4b8764063e1"
+    },
+    {
+      "path": "prepared.json",
+      "bytes": 1110,
+      "sha256": "16d955b2afcda77c7a1df8e01295a10ef2f99c98e900b30e158fc820a9ce9024"
+    },
+    {
+      "path": "result.json",
+      "bytes": 409,
+      "sha256": "836292dd27bb1a1d37b3b5cf4601d729e49b95073368d43e497146a8b3b77efc"
+    },
+    {
+      "path": "run.json",
+      "bytes": 666,
+      "sha256": "90f7476b617f5998eeb453c72513a69015a8dea18988b1521457887358484fee"
+    },
+    {
+      "path": "runtime.json",
+      "bytes": 1213,
+      "sha256": "8d818f866b109dad0a1fa308a26377b041448eb3a60de6a273a00053e34b684f"
+    },
+    {
+      "path": "start.json",
+      "bytes": 4,
+      "sha256": "e3566b3a06430868d71e9287dfd6c6c520a3da027aabea01951d407ee131dc2f"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "raw_included": false,
+  "gpu_calls": 0
+}

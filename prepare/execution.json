@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "timed_out": false,
+  "timeout_seconds": 180,
+  "elapsed_seconds": 42.07890259986743,
+  "child_exit_code": 0,
+  "final_child_exit_code": 0,
+  "error": null,
+  "cleanup_error": null,
+  "cleanup_wait_seconds": 5,
+  "observation_error": null,
+  "wait_completed_unix_ns": 1793220368999858200,
+  "below_normal_priority": true,
+  "phase": {
+    "events": 8,
+    "last_event": {
+      "elapsed_seconds": 21.0016601,
+      "monotonic_ns": 3049780890000000,
+      "pid": 137592,
+      "stage": "partitioned_cuda_pin_admission",
+      "state": "returned",
+      "wall_time_ns": 1793220368753126100
+    },
+    "timed_calls": [
+      {
+        "stage": "partitioned_cuda_verify_owner",
+        "pid": 137592,
+        "state": "returned",
+        "elapsed_seconds": 3.1587128
+      },
+      {
+        "stage": "partitioned_cuda_generation",
+        "pid": 137592,
+        "state": "returned",
+        "elapsed_seconds": 3.1787834
+      },
+      {
+        "stage": "partitioned_cuda_static_input",
+        "pid": 137592,
+        "state": "returned",
+        "elapsed_seconds": 10.72702
+      },
+      {
+        "stage": "partitioned_cuda_pin_admission",
+        "pid": 137592,
+        "state": "returned",
+        "elapsed_seconds": 21.0016601
+      }
+    ],
+    "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+    "nvrtc_compile_returned_success": false,
+    "cuda_compile_cache_hit_verified": false,
+    "cuda_linked_artifact_observed": false,
+    "cuda_launch_returned_success": false,
+    "cuda_synchronize_returned_success": false,
+    "cuda_readback_returned_success": false,
+    "scope": "Observed API returns only; full output verification requires the shared suite report"
+  },
+  "gpu_retry_count": 0,
+  "full_character_verified": 0,
+  "full_goal_complete": false
+}
