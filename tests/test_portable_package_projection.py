@@ -1,5 +1,5 @@
 """Compact payload closure and fail-closed membership checks, with no GPU calls."""
-import copy
+import copy,json
 from pathlib import Path
 import sys
 import tempfile
@@ -63,6 +63,18 @@ class ProjectionTests(unittest.TestCase):
                 path=root/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_text('pass\n');sources[name]='pass\n'
             selected,_=project(root,sources,['research/adapter.py'])
             self.assertTrue({'research/dynamic.py','research/sub/dynamic.py','tests/dynamic.py'} <= set(selected))
+
+    def test_exact_audit_ledger_paths_and_their_imports_survive_compaction(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);sources=self.fixture(root)
+            sources['research/unrelated.py']='PATH="test_other.py"\n';(root/'research/unrelated.py').write_text(sources['research/unrelated.py'])
+            path='tests/fixtures/example-source-delta.json'
+            sources[path]=json.dumps(dict(files={'research/unrelated.py':dict(before='old')},added_sources={'../escape.py':'ignored','research/not-whitelisted.py':'ignored'},transport=dict(path='research/verify-leaf.py'),note='research/not-whitelisted.py'))
+            (root/path).write_text(sources[path]);(root/'research/not-whitelisted.py').write_text('raise AssertionError("outside whitelist")')
+            selected,report=project(root,sources,['research/adapter.py'])
+            self.assertTrue({'research/unrelated.py','tests/test_other.py','research/verify-leaf.py'}<=set(selected))
+            self.assertNotIn('research/not-whitelisted.py',selected);self.assertNotIn('../escape.py',selected)
+            self.assertEqual(report['original_files'],len(sources))
 
     def test_missing_explicit_test_or_adapter_is_an_error(self):
         with tempfile.TemporaryDirectory() as directory:

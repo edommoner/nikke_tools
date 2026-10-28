@@ -61,6 +61,20 @@ def project(root, names, roots, *, suite_tests=None):
             modules[str(path.parent).replace('/', '.')].add(name)
             modules[path.parent.name].add(name)
     retained = {name for name in candidates if not prunable(name)} | set(roots)
+    # Exact source audits read named Python files from their ledgers too.
+    # Follow only explicit path keys already in the public whitelist, never
+    # historical source text or arbitrary filesystem paths from JSON values.
+    for name in sorted(candidates):
+        path=PurePosixPath(name)
+        if path.parts[:2]!=('tests','fixtures') or not path.name.endswith('source-delta.json'):continue
+        ledger=json.loads((root/name).read_text(encoding='utf-8'))
+        for section in ('files','sources','added_sources'):
+            rows=ledger.get(section,{})
+            if isinstance(rows,dict):retained.update(dependency for dependency in rows if dependency in candidates and prunable(dependency))
+        transport=ledger.get('transport',{})
+        if isinstance(transport,dict):
+            dependency=transport.get('path')
+            if dependency in candidates and prunable(dependency):retained.add(dependency)
     pending = sorted(retained)
     visited = set()
     while pending:
