@@ -7,6 +7,33 @@ from portable_readiness import issue,summarize
 
 
 class ReadinessSemanticsTests(unittest.TestCase):
+    def test_pinned_storage_proofs_do_not_promote_full_cuda_or_environment_preservation(self):
+        from portable_model_gap_audit import verify
+        audit=verify(ROOT)
+        expected=audit['coordinate_world']['numeric_frontend']['resident_storage_validation']
+        for stat in ('projectile_dmg_pct','shield_dmg_pct'):
+            result=reference_readiness(self.blocker(stat));proof=result['resident_storage_validation']
+            self.assertEqual(proof,expected)
+            frame=proof['frames'];append=proof['appends']
+            for record in (frame,append):
+                raw=(ROOT/record['evidence']).read_bytes()
+                self.assertEqual(hashlib.sha256(raw).hexdigest(),record['evidence_sha256'])
+                self.assertFalse(record['public_admission']);self.assertFalse(record['full_character_verified'])
+            metal=json.loads((ROOT/frame['evidence']).read_bytes());cuda=json.loads((ROOT/append['evidence']).read_bytes())
+            self.assertTrue(metal['calculation_verified']);self.assertTrue(metal['old_entry_input_output_native_fingerprints_preserved'])
+            self.assertEqual((frame['inputs'],frame['native_cases']),(metal['independent_audit']['input_count'],metal['independent_audit']['native_cases']))
+            self.assertEqual([i for g in metal['independent_audit']['groups'] for i in g['case_indices']],list(range(106)))
+            self.assertFalse(frame['cuda_device_verified'])
+            self.assertEqual(append['inputs'],cuda['input_count']);self.assertEqual(append['canonical_battle_cases'],0)
+            self.assertTrue(cuda['calculation_verified']);self.assertTrue(cuda['all_entry_input_output_native_fingerprints_identical'])
+            self.assertTrue(append['metal_cuda_fingerprints_equal']);self.assertTrue(append['cuda_calculation_verified'])
+            self.assertTrue(cuda['windows']['generation_cache']['hit']);self.assertTrue(cuda['windows']['cuda_cache']['hit'])
+            for name in ('nvrtc_calls','slang_compiler_calls'):self.assertEqual(cuda['windows'][name],0)
+            self.assertFalse(cuda['windows']['passed']);self.assertFalse(cuda['windows']['preservation_verified'])
+            self.assertFalse(append['overall_stage_passed']);self.assertFalse(append['environment_preservation_verified'])
+            self.assertFalse(append['full_resident_battle_verified']);self.assertFalse(result['gpu_supported'])
+            self.assertEqual(result['lane'],'reference_model_gap');self.assertFalse(audit['full_goal_complete'])
+
     def test_enemy_ammo_has_shared_math_but_requires_enemy_state_and_real_producers(self):
         from portable_model_gap_audit import verify
         r=reference_readiness(dict(phase='effect',kind='instant',stat='ammo_charge_pct',target='all_enemies'))

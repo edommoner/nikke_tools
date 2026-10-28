@@ -213,6 +213,8 @@ def verify(root,overrides=None):
   resident_frame_metal_verified=True,resident_frame_independently_audited=True,
   resident_frame_cuda_device_verified=False,resident_frame_public_admission_verified=False,
   public_admission_remaining=True)
+ from portable_resident_validation import validation as resident_validation
+ coordinate_port['numeric_frontend']['resident_storage_validation']=resident_validation()
  result=dict(passed=True,missing_stats=missing,coordinate_world=coordinate_port,target_and_nearby=dict(explicit_ranked_branch=False,fallback='current aimed logical enemy only',nearby_spatial_world=False),enemy_ammo=dict(allied_filter=True,enemy_ammunition_state=False,named_completion_outside_target_loop=True),enemy_healing=dict(allied_heal_consumer_present='heal_received_pct' in strings['calculator/buff_manager.py'],enemy_healing_path_verified=False),historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={**{base+name:hashlib.sha256(value.encode()).hexdigest() for name,value in text.items()},gate_path:hashlib.sha256(gate_text.encode()).hexdigest(),public_path:hashlib.sha256(public_text.encode()).hexdigest()})
  from portable_readiness_semantics import enemy_ammo_prerequisites
  result['enemy_ammo']['prerequisites']=enemy_ammo_prerequisites()

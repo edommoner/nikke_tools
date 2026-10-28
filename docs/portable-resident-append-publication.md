@@ -37,3 +37,10 @@ v2packet `e65d79b7…`はv1と全golden／GPU source／入力が同一。変更�
 ## CUDAとの照合結果
 
 Windows v2は56検査成功後、保存CUBINで9入力を1回実行し、Macと全entryのinput/output/native指紋および正規化生成sourceが一致。launch／sync／readback各1、Slang／NVRTC0、paired generation／CUBINとも必須hit。host dispatch0.327625秒、GPU子11.218982秒、外側32.371456秒。Job残存0・timeoutなし・process保持true。service未識別のためpreservation／全体passed／transport_verifiedはfalseを保持する。旧GPU起動前失敗と区別し、CUDA全体成功へ読み替えない。固定report `7f2e988f…`、照合証拠 `research/target-count-query-evidence/resident-append-cross-gpu-v1.json`。
+
+
+## 分類・要約の共通化
+
+`portable_resident_validation.validation()`のpinned proof宣言をmodel-gap監査とreference work laneの両方で使う。Metal106のv2再認定とCUDA append9の計算一致を分け、full CUDA battleと公開受付はfalse、appendのstage/環境保全もfalseのまま示す。新しいshaderへ過去proofを自動適用する仕組みではない。25検査ではproof fixtureのSHA、全106入力group、9契約の範囲、cache hitと計算/保全の分離を照合した。CLI summaryにも別欄を追加し、完全reportを毎回読み込む必要を減らす。
+
+現full sourceのPTX検証は`resident-frames-current-ptx-v3.json`を参照。compiler用source stale負例のsynthetic payload依存をunit内で隔離し、productionのfixture/source/producer guardは維持した。fixed packet自身でMac/Windowsとも20群210検査成功後、保存生成cacheを使うPTX生成が成立。これはCUBIN/module/GPU計算の証明ではない。

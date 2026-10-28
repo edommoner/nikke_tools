@@ -1,0 +1,375 @@
+{
+  "schema": "resident-append-full106-metal-recertification-v1",
+  "package_id": "964297f3f74b4145f6c8c5772310a851234ed4e028ecd8c62af4c47901c43121",
+  "calculation_verified": true,
+  "scope": "Current full106 resident-frames Metal corpus only; no current full CUDA or all-character admission",
+  "old_entry_input_output_native_fingerprints_preserved": true,
+  "source_certificate_generated_from_same_owned_fresh_audit": true,
+  "source_certificate_helper": "portable_compiler_certificate.certificate",
+  "compiler_calls_for_certificate": 0,
+  "gpu_calls_for_certificate": 0,
+  "independent_audit": {
+    "package_id": "964297f3f74b4145f6c8c5772310a851234ed4e028ecd8c62af4c47901c43121",
+    "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/resident-appends-full106-v1-metal",
+    "schema": "independent-metal-audit-groups-v1",
+    "child_pids": [
+      94219,
+      94263,
+      94300,
+      94316,
+      94342,
+      94369,
+      94501,
+      94522,
+      94576,
+      94643,
+      94656,
+      94689,
+      94699,
+      94721
+    ],
+    "groups": [
+      {
+        "child_pid": 94219,
+        "case_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "input_count": 8,
+        "native_cases": 8,
+        "elapsed_seconds": 36.57910591599648
+      },
+      {
+        "child_pid": 94263,
+        "case_indices": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "input_count": 8,
+        "native_cases": 8,
+        "elapsed_seconds": 48.02801691700006
+      },
+      {
+        "child_pid": 94300,
+        "case_indices": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "input_count": 8,
+        "native_cases": 2,
+        "elapsed_seconds": 13.02909220798756
+      },
+      {
+        "child_pid": 94316,
+        "case_indices": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "input_count": 8,
+        "native_cases": 4,
+        "elapsed_seconds": 24.184119791985722
+      },
+      {
+        "child_pid": 94342,
+        "case_indices": [
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39
+        ],
+        "input_count": 8,
+        "native_cases": 5,
+        "elapsed_seconds": 19.107753457996296
+      },
+      {
+        "child_pid": 94369,
+        "case_indices": [
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47
+        ],
+        "input_count": 8,
+        "native_cases": 4,
+        "elapsed_seconds": 47.71974258299451
+      },
+      {
+        "child_pid": 94501,
+        "case_indices": [
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55
+        ],
+        "input_count": 8,
+        "native_cases": 5,
+        "elapsed_seconds": 42.079760332999285
+      },
+      {
+        "child_pid": 94522,
+        "case_indices": [
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63
+        ],
+        "input_count": 8,
+        "native_cases": 4,
+        "elapsed_seconds": 61.18999549999717
+      },
+      {
+        "child_pid": 94576,
+        "case_indices": [
+          64,
+          65,
+          66,
+          67,
+          68,
+          69,
+          70,
+          71
+        ],
+        "input_count": 8,
+        "native_cases": 5,
+        "elapsed_seconds": 53.74055808398407
+      },
+      {
+        "child_pid": 94643,
+        "case_indices": [
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "input_count": 8,
+        "native_cases": 0,
+        "elapsed_seconds": 5.854557958984515
+      },
+      {
+        "child_pid": 94656,
+        "case_indices": [
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87
+        ],
+        "input_count": 8,
+        "native_cases": 8,
+        "elapsed_seconds": 95.05908041601651
+      },
+      {
+        "child_pid": 94689,
+        "case_indices": [
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95
+        ],
+        "input_count": 8,
+        "native_cases": 3,
+        "elapsed_seconds": 38.45895983398077
+      },
+      {
+        "child_pid": 94699,
+        "case_indices": [
+          96,
+          97,
+          98,
+          99,
+          100,
+          101,
+          102,
+          103
+        ],
+        "input_count": 8,
+        "native_cases": 5,
+        "elapsed_seconds": 63.443831374985166
+      },
+      {
+        "child_pid": 94721,
+        "case_indices": [
+          104,
+          105
+        ],
+        "input_count": 2,
+        "native_cases": 2,
+        "elapsed_seconds": 28.695962959027383
+      }
+    ],
+    "input_count": 106,
+    "native_cases": 63,
+    "live_parent_receipt_present": false,
+    "per_group_timeout_seconds": 180,
+    "elapsed_seconds": 582.6463439580111,
+    "gpu_calls": 0,
+    "calculation_verified": true,
+    "input_sha256": "7892c2b3f5800c602d96a92192b89094d746f1674aaa18fcac2436677c11923d",
+    "output_sha256": "4ecc755e4f17e2eaaa9c9eb013bbcaa2fb27422893982f910894287df96ced09",
+    "scope": "Fresh GPU-forbidden child groups, each individually bounded, covering every input once; total elapsed includes all groups"
+  },
+  "transport": {
+    "backend": "metal",
+    "cases": 106,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 4.133648999995785,
+    "input_bytes": 49048324,
+    "library_compile_seconds": 2.230629086494446,
+    "output_bytes": 875469264,
+    "pipeline_cache": {
+      "archive_bytes": 9639152,
+      "archive_compile_seconds": 62.41527605056763,
+      "archive_sha256": "70cbbcd2db220d7db2b971fe6fa520cd550de95b03e4513bc1a3420a36ca336b",
+      "enabled": true,
+      "hit": false,
+      "identity": {
+        "consumer_sha256": "80ad3f35e458e2f3a3f48a3997243e0906ac0719a04c352c4e901aeb753e268f",
+        "device": "Apple M5",
+        "entry": "portableEvents",
+        "math_mode": "safe",
+        "os_build": "Version 27.0.1 (Build 26A434)",
+        "registry_id": "4294968346",
+        "resident_stride": "143048",
+        "schema": "1",
+        "source_sha256": "4204e0548891f480cec9da5d491397c99ff76aaa1f02f4180e263366b5421283",
+        "threads_per_threadgroup": "1"
+      },
+      "key": "b3acc06b84ed429a40e8fd765f5e4e219ec5916772cfe6ebdd9be3966281507f",
+      "native_archive_miss_rejected": true,
+      "required": false,
+      "schema": 1
+    },
+    "pipeline_compile_seconds": 62.41613698005676,
+    "pipeline_lock_wait_seconds": 1.0728836059570312e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "pipeline_os_build": "Version 27.0.1 (Build 26A434)",
+    "registry_id": "4294968346",
+    "runtime_buffer_bytes": 15163088,
+    "runtime_element_capacity": 106,
+    "runtime_physical_stride_verified": true,
+    "runtime_stride_bytes": 143048,
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "cpu_preflight_seconds": 430.23112295899773,
+  "cpu_tests_seconds": 114.82838295900729,
+  "cpu_tests_groups": 28,
+  "full_output_bytes": 875469264,
+  "anchors": [
+    {
+      "path": "research/portable-coordinate-resident-frames-short-expected.json",
+      "bytes": 65055,
+      "sha256": "5e5554458d0efd06dbcbf5be34b0f95f9615413a37d2e91c2847b87e45bfef63"
+    },
+    {
+      "path": "research/portable-coordinate-resident-frames-short-v2-expected.json",
+      "bytes": 66491,
+      "sha256": "b32a0d7d138b78bcf3b55e6a9d38a789b48c108bb03926604c7766cf9353a85d"
+    },
+    {
+      "path": "research/portable-compiler-full--coordinate-resident-frames-v2-source-certificate.json",
+      "bytes": 30439,
+      "sha256": "41f92966628c768227e2c5ce243c673b02b12a81f4df034c74e4bb50aac0df4b"
+    },
+    {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/resident-appends-full106-v1-independent.json",
+      "bytes": 4551,
+      "sha256": "fc093ea0f158bcae9ca51f11c20ff64f9201c5b644c75420e469d5a996b19bf1"
+    },
+    {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/resident-appends-full106-v1-seal.log",
+      "bytes": 555,
+      "sha256": "77ab0da55d53461fec62c2ebe1f026fb4e809f76fdc997acd7cf59da85baa1a5"
+    },
+    {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/resident-appends-full106-v1-group-preservation.json",
+      "bytes": 6711,
+      "sha256": "dfcec88a11089351ef5db2ec9b0c0e1214d45e18760c3dc856743047afdc427d"
+    },
+    {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/resident-appends-full106-v1-metal/comparison.json",
+      "bytes": 37099,
+      "sha256": "f94bba2708cfa510eaa28238015f068c3653fd9177a23dceeb35eb998058a26e"
+    },
+    {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/resident-appends-full106-v1-metal/artifacts.json",
+      "bytes": 14099,
+      "sha256": "7a02b6925e163959f9b5a832f5db823dff5b09492d93ab8e6ba15cf8dc071479"
+    },
+    {
+      "path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/resident-appends-full106-v1-metal/run.json",
+      "bytes": 267,
+      "sha256": "8b8b4e8bb938b8f375a3f4991dc01fcb42bd4ce848df0faa4d4eba98007a6409"
+    }
+  ],
+  "audit_logs": {
+    "persistent_path": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/resident-frame-arena-20261027/resident-appends-full106-v1-independent-groups",
+    "groups": 14,
+    "all_bytes_verified": true,
+    "original_temporary_files_retained": true
+  },
+  "bookkeeping_failures": [
+    {
+      "error": "AttributeError: nikke_gpu has no source_hashes; corrected import to portable_backend before certificate generation",
+      "gpu_calls": 0,
+      "certificate_written": false
+    }
+  ],
+  "public_gpu_admitted": false,
+  "full_goal_complete": false
+}

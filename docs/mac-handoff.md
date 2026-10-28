@@ -1,3 +1,13 @@
+# 2026-10-29 現full PTX生成成功・未対応分類へstorage証拠を接続
+
+compiler v2はsource stale負例テストのsynthetic inventoryにCPU audit fixtureが無く、Windows6群72検査の1失敗で停止。production guardは変更せず、そのunitだけCPU suite/smoke/native payload検証を隔離して本来のstale source拒否を検査した。v3/babcd09cはv2とtest1ファイルだけの差で、GPU/全golden/consumerは同一。packet自身の20群210検査がMac/Windowsで成功。元失敗/capture/claimは保持。
+
+v3固定source3fca564fで現full CUDA/Metal生成がv2 certificateと一致し、PTX生成とcompiler検証が成功。NVRTC処理37.187秒（peer最終報告）、compile子50.899秒／外61.776秒、PTX12,934,766byte/SHA a50f1d53…。driver/GPU0。生成cacheはcompile時必須hit。環境保全・overallはservice未識別でfalseのまま。Windowsの34 metadataファイルはauto-reviewで共有拒否され、再送せず、path/PID/環境情報を除いた29key/1362byteの単一要約だけを別orphan branchへ共有した。固定615e1944/codex/cuda-resident-frames-v3-public-summary。拒否34fileとae599c8c/原PTXはWindows保持。Macではpackage/entry/厳密正規化生成hashの一致を確認したが、元34fileの独立監査とは主張しない。証跡resident-frames-current-ptx-v3.json。
+
+保存PTX全体を使うmodule-objectを既存Windows chatへ1回依頼済み。root C:/Users/owner/Documents/Codex/nikke-resident-frames-v3、capture root/module-object、request root/module-object-request.json。既存固定ptxas12.4.131、--compile-only/O1/sm86/FMA無効、元producer/Job/cache全byte再監査、2GiB/内60秒・native55秒/外180秒。tests/Slang/NVRTC/driver/GPU再実行0、source/partition/linkage/PTX変更なし、fallback/retryなし。結果はまだ未取得なので再送しない。過去失敗した通常whole-program assembleへ戻らない。単一objectが成功した場合は既存の同版link/driver admissionへ進める根拠だけとし、計算成立とは分ける。
+
+共通portable_resident_validationをmodel-gap監査とreference work laneへ接続し、Metal106とCUDA append9を別のpinned proofとして表示。model-check --summaryはappend計算trueとstage/環境保全false・full CUDA battle falseを同時に表示する。proof fixtureのSHAと全106/9のscope、両consumer一致を検査。readiness25/model-gap14/CPU batch19/CLI51/projection9成功。source closureは実監査済みframes v2と同一、追加GPU0。5 canonical consumer/20model gap/全キャラ0/UI CPU/公開受付falseは不変。証跡resident-storage-routing-v1.json。以下は履歴。
+
 # 2026-10-29 Resident配列追加3箇所を修正・CUDA/Metal9契約一致・Metal全106独立一致
 
 fd15fec6の共有markEntry／initializeHPWatchesを「格納→加算」へ変更。旧CUDAが加算後indexを再読する3箇所を修正し、既存生成器とpaired cache読込へ生成順guardを接続。空／最終512／refresh／owner重複／全2048watchを、実共有関数の9入力でCUDA/Metal全word一致。新gpu-cached wrapperは保存source・SDK・両cacheの4キーを固定し、CUBIN O1／必須hit／Job／2GiB／180秒・子60秒を保持する。

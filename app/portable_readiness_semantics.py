@@ -564,6 +564,8 @@ def reference_readiness(issue):
             cuda_device_verified=False,cuda_physical_stack_reduction_verified=False,
             canonical_consumer_verified=False,full_character_verified=False,
             scope='complete_private106_with_resource_backed_dispatch_frames; not full CUDA or public admission')
+        from portable_resident_validation import validation as resident_validation
+        result['resident_storage_validation']=resident_validation()
         result['standalone_landing_cuda_validation']=dict(suite='coordinate-landing-arena-cache-only',
             inputs=40,native_cases=26,rejected_cases=14,metal_cuda_comparison_entries_equal=True,
             required_cubin_cache_hit=True,nvrtc_calls=0,compiler_library_requests=0,

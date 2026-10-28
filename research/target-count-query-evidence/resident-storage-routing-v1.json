@@ -1,0 +1,26 @@
+{
+  "schema": "resident-storage-routing-v1",
+  "scope": "Shared pinned proof declarations in model-check and reference work lanes; no shader or public admission change",
+  "model_check_passed": true,
+  "model_check_sha256": "5ad873af94a8ffe403cbfb15ffb319e1a3a7ac1c237721d297f6b5019fc4d8e1",
+  "missing_canonical_consumers": [
+    "effect_range_pct",
+    "effect_target_count_add",
+    "enemy_movement_disable",
+    "force_move",
+    "lock_on"
+  ],
+  "public_gpu_admitted": false,
+  "gpu_calls": 0,
+  "native_battle_calls": 0,
+  "tests": {
+    "readiness_semantics": 25,
+    "model_gap_audit": 14,
+    "cpu_batch": 19,
+    "compiler_diagnostic": 16,
+    "cli": 51,
+    "package_projection": 9
+  },
+  "shader_closure_still_matches_audited_frames_v2": true,
+  "full_goal_complete": false
+}

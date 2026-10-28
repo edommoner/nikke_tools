@@ -15,6 +15,8 @@ AUDIT_FILES = {'test_coordinate_power_v1.py': ('requirements-validation.txt',),'
     'research/portable-coordinate-arcs-short-expected.json',
     'tests/fixtures/coordinate-common-numeric-decision.json'),
     'test_portable_model_gap_audit.py': (
+    'tests/fixtures/resident-append-full106-metal-v1.json',
+    'tests/fixtures/resident-append-cross-gpu-v1.json',
     'research/upstream/nikke-calc-master/docs/IMPL-STATUS.md',
     'tests/fixtures/coordinate-common-numeric-decision.json',
     'tests/fixtures/heavyarms-lock-published-contract.json',
@@ -37,6 +39,9 @@ AUDIT_FILES['test_dispatch_frame_storage.py']=(
     'research/portable-coordinate-resident-frames-short-expected.json',
     'research/portable-coordinate-resident-frames-short-v2-expected.json',
     'research/portable-compiler-full--coordinate-resident-frames-v2-source-certificate.json')
+AUDIT_FILES['test_portable_readiness_semantics.py']=(
+    'tests/fixtures/resident-append-full106-metal-v1.json',
+    'tests/fixtures/resident-append-cross-gpu-v1.json')
 
 def validate_dependency_files(root,patterns,included=None):
     """Reject missing audit data before tests/native work or execution claims."""

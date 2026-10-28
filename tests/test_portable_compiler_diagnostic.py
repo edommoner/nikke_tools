@@ -170,7 +170,11 @@ class CompilerDiagnosticTests(unittest.TestCase):
         suite=cli.SUITES['compiler-full'];sources=backend.source_hashes(suite['source']);sources=dict(sources);sources[suite['source']]='0'*64
         names=set(sources)|{'scripts/nikke_gpu.py',suite['golden'],*suite['support_files'],*('tests/'+p for p in suite['tests'])}
         tracked=('\0'.join(sorted(names))+'\0').encode();output=self.base.root/'stale-compiler.zip'
-        with patch.object(cli.subprocess,'check_output',return_value=tracked),patch.object(backend,'source_hashes',return_value=sources),\
+        # This synthetic inventory tests the source gate, not the complete CPU
+        # test payload. Real audit-data admission has its own negative tests.
+        with patch.dict(cli.SUITES,{'compiler-full':dict(suite,tests=[])}),patch.object(cli,'SMOKE_TESTS',[]),\
+             patch('portable_reference.validate_reference_payload'),\
+             patch.object(cli.subprocess,'check_output',return_value=tracked),patch.object(backend,'source_hashes',return_value=sources),\
              patch.object(backend,'build',side_effect=AssertionError('No compiler')),\
              patch.object(cli,'development_baseline',side_effect=AssertionError('No native baseline')):
             with self.assertRaisesRegex(ValueError,'source closure is stale'):cli.make_package('compiler-full',output)

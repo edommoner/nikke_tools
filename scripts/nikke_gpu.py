@@ -3932,13 +3932,20 @@ def main(argv=None):
         display['report']=str(a.out.resolve())
     if a.command=='model-check' and a.summary:
         gaps=result['model_gap_audit'];numeric=gaps['coordinate_world']['numeric_frontend']
+        resident=numeric['resident_storage_validation']
         display=dict(schema='model-check-summary-v1',passed=result['passed'],scope=result['scope'],
             report=str(a.out.resolve()),report_bytes=a.out.stat().st_size,report_sha256=sha(a.out.read_bytes()),
             public_gpu_admitted=result['public_gpu_admitted'],full_goal_complete=result['full_goal_complete'],
             gpu_calls=result['gpu_calls'],native_battle_calls=result['native_battle_calls'],
             missing_canonical_stat_consumers=sorted(gaps['missing_stats']),
             numeric_policy_scope=numeric['policy_implemented_scope'],public_numeric_admission_remaining=numeric['public_admission_remaining'],
-            private_numeric_evidence_suites=numeric['private_suites'])
+            private_numeric_evidence_suites=numeric['private_suites'],
+            private_resident_storage=dict(metal_inputs=resident['frames']['inputs'],
+                full_cuda_battle_verified=resident['frames']['cuda_device_verified'],
+                cuda_append_contracts=resident['appends']['inputs'],
+                cuda_append_calculation_verified=resident['appends']['cuda_calculation_verified'],
+                cuda_append_stage_passed=resident['appends']['overall_stage_passed'],
+                cuda_append_environment_preservation_verified=resident['appends']['environment_preservation_verified']))
     print(json.dumps(display,ensure_ascii=False,indent=2))
     if result.get('mode')=='staged-gpu-pending-native-audit':
         if not result.get('gpu_execution_completed') or not result.get('readback_fingerprint_matches'):raise SystemExit(1)

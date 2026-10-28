@@ -1,3 +1,5 @@
+`model-check --summary` は、private Metal106入力とCUDA append9契約を別表示する。appendのcalculation成功とstage／環境保全falseを同時に保持し、full CUDA battle・canonical model gap・公開受付へ昇格させない。出所は完全reportの `resident_storage_validation`。
+
 保存CUDA sourceとpaired generation／CUBIN cacheを固定して使う経路は、sealed cache-only packetの `run-gpu-packet.py --stage gpu-cached --request REQUEST.json`。既存Job・2GiB・180秒／子60秒・必須hitを保持する。[4キーrequestと境界検査](portable-resident-append-publication.md)。通常gpu段階の失敗claimを消して再送しない。
 
 固定CUDA単発入口は `partitioned-cuda-package` → packet自身の `partitioned-cuda-smoke` → `partitioned-cuda-prepare` → `partitioned-cuda-run --timeout 60`。全106・16件batch・新しい専用claim/ledger・保存CUBINのみ。現在のe2f6470dは全API完了したが出力差分で失敗保存済みであり、同じrunを再送しない。保存結果のCPU比較を優先する。詳細 [分割転送](portable-partitioned-file-transport.md)。
