@@ -5,7 +5,8 @@ def project_sources(root,sources=None):
     root=Path(root);out=dict(sources or {})
     if (root/'gpu/world_coordinate_original_stack_entry.slang').exists():
         from portable_coordinate_original_stack_source_contract import project_sources as stacks
-        out=stacks(root,out)
+        try:out=stacks(root,out)
+        except ValueError as error:raise AssertionError('Unreviewed original ammo descendant: '+str(error)) from error
     data=json.loads((root/'tests/fixtures/portable-coordinate-original-ammo-source-delta.json').read_text())
     for name,row in data['sources'].items():
         current=out.get(name,(root/name).read_text())
