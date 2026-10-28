@@ -17,9 +17,11 @@ RECOVERY_STAGE='recover-readback'
 RECOVERY_FIELDS=('source_package','source_capture','output_sha256')
 NATIVE_GROUP_STAGE='audit-native-group'
 NATIVE_GROUP_FIELDS=('source_package','source_capture','group_index','group_size')
+FAILURE_STAGE='audit-staged-failure'
+FAILURE_FIELDS=('source_package','source_capture','expected_package_id')
 STAGED_FIELDS={'preflight-resume':('parent_transaction','group_size'),'preflight-plan':('gpu_capture','group_size','test_group_size'),'preflight-test-group':('transaction','group_index'),'preflight-begin':('gpu_capture','group_size'),'preflight-native-group':('transaction','group_index'),
     'staged-gpu-linked':('transaction','linked_package','linked_capture')}
-STAGES=('tests','cpu','smoke','generation','gpu',LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE,*STAGED_FIELDS,*COMPILE_STAGES,*OBJECT_STAGES)
+STAGES=('tests','cpu','smoke','generation','gpu',LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE,FAILURE_STAGE,*STAGED_FIELDS,*COMPILE_STAGES,*OBJECT_STAGES)
 
 def is_windows():return os.name=='nt'
 
@@ -68,10 +70,10 @@ def run_tests(cli,plan):
 
 
 def object_request(stage,value):
-    if stage not in (*OBJECT_STAGES,LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE,*STAGED_FIELDS):
+    if stage not in (*OBJECT_STAGES,LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE,FAILURE_STAGE,*STAGED_FIELDS):
         if value is not None:raise ValueError('Only saved-object or saved-linked GPU stages accept a request')
         return None
-    fields=STAGED_FIELDS[stage] if stage in STAGED_FIELDS else NATIVE_GROUP_FIELDS if stage==NATIVE_GROUP_STAGE else RECOVERY_FIELDS if stage==RECOVERY_STAGE else LINKED_FIELDS if stage==LINKED_STAGE else OBJECT_STAGES[stage]
+    fields=STAGED_FIELDS[stage] if stage in STAGED_FIELDS else FAILURE_FIELDS if stage==FAILURE_STAGE else NATIVE_GROUP_FIELDS if stage==NATIVE_GROUP_STAGE else RECOVERY_FIELDS if stage==RECOVERY_STAGE else LINKED_FIELDS if stage==LINKED_STAGE else OBJECT_STAGES[stage]
     if type(value) is not dict or set(value)!=set(fields):raise ValueError('Exact saved-object request fields required')
     result={}
     for key in fields:
@@ -81,7 +83,7 @@ def object_request(stage,value):
             if not item.isascii() or not item.isdigit() or str(int(item))!=item or not (0 if key=='group_index' else 1)<=int(item)<=65536:
                 raise ValueError('Canonical bounded native group integer required')
             result[key]=item
-        elif key in ('object_sha256','output_sha256'):
+        elif key in ('object_sha256','output_sha256','expected_package_id'):
             if len(item)!=64 or any(c not in '0123456789abcdef' for c in item):raise ValueError('Exact saved-object SHA256 required')
             result[key]=item
         else:
@@ -157,18 +159,31 @@ def verified_native_group(proof,request):
         and audit.get('calculation_verified') is False and audit.get('comparison_error') is None)
 
 
-def recipe(package_id,stage,backend,capture,original_workspace,timeout,request=None):
+def verified_failure(proof,request):
+    return bool(proof and proof.get('mode')=='saved-staged-failure-audit' and proof.get('package_id')==request['expected_package_id']
+        and all(proof.get(k) is True for k in ('passed','pre_generation_failure_verified','source_control_flow_verified','containment_verified','prepared_input_verified','execution_claim_consumed'))
+        and all(proof.get(k) is False for k in ('execution_permitted','native_admission_revalidated','linked_artifact_revalidated','host_revalidated','calculation_verified','claims_modified'))
+        and all(type(proof.get(k)) is int and proof[k]==0 for k in ('gpu_calls','compiler_calls','native_calls')))
+
+
+def recipe(package_id,stage,backend,capture,original_workspace,timeout,request=None,*,generation_settings=None):
     if stage not in STAGES or backend not in ('metal','cuda') or type(timeout) is not int or not 1<=timeout<=180:raise ValueError('Invalid packet stage or budget')
-    if stage in (*COMPILE_STAGES,*OBJECT_STAGES,LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE) and backend!='cuda':raise ValueError('Compilation requires CUDA backend')
+    if stage in (*COMPILE_STAGES,*OBJECT_STAGES,LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE,FAILURE_STAGE) and backend!='cuda':raise ValueError('CUDA diagnostic requires CUDA backend')
     if stage=='staged-gpu-linked' and backend!='cuda':raise ValueError('Saved staged CUBIN requires CUDA backend')
     request=object_request(stage,request)
     capture=Path(capture).resolve();original=Path(original_workspace).resolve() if original_workspace else None
-    if stage in (*COMPILE_STAGES,*OBJECT_STAGES,LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE) and original is None:raise ValueError('Compilation requires an original workspace')
+    if stage in (*COMPILE_STAGES,*OBJECT_STAGES,LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE,FAILURE_STAGE) and original is None:raise ValueError('CUDA diagnostic requires an original workspace')
     if stage=='staged-gpu-linked' and original is None:raise ValueError('Staged CUDA requires an original workspace')
     if capture==ROOT or ROOT in capture.parents:raise ValueError('Stage capture must be outside the immutable package')
     if original is not None and (original==ROOT or original==capture or original in capture.parents):raise ValueError('Use an isolated capture outside the original workspace')
     if is_windows() and original is None:raise ValueError('Windows requires an explicit original workspace')
     plan=dict(schema=1,package_id=package_id,stage=stage,backend=backend,capture=str(capture),proof_capture=str(capture/'proof'),original_workspace=str(original) if original else None,timeout_seconds=timeout,inner_gpu_timeout_seconds=min(60,timeout),preparation_scope='Immutable package manifest only; never enumerate/hash original workspace, historical captures or SDK trees',memory_limit_mb=2048)
+    if generation_settings is not None:
+        if stage!='staged-gpu-linked' or type(generation_settings) is not dict or set(generation_settings)!={'slang_root','generation_cache'}:
+            raise ValueError('Explicit paired generation settings require staged-gpu-linked and both paths')
+        if any(type(v) is not str or not v or not Path(v).is_absolute() for v in generation_settings.values()):
+            raise ValueError('Explicit paired generation paths must be absolute strings')
+        plan['generation_settings']={k:str(Path(v).resolve()) for k,v in generation_settings.items()}
     if stage=='generation':
         cache=os.environ.get('NIKKE_SLANG_GENERATION_CACHE')
         if not cache or not Path(cache).is_absolute():raise ValueError('Generation stage requires an absolute Slang generation cache')
@@ -178,6 +193,10 @@ def recipe(package_id,stage,backend,capture,original_workspace,timeout,request=N
 
 def proof_arguments(plan):
     if plan['stage']=='tests':return ['_tests','--capture',plan['proof_capture']]
+    if plan['stage']==FAILURE_STAGE:
+        request=object_request(FAILURE_STAGE,plan['object_request'])
+        return ['staged-failure-check','--package-root',request['source_package'],'--capture',request['source_capture'],
+            '--expected-package-id',request['expected_package_id'],'--out',str(Path(plan['proof_capture'])/'result.json')]
     if plan['stage'] in STAGED_FIELDS:
         stage=plan['stage'];request=object_request(stage,plan['object_request'])
         if stage=='preflight-resume':return [stage,'--capture',plan['proof_capture'],'--backend',plan['backend'],'--parent-transaction',request['parent_transaction'],'--group-size',request['group_size']]
@@ -231,8 +250,12 @@ def child(folder):
     plan=json.loads((folder/'recipe.json').read_text())
     if plan['capture']!=str(folder.resolve()):raise ValueError('Stage recipe directory changed')
     cli=load_module('packet_child_cli',ROOT/'scripts/nikke_gpu.py');manifest=packet_header(cli)
-    expected=recipe(manifest['package_id'],plan['stage'],plan['backend'],folder,plan['original_workspace'],plan['timeout_seconds'],plan.get('object_request'))
+    expected=recipe(manifest['package_id'],plan['stage'],plan['backend'],folder,plan['original_workspace'],plan['timeout_seconds'],plan.get('object_request'),generation_settings=plan.get('generation_settings'))
     if plan!=expected:raise ValueError('Packet stage recipe changed')
+    if 'generation_settings' in plan:
+        settings=plan['generation_settings']
+        if os.environ.get('NIKKE_SLANG_ROOT')!=settings['slang_root'] or os.environ.get('NIKKE_SLANG_GENERATION_CACHE')!=settings['generation_cache']:
+            raise ValueError('Explicit generation settings differ from the bounded child environment')
     save(folder/'child.json',dict(pid=os.getpid(),ppid=os.getppid(),package_id=manifest['package_id'],started_unix_ns=time.time_ns(),scope='Identity record only; liveness requires the owning process handle'))
     deadline=time.monotonic()+30
     while not (folder/'start.json').exists():
@@ -280,15 +303,18 @@ def required_generation_environment(env):
         cache_hit_verified=False,gpu_calls=0,compiler_calls=0)
 
 
-def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None):
+def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None,*,generation_settings=None):
     started=time.monotonic()
     cli=load_module('packet_stage_cli',ROOT/'scripts/nikke_gpu.py');manifest=packet_header(cli)
-    plan=recipe(manifest['package_id'],stage,backend,folder,original_workspace,timeout,request);folder=Path(plan['capture'])
+    plan=recipe(manifest['package_id'],stage,backend,folder,original_workspace,timeout,request,generation_settings=generation_settings);folder=Path(plan['capture'])
     folder.mkdir(parents=True,exist_ok=False);save(folder/'recipe.json',plan)
     from portable_phase_audit import Journal
     journal=Journal(folder/'preparation.jsonl')
     journal.emit('packet_header_prepare','returned',elapsed_seconds=time.monotonic()-started)
-    env=cli.validation_environment(folder)
+    env=dict(cli.validation_environment(folder))
+    if 'generation_settings' in plan:
+        env['NIKKE_SLANG_ROOT']=plan['generation_settings']['slang_root']
+        env['NIKKE_SLANG_GENERATION_CACHE']=plan['generation_settings']['generation_cache']
     if stage=='staged-gpu-linked':
         env['NIKKE_SLANG_GENERATION_REQUIRED']='1'
         try:environment=required_generation_environment(env)
@@ -327,7 +353,7 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None)
     comparison=observation.get('comparison',{})
     process_preserved=comparison.get('all_monitored_processes_preserved')
     environment_preserved=bool(process_preserved is True and comparison.get('identified_nikke_service_preservation_verified') is True and facts.get('observation_error') is None) if is_windows() else None
-    key={'tests':'cpu_tests_verified','cpu':'cpu_verified','smoke':'smoke_verified','generation':'verified','gpu':'passed',LINKED_STAGE:'passed',RECOVERY_STAGE:'passed',NATIVE_GROUP_STAGE:'comparison_subset_verified',
+    key={'tests':'cpu_tests_verified','cpu':'cpu_verified','smoke':'smoke_verified','generation':'verified','gpu':'passed',LINKED_STAGE:'passed',RECOVERY_STAGE:'passed',NATIVE_GROUP_STAGE:'comparison_subset_verified',FAILURE_STAGE:'passed',
         'preflight-resume':'transaction_ready','preflight-plan':'transaction_ready','preflight-test-group':'test_group_verified','preflight-begin':'transaction_ready','preflight-native-group':'native_group_verified','staged-gpu-linked':'gpu_execution_completed',
         **{name:'compiler_verified' for name in COMPILE_STAGES},**{name:'object_verified' for name in OBJECT_STAGES}}[stage]
     compiler_verified=bool(proof and proof.get('mode')=='compile-only' and proof.get('compiler_verified') is True and proof.get('calculation_verified') is False and type(proof.get('gpu_calls')) is int and proof['gpu_calls']==0 and type(proof.get('driver_load_calls')) is int and proof['driver_load_calls']==0)
@@ -342,20 +368,24 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None)
     if stage==RECOVERY_STAGE:verified=verified_readback(proof)
     if stage==NATIVE_GROUP_STAGE:
         verified=verified_native_group(proof,plan['object_request'])
+    if stage==FAILURE_STAGE:verified=verified_failure(proof,plan['object_request'])
     if stage in STAGED_FIELDS:verified=verified_staged(proof,stage,manifest['package_id'])
     stage_verified=bool(facts['passed'] and verified)
-    result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,compiler_verified=compiler_verified,generation_verified=generation_verified if stage=='generation' else False,calculation_verified=bool(stage not in (*COMPILE_STAGES,*OBJECT_STAGES,'generation','tests') and proof and proof.get('calculation_verified')),cpu_verified=bool(proof and proof.get('cpu_verified')),smoke_verified=bool(proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
+    result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,compiler_verified=compiler_verified,generation_verified=generation_verified if stage=='generation' else False,calculation_verified=bool(stage not in (*COMPILE_STAGES,*OBJECT_STAGES,'generation','tests',FAILURE_STAGE) and proof and proof.get('calculation_verified')),cpu_verified=bool(proof and proof.get('cpu_verified')),smoke_verified=bool(proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
     if stage=='tests':result.update(cpu_tests_verified=tests_verified,cpu_reference_verified=False)
     if stage in OBJECT_STAGES:result.update(diagnostic_verified=diagnostic_verified,object_verified=diagnostic_verified,link_verified=bool(diagnostic_verified and stage=='jit-link-object'))
     save(folder/'stage-result.json',result);return result
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--capture',type=Path,required=True);parser.add_argument('--stage',choices=STAGES);parser.add_argument('--backend',choices=('metal','cuda'));parser.add_argument('--timeout',type=int,default=180);parser.add_argument('--original-workspace');parser.add_argument('--request',type=Path);parser.add_argument('--_child',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--capture',type=Path,required=True);parser.add_argument('--stage',choices=STAGES);parser.add_argument('--backend',choices=('metal','cuda'));parser.add_argument('--timeout',type=int,default=180);parser.add_argument('--original-workspace');parser.add_argument('--request',type=Path);parser.add_argument('--slang-root',type=Path,help='Explicit paired paths for staged-gpu-linked; requires --generation-cache');parser.add_argument('--generation-cache',type=Path);parser.add_argument('--_child',action='store_true');args=parser.parse_args()
+    if bool(args.slang_root)!=bool(args.generation_cache):parser.error('--slang-root and --generation-cache must be supplied together')
+    if args._child and args.slang_root:parser.error('Child settings come from its frozen recipe and environment')
     if args._child:child(args.capture.resolve());return
     if not args.stage or not args.backend:parser.error('--stage and --backend required')
     request=None
     if args.request:
         if args.request.stat().st_size>16384:raise ValueError('Saved-object request exceeds16KiB')
         request=json.loads(args.request.read_text(encoding='utf-8'))
-    result=run_stage(args.capture,args.stage,args.backend,args.timeout,args.original_workspace,request);print(json.dumps(result));raise SystemExit(0 if result['stage_verified'] else 1)
+    settings=dict(slang_root=str(args.slang_root),generation_cache=str(args.generation_cache)) if args.slang_root else None
+    result=run_stage(args.capture,args.stage,args.backend,args.timeout,args.original_workspace,request,generation_settings=settings);print(json.dumps(result));raise SystemExit(0 if result['stage_verified'] else 1)
 if __name__=='__main__':main()

@@ -6,6 +6,69 @@ from unittest.mock import patch,Mock
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 spec=importlib.util.spec_from_file_location('packet_stage',ROOT/'scripts/run-gpu-packet.py');stage=importlib.util.module_from_spec(spec);spec.loader.exec_module(stage)
 class PacketStageTests(unittest.TestCase):
+    def test_failure_audit_stage_never_promotes_calculation_or_allows_gpu_settings(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d).resolve();request=dict(source_package=str(base/'saved-package'),source_capture=str(base/'saved-capture'),expected_package_id='a'*64)
+            plan=stage.recipe('controller',stage.FAILURE_STAGE,'cuda',base/'audit',base/'original',180,request)
+            args=stage.proof_arguments(plan)
+            self.assertEqual(args[0],'staged-failure-check');self.assertNotIn('staged-run',args)
+            self.assertNotIn('--slang-root',args)
+        for forged in (False,True):
+            with tempfile.TemporaryDirectory() as d:
+                base=Path(d);root=base/'packet';root.mkdir();folder=base/'audit'
+                proof=dict(mode='saved-staged-failure-audit',package_id='a'*64,
+                    **{k:True for k in ('passed','pre_generation_failure_verified','source_control_flow_verified','containment_verified','prepared_input_verified','execution_claim_consumed')},
+                    **{k:False for k in ('execution_permitted','native_admission_revalidated','linked_artifact_revalidated','host_revalidated','claims_modified')},calculation_verified=forged,gpu_calls=0,compiler_calls=0,native_calls=0)
+                def bounded(*a,**kw):
+                    (folder/'proof').mkdir();(folder/'proof/result.json').write_text(json.dumps(proof));return dict(passed=True)
+                cli=SimpleNamespace(validation_environment=lambda _:dict(),bounded_module=lambda:SimpleNamespace(run_bounded=bounded))
+                with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='controller',suite='fixture')),patch.object(stage,'load_module',return_value=cli),patch.object(stage,'is_windows',return_value=False):
+                    result=stage.run_stage(folder,stage.FAILURE_STAGE,'cuda',180,base/'original',request)
+                self.assertEqual(result['stage_verified'],not forged);self.assertFalse(result['calculation_verified'])
+
+    def test_main_forwards_explicit_paths_as_structured_settings(self):
+        import contextlib,io
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d).resolve();settings=dict(slang_root=str(base/'slang'),generation_cache=str(base/'cache'))
+            argv=['packet','--capture',str(base/'capture'),'--stage','staged-gpu-linked','--backend','cuda','--slang-root',settings['slang_root'],'--generation-cache',settings['generation_cache']]
+            with patch.object(stage.sys,'argv',argv),patch.object(stage,'run_stage',return_value=dict(stage_verified=True)) as run,contextlib.redirect_stdout(io.StringIO()),self.assertRaises(SystemExit) as done:
+                stage.main()
+            self.assertEqual(done.exception.code,0)
+            self.assertEqual(run.call_args.kwargs['generation_settings'],settings)
+    def test_explicit_generation_settings_are_frozen_and_child_gets_them_without_parent_changes(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d).resolve();root=base/'packet';root.mkdir();compiler=base/'slang';(compiler/'bin').mkdir(parents=True)
+            (compiler/'bin/slangc').write_bytes(b'never executed');cache=base/'generation';cache.mkdir()
+            settings=dict(slang_root=str(compiler),generation_cache=str(cache));inherited={'NIKKE_SLANG_ROOT':'wrong','NIKKE_SLANG_GENERATION_CACHE':'wrong'}
+            before=dict(inherited);seen=[]
+            def bounded(command,folder,timeout,**kwargs):seen.append(kwargs['env']);return dict(passed=False)
+            cli=SimpleNamespace(validation_environment=lambda _:inherited,bounded_module=lambda:SimpleNamespace(run_bounded=bounded))
+            request={k:str(base/k) for k in ('transaction','linked_package','linked_capture')};capture=base/'capture'
+            with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='id',suite='fixture')),\
+                patch.object(stage,'load_module',return_value=cli),patch.object(stage,'is_windows',return_value=False):
+                result=stage.run_stage(capture,'staged-gpu-linked','cuda',180,base/'original',request,generation_settings=settings)
+            self.assertFalse(result['stage_verified']);self.assertEqual(inherited,before)
+            self.assertEqual(seen[0]['NIKKE_SLANG_ROOT'],str(compiler));self.assertEqual(seen[0]['NIKKE_SLANG_GENERATION_CACHE'],str(cache))
+            self.assertEqual(seen[0]['NIKKE_SLANG_GENERATION_REQUIRED'],'1')
+            self.assertEqual(json.loads((capture/'recipe.json').read_text())['generation_settings'],settings)
+
+    def test_explicit_generation_settings_reject_partial_relative_and_unrelated_stage(self):
+        settings=dict(slang_root='/absolute/slang',generation_cache='/absolute/cache')
+        request={k:'/absolute/'+k for k in ('transaction','linked_package','linked_capture')}
+        for bad in ({},dict(slang_root='/absolute/slang'),dict(settings,generation_cache='relative'),dict(settings,extra='/x')):
+            with self.subTest(bad=bad),self.assertRaises(ValueError):stage.recipe('id','staged-gpu-linked','cuda','/tmp/out','/tmp/original',180,request,generation_settings=bad)
+        with self.assertRaises(ValueError):stage.recipe('id','cpu','metal','/tmp/out',None,180,generation_settings=settings)
+
+    def test_child_rejects_explicit_path_environment_drift_before_start_record(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d).resolve();folder=base/'capture';folder.mkdir();settings=dict(slang_root=str(base/'slang'),generation_cache=str(base/'cache'))
+            request={k:str(base/k) for k in ('transaction','linked_package','linked_capture')}
+            plan=stage.recipe('id','staged-gpu-linked','cuda',folder,base/'original',180,request,generation_settings=settings)
+            (folder/'recipe.json').write_text(json.dumps(plan))
+            with patch.object(stage,'packet_header',return_value=dict(package_id='id')),patch.object(stage,'load_module'),patch.dict(stage.os.environ,{},clear=True):
+                with self.assertRaisesRegex(ValueError,'bounded child environment'):stage.child(folder)
+            self.assertFalse((folder/'child.json').exists())
+
     def test_staged_environment_failure_precedes_claim_native_and_job(self):
         with tempfile.TemporaryDirectory() as d:
             base=Path(d);root=base/'packet';root.mkdir()

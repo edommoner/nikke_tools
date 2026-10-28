@@ -417,7 +417,7 @@ SUITES['add-attack-battle-cache-only']=dict(SUITES['add-attack-battle'],cuda_cac
 SUITES['add-self-destruct']=dict(script='research/verify-add-self-destruct.py',source='gpu/world_add_self_destruct_entry.slang',golden='research/portable-add-self-destruct-v1-expected.json',inputs=14,native=8,input_words=116464,output_words=2032000,development_only=False,parent_oracle_reuse=True,support_files=['research/target-count-query-evidence/add-self-destruct-native-contract-v1.json','research/portable-compiler-full--add-self-destruct-source-certificate.json'],tests=['test_add_self_destruct_wire.py','test_add_self_destruct_native.py','test_reference_rewrite.py','test_portable_wire_layout.py','test_portable_parent_oracles.py'])
 SUITES['add-self-destruct-cache-only']=dict(SUITES['add-self-destruct'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['add-self-destruct']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['enemy-ammo-self-destruct']=dict(script='research/verify-enemy-ammo-self-destruct.py',source='gpu/world_enemy_ammo_self_destruct_entry.slang',golden='research/portable-enemy-ammo-self-destruct-v1-expected.json',inputs=16,native=8,input_words=117632,output_words=2032000,development_only=False,parent_oracle_reuse=True,support_files=['research/portable-compiler-full--enemy-ammo-self-destruct-source-certificate.json'],tests=['test_enemy_ammo_combined_wire.py','test_enemy_ammo_self_destruct.py','test_enemy_ammo_model.py','test_reference_rewrite.py','test_portable_parent_oracles.py'])
-SUITES['enemy-ammo-self-destruct-cache-only']=dict(SUITES['enemy-ammo-self-destruct'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['enemy-ammo-self-destruct']['tests'],'test_portable_cuda_cached_profile.py'])
+SUITES['enemy-ammo-self-destruct-cache-only']=dict(SUITES['enemy-ammo-self-destruct'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['enemy-ammo-self-destruct']['tests'],'test_portable_cuda_cached_profile.py','test_portable_packet_stage.py','test_portable_staged_failure.py'])
 SUITES['ammo-instant-numeric']=dict(script='research/verify-ammo-instant-numeric.py',source='gpu/ammo_instant_numeric_probe.slang',golden='research/portable-ammo-instant-numeric-v1-expected.json',inputs=713,native=705,input_words=16,output_words=8,development_only=False,tests=['test_ammo_instant_numeric.py'])
 SUITES['ammo-instant-numeric-cache-only']=dict(SUITES['ammo-instant-numeric'],cuda_cache_profile='compile-cache-only-v1',tests=['test_ammo_instant_numeric.py','test_portable_cuda_cached_profile.py'])
 SUITES['enemy-ammo']=dict(script='research/verify-enemy-ammo.py',source='gpu/world_enemy_ammo_entry.slang',golden='research/portable-enemy-ammo-v1-expected.json',inputs=20,native=6,input_words=117632,output_words=2032000,development_only=False,parent_oracle_reuse=True,tests=['test_enemy_ammo_model.py','test_enemy_ammo_wire.py','test_ammo_instant_numeric.py','test_reference_rewrite.py','test_portable_parent_oracles.py'])
@@ -3502,6 +3502,7 @@ def main(argv=None):
     for name in ('capture','gpu-capture'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('preflight-native-group');a.add_argument('--group-index',type=int,required=True)
     for name in ('transaction','capture'):a.add_argument('--'+name,type=Path,required=True)
+    a=sub.add_parser('staged-failure-check');a.add_argument('--package-root',type=Path,required=True);a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--expected-package-id',required=True)
     a=sub.add_parser('staged-preflight-check');a.add_argument('--backend',choices=('metal','cuda'),required=True)
     for name in ('transaction','gpu-capture','out'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('module-object');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
@@ -3578,7 +3579,14 @@ def main(argv=None):
     if getattr(a,'generation_cache',None):os.environ['NIKKE_SLANG_GENERATION_CACHE']=str(a.generation_cache.resolve())
     if getattr(a,'require_generation_cache',False):os.environ['NIKKE_SLANG_GENERATION_REQUIRED']='1'
     if hasattr(a,'capture'):a.capture=a.capture.resolve()
-    if a.command=='refresh-tests':
+    if a.command=='staged-failure-check':
+        from portable_staged_failure import check
+        with forbid_gpu():
+            if (ROOT/'gpu-package.json').exists():verify_package(ROOT)
+            report=check(SimpleNamespace(**globals()),a.package_root,a.capture,a.out,a.expected_package_id)
+        result={k:report[k] for k in ('passed','package_id','pre_generation_failure_verified','containment_verified','environment_preservation_verified','execution_permitted','native_admission_revalidated','linked_artifact_revalidated','gpu_calls','native_calls')}
+        result['report']=str(a.out.resolve());result['report_sha256']=sha(a.out.read_bytes())
+    elif a.command=='refresh-tests':
         from portable_test_repackage import refresh
         with forbid_gpu():result=refresh(SimpleNamespace(**globals()),a.source_package,a.source_capture,ROOT,a.test,a.out)
     elif a.command=='supplement-test-golden':

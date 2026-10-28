@@ -1,0 +1,16 @@
+{
+  "schema": "staged-missing-slang-phase-projection-v1",
+  "source": "Windows read-only tool response; stage/state/exception/pid projection, not the original full journal",
+  "original_failure_metadata_sha256": "c978dacc08e9815a6ad7ee9e0ee1643928800953e7aaea3d63595295eb3655d2",
+  "package_id": "04515f96e6ed68a969627db49b9c6f13ffedfae3349ed2a363420a30f70e4ae5",
+  "full_capture_audited": false,
+  "rows": [
+    {"stage": "cuda_linked_origin", "state": "verified", "exception": null, "pid": 67876},
+    {"stage": "shared_gpu_execute", "state": "entered", "exception": null, "pid": 67876},
+    {"stage": "slang_build", "state": "entered", "exception": null, "pid": 67876},
+    {"stage": "slang_generation_identity", "state": "entered", "exception": null, "pid": 67876},
+    {"stage": "slang_generation_identity", "state": "raised", "exception": "ValueError", "pid": 67876},
+    {"stage": "slang_build", "state": "raised", "exception": "ValueError", "pid": 67876},
+    {"stage": "shared_gpu_execute", "state": "raised", "exception": "ValueError", "pid": 67876}
+  ]
+}

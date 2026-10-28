@@ -1,3 +1,11 @@
+# 2026-10-29 staged CUDA失敗監査と明示生成設定
+
+元04515f96の消費済みexecution claimを再使用する既存経路はなく、その拒否を維持する。新CPU専用staged-failure-check / audit-staged-failureは、package owner・AST関数一致・7phase・両Job/監視・prepared全row/nonce/transaction/claimを既存監査器で検査する。passedでもexecution_permitted/native_admission_revalidated/linked_artifact_revalidated/host_revalidated/calculationはFalse。新しいimmutable recovery protocolは未実装であり、この診断でGPU再実行を許可しない。
+
+staged-gpu-linkedのSlang/cacheはペアのCLI引数でも指定でき、recipeとbounded子環境に固定する。親環境を変更せず、partial/relative/子でのdriftを拒否。旧packet/claimを編集しない。固定754fcea8の8群90unit成功、明示設定31/failure6/既存CLI50/preflight13検査成功。GPU/Slang/CUDAの追加実行0、生成normalizer/保護CPU/Slang source変更0。Windowsでは保存metadataを読取済みでphase projectionだけfixture化した。実原本の新監査はまだ未実施で、下のWindows結果取得後に記録する。
+
+詳細portable-staged-failure-audit.md、記録staged-failure-controller-v1.json。次はWindows原本をCPU専用・BelowNormal・2GiB・180秒で1回監査し、元106/native63と保存CUBINを保持する新controller移行を設計する。旧GPU/compile/native群を再実行しない。
+
 最終330e9603/cache固定packet6b4d8009は6群53unit成功。sealed paired生成は必須hit/Slang0、source-baseline current、CUBIN/O1・2GiB・60秒compile-plan、model-checkも成功（追加GPU/実CUDA/Windows依頼0）。記録enemy-ammo-self-destruct-final-cli-v1.json。GPU実計算とfresh独立監査は先の固定2d5ad371の16入力証拠であり、このunit-checkをfresh全native実行と扱わない。
 
 # 2026-10-29 敵弾薬と自爆を同じSlang実行器でMetal実証

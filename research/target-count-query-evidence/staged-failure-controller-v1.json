@@ -1,0 +1,33 @@
+{
+  "schema": "staged-failure-controller-v1",
+  "unit": {
+    "schema": "unit-check-v1",
+    "package_id": "754fcea8ada39be67da03e080b3fe16ecefc5ff75ac2b02068e204efb7911525",
+    "suite": "enemy-ammo-self-destruct-cache-only",
+    "passed": true,
+    "unit_tests_verified": true,
+    "full_native_preflight_executed": false,
+    "cpu_verified": false,
+    "calculation_verified": false,
+    "gpu_execution_verified": false,
+    "gpu_calls": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false,
+    "groups": 8,
+    "tests": 90
+  },
+  "source_package_id": "754fcea8ada39be67da03e080b3fe16ecefc5ff75ac2b02068e204efb7911525",
+  "explicit_settings_tests": 31,
+  "failure_audit_tests": 6,
+  "existing_cli_tests": 50,
+  "existing_staged_preflight_tests": 13,
+  "phase_projection_fixture": "tests/fixtures/staged-missing-slang-phase-projection-v1.json",
+  "windows_full_failure_audit_verified": false,
+  "old_execution_claims_consumed": true,
+  "execution_permitted": false,
+  "gpu_sources_modified": false,
+  "protected_cpu_modified": false,
+  "new_gpu_calls": 0,
+  "new_compiler_calls": 0,
+  "full_goal_complete": false
+}
