@@ -1,3 +1,7 @@
+# 2026-10-28 範囲battle初回Metalの初期化拒否を修正・再検証前
+
+v2はM5実GPUが完了したが正例4件すべてstage15/status64で初期化拒否、raw拒否8件は成立。失敗/raw/claimを保持し同claim再実行0。元Asukaのnamed-enemy MODE24..27とstack演算の併存が原因。新entryへ既存PORTABLE_NAMED_ENEMYを接続し、既存named validatorが検査する4wordだけstack検査から委譲。不正tag/name/flags/reservedを拒否する4件追加（全16入力）。新wire3/旧logical source5検査とpaired CUDA/MSL生成成功。修正版Metalは未検証、全目標未達。証拠named-range-battle-admission-v2.json。以下は履歴。
+
 # 2026-10-28 範囲battleの共通Slang実装・検証前
 
 元4world＋raw拒否8の新named-range-battleを実装。NRB1/version1のliteral tail544word（input116224/output2032000）に元damage row/base count/base radius/BODY colliderだけを保持し、元range/count定義をprivate stat94/93へ対応付ける。対象数は既存namedTargetCountValue、範囲はordered software binary64、候補順は既存actorSetCaptureへ接続。共通CP cast/queueにADD世代とBODY ordinalを固定し、既存ActorPool/land/counter/healへ配送する。新ダメージ式/HP/時計なし。全54cast record/全selectionと既存full battle比較を追加。GPU未実行、goldenなし。

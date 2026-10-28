@@ -28,5 +28,5 @@ class NamedRangeWire(unittest.TestCase):
             self.assertEqual(old[name],row['before'])
             with self.subTest(name=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
         s=importlib.util.spec_from_file_location('range_battle_adapter_test',ROOT/'research/verify-named-range-battle.py');a=importlib.util.module_from_spec(s);s.loader.exec_module(a)
-        rows,raw=a.prepare();self.assertEqual(len(rows),12);self.assertEqual(sum(d is not None for _,_,d in rows),4);self.assertEqual(len(raw),4+12*INPUT*4)
+        rows,raw=a.prepare();self.assertEqual(len(rows),16);self.assertEqual(sum(d is not None for _,_,d in rows),4);self.assertEqual(len(raw),4+16*INPUT*4)
 if __name__=='__main__':unittest.main()

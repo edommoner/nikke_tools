@@ -1,6 +1,7 @@
 // Original radial skill: same cast/queue, ActorPool, landing and events.
 #define PORTABLE_NAMED_RANGE_BATTLE
 #define PORTABLE_EFFECT_TARGET_COUNT
+#define PORTABLE_NAMED_ENEMY
 #include "named_range_battle_layout.slang"
 #include "coordinate_area_hooks.slang"
 #undef captureCoordinateCast

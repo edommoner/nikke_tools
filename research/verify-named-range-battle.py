@@ -18,6 +18,14 @@ def prepare():
     seed=rows[0][1]
     for label,at,value in [('magic',BASE,0),('version',BASE+1,2),('reserved',BASE+4,1),('missing-owner-rule',BASE+HEADER,0),('base-count',BASE+HEADER+1,129),('radius-nan',BASE+HEADER+3,0x7ff80000),('body-kind',BASE+HEADER+4,5),('unused-rule',BASE+HEADER+32,1)]:
         w=list(seed);w[at]=value;rows.append(('reject/named-range-battle/'+label,w,None))
+    # Exercise descriptor ownership when the original roster also enables
+    # stack operations. The common named-enemy validator must still reject
+    # every malformed operand admitted through the stack metadata bank.
+    named=[L['MODE_BASE']+r*L['MODE_WORDS']+24 for r in range(seed[1]) if seed[L['MODE_BASE']+r*L['MODE_WORDS']+24]==0x4e455231]
+    assert named,'Original named-enemy consumer required'
+    at=named[0]
+    for label,offset,value in [('named-tag',0,0),('named-symbol',1,257),('named-flags',2,4),('named-reserved',3,1)]:
+        w=list(seed);w[at+offset]=value;rows.append(('reject/named-range-battle/'+label,w,None))
     raw=array.array('I',[len(rows)])
     for _,w,_ in rows:raw.extend(w)
     if sys.byteorder!='little':raw.byteswap()
