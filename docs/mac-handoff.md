@@ -1,3 +1,5 @@
+固定CPU packet v1のown CLIで50unit・全4world fresh reference・旧sealed21のrequired generation hitが成功。追加のmodel-checkはarc golden未同梱でCPU停止。producer側auditとは区別し、必要な既存arc goldenを明示support_filesへ追加する。元失敗/packetは保持、計算sourceと旧Metal期待値の変更なし。
+
 # 2026-10-28 範囲の元87定義battle CPU接続・出所訂正
 
 前回範囲500%をマリと説明したが、実sourceは레이 (가칭)/index4。METAと定義11件が存在しis_preview=False。辞書や既存21 golden/input/rawは変更せず、元マリのキャラ認定へ使わない。旧case label original-Mariは履歴として保持。
