@@ -1,0 +1,13 @@
+{
+  "schema": "partitioned-saved-index-source-v1",
+  "package_id": "096bee6f817970d904334ab6d0a252be92819e3aaed070647c4c1dbdf0e3bf85",
+  "archive_bytes": 9640656,
+  "archive_sha256": "ee71ef3c741d5613d9208b3fb701c2627683b82f9f9d02e09b6d9d30a4865c1e",
+  "files": 2163,
+  "original_files_preserved": 2147,
+  "golden_unchanged": true,
+  "packet_tests": 47,
+  "mac_cpu_smoke_passed": true,
+  "cuda_execution_admitted": false,
+  "scope": "CPU-only row/page index over retained failed CUDA output; no GPU/native/compiler calls or claim changes"
+}
