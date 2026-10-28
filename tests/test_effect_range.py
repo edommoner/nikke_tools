@@ -45,14 +45,10 @@ class EffectRange(unittest.TestCase):
         config=nikke_gpu.SUITES['named-effect-range'];self.assertFalse(config['development_only'])
         self.assertIn('research/portable-coordinate-arcs-short-expected.json',config['support_files'])
         golden=json.loads((ROOT/config['golden']).read_text())
-        # An explicit immutable development packet carries its newly prepared
-        # source baseline in the verified manifest. The registered golden
-        # remains historical until real execution and independent sealing.
-        if (ROOT/'gpu-package.json').exists():
-            packet=nikke_gpu.verify_package(ROOT)
-            if packet['suite']=='named-effect-range' and packet.get('purpose')=='development':
-                golden=packet['golden']
-        self.assertEqual(golden['source_sha256'],source_hashes(config['source']))
+        from portable_source_baseline import check
+        source=check(ROOT,nikke_gpu,'named-effect-range')
+        self.assertEqual(source['source_sha256'],source_hashes(config['source']))
+        self.assertFalse(source['calculation_verified'])
         cached=nikke_gpu.SUITES['named-effect-range-cache-only'];self.assertEqual(cached['golden'],config['golden'])
         self.assertTrue(cached['require_paired_generation']);self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
         r=reference_readiness(dict(phase='effect',kind='buff',stat='effect_range_pct',target='self'))

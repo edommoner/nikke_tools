@@ -1,3 +1,5 @@
+`source-baseline --suite SUITE --out NEW.json` はsourceだけを検査する。通常は登録goldenのclosureが現sourceと完全一致する必要がある。検証済みdevelopment packet内だけは、そのmanifest closureに要求suiteの全sourceが同じSHAで含まれる場合に限り開発sourceを認め、登録goldenが現sourceかを別fieldへ記録する。過去golden/証明書の整合性、native、GPU、独立sealは省略せず、計算成功を主張しない。無関係suite・改変manifest・sealed stale sourceは拒否する。
+
 `named-range-battle` は元87定義・各54castの4world＋raw拒否12のsealed16入力。`package --suite named-range-battle --out NEW.zip` からown CLIを使う。`named-range-battle-cache-only` は同じ計算/goldenにCUBIN/O1・paired generation必須を適用する。元M5出力を保存replayとfresh独立sealで全比較済み、追加GPU0。現CUDA/実ゲーム半径/空間最近傍/defaultは未認定。[範囲](portable-named-effect-range.md)。
 
 `reference --suite named-range-battle-common --out NEW.json` は元アスカWILLE＋レイ（source名레이 (가칭)、is_preview=False）の全87定義でcast範囲・実敵集合・着弾を検査するCPU4world。前回「マリ」とした出所表記を訂正。今回のbattleのGPU wire/Metalは未接続で、既存sealed21とは別の範囲。[出所と実戦接続](portable-named-effect-range.md)。

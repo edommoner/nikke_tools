@@ -539,6 +539,8 @@ SUITES['coordinate-landing']['tests'] += ['test_coordinate_physical_common.py', 
 SUITES['coordinate-landing']['upstream_documents'] = ['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md']
 SUITES['coordinate-landing']['support_files'] = ['research/portable-coordinate-arcs-short-expected.json']
 SUITES['coordinate-landing-arena']=dict(SUITES['coordinate-landing'],script='research/verify-coordinate-landing-arena-short.py',source='gpu/coordinate_landing_arena_probe.slang',golden='research/portable-coordinate-landing-arena-short-expected.json',output_words=46582,development_only=False,tests=[*SUITES['coordinate-landing']['tests'],'test_coordinate_arc_arena.py','test_coordinate_landing_arena.py'])
+for _source_baseline_suite in ('logical-actor-geometry','logical-actor-rosters','enemy-healing','named-effect-range','named-range-battle'):
+    SUITES[_source_baseline_suite]['tests'].append('test_portable_source_baseline.py')
 for _metal_gate_suite in ('physical-lock-cover','lock-packet-bindings','live-lock-delivery'):
     SUITES[_metal_gate_suite]['tests'].append('test_required_metal_cache_preflight.py')
 SUITES['coordinate-landing-arena-cache-only']=dict(SUITES['coordinate-landing-arena'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['coordinate-landing-arena']['tests'],'test_portable_cuda_cached_profile.py'])
@@ -3530,6 +3532,7 @@ def main(argv=None):
     a=sub.add_parser('storage-check',help='CPU-only free-space budget check; does not archive or delete files')
     a.add_argument('--required-bytes',type=int,default=0);a.add_argument('--reserve-bytes',type=int,default=1024**3);a.add_argument('--path',type=Path,default=ROOT)
     a=sub.add_parser('unit-check',help='Bounded immutable unit groups only; no full native preflight or GPU proof');a.add_argument('--capture',type=Path,required=True)
+    a=sub.add_parser('source-baseline',help='Registered or verified development source closure only; no calculation proof');a.add_argument('--suite',required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
     a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--native-baseline-package',type=Path,help='Reuse expected native hashes only when CPU dependencies and prepared inputs match; fresh run/seal checks stay mandatory');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1','coordinate-typed-owner-status-witness-v1','coordinate-owner-counter-field-decoder-v1'])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True);a.add_argument('--reuse-payload-from',type=Path,help='Share exact payload bytes with an existing immutable package on the same filesystem; never edit either payload')
@@ -3815,6 +3818,13 @@ def main(argv=None):
         with forbid_gpu():result=admit(SimpleNamespace(**globals()),verify_package(ROOT),a.transaction,a.backend,a.gpu_capture)
         write(a.out,result)
     elif a.command=='unit-check':result=unit_capture(a.capture)
+    elif a.command=='source-baseline':
+        from portable_source_baseline import check as source_baseline_check
+        if a.out.exists():raise ValueError('Source baseline output already exists')
+        with forbid_gpu():proof=source_baseline_check(ROOT,SimpleNamespace(**globals()),a.suite)
+        write(a.out,proof)
+        result={k:proof[k] for k in ('schema','suite','verified','origin','registered_source_current','calculation_verified','gpu_calls')}
+        result['report']=str(a.out.resolve());result['report_sha256']=sha(a.out.read_bytes())
     elif a.command=='_tests':
         from portable_cpu_tests import run_groups,complete
         from portable_phase_audit import Journal

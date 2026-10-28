@@ -25,12 +25,15 @@ class DeliveryRecertification(unittest.TestCase):
         self.assertFalse(proof['current_cuda_verified']);self.assertFalse(r['gpu_supported'])
         self.assertEqual(r['lane'],'reference_model_gap')
 
-    def test_registered_goldens_match_current_source_and_exact_certificates(self):
+    def test_current_source_and_exact_registered_certificate_pairs_are_separate(self):
         from portable_backend import source_hashes
+        from portable_source_baseline import check
         for suite in ('logical-actor-geometry','logical-actor-rosters'):
             config=nikke_gpu.SUITES[suite];raw=(ROOT/config['golden']).read_bytes();g=json.loads(raw)
-            self.assertTrue(config['golden'].endswith('-v2-expected.json'))
-            self.assertEqual(g['source_sha256'],source_hashes(config['source']))
+            self.assertRegex(config['golden'],r'-v[1-9]\d*-expected\.json$')
+            proof=check(ROOT,nikke_gpu,suite)
+            self.assertEqual(proof['source_sha256'],source_hashes(config['source']))
+            self.assertFalse(proof['calculation_verified'])
             compiler=nikke_gpu.SUITES['compiler-full--'+suite]
             c=json.loads((ROOT/compiler['golden']).read_text())
             self.assertEqual(c['baseline_suite'],suite)

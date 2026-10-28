@@ -1,3 +1,7 @@
+# 2026-10-28 再認定用の共通source-baseline検査を実装
+
+旧logical/rosters/healingのgolden/証明書は整合するが、現sourceとは異なる。全てを現sourceへ付替えず、共通CLI source-baselineで通常の厳密一致と検証済みdevelopment closureを区別する。親/peerを認めるのは要求sourceの全file/SHAがactive manifestのclosureに含まれる時だけ。登録source current/計算認定/GPU認定は別field。旧golden/証明書pairの検査とfresh native/Metal/sealを残す。選択suiteの個別test分岐も共通helperへ統合。6境界検査・既存範囲8検査と現登録範囲のCLI source-checkが成功。temp alias初版の失敗はtest root.resolveで修正し、Slang生成器は変更なし。次は固定packetで旧32入力（logical13/rosters5/healing14）を現source再認定。Windows追加0、全目標未達。以下は履歴。
+
 最終358687dfの旧selection通常/cache固定packetは24/52unit成功。sealed paired生成はrequired hit/Slang0、CUBIN/O1・2GiB・60秒plan成功。最終model-checkも成功しcanonical consumer5種/公開受付/全目標未達を保持。追加GPU0/Windows0。記録named-range-final-cli-v7.json。
 
 # 2026-10-28 範囲battle通常/cache検査・旧selection21の現source再認定が成功
