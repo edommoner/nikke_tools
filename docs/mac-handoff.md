@@ -1,3 +1,5 @@
+最終packet v1のCPU unit gateは新source証明書の同梱漏れを検出（GPU/claim0）。producerの明示support_filesへ追加し、検査を維持して別v2へ固定する。失敗packetとログを保持し、元Metal/golden/source bytesは変更しない。
+
 # 2026-10-28 敵回復14入力のfresh独立監査が成功・通常CLIへ登録
 
 固定688de06e/package80c86ed0…のM5全14入力を、別fresh GPU禁止14群（元native6/拒否8、各180秒上限、計667.090秒）で全比較した。親oracle再利用0・追加GPU0。同じsealのgolden/source証明書を登録し、通常enemy-healingと同じ計算のenemy-healing-cache-onlyを追加。後者はCUBIN/O1とpaired generation必須。旧CPU契約とdefault gapは保持し、別の限定Metal証拠を分類へ追記。現CUDA/公開admission/全キャラは未認定。v4失敗とraw/claimは保持。小さな最終証跡enemy-healing-metal-sealed-v5.json。以下は履歴。

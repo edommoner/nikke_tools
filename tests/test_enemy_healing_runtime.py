@@ -59,6 +59,7 @@ class EnemyHealingRuntime(unittest.TestCase):
         from portable_readiness_semantics import reference_readiness
         golden_raw=(ROOT/suite['golden']).read_bytes();golden=json.loads(golden_raw)
         self.assertEqual(golden['source_sha256'],source_hashes(suite['source']))
+        self.assertIn(nikke_gpu.SUITES['compiler-full--enemy-healing']['golden'],suite['support_files'])
         certificate=json.loads((ROOT/nikke_gpu.SUITES['compiler-full--enemy-healing']['golden']).read_text())
         self.assertEqual(certificate['baseline_golden_sha256'],hashlib.sha256(golden_raw).hexdigest())
         self.assertEqual(certificate['source_sha256'],golden['source_sha256'])
