@@ -22,6 +22,9 @@ class EnemyAmmoWireTests(unittest.TestCase):
             self.assertEqual(w[E['BASE']:E['BASE']+4],[0x45414d31,1,len(c['enemy_ammo']),len(b)])
             self.assertEqual(w[L['RECIPIENT_BASE']+8:L['RECIPIENT_BASE']+16],[4,0,0,0,0,0,1,0])
             self.assertFalse(m['enemy_ammo_declarations']['CPU_state_or_schedule_as_input'])
+            from portable_coordinate_kind_admission import KindAdmission
+            self.assertEqual(KindAdmission(ROOT,'gpu/world_enemy_ammo_entry.slang').inspect(w)['unsupported'],[])
+            self.assertEqual({r['kind'] for r in KindAdmission(ROOT,'gpu/world_add_attack_battle_entry.slang').inspect(w)['unsupported']},{11})
 
     def test_declared_order_is_preserved_without_replacing_enemy_selection_order(self):
         c=fixtures()[0];_,p=prepare_case(c);rules=list(reversed(c['enemy_ammo']))

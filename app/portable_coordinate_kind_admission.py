@@ -16,6 +16,7 @@ EXTENSIONS=(
  ('PORTABLE_COORDINATE_ORIGINAL_STACKS',(16,17,19),False,'Existing own-stack and current-stack increase handlers.'),
  ('PORTABLE_COORDINATE_ORIGINAL_AMMO',(13,14),False,'Existing shared percentage and flat ammo handlers.'),
  ('PORTABLE_COORDINATE_ORIGINAL_RESOURCES',(9,10),False,'Existing shared gauge charge/consume handlers.'),
+ ('PORTABLE_ENEMY_AMMO',(11,),False,'Existing ammo-observed gauge consumption; opt-in enemy magazine battles.'),
  ('PORTABLE_COORDINATE_ORIGINAL_CLOCKS',(22,),False,'Existing shared remaining skill-clock reduction.'),
  ('PORTABLE_COORDINATE_ORIGINAL_ROSTER',(1,),False,'Existing named removal, recipient snapshot and callbacks.'),
  ('PORTABLE_COORDINATE_HEALING',(32,),False,'Existing received-healing pool discharge, including lifecycle.'),

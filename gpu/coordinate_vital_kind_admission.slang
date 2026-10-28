@@ -26,6 +26,9 @@
 #ifdef PORTABLE_COORDINATE_ORIGINAL_RESOURCES
             &&kind!=9&&kind!=10 // Existing shared gauge charge/consume handlers.
 #endif
+#ifdef PORTABLE_ENEMY_AMMO
+            &&kind!=11 // Existing ammo-observed gauge consumption; opt-in enemy magazine battles.
+#endif
 #ifdef PORTABLE_COORDINATE_ORIGINAL_CLOCKS
             &&kind!=22 // Existing shared remaining skill-clock reduction.
 #endif
