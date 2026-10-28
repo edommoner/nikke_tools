@@ -16,6 +16,7 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     for(uint i=8;i<16;i++)valid=valid&&commands[at+i]==0;
     if(!valid){results[outAt]=64;return;}
     int64_t flat;uint64_t fraction;int result;
-    if(!prepareAmmoInstant(kind,value,flat,fraction)||!ammoInstantResult(kind,capacity,current,flat,fraction,result)){results[outAt]=16;return;}
-    results[outAt+1]=0x414e5531U;results[outAt+2]=uint(result);
+    results[outAt+1]=0x414e5531U;
+    if(!prepareAmmoInstant(kind,value,flat,fraction)||!ammoInstantResult(kind,capacity,current,flat,fraction,result)){results[outAt+2]=16;return;}
+    results[outAt+3]=uint(result);
 }

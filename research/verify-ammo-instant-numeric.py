@@ -40,7 +40,7 @@ def prepare():
 
 def compare(block,domain):
     n=native_reference(domain)
-    expected=[0,0x414e5531,n['result']&0xffffffff,0,0,0,0,0] if n['status']==0 else [16,0,0,0,0,0,0,0]
+    expected=[0,0x414e5531,0,n['result']&0xffffffff,0,0,0,0] if n['status']==0 else [0,0x414e5531,16,0,0,0,0,0]
     assert list(block)==expected,dict(case=domain[0]['name'],actual=list(block),expected=expected)
     return n
 

@@ -39,7 +39,7 @@ class AmmoInstantNumericTests(unittest.TestCase):
 
     def test_comparer_rejects_a_corrupt_numeric_result(self):
         c=dict(name='corrupt',kind=13,capacity=10,current=3,value=15.)
-        with self.assertRaises(AssertionError):m.compare([0,0x414e5531,4,0,0,0,0,0],(c,))
+        with self.assertRaises(AssertionError):m.compare([0,0x414e5531,0,4,0,0,0,0],(c,))
 
 
 if __name__=='__main__':unittest.main()
