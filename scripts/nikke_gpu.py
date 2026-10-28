@@ -3493,6 +3493,12 @@ def main(argv=None):
     a=sub.add_parser('gpu-recovery-package');a.add_argument('--base-package',type=Path,required=True);a.add_argument('--origin-auditor',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('partitioned-file-package');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('partitioned-cuda-package');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--metal-reference',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('partitioned-index-compare')
+    for flag in ('reference','candidate','out'):a.add_argument('--'+flag,type=Path,required=True)
+    a.add_argument('--reference-raw',type=Path)
+    a=sub.add_parser('partitioned-saved-index')
+    for flag in ('source-package','source-capture','capture','original-workspace'):a.add_argument('--'+flag,type=Path,required=True)
+    a.add_argument('--raw-sha256',required=True);a.add_argument('--timeout',type=int,default=180);a.add_argument('--details',type=Path);a.add_argument('--details-sha256')
     for name in ('partitioned-cuda-smoke','partitioned-cuda-prepare','partitioned-cuda-run'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--original-workspace',type=Path);a.add_argument('--timeout',type=int)
         for flag in ('auditor-root','auditor-capture','gpu-capture','prepared','slang-root','generation-cache'):a.add_argument('--'+flag,type=Path)
@@ -3841,7 +3847,7 @@ def main(argv=None):
         options=dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}
         if a.command=='staged-run':options['preflight_transaction']=a.transaction
         result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**options)
-    elif a.command in ('partitioned-origin-smoke','partitioned-origin-audit','partitioned-cuda-smoke','partitioned-cuda-prepare','partitioned-cuda-run'):
+    elif a.command in ('partitioned-origin-smoke','partitioned-origin-audit','partitioned-cuda-smoke','partitioned-cuda-prepare','partitioned-cuda-run','partitioned-saved-index','partitioned-index-compare'):
         from portable_partitioned_cli import dispatch
         return dispatch(SimpleNamespace(**globals()),main,argv)
     elif a.command=='partitioned-native-audit':

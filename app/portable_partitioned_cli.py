@@ -12,7 +12,8 @@ ADDED=('app/portable_partitioned_transport.py','app/portable_partitioned_cli.py'
        'tests/test_portable_partitioned_addresses.py','tests/test_portable_partitioned_native.py',
        'app/portable_partitioned_cuda_trace.py','app/portable_partitioned_cuda_observer.py',
        'tests/test_portable_partitioned_cuda_trace.py','tests/test_portable_partitioned_cuda_observer.py',
-       'app/portable_partitioned_cuda_origin.py','tests/test_portable_partitioned_cuda_origin.py')
+       'app/portable_partitioned_cuda_origin.py','tests/test_portable_partitioned_cuda_origin.py',
+       'app/portable_partitioned_wire_index.py','tests/test_portable_partitioned_wire_index.py')
 CUDA_ADDED=('app/portable_partitioned_cuda_receipt.py','app/portable_partitioned_cuda_owner.py',
             'tests/test_portable_partitioned_cuda_receipt.py','tests/test_portable_partitioned_cuda_owner.py')
 MODE='partitioned-file-diagnostic-v1'
@@ -148,6 +149,27 @@ def child(cli,capture,backend):
 
 def dispatch(cli,original,argv=None):
     args=list(sys.argv[1:] if argv is None else argv)
+    if args and args[0]=='partitioned-index-compare':
+        p=argparse.ArgumentParser();p.add_argument('command')
+        for flag in ('reference','candidate','out'):p.add_argument('--'+flag,type=Path,required=True)
+        p.add_argument('--reference-raw',type=Path);a=p.parse_args(args)
+        from portable_partitioned_wire_index import compare,compare_samples
+        reference=cli.load(a.reference);candidate=cli.load(a.candidate)
+        report=compare_samples(reference,candidate,a.reference_raw) if a.reference_raw else compare(reference,candidate)
+        from portable_staged_preflight import exclusive
+        exclusive(a.out,report)
+        result={k:report[k] for k in ('schema','input_count','changed_page_count','all_logical_rows_equal','calculation_verified')}
+        result.update(changed_cases=len(report['changed_cases']),sample_cases=len(report.get('sample_comparisons',[])))
+        print(json.dumps(result,indent=2));return result
+    if args and args[0]=='partitioned-saved-index':
+        p=argparse.ArgumentParser();p.add_argument('command')
+        for flag in ('source-package','source-capture','capture','original-workspace'):p.add_argument('--'+flag,type=Path,required=True)
+        p.add_argument('--raw-sha256',required=True);p.add_argument('--timeout',type=int,default=180);p.add_argument('--details',type=Path);p.add_argument('--details-sha256');a=p.parse_args(args)
+        from portable_partitioned_wire_index import run as index_saved
+        result=index_saved(cli,a.source_package,a.source_capture,a.capture,a.original_workspace,a.raw_sha256,a.timeout,details=a.details,details_sha256=a.details_sha256)
+        print(json.dumps(result,indent=2))
+        if not result['passed']:raise SystemExit(1)
+        return result
     if args and args[0] in ('partitioned-cuda-smoke','partitioned-cuda-prepare','partitioned-cuda-run'):
         p=argparse.ArgumentParser();p.add_argument('command');p.add_argument('--capture',type=Path,required=True)
         p.add_argument('--original-workspace',type=Path);p.add_argument('--timeout',type=int)
@@ -197,6 +219,10 @@ def dispatch(cli,original,argv=None):
         return result
     if args and args[0]=='_child':
         p=argparse.ArgumentParser();p.add_argument('command');p.add_argument('--capture',type=Path,required=True);p.add_argument('--backend',required=True);a=p.parse_args(args)
+        if cli.load(a.capture/'run.json').get('mode')=='partitioned-saved-wire-index-v1':
+            if a.backend!='cuda':raise ValueError('Saved CUDA wire index requires its explicit CPU stage identity')
+            from portable_partitioned_wire_index import child as index_child
+            return index_child(cli,a.capture.resolve())
         if cli.load(a.capture/'run.json').get('mode')=='partitioned-cuda-owner-v1':
             if a.backend!='cuda':raise ValueError('CUDA owner requires its explicit backend')
             from portable_partitioned_cuda_owner import child as cuda_child

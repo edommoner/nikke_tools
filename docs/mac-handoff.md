@@ -1,3 +1,11 @@
+# 2026-10-29 保存CUDA差分をCPUだけで23ケースへ限定
+
+共通CLIに`partitioned-saved-index`と`partitioned-index-compare`を追加。既存hash helper/source-pinned address view/Job監査を再利用し、旧raw・失敗判定・claimsを変更しない。Windows index15.582秒、詳細13.713秒、GPU/compile/native追加0。固定report8c349c2cとa2a2a2e1からmetadataだけを取得した。全106statusはMetalと一致、83行は論理全byte一致、差分23行/191個64KiBページ/315個4KiB block。最大8ケースの8192uint32を輸送し、Macで全875MB参照/row/sample SHAを検査してword比較した。
+
+最初のミサトHP照会の累積healingはMetal283571/282542/282456/281928/280623対CUDA全0。addsケースのcarrier pass49/50はslot71/72が入れ替わり、抽出範囲の他fieldは一致。owner/bodyなどにはtotal damageの差もある。これは一律ULP差ではないが、原因をcompiler/alias/初期化と断定できない。slot差を除外・正規化せず、厳密比較は失敗のまま。次はこの保存差分と共通health/carrier/typed owner経路を照合し、原因を限定した上で共有shader修正を設計すること。旧GPUの再送・再compile・上限増加は行わない。
+
+診断完了は計算成功ではない。共通CLIの比較exit0でもall_logical_rows_equal=False/calculation_verified=Falseを読む。原本B/partitioned-details-windows-v1-report、CPU比較B/partitioned-index-word-comparison-v2.json。詳細[分割転送](portable-partitioned-file-transport.md)、記録partitioned-cuda-saved-word-diagnosis-v1.json。公開GPU/全キャラ/全特殊効果は未達。以下は履歴。
+
 # 2026-10-29 CUDA全106の実API成功・出力差分を検出（再実行禁止）
 
 固定e2f6470d/2166file、source固定24c11faaの単発CUDA ownerを実装。固定97e9477e CPU監査と独立Metal/native参照ca3c24a8を結合し、fresh静的input再構築とsource/header/CUBIN照合を維持する。約127秒の元producer監査をGPU子で繰り返さない。新しい専用claimと旧失敗・claimに結ぶ安定ledgerで重複実行を拒否。旧claim/ledgerは保持。元2147file/既存CLI関数/全goldenを保持し、shader/正本/厳密normalizer変更0。own52＋checkout129テスト、Mac CPU smoke成功。

@@ -108,3 +108,24 @@ GPU起動時には元失敗とconsumed claimのhashから安定した新ledger�
 
 
 Windows実行結果：固定e2f6470dはsmoke8.246秒、prepare42.079秒、GPU27.561秒、全Job post0/timeout0。7launch/7sync/106 chunk readbackは全return0で完了し、旧code2は今回発生しなかった。全106のrawはbc59f8bb…、論理viewもsealed baselineと不一致のため元stage/計算はFalseのまま。全875MBのpartialと7batchを保持し、再実行0。report固定d48d5050から38file/360328byteを取得し、Macでは末尾の既知のpost-readback failureを明示したAPI-prefix projectionだけを同じ監査器で検査した。全traceは失敗のままで、計算成功へ置換しない。source/code/claimsを維持して保存データのCPU差分調査へ進む。今後のtransportは計算済みaddress-view JSONを不一致判定前に保存するが、既存captureはbackfillしない。現checkoutの関連130テスト成功、実行済みpacketのown52テスト成功。証跡 `partitioned-cuda-single-attempt-v1.json`。
+
+
+## 保存済みCUDAの行・ページ・数値差分（CPUのみ）
+
+`partitioned-saved-index` は固定e2f6470dの失敗captureを変更せず、全raw SHA・元artifact anchors・input/plan/ABIを前後検査し、行SHAと64KiBページSHAを新しいcaptureへ保存する。source-pinned typed address viewをRAM内だけに適用する。既存のreadback-block hash helper、Job/start gate/BelowNormal/2GiBを再利用し、最大180秒、GPU/driver/Slang/native禁止。`passed=True`は診断完了だけであり、元計算はFalseのまま。
+
+```text
+python scripts/nikke_gpu.py partitioned-saved-index --source-package FAILED_PACKAGE --source-capture FAILED_GPU --capture NEW_INDEX --original-workspace ORIGINAL --raw-sha256 RECORDED_RAW_SHA --timeout 180
+```
+
+任意の`--details REQUEST.json --details-sha256 SHA`は、参照の4KiB block hashesを固定する。差分block一覧と、最初の異なる8ケースから各1block、計8192 uint32以下だけを出力する。raw再生成やGPU再送はしない。
+
+Mac側の比較は以下。`--reference-raw`を付けると参照全体と各row SHAをストリーム検証し、輸送した全sample hash/参照block/範囲/重複/整数型を確認して、実際に異なるwordを出す。ここではraw SHAと論理SHAが同一の参照だけを許可する。address viewが必要なrawをそのまま参照にしない。
+
+```text
+python scripts/nikke_gpu.py partitioned-index-compare --reference METAL_INDEX.json --candidate CUDA_INDEX.json --reference-raw METAL_RAW --out NEW_COMPARISON.json
+```
+
+比較コマンドは不一致でも診断完了としてexit0を返す。`all_logical_rows_equal`と`changed_cases`を読むこと。`calculation_verified`は常にFalseで、この結果をsealやGPU受付へ流用しない。出力はexclusiveで旧診断を上書きしない。
+
+2026-10-29：保存CUDA全106の83rowは論理全byte一致、23row/191ページ/315個の4KiB blockが異なる。全statusはMetalと同じ0:63/64:43。Windows最初のindex15.582秒、詳細index13.713秒で完了し、GPU/compile/native追加0。詳細report固定a2a2a2e1の10file/1296393byteを取得。Macの全875469264byte参照検査と8sample比較が成功した。ミサトの最初のHP照会にはhealing 283571/282542/282456/281928/280623対CUDAの全0があり、addsケースのcarrier pass49/50ではslot71/72だけが入れ替わる。owner/body等ではtotal damageの差もある。slot差を正規化・除外せず、数値差を丸めと断定しない。根本原因・修正・CUDA計算の再認定は未完了。元失敗/capture/claims/goldenは不変。

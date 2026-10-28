@@ -1,0 +1,293 @@
+{
+  "schema": "partitioned-cuda-saved-word-diagnosis-v1",
+  "source_commit": "c3cdd4fb",
+  "windows_report": {
+    "commit": "a2a2a2e1077db9704c5670aef13f574d1fbbde21",
+    "files": [
+      {
+        "path": "details-summary.json",
+        "bytes": 1793,
+        "sha256": "cad88b69b78e4e4ac7e096372e30c750c1f1df0253b4ef9bb4ebc1d85b2e64fc"
+      },
+      {
+        "path": "details/artifacts.json",
+        "bytes": 1983,
+        "sha256": "91c8fff70a176f51a8d77e1b0f67138b434a77e2567b33123a80c827a5ccc67f"
+      },
+      {
+        "path": "details/execution.json",
+        "bytes": 1782,
+        "sha256": "008e5b73f7f5e889016546023847c97f1b6ce62fdcd1a34f962bced21872283e"
+      },
+      {
+        "path": "details/index.json",
+        "bytes": 1285722,
+        "sha256": "de24ecaeeb1830b2833f83a5031d73b280b2c123e59102ad9f5592a227f15628"
+      },
+      {
+        "path": "details/job.json",
+        "bytes": 1090,
+        "sha256": "a844ddba0e2bfed802d66f89eb49a6d8b11fa199d99ad2b7c344760d20fd6e05"
+      },
+      {
+        "path": "details/phases.jsonl",
+        "bytes": 954,
+        "sha256": "6e69ddc5d505ce9d7de9c639cf2dcdbfad0c15a5f4089b5493d1608d98404683"
+      },
+      {
+        "path": "details/result.json",
+        "bytes": 432,
+        "sha256": "ede267bb4e749e50fb5485f8d91a285bd3a447695e5eaa07a3844eb76bb507a4"
+      },
+      {
+        "path": "details/runtime.json",
+        "bytes": 1030,
+        "sha256": "b54440c392768d8ee132b61a6b25f6a5159cfe0cd86a6e40dd6d941a7abe943d"
+      },
+      {
+        "path": "details/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "sharing-manifest.json",
+        "bytes": 1607,
+        "sha256": "b4a729c3af66cf6455ca5bd37177cf048241a2723ac3e44eaf622ae2743ff0f2"
+      }
+    ]
+  },
+  "comparison_sha256": "107be9e98807fb2cbd4aac327eeee01d957c69d9c21c93b1e81a69f9afb6dac7",
+  "input_count": 106,
+  "equal_logical_rows": 83,
+  "changed_cases": [
+    9,
+    68,
+    69,
+    70,
+    71,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105
+  ],
+  "changed_pages": 191,
+  "changed_4k_blocks": 315,
+  "sample_words": 8192,
+  "sample_comparisons": [
+    {
+      "block_word": 20480,
+      "case_index": 9,
+      "changed_words": [
+        {
+          "candidate": 0,
+          "reference": 1091653324,
+          "word": 21177
+        },
+        {
+          "candidate": 0,
+          "reference": 1091649208,
+          "word": 21187
+        },
+        {
+          "candidate": 0,
+          "reference": 1091648864,
+          "word": 21197
+        },
+        {
+          "candidate": 0,
+          "reference": 1091646752,
+          "word": 21207
+        },
+        {
+          "candidate": 0,
+          "reference": 1091641532,
+          "word": 21217
+        }
+      ],
+      "name": "coordinate-typed/original-modifier-probe/HP/미사토/30s"
+    },
+    {
+      "block_word": 0,
+      "case_index": 68,
+      "changed_words": [
+        {
+          "candidate": 1092959800,
+          "reference": 1093005850,
+          "word": 21
+        },
+        {
+          "candidate": 2147483648,
+          "reference": 0,
+          "word": 22
+        },
+        {
+          "candidate": 1096358282,
+          "reference": 1096388901,
+          "word": 23
+        },
+        {
+          "candidate": 1093519964,
+          "reference": 1093573756,
+          "word": 25
+        },
+        {
+          "candidate": 1093761769,
+          "reference": 1093779126,
+          "word": 27
+        },
+        {
+          "candidate": 2061584302,
+          "reference": 858993459,
+          "word": 42
+        },
+        {
+          "candidate": 3224350228,
+          "reference": 3225006899,
+          "word": 43
+        }
+      ],
+      "name": "coordinate-typed-owner/body"
+    },
+    {
+      "block_word": 26624,
+      "case_index": 69,
+      "changed_words": [
+        {
+          "candidate": 72,
+          "reference": 71,
+          "word": 27367
+        },
+        {
+          "candidate": 71,
+          "reference": 72,
+          "word": 27390
+        }
+      ],
+      "name": "coordinate-typed-owner/adds"
+    },
+    {
+      "block_word": 0,
+      "case_index": 70,
+      "changed_words": [
+        {
+          "candidate": 3221225472,
+          "reference": 0,
+          "word": 22
+        },
+        {
+          "candidate": 1096037496,
+          "reference": 1096048906,
+          "word": 23
+        },
+        {
+          "candidate": 1093462044,
+          "reference": 1093526856,
+          "word": 25
+        },
+        {
+          "candidate": 1093141828,
+          "reference": 1093179364,
+          "word": 27
+        },
+        {
+          "candidate": 3951369912,
+          "reference": 858993459,
+          "word": 42
+        },
+        {
+          "candidate": 3223566417,
+          "reference": 3225006899,
+          "word": 43
+        }
+      ],
+      "name": "coordinate-typed-owner/manual-typed-with-adds"
+    },
+    {
+      "block_word": 0,
+      "case_index": 71,
+      "changed_words": [
+        {
+          "candidate": 1089840720,
+          "reference": 1090081920,
+          "word": 19
+        }
+      ],
+      "name": "coordinate-typed-owner/counter-owner-with-adds"
+    },
+    {
+      "block_word": 0,
+      "case_index": 80,
+      "changed_words": [
+        {
+          "candidate": 1089840720,
+          "reference": 1090081920,
+          "word": 19
+        }
+      ],
+      "name": "coordinate-typed-owner-lifecycle/projectile-live"
+    },
+    {
+      "block_word": 0,
+      "case_index": 81,
+      "changed_words": [
+        {
+          "candidate": 1089840720,
+          "reference": 1090081920,
+          "word": 19
+        }
+      ],
+      "name": "coordinate-typed-owner-lifecycle/hp-dead"
+    },
+    {
+      "block_word": 0,
+      "case_index": 82,
+      "changed_words": [
+        {
+          "candidate": 1089840720,
+          "reference": 1090081920,
+          "word": 19
+        }
+      ],
+      "name": "coordinate-typed-owner-lifecycle/projectile-dead"
+    }
+  ],
+  "reference_raw_sha256": "4ecc755e4f17e2eaaa9c9eb013bbcaa2fb27422893982f910894287df96ced09",
+  "windows_cpu_seconds": 13.71343700028956,
+  "gpu_calls": 0,
+  "compiler_calls": 0,
+  "native_calls": 0,
+  "calculation_verified": false,
+  "original_stage_passed": false,
+  "root_cause_established": false,
+  "raw_modified": false,
+  "full_goal_complete": false,
+  "validation": {
+    "partitioned_unit_tests": 56,
+    "cli_unit_tests": 50,
+    "readback_block_tests": 15,
+    "all_passed": true,
+    "model_check_sha256": "e061e679b910efd5f05ff38b20539ac922df305dcf389cd21a62f8ab544a7835",
+    "model_check_unchanged": true,
+    "missing_canonical_stat_consumers": [
+      "effect_range_pct",
+      "effect_target_count_add",
+      "enemy_movement_disable",
+      "force_move",
+      "lock_on"
+    ]
+  }
+}
