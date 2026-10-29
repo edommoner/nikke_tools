@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "package_id": "1e54383d95d39389d10e0bfb8b9d3a037f2fa6f310ac0749da13c10c64b2abc9",
+  "source_commit": "bf6e9f4b212aee708b7b9f6e5241ecb86c4c0510",
+  "archive_bytes": 13452157,
+  "archive_sha256": "447c672ed757eee0fdf1dcd87d5b2b0b12f97fdebd87b6474da47ad8c83f7ef6",
+  "summary_file": "tail-controls-summary-v1.json",
+  "summary_bytes": 4017,
+  "summary_sha256": "2686d3ba0a44a65f1dbb00de27fac9296cea9d1cf9fb6dc699ac8ce90275a1a5",
+  "public_payload": "summary-and-manifest-only",
+  "raw_included": false,
+  "logs_included": false,
+  "personal_paths_included": false
+}

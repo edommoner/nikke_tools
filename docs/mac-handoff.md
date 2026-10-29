@@ -1,3 +1,11 @@
+# 2026-10-29 Windowsの全制御gate・継続監査・単独native0が成功
+
+Windows固定1e54383d…がsmoke69群719検査（142.286秒）、resume監査（62.572秒）、単独native0（116.391秒、計算55.088秒/静的入力15.846秒）で成功。全Job2GiB/BelowNormal/gate、exit0/post空/欠落0、観測cleanup error無し。全4群計画は[0]/[1]/[2]/[3..14]、元test31の証拠を保持し、旧timeout/partialを成功へ昇格しない。GPU/driver/Slang/NVRTC/native値cache/retry0、サービス未識別の保全/overall falseも維持。
+
+固定9a27a9de…のsummary4017byte/manifest594byteを元bytes/SHAで取得し、case0のinputとnative指紋を元sealed goldenへ一致確認。peer field `native_case_0_output_sha256`はnative SHAでありGPU出力SHAではない（異なる値であることも検査）。smoke_control_testsはJSON float719.0として保持し、typed整数証明へ黙って変換しない。次のreportへ名称/型の訂正を依頼した。Macは小peer監査までで、Windows原rawの独立監査ではない。小記録`research/portable-reviewed-controls-first-native-peer-v1.json`。
+
+同じcapsule/transactionで未実行tail1/2/3だけを各180秒以内・順番に依頼済み。GPUは未依頼。全CPU成功後も、staged admissionと保存link再監査のCPU所要時間を調べてから、60秒GPU子予算へ収まるか判断する。現在の116秒stageを60秒GPU予算の証明には使わない。元captures/claimsを保持し、計算一致/全キャラ/目標は未完了。以下は履歴。
+
 # 2026-10-29 明示修正profile付き継続カプセルを固定
 
 `continuation-package --repair-controls`は、SHA固定ledgerで既知owner835c8dbd…の制御監査/テスト3ファイルと追加2ファイルだけを受け付ける。元3ファイルの完全なコピーも新capsuleのresearch/control-repair-originalsへ保存し、lineageで旧ownerと照合する。任意のテスト変更を許可せず、元の全golden・GPU/native/transport/計算bytesは保持する。旧75ea…smoke失敗/元native timeout/claimsを削除・再送しない。
