@@ -27,4 +27,7 @@ def verify(case,native):
     elif witness['family']=='Original-threshold':
         from portable_original_threshold_contracts import verify as threshold_verify
         threshold_verify(case,native)
+    elif witness['family']=='Original-probability':
+        from portable_original_probability_contracts import verify as probability_verify
+        probability_verify(case,native)
     else:raise AssertionError('Unknown original incoming witness')

@@ -13,7 +13,7 @@ class OriginalCatalogueIncoming(unittest.TestCase):
     def test_literal_scenes_list_without_native_preparation(self):
         with patch.object(engine_worker,'evaluate',side_effect=AssertionError('Metadata only')):
             rows=profiles();listed=adapter.case_catalog()
-        self.assertEqual(len(rows),4);self.assertEqual(len(listed),1080);self.assertTrue(set(rows)<=set(listed))
+        self.assertEqual(len(rows),4);self.assertEqual(len(listed),1084);self.assertTrue(set(rows)<=set(listed))
         red=[r for r in rows.values() if r['character']=='레드 후드']
         self.assertEqual(red[0]['body'],red[1]['body']);self.assertEqual(red[0]['patterns'],red[1]['patterns'])
         self.assertIn('declared_burst_sequence',red[0]);self.assertNotIn('declared_burst_sequence',red[1])

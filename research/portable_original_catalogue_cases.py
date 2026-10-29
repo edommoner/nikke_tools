@@ -28,6 +28,10 @@ def catalog(*,include_roles=False):
         extra=thresholds()
         if rows.keys()&extra.keys():raise ValueError('Duplicate original threshold identity')
         rows.update(extra)
+        from portable_original_probability_profiles import profiles as probabilities
+        extra=probabilities()
+        if rows.keys()&extra.keys():raise ValueError('Duplicate original probability identity')
+        rows.update(extra)
     return rows
 
 def selected_rows(names):
