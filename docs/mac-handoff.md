@@ -1,3 +1,11 @@
+# 2026-10-30 監査済み受け渡しの固定バイトストレージを共通CLIへ実装
+
+admission-snapshot/checkをCPU専用で実装。全sourceを重複分も読んでsize/SHA検査し、content address blobをZIP保存する。受信側は外部anchor SHAで全archiveを検査し、選択payloadを展開後にもsize/SHA照合、reader終了時に全archive再検査。元Windows pathを受信Macで開かずopaque origin IDとして扱う。安全な相対path/正規manifest/完全member一覧/サイズ上限、symlink/改変/部分失敗保持を実装。metadata viewはコピーで内部bindingを変更できない。
+
+固定633dcbb5…自身9検査＋全69群719制御検査に成功。2つの実immutable source package＋実入力7.39MB＋既存Metal archive9.91MBをCLIで往復。全7,997 sourceを4,000 blob/18,586,316byteへ保存し全byte一致。M5ストレージ検査+選択input/artifact readは0.083秒、CLI作成2.482秒/CLI検査0.209秒。これは合成transaction bindingによるストレージ試験だけで、Windowsの全admission/GPU起動時間ではない。元パッケージpayload/golden/全GPU/backend/generator/保護CPUを保持。
+
+admission_verified/calculation_verifiedはfalse固定、GPU/compiler/native0。意味監査済みinventory生成・準備owner/transaction/claimの認証・実GPU consumer・完全な独立post監査への接続は未実装。Windowsはidleのまま、GPU execution claim未消費を保持。次は[受け渡しの接続要件](portable-prepared-admission.md)に従って、ストレージを既存監査と実行器へ接続する。小記録research/portable-admission-snapshot-cli-v1.json、raw/archiveは永続local proofのみ。目標は未完了。以下は履歴。
+
 # 2026-10-29 起動前監査が101.644秒、60秒GPU子へは起動せず
 
 固定1e54383d…のread-only CPU計測が全15入力/native3の最終staged admissionと保存link admissionに成功。verify6.893秒、staged34.451秒、link67.181秒、入力read/hash0.012秒、合計B+C+D101.644秒、post verify8.597秒。外側123.338秒/exit0/peak109,580,288byte・2GiB/低優先度/gate/post空/欠落0/観測cleanup error無し。全57監視ファイルは不変、GPU execution claim未消費・future capture未作成、GPU/compiler/native/test再実行0。service不明の保全/overall falseを維持する。

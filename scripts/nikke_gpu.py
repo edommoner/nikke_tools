@@ -3566,6 +3566,10 @@ def main(argv=None):
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
     a=sub.add_parser('ptx-stats');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=8);a.add_argument('--callgraph',action='store_true')
     a=sub.add_parser('ptx-partition');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--function');a.add_argument('--audit',action='store_true')
+    a=sub.add_parser('admission-snapshot',help='CPU-only content snapshot; does not grant GPU admission')
+    a.add_argument('--inventory',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('admission-snapshot-check',help='CPU-only archive integrity against an external SHA; not admission')
+    a.add_argument('--snapshot',type=Path,required=True);a.add_argument('--expected-sha256',required=True)
     a=sub.add_parser('linked-reuse-audit',help='Read-only exact-PTX saved CUBIN admission; no GPU or compilation')
     for flag in ('linked-package','linked-capture','producer-package','producer-capture','out'):a.add_argument('--'+flag,type=Path,required=True)
     a=sub.add_parser('compile-plan',help='CPU-only immutable packet artifact/budget policy check before transport')
@@ -3761,6 +3765,12 @@ def main(argv=None):
         from portable_ptx_partition import saved_partition,audit_partition
         if a.audit and a.function:raise ValueError('Audit uses the stored focus; --function is creation only')
         result=audit_partition(a.cache_entry,a.phases,a.out) if a.audit else saved_partition(a.cache_entry,a.phases,a.out,a.function)
+    elif a.command=='admission-snapshot':
+        from portable_admission_snapshot import freeze
+        with forbid_gpu():result=freeze(load(a.inventory),a.out)
+    elif a.command=='admission-snapshot-check':
+        from portable_admission_snapshot import check
+        with forbid_gpu():result=check(a.snapshot,a.expected_sha256)
     elif a.command=='linked-reuse-audit':
         request=dict(package=str(a.linked_package.resolve()),capture=str(a.linked_capture.resolve()),producer_package=str(a.producer_package.resolve()),producer_capture=str(a.producer_capture.resolve()))
         proof=linked_reuse_audit(request,a.out)
