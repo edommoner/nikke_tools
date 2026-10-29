@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "source_package_id": "164a2455feb62bb1fdbfc3f2f509a0316b5b1e3ce981e49982f4395c1e35bc9a",
+  "ptx_bytes": 13556055,
+  "ptx_sha256": "e6d83bf98e727ee989aaca68364c632ebbf9e26c259dd71161462a90184a104e",
+  "cubin_sha256": "0f140174582ee39efb72e289817b4257e412f4afccaafc23979f23716926978b",
+  "compile_cache_key": "ded5292f9aa24aee1d01b79b04df40f46a9472a9d16bba8fdeb1751f9f61525e",
+  "receipt_match": true,
+  "source_integrity_verified": true,
+  "analysis_complete": true,
+  "functions": 271,
+  "entry_direct_reachable_definitions": 271,
+  "entry_closure_includes_entry": true,
+  "entry_direct_reachable_callees": 270,
+  "entry_immediate_defined_callees": 1,
+  "entry_declared_local_bytes": 0,
+  "entry_virtual_register_count": 19,
+  "entry_definition_sha256": "66219484d3548054b4cd42420cc689980656df7bf5f494d6d05a61732ae3cf56",
+  "largest_functions": [
+    {
+      "name": "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f610dispatch_0Ejjjjiyjyj",
+      "line": 279880,
+      "declared_local_bytes": 9784,
+      "virtual_register_count": 12572,
+      "definition_sha256": "7d82ae6a5770f1a2d81731ecadbe6fcbc0b429afa38729672fadeb6a4cc0e9d1"
+    },
+    {
+      "name": "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f616quantityTotals_0Ejjjyyy",
+      "line": 129462,
+      "declared_local_bytes": 5192,
+      "virtual_register_count": 2206,
+      "definition_sha256": "dfd9de6d620c3feb3094b996b125e9ff5664b9cef1d59c77f2a75bf16d901c18"
+    },
+    {
+      "name": "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f66tick_0Ejyj",
+      "line": 305787,
+      "declared_local_bytes": 2584,
+      "virtual_register_count": 1746,
+      "definition_sha256": "b84ea1fa7c6bc857ee312ccf111cbad6745e513cc42c9b07c0232940d12ce861"
+    },
+    {
+      "name": "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f612burstFrame_0Ejyj",
+      "line": 326308,
+      "declared_local_bytes": 2328,
+      "virtual_register_count": 10379,
+      "definition_sha256": "736b2fd875f5d0f4ac0b39d91d1d13a6df9da2c9127f4012db50fd23df7b91e3"
+    },
+    {
+      "name": "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f620consumeBulletBuffs_0Ejjyj",
+      "line": 397231,
+      "declared_local_bytes": 2068,
+      "virtual_register_count": 213,
+      "definition_sha256": "5899c760a7f143995c66048538ab49a59ee01b7006634126bbe6514bceefa257"
+    },
+    {
+      "name": "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f632captureWorldPeriodicDefinition_0Ejjjb",
+      "line": 240415,
+      "declared_local_bytes": 1044,
+      "virtual_register_count": 506,
+      "definition_sha256": "ccb9859159bc168aaa07a6c354924a6dae3afe199e1d4ec08d190055d39f166f"
+    },
+    {
+      "name": "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f616enqueueLanding_0Ejjjjjyyjjjjyyj",
+      "line": 183066,
+      "declared_local_bytes": 1040,
+      "virtual_register_count": 1529,
+      "definition_sha256": "a2fb6255c0e963084ee73609f1f1ae0c969bf1274b1f4d64067779c3bad2e285"
+    },
+    {
+      "name": "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f620prepareWeaponFrame_0EjjyjPjP8Weapon_0Pb",
+      "line": 359619,
+      "declared_local_bytes": 880,
+      "virtual_register_count": 6376,
+      "definition_sha256": "71b4d03c2b47912095676b3c15cc474c6d7e9c4640ee3323b03a2c31643694d0"
+    },
+    {
+      "name": "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f624arbitrateChargeControl_0Ejy",
+      "line": 343187,
+      "declared_local_bytes": 752,
+      "virtual_register_count": 7367,
+      "definition_sha256": "b4013bf3b9d59db9607365ccaea23357bd3826a965e285aeb75c0162ee0456ff"
+    },
+    {
+      "name": "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f633executeComposedCoordinateEvents_0Ej5uint3",
+      "line": 485857,
+      "declared_local_bytes": 744,
+      "virtual_register_count": 14478,
+      "definition_sha256": "735a2dce67ee1f6db176d80ca66c1d2543a33b86f27d436d745e0e5adccf69a6"
+    },
+    {
+      "name": "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f619firePendingBursts_0Ejyj",
+      "line": 319761,
+      "declared_local_bytes": 728,
+      "virtual_register_count": 4478,
+      "definition_sha256": "504c4bc710d8c58eab557ed09bcb630962181006d119575e5dcc9c34bca4cfd9"
+    },
+    {
+      "name": "_ZN42_INTERNAL_00000000_11_portable_cu_634e18f622advanceChargeControl_0Ejjy",
+      "line": 357205,
+      "declared_local_bytes": 688,
+      "virtual_register_count": 1197,
+      "definition_sha256": "ff56d3e9aa1107b009895b7a4fbabb33a72378c059e49ea81dfc7747e60e3981"
+    }
+  ],
+  "direct_graph_complete": true,
+  "indirect_call_count": 0,
+  "external_symbol_count": 0,
+  "unresolved_symbol_count": 0,
+  "cycle_count": 0,
+  "ptx_virtual_local_scope": "Declarations and direct topology only; not physical registers, linked peak stack, resource capacity, or failure attribution",
+  "compiler_memory_attribution_verified": false,
+  "physical_register_count_inferred": false,
+  "peak_stack_inferred": false,
+  "failure_cause_verified": false,
+  "calculation_verified": false,
+  "compiler_verified": false,
+  "gpu_calls": 0,
+  "driver_calls": 0,
+  "compiler_calls": 0,
+  "link_calls": 0,
+  "native_battle_calls": 0,
+  "test_calls": 0,
+  "device_query_calls": 0,
+  "cpu_smoke_reexecuted": false,
+  "gpu_stage_reexecuted": false,
+  "claims_deleted": false,
+  "retries": 0,
+  "original_136_and_cache_evidence_unchanged": true,
+  "monitored_files": 141,
+  "elapsed_seconds": 8.374253500252962,
+  "child_exit_code": 0,
+  "timeout_seconds": 180,
+  "timed_out": false,
+  "below_normal_priority": true,
+  "pre_gate_verified": true,
+  "job_post_members": 0,
+  "job_peak_memory_bytes": 97030144,
+  "job_memory_limit_bytes": 2147483648,
+  "missing_existing_processes": 0,
+  "service_preservation_verified": false,
+  "environment_preservation_verified": false,
+  "observation_error": null,
+  "cleanup_error": null,
+  "job_inspection_error": null,
+  "overall_verified": false,
+  "private_diagnostics_published": false
+}

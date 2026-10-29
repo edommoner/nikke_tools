@@ -31,4 +31,16 @@ post監査はresource_observationのrequested/recorded/completeを区別する�
 
 親のclaim直前にあったverify_packageを1回減らした。元のclaimが全consumer sourceとmanifestを再検査してから所有記録を作るため、その最後のbyte検査へ集約している。認証後のsource改変でGPU起動が止まることを実claim APIで検査する。最初の完全package検査、認証時検査、子自身の完全検査は残る。実行時間の短縮量は未測定。
 
-固定164a2455…で82群861制御検査成功（MacではWindows cleanup1skip）。Windows x64 ABI・device memory getter・エラーは合成戻り値で検査し、実device samplingは未実証。Mac実CLIの合成ログ正常系/誤SHA/Windows専用host gateも検査済み。GPU計算・protected CPU・goldenは不変。実WindowsではCPU host読取と保存済み失敗ログの要約だけを次に確認する。
+固定164a2455…で82群861制御検査成功（MacではWindows cleanup1skip）。Mac実CLIの合成ログ正常系/誤SHA/Windows専用host gateも検査済み。GPU計算・protected CPU・goldenは不変。
+
+## WindowsのCPU実証と保存PTXによる次の改善対象
+
+同じ固定packageで5群53検査が成功（30.577秒）。host-memoryは4.575秒で、自分と親のprivate commit／working set／過去peak、親handle解放、Jobの2GiB上限を実Windowsで取得した。Windows x64の実host ABIは確認済み。ただしこれは失敗時の値ではなく、実device samplingは未実証のまま。
+
+保存済み181,311byteのjournalを外部SHAで検証し、CPU要約が4.609秒で成功した。元のallocation3回成功／launch戻り値2／context destroy成功を保持した。旧journalには要求byte・launch形状・memory snapshotが無く、取得済みhost値で埋めない。全3段階は終了後Job空／元136file不変／新GPU claim無し。serviceが未知のため環境保全はfalse。
+
+既存ptx-stats --callgraphも8.374秒で成功。元のPTX・CUBIN・compile receiptと一致し、entryから271定義すべてに直接到達する。未解決・外部・間接call・cycleは0。宣言local上位はdispatch 9,784byte、quantityTotals 5,192byte、tick 2,584byte。ただしPTXの宣言量は物理register／最終peak stack／失敗原因ではない。元136fileとcache証跡5fileの計141fileも不変だった。
+
+次は既存のresident dispatch frame storageをmoving-groupへ接続し、全15入力／native3／拒否12と全出力比較を保持してMetalで検証する。quantityTotalsのseen配列とflagsの統合は別候補。追加の時計・計算式・効果実行器を作らず、資源削減は新しい生成物の測定後だけ認定する。
+
+今回のWindows追加GPU／driver／compile／link／native battleはすべて0。消費済み失敗試行は再実行していない。公開要約4ファイルの全byte・外部SHA照合と判断は `research/portable-prepared-memory-and-ptx-peer-v1.json`。旧ローカル実装checkpointの未実証値は当時の記録として保持する。

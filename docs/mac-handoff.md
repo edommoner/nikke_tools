@@ -1,3 +1,11 @@
+# 2026-10-30 Windows CPU53とhost ABI確認、保存PTXから改善箇所を特定
+
+固定378bf9a0/package164a2455のWindows5群53件が成功。新host-memoryは実自分・親・Job上限2GiBの読取と親handle解放を確認。保存journal要約は元launch戻り値2を保持し、未記録のallocation byte／launch形状／失敗時memoryをunknownとした。実device samplingは未実証。各段階終了後Job空、元136file不変、新GPU claim無し。
+
+同じsourceの既存ptx-stats --callgraphで、保存PTXとreceipt／CUBINの一致、271定義の完全な直接到達graphを確認。local宣言上位はdispatch9784／quantityTotals5192／tick2584byte。未解決・間接・外部call／cycle0。ただし物理register／peak stackやCUDA return2の原因を確定しない。元136＋cache証跡5file不変。Windows GPU／driver／compile／native battle追加0。
+
+公開summary/manifest計4fileの外部SHA・bytes・数値・失敗境界をMacで照合した。checkpointはresearch/portable-prepared-memory-and-ptx-peer-v1.json。次は既存resident Frame保存をmoving-group全15/native3/reject12へ接続してMetal実証し、新sourceの資源を測る。距離モデル調査は同じスキル文の再探索を終了し、独立GPU対応を進める。CUDA計算／環境保全／全キャラ／目標は未達。以下は履歴。
+
 # 2026-10-30 メモリ観測CLIを追加、最終claim検査を保って重複1回削減
 
 host-memoryは自分と実parentのPrivateUsage/working set/別の過去peak、および既存Job ABIによるlimit/peakを読むWindows CPU専用CLI。任意PID指定/全process列挙/CUDA driver呼出しは無い。cuda-resource-summaryは外部SHAで固定した保存phaseからallocation要求byte・launch形状/戻り値・保存memory snapshotをまとめ、旧未記録値はunknown、最終append切断はincompleteとする。途中の破損/変わったSHA/偽のbool数値等を拒否する。いずれも計算認定false。
