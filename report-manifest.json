@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "source_package_id": "3fc64fb2422153af44c298d080daea031d4687fb4033f3f6e5e95931ad45d44f",
+  "source_commit": "e10be414cadb436683e44d235dd343506f10aafc",
+  "archive_bytes": 13455157,
+  "archive_sha256": "343275fb02af04e74e4799bc8cdad19c4cce3b8ab867797376a0a4d0689c181d",
+  "summary_file": "frames-ptx-summary-v1.json",
+  "summary_bytes": 9499,
+  "summary_sha256": "e639d03471508d622a6ac03a0388a5c6daf9782374c767925ff7fae8793d1649",
+  "public_payload": "numeric-ptx-summary-and-manifest-only",
+  "sdk_paths_included": false,
+  "nonce_included": false,
+  "binding_included": false,
+  "raw_ptx_included": false,
+  "cache_included": false,
+  "binary_included": false,
+  "private_diagnostics_included": false
+}
