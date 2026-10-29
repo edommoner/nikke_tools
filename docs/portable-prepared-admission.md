@@ -1,5 +1,15 @@
 # 監査済み入力の受け渡し：次の実装要件
 
+## 元準備の認証と一度だけの実行所有
+
+`authority-check --preparation-package ORIGINAL_PREPARATION_PACKET --preparation-stage COMPLETED_STAGE --binding SIX_FIELD_BINDING.json --expected-sha256 EXTERNAL_SNAPSHOT_SHA --certificate-sha256 EXTERNAL_CERT_SHA --out NEW_DIR`は、元Windows hostで成功した制限付きCPU準備を認証し、authority.jsonを新規保存する。CLIはclaimを作らず、GPUを起動しない。Macではauthority作成を拒否し、handoff-checkによるbytes点検だけが可能。JSONにauthority_verified=trueを記すだけでは実行所有を取得できない。
+
+元準備controllerの外部IDと全sourceを検査してから、そのwrapper recipeを再構成する。元command/base Python、子PID/親PID、packet_shared_cliの完了journalを既存job_containedへ渡して2GiB・gate・同一作成identity・終了空・時刻範囲を検査。既存compare_snapshotsで欠落0、終了直後30秒内のafter観測、stage専用claim、terminal result、証明書/外部SHAと完全handoffを照合する。準備とconsumerと元ownerは同じsuite/全goldenを要求し、元transaction/現在host/予約claim/未来capture未作成を照合。観測・証拠metadataは検査前後のhashも一致させ、サービス未知の保全falseを維持する。
+
+ライブラリのclaim APIは、その同じ認証呼出しが返す一回限りのメモリ上handleだけを受け付ける。claim直前に証拠・consumer全source・snapshot SHA・hostを再検査し、元transactionのgpu-execution-claimed.json、consumerのgpu-claimed-cuda.json、authority出力のclaim.jsonを新規作成する。元予約claimは変更しない。新protocol snapshot-prepared-v1と元owner/準備/consumer/nonce/capture/SHAを別々に束縛し、legacyの最小claimへ黙って置換しない。書込み途中で失敗しても既存claimを残し、同じhandleの再利用・削除・自動再試行をしない。現在CLIにclaim実行入口やGPU runnerは公開していない。
+
+固定80c928f3…自身でauthority13を含む関連105検査と既存69群719制御検査（Windows限定1skip）が成功、payload/全golden/455計算record/元CLI main以外の全関数AST保持。テストは一時fixture内で論理Windows分岐をlocal proxyに通し、実JobやGPUとして認定しない。実CLIはMacでのauthority作成をexit1、出力/claim無しで拒否した。小記録research/portable-admission-authority-cli-v1.json。実Windowsでは準備自体が未実行で、本番authority/claim/GPU0。GPU子protocolと完全な独立post監査は未接続であり、60秒子予算の実証ではない。
+
 ## 固定snapshotの読み取りと共通実行器用adapter
 
 `handoff-check --snapshot FILE --expected-sha256 EXTERNAL_ARCHIVE_SHA --certificate-sha256 EXTERNAL_CERT_SHA --binding SIX_FIELD_BINDING.json --out NEW.json`を共通CLIへ追加した。sealed consumer自身を完全検査し、全golden/suiteと外部bindingをreaderへ渡す。成功時もhandoff_bytes_verifiedのみでexecution_admitted/calculation_verifiedはfalse、GPU起動はしない。準備controllerと実行consumerのpackage IDは別字段として保持する。SHA/bindingは今後の認証された準備/実行claimから取得すべき値で、任意の自己申告を実行許可へ変換しない。

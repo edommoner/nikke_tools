@@ -1,3 +1,13 @@
+# 2026-10-30 元準備の認証と一度だけのclaim APIを実装
+
+authority-checkは元Windows hostの成功済みCPU準備を既存wrapper recipe/Job/比較器で認証する。完全packet/全golden、command/base Python、子PID journal完了、2GiB/gate/終了空、欠落0/終了直後観測、元予約/transaction/nonce/外部snapshot/cert SHAを検査する。検査前後のmetadata保持も必須。サービス未知は保全falseのまま、CLIはpassive authority.jsonだけを作る。
+
+ライブラリclaim APIは同じ認証呼出しからの一回限りhandleだけを受け、claim直前にconsumer全source/証拠/snapshot/hostを再検査する。元transaction・consumerへsnapshot-prepared-v1の新規所有記録を束縛する。書込み途中の失敗はpartialを保持しhandleを再利用しない。JSONのsuccess flagをhandleへ変換しない。実GPU runner/claim用CLIはまだ公開せず、元の実試行には触れていない。
+
+固定80c928f3…自身で関連105検査（authority13を含むadmission62＋既存stage43）と全69群719制御検査成功、Windows限定1skip。全golden/455計算record/元CLI main以外全ASTとpayload保持。元の共通Job/観測parserで合成fixtureを検査し、実WindowsやGPUと扱わない。実CLIのMac負例はexit1/authority出力・claim無し。小記録research/portable-admission-authority-cli-v1.json、package/rawはlocalだけ。
+
+Windows追加依頼0、前回smoke停止後の実試行を変更していない。本番準備/authority/claim/GPUは未証明。次は認証＋所有handleを新しいGPU子protocolから共有executeへ接続し、元の60秒/2GiB/gateを維持して完全独立post監査へ接続する。全キャラ/目標は未完了。以下は履歴。
+
 # 2026-10-30 固定snapshotの検証読取と共有実行器用adapterを実装
 
 Handoff/handoff-checkは外部archive/certificate SHA、元owner/準備controller/実行consumerの別ID、read-set全digest、完全source record/全golden、元transaction/nonce/host/input全row、CUDA原文/headerと既存static CUBIN検査を接続した。元Windows pathは開かずsnapshot bytesだけで検査する。既存compile callbackへ1回だけCUBINを渡すadapterを追加し、異なる生成CUDA・compiler fallback・二度目/無供給・途中失敗の成功化を拒否する。共有execute本体/transport/生成/効果/数値は不変。

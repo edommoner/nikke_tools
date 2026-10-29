@@ -3566,6 +3566,9 @@ def main(argv=None):
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
     a=sub.add_parser('ptx-stats');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=8);a.add_argument('--callgraph',action='store_true')
     a=sub.add_parser('ptx-partition');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--function');a.add_argument('--audit',action='store_true')
+    a=sub.add_parser('authority-check',help='Original-host CPU preparation authentication only; never claims or launches GPU')
+    for flag in ('preparation-package','preparation-stage','binding','out'):a.add_argument('--'+flag,type=Path,required=True)
+    a.add_argument('--expected-sha256',required=True);a.add_argument('--certificate-sha256',required=True)
     a=sub.add_parser('handoff-check',help='CPU-only anchored snapshot/input/CUBIN check; never grants execution')
     a.add_argument('--snapshot',type=Path,required=True);a.add_argument('--expected-sha256',required=True);a.add_argument('--certificate-sha256',required=True)
     a.add_argument('--binding',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -3771,6 +3774,12 @@ def main(argv=None):
         from portable_ptx_partition import saved_partition,audit_partition
         if a.audit and a.function:raise ValueError('Audit uses the stored focus; --function is creation only')
         result=audit_partition(a.cache_entry,a.phases,a.out) if a.audit else saved_partition(a.cache_entry,a.phases,a.out,a.function)
+    elif a.command=='authority-check':
+        from portable_admission_authority import authenticate
+        checked=authenticate(SimpleNamespace(**globals()),a.preparation_package,a.preparation_stage,expected_binding=load(a.binding),snapshot_sha256=a.expected_sha256,certificate_sha256=a.certificate_sha256,out=a.out)
+        receipt=checked.receipt
+        result={k:receipt[k] for k in ('schema','binding','consumer_package_id','authority_verified','execution_admitted','calculation_verified','gpu_calls','envelope')}
+        result['report']=str(a.out.resolve()/'authority.json')
     elif a.command=='handoff-check':
         from portable_admission_handoff import Handoff
         from portable_staged_preflight import exclusive

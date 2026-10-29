@@ -720,6 +720,8 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 
 ## 監査済み入力の固定受け渡し
 
+`authority-check`は元Windows hostの完了済みbounded CPU準備、Job/観測/元予約と外部SHAを認証して新しいディレクトリへauthority.jsonを保存するCPU専用点検。claim/GPU起動は行わない。Macではこの権限作成を拒否する。[認証と一回限りの所有API](portable-prepared-admission.md)を参照。
+
 `handoff-check`は外部snapshot/certificate SHAとbindingから固定入力・出所・CUBINを読むCPU専用点検。元pathを開かず全goldenと照合し、準備controllerと実行consumerを別IDで保持する。実行claimやGPU起動を許可せず、成功もhandoff_bytes_verifiedだけ。[読取と共有adapterの契約](portable-prepared-admission.md)を参照。
 
 `prepare-admission`は元ownerの外部package ID、元transactionと保存link/現producer対を受け、既存の完全なCPU監査から証明書・inventory・snapshotを作る。claimやGPU実行は行わず、成功時もexecution_admitted/calculation false。[引数・検査・未接続境界](portable-prepared-admission.md)を参照。既存run/staged-runの受付を置き換えるものではなく、認証されたclaimとGPU consumerへの接続は未完了。
