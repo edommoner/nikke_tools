@@ -1,0 +1,233 @@
+{
+  "schema": "original-biscuit-threshold-native-triage-v1",
+  "native_only": true,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "full_goal_complete": false,
+  "definitions": 72,
+  "names": [
+    "비스킷",
+    "미란다",
+    "노아",
+    "센티",
+    "드레이크"
+  ],
+  "elapsed_seconds": 13.225052791996859,
+  "literal_patterns": {
+    "first-defender": {
+      "time": 1.0000000000000013,
+      "pattern": "first-defender",
+      "owner": 2,
+      "damage": 1778519.0,
+      "pierce": true,
+      "shield": 0.0,
+      "cover": 0.0,
+      "decoy": 0.0,
+      "hp": 1778519.0,
+      "hp_after": 2204129.0364,
+      "down": false
+    },
+    "first-protected": {
+      "time": 1.9999999999999978,
+      "pattern": "first-protected",
+      "owner": 2,
+      "damage": 78519.0,
+      "pierce": true,
+      "shield": 0.0,
+      "cover": 0.0,
+      "decoy": 0.0,
+      "hp": 0.0,
+      "hp_after": 2204129.0364,
+      "down": false
+    },
+    "second-defender": {
+      "time": 6.9999999999999805,
+      "pattern": "second-defender",
+      "owner": 3,
+      "damage": 1778519.0,
+      "pierce": true,
+      "shield": 0.0,
+      "cover": 0.0,
+      "decoy": 0.0,
+      "hp": 1778519.0,
+      "hp_after": 2204129.0364,
+      "down": false
+    },
+    "second-protected": {
+      "time": 7.999999999999977,
+      "pattern": "second-protected",
+      "owner": 3,
+      "damage": 78519.0,
+      "pierce": true,
+      "shield": 78519.0,
+      "cover": 0.0,
+      "decoy": 0.0,
+      "hp": 0.0,
+      "hp_after": 2204129.0364,
+      "down": false
+    },
+    "third-crossing": {
+      "time": 14.000000000000275,
+      "pattern": "third-crossing",
+      "owner": 2,
+      "damage": 1478519.0,
+      "pierce": true,
+      "shield": 0.0,
+      "cover": 0.0,
+      "decoy": 0.0,
+      "hp": 1478519.0,
+      "hp_after": 1423483.0728000002,
+      "down": false
+    },
+    "exhausted": {
+      "time": 14.10000000000028,
+      "pattern": "exhausted",
+      "owner": 2,
+      "damage": 78519.0,
+      "pierce": true,
+      "shield": 0.0,
+      "cover": 0.0,
+      "decoy": 0.0,
+      "hp": 78519.0,
+      "hp_after": 1344964.0728000002,
+      "down": false
+    }
+  },
+  "threshold_heals": [
+    {
+      "operation": "heal",
+      "row": 3,
+      "name": "터그 놀이 2",
+      "time": 1.0000000000000013,
+      "before": {
+        "hp": [
+          3000314.0,
+          3000314.0,
+          1506256.0,
+          3284775.0,
+          2715916.0
+        ],
+        "cover_hp": [
+          2000000.0,
+          2000000.0,
+          2000000.0,
+          2000000.0,
+          2000000.0
+        ]
+      },
+      "after": {
+        "hp": [
+          3000314.0,
+          3000314.0,
+          2204129.0364,
+          3284775.0,
+          2715916.0
+        ],
+        "cover_hp": [
+          2000000.0,
+          2000000.0,
+          2000000.0,
+          2000000.0,
+          2000000.0
+        ]
+      }
+    },
+    {
+      "operation": "heal",
+      "row": 3,
+      "name": "터그 놀이 2",
+      "time": 6.9999999999999805,
+      "before": {
+        "hp": [
+          3000314.0,
+          3000314.0,
+          2204129.0364,
+          1506256.0,
+          2715916.0
+        ],
+        "cover_hp": [
+          2000000.0,
+          2000000.0,
+          2000000.0,
+          2000000.0,
+          2000000.0
+        ]
+      },
+      "after": {
+        "hp": [
+          3000314.0,
+          3000314.0,
+          2902002.0728,
+          2204129.0364,
+          2715916.0
+        ],
+        "cover_hp": [
+          2000000.0,
+          2000000.0,
+          2000000.0,
+          2000000.0,
+          2000000.0
+        ]
+      }
+    }
+  ],
+  "activation_attempts": [
+    {
+      "operation": "activate",
+      "row": 2,
+      "time": 1.0000000000000013,
+      "active": [
+        {
+          "name": "터그 놀이",
+          "targets": [
+            "노아",
+            "센티"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "activate",
+      "row": 2,
+      "time": 6.9999999999999805,
+      "active": [
+        {
+          "name": "터그 놀이",
+          "targets": [
+            "노아",
+            "센티"
+          ]
+        }
+      ]
+    },
+    {
+      "operation": "activate",
+      "row": 2,
+      "time": 14.000000000000275,
+      "active": []
+    }
+  ],
+  "native_result_sha256": "ae7367caa84265bfa14926c66af84525704b542707922802abfc00d930f5faf1",
+  "native_path": "original-biscuit-threshold-inspection-v2-20261030/native.json",
+  "reference_source_sha256": {
+    "research/upstream/nikke-calc-master/calculator/buff_manager.py": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4",
+    "app/engine_worker.py": "a3b757c67f6f9034202dc5c4eaa89ee0107cf52aceb01dcb6f2f7ac3f80213fc",
+    "app/engine_compat.py": "1c293af9a1147fa01a72888165f9ff7a9700ea91bbf6f64fc43a520b5523b0d8"
+  },
+  "observations": [
+    "First defender is healed while the second remains full; second threshold heal also increases the already-recovered first defender.",
+    "Third buff activation call reaches max_trigger guard and leaves no active carrier; handler-call count is not actual activation count.",
+    "First later hit has HP/shield/cover damage zero; second later hit is shield-absorbed, so it cannot independently prove invincibility.",
+    "After the third crossing, a later hit reaches HP and no third threshold heal dispatch occurs."
+  ],
+  "scope": "Exploratory current native behavior, not GPU or in-game certification; do not rewrite protected CPU to force intended recipient semantics.",
+  "next_actions": [
+    "Freeze individual-recipient, second-recipient and exhausted-trigger controls through existing ordered catalogue path.",
+    "Compare original definition counts and actual timer activation counters, not handler calls.",
+    "Keep observed class-wide instant healing separate from per-target runtime buff conditions and unresolved game semantics."
+  ],
+  "passive_observation_retains_complete_native": true,
+  "native_canonical_json_sha256": "63057f16736f08f604b34b88255aaf7eabd3c65e7836ea6ee12aa8df1274bcc9",
+  "baseline_result_sha256": "b935fc8617ec4ed56ca7671bfb7d99f60234526b40a7898eff33a9804f6dfc98",
+  "baseline_elapsed_seconds": 13.266044416988734
+}

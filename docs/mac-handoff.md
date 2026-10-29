@@ -3554,3 +3554,12 @@ GPU49a58f13/packetd01a085d。初回38unit/CPU8/必須生成hit/Slang0後に全�
 固定6b2f43c1/packet4dce0418…がM5実GPU1回と別fresh GPU禁止sealで成功。GPU2.524232秒、generation/pipeline必須hit、Slang0、独立native4/88.015379秒/parent再利用0。最終e224f1e3のcache-only packetc6cb14e5…は29群258unit成功、CUBIN/O1/2GiB/60秒compile-plan成功（実compile/GPU0）。今回CUDA実機未確認、Windows追加依頼0。保存証跡を再利用しGPUを重複実行しない。
 
 catalogue1076の追加4はsceneで、新キャラ数ではない。元266profileの静的packing254/失敗12/分類13、public GPU/全キャラ未完了を保持。Lock Onの距離式は未確定のまま、次の候補は既存consumerがある原効果の未検証条件を優先し、reference_model_gapへ推測を埋めない。詳細 [元support条件](portable-original-support-conditions.md)、証跡 `research/target-count-query-evidence/original-support-conditions-metal-v1.json`。
+
+
+## 2026-10-30 次候補：ビスケットのHP閾値と発動上限
+
+元72定義の実5人編成（ビスケット/ミランダ/ノア/センチ/ドレイク）をCPUで調査。2防御型の実被弾で元row2無敵・row3回復を起こし、3回目の閾値と後続被弾を置いた。fresh native13.225秒/GPU0。最初の保護中はHP/shield/cover被害0、2人目の後続被弾はshield吸収なので無敵の独立証拠にしない。3回目は_activateへの呼出しがあってもmax_triggerでcarrierなし、回復dispatchもなく、後続被弾がHPに入る。
+
+注意：2人目が閾値に到達した時、元instant回復は既に回復した1人目にも入る。正本のally_hp_belowは発動時any-ally判定で、buffの対象別runtime条件とは区別が必要。ゲーム仕様をこの観測だけで認定せず、保護CPU/upstreamは変更0。次は観測なしnativeとの全指紋一致、個別対象/2人目/上限消費の対照を既存ordered経路へ固定してMetal比較へ進む。新suite/golden/現在CUDAの認定はまだない。初版のimport shadowと弱い被弾量もproofへ保持。小証跡 `research/target-count-query-evidence/original-biscuit-threshold-native-triage-v1.json`。
+
+受動観測なしの別native実行とも全結果が一致した（canonical JSON SHA `63057f16736f08f604b34b88255aaf7eabd3c65e7836ea6ee12aa8df1274bcc9`）。この比較はCPUの観測非干渉の証拠で、GPU認定ではない。
