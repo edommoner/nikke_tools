@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "package_id": "835c8dbd8f9a829a4cffbd5e933de061fa55eca7e969ddab728e69579e97d096",
+  "source_commit": "abbf537892cead44092171fba32ceeb4d63e7942",
+  "archive_bytes": 13437305,
+  "archive_sha256": "1e5b552fa6a3ca743f456ff2ad3c7a56d8f49ddbcc3e73b7c09ac2b87034c270",
+  "summary_file": "preflight-summary-v1.json",
+  "summary_bytes": 4815,
+  "summary_sha256": "5876bf2496aa05663a8df8cd5a832c1f8d1597180c81583aa92d563bf197156c",
+  "public_payload": "summary-and-manifest-only",
+  "raw_included": false,
+  "logs_included": false,
+  "personal_paths_included": false
+}
