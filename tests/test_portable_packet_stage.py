@@ -6,6 +6,47 @@ from unittest.mock import patch,Mock
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 spec=importlib.util.spec_from_file_location('packet_stage',ROOT/'scripts/run-gpu-packet.py');stage=importlib.util.module_from_spec(spec);spec.loader.exec_module(stage)
 class PacketStageTests(unittest.TestCase):
+    def reuse_proof(self):
+        from portable_linked_artifact import key
+        identity=dict(schema=1,provider='saved-module-jit-cubin',artifact='cubin',exact_ptx_reuse=dict(original_producer=dict(producer_package_id='old'),current_producer=dict(producer_package_id='current'),ptx_sha256='a'*64,ptx_bytes=12,compiler_key='b'*64))
+        return dict(schema='linked-ptx-reuse-audit-v1',package_id='id',reuse_admission_verified=True,
+                    calculation_verified=False,gpu_calls=0,compiler_calls=0,native_battle_calls=0,original_artifacts_modified=False,
+                    receipt=dict(identity=identity,key=key(identity),artifact_bytes=42,artifact_sha256='c'*64,enabled=True,reused=True))
+
+    def test_reuse_audit_requires_exact_paths_cuda_and_original_workspace(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d).resolve();request={k:str(base/k) for k in stage.REUSE_AUDIT_FIELDS}
+            plan=stage.recipe('id',stage.REUSE_AUDIT_STAGE,'cuda',base/'out',base/'original',180,request)
+            args=stage.proof_arguments(plan);self.assertEqual(args[0],'linked-reuse-audit');self.assertNotIn('run',args)
+            for k,v in request.items():self.assertEqual(args[args.index('--'+k.replace('_','-'))+1],v)
+            for bad in ({},dict(request,producer_capture='relative'),dict(request,extra='unexpected')):
+                with self.assertRaises(ValueError):stage.recipe('id',stage.REUSE_AUDIT_STAGE,'cuda',base/'out',base/'original',180,bad)
+            with self.assertRaises(ValueError):stage.recipe('id',stage.REUSE_AUDIT_STAGE,'metal',base/'out',base/'original',180,request)
+            with self.assertRaises(ValueError):stage.recipe('id',stage.REUSE_AUDIT_STAGE,'cuda',base/'out',None,180,request)
+
+    def test_reuse_audit_helper_delegates_existing_cli_with_frozen_identity(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d).resolve();request={k:str(base/k) for k in stage.REUSE_AUDIT_FIELDS};folder=base/'stage';folder.mkdir()
+            plan=stage.recipe('id',stage.REUSE_AUDIT_STAGE,'cuda',folder,base/'original',180,request)
+            cli=SimpleNamespace(linked_reuse_audit=Mock(return_value=self.reuse_proof()),collect=Mock())
+            stage.run_reuse_audit(cli,plan)
+            cli.linked_reuse_audit.assert_called_once_with(dict(package=request['linked_package'],capture=request['linked_capture'],producer_package=request['producer_package'],producer_capture=request['producer_capture']),Path(plan['proof_capture'])/'result.json',expected_package_id='id')
+            cli.collect.assert_called_once()
+
+    def test_reuse_audit_scope_forgery_never_promotes_gpu_or_compiler_success(self):
+        good=self.reuse_proof();self.assertTrue(stage.verified_reuse_audit(good,'id'))
+        for change in ({},dict(calculation_verified=True),dict(gpu_calls=1),dict(compiler_calls=1),dict(native_battle_calls=False),dict(original_artifacts_modified=True),dict(package_id='wrong'),dict(receipt={})):
+            with tempfile.TemporaryDirectory() as d:
+                base=Path(d).resolve();root=base/'packet';root.mkdir();folder=base/'out';request={k:str(base/k) for k in stage.REUSE_AUDIT_FIELDS};proof=dict(good,**change)
+                def bounded(*args,**kw):
+                    self.assertEqual(kw['env']['NIKKE_VALIDATION_JOB_MEMORY_MB'],'2048')
+                    (folder/'proof').mkdir();stage.save(folder/'proof/result.json',proof);return dict(passed=True)
+                cli=SimpleNamespace(validation_environment=lambda _:dict(),bounded_module=lambda:SimpleNamespace(run_bounded=bounded))
+                with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='id')),patch.object(stage,'load_module',return_value=cli),patch.object(stage,'is_windows',return_value=False):
+                    result=stage.run_stage(folder,stage.REUSE_AUDIT_STAGE,'cuda',180,base/'original',request)
+                self.assertEqual(result['linked_reuse_admission_verified'],not change)
+                self.assertFalse(result['calculation_verified']);self.assertFalse(result['compiler_verified'])
+
     def ptx_probe(self,hit=True):
         return dict(passed=True,probe_verified=True,calculation_verified=False,gpu_calls=0,nvrtc_compile_calls=0,
                     cache=dict(enabled=True,hit=hit,probe_only=True,identity=dict(artifact='ptx')))

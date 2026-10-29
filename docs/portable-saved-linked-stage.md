@@ -1,5 +1,15 @@
 # 保存CUBIN戦闘の全stage制限
 
+## 実PTX同一性による再利用監査
+
+`linked-reuse-audit --linked-package OLD_LINK_OWNER --linked-capture OLD_LINK_PROOF --producer-package CURRENT_PTX_OWNER --producer-capture CURRENT_PTX_PROOF --out NEW.json` は、旧object/linkの全chainと現sealed producerを別々に再監査する。旧・現の**実PTX全bytes**とsize/SHA/version/target、完全compiler identity/key/headers/options/DLLを照合し、現producerの全native goldenと実行側goldenの完全一致を要求する。現compile claimもpackage ID/capture/PTXに束縛する。旧link identity/sourceは保持し、追加receiptの`exact_ptx_reuse`へ旧・現producerを分けて記録する。normalized一致だけでは受け付けない。
+
+共通Windows wrapperは`--stage audit-linked-reuse --backend cuda --capture NEW --timeout 180 --original-workspace ORIGINAL --request REQUEST.json`。requestの4キーは絶対pathの`linked_package`/`linked_capture`/`producer_package`/`producer_capture`。既存Job/gate/BelowNormal/2GiB、専用stage claim/観測/collectを使う。監査だけでcompiler/GPU/native battleは0、出力は元入力外の新JSONのみ。再コンパイル、再リンク、原claim変更、GPU実行のfallbackはない。
+
+開発/固定24870e4d…自身209検査と前後payload検査が成功。bytes/metadata/compiler options/receipt/claim/native基準改変とforged scopeを拒否し、旧cold/current cache-hitの違いはidentityと混同しない。`research/portable-exact-ptx-linked-reuse-v1.json`。
+
+現時点ではread-only admission監査の接続まで。`run`/`staged-run`のCLIは従来の2-path linked requestを作るため、現producer pairをfresh transactionへ渡す接続と実CUDA計算は残る。監査成功だけを計算/全キャラ成功にしない。
+
 ## sealed producerとlink controllerを分ける（2026-10-29）
 
 従来のfull compiler ownerからの受付は保持する。新しい明示経路では、link controllerはsealed packet、計算の元producerは別の独立sealed world battle packetとして全payload/source/goldenを検証する。実行側・controller・元producerは全てsealed/非選択。元producerのgoldenは実行側の**全goldenと完全一致**し、entries/input/output指紋も必須。controllerの別goldenを元計算の証明に使わない。

@@ -47,6 +47,98 @@ class LinkedArtifactTests(unittest.TestCase):
         self.assertEqual(saved.read_verified(receipt,self.source,self.image)[0],linker.cubin())
         with self.assertRaisesRegex(ValueError,'full compiler'):self.receipt()
 
+    def ptx_reuse(self):
+        source=self.sealed_source();raw=b'.version 8.4\n.target sm_86\n.address_size 64\n'
+        self.producer['ptx']=dict(version='8.4',target='sm_86',bytes=len(raw),sha256=saved.digest(raw))
+        self.compiler['compile_artifact'].update(artifact_bytes=len(raw),artifact_sha256=saved.digest(raw),hit=True)
+        original=copy.deepcopy(self.producer);original['producer_package_id']='original-source'
+        original['source_sha256']={'gpu/old-source.slang':'b'*64}
+        original_compiler=copy.deepcopy(self.compiler);original_compiler['source_sha256']=original['source_sha256'];original_compiler['compile_artifact']['hit']=False
+        self.link['identity']['origin']['object_receipt']['identity']['origin']['producer']=copy.deepcopy(original)
+        self.link['key']=saved.key(self.link['identity']);self.anchors['link_receipt_key']=self.link['key']
+        return source,(original,original_compiler,raw,raw)
+
+    def test_actual_ptx_and_full_compiler_equality_reuse_old_image_without_relabeling(self):
+        source,reuse=self.ptx_reuse()
+        receipt=saved.admission(self.current,self.linked,self.producer,self.compiler,self.link,self.anchors,sealed_producer=source,ptx_reuse=reuse)
+        bridge=receipt['identity']['exact_ptx_reuse']
+        self.assertEqual(bridge['original_producer']['producer_package_id'],'original-source')
+        self.assertEqual(bridge['current_producer']['producer_package_id'],'source-owner')
+        self.assertEqual(receipt['identity']['link_identity'],self.link['identity'])
+        self.assertEqual(receipt['identity']['source_closure'],self.current['golden']['source_sha256'])
+        self.assertEqual(saved.read_verified(receipt,self.source,self.image)[0],linker.cubin())
+        with self.assertRaisesRegex(ValueError,'linked object producer'):
+            saved.admission(self.current,self.linked,self.producer,self.compiler,self.link,self.anchors,sealed_producer=source)
+
+    def test_ptx_reuse_rejects_bytes_identity_metadata_and_native_contract_changes(self):
+        source,reuse=self.ptx_reuse();old,compiler,raw,_=reuse
+        variants=[(old,compiler,raw,raw+b' '),(old,compiler,b'',b''),(old,compiler,bytearray(raw),raw)]
+        altered=copy.deepcopy(compiler);altered['compile_artifact']['identity']['options']=['different'];altered['compile_artifact']['key']=saved.key(altered['compile_artifact']['identity']);variants.append((old,altered,raw,raw))
+        altered=copy.deepcopy(compiler);altered['compile_artifact']['artifact_sha256']='0'*64;variants.append((old,altered,raw,raw))
+        altered=copy.deepcopy(old);altered['ptx']['bytes']+=1;variants.append((altered,compiler,raw,raw))
+        for bad in variants:
+            with self.assertRaises(ValueError):saved.admission(self.current,self.linked,self.producer,self.compiler,self.link,self.anchors,sealed_producer=source,ptx_reuse=bad)
+        with self.assertRaisesRegex(ValueError,'sealed producer'):
+            saved.admission(self.current,self.linked,self.producer,self.compiler,self.link,self.anchors,ptx_reuse=reuse)
+        source['golden']['input_sha256']='0'*64
+        with self.assertRaisesRegex(ValueError,'independently sealed'):
+            saved.admission(self.current,self.linked,self.producer,self.compiler,self.link,self.anchors,sealed_producer=source,ptx_reuse=reuse)
+
+    def test_reuse_audit_only_writes_new_receipt_and_never_launches_gpu(self):
+        source,reuse=self.ptx_reuse();receipt=saved.admission(self.current,self.linked,self.producer,self.compiler,self.link,self.anchors,sealed_producer=source,ptx_reuse=reuse)
+        out=self.root/'reuse-audit.json';before=self.image.read_bytes()
+        request={k:str(self.root/k) for k in ('package','capture','producer_package','producer_capture')}
+        with patch.object(cli,'verify_package',return_value=self.current),patch.object(cli,'saved_linked_admission',return_value=dict(receipt=receipt)),patch.object(cli,'run_capture',side_effect=AssertionError('No GPU')):
+            result=cli.linked_reuse_audit(request,out)
+            self.assertTrue(result['reuse_admission_verified']);self.assertFalse(result['calculation_verified'])
+            self.assertEqual(result['gpu_calls'],0);self.assertEqual(result['compiler_calls'],0)
+            with self.assertRaises(FileExistsError):cli.linked_reuse_audit(request,out)
+            with self.assertRaisesRegex(ValueError,'immutable inputs'):cli.linked_reuse_audit(request,Path(request['capture'])/'new.json')
+            with self.assertRaisesRegex(ValueError,'Exact absolute'):cli.linked_reuse_audit({},self.root/'missing.json')
+        self.assertEqual(self.image.read_bytes(),before)
+
+    def test_controller_reuse_audits_both_producers_and_checks_current_claim(self):
+        source,reuse=self.ptx_reuse();old,old_compiler,old_raw,current_raw=reuse
+        package=self.root/'reuse-link-owner';package.mkdir();capture=self.root/'reuse-link';capture.mkdir()
+        obj=self.root/'reuse-object';obj.mkdir();prior=self.root/'prior-ptx';prior.mkdir()
+        current_package=self.root/'current-package';current_package.mkdir();current_capture=self.root/'current-ptx';current_capture.mkdir()
+        cli.write(package/'gpu-package.json',self.linked);cli.write(current_package/'gpu-package.json',source)
+        self.producer['producer_manifest_sha256']=saved.digest((current_package/'gpu-package.json').read_bytes())
+        self.producer['producer_artifacts_sha256']='c'*64
+        cli.write(current_package/'compile-claimed-cuda.json',dict(package_id=source['package_id'],capture=str(current_capture),artifact_kind='ptx'))
+        for p in (package/'jit-link-object-claimed-cuda.json',capture/'artifacts.json'):cli.write(p,{})
+        cli.write(capture/'object-request.json',dict(object_capture=str(obj)))
+        cli.write(obj/'object-request.json',dict(source_capture=str(prior),source_package=str(self.root/'old-package')))
+        cli.write(prior/'compiler.json',old_compiler);(prior/'compiled.ptx').write_bytes(old_raw)
+        cli.write(current_capture/'compiler.json',self.compiler)
+        cli.write(capture/'jit-link.json',dict(origin=self.link['identity']['origin'],receipt=self.link))
+        from windows_validation_observer import compare_snapshots
+        before=dict(processes=[],service_status='unverified');cli.write(capture/'observation.json',dict(before=before,after=before,comparison=compare_snapshots(before,before)))
+        request=dict(package=str(package),capture=str(capture),producer_package=str(current_package),producer_capture=str(current_capture))
+        def verify(path,**kw):return self.linked if path==package else source
+        with patch.object(cli,'verify_package',side_effect=verify),patch.object(cli,'audit_jit_link_capture',return_value=dict(link_verified=True,containment_verified=True)) as audit,patch.object(cli,'assembly_origin',return_value=(self.producer,current_raw)) as origin:
+            state=cli.saved_linked_admission(self.current,request)
+            audit.assert_called_once_with(self.linked,capture,package_root=package)
+            origin.assert_called_once_with(self.current,current_package,current_capture,sealed_battle_source=True)
+            self.assertEqual(state['receipt']['identity']['exact_ptx_reuse']['original_producer'],old)
+            self.assertEqual(state['receipt']['identity']['exact_ptx_reuse']['current_producer'],self.producer)
+            cli.write(current_package/'compile-claimed-cuda.json',dict(package_id='wrong',capture=str(current_capture),artifact_kind='ptx'))
+            with self.assertRaisesRegex(ValueError,'claim mismatch'):cli.saved_linked_admission(self.current,request)
+            with self.assertRaisesRegex(ValueError,'Both current PTX'):cli.saved_linked_admission(self.current,{k:v for k,v in request.items() if k!='producer_capture'})
+
+    def test_cli_reuse_audit_forwards_explicit_paths_without_execution(self):
+        import contextlib,io
+        proof=dict(schema='linked-ptx-reuse-audit-v1',package_id='receiver',reuse_admission_verified=True,
+                   calculation_verified=False,gpu_calls=0,compiler_calls=0,native_battle_calls=0,
+                   original_artifacts_modified=False,scope='fixture',receipt=dict(key='d'*64))
+        paths={k:self.root/k for k in ('linked-package','linked-capture','producer-package','producer-capture','out')}
+        args=['linked-reuse-audit',*[v for k,p in paths.items() for v in ('--'+k,str(p))]]
+        with patch.object(cli,'linked_reuse_audit',return_value=proof) as audit,contextlib.redirect_stdout(io.StringIO()) as stdout:
+            cli.main(args)
+        self.assertEqual(audit.call_args.args[0],dict(package=str(paths['linked-package']),capture=str(paths['linked-capture']),producer_package=str(paths['producer-package']),producer_capture=str(paths['producer-capture'])))
+        self.assertEqual(audit.call_args.args[1],paths['out'])
+        result=json.loads(stdout.getvalue());self.assertFalse(result['calculation_verified']);self.assertEqual(result['receipt_key'],'d'*64)
+
     def test_sealed_source_admission_rejects_changed_native_baseline_and_provenance(self):
         source=self.sealed_source()
         changes=[(source,'purpose','development'),(self.linked,'purpose','compiler-diagnostic'),(source,'package_id','wrong-owner'),(source,'selected_cases',['partial']),

@@ -1,3 +1,9 @@
+# 2026-10-29 旧CUBINと現PTXの実byte再利用監査を接続
+
+新CLI `linked-reuse-audit`/共通bounded stage `audit-linked-reuse`を実装。旧object/JIT/PTXの全chainと、現sealed world producer/compile claim/Jobを別々に再監査し、実PTXの全byte・size/SHA/version/target・完全compiler identity/keyを要求する。現native全goldenとreceiver全goldenの一致も必須。旧source/link identityを保持し、追加receiptに旧/現producerを分ける。normalizedだけやhashだけの比較へ緩めず、GPU/compile/battle/fallback/原claim変更0。
+
+開発209/固定24870e4d…自身209検査、前後payload検査が成功。Windowsでは2GiB/BelowNormal/gate/外180秒の読み取り監査1回だけを次に行う。packet/SHA/未完了は`research/portable-exact-ptx-linked-reuse-v1.json`。[監査CLI](portable-saved-linked-stage.md)。現CLIのrun/staged-runはまだcurrent producer pairをfresh transactionへ渡さないため、その接続・現CUDA実行/独立比較は未完了。default/UI/全キャラ/目標は未達。以下は履歴。
+
 # 2026-10-29 現sourceでPTX cache再利用成功、移動停止の分類を更新
 
 Windows固定54c70a1d…で現sourceのpaired generation25.772秒/Slang2回を準備。元生成物の実byte/normalized pairへ一致し、共通bounded PTX probeがhit（auditor0.142秒/外10.511秒）。cache/generation必須の現PTX producerも成功、内14.315秒/外25.969秒・Slang/NVRTC0。元PTX13,556,055byte/SHA e6d83bf9…/compile key ded5292f…を再利用した。全Job/gate/低優先度/2GiB/終了0/欠落0/timeout・観測cleanup error無し。service不明は保全/overall false、compile exit2/wrapper1。GPU/battle/ptxas/object/link/retry0。report固定dee9d4f2…を原bytes/SHAで取り込み、Macは小peer照合まで。`research/portable-moving-group-current-cache-peer-v2.json`。

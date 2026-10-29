@@ -2844,6 +2844,8 @@ def linked_object_origin(request):
 def saved_linked_admission(m,request):
     """Independent full producer/object/link audit; never activates a compiler."""
     from portable_linked_artifact import admission
+    if bool(request.get('producer_package'))!=bool(request.get('producer_capture')):
+        raise ValueError('Both current PTX producer package and capture required')
     package=Path(request['package']).resolve();capture=Path(request['capture']).resolve()
     header=load(package/'gpu-package.json')
     linked=verify_package(package,historical_compiler=compiler_only(header))
@@ -2861,15 +2863,51 @@ def saved_linked_admission(m,request):
     anchors=dict(package_id=linked['package_id'],manifest_sha256=sha((package/'gpu-package.json').read_bytes()),
         artifacts_sha256=sha((capture/'artifacts.json').read_bytes()),claim_sha256=sha((package/'jit-link-object-claimed-cuda.json').read_bytes()),link_receipt_key=proof['receipt']['key'])
     if sealed_owner:
-        source_package=Path(object_request['source_package']).resolve()
+        original_producer=producer;original_compiler=compiler;reuse=None
+        source_package=Path(request.get('producer_package',object_request['source_package'])).resolve()
+        if request.get('producer_package'):
+            source_capture=Path(request['producer_capture']).resolve()
+            producer,current_raw=assembly_origin(m,source_package,source_capture,sealed_battle_source=True)
+            compiler=load(source_capture/'compiler.json')
+            original_raw=(Path(object_request['source_capture'])/'compiled.ptx').read_bytes()
+            reuse=(original_producer,original_compiler,original_raw,current_raw)
+            anchors['current_producer_artifacts_sha256']=producer['producer_artifacts_sha256']
+            claim=load(source_package/'compile-claimed-cuda.json')
+            if claim.get('package_id')!=producer['producer_package_id'] or Path(claim.get('capture','')).resolve()!=source_capture or claim.get('artifact_kind')!='ptx':
+                raise ValueError('Current PTX producer claim mismatch')
+            anchors['current_producer_claim_sha256']=sha((source_package/'compile-claimed-cuda.json').read_bytes())
         source=verify_package(source_package)
         config=SUITES[source['suite']]
         if compiler_only(source) or source.get('purpose','sealed')!='sealed' or not config.get('source','').startswith('gpu/world_') or not config['source'].endswith('_entry.slang'):
             raise ValueError('Saved CUBIN requires a sealed world battle source producer')
         anchors['producer_manifest_sha256']=sha((source_package/'gpu-package.json').read_bytes())
-        receipt=admission(m,linked,producer,compiler,proof['receipt'],anchors,sealed_producer=source)
-    else:receipt=admission(m,linked,producer,compiler,proof['receipt'],anchors)
+        receipt=admission(m,linked,producer,compiler,proof['receipt'],anchors,sealed_producer=source,ptx_reuse=reuse)
+    else:
+        if request.get('producer_package'):raise ValueError('Exact PTX reuse requires a sealed link controller')
+        receipt=admission(m,linked,producer,compiler,proof['receipt'],anchors)
     return dict(receipt=receipt,artifact=str(capture/'jit-linked.cubin'))
+
+
+def linked_reuse_audit(request,output,*,expected_package_id=None):
+    """CPU-only admission audit; preserve original artifacts and all claims."""
+    fields={'package','capture','producer_package','producer_capture'}
+    if type(request) is not dict or set(request)!=fields or any(type(v) is not str or not Path(v).is_absolute() for v in request.values()):
+        raise ValueError('Exact absolute linked/current producer paths required')
+    output=Path(output).resolve()
+    if any(output==p or p in output.parents for p in [ROOT.resolve(),*[Path(v).resolve() for v in request.values()]]):
+        raise ValueError('Reuse audit output must be outside immutable inputs')
+    if output.exists():raise FileExistsError(output)
+    with forbid_gpu():
+        manifest=verify_package(ROOT)
+        if expected_package_id is not None and manifest['package_id']!=expected_package_id:raise ValueError('Reuse audit packet identity changed')
+        state=saved_linked_admission(manifest,request)
+    if not state['receipt']['identity'].get('exact_ptx_reuse'):raise ValueError('Exact PTX reuse proof missing')
+    result=dict(schema='linked-ptx-reuse-audit-v1',package_id=manifest['package_id'],
+        reuse_admission_verified=True,receipt=state['receipt'],calculation_verified=False,
+        gpu_calls=0,compiler_calls=0,native_battle_calls=0,original_artifacts_modified=False,
+        scope='Exact saved PTX/object/link lineage admission only; no GPU calculation or fresh native verification')
+    with output.open('x',encoding='utf-8') as stream:json.dump(result,stream,indent=2);stream.write('\n')
+    return result
 
 
 @contextlib.contextmanager
@@ -3521,6 +3559,8 @@ def main(argv=None):
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
     a=sub.add_parser('ptx-stats');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=8);a.add_argument('--callgraph',action='store_true')
     a=sub.add_parser('ptx-partition');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--function');a.add_argument('--audit',action='store_true')
+    a=sub.add_parser('linked-reuse-audit',help='Read-only exact-PTX saved CUBIN admission; no GPU or compilation')
+    for flag in ('linked-package','linked-capture','producer-package','producer-capture','out'):a.add_argument('--'+flag,type=Path,required=True)
     a=sub.add_parser('compile-plan',help='CPU-only immutable packet artifact/budget policy check before transport')
     a.add_argument('--out',type=Path,required=True);a.add_argument('--artifact-kind',choices=('cubin','ptx'),default='cubin');a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--timeout',type=int,default=60)
     a=sub.add_parser('compile');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
@@ -3713,6 +3753,11 @@ def main(argv=None):
         from portable_ptx_partition import saved_partition,audit_partition
         if a.audit and a.function:raise ValueError('Audit uses the stored focus; --function is creation only')
         result=audit_partition(a.cache_entry,a.phases,a.out) if a.audit else saved_partition(a.cache_entry,a.phases,a.out,a.function)
+    elif a.command=='linked-reuse-audit':
+        request=dict(package=str(a.linked_package.resolve()),capture=str(a.linked_capture.resolve()),producer_package=str(a.producer_package.resolve()),producer_capture=str(a.producer_capture.resolve()))
+        proof=linked_reuse_audit(request,a.out)
+        result={k:proof[k] for k in ('schema','package_id','reuse_admission_verified','calculation_verified','gpu_calls','compiler_calls','native_battle_calls','original_artifacts_modified','scope')}
+        result.update(receipt_key=proof['receipt']['key'],report=str(a.out.resolve()))
     elif a.command=='compile-plan':result=compile_plan(a.out,a.artifact_kind,a.ptxas_level,a.memory_limit_mb,a.timeout)
     elif a.command=='compile':
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
