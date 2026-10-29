@@ -5,6 +5,19 @@ from pathlib import Path
 REPLACED=('scripts/nikke_gpu.py','scripts/run-gpu-packet.py','app/portable_staged_preflight.py')
 ADDED=('app/portable_continuation_package.py','app/portable_staged_continuation.py','tests/test_portable_staged_continuation.py')
 SCHEMA='controller-continuation-v1'
+FULL_SCHEMA='controller-continuation-full-owner-v1'
+FULL_REPLACED=(*REPLACED,'app/portable_continuation_package.py','app/portable_staged_continuation.py')
+FULL_ADDED=('tests/test_portable_staged_tail_budget.py',)
+
+
+def layout(original):
+    names={r['path'] for r in original['files']}
+    present=names&set(ADDED)
+    if not present:return SCHEMA,REPLACED,ADDED
+    if present!=set(ADDED) or not set(FULL_REPLACED)<=names or set(FULL_ADDED)&names:
+        raise ValueError('Incomplete or already extended continuation controller')
+    if 'payload_projection' in original:raise ValueError('Full continuation owner must retain an unprojected payload')
+    return FULL_SCHEMA,FULL_REPLACED,FULL_ADDED
 
 
 def owner_snapshot(cli,root):
@@ -47,14 +60,17 @@ def source_guard(old,new):
 
 def validate_lineage(cli,current,original,original_root):
     metadata=current.get('controller_continuation',{})
-    if (metadata.get('schema')!=SCHEMA or metadata.get('base_package_id')!=original['package_id']
+    schema,replaced,added=layout(original)
+    if (metadata.get('schema')!=schema or metadata.get('base_package_id')!=original['package_id']
         or metadata.get('base_manifest_sha256')!=cli.sha((original_root/'gpu-package.json').read_bytes())
         or current['suite']!=original['suite'] or current['golden']!=original['golden']
         or current.get('purpose')!='sealed' or original.get('purpose')!='sealed'):
         raise ValueError('Continuation source owner/golden mismatch')
     a={r['path']:r for r in original['files']};b={r['path']:r for r in current['files']}
-    if set(b)!=set(a)|set(ADDED) or set(ADDED)&set(a):raise ValueError('Continuation introduced unrelated files')
-    if any(b[n]!=record for n,record in a.items() if n not in REPLACED):
+    if set(b)!=set(a)|set(added) or set(added)&set(a):raise ValueError('Continuation introduced unrelated files')
+    if schema==FULL_SCHEMA and (metadata.get('replaced')!=list(replaced) or metadata.get('added')!=list(added) or 'payload_projection' in current):
+        raise ValueError('Full continuation controller inventory changed')
+    if any(b[n]!=record for n,record in a.items() if n not in replaced):
         raise ValueError('Continuation changed original native/GPU/data/test payload')
     source_guard({n:(original_root/n).read_text() for n in REPLACED},{n:(cli.ROOT/n).read_text() for n in REPLACED})
 
@@ -68,17 +84,19 @@ def make(cli,base,output):
         raise ValueError('Initial continuation requires an ordinary sealed source owner')
     if info['config']!=cli.SUITES[original['suite']]:raise ValueError('Continuation changed suite configuration')
     payload={r['path']:(base/r['path']).read_bytes() for r in original['files']}
-    if set(ADDED)&set(payload):raise ValueError('Continuation source already has added files')
-    for name in (*REPLACED,*ADDED):payload[name]=(cli.ROOT/name).read_bytes()
+    schema,replaced,added=layout(original)
+    for name in (*replaced,*added):payload[name]=(cli.ROOT/name).read_bytes()
     source_guard({n:(base/n).read_text() for n in REPLACED},{n:payload[n].decode() for n in REPLACED})
     with tempfile.TemporaryDirectory(prefix='nikke-controller-capsule-') as tmp:
         root=Path(tmp)
         for name,raw in payload.items():
             p=root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(raw)
-        selected,projection=project(root,payload,roots_for(info['config'],cli.SMOKE_TESTS),suite_tests={k:v['tests'] for k,v in cli.SUITES.items()})
-        if set(selected)!=set(payload):raise ValueError('Continuation projection dropped original evidence/dependencies')
-        m=copy.deepcopy(original);m.pop('package_id');m['files']=cli.file_records(root,payload);m['payload_projection']=projection
-        m['controller_continuation']=dict(schema=SCHEMA,base_package_id=original['package_id'],base_manifest_sha256=cli.sha((base/'gpu-package.json').read_bytes()),replaced=list(REPLACED),added=list(ADDED))
+        m=copy.deepcopy(original);m.pop('package_id');m['files']=cli.file_records(root,payload)
+        if schema==SCHEMA:
+            selected,projection=project(root,payload,roots_for(info['config'],cli.SMOKE_TESTS),suite_tests={k:v['tests'] for k,v in cli.SUITES.items()})
+            if set(selected)!=set(payload):raise ValueError('Continuation projection dropped original evidence/dependencies')
+            m['payload_projection']=projection
+        m['controller_continuation']=dict(schema=schema,base_package_id=original['package_id'],base_manifest_sha256=cli.sha((base/'gpu-package.json').read_bytes()),replaced=list(replaced),added=list(added))
         m['source_commit']=subprocess.check_output(['git','rev-parse','HEAD'],cwd=cli.ROOT,text=True).strip()
         m['working_tree_dirty']=bool(subprocess.check_output(['git','status','--porcelain'],cwd=cli.ROOT,text=True).strip())
         m['package_id']=cli.package_id(m)

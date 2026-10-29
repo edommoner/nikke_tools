@@ -1,0 +1,73 @@
+{
+  "schema": "continuation-tail-budget-checkpoint-v1",
+  "base_package_id": "835c8dbd8f9a829a4cffbd5e933de061fa55eca7e969ddab728e69579e97d096",
+  "package_id": "75ea07e1042f41697e76cf48d678607539e3a75c1f812bb869adb5a1e8adb65b",
+  "archive": "research/windows-source-packets/execution-pair-continuation-v2.zip",
+  "bytes": 13440235,
+  "sha256": "38336e11c53d022e3683c531d849bf6bd2aa607b29dbd83b23d0ea1528cecbae",
+  "controller_schema": "controller-continuation-full-owner-v1",
+  "replaced": [
+    "scripts/nikke_gpu.py",
+    "scripts/run-gpu-packet.py",
+    "app/portable_staged_preflight.py",
+    "app/portable_continuation_package.py",
+    "app/portable_staged_continuation.py"
+  ],
+  "added": [
+    "tests/test_portable_staged_tail_budget.py"
+  ],
+  "other_original_files_byte_preserved": 3982,
+  "all_original_tests_preserved": true,
+  "whole_golden_preserved": true,
+  "fresh_native_loop_and_transport_ast_preserved": true,
+  "tests": {
+    "development_passed": 95,
+    "frozen_passed": 95,
+    "real_base_lineage_verified": true,
+    "payload_before_after_verified": true
+  },
+  "planned_groups": [
+    [
+      0
+    ],
+    [
+      1
+    ],
+    [
+      2
+    ],
+    [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  ],
+  "native_membership": [
+    0,
+    1,
+    2
+  ],
+  "group_size": 1,
+  "reject_group_size": 12,
+  "original_timeout_stays_failed": true,
+  "original_partial_returns_promoted": false,
+  "native_values_cached": false,
+  "completed_tests_reexecuted": false,
+  "maximum_stage_seconds": 180,
+  "job_memory_mb": 2048,
+  "windows_resume_verified": false,
+  "windows_tail_verified": false,
+  "calculation_verified": false,
+  "gpu_or_compiler_execution_count": 0,
+  "full_goal_complete": false,
+  "prior_failure_log": "persistent proofs/execution-pair-continuation-v1.log"
+}

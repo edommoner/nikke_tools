@@ -89,3 +89,13 @@ python scripts/nikke_gpu.py preflight-resume --backend metal \
 Windows wrapperは`--stage preflight-resume --backend cuda`、requestは`parent_transaction`（絶対path）と`group_size`（ASCII十進文字列）の正確な2キー。新capsuleの共通wrapperでCPU-only smoke成功後、resumeを1回実行する。その後、通常の`preflight-native-group`で新transactionのtail indexを各1回実行する。BelowNormal/fresh Job/start gate/2GiB/各stage180秒を維持する。元の失敗群をそのまま再送しない。初版は普通のsealed ownerからの一段の継続に限定し、追加失敗時は自動retryしない。
 
 全入力を元prefix+fresh tailで検査した後も、GPU子60秒・CUDA保存CUBIN/生成cache必須・実行後の独立fresh native全件照合を維持する。元の失敗stageはfalseのままであり、継続後の計算成立と区別する。原本source/input/runtimeが変わった場合は継続を拒否する。
+
+## 通常payloadの継続と、拒否入力だけのまとめ処理
+
+通常packageは既に継続helperと元の継続テストを含む。`continuation-package`はこのownerを専用`controller-continuation-full-owner-v1`として扱い、3つの制御ファイルと2つの継続helperだけを置き換える。元テストを含む他の全payload byteと全goldenを保持し、追加は専用の制御テスト1ファイルのみ。全payloadを投影や削減せず、従来のcompact owner経路も保持する。計算/監査関数・native参照ループ・入力/transport関数のAST保持検査も従来通り。
+
+`preflight-resume --group-size 1 --reject-group-size 12`は、同じ元transactionに記録されたnative所属を使って、native入力と拒否入力を別の連続群へ分ける。元15入力のnativeが0/1/2の場合は`[0] [1] [2] [3..14]`の4群となる。拒否ケースも元のfresh `native_value`と指紋照合を全件実行し、失敗・省略・順序変更を成功扱いにしない。`reject_group_size`とnative所属はtransactionへ束縛し、各群とGPU直前に同じ群計画を再生成して検査する。省略時は従来の等サイズ分割を維持する。
+
+共通wrapperの`preflight-resume` requestも、従来の`parent_transaction`/`group_size`に任意の十進文字列`reject_group_size`を追加できる。各stage180秒・2GiB・低優先度・開始gate、同じ未実行GPU所有claimを維持し、テスト群の再実行や古いCPU値のcacheは行わない。
+
+固定75ea07e1…自身と開発側の関連95検査、原ownerとの実lineage/全payload前後検査が成功。Windowsでの実resumeとtail完了は未確認。今回の修正・scope・旧失敗は`research/portable-continuation-tail-budget-v1.json`。

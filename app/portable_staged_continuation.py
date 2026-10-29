@@ -12,8 +12,21 @@ from portable_continuation_package import owner_snapshot,validate_lineage
 CLAIM='preflight-continuation-claimed-'
 
 
-def tail_groups(count,start,size):
+def tail_groups(count,start,size,*,native_indices=None,reject_group_size=None):
     if type(start) is not int or not 0<=start<count:raise ValueError('Invalid continuation boundary')
+    if reject_group_size is not None:
+        if type(reject_group_size) is not int or not 1<=reject_group_size<=count:raise ValueError('Invalid rejected-input group size')
+        if (type(native_indices) is not list or any(type(i) is not int or not 0<=i<count for i in native_indices)
+            or native_indices!=sorted(set(native_indices))):raise ValueError('Exact native membership required')
+        partition(count,size)
+        native=set(native_indices);groups=[];group=[]
+        for i in range(start,count):
+            is_native=i in native
+            if group and ((group[0] in native)!=is_native or len(group)>=(size if is_native else reject_group_size)):
+                groups.append(group);group=[]
+            group.append(i)
+        if group:groups.append(group)
+        return groups
     return [[i+start for i in indices] for indices in partition(count-start,size)]
 
 
@@ -109,7 +122,7 @@ def gate(cli,m,c):
     return dict(evidence=original['evidence'],stages=stages,parent=parent,failed=original['failed'])
 
 
-def resume(cli,capture,parent_transaction,group_size,backend):
+def resume(cli,capture,parent_transaction,group_size,backend,*,reject_group_size=None):
     from portable_staged_preflight import SCHEMA,host,outside,static_input,exclusive
     from portable_phase_audit import Journal
     m=cli.verify_package(cli.ROOT);original=parent_evidence(cli,m,parent_transaction)
@@ -127,8 +140,10 @@ def resume(cli,capture,parent_transaction,group_size,backend):
         if native_indices!=old['native_indices']:raise ValueError('Continuation native membership differs')
         c=dict(schema=SCHEMA,package_id=m['package_id'],manifest_sha256=cli.sha((cli.ROOT/'gpu-package.json').read_bytes()),
             package_root=str(cli.ROOT.resolve()),transaction=str(capture),nonce=nonce,backend=parent['backend'],gpu_capture=parent['gpu_capture'],
-            host=host(cli),group_size=group_size,case_groups=tail_groups(len(entries),parent['completed_inputs'],group_size),
+            host=host(cli),group_size=group_size,case_groups=tail_groups(len(entries),parent['completed_inputs'],group_size,
+                native_indices=native_indices,reject_group_size=reject_group_size),
             native_indices=native_indices,input=receipt,resume_parent=parent,admission_schema='same-attempt-continuation-v1')
+        if reject_group_size is not None:c['reject_group_size']=reject_group_size
         exclusive(Path(parent['package_root'])/(CLAIM+c['backend']+'.json'),dict(package_id=m['package_id'],transaction=str(capture),transaction_nonce=nonce,parent_transaction=parent['transaction'],gpu_capture=c['gpu_capture']))
         exclusive(cli.ROOT/('gpu-claimed-'+c['backend']+'.json'),dict(package_id=m['package_id'],capture=c['gpu_capture'],transaction=str(capture),transaction_nonce=nonce))
         cli.publish_transport_input(m,capture,data,receipt['input_words']);exclusive(capture/'transaction.json',c)

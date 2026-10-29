@@ -1,3 +1,11 @@
+# 2026-10-29 通常ownerの同一未実行GPU用継続とnative予算を修正
+
+既存continuation-packageは、通常payload内に元からあるhelper/testを「追加済み」として拒否した（初回失敗logを保持）。通常owner用schemaを追加し、元3controller＋2continuation helperのみ更新、元の全テストを含む他の全bytes/goldenを保持し、制御テスト1ファイルだけ追加する。compact旧経路、計算/監査関数・fresh nativeループ・入力/transport ASTの保持は変更しない。
+
+preflight-resumeの任意`--reject-group-size`を共通wrapperにも接続。元native所属に従い実戦は1件ずつ、拒否は連続したまとまりに分ける。旧15入力はnative[0]/[1]/[2]＋拒否[3..14]の4群（全件・順序・指紋保持）、通常の1件分割15群を避ける。群計画とbudgetはtransactionへ束縛し、各stageとGPU直前に再検査。元のタイムアウト/partial returnsを成功へ昇格せず、元テスト31件の同一試行証拠を保持する。
+
+開発/固定75ea07e1…自身各95検査、実base835c8dbd…とのlineageと前後payload保持が成功。packet/bytes/SHA/未完了は`research/portable-continuation-tail-budget-v1.json`。次のWindowsは新capsuleのCPU-only Job smoke→fresh resumeの実監査→成功時だけ最初の単独native群。GPU/compile/上限増加/旧群再送は0。以下は履歴。
+
 # 2026-10-29 移動停止・強制移動・グループの元72定義を同時Metal検証
 
 `moving-overlap`はユニ/ヤン/ドレイク/ニヒリスター/メアリーの元全72定義・実武器/育成/seed/30秒を保持し、同じmoving-typed/group entryへ接続した。新shader/時計/handler/ダメージ式/計算済み位置入力は0。実際に停止と強制移動が重なる区間を持つ2つの明示優先順で、typed付属物・物理命中・multi_hit通知・元子攻撃着弾まで既存全比較を行う。ゲーム規則への昇格ではない。

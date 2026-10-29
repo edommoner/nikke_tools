@@ -49,8 +49,12 @@ def context(cli,transaction,backend=None,gpu_capture=None):
         raise ValueError('Staged transaction identity/source/host mismatch')
     if 'resume_parent' in c:
         from portable_staged_continuation import tail_groups
-        expected_groups=tail_groups(len(m['golden']['entries']),c['resume_parent']['completed_inputs'],c['group_size'])
-    else:expected_groups=partition(len(m['golden']['entries']),c['group_size'])
+        if 'reject_group_size' in c and type(c['reject_group_size']) is not int:raise ValueError('Invalid rejected-input group size')
+        expected_groups=tail_groups(len(m['golden']['entries']),c['resume_parent']['completed_inputs'],c['group_size'],
+            native_indices=c.get('native_indices'),reject_group_size=c.get('reject_group_size'))
+    else:
+        if 'reject_group_size' in c:raise ValueError('Rejected-input grouping requires a continuation')
+        expected_groups=partition(len(m['golden']['entries']),c['group_size'])
     if json.dumps(c['case_groups'])!=json.dumps(expected_groups):
         raise ValueError('Staged native plan changed')
     indices=c.get('native_indices')

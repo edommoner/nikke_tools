@@ -3618,7 +3618,7 @@ def main(argv=None):
     a=sub.add_parser('partitioned-origin-audit')
     for flag in ('source-package','source-capture','capture','original-workspace','slang-root','generation-cache'):a.add_argument('--'+flag,type=Path,required=True)
     a.add_argument('--timeout',type=int,default=180)
-    a=sub.add_parser('preflight-resume');a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--group-size',type=int,required=True)
+    a=sub.add_parser('preflight-resume');a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--group-size',type=int,required=True);a.add_argument('--reject-group-size',type=int)
     for name in ('capture','parent-transaction'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('preflight-plan');a.add_argument('--backend',choices=('metal','cuda'),required=True)
     a.add_argument('--group-size',type=int,required=True);a.add_argument('--test-group-size',type=int,required=True)
@@ -3998,7 +3998,7 @@ def main(argv=None):
         with forbid_gpu():result=make(SimpleNamespace(**globals()),a.base_package,a.out)
     elif a.command=='preflight-resume':
         from portable_staged_continuation import resume
-        with forbid_gpu():result=resume(SimpleNamespace(**globals()),a.capture,a.parent_transaction,a.group_size,a.backend)
+        with forbid_gpu():result=resume(SimpleNamespace(**globals()),a.capture,a.parent_transaction,a.group_size,a.backend,**(dict(reject_group_size=a.reject_group_size) if a.reject_group_size is not None else {}))
     elif a.command=='preflight-plan':
         from portable_staged_preflight import begin
         with forbid_gpu():result=begin(SimpleNamespace(**globals()),a.capture,a.backend,a.gpu_capture,a.group_size,test_group_size=a.test_group_size)
