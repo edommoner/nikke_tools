@@ -4,9 +4,39 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'app'))
-from portable_comparison_groups import selection,partition,aggregate,validate_facts
+from portable_comparison_groups import selection,partition,aggregate,validate_facts,planned,read_plan
 s=importlib.util.spec_from_file_location('group_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(s);s.loader.exec_module(cli)
 H=lambda raw:hashlib.sha256(raw).hexdigest()
+
+
+class ExplicitPlanTests(unittest.TestCase):
+    def test_heavy_singletons_and_all_rejects_keep_all_fifteen_inputs(self):
+        plan=[[0],[1],[2],list(range(3,15))]
+        self.assertEqual(planned(15,12,plan),plan);self.assertEqual(planned(3,2),[[0,1],[2]])
+        actual=planned(15,12,plan);actual[0].append(1);self.assertEqual(plan[0],[0])
+    def test_missing_duplicate_boolean_reordered_and_oversize_groups_rejected(self):
+        for groups in ([[0],[2]],[[0],[1,1,2]],[[False],[1,2]],[[1],[0,2]],[[0,1,2]],[],[[0],[],[1,2]]):
+            with self.subTest(groups=groups),self.assertRaises(ValueError):planned(3,2,groups)
+    def test_external_sha_and_index_only_payload_are_required(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p=Path(tmp)/'plan.json';raw=b'[[0],[1,2]]';p.write_bytes(raw)
+            self.assertEqual(read_plan(p,H(raw)),[[0],[1,2]])
+            with self.assertRaises(ValueError):read_plan(p,'f'*64)
+            p.write_text('{"native_result":true}')
+            with self.assertRaises(ValueError):read_plan(p,H(p.read_bytes()))
+    def test_custom_groups_use_real_fresh_children_and_the_existing_aggregator(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            base=Path(tmp);root,other,capture=FreshProcessTests().fixture(base);receipts=[];plan=[[0],[1,2]]
+            with patch.object(cli,'ROOT',other):
+                for i in range(2):
+                    row=cli.audit_saved_battle_groups(root,capture,timeout=30,development_only=True,group_size=2,group_index=i,backend='metal',case_groups=plan)
+                    p=base/('group'+str(i)+'.json');cli.write(p,row);receipts.append(p)
+                    self.addCleanup(lambda p=Path(row['group_capture']):__import__('shutil').rmtree(p))
+                    self.assertEqual(row['group']['comparison']['case_indices'],plan[i]);self.assertFalse(row['calculation_verified'])
+                result=cli.aggregate_saved_native_groups(root,receipts,'metal',2,30,case_groups=plan)
+                self.assertTrue(result['audit']['calculation_verified']);self.assertEqual(result['comparison']['input_count'],3)
+                with self.assertRaisesRegex(ValueError,'identity/scope'):
+                    cli.aggregate_saved_native_groups(root,receipts,'metal',2,30)
 
 class CoverageTests(unittest.TestCase):
     def fixture(self):

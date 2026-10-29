@@ -103,6 +103,8 @@ def object_request(stage,value):
         fields=(*fields,'producer_package','producer_capture')
     if stage=='preflight-resume' and type(value) is dict and set(value)==set(fields)|{'reject_group_size'}:
         fields=(*fields,'reject_group_size')
+    if stage==NATIVE_GROUP_STAGE and type(value) is dict and set(value)==set(fields)|{'case_groups','case_groups_sha256'}:
+        fields=(*fields,'case_groups','case_groups_sha256')
     if type(value) is not dict or set(value)!=set(fields):raise ValueError('Exact saved-object request fields required')
     result={}
     for key in fields:
@@ -112,7 +114,7 @@ def object_request(stage,value):
             if not item.isascii() or not item.isdigit() or str(int(item))!=item or not (0 if key=='group_index' else 1)<=int(item)<=65536:
                 raise ValueError('Canonical bounded native group integer required')
             result[key]=item
-        elif key in ('object_sha256','output_sha256','expected_package_id','expected_owner_id'):
+        elif key in ('object_sha256','output_sha256','expected_package_id','expected_owner_id','case_groups_sha256'):
             if len(item)!=64 or any(c not in '0123456789abcdef' for c in item):raise ValueError('Exact saved-object SHA256 required')
             result[key]=item
         else:
@@ -216,10 +218,14 @@ def verified_native_group(proof,request):
     if type(proof.get('group_index')) is not int or type(proof.get('group_size')) is not int or proof['group_index']!=int(request['group_index']) or proof['group_size']!=int(request['group_size']):return False
     if proof.get('source_package')!=request['source_package'] or proof.get('source_capture')!=request['source_capture']:return False
     group=proof.get('group',{});audit=group.get('audit',{});comparison=group.get('comparison',{})
-    from portable_comparison_groups import partition,selection
+    from portable_comparison_groups import partition,selection,planned as group_plan,read_plan
     count=comparison.get('total_input_count');bound=proof.get('per_group_timeout_seconds')
     if type(count) is not int or not 1<=count<=65536 or type(bound) is not int or not 1<=bound<=180:return False
-    planned=partition(count,int(request['group_size']));index=int(request['group_index'])
+    try:
+        explicit=read_plan(request['case_groups'],request['case_groups_sha256']) if 'case_groups' in request else None
+        planned=group_plan(count,int(request['group_size']),explicit)
+    except (OSError,ValueError,TypeError):return False
+    index=int(request['group_index'])
     if index>=len(planned) or proof.get('planned')!=planned:return False
     try:
         for part in proof['planned']:selection(count,part)
@@ -357,7 +363,8 @@ def proof_arguments(plan):
         request=object_request(NATIVE_GROUP_STAGE,plan['object_request'])
         return ['saved-battle-audit','--backend','cuda','--package-root',request['source_package'],
             '--capture',request['source_capture'],'--group-index',request['group_index'],'--group-size',request['group_size'],
-            '--timeout',str(plan['timeout_seconds']),'--out',str(Path(plan['proof_capture'])/'result.json')]
+            '--timeout',str(plan['timeout_seconds']),'--out',str(Path(plan['proof_capture'])/'result.json'),
+            *(['--case-groups',request['case_groups'],'--case-groups-sha256',request['case_groups_sha256']] if 'case_groups' in request else [])]
     if plan['stage']=='recover-object':
         request=object_request('recover-object',plan['object_request'])
         return ['recover-object','--source-package',request['source_package'],'--source-capture',request['source_capture'],'--out',plan['proof_capture'],'--object-sha256',request['object_sha256']]

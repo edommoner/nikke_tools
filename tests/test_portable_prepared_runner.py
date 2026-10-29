@@ -10,6 +10,7 @@ import portable_admission_authority as authority
 import portable_admission_snapshot as snap
 import test_portable_admission_authority as authority_fixture
 import test_portable_prepared_execution as child_fixture
+import test_portable_generation_cache as generation_fixture
 from windows_validation_observer import compare_snapshots
 
 def numeric_handoff(original=authority_fixture.fixture.HandoffTests):
@@ -86,6 +87,23 @@ class PreparedRunnerTests(unittest.TestCase):
         self.cli.required_generation_snapshot=lambda m:(_ for _ in ()).throw(RuntimeError('required generation miss'))
         with self.assertRaisesRegex(RuntimeError,'generation miss'):self.run_parent()
         self.assertFalse((self.out/'authority').exists());self.assertFalse(self.capture.exists());self.assertEqual(self.launches,0)
+    def test_real_required_cache_reader_keeps_its_own_file_only_guard(self):
+        import copy,runpy
+        g=generation_fixture.GenerationCacheTests();g.setUp();self.addCleanup(g.doCleanups)
+        g.build();paths,hashes=g.build(True)
+        normalizer=runpy.run_path(str(ROOT/'research/summarize-portable-cross-gpu.py'))['normalized']
+        original=authority_fixture.original_cli.required_generation_snapshot
+        observed=[]
+        def real_preflight(m):
+            probe=copy.deepcopy(m);probe['golden']['source_sha256']=hashes
+            probe['golden']['generated_normalized']={k:normalizer(p.read_bytes()) for k,p in paths.items()}
+            with patch.dict(original.__globals__,dict(ROOT=g.root,module=lambda path:SimpleNamespace(normalized=normalizer))),patch.dict(os.environ,NIKKE_SLANG_ROOT=str(g.tool),NIKKE_SLANG_GENERATION_CACHE=str(g.cached)):
+                _,receipt=original(probe);observed.append(receipt)
+            raise RuntimeError('real required cache reader completed')
+        self.cli.required_generation_snapshot=real_preflight
+        with self.assertRaisesRegex(RuntimeError,'real required cache reader completed'):self.run_parent()
+        self.assertTrue(observed[0]['generation']['hit']);self.assertEqual(observed[0]['forbidden_attempts'],[])
+        self.assertEqual(g.calls,['cuda','metal']);self.assertFalse((self.f.f.tx/'gpu-execution-claimed.json').exists());self.assertEqual(self.launches,0)
     def test_failed_launch_retains_claims_and_blocks_retry(self):
         self.cli.run_job=lambda *args,**kwargs:(_ for _ in ()).throw(TimeoutError('bounded child stopped'))
         with self.assertRaises(TimeoutError):self.run_parent()

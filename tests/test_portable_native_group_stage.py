@@ -11,6 +11,22 @@ cli=groups.cli
 
 
 class NativeGroupStageTests(unittest.TestCase):
+    def test_pinned_explicit_plan_flows_to_the_same_bounded_stage(self):
+        import hashlib
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp).resolve();p=root/'plan.json';p.write_bytes(b'[[0],[1,2]]')
+            request=dict(self.request(root),case_groups=str(p),case_groups_sha256=hashlib.sha256(p.read_bytes()).hexdigest())
+            plan=stage.recipe('controller','audit-native-group','cuda',root/'out',root/'original',180,request)
+            args=stage.proof_arguments(plan);self.assertEqual(args[args.index('--case-groups')+1],str(p))
+            proof=self.proof(root);proof['planned']=[[0],[1,2]]
+            self.assertFalse(stage.verified_native_group(proof,request))
+            comparison=proof['group']['comparison'];comparison['case_indices']=[0];comparison['entries']=comparison['entries'][:1]
+            comparison['input_count']=1;comparison['native_oracles']=1
+            self.assertTrue(stage.verified_native_group(proof,request))
+            p.write_bytes(b'[[0,1],[2]]')
+            self.assertFalse(stage.verified_native_group(proof,request))
+            for key in ('case_groups','case_groups_sha256'):
+                with self.assertRaises(ValueError):stage.object_request('audit-native-group',{k:v for k,v in request.items() if k!=key})
     def request(self,root,index=0):
         return dict(source_package=str(root/'source'),source_capture=str(root/'saved'),group_index=str(index),group_size='2')
     def proof(self,root,index=0):

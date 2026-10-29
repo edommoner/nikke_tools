@@ -46,11 +46,12 @@ def run(cli,preparation_package,preparation_stage,expected_binding,snapshot_sha2
             NIKKE_SLANG_GENERATION_REQUIRED='1',NIKKE_CUDA_ARTIFACT='cubin',NIKKE_VALIDATION_JOB_MEMORY_MB='2048')
         with patch.dict(os.environ,env):
             if wire is not None:exclusive(out/'entry-wire-preflight.json',wire)
+            # This helper installs its own stronger file-only guard and saves
+            # the original cached reader before doing so. An outer forbid_gpu
+            # would replace that reader before it can be saved.
+            outputs,generation=cli.required_generation_snapshot(m)
+            exclusive(out/'generation-preflight.json',generation)
             with cli.forbid_gpu():
-                # File-only required-cache preflight: no Slang/NVRTC/native
-                # library/subprocess fallback, even before a claim is consumed.
-                outputs,generation=cli.required_generation_snapshot(m)
-                exclusive(out/'generation-preflight.json',generation)
                 authority=authenticate(cli,prep,stage,expected_binding=b,snapshot_sha256=snapshot_sha256,
                     certificate_sha256=certificate_sha256,out=out/'authority',header_materials=header_materials)
                 a=authority.receipt

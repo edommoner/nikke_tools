@@ -1,3 +1,13 @@
+# 2026-10-30 v1は実GPU前で停止、専用cache guardを保持して修正
+
+Windows8d72e81e…は完全4016file/指定30合成検査35.008秒/CPU Job smoke4.408秒が成功。gpu-preparedは11.391秒/exit1でrequired_generation_snapshotのcache readerを外側forbid_gpuが先に置換して停止。cache missではなくlaunch false/GPU0、元/新GPU execution claim/future capture無し。元79file不変、全stage gate/終了空/欠落0/観測cleanup error0、service/環境false。旧wrapper stage claimと失敗を保持。公開75351026…の小summary3814byte/manifest553byteだけ元bytes/SHAと既存anchorへ照合した。原rawのMac独立監査ではない。
+
+修正はrequired_generation_snapshotをその関数自身のfile-only guardで呼び、その後の認証/claimを従来forbid_gpuで囲む。専用guardのcompiler/subprocess/native library/execute禁止は変更しない。元readerを保存する前に外側guardで破壊しない。実paired cache hitを親から読む回帰検査を追加し、compiler追加0で到達することを確認。
+
+後続の共通native監査へ外部SHA付きcase-groups計画を接続。moving-groupは全15入力を[[0],[1],[2],[3..14]]の4群へ分け、重いnative3を個別に、拒否12をまとめる。比較/全raw/入力準備は省略せず、15 singleton群による準備の重複を減らす。順序/欠落/重複/bool/幅超過/異なる計画の集計を拒否し、既存uniform指定は保持。実fresh子＋既存aggregatorの全比較で検査。
+
+固定ba760483…自身80群831制御検査成功（Windows限定cleanup1skip）、payload/全golden/501計算・保護CPU・pinned source保持。既存bounded/observer/Job ABI recordも8d72e81e…と同一。実CLIは計画SHA不一致をsource/native IO前に拒否。source ZIP13,528,926byte/SHA5433639c…、記録research/portable-prepared-parent-v2.json。旧試行のGPUは未消費なので、新sourceの修正版だけを次に確認する。実CUDA/full post/全キャラ/目標は未完了。以下は履歴。
+
 # 2026-10-30 GPU親処理と共通bounded stageを接続、実Windows前
 
 prepared-runは必須paired生成cache hit/全byte CUDA・CUBIN一致/保存容量/元CPU準備認証の後だけappend-only claimを消費する。GPU子60秒/Job2GiB/BelowNormal/gate/終了直後観測は既存run_jobを再利用。親はnative battleを実行せず、成功時もsnapshot-gpu-pending-native-audit/calculation falseとして既存saved-battle-audit/audit-native-group/aggregate-native-groupsへ渡す。停止・partial claimは保持しretry不可。元run/staged-runのadmissionは不変。

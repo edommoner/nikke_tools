@@ -1,0 +1,59 @@
+{
+  "schema": "portable-prepared-parent-checkpoint-v2",
+  "package_id": "ba760483dfc1f0a8f0352cba7990fde622376a9f1d4d50faec4faa95f07b492c",
+  "package_files": 4017,
+  "archive": "research/windows-source-packets/prepared-parent-v2.zip",
+  "archive_bytes": 13528926,
+  "archive_sha256": "5433639c910447738becc4ffab1c9a4be8918927f31424700964ceb993c79b91",
+  "controls": {
+    "package_id": "ba760483dfc1f0a8f0352cba7990fde622376a9f1d4d50faec4faa95f07b492c",
+    "groups": 80,
+    "tests": 831,
+    "elapsed_seconds": 12.686190458014607,
+    "payload_after_verified": true,
+    "whole_golden_unchanged": true,
+    "calculation_records_unchanged": 501
+  },
+  "windows_only_cleanup_skip": 1,
+  "real_cache_reader_regression_passed": true,
+  "original_file_only_guard_preserved": true,
+  "old_failed_stage_preserved": true,
+  "original_gpu_attempt_still_unconsumed": true,
+  "explicit_native_case_groups": [
+    [
+      0
+    ],
+    [
+      1
+    ],
+    [
+      2
+    ],
+    [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  ],
+  "native_plan_sha256": "f2bd0d7c7389391d3518861626b68347bd7c3b18f572c3c9ecc9ae7f3defd435",
+  "all_15_inputs_retained": true,
+  "planned_audit_groups": 4,
+  "previous_uniform_singleton_groups": 15,
+  "fresh_native_comparator_unchanged": true,
+  "job_and_observer_sources_unchanged": true,
+  "cli_wrong_plan_sha_rejected": true,
+  "actual_cuda_parent_v2_execution_verified": false,
+  "actual_cuda_post_audit_completed": false,
+  "additional_gpu_calls": 0,
+  "calculation_verified": false,
+  "full_goal_complete": false
+}

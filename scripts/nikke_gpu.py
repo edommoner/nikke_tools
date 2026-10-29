@@ -1957,9 +1957,9 @@ def audit_saved_metal_groups(package_root,capture,*,timeout,development_only,gro
         development_only=development_only,group_size=group_size,backend='metal')
 
 
-def audit_saved_battle_groups(package_root,capture,*,timeout,development_only=False,group_size,backend,group_index=None):
+def audit_saved_battle_groups(package_root,capture,*,timeout,development_only=False,group_size,backend,group_index=None,case_groups=None):
     """Every input exactly once, sequential fresh children with individual bounds."""
-    from portable_comparison_groups import partition,aggregate
+    from portable_comparison_groups import partition,planned as group_plan,aggregate
     if backend not in ('metal','cuda') or backend=='cuda' and development_only:raise ValueError('CUDA grouped audit requires a sealed battle')
     if os.name=='nt' and group_index is None:raise ValueError('Windows requires one bounded native group per packet stage')
     if group_index is not None and (type(group_index) is not int or group_index<0):raise ValueError('Native group index outside plan')
@@ -1968,7 +1968,7 @@ def audit_saved_battle_groups(package_root,capture,*,timeout,development_only=Fa
     partition(1,group_size)
     root=Path(package_root).resolve();capture=Path(capture).resolve();started=time.perf_counter()
     manifest=verify_saved_package(root,timeout=timeout)
-    planned=partition(len(manifest['golden']['entries']),group_size)
+    planned=group_plan(len(manifest['golden']['entries']),group_size,case_groups)
     if group_index is not None and (type(group_index) is not int or not 0<=group_index<len(planned)):raise ValueError('Native group index outside plan')
     controller=Path(__file__).resolve();controller_sha=sha(controller.read_bytes())
     manifest_sha=sha((root/'gpu-package.json').read_bytes())
@@ -2075,12 +2075,12 @@ print(json.dumps(dict(golden=g,package_id=p['package_id'],audit=a,independent_co
     return result
 
 
-def aggregate_saved_native_groups(package_root,receipts,backend,group_size,timeout):
+def aggregate_saved_native_groups(package_root,receipts,backend,group_size,timeout,*,case_groups=None):
     """Aggregate exact hash-only receipts; never load native state from disk."""
-    from portable_comparison_groups import partition,aggregate
+    from portable_comparison_groups import planned as group_plan,aggregate
     if type(timeout) is not int or not 1<=timeout<=CPU_SAVED_AUDIT_MAX_SECONDS:raise ValueError('Bounded native audit timeout required')
     root=Path(package_root).resolve();manifest=verify_saved_package(root,timeout=timeout)
-    planned=partition(len(manifest['golden']['entries']),group_size)
+    planned=group_plan(len(manifest['golden']['entries']),group_size,case_groups)
     if len(receipts)!=len(planned):raise ValueError('Exactly one receipt for every native group required')
     groups=[];anchors=None;source_capture=None
     for index,path in enumerate(receipts):
@@ -3622,9 +3622,11 @@ def main(argv=None):
     a=sub.add_parser('recover-readback');a.add_argument('--output-sha256',required=True)
     for name in ('source-package','source-capture','out'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('saved-battle-audit');a.add_argument('--backend',choices=('metal','cuda'),required=True)
+    a.add_argument('--case-groups',type=Path);a.add_argument('--case-groups-sha256')
     a.add_argument('--group-size',type=int,required=True);a.add_argument('--group-index',type=int);a.add_argument('--timeout',type=int,default=180)
     for name in ('package-root','capture','out'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('aggregate-native-groups');a.add_argument('--backend',choices=('metal','cuda'),required=True)
+    a.add_argument('--case-groups',type=Path);a.add_argument('--case-groups-sha256')
     a.add_argument('--group-size',type=int,required=True);a.add_argument('--timeout',type=int,default=180)
     a.add_argument('--receipt',type=Path,action='append',required=True)
     for name in ('package-root','out'):a.add_argument('--'+name,type=Path,required=True)
@@ -3869,16 +3871,22 @@ def main(argv=None):
             verify_package(ROOT)
             result=recover(SimpleNamespace(**globals()),a.source_package,a.source_capture,a.out,a.output_sha256)
     elif a.command=='saved-battle-audit':
+        from portable_comparison_groups import read_plan
+        if bool(a.case_groups)!=bool(a.case_groups_sha256):raise ValueError('Both native group plan and SHA required')
+        groups=read_plan(a.case_groups,a.case_groups_sha256) if a.case_groups else None
         output=a.out.resolve();readonly=[a.package_root.resolve(),a.capture.resolve()]
         if output.exists() or output.is_symlink():raise FileExistsError(output)
         if any(output==p or p in output.parents for p in readonly):raise ValueError('Saved audit output must be outside original evidence')
-        with forbid_gpu():result=audit_saved_battle_groups(a.package_root,a.capture,backend=a.backend,group_size=a.group_size,group_index=a.group_index,timeout=a.timeout)
+        with forbid_gpu():result=audit_saved_battle_groups(a.package_root,a.capture,backend=a.backend,group_size=a.group_size,group_index=a.group_index,timeout=a.timeout,**(dict(case_groups=groups) if groups is not None else {}))
         output.parent.mkdir(parents=True,exist_ok=True);write(output,result)
     elif a.command=='aggregate-native-groups':
+        from portable_comparison_groups import read_plan
+        if bool(a.case_groups)!=bool(a.case_groups_sha256):raise ValueError('Both native group plan and SHA required')
+        groups=read_plan(a.case_groups,a.case_groups_sha256) if a.case_groups else None
         output=a.out.resolve()
         if output.exists() or output.is_symlink():raise FileExistsError(output)
         if a.package_root.resolve() in output.parents or any(output==p.resolve() for p in a.receipt):raise ValueError('Aggregation output must be outside original evidence')
-        with forbid_gpu():result=aggregate_saved_native_groups(a.package_root,a.receipt,a.backend,a.group_size,a.timeout)
+        with forbid_gpu():result=aggregate_saved_native_groups(a.package_root,a.receipt,a.backend,a.group_size,a.timeout,**(dict(case_groups=groups) if groups is not None else {}))
         output.parent.mkdir(parents=True,exist_ok=True);write(output,result)
     elif a.command=='metal-device-probe':
         from portable_metal_device import probe

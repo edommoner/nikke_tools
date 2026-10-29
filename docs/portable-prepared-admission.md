@@ -1,3 +1,17 @@
+## 実Windowsで見つかったcache guard競合と修正
+
+v1のWindows試行はrequired_generation_snapshotより外側のforbid_gpuが元cache readerを置換して、GPU前11.391秒で停止した。cache miss/actual GPU failureではなく、元/新GPU claimとfuture captureは未作成。旧stage/失敗は保持し、同じstageを再実行しない。修正版はこの既存helperが自身のfile-only guardを設置してから元readerを使う規約に従う。その後の認証/claimは従来のGPU禁止内で実行する。helperのcompiler/subprocess/library/execute禁止は不変。
+
+回帰検査は、合成の成功preflightだけでなく実required_generation_snapshot＋実paired cache hit/反射検査へ親から到達させる。元のfixture compiler2回から追加せず、GPU0/claim0で止める。新source-host GPU確認は未実行であり、v1の失敗を成功へ付替えない。
+
+## 全入力を保つ可変長のnative監査計画
+
+saved-battle-auditとaggregate-native-groupsは任意の--case-groups PLAN.jsonと--case-groups-sha256 EXTERNAL_SHAを対で受ける。PLANはindex配列の配列のみ。--group-sizeは各群の最大幅。全indexが0から末尾まで順序通り一度ずつ必要で、空/重複/欠落/bool/幅超過/改変/SHA違いを拒否する。計画なしのuniform partitionは従来通り。
+
+共通audit-native-group stageのrequestへcase_groups/case_groups_sha256の2keyを対で追加できる。親も同じ計画/外部SHAで部分receiptを照合する。集計時にも同じ計画を渡し、他の計画からのreceiptを混ぜない。fresh child、全readback hash、全native比較、独立性と時間制限、環境falseの保持は既存と同じ。
+
+moving-group-currentの計画はtests/fixtures/moving-group-native-audit-plan-v1.json、SHA f2bd0d7c7389391d3518861626b68347bd7c3b18f572c3c9ecc9ae7f3defd435、group-size12。native3を各1群、拒否12を1群にして全15入力を4群で監査する。ネイティブ計算値のcacheやケース削除ではない。旧106用join pinを変更していない。固定ba760483…で80群831検査（Windows cleanup1skip）、実fresh子/元aggregator接続とCLIのSHA負例が成功。実Windowsの修正版GPUとfresh postは未実証。
+
 ## GPU親処理と実行コマンド（2026-10-30）
 
 sealed consumerでprepared-runを使う。必須引数は--preparation-package、--preparation-stage、--binding、--expected-sha256（元snapshot）、--certificate-sha256、--out、--original-workspace、--slang-root、--generation-cache。旧snapshotを追補した場合は--header-materials descriptor.jsonも渡す。--timeoutは整数1..60、backendはCUDA固定。outは元ソース/準備/transaction/予約capture/SDK/cacheの外側に新規作成する。binding/descriptor/authority/SDK資料/rawはローカル保持する。

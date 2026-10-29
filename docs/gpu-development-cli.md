@@ -1,4 +1,6 @@
-`prepared-run`とWindows共通stage `gpu-prepared`は、成功済みCPU準備のsnapshotから元の未消費試行を一度だけ実行する。必須paired生成cache/凍結CUDA・CUBIN/容量/所有認証をclaim前に確認し、既存60秒・2GiBのGPU子へ渡す。成功後も計算はpendingで、既存のbounded `audit-native-group`と`aggregate-native-groups`を完了するまで認定しない。source-host実証前。[引数・request schema・失敗時の扱い](portable-prepared-admission.md)。
+`prepared-run`とWindows共通stage `gpu-prepared`は、成功済みCPU準備のsnapshotから元の未消費試行を一度だけ実行する。必須paired生成cache/凍結CUDA・CUBIN/容量/所有認証をclaim前に確認し、既存60秒・2GiBのGPU子へ渡す。成功後も計算はpendingで、既存のbounded `audit-native-group`と`aggregate-native-groups`を完了するまで認定しない。v1はcache guard競合でGPU前に停止し、実reader回帰を加えたv2のsource-host確認前。[引数・request schema・失敗時の扱い](portable-prepared-admission.md)。
+
+`saved-battle-audit`と`aggregate-native-groups`の`--case-groups PLAN.json --case-groups-sha256 SHA`は全入力を順序通り一度ずつ比較しつつ、群の幅を変えられる。`--group-size`は最大幅で、既存uniform指定も保持。共通Windows stageにも同じ計画を渡せる。moving-groupのnative3＋拒否12は4群にし、計算や比較を省かず入力準備の重複を減らす。[規約と固定計画](portable-prepared-admission.md)。
 
 `entry-plan --inventory SAVED.json --out NEW.json`は保存した元profile監査から、重複を除いた影響数で未対応を並べる。現在12失敗profile/11系統、最大はベイ4段階。source再準備/compiler/GPU0で、scoped既存証拠とdefault未対応を分離する。[使い方と境界](portable-shared-entry-inventory.md)。
 

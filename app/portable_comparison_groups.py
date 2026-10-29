@@ -19,6 +19,35 @@ def partition(count,size):
     return [list(range(start,min(start+size,count))) for start in range(0,count,size)]
 
 
+def planned(count,size,groups=None):
+    """Bounded explicit groups, keeping every input exactly once in order."""
+    default=partition(count,size)
+    if groups is None:return default
+    if (type(groups) is not list or not groups or len(groups)>count
+        or any(type(part) is not list or not 1<=len(part)<=size for part in groups)):
+        raise ValueError('Explicit native groups must be nonempty and within group size')
+    for part in groups:selection(count,part)
+    if [i for part in groups for i in part]!=list(range(count)):
+        raise ValueError('Explicit native groups must cover every input exactly once in order')
+    return [part[:] for part in groups]
+
+
+def read_plan(path,expected_sha256):
+    """External file hash pins a grouping recipe, never native result data."""
+    import hashlib,json
+    from pathlib import Path
+    from portable_admission_snapshot import hex_string
+    path=Path(path)
+    if not hex_string(expected_sha256,64) or path.is_symlink() or not path.is_file() or path.stat().st_size>4*1024**2:raise ValueError('Pinned native group plan required')
+    raw=path.read_bytes()
+    if len(raw)>4*1024**2 or hashlib.sha256(raw).hexdigest()!=expected_sha256:raise ValueError('Native group plan SHA mismatch')
+    groups=json.loads(raw)
+    if type(groups) is not list or not groups or any(type(p) is not list for p in groups):raise ValueError('Native group plan must contain only index groups')
+    count=sum(len(p) for p in groups)
+    if not 1<=count<=65536:raise ValueError('Native group plan input count out of bounds')
+    return planned(count,65536,groups)
+
+
 def aggregate(manifest,groups,planned,timeout,*,backend='metal'):
     """Never accept saved/live-parent oracles, missing rejects, overlaps or gaps."""
     if backend not in ('metal','cuda'):raise ValueError('Explicit Metal or CUDA audit backend required')
