@@ -84,7 +84,7 @@ def terminal(cli,controller_root,controller,stage,request):
         environment_preservation_verified=preserved,child_pid=pid)
 
 
-def authenticate(cli,controller_root,stage,*,expected_binding,snapshot_sha256,certificate_sha256,out):
+def authenticate(cli,controller_root,stage,*,expected_binding,snapshot_sha256,certificate_sha256,out,header_materials=None):
     if not is_windows():raise ValueError('Execution authority requires the original Windows host')
     b=copy.deepcopy(binding(expected_binding));controller_root=Path(controller_root).resolve();stage=Path(stage).resolve();out=Path(out).resolve()
     # The external controller ID authenticates code before its wrapper imports.
@@ -122,7 +122,7 @@ def authenticate(cli,controller_root,stage,*,expected_binding,snapshot_sha256,ce
             unclaimed(transaction,capture)
             if os.path.lexists(cli.ROOT/'gpu-claimed-cuda.json'):raise ValueError('Consumer already owns a GPU attempt')
             with Handoff(cli,stage/'proof/snapshot.zip',snapshot_sha256,certificate_sha256=certificate_sha256,
-                    expected_binding=b,expected_suite=consumer['suite'],expected_golden=consumer['golden'],consumer_package_id=consumer['package_id']) as handoff:
+                    expected_binding=b,expected_suite=consumer['suite'],expected_golden=consumer['golden'],consumer_package_id=consumer['package_id'],header_materials=header_materials) as handoff:
                 cert=handoff.certificate;live=(transaction/'transaction.json').read_bytes()
                 if (digest(live)!=cert['staged']['transaction_sha256'] or cert['staged']['host']!=host(cli)
                     or Path(cert['owner_root']).resolve()!=owner or Path(cert['transaction']).resolve()!=transaction
@@ -134,7 +134,7 @@ def authenticate(cli,controller_root,stage,*,expected_binding,snapshot_sha256,ce
             unclaimed(transaction,capture)
             receipt=dict(schema='prepared-admission-authority-v1',protocol=PROTOCOL,binding=b,consumer_package_id=consumer['package_id'],
                 preparation_package_root=str(controller_root),preparation_stage=str(stage),owner_root=str(owner),transaction=str(transaction),
-                snapshot=str(stage/'proof/snapshot.zip'),snapshot_sha256=snapshot_sha256,certificate_sha256=certificate_sha256,host=cert['staged']['host'],envelope=envelope,
+                header_materials=copy.deepcopy(header_materials),snapshot=str(stage/'proof/snapshot.zip'),snapshot_sha256=snapshot_sha256,certificate_sha256=certificate_sha256,host=cert['staged']['host'],envelope=envelope,
                 anchors=[dict(root=str(root),files=files) for root,files in anchors],authority_verified=True,
                 execution_admitted=False,calculation_verified=False,gpu_calls=0)
             exclusive(out/'authority.json',receipt)
@@ -154,6 +154,10 @@ def claim(cli,authority):
         snapshot=Path(r['snapshot'])
         if snapshot.is_symlink() or not snapshot.is_file() or file_sha(snapshot)!=r['snapshot_sha256'] or host(cli)!=r['host']:
             raise ValueError('Authority snapshot or source host changed before claim')
+        if r.get('header_materials') is not None:
+            material=Path(r['header_materials']['snapshot'])
+            if material.is_symlink() or not material.is_file() or file_sha(material)!=r['header_materials']['sha256']:
+                raise ValueError('Authority header materials changed before claim')
         unclaimed(authority._transaction,capture)
         if os.path.lexists(authority._consumer/'gpu-claimed-cuda.json'):raise ValueError('Consumer GPU attempt already claimed')
         record=dict(schema='prepared-execution-ownership-v1',protocol=PROTOCOL,package_id=b['owner_package_id'],nonce=b['transaction_nonce'],capture=str(capture),

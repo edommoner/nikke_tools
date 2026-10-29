@@ -28,12 +28,16 @@ class PreparationTests(unittest.TestCase):
         self.m=self.manifests[self.owner]
         (self.tx/'transaction.json').write_text(json.dumps(dict(gpu_capture=str(self.capture),backend='cuda')))
         (self.tx/'input.bin').write_bytes(b'input')
-        self.image=self.base/'artifact'/'saved.cubin';self.image.parent.mkdir();self.image.write_bytes(b'image')
+        self.image=self.base/'artifact'/'saved.cubin';self.image.parent.mkdir();from test_portable_device_linker import cubin
+        self.image.write_bytes(cubin())
         from portable_linked_artifact import key
-        identity=dict(schema=1,provider='saved-module-jit-cubin',artifact='cubin')
-        self.receipt=dict(identity=identity,key=key(identity),artifact_bytes=5,artifact_sha256=snap.digest(b'image'),enabled=True,reused=True)
+        sdk=self.base/'sdk';sdk.mkdir();header=sdk/'prelude.h';self.header=header;header.write_bytes(b'// fixed header')
+        shader=('#include '+json.dumps(str(header))+'\nvoid portableEvents() {}\n').encode()
+        identity=dict(schema=1,provider='saved-module-jit-cubin',artifact='cubin',source_sha256=snap.digest(shader),headers={str(header):snap.digest(header.read_bytes())})
+        self.receipt=dict(identity=identity,key=key(identity),artifact_bytes=self.image.stat().st_size,artifact_sha256=snap.digest(self.image.read_bytes()),enabled=True,reused=True)
         self.input=dict(input_words=1,input_sha256=snap.digest(b'input'))
         self.staged=dict(package_id=self.m['package_id'],transaction=str(self.tx),input=self.input,transaction_nonce='c'*32,all_native_preflight_verified=True)
+        producer=self.base/'producer-proof';producer.mkdir();(producer/'generated.cu').write_bytes(shader)
         self.request={'package':str(self.base/'linked'),'capture':str(self.base/'link-proof'),'producer_package':str(self.base/'producer'),'producer_capture':str(self.base/'producer-proof')}
         def verify(root):
             m=self.load(root/'gpu-package.json')
@@ -60,7 +64,8 @@ class PreparationTests(unittest.TestCase):
         cert=self.load(self.out/'evidence/certificate.json');inventory=self.load(self.out/'inventory.json')
         with snap.Snapshot(self.out/'snapshot.zip',result['snapshot']['snapshot_sha256']) as reader:
             self.assertEqual(reader.read(self.tx,'input.bin'),b'input')
-            self.assertEqual(reader.read(self.image.parent,self.image.name),b'image')
+            self.assertEqual(reader.read(self.header.parent,self.header.name),b'// fixed header')
+            self.assertEqual(reader.read(self.image.parent,self.image.name),self.image.read_bytes())
             self.assertEqual(reader.read(self.out/'evidence','certificate.json'),(self.out/'evidence/certificate.json').read_bytes())
         self.assertEqual(cert['read_set_sha256'],snap.digest(snap.canonical(inventory['files'][:-1])))
         with self.assertRaises(FileExistsError):self.run_prepare()
@@ -100,7 +105,7 @@ class PreparationTests(unittest.TestCase):
         self.assertFalse((self.out/'result.json').exists());self.assertTrue((self.out/'failure.json').exists())
     def test_artifact_receipt_mismatch_is_rejected(self):
         self.receipt['artifact_sha256']='0'*64
-        with self.assertRaisesRegex(ValueError,'CUBIN changed'):self.run_prepare()
+        with self.assertRaisesRegex(ValueError,'CUBIN.*changed'):self.run_prepare()
         self.assertFalse((self.out/'snapshot.zip').exists())
     def test_audit_source_mutation_rejected_when_snapshot_rechecks(self):
         old=self.owner_cli.saved_linked_admission

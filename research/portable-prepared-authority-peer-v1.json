@@ -1,0 +1,22 @@
+{
+  "schema": "portable-prepared-authority-peer-check-v1",
+  "report_commit": "ff5ae1308929c176814ff4f438494bb32eaf3d99",
+  "source_package_id": "80c928f330b7314a382b30bcf821fbd466148efcf439abf769eb518fd8de7bab",
+  "original_public_summary_bytes": 2415,
+  "original_public_summary_sha256": "132994205e7041d5a9abfe2d62008058fcde2b56b79177f4dd2e8a609c981c44",
+  "original_public_manifest_bytes": 650,
+  "original_public_manifest_sha256": "636bae3a12cd8a30303c2d9109e2cf463653a65858eb6289d0e4ca82d4ed288d",
+  "source_host_authority_verified": false,
+  "error": "frozen header dependency absent",
+  "missing_header_basename": "slang-cuda-prelude.h",
+  "elapsed_seconds": 27.838551400229335,
+  "process_missing": 0,
+  "original_inputs_reported_unchanged": true,
+  "private_lookup_diagnostic_published": false,
+  "private_lookup_diagnostic_auto_review_rejected": true,
+  "private_diagnostic_not_imported": true,
+  "gpu_execution_claim_created": false,
+  "gpu_calls": 0,
+  "calculation_verified": false,
+  "scope": "Published sanitized summary only; private SDK paths/nonce diagnostic was not shared or used to certify raw independent audit"
+}

@@ -37,6 +37,7 @@ class AuthorityTests(unittest.TestCase):
         f.rows=[]
         for path in sorted(f.sources.rglob('*'),key=str):
             if path.is_file():f.rows.append(dict(root=str(path.parent),path=path.name,bytes=path.stat().st_size,sha256=snap.digest(path.read_bytes())))
+        if getattr(self,'omit_header',False):f.rows[:]=[r for r in f.rows if r['path']!='fixed.h']
         f.cert.update(read_set_files=len(f.rows),read_set_sha256=snap.digest(snap.canonical(f.rows)))
         self.request=dict(owner_package=str(f.owner),expected_owner_id=f.binding['owner_package_id'],transaction=str(f.tx),linked_package=str(f.base/'linked'),linked_capture=str(f.link),producer_package=str(f.base/'producer'),producer_capture=str(f.base/'producer-proof'))
         f.cert['request']=dict(package=self.request['linked_package'],capture=self.request['linked_capture'],producer_package=self.request['producer_package'],producer_capture=self.request['producer_capture'])

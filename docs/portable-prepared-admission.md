@@ -1,5 +1,15 @@
 # 監査済み入力の受け渡し：次の実装要件
 
+## 旧snapshotの不足headerを原本不変で閉じる
+
+実Windowsの初版CPU準備は元auditorを全て通ったが、そのauditorはstored compiler identityのheader hashを比較し、実header原文はGPU providerのread_verifiedまで読まなかった。結果、read setからheaderが落ち、厳密readerはfrozen source absentで停止した。元準備の成功を取り消して書換えたり、そのまま実行を許可せず、完全handoff未成立の原失敗を別に保持する。
+
+`materialize-headers --snapshot BASE --binding BINDING.json --expected-sha256 BASE_SHA --certificate-sha256 CERT_SHA --out NEW_DIR`は、元の全sealed source/transaction/入力/CUBINを検査する読取経路を使い、missing headerだけを現在SDKから読んで既存receiptの期待SHAへ一致させる。必要なら`--sources JSON`で元originから同じSHAのlocal fileへの明示mappingを指定する。期待外headerや違う内容は拒否。元native/監査計算の再実行・新compiler・GPU・claimは行わない。
+
+header原文はheader-materials.zipへ、基底snapshot/certificate SHA・binding・正確なheader名/bytes/SHAはmaterials.jsonへ固定する。descriptor.jsonはarchive SHAとmetadata blob SHAを持ち、通常readerが再度全handoffを点検してからresultを作る。元archive/cert/read-set digestは不変。handoff-check/authority-checkに`--header-materials descriptor.json`を追加でき、missing依存だけを追補から読む。authority/claim/childは追補SHAも束縛し、改変を拒否する。SDK資料はローカル証拠だけとしGitHubへ配布しない。今後の新prepareは元read_verifiedをCPU read set内で実行して依存を最初から収録する。
+
+新しい内部childはclaim mirror・run/host/source・live Jobを検査し既存shared execute/file readback/CUDA trace verifierへ接続した。公開runnerと独立post監査はまだ無く、実CUDA計算は未実行。固定49d90bfb…の119関連検査と共通719制御検査はCPU fixtureであり、実GPUや60秒予算の実証ではない。旧失敗のsanitized記録はresearch/portable-prepared-authority-peer-v1.json。SDK path/nonceを含む別診断のGitHub公開拒否は維持し、今回のsource配布に含めない。
+
 ## 元準備の認証と一度だけの実行所有
 
 `authority-check --preparation-package ORIGINAL_PREPARATION_PACKET --preparation-stage COMPLETED_STAGE --binding SIX_FIELD_BINDING.json --expected-sha256 EXTERNAL_SNAPSHOT_SHA --certificate-sha256 EXTERNAL_CERT_SHA --out NEW_DIR`は、元Windows hostで成功した制限付きCPU準備を認証し、authority.jsonを新規保存する。CLIはclaimを作らず、GPUを起動しない。Macではauthority作成を拒否し、handoff-checkによるbytes点検だけが可能。JSONにauthority_verified=trueを記すだけでは実行所有を取得できない。

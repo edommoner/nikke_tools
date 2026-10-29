@@ -3566,12 +3566,17 @@ def main(argv=None):
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
     a=sub.add_parser('ptx-stats');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=8);a.add_argument('--callgraph',action='store_true')
     a=sub.add_parser('ptx-partition');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--function');a.add_argument('--audit',action='store_true')
+    a=sub.add_parser('materialize-headers',help='CPU-only exact missing header bytes; preserves the original snapshot')
+    for flag in ('snapshot','binding','out'):a.add_argument('--'+flag,type=Path,required=True)
+    a.add_argument('--expected-sha256',required=True);a.add_argument('--certificate-sha256',required=True);a.add_argument('--sources',type=Path)
     a=sub.add_parser('authority-check',help='Original-host CPU preparation authentication only; never claims or launches GPU')
     for flag in ('preparation-package','preparation-stage','binding','out'):a.add_argument('--'+flag,type=Path,required=True)
     a.add_argument('--expected-sha256',required=True);a.add_argument('--certificate-sha256',required=True)
+    a.add_argument('--header-materials',type=Path)
     a=sub.add_parser('handoff-check',help='CPU-only anchored snapshot/input/CUBIN check; never grants execution')
     a.add_argument('--snapshot',type=Path,required=True);a.add_argument('--expected-sha256',required=True);a.add_argument('--certificate-sha256',required=True)
     a.add_argument('--binding',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a.add_argument('--header-materials',type=Path)
     a=sub.add_parser('prepare-admission',help='Full original CPU audits and immutable handoff; never claims or executes GPU')
     a.add_argument('--owner-package',type=Path,required=True);a.add_argument('--expected-owner-id',required=True)
     for flag in ('transaction','linked-package','linked-capture','producer-package','producer-capture','out'):a.add_argument('--'+flag,type=Path,required=True)
@@ -3697,6 +3702,8 @@ def main(argv=None):
     a=sub.add_parser('unit-check',help='Bounded immutable unit groups only; no full native preflight or GPU proof');a.add_argument('--capture',type=Path,required=True)
     a=sub.add_parser('source-baseline',help='Registered or verified development source closure only; no calculation proof')
     group=a.add_mutually_exclusive_group(required=True);group.add_argument('--suite');group.add_argument('--all-registered',action='store_true');a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('_prepared_child',help=argparse.SUPPRESS)
+    a.add_argument('--capture',type=Path,required=True);a.add_argument('--claim-sha256',required=True)
     a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
     a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--native-baseline-package',type=Path,help='Reuse expected native hashes only when CPU dependencies and prepared inputs match; fresh run/seal checks stay mandatory');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1','coordinate-typed-owner-status-witness-v1','coordinate-owner-counter-field-decoder-v1'])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True);a.add_argument('--reuse-payload-from',type=Path,help='Share exact payload bytes with an existing immutable package on the same filesystem; never edit either payload')
@@ -3774,9 +3781,12 @@ def main(argv=None):
         from portable_ptx_partition import saved_partition,audit_partition
         if a.audit and a.function:raise ValueError('Audit uses the stored focus; --function is creation only')
         result=audit_partition(a.cache_entry,a.phases,a.out) if a.audit else saved_partition(a.cache_entry,a.phases,a.out,a.function)
+    elif a.command=='materialize-headers':
+        from portable_header_materials import create
+        result=create(SimpleNamespace(**globals()),a.snapshot,a.expected_sha256,a.certificate_sha256,load(a.binding),a.out,sources=load(a.sources) if a.sources else None)
     elif a.command=='authority-check':
         from portable_admission_authority import authenticate
-        checked=authenticate(SimpleNamespace(**globals()),a.preparation_package,a.preparation_stage,expected_binding=load(a.binding),snapshot_sha256=a.expected_sha256,certificate_sha256=a.certificate_sha256,out=a.out)
+        checked=authenticate(SimpleNamespace(**globals()),a.preparation_package,a.preparation_stage,expected_binding=load(a.binding),snapshot_sha256=a.expected_sha256,certificate_sha256=a.certificate_sha256,out=a.out,header_materials=load(a.header_materials) if a.header_materials else None)
         receipt=checked.receipt
         result={k:receipt[k] for k in ('schema','binding','consumer_package_id','authority_verified','execution_admitted','calculation_verified','gpu_calls','envelope')}
         result['report']=str(a.out.resolve()/'authority.json')
@@ -3786,7 +3796,7 @@ def main(argv=None):
         with forbid_gpu():
             manifest=verify_package(ROOT)
             if is_development(manifest) or compiler_only(manifest):raise ValueError('Frozen handoff requires a sealed battle consumer')
-            with Handoff(SimpleNamespace(**globals()),a.snapshot,a.expected_sha256,certificate_sha256=a.certificate_sha256,expected_binding=load(a.binding),expected_suite=manifest['suite'],expected_golden=manifest['golden'],consumer_package_id=manifest['package_id']) as handoff:result=handoff.summary()
+            with Handoff(SimpleNamespace(**globals()),a.snapshot,a.expected_sha256,certificate_sha256=a.certificate_sha256,expected_binding=load(a.binding),expected_suite=manifest['suite'],expected_golden=manifest['golden'],consumer_package_id=manifest['package_id'],header_materials=load(a.header_materials) if a.header_materials else None) as handoff:result=handoff.summary()
         exclusive(a.out,result)
     elif a.command=='prepare-admission':
         from portable_admission_prepare import prepare
@@ -4073,6 +4083,9 @@ def main(argv=None):
         print(json.dumps(dict(cpu_tests_verified=complete(rows,patterns),groups=len(rows),gpu_calls=0)))
         if not complete(rows,patterns):raise SystemExit(1)
         return
+    elif a.command=='_prepared_child':
+        from portable_prepared_execution import child as prepared_child
+        prepared_child(SimpleNamespace(**globals()),a.capture,a.claim_sha256);return
     elif a.command=='_child':
         # Generated source copies are captured before comparison, including a mismatch.
         child(a.capture,a.backend,a.smoke,a.compile_only,a.module_only,a.assemble_only,a.partition_object_only,a.module_object_only,a.link_object_only,a.jit_link_object_only);return

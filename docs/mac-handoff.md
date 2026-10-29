@@ -1,3 +1,13 @@
+# 2026-10-30 実snapshotでヘッダー未収録を検出、追補byte経路と子protocolを実装
+
+Windows80c928f3…のauthority-checkは27.839秒/exit1でSDK headerのfrozen source absentとなり、CUBIN/input最終reader検査前に停止。Job2GiB/peak108,838,912byte/BelowNormal/gate/終了空・欠落0、元75file不変、authority/元とconsumerのGPU claim/future capture未作成、prepare/native/test/compile/GPU再実行0。公開済みff5ae130…のsanitized summary2415byte/manifest650byteのみ元bytes/SHAで取得。SDK絶対path/nonceを含む別診断2ファイルは自動承認レビューが具体的公開許可不足で拒否し、未公開・未取込のまま。保存manifest診断によるheader原文/同名/SHA/blob未収録の報告を修正根拠とし、原失敗を保持する。
+
+新materialize-headersは元snapshot/certificateを変更せず、元receiptで期待されたSHAと一致するSDK headerだけを別archiveへ固定する。基底snapshot/cert SHAとexact missing header mapを束縛し、通常Handoffでもう一度全入力/CUBIN/出所を検査する。SDK資料はローカル保持で、元129秒準備/native/compile/GPUを繰り返さない。今後のprepareは既存read_verifiedでactual CUDA/header/CUBINをread set内で読む。authority/claim/内部childは追補archiveのSHAも保持・再検査する。
+
+内部_prepared_childは元/consumer/authorityの3 claim mirror、外部claim SHA、host/source anchors/run bindingを検査し、2GiB kill-on-close Jobとstart gateで1回だけ共有executeを呼ぶ。既存file transport・SDK生成cache必須・saved CUBIN callback・native trace/stream verifierを再利用し、dispatch完了もcalculation false。再呼出しは既存journalへ追記する前に拒否。public GPU runnerと完全独立post監査は未接続、実GPUは未実行。
+
+固定49d90bfb…自身で関連119検査（materials7/admission62/child7/stage43）と全69群719制御検査成功、Windows限定1skip。元CLI main以外全AST・全golden・455計算record/payload保持。実CLI負例は不完全storage archiveとMacでのCUDA childを拒否、claim無し。小記録research/portable-prepared-header-materials-v1.json、配布source ZIP13,509,867byte/SHA1059d613…はSDK/rawを含まない。次はWindows保存snapshotに追補を作りCPU認証だけを検証する。全キャラ/目標は未完了。以下は履歴。
+
 # 2026-10-30 Windowsの完全CPU準備が成功、50.7MB snapshotを固定
 
 前回printのJob制限/終了が確認済みだったため、その保全不合格を保持したまま、未実行だったcad4086f…のCPU準備だけを初めて1回実行した。既存保存staged15入力/native3とlink全chain/PTX実bytesを監査し、準備123.391秒/全stage129.006秒・exit0/timeout無しで成功。2GiB/peak290,951,168byte/BelowNormal/gate/終了空、欠落0/観測cleanup error無し。元69file不変、元GPU claim/future capture未作成、native/test/compile/driver/GPU/retry0。旧smokeのmissing1不合格は変更しない。service未知の保全/overall falseも維持する。

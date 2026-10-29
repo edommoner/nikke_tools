@@ -720,6 +720,8 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 
 ## 監査済み入力の固定受け渡し
 
+`materialize-headers`は、旧snapshotで実際に不足したheader依存だけを、元receiptと同じSHAの資料へ固定するCPU専用CLI。原snapshot/certificateや計算値は書き換えず、native/compiler/GPUは再実行しない。`handoff-check`/`authority-check --header-materials descriptor.json`で明示的に受け取る。[追補の範囲とSHA境界](portable-prepared-admission.md)を参照。SDK資料はGitHubに含めずローカル保持する。
+
 `authority-check`は元Windows hostの完了済みbounded CPU準備、Job/観測/元予約と外部SHAを認証して新しいディレクトリへauthority.jsonを保存するCPU専用点検。claim/GPU起動は行わない。Macではこの権限作成を拒否する。[認証と一回限りの所有API](portable-prepared-admission.md)を参照。
 
 `handoff-check`は外部snapshot/certificate SHAとbindingから固定入力・出所・CUBINを読むCPU専用点検。元pathを開かず全goldenと照合し、準備controllerと実行consumerを別IDで保持する。実行claimやGPU起動を許可せず、成功もhandoff_bytes_verifiedだけ。[読取と共有adapterの契約](portable-prepared-admission.md)を参照。

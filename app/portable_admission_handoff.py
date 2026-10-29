@@ -28,9 +28,9 @@ def origin_key(path):
 
 
 class Handoff:
-    def __init__(self,cli,path,expected_sha256,*,certificate_sha256,expected_binding,expected_suite,expected_golden,consumer_package_id):
+    def __init__(self,cli,path,expected_sha256,*,certificate_sha256,expected_binding,expected_suite,expected_golden,consumer_package_id,header_materials=None):
         if not hex_string(consumer_package_id,64):raise ValueError('Explicit consumer package ID required')
-        self.consumer_id=consumer_package_id
+        self.consumer_id=consumer_package_id;self._material_descriptor=copy.deepcopy(header_materials);self._materials=None
         if not hex_string(certificate_sha256,64):raise ValueError('External certificate SHA required')
         self.cli=cli;self.path=path;self.sha=expected_sha256;self.cert_sha=certificate_sha256
         self._binding=copy.deepcopy(binding(expected_binding));self.suite=expected_suite;self._golden=copy.deepcopy(expected_golden)
@@ -97,8 +97,12 @@ class Handoff:
             # exact authenticated header map, without opening its mutable paths.
             headers=receipt['identity']['headers']
             if type(headers) is not dict or not headers:raise ValueError('Frozen CUDA header closure required')
+            missing={name:sha for name,sha in headers.items() if origin_key(name) not in self._index}
+            if self._material_descriptor is not None:
+                from portable_header_materials import Materials
+                self._materials=Materials(self._material_descriptor,self._binding,self.sha,self.cert_sha,missing)
             for name,sha in headers.items():
-                if digest(self._read_origin(name))!=sha:raise ValueError('Frozen CUDA header changed')
+                if digest(self._header_bytes(name))!=sha:raise ValueError('Frozen CUDA header changed')
             self._cuda=self._archive.read_blob('blobs/'+receipt['identity']['source_sha256'])
             self._image=self._read_origin(cert['artifact_source']);metadata=validate_cubin(self._image)
             if metadata['sha256']!=b['artifact_sha256'] or metadata['bytes']!=receipt['artifact_bytes']:
@@ -108,12 +112,20 @@ class Handoff:
             if actual!=staged['input']:raise ValueError('Frozen input receipt mismatch')
             self._active=True;return self
         except BaseException:
-            self._archive.__exit__(None,None,None);raise
+            try:
+                if self._materials is not None:self._materials.close(None,None,None)
+            finally:self._archive.__exit__(None,None,None)
+            raise
 
     def _read_origin(self,path):
         row=self._index.get(origin_key(path))
         if row is None:raise ValueError('Frozen source absent: '+path)
         return self._archive.read_blob(row['blob'])
+
+    def _header_bytes(self,name):
+        if origin_key(name) in self._index:return self._read_origin(name)
+        if self._materials is not None:return self._materials.read(name)
+        return self._read_origin(name)
 
     def _package(self,root,m,expected_id):
         if (m['schema']!=self.cli.SCHEMA or m['package_id']!=expected_id or self.cli.package_id(m)!=expected_id or m['suite']!=self.suite
@@ -185,4 +197,7 @@ class Handoff:
 
     def __exit__(self,*error):
         self._active=False
-        return self._archive.__exit__(*error)
+        try:
+            if self._materials is not None:self._materials.close(*error)
+        finally:self._archive.__exit__(*error)
+        return False

@@ -59,6 +59,11 @@ def prepare(cli,owner_root,expected_owner_id,transaction,request,out):
             with owner.forbid_gpu():
                 staged=admit(owner,owner_manifest,transaction,'cuda',capture)
                 linked=owner.saved_linked_admission(owner_manifest,request)
+                # The old admission checks stored compiler identities; the
+                # existing provider separately reads current header bytes.
+                # Complete that exact dependency read inside CPU preparation.
+                from portable_linked_artifact import read_verified
+                read_verified(linked['receipt'],Path(request['producer_capture'])/'generated.cu',linked['artifact'])
                 raw=(transaction/'input.bin').read_bytes()
                 input_receipt=owner.transport_input_receipt(owner_manifest,raw,staged['input']['input_words'])
                 if input_receipt!=staged['input']:raise ValueError('Audited prepared input changed')
