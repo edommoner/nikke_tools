@@ -1,5 +1,5 @@
 // Existing battle executor, followed only by final recipient-order readback.
-#define PORTABLE_RESIDENT_APPEND_PROBE
+#define PORTABLE_CUSTOM_COMPOSED_ENTRY
 #include "world_coordinate_typed_history_entry.slang"
 
 [shader("compute")]
@@ -7,7 +7,7 @@
 void portableEvents(uint3 id : SV_DispatchThreadID)
 {
     if(id.x>=commands[0]) return;
-    executePortableEvents(runtimeStates[id.x],id);
+    executeComposedCoordinateEvents(runtimeStates[id.x],id);
     uint output=id.x*P_OUTPUT_WORDS;
     if(results[output]!=0) return;
     for(uint i=0;i<runtimeStates[id.x].orderedCount;i++)

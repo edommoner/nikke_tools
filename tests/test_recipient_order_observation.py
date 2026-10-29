@@ -9,7 +9,7 @@ from portable_recipient_order_source_contract import project_sources,BEFORE_BACK
 class RecipientOrderObservation(unittest.TestCase):
     def fixture_root(self,path):
         names=[observation.SOURCE,'gpu/world_coordinate_typed_entry.slang','gpu/skill_history_layout.slang',
-               'app/portable_backend.py','tests/fixtures/portable-recipient-order-observation-source-delta.json']
+               'gpu/world_coordinate_area_entry.slang','app/portable_backend.py','tests/fixtures/portable-recipient-order-observation-source-delta.json']
         for name in names:
             target=path/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/name,target)
 
@@ -39,18 +39,19 @@ class RecipientOrderObservation(unittest.TestCase):
         before=result['app/portable_backend.py']
         self.assertEqual(hashlib.sha256(before.encode()).hexdigest(),BEFORE_BACKEND_SHA256)
         self.assertEqual(project_sources(ROOT,{'app/portable_backend.py':before})['app/portable_backend.py'],before)
-        for name in ('app/portable_backend.py',observation.SOURCE):
+        for name in ('app/portable_backend.py','gpu/world_coordinate_area_entry.slang',observation.SOURCE):
             with self.subTest(name=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
 
     def test_updated_hash_cannot_hide_unreviewed_backend_or_entry(self):
-        for fault in ('backend','entry','anchor'):
+        for fault in ('backend','area','entry','anchor'):
             with self.subTest(fault=fault),tempfile.TemporaryDirectory() as tmp:
                 root=Path(tmp);self.fixture_root(root)
                 ledger=root/'tests/fixtures/portable-recipient-order-observation-source-delta.json'
                 data=json.loads(ledger.read_text())
-                if fault=='backend':
-                    target=root/'app/portable_backend.py';target.write_text(target.read_text()+'\n# unreviewed\n')
-                    data['files']['app/portable_backend.py']['after_sha256']=hashlib.sha256(target.read_bytes()).hexdigest()
+                if fault in ('backend','area'):
+                    name='app/portable_backend.py' if fault=='backend' else 'gpu/world_coordinate_area_entry.slang'
+                    target=root/name;target.write_text(target.read_text()+'\n// unreviewed\n')
+                    data['files'][name]['after_sha256']=hashlib.sha256(target.read_bytes()).hexdigest()
                 elif fault=='entry':
                     target=root/observation.SOURCE;target.write_text(target.read_text()+'\n')
                     data['added_sources'][observation.SOURCE]=hashlib.sha256(target.read_bytes()).hexdigest()

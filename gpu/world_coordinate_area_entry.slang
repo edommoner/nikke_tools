@@ -113,7 +113,7 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     for(uint i=5;i<16;i++)results[output+CP_BASE+i]=0;
     writePortableProgram(s,input,output,queries);
 }
-#ifdef PORTABLE_COMPOSED_ARENA
+#if defined(PORTABLE_COMPOSED_ARENA) && !defined(PORTABLE_CUSTOM_COMPOSED_ENTRY)
 [shader("compute")]
 [numthreads(1,1,1)]
 void portableEvents(uint3 id:SV_DispatchThreadID)

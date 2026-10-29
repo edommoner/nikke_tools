@@ -12,9 +12,19 @@
           "after": "def validate_composed_stride(source,input_words,output_words):\n    if source=='gpu/world_coordinate_typed_ordered_history_entry.slang':\n        from portable_recipient_order_observation import check_layout,INPUT_WORDS,OUTPUT_WORDS\n        check_layout(ROOT)\n        if (input_words,output_words)!=(INPUT_WORDS,OUTPUT_WORDS):raise ValueError('Recipient-order observation requires the complete history wire')\n        return\n"
         }
       ]
+    },
+    "gpu/world_coordinate_area_entry.slang": {
+      "before_sha256": "914fa3c781b865af2d7059a7e055fa32045e0fe7882f94731d940c4994c3a1e2",
+      "after_sha256": "7de8a80bcf3686e1b266e644e591a08094b70991ec1bb5eb3948b423586c07a9",
+      "hunks": [
+        {
+          "before": "#ifdef PORTABLE_COMPOSED_ARENA\n[shader(\"compute\")]",
+          "after": "#if defined(PORTABLE_COMPOSED_ARENA) && !defined(PORTABLE_CUSTOM_COMPOSED_ENTRY)\n[shader(\"compute\")]"
+        }
+      ]
     }
   },
   "added_sources": {
-    "gpu/world_coordinate_typed_ordered_history_entry.slang": "a361e91f0774116f8650d0d6b5790cc64351b5b405440a99baee370aba6dd5f3"
+    "gpu/world_coordinate_typed_ordered_history_entry.slang": "e7c433eb2b2f71c72646ea8406d32bf9eca3cac54029130ff78ded8318da2be5"
   }
 }
