@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "normalizer_changed": false,
+  "baseline_commit": "b4f43db13c7d94d8b272b75f046d43f502602033",
+  "files": {
+    "app/portable_backend.py": {
+      "before_sha256": "b5234e00159b5d747c95c24578a6630c495f8174bac5e7a84ae97dc4a7fe05a9",
+      "after_sha256": "a435f15cf96e980e3471eb4cb29bcb08b683b0765117c1faf31f04cc060d5352",
+      "hunks": [
+        {
+          "before": "def validate_composed_stride(source,input_words,output_words):\n",
+          "after": "def validate_composed_stride(source,input_words,output_words):\n    if source=='gpu/world_coordinate_typed_ordered_history_entry.slang':\n        from portable_recipient_order_observation import check_layout,INPUT_WORDS,OUTPUT_WORDS\n        check_layout(ROOT)\n        if (input_words,output_words)!=(INPUT_WORDS,OUTPUT_WORDS):raise ValueError('Recipient-order observation requires the complete history wire')\n        return\n"
+        }
+      ]
+    }
+  },
+  "added_sources": {
+    "gpu/world_coordinate_typed_ordered_history_entry.slang": "a361e91f0774116f8650d0d6b5790cc64351b5b405440a99baee370aba6dd5f3"
+  }
+}

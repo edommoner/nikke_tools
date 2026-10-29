@@ -21,7 +21,9 @@ class SupportContractTests(unittest.TestCase):
     def test_frozen_cohort_reuses_existing_complete_catalogue_and_source(self):
         import nikke_gpu
         config=nikke_gpu.SUITES['original-catalogue-support'];parent=nikke_gpu.SUITES['original-catalogue']
-        self.assertEqual(config['source'],parent['source']);self.assertEqual(set(config['frozen_cases']),set(support.COHORT))
+        from portable_recipient_order_observation import SOURCE,check_layout
+        self.assertEqual(config['source'],SOURCE);check_layout(ROOT)
+        self.assertEqual(set(config['frozen_cases']),set(support.COHORT))
         self.assertEqual((config['inputs'],config['native']),(2,2));self.assertFalse(config['selection_required'])
         self.assertIn('research/upstream/nikke-calc-master/docs/IMPL-STATUS.md',config['upstream_documents'])
         self.assertIs(support.NATIVE_COMPARISON_CONTEXT,support.base.NATIVE_COMPARISON_CONTEXT)

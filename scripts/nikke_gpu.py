@@ -138,9 +138,10 @@ SUITES['original-catalogue-initial']=dict(SUITES['original-catalogue'],golden='r
     'original-catalogue/projectile/앨리스/favorite-0/30s',
     'original-catalogue/hp-shield/프리바티 : 언카인드 메이드/favorite-0/30s'])
 SUITES['original-catalogue-support']=dict(SUITES['original-catalogue'],script='research/verify-original-catalogue-support.py',
+    source='gpu/world_coordinate_typed_ordered_history_entry.slang',
     golden='research/portable-original-catalogue-support-v1-expected.json',inputs=2,native=2,development_only=True,selection_required=False,
     frozen_cases=['original-catalogue/hp-shield/나가/favorite-0/30s','original-catalogue/hp-shield/티아/favorite-0/30s'],
-    tests=[*SUITES['original-catalogue']['tests'],'test_original_catalogue_support.py'])
+    tests=[*SUITES['original-catalogue']['tests'],'test_original_catalogue_support.py','test_recipient_order_observation.py'])
 SUITES['original-catalogue-support']['support_files']=list(dict.fromkeys([
     *SUITES['original-catalogue-support'].get('support_files',()),
     *(path for pattern in SUITES['original-catalogue-support']['tests'] for path in CPU_AUDIT_FILES.get(pattern,()) if not path.startswith('research/upstream/'))]))

@@ -4,6 +4,9 @@ from pathlib import Path
 
 def project_sources(root,sources=None):
     root=Path(root);out=dict(sources or {})
+    if (root/'gpu/world_coordinate_typed_ordered_history_entry.slang').exists():
+        from portable_recipient_order_source_contract import project_sources as recipient_order
+        out=recipient_order(root,out)
     ledger=json.loads((root/'tests/fixtures/portable-moving-many-source-delta.json').read_text())
     older=[json.loads((root/'tests/fixtures'/name).read_text())['files'] for name in ('portable-moving-typed-source-delta.json','portable-enemy-movement-source-delta.json')]
     digest=lambda value:hashlib.sha256(value.encode()).hexdigest()

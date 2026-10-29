@@ -5,7 +5,8 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/p) for p in ('app','research')]
 spec=importlib.util.spec_from_file_location('catalogue_support_base',ROOT/'research/verify-original-catalogue.py')
 base=importlib.util.module_from_spec(spec);spec.loader.exec_module(base)
-SOURCE=base.SOURCE;STRICT_WIRE_DIMENSIONS=True;SELECTED_PREPARATION=True
+from portable_recipient_order_observation import SOURCE,metadata as observed_metadata
+STRICT_WIRE_DIMENSIONS=True;SELECTED_PREPARATION=True
 MAX_SELECTED_CASES=2
 suite=base.suite;cross=base.cross;NATIVE_COMPARISON_CONTEXT=base.NATIVE_COMPARISON_CONTEXT
 case_catalog=base.case_catalog
@@ -18,7 +19,9 @@ def prepare():raise ValueError('Use the registered frozen support cohort')
 
 def prepare_selected(names):
     if set(names)!=set(COHORT) or len(names)!=2:raise ValueError('Complete frozen support cohort required')
-    return base.prepare_selected(names)
+    rows,data=base.prepare_selected(names)
+    return [(name,words,(case,observed_metadata(meta),bindings,descriptor))
+            for name,words,(case,meta,bindings,descriptor) in rows],data
 
 def verify_native(case,native):
     expected=COHORT[case['name']]

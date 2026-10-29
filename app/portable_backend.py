@@ -86,6 +86,11 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source=='gpu/world_coordinate_typed_ordered_history_entry.slang':
+        from portable_recipient_order_observation import check_layout,INPUT_WORDS,OUTPUT_WORDS
+        check_layout(ROOT)
+        if (input_words,output_words)!=(INPUT_WORDS,OUTPUT_WORDS):raise ValueError('Recipient-order observation requires the complete history wire')
+        return
     if source=='gpu/world_moving_many_entry.slang':
         from portable_moving_many_wire import check_schema,INPUT,OUTPUT
         check_schema(ROOT)
