@@ -10,6 +10,8 @@ moving-groupの保存PTX13,556,055byteはWindows読み取りでPTX8.4/sm86・元
 
 固定controller package `bb28af2e…b24a0d`は開発側120検査と自身の120検査、前後payload検査が成功。数値/GPU/golden/保護CPU変更0。source packetは`research/windows-source-packets/module-sealed-source-v1.zip`、出所と未完了範囲は`research/portable-module-sealed-producer-v1.json`。
 
+後段の`linked_object_origin`も、保存objectのownerがcompiler診断なら従来のhistorical検証、sealedなら通常のown payload/source/golden検証を使い、development ownerを拒否する。元object/producer/cache/phase/claim/Jobの全chainを再監査し、object再生成なしで診断linkへ渡す。開発122/固定b418ed14…自身122検査と前後payload一致が成功。`saved_linked_admission`のfull-compiler限定やCUDA実行の受付は変更せず、現source計算への昇格を防ぐ。小記録`research/portable-sealed-object-link-owner-v1.json`。この追加固定packetはMacに保持し、Windowsへのlink依頼はまだ行っていない。
+
 `module-object`は、保存済みproducerの**元PTX全byteを変更せず**、固定ptxas12.4.131／sm86／O1／FMA無効／`--compile-only`で1回処理する明示実験。最大関数focusの0.315660秒・ret0と、元moduleのwhole-program assembly失敗は、入力範囲とcompile modeの両方が異なる。本実験はfocusと同じcompile modeで元module全体を比較する。結果が出る前に原因や必要メモリを断定しない。
 
 ```sh

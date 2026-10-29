@@ -61,6 +61,28 @@ class DeviceLinkerTests(unittest.TestCase):
     def audit(self):
         with self.context():return cli.audit_partition_object_capture(self.f.base.m,self.capture,verify_artifacts=False,link_object=True)
 
+    def test_sealed_object_owner_uses_own_payload_validation_without_calculation_admission(self):
+        with self.context():
+            origin,raw=cli.linked_object_origin(self.request)
+            owner_calls=[c for c in cli.verify_package.call_args_list if Path(c.args[0]).resolve()==self.f.base.package]
+        self.assertEqual(owner_calls[0].kwargs,dict(historical_compiler=False))
+        self.assertEqual(raw,(self.f.capture/'module.o').read_bytes())
+        self.assertFalse(origin['current_battle_equivalence_verified'])
+        self.assertFalse(self.processes)
+
+    def test_compiler_object_owner_keeps_historical_validation_and_development_is_rejected(self):
+        owner=self.f.base.m
+        owner.update(suite='compiler-commands',purpose='compiler-diagnostic')
+        cli.write(self.f.base.package/'gpu-package.json',owner)
+        with self.context():
+            cli.linked_object_origin(self.request)
+            owner_calls=[c for c in cli.verify_package.call_args_list if Path(c.args[0]).resolve()==self.f.base.package]
+        self.assertEqual(owner_calls[0].kwargs,dict(historical_compiler=True))
+        owner['purpose']='development';cli.write(self.f.base.package/'gpu-package.json',owner)
+        with self.context(),patch.object(cli,'audit_partition_object_capture',side_effect=AssertionError('No object admission')),self.assertRaisesRegex(ValueError,'sealed or compiler-diagnostic'):
+            cli.linked_object_origin(self.request)
+        self.assertFalse(self.processes)
+
     def test_static_executable_requires_target_real_entry_parameters_and_payload_ranges(self):
         result=linker.validate_cubin(cubin());self.assertEqual(result['cuda_format_version'],124);self.assertEqual(result['static_bindings']['SLANG_globalParams']['bytes'],48)
         variants=[cubin(entry=b'missingKernel'),cubin(parameter_bytes=40),cubin()[:150]]

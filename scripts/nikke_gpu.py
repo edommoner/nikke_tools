@@ -2816,7 +2816,9 @@ def linked_object_origin(request):
     package=Path(request['object_package']).resolve();capture=Path(request['object_capture']).resolve()
     expected=request['object_sha256']
     if len(expected)!=64 or any(c not in '0123456789abcdef' for c in expected):raise ValueError('Expected original object SHA256 required')
-    producer=verify_package(package,historical_compiler=True)
+    header=load(package/'gpu-package.json')
+    producer=verify_package(package,historical_compiler=compiler_only(header))
+    if is_development(producer):raise ValueError('Saved module object requires a sealed or compiler-diagnostic owner')
     result=audit_partition_object_capture(producer,capture,module_object=True)
     facts=load(capture/'execution.json')
     if not result['object_verified'] or not result['containment_verified'] or facts['cleanup_error'] or facts['observation_error']:raise ValueError('Saved module object is not verified')
