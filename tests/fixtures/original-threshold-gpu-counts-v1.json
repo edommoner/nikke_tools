@@ -1,0 +1,78 @@
+{
+  "schema": "original-threshold-gpu-counts-v1",
+  "package_id": "7b188fc746322f169ac7cb405454158a4e0df1f771de249f5da367e54d34e101",
+  "gpu_calls": 0,
+  "input_sha256": "1fb9c9eec3e8d4d4c1349902b2389eb234b2ca2253501cdbdacc2bab7e559616",
+  "output_sha256": "61ceda9bd2243b3332cea19628bb1a0ca546ffb728542f468f71fb31b257e1a7",
+  "cases": [
+    {
+      "name": "original-catalogue/threshold/Biscuit-control/30s",
+      "definitions": 72,
+      "status": 0,
+      "effects": [
+        {
+          "row": 2,
+          "stat": "invincible",
+          "activations": 0
+        },
+        {
+          "row": 3,
+          "stat": "heal_hp_pct",
+          "activations": 0
+        }
+      ]
+    },
+    {
+      "name": "original-catalogue/threshold/Biscuit-first/30s",
+      "definitions": 72,
+      "status": 0,
+      "effects": [
+        {
+          "row": 2,
+          "stat": "invincible",
+          "activations": 1
+        },
+        {
+          "row": 3,
+          "stat": "heal_hp_pct",
+          "activations": 1
+        }
+      ]
+    },
+    {
+      "name": "original-catalogue/threshold/Biscuit-two/30s",
+      "definitions": 72,
+      "status": 0,
+      "effects": [
+        {
+          "row": 2,
+          "stat": "invincible",
+          "activations": 2
+        },
+        {
+          "row": 3,
+          "stat": "heal_hp_pct",
+          "activations": 2
+        }
+      ]
+    },
+    {
+      "name": "original-catalogue/threshold/Biscuit-exhausted/30s",
+      "definitions": 72,
+      "status": 0,
+      "effects": [
+        {
+          "row": 2,
+          "stat": "invincible",
+          "activations": 2
+        },
+        {
+          "row": 3,
+          "stat": "heal_hp_pct",
+          "activations": 2
+        }
+      ]
+    }
+  ],
+  "scope": "Saved raw timer counters only; full battle validation is the immutable run and independent seal."
+}

@@ -36,6 +36,12 @@ AUDIT_FILES['test_original_support_conditions.py']=(
     'research/portable-original-support-conditions-v1-expected.json',
     'research/portable-compiler-full--original-support-conditions-source-certificate.json',
     'tests/fixtures/original-support-conditions-independent-v1.json')
+AUDIT_FILES['test_original_threshold_conditions.py']=(
+    'research/portable-original-support-conditions-v1-expected.json',
+    'research/portable-original-threshold-conditions-v1-expected.json',
+    'research/portable-compiler-full--original-threshold-conditions-source-certificate.json',
+    'tests/fixtures/original-threshold-conditions-independent-v1.json',
+    'tests/fixtures/original-threshold-gpu-counts-v1.json')
 AUDIT_FILES['test_heavyarms_lock_reference.py']=AUDIT_FILES['test_portable_model_gap_audit.py']
 AUDIT_FILES['test_bay_published_allocation.py']=('tests/fixtures/bay-published-allocation-v1.json',)
 AUDIT_FILES['test_portable_entry_plan.py']=('tests/fixtures/bay-published-allocation-v1.json',)

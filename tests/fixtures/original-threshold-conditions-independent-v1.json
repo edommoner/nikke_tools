@@ -1,0 +1,15 @@
+{
+  "package_id": "7b188fc746322f169ac7cb405454158a4e0df1f771de249f5da367e54d34e101",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/original-threshold-conditions-v1-20261030-metal",
+  "child_pid": 46244,
+  "input_count": 4,
+  "native_cases": 4,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 85.13529708300484,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "1fb9c9eec3e8d4d4c1349902b2389eb234b2ca2253501cdbdacc2bab7e559616",
+  "output_sha256": "61ceda9bd2243b3332cea19628bb1a0ca546ffb728542f468f71fb31b257e1a7",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "schema": "independent-metal-audit-v1"
+}
