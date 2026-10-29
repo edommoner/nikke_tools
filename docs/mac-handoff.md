@@ -3191,3 +3191,10 @@ GPU49a58f13/packetd01a085d。初回38unit/CPU8/必須生成hit/Slang0後に全�
 ## 2026-10-29 GPU-only反復の小hunk台帳対応
 
 `package --develop --native-baseline-package`が移動実装等のfiles/hunks台帳に対応。現実byteから一意に逆変換し、before全本文/SHA・CPU行・schema/出所/key集合を固定する。元15入力の実CLI梱包2.632969秒/native0/GPU0、全期待hash保持。以前のCPU基準生成291.706845秒の重複を避けるが、run前fresh native/独立sealは維持する。common89検査と固定候補unit13成功。GPU/CLI/保護CPU/normalizer不変、GPU計算の追加認定なし。検査用GPU commentは復元済み、snapshot/候補packetは `.portable-recovery/proofs/movement-expectation-ledgers-20261029` に保持。詳細 `docs/portable-development-expectations.md`、小証跡 `research/portable-native-expectation-files-ledgers-v1.json`。次のtyped/移動合成でGPUのみを反復する前に、この版でCPU基準を固定して使う。
+
+
+## 2026-10-29 移動演算のCUDA43入力とCUBIN必須hit
+
+固定f20b276b/packet149d1634のenemy-movement-mathだけをWindowsでcompile1回/GPU1回。43入力・688word（status0:32/16:2/64:9）が全一致、CPU11検査成功。CUBIN/O1/2GiB/compile内側60秒・コマンド外側180秒を維持し、runは必須cache hit/NVRTC0、GPU0.003763秒。内側compile12.388/run12.187秒、外側24.811/50.135秒。Job残存/timeout/process欠落0だがservice未識別のため外側終了2・preservation/overall falseは保持する。
+
+保存結果の非個人2JSONだけをWindows report commit557e1840（codex/cuda-enemy-movement-math-v1-report）から取得、Macでfresh native全43/全word/元Metal raw2,752byteをGPU0で再比較した。原CUDA envelopeをMacで独立再監査したという意味ではない。証跡tests/fixtures/enemy-movement-math-cuda-v1.json、専用CPU検査test_enemy_movement_cuda_words.py、詳細docs/portable-enemy-movement.md。mathのscoped CUDAだけTrue、移動実戦5ケースCUDA/default/全キャラはFalse継続。今回のWindows依頼はterminalで、再実行はしない。次はtyped/worldへの位置consumer合成。

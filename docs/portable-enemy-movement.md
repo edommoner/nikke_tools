@@ -28,7 +28,7 @@ M5でGPU実行1回、全readback2752byteを取得。GPU約0.0000236秒、MSL lib
 
 `portable_native_status`で、このsourceの`movement-step-overflow-v1`だけにCPU oracleの整数status0/16を要求する。旧battleの既定status0は変更せず、他source/未知status/bool値は拒否する。GPU値を期待値へ採用したりstatusを64へ変更して通していない。新immutable controllerで元raw/生成物/native期待を全保持してreplayし、さらにfresh GPU禁止childの独立seal（約0.508秒）が成功した。元capture/claim/失敗は保持し、GPU再実行0。証跡`tests/fixtures/enemy-movement-math-metal-v1.json`とsealed golden`research/portable-enemy-movement-math-v1-expected.json`。
 
-standaloneのため`--generation-cache`は使わない。通常のMetal pipeline cacheは利用できる。CUDAは同じSlang/入力/比較器を使うが今回未実行。既存439 GPUファイル、保護CPU4ファイル、strict normalizerは全byte不変で、旧source証明書を書き換えない。
+standaloneのため`--generation-cache`は使わない。通常のMetal pipeline cacheは利用できる。初回のMetal実証時にはCUDAを実行していなかった。その後の43入力のCUDA数値検証は下記の別証拠へ記録する。既存439 GPUファイル、保護CPU4ファイル、strict normalizerは全byte不変で、旧source証明書を書き換えない。
 
 ## 接続方針
 
@@ -54,3 +54,16 @@ CPU基準生成約292秒、run前native再計算301.701秒、GPU2.926秒、MSL l
 既存logical actor/敵弾薬自爆の2入口は、正確な逆投影前後のCUDA/MSL生成物がraw/strict normalizedとも全byte一致（生成のみ、追加GPU0）。旧証明書を書き換えてcurrent-source GPU成功としない。旧combined wireの検査は、この場合にsource-baselineがstaleとして拒否することも検査する。関連120 CPUテストが成功。生成保持と今回の新機能の計算証明は別である。
 
 現CUDA実機、ゲーム内の引き寄せ軌跡/速度/優先順位、真の空間recipient、BODY/PART/typed projectile、他機能との合成は未検証。Windowsへの追加依頼は0。canonical不足5件・全キャラ認定0・UI CPU・公開GPU受付falseは継続。次はこのconsumerを既存typed対象/worldと合成し、意味のある短い共通CUDA検証単位を選ぶ。
+
+
+## 2026-10-29 移動演算43入力の短いCUDA実証
+
+固定commit `f20b276b`、packet `149d1634…76707`の`enemy-movement-math`だけをWindowsで実行した。全30秒戦闘は実行しない。Mac/Windowsのpacket IDと、packet自身のCUBIN/O1・2GiB・60秒compile-planが一致。compile1回、run1回、native34（overflow status16の2件を含む）/raw拒否9、全688wordが元sealed Metal出力と一致した。通常CPU11検査も成功。
+
+Windows GPU dispatch0.003763秒。compile内側12.388秒/外側24.811秒、run内側12.187秒/外側50.135秒。runはCUBIN必須cache hitでNVRTC0（compile段階はNVRTC1）。開始gate/Job残存0、timeout0、既存process欠落0。compile/run内側は終了0だが、外側runnerはいずれも終了2。既知service未識別によりpreservation/overallはFalseであり、計算/containment成功へ畳み込まない。Windowsの計算成功から全battleや環境保全を認定しない。
+
+Windows reportの固定commit `557e18400e47c7eec653f5d5d9293e043acf4782`（branch `codex/cuda-enemy-movement-math-v1-report`）から、scalar要約2,603byteと43×16数値JSON5,756byteだけを取り込んだ。ファイルSHAを照合し、Macの固定packet自身のnative status契約・全row比較器・readback stream検査をGPU禁止で再利用して全43入力をfresh比較、元Metal raw全2,752byteとの完全一致も確認（約0.169秒、GPU0）。原CUDAのcache/Job/claim/envelopeをMacで再監査した証明ではなく、source-host common CLI auditの報告とMacの独立した数値比較を区別する。
+
+小証跡`tests/fixtures/enemy-movement-math-cuda-v1.json`は全wordとentry指紋・source-host要約・出所を保持し、`test_enemy_movement_cuda_words.py`で通常のCPU検査から再照合できる。数学部品の`cuda_verified`だけを更新し、宣言実戦5ケースのCUDAはFalseのまま。旧Metal証跡/golden/保護CPU/strict normalizer/GPU sourceは変更しない。ローカルproof `.portable-recovery/proofs/movement-cuda-math-20261029` に固定packet、compile-plan、原JSON、取り込んだbyte、監査script/resultを保持。Windowsの追加実行依頼は終了し、同claimの再実行や追加benchmarkは無い。
+
+最終登録は関連115 CPU検査と、固定normal packet自身のunit-check13検査が成功。後者はunitだけで全native/GPU/独立sealを再実行していない。GPU source・保護CPU・normalizer・既存goldenは全byte不変で、今回の実GPUはWindowsの数値probe1回だけ。

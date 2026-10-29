@@ -701,3 +701,6 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 
 
 `enemy-movement`は元ユニ/ヤン全効果の30秒実編成5条件とraw拒否10のsealed15入力。元carrier・世代付きADD・既存clockから動的位置を更新し、既存命中/着弾と全battle履歴までM5 Metal/独立sealで照合する。通常package/unpack/runを使う。計算済み位置・発動時刻はGPU入力にしない。CPU全native生成は約5分かかるため、GPUのみの反復は既存`--native-baseline-package`の適用条件を確認し、run前fresh照合と独立sealを維持する。CUDA実機・ゲーム内軌跡/空間範囲/defaultは未検証。[範囲と実測](portable-enemy-movement.md)。
+
+
+`enemy-movement-math`はWindowsの短い43入力でCUBIN必須hitまで検証済み。元Metalと全688wordが一致し、保存CUDA数値は専用CPU検査で同じnative/全row比較器へ通す。追加GPU不要。source-host計算/Job成功とMacの独立数値照合、未確認service保全、未実証の全battle CUDAを分ける。[結果・cacheと範囲](portable-enemy-movement.md)。

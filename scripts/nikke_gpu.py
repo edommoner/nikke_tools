@@ -440,7 +440,7 @@ SUITES['coordinate-numeric']=dict(script='research/verify-coordinate-numeric-sho
 SUITES['enemy-movement-math']=dict(script='research/verify-enemy-movement-math.py',source='gpu/enemy_movement_math_probe.slang',
     golden='research/portable-enemy-movement-math-v1-expected.json',inputs=43,native=34,input_words=24,output_words=16,
     development_only=False,native_status_contract='movement-step-overflow-v1',
-    tests=['test_enemy_movement_math.py','test_enemy_movement_model.py','test_portable_native_status.py'])
+    tests=['test_enemy_movement_math.py','test_enemy_movement_model.py','test_portable_native_status.py','test_enemy_movement_cuda_words.py'])
 SUITES['enemy-movement']=dict(script='research/verify-enemy-movement.py',source='gpu/world_enemy_movement_entry.slang',
     golden='research/portable-enemy-movement-battle-v1-expected.json',inputs=15,native=5,input_words=117476,output_words=2032000,
     development_only=False,parent_oracle_reuse=True,tests=['test_enemy_movement_wire.py','test_enemy_movement_model.py'])
