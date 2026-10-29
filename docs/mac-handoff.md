@@ -1,3 +1,11 @@
+# 2026-10-30 歴史逆変換を共通化、保存物診断を共通2GiB Jobへ接続
+
+portable_quantity_visited_source_contract.historical_hashesへ旧Frame/mixed証明書の数量逆変換を共通化。固定d04e5689…へ5hunk全byteを復元し、helper/source改変・依存欠落・baseline変更・演算式改変を拒否する。旧証明書を使う現source実行は引き続き拒否。最初の診断packet9f1661…のMac unit失敗は保存し、修正版f7337532…は21群232件とPTX plan成功、a2a87eb4で共有した。GPU計算sourceは前回Metal sealから不変。
+
+保存物専用のptx-stats/cache-check stageをrun-gpu-packetへ追加。既存監査器を同じfresh Job/2GiB/BelowNormal/gate/終了直後観測へ通す。readonly CPU経路も独自wrapperで上限を省略できないようにした。current packetのowner検査、厳密cache hit、PTX receipt/graph hash、CPU-only counterを維持し、compiler/calculationを認定しない。関連105/固定de42d2db…22群238検査成功。新stageの実Windows確認は未実施。詳細portable-packet-file-diagnostics.md、記録research/portable-packet-file-diagnostics-v1.json。
+
+Windowsの保存結果はまだMacへ取得できていない。共有の自動承認拒否に対して既存の人間の包括許可を示した再確認を依頼したが、接続が利用できず結果不明。元のPTX検証やCPU診断を再送せず、既存チャットの保存状態・共有審査結果の取得だけを行う。復旧確認はユーザーへasync質問済み。次は保存結果の全byte/SHA照合を完了してからCUDA物理資源/実計算へ進む。全目標は未達。以下は履歴。
+
 # 2026-10-30 quantityTotalsの訪問管理を共通bitsetへ縮小、Metal3種類を独立seal
 
 QuantityVisitedは256uintのseenを8uintへ置換（ソース上1024→32byte）。values/flags/order配列、初出順、フィルター、binary64加算・丸め、時計は不変。共通helperをCUDA/Metalへ生成。5hunk逆変換で旧quantity全文SHA d04e5689…を復元し、旧max-ammo baseline/normalizerを保持した。実PTX local／物理stack削減は未測定。

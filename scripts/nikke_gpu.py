@@ -737,6 +737,7 @@ for _baseline,_config in list(SUITES.items()):
 
 # Keep historical certificates immutable while selecting the current recertification.
 SUITES[compiler_alias('moving-visited')]['tests']=[*SUITES[compiler_alias('moving-visited')]['tests'],'test_quantity_visited_source_contract.py']
+SUITES[compiler_alias('moving-visited')]['tests'].append('test_portable_packet_file_diagnostics.py')
 for _recertified in ('coordinate-original-resources','coordinate-original-ammo','add-attack-battle','coordinate-resident-frames'):
     SUITES[compiler_alias(_recertified)]['golden']='research/portable-'+compiler_alias(_recertified)+'-v2-source-certificate.json'
 
@@ -769,6 +770,7 @@ SMOKE_TESTS.append('test_portable_jit_link.py')
 SMOKE_TESTS.append('test_portable_jit_link_capture.py')
 SMOKE_TESTS.append('test_portable_linked_artifact.py')
 SMOKE_TESTS.append('test_portable_packet_stage.py')
+SMOKE_TESTS.append('test_portable_packet_file_diagnostics.py')
 SMOKE_TESTS.append('test_portable_generation_gate.py')
 SMOKE_TESTS.append('test_portable_readback_blocks.py')
 SMOKE_TESTS.append('test_portable_sparse_raw.py')

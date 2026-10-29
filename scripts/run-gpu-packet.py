@@ -9,6 +9,7 @@ from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 COMPILE_STAGES=('compile-ptx','compile-cubin-o0','compile-cubin-o1')
+FILE_DIAGNOSTICS={'ptx-stats':('cache_entry','phases'),'cache-check':('source_capture',)}
 PTX_PROBE_STAGE='probe-ptx-cache'
 PTX_PROBE_FIELDS=('generated_cuda','cuda_root','compile_cache')
 PREPARE_STAGE='prepare-admission'
@@ -33,7 +34,7 @@ FAILURE_FIELDS=('source_package','source_capture','expected_package_id')
 STAGED_FIELDS={'preflight-resume':('parent_transaction','group_size'),'preflight-plan':('gpu_capture','group_size','test_group_size'),'preflight-test-group':('transaction','group_index'),'preflight-begin':('gpu_capture','group_size'),'preflight-native-group':('transaction','group_index'),
     'preflight-recover':('source_package','source_capture','origin_package','origin_capture','gpu_capture','linked_package','linked_capture','slang_root','generation_cache'),
     'staged-gpu-linked':('transaction','linked_package','linked_capture')}
-STAGES=('tests','cpu','smoke','generation','gpu',PREPARED_GPU_STAGE,PREPARE_STAGE,REUSE_AUDIT_STAGE,PTX_PROBE_STAGE,CACHED_GPU_STAGE,LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE,FAILURE_STAGE,ORIGIN_STAGE,*STAGED_FIELDS,*COMPILE_STAGES,*OBJECT_STAGES)
+STAGES=('tests','cpu','smoke','generation','gpu',PREPARED_GPU_STAGE,PREPARE_STAGE,REUSE_AUDIT_STAGE,PTX_PROBE_STAGE,CACHED_GPU_STAGE,LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE,FAILURE_STAGE,ORIGIN_STAGE,*STAGED_FIELDS,*COMPILE_STAGES,*OBJECT_STAGES,*FILE_DIAGNOSTICS)
 
 def is_windows():return os.name=='nt'
 
@@ -98,6 +99,12 @@ def object_request(stage,value):
                 if type(item) is not str or not item or any(c in item for c in ('\x00','\r','\n')) or not Path(item).is_absolute():raise ValueError('Absolute prepared GPU paths required')
                 fixed[key]=str(Path(item).resolve())
         return fixed
+    if stage in FILE_DIAGNOSTICS:
+        fields=FILE_DIAGNOSTICS[stage]
+        if type(value) is not dict or set(value)!=set(fields):raise ValueError('Exact file diagnostic request fields required')
+        if any(type(v) is not str or not v or any(c in v for c in ('\x00','\r','\n')) or not Path(v).is_absolute() for v in value.values()):
+            raise ValueError('Absolute file diagnostic paths required')
+        return {k:str(Path(value[k]).resolve()) for k in fields}
     if stage not in (*OBJECT_STAGES,PREPARE_STAGE,REUSE_AUDIT_STAGE,PTX_PROBE_STAGE,CACHED_GPU_STAGE,LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE,FAILURE_STAGE,ORIGIN_STAGE,*STAGED_FIELDS):
         if value is not None:raise ValueError('Only saved-object or saved-linked GPU stages accept a request')
         return None
@@ -124,6 +131,40 @@ def object_request(stage,value):
             if not Path(item).is_absolute():raise ValueError('Absolute saved-object paths required')
             result[key]=str(Path(item).resolve())
     return result
+
+
+def verified_file_diagnostic(proof,package_id,stage):
+    if (type(proof) is not dict or proof.get('mode')!=stage or proof.get('package_id')!=package_id or
+        proof.get('file_diagnostic_verified') is not True or proof.get('compiler_verified') is not False or
+        proof.get('calculation_verified') is not False or
+        any(type(proof.get(k)) is not int or proof[k]!=0 for k in ('gpu_calls','compiler_calls','native_calls'))):return False
+    raw=proof.get('detail')
+    if type(raw) is not dict or raw.get('calculation_verified') is not False or raw.get('compiler_verified',False) is not False or any(type(raw.get(k)) is not int or raw[k]!=0 for k in ('gpu_calls','nvrtc_compile_calls')) or any(type(raw.get(k,0)) is not int or raw.get(k,0)!=0 for k in ('driver_load_calls','native_battle_calls')):return False
+    if stage=='cache-check':
+        cache=raw.get('cache',{})
+        return bool(raw.get('passed') is True and raw.get('package_id')==package_id and type(cache) is dict and cache.get('enabled') is True and cache.get('hit') is True and type(cache.get('identity')) is dict and cache['identity'].get('artifact') in ('ptx','cubin') and all(type(cache.get(k)) is str and len(cache[k])==64 and all(c in '0123456789abcdef' for c in cache[k]) for k in ('key','artifact_sha256')))
+    if stage=='ptx-stats':
+        graph=raw.get('callgraph',{})
+        return bool(all(raw.get(k) is True for k in ('receipt_match','source_integrity_verified','analysis_complete')) and raw.get('compiler_verified') is False and type(graph) is dict and type(graph.get('direct_graph_complete')) is bool and graph.get('compiler_verified') is False and graph.get('calculation_verified') is False and graph.get('ptx_sha256')==raw.get('ptx_sha256') and type(raw.get('ptx_sha256')) is str and len(raw['ptx_sha256'])==64 and all(c in '0123456789abcdef' for c in raw['ptx_sha256']))
+    return False
+
+
+def run_file_diagnostic(cli,plan):
+    """Existing file-only auditors inside the same bounded Job/gate protocol."""
+    request=object_request(plan['stage'],plan['object_request'])
+    proof=Path(plan['proof_capture']);proof.mkdir(exist_ok=False)
+    try:
+        with cli.forbid_gpu():
+            if plan['stage']=='ptx-stats':
+                if cli.verify_package(ROOT)['package_id']!=plan['package_id']:raise ValueError('Packet changed before file diagnostic')
+                raw=cli.ptx_statistics(Path(request['cache_entry']),Path(request['phases']),proof/'detail.json',top=12,callgraph=True)
+            else:raw=cli.check_compile_cache(Path(request['source_capture']),proof/'detail.json')
+        result=dict(mode=plan['stage'],package_id=plan['package_id'],detail=raw,file_diagnostic_verified=True,
+                    compiler_verified=False,calculation_verified=False,gpu_calls=0,compiler_calls=0,native_calls=0,
+                    counter_scope='File-only controller, not the original capture execution counters')
+        if not verified_file_diagnostic(result,plan['package_id'],plan['stage']):raise ValueError('Incomplete file diagnostic receipt')
+        save(proof/'result.json',result)
+    finally:cli.collect(proof,proof/'artifacts.json')
 
 
 def cached_gpu_environment(request):
@@ -281,6 +322,7 @@ def verified_origin(proof,request):
 def recipe(package_id,stage,backend,capture,original_workspace,timeout,request=None,*,generation_settings=None):
     if stage not in STAGES or backend not in ('metal','cuda') or type(timeout) is not int or not 1<=timeout<=180:raise ValueError('Invalid packet stage or budget')
     if stage in (*COMPILE_STAGES,*OBJECT_STAGES,PREPARE_STAGE,REUSE_AUDIT_STAGE,PTX_PROBE_STAGE,CACHED_GPU_STAGE,LINKED_STAGE,RECOVERY_STAGE,NATIVE_GROUP_STAGE,FAILURE_STAGE,ORIGIN_STAGE) and backend!='cuda':raise ValueError('CUDA diagnostic requires CUDA backend')
+    if stage in FILE_DIAGNOSTICS and (backend!='cuda' or original_workspace is None):raise ValueError('File diagnostics require the bounded CUDA host observer')
     if stage=='staged-gpu-linked' and backend!='cuda':raise ValueError('Saved staged CUBIN requires CUDA backend')
     request=object_request(stage,request)
     if stage in ('preflight-recover',PREPARED_GPU_STAGE):
@@ -310,6 +352,7 @@ def recipe(package_id,stage,backend,capture,original_workspace,timeout,request=N
     return plan
 
 def proof_arguments(plan):
+    if plan['stage'] in FILE_DIAGNOSTICS:raise ValueError('File diagnostics use the guarded file-only entry')
     if plan['stage']==PREPARED_GPU_STAGE:
         request=object_request(PREPARED_GPU_STAGE,plan['object_request'])
         args=['prepared-run','--out',plan['proof_capture'],'--timeout',str(plan['inner_gpu_timeout_seconds']),
@@ -427,6 +470,8 @@ def child(folder):
     os.chdir(ROOT)
     if plan['stage']=='tests':
         journal.invoke('packet_cpu_tests',run_tests,cli,plan);return
+    if plan['stage'] in FILE_DIAGNOSTICS:
+        journal.invoke('packet_file_diagnostic',run_file_diagnostic,cli,plan);return
     if plan['stage']==PTX_PROBE_STAGE:
         journal.invoke('packet_ptx_cache_probe',run_ptx_probe,cli,plan);return
     if plan['stage']==REUSE_AUDIT_STAGE:
@@ -523,7 +568,7 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None,
     environment_preserved=bool(process_preserved is True and comparison.get('identified_nikke_service_preservation_verified') is True and facts.get('observation_error') is None) if is_windows() else None
     key={'tests':'cpu_tests_verified','cpu':'cpu_verified','smoke':'smoke_verified','generation':'verified','gpu':'passed',PREPARED_GPU_STAGE:'gpu_execution_completed',CACHED_GPU_STAGE:'passed',LINKED_STAGE:'passed',RECOVERY_STAGE:'passed',NATIVE_GROUP_STAGE:'comparison_subset_verified',FAILURE_STAGE:'passed',ORIGIN_STAGE:'passed',
         'preflight-recover':'transaction_ready','preflight-resume':'transaction_ready','preflight-plan':'transaction_ready','preflight-test-group':'test_group_verified','preflight-begin':'transaction_ready','preflight-native-group':'native_group_verified','staged-gpu-linked':'gpu_execution_completed',
-        PREPARE_STAGE:'preparation_verified',REUSE_AUDIT_STAGE:'reuse_admission_verified',PTX_PROBE_STAGE:'probe_verified',**{name:'compiler_verified' for name in COMPILE_STAGES},**{name:'object_verified' for name in OBJECT_STAGES}}[stage]
+        PREPARE_STAGE:'preparation_verified',REUSE_AUDIT_STAGE:'reuse_admission_verified',PTX_PROBE_STAGE:'probe_verified',**{name:'compiler_verified' for name in COMPILE_STAGES},**{name:'object_verified' for name in OBJECT_STAGES},**{name:'file_diagnostic_verified' for name in FILE_DIAGNOSTICS}}[stage]
     compiler_verified=bool(proof and proof.get('mode')=='compile-only' and proof.get('compiler_verified') is True and proof.get('calculation_verified') is False and type(proof.get('gpu_calls')) is int and proof['gpu_calls']==0 and type(proof.get('driver_load_calls')) is int and proof['driver_load_calls']==0)
     generation_verified=verified_generation(proof,manifest['package_id'])
     if stage not in COMPILE_STAGES:compiler_verified=False
@@ -541,12 +586,14 @@ def run_stage(folder,stage,backend,timeout,original_workspace=None,request=None,
     if stage==ORIGIN_STAGE:verified=verified_origin(proof,plan['object_request'])
     if stage in STAGED_FIELDS:verified=verified_staged(proof,stage,manifest['package_id'])
     if stage==PTX_PROBE_STAGE:verified=verified_ptx_probe(proof)
+    if stage in FILE_DIAGNOSTICS:verified=verified_file_diagnostic(proof,manifest['package_id'],stage)
     if stage==REUSE_AUDIT_STAGE:verified=verified_reuse_audit(proof,manifest['package_id'])
     if stage==PREPARE_STAGE:
         from portable_admission_prepare import verified_result
         verified=verified_result(proof,folder/'proof',manifest['package_id'],plan['object_request'])
     stage_verified=bool(facts['passed'] and verified)
-    result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,compiler_verified=compiler_verified,generation_verified=generation_verified if stage=='generation' else False,calculation_verified=bool(stage not in (*COMPILE_STAGES,*OBJECT_STAGES,PREPARED_GPU_STAGE,PREPARE_STAGE,REUSE_AUDIT_STAGE,PTX_PROBE_STAGE,'generation','tests',FAILURE_STAGE,ORIGIN_STAGE) and proof and proof.get('calculation_verified')),cpu_verified=bool(proof and proof.get('cpu_verified')),smoke_verified=bool(proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
+    result=dict(schema=1,package_id=manifest['package_id'],stage=stage,bounded_execution_verified=facts['passed'],proof_result=proof,compiler_verified=compiler_verified,generation_verified=generation_verified if stage=='generation' else False,calculation_verified=bool(stage not in (*COMPILE_STAGES,*OBJECT_STAGES,*FILE_DIAGNOSTICS,PREPARED_GPU_STAGE,PREPARE_STAGE,REUSE_AUDIT_STAGE,PTX_PROBE_STAGE,'generation','tests',FAILURE_STAGE,ORIGIN_STAGE) and proof and proof.get('calculation_verified')),cpu_verified=bool(proof and proof.get('cpu_verified')),smoke_verified=bool(proof and proof.get('smoke_verified')),whole_stage_process_preservation_verified=process_preserved if is_windows() else None,whole_stage_environment_preservation_verified=environment_preserved,stage_verified=stage_verified,stage_complete=bool(facts['passed'] and proof),gpu_retries=0,full_goal_complete=False)
+    if stage in FILE_DIAGNOSTICS:result['file_diagnostic_verified']=verified
     if stage==PREPARE_STAGE:result.update(preparation_verified=verified,execution_admitted=False)
     if stage==REUSE_AUDIT_STAGE:result.update(linked_reuse_admission_verified=verified)
     if stage==PTX_PROBE_STAGE:result.update(ptx_cache_probe_verified=verified,ptx_cache_hit_snapshot=bool(verified and proof['cache']['hit']))
