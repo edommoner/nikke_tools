@@ -1,3 +1,9 @@
+# 2026-10-29 消費済みcompile claimを計画時に検出し、別PTX工程へ
+
+共通`compile-plan`は既存claim（壊れたsymlinkを含む）を読み取り確認し、`execution_claim_available=false`/`passed=false`で止める。artifact変更でも同じpacketのclaimを再使用しない。実行時の排他的claim/監査/数値/GPU/golden/保護CPU4fileは変更0、CLIの既存top-level定義変更はcompile_planだけ。開発側119検査、現source基準の固定fd7de6c1…自身compiler70検査とPTX/2GiB/60秒planが成功。旧small基準での固定はsource closure staleとして拒否され、goldenを書き換えず現moving-many基準で固定した。証跡`research/portable-compile-plan-claim-v1.json`。
+
+Windowsへは別artifactのPTX単独生成を1回だけ依頼。元不変ZIP/package76fbe7c3…を新しいnikke-moving-group-ptx-v1へ展開し、旧CUBIN失敗/claimsを保持。既存paired generation必須hit/Slang0、2GiB/BelowNormal/fresh Job/gate/child60秒/outer180秒、native/driver/ptxas/GPU0。Macの元packet ownCLIでplan成功、Windows側もplan成功まで確認、実結果は待機中。NVRTC終了後の別assemblerでメモリを減らせるかは未検証で、後段への自動移行は依頼しない。全キャラ/default/全目標未達。
+
 # 2026-10-29 未対応の優先順とWindowsのコンパイル失敗を保存
 
 共通`entry-plan`は保存entry-inventoryを再準備せず、operator/複数target間の同じprofileを重複除去して影響数順に並べる。元266行/全入力hash/GPU sourceを保持、254 packing/12失敗/11系統。最大はベイ4段階で、all_allies/self_coverを8件に水増ししない。scoped Metal/CUDA記録は残し、current_source_revalidated/calculation/default/全キャラはfalse。約693KBの報告からstdout5650byteへ短縮。新規7含む116検査成功、固定f756da39…自身のCLIでも開発側と完全同じplan JSON、payload前後検査成功。旧CLIはmain以外の全function/class AST同一、数値/GPU/保護CPU4file/golden変更0。[次のoperator選択](portable-shared-entry-inventory.md)。

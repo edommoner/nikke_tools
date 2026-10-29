@@ -40,6 +40,31 @@ class CompileCLITests(unittest.TestCase):
                 with self.subTest(stage=stage,kind=kind,level=level,memory=memory),self.assertRaisesRegex(ValueError,'PTX'):
                     cli.compiler_diagnostic_policy(diagnostic,kind,level,memory,stage)
 
+    def test_plan_rejects_consumed_claim_even_when_artifact_changes(self):
+        normal=dict(package_id='plan-fixture',suite='coordinate-resident-arc',purpose='sealed')
+        claim=self.root/'compile-claimed-cuda.json'
+        original=b'{"artifact_kind":"cubin","capture":"preserved-failure"}\n'
+        claim.write_bytes(original)
+        with patch.object(cli,'ROOT',self.root),patch.object(cli,'verify_package',return_value=normal),patch.object(cli,'run_job',side_effect=AssertionError('No execution')):
+            for kind,level in [('cubin',1),('ptx',None)]:
+                result=cli.compile_plan(self.root/(kind+'-consumed.json'),kind,level,2048,60)
+                self.assertFalse(result['passed']);self.assertFalse(result['execution_claim_available'])
+                self.assertIn('already consumed',result['error']);self.assertFalse(result['claim_created'])
+                self.assertEqual(claim.read_bytes(),original)
+            claim.unlink()
+            result=cli.compile_plan(self.root/'fresh-plan.json','ptx',None,2048,60)
+            self.assertTrue(result['passed']);self.assertTrue(result['execution_claim_available'])
+            self.assertFalse(claim.exists())
+
+    @unittest.skipIf(os.name=='nt','Creating symlinks requires unrelated Windows privileges')
+    def test_plan_rejects_dangling_claim_without_following_or_removing_it(self):
+        normal=dict(package_id='plan-fixture',suite='coordinate-resident-arc',purpose='sealed')
+        claim=self.root/'compile-claimed-cuda.json';claim.symlink_to(self.root/'missing-target')
+        with patch.object(cli,'ROOT',self.root),patch.object(cli,'verify_package',return_value=normal):
+            result=cli.compile_plan(self.root/'linked-claim.json','ptx',None,2048,60)
+        self.assertFalse(result['passed']);self.assertFalse(result['execution_claim_available'])
+        self.assertTrue(claim.is_symlink());self.assertFalse(claim.exists())
+
     def test_plan_rejects_development_and_invalid_budgets_before_execution(self):
         normal=dict(package_id='plan-fixture',suite='coordinate-resident-arc',purpose='sealed')
         with patch.object(cli,'verify_package',return_value=normal):

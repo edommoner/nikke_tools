@@ -1126,6 +1126,7 @@ def compile_plan(output,artifact_kind,ptxas_level,memory_limit_mb,timeout):
     if output.exists():raise FileExistsError(output)
     with forbid_gpu():
         m=verify_package(ROOT);error=None
+        claim_available=not os.path.lexists(ROOT/'compile-claimed-cuda.json')
         try:
             if type(timeout) is not int or not 1<=timeout<=60:raise ValueError('Compile-only budget must be1..60 seconds')
             if type(memory_limit_mb) is not int or not 64<=memory_limit_mb<=4096:raise ValueError('Compile-only memory must be64..4096 MiB')
@@ -1133,12 +1134,13 @@ def compile_plan(output,artifact_kind,ptxas_level,memory_limit_mb,timeout):
             cuda_compile_options(artifact_kind,ptxas_level)
             if is_development(m):raise ValueError('Compile-only requires a sealed Metal package')
             compiler_diagnostic_policy(m,artifact_kind,ptxas_level,memory_limit_mb,'parent')
+            if not claim_available:raise ValueError('Compile claim already consumed; preserve the original capture and claim')
         except ValueError as exc:error=str(exc)
     result=dict(schema='compile-plan-v1',passed=error is None,package_id=m['package_id'],suite=m['suite'],
         purpose=m.get('purpose','sealed'),artifact_kind=artifact_kind,ptxas_level=ptxas_level,
         memory_limit_mb=memory_limit_mb,timeout_seconds=timeout,error=error,
         policy='PTX-only/2GiB/no-ptxas-level' if compiler_only(m) else 'sealed-battle compile-only transport',
-        gpu_calls=0,compiler_calls=0,claim_created=False,calculation_verified=False,
+        gpu_calls=0,compiler_calls=0,claim_created=False,execution_claim_available=claim_available,calculation_verified=False,
         scope='Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified')
     with output.open('x',encoding='utf-8') as stream:json.dump(result,stream,indent=2);stream.write('\n')
     return result

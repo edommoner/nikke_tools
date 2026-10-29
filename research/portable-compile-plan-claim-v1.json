@@ -1,0 +1,104 @@
+{
+  "schema": "compile-plan-claim-checkpoint-v1",
+  "base_commit": "9b38876d9433b006b945c5c4d58d38263aad6db3",
+  "changed_cli_top_level_definitions": [
+    "compile_plan"
+  ],
+  "protected_cpu_files_unchanged": [
+    "app/detail_gpu.py",
+    "app/engine_worker.py",
+    "app/effect_spec.py",
+    "app/engine_compat.py"
+  ],
+  "gpu_source_changed": false,
+  "golden_changed": false,
+  "calculation_verified": false,
+  "full_goal_complete": false,
+  "mac_tests": {
+    "compiler": 70,
+    "packet_stage": 35,
+    "offline_assembly": 14,
+    "total": 119,
+    "failures": 0
+  },
+  "frozen_compiler_tests": {
+    "passed": 70,
+    "failures": 0
+  },
+  "frozen_plan": {
+    "bytes": 611,
+    "sha256": "62dae1402f6c58b1b6a72639a03b3b764c1d299b78ede857d9c8f04796759c36",
+    "report": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "fd7de6c180570f7c667d220b12462522e747f02d26826f882879e3c1477132d7",
+      "suite": "moving-many-cache-only",
+      "purpose": "sealed",
+      "artifact_kind": "ptx",
+      "ptxas_level": null,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    }
+  },
+  "windows_ptx_plan": {
+    "bytes": 575,
+    "sha256": "7488160b85889c97ad8a4aacb880587adceccebdae0acbe0542e419390c29bc8",
+    "report": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "76fbe7c3c06307e6c1fd07329e0f129b6bc9433a1f4fbff5732b59dc8b0e0557",
+      "suite": "moving-group-cache-only",
+      "purpose": "sealed",
+      "artifact_kind": "ptx",
+      "ptxas_level": null,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    }
+  },
+  "preserved_failed_attempt": {
+    "suite": "moving-group-cache-only",
+    "artifact": "cubin",
+    "diagnostic": "ptxas fatal : Memory allocation failure",
+    "claim_reused": false
+  },
+  "package_failure_preserved": {
+    "attempt": "compile-plan-claim-v1-20261029",
+    "error": "Golden GPU source closure is stale",
+    "suite": "moving-group-cache-only",
+    "compiler_calls": 0,
+    "gpu_calls": 0,
+    "reason": "Current small-suite source closure includes later wide hooks; do not rewrite the old golden"
+  },
+  "correction": {
+    "suite": "moving-many-cache-only",
+    "purpose": "Freeze current CLI using the current independently sealed source closure only; not a new GPU execution"
+  },
+  "windows_request": {
+    "thread": "01a140bc-5f3b-7661-b720-50c945596eaa",
+    "artifact": "ptx",
+    "new_isolated_root": true,
+    "child_timeout_seconds": 60,
+    "outer_timeout_seconds": 180,
+    "memory_limit_mb": 2048,
+    "paired_generation_required": true,
+    "old_cubin_retry": false,
+    "assembler_allowed": false,
+    "gpu_allowed": false,
+    "status": "dispatched; result pending"
+  }
+}

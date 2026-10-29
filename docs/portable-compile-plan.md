@@ -11,6 +11,10 @@ python scripts/nikke_gpu.py compile-plan --artifact-kind cubin --ptxas-level 1 \
 
 計画はパッケージの全file/source/goldenを検査したうえで、artifact・予算・purposeの互換性だけを判定します。GPU、Slang、NVRTC、Job、claim、cacheへの書込みは行いません。SDKや依存の存在、コンパイラ成功、Windows containment／preservation、計算一致は別のゲートです。計画JSONを既存の成功証拠へ読み替えません。
 
+現在のCLIは同じpacketの`compile-claimed-cuda.json`の存在も読み取り確認し、`execution_claim_available`へ記録します。消費済みならartifactを変えても`passed=false`です。壊れたsymlinkも存在として拒否し、元claim/captureを変更しません。これは計画時点の観測で、実行時の排他的claim作成は引き続き必須です。過去の固定packetにはこの追加検査はなく、変更して後付けしません。
+
+失敗したCUBINを別rootで再試行する手順ではありません。moving-groupでは元CUBIN失敗を保持し、**別工程として明示したPTX単独生成**に限って元不変ZIPを新規rootへ展開します。同じsource/goldenを保ち、既存生成cacheを必須hitにし、2GiB/child60秒/outer180秒を維持します。PTX成功だけで後段assemblerやGPU実行へ自動移行しません。
+
 PTX診断パッケージへCUBINを依頼した失敗は、Windowsの`resident-compile-v1-preflight`に保存しています。実コンパイル・claimは0でした。修正後はsealed `coordinate-resident-arc`を使います。親・child・監査・計画は同じ`compiler_diagnostic_policy`を呼び、旧PTX制約を共有します。互換性、旧制約、budget、development拒否を含む11検査を通しました。
 
 Windows v3ではdevice検査は成功しましたが、共通smokeのSwift修復fixtureが`write_text`でLFをCRLFへ変換し、固定SHA検査に拒否されました。v4ではfixtureをUTF-8 bytesで書き、実ファイルSHAも検査します。CRLF候補を拒否する負例を追加し、実運用の修復SHA／normalizerは変更していません。Macの共通60群581検査が成功し、計算コードと106goldenはv3と同一です。旧失敗は保存したまま新規packetのみを使います。

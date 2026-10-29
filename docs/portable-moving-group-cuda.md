@@ -15,3 +15,11 @@ packet自身のCUBIN/O1・2GiB・60秒compile-plan成功後、同じwrapperの`c
 保存stderrから`ptxas fatal : Memory allocation failure`が確認された。inner peak2112569344byte、outer2147676160byteと2GiB付近だが、Job上限・システム全体の空きメモリ・assembler内部のどれが直接原因かは断定しない。元要約の「原因未特定」は作成当時のまま保持し、後から読んだ具体的な診断を別excerptへ記録した。元ログの個人pathは送らず、元bytes/SHAをWindowsに残して診断行だけを共有した。
 
 失敗共有commit `f7bd0a44`、小記録 `research/portable-moving-group-cuda-compile-failure-v1.json`。同claimの再試行、上限引上げ、代替artifactの追加compileは0。次は既存PTX-only/分離assembler経路の保存状態とメモリ計画を読む。生成cache成功をCUBIN成功やCUDA計算一致へ昇格しない。
+
+## 次の明示工程：PTX単独生成（結果待ち）
+
+既存`compile-ptx`と`assemble`を確認した。`assembly_origin`は元PTX producerのpackage/golden/compile receipt/Job/観測/bytesを再監査するため、過去の別kernelのPTXや失敗CUBINを代用品にしない。外部ptxasは固定12.4.131・sm86・O1・FMA無効、Job内で55秒＋cleanup5秒という既存規約。PTX成功後もまず元producerとtoolの適合を検査し、今回はassemblerを実行しない。
+
+同じ固定ZIPの新規展開先`nikke-moving-group-ptx-v1/packet`で**別artifactのPTXだけ**を1回生成する依頼を送った。元CUBINを再試行せず、新rootでも同じCUBINを実行しない。Macの元packet自身でPTX/2GiB/60秒plan成功、Windowsのplan成功も確認。旧59CPU/paired生成の同payload証拠を再利用し、生成cache必須hit・Slang0を要求した。outer180秒/child60秒/2GiB/低優先度/Job/gateを保持し、GPU/driver/native/ptxasは0の計画。結果未取得で、PTX生成成功・assemblerのメモリ改善・CUDA計算一致はまだ認定しない。
+
+新CLIは消費済みcompile claimを計画時に拒否するようになったが、今回の旧不変packetへ後付けしていない。詳細と現CLIの固定検査は`research/portable-compile-plan-claim-v1.json`。旧結果・cache・claimsを保持する。
