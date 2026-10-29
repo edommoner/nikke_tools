@@ -1,0 +1,49 @@
+{
+  "schema": "moving-overlap-cli-checkpoint-v1",
+  "base_commit": "abbf537892cead44092171fba32ceeb4d63e7942",
+  "suite": "moving-overlap",
+  "golden": "research/portable-moving-overlap-v1-expected.json",
+  "evidence": "tests/fixtures/moving-overlap-metal-v1.json",
+  "evidence_sha256": "b86c759ebcce5efac7ab8637c8fa2b23d4d448172c10d896a4e0f43a31dd61ec",
+  "development_package_id": "1056fb2f84782072788379e82de3bebb5711975b44af0671b5f4fcafd9bf797a",
+  "sealed_package": {
+    "package_id": "1e2e50a3e13560e28e80e6d9ac702ffc5fecb40c5c680521c1f524de0f827bcb",
+    "bytes": 13456803,
+    "sha256": "58e60e0ea69f8b43cece4bc73532d4efbe9701a42b5d4449eb46c8c70b125c15",
+    "unit_groups": 7,
+    "unit_tests": 33,
+    "payload_after_unit_verified": true
+  },
+  "development_classification_tests": 42,
+  "model_check_passed": true,
+  "full_original_definitions": 72,
+  "inputs": 14,
+  "native_cases": 2,
+  "rejected_cases": 12,
+  "metal_verified": true,
+  "independently_audited": true,
+  "gpu_execution_count": 1,
+  "gpu_retries": 0,
+  "independent_seconds": 91.45749254198745,
+  "independent_parent_reused": false,
+  "independent_gpu_calls": 0,
+  "independent_group_logs_durable_copy_byte_verified": true,
+  "original_independent_logs_retained": true,
+  "old_current_group_raw_generated_bytes_retained": true,
+  "old_rejection_inputs_native_sha256_retained": 12,
+  "all_gpu_payload_and_protected_cpu_bytes_unchanged": true,
+  "readiness_scoped_evidence_added_for": [
+    "enemy_movement_disable",
+    "force_move"
+  ],
+  "default_admission_changed": false,
+  "in_game_precedence_verified": false,
+  "cuda_verified": false,
+  "full_character_verified": false,
+  "full_goal_complete": false,
+  "remaining": [
+    "Current CUDA verification using saved artifacts after bounded fresh native prerequisites",
+    "Game motion/selection/precedence and attachment semantics; no defaults inferred",
+    "Other original profiles and unsupported operator families"
+  ]
+}

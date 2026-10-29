@@ -1,3 +1,13 @@
+# 2026-10-29 移動停止・強制移動・グループの元72定義を同時Metal検証
+
+`moving-overlap`はユニ/ヤン/ドレイク/ニヒリスター/メアリーの元全72定義・実武器/育成/seed/30秒を保持し、同じmoving-typed/group entryへ接続した。新shader/時計/handler/ダメージ式/計算済み位置入力は0。実際に停止と強制移動が重なる区間を持つ2つの明示優先順で、typed付属物・物理命中・multi_hit通知・元子攻撃着弾まで既存全比較を行う。ゲーム規則への昇格ではない。
+
+固定1056fb2f…のM5実GPU1回で全14入力（実戦2/拒否12）成功。GPU2.286507秒、pipeline0.003019秒、fresh CPU48.771816秒、unit32。generation/PSO必須hit、Slang0/retry0。fresh GPU禁止7群の独立seal91.457493秒成功、親native再利用/GPU0。旧current-group生成CUDA/MSL全bytes、旧拒否12入力/native指紋、既存GPU payload/保護CPU4ファイルを全保持した。raw/元失敗/claims/独立ログを永続proofへ保持。
+
+通常sealed suiteへ登録し、両operatorの分類へ限定`current_overlap_validation`を追加。開発分類42検査、固定sealed1e2e50a3…自身7群33検査、model-check成功。公開受付/元拒否/ゲーム規則/全キャラは維持。詳細[元複合編成](portable-moving-overlap.md)、小記録`research/portable-moving-overlap-cli-v1.json`。
+
+Windowsの旧group15は固定835c8dbd…でplanと全テスト3群31件が成功。native-group0（実戦3件を含む入力0–4）は外180秒でtimeout、183.465秒で終了しGPU0。native1/2へ進まず原proof/claimを保持する。保存ログと正式peer要約を取得してから、既存の同一未実行GPU用continuationでnative群を1入力ずつへ分割できるか検査する。再送/上限増加/再コンパイルはしない。これは新overlap14のCUDA証明でもない。以下は履歴。
+
 # 2026-10-29 Windows実byte再利用監査成功、通常/段階実行へ出所対を接続
 
 Windows固定24870e4d…の読み取り監査が76.435秒/exit0で成功。旧・現PTX13,556,055byteの全bytesと完全compiler identity/keyが一致し、既存CUBIN6,918,480byteを保存したまま現producerへ束縛できた。原claim変更/compiler/Slang/NVRTC/ptxas/link/driver/GPU/native/retry0。2GiB/BelowNormal/gate/終了空/欠落0、サービス保全不明は環境保全/overall false。固定93d6556d…のsummary3330byte/manifest615byteを元CRLF/SHAで取得。Mac原本chain独立監査ではない。

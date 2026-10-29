@@ -49,6 +49,17 @@ def movement_contract():
         scope='Declared CPU and Metal movement consumer on real ADD colliders; canonical/default world model and actual game spatial rules remain unverified')
 
 
+def current_movement_overlap_validation():
+    return dict(suite='moving-overlap',inputs=14,native_cases=2,rejected_cases=12,
+        original_definitions_per_roster=72,validated_original_operators=['enemy_movement_disable','force_move'],
+        original_group_consumer=True,metal_verified=True,independently_audited=True,cuda_verified=False,
+        evidence='tests/fixtures/moving-overlap-metal-v1.json',
+        evidence_sha256='b86c759ebcce5efac7ab8637c8fa2b23d4d448172c10d896a4e0f43a31dd61ec',
+        default_producer_installed=False,in_game_motion_policy_verified=False,in_game_precedence_verified=False,
+        full_character_verified=False,
+        scope='Current-source original Yuni/Yan/Nihilister shared typed/group battle; two explicit precedence models, no game/default/all-character certification')
+
+
 def current_movement_stop_validation():
     return dict(suite='moving-group-current',inputs=15,native_cases=3,rejected_cases=12,
         metal_verified=True,independently_audited=True,current_source_recertified=True,cuda_verified=False,
@@ -161,6 +172,7 @@ def reference_readiness(issue):
                 declared_cpu_contract=movement_contract(),
                 current_world_consumer_verified=False,current_cuda_verified=False,
                 default_producer_installed=False)
+            result['movement_prerequisites']['current_overlap_validation']=current_movement_overlap_validation()
             if issue.get('stat')=='enemy_movement_disable':
                 result['movement_prerequisites']['current_group_recertification']=current_movement_stop_validation()
         if issue.get('kind')=='buff' and issue.get('stat')=='heal_received_pct' and issue.get('target')=='all_enemies':

@@ -600,6 +600,9 @@ SUITES['moving-group-current']=dict(SUITES['moving-group'],golden='research/port
     support_files=[*SUITES['moving-group']['support_files'],SUITES['moving-group']['golden'],SUITES['enemy-movement']['golden']],
     upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'])
 SUITES['moving-group-current-cache-only']=dict(SUITES['moving-group-current'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=SUITES['moving-group-cache-only']['tests'])
+SUITES['moving-overlap']=dict(SUITES['moving-group-current'],script='research/verify-moving-overlap.py',
+    golden='research/portable-moving-overlap-v1-expected.json',inputs=14,native=2,development_only=False,
+    tests=[*SUITES['moving-group-current']['tests'],'test_moving_overlap_inputs.py'])
 SUITES['named-effect-range-cache-only']=dict(SUITES['named-effect-range'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['named-effect-range']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['named-range-battle-cache-only']=dict(SUITES['named-range-battle'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['named-range-battle']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['original-lock-controls-cache-only']=dict(SUITES['original-lock-controls'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-lock-controls']['tests'],'test_portable_cuda_cached_profile.py'])
