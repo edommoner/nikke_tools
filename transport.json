@@ -1,0 +1,11 @@
+{
+  "schema": "source-packet-transport-v1",
+  "package_id": "22762b5e455caa031ba87928184834e2807a36dcd8b945ccc5e6ca14f4d9112d",
+  "source_commit": "60dc9d09d2b8fe57aa94d5127774573725dbe2e3",
+  "files": 2472,
+  "archive_bytes": 11066142,
+  "archive_sha256": "002aa6ca8aa201ac1724fbf5d9da34034576ded6d65e75cd99824052fb080276",
+  "purpose": "CPU-only reread of retained current CUDA envelope; no GPU, compiler or native battle",
+  "unit_tests": 70,
+  "raw_compiler_sdk_payloads": false
+}
