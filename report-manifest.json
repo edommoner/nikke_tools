@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "source_package_id": "ba760483dfc1f0a8f0352cba7990fde622376a9f1d4d50faec4faa95f07b492c",
+  "summary_file": "resource-summary-v1.json",
+  "summary_bytes": 5328,
+  "summary_sha256": "0c1be561de23dc98102a9aa421170eac1e945c0dffd761672c55084e0d2b2c9b",
+  "public_payload": "numeric-resource-summary-and-manifest-only",
+  "sdk_paths_included": false,
+  "nonce_included": false,
+  "raw_phases_included": false,
+  "binary_included": false,
+  "private_diagnostics_included": false
+}
