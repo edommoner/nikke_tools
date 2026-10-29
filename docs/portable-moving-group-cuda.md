@@ -1,5 +1,15 @@
 # 共通移動/typed/groupの短いWindows準備とコンパイル
 
+## 現sourceのPTX cache hit（2026-10-29）
+
+固定54c70a1d…/`moving-group-current`でpaired generationを1回準備し、sealed normalized pairへ一致。新source keyのためSlang2回・25.772秒だったが、生成CUDA/MSLの実bytesも元producerと一致した。続く共通`probe-ptx-cache`はexact PTX hit、auditor本体0.142秒/外stage10.511秒。generation/cache必須のPTX producerは内14.315秒/外25.969秒、Slang/NVRTC0・compiler_verified trueだった。
+
+元PTXと同じ13,556,055byte/SHA `e6d83bf98e727ee989aaca68364c632ebbf9e26c259dd71161462a90184a104e`、同じcompile key `ded5292f9aa24aee1d01b79b04df40f46a9472a9d16bba8fdeb1751f9f61525e`。両sourceの識別は保持し、新しいsource receiptを作ったのであって旧成功記録の書換えではない。
+
+全stageは2GiB/BelowNormal/gate、Job後0/欠落0/timeout・観測cleanup error無しの報告。サービス未識別は保全/overall false、compile stageのchild exit2/wrapper1。GPU/battle/ptxas/object/link/retry0。固定report dee9d4f2…の小要約4869byte＋manifest623byteを原CRLF/SHAで取得し、現Metal sourceと元生成物へ照合した。原PTX/全JobはWindows保存でMac独立原本監査ではない。`research/portable-moving-group-current-cache-peer-v2.json`。
+
+次は旧object/CUBINと**現producer**のraw PTX・完全compiler identityを両方再監査する明示的な再利用受付。normalized一致だけでは受け付けず、元artifactのold source表示を保持する。現CUDA戦闘計算は未確認で、ここからobject/link/GPUを自動実行しない。以下は元sourceの履歴。
+
 固定package `76fbe7c3…e0557`（`moving-group-cache-only`）は、M5で独立監査済みの15入力/native3/拒否12を使う。最大127体用ではない。source packetはcommit `b93d1c87`、branch `codex/cuda-moving-group-v1-source`。元workspaceを変更せず、新規隔離root `C:/Users/owner/Documents/Codex/nikke-moving-group-cuda-v1`へ展開した。初めのturnはpackage検査後に別の過去の話題へ逸れたため、保存先/claim無し・実行process0を読み取ってから未実行stageだけを開始した。消費済みclaimの再送ではない。
 
 ## CPU準備

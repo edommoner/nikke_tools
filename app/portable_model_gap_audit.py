@@ -216,9 +216,13 @@ def verify(root,overrides=None):
  from portable_resident_validation import validation as resident_validation
  coordinate_port['numeric_frontend']['resident_storage_validation']=resident_validation()
  result=dict(passed=True,missing_stats=missing,coordinate_world=coordinate_port,target_and_nearby=dict(explicit_ranked_branch=False,fallback='current aimed logical enemy only',nearby_spatial_world=False),enemy_ammo=dict(allied_filter=True,enemy_ammunition_state=False,named_completion_outside_target_loop=True),enemy_healing=dict(allied_heal_consumer_present='heal_received_pct' in strings['calculator/buff_manager.py'],enemy_healing_path_verified=False),historical_documents_are_not_current_instructions=True,gpu_supported=False,full_goal_complete=False,source_sha256={**{base+name:hashlib.sha256(value.encode()).hexdigest() for name,value in text.items()},gate_path:hashlib.sha256(gate_text.encode()).hexdigest(),public_path:hashlib.sha256(public_text.encode()).hexdigest()})
- from portable_readiness_semantics import enemy_ammo_prerequisites,movement_contract
+ from portable_readiness_semantics import enemy_ammo_prerequisites,movement_contract,current_movement_stop_validation
  for stat in ('enemy_movement_disable','force_move'):
   result['missing_stats'][stat]['declared_movement_contract']=movement_contract()
+ current=current_movement_stop_validation();raw=(root/current['evidence']).read_bytes()
+ if hashlib.sha256(raw).hexdigest()!=current['evidence_sha256']:raise ValueError('Current movement evidence changed')
+ result['missing_stats']['enemy_movement_disable']['current_group_recertification']=current
+ result['source_sha256'][current['evidence']]=current['evidence_sha256']
  result['enemy_ammo']['prerequisites']=enemy_ammo_prerequisites()
  result['enemy_ammo']['declared_source_contract']=result['enemy_ammo']['prerequisites']['declared_cpu_contract']
  result['source_sha256'].update({contract_path:hashlib.sha256(contract_raw.encode()).hexdigest(),definitions_path:hashlib.sha256((root/definitions_path).read_bytes()).hexdigest()})

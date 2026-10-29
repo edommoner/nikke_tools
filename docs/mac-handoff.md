@@ -1,3 +1,11 @@
+# 2026-10-29 現sourceでPTX cache再利用成功、移動停止の分類を更新
+
+Windows固定54c70a1d…で現sourceのpaired generation25.772秒/Slang2回を準備。元生成物の実byte/normalized pairへ一致し、共通bounded PTX probeがhit（auditor0.142秒/外10.511秒）。cache/generation必須の現PTX producerも成功、内14.315秒/外25.969秒・Slang/NVRTC0。元PTX13,556,055byte/SHA e6d83bf9…/compile key ded5292f…を再利用した。全Job/gate/低優先度/2GiB/終了0/欠落0/timeout・観測cleanup error無し。service不明は保全/overall false、compile exit2/wrapper1。GPU/battle/ptxas/object/link/retry0。report固定dee9d4f2…を原bytes/SHAで取り込み、Macは小peer照合まで。`research/portable-moving-group-current-cache-peer-v2.json`。
+
+分類にはユニの移動停止だけ`moving-group-current`の現Metal再認定を別字段で追加し、ヤンforce_moveを昇格させない。全266profile行・元定義/入力hash/拒否理由・GPU source・11系統の順位/profile/targetを保存reportと完全一致へ照合。254 packing/12失敗、canonical欠落5/default/全キャラ0は維持。開発74テストとmodel-check成功。初回固定packetは監査文書不足17error、次は旧期待JSON不足1errorで停止し、元失敗を保持。現suiteへIMPL-STATUS.mdと旧enemy-movement goldenを宣言した新b793cf12…自身で74全成功・前後payload一致。期待値/監査/テストを削っていない。`research/portable-current-movement-stop-classification-v1.json`。
+
+次は保存object/CUBINと現producerの**実PTX bytes/全compiler identity**を監査して、再生成せず使う明示的受付を実装する。元artifact/source/claimは保存し、normalizedだけの一致やold sourceの再ラベルは禁止。現CUDA戦闘/全キャラは未完了。[cacheの範囲](portable-moving-group-cuda.md)。以下は履歴。
+
 # 2026-10-29 PTXファイル点検を共通bounded packetへ接続
 
 `probe-ptx-cache`は既存file-only cache-probeを全payload検査後に呼び、既存Windows Job/gate/BelowNormal/2GiB/外側180秒を再利用する。3 absolute pathの厳密request、専用stage claim、result/artifacts/観測を保持。missは有効なsnapshotでありhitとは別字段。Slang/NVRTC/driver/GPU/native battleや内側compiler Jobを起動せず、compiler/cache claimも変更しない。forged calculation/compile/GPU/cubin receiptとbool-as-int、request混同を拒否する4検査を追加。開発/固定packet自身201検査・前後payload/PTX plan/validation-deps成功。数値/GPU/旧CLI/golden変更0。

@@ -7,6 +7,25 @@ from portable_readiness import issue,summarize
 
 
 class ReadinessSemanticsTests(unittest.TestCase):
+    def test_current_movement_stop_recertification_does_not_promote_force_move_or_cuda(self):
+        from portable_model_gap_audit import verify
+        stop=reference_readiness(dict(phase='effect',kind='buff',stat='enemy_movement_disable',target='enemies_in_range'))
+        force=reference_readiness(dict(phase='effect',kind='buff',stat='force_move',target='enemies_in_range'))
+        current=stop['movement_prerequisites']['current_group_recertification']
+        audit=verify(ROOT);self.assertEqual(current,audit['missing_stats']['enemy_movement_disable']['current_group_recertification'])
+        self.assertNotIn('current_group_recertification',force['movement_prerequisites'])
+        self.assertNotIn('current_group_recertification',audit['missing_stats']['force_move'])
+        raw=(ROOT/current['evidence']).read_bytes();proof=json.loads(raw)
+        self.assertEqual(hashlib.sha256(raw).hexdigest(),current['evidence_sha256'])
+        self.assertEqual(audit['source_sha256'][current['evidence']],current['evidence_sha256'])
+        self.assertTrue(proof['metal_current_source_verified']);self.assertTrue(proof['original_input_output_entries_and_generated_pair_retained'])
+        self.assertEqual((current['inputs'],current['native_cases'],current['rejected_cases']),(15,3,12))
+        self.assertEqual(proof['independent']['input_count'],current['inputs']);self.assertFalse(proof['independent']['live_parent_receipt_present']);self.assertEqual(proof['independent']['gpu_calls'],0)
+        self.assertEqual(current['validated_original_operators'],['enemy_movement_disable'])
+        for key in ('cuda_verified','force_move_original_profile_revalidated','default_producer_installed','in_game_motion_policy_verified','full_character_verified'):self.assertFalse(current[key])
+        self.assertFalse(proof['cuda_current_source_calculation_verified']);self.assertFalse(proof['full_goal_complete'])
+        for r in (stop,force):self.assertFalse(r['gpu_supported']);self.assertEqual(r['lane'],'reference_model_gap')
+
     def test_pinned_storage_proofs_keep_historical_and_joined_scopes_separate(self):
         from portable_model_gap_audit import verify
         audit=verify(ROOT)

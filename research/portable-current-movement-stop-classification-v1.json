@@ -1,0 +1,66 @@
+{
+  "schema": "current-movement-stop-classification-checkpoint-v1",
+  "base_commit": "9bc274a355dcfdc7c8219422cd885fe611be2b8b",
+  "evidence_fixture": {
+    "path": "tests/fixtures/moving-group-current-metal-v2.json",
+    "sha256": "a5c2307da2ce673208af4b8b6602c014b3d37ae086cc0ab70732d5cb1be1cca5"
+  },
+  "profile_count": 266,
+  "packed_profiles": 254,
+  "packing_failures": 12,
+  "operator_families": 11,
+  "all_original_profile_rows_unchanged": true,
+  "original_definitions_input_hashes_and_rejections_unchanged": true,
+  "operator_ranking_profiles_targets_unchanged": true,
+  "gpu_source_unchanged": true,
+  "force_move_scope_unchanged": true,
+  "baseline_inventory_sha256": "069d1d951ddee5b95784ac7e543594977d93ad757cb958c4b0a4a6a842d4f3ea",
+  "current_inventory_sha256": "1ad1da674fc32ffe01b107a910bb9375629383b0c7db72cef1175b5797636734",
+  "current_plan_sha256": "b378826b3b2ff01021e89b9f788186f160e05b709d6d99196a26a349aad3f13a",
+  "added_scope": {
+    "operator": "enemy_movement_disable",
+    "suite": "moving-group-current",
+    "native_cases": 3,
+    "inputs": 15,
+    "metal_recertified": true,
+    "cuda_verified": false,
+    "force_move_recertified": false,
+    "game_rules_verified": false
+  },
+  "model_check_passed": true,
+  "missing_canonical_stat_consumers_retained": [
+    "effect_range_pct",
+    "effect_target_count_add",
+    "enemy_movement_disable",
+    "force_move",
+    "lock_on"
+  ],
+  "tests": {
+    "development_passed": 74,
+    "frozen_passed": 74,
+    "frozen_payload_before_after_verified": true
+  },
+  "sealed_packet_id": "b793cf1218dad7434a7a4d6956fef0ccacbb584bba6f3655258016aa29ffb79e",
+  "failed_packets_retained": [
+    {
+      "package_id": "1d73913fccea79743bbefc0e79cc2aa61df9d039e3a520c417387f5829f77ad5",
+      "tests": 74,
+      "errors": 17,
+      "reason": "Missing pinned docs/IMPL-STATUS.md"
+    },
+    {
+      "package_id": "16559157cfc22ab2f387e2ff43021a5c958234c3c80fc7a188d1f70e825e5d0e",
+      "tests": 74,
+      "errors": 1,
+      "reason": "Missing referenced original enemy-movement battle golden"
+    }
+  ],
+  "correction": "Declare the pinned source document and original expected JSON in current suite metadata; retain every check, expected value, original failed packet and pinned source byte",
+  "default_admission_changed": false,
+  "full_character_verified": false,
+  "full_goal_complete": false,
+  "calculation_verified": false,
+  "gpu_calls": 0,
+  "native_battle_calls": 0,
+  "scope": "Source classification and static-input retention only. The prior independent Metal calculation proof is scoped; compiler/cache success is not CUDA battle coverage."
+}

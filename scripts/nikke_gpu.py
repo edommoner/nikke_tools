@@ -597,7 +597,8 @@ SUITES['moving-group-cache-only']=dict(SUITES['moving-group'],cuda_cache_profile
 SUITES['moving-many-cache-only']=dict(SUITES['moving-many'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['moving-many']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 # Keep original package paths auditable while registering the current source seal.
 SUITES['moving-group-current']=dict(SUITES['moving-group'],golden='research/portable-moving-group-v2-expected.json',
-    support_files=[*SUITES['moving-group']['support_files'],SUITES['moving-group']['golden']])
+    support_files=[*SUITES['moving-group']['support_files'],SUITES['moving-group']['golden'],SUITES['enemy-movement']['golden']],
+    upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'])
 SUITES['moving-group-current-cache-only']=dict(SUITES['moving-group-current'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=SUITES['moving-group-cache-only']['tests'])
 SUITES['named-effect-range-cache-only']=dict(SUITES['named-effect-range'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['named-effect-range']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['named-range-battle-cache-only']=dict(SUITES['named-range-battle'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['named-range-battle']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])

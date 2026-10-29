@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "package_id": "54c70a1d552846c4637f39ecc2f820aae50607cc355807b8d386c63887fcecd9",
+  "source_commit": "9bc274a355dcfdc7c8219422cd885fe611be2b8b",
+  "archive_bytes": 13361646,
+  "archive_sha256": "30d6d81e0689fb5a47c2d5d1d82f54abbce80089320fa1f526eb8fed44020cca",
+  "summary_file": "current-cache-summary-v1.json",
+  "summary_bytes": 4869,
+  "summary_sha256": "bd2533dc1c7238409998f09c688fbdd3d9be796e5fdc69a1b70e204aab7be6a7",
+  "public_payload": "summary-and-manifest-only",
+  "raw_included": false,
+  "binary_included": false,
+  "logs_included": false,
+  "personal_paths_included": false
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "moving-group-current-cache-peer-checkpoint-v2",
+  "source_host_commit": "dee9d4f2d42241b39ba469cf37db6260435650d1",
+  "source_host_branch": "codex/cuda-moving-group-current-v2-cache-report",
+  "package_id": "54c70a1d552846c4637f39ecc2f820aae50607cc355807b8d386c63887fcecd9",
+  "files": [
+    {
+      "path": "research/cuda-preparation-evidence/moving-group-current-v2-cache-summary-v1.json",
+      "bytes": 4869,
+      "sha256": "bd2533dc1c7238409998f09c688fbdd3d9be796e5fdc69a1b70e204aab7be6a7"
+    },
+    {
+      "path": "research/cuda-preparation-evidence/moving-group-current-v2-cache-report-manifest.json",
+      "bytes": 623,
+      "sha256": "8101b50bdc41abd3408ba1e8edf12af357910a84a385bd00dd0c6f56bc81db00"
+    }
+  ],
+  "peer_summary_and_manifest_verified": true,
+  "current_source_matches_metal_primary": true,
+  "generated_raw_and_normalized_pair_match_original": true,
+  "exact_ptx_bytes_and_compile_cache_key_reported_unchanged": true,
+  "original_raw_and_full_job_independently_audited_on_mac": false,
+  "reported": {
+    "compiler_verified": true,
+    "cache_hit": true,
+    "ptx_bytes": 13556055,
+    "ptx_sha256": "e6d83bf98e727ee989aaca68364c632ebbf9e26c259dd71161462a90184a104e",
+    "ptx_cache_key": "ded5292f9aa24aee1d01b79b04df40f46a9472a9d16bba8fdeb1751f9f61525e",
+    "generation_key": "b1a8403e654767f727fafc6dae9af6ddaa91fff911e0aa3d5ab9e6764171895d",
+    "generation_seconds": 25.771928700152785,
+    "probe_outer_seconds": 10.511288300156593,
+    "probe_inner_seconds": 0.14207209972664714,
+    "compile_inner_seconds": 14.314503099769354,
+    "compile_outer_seconds": 25.969364400021732,
+    "compile_inner_peak_bytes": 109694976,
+    "nvrtc_calls": 0,
+    "compile_slang_calls": 0,
+    "generation_slang_calls": 2
+  },
+  "calculation_verified": false,
+  "current_cuda_battle_verified": false,
+  "environment_preservation_verified": false,
+  "full_goal_complete": false,
+  "next_step": "Implement explicit exact-PTX saved-object/CUBIN reuse admission. Re-audit both original artifact chain and current producer, require identical full compiler identity and actual PTX bytes, bind current native/source baseline; never relabel original artifacts or use normalized-source equality alone.",
+  "scope": "Current-source compiler/cache proof and bounded file probe reported successful; no object/link/GPU/battle calls. Small peer report import only."
+}

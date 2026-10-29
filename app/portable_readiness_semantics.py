@@ -49,6 +49,16 @@ def movement_contract():
         scope='Declared CPU and Metal movement consumer on real ADD colliders; canonical/default world model and actual game spatial rules remain unverified')
 
 
+def current_movement_stop_validation():
+    return dict(suite='moving-group-current',inputs=15,native_cases=3,rejected_cases=12,
+        metal_verified=True,independently_audited=True,current_source_recertified=True,cuda_verified=False,
+        validated_original_operators=['enemy_movement_disable'],force_move_original_profile_revalidated=False,
+        evidence='tests/fixtures/moving-group-current-metal-v2.json',
+        evidence_sha256='a5c2307da2ce673208af4b8b6602c014b3d37ae086cc0ab70732d5cb1be1cca5',
+        default_producer_installed=False,in_game_motion_policy_verified=False,full_character_verified=False,
+        scope='Current-source original Yuni/Nihilister group battles only; no current Yan force-move, CUDA, game or default certification')
+
+
 def enemy_ammo_prerequisites():
     """Existing numeric operator and the missing enemy state/producer boundary."""
     return dict(native_operator='calculator/timeline.py:handle_ammo_charge_pct',
@@ -151,6 +161,8 @@ def reference_readiness(issue):
                 declared_cpu_contract=movement_contract(),
                 current_world_consumer_verified=False,current_cuda_verified=False,
                 default_producer_installed=False)
+            if issue.get('stat')=='enemy_movement_disable':
+                result['movement_prerequisites']['current_group_recertification']=current_movement_stop_validation()
         if issue.get('kind')=='buff' and issue.get('stat')=='heal_received_pct' and issue.get('target')=='all_enemies':
             result['declared_enemy_healing_contract']=dict(suite='enemy-healing-common',cases=6,
                 original_roster='앤 : 미라클 페어리',original_definitions=69,
