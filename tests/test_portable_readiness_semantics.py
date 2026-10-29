@@ -7,7 +7,7 @@ from portable_readiness import issue,summarize
 
 
 class ReadinessSemanticsTests(unittest.TestCase):
-    def test_pinned_storage_proofs_do_not_promote_full_cuda_or_environment_preservation(self):
+    def test_pinned_storage_proofs_keep_historical_and_joined_scopes_separate(self):
         from portable_model_gap_audit import verify
         audit=verify(ROOT)
         expected=audit['coordinate_world']['numeric_frontend']['resident_storage_validation']
@@ -41,6 +41,15 @@ class ReadinessSemanticsTests(unittest.TestCase):
             self.assertEqual((peer['launch_calls'],peer['sync_calls'],peer['readback_calls']),(7,7,106))
             for name in ('calculation_verified','overall_stage_passed','public_admission','full_character_verified'):self.assertFalse(wire[name])
             self.assertTrue(wire['pending_independent_native_audit']);self.assertFalse(wire['original_cuda_raw_independently_read_on_mac'])
+            joined=proof['joined'];raw=(ROOT/joined['evidence']).read_bytes();report=json.loads(raw)
+            self.assertEqual(hashlib.sha256(raw).hexdigest(),joined['evidence_sha256'])
+            self.assertEqual((joined['inputs'],joined['native_cases'],joined['rejected_cases']),(106,63,43))
+            self.assertTrue(joined['calculation_verified']);self.assertTrue(report['calculation_verified'])
+            self.assertEqual(joined['independent_native_groups'],report['independent_native_groups'])
+            for key in ('source_host_cuda_envelope_independently_audited','cuda_envelope_received_as_peer_summary','metal_witness_native_independently_verified'):self.assertTrue(joined[key]);self.assertTrue(report[key])
+            self.assertFalse(joined['original_cuda_raw_read_on_mac']);self.assertFalse(report['original_cuda_raw_read_on_mac'])
+            for key in ('environment_preservation_verified','overall_stage_passed','public_admission','full_character_verified'):self.assertFalse(joined[key])
+            self.assertFalse(result['gpu_supported']);self.assertFalse(audit['full_goal_complete'])
 
     def test_enemy_ammo_has_shared_math_but_requires_enemy_state_and_real_producers(self):
         from portable_model_gap_audit import verify

@@ -1,8 +1,8 @@
 # 現ソース用の全106入力CUDA owner
 
-[保存済み出力のfresh独立監査](portable-identical-wire-native-audit.md)は、既存native比較器を使うMacの同一byte witnessと、Windowsの短い原CUDA envelope監査を分離する。片方だけではCUDA計算認定へ昇格しない。
+[保存済み出力のfresh独立監査](portable-identical-wire-native-audit.md)は、既存native比較器を使うMacの同一byte witnessと、Windowsの短い原CUDA envelope監査を分離する。両方と共通joinが成功し、固定106入力の計算一致を確認した。片方だけではCUDA計算認定へ昇格しない。
 
-実証packet `b873a58c48c76438c23c2b8fc7119d601793f702d8668a435ab74eefb437abcc`はWindowsで全106入力のwire一致に成功した。smoke47検査15.70秒、prepare41.20秒、GPU stage28.92秒、compiler/link0、launch/sync7、readback106。固定要約は`tests/fixtures/resident-current-cuda-v2-summary.json`。サービス保全とfresh独立native監査は未完了で、calculation/overall/public受付をtrueへ変更しない。原captureはWindowsに保持し、MacのMetal同一byte witnessをCUDA原captureとして扱わない。
+実証packet `b873a58c48c76438c23c2b8fc7119d601793f702d8668a435ab74eefb437abcc`はWindowsで全106入力のwire一致に成功した。smoke47検査15.70秒、prepare41.20秒、GPU stage28.92秒、compiler/link0、launch/sync7、readback106。固定要約は`tests/fixtures/resident-current-cuda-v2-summary.json`。この元owner段階のcalculation=false/pendingは保持する。後続のfresh native/envelope/joinで固定106入力のcalculation=trueを別記録にしたが、サービス保全/overall/public受付はfalseのまま。原captureはWindowsに保持し、MacのMetal同一byte witnessをCUDA原captureとして扱わない。
 
 `partitioned-current-package`は旧失敗の回収ownerを変更せず、現ソースのMetal sealと保存CUBINへ結び付ける別versionのownerを作る。GPU計算・効果定義・保護CPU正本・厳密normalizer・全goldenは保持し、既存の分割transport、CUDA trace/ABI監査、linked artifact admission、Job/start gateを再利用する。
 

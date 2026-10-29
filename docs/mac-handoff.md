@@ -1,3 +1,11 @@
+# 2026-10-29 現CUDA全106入力をfresh native/wire envelopeで認定
+
+共通CLI `partitioned-witness-join`を実装し、固定proof SHA・元own packet・context/plan/anchors・14fresh群・全106/native63/拒否43・全input/raw/logical/generated/native指紋と保持Metal rawを再検査した。immutable packet e38b399c自身の72検査とjoinが成功。source-hostで原CUDA出力を再読したenvelopeとMacのbyte-identical Metal witnessに対するfresh native比較が揃い、**固定106入力のcalculation=true**になった。原CUDA rawをMacで取得/再読したとは主張せず、peer受領の境界を結果に保存する。元中間capture/claim/失敗/pendingは変更0、追加GPU/compile/native再計算はjoin中0。証跡`tests/fixtures/resident-current-cuda-native-join-v1.json`/SHA6cf83185…。共通判定は[保存結果監査](portable-identical-wire-native-audit.md)。
+
+Windowsの正常承認下で70検査8.115秒、validation-depsインストール0、原captureのCPU監査42.219秒で成功。7launch/106readback引数、exact CUBIN、全875MBとprepared/claim/ledger/processを検査。原GPU実行をやり直していない。固定report2d0d24e2094ab6b1bed518c7b1d41969cffa4128/codex/cuda-resident-envelope-v1-reportの非個人JSON1883byte/SHA6648e2c8…だけを取得。sandbox TEMP/hardlinkの旧2失敗は保持し、OS/ACL/テストの緩和なし。サービス未識別により原/監査の環境保全とoverallはfalseを維持する。
+
+未対応分類と`model-check --summary`はhistorical frames/append/wireを保持し、別joined proofで106入力の計算true・native pending false・環境false・Mac原CUDA未読を表示する。5 canonical consumer/20model gap/全キャラ0/UI CPU/公開受付falseは継続。次は保存結果監査の再実行を重ねず、未対応の移動状態/物理producer等の不足モデルを優先する。Lock Onの距離式は公開情報で確定できず保留。以下は履歴。
+
 # 2026-10-29 同一byte witnessの全106 fresh native監査成功
 
 共通`portable_partitioned_native.compare_readback`へ既存native/rejection比較ループを抽出し、元Metal入口も同じ関数を使用。`partitioned-witness-native-audit`は元Metal captureを既存address auditorで全byte再監査し、現CUDAの固定要約と全raw/論理SHAを照合する。現source/golden/native/input/paired generationを維持し、現Metalのseal前development packetの期待は正確なinput/source/native projectionで検査する。出力欄を捏造してsealed扱いしない。新packet v2/9c2b84fd自身の67検査とvalidation-depsが成功、14個のfresh GPU禁止childで全106（native63/拒否43）を549.815秒で独立照合した。全元entry/native/出力を保持、追加GPU0。元875MBをコピー/書換えせず、raw/失敗/claimと全group logsは永続Bへ保持。証跡[Mac native witness](../research/target-count-query-evidence/resident-current-native-witness-v1.json)。v1 packetはgeneration元がdevelopmentであることを静的点検で検出し、監査未実行で保持。

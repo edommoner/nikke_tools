@@ -3515,6 +3515,8 @@ def main(argv=None):
     a=sub.add_parser('partitioned-current-envelope-audit')
     for name in ('source-package','source-capture','capture','original-workspace'):a.add_argument('--'+name,type=Path,required=True)
     a.add_argument('--timeout',type=int,default=180)
+    a=sub.add_parser('partitioned-witness-join')
+    for name in ('witness-package','witness-audit','envelope-summary','out'):a.add_argument('--'+name,type=Path,required=True)
     a=sub.add_parser('partitioned-origin-smoke');a.add_argument('--capture',type=Path,required=True);a.add_argument('--original-workspace',type=Path);a.add_argument('--timeout',type=int,default=30)
     a=sub.add_parser('partitioned-origin-audit')
     for flag in ('source-package','source-capture','capture','original-workspace','slang-root','generation-cache'):a.add_argument('--'+flag,type=Path,required=True)
@@ -3858,7 +3860,7 @@ def main(argv=None):
         options=dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}
         if a.command=='staged-run':options['preflight_transaction']=a.transaction
         result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**options)
-    elif a.command in ('partitioned-origin-smoke','partitioned-origin-audit','partitioned-cuda-smoke','partitioned-cuda-prepare','partitioned-cuda-run','partitioned-saved-index','partitioned-index-compare','partitioned-witness-native-audit','partitioned-current-envelope-audit'):
+    elif a.command in ('partitioned-origin-smoke','partitioned-origin-audit','partitioned-cuda-smoke','partitioned-cuda-prepare','partitioned-cuda-run','partitioned-saved-index','partitioned-index-compare','partitioned-witness-native-audit','partitioned-current-envelope-audit','partitioned-witness-join'):
         from portable_partitioned_cli import dispatch
         return dispatch(SimpleNamespace(**globals()),main,argv)
     elif a.command=='partitioned-native-audit':
@@ -3953,15 +3955,18 @@ def main(argv=None):
             numeric_policy_scope=numeric['policy_implemented_scope'],public_numeric_admission_remaining=numeric['public_admission_remaining'],
             private_numeric_evidence_suites=numeric['private_suites'],
             private_resident_storage=dict(metal_inputs=resident['frames']['inputs'],
-                full_cuda_battle_verified=resident['frames']['cuda_device_verified'],
+                full_cuda_battle_verified=resident['joined']['calculation_verified'],
+                full_cuda_battle_scope=resident['joined']['scope'],
                 cuda_append_contracts=resident['appends']['inputs'],
                 cuda_append_calculation_verified=resident['appends']['cuda_calculation_verified'],
                 cuda_append_stage_passed=resident['appends']['overall_stage_passed'],
                 cuda_append_environment_preservation_verified=resident['appends']['environment_preservation_verified']))
         display['private_resident_storage'].update(current_cuda_wire_inputs=resident['wire']['inputs'],
             current_cuda_wire_verified=resident['wire']['shared_metal_wire_equivalence_verified'],
-            current_cuda_calculation_verified=resident['wire']['calculation_verified'],
-            current_cuda_native_audit_pending=resident['wire']['pending_independent_native_audit'])
+            current_cuda_calculation_verified=resident['joined']['calculation_verified'],
+            current_cuda_native_audit_pending=resident['joined']['pending_independent_native_audit'],
+            current_cuda_environment_preservation_verified=resident['joined']['environment_preservation_verified'],
+            current_cuda_original_raw_read_on_mac=resident['joined']['original_cuda_raw_read_on_mac'])
     print(json.dumps(display,ensure_ascii=False,indent=2))
     if result.get('mode')=='staged-gpu-pending-native-audit':
         if not result.get('gpu_execution_completed') or not result.get('readback_fingerprint_matches'):raise SystemExit(1)

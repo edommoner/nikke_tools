@@ -69,6 +69,9 @@ def make(cli,source,output,*,cuda_reference=None,current_source_reference=None):
         'tests/test_portable_partitioned_current.py','tests/fixtures/partitioned-physical-reference-v1.json',
         'app/portable_partitioned_witness.py','tests/test_portable_partitioned_witness.py',
         'app/portable_partitioned_envelope.py','tests/test_portable_partitioned_envelope.py',
+        'app/portable_partitioned_join.py','tests/test_portable_partitioned_join.py',
+        'tests/fixtures/resident-current-envelope-v1-summary.json',
+        'tests/fixtures/resident-current-cuda-native-join-v1.json',
         'tests/fixtures/resident-current-cuda-v2-summary.json')
     replaced_helpers=sorted(set(added)&set(payload))
     if replaced_helpers and current_source_reference is None:raise ValueError('Partitioned helpers already exist in base')
@@ -241,6 +244,13 @@ def dispatch(cli,original,argv=None):
         print(json.dumps(result,indent=2))
         if not result['passed']:raise SystemExit(1)
         return result
+    if args and args[0]=='partitioned-witness-join':
+        p=argparse.ArgumentParser();p.add_argument('command')
+        for flag in ('witness-package','witness-audit','envelope-summary','out'):p.add_argument('--'+flag,type=Path,required=True)
+        a=p.parse_args(args)
+        from portable_partitioned_join import run as join_proofs
+        result=join_proofs(cli,a.witness_package,a.witness_audit,a.envelope_summary,a.out)
+        print(json.dumps(result,indent=2));return result
     if args and args[0]=='partitioned-current-envelope-audit':
         p=argparse.ArgumentParser();p.add_argument('command')
         for flag in ('source-package','source-capture','capture','original-workspace'):p.add_argument('--'+flag,type=Path,required=True)

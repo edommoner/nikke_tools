@@ -29,4 +29,13 @@ def validation():
             peer_summary=True,original_cuda_raw_independently_read_on_mac=False,
             pending_independent_native_audit=True,calculation_verified=False,
             environment_preservation_verified=False,overall_stage_passed=False,
+            full_character_verified=False,public_admission=False),
+        joined=dict(suite='coordinate-resident-frames',inputs=106,native_cases=63,rejected_cases=43,
+            calculation_verified=True,independent_native_groups=14,pending_independent_native_audit=False,
+            source_host_cuda_envelope_independently_audited=True,cuda_envelope_received_as_peer_summary=True,
+            original_cuda_raw_read_on_mac=False,metal_witness_native_independently_verified=True,
+            environment_preservation_verified=False,overall_stage_passed=False,
+            evidence='tests/fixtures/resident-current-cuda-native-join-v1.json',
+            evidence_sha256='6cf83185cc14e034bfcf11b1ab7951f3c94276f34ed6fcb43423bd70495bed0b',
+            scope='Frozen 106-input corpus; source-host CUDA envelope plus byte-identical Metal native witness',
             full_character_verified=False,public_admission=False))
