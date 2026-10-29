@@ -50,6 +50,7 @@ AUDIT_FILES['test_quantity_moving_frames.py']=(
     'research/portable-moving-visited-v1-expected.json',
     'research/portable-compiler-full--moving-visited-source-certificate.json')
 AUDIT_FILES['test_portable_readiness_semantics.py']=(
+    'research/upstream/nikke-calc-master/docs/IMPL-STATUS.md',
     'tests/fixtures/enemy-movement-math-metal-v1.json',
     'tests/fixtures/enemy-movement-math-cuda-v1.json',
     'tests/fixtures/enemy-movement-battle-metal-v1.json',

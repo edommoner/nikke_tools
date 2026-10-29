@@ -323,3 +323,6 @@ CUDA/Metalは同じSlang・入力・比較器を使用する。`enemy-lock-carri
 この実証は全定義を含む特定の実編成/worldでの等価性であり、全条件分岐・実機・全キャラ認定ではない。全編成でのcover、parts、負傷/heal、距離と死亡時振替、他キャラ/variantの検査は残る。公開admissionとUI CPU、全キャラ認定0を維持。証跡 `research/target-count-query-evidence/metal-original-lock-composition-v4.json`、生成保持 `original-lock-legacy-generation-retention-v2.json`。
 
 追加のCPU受動監査では、各caseをdiagnostics有/無の2回観測し、固定goldenの全native fingerprintを保持した。30秒では元row0..24のうち24定義に `_activate` entryがあり、未観測はrow2のevent:coverだけだった。3秒ではrow16/17/23も未観測。entry呼出しは実効果適用やGPU全分岐の認定ではなく、次の未対応分類の根拠である。特にparts対象や負傷状態はこのworldに存在しない。出所 `research/target-count-query-evidence/original-lock-native-activation-coverage-v1.json`。
+# 2026-10-30 公開情報による再判断
+
+ユーザーの指定に従い実機の提供待ちをせず、公開スキル全文と著者の実使用分析を再照合した。照準線基準の未ロック敵選択は支持されるが、中心/外形・投影/3D距離・同距離順を区別する追加実験は見つからなかった。既存の数値距離式を未確定とする判断を維持し、推測で共通実行器やgoldenを変更しない。同一記述の再探索を継続条件にせず、他の未対応項目を進める。出所と取得制約は `research/target-count-query-evidence/heavyarms-online-decision-20261030.json`。今回の計算変更・GPU実行・Windows依頼は0。

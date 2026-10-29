@@ -57,9 +57,15 @@ class SharedSkillHistory(unittest.TestCase):
 
     def test_exact_source_and_transport_inverse_rejects_unreviewed_bytes(self):
         from portable_skill_history_source_contract import ledger,project_sources,project_backend_source
-        data=ledger(ROOT);project_sources(ROOT);project_backend_source(ROOT)
+        from portable_logical_geometry_source_contract import project_sources as current_sources
+        # History predates the reviewed logical/healing/ADD layers. Validate
+        # those complete inverses before testing this historical layer.
+        data=ledger(ROOT);projected=current_sources(ROOT)
+        historical=project_sources(ROOT,projected);project_backend_source(ROOT)
+        for name,row in data['sources'].items():self.assertEqual(historical[name],row['baseline'])
         for name in [*data['added_sources'],'gpu/world_skill_runtime.slang']:
-            with self.subTest(name=name),self.assertRaises(AssertionError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
+            with self.subTest(name=name),self.assertRaises((AssertionError,ValueError)):
+                project_sources(ROOT,current_sources(ROOT,{name:(ROOT/name).read_text()+'\n'}))
         with self.assertRaises(ValueError):project_backend_source(ROOT,(ROOT/'app/portable_backend.py').read_text()+'\n')
         from portable_coordinate_typed_source_contract import project_sources as legacy
         from portable_arena_transport_source_contract import historical_backend_source

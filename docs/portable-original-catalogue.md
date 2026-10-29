@@ -41,3 +41,14 @@ Moderniaの元weapon_changeは通常攻撃扱いのMGであり、`weapon_mode_sk
 証跡は `research/target-count-query-evidence/original-catalogue-development-v1.json`。BODY所有1typed対象の宣言worldであり、実ゲーム距離規則、任意mixed world、全条件/全キャラ/公開GPU受付の認定ではない。
 
 最終d85b55a7/package8a2bb6d4…は16群165unitとCUBIN/O1/2GiB/60秒のcompile-plan policyが成功（compiler/GPU0）。sealed packetからのpayload差分はCLIのsuite登録・追加の登録一致test・独立goldenの3ファイルだけで、全CLI関数AST、既存test、全GPU/host計算/compiler/native/比較器は同一。従ってnative/GPUの全再実行は重ねない。Metal archiveのfile-only probeもhit snapshotだが、実warm launchや現device contextの再検証とは区別する。全体model-checkは資料の揃うcheckoutで成功。詳細 `target-count-query-evidence/original-catalogue-history-final-checks-v1.json`。
+# 2026-10-30 ナガ・ティアの元30秒編成と順序readback不足
+
+共通CLIの開発専用 `original-catalogue-support` に、ナガ70定義・ティア75定義の元編成を固定した。元効果・owner・武器・設定を保持し、既存catalogue・全履歴比較器・同じCUDA/Metal計算本体を使う。本人の射撃、full burst、元partyのcast順を要求し、ティアの再突入は共通実行器のevent7として検査する。
+
+packet `dcd89cbb…` の26群225テストとfresh CPU2戦闘が成功。Apple M5の実Metal1回は2.512415秒、冷pipeline生成62.072932秒、CPU事前照合39.367821秒。ティアは全比較一致したが、ナガは名前付きバフの受け手順がnative `[2,0]` / decoder `[0,2]` となり、全体不成功。独立seal/goldenへの昇格はしていない。全16,256,000byteのrawとclaimを保持し、再実行0。
+
+保存rawと変更のない事前nativeによる診断では、54個のallied carrierの49番目だけがこの順序差を持つ。入力のrecipient headerは `[0,0,0]`、metadataのordered_recipientsはFalseで、旧decoderはbitmaskをスロット順に展開する。共通実行器は内部に順序を持つが、この入力ではその全順序readbackが出ていない。GPU内部の実順序を観測したとは扱わず、受け手をsortして照合を緩めない。次は選択やイベント計算を変更せず、既存の内部順序を明示した観測契約へ出す。既存revival用flagの偽装は、そのflagの厳密な受付条件を壊すため使わない。
+
+この検証で見つかった旧監査テスト2件は、後続の厳密な逆変換を先に通すことと、旧ファイルごとの完全hash検査へ修正した。全依存mapを旧層だけとみなさない。共通CPU依存一覧にもIMPL-STATUS.mdを登録し、梱包漏れをnative前に拒否する負例を追加した。初版から3版のCPUゲート失敗と未実行の4版も保存した。
+
+BODY-owned shieldの宣言worldの検証であり、負傷回復・遮蔽物被弾等の全条件、ゲームの距離規則、全キャラ、現在CUDA、公開GPU受付は認定していない。Windowsは既存結果のstatus取得1回だけを試みたがhost unavailable、追加実行依頼0。証跡 `target-count-query-evidence/original-catalogue-support-development-v1.json`。

@@ -1,5 +1,5 @@
 """Full-runtime opt-in source and arena contract, before device certification."""
-import json,sys,unittest
+import hashlib,json,sys,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
@@ -14,7 +14,12 @@ class LogicalGeometryRuntime(unittest.TestCase):
         self.assertTrue(set(ledger['files']).issubset(sources))
         radial=json.loads((ROOT/'tests/fixtures/portable-named-range-battle-source-delta.json').read_text())
         self.assertEqual(sources['gpu/stack_runtime.slang'],radial['files']['gpu/stack_runtime.slang']['before'])
-        self.assertNotIn('PORTABLE_COORDINATE_LOGICAL_ACTORS',''.join(sources.values()))
+        # Later inverse layers retain their checked dependency maps. Only the
+        # original logical layer's files are projected to its before state.
+        for name,row in ledger['files'].items():
+            with self.subTest(source=name):
+                self.assertEqual(hashlib.sha256(sources[name].encode()).hexdigest(),row['before_sha256'])
+                self.assertNotIn('PORTABLE_COORDINATE_LOGICAL_ACTORS',sources[name])
 
     def test_full_input_and_output_have_disjoint_owners(self):
         check_schema(ROOT)

@@ -26,6 +26,7 @@ CPU_SAVED_AUDIT_MAX_SECONDS=240  # GPU-forbidden full readback/native comparison
 CPU_SMOKE_TIMEOUT_SECONDS=180  # Shared control registry; independent of suite-specific unit budget.
 sys.path[:0] = [str(ROOT/p) for p in ('app', 'research', 'scripts')]
 from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
+from portable_cpu_tests import AUDIT_FILES as CPU_AUDIT_FILES
 # No GPU/backend/native imports at startup: collect/audit must work without them.
 SUITES = {
     'original-projectile-weapons':dict(script='research/verify-original-projectile-weapons.py',
@@ -136,6 +137,17 @@ SUITES['original-catalogue-initial']=dict(SUITES['original-catalogue'],golden='r
     'original-catalogue/hp-shield/모더니아/favorite-0/30s',
     'original-catalogue/projectile/앨리스/favorite-0/30s',
     'original-catalogue/hp-shield/프리바티 : 언카인드 메이드/favorite-0/30s'])
+SUITES['original-catalogue-support']=dict(SUITES['original-catalogue'],script='research/verify-original-catalogue-support.py',
+    golden='research/portable-original-catalogue-support-v1-expected.json',inputs=2,native=2,development_only=True,selection_required=False,
+    frozen_cases=['original-catalogue/hp-shield/나가/favorite-0/30s','original-catalogue/hp-shield/티아/favorite-0/30s'],
+    tests=[*SUITES['original-catalogue']['tests'],'test_original_catalogue_support.py'])
+SUITES['original-catalogue-support']['support_files']=list(dict.fromkeys([
+    *SUITES['original-catalogue-support'].get('support_files',()),
+    *(path for pattern in SUITES['original-catalogue-support']['tests'] for path in CPU_AUDIT_FILES.get(pattern,()) if not path.startswith('research/upstream/'))]))
+SUITES['original-catalogue-support']['upstream_documents']=list(dict.fromkeys([
+    'research/upstream/nikke-calc-master/docs/IMPL-STATUS.md',
+    *SUITES['original-catalogue-support'].get('upstream_documents',()),
+    *(path for pattern in SUITES['original-catalogue-support']['tests'] for path in CPU_AUDIT_FILES.get(pattern,()) if path.startswith('research/upstream/') and path.endswith('.md'))]))
 SUITES['original-catalogue-burst']=dict(SUITES['original-catalogue'],golden='research/portable-original-catalogue-burst-v1-expected.json',support_files=['research/portable-original-catalogue-initial-v1-expected.json'],inputs=4,native=4,development_only=False,selection_required=False,frozen_cases=[
     'original-catalogue/hp-shield/라피 : 레드 후드/favorite-0/30s',
     'original-catalogue/hp-shield/홍련 : 흑영/favorite-0/30s',
@@ -561,7 +573,6 @@ SUITES['coordinate-resident-arc']['upstream_documents']=[*SUITES['coordinate-res
 SUITES['coordinate-resident-device']=dict(SUITES['coordinate-resident-arc'],script='research/verify-coordinate-resident-device-short.py',golden='research/portable-coordinate-resident-device-short-expected.json',inputs=4,native=4,development_only=False,tests=['test_coordinate_resident_device.py','test_coordinate_resident_arc.py','test_portable_parent_oracles.py','test_portable_linked_artifact.py'])
 SUITES['coordinate-resident-device']['support_files']=[*SUITES['coordinate-resident-arc']['support_files'],'research/portable-coordinate-resident-arc-short-expected.json']
 SUITES['coordinate-resident-frames']=dict(SUITES['coordinate-resident-arc'],script='research/verify-coordinate-resident-frames-short.py',source='gpu/world_coordinate_resident_frames_entry.slang',golden='research/portable-coordinate-resident-frames-short-v2-expected.json',development_only=False,tests=[*SUITES['coordinate-resident-arc']['tests'],'test_dispatch_frame_storage.py'])
-from portable_cpu_tests import AUDIT_FILES as CPU_AUDIT_FILES
 SUITES['coordinate-resident-frames']['support_files']=list(dict.fromkeys([*SUITES['coordinate-resident-frames'].get('support_files',()),*CPU_AUDIT_FILES['test_dispatch_frame_storage.py']]))
 SUITES['dispatch-frame-storage']=dict(script='research/verify-dispatch-frame-storage-short.py',source='gpu/dispatch_frame_storage_probe.slang',golden='research/portable-dispatch-frame-storage-short-expected.json',inputs=5,native=5,output_words=1040,development_only=False,tests=['test_dispatch_frame_storage.py'])
 SUITES['resident-append']=dict(script='research/verify-resident-append-short.py',source='gpu/resident_append_probe.slang',golden='research/portable-resident-append-short-expected.json',inputs=9,native=9,output_words=3616,development_only=False,tests=['test_resident_append_probe.py','test_portable_scope_snapshot_audit.py'],require_paired_generation=True)
