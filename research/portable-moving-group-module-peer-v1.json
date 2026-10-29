@@ -1,0 +1,43 @@
+{
+  "schema": "moving-group-module-peer-checkpoint-v1",
+  "source_host_commit": "7d1fd21f1a39491348fd604bfe5aab80f641a255",
+  "source_host_branch": "codex/cuda-moving-group-module-v1-report",
+  "package_id": "bb28af2e246fa49c7994f65b9140c1cd1b40a729440034a08d42e3c864b24a0d",
+  "producer_package_id": "76fbe7c3c06307e6c1fd07329e0f129b6bc9433a1f4fbff5732b59dc8b0e0557",
+  "files": [
+    {
+      "path": "research/cuda-preparation-evidence/moving-group-v1-module-summary-v1.json",
+      "bytes": 3259,
+      "sha256": "19d612dc0850f0951862f85f0798810bfa59686363bc9cb8aa7d8ccaf50dd5c2"
+    },
+    {
+      "path": "research/cuda-preparation-evidence/moving-group-v1-module-report-manifest.json",
+      "bytes": 616,
+      "sha256": "d70927ed12de8deafa1ad4004ccf5d19c176471fd75e530cb88cb81b3d18b648"
+    }
+  ],
+  "peer_summary_and_source_manifest_matched": true,
+  "ptx_identity_matches_saved_producer": true,
+  "raw_object_independently_read_on_mac": false,
+  "full_job_originals_independently_audited_on_mac": false,
+  "reported": {
+    "object_verified": true,
+    "containment_verified": true,
+    "object_bytes": 7493872,
+    "object_sha256": "2780dc695f7a4d81c426267186e5211a1c17c1967e619079559c297db53546de",
+    "receipt_key": "ed870d166adb773c98bdf1f521896be44a6202f5edb7287411b7a535d38aaef3",
+    "ptxas_seconds": 14.44561960035935,
+    "inner_peak_bytes": 502321152,
+    "outer_peak_bytes": 554463232,
+    "inner_elapsed_seconds": 35.15038040000945,
+    "outer_elapsed_seconds": 63.25251429993659,
+    "source_bytes_unchanged": true,
+    "source_partitioned": false
+  },
+  "calculation_verified": false,
+  "current_battle_equivalence_verified": false,
+  "environment_preservation_verified": false,
+  "full_goal_complete": false,
+  "next_step": "Use saved object with the CPU-tested sealed-owner diagnostic JIT-link bridge. Audit original object/producer chain and fixed linker; no PTX/object regeneration. Runtime admission still requires exact battle-source proof.",
+  "scope": "Source-host object generation and containment reported successful; exact small JSON/manifest imported. No JIT-link, CUBIN, driver, GPU calculation or current-source equivalence is proved."
+}

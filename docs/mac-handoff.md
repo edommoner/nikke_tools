@@ -1,3 +1,9 @@
+# 2026-10-29 移動groupのWindows module-object生成に成功
+
+新固定bb28af2e…でCPU55成功後、保存旧76fbe7c3…のPTX全13,556,055byteを分割/改変せずobject生成1回。ptxas14.446秒/code0、relocatable7,493,872byte/SHA2780dc69…、inner35.150秒/peak502,321,152byte・outer63.253秒/peak554,463,232byte。2GiB/低優先度/gate/Job後0/欠落0/観測cleanup error無し/timeout無しの報告。service未識別はpreservation/overall false、exit2/wrapper1を保持。Slang/NVRTC/driver/GPU/battle/JIT-link/直接CUBIN/retry0。
+
+report固定7d1fd21f…の小JSON2個を元bytes/SHAで取り込み、元source packet・保存PTX識別へ一致。object/全Job原本はWindowsに保持し、Mac独立原本監査ではない。旧source由来のobject成功であり、現source/CUBIN/計算/default/全キャラは未認定。`research/portable-moving-group-module-peer-v1.json`。後段のsealed object owner→診断link接続も開発/固定b418ed14…各122検査済み、Windowsへは未依頼・追加packetはMac保持。次は保存objectからJIT-link、runtime admissionのsource/owner接続は別途必要。[経路と範囲](portable-module-object.md)。以下は履歴。
+
 # 2026-10-29 保存sealed戦闘PTXを既存module-objectへ接続
 
 Windows読み取りで保存PTX8.4/sm86/SHA・元producer compiler/containment・固定ptxas19,582,976byte/SHAを確認、追加compile/native tool/GPU0。過去のwhole-program直接assembly失敗とmodule-object成功を踏まえ、新しい直接assemble wrapperは増やさず、既存module-objectを使う。

@@ -12,6 +12,14 @@ moving-groupの保存PTX13,556,055byteはWindows読み取りでPTX8.4/sm86・元
 
 後段の`linked_object_origin`も、保存objectのownerがcompiler診断なら従来のhistorical検証、sealedなら通常のown payload/source/golden検証を使い、development ownerを拒否する。元object/producer/cache/phase/claim/Jobの全chainを再監査し、object再生成なしで診断linkへ渡す。開発122/固定b418ed14…自身122検査と前後payload一致が成功。`saved_linked_admission`のfull-compiler限定やCUDA実行の受付は変更せず、現source計算への昇格を防ぐ。小記録`research/portable-sealed-object-link-owner-v1.json`。この追加固定packetはMacに保持し、Windowsへのlink依頼はまだ行っていない。
 
+## moving-groupのWindows結果
+
+固定bb28af2e…の共通packetで登録CPU7群55件成功後、保存PTX全13,556,055byteを分割/改変せずmodule-objectへ渡した。ptxas12.4.131は1回14.445620秒/code0、ELF64 relocatable object7,493,872byteを生成。SHA256は`2780dc695f7a4d81c426267186e5211a1c17c1967e619079559c297db53546de`。inner35.150秒/peak502,321,152byte、outer63.253秒/peak554,463,232byte。2GiB/低優先度/gate/両Job終了0/欠落0/観測cleanup error無し、timeout無しの報告を保持する。
+
+service未識別はpreservation/overall false、outer child exit2/wrapper exit1。historical_sealed_battle_source=true/current_battle_equivalence_verified=falseのまま。Slang/NVRTC/driver/GPU/battle/JIT-link/直接CUBIN/retryは0。直接CUBIN失敗とobject生成成功はartifact/compile modeが違い、GPU性能や全工程メモリ改善を証明しない。
+
+固定report commit7d1fd21f…の小要約3259byte＋manifest616byteを原CRLF/SHAのままMacへ取り込み、元source packetと保存PTXの識別に一致させた。object/全Job原本はWindows保存で、Mac独立原本監査ではない。`research/portable-moving-group-module-peer-v1.json`。次は保存objectと固定JIT linkerの監査接続であり、PTX/objectを再生成しない。
+
 `module-object`は、保存済みproducerの**元PTX全byteを変更せず**、固定ptxas12.4.131／sm86／O1／FMA無効／`--compile-only`で1回処理する明示実験。最大関数focusの0.315660秒・ret0と、元moduleのwhole-program assembly失敗は、入力範囲とcompile modeの両方が異なる。本実験はfocusと同じcompile modeで元module全体を比較する。結果が出る前に原因や必要メモリを断定しない。
 
 ```sh
