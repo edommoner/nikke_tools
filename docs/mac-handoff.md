@@ -1,3 +1,11 @@
+# 2026-10-29 最大127ADD・30秒を同じ実行器でMetal検証
+
+最新sealed `moving-many`は元ユニ＋ニヒリスター全71定義/元武器・育成/5人編成/30秒を保持し、BODY＋127ADDを処理する。2体を射線付近、125体を遠方に置き、全127体の元移動carrierと全228727frame/228854区間・最終状態・全paddingを比較する。同時127体命中の認定ではない。従来4096行では拒否された3体以上に対応するため、既存本体をincludeするだけの新entryと262144行ずつのframe/segment bankを追加。input123188wordは同じ、output10422672word。元のskill/typed/group/history容量は削らず、旧layoutの既定byteも保持する。
+
+固定b44a5f39…のM5実GPU1回で全13入力（native1/拒否12）一致。GPU42.869923秒/初回PSO61.194543秒、generation必須hit/Slang0。別fresh GPU禁止child7群の独立sealは160.209秒、全群180秒以内で成功。元の実通知9回・子着弾27回・typed着弾50件と元全battle比較も保持。raw/CPU snapshot/claimsを永続proof rootへ保存。小証跡 `tests/fixtures/moving-many-metal-v1.json`。[容量・境界・共通CLI](portable-moving-many.md)。
+
+`moving-many-cache-only`は同じ計算に既存CUBIN/O1とpaired generation必須を適用し、固定e5c5ce5b…のcompile-plan（2GiB/60秒）は成功。現CUDA/実ゲーム空間規則/同時多数命中/BODY・PART移動/default/全キャラは未認定。Windows新依頼0。共有7fileはexact inverseで旧sourceを保持し、旧小entryの生成CUDA/Metalは既存strict normalized hashと一致したが、旧suiteのcurrent-source GPU再認定とは区別する。以下は履歴。
+
 # 2026-10-29 移動中の実グループconsumerを同じMetal実行器で検証
 
 最新のsealed `moving-group`は元ユニ＋ニヒリスターを同じ元5人編成（全71定義・元武器/育成・30秒）へ接続する。移動/範囲外/再出現の3戦闘＋拒否12。各20group、元`multi_hit:2`→`버닝 샷 3`の通知9/0/17・子着弾27/0/51が実発動。CPUで移動fieldsだけを外すと通知9→5・子着弾27→15となる。GPU source276ファイルは直前のmoving-typedと全byte同一で、元全比較文をAST同一の共通関数へ抽出し、計算を複製していない。

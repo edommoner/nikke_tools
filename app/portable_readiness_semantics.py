@@ -37,6 +37,13 @@ def movement_contract():
             evidence_sha256='49ab674e94b3331ed23809a691f1919e41247516fb87924d28e0bbc278a8e02a',
             default_producer_installed=False,in_game_motion_policy_verified=False,
             scope='Original Yuni/Nihilister 30-second moving/typed battles, outside control and respawn; no game/default/all-character certification'),
+        declared_maximum_slots=dict(suite='moving-many',inputs=13,native_cases=1,rejected_cases=12,
+            metal_verified=True,independently_audited=True,cuda_verified=False,
+            add_slots=127,duration=30,frames=228727,segments=228854,history_capacity=262144,
+            evidence='tests/fixtures/moving-many-metal-v1.json',
+            evidence_sha256='19b5b4b2a5226fa567a46cda3d6f05023f90658d56c9e85890a54b797b8046cf',
+            default_producer_installed=False,in_game_motion_policy_verified=False,
+            scope='One original 71-definition battle at full 127 ADD slots; two near colliders and 125 far, not all simultaneous hits or all-character certification'),
         current_cuda_verified=False,default_producer_installed=False,
         actual_spatial_recipient_selection_verified=False,in_game_motion_policy_verified=False,
         scope='Declared CPU and Metal movement consumer on real ADD colliders; canonical/default world model and actual game spatial rules remain unverified')

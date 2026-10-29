@@ -451,6 +451,10 @@ SUITES['moving-group']=dict(SUITES['moving-typed'],script='research/verify-movin
     golden='research/portable-moving-group-v1-expected.json',inputs=15,native=3,development_only=False,
     support_files=['research/portable-moving-typed-v1-expected.json'],
     tests=[*SUITES['moving-typed']['tests'],'test_moving_group_inputs.py','test_moving_group_events.py'])
+SUITES['moving-many']=dict(SUITES['moving-typed'],script='research/verify-moving-many.py',source='gpu/world_moving_many_entry.slang',
+    golden='research/portable-moving-many-v1-expected.json',inputs=13,native=1,output_words=10422672,development_only=False,
+    support_files=['research/portable-moving-typed-v1-expected.json','research/portable-moving-group-v1-expected.json','research/portable-moving-many-v1-expected.json'],
+    tests=['test_moving_many_wire.py','test_moving_typed_wire.py','test_moving_group_events.py','test_enemy_movement_model.py','test_portable_wire_layout.py'])
 SUITES['coordinate-geometry']=dict(script='research/verify-coordinate-geometry-short.py',source='gpu/coordinate_geometry_probe.slang',golden='research/portable-coordinate-geometry-short-expected.json',inputs=1224,native=1209,output_words=4160,development_only=False,tests=['test_coordinate_geometry_v1.py','test_coordinate_numeric_v1.py'])
 SUITES['coordinate-power']=dict(script='research/verify-coordinate-power-short.py',source='gpu/coordinate_power_probe.slang',golden='research/portable-coordinate-power-short-expected.json',inputs=909,native=898,output_words=8,development_only=False,tests=['test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['packet-ratio']=dict(script='research/verify-packet-ratio-short.py',source='gpu/packet_ratio_probe.slang',golden='research/portable-packet-ratio-short-expected.json',inputs=14045,native=14040,output_words=8,development_only=False,tests=['test_packet_integer_ratio.py'])
@@ -590,6 +594,7 @@ SUITES['logical-actor-rosters-cache-only']=dict(SUITES['logical-actor-rosters'],
 SUITES['enemy-healing-cache-only']=dict(SUITES['enemy-healing'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['enemy-healing']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['moving-typed-cache-only']=dict(SUITES['moving-typed'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['moving-typed']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['moving-group-cache-only']=dict(SUITES['moving-group'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['moving-group']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
+SUITES['moving-many-cache-only']=dict(SUITES['moving-many'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['moving-many']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['named-effect-range-cache-only']=dict(SUITES['named-effect-range'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['named-effect-range']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['named-range-battle-cache-only']=dict(SUITES['named-range-battle'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['named-range-battle']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['original-lock-controls-cache-only']=dict(SUITES['original-lock-controls'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-lock-controls']['tests'],'test_portable_cuda_cached_profile.py'])

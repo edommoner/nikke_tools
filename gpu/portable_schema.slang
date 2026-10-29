@@ -246,7 +246,9 @@ static const uint P_PROTECTION_MAP_BASE = 108224U;
 static const uint P_PROTECTION_SELECTION_BASE = 108736U;
 static const uint P_PROTECTION_OBJECT_BASE = 109248U;
 static const uint P_PROTECTION_BUILD_BASE = 133824U;
-#if defined(PORTABLE_MOVING_TYPED)
+#if defined(PORTABLE_MOVING_MANY)
+static const uint P_OUTPUT_WORDS = 10422672U;
+#elif defined(PORTABLE_MOVING_TYPED)
 static const uint P_OUTPUT_WORDS = 2165136U;
 #elif defined(PORTABLE_LOCK_TYPED_COMPOSITION)
 static const uint P_OUTPUT_WORDS = 1310720U;

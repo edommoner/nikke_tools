@@ -29,16 +29,18 @@ def native_reference(domain):
     assert len(data['frames'])<=CAPACITY and sum(len(f['segments']) for f in data['frames'])<=CAPACITY,'No movement history truncation'
     return n
 
-def compare_movement(block,domain,native,*,output_base=OUT):
+def compare_movement(block,domain,native,*,output_base=OUT,capacity=CAPACITY):
     data=native['enemy_movement'];frames=data['frames'];segments=[(frame,segment) for frame in frames for segment in frame['segments']]
-    expected=[0]*(END-OUT);expected[:3]=[MAGIC,len(frames),len(segments)]
+    assert len(frames)<=capacity and len(segments)<=capacity,'No movement history truncation'
+    segments_base=FRAMES+capacity*FRAME_WORDS
+    expected=[0]*(segments_base+capacity*SEGMENT_WORDS);expected[:3]=[MAGIC,len(frames),len(segments)]
     def number(at,value):expected[at:at+2]=struct.unpack('<II',struct.pack('<d',value))
     slots={b.label:i for i,b in enumerate(domain[2])};cursor=0;final={}
     for i,frame in enumerate(frames):
         slot=slots[frame['label']];gen=frame['actor'][2];alive=int(frame['alive']);at=FRAMES+i*FRAME_WORDS
         expected[at:at+5]=[slot,gen,alive,cursor,len(frame['segments'])];number(at+6,frame['time']);number(at+8,frame['position'][0]);number(at+10,frame['position'][1]);final[slot]=frame
         for segment in frame['segments']:
-            out=SEGMENTS+cursor*SEGMENT_WORDS;cursor+=1
+            out=segments_base+cursor*SEGMENT_WORDS;cursor+=1
             expected[out:out+3]=[slot,gen,int(segment['disabled'])+2*int(segment['forced'])]
             for off,val in ((4,segment['start']),(6,segment['end']),(8,segment['before'][0]),(10,segment['before'][1]),(12,segment['after'][0]),(14,segment['after'][1])):number(out+off,val)
     for slot,frame in final.items():

@@ -15,11 +15,12 @@ SEGMENTS=FRAMES+CAPACITY*FRAME_WORDS;SEGMENT_WORDS=16;END=OUT+SEGMENTS+CAPACITY*
 SOURCE='gpu/world_enemy_movement_entry.slang'
 
 def bits(x):return list(struct.unpack('<II',struct.pack('<d',float(x))))
-def shader_schema(*,base=BASE,out=OUT,output=OUTPUT):
+def shader_schema(*,base=BASE,out=OUT,output=OUTPUT,capacity=CAPACITY):
+    segments=FRAMES+capacity*FRAME_WORDS
     return '// Generated from portable_enemy_movement_wire; literal motion only.\n'+''.join(
         'static const uint EMB_'+k+'='+str(v)+'U;\n' for k,v in dict(MAGIC=MAGIC,BASE=base,HEADER=HEADER,MAP=MAP,ROWS=ROWS,ROW_WORDS=ROW_WORDS,
-        WORDS=WORDS,INPUT=base+WORDS,OUT=out,STATE=STATE,STATE_WORDS=STATE_WORDS,FRAMES=FRAMES,CAPACITY=CAPACITY,FRAME_WORDS=FRAME_WORDS,
-        SEGMENTS=SEGMENTS,SEGMENT_WORDS=SEGMENT_WORDS,END=out+SEGMENTS+CAPACITY*SEGMENT_WORDS,OUTPUT=output).items())
+        WORDS=WORDS,INPUT=base+WORDS,OUT=out,STATE=STATE,STATE_WORDS=STATE_WORDS,FRAMES=FRAMES,CAPACITY=capacity,FRAME_WORDS=FRAME_WORDS,
+        SEGMENTS=segments,SEGMENT_WORDS=SEGMENT_WORDS,END=out+segments+capacity*SEGMENT_WORDS,OUTPUT=output).items())
 def check_schema(root=None):
     if (Path(root or Path(__file__).resolve().parents[1])/'gpu/enemy_movement_layout.slang').read_text()!=shader_schema():raise ValueError('Movement wire schema drift')
 

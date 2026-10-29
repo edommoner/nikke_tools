@@ -1,3 +1,5 @@
+`moving-many`はBODY＋最大127ADD・30秒を同じ実行器でM5 Metal/fresh独立sealした13入力。全228727frame/228854区間を省略せず比較する。出力10422672wordはframe/segment bankだけを拡張し、既存履歴容量を削らない。`moving-many-cache-only`は同じ計算に既存CUBIN/O1とpaired generation必須を適用する。現CUDA・実ゲーム・同時127体命中は未認定。[容量と全比較](portable-moving-many.md)。
+
 `moving-group`は元ユニ/ニヒリスター全71定義・30秒の3戦闘＋拒否12入力。移動・typed形状・実multi_hit通知と元子攻撃を同じ実行器でM5 Metal/fresh独立seal済み。`moving-group-cache-only`は同じ計算へ既存CUBIN/O1とpaired generation必須を適用する。現CUDA・実ゲーム規則は未認定。[故障注入と範囲](portable-moving-group.md)。
 
 `moving-typed-cache-only`はsealed `moving-typed`と同じ18入力・計算・goldenにCUBIN/O1とpaired generation必須を適用する。packet自身の54テストとcompile-planは成功、現Windows CUDA計算は未確認。[範囲と配布確認](portable-moving-typed.md)。

@@ -42,15 +42,15 @@ def compare(block,domain):
     with creation_indices(domain[0]) as indices:n=native_reference(domain)
     return compare_observed(block,domain,n,indices)
 
-def compare_observed(block,domain,n,indices):
-    assert len(block)==OUTPUT and block[0]==0,'Complete successful moving typed output required'
-    clean=motion.compare_movement(block,domain,n,output_base=MOVEMENT_OUT)
+def compare_observed(block,domain,n,indices,*,output_words=OUTPUT,aim_base=AIM_BASE,capacity=4096):
+    assert len(block)==output_words and block[0]==0,'Complete successful moving typed output required'
+    clean=motion.compare_movement(block,domain,n,output_base=MOVEMENT_OUT,capacity=capacity)
     expected=[0]*AIM_WORDS
     frames=n['coordinate_typed_aim'];last=frames[-1] if frames else dict(candidates=[])
     for candidate in last['candidates']:
         at=candidate['slot']*4;expected[at:at+4]=struct.unpack('<4I',struct.pack('<2d',*candidate['point']))
-    assert list(clean[AIM_BASE:AIM_BASE+AIM_WORDS])==expected,'Every frozen typed aim center and padding'
-    clean[AIM_BASE:AIM_BASE+AIM_WORDS]=[0]*AIM_WORDS
+    assert list(clean[aim_base:aim_base+AIM_WORDS])==expected,'Every frozen typed aim center and padding'
+    clean[aim_base:aim_base+AIM_WORDS]=[0]*AIM_WORDS
     assert not any(clean[2032000:]),'All newly owned output must be fully compared before legacy projection'
     view,legacy,old_indices=compare_and_project(clean[:2032000],domain,n,indices)
     typed.parent.compare_observed(view,domain,legacy,old_indices)

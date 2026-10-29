@@ -86,6 +86,11 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source=='gpu/world_moving_many_entry.slang':
+        from portable_moving_many_wire import check_schema,INPUT,OUTPUT
+        check_schema(ROOT)
+        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Maximum-slot motion requires complete untruncated frame/segment banks')
+        return
     if source=='gpu/world_moving_typed_entry.slang':
         from portable_moving_typed_wire import check_schema,INPUT,OUTPUT
         check_schema(ROOT)

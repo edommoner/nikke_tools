@@ -3,6 +3,8 @@ import hashlib,json
 from pathlib import Path
 
 def project_sources(root,sources=None):
+    from portable_moving_many_source_contract import project_sources as maximum_slots
+    sources=maximum_slots(root,sources)
     root=Path(root);out=dict(sources or {});ledger=json.loads((root/'tests/fixtures/portable-moving-typed-source-delta.json').read_text())
     downstream=json.loads((root/'tests/fixtures/portable-enemy-movement-source-delta.json').read_text())['files']
     for name,digest in ledger['added_sources'].items():
