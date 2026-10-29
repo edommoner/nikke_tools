@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "package_id": "76fbe7c3c06307e6c1fd07329e0f129b6bc9433a1f4fbff5732b59dc8b0e0557",
+  "original_log_bytes": 3658,
+  "original_log_sha256": "e2fa27a4169504d84a6fc68c0410297d377f116cf8b0081772696431337c984a",
+  "diagnostic_line": "ptxas fatal : Memory allocation failure",
+  "diagnostic_scope": "ptxas allocation failure; Job cap vs system memory cause unresolved"
+}
