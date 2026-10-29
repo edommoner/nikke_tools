@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "source_package_id": "8d72e81ea7fdda5a57a924bb451d50271c0b42e8c5f9bdba1fae3e6e3f2f6dc7",
+  "source_commit": "fe57b6888a57d857e59be404a65b88b7d40c95f9",
+  "summary_file": "parent-summary-v1.json",
+  "summary_bytes": 3814,
+  "summary_sha256": "e439d1cabd6711e40c9d032f93a82ddd2e72b2cf2780e63c416c6d5864ee83e1",
+  "public_payload": "aggregate-summary-and-manifest-only",
+  "sdk_paths_included": false,
+  "binding_included": false,
+  "nonce_included": false,
+  "raw_included": false,
+  "private_diagnostics_included": false
+}
