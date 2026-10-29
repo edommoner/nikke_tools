@@ -1,3 +1,9 @@
+# 2026-10-29 同じ移動group sourceのPTX単独生成がWindowsで成功
+
+元固定76fbe7c3…の別PTX工程は成功。Windows小要約＋manifestを固定edc2c550…から取得し、元bytes/SHA/package ID・前回paired raw生成/hash/cache key・M5 sealed normalized生成との一致をMacで確認。PTX13,556,055byte（e6d83bf9…）、NVRTC1回35.541秒/code0、generation必須hit/Slang0。inner51.799秒/peak289,640,448byte、outer65.379秒/peak324,009,984byte、両方timeoutなし・2GiB/低優先度/gate/Job終了0/欠落0/観測cleanup error無しの報告。サービス未識別は保全false/overall false、外child exit2/wrapper exit1を保持する。
+
+PTX/全Job原本はWindowsに保持し、Macの独立原本監査ではない。ptxas/driver/GPU/native/旧CUBIN再試行0。これでNVRTC frontendからPTXまでを分離できたが、別assemblerのメモリ改善・CUBIN/現在のCUDA計算・全目標は未証明。次は保存PTX8.4/sm86と固定assemblerの読み取り検査から進む。証跡`research/portable-moving-group-ptx-checkpoint-v1.json`、[共通経路と境界](portable-moving-group-cuda.md)。以下は履歴。
+
 # 2026-10-29 消費済みcompile claimを計画時に検出し、別PTX工程へ
 
 共通`compile-plan`は既存claim（壊れたsymlinkを含む）を読み取り確認し、`execution_claim_available=false`/`passed=false`で止める。artifact変更でも同じpacketのclaimを再使用しない。実行時の排他的claim/監査/数値/GPU/golden/保護CPU4fileは変更0、CLIの既存top-level定義変更はcompile_planだけ。開発側119検査、現source基準の固定fd7de6c1…自身compiler70検査とPTX/2GiB/60秒planが成功。旧small基準での固定はsource closure staleとして拒否され、goldenを書き換えず現moving-many基準で固定した。証跡`research/portable-compile-plan-claim-v1.json`。

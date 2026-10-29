@@ -1,0 +1,39 @@
+{
+  "schema": "moving-group-ptx-checkpoint-v1",
+  "source_host_commit": "edc2c550a29384910c02b8dcdf7839a9c32d3c4a",
+  "source_host_branch": "codex/cuda-moving-group-ptx-v1-report",
+  "package_id": "76fbe7c3c06307e6c1fd07329e0f129b6bc9433a1f4fbff5732b59dc8b0e0557",
+  "files": [
+    {
+      "path": "research/cuda-preparation-evidence/moving-group-v1-ptx-summary-v1.json",
+      "bytes": 2703,
+      "sha256": "e680efd6ff1d879be05e6f598a3fd2190d6f4729436af9a3dffdc002899a7d63"
+    },
+    {
+      "path": "research/cuda-preparation-evidence/moving-group-v1-ptx-report-manifest.json",
+      "bytes": 519,
+      "sha256": "b8b51bdf12c4092e542359ce40200b3f50ab20d6a2d620e455d4e008167000f2"
+    }
+  ],
+  "peer_summary_hashes_verified": true,
+  "paired_raw_and_normalized_generation_matches_preparation": true,
+  "normalized_generation_matches_sealed_metal": true,
+  "ptx_artifact_independently_read_on_mac": false,
+  "full_job_artifacts_independently_audited_on_mac": false,
+  "reported": {
+    "compiler_verified": true,
+    "artifact_bytes": 13556055,
+    "artifact_sha256": "e6d83bf98e727ee989aaca68364c632ebbf9e26c259dd71161462a90184a104e",
+    "compile_cache_key": "ded5292f9aa24aee1d01b79b04df40f46a9472a9d16bba8fdeb1751f9f61525e",
+    "nvrtc_elapsed_seconds": 35.541301,
+    "inner_peak_bytes": 289640448,
+    "outer_peak_bytes": 324009984,
+    "inner_elapsed_seconds": 51.79935640003532,
+    "outer_elapsed_seconds": 65.37881529983133
+  },
+  "calculation_verified": false,
+  "environment_preservation_verified": false,
+  "full_goal_complete": false,
+  "next_step": "Read-only inspect saved PTX version/target and pinned standalone assembler; then plan one separate bounded assembly, with original producer audit and no NVRTC/GPU fallback",
+  "scope": "Imported exact peer summary and manifest, not independent PTX/Job audit. PTX succeeds without CUBIN assembly; full-path memory improvement remains unproven."
+}

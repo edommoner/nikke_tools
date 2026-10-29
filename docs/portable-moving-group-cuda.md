@@ -23,3 +23,11 @@ packet自身のCUBIN/O1・2GiB・60秒compile-plan成功後、同じwrapperの`c
 同じ固定ZIPの新規展開先`nikke-moving-group-ptx-v1/packet`で**別artifactのPTXだけ**を1回生成する依頼を送った。元CUBINを再試行せず、新rootでも同じCUBINを実行しない。Macの元packet自身でPTX/2GiB/60秒plan成功、Windowsのplan成功も確認。旧59CPU/paired生成の同payload証拠を再利用し、生成cache必須hit・Slang0を要求した。outer180秒/child60秒/2GiB/低優先度/Job/gateを保持し、GPU/driver/native/ptxasは0の計画。結果未取得で、PTX生成成功・assemblerのメモリ改善・CUDA計算一致はまだ認定しない。
 
 新CLIは消費済みcompile claimを計画時に拒否するようになったが、今回の旧不変packetへ後付けしていない。詳細と現CLIの固定検査は`research/portable-compile-plan-claim-v1.json`。旧結果・cache・claimsを保持する。
+
+## PTX工程の結果
+
+WindowsはNVRTC1回35.541301秒/code0でPTX13,556,055byteを保存した。SHA256 `e6d83bf98e727ee989aaca68364c632ebbf9e26c259dd71161462a90184a104e`、PTX cache key `ded5292f9aa24aee1d01b79b04df40f46a9472a9d16bba8fdeb1751f9f61525e`。artifact cache miss、既存paired generation必須hit/Slang0。inner51.799秒/peak289,640,448byte、outer65.379秒/peak324,009,984byte、各Job/gate/低優先度/2GiBを確認した報告。終了後Job/process欠落0、観測/cleanup/Job inspection error無し、両timeout false。service未識別によりpreservation/overall false、outer child exit2/wrapper exit1を成功へ書き換えない。
+
+固定report commit `edc2c550a29384910c02b8dcdf7839a9c32d3c4a`の要約2703byte/manifest519byteを元CRLF bytes/SHAのまま取り込み、前回準備のraw生成SHA/normalized pair/generation keyと、固定M5 sealed normalized基準へ一致させた。PTX/全Job/phase本体はWindows保存で、Macの独立原本監査ではない。小証跡`research/portable-moving-group-ptx-checkpoint-v1.json`。
+
+PTX生成がCUBIN assemblyを通さず成立した証拠であり、全工程メモリ改善やCUBIN/driver/GPU/計算一致ではない。追加ptxas/driver/GPU/native/旧CUBIN再試行0。次は保存PTXのversion/targetと固定外部toolを読み取り検査し、元producerを既存監査器で検証する別assembler工程を計画する。NVRTC再生成や自動fallbackは行わない。
