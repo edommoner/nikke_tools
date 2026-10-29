@@ -14,6 +14,26 @@ from portable_coordinate_frontier import verify
 
 
 class FrontierTests(unittest.TestCase):
+    def test_dependency_gaps_do_not_misclassify_private_sampling_as_unimplemented(self):
+        result = verify(ROOT)
+        dependencies = {row['id']: row for row in result['dependencies']}
+        packets = dependencies['physical-packet-expansion']
+        self.assertIn('Public frontend', packets['remaining_scope'])
+        self.assertNotIn('sampling-rng', packets['remaining'])
+        self.assertIn('public-sampling-rng-admission', packets['remaining'])
+        self.assertEqual(packets['private_sampling']['suite'], result['coordinate_sampled_battles']['suite'])
+        self.assertEqual(packets['private_sampling']['proof_available'], result['coordinate_sampled_battles']['proof_available'])
+        self.assertEqual(packets['private_sampling']['sealed_source_matches_current'], result['coordinate_sampled_battles']['sealed_source_matches_current'])
+        rng = dependencies['physical-rng']
+        for key, section in (('private_sampled_skill', 'coordinate_sampled_skills'), ('private_sampled_parent', 'coordinate_sampled_parent')):
+            self.assertEqual(rng[key]['suite'], result[section]['suite'])
+            self.assertEqual(rng[key]['proof_available'], result[section]['proof_available'])
+            self.assertEqual(rng[key]['sealed_source_matches_current'], result[section]['sealed_source_matches_current'])
+        self.assertFalse(rng['sampled_damage_skills_admitted'])
+        self.assertFalse(rng['parent_quantity_admitted'])
+        self.assertFalse(result['public_gpu_admitted'])
+        self.assertFalse(result['full_goal_complete'])
+
     def test_audit_reuses_public_and_arena_guards_without_battles(self):
         result = verify(ROOT)
         self.assertTrue(result['passed'])

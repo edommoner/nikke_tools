@@ -733,3 +733,8 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 `handoff-check`は外部snapshot/certificate SHAとbindingから固定入力・出所・CUBINを読むCPU専用点検。元pathを開かず全goldenと照合し、準備controllerと実行consumerを別IDで保持する。実行claimやGPU起動を許可せず、成功もhandoff_bytes_verifiedだけ。[読取と共有adapterの契約](portable-prepared-admission.md)を参照。
 
 `prepare-admission`は元ownerの外部package ID、元transactionと保存link/現producer対を受け、既存の完全なCPU監査から証明書・inventory・snapshotを作る。claimやGPU実行は行わず、成功時もexecution_admitted/calculation false。[引数・検査・未接続境界](portable-prepared-admission.md)を参照。既存run/staged-runの受付を置き換えるものではなく、認証されたclaimとGPU consumerへの接続は未完了。
+# model-checkの依存分類を読むときの範囲
+
+`model-check --summary --out NEW.json` の `scoped_dependency_gaps` は、公開frontendの残件と既存のprivate実装を分ける。physical-packet-expansionの残件は公開sampling/RNG受付・未検証の合成・全original定義のcoverageであり、既存sampling実装そのものが無いという意味ではない。private sampling／skill／parentは既存suite名とproof_available／sealed_source_matches_currentを別々に返す。古いgoldenの存在を現sourceの再認定に使わない。mixed-worldの残件も、その未sampling suiteの範囲として読む。
+
+この分類だけで5つのcanonical未対応consumer、公開GPU受付、全キャラ認定は解消しない。20分類検査／51 CLI検査と実CLIの約3KB要約を確認した。詳細は`research/portable-coordinate-gap-scope-classification-v1.json`。

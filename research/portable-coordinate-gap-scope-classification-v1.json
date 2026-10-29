@@ -1,0 +1,56 @@
+{
+  "schema": "coordinate-gap-scope-classification-v1",
+  "model_report_sha256": "97b202e9bcf6b7935fbd505791c8ba541f878e3117835c0454fcd5b82fd8d934",
+  "model_report_bytes": 1080668,
+  "bounded_stdout_bytes": 2992,
+  "scoped_dependency_gaps": [
+    {
+      "id": "physical-packet-expansion",
+      "classification": "gpu_port_gap",
+      "remaining_scope": "Public frontend admission and unrestricted compositions; not absence of private implementations",
+      "remaining": [
+        "public-sampling-rng-admission",
+        "uncovered-mixed-scenes",
+        "complete-original-definition-coverage"
+      ],
+      "private_sampling": {
+        "suite": "coordinate-sampled-battle",
+        "source": "gpu/world_coordinate_sampling_entry.slang",
+        "proof_available": true,
+        "sealed_source_matches_current": false
+      }
+    },
+    {
+      "id": "physical-rng",
+      "classification": "gpu_port_gap",
+      "admission_scope": "Public frontend only; private sampled skill and parent suites are separate evidence",
+      "private_sampled_skill": {
+        "suite": "coordinate-sampled-skill",
+        "source": "gpu/world_coordinate_sampling_skill_entry.slang",
+        "proof_available": true,
+        "sealed_source_matches_current": false
+      },
+      "private_sampled_parent": {
+        "suite": "coordinate-sampled-parent",
+        "source": "gpu/world_coordinate_sampling_parent_entry.slang",
+        "proof_available": true,
+        "sealed_source_matches_current": false
+      }
+    }
+  ],
+  "missing_canonical_stat_consumers": [
+    "effect_range_pct",
+    "effect_target_count_add",
+    "enemy_movement_disable",
+    "force_move",
+    "lock_on"
+  ],
+  "classification_tests_passed": 20,
+  "cli_tests_passed": 51,
+  "actual_cli_summary_checked": true,
+  "public_gpu_admitted": false,
+  "private_proof_availability_is_current_source_proof": false,
+  "gpu_calls": 0,
+  "native_battle_calls": 0,
+  "full_goal_complete": false
+}

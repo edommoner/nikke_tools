@@ -4173,6 +4173,10 @@ def main(argv=None):
             missing_canonical_stat_consumers=sorted(gaps['missing_stats']),
             numeric_policy_scope=numeric['policy_implemented_scope'],public_numeric_admission_remaining=numeric['public_admission_remaining'],
             private_numeric_evidence_suites=numeric['private_suites'],
+            scoped_dependency_gaps=[{k:row[k] for k in (
+                'id','classification','remaining_scope','remaining','admission_scope',
+                'private_sampling','private_sampled_skill','private_sampled_parent') if k in row}
+                for row in result['dependencies'] if row['id'] in ('physical-packet-expansion','physical-rng')],
             private_resident_storage=dict(metal_inputs=resident['frames']['inputs'],
                 full_cuda_battle_verified=resident['joined']['calculation_verified'],
                 full_cuda_battle_scope=resident['joined']['scope'],
