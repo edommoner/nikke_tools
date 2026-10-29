@@ -37,6 +37,8 @@ damage = max(amount, 1)
 
 入力corpusの生成にあったホストのpowを排除するため、実行済み128乱数vectorを入力だけのhex binary64表へ固定した。`research/cover-defense-random-inputs-v1.json` は結果を含まず、元の全36,612byte入力と完全一致する。native数値oracleとadapterの全byteも元packetと同一。GPU数値sourceは変更せず、元証跡の出所を新packetへ付替えない。
 
+固定入力版f3820a6c/packet `40a8e62b05b81b764b7446b2718614b8dee21bacf2b0d5660c9394f58b1b6865` は自身のCLIで17unitとfresh native562/572入力の基準指紋一致に成功（CPU 0.806435秒/GPU0）。CUBIN/O1/2GiB/60秒compile-planもpolicy成功。旧GPU/独立監査のpackage IDは保持し、新packetでGPUを再実行したとは扱わない。最終静的監査・model-checkも成功し、254/266・未対応12を維持する。
+
 ## 共通CLI・次の接続
 
 `package --suite cover-defense-numeric --out NEW.zip` → `unpack` → 固定packet自身の`run`。standaloneなので`--generation-cache`と`--require-generation-cache`は指定しない。Metal pipeline cacheは通常の共通optionを使える。`cover-defense-numeric-cache-only`は同じ数値/入力/golden/比較器のCUBIN/O1必須cache hit入口で、residentのpaired generationを要求しない。full-source compiler certificateをこのprobeへ流用しない。現CUDA実機未検証/Windows追加依頼0（既存hostへのread-only確認はunavailable）。
