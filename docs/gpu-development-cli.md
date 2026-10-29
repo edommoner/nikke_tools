@@ -693,3 +693,6 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 ## ADD自爆の14入力
 
 `add-self-destruct`は元70/76定義の実編成8条件＋不正6をM5保存出力/fresh独立sealで検証した通常入口。`package --suite add-self-destruct`を使う。`add-self-destruct-cache-only`は同じ計算/goldenにCUBIN/O1・必須compile cache/NVRTC禁止・必須paired generationを適用。初回array/list比較器失敗を保持し、計算を変えず既存replayで全14を再照合した。GPU実行は計1回。敵弾薬との合成/現在CUDA/公開GPU受付は未検証。[実装と証拠の境界](portable-add-self-destruct.md)。
+# 保存済み同一byte witnessとCUDA原captureの監査
+
+`partitioned-witness-native-audit` / `partitioned-current-envelope-audit`の範囲・コマンド・証拠の分離は[共通native監査](portable-identical-wire-native-audit.md)を参照。追加GPU実行なしで保存済み全106入力を調べる。片側の成功をCUDA計算認定へ読み替えない。

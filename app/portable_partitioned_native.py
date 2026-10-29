@@ -9,6 +9,23 @@ from pathlib import Path
 
 
 def compare(cli,manifest,capture,generated_root,case_indices=None,progress=None):
+    """Historical Metal envelope; its source paths and generation checks stay exact."""
+    capture=Path(capture)
+    source=Path(cli.SUITES[manifest['suite']]['source']).stem
+    return compare_readback(cli,manifest,input_path=capture/'input.bin',raw_path=capture/'readback.bin.partial',
+        layout=cli.load(capture/'readback.bin.batches/plan.json'),batch_size=cli.load(capture/'run.json')['batch_size'],
+        generation=cli.load(capture/'generation-preflight.json')['generation']['artifacts'],
+        generated_paths={backend:Path(generated_root)/'research/portable-build'/(source+'.'+suffix)
+                         for backend,suffix in (('cuda','cu'),('metal','metal'))},
+        case_indices=case_indices,progress=progress)
+
+
+def compare_readback(cli,manifest,*,input_path,raw_path,layout,batch_size,generation,generated_paths,case_indices=None,progress=None):
+    """Shared semantic comparator over explicit saved bytes, never an envelope proof.
+
+    Callers must separately bind the source and provenance of each file. This
+    function neither infers the GPU backend nor converts a witness into CUDA.
+    """
     from portable_partitioned_addresses import WORDS,logical_row_inplace
     from portable_partitioned_transport import plan
     from portable_comparison_groups import selection
@@ -19,17 +36,16 @@ def compare(cli,manifest,capture,generated_root,case_indices=None,progress=None)
         adapter=cli.open_suite(manifest)
         entries,packed=cli.prepare_entries(adapter,manifest)
         if journal:journal.emit('fresh_native_prepare','returned',input_count=len(entries))
-        golden=manifest['golden'];capture=Path(capture)
-        if packed!=(capture/'input.bin').read_bytes() or cli.sha(packed)!=golden['input_sha256']:
+        golden=manifest['golden']
+        if packed!=Path(input_path).read_bytes() or cli.sha(packed)!=golden['input_sha256']:
             raise ValueError('Fresh native input differs from frozen saved input')
-        recipe=cli.load(capture/'run.json');layout=cli.load(capture/'readback.bin.batches/plan.json')
-        if layout!=plan(packed,adapter.suite.INPUT,WORDS,recipe['batch_size'],runtime_stride=143048):
+        if layout!=plan(packed,adapter.suite.INPUT,WORDS,batch_size,runtime_stride=143048):
             raise ValueError('Fresh native partition plan differs')
         if len(entries)!=layout['input_count'] or len(entries)!=len(golden['entries']):
             raise ValueError('Every frozen native/rejection case is required')
         selected=selection(len(entries),case_indices);selected_set=set(selected)
         rows=[];mismatches=[];raw_hash=hashlib.sha256();logical_hash=hashlib.sha256();index=0;active=0;changes=[]
-        with (capture/'readback.bin.partial').open('rb') as stream:
+        with Path(raw_path).open('rb') as stream:
             for batch in layout['batches']:
                 for local in range(batch['cases']):
                     part=bytearray(stream.read(WORDS*4))
@@ -67,10 +83,9 @@ def compare(cli,manifest,capture,generated_root,case_indices=None,progress=None)
             if stream.read(1):raise ValueError('Trailing raw bytes during native comparison')
         if index!=len(entries) or logical_hash.hexdigest()!=golden['output_sha256']:
             raise ValueError('Incomplete or changed logical native readback')
-        source=Path(cli.SUITES[manifest['suite']]['source']).stem
-        generation=cli.load(capture/'generation-preflight.json')['generation']['artifacts'];generated={}
-        for backend,suffix in (('cuda','cu'),('metal','metal')):
-            raw=(Path(generated_root)/'research/portable-build'/(source+'.'+suffix)).read_bytes()
+        generated={}
+        for backend in ('cuda','metal'):
+            raw=Path(generated_paths[backend]).read_bytes()
             if cli.sha(raw)!=generation[backend]['sha256'] or len(raw)!=generation[backend]['bytes']:
                 raise ValueError('Saved generated artifact differs from actual dispatch generation receipt')
             generated[backend]=adapter.cross.normalized(raw)

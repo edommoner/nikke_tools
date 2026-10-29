@@ -66,7 +66,10 @@ def make(cli,source,output,*,cuda_reference=None,current_source_reference=None):
     if current_source_reference is not None and cuda_reference is None:raise ValueError('Current source requires the retained physical wire reference')
     added=ADDED+CUDA_ADDED if cuda_reference is not None else ADDED
     if current_source_reference is not None:added+=('app/portable_resident_validation.py','app/portable_cpu_tests.py',
-        'tests/test_portable_partitioned_current.py','tests/fixtures/partitioned-physical-reference-v1.json')
+        'tests/test_portable_partitioned_current.py','tests/fixtures/partitioned-physical-reference-v1.json',
+        'app/portable_partitioned_witness.py','tests/test_portable_partitioned_witness.py',
+        'app/portable_partitioned_envelope.py','tests/test_portable_partitioned_envelope.py',
+        'tests/fixtures/resident-current-cuda-v2-summary.json')
     replaced_helpers=sorted(set(added)&set(payload))
     if replaced_helpers and current_source_reference is None:raise ValueError('Partitioned helpers already exist in base')
     payload['scripts/nikke_gpu.py']=patched_cli(payload['scripts/nikke_gpu.py'].decode()).encode()
@@ -238,6 +241,24 @@ def dispatch(cli,original,argv=None):
         print(json.dumps(result,indent=2))
         if not result['passed']:raise SystemExit(1)
         return result
+    if args and args[0]=='partitioned-current-envelope-audit':
+        p=argparse.ArgumentParser();p.add_argument('command')
+        for flag in ('source-package','source-capture','capture','original-workspace'):p.add_argument('--'+flag,type=Path,required=True)
+        p.add_argument('--timeout',type=int,default=180);a=p.parse_args(args)
+        from portable_partitioned_envelope import run as envelope_audit
+        result=envelope_audit(cli,a.source_package,a.source_capture,a.capture,a.original_workspace,a.timeout)
+        print(json.dumps(result,indent=2))
+        if not result['passed']:raise SystemExit(1)
+        return result
+    if args and args[0]=='partitioned-witness-native-audit':
+        p=argparse.ArgumentParser();p.add_argument('command')
+        for flag in ('source-package','witness-package','witness-capture','generation-package','generation-capture','cuda-summary','out'):
+            p.add_argument('--'+flag,type=Path,required=True)
+        p.add_argument('--timeout',type=int,default=180);p.add_argument('--group-size',type=int,default=8);a=p.parse_args(args)
+        from portable_partitioned_witness import run as witness_audit
+        with cli.forbid_gpu():result=witness_audit(cli,a.source_package,a.witness_package,a.witness_capture,a.generation_package,a.generation_capture,a.cuda_summary,a.out,a.timeout,a.group_size)
+        print(json.dumps({k:result[k] for k in ('schema','package_id','witness_calculation_verified','conditional_cuda_native_equivalence_verified','pending_original_cuda_envelope_audit','calculation_verified','gpu_calls','elapsed_seconds')},indent=2))
+        return result
     if args and args[0]=='partitioned-native-audit':
         p=argparse.ArgumentParser();p.add_argument('command')
         for flag in ('source-package','capture','out'):p.add_argument('--'+flag,type=Path,required=True)
@@ -258,6 +279,10 @@ def dispatch(cli,original,argv=None):
         return result
     if args and args[0]=='_child':
         p=argparse.ArgumentParser();p.add_argument('command');p.add_argument('--capture',type=Path,required=True);p.add_argument('--backend',required=True);a=p.parse_args(args)
+        if cli.load(a.capture/'run.json').get('mode')=='partitioned-current-saved-envelope-v1':
+            if a.backend!='cuda':raise ValueError('Saved CUDA envelope requires an explicit source-host CPU identity')
+            from portable_partitioned_envelope import child as envelope_child
+            return envelope_child(cli,a.capture.resolve())
         if cli.load(a.capture/'run.json').get('mode')=='partitioned-saved-wire-index-v1':
             if a.backend!='cuda':raise ValueError('Saved CUDA wire index requires its explicit CPU stage identity')
             from portable_partitioned_wire_index import child as index_child

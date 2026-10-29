@@ -47,6 +47,9 @@ AUDIT_FILES['test_portable_partitioned_current.py']=(
     'tests/fixtures/partitioned-physical-reference-v1.json',
     'tests/fixtures/resident-append-full106-metal-v1.json',
     'research/portable-coordinate-resident-frames-short-v2-expected.json')
+AUDIT_FILES['test_portable_partitioned_witness.py']=(
+    'tests/fixtures/resident-current-cuda-v2-summary.json',
+    'research/portable-coordinate-resident-frames-short-v2-expected.json')
 
 def validate_dependency_files(root,patterns,included=None):
     """Reject missing audit data before tests/native work or execution claims."""
