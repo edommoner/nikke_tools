@@ -52,3 +52,24 @@ packet `dcd89cbb…` の26群225テストとfresh CPU2戦闘が成功。Apple M5
 この検証で見つかった旧監査テスト2件は、後続の厳密な逆変換を先に通すことと、旧ファイルごとの完全hash検査へ修正した。全依存mapを旧層だけとみなさない。共通CPU依存一覧にもIMPL-STATUS.mdを登録し、梱包漏れをnative前に拒否する負例を追加した。初版から3版のCPUゲート失敗と未実行の4版も保存した。
 
 BODY-owned shieldの宣言worldの検証であり、負傷回復・遮蔽物被弾等の全条件、ゲームの距離規則、全キャラ、現在CUDA、公開GPU受付は認定していない。Windowsは既存結果のstatus取得1回だけを試みたがhost unavailable、追加実行依頼0。証跡 `target-count-query-evidence/original-catalogue-support-development-v1.json`。
+
+## 2026-10-30 受け手順序の観測を共有実行器へ接続して解消
+
+`original-catalogue-support` のナガ70/ティア75定義・各30秒がApple M5の実Metal1回と、GPU禁止のfresh独立sealで一致した。GPU2.509480秒、冷pipeline61.967791秒、CPU事前照合39.462326秒、独立監査46.945674秒/native2/parent再利用0。ナガの実順序は `[2,0]` だった。旧失敗rawとの比較では既存のrecipient-order bank（155648..156672word）以外の全バイトが同一、全16,256,000byteと元input/native期待も保持した。比較時にsortや順序の省略はしない。
+
+新entryは元の `executeComposedCoordinateEvents(runtimeStates[id.x],id)` を実行し、完了後に既存 `carrierOrder` を既存bankへ書くだけ。選択・計算・効果・時計・Runtime138,952byte・容量を複製/変更しない。共有area entryの変更は標準kernelを明示的に抑止する条件1行。旧272 sourceへ戻す完全hash付きinverseを持ち、旧入口のCUDA/MSL生成も既存strict normalizerで完全一致した。ただし旧goldenのcurrent-source認定をsource-onlyの一致で昇格せず、必要な再認定は別に管理する。
+
+初版packet51f29fc5…はkernelの二重定義でSlang生成中に停止、GPU未実行。claimと診断を保持し、修正版96816a01/packetf72077a9…で1回だけ実GPUを実行した。同claim retry0。source inverseは登録部とentry条件の前後hashを固定し、台帳/hash/hunkを同時改変して未レビュー変更を隠す負例も拒否する。normalizerと保護CPU4ファイルは変更0。
+
+通常suiteは独立golden/source certificateへ登録済み。`original-catalogue-support-cache-only` は同じ計算・2入力・goldenでCUBIN/O1/compile cache必須hitとpaired generation必須hitを要求する。実CUDA/CUBIN hitの認定は未完了。Windowsは既存status取得がhost unavailable、追加実行依頼0。
+
+最終41a4be5b/packet552bdb97…のcache-only固定パッケージは、29群260テストとfresh CPU2戦闘（40.991065秒）に成功、GPU追加0。CUBIN/O1/2GiB/60秒のcompile-planも成功したが、compiler/driver/Job/環境保持の実証ではない。共通準備helperへの抽出後も、実GPU認定と同じinput/native/source/goldenを保持している。
+
+今後の元profileは `original-catalogue-ordered` で1〜4ケースを明示選択できる。既存catalogue/比較器/native referenceと同じ順序観測helperを再利用し、キャラごとのGPU entryを追加しない。この選択経路はdevelopment-onlyで、静的packingやCPU基準の生成をGPU対応数へ数えない。例の実CLI梱包は元ナガ3秒/native1を3.020471秒で準備し、GPU実行0。
+
+```sh
+python scripts/nikke_gpu.py package --suite original-catalogue-ordered --develop \
+  --case 'original-catalogue/hp-shield/나가/favorite-0/3s' --out UNIQUE.zip
+```
+
+次は元編成の負傷・遮蔽物被弾・シールド/回復条件など、今回のworldで正例を観測できなかった分岐へ同じ経路を使う。実ゲームの距離規則、全条件、全キャラ、public GPUは未認定。証跡 `target-count-query-evidence/original-catalogue-support-metal-v1.json`。

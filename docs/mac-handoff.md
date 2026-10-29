@@ -3527,6 +3527,7 @@ GPU49a58f13/packetd01a085d。初回38unit/CPU8/必須生成hit/Slang0後に全�
 入力123188/出力2165136を専用stride登録し、typed bankとlogical skill history/scratch、motion、frame固定aim中心の所有を分離。元2048skill/2048typed-prefix+全streamSHA/4096motion履歴を縮めない。全移動frame/区間と最終中心/padding、全frameのtyped候補hash、既存battle/physical/typed比較を通す。shape query診断や過去全中心をGPU全件serializeした意味ではない。原CPU失敗v1（空groupの誤条件）/v2（frame内死亡の観測差）も保存。旧移動CPU5指紋と旧2entryのCUDA/MSL生成byte保持。保護CPU4/strict normalizer変更0、旧goldenを書換えない。
 
 小証跡tests/fixtures/moving-typed-metal-v1.json、通常goldenresearch/portable-moving-typed-v1-expected.json、詳細docs/portable-moving-typed.md。proof root `.portable-recovery/proofs/moving-typed-20261029`。今回はWindows依頼0、mathの既存CUDA43証拠は維持、合成のCUDAはFalse。次はactor数/group consumerを含む合成の拡張と、162秒のMac native costを踏まえたWindows小group選定。default/ゲームの空間規則/全キャラは未完了。
+
 ## 2026-10-30 元support編成で順序観測の不足を特定
 
 開発worktree `.portable-recovery/runtime-resident` の `original-catalogue-support` を続ける。ナガ70/ティア75定義の元30秒編成、全225unit/fresh CPU2成功、M5 Metal1回。ティアの全比較と再突入event7は一致、ナガのnamed_stateだけが順序差で失敗。全体False、seal/goldenなし。同claim再実行禁止。固定packet `dcd89cbbd811915fafef7a36ba5f311ea1d994372b993d028009a40cbdcff831`、proof stem `original-catalogue-support-v5-20261030`。
@@ -3534,3 +3535,13 @@ GPU49a58f13/packetd01a085d。初回38unit/CPU8/必須生成hit/Slang0後に全�
 保存raw/native診断：54 allied carrierの49番目「우정의 서포트」、native recipients `[2,0]`、decoder `[0,2]`。recipient header `[0,0,0]` でordered metadata False、decoderがmaskをスロット順に読む。GPU内部の実順序は未観測。次は既存Runtimeのrecipient orderを独立した明示readback契約で保持する。計算executorを複製せず、比較をsortで緩めず、revival用flagも偽装しない。既存共有GPUファイルを変えずresident entry wrapperで既存executePortableEvents後に観測する案を検討できるが、wire/entryの明示登録と厳密な監査が必要。未実装の案であり実行許可の迂回に使わない。
 
 旧history/logicalの監査テストを厳密な後続inverse＋旧ファイルの完全hashへ修正。IMPL-STATUS.mdを共通CPU依存に追加、梱包漏れをnative前に止める負例を追加。開発suiteはsealedへ昇格していない。Windows host unavailableで既存結果status取得のみ、追加実行0。新規診断exportの審査拒否は未解消、別経路で公開しない。詳細 `docs/portable-original-catalogue.md`、小証跡 `research/target-count-query-evidence/original-catalogue-support-development-v1.json`。
+
+## 2026-10-30 順序観測を解消、任意元profile用CLIへ展開
+
+前節のナガ順序差は解消。GPU96816a01/packetf72077a9…の元ナガ70/ティア75定義・各30秒がM5 Metal1回＋fresh GPU禁止独立sealで一致した。ナガの実受け手順 `[2,0]` を既存Runtimeからreadbackし、旧raw約16MBは順序bank以外全byte同一。新entryは既存executeComposedCoordinateEvents後にcarrierOrderを書くだけ。共有area entryの標準kernel抑止条件1行を厳密inverseで保持し、旧入口のCUDA/MSL生成hashも従来と同一。旧source認定を無断昇格しない。初版の二重kernel定義失敗はGPU前停止、claim/診断を保存。同claim再実行0。
+
+`original-catalogue-support` はsealed2、`original-catalogue-support-cache-only` は同じ2ケースのCUBIN/O1・compile cache/paired generation必須hit。`original-catalogue-ordered` は元catalogueから1〜4ケースを選ぶdevelopment-only経路。新しいキャラ用executorを複製しない。実CLIでナガ3秒/native1の開発梱包も成功（GPU0）。台帳・hash・hunk同時改変の負例を含む監査は前後完全hashを固定。保護CPU4/strict normalizerは変更0。
+
+次は同じ選択経路で元編成の負傷/遮蔽物被弾/シールドと回復の正例を増やす。今回2worldから全条件・ゲーム空間規則・全キャラを認定しない。Windowsの既存status取得はhost unavailable、追加runなし。以前のWindows診断export拒否は別経路で回避しない。詳細 `docs/portable-original-catalogue.md`、小証跡 `research/target-count-query-evidence/original-catalogue-support-metal-v1.json`。
+
+最終コード41a4be5bのcache-only packet552bdb97…はCPU29群260＋fresh native2が成功（GPU0）。CUBIN/O1/2GiB/60秒compile-planはpolicyだけ成功。proof rootは `.portable-recovery/proofs`、実GPU/seal stem `recipient-order-support-v2-20261030`、最終CPU stem `recipient-order-final-cache-v2-20261030`。次のWindowsは接続復旧後、既存結果の取得を優先して短い検証だけにする。実CUDA/CUBIN hitの成功扱いはまだしない。

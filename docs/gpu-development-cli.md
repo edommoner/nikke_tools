@@ -76,6 +76,8 @@
 
 # 元profileの選択開発
 
+受け手の実順序も含める新規開発は `cases --suite original-catalogue-ordered --match TEXT` と `package --suite original-catalogue-ordered --develop --case NAME --out NEW.zip` を使う。元catalogueから1〜4件だけを準備し、同じ共有実行器と全比較器へ接続する。ナガ/ティア各30秒の固定2件は `original-catalogue-support` で独立Metal認定済み。`original-catalogue-support-cache-only` は同じ2件へCUBIN/O1・compile cacheとpaired generationの必須hitを要求する。実CUDAは未確認で、任意選択はdevelopment-only。[順序readback・元出力保持・範囲](portable-original-catalogue.md)。
+
 `cases --suite original-catalogue --match TEXT` は全profileを準備せずmetadataだけを列挙する。`package --suite original-catalogue --develop --case NAME --out NEW.zip` は明示1〜4件だけを元定義のまま共通compilerへ渡す。固定群`original-catalogue-initial`は共通の2,048行bankを使い、Modernia30秒の全1,618件を含む4入力がM5 Metal・独立監査でsealed。`package --suite original-catalogue-initial --out NEW.zip`から通常の固定packet実行を使う。`original-catalogue-initial-cache-only`は同じ計算/入力/goldenにCUBIN/O1・compile cache必須とpaired generation必須を適用する。実CUDA未確認、全キャラ認定ではない。[選択規約・検査・次の容量拡張](portable-original-catalogue.md)。
 
 `physical-generation-locks`最新版は専用arenaの10入力（native6/raw拒否4）、入力104400/出力806912wordです。全32個の既存スキル対象setを保ち、full_chargeのキューダメージ・死亡・再召喚を追加して独立Metal sealしました。旧幅を受け入れず、Python/Slang/Swiftで一致を検査します。[移設と検証境界](portable-heavyarms-lock-selection.md)。
