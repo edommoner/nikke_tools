@@ -1,0 +1,137 @@
+{
+  "schema": "native-expectation-files-ledgers-v1",
+  "scope": "Exact full-text/hunk GPU ledger eligibility for immutable expected fingerprints; no new GPU calculation certification",
+  "baseline_package_id": "664bf029c85169cbc7bf0cf4ee22f17bd748ac9877df96e669b8fde62e040bc2",
+  "probe_package_id": "1b22607a02c610012bb17b7c273968a6f36b569dc61805111a8a89283f26949b",
+  "probe": "One reversible comment edit in gpu/admission_runtime.slang and its exact hunk ledger; development sources restored byte-identically",
+  "packaging_seconds": 2.632969250000315,
+  "prior_full_native_baseline_seconds": 291.7068452090025,
+  "prior_cost_scope": "Previous movement CPU baseline generation; different run, not an end-to-end speedup measurement",
+  "expected_fingerprints": [
+    {
+      "name": "enemy-movement/유니/disable",
+      "input_sha256": "5c660c77bfd7ef98390731b858b66a6631fa3fbe6ac3216c07a154ed2ccb73a5",
+      "native_sha256": "12f0ef079c97318d3d58f12843b0436d5b4bb29deb37f646a36f3adfe1e32f7a"
+    },
+    {
+      "name": "enemy-movement/얀/force",
+      "input_sha256": "d44f7b26b1c47b7d88952eb17b44d1ad32d97263ac827b1c3cf70ec3a52f3d5e",
+      "native_sha256": "337bc04b891809532cd122d7de332b5670c9c5fa5f44d0cfd84ad4b1662c141a"
+    },
+    {
+      "name": "enemy-movement/유니/renewal",
+      "input_sha256": "e8da987835b6dba1b14776bc6487325887cf747e869e91e1ad0750b7a0a4d9bd",
+      "native_sha256": "d4654d8a18d54c6fba1493f8dc4847a3bf64fc71867d8ef6ecf0e5b2d58be25b"
+    },
+    {
+      "name": "enemy-movement/유니/overlap-disable",
+      "input_sha256": "00412e3bc86b850b219e0d12fe4e5eb4c68bd8eaedb65e8aceea74bafe6971ff",
+      "native_sha256": "a24dd8f9ac36fb28b761552001d83b7fbf0c48df22423e848e511d6e3c8ff512"
+    },
+    {
+      "name": "enemy-movement/유니/overlap-force",
+      "input_sha256": "c357ca66ae616281e6ab9bd7ffb7cb325a885860affaf00e8c661d0919e0a380",
+      "native_sha256": "b8e66a4c2be02e19083a4079308b74ac2582d10c5da0c3dd1ec5321c5c1eb59b"
+    },
+    {
+      "name": "reject/enemy-movement/magic",
+      "input_sha256": "df97bd2d50eb7f858b6cc4876ca91a76ece3bcddb6a38c49eb09d74d397bad52",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/enemy-movement/version",
+      "input_sha256": "12e3b7c15fd1a27b48e22c1c53d3f153da492e4f42d1b44fa8d36eb0b04ab2c3",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/enemy-movement/count",
+      "input_sha256": "053133c701248f9105f52bd7ae266edc9cb5919eaa914534d9f0e20972480a4e",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/enemy-movement/definitions",
+      "input_sha256": "bb2feee3e5e09f6b08b179cebd3d8e2b977bbc214c15c419c40570f3f3561d25",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/enemy-movement/actors",
+      "input_sha256": "7bf0b86c5c53d5f13f3cd9e3586c8fe73fd89dfd0ba8487e23d136befc9ba2c6",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/enemy-movement/precedence",
+      "input_sha256": "0663b06e0982e6811e548781c7b8cde53b44ad1ee599495304e91150de970ed4",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/enemy-movement/reserved",
+      "input_sha256": "ac57809584ce67ce1ea4dd3d985d9e14c85846e6e74cad4f0dead7392d66c6a7",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/enemy-movement/body-motion",
+      "input_sha256": "7b713cee4cc3579fc0d7c7b14747f2eab9e7afa3eefab0f684725a432d6fab08",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/enemy-movement/nonfinite-speed",
+      "input_sha256": "0b86c66dbcfb807341f7c2d94263db15df3bcc94a3ef4c54a9a47d90a678cb95",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    },
+    {
+      "name": "reject/enemy-movement/marker-kind",
+      "input_sha256": "bc71fa0de60e4dbb1ef8bba42b91abd146183c47bd720492a487ebf6801152bd",
+      "native_sha256": "1d04eaefef1fa985ef94ff5535cf7342e07cfcdc0bc47530172e3adc978070be"
+    }
+  ],
+  "receipt": {
+    "schema": "development-native-expectations-v1",
+    "baseline_package_id": "664bf029c85169cbc7bf0cf4ee22f17bd748ac9877df96e669b8fde62e040bc2",
+    "baseline_manifest_sha256": "a58e7bb24943b499f464a2192b7727501a2c7d192812512dbc9b328efc8ae67a",
+    "candidate_files_sha256": "867a2c7e3e9744664c230a417dffeec84362331c970c2b8070614460610753fb",
+    "fingerprints_sha256": "8e92302f5a9ece30c9a1835f0648319bfc1d128a3a048167908add1bf212e2d2",
+    "source_sha256": "84d3112b517baf687474459df5502bcc43472a0ae6601e795e380a7b8f4e9de5",
+    "retained_cases": 15,
+    "changed_gpu_sources": [
+      "gpu/admission_runtime.slang"
+    ],
+    "verified_slang_ledgers": [
+      "tests/fixtures/portable-enemy-movement-source-delta.json"
+    ],
+    "native_battles_recomputed_during_package": 0,
+    "fresh_native_preflight_required": true,
+    "independent_seal_required": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "scope": "Expected fingerprints only; no runtime oracle values or saved GPU calculation reuse"
+  },
+  "unit_check": {
+    "schema": "unit-check-v1",
+    "package_id": "1b22607a02c610012bb17b7c273968a6f36b569dc61805111a8a89283f26949b",
+    "suite": "enemy-movement",
+    "passed": true,
+    "unit_tests_verified": true,
+    "full_native_preflight_executed": false,
+    "cpu_verified": false,
+    "calculation_verified": false,
+    "gpu_execution_verified": false,
+    "gpu_calls": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false,
+    "groups": 2,
+    "tests": 13
+  },
+  "regression_tests": 89,
+  "regression_passed": true,
+  "unchanged_functions_sha256": {
+    "reuse": "474b3171b68b86c508c83931408999a8268a73e450d096ff17df989bc67f8991",
+    "validate": "fffc1c17cba9a18a06ded45b73b06d3a060f5a32084717502c05f7fe34b22935"
+  },
+  "common_cli_and_gpu_sources_and_canonical_and_normalizer_unchanged": true,
+  "gpu_calls": 0,
+  "windows_requests": 0,
+  "full_native_preflight_executed_in_this_probe": false,
+  "independent_seal_executed_in_this_probe": false,
+  "calculation_verified": false,
+  "full_goal_complete": false
+}

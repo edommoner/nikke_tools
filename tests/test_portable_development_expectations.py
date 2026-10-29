@@ -114,4 +114,68 @@ class ExpectationTests(unittest.TestCase):
                 if 'b' not in mode and kwargs.get('encoding') in (None,'locale'):kwargs['encoding']='cp932'
                 return original(path,*args,**kwargs)
             with patch.object(Path,'open',cp932_default):self.assertTrue(ledger_change(*roots,name))
+
+    def files_ledger(self,folder,*,hunks=True):
+        old,new,names,adapter,calls=self.fixture(Path(folder));name='tests/fixtures/motion-source-delta.json';names.append(name)
+        baseline='// 元の共通GPU\n';(new/'gpu/main.slang').write_text('// 次のGPU\n',encoding='utf-8')
+        for root in (old,new):
+            current=(root/'gpu/main.slang').read_bytes().decode()
+            row=dict(before_sha256=cli.sha(baseline.encode()),after_sha256=cli.sha(current.encode()))
+            if hunks:row['hunks']=[dict(before=baseline,after=current)]
+            else:row.update(before=baseline,after=current)
+            ledger=dict(schema='fixture-v1',baseline_commit='frozen',normalizer_changed=False,
+                files={'gpu/main.slang':row,'app/reference.py':dict(note='unchanged CPU')},added_sources={})
+            f=root/name;f.parent.mkdir(parents=True);f.write_text(json.dumps(ledger,ensure_ascii=False),encoding='utf-8')
+        m=cli.load(old/'gpu-package.json');m['files']=cli.file_records(old,names);m['package_id']=cli.package_id(m);cli.write(old/'gpu-package.json',m)
+        return old,new,names,adapter,calls,name
+
+    def test_exact_hunk_and_full_text_files_ledgers_reuse_only_expected_hashes(self):
+        for hunks in (True,False):
+            with self.subTest(hunks=hunks),tempfile.TemporaryDirectory() as folder:
+                old,new,names,adapter,calls,name=self.files_ledger(folder,hunks=hunks)
+                with self.context(new,adapter),cli.forbid_gpu():
+                    records=cli.file_records(new,names);g,r=reuse(cli,'fixture',old,records,[])
+                    self.assertEqual(calls,[]);self.assertEqual(r['verified_slang_ledgers'],[name])
+                    self.assertFalse(r['calculation_verified']);self.assertNotIn('output_sha256',g['entries'][0])
+                    m=dict(suite='fixture',purpose='development',files=records,golden=g,native_expectation_baseline=r)
+                    self.assertTrue(validate(m));cli.cpu_preflight(m);self.assertEqual(len(calls),1)
+
+    def test_hunks_reject_changed_baseline_ambiguous_inverse_and_false_hashes(self):
+        for variant in ('baseline','baseline-hash','current-hash','source','duplicate','empty','unknown-hunk','row-schema','hunk-type'):
+            with self.subTest(variant=variant),tempfile.TemporaryDirectory() as folder:
+                old,new,_,_,_,name=self.files_ledger(folder);d=json.loads((new/name).read_text());r=d['files']['gpu/main.slang']
+                if variant=='baseline':r['hunks'][0]['before']='different\n';r['before_sha256']=cli.sha(b'different\n')
+                if variant=='baseline-hash':r['before_sha256']='0'*64
+                if variant=='current-hash':r['after_sha256']='0'*64
+                if variant=='source':(new/'gpu/main.slang').write_text('// unreviewed\n')
+                if variant=='duplicate':
+                    raw=(new/'gpu/main.slang').read_bytes()*2;(new/'gpu/main.slang').write_bytes(raw);r['after_sha256']=cli.sha(raw)
+                if variant=='empty':r['hunks'][0]['after']=''
+                if variant=='unknown-hunk':r['hunks'][0]['ignored']='anything'
+                if variant=='row-schema':r['current']='extra'
+                if variant=='hunk-type':r['hunks']={}
+                (new/name).write_text(json.dumps(d));self.assertFalse(ledger_change(old,new,name))
+
+    def test_files_ledgers_keep_cpu_metadata_membership_and_paths_fixed(self):
+        for variant in ('cpu','metadata','normalizer','unknown-metadata','membership','traversal','absolute','mixed-style'):
+            with self.subTest(variant=variant),tempfile.TemporaryDirectory() as folder:
+                old,new,names,adapter,calls,name=self.files_ledger(folder);d=json.loads((new/name).read_text())
+                if variant=='cpu':d['files']['app/reference.py']['note']='changed CPU'
+                if variant=='metadata':d['baseline_commit']='other'
+                if variant=='normalizer':d['normalizer_changed']=True
+                if variant=='unknown-metadata':d['unverified']=True
+                if variant=='membership':d['files'].pop('app/reference.py')
+                if variant in ('traversal','absolute'):d['files']['gpu/../app/reference.py' if variant=='traversal' else '/tmp/source.slang']=d['files'].pop('gpu/main.slang')
+                if variant=='mixed-style':d['sources']={}
+                (new/name).write_text(json.dumps(d))
+                with self.context(new,adapter),self.assertRaisesRegex(ValueError,'Native baseline dependency differs'):
+                    reuse(cli,'fixture',old,cli.file_records(new,names),[])
+                self.assertEqual(calls,[])
+
+    def test_files_ledger_checks_raw_utf8_without_newline_translation(self):
+        with tempfile.TemporaryDirectory() as folder:
+            old,new,_,_,_,name=self.files_ledger(folder,hunks=False)
+            self.assertTrue(ledger_change(old,new,name))
+            (new/'gpu/main.slang').write_bytes((new/'gpu/main.slang').read_bytes().replace(b'\n',b'\r\n'))
+            self.assertFalse(ledger_change(old,new,name))
 if __name__=='__main__':unittest.main()

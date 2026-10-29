@@ -3186,3 +3186,8 @@ GPU49a58f13/packetd01a085d。初回38unit/CPU8/必須生成hit/Slang0後に全�
 通常CLI `enemy-movement`（15入力/native5）を追加。M5実GPU1回で全位置/区間/状態と全戦闘履歴が一致、別GPU禁止8群のfresh sealも成功（348.617秒、各180秒以内、parent再利用0）。元ユニ69/ヤン71/混合69定義、武器・設定・30秒・全履歴を保持し、予定位置/発動時刻を入力しない。既存alive/end/actor field/world clock/LogicalGeometryを読む。専用wire117476word・出力2032000word内の分離bank。GPU2.926秒、PSO初回61.397秒、run前CPU301.701秒。検証root `.portable-recovery/proofs/enemy-movement-battle-20261029`、詳細 `docs/portable-enemy-movement.md`。
 
 初回sandboxのdevice不可視はclaim前失敗として保持、通常承認経路だけで実GPU実行。同claim retry0。正確な小hunk逆投影は7共有ファイルを元byteへ戻す。既存2入口のCUDA/MSL生成byteも保持（生成証明のみ）。保護CPU4/strict normalizerは変更0。通常goldenと小証跡を登録し、readinessは宣言モデルのMetal接続を示すがcanonical/default/ゲーム空間モデルの不足は消さない。全キャラ0/UI CPU/public GPU false、今回CUDA実機未検証/Windows追加依頼0。次はtyped/worldとの合成と、短いCUDA検証単位の選定。
+
+
+## 2026-10-29 GPU-only反復の小hunk台帳対応
+
+`package --develop --native-baseline-package`が移動実装等のfiles/hunks台帳に対応。現実byteから一意に逆変換し、before全本文/SHA・CPU行・schema/出所/key集合を固定する。元15入力の実CLI梱包2.632969秒/native0/GPU0、全期待hash保持。以前のCPU基準生成291.706845秒の重複を避けるが、run前fresh native/独立sealは維持する。common89検査と固定候補unit13成功。GPU/CLI/保護CPU/normalizer不変、GPU計算の追加認定なし。検査用GPU commentは復元済み、snapshot/候補packetは `.portable-recovery/proofs/movement-expectation-ledgers-20261029` に保持。詳細 `docs/portable-development-expectations.md`、小証跡 `research/portable-native-expectation-files-ledgers-v1.json`。次のtyped/移動合成でGPUのみを反復する前に、この版でCPU基準を固定して使う。

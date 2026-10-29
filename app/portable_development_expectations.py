@@ -10,29 +10,58 @@ def digest(value):return hashlib.sha256(json.dumps(value,sort_keys=True,separato
 def safe(path):return isinstance(path,str) and '\\' not in path and all(p not in ('','.','..') for p in path.split('/'))
 def gpu(path):return safe(path) and path.startswith('gpu/') and path.endswith('.slang')
 
+def _ledger_baseline(root,name,row,style):
+    """Reconstruct one exact before-image, checking current bytes first."""
+    if not isinstance(row,dict):raise ValueError('Invalid source ledger row')
+    current=(root/name).read_bytes().decode('utf-8')
+    if style=='sources':
+        if set(row)!={'baseline','baseline_sha256','current','current_sha256'}:raise ValueError('Unknown source ledger row')
+        before,after=row['baseline'],row['current'];before_sha,after_sha=row['baseline_sha256'],row['current_sha256']
+    elif set(row)=={'before','after','before_sha256','after_sha256'}:
+        before,after=row['before'],row['after'];before_sha,after_sha=row['before_sha256'],row['after_sha256']
+    elif set(row)=={'before_sha256','after_sha256','hunks'}:
+        before_sha,after_sha=row['before_sha256'],row['after_sha256'];after=current;before=current
+        if not isinstance(row['hunks'],list):raise ValueError('Invalid source ledger hunks')
+        for h in reversed(row['hunks']):
+            if (not isinstance(h,dict) or set(h)!={'before','after'} or not isinstance(h['before'],str)
+                or not isinstance(h['after'],str) or not h['after'] or before.count(h['after'])!=1):
+                raise ValueError('Ambiguous source ledger inverse')
+            before=before.replace(h['after'],h['before'],1)
+    else:raise ValueError('Unknown source ledger row')
+    if not isinstance(before,str) or not isinstance(after,str) or after!=current:raise ValueError('Source ledger current text differs')
+    for text,expected in ((before,before_sha),(after,after_sha)):
+        if not isinstance(expected,str) or not re.fullmatch('[0-9a-f]{64}',expected) or hashlib.sha256(text.encode()).hexdigest()!=expected:
+            raise ValueError('Source ledger byte hash differs')
+    return before
+
 def ledger_change(old_root,new_root,path):
     """Only known Slang ledger current-text/hash changes; baselines stay fixed."""
     if not safe(path) or not path.startswith('tests/fixtures/') or not path.endswith('source-delta.json'):return False
     old=json.loads((old_root/path).read_text(encoding='utf-8'));new=json.loads((new_root/path).read_text(encoding='utf-8'))
     if not isinstance(old,dict) or not isinstance(new,dict):return False
-    if set(old)!=set(new) or set(old)-{'sources','added_sources'}:return False
-    if not isinstance(old.get('sources'),dict) or not isinstance(new.get('sources'),dict):return False
-    if set(old['sources'])!=set(new['sources']):return False
-    for name,before in old['sources'].items():
-        after=new['sources'][name]
+    if set(old)!=set(new):return False
+    style='sources' if 'sources' in old else 'files'
+    allowed={'sources','added_sources'} if style=='sources' else {'files','added_sources','schema','baseline_commit','base_commit','normalizer_changed'}
+    if set(old)-allowed:return False
+    if any(old[k]!=new[k] for k in old if k not in (style,'added_sources')):return False
+    if old.get('normalizer_changed',False) is not False:return False
+    if not isinstance(old.get(style),dict) or not isinstance(new.get(style),dict):return False
+    if set(old[style])!=set(new[style]):return False
+    for name,before in old[style].items():
+        after=new[style][name]
+        if not safe(name):return False
         if not isinstance(before,dict) or not isinstance(after,dict):return False
         if not gpu(name):
             if before!=after:return False
             continue
-        if set(before)!=set(after) or set(before)!={'baseline','baseline_sha256','current','current_sha256'}:return False
-        if before['baseline']!=after['baseline'] or before['baseline_sha256']!=after['baseline_sha256']:return False
-        for root,row in ((old_root,before),(new_root,after)):
-            for key in ('baseline','current'):
-                if not isinstance(row[key],str) or hashlib.sha256(row[key].encode()).hexdigest()!=row[key+'_sha256']:return False
-            if (root/name).read_bytes()!=row['current'].encode():return False
+        if set(before)!=set(after):return False
+        try:
+            if _ledger_baseline(old_root,name,before,style)!=_ledger_baseline(new_root,name,after,style):return False
+        except (OSError,UnicodeError,ValueError,TypeError):return False
     a=old.get('added_sources',{});b=new.get('added_sources',{})
     if not isinstance(a,dict) or not isinstance(b,dict) or set(a)!=set(b):return False
     for name,expected in a.items():
+        if not safe(name):return False
         if not gpu(name):
             if expected!=b[name]:return False
             continue
