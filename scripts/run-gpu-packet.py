@@ -85,10 +85,13 @@ def object_request(stage,value):
     if stage==PREPARED_GPU_STAGE:
         from portable_admission_snapshot import hex_string
         fields=set(PREPARED_GPU_FIELDS)
-        if type(value) is not dict or set(value) not in (fields,fields|{'header_materials'}):raise ValueError('Exact prepared GPU request fields required')
+        if type(value) is not dict or not fields<=set(value)<=fields|{'header_materials','observe_cuda_resources'}:raise ValueError('Exact prepared GPU request fields required')
         fixed={}
         for key,item in value.items():
-            if key.endswith('_sha256'):
+            if key=='observe_cuda_resources':
+                if type(item) is not str or item not in ('0','1'):raise ValueError('Canonical resource observation flag required')
+                fixed[key]=item
+            elif key.endswith('_sha256'):
                 if not hex_string(item,64):raise ValueError('External preparation SHA256 required')
                 fixed[key]=item
             else:
@@ -314,6 +317,7 @@ def proof_arguments(plan):
             '--certificate-sha256',request['certificate_sha256']]
         for key in ('preparation_package','preparation_stage','binding','slang_root','generation_cache','header_materials'):
             if key in request:args+=['--'+key.replace('_','-'),request[key]]
+        if request.get('observe_cuda_resources')=='1':args.append('--observe-cuda-resources')
         return args
     producer_args=[]
     if plan['stage'] in (LINKED_STAGE,'staged-gpu-linked') and 'producer_package' in plan.get('object_request',{}):

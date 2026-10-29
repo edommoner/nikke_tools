@@ -84,6 +84,9 @@ def child(cli,capture,expected_claim_sha256):
         or run.get('claim_sha256')!=expected_claim_sha256 or run.get('authority_sha256')!=claim['authority_sha256']
         or not same(run.get('binding'),a['binding'])):
         raise ValueError('Prepared child run/ownership mismatch')
+    requested=run.get('resource_observation_requested',False)
+    if type(requested) is not bool or os.environ.get('NIKKE_CUDA_RESOURCE_OBSERVATION','0')!=str(int(requested)):
+        raise ValueError('Prepared child resource observation setting mismatch')
     if (os.environ.get('NIKKE_SLANG_GENERATION_REQUIRED')!='1' or os.environ.get('NIKKE_CUDA_ARTIFACT')!='cubin'
         or any(not os.environ.get(k) or not Path(os.environ[k]).is_absolute() or not Path(os.environ[k]).is_dir()
             for k in ('NIKKE_SLANG_ROOT','NIKKE_SLANG_GENERATION_CACHE'))):

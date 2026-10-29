@@ -82,6 +82,9 @@ class PreparedExecutionTests(unittest.TestCase):
     def test_real_platform_gate_precedes_any_gpu_call(self):
         with patch.object(execution,'is_windows',return_value=False),self.assertRaisesRegex(ValueError,'requires Windows'):self.child()
         self.assertEqual(self.gpu_calls,0)
+    def test_unrequested_resource_observer_is_rejected_before_gpu_marker(self):
+        with patch.dict(os.environ,NIKKE_CUDA_RESOURCE_OBSERVATION='1'),self.assertRaisesRegex(ValueError,'observation setting mismatch'):self.child()
+        self.assertEqual(self.gpu_calls,0);self.assertFalse((self.capture/'prepared-child-started.json').exists())
 
 
 if __name__=='__main__':unittest.main()

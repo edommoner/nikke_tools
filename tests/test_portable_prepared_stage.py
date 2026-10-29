@@ -37,6 +37,12 @@ class PreparedStageTests(unittest.TestCase):
         with self.assertRaises(ValueError):stage.recipe('consumer',stage.PREPARED_GPU_STAGE,'metal',self.base/'stage',self.base/'original',180,self.request)
         with self.assertRaises(ValueError):stage.recipe('consumer',stage.PREPARED_GPU_STAGE,'cuda',self.base/'stage',None,180,self.request)
         with self.assertRaises(ValueError):self.recipe(generation_settings=dict(slang_root='other',generation_cache='other'))
+    def test_resource_observation_is_an_explicit_canonical_request(self):
+        self.request['observe_cuda_resources']='1';self.assertIn('--observe-cuda-resources',stage.proof_arguments(self.recipe()))
+        self.request['observe_cuda_resources']='0';self.assertNotIn('--observe-cuda-resources',stage.proof_arguments(self.recipe()))
+        for value in (True,'true','01'):
+            self.request['observe_cuda_resources']=value
+            with self.assertRaises(ValueError):self.recipe()
     def proof(self):
         return dict(mode='snapshot-gpu-pending-native-audit',protocol='snapshot-prepared-v1',package_id='consumer',capture=self.binding['future_capture'],
             gpu_execution_completed=True,readback_fingerprint_matches=True,containment_verified=True,independent_post_audit_required=True,execution_claim_retained=True,

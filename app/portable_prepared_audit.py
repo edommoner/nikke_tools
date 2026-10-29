@@ -42,6 +42,12 @@ def envelope(cli,m,capture,claim_sha256):
         or type(command.get('timeout_seconds')) is not int or command['timeout_seconds']!=facts['timeout_seconds']):
         raise ValueError('Prepared child command identity mismatch')
     rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
+    requested=run.get('resource_observation_requested',False)
+    runtime=cli.load(capture/'runtime.json') if (capture/'runtime.json').exists() else {}
+    if type(requested) is not bool or runtime.get('cuda_resource_observation_enabled',False) is not requested:
+        raise ValueError('Prepared runtime resource observation setting mismatch')
+    from portable_cuda_memory_observation import summarize as memory_summary
+    memory=memory_summary(rows)
     for stage in ('prepared_child_verify_package','prepared_child_ownership','shared_gpu_execute'):
         if [r['state'] for r in rows if r['stage']==stage]!=['entered','returned']:
             raise ValueError('Prepared child execution journal incomplete')
@@ -74,7 +80,8 @@ def envelope(cli,m,capture,claim_sha256):
     return a,dict(calculation_verified=False,passed=False,comparison_error=None,
         transport_core_verified=True,containment_verified=True,preservation_verified=preserved,
         transport_verified=preserved,process_preservation_verified=not comparison['missing_existing_processes'],
-        phase=summarize(capture/'phases.jsonl'),audit_gpu_calls=0,gpu_retries=0)
+        phase=summarize(capture/'phases.jsonl'),audit_gpu_calls=0,gpu_retries=0,
+        resource_observation=dict(requested=requested,recorded=memory['memory_observations_present'],complete=memory['memory_observation_complete']))
 
 
 def generation(cli,m,capture,rows):

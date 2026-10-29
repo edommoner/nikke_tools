@@ -22,9 +22,10 @@ def separated(output,roots):
 
 
 def run(cli,preparation_package,preparation_stage,expected_binding,snapshot_sha256,certificate_sha256,out,*,
-        original_workspace,slang_root,generation_cache,timeout=60,header_materials=None):
+        original_workspace,slang_root,generation_cache,timeout=60,header_materials=None,observe_cuda_resources=False):
     if not is_windows():raise ValueError('Prepared execution parent requires Windows')
     if type(timeout) is not int or not 1<=timeout<=60:raise ValueError('Prepared GPU timeout must be an integer from 1 to 60')
+    if type(observe_cuda_resources) is not bool:raise ValueError('Explicit boolean resource observation required')
     b=binding(expected_binding);out=Path(out).resolve();capture=Path(b['future_capture']).resolve()
     prep=Path(preparation_package).resolve();stage=Path(preparation_stage).resolve()
     workspace=Path(original_workspace).resolve();slang=Path(slang_root);cache=Path(generation_cache)
@@ -43,7 +44,8 @@ def run(cli,preparation_package,preparation_stage,expected_binding,snapshot_sha2
     claim_entered=False;capture_created=False;launch_entered=False
     try:
         env=dict(NIKKE_SLANG_ROOT=str(slang.resolve()),NIKKE_SLANG_GENERATION_CACHE=str(cache.resolve()),
-            NIKKE_SLANG_GENERATION_REQUIRED='1',NIKKE_CUDA_ARTIFACT='cubin',NIKKE_VALIDATION_JOB_MEMORY_MB='2048')
+            NIKKE_SLANG_GENERATION_REQUIRED='1',NIKKE_CUDA_ARTIFACT='cubin',NIKKE_VALIDATION_JOB_MEMORY_MB='2048',
+            NIKKE_CUDA_RESOURCE_OBSERVATION=str(int(observe_cuda_resources)))
         with patch.dict(os.environ,env):
             if wire is not None:exclusive(out/'entry-wire-preflight.json',wire)
             # This helper installs its own stronger file-only guard and saves
@@ -64,16 +66,16 @@ def run(cli,preparation_package,preparation_stage,expected_binding,snapshot_sha2
                     storage=space_status(capture,needed)
                     exclusive(out/'storage.json',dict(storage,input_bytes=len(packed),output_bytes=output_bytes,gpu_calls=0,calculation_verified=False))
                     if storage['passed'] is not True:raise ValueError('Prepared input/readback storage budget unavailable')
-                # Recheck all consumer sources immediately before append-only
-                # ownership publication; authenticate/claim recheck the rest.
-                if cli.verify_package(cli.ROOT)!=m:raise ValueError('Prepared consumer changed before claim')
+                # claim re-reads every authenticated consumer source and its
+                # manifest before publishing anything. A separate full package
+                # verification here repeated that same final byte check.
                 claim_entered=True;owner=claim(cli,authority)
             claim_sha=digest((cli.ROOT/'gpu-claimed-cuda.json').read_bytes())
             capture.mkdir(parents=True,exist_ok=False)
             capture_created=True
             exclusive(capture/'run.json',dict(schema=RUN_SCHEMA,input_protocol=PROTOCOL,mode='snapshot-gpu',backend='cuda',
                 package_id=m['package_id'],capture=str(capture),claim_sha256=claim_sha,
-                authority_sha256=owner['authority_sha256'],binding=b))
+                authority_sha256=owner['authority_sha256'],binding=b,resource_observation_requested=observe_cuda_resources))
             launch_entered=True
             facts=cli.run_job(capture,'cuda',timeout,workspace,prepared_claim_sha256=claim_sha)
             # No native battle runs in this parent. CPU envelope checks leave

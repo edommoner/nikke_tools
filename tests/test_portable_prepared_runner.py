@@ -45,6 +45,7 @@ class PreparedRunnerTests(unittest.TestCase):
         self.assertEqual(workspace,self.workspace);self.assertEqual(os.environ['NIKKE_VALIDATION_JOB_MEMORY_MB'],'2048')
         self.assertTrue((self.f.f.tx/'gpu-execution-claimed.json').exists())
         self.save(capture/'start.json',{})
+        self.save(capture/'runtime.json',dict(cuda_resource_observation_enabled=os.environ.get('NIKKE_CUDA_RESOURCE_OBSERVATION')=='1'))
         python=str(authority.base_python())
         self.save(capture/'command.json',dict(base_python=python,argv=[python,str(self.cli.ROOT/'scripts/nikke_gpu.py'),'_prepared_child','--capture',str(capture),'--claim-sha256',prepared_claim_sha256],cwd=str(self.cli.ROOT),shell=False,timeout_seconds=timeout))
         helper=child_fixture.PreparedExecutionTests();helper.f=self.f;helper.source=self.generated;helper.capture=capture;helper.gpu_calls=0;helper.emit_trace=True
@@ -129,6 +130,22 @@ class PreparedRunnerTests(unittest.TestCase):
         for timeout in (False,0,61):
             with self.subTest(timeout=timeout),self.assertRaises(ValueError):self.run_parent(timeout=timeout)
         self.assertFalse(self.out.exists());self.assertEqual(self.preflight_calls,0)
+    def test_claim_keeps_final_full_source_check_without_duplicate_parent_scan(self):
+        with patch.object(self.cli,'verify_package',wraps=self.cli.verify_package) as verified:
+            result=self.run_parent()
+        own=[c for c in verified.call_args_list if Path(c.args[0])==self.f.consumer]
+        # Parent entry, authenticate, and the synthetic same-process child.
+        self.assertEqual(len(own),3);self.assertTrue(result['gpu_execution_completed'])
+    def test_source_mutation_immediately_before_claim_still_blocks_launch(self):
+        original=runner.claim
+        def changed(cli,a):
+            (self.f.consumer/'gpu/entry.slang').write_bytes(b'changed after authentication')
+            return original(cli,a)
+        with patch.object(runner,'claim',side_effect=changed),self.assertRaises(ValueError):self.run_parent()
+        self.assertFalse((self.f.f.tx/'gpu-execution-claimed.json').exists());self.assertFalse(self.capture.exists());self.assertEqual(self.launches,0)
+    def test_resource_observation_is_explicit_and_bound_to_the_child_run(self):
+        result=self.run_parent(observe_cuda_resources=True)
+        self.assertTrue(self.cli.load(self.capture/'run.json')['resource_observation_requested']);self.assertTrue(result['gpu_execution_completed'])
 
 
 if __name__=='__main__':unittest.main()

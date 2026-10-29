@@ -34,10 +34,11 @@ class Journal:
 
 
 class NativeFunction:
-    def __init__(self, function, name, journal):
+    def __init__(self, function, name, journal, sampler=None):
         object.__setattr__(self, '_function', function)
         object.__setattr__(self, '_name', name)
         object.__setattr__(self, '_journal', journal)
+        object.__setattr__(self, '_sampler', sampler)
 
     def __getattr__(self, name):
         return getattr(self._function, name)
@@ -50,16 +51,29 @@ class NativeFunction:
         integer=lambda value:int(getattr(value,'value',value))
         if self._name=='cuMemcpyDtoH_v2':facts=dict(source_device=integer(args[1]),byte_count=integer(args[2]))
         elif self._name=='cuMemsetD8_v2':facts=dict(destination_device=integer(args[0]),value=integer(args[1]),byte_count=integer(args[2]))
-        return self._journal.invoke(self._name, self._function, *args, native=True,event_facts=facts)
+        elif self._name in ('cuMemAlloc_v2','cuLaunchKernel'):
+            try:
+                if self._name=='cuMemAlloc_v2':facts=dict(requested_bytes=integer(args[1]))
+                else:facts=dict(grid=[integer(v) for v in args[1:4]],block=[integer(v) for v in args[4:7]],dynamic_shared_bytes=integer(args[7]))
+            except (IndexError,ValueError,TypeError) as error:facts=dict(argument_observation_error=type(error).__name__)
+        if self._sampler:self._journal.emit('cuda_memory_snapshot','observed',**self._sampler(self._name,'before'))
+        result=self._journal.invoke(self._name, self._function, *args, native=True,event_facts=facts)
+        if self._sampler:self._journal.emit('cuda_memory_snapshot','observed',**self._sampler(self._name,'after',return_code=int(result)))
+        return result
 
 
 class NativeLibrary:
-    def __init__(self, library, journal):
+    def __init__(self, library, journal, sampler_factory=None):
         self.library, self.journal, self.functions = library, journal, {}
+        self.sampler_factory=sampler_factory;self.sampler=None
 
     def __getattr__(self, name):
         if name not in self.functions:
-            self.functions[name] = NativeFunction(getattr(self.library, name), name, self.journal)
+            sample=None
+            if self.sampler_factory and name in ('cuMemAlloc_v2','cuLaunchKernel'):
+                if self.sampler is None:self.sampler=self.sampler_factory(self.library)
+                sample=self.sampler
+            self.functions[name] = NativeFunction(getattr(self.library, name), name, self.journal,sample)
         return self.functions[name]
 
 
@@ -101,6 +115,8 @@ def observe_generation(journal):
 @contextlib.contextmanager
 def observe(backend, journal):
     """Wrap actual boundaries; a launch *entry* alone proves no submission."""
+    resources=os.environ.get('NIKKE_CUDA_RESOURCE_OBSERVATION','0')
+    if resources not in ('0','1'):raise ValueError('CUDA resource observation flag must be0 or1')
     original_build = backend.build
     def build(*args, **kwargs):
         result=journal.invoke('slang_build',original_build,*args,**kwargs)
@@ -143,8 +159,11 @@ def observe(backend, journal):
             stack.enter_context(patch.object(backend,'cuda_readback_file',readback))
         if os.name == 'nt':
             original_dll = ctypes.WinDLL
+            def sampler_factory(library):
+                from portable_cuda_memory_observation import CudaMemorySampler,host_memory
+                return CudaMemorySampler(library,lambda:host_memory(original_dll))
             def library(*args, **kwargs):
-                return NativeLibrary(original_dll(*args, **kwargs), journal)
+                return NativeLibrary(original_dll(*args, **kwargs), journal,sampler_factory if resources=='1' else None)
             stack.enter_context(patch.object(ctypes, 'WinDLL', library))
         yield
 

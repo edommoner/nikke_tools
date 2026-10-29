@@ -1,3 +1,15 @@
+# 2026-10-30 メモリ観測CLIを追加、最終claim検査を保って重複1回削減
+
+host-memoryは自分と実parentのPrivateUsage/working set/別の過去peak、および既存Job ABIによるlimit/peakを読むWindows CPU専用CLI。任意PID指定/全process列挙/CUDA driver呼出しは無い。cuda-resource-summaryは外部SHAで固定した保存phaseからallocation要求byte・launch形状/戻り値・保存memory snapshotをまとめ、旧未記録値はunknown、最終append切断はincompleteとする。途中の破損/変わったSHA/偽のbool数値等を拒否する。いずれも計算認定false。
+
+prepared-run --observe-cuda-resourcesとgpu-prepared requestのobserve_cuda_resources="1"だけが、既存current CUDA contextのcuMemGetInfoとown/parent host状態をallocation/launchの前後で取得する。デフォルト追加query0。native引数・戻り値/例外・buffers・計算は不変。flagをrun/env/runtimeへ束縛し、post監査はrequested/recorded/completeを分ける。数値は非atomicな時点観測で、空きVRAMの全量を確保できるという保証や原因判定にしない。実device samplingはまだ未実証。
+
+親の直前verify_package1回は、同じ全source/manifestを再検査してから所有を記録する元claimへ集約した。最終byte検査そのものは残し、認証直後のsource改変もclaim前に止める回帰検査を追加。実時間の改善は未測定で、前の7.594秒をそのまま新しい短縮量として主張しない。
+
+固定164a2455…自身82群861検査成功（Windows cleanup1skip）、payload/全golden/501計算・保護CPU・pinned source record保持。17 memory/observer合成検査、親13/子8/stage7/phase8を含むWindows候補5群53件はloaderで実数確認。実CLIの合成ログ正常/誤SHA/Mac host gateも成功。既存phase cleanupのps読取はsandbox拒否を維持して許可されたCPU環境で検査し、スキップしていない。source ZIP13,538,017byte/SHAc42185aa…、記録research/portable-prepared-memory-observation-v1.json。
+
+次はWindowsで新CPU CLIの実host ABIと保存済み失敗ログだけを確認する。GPU/driver/context/module/compile/native battleを再実行しない。消費済みba760483のclaim/失敗と原136fileは保持。実CUDA計算/全キャラ/目標は未達。以下は履歴。
+
 # 2026-10-30 保存binaryのCPU資源診断、link後のREG/stackを固定
 
 WindowsのCPU診断は4.959秒/exit0、既存cuobjdump resource1回0.115秒と保存linkログがREG254/STACK24,960byte/LOCAL0/SHARED0で一致した。object entry単体REG24/stack/spill0とは別であり、前者を実CUBINの値として扱う。PTX entryのlocal depot宣言無しも呼出先stack無しの証拠にはしない。既存CUBIN0f140174…/PTXe6d83bf9…/CUDAf2d15deb…へ一致、原136file不変、追加GPU/driver/compiler/native/test0。Job終了空/欠落/観測cleanup error0、service/環境false。

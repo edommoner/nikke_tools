@@ -776,6 +776,7 @@ SMOKE_TESTS.append('test_counter_field_decoder.py')
 SMOKE_TESTS.append('test_portable_test_golden_supplement.py')
 SMOKE_TESTS += ['test_portable_windows_observer.py','test_portable_snapshot_failure.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py','test_resident_arc_retention.py']
 SMOKE_TESTS += ['test_portable_prepared_audit.py','test_portable_prepared_runner.py','test_portable_prepared_stage.py']
+SMOKE_TESTS.append('test_portable_cuda_memory_observation.py')
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
@@ -2299,7 +2300,7 @@ def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_
         command.append('--module-only')
         driver_cache=(capture/'driver-cache').resolve();driver_cache.mkdir(exist_ok=True)
         env['CUDA_CACHE_PATH']=str(driver_cache)
-    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),generation_cache_enabled=bool(os.environ.get('NIKKE_SLANG_GENERATION_CACHE')),generation_cache_path=env.get('NIKKE_SLANG_GENERATION_CACHE'),generation_cache_required=os.environ.get('NIKKE_SLANG_GENERATION_REQUIRED','0')=='1',slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=('diagnostic-jit-linked-cubin' if jit_link_object_only else 'diagnostic-linked-cubin' if link_object_only else 'diagnostic-module-relocatable-object' if module_object_only else 'diagnostic-relocatable-object' if partition_object_only else os.environ.get('NIKKE_CUDA_ARTIFACT','cubin')) if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),compile_cache_path=env.get('NIKKE_CUDA_COMPILE_CACHE'),compile_only=compile_only,module_only=module_only,assemble_only=assemble_only,partition_object_only=partition_object_only,module_object_only=module_object_only,link_object_only=link_object_only,jit_link_object_only=jit_link_object_only,swift_module_cache_path=env.get('NIKKE_METAL_MODULE_CACHE'),metal_pipeline_cache_enabled=backend=='metal' and bool(env.get('NIKKE_METAL_PIPELINE_CACHE')),metal_pipeline_cache_required=backend=='metal' and env.get('NIKKE_METAL_PIPELINE_REQUIRED')=='1',jit_private_cache_path=env.get('CUDA_CACHE_PATH') if jit_link_object_only else None,driver_cache_path=env.get('CUDA_CACHE_PATH') if module_only else None,ptxas_optimization_level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL'),cache_required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0'),job_memory_limit_mb=os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB'),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
+    write(capture/'runtime.json',dict(interpreter=interpreter,parent_interpreter=sys.executable,platform=platform.platform(),cuda_resource_observation_enabled=backend=='cuda' and os.environ.get('NIKKE_CUDA_RESOURCE_OBSERVATION','0')=='1',generation_cache_enabled=bool(os.environ.get('NIKKE_SLANG_GENERATION_CACHE')),generation_cache_path=env.get('NIKKE_SLANG_GENERATION_CACHE'),generation_cache_required=os.environ.get('NIKKE_SLANG_GENERATION_REQUIRED','0')=='1',slang_root=os.environ.get('NIKKE_SLANG_ROOT'),cuda_artifact_kind=('diagnostic-jit-linked-cubin' if jit_link_object_only else 'diagnostic-linked-cubin' if link_object_only else 'diagnostic-module-relocatable-object' if module_object_only else 'diagnostic-relocatable-object' if partition_object_only else os.environ.get('NIKKE_CUDA_ARTIFACT','cubin')) if backend=='cuda' else None,compile_cache_enabled=bool(os.environ.get('NIKKE_CUDA_COMPILE_CACHE')),compile_cache_path=env.get('NIKKE_CUDA_COMPILE_CACHE'),compile_only=compile_only,module_only=module_only,assemble_only=assemble_only,partition_object_only=partition_object_only,module_object_only=module_object_only,link_object_only=link_object_only,jit_link_object_only=jit_link_object_only,swift_module_cache_path=env.get('NIKKE_METAL_MODULE_CACHE'),metal_pipeline_cache_enabled=backend=='metal' and bool(env.get('NIKKE_METAL_PIPELINE_CACHE')),metal_pipeline_cache_required=backend=='metal' and env.get('NIKKE_METAL_PIPELINE_REQUIRED')=='1',jit_private_cache_path=env.get('CUDA_CACHE_PATH') if jit_link_object_only else None,driver_cache_path=env.get('CUDA_CACHE_PATH') if module_only else None,ptxas_optimization_level=os.environ.get('NIKKE_CUDA_PTXAS_OPT_LEVEL'),cache_required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0'),job_memory_limit_mb=os.environ.get('NIKKE_VALIDATION_JOB_MEMORY_MB'),launcher_variable_removed='__PYVENV_LAUNCHER__' not in env))
     from portable_phase_audit import Journal
     preparation=Journal(capture/'preparation.jsonl')
     observation={}
@@ -3593,6 +3594,11 @@ def main(argv=None):
     for flag in ('preparation-package','preparation-stage','binding','out','original-workspace','slang-root','generation-cache'):a.add_argument('--'+flag,type=Path,required=True)
     a.add_argument('--expected-sha256',required=True);a.add_argument('--certificate-sha256',required=True)
     a.add_argument('--header-materials',type=Path);a.add_argument('--timeout',type=int,default=60)
+    a.add_argument('--observe-cuda-resources',action='store_true',help='Read-only own/parent process and current CUDA-context memory snapshots')
+    a=sub.add_parser('host-memory',help='Read-only own/parent process and current Job memory; no CUDA driver calls')
+    a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('cuda-resource-summary',help='Pinned saved event summary only; no native or GPU calls')
+    a.add_argument('--phases',type=Path,required=True);a.add_argument('--expected-sha256',required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('handoff-check',help='CPU-only anchored snapshot/input/CUBIN check; never grants execution')
     a.add_argument('--snapshot',type=Path,required=True);a.add_argument('--expected-sha256',required=True);a.add_argument('--certificate-sha256',required=True)
     a.add_argument('--binding',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -3817,7 +3823,17 @@ def main(argv=None):
         result=prepared_run(SimpleNamespace(**globals()),a.preparation_package,a.preparation_stage,load(a.binding),
             a.expected_sha256,a.certificate_sha256,a.out,original_workspace=a.original_workspace,
             slang_root=a.slang_root,generation_cache=a.generation_cache,timeout=a.timeout,
-            header_materials=load(a.header_materials) if a.header_materials else None)
+            header_materials=load(a.header_materials) if a.header_materials else None,observe_cuda_resources=a.observe_cuda_resources)
+    elif a.command=='host-memory':
+        from portable_cuda_memory_observation import host_memory
+        from portable_staged_preflight import exclusive
+        if ROOT==a.out.resolve() or ROOT in a.out.resolve().parents:raise ValueError('Host memory output must be outside source')
+        with forbid_gpu():result=host_memory()
+        exclusive(a.out,result)
+    elif a.command=='cuda-resource-summary':
+        from portable_cuda_memory_observation import saved_summary
+        if ROOT==a.out.resolve() or ROOT in a.out.resolve().parents:raise ValueError('Resource summary output must be outside source')
+        with forbid_gpu():result=saved_summary(a.phases,a.expected_sha256,a.out)
     elif a.command=='handoff-check':
         from portable_admission_handoff import Handoff
         from portable_staged_preflight import exclusive
@@ -4132,6 +4148,9 @@ def main(argv=None):
         # Historical fixed reports remain supported by their existing sealers.
         runpy.run_path(str(ROOT/f'research/seal-world-v{a.version}-cuda.py'),run_name='__main__');return
     display=result
+    if a.command=='cuda-resource-summary':
+        display={k:result[k] for k in ('schema','journal_sha256','journal_bytes','allocations','launches','memory_observations_present','memory_observation_complete','failure_cause_verified','diagnostic_gpu_calls','calculation_verified')}
+        display['snapshot_count']=len(result['snapshots']);display['report']=str(a.out.resolve())
     if a.command=='preflight-native-group':
         display={k:result[k] for k in ('mode','package_id','group_index','native_cases','native_group_verified','all_native_preflight_verified','calculation_verified','gpu_calls')}
         display.update(input_count=len(result['case_indices']),report=str((a.capture/'result.json').resolve()))

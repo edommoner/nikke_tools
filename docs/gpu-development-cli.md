@@ -1,4 +1,6 @@
-`prepared-run`とWindows共通stage `gpu-prepared`は、成功済みCPU準備のsnapshotから元の未消費試行を一度だけ実行する。必須paired生成cache/凍結CUDA・CUBIN/容量/所有認証をclaim前に確認し、既存60秒・2GiBのGPU子へ渡す。成功後も計算はpendingで、既存のbounded `audit-native-group`と`aggregate-native-groups`を完了するまで認定しない。v1はcache guard競合でGPU前に停止し、実reader回帰を加えたv2のsource-host確認前。[引数・request schema・失敗時の扱い](portable-prepared-admission.md)。
+`host-memory`は自分/実parentとJobのWindows CPUメモリ読取、`cuda-resource-summary`は外部SHA付き保存phaseの要約。旧未記録値はunknownのまま、いずれもGPU/driver追加0。将来の未消費prepared-runには`--observe-cuda-resources`で時点観測を付けられる。現在の消費済みGPU試行は再実行しない。[引数と観測の限界](portable-cuda-memory-observation.md)。
+
+`prepared-run`とWindows共通stage `gpu-prepared`は、成功済みCPU準備のsnapshotから元の未消費試行を一度だけ実行する。必須paired生成cache/凍結CUDA・CUBIN/容量/所有認証をclaim前に確認し、既存60秒・2GiBのGPU子へ渡す。成功後も計算はpendingで、既存のbounded `audit-native-group`と`aggregate-native-groups`を完了するまで認定しない。v2はcache/認証成功後の実launchでerror2となり、claim/失敗を保持した。[引数・request schema・失敗時の扱い](portable-prepared-admission.md)。
 
 `saved-battle-audit`と`aggregate-native-groups`の`--case-groups PLAN.json --case-groups-sha256 SHA`は全入力を順序通り一度ずつ比較しつつ、群の幅を変えられる。`--group-size`は最大幅で、既存uniform指定も保持。共通Windows stageにも同じ計画を渡せる。moving-groupのnative3＋拒否12は4群にし、計算や比較を省かず入力準備の重複を減らす。[規約と固定計画](portable-prepared-admission.md)。
 
