@@ -1,0 +1,1416 @@
+{
+  "schema": "cover-defense-random-inputs-v1",
+  "input_only": true,
+  "source_package_id": "0c6a3d09d6b01f4ca95c67424cd8d6a0e1a3ca3ff7e5d49c62960f226d1bdee1",
+  "source_input_sha256": "4515f8230b6a31bfca1f4000792c35fa4f36b01b17487b3b73504ca6c6fb776b",
+  "rows": [
+    {
+      "name": "cover-defense-numeric/random/0",
+      "quantities": [
+        "0x1.805d2d405633bp+491",
+        "0x1.015d0ee381986p+9",
+        "0x1.bc1c75c3f5220p+491",
+        "0x1.0b208499ef158p+6",
+        "-0x1.55383b5f2a476p+5",
+        "-0x1.de7345c7e677ap+489"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/1",
+      "quantities": [
+        "0x1.bad7a5e3d1306p+146",
+        "0x1.e206aba3dd12bp+9",
+        "0x1.40947fb867ddfp+144",
+        "0x1.8390a7fd988c4p+6",
+        "-0x1.9ac756930311ap+5",
+        "-0x1.7d8eb9ddc2525p+145"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/2",
+      "quantities": [
+        "0x1.91abba51b0904p+853",
+        "0x1.bdb9f5df7d0d4p+7",
+        "0x1.dd099e1016ab2p+852",
+        "0x1.69ab67355242ep+7",
+        "-0x1.2505e4b89bce0p+4",
+        "-0x1.7554447b6c17dp+853"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/3",
+      "quantities": [
+        "0x1.445378ffed701p+850",
+        "0x1.18368f683e9bbp+8",
+        "0x1.5cef3612787f8p+850",
+        "0x1.c35381469b0f0p+6",
+        "0x1.6433278bcdf8ep+6",
+        "0x1.4cfd2e268e486p+849"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/4",
+      "quantities": [
+        "0x1.6d94d772cec92p-595",
+        "0x1.439c6956ca27bp+9",
+        "0x1.c69e14af10db3p-598",
+        "-0x1.ded574ff12ad4p+7",
+        "0x1.bd4075dcefe94p+6",
+        "-0x1.04a4bd9ea9b40p-595"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/5",
+      "quantities": [
+        "0x1.de441bbe1ad41p+622",
+        "0x1.4c0f046b10c86p+8",
+        "0x1.82ca88661305fp+624",
+        "0x1.bb80c65a9a570p+5",
+        "0x1.f425663080aacp+5",
+        "-0x1.11e3de6de6a2bp+624"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/6",
+      "quantities": [
+        "0x1.34167096f7435p+557",
+        "0x1.0132d58c3ec7bp+9",
+        "0x1.b7fcea44cbd34p+558",
+        "-0x1.7bfd038eab686p+7",
+        "-0x1.5e584ccb0a17ap+6",
+        "0x1.44c0209bf5b30p+557"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/7",
+      "quantities": [
+        "0x1.33e2bc12290d8p+372",
+        "0x1.a698e1ef67e2bp+9",
+        "0x1.da1237c8506f3p+368",
+        "-0x1.1bfedfc36d430p+5",
+        "-0x1.07efa9bb60598p+7",
+        "-0x1.36bff5abc50a4p+368"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/8",
+      "quantities": [
+        "0x1.2dc6b33786a7fp-810",
+        "0x1.b71d88fa83362p+7",
+        "0x1.1fdbf88ec63a7p-810",
+        "-0x1.dc43d384855a2p+6",
+        "-0x1.b28803231ad64p+5",
+        "0x1.fcf52a499ed94p-812"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/9",
+      "quantities": [
+        "0x1.8e628b0bfdfc0p+292",
+        "0x1.031cc150f6e07p+9",
+        "0x1.1d943d1dd3111p+293",
+        "0x1.46af8f81af2c4p+7",
+        "0x1.b8d3b49853e80p+0",
+        "0x1.10f1891b5c18cp+289"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/10",
+      "quantities": [
+        "0x1.7cb5950c339b0p+651",
+        "0x1.4730d6af0d50ap+9",
+        "0x1.1a1b936b12775p+651",
+        "-0x1.659deeac3b6cap+7",
+        "0x1.763bd533e43c0p+2",
+        "0x1.8a97b4c050279p+648"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/11",
+      "quantities": [
+        "0x1.608db29d51fa0p-40",
+        "0x1.246dede5cb0abp+9",
+        "0x1.8647747d428a8p-40",
+        "-0x1.849671bde5cdap+6",
+        "0x1.2a88654befc00p+3",
+        "0x1.28f84d245f8ffp-41"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/12",
+      "quantities": [
+        "0x1.f5e8fcafeb323p-187",
+        "0x1.324f286974aeap+7",
+        "0x1.da23c59711a3ap-186",
+        "0x1.239031e854e2cp+8",
+        "-0x1.8d4ef4fbf98e2p+6",
+        "0x1.f170e2e308749p-188"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/13",
+      "quantities": [
+        "0x1.5042809fdd0ecp+309",
+        "0x1.9c18e83b6070cp+8",
+        "0x1.7d13b1bbc908ep+307",
+        "0x1.8777a235584d8p+5",
+        "-0x1.715436f96fc60p+3",
+        "0x1.87e88ce7b8f28p+306"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/14",
+      "quantities": [
+        "0x1.6d0677d6125d1p-592",
+        "0x1.cbf069b4ae85cp+8",
+        "0x1.b99a741b5d7a9p-595",
+        "0x1.c529f1b886854p+7",
+        "-0x1.24e411a177b26p+7",
+        "0x1.6f38892198860p-592"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/15",
+      "quantities": [
+        "0x1.83fb38831daedp+732",
+        "0x1.e1803b0d95faap+9",
+        "0x1.20da36f3ea87ep+733",
+        "-0x1.45135f4d4ea8bp+7",
+        "-0x1.9b2ff0dd2a5b0p+3",
+        "0x1.07750937e51e8p+733"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/16",
+      "quantities": [
+        "0x1.509e057b7e74dp+701",
+        "0x1.ae7da1ce0a25cp+9",
+        "0x1.b061cd411de5ap+703",
+        "0x1.7711be118691ep+7",
+        "-0x1.0151b6961dd61p+7",
+        "-0x1.2bb617a3a4c16p+704"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/17",
+      "quantities": [
+        "0x1.e9785a93572bbp-897",
+        "0x1.e2f4b564b47ebp+6",
+        "0x1.e8176083dfc6bp-899",
+        "-0x1.0e46e8ba43240p+4",
+        "-0x1.c228e7d313406p+6",
+        "0x1.2303b237b01aap-899"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/18",
+      "quantities": [
+        "0x1.4a01316a31c73p+318",
+        "0x1.fe4b3bfa3daaap+8",
+        "0x1.12ce4f0a24577p+319",
+        "0x1.40434b3f7ed62p+7",
+        "0x1.1d2d4316a1938p+6",
+        "-0x1.95740fa767890p+315"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/19",
+      "quantities": [
+        "0x1.18ea4732714dcp+625",
+        "0x1.4ebae2432e6bbp+9",
+        "0x1.61642113314b3p+624",
+        "-0x1.9fc790e0859b2p+6",
+        "0x1.291dfcaca0288p+4",
+        "-0x1.13665b87f1fa3p+623"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/20",
+      "quantities": [
+        "0x1.a00b773750951p+63",
+        "0x1.bc9135155e450p+9",
+        "0x1.7b21675eb701ap+61",
+        "0x1.d2158b58eb084p+7",
+        "-0x1.166535fb73a7ap+6",
+        "-0x1.66b06ee1026d5p+60"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/21",
+      "quantities": [
+        "0x1.d886de6364378p-924",
+        "0x1.a962ccd8aa93dp+8",
+        "0x1.fb20c4e49fc74p-925",
+        "-0x1.d3e1750e69922p+6",
+        "0x1.9132dd78c6500p+6",
+        "-0x1.737ecc01f016ap-925"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/22",
+      "quantities": [
+        "0x1.8cdaf1580e82fp+53",
+        "0x1.4b5bfe0767073p+4",
+        "0x1.4bbca900a96a4p+51",
+        "-0x1.cb7bce71e40d0p+5",
+        "-0x1.cc5c54a2c9cc6p+6",
+        "-0x1.5006370f0ff13p+51"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/23",
+      "quantities": [
+        "0x1.e1f6ddca4aa4dp-774",
+        "0x1.1ec1dee1245c5p+9",
+        "0x1.0f476316e5797p-779",
+        "-0x1.bc051c827adf8p+5",
+        "0x1.7b5fe0dd145d0p+6",
+        "0x1.7f50c4960d89cp-775"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/24",
+      "quantities": [
+        "0x1.603a7270602c7p-894",
+        "0x1.f7dafde88eeacp+8",
+        "0x1.433e769711192p-893",
+        "0x1.a1968b8af4500p+6",
+        "-0x1.dd41be1b8936cp+4",
+        "-0x1.13383c3423a25p-894"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/25",
+      "quantities": [
+        "0x1.f8ebd7453a635p+800",
+        "0x1.6f76f8d05c6bbp+8",
+        "0x1.0559fcac2c382p+800",
+        "-0x1.61e3ff62b19f6p+6",
+        "-0x1.11707d927d978p+6",
+        "0x1.22aa9b4eef5fcp+799"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/26",
+      "quantities": [
+        "0x1.df2c6cc9ee72ep+172",
+        "0x1.884260c47b259p+9",
+        "0x1.c0928879a28ccp+170",
+        "-0x1.455979792f360p+6",
+        "0x1.094f75fad5d52p+7",
+        "-0x1.3cd1991136875p+172"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/27",
+      "quantities": [
+        "0x1.0ed735d4497aap+547",
+        "0x1.e192f00190dbap+5",
+        "0x1.77237818d6168p+548",
+        "-0x1.2e91738f4fdb8p+5",
+        "-0x1.b11f0acaa8020p+4",
+        "-0x1.207d3a46c45b1p+546"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/28",
+      "quantities": [
+        "0x1.7cac6eac4c006p-426",
+        "0x1.4d60729b33fc3p+8",
+        "0x1.13c25a8ce059ap-426",
+        "-0x1.7d2e7f8cb01e0p+5",
+        "-0x1.1c7c683e27a50p+4",
+        "0x1.97637c2c04787p-426"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/29",
+      "quantities": [
+        "0x1.473932962255cp+851",
+        "0x1.5ba27e320f484p+8",
+        "0x1.0198caeb6f13dp+846",
+        "0x1.044c4dd265b44p+7",
+        "-0x1.90753a27ae74fp+6",
+        "0x1.3452c2dce2783p+849"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/30",
+      "quantities": [
+        "0x1.23f2848a6e323p-674",
+        "0x1.b696961314762p+7",
+        "0x1.1cba901c08f85p-675",
+        "-0x1.3d6eb8ce3f844p+6",
+        "-0x1.78a3035d47cd1p+6",
+        "0x1.3c116a8a6c813p-675"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/31",
+      "quantities": [
+        "0x1.031ac6c0bf819p-688",
+        "0x1.c752fb9d16a6ep+9",
+        "0x1.4a5bf63596215p-688",
+        "-0x1.05a1e001ee8dfp+8",
+        "-0x1.529dd7ef5656ep+5",
+        "0x1.ba271aa853d15p-690"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/32",
+      "quantities": [
+        "0x1.4507fa6c065b5p+665",
+        "0x1.1c7ea3aaa0550p+8",
+        "0x1.eb21dadc82b99p+664",
+        "0x1.27c286f82bda0p+7",
+        "0x1.6299e6d5fda1ap+6",
+        "-0x1.ea84a49653b35p+663"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/33",
+      "quantities": [
+        "0x1.cd2e3e19b5381p-543",
+        "0x1.65a3774da770ap+6",
+        "0x1.0f5f476ddb91fp-543",
+        "-0x1.d865e38613cd2p+7",
+        "-0x1.9fef758cf8ed7p+6",
+        "0x1.6e3b5b9a1c3d5p-543"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/34",
+      "quantities": [
+        "0x1.5ab61edfdd9cep-449",
+        "0x1.3205b2963aba0p+9",
+        "0x1.0e7bf3cafe77ep-450",
+        "-0x1.8788088b4842fp+7",
+        "0x1.2777af0aba506p+7",
+        "0x1.491aa6d7f8824p-450"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/35",
+      "quantities": [
+        "0x1.20a1f9f5929dap-229",
+        "0x1.f94d36518782ap+8",
+        "0x1.9a0fdcb07b001p-231",
+        "-0x1.d7c14014a9ac8p+7",
+        "-0x1.1daf10883fab8p+6",
+        "-0x1.a41c9f8bb3a39p-231"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/36",
+      "quantities": [
+        "0x1.0afadc22a020fp-438",
+        "0x1.504abcb41d351p+7",
+        "0x1.6158543717fdcp-438",
+        "-0x1.11e6fdad1aeafp+8",
+        "0x1.41520b99d8784p+6",
+        "-0x1.6dc40d9a822d4p-441"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/37",
+      "quantities": [
+        "0x1.196616aaac577p+50",
+        "0x1.b83cd2661805fp+9",
+        "0x1.e92f58363d47cp+45",
+        "0x1.3c539191d1760p+4",
+        "-0x1.15237542d38c5p+7",
+        "0x1.b274a97b637e5p+49"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/38",
+      "quantities": [
+        "0x1.662fe239ea4a7p+132",
+        "0x1.25872fbb7974fp+8",
+        "0x1.575b42f2086aep+135",
+        "-0x1.19bb249e4199fp+8",
+        "0x1.547d972584342p+6",
+        "0x1.10a16d0c2927bp+135"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/39",
+      "quantities": [
+        "0x1.40bd983ac3255p-807",
+        "0x1.28619b46ceff3p+7",
+        "0x1.d9ab57050e2a9p-808",
+        "0x1.1d79f30035dd8p+8",
+        "-0x1.0a7f9b8254e40p+1",
+        "-0x1.ae2beab2fc29ap-811"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/40",
+      "quantities": [
+        "0x1.10448f1c1dbf1p+262",
+        "0x1.8d5ea57d24db2p+9",
+        "0x1.b9f7a715c5057p+261",
+        "0x1.c2d467d516af8p+6",
+        "0x1.4b3dc6de929cep+6",
+        "0x1.1b6589aa8ef5ap+262"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/41",
+      "quantities": [
+        "0x1.984c6ab21dcb0p-101",
+        "0x1.52569602fba8cp+8",
+        "0x1.0dd18d7cf2a54p-99",
+        "0x1.246975129900cp+8",
+        "0x1.f04ab54ff54c0p+2",
+        "0x1.6d25946e3de2fp-105"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/42",
+      "quantities": [
+        "0x1.9444ac826ffc8p+611",
+        "0x1.a523a8eb4a19fp+6",
+        "0x1.f38d7b68c0768p+607",
+        "-0x1.f937d8c840420p+7",
+        "-0x1.4c7bd80b81140p+1",
+        "-0x1.c289154351fdap+610"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/43",
+      "quantities": [
+        "0x1.07dd36092a369p+23",
+        "0x1.9ee71d12f4df0p+8",
+        "0x1.079b6919821c8p+24",
+        "-0x1.c13c52a797baep+7",
+        "-0x1.cda0c70e2109dp+6",
+        "0x1.63993f9536ef8p+22"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/44",
+      "quantities": [
+        "0x1.910a0b76fdeccp+874",
+        "0x1.b4866c8f002d7p+9",
+        "0x1.5f1ad6883c939p+873",
+        "-0x1.5866f6e44f3a4p+7",
+        "0x1.37dd427cd5f58p+4",
+        "0x1.799247d309e38p+873"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/45",
+      "quantities": [
+        "0x1.cbab647b695d8p+105",
+        "0x1.c49e15e08cf70p+5",
+        "0x1.17a649bb28fc5p+106",
+        "0x1.0f366c1ad6930p+8",
+        "-0x1.0f40ce1b5702fp+7",
+        "0x1.53a9e48e4b1c2p+103"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/46",
+      "quantities": [
+        "0x1.eade9cb1441f3p+279",
+        "0x1.02a752043efedp+9",
+        "0x1.4fec218c72892p+276",
+        "-0x1.cbb74dafb09a7p+7",
+        "0x1.8b517514832c6p+6",
+        "0x1.2854e48fa8f72p+273"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/47",
+      "quantities": [
+        "0x1.6892d943eef5fp-253",
+        "0x1.9b66e2ec8e287p+9",
+        "0x1.0852b8cf8e16ap-252",
+        "0x1.b1fd47071b708p+7",
+        "0x1.1f6044e8229d2p+7",
+        "-0x1.c0c39d461e11fp-254"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/48",
+      "quantities": [
+        "0x1.12783c82d47a3p+122",
+        "0x1.21bbd7cb3a416p+4",
+        "0x1.84b7ed56f54d8p+123",
+        "-0x1.689da06e20c90p+5",
+        "0x1.92426e1bfc034p+5",
+        "-0x1.9dbc94a19f35ap+122"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/49",
+      "quantities": [
+        "0x1.9ff068355c4fap+192",
+        "0x1.6e2cc74628c28p+5",
+        "0x1.501ac9bc03a17p+192",
+        "0x1.dd3cf45be4f84p+6",
+        "-0x1.c1df0d65c53a8p+5",
+        "-0x1.04730646e96e0p+192"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/50",
+      "quantities": [
+        "0x1.02fd524361a3ep+437",
+        "0x1.56f5f4685740cp+9",
+        "0x1.8c6641fab2d8dp+438",
+        "0x1.9a3e530d98260p+3",
+        "0x1.2f72686426b00p+2",
+        "0x1.96668ee4f9c1bp+437"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/51",
+      "quantities": [
+        "0x1.31ec83e2e42bdp-144",
+        "0x1.1d0abba8394c6p+8",
+        "0x1.4ae5ecf920b1dp-143",
+        "0x1.9a98e874d3954p+6",
+        "-0x1.8ce660911b6a0p+3",
+        "-0x1.1c587fb959648p-143"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/52",
+      "quantities": [
+        "0x1.559adc20862fbp+366",
+        "0x1.2a39fde29ff0ap+8",
+        "0x1.59432d21e37c9p+368",
+        "-0x1.0302b9c0baa40p+2",
+        "-0x1.04e1d4f7a9306p+7",
+        "0x1.a3205c110dbb5p+367"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/53",
+      "quantities": [
+        "0x1.a084477251bdbp+799",
+        "0x1.8f023362d70b8p+6",
+        "0x1.29dc954a09a45p+801",
+        "-0x1.e957d38ff5feep+7",
+        "-0x1.0e735544f9a21p+7",
+        "0x1.ca0b1b500758ap+799"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/54",
+      "quantities": [
+        "0x1.785bc8cffcfcbp+898",
+        "0x1.d3803243da208p+8",
+        "0x1.0a6b6f690bc21p+899",
+        "0x1.02136d802dd76p+7",
+        "-0x1.875dbf6039db8p+6",
+        "-0x1.58c375fa116bap+899"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/55",
+      "quantities": [
+        "0x1.ec3ddce540bb3p-739",
+        "0x1.70231649418f8p+9",
+        "0x1.3467ab725085fp-737",
+        "-0x1.76469ee8a1780p+7",
+        "-0x1.dc1781d79bc65p+6",
+        "-0x1.ceb01d1fa9912p-740"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/56",
+      "quantities": [
+        "0x1.02e3eafa8136ep+50",
+        "0x1.20161fbd1d66ap+9",
+        "0x1.638584af0d1ffp+48",
+        "0x1.3056db0eb6390p+5",
+        "-0x1.7cb5d091bde20p+2",
+        "0x1.0bd15d76469f9p+48"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/57",
+      "quantities": [
+        "0x1.19483ebdd96e8p+471",
+        "0x1.d37bda4433b13p+8",
+        "0x1.f29d64eff117ap+468",
+        "-0x1.b1f86d1ad6698p+6",
+        "0x1.299450d6d9d2cp+7",
+        "-0x1.ea29c4fd37999p+470"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/58",
+      "quantities": [
+        "0x1.5ff44f2158555p-228",
+        "0x1.a62684c6c20bap+9",
+        "0x1.35c5359268ae7p-229",
+        "-0x1.3a2c03a3e501cp+6",
+        "-0x1.f9aca21341445p+6",
+        "-0x1.22c9a356ea297p-227"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/59",
+      "quantities": [
+        "0x1.1b7489720f2f6p+259",
+        "0x1.95efe8caad6b0p+7",
+        "0x1.d2d5e1189a2bap+256",
+        "-0x1.bb89a8ee39a00p+3",
+        "0x1.1ba4fd403f212p+7",
+        "0x1.0c305b03bd4a1p+257"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/60",
+      "quantities": [
+        "0x1.0c13021e79974p-552",
+        "0x1.1e5030b00dffdp+6",
+        "0x1.434e071e0fc6ep-551",
+        "-0x1.1161f06185eb8p+8",
+        "0x1.098f8ee2bc3f6p+6",
+        "0x1.0662a33b2cd05p-556"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/61",
+      "quantities": [
+        "0x1.ac83103ea2ec6p+671",
+        "0x1.8c2d736e44e40p+9",
+        "0x1.73caaa100ae1bp+669",
+        "0x1.e799cb6db24a8p+7",
+        "-0x1.74d9c4f3366d2p+5",
+        "0x1.f23846499b19ap+669"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/62",
+      "quantities": [
+        "0x1.9c4b9b6e9ed56p-806",
+        "0x1.b866b398d2d63p+7",
+        "0x1.996ac599bf0a8p-804",
+        "0x1.869d07a1d35b0p+5",
+        "-0x1.30d064035b97ap+6",
+        "0x1.979ab182ac598p-805"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/63",
+      "quantities": [
+        "0x1.1768affeff7a9p-534",
+        "0x1.ba062d770c540p+8",
+        "0x1.963d6347076cdp-536",
+        "0x1.f402b2a6401d4p+7",
+        "-0x1.2723d5a13cbe8p+6",
+        "-0x1.2adea116d9b2ap-537"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/64",
+      "quantities": [
+        "0x1.ac9c44a81803fp-334",
+        "0x1.dc00ae5a96a39p+8",
+        "0x1.5803e8932e3e1p-333",
+        "-0x1.57572dd6b6ec0p+3",
+        "-0x1.7d8a8a4fbc176p+6",
+        "-0x1.0269ef3b8de71p-333"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/65",
+      "quantities": [
+        "0x1.0187b59b2ec1bp+386",
+        "0x1.c3bc15b2d03cfp+4",
+        "0x1.8d02089c07bb0p+385",
+        "-0x1.2191ef9371aa7p+8",
+        "0x1.e09568b1f76d0p+3",
+        "-0x1.2a797b4b3bfcep+388"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/66",
+      "quantities": [
+        "0x1.50bd62842cdb1p+615",
+        "0x1.a0bded006bff0p+8",
+        "0x1.12036eba23abbp+615",
+        "0x1.5c7a385e3f910p+7",
+        "-0x1.1944d55f6635ap+5",
+        "0x1.32a12a76a039ap+613"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/67",
+      "quantities": [
+        "0x1.3ded2e00e1d14p-121",
+        "0x1.5e260ddaea32ap+9",
+        "0x1.5abc06adef77cp-120",
+        "0x1.02f938578dd8cp+8",
+        "0x1.4d705e2530340p+1",
+        "0x1.2794c2e172a09p-120"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/68",
+      "quantities": [
+        "0x1.af9c7d34a18a0p+922",
+        "0x1.78296894c0cdep+9",
+        "0x1.0fa0d880f8548p+921",
+        "-0x1.e6ab9795ea238p+6",
+        "0x1.2f0c7ef325a38p+4",
+        "-0x1.30c029ab3f77bp+922"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/69",
+      "quantities": [
+        "0x1.5c1baccef40d7p+269",
+        "0x1.81db67168764fp+7",
+        "0x1.a7c2ed14ee3b9p+269",
+        "0x1.3dcc808920018p+7",
+        "-0x1.2a709fcf449c2p+7",
+        "-0x1.93a21afd8b7e2p+267"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/70",
+      "quantities": [
+        "0x1.6e205505b3dbap-123",
+        "0x1.3b7404155e8f5p+9",
+        "0x1.0d7f9b504c070p-122",
+        "-0x1.c5e266882438fp+7",
+        "0x1.6c0c2b9e6d31cp+5",
+        "-0x1.0344c65a5cb1ep-123"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/71",
+      "quantities": [
+        "0x1.8b81a00bd7e50p-920",
+        "0x1.78141c4ec8033p+9",
+        "0x1.a9221194d616fp-923",
+        "0x1.4b2dba0c5de90p+6",
+        "0x1.ab2b313899d70p+4",
+        "-0x1.10c284ef8f9c8p-921"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/72",
+      "quantities": [
+        "0x1.93617f9bd3a67p+238",
+        "0x1.e729b10e756d6p+9",
+        "0x1.989382e2a8967p+242",
+        "0x1.a10d2c97cb99ep+7",
+        "-0x1.01ae8f4a5f49bp+7",
+        "0x1.4ad3ee1d013cfp+243"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/73",
+      "quantities": [
+        "0x1.a624b2d899616p-492",
+        "0x1.17ae814e1a6a6p+7",
+        "0x1.afe24a9e9c7e7p-494",
+        "-0x1.8fbb4b6d6750cp+6",
+        "0x1.6bbf463e9ed1cp+6",
+        "-0x1.a6487477d9958p-494"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/74",
+      "quantities": [
+        "0x1.2d0f9689c13c7p-25",
+        "0x1.864794562b701p+9",
+        "0x1.1cd9738b36839p-24",
+        "0x1.017efa7f73488p+7",
+        "-0x1.0579586cb7271p+7",
+        "0x1.915946ab3ee94p-28"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/75",
+      "quantities": [
+        "0x1.e389c1ea7a014p-825",
+        "0x1.dea7530fe18ddp+9",
+        "0x1.8a56ef2c81dd8p-824",
+        "-0x1.a2b24fdb93200p+5",
+        "0x1.72bb5ea286810p+4",
+        "0x1.ab69bd7d1ca18p-825"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/76",
+      "quantities": [
+        "0x1.9977a8c48be03p+349",
+        "0x1.9bef6509af65dp+9",
+        "0x1.fe485f4ff4a32p+348",
+        "-0x1.a83cb2d7de0c9p+7",
+        "-0x1.126f7906458dcp+5",
+        "-0x1.509c218c35fddp+347"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/77",
+      "quantities": [
+        "0x1.a40c5855364bep+99",
+        "0x1.2f9357555dbffp+8",
+        "0x1.59676b6fa1096p+100",
+        "-0x1.2b43022959e80p+5",
+        "-0x1.24fcfdd5e88dfp+7",
+        "-0x1.937150adb104fp+98"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/78",
+      "quantities": [
+        "0x1.71f72e50011bcp+554",
+        "0x1.25b1eab4455a5p+7",
+        "0x1.2e251c42a9495p+554",
+        "0x1.aff6d84f19b48p+7",
+        "0x1.0832a8bda3c96p+7",
+        "0x1.2fce28f12ac58p+554"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/79",
+      "quantities": [
+        "0x1.57c9479570aa3p+706",
+        "0x1.4b071a5882555p+9",
+        "0x1.33990fb78234cp+707",
+        "-0x1.239782619849cp+7",
+        "0x1.64d0b0ce55cf4p+5",
+        "0x1.7af992a00c962p+705"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/80",
+      "quantities": [
+        "0x1.46d5057a412eep+273",
+        "0x1.3a73c4cff3199p+7",
+        "0x1.0ca325a578669p+271",
+        "-0x1.f3fc50cf0baa8p+5",
+        "0x1.2d741c2708cb8p+6",
+        "-0x1.39f4b65e8ab65p+272"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/81",
+      "quantities": [
+        "0x1.4d02c5b7ec858p+173",
+        "0x1.b6dd54e0f8caap+6",
+        "0x1.a80e9d82c9d5ap+172",
+        "0x1.4c8fa5ce7d284p+7",
+        "-0x1.d916c7d8cb454p+6",
+        "0x1.38141686255b9p+171"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/82",
+      "quantities": [
+        "0x1.ddc3ec88d0b97p+272",
+        "0x1.e3591c43ccec2p+9",
+        "0x1.73698c94e1f45p+270",
+        "-0x1.fe53a84dac19bp+7",
+        "0x1.c970ac775cebcp+6",
+        "0x1.bd5463190e6fep+271"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/83",
+      "quantities": [
+        "0x1.d90334ca84373p+0",
+        "0x1.4bad9ef32fa7cp+9",
+        "0x1.3481321644afdp+0",
+        "0x1.8592a1ed019b4p+6",
+        "-0x1.74b76370685bap+6",
+        "0x1.3f329f9013620p-5"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/84",
+      "quantities": [
+        "0x1.d2a8980781dd5p-738",
+        "0x1.a91975c7f84c0p+9",
+        "0x1.8b12d29a41d5cp-734",
+        "0x1.68da7fcb13c02p+7",
+        "0x1.5e0b9044abb7ap+6",
+        "-0x1.615671115eb4fp-736"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/85",
+      "quantities": [
+        "0x1.014f6ba99c7a2p-790",
+        "0x1.5a3d3560525e0p+6",
+        "0x1.b5b965199ce2cp-795",
+        "-0x1.f184ef96a6a92p+7",
+        "0x1.0ca5abd9217a8p+7",
+        "0x1.cd3cf2b77ac64p-792"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/86",
+      "quantities": [
+        "0x1.714033873adfdp+555",
+        "0x1.c7986a2621014p+8",
+        "0x1.9f7fb883784e5p+555",
+        "-0x1.fa6b8d428dd80p+4",
+        "0x1.2040a433ad4ecp+7",
+        "0x1.9c2c0aa7bbf60p+554"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/87",
+      "quantities": [
+        "0x1.1d7b000c19e3fp-790",
+        "0x1.86c397c0db2fap+8",
+        "0x1.335a1739e8034p-791",
+        "-0x1.5dc09e2643e30p+6",
+        "0x1.dfeff065a61d8p+6",
+        "0x1.e6a948f62c874p-794"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/88",
+      "quantities": [
+        "0x1.a9fc2b5155915p+650",
+        "0x1.87d7dbf763f72p+8",
+        "0x1.c3f60ae6ad116p+651",
+        "0x1.1daacd821702ap+7",
+        "0x1.7659682c29600p-1",
+        "0x1.bf86dab214ccdp+646"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/89",
+      "quantities": [
+        "0x1.0b2ef9c8ee53dp-784",
+        "0x1.7b5618001e70ap+9",
+        "0x1.8b41b148be06bp-784",
+        "-0x1.2587ffd69357ep+8",
+        "-0x1.02705e3418607p+6",
+        "0x1.94b11803fbcf7p-785"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/90",
+      "quantities": [
+        "0x1.3c092d019564dp-618",
+        "0x1.4f8a07122a437p+9",
+        "0x1.d938678770834p-623",
+        "0x1.013ecd3096770p+7",
+        "0x1.f7c1bcb536934p+5",
+        "0x1.cbae0fe74fc02p-619"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/91",
+      "quantities": [
+        "0x1.dd0a3c0621268p+242",
+        "0x1.002a41f3c3212p+6",
+        "0x1.7a46424f0ddcep+240",
+        "-0x1.9943f11cfcce8p+7",
+        "0x1.c538a43655ad0p+6",
+        "-0x1.200bff6cd87bap+240"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/92",
+      "quantities": [
+        "0x1.9882ebd0702dbp-880",
+        "0x1.fd189226cc243p+8",
+        "0x1.f902c25dd6a15p-881",
+        "0x1.73ede1e4b7040p+3",
+        "-0x1.0cc81488d035fp+6",
+        "0x1.eb5a02eddc599p-882"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/93",
+      "quantities": [
+        "0x1.6674b7e4eb5a5p+670",
+        "0x1.def51d60f0dc2p+3",
+        "0x1.90d828e485861p+671",
+        "-0x1.7f573cad721f4p+7",
+        "0x1.064426a7cc5dap+6",
+        "0x1.9a24c1f5495a1p+670"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/94",
+      "quantities": [
+        "0x1.483dd644dc6e8p+150",
+        "0x1.12a57116ba7e6p+9",
+        "0x1.7f1043a8bd386p+149",
+        "-0x1.30ee295a669ecp+6",
+        "0x1.75e584679cf3cp+6",
+        "0x1.2e25134890907p+149"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/95",
+      "quantities": [
+        "0x1.3eb8c0afb8879p+402",
+        "0x1.a24af9daa24b6p+9",
+        "0x1.00135dd9fa575p+393",
+        "0x1.2463e60fbcf50p+4",
+        "-0x1.20f1bb5911528p+4",
+        "0x1.2472b678359d8p+401"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/96",
+      "quantities": [
+        "0x1.76c8a3ad1a2e3p-817",
+        "0x1.3278567a62796p+9",
+        "0x1.0c6b9207c7949p-818",
+        "0x1.6acf507a5cd80p+4",
+        "0x1.5fcbc5d69ad26p+6",
+        "0x1.4831262ee624dp-818"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/97",
+      "quantities": [
+        "0x1.d5966b84d0cc1p+732",
+        "0x1.d1b837245cef7p+9",
+        "0x1.0c10163566035p+734",
+        "0x1.81d1c83bbc924p+6",
+        "0x1.72715848d6744p+5",
+        "-0x1.542418f1f1cc8p+732"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/98",
+      "quantities": [
+        "0x1.28af868a2b277p+628",
+        "0x1.33c3f938f2589p+9",
+        "0x1.51833e421a69ep+628",
+        "0x1.bc9c39db44a74p+7",
+        "-0x1.1226ae191355cp+5",
+        "0x1.51bd8340e8dfdp+627"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/99",
+      "quantities": [
+        "0x1.c8565bbbe5d7fp+716",
+        "0x1.89904afe2568ap+7",
+        "0x1.00fdacba15346p+715",
+        "-0x1.43219bb045980p+7",
+        "-0x1.bb34b28fa9880p+6",
+        "0x1.b22c0c3cd67d5p+711"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/100",
+      "quantities": [
+        "0x1.332bcf2a01f6bp-292",
+        "0x1.0faf4a2d2091cp+9",
+        "0x1.aef58968b1d24p-294",
+        "-0x1.8b340e885d9fap+7",
+        "0x1.014e86a641f24p+7",
+        "-0x1.8c549782f6646p-293"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/101",
+      "quantities": [
+        "0x1.86d74b3554a08p+762",
+        "0x1.a726bf43135d7p+9",
+        "0x1.fc8e07b5260e3p+761",
+        "0x1.46fad69df7ce4p+6",
+        "0x1.ec12a9a92fba0p+6",
+        "-0x1.1a4b1cd4f8af4p+762"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/102",
+      "quantities": [
+        "0x1.1d6b7ba0b2d43p+843",
+        "0x1.fd5b4cc26d66bp+8",
+        "0x1.44cc3647b85bdp+843",
+        "0x1.879bf065e3104p+7",
+        "0x1.3957557125be0p+3",
+        "-0x1.649830e69204dp+842"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/103",
+      "quantities": [
+        "0x1.d1ba85705d92ap-638",
+        "0x1.29b0d72d689f2p+6",
+        "0x1.1f2c045e96decp-638",
+        "-0x1.c8c56b60f6a70p+5",
+        "0x1.0c474877c0444p+6",
+        "-0x1.d209c3cb94becp-640"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/104",
+      "quantities": [
+        "0x1.0eaf36c9cd0f5p-162",
+        "0x1.d39433c53b0c5p+9",
+        "0x1.ad9cf2c7e5ad6p-163",
+        "-0x1.8681ff87d2e65p+7",
+        "0x1.0175fe30e479ep+7",
+        "0x1.646b116acb0dbp-165"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/105",
+      "quantities": [
+        "0x1.e8a50a5e1a95cp+46",
+        "0x1.374ad8b250f3bp+9",
+        "0x1.53b53088787b0p+47",
+        "0x1.ee1eb1d3ca05cp+7",
+        "0x1.5b7112a446b30p+3",
+        "-0x1.1224d988af309p+42"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/106",
+      "quantities": [
+        "0x1.096f05c757078p-817",
+        "0x1.5b1ee7c55a36cp+9",
+        "0x1.a5bbd86358ca0p-818",
+        "-0x1.0fca47779eb40p+8",
+        "0x1.81819b71c39cep+6",
+        "0x1.cf8e1ae9e27d4p-819"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/107",
+      "quantities": [
+        "0x1.57df110d6b7c4p+419",
+        "0x1.5efec0cc07b5cp+9",
+        "0x1.44c448fbc18e4p+415",
+        "-0x1.21a90c5a84395p+8",
+        "-0x1.bde9641d1c1a4p+6",
+        "0x1.6b5458ab171acp+416"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/108",
+      "quantities": [
+        "0x1.152bf98add41dp+724",
+        "0x1.f0e308f8eaa1bp+8",
+        "0x1.bd2d241de357cp+723",
+        "0x1.fae2f4dedfd4cp+7",
+        "0x1.5737a815eaac4p+5",
+        "0x1.c1608eea6495ep+723"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/109",
+      "quantities": [
+        "0x1.34b9bd5b49038p-263",
+        "0x1.9ef5e52590347p+9",
+        "0x1.73d95e6b3e027p-263",
+        "0x1.dec07e20df490p+7",
+        "0x1.0351d52f222a2p+7",
+        "-0x1.eebfe0290521ap-268"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/110",
+      "quantities": [
+        "0x1.dd953acc9b119p-531",
+        "0x1.d351a27f6b2d6p+9",
+        "0x1.04b652cb412ebp-524",
+        "0x1.6afdd557f7160p+3",
+        "-0x1.6d50d1600a712p+5",
+        "0x1.f0db540b0a783p-528"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/111",
+      "quantities": [
+        "0x1.43138e53caa2bp-386",
+        "0x1.5771c3a99e9a8p+9",
+        "0x1.d5d0d4eb119c7p-386",
+        "-0x1.1e6e0b89414dfp+8",
+        "0x1.d6ecc99127ef8p+4",
+        "0x1.a65daac92228bp-387"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/112",
+      "quantities": [
+        "0x1.b9406080a706cp+404",
+        "0x1.a7743f7dcf3dep+8",
+        "0x1.2e8bd8454d849p+406",
+        "0x1.caf6b4cf5f98cp+7",
+        "0x1.f2cf7b34ddb3cp+6",
+        "-0x1.cefcc61731e32p+404"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/113",
+      "quantities": [
+        "0x1.7c8dc5f8fcbfcp-850",
+        "0x1.bb3d816163e9ep+9",
+        "0x1.8bb78f429cfe8p-851",
+        "0x1.0773a7ffb4fe6p+8",
+        "0x1.e1031f1c00f00p+0",
+        "-0x1.75b3e74ec5106p-851"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/114",
+      "quantities": [
+        "0x1.ae1e1f2dff019p-117",
+        "0x1.976f314262f6dp+8",
+        "0x1.55cad4d614e5fp-118",
+        "-0x1.182476c3fc578p+8",
+        "-0x1.5ec36ff06e418p+6",
+        "-0x1.9ef8b5fbb965ep-119"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/115",
+      "quantities": [
+        "0x1.a1a74795a5fa4p-482",
+        "0x1.046333f7b92a4p+9",
+        "0x1.04e549013e770p-485",
+        "0x1.42e0420089df4p+6",
+        "-0x1.6aed263701b6cp+6",
+        "-0x1.2ed9dc900d075p-482"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/116",
+      "quantities": [
+        "0x1.c4d940736131fp-663",
+        "0x1.83f719e551ba0p+9",
+        "0x1.b5c92a61a6300p-661",
+        "0x1.549b37e9cac7cp+6",
+        "-0x1.d61b9dff94427p+6",
+        "0x1.a7de01570d523p-663"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/117",
+      "quantities": [
+        "0x1.fadc72e473986p+517",
+        "0x1.c5c0512bd9af6p+7",
+        "0x1.d1918cd1c441bp+521",
+        "0x1.0aad81a66a8ccp+8",
+        "-0x1.26db078eeb8b6p+7",
+        "0x1.5ff89c5ee4afdp+519"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/118",
+      "quantities": [
+        "0x1.b69b6e16805adp-166",
+        "0x1.038521f9176e0p+9",
+        "0x1.db4bbfa5d8299p-167",
+        "0x1.2c9558c97724ep+7",
+        "-0x1.96613425e1280p+3",
+        "0x1.1efce9fe9c124p-167"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/119",
+      "quantities": [
+        "0x1.e3edc4a7d6346p+630",
+        "0x1.8fcf308ce3a48p+9",
+        "0x1.2d5ccf841fb61p+638",
+        "-0x1.36ad618be5a07p+7",
+        "0x1.3b877f08d0ce8p+6",
+        "0x1.46309ff9ac470p+636"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/120",
+      "quantities": [
+        "0x1.c9b78b7e97111p-475",
+        "0x1.16d331ba33e77p+6",
+        "0x1.21261e868b6fcp-475",
+        "0x1.043483ca4fd50p+5",
+        "-0x1.896287fded8e0p+2",
+        "0x1.7865b6f2e3acep-477"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/121",
+      "quantities": [
+        "0x1.4b07efe50e1c0p-236",
+        "0x1.107882c7cf9d0p+8",
+        "0x1.a8c7086cf6e8fp-236",
+        "-0x1.3e2008e06f11ap+7",
+        "0x1.f283d07f79780p+4",
+        "-0x1.411dc9eb9213fp-238"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/122",
+      "quantities": [
+        "0x1.c3453df153873p-768",
+        "0x1.5a98dcdf1fdb6p+9",
+        "0x1.62d1906861b45p-767",
+        "0x1.93fb0d0aade00p+7",
+        "-0x1.c66712ceee8c2p+6",
+        "0x1.bfa335f77848ep-771"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/123",
+      "quantities": [
+        "0x1.2152d62eaa36dp-586",
+        "0x1.c0dd86f091509p+9",
+        "0x1.7cae258dba0d7p-582",
+        "0x1.08c95e423a990p+7",
+        "0x1.9c0202ee2dbe2p+6",
+        "0x1.38c67b0433b6fp-582"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/124",
+      "quantities": [
+        "0x1.0866aa9e72666p+121",
+        "0x1.4e50b22bfa3dep+5",
+        "0x1.6e9d6dda93926p+123",
+        "-0x1.4f65b23e88580p+3",
+        "-0x1.1b6c26bfdec98p+7",
+        "-0x1.1d87f847acefep+122"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/125",
+      "quantities": [
+        "0x1.41ee8a32ee8eep-798",
+        "0x1.d2d029d0a76a1p+9",
+        "0x1.a285c1d9353efp-797",
+        "-0x1.ca3d6a8448306p+6",
+        "-0x1.d150ad72591c2p+5",
+        "-0x1.9149b64d3f1c9p-798"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/126",
+      "quantities": [
+        "0x1.e634a5c64bce3p-400",
+        "0x1.a27efdc798ef4p+9",
+        "0x1.6f054ecefc20cp-399",
+        "-0x1.16b60be52be57p+8",
+        "0x1.b2864d1da2b60p+3",
+        "-0x1.27c56b0d6622dp-400"
+      ]
+    },
+    {
+      "name": "cover-defense-numeric/random/127",
+      "quantities": [
+        "0x1.07f1e248d2827p-782",
+        "0x1.255d6175be2b8p+9",
+        "0x1.2e4fafec38af2p-781",
+        "0x1.2b797e3277b92p+8",
+        "0x1.32e49363650c0p+5",
+        "0x1.185b04f2e128ep-782"
+      ]
+    }
+  ]
+}

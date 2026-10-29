@@ -1,5 +1,6 @@
 """Declared cover quantities, authored percentages, ULP and overflow boundaries."""
-import math,random,hashlib,json
+import math,hashlib,json
+from pathlib import Path
 
 def original_values():
     from portable_original_identity_inventory import selected_prepared_profiles
@@ -24,8 +25,12 @@ def fixtures():
         for i,attack in enumerate((math.nextafter(defense,0.),defense,math.nextafter(defense,math.inf),defense+1.)):
             add(f'edge/{base}/{i}',attack,100.,base,128.57,0.,0.)
     for i,values in enumerate([(1e308,1000.,100.,0.,0.,0.),(100.,100.,1e308,1e308,0.,0.),(1e308,100.,0.,0.,1e308,0.),(1e308,100.,0.,0.,0.,-1e308),(5e-324,100.,5e-324,-100.,0.,-0.),(0.,0.,0.,-200.,0.,0.)]):add(f'extreme/{i}',*values)
-    rng=random.Random(6031)
-    for i in range(128):
-        scale=10.**rng.randint(-280,280)
-        add(f'random/{i}',rng.uniform(0.,2.)*scale,rng.uniform(0.,1000.),rng.uniform(0.,2.)*scale,rng.uniform(-300.,300.),rng.uniform(-150.,150.),rng.uniform(-1.,1.)*scale)
+    # Preserve the executed corpus exactly without host libm pow/uniform work.
+    frozen=json.loads(Path(__file__).with_name('cover-defense-random-inputs-v1.json').read_text())
+    if frozen.get('schema')!='cover-defense-random-inputs-v1' or frozen.get('input_only') is not True or len(frozen.get('rows',[]))!=128:raise ValueError('Frozen input-only corpus required')
+    for i,row in enumerate(frozen['rows']):
+        if set(row)!={'name','quantities'} or row['name']!=f'cover-defense-numeric/random/{i}' or len(row['quantities'])!=6:raise ValueError('Frozen vector identity mismatch')
+        values=[float.fromhex(v) for v in row['quantities']]
+        if not all(map(math.isfinite,values)):raise ValueError('Finite frozen inputs required')
+        rows.append(dict(name=row['name'],quantities=values))
     return rows

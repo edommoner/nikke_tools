@@ -48,7 +48,7 @@ AUDIT_FILES['test_original_probability_conditions.py']=(
     'research/portable-compiler-full--original-probability-conditions-source-certificate.json',
     'tests/fixtures/original-probability-conditions-independent-v1.json',
     'tests/fixtures/original-probability-gpu-counts-v1.json')
-AUDIT_FILES['test_cover_defense_numeric.py']=('research/portable-cover-defense-numeric-v1-expected.json','tests/fixtures/cover-defense-numeric-metal-v1.json','tests/fixtures/cover-defense-numeric-independent-v1.json')
+AUDIT_FILES['test_cover_defense_numeric.py']=('research/cover-defense-random-inputs-v1.json','research/portable-cover-defense-numeric-v1-expected.json','tests/fixtures/cover-defense-numeric-metal-v1.json','tests/fixtures/cover-defense-numeric-independent-v1.json')
 AUDIT_FILES['test_heavyarms_lock_reference.py']=AUDIT_FILES['test_portable_model_gap_audit.py']
 AUDIT_FILES['test_bay_published_allocation.py']=('tests/fixtures/bay-published-allocation-v1.json',)
 AUDIT_FILES['test_portable_entry_plan.py']=('tests/fixtures/bay-published-allocation-v1.json',)

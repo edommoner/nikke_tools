@@ -52,6 +52,17 @@ class CoverDefenseNumeric(unittest.TestCase):
         self.assertEqual(len(rows),572);self.assertEqual(len(data),4+572*16*4)
         self.assertEqual(sum(d is not None for _,_,d in rows),562)
 
+    def test_frozen_corpus_contains_inputs_only_and_keeps_executed_bytes(self):
+        table=json.loads((ROOT/'research/cover-defense-random-inputs-v1.json').read_text())
+        self.assertTrue(table['input_only']);self.assertEqual(len(table['rows']),128)
+        for i,row in enumerate(table['rows']):
+            self.assertEqual(set(row),{'name','quantities'})
+            self.assertEqual(row['name'],f'cover-defense-numeric/random/{i}')
+            self.assertEqual(len(row['quantities']),6)
+            self.assertTrue(all(math.isfinite(float.fromhex(x)) for x in row['quantities']))
+        _,data=m.prepare()
+        self.assertEqual(hashlib.sha256(data).hexdigest(),table['source_input_sha256'])
+
     def test_full_word_comparison_rejects_numeric_and_reserved_corruption(self):
         case=dict(name='corrupt',quantities=[1000.,100.,100.,128.57,0.,0.]);n=m.native_reference((case,))
         block=[0,m.MAGIC,0,0,*m.words(n['values']),0,0];m.compare(block,(case,))

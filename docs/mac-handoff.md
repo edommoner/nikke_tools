@@ -3583,3 +3583,14 @@ catalogue1076の追加4はsceneで、新キャラ数ではない。元266profile
 固定87c82125/packet50c273ee…がM5実GPU1回で全4一致、27群228テスト/fresh CPU104.170975秒/GPU3.152702秒。別fresh GPU禁止sealは117.877019秒/native4/parent再利用0で成功。generation/PSO必須hit/Slang0。GPU273source/正規化CUDA-MSL/保護CPU4/strict normalizer変更0。旧support/ビスケットを含む12テストも成功。同claim retry0/GPU追加0。初期の64別node容量超過はGPU前のCPU準備失敗として保存し、64回を減らさず既存連撃nodeへ修正した。
 
 最終23abaa93/cache-only packetba0b9c90…は29群257unit成功。CUBIN/O1/2GiB/60秒compile-plan policy成功、compiler/GPU0。静的監査は開発時517依存不変を確認して再利用し、最終テスト登録で依存1ファイルが変わったため4.49秒だけ再実行。entry-planで保存結果から順位を更新した。model-checkは記録されたroot10依存が不変。catalogue1084はscene数、静的254/266・失敗12/13分類、正本5stat不足と全キャラ未完了を保持。現CUDA実機未確認/Windows追加依頼0。詳細 [確率回復条件](portable-original-probability-conditions.md)、小証跡 `research/target-count-query-evidence/original-probability-conditions-metal-v1.json`。
+
+
+## 2026-10-30 未対応cover_def_pctの数値部品をM5で実証
+
+`cover-defense-numeric` は独立したcover base DEFと元倍率を使う共通Slang部品。本人のbody DEFへ読み替えず、元ソルジャーO.W.の10段階値、ULP/極小値/非有限結果を含む562数値＋wire拒否10の572入力を固定83be1329/packet0c6a3d09…でM5実GPU1回＋fresh GPU禁止seal。数値成功558/範囲失敗16が4/wire64が10。GPU0.000273秒、初回PSO0.034186秒（cold）、独立1.172452秒/native562/parent再利用0。元carrierの上位ATK3人・lazy解決・5秒失効はCPU unitで確認し、元scheduler/全戦闘と区別する。
+
+公開実測の著者はcover基礎量がレベル依存・body HP/DEF非継承と報告。画像も視認したが、表示31612/critical47419と著者注記47418の差があり、正確な曲線/丸めを逆算しない。既存incomingの数値形を明示モデルとして使う。係数100%でも×100÷100の省略で1ULP違うunit例を保持し、式をまとめない。新helper2 Slang以外の既存GPU/保護CPU4/normalizerは変更0、旧resident273sourceも一致。
+
+standalone probeなのでgeneration-cache/require-generation-cacheは指定しない。最初の誤指定はcapture/claim前拒否として保存し、正しい別captureでGPU1回（同claim retry0）。最終c2ab073c/cache-only packet95d02b20…は16unit成功、分類41unit成功、CUBIN O1/2GiB/60秒compile-plan policy成功（compiler/GPU0）。cache-onlyは同じ数値/goldenでCUBIN必須hit、paired generationなし。Windows read-only host確認はunavailable、新実行依頼0。
+
+分類はreference_model_gap/default拒否を維持し、numeric Metal実証・carrier readerと、未接続cover layer/元戦闘/level curve/CUDAを分けた。fresh model-check/entry-inventory成功、静的254/266・12失敗13分類は不変。次は明示base DEF5人分のwire、元ranked carrierのprivate lowering、body/cover量とshield callback前後のsnapshot規則を既存incoming/protectionへ接続し、実cover破壊/復活・全戦闘を比較する。詳細 [cover DEF数値契約](portable-cover-defense-numeric.md)、小証跡 `research/target-count-query-evidence/cover-defense-numeric-metal-v1.json`。全キャラ/全特殊効果/公開GPUは未完了。

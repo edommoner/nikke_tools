@@ -761,3 +761,8 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 ### 元被弾確率・回復4条件
 
 `original-probability-conditions` は既存ordered catalogue/sourceでエマの元70定義・実64連撃を保持するsealed suite。本人の確率成功/不発、初期負傷、別の味方への被弾を区別し、元source発動数と全戦闘/RNGを比較する。`original-probability-conditions-cache-only` は同じ入力/golden/比較器でCUBIN O1・compile cache/paired generation必須hit。M5実GPU＋独立seal済み、現CUDA実機は未確認。[範囲・保存結果・監査再利用](portable-original-probability-conditions.md)。
+
+
+### 独立したcover DEF数値部品
+
+`cover-defense-numeric` は元cover倍率と独立base DEFを使う562数値＋10wire拒否のstandalone sealed probe。`cover-defense-numeric-cache-only` は同じ入力/goldenでCUDA CUBIN/O1・必須cache hit。standaloneにgeneration-cache/require-generation-cacheやresidentのfull-source certificateを使わない。M5数値＋独立seal済みだが、元戦闘/cover layer/level curve/default admission/CUDA実機は未対応。[数値規約・公開実測の限界・次の接続](portable-cover-defense-numeric.md)。
