@@ -1,0 +1,29 @@
+{
+  "schema": "windows-moving-group-source-v1",
+  "package_id": "76fbe7c3c06307e6c1fd07329e0f129b6bc9433a1f4fbff5732b59dc8b0e0557",
+  "archive_bytes": 13307322,
+  "archive_sha256": "06cdf64599232cefdfc4296ffbb73ec41231ce9a2fe8e00d6bcbbd7aaa3a74f3",
+  "suite": "moving-group-cache-only",
+  "scope": "Previously sealed 15-input movement/typed/original group battle; not maximum-slot suite",
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "76fbe7c3c06307e6c1fd07329e0f129b6bc9433a1f4fbff5732b59dc8b0e0557",
+    "suite": "moving-group-cache-only",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "initial_windows_scope": "Only own packet units and CPU paired generation; no compile/NVRTC/GPU execution",
+  "gpu_calls": 0,
+  "full_goal_complete": false
+}
