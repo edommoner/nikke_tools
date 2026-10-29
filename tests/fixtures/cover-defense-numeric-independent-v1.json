@@ -1,0 +1,15 @@
+{
+  "package_id": "0c6a3d09d6b01f4ca95c67424cd8d6a0e1a3ca3ff7e5d49c62960f226d1bdee1",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/cover-defense-numeric-v1-20261030-metal-v2",
+  "child_pid": 48129,
+  "input_count": 572,
+  "native_cases": 562,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 1.172452124999836,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "4515f8230b6a31bfca1f4000792c35fa4f36b01b17487b3b73504ca6c6fb776b",
+  "output_sha256": "88dece3ef7e6e0cd1dec8b7ddb0b4b5a6301103f37be45bca6917a0f29a1d903",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "schema": "independent-metal-audit-v1"
+}

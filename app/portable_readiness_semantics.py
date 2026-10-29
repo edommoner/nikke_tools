@@ -692,6 +692,16 @@ def reference_readiness(issue):
         if stat in SCOPED_INERT:
             result.update(lane='reference_model_gap',native_consumer='scoped_inert_in_current_model',
                 consumer_source='app/effect_spec.py:SCOPED_INERT',note='Clarify incoming-cover semantics before GPU lowering')
+            result['declared_cover_defense_numeric']=dict(suite='cover-defense-numeric',inputs=572,native_cases=562,rejected_cases=10,
+                metal_verified=True,independently_audited=True,cuda_verified=False,
+                independent_base_quantity=True,original_carrier_reader_unit_verified=True,
+                cover_layer_connected=False,original_full_battle_verified=False,in_game_level_curve_verified=False,
+                evidence='tests/fixtures/cover-defense-numeric-metal-v1.json',evidence_sha256='75fb68d3b1f892838e847b754001dc1032bec134f5b2d01a9d5cedaef94f89ce',
+                scope='Declared scalar formula and original CPU carrier read only; keep canonical/default rejection')
+            result['required_extensions']=['explicit_cover_base_quantity_or_verified_level_curve',
+                'distinct_cover_and_body_damage_with_existing_protection_callback_order',
+                'original_ranked_carrier_and_actual_cover_break_restore_battle_validation',
+                'current_shared_CUDA_Metal_battle_validation']
     return result
 
 
