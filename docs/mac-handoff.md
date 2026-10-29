@@ -1,3 +1,9 @@
+# 2026-10-29 PTXファイル点検を共通bounded packetへ接続
+
+`probe-ptx-cache`は既存file-only cache-probeを全payload検査後に呼び、既存Windows Job/gate/BelowNormal/2GiB/外側180秒を再利用する。3 absolute pathの厳密request、専用stage claim、result/artifacts/観測を保持。missは有効なsnapshotでありhitとは別字段。Slang/NVRTC/driver/GPU/native battleや内側compiler Jobを起動せず、compiler/cache claimも変更しない。forged calculation/compile/GPU/cubin receiptとbool-as-int、request混同を拒否する4検査を追加。開発/固定packet自身201検査・前後payload/PTX plan/validation-deps成功。数値/GPU/旧CLI/golden変更0。
+
+現sourceのsealed packet54c70a1d…、配布ZIP/bytes/SHA/境界は`research/portable-bounded-ptx-cache-probe-v1.json`。次のWindowsはpaired generation1回→共通bounded file-only PTX probe。元保存PTX cacheへexact hitの場合だけcache必須/NVRTC fallback禁止で現producer1回を作る。元76fbe7c3…の生成物を現sourceの成功へ再ラベルしない。object/link/GPU/native全件はこの依頼に含めない。[点検CLI](portable-cache-preflight.md)。以下は履歴。
+
 # 2026-10-29 移動groupのJIT-link成功・現sourceのMetal再認定
 
 Windows固定b418ed14…が元bb28af2e…の保存objectを再生成せずJIT-link成功。API0.058635秒、CUBIN6,918,480byte/SHA0f140174…、sm86/portableEvents/params48B、API9件全ret0/Destroy成功/log空。inner28.217秒/peak126,640,128byte、outer72.833秒/peak232,325,120byte、両Job2GiB/gate/低優先度/終了0/欠落0/timeout・観測cleanup error無し。nvcuda3観測未ロード、compile/GPU/battle/retry0。service未識別の保全/overall false、旧source/current equivalence falseを保持。小要約とmanifestを固定4003d701…から元CRLF/SHAで回収、Mac原本監査ではない。`research/portable-moving-group-jit-peer-v1.json`。

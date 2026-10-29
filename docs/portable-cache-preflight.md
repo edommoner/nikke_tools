@@ -1,5 +1,13 @@
 # CPU前処理より前のCUDAキャッシュ確認
 
+## Windows共通packetのPTX点検
+
+`run-gpu-packet.py --stage probe-ptx-cache --backend cuda --capture NEW --timeout 180 --original-workspace ORIGINAL --request REQUEST.json` は、既存のファイル専用`cache-probe`をfresh Job/開始gate/BelowNormal/2GiBで囲む。requestは絶対pathの`generated_cuda`・`cuda_root`・`compile_cache`の3キーだけ。packet全payloadを検査してから既存auditorへ渡し、GPU/Slang/NVRTC/native battle・内部compiler Jobは起動しない。cacheやcompiler claimを変更せず、packet stage専用claimとresult/artifacts/観測を残す。
+
+`ptx_cache_probe_verified=true`は正しい点検結果であり、missでも成立する。hitは別の`ptx_cache_hit_snapshot`で示す。`--require-hit`を付けずに診断するため、missを検査自体の故障と混同しない。壊れたcache/toolchainは既存auditorが拒否。calculation/compiler成功へ昇格せず、実行時cache再検証と環境保全判定は別のまま。
+
+新stageの4検査を含む開発/固定54c70a1d…各201検査・前後payload検査、own PTX/2GiB/60秒plan、validation-depsが成功した。`research/portable-bounded-ptx-cache-probe-v1.json`。Windowsでは現sealed sourceのpaired生成を1回準備してこの点検を行い、**exact hitの場合だけ**generation/cache必須のPTX producerを1回作る。missでNVRTCへfallbackせず、PTX/object/link/GPUを再実行してcacheを埋めない。
+
 Metalのファイル専用事前点検は `metal-cache-probe` を使用します。[使い方と証明範囲](portable-metal-cache-probe.md)を参照してください。保存identityを使うadvisory snapshotであり、現在のdevice／OSやGPU計算の証拠にはしません。実行時のnative cache再検証は必須です。
 
 共通CLIのCUDA battle実行で、`--require-cache` と `--require-generation-cache` の両方を

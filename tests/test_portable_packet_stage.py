@@ -6,6 +6,56 @@ from unittest.mock import patch,Mock
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 spec=importlib.util.spec_from_file_location('packet_stage',ROOT/'scripts/run-gpu-packet.py');stage=importlib.util.module_from_spec(spec);spec.loader.exec_module(stage)
 class PacketStageTests(unittest.TestCase):
+    def ptx_probe(self,hit=True):
+        return dict(passed=True,probe_verified=True,calculation_verified=False,gpu_calls=0,nvrtc_compile_calls=0,
+                    cache=dict(enabled=True,hit=hit,probe_only=True,identity=dict(artifact='ptx')))
+
+    def test_ptx_probe_recipe_is_file_only_and_requires_exact_absolute_paths(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d).resolve();request={k:str(base/k) for k in stage.PTX_PROBE_FIELDS}
+            plan=stage.recipe('id',stage.PTX_PROBE_STAGE,'cuda',base/'out',base/'original',180,request)
+            args=stage.proof_arguments(plan)
+            self.assertEqual(args[0],'cache-probe');self.assertEqual(args[args.index('--artifact-kind')+1],'ptx')
+            self.assertNotIn('--require-hit',args);self.assertNotIn('run',args);self.assertNotIn('compile',args)
+            for bad in ({},dict(request,compile_cache='relative'),dict(request,extra='unexpected')):
+                with self.assertRaises(ValueError):stage.recipe('id',stage.PTX_PROBE_STAGE,'cuda',base/'out',base/'original',180,bad)
+            with self.assertRaises(ValueError):stage.recipe('id',stage.PTX_PROBE_STAGE,'metal',base/'out',base/'original',180,request)
+            with self.assertRaises(ValueError):stage.recipe('id',stage.PTX_PROBE_STAGE,'cuda',base/'out',None,180,request)
+
+    def test_ptx_probe_hit_and_miss_never_certify_calculation_or_compilation(self):
+        for hit in (True,False):
+            good=self.ptx_probe(hit);self.assertTrue(stage.verified_ptx_probe(good))
+            for change in (dict(calculation_verified=True),dict(compiler_verified=True),dict(gpu_calls=1),dict(gpu_calls=False),dict(nvrtc_compile_calls=1),dict(cache={}),dict(cache='invalid')):
+                self.assertFalse(stage.verified_ptx_probe(dict(good,**change)))
+            for cache in (dict(good['cache'],hit=1),dict(good['cache'],identity=dict(artifact='cubin')),dict(good['cache'],probe_only=False)):
+                self.assertFalse(stage.verified_ptx_probe(dict(good,cache=cache)))
+        self.assertFalse(stage.verified_ptx_probe(True));self.assertFalse(stage.verified_ptx_probe(None))
+
+    def test_ptx_probe_delegates_existing_auditor_and_collects_without_battle_or_job(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d).resolve();folder=base/'out';folder.mkdir();request={k:str(base/k) for k in stage.PTX_PROBE_FIELDS}
+            plan=stage.recipe('id',stage.PTX_PROBE_STAGE,'cuda',folder,base/'original',180,request)
+            cli=SimpleNamespace(verify_package=Mock(return_value=dict(package_id='id')),cache_probe=Mock(return_value=self.ptx_probe()),collect=Mock(),run_job=Mock(side_effect=AssertionError('No compiler/GPU job')),cpu_preflight=Mock(side_effect=AssertionError('No native battle')))
+            stage.run_ptx_probe(cli,plan)
+            cli.cache_probe.assert_called_once_with(request['generated_cuda'],request['cuda_root'],request['compile_cache'],Path(plan['proof_capture'])/'result.json',artifact_kind='ptx')
+            cli.collect.assert_called_once();cli.run_job.assert_not_called();cli.cpu_preflight.assert_not_called()
+            with self.assertRaises(FileExistsError):stage.run_ptx_probe(cli,plan)
+
+    def test_bounded_ptx_stage_keeps_hit_miss_and_forged_proof_scopes_separate(self):
+        for hit,forged in ((True,False),(False,False),(True,True)):
+            with tempfile.TemporaryDirectory() as d:
+                base=Path(d).resolve();root=base/'packet';root.mkdir();folder=base/'out';request={k:str(base/k) for k in stage.PTX_PROBE_FIELDS};proof=self.ptx_probe(hit)
+                proof['calculation_verified']=forged
+                def bounded(*args,**kw):
+                    self.assertEqual(kw['env']['NIKKE_VALIDATION_JOB_MEMORY_MB'],'2048')
+                    (folder/'proof').mkdir();stage.save(folder/'proof/result.json',proof);return dict(passed=True)
+                cli=SimpleNamespace(validation_environment=lambda _:dict(),bounded_module=lambda:SimpleNamespace(run_bounded=bounded))
+                with patch.object(stage,'ROOT',root),patch.object(stage,'packet_header',return_value=dict(package_id='id')),patch.object(stage,'load_module',return_value=cli),patch.object(stage,'is_windows',return_value=False):
+                    result=stage.run_stage(folder,stage.PTX_PROBE_STAGE,'cuda',180,base/'original',request)
+                    self.assertEqual(result['ptx_cache_probe_verified'],not forged);self.assertEqual(result['ptx_cache_hit_snapshot'],hit and not forged)
+                    self.assertFalse(result['calculation_verified']);self.assertFalse(result['compiler_verified'])
+                    with self.assertRaises(FileExistsError):stage.run_stage(base/'again',stage.PTX_PROBE_STAGE,'cuda',180,base/'original',request)
+
     def test_cached_gpu_request_binds_source_both_caches_and_fixed_cubin_options(self):
         with tempfile.TemporaryDirectory() as d:
             base=Path(d).resolve();request={k:str(base/k) for k in stage.CACHED_GPU_FIELDS}
