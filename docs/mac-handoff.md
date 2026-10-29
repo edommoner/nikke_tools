@@ -1,3 +1,13 @@
+# 2026-10-29 移動groupのJIT-link成功・現sourceのMetal再認定
+
+Windows固定b418ed14…が元bb28af2e…の保存objectを再生成せずJIT-link成功。API0.058635秒、CUBIN6,918,480byte/SHA0f140174…、sm86/portableEvents/params48B、API9件全ret0/Destroy成功/log空。inner28.217秒/peak126,640,128byte、outer72.833秒/peak232,325,120byte、両Job2GiB/gate/低優先度/終了0/欠落0/timeout・観測cleanup error無し。nvcuda3観測未ロード、compile/GPU/battle/retry0。service未識別の保全/overall false、旧source/current equivalence falseを保持。小要約とmanifestを固定4003d701…から元CRLF/SHAで回収、Mac原本監査ではない。`research/portable-moving-group-jit-peer-v1.json`。
+
+共通saved-linked受付は、sealed controllerと実sealed world producerを別々に監査・束縛する経路を追加。元producer全goldenと実行側全goldenの完全一致、source/generated/CUDA/header、producer manifest・controller receipt・object内producerを要求。従来full compiler経路・default/UIは保持。開発/固定3443f8bf…各125検査が成功、実Windows admissionは未確認。[受付](portable-saved-linked-stage.md)。
+
+現GPU sourceを含む小entryも新規M5実GPU1回/全15成功、GPU2.281339秒、CPU69.944秒、generation必須hit/Slang0。Swift consumer変更で旧cacheを拒否し、新pipeline60.518秒。fresh GPU禁止8群の独立seal121.880秒成功、親native再利用/追加GPU0。旧input/output/entries/normalized pairを完全保持し、closureのみ2変更/1追加。元v1登録を監査用に保持し、`moving-group-current`/同cache-onlyを追加した。固定fa991605…自身185検査/前後payload/PTX plan成功。`research/portable-moving-group-current-metal-v2.json`。[現小entry](portable-moving-group.md)。
+
+次は現sourceのWindows file-only PTX cache triageを先に行う。旧sourceのPTX/object/CUBINを現source成功へ再ラベルしない。現CUDA計算・実ゲーム空間規則/default/全キャラ/目標は未達。Windows全nativeを1stageへ詰めず、既存bounded groupの条件を保持する。rawと旧失敗/claimsは保存。以下は履歴。
+
 # 2026-10-29 移動groupのWindows module-object生成に成功
 
 新固定bb28af2e…でCPU55成功後、保存旧76fbe7c3…のPTX全13,556,055byteを分割/改変せずobject生成1回。ptxas14.446秒/code0、relocatable7,493,872byte/SHA2780dc69…、inner35.150秒/peak502,321,152byte・outer63.253秒/peak554,463,232byte。2GiB/低優先度/gate/Job後0/欠落0/観測cleanup error無し/timeout無しの報告。service未識別はpreservation/overall false、exit2/wrapper1を保持。Slang/NVRTC/driver/GPU/battle/JIT-link/直接CUBIN/retry0。

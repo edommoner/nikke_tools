@@ -595,6 +595,10 @@ SUITES['enemy-healing-cache-only']=dict(SUITES['enemy-healing'],cuda_cache_profi
 SUITES['moving-typed-cache-only']=dict(SUITES['moving-typed'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['moving-typed']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['moving-group-cache-only']=dict(SUITES['moving-group'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['moving-group']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['moving-many-cache-only']=dict(SUITES['moving-many'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['moving-many']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
+# Keep original package paths auditable while registering the current source seal.
+SUITES['moving-group-current']=dict(SUITES['moving-group'],golden='research/portable-moving-group-v2-expected.json',
+    support_files=[*SUITES['moving-group']['support_files'],SUITES['moving-group']['golden']])
+SUITES['moving-group-current-cache-only']=dict(SUITES['moving-group-current'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=SUITES['moving-group-cache-only']['tests'])
 SUITES['named-effect-range-cache-only']=dict(SUITES['named-effect-range'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['named-effect-range']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['named-range-battle-cache-only']=dict(SUITES['named-range-battle'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['named-range-battle']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['original-lock-controls-cache-only']=dict(SUITES['original-lock-controls'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-lock-controls']['tests'],'test_portable_cuda_cached_profile.py'])
@@ -2840,8 +2844,10 @@ def saved_linked_admission(m,request):
     """Independent full producer/object/link audit; never activates a compiler."""
     from portable_linked_artifact import admission
     package=Path(request['package']).resolve();capture=Path(request['capture']).resolve()
-    linked=verify_package(package,historical_compiler=True)
-    if not full_compiler(linked):raise ValueError('Saved CUBIN must originate in a full compiler package')
+    header=load(package/'gpu-package.json')
+    linked=verify_package(package,historical_compiler=compiler_only(header))
+    sealed_owner=linked.get('purpose','sealed')=='sealed'
+    if not sealed_owner and not full_compiler(linked):raise ValueError('Saved CUBIN must originate in a full compiler package or sealed diagnostic owner')
     result=audit_jit_link_capture(linked,capture,package_root=package)
     if not result['link_verified'] or not result['containment_verified']:raise ValueError('Saved CUBIN link chain is not verified')
     from windows_validation_observer import compare_snapshots
@@ -2853,7 +2859,15 @@ def saved_linked_admission(m,request):
     compiler=load(Path(object_request['source_capture'])/'compiler.json')
     anchors=dict(package_id=linked['package_id'],manifest_sha256=sha((package/'gpu-package.json').read_bytes()),
         artifacts_sha256=sha((capture/'artifacts.json').read_bytes()),claim_sha256=sha((package/'jit-link-object-claimed-cuda.json').read_bytes()),link_receipt_key=proof['receipt']['key'])
-    receipt=admission(m,linked,producer,compiler,proof['receipt'],anchors)
+    if sealed_owner:
+        source_package=Path(object_request['source_package']).resolve()
+        source=verify_package(source_package)
+        config=SUITES[source['suite']]
+        if compiler_only(source) or source.get('purpose','sealed')!='sealed' or not config.get('source','').startswith('gpu/world_') or not config['source'].endswith('_entry.slang'):
+            raise ValueError('Saved CUBIN requires a sealed world battle source producer')
+        anchors['producer_manifest_sha256']=sha((source_package/'gpu-package.json').read_bytes())
+        receipt=admission(m,linked,producer,compiler,proof['receipt'],anchors,sealed_producer=source)
+    else:receipt=admission(m,linked,producer,compiler,proof['receipt'],anchors)
     return dict(receipt=receipt,artifact=str(capture/'jit-linked.cubin'))
 
 

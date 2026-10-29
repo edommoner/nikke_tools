@@ -1,0 +1,44 @@
+{
+  "schema": "moving-group-jit-peer-checkpoint-v1",
+  "source_host_commit": "4003d701e6e706bf0faf3d6a39bbc3655ef9a79b",
+  "source_host_branch": "codex/cuda-moving-group-jit-v1-report",
+  "package_id": "b418ed145aa6d3439da69304d2b0229654090ca58ae6a601af664c0e3f9f6c0f",
+  "object_owner_package_id": "bb28af2e246fa49c7994f65b9140c1cd1b40a729440034a08d42e3c864b24a0d",
+  "producer_package_id": "76fbe7c3c06307e6c1fd07329e0f129b6bc9433a1f4fbff5732b59dc8b0e0557",
+  "files": [
+    {
+      "path": "research/cuda-preparation-evidence/moving-group-v1-jit-summary-v1.json",
+      "bytes": 3310,
+      "sha256": "043aa50952adc1a62a931e061291c0352f40915e41086a10f52d2415d1f31988"
+    },
+    {
+      "path": "research/cuda-preparation-evidence/moving-group-v1-jit-report-manifest.json",
+      "bytes": 613,
+      "sha256": "e820dbf4439f3bdcb8e86ec16c9df1800d57fb0348cd5f533dcb10eda683e178"
+    }
+  ],
+  "peer_summary_and_manifest_verified": true,
+  "object_identity_matches_saved_object": true,
+  "raw_cubin_and_full_job_independently_audited_on_mac": false,
+  "reported": {
+    "link_verified": true,
+    "containment_verified": true,
+    "cubin_bytes": 6918480,
+    "cubin_sha256": "0f140174582ee39efb72e289817b4257e412f4afccaafc23979f23716926978b",
+    "link_receipt_key": "38afced5df6b7adfb3eb8b3f00569905b5a3d860e0f604dec2b5cb17175972aa",
+    "api_seconds": 0.058635,
+    "receipt_seconds": 0.22585920011624694,
+    "inner_peak_bytes": 126640128,
+    "outer_peak_bytes": 232325120,
+    "inner_elapsed_seconds": 28.21746619977057,
+    "outer_elapsed_seconds": 72.833428400103,
+    "nvcuda_observations": 3,
+    "nvcuda_loaded_observations": 0
+  },
+  "calculation_verified": false,
+  "current_battle_equivalence_verified": false,
+  "environment_preservation_verified": false,
+  "full_goal_complete": false,
+  "next_step": "Match actual sealed source producer to execution battle using explicit manifest/native/source anchors; independently recertify current small suite before claiming current CUDA equivalence. Never relabel old source or regenerate saved artifacts.",
+  "scope": "Exact small source-host report imported; diagnostic link succeeds, not GPU execution or current battle validation."
+}

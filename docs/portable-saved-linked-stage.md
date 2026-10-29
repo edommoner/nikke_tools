@@ -1,5 +1,13 @@
 # 保存CUBIN戦闘の全stage制限
 
+## sealed producerとlink controllerを分ける（2026-10-29）
+
+従来のfull compiler ownerからの受付は保持する。新しい明示経路では、link controllerはsealed packet、計算の元producerは別の独立sealed world battle packetとして全payload/source/goldenを検証する。実行側・controller・元producerは全てsealed/非選択。元producerのgoldenは実行側の**全goldenと完全一致**し、entries/input/output指紋も必須。controllerの別goldenを元計算の証明に使わない。
+
+元producer package ID/manifest SHA、controller package ID/link receipt key、receipt内のobject→producer chainを別々に束縛する。従来のsource closure/normalized pair/CUDA元SHA/header/toolchainの照合、元PTX/object/link/Job/観測監査、live NVRTC拒否を維持する。正規化済み生成物が同じという理由だけで異なるsource closureやnative基準を受け付けない。UI/default admissionを開ける変更ではない。
+
+開発側125検査と固定3443f8bf…自身125検査、前後payload検査に成功。元controllerと元sourceを区別した正例、改変native指紋/partial/owner/manifest/receipt/object chainの拒否、実source manifestを読み取るCLIを検査した。実WindowsのCUBIN admission/計算は未確認。小記録`research/portable-sealed-linked-admission-v1.json`。今回この追加packetはMacに保持し、GPU実行は依頼していない。
+
 共通Windows wrapperの`gpu-linked`は、既存`nikke_gpu.py run --linked-package --linked-capture`へ接続する。CPU事前検査・元object/link監査からdriver/kernelまでを同じfresh Job、BelowNormal、2GiB、外側最大180秒・内側最大60秒で囲む。計算本体・効果定義・CUDA/Metal shader・数値契約・厳密normalizerは変更しない。
 
 ```sh
@@ -9,7 +17,7 @@ python scripts/run-gpu-packet.py --stage gpu-linked --backend cuda \
   --original-workspace /absolute/original --request /absolute/request.json
 ```
 
-sealed戦闘packageで実行し、requestのpackageはfull compiler package、captureは保存JIT-linkのproofを指す。元PTX/object/linkの全出所・byte・Jobと、現戦闘source closure／生成CUDA元SHA／headerを既存admissionで照合する。live NVRTCは拒否される。計算一致と環境保全／stage成功は分離し、wrapper専用claimに加えて既存戦闘のbackend claimも保持する。リンク・生成・GPUの自動fallbackや再実行はない。
+sealed戦闘packageで実行し、requestのpackageはfull compiler packageまたは上記のsealed controller、captureは保存JIT-linkのproofを指す。元PTX/object/linkの全出所・byte・Jobと、現戦闘source closure／生成CUDA元SHA／headerを既存admissionで照合する。live NVRTCは拒否される。計算一致と環境保全／stage成功は分離し、wrapper専用claimに加えて既存戦闘のbackend claimも保持する。リンク・生成・GPUの自動fallbackや再実行はない。
 
 今回の変更は固定package `7fb9a15f011b353d6c96a5f47e1c1603131ad1b847b4712909df61dedabcf8e2`でCPU制御39group／397件（Windows専用1skip、wrapper19件を含む）が成功。選択suiteのCPU10group／53件とnative68入力／全81入力も成功し、旧Metal81のgoldenとinput SHAを保持した。Windowsでこの新stageのJob smokeと実GPU実行はまだ行っていない。
 

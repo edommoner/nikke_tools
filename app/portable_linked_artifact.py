@@ -15,18 +15,29 @@ def digest(raw):return hashlib.sha256(raw).hexdigest()
 def key(identity):return digest(json.dumps(identity,sort_keys=True,separators=(',',':')).encode())
 
 
-def admission(current,linked,producer,compiler,receipt,anchors):
-    if current.get('purpose','sealed')!='sealed' or not full_family(linked.get('suite'),linked.get('golden',{}).get('baseline_suite')) or linked.get('purpose')!='compiler-diagnostic':raise ValueError('Saved CUBIN requires sealed battle and full compiler packages')
-    baseline=current['golden'];certificate=linked['golden']
+def admission(current,linked,producer,compiler,receipt,anchors,*,sealed_producer=None):
+    baseline=current['golden'];source_owner=linked;certificate=linked['golden']
+    if sealed_producer is None:
+        if current.get('purpose','sealed')!='sealed' or not full_family(linked.get('suite'),certificate.get('baseline_suite')) or linked.get('purpose')!='compiler-diagnostic':raise ValueError('Saved CUBIN requires sealed battle and full compiler packages')
+    else:
+        certificate=sealed_producer['golden'];source_owner=sealed_producer
+        if any(p.get('purpose','sealed')!='sealed' or p.get('selected_cases') for p in (current,linked,sealed_producer)) or certificate!=baseline or type(certificate.get('entries')) is not list or not certificate['entries'] or not certificate.get('input_sha256') or not certificate.get('output_sha256'):
+            raise ValueError('Saved CUBIN requires the exact independently sealed battle producer')
+        if anchors.get('producer_manifest_sha256')!=producer.get('producer_manifest_sha256') or not producer.get('producer_manifest_sha256') or anchors.get('package_id')!=linked['package_id'] or anchors.get('link_receipt_key')!=receipt['key']:
+            raise ValueError('Saved CUBIN sealed producer anchors mismatch')
+        linked_producer=receipt['identity'].get('origin',{}).get('object_receipt',{}).get('identity',{}).get('origin',{}).get('producer')
+        if linked_producer!=producer:raise ValueError('Saved CUBIN linked object producer mismatch')
     if not baseline['source_sha256'] or any(value!=baseline['source_sha256'] for value in (certificate['source_sha256'],producer['source_sha256'],compiler['source_sha256'])):raise ValueError('Saved CUBIN source closure mismatch')
     if any(value!=baseline['generated_normalized'] for value in (certificate['generated_normalized'],producer['generated_normalized'],compiler['generated_normalized'])):raise ValueError('Saved CUBIN generated baseline mismatch')
-    if producer['producer_package_id']!=linked['package_id'] or compiler['generated_sha256']['cuda']!=producer['cuda_sha256']:raise ValueError('Saved CUBIN full producer mismatch')
+    if producer['producer_package_id']!=source_owner['package_id'] or compiler['generated_sha256']['cuda']!=producer['cuda_sha256']:raise ValueError('Saved CUBIN full producer mismatch')
     upstream=compiler['compile_artifact'];identity=upstream['identity']
     if identity['artifact']!='ptx' or identity['source_sha256']!=producer['cuda_sha256'] or not identity['headers'] or not identity['compiler_files']:raise ValueError('Saved CUBIN compiler identity incomplete')
     if upstream['key']!=key(identity):raise ValueError('Saved CUBIN upstream compiler key mismatch')
     link_identity=receipt['identity']
     if link_identity['provider']!='diagnostic-nvjitlink' or link_identity['artifact']!='diagnostic-jit-linked-cubin' or receipt['key']!=key(link_identity):raise ValueError('Saved CUBIN linker identity mismatch')
     result=dict(schema=1,provider=PROVIDER,artifact='cubin',source_sha256=producer['cuda_sha256'],source_closure=baseline['source_sha256'],generated_normalized=baseline['generated_normalized'],headers=identity['headers'],upstream_compile=identity,link_identity=link_identity,anchors=anchors)
+    if sealed_producer is not None:
+        result['sealed_battle_producer']=dict(package_id=source_owner['package_id'],manifest_sha256=producer['producer_manifest_sha256'],input_sha256=certificate['input_sha256'],output_sha256=certificate['output_sha256'])
     return dict(identity=result,key=key(result),artifact_bytes=receipt['artifact']['bytes'],artifact_sha256=receipt['artifact']['sha256'],enabled=True,reused=True)
 
 

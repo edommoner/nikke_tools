@@ -1,5 +1,15 @@
 # 移動中の敵への実グループ効果
 
+## 現在のsourceを独立再認定（2026-10-29）
+
+現在は`moving-group-current`/`moving-group-current-cache-only`と`portable-moving-group-v2-expected.json`を使う。v1の登録pathは元Windows producerの監査のため保持し、古いソースの証拠を現ソースへ読み替えない。後続のwide layout追加を含むclosureは元v1から2ファイル変更/1追加だが、旧15入力のinput/output/全entries/strict normalized CUDA・Metal pairは完全一致した。
+
+固定75fd5e51…のM5 GPU1回が全15入力/native3/拒否12で成功。CPU事前比較69.944秒、GPU2.281339秒、新Swift consumerの冷pipeline60.518秒、generation必須hit/Slang0。旧consumerのcache照合拒否・現在キーの不存在はclaim前の記録として保持し、key/normalizerを緩めない。完了後の新archive file probeはhitだが、実warm GPU loadの計測とは分ける。
+
+同packet自身の別fresh GPU禁止8群監査121.880秒も成功、追加GPU/親native再利用0。raw/旧失敗/claimsを保持。元全定義・実武器/設定・3戦闘のモデルは前述の明示移動モデルのままで、実機規則や全キャラを新たに認定しない。現sealed packet fa991605…自身185検査・前後payload検査・PTX/2GiB/60秒planも成功した。小証跡`research/portable-moving-group-current-metal-v2.json`。
+
+現CUDA計算は未認定。旧76fbe7c3…からのPTX/object/JIT生成成功は旧sourceのまま保存する。次は現packetのexact PTX cache triageと、元producer/native指紋の実行受付。全nativeをWindowsの1つの短いstageへ押し込まず、必要な既存bounded groupを使う。以下は元v1の履歴。
+
 ユニとニヒリスターを元の育成・武器・効果定義で同じ5人編成へ配置する。元ミランダのslotをニヒリスターへ置換した新しい編成として入力identityを記録し、以前の69定義編成と同一とは扱わない。全71定義、seed、30秒を保持する。移動停止は元のburst duration carrier、2敵命中は元`multi_hit:2`→`버닝 샷 3`であり、新しい効果や命中時刻を作らない。
 
 ## 元consumerと負例

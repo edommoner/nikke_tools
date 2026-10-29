@@ -1,5 +1,13 @@
 # 保存device objectのメモリリンク候補
 
+## moving-groupの保存objectからの診断link成功（2026-10-29）
+
+固定b418ed14…の共通`jit-link-object`が、bb28af2e…所有の保存object（元sealed producer76fbe7c3…）を再生成せず処理した。API12.4・9呼出し全ret0/Destroy成功/log空。API0.058635秒、receipt0.225859秒、CUBIN6,918,480byte/SHA `0f140174582ee39efb72e289817b4257e412f4afccaafc23979f23716926978b`、ELF executable/sm86/portableEvents/48byte params。inner28.217秒/peak126,640,128byte、outer72.833秒/peak232,325,120byte。両Job2GiB/低優先度/gate/終了0/欠落0/timeout無し/観測cleanup error無しの報告。
+
+nvcuda観測3回とも未ロード、Slang/NVRTC/ptxas/driver API/GPU/battle/retry0。service未識別はpreservation/overall false、outer child exit2/wrapper1。元sourceと現sourceの計算同一性はfalseを保持。report固定4003d701…から小要約3310byte＋manifest613byteを元CRLF/SHAで取得し、元object/source ownerの識別へ照合した。CUBIN/全Job原本はWindows保存、Mac独立原本監査ではない。小証跡`research/portable-moving-group-jit-peer-v1.json`。
+
+次は実行側と**実producer**のsealed基準の完全一致を検査する[保存CUBIN受付](portable-saved-linked-stage.md)。controllerのsourceを実計算sourceに読み替えない。以下は旧診断の履歴。
+
 native Python子のCreateFileW／20byte write／flush／closeはWindowsで成立したが、nvlink.exeの出力作成は未解決。出力suffix比較は終了し、原失敗は保持する。次の候補は[NVIDIA nvJitLink12.4](https://docs.nvidia.com/cuda/archive/12.4.1/nvjitlink/index.html)のAddData→Complete→GetLinkedCubin。結果をメモリから取り出す標準APIであり、CLIのファイル出力に自動fallbackする経路は作らない。
 
 ## 現在できた部分

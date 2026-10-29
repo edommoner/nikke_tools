@@ -28,6 +28,59 @@ class LinkedArtifactTests(unittest.TestCase):
     def receipt(self):return saved.admission(self.current,self.linked,self.producer,self.compiler,self.link,self.anchors)
     def state(self):return dict(receipt=self.receipt(),artifact=str(self.image))
     def request(self):cli.write(self.capture/'linked-artifact-request.json',dict(package='full',capture='link'))
+
+    def sealed_source(self):
+        self.current['golden'].update(entries=[dict(name='original-battle')],input_sha256='8'*64,output_sha256='9'*64)
+        source=dict(package_id='source-owner',purpose='sealed',suite='moving-group-cache-only',golden=copy.deepcopy(self.current['golden']))
+        self.linked.update(package_id='link-controller',purpose='sealed',suite='moving-many-cache-only',golden=dict(source_sha256={'different-controller-source':'0'*64}))
+        self.producer.update(producer_package_id=source['package_id'],producer_manifest_sha256='a'*64)
+        self.link['identity']['origin']=dict(object_receipt=dict(identity=dict(origin=dict(producer=copy.deepcopy(self.producer)))))
+        self.link['key']=saved.key(self.link['identity'])
+        self.anchors.update(package_id=self.linked['package_id'],link_receipt_key=self.link['key'],producer_manifest_sha256=self.producer['producer_manifest_sha256'])
+        return source
+
+    def test_sealed_source_and_link_controller_have_distinct_bound_owners(self):
+        source=self.sealed_source()
+        receipt=saved.admission(self.current,self.linked,self.producer,self.compiler,self.link,self.anchors,sealed_producer=source)
+        self.assertEqual(receipt['identity']['sealed_battle_producer']['package_id'],'source-owner')
+        self.assertEqual(receipt['identity']['anchors']['package_id'],'link-controller')
+        self.assertEqual(saved.read_verified(receipt,self.source,self.image)[0],linker.cubin())
+        with self.assertRaisesRegex(ValueError,'full compiler'):self.receipt()
+
+    def test_sealed_source_admission_rejects_changed_native_baseline_and_provenance(self):
+        source=self.sealed_source()
+        changes=[(source,'purpose','development'),(self.linked,'purpose','compiler-diagnostic'),(source,'package_id','wrong-owner'),(source,'selected_cases',['partial']),
+                 (source['golden'],'input_sha256','0'*64),(source['golden'],'output_sha256','0'*64),(source['golden'],'entries',[]),
+                 (self.anchors,'producer_manifest_sha256','0'*64),(self.anchors,'package_id','wrong-controller'),(self.anchors,'link_receipt_key','0'*64),
+                 (self.link['identity']['origin']['object_receipt']['identity']['origin'],'producer',{})]
+        for obj,key,value in changes:
+            existed=key in obj;old=copy.deepcopy(obj.get(key));obj[key]=value
+            with self.subTest(key=key,value=value),self.assertRaises(ValueError):
+                saved.admission(self.current,self.linked,self.producer,self.compiler,self.link,self.anchors,sealed_producer=source)
+            if existed:obj[key]=old
+            else:obj.pop(key)
+
+    def test_sealed_controller_reads_and_binds_original_source_manifest(self):
+        source=self.sealed_source()
+        package=self.root/'package';package.mkdir();link_capture=self.root/'link';link_capture.mkdir();object_capture=self.root/'object';object_capture.mkdir();producer_capture=self.root/'producer';producer_capture.mkdir();source_package=self.root/'source-package';source_package.mkdir()
+        cli.write(package/'gpu-package.json',self.linked);cli.write(source_package/'gpu-package.json',source)
+        self.producer['producer_manifest_sha256']=saved.digest((source_package/'gpu-package.json').read_bytes())
+        self.link['identity']['origin']['object_receipt']['identity']['origin']['producer']=copy.deepcopy(self.producer)
+        self.link['key']=saved.key(self.link['identity'])
+        for p in (package/'jit-link-object-claimed-cuda.json',link_capture/'artifacts.json'):cli.write(p,{})
+        cli.write(link_capture/'object-request.json',dict(object_capture=str(object_capture)))
+        cli.write(object_capture/'object-request.json',dict(source_capture=str(producer_capture),source_package=str(source_package)))
+        cli.write(producer_capture/'compiler.json',self.compiler)
+        cli.write(link_capture/'jit-link.json',dict(origin=self.link['identity']['origin'],receipt=self.link))
+        from windows_validation_observer import compare_snapshots
+        before=dict(processes=[],service_status='unverified');cli.write(link_capture/'observation.json',dict(before=before,after=before,comparison=compare_snapshots(before,before)))
+        def verify(path,**kw):return self.linked if path==package else source
+        with patch.object(cli,'verify_package',side_effect=verify) as verify_call,patch.object(cli,'audit_jit_link_capture',return_value=dict(link_verified=True,containment_verified=True)):
+            state=cli.saved_linked_admission(self.current,dict(package=str(package),capture=str(link_capture)))
+            self.assertEqual(state['receipt']['identity']['sealed_battle_producer']['manifest_sha256'],self.producer['producer_manifest_sha256'])
+            self.assertEqual(verify_call.call_args_list[-1].args,(source_package,))
+            source['suite']='compiler-commands'
+            with self.assertRaisesRegex(ValueError,'sealed world battle'):cli.saved_linked_admission(self.current,dict(package=str(package),capture=str(link_capture)))
     def test_registered_full_world_family_uses_same_exact_source_admission(self):
         self.linked['suite']='compiler-full--max-ammo-scaling-retention'
         self.linked['golden']['baseline_suite']='max-ammo-scaling-retention'
