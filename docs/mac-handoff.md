@@ -1,3 +1,9 @@
+# 2026-10-30 Windows短いCPU Jobは完了、保全不成立で本準備前に停止
+
+cad4086f…のZIP/展開ID一致後、CPU printをfresh Jobで1回実行。4.956秒/exit0/10秒枠、BelowNormal/開始gate/終了空、peak7,835,648byte/2GiB、観測cleanup/inspection error無し。ただし無関係roleの既存process1件が前後で消失し原因unknown、service未識別。保全/overall false、smoke全体不合格で指示どおりprepare-admissionへ進まなかった。native/test/compile/driver/GPU/retry0、元69file不変、元GPU execution claim/future capture未作成、snapshot/certificate無し。Windowsはidleで未実行の準備を再送していない。
+
+固定8bcc71cb…の小summary2120byteとmanifest589byteを元bytes/SHAで取り込み、local固定packetのmanifest SHA、typed件数と全scopeを照合した。Macはpeer summary照合まででWindows原Job/観測の独立監査ではない。小記録`research/portable-admission-prepared-stage-peer-v1.json`。旧smoke/元claim/失敗は保持する。Mac側で認証されたhandoff/consumerと独立post監査への接続を続け、Windowsを自動再実行しない。全キャラ/目標は未完了。以下は履歴。
+
 # 2026-10-30 共通bounded CPU準備stageを接続、Windows実証前
 
 prepare-admissionを既存run-gpu-packetへ接続し、正確な7field request、owner外部ID、元CPU transactionとlink/current producer対を固定。元の180秒/2GiB/BelowNormal/gate/即時観測を使い、GPU execution claimを作らない。親は証明書SHA、binding、元staged/nativeとlinked receipt、snapshot記録を照合し、GPU/compiler/native/driver非0やexecution/calculation trueを拒否。service未知を保全成功にしない。
