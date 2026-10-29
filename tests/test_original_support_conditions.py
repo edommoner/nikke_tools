@@ -1,5 +1,5 @@
 """Original support branches need real damage, recovery and source receipts."""
-import copy,sys,unittest
+import copy,hashlib,json,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
@@ -36,6 +36,7 @@ class OriginalSupportConditions(unittest.TestCase):
             self.assertEqual(len(words),115680);self.assertEqual(case['duration'],30)
             original=case['original_run']['prepared'];self.assertEqual(case['effects'],[r['effect'] for r in original['effects']])
             self.assertFalse(case['declared_owner_counter']);self.assertTrue(meta['ordered_recipients'])
+            self.assertEqual(sorted(meta['binding_source_indices']),list(range(len(case['effects']))))
             if case.get('declared_manual_sequences'):
                 self.assertTrue(meta['coordinate_original_input']['declared_manual_sequences_applied_after_identity_check'])
                 self.assertFalse(meta['coordinate_original_input']['original_controls_preserved'])
@@ -77,5 +78,28 @@ class OriginalSupportConditions(unittest.TestCase):
         with self.assertRaises(AssertionError):verify(case,native)
         case=self.rows[0][2][0];native['support_conditions']['heals'][0]['row']=-1
         with self.assertRaises(AssertionError):verify(case,native)
+
+    def test_sealed_source_inputs_and_cache_only_profile_keep_one_shared_executor(self):
+        from portable_backend import source_hashes
+        config=cli.SUITES['original-support-conditions'];cached=cli.SUITES['original-support-conditions-cache-only']
+        self.assertFalse(config['development_only']);self.assertTrue(cached['require_paired_generation'])
+        self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
+        for key in ('script','source','golden','inputs','native','frozen_cases','input_words','output_words'):
+            self.assertEqual(config[key],cached[key])
+        _,data=cli.prepare_entries(self.adapter,dict(suite='original-support-conditions',purpose='sealed',selected_cases=[]))
+        raw=(ROOT/config['golden']).read_bytes();golden=json.loads(raw)
+        self.assertEqual(hashlib.sha256(data).hexdigest(),golden['input_sha256'])
+        self.assertEqual(golden['source_sha256'],source_hashes(config['source']))
+        prior=json.loads((ROOT/'research/portable-original-catalogue-support-v1-expected.json').read_text())
+        self.assertEqual(golden['source_sha256'],prior['source_sha256'])
+        self.assertEqual(golden['generated_normalized'],prior['generated_normalized'])
+        certificate=json.loads((ROOT/cli.SUITES[cli.compiler_alias('original-support-conditions')]['golden']).read_text())
+        self.assertEqual(certificate['baseline_golden_sha256'],hashlib.sha256(raw).hexdigest())
+        self.assertEqual(certificate['source_sha256'],golden['source_sha256'])
+        self.assertFalse(certificate['calculation_verified'])
+        receipt=json.loads((ROOT/'tests/fixtures/original-support-conditions-independent-v1.json').read_text())
+        self.assertEqual((receipt['input_count'],receipt['native_cases'],receipt['gpu_calls']),(4,4,0))
+        self.assertFalse(receipt['live_parent_receipt_present'])
+        for key in ('input_sha256','output_sha256'):self.assertEqual(receipt[key],golden[key])
 
 if __name__=='__main__':unittest.main()
