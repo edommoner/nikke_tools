@@ -1,0 +1,66 @@
+{
+  "schema": "original-probability-gpu-counts-v1",
+  "package_id": "50c273ee524def49300966f6b451c8a16cb08a4f5970a7695b35e717417e2817",
+  "gpu_calls": 0,
+  "input_sha256": "16bfcec0b44b15aed6eac2ce36b0fe5de52e1d90e80f2767129a34960c99742e",
+  "output_sha256": "938b854423ba0e75be8a56703bef07cefd990d2f592c31fcd0d22d935bd43fa9",
+  "cases": [
+    {
+      "name": "original-catalogue/probability/Emma-control/30s",
+      "definitions": 70,
+      "status": 0,
+      "row": 0,
+      "activations": 0,
+      "received_hits": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "original-catalogue/probability/Emma-self-chipped/30s",
+      "definitions": 70,
+      "status": 0,
+      "row": 0,
+      "activations": 6,
+      "received_hits": [
+        64,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "original-catalogue/probability/Emma-self-wounded/30s",
+      "definitions": 70,
+      "status": 0,
+      "row": 0,
+      "activations": 6,
+      "received_hits": [
+        65,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "original-catalogue/probability/Emma-ally-chipped/30s",
+      "definitions": 70,
+      "status": 0,
+      "row": 0,
+      "activations": 0,
+      "received_hits": [
+        0,
+        0,
+        64,
+        0,
+        0
+      ]
+    }
+  ],
+  "scope": "Saved raw activation and incoming counters only; full battle/RNG verification remains the immutable comparison and independent seal."
+}

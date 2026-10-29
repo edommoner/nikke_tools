@@ -1,5 +1,5 @@
 """Sampled original effects retain real probability and repeated input contracts."""
-import copy,sys,unittest
+import copy,hashlib,json,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
@@ -40,5 +40,29 @@ class OriginalProbabilityConditions(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError,'probability must remain'):verify(case,{})
         case['catalogue_profile']['scene_witness']['scenario']='unknown'
         with self.assertRaisesRegex(AssertionError,'Unknown original probability'):verify(case,{})
+
+    def test_sealed_sampled_counts_source_inputs_and_cache_only_profile(self):
+        from portable_backend import source_hashes
+        config=cli.SUITES['original-probability-conditions'];cached=cli.SUITES['original-probability-conditions-cache-only']
+        self.assertFalse(config['development_only']);self.assertTrue(cached['require_paired_generation'])
+        self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
+        for key in ('script','source','golden','frozen_cases','input_words','output_words'):self.assertEqual(config[key],cached[key])
+        _,inputs=cli.prepare_entries(self.adapter,dict(suite='original-probability-conditions',purpose='sealed',selected_cases=[]))
+        raw=(ROOT/config['golden']).read_bytes();golden=json.loads(raw)
+        self.assertEqual(hashlib.sha256(inputs).hexdigest(),golden['input_sha256'])
+        self.assertEqual(source_hashes(config['source']),golden['source_sha256'])
+        prior=json.loads((ROOT/'research/portable-original-threshold-conditions-v1-expected.json').read_text())
+        for key in ('source_sha256','generated_normalized'):self.assertEqual(golden[key],prior[key])
+        receipt=json.loads((ROOT/'tests/fixtures/original-probability-conditions-independent-v1.json').read_text())
+        counts=json.loads((ROOT/'tests/fixtures/original-probability-gpu-counts-v1.json').read_text())
+        self.assertEqual(receipt['native_cases'],4);self.assertEqual(receipt['gpu_calls'],0);self.assertFalse(receipt['live_parent_receipt_present'])
+        self.assertEqual(counts['package_id'],receipt['package_id'])
+        self.assertEqual([r['activations'] for r in counts['cases']],[0,6,6,0])
+        self.assertEqual([sum(r['received_hits']) for r in counts['cases']],[0,64,65,64])
+        for key in ('input_sha256','output_sha256'):
+            self.assertEqual(counts[key],golden[key]);self.assertEqual(receipt[key],golden[key])
+        certificate=json.loads((ROOT/cli.SUITES[cli.compiler_alias('original-probability-conditions')]['golden']).read_text())
+        self.assertEqual(certificate['baseline_golden_sha256'],hashlib.sha256(raw).hexdigest())
+        self.assertEqual(certificate['source_sha256'],golden['source_sha256']);self.assertFalse(certificate['calculation_verified'])
 
 if __name__=='__main__':unittest.main()
