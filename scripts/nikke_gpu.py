@@ -775,6 +775,7 @@ SMOKE_TESTS.append('test_portable_cache_fs_compression.py')
 SMOKE_TESTS.append('test_counter_field_decoder.py')
 SMOKE_TESTS.append('test_portable_test_golden_supplement.py')
 SMOKE_TESTS += ['test_portable_windows_observer.py','test_portable_snapshot_failure.py','test_portable_wire_layout.py','test_portable_metal_wire_refresh.py','test_resident_arc_retention.py']
+SMOKE_TESTS += ['test_portable_prepared_audit.py','test_portable_prepared_runner.py','test_portable_prepared_stage.py']
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
@@ -2266,12 +2267,22 @@ def validation_environment(capture):
     return env
 
 
-def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_only=False,module_only=False,assemble_only=False,partition_object_only=False,module_object_only=False,link_object_only=False,jit_link_object_only=False):
+def run_job(capture,backend,timeout,original_workspace=None,smoke=False,compile_only=False,module_only=False,assemble_only=False,partition_object_only=False,module_object_only=False,link_object_only=False,jit_link_object_only=False,*,prepared_claim_sha256=None):
     bounded=bounded_module()
     env=validation_environment(capture)
     env['PYTHONPATH']=os.pathsep.join([*site.getsitepackages(),env.get('PYTHONPATH','')])
     interpreter=getattr(sys,'_base_executable',sys.executable) if os.name=='nt' else sys.executable
     command=[interpreter,str(Path(__file__).resolve()),'_child','--capture',str(capture),'--backend',backend]
+    if prepared_claim_sha256 is not None:
+        from portable_admission_snapshot import hex_string
+        if (os.name!='nt' or backend!='cuda' or type(timeout) is not int or not 1<=timeout<=60 or not original_workspace
+            or not hex_string(prepared_claim_sha256,64) or any((smoke,compile_only,module_only,assemble_only,partition_object_only,module_object_only,link_object_only,jit_link_object_only))):
+            raise ValueError('Prepared launch requires one original-host bounded battle child')
+        interpreter=str(Path(interpreter).resolve())
+        command=[interpreter,str(Path(__file__).resolve()),'_prepared_child','--capture',str(capture),'--claim-sha256',prepared_claim_sha256]
+        env['CUDA_CACHE_DISABLE']='1'
+        private_cache=(capture/'prepared-private-cache').resolve();private_cache.mkdir(exist_ok=False);env['CUDA_CACHE_PATH']=str(private_cache)
+        write(capture/'command.json',dict(base_python=interpreter,argv=command,cwd=str(ROOT),shell=False,timeout_seconds=timeout))
     if smoke:command.append('--smoke')
     if compile_only:command.append('--compile-only')
     if assemble_only:command.append('--assemble-only')
@@ -3578,6 +3589,10 @@ def main(argv=None):
     for flag in ('preparation-package','preparation-stage','binding','out'):a.add_argument('--'+flag,type=Path,required=True)
     a.add_argument('--expected-sha256',required=True);a.add_argument('--certificate-sha256',required=True)
     a.add_argument('--header-materials',type=Path)
+    a=sub.add_parser('prepared-run',help='One authenticated snapshot CUDA launch; independent native groups remain mandatory')
+    for flag in ('preparation-package','preparation-stage','binding','out','original-workspace','slang-root','generation-cache'):a.add_argument('--'+flag,type=Path,required=True)
+    a.add_argument('--expected-sha256',required=True);a.add_argument('--certificate-sha256',required=True)
+    a.add_argument('--header-materials',type=Path);a.add_argument('--timeout',type=int,default=60)
     a=sub.add_parser('handoff-check',help='CPU-only anchored snapshot/input/CUBIN check; never grants execution')
     a.add_argument('--snapshot',type=Path,required=True);a.add_argument('--expected-sha256',required=True);a.add_argument('--certificate-sha256',required=True)
     a.add_argument('--binding',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -3795,6 +3810,12 @@ def main(argv=None):
         receipt=checked.receipt
         result={k:receipt[k] for k in ('schema','binding','consumer_package_id','authority_verified','execution_admitted','calculation_verified','gpu_calls','envelope')}
         result['report']=str(a.out.resolve()/'authority.json')
+    elif a.command=='prepared-run':
+        from portable_prepared_runner import run as prepared_run
+        result=prepared_run(SimpleNamespace(**globals()),a.preparation_package,a.preparation_stage,load(a.binding),
+            a.expected_sha256,a.certificate_sha256,a.out,original_workspace=a.original_workspace,
+            slang_root=a.slang_root,generation_cache=a.generation_cache,timeout=a.timeout,
+            header_materials=load(a.header_materials) if a.header_materials else None)
     elif a.command=='handoff-check':
         from portable_admission_handoff import Handoff
         from portable_staged_preflight import exclusive
@@ -4133,7 +4154,7 @@ def main(argv=None):
             current_cuda_environment_preservation_verified=resident['joined']['environment_preservation_verified'],
             current_cuda_original_raw_read_on_mac=resident['joined']['original_cuda_raw_read_on_mac'])
     print(json.dumps(display,ensure_ascii=False,indent=2))
-    if result.get('mode')=='staged-gpu-pending-native-audit':
+    if result.get('mode') in ('staged-gpu-pending-native-audit','snapshot-gpu-pending-native-audit'):
         if not result.get('gpu_execution_completed') or not result.get('readback_fingerprint_matches'):raise SystemExit(1)
         return
     if a.command in ('saved-battle-audit','aggregate-native-groups') and result.get('mode')!='saved-native-group-only':

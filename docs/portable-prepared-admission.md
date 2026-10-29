@@ -1,3 +1,17 @@
+## GPU親処理と実行コマンド（2026-10-30）
+
+sealed consumerでprepared-runを使う。必須引数は--preparation-package、--preparation-stage、--binding、--expected-sha256（元snapshot）、--certificate-sha256、--out、--original-workspace、--slang-root、--generation-cache。旧snapshotを追補した場合は--header-materials descriptor.jsonも渡す。--timeoutは整数1..60、backendはCUDA固定。outは元ソース/準備/transaction/予約capture/SDK/cacheの外側に新規作成する。binding/descriptor/authority/SDK資料/rawはローカル保持する。
+
+必須paired cacheのfile-only preflightから得たCUDA原文を凍結CUBINへ照合し、入力＋全readback＋image/生成物＋既存1GiB reserveを予算化する。元CPU準備の完全認証で得たin-process handleからのみ一度だけclaimを作る。native計算/コンパイルを再実行しない。子も元owner/controller/consumer/nonce/host/全source/snapshot/追補を検査する。
+
+既存run_jobの限定adapterが正確なbase Python command、private driver cache、2GiB/低優先度/gate/直後観測を保存する。停止時もclaim・失敗・部分rawを残す。別processが先に作ったcaptureへ収集記録を追記しない。
+
+Windows入口はrun-gpu-packet.py --stage gpu-prepared --backend cuda --timeout 180 --capture NEW_STAGE --original-workspace ORIGINAL --request LOCAL_JSON。requestの正確な必須キーはpreparation_package/preparation_stage/binding/snapshot_sha256/certificate_sha256/slang_root/generation_cache、追加可能なのはheader_materialsのみ。SHAは外部固定hex、パスは絶対。元GPU予約captureはbindingから受け、NEW_STAGE/proofには親の小さな出力を保存する。
+
+GPU起動・全readback fingerprint・実trace/Jobが成功しても、mode=snapshot-gpu-pending-native-audit/calculation_verified=false/independent_post_audit_required=true。service不明は保全/overall false。既存bounded audit-native-groupで全入力をfresh比較し、aggregate-native-groupsで欠落/重複なしの集計を終えるまで計算認定しない。旧106用join pinは不変。新protocolでは旧audit/statusの暗黙的な全比較へ戻らず、明示した分割監査を使う。
+
+固定8d72e81e…で72群749制御＋8群76 admission検査成功（MacはWindows cleanup1skip）。synthetic親→認証→claim→子→共有trace/Job parser、command/env/observer接続を確認した。実Windowsの新GPU経路は未実行。全キャラ/目標は未達。
+
 ## 2026-10-30 実ヘッダー追補の認証と共通の分割post監査
 
 Windowsの固定49d90bfb…でヘッダー追補14.607秒、追補付きauthority-check38.871秒が各1回で成功した。元snapshot/certificateは不変。追補は1ヘッダー/44,459byte、archive SHA e3572b1a4ff2e757c588a1af9b4b7f8e89d3aedba50677dab7ab27da3368022a。両stageは2GiB/BelowNormal/gate/終了空/既存process欠落0で、元79ファイル不変、GPU claim/future capture未作成。追加native/test/compile/driver/GPUは0。service未識別による環境保全とoverall falseは継続する。

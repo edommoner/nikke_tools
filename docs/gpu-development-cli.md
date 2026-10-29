@@ -1,3 +1,5 @@
+`prepared-run`とWindows共通stage `gpu-prepared`は、成功済みCPU準備のsnapshotから元の未消費試行を一度だけ実行する。必須paired生成cache/凍結CUDA・CUBIN/容量/所有認証をclaim前に確認し、既存60秒・2GiBのGPU子へ渡す。成功後も計算はpendingで、既存のbounded `audit-native-group`と`aggregate-native-groups`を完了するまで認定しない。source-host実証前。[引数・request schema・失敗時の扱い](portable-prepared-admission.md)。
+
 `entry-plan --inventory SAVED.json --out NEW.json`は保存した元profile監査から、重複を除いた影響数で未対応を並べる。現在12失敗profile/11系統、最大はベイ4段階。source再準備/compiler/GPU0で、scoped既存証拠とdefault未対応を分離する。[使い方と境界](portable-shared-entry-inventory.md)。
 
 共通移動/groupのWindows準備は59テストとpaired生成が成功したが、CUBIN/O1の1回はptxasメモリ確保失敗で終了した。失敗claimを保持し、GPU0・再試行0。[保存結果と次のメモリ計画](portable-moving-group-cuda.md)。

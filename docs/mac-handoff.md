@@ -1,3 +1,13 @@
+# 2026-10-30 GPU親処理と共通bounded stageを接続、実Windows前
+
+prepared-runは必須paired生成cache hit/全byte CUDA・CUBIN一致/保存容量/元CPU準備認証の後だけappend-only claimを消費する。GPU子60秒/Job2GiB/BelowNormal/gate/終了直後観測は既存run_jobを再利用。親はnative battleを実行せず、成功時もsnapshot-gpu-pending-native-audit/calculation falseとして既存saved-battle-audit/audit-native-group/aggregate-native-groupsへ渡す。停止・partial claimは保持しretry不可。元run/staged-runのadmissionは不変。
+
+共通run-gpu-packetへgpu-preparedを追加。外部snapshot/cert SHAと元準備/ローカルbinding/SDK/cache/必要時header descriptorを正確なrequestへ固定し、外側180秒/内側60秒/2GiBを維持。元129秒準備やcompileを繰り返さない。service未知の保全falseと部分計算falseを成功へ読み替えない。
+
+固定8d72e81e…自身で72群749制御＋8群76 admission検査成功（Windows専用cleanup1skip）。実認証/claim/子/共有trace/Job parserの合成確認、失敗注入、実launch adapterのcommand/env/observer接続、stage schemaを検査。Mac実CLI負例は出力/claim無しで拒否。全golden/501計算・保護CPU・pinned source record保持。CLIはrun_job/mainだけ変更。source ZIP13,526,711byte/SHA46834653…、小記録research/portable-prepared-parent-v1.json。
+
+次はWindowsの固定archive/短いCPU検査/Job smoke後、元未消費GPU試行を1回だけ確認する。full build/native再準備/compileは行わない。新実GPUとfresh native postは未実証で、全キャラ/特殊効果/目標も未達。以下は履歴。
+
 # 2026-10-30 ヘッダー追補付きWindows認証成功、共通CLIのpost比較を接続
 
 Windows固定49d90bfb…はヘッダー追補14.607秒/authority-check38.871秒が各1回成功。両方2GiB/BelowNormal/gate/終了空/欠落0、元79file不変、GPU claim/future capture無し、追加native/test/compiler/driver/GPU0。1header/44,459byteの追補とauthorityはWindowsローカルに保持する。公開328d4c28…の集計summary3089byte/manifest598byteだけMacで元bytes/SHA・元packet/base snapshot/certificateへ照合した。service未知による保全/overall falseは継続。原rawのMac独立監査ではない。拒否済みSDK path/nonce入り診断2fileは未公開。
