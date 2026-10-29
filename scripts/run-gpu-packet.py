@@ -82,6 +82,8 @@ def object_request(stage,value):
         if value is not None:raise ValueError('Only saved-object or saved-linked GPU stages accept a request')
         return None
     fields=REUSE_AUDIT_FIELDS if stage==REUSE_AUDIT_STAGE else PTX_PROBE_FIELDS if stage==PTX_PROBE_STAGE else CACHED_GPU_FIELDS if stage==CACHED_GPU_STAGE else STAGED_FIELDS[stage] if stage in STAGED_FIELDS else FAILURE_FIELDS if stage in (FAILURE_STAGE,ORIGIN_STAGE) else NATIVE_GROUP_FIELDS if stage==NATIVE_GROUP_STAGE else RECOVERY_FIELDS if stage==RECOVERY_STAGE else LINKED_FIELDS if stage==LINKED_STAGE else OBJECT_STAGES[stage]
+    if stage in (LINKED_STAGE,'staged-gpu-linked') and type(value) is dict and set(value)==set(fields)|{'producer_package','producer_capture'}:
+        fields=(*fields,'producer_package','producer_capture')
     if type(value) is not dict or set(value)!=set(fields):raise ValueError('Exact saved-object request fields required')
     result={}
     for key in fields:
@@ -266,6 +268,10 @@ def recipe(package_id,stage,backend,capture,original_workspace,timeout,request=N
     return plan
 
 def proof_arguments(plan):
+    producer_args=[]
+    if plan['stage'] in (LINKED_STAGE,'staged-gpu-linked') and 'producer_package' in plan.get('object_request',{}):
+        request=object_request(plan['stage'],plan['object_request'])
+        producer_args=['--linked-producer-package',request['producer_package'],'--linked-producer-capture',request['producer_capture']]
     if plan['stage']==REUSE_AUDIT_STAGE:
         request=object_request(REUSE_AUDIT_STAGE,plan['object_request'])
         return ['linked-reuse-audit',*[arg for key in REUSE_AUDIT_FIELDS for arg in ('--'+key.replace('_','-'),request[key])],
@@ -298,7 +304,7 @@ def proof_arguments(plan):
         if stage=='preflight-begin':return [stage,'--capture',plan['proof_capture'],'--backend',plan['backend'],'--gpu-capture',request['gpu_capture'],'--group-size',request['group_size']]
         if stage=='preflight-native-group':return [stage,'--capture',plan['proof_capture'],'--transaction',request['transaction'],'--group-index',request['group_index']]
         return ['staged-run','--capture',plan['proof_capture'],'--backend','cuda','--timeout',str(plan['inner_gpu_timeout_seconds']),
-            '--original-workspace',plan['original_workspace'],'--transaction',request['transaction'],'--linked-package',request['linked_package'],'--linked-capture',request['linked_capture']]
+            '--original-workspace',plan['original_workspace'],'--transaction',request['transaction'],'--linked-package',request['linked_package'],'--linked-capture',request['linked_capture'],*producer_args]
     if plan['stage']==RECOVERY_STAGE:
         request=object_request(RECOVERY_STAGE,plan['object_request'])
         return [RECOVERY_STAGE,'--source-package',request['source_package'],'--source-capture',request['source_capture'],'--out',plan['proof_capture'],'--output-sha256',request['output_sha256']]
@@ -327,6 +333,7 @@ def proof_arguments(plan):
     if plan['stage']==LINKED_STAGE:
         request=object_request(LINKED_STAGE,plan['object_request'])
         for key in LINKED_FIELDS:arguments.extend(['--'+key.replace('_','-'),request[key]])
+        arguments.extend(producer_args)
     if plan['stage']=='cpu':arguments.append('--cpu-only')
     elif plan['stage']=='smoke':arguments.append('--smoke')
     if plan['original_workspace']:arguments.extend(['--original-workspace',plan['original_workspace']])

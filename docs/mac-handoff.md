@@ -1,3 +1,9 @@
+# 2026-10-29 Windows実byte再利用監査成功、通常/段階実行へ出所対を接続
+
+Windows固定24870e4d…の読み取り監査が76.435秒/exit0で成功。旧・現PTX13,556,055byteの全bytesと完全compiler identity/keyが一致し、既存CUBIN6,918,480byteを保存したまま現producerへ束縛できた。原claim変更/compiler/Slang/NVRTC/ptxas/link/driver/GPU/native/retry0。2GiB/BelowNormal/gate/終了空/欠落0、サービス保全不明は環境保全/overall false。固定93d6556d…のsummary3330byte/manifest615byteを元CRLF/SHAで取得。Mac原本chain独立監査ではない。
+
+通常runとstaged-run、共通wrapperの両linked stageへ任意のcurrent producer対を接続し、起動前・子provider・実行後監査で同じ4-path requestを使う。freshテスト/native、transaction/claim/Job、live compiler排他は維持。開発126/固定835c8dbd…自身126検査と前後payload検査が成功。記録は`research/portable-exact-ptx-execution-pair-v1.json`。[CLI](portable-saved-linked-stage.md)。次は新固定packetでfresh staged preflight、成功後だけ短いCUDA1回とfresh独立比較。実CUDA計算/default/UI/全キャラ/目標は未完了。以下は履歴。
+
 # 2026-10-29 旧CUBINと現PTXの実byte再利用監査を接続
 
 新CLI `linked-reuse-audit`/共通bounded stage `audit-linked-reuse`を実装。旧object/JIT/PTXの全chainと、現sealed world producer/compile claim/Jobを別々に再監査し、実PTXの全byte・size/SHA/version/target・完全compiler identity/keyを要求する。現native全goldenとreceiver全goldenの一致も必須。旧source/link identityを保持し、追加receiptに旧/現producerを分ける。normalizedだけやhashだけの比較へ緩めず、GPU/compile/battle/fallback/原claim変更0。

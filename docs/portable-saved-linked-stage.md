@@ -8,7 +8,11 @@
 
 開発/固定24870e4d…自身209検査と前後payload検査が成功。bytes/metadata/compiler options/receipt/claim/native基準改変とforged scopeを拒否し、旧cold/current cache-hitの違いはidentityと混同しない。`research/portable-exact-ptx-linked-reuse-v1.json`。
 
-現時点ではread-only admission監査の接続まで。`run`/`staged-run`のCLIは従来の2-path linked requestを作るため、現producer pairをfresh transactionへ渡す接続と実CUDA計算は残る。監査成功だけを計算/全キャラ成功にしない。
+Windows固定24870e4d…のread-only監査が成功した。旧・現PTX13,556,055byteの全bytesと完全compiler identityが一致し、元CUBIN6,918,480byteは不変。外76.435秒・2GiB・低優先度・gate成功・残存/欠落0、compiler/GPU/native/retry0。サービス保全は未確認のため環境保全/overall false。Mac側は固定93d6556d…の小要約とmanifestをbytes/SHAで照合した範囲であり、原本chainのMac独立監査ではない。
+
+`run`/`staged-run`は、既存の`--linked-package`/`--linked-capture`に任意の対`--linked-producer-package`/`--linked-producer-capture`を追加できる。共通wrapperの`gpu-linked`/`staged-gpu-linked`も、従来のrequestに`producer_package`/`producer_capture`の2絶対pathを追加する。同時指定のみを許可し、captureの`linked-artifact-request.json`へ保持するため、起動前・子provider・実行後監査で同じ出所を再検査する。fresh CPU検査、staged transaction、Job/claim、live compilerとの排他は維持する。
+
+開発と固定835c8dbd…自身の関連126検査、固定payload前後検査が成功。CLI両経路のpair転送、不完全pairの拒否、captureへの保持、通常freshテスト/native実行、環境変数復元を検査した。実CUDA計算とfresh独立出力比較は未実行であり、監査/制御テスト成功を計算/全キャラ成功にしない。記録は`research/portable-exact-ptx-execution-pair-v1.json`。
 
 ## sealed producerとlink controllerを分ける（2026-10-29）
 

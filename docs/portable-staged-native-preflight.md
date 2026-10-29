@@ -26,7 +26,7 @@ Windowsは共通wrapperの以下のstageを使う。各requestの正確なキー
 |---|---|
 | `preflight-begin` | `gpu_capture`（未来のGPU stageのproof絶対path）、`group_size`（十進文字列） |
 | `preflight-native-group` | `transaction`（begin stageのproof絶対path）、`group_index`（十進文字列） |
-| `staged-gpu-linked` | `transaction`、`linked_package`、`linked_capture`（絶対path） |
+| `staged-gpu-linked` | `transaction`、`linked_package`、`linked_capture`（絶対path）。現PTX producerで旧CUBINを再利用するときのみ、対の`producer_package`/`producer_capture`（絶対path）を追加 |
 
 ```sh
 python scripts/run-gpu-packet.py --stage preflight-begin --backend cuda \

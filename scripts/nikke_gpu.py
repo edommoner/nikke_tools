@@ -2492,7 +2492,9 @@ def metal_device_preflight(capture):
     return receipt
 
 
-def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_only=False,*,linked_package=None,linked_capture=None,preflight_transaction=None):
+def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_only=False,*,linked_package=None,linked_capture=None,preflight_transaction=None,linked_producer_package=None,linked_producer_capture=None):
+    if bool(linked_producer_package)!=bool(linked_producer_capture) or linked_producer_package and not (linked_package and linked_capture):
+        raise ValueError('Current PTX producer requires both paths and saved linked artifact')
     parent_oracles=None
     m=verify_package(ROOT)
     entry_wire=None if smoke else registered_entry_wire_preflight(SUITES[m['suite']])
@@ -2523,6 +2525,8 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
         if entry_wire is not None:write(capture/'entry-wire-preflight.json',entry_wire)
         if linked:
             request=dict(package=str(Path(linked_package).resolve()),capture=str(Path(linked_capture).resolve()))
+            if linked_producer_package:
+                request.update(producer_package=str(Path(linked_producer_package).resolve()),producer_capture=str(Path(linked_producer_capture).resolve()))
             write(capture/'linked-artifact-request.json',request)
             with forbid_gpu():saved_linked_admission(m,request)
         # An extracted packet deliberately excludes compiler distributions.
@@ -3687,6 +3691,7 @@ def main(argv=None):
             a.add_argument('--cpu-only',action='store_true');a.add_argument('--timeout',type=int,default=60 if name=='staged-run' else 180);a.add_argument('--original-workspace',type=Path);a.add_argument('--slang-root',type=Path);a.add_argument('--generation-cache',type=Path);a.add_argument('--require-generation-cache',action='store_true')
             a.add_argument('--metal-pipeline-cache',type=Path);a.add_argument('--require-metal-pipeline-cache',action='store_true')
             a.add_argument('--require-cache',action='store_true');a.add_argument('--compile-cache',type=Path);a.add_argument('--cached-cuda-source',type=Path);a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--artifact-kind',choices=('cubin','ptx'));a.add_argument('--linked-package',type=Path);a.add_argument('--linked-capture',type=Path)
+            a.add_argument('--linked-producer-package',type=Path);a.add_argument('--linked-producer-capture',type=Path)
         else:
             a.add_argument('--compile-only',action='store_true');a.add_argument('--module-only',action='store_true');a.add_argument('--assemble-only',action='store_true');a.add_argument('--partition-object-only',action='store_true');a.add_argument('--module-object-only',action='store_true');a.add_argument('--link-object-only',action='store_true');a.add_argument('--jit-link-object-only',action='store_true')
     for name in ('status','audit','collect','export'):
@@ -3946,6 +3951,7 @@ def main(argv=None):
         if a.require_metal_pipeline_cache and not a.metal_pipeline_cache:raise ValueError('--require-metal-pipeline-cache requires --metal-pipeline-cache')
         if a.metal_pipeline_cache:os.environ['NIKKE_METAL_PIPELINE_CACHE']=str(a.metal_pipeline_cache.resolve())
         if a.require_metal_pipeline_cache:os.environ['NIKKE_METAL_PIPELINE_REQUIRED']='1'
+        if bool(a.linked_producer_package)!=bool(a.linked_producer_capture) or a.linked_producer_package and not (a.linked_package and a.linked_capture):raise ValueError('Current PTX producer requires both paths and saved linked artifact')
         if (a.linked_package or a.linked_capture) and (a.require_cache or a.compile_cache or a.ptxas_level is not None or a.artifact_kind):raise ValueError('Saved CUBIN and live NVRTC/cache settings are exclusive')
         if a.backend!='cuda' and (a.require_cache or a.compile_cache or a.ptxas_level is not None or a.artifact_kind):raise ValueError('CUDA compiler settings require CUDA backend')
         if a.slang_root:os.environ['NIKKE_SLANG_ROOT']=str(a.slang_root.resolve())
@@ -3957,6 +3963,7 @@ def main(argv=None):
         if a.ptxas_level is not None:os.environ['NIKKE_CUDA_PTXAS_OPT_LEVEL']=str(a.ptxas_level)
         if a.artifact_kind:os.environ['NIKKE_CUDA_ARTIFACT']=a.artifact_kind
         options=dict(linked_package=a.linked_package,linked_capture=a.linked_capture) if a.linked_package or a.linked_capture else {}
+        if a.linked_producer_package:options.update(linked_producer_package=a.linked_producer_package,linked_producer_capture=a.linked_producer_capture)
         if a.command=='staged-run':options['preflight_transaction']=a.transaction
         result=run_capture(a.capture,a.backend,a.timeout,a.original_workspace,a.smoke,a.cpu_only,**options)
     elif a.command in ('partitioned-origin-smoke','partitioned-origin-audit','partitioned-cuda-smoke','partitioned-cuda-prepare','partitioned-cuda-run','partitioned-saved-index','partitioned-index-compare','partitioned-witness-native-audit','partitioned-current-envelope-audit','partitioned-witness-join'):

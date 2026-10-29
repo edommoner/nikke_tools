@@ -139,6 +139,18 @@ class LinkedArtifactTests(unittest.TestCase):
         self.assertEqual(audit.call_args.args[1],paths['out'])
         result=json.loads(stdout.getvalue());self.assertFalse(result['calculation_verified']);self.assertEqual(result['receipt_key'],'d'*64)
 
+    def test_run_and_staged_cli_forward_current_producer_without_bypassing_transaction(self):
+        import contextlib,io
+        for command in ('run','staged-run'):
+            args=[command,'--backend','cuda','--capture',str(self.capture),'--linked-package',str(self.root/'link'),'--linked-capture',str(self.root/'proof'),'--linked-producer-package',str(self.root/'producer'),'--linked-producer-capture',str(self.root/'compile')]
+            if command=='staged-run':args+=['--transaction',str(self.root/'transaction')]
+            with patch.object(cli,'run_capture',return_value=dict(calculation_verified=True)) as run,contextlib.redirect_stdout(io.StringIO()):cli.main(args)
+            self.assertEqual(run.call_args.kwargs['linked_producer_package'],self.root/'producer')
+            self.assertEqual(run.call_args.kwargs['linked_producer_capture'],self.root/'compile')
+            if command=='staged-run':self.assertEqual(run.call_args.kwargs['preflight_transaction'],self.root/'transaction')
+            with patch.object(cli,'run_capture',side_effect=AssertionError('No execution')),self.assertRaisesRegex(ValueError,'both paths'):
+                cli.main(args[:args.index('--linked-producer-capture')]+(args[args.index('--transaction'):] if command=='staged-run' else []))
+
     def test_sealed_source_admission_rejects_changed_native_baseline_and_provenance(self):
         source=self.sealed_source()
         changes=[(source,'purpose','development'),(self.linked,'purpose','compiler-diagnostic'),(source,'package_id','wrong-owner'),(source,'selected_cases',['partial']),
@@ -262,6 +274,20 @@ class LinkedArtifactTests(unittest.TestCase):
             self.assertEqual(cli.run_capture(folder,'cuda',60,self.root,linked_package=self.root,linked_capture=self.root),result)
             run.assert_called_once();self.assertTrue((self.root/'gpu-claimed-cuda.json').exists());self.assertTrue((folder/'linked-artifact-request.json').exists())
         self.assertEqual(budget.call_count,2)
+        self.assertEqual(env,{'UNRELATED':'same'})
+
+    def test_current_producer_request_is_persisted_for_child_and_post_audit(self):
+        folder=self.root/'current-parent';env={'UNRELATED':'same'};result=dict(calculation_verified=False,passed=False)
+        fake_os=types.SimpleNamespace(**dict(vars(os),name='nt',environ=env))
+        producer=self.root/'current-source';compile_capture=self.root/'current-compile'
+        expected=dict(package=str(self.root),capture=str(self.root),producer_package=str(producer),producer_capture=str(compile_capture))
+        def job(*args,**kwargs):
+            self.assertEqual(cli.load(folder/'linked-artifact-request.json'),expected)
+            self.assertEqual(cli.os.environ['NIKKE_VALIDATION_JOB_MEMORY_MB'],'2048')
+            return dict(passed=True)
+        with patch.object(cli,'ROOT',self.root),patch.object(cli,'os',fake_os),patch.object(cli,'verify_package',return_value=self.current),patch.object(cli,'saved_linked_admission',return_value=self.state()) as admit,patch.object(cli,'cpu_preflight',return_value=dict(passed=True)) as native,patch.object(cli,'cpu_test_groups') as tests,patch.object(cli,'run_job',side_effect=job),patch.object(cli,'capture_storage_preflight'),patch.object(cli,'copy_generated'),patch.object(cli,'audit_capture',return_value=result):
+            cli.run_capture(folder,'cuda',60,self.root,linked_package=self.root,linked_capture=self.root,linked_producer_package=producer,linked_producer_capture=compile_capture)
+            admit.assert_called_once_with(self.current,expected);native.assert_called_once();tests.assert_called_once()
         self.assertEqual(env,{'UNRELATED':'same'})
 
     def test_controller_audits_link_package_claim_in_its_own_root_and_checks_observation(self):

@@ -6,6 +6,17 @@ from unittest.mock import patch,Mock
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 spec=importlib.util.spec_from_file_location('packet_stage',ROOT/'scripts/run-gpu-packet.py');stage=importlib.util.module_from_spec(spec);spec.loader.exec_module(stage)
 class PacketStageTests(unittest.TestCase):
+    def test_linked_execution_preserves_optional_current_producer_pair_and_rejects_partial_requests(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d).resolve()
+            for name,fields in ((stage.LINKED_STAGE,stage.LINKED_FIELDS),('staged-gpu-linked',stage.STAGED_FIELDS['staged-gpu-linked'])):
+                request={k:str(base/k) for k in (*fields,'producer_package','producer_capture')}
+                plan=stage.recipe('id',name,'cuda',base/'out',base/'original',180,request)
+                args=stage.proof_arguments(plan)
+                for key in ('producer_package','producer_capture'):
+                    self.assertEqual(args[args.index('--linked-'+key.replace('_','-'))+1],request[key])
+                for key in ('producer_package','producer_capture'):
+                    with self.assertRaises(ValueError):stage.recipe('id',name,'cuda',base/'out',base/'original',180,{k:v for k,v in request.items() if k!=key})
     def reuse_proof(self):
         from portable_linked_artifact import key
         identity=dict(schema=1,provider='saved-module-jit-cubin',artifact='cubin',exact_ptx_reuse=dict(original_producer=dict(producer_package_id='old'),current_producer=dict(producer_package_id='current'),ptx_sha256='a'*64,ptx_bytes=12,compiler_key='b'*64))
