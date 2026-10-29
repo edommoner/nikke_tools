@@ -736,6 +736,7 @@ for _baseline,_config in list(SUITES.items()):
         tests=SUITES['compiler-full']['tests']+['test_portable_compiler_certificate.py','test_portable_seal.py'])
 
 # Keep historical certificates immutable while selecting the current recertification.
+SUITES[compiler_alias('moving-visited')]['tests']=[*SUITES[compiler_alias('moving-visited')]['tests'],'test_quantity_visited_source_contract.py']
 for _recertified in ('coordinate-original-resources','coordinate-original-ammo','add-attack-battle','coordinate-resident-frames'):
     SUITES[compiler_alias(_recertified)]['golden']='research/portable-'+compiler_alias(_recertified)+'-v2-source-certificate.json'
 

@@ -38,6 +38,8 @@ class CompilerCertificateTests(unittest.TestCase):
         from portable_coordinate_accum_emission_source_contract import project_sources
         from portable_coordinate_group_source_contract import historical_source_hashes
         projected=historical_source_hashes(ROOT,config['source'],project_sources(ROOT))
+        from portable_quantity_visited_source_contract import historical_hashes
+        projected=historical_hashes(ROOT,projected)
         self.assertEqual(proof['source_sha256'],projected)
         if current!=proof['source_sha256']:
             # An exact historical inverse proves the prior source, never current
