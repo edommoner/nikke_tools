@@ -99,3 +99,11 @@ Windows wrapperは`--stage preflight-resume --backend cuda`、requestは`parent_
 共通wrapperの`preflight-resume` requestも、従来の`parent_transaction`/`group_size`に任意の十進文字列`reject_group_size`を追加できる。各stage180秒・2GiB・低優先度・開始gate、同じ未実行GPU所有claimを維持し、テスト群の再実行や古いCPU値のcacheは行わない。
 
 固定75ea07e1…自身と開発側の関連95検査、原ownerとの実lineage/全payload前後検査が成功。Windowsでの実resumeとtail完了は未確認。今回の修正・scope・旧失敗は`research/portable-continuation-tail-budget-v1.json`。
+
+## 判明した制御検査の修正だけを明示して取り込む
+
+`continuation-package --base-package ORIGINAL --repair-controls --out NEW.zip`は、既知の835c8dbd…ownerに対する固定の修正profileだけを適用する。ledger全体のSHA、既存3ファイルの元/現byte・SHA、追加2ファイルのbyte・SHA、元generation-extraction期待fixtureのSHAを要求する。任意のpathや新しい期待値の差替えには使えない。修正前3ファイルは`research/control-repair-originals/`へ全byte保存し、元ownerとも再照合する。
+
+修正対象は偽SDKのPOSIX/Windows名、抽出監査の3行append-audit inverse、履歴監査へ既に復元された完全な入力を渡す処理。生成/transport/計算関数やGPU/native入力・全goldenは変えない。元の失敗stageとclaimsは保持し、新schema`controller-continuation-reviewed-controls-v1`でlineageを検査する。省略時は従来のcapsule経路を維持する。
+
+固定1e54383d…自身で実元ownerとのlineage・保持した旧control bytes・関連97検査と、全69制御群719検査が成功。実Slang/GPU/nativeは0。Windowsの実smoke/resumeは別途必要であり、このCPU検査をCUDA計算成功へ昇格しない。小記録`research/portable-continuation-reviewed-controls-v1.json`。

@@ -3590,7 +3590,7 @@ def main(argv=None):
     a.add_argument('--group-size',type=int,required=True);a.add_argument('--timeout',type=int,default=180)
     a.add_argument('--receipt',type=Path,action='append',required=True)
     for name in ('package-root','out'):a.add_argument('--'+name,type=Path,required=True)
-    a=sub.add_parser('continuation-package');a.add_argument('--base-package',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('continuation-package');a.add_argument('--base-package',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--repair-controls',action='store_true',help='Exact reviewed cross-platform control fixture repairs only; preserve calculation and golden')
     a=sub.add_parser('gpu-recovery-package');a.add_argument('--base-package',type=Path,required=True);a.add_argument('--origin-auditor',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('partitioned-file-package');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('partitioned-cuda-package');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--metal-reference',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -3995,7 +3995,7 @@ def main(argv=None):
         with forbid_gpu():result=make(SimpleNamespace(**globals()),a.base_package,a.origin_auditor,a.out)
     elif a.command=='continuation-package':
         from portable_continuation_package import make
-        with forbid_gpu():result=make(SimpleNamespace(**globals()),a.base_package,a.out)
+        with forbid_gpu():result=make(SimpleNamespace(**globals()),a.base_package,a.out,**(dict(repair_controls=True) if a.repair_controls else {}))
     elif a.command=='preflight-resume':
         from portable_staged_continuation import resume
         with forbid_gpu():result=resume(SimpleNamespace(**globals()),a.capture,a.parent_transaction,a.group_size,a.backend,**(dict(reject_group_size=a.reject_group_size) if a.reject_group_size is not None else {}))

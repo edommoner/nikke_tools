@@ -1,3 +1,9 @@
+# 2026-10-29 明示修正profile付き継続カプセルを固定
+
+`continuation-package --repair-controls`は、SHA固定ledgerで既知owner835c8dbd…の制御監査/テスト3ファイルと追加2ファイルだけを受け付ける。元3ファイルの完全なコピーも新capsuleのresearch/control-repair-originalsへ保存し、lineageで旧ownerと照合する。任意のテスト変更を許可せず、元の全golden・GPU/native/transport/計算bytesは保持する。旧75ea…smoke失敗/元native timeout/claimsを削除・再送しない。
+
+固定1e54383d…自身で実base lineage・旧controlコピー・関連97検査、全69群719制御検査と終了後payload一致が成功。native/Slang/GPU0。3979元ファイルは全bytes不変、3修正controlの元bytesも別保存。配布ZIP/bytes/SHA/schemaは`research/portable-continuation-reviewed-controls-v1.json`。次はWindows新rootでCPU Job smoke→resume監査→成功時のみ単独native0。reject budgetは12、計画4群、上限180秒/2GiB/低優先度/gateを維持する。Windowsの実resume/CUDA計算は未確認。以下は履歴。
+
 # 2026-10-29 全制御gateで見つかった3件を修正、固定719検査成功
 
 Windows75ea07e1…のsmokeは偽SDKにslangc.exeが無く、cache gate前のValueErrorで失敗。24群283件中282成功/1error、57.317秒/timeoutなし、2GiB/gate/終了空/欠落0/観測cleanup errorなし。resume/native/GPU/compile0、旧失敗とclaimを保持。固定9578c258…の小summary/manifestを元bytes/SHAで回収した。再送はしていない。
