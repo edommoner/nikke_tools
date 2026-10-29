@@ -3566,6 +3566,9 @@ def main(argv=None):
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
     a=sub.add_parser('ptx-stats');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=8);a.add_argument('--callgraph',action='store_true')
     a=sub.add_parser('ptx-partition');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--function');a.add_argument('--audit',action='store_true')
+    a=sub.add_parser('handoff-check',help='CPU-only anchored snapshot/input/CUBIN check; never grants execution')
+    a.add_argument('--snapshot',type=Path,required=True);a.add_argument('--expected-sha256',required=True);a.add_argument('--certificate-sha256',required=True)
+    a.add_argument('--binding',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('prepare-admission',help='Full original CPU audits and immutable handoff; never claims or executes GPU')
     a.add_argument('--owner-package',type=Path,required=True);a.add_argument('--expected-owner-id',required=True)
     for flag in ('transaction','linked-package','linked-capture','producer-package','producer-capture','out'):a.add_argument('--'+flag,type=Path,required=True)
@@ -3768,6 +3771,14 @@ def main(argv=None):
         from portable_ptx_partition import saved_partition,audit_partition
         if a.audit and a.function:raise ValueError('Audit uses the stored focus; --function is creation only')
         result=audit_partition(a.cache_entry,a.phases,a.out) if a.audit else saved_partition(a.cache_entry,a.phases,a.out,a.function)
+    elif a.command=='handoff-check':
+        from portable_admission_handoff import Handoff
+        from portable_staged_preflight import exclusive
+        with forbid_gpu():
+            manifest=verify_package(ROOT)
+            if is_development(manifest) or compiler_only(manifest):raise ValueError('Frozen handoff requires a sealed battle consumer')
+            with Handoff(SimpleNamespace(**globals()),a.snapshot,a.expected_sha256,certificate_sha256=a.certificate_sha256,expected_binding=load(a.binding),expected_suite=manifest['suite'],expected_golden=manifest['golden'],consumer_package_id=manifest['package_id']) as handoff:result=handoff.summary()
+        exclusive(a.out,result)
     elif a.command=='prepare-admission':
         from portable_admission_prepare import prepare
         request=dict(package=str(a.linked_package.resolve()),capture=str(a.linked_capture.resolve()),producer_package=str(a.producer_package.resolve()),producer_capture=str(a.producer_capture.resolve()))

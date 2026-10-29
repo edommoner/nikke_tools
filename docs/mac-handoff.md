@@ -1,3 +1,11 @@
+# 2026-10-30 固定snapshotの検証読取と共有実行器用adapterを実装
+
+Handoff/handoff-checkは外部archive/certificate SHA、元owner/準備controller/実行consumerの別ID、read-set全digest、完全source record/全golden、元transaction/nonce/host/input全row、CUDA原文/headerと既存static CUBIN検査を接続した。元Windows pathは開かずsnapshot bytesだけで検査する。既存compile callbackへ1回だけCUBINを渡すadapterを追加し、異なる生成CUDA・compiler fallback・二度目/無供給・途中失敗の成功化を拒否する。共有execute本体/transport/生成/効果/数値は不変。
+
+固定dde31e0c…自身92関連検査（handoff16を含むadmission49＋既存stage43）と全69群719制御検査が成功（Windows限定1skip）、終了後payload/全golden/455計算record/元CLI main以外全AST保持。元ファイル削除後・Windows origin on Mac・共有execute＋CPU transport doubleを検査し、合成結果をGPU実証へ昇格しない。実CLI負例は既存storage-only archiveを証明書不足でexit1・成功出力無し・claim無しで拒否。小記録research/portable-admission-handoff-cli-v1.json、package/rawはlocalだけ。
+
+Windowsは前回smoke停止のままidleで、今回の依頼/GPU0。次は完全準備と外部SHAを元の未消費試行の認証claimへ束縛し、新GPU子protocolから同じ実行器を呼び、完全な独立post監査へ接続する。reader成功は実行許可ではなく、実source-host snapshot/60秒子予算/計算一致は未証明。全キャラ/目標は未完了。以下は履歴。
+
 # 2026-10-30 Windows短いCPU Jobは完了、保全不成立で本準備前に停止
 
 cad4086f…のZIP/展開ID一致後、CPU printをfresh Jobで1回実行。4.956秒/exit0/10秒枠、BelowNormal/開始gate/終了空、peak7,835,648byte/2GiB、観測cleanup/inspection error無し。ただし無関係roleの既存process1件が前後で消失し原因unknown、service未識別。保全/overall false、smoke全体不合格で指示どおりprepare-admissionへ進まなかった。native/test/compile/driver/GPU/retry0、元69file不変、元GPU execution claim/future capture未作成、snapshot/certificate無し。Windowsはidleで未実行の準備を再送していない。

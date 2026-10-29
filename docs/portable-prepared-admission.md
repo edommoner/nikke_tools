@@ -1,5 +1,15 @@
 # 監査済み入力の受け渡し：次の実装要件
 
+## 固定snapshotの読み取りと共通実行器用adapter
+
+`handoff-check --snapshot FILE --expected-sha256 EXTERNAL_ARCHIVE_SHA --certificate-sha256 EXTERNAL_CERT_SHA --binding SIX_FIELD_BINDING.json --out NEW.json`を共通CLIへ追加した。sealed consumer自身を完全検査し、全golden/suiteと外部bindingをreaderへ渡す。成功時もhandoff_bytes_verifiedのみでexecution_admitted/calculation_verifiedはfalse、GPU起動はしない。準備controllerと実行consumerのpackage IDは別字段として保持する。SHA/bindingは今後の認証された準備/実行claimから取得すべき値で、任意の自己申告を実行許可へ変換しない。
+
+`portable_admission_handoff.Handoff`はsnapshot全体の外部SHAと証明書blob、完全read-set digest、owner/controllerのpackage IDと全source record、元transaction/nonce/host/input、全golden、実入力framing/全row hash、CUDA原文と全header、既存static CUBIN parserを照合する。元Windows pathはopaque originとして扱い、Macで元ファイルやSDKを開かない。metadata/receipt viewはコピー。使用後のarchive再hashとsingle-use readerを保持する。
+
+saved_providerは既存portable_backend.executeが使うcompile_cuda_source callbackだけへ接続する。実際の生成CUDA全bytesとsnapshot原文が一致する場合にだけ保存CUBINを1回返し、live compilerを拒否する。入力、時計、効果、数値、Slang生成、CUDA/Metal transportは複製しない。callback失敗を捕捉しても成功へ変えず、二度目の要求・無供給・既存の異なるCUBINを拒否し、例外時にも元callbackへ戻す。reader/adapter自身は実行claimもGPU dispatchも作らない。実GPU子protocol・認証claim・完全独立post監査への接続は未完了。
+
+固定dde31e0c…自身でreader16を含む関連92検査、既存69群719制御検査（Windows限定1skip）が成功しpayload保持。元ファイル削除後の読み取り、Windows originのMac消費、改変/omission/nonce/typed scope/異なるCUDA/header/CUBIN、共有execute本体とCPU transport doubleによる入力/CUBIN配送を検査した。doubleの合成evidenceをGPU証明として出力しない。固定CLI実負例は、証明書を持たない既存storage-only archiveをexit1/成功出力無しで拒否。元CLI main以外全関数、全golden、455計算関連record保持。`research/portable-admission-handoff-cli-v1.json`。Windows追加依頼/GPU0。実Windowsの準備snapshotもまだ無く、この検査時間を60秒GPU子の実証にはしない。
+
 ## 共通Windows bounded stage
 
 `run-gpu-packet.py --stage prepare-admission --backend cuda --timeout 180 --original-workspace ORIGINAL --capture NEW_STAGE --request REQUEST.json`へ接続した。requestはowner_package/expected_owner_id/transaction/linked_package/linked_capture/producer_package/producer_captureの正確な7キー（ID以外はabsolute path）。既存のfresh Job、BelowNormal、2GiB、開始gate、終了直後の観測、stage専用の新規claimを使い、元のGPU execution claimを作らない。親の準備はmanifest headerのみで、完全な過去証拠の監査とsnapshot作成はgate後のCPU子・180秒以内に入る。
