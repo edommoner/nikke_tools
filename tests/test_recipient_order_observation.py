@@ -59,15 +59,17 @@ class RecipientOrderObservation(unittest.TestCase):
             with self.subTest(name=name),self.assertRaises(ValueError):project_sources(ROOT,{name:(ROOT/name).read_text()+'\n'})
 
     def test_updated_hash_cannot_hide_unreviewed_backend_or_entry(self):
-        for fault in ('backend','area','entry','anchor'):
+        for fault in ('backend','area','backend-hunks','area-hunks','entry','anchor'):
             with self.subTest(fault=fault),tempfile.TemporaryDirectory() as tmp:
                 root=Path(tmp);self.fixture_root(root)
                 ledger=root/'tests/fixtures/portable-recipient-order-observation-source-delta.json'
                 data=json.loads(ledger.read_text())
-                if fault in ('backend','area'):
-                    name='app/portable_backend.py' if fault=='backend' else 'gpu/world_coordinate_area_entry.slang'
+                if fault in ('backend','area','backend-hunks','area-hunks'):
+                    name='app/portable_backend.py' if fault.startswith('backend') else 'gpu/world_coordinate_area_entry.slang'
                     target=root/name;target.write_text(target.read_text()+'\n// unreviewed\n')
                     data['files'][name]['after_sha256']=hashlib.sha256(target.read_bytes()).hexdigest()
+                    if fault.endswith('-hunks'):
+                        data['files'][name]['hunks'].append(dict(before='',after='\n// unreviewed\n'))
                 elif fault=='entry':
                     target=root/observation.SOURCE;target.write_text(target.read_text()+'\n')
                     data['added_sources'][observation.SOURCE]=hashlib.sha256(target.read_bytes()).hexdigest()
