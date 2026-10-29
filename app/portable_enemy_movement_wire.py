@@ -15,17 +15,16 @@ SEGMENTS=FRAMES+CAPACITY*FRAME_WORDS;SEGMENT_WORDS=16;END=OUT+SEGMENTS+CAPACITY*
 SOURCE='gpu/world_enemy_movement_entry.slang'
 
 def bits(x):return list(struct.unpack('<II',struct.pack('<d',float(x))))
-def shader_schema():
+def shader_schema(*,base=BASE,out=OUT,output=OUTPUT):
     return '// Generated from portable_enemy_movement_wire; literal motion only.\n'+''.join(
-        'static const uint EMB_'+k+'='+str(v)+'U;\n' for k,v in dict(MAGIC=MAGIC,BASE=BASE,HEADER=HEADER,MAP=MAP,ROWS=ROWS,ROW_WORDS=ROW_WORDS,
-        WORDS=WORDS,INPUT=INPUT,OUT=OUT,STATE=STATE,STATE_WORDS=STATE_WORDS,FRAMES=FRAMES,CAPACITY=CAPACITY,FRAME_WORDS=FRAME_WORDS,
-        SEGMENTS=SEGMENTS,SEGMENT_WORDS=SEGMENT_WORDS,END=END,OUTPUT=OUTPUT).items())
+        'static const uint EMB_'+k+'='+str(v)+'U;\n' for k,v in dict(MAGIC=MAGIC,BASE=base,HEADER=HEADER,MAP=MAP,ROWS=ROWS,ROW_WORDS=ROW_WORDS,
+        WORDS=WORDS,INPUT=base+WORDS,OUT=out,STATE=STATE,STATE_WORDS=STATE_WORDS,FRAMES=FRAMES,CAPACITY=CAPACITY,FRAME_WORDS=FRAME_WORDS,
+        SEGMENTS=SEGMENTS,SEGMENT_WORDS=SEGMENT_WORDS,END=out+SEGMENTS+CAPACITY*SEGMENT_WORDS,OUTPUT=output).items())
 def check_schema(root=None):
     if (Path(root or Path(__file__).resolve().parents[1])/'gpu/enemy_movement_layout.slang').read_text()!=shader_schema():raise ValueError('Movement wire schema drift')
 
-def compile_battle(prepared,geometry,spec):
-    from portable_logical_geometry_wire import compile_logical_geometry
-    rules=normalize(spec);before=copy.deepcopy(prepared);lowered=copy.deepcopy(prepared);tags={}
+def lower_effects(prepared):
+    lowered=copy.deepcopy(prepared);tags={}
     for i,row in enumerate(prepared['effects']):
         e=row['effect'];stat=e.get('stat')
         if stat not in ('enemy_movement_disable','force_move'):continue
@@ -37,8 +36,10 @@ def compile_battle(prepared,geometry,spec):
         tags[i]=1 if stat=='enemy_movement_disable' else 2
         lowered['effects'][i]['effect']['stat']=''
     if not tags:raise ValueError('Original movement definitions required')
-    prefix,meta,bindings,scene=compile_logical_geometry(lowered,geometry)
-    if prepared!=before or len(prefix)!=BASE:raise ValueError('Original input changed during movement lowering')
+    return lowered,tags
+
+def movement_bank(prefix,meta,bindings,geometry,spec,tags,*,logical_base=109968):
+    rules=normalize(spec)
     slots={b.label:i for i,b in enumerate(bindings)};colliders={r['label']:r for r in geometry}
     if set(colliders)!={r['label'] for r in rules['actors']}:raise ValueError('Exact logical collider/motion ownership required')
     words=[0]*WORDS;words[:6]=[MAGIC,1,len(rules['actors']),len(meta['binding_source_indices']),len(bindings),int(rules['precedence']=='force-before-disable')]
@@ -52,8 +53,16 @@ def compile_battle(prepared,geometry,spec):
         slot=slots.get(rule['label'])
         if slot is None or slot==0 or int(bindings[slot].kind)!=5:raise ValueError('Motion requires a configured ADD collider')
         at=ROWS+i*ROW_WORDS;words[at]=slot;words[at+4:at+12]=sum((bits(x) for x in [*rule['velocity'],*rule['force_center']]),[])
-        if prefix[109968+32+i*32]!=slot:raise ValueError('Movement order must match logical collider order')
+        if prefix[logical_base+32+i*32]!=slot:raise ValueError('Movement order must match logical collider order')
     meta['enemy_movement']=dict(model='declared-add-motion-v1',domains=domains,rules=rules,original_effects_preserved=True,gpu_admitted=False)
+    return words
+
+def compile_battle(prepared,geometry,spec):
+    from portable_logical_geometry_wire import compile_logical_geometry
+    before=copy.deepcopy(prepared);lowered,tags=lower_effects(prepared)
+    prefix,meta,bindings,scene=compile_logical_geometry(lowered,geometry)
+    if prepared!=before or len(prefix)!=BASE:raise ValueError('Original input changed during movement lowering')
+    words=movement_bank(prefix,meta,bindings,geometry,spec,tags)
     return prefix+words,meta,bindings,scene
 
 def output_regions():

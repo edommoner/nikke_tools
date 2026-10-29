@@ -73,12 +73,21 @@ class EnemyMovement:
                 if label in (ab.target_chars or ()) and manager.enemy_field_visible(ab,label)]
 
     def frame(self,manager,boss,t,enemy):
+        self.validate_frame(manager,boss,t)
+        events=boss.begin_frame(t,enemy)
+        self.advance(manager,boss,t)
+        return events
+
+    def validate_frame(self,manager,boss,t):
         if self.geometry is None or self.geometry.boss is not boss:raise ValueError('Movement needs the existing logical geometry world')
         if self.boss is not None and (self.boss is not boss or self.manager is not manager):raise ValueError('One native clock/manager per movement scope')
         if type(t) not in (int,float) or not math.isfinite(t) or self.last_time is not None and t<self.last_time:raise ValueError('Monotonic native frame time required')
+
+    def advance(self,manager,boss,t):
+        """Consume the already advanced owning clock, before geometry capture."""
+        self.validate_frame(manager,boss,t)
         self.boss=boss;self.manager=manager
-        events=boss.begin_frame(t,enemy)
-        if self.last_time==t:return events
+        if self.last_time==t:return
         registry=registry_for(manager,boss);shapes={r['label']:r['shape'] for r in self.geometry.spec}
         for rule in self.spec['actors']:
             label=rule['label'];binding=self.geometry.bindings[label];run=boss._runs[binding.run]
@@ -103,11 +112,10 @@ class EnemyMovement:
             if len(self.data['frames'])>=262144:raise ValueError('Movement observation capacity exceeded; no history truncation')
             self.data['frames'].append(dict(time=t,label=label,actor=[5,view.handle.identity,view.handle.generation],alive=view.alive,position=list(position),segments=segments))
         self.last_time=t
-        return events
 
 
 @contextmanager
-def enemy_movement(spec):
+def enemy_movement_runtime(spec):
     from calculator import timeline
     from runner import sim
     from coordinate_logical_actor_geometry import LogicalGeometry
@@ -117,4 +125,9 @@ def enemy_movement(spec):
         initialize(geometry,literal);runtime.attach(geometry)
     rewritten=rewrite_reference(original,MovementFrame(),dict(frame=2),compose=True)
     with patch.object(LogicalGeometry,'__init__',attach),patch.dict(original.__globals__,{'_nikke_enemy_movement_frame':runtime.frame}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):
-        yield runtime.data
+        yield runtime
+
+
+@contextmanager
+def enemy_movement(spec):
+    with enemy_movement_runtime(spec) as runtime:yield runtime.data

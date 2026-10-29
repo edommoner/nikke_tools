@@ -30,6 +30,9 @@ void ctwSnapshot(inout Runtime s,uint who,Weapon w,uint64_t coefficient,uint64_t
         uint state=dtAt(DF_BASE(s.resourceOutput),slot),node=commands[p+2328+slot*12],live=wsState(clock,node);
         results[ctwGenerations(s)+slot]=results[state+2];
         if(results[state+3]==0)continue;
+#ifdef PORTABLE_MOVING_TYPED
+        if(!movingTypedVisible(s,slot))continue;
+#endif
         if(results[live]==0||results[live+1]!=results[state+2]){s.error=64;return;}
         uint j=n;while(j>0&&typedGeometryBefore(s,slot,results[h+640+j-1])){results[h+640+j]=results[h+640+j-1];j--;}
         results[h+640+j]=slot;n++;
@@ -40,13 +43,30 @@ bool ctwContains(inout Runtime s,uint slot,uint64_t x,uint64_t y,uint64_t grow)
 {
     uint row=DF_EXTRA(s)+16+slot*18;uint64_t co=ONE,si=0;
     if(commands[row]==2)coordinateSinCosDegrees(cNumber(row+12),si,co);
+#ifdef PORTABLE_MOVING_TYPED
+    uint64_t d=coordinateShapeDistance(commands[row],movingTypedCenter(s,slot,0),movingTypedCenter(s,slot,1),cNumber(row+6),cNumber(row+8),cNumber(row+10),co,si,x,y);
+#else
     uint64_t d=coordinateShapeDistance(commands[row],cNumber(row+2),cNumber(row+4),cNumber(row+6),cNumber(row+8),cNumber(row+10),co,si,x,y);
+#endif
     if(!f64Finite(d)){s.error=16;return false;}return coordinateShapeContains(d,grow);
 }
 bool ctwBeforeCanonical(inout Runtime s,uint typed,uint canonical)
 {
     if(canonical==0)return true;
     uint p=DF_EXTRA(s),a=p+16+typed*18,node=commands[p+2328+typed*12];
+#ifdef PORTABLE_MOVING_TYPED
+    uint logical=lagActive(s)?lagShape(s,canonical):0;
+    if(logical!=0)
+    {
+        uint64_t az=cNumber(a+14),bz=cNumber(logical+20);if(!f64Equal(az,bz))return f64Less(bz,az);
+        WorldSchedule clock=frameSchedule(s);uint64_t at=wsRead(wsState(clock,node)+2),bt=actorNumber(actorPoolAt(s,canonical)+8);
+        if(!f64Equal(at,bt))return f64Less(bt,at);
+        uint binding=actorBinding(s,canonical);
+        if(node!=commands[binding+3])return node>commands[binding+3];
+        // Both authored typed and logical shapes use the same stable subdomain.
+        return typed>commands[binding+4];
+    }
+#endif
     CoordinateScene scene=coordinatePoolView(s);uint b=cRow(scene,commands[coordinateAreaRow(s,canonical)]-1);
     uint64_t az=cNumber(a+14),bz=cNumber(b+18);if(!f64Equal(az,bz))return f64Less(bz,az);
     WorldSchedule clock=frameSchedule(s);uint64_t at=wsRead(wsState(clock,node)+2),bt=actorNumber(cState(scene,commands[coordinateAreaRow(s,canonical)]-1)+scene.poolStart);
@@ -118,7 +138,11 @@ void ctwLand(inout Runtime s,uint who,uint hit,uint slot,bool extra,uint64_t whe
     if(count>=CTW_KEEP)for(uint i=0;i<CTW_WORDS;i++)results[at+i]=0;
     ctwNotify(s,who,slot,generation,identity,0,attack,amount,when,r);
 }
-uint64_t ctwDeliverTargets(inout Runtime s,uint who,uint hit,bool reach,uint64_t when)
+uint64_t ctwDeliverTargets(inout Runtime s,uint who,uint hit,bool reach,uint64_t when
+#ifdef PORTABLE_MOVING_TYPED
+    ,bool grouped
+#endif
+)
 {
     uint h=csMeta(s),at=csRow(s,hit),scratch=ctwPellet(s,hit),normal=0,typed=0,n=results[h+3],tn=results[h+64];
     // Merge the two frozen orders. BODY precedes every reach extra exactly as
@@ -135,6 +159,12 @@ uint64_t ctwDeliverTargets(inout Runtime s,uint who,uint hit,bool reach,uint64_t
         {
             uint e=h+CS_FRAME+normal*4;normal++;uint targetKind=results[e+1];
             if(!(reach?(results[at+8+canonical/32]&(1U<<(canonical%32)))!=0:canonical==results[at]))continue;
+#ifdef PORTABLE_MOVING_TYPED
+            if(lagActive(s)&&targetKind==5)
+            {
+                coordinateGroupDirectPacket(s,who,canonical,results[e+3],lagAmount(s,hit,5),when,reach,grouped);continue;
+            }
+#endif
             uint slot=canonical,gen=coordinateLandingGeneration(s,slot,results[e+3]);uint64_t amount=actorNumber(at+(targetKind==1?4:6));bool extra=reach;uint64_t legacy=0;
 #define CF_PACKET_EXTRA extra
 #include "coordinate_physical_target_delivery.slang"

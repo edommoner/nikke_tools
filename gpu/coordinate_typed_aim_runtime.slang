@@ -23,11 +23,18 @@ void typedAimSnapshot(inout Runtime s,uint64_t when)
     if(results[h]!=CTA_MAGIC||results[h+1]!=1){s.error=64;return;}
     if(results[h+2]!=0&&f64Equal(actorNumber(h+4),when))return;
     for(uint i=0;i<512;i++)results[h+32+i]=0;
+#ifdef PORTABLE_MOVING_TYPED
+    for(uint i=0;i<TMR_AIM_WORDS;i++)results[s.resourceOutput+TMR_AIM_BASE+i]=0;
+#endif
     WorldSchedule clock=frameSchedule(s);
     for(uint slot=0;slot<commands[p+2];slot++)
     {
         uint state=dtAt(DF_BASE(s.resourceOutput),slot),node=commands[p+2328+slot*12],live=wsState(clock,node);
         if(results[state+3]==0)continue;
+#ifdef PORTABLE_MOVING_TYPED
+        if(!movingTypedVisible(s,slot))continue;
+        movingTypedAimStore(s,slot);
+#endif
         if(results[live]==0||results[live+1]!=results[state+2]){s.error=64;return;}
         uint j=n;
         while(j>0&&typedGeometryBefore(s,slot,results[h+32+(j-1)*4]-129))
@@ -45,6 +52,12 @@ bool typedAimCenter(inout Runtime s,uint slot,out uint64_t ax,out uint64_t ay)
 {
     ax=0;ay=0;if(!typedAimValidSlot(s,slot))return false;
     uint h=ctaHead(s);for(uint i=0;i<results[h+6];i++)if(results[h+32+i*4]==slot)
-    {uint row=DF_EXTRA(s)+16+(slot-129)*18;ax=cNumber(row+2);ay=cNumber(row+4);return true;}
+    {
+#ifdef PORTABLE_MOVING_TYPED
+        uint at=s.resourceOutput+TMR_AIM_BASE+(slot-129)*4;ax=actorNumber(at);ay=actorNumber(at+2);return true;
+#else
+        uint row=DF_EXTRA(s)+16+(slot-129)*18;ax=cNumber(row+2);ay=cNumber(row+4);return true;
+#endif
+    }
     return false;
 }

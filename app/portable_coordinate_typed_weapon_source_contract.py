@@ -10,7 +10,9 @@ def checked(current,row):
 def project_sources(root,sources=None):
     from portable_coordinate_typed_aim_source_contract import project_sources as aims
     root=Path(root);out=aims(root,sources);data=ledger(root)
-    for name,digest in data['added_sources'].items():assert hashlib.sha256((root/name).read_bytes()).hexdigest()==digest,'Unreviewed typed physical dependency: '+name
+    for name,digest in data['added_sources'].items():
+        current=out[name].encode() if name in out else (root/name).read_bytes()
+        assert hashlib.sha256(current).hexdigest()==digest,'Unreviewed typed physical dependency: '+name
     for name,row in data['sources'].items():
         if name.endswith('.slang'):out[name]=checked(out.get(name,(root/name).read_text()),row)
     return out

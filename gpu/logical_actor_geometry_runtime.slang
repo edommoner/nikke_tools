@@ -1,6 +1,13 @@
 // Opt-in normal-shot descriptors; all presence/health remains in ActorPool.
 #include "logical_actor_geometry_layout.slang"
-uint lagInput(inout Runtime s){return s.inputBase+LAG_BASE;}
+uint lagInput(inout Runtime s)
+{
+#ifdef PORTABLE_MOVING_TYPED
+    return s.inputBase+TMR_LAG_BASE;
+#else
+    return s.inputBase+LAG_BASE;
+#endif
+}
 uint lagShape(inout Runtime s,uint slot)
 {
     uint index=commands[lagInput(s)+LAG_MAP_BASE+slot];

@@ -76,11 +76,18 @@ uint typedGeometryPick(inout Runtime s)
     {
         uint state=dtAt(DF_BASE(s.resourceOutput),slot),node=commands[p+2328+slot*12],live=wsState(w,node);
         if(results[state+3]==0||results[state]!=kind)continue;
+#ifdef PORTABLE_MOVING_TYPED
+        if(!movingTypedVisible(s,slot))continue;
+#endif
         if(kind==3&&(results[state+10]!=0||results[state+11]!=0||results[state+12]!=1))continue;
         if(results[live]==0||results[live+1]!=results[state+2]){s.error=64;return 0xffffffffU;}
         uint row=p+16+slot*18;uint64_t co=ONE,si=0;
         if(commands[row]==2)coordinateSinCosDegrees(cNumber(row+12),si,co);
+#ifdef PORTABLE_MOVING_TYPED
+        uint64_t distance=coordinateShapeDistance(commands[row],movingTypedCenter(s,slot,0),movingTypedCenter(s,slot,1),cNumber(row+6),cNumber(row+8),cNumber(row+10),co,si,x,y);
+#else
         uint64_t distance=coordinateShapeDistance(commands[row],cNumber(row+2),cNumber(row+4),cNumber(row+6),cNumber(row+8),cNumber(row+10),co,si,x,y);
+#endif
         if(!f64Finite(distance)){s.error=16;return 0xffffffffU;}
         if(coordinateShapeContains(distance,grow)&&(best==0xffffffffU||typedGeometryBefore(s,slot,best)))best=slot;
     }

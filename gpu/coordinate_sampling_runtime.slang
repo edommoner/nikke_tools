@@ -270,7 +270,11 @@ uint64_t deliverSampledCoordinateShot(inout Runtime s,uint who,uint64_t legacy)
 #endif
         if(reach||front==0)coordinateGroupBodyPacket(s,who,actorNumber(at+2),when,false,grouped);
 #ifdef PORTABLE_COORDINATE_TYPED_WEAPONS
+#ifdef PORTABLE_MOVING_TYPED
+        if(coordinateTypedWeapons(s)){ctwDeliverTargets(s,who,hit,reach,when,grouped);continue;}
+#else
         if(coordinateTypedWeapons(s)){ctwDeliverTargets(s,who,hit,reach,when);continue;}
+#endif
 #endif
         for(uint i=0;i<n&&s.error==0;i++)
         {

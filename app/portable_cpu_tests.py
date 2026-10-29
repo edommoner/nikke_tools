@@ -43,6 +43,8 @@ AUDIT_FILES['test_portable_readiness_semantics.py']=(
     'tests/fixtures/enemy-movement-math-metal-v1.json',
     'tests/fixtures/enemy-movement-math-cuda-v1.json',
     'tests/fixtures/enemy-movement-battle-metal-v1.json',
+    'tests/fixtures/moving-typed-metal-v1.json',
+    'research/portable-moving-typed-v1-expected.json',
     'research/portable-enemy-movement-battle-v1-expected.json',
     'tests/fixtures/resident-current-cuda-native-join-v1.json',
     'tests/fixtures/resident-append-full106-metal-v1.json',
@@ -109,3 +111,4 @@ def complete(rows,patterns):
     return bool([r.get('pattern') for r in rows]==list(patterns) and all(type(r.get('exit_code')) is int and r['exit_code']==0 and type(r.get('tests')) is int and r['tests']>0 and r.get('failures')==0 and r.get('errors')==0 for r in rows))
 
 AUDIT_FILES['test_enemy_movement_cuda_words.py']=('tests/fixtures/enemy-movement-math-cuda-v1.json','research/portable-enemy-movement-math-v1-expected.json')
+AUDIT_FILES['test_moving_typed_wire.py']=('tests/fixtures/portable-moving-typed-source-delta.json','tests/fixtures/portable-enemy-movement-source-delta.json','tests/fixtures/portable-coordinate-typed-weapon-source-delta.json','tests/fixtures/moving-typed-metal-v1.json','research/portable-moving-typed-v1-expected.json')

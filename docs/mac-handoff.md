@@ -1,3 +1,9 @@
+# 2026-10-29 移動するADDとtyped物理対象を共通実行器でMetal検証
+
+最新はsealed `moving-typed`。元ユニ69/ヤン71/混合69定義・30秒を維持した6戦闘＋拒否12入力をM5 GPU1回（3.094098秒）とfresh独立sealで全比較。既存clock/actor世代/carrierと1つのcanonical pelletを共有し、宣言した所有者へのshape並進・死亡・再出現を処理する。全移動frame/区間、既存battle/typed/skill/group比較、最後のaim中心を検査する。実group consumerが無い元編成の空履歴を発動実証へ読み替えない。ゲーム実機の付属物モデル、空間recipient、default/全キャラは未認定。[設計・失敗保持・証跡](portable-moving-typed.md)。
+
+関連118テスト、通常packet自身26テスト成功。`moving-typed-cache-only`も同じ計算payloadを保持し、既存CUBIN/O1・paired generation必須へ接続。固定011db4de…自身54テストと2GiB/60秒compile-plan成功、Windows追加依頼/GPU/コンパイル0。現CUDA統合検証は未完了。次は元group consumerとの合成とactor数拡張を優先し、Windowsの全件nativeはMacでも162秒なので既存staged groupで分割する。rawと旧失敗claimは永続proof rootへ保持。以下は履歴。
+
 # 2026-10-29 未対応の敵移動へ着手：元5戦闘CPU契約とMetal数値核
 
 移動停止/強制移動を、元ユニ69/ヤン71/混合69定義の全実編成を保持したCPU契約へ接続した。既存native frame、実duration carrier（5秒/2秒）、generation-aware enemy fields、ADDコライダー、元sampled shot/landing/ダメージを使う。期限内分割・世代再初期化・同時状態の明示優先順位・scope復元・overflowを9検査で確認。consumerだけを除く故障注入で、同じ元定義の実packet/ADDダメージが変わる。`reference --suite enemy-movement-common`は5ケースを約4.095秒で成功し、GPU/packing0。速度/強制移動先/優先順位は宣言値で、recipientは正本のall-in-range近似を必須明示する。ゲーム軌跡、真の空間recipient、BODY等、GPU戦闘consumerは未完了。
@@ -3198,3 +3204,12 @@ GPU49a58f13/packetd01a085d。初回38unit/CPU8/必須生成hit/Slang0後に全�
 固定f20b276b/packet149d1634のenemy-movement-mathだけをWindowsでcompile1回/GPU1回。43入力・688word（status0:32/16:2/64:9）が全一致、CPU11検査成功。CUBIN/O1/2GiB/compile内側60秒・コマンド外側180秒を維持し、runは必須cache hit/NVRTC0、GPU0.003763秒。内側compile12.388/run12.187秒、外側24.811/50.135秒。Job残存/timeout/process欠落0だがservice未識別のため外側終了2・preservation/overall falseは保持する。
 
 保存結果の非個人2JSONだけをWindows report commit557e1840（codex/cuda-enemy-movement-math-v1-report）から取得、Macでfresh native全43/全word/元Metal raw2,752byteをGPU0で再比較した。原CUDA envelopeをMacで独立再監査したという意味ではない。証跡tests/fixtures/enemy-movement-math-cuda-v1.json、専用CPU検査test_enemy_movement_cuda_words.py、詳細docs/portable-enemy-movement.md。mathのscoped CUDAだけTrue、移動実戦5ケースCUDA/default/全キャラはFalse継続。今回のWindows依頼はterminalで、再実行はしない。次はtyped/worldへの位置consumer合成。
+
+
+## 2026-10-29 移動・typed物理対象を1つの射撃実行器へ合成
+
+`moving-typed`18入力/native6がM5実GPU1回とfresh独立9群sealで一致。元ユニ69/ヤン71/混合69定義、全30秒、2ADDとBODY所有の固定typed対象を保持。停止/force/重複2優先順位/再出現/同frame所有者死亡を含む。CPUはcanonical pelletを1回だけ使うgeometry merge、GPUは既存emState/DT/actor fields/clockから同じ並進/可視性を読む。owner genを再対象化せず、HP/寿命を二重化しない。packet f757ad6a、GPU3.094098秒、run前native162.230秒、fresh seal234.284秒/各群180秒以内/再利用0/GPU0。
+
+入力123188/出力2165136を専用stride登録し、typed bankとlogical skill history/scratch、motion、frame固定aim中心の所有を分離。元2048skill/2048typed-prefix+全streamSHA/4096motion履歴を縮めない。全移動frame/区間と最終中心/padding、全frameのtyped候補hash、既存battle/physical/typed比較を通す。shape query診断や過去全中心をGPU全件serializeした意味ではない。原CPU失敗v1（空groupの誤条件）/v2（frame内死亡の観測差）も保存。旧移動CPU5指紋と旧2entryのCUDA/MSL生成byte保持。保護CPU4/strict normalizer変更0、旧goldenを書換えない。
+
+小証跡tests/fixtures/moving-typed-metal-v1.json、通常goldenresearch/portable-moving-typed-v1-expected.json、詳細docs/portable-moving-typed.md。proof root `.portable-recovery/proofs/moving-typed-20261029`。今回はWindows依頼0、mathの既存CUDA43証拠は維持、合成のCUDAはFalse。次はactor数/group consumerを含む合成の拡張と、162秒のMac native costを踏まえたWindows小group選定。default/ゲームの空間規則/全キャラは未完了。

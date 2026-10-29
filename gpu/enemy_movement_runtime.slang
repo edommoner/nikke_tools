@@ -19,7 +19,13 @@ bool initializeEnemyMovement(inout Runtime s)
 {
     uint p=emInput(s),n=commands[p+2];
     if(commands[p]!=EMB_MAGIC||commands[p+1]!=1||n<1||n>127||n!=commands[lagInput(s)+2]||commands[p+3]!=s.count||commands[p+4]!=actorPoolCount(s)||commands[p+5]>1)return false;
-    for(uint i=6;i<EMB_HEADER;i++)if(commands[p+i]!=0)return false;
+    for(uint i=6;i<EMB_HEADER;i++)
+    {
+#ifdef PORTABLE_MOVING_TYPED
+        if(i==6){if(commands[p+i]!=1)return false;continue;}
+#endif
+        if(commands[p+i]!=0)return false;
+    }
     uint marked=0;
     for(uint row=0;row<256;row++)
     {
@@ -37,6 +43,9 @@ bool initializeEnemyMovement(inout Runtime s)
         for(uint j=1;j<4;j++)if(commands[r+j]!=0)return false;
         for(uint j=4;j<12;j+=2)if(!f64Finite(loadNumber(r+j)))return false;
     }
+#ifdef PORTABLE_MOVING_TYPED
+    if(!initializeMovingTypedGeometry(s))return false;
+#endif
     results[emOutput(s)]=EMB_MAGIC;return true;
 }
 bool emField(inout Runtime s,uint carrier,uint slot)

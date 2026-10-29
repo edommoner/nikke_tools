@@ -66,12 +66,13 @@ class LogicalGeometry:
         self.data=dict(shots=[],packets=[],pellets=[],bosses=[],managers=[])
 
     def channels(self,front,answer):
+        if self.frames and not self.frames[-1]['normal']:return answer
         if getattr(front,'kind',None)=='logical_add':answer=(answer[0],answer[1],1.,answer[3],answer[4])
         frame=self.frames[-1]
         self.data['pellets'].append(dict(owner=frame['character'].name,time=frame['time'],front_kind=getattr(front,'kind',None),parts=answer[1],body=answer[2],core=answer[3]))
         return answer
 
-    def geometry(self,manager,geom,t):
+    def geometry_rows(self,manager,geom,t):
         from calculator import aim,boss_pattern
         boss=self.boss
         if boss is None or self.frame_time!=t or geom is None:raise ValueError('Logical geometry requires its live coordinate frame')
@@ -90,9 +91,33 @@ class LogicalGeometry:
             target=boss_pattern.GeomTarget(label,'logical_add',aim.Shape(**{k:shape[k] for k in ('x','y','r','w','h','rot')}))
             rows.append(((shape['z'],run.start_t,run.p.idx,binding.slot,1),target));logical[label]=(actor.handle,actor.label)
         rows.sort(key=lambda row:row[0],reverse=True)
-        proxy=SimpleNamespace(targets=tuple(g for _,g in rows),core=geom.core,auto_aim=geom.auto_aim,pierce_px=geom.pierce_px,explosion_scale=geom.explosion_scale)
         if manager not in self.data['managers']:self.data['managers'].append(manager)
-        return proxy,logical,registry.view(ActorKind.BODY,'__enemy__').handle
+        return rows,logical,registry.view(ActorKind.BODY,'__enemy__').handle
+
+    def geometry(self,manager,geom,t):
+        rows,logical,body=self.geometry_rows(manager,geom,t)
+        proxy=SimpleNamespace(targets=tuple(g for _,g in rows),core=geom.core,auto_aim=geom.auto_aim,pierce_px=geom.pierce_px,explosion_scale=geom.explosion_scale)
+        return proxy,logical,body
+
+    def shared_rows(self,manager,geom,t):
+        """One physical shot, shared with typed selection; no nested pellet."""
+        if not self.frames or not self.frames[-1]['normal']:return None
+        frame=self.frames[-1]
+        if (frame['manager'],frame['time'])!=(manager,t):raise ValueError('Shared geometry left its shot owner')
+        rows,logical,body=self.geometry_rows(manager,geom,t)
+        if frame['snapshot'] is None:
+            frame['snapshot']=(None,logical,body)
+            self.data['shots'].append(dict(owner=frame['character'].name,time=t,targets=[list((int(h.kind),h.identity,h.generation)) for h,_ in logical.values()]))
+        return rows
+
+    def shared_packet(self,event,manager):
+        if not self.frames or not self.frames[-1]['normal']:return
+        frame=self.frames[-1]
+        if frame['manager'] is not manager or frame['snapshot'] is None:raise ValueError('Shared packet has no owning shot snapshot')
+        _,logical,body=frame['snapshot'];target=logical.get(event.target) if event.target else (body,'__enemy__')
+        if target is not None:
+            if id(event) in self.pending:raise ValueError('Logical packet identity reused')
+            self.pending[id(event)]=(event,manager,*target)
 
     @contextmanager
     def shot(self,character,t,manager):
@@ -140,11 +165,12 @@ class LogicalGeometry:
             event.target,event.to=saved
 
 @contextmanager
-def logical_actor_geometry(spec):
+def logical_actor_geometry(spec,*,typed_weapon_union=False):
     import engine_worker
     from calculator import timeline
     from runner import sim
     if timeline.simulate is not sim.simulate:raise ValueError('Native simulation aliases differ')
+    if type(typed_weapon_union) is not bool:raise ValueError('Explicit shared physical weapon policy required')
     runtime=LogicalGeometry(spec);original=timeline.simulate;boss_type=timeline.BossScript
     if getattr(boss_type,'_nikke_logical_geometry',False):raise ValueError('Nested logical geometry scope')
     class Boss(boss_type):
@@ -155,6 +181,7 @@ def logical_actor_geometry(spec):
             runtime.bindings={b.label:b for b in bindings([run.p for run in self._runs]) if b.kind==ActorKind.ADD}
             if any(row['label'] not in runtime.bindings for row in runtime.spec):raise ValueError('Logical collider must bind a configured ADD, never a PART or typed proxy')
             runtime.boss=self;runtime.data['bosses'].append(self)
+            if typed_weapon_union:self._nikke_shared_logical_geometry=runtime
         def begin_frame(self,t,enemy):
             runtime.frame_time=t;return super().begin_frame(t,enemy)
         def live_adds(self):
@@ -171,7 +198,7 @@ def logical_actor_geometry(spec):
     pellet=timeline.CharState._coord_pellet
     rewritten_pellet=rewrite_reference(pellet,LogicalPelletChannels(),dict(returns=5),compose=getattr(pellet,'_nikke_reference_code',None) is pellet.__code__)
     try:
-        with patch.object(timeline,'BossScript',Boss),patch.object(timeline.CharState,'_fire',runtime.fire(timeline.CharState._fire)),patch.object(timeline.CharState,'_charge_fire',runtime.fire(timeline.CharState._charge_fire)),patch.object(timeline.CharState,'_coord_pellet',runtime.pellet(rewritten_pellet,pellet)),patch.dict(original.__globals__,{'_nikke_logical_geometry_land':runtime.land,'_nikke_logical_pellet_channels':runtime.channels,'_nikke_logical_geometry_shot':runtime.shot}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):
+        with patch.object(timeline,'BossScript',Boss),patch.object(timeline.CharState,'_fire',runtime.fire(timeline.CharState._fire)),patch.object(timeline.CharState,'_charge_fire',runtime.fire(timeline.CharState._charge_fire)),patch.object(timeline.CharState,'_coord_pellet',rewritten_pellet if typed_weapon_union else runtime.pellet(rewritten_pellet,pellet)),patch.dict(original.__globals__,{'_nikke_logical_geometry_land':runtime.land,'_nikke_logical_pellet_channels':runtime.channels,'_nikke_logical_geometry_shot':runtime.shot}),patch.object(timeline,'simulate',rewritten),patch.object(sim,'simulate',rewritten):
             yield runtime.data
             if runtime.pending or runtime.frames or runtime.routing or runtime.suspended:raise ValueError('Logical geometry packet or frame leaked')
     finally:runtime.pending.clear()

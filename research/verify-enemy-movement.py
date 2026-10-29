@@ -29,7 +29,7 @@ def native_reference(domain):
     assert len(data['frames'])<=CAPACITY and sum(len(f['segments']) for f in data['frames'])<=CAPACITY,'No movement history truncation'
     return n
 
-def compare_movement(block,domain,native):
+def compare_movement(block,domain,native,*,output_base=OUT):
     data=native['enemy_movement'];frames=data['frames'];segments=[(frame,segment) for frame in frames for segment in frame['segments']]
     expected=[0]*(END-OUT);expected[:3]=[MAGIC,len(frames),len(segments)]
     def number(at,value):expected[at:at+2]=struct.unpack('<II',struct.pack('<d',value))
@@ -44,11 +44,11 @@ def compare_movement(block,domain,native):
     for slot,frame in final.items():
         at=STATE+slot*STATE_WORDS;expected[at]=frame['actor'][2];expected[at+1]=int(frame['alive']);expected[at+8]=1
         number(at+2,frame['time']);number(at+4,frame['position'][0]);number(at+6,frame['position'][1])
-    actual=list(block[OUT:END])
+    output_end=output_base+len(expected);actual=list(block[output_base:output_end])
     if actual!=expected:
         i=next(i for i,(a,b) in enumerate(zip(actual,expected)) if a!=b)
-        raise AssertionError(dict(field='movement',word=OUT+i,gpu=actual[i],native=expected[i]))
-    clean=list(block);clean[OUT:END]=[0]*(END-OUT);return clean
+        raise AssertionError(dict(field='movement',word=output_base+i,gpu=actual[i],native=expected[i]))
+    clean=list(block);clean[output_base:output_end]=[0]*len(expected);return clean
 
 def compare(block,domain):
     from world_coordinate_sampled_skill_native import creation_indices

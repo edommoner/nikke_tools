@@ -83,7 +83,13 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     if(!initializeCoordinateTypedTargets(s)){results[output]=64;return;}
 #endif
 #ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS
+#ifdef PORTABLE_MOVING_TYPED
+    // Weapon-only typed receipts leave this common skill/logical scratch free.
+    for(uint i=1773424U;i<1867648U;i++)results[output+i]=0;
+    for(uint i=EMB_OUT;i<EMB_OUTPUT;i++)results[output+i]=0;
+#else
     for(uint i=1769856U;i<LAG_OUTPUT_WORDS;i++)results[output+i]=0;
+#endif
     if(!validLogicalActorGeometry(s)){results[output]=64;return;}
 #ifdef PORTABLE_NAMED_RANGE_BATTLE
     if(!initializeNamedRangeBattle(s)){results[output]=64;return;}

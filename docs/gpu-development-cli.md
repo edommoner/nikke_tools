@@ -1,4 +1,6 @@
-敵移動は`reference --suite enemy-movement-common`の元5戦闘CPU契約と、`package --suite enemy-movement-math`のMetal43入力数値核を追加。actor/carrier/frameのGPU接続・実機規則は未完了。[範囲・保存結果replay・次の接続](portable-enemy-movement.md)。
+`moving-typed-cache-only`はsealed `moving-typed`と同じ18入力・計算・goldenにCUBIN/O1とpaired generation必須を適用する。packet自身の54テストとcompile-planは成功、現Windows CUDA計算は未確認。[範囲と配布確認](portable-moving-typed.md)。
+
+敵移動は`reference --suite enemy-movement-common`の元5戦闘CPU契約と、`package --suite enemy-movement-math`のMetal43入力数値核を追加。実機規則は未完了。宣言モデルのactor/carrier/frameのMetal接続はsealed `enemy-movement`/`moving-typed`に進んでいる。[範囲・保存結果replay・次の接続](portable-enemy-movement.md)。
 
 現ソースの全106 CUDA接続は `partitioned-current-package` で作った新ownerを使う。旧失敗ownerは保持し、現Metal sealと保存CUBINをpinする。[現ソースownerと3段階](portable-current-source-cuda-owner.md)。
 
@@ -704,3 +706,6 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 
 
 `enemy-movement-math`はWindowsの短い43入力でCUBIN必須hitまで検証済み。元Metalと全688wordが一致し、保存CUDA数値は専用CPU検査で同じnative/全row比較器へ通す。追加GPU不要。source-host計算/Job成功とMacの独立数値照合、未確認service保全、未実証の全battle CUDAを分ける。[結果・cacheと範囲](portable-enemy-movement.md)。
+
+
+`moving-typed`は元ユニ/ヤンの30秒実編成6条件＋raw拒否12のsealed18入力。停止/強制移動/重複/再出現/同frame所有者死亡とtyped物理対象を1つのclock/actor pool/pelletへ合成する。元全定義と既存履歴容量を保持し、明示した同世代追従モデルでM5 Metal/fresh独立sealに成功。入力123188/出力2165136wordを通常package/unpack/runから使う。CUDA実機・ゲーム規則/defaultは未確認。[wire/比較範囲/実測と残件](portable-moving-typed.md)。

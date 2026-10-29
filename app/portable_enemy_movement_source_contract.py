@@ -4,6 +4,9 @@ from pathlib import Path
 
 def project_sources(root,sources=None):
     root=Path(root);out=dict(sources or {});data=json.loads((root/'tests/fixtures/portable-enemy-movement-source-delta.json').read_text())
+    if (root/'gpu/world_moving_typed_entry.slang').exists():
+        from portable_moving_typed_source_contract import project_sources as moving_typed
+        out=moving_typed(root,out)
     for name,digest in data['added_sources'].items():
         value=out.get(name,(root/name).read_text())
         if hashlib.sha256(value.encode()).hexdigest()!=digest:raise ValueError('Unreviewed movement dependency: '+name)
