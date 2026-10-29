@@ -1,3 +1,11 @@
+# 2026-10-30 監査の実read setを記録、固定owner全sourceを照合
+
+`portable_admission_readset.ReadSet`は元CPU監査のPath bytes/textと既存streaming digestをそのまま実行し、消費したsize/SHA/pathだけを記録する。再読の変更・digest中の改変・captureの重複/再利用を拒否し、並列recordと例外時のreader復元を検査。元text encoding/errors/newlineを保持する。package closureは認証済みmanifestの全file記録を別検査し、任意open/subprocessを網羅したとは扱わない。native値/contextのcacheや意味監査の成功flagは作らない。
+
+専用8+snapshot9の17検査成功。固定1e54383d…の実verify_packageと全check_recordsが元3,995file＋manifestの3,996記録へ一致し、既存snapshotへの受け渡し・作成前の改変拒否も検査。元の計算/保護CPU/GPU/golden/claimは変更0。研究小記録`research/portable-admission-readset-check-v1.json`。Windows依頼/GPU実行0。
+
+次はこのread-setを元の完全なstaged/link admissionへ適用して、監査結果・owner・transaction・input/artifactへ束縛した証明書とinventoryを発行する。その後にsnapshot/一度だけのclaim/共通GPU consumer/独立post監査を接続する。現在はまだGPU受付・CUDA計算証明ではなく、102秒の準備問題は未解消。全キャラ/目標は未完了。以下は履歴。
+
 # 2026-10-30 監査済み受け渡しの固定バイトストレージを共通CLIへ実装
 
 admission-snapshot/checkをCPU専用で実装。全sourceを重複分も読んでsize/SHA検査し、content address blobをZIP保存する。受信側は外部anchor SHAで全archiveを検査し、選択payloadを展開後にもsize/SHA照合、reader終了時に全archive再検査。元Windows pathを受信Macで開かずopaque origin IDとして扱う。安全な相対path/正規manifest/完全member一覧/サイズ上限、symlink/改変/部分失敗保持を実装。metadata viewはコピーで内部bindingを変更できない。

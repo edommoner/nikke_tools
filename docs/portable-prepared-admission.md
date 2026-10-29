@@ -19,6 +19,14 @@ inventoryはschema=`prepared-admission-file-inventory-v1`、binding、filesの�
 
 両CLIは常にadmission_verified=false/calculation_verified=false/gpu_calls=0を返す。実際のsource/receipt inventory生成、snapshotの認証と一度だけの実行所有、GPU consumer、独立post監査への接続が次の工程。archive/rawはローカルproofに保持し、小記録だけ`research/portable-admission-snapshot-cli-v1.json`へ保存する。
 
+## 完全な監査で読んだファイルの記録
+
+`portable_admission_readset.ReadSet`を追加した。元の監査を呼ぶ間だけPath.read_bytes/read_textと既存streaming file_digestを記録し、bytes/size/SHAだけを保持する。監査の戻り値・native値・contextはcacheしない。同じsourceの再読は毎回実行し、途中の改変を拒否する。並列digestの記録はlockを使い、重複capture・同じcapture instanceの再利用を拒否し、例外時も元readerへ戻す。read_textは元signature/encoding/errors/newline動作を保持する。
+
+`require_package(root, manifest)`は認証済みmanifestの全filesが記録済みか照合する。これは汎用filesystem tracerではない。任意openやsubprocess内部のreadを観測したとは扱わず、元監査の親側全file検査からpackage closureが揃うことを別途要求する。rowsを既存snapshot inventoryへ渡すと、snapshot作成時にも全source bytesを再検査する。単なるtraceやファイル一致では意味監査の成功を認めない。
+
+専用8件＋既存snapshot9件の17検査が成功。固定owner1e54383d…の実verify_packageとcheck_recordsを呼び、元3,995ファイル全件＋manifestの3,996記録が揃うことを検査した。Macのこのファイル点検は約0.568秒だが、Windowsのstaged/link admission所要時間ではない。小記録は`research/portable-admission-readset-check-v1.json`。完全なstaged/link監査から証明書を発行する処理、認証されたsnapshot、所有claim、GPU consumerへの接続は未完了。
+
 ## 接続段階に残る要件
 
 Windows固定1e54383d…で、実戦3/拒否12の全群完了後に既存APIをそのままCPU計測した。staged admit34.451秒、保存link admit67.181秒、入力read/hash0.012秒、合計101.644秒。後者単独でもGPU子の60秒上限を超える。外側の180秒は守れたが、この経路でGPUを起動すると準備だけで子予算を消費する。GPU execution claimを消費せず停止した。
