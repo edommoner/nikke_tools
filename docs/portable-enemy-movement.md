@@ -1,6 +1,6 @@
-# 敵移動の宣言モデルと共通数値核
+# 敵移動の宣言モデルと共通GPU接続
 
-移動停止・強制移動にはcanonical consumerが無い。今回追加したのは、元のduration carrierを既存ADDコライダーの位置へ接続するCPU契約と、その演算部分の共通Slang核。元戦闘全体のGPU移植やゲーム規則の認定とは区別する。
+移動停止・強制移動にはcanonical consumerが無い。元のduration carrierを既存ADDコライダーの位置へ接続するCPU契約・共通Slang核・元5戦闘のMetal接続を検証した。明示した移動モデルでの戦闘等価性と、ゲーム規則の認定は区別する。
 
 ## CPUの実戦闘契約
 
@@ -30,6 +30,27 @@ M5でGPU実行1回、全readback2752byteを取得。GPU約0.0000236秒、MSL lib
 
 standaloneのため`--generation-cache`は使わない。通常のMetal pipeline cacheは利用できる。CUDAは同じSlang/入力/比較器を使うが今回未実行。既存439 GPUファイル、保護CPU4ファイル、strict normalizerは全byte不変で、旧source証明書を書き換えない。
 
-## 次の接続
+## 接続方針
 
-次は別の移動実行器を作らず、既存Runtimeのalive/end・actorFieldMember・source clockから同じ位置更新を呼ぶ。LogicalGeometryの固定x/y読取りを世代付き動的位置へ接続し、元5戦闘の全履歴/状態/物理着弾をMetalで比較する。専用wireと出力bankの所有権・容量・raw拒否も同時に検査する。数値probeのgoldenを戦闘の認定へ流用しない。canonical不足5件、全キャラ認定0、UI CPU、公開GPU受付falseは継続する。
+別の移動実行器を作らず、既存Runtimeのalive/end・actorFieldMember・source clockから同じ位置更新を呼ぶ。LogicalGeometryの固定x/y読取りを世代付き動的位置へ接続し、元5戦闘の全履歴/状態/物理着弾をMetalで比較する。専用wireと出力bankの所有権・容量・raw拒否も同時に検査する。数値probeのgoldenを戦闘の認定へ流用しない。canonical不足5件、全キャラ認定0、UI CPU、公開GPU受付falseは継続する。
+
+
+## 元戦闘を使う共通GPU接続の開発経路
+
+`enemy-movement` は元5戦闘をそのまま使うsealed suite。`package --suite enemy-movement --out NEW.zip`から通常のunpack/runを使う。静的入力は既存logical geometry prefixと、元定義との対応tag・ADDの速度・移動先・明示優先順位だけを持つ。CPUで計算した位置・発動時刻・世代・命中対象は入力しない。元effect辞書は変更せず、私有packing copyで元duration carrierへloweringし、tag付きconsumerが既存alive/end・actorFieldMember・world frameを読む。LogicalGeometryの命中判定は同じ世代の動的位置を読む。
+
+専用入力117476word、既存出力2032000word。未使用tailへ128slotの最終状態、全4096frame行・全4096区間行を分離して置き、容量超過は拒否する。検査は位置だけでなく、既存の全battle/skill/射撃/group/packet履歴へ続ける。比較済みの移動領域だけを旧比較用viewでzeroにし、未比較領域を消して通さない。raw拒否10条件も含む計15入力。旧compiler/default admissionは閉じたまま。
+
+初回CPU基準固定・run前の全native再計算・fresh独立sealを別々に行う。run内だけ既存ParentOraclesを使い、GPU終了後の二度目の同一native生成を減らす。独立sealは再利用しない。共有GPU hookとhost stride guardは小さなhunkの正確な逆投影で旧sourceを保持するが、旧goldenやstrict normalizerを書き換えず、current-source再認定とは区別する。
+
+## 2026-10-29 Metal実戦・独立監査
+
+固定package `2074f8e1…`の全15入力はApple M5 Metalで計算一致。GPU実行1回、再実行0。5つの30秒実編成は元全69/71定義と全履歴を保持する。各3,602frame、3,598〜3,608区間と最終世代/位置/全paddingを全word比較した後、既存の全battle/skill/group/packet/命中/着弾/ダメージ比較を通した。入力7,048,564byte、出力121,920,000byteを保持。計算済み位置・発動時刻の入力0、保護CPU4ファイルとstrict normalizer変更0。
+
+CPU基準生成約292秒、run前native再計算301.701秒、GPU2.926秒、MSL library1.976秒、初回PSO61.397秒。PSO archiveは保存済み。run内のParentOraclesは5native/5観測contextを再利用し、比較時のfresh native0。別のGPU禁止child8群による独立sealは348.617秒、各群180秒以内・15入力を一度ずつ照合し、live-parent再利用0/GPU0で成功した。独立監査を省くためのcacheではない。
+
+最初のsandbox起動はMetal device不可視でGPU claim前に停止し、`metal-v1`に保存。通常の承認経路の`metal-v2`だけが実GPUを実行した。同claimの削除/再実行は無い。失敗とsource snapshot、raw、生成物、全比較、group監査を `.portable-recovery/proofs/enemy-movement-battle-20261029` に保持する。共有する小さな証跡は `tests/fixtures/enemy-movement-battle-metal-v1.json`、通常goldenは `research/portable-enemy-movement-battle-v1-expected.json`。
+
+既存logical actor/敵弾薬自爆の2入口は、正確な逆投影前後のCUDA/MSL生成物がraw/strict normalizedとも全byte一致（生成のみ、追加GPU0）。旧証明書を書き換えてcurrent-source GPU成功としない。旧combined wireの検査は、この場合にsource-baselineがstaleとして拒否することも検査する。関連120 CPUテストが成功。生成保持と今回の新機能の計算証明は別である。
+
+現CUDA実機、ゲーム内の引き寄せ軌跡/速度/優先順位、真の空間recipient、BODY/PART/typed projectile、他機能との合成は未検証。Windowsへの追加依頼は0。canonical不足5件・全キャラ認定0・UI CPU・公開GPU受付falseは継続。次はこのconsumerを既存typed対象/worldと合成し、意味のある短い共通CUDA検証単位を選ぶ。

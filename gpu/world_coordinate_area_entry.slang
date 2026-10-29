@@ -21,7 +21,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
 {
     if(id.x>=commands[0])return;
-#if defined(PORTABLE_ENEMY_AMMO)
+#if defined(PORTABLE_ENEMY_MOVEMENT)
+    uint input=1+id.x*EMB_INPUT,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
+#elif defined(PORTABLE_ENEMY_AMMO)
     uint input=1+id.x*EAM_INPUT_WORDS,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
 #elif defined(PORTABLE_ADD_ATTACK_BATTLE)
     uint input=1+id.x*ADB_INPUT_WORDS,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
@@ -90,6 +92,10 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #ifdef PORTABLE_ENEMY_HEALING
     if(!initializeEnemyHealing(s)){results[output]=64;return;}
     enemyHealingFrame(s,0);if(s.error!=0){results[output]=s.error;return;}
+#endif
+#ifdef PORTABLE_ENEMY_MOVEMENT
+    if(!initializeEnemyMovement(s)){results[output]=64;return;}
+    enemyMovementFrame(s,0);if(s.error!=0){results[output]=s.error;return;}
 #endif
 #ifdef PORTABLE_ADD_ATTACK_BATTLE
     if(!initializeAddAttackBattle(s)){results[output]=64;return;}

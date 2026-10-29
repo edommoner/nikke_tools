@@ -66,7 +66,15 @@ class CombinedWireTests(unittest.TestCase):
         self.assertEqual(receipt['input_sha256'],golden['input_sha256']);self.assertEqual(receipt['output_sha256'],golden['output_sha256'])
         spec=importlib.util.spec_from_file_location('combined_proof_cli',ROOT/'scripts/nikke_gpu.py');cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)
         from portable_source_baseline import check
-        self.assertTrue(check(ROOT,cli,'enemy-ammo-self-destruct')['verified'])
+        from portable_slang_generation import source_hashes
+        current=source_hashes(ROOT,cli.SUITES['enemy-ammo-self-destruct']['source'])
+        if current==golden['source_sha256'] or (ROOT/'gpu-package.json').exists():
+            self.assertTrue(check(ROOT,cli,'enemy-ammo-self-destruct')['verified'])
+        else:
+            # Opt-in hooks retain historical bytes via the strict inverse above;
+            # they do not make an old GPU golden current-source evidence.
+            with self.assertRaisesRegex(ValueError,'Registered source baseline is stale'):
+                check(ROOT,cli,'enemy-ammo-self-destruct')
         self.assertTrue(r['metal_verified']);self.assertFalse(r['cuda_verified']);self.assertFalse(r['default_producer_installed'])
 
 

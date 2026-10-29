@@ -86,6 +86,11 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source=='gpu/world_enemy_movement_entry.slang':
+        from portable_enemy_movement_wire import check_schema,INPUT,OUTPUT
+        check_schema(ROOT)
+        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Movement requires complete collider, marker and motion banks')
+        return
     if source=='gpu/world_enemy_ammo_self_destruct_entry.slang':
         from portable_enemy_ammo_self_destruct_wire import check_schema,LAYOUT
         check_schema(ROOT)

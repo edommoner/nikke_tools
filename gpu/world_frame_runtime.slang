@@ -31,6 +31,9 @@ void worldFrameBegin(inout Runtime s,uint64_t when)
 #ifdef PORTABLE_ENEMY_HEALING
     if(s.error==0) enemyHealingFrame(s,when);
 #endif
+#ifdef PORTABLE_ENEMY_MOVEMENT
+    if(s.error==0) enemyMovementFrame(s,when);
+#endif
 #ifdef PORTABLE_DESTRUCTIBLE_BATTLE
     if(s.error==0) destructibleBattleSync(s,when,false);
 #endif

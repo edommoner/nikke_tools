@@ -254,6 +254,9 @@ void admitDefinitions(inout Runtime s,uint input)
         }
         uint periodic = input+P_PERIODIC_DEFINITION_BASE+j*2;
         bool accumEnemy=false;
+#ifdef PORTABLE_ENEMY_MOVEMENT
+        accumEnemy=enemyMovementMarker(s,d);
+#endif
 #ifdef PORTABLE_DAMAGE_ACCUM
         accumEnemy=d.kind==0 && d.stat>=81U && d.stat<=83U;
 #endif

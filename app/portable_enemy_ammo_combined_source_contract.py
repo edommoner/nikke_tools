@@ -21,6 +21,9 @@ def project_sources(root,sources=None):
 
 def project_resident_scalars(root,sources=None):
     root=Path(root);out=dict(sources or {})
+    if (root/'gpu/world_enemy_movement_entry.slang').exists():
+        from portable_enemy_movement_source_contract import project_sources as movement
+        out=movement(root,out)
     snapshot=root/'tests/fixtures/portable-healing-hp-snapshot-delta.json'
     if snapshot.exists():
         for name,delta in json.loads(snapshot.read_text())['files'].items():

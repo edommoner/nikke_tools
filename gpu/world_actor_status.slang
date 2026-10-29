@@ -5,6 +5,9 @@ bool actorStatusEnabled(inout Runtime s)
 bool actorStatusFieldInvalid(inout Runtime s,Definition d)
 {
     bool accumStat=false;
+#ifdef PORTABLE_ENEMY_MOVEMENT
+    accumStat=enemyMovementMarker(s,d);
+#endif
 #ifdef PORTABLE_DAMAGE_ACCUM
     accumStat=d.stat>=81U && d.stat<=83U;
 #endif

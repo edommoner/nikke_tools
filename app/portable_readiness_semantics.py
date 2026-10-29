@@ -8,7 +8,12 @@ def movement_contract():
         existing_shot_landing_damage=True,half_open_expiry_splitting=True,
         recipient_policy='canonical-all-in-range',force_policy='snap-to-declared-center',
         simultaneous_precedence='explicit; no game default',
-        math_suite='enemy-movement-math',gpu_world_consumer_connected=False,
+        math_suite='enemy-movement-math',gpu_world_consumer_connected=True,
+        declared_battle_validation=dict(suite='enemy-movement',inputs=15,native_cases=5,rejected_cases=10,
+            metal_verified=True,independently_audited=True,cuda_verified=False,
+            evidence='tests/fixtures/enemy-movement-battle-metal-v1.json',
+            evidence_sha256='e05cf6ce26fabbea4bf80a4715398ee5963fb831ea72f6ed5fa052c04b22fb88',
+            scope='Five full original 30-second battles with declared ADD motion and canonical all-in-range approximation; no game/default certification'),
         declared_math_validation=dict(inputs=43,native_cases=34,rejected_cases=9,overflow_status_witnesses=2,
             metal_verified=True,independently_audited=True,gpu_world_consumer_connected=False,cuda_verified=False,
             evidence='tests/fixtures/enemy-movement-math-metal-v1.json',
@@ -16,7 +21,7 @@ def movement_contract():
             scope='Ordered step arithmetic and explicit precedence only; no GPU carrier/actor/frame integration'),
         current_cuda_verified=False,default_producer_installed=False,
         actual_spatial_recipient_selection_verified=False,in_game_motion_policy_verified=False,
-        scope='Declared CPU movement on real ADD colliders; standalone math evidence does not certify a GPU battle consumer')
+        scope='Declared CPU and Metal movement consumer on real ADD colliders; canonical/default world model and actual game spatial rules remain unverified')
 
 
 def enemy_ammo_prerequisites():

@@ -3179,3 +3179,10 @@ add-self-destructの元実編成8＋不正6をM5実行1回とfresh独立sealで�
 GPU49a58f13/packetd01a085d。初回38unit/CPU8/必須生成hit/Slang0後に全正例0/不正64、比較器array slice対list不一致で6case失敗。raw/claim保持。3998ad48で純receipt検査とarray/list改変負例を追加し、新packetc52145efが元golden/critical GPU/transport/canonical/input/native一致を検査、immutable hardlinkで保存出力をreplay。GPU再実行0。全14 replay成功後、fresh GPU禁止seal126.237991秒、同時source certificate。GPU0.598816秒/cold pipeline58.053059秒、dispatch1/retry0。
 
 通常/cache-only登録と分類へscoped Metal成功を追加し、CPU部品4の分類は別のまま。UTF-8台帳をCP932模擬でも検査。次は敵magazineとの合成/付随debuffと、今回hookで変わった旧ADD/敵弾薬sourceの必要な再認定。全キャラ/default/UIは未認定、CUDA実機未確認、Windows新依頼0。詳細portable-add-self-destruct.md、証跡add-self-destruct-metal-v1.json。
+
+
+## 2026-10-29 敵移動を元5戦闘の共通GPU実行器へ接続
+
+通常CLI `enemy-movement`（15入力/native5）を追加。M5実GPU1回で全位置/区間/状態と全戦闘履歴が一致、別GPU禁止8群のfresh sealも成功（348.617秒、各180秒以内、parent再利用0）。元ユニ69/ヤン71/混合69定義、武器・設定・30秒・全履歴を保持し、予定位置/発動時刻を入力しない。既存alive/end/actor field/world clock/LogicalGeometryを読む。専用wire117476word・出力2032000word内の分離bank。GPU2.926秒、PSO初回61.397秒、run前CPU301.701秒。検証root `.portable-recovery/proofs/enemy-movement-battle-20261029`、詳細 `docs/portable-enemy-movement.md`。
+
+初回sandboxのdevice不可視はclaim前失敗として保持、通常承認経路だけで実GPU実行。同claim retry0。正確な小hunk逆投影は7共有ファイルを元byteへ戻す。既存2入口のCUDA/MSL生成byteも保持（生成証明のみ）。保護CPU4/strict normalizerは変更0。通常goldenと小証跡を登録し、readinessは宣言モデルのMetal接続を示すがcanonical/default/ゲーム空間モデルの不足は消さない。全キャラ0/UI CPU/public GPU false、今回CUDA実機未検証/Windows追加依頼0。次はtyped/worldとの合成と、短いCUDA検証単位の選定。

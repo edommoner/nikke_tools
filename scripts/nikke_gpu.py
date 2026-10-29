@@ -441,6 +441,9 @@ SUITES['enemy-movement-math']=dict(script='research/verify-enemy-movement-math.p
     golden='research/portable-enemy-movement-math-v1-expected.json',inputs=43,native=34,input_words=24,output_words=16,
     development_only=False,native_status_contract='movement-step-overflow-v1',
     tests=['test_enemy_movement_math.py','test_enemy_movement_model.py','test_portable_native_status.py'])
+SUITES['enemy-movement']=dict(script='research/verify-enemy-movement.py',source='gpu/world_enemy_movement_entry.slang',
+    golden='research/portable-enemy-movement-battle-v1-expected.json',inputs=15,native=5,input_words=117476,output_words=2032000,
+    development_only=False,parent_oracle_reuse=True,tests=['test_enemy_movement_wire.py','test_enemy_movement_model.py'])
 SUITES['coordinate-geometry']=dict(script='research/verify-coordinate-geometry-short.py',source='gpu/coordinate_geometry_probe.slang',golden='research/portable-coordinate-geometry-short-expected.json',inputs=1224,native=1209,output_words=4160,development_only=False,tests=['test_coordinate_geometry_v1.py','test_coordinate_numeric_v1.py'])
 SUITES['coordinate-power']=dict(script='research/verify-coordinate-power-short.py',source='gpu/coordinate_power_probe.slang',golden='research/portable-coordinate-power-short-expected.json',inputs=909,native=898,output_words=8,development_only=False,tests=['test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['packet-ratio']=dict(script='research/verify-packet-ratio-short.py',source='gpu/packet_ratio_probe.slang',golden='research/portable-packet-ratio-short-expected.json',inputs=14045,native=14040,output_words=8,development_only=False,tests=['test_packet_integer_ratio.py'])

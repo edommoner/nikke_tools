@@ -76,7 +76,11 @@ void lagSnapshot(inout Runtime s,uint who)
 }
 bool lagContains(inout Runtime s,uint row,uint64_t x,uint64_t y,uint64_t grow)
 {
+#ifdef PORTABLE_ENEMY_MOVEMENT
+    uint64_t d=coordinateShapeDistance(commands[row+6],enemyMovementPosition(s,row,0),enemyMovementPosition(s,row,1),cNumber(row+12),cNumber(row+14),cNumber(row+16),cNumber(row+22),cNumber(row+24),x,y);
+#else
     uint64_t d=coordinateShapeDistance(commands[row+6],cNumber(row+8),cNumber(row+10),cNumber(row+12),cNumber(row+14),cNumber(row+16),cNumber(row+22),cNumber(row+24),x,y);
+#endif
     if(!f64Finite(d)){s.error=16;return false;}return coordinateShapeContains(d,grow);
 }
 uint64_t lagAmount(inout Runtime s,uint hit,uint kind)

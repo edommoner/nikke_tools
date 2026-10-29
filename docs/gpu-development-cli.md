@@ -698,3 +698,6 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 # 保存済み同一byte witnessとCUDA原captureの監査
 
 `partitioned-witness-native-audit` / `partitioned-current-envelope-audit`の範囲・コマンド・証拠の分離は[共通native監査](portable-identical-wire-native-audit.md)を参照。追加GPU実行なしで保存済み全106入力を調べる。片側の成功をCUDA計算認定へ読み替えない。
+
+
+`enemy-movement`は元ユニ/ヤン全効果の30秒実編成5条件とraw拒否10のsealed15入力。元carrier・世代付きADD・既存clockから動的位置を更新し、既存命中/着弾と全battle履歴までM5 Metal/独立sealで照合する。通常package/unpack/runを使う。計算済み位置・発動時刻はGPU入力にしない。CPU全native生成は約5分かかるため、GPUのみの反復は既存`--native-baseline-package`の適用条件を確認し、run前fresh照合と独立sealを維持する。CUDA実機・ゲーム内軌跡/空間範囲/defaultは未検証。[範囲と実測](portable-enemy-movement.md)。
