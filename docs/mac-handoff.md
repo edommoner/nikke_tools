@@ -1,3 +1,11 @@
+# 2026-10-29 起動前監査が101.644秒、60秒GPU子へは起動せず
+
+固定1e54383d…のread-only CPU計測が全15入力/native3の最終staged admissionと保存link admissionに成功。verify6.893秒、staged34.451秒、link67.181秒、入力read/hash0.012秒、合計B+C+D101.644秒、post verify8.597秒。外側123.338秒/exit0/peak109,580,288byte・2GiB/低優先度/gate/post空/欠落0/観測cleanup error無し。全57監視ファイルは不変、GPU execution claim未消費・future capture未作成、GPU/compiler/native/test再実行0。service不明の保全/overall falseを維持する。
+
+固定a138fa6c…の小summary2445byte/manifest444byteを元bytes/SHAで取得し、input SHA/15/native3、元exact PTX reuse receipt key、既存bounded source SHAを照合。staged final admissionはここで初めて成功したが、GPU子予算は失敗であり計算成功ではない。`research/portable-admission-budget-peer-v1.json`。
+
+次は[監査済み受け渡しの実装要件](portable-prepared-admission.md)。全CPU準備・immutableなartifact/input/proof snapshot・GPU子・独立post監査を明示的に分離し、計算本体を共有したまま子側の繰返し監査負担を減らす。上限延長・監査省略・古いnative値cache・既存106用witness pin緩和で解決しない。新経路は未実装、Windowsはidle、GPU/CUDA計算/全キャラ/目標は未完了。旧失敗/claims/rawを保持する。以下は履歴。
+
 # 2026-10-29 Windows全4 CPU群が成功、GPU前の監査時間を計測依頼
 
 固定1e54383d…の残りnative1/2/3が各1回成功。全15入力（実戦3/拒否12）の群証拠が揃った。native1は112.897秒（参照53.727/静的15.797）、native2は110.275秒（参照52.624/静的15.515）、拒否群は56.770秒（静的15.529）。全Job2GiB/低優先度/gate/exit0/post空/欠落0/観測cleanup error無し。旧smoke/resume/native0の再実行、GPU/compile/native値cache/claims変更0。
