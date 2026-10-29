@@ -1,5 +1,5 @@
 """Whole native composition, retaining every source effect and group observer."""
-def verify(case,native):
+def verify(case,native,*,require_typed_attacks=True):
     if 'original_run' not in case:
         from portable_moving_typed_cases import prepare
         case=prepare(case)[0]
@@ -8,9 +8,10 @@ def verify(case,native):
     original=case['original_run']['prepared']['effects']
     assert case['effects']==[r['effect'] for r in original]
     assert [case['names'][i] for i in case['owners']]==[r['owner'] for r in original]
-    assert identity['definitions'] in (69,71) and case['duration']==30
+    assert identity['definitions']==len(original) and case['duration']==30
     assert motion['frames'] and motion['generations'] and native['logical_geometry']['packets']
-    assert native['coordinate_typed_weapon']['attacks'] and native['physical_pellets']
+    assert native['physical_pellets']
+    assert bool(native['coordinate_typed_weapon']['attacks'])==require_typed_attacks
     assert case['sampled_groups'] and all(k in native for k in ('groups','group_shots','group_notices','group_receipts','group_children','group_child_landings')),'Complete common group observer must remain enabled'
     frames={(f['time'],f['label']):f for f in motion['frames']}
     initial={r['label']:r['shape'] for r in case['logical_geometry']}
@@ -32,7 +33,7 @@ def verify(case,native):
     if case['contract']['scenario']=='renewal':assert hidden and max(f['actor'][2] for f in motion['frames'])==3
     if case['name'].endswith('/owner-death'):assert hidden and any(not f['alive'] for f in motion['frames'])
     return dict(verified=True,reference_model_gap=True,original_definitions=identity['definitions'],duration=30,
-        shared_clock_and_actor_registry=True,shared_canonical_pellet=True,logical_and_typed_packets=True,
+        shared_clock_and_actor_registry=True,shared_canonical_pellet=True,logical_and_typed_packets=require_typed_attacks,
         complete_group_observer=True,group_rows=len(native['groups']),frames=len(motion['frames']),attachment_queries=len(attachment['queries']),
         visible_queries=visible,hidden_queries=hidden,distinct_positions=len(seen),
         attachment_policy=attachment['policy']['mode'],retarget_stale_owner=False,

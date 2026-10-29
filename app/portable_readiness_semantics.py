@@ -30,6 +30,13 @@ def movement_contract():
             evidence_sha256='d7bd92a83c82d7c49463f556fdaf756f8330a39d8158e70dfa1f0e3a54cc9d3b',
             default_producer_installed=False,in_game_attachment_policy_verified=False,
             scope='Six full original 30-second battles; movement frames/intervals and existing physical/battle comparison; explicit attachment model only'),
+        declared_group_composition=dict(suite='moving-group',inputs=15,native_cases=3,rejected_cases=12,
+            metal_verified=True,independently_audited=True,cuda_verified=False,
+            original_definitions_per_roster=71,actual_group_consumer=True,
+            evidence='tests/fixtures/moving-group-metal-v1.json',
+            evidence_sha256='49ab674e94b3331ed23809a691f1919e41247516fb87924d28e0bbc278a8e02a',
+            default_producer_installed=False,in_game_motion_policy_verified=False,
+            scope='Original Yuni/Nihilister 30-second moving/typed battles, outside control and respawn; no game/default/all-character certification'),
         current_cuda_verified=False,default_producer_installed=False,
         actual_spatial_recipient_selection_verified=False,in_game_motion_policy_verified=False,
         scope='Declared CPU and Metal movement consumer on real ADD colliders; canonical/default world model and actual game spatial rules remain unverified')

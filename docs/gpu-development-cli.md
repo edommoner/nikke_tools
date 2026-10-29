@@ -1,3 +1,5 @@
+`moving-group`は元ユニ/ニヒリスター全71定義・30秒の3戦闘＋拒否12入力。移動・typed形状・実multi_hit通知と元子攻撃を同じ実行器でM5 Metal/fresh独立seal済み。`moving-group-cache-only`は同じ計算へ既存CUBIN/O1とpaired generation必須を適用する。現CUDA・実ゲーム規則は未認定。[故障注入と範囲](portable-moving-group.md)。
+
 `moving-typed-cache-only`はsealed `moving-typed`と同じ18入力・計算・goldenにCUBIN/O1とpaired generation必須を適用する。packet自身の54テストとcompile-planは成功、現Windows CUDA計算は未確認。[範囲と配布確認](portable-moving-typed.md)。
 
 敵移動は`reference --suite enemy-movement-common`の元5戦闘CPU契約と、`package --suite enemy-movement-math`のMetal43入力数値核を追加。実機規則は未完了。宣言モデルのactor/carrier/frameのMetal接続はsealed `enemy-movement`/`moving-typed`に進んでいる。[範囲・保存結果replay・次の接続](portable-enemy-movement.md)。

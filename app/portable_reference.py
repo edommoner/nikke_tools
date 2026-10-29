@@ -89,6 +89,7 @@ REFERENCES['logical-actor-rosters-common']=('portable_logical_geometry_roster_ca
 REFERENCES['enemy-healing-common']=('portable_enemy_healing_cases','world_enemy_healing_native','portable_enemy_healing_contracts')
 REFERENCES['enemy-movement-common']=('portable_enemy_movement_cases','world_enemy_movement_native','portable_enemy_movement_contracts')
 REFERENCES['moving-typed-common']=('portable_moving_typed_cases','world_moving_typed_native','portable_moving_typed_contracts')
+REFERENCES['moving-group-common']=('portable_moving_group_cases','world_moving_group_native','portable_moving_group_contracts')
 REFERENCES['enemy-ammo-common']=('portable_enemy_ammo_cases','world_enemy_ammo_native','portable_enemy_ammo_contracts')
 REFERENCES['enemy-ammo-self-destruct-common']=('portable_enemy_ammo_self_destruct_cases','world_enemy_ammo_self_destruct_native','portable_enemy_ammo_self_destruct_contracts')
 REFERENCES['add-self-destruct-native']=('world_add_self_destruct_native',)*3
@@ -193,7 +194,7 @@ def run_reference(suite,output,*,write,forbid_gpu):
     if suite=='add-self-destruct-native':
         report.update(stage='cpu-native-component-contract',reference_kind='canonical-add-final-shot-retirement',
             full_battle_validation=False,gpu_wire_connected=False,in_game_rules_verified=False)
-    if suite=='moving-typed-common':
+    if suite in ('moving-typed-common','moving-group-common'):
         report.update(stage='cpu-common-policy-contract',reference_kind='declared-moving-typed-geometry-v1',
             historical_native_equivalence=False,in_game_rules_verified=False,gpu_wire_connected=False,
             shared_canonical_pellet=True,attachment_policy='visible-with-moving-owner-v1')

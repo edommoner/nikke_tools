@@ -44,6 +44,7 @@ AUDIT_FILES['test_portable_readiness_semantics.py']=(
     'tests/fixtures/enemy-movement-math-cuda-v1.json',
     'tests/fixtures/enemy-movement-battle-metal-v1.json',
     'tests/fixtures/moving-typed-metal-v1.json',
+    'tests/fixtures/moving-group-metal-v1.json',
     'research/portable-moving-typed-v1-expected.json',
     'research/portable-enemy-movement-battle-v1-expected.json',
     'tests/fixtures/resident-current-cuda-native-join-v1.json',
@@ -61,6 +62,7 @@ AUDIT_FILES['test_portable_partitioned_join.py']=(
     'tests/fixtures/resident-current-envelope-v1-summary.json',
     'research/portable-coordinate-resident-frames-short-v2-expected.json')
 AUDIT_FILES['test_enemy_movement_wire.py']=('tests/fixtures/portable-enemy-movement-source-delta.json',)
+AUDIT_FILES['test_moving_group_events.py']=('tests/fixtures/moving-group-native-events-v1.json','tests/fixtures/moving-group-metal-v1.json','research/portable-moving-group-v1-expected.json')
 
 def validate_dependency_files(root,patterns,included=None):
     """Reject missing audit data before tests/native work or execution claims."""

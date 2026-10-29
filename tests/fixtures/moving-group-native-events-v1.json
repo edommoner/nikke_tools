@@ -1,0 +1,3548 @@
+{
+  "scope": "Saved CPU event projections for group audit fault injection only; not GPU proof",
+  "cases": [
+    {
+      "name": "moving-group/moving-hit",
+      "group_contract": {
+        "owner": "니힐리스타",
+        "child": "버닝 샷 3",
+        "outside": false
+      },
+      "native": {
+        "groups": [
+          {
+            "owner": "니힐리스타",
+            "identity": 1,
+            "epoch": 1,
+            "time": 1.0000000000000013,
+            "targets": [
+              [
+                5,
+                1,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 2,
+            "epoch": 2,
+            "time": 2.3999999999999964,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 3,
+            "epoch": 3,
+            "time": 3.7999999999999914,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 4,
+            "epoch": 4,
+            "time": 5.099999999999987,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 5,
+            "epoch": 5,
+            "time": 6.399999999999983,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 6,
+            "epoch": 6,
+            "time": 7.699999999999978,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 7,
+            "epoch": 7,
+            "time": 9.000000000000027,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 8,
+            "epoch": 8,
+            "time": 10.300000000000091,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 9,
+            "epoch": 9,
+            "time": 11.600000000000156,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 10,
+            "epoch": 10,
+            "time": 12.90000000000022,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 11,
+            "epoch": 11,
+            "time": 14.283333333333623,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 12,
+            "epoch": 12,
+            "time": 15.666666666667025,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 13,
+            "epoch": 13,
+            "time": 17.06666666666698,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 14,
+            "epoch": 14,
+            "time": 18.4666666666669,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 15,
+            "epoch": 15,
+            "time": 21.883333333333372,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 16,
+            "epoch": 16,
+            "time": 23.283333333333292,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 17,
+            "epoch": 17,
+            "time": 24.683333333333213,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 18,
+            "epoch": 18,
+            "time": 26.083333333333133,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 19,
+            "epoch": 19,
+            "time": 27.483333333333054,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 20,
+            "epoch": 20,
+            "time": 28.883333333332974,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          }
+        ],
+        "group_notices": [
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 2.3999999999999964,
+            "key": [
+              "니힐리스타",
+              2,
+              2
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 3.7999999999999914,
+            "key": [
+              "니힐리스타",
+              3,
+              3
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 5.099999999999987,
+            "key": [
+              "니힐리스타",
+              4,
+              4
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 6.399999999999983,
+            "key": [
+              "니힐리스타",
+              5,
+              5
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 7.699999999999978,
+            "key": [
+              "니힐리스타",
+              6,
+              6
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 9.000000000000027,
+            "key": [
+              "니힐리스타",
+              7,
+              7
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 10.300000000000091,
+            "key": [
+              "니힐리스타",
+              8,
+              8
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 11.600000000000156,
+            "key": [
+              "니힐리스타",
+              9,
+              9
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 12.90000000000022,
+            "key": [
+              "니힐리스타",
+              10,
+              10
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          }
+        ],
+        "group_children": [
+          {
+            "owner": "니힐리스타",
+            "time": 2.3999999999999964,
+            "name": "버닝 샷 3",
+            "damage": 110355,
+            "group_identity": 2,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 3.7999999999999914,
+            "name": "버닝 샷 3",
+            "damage": 140427,
+            "group_identity": 3,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 5.099999999999987,
+            "name": "버닝 샷 3",
+            "damage": 324358,
+            "group_identity": 4,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 6.399999999999983,
+            "name": "버닝 샷 3",
+            "damage": 231310,
+            "group_identity": 5,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 7.699999999999978,
+            "name": "버닝 샷 3",
+            "damage": 231310,
+            "group_identity": 6,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 9.000000000000027,
+            "name": "버닝 샷 3",
+            "damage": 231310,
+            "group_identity": 7,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 10.300000000000091,
+            "name": "버닝 샷 3",
+            "damage": 231310,
+            "group_identity": 8,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 11.600000000000156,
+            "name": "버닝 샷 3",
+            "damage": 231310,
+            "group_identity": 9,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 12.90000000000022,
+            "name": "버닝 샷 3",
+            "damage": 231310,
+            "group_identity": 10,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          }
+        ],
+        "group_child_landings": [
+          {
+            "owner": "니힐리스타",
+            "time": 2.416666666666663,
+            "name": "버닝 샷 3",
+            "group_identity": 2,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 110355
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 2.416666666666663,
+            "name": "버닝 샷 3",
+            "group_identity": 2,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 110355.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 2.416666666666663,
+            "name": "버닝 샷 3",
+            "group_identity": 2,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 110355.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 3.816666666666658,
+            "name": "버닝 샷 3",
+            "group_identity": 3,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 140427
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 3.816666666666658,
+            "name": "버닝 샷 3",
+            "group_identity": 3,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 140427.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 3.816666666666658,
+            "name": "버닝 샷 3",
+            "group_identity": 3,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 140427.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 5.116666666666654,
+            "name": "버닝 샷 3",
+            "group_identity": 4,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 324358
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 5.116666666666654,
+            "name": "버닝 샷 3",
+            "group_identity": 4,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 324358.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 5.116666666666654,
+            "name": "버닝 샷 3",
+            "group_identity": 4,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 324358.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 6.416666666666649,
+            "name": "버닝 샷 3",
+            "group_identity": 5,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 231310
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 6.416666666666649,
+            "name": "버닝 샷 3",
+            "group_identity": 5,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 6.416666666666649,
+            "name": "버닝 샷 3",
+            "group_identity": 5,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 7.716666666666645,
+            "name": "버닝 샷 3",
+            "group_identity": 6,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 231310
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 7.716666666666645,
+            "name": "버닝 샷 3",
+            "group_identity": 6,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 7.716666666666645,
+            "name": "버닝 샷 3",
+            "group_identity": 6,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 9.016666666666694,
+            "name": "버닝 샷 3",
+            "group_identity": 7,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 231310
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 9.016666666666694,
+            "name": "버닝 샷 3",
+            "group_identity": 7,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 9.016666666666694,
+            "name": "버닝 샷 3",
+            "group_identity": 7,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 10.316666666666759,
+            "name": "버닝 샷 3",
+            "group_identity": 8,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 231310
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 10.316666666666759,
+            "name": "버닝 샷 3",
+            "group_identity": 8,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 10.316666666666759,
+            "name": "버닝 샷 3",
+            "group_identity": 8,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 11.616666666666823,
+            "name": "버닝 샷 3",
+            "group_identity": 9,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 231310
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 11.616666666666823,
+            "name": "버닝 샷 3",
+            "group_identity": 9,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 11.616666666666823,
+            "name": "버닝 샷 3",
+            "group_identity": 9,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 12.916666666666888,
+            "name": "버닝 샷 3",
+            "group_identity": 10,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 231310
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 12.916666666666888,
+            "name": "버닝 샷 3",
+            "group_identity": 10,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 12.916666666666888,
+            "name": "버닝 샷 3",
+            "group_identity": 10,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 231310.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "moving-group/outside-control",
+      "group_contract": {
+        "owner": "니힐리스타",
+        "child": "버닝 샷 3",
+        "outside": true
+      },
+      "native": {
+        "groups": [
+          {
+            "owner": "니힐리스타",
+            "identity": 1,
+            "epoch": 1,
+            "time": 1.0000000000000013,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 2,
+            "epoch": 2,
+            "time": 2.3999999999999964,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 3,
+            "epoch": 3,
+            "time": 3.7999999999999914,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 4,
+            "epoch": 4,
+            "time": 5.099999999999987,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 5,
+            "epoch": 5,
+            "time": 6.399999999999983,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 6,
+            "epoch": 6,
+            "time": 7.699999999999978,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 7,
+            "epoch": 7,
+            "time": 9.000000000000027,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 8,
+            "epoch": 8,
+            "time": 10.300000000000091,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 9,
+            "epoch": 9,
+            "time": 11.600000000000156,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 10,
+            "epoch": 10,
+            "time": 12.90000000000022,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 11,
+            "epoch": 11,
+            "time": 14.283333333333623,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 12,
+            "epoch": 12,
+            "time": 15.666666666667025,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 13,
+            "epoch": 13,
+            "time": 17.06666666666698,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 14,
+            "epoch": 14,
+            "time": 18.4666666666669,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 15,
+            "epoch": 15,
+            "time": 21.883333333333372,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 16,
+            "epoch": 16,
+            "time": 23.283333333333292,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 17,
+            "epoch": 17,
+            "time": 24.683333333333213,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 18,
+            "epoch": 18,
+            "time": 26.083333333333133,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 19,
+            "epoch": 19,
+            "time": 27.483333333333054,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 20,
+            "epoch": 20,
+            "time": 28.883333333332974,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          }
+        ],
+        "group_notices": [],
+        "group_children": [],
+        "group_child_landings": []
+      }
+    },
+    {
+      "name": "moving-group/renewed-owner",
+      "group_contract": {
+        "owner": "니힐리스타",
+        "child": "버닝 샷 3",
+        "outside": false
+      },
+      "native": {
+        "groups": [
+          {
+            "owner": "니힐리스타",
+            "identity": 1,
+            "epoch": 1,
+            "time": 1.0000000000000013,
+            "targets": [
+              [
+                5,
+                1,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 2,
+            "epoch": 2,
+            "time": 2.3999999999999964,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 3,
+            "epoch": 3,
+            "time": 3.7999999999999914,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 4,
+            "epoch": 4,
+            "time": 5.099999999999987,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 5,
+            "epoch": 5,
+            "time": 6.399999999999983,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 6,
+            "epoch": 6,
+            "time": 7.699999999999978,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 7,
+            "epoch": 7,
+            "time": 9.000000000000027,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 8,
+            "epoch": 8,
+            "time": 10.300000000000091,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 9,
+            "epoch": 9,
+            "time": 11.600000000000156,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 10,
+            "epoch": 10,
+            "time": 12.90000000000022,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                2
+              ],
+              [
+                5,
+                0,
+                2
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 11,
+            "epoch": 11,
+            "time": 14.283333333333623,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                2
+              ],
+              [
+                5,
+                0,
+                2
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 12,
+            "epoch": 12,
+            "time": 15.666666666667025,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                2
+              ],
+              [
+                5,
+                0,
+                2
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 13,
+            "epoch": 13,
+            "time": 17.06666666666698,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                2
+              ],
+              [
+                5,
+                0,
+                2
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 14,
+            "epoch": 14,
+            "time": 18.4666666666669,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                2
+              ],
+              [
+                5,
+                0,
+                2
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 15,
+            "epoch": 15,
+            "time": 21.883333333333372,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 16,
+            "epoch": 16,
+            "time": 23.283333333333292,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 17,
+            "epoch": 17,
+            "time": 24.683333333333213,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                3
+              ],
+              [
+                5,
+                0,
+                3
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 18,
+            "epoch": 18,
+            "time": 26.083333333333133,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                3
+              ],
+              [
+                5,
+                0,
+                3
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 19,
+            "epoch": 19,
+            "time": 27.483333333333054,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                3
+              ],
+              [
+                5,
+                0,
+                3
+              ]
+            ],
+            "finished": true
+          },
+          {
+            "owner": "니힐리스타",
+            "identity": 20,
+            "epoch": 20,
+            "time": 28.883333333332974,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                3
+              ],
+              [
+                5,
+                0,
+                3
+              ]
+            ],
+            "finished": true
+          }
+        ],
+        "group_notices": [
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 2.3999999999999964,
+            "key": [
+              "니힐리스타",
+              2,
+              2
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 3.7999999999999914,
+            "key": [
+              "니힐리스타",
+              3,
+              3
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 5.099999999999987,
+            "key": [
+              "니힐리스타",
+              4,
+              4
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 6.399999999999983,
+            "key": [
+              "니힐리스타",
+              5,
+              5
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 7.699999999999978,
+            "key": [
+              "니힐리스타",
+              6,
+              6
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 9.000000000000027,
+            "key": [
+              "니힐리스타",
+              7,
+              7
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 10.300000000000091,
+            "key": [
+              "니힐리스타",
+              8,
+              8
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 11.600000000000156,
+            "key": [
+              "니힐리스타",
+              9,
+              9
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 12.90000000000022,
+            "key": [
+              "니힐리스타",
+              10,
+              10
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                2
+              ],
+              [
+                5,
+                0,
+                2
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 14.283333333333623,
+            "key": [
+              "니힐리스타",
+              11,
+              11
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                2
+              ],
+              [
+                5,
+                0,
+                2
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 15.666666666667025,
+            "key": [
+              "니힐리스타",
+              12,
+              12
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                2
+              ],
+              [
+                5,
+                0,
+                2
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 17.06666666666698,
+            "key": [
+              "니힐리스타",
+              13,
+              13
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                2
+              ],
+              [
+                5,
+                0,
+                2
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 18.4666666666669,
+            "key": [
+              "니힐리스타",
+              14,
+              14
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                2
+              ],
+              [
+                5,
+                0,
+                2
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 24.683333333333213,
+            "key": [
+              "니힐리스타",
+              17,
+              17
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                3
+              ],
+              [
+                5,
+                0,
+                3
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 26.083333333333133,
+            "key": [
+              "니힐리스타",
+              18,
+              18
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                3
+              ],
+              [
+                5,
+                0,
+                3
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 27.483333333333054,
+            "key": [
+              "니힐리스타",
+              19,
+              19
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                3
+              ],
+              [
+                5,
+                0,
+                3
+              ]
+            ]
+          },
+          {
+            "event": "multi_hit:2",
+            "owner": "니힐리스타",
+            "time": 28.883333333332974,
+            "key": [
+              "니힐리스타",
+              20,
+              20
+            ],
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                3
+              ],
+              [
+                5,
+                0,
+                3
+              ]
+            ]
+          }
+        ],
+        "group_children": [
+          {
+            "owner": "니힐리스타",
+            "time": 2.3999999999999964,
+            "name": "버닝 샷 3",
+            "damage": 110355,
+            "group_identity": 2,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 3.7999999999999914,
+            "name": "버닝 샷 3",
+            "damage": 140427,
+            "group_identity": 3,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 5.099999999999987,
+            "name": "버닝 샷 3",
+            "damage": 324358,
+            "group_identity": 4,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 6.399999999999983,
+            "name": "버닝 샷 3",
+            "damage": 231310,
+            "group_identity": 5,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 7.699999999999978,
+            "name": "버닝 샷 3",
+            "damage": 231310,
+            "group_identity": 6,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 9.000000000000027,
+            "name": "버닝 샷 3",
+            "damage": 231310,
+            "group_identity": 7,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 10.300000000000091,
+            "name": "버닝 샷 3",
+            "damage": 231310,
+            "group_identity": 8,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 11.600000000000156,
+            "name": "버닝 샷 3",
+            "damage": 231310,
+            "group_identity": 9,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                1
+              ],
+              [
+                5,
+                0,
+                1
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 12.90000000000022,
+            "name": "버닝 샷 3",
+            "damage": 231310,
+            "group_identity": 10,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                2
+              ],
+              [
+                5,
+                0,
+                2
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 14.283333333333623,
+            "name": "버닝 샷 3",
+            "damage": 110355,
+            "group_identity": 11,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                2
+              ],
+              [
+                5,
+                0,
+                2
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 15.666666666667025,
+            "name": "버닝 샷 3",
+            "damage": 110355,
+            "group_identity": 12,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                2
+              ],
+              [
+                5,
+                0,
+                2
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 17.06666666666698,
+            "name": "버닝 샷 3",
+            "damage": 110355,
+            "group_identity": 13,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                2
+              ],
+              [
+                5,
+                0,
+                2
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 18.4666666666669,
+            "name": "버닝 샷 3",
+            "damage": 110355,
+            "group_identity": 14,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                2
+              ],
+              [
+                5,
+                0,
+                2
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 24.683333333333213,
+            "name": "버닝 샷 3",
+            "damage": 140427,
+            "group_identity": 17,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                3
+              ],
+              [
+                5,
+                0,
+                3
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 26.083333333333133,
+            "name": "버닝 샷 3",
+            "damage": 140427,
+            "group_identity": 18,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                3
+              ],
+              [
+                5,
+                0,
+                3
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 27.483333333333054,
+            "name": "버닝 샷 3",
+            "damage": 140427,
+            "group_identity": 19,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                3
+              ],
+              [
+                5,
+                0,
+                3
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 28.883333333332974,
+            "name": "버닝 샷 3",
+            "damage": 140427,
+            "group_identity": 20,
+            "targets": [
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                5,
+                1,
+                3
+              ],
+              [
+                5,
+                0,
+                3
+              ]
+            ],
+            "to": [
+              "__enemy__",
+              "__enemy__:motion-wave#2",
+              "__enemy__:motion-wave#1"
+            ]
+          }
+        ],
+        "group_child_landings": [
+          {
+            "owner": "니힐리스타",
+            "time": 2.416666666666663,
+            "name": "버닝 샷 3",
+            "group_identity": 2,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 110355
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 2.416666666666663,
+            "name": "버닝 샷 3",
+            "group_identity": 2,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 110355.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 2.416666666666663,
+            "name": "버닝 샷 3",
+            "group_identity": 2,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 110355.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 3.816666666666658,
+            "name": "버닝 샷 3",
+            "group_identity": 3,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 140427
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 3.816666666666658,
+            "name": "버닝 샷 3",
+            "group_identity": 3,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 140427.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 3.816666666666658,
+            "name": "버닝 샷 3",
+            "group_identity": 3,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 140427.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 5.116666666666654,
+            "name": "버닝 샷 3",
+            "group_identity": 4,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 324358
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 5.116666666666654,
+            "name": "버닝 샷 3",
+            "group_identity": 4,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 324358.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 5.116666666666654,
+            "name": "버닝 샷 3",
+            "group_identity": 4,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 324358.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 6.416666666666649,
+            "name": "버닝 샷 3",
+            "group_identity": 5,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 231310
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 6.416666666666649,
+            "name": "버닝 샷 3",
+            "group_identity": 5,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 6.416666666666649,
+            "name": "버닝 샷 3",
+            "group_identity": 5,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 7.716666666666645,
+            "name": "버닝 샷 3",
+            "group_identity": 6,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 231310
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 7.716666666666645,
+            "name": "버닝 샷 3",
+            "group_identity": 6,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 7.716666666666645,
+            "name": "버닝 샷 3",
+            "group_identity": 6,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 9.016666666666694,
+            "name": "버닝 샷 3",
+            "group_identity": 7,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 231310
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 9.016666666666694,
+            "name": "버닝 샷 3",
+            "group_identity": 7,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 9.016666666666694,
+            "name": "버닝 샷 3",
+            "group_identity": 7,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 10.316666666666759,
+            "name": "버닝 샷 3",
+            "group_identity": 8,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 231310
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 10.316666666666759,
+            "name": "버닝 샷 3",
+            "group_identity": 8,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 10.316666666666759,
+            "name": "버닝 샷 3",
+            "group_identity": 8,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 11.616666666666823,
+            "name": "버닝 샷 3",
+            "group_identity": 9,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 231310
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 11.616666666666823,
+            "name": "버닝 샷 3",
+            "group_identity": 9,
+            "target": [
+              5,
+              1,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 11.616666666666823,
+            "name": "버닝 샷 3",
+            "group_identity": 9,
+            "target": [
+              5,
+              0,
+              1
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 12.916666666666888,
+            "name": "버닝 샷 3",
+            "group_identity": 10,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 231310
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 12.916666666666888,
+            "name": "버닝 샷 3",
+            "group_identity": 10,
+            "target": [
+              5,
+              1,
+              2
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 12.916666666666888,
+            "name": "버닝 샷 3",
+            "group_identity": 10,
+            "target": [
+              5,
+              0,
+              2
+            ],
+            "damage": 231310.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 14.30000000000029,
+            "name": "버닝 샷 3",
+            "group_identity": 11,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 110355
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 14.30000000000029,
+            "name": "버닝 샷 3",
+            "group_identity": 11,
+            "target": [
+              5,
+              1,
+              2
+            ],
+            "damage": 110355.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 14.30000000000029,
+            "name": "버닝 샷 3",
+            "group_identity": 11,
+            "target": [
+              5,
+              0,
+              2
+            ],
+            "damage": 110355.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 15.683333333333692,
+            "name": "버닝 샷 3",
+            "group_identity": 12,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 110355
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 15.683333333333692,
+            "name": "버닝 샷 3",
+            "group_identity": 12,
+            "target": [
+              5,
+              1,
+              2
+            ],
+            "damage": 110355.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 15.683333333333692,
+            "name": "버닝 샷 3",
+            "group_identity": 12,
+            "target": [
+              5,
+              0,
+              2
+            ],
+            "damage": 110355.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 17.083333333333645,
+            "name": "버닝 샷 3",
+            "group_identity": 13,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 110355
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 17.083333333333645,
+            "name": "버닝 샷 3",
+            "group_identity": 13,
+            "target": [
+              5,
+              1,
+              2
+            ],
+            "damage": 110355.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 17.083333333333645,
+            "name": "버닝 샷 3",
+            "group_identity": 13,
+            "target": [
+              5,
+              0,
+              2
+            ],
+            "damage": 110355.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 18.483333333333565,
+            "name": "버닝 샷 3",
+            "group_identity": 14,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 110355
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 18.483333333333565,
+            "name": "버닝 샷 3",
+            "group_identity": 14,
+            "target": [
+              5,
+              1,
+              2
+            ],
+            "damage": 110355.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 18.483333333333565,
+            "name": "버닝 샷 3",
+            "group_identity": 14,
+            "target": [
+              5,
+              0,
+              2
+            ],
+            "damage": 110355.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 24.69999999999988,
+            "name": "버닝 샷 3",
+            "group_identity": 17,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 140427
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 24.69999999999988,
+            "name": "버닝 샷 3",
+            "group_identity": 17,
+            "target": [
+              5,
+              1,
+              3
+            ],
+            "damage": 140427.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 24.69999999999988,
+            "name": "버닝 샷 3",
+            "group_identity": 17,
+            "target": [
+              5,
+              0,
+              3
+            ],
+            "damage": 140427.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 26.0999999999998,
+            "name": "버닝 샷 3",
+            "group_identity": 18,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 140427
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 26.0999999999998,
+            "name": "버닝 샷 3",
+            "group_identity": 18,
+            "target": [
+              5,
+              1,
+              3
+            ],
+            "damage": 140427.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 26.0999999999998,
+            "name": "버닝 샷 3",
+            "group_identity": 18,
+            "target": [
+              5,
+              0,
+              3
+            ],
+            "damage": 140427.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 27.49999999999972,
+            "name": "버닝 샷 3",
+            "group_identity": 19,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 140427
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 27.49999999999972,
+            "name": "버닝 샷 3",
+            "group_identity": 19,
+            "target": [
+              5,
+              1,
+              3
+            ],
+            "damage": 140427.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 27.49999999999972,
+            "name": "버닝 샷 3",
+            "group_identity": 19,
+            "target": [
+              5,
+              0,
+              3
+            ],
+            "damage": 140427.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 28.89999999999964,
+            "name": "버닝 샷 3",
+            "group_identity": 20,
+            "target": [
+              0,
+              0,
+              1
+            ],
+            "damage": 140427
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 28.89999999999964,
+            "name": "버닝 샷 3",
+            "group_identity": 20,
+            "target": [
+              5,
+              1,
+              3
+            ],
+            "damage": 140427.0
+          },
+          {
+            "owner": "니힐리스타",
+            "time": 28.89999999999964,
+            "name": "버닝 샷 3",
+            "group_identity": 20,
+            "target": [
+              5,
+              0,
+              3
+            ],
+            "damage": 140427.0
+          }
+        ]
+      }
+    }
+  ]
+}

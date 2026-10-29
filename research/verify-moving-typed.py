@@ -40,6 +40,10 @@ def compare(block,domain):
     assert len(block)==OUTPUT and block[0]==0,'Complete successful moving typed output required'
     from world_coordinate_sampled_skill_native import creation_indices
     with creation_indices(domain[0]) as indices:n=native_reference(domain)
+    return compare_observed(block,domain,n,indices)
+
+def compare_observed(block,domain,n,indices):
+    assert len(block)==OUTPUT and block[0]==0,'Complete successful moving typed output required'
     clean=motion.compare_movement(block,domain,n,output_base=MOVEMENT_OUT)
     expected=[0]*AIM_WORDS
     frames=n['coordinate_typed_aim'];last=frames[-1] if frames else dict(candidates=[])

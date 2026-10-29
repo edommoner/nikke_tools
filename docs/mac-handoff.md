@@ -1,3 +1,9 @@
+# 2026-10-29 移動中の実グループconsumerを同じMetal実行器で検証
+
+最新のsealed `moving-group`は元ユニ＋ニヒリスターを同じ元5人編成（全71定義・元武器/育成・30秒）へ接続する。移動/範囲外/再出現の3戦闘＋拒否12。各20group、元`multi_hit:2`→`버닝 샷 3`の通知9/0/17・子着弾27/0/51が実発動。CPUで移動fieldsだけを外すと通知9→5・子着弾27→15となる。GPU source276ファイルは直前のmoving-typedと全byte同一で、元全比較文をAST同一の共通関数へ抽出し、計算を複製していない。
+
+固定b6729852…のM5実GPU1回で全15一致（GPU2.281622秒、PSO0.003021秒、generation/pipeline必須hit、Slang0）。別fresh GPU禁止child8群の独立sealも123.327秒で成功、全raw/旧失敗/claims保持。通常`moving-group`と同じ計算の`moving-group-cache-only`を登録し、現CUDAは未確認。小証跡は `tests/fixtures/moving-group-metal-v1.json`。[範囲・負例・次のCLI](portable-moving-group.md)。3ADD以上の30秒容量、他キャラ/全条件、PART/BODY移動、実ゲーム空間規則/default/全キャラは残る。Windows新依頼0。以下は履歴。
+
 # 2026-10-29 移動するADDとtyped物理対象を共通実行器でMetal検証
 
 最新はsealed `moving-typed`。元ユニ69/ヤン71/混合69定義・30秒を維持した6戦闘＋拒否12入力をM5 GPU1回（3.094098秒）とfresh独立sealで全比較。既存clock/actor世代/carrierと1つのcanonical pelletを共有し、宣言した所有者へのshape並進・死亡・再出現を処理する。全移動frame/区間、既存battle/typed/skill/group比較、最後のaim中心を検査する。実group consumerが無い元編成の空履歴を発動実証へ読み替えない。ゲーム実機の付属物モデル、空間recipient、default/全キャラは未認定。[設計・失敗保持・証跡](portable-moving-typed.md)。
