@@ -2,6 +2,16 @@
 
 ## moving-groupへの接続（2026-10-30）
 
+### Windows PTX資源比較
+
+固定compiler packet3fc64fb2…のWindows20群227件、paired生成、PTX単独NVRTC1回が成功した。生成29.770秒、NVRTC39.477秒、内側child55.185秒／60秒。必須生成cacheはhit、compile中Slang0。新PTX13,668,508byte/SHA5fc6b522…はentryから271定義へ直接到達し、旧版と同様に未解決・外部・間接call・cycleは0。生成CUDA/MSLは既存strict normalizerのまま、Macで独立sealした両target hashと一致した。
+
+dispatchのPTX local宣言は9784→1848byte（7936byte減）、virtual registerは12572→13654（1082増）。quantityTotals5192／tick2584byteは不変。PTX全体は112453byte増えており、単純な生成物縮小ではない。物理register・最終peak stack・速度・元CUDA起動return2の改善は認定しない。次の候補はquantityTotalsのvisited-group scratchであり、first-seen順とbinary64加算順を保持する必要がある。
+
+driver／kernel／native battle／ptxas／object／linkは全0、各Job終了空、欠落process0／観測・cleanup・inspection error0、原136＋既存cache証跡3fileの計139file不変。ただしNIKKEサービスは前後とも未識別で、preservation false→compile CLI exit2→外側stage false→wrapper exit1だった。コンパイラの成功を外側全体の成功へ昇格せず、サービス消失とも解釈しない。再実行せず保存結果だけで切り分けた。
+
+公開数値summary/manifestのみを固定report eeb36b45…からMacへ取得し、全byte・外部SHA・旧PTX出所・両target生成hash・graph・差分を照合した。PTX本体はMacで読んでおらず、source-hostの解析証跡として保持する。記録は`research/portable-moving-frames-ptx-peer-v1.json`。現在のCUDA実戦闘／物理資源／全キャラ認定は未完了。
+
 `moving-frames`は既存`world_moving_typed_entry.slang`をincludeする3行の入口で、同じresident Frame bankを使う。既存277個のGPU sourceはbyte不変。元のprepare／native_reference／compare／拒否比較を直接再利用し、全15入力（native3／拒否12）、入力123188／出力2165136wordを保持する。別の戦闘時計や効果実行器は追加しない。
 
 固定3c72494e…で39テスト、全CPU照合、M5 Metalの実行1回が成功。GPU2.233823秒、cold pipeline63.780806秒。全129,908,160byteの出力SHAは旧moving-groupと同一（3765a8c5…）。全15のinput/output/native指紋も保持した。別fresh GPU禁止プロセスが全15／native3を84.244527秒で独立比較しsealした。追加GPU0／同claim retry0。新goldenと同じgolden由来のsource-only compiler certificateを登録する。

@@ -1,3 +1,11 @@
+# 2026-10-30 Windows新PTX比較完了、公開残件と限定実装の分類を分離
+
+固定3fc64fb2/compiler-full--moving-framesはWindows20群227件、paired生成29.770秒、PTX単独NVRTC1回39.477秒（内側55.185/60秒）成功。compile生成cache必須hit/Slang0。新PTX5fc6b522…は271関数／未解決等0。dispatch local9784→1848byte、virtual regs12572→13654。quantityTotals5192/tick2584は不変、PTX全体は112453byte増。物理stack/register・速度・起動error2の解消を認定しない。次はquantityTotals visited-group scratch削減、first-seen順と全binary64演算順を維持し、共通テスト/Metal後に短いPTX比較。
+
+driver/kernel/native/ptxas/object/link0、全Job終了空/欠落0/error0、元139file不変。ただしNIKKEサービス未識別でpreservation false→compile CLI exit2→外側stage false→wrapper1を保持。保存結果の読取だけで理由を確認、再実行0。公開summary9499byte/manifest739byteを固定report eeb36b45…からSHA全照合し、CUDA/MSL strict正規化hashがMac独立seal基準と一致。Macでraw PTXを読んだ認定ではない。記録research/portable-moving-frames-ptx-peer-v1.json。
+
+model-checkの依存表にprivate sampling/skill/parentのsuite・proof存在・現source一致を明示し、公開受付の残件と分離。mixed-world残件のscopeも限定。約3KBのCLI要約へ投影し、分類20/CLI51検査成功。5canonical不足／公開GPU false／全キャラ0は不変。記録research/portable-coordinate-gap-scope-classification-v1.json。コード共有d8bde117。Windows既存チャットはidle、cursor77f087d6-874c-42d4-a6aa-311d94ff8aa6:30、未処理依頼なし。全目標は未達。以下は履歴。
+
 # 2026-10-30 moving-groupへ共通resident Frameを接続、Metal全15を独立seal
 
 moving-framesは既存moving entryをincludeしてPORTABLE_RESIDENT_FRAME_STACKを有効化するだけ。既存277 GPU source／戦闘時計／全15 input/native契約／全出力比較は保持。固定3c72494eでM5実GPU1回2.233823秒／cold PSO63.780806秒。129,908,160byte全部が旧moving-groupのSHA3765a8c5…と一致。別fresh GPU禁止監査が全15/native3を84.244527秒でseal。CUDA/Metal反射はstride143048、Frame4096byte at138952、3資源／CUDA引数48byteで一致した。

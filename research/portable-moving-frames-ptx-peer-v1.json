@@ -1,0 +1,82 @@
+{
+  "schema": "moving-frames-ptx-peer-v1",
+  "report_commit": "eeb36b45f1ccb8905fb09eb23b153934f2c55228",
+  "source_package_id": "3fc64fb2422153af44c298d080daea031d4687fb4033f3f6e5e95931ad45d44f",
+  "report_transport_commit": "e10be414cadb436683e44d235dd343506f10aafc",
+  "packet_embedded_source_commit": "b5a177421759c9cbb8cd85139d9a36a0ea5b7b93",
+  "imported_reports": {
+    "moving-frames-ptx-v1-summary.json": {
+      "bytes": 9499,
+      "sha256": "e639d03471508d622a6ac03a0388a5c6daf9782374c767925ff7fae8793d1649"
+    },
+    "moving-frames-ptx-v1-manifest.json": {
+      "bytes": 739,
+      "sha256": "1aea779fecc80ab71260f2d85b789b4bd44d5b275d3bc7330478476a103964df"
+    }
+  },
+  "mac_sealed_normalized_pair_matched": true,
+  "source_host_ptx_analysis_verified": true,
+  "mac_original_raw_ptx_read": false,
+  "cpu_tests_passed": 227,
+  "nvrtc_calls": 1,
+  "nvrtc_seconds": 39.4768356,
+  "new_ptx_sha256": "5fc6b5220670dbdb9741cc1d0455d1dec43c61f31c75efa1d4b92888cb07bf6c",
+  "new_ptx_bytes": 13668508,
+  "function_comparison": [
+    {
+      "function": "dispatch",
+      "old_local_bytes": 9784,
+      "new_local_bytes": 1848,
+      "local_bytes_delta": -7936,
+      "old_virtual_registers": 12572,
+      "new_virtual_registers": 13654,
+      "virtual_register_delta": 1082
+    },
+    {
+      "function": "quantityTotals",
+      "old_local_bytes": 5192,
+      "new_local_bytes": 5192,
+      "local_bytes_delta": 0,
+      "old_virtual_registers": 2206,
+      "new_virtual_registers": 2206,
+      "virtual_register_delta": 0
+    },
+    {
+      "function": "tick",
+      "old_local_bytes": 2584,
+      "new_local_bytes": 2584,
+      "local_bytes_delta": 0,
+      "old_virtual_registers": 1746,
+      "new_virtual_registers": 1746,
+      "virtual_register_delta": 0
+    }
+  ],
+  "direct_reachable_definitions": 271,
+  "compile_inner_exit_code": 0,
+  "compile_outer_exit_code": 2,
+  "compile_wrapper_exit_code": 1,
+  "outer_stage_passed": false,
+  "environment_preservation_verified": false,
+  "failure_cause_verified": false,
+  "physical_resource_reduction_verified": false,
+  "cuda_battle_verified": false,
+  "new_gpu_calls": 0,
+  "new_driver_calls": 0,
+  "native_battle_calls": 0,
+  "original_files_unchanged": 139,
+  "claims_deleted": false,
+  "retries": 0,
+  "full_goal_complete": false,
+  "next_action": "Reduce quantityTotals visited-group scratch while preserving first-seen order and all ordered binary64 sums; use common implementation/native tests and Metal before another short PTX measurement.",
+  "outer_stage_failure_reason": "Identified NIKKE service preservation unverified; compile preservation false -> compile CLI exit2 -> outer facts passed false -> wrapper exit1",
+  "outer_stage_reason_evidence": {
+    "kind": "Windows read-only saved-result inspection plus unchanged local compile/runner predicates",
+    "thread_turn": "01a18931-7767-7253-a15e-06a0ec3bf68a",
+    "new_execution_calls": 0,
+    "existing_processes_preserved": true,
+    "missing_existing_processes": 0,
+    "service_state_before": "unverified",
+    "service_state_after": "unverified",
+    "service_loss_detected": false
+  }
+}
