@@ -3563,3 +3563,14 @@ catalogue1076の追加4はsceneで、新キャラ数ではない。元266profile
 注意：2人目が閾値に到達した時、元instant回復は既に回復した1人目にも入る。正本のally_hp_belowは発動時any-ally判定で、buffの対象別runtime条件とは区別が必要。ゲーム仕様をこの観測だけで認定せず、保護CPU/upstreamは変更0。次は観測なしnativeとの全指紋一致、個別対象/2人目/上限消費の対照を既存ordered経路へ固定してMetal比較へ進む。新suite/golden/現在CUDAの認定はまだない。初版のimport shadowと弱い被弾量もproofへ保持。小証跡 `research/target-count-query-evidence/original-biscuit-threshold-native-triage-v1.json`。
 
 受動観測なしの別native実行とも全結果が一致した（canonical JSON SHA `63057f16736f08f604b34b88255aaf7eabd3c65e7836ea6ee12aa8df1274bcc9`）。この比較はCPUの観測非干渉の証拠で、GPU認定ではない。
+
+
+## 2026-10-30 ビスケットの元HP閾値・上限をMetalへ接続
+
+`original-threshold-conditions` の元5人72定義・各30秒4条件（被弾なし/1人目/2人目/上限消費後）がM5実GPU1回とfresh GPU禁止独立sealで一致。GPU2.444421秒、fresh native4/74.072939秒、独立85.135297秒/parent再利用0。生成/PSO必須hit、Slang0。保存rawの元row2無敵/row3回復の実発動数は0/1/2/2で、handler呼出しだけの3回目を数えない。全戦闘・状態・履歴比較も保持。
+
+元CPUのinstant回復は2人目の閾値で、既に50%超の1人目にも入る。現在の正本比較基準として保持し、ゲーム仕様と混同しない。既存support observerを拡張し、元trigger counterの実増分とattemptを区別する。共通adapter/executor/入力wireはそのまま、GPU273source/保護CPU4/normalizerは変更0。旧support4のsource/正規化CUDA/MSLも同一。
+
+`original-threshold-conditions-cache-only` は同じ4入力/golden/比較器のCUBIN O1とcompile cache/paired generation必須hit入口。現CUDA実機未確認、Windows追加依頼0。catalogue1080はscene数で、元profile静的254/266と未対応12/13分類、全キャラ未完了を保持。詳細 [HP閾値条件](portable-original-threshold-conditions.md)、証跡 `research/target-count-query-evidence/original-threshold-conditions-metal-v1.json`。次は元effectの未検証条件と既存専用証跡を照合して選び、距離式や敵数量の正本不足をno-opで埋めない。
+
+最終9ea39234/cache-only packet84ffa9b9…は29群257unit成功。CUBIN/O1/2GiB/60秒compile-plan policy成功、compiler/GPU0。fresh model-check/entry-inventoryも成功し、既知の正本5stat不足と静的12失敗を保持。Windows既存statusの読み取りはhost unavailableで、新実行依頼0。今回GPU1回・同claim retry0、独立照合後のGPU再実行なし。

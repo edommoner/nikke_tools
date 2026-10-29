@@ -751,3 +751,8 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 ### 元supportの条件付き実戦4ケース
 
 `original-support-conditions` は既存ordered catalogue adapter/sourceで負傷・cover・shieldの4ケースを固定するsealed suite。`original-support-conditions-cache-only` は同一入力/goldenでCUBIN/O1とcompile cache/paired generationの必須hitを要求する。M5実GPU＋fresh独立seal済み、現CUDA実機は未確認。任意条件の反復は引き続き `original-catalogue-ordered` を使う。入力、観測、scope、保存結果は [元support条件](portable-original-support-conditions.md) を参照。
+
+
+### 元防御型のHP閾値・発動上限4ケース
+
+`original-threshold-conditions` は既存ordered catalogue adapter/sourceにビスケットの元72定義を載せ、対照/1人目/2人目/上限消費後を固定するsealed suite。同じ観測器でattemptと実発動を分け、全戦闘比較を保持する。`original-threshold-conditions-cache-only` は同じ入力/goldenでCUDA CUBIN/O1とcompile cache/paired generation必須hitを要求する。M5実GPU＋独立seal済み、現CUDA実機は未確認。[実証範囲と現CPU規約](portable-original-threshold-conditions.md)。
