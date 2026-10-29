@@ -7,6 +7,7 @@ import portable_slang_generation as generator
 import portable_generation_cache as cache
 import test_portable_generation_cache as fixtures
 from portable_arena_transport_source_contract import historical_backend_source
+from portable_generation_extraction_source_contract import project_generation_source
 
 def fingerprint(node):return hashlib.sha256(ast.dump(node,include_attributes=False).encode()).hexdigest()
 
@@ -51,7 +52,7 @@ class GenerationSeparationTests(unittest.TestCase):
 
     def test_exact_ast_extraction_preserves_compiler_options_publish_and_all_transport_functions(self):
         proof=json.loads((ROOT/'tests/fixtures/portable-generation-extraction.json').read_text())
-        functions={n.name:n for n in ast.parse((ROOT/'app/portable_slang_generation.py').read_text()).body if isinstance(n,ast.FunctionDef)}
+        functions={n.name:n for n in ast.parse(project_generation_source(ROOT)).body if isinstance(n,ast.FunctionDef)}
         self.assertEqual(set(functions),set(proof['generation_functions']))
         self.assertEqual({name:fingerprint(RestoreRoot().visit(node)) for name,node in functions.items()},proof['generation_functions'])
         other={n.name:historical_transport_fingerprint(n) for n in ast.parse(historical_backend_source(ROOT)).body if isinstance(n,ast.FunctionDef) and n.name not in functions}
@@ -66,6 +67,12 @@ class GenerationSeparationTests(unittest.TestCase):
         changed=copy.deepcopy(node)
         error=next(n for n in ast.walk(changed) if isinstance(n,ast.Constant) and n.value=='Invalid portable word strides');error.value='different validation'
         self.assertNotEqual(historical_transport_fingerprint(changed),expected)
+
+    def test_append_audit_inverse_rejects_compiler_or_guard_changes(self):
+        source=(ROOT/'app/portable_slang_generation.py').read_text()
+        for before,after in [("'-fp-mode', 'precise'","'-fp-mode', 'fast'"),('timeout=90','timeout=91'),('audit_resident_appends','ignored_resident_appends')]:
+            self.assertIn(before,source)
+            with self.subTest(before=before),self.assertRaisesRegex(ValueError,'Unreviewed'):project_generation_source(ROOT,source.replace(before,after,1))
 
     def test_composed_transport_review_cannot_hide_guard_or_dispatch_changes(self):
         source=(ROOT/'app/portable_backend.py').read_text()

@@ -64,16 +64,21 @@ class RequiredMetalTests(unittest.TestCase):
         self.populate();archive=self.cache/(self.key+'.metalarc');target=self.root/'outside';archive.rename(target);archive.symlink_to(target)
         with self.context(),self.assertRaises(RuntimeError):self.run_gate()
     def test_real_run_capture_gate_precedes_tests_native_job_and_claim(self):
-        compiler=self.root/'slang/bin';compiler.mkdir(parents=True);(compiler/'slangc').write_text('fixture')
-        capture=self.root/'cli-capture'
-        with self.context(),contextlib.ExitStack() as stack:
-            for name,value in [('ROOT',self.root),('verify_package',lambda root:self.manifest),('SUITES',self.api.SUITES),('validate_generation_request',lambda m:None),('capture_storage_preflight',lambda *a,**k:None),('required_generation_cache_preflight',lambda *a:False),('metal_device_preflight',lambda cap:self.device)]:stack.enter_context(patch.object(cli,name,value))
-            from portable_wire_layout import metal_guard
-            self.consumer.write_text(metal_guard())
-            stack.enter_context(patch.dict(os.environ,NIKKE_SLANG_ROOT=str(compiler.parent)))
-            with patch.object(cli,'cpu_test_groups') as tests,patch.object(cli,'cpu_preflight') as native,patch.object(cli,'run_job') as job:
-                with self.assertRaisesRegex(RuntimeError,'no execution claim consumed'):cli.run_capture(capture,'metal',180)
-                tests.assert_not_called();native.assert_not_called();job.assert_not_called()
-        self.assertFalse((self.root/'gpu-claimed-metal.json').exists());self.assertEqual(cli.load(capture/'run.json')['status'],'failed')
+        compiler=self.root/'slang/bin';compiler.mkdir(parents=True)
+        for name in ('slangc','slangc.exe'):(compiler/name).write_text('fixture')
+        for os_name in ('posix','nt'):
+            capture=self.root/('cli-capture-'+os_name)
+            with self.subTest(os_name=os_name),self.context(),contextlib.ExitStack() as stack:
+                # Local proxy selects both executable names without changing
+                # pathlib's host OS or bypassing the real device gate.
+                stack.enter_context(patch.object(cli,'os',SimpleNamespace(**dict(vars(os),name=os_name))))
+                for name,value in [('ROOT',self.root),('verify_package',lambda root:self.manifest),('SUITES',self.api.SUITES),('validate_generation_request',lambda m:None),('capture_storage_preflight',lambda *a,**k:None),('required_generation_cache_preflight',lambda *a:False),('metal_device_preflight',lambda cap:self.device)]:stack.enter_context(patch.object(cli,name,value))
+                from portable_wire_layout import metal_guard
+                self.consumer.write_text(metal_guard())
+                stack.enter_context(patch.dict(os.environ,NIKKE_SLANG_ROOT=str(compiler.parent)))
+                with patch.object(cli,'cpu_test_groups') as tests,patch.object(cli,'cpu_preflight') as native,patch.object(cli,'run_job') as job:
+                    with self.assertRaisesRegex(RuntimeError,'no execution claim consumed'):cli.run_capture(capture,'metal',180)
+                    tests.assert_not_called();native.assert_not_called();job.assert_not_called()
+            self.assertFalse((self.root/'gpu-claimed-metal.json').exists());self.assertEqual(cli.load(capture/'run.json')['status'],'failed')
 
 if __name__=='__main__':unittest.main()

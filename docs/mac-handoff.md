@@ -1,3 +1,13 @@
+# 2026-10-29 全制御gateで見つかった3件を修正、固定719検査成功
+
+Windows75ea07e1…のsmokeは偽SDKにslangc.exeが無く、cache gate前のValueErrorで失敗。24群283件中282成功/1error、57.317秒/timeoutなし、2GiB/gate/終了空/欠落0/観測cleanup errorなし。resume/native/GPU/compile0、旧失敗とclaimを保持。固定9578c258…の小summary/manifestを元bytes/SHAで回収した。再送はしていない。
+
+Macで同packetの全制御gateを検査すると、generation extraction監査にも2件の古い前提が残っていた。fd15fec6のappend audit3行を、全source SHAと8ca7c8ddの元sourceへ一致する明示inverseで復元してから元AST期待へ比較する。元の期待fixtureは書き換えない。またresident arcの完全なcurrent sourceが外側inverseから届いた場合だけ、同じcurrent文字列/hashとbaseline hashを検査して復元する。新しいlogical/movement inverseを二重適用しない。compiler flags/timeout/append audit変更を拒否する故障注入も追加。
+
+偽SDKはslangc/slangc.exeを用意し、ローカルOS proxyで両方を実際に通してgate到達・native/test/Job/claim0を検査する。実OS/Metal device gateを広くmockして回避しない。計算本体・backend・Slang generator・保護CPU4ファイル・strict normalizer・全goldenは不変。
+
+修正済み固定866522e7…自身で全69制御群719検査が成功（CPU-only smoke、native/実Slang/GPU0）、終了後payloadも一致。関連8+10検査も成功。修正3既存ファイル/2追加ファイルの元・現byte/SHAを`tests/fixtures/portable-control-fixture-repairs-v1.json`へ明示。小記録`research/portable-control-fixture-repairs-v1.json`。次はこの明示修正を新continuation capsuleへ取り込み、元計算/入力/golden/旧失敗を保持したまま全制御gateを確認する。現75ea…のsmokeを再送したり、テストを外してresumeへ進まない。Windowsは現在idle、GPU未実行。以下は履歴。
+
 # 2026-10-29 通常ownerの同一未実行GPU用継続とnative予算を修正
 
 既存continuation-packageは、通常payload内に元からあるhelper/testを「追加済み」として拒否した（初回失敗logを保持）。通常owner用schemaを追加し、元3controller＋2continuation helperのみ更新、元の全テストを含む他の全bytes/goldenを保持し、制御テスト1ファイルだけ追加する。compact旧経路、計算/監査関数・fresh nativeループ・入力/transport ASTの保持は変更しない。

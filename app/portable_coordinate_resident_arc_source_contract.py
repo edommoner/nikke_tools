@@ -17,6 +17,10 @@ def project_sources(root,sources=None):
     return out
 def project_backend_source(root,source=None):
     root=Path(root);name='app/portable_backend.py';source=(root/name).read_text() if source is None else source
+    row=ledger(root)['sources'][name]
+    # Outer exact inverses may already have restored this layer's complete
+    # input. Do not apply newer physical/logical inverses a second time.
+    if source==row['current']:return checked(source,row,error_type=ValueError)
     if (root/'gpu/world_coordinate_logical_actor_entry.slang').exists():
         from portable_logical_geometry_source_contract import project_backend_source as logical_backend
         source=logical_backend(root,source)
