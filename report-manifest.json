@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "source_package_id": "49d90bfbead5a456d9f8575c95747ebd8834253e453bb4b4313b7125e69db61d",
+  "source_commit": "76b3d3233995abf2b7f308a5b9d9f74b88767f84",
+  "summary_file": "materials-summary-v1.json",
+  "summary_bytes": 3089,
+  "summary_sha256": "a50b3e4ef4ff943b8c344da3b05e75b164b368d59bc719cf3e21c9ebf33546f2",
+  "public_payload": "aggregate-summary-and-manifest-only",
+  "private_diagnostics_included": false,
+  "binding_included": false,
+  "sdk_paths_included": false,
+  "nonce_included": false,
+  "per_header_metadata_included": false,
+  "raw_included": false
+}
