@@ -41,7 +41,12 @@ AUDIT_FILES['test_dispatch_frame_storage.py']=(
     'research/portable-compiler-full--coordinate-resident-frames-v2-source-certificate.json')
 AUDIT_FILES['test_portable_readiness_semantics.py']=(
     'tests/fixtures/resident-append-full106-metal-v1.json',
-    'tests/fixtures/resident-append-cross-gpu-v1.json')
+    'tests/fixtures/resident-append-cross-gpu-v1.json',
+    'tests/fixtures/resident-current-cuda-v2-summary.json')
+AUDIT_FILES['test_portable_partitioned_current.py']=(
+    'tests/fixtures/partitioned-physical-reference-v1.json',
+    'tests/fixtures/resident-append-full106-metal-v1.json',
+    'research/portable-coordinate-resident-frames-short-v2-expected.json')
 
 def validate_dependency_files(root,patterns,included=None):
     """Reject missing audit data before tests/native work or execution claims."""

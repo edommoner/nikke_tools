@@ -17,6 +17,30 @@ ADDED=('app/portable_partitioned_transport.py','app/portable_partitioned_cli.py'
 CUDA_ADDED=('app/portable_partitioned_cuda_receipt.py','app/portable_partitioned_cuda_owner.py',
             'tests/test_portable_partitioned_cuda_receipt.py','tests/test_portable_partitioned_cuda_owner.py')
 MODE='partitioned-file-diagnostic-v1'
+CURRENT='partitioned-current-source-cuda-v1'
+PHYSICAL_REFERENCE_SHA='ca3c24a8079cc43003e199566a0a822f98085f77a66bae260c5483b5ca579c3d'
+
+
+def current_reference(cli,source,config,golden,raw):
+    """Bind the reviewed current Metal seal, not arbitrary success flags."""
+    from portable_resident_validation import validation
+    pin=validation()['frames'];proof=json.loads(raw)
+    baseline=(Path(source)/config['golden']).read_bytes()
+    if (cli.sha(raw)!=pin['evidence_sha256'] or config['golden']!=pin['golden']
+        or json.loads(baseline)!=golden or proof.get('calculation_verified') is not True
+        or proof.get('old_entry_input_output_native_fingerprints_preserved') is not True):
+        raise ValueError('Pinned current-source independent Metal seal required')
+    # The exact archived proof was validated on its source host. Comparing its
+    # historical child PIDs with today's Windows PID would be meaningless.
+    audit=proof['independent_audit']
+    if (audit.get('calculation_verified') is not True or audit.get('gpu_calls')!=0
+        or audit.get('input_count')!=len(golden['entries']) or audit.get('live_parent_receipt_present') is not False
+        or audit.get('native_cases')!=config['native'] or audit.get('input_sha256')!=golden['input_sha256']
+        or audit.get('output_sha256')!=golden['output_sha256']):raise ValueError('Current Metal/native corpus differs')
+    matches=[r for r in proof['anchors'] if Path(r['path']).name==Path(config['golden']).name]
+    if len(matches)!=1 or matches[0]['sha256']!=cli.sha(baseline) or matches[0]['bytes']!=len(baseline):
+        raise ValueError('Current Metal seal does not anchor this complete golden')
+    return dict(proof_sha256=cli.sha(raw),golden_file_sha256=cli.sha(baseline))
 
 
 def patched_cli(text):
@@ -31,7 +55,7 @@ def main(argv=None):
     return ast.unparse(ast.fix_missing_locations(tree))+'\n'
 
 
-def make(cli,source,output,*,cuda_reference=None):
+def make(cli,source,output,*,cuda_reference=None,current_source_reference=None):
     from portable_continuation_package import owner_snapshot
     from portable_staged_preflight import outside
     source=Path(source).resolve();output=outside(output,[source])
@@ -39,18 +63,27 @@ def make(cli,source,output,*,cuda_reference=None):
     info=owner_snapshot(cli,source);old=info['manifest']
     if old['suite']!='coordinate-resident-frames' or old.get('purpose')!='sealed' or old.get('partitioned_diagnostic'):raise ValueError('Original sealed complete resident-frame baseline required')
     payload={r['path']:(source/r['path']).read_bytes() for r in old['files']}
+    if current_source_reference is not None and cuda_reference is None:raise ValueError('Current source requires the retained physical wire reference')
     added=ADDED+CUDA_ADDED if cuda_reference is not None else ADDED
-    if set(added)&set(payload):raise ValueError('Partitioned helpers already exist in base')
+    if current_source_reference is not None:added+=('app/portable_resident_validation.py','app/portable_cpu_tests.py',
+        'tests/test_portable_partitioned_current.py','tests/fixtures/partitioned-physical-reference-v1.json')
+    replaced_helpers=sorted(set(added)&set(payload))
+    if replaced_helpers and current_source_reference is None:raise ValueError('Partitioned helpers already exist in base')
     payload['scripts/nikke_gpu.py']=patched_cli(payload['scripts/nikke_gpu.py'].decode()).encode()
     for name in added:payload[name]=(cli.ROOT/name).read_bytes()
     reference=None
     if cuda_reference is not None:
         raw=Path(cuda_reference).read_bytes();reference=json.loads(raw)
-        if (cli.sha(raw)!='ca3c24a8079cc43003e199566a0a822f98085f77a66bae260c5483b5ca579c3d'
+        if (cli.sha(raw)!=PHYSICAL_REFERENCE_SHA
             or reference.get('calculation_verified') is not True or reference['comparison']['entries']!=old['golden']['entries']
             or reference['comparison']['logical_output_sha256']!=old['golden']['output_sha256']
             or reference['comparison']['input_count']!=106 or reference['comparison']['native_oracles']!=63):raise ValueError('The verified complete Metal/native reference is required')
         payload['research/partitioned-cuda-native-reference.json']=raw
+    current=None
+    if current_source_reference is not None:
+        raw=Path(current_source_reference).read_bytes()
+        current=current_reference(cli,source,info['config'],old['golden'],raw)
+        payload['research/partitioned-current-metal-reference.json']=raw
     with tempfile.TemporaryDirectory(prefix='nikke-partitioned-packet-') as tmp:
         root=Path(tmp)
         for name,raw in payload.items():
@@ -64,7 +97,7 @@ def make(cli,source,output,*,cuda_reference=None):
             projection.update(retained_files=len(names),original_files=len(names|omitted),
                 original_names_sha256=cli.sha(json.dumps(sorted(names|omitted),separators=(',',':')).encode()))
         m['partitioned_diagnostic']=dict(schema=MODE,base_package_id=old['package_id'],base_manifest_sha256=cli.sha((source/'gpu-package.json').read_bytes()),
-            added=[*added,*(['research/partitioned-cuda-native-reference.json'] if reference is not None else [])],replaced=['scripts/nikke_gpu.py'],cuda_execution_admitted=reference is not None)
+            added=[*[n for n in added if n not in replaced_helpers],*(['research/partitioned-cuda-native-reference.json'] if reference is not None else []),*(['research/partitioned-current-metal-reference.json'] if current is not None else [])],replaced=['scripts/nikke_gpu.py',*replaced_helpers],cuda_execution_admitted=reference is not None)
         from portable_partitioned_addresses import PROFILE,check_source
         check_source(source,info['config']['source'],info['config']['output_words'])
         m['partitioned_diagnostic']['wire_address_profile']=PROFILE
@@ -72,6 +105,10 @@ def make(cli,source,output,*,cuda_reference=None):
             m['partitioned_cuda_execution']=dict(schema='partitioned-cuda-owner-v1',batch_size=16,maximum_gpu_seconds=60,
                 native_reference_sha256=cli.sha(payload['research/partitioned-cuda-native-reference.json']),
                 origin_audit_sha256='c13670407bba85393ec6791f550a0d152e30cac8a2ab45d696b2c6c9eb37a551')
+            if current is not None:
+                m['partitioned_cuda_execution']=dict(schema=CURRENT,batch_size=16,maximum_gpu_seconds=60,
+                    native_reference_sha256=cli.sha(payload['research/partitioned-cuda-native-reference.json']),
+                    current_source_reference=current,prior_physical_reference_reused=True)
         m['source_commit']=subprocess.check_output(['git','rev-parse','HEAD'],cwd=cli.ROOT,text=True).strip()
         m['working_tree_dirty']=bool(subprocess.check_output(['git','status','--porcelain'],cwd=cli.ROOT,text=True).strip());m['package_id']=cli.package_id(m)
         if owner_snapshot(cli,source)!=info:raise ValueError('Original baseline changed during diagnostic packaging')
@@ -173,13 +210,15 @@ def dispatch(cli,original,argv=None):
     if args and args[0] in ('partitioned-cuda-smoke','partitioned-cuda-prepare','partitioned-cuda-run'):
         p=argparse.ArgumentParser();p.add_argument('command');p.add_argument('--capture',type=Path,required=True)
         p.add_argument('--original-workspace',type=Path);p.add_argument('--timeout',type=int)
-        for flag in ('auditor-root','auditor-capture','gpu-capture','prepared','slang-root','generation-cache'):p.add_argument('--'+flag,type=Path)
+        for flag in ('auditor-root','auditor-capture','linked-root','linked-capture','gpu-capture','prepared','slang-root','generation-cache'):p.add_argument('--'+flag,type=Path)
         a=p.parse_args(args);stage={'partitioned-cuda-smoke':'smoke','partitioned-cuda-prepare':'prepare','partitioned-cuda-run':'gpu'}[a.command]
-        required=('auditor_root','auditor_capture','gpu_capture','slang_root','generation_cache','original_workspace') if stage=='prepare' else ('prepared','original_workspace') if stage=='gpu' else ()
+        current=cli.load(cli.ROOT/'gpu-package.json').get('partitioned_cuda_execution',{}).get('schema')==CURRENT
+        source_args=('linked_root','linked_capture') if current else ('auditor_root','auditor_capture')
+        required=(*source_args,'gpu_capture','slang_root','generation_cache','original_workspace') if stage=='prepare' else ('prepared','original_workspace') if stage=='gpu' else ()
         if any(getattr(a,n) is None for n in required):p.error('Stage-specific source/preflight arguments required')
         from portable_partitioned_cuda_owner import run as run_cuda
         result=run_cuda(cli,stage,a.capture,a.original_workspace,auditor_root=a.auditor_root,auditor_capture=a.auditor_capture,gpu_capture=a.gpu_capture,
-            prepare_capture=a.prepared,slang_root=a.slang_root,generation_cache=a.generation_cache,timeout=a.timeout)
+            linked_root=a.linked_root,linked_capture=a.linked_capture,prepare_capture=a.prepared,slang_root=a.slang_root,generation_cache=a.generation_cache,timeout=a.timeout)
         print(json.dumps(result,indent=2))
         if not result['passed']:raise SystemExit(1)
         return result
@@ -223,7 +262,7 @@ def dispatch(cli,original,argv=None):
             if a.backend!='cuda':raise ValueError('Saved CUDA wire index requires its explicit CPU stage identity')
             from portable_partitioned_wire_index import child as index_child
             return index_child(cli,a.capture.resolve())
-        if cli.load(a.capture/'run.json').get('mode')=='partitioned-cuda-owner-v1':
+        if cli.load(a.capture/'run.json').get('mode') in ('partitioned-cuda-owner-v1',CURRENT):
             if a.backend!='cuda':raise ValueError('CUDA owner requires its explicit backend')
             from portable_partitioned_cuda_owner import child as cuda_child
             return cuda_child(cli,a.capture.resolve())

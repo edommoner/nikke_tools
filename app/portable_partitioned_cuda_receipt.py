@@ -9,6 +9,10 @@ from pathlib import Path
 from unittest.mock import patch
 
 AUDITOR='97e9477eed96614e1ab8a916effb99ec939d9be17a6757fea11e6135b63e1872'
+CURRENT='partitioned-current-cubin-admission-v1'
+CURRENT_PACKAGE=('gpu-package.json','jit-link-object-claimed-cuda.json')
+CURRENT_CAPTURE=('artifacts.json','run.json','result.json','execution.json','job.json','phases.jsonl',
+                 'jit-link.json','object-request.json','observation.json')
 
 
 def canonical(cli,value):return cli.sha(json.dumps(value,sort_keys=True,separators=(',',':')).encode())
@@ -65,6 +69,7 @@ def prepare(cli,manifest,auditor_root,capture,*,generated_cuda_source):
 
 def check(cli,manifest,state):
     """Small receipt anchors plus original claims; no recursive producer audit."""
+    if state.get('schema')==CURRENT:return check_current(cli,manifest,state)
     from portable_linked_artifact import valid_receipt
     if (state.get('schema')!='partitioned-pinned-cubin-admission-v1' or state.get('auditor_package_id')!=AUDITOR
         or state.get('golden_sha256')!=canonical(cli,manifest['golden']) or state.get('execution_permitted') is not False
@@ -87,6 +92,51 @@ def check(cli,manifest,state):
     for r in state['claims']:
         p=Path(r['path']);record=cli.file_records(p.parent,[p.name])[0]
         if record['bytes']!=r['bytes'] or record['sha256']!=r['sha256']:raise ValueError('Original consumed claim changed after CPU audit')
+    return True
+
+
+def prepare_current(cli,manifest,linked_root,linked_capture,*,generated_cuda_source):
+    """Audit the new source's complete producer/object/link chain once, CPU only."""
+    from portable_linked_artifact import read_verified
+    linked_root=Path(linked_root).resolve();linked_capture=Path(linked_capture).resolve()
+    with cli.forbid_gpu():checked=cli.saved_linked_admission(manifest,dict(package=str(linked_root),capture=str(linked_capture)))
+    state=dict(schema=CURRENT,linked_root=str(linked_root),source_capture=str(linked_capture),
+        package_records=cli.file_records(linked_root,CURRENT_PACKAGE),capture_records=cli.file_records(linked_capture,CURRENT_CAPTURE),
+        linked_receipt=checked['receipt'],linked_artifact=checked['artifact'],golden_sha256=canonical(cli,manifest['golden']),
+        input_count=len(manifest['golden']['entries']),native_cases=cli.SUITES[manifest['suite']]['native'],
+        execution_permitted=False,native_values_reused=False,gpu_calls=0)
+    with cli.forbid_gpu():read_verified(state['linked_receipt'],generated_cuda_source,state['linked_artifact'])
+    check_current(cli,manifest,state)
+    return state
+
+
+def check_current(cli,manifest,state):
+    from portable_linked_artifact import valid_receipt
+    if (state.get('schema')!=CURRENT or state.get('execution_permitted') is not False
+        or state.get('native_values_reused') is not False or type(state.get('gpu_calls')) is not int or state.get('gpu_calls')!=0
+        or state.get('golden_sha256')!=canonical(cli,manifest['golden'])
+        or state.get('input_count')!=len(manifest['golden']['entries'])
+        or state.get('native_cases')!=cli.SUITES[manifest['suite']]['native']
+        or not valid_receipt(state.get('linked_receipt',{}))):raise ValueError('Current source CUBIN admission changed')
+    for key,names in (('package_records',CURRENT_PACKAGE),('capture_records',CURRENT_CAPTURE)):
+        rows=state.get(key,[])
+        if len(rows)!=len(names) or {r['path'] for r in rows}!=set(names):raise ValueError('Complete current admission anchors required')
+    root=Path(state['linked_root']);capture=Path(state['source_capture'])
+    cli.check_records(root,state['package_records']);cli.check_records(capture,state['capture_records'])
+    receipt=state['linked_receipt'];identity=receipt['identity'];anchors=identity['anchors']
+    if (identity.get('source_closure')!=manifest['golden']['source_sha256']
+        or identity.get('generated_normalized')!=manifest['golden']['generated_normalized']
+        or anchors['package_id']!=cli.load(root/'gpu-package.json')['package_id']
+        or anchors['manifest_sha256']!=cli.sha((root/'gpu-package.json').read_bytes())
+        or anchors['artifacts_sha256']!=cli.sha((capture/'artifacts.json').read_bytes())
+        or anchors['claim_sha256']!=cli.sha((root/'jit-link-object-claimed-cuda.json').read_bytes())):
+        raise ValueError('Current CUBIN source or owner anchors changed')
+    proof=cli.load(capture/'jit-link.json')['receipt']
+    if (proof['identity']!=identity['link_identity'] or proof['key']!=anchors['link_receipt_key']
+        or proof['artifact']['sha256']!=receipt['artifact_sha256'] or proof['artifact']['bytes']!=receipt['artifact_bytes']
+        or Path(state['linked_artifact']).resolve()!=(capture/'jit-linked.cubin').resolve()
+        or Path(cli.load(root/'jit-link-object-claimed-cuda.json')['capture']).resolve()!=capture.resolve()):
+        raise ValueError('Current CUBIN link receipt or original claim changed')
     return True
 
 

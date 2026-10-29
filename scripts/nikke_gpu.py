@@ -3497,6 +3497,7 @@ def main(argv=None):
     a=sub.add_parser('gpu-recovery-package');a.add_argument('--base-package',type=Path,required=True);a.add_argument('--origin-auditor',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('partitioned-file-package');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('partitioned-cuda-package');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--metal-reference',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('partitioned-current-package');a.add_argument('--source-package',type=Path,required=True);a.add_argument('--metal-reference',type=Path,required=True);a.add_argument('--current-reference',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('partitioned-index-compare')
     for flag in ('reference','candidate','out'):a.add_argument('--'+flag,type=Path,required=True)
     a.add_argument('--reference-raw',type=Path)
@@ -3869,6 +3870,9 @@ def main(argv=None):
     elif a.command=='partitioned-cuda-package':
         from portable_partitioned_cli import make
         with forbid_gpu():result=make(SimpleNamespace(**globals()),a.source_package,a.out,cuda_reference=a.metal_reference)
+    elif a.command=='partitioned-current-package':
+        from portable_partitioned_cli import make
+        with forbid_gpu():result=make(SimpleNamespace(**globals()),a.source_package,a.out,cuda_reference=a.metal_reference,current_source_reference=a.current_reference)
     elif a.command=='gpu-recovery-package':
         from portable_gpu_recovery_package import make
         with forbid_gpu():result=make(SimpleNamespace(**globals()),a.base_package,a.origin_auditor,a.out)
@@ -3948,6 +3952,10 @@ def main(argv=None):
                 cuda_append_calculation_verified=resident['appends']['cuda_calculation_verified'],
                 cuda_append_stage_passed=resident['appends']['overall_stage_passed'],
                 cuda_append_environment_preservation_verified=resident['appends']['environment_preservation_verified']))
+        display['private_resident_storage'].update(current_cuda_wire_inputs=resident['wire']['inputs'],
+            current_cuda_wire_verified=resident['wire']['shared_metal_wire_equivalence_verified'],
+            current_cuda_calculation_verified=resident['wire']['calculation_verified'],
+            current_cuda_native_audit_pending=resident['wire']['pending_independent_native_audit'])
     print(json.dumps(display,ensure_ascii=False,indent=2))
     if result.get('mode')=='staged-gpu-pending-native-audit':
         if not result.get('gpu_execution_completed') or not result.get('readback_fingerprint_matches'):raise SystemExit(1)

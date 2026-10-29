@@ -1,3 +1,13 @@
+# 2026-10-29 現ソースCUDA全106入力のwire一致・共通CLIへ記録
+
+`partitioned-current-package`を実装し、現Metal独立sealと元physical wire参照を別々にpinした。旧失敗回収ownerは保持し、既存の分割transport・linked artifact admission・Job・ABI観測を再利用。新ownerは元PTX/object/linkをCPU準備で一度監査し、実行直前には小さいreceipt anchorsと全input/source/header/CUBINを確認する。fallback compile/linkなし、source/goldenの除外なし。保存容量はGPU claim/ledger作成前に確認する。全106/native63、488 GPU/canonical/upstream/normalizerファイル、元CLIのmain以外のASTを保持した。詳細[現ソースCUDA owner](portable-current-source-cuda-owner.md)。
+
+固定packet b873a58c（source806e01dc）のWindows実行は、smoke47検査15.70秒、全106入力のfresh静的準備41.20秒、GPU stage28.92秒で成功。launch/sync各7、readback106、driver失敗0。875,469,264byteの全rawとlogical SHAが参照と一致し、生成cache必須hit・compiler/link0。低優先度/2GiB/GPU60秒を保持し追加GPU実行は不要。元raw/claim/全receiptはWindowsに保持し、Macは固定b3c989d1の1637byte要約のみ取得。process保持true、service未識別のpreservation/overall false、calculation false・fresh独立native監査pendingを維持する。
+
+Macでは保持済みMetal rawをsource-pinned address viewで全106行再照合し、Windows要約のraw SHAとも一致した（1.124秒、20参照/5アドレス移動）。これはMetal由来の同一byte witnessであり、CUDA原captureの取得/独立監査とは呼ばない。fresh native再計算0。次は元出力を再実行せず、共通native比較器の保存結果入口を現ownerへ接続し、全63 native＋43拒否を独立監査する。Windowsで長い正本計算を常駐させず、Macのbyte witnessとWindows原captureの証拠境界を保持する。
+
+共通CLI `model-check --summary`と未対応分類へwire106成功/計算false/pendingを別字段で表示。partitioned63/readiness25/model-gap14/CLI51検査、model-check成功。5 canonical consumer/20model gap/全キャラ0/UI CPU/公開受付falseは未完了。証跡[checkpoint](../research/target-count-query-evidence/resident-current-cuda-v2-checkpoint.json)、固定Windows要約`tests/fixtures/resident-current-cuda-v2-summary.json`。Lock On公開調査は照準線基準までを採用し、中心/外形/2D/3D/tie/PARTは未確定のまま。他機能の開発を実機提供待ちで止めない。以下は履歴。
+
 # 2026-10-29 現full PTX生成成功・未対応分類へstorage証拠を接続
 
 compiler v2はsource stale負例テストのsynthetic inventoryにCPU audit fixtureが無く、Windows6群72検査の1失敗で停止。production guardは変更せず、そのunitだけCPU suite/smoke/native payload検証を隔離して本来のstale source拒否を検査した。v3/babcd09cはv2とtest1ファイルだけの差で、GPU/全golden/consumerは同一。packet自身の20群210検査がMac/Windowsで成功。元失敗/capture/claimは保持。

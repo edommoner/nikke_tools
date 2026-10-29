@@ -1,3 +1,5 @@
+現ソースの全106 CUDA接続は `partitioned-current-package` で作った新ownerを使う。旧失敗ownerは保持し、現Metal sealと保存CUBINをpinする。[現ソースownerと3段階](portable-current-source-cuda-owner.md)。
+
 `model-check --summary` は、private Metal106入力とCUDA append9契約を別表示する。appendのcalculation成功とstage／環境保全falseを同時に保持し、full CUDA battle・canonical model gap・公開受付へ昇格させない。出所は完全reportの `resident_storage_validation`。
 
 保存CUDA sourceとpaired generation／CUBIN cacheを固定して使う経路は、sealed cache-only packetの `run-gpu-packet.py --stage gpu-cached --request REQUEST.json`。既存Job・2GiB・180秒／子60秒・必須hitを保持する。[4キーrequestと境界検査](portable-resident-append-publication.md)。通常gpu段階の失敗claimを消して再送しない。

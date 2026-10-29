@@ -33,6 +33,14 @@ class ReadinessSemanticsTests(unittest.TestCase):
             self.assertFalse(append['overall_stage_passed']);self.assertFalse(append['environment_preservation_verified'])
             self.assertFalse(append['full_resident_battle_verified']);self.assertFalse(result['gpu_supported'])
             self.assertEqual(result['lane'],'reference_model_gap');self.assertFalse(audit['full_goal_complete'])
+            wire=proof['wire'];raw=(ROOT/wire['evidence']).read_bytes();peer=json.loads(raw)
+            self.assertEqual(wire['evidence_sha256'],hashlib.sha256(raw).hexdigest())
+            self.assertEqual(wire['inputs'],peer['input_count']);self.assertEqual(wire['native_reference_cases'],peer['native_reference_cases'])
+            self.assertTrue(peer['gpu_protocol_verified']);self.assertTrue(wire['cuda_device_execution_verified'])
+            self.assertTrue(peer['shared_metal_wire_equivalence_verified']);self.assertTrue(wire['shared_metal_wire_equivalence_verified'])
+            self.assertEqual((peer['launch_calls'],peer['sync_calls'],peer['readback_calls']),(7,7,106))
+            for name in ('calculation_verified','overall_stage_passed','public_admission','full_character_verified'):self.assertFalse(wire[name])
+            self.assertTrue(wire['pending_independent_native_audit']);self.assertFalse(wire['original_cuda_raw_independently_read_on_mac'])
 
     def test_enemy_ammo_has_shared_math_but_requires_enemy_state_and_real_producers(self):
         from portable_model_gap_audit import verify

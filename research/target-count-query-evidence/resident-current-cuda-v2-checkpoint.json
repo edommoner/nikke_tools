@@ -1,0 +1,86 @@
+{
+  "schema": "resident-current-cuda-owner-checkpoint-v1",
+  "package_id": "b873a58c48c76438c23c2b8fc7119d601793f702d8668a435ab74eefb437abcc",
+  "source_packet_commit": "806e01dcdc45e65e28957ff0ba7e72d97e1826c1",
+  "windows_summary_commit": "b3c989d11505a0ae956c07f90177b86261b0bedd",
+  "controller_audit": {
+    "package_id": "b873a58c48c76438c23c2b8fc7119d601793f702d8668a435ab74eefb437abcc",
+    "base_package_id": "ba3189a6543c568b31dd1010bef58dcedbc9ff5913177610c782eaba2cd4b8e6",
+    "changed_existing_files": [
+      "app/portable_cpu_tests.py",
+      "app/portable_partitioned_cli.py",
+      "app/portable_partitioned_cuda_owner.py",
+      "app/portable_partitioned_cuda_receipt.py",
+      "scripts/nikke_gpu.py"
+    ],
+    "new_files": [
+      "research/partitioned-cuda-native-reference.json",
+      "research/partitioned-current-metal-reference.json",
+      "tests/fixtures/partitioned-physical-reference-v1.json",
+      "tests/test_portable_partitioned_current.py"
+    ],
+    "golden_all106_identical": true,
+    "unchanged_gpu_canonical_upstream_normalizer_files": 488,
+    "all_original_cli_functions_unchanged_except_main": true,
+    "mac_own_packet_smoke": {
+      "calculation_verified": false,
+      "containment_verified": null,
+      "current_source_metal_seal_verified": true,
+      "full_goal_complete": false,
+      "gpu_execution_verified": false,
+      "mode": "partitioned-current-source-cuda-v1",
+      "overall_stage_passed": false,
+      "package_id": "b873a58c48c76438c23c2b8fc7119d601793f702d8668a435ab74eefb437abcc",
+      "passed": true,
+      "pending_independent_native_audit": true,
+      "prepared": false,
+      "preservation_verified": false,
+      "prior_physical_reference_reused": true,
+      "public_gpu_admitted": false,
+      "shared_metal_wire_equivalence_verified": false,
+      "stage": "smoke",
+      "stage_protocol_verified": true
+    },
+    "mac_own_packet_tests": {
+      "cpu_groups": 7,
+      "cpu_tests": 47,
+      "gpu_calls": 0
+    },
+    "retained_bookkeeping_failure": "Initial summary expected 49 tests instead of the actual complete seven groups/47 tests; original successful CPU receipt unchanged",
+    "gpu_calls": 0
+  },
+  "wire_witness": {
+    "schema": "current-cuda-identical-wire-witness-v1",
+    "package_id": "b873a58c48c76438c23c2b8fc7119d601793f702d8668a435ab74eefb437abcc",
+    "peer_summary_commit": "b3c989d11505a0ae956c07f90177b86261b0bedd",
+    "witness_origin": "Retained Metal capture; not relabelled CUDA raw",
+    "cuda_original_capture_transferred": false,
+    "all106_logical_row_hashes_match_current_golden": true,
+    "whole_witness_bytes_match_reported_cuda_raw": true,
+    "raw_output_sha256": "0a737874d7e32912167b90e2f48a0ebf8176d79861cd6b5843fc09204ed9f829",
+    "logical_output_sha256": "4ecc755e4f17e2eaaa9c9eb013bbcaa2fb27422893982f910894287df96ced09",
+    "input_count": 106,
+    "output_bytes": 875469264,
+    "active_references_checked": 20,
+    "logical_address_change_count": 5,
+    "fresh_native_evaluations": 0,
+    "gpu_calls": 0,
+    "raw_gpu_bytes_modified": 0,
+    "calculation_verified": false,
+    "pending_independent_native_audit": true,
+    "elapsed_seconds": 1.1241121669881977
+  },
+  "checks": {
+    "partitioned": 63,
+    "readiness": 25,
+    "model_gap": 14,
+    "cli": 51,
+    "model_check_passed": true
+  },
+  "fresh_gpu_calls_in_checkpoint": 0,
+  "pending_independent_native_audit": true,
+  "calculation_verified": false,
+  "environment_preservation_verified": false,
+  "full_goal_complete": false,
+  "public_gpu_admitted": false
+}

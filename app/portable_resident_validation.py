@@ -21,4 +21,12 @@ def validation():
             evidence_sha256='9f0ad6e5c32b7f87f5a8a463f81eb8d4860d935b67683658dd540a68598e42b2',
             overall_stage_passed=False,environment_preservation_verified=False,
             preservation_status='unverified_service_identification',
-            full_resident_battle_verified=False,full_character_verified=False,public_admission=False))
+            full_resident_battle_verified=False,full_character_verified=False,public_admission=False),
+        wire=dict(suite='coordinate-resident-frames',inputs=106,native_reference_cases=63,
+            cuda_device_execution_verified=True,shared_metal_wire_equivalence_verified=True,
+            evidence='tests/fixtures/resident-current-cuda-v2-summary.json',
+            evidence_sha256='7bfa35fef584ae4efdecd22a869f3660f3bf9d424549755c29a6b98a964117ce',
+            peer_summary=True,original_cuda_raw_independently_read_on_mac=False,
+            pending_independent_native_audit=True,calculation_verified=False,
+            environment_preservation_verified=False,overall_stage_passed=False,
+            full_character_verified=False,public_admission=False))
