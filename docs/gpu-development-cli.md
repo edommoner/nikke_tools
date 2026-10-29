@@ -717,3 +717,7 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 
 
 `moving-typed`は元ユニ/ヤンの30秒実編成6条件＋raw拒否12のsealed18入力。停止/強制移動/重複/再出現/同frame所有者死亡とtyped物理対象を1つのclock/actor pool/pelletへ合成する。元全定義と既存履歴容量を保持し、明示した同世代追従モデルでM5 Metal/fresh独立sealに成功。入力123188/出力2165136wordを通常package/unpack/runから使う。CUDA実機・ゲーム規則/defaultは未確認。[wire/比較範囲/実測と残件](portable-moving-typed.md)。
+
+## 監査済み入力の固定受け渡し
+
+`prepare-admission`は元ownerの外部package ID、元transactionと保存link/現producer対を受け、既存の完全なCPU監査から証明書・inventory・snapshotを作る。claimやGPU実行は行わず、成功時もexecution_admitted/calculation false。[引数・検査・未接続境界](portable-prepared-admission.md)を参照。既存run/staged-runの受付を置き換えるものではなく、認証されたclaimとGPU consumerへの接続は未完了。

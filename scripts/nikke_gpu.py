@@ -3566,6 +3566,9 @@ def main(argv=None):
     a=sub.add_parser('compiler-stats');a.add_argument('--capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=12);a.add_argument('--caller');a.add_argument('--runtime')
     a=sub.add_parser('ptx-stats');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--top',type=int,default=8);a.add_argument('--callgraph',action='store_true')
     a=sub.add_parser('ptx-partition');a.add_argument('--cache-entry',type=Path,required=True);a.add_argument('--phases',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--function');a.add_argument('--audit',action='store_true')
+    a=sub.add_parser('prepare-admission',help='Full original CPU audits and immutable handoff; never claims or executes GPU')
+    a.add_argument('--owner-package',type=Path,required=True);a.add_argument('--expected-owner-id',required=True)
+    for flag in ('transaction','linked-package','linked-capture','producer-package','producer-capture','out'):a.add_argument('--'+flag,type=Path,required=True)
     a=sub.add_parser('admission-snapshot',help='CPU-only content snapshot; does not grant GPU admission')
     a.add_argument('--inventory',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('admission-snapshot-check',help='CPU-only archive integrity against an external SHA; not admission')
@@ -3765,6 +3768,11 @@ def main(argv=None):
         from portable_ptx_partition import saved_partition,audit_partition
         if a.audit and a.function:raise ValueError('Audit uses the stored focus; --function is creation only')
         result=audit_partition(a.cache_entry,a.phases,a.out) if a.audit else saved_partition(a.cache_entry,a.phases,a.out,a.function)
+    elif a.command=='prepare-admission':
+        from portable_admission_prepare import prepare
+        request=dict(package=str(a.linked_package.resolve()),capture=str(a.linked_capture.resolve()),producer_package=str(a.producer_package.resolve()),producer_capture=str(a.producer_capture.resolve()))
+        proof=prepare(SimpleNamespace(**globals()),a.owner_package,a.expected_owner_id,a.transaction,request,a.out)
+        result=dict(schema=proof['schema'],binding=proof['binding'],preparation_verified=proof['preparation_verified'],execution_admitted=False,calculation_verified=False,gpu_calls=0,seconds=proof['seconds'],snapshot_sha256=proof['snapshot']['snapshot_sha256'],report=str(a.out.resolve()/'result.json'))
     elif a.command=='admission-snapshot':
         from portable_admission_snapshot import freeze
         with forbid_gpu():result=freeze(load(a.inventory),a.out)

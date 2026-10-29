@@ -1,3 +1,11 @@
+# 2026-10-30 完全なCPU監査からsnapshotを作る共通CLIを接続
+
+`prepare-admission`は外部expected owner ID/全sourceを検査して元CLIを読み込み、元staged admitとsaved_linked_admissionをGPU禁止内でそのまま呼ぶ。同suite/全golden、cached helper同一bytes、元input receipt/実CUBIN size/SHA、全observed package closure、未消費execution claim/future captureを検査。完全receiptとread-set digestを証明書へ束縛し、既存freezeで全sourceを再検査したsnapshotを新規出力する。失敗/partialは保持し、実行所有やcaptureは作らない。準備成功もexecution_admitted/calculation false。
+
+固定3eb93038…自身で関連29検査（準備protocol12＋readset8＋snapshot9）と既存69群719制御検査が失敗/error0（Windows限定cleanup1件はMac対象外）、終了後payloadも一致。実元owner1e54383d…の認証/import後、未存在transactionで止まるCLI負例とfailure保持も確認。元CLIのmain以外全関数AST、全golden、GPU/backend/generator/保護CPU記録は保持。小記録`research/portable-admission-prepare-cli-v1.json`。合成protocolテストはWindowsの元証拠による意味監査成功ではない。
+
+次は準備CLIを共通bounded Windows stageへ接続して既存証拠で1回CPU検証し、そのsnapshotを認証済みclaim・共通GPU consumer・独立post監査へ接続する。60/180秒・2GiB/低優先度/gateは維持、旧claim/失敗を消さず再実行しない。Windows依頼/GPU0、102秒の準備問題はGPU段階での実測まで未解消、全キャラ/目標は未完了。以下は履歴。
+
 # 2026-10-30 監査の実read setを記録、固定owner全sourceを照合
 
 `portable_admission_readset.ReadSet`は元CPU監査のPath bytes/textと既存streaming digestをそのまま実行し、消費したsize/SHA/pathだけを記録する。再読の変更・digest中の改変・captureの重複/再利用を拒否し、並列recordと例外時のreader復元を検査。元text encoding/errors/newlineを保持する。package closureは認証済みmanifestの全file記録を別検査し、任意open/subprocessを網羅したとは扱わない。native値/contextのcacheや意味監査の成功flagは作らない。
