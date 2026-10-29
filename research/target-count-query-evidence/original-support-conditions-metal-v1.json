@@ -1,0 +1,534 @@
+{
+  "schema": "original-support-conditions-metal-v1",
+  "source_commit": "6b2f43c1bac62886bff623b073d8ba0d78fb3abe",
+  "gpu_package_id": "4dce0418486e6842d43405bfdb2f856f2150ca2a3edd1796bd9b9a6d16d53a6b",
+  "source": "gpu/world_coordinate_typed_ordered_history_entry.slang",
+  "input_count": 4,
+  "native_cases": 4,
+  "definition_counts": [
+    70,
+    75,
+    74,
+    74
+  ],
+  "calculation_verified": true,
+  "independently_sealed": true,
+  "transport": {
+    "backend": "metal",
+    "cases": 4,
+    "command_status": "completed",
+    "configured_max_threads_per_threadgroup": 1,
+    "device": "Apple M5",
+    "file_readback_chunk_bytes": 8388608,
+    "gpu_seconds": 2.5242322083213367,
+    "input_bytes": 1850884,
+    "library_compile_seconds": 0.007632017135620117,
+    "output_bytes": 32512000,
+    "pipeline_cache": {
+      "archive_bytes": 9396592,
+      "archive_compile_seconds": 0,
+      "archive_sha256": "7697efe956ca3de49de941e041e9fa1206a3cc23d653b708e97464e3a2df0cfd",
+      "enabled": true,
+      "hit": true,
+      "identity": {
+        "consumer_sha256": "e4391d2ff898314bc64ab08a3e85d7f8bd18a16f733906741b1924b15ad47cbf",
+        "device": "Apple M5",
+        "entry": "portableEvents",
+        "math_mode": "safe",
+        "os_build": "Version 27.0.1 (Build 26A434)",
+        "registry_id": "4294968346",
+        "resident_stride": "138952",
+        "schema": "1",
+        "source_sha256": "1a6baa15905005f1ddcc3324ad8a6f745b70e98aa570bb276e7028d778266fc6",
+        "threads_per_threadgroup": "1"
+      },
+      "key": "c50539b9514619107dae5d9e5a716d01714f93baea4a0db1d1a8ea5292d85400",
+      "native_archive_miss_rejected": true,
+      "required": true,
+      "schema": 1
+    },
+    "pipeline_compile_seconds": 0.0029020309448242188,
+    "pipeline_lock_wait_seconds": 2.0265579223632812e-06,
+    "pipeline_max_threads_per_threadgroup": 1,
+    "pipeline_os_build": "Version 27.0.1 (Build 26A434)",
+    "registry_id": "4294968346",
+    "runtime_buffer_bytes": 555808,
+    "runtime_element_capacity": 4,
+    "runtime_physical_stride_verified": true,
+    "runtime_stride_bytes": 138952,
+    "threads_per_threadgroup": 1,
+    "compile_timeout_seconds": 300,
+    "gpu_timeout_seconds": 120
+  },
+  "generation_cache_hit": true,
+  "generation_compiler_invocations": 0,
+  "gpu_executions": 1,
+  "same_claim_retries": 0,
+  "independent_native_cases": 4,
+  "independent_gpu_calls": 0,
+  "independent_live_parent_reuse": false,
+  "independent_elapsed_seconds": 88.01537866698345,
+  "independent_receipt_sha256": "ad4b607958426a63f5a65616ddc970119fc82f9463765e7dfdff4c22d84fcf27",
+  "input_sha256": "02e81766e8d605f1e8a75e122897549206adff83872e4888157e4151599453d8",
+  "output_sha256": "527c247bc033ce31442018c47f4005e8754d54771c7fc8b1835e954c54f242c2",
+  "current_source_closure_verified": 273,
+  "gpu_and_protected_cpu_unchanged_from": "1d78fb1d",
+  "final_unit_check": {
+    "schema": "unit-check-v1",
+    "package_id": "c6cb14e50bd9b561fdcd5f5a99ec30fe6c03ce29d5db17ef0de386827e776eec",
+    "suite": "original-support-conditions-cache-only",
+    "passed": true,
+    "unit_tests_verified": true,
+    "full_native_preflight_executed": false,
+    "cpu_verified": false,
+    "calculation_verified": false,
+    "gpu_execution_verified": false,
+    "gpu_calls": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false,
+    "groups": 29,
+    "tests": 258
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "c6cb14e50bd9b561fdcd5f5a99ec30fe6c03ce29d5db17ef0de386827e776eec",
+    "suite": "original-support-conditions-cache-only",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "saved_gpu_observations": {
+    "schema": "original-support-conditions-gpu-observations-v1",
+    "package_id": "4dce0418486e6842d43405bfdb2f856f2150ca2a3edd1796bd9b9a6d16d53a6b",
+    "gpu_calls": 0,
+    "calculation_report_passed": true,
+    "input_sha256": "02e81766e8d605f1e8a75e122897549206adff83872e4888157e4151599453d8",
+    "output_sha256": "527c247bc033ce31442018c47f4005e8754d54771c7fc8b1835e954c54f242c2",
+    "cases": [
+      {
+        "name": "original-catalogue/support/Naga-injured/30s",
+        "definitions": 70,
+        "hits": [
+          {
+            "time": 1.0000000000000013,
+            "pattern": "hp-first",
+            "owner": 0,
+            "damage": 380623.0,
+            "pierce": true,
+            "shield": 0.0,
+            "cover": 380623.0,
+            "decoy": 0.0,
+            "hp": 380623.0,
+            "hp_after": 2619691.0,
+            "down": false
+          },
+          {
+            "time": 1.100000000000001,
+            "pattern": "cover-first",
+            "owner": 0,
+            "damage": 380623.0,
+            "pierce": false,
+            "shield": 0.0,
+            "cover": 380623.0,
+            "decoy": 0.0,
+            "hp": 0.0,
+            "hp_after": 2619691.0,
+            "down": false
+          },
+          {
+            "time": 1.2000000000000006,
+            "pattern": "hp-second",
+            "owner": 2,
+            "damage": 332456.0,
+            "pierce": true,
+            "shield": 0.0,
+            "cover": 0.0,
+            "decoy": 0.0,
+            "hp": 332456.0,
+            "hp_after": 2383460.0,
+            "down": false
+          }
+        ],
+        "final_covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          }
+        ],
+        "source_activation_counts": [
+          {
+            "row": 1,
+            "owner": 0,
+            "name": "우정의 가드 2",
+            "stat": "core_dmg_pct",
+            "activations": 0
+          },
+          {
+            "row": 6,
+            "owner": 0,
+            "name": "친구들과 함께라면! 3",
+            "stat": "atk_caster_based_pct",
+            "activations": 0
+          }
+        ],
+        "previous_uninstrumented_cpu_hits_and_covers_identical": true
+      },
+      {
+        "name": "original-catalogue/support/Tia-injured/30s",
+        "definitions": 75,
+        "hits": [
+          {
+            "time": 1.0000000000000013,
+            "pattern": "hp-first",
+            "owner": 0,
+            "damage": 378519.0,
+            "pierce": true,
+            "shield": 0.0,
+            "cover": 378519.0,
+            "decoy": 0.0,
+            "hp": 378519.0,
+            "hp_after": 2906256.0,
+            "down": false
+          },
+          {
+            "time": 1.100000000000001,
+            "pattern": "cover-first",
+            "owner": 0,
+            "damage": 378519.0,
+            "pierce": false,
+            "shield": 0.0,
+            "cover": 378519.0,
+            "decoy": 0.0,
+            "hp": 0.0,
+            "hp_after": 2906256.0,
+            "down": false
+          },
+          {
+            "time": 1.2000000000000006,
+            "pattern": "hp-second",
+            "owner": 2,
+            "damage": 332456.0,
+            "pierce": true,
+            "shield": 0.0,
+            "cover": 0.0,
+            "decoy": 0.0,
+            "hp": 332456.0,
+            "hp_after": 2383460.0,
+            "down": false
+          }
+        ],
+        "final_covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          }
+        ],
+        "source_activation_counts": [
+          {
+            "row": 0,
+            "owner": 0,
+            "name": "파충류 애호가",
+            "stat": "burst_cooldown",
+            "activations": 2
+          },
+          {
+            "row": 5,
+            "owner": 0,
+            "name": "카멜레온 은신술 3",
+            "stat": "lifesteal_pct",
+            "activations": 2
+          },
+          {
+            "row": 6,
+            "owner": 0,
+            "name": "도마뱀의 보호",
+            "stat": "shield_from_max_hp_pct",
+            "activations": 2
+          },
+          {
+            "row": 7,
+            "owner": 0,
+            "name": "도마뱀의 보호 2",
+            "stat": "shield_from_max_hp_pct",
+            "activations": 2
+          }
+        ],
+        "previous_uninstrumented_cpu_hits_and_covers_identical": true
+      },
+      {
+        "name": "original-catalogue/support/Naga-Tia-shield/30s",
+        "definitions": 74,
+        "hits": [],
+        "final_covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          },
+          {
+            "hp": 3075763.8125,
+            "max_hp": 3075763.8125,
+            "effective_max_hp": 3075763.8125
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          }
+        ],
+        "source_activation_counts": [
+          {
+            "row": 1,
+            "owner": 0,
+            "name": "우정의 가드 2",
+            "stat": "core_dmg_pct",
+            "activations": 1
+          },
+          {
+            "row": 6,
+            "owner": 0,
+            "name": "친구들과 함께라면! 3",
+            "stat": "atk_caster_based_pct",
+            "activations": 1
+          },
+          {
+            "row": 16,
+            "owner": 1,
+            "name": "파충류 애호가",
+            "stat": "burst_cooldown",
+            "activations": 4
+          },
+          {
+            "row": 21,
+            "owner": 1,
+            "name": "카멜레온 은신술 3",
+            "stat": "lifesteal_pct",
+            "activations": 1
+          },
+          {
+            "row": 22,
+            "owner": 1,
+            "name": "도마뱀의 보호",
+            "stat": "shield_from_max_hp_pct",
+            "activations": 1
+          },
+          {
+            "row": 23,
+            "owner": 1,
+            "name": "도마뱀의 보호 2",
+            "stat": "shield_from_max_hp_pct",
+            "activations": 1
+          }
+        ],
+        "previous_uninstrumented_cpu_hits_and_covers_identical": true
+      },
+      {
+        "name": "original-catalogue/support/Naga-Tia-injured-shield/30s",
+        "definitions": 74,
+        "hits": [
+          {
+            "time": 1.0000000000000013,
+            "pattern": "hp-first",
+            "owner": 0,
+            "damage": 380623.0,
+            "pierce": true,
+            "shield": 0.0,
+            "cover": 0.0,
+            "decoy": 0.0,
+            "hp": 380623.0,
+            "hp_after": 2619691.0,
+            "down": false
+          },
+          {
+            "time": 1.100000000000001,
+            "pattern": "cover-first",
+            "owner": 1,
+            "damage": 378519.0,
+            "pierce": false,
+            "shield": 0.0,
+            "cover": 378519.0,
+            "decoy": 0.0,
+            "hp": 0.0,
+            "hp_after": 3284775.0,
+            "down": false
+          },
+          {
+            "time": 1.2000000000000006,
+            "pattern": "hp-second",
+            "owner": 2,
+            "damage": 332456.0,
+            "pierce": true,
+            "shield": 0.0,
+            "cover": 0.0,
+            "decoy": 0.0,
+            "hp": 332456.0,
+            "hp_after": 2383460.0,
+            "down": false
+          },
+          {
+            "time": 5.999999999999984,
+            "pattern": "shield-hit",
+            "owner": 0,
+            "damage": 80623.0,
+            "pierce": false,
+            "shield": 80623.0,
+            "cover": 0.0,
+            "decoy": 0.0,
+            "hp": 0.0,
+            "hp_after": 2907121.0812,
+            "down": false
+          }
+        ],
+        "final_covers": [
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          },
+          {
+            "hp": 2000000.0,
+            "max_hp": 2000000.0,
+            "effective_max_hp": 2000000.0
+          }
+        ],
+        "source_activation_counts": [
+          {
+            "row": 1,
+            "owner": 0,
+            "name": "우정의 가드 2",
+            "stat": "core_dmg_pct",
+            "activations": 1
+          },
+          {
+            "row": 6,
+            "owner": 0,
+            "name": "친구들과 함께라면! 3",
+            "stat": "atk_caster_based_pct",
+            "activations": 1
+          },
+          {
+            "row": 16,
+            "owner": 1,
+            "name": "파충류 애호가",
+            "stat": "burst_cooldown",
+            "activations": 4
+          },
+          {
+            "row": 21,
+            "owner": 1,
+            "name": "카멜레온 은신술 3",
+            "stat": "lifesteal_pct",
+            "activations": 1
+          },
+          {
+            "row": 22,
+            "owner": 1,
+            "name": "도마뱀의 보호",
+            "stat": "shield_from_max_hp_pct",
+            "activations": 1
+          },
+          {
+            "row": 23,
+            "owner": 1,
+            "name": "도마뱀의 보호 2",
+            "stat": "shield_from_max_hp_pct",
+            "activations": 1
+          }
+        ],
+        "previous_uninstrumented_cpu_hits_and_covers_identical": true
+      }
+    ],
+    "scope": "Saved GPU readback, existing strict decoders; source counts were compared to fresh native receipts by the immutable verifier"
+  },
+  "static_inventory": {
+    "profiles": 266,
+    "packed": 254,
+    "failed": 12,
+    "categories": 13,
+    "calculation_verified": false
+  },
+  "cuda_verified": false,
+  "windows_new_requests": 0,
+  "public_gpu_admission_added": false,
+  "full_character_verified": 0,
+  "full_goal_complete": false,
+  "scope": "Four original 30-second Naga/Tia declared-world scenarios; actual injury, cover absorption, shield absorption, positive healing and source-bound activation counts. No full-character/default spatial/CUDA certification."
+}

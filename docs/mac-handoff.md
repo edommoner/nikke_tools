@@ -3545,3 +3545,12 @@ GPU49a58f13/packetd01a085d。初回38unit/CPU8/必須生成hit/Slang0後に全�
 次は同じ選択経路で元編成の負傷/遮蔽物被弾/シールドと回復の正例を増やす。今回2worldから全条件・ゲーム空間規則・全キャラを認定しない。Windowsの既存status取得はhost unavailable、追加runなし。以前のWindows診断export拒否は別経路で回避しない。詳細 `docs/portable-original-catalogue.md`、小証跡 `research/target-count-query-evidence/original-catalogue-support-metal-v1.json`。
 
 最終コード41a4be5bのcache-only packet552bdb97…はCPU29群260＋fresh native2が成功（GPU0）。CUBIN/O1/2GiB/60秒compile-planはpolicyだけ成功。proof rootは `.portable-recovery/proofs`、実GPU/seal stem `recipient-order-support-v2-20261030`、最終CPU stem `recipient-order-final-cache-v2-20261030`。次のWindowsは接続復旧後、既存結果の取得を優先して短い検証だけにする。実CUDA/CUBIN hitの成功扱いはまだしない。
+
+
+## 2026-10-30 元supportの負傷・遮蔽物・シールドを共通経路で検証
+
+`original-support-conditions` はナガ/ティア単独の負傷、pair無被弾対照、pair負傷＋shield吸収の4条件・各30秒・元70/75/74/74定義。元効果/武器/育成は保持。既存manual sequenceと同じ共通実行器を使い、実HP/cover差分・元source効果の発動回数を追加検査する。GPU source/保護CPU4/strict normalizerは1d78fb1dから変更0。
+
+固定6b2f43c1/packet4dce0418…がM5実GPU1回と別fresh GPU禁止sealで成功。GPU2.524232秒、generation/pipeline必須hit、Slang0、独立native4/88.015379秒/parent再利用0。最終e224f1e3のcache-only packetc6cb14e5…は29群258unit成功、CUBIN/O1/2GiB/60秒compile-plan成功（実compile/GPU0）。今回CUDA実機未確認、Windows追加依頼0。保存証跡を再利用しGPUを重複実行しない。
+
+catalogue1076の追加4はsceneで、新キャラ数ではない。元266profileの静的packing254/失敗12/分類13、public GPU/全キャラ未完了を保持。Lock Onの距離式は未確定のまま、次の候補は既存consumerがある原効果の未検証条件を優先し、reference_model_gapへ推測を埋めない。詳細 [元support条件](portable-original-support-conditions.md)、証跡 `research/target-count-query-evidence/original-support-conditions-metal-v1.json`。

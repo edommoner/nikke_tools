@@ -746,3 +746,8 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 共通bitsetの検証はsealed `quantity-visited`（16入力／境界期待9＋raw拒否7）、実数量は`max-ammo-visited`（28／native20）、共通resident Frameとの合成は`moving-visited`（15／native3）を使用する。全て新しいMetal独立sealであり、旧goldenは保持する。`moving-visited-cache-only`は同じsourceへ必須CUBIN/O1とpaired generationを適用するが、実CUDA成功は未確認。旧profileのsource guardを回避せず、現sourceに対応するvisited suiteを選ぶ。[実証・失敗履歴・数値保持](portable-quantity-visited.md)。
 
 保存PTXの統計とcache照合には、共通packetの`--stage ptx-stats`／`--stage cache-check`を使う。既存監査器を2GiB／BelowNormal／gate付きJobへ通し、独自CPU wrapperの上限設定漏れを防ぐ。[要求JSON・scope・未実証境界](portable-packet-file-diagnostics.md)。
+
+
+### 元supportの条件付き実戦4ケース
+
+`original-support-conditions` は既存ordered catalogue adapter/sourceで負傷・cover・shieldの4ケースを固定するsealed suite。`original-support-conditions-cache-only` は同一入力/goldenでCUBIN/O1とcompile cache/paired generationの必須hitを要求する。M5実GPU＋fresh独立seal済み、現CUDA実機は未確認。任意条件の反復は引き続き `original-catalogue-ordered` を使う。入力、観測、scope、保存結果は [元support条件](portable-original-support-conditions.md) を参照。
