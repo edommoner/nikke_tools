@@ -1,3 +1,11 @@
+# 2026-10-30 Windowsの完全CPU準備が成功、50.7MB snapshotを固定
+
+前回printのJob制限/終了が確認済みだったため、その保全不合格を保持したまま、未実行だったcad4086f…のCPU準備だけを初めて1回実行した。既存保存staged15入力/native3とlink全chain/PTX実bytesを監査し、準備123.391秒/全stage129.006秒・exit0/timeout無しで成功。2GiB/peak290,951,168byte/BelowNormal/gate/終了空、欠落0/観測cleanup error無し。元69file不変、元GPU claim/future capture未作成、native/test/compile/driver/GPU/retry0。旧smokeのmissing1不合格は変更しない。service未知の保全/overall falseも維持する。
+
+read set28,103＋証明書1＝28,104 inventory、unique blob4,210、snapshot50,729,955byte/SHA face629b215828058612b8bfdbbb29724ff20b8f4f9f7290f89721b76524a07f、certificate SHA72c08944af969905c76f7b514261912e87f4c0d612f826b17ed65fda29936e41。Windowsローカルnikke-prepared-admission-v1/prepare-v1/proofに保持。固定94624fdf…の小summary3337byte/manifest656byteだけ取得し、元bytes/SHA、local固定packetのmanifest/wrapper SHA、typed件数、既知input/CUBIN/receiptへ一致確認。Macはpeer summary照合までで原snapshotの独立監査ではない。research/portable-admission-preparation-peer-v2.json。
+
+Windowsはidle。次はこの実snapshotを新reader/authority経路で検証し、元の未消費試行だけを新GPU子protocol/共有execute/独立post監査へ接続する。実行所有claimはまだ作っておらず、CPU準備成功を60秒GPU子や計算成功の証明へ昇格しない。全キャラ/目標は未完了。以下は履歴。
+
 # 2026-10-30 元準備の認証と一度だけのclaim APIを実装
 
 authority-checkは元Windows hostの成功済みCPU準備を既存wrapper recipe/Job/比較器で認証する。完全packet/全golden、command/base Python、子PID journal完了、2GiB/gate/終了空、欠落0/終了直後観測、元予約/transaction/nonce/外部snapshot/cert SHAを検査する。検査前後のmetadata保持も必須。サービス未知は保全falseのまま、CLIはpassive authority.jsonだけを作る。
