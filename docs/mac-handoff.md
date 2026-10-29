@@ -1,3 +1,13 @@
+# 2026-10-29 同一byte witnessの全106 fresh native監査成功
+
+共通`portable_partitioned_native.compare_readback`へ既存native/rejection比較ループを抽出し、元Metal入口も同じ関数を使用。`partitioned-witness-native-audit`は元Metal captureを既存address auditorで全byte再監査し、現CUDAの固定要約と全raw/論理SHAを照合する。現source/golden/native/input/paired generationを維持し、現Metalのseal前development packetの期待は正確なinput/source/native projectionで検査する。出力欄を捏造してsealed扱いしない。新packet v2/9c2b84fd自身の67検査とvalidation-depsが成功、14個のfresh GPU禁止childで全106（native63/拒否43）を549.815秒で独立照合した。全元entry/native/出力を保持、追加GPU0。元875MBをコピー/書換えせず、raw/失敗/claimと全group logsは永続Bへ保持。証跡[Mac native witness](../research/target-count-query-evidence/resident-current-native-witness-v1.json)。v1 packetはgeneration元がdevelopmentであることを静的点検で検出し、監査未実行で保持。
+
+`witness_calculation_verified=true`はMetal由来の同一byte witnessへのfresh native一致。CUDA原captureをMacで取得/独立再読したとは呼ばず、`calculation_verified=false`・原CUDA envelope監査pendingを維持。共通CLIのWindows専用`partitioned-current-envelope-audit`は、既存Job/BelowNormal/2GiB/180秒とGPU/compiler禁止guardで原source/paired generation/loaded CUBIN/input/ABI全trace/claims/process観測を再監査するCPU入口。native戦闘0、元GPU claim/ledger不変。両証拠のjoinはまだ未実装/未認定で、片方の結果を成功へ昇格しない。
+
+60dc9d09で関連70/CLI51検査が成功し、source-only packet22762b5e（ZIP11,066,142byte/SHA002aa6ca…）を固定c50e17e2/codex/cuda-resident-envelope-v1-sourceへ共有。Windows事前70検査は最初sandbox TEMP拒否（0.474秒/93errors）、所有TEMPを固定した次は基本操作が成功したがhardlinkがsandbox拒否（約10.07秒）で停止。validation-deps/envelope/GPUは未実行。計算失敗や原CUDA claim消費と混同しない。元失敗を保持し、通常承認経路でCPU検査だけを行う依頼を送った。OS/ACL/guard/テストを緩めず、拒否時は停止する。Windows結果は未取得なので重複実行を依頼しない。
+
+次はWindowsの既存依頼結果を取得し、原出力envelopeとMac fresh native witnessの全106/63・input/raw/logical/generated/sourceを共通joinで結ぶ。保全/overallと計算の認定を分離し、service未識別はfalseを維持。未対応5 canonical consumer/20model gap/全キャラ0/UI CPU/公開受付falseは継続。実装と証拠境界は[保存結果監査](portable-identical-wire-native-audit.md)。以下は履歴。
+
 # 2026-10-29 現ソースCUDA全106入力のwire一致・共通CLIへ記録
 
 `partitioned-current-package`を実装し、現Metal独立sealと元physical wire参照を別々にpinした。旧失敗回収ownerは保持し、既存の分割transport・linked artifact admission・Job・ABI観測を再利用。新ownerは元PTX/object/linkをCPU準備で一度監査し、実行直前には小さいreceipt anchorsと全input/source/header/CUBINを確認する。fallback compile/linkなし、source/goldenの除外なし。保存容量はGPU claim/ledger作成前に確認する。全106/native63、488 GPU/canonical/upstream/normalizerファイル、元CLIのmain以外のASTを保持した。詳細[現ソースCUDA owner](portable-current-source-cuda-owner.md)。

@@ -20,6 +20,8 @@ python scripts/nikke_gpu.py partitioned-witness-native-audit --source-package EX
 
 ## Windows側
 
+事前CPU unit検査では、新規に所有する検証root内へ子プロセスの`TMP`/`TEMP`/`TMPDIR`を固定する。共有環境は変更しない。通常の一時ファイル操作が成功してもsandboxがhardlinkやprocess観測を拒否する場合がある。その場合は起動のpermission modeを確認し、認可された範囲の通常承認経路を使う。ACL/OS変更、別経路での回避、`os.link`境界や検査の削除で通さない。拒否/失敗を保持し、未実行のenvelopeと元GPU claimを区別する。
+
 ```text
 python scripts/nikke_gpu.py partitioned-current-envelope-audit --source-package EXECUTED_CUDA_PACKET --source-capture ORIGINAL_CUDA_CAPTURE --capture NEW_CPU_AUDIT --original-workspace ORIGINAL_WORKSPACE --timeout 180
 ```
