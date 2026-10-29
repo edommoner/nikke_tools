@@ -1,0 +1,41 @@
+{
+  "schema": "portable-prepared-resource-peer-v1",
+  "report_commit": "ca9142e617b55c4ddb7067a5753fc41bd99afd93",
+  "summary": "research/cuda-preparation-evidence/prepared-resource-v1-summary.json",
+  "summary_bytes": 5328,
+  "summary_sha256": "0c1be561de23dc98102a9aa421170eac1e945c0dffd761672c55084e0d2b2c9b",
+  "manifest_bytes": 504,
+  "manifest_sha256": "f034eec689489adfecdde52d9bca45ff8770ccf1bfd8c7d7bdddd69bc904e582",
+  "same_cubin_ptx_cuda_anchors_matched": true,
+  "linked_resources": {
+    "REG": 254,
+    "STACK": 24960,
+    "SHARED": 0,
+    "LOCAL": 0
+  },
+  "object_entry_resources": {
+    "stack_frame_bytes": 0,
+    "spill_store_bytes": 0,
+    "spill_load_bytes": 0,
+    "registers": 24
+  },
+  "resource_counts_must_not_mix_linked_and_relocatable_object": true,
+  "saved_failure_launch_attempts": 1,
+  "saved_failure_launch_return_code": 2,
+  "diagnostic_gpu_calls": 0,
+  "diagnostic_driver_calls": 0,
+  "diagnostic_compile_calls": 0,
+  "diagnostic_seconds": 4.95889539970085,
+  "original_files_unchanged": 136,
+  "actual_allocation_arguments_known": false,
+  "actual_launch_dimensions_known": false,
+  "failure_time_vram_known": false,
+  "root_cause": "unresolved",
+  "observed_parent_verify_package_calls": 5,
+  "observed_parent_verify_package_seconds": 50.3078499,
+  "saved_child_verification_seconds": 7.7784151,
+  "calculation_verified": false,
+  "environment_preservation_verified": false,
+  "mac_original_capture_independent_audit": false,
+  "full_goal_complete": false
+}

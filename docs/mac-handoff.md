@@ -1,3 +1,11 @@
+# 2026-10-30 保存binaryのCPU資源診断、link後のREG/stackを固定
+
+WindowsのCPU診断は4.959秒/exit0、既存cuobjdump resource1回0.115秒と保存linkログがREG254/STACK24,960byte/LOCAL0/SHARED0で一致した。object entry単体REG24/stack/spill0とは別であり、前者を実CUBINの値として扱う。PTX entryのlocal depot宣言無しも呼出先stack無しの証拠にはしない。既存CUBIN0f140174…/PTXe6d83bf9…/CUDAf2d15deb…へ一致、原136file不変、追加GPU/driver/compiler/native/test0。Job終了空/欠落/観測cleanup error0、service/環境false。
+
+保存phaseはallocation成功3回とlaunch return2/context destroy0を持つが、allocation要求byte数・launch形状の実値と失敗時VRAMは未記録でunknown。原因はGPU資源とJob内host圧迫を未切分け。次は共通CLIにこの不足観測を追加し、Job上限を上げたりゲームを止めたりする前提にせず、計測できるメモリ計画を作る。同じ消費済み試行を再実行しない。
+
+公開ca9142e6…の小summary5328byte/manifest504byteだけを元bytes/SHAと同一binaryの既知anchorへ照合。Macは原rawの独立監査ではない。親のverify_packageが5回・合計50.308秒、子のown source検査7.778秒だったため、失敗したGPUの演算時間を待ち時間の主因としない。重複検査の削減は元の完全bytes/所有/claim境界を保持して設計する。記録research/portable-prepared-resource-peer-v1.json。Windowsはidle、実CUDA計算/全キャラ/目標は未完了。以下は履歴。
+
 # 2026-10-30 修正版は実launchへ到達、CUDA error2で停止・再実行禁止
 
 Windows固定ba760483…は全4017file/指定3群の実数34検査（依頼42はMacのwildcard集計誤りで訂正）成功。必須paired生成cache hit/Slang0/NVRTC0、元snapshot/追補/完全認証成功後に元の一度だけのGPU claimを消費した。module load/メモリ確保は成功し、cuLaunchKernel1回がreturn2で停止。GPU子18.019秒/外側113.163秒、ともにexit1/timeout無し。context破棄成功、readback無し、native post未実行、計算false。GPU呼出し0とはせずgpu_calls nullと実launch attempt1を分離する。
