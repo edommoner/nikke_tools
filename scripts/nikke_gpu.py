@@ -161,6 +161,10 @@ SUITES['original-support-conditions']=dict(SUITES['original-catalogue-ordered'],
     tests=[*SUITES['original-catalogue-ordered']['tests'],'test_original_support_conditions.py'])
 SUITES['original-support-conditions']['support_files']=list(dict.fromkeys([
     *SUITES['original-support-conditions'].get('support_files',()),*CPU_AUDIT_FILES['test_original_support_conditions.py']]))
+SUITES['original-threshold-conditions']=dict(SUITES['original-catalogue-ordered'],
+    golden='research/portable-original-threshold-conditions-v1-expected.json',inputs=4,native=4,selection_required=False,development_only=True,
+    frozen_cases=['original-catalogue/threshold/Biscuit-'+scene+'/30s' for scene in ('control','first','two','exhausted')],
+    tests=[*SUITES['original-catalogue-ordered']['tests'],'test_original_threshold_conditions.py'])
 SUITES['original-catalogue-burst']=dict(SUITES['original-catalogue'],golden='research/portable-original-catalogue-burst-v1-expected.json',support_files=['research/portable-original-catalogue-initial-v1-expected.json'],inputs=4,native=4,development_only=False,selection_required=False,frozen_cases=[
     'original-catalogue/hp-shield/라피 : 레드 후드/favorite-0/30s',
     'original-catalogue/hp-shield/홍련 : 흑영/favorite-0/30s',

@@ -24,4 +24,7 @@ def verify(case,native):
     elif witness['family']=='Original-support':
         from portable_original_support_contracts import verify as support_verify
         support_verify(case,native)
+    elif witness['family']=='Original-threshold':
+        from portable_original_threshold_contracts import verify as threshold_verify
+        threshold_verify(case,native)
     else:raise AssertionError('Unknown original incoming witness')

@@ -24,9 +24,8 @@ def prepare_selected(names):
 
 def native_reference(domain):
     from world_coordinate_typed_owner_native import observe
-    from portable_original_support_contracts import support
-    if support(domain[0]):
-        from world_original_support_native import capture
+    from world_original_support_native import captures,capture
+    if captures(domain[0]):
         with capture(domain[0]) as receipts:n,_=observe(domain[0])
         n['support_conditions']=receipts
     else:n,_=observe(domain[0])

@@ -24,6 +24,10 @@ def catalog(*,include_roles=False):
         extra=support()
         if rows.keys()&extra.keys():raise ValueError('Duplicate original support identity')
         rows.update(extra)
+        from portable_original_threshold_profiles import profiles as thresholds
+        extra=thresholds()
+        if rows.keys()&extra.keys():raise ValueError('Duplicate original threshold identity')
+        rows.update(extra)
     return rows
 
 def selected_rows(names):
