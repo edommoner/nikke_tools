@@ -85,7 +85,7 @@ def prepare(cli,owner_root,expected_owner_id,transaction,request,out):
             golden_sha256=digest(canonical(owner_manifest['golden'])),staged=staged,linked_receipt=receipt,
             input_source=str(transaction/'input.bin'),artifact_source=str(artifact),
             read_set_sha256=digest(canonical(rows)),read_set_files=len(rows),
-            preparation_verified=True,execution_admitted=False,calculation_verified=False,gpu_calls=0,
+            preparation_verified=True,execution_admitted=False,calculation_verified=False,gpu_calls=0,compiler_calls=0,native_battle_calls=0,driver_load_calls=0,
             scope='Full CPU preparation only; authenticated execution claim and independent post-audit remain required')
         evidence=out/'evidence';evidence.mkdir();cert=evidence/'certificate.json';exclusive(cert,certificate)
         raw_cert=cert.read_bytes();inventory=dict(schema=INVENTORY,binding=bind,files=rows+[
@@ -94,11 +94,55 @@ def prepare(cli,owner_root,expected_owner_id,transaction,request,out):
         snapshot=freeze(inventory,out/'snapshot.zip')
         unclaimed(transaction,capture)
         result=dict(schema=SCHEMA,binding=bind,certificate_sha256=digest(raw_cert),snapshot=snapshot,
-            preparation_verified=True,execution_admitted=False,calculation_verified=False,gpu_calls=0,
+            preparation_verified=True,execution_admitted=False,calculation_verified=False,gpu_calls=0,compiler_calls=0,native_battle_calls=0,driver_load_calls=0,
             seconds=time.monotonic()-start)
         exclusive(out/'result.json',result);return result
     except BaseException as error:
         exclusive(out/'failure.json',dict(schema=SCHEMA,error=type(error).__name__+': '+str(error),
-            preparation_verified=False,execution_admitted=False,calculation_verified=False,gpu_calls=0))
+            preparation_verified=False,execution_admitted=False,calculation_verified=False,gpu_calls=0,compiler_calls=0,native_battle_calls=0,driver_load_calls=0))
         raise
     finally:sys.path[:]=original_path
+
+
+def verified_result(proof,folder,controller_id,request):
+    """Parent receipt check for the completed, bounded CPU preparation stage.
+
+    This checks receipt identity/scope, not GPU execution or independent
+    source-chain admission. The child ran the original full audits.
+    """
+    from portable_linked_artifact import valid_receipt
+    from portable_admission_snapshot import SCHEMA as SNAPSHOT_SCHEMA
+    try:
+        if type(proof) is not dict or proof['schema']!=SCHEMA:return False
+        b=binding(proof['binding']);snapshot=proof['snapshot'];folder=Path(folder).resolve()
+        if (b['controller_package_id']!=controller_id or b['owner_package_id']!=request['expected_owner_id']
+            or type(snapshot) is not dict or snapshot['schema']!=SNAPSHOT_SCHEMA
+            or snapshot['snapshot']!=str(folder/'snapshot.zip')
+            or (folder/'snapshot.zip').stat().st_size!=snapshot['snapshot_bytes']
+            or any(not hex_string(snapshot[k],64) for k in ('snapshot_sha256','inventory_sha256'))
+            or any(type(snapshot[k]) is not int or snapshot[k]<=0 for k in ('snapshot_bytes','input_files','unique_blobs'))
+            or snapshot['unique_blobs']>snapshot['input_files']
+            or snapshot['snapshot_bytes_verified'] is not True
+            or snapshot['admission_verified'] is not False or snapshot['calculation_verified'] is not False
+            or type(snapshot['gpu_calls']) is not int or snapshot['gpu_calls']!=0):return False
+        raw=(folder/'evidence/certificate.json').read_bytes()
+        if digest(raw)!=proof['certificate_sha256']:return False
+        cert=json.loads(raw)
+        if (cert['schema']!=SCHEMA or cert['binding']!=b
+            or cert['owner_root']!=request['owner_package'] or cert['transaction']!=request['transaction']
+            or cert['request']!=dict(package=request['linked_package'],capture=request['linked_capture'],producer_package=request['producer_package'],producer_capture=request['producer_capture'])
+            or not valid_receipt(cert['linked_receipt'])
+            or cert['linked_receipt']['artifact_sha256']!=b['artifact_sha256']
+            or cert['staged']['package_id']!=b['owner_package_id']
+            or cert['staged']['transaction']!=request['transaction']
+            or cert['staged']['transaction_nonce']!=b['transaction_nonce']
+            or cert['staged']['input']['input_sha256']!=b['input_sha256']
+            or cert['staged']['all_native_preflight_verified'] is not True
+            or not hex_string(cert['read_set_sha256'],64)
+            or type(cert['read_set_files']) is not int or cert['read_set_files']<1):return False
+        for value in (proof,cert):
+            if (value['preparation_verified'] is not True or value['execution_admitted'] is not False
+                or value['calculation_verified'] is not False
+                or any(type(value[k]) is not int or value[k]!=0 for k in ('gpu_calls','compiler_calls','native_battle_calls','driver_load_calls'))):return False
+        return True
+    except (KeyError,TypeError,ValueError,OSError):return False

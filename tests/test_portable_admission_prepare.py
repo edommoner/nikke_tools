@@ -29,10 +29,12 @@ class PreparationTests(unittest.TestCase):
         (self.tx/'transaction.json').write_text(json.dumps(dict(gpu_capture=str(self.capture),backend='cuda')))
         (self.tx/'input.bin').write_bytes(b'input')
         self.image=self.base/'artifact'/'saved.cubin';self.image.parent.mkdir();self.image.write_bytes(b'image')
-        self.receipt=dict(artifact_bytes=5,artifact_sha256=snap.digest(b'image'))
+        from portable_linked_artifact import key
+        identity=dict(schema=1,provider='saved-module-jit-cubin',artifact='cubin')
+        self.receipt=dict(identity=identity,key=key(identity),artifact_bytes=5,artifact_sha256=snap.digest(b'image'),enabled=True,reused=True)
         self.input=dict(input_words=1,input_sha256=snap.digest(b'input'))
-        self.staged=dict(input=self.input,transaction_nonce='c'*32,all_native_preflight_verified=True)
-        self.request={'package':str(self.base/'linked'),'capture':str(self.base/'link-proof')}
+        self.staged=dict(package_id=self.m['package_id'],transaction=str(self.tx),input=self.input,transaction_nonce='c'*32,all_native_preflight_verified=True)
+        self.request={'package':str(self.base/'linked'),'capture':str(self.base/'link-proof'),'producer_package':str(self.base/'producer'),'producer_capture':str(self.base/'producer-proof')}
         def verify(root):
             m=self.load(root/'gpu-package.json')
             for row in m['files']:
@@ -62,6 +64,25 @@ class PreparationTests(unittest.TestCase):
             self.assertEqual(reader.read(self.out/'evidence','certificate.json'),(self.out/'evidence/certificate.json').read_bytes())
         self.assertEqual(cert['read_set_sha256'],snap.digest(snap.canonical(inventory['files'][:-1])))
         with self.assertRaises(FileExistsError):self.run_prepare()
+    def stage_request(self):
+        return dict(owner_package=str(self.owner),expected_owner_id=self.m['package_id'],transaction=str(self.tx),linked_package=self.request['package'],linked_capture=self.request['capture'],producer_package=self.request['producer_package'],producer_capture=self.request['producer_capture'])
+    def test_parent_rejects_forged_execution_scope_and_different_owner(self):
+        result=self.run_prepare();request=self.stage_request();controller=self.manifests[self.controller]['package_id']
+        self.assertTrue(prep.verified_result(result,self.out,controller,request))
+        for key,value in [('gpu_calls',True),('compiler_calls',1),('native_battle_calls',False),('driver_load_calls',1),('execution_admitted',True),('calculation_verified',True)]:
+            bad=copy.deepcopy(result);bad[key]=value
+            self.assertFalse(prep.verified_result(bad,self.out,controller,request))
+        self.assertFalse(prep.verified_result(result,self.out,'0'*64,request))
+        self.assertFalse(prep.verified_result(result,self.out,controller,dict(request,expected_owner_id='0'*64)))
+        self.assertFalse(prep.verified_result(result,self.out,controller,dict(request,transaction=str(self.base/'other'))))
+    def test_parent_authenticates_certificate_and_does_not_accept_a_success_flag(self):
+        result=self.run_prepare();request=self.stage_request();controller=self.manifests[self.controller]['package_id']
+        for proof in (None,True,dict(preparation_verified=True)):
+            self.assertFalse(prep.verified_result(proof,self.out,controller,request))
+        cert=self.out/'evidence/certificate.json';value=self.load(cert);value['staged']['transaction_nonce']='d'*32
+        cert.write_text(json.dumps(value))
+        bad=copy.deepcopy(result);bad['certificate_sha256']=snap.digest(cert.read_bytes())
+        self.assertFalse(prep.verified_result(bad,self.out,controller,request))
     def test_external_owner_anchor_rejected_before_import_or_output(self):
         with self.assertRaisesRegex(ValueError,'ID mismatch'):prep.prepare(self.cli,self.owner,'0'*64,self.tx,self.request,self.out)
         self.assertFalse(self.out.exists());self.assertEqual(self.calls,[])

@@ -1,3 +1,11 @@
+# 2026-10-30 共通bounded CPU準備stageを接続、Windows実証前
+
+prepare-admissionを既存run-gpu-packetへ接続し、正確な7field request、owner外部ID、元CPU transactionとlink/current producer対を固定。元の180秒/2GiB/BelowNormal/gate/即時観測を使い、GPU execution claimを作らない。親は証明書SHA、binding、元staged/nativeとlinked receipt、snapshot記録を照合し、GPU/compiler/native/driver非0やexecution/calculation trueを拒否。service未知を保全成功にしない。
+
+固定cad4086f…自身76検査と全69群719制御検査が成功（Windows限定cleanup1件はMac対象外）、payload/全golden/455計算関連record保持。前版6cc80648…の実bounded負例は認証後のmissing transactionでexit1・0.739秒、失敗/専用stage claim保持、元GPU0。配布packetはresearch/windows-source-packets/prepared-admission-stage-v1.zip、13,482,329byte/SHA1548e7cf…、小記録research/portable-admission-prepared-stage-v1.json。
+
+Windowsは既存保存証拠でCPU準備1回だけを次に依頼する。新しいnative/GPU/compileや元失敗の再実行は行わず、short CPU Job smoke成功後に元owner1e54383d…の未消費GPU試行からsnapshotを作る。実準備成功、認証claim/GPU consumer/独立post監査と102秒問題の解消はまだ未証明。全キャラ/目標は未完了。以下は履歴。
+
 # 2026-10-30 完全なCPU監査からsnapshotを作る共通CLIを接続
 
 `prepare-admission`は外部expected owner ID/全sourceを検査して元CLIを読み込み、元staged admitとsaved_linked_admissionをGPU禁止内でそのまま呼ぶ。同suite/全golden、cached helper同一bytes、元input receipt/実CUBIN size/SHA、全observed package closure、未消費execution claim/future captureを検査。完全receiptとread-set digestを証明書へ束縛し、既存freezeで全sourceを再検査したsnapshotを新規出力する。失敗/partialは保持し、実行所有やcaptureは作らない。準備成功もexecution_admitted/calculation false。

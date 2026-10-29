@@ -1,5 +1,13 @@
 # 監査済み入力の受け渡し：次の実装要件
 
+## 共通Windows bounded stage
+
+`run-gpu-packet.py --stage prepare-admission --backend cuda --timeout 180 --original-workspace ORIGINAL --capture NEW_STAGE --request REQUEST.json`へ接続した。requestはowner_package/expected_owner_id/transaction/linked_package/linked_capture/producer_package/producer_captureの正確な7キー（ID以外はabsolute path）。既存のfresh Job、BelowNormal、2GiB、開始gate、終了直後の観測、stage専用の新規claimを使い、元のGPU execution claimを作らない。親の準備はmanifest headerのみで、完全な過去証拠の監査とsnapshot作成はgate後のCPU子・180秒以内に入る。
+
+親は小さな証明書のSHAとowner/controller/transaction/nonce/input/artifact、完全native preflight、linked receipt、snapshotの保存先/sizeと整合検査記録を照合する。偽のsuccess flag、GPU/compiler/native/driver呼出し、execution_admitted/calculation trueを準備成功として受け付けない。stageが成功しても環境保全や計算成功とは別。snapshotの全bytesはCPU子が既存freezeで検査し、GPU consumer側にも外部SHAからの全bytes検査が必要で、まだ未接続。
+
+固定cad4086f…自身で関連76検査＋全69群719制御検査（MacではWindows限定1skip）が成功しpayload保持。前版6cc80648…の実bounded負例も、元ownerの認証後に未存在transactionでexit1、0.739秒、timeout/cleanup error無しで止まりclaimとfailureを保持。これはWindows Job成功や元証拠による全準備成功ではない。小記録`research/portable-admission-prepared-stage-v1.json`、配布はsource packetだけでsnapshot/rawは含まない。
+
 固定バイトの保存/検査部分はCPU専用CLIへ実装済み。完全な監査からsnapshotを作るCPU準備CLIを追加。所有claim・GPU実行への接続は未実装であり、現CUDAの計算証明や受付経路ではない。
 
 ## 実装したストレージとCLI
