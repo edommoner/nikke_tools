@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "source_package_id": "164a2455feb62bb1fdbfc3f2f509a0316b5b1e3ce981e49982f4395c1e35bc9a",
+  "summary_file": "ptx-resources-summary-v1.json",
+  "summary_bytes": 5991,
+  "summary_sha256": "b17ce39aeccd2b8e2da52cb34990d008e5a2ad3db2ba678b16078d52dd099015",
+  "public_payload": "function-resource-summary-and-manifest-only",
+  "sdk_paths_included": false,
+  "nonce_included": false,
+  "binding_included": false,
+  "raw_ptx_included": false,
+  "cache_included": false,
+  "binary_included": false,
+  "private_diagnostics_included": false
+}
