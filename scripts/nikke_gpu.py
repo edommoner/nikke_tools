@@ -437,6 +437,10 @@ SUITES['coordinate-composed']['support_files']=[*SUITES['coordinate-generation']
 SUITES['coordinate-arc-scalar']=dict(script='research/verify-coordinate-arc-scalar-short.py',source='gpu/coordinate_arc_scalar_probe.slang',golden='research/portable-coordinate-arc-scalar-short-expected.json',inputs=640,native=632,output_words=4104,development_only=False,tests=['test_coordinate_arc_scalar.py','test_portable_model_gap_audit.py','test_coordinate_physical_frontier.py'],upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'],support_files=['research/portable-coordinate-arcs-short-expected.json'])
 SUITES['burst-control-policy']=dict(script='research/verify-burst-control-policy-short.py',source='gpu/burst_control_policy_probe.slang',golden='research/portable-burst-control-policy-shared-short-expected.json',inputs=381,native=347,output_words=32,development_only=False,tests=['test_burst_control_policy.py'])
 SUITES['coordinate-numeric']=dict(script='research/verify-coordinate-numeric-short.py',source='gpu/coordinate_numeric_probe.slang',golden='research/portable-coordinate-numeric-short-expected.json',inputs=2783,native=2771,output_words=16,development_only=False,tests=['test_coordinate_numeric_v1.py'])
+SUITES['enemy-movement-math']=dict(script='research/verify-enemy-movement-math.py',source='gpu/enemy_movement_math_probe.slang',
+    golden='research/portable-enemy-movement-math-v1-expected.json',inputs=43,native=34,input_words=24,output_words=16,
+    development_only=False,native_status_contract='movement-step-overflow-v1',
+    tests=['test_enemy_movement_math.py','test_enemy_movement_model.py','test_portable_native_status.py'])
 SUITES['coordinate-geometry']=dict(script='research/verify-coordinate-geometry-short.py',source='gpu/coordinate_geometry_probe.slang',golden='research/portable-coordinate-geometry-short-expected.json',inputs=1224,native=1209,output_words=4160,development_only=False,tests=['test_coordinate_geometry_v1.py','test_coordinate_numeric_v1.py'])
 SUITES['coordinate-power']=dict(script='research/verify-coordinate-power-short.py',source='gpu/coordinate_power_probe.slang',golden='research/portable-coordinate-power-short-expected.json',inputs=909,native=898,output_words=8,development_only=False,tests=['test_coordinate_power_v1.py','test_portable_numeric_design.py'])
 SUITES['packet-ratio']=dict(script='research/verify-packet-ratio-short.py',source='gpu/packet_ratio_probe.slang',golden='research/portable-packet-ratio-short-expected.json',inputs=14045,native=14040,output_words=8,development_only=False,tests=['test_packet_integer_ratio.py'])
@@ -1603,7 +1607,9 @@ def compare_readback(m, capture, adapter=None,*,parent_oracles=None,case_indices
                         if SUITES[m['suite']].get('require_rejection_stage'):adapter.validate_rejection_stage(block,name)
                         native=dict(status=64)
                     else:
-                        if block[0]!=0:raise ValueError('Expected GPU success status0; got status'+str(block[0]))
+                        from portable_native_status import expected as expected_native_status
+                        required_status=expected_native_status(adapter,SUITES[m['suite']],domain)
+                        if block[0]!=required_status:raise ValueError('Expected GPU native status'+str(required_status)+'; got status'+str(block[0]))
                         native=adapter.compare(block,domain)
                 row=dict(name=name,input_sha256=input_digests[i],output_sha256=sha(part),native_sha256=adapter.cross.digest(native))
                 expected = m['golden']['entries'][i]

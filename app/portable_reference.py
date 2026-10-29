@@ -87,6 +87,7 @@ REFERENCES['coordinate-typed-weapon-common']=('portable_coordinate_typed_weapon_
 REFERENCES['logical-actor-geometry-common']=('portable_logical_geometry_cases','world_logical_geometry_native','portable_logical_geometry_contracts')
 REFERENCES['logical-actor-rosters-common']=('portable_logical_geometry_roster_cases','world_logical_geometry_native','portable_logical_geometry_roster_contracts')
 REFERENCES['enemy-healing-common']=('portable_enemy_healing_cases','world_enemy_healing_native','portable_enemy_healing_contracts')
+REFERENCES['enemy-movement-common']=('portable_enemy_movement_cases','world_enemy_movement_native','portable_enemy_movement_contracts')
 REFERENCES['enemy-ammo-common']=('portable_enemy_ammo_cases','world_enemy_ammo_native','portable_enemy_ammo_contracts')
 REFERENCES['enemy-ammo-self-destruct-common']=('portable_enemy_ammo_self_destruct_cases','world_enemy_ammo_self_destruct_native','portable_enemy_ammo_self_destruct_contracts')
 REFERENCES['add-self-destruct-native']=('world_add_self_destruct_native',)*3
@@ -178,6 +179,11 @@ def run_reference(suite,output,*,write,forbid_gpu):
     if suite=='enemy-healing-common':
         report.update(stage='cpu-common-policy-contract',reference_kind='declared-source-node-enemy-healing-cpu',
             historical_native_equivalence=False,in_game_rules_verified=False,gpu_wire_connected=False)
+    if suite=='enemy-movement-common':
+        report.update(stage='cpu-common-policy-contract',reference_kind='declared-add-motion-v1',
+            historical_native_equivalence=False,in_game_rules_verified=False,gpu_wire_connected=False,
+            recipient_policy='canonical-all-in-range',force_policy='snap-to-declared-center',
+            simultaneous_precedence='explicit per-case; no game default')
     if suite in ('enemy-ammo-common','enemy-ammo-self-destruct-common'):
         report.update(stage='cpu-common-policy-contract',reference_kind='declared-enemy-magazine-attempt-v1',
             historical_native_equivalence=False,in_game_rules_verified=False,gpu_wire_connected=False,

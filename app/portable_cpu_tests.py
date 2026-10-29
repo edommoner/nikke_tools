@@ -40,6 +40,7 @@ AUDIT_FILES['test_dispatch_frame_storage.py']=(
     'research/portable-coordinate-resident-frames-short-v2-expected.json',
     'research/portable-compiler-full--coordinate-resident-frames-v2-source-certificate.json')
 AUDIT_FILES['test_portable_readiness_semantics.py']=(
+    'tests/fixtures/enemy-movement-math-metal-v1.json',
     'tests/fixtures/resident-current-cuda-native-join-v1.json',
     'tests/fixtures/resident-append-full106-metal-v1.json',
     'tests/fixtures/resident-append-cross-gpu-v1.json',

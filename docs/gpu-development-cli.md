@@ -1,6 +1,8 @@
+敵移動は`reference --suite enemy-movement-common`の元5戦闘CPU契約と、`package --suite enemy-movement-math`のMetal43入力数値核を追加。actor/carrier/frameのGPU接続・実機規則は未完了。[範囲・保存結果replay・次の接続](portable-enemy-movement.md)。
+
 現ソースの全106 CUDA接続は `partitioned-current-package` で作った新ownerを使う。旧失敗ownerは保持し、現Metal sealと保存CUBINをpinする。[現ソースownerと3段階](portable-current-source-cuda-owner.md)。
 
-`model-check --summary` は、private Metal106入力とCUDA append9契約を別表示する。appendのcalculation成功とstage／環境保全falseを同時に保持し、full CUDA battle・canonical model gap・公開受付へ昇格させない。出所は完全reportの `resident_storage_validation`。
+`model-check --summary` は、historical Metal106/CUDA append9/wireと後続joinを別表示する。joinは固定106入力の計算true、stage/環境保全false、Mac原CUDA未読を明示し、canonical model gap・全キャラ・公開受付へ昇格させない。出所は完全reportの `resident_storage_validation`。
 
 保存CUDA sourceとpaired generation／CUBIN cacheを固定して使う経路は、sealed cache-only packetの `run-gpu-packet.py --stage gpu-cached --request REQUEST.json`。既存Job・2GiB・180秒／子60秒・必須hitを保持する。[4キーrequestと境界検査](portable-resident-append-publication.md)。通常gpu段階の失敗claimを消して再送しない。
 

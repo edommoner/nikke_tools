@@ -1,6 +1,24 @@
 """Conservative work routing for observed blockers, never feature admission."""
 
 
+def movement_contract():
+    return dict(suite='enemy-movement-common',cases=5,source='app/enemy_movement_model.py',
+        original_profiles=['유니','얀'],original_profile_definitions=[69,71],combined_original_roster=True,
+        existing_duration_carriers=True,existing_actor_generations=True,existing_ADD_colliders=True,
+        existing_shot_landing_damage=True,half_open_expiry_splitting=True,
+        recipient_policy='canonical-all-in-range',force_policy='snap-to-declared-center',
+        simultaneous_precedence='explicit; no game default',
+        math_suite='enemy-movement-math',gpu_world_consumer_connected=False,
+        declared_math_validation=dict(inputs=43,native_cases=34,rejected_cases=9,overflow_status_witnesses=2,
+            metal_verified=True,independently_audited=True,gpu_world_consumer_connected=False,cuda_verified=False,
+            evidence='tests/fixtures/enemy-movement-math-metal-v1.json',
+            evidence_sha256='61308665f6880894e4f5f0de2b7d19fc665ab7f80c02c9a17252d3fc12752a4b',
+            scope='Ordered step arithmetic and explicit precedence only; no GPU carrier/actor/frame integration'),
+        current_cuda_verified=False,default_producer_installed=False,
+        actual_spatial_recipient_selection_verified=False,in_game_motion_policy_verified=False,
+        scope='Declared CPU movement on real ADD colliders; standalone math evidence does not certify a GPU battle consumer')
+
+
 def enemy_ammo_prerequisites():
     """Existing numeric operator and the missing enemy state/producer boundary."""
     return dict(native_operator='calculator/timeline.py:handle_ammo_charge_pct',
@@ -100,6 +118,7 @@ def reference_readiness(issue):
                 spatial_recipient_model_required=True,world_position_provider_required=True,
                 simultaneous_status_precedence_required=True,
                 force_destination_and_motion_policy_required=issue.get('stat')=='force_move',
+                declared_cpu_contract=movement_contract(),
                 current_world_consumer_verified=False,current_cuda_verified=False,
                 default_producer_installed=False)
         if issue.get('kind')=='buff' and issue.get('stat')=='heal_received_pct' and issue.get('target')=='all_enemies':

@@ -1,3 +1,11 @@
+# 2026-10-29 未対応の敵移動へ着手：元5戦闘CPU契約とMetal数値核
+
+移動停止/強制移動を、元ユニ69/ヤン71/混合69定義の全実編成を保持したCPU契約へ接続した。既存native frame、実duration carrier（5秒/2秒）、generation-aware enemy fields、ADDコライダー、元sampled shot/landing/ダメージを使う。期限内分割・世代再初期化・同時状態の明示優先順位・scope復元・overflowを9検査で確認。consumerだけを除く故障注入で、同じ元定義の実packet/ADDダメージが変わる。`reference --suite enemy-movement-common`は5ケースを約4.095秒で成功し、GPU/packing0。速度/強制移動先/優先順位は宣言値で、recipientは正本のall-in-range近似を必須明示する。ゲーム軌跡、真の空間recipient、BODY等、GPU戦闘consumerは未完了。
+
+新しい共通`enemyMovementStep`はsoftware binary64の順序付き演算のみ。43入力（native34・raw拒否9、overflow status16 witness2件）はM5 GPU1回で全2752byteを取得。GPU0.0000236秒/MSL0.0464秒/PSO0.0308秒。初回はstandaloneにresident generation-cacheを指定してclaim前に拒否、ログ保持。正しい起動のGPU値は正しかったが、status16を従来native正例0固定の監査器が拒否した。source限定/契約名固定の`portable_native_status`を追加し、旧battle既定0・未知status/bool拒否を保持。数値/status/期待値を書き換えず、immutable ff646ff2で元captureをreplay、fresh独立seal0.508秒成功。元GPU claim/失敗/raw保持、追加GPU0。sealed goldenを通常`enemy-movement-math`へ登録。CUDA/Windows新依頼0。
+
+証跡`tests/fixtures/enemy-movement-math-metal-v1.json`、raw/packet/全ログ/元CPU reportは永続`.portable-recovery/proofs/enemy-movement-20261029`。元439 GPUファイル/保護CPU4ファイル/strict normalizer全byte不変。既存106/appendの証拠やhashは更新しない。未対応分類は宣言CPU契約と数値核だけを別記し、canonical不足5/20model gap/全キャラ0/UI CPU/公開受付falseを維持する。次は既存Runtimeのalive/end/actorFieldMember/source clockと動的ADD位置・元5戦闘の全比較を結ぶ。数値核を戦闘GPU接続済みとしない。[敵移動の範囲と次段階](portable-enemy-movement.md)。以下は履歴。
+
 # 2026-10-29 現CUDA全106入力をfresh native/wire envelopeで認定
 
 共通CLI `partitioned-witness-join`を実装し、固定proof SHA・元own packet・context/plan/anchors・14fresh群・全106/native63/拒否43・全input/raw/logical/generated/native指紋と保持Metal rawを再検査した。immutable packet e38b399c自身の72検査とjoinが成功。source-hostで原CUDA出力を再読したenvelopeとMacのbyte-identical Metal witnessに対するfresh native比較が揃い、**固定106入力のcalculation=true**になった。原CUDA rawをMacで取得/再読したとは主張せず、peer受領の境界を結果に保存する。元中間capture/claim/失敗/pendingは変更0、追加GPU/compile/native再計算はjoin中0。証跡`tests/fixtures/resident-current-cuda-native-join-v1.json`/SHA6cf83185…。共通判定は[保存結果監査](portable-identical-wire-native-audit.md)。

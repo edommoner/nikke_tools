@@ -75,6 +75,18 @@ class ReadinessSemanticsTests(unittest.TestCase):
             self.assertTrue(p['world_position_provider_required']);self.assertTrue(p['spatial_recipient_model_required'])
             self.assertEqual(p['force_destination_and_motion_policy_required'],stat=='force_move')
             self.assertFalse(p['current_world_consumer_verified']);self.assertFalse(r['gpu_supported'])
+            from portable_model_gap_audit import verify
+            declared=p['declared_cpu_contract']
+            self.assertEqual(declared,verify(ROOT)['missing_stats'][stat]['declared_movement_contract'])
+            self.assertEqual((declared['suite'],declared['cases']),('enemy-movement-common',5))
+            self.assertTrue(declared['existing_duration_carriers']);self.assertTrue(declared['existing_shot_landing_damage'])
+            for key in ('gpu_world_consumer_connected','actual_spatial_recipient_selection_verified','in_game_motion_policy_verified','default_producer_installed'):self.assertFalse(declared[key])
+            math_proof=declared['declared_math_validation'];raw=(ROOT/math_proof['evidence']).read_bytes();evidence=json.loads(raw)
+            self.assertEqual(hashlib.sha256(raw).hexdigest(),math_proof['evidence_sha256'])
+            self.assertEqual((math_proof['inputs'],math_proof['native_cases'],math_proof['rejected_cases']),(43,34,9))
+            self.assertTrue(evidence['math_calculation_verified']);self.assertTrue(evidence['independent_audit']['calculation_verified'])
+            self.assertEqual(evidence['gpu_execution_count'],1);self.assertEqual(evidence['gpu_calls_during_replay_and_seal'],0)
+            self.assertFalse(evidence['gpu_world_consumer_connected']);self.assertFalse(evidence['full_character_verified'])
     def test_resident_frame_seal_keeps_missing_reference_and_cuda_gates_closed(self):
         raw=(ROOT/'tests/fixtures/resident-frames-independent-v2.json').read_bytes();audit=json.loads(raw)
         for stat in ('projectile_dmg_pct','shield_dmg_pct'):
