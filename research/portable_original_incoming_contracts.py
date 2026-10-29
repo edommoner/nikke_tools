@@ -21,4 +21,7 @@ def verify(case,native):
             # overflow into HP. Only the next hit reaches HP after exhaustion.
             assert hits[0]['damage']>hits[0]['decoy'] and hits[0]['hp']==0 and hits[1]['decoy']==0 and hits[1]['hp']>0,('After real decoy exhaustion the next attack must reach original HP',hits)
             assert hits[2]['decoy']>0 and hits[2]['hp']==0,'Original burst must restore a decoy for the later real attack'
+    elif witness['family']=='Original-support':
+        from portable_original_support_contracts import verify as support_verify
+        support_verify(case,native)
     else:raise AssertionError('Unknown original incoming witness')

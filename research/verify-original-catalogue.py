@@ -18,12 +18,19 @@ def prepare_selected(names):
         c,p=prepare_case(row)
         w,m,b,d=base.compile_coordinate_typed(p,c['typed_bindings'],probe_kind=c['catalogue_profile']['kind'],geometry=c['typed_geometry'],coordinate_weapon_targets=True,coordinate_typed_aim=True,coordinate_typed_actors=True,coordinate_typed_owners=True)
         if c.get('declared_burst_sequence'):m['coordinate_original_input'].update(original_controls_preserved=False,declared_burst_sequence_applied_after_identity_check=True)
+        if c.get('declared_manual_sequences'):m['coordinate_original_input'].update(original_controls_preserved=False,declared_manual_sequences_applied_after_identity_check=True)
         rows.append((c['name'],w,(c,m,b,d)))
     return rows,None
 
 def native_reference(domain):
     from world_coordinate_typed_owner_native import observe
-    n,_=observe(domain[0]);return verify(domain[0],n,skill_history_capacity=CAPACITY)
+    from portable_original_support_contracts import support
+    if support(domain[0]):
+        from world_original_support_native import capture
+        with capture(domain[0]) as receipts:n,_=observe(domain[0])
+        n['support_conditions']=receipts
+    else:n,_=observe(domain[0])
+    return verify(domain[0],n,skill_history_capacity=CAPACITY)
 
 def compare(block,domain):
     from world_coordinate_sampled_skill_native import creation_indices
@@ -34,6 +41,9 @@ def compare(block,domain):
         from portable_runtime import decode
         from portable_original_catalogue_cases import verify_role_casts
         verify_role_casts(domain[0],decode(block[:159744],domain[1])['burst_trace'])
+    if 'support_conditions' in n:
+        from portable_original_support_contracts import verify_gpu
+        verify_gpu(block,domain,n)
     return n
 
 def validate_rejection(block,name):raise AssertionError('Selected original profiles cannot be converted into expected rejections')

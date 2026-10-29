@@ -20,6 +20,10 @@ def catalog(*,include_roles=False):
         extra=incoming()
         if rows.keys()&extra.keys():raise ValueError('Duplicate original incoming identity')
         rows.update(extra)
+        from portable_original_support_profiles import profiles as support
+        extra=support()
+        if rows.keys()&extra.keys():raise ValueError('Duplicate original support identity')
+        rows.update(extra)
     return rows
 
 def selected_rows(names):
@@ -40,11 +44,18 @@ def selected_rows(names):
         if 'variant' in descriptor:rows[-1]['catalogue_profile']['variant']=descriptor['variant']
         if 'scene_witness' in descriptor:rows[-1]['catalogue_profile']['scene_witness']=copy.deepcopy(descriptor['scene_witness'])
         if 'declared_burst_sequence' in descriptor:rows[-1]['declared_burst_sequence']=copy.deepcopy(descriptor['declared_burst_sequence'])
+        if 'declared_manual_sequences' in descriptor:rows[-1]['declared_manual_sequences']=copy.deepcopy(descriptor['declared_manual_sequences'])
     return rows
 
 def prepare(row):
     from portable_original_projectile_weapon_cases import prepare as original
     c,p=original(row);c['catalogue_profile']=copy.deepcopy(row['catalogue_profile'])
+    if 'declared_manual_sequences' in row:
+        from portable_declared_manual_sequences import apply
+        c['declared_manual_sequences']=copy.deepcopy(row['declared_manual_sequences'])
+        p['chars']=apply(p['chars'],c['declared_manual_sequences'])
+        p['policies']['controls']={char['name']:copy.deepcopy(char.get('control',{})) for char in p['chars']}
+        c['controls']=[copy.deepcopy(char.get('control',{})) for char in p['chars']]
     if 'declared_burst_sequence' in row:
         from portable_declared_burst_sequence import apply
         c['declared_burst_sequence']=copy.deepcopy(row['declared_burst_sequence'])
@@ -77,6 +88,7 @@ def verify(case,native,*,skill_history_capacity=128):
     weapons(case,native);identity=native['original_input_identity']
     expected_identity=dict(definitions=len(case['effects']),chars_config_seed_weapon_verified=True,authored_metadata_overrides=False,authored_delays_overrides=False)
     if case.get('declared_burst_sequence'):expected_identity.update(original_controls_preserved=False,declared_burst_sequence_applied_after_identity_check=True)
+    if case.get('declared_manual_sequences'):expected_identity.update(original_controls_preserved=False,declared_manual_sequences_applied_after_identity_check=True)
     assert identity==expected_identity
     profile=case['catalogue_profile'];original=case['original_run'];source=original['prepared']['effects']
     assert case['names'][0]==profile['character'] and original['body']['profile']['chars'][profile['character']]['favorite_stage']==profile['favorite_stage']

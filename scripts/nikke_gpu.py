@@ -154,6 +154,11 @@ SUITES['original-catalogue-ordered']=dict(SUITES['original-catalogue-support'],
     inputs=None,native=None,development_only=True,selection_required=True,
     tests=[*SUITES['original-catalogue']['tests'],'test_recipient_order_observation.py'])
 SUITES['original-catalogue-ordered'].pop('frozen_cases')
+SUITES['original-support-conditions']=dict(SUITES['original-catalogue-ordered'],
+    golden='research/portable-original-support-conditions-v1-expected.json',inputs=4,native=4,selection_required=False,
+    frozen_cases=['original-catalogue/support/Naga-injured/30s','original-catalogue/support/Tia-injured/30s',
+                  'original-catalogue/support/Naga-Tia-shield/30s','original-catalogue/support/Naga-Tia-injured-shield/30s'],
+    tests=[*SUITES['original-catalogue-ordered']['tests'],'test_original_support_conditions.py'])
 SUITES['original-catalogue-burst']=dict(SUITES['original-catalogue'],golden='research/portable-original-catalogue-burst-v1-expected.json',support_files=['research/portable-original-catalogue-initial-v1-expected.json'],inputs=4,native=4,development_only=False,selection_required=False,frozen_cases=[
     'original-catalogue/hp-shield/라피 : 레드 후드/favorite-0/30s',
     'original-catalogue/hp-shield/홍련 : 흑영/favorite-0/30s',

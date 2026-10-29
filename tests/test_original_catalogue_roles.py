@@ -24,7 +24,7 @@ class OriginalCatalogueRoles(unittest.TestCase):
         from calculator import timeline
         with patch.object(engine_worker,'evaluate',side_effect=AssertionError('No preparation while listing')),patch.object(timeline,'simulate',side_effect=AssertionError('No battle')):
             rows=profiles();names=adapter.case_catalog()
-        self.assertEqual(len(rows),4);self.assertTrue(set(rows)<=set(names));self.assertEqual(len(names),1072)
+        self.assertEqual(len(rows),4);self.assertTrue(set(rows)<=set(names));self.assertEqual(len(names),1076)
         self.assertFalse(any('declared_burst_sequence' in r for n,r in rows.items() if 'Rapi-' in n))
 
     def test_only_real_parties_and_all_original_definitions_reach_compiler(self):
