@@ -1,3 +1,11 @@
+# 2026-10-29 Windows全4 CPU群が成功、GPU前の監査時間を計測依頼
+
+固定1e54383d…の残りnative1/2/3が各1回成功。全15入力（実戦3/拒否12）の群証拠が揃った。native1は112.897秒（参照53.727/静的15.797）、native2は110.275秒（参照52.624/静的15.515）、拒否群は56.770秒（静的15.529）。全Job2GiB/低優先度/gate/exit0/post空/欠落0/観測cleanup error無し。旧smoke/resume/native0の再実行、GPU/compile/native値cache/claims変更0。
+
+固定a4349293…のsummary5354byte/manifest473byteを元bytes/SHAで取得。実戦0/1/2の全input/native指紋をsealed goldenへ一致確認し、元のGPU outputというfieldの誤称はnative_sha256へ明示訂正。件数もJSON整数で再報告し、旧summaryは保持。Macの原raw独立監査ではない。`research/portable-reviewed-controls-complete-tail-peer-v1.json`。全群完了と最終admissionは別であり、原all_native_preflight_verified=falseを保持する。
+
+次のWindowsはimmutable packet外の小診断scriptから既存run_bounded/observe_job/observerを使い、2GiB/低優先度/gate/外180秒のread-only CPU計測1回のみ。packet自身verify_package、staged admit、保存link admission、入力read/hashをそれぞれ測る。GPU/native/Slang/compile0、GPU execution claim未消費・future GPU capture未作成・元claim不変を前後確認する。元の全監査を省略せず、60秒GPU子予算へ準備負担が収まるか調べる。GPUはまだ依頼せず、計算/保全/overall/目標は未完了。以下は履歴。
+
 # 2026-10-29 Windowsの全制御gate・継続監査・単独native0が成功
 
 Windows固定1e54383d…がsmoke69群719検査（142.286秒）、resume監査（62.572秒）、単独native0（116.391秒、計算55.088秒/静的入力15.846秒）で成功。全Job2GiB/BelowNormal/gate、exit0/post空/欠落0、観測cleanup error無し。全4群計画は[0]/[1]/[2]/[3..14]、元test31の証拠を保持し、旧timeout/partialを成功へ昇格しない。GPU/driver/Slang/NVRTC/native値cache/retry0、サービス未識別の保全/overall falseも維持。
