@@ -738,3 +738,7 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 `model-check --summary --out NEW.json` の `scoped_dependency_gaps` は、公開frontendの残件と既存のprivate実装を分ける。physical-packet-expansionの残件は公開sampling/RNG受付・未検証の合成・全original定義のcoverageであり、既存sampling実装そのものが無いという意味ではない。private sampling／skill／parentは既存suite名とproof_available／sealed_source_matches_currentを別々に返す。古いgoldenの存在を現sourceの再認定に使わない。mixed-worldの残件も、その未sampling suiteの範囲として読む。
 
 この分類だけで5つのcanonical未対応consumer、公開GPU受付、全キャラ認定は解消しない。20分類検査／51 CLI検査と実CLIの約3KB要約を確認した。詳細は`research/portable-coordinate-gap-scope-classification-v1.json`。
+
+## 数量グループ訪問管理の現source検証
+
+共通bitsetの検証はsealed `quantity-visited`（16入力／境界期待9＋raw拒否7）、実数量は`max-ammo-visited`（28／native20）、共通resident Frameとの合成は`moving-visited`（15／native3）を使用する。全て新しいMetal独立sealであり、旧goldenは保持する。`moving-visited-cache-only`は同じsourceへ必須CUBIN/O1とpaired generationを適用するが、実CUDA成功は未確認。旧profileのsource guardを回避せず、現sourceに対応するvisited suiteを選ぶ。[実証・失敗履歴・数値保持](portable-quantity-visited.md)。

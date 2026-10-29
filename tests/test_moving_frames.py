@@ -34,7 +34,7 @@ class MovingFramesTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 validate_composed_stride(source, *dimensions)
 
-    def test_seal_keeps_all_prior_fingerprints_and_exact_compiler_source(self):
+    def test_historical_seal_keeps_all_prior_fingerprints_and_reviewed_compiler_source(self):
         import json
         import hashlib
         import nikke_gpu
@@ -44,7 +44,23 @@ class MovingFramesTests(unittest.TestCase):
         new = json.loads(raw)
         for key in ('input_sha256', 'output_sha256', 'entries'):
             self.assertEqual(new[key], old[key])
-        self.assertEqual(new['source_sha256'], source_hashes('gpu/world_moving_frames_entry.slang'))
+        sources = source_hashes('gpu/world_moving_frames_entry.slang')
+        if 'gpu/quantity_visited.slang' in sources:
+            # Exact reviewed inverse only: retain this historical Frame seal,
+            # without treating it as a current-source quantity bitset proof.
+            delta = json.loads((ROOT / 'tests/fixtures/quantity-visited-source-change-v1.json').read_text())
+            name = 'gpu/quantity_runtime.slang'
+            row = delta['files'][name]
+            source = (ROOT / name).read_text()
+            self.assertEqual(hashlib.sha256(source.encode()).hexdigest(), row['after_sha256'])
+            self.assertEqual(sources['gpu/quantity_visited.slang'], delta['added_sources']['gpu/quantity_visited.slang'])
+            for hunk in reversed(row['hunks']):
+                self.assertEqual(source.count(hunk['after']), 1)
+                source = source.replace(hunk['after'], hunk['before'], 1)
+            self.assertEqual(hashlib.sha256(source.encode()).hexdigest(), row['before_sha256'])
+            sources[name] = row['before_sha256']
+            del sources['gpu/quantity_visited.slang']
+        self.assertEqual(new['source_sha256'], sources)
         cert = json.loads((ROOT / 'research/portable-compiler-full--moving-frames-source-certificate.json').read_text())
         self.assertEqual(cert['baseline_golden_sha256'], hashlib.sha256(raw).hexdigest())
         self.assertEqual(cert['source_sha256'], new['source_sha256'])

@@ -1,0 +1,37 @@
+{
+  "schema": "quantity-visited-source-change-v1",
+  "baseline_commit": "f1b76bf48c034fce3d42f5624e3cce24d1740d95",
+  "files": {
+    "gpu/quantity_runtime.slang": {
+      "before_sha256": "d04e568983cc1be4124d5144239cbde63826f51a05c23ba2c7bbb03a0a809020",
+      "after_sha256": "c3d6af87a8f858aff680c8f309c2d7950ea478169e8a4c223e66c129e20fd646",
+      "hunks": [
+        {
+          "before": "",
+          "after": "#include \"quantity_visited.slang\"\n"
+        },
+        {
+          "before": "    uint64_t values[P_DEFINITIONS]; uint seen[P_DEFINITIONS], order[P_DEFINITIONS], flags[P_DEFINITIONS], count = 0;\n",
+          "after": "    uint64_t values[P_DEFINITIONS]; uint order[P_DEFINITIONS], flags[P_DEFINITIONS], count = 0;\n    QuantityVisited seen;\n"
+        },
+        {
+          "before": "    for (uint i = 0; i < initializedGroups; i++) { values[i] = 0; seen[i] = 0; flags[i] = 0; }\n",
+          "after": "    seen.initialize(initializedGroups);\n    for (uint i = 0; i < initializedGroups; i++) { values[i] = 0; flags[i] = 0; }\n"
+        },
+        {
+          "before": "        if (seen[group] != 0) continue;\n        seen[group] = 1; order[count++] = group;\n",
+          "after": "        if (!seen.insert(group)) continue;\n        order[count++] = group;\n"
+        },
+        {
+          "before": "        if (seen[group] == 0) { seen[group] = 1; order[count++] = group; }\n",
+          "after": "        if (seen.insert(group)) { order[count++] = group; }\n"
+        }
+      ]
+    }
+  },
+  "added_sources": {
+    "gpu/quantity_visited.slang": "996b93e34b0554fe33cd6bc4993e4dd1eff595dadc7bde7c1ea55d9d01f8c108"
+  },
+  "normalizer_changed": false,
+  "scope": "Only visited membership storage; entire original quantity source is recovered byte-for-byte, including filters, first-seen sequence and ordered binary64 arithmetic."
+}

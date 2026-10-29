@@ -45,6 +45,10 @@ AUDIT_FILES['test_moving_frames.py']=(
     'research/portable-moving-group-v2-expected.json',
     'research/portable-moving-frames-v1-expected.json',
     'research/portable-compiler-full--moving-frames-source-certificate.json')
+AUDIT_FILES['test_quantity_moving_frames.py']=(
+    'research/portable-moving-frames-v1-expected.json',
+    'research/portable-moving-visited-v1-expected.json',
+    'research/portable-compiler-full--moving-visited-source-certificate.json')
 AUDIT_FILES['test_portable_readiness_semantics.py']=(
     'tests/fixtures/enemy-movement-math-metal-v1.json',
     'tests/fixtures/enemy-movement-math-cuda-v1.json',

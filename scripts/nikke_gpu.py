@@ -606,6 +606,22 @@ SUITES['moving-frames']=dict(SUITES['moving-group-current'],script='research/ver
     tests=[*SUITES['moving-group-current']['tests'],'test_moving_frames.py'])
 SUITES['moving-frames-cache-only']=dict(SUITES['moving-frames'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,
     tests=[*SUITES['moving-frames']['tests'],'test_portable_cuda_cached_profile.py'])
+SUITES['quantity-visited']=dict(script='research/verify-quantity-visited.py',source='gpu/quantity_visited_probe.slang',
+    golden='research/portable-quantity-visited-v1-expected.json',inputs=16,native=9,output_words=1056,development_only=False,
+    tests=['test_quantity_visited.py'])
+SUITES['max-ammo-visited']=dict(SUITES['max-ammo-scaling'],golden='research/portable-max-ammo-visited-v1-expected.json',
+    development_only=False,tests=[*SUITES['max-ammo-scaling']['tests'],'test_quantity_visited.py'])
+SUITES['max-ammo-visited']['support_files']=list(dict.fromkeys([
+    *SUITES['max-ammo-visited'].get('support_files',()),
+    *(path for pattern in SUITES['max-ammo-visited']['tests'] for path in CPU_AUDIT_FILES.get(pattern,()))]))
+SUITES['moving-visited']=dict(SUITES['moving-frames'],golden='research/portable-moving-visited-v1-expected.json',
+    development_only=False,tests=[*SUITES['moving-group-current']['tests'],'test_quantity_visited.py','test_quantity_moving_frames.py'])
+SUITES['moving-visited']['support_files']=list(dict.fromkeys([
+    *SUITES['moving-visited'].get('support_files',()),
+    'research/portable-compiler-full--moving-visited-source-certificate.json',
+    *(path for pattern in SUITES['moving-visited']['tests'] for path in CPU_AUDIT_FILES.get(pattern,()))]))
+SUITES['moving-visited-cache-only']=dict(SUITES['moving-visited'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,
+    tests=[*SUITES['moving-visited']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['moving-overlap']=dict(SUITES['moving-group-current'],script='research/verify-moving-overlap.py',
     golden='research/portable-moving-overlap-v1-expected.json',inputs=14,native=2,development_only=False,
     tests=[*SUITES['moving-group-current']['tests'],'test_moving_overlap_inputs.py'])

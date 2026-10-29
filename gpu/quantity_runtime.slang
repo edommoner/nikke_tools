@@ -39,6 +39,7 @@ uint chargeFlags(inout Runtime s, uint who, uint64_t when)
     }
     return flags;
 }
+#include "quantity_visited.slang"
 struct QuantityTotals { uint64_t percent, rounded; };
 [noinline]
 QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when, uint64_t base, uint64_t step)
@@ -47,7 +48,8 @@ QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when
     if ((s.quantityMask & required) == 0) return result;
     uint immunity = key == S_charge_speed_pct ? chargeFlags(s,who,when) : 0;
     if ((immunity & 4) != 0) return result;
-    uint64_t values[P_DEFINITIONS]; uint seen[P_DEFINITIONS], order[P_DEFINITIONS], flags[P_DEFINITIONS], count = 0;
+    uint64_t values[P_DEFINITIONS]; uint order[P_DEFINITIONS], flags[P_DEFINITIONS], count = 0;
+    QuantityVisited seen;
 #ifdef PORTABLE_CAPACITY_SCAN_REFERENCE
     uint initializedGroups = P_DEFINITIONS;
 #else
@@ -55,7 +57,8 @@ QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when
     // Do not clear unused capacity for each quantity query on a small program.
     uint initializedGroups = s.count;
 #endif
-    for (uint i = 0; i < initializedGroups; i++) { values[i] = 0; seen[i] = 0; flags[i] = 0; }
+    seen.initialize(initializedGroups);
+    for (uint i = 0; i < initializedGroups; i++) { values[i] = 0; flags[i] = 0; }
     for (uint pass = 0; pass < s.orderedCount; pass++)
     {
         uint row = s.orderedRows[pass]; Definition d = residentDefinition(s,row);
@@ -65,8 +68,8 @@ QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when
         if (d.stat == S_charge_speed_caster_based_pct && f64Zero(s.rawCharge[d.owner])) continue;
         uint group = d.group;
 #ifdef PORTABLE_QUANTITY_SCAN_REFERENCE
-        if (seen[group] != 0) continue;
-        seen[group] = 1; order[count++] = group;
+        if (!seen.insert(group)) continue;
+        order[count++] = group;
         // Benchmark control: rediscover each group's resident members.
         for (uint member = 0; member < s.orderedCount; member++)
         {
@@ -77,7 +80,7 @@ QuantityTotals quantityTotals(inout Runtime s, uint who, uint key, uint64_t when
             values[group] = f64Add(values[group],recipientValue(s,other,who)); flags[group] |= candidate.exclusive | (candidate.quantityFlags & 32);
         }
 #else
-        if (seen[group] == 0) { seen[group] = 1; order[count++] = group; }
+        if (seen.insert(group)) { order[count++] = group; }
         values[group] = f64Add(values[group],recipientValue(s,row,who)); flags[group] |= d.exclusive | (d.quantityFlags & 32);
 #endif
     }

@@ -1,3 +1,11 @@
+# 2026-10-30 quantityTotalsの訪問管理を共通bitsetへ縮小、Metal3種類を独立seal
+
+QuantityVisitedは256uintのseenを8uintへ置換（ソース上1024→32byte）。values/flags/order配列、初出順、フィルター、binary64加算・丸め、時計は不変。共通helperをCUDA/Metalへ生成。5hunk逆変換で旧quantity全文SHA d04e5689…を復元し、旧max-ammo baseline/normalizerを保持した。実PTX local／物理stack削減は未測定。
+
+quantity-visited16（境界9/拒否7）/max-ammo-visited28（native20）/moving-visited15（native3）がM5成功し、全3を別fresh GPU禁止監査でseal。GPU .000414/.051732/2.227792秒、独立監査 .409858/2.438136/84.360426秒。max-ammoとmovingの旧全input/output/native指紋を保持し、moving全129908160byteのSHA3765a8c5…も同一。world2種に同じfresh golden由来source-only証明書、moving-visited-cache-onlyも登録。旧Frame証明書は厳密な歴史projectionで検査するが現source証明にはしない。新規実行にはvisited suiteを使用し、他の古いsource sealを昇格させない。
+
+最終76検査、sealed moving packet fb2c7719…自身8群42検査成功（ZIP13669201byte/SHA98610c75…）。実GPU source不変の最終登録後にGPU再実行0。初版dd282090はmutating不足でGPU前停止、4d98341eは拒否domain誤分類でGPU後比較失敗。共通拒否経路へ修正したa6b39ff1の出力と4d98全rawは同一だが元失敗は保持。今回成功GPU3/比較失敗GPU1/GPU前失敗1/同claim retry0。Windows追加依頼0、既存チャットidle。記録research/portable-quantity-visited-metal-v1.json、詳細portable-quantity-visited.md。次は短いWindows PTX比較でquantityTotals5192byteの変化を測る。CUDA起動成功／全キャラ／全目標は未達。以下は履歴。
+
 # 2026-10-30 Windows新PTX比較完了、公開残件と限定実装の分類を分離
 
 固定3fc64fb2/compiler-full--moving-framesはWindows20群227件、paired生成29.770秒、PTX単独NVRTC1回39.477秒（内側55.185/60秒）成功。compile生成cache必須hit/Slang0。新PTX5fc6b522…は271関数／未解決等0。dispatch local9784→1848byte、virtual regs12572→13654。quantityTotals5192/tick2584は不変、PTX全体は112453byte増。物理stack/register・速度・起動error2の解消を認定しない。次はquantityTotals visited-group scratch削減、first-seen順と全binary64演算順を維持し、共通テスト/Metal後に短いPTX比較。
