@@ -1,3 +1,19 @@
+## 2026-10-30 実ヘッダー追補の認証と共通の分割post監査
+
+Windowsの固定49d90bfb…でヘッダー追補14.607秒、追補付きauthority-check38.871秒が各1回で成功した。元snapshot/certificateは不変。追補は1ヘッダー/44,459byte、archive SHA e3572b1a4ff2e757c588a1af9b4b7f8e89d3aedba50677dab7ab27da3368022a。両stageは2GiB/BelowNormal/gate/終了空/既存process欠落0で、元79ファイル不変、GPU claim/future capture未作成。追加native/test/compile/driver/GPUは0。service未識別による環境保全とoverall falseは継続する。
+
+Macは公開済み328d4c28…のsanitized summary/manifestだけを元bytes/SHAで取得し、元packet/base snapshot/certificateへ照合した。これはWindows原snapshotやauthorityファイルのMac独立監査ではない。SDK絶対path/nonceを含む拒否済み診断2ファイルは未公開のまま、追補archive/descriptor/authorityもWindowsローカルだけに保持する。
+
+新`portable_prepared_audit.compare_group`を既存`audited_battle_comparison_group`へ接続した。既存`run-gpu-packet.py --stage audit-native-group` → `saved-battle-audit` → fresh CPU childという分割経路をそのまま使い、snapshot-prepared-v1だけを新readerへ分岐する。Metalと旧CUDA protocolは従来の監査経路を保つ。全群の集計は既存`aggregate-native-groups`を使う。既存106用witness/join pinは変更しない。
+
+新監査はclaim三重mirror/外部SHA/authority/host/完全consumer、元snapshot/追補/入力/CUDA/CUBINを検査する。60秒子の成功・正確なbase Python command・Job2GiB・開始/終了/creation identity・共有native trace・child marker/dispatch・終了直後の観測を検査し、計算transportと環境保全を分ける。GPUを実行した同じprocessでの独立認定を拒否する。paired生成cacheは既存artifact/reflection verifierへ渡し、必須hit/Slang呼出し0とjournalを検査する。
+
+native計算、全raw/row SHA、strict generated-code normalizerは既存compare_readbackを使う。元mutable producerを開くlink verifierだけを、認証済みHandoffのexact receipt/CUDA/CUBINへ限定したadapterにする。callbackの呼出し回数と引数も検査し、例外でも元へ戻す。監査の前後でcapture全証拠/raw・package・所有情報を再検査する。部分比較はcalculation falseのままで、全入力の集計なしに全体へ昇格しない。
+
+独立比較に必要なinput.binは、GPU childで元snapshotから得たbytesを排他的に新規保存しfsyncする。既存captureの上書きや、再試行のためのclaim削除はしない。
+
+固定e9186899…自身で14群217制御検査成功（新監査15件を含む）。全goldenと501計算/保護CPU/pinned source record、CLIの分割dispatch関数以外の全関数ASTを保持した。合成transport/Jobの検査であり、実CUDA post監査の証明ではない。public GPU parent/runnerと本番fresh群の実行は未接続・未実証で、現在の元GPU試行は消費していない。次は親のcache/storage preflight → 認証 → 一度だけのclaim → 60秒GPU child → 上記既存bounded分割監査へ接続する。
+
 # 監査済み入力の受け渡し：次の実装要件
 
 ## 旧snapshotの不足headerを原本不変で閉じる

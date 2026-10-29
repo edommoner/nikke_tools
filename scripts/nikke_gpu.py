@@ -1926,6 +1926,11 @@ def audited_battle_comparison_group(module,capture,indices,backend):
     if backend=='metal':return audited_comparison_group(module,capture,indices)
     if backend!='cuda' or module.load(capture/'run.json').get('backend')!='cuda':
         raise ValueError('Matching CUDA capture required')
+    from portable_admission_authority import PROTOCOL as snapshot_protocol
+    if module.load(capture/'run.json').get('input_protocol')==snapshot_protocol:
+        from portable_prepared_audit import compare_group
+        result=compare_group(module,capture,module.load(capture/'run.json')['claim_sha256'],indices)
+        return result['audit'],result['comparison']
     observed=[];original=module.compare_readback
     def compare(*args,**kwargs):
         if kwargs:raise ValueError('Independent group cannot use comparison overrides')

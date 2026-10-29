@@ -1,3 +1,13 @@
+# 2026-10-30 ヘッダー追補付きWindows認証成功、共通CLIのpost比較を接続
+
+Windows固定49d90bfb…はヘッダー追補14.607秒/authority-check38.871秒が各1回成功。両方2GiB/BelowNormal/gate/終了空/欠落0、元79file不変、GPU claim/future capture無し、追加native/test/compiler/driver/GPU0。1header/44,459byteの追補とauthorityはWindowsローカルに保持する。公開328d4c28…の集計summary3089byte/manifest598byteだけMacで元bytes/SHA・元packet/base snapshot/certificateへ照合した。service未知による保全/overall falseは継続。原rawのMac独立監査ではない。拒否済みSDK path/nonce入り診断2fileは未公開。
+
+新portable_prepared_auditを既存CLIのaudited_battle_comparison_groupへ接続し、saved-battle-audit/元audit-native-group stage/元aggregate-native-groupsを再利用する。claim三重mirror、元証拠、60秒/2GiB/ordered trace/正確なcommand/直後観測、paired生成cache hit/reflection、exact input/CUDA/CUBINを検査。部分native比較の全raw/row/strict normalizerは元compare_readbackのまま。link provenanceだけを凍結Handoffへ限定adapterし、監査前後のsource/capture/所有情報を再検査する。子は比較用input.binを元snapshotから排他的に保存する。
+
+固定e9186899…で14群217制御検査成功、新監査15件を含む。全golden/501計算・保護CPU・pinned source record不変。CLIは分割dispatch関数以外の全関数AST不変。合成Job/transportによる検査で、実GPU/post実証ではない。小記録research/portable-prepared-native-post-v1.json。
+
+次はpublic parentのcache/storage preflight・元準備認証・一度だけのclaim・60秒GPU子を接続し、既存bounded native群で完全独立post監査する。Windowsはidle、実GPU未消費。全キャラ/特殊効果/default受付/目標は未完了。以下は履歴。
+
 # 2026-10-30 実snapshotでヘッダー未収録を検出、追補byte経路と子protocolを実装
 
 Windows80c928f3…のauthority-checkは27.839秒/exit1でSDK headerのfrozen source absentとなり、CUBIN/input最終reader検査前に停止。Job2GiB/peak108,838,912byte/BelowNormal/gate/終了空・欠落0、元75file不変、authority/元とconsumerのGPU claim/future capture未作成、prepare/native/test/compile/GPU再実行0。公開済みff5ae130…のsanitized summary2415byte/manifest650byteのみ元bytes/SHAで取得。SDK絶対path/nonceを含む別診断2ファイルは自動承認レビューが具体的公開許可不足で拒否し、未公開・未取込のまま。保存manifest診断によるheader原文/同名/SHA/blob未収録の報告を修正根拠とし、原失敗を保持する。

@@ -97,6 +97,10 @@ def child(cli,capture,expected_claim_sha256):
         with Handoff(cli,a['snapshot'],a['snapshot_sha256'],certificate_sha256=a['certificate_sha256'],
                 expected_binding=a['binding'],expected_suite=m['suite'],expected_golden=m['golden'],consumer_package_id=m['package_id'],header_materials=a.get('header_materials')) as handoff:
             data,words=handoff.read_input()
+            # Retain the exact frozen input for the existing independent native
+            # comparator. Never reconstruct or overwrite an interrupted capture.
+            with (capture/'input.bin').open('xb') as stream:
+                stream.write(data);stream.flush();os.fsync(stream.fileno())
             import portable_backend
             with handoff.saved_provider('cuda',journal),observe(portable_backend,journal):
                 entered=True
