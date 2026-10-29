@@ -756,3 +756,8 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 ### 元防御型のHP閾値・発動上限4ケース
 
 `original-threshold-conditions` は既存ordered catalogue adapter/sourceにビスケットの元72定義を載せ、対照/1人目/2人目/上限消費後を固定するsealed suite。同じ観測器でattemptと実発動を分け、全戦闘比較を保持する。`original-threshold-conditions-cache-only` は同じ入力/goldenでCUDA CUBIN/O1とcompile cache/paired generation必須hitを要求する。M5実GPU＋独立seal済み、現CUDA実機は未確認。[実証範囲と現CPU規約](portable-original-threshold-conditions.md)。
+
+
+### 元被弾確率・回復4条件
+
+`original-probability-conditions` は既存ordered catalogue/sourceでエマの元70定義・実64連撃を保持するsealed suite。本人の確率成功/不発、初期負傷、別の味方への被弾を区別し、元source発動数と全戦闘/RNGを比較する。`original-probability-conditions-cache-only` は同じ入力/golden/比較器でCUBIN O1・compile cache/paired generation必須hit。M5実GPU＋独立seal済み、現CUDA実機は未確認。[範囲・保存結果・監査再利用](portable-original-probability-conditions.md)。

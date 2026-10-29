@@ -23,12 +23,14 @@ GPU source、wire、Runtime、保護CPU4ファイル、strict normalizerは変�
 
 別fresh GPU禁止childの独立sealは117.877019秒/native4/parent receipt再利用なしで成功。goldenは `research/portable-original-probability-conditions-v1-expected.json`、独立receiptは `tests/fixtures/original-probability-conditions-independent-v1.json`、保存rawの件数は `tests/fixtures/original-probability-gpu-counts-v1.json`。原capture/input/readback/claimは保持し、追加GPU0。
 
+最終23abaa93/cache-only packet `ba0b9c90640c57ea9996db6488a7573da46696a2f0790eb5935d2eb6cfc297e6` は29群257unit成功。追加のnative全件/GPU実行はしていない。CUBIN/O1/2GiB/60秒compile-planはpolicy検査のみ成功（compiler/GPU0）。
+
 ## 共通CLIと未対応分類
 
 共通CLIは `package --suite original-probability-conditions --out NEW.zip` → `unpack` → 固定packet自身の `run`。追加の元sceneは `original-catalogue-ordered` を使い、個別kernelや比較器を複製しない。
 
 `original-probability-conditions-cache-only` は同じ4入力/source/golden/比較器にCUBIN/O1、compile cache必須hitとpaired generation必須hitを要求する。fallback compileを許さず、compile-planとsource certificateを実CUDA/driver成功へ昇格しない。現CUDA実機は未検証、今回Windows追加依頼0。
 
-静的監査は前回の517依存、model-checkは記録されたroot10依存のSHA不変を再検査して再利用した。既存CLIのentry-planで保存inventoryの順位だけを再計算し、native/GPUを実行しない。元266profile中packing254/失敗12、先頭のreceived_dmg_splitは4profileに影響する正本仕様不足のまま。過去のGPU証明書がcurrent-sourceではないという制約も維持する。
+開発時は静的監査の517依存、model-checkの記録されたroot10依存のSHA不変を再検査して再利用した。最終テスト登録で静的監査の依存1ファイルが変わったため、静的監査だけ4.489726秒で再実行し、517依存を検査した。既存CLIのentry-planで保存inventoryの順位だけを再計算し、native/GPUを実行しない。元266profile中packing254/失敗12、先頭のreceived_dmg_splitは4profileに影響する正本仕様不足のまま。過去のGPU証明書がcurrent-sourceではないという制約も維持する。
 
 catalogue1084は条件別scene数で、GPU対応済み人数ではない。全キャラ・全特殊効果・公開GPU受付は未完了。小証跡は `research/target-count-query-evidence/original-probability-conditions-metal-v1.json`、proof stemは `.portable-recovery/proofs/original-probability-conditions*20261030*`。

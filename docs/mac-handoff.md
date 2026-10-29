@@ -3574,3 +3574,12 @@ catalogue1076の追加4はsceneで、新キャラ数ではない。元266profile
 `original-threshold-conditions-cache-only` は同じ4入力/golden/比較器のCUBIN O1とcompile cache/paired generation必須hit入口。現CUDA実機未確認、Windows追加依頼0。catalogue1080はscene数で、元profile静的254/266と未対応12/13分類、全キャラ未完了を保持。詳細 [HP閾値条件](portable-original-threshold-conditions.md)、証跡 `research/target-count-query-evidence/original-threshold-conditions-metal-v1.json`。次は元effectの未検証条件と既存専用証跡を照合して選び、距離式や敵数量の正本不足をno-opで埋めない。
 
 最終9ea39234/cache-only packet84ffa9b9…は29群257unit成功。CUBIN/O1/2GiB/60秒compile-plan policy成功、compiler/GPU0。fresh model-check/entry-inventoryも成功し、既知の正本5stat不足と静的12失敗を保持。Windows既存statusの読み取りはhost unavailableで、新実行依頼0。今回GPU1回・同claim retry0、独立照合後のGPU再実行なし。
+
+
+## 2026-10-30 元エマの被弾確率・回復条件を共通経路で検証
+
+`original-probability-conditions` は元エマ70定義・各30秒4条件（無被弾/本人64被弾/初期負傷＋64被弾/味方64被弾）。元received_hit_count:1/prob:5を保持し、既存sampled RNG/実行器/全戦闘比較を使用する。共通support observerを再利用して元instantの実dispatch数を読み、既存GPU timerと比較。実発動は0/6/6/0、全被弾0/64/65/64。軽傷は回復前HP90%超、初期負傷は90%未満での実回復を要求する。有限seedの一致であり、6/64から確率5%を推定した意味ではない。
+
+固定87c82125/packet50c273ee…がM5実GPU1回で全4一致、27群228テスト/fresh CPU104.170975秒/GPU3.152702秒。別fresh GPU禁止sealは117.877019秒/native4/parent再利用0で成功。generation/PSO必須hit/Slang0。GPU273source/正規化CUDA-MSL/保護CPU4/strict normalizer変更0。旧support/ビスケットを含む12テストも成功。同claim retry0/GPU追加0。初期の64別node容量超過はGPU前のCPU準備失敗として保存し、64回を減らさず既存連撃nodeへ修正した。
+
+最終23abaa93/cache-only packetba0b9c90…は29群257unit成功。CUBIN/O1/2GiB/60秒compile-plan policy成功、compiler/GPU0。静的監査は開発時517依存不変を確認して再利用し、最終テスト登録で依存1ファイルが変わったため4.49秒だけ再実行。entry-planで保存結果から順位を更新した。model-checkは記録されたroot10依存が不変。catalogue1084はscene数、静的254/266・失敗12/13分類、正本5stat不足と全キャラ未完了を保持。現CUDA実機未確認/Windows追加依頼0。詳細 [確率回復条件](portable-original-probability-conditions.md)、小証跡 `research/target-count-query-evidence/original-probability-conditions-metal-v1.json`。
