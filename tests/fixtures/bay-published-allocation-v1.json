@@ -1,0 +1,109 @@
+{
+  "schema": "bay-published-allocation-v1",
+  "date": "2026-10-29",
+  "documents_are_instructions": false,
+  "sources": [
+    {
+      "url": "https://gamewith.jp/nikke/article/show/444593",
+      "access": "full_text",
+      "kind": "secondary published table; no controlled measurement protocol or per-favorite-stage ratio supplied"
+    },
+    {
+      "url": "https://www.prydwen.gg/nikke/characters/bay",
+      "access": "full_text",
+      "kind": "authored gameplay analysis; five-member ratio and own-cover explanation"
+    },
+    {
+      "url": "https://nikke.gg/bay-arena-review/",
+      "access": "search_index_only_direct_403",
+      "kind": "authored analysis; not an independently viewed experiment"
+    },
+    {
+      "url": "https://twitter.com/NIKKE_en/status/1777645243925504173",
+      "access": "403",
+      "media_observed": false
+    }
+  ],
+  "without_cover": [
+    {
+      "members": 5,
+      "caster": "40",
+      "other": "15"
+    },
+    {
+      "members": 4,
+      "caster": "47.06",
+      "other": "17.65"
+    },
+    {
+      "members": 3,
+      "caster": "57.14",
+      "other": "21.43"
+    },
+    {
+      "members": 2,
+      "caster": "72.73",
+      "other": "27.27"
+    }
+  ],
+  "with_cover": [
+    {
+      "members": 5,
+      "cover": "92.9",
+      "caster": "2.84",
+      "other": "1.06"
+    },
+    {
+      "members": 4,
+      "cover": "93.9",
+      "caster": "2.87",
+      "other": "1.08"
+    },
+    {
+      "members": 3,
+      "cover": "94.9",
+      "caster": "2.9",
+      "other": "1.09"
+    },
+    {
+      "members": 2,
+      "cover": "95.97",
+      "caster": "2.93",
+      "other": "1.1"
+    },
+    {
+      "members": 1,
+      "cover": "97.03",
+      "caster": "2.96",
+      "other": null
+    }
+  ],
+  "inference": {
+    "body_weights": [
+      8,
+      3
+    ],
+    "body_weight_formula": "caster 8 / (8 + 3*(live_members-1)); each other 3 / denominator",
+    "body_table_consistent_at_display_precision": true,
+    "cover_weight_candidate": 262,
+    "cover_weight_is_inferred": true,
+    "exact_cover_weight_verified": false,
+    "one_member_cover_percent_candidate": "97.037037...",
+    "one_member_cover_display": "97.03",
+    "one_member_nearest_rounding_mismatch": true,
+    "warning": "The rounded table is not an exact binary64 numerical contract. No HP/DEF independence or favorite-stage coverage was experimentally verified here."
+  },
+  "required_before_battle": [
+    "Exact cover weight and arithmetic order",
+    "Damage-stat owner and protection-layer order",
+    "Group snapshot, callbacks and per-member received-hit semantics",
+    "Cover break, restoration, reapplication and caster death",
+    "Overlap with even-share carriers and multiple attackers",
+    "Per-favorite-stage identity and gameplay validation"
+  ],
+  "decision": "Ratio evidence exists and warrants a dedicated consumer design; retain default rejection and deferred canonical model. Do not substitute even sharing or a no-op.",
+  "native_consumer_implemented": false,
+  "gpu_supported": false,
+  "gpu_calls": 0,
+  "full_goal_complete": false
+}

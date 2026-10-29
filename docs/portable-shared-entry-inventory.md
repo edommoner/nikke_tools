@@ -1,3 +1,18 @@
+# 保存した未対応一覧から次の作業を選ぶ（2026-10-29）
+
+`entry-plan`は既存`entry-inventory`の保存JSONから、同じoperatorの複数targetに現れるprofileを重複除去して優先順を出す。profile準備・packing・battle・compiler・GPUを再実行しない。
+
+```sh
+python scripts/nikke_gpu.py entry-inventory --suite original-shield-weapons --out NEW_INVENTORY.json
+python scripts/nikke_gpu.py entry-plan --inventory NEW_INVENTORY.json --out NEW_PLAN.json
+```
+
+stdoutは件数・operator・target・scoped suite ID・公開証跡だけの短い一覧。outには元profile段階/全定義SHA・既存のscoped Metal/CUDA flag・未完了要件を保持する。全266profileは254 packing成功・12失敗、11operator系統。最大はベイ4段階。同じ4段階のall_allies/self_coverを8件と数えず、別operator間の重複も全体へ足さない。packing数はGPU対応数ではない。
+
+成功した静的監査・禁止呼出し0・元profile identity・件数を検査し、重複ID、壊れた定義SHA、boolの偽counter、矛盾したruntime/admission claimを拒否する。出力は新規pathだけで元reportを変更しない。新しいsource監査ではないため`current_source_revalidated=false`を明記し、過去のscoped Metalを現在のCUDA/defaultへ昇格しない。部分選択のscopeも引き継ぐ。
+
+ベイには公開比率候補と不一致を分類へ追加したが、canonical consumer/GPU拒否は維持する。[資料と数値境界](portable-bay-allocation.md)。実CLIで元266行・全入力hash・GPU sourceを保持し、約693KBの元reportからstdout5650byteの一覧を作った。これは出力量の記録で、計算速度倍率ではない。新規7＋既存監査/CLI等の116テスト成功。[小記録](../research/portable-entry-plan-v1.json)。以下は従来の監査と選択経路。
+
 # 対象profileを準備前に選択する（2026-10-28）
 
 同じ未対応の再調査を避けるため、共通CLIの既存監査へ`--character`と`--favorite-stage`を追加した。指定しなければ従来の全266profile監査と同じ。キャラ名は繰り返し指定でき、favorite未指定ならそのキャラの元全段階、favoriteだけならその段階を持つ元profileを選ぶ。

@@ -27,6 +27,8 @@ AUDIT_FILES['test_original_catalogue_burst.py']=('research/portable-original-cat
 AUDIT_FILES['test_original_catalogue_roles_sealed.py']=('research/portable-original-catalogue-roles-v1-expected.json',)
 AUDIT_FILES['test_original_catalogue_incoming_sealed.py']=('research/portable-original-catalogue-incoming-v1-expected.json',)
 AUDIT_FILES['test_heavyarms_lock_reference.py']=AUDIT_FILES['test_portable_model_gap_audit.py']
+AUDIT_FILES['test_bay_published_allocation.py']=('tests/fixtures/bay-published-allocation-v1.json',)
+AUDIT_FILES['test_portable_entry_plan.py']=('tests/fixtures/bay-published-allocation-v1.json',)
 for _test in ('test_effect_target_count_policy.py','test_effect_target_count_reference.py','test_portable_effect_target_count.py','test_effect_target_count_shots.py'):
     AUDIT_FILES[_test]=('research/upstream/nikke-calc-master/data/parsed_skills.json',)
 AUDIT_FILES['test_effect_target_count_policy.py']=AUDIT_FILES['test_portable_model_gap_audit.py']

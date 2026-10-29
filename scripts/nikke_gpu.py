@@ -3586,6 +3586,7 @@ def main(argv=None):
     a=sub.add_parser('entry-inventory');a.add_argument('--out',type=Path,required=True);a.add_argument('--suite',choices=('coordinate-original','coordinate-original-burst-revival','coordinate-original-resources','coordinate-original-ammo','coordinate-original-stacks','coordinate-original-cleanse','coordinate-original-source','coordinate-original-reload','coordinate-original-shield','coordinate-original-cover','coordinate-original-shared','coordinate-original-decoy','coordinate-original-init','coordinate-original-enemy-stack','coordinate-original-harmful-stack','coordinate-original-accum','coordinate-original-owned','original-projectile-weapons','original-shield-weapons'),default='coordinate-original')
     a.add_argument('--character',action='append',help='Prepare only these exact original character names; repeat for multiple names')
     a.add_argument('--favorite-stage',type=int,help='Select an existing original favorite stage, 0..3; unavailable combinations fail before preparation')
+    a=sub.add_parser('entry-plan',help='Rank blockers from a saved static entry inventory without preparing profiles again');a.add_argument('--inventory',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('metal-device-probe',help='Bounded device visibility only; no kernel compilation or GPU dispatch');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('coordinate-parent-check',help='CPU-only live preflight/context reuse check against saved Metal fixtures; not GPU certification')
     a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -3742,6 +3743,9 @@ def main(argv=None):
         from portable_source_reuse import run
         with forbid_gpu():result=run(SimpleNamespace(**globals()),a.reference_package,a.candidate_package,a.reference_generation,a.candidate_generation,require_hit=a.require_hit)
         write(a.out,result)
+    elif a.command=='entry-plan':
+        from portable_entry_plan import run
+        with forbid_gpu():result=run(a.inventory,a.out,write=write)
     elif a.command=='entry-inventory':
         from portable_original_entry_inventory import run
         selection={}

@@ -432,7 +432,15 @@ def reference_readiness(issue):
     if stat=='received_dmg_split':
         result.update(lane='reference_model_gap',native_consumer='specification_deferred_in_pinned_source',
             consumer_source='research/upstream/nikke-calc-master/docs/IMPL-STATUS.md:received_dmg_split',
-            note='Differential allocation ratios are undefined in the pinned specification; self_cover and actor delivery are both deferred. Do not alias to received_dmg_split_even or accept as no-op')
+            published_allocation=dict(evidence='tests/fixtures/bay-published-allocation-v1.json',
+                evidence_sha256='7e8a7c3f131da05beba015a557af63fe9e8d88f73b60c39ad2193aed94544ba4',
+                body_weight_candidate=[8,3],cover_weight_candidate=262,
+                ratios_are_inferred_from_rounded_tables=True,exact_cover_weight_verified=False,
+                native_consumer_implemented=False,in_game_rules_verified=False,gpu_supported=False),
+            required_extensions=['exact_allocation_and_arithmetic_contract','original_carrier_and_separate_cover_recipient',
+                'existing_incoming_layer_and_callback_order','cover_break_restoration_and_caster_death',
+                'shared_CUDA_Metal_full_original_profile_validation'],
+            note='Published tables now support an 8:3 body-weight candidate and an approximate cover weight. The one-member cover row does not agree with nearest rounding of the candidate. Exact cover arithmetic, layer/callback order and favorite-stage behavior remain unverified; keep canonical rejection. Do not alias to even sharing or accept as no-op')
     elif stat=='heal_split':
         result.update(native_consumer='declared_cpu_model',consumer_source='app/heal_sharing_compat.py',
             contract_coverage='recorded_subset',reference_suites=['heal-share','heal-share-extended','heal-share-targets','heal-share-lifesteal'],recorded_cases=43,

@@ -1,0 +1,39 @@
+{
+  "schema": "moving-group-cuda-compile-failure-v1",
+  "source_host_commit": "f7bd0a44fca5a21f5af1c1a8548720152e1dd7c3",
+  "source_host_branch": "codex/cuda-moving-group-compile-v1-report",
+  "package_id": "76fbe7c3c06307e6c1fd07329e0f129b6bc9433a1f4fbff5732b59dc8b0e0557",
+  "files": [
+    {
+      "path": "research/cuda-preparation-evidence/moving-group-v1-compile-summary-v1.json",
+      "bytes": 2205,
+      "sha256": "c870d92d4ec6bbc819819fd7f2617ae98f4e22b9ce91ac6e1ffd8411c07117ec"
+    },
+    {
+      "path": "research/cuda-preparation-evidence/moving-group-v1-diagnostic-excerpt.json",
+      "bytes": 388,
+      "sha256": "94360e445f9fbebd48a425d18840006f66ac9d0fa8e6b2495e82560c3d5ddd9c"
+    }
+  ],
+  "requested_artifact": "cubin",
+  "ptxas_level": 1,
+  "memory_limit_mb": 2048,
+  "compiler_child_timeout": 60,
+  "outer_timeout": 180,
+  "reported_failure": "ptxas memory allocation failure",
+  "job_cap_vs_system_memory_root_cause_unresolved": true,
+  "original_log_independently_read_on_mac": false,
+  "original_log_retained_on_windows": true,
+  "original_log_sha256": "e2fa27a4169504d84a6fc68c0410297d377f116cf8b0081772696431337c984a",
+  "compiler_verified": false,
+  "artifact_available": false,
+  "generation_cache_hit_reported": true,
+  "slang_calls_reported": 0,
+  "nvrtc_calls_reported": 1,
+  "gpu_calls": 0,
+  "retries": 0,
+  "calculation_verified": false,
+  "environment_preservation_verified": false,
+  "full_goal_complete": false,
+  "next_step": "Inspect existing PTX-only and separate assembler memory plans before any new artifact request; do not retry this consumed CUBIN claim or enlarge bounds"
+}

@@ -1,3 +1,11 @@
+# 2026-10-29 未対応の優先順とWindowsのコンパイル失敗を保存
+
+共通`entry-plan`は保存entry-inventoryを再準備せず、operator/複数target間の同じprofileを重複除去して影響数順に並べる。元266行/全入力hash/GPU sourceを保持、254 packing/12失敗/11系統。最大はベイ4段階で、all_allies/self_coverを8件に水増ししない。scoped Metal/CUDA記録は残し、current_source_revalidated/calculation/default/全キャラはfalse。約693KBの報告からstdout5650byteへ短縮。新規7含む116検査成功、固定f756da39…自身のCLIでも開発側と完全同じplan JSON、payload前後検査成功。旧CLIはmain以外の全function/class AST同一、数値/GPU/保護CPU4file/golden変更0。[次のoperator選択](portable-shared-entry-inventory.md)。
+
+ベイの公開比率表は本人:他=8:3という候補を人数別に支持するが、cover262候補は1人時の表97.03%と最近接丸め97.04%が一致しない。元の規格未定/拒否は維持し、根拠無しから公開候補と未確定の分離へ分類を更新した。正確なcover演算・layer/通知・死亡/復活/再burst・favorite全段階が次の契約。[公開資料の境界](portable-bay-allocation.md)。
+
+Windows固定76fbe7c3…では59テストとpaired CUDA/MSL生成が成功（35.371/26.374秒）。source/strict normalized pairはM5基準と一致。generation cacheを必須再利用したCUBIN/O1・2GiB/child60秒/outer180秒の1回は、NVRTC42.638秒・code6、ptxas Memory allocation failure。CUBIN無し、GPU/driver/native全件0、追加compile/再試行0、Job残存/既存process欠落/観測error0。Job capとsystem memoryの原因切分けは未確定。元claim/ログは保持し、個人pathを含む元stderrを共有せず、要約＋診断excerptだけ取得した。サービス未識別の保全/overall=false。[保存結果・出所・次の分離assembler計画](portable-moving-group-cuda.md)。以下は履歴。
+
 # 2026-10-29 最大127ADD・30秒を同じ実行器でMetal検証
 
 最新sealed `moving-many`は元ユニ＋ニヒリスター全71定義/元武器・育成/5人編成/30秒を保持し、BODY＋127ADDを処理する。2体を射線付近、125体を遠方に置き、全127体の元移動carrierと全228727frame/228854区間・最終状態・全paddingを比較する。同時127体命中の認定ではない。従来4096行では拒否された3体以上に対応するため、既存本体をincludeするだけの新entryと262144行ずつのframe/segment bankを追加。input123188wordは同じ、output10422672word。元のskill/typed/group/history容量は削らず、旧layoutの既定byteも保持する。

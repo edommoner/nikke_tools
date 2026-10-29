@@ -1,3 +1,7 @@
+`entry-plan --inventory SAVED.json --out NEW.json`は保存した元profile監査から、重複を除いた影響数で未対応を並べる。現在12失敗profile/11系統、最大はベイ4段階。source再準備/compiler/GPU0で、scoped既存証拠とdefault未対応を分離する。[使い方と境界](portable-shared-entry-inventory.md)。
+
+共通移動/groupのWindows準備は59テストとpaired生成が成功したが、CUBIN/O1の1回はptxasメモリ確保失敗で終了した。失敗claimを保持し、GPU0・再試行0。[保存結果と次のメモリ計画](portable-moving-group-cuda.md)。
+
 `moving-many`はBODY＋最大127ADD・30秒を同じ実行器でM5 Metal/fresh独立sealした13入力。全228727frame/228854区間を省略せず比較する。出力10422672wordはframe/segment bankだけを拡張し、既存履歴容量を削らない。`moving-many-cache-only`は同じ計算に既存CUBIN/O1とpaired generation必須を適用する。現CUDA・実ゲーム・同時127体命中は未認定。[容量と全比較](portable-moving-many.md)。
 
 `moving-group`は元ユニ/ニヒリスター全71定義・30秒の3戦闘＋拒否12入力。移動・typed形状・実multi_hit通知と元子攻撃を同じ実行器でM5 Metal/fresh独立seal済み。`moving-group-cache-only`は同じ計算へ既存CUBIN/O1とpaired generation必須を適用する。現CUDA・実ゲーム規則は未認定。[故障注入と範囲](portable-moving-group.md)。
