@@ -12,6 +12,41 @@ class ModuleObjectTests(unittest.TestCase):
     def setUp(self):
         self.f=focus_tests.PartitionObjectTests();self.f.setUp();self.addCleanup(self.f.doCleanups)
         self.request=dict(self.f.request,source_kind='module');self.request.pop('candidate')
+        # Existing historical-object fixtures represent compiler-only producers.
+        self.f.base.base.m.update(suite='compiler-commands',purpose='compiler-diagnostic')
+        cli.write(self.f.base.source_package/'gpu-package.json',self.f.base.base.m)
+
+    def sealed_producer(self):
+        producer=self.f.base.base.m
+        producer.update(suite='moving-group-cache-only',purpose='sealed')
+        producer['golden'].update(entries=[dict(name='sealed-fixture')],input_sha256='1'*64,output_sha256='2'*64)
+        cli.write(self.f.base.source_package/'gpu-package.json',producer)
+        return producer
+
+    def test_sealed_battle_ptx_reuses_full_module_and_preserves_proof_boundary(self):
+        self.sealed_producer();origin,raw=self.proof()
+        self.assertTrue(origin['producer']['historical_sealed_battle_source'])
+        self.assertNotIn('historical_compiler_source',origin['producer'])
+        self.assertFalse(origin['producer']['current_battle_equivalence_verified'])
+        self.assertEqual(raw,focus_tests.PTX)
+        with self.f.context():result=cli.audit_partition_object_capture(self.f.base.m,self.f.capture,verify_artifacts=False,module_object=True)
+        self.assertTrue(result['object_verified'],result)
+        self.assertFalse(result['link_verified']);self.assertFalse(result['calculation_verified'])
+
+    def test_nonsealed_nonworld_or_incomplete_producer_stops_before_native_tool(self):
+        producer=self.sealed_producer()
+        cases=[(producer,'purpose','development'),(producer,'suite','damage-factors'),(producer['golden'],'entries',[]),(producer['golden'],'entries',{'not':'a list'}),(producer['golden'],'input_sha256',None),(producer['golden'],'output_sha256',None)]
+        for target,key,value in cases:
+            original=target[key];target[key]=value
+            cli.write(self.f.base.source_package/'gpu-package.json',producer)
+            with self.subTest(key=key,value=value),self.f.context(),self.assertRaises(ValueError):
+                cli.partition_object_origin(self.f.base.m,self.request,module_object=True)
+            target[key]=original
+        self.assertFalse(self.f.base.processes)
+
+    def test_historical_compiler_and_sealed_battle_modes_are_exclusive(self):
+        with self.assertRaisesRegex(ValueError,'exclusive'):
+            cli.assembly_origin(self.f.base.m,self.f.base.source_package,self.f.base.producer,historical_compiler=True,sealed_battle_source=True)
 
     def proof(self):
         f=self.f

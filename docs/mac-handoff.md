@@ -1,3 +1,11 @@
+# 2026-10-29 保存sealed戦闘PTXを既存module-objectへ接続
+
+Windows読み取りで保存PTX8.4/sm86/SHA・元producer compiler/containment・固定ptxas19,582,976byte/SHAを確認、追加compile/native tool/GPU0。過去のwhole-program直接assembly失敗とmodule-object成功を踏まえ、新しい直接assemble wrapperは増やさず、既存module-objectを使う。
+
+共通CLIのassembly_origin/partition_object_originだけを変更し、独立sealed world battleの保存producerを専用の明示分岐で検証する。元ファイル/正本/生成物/cache/phase/Jobの監査を保持し、元compiler-only歴史検証・直接assembleの同golden条件は変更しない。新originはhistorical_sealed_battle_source=true/current_battle_equivalence_verified=false。旧compiler経路とsealed経路、不完全/非world/development・source mode混同の拒否を含む開発120/固定packet自身120検査が成功、payload前後一致。数値/GPU/golden/保護CPU変更0。
+
+固定bb28af2e…のsource packet/出所は`research/portable-module-sealed-producer-v1.json`。現module-objectのWindows実行は未確認、JIT-linkのsealed owner接続・現CUDA計算/default/全キャラ/目標は未完了。[経路](portable-module-object.md)。以下は履歴。
+
 # 2026-10-29 同じ移動group sourceのPTX単独生成がWindowsで成功
 
 元固定76fbe7c3…の別PTX工程は成功。Windows小要約＋manifestを固定edc2c550…から取得し、元bytes/SHA/package ID・前回paired raw生成/hash/cache key・M5 sealed normalized生成との一致をMacで確認。PTX13,556,055byte（e6d83bf9…）、NVRTC1回35.541秒/code0、generation必須hit/Slang0。inner51.799秒/peak289,640,448byte、outer65.379秒/peak324,009,984byte、両方timeoutなし・2GiB/低優先度/gate/Job終了0/欠落0/観測cleanup error無しの報告。サービス未識別は保全false/overall false、外child exit2/wrapper exit1を保持する。

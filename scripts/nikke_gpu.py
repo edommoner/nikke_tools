@@ -2774,11 +2774,16 @@ def module_capture(capture,timeout,original_workspace,jit_opt_level=None):
     return result
 
 
-def assembly_origin(m,source_package,source_capture,*,historical_compiler=False):
+def assembly_origin(m,source_package,source_capture,*,historical_compiler=False,sealed_battle_source=False):
     """Re-audit the immutable upstream PTX producer, including its original Job."""
     source_package=Path(source_package);source_capture=Path(source_capture)
+    if historical_compiler and sealed_battle_source:raise ValueError('PTX producer source modes are exclusive')
     producer=verify_package(source_package,historical_compiler=True) if historical_compiler else verify_package(source_package)
-    if is_development(m) or is_development(producer) or (not historical_compiler and producer['golden']!=m['golden']):
+    if sealed_battle_source:
+        config=SUITES[producer['suite']];golden=producer['golden']
+        if producer.get('purpose','sealed')!='sealed' or compiler_only(producer) or not config.get('source','').startswith('gpu/world_') or not config['source'].endswith('_entry.slang') or type(golden.get('entries')) is not list or not golden['entries'] or not golden.get('input_sha256') or not golden.get('output_sha256'):
+            raise ValueError('Module object requires an independently sealed world battle producer')
+    if is_development(m) or is_development(producer) or (not historical_compiler and not sealed_battle_source and producer['golden']!=m['golden']):
         raise ValueError('Assembly requires the same sealed GPU/native baseline')
     run=load(source_capture/'run.json');facts=load(source_capture/'execution.json')
     if run.get('mode')!='compile-only' or run.get('artifact_kind')!='ptx' or run.get('memory_limit_mb')!=2048 or facts.get('cleanup_error') or facts.get('observation_error'):
@@ -2800,6 +2805,8 @@ def assembly_origin(m,source_package,source_capture,*,historical_compiler=False)
         source_sha256=proof['source_sha256'],producer_compiler_verified=True,producer_containment_verified=True)
     if historical_compiler:
         origin.update(historical_compiler_source=True,current_battle_equivalence_verified=False)
+    if sealed_battle_source:
+        origin.update(historical_sealed_battle_source=True,current_battle_equivalence_verified=False)
     return origin,raw
 
 
@@ -2959,7 +2966,8 @@ def partition_object_origin(m,request,*,module_object=False,link_object=False):
     kind='link' if link_object else 'module' if module_object else 'focus'
     if request.get('source_kind','focus')!=kind:raise ValueError('Diagnostic object source kind mismatch')
     if link_object:return linked_object_origin(request)
-    producer,raw=assembly_origin(m,request['source_package'],request['source_capture'],historical_compiler=True)
+    sealed_source=module_object and not compiler_only(load(Path(request['source_package'])/'gpu-package.json'))
+    producer,raw=assembly_origin(m,request['source_package'],request['source_capture'],historical_compiler=not sealed_source,sealed_battle_source=sealed_source)
     if module_object:return obj.module_origin(request['cache_entry'],request['phases'],producer,raw)
     return obj.origin(request['cache_entry'],request['phases'],request['candidate'],producer)
 

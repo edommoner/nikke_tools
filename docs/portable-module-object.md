@@ -1,5 +1,15 @@
 # 元PTX全体の再配置可能オブジェクト診断
 
+## sealed戦闘producerへの接続（2026-10-29）
+
+`module-object`は、compiler診断とは別に、元sealed戦闘packetの保存PTXも受け取れる。元packetは通常の全payload/source/golden検査を行い、登録world entry・非空battle entries・input/output指紋・sealed purposeを必須にする。元producerのcompiler/containment/観測、PTXとcache/phaseの全byte照合は従来通り。historical compilerの検証関数や、直接`assemble`の同golden条件を緩めない。
+
+この分岐は元PTXのobject生成専用で、originへ`historical_sealed_battle_source=true`と`current_battle_equivalence_verified=false`を記録する。controller側の新しいMetal基準と、古いproducerの基準を同一と偽らない。JIT-link/driver/GPUの受付を開く変更ではない。旧compiler専用のsaved-linked guardは保持し、後段のowner/source接続は別途必要。
+
+moving-groupの保存PTX13,556,055byteはWindows読み取りでPTX8.4/sm86・元compiler/containment・固定ptxas SHA一致を確認した。古いwhole-program ptxasも2GiB付近で失敗した記録があるため、同じ直接CUBIN経路を新wrapperへ増やさず、既存の`module-object` stage/`--compile-only`/Job/監査を再利用する。現sourceでの成功は未確認。
+
+固定controller package `bb28af2e…b24a0d`は開発側120検査と自身の120検査、前後payload検査が成功。数値/GPU/golden/保護CPU変更0。source packetは`research/windows-source-packets/module-sealed-source-v1.zip`、出所と未完了範囲は`research/portable-module-sealed-producer-v1.json`。
+
 `module-object`は、保存済みproducerの**元PTX全byteを変更せず**、固定ptxas12.4.131／sm86／O1／FMA無効／`--compile-only`で1回処理する明示実験。最大関数focusの0.315660秒・ret0と、元moduleのwhole-program assembly失敗は、入力範囲とcompile modeの両方が異なる。本実験はfocusと同じcompile modeで元module全体を比較する。結果が出る前に原因や必要メモリを断定しない。
 
 ```sh
