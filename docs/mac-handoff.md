@@ -1,3 +1,11 @@
+# 2026-10-30 moving-groupへ共通resident Frameを接続、Metal全15を独立seal
+
+moving-framesは既存moving entryをincludeしてPORTABLE_RESIDENT_FRAME_STACKを有効化するだけ。既存277 GPU source／戦闘時計／全15 input/native契約／全出力比較は保持。固定3c72494eでM5実GPU1回2.233823秒／cold PSO63.780806秒。129,908,160byte全部が旧moving-groupのSHA3765a8c5…と一致。別fresh GPU禁止監査が全15/native3を84.244527秒でseal。CUDA/Metal反射はstride143048、Frame4096byte at138952、3資源／CUDA引数48byteで一致した。
+
+sealed／cache-only入口、新goldenと同じfresh監査golden由来source-only証明書を登録。最終package dada18f3…（ZIP13,632,538byte/SHAa8a4c567…）自身7群40テストとCLI51テスト成功。旧全106証明書には変更前HEADの11GPU sourceとの不一致があり保持する。新15で旧106を認定しない。backendのexact inverse hunk追加は旧baselineを保持、汎用Frameテスト6件を再利用した。旧失敗packet945ddf7d…と全rawは保存。
+
+PTX compile-planはsealed packet自身で2GiB／60秒／ptxas level無しのpolicy成功。180秒とPTXへのlevel指定を拒否した元planも保存。Windows追加依頼0／GPU再実行0。次は新sourceの短いWindows PTX生成と資源比較（既存CLIとbounded stage、旧消費済みclaimは再送しない）。CUDA物理stack削減／return2解消／実CUDA計算は未確認。quantityTotals5192byteは次の改善候補。証跡research/portable-moving-resident-frames-metal-v1.json、詳細portable-resident-dispatch-frames.md。全キャラ／全目標は未達。以下は履歴。
+
 # 2026-10-30 Windows CPU53とhost ABI確認、保存PTXから改善箇所を特定
 
 固定378bf9a0/package164a2455のWindows5群53件が成功。新host-memoryは実自分・親・Job上限2GiBの読取と親handle解放を確認。保存journal要約は元launch戻り値2を保持し、未記録のallocation byte／launch形状／失敗時memoryをunknownとした。実device samplingは未実証。各段階終了後Job空、元136file不変、新GPU claim無し。

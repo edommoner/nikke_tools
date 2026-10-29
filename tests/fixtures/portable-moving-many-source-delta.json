@@ -14,11 +14,15 @@
     },
     "app/portable_backend.py": {
       "before_sha256": "f4ee475e2efbdf9cae6e67188cd6a5a7e11b9e3f8beb83880639775855b427c1",
-      "after_sha256": "b43cab0e09bb220b0dd1b7d79feace720805b0d706f4745739fe9d315eca1915",
+      "after_sha256": "b5234e00159b5d747c95c24578a6630c495f8174bac5e7a84ae97dc4a7fe05a9",
       "hunks": [
         {
           "before": "\n\ndef validate_composed_stride(source,input_words,output_words):\n    if source=='gpu/world_moving_typed_entry.slang':\n        from portable_moving_typed_wire import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n",
           "after": "\n\ndef validate_composed_stride(source,input_words,output_words):\n    if source=='gpu/world_moving_many_entry.slang':\n        from portable_moving_many_wire import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Maximum-slot motion requires complete untruncated frame/segment banks')\n        return\n    if source=='gpu/world_moving_typed_entry.slang':\n        from portable_moving_typed_wire import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n"
+        },
+        {
+          "before": "    if source=='gpu/world_moving_typed_entry.slang':",
+          "after": "    if source in ('gpu/world_moving_typed_entry.slang','gpu/world_moving_frames_entry.slang'):"
         }
       ]
     },

@@ -600,6 +600,12 @@ SUITES['moving-group-current']=dict(SUITES['moving-group'],golden='research/port
     support_files=[*SUITES['moving-group']['support_files'],SUITES['moving-group']['golden'],SUITES['enemy-movement']['golden']],
     upstream_documents=['research/upstream/nikke-calc-master/docs/IMPL-STATUS.md'])
 SUITES['moving-group-current-cache-only']=dict(SUITES['moving-group-current'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=SUITES['moving-group-cache-only']['tests'])
+SUITES['moving-frames']=dict(SUITES['moving-group-current'],script='research/verify-moving-frames.py',
+    source='gpu/world_moving_frames_entry.slang',golden='research/portable-moving-frames-v1-expected.json',development_only=False,
+    support_files=list(dict.fromkeys([*SUITES['moving-group-current']['support_files'],*CPU_AUDIT_FILES['test_dispatch_frame_storage.py'],*CPU_AUDIT_FILES['test_moving_frames.py']])),
+    tests=[*SUITES['moving-group-current']['tests'],'test_moving_frames.py'])
+SUITES['moving-frames-cache-only']=dict(SUITES['moving-frames'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,
+    tests=[*SUITES['moving-frames']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['moving-overlap']=dict(SUITES['moving-group-current'],script='research/verify-moving-overlap.py',
     golden='research/portable-moving-overlap-v1-expected.json',inputs=14,native=2,development_only=False,
     tests=[*SUITES['moving-group-current']['tests'],'test_moving_overlap_inputs.py'])

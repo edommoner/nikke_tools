@@ -1,5 +1,17 @@
 # 共通イベントフレームのGPU所有領域
 
+## moving-groupへの接続（2026-10-30）
+
+`moving-frames`は既存`world_moving_typed_entry.slang`をincludeする3行の入口で、同じresident Frame bankを使う。既存277個のGPU sourceはbyte不変。元のprepare／native_reference／compare／拒否比較を直接再利用し、全15入力（native3／拒否12）、入力123188／出力2165136wordを保持する。別の戦闘時計や効果実行器は追加しない。
+
+固定3c72494e…で39テスト、全CPU照合、M5 Metalの実行1回が成功。GPU2.233823秒、cold pipeline63.780806秒。全129,908,160byteの出力SHAは旧moving-groupと同一（3765a8c5…）。全15のinput/output/native指紋も保持した。別fresh GPU禁止プロセスが全15／native3を84.244527秒で独立比較しsealした。追加GPU0／同claim retry0。新goldenと同じgolden由来のsource-only compiler certificateを登録する。
+
+CUDA／Metal反射はstride143048／alignment8、dispatchFrameWordsはoffset138952／1024uint／4096byteで一致。3資源／CUDA引数48byteを保持する。物理CUDA stack削減、CUDA計算成功、元return2の解消は未測定。全キャラ／公開GPU受付を認定しない。`moving-frames-cache-only`は同じ計算・入力・比較器へ必須CUBINとpaired generation cacheを接続する。
+
+最終sealed配布dada18f3…自身の7群40テストが成功し、共通CLI51テストも成功。最終版で追加したのはsealの保持検査・受付登録・依存宣言で、実GPU sourceと入力を変えずGPUは繰り返していない。PTX事前compile-planは2GiB／60秒／ptxas level無しで成功した。180秒指定とPTXへのlevel指定を拒否したCPU-only planも保存し、claim／compilerは0。Windowsへの依頼はまだ0。
+
+初期ローカル検査で、backendの新entry登録に対するexact inverse hunkが不足していたため追加した。歴史baseline本文／SHAとnormalizerは保持した。また、旧全106の証明書には変更前HEADのGPU11ファイルとの不一致があり、この新15入力で旧106を再認定していない。旧テスト・証明書・失敗packet945ddf7d…は保持。新suiteでは既存の汎用Frame保存／境界／逆変換テスト6件をそのまま再利用し、旧106固有の認定は別範囲として残す。証跡は`research/portable-moving-resident-frames-metal-v1.json`。
+
 `coordinate-resident-frames` は、既存resident arcの全106入力／native63／拒否43と、入力115680word・出力2064786word・全出力比較器を保持するsealed profileです。効果・計算式・処理順序を変えず、dispatch内の32個のFrameの保存場所だけをRuntime bufferへ移します。全106のMetal通常実行とfresh独立監査に成功しています。CUDAの物理stack測定は未完了です。
 
 各ケースのRuntime末尾へ1024個のuint（4096byte）を追加します。CUDA／Metalのreflectionはともにstride143048、既存fieldの後のoffset138952で一致しました。commands／results／runtimeStatesの3資源、48byteのCUDA引数形式、既存入力・出力bankと容量は同じです。従来のローカルFrame配列経路も残ります。

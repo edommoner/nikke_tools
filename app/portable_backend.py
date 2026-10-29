@@ -91,7 +91,7 @@ def validate_composed_stride(source,input_words,output_words):
         check_schema(ROOT)
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Maximum-slot motion requires complete untruncated frame/segment banks')
         return
-    if source=='gpu/world_moving_typed_entry.slang':
+    if source in ('gpu/world_moving_typed_entry.slang','gpu/world_moving_frames_entry.slang'):
         from portable_moving_typed_wire import check_schema,INPUT,OUTPUT
         check_schema(ROOT)
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Moving typed execution requires all physical, logical, movement and frozen aim banks')
