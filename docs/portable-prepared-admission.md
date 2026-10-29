@@ -1,3 +1,11 @@
+## 修正版の実Windows結果：実launchは失敗、同じ試行を繰り返さない
+
+固定ba760483…はcache hit/Slang・NVRTC0とCPU準備認証に成功し、元の未消費GPU試行のclaimを作成した。GPU子は18.019秒、module load/明示メモリ確保後にcuLaunchKernel1回がreturn2で停止。context破棄成功、readback無し、timeout無し。全体113.163秒/exit1。claim、失敗、captureは保持し再実行しない。
+
+指定3群は実数34件で全成功。依頼の42件は別の8テストを含むMac wildcard集計との混同で、同じ固定packetから34を確認した。全831制御検査というMac別集計は保持する。原84ファイル不変・Job終了空・process欠落0・観測/cleanup error0。GPU実行完成/計算/全体/環境保全はfalse。
+
+NVIDIAの[error enum仕様](https://docs.nvidia.com/cuda/archive/13.2.0/cuda-driver-api/group__CUDA__TYPES.html)ではerror2はmemory/resources確保失敗。原因がVRAMなのか、kernel local/stackなのか、2GiB Job内のhostメモリかはまだ断定しない。GPU子peak2,088,165,376byteと外側peak2,185,158,656byteを別々に記録し、後から取る空きVRAMを失敗時の値と扱わない。次の診断は保存phase/既存assembler stderr/静的PTX/CUBIN resourceだけをCPUで読む。導入済みtoolを使える場合も[cuobjdumpのresource表示](https://docs.nvidia.com/cuda/cuda-binary-utilities/)だけで、compileやdevice呼出しはしない。
+
 ## 実Windowsで見つかったcache guard競合と修正
 
 v1のWindows試行はrequired_generation_snapshotより外側のforbid_gpuが元cache readerを置換して、GPU前11.391秒で停止した。cache miss/actual GPU failureではなく、元/新GPU claimとfuture captureは未作成。旧stage/失敗は保持し、同じstageを再実行しない。修正版はこの既存helperが自身のfile-only guardを設置してから元readerを使う規約に従う。その後の認証/claimは従来のGPU禁止内で実行する。helperのcompiler/subprocess/library/execute禁止は不変。

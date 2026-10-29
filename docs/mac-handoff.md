@@ -1,3 +1,11 @@
+# 2026-10-30 修正版は実launchへ到達、CUDA error2で停止・再実行禁止
+
+Windows固定ba760483…は全4017file/指定3群の実数34検査（依頼42はMacのwildcard集計誤りで訂正）成功。必須paired生成cache hit/Slang0/NVRTC0、元snapshot/追補/完全認証成功後に元の一度だけのGPU claimを消費した。module load/メモリ確保は成功し、cuLaunchKernel1回がreturn2で停止。GPU子18.019秒/外側113.163秒、ともにexit1/timeout無し。context破棄成功、readback無し、native post未実行、計算false。GPU呼出し0とはせずgpu_calls nullと実launch attempt1を分離する。
+
+Job設定2,147,483,648byte、子peak2,088,165,376/外側peak2,185,158,656byteは別観測値として保持。Job残存/既存process欠落/観測cleanup error0、元84file（79＋v1証拠5）不変、service/環境false。claim/失敗/captureを保持して同じstageやGPUを再送しない。公開61846f04…のsummary3986byte/manifest553byteだけ元bytes/SHA・packet/base snapshot/certへ照合した。Macは元Windows rawを独立監査していない。research/portable-prepared-parent-peer-v2.json。
+
+NVIDIA公式のerror2はmemory/resources確保失敗。VRAM/local/stackとJob内host memory圧迫は未切分けで、ゲーム利用等を原因と断定しない。保存phase/ptxas log/同じPTX・CUBINのresourceを読むCPU-only診断を1回依頼済み。導入済みcuobjdumpがあればresource表示だけを使い、compile/driver/device query/GPU再実行はしない。数値が無ければunknownとする。4群のfresh native監査はreadbackが無いので実行しない。全キャラ/全特殊効果/目標は未完了。以下は履歴。
+
 # 2026-10-30 v1は実GPU前で停止、専用cache guardを保持して修正
 
 Windows8d72e81e…は完全4016file/指定30合成検査35.008秒/CPU Job smoke4.408秒が成功。gpu-preparedは11.391秒/exit1でrequired_generation_snapshotのcache readerを外側forbid_gpuが先に置換して停止。cache missではなくlaunch false/GPU0、元/新GPU execution claim/future capture無し。元79file不変、全stage gate/終了空/欠落0/観測cleanup error0、service/環境false。旧wrapper stage claimと失敗を保持。公開75351026…の小summary3814byte/manifest553byteだけ元bytes/SHAと既存anchorへ照合した。原rawのMac独立監査ではない。
