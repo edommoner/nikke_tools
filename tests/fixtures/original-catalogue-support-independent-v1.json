@@ -1,0 +1,15 @@
+{
+  "package_id": "f72077a94df948bf5446861d38f9fe653f2143bcd3904a038b2a2bff55e09b5b",
+  "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/recipient-order-support-v2-20261030-metal",
+  "child_pid": 42567,
+  "input_count": 2,
+  "native_cases": 2,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 46.945673958049156,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "637410915cae33b23148a5889da7bb1890b9ff1009b963783bd04f5a00ea94b4",
+  "output_sha256": "a9a4aa50f125e8db1aea4377e00ebf3726a34df59da874885927303159368175",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "schema": "independent-metal-audit-v1"
+}

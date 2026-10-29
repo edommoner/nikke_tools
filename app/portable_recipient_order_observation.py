@@ -34,3 +34,9 @@ def check_layout(root):
 def metadata(value):
     """Only the explicit observation entry may opt into these output words."""
     return dict(value,ordered_recipients=True)
+
+def prepared(result):
+    """Retain every original input/domain and opt into the observed bank."""
+    rows,data=result
+    return [(name,words,(case,metadata(meta),bindings,descriptor))
+            for name,words,(case,meta,bindings,descriptor) in rows],data

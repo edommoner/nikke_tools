@@ -1,5 +1,5 @@
 """Support witnesses cannot pass with missing casts, reentry, or an absent actor."""
-import copy,importlib.util,sys,unittest
+import copy,hashlib,importlib.util,json,sys,unittest
 from unittest.mock import patch
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -68,5 +68,29 @@ class SupportContractTests(unittest.TestCase):
         self.assertIn(name,AUDIT_FILES[pattern])
         with self.assertRaisesRegex(ValueError,'missing from immutable payload'):
             validate_dependency_files(ROOT,[pattern],included=set(AUDIT_FILES[pattern])-{name})
+
+    def test_sealed_inputs_source_and_cache_only_profile_are_the_same_contract(self):
+        import nikke_gpu as cli
+        from portable_backend import source_hashes
+        config=cli.SUITES['original-catalogue-support'];cached=cli.SUITES['original-catalogue-support-cache-only']
+        self.assertFalse(config['development_only']);self.assertTrue(cached['require_paired_generation'])
+        self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1')
+        for key in ('script','source','golden','frozen_cases','inputs','native','input_words','output_words'):
+            self.assertEqual(config[key],cached[key])
+        m=dict(suite='original-catalogue-support',purpose='sealed',selected_cases=[])
+        adapter=cli.open_suite(m);rows,data=cli.prepare_entries(adapter,m)
+        raw=(ROOT/config['golden']).read_bytes();golden=json.loads(raw)
+        self.assertEqual(hashlib.sha256(data).hexdigest(),golden['input_sha256'])
+        self.assertEqual([r[0] for r in rows],[r['name'] for r in golden['entries']])
+        self.assertEqual(source_hashes(config['source']),golden['source_sha256'])
+        certificate=json.loads((ROOT/cli.SUITES[cli.compiler_alias('original-catalogue-support')]['golden']).read_text())
+        self.assertEqual(certificate['baseline_golden_sha256'],hashlib.sha256(raw).hexdigest())
+        self.assertEqual(certificate['source_sha256'],golden['source_sha256'])
+        self.assertEqual(certificate['generated_normalized'],golden['generated_normalized'])
+        self.assertFalse(certificate['calculation_verified']);self.assertFalse(certificate['executable_battle_verified'])
+        receipt=json.loads((ROOT/'tests/fixtures/original-catalogue-support-independent-v1.json').read_text())
+        self.assertEqual((receipt['input_count'],receipt['native_cases'],receipt['gpu_calls']),(2,2,0))
+        self.assertFalse(receipt['live_parent_receipt_present'])
+        for key in ('input_sha256','output_sha256'):self.assertEqual(receipt[key],golden[key])
 
 if __name__=='__main__':unittest.main()

@@ -34,6 +34,22 @@ class RecipientOrderObservation(unittest.TestCase):
             meta['ordered_recipients']=old[2][1]['ordered_recipients'];self.assertEqual(meta,old[2][1])
             self.assertEqual(new[1][L['RECIPIENT_META_BASE']:L['RECIPIENT_META_BASE']+3],[0,0,0])
 
+    def test_general_cli_selects_an_original_case_outside_the_frozen_cohort_without_battle(self):
+        import nikke_gpu as cli
+        from unittest.mock import patch
+        name='original-catalogue/hp-shield/나가/favorite-0/3s'
+        config=cli.SUITES['original-catalogue-ordered']
+        self.assertTrue(config['development_only']);self.assertTrue(config['selection_required'])
+        self.assertNotIn('frozen_cases',config)
+        m=dict(suite='original-catalogue-ordered',purpose='development',selected_cases=[name])
+        adapter=cli.open_suite(m)
+        with cli.forbid_gpu(),patch('calculator.timeline.simulate',side_effect=AssertionError('Packing cannot run a battle')):
+            rows,data=cli.prepare_entries(adapter,m)
+        self.assertEqual([r[0] for r in rows],[name]);self.assertTrue(rows[0][2][1]['ordered_recipients'])
+        self.assertIs(adapter.compare,adapter.base.compare)
+        self.assertIs(adapter.native_reference,adapter.base.native_reference)
+        self.assertEqual(adapter.MAX_SELECTED_CASES,adapter.base.MAX_SELECTED_CASES)
+
     def test_exact_inverse_retains_the_whole_prior_backend(self):
         result=project_sources(ROOT)
         before=result['app/portable_backend.py']

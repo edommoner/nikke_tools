@@ -139,7 +139,7 @@ SUITES['original-catalogue-initial']=dict(SUITES['original-catalogue'],golden='r
     'original-catalogue/hp-shield/프리바티 : 언카인드 메이드/favorite-0/30s'])
 SUITES['original-catalogue-support']=dict(SUITES['original-catalogue'],script='research/verify-original-catalogue-support.py',
     source='gpu/world_coordinate_typed_ordered_history_entry.slang',
-    golden='research/portable-original-catalogue-support-v1-expected.json',inputs=2,native=2,development_only=True,selection_required=False,
+    golden='research/portable-original-catalogue-support-v1-expected.json',inputs=2,native=2,development_only=False,selection_required=False,
     frozen_cases=['original-catalogue/hp-shield/나가/favorite-0/30s','original-catalogue/hp-shield/티아/favorite-0/30s'],
     tests=[*SUITES['original-catalogue']['tests'],'test_original_catalogue_support.py','test_recipient_order_observation.py'])
 SUITES['original-catalogue-support']['support_files']=list(dict.fromkeys([
@@ -149,6 +149,11 @@ SUITES['original-catalogue-support']['upstream_documents']=list(dict.fromkeys([
     'research/upstream/nikke-calc-master/docs/IMPL-STATUS.md',
     *SUITES['original-catalogue-support'].get('upstream_documents',()),
     *(path for pattern in SUITES['original-catalogue-support']['tests'] for path in CPU_AUDIT_FILES.get(pattern,()) if path.startswith('research/upstream/') and path.endswith('.md'))]))
+SUITES['original-catalogue-ordered']=dict(SUITES['original-catalogue-support'],
+    script='research/verify-original-catalogue-ordered.py',golden='research/portable-original-catalogue-ordered-development-expected.json',
+    inputs=None,native=None,development_only=True,selection_required=True,
+    tests=[*SUITES['original-catalogue']['tests'],'test_recipient_order_observation.py'])
+SUITES['original-catalogue-ordered'].pop('frozen_cases')
 SUITES['original-catalogue-burst']=dict(SUITES['original-catalogue'],golden='research/portable-original-catalogue-burst-v1-expected.json',support_files=['research/portable-original-catalogue-initial-v1-expected.json'],inputs=4,native=4,development_only=False,selection_required=False,frozen_cases=[
     'original-catalogue/hp-shield/라피 : 레드 후드/favorite-0/30s',
     'original-catalogue/hp-shield/홍련 : 흑영/favorite-0/30s',
@@ -598,6 +603,7 @@ SUITES['original-lock-health-parts-cache-only']=dict(SUITES['original-lock-healt
 SUITES['original-projectile-weapons-cache-only']=dict(SUITES['original-projectile-weapons'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-projectile-weapons']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['original-shield-weapons-cache-only']=dict(SUITES['original-shield-weapons'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-shield-weapons']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['original-catalogue-initial-cache-only']=dict(SUITES['original-catalogue-initial'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-catalogue-initial']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
+SUITES['original-catalogue-support-cache-only']=dict(SUITES['original-catalogue-support'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-catalogue-support']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['original-catalogue-burst-cache-only']=dict(SUITES['original-catalogue-burst'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-catalogue-burst']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['original-catalogue-roles-cache-only']=dict(SUITES['original-catalogue-roles'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-catalogue-roles']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
 SUITES['original-catalogue-incoming-cache-only']=dict(SUITES['original-catalogue-incoming'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['original-catalogue-incoming']['tests'],'test_portable_cuda_cached_profile.py','test_portable_cpu_batch.py'])
