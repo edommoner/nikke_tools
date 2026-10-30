@@ -1,3 +1,11 @@
+# 2026-10-31 fixed sealed packet CPU/plan成功、Windows転送前のunpack改善
+
+固定基準を登録した843497d6のsealed packet2723bdd836cb2e72cc2033aae0c68de5719141c51054f7d14155b13185c2be60（4172files/ZIP14199142、SHA20dbaec9…）を通常package/unpackで作成。自身CLIのrun --cpu-onlyが成功、GPU追加0。自身compile-plan PTX/2048MiB/60秒もpassed、compile claim未消費。proof product-program-fixed-sealed-v1-20261031。dev2b0の実Metal/独立sealと、このsealed CPU検査を区別し、保存packetを変更しない。
+
+前回Windowsのunpack51.807秒のうち検証は逐次file readだったため、unpackのsource/destination check_recordsにも既存のparallel=os.name=='nt'を適用する小修正を行った。全byte/SHA/regular-file検査は維持し、4-readerは従来verify_packageと同じ。130fileのWindows platform proxyで実parallel検査と転送後改変拒否を確認し、既存CLI52件成功。Windows実時間の改善は未計測。次はこの非計算変更をcommitし、fixed sealed packetを新規に梱包してCPU/planを確認、Mac ZIPを輸送する。Windowsでmake_packageを再実行しない。旧packet/claim/失敗は不変保持。
+
+Windowsへ新compile/GPU依頼はまだ送っていない。次はfresh sealed ownerのPTX→既存module-object/JIT-linkだけを必要な短いbounded stageで検証する。通常APIの最初のfixed sceneは4秒程度なら既定3秒のburst開始まで検証できるが、未計測のCUDA時間/TDRへ外挿せず、上限/OS設定を変えない。先にMac同sceneの実Metal・CPU全payload/入出力SHAを得る。旧CUDA1秒と30秒全profileは別scope。全goal未完。以下は履歴。
+
 # 2026-10-31 fixedの既存CLI実Metal/独立seal完了、sealed packet作成へ
 
 共通program selector実装をff851f89にcommit。そのcodeのproduct-detail --product-program fixed --developを既存package/unpackで作成した。dev owner2b0e8496fdf172040ec8b3ba1c8d3ab837e06322ecc342564e97432f25c6bc6b、4172files/ZIP14189101bytes、source ff851f899dd656a406eeb5e815054804cce7c6f1。proof product-program-fixed-v1-20261031/packageの**自身CLI/cwd**でrun、actual M5 GPU1.749520秒・full CPU比較成功、input b534ebb2…/output9c72bd03…は通常API保存rawと同一。CPU unit34（product27+packet7）/native1成功、paired generation/Metal PSO必須cache hit、child実行3.180秒exit0。source/coordinator変更0。

@@ -1186,7 +1186,7 @@ def unpack(archive, destination, *, reuse_payload_from=None):
             file_records(source,['gpu-package.json'])
             reference=load(source/'gpu-package.json')
             if reference.get('schema')!=SCHEMA or reference.get('package_id')!=package_id(reference):raise ValueError('Reuse package manifest identity mismatch')
-            check_records(source,reference['files'])
+            check_records(source,reference['files'],parallel=os.name=='nt')
             old={r['path']:r for r in reference['files']}
             for row in m['files']:
                 if old.get(row['path'])!=row:continue
@@ -1204,7 +1204,7 @@ def unpack(archive, destination, *, reuse_payload_from=None):
             else:p.write_bytes(z.read(name))
     # Transfer integrity is independent of this bootstrap CLI's suite registry.
     # The extracted package's own CLI performs semantic preflight before run.
-    check_records(destination,m['files'])
+    check_records(destination,m['files'],parallel=os.name=='nt')
     return m['package_id']
 
 

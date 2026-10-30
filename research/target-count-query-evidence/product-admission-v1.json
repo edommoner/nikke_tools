@@ -1284,7 +1284,24 @@
       ],
       "other_programs_unsealed": true,
       "new_product_profile_count": 0,
-      "scope": "Existing product CLI integration of the already verified fixed normal profile; not an extra profile or CUDA execution"
+      "scope": "Existing product CLI integration of the already verified fixed normal profile; not an extra profile or CUDA execution",
+      "sealed_packet_v1": {
+        "package_id": "2723bdd836cb2e72cc2033aae0c68de5719141c51054f7d14155b13185c2be60",
+        "source_commit": "843497d6fb3a6b8394ab22faf0c5234396d9c131",
+        "files": 4172,
+        "archive_bytes": 14199142,
+        "archive_sha256": "20dbaec9f37cd721bd012558f734f500539a17c5fcb7005c57e9a872fd1c21a6",
+        "cpu_only_passed": true,
+        "gpu_calls_added": 0,
+        "ptx_plan_passed": true,
+        "claim_available": true
+      },
+      "windows_transfer_change": {
+        "scope": "Reuse the existing four-reader full-byte verifier for unpack source/destination on Windows; no metadata/digest cache or verification skipped",
+        "cpu_cli_tests": 52,
+        "windows_elapsed_seconds": "not measured yet",
+        "previous_unpack_seconds": 51.807
+      }
     }
   }
 }

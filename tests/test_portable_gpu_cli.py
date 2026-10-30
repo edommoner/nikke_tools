@@ -26,6 +26,31 @@ def smoke_data_files(root=None):
 
 
 class PacketTests(unittest.TestCase):
+    def test_windows_unpack_reads_all_bytes_with_existing_parallel_verifier(self):
+        import types,zipfile
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder).resolve();source=root/'source';source.mkdir()
+            names=[]
+            for index in range(130):
+                name=f'app/fixture_{index}.py';names.append(name)
+                path=source/name;path.parent.mkdir(exist_ok=True);path.write_bytes(str(index).encode())
+            manifest=dict(schema=cli.SCHEMA,suite='fixture',files=cli.file_records(source,names))
+            manifest['package_id']=cli.package_id(manifest);archive=root/'packet.zip'
+            with zipfile.ZipFile(archive,'x') as z:
+                z.writestr('gpu-package.json',json.dumps(manifest))
+                for name in names:z.writestr(name,(source/name).read_bytes())
+            windows=types.SimpleNamespace(name='nt',link=os.link)
+            original=cli.check_records
+            with patch.object(cli,'os',windows),patch.object(cli,'check_records',wraps=original) as checks:
+                self.assertEqual(cli.unpack(archive,root/'valid'),manifest['package_id'])
+                self.assertTrue(checks.call_args.kwargs['parallel'])
+            def corrupt(destination,records,**options):
+                (destination/names[0]).write_bytes(b'changed after transfer')
+                return original(destination,records,**options)
+            with patch.object(cli,'os',windows),patch.object(cli,'check_records',side_effect=corrupt):
+                with self.assertRaisesRegex(ValueError,'SHA/size mismatch'):cli.unpack(archive,root/'invalid')
+
     def test_parallel_package_checks_read_every_file_with_at_most_four_workers(self):
         import threading
         with tempfile.TemporaryDirectory() as directory:
