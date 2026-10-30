@@ -1,6 +1,6 @@
 # 2026-10-30 ベイ元4段階のnative被弾・独立coverへ接続
 
-weighted-incoming-commonをCPU7戦闘で検証。元69/74/75/76定義4段階30秒＋破壊/再burst65秒＋元ビスケット復活/再burst65秒＋未発動3秒透明対照。全定義/owner/順序を実登録と照合。元carrierの寿命と独立self_coverを読み、元被弾loop・保護/HP・同じcover mutation helperへ接続、別clock/HPなし。実破壊2/復活1、均等版併存等はpolicy未確定で拒否。検査期待の誤り（回復で破壊coverが復活する）を正本変更せず訂正し、失敗を保持。7戦闘CPU2.932594秒/packing・GPU0。数値Metal1192と戦闘CPU7を分類で分離。次はこの同じ7戦闘を既存GPU incoming frameへ接続し、Metal全状態比較。self_coverの独立recipient/owner down時のcarrier寿命をbody maskへ潰さない。保護4ファイル変更0、Windows新依頼0、実CUDA/公開GPU/全目標未達。詳細portable-bay-allocation.md、証拠weighted-incoming-battle-cpu-v1.json。
+weighted-incoming-commonをCPU7戦闘で検証。元69/74/75/76定義4段階30秒＋破壊/再burst65秒＋元ビスケット復活/再burst65秒＋未発動3秒透明対照。全定義/owner/順序を実登録と照合。元carrierの寿命と独立self_coverを読み、元被弾loop・保護/HP・同じcover mutation helperへ接続、別clock/HPなし。実破壊2/復活1、均等版併存等はpolicy未確定で拒否。検査期待の誤り（回復で破壊coverが復活する）を正本変更せず訂正し、失敗を保持。7戦闘CPU2.932594秒/packing・GPU0。数値Metal1192と戦闘CPU7を分類で分離。次はこの同じ7戦闘を既存GPU incoming frameへ接続し、Metal全状態比較。self_coverの独立recipient/owner down時のcarrier寿命をbody maskへ潰さない。保護4ファイル変更0、Windows新依頼0、実CUDA/公開GPU/全目標未達。最終固定b1eb43e8/package c76e94bd…自身で4群17検査と1192数値入力のCPU事前確認、reference7戦闘も成功し、保存済み全input/native/trace/contract指紋と完全一致。CUBIN/O1・2GiB・60秒compile-plan policyとmodel-checkも成功（実compiler/GPU0）。最終記録weighted-battle-final-cli-v1.json。詳細portable-bay-allocation.md、証拠weighted-incoming-battle-cpu-v1.json。
 
 # 2026-10-30 最優先ベイの重み付き共通数値処理をM5でseal
 
