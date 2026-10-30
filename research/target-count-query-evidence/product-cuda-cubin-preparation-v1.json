@@ -1,0 +1,64 @@
+{
+  "schema": "product-cuda-cubin-preparation-v1",
+  "evidence": "Windows peer saved-result summaries; raw files retained there, not independently imported on Mac",
+  "package_id": "75dfb57b9d08cccf45814d58a2a3bcabca6902b6c30f4c445ebe97e210288111",
+  "source_commit": "dd86042e54a84ffe76b466a2ab1bc65aa5d4d9c4",
+  "dependency_sha_matches": 43,
+  "package_files": 4135,
+  "package_seconds": 78.36,
+  "unpack_seconds": 55.656,
+  "compile_plan_seconds": 13.31,
+  "generation_seconds": 25.921,
+  "generation_cache_key": "44c8907e80a1c35116291e95b9af4d87b79ecfaed2c027860fd6f65562e2d3ea",
+  "generated_sha256": {
+    "cuda": "afd49bf75eac9e977ec9b7c1f1e7a3f09a8f846eea8ef6adcc9f3603be35b69b",
+    "metal": "a816fe48bdffcef935f8f8b2d2a78fbfcc58b5df2ea81ea6a6286f1221b54623"
+  },
+  "generated_normalized": {
+    "cuda": "79252cd48499353a011b55cdfc14f0524a8768e756bafbd46dda6cf4b40aa7c4",
+    "metal": "8f31f12edcddf8559821b6c7ab20d843818fa05973e80d14cd3eee8f3ca3cd71"
+  },
+  "sealed_normalized_matches": true,
+  "compile": {
+    "artifact": "cubin",
+    "ptxas_level": 1,
+    "inner_seconds": 54.236,
+    "outer_seconds": 68.271,
+    "nvrtc_seconds": 38.332,
+    "nvrtc_code": 6,
+    "child_exit": 1,
+    "first_diagnostic": "ptxas fatal: Memory allocation failure",
+    "final_diagnostic": "Ptx assembly aborted due to errors",
+    "artifact_produced": false,
+    "generation_required_hit": true,
+    "slang_regeneration_calls": 0,
+    "inner_memory_limit_bytes": 2147483648,
+    "outer_memory_limit_bytes": 2147483648,
+    "inner_job_peak_memory_bytes": 2111741952,
+    "outer_job_peak_memory_bytes": 2148143104,
+    "outer_peak_exceeds_configured_limit_bytes": 659456,
+    "memory_field_names": [
+      "post_wait.job_memory_limit_bytes",
+      "post_wait.job_peak_memory_bytes"
+    ],
+    "job_limit_causality": "Not established; explicit allocation failure and recorded peaks are separate facts"
+  },
+  "stderr": {
+    "path": "compile-v2/proof/stderr.log",
+    "bytes": 3845,
+    "sha256": "89e44e4c4e5d7fe4ddb702580ccd696368f29059e7efa730c3e1700de59794dc"
+  },
+  "gpu_calls": 0,
+  "driver_calls": 0,
+  "context_calls": 0,
+  "timeout": false,
+  "cleanup_errors": 0,
+  "observation_errors": 0,
+  "remaining_processes": 0,
+  "monitored_process_disappearances": 0,
+  "service_preservation_verified": false,
+  "original_failed_claim_preserved": true,
+  "summary_sha256": "1ba8c2ac17ea440a63b72fdbf8dde71d9e26083d02a3ac021523cae1fc10a423",
+  "next": "Existing compile-ptx in fresh owner with required generation hit; then consider existing standalone assembly in a separate Job. No direct CUBIN retry or raised cap.",
+  "full_goal_complete": false
+}

@@ -1,5 +1,5 @@
 """Product packet admission and full response comparison without GPU calls."""
-import copy,importlib.util,sys,unittest
+import copy,hashlib,importlib.util,json,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1]
@@ -15,6 +15,8 @@ class ProductPacket(unittest.TestCase):
         self.assertEqual(len(raw),4*(1+adapter.suite.INPUT))
         self.assertFalse(rows[0][2][1]['cpu_battle_executed'])
         self.assertEqual(adapter.SOURCE,'gpu/product_battle_entry.slang')
+        golden=json.loads((ROOT/'research/portable-product-detail-v1-expected.json').read_text(encoding='utf-8'))
+        self.assertEqual(hashlib.sha256(raw).hexdigest(),golden['input_sha256'])
     def test_full_comparison_includes_provenance_and_all_product_fields(self):
         for field in ('total_damage','warnings','burst_timeline','evaluator'):
             expected={field:1};actual={field:2}

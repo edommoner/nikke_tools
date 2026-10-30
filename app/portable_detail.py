@@ -72,6 +72,10 @@ def compile_product(prepared):
         return source,iw,ow,words,metadata
     from destructible_damage_policy import modifier_axis
     if any(modifier_axis(row['effect']) for row in prepared['effects']):
+        if any(t.startswith('multi_hit:') for row in prepared['effects'] for t in row['effect'].get('trigger',{}).get('timing',[])):
+            from portable_destructible_roster_input import compile_body_modifier_group_roster, GROUP_SOURCE, GROUP_INPUT_WORDS, OUTPUT_WORDS as group_ow
+            words,metadata=compile_body_modifier_group_roster(prepared)
+            return finish(GROUP_SOURCE,GROUP_INPUT_WORDS,group_ow,words,metadata)
         from portable_destructible_roster_input import compile_body_modifier_roster, INPUT_WORDS as iw, OUTPUT_WORDS as ow
         words,metadata=compile_body_modifier_roster(prepared)
         return finish('gpu/product_target_battle_entry.slang',iw,ow,words,metadata)

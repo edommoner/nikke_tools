@@ -1,5 +1,11 @@
 # 通常製品APIの共通GPU経路
 
+対象別倍率とmulti-hitを別のメンバーが持つplain BODY編成も、元carrierとgroup通知を
+保持して共通実行器へ渡す。Sakura/Belorta/Miranda/Dora/Drakeの30秒は通常APIから
+M5で全CPU応答一致を確認した。axis表は別suffixへ保持し、GPUでもBODY1体の世界を
+検査する。modifier自身がmulti-hitをlistenする場合や追加actor/typed対象は未対応。
+`product-group-target-v1.json` が小証跡で、Metal255 profileとは別の追加編成確認である。
+
 通常の `/api/jobs` に `compute_backend: metal_detail` またはWindows用の
 `compute_backend: cuda_shared_detail` を渡すと、既存の
 `engine_worker.evaluate(..., _portable_static_inputs=True)` で入力を準備し、

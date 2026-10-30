@@ -1,3 +1,11 @@
+# 2026-10-30 対象倍率＋multi-hitの実編成を通常APIでMetal確認
+
+元Sakura/Belorta/Miranda/Dora/Drakeの30秒編成を共通group実行器へ接続し、通常/api/jobsで全CPU製品応答一致。target modifierは既存kind4 carrier・元quantity/lifetime/nameを保持し、256axis表をgroup suffixへ別保持。GPU側もBODY1体・axis型/予約領域を検査し、typed対象なしを確認してから命令を実行する。typedゲームモデルや攻撃倍率をbody倍率へ代用しない。modifier自身がmulti_hit listenerの組合せ、追加actor/typed/partsは未対応のまま理由付き拒否。
+
+最終product-group-target-v2-20261030は生成/PSO cache必須hitでGPU1.772668秒・全体2.746664秒、CPU全応答一致。初回cold v1は63.288秒で保存。入力/出力は両回同一。v1の不正raw7件はM5で全status64、CPU戦闘0。既存3shader closure不変、旧255要求の再packing input SHA全一致（CPU戦闘/GPU0）。製品確認済みprofileはMetal255/CUDA0を維持し、追加実編成の確認と区別する。15製品＋3packet検査成功、normal packet入力も既存sealed SHAを保持。小証跡product-group-target-v1.json。保護CPU/効果定義/数値/期待値変更0、新suite/監査toolなし。
+
+Windowsの同じnormal製品owner75dfb57bは43依存/4135file/normalized CUDA-MSL一致を確認。CUBIN/O1はinner54.236秒（NVRTC38.332秒/code6）でptxas Memory allocation failure。CUBINなし/GPU・driver0。inner peak2111741952、outer2148143104は設定2GiBを659456bytes上回った記録があり、Job上限との因果は未確定。失敗claim保持、同じCUBIN再試行/上限拡大なし。既存compile-ptxとstandalone assemblyを別Jobにする候補へ進み、PTX前段のみをfresh ownerで1回依頼済み。pipelineの新実行handleを取得し、観測切れだけで再送しない。小証跡product-cuda-cubin-preparation-v1.json。全目標は未完了。
+
 # 2026-10-30 製品用コンパイル所有者：既存CLIへ接続、Metal独立監査済み
 
 sealed ownerはsource dd86042e、package ID75dfb57b…、4135files。Windowsの新adapter3検査も成功したが、初回package作成は固定契約docs/GAMEPLAY.md不足で停止（compiler/GPU0）。42依存一覧はhost import用で、既存make_packageがportable-mode-session-contract経由で加える文書1件を含まなかった。実sealed manifestから全43 upstream依存をproduct-detail-compile-preparation-v1.jsonへ抽出し直した。元Windowsの同文書SHA9640ef2a…も一致しているとのpeer報告。固定43件を揃えた同じsourceからpackage ID一致を確認してから、既存generation→compile-cubin-o1へ進める。初回失敗と未消費claimを保持する。

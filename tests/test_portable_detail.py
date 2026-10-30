@@ -221,7 +221,40 @@ class PortableDetail(unittest.TestCase):
         unknown=copy.deepcopy(prepared);unknown['enemy']['new_typed_targets']=[]
         with self.assertRaisesRegex(ValueError,'Unknown real enemy fields'):product.compile_product(unknown)
         grouped=copy.deepcopy(prepared);grouped['effects'][0]['effect']['trigger']['timing'].append('multi_hit:2')
-        with self.assertRaisesRegex(ValueError,'group wire composition'):product.compile_product(grouped)
+        from portable_destructible_roster_input import compile_body_modifier_roster
+        with self.assertRaisesRegex(ValueError,'group wire composition'):compile_body_modifier_roster(grouped)
+
+    def test_original_modifier_and_multi_hit_composition_preserves_both_wires(self):
+        sys.path.insert(0,str(ROOT/'scripts'))
+        from detail_coverage import body_for
+        from portable_destructible_roster_input import GROUP_SOURCE,GROUP_INPUT_WORDS
+        from destructible_damage_policy import modifier_axis
+        from portable_specs import LIMITS as L,FIELDS as F
+        body=dict(body_for(['사쿠라','벨로타','미란다','도라','드레이크'],30),burst_gauge_mode='accumulate')
+        with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle')):
+            prepared,_=product.prepare(body)
+            before=copy.deepcopy(prepared)
+            source,iw,ow,words,meta=product.compile_product(prepared)
+        self.assertEqual(prepared,before)
+        self.assertEqual((source,iw,ow),(GROUP_SOURCE,GROUP_INPUT_WORDS,1048576))
+        from portable_backend import validate_composed_stride
+        validate_composed_stride(source,iw,ow)
+        with self.assertRaisesRegex(ValueError,'complete carrier'):validate_composed_stride(source,iw-1,ow)
+        self.assertEqual(words[104400],0x41475331)
+        axes=meta['real_prepared_input']['target_modifier_carriers']
+        self.assertEqual(axes['original_effects'],prepared['effects'])
+        self.assertEqual(axes['typed_targets'],0)
+        self.assertEqual(words[104408:104416],[0x50474131,1,sum(bool(x) for x in axes['axis_rows']),0,0,0,0,0])
+        self.assertEqual(words[104416:],axes['axis_rows'])
+        for row,index in enumerate(meta['binding_source_indices']):
+            axis=modifier_axis(prepared['effects'][index]['effect'])
+            self.assertEqual(axes['axis_rows'][row],axis)
+            if axis:self.assertEqual(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['KIND']],4)
+        bad=copy.deepcopy(prepared);bad['enemy']['patterns']=[{'id':'new','kind':'idle'}]
+        with self.assertRaisesRegex(ValueError,'plain body'):product.compile_product(bad)
+        bad=copy.deepcopy(prepared)
+        next(r['effect'] for r in bad['effects'] if modifier_axis(r['effect']))['trigger']['timing']=['multi_hit:2']
+        with self.assertRaisesRegex(ValueError,'itself a multi_hit'):product.compile_product(bad)
     def test_nearby_selector_is_specialized_only_for_a_proved_single_body(self):
         sys.path.insert(0,str(ROOT/'research'))
         from portable_original_identity_inventory import selected_profile_bodies

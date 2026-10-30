@@ -3,7 +3,7 @@
 Keep original effect identities; lower the two modifier axes to the shared
 carrier representation after ordinary world compilation. No battle is run.
 """
-import copy,struct
+import copy,re,struct
 from portable_specs import LIMITS as L,FIELDS as F
 from destructible_damage_policy import modifier_axis
 from portable_target_modifier_input import lower_effect,pack_axes
@@ -13,6 +13,38 @@ from portable_projectile_roster_input import compile_projectile_battle
 SOURCE='gpu/destructible_weapon_shield_entry.slang'
 INPUT_WORDS=110112
 OUTPUT_WORDS=1048576
+
+GROUP_SOURCE='gpu/product_group_target_battle_entry.slang'
+GROUP_INPUT_WORDS=104672
+
+def check_group_wire(root):
+    from portable_battle_attack_group_input import INPUT_WORDS as base
+    source=(root/GROUP_SOURCE).read_text()
+    stride=re.search(r'uint input=1\+id\.x\*(\d+),output=id\.x\*(\d+);',source)
+    descriptor=re.search(r'uint descriptor=s.inputBase\+(\d+);',source)
+    if not stride or tuple(map(int,stride.groups()))!=(GROUP_INPUT_WORDS,OUTPUT_WORDS) or not descriptor or int(descriptor[1])!=base or GROUP_INPUT_WORDS!=base+8+L['DEFINITIONS']:
+        raise ValueError('Product group target wire disagrees with the shared shader')
+
+def compile_body_modifier_group_roster(prepared):
+    """Compose native groups and lossless target carriers in a single BODY world."""
+    enemy=prepared['enemy']
+    if enemy.get('patterns') or enemy.get('coord') is not None or enemy.get('has_parts') or enemy.get('part_break_interval',0):
+        raise ValueError('Product modifier groups require a plain body with no typed targets')
+    original=prepared['effects'];lowered=copy.deepcopy(prepared)
+    for dest,row in zip(lowered['effects'],original,strict=True):
+        if modifier_axis(row['effect']) and any(t.startswith('multi_hit:') for t in row['effect'].get('trigger',{}).get('timing',[])):
+            raise ValueError('A target modifier that is itself a multi_hit listener is not connected')
+        dest['effect']=lower_effect(row['effect'])
+    from portable_battle_attack_group_input import compile_battle
+    words,meta=compile_battle(lowered,routing='native')
+    axes=pack_axes(words,meta,[r['effect'] for r in original])
+    count=sum(axis!=0 for axis in axes)
+    if not count:raise ValueError('At least one original target modifier required')
+    words.extend([0x50474131,1,count,0,0,0,0,0,*axes])
+    if len(words)!=GROUP_INPUT_WORDS:raise ValueError('Complete product group target axis wire required')
+    meta['real_prepared_input']['target_modifier_carriers']=dict(axis_rows=axes,typed_targets=0,
+        original_effects=copy.deepcopy(original),typed_target_game_model_verified=False,group_composition=True)
+    return words,meta
 
 def compile_body_modifier_roster(prepared):
     """Retain target-specific carriers in a proven plain-body product world.

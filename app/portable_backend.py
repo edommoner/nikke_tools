@@ -86,6 +86,11 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source=='gpu/product_group_target_battle_entry.slang':
+        from portable_destructible_roster_input import check_group_wire,GROUP_INPUT_WORDS,OUTPUT_WORDS
+        check_group_wire(ROOT)
+        if (input_words,output_words)!=(GROUP_INPUT_WORDS,OUTPUT_WORDS):raise ValueError('Product group target requires its complete carrier and group wire')
+        return
     if source in ('gpu/world_weighted_incoming_entry.slang','gpu/world_weighted_incoming_diagnostic_entry.slang'):
         from portable_weighted_battle_wire import check_schema,INPUT,OUTPUT
         check_schema(ROOT)
