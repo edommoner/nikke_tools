@@ -35,7 +35,8 @@ bool initializeDestructibleBattle(inout Runtime s)
     // Other typed entries retain their nonempty binding admission contract.
     if(count==0)
     {
-        if(!weaponOnly||actorPoolCount(s)!=1) return false;
+        if(!weaponOnly||actorPoolCount(s)==0||commands[actorBinding(s,0)]!=0) return false;
+        for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]!=1) return false;
         for(uint i=2328;i<3864;i++) if(commands[extra+i]!=0) return false;
     }
     else
