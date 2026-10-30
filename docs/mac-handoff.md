@@ -1,3 +1,13 @@
+# 2026-10-31 製品compactを既存CLIへ接続、CPU34成功・共通smokeに既存source監査不整合
+
+前turnは実証と保存timeout診断が進んだprogress。今回はWindows再実行なし。既存selected-suite-python-v1をproduct-detail familyにも明示対応し、新suite/CLI追加なし。app/portable_package_projection.pyの歴史owner fresh childに未定義product_configurationがあった。既存historical test4中2errorを再現し、不要な外部registry importを除去、marker付きはverified owner自身のsuite_config、markerなしは元SUITESを使うよう修正。resolverなしmarkerを拒否する。fresh-process負例含むhistorical6、projection/real projection合わせ19、product packet7、CLI52成功。source/GPU/数値golden/normalizer変更0。
+
+code commit8c261f065a765da9fe16be14e7dc189de671dd01。自身のpackage --suite product-detail --product-program fixed --compactでsealed owner2c849fc475e6a39f404e1cde2b7d84407851796a64aca44c36404902ec85ec5a、2682files/ZIP11769822bytes/SHA6553ff70b813034078a28252809cc42963c26f4b67e568973eb2fc2d7c94b222を作成/展開。proof product-fixed-compact-v1-20261031/package自身CLI/cwdのCPU-onlyで製品34test成功・native1一致、input b534ebb2…は旧full/30秒M5実証と同一。全golden/source/input/output期待値は旧eda ownerと完全同じ。payload-audit.jsonで旧4172から1490の未選択research/test Pythonだけを除去、全GPU/app/scripts/data/web/fixture/pinned upstreamと全selected/smoke rootsを保持し、全retained byteを検査。retained差分はprojection実装/2testと既存進捗evidence JSONのみ。最初のcoordinatorはevidence JSONの更新を列挙していなかったため停止、実diffを確認して明示列挙後に監査成功。計算入力には差なし。
+
+**共通smokeは未成功。** 同packetのrun --smoke --cpu-onlyは7group/111testを試行し、test_portable_weapon_phases.pyの1件が『Unreviewed weighted source: app/portable_backend.py』で停止。残りの全smoke groupは未実行。既定Windows専用skip1を除去/追加していない。producer checkoutと旧full sealed eda packetの同8testでも同じ失敗を独立再現したのでcompact脱落ではなく既存source-contract chainの不整合。失敗ログ/packetは不変保持。weighted ledgerが現backend/event_runtime/world_actor_fieldsと一致せず、武器statements監査まで到達できない。次はこの既存監査の歴史preimageと製品拡張の関係を修正し、元fixtures/normalizer/数値goldenを都合で書き換えず共通smoke全体を通す。test除外や単なる新期待hashで隠さない。
+
+軽量packetはWindowsへ未共有/未転送/compile未依頼、GPU/compiler追加0、時間改善未測定。旧Windowscompile owner/claimを変更しない。ファイル数削減でNVRTC完了が保証されるとは扱わない。Windows chat cursor120/idle、pendingなし。Metal固定255profile＋編成1/CUDA旧蓄積1profile1秒・固定0を維持。全goal未完。以下は履歴。
+
 # 2026-10-31 timeout保存JSONをMac照合、Windows idle・追加実行なし
 
 WindowsのCPU-only保存診断と共有完了。branch codex/product-fixed-ptx-timeout-v1-report、commit9f422b0e9738c49c18a7ab70f8fc213790fbbb23、11JSON/JSONL計37263bytes、manifest SHAd09e6345e5af7a87079c3a93925a526acba6cbaa2f17a7fb4448dde49d424d37。proof product-fixed-ptx-timeout-import-v1-20261031へgit blob原bytesで取得、全SHA/サイズ・ownerとimmutable sealed goldenを照合成功。新/旧CUDA strict normalizedはMac保存生成物でも独立一致。Windows raw source/binary/全snapshotは輸送していない。sanitized projectionの整合検査であり原本Job/process全体のMac独立認定ではない。mac-audit.jsonと既存product-admission-v1.jsonへ記録。
