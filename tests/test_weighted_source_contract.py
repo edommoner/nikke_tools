@@ -28,6 +28,7 @@ class WeightedSourceContract(unittest.TestCase):
                ('gpu/event_runtime.slang','uint64_t fixedGaugeReadyAt;','uint fixedGaugeReadyAt;'),
                ('gpu/world_actor_fields.slang','#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS','#if 1'),
                ('gpu/combat_runtime.slang','s.fixedGaugeReadyAt = f64Add(when,','s.fixedGaugeReadyAt = f64Sub(when,'),
+               ('gpu/world_charge_control_runtime.slang','|| defined(PORTABLE_PRODUCT_OUTLINED_HELPERS)','|| defined(PORTABLE_WORLD_FRAME)'),
                ('gpu/event_runtime.slang','uint count, error, timerClock','uint count, changedError, timerClock')]
         for name,before,after in cases:
             with self.subTest(name=name),tempfile.TemporaryDirectory() as folder:
