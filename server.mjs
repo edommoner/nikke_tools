@@ -40,8 +40,14 @@ export function sharedCudaConfigured(platform=process.platform,env=process.env) 
       const d=JSON.parse(readFileSync(file,'utf8')),keys=o=>o&&typeof o==='object'&&!Array.isArray(o)?Object.keys(o).sort().join(','):'';
       if(d?.schema!==1||keys(d)!=='programs,schema'||keys(d.programs)!=='gpu/product_battle_entry.slang')return false;
       const program=d.programs['gpu/product_battle_entry.slang'];
-      return keys(program)==='battle_package,request'&&directory(program.battle_package)&&
-        ['capture,package','capture,package,producer_capture,producer_package'].includes(keys(program.request))&&Object.values(program.request).every(directory);
+      if(keys(program)!=='battle_package,request'||!directory(program.battle_package)||!program.request)return false;
+      const {historical_link_observation:history,...paths}=program.request;
+      if(!['capture,package','capture,package,producer_capture,producer_package'].includes(keys(paths))||!Object.values(paths).every(directory))return false;
+      if(history===undefined)return true;
+      if(keys(history)!=='capture,disposition,missing_identities,observation_sha256'||history.disposition!=='retained-failure'||typeof history.capture!=='string'||!path.isAbsolute(history.capture)||path.resolve(history.capture).toLowerCase()!==path.resolve(paths.capture).toLowerCase()||typeof history.observation_sha256!=='string'||!/^[0-9a-f]{64}$/.test(history.observation_sha256)||!Array.isArray(history.missing_identities)||history.missing_identities.length===0)return false;
+      const identities=history.missing_identities;
+      const ordered=(a,b)=>a.pid-b.pid||(a.path<b.path?-1:a.path>b.path?1:0)||(a.creation_filetime_ticks<b.creation_filetime_ticks?-1:a.creation_filetime_ticks>b.creation_filetime_ticks?1:0);
+      return identities.every((row,index)=>(index===0||ordered(identities[index-1],row)<0)&&keys(row)==='creation_filetime_ticks,path,pid'&&Number.isInteger(row.pid)&&row.pid>0&&row.pid<=0xffffffff&&typeof row.path==='string'&&row.path.length>0&&row.path===row.path.toLowerCase()&&typeof row.creation_filetime_ticks==='string'&&/^[1-9][0-9]*$/.test(row.creation_filetime_ticks)&&BigInt(row.creation_filetime_ticks)<2n**64n);
     }catch{return false;}
   }
   return directory(env.NIKKE_CUDA_COMPILE_CACHE);

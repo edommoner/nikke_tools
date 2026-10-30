@@ -82,6 +82,15 @@ test('shared CUDA saved images require explicit configuration plus a warm genera
   assert.equal(sharedCudaConfigured('win32',env),true);
   assert.equal(sharedCudaConfigured('win32',{...env,NIKKE_SLANG_GENERATION_CACHE:''}),false);
   assert.equal(sharedCudaConfigured('darwin',env),false);
+  const history={capture:root,observation_sha256:'a'.repeat(64),disposition:'retained-failure',missing_identities:[{pid:71,path:'c:/tools/node.exe',creation_filetime_ticks:'133700000000000007'}]};
+  const document={schema:1,programs:{'gpu/product_battle_entry.slang':{battle_package:root,request:{package:root,capture:root,historical_link_observation:history}}}};
+  writeFileSync(file,JSON.stringify(document));assert.equal(sharedCudaConfigured('win32',env),true);
+  for(const edits of [{capture:path.dirname(root)},{missing_identities:[]},{missing_identities:[history.missing_identities[0],history.missing_identities[0]]},{missing_identities:[{...history.missing_identities[0],path:'C:/TOOLS/NODE.EXE'}]},{missing_identities:[{...history.missing_identities[0],pid:73},history.missing_identities[0]]}]){
+    const changed=structuredClone(document);Object.assign(changed.programs['gpu/product_battle_entry.slang'].request.historical_link_observation,edits);
+    writeFileSync(file,JSON.stringify(changed));assert.equal(sharedCudaConfigured('win32',env),false);
+  }
+  history.missing_identities[0].creation_filetime_ticks=133700000000000007;
+  writeFileSync(file,JSON.stringify(document));assert.equal(sharedCudaConfigured('win32',env),false);
   writeFileSync(file,JSON.stringify({schema:1,programs:[]}));
   assert.equal(sharedCudaConfigured('win32',env),false);
   writeFileSync(file,'invalid');assert.equal(sharedCudaConfigured('win32',env),false);

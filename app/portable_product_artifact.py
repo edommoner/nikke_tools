@@ -49,11 +49,16 @@ def select(source):
     if type(program) is not dict or set(program)!= {'battle_package','request'} or type(program['request']) is not dict:
         raise ValueError('Invalid product CUBIN owner/request')
     request=program['request']
-    if set(request) not in ({'package','capture'},{'package','capture','producer_package','producer_capture'}):
+    paths={k:v for k,v in request.items() if k!='historical_link_observation'}
+    if set(paths) not in ({'package','capture'},{'package','capture','producer_package','producer_capture'}):
         raise ValueError('Invalid product CUBIN provenance paths')
-    for value in (program['battle_package'],*request.values()):
+    for value in (program['battle_package'],*paths.values()):
         if not isinstance(value,str) or not value or not Path(value).is_absolute() or not Path(value).is_dir():
             raise ValueError('Product CUBIN provenance requires existing absolute directories')
+    if 'historical_link_observation' in request:
+        from portable_linked_artifact import validate_history_binding
+        validate_history_binding(request['historical_link_observation'])
+        if Path(request['historical_link_observation']['capture']).resolve()!=Path(request['capture']).resolve():raise ValueError('Historical link capture mismatch')
     return program
 
 

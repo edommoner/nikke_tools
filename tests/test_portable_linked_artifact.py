@@ -307,6 +307,38 @@ class LinkedArtifactTests(unittest.TestCase):
             observation['comparison']['missing_existing_processes']=[dict(pid=1)];cli.write(link_capture/'observation.json',observation)
             with self.assertRaisesRegex(ValueError,'observation'):cli.saved_linked_admission(self.current,dict(package=str(package),capture=str(link_capture)))
 
+    def test_exact_historical_failure_binding_keeps_failure_in_image_identity(self):
+        package=self.root/'history-owner';package.mkdir();capture=self.root/'history-link';capture.mkdir();obj=self.root/'history-object';obj.mkdir();producer=self.root/'history-producer';producer.mkdir()
+        for p in (package/'gpu-package.json',package/'jit-link-object-claimed-cuda.json',capture/'artifacts.json'):cli.write(p,{})
+        cli.write(capture/'object-request.json',dict(object_capture=str(obj)));cli.write(obj/'object-request.json',dict(source_capture=str(producer)))
+        cli.write(producer/'compiler.json',self.compiler);cli.write(capture/'jit-link.json',dict(origin=dict(object_receipt=dict(identity=dict(origin=dict(producer=self.producer)))),receipt=self.link))
+        from windows_validation_observer import compare_snapshots
+        row=dict(pid=71,path='C:/Tools/CUA/node.exe',creation_filetime_ticks='133700000000000007',role='unrelated')
+        other=dict(pid=73,path='C:/Tools/Blender/python.exe',creation_filetime_ticks='133700000000000008',role='unrelated')
+        before=dict(processes=[other,row],service_status='unverified');after=dict(processes=[],service_status='unverified')
+        comparison=compare_snapshots(before,after);cli.write(capture/'observation.json',dict(before=before,after=after,comparison=comparison));raw=(capture/'observation.json').read_bytes()
+        request=dict(package=str(package),capture=str(capture));binding=dict(capture=str(capture),observation_sha256=saved.digest(raw),missing_identities=saved.missing_identities([other,row]),disposition='retained-failure')
+        with patch.object(cli,'verify_package',return_value=self.linked),patch.object(cli,'audit_jit_link_capture',return_value=dict(link_verified=True,containment_verified=True)):
+            with self.assertRaisesRegex(ValueError,'missing process'):cli.saved_linked_admission(self.current,request)
+            state=cli.saved_linked_admission(self.current,dict(request,historical_link_observation=binding));receipt=state['receipt'];history=receipt['identity']['historical_link_environment']
+            self.assertFalse(history['preservation_verified']);self.assertFalse(history['service_preservation_verified'])
+            self.assertEqual(history['termination_cause'],'unknown');self.assertEqual(history['missing_identities'],binding['missing_identities'])
+            self.assertEqual((capture/'observation.json').read_bytes(),raw);self.assertTrue(saved.valid_receipt(receipt))
+            stripped=copy.deepcopy(receipt);del stripped['identity']['historical_link_environment'];self.assertFalse(saved.valid_receipt(stripped))
+            stripped['key']=saved.key(stripped['identity']);self.assertTrue(saved.valid_receipt(stripped))
+            self.request()
+            with patch.object(cli,'saved_linked_admission',return_value=state),self.assertRaisesRegex(ValueError,'receipt changed'):
+                cli.audit_saved_linked_artifact(self.current,self.capture,stripped)
+            upgraded=copy.deepcopy(receipt);upgraded['identity']['historical_link_environment']['preservation_verified']=True;upgraded['key']=saved.key(upgraded['identity']);self.assertFalse(saved.valid_receipt(upgraded))
+            upgraded=copy.deepcopy(receipt);upgraded['identity']['historical_link_environment']['service_preservation_verified']=True;upgraded['key']=saved.key(upgraded['identity']);self.assertFalse(saved.valid_receipt(upgraded))
+            for edits in [dict(capture=str(self.root/'other')),dict(observation_sha256='0'*64),dict(missing_identities=[]),dict(disposition='ignore'),dict(missing_identities=[dict(binding['missing_identities'][0],pid=72)]),dict(missing_identities=[dict(binding['missing_identities'][0],creation_filetime_ticks=133700000000000007)])]:
+                with self.subTest(edits=edits),self.assertRaises(ValueError):cli.saved_linked_admission(self.current,dict(request,historical_link_observation=dict(binding,**edits)))
+            ids=binding['missing_identities']
+            for changed in [ids[:1],saved.missing_identities([*ids,dict(ids[0],pid=72)]),list(reversed(ids)),[dict(ids[0],path=ids[0]['path'].upper()),ids[1]],[ids[0],ids[0],ids[1]],[dict(ids[0],extra=True),ids[1]]]:
+                with self.subTest(changed=changed),self.assertRaises(ValueError):cli.saved_linked_admission(self.current,dict(request,historical_link_observation=dict(binding,missing_identities=changed)))
+            wrong=copy.deepcopy(dict(before=before,after=after,comparison=comparison));wrong['comparison']['missing_existing_processes']=[];cli.write(capture/'observation.json',wrong)
+            with self.assertRaisesRegex(ValueError,'observation mismatch'):cli.saved_linked_admission(self.current,dict(request,historical_link_observation=binding))
+
     def test_cli_saved_arguments_cannot_mix_with_nvrtc_settings(self):
         for flag in ('--require-cache','--artifact-kind'):
             args=['run','--backend','cuda','--capture',str(self.capture),'--linked-package','p','--linked-capture','c',flag]+(['cubin'] if flag=='--artifact-kind' else [])

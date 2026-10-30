@@ -60,7 +60,9 @@ class PortableDetail(unittest.TestCase):
         body={**self.fixture['body'],'compute_backend':'cuda_shared_detail'}
         expected=copy.deepcopy(self.fixture['cpu_payload']);expected['evaluator']=product.engine_worker.sim.evaluator()
         receipt=dict(identity=dict(provider='mock; not hardware evidence'),key='mock-key')
-        for matching in (True,False):
+        for matching,retained_history in ((True,False),(False,False),(True,True),(False,True)):
+            receipt['identity'].pop('historical_link_environment',None)
+            if retained_history:receipt['identity']['historical_link_environment']=dict(capture=str(ROOT),observation_sha256='a'*64,missing_identities=[dict(pid=71,path='c:/tools/node.exe',creation_filetime_ticks='133700000000000007')],disposition='retained-failure',preservation_verified=False,service_preservation_verified=False,service_status_before='unverified',service_status_after='unverified',termination_cause='unknown')
             events=[]
             @contextmanager
             def provider(source,folder):
@@ -78,12 +80,17 @@ class PortableDetail(unittest.TestCase):
                     result=product.evaluate(body)
                 self.assertEqual(events,['admission','gpu','cpu'])
                 self.assertEqual(result['compute']['backend'],'cuda_shared_detail' if matching else 'cpu')
+                self.assertEqual(result['compute']['saved_cubin_admission'],'verified' if matching else 'not_admitted')
                 capture=next(Path(folder).glob('*/result.json')).parent
                 self.assertTrue((capture/'evidence.json').is_file())
                 if matching:
                     self.assertEqual(result['compute']['artifact_key'],receipt['key'])
                     self.assertEqual(json.loads((capture/'result.json').read_text())['artifact_receipt'],receipt)
                 else:self.assertIn('receipt mismatch',result['compute']['unsupported'][0]['reason'])
+                if retained_history:
+                    self.assertIs(result['compute']['historical_link_preservation_verified'],False)
+                    self.assertEqual(result['compute']['historical_link_missing_processes_count'],1)
+                    self.assertIs(json.loads((capture/'result.json').read_text())['historical_link_preservation_verified'],False)
 
     def test_real_product_admission_rejects_missing_processes_tampered_owner_and_missing_entry(self):
         cli=artifacts.proof_cli()
@@ -170,6 +177,47 @@ class PortableDetail(unittest.TestCase):
                 capture=next(Path(folder).glob('*/result.json')).parent
                 self.assertNotIn('artifact_receipt',json.loads((capture/'result.json').read_text()))
                 self.assertTrue((capture/'evidence.json').exists())
+
+    def test_descriptor_history_reaches_real_admission_loader_and_product_result(self):
+        import test_portable_linked_artifact as existing
+        import portable_linked_artifact as saved
+        import portable_backend as backend
+        from windows_validation_observer import compare_snapshots
+        f=existing.LinkedArtifactTests();f.setUp();self.addCleanup(f.doCleanups);cli=artifacts.proof_cli()
+        hashes=backend.source_hashes(product.SOURCE)
+        for item in (f.golden,f.linked['golden'],f.producer,f.compiler):item['source_sha256']=hashes
+        owner=dict(package_id='mock-owner',suite='product-detail',purpose='sealed',golden=copy.deepcopy(f.golden))
+        package=f.root/'link-owner';capture=f.root/'link';obj=f.root/'object';producer=f.root/'producer'
+        for p in (package,capture,obj,producer):p.mkdir()
+        cli.write(package/'gpu-package.json',f.linked);cli.write(package/'jit-link-object-claimed-cuda.json',{});cli.write(capture/'artifacts.json',{})
+        cli.write(capture/'object-request.json',dict(object_capture=str(obj)));cli.write(obj/'object-request.json',dict(source_capture=str(producer)));cli.write(producer/'compiler.json',f.compiler)
+        cli.write(capture/'jit-link.json',dict(origin=dict(object_receipt=dict(identity=dict(origin=dict(producer=f.producer)))),receipt=f.link));(capture/'jit-linked.cubin').write_bytes(f.image.read_bytes())
+        row=dict(pid=71,path='C:/Tools/CUA/node.exe',creation_filetime_ticks='133700000000000007',role='unrelated')
+        before=dict(processes=[row],service_status='unverified');after=dict(processes=[],service_status='unverified')
+        cli.write(capture/'observation.json',dict(before=before,after=after,comparison=compare_snapshots(before,after)))
+        binding=dict(capture=str(capture),observation_sha256=saved.digest((capture/'observation.json').read_bytes()),missing_identities=saved.missing_identities([row]),disposition='retained-failure')
+        path=self.descriptor(str(f.root));document=json.loads(path.read_text());request=dict(package=str(package),capture=str(capture),historical_link_observation=binding);document['programs'][product.SOURCE]['request']=request;path.write_text(json.dumps(document))
+        expected=copy.deepcopy(self.fixture['cpu_payload']);expected['evaluator']=product.engine_worker.sim.evaluator()
+        def verify(where,**kwargs):return f.linked if where==package else owner
+        def execute(source,entry,packed,iw,ow,actual_backend,*,readback_path):
+            image,receipt=backend.compile_cuda_source(f.source);self.assertEqual(image,f.image.read_bytes())
+            self.assertFalse(receipt['identity']['historical_link_environment']['preservation_verified'])
+            raw=bytes(ow*4);readback_path.write_bytes(raw)
+            return None,dict(backend='cuda',gpu_execution_verified=True,input_sha256=saved.digest(packed),output_sha256=saved.digest(raw),transport=dict(device='mock; not GPU evidence',cases=1,command_status='completed',host_dispatch_seconds=.1,compile_artifact=receipt))
+        with patch.dict(os.environ,{artifacts.ENV:str(path),'NIKKE_DETAIL_CAPTURE_ROOT':str(f.root/'requests'),'NIKKE_SLANG_GENERATION_CACHE':str(f.root)}),\
+             patch.object(product.platform,'system',return_value='Windows'),patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
+             patch.object(artifacts,'proof_cli',return_value=cli),patch.object(cli,'verify_package',side_effect=verify),\
+             patch.object(cli,'audit_jit_link_capture',return_value=dict(link_verified=True,containment_verified=True)),\
+             patch.object(product,'execute',side_effect=execute),patch.object(product,'decode',return_value=self.fixture['gpu_projection']),patch.object(product.engine_worker,'evaluate',return_value=copy.deepcopy(expected)):
+            self.assertEqual(artifacts.select(product.SOURCE)['request'],request)
+            result=product.evaluate({**self.fixture['body'],'compute_backend':'cuda_shared_detail'})
+            self.assertEqual(result['compute']['backend'],'cuda_shared_detail');self.assertIs(result['compute']['historical_link_preservation_verified'],False)
+            where=f.root/'requests'/result['compute']['capture_id'];self.assertEqual(json.loads((where/'linked-artifact-request.json').read_text()),request)
+            self.assertFalse(json.loads((where/'result.json').read_text())['artifact_receipt']['identity']['historical_link_environment']['preservation_verified'])
+            changed=copy.deepcopy(document);changed['programs'][product.SOURCE]['request']['historical_link_observation']['capture']=str(f.root);path.write_text(json.dumps(changed))
+            with self.assertRaisesRegex(ValueError,'capture mismatch'):artifacts.select(product.SOURCE)
+            changed=copy.deepcopy(document);changed['programs'][product.SOURCE]['request']['historical_link_observation']['missing_identities']=[];path.write_text(json.dumps(changed))
+            with self.assertRaises(ValueError):artifacts.select(product.SOURCE)
 
     @classmethod
     def setUpClass(cls):

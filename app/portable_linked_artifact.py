@@ -15,6 +15,62 @@ def digest(raw):return hashlib.sha256(raw).hexdigest()
 def key(identity):return digest(json.dumps(identity,sort_keys=True,separators=(',',':')).encode())
 
 
+def missing_identities(rows):
+    """Lossless identities; FILETIME stays decimal text across Node/Python."""
+    result=[]
+    for row in rows:
+        pid=row['pid'];path=row['path'];created=row['creation_filetime_ticks']
+        if (type(pid) is not int or not 0<pid<=0xffffffff or not isinstance(path,str) or not path
+                or type(created) is not str or not created.isascii() or not created.isdecimal()
+                or str(int(created))!=created or not 0<int(created)<2**64):
+            raise ValueError('Incomplete historical process identity')
+        result.append(dict(pid=pid,path=path.lower(),creation_filetime_ticks=created))
+    result.sort(key=lambda row:(row['pid'],row['path'],row['creation_filetime_ticks']))
+    if len({(r['pid'],r['path'],r['creation_filetime_ticks']) for r in result})!=len(result):raise ValueError('Duplicate historical process identity')
+    return result
+
+
+def validate_history_binding(binding):
+    if (type(binding) is not dict or set(binding)!={'capture','observation_sha256','missing_identities','disposition'}
+            or binding['disposition']!='retained-failure' or not isinstance(binding['capture'],str)
+            or not Path(binding['capture']).is_absolute() or type(binding['observation_sha256']) is not str
+            or len(binding['observation_sha256'])!=64 or any(c not in '0123456789abcdef' for c in binding['observation_sha256'])
+            or type(binding['missing_identities']) is not list or not binding['missing_identities']
+            or any(type(r) is not dict or set(r)!={'pid','path','creation_filetime_ticks'} for r in binding['missing_identities'])
+            or binding['missing_identities']!=missing_identities(binding['missing_identities'])):
+        raise ValueError('Invalid historical link observation binding')
+
+
+def retained_link_environment(capture,observation_raw,comparison,binding):
+    """Bind one prior failure without upgrading its preservation outcome."""
+    missing=comparison['missing_existing_processes']
+    if binding is None:
+        if missing:raise ValueError('Saved CUBIN link observation missing process')
+        return None
+    validate_history_binding(binding)
+    if (not missing or comparison['all_monitored_processes_preserved'] is not False or comparison['termination_cause']!='unknown'
+            or Path(binding['capture']).resolve()!=Path(capture).resolve()
+            or binding['observation_sha256']!=digest(observation_raw)
+            or binding['missing_identities']!=missing_identities(missing)):
+        raise ValueError('Historical link observation binding mismatch')
+    return dict(capture=str(Path(capture).resolve()),observation_sha256=digest(observation_raw),
+                missing_identities=missing_identities(missing),preservation_verified=False,
+                service_preservation_verified=comparison['identified_nikke_service_preservation_verified'],
+                service_status_before=comparison['nikke_service_status_before'],service_status_after=comparison['nikke_service_status_after'],
+                termination_cause='unknown',disposition='retained-failure')
+
+
+def validate_historical_environment(history):
+    fields={'capture','observation_sha256','missing_identities','preservation_verified','service_preservation_verified',
+            'service_status_before','service_status_after','termination_cause','disposition'}
+    if (type(history) is not dict or set(history)!=fields or history['preservation_verified'] is not False
+            or type(history['service_preservation_verified']) is not bool or history['termination_cause']!='unknown'
+            or history['service_preservation_verified'] and 'unverified' in (history['service_status_before'],history['service_status_after'])
+            or any(history[k] not in ('identified','absent','unverified') for k in ('service_status_before','service_status_after'))):
+        raise ValueError('Historical failure cannot become preserved')
+    validate_history_binding({k:history[k] for k in ('capture','observation_sha256','missing_identities','disposition')})
+
+
 def exact_ptx_reuse(producer,compiler,original):
     """Bind two audited producers by actual bytes and complete compiler identity."""
     old,old_compiler,old_raw,current_raw=original
@@ -34,7 +90,7 @@ def exact_ptx_reuse(producer,compiler,original):
         ptx_bytes=len(current_raw),compiler_key=now['key'])
 
 
-def admission(current,linked,producer,compiler,receipt,anchors,*,sealed_producer=None,ptx_reuse=None):
+def admission(current,linked,producer,compiler,receipt,anchors,*,sealed_producer=None,ptx_reuse=None,historical_environment=None):
     baseline=current['golden'];source_owner=linked;certificate=linked['golden']
     reuse=None
     if ptx_reuse is not None:
@@ -62,6 +118,9 @@ def admission(current,linked,producer,compiler,receipt,anchors,*,sealed_producer
     if sealed_producer is not None:
         result['sealed_battle_producer']=dict(package_id=source_owner['package_id'],manifest_sha256=producer['producer_manifest_sha256'],input_sha256=certificate['input_sha256'],output_sha256=certificate['output_sha256'])
     if reuse is not None:result['exact_ptx_reuse']=reuse
+    if historical_environment is not None:
+        validate_historical_environment(historical_environment)
+        result['historical_link_environment']=historical_environment
     return dict(identity=result,key=key(result),artifact_bytes=receipt['artifact']['bytes'],artifact_sha256=receipt['artifact']['sha256'],enabled=True,reused=True)
 
 
@@ -79,6 +138,7 @@ def read_verified(receipt,source,artifact):
 def valid_receipt(receipt):
     try:
         identity=receipt['identity']
+        if 'historical_link_environment' in identity:validate_historical_environment(identity['historical_link_environment'])
         return bool(identity['schema']==1 and identity['provider']==PROVIDER and identity['artifact']=='cubin' and receipt['key']==key(identity) and receipt.get('enabled') is True and receipt.get('reused') is True and type(receipt['artifact_bytes']) is int and receipt['artifact_bytes']>0 and len(receipt['artifact_sha256'])==64 and all(c in '0123456789abcdef' for c in receipt['artifact_sha256']))
     except (KeyError,TypeError,ValueError):return False
 

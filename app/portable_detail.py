@@ -176,6 +176,9 @@ def evaluate(body):
     folder = capture_root / uuid.uuid4().hex
     folder.mkdir(parents=True,exist_ok=False)
     record = dict(requested=requested, capture_id=folder.name, gpu_execution_verified=False, cpu_battle_used_as_gpu_input=False)
+    explicit_image=backend=='cuda' and 'NIKKE_SHARED_CUDA_ARTIFACTS' in os.environ
+    historical_status=dict(saved_cubin_admission='not_admitted') if explicit_image else {}
+    record.update(historical_status)
     def save():
         (folder/'result.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     try:
@@ -196,8 +199,15 @@ def evaluate(body):
         (folder/'input.bin').write_bytes(packed)
         record['source'] = source
         with patch.dict(os.environ,policy) if policy else nullcontext():
-            context=saved_program(source,folder) if backend=='cuda' and descriptor_file() is not None else nullcontext()
+            context=saved_program(source,folder) if explicit_image else nullcontext()
             with context as artifact_receipt:
+                history=artifact_receipt['identity'].get('historical_link_environment') if artifact_receipt is not None else None
+                if history is not None:
+                    from portable_linked_artifact import validate_historical_environment
+                    validate_historical_environment(history)
+                    historical_status.update(historical_link_preservation_verified=False,
+                        historical_link_missing_processes_count=len(history['missing_identities']),historical_link_termination_cause=history['termination_cause'])
+                    record.update(historical_status)
                 raw, evidence = execute(source,'portableEvents',packed,input_words,output_words,backend,readback_path=folder/'readback.bin')
                 if raw is not None:raise RuntimeError('Expected bounded file readback')
                 (folder/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
@@ -205,6 +215,7 @@ def evaluate(body):
             if evidence.get('transport',{}).get('compile_artifact')!=artifact_receipt:
                 raise RuntimeError('Saved product CUBIN transport receipt mismatch')
             record['artifact_receipt']=artifact_receipt
+            historical_status['saved_cubin_admission']='verified';record.update(historical_status)
         transport, timing = verified_transport(evidence,backend)
         record.update(gpu_execution_verified=evidence['gpu_execution_verified'],input_sha256=evidence['input_sha256'],output_sha256=evidence['output_sha256'])
         block = array.array('I');block.frombytes((folder/'readback.bin').read_bytes())
@@ -215,6 +226,7 @@ def evaluate(body):
             input_sha256=evidence['input_sha256'],output_sha256=evidence['output_sha256'],source=source,
             scope='shared autonomous battle; CPU verified for this request')
         payload['compute'][timing] = transport[timing]
+        payload['compute'].update(historical_status)
         if artifact_receipt is not None:
             payload['compute']['artifact_provider']=artifact_receipt['identity']['provider']
             payload['compute']['artifact_key']=artifact_receipt['key']
@@ -228,12 +240,12 @@ def evaluate(body):
         (folder/'gpu-payload.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         if differences:
             cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUとCPUの照合に差があったため、CPUの結果を表示しています。',
-                gpu_result_rejected=True,cpu_verification=record['cpu_verification'])
+                gpu_result_rejected=True,cpu_verification=record['cpu_verification'],**historical_status)
             record['backend']='cpu';save();return cpu
         payload['compute']['cpu_verification']=record['cpu_verification']
         record['backend']=requested;save();return payload
     except (UnsupportedPortable,ValueError,RuntimeError,OSError) as error:
         record.update(backend='cpu',error=str(error));save()
         cpu = engine_worker.evaluate(body)
-        cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=[dict(reason=str(error))],gpu_execution_verified=record['gpu_execution_verified'])
+        cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=[dict(reason=str(error))],gpu_execution_verified=record['gpu_execution_verified'],**historical_status)
         return cpu

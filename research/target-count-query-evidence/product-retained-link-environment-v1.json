@@ -1,0 +1,78 @@
+{
+  "schema": "retained-link-environment-v1",
+  "purpose": "Separate immutable image integrity from a precisely bound historical environment failure",
+  "default_missing_rejection_retained": true,
+  "other_ptx_object_and_current_job_guards_unchanged": true,
+  "binding_fields": [
+    "capture",
+    "observation_sha256",
+    "missing_identities",
+    "disposition"
+  ],
+  "disposition": "retained-failure",
+  "filetime_representation": "canonical decimal text, never JSON floating point",
+  "exact_sorted_complete_identity_set_required": true,
+  "prior_observation_and_original_claims_modified": false,
+  "receipt_identity_carries_false_preservation": true,
+  "service_unidentified_cannot_become_preserved": true,
+  "history_recomputed_during_independent_admission": true,
+  "cpu_fallback_retains_history_after_admission": true,
+  "explicit_image_not_admitted_marker": true,
+  "frontend_readiness": "Shape/path hint; authoritative exact identity and raw observation verification is Python",
+  "tests": {
+    "linked": 25,
+    "product": 22,
+    "node": 24,
+    "packet": 3,
+    "scope": "Mocked compiler/driver output; no Windows GPU proof"
+  },
+  "review": {
+    "claude_completed": true,
+    "medium_gaps_addressed": [
+      "multi-process subset/superset/order/case/duplicate/extra-key tests",
+      "real descriptor to CLI admission to read_verified to phases to product response test"
+    ],
+    "other_gaps_addressed": [
+      "contradictory service preservation rejected",
+      "history-stripped/re-keyed receipt rejected by independent admission",
+      "not_admitted status explicit",
+      "history shape validated before publishing"
+    ]
+  },
+  "calculation_functions_unchanged": [
+    "prepare",
+    "compile_product",
+    "decode_payload"
+  ],
+  "numeric_golden_or_gpu_source_changed": false,
+  "windows_preflight_pending": true,
+  "cuda_product_profiles_verified": 0,
+  "planned_first_hardware_scope": "One ordinary HTTP/API request, duration1second, CPU full payload comparison after GPU; not full30seconds/allprofiles",
+  "new_run_requirements": [
+    "fresh BelowNormal Job",
+    "2GiB and existing bounded timeouts",
+    "current before/after snapshots with zero missing identities",
+    "service identification reported separately",
+    "stop on any new loss; no repeat claim or build"
+  ],
+  "full_goal_complete": false,
+  "short_metal_reference": {
+    "requested": "metal_detail",
+    "backend": "metal_detail",
+    "capture_id": "14072248c1c74711a6a50deaac9adc93",
+    "device": "Apple M5",
+    "elapsed_ms": 1262.0074580190703,
+    "gpu_execution_verified": true,
+    "input_sha256": "e26cf2bbb65dd20fc1b03780b24d38729a3c783b41913f1971284ca45b29c0d8",
+    "output_sha256": "647c30819467bd6e970c8c5a993d4a9b49688890cfe82c161350c33482cb5c3f",
+    "source": "gpu/product_battle_entry.slang",
+    "scope": "shared autonomous battle; CPU verified for this request",
+    "gpu_seconds": 0.10230450000381097,
+    "cpu_verification": {
+      "matched": true,
+      "differing_fields": []
+    }
+  },
+  "short_reference_duration_seconds": 1,
+  "short_reference_scope": "Ordinary API actual M5 plus full CPU payload comparison; dynamic input for first Windows request, not a new suite/golden"
+}

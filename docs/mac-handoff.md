@@ -1,3 +1,13 @@
+# 2026-10-31 特定の過去link失敗を保持するbinding、短い実機確認の準備
+
+既定のmissing拒否とPTX/object/current Jobの拒否は維持。requestのhistorical_link_observationだけ、同じlink captureの絶対path・元observation.json全raw SHA・全missing PID/path/FILETIMEの完全一致・disposition=retained-failureを要求する。観測比較自体も元before/afterから再計算。FILETIMEはdecimal文字列で精度保持。false/unknownとサービス識別状態をreceipt identityへ保持し、API成功/CPU切替にも引き継ぐ。source/header/image/比較/containment緩和0。admit前はsaved_cubin_admission=not_admitted、image/phase/transport一致後だけverified。汎用allow-missingなし、元claim/観測変更なし。詳細は同じgpu-development-cli.mdの節。
+
+Claude reviewのmulti-identity集合・subset/superset/order/case/duplicate/extra-key、履歴除去＋key再計算の再audit拒否、unverified serviceをtrueへ変更不可、descriptor→実CLI admission→read_verified→phase→API応答のmockドライバー経路を追加した。linked25/product22/Node24/packet3成功、GPU/数値/保護CPU変更0。Node configuredは形状/pathのヒントで、raw identityの最終権限はPython。実Windows未検証で、この変更だけをGPU成功へ数えない。
+
+Mac通常APIの元Miranda bodyをduration1秒だけにしてM5実GPU/CPU全製品応答一致を確認。GPU0.102305秒、input SHA e26cf2bbb65dd20fc1b03780b24d38729a3c783b41913f1971284ca45b29c0d8、output SHA647c30819467bd6e970c8c5a993d4a9b49688890cfe82c161350c33482cb5c3f。proof product-short-api-v1-20261031。4342 server PID89087は停止済み、driver88232はexit0。新suite/数値goldenは作らない。Windowsも同じfixtureのbody.duration=1/compute_backend=cuda_shared_detailで最初の要求を予定し、30秒/全profileと加算しない。
+
+次は固定commit/packageのCPU-only source/admission/image readをWindowsで1回だけ行う。既存b3b0/a50のCUBINとobservation/claim/producer/toolを保持し、history bindingを元rawからPython helperで作る。生成cacheは古いb3b0のrequired hit（4consumerもGPU sourceも不変）を使い、Slang/NVRTC/object/link/driver/GPUはCPU段階で0。fresh Job/直前と後の全process snapshot、2GiB/BelowNormal/child60s/outer180sを維持し、新欠落があればGPUへ進めない。receiptのhistorical falseと今回のmissing/service識別を別に報告する。CPU段階の結果確認前にGPUは依頼しない。以下は履歴。
+
 # 2026-10-31 通常APIの保存CUBIN接続を実装、実CUDAは未実行
 
 app/portable_product_artifact.pyから現runtimeの既存CLI verify_package/saved_linked_providerを再利用。環境変数NIKKE_SHARED_CUDA_ARTIFACTSの明示JSONでnormal製品source→sealed owner/link requestを選ぶ。現在GPU source closureと全owner payload/golden・元PTX/object/link/header/imageを照合し、live NVRTC禁止、生成cache必須。従来cache方式は既定のまま。保存image要求はNode応答cacheを使わず毎回監査。Node/Python設定schemaをnormal入口1種類へ揃えた。group/targetのsaved imageは未対応CPU切替。共通verify_phasesを既存CLIから抽出してAPIにも使い、既存observeで実境界を記録、禁止compile試行も記録/拒否。owner/admission成功失敗の時間を記録しdeadline延長0。入出力準備/decoder/計算/GPU/保護CPU/数値golden変更0。

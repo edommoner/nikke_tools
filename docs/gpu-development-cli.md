@@ -1,5 +1,16 @@
 ## 通常製品APIの明示的な保存CUBIN
 
+### 特定の過去link保全失敗の引き継ぎ
+
+requestへ任意の`historical_link_observation`を追加できる。これは汎用のmissing無視フラグではない。4キー`capture`（同じlink captureの絶対path）、`observation_sha256`（元observation.jsonの全raw byte SHA）、`missing_identities`（消失全件のpid/path/creation_filetime_ticksを昇順・重複なしで保持）、`disposition:"retained-failure"`が必要。pidは整数、pathは元記録のlowercase、FILETIMEは精度を失わない正規化decimal文字列。元ファイル・分類・cause・claimは書き換えない。
+
+監査が元before/afterから再計算した比較全体と一致したうえで、capture/raw SHA/全identityが完全一致する場合だけ、過去のpreservation=false/termination_cause=unknownとサービス識別状態をreceipt identityへ引き継ぐ。falseをtrueへ変更したreceipt、他capture、subset/superset/重複/並び替え/extra key、不一致のrawは拒否する。履歴を除いてkeyを再計算しても、再admissionで得る元receiptとの比較で拒否する。観測を省略したり、新しい実行の欠落を許可する機能ではない。
+
+通常APIは`compute.saved_cubin_admission`を`not_admitted`/`verified`で区別する。履歴がadmitされた場合、成功でもCPU切替でも`historical_link_preservation_verified:false`、missing件数、原因unknownを返し、完全な履歴はcapture/receiptへ保存。admit前の拒否はnot_admittedであり、historical fieldが無いことを過去保全成功と解釈しない。新実行では別のfresh Job/前後観測を行い、現在のmissing件数0とサービス識別未確認を別に報告する。
+
+Windowsの最初の実GPU確認は通常HTTP APIの1秒sceneだけを予定し、実driver/GPU/CPU全応答一致を確認する。30秒profile/全profile認定へ加算しない。Job/timeout/TDR/OS設定は変更せず、1回で停止し、新しいprocess消失があれば後続へ進まない。
+
+
 `cuda_shared_detail`は既定では従来どおりpaired生成cacheとCUBIN/O1 cacheを必須にする。別の明示設定`NIKKE_SHARED_CUDA_ARTIFACTS`へ絶対JSONファイルパスを渡すと、既存CLIの保存PTX/object/JIT-link監査と同じproviderを使う。NVRTC cacheとして偽装せず、実行時のNVRTCは禁止。現時点の登録対象は通常body入口だけで、group/target入口は理由付きCPU fallbackとなる。
 
 次はパス形状の例であり、現在のWindows保存物を実行許可する設定ではない。
@@ -8,9 +19,9 @@
 {"schema":1,"programs":{"gpu/product_battle_entry.slang":{"battle_package":"C:/proof/sealed-battle/packet","request":{"package":"C:/proof/sealed-link-controller/packet","capture":"C:/proof/saved-link-capture"}}}}
 ```
 
-必要な場合だけ、既存CLIと同じ対`producer_package`/`producer_capture`をrequestへ加える。全pathは既存の絶対directory。設定JSONは個人パスを含むためGitへ含めない。`NIKKE_SLANG_GENERATION_CACHE`も必須で、missからの生成/コンパイルfallbackはない。NodeとPythonの設定受付条件は同じ。画面のavailableは設定の有無であり、実行可否・GPU計算証明は要求ごとに判定する。
+必要な場合だけ、既存CLIと同じ対`producer_package`/`producer_capture`をrequestへ加える。全pathは既存の絶対directory。設定JSONは個人パスを含むためGitへ含めない。`NIKKE_SLANG_GENERATION_CACHE`も必須で、missからの生成/コンパイルfallbackはない。Nodeは設定形状/pathの受付を示し、正確な整数/Unicode identity・観測rawの照合はPythonが最終判定する。画面のavailableは設定の有無であり、実行可否・GPU計算証明は要求ごとに判定する。
 
-実行側の監査コードでowner全payload/goldenと現GPU source closureを照合し、元のPTX→object→link→CUBIN全chain、Job/観測、exact CUDA/header/image SHAを検査する。選択設定のフォルダーからPythonコードを実行しない。従来のmissing-process拒否は維持し、今回の7件消失がある保存CUBINは使用しない。
+実行側の監査コードでowner全payload/goldenと現GPU source closureを照合し、元のPTX→object→link→CUBIN全chain、Job/観測、exact CUDA/header/image SHAを検査する。選択設定のフォルダーからPythonコードを実行しない。既定のmissing-process拒否とPTX/objectの拒否は維持する。過去の特定link失敗だけを保持する下記の明示binding以外では使用できない。
 
 保存CUBIN要求は応答cacheを使わず、毎回admissionと実際のimage readを通す。通常CPU/Metal/native CUDA cacheの挙動は保持。成功時のcomputeへ`artifact_provider`/`artifact_key`を追加し、captureへowner/request/phase/receiptを保持する。共有phase検査は元CLIとAPIで同じ関数を使い、NVRTC/cache混入・source admission/read/receipt順序・receipt不一致を拒否する。GPU読戻し後の全CPU製品応答比較は省略しない。
 

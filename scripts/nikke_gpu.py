@@ -2974,9 +2974,11 @@ def linked_object_origin(request):
 
 def saved_linked_admission(m,request):
     """Independent full producer/object/link audit; never activates a compiler."""
-    from portable_linked_artifact import admission
+    from portable_linked_artifact import admission,retained_link_environment
     if bool(request.get('producer_package'))!=bool(request.get('producer_capture')):
         raise ValueError('Both current PTX producer package and capture required')
+    fields=set(request)-{'historical_link_observation'}
+    if fields not in ({'package','capture'},{'package','capture','producer_package','producer_capture'}):raise ValueError('Invalid saved CUBIN request fields')
     package=Path(request['package']).resolve();capture=Path(request['capture']).resolve()
     header=load(package/'gpu-package.json')
     linked=verify_package(package,historical_compiler=compiler_only(header))
@@ -2985,8 +2987,10 @@ def saved_linked_admission(m,request):
     result=audit_jit_link_capture(linked,capture,package_root=package)
     if not result['link_verified'] or not result['containment_verified']:raise ValueError('Saved CUBIN link chain is not verified')
     from windows_validation_observer import compare_snapshots
-    observation=load(capture/'observation.json');comparison=compare_snapshots(observation['before'],observation['after'])
-    if observation['comparison']!=comparison or comparison['missing_existing_processes']:raise ValueError('Saved CUBIN link observation mismatch or missing process')
+    observation_raw=(capture/'observation.json').read_bytes();observation=json.loads(observation_raw)
+    comparison=compare_snapshots(observation['before'],observation['after'])
+    if observation['comparison']!=comparison:raise ValueError('Saved CUBIN link observation mismatch')
+    history=retained_link_environment(capture,observation_raw,comparison,request.get('historical_link_observation'))
     proof=load(capture/'jit-link.json');link_request=load(capture/'object-request.json')
     object_capture=Path(link_request['object_capture']);object_request=load(object_capture/'object-request.json')
     producer=proof['origin']['object_receipt']['identity']['origin']['producer']
@@ -3011,10 +3015,10 @@ def saved_linked_admission(m,request):
         if compiler_only(source) or source.get('purpose','sealed')!='sealed' or not registered_battle_source(source['suite']):
             raise ValueError('Saved CUBIN requires a sealed world battle source producer')
         anchors['producer_manifest_sha256']=sha((source_package/'gpu-package.json').read_bytes())
-        receipt=admission(m,linked,producer,compiler,proof['receipt'],anchors,sealed_producer=source,ptx_reuse=reuse)
+        receipt=admission(m,linked,producer,compiler,proof['receipt'],anchors,sealed_producer=source,ptx_reuse=reuse,historical_environment=history)
     else:
         if request.get('producer_package'):raise ValueError('Exact PTX reuse requires a sealed link controller')
-        receipt=admission(m,linked,producer,compiler,proof['receipt'],anchors)
+        receipt=admission(m,linked,producer,compiler,proof['receipt'],anchors,historical_environment=history)
     return dict(receipt=receipt,artifact=str(capture/'jit-linked.cubin'))
 
 
