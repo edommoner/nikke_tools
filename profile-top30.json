@@ -320,5 +320,42 @@
     "interpretation": "Preserve the exact top30 values; do not infer per-function percentages, bottleneck, I/O waits or contention. Cause of these profile inconsistencies is unknown.",
     "retry_performed": false
   },
-  "thread_coverage_limitation": "Ordinary cProfile is a calling/main-thread view. Four-reader worker open/read/hash coverage is not complete or reliably attributed. Saved worker-named frames and inconsistent internal/cumulative values do not establish complete worker profiling. process_time covers process threads. Lock/Future times do not identify I/O or CPU contention. No cross-platform timing comparison."
+  "thread_coverage_limitation": "Ordinary cProfile is a calling/main-thread view. Four-reader worker open/read/hash coverage is not complete or reliably attributed. Saved worker-named frames and inconsistent internal/cumulative values do not establish complete worker profiling. process_time covers process threads. Lock/Future times do not identify I/O or CPU contention. No cross-platform timing comparison.",
+  "saved_driver_settings": {
+    "constructor": "cProfile.Profile()",
+    "timer_argument": "not supplied; default profiler timer",
+    "timeunit_argument": "not supplied; default",
+    "worker_profile_setup_in_driver": false,
+    "threading_setprofile_in_driver": false,
+    "per_worker_profile_objects_in_driver": false,
+    "actual_worker_profile_coverage": "not established; no per-worker profiler configured",
+    "pstats_tuple_mapping": {
+      "function_key": [
+        "filename",
+        "line_number",
+        "function_name"
+      ],
+      "function_value": [
+        "primitive_calls(cc)",
+        "total_calls(nc)",
+        "internal_seconds(tt)",
+        "cumulative_seconds(ct)",
+        "callers"
+      ],
+      "report_mapping": {
+        "primitive_calls": "cc",
+        "total_calls": "nc",
+        "internal_seconds": "tt",
+        "cumulative_seconds": "ct"
+      }
+    },
+    "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "python_implementation": "cpython",
+    "python_version_provenance": "Read after profiling from the same configured base interpreter; version was not explicitly frozen by the original profile driver",
+    "driver_sha256": "03945d7481ba02dca14c0156ad20d6e4d16c645812a6b8ffdf95649ea1cb9820",
+    "wall_timer": "time.perf_counter()",
+    "process_cpu_timer": "time.process_time()",
+    "separate_clocks": true
+  },
+  "decision_limit": "Inconsistent function time relationships prevent using function percentages for optimization or next-compile decisions. Unprofiled10.650s and profiled8.470s are not a speed-improvement comparison. No profile or measurement rerun."
 }
