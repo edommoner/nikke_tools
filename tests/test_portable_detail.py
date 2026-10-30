@@ -148,6 +148,32 @@ class PortableDetail(unittest.TestCase):
             self.assertEqual(fixed[base+2:base+5],original[base+2:base+5]);self.assertFalse(any(fixed[base+11:base+16]))
             self.assertEqual(meta['real_prepared_input']['policy']['controls'],prepared['policies']['controls'])
 
+    def test_original_parts_lowering_and_gpu_result_projection_are_lossless(self):
+        from portable_specs import LIMITS as L
+        from portable_world_result import read_product_parts
+        body=copy.deepcopy(self.fixture['body'])
+        body['enemy']['parts']=[dict(name='breakable',hp=10,reach=1),dict(name='unbreakable',hp=0,reach=3)]
+        with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle in parts preparation')):
+            prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+            _,_,_,_,meta=product.compile_product(prepared)
+        self.assertEqual(prepared,before)
+        self.assertEqual(meta['product_parts'],[dict(name='breakable',slot=1,node=0),dict(name='unbreakable',slot=2,node=0)])
+        self.assertEqual(meta['real_prepared_input']['actor_bindings'],3)
+        block=array.array('I',[0])*786432;head=L['WORLD_ACTOR_POOL_OUTPUT_BASE'];state=L['WORLD_ACTOR_POOL_STATE_BASE'];extra=L['COUNTER_LANDING_EXTRA_BASE'];graph=L['WORLD_FRAME_OUTPUT_BASE']
+        number=lambda x:array.array('I',product.struct.unpack('<II',product.struct.pack('<d',x)))
+        block[head:head+2]=array.array('I',[0x57485031,3]);block[graph+2]=1
+        block[graph+2832:graph+2838]=array.array('I',[5,0,1,*number(.25),0])
+        for slot in (1,2):block[state+slot*16]=1
+        block[state+16+2]=1;block[state+16+3]=2;block[state+16+6:state+16+8]=number(5000.)
+        block[extra+4]=3;block[extra+6:extra+8]=number(2500.75)
+        block[state+32+1]=1;block[extra+8]=5;block[extra+10:extra+12]=number(2800.5)
+        self.assertEqual(read_product_parts(block,meta,body['enemy']['parts'],30),[
+            dict(name='breakable',damage=7500.75,hits=5,destroyed=True,destroyed_at=.25),
+            dict(name='unbreakable',damage=2800.5,hits=5,destroyed=False,destroyed_at=None)])
+        for offset,value in [(head,0),(head+1,2),(state+16,2),(state+18,0),(graph+2,2049),(graph+2833,31),(extra+7,0x7ff80000)]:
+            bad=array.array('I',block);bad[offset]=value
+            with self.subTest(offset=offset),self.assertRaises(product.UnsupportedPortable):read_product_parts(bad,meta,body['enemy']['parts'],30)
+
     def descriptor(self,folder,**changes):
         document=dict(schema=1,programs={product.SOURCE:dict(battle_package=folder,request=dict(package=folder,capture=folder))})
         document.update(changes)
@@ -503,7 +529,7 @@ class PortableDetail(unittest.TestCase):
                 self.assertEqual(record['error_type'],type(error).__name__)
                 self.assertEqual(record['error'],str(error))
                 self.assertNotIn('audit metadata incomplete',record['error'])
-    def test_product_parts_gap_falls_back_before_any_gpu_dispatch(self):
+    def test_invalid_product_parts_fall_back_before_any_gpu_dispatch(self):
         body=copy.deepcopy(self.fixture['body']);body['enemy']['parts']=[dict(id='example')]
         with tempfile.TemporaryDirectory() as folder,patch.dict('os.environ',NIKKE_DETAIL_CAPTURE_ROOT=folder),\
              patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
@@ -511,7 +537,7 @@ class PortableDetail(unittest.TestCase):
              patch.object(product.engine_worker,'evaluate',return_value=copy.deepcopy(self.fixture['cpu_payload'])):
             result=product.evaluate(body)
             self.assertEqual(result['compute']['backend'],'cpu')
-            self.assertIn('未接続',result['compute']['unsupported'][0]['reason'])
+            self.assertIn('パーツ',result['compute']['unsupported'][0]['reason'])
     def test_both_backends_use_identical_inputs_decoder_and_post_readback_cpu_check(self):
         wires=[]
         for requested,backend in product.BACKENDS.items():

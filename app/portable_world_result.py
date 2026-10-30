@@ -135,3 +135,41 @@ def read_product_control_log(block,metadata,names,duration):
         close(who,duration)
     log.control_preempt=preempts
     return log
+
+
+def read_product_parts(block,metadata,parts,duration):
+    """Original authored parts from GPU pools, extra-hit credit and destruction.
+
+    The factory creates one generation. HP and the time of destruction are
+    never reconstructed from input values or a CPU battle.
+    """
+    import math
+    from portable_runtime import UnsupportedPortable
+    rows=metadata.get('product_parts',[]);nodes=metadata.get('product_world',{}).get('nodes',[])
+    def fail():raise UnsupportedPortable('Invalid or incomplete GPU product part history')
+    if not rows or [r['name'] for r in rows]!=[p['name'] for p in parts]:fail()
+    head=L['WORLD_ACTOR_POOL_OUTPUT_BASE'];state=L['WORLD_ACTOR_POOL_STATE_BASE'];extra=L['COUNTER_LANDING_EXTRA_BASE'];graph=L['WORLD_FRAME_OUTPUT_BASE']
+    if len(block)<L['WORLD_ACTOR_POOL_OUTPUT_WORDS'] or block[head]!=0x57485031:fail()
+    count=block[head+1]
+    if count!=metadata['real_prepared_input']['actor_bindings'] or not 1<=count<=128 or block[graph+2]>2048:fail()
+    selected={r['slot']:r for r in rows}
+    if len(selected)!=len(rows) or any(not 0<slot<count for slot in selected):fail()
+    def number(at):return struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
+    destroyed={}
+    for i in range(block[graph+2]):
+        at=graph+2832+i*6;kind,node,arg=block[at:at+3];when=number(at+3)
+        if kind not in (1,2,3,4,5,6,7) or node>=len(nodes) or not math.isfinite(when) or not 0<=when<=duration:fail()
+        if kind==5 and arg in selected:
+            if node!=selected[arg]['node'] or arg in destroyed:fail()
+            destroyed[arg]=when
+    result=[]
+    for row in rows:
+        slot=row['slot'];at=state+slot*16;credit=extra+slot*4
+        direct=number(at+6);extra_damage=number(credit+2);damage=direct+extra_damage
+        if (block[at]!=1 or block[at+1]>1 or block[at+2]>1
+                or bool(block[at+2])!=(slot in destroyed)
+                or any(not math.isfinite(v) or v<0 for v in (direct,extra_damage,damage))
+                or block[at+3]>0x7fffffff or block[credit]>0x7fffffff):fail()
+        result.append(dict(name=row['name'],damage=damage,hits=block[at+3]+block[credit],
+            destroyed=slot in destroyed,destroyed_at=round(destroyed[slot],6) if slot in destroyed else None))
+    return result

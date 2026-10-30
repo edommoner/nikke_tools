@@ -93,6 +93,10 @@ def compile_product(prepared):
                 raise UnsupportedPortable('Reserved boss pattern has no product execution model')
             metadata['product_world']=dict(nodes=[dict(id=p.id,kind=p.kind) for p in nodes],
                 literal_pattern_identity_only=True,cpu_schedule_or_state_supplied=False)
+            from portable_actor_specs import compile_registry
+            _,bindings=compile_registry(nodes,pools=True)
+            metadata['product_parts']=[dict(name=b.label,slot=slot,node=b.run)
+                for slot,b in enumerate(bindings) if int(b.kind)==1 and nodes[b.run].id=='authored-live-parts']
         if nearby:
             metadata['real_prepared_input']['single_body_nearby']=dict(rows=nearby,
                 original_effects=[copy.deepcopy(original['effects'][i]) for i in nearby],
@@ -206,6 +210,10 @@ def decode_payload(body, prepared, run, metadata, block):
         burst_timeline=events, shooting_policy=body.get('shooting_policy','auto'), weapon_mode_swap=body.get('weapon_mode_swap',False),
         burst_gauge_mode=body.get('burst_gauge_mode','fixed'), hypothetical=hypothetical,
         engine_revision=engine_worker.REVISION, app_warnings=warnings)
+    if body.get('enemy',{}).get('parts'):
+        from portable_world_result import read_product_parts
+        from detail_world import read_parts
+        payload['parts_state']=read_product_parts(block,metadata,read_parts(body['enemy']['parts']),run.config['duration'])
     if body.get('enemy',{}).get('patterns'):
         from portable_world_result import read_histories
         from portable_specs import LIMITS
@@ -267,11 +275,13 @@ def evaluate(body):
         policy = execution_environment(backend)
         prepared, run = prepare(body)
         # These need product history/operation projections, not silent omission.
-        if body.get('enemy',{}).get('parts'):
-            raise UnsupportedPortable('製品用GPUのパーツ結果変換は未接続です。')
+        from detail_world import read_parts
+        parts=read_parts(body.get('enemy',{}).get('parts',[]))
         # The shared world compiler normalizes original tap/hold controls.
         # Its admission still rejects unconnected aim/cover/reload/burst axes.
         source, input_words, output_words, words, metadata = compile_product(prepared)
+        if parts and [p['name'] for p in parts]!=[p['name'] for p in metadata.get('product_parts',[])]:
+            raise UnsupportedPortable('Original part identities disagree with the shared world registry')
         wire = array.array('I',[1,*words])
         if sys.byteorder != 'little':wire.byteswap()
         packed = wire.tobytes()
