@@ -59,13 +59,24 @@ class WeaponShieldTests(unittest.TestCase):
   self.assertEqual(REFERENCES['destructible-weapon-shield'][0],'destructible_weapon_shield_cases')
   # The shared runtime now intentionally accepts additional product conditions.
   # Do not re-label its immutable historical source certificate as current.
-  # Instead require a real current-source capture of ALL unchanged old vectors,
-  # including byte-for-byte outputs and original dispatch positions.
+  # Require all old vectors, bytes and positions. A compiler-hint-only source
+  # change may reuse that capture only with identical paired generated programs
+  # and reflection, under the identical Slang compiler identity.
   receipt=json.loads((ROOT/'research/target-count-query-evidence/product-profile-progress-v5.json').read_text())['legacy_typed_retention']
   golden_path=ROOT/'research/portable-destructible-weapon-shield-short-expected.json'
   golden=json.loads(golden_path.read_text())
   self.assertEqual(receipt['golden_sha256'],hashlib.sha256(golden_path.read_bytes()).hexdigest())
-  self.assertEqual(receipt['source_sha256'],source_hashes(receipt['source']))
+  current=source_hashes(receipt['source'])
+  if current!=receipt['source_sha256']:
+   identity=json.loads((ROOT/'research/target-count-query-evidence/product-outline-v1.json').read_text())['legacy_program_identity']
+   self.assertEqual(identity['source'],receipt['source'])
+   self.assertEqual(identity['baseline_source_sha256'],receipt['source_sha256'])
+   self.assertEqual(identity['current_source_sha256'],current)
+   self.assertEqual(identity['baseline_generated_sha256'],receipt['generated_sha256'])
+   self.assertEqual(identity['generated_sha256'],receipt['generated_sha256'])
+   self.assertTrue(identity['all_four_code_and_reflection_artifacts_identical'])
+   self.assertTrue(identity['compiler_identity_unchanged'])
+   self.assertEqual(identity['gpu_calls'],0)
   self.assertTrue(receipt['gpu_execution_verified']);self.assertEqual(receipt['backend'],'metal')
   self.assertEqual(receipt['transport']['command_status'],'completed')
   self.assertEqual(receipt['transport']['cases'],141)

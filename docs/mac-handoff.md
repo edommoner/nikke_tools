@@ -1,3 +1,11 @@
+# 2026-10-30 製品helper4関数を共通outline：元の数値fingerprint保持
+
+PORTABLE_PRODUCT_OUTLINED_HELPERSを製品3入口へ追加（group-targetはgroup入口から継承）。weaponFrame/captureFocusAims/actorFieldsDefinitionValid/initializeTargetCountersの定義だけ条件付きnoinlineとし、CUDA/Metal共通、計算/検査本文/入出力/CPU正本は変更0。生成CUDA差分は4個の__noinline__だけ、Metalも同じ4属性だけ。通常経路のsquadFrame inline closure内にこの2大helperが残らないことを既存cuda_statisticsで確認した。実ptxasピーク削減はまだ未確認。
+
+不変development owner897b1b99…でM5実GPU1.749775秒、全CPU製品応答一致、元v1 sealedのinput/output全byte SHAと全native entriesがそのまま一致。独立sealも成功。v2 goldenはsource/生成metadataのみ更新し、v1は保持。製品15/packet3/武器7/compile CLI13成功。旧武器shield入口は同一Slang/compiler identityのCUDA/MSL/reflection全4artifactが完全同一なので、元141件GPU結果を追加GPU0で再利用。既存保持検査はこの厳密なprogram identityも検査し、旧GPU captureのsourceを現sourceへ付け替えない。小証跡product-outline-v1.json。
+
+現outlineコードの通常API全profile回帰はこれからで、以前のMetal255を現outlineの再実証件数へ数えない。旧profile/input/CPU期待値は保持。Windowsの旧sourceはMemory allocation failureで停止済み。次はこの変更ソースの新sealed packet自身のcompile-planを通し、同じ2GiB/child60s/outer180sで必要なCUBIN1回だけを準備する。数値/効果の省略・上限拡大・同一失敗の再試行はしない。以下は履歴。
+
 # 2026-10-30 対象倍率＋multi-hitの実編成を通常APIでMetal確認
 
 CUDA続報：同じownerのfresh rootでPTX8.4/sm86（9416812bytes、SHA bd33a2a7…）の前段が成功。NVRTC24.968秒、inner peak225636352bytes、Slang再生成0。保存PTXを既存standalone ptxas12.4.131で別Jobに渡したが、16.082秒で同じMemory allocation failure、CUBINなし。旧失敗/producer21file不変、追加GPU/driver/context0。現在Windowsは停止済みで新規compile依頼なし。

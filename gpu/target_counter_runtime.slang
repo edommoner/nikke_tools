@@ -127,6 +127,9 @@ bool validTargetCounterAction(uint at)
     uint family=commands[at+7],outcome=commands[at+8];uint64_t damage=loadNumber(at+9),credit=loadNumber(at+11),limit=f64FromI64(1000000000000000UL);limit=f64Mul(limit,limit);
     return commands[at+3]<5&&family<4&&outcome<3&&commands[at+13]<0x1000000U&&f64Finite(damage)&&f64Finite(credit)&&!f64Less(damage,0)&&!f64Less(credit,0)&&!f64Less(limit,damage)&&!f64Less(limit,credit)&&(outcome==2||f64Zero(damage))&&(outcome!=0||f64Zero(credit));
 }
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+[noinline]
+#endif
 bool initializeTargetCounters(inout Runtime s)
 {
     uint base=s.inputBase+P_TARGET_COUNTER_INPUT_BASE;

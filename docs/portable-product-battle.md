@@ -1,5 +1,10 @@
 # 通常製品APIの共通GPU経路
 
+製品入口は共通の4 helperをnoinlineで呼び、CUDAの大きなフレーム処理の展開を抑える。
+計算式・検査・wireは同一。元30秒fixtureのinput/output全バイトとCPU fingerprintを
+保持したM5実行・独立監査があるが、現compiler profileの全API回帰は別途確認する。
+`product-outline-v1.json` は過去255 profileと現在の確認範囲を分けて記録する。
+
 対象別倍率とmulti-hitを別のメンバーが持つplain BODY編成も、元carrierとgroup通知を
 保持して共通実行器へ渡す。Sakura/Belorta/Miranda/Dora/Drakeの30秒は通常APIから
 M5で全CPU応答一致を確認した。axis表は別suffixへ保持し、GPUでもBODY1体の世界を

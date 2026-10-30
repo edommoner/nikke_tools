@@ -57,6 +57,9 @@ uint focusFirstAdd(inout Runtime s)
     return 0;
 #endif
 }
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+[noinline]
+#endif
 void captureFocusAims(inout Runtime s,uint64_t when)
 {
 #ifdef PORTABLE_COORDINATE_AUTHORED_AIM

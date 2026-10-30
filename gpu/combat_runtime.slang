@@ -319,6 +319,9 @@ void weaponFrameBody(inout Runtime s, uint who, uint64_t when, uint output, out 
     );
 }
 
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+[noinline]
+#endif
 void weaponFrame(inout Runtime s, uint who, uint64_t when, uint output)
 {
     s.frameAmmoActive[who] = 0;s.physicalGaugeOwner=0;

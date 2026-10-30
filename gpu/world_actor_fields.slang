@@ -41,6 +41,9 @@ bool actorFieldContextAdd(inout Runtime s,uint who)
 }
 bool actorFieldTargetMismatch(inout Runtime s,uint who,uint kind)
 { return kind==C_TARGET_BOSS && actorFieldContextAdd(s,who) || kind==C_TARGET_ADD && !actorFieldContextAdd(s,who); }
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+[noinline]
+#endif
 bool actorFieldsDefinitionValid(inout Runtime s,uint row,Definition d)
 {
     WORLD_STATE_HEALTH_GUARD(s,d) if(WORLD_DURATION_KIND(s,d,WORLD_SKILL_KIND(s,row,d,COUNTER_FIELD_KIND(s,d,WORLD_MUTATION_KIND_INVALID(s,d,d.kind!=0&&d.kind!=2&&d.kind!=4))))) return false;
