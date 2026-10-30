@@ -1,0 +1,85 @@
+{
+  "source": "ca4e5094",
+  "source_files_unchanged": true,
+  "rows": [
+    {
+      "index": 0,
+      "capture": "4f3d35a870d14c9a94724cab4634a218",
+      "actual_gpu": true,
+      "gpu_seconds": 0.5426614166353829,
+      "input_sha256": "a3c845587227e41848f9babfc50b157b0464e21aeeb8edd5e4225e38bb959261",
+      "output_sha256": "60c3f48c486104b1371cf05fb3e48ca06d084fb49d8e62ba9eca180530aeab36",
+      "differing_fields": [
+        "control",
+        "control_detail"
+      ],
+      "api_backend": "cpu"
+    },
+    {
+      "index": 1,
+      "capture": "38be70af682f455f9ac8cc7970309eda",
+      "actual_gpu": true,
+      "gpu_seconds": 1.2300266250385903,
+      "input_sha256": "0c988fe6a0098c140a3f65f82be806d528b95e9e0e1eaf9c1d00c52d40af1938",
+      "output_sha256": "066baf6b761f4c87f81ce4e62b9884112edb4bf1e89da8ffec9d650343958a14",
+      "differing_fields": [
+        "burst_timeline",
+        "control",
+        "control_detail",
+        "members",
+        "total_damage"
+      ],
+      "api_backend": "cpu"
+    },
+    {
+      "index": 2,
+      "capture": "1fd4bf19898f40968edae1475701f939",
+      "actual_gpu": true,
+      "gpu_seconds": 0.600538750004489,
+      "input_sha256": "9f226f3cd6656944d8af9c1c3cae2dc893a554495bd331800261359e0bd56871",
+      "output_sha256": "e7c6ad625cd0f9218bd09c8981a8d6cd5435940b05c892dc8b7fa7c14192e935",
+      "differing_fields": [],
+      "api_backend": "metal_detail"
+    },
+    {
+      "index": 3,
+      "capture": "5c8abe41d0204897954902516fb4d4e6",
+      "actual_gpu": true,
+      "gpu_seconds": 0.6899182499619201,
+      "input_sha256": "fcd1e00030efc8d94b9029652217921ffe3d94a361a01f85e9c4beec1ea49bee",
+      "output_sha256": "4889a79bbe182c7ad9609e7504b3456c67e3cc459cc9bac3a9d7123622e74f80",
+      "differing_fields": [],
+      "api_backend": "metal_detail"
+    },
+    {
+      "index": 4,
+      "capture": "59810357052344849b5e5f323df71dbd",
+      "actual_gpu": false,
+      "api_backend": "cpu",
+      "unsupported": [
+        {
+          "reason": "Fixed burst requires the automatic control header"
+        }
+      ]
+    }
+  ],
+  "normal_product_successes": 2,
+  "failed_gpu_preserved": 2,
+  "pre_gpu_fallback": 1,
+  "distinct_profile_count_increase": 0,
+  "cuda_calls": 0,
+  "common_cpu": {
+    "passed": true,
+    "groups": 77,
+    "tests": 837,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "unresolved": [
+    "Tap control/control_detail projection missing",
+    "Milk tap plus hold: damage and gauge/burst timing mismatch",
+    "Fixed burst plus tap v2 header composition unconnected"
+  ],
+  "numeric_bug_candidate": "partialCaptureCharge last-full timestamp correction is guarded by PORTABLE_COORDINATE_ORIGINAL_FORCED_RELOAD; product entries do not set it. Cause not established by GPU differential test; no shader change yet."
+}
