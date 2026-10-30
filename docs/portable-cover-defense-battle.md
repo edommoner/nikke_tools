@@ -33,3 +33,9 @@ CUDA/MSLのpaired生成が成功（4.214565秒、Runtime138952byte）。旧entry
 残件：今回の実GPU receiptは受ける倍率0・係数100だけであり、非ゼロ倍率、変動係数、遮蔽物復活との合成は未検証。次は元の被ダメージ倍率を持つ実編成を選び、同じentry/キャッシュで追加分岐を検証する。基礎DEFのゲームレベル曲線、canonical/default admission、全キャラ/全特殊効果、実CUDAは未完了。
 
 最終登録f81f1c96の通常package cf3013a3…自身でも5群27検査と全11入力/4nativeのfresh CPU事前照合が成功（73.945042秒）。固定goldenはM5独立seal版と完全一致し、追加GPU0。自身のcompile-planもCUBIN/O1・2048MiB・60秒で成功したがcompiler/driver/GPU/claim0。実CUDAキャッシュの成功とは扱わない。
+
+## 元Noahの倍率と変動係数（開発中）
+
+`cover-defense-modifiers`は同じGPU entryの追加2戦闘＋拒否7入力。元SOW/Noah/Drake/Jackal/Mary全69定義を保持し、Noahへの64回の微小被弾を元multi-hit nodeで宣言する。元row12のreceived_hit_count:1／prob:10／全員−8%・10秒は変更しない。固定seed4301では0.6／1.8／5.2秒に3回発動し、各16cover receipt中11件へ非ゼロ倍率が届いた。phaseの係数は33.33／137.5／250で、cover DEF上昇との同時適用もCPUで成立した。
+
+既存の受動source観測器の選択だけをNoahへ向け、元の完全nativeから追加receiptを除いたcanonical JSON指紋が観測off版と同一であることを照合した。初回のPython tuple対JSON listの比較失敗を保持し、CLIと同じcanonical digestへ比較方法を揃えた。数値・入力・確率・許容誤差は変更していない。GPUでは同じ全比較に加えて元Noah rowの実activation数を照合する。現段階はCPU確認のみで、追加2ケースのMetal/CUDA認定はまだない。旧11入力と全GPU sourceは保持する。
