@@ -271,6 +271,11 @@ void applyDefinitionFrame(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
             physicalLockPulse(s,row,f.time);if(s.error!=0)break;
 #endif
             uint sourceRow=row; uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;
+#ifdef PORTABLE_WEIGHTED_INCOMING
+            // Cover has its own carrier, but no allied-body recipients. Keep
+            // empty named-state membership exactly as the original self_cover.
+            if(d.stat==WGT_COVER_STAT){recipientMask=0;recipientOrder=0;}
+#endif
             uint64_t expires=definitionExpiry(s,sourceRow,f.time);
             if(!activationLazy) { recipientMask=filterHarmful(s,d,recipientMask,recipientOrder);if(d.polarity==2 && recipientMask==0) continue; }
             uint capturedGeneration=d.enemyBuff!=0 && recipientMask!=0 ? (f.mode==19 ? f.repeatPassive : s.targetGeneration[firstbithigh(recipientMask>>5)]) : 0;

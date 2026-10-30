@@ -39,11 +39,15 @@
     },
     "gpu/dispatch_phases.slang": {
       "before_sha256": "26f26a889fbb9b116814f256c10319ffd58f23a105139ef0a911baf01385b936",
-      "after_sha256": "dd2c5e5c58587ac298ebe196acbe99e596609da76c0244bfac091c822869d632",
+      "after_sha256": "becffd11a1beee7ceecfd3a1ce15a08d264525f1011d3d85e0c47e8a2a6b8d75",
       "hunks": [
         {
           "before": "            if((commands[at]==31 || commands[at]==32))\n            {\n                uint64_t amount=frames[depth].healthValue;\n                uint group=incomingSplitGroup(s,who,f.time);\n                if(group!=0)\n                {\n",
           "after": "            if((commands[at]==31 || commands[at]==32))\n            {\n                uint64_t amount=frames[depth].healthValue;\n#ifdef PORTABLE_WEIGHTED_INCOMING\n                uint weighted=captureWeightedIncoming(s,who,amount,f.time);\n                if(s.error!=0)break;\n                if(weighted!=0)\n                {\n                    frames[depth].event=6;pushFrame(s,frames,depth,22,0,who,f.argument,f.time);\n                    if(s.error==0)results[weightedScratch(s,uint(depth))]=weighted;\n                    continue;\n                }\n#endif\n                uint group=incomingSplitGroup(s,who,f.time);\n                if(group!=0)\n                {\n"
+        },
+        {
+          "before": "            physicalLockPulse(s,row,f.time);if(s.error!=0)break;\n#endif\n            uint sourceRow=row; uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;\n            uint64_t expires=definitionExpiry(s,sourceRow,f.time);\n            if(!activationLazy) { recipientMask=filterHarmful(s,d,recipientMask,recipientOrder);if(d.polarity==2 && recipientMask==0) continue; }\n            uint capturedGeneration=d.enemyBuff!=0 && recipientMask!=0 ? (f.mode==19 ? f.repeatPassive : s.targetGeneration[firstbithigh(recipientMask>>5)]) : 0;\n",
+          "after": "            physicalLockPulse(s,row,f.time);if(s.error!=0)break;\n#endif\n            uint sourceRow=row; uint64_t duration = d.duration; bool activationLazy = d.lazyGroup != 0;\n#ifdef PORTABLE_WEIGHTED_INCOMING\n            // Cover has its own carrier, but no allied-body recipients. Keep\n            // empty named-state membership exactly as the original self_cover.\n            if(d.stat==WGT_COVER_STAT){recipientMask=0;recipientOrder=0;}\n#endif\n            uint64_t expires=definitionExpiry(s,sourceRow,f.time);\n            if(!activationLazy) { recipientMask=filterHarmful(s,d,recipientMask,recipientOrder);if(d.polarity==2 && recipientMask==0) continue; }\n            uint capturedGeneration=d.enemyBuff!=0 && recipientMask!=0 ? (f.mode==19 ? f.repeatPassive : s.targetGeneration[firstbithigh(recipientMask>>5)]) : 0;\n"
         }
       ]
     },
