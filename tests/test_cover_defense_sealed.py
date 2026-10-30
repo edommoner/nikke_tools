@@ -30,15 +30,16 @@ class CoverSealed(unittest.TestCase):
         self.assertEqual(cert,certificate('cover-defense-battle',golden,raw))
         self.assertTrue(nikke_gpu.full_compiler(dict(suite='compiler-full--cover-defense-battle')))
         self.assertFalse(cert['calculation_verified']);self.assertFalse(cert['executable_battle_verified'])
-    def test_default_gap_and_unexercised_incoming_branches_stay_visible(self):
+    def test_default_gap_stays_closed_with_scoped_modifier_evidence(self):
         from portable_readiness_semantics import reference_readiness
         result=reference_readiness(dict(phase='effect',kind='buff',stat='cover_def_pct',target='allies_top_atk:3'))
         self.assertEqual(result['lane'],'reference_model_gap');self.assertFalse(result['gpu_supported'])
         proof=result['declared_cover_defense_battle_gpu'];self.assertTrue(proof['metal_verified'])
         self.assertEqual(proof['evidence_sha256'],hashlib.sha256((ROOT/proof['evidence']).read_bytes()).hexdigest())
-        for key in ('cuda_verified','canonical_default_changed','in_game_rules_verified','nonzero_received_gpu_verified','varied_coefficient_gpu_verified'):self.assertFalse(proof[key])
+        for key in ('cuda_verified','canonical_default_changed','in_game_rules_verified'):self.assertFalse(proof[key])
+        self.assertTrue(proof['nonzero_received_gpu_verified']);self.assertTrue(proof['varied_coefficient_gpu_verified'])
         saved=read(proof['evidence']);self.assertFalse(saved['full_character_verified']);self.assertFalse(saved['full_goal_complete'])
-        self.assertEqual(saved['received_snapshot_values'],[0.]);self.assertEqual(saved['incoming_coefficient_values'],[100.])
+        self.assertEqual(saved['received_snapshot_values'],[-8.,0.]);self.assertEqual(saved['incoming_coefficient_values'],[33.33,100.,137.5,250.])
         self.assertEqual(saved['same_claim_retries'],0)
 
 if __name__=='__main__':unittest.main()

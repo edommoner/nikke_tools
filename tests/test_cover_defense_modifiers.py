@@ -61,7 +61,7 @@ class CoverModifiers(unittest.TestCase):
         if sys.byteorder!='little':raw.byteswap()
         self.assertEqual(hashlib.sha256(raw.tobytes()).hexdigest(),golden['input_sha256'])
         import nikke_gpu
-        self.assertTrue(nikke_gpu.SUITES['cover-defense-modifiers']['development_only'])
+        self.assertFalse(nikke_gpu.SUITES['cover-defense-modifiers']['development_only'])
         self.assertEqual(nikke_gpu.SUITES['cover-defense-modifiers']['inputs'],13)
 
 if __name__=='__main__':unittest.main()

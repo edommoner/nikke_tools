@@ -1,3 +1,15 @@
+# 2026-10-30 共通received補償和を旧4＋Noah2の全13でM5独立seal
+
+固定a6b99c55/package2873d961…が全13（6native/拒否7）成功。GPU2.522692秒/冷PSO61.843307秒/CPU事前116.050422秒、別fresh GPU禁止child独立監査139.948001秒、親oracle利用なし。同じ監査からcompiler source-only証明書も作成。既存共通addSumを全incoming receiverの累計に使用し、Runtimeにcorrection5個（＋40byte→138992byte）。Frame/wire/個々HP減算・通知は不変。
+
+旧4戦闘＋Noah元69定義2戦闘、全83cover receipt/270被弾を全比較。Noah元prob:10は各3発動、−8% snapshot22件、係数33.33/100/137.5/250とDEF上昇の重複を検証。前の9入力はJackal累計だけ1ULP差で失敗し、全raw/claim/失敗を保持。許容誤差/元CPU/normalizer変更0。新source成功GPU1/同claim retry0。
+
+共有readback-retainを2032000/2048912wordへ拡張し、幅一覧を単一CASE_SHAPESへ共通化、16検査成功。保存済み旧11入力の全input/native/output指紋と90,152,128byteが新13で同一（追加GPU0）。`cover-defense-battle`と`cover-defense-modifiers`は同じ全13/6nativeへ登録。両cache-only版はCUBIN/O1・compile cache・paired generation必須。旧v1証明書を残し、main compiler aliasはv2へ切替。現CUDA/CUBIN hitは未検証、Windows新依頼0。
+
+新分類は専用Metalの非ゼロreceived/変動係数/補償和の検証済み範囲を表示し、canonical SCOPED_INERTと公開GPU受付falseを維持する。全キャラ/全目標は未達。これ以上同じSOW/Noahの小例だけを重ねず、次はentry-planの優先未対応へ戻る。cover復活等の合成/基礎DEFレベル曲線/現CUDAも未完了として保持。
+
+証拠: research/target-count-query-evidence/cover-defense-modifiers-metal-v1.json、cover-defense-received-sum-failure-v1.json、cover-defense-readback-retention-v1.json。以下は履歴。
+
 # 2026-10-30 Noah倍率の追加検証から共通received sumの差分を修正中
 
 追加Noah/SOW元69定義の2ケースは、原prob:10を変えず実3発動、−8% snapshot各11/16件、係数33.33/137.5/250をCPU確認。受動観測を除く全nativeのcanonical JSON指紋は観測offと同一。直接tuple対JSON list比較の診断失敗は保持し、既存canonical digestで照合した。

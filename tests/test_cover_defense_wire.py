@@ -61,7 +61,7 @@ class CoverWire(unittest.TestCase):
     def test_registered_profile_keeps_same_inputs_and_bounded_cached_cuda_route(self):
         import nikke_gpu
         config=nikke_gpu.SUITES['cover-defense-battle']
-        self.assertFalse(config['development_only']);self.assertEqual(config['native'],4);self.assertEqual(config['inputs'],11)
+        self.assertFalse(config['development_only']);self.assertEqual(config['native'],6);self.assertEqual(config['inputs'],13)
         self.assertEqual((config['input_words'],config['output_words']),(wire.INPUT,wire.OUTPUT))
         cached=nikke_gpu.SUITES['cover-defense-battle-cache-only']
         self.assertEqual(cached['cuda_cache_profile'],'compile-cache-only-v1');self.assertTrue(cached['require_paired_generation'])

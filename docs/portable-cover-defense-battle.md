@@ -45,3 +45,11 @@ CUDA/MSLのpaired生成が成功（4.214565秒、Runtime138952byte）。旧entry
 Noah追加版9ca192a3…は生成/PSOの両必須cache hit、GPU2.505108秒/PSO0.002931秒で終了。貫通は全一致し、非貫通のJackal累計だけ200757.09142740333対200757.09142740336（1ULP）だった。全HP hitと32cover receiptは一致した。元native観測器がhit列の`sum`を返すのに対し、GPUの累計が逐次加算だったことを、実際のHP term列と既存共通`addSum`で確認した。許容誤差や元CPUを変更しない。
 
 全incoming receiverの累計を既存共通補償和へ接続し、correctionを5個のuint64状態に保持する（Runtime＋40byte、Frame/input/output幅は不変）。Noah専用のreadback修正ではなく、通常/分配/全世界共通の集計。元のHP減算/通知/各hit量は変更しない。source逆変換で旧証明を保持するが、旧生成SHAのcurrent-source一致は失われるため新sourceの認定は未完了として扱う。追加cohortは旧4戦闘も含む6戦闘＋拒否7の全13へ拡張し、全件を新sourceで検証する。先行Goldensと失敗claim/rawは変更しない。
+
+## 共通補償和の現sourceを全13入力で独立seal
+
+固定a6b99c55/package2873d961…は旧4＋Noah2の6nativeと拒否7、全13でM5一致。実GPU2.522692秒/冷PSO61.843307秒、CPU事前116.050422秒。別fresh GPU禁止childの独立監査も139.948001秒で成功し、同じ監査からsource-only certificateを作成した。Runtimeは138992byte（＋40byte）、Frame/input/output幅は不変。全83cover receiptsと270被弾、Noahの元10%条件各3発動、−8% snapshot計22件、係数33.33/100/137.5/250を全比較した。
+
+共通readback-retainで旧11入力のinput/native/output fingerprintと全90,152,128byteを完全保持した。値/履歴/比較項目は削っていない。旧11対応のスキル・スイート名`cover-defense-battle`は、現在は保持ケースを含む全13へ拡張する。`cover-defense-modifiers`も同一dataset/entry/goldenの別名。両cache-only版は同じ13入力にCUBIN/O1・compile cache・paired生成必須を適用する。新sourceの実CUDAとCUBIN hitは未確認、Windows新依頼0。古い4ケースだけのv1証明書は歴史として残し、現sourceはv2証明書へ明示的に切り替える。
+
+旧9入力の集計差分試行は保持。今回の補償和source成功GPU1/同claim retry0、独立監査と保持検査の追加GPU0。公開/既定admission・ゲームの基礎DEFレベル曲線・全キャラ/全効果は未完了。次は他の優先未対応項目を進めつつ、cover復活等との未検証合成と、必要な短いCUDA検証を残す。

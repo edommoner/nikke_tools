@@ -705,13 +705,14 @@ def reference_readiness(issue):
                 canonical_default_changed=False,in_game_rules_verified=False,
                 evidence='tests/fixtures/cover-defense-battle-cpu-v1.json',evidence_sha256='b87220780a289bc1efd9752c9c2f87f9b6380e623f1278cc2709eb5b18da6d84',
                 scope='Opt-in original executor extension; explicit cover base and received snapshot policy, not canonical or game equivalence')
-            result['declared_cover_defense_battle_gpu']=dict(current_received_sum_source_recertified=False,suite='cover-defense-battle',inputs=11,native_cases=4,rejected_cases=7,
+            result['declared_cover_defense_battle_gpu']=dict(current_received_sum_source_recertified=True,suite='cover-defense-battle',inputs=13,native_cases=6,rejected_cases=7,
                 metal_verified=True,independently_audited=True,gpu_wire_connected=True,cuda_verified=False,
-                actual_cover_receipts=51,original_definitions=[69,69,69,67],explicit_independent_bases=True,
+                actual_cover_receipts=83,actual_incoming_rows=270,original_definitions=[69,69,69,67,69,69],explicit_independent_bases=True,
                 current_source_shared_CUDA_Metal=True,canonical_default_changed=False,in_game_rules_verified=False,
-                nonzero_received_gpu_verified=False,varied_coefficient_gpu_verified=False,
-                evidence='tests/fixtures/cover-defense-battle-metal-v1.json',evidence_sha256='8462abcee1a4854393c22d9302882f16c55e479b79a34ca2c3108c431c7becbc',
-                scope='Declared original-party cover-layer contract only; not canonical admission, level curve or every incoming modifier branch')
+                nonzero_received_gpu_verified=True,varied_coefficient_gpu_verified=True,compensated_received_aggregate=True,
+                original_probability_activations=[3,3],prior11_all_raw_retained=True,
+                evidence='tests/fixtures/cover-defense-modifiers-metal-v1.json',evidence_sha256='d49e7ee4e82145d6e50bd783f805e5d48a52eba7828e1aa558b3451964c8c7ef',
+                scope='Six declared original-party scenarios including original Noah received modifiers; not canonical admission, level curve or every effect branch')
             result['required_extensions']=['explicit_cover_base_quantity_or_verified_level_curve',
                 'distinct_cover_and_body_damage_with_existing_protection_callback_order',
                 'original_ranked_carrier_and_actual_cover_break_restore_battle_validation',

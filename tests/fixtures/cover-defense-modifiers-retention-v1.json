@@ -1,0 +1,21 @@
+{
+  "schema": "readback-case-retention-v1",
+  "reference_comparison_sha256": "104f1885d1f22ef0d2ecd0aabcfa6d792eca44f01d8f5fc3005c723283b7a751",
+  "candidate_comparison_sha256": "5957bc933f4c971ca7df75fa2b9256c027f026b00a7c4e60cf33d80ecabc5248",
+  "reference_readback_sha256": "a3b5b0fd7843c3dbc4b2408fce397ef62b5e8bbfb0ebf487ffb6b41453a9d651",
+  "candidate_readback_sha256": "128ba4b856808b70147f2414ab2501ad647888f3cc835c64c08082d2fa0697f7",
+  "case_words": 2048912,
+  "reference_cases": 11,
+  "candidate_cases": 13,
+  "retained_cases": 11,
+  "retained_output_bytes": 90152128,
+  "missing": [],
+  "added": [
+    "cover-defense/Noah-modifiers/covered",
+    "cover-defense/Noah-modifiers/pierce"
+  ],
+  "changed": [],
+  "all_reference_cases_retained": true,
+  "gpu_calls": 0,
+  "calculation_verified": false
+}
