@@ -25,11 +25,30 @@ def check_group_wire(root):
     if not stride or tuple(map(int,stride.groups()))!=(GROUP_INPUT_WORDS,OUTPUT_WORDS) or not descriptor or int(descriptor[1])!=base or GROUP_INPUT_WORDS!=base+8+L['DEFINITIONS']:
         raise ValueError('Product group target wire disagrees with the shared shader')
 
+def product_body_world(prepared):
+    """Prove the original world has only BODY, without discarding its script.
+
+    Incoming attacks and scalar/core changes retain the existing world clock.
+    Shields have separate intercept semantics even when absent from actor pools.
+    """
+    enemy=prepared['enemy']
+    if enemy.get('coord') is not None or enemy.get('has_parts') or enemy.get('part_break_interval',0):
+        raise ValueError('Product target modifiers require a plain body with no typed targets')
+    from calculator.boss_pattern import validate
+    from portable_actor_specs import compile_registry
+    raw=enemy.get('patterns') or [dict(id='portable-empty-world',kind='idle')]
+    patterns=validate(copy.deepcopy(raw))
+    if any(p.kind not in ('idle','attack','buff','core') for p in patterns):
+        raise ValueError('Product target modifiers require a plain body with no typed targets')
+    _,bindings=compile_registry(patterns,pools=True)
+    if len(bindings)!=1 or int(bindings[0].kind)!=0:
+        raise ValueError('Product target modifiers require a plain body with no typed targets')
+    return raw
+
+
 def compile_body_modifier_group_roster(prepared):
     """Compose native groups and lossless target carriers in a single BODY world."""
-    enemy=prepared['enemy']
-    if enemy.get('patterns') or enemy.get('coord') is not None or enemy.get('has_parts') or enemy.get('part_break_interval',0):
-        raise ValueError('Product modifier groups require a plain body with no typed targets')
+    product_body_world(prepared)
     original=prepared['effects'];lowered=copy.deepcopy(prepared)
     for dest,row in zip(lowered['effects'],original,strict=True):
         if modifier_axis(row['effect']) and any(t.startswith('multi_hit:') for t in row['effect'].get('trigger',{}).get('timing',[])):
@@ -53,9 +72,7 @@ def compile_body_modifier_roster(prepared):
     path supplies no typed targets: it does not infer projectile/shield models
     or substitute their bonuses for ordinary outgoing damage.
     """
-    enemy=prepared['enemy']
-    if enemy.get('patterns') or enemy.get('coord') is not None or enemy.get('has_parts') or enemy.get('part_break_interval',0):
-        raise ValueError('Product target modifiers currently require a plain body with no typed targets')
+    patterns=product_body_world(prepared)
     if any(t.startswith('multi_hit:') for row in prepared['effects'] for t in row['effect'].get('trigger',{}).get('timing',[])):
         raise ValueError('Product target modifier/group wire composition is not connected')
     original=prepared['effects'];lowered=copy.deepcopy(prepared)
@@ -63,7 +80,7 @@ def compile_body_modifier_roster(prepared):
         dest['effect']=lower_effect(row['effect'])
     words,meta=compile_projectile_battle(lowered)
     from portable_original_modifier_probe_input import pack_target_input
-    extra,axes=pack_target_input(words,meta,original,[dict(id='portable-empty-world',kind='idle')],[],None,2,128,weapon_only=True,empty_body=True)
+    extra,axes=pack_target_input(words,meta,original,patterns,[],None,2,128,weapon_only=True,empty_body=True)
     words.extend(extra)
     if len(words)!=INPUT_WORDS:raise ValueError('Complete product target modifier wire required')
     meta['real_prepared_input']['target_modifier_carriers']=dict(axis_rows=axes,typed_targets=0,

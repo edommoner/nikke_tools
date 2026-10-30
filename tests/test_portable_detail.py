@@ -623,11 +623,34 @@ class PortableDetail(unittest.TestCase):
             axis=modifier_axis(prepared['effects'][index]['effect'])
             self.assertEqual(axes['axis_rows'][row],axis)
             if axis:self.assertEqual(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['KIND']],4)
-        bad=copy.deepcopy(prepared);bad['enemy']['patterns']=[{'id':'new','kind':'idle'}]
+        bad=copy.deepcopy(prepared);bad['enemy']['patterns']=[{'id':'new','kind':'summon','spec':{'count':1,'hp':100}}]
         with self.assertRaisesRegex(ValueError,'plain body'):product.compile_product(bad)
         bad=copy.deepcopy(prepared)
         next(r['effect'] for r in bad['effects'] if modifier_axis(r['effect']))['trigger']['timing']=['multi_hit:2']
         with self.assertRaisesRegex(ValueError,'itself a multi_hit'):product.compile_product(bad)
+    def test_modifier_world_composition_preserves_original_script_and_axis_wires(self):
+        from detail_coverage import body_for
+        from portable_specs import LIMITS as L
+        from portable_world_schedule_specs import compile_schedule
+        from portable_destructible_roster_input import product_body_world
+        patterns=[{'id': 'armor', 'kind': 'buff', 'enemy': {'def_mult': 1.5}, 'until': {'time': 1.5}}, {'id': 'core', 'kind': 'core', 'delay': 0.3, 'core_px': 80, 'until': {'time': 1}}, {'id': 'volley', 'kind': 'attack', 'delay': 0.4, 'spec': {'coeff': 100, 'atk': 1000000, 'target': 'all', 'hits': 3, 'interval': 0.2, 'pierce': True}}]
+        for names,source in [(['아스카','리타','모더니아','레드 후드','나가'],'gpu/product_fixed_target_battle_entry.slang'),
+                            (['사쿠라','벨로타','미란다','도라','드레이크'],'gpu/product_fixed_group_target_battle_entry.slang')]:
+            body=body_for(names,5);body.update(burst_gauge_mode='fixed');body['enemy']['patterns']=patterns
+            with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU schedule')):
+                prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+                actual,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertEqual(actual,source);self.assertEqual(len(words),iw);self.assertEqual(prepared,before)
+            graph,_=compile_schedule(dict(patterns=patterns,clock='accumulated',duration=5),notice_payload=True)
+            base=L['WORLD_FRAME_INPUT_BASE'];self.assertEqual(words[base:base+len(graph)],graph)
+            self.assertEqual(meta['real_prepared_input']['target_modifier_carriers']['original_effects'],prepared['effects'])
+            self.assertEqual([p['id'] for p in meta['product_world']['nodes']],[p['id'] for p in patterns])
+            self.assertFalse(meta['product_world']['cpu_schedule_or_state_supplied'])
+            for pattern in [dict(id='shield',kind='shield'),dict(id='wave',kind='summon',spec=dict(count=1,hp=100)),
+                            dict(id='part',kind='parts',targets=[dict(id='p',hp=100)])]:
+                bad=copy.deepcopy(prepared);bad['enemy']['patterns']=[pattern]
+                with self.assertRaises(ValueError):product_body_world(bad)
+
     def test_nearby_selector_is_specialized_only_for_a_proved_single_body(self):
         sys.path.insert(0,str(ROOT/'research'))
         from portable_original_identity_inventory import selected_profile_bodies
