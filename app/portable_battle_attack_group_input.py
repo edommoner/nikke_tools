@@ -25,7 +25,13 @@ def compile_battle(prepared,*,routing,declared_effects=(),group_history='fixed64
     enemy=prepared['enemy']
     if enemy.get('has_parts') or enemy.get('coord') is not None or enemy.get('part_break_interval',0):raise ValueError('Plain body/add world required')
     patterns=enemy.get('patterns',[])
-    if any(p.get('kind') not in ('idle','summon') or p.get('kind')=='summon' and (p.get('spec',{}).get('attack') or p.get('spec',{}).get('self_destruct')) for p in patterns):raise ValueError('Only plain idle/summon patterns supported')
+    if any(p.get('kind')=='summon' and (p.get('spec',{}).get('attack') or p.get('spec',{}).get('self_destruct')) for p in patterns):
+        raise ValueError('Summon attack/self-destruct requires its declared world consumer')
+    # Native routing delegates boss declarations to the same original world
+    # compiler as ordinary weapons. The authored all-enemy geometry policy
+    # keeps its narrower admission; no native hit/recipient list is invented.
+    if routing!='native' and any(p.get('kind') not in ('idle','summon') for p in patterns):
+        raise ValueError('Only plain idle/summon patterns supported')
     lowered=copy.deepcopy(prepared);owner=prepared['chars'][0]['name']
     for effect in declared_effects:lowered['effects'].append(dict(effect=copy.deepcopy(effect),owner=owner))
     from portable_group_binding import lower,bind

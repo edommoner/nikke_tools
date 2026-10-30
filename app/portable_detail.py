@@ -182,7 +182,9 @@ def decode_payload(body, prepared, run, metadata, block):
         if name in names:
             original = body['profile']['chars'][name].get('equip_skills',{})
             hypothetical |= any(original.get(k) != v for k,v in fields.get('equip_skills',{}).items())
-    warnings = ['固定条件の静止ボスを仮定した参考値です。ボス固有パターンと生存は未検証です。']
+    warnings = ['設定したボス行動で計算した参考値です。実機のギミックや生存の再現は未検証です。'
+        if body.get('enemy',{}).get('patterns') else
+        '固定条件の静止ボスを仮定した参考値です。ボス固有パターンと生存は未検証です。']
     warnings.extend(run._portable_detail_model_warnings)
     if requested == 'mast3' and policy == 'auto':
         warnings.append('マスト：ロマンチックメイドがいないため、3の倍数指定は適用せず全員オートで計算しました。')

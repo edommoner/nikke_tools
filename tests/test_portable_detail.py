@@ -46,6 +46,7 @@ class PortableDetail(unittest.TestCase):
         with patch.object(product,'decode',return_value=copy.deepcopy(self.fixture['gpu_projection'])):
             payload=product.decode_payload(body,prepared,run,meta,block)
         self.assertEqual(payload['boss_patterns'],body['enemy']['patterns'])
+        self.assertEqual(payload['app_warnings'][0],'設定したボス行動で計算した参考値です。実機のギミックや生存の再現は未検証です。')
         self.assertEqual([(r['pattern'],r['kind'],r['event'],r['outcome']) for r in payload['boss_timeline']],
             [('armor','buff','start',None),('salvo','attack','start',None),('wave','summon','start',None),
              ('armor','buff','dispel',None),('armor','buff','end','expired'),('salvo','attack','end','end'),('wave','summon','end','end')])
@@ -63,6 +64,22 @@ class PortableDetail(unittest.TestCase):
             changed=array.array('I',block);mutate(changed)
             with patch.object(product,'decode',return_value=copy.deepcopy(self.fixture['gpu_projection'])):
                 with self.assertRaises(product.UnsupportedPortable):product.decode_payload(body,prepared,run,meta,changed)
+
+    def test_native_groups_use_shared_boss_compiler_without_widening_declared_routing(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_battle_attack_group_input import compile_battle
+        body=selected_profile_bodies(['벨로타'],0)[0][2]
+        body.update(duration=4,burst_gauge_mode='fixed')
+        body['enemy']['patterns']=[dict(id='volley',kind='attack',spec=dict(coeff=100,atk=100,target='all',hits=2,interval=.1))]
+        with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU schedule in lowering')):
+            prepared,_=product.prepare(body);source,iw,ow,words,meta=product.compile_product(prepared)
+        self.assertEqual(source,'gpu/product_fixed_group_battle_entry.slang')
+        self.assertEqual(len(words),iw)
+        self.assertEqual(meta['real_prepared_input']['declared_attack_group_policy']['routing'],'native')
+        self.assertFalse(meta['product_world']['cpu_schedule_or_state_supplied'])
+        with self.assertRaisesRegex(ValueError,'plain idle/summon'):compile_battle(prepared,routing='all-logical-enemies')
+        invalid=copy.deepcopy(prepared);invalid['enemy']['patterns']=[dict(kind='summon',spec=dict(self_destruct=True))]
+        with self.assertRaisesRegex(ValueError,'declared world consumer'):compile_battle(invalid,routing='native')
 
     def descriptor(self,folder,**changes):
         document=dict(schema=1,programs={product.SOURCE:dict(battle_package=folder,request=dict(package=folder,capture=folder))})
