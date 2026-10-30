@@ -55,5 +55,33 @@
     "cuda_historical_profiles": 1,
     "new_profiles": 0,
     "full_goal_complete": false
-  }
+  },
+  "windows_peer_comparison": {
+    "cursor": "4b3eff0d-96af-48be-b3ad-b6609ae33ca8:189",
+    "status": "passed",
+    "scope": "Peer CPU-only measurement, not Mac raw artifact audit",
+    "samples_per_implementation": 3,
+    "before_median_seconds": 0.898809,
+    "after_median_seconds": 0.042336,
+    "scope_before": 0.546479,
+    "scope_after": 0.029335,
+    "appends_before": 0.25412,
+    "appends_after": 0.011906,
+    "all_results_equal": true,
+    "all_used_function_extractions_equal": true,
+    "distinct_extractions": 20,
+    "pair_sha256": {
+      "cuda": "805c8a86dfa37f6350343e5c4d1c3aa3583d60b5a202015e67de2fc7bcc27d42",
+      "metal": "284acf72fab6e3737b9ca5dd5211b89149567ac3c6c8f89ee4cea59f26fd645f"
+    },
+    "sdk_loads": 0,
+    "slang_calls": 0,
+    "nvrtc_calls": 0,
+    "driver_calls": 0,
+    "gpu_calls": 0,
+    "old_packet_and_claims_unchanged": true,
+    "first_measurement_formatting_failure": "sorted list of dicts without comparison key; semantic comparisons passed but timings lost; original failure retained",
+    "corrected_measurement_samples_durably_saved": true
+  },
+  "windows_timing_peer_reported": true
 }
