@@ -244,8 +244,8 @@ def evaluate(body):
             record['backend']='cpu';save();return cpu
         payload['compute']['cpu_verification']=record['cpu_verification']
         record['backend']=requested;save();return payload
-    except (UnsupportedPortable,ValueError,RuntimeError,OSError) as error:
-        record.update(backend='cpu',error=str(error));save()
+    except (UnsupportedPortable,ValueError,RuntimeError,OSError,KeyError,TypeError,ImportError) as error:
+        record.update(backend='cpu',error=str(error),error_type=type(error).__name__);save()
         cpu = engine_worker.evaluate(body)
         cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=[dict(reason=str(error))],gpu_execution_verified=record['gpu_execution_verified'],**historical_status)
         return cpu

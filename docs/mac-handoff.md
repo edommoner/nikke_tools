@@ -1,3 +1,13 @@
+# 2026-10-31 メモリ再確認、Windows梱包timeoutを保持して既存Mac packet輸送へ
+
+Macは20秒間3観測ともswap使用/I/O0。Claude再reviewも現Mac RAM不足を主因とする証拠なし。Windows単独ptxasの約2GiB失敗は履歴として保持し、同PTXのobject/link成功outer peak393.9/228.8MiBと区別する。保存時刻の読取でobject/linkのouter69.560/93.725秒、主要処理10.411/0.261秒を確認。gateからoriginまで19.701/30.419秒あるがstartup/import/audit混在のため個別原因はunknown、転送時間やsnapshot単体時間へ断定しない。
+
+Windows2c684f88のmake_packageはchild60秒timeout、outer65.842秒。ZIP/manifest/内部phase0、内部の最後の処理とnative再計算有無unknown。新missing/obs/cleanup/Job残存0、旧148証跡一致、compiler/GPU0。旧失敗を保持し再作成しない。Macで既検査済みの同一d1206d3f…/4166files/ZIP14185428bytesをsource-only transport branch codex/product-retained-history-packet-v1、commit127e07d153aacce761df378a23674ec358755bf0へ共有。ZIP SHA78e1e629af4b48a5a32cf04744b1be0c0ea725858d95945a934809b3501451df。Windowsへ取得→既存CLI unpack/verifyだけ依頼中、CPU50/admission/GPUは未依頼。新missing0と既定予算を維持し、結果確認前に次へ進まない。
+
+Claude指摘のcaller由来KeyError/TypeError/ImportErrorをaudit metadata不備に変換する診断不具合を修正。provider内で元exceptionの型/instanceを保持し、製品層はCPUfallbackのresult.jsonへerror_typeと元messageを保存する。実行/metadata負例とimport状態復元を含むproduct23/linked25/packet3成功。GPU/保護CPU/入力/decoder/数値golden不変。Windows固定packet2cは今回診断修正前と明記し、成功経路の計算互換をGPU実証の代わりにしない。
+
+製品実証数は前版Metal255profile、現host変更後の実APIは同1profile（1秒/30秒）、CUDA0のまま。残11profile、固定ゲージ、parts/manual/全編成・設定は未完。以下は履歴。
+
 # 2026-10-31 特定の過去link失敗を保持するbinding、短い実機確認の準備
 
 既定のmissing拒否とPTX/object/current Jobの拒否は維持。requestのhistorical_link_observationだけ、同じlink captureの絶対path・元observation.json全raw SHA・全missing PID/path/FILETIMEの完全一致・disposition=retained-failureを要求する。観測比較自体も元before/afterから再計算。FILETIMEはdecimal文字列で精度保持。false/unknownとサービス識別状態をreceipt identityへ保持し、API成功/CPU切替にも引き継ぐ。source/header/image/比較/containment緩和0。admit前はsaved_cubin_admission=not_admitted、image/phase/transport一致後だけverified。汎用allow-missingなし、元claim/観測変更なし。詳細は同じgpu-development-cli.mdの節。

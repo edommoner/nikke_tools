@@ -74,5 +74,74 @@
     }
   },
   "short_reference_duration_seconds": 1,
-  "short_reference_scope": "Ordinary API actual M5 plus full CPU payload comparison; dynamic input for first Windows request, not a new suite/golden"
+  "short_reference_scope": "Ordinary API actual M5 plus full CPU payload comparison; dynamic input for first Windows request, not a new suite/golden",
+  "windows_package_preparation_failure": {
+    "evidence": "Windows peer saved summary, raw retained on Windows; not independently imported telemetry",
+    "source_commit": "2c684f88e03b2943340f20510cd4f59a64115ad3",
+    "failed_capture": "C:/Users/owner/Documents/Codex/nikke-historical-link-audit-v1/setup-v1",
+    "summary_sha256": "a0211a208681afbf49dc41636fd3e5fc83dbbad261b81468e563998a076f9c3f",
+    "inner_timeout_seconds": 60,
+    "observed_claim_to_timeout_seconds": 60.085,
+    "outer_seconds": 65.842,
+    "zip_or_manifest_produced": false,
+    "internal_phase_records": 0,
+    "last_internal_operation": "unknown",
+    "generation_or_native_recomputed": "unknown",
+    "new_missing_processes": 0,
+    "remaining_job_processes": 0,
+    "cleanup_errors": 0,
+    "observation_errors": 0,
+    "old_protected_evidence_files_unchanged": 148,
+    "compiler_calls": 0,
+    "gpu_calls": 0,
+    "service_preservation_verified": false,
+    "historical_failures_preserved": true,
+    "same_stage_retried": false
+  },
+  "windows_saved_object_link_timing_breakdown": {
+    "evidence": "Windows peer read-only saved phase/snapshot timestamps, no re-execution",
+    "object": {
+      "outer_seconds": 69.56,
+      "inner_seconds": 35.8,
+      "outer_gate_to_inner_job_observed_seconds": 19.303,
+      "inner_gate_to_origin_observed_seconds": 19.701,
+      "main_stage_seconds": 10.411,
+      "compiler_api_seconds": 10.339,
+      "inner_post_snapshot_to_outer_exit_observed_seconds": 8.887
+    },
+    "link": {
+      "outer_seconds": 93.725,
+      "inner_seconds": 36.047,
+      "outer_gate_to_inner_job_observed_seconds": 30.833,
+      "inner_gate_to_origin_observed_seconds": 30.419,
+      "main_stage_seconds": 0.261,
+      "link_api_seconds": 0.060171,
+      "inner_post_snapshot_to_outer_exit_observed_seconds": 21.352
+    },
+    "timing_limits": "Adjacent timestamp gaps mix startup/import/audit/observation; do not sum nested intervals, infer individual component durations, or attribute transfer cost. Snapshot gaps are not direct snapshot duration measurements."
+  },
+  "source_packet_transport": {
+    "schema": 1,
+    "scope": "Immutable source/data-only packet transport, not GPU evidence",
+    "package_id": "d1206d3f6ca2b3c0c78aa9ca23dce5e65dd66a17ce7105d581cafc01330a9ff7",
+    "source_commit": "2c684f88e03b2943340f20510cd4f59a64115ad3",
+    "files": 4166,
+    "archive_bytes": 14185428,
+    "archive_sha256": "78e1e629af4b48a5a32cf04744b1be0c0ea725858d95945a934809b3501451df",
+    "personal_settings": false,
+    "raw_gpu_buffers": false,
+    "compiled_binaries": false,
+    "transport_commit": "127e07d153aacce761df378a23674ec358755bf0",
+    "transport_branch": "codex/product-retained-history-packet-v1"
+  },
+  "diagnostic_error_fix": {
+    "scope": "Preserve KeyError/TypeError/ImportError originating inside saved_program caller body; admission metadata exceptions still map to ValueError. Product fallback retains original error type/message.",
+    "cpu_tests": {
+      "product": 23,
+      "linked": 25,
+      "packet": 3
+    },
+    "gpu_source_or_numeric_contract_changed": false,
+    "additional_gpu_or_compiler_calls": 0
+  }
 }

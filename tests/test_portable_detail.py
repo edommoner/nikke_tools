@@ -56,6 +56,24 @@ class PortableDetail(unittest.TestCase):
                  patch.object(cli,'verify_package',return_value=owner),patch.object(cli,'saved_linked_provider',side_effect=provider):
                 with artifacts.saved_program(product.SOURCE,capture) as actual:self.assertEqual(actual,receipt)
 
+    def test_saved_program_preserves_execution_errors_and_restores_import_state(self):
+        @contextmanager
+        def admitted(*args):
+            # Only the provider boundary is mocked; no hardware claim.
+            yield dict(identity=dict(provider='mock'),key='mock')
+        with tempfile.TemporaryDirectory() as folder:
+            path=self.descriptor(folder)
+            previous=list(sys.path);bytecode=sys.dont_write_bytecode
+            for error in (KeyError('execution field'),TypeError('execution argument'),ImportError('execution dependency')):
+                with patch.dict(os.environ,{artifacts.ENV:str(path)}),patch.object(artifacts,'_audited_program',side_effect=admitted):
+                    with self.assertRaises(type(error)) as raised:
+                        with artifacts.saved_program(product.SOURCE,Path(folder)):
+                            self.assertEqual(sys.path,previous)
+                            raise error
+                self.assertIs(raised.exception,error)
+                self.assertEqual(sys.path,previous)
+                self.assertEqual(sys.dont_write_bytecode,bytecode)
+
     def test_product_saved_receipt_is_bound_to_transport_and_cpu_still_runs_after_gpu(self):
         body={**self.fixture['body'],'compute_backend':'cuda_shared_detail'}
         expected=copy.deepcopy(self.fixture['cpu_payload']);expected['evaluator']=product.engine_worker.sim.evaluator()
@@ -263,16 +281,21 @@ class PortableDetail(unittest.TestCase):
         calls=[]
         def cpu(request):
             calls.append(request);return copy.deepcopy(self.fixture['cpu_payload'])
-        with tempfile.TemporaryDirectory() as folder,patch.dict('os.environ',NIKKE_DETAIL_CAPTURE_ROOT=folder),\
-             patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
-             patch.object(product,'execute',side_effect=RuntimeError('device unavailable')),\
-             patch.object(product.engine_worker,'evaluate',side_effect=cpu):
-            result=product.evaluate(body)
-            self.assertEqual(result['compute']['backend'],'cpu')
-            self.assertEqual(result['compute']['requested'],'metal_detail')
-            self.assertFalse(result['compute']['gpu_execution_verified'])
-            self.assertNotIn('_compile_gpu_detail',calls[0])
-            self.assertEqual(len(list(Path(folder).glob('*/result.json'))),1)
+        for error in (RuntimeError('device unavailable'),KeyError('execution field'),TypeError('execution argument'),ImportError('execution dependency')):
+            with tempfile.TemporaryDirectory() as folder,patch.dict('os.environ',NIKKE_DETAIL_CAPTURE_ROOT=folder),\
+                 patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
+                 patch.object(product,'execute',side_effect=error),\
+                 patch.object(product.engine_worker,'evaluate',side_effect=cpu):
+                result=product.evaluate(body)
+                self.assertEqual(result['compute']['backend'],'cpu')
+                self.assertEqual(result['compute']['requested'],'metal_detail')
+                self.assertFalse(result['compute']['gpu_execution_verified'])
+                self.assertNotIn('_compile_gpu_detail',calls[0])
+                self.assertEqual(len(list(Path(folder).glob('*/result.json'))),1)
+                record=json.loads(next(Path(folder).glob('*/result.json')).read_text())
+                self.assertEqual(record['error_type'],type(error).__name__)
+                self.assertEqual(record['error'],str(error))
+                self.assertNotIn('audit metadata incomplete',record['error'])
     def test_product_history_gap_falls_back_before_any_gpu_dispatch(self):
         body=copy.deepcopy(self.fixture['body']);body['enemy']['patterns']=[dict(id='example',kind='idle')]
         with tempfile.TemporaryDirectory() as folder,patch.dict('os.environ',NIKKE_DETAIL_CAPTURE_ROOT=folder),\
