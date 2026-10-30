@@ -228,7 +228,13 @@ void advanceProtectionHit(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
         bool pierce=(f.value&1)!=0,covered=(f.value&2)!=0;uint64_t cover=0;
         if((pierce || !f64Less(0,f.healthPrevious)) && covered)
         {
-            cover=smaller(s.coverHP[f.owner],f.healthValue);s.coverHP[f.owner]=f64Add(s.coverHP[f.owner],cover^F64_SIGN);
+#ifdef PORTABLE_COVER_DEFENSE
+            cover=coverDefenseQuantity(s,uint(depth),f.owner,f.time);
+            if(s.error!=0)return;
+#else
+            cover=smaller(s.coverHP[f.owner],f.healthValue);
+#endif
+            s.coverHP[f.owner]=f64Add(s.coverHP[f.owner],cover^F64_SIGN);
             s.coverDamage[f.owner]=f64Add(s.coverDamage[f.owner],cover);
 #ifdef PORTABLE_WORLD_FRAME
             if(f64Less(0,cover) && f64Zero(s.coverHP[f.owner]) && scheduledArgument(uint(f.argument)))

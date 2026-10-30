@@ -246,7 +246,9 @@ static const uint P_PROTECTION_MAP_BASE = 108224U;
 static const uint P_PROTECTION_SELECTION_BASE = 108736U;
 static const uint P_PROTECTION_OBJECT_BASE = 109248U;
 static const uint P_PROTECTION_BUILD_BASE = 133824U;
-#if defined(PORTABLE_MOVING_MANY)
+#if defined(PORTABLE_COVER_DEFENSE)
+static const uint P_OUTPUT_WORDS = 2048912U;
+#elif defined(PORTABLE_MOVING_MANY)
 static const uint P_OUTPUT_WORDS = 10422672U;
 #elif defined(PORTABLE_MOVING_TYPED)
 static const uint P_OUTPUT_WORDS = 2165136U;
@@ -640,6 +642,9 @@ static const uint P_BUFF_STAT_BITS_1 = 4294965247U;
 static const uint P_BUFF_STAT_BITS_2 = 528482303U;
 bool validPortableBuffStat(uint stat)
 {
+#ifdef PORTABLE_COVER_DEFENSE
+    if(stat==CDF_STAT)return true;
+#endif
     if(stat > 92U) return false;
     uint bits = stat < 32U ? P_BUFF_STAT_BITS_0 : stat < 64U ? P_BUFF_STAT_BITS_1 : stat < 96U ? P_BUFF_STAT_BITS_2 : 0U;
     return (bits & (1U << (stat & 31U))) != 0;

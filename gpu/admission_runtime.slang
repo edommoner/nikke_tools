@@ -36,6 +36,9 @@ void admitDefinitions(inout Runtime s,uint input)
     for (uint j = 0; j < s.count; j++)
     {
         Definition d;loadDefinition(input,j,d); PROJECTILE_ADMIT_ROW(s,j,d)
+#ifdef PORTABLE_COVER_DEFENSE
+        if(d.stat==CDF_STAT && (d.kind!=0||d.enemyBuff!=0||d.healthScaling!=0||d.alliedFlags!=0||d.quantityFlags!=0||!f64Finite(d.value))) { s.error=64;break; }
+#endif
         if(d.stat==92U || (d.damageFlags&524288U)!=0)
         {
 #ifdef PORTABLE_PROJECTILE_CHAIN

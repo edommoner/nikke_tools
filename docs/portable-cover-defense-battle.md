@@ -13,3 +13,9 @@
 9つの短い検査で有限基礎値、所有者、分配人数、受ける倍率の単一照会、シールドcallback後のlive読み取り、貫通gate、破壊後非照会、破壊通知順、構造変更の拒否、例外後のalias復元、保存receiptの故障注入を確認する。保存fixtureは監査に必要な部分だけで、全native／trace／inputの指紋は別に保持する。これは全battleの保存GPU比較や独立sealではない。
 
 次は5つの明示基礎DEFを共通wireで運び、既存protection runtimeのシールド終了後フェーズへ共通binary64 helperを接続する。攻撃・係数・受ける倍率・分配人数は元のincoming frameへ保存し、callback後に再計算しない。現GPUソース／旧goldenはこのCPU接続では変更していない。Metal戦闘照合と独立seal、短いCUDA検証、ゲームの基礎DEFレベル曲線は未完了。先行の572入力のMetal数値実証を、戦闘接続済みの証拠へ読み替えない。
+
+## 共通GPU接続の開発版
+
+`cover-defense-battle`をdevelopment-onlyで登録した。入力115704wordは元115680word＋24wordの明示基礎DEFだけで、CPUの動的なHP/倍率/時刻を輸送しない。出力2048912wordは旧2032000wordを保ち、32深さ×16wordのsnapshot scratchと512件×32wordのreceiptを末尾へ追加する。Runtime/Frameのレイアウトと履歴容量は変えず、snapshotは実GPUイベント内で取得し、8→22→23→20と8→20の元経路で渡す。シールドcallback後のevent3で独立遮蔽物量を読み、元の減算/破壊/通知へ返す。新entryのみstat93を受理し、CPU正本/通常packerの拒否は維持する。
+
+CUDA/MSLのpaired生成が成功（4.214565秒、Runtime138952byte）。旧entryの現sourceを別生成し、既存strict normalized CUDA ea6efec5…／Metal 1a6baa15…が完全一致した（3.827160秒）。新entryの実GPU計算、旧entryの新sourceでのGPU再認定とは区別する。共通wire/既定拒否/全receipt word/未使用領域/旧source逆変換を検査する。新しい固定packageのCPU全件照合・Metal実行・独立sealを終えるまで、戦闘のGPU対応済みへ昇格しない。

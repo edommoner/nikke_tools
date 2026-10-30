@@ -14,7 +14,11 @@ bool liveMarker(inout Runtime s, uint who, uint stat, uint64_t when)
     return false;
 }
 [noinline]
-uint64_t incomingBodyDamage(inout Runtime s, uint who, uint64_t attack, uint64_t coefficient, uint64_t when)
+uint64_t incomingBodyDamage(inout Runtime s, uint who, uint64_t attack, uint64_t coefficient, uint64_t when
+#ifdef PORTABLE_COVER_DEFENSE
+    ,out uint64_t receivedSnapshot
+#endif
+)
 {
     uint64_t amount = larger(0,f64Add(attack,effectiveDefense(s,who,when) ^ F64_SIGN));
     amount = f64Div(f64Mul(amount,coefficient),HUNDRED);
@@ -23,6 +27,9 @@ uint64_t incomingBodyDamage(inout Runtime s, uint who, uint64_t attack, uint64_t
     received = plainQuantity(s,who,S_received_dmg_pct,when);
 #else
     if ((s.incomingMask & 4) != 0) received = plainQuantity(s,who,S_received_dmg_pct,when);
+#endif
+#ifdef PORTABLE_COVER_DEFENSE
+    receivedSnapshot=received;
 #endif
     amount = f64Mul(amount,larger(0,f64Add(ONE,f64Div(received,HUNDRED))));
     if (!f64Finite(amount)) { s.error = 16; return 0; }

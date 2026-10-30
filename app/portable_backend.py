@@ -86,6 +86,11 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source=='gpu/world_cover_defense_entry.slang' or output_words==2048912:
+        from portable_cover_defense_wire import check_schema,INPUT,OUTPUT
+        check_schema(ROOT)
+        if source!='gpu/world_cover_defense_entry.slang' or (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Cover DEF requires complete independent bases and receipt bank')
+        return
     if source=='gpu/world_coordinate_typed_ordered_history_entry.slang':
         from portable_recipient_order_observation import check_layout,INPUT_WORDS,OUTPUT_WORDS
         check_layout(ROOT)

@@ -1291,6 +1291,9 @@ void pushFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inout int depth, 
 #include "element_runtime.slang"
 #include "skill_critical_runtime.slang"
 #include "damage_runtime.slang"
+#ifdef PORTABLE_COVER_DEFENSE
+#include "cover_defense_runtime.slang"
+#endif
 #include "incoming_runtime.slang"
 #include "revival_runtime.slang"
 #include "burst_runtime.slang"
@@ -1654,6 +1657,9 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
             if(s.error==0)
             {
                 frames[depth].healthValue=f.healthValue;frames[depth].repeatPassive=uint(member==f.owner);
+#ifdef PORTABLE_COVER_DEFENSE
+                copyCoverDefense(s,uint(depth-1),uint(depth));
+#endif
                 uint legacy=f.cursor==0 ? P_PROTECTION_HIT_BASE+(uint(f.argument)*5+f.owner)*16 : P_SPLIT_HIT_BASE+(uint(f.argument)*20+f.owner*4+f.cursor-1)*16;
                 frames[depth].repeatRow=incomingRecordAddress(s,uint(f.argument),f.owner,member,member==f.owner,legacy);
             }

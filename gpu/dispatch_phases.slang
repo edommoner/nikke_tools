@@ -134,6 +134,9 @@ void advanceIncomingFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inout 
             frames[depth].event=1;
             pushFrame(s,frames,depth,20,0,f.owner,f.argument,f.time);
             if(s.error==0) { frames[depth].healthValue=f.healthValue;frames[depth].repeatPassive=f.repeatRow; }
+#ifdef PORTABLE_COVER_DEFENSE
+            if(s.error==0)copyCoverDefense(s,uint(depth-1),uint(depth));
+#endif
             continue;
         }
         if (f.event == 0)
@@ -166,7 +169,13 @@ void advanceIncomingFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inout 
             }
             frames[depth].owner=who;
             uint input = incomingDamageAddress(s,uint(f.argument));
+#ifdef PORTABLE_COVER_DEFENSE
+            uint64_t coverAttack=WORLD_ENEMY_ATTACK_VALUE(s,frames,depth,f,loadNumber(input)),coverReceived=0;
+            frames[depth].healthValue=incomingBodyDamage(s,who,coverAttack,loadNumber(input+2),f.time,coverReceived);
+            captureCoverDefense(s,uint(depth),coverAttack,loadNumber(input+2),coverReceived,1);
+#else
             frames[depth].healthValue = incomingBodyDamage(s,who,WORLD_ENEMY_ATTACK_VALUE(s,frames,depth,f,loadNumber(input)),loadNumber(input+2),f.time);
+#endif
             frames[depth].event = 1;
             if((commands[at]==31 || commands[at]==32))
             {
@@ -175,13 +184,22 @@ void advanceIncomingFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inout 
                 if(group!=0)
                 {
                     uint count=0;for(uint order=group;order!=0;order>>=3) count++;
+#ifdef PORTABLE_COVER_DEFENSE
+                    results[coverDefenseSnapshot(s,uint(depth))+6]=count;
+#endif
                     frames[depth].event=6;pushFrame(s,frames,depth,22,0,who,f.argument,f.time,group);
                     if(s.error==0) frames[depth].healthValue=f64Div(amount,f64FromI64(count));
+#ifdef PORTABLE_COVER_DEFENSE
+                    if(s.error==0)copyCoverDefense(s,uint(depth-1),uint(depth));
+#endif
                     continue;
                 }
                 uint record=incomingRecordAddress(s,uint(f.argument),who,who,true,P_PROTECTION_HIT_BASE+(uint(f.argument)*5+who)*16);frames[depth].repeatRow=record;
                 pushFrame(s,frames,depth,20,0,who,f.argument,f.time);
                 if(s.error==0) { frames[depth].healthValue=amount;frames[depth].repeatPassive=record; }
+#ifdef PORTABLE_COVER_DEFENSE
+                if(s.error==0)copyCoverDefense(s,uint(depth-1),uint(depth));
+#endif
             }
             continue;
         }

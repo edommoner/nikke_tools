@@ -7,7 +7,10 @@ AFTER_BACKEND_SHA256='a435f15cf96e980e3471eb4cb29bcb08b683b0765117c1faf31f04cc06
 AFTER_AREA_SHA256='7de8a80bcf3686e1b266e644e591a08094b70991ec1bb5eb3948b423586c07a9'
 
 def project_sources(root,sources=None):
-    root=Path(root);out=dict(sources or {})
+    root=Path(root);out=dict(sources or {});later={}
+    if (root/'gpu/world_cover_defense_entry.slang').exists():
+        from portable_cover_defense_source_contract import project_sources as cover
+        later=cover(root);out={**later,**out}
     from portable_recipient_order_observation import check_layout,SOURCE
     check_layout(root)
     data=json.loads((root/'tests/fixtures/portable-recipient-order-observation-source-delta.json').read_text(encoding='utf-8'))
@@ -25,7 +28,7 @@ def project_sources(root,sources=None):
         if (set(row)!={'before_sha256','after_sha256','hunks'} or row['before_sha256']!=anchor or
             row['after_sha256']!=after_anchor or len(row['hunks'])!=1 or set(row['hunks'][0])!={'before','after'}):
             raise ValueError('Recipient-order source anchor changed')
-        current=(root/name).read_text(encoding='utf-8')
+        current=later.get(name,(root/name).read_text(encoding='utf-8'))
         if digest(current)!=row['after_sha256']:raise ValueError('Recipient-order registered source changed')
         before=current
         for hunk in reversed(row['hunks']):
