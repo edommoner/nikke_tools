@@ -16,6 +16,34 @@ uint controlThreshold(inout Runtime s,uint index) { return controlInput(s)+1016+
 #endif
 #endif
 #endif
+// Product operator intervals reuse the bounded common control trace.
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+void productCloseControl(inout Runtime s,uint who,uint64_t when,uint reason)
+{
+    uint a=controlState(s,who),row=results[a+20];if(row==0)return;
+    uint at=controlTrace(s,3,who,when);if(s.error!=0)return;
+    results[at+4]=row;results[at+5]=reason;results[a+20]=0;
+}
+void productOpenControl(inout Runtime s,uint who,uint index,uint64_t when)
+{
+    uint a=controlState(s,who);if(results[a+20]==index+1)return;
+    productCloseControl(s,who,when,0);if(s.error!=0)return;
+    uint at=controlTrace(s,2,who,when);if(s.error!=0)return;
+    results[at+4]=index+1;results[a+20]=index+1;
+}
+void productChargeControl(inout Runtime s,uint who,uint64_t when)
+{
+    if(controlOwns(s,who))for(uint i=0;i<commands[controlOwnerInput(s,who)];i++)
+    {
+        uint row=controlClick(s,who,i),mode=commands[row];
+        if(mode==4||!controlWindow(s,who,row))continue;
+        if(mode==0)productCloseControl(s,who,when,1);else productOpenControl(s,who,i,when);
+        return;
+    }
+    productCloseControl(s,who,when,1);
+}
+#endif
+// End product operator interval helpers.
 bool controlDefinition(uint input,uint row)
 {
     for(uint i=0;i<definition_triggerCount(input,row);i++) if(commands[input+P_EVENT_BASE+row*P_EVENT_WORDS+i*8]==39) return true;
@@ -97,6 +125,9 @@ void initializeChargeControl(inout Runtime s)
     for(uint i=0;i<total;i++) if((referenced[i/32]&(1U<<(i%32)))==0) { s.error=64;return; }
     for(uint i=P_WORLD_CONTROL_STATE_BASE;i<P_WORLD_CONTROL_TRACE_BASE+P_WORLD_CONTROL_TRACE_COUNT*8;i++) results[s.resourceOutput+i]=0;
     uint h=controlHead(s);results[h]=0x57434831;results[h+3]=commands[p+3];storeNumber(h+4,ONE|F64_SIGN);
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+    for(uint who=0;who<5;who++)if(commands[controlOwnerInput(s,who)]!=0)results[h+13]=0x50434c31;
+#endif
     for(uint who=0;who<5;who++)
     {
         uint a=controlState(s,who);for(uint j=2;j<=12;j+=2) storeNumber(a+j,ONE|F64_SIGN);results[a+14]=0xffffffff;
@@ -217,6 +248,9 @@ void arbitrateChargeControl(inout Runtime s,uint64_t when)
         }
         if(owner!=old&&owner!=0) storeNumber(h+4,when);
     }
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+    if(mode==0&&old!=0&&old!=owner)productCloseControl(s,old-1,when,1);
+#endif
     uint camera=mode==0&&owner!=0 ? 1U<<(owner-1) : commands[controlInput(s)+3];
     bool changed=results[h+8]==0||owner!=old||camera!=results[h+3]||preempted!=0;results[h+2]=owner;results[h+3]=camera;
     if(changed)
@@ -230,7 +264,11 @@ void advanceChargeControl(inout Runtime s,uint who,uint64_t when)
 {
     uint a=controlState(s,who),input=controlOwnerInput(s,who),close=results[a+14];
     if(close!=0xffffffff&&!controlWindow(s,who,controlClick(s,who,close)))
-    { results[a+14]=0xffffffff;storeNumber(a+6,ONE|F64_SIGN);results[a+22]=0; }
+    { results[a+14]=0xffffffff;storeNumber(a+6,ONE|F64_SIGN);results[a+22]=0;
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+      productCloseControl(s,who,when,1);
+#endif
+    }
     if(controlOwns(s,who))
     {
         if(commands[input+4]!=0)
@@ -240,7 +278,11 @@ void advanceChargeControl(inout Runtime s,uint who,uint64_t when)
             {
                 uint row=controlClick(s,who,selected),mode=commands[row];
                 if(mode==3)
-                { results[a+14]=selected;storeNumber(a+6,uint64_t(0x7ff00000)<<32);results[a+15]=commands[row+2]; }
+                { results[a+14]=selected;storeNumber(a+6,uint64_t(0x7ff00000)<<32);results[a+15]=commands[row+2];
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+                  productOpenControl(s,who,selected,when);
+#endif
+                }
                 else if(f64Less(0,s.fullEnd)&&!f64Equal(s.fullEnd,actorNumber(a+8)))
                 {
 #ifdef PORTABLE_COORDINATE_COVER_POLICIES
@@ -297,6 +339,9 @@ void startChargeControl(inout Runtime s,uint who,uint64_t charge,uint64_t when)
         if(partialOwnerEnabled(s,who)) results[a+18]=1;
 #endif
     }
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+    productChargeControl(s,who,when);
+#endif
 }
 [noinline]
 bool readyChargeControl(inout Runtime s,uint who,uint64_t when,uint output,uint64_t charge)

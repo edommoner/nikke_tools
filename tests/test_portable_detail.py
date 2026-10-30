@@ -103,6 +103,30 @@ class PortableDetail(unittest.TestCase):
             invalid['policies']['controls'][invalid['chars'][0]['name']]=invalid['chars'][0]['control']
             with self.assertRaisesRegex(ValueError,'Cover/reload/aim/burst'):product.compile_product(invalid)
 
+    def test_product_control_history_uses_gpu_intervals_and_rejects_corruption(self):
+        from portable_world_result import read_product_control_log
+        from portable_specs import LIMITS as L
+        names=[c['name'] for c in self.prepared['chars']]
+        labels=[[dict(mode='tap',producer='always'),dict(mode='tap',producer='always')],[],[],[],[]]
+        meta=dict(product_control_labels=labels,states={})
+        block=array.array('I',[0])*786432;h=L['WORLD_CONTROL_HEAD_BASE'];base=L['WORLD_CONTROL_TRACE_BASE']
+        block[h]=0x57434831;block[h+1]=5;block[h+8]=1;block[h+13]=0x50434c31
+        number=lambda t:array.array('I',product.struct.unpack('<II',product.struct.pack('<d',t)))
+        for i,(kind,who,t,row,reason) in enumerate([(0,1,0.,0,0),(2,0,.2,1,0),(3,0,2.,1,0),(2,0,2.,2,0),(3,0,3.,2,1)]):
+            a=base+i*8;block[a:a+8]=array.array('I',[kind,who,*number(t),row,reason,0,0])
+        log=read_product_control_log(block,meta,names,8.)
+        self.assertEqual(len(log.control_log),1)
+        self.assertEqual((log.control_log[0].t0,log.control_log[0].t1),(.2,3.))
+        self.assertEqual(log.control_occupancy()['by_char'],{names[0]:2.8})
+        self.assertEqual(log.control_summary(),f'조작 구간: {names[0]} 2.8s')
+        changed=array.array('I',block);changed[h+1]=2
+        self.assertEqual(read_product_control_log(changed,meta,names,8.).control_log[0].t1,8.)
+        for offset,value in [(h+1,221),(h+13,0),(base+8,9),(base+9,7),(base+12,9),(base+8+3,0x7ff80000)]:
+            bad=array.array('I',block);bad[offset]=value
+            with self.subTest(offset=offset),self.assertRaises(product.UnsupportedPortable):read_product_control_log(bad,meta,names,8.)
+        bad=array.array('I',block);bad[base+16+2:base+16+4]=number(.1)
+        with self.assertRaises(product.UnsupportedPortable):read_product_control_log(bad,meta,names,8.)
+
     def descriptor(self,folder,**changes):
         document=dict(schema=1,programs={product.SOURCE:dict(battle_package=folder,request=dict(package=folder,capture=folder))})
         document.update(changes)

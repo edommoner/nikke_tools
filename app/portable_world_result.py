@@ -70,3 +70,68 @@ def read_overlay_result(block,meta,case):
   if kind==4:item['event']='dispel'
  assert index==len(original)
  return actual
+
+
+def read_product_control_log(block,metadata,names,duration):
+    """Project GPU operator intervals through the canonical result formatter.
+
+    Labels are constructor metadata. Decisions and times come only from the
+    bounded GPU trace; an open interval is closed at the requested battle end,
+    exactly as the native result writer closes its remaining intervals.
+    """
+    import math
+    from portable_specs import LIMITS as L
+    from portable_runtime import UnsupportedPortable
+    from calculator.sim_result import SimLog,ControlLogEntry
+    labels=metadata.get('product_control_labels')
+    if not labels or not any(labels):return None
+    h=L['WORLD_CONTROL_HEAD_BASE'];base=L['WORLD_CONTROL_TRACE_BASE'];capacity=L['WORLD_CONTROL_TRACE_COUNT']
+    def fail():raise UnsupportedPortable('Invalid or missing GPU operator control history')
+    if len(labels)!=5 or len(names)!=5 or len(block)<base+capacity*8:fail()
+    if block[h]!=0x57434831 or block[h+13]!=0x50434c31 or block[h+1]>capacity or block[h+2]>5 or block[h+3]>31:fail()
+    if any(block[h+k] for k in (7,9,14,15)):fail()
+    def number(at):return struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
+    log=SimLog();active={};preempts={};arbs=0;last_close=None;previous=0.
+    def close(who,when):
+        opened=active.pop(who,None)
+        if opened is None:return None
+        start,label=opened
+        if when<start:fail()
+        if when==start:return None
+        entry=ControlLogEntry(start,when,names[who],'click',label['mode'],label['producer'])
+        log.control_log.append(entry);return entry
+    for index in range(block[h+1]):
+        at=base+index*8;kind,who=block[at:at+2];when=number(at+2)
+        if not math.isfinite(when) or not previous<=when<=duration:fail()
+        previous=when
+        if kind==0:
+            if who>5 or block[at+4]>31 or block[at+5]>5 or any(block[at+6:at+8]):fail()
+            arbs+=1
+            if block[at+5]:
+                name=names[block[at+5]-1];preempts[name]=preempts.get(name,0)+1
+        elif kind==1:
+            if who>=5 or block[at+5]!=0 or block[at+4] not in metadata['states'].values():fail()
+        elif kind in (2,3):
+            row=block[at+4]-1
+            if who>=5 or row<0 or row>=len(labels[who]) or any(block[at+6:at+8]):fail()
+            label=labels[who][row]
+            if label['mode'] not in ('tap','hold','hold_until_close'):fail()
+            if kind==2:
+                if block[at+5]!=0 or who in active:fail()
+                start=when
+                if last_close is not None:
+                    owner,t,prior,entry=last_close
+                    if owner==who and t==when and prior==label and entry is not None:
+                        log.control_log.remove(entry);start=entry.t0
+                active[who]=(start,label);last_close=None
+            else:
+                if block[at+5]>1 or who not in active or active[who][1]!=label:fail()
+                entry=close(who,when)
+                last_close=(who,when,label,entry) if block[at+5]==0 else None
+        else:fail()
+    if arbs!=block[h+8] or sum(preempts.values())!=block[h+6]:fail()
+    for who in range(5):
+        if block[L['WORLD_CONTROL_STATE_BASE']+who*32+27]!=preempts.get(names[who],0):fail()
+        close(who,duration)
+    log.control_preempt=preempts
+    return log

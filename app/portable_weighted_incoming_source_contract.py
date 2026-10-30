@@ -23,13 +23,15 @@ def product_sources(root):
     projected={}
     for name,row in data['files'].items():
         text=(root/name).read_text();digest=hashlib.sha256(text.encode()).hexdigest()
-        # Reviewed product tap/hold corrections reuse existing native consumers.
-        # Restore the exact prior source before applying the unchanged ledger;
-        # this is historical recovery, never a current numerical equivalence.
-        if name=='gpu/world_charge_control_runtime.slang' and digest=='dd297a8a32a1989f8a744abb75a991e4952f1a5a214e01cb0b8e4a125738ca5f':
-            corrected='#if defined(PORTABLE_COORDINATE_ORIGINAL_FORCED_RELOAD) || defined(PORTABLE_PRODUCT_OUTLINED_HELPERS)'
-            if text.count(corrected)!=2:raise ValueError('Product charge history spans differ')
-            text=text.replace(corrected,'#ifdef PORTABLE_COORDINATE_ORIGINAL_FORCED_RELOAD')
+        # Exact reviewed charge corrections and GPU observation hooks only.
+        # Recover the prior source before the unchanged historical ledger.
+        if name=='gpu/world_charge_control_runtime.slang' and digest=='754e22e1fdc6b7bfc0fca4672bbaa03d5f975ed7d07cbf154db728ca64bc2122':
+            text,count=re.subn(r'(?ms)^#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n.*?^#endif\n','',text)
+            if count!=6:raise ValueError('Product charge observation spans differ')
+            text=text.replace('// Product operator intervals reuse the bounded common control trace.\n// End product operator interval helpers.\n','')
+            text=text.replace('    { results[a+14]=0xffffffff;storeNumber(a+6,ONE|F64_SIGN);results[a+22]=0;\n    }','    { results[a+14]=0xffffffff;storeNumber(a+6,ONE|F64_SIGN);results[a+22]=0; }')
+            text=text.replace('                { results[a+14]=selected;storeNumber(a+6,uint64_t(0x7ff00000)<<32);results[a+15]=commands[row+2];\n                }','                { results[a+14]=selected;storeNumber(a+6,uint64_t(0x7ff00000)<<32);results[a+15]=commands[row+2]; }')
+            text=text.replace('#if defined(PORTABLE_COORDINATE_ORIGINAL_FORCED_RELOAD) || defined(PORTABLE_PRODUCT_OUTLINED_HELPERS)','#ifdef PORTABLE_COORDINATE_ORIGINAL_FORCED_RELOAD')
             digest=hashlib.sha256(text.encode()).hexdigest()
             if digest!='aa8df45901d9d3a7e19d6af41bbd6a0a1721594156ea56c4dd1f47cde900c33d':raise ValueError('Product charge history preimage differs')
         if digest==row['baseline_sha256']:

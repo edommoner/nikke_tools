@@ -81,6 +81,11 @@ def compile_product(prepared):
         prepared['policies']['config']['burst_gauge_mode']='accumulate'
     prepared,nearby=lower_single_body_nearby(prepared)
     def finish(source,iw,ow,words,metadata):
+        if any(c.get('control') for c in original['chars']):
+            from calculator.timeline import CharState,_when_label
+            metadata['product_control_labels']=[
+                [dict(mode=e['mode'],producer=_when_label(e)) for e in CharState(c,atk,original['enemy'].get('code'))._click_sched]
+                for c,atk in zip(original['chars'],original['base_atk'])]
         if original['enemy'].get('patterns'):
             from calculator.boss_pattern import validate,RESERVED_KINDS
             nodes=validate(copy.deepcopy(original['enemy']['patterns']))
@@ -155,8 +160,10 @@ def decode_payload(body, prepared, run, metadata, block):
     if any(not math.isfinite(x) or x < 0 for x in values):
         raise RuntimeError('Invalid GPU damage totals')
     names = [c['name'] for c in prepared['chars']]
+    from portable_world_result import read_product_control_log
+    control_log=read_product_control_log(block,metadata,names,run.config['duration'])
     result = SimpleNamespace(squad_total=sum(values), char_total=dict(zip(names, values)),
-        duration=run.config['duration'], log=None, boss_unmodeled={})
+        duration=run.config['duration'], log=control_log, boss_unmodeled={})
     payload = engine_worker.sim.payload(run, result)
     camera = metadata['real_prepared_input']['camera']
     note = ' · '.join(camera) if camera else '없음'
