@@ -19,7 +19,8 @@ class WeightedSourceContract(unittest.TestCase):
             current=project_sources(root)
             product=json.loads((root/'tests/fixtures/portable-product-source-delta.json').read_text())
             for name,text in product_sources(root).items():
-                path=root/name;path.write_text(text)
+                path=root/name;path.write_bytes(text.encode('utf-8'))
+                self.assertEqual(path.read_bytes(),text.encode('utf-8'))
                 self.assertEqual(hashlib.sha256(path.read_text().encode()).hexdigest(),product['files'][name]['baseline_sha256'] if name in product['files'] else product['added_sources'][name])
             self.assertEqual(project_sources(root),current)
 
