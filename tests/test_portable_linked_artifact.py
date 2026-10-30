@@ -119,6 +119,35 @@ class LinkedArtifactTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'Exact absolute'):cli.linked_reuse_audit({},self.root/'missing.json')
         self.assertEqual(self.image.read_bytes(),before)
 
+    def test_reuse_audit_preserves_explicit_historical_failure_and_rejects_bad_bindings(self):
+        source,reuse=self.ptx_reuse()
+        binding=dict(capture=str(self.root/'link'),observation_sha256='a'*64,
+            missing_identities=[dict(pid=71,path='c:/tools/node.exe',creation_filetime_ticks='133700000000000007')],
+            disposition='retained-failure')
+        history=dict(binding,preservation_verified=False,service_preservation_verified=False,
+            service_status_before='unverified',service_status_after='unverified',termination_cause='unknown')
+        receipt=saved.admission(self.current,self.linked,self.producer,self.compiler,self.link,self.anchors,
+            sealed_producer=source,ptx_reuse=reuse,historical_environment=history)
+        request={k:str(self.root/k) for k in ('package','capture','producer_package','producer_capture')}
+        request['historical_link_observation']=binding
+        with patch.object(cli,'verify_package',return_value=self.current),patch.object(cli,'saved_linked_admission',return_value=dict(receipt=receipt)) as admitted:
+            result=cli.linked_reuse_audit(request,self.root/'historical-reuse.json')
+            self.assertEqual(admitted.call_args.args,(self.current,request))
+            self.assertEqual(result['receipt']['identity']['historical_link_environment'],history)
+            self.assertFalse(result['receipt']['identity']['historical_link_environment']['preservation_verified'])
+            self.assertFalse(result['calculation_verified'])
+            for bad in (None,{},dict(binding,disposition='ignore'),dict(binding,missing_identities=[]),dict(binding,preservation_verified=True)):
+                with self.subTest(bad=bad),self.assertRaises(ValueError):
+                    cli.linked_reuse_audit(dict(request,historical_link_observation=bad),self.root/'bad.json')
+            self.assertEqual(admitted.call_count,1)
+        out=self.root/'cli-history.json';path=self.root/'history-binding.json';cli.write(path,binding)
+        proof=dict(result,package_id='cli-owner')
+        with patch.object(cli,'linked_reuse_audit',return_value=proof) as audit:
+            cli.main(['linked-reuse-audit',*[arg for k in ('package','capture','producer_package','producer_capture')
+                for arg in ('--'+('linked-' if k in ('package','capture') else '')+k.replace('_','-'),request[k])],
+                '--historical-link-observation',str(path),'--out',str(out)])
+            self.assertEqual(audit.call_args.args[0],request)
+
     def test_controller_reuse_audits_both_producers_and_checks_current_claim(self):
         source,reuse=self.ptx_reuse();old,old_compiler,old_raw,current_raw=reuse
         package=self.root/'reuse-link-owner';package.mkdir();capture=self.root/'reuse-link';capture.mkdir()

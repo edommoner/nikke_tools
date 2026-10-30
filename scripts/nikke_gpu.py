@@ -3049,10 +3049,13 @@ def saved_linked_admission(m,request):
 def linked_reuse_audit(request,output,*,expected_package_id=None):
     """CPU-only admission audit; preserve original artifacts and all claims."""
     fields={'package','capture','producer_package','producer_capture'}
-    if type(request) is not dict or set(request)!=fields or any(type(v) is not str or not Path(v).is_absolute() for v in request.values()):
+    if type(request) is not dict or set(request) not in (fields,fields|{'historical_link_observation'}) or any(type(request[k]) is not str or not Path(request[k]).is_absolute() for k in fields):
         raise ValueError('Exact absolute linked/current producer paths required')
+    if 'historical_link_observation' in request:
+        from portable_linked_artifact import validate_history_binding
+        validate_history_binding(request['historical_link_observation'])
     output=Path(output).resolve()
-    if any(output==p or p in output.parents for p in [ROOT.resolve(),*[Path(v).resolve() for v in request.values()]]):
+    if any(output==p or p in output.parents for p in [ROOT.resolve(),*[Path(request[k]).resolve() for k in fields]]):
         raise ValueError('Reuse audit output must be outside immutable inputs')
     if output.exists():raise FileExistsError(output)
     with forbid_gpu():
@@ -3742,6 +3745,7 @@ def main(argv=None):
     a.add_argument('--snapshot',type=Path,required=True);a.add_argument('--expected-sha256',required=True)
     a=sub.add_parser('linked-reuse-audit',help='Read-only exact-PTX saved CUBIN admission; no GPU or compilation')
     for flag in ('linked-package','linked-capture','producer-package','producer-capture','out'):a.add_argument('--'+flag,type=Path,required=True)
+    a.add_argument('--historical-link-observation',type=Path,help='Existing exact retained-failure binding JSON; re-audited against original observation')
     a=sub.add_parser('compile-plan',help='CPU-only immutable packet artifact/budget policy check before transport')
     a.add_argument('--out',type=Path,required=True);a.add_argument('--artifact-kind',choices=('cubin','ptx'),default='cubin');a.add_argument('--ptxas-level',type=int,choices=range(4));a.add_argument('--memory-limit-mb',type=int,default=2048);a.add_argument('--timeout',type=int,default=60)
     a=sub.add_parser('compile');a.add_argument('--capture',type=Path,required=True);a.add_argument('--timeout',type=int,default=60)
@@ -3985,6 +3989,7 @@ def main(argv=None):
         with forbid_gpu():result=check(a.snapshot,a.expected_sha256)
     elif a.command=='linked-reuse-audit':
         request=dict(package=str(a.linked_package.resolve()),capture=str(a.linked_capture.resolve()),producer_package=str(a.producer_package.resolve()),producer_capture=str(a.producer_capture.resolve()))
+        if a.historical_link_observation:request['historical_link_observation']=load(a.historical_link_observation)
         proof=linked_reuse_audit(request,a.out)
         result={k:proof[k] for k in ('schema','package_id','reuse_admission_verified','calculation_verified','gpu_calls','compiler_calls','native_battle_calls','original_artifacts_modified','scope')}
         result.update(receipt_key=proof['receipt']['key'],report=str(a.out.resolve()))

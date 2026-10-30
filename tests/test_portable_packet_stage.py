@@ -44,6 +44,23 @@ class PacketStageTests(unittest.TestCase):
             cli.linked_reuse_audit.assert_called_once_with(dict(package=request['linked_package'],capture=request['linked_capture'],producer_package=request['producer_package'],producer_capture=request['producer_capture']),Path(plan['proof_capture'])/'result.json',expected_package_id='id')
             cli.collect.assert_called_once()
 
+    def test_reuse_audit_stage_transports_retained_binding_without_changing_it(self):
+        with tempfile.TemporaryDirectory() as d:
+            base=Path(d).resolve();request={k:str(base/k) for k in stage.REUSE_AUDIT_FIELDS}
+            binding=dict(capture=str(base/'old-link'),observation_sha256='a'*64,
+                missing_identities=[dict(pid=71,path='c:/tools/node.exe',creation_filetime_ticks='133700000000000007')],disposition='retained-failure')
+            path=base/'binding.json';path.write_text(json.dumps(binding));request['historical_link_observation']=str(path)
+            plan=stage.recipe('id',stage.REUSE_AUDIT_STAGE,'cuda',base/'stage',base/'original',180,request)
+            args=stage.proof_arguments(plan)
+            self.assertEqual(args[args.index('--historical-link-observation')+1],str(path))
+            (base/'stage').mkdir()
+            cli=SimpleNamespace(linked_reuse_audit=Mock(return_value=self.reuse_proof()),collect=Mock(),load=lambda p:json.loads(p.read_text()))
+            stage.run_reuse_audit(cli,plan)
+            self.assertEqual(cli.linked_reuse_audit.call_args.args[0]['historical_link_observation'],binding)
+            self.assertEqual(json.loads(path.read_text()),binding)
+            for bad in (dict(request,historical_link_observation='relative'),dict(request,historical_link_observation=binding),dict(request,extra='unexpected')):
+                with self.assertRaises(ValueError):stage.recipe('id',stage.REUSE_AUDIT_STAGE,'cuda',base/'other',base/'original',180,bad)
+
     def test_reuse_audit_scope_forgery_never_promotes_gpu_or_compiler_success(self):
         good=self.reuse_proof();self.assertTrue(stage.verified_reuse_audit(good,'id'))
         for change in ({},dict(calculation_verified=True),dict(gpu_calls=1),dict(compiler_calls=1),dict(native_battle_calls=False),dict(original_artifacts_modified=True),dict(package_id='wrong'),dict(receipt={})):

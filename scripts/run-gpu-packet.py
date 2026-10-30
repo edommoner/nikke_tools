@@ -111,6 +111,8 @@ def object_request(stage,value):
     fields=PREPARE_FIELDS if stage==PREPARE_STAGE else REUSE_AUDIT_FIELDS if stage==REUSE_AUDIT_STAGE else PTX_PROBE_FIELDS if stage==PTX_PROBE_STAGE else CACHED_GPU_FIELDS if stage==CACHED_GPU_STAGE else STAGED_FIELDS[stage] if stage in STAGED_FIELDS else FAILURE_FIELDS if stage in (FAILURE_STAGE,ORIGIN_STAGE) else NATIVE_GROUP_FIELDS if stage==NATIVE_GROUP_STAGE else RECOVERY_FIELDS if stage==RECOVERY_STAGE else LINKED_FIELDS if stage==LINKED_STAGE else OBJECT_STAGES[stage]
     if stage in (LINKED_STAGE,'staged-gpu-linked') and type(value) is dict and set(value)==set(fields)|{'producer_package','producer_capture'}:
         fields=(*fields,'producer_package','producer_capture')
+    if stage==REUSE_AUDIT_STAGE and type(value) is dict and set(value)==set(fields)|{'historical_link_observation'}:
+        fields=(*fields,'historical_link_observation')
     if stage=='preflight-resume' and type(value) is dict and set(value)==set(fields)|{'reject_group_size'}:
         fields=(*fields,'reject_group_size')
     if stage==NATIVE_GROUP_STAGE and type(value) is dict and set(value)==set(fields)|{'case_groups','case_groups_sha256'}:
@@ -210,9 +212,11 @@ def verified_reuse_audit(proof,package_id):
 def run_reuse_audit(cli,plan):
     request=object_request(REUSE_AUDIT_STAGE,plan['object_request']);proof=Path(plan['proof_capture']);proof.mkdir(exist_ok=False)
     try:
-        result=cli.linked_reuse_audit(dict(package=request['linked_package'],capture=request['linked_capture'],
-            producer_package=request['producer_package'],producer_capture=request['producer_capture']),
-            proof/'result.json',expected_package_id=plan['package_id'])
+        admission=dict(package=request['linked_package'],capture=request['linked_capture'],
+            producer_package=request['producer_package'],producer_capture=request['producer_capture'])
+        if 'historical_link_observation' in request:
+            admission['historical_link_observation']=cli.load(Path(request['historical_link_observation']))
+        result=cli.linked_reuse_audit(admission,proof/'result.json',expected_package_id=plan['package_id'])
         if not verified_reuse_audit(result,plan['package_id']):raise ValueError('Incomplete exact PTX reuse audit')
     finally:cli.collect(proof,proof/'artifacts.json')
 
@@ -373,6 +377,7 @@ def proof_arguments(plan):
     if plan['stage']==REUSE_AUDIT_STAGE:
         request=object_request(REUSE_AUDIT_STAGE,plan['object_request'])
         return ['linked-reuse-audit',*[arg for key in REUSE_AUDIT_FIELDS for arg in ('--'+key.replace('_','-'),request[key])],
+            *(['--historical-link-observation',request['historical_link_observation']] if 'historical_link_observation' in request else []),
             '--out',str(Path(plan['proof_capture'])/'result.json')]
     if plan['stage']==PTX_PROBE_STAGE:
         request=object_request(PTX_PROBE_STAGE,plan['object_request'])
