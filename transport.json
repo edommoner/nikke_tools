@@ -1,0 +1,12 @@
+{
+  "schema": "nikke-source-zip-transport-v1",
+  "source_commit": "6c7d023579857f46e1aeedaa1013306eb156973a",
+  "package_id": "eda7660a7c04aebe23b220d51110466d46580c668425c4594c5944182cacb68c",
+  "product_program": "fixed",
+  "purpose": "sealed",
+  "files": 4172,
+  "archive": "product-program-fixed-sealed-v2-20261031.zip",
+  "bytes": 14199812,
+  "sha256": "c64d5465c749158ab031a94e40ff1aef29951137b0447623cb5021f712a62b69",
+  "scope": "Code/data/tests only. CPU-only and PTX policy plan passed on Mac; Windows compilation and CUDA execution unverified."
+}
