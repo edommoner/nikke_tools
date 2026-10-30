@@ -1,3 +1,9 @@
+# 2026-10-31 現ソースで通常HTTP APIのCUDA実計算を確認
+
+共通の部位packet呼出し境界とCPU監査最適化を含む9a6c3aa7を、M5 Metal/独立seal後に同sourceでPTX→object→CUBIN化した。通常/api/jobsのMiranda・実蓄積1秒がRTX3070Tiで実CUDA実行され、CPU全製品payload一致。保存raw再投影と静的入力全byte再生成もWindows内で照合済み、追加battle/GPU0。コード・効果・入力・結果変換・検査は同じ共通実装を使う。詳細は`research/target-count-query-evidence/product-parts-call-boundary-v1.json`。
+
+現CUDAの製品確認は1profile・1秒に限る（標準30秒/fixed/group/targetは0）。直前sourceの全266 Metal確認は255一致/11理由付きCPU切替で、現sourceでは5主役・7追加条件とCLI蓄積/固定の数値保持を確認した。全キャラ・全効果・全設定の完了とは区別する。Windowsはmissing/cleanup0でもサービス未識別のため環境保全falseを保持し、原本はWindowsにあるpeer報告として記録する。以下は履歴。
+
 # 2026-10-31 対象別補正と部位の製品合成
 
 元projectile/shieldダメージ補正を持つ編成でも、typed対象がないBODY/PART世界を検証して元部位とboss行動を共通実行器へ渡す。対象別補正carrierを部位係数へ転用しない。通常/複数命中×固定/蓄積の4通常API条件がM5実Metal/CPU全payload一致。初回通常2件のGPU拒否は保存し、修正後は同一input全byteで成功。

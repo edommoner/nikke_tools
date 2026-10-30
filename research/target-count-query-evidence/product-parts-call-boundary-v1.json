@@ -1,6 +1,6 @@
 {
   "schema": "product-parts-call-boundary-v1",
-  "hypothesis": "Keep the part/interrupt loops outside product shot callers; actual NVRTC improvement unmeasured",
+  "hypothesis": "Keep the part/interrupt loops outside product shot callers. The combined source boundary and host audit changes now compile; their isolated causal contributions remain unmeasured.",
   "shared_shader_change": "Only product conditional noinline on deliverCounterParts",
   "generated_cuda_and_metal_exact_except_one_attribute": true,
   "requests": 8,
@@ -12,7 +12,7 @@
   "saved_input_rebuild_and_raw_reprojection_verified": true,
   "independent_audit_cpu_battles": 0,
   "independent_audit_gpu_calls": 0,
-  "windows_compile_attempts": 0,
+  "windows_compile_attempts": 1,
   "full_goal_complete": false,
   "rows": [
     {
@@ -136,5 +136,177 @@
       "after": "e171f4a708b2ec27e03856d7d9ce569901163df2d8d21f8cf7907362c77233a2"
     }
   },
-  "old_failed_nvrtc_claim_preserved": true
+  "old_failed_nvrtc_claim_preserved": true,
+  "windows_compile_peer_report": {
+    "peer_turn": "01a18f13-b174-72c0-aa07-5d297bff06b1",
+    "cursor_revision": 212,
+    "owner": "2a3053da8b227707f5c32af35e03f1555c429af48c2c0d0a04d7d91bbde14a15",
+    "unit_tests": 49,
+    "unit_skipped": 0,
+    "sealed_generation_matched": true,
+    "nvrtc_return_code": 0,
+    "ptx_bytes": 9504650,
+    "ptx_sha256": "7bcd3dc7e9003378c8936cfd530b4812f0bab3a40925de986c302cc6a699b78c",
+    "seconds": {
+      "child_package_verification": 4.03,
+      "paired_generation": 17.574,
+      "compile_generation_cache_read": 1.374,
+      "child_created_to_nvrtc_entered": 8.077,
+      "nvrtc_entered_to_returned": 20.158,
+      "compile_inner": 30.859,
+      "compile_outer": 40.203
+    },
+    "peak_bytes": {
+      "inner": 223174656,
+      "outer": 257343488
+    },
+    "missing_existing_processes": 0,
+    "observation_errors": 0,
+    "cleanup_errors": 0,
+    "inspection_errors": 0,
+    "job_empty_after_cleanup": true,
+    "compiler_verified": true,
+    "containment_verified": true,
+    "service_identified": false,
+    "preservation_verified": false,
+    "outer_passed": false,
+    "driver_calls": 0,
+    "gpu_calls": 0,
+    "mac_independent_original_artifact_audit": false,
+    "scope": "Remote peer status only. Mac has not independently audited original Windows artifacts. Combined source boundary and host-audit optimization; isolated performance causality is unproven."
+  },
+  "next_stage": {
+    "name": "No live Windows job. Reuse saved current image; assess product workload/resource bounds before requesting further CUDA scenes. Preserve remaining 11 reference-model gaps.",
+    "requested": false,
+    "gpu_reruns_requested": false
+  },
+  "windows_module_object_peer_report": {
+    "peer_turn": "01a18f1a-cf0d-75a0-8e23-86aa7bf12004",
+    "cursor_revision": 215,
+    "owner": "2a3053da8b227707f5c32af35e03f1555c429af48c2c0d0a04d7d91bbde14a15",
+    "seconds": {
+      "ptxas": 8.366,
+      "inner": 21.307,
+      "outer": 39.164
+    },
+    "peak_bytes": {
+      "inner": 348213248,
+      "outer": 394067968
+    },
+    "object_bytes": 5444976,
+    "object_sha256": "8d173bfc22dddbd4f25da5eca028a6ba8dd46a24751bbd1808c9a6701fc70deb",
+    "input_ptx_sha256": "7bcd3dc7e9003378c8936cfd530b4812f0bab3a40925de986c302cc6a699b78c",
+    "object_verified": true,
+    "containment_verified": true,
+    "preservation_verified": false,
+    "missing_existing_processes": 0,
+    "observation_errors": 0,
+    "cleanup_errors": 0,
+    "inspection_errors": 0,
+    "job_empty_after_cleanup": true,
+    "slang_calls": 0,
+    "nvrtc_calls": 0,
+    "driver_calls": 0,
+    "gpu_calls": 0,
+    "mac_independent_original_artifact_audit": false
+  },
+  "windows_jit_link_peer_report": {
+    "peer_turn": "01a18f1c-cbe8-77b0-988a-60ce287f9359",
+    "link_verified": true,
+    "image_bytes": 5066448,
+    "image_sha256": "ad057e8bb7daa9244875671792b2aacf697a256f6056726ad4c5592f52b77cba",
+    "seconds_rounded": {
+      "link_api": 0.04,
+      "inner": 17.28,
+      "outer": 43.47
+    },
+    "missing_existing_processes": 0,
+    "cleanup_errors": 0,
+    "driver_calls": 0,
+    "gpu_calls": 0,
+    "preservation_verified": false,
+    "mac_independent_original_artifact_audit": false,
+    "peak_bytes": {
+      "inner": 112545792,
+      "outer": 237961216
+    }
+  },
+  "windows_product_api_peer_report": {
+    "peer_turn": "01a18f21-50ea-7e32-b746-e5e6e8e8aa65",
+    "cursor_revision": 235,
+    "source_commit": "9a6c3aa7a52361b40f44963b21f60afe3a9a9969",
+    "owner": "2a3053da8b227707f5c32af35e03f1555c429af48c2c0d0a04d7d91bbde14a15",
+    "route": "/api/jobs",
+    "primary_profile": "Miranda",
+    "duration_seconds": 1,
+    "requests": 1,
+    "device": "RTX 3070 Ti",
+    "gpu_execution_verified": true,
+    "cpu_fallback": false,
+    "cpu_full_product_payload_matched": true,
+    "differing_fields": [],
+    "input_sha256": "e26cf2bbb65dd20fc1b03780b24d38729a3c783b41913f1971284ca45b29c0d8",
+    "image_sha256": "ad057e8bb7daa9244875671792b2aacf697a256f6056726ad4c5592f52b77cba",
+    "driver_launch_sync_readback_return_codes": [
+      0,
+      0,
+      0
+    ],
+    "host_dispatch_seconds": 0.238034,
+    "synchronize_api_seconds": 0.231532,
+    "pure_gpu_time_measured": false,
+    "inner_seconds_rounded": 41.11,
+    "outer_seconds_rounded": 45.96,
+    "inner_peak_bytes": 1982312448,
+    "outer_peak_bytes": 2000576512,
+    "missing_existing_processes": 0,
+    "cleanup_errors": 0,
+    "observation_errors": 0,
+    "job_empty_after_cleanup": true,
+    "dedicated_server_stopped": true,
+    "protected_files_unchanged": 25,
+    "service_identified": false,
+    "preservation_verified": false,
+    "new_slang_nvrtc_ptxas_link_calls": 0,
+    "mac_independent_original_artifact_audit": false,
+    "saved_reprojection_audit_pending": false,
+    "readback_sha256": "647c30819467bd6e970c8c5a993d4a9b49688890cfe82c161350c33482cb5c3f"
+  },
+  "coverage": {
+    "last_full_metal_sweep_source_commit": "4e8613257b766bd934e68dfe25c89749906cc683",
+    "last_full_metal_sweep_profiles": 255,
+    "current_source_metal_primary_characters_in_custom_conditions": 5,
+    "current_source_metal_custom_conditions": 7,
+    "current_source_cuda_profiles": 1,
+    "current_source_cuda_duration_seconds": 1,
+    "current_source_cuda_standard_30s_profiles": 0,
+    "current_source_cuda_fixed_profiles": 0,
+    "remaining_reference_model_gap_profiles": 11,
+    "full_goal_complete": false
+  },
+  "windows_saved_reprojection_peer_report": {
+    "peer_turn": "01a18f29-09b9-7bb3-ab6f-1387e6232201",
+    "cursor_revision": 239,
+    "static_input_all_bytes_matched": true,
+    "raw_hashes_match_result_evidence_api": true,
+    "raw_reprojection_matches_saved_gpu_cpu_api": true,
+    "excluded_fields": [
+      "compute execution metadata",
+      "API cache_hit"
+    ],
+    "current_source_closure_and_generation_cache_and_image_provenance_matched": true,
+    "extra_cpu_battles": 0,
+    "extra_sdk_driver_gpu_compile_calls": 0,
+    "git_metadata_actual_exit_code": 128,
+    "git_metadata_commit": null,
+    "git_metadata_dirty": null,
+    "prior_failed_audit_retained": true,
+    "prior_failed_audit_reason": "Audit invocation blocked original decoder read-only git rev-parse HEAD; numerical comparison not reached. Only the fixed original read-only Git invocation was permitted in the corrected CPU audit. No original decoder or expected value was modified.",
+    "missing_existing_processes": 0,
+    "cleanup_errors": 0,
+    "job_empty_after_cleanup": true,
+    "preservation_verified": false,
+    "mac_independent_original_artifact_audit": false,
+    "scope": "In-place saved artifact audit reported by Windows peer; original Windows artifacts were not transferred to Mac."
+  }
 }
