@@ -74,4 +74,16 @@ class CoverWire(unittest.TestCase):
         from portable_recipient_order_source_contract import project_sources as prior,BEFORE_BACKEND_SHA256
         self.assertEqual(hashlib.sha256(prior(ROOT)['app/portable_backend.py'].encode()).hexdigest(),BEFORE_BACKEND_SHA256)
 
+    def test_snapshot_input_reader_fault_fails_before_native_or_device_work(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);(root/'gpu').mkdir()
+            (root/'gpu/cover_defense_layout.slang').write_text(wire.shader_schema())
+            source=(ROOT/'gpu/cover_defense_runtime.slang').read_text()
+            for operand in ('snapshot','snapshot+2','snapshot+4'):
+                bad=source.replace('protectionNumber('+operand+')','loadNumber('+operand+')')
+                self.assertNotEqual(bad,source)
+                (root/'gpu/cover_defense_runtime.slang').write_text(bad)
+                with self.assertRaisesRegex(ValueError,'output-resource reads'):wire.check_schema(root)
+
 if __name__=='__main__':unittest.main()

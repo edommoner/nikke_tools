@@ -1,5 +1,5 @@
 """Opt-in independent cover bases; no simulated state or attacker snapshots in input."""
-import copy,struct
+import copy,re,struct
 from contextlib import contextmanager
 from pathlib import Path
 from unittest.mock import patch
@@ -15,6 +15,13 @@ def check_schema(root=None):
     root=Path(root or Path(__file__).resolve().parents[1])
     if (root/'gpu/cover_defense_layout.slang').read_text()!=shader_schema():raise ValueError('Cover DEF declaration schema drift')
     assert LAYOUT['OUTPUT_BASE']+LAYOUT['RECEIPT_BASE']+LAYOUT['RECEIPTS']*LAYOUT['RECEIPT_WORDS']==OUTPUT
+    from portable_dispatch_frames import CAPACITY
+    if LAYOUT['DEPTH']!=CAPACITY:raise ValueError('Cover snapshots must retain every common event depth')
+    # Command reads own only the two authored base-DEF addresses. Captured attack
+    # scalars live in results and must never be interpreted as command offsets.
+    source=(root/'gpu/cover_defense_runtime.slang').read_text()
+    loads=re.findall(r'\bloadNumber\(([^()]*)\)',source)
+    if loads!=['input+8+who*2','s.inputBase+CDF_BASE+8+who*2']:raise ValueError('Cover command reads escape the authored base bank; GPU snapshots require output-resource reads')
 
 def pack(spec,names):
     values=normalize(spec,names);words=[MAGIC,1,5,0,0,0,0,0]
