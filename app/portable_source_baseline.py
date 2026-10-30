@@ -2,17 +2,23 @@
 import hashlib,json
 from pathlib import Path
 from portable_slang_generation import source_hashes
+from portable_product_programs import configuration,registered_golden
 
 
-def check(root,cli,suite):
+def check(root,cli,suite,*,product_program=None):
     root=Path(root).resolve()
     if suite not in cli.SUITES:raise ValueError('Unknown source baseline suite')
-    config=cli.SUITES[suite]
-    registered=json.loads((root/config['golden']).read_text(encoding='utf-8'))
-    actual=source_hashes(root,config['source'])
     manifest=None
     if (root/'gpu-package.json').exists():manifest=cli.verify_package(root)
-    registered_current=registered.get('source_sha256')==actual
+    selection=dict(suite=suite)
+    if product_program is not None:selection['product_program']=product_program
+    elif manifest is not None and manifest['suite']==suite:selection=manifest
+    if manifest is not None and manifest['suite']==suite and selection.get('product_program')!=manifest.get('product_program'):
+        raise ValueError('Requested product program differs from active package')
+    config=configuration(cli.SUITES,selection)
+    registered=registered_golden(root,config,allow_unsealed=manifest is not None and manifest.get('purpose')=='development')
+    actual=source_hashes(root,config['source'])
+    registered_current=registered is not None and registered.get('source_sha256')==actual
     origin='registered-golden'
     if not registered_current:
         if manifest is None or manifest.get('purpose')!='development':
@@ -24,12 +30,14 @@ def check(root,cli,suite):
         if not actual or any(active.get(name)!=digest for name,digest in actual.items()):
             raise ValueError('Requested source is outside the verified development closure: '+suite)
         origin='verified-development-closure'
-    return dict(schema='source-baseline-check-v1',suite=suite,verified=True,
+    result=dict(schema='source-baseline-check-v1',suite=suite,verified=True,
         origin=origin,registered_source_current=registered_current,
         source_sha256=actual,package_id=manifest['package_id'] if manifest else None,
         active_suite=manifest['suite'] if manifest else None,
         calculation_verified=False,gpu_execution_verified=False,gpu_calls=0,
         scope='Source identities only; historical golden/certificate and execution checks remain separate')
+    if 'product_program' in selection:result['product_program']=selection['product_program']
+    return result
 
 
 def inventory(root,cli):

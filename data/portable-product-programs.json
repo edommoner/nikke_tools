@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "programs": {
+    "accumulate": {
+      "source": "gpu/product_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "mode": "accumulate",
+      "kind": ""
+    },
+    "accumulate-group": {
+      "source": "gpu/product_group_battle_entry.slang",
+      "input_words": 104408,
+      "output_words": 1048576,
+      "mode": "accumulate",
+      "kind": "group"
+    },
+    "accumulate-target": {
+      "source": "gpu/product_target_battle_entry.slang",
+      "input_words": 110112,
+      "output_words": 1048576,
+      "mode": "accumulate",
+      "kind": "target"
+    },
+    "accumulate-group-target": {
+      "source": "gpu/product_group_target_battle_entry.slang",
+      "input_words": 104672,
+      "output_words": 1048576,
+      "mode": "accumulate",
+      "kind": "group-target"
+    },
+    "fixed": {
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "mode": "fixed",
+      "kind": ""
+    },
+    "fixed-group": {
+      "source": "gpu/product_fixed_group_battle_entry.slang",
+      "input_words": 104408,
+      "output_words": 1048576,
+      "mode": "fixed",
+      "kind": "group"
+    },
+    "fixed-target": {
+      "source": "gpu/product_fixed_target_battle_entry.slang",
+      "input_words": 110112,
+      "output_words": 1048576,
+      "mode": "fixed",
+      "kind": "target"
+    },
+    "fixed-group-target": {
+      "source": "gpu/product_fixed_group_target_battle_entry.slang",
+      "input_words": 104672,
+      "output_words": 1048576,
+      "mode": "fixed",
+      "kind": "group-target"
+    }
+  }
+}

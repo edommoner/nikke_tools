@@ -1,4 +1,5 @@
 """Preserve calculation bytes; optional reviewed controls retain their originals."""
+from portable_product_programs import configuration as product_configuration
 import ast,copy,json,os,subprocess,sys,tempfile,zipfile
 from pathlib import Path
 
@@ -66,7 +67,7 @@ def owner_snapshot(cli,root):
     script="""import importlib.util,json,pathlib,sys
 root=pathlib.Path(sys.argv[1]);s=importlib.util.spec_from_file_location('continuation_original_owner',root/'scripts/nikke_gpu.py')
 c=importlib.util.module_from_spec(s);s.loader.exec_module(c);m=c.verify_package(root)
-print(json.dumps(dict(manifest=m,config=c.SUITES[m['suite']],smoke=c.SMOKE_TESTS)))
+print(json.dumps(dict(manifest=m,config=(c.suite_config(m) if hasattr(c,'suite_config') else c.SUITES[m['suite']]),smoke=c.SMOKE_TESTS)))
 """
     env=os.environ.copy();env['PYTHONDONTWRITEBYTECODE']='1'
     r=subprocess.run([sys.executable,'-B','-c',script,str(root)],cwd=root,env=env,capture_output=True,text=True,check=True,timeout=60)
@@ -128,7 +129,7 @@ def make(cli,base,output,*,repair_controls=False):
     info=owner_snapshot(cli,base);original=info['manifest']
     if original.get('purpose')!='sealed' or original.get('controller_continuation'):
         raise ValueError('Initial continuation requires an ordinary sealed source owner')
-    if info['config']!=cli.SUITES[original['suite']]:raise ValueError('Continuation changed suite configuration')
+    if info['config']!=product_configuration(cli.SUITES,original):raise ValueError('Continuation changed suite configuration')
     payload={r['path']:(base/r['path']).read_bytes() for r in original['files']}
     schema,replaced,added=layout(original,repair_controls=repair_controls)
     if repair_controls:repair_manifest(cli.ROOT,original)

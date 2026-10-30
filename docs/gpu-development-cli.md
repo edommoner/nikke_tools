@@ -1,3 +1,11 @@
+## 製品プログラムを同じCLIで選択する
+
+`package --suite product-detail --product-program fixed --develop --out NEW.zip` は、固定周期normal入口を既存の製品suiteで固定する。`accumulate`/`fixed`と`-group`/`-target`/`-group-target`の8種類を、共通の`data/portable-product-programs.json`で宣言する。suite追加や効果別の新検証器ではない。`product_program`はmanifest/package IDへ入り、元入力factory・wire・source closure・基準選択と結び付く。未指定の旧packetは従来の設定を維持する。
+
+新programのsealed基準は`research/portable-product-programs-v1-expected.json`のprogram別entryへ登録する。まだ独立Metal sealのないmemberはsealed梱包を拒否し、旧normalの数値へfallbackしない。開発梱包は既存CPU基準生成→run→fresh独立sealを使う。`source-baseline --suite product-detail --product-program fixed --out NEW.json`または固定packet内の同commandは選択programを検査する。新programにも、同program・同CPU/data/input contractが一致する場合だけ既存`--native-baseline-package`の期待hash再利用を適用できる。programを跨ぐ再利用は拒否する。
+
+共有CUBIN設定のprogram keysは同じ共通registryの既知8入口に限る。Nodeのconfiguredはshape/pathのヒント、Pythonの全owner/生成source/header/image/既存phase監査が最終ゲート。Windowsの保存JSONをMacで読む場合、receipt/trace validatorの明示`portable=True`はPOSIX/Windowsの絶対パス表記をデータとして検査する。既定のnative path検査やread_verified、歴史false/missing identitiesの条件は変えない。これは外部artifactをMacで実行する許可ではない。
+
 ## 2026-10-31 製品APIの固定周期モード
 
 通常のMetal詳細APIは実蓄積に加え、固定周期の静的入力を共通実行器へ渡す。初回待機と5人のliteral再充填待機最大値だけをcontrol header v4へpackし、共通ソフトbinary64でreadyを判定する。CPU戦闘や発動予定表はGPU入力に使わない。全266profileの通常API確認でMetal255/理由付きCPUfallback11、追加編成1も全CPU製品応答一致。保存全payloadとraw SHAの独立監査成功、cache hit0。固定モードのCUDA実機確認は0で、旧実蓄積1秒のCUDA1profileと区別する。

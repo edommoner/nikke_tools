@@ -1,6 +1,7 @@
 """Reuse immutable expected fingerprints, never native values or GPU results."""
 import hashlib,json,re
 from pathlib import Path
+from portable_product_programs import configuration as product_configuration
 
 SCHEMA='development-native-expectations-v1'
 SCOPE='Expected fingerprints only; no runtime oracle values or saved GPU calculation reuse'
@@ -69,12 +70,13 @@ def ledger_change(old_root,new_root,path):
         if hashlib.sha256((new_root/name).read_bytes()).hexdigest()!=b[name]:return False
     return True
 
-def reuse(cli,suite,baseline,records,cases):
+def reuse(cli,suite,baseline,records,cases,*,product_program=None):
     baseline=Path(baseline).resolve();current=Path(cli.ROOT)
     # This verifier reads bytes; it does not execute the baseline's CLI.
     cli.file_records(baseline,['gpu-package.json'])
     old=cli.verify_package(baseline)
     if old['suite']!=suite or old.get('purpose','sealed') not in ('sealed','development') or old.get('selected_cases',[])!=list(cases):raise ValueError('Matching native baseline suite/case selection required')
+    if old.get('product_program')!=product_program:raise ValueError('Matching native baseline product program required')
     if old.get('baseline_migration'):raise ValueError('Observation migration cannot provide native expectations')
     previous={r['path']:r for r in old['files']};candidate={r['path']:r for r in records};ledgers=[];changed_gpu=[]
     for name in sorted(previous.keys()|candidate.keys()):
@@ -83,6 +85,7 @@ def reuse(cli,suite,baseline,records,cases):
         if name in previous and name in candidate and ledger_change(baseline,current,name):ledgers.append(name);continue
         raise ValueError('Native baseline dependency differs: '+name)
     m=dict(suite=suite,purpose='development',selected_cases=list(cases))
+    if product_program is not None:m['product_program']=product_program
     with cli.forbid_gpu():
         adapter=cli.open_suite(m);entries,data=cli.prepare_entries(adapter,m)
     golden=old['golden'];iw=adapter.suite.INPUT*4
@@ -94,7 +97,7 @@ def reuse(cli,suite,baseline,records,cases):
         if not isinstance(row.get('native_sha256'),str) or not re.fullmatch('[0-9a-f]{64}',row['native_sha256']):raise ValueError('Native baseline fingerprint missing: '+name)
         rows.append({k:row[k] for k in ('name','input_sha256','native_sha256')})
     from portable_backend import source_hashes
-    result=dict(input_sha256=cli.sha(data),source_sha256=source_hashes(cli.SUITES[suite]['source']),entries=rows)
+    result=dict(input_sha256=cli.sha(data),source_sha256=source_hashes(product_configuration(cli.SUITES,m)['source']),entries=rows)
     receipt=dict(schema=SCHEMA,baseline_package_id=old['package_id'],baseline_manifest_sha256=cli.sha((baseline/'gpu-package.json').read_bytes()),
         candidate_files_sha256=digest(records),fingerprints_sha256=digest(rows),source_sha256=digest(result['source_sha256']),
         retained_cases=len(rows),changed_gpu_sources=changed_gpu,verified_slang_ledgers=ledgers,

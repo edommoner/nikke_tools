@@ -1,6 +1,6 @@
 """Exact-source saved module/JIT CUBIN admission; no compiler or driver calls."""
 import hashlib,json
-from pathlib import Path
+from pathlib import Path, PurePosixPath, PureWindowsPath
 from portable_compile_cache import quoted_headers
 from portable_compiler_certificate import full_family
 from portable_device_linker import validate_cubin
@@ -30,10 +30,12 @@ def missing_identities(rows):
     return result
 
 
-def validate_history_binding(binding):
+def validate_history_binding(binding,*,portable=False):
     if (type(binding) is not dict or set(binding)!={'capture','observation_sha256','missing_identities','disposition'}
             or binding['disposition']!='retained-failure' or not isinstance(binding['capture'],str)
-            or not Path(binding['capture']).is_absolute() or type(binding['observation_sha256']) is not str
+            or not (Path(binding['capture']).is_absolute() if not portable else
+                    PurePosixPath(binding['capture']).is_absolute() or PureWindowsPath(binding['capture']).is_absolute())
+            or type(binding['observation_sha256']) is not str
             or len(binding['observation_sha256'])!=64 or any(c not in '0123456789abcdef' for c in binding['observation_sha256'])
             or type(binding['missing_identities']) is not list or not binding['missing_identities']
             or any(type(r) is not dict or set(r)!={'pid','path','creation_filetime_ticks'} for r in binding['missing_identities'])
@@ -60,7 +62,7 @@ def retained_link_environment(capture,observation_raw,comparison,binding):
                 termination_cause='unknown',disposition='retained-failure')
 
 
-def validate_historical_environment(history):
+def validate_historical_environment(history,*,portable=False):
     fields={'capture','observation_sha256','missing_identities','preservation_verified','service_preservation_verified',
             'service_status_before','service_status_after','termination_cause','disposition'}
     if (type(history) is not dict or set(history)!=fields or history['preservation_verified'] is not False
@@ -68,7 +70,7 @@ def validate_historical_environment(history):
             or history['service_preservation_verified'] and 'unverified' in (history['service_status_before'],history['service_status_after'])
             or any(history[k] not in ('identified','absent','unverified') for k in ('service_status_before','service_status_after'))):
         raise ValueError('Historical failure cannot become preserved')
-    validate_history_binding({k:history[k] for k in ('capture','observation_sha256','missing_identities','disposition')})
+    validate_history_binding({k:history[k] for k in ('capture','observation_sha256','missing_identities','disposition')},portable=portable)
 
 
 def exact_ptx_reuse(producer,compiler,original):
@@ -135,15 +137,15 @@ def read_verified(receipt,source,artifact):
     return image,receipt
 
 
-def valid_receipt(receipt):
+def valid_receipt(receipt,*,portable=False):
     try:
         identity=receipt['identity']
-        if 'historical_link_environment' in identity:validate_historical_environment(identity['historical_link_environment'])
+        if 'historical_link_environment' in identity:validate_historical_environment(identity['historical_link_environment'],portable=portable)
         return bool(identity['schema']==1 and identity['provider']==PROVIDER and identity['artifact']=='cubin' and receipt['key']==key(identity) and receipt.get('enabled') is True and receipt.get('reused') is True and type(receipt['artifact_bytes']) is int and receipt['artifact_bytes']>0 and len(receipt['artifact_sha256'])==64 and all(c in '0123456789abcdef' for c in receipt['artifact_sha256']))
     except (KeyError,TypeError,ValueError):return False
 
 
-def valid_marker(row):return row.get('stage')==STAGE and row.get('state')=='verified' and valid_receipt(row.get('receipt',{}))
+def valid_marker(row,*,portable=False):return row.get('stage')==STAGE and row.get('state')=='verified' and valid_receipt(row.get('receipt',{}),portable=portable)
 
 
 def verify_phases(rows,receipt):

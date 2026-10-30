@@ -4,6 +4,7 @@ The original capture is never completed or repaired. Its own immutable CLI
 performs the ordinary fresh native comparison under an alternate, explicit
 snapshot inventory. No saved CPU values or successful stage are manufactured.
 """
+from portable_product_programs import configuration as product_configuration
 from pathlib import Path
 from portable_object_recovery import MISSING, verify_terminal_timeout
 
@@ -61,7 +62,7 @@ def verify_original(cli, package, capture):
         raise ValueError('Recovery linked request mismatch')
     from portable_cpu_tests import complete
     tests = cli.load(capture / 'cpu-tests.json')
-    if not complete(tests, cli.SUITES[manifest['suite']]['tests']):
+    if not complete(tests, product_configuration(cli.SUITES,manifest)['tests']):
         raise ValueError('Recovery original CPU tests incomplete')
     if cli.load(capture / 'cpu.json').get('passed') is not True:
         raise ValueError('Recovery original native preflight incomplete')

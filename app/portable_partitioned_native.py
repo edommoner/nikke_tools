@@ -4,6 +4,7 @@ The old failed capture is never promoted or modified. This is a separate CPU
 audit: the packet's original semantic comparator receives an explicitly typed
 logical row view; all raw bytes and all original golden fingerprints remain.
 """
+from portable_product_programs import configuration as product_configuration
 import array,hashlib,json,os,subprocess,sys,time
 from pathlib import Path
 
@@ -11,7 +12,7 @@ from pathlib import Path
 def compare(cli,manifest,capture,generated_root,case_indices=None,progress=None):
     """Historical Metal envelope; its source paths and generation checks stay exact."""
     capture=Path(capture)
-    source=Path(cli.SUITES[manifest['suite']]['source']).stem
+    source=Path(product_configuration(cli.SUITES,manifest)['source']).stem
     return compare_readback(cli,manifest,input_path=capture/'input.bin',raw_path=capture/'readback.bin.partial',
         layout=cli.load(capture/'readback.bin.batches/plan.json'),batch_size=cli.load(capture/'run.json')['batch_size'],
         generation=cli.load(capture/'generation-preflight.json')['generation']['artifacts'],
@@ -63,7 +64,7 @@ def compare_readback(cli,manifest,*,input_path,raw_path,layout,batch_size,genera
                         if domain is None:
                             if block[0]!=64:raise ValueError('Expected rejection status64')
                             if hasattr(adapter,'validate_rejection'):adapter.validate_rejection(block,name)
-                            if cli.SUITES[manifest['suite']].get('require_rejection_stage'):adapter.validate_rejection_stage(block,name)
+                            if product_configuration(cli.SUITES,manifest).get('require_rejection_stage'):adapter.validate_rejection_stage(block,name)
                             native=dict(status=64)
                         else:
                             if block[0]!=0:raise ValueError('Expected GPU success status0; got status'+str(block[0]))
@@ -172,7 +173,7 @@ print(json.dumps(r))
             cli.check_records(capture,anchors)
             exclusive(prefix.with_suffix('.json'),group);groups.append(group)
         comparison=aggregate(manifest,wire,groups,planned,timeout,os.getpid())
-        if comparison['native_oracles']!=cli.SUITES[manifest['suite']]['native']:raise ValueError('Incomplete native coverage')
+        if comparison['native_oracles']!=product_configuration(cli.SUITES,manifest)['native']:raise ValueError('Incomplete native coverage')
         cli.check_records(capture,anchors)
         if cli.verify_package(cli.ROOT)!=manifest or owner_snapshot(cli,source_package)['manifest']!=original:
             raise ValueError('Independent or original packet changed')

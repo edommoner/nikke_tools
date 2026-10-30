@@ -3,6 +3,7 @@
 The CUDA API is shared, but a new Windows admission after its consumed launch
 failure is deliberately not enabled by this diagnostic controller.
 """
+from portable_product_programs import configuration as product_configuration
 import argparse,ast,copy,hashlib,json,os,subprocess,sys,tempfile,time,zipfile
 from pathlib import Path
 from types import SimpleNamespace
@@ -135,7 +136,7 @@ def run(cli,capture,backend,batch_size,timeout):
     capture=outside(capture,[cli.ROOT]);capture.mkdir(parents=True,exist_ok=False);j=Journal(capture/'preparation.jsonl')
     try:
         with cli.forbid_gpu():iw=cli.open_suite(m).suite.INPUT
-        count=len(m['golden']['entries']);ow=cli.SUITES[m['suite']]['output_words'];size=4+count*iw*4
+        count=len(m['golden']['entries']);ow=product_configuration(cli.SUITES,m)['output_words'];size=4+count*iw*4
         from portable_wire_layout import check_metal
         exclusive(capture/'metal-wire-preflight.json',check_metal(cli.ROOT,ow))
         needed=2*count*ow*4+2*size+4*((count+batch_size-1)//batch_size)+64*1024*1024
@@ -176,14 +177,14 @@ def child(cli,capture,backend):
     if (run.get('mode')!=MODE or run.get('package_id')!=m['package_id'] or run.get('backend')!='metal'
         or claim!=dict(package_id=m['package_id'],capture=str(capture),recipe=run)
         or run.get('cpu_sha256')!=cli.sha((capture/'cpu.json').read_bytes()) or cpu.get('passed') is not True
-        or cpu.get('input_count')!=len(m['golden']['entries']) or cpu.get('native_oracles')!=cli.SUITES[m['suite']]['native']
+        or cpu.get('input_count')!=len(m['golden']['entries']) or cpu.get('native_oracles')!=product_configuration(cli.SUITES,m)['native']
         or run.get('wire_address_profile')!=m['partitioned_diagnostic'].get('wire_address_profile')):raise ValueError('Partitioned fresh preflight or claim changed')
     packed=(capture/'input.bin').read_bytes()
     receipt=cli.transport_input_receipt(m,packed,run['input_words'])
     if receipt!=cli.load(capture/'input-preflight.json') or receipt!=cpu['transport_input']:raise ValueError('Partitioned prepared input changed')
     journal=Journal(capture/'phases.jsonl')
     with observe(portable_backend,journal),observe_generation(journal):
-        _,evidence=journal.invoke('partitioned_file_execute',partitioned.execute,cli.SUITES[m['suite']]['source'],'portableEvents',
+        _,evidence=journal.invoke('partitioned_file_execute',partitioned.execute,product_configuration(cli.SUITES,m)['source'],'portableEvents',
             packed,run['input_words'],run['output_words'],'metal',readback_path=capture/'readback.bin',batch_size=run['batch_size'],
             expected_input_sha256=m['golden']['input_sha256'],expected_output_sha256=m['golden']['output_sha256'],
             expected_source_sha256=m['golden']['source_sha256'],expected_generated_normalized=m['golden']['generated_normalized'],address_profile=run['wire_address_profile'])

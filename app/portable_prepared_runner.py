@@ -4,6 +4,7 @@ No alternate calculation, compiler fallback or native result cache. The old
 run protocols keep their admission path; this consumes only authenticated
 in-process authority for the originally reserved attempt.
 """
+from portable_product_programs import configuration as product_configuration
 import os
 from pathlib import Path
 from unittest.mock import patch
@@ -39,7 +40,7 @@ def run(cli,preparation_package,preparation_stage,expected_binding,snapshot_sha2
     m=cli.verify_package(cli.ROOT)
     if cli.is_development(m) or cli.compiler_only(m) or m.get('baseline_migration'):
         raise ValueError('Prepared execution requires a sealed, executable battle')
-    config=cli.SUITES[m['suite']];wire=cli.registered_entry_wire_preflight(config)
+    config=product_configuration(cli.SUITES,m);wire=cli.registered_entry_wire_preflight(config)
     out.mkdir(parents=True,exist_ok=False)
     claim_entered=False;capture_created=False;launch_entered=False
     try:

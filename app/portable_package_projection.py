@@ -5,6 +5,7 @@ All application/controller code, GPU sources, fixtures and public data survive.
 Dynamic imports are followed by module/file literals, keeping every ambiguous
 match. This is a packaging aid, not a general Python dependency resolver.
 """
+from portable_product_programs import configuration as product_configuration
 import ast
 from collections import defaultdict
 import hashlib
@@ -174,7 +175,7 @@ owner=importlib.util.module_from_spec(s);s.loader.exec_module(owner)
 m=json.loads(raw)
 if m['package_id']!=owner.package_id(m):raise ValueError('Historical identity changed')
 from portable_package_projection import validate
-validate(m['payload_projection'],m['files'],m['suite'],owner.SUITES[m['suite']],owner.SMOKE_TESTS)
+validate(m['payload_projection'],m['files'],m['suite'],product_configuration(owner.SUITES,m),owner.SMOKE_TESTS)
 print(json.dumps(dict(package_id=m['package_id'],manifest_sha256=sys.argv[2],projection_verified=True,gpu_calls=0,native_calls=0)))
 """
     env=os.environ.copy();env['PYTHONDONTWRITEBYTECODE']='1'

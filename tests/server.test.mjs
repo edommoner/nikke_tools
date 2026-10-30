@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {searchCases} from '../server.mjs';
-import {mkdtempSync,writeFileSync,rmSync} from 'node:fs';
+import {readFileSync,mkdtempSync,writeFileSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
 test('search preserves original input and all unrelated scenario fields',()=>{
@@ -80,6 +80,13 @@ test('shared CUDA saved images require explicit configuration plus a warm genera
   assert.equal(sharedCudaConfigured('win32',env),false);
   writeFileSync(file,JSON.stringify({schema:1,programs:{'gpu/product_battle_entry.slang':{battle_package:root,request:{package:root,capture:root}}}}));
   assert.equal(sharedCudaConfigured('win32',env),true);
+  const registry=JSON.parse(readFileSync(new URL('../data/portable-product-programs.json',import.meta.url),'utf8'));
+  for(const program of Object.values(registry.programs)){
+    const configured={schema:1,programs:{[program.source]:{battle_package:root,request:{package:root,capture:root}}}};
+    writeFileSync(file,JSON.stringify(configured));assert.equal(sharedCudaConfigured('win32',env),true);
+    configured.programs['gpu/unregistered_product.slang']=configured.programs[program.source];
+    writeFileSync(file,JSON.stringify(configured));assert.equal(sharedCudaConfigured('win32',env),false);
+  }
   assert.equal(sharedCudaConfigured('win32',{...env,NIKKE_SLANG_GENERATION_CACHE:''}),false);
   assert.equal(sharedCudaConfigured('darwin',env),false);
   const history={capture:root,observation_sha256:'a'.repeat(64),disposition:'retained-failure',missing_identities:[{pid:71,path:'c:/tools/node.exe',creation_filetime_ticks:'133700000000000007'}]};

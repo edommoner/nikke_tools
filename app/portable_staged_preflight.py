@@ -3,6 +3,7 @@
 Receipts contain fingerprints only, never native values or GPU state. Normal
 run preflight is unchanged. The GPU stage still awaits an independent audit.
 """
+from portable_product_programs import configuration as product_configuration
 import json,os,platform,sys,uuid
 from pathlib import Path
 from portable_comparison_groups import partition
@@ -59,7 +60,7 @@ def context(cli,transaction,backend=None,gpu_capture=None):
         raise ValueError('Staged native plan changed')
     indices=c.get('native_indices')
     if (not isinstance(indices,list) or any(type(i) is not int or not 0<=i<len(m['golden']['entries']) for i in indices)
-        or indices!=sorted(set(indices)) or len(indices)!=cli.SUITES[m['suite']]['native']):
+        or indices!=sorted(set(indices)) or len(indices)!=product_configuration(cli.SUITES,m)['native']):
         raise ValueError('Staged native membership changed')
     from portable_staged_tests import validate_plan
     validate_plan(cli,m,c)
@@ -101,7 +102,7 @@ def begin(cli,capture,backend,gpu_capture,group_size,*,test_group_size=None):
     partition(1,group_size)
     m=cli.verify_package(cli.ROOT)
     if cli.is_development(m) or cli.compiler_only(m):raise ValueError('Staged preflight requires a sealed battle')
-    if test_group_size is not None:partition(len(cli.SUITES[m['suite']]['tests']),test_group_size)
+    if test_group_size is not None:partition(len(product_configuration(cli.SUITES,m)['tests']),test_group_size)
     capture=outside(capture,[cli.ROOT]);gpu_capture=outside(gpu_capture,[cli.ROOT,capture])
     if gpu_capture.exists():raise FileExistsError(gpu_capture)
     capture.mkdir(parents=True,exist_ok=False);nonce=uuid.uuid4().hex
@@ -113,7 +114,7 @@ def begin(cli,capture,backend,gpu_capture,group_size,*,test_group_size=None):
             if test_group_size is None:j.invoke('staged_cpu_tests',cli.cpu_test_groups,m,capture)
             adapter,entries,data,receipt=j.invoke('staged_static_input',static_input,cli,m)
         native_indices=[i for i,(_,_,d) in enumerate(entries) if d is not None]
-        if len(native_indices)!=cli.SUITES[m['suite']]['native']:raise ValueError('Staged native count differs from registered suite')
+        if len(native_indices)!=product_configuration(cli.SUITES,m)['native']:raise ValueError('Staged native count differs from registered suite')
         cli.publish_transport_input(m,capture,data,adapter.suite.INPUT)
         c=dict(schema=SCHEMA,package_id=m['package_id'],manifest_sha256=cli.sha((cli.ROOT/'gpu-package.json').read_bytes()),
             package_root=str(cli.ROOT.resolve()),transaction=str(capture),nonce=nonce,backend=backend,gpu_capture=str(gpu_capture),
@@ -254,7 +255,7 @@ def finish_gpu(cli,m,capture,facts,backend):
         read_gpu_input(cli,m,capture)
         evidence=cli.load(capture/'evidence.json')
         raw=cli.file_records(capture,['readback.bin'])[0]
-        expected_bytes=len(m['golden']['entries'])*cli.SUITES[m['suite']].get('output_words',786432)*4
+        expected_bytes=len(m['golden']['entries'])*product_configuration(cli.SUITES,m).get('output_words',786432)*4
         matched=bool(raw['bytes']==expected_bytes and raw['sha256']==m['golden']['output_sha256']==evidence['output_sha256'])
         completed=bool(facts.get('passed') is True and evidence['backend']==backend
             and evidence['gpu_execution_verified'] is True and evidence['transport']['command_status']=='completed'

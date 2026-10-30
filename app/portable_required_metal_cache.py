@@ -1,4 +1,5 @@
 """CPU source generation plus read-only cache check, before native work/claim."""
+from portable_product_programs import configuration as product_configuration
 import hashlib,os,time
 from pathlib import Path
 from portable_metal_cache_probe import probe_identity
@@ -21,7 +22,7 @@ def preflight(api,manifest,capture,device):
         cache=Path(os.environ.get('NIKKE_METAL_PIPELINE_CACHE',''))
         if not cache.is_absolute() or not cache.is_dir() or cache.is_symlink():raise ValueError('Existing absolute private Metal cache required')
         import portable_backend
-        source=api.SUITES[manifest['suite']]['source']
+        source=product_configuration(api.SUITES,manifest)['source']
         report['source_generation_api_calls']=1
         outputs,hashes=portable_backend.build(source,'portableEvents')
         if hashes!=manifest['golden']['source_sha256']:raise ValueError('Metal source identity changed during preflight')

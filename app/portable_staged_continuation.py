@@ -3,6 +3,7 @@
 Keep original failed stages and completed fingerprint receipts in place.
 No native values are loaded, persisted, or supplied to the GPU.
 """
+from portable_product_programs import configuration as product_configuration
 import json,os,uuid
 from pathlib import Path
 from types import SimpleNamespace
@@ -65,7 +66,7 @@ def parent_evidence(cli,current,parent_transaction,*,expected=None):
     from portable_staged_tests import admit_tests
     transaction=Path(parent_transaction).resolve();old=cli.load(transaction/'transaction.json');root=Path(old['package_root']).resolve()
     info=owner_snapshot(cli,root);m=info['manifest'];validate_lineage(cli,current,m,root)
-    if info['config']!=cli.SUITES[current['suite']] or old.get('resume_parent'):
+    if info['config']!=product_configuration(cli.SUITES,current) or old.get('resume_parent'):
         raise ValueError('Continuation requires unchanged suite and an original transaction')
     owner=SimpleNamespace(**{**vars(cli),'ROOT':root,'SMOKE_TESTS':info['smoke'],
         'verify_package':lambda path:m if Path(path).resolve()==root else (_ for _ in ()).throw(ValueError('Original owner root changed'))})

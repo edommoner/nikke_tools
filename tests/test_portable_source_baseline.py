@@ -52,6 +52,25 @@ class SourceBaseline(unittest.TestCase):
     def test_invalid_packet_cannot_hide_behind_a_current_registered_hash(self):
         self.packet();self.cli.verify_package.side_effect=ValueError('Invalid package identity')
         with self.assertRaisesRegex(ValueError,'Invalid package'):check(self.root,self.cli,'parent')
+    def test_active_product_program_uses_its_own_development_source(self):
+        from portable_product_programs import GOLDEN
+        source='gpu/product_fixed_battle_entry.slang'
+        (self.root/source).write_text('// fixed product source fixture; no calculation proof\n')
+        table=self.root/GOLDEN;table.parent.mkdir();table.write_text(json.dumps(dict(schema=1,programs={})))
+        self.cli.SUITES['product-detail']=dict(self.cli.SUITES['parent'])
+        self.manifest.update(suite='product-detail',product_program='fixed',golden=dict(source_sha256=source_hashes(self.root,source)))
+        self.packet()
+        result=check(self.root,self.cli,'product-detail')
+        self.assertEqual(result['product_program'],'fixed')
+        self.assertEqual(result['source_sha256'],source_hashes(self.root,source))
+        self.assertEqual(result['origin'],'verified-development-closure')
+        self.assertFalse(result['registered_source_current']);self.assertFalse(result['calculation_verified'])
+        with self.assertRaisesRegex(ValueError,'program differs'):
+            check(self.root,self.cli,'product-detail',product_program='accumulate')
+        self.cli.verify_package.return_value=dict(self.manifest,purpose='sealed')
+        with self.assertRaisesRegex(ValueError,'independently sealed'):
+            check(self.root,self.cli,'product-detail')
+
     def test_unknown_suite_is_rejected(self):
         with self.assertRaisesRegex(ValueError,'Unknown'):check(self.root,self.cli,'invented')
     def test_inventory_groups_aliases_and_excludes_nonregistered_profiles(self):

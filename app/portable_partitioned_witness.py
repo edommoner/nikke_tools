@@ -3,6 +3,7 @@
 This never authenticates an unseen CUDA capture. A subsequent source-host
 envelope audit is required before the conditional result can certify CUDA.
 """
+from portable_product_programs import configuration as product_configuration
 import json,os,subprocess,sys,time
 from pathlib import Path
 
@@ -14,7 +15,7 @@ def bind_summary(cli,raw,manifest,wire):
     peer=json.loads(raw);g=manifest['golden']
     if (peer.get('schema')!='resident-current-cuda-public-summary-v1'
         or peer.get('package_id')!=manifest['package_id'] or peer.get('input_sha256')!=g['input_sha256']
-        or peer.get('input_count')!=len(g['entries']) or peer.get('native_reference_cases')!=cli.SUITES[manifest['suite']]['native']
+        or peer.get('input_count')!=len(g['entries']) or peer.get('native_reference_cases')!=product_configuration(cli.SUITES,manifest)['native']
         or peer.get('logical_output_sha256')!=g['output_sha256']
         or peer.get('logical_output_sha256')!=wire['logical_view_sha256']
         or peer.get('output_sha256')!=wire['raw_joined_output_sha256']
@@ -65,7 +66,7 @@ def compare_group(cli,context,indices,progress):
     manifest=cli.verify_package(cli.ROOT)
     if manifest['package_id']!=context['package_id']:raise ValueError('Witness audit owner changed')
     for item in context['anchors']:cli.check_records(Path(item['root']),item['records'])
-    check_source(cli.ROOT,cli.SUITES[manifest['suite']]['source'],WORDS)
+    check_source(cli.ROOT,product_configuration(cli.SUITES,manifest)['source'],WORDS)
     generation=cli.load(Path(context['generation_capture'])/'generation-preflight.json')['generation']['artifacts']
     layout=cli.load(Path(context['witness_capture'])/'readback.bin.batches/plan.json')
     with cli.forbid_gpu():

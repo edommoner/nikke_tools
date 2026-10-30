@@ -11,10 +11,11 @@ import os
 import sys
 import time
 from pathlib import Path
+from portable_product_programs import PROGRAMS, configuration as product_configuration
 
 ROOT=Path(__file__).resolve().parents[1]
 ENV='NIKKE_SHARED_CUDA_ARTIFACTS'
-SOURCES=frozenset(('gpu/product_battle_entry.slang',))
+SOURCES=frozenset(p['source'] for p in PROGRAMS.values())
 
 
 @contextmanager
@@ -104,7 +105,7 @@ def _audited_program(source,capture,program):
         with cli.forbid_gpu():
             owner=journal.invoke('product_cubin_owner',cli.verify_package,Path(program['battle_package']))
             if (owner.get('purpose','sealed')!='sealed' or cli.compiler_only(owner)
-                    or owner.get('selected_cases') or cli.SUITES[owner['suite']]['source']!=source
+                    or owner.get('selected_cases') or product_configuration(cli.SUITES,owner)['source']!=source
                     or owner['golden']['source_sha256']!=source_hashes(source)):
                 raise ValueError('Saved product CUBIN owner does not match current battle source')
     except (KeyError,TypeError) as error:

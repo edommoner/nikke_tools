@@ -12,7 +12,7 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const port = Number(process.env.PORT || 4317);
 const python = resolvePython();
 const jobs = new Map(), cache = new Map();
-const fingerprint = createHash('sha256').update(readFileSync(path.join(root, 'app/engine_worker.py'))).update(readFileSync(path.join(root, 'app/engine_compat.py'))).update(readFileSync(path.join(root, 'app/survival_compat.py'))).update(readFileSync(path.join(root, 'app/survival_scaling_compat.py'))).update(readFileSync(path.join(root, 'app/detail_gpu.py'))).update(readFileSync(path.join(root, 'app/detail_world.py'))).update(readFileSync(path.join(root, 'app/detail_boss.py'))).update(readFileSync(path.join(root, 'app/detail_effects-build.json'))).update(existsSync(path.join(root,'app/detail_effects-sm86.json'))?readFileSync(path.join(root,'app/detail_effects-sm86.json')):'').update(readFileSync(path.join(root, 'app/gpu_service.py'))).update(readFileSync(path.join(root,'app/portable_detail.py'))).update(readFileSync(path.join(root,'app/portable_product_artifact.py'))).update(readFileSync(path.join(root,'app/portable_detail_service.py'))).update(readFileSync(path.join(root,'app/portable_backend.py'))).update(readFileSync(path.join(root,'app/portable_runtime.py'))).update(readFileSync(path.join(root, 'data/import-mappings.json'))).update(readFileSync(path.join(root, 'data/engine-effect-overrides.json'))).update(readFileSync(path.join(root, 'research/engine-probe-results.json'))).digest('hex');
+const fingerprint = createHash('sha256').update(readFileSync(path.join(root, 'app/engine_worker.py'))).update(readFileSync(path.join(root, 'app/engine_compat.py'))).update(readFileSync(path.join(root, 'app/survival_compat.py'))).update(readFileSync(path.join(root, 'app/survival_scaling_compat.py'))).update(readFileSync(path.join(root, 'app/detail_gpu.py'))).update(readFileSync(path.join(root, 'app/detail_world.py'))).update(readFileSync(path.join(root, 'app/detail_boss.py'))).update(readFileSync(path.join(root, 'app/detail_effects-build.json'))).update(existsSync(path.join(root,'app/detail_effects-sm86.json'))?readFileSync(path.join(root,'app/detail_effects-sm86.json')):'').update(readFileSync(path.join(root, 'app/gpu_service.py'))).update(readFileSync(path.join(root,'app/portable_detail.py'))).update(readFileSync(path.join(root,'app/portable_product_artifact.py'))).update(readFileSync(path.join(root,'app/portable_detail_service.py'))).update(readFileSync(path.join(root,'app/portable_backend.py'))).update(readFileSync(path.join(root,'app/portable_runtime.py'))).update(readFileSync(path.join(root,'data/portable-product-programs.json'))).update(readFileSync(path.join(root, 'data/import-mappings.json'))).update(readFileSync(path.join(root, 'data/engine-effect-overrides.json'))).update(readFileSync(path.join(root, 'research/engine-probe-results.json'))).digest('hex');
 const clone = v => structuredClone(v);
 const stable = v => v && typeof v === 'object' ? Array.isArray(v) ? v.map(stable) : Object.fromEntries(Object.keys(v).sort().map(k => [k, stable(v[k])])) : v;
 let gpuProcess=null,gpuOutput='',gpuRequests=new Map();
@@ -38,8 +38,10 @@ export function sharedCudaConfigured(platform=process.platform,env=process.env) 
       const file=env.NIKKE_SHARED_CUDA_ARTIFACTS;
       if(!file||!path.isAbsolute(file)||lstatSync(file).isSymbolicLink()||!statSync(file).isFile()||statSync(file).size>65536)return false;
       const d=JSON.parse(readFileSync(file,'utf8')),keys=o=>o&&typeof o==='object'&&!Array.isArray(o)?Object.keys(o).sort().join(','):'';
-      if(d?.schema!==1||keys(d)!=='programs,schema'||keys(d.programs)!=='gpu/product_battle_entry.slang')return false;
-      const program=d.programs['gpu/product_battle_entry.slang'];
+      const registry=JSON.parse(readFileSync(path.join(root,'data/portable-product-programs.json'),'utf8'));
+      const sources=new Set(Object.values(registry.programs).map(program=>program.source));
+      if(d?.schema!==1||keys(d)!=='programs,schema'||!d.programs||typeof d.programs!=='object'||Array.isArray(d.programs)||Object.keys(d.programs).length===0||Object.keys(d.programs).some(source=>!sources.has(source)))return false;
+      return Object.values(d.programs).every(program=>{
       if(keys(program)!=='battle_package,request'||!directory(program.battle_package)||!program.request)return false;
       const {historical_link_observation:history,...paths}=program.request;
       if(!['capture,package','capture,package,producer_capture,producer_package'].includes(keys(paths))||!Object.values(paths).every(directory))return false;
@@ -48,6 +50,7 @@ export function sharedCudaConfigured(platform=process.platform,env=process.env) 
       const identities=history.missing_identities;
       const ordered=(a,b)=>a.pid-b.pid||(a.path<b.path?-1:a.path>b.path?1:0)||(a.creation_filetime_ticks<b.creation_filetime_ticks?-1:a.creation_filetime_ticks>b.creation_filetime_ticks?1:0);
       return identities.every((row,index)=>(index===0||ordered(identities[index-1],row)<0)&&keys(row)==='creation_filetime_ticks,path,pid'&&Number.isInteger(row.pid)&&row.pid>0&&row.pid<=0xffffffff&&typeof row.path==='string'&&row.path.length>0&&row.path===row.path.toLowerCase()&&typeof row.creation_filetime_ticks==='string'&&/^[1-9][0-9]*$/.test(row.creation_filetime_ticks)&&BigInt(row.creation_filetime_ticks)<2n**64n);
+      });
     }catch{return false;}
   }
   return directory(env.NIKKE_CUDA_COMPILE_CACHE);

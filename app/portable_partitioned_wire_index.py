@@ -1,4 +1,5 @@
 """Read-only row/page fingerprints of a source-pinned logical wire view."""
+from portable_product_programs import configuration as product_configuration
 import hashlib,json,os,struct,time
 from pathlib import Path
 from portable_readback_blocks import checked_hash,digest
@@ -132,7 +133,7 @@ def child(cli,capture):
         result=cli.load(source/'result.json');facts=cli.load(source/'execution.json')
         if result.get('passed') is not False or result.get('calculation_verified') is not False or facts.get('timed_out') is not False or facts.get('child_exit_code')!=1:raise ValueError('Preserved completed mismatch capture required')
         if 'Complete typed-address wire view differs from sealed baseline' not in (source/'stderr.log').read_text():raise ValueError('Unknown failed CUDA stage')
-        check_source(root,cli.SUITES[m['suite']]['source'],WORDS)
+        check_source(root,product_configuration(cli.SUITES,m)['source'],WORDS)
         layout=cli.load(source/'readback.bin.batches/plan.json');prepared=Path(cli.load(source/'run.json')['prepared'])
         packed=(prepared/'input.bin').read_bytes()
         if cli.sha(packed)!=m['golden']['input_sha256'] or layout!=plan(packed,115680,WORDS,16,runtime_stride=143048):raise ValueError('Frozen input/partition plan changed')

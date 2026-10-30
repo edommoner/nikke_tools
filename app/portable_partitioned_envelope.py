@@ -1,4 +1,5 @@
 """Bounded CPU-only reread of the successful current CUDA capture and claims."""
+from portable_product_programs import configuration as product_configuration
 import importlib.util,json,os,time
 from pathlib import Path
 from types import SimpleNamespace
@@ -18,7 +19,7 @@ def inspect_current(cli,source,capture,peer_raw):
     source=Path(source).resolve();capture=Path(capture).resolve()
     if source!=Path(cli.ROOT).resolve():raise ValueError('Original source CLI required')
     with gpu_forbidden(cli):
-        m,_=manifest(cli);check_source(source,cli.SUITES[m['suite']]['source'],WORDS)
+        m,_=manifest(cli);check_source(source,product_configuration(cli.SUITES,m)['source'],WORDS)
         artifact_file=capture/'artifacts.json';artifact_records=cli.load(artifact_file)['files']
         anchors=cli.file_records(capture,['artifacts.json']);cli.check_records(capture,artifact_records)
         request=cli.load(capture/'run.json');result=cli.load(capture/'result.json');facts=cli.load(capture/'execution.json')

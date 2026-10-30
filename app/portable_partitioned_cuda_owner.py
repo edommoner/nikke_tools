@@ -1,4 +1,5 @@
 """Private single-use resident CUDA execution after a retained launch failure."""
+from portable_product_programs import configuration as product_configuration
 import argparse,json,os,sys,time,uuid
 from pathlib import Path
 from portable_partitioned_cli import CURRENT
@@ -23,11 +24,11 @@ def manifest(cli):
     if meta['schema']==CURRENT:
         from portable_partitioned_cli import current_reference,PHYSICAL_REFERENCE_SHA
         from portable_partitioned_addresses import PROFILE,check_source
-        config=cli.SUITES[m['suite']]
+        config=product_configuration(cli.SUITES,m)
         if (meta.get('native_reference_sha256')!=PHYSICAL_REFERENCE_SHA or meta.get('prior_physical_reference_reused') is not True or m.get('partitioned_diagnostic',{}).get('wire_address_profile')!=PROFILE
             or ref['comparison'].get('input_sha256')!=m['golden']['input_sha256']):raise ValueError('Current physical wire identity changed')
         check_source(cli.ROOT,config['source'],config['output_words'])
-        pin=current_reference(cli,cli.ROOT,cli.SUITES[m['suite']],m['golden'],(cli.ROOT/'research/partitioned-current-metal-reference.json').read_bytes())
+        pin=current_reference(cli,cli.ROOT,product_configuration(cli.SUITES,m),m['golden'],(cli.ROOT/'research/partitioned-current-metal-reference.json').read_bytes())
         if meta.get('current_source_reference')!=pin or meta.get('prior_physical_reference_reused') is not True:
             raise ValueError('Current source Metal seal changed')
     return m,ref
@@ -42,7 +43,7 @@ def settings(request):
 def storage_preflight(cli,m,packed,path):
     from portable_partitioned_transport import plan
     from portable_capture_storage import space_status
-    config=cli.SUITES[m['suite']]
+    config=product_configuration(cli.SUITES,m)
     layout=plan(packed,config.get('input_words',115680),config['output_words'],16)
     if layout['input_count']!=len(m['golden']['entries']) or layout['input_sha256']!=m['golden']['input_sha256']:
         raise ValueError('Storage plan requires the complete frozen input')
@@ -106,7 +107,7 @@ def child(cli,capture):
             raise ValueError('The fixed source-host CPU audit changed')
         _,generation=journal.invoke('partitioned_cuda_generation',cli.required_generation_snapshot,m)
         exclusive(capture/'generation.json',generation)
-        source=cli.ROOT/'research/portable-build'/ (Path(cli.SUITES[m['suite']]['source']).stem+'.cu')
+        source=cli.ROOT/'research/portable-build'/ (Path(product_configuration(cli.SUITES,m)['source']).stem+'.cu')
         with gpu_forbidden(cli):
             _,entries,data,input_receipt=journal.invoke('partitioned_cuda_static_input',static_input,cli,m)
             if current:exclusive(capture/'storage.json',storage_preflight(cli,m,data,capture))
@@ -130,8 +131,8 @@ def child(cli,capture):
     from portable_partitioned_transport import execute
     from portable_partitioned_addresses import PROFILE
     with observe(backend,journal),provider(cli,m,state,capture,journal):
-        _,evidence=journal.invoke('partitioned_cuda_shared_execute',execute,cli.SUITES[m['suite']]['source'],'portableEvents',packed,
-            context['input']['input_words'],cli.SUITES[m['suite']]['output_words'],'cuda',readback_path=capture/'readback.bin',
+        _,evidence=journal.invoke('partitioned_cuda_shared_execute',execute,product_configuration(cli.SUITES,m)['source'],'portableEvents',packed,
+            context['input']['input_words'],product_configuration(cli.SUITES,m)['output_words'],'cuda',readback_path=capture/'readback.bin',
             expected_input_sha256=m['golden']['input_sha256'],expected_output_sha256=m['golden']['output_sha256'],
             expected_source_sha256=m['golden']['source_sha256'],expected_generated_normalized=m['golden']['generated_normalized'],
             batch_size=16,address_profile=PROFILE,cuda_argument_journal=journal)

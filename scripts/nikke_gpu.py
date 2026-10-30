@@ -27,6 +27,7 @@ CPU_SMOKE_TIMEOUT_SECONDS=180  # Shared control registry; independent of suite-s
 sys.path[:0] = [str(ROOT/p) for p in ('app', 'research', 'scripts')]
 from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 from portable_cpu_tests import AUDIT_FILES as CPU_AUDIT_FILES
+from portable_product_programs import configuration as product_configuration, registered_golden as product_registered_golden, PROGRAMS as PRODUCT_PROGRAMS
 # No GPU/backend/native imports at startup: collect/audit must work without them.
 SUITES = {
     'product-detail':dict(script='research/verify-product-detail.py',source='gpu/product_battle_entry.slang',
@@ -896,6 +897,16 @@ def write(path, value):
     os.replace(temp, path)
 
 
+def suite_config(selection):
+    return product_configuration(SUITES,selection)
+
+
+def registered_golden(root,selection):
+    config=suite_config(selection)
+    if 'product_program' not in config:return load(Path(root)/config['golden'])
+    return product_registered_golden(root,config)
+
+
 def safe_name(name):
     p = PurePosixPath(name)
     if not name or '\\' in name or ':' in name or p.is_absolute() or any(x in ('', '.', '..') for x in name.split('/')):
@@ -975,7 +986,7 @@ def compiler_baseline_sources(m):
     # A full entry is already in the Metal baseline; commands adds one wrapper.
     # Choose by registered suite, never by a mutable certificate field.
     if full_compiler(m):return sources
-    return {k:v for k,v in sources.items() if k!=SUITES[m['suite']]['source']}
+    return {k:v for k,v in sources.items() if k!=suite_config(m)['source']}
 
 
 def verify_package(root,*,historical_compiler=False):
@@ -987,28 +998,31 @@ def verify_package(root,*,historical_compiler=False):
     if compiler_only(m)!=(m.get('purpose')=='compiler-diagnostic'):raise ValueError('Compiler diagnostic purpose mismatch')
     check_records(root, m['files'],parallel=os.name=='nt')
     historical_layout=historical_compiler_layout(root,m) if historical_compiler else None
-    golden = m['golden'] if is_development(m) else load(root/(historical_layout[0] if historical_layout else SUITES[m['suite']]['golden']))
+    golden = m['golden'] if is_development(m) else (load(root/historical_layout[0]) if historical_layout else registered_golden(root,m))
     if golden != m['golden']:
         raise ValueError('Package golden mismatch')
     if compiler_only(m):
         if golden.get('proof_kind')!='compiler-source-only' or golden.get('calculation_verified') is not False or golden.get('executable_battle_verified') is not False or golden.get('entries')!=[]:
             raise ValueError('Compiler diagnostic cannot claim a battle proof')
-        if not historical_layout and not set(SUITES[m['suite']]['support_files'])<={r['path'] for r in m['files']}:raise ValueError('Compiler shared baseline absent from payload')
-        declared=SUITES[m['suite']].get('compiler_baseline_suite')
+        if not historical_layout and not set(suite_config(m)['support_files'])<={r['path'] for r in m['files']}:raise ValueError('Compiler shared baseline absent from payload')
+        declared=suite_config(m).get('compiler_baseline_suite')
         if declared is not None and golden.get('baseline_suite')!=declared:raise ValueError('Compiler baseline suite mismatch')
-        baseline_path=root/(historical_layout[1] if historical_layout else SUITES[m['suite']]['support_files'][0])
+        baseline_path=root/(historical_layout[1] if historical_layout else suite_config(m)['support_files'][0])
         baseline=load(baseline_path)
         if sha(baseline_path.read_bytes())!=golden['baseline_golden_sha256'] or compiler_baseline_sources(m)!=baseline['source_sha256'] or (full_compiler(m) and golden['generated_normalized']!=baseline['generated_normalized']):
             raise ValueError('Compiler diagnostic changed the shared baseline')
     sources=golden['source_sha256'];records={r['path']:r['sha256'] for r in m['files']}
-    if not sources or SUITES[m['suite']]['source'] not in sources:raise ValueError('Package GPU source closure missing')
+    if not sources or suite_config(m)['source'] not in sources:raise ValueError('Package GPU source closure missing')
     missing=set(sources)-set(records)
     if missing:raise ValueError('GPU source missing from immutable payload: '+', '.join(sorted(missing)))
     if any(records[name]!=digest for name,digest in sources.items()):raise ValueError('GPU source record differs from golden')
+    if 'product_program' in m:
+        from portable_slang_generation import source_hashes as program_closure
+        if program_closure(Path(root).resolve(),suite_config(m)['source'])!=sources:raise ValueError('Product program source closure differs from selected kernel')
     if 'payload_projection' in m:
         from portable_package_projection import validate,validate_historical
         if historical_compiler and root.resolve()!=ROOT.resolve():validate_historical(root,m,SimpleNamespace(**globals()))
-        else:validate(m['payload_projection'],m['files'],m['suite'],SUITES[m['suite']],SMOKE_TESTS)
+        else:validate(m['payload_projection'],m['files'],m['suite'],suite_config(m),SMOKE_TESTS)
     if 'native_expectation_baseline' in m:
         from portable_development_expectations import validate
         validate(m)
@@ -1025,12 +1039,17 @@ def registered_entry_wire_preflight(config):
     return dict(schema='registered-entry-wire-v1',source=source,input_words=iw,output_words=ow,passed=True,gpu_calls=0,native_battle_calls=0)
 
 
-def make_package(suite, output, *, develop=False, cases=(), compact=False, baseline_package=None, reference_migration=None, native_baseline_package=None):
+def make_package(suite, output, *, develop=False, cases=(), compact=False, baseline_package=None, reference_migration=None, native_baseline_package=None, product_program=None):
     """Whitelist code + required public data; never reports/raw/settings/tools."""
-    registered_entry_wire_preflight(SUITES[suite])
-    if SUITES[suite].get('compiler_only') and (develop or cases):raise ValueError('Compiler diagnostic has no battle development/cases')
+    selection=dict(suite=suite)
+    if product_program is not None:selection['product_program']=product_program
+    config=suite_config(selection)
+    if product_program is not None and baseline_package is not None:
+        raise ValueError('Product programs cannot use coordinate observation migrations')
+    registered_entry_wire_preflight(config)
+    if config.get('compiler_only') and (develop or cases):raise ValueError('Compiler diagnostic has no battle development/cases')
     if native_baseline_package is not None and (not develop or baseline_package is not None or reference_migration is not None):raise ValueError('Native expectations require --develop and exclude observation migration')
-    if SUITES[suite].get('development_only') and not develop:
+    if config.get('development_only') and not develop:
         raise ValueError('This suite requires --develop until an explicit Metal seal is registered')
     if compact:
         from portable_package_projection import SUPPORTED_SUITES
@@ -1046,11 +1065,11 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
             or name=='research/portable-world-counter-landing-short-expected.json'
             # Shared controller tests bind the full-entry certificate to this Metal baseline.
             or name in ('research/portable-compiler-full-heal-share-source-certificate.json','research/portable-world-heal-share-regression-short-expected.json','research/portable-compiler-full--attack-group-long-source-certificate.json','research/portable-world-attack-group-long-short-expected.json','research/portable-compiler-full--attack-group-mixed-source-certificate.json','research/portable-world-attack-group-mixed-short-expected.json')
-            or (p.parts[0]=='data' and p.suffix=='.json') or name==SUITES[suite]['golden'] or name in SUITES[suite].get('support_files',())):
+            or (p.parts[0]=='data' and p.suffix=='.json') or name==config['golden'] or name in config.get('support_files',())):
             names.append(name)
     # Declared public pinned documents are data inputs to source audits.
     # They are frozen and licensed with the same upstream snapshot as Python.
-    for name in SUITES[suite].get('upstream_documents',()):
+    for name in config.get('upstream_documents',()):
         p=PurePosixPath(safe_name(name));path=ROOT/name
         if p.parts[:4]!=('research','upstream','nikke-calc-master','docs') or p.suffix!='.md' or not path.is_file() or path.is_symlink():
             raise ValueError('Invalid upstream audit document: '+name)
@@ -1058,16 +1077,16 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
     # Include this CLI even before its first commit during local development.
     if 'scripts/nikke_gpu.py' not in names:
         names.append('scripts/nikke_gpu.py')
-    for pattern in SUITES[suite]['tests']:
+    for pattern in config['tests']:
         if 'tests/'+pattern not in names:
             raise ValueError('Required CPU test is missing from tracked payload: '+pattern)
-    required=[*SUITES[suite].get('support_files',())]
-    if not SUITES[suite].get('compiler_only') and SUITES[suite].get('script'):
-        required.append(SUITES[suite]['script'])
+    required=[*config.get('support_files',())]
+    if not config.get('compiler_only') and config.get('script'):
+        required.append(config['script'])
     missing_required=set(required)-set(names)
     if missing_required:raise ValueError('Declared suite file missing from tracked payload: '+', '.join(sorted(missing_required)))
     from portable_backend import source_hashes
-    gpu_sources=source_hashes(SUITES[suite]['source'])
+    gpu_sources=source_hashes(config['source'])
     missing=set(gpu_sources)-set(names)
     if missing:raise ValueError('GPU source missing from tracked payload: '+', '.join(sorted(missing)))
     upstream = ROOT/'research/upstream/nikke-calc-master'
@@ -1079,7 +1098,7 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
         raise ValueError('Pinned upstream source/data must be installed first')
     names.append(license_path.relative_to(ROOT).as_posix())
     from portable_cpu_tests import validate_dependency_files
-    validate_dependency_files(ROOT,[*SUITES[suite]['tests'],*SMOKE_TESTS],included=set(names))
+    validate_dependency_files(ROOT,[*config['tests'],*SMOKE_TESTS],included=set(names))
     if not compact:
         from portable_reference import validate_reference_payload
         validate_reference_payload(names)
@@ -1092,12 +1111,12 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
             if sha((ROOT/name).read_bytes())!=contract[digest]:raise ValueError('Pinned CPU contract source changed: '+name)
             if name not in names:names.append(name)
     from portable_cpu_tests import validate_dependency_files
-    validate_dependency_files(ROOT,[*SUITES[suite]['tests'],*SMOKE_TESTS],included=set(names))
+    validate_dependency_files(ROOT,[*config['tests'],*SMOKE_TESTS],included=set(names))
     records = file_records(ROOT, names)
     projection=None
     if compact:
         from portable_package_projection import project,roots_for
-        selected,projection=project(ROOT,names,roots_for(SUITES[suite],SMOKE_TESTS),
+        selected,projection=project(ROOT,names,roots_for(config,SMOKE_TESTS),
                                     suite_tests={key:config['tests'] for key,config in SUITES.items()})
     if cases and not develop:
         raise ValueError('--case requires --develop')
@@ -1105,14 +1124,14 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
     if native_baseline_package is not None:
         from portable_development_expectations import reuse
         baseline_records=[r for r in records if not compact or r['path'] in selected]
-        golden,native_expectations=reuse(SimpleNamespace(**globals()),suite,native_baseline_package,baseline_records,cases)
+        golden,native_expectations=reuse(SimpleNamespace(**globals()),suite,native_baseline_package,baseline_records,cases,**(dict(product_program=product_program) if product_program is not None else {}))
     elif baseline_package is not None:
         if not develop or cases or reference_migration not in ('coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1','coordinate-typed-owner-status-witness-v1','coordinate-owner-counter-field-decoder-v1'):raise ValueError('Unfiltered development observation migration required')
         baseline_records=[r for r in records if not compact or r['path'] in selected]
         golden,reused=migrated_development_baseline(suite,baseline_package,baseline_records,reference_migration)
     else:
         if reference_migration is not None:raise ValueError('Observation migration requires --baseline-package')
-        golden = development_baseline(suite, cases) if develop else load(ROOT/SUITES[suite]['golden'])
+        golden = development_baseline(suite, cases,**(dict(product_program=product_program) if product_program is not None else {})) if develop else registered_golden(ROOT,selection)
     if golden['source_sha256']!=gpu_sources:raise ValueError('Golden GPU source closure is stale')
     # Early stale-golden detection, without importing native engine or building.
     for name, digest in golden['source_sha256'].items():
@@ -1123,7 +1142,8 @@ def make_package(suite, output, *, develop=False, cases=(), compact=False, basel
     m = dict(schema=SCHEMA, suite=suite,
              source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
              working_tree_dirty=bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip()),
-             files=records, golden=golden, purpose='compiler-diagnostic' if SUITES[suite].get('compiler_only') else 'development' if develop else 'sealed', selected_cases=list(cases), runtime_requirements=['Python dependencies from the existing venv', 'Slang 2026.20', 'CUDA toolkit/driver on Windows or Swift/Metal on macOS'])
+             files=records, golden=golden, purpose='compiler-diagnostic' if config.get('compiler_only') else 'development' if develop else 'sealed', selected_cases=list(cases), runtime_requirements=['Python dependencies from the existing venv', 'Slang 2026.20', 'CUDA toolkit/driver on Windows or Swift/Metal on macOS'])
+    if product_program is not None:m['product_program']=product_program
     if reused is not None:m['baseline_migration']=reused
     if native_expectations is not None:m['native_expectation_baseline']=native_expectations
     if projection is not None:
@@ -1196,11 +1216,12 @@ def module(path):
 
 def open_suite(m):
     if compiler_only(m):raise ValueError('Compiler diagnostic has no battle adapter')
-    adapter=module(ROOT/SUITES[m['suite']]['script'])
+    adapter=module(ROOT/suite_config(m)['script'])
+    if 'product_program' in m:adapter.configure_product(m['product_program'])
     if getattr(adapter,'STRICT_WIRE_DIMENSIONS',False):
-        if getattr(adapter,'SOURCE',None)!=SUITES[m['suite']]['source']:
+        if getattr(adapter,'SOURCE',None)!=suite_config(m)['source']:
             raise ValueError('Adapter GPU source disagrees with registered suite source')
-        expected=adapter.suite.OUTPUT;configured=SUITES[m['suite']].get('output_words',786432)
+        expected=adapter.suite.OUTPUT;configured=suite_config(m).get('output_words',786432)
         if type(expected) is not int or expected<1 or type(configured) is not int or configured!=expected:
             raise ValueError('Adapter output words disagree with transport allocation')
         from portable_backend import validate_composed_stride
@@ -1274,7 +1295,7 @@ def resolve_selection(adapter,catalog,selected):
 def prepare_entries(adapter, m):
     selected=m.get('selected_cases',[]);catalog=selection_catalog(adapter);selective=catalog is not None
     if selective:
-        config=SUITES[m['suite']]
+        config=suite_config(m)
         if 'frozen_cases' in config:
             if selected:raise ValueError('Registered frozen cohort cannot be overridden by --case')
             wanted=resolve_selection(adapter,catalog,config['frozen_cases'])
@@ -1289,7 +1310,7 @@ def prepare_entries(adapter, m):
     if not selective and is_development(m) and hasattr(adapter, 'development_entries'):
         entries = entries + adapter.development_entries()
         data = None
-    source=SUITES.get(m['suite'],{}).get('source')
+    source=suite_config(m).get('source')
     from portable_coordinate_kind_admission import KindAdmission
     policy=KindAdmission(ROOT,source) if source else None
     def check_kinds(rows):
@@ -1315,10 +1336,11 @@ def prepare_entries(adapter, m):
     return entries, raw
 
 
-def development_baseline(suite, cases):
+def development_baseline(suite, cases, *, product_program=None):
     """Freeze inputs and native oracles without treating new GPU output as truth."""
     with forbid_gpu():
         m = dict(suite=suite, purpose='development', selected_cases=list(cases))
+        if product_program is not None:m['product_program']=product_program
         adapter = open_suite(m)
         entries, data = prepare_entries(adapter, m)
         from portable_backend import source_hashes
@@ -1329,7 +1351,7 @@ def development_baseline(suite, cases):
             fingerprint=native_hash(adapter,domain)
             baselines.append(dict(name=name,input_sha256=sha(data[4+i*iw:4+(i+1)*iw]),native_sha256=fingerprint))
             print(json.dumps(dict(phase='development_native',case_index=i,case_name=name,case_count=len(entries),elapsed_seconds=time.perf_counter()-started)),file=sys.stderr,flush=True)
-        return dict(input_sha256=sha(data), source_sha256=source_hashes(SUITES[suite]['source']),
+        return dict(input_sha256=sha(data), source_sha256=source_hashes(suite_config(m)['source']),
                     entries=baselines)
 
 
@@ -1412,7 +1434,7 @@ def capture_storage_preflight(m,capture,*,prepared=False):
     """Budget the exact uncompressed payload, before input/claim allocations."""
     from portable_capture_storage import space_status
     with forbid_gpu():adapter=open_suite(m)
-    count=len(m['golden']['entries']);iw=adapter.suite.INPUT;ow=SUITES[m['suite']].get('output_words',786432)
+    count=len(m['golden']['entries']);iw=adapter.suite.INPUT;ow=suite_config(m).get('output_words',786432)
     if any(type(v) is not int or v<1 for v in (count,iw,ow)):raise ValueError('Invalid storage shape')
     input_bytes=4+count*iw*4;output_bytes=count*ow*4
     if prepared:
@@ -1612,14 +1634,14 @@ def child(capture, backend, smoke=False, compile_only=False, module_only=False, 
     import portable_backend
     from portable_phase_audit import Journal, observe
     journal = Journal(capture/'phases.jsonl')
-    with library_guard(SUITES[m['suite']],backend,journal),saved_linked_provider(m,capture,backend,journal),observe(portable_backend,journal):
+    with library_guard(suite_config(m),backend,journal),saved_linked_provider(m,capture,backend,journal),observe(portable_backend,journal):
         raw,evidence = journal.invoke('shared_gpu_execute',portable_backend.execute,
-                                     SUITES[m['suite']]['source'],'portableEvents',data,
-                                     input_words,SUITES[m['suite']].get('output_words',786432),backend,readback_path=capture/'readback.bin')
+                                     suite_config(m)['source'],'portableEvents',data,
+                                     input_words,suite_config(m).get('output_words',786432),backend,readback_path=capture/'readback.bin')
     if raw is not None:raise ValueError('File transport returned an unexpected whole readback')
     # Raw/evidence are durable before any comparison, so failures remain inspectable.
     write(capture/'evidence.json',evidence)
-    copy_generated(capture,m['suite'])
+    copy_generated(capture,m)
     # Finish the contained transport before CPU comparison. The parent audits
     # the saved bytes independently; child exit0 alone never proves calculation.
 
@@ -1685,7 +1707,7 @@ def compare_readback(m, capture, adapter=None,*,parent_oracles=None,case_indices
         else:
             input_hash,input_digests=stream_input_fingerprints(capture/'input.bin',len(entries),adapter.suite.INPUT*4)
             if input_hash!=m['golden']['input_sha256']:raise ValueError('Saved input mismatch')
-        if record['bytes']!=len(entries)*SUITES[m['suite']].get('output_words',786432)*4 or output_digest!=evidence['output_sha256'] or evidence['input_sha256']!=input_hash:
+        if record['bytes']!=len(entries)*suite_config(m).get('output_words',786432)*4 or output_digest!=evidence['output_sha256'] or evidence['input_sha256']!=input_hash:
             raise ValueError('Saved evidence/raw mismatch')
         audit_generation_capture(m,capture)
         if evidence['source_sha256']!=m['golden']['source_sha256'] or not evidence['gpu_execution_verified']:
@@ -1722,7 +1744,7 @@ def compare_readback(m, capture, adapter=None,*,parent_oracles=None,case_indices
                     raise ValueError('CUDA file readback receipt mismatch')
         from portable_comparison_groups import selection
         selected=selection(len(entries),case_indices);selected_set=set(selected)
-        results=[]; mismatches=[]; iw=adapter.suite.INPUT*4; ow=SUITES[m['suite']].get('output_words',786432)*4
+        results=[]; mismatches=[]; iw=adapter.suite.INPUT*4; ow=suite_config(m).get('output_words',786432)*4
         parts=readback_parts(capture/'readback.bin',len(entries),ow,output_digest)
         for i,((name,words,domain),part) in enumerate(zip(entries,parts,strict=True)):
             if i not in selected_set:continue
@@ -1733,11 +1755,11 @@ def compare_readback(m, capture, adapter=None,*,parent_oracles=None,case_indices
                     if domain is None:
                         if block[0]!=64:raise ValueError('Expected rejection status64')
                         if hasattr(adapter,'validate_rejection'):adapter.validate_rejection(block,name)
-                        if SUITES[m['suite']].get('require_rejection_stage'):adapter.validate_rejection_stage(block,name)
+                        if suite_config(m).get('require_rejection_stage'):adapter.validate_rejection_stage(block,name)
                         native=dict(status=64)
                     else:
                         from portable_native_status import expected as expected_native_status
-                        required_status=expected_native_status(adapter,SUITES[m['suite']],domain)
+                        required_status=expected_native_status(adapter,suite_config(m),domain)
                         if block[0]!=required_status:raise ValueError('Expected GPU native status'+str(required_status)+'; got status'+str(block[0]))
                         native=adapter.compare(block,domain)
                 row=dict(name=name,input_sha256=input_digests[i],output_sha256=sha(part),native_sha256=adapter.cross.digest(native))
@@ -2312,7 +2334,7 @@ def make_compiler_certificate(suite,package_root,capture,output,*,timeout=120):
 
 
 def copy_generated(capture, suite, *, partial=False):
-    stem=Path(SUITES[suite]['source']).stem
+    stem=Path(suite_config(suite)['source']).stem
     for suffix in ('cu','metal'):
         source=ROOT/'research/portable-build'/(stem+'.'+suffix)
         if source.exists():(capture/('generated.'+suffix)).write_bytes(source.read_bytes())
@@ -2431,13 +2453,13 @@ def cpu_test_environment(capture):
 def cpu_test_groups(m,capture,smoke=False):
     """Keep discovery/import in one fresh CPU process; never skip a registry group."""
     from portable_cpu_tests import validate_groups,validate_dependency_files,complete
-    patterns=SMOKE_TESTS if smoke else SUITES[m['suite']]['tests']
+    patterns=SMOKE_TESTS if smoke else suite_config(m)['tests']
     validate_groups(ROOT,patterns)
     validate_dependency_files(ROOT,patterns,included={r['path'] for r in m.get('files',[])})
     from portable_python_dependencies import check as check_dependencies
     dependencies=check_dependencies(ROOT,patterns);write(capture/'python-dependencies.json',dependencies)
     if not dependencies['passed']:raise ValueError('Validation Python dependencies unavailable; run validation-deps and inspect requirements-validation.txt')
-    timeout=CPU_SMOKE_TIMEOUT_SECONDS if smoke else SUITES[m['suite']].get('cpu_test_timeout',60)
+    timeout=CPU_SMOKE_TIMEOUT_SECONDS if smoke else suite_config(m).get('cpu_test_timeout',60)
     if type(timeout) is not int or not 1<=timeout<=180:raise ValueError('Invalid bounded CPU test timeout')
     if not patterns:
         write(capture/'cpu-tests.json',[]);return []
@@ -2466,8 +2488,8 @@ def cpu_test_groups(m,capture,smoke=False):
 def unit_capture(capture):
     """Check immutable packet unit groups; never substitute for run/native/seal."""
     m=verify_package(ROOT)
-    if not SUITES[m['suite']].get('tests'):raise ValueError('Unit-check requires registered nonempty unit groups')
-    wire=registered_entry_wire_preflight(SUITES[m['suite']])
+    if not suite_config(m).get('tests'):raise ValueError('Unit-check requires registered nonempty unit groups')
+    wire=registered_entry_wire_preflight(suite_config(m))
     capture=Path(capture);capture.mkdir(parents=True,exist_ok=False)
     result=dict(schema='unit-check-v1',package_id=m['package_id'],suite=m['suite'],passed=False,
                 unit_tests_verified=False,full_native_preflight_executed=False,cpu_verified=False,
@@ -2534,7 +2556,7 @@ def required_generation_snapshot(m):
     import portable_backend
     started=time.perf_counter();cached_build=portable_backend.build
     with cache_file_checks_only() as blocked:
-        source=SUITES[m['suite']]['source'];outputs,hashes=cached_build(source,'portableEvents')
+        source=suite_config(m)['source'];outputs,hashes=cached_build(source,'portableEvents')
         normalized=module(ROOT/'research/summarize-portable-cross-gpu.py').normalized
         generated={k:normalized(p.read_bytes()) for k,p in outputs.items()}
         expected=m['golden'].get('generated_normalized')
@@ -2560,7 +2582,7 @@ def required_generation_cache_preflight(m,capture):
 def required_cached_source_snapshot(m,capture):
     """Standalone cached profile: inspect saved source, never execute it."""
     from portable_cuda_cached_profile import validate
-    validate(SUITES[m['suite']],'cuda')
+    validate(suite_config(m),'cuda')
     import portable_backend
     source=Path(os.environ['NIKKE_CUDA_PREFLIGHT_SOURCE']);started=time.perf_counter()
     with cache_file_checks_only() as blocked:
@@ -2583,7 +2605,7 @@ def required_cuda_cache_preflight(m,capture):
     """Paired required-cache snapshot before CPU work; never a launch proof."""
     required=os.environ.get('NIKKE_CUDA_CACHE_REQUIRED','0');generation_required=os.environ.get('NIKKE_SLANG_GENERATION_REQUIRED','0')
     if required not in ('0','1') or generation_required not in ('0','1'):raise ValueError('Required cache flags must be0 or1')
-    if required=='1' and generation_required!='1' and SUITES[m['suite']].get('cuda_cache_profile'):
+    if required=='1' and generation_required!='1' and suite_config(m).get('cuda_cache_profile'):
         return required_cached_source_snapshot(m,capture)
     if required!='1' or generation_required!='1':return False
     started=time.perf_counter()
@@ -2617,7 +2639,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
         raise ValueError('Current PTX producer requires both paths and saved linked artifact')
     parent_oracles=None
     m=verify_package(ROOT)
-    entry_wire=None if smoke else registered_entry_wire_preflight(SUITES[m['suite']])
+    entry_wire=None if smoke else registered_entry_wire_preflight(suite_config(m))
     staged=preflight_transaction is not None
     if staged:
         if smoke or cpu_only or is_development(m) or compiler_only(m) or backend=='cuda' and linked_package is None or not 1<=timeout<=60:
@@ -2631,7 +2653,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
     if is_development(m) and backend!='metal':raise ValueError('Development execution requires Metal; seal before CUDA verification')
     if not 1<=timeout<=180:raise ValueError('Timeout must be 1..180')
     from portable_cuda_cached_profile import validate as validate_cached_profile
-    validate_cached_profile(SUITES[m['suite']],backend,execute=not smoke and not cpu_only,linked=linked_package is not None)
+    validate_cached_profile(suite_config(m),backend,execute=not smoke and not cpu_only,linked=linked_package is not None)
     if backend=='cuda' and os.name!='nt' and not smoke and not cpu_only:raise ValueError('CUDA transport requires Windows')
     if bool(linked_package)!=bool(linked_capture):raise ValueError('Both saved CUBIN package and capture required')
     linked=linked_package is not None
@@ -2659,7 +2681,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
                 raise ValueError('Slang compiler missing: '+str(compiler)+'; specify --slang-root')
         if backend=='metal' and not smoke and not cpu_only:
             from portable_wire_layout import check_metal
-            write(capture/'metal-wire-preflight.json',check_metal(ROOT,SUITES[m['suite']].get('output_words',786432)))
+            write(capture/'metal-wire-preflight.json',check_metal(ROOT,suite_config(m).get('output_words',786432)))
         if not smoke and not cpu_only:capture_storage_preflight(m,capture)
         if not linked and not smoke and not cpu_only:
             paired=backend=='cuda' and required_cuda_cache_preflight(m,capture)
@@ -2668,7 +2690,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
             device=metal_device_preflight(capture)
             from portable_required_metal_cache import preflight as metal_cache_preflight
             metal_cache_preflight(SimpleNamespace(**globals()),m,capture,device)
-        if not staged and not smoke and not cpu_only and SUITES[m['suite']].get('parent_oracle_reuse'):
+        if not staged and not smoke and not cpu_only and suite_config(m).get('parent_oracle_reuse'):
             from portable_parent_oracles import ParentOracles
             parent_oracles=ParentOracles(m,capture)
         # Reject broken test payloads before expensive full native battles.
@@ -2704,7 +2726,7 @@ def run_capture(capture,backend,timeout,original_workspace=None,smoke=False,cpu_
             else:facts=run_job(capture,backend,timeout,original_workspace,smoke)
             if not smoke:
                 # Child publishes generated files before comparing; failed compilation may lack them.
-                copy_generated(capture,m['suite'],partial=True)
+                copy_generated(capture,m,partial=True)
                 if staged:
                     from portable_staged_preflight import finish_gpu
                     result=finish_gpu(SimpleNamespace(**globals()),m,capture,facts,backend)
@@ -2786,7 +2808,7 @@ def module_child(m,capture,backend):
     def cached(*args,**kwargs):
         artifact,receipt=journal.invoke('cuda_compile_artifact',original_compile,*args,**kwargs)
         journal.emit('cuda_compile_cache','verified',receipt=receipt);return artifact,receipt
-    source=SUITES[m['suite']]['source']
+    source=suite_config(m)['source']
     with patch.object(portable_backend.C,'WinDLL',library),patch.object(portable_backend,'compile_cuda_artifact',cached):
         outputs,hashes=journal.invoke('slang_build',portable_backend.build,source,'portableEvents')
         normalized=module(ROOT/'research/summarize-portable-cross-gpu.py').normalized
@@ -2794,7 +2816,7 @@ def module_child(m,capture,backend):
         if hashes!=m['golden']['source_sha256'] or generated!=m['golden']['generated_normalized']:
             raise ValueError('Module inputs differ from the sealed Metal proof')
         plan=portable_backend.resident_plan(source,'portableEvents',outputs)
-        copy_generated(capture,m['suite'])
+        copy_generated(capture,m)
         if plan:
             for path in outputs.values():
                 (capture/('generated'+path.suffix+'.reflection.json')).write_bytes(Path(str(path)+'.reflection.json').read_bytes())
@@ -2803,7 +2825,7 @@ def module_child(m,capture,backend):
         if value and (value not in tuple(str(i) for i in range(5))):raise ValueError('Invalid driver JIT optimization level')
         journal.emit('cuda_jit_configuration','verified',optimization_level=level)
         checked=journal.invoke('shared_cuda_module_check',portable_backend.inspect_cuda_module,outputs['cuda'],'portableEvents',resident=plan,jit_opt_level=level)
-    copy_generated(capture,m['suite'])
+    copy_generated(capture,m)
     write(capture/'module.json',dict(source_sha256=hashes,generated_sha256={k:sha(p.read_bytes()) for k,p in outputs.items()},
           generated_normalized=generated,resident_runtime=plan,transport=checked))
 
@@ -2861,7 +2883,7 @@ def audit_module_capture(m,capture,*,verify_artifacts=True):
         if len(raw)!=receipt['artifact_bytes'] or sha(raw)!=receipt['artifact_sha256'] or receipt['identity']['source_sha256']!=proof['generated_sha256']['cuda']:raise ValueError('Cached PTX bytes mismatch')
         from portable_backend import resident_plan
         paths={k:capture/('generated.'+suffix) for k,suffix in [('cuda','cu'),('metal','metal')]}
-        plan=resident_plan(SUITES[m['suite']]['source'],'portableEvents',paths)
+        plan=resident_plan(suite_config(m)['source'],'portableEvents',paths)
         if plan!=proof['resident_runtime']:raise ValueError('Module Runtime reflection mismatch')
         if plan:
             from portable_resident_layout import verify_cuda_layout_assertions
@@ -2893,7 +2915,7 @@ def module_capture(capture,timeout,original_workspace,jit_opt_level=None):
             json.dump(dict(package_id=m['package_id'],capture=str(capture)),stream)
         with patch.dict(os.environ,dict(NIKKE_CUDA_JIT_OPT_LEVEL='' if jit_opt_level is None else str(jit_opt_level),NIKKE_CUDA_ARTIFACT='ptx',NIKKE_CUDA_PTXAS_OPT_LEVEL='',NIKKE_CUDA_CACHE_REQUIRED='1',NIKKE_VALIDATION_JOB_MEMORY_MB='2048')):
             run_job(capture,'cuda',timeout,original_workspace,module_only=True)
-        copy_generated(capture,m['suite'],partial=True)
+        copy_generated(capture,m,partial=True)
         result=audit_module_capture(m,capture,verify_artifacts=False);write(capture/'result.json',result)
         run=load(capture/'run.json');run['status']='finished';write(capture/'run.json',run)
     except BaseException as exc:
@@ -2903,11 +2925,13 @@ def module_capture(capture,timeout,original_workspace,jit_opt_level=None):
     return result
 
 
-def registered_battle_source(suite):
-    """Keep legacy world sources and admit only the registered product owner."""
-    source=SUITES.get(suite,{}).get('source','')
+def registered_battle_source(selection):
+    """Keep world sources and the explicit program members of the product family."""
+    try:config=suite_config(selection)
+    except (KeyError,ValueError,TypeError):return False
+    source=config.get('source','');suite=selection if isinstance(selection,str) else selection['suite']
     return (source.startswith('gpu/world_') and source.endswith('_entry.slang')
-            or (suite,source)==('product-detail','gpu/product_battle_entry.slang'))
+            or suite=='product-detail' and source in {p['source'] for p in PRODUCT_PROGRAMS.values()})
 
 
 def assembly_origin(m,source_package,source_capture,*,historical_compiler=False,sealed_battle_source=False):
@@ -2917,7 +2941,7 @@ def assembly_origin(m,source_package,source_capture,*,historical_compiler=False,
     producer=verify_package(source_package,historical_compiler=True) if historical_compiler else verify_package(source_package)
     if sealed_battle_source:
         golden=producer['golden']
-        if producer.get('purpose','sealed')!='sealed' or compiler_only(producer) or not registered_battle_source(producer['suite']) or type(golden.get('entries')) is not list or not golden['entries'] or not golden.get('input_sha256') or not golden.get('output_sha256'):
+        if producer.get('purpose','sealed')!='sealed' or compiler_only(producer) or not registered_battle_source(producer) or type(golden.get('entries')) is not list or not golden['entries'] or not golden.get('input_sha256') or not golden.get('output_sha256'):
             raise ValueError('Module object requires an independently sealed world battle producer')
     if is_development(m) or is_development(producer) or (not historical_compiler and not sealed_battle_source and producer['golden']!=m['golden']):
         raise ValueError('Assembly requires the same sealed GPU/native baseline')
@@ -3012,7 +3036,7 @@ def saved_linked_admission(m,request):
                 raise ValueError('Current PTX producer claim mismatch')
             anchors['current_producer_claim_sha256']=sha((source_package/'compile-claimed-cuda.json').read_bytes())
         source=verify_package(source_package)
-        if compiler_only(source) or source.get('purpose','sealed')!='sealed' or not registered_battle_source(source['suite']):
+        if compiler_only(source) or source.get('purpose','sealed')!='sealed' or not registered_battle_source(source):
             raise ValueError('Saved CUBIN requires a sealed world battle source producer')
         anchors['producer_manifest_sha256']=sha((source_package/'gpu-package.json').read_bytes())
         receipt=admission(m,linked,producer,compiler,proof['receipt'],anchors,sealed_producer=source,ptx_reuse=reuse,historical_environment=history)
@@ -3421,13 +3445,13 @@ def compile_child(m,capture,backend):
         return library
     def forbidden(*a,**k):raise RuntimeError('GPU dispatch forbidden in compile-only mode')
     with patch.object(portable_backend.C,'WinDLL',guarded_library,create=True),patch.object(portable_backend,'execute',forbidden),patch.object(portable_backend,'execute_batches',forbidden),observe(portable_backend,journal):
-        outputs,hashes=portable_backend.build(SUITES[m['suite']]['source'],'portableEvents')
+        outputs,hashes=portable_backend.build(suite_config(m)['source'],'portableEvents')
         normalized=module(ROOT/'research/summarize-portable-cross-gpu.py').normalized
         generated={k:normalized(p.read_bytes()) for k,p in outputs.items()}
         if hashes!=m['golden']['source_sha256'] or generated!=m['golden']['generated_normalized']:
             raise ValueError('Generated compiler inputs differ from the '+('fixed diagnostic source certificate' if compiler_only(m) else 'sealed Metal proof'))
         artifact,receipt=journal.invoke('shared_cuda_compile_only',portable_backend.compile_cuda_source,outputs['cuda'])
-    copy_generated(capture,m['suite'])
+    copy_generated(capture,m)
     write(capture/'compiler.json',dict(source_sha256=hashes,generated_sha256={k:sha(p.read_bytes()) for k,p in outputs.items()},
         generated_normalized=generated,compile_artifact=receipt,gpu_calls=0,driver_load_calls=0,calculation_verified=False))
 
@@ -3494,7 +3518,7 @@ def compile_capture(capture,timeout,original_workspace,artifact_kind='cubin',ptx
             json.dump(dict(package_id=m['package_id'],capture=str(capture),artifact_kind=artifact_kind,ptxas_level=ptxas_level),stream)
         environment=dict(NIKKE_CUDA_ARTIFACT=artifact_kind,NIKKE_CUDA_PTXAS_OPT_LEVEL='' if ptxas_level is None else str(ptxas_level),NIKKE_VALIDATION_JOB_MEMORY_MB=str(memory_limit_mb))
         with patch.dict(os.environ,environment):run_job(capture,'cuda',timeout,original_workspace,compile_only=True)
-        copy_generated(capture,m['suite'],partial=True)
+        copy_generated(capture,m,partial=True)
         result=audit_compile_capture(m,capture,verify_artifacts=False);write(capture/'result.json',result)
         run=load(capture/'run.json');run['status']='finished';write(capture/'run.json',run)
     except BaseException as exc:
@@ -3572,7 +3596,7 @@ def audit_capture(capture,verify_artifacts=True,*,record_comparison=False,parent
     from portable_phase_audit import summarize,verify_cuda_trace
     phases=summarize(capture/'phases.jsonl')
     from portable_cuda_cached_profile import audit as audit_cached_profile
-    cache_profile=audit_cached_profile(SUITES[m['suite']],load(capture/'runtime.json'),[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()] if (capture/'phases.jsonl').exists() else []) if not load(capture/'run.json').get('mode')=='smoke' and SUITES[m['suite']].get('cuda_cache_profile') else None
+    cache_profile=audit_cached_profile(suite_config(m),load(capture/'runtime.json'),[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()] if (capture/'phases.jsonl').exists() else []) if not load(capture/'run.json').get('mode')=='smoke' and suite_config(m).get('cuda_cache_profile') else None
     transport_ok=facts['passed']
     if backend=='cuda':
         transport_ok &= (phases['nvrtc_compile_returned_success'] or phases['cuda_compile_cache_hit_verified'] or phases['cuda_linked_artifact_observed']) and all(phases[k] for k in ('cuda_launch_returned_success','cuda_synchronize_returned_success','cuda_readback_returned_success'))
@@ -3638,12 +3662,12 @@ def generation_capture(output,*,development=False,packet_stage=None):
         journal=Journal(output/'phases.jsonl')
         def forbidden(*args,**kwargs):raise RuntimeError('CUDA compilation or GPU execution forbidden in generation preparation')
         with patch.object(portable_backend,'execute',forbidden),patch.object(portable_backend,'execute_batches',forbidden),patch.object(portable_backend,'compile_cuda_source',forbidden),patch.object(portable_backend,'compile_cuda_artifact',forbidden),observe(portable_backend,journal):
-            paths,hashes=portable_backend.build(SUITES[m['suite']]['source'],'portableEvents')
+            paths,hashes=portable_backend.build(suite_config(m)['source'],'portableEvents')
         normalized=module(ROOT/'research/summarize-portable-cross-gpu.py').normalized
         generated={k:normalized(p.read_bytes()) for k,p in paths.items()}
         if hashes!=m['golden']['source_sha256']:raise ValueError('Generation source differs from immutable package baseline')
         if not dev and generated!=m['golden']['generated_normalized']:raise ValueError('Generated cache outputs differ from sealed baseline')
-        copy_generated(output,m['suite'])
+        copy_generated(output,m)
         from portable_generation_cache import audit_receipt
         receipt=load(output/'generation-cache.json')
         verified=audit_receipt(receipt,hashes,{k:output/('generated.'+suffix) for k,suffix in [('cuda','cu'),('metal','metal')]})
@@ -3835,11 +3859,11 @@ def main(argv=None):
     a.add_argument('--required-bytes',type=int,default=0);a.add_argument('--reserve-bytes',type=int,default=1024**3);a.add_argument('--path',type=Path,default=ROOT)
     a=sub.add_parser('unit-check',help='Bounded immutable unit groups only; no full native preflight or GPU proof');a.add_argument('--capture',type=Path,required=True)
     a=sub.add_parser('source-baseline',help='Registered or verified development source closure only; no calculation proof')
-    group=a.add_mutually_exclusive_group(required=True);group.add_argument('--suite');group.add_argument('--all-registered',action='store_true');a.add_argument('--out',type=Path,required=True)
+    group=a.add_mutually_exclusive_group(required=True);group.add_argument('--suite');group.add_argument('--all-registered',action='store_true');a.add_argument('--product-program',choices=PRODUCT_PROGRAMS);a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('_prepared_child',help=argparse.SUPPRESS)
     a.add_argument('--capture',type=Path,required=True);a.add_argument('--claim-sha256',required=True)
     a=sub.add_parser('_tests');a.add_argument('--capture',type=Path,required=True);a.add_argument('--smoke',action='store_true')
-    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--native-baseline-package',type=Path,help='Reuse expected native hashes only when CPU dependencies and prepared inputs match; fresh run/seal checks stay mandatory');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1','coordinate-typed-owner-status-witness-v1','coordinate-owner-counter-field-decoder-v1'])
+    a=sub.add_parser('package');a.add_argument('--suite',choices=SUITES,required=True);a.add_argument('--product-program',choices=PRODUCT_PROGRAMS);a.add_argument('--out',type=Path,required=True);a.add_argument('--develop',action='store_true');a.add_argument('--case',action='append',default=[]);a.add_argument('--compact',action='store_true',help='Validated selected-suite Python payload; preserves GPU sources, fixtures and CPU/smoke groups');a.add_argument('--native-baseline-package',type=Path,help='Reuse expected native hashes only when CPU dependencies and prepared inputs match; fresh run/seal checks stay mandatory');a.add_argument('--baseline-package',type=Path);a.add_argument('--reference-migration',choices=['coordinate-healing-routed-adds-v1','coordinate-original-projectile-history-v1','coordinate-typed-owner-status-witness-v1','coordinate-owner-counter-field-decoder-v1'])
     a=sub.add_parser('unpack');a.add_argument('--archive',type=Path,required=True);a.add_argument('--dest',type=Path,required=True);a.add_argument('--reuse-payload-from',type=Path,help='Share exact payload bytes with an existing immutable package on the same filesystem; never edit either payload')
     for name in ('run','_child','staged-run'):
         a=sub.add_parser(name);a.add_argument('--capture',type=Path,required=True);a.add_argument('--backend',choices=('metal','cuda'),required=True);a.add_argument('--smoke',action='store_true')
@@ -4128,7 +4152,7 @@ def main(argv=None):
         from portable_backend import source_hashes
         from portable_phase_codegen import generate
         with forbid_gpu():
-            report=generate(ROOT,SUITES[m['suite']]['source'],a.out,package_id=m['package_id'],source_hashes=source_hashes,compiler_root=a.slang_root)
+            report=generate(ROOT,suite_config(m)['source'],a.out,package_id=m['package_id'],source_hashes=source_hashes,compiler_root=a.slang_root)
         result={k:report[k] for k in ('passed','package_id','calculation_verified','executable_battle_verified','gpu_calls','nvrtc_calls','driver_calls','kernel_calls','elapsed_seconds')}
         result['report']=str(a.out.resolve()/'report.json')
     elif a.command=='sparsify-raw':
@@ -4151,7 +4175,7 @@ def main(argv=None):
         write(a.out,result)
         if a.require_hit and not result['hit_snapshot']:print(json.dumps(result,indent=2));raise SystemExit(2)
     elif a.command=='cache-probe':result=cache_probe(a.generated_cuda,a.cuda_root,a.compile_cache,a.out,artifact_kind=a.artifact_kind,ptxas_level=a.ptxas_level,require_hit=a.require_hit)
-    elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case,compact=a.compact,baseline_package=a.baseline_package,reference_migration=a.reference_migration,native_baseline_package=a.native_baseline_package)
+    elif a.command=='package':result=make_package(a.suite,a.out,develop=a.develop,cases=a.case,compact=a.compact,baseline_package=a.baseline_package,reference_migration=a.reference_migration,native_baseline_package=a.native_baseline_package,product_program=a.product_program)
     elif a.command=='unpack':result=dict(package_id=unpack(a.archive,a.dest,reuse_payload_from=a.reuse_payload_from))
     elif a.command in ('run','staged-run'):
         if a.backend!='metal' and (a.metal_pipeline_cache or a.require_metal_pipeline_cache):raise ValueError('Metal pipeline settings require Metal backend')
@@ -4225,7 +4249,8 @@ def main(argv=None):
     elif a.command=='source-baseline':
         from portable_source_baseline import check as source_baseline_check,inventory as source_inventory
         if a.out.exists():raise ValueError('Source baseline output already exists')
-        with forbid_gpu():proof=source_inventory(ROOT,SimpleNamespace(**globals())) if a.all_registered else source_baseline_check(ROOT,SimpleNamespace(**globals()),a.suite)
+        if a.all_registered and a.product_program is not None:raise ValueError('A product program requires one selected suite')
+        with forbid_gpu():proof=source_inventory(ROOT,SimpleNamespace(**globals())) if a.all_registered else source_baseline_check(ROOT,SimpleNamespace(**globals()),a.suite,**(dict(product_program=a.product_program) if a.product_program is not None else {}))
         write(a.out,proof)
         keys=('schema','audit_completed','counts','baseline_pairs','registered_names','all_registered_source_current','calculation_verified','gpu_calls') if a.all_registered else ('schema','suite','verified','origin','registered_source_current','calculation_verified','gpu_calls')
         result={k:proof[k] for k in keys}
@@ -4234,7 +4259,7 @@ def main(argv=None):
         from portable_cpu_tests import run_groups,complete
         from portable_phase_audit import Journal
         m=Journal(a.capture/'preparation.jsonl').invoke('cpu_worker_verify_package',verify_package,ROOT)
-        patterns=SMOKE_TESTS if a.smoke else SUITES[m['suite']]['tests']
+        patterns=SMOKE_TESTS if a.smoke else suite_config(m)['tests']
         rows=run_groups(ROOT,a.capture,patterns,write)
         print(json.dumps(dict(cpu_tests_verified=complete(rows,patterns),groups=len(rows),gpu_calls=0)))
         if not complete(rows,patterns):raise SystemExit(1)

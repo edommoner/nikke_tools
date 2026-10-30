@@ -9,7 +9,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 ROOT=Path(__file__).resolve().parents[1]
-sys.path[:0]=[str(ROOT/p) for p in ('app','research')]
+sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 import portable_detail as product
 
 spec=importlib.util.spec_from_file_location('product_cross',ROOT/'research/summarize-portable-cross-gpu.py')
@@ -17,6 +17,14 @@ _cross=importlib.util.module_from_spec(spec);spec.loader.exec_module(_cross)
 SOURCE=product.SOURCE
 suite=SimpleNamespace(INPUT=product.INPUT_WORDS,OUTPUT=product.OUTPUT_WORDS)
 STRICT_WIRE_DIMENSIONS=True
+PROGRAM=None
+
+def configure_product(name):
+    global PROGRAM,SOURCE,suite
+    from portable_product_programs import PROGRAMS
+    if not isinstance(name,str) or name not in PROGRAMS:raise ValueError('Unregistered product program')
+    config=PROGRAMS[name];PROGRAM=name;SOURCE=config['source']
+    suite=SimpleNamespace(INPUT=config['input_words'],OUTPUT=config['output_words'])
 
 def fingerprint(payload):
     # VCS availability/dirty status differs in an unpacked immutable packet.
@@ -27,13 +35,13 @@ def fingerprint(payload):
 cross=SimpleNamespace(digest=fingerprint,normalized=_cross.normalized)
 
 def prepare():
-    fixture=json.loads((ROOT/'tests/fixtures/portable-detail-product-v1.json').read_text(encoding='utf-8'))
-    body=copy.deepcopy(fixture['body'])
+    from portable_product_programs import body_for_program
+    body=body_for_program(ROOT,PROGRAM)
     prepared,run=product.prepare(body)
     source,iw,ow,words,metadata=product.compile_product(prepared)
     if (source,iw,ow)!=(SOURCE,suite.INPUT,suite.OUTPUT):
         raise ValueError('Product request requires a different entry owner')
-    rows=[('product/miranda-stage0-30s',words,(body,prepared,run,metadata))]
+    rows=[('product/'+PROGRAM+'-30s' if PROGRAM else 'product/miranda-stage0-30s',words,(body,prepared,run,metadata))]
     packed=array.array('I',[len(rows),*words])
     if sys.byteorder!='little':packed.byteswap()
     return rows,packed.tobytes()

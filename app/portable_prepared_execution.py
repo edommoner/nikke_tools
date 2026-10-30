@@ -3,6 +3,7 @@
 No public launch command until the parent/audit path is complete. The child
 cannot turn a serialized preparation flag into execution ownership.
 """
+from portable_product_programs import configuration as product_configuration
 import ctypes as C,json,os,time
 from pathlib import Path
 from portable_admission_authority import PROTOCOL,is_windows,same
@@ -78,7 +79,7 @@ def child(cli,capture,expected_claim_sha256):
     m=journal.invoke('prepared_child_verify_package',cli.verify_package,cli.ROOT)
     if cli.is_development(m) or cli.compiler_only(m):raise ValueError('Prepared child requires a sealed battle package')
     claim,a=journal.invoke('prepared_child_ownership',ownership,cli,m,capture,expected_claim_sha256)
-    run=cli.load(capture/'run.json');config=cli.SUITES[m['suite']]
+    run=cli.load(capture/'run.json');config=product_configuration(cli.SUITES,m)
     if (run.get('schema')!=RUN_SCHEMA or run.get('input_protocol')!=PROTOCOL or run.get('mode')!='snapshot-gpu'
         or run.get('backend')!='cuda' or run.get('package_id')!=m['package_id'] or run.get('capture')!=str(capture)
         or run.get('claim_sha256')!=expected_claim_sha256 or run.get('authority_sha256')!=claim['authority_sha256']

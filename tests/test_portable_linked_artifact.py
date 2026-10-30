@@ -25,6 +25,28 @@ class LinkedArtifactTests(unittest.TestCase):
         identity=dict(provider='diagnostic-nvjitlink',artifact='diagnostic-jit-linked-cubin',options=['-arch=sm_86','-verbose'])
         self.link=dict(identity=identity,key=saved.key(identity),artifact=dict(bytes=len(self.image.read_bytes()),sha256=saved.digest(self.image.read_bytes())))
         self.anchors=dict(package_id='full',manifest_sha256='5'*64,artifacts_sha256='6'*64,claim_sha256='7'*64,link_receipt_key=self.link['key'])
+    def test_exported_windows_receipt_can_be_read_without_relaxing_native_admission(self):
+        receipt=self.receipt()
+        history=dict(capture=r'C:\proof\link',observation_sha256='0'*64,
+            missing_identities=[dict(pid=73,path='c:/tools/node.exe',creation_filetime_ticks='133700000000000007')],
+            preservation_verified=False,service_preservation_verified=False,service_status_before='unverified',
+            service_status_after='unverified',termination_cause='unknown',disposition='retained-failure')
+        receipt['identity']['historical_link_environment']=history;receipt['key']=saved.key(receipt['identity'])
+        self.assertTrue(saved.valid_receipt(receipt,portable=True))
+        rows=[dict(stage=saved.STAGE,state='verified',receipt=receipt)]
+        for stage in ('cuLaunchKernel','cuCtxSynchronize','cuMemcpyDtoH_v2'):
+            rows.extend([dict(stage=stage,state='entered'),dict(stage=stage,state='returned',return_code=0)])
+        for index,row in enumerate(rows):row.update(monotonic_ns=index,pid=77)
+        self.assertTrue(verify_cuda_trace(rows,portable=True,pid=77))
+        self.assertEqual(verify_cuda_trace(rows,pid=77),Path(history['capture']).is_absolute())
+        corrupted=copy.deepcopy(rows);corrupted[-1]['return_code']=1
+        self.assertFalse(verify_cuda_trace(corrupted,portable=True,pid=77))
+        self.assertEqual(saved.valid_receipt(receipt),Path(history['capture']).is_absolute())
+        for bad in (dict(capture='C:proof\\link'),dict(preservation_verified=True)):
+            changed=copy.deepcopy(receipt);changed['identity']['historical_link_environment'].update(bad)
+            changed['key']=saved.key(changed['identity'])
+            self.assertFalse(saved.valid_receipt(changed,portable=True))
+
     def receipt(self):return saved.admission(self.current,self.linked,self.producer,self.compiler,self.link,self.anchors)
     def state(self):return dict(receipt=self.receipt(),artifact=str(self.image))
     def request(self):cli.write(self.capture/'linked-artifact-request.json',dict(package='full',capture='link'))

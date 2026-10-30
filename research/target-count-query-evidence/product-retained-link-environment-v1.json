@@ -214,7 +214,7 @@
   "windows_api_one_second_request_pending": false,
   "cuda_product_verification_scope": "One original fixture profile, duration1 second, normal HTTP/API on immutable source2c684f88; no30-second/full-profile certification, peer summary pending saved JSON import",
   "windows_api_one_second_success": {
-    "evidence": "Windows peer saved-result summary; saved JSON import requested, not yet independently inspected on Mac",
+    "evidence": "Exported JSON/native journal independently audited on Mac; original CUDA binary/raw and telemetry remain on Windows",
     "source_commit": "2c684f88e03b2943340f20510cd4f59a64115ad3",
     "package_id": "d1206d3f6ca2b3c0c78aa9ca23dce5e65dd66a17ce7105d581cafc01330a9ff7",
     "summary_sha256": "410e185c5a6322da08bee2e93bbe31e43c2d5d4a5ea3642718a8e0a0b2b63531",
@@ -266,5 +266,125 @@
     "prior_unknown_observation_preserved": true,
     "additional_runs": 0,
     "full_goal_complete": false
+  },
+  "windows_export_mac_audit": {
+    "passed": true,
+    "source_commit": "2c684f88e03b2943340f20510cd4f59a64115ad3",
+    "package_id": "d1206d3f6ca2b3c0c78aa9ca23dce5e65dd66a17ce7105d581cafc01330a9ff7",
+    "report_commit": "efadc71c4d643baae4277510bcd33a2fe65fcbe4",
+    "export_files": 8,
+    "export_bytes": 330346,
+    "all_export_file_hashes_verified": true,
+    "all_cpu_gpu_api_payloads_equal": true,
+    "mac_actual_raw_hashes_equal_recorded_cuda_hashes": true,
+    "receipt_and_native_phase_order_verified": true,
+    "historical_preservation_verified": false,
+    "historical_missing": 7,
+    "current_comparison": {
+      "all_monitored_processes_preserved": true,
+      "missing_existing_processes": [],
+      "identified_nikke_service_preservation_verified": false,
+      "nikke_service_status_before": "unverified",
+      "nikke_service_status_after": "unverified",
+      "termination_cause": null,
+      "command_lines_saved": false
+    },
+    "job": {
+      "schema": 1,
+      "records": [
+        {
+          "child_pid": 100712,
+          "wrapper_pid": 89576,
+          "pre_gate": {
+            "child_pid": 100712,
+            "child_ppid": 89576,
+            "parent_observation": "os_process_snapshot",
+            "observed_unix_ns": 1793377147768586400,
+            "wrapper_pid": 89576,
+            "child_creation_filetime_ticks": "134378507477303998",
+            "job_members": [
+              100712
+            ],
+            "job_peak_memory_bytes": 5918720,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "pre_gate_verified": true,
+          "post_wait": {
+            "child_pid": 100712,
+            "child_ppid": 89576,
+            "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+            "observed_unix_ns": 1793377195442532400,
+            "wrapper_pid": 89576,
+            "child_creation_filetime_ticks": "134378507477303998",
+            "job_members": [],
+            "job_peak_memory_bytes": 1989414912,
+            "job_memory_limit_bytes": 2147483648
+          },
+          "inspection_error": null
+        }
+      ],
+      "observer_assigns_processes": false
+    },
+    "resources": {
+      "schema": "saved-cuda-resource-summary-v1",
+      "allocations": [
+        {
+          "requested_bytes": 417604,
+          "return_code": 0
+        },
+        {
+          "requested_bytes": 3145728,
+          "return_code": 0
+        },
+        {
+          "requested_bytes": 138992,
+          "return_code": 0
+        }
+      ],
+      "launches": [
+        {
+          "grid": [
+            1,
+            1,
+            1
+          ],
+          "block": [
+            1,
+            1,
+            1
+          ],
+          "dynamic_shared_bytes": 0,
+          "return_code": 0
+        }
+      ],
+      "snapshots": [],
+      "incomplete_native_events": [],
+      "allocation_arguments_recorded": true,
+      "launch_arguments_recorded": true,
+      "memory_observations_present": false,
+      "memory_observation_complete": false,
+      "failure_cause_verified": false,
+      "diagnostic_gpu_calls": 0,
+      "diagnostic_driver_calls": 0,
+      "calculation_verified": false,
+      "scope": "Pinned saved events only; not source, containment, allocation capacity, or calculation certification"
+    },
+    "initial_native_path_check_rejected_windows_capture_on_mac": true,
+    "native_admission_path_rules_unchanged": true,
+    "scope": "Independent portable data-only audit of exported JSON/native journal; CUDA binary/raw buffers and original telemetry remain on Windows. One profile/duration1 only.",
+    "additional_gpu_or_native_calls": 0,
+    "full_goal_complete": false,
+    "existing_full_native_trace_and_streamed_readback_auditor_passed": true
+  },
+  "windows_export_mac_audit_sha256": "0e39beaf56fc2d0c8ff1c44f28da27e1c779e7b261ca63514f117d295839ed8c",
+  "windows_export_recovery": {
+    "original_send_received": false,
+    "original_wait_cell": 789,
+    "original_wait_cancelled_after_user_reconnection": true,
+    "read_only_status_confirmed_not_received": true,
+    "report_commit": "efadc71c4d643baae4277510bcd33a2fe65fcbe4",
+    "files": 8,
+    "bytes": 330346,
+    "gpu_or_native_reexecutions": 0
   }
 }

@@ -1,4 +1,5 @@
 """All registered unit tests, in fresh bounded stages of one run transaction."""
+from portable_product_programs import configuration as product_configuration
 import os
 from pathlib import Path
 from portable_cpu_tests import complete,run_groups,validate_groups,validate_dependency_files
@@ -7,7 +8,7 @@ from portable_staged_preflight import context,exclusive,outside,terminal_cpu_sta
 
 
 def plan(cli,m,size):
-    names=cli.SUITES[m['suite']]['tests']
+    names=product_configuration(cli.SUITES,m)['tests']
     validate_groups(cli.ROOT,names)
     validate_dependency_files(cli.ROOT,names,included={r['path'] for r in m['files']})
     return [[names[i] for i in indices] for indices in partition(len(names),size)]
@@ -58,7 +59,7 @@ def admit_tests(cli,m,c):
     """Recheck complete test coverage before native work and again before GPU."""
     validate_plan(cli,m,c);transaction=Path(c['transaction'])
     if 'test_groups' not in c:
-        if not complete(cli.load(transaction/'cpu-tests.json'),cli.SUITES[m['suite']]['tests']):
+        if not complete(cli.load(transaction/'cpu-tests.json'),product_configuration(cli.SUITES,m)['tests']):
             raise ValueError('Staged original CPU tests incomplete')
         return []
     pids=[];stages=[];all_rows=[]
@@ -86,5 +87,5 @@ def admit_tests(cli,m,c):
             raise ValueError('Staged test Job PID mismatch')
         stages.append(dict(capture=str(proof),**envelope,test_files=cli.file_records(proof,names|{'artifacts.json'})))
         pids.append(pid);all_rows.extend(rows)
-    if not complete(all_rows,cli.SUITES[m['suite']]['tests']):raise ValueError('Staged test coverage incomplete')
+    if not complete(all_rows,product_configuration(cli.SUITES,m)['tests']):raise ValueError('Staged test coverage incomplete')
     return stages

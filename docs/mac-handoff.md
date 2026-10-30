@@ -1,3 +1,17 @@
+# 2026-10-31 製品CLIのprogram選択を実装、固定programのimmutable実証へ
+
+新しいsuiteを作らず`package --suite product-detail --product-program fixed|accumulate[-group|-target|-group-target]`で8入口を選ぶ。共通data/portable-product-programs.jsonをPython/Nodeが読む。manifestのproduct_programをpackage ID、既存static input factory、wire、source、基準entryへ束縛。選択kernelのliteral include closureをpacket自身rootから再計算し、selectorだけ変えてrekeyしたpacketも拒否。legacy marker無しは元設定/基準のまま。未sealのmemberはsealed packageを拒否。新基準table research/portable-product-programs-v1-expected.jsonは現在emptyで、数値を捏造していない。
+
+既存run/compile/module/link/prepared/staged/partitioned/auditのconfig lookupを共通resolverへ通した。program adapterは元fixture/既存profile factoryから入力を作り、CPU予定表なし。8memberのstatic preparation/wire/CPU未実行、legacy互換、table無し拒否、rekeyによるmode差替え拒否を検査。CPU期待hash再利用も同programを要求し、違うmodeはnative計算/packing前に拒否する。Fixedの既存CLI CPU基準を実際に生成し、入力SHA b534ebb2…が既存通常API30秒と一致した（CPU基準1件約0.203秒）。
+
+CPU controls: CLI51/product27/packet7、既存共通config関連16群119成功。additional73中1件がsandbox ps読取EPERM、phase-audit8を通常権限で再検査して全成功、残りは成功。linked26（portable read含む）とNode24成功。開発時のfixture compute/keyword無し互換、Mac /var->/private resolve、portable helper signature訂正の失敗はtool logへ保持。計算/保護CPU/normalizer/GPU source変更0。source baselineの新program用12検査も成功。次はこのコードをcommitし、不変fixed development packetを既存package/unpack/run/sealで実証する。packet自身のCLI/cwdを使い、実行中にimmutable controllerを書き換えない。
+
+Windowsの旧2cの1秒API JSON8files/330346bytesをbranch codex/product-cuda-short-api-v1-report commit efadc71c4d643baae4277510bcd33a2fe65fcbe4から取得、元summary410e185c…/manifestd35968af…と全member byte/SHA一致。MacでCPU/GPU/API全payload、旧immutable d120 owner source、保存CUBIN receipt key、歴史false/7個体、実launch/sync/全量readback順序と既存full trace/stream auditorを照合し成功。Mac同sceneの実raw SHAとも一致。JSON Windows pathをnative検査が拒否したためdata-only portable=Trueを追加したが、実行時既定/native path guardは維持。Windows raw/binary/全telemetryは輸送しない。追加GPU/CPU戦闘0。record product-retained-link-environment-v1.jsonへ集約。
+
+functions cell789の旧共有依頼はユーザー再接続確認後に待機を取消し、readonly statusで未受領と確認してから保存JSON共有だけを依頼した。新依頼は完了、chat cursor80/idle。再実行/追加GPU/compile依頼0、Windowsへ新作業は未依頼。Job peak1989414912bytesはowned global allocations417604+3145728+138992bytesだけで原因を特定できず、保存memory snapshotなし/原因unknown。次の必要CUDA検証時は既存NIKKE_CUDA_RESOURCE_OBSERVATION=1を使える。
+
+製品実証数はMetal実蓄積255（旧版）/fixed255＋追加編成1、CUDA実蓄積1profile1秒（旧2c）/fixed0のまま。CLI program selector/生成一致をprofile成功へ加算しない。残11/parts/manual/全設定・編成も未完。以下は履歴。
+
 # 2026-10-31 固定周期の通常API全profile完了：Metal255一致、CUDA固定0
 
 proof product-fixed-api-v1-20261031/catalogueの全267要求がterminal exit0。catalog266中Metal255、既知CPUfallback11、追加Sakura+Belorta編成1も全CPU製品応答一致。cache hit0、unique GPUcapture256、shader内訳fixed normal245/group2/target8/group-target1。保存GPU/CPU/API全field（compute/cache metadata以外）とinput/readback全raw SHAを独立照合し全一致。source snapshotはsweep/保存監査終了まで不変。driver57499・監査99927ともexit0、専用port4348のserver PID91312/session81105は所有cwd確認後SIGTERM、terminal143。ソース凍結解除。詳細既存product-admission-v1.jsonのfixed_product_readinessへ集約。rawはlocal proof保持、GitHubへ送らない。

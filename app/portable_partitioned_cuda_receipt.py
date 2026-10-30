@@ -4,6 +4,7 @@ No native values are cached. The complete source-host audit remains retained;
 its fingerprints, Job envelope and consumed claims are bound to a small receipt.
 The provider never repeats the producer audit or starts a compiler.
 """
+from portable_product_programs import configuration as product_configuration
 import contextlib,json
 from pathlib import Path
 from unittest.mock import patch
@@ -40,7 +41,7 @@ def prepare(cli,manifest,auditor_root,capture,*,generated_cuda_source):
         raise ValueError('Complete bounded original-admission audit required')
     if (origin.get('schema')!=MODE or origin.get('original_package_id')!=OWNER or origin.get('golden')!=manifest['golden']
         or origin.get('native_admission_revalidated') is not True or origin.get('input_count')!=len(manifest['golden']['entries'])
-        or origin.get('native_cases')!=cli.SUITES[manifest['suite']]['native'] or origin.get('claims_modified') is not False
+        or origin.get('native_cases')!=product_configuration(cli.SUITES,manifest)['native'] or origin.get('claims_modified') is not False
         or origin.get('original_stage_passed') is not False or origin.get('execution_permitted') is not False
         or any(origin.get(k)!=0 for k in ('gpu_calls','compiler_calls','native_calls'))
         or not valid_receipt(origin.get('linked_receipt',{}))):raise ValueError('Original admission or saved CUBIN changed')
@@ -74,7 +75,7 @@ def check(cli,manifest,state):
     if (state.get('schema')!='partitioned-pinned-cubin-admission-v1' or state.get('auditor_package_id')!=AUDITOR
         or state.get('golden_sha256')!=canonical(cli,manifest['golden']) or state.get('execution_permitted') is not False
         or state.get('native_values_reused') is not False or not valid_receipt(state.get('linked_receipt',{}))
-        or state.get('input_count')!=len(manifest['golden']['entries']) or state.get('native_cases')!=cli.SUITES[manifest['suite']]['native']):raise ValueError('Pinned admission identity changed')
+        or state.get('input_count')!=len(manifest['golden']['entries']) or state.get('native_cases')!=product_configuration(cli.SUITES,manifest)['native']):raise ValueError('Pinned admission identity changed')
     identity=state['linked_receipt']['identity']
     if identity.get('source_closure')!=manifest['golden']['source_sha256'] or identity.get('generated_normalized')!=manifest['golden']['generated_normalized']:
         raise ValueError('Pinned CUBIN differs from complete frozen GPU source')
@@ -103,7 +104,7 @@ def prepare_current(cli,manifest,linked_root,linked_capture,*,generated_cuda_sou
     state=dict(schema=CURRENT,linked_root=str(linked_root),source_capture=str(linked_capture),
         package_records=cli.file_records(linked_root,CURRENT_PACKAGE),capture_records=cli.file_records(linked_capture,CURRENT_CAPTURE),
         linked_receipt=checked['receipt'],linked_artifact=checked['artifact'],golden_sha256=canonical(cli,manifest['golden']),
-        input_count=len(manifest['golden']['entries']),native_cases=cli.SUITES[manifest['suite']]['native'],
+        input_count=len(manifest['golden']['entries']),native_cases=product_configuration(cli.SUITES,manifest)['native'],
         execution_permitted=False,native_values_reused=False,gpu_calls=0)
     with cli.forbid_gpu():read_verified(state['linked_receipt'],generated_cuda_source,state['linked_artifact'])
     check_current(cli,manifest,state)
@@ -116,7 +117,7 @@ def check_current(cli,manifest,state):
         or state.get('native_values_reused') is not False or type(state.get('gpu_calls')) is not int or state.get('gpu_calls')!=0
         or state.get('golden_sha256')!=canonical(cli,manifest['golden'])
         or state.get('input_count')!=len(manifest['golden']['entries'])
-        or state.get('native_cases')!=cli.SUITES[manifest['suite']]['native']
+        or state.get('native_cases')!=product_configuration(cli.SUITES,manifest)['native']
         or not valid_receipt(state.get('linked_receipt',{}))):raise ValueError('Current source CUBIN admission changed')
     for key,names in (('package_records',CURRENT_PACKAGE),('capture_records',CURRENT_CAPTURE)):
         rows=state.get(key,[])

@@ -52,6 +52,16 @@ class ExpectationTests(unittest.TestCase):
                     m['package_id']=cli.package_id(m);cli.write(old/'gpu-package.json',m)
                 with self.context(new,adapter),cli.forbid_gpu(),self.assertRaises(ValueError):reuse(cli,'fixture',old,cli.file_records(new,names),cases)
                 self.assertEqual(calls,[])
+    def test_product_modes_cannot_share_cpu_expectations_under_the_same_suite(self):
+        with tempfile.TemporaryDirectory() as folder:
+            old,new,names,adapter,calls=self.fixture(Path(folder))
+            manifest=cli.load(old/'gpu-package.json');manifest.update(suite='product-detail',product_program='accumulate')
+            with patch.object(cli,'ROOT',new),patch.object(cli,'verify_package',return_value=manifest),\
+                 patch.object(cli,'open_suite',side_effect=AssertionError('No packing on a different program')):
+                with self.assertRaisesRegex(ValueError,'product program'):
+                    reuse(cli,'product-detail',old,cli.file_records(new,names),[],product_program='fixed')
+            self.assertEqual(calls,[])
+
     def test_receipt_cannot_skip_checks_claim_success_or_carry_outputs(self):
         with tempfile.TemporaryDirectory() as folder:
             old,new,names,adapter,_=self.fixture(Path(folder))
