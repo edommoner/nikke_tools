@@ -1,0 +1,276 @@
+{
+  "schema": 1,
+  "scope": "Exact product-family source history inverse only; not numerical equivalence or generated-code normalization",
+  "baseline_commit": "168f1bbf65957a85ba48a58699e585f74aa5ad91",
+  "current_source_commit": "fba01c95b302abd44d8eb1438edf5d3e363ee85a",
+  "normalizer_changed": false,
+  "current_product_equivalence_claim": false,
+  "files": {
+    "app/portable_backend.py": {
+      "current_sha256": "56d708fa4162b19d35cb2ec16498380f762e11dea17162c57ceb37c651c9f8ac",
+      "baseline_sha256": "b8e7efe7d82051476f30a7c52c707c20f085765276899f2e6c428c66586d2af3",
+      "hunks": [
+        {
+          "start": 3841,
+          "end": 4628,
+          "current": "    if source in ('gpu/product_fixed_battle_entry.slang','gpu/product_fixed_group_battle_entry.slang',\n                  'gpu/product_fixed_target_battle_entry.slang','gpu/product_fixed_group_target_battle_entry.slang'):\n        # Identical wire; only the guarded fixed-readiness consumer differs.\n        return validate_composed_stride(source.replace('gpu/product_fixed_','gpu/product_',1),input_words,output_words)\n    if source=='gpu/product_group_target_battle_entry.slang':\n        from portable_destructible_roster_input import check_group_wire,GROUP_INPUT_WORDS,OUTPUT_WORDS\n        check_group_wire(ROOT)\n        if (input_words,output_words)!=(GROUP_INPUT_WORDS,OUTPUT_WORDS):raise ValueError('Product group target requires its complete carrier and group wire')\n        return\n",
+          "baseline": ""
+        }
+      ]
+    },
+    "app/portable_runtime.py": {
+      "current_sha256": "d68e2f585e108f434a7a40e42c5a2933e6006eac9a61335d0b77a0edfe8a3d07",
+      "baseline_sha256": "b16501886b0d474e9a1f22e23000dab181f469c704af87c814b91ffcda287260",
+      "hunks": [
+        {
+          "start": 25032,
+          "end": 25516,
+          "current": "    for eff, owner in effects:\n        try:validate_effect(eff,combat=combat,world_frame=world_frame)\n        except UnsupportedPortable as error:\n            # Keep the original category/message; expose which authored effect\n            # caused fallback instead of returning an anonymous compiler gap.\n            error.effect_context=dict(character=owner,effect=eff.get('name',''),\n                stat=eff.get('stat',''),target=copy.deepcopy(eff.get('target')))\n            raise\n",
+          "baseline": "    for eff, owner in effects:validate_effect(eff,combat=combat,world_frame=world_frame)\n"
+        }
+      ]
+    },
+    "gpu/admission_runtime.slang": {
+      "current_sha256": "aacb755045e1947899f9788ca9efe7cd5f22e0243f0a089db49271386b8faeba",
+      "baseline_sha256": "26630bb6860c63cc53440cc8ec6c08149e431c6362cc20b40d71a3dc004bb155",
+      "hunks": [
+        {
+          "start": 522,
+          "end": 2083,
+          "current": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n[noinline]\nbool admitDefinitionTypes(inout Runtime s,uint input,uint j,inout Definition d,inout uint elementDefinitions)\n{\n    uint world=input+P_WORLD_META_BASE,codeNames=commands[world+1],refs=input+P_BURST_REFERENCE_BASE;\n    bool completed=false;\n    do\n    {\n#include \"admission_definition_types.slang\"\n        completed=true;\n    } while(false);\n    return completed;\n}\n[noinline]\nbool admitDefinitionTriggers(inout Runtime s,uint input,uint j,inout Definition d,inout uint elementDefinitions)\n{\n    uint world=input+P_WORLD_META_BASE,codeNames=commands[world+1],refs=input+P_BURST_REFERENCE_BASE;\n    bool completed=false;\n    do\n    {\n#include \"admission_definition_triggers.slang\"\n        completed=true;\n    } while(false);\n    return completed;\n}\n[noinline]\nbool admitDefinitionRoutes(inout Runtime s,uint input,uint j,inout Definition d,inout uint elementDefinitions)\n{\n    uint world=input+P_WORLD_META_BASE,codeNames=commands[world+1],refs=input+P_BURST_REFERENCE_BASE;\n    bool completed=false;\n    do\n    {\n#include \"admission_definition_routes.slang\"\n        completed=true;\n    } while(false);\n    return completed;\n}\n[noinline]\nbool admitDefinitionMasks(inout Runtime s,uint input,uint j,inout Definition d,inout uint elementDefinitions)\n{\n    uint world=input+P_WORLD_META_BASE,codeNames=commands[world+1],refs=input+P_BURST_REFERENCE_BASE;\n    bool completed=false;\n    do\n    {\n#include \"admission_definition_masks.slang\"\n        completed=true;\n    } while(false);\n    return completed;\n}\n#endif\n\n",
+          "baseline": ""
+        },
+        {
+          "start": 3895,
+          "end": 4418,
+          "current": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n        if(!admitDefinitionTypes(s,input,j,d,elementDefinitions)) break;\n        if(!admitDefinitionTriggers(s,input,j,d,elementDefinitions)) break;\n        if(!admitDefinitionRoutes(s,input,j,d,elementDefinitions)) break;\n        if(!admitDefinitionMasks(s,input,j,d,elementDefinitions)) break;\n#else\n#include \"admission_definition_types.slang\"\n#include \"admission_definition_triggers.slang\"\n#include \"admission_definition_routes.slang\"\n#include \"admission_definition_masks.slang\"\n",
+          "baseline": "#ifdef PORTABLE_COVER_DEFENSE\n        if(d.stat==CDF_STAT && (d.kind!=0||d.enemyBuff!=0||d.healthScaling!=0||d.alliedFlags!=0||d.quantityFlags!=0||!f64Finite(d.value))) { s.error=64;break; }\n"
+        },
+        {
+          "start": 4425,
+          "end": 4425,
+          "current": "",
+          "baseline": "        if(d.stat==92U || (d.damageFlags&524288U)!=0)\n        {\n#ifdef PORTABLE_PROJECTILE_CHAIN\n            if(s.combat==0 || commands[input+P_WORLD_FRAME_INPUT_BASE]!=0x57533031U || d.stat==92U && (d.kind!=0 || d.healthScaling!=0 || d.alliedFlags!=0 || d.quantityFlags!=0 || !f64Finite(d.value)) || (d.damageFlags&524288U)!=0 && (d.kind!=3 || d.damagePending==1 || d.name>=P_DEFINITIONS || (d.damageFlags&262144U)!=0)) { s.error=64;break; }\n#else\n            s.error=64;break;\n#endif\n        }\n        if(d.stat>=81U && d.stat<=83U || d.kind==34)\n        {\n#ifdef PORTABLE_DAMAGE_ACCUM\n            if(!validDamageAccum(s,j,d,protectionPolicy(s,j))) { s.error=64;break; }\n#else\n            s.error=64;break;\n#endif\n        }\n        if(d.stat==76U || d.stat==77U || d.kind==32)\n        {\n#ifdef PORTABLE_HEAL_CHARGE\n            if(!validHealCharge(s,j,d,protectionPolicy(s,j))) { s.error=64;break; }\n#else\n            s.error=64;break;\n#endif\n        }\n        if(d.kind==37)\n        {\n            if(s.combat==0 || d.stat!=0 || d.target!=0 || d.enemyBuff!=0 || d.healthScaling!=0 || d.alliedFlags!=0 || d.quantityFlags!=0 || d.damageFlags!=0 || d.queryResolve!=0 || (d.flags&~3U)!=0 || !f64Finite(d.value) || f64Less(f64FromI64(4096),f64Abs(d.value))) { s.error=64;break; }\n            uint recipient=input+P_RECIPIENT_BASE+j*8;\n            if(commands[recipient]!=0 || d.owner>=5 || d.recipients!=(1U<<d.owner)) { s.error=64;break; }\n        }\n        if(d.kind==33)\n        {\n            if(d.stat!=0 || d.enemyBuff!=0 || d.target!=0 || d.damageFlags!=0 || d.healthScaling!=0 || d.quantityFlags!=0) { s.error=64;break; }\n            uint forced=input+P_FORCE_BASE+j*P_MASK_WORDS;\n            for(uint word=0;word<P_MASK_WORDS;word++)\n                for(uint bit=0;bit<32;bit++) if((commands[forced+word]&(1U<<bit))!=0)\n                { uint target=word*32+bit;if(target>=s.count || target==j || definition_owner(input,target)!=d.owner) { s.error=64;break; } }\n            if(s.error!=0) break;\n        }\n        if((d.damageFlags&H_NAMED_SKILL)!=0 && (d.kind!=3 || commands[world+3]==0 || d.name>=P_DEFINITIONS)) { s.error=64;break; }\n        PROJECTILE_ADMIT_STAGE(s,4000)\n        if(d.stat==S_skill_cooldown_pct)\n        {\n#ifndef PORTABLE_WORLD_ROSTER\n            s.error=64;break;\n#else\n            if(s.combat==0 || d.kind!=0 || d.enemyBuff!=0 || !f64Finite(d.value)) { s.error=64;break; }\n            s.quantityMask|=2048;\n#endif\n        }\n        if((d.quantityFlags&1)!=0)\n        {\n#ifndef PORTABLE_WORLD_PROJECTILE\n            s.error=64;break;\n#else\n            if(d.kind!=4 || s.combat==0 || d.stat!=0 || (d.quantityFlags&~32U)!=1 || d.enemyBuff!=0 ||\n               d.alliedFlags!=0 || d.healthScaling!=0 || d.damageFlags!=0 || !f64Finite(d.value)) { s.error=64;break; }\n            s.quantityMask|=16384;\n#endif\n        }\n        if(d.kind==22 && (s.combat==0 || d.stat!=0 || d.enemyBuff!=0 || !f64Finite(d.value))) { s.error=64;break; }\n        PROJECTILE_ADMIT_STAGE(s,4001) if(d.stat==S_stun)\n        { if(d.kind!=0 || s.combat==0 || !f64Equal(d.value,ONE)) { s.error=64;break; }s.incomingMask|=8; }\n        PROJECTILE_ADMIT_STAGE(s,4002) if((d.quantityFlags&2)!=0)\n        { if(d.kind!=4 || s.combat==0 || d.stat!=0 || d.quantityFlags!=2 || !f64Finite(d.value)) { s.error=64;break; }s.incomingMask|=16; }\n        PROJECTILE_ADMIT_STAGE(s,4003) if(d.kind==25)\n        {\n            uint plan=input+P_RECIPIENT_BASE+j*8;\n            if(s.combat==0 || d.stat!=0 || d.enemyBuff!=0 || !f64Finite(d.value) || f64Zero(d.value) ||\n               commands[plan]>1 || !validRecipientPlan(plan,false,input)) { s.error=64;break; }\n        }\n        PROJECTILE_ADMIT_STAGE(s,4004) if(d.stat==S_pierce_enabled || d.stat==S_armor_break_enabled || d.stat==S_burst_charge_speed_pct)\n        {\n            if(d.kind!=0 || d.enemyBuff!=0 || !f64Finite(d.value) || d.damageFlags!=0) { s.error=64;break; }\n            for(uint word=0;word<P_DAMAGE_DEFINITION_WORDS;word++)\n                if(commands[input+P_DAMAGE_DEFINITION_BASE+j*P_DAMAGE_DEFINITION_WORDS+word]!=0) { s.error=64;break; }\n            if(s.error!=0) break;\n            if(d.stat==S_burst_charge_speed_pct)\n            { if(commands[refs]!=1) { s.error=64;break; } s.quantityMask|=128; }\n        }\n        PROJECTILE_ADMIT_STAGE(s,4005) if(d.stat==S_atk_from_hp_pct)\n        {\n            if(d.kind!=0 || d.enemyBuff!=0 || d.alliedFlags!=0 || d.healthScaling!=0 || d.queryResolve!=0 || !f64Finite(d.value) || d.damageFlags!=0) { s.error=64;break; }\n            for(uint word=0;word<P_DAMAGE_DEFINITION_WORDS;word++)\n                if(commands[input+P_DAMAGE_DEFINITION_BASE+j*P_DAMAGE_DEFINITION_WORDS+word]!=0) { s.error=64;break; }\n            if(s.error!=0) break;\n            s.quantityMask|=256;\n        }\n        uint entry=s.inputBase+P_MODE_BASE+j*P_MODE_WORDS+28;\n        PROJECTILE_ADMIT_STAGE(s,401)\n        uint64_t entryDelay=loadNumber(entry);\n        if(d.kind==2)\n        {\n            if(s.combat==0 || !f64Finite(entryDelay) || f64Less(entryDelay,0) || f64Less(f64FromI64(180),entryDelay) || (commands[entry+2]>2 || commands[entry+2]!=1 && !f64Zero(entryDelay)) || WORLD_MODE_POLICY_INVALID(s,commands[entry+3])) { s.error=64;break; }\n            if(commands[entry+2]!=0) s.quantityMask|=512;\n        }\n        else if(commands[entry]!=0 || commands[entry+1]!=0 || commands[entry+2]!=0 || commands[entry+3]!=0) { s.error=64;break; }\n        if (d.owner >= 5 || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; }\n        PROJECTILE_ADMIT_STAGE(s,402)\n        for(uint slot=0;slot<d.conditionCount;slot++)\n        {\n            uint at=input+P_CONDITION_BASE+j*P_CONDITION_WORDS+slot*4;\n            if(commands[at]==C_NOT_CORE)\n            {\n#ifdef PORTABLE_NOT_CORE\n                if(s.combat==0 || commands[input+P_WORLD_FRAME_INPUT_BASE]!=0x57533031U || commands[at+1]!=0 || !f64Zero(loadNumber(at+2))) { s.error=64;break; }\n                s.incomingMask|=512U;\n#else\n                s.error=64;break;\n#endif\n            }\n            if((commands[at]==C_FOCUSING || commands[at]==C_NO_BROKEN_COVER_ALLY) && !validStatePredicate(input,j,at,s.combat)) { s.error=64;break; }\n            if(commands[at]==C_SELF_UNDYING && !validUndyingPredicate(input,j,at,s.combat)) { s.error=64;break; }\n            if(commands[at]==C_STAT_ABOVE && !validStatAbovePredicate(commands[at+1],loadNumber(at+2))) { s.error=64;break; }\n            if(commands[at]==C_TRIGGER_HIT_CRIT)\n            {\n                if(s.combat==0 || commands[world+3]!=1 || commands[input+P_LANDING_META_BASE]!=1 || commands[at+1]!=0 || !f64Zero(loadNumber(at+2))) { s.error=64;break; }\n                s.incomingMask|=32;\n            }\n            if((commands[at]==C_TARGET_STUNNED || commands[at]==C_SELF_STUN_IMMUNE) &&\n               (s.combat==0 || commands[at+1]!=0 || !f64Zero(loadNumber(at+2)))) { s.error=64;break; }\n            if(commands[at]==C_TARGET_STATE || commands[at]==C_NOT_TARGET_STATE || commands[at]==C_TARGET_STACK)\n            {\n                uint64_t arg=loadNumber(at+2);uint conversionStatus;\n                uint64_t integer=f64ToI64(arg,1,conversionStatus);\n                if(commands[at+1]>=P_DEFINITIONS || !f64Finite(arg) ||\n                   commands[at]!=C_TARGET_STACK && !f64Zero(arg) ||\n                   commands[at]==C_TARGET_STACK && (conversionStatus!=0 || f64Less(arg,0) || f64Less(f64FromI64(2147483647),arg) || !f64Equal(arg,f64FromI64(integer)))) { s.error=64;break; }\n            }\n            if((commands[at]==C_CORE || commands[at]==C_OPTIMAL_RANGE) && (!hasRangeGeometry(s) || commands[at+1]!=0 || !f64Zero(loadNumber(at+2)))) { s.error=64;break; }\n            if(commands[at]==C_PROB && (commands[at+1]!=0 || !f64Finite(loadNumber(at+2)) || f64Less(loadNumber(at+2),0) || f64Less(ONE,loadNumber(at+2)))) { s.error=64;break; }\n            if(commands[at]==22) { s.error=64;break; } // Legacy CPU-folded code predicate is not a portable condition.\n            if(commands[at]==C_TARGET_CODE && (commands[at+1]==0 || commands[at+1]>codeNames || !f64Zero(loadNumber(at+2)))) { s.error=64;break; }\n        }\n        if(s.error!=0) break;\n        WORLD_TEAM_VALIDATE(s,d,input,j) WORLD_FRACTION_VALIDATE(s,d,input,j) WORLD_INITIAL_SPAWN_VALIDATE(s,d,input,j) for (uint slot = 0; slot < d.triggerCount; slot++)\n        {\n            uint at=input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8,event=commands[at];\n            if(event==62)\n            {\n#ifndef PORTABLE_ATTACK_GROUPS\n                s.error=64;break;\n#endif\n            }\n            if(event==51)\n            {\n#ifdef PORTABLE_PROJECTILE_CHAIN\n                if(s.combat==0 || commands[at+3]!=0 || loadNumber(at+1)!=0 || commands[at+4]>=P_DEFINITIONS || commands[at+5]!=0 || commands[at+6]!=0 || commands[at+7]!=0) { s.error=64;break; }\n#else\n                s.error=64;break;\n#endif\n            }\n            if(event==50)\n            {\n#ifndef PORTABLE_DAMAGE_ACCUM\n                s.error=64;break;\n#else\n                if(s.combat==0 || commands[input+P_WORLD_FRAME_INPUT_BASE]!=0x57533031U || uint(commands[at+4])>=P_DEFINITIONS) { s.error=64;break; }\n#endif\n            }\n            if(event==40)\n            {\n#ifdef PORTABLE_PARTIAL_CHARGE\n                uint64_t threshold=loadNumber(at+1);uint status;uint64_t count=f64ToI64(threshold,1,status);\n                if(s.combat==0 || commands[input+P_WORLD_FRAME_INPUT_BASE]!=0x57533031U || status!=0 || count==0 || count>0x7fffffff || !f64Equal(threshold,f64FromI64(count)) || commands[at+3]!=1 || commands[at+6]!=0 || commands[at+5]>1 || commands[at+5]==0 && commands[at+4]!=0xffffffffU || commands[at+5]==1 && (int(commands[at+4])>0 || count!=1 || commands[at+7]!=1) || commands[at+7]!=1 && commands[at+7]!=2) { s.error=64;break; }\n#else\n                s.error=64;break;\n#endif\n            }\n            if(event==41)\n            {\n#ifdef PORTABLE_WORLD_ROSTER\n                uint stage=commands[at+7];\n                if(s.combat==0 || commands[input+P_WORLD_FRAME_INPUT_BASE]!=0x57533031U || stage<1 || stage>3 || !f64Equal(loadNumber(at+1),f64FromI64(stage)) || commands[at+3]!=0 || commands[at+4]!=0xffffffffU || commands[at+5]!=0 || commands[at+6]!=0) { s.error=64;break; }\n#else\n                s.error=64;break;\n#endif\n            }\n            if (event == 42 && s.combat == 0) { s.error = 64; break; }\n            if (event == 31) s.namedEventOwners |= 1U << d.owner;\n        }\n        if (s.error != 0) break;\n        for (uint slot = 0; slot < d.triggerCount; slot++)\n            if (commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8] == 9) s.stackEventOwners |= 1U << d.owner;\n        if ((d.kind == 2 || d.kind == 13 || d.kind == 14) && (d.target > 1 || !f64Finite(d.value))) { s.error = 64; break; }\n        PROJECTILE_ADMIT_STAGE(s,403)\n         s.lazyEnabled |= uint(d.lazyGroup != 0);\n        if ((WORLD_RELOAD_FORCE_KIND(d.kind) || d.kind == 0 || d.kind == 4 || d.kind == 5 || d.kind == 6 || d.kind == 7 || d.kind == 8 || d.kind == 13 || d.kind == 14 || d.kind == 22 || d.kind == 24 || d.kind == 27 || d.kind == 31 || d.kind == 30 || d.kind==29) && !(\n#ifdef PORTABLE_ENEMY_AMMO\n            enemyAmmoDefinition(s,j,d)?enemyAmmoRecipientValid(s,j,d):\n#endif\n            validRecipientPlan(input+P_RECIPIENT_BASE+j*8,d.enemyBuff != 0,input))) { s.error = 64; break; }\n        if (d.lazyGroup != 0)\n        {\n            uint plan = input+P_RECIPIENT_BASE+j*8, selector = commands[plan];\n            if (d.lazyGroup > s.count || d.kind != 0 && d.kind != 4 || !(selector == 5 || selector == 6 || selector == 7 || selector == 15 || selector == 16 || selector == 19 || selector == 25)) { s.error = 64; break; }\n            uint previous = s.lazyGroupDefinition[d.lazyGroup-1];\n            if (previous != 0)\n            {\n                uint prior = input+P_RECIPIENT_BASE+(previous-1)*8;\n                bool same = definition_owner(s.inputBase,previous-1) == d.owner;\n                for (uint field = 0; field < 4; field++) if (commands[prior+field] != commands[plan+field]) same = false;\n                if (!same) { s.error = 64; break; }\n            }\n            else s.lazyGroupDefinition[d.lazyGroup-1] = j+1;\n        }\n        if((d.stat==S_optimal_range_min || d.stat==S_optimal_range_max_pct) && (d.kind!=0 || d.enemyBuff!=0 || !hasRangeGeometry(s))) { s.error=64;break; }\n        uint packet = input+P_DAMAGE_DEFINITION_BASE+j*P_DAMAGE_DEFINITION_WORDS;\n        PROJECTILE_ADMIT_STAGE(s,404)\n        if(d.stat==S_element_code_override)\n        {\n            elementDefinitions++;\n            if(d.kind!=0 || d.enemyBuff!=0 || d.damageRoute>codeNames || d.damageFlags!=0 || !f64Zero(d.value)) { s.error=64;break; }\n            for(uint word=1;word<P_DAMAGE_DEFINITION_WORDS;word++) if(commands[packet+word]!=0) { s.error=64;break; }\n            if(s.error!=0) break;\n        }\n        uint periodic = input+P_PERIODIC_DEFINITION_BASE+j*2;\n        bool accumEnemy=false;\n#ifdef PORTABLE_ENEMY_MOVEMENT\n        accumEnemy=enemyMovementMarker(s,d);\n#endif\n#ifdef PORTABLE_DAMAGE_ACCUM\n        accumEnemy=d.kind==0 && d.stat>=81U && d.stat<=83U;\n#endif\n#ifdef PORTABLE_ENEMY_HEALING\n        accumEnemy=accumEnemy || d.kind==0 && d.stat==S_heal_received_pct;\n#endif\n        if (d.enemyBuff != 0 && (d.enemyBuff != 1 || !(d.kind==0 || d.kind==4 && (d.flags&56)!=0 || d.kind==4 && d.stat==0 || d.kind==19) || s.combat == 0 || d.lazyGroup != 0 ||\n            !WORLD_ENEMY_ATTACK_STAT(s,d,(d.stat == S_enemy_def_down_pct || d.stat == S_def_caster_based_pct || d.stat == S_received_dmg_pct || accumEnemy || projectileCarrierStat(d.stat) || namedMagnitudeStat(d.stat) || d.stat == S_taunt || d.stat == S_stun || d.kind==4 && (d.flags&56)!=0 || d.kind==4 && d.stat==0 || d.kind==19)) ||\n            !validEnemyRoute(s.inputBase,d.damageRoute) || d.damageCount == 0 || d.damageCount > 256 || d.damageHits != 0 || d.damageNormal != 0 || !f64Zero(d.damageGauge) || d.damagePending != 0 || d.pendingHits != 0 ||\n            commands[input+P_RECIPIENT_BASE+j*8] != 4)) { s.error = 64; break; }\n        if (d.kind == 3 && (!f64Finite(d.value) || !validEnemyRoute(s.inputBase,d.damageRoute) || d.damageCount == 0 || d.damageCount > 256 || d.damageHits > 256 ||\n            d.damageRoute >= 2 && s.combat == 0 || !f64Finite(d.damageGauge) || f64Less(d.damageGauge,0) && !f64Equal(d.damageGauge,F64_SIGN | ONE) || f64Less(f64FromI64(1000000),d.damageGauge) ||\n            d.damageNormal > 1 || FULL_BURST_PENDING_INVALID(s,d))) { s.error = 64; break; }\n        if ((d.kind == 3 || d.enemyBuff != 0 || (d.kind == 1 || d.kind == 15) && d.target == 2) && (d.damageRoute == 7 || d.damageRoute == 8))\n            for (uint target = 1; target < s.targetCount; target++) if (!f64Zero(s.targetDefense[target])) { s.error = 64; break; }\n        if(!validDurationExtension(input,s.count,s.combat,j)) { s.error=64;break; }\n        if(!validRemovalDefinition(input,s.combat,j)) { s.error=64;break; }\n        PROJECTILE_ADMIT_STAGE(s,405)\n        uint bullet = input+P_BULLET_DEFINITION_BASE+j*2;\n        if (d.bulletDuration > 0x7fffffff || d.bulletBound > 1 || d.bulletDuration == 0 && d.bulletBound != 0 || d.bulletDuration != 0 && (s.combat == 0 || d.kind != 0 && d.kind != 4)) { s.error = 64; break; }\n        uint extra = input+P_DEFINITION_EXTRA_BASE+j*P_DEFINITION_EXTRA_WORDS;\n        uint health = input+P_HEALTH_DEFINITION_BASE+j*P_HEALTH_DEFINITION_WORDS;\n        uint duration = input+P_DURATION_DEFINITION_BASE+j*2;\n        if (d.kind == 0 && d.stat == S_fullburst_duration)\n        {\n            if (s.combat == 0 || d.durationGroup == 0 || d.durationGroup > s.count || d.durationCast > 1) { s.error = 64; break; }\n            bool cast = false;\n            for (uint slot = 0; slot < d.triggerCount; slot++) if (commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8] == 3 && commands[input+P_EVENT_BASE+j*P_EVENT_WORDS+slot*8+3] == 0) cast = true;\n            if (d.durationCast != uint(cast)) { s.error = 64; break; }\n            s.durationEnabled = 1;\n        }\n        else if (d.durationGroup != 0 || d.durationCast != 0) { s.error = 64; break; }\n        // Low bits retain the named-event/audience policy. Higher bits hold an\n        // optional stat-applied event name plus one, authored by the compiler.\n        uint statNotice = d.buffEvent >> 2;\n        if (d.enemyBuff > 1 || d.kind != 0 && d.kind != 4 && d.buffEvent != 0 ||\n            statNotice > P_DEFINITIONS || statNotice != 0 && (d.kind != 0 || d.stat != S_dot_dmg_pct && d.stat != S_split_dmg_pct)) { s.error = 64; break; }\n        if (d.healthScaling > 1) { s.error = 64; break; }\n        PROJECTILE_ADMIT_STAGE(s,406)\n        if (d.kind == 0 && d.stat == S_cover_hp_pct) s.coverMask |= 1;\n        if ((d.kind == 7 || d.kind == 30) && (f64Less(d.value,0) || d.kind == 30 && f64Zero(d.value))) { s.error = 64; break; }\n        if (d.kind == 7 || d.kind == 30) s.coverMask |= 2;\n        if (d.kind == 0 && (d.stat >= S_max_hp_pct && d.stat <= S_max_hp_only_pct || d.stat == S_max_hp_from_max_hp_pct)) s.healthMask |= 1;\n        if (d.kind == 0 && d.enemyBuff == 0 && ((d.alliedFlags & 1) != 0 || d.stat == S_def_caster_based_pct)) s.healthMask |= 2;\n        if (d.kind == 0 && d.stat == S_heal_received_pct) s.healthMask |= 4;\n        if (d.kind == 0 && d.stat == S_outgoing_heal_pct) s.healthMask |= 8;\n        if (d.kind == 0 && d.stat == S_lifesteal_pct) s.healthMask |= 64;\n        if(d.stat==S_heal_split)\n        {\n#ifndef PORTABLE_WORLD_ROSTER\n            s.error=64;break;\n#else\n            if(s.combat==0 || d.kind!=0 || d.enemyBuff!=0 || d.healthScaling!=0 || d.alliedFlags!=0 || d.damageFlags!=0 || d.quantityFlags!=0 || d.queryResolve!=0 || !f64Finite(d.value)) { s.error=64;break; }\n            s.healthMask|=128;\n#endif\n        }\n        if (d.kind == 6 || d.kind == 8) s.healthMask |= 16;\n        if (d.group >= s.count || d.alias >= int(j)) { s.error = 64; break; }\n        PROJECTILE_ADMIT_STAGE(s,407)\n        if(d.stat==S_focus_fire)\n        { if(d.kind!=0 || s.combat==0 || !focusAimEnabled(s) || commands[input+P_WORLD_FRAME_INPUT_BASE]==0 || d.enemyBuff!=0 || d.healthScaling!=0 || d.alliedFlags!=0 || d.damageFlags!=0 || d.quantityFlags!=0 || !f64Finite(d.value) || !f64Zero(d.interval)) { s.error=64;break; }s.incomingMask|=64; }\n        if (d.kind == 0 && d.stat == S_invincible) s.incomingMask |= 1;\n        if (d.kind == 0 && d.stat == S_undying) s.incomingMask |= 2;\n        if (d.kind == 0 && d.stat == S_received_dmg_pct) s.incomingMask |= 4;\n        if ((d.kind == 13 || d.kind == 14 || d.kind == 5 || d.kind == 24 || d.kind == 0 && d.stat == S_burst_cooldown) && s.combat == 0) { s.error = 64; break; }\n        if (d.kind == 0 && d.stat == S_burst_cooldown) s.burstModifierMask |= 1;\n        if (d.kind == 0 && d.stat == S_reload_speed_pct) s.quantityMask |= 64;\n        if (d.kind == 0 && d.stat == S_max_ammo_flat) s.quantityMask |= 16;\n        if (d.kind == 0 && d.stat == S_charge_time_flat) s.quantityMask |= 32;\n        if (d.kind == 0 && d.stat == S_max_ammo_pct) s.quantityMask |= 1;\n        if (d.kind == 0 && (d.stat == S_charge_speed_pct || d.stat == S_charge_speed_caster_based_pct)) s.quantityMask |= 2;\n        if ((d.quantityFlags & 64) != 0) s.quantityMask |= 4;\n        if (d.kind == 0 && d.stat == S_charge_time_fixed) s.quantityMask |= 8;\n"
+        }
+      ]
+    },
+    "gpu/combat_runtime.slang": {
+      "current_sha256": "714650a033ce289f520464b1df59cbe2c5d2488e5a5c54af9a3b612d769981ac",
+      "baseline_sha256": "cb14be879c080157c8ecdef1d65f15015a169e2bee40717a668af4a3930cf32d",
+      "hunks": [
+        {
+          "start": 1059,
+          "end": 1176,
+          "current": "#ifdef PORTABLE_PRODUCT_FIXED_BURST\n    s.fixedGaugeReadyAt = loadNumber(input+P_WORLD_CONTROL_INPUT_BASE+6);\n#endif\n",
+          "baseline": ""
+        },
+        {
+          "start": 11573,
+          "end": 11777,
+          "current": "#ifdef PORTABLE_PRODUCT_FIXED_BURST\n      s.fixedGaugeReadyAt = f64Add(when,loadNumber(s.inputBase+P_WORLD_CONTROL_INPUT_BASE+8));\n      if (!f64Finite(s.fixedGaugeReadyAt)) { s.error=64;return; }\n#endif\n",
+          "baseline": ""
+        },
+        {
+          "start": 11950,
+          "end": 12051,
+          "current": "#ifdef PORTABLE_PRODUCT_FIXED_BURST\n    if (s.phase == 0 && reached(when,s.fixedGaugeReadyAt))\n#else\n",
+          "baseline": ""
+        },
+        {
+          "start": 12101,
+          "end": 12108,
+          "current": "#endif\n",
+          "baseline": ""
+        },
+        {
+          "start": 17987,
+          "end": 18046,
+          "current": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n[noinline]\n#endif\n",
+          "baseline": ""
+        }
+      ]
+    },
+    "gpu/destructible_battle_runtime.slang": {
+      "current_sha256": "00df3307cf0d29c50321c35e53e31a449ec3577c065ca1ebbcc01984c568f459",
+      "baseline_sha256": "91be4819b2f6f28d7fdedfbed014bea3c1aaa67f396968e506b39f11f2c75c8a",
+      "hunks": [
+        {
+          "start": 1868,
+          "end": 2244,
+          "current": "#ifdef PORTABLE_DESTRUCTIBLE_EMPTY_BODY\n    // Only the product plain-body entry accepts an explicitly empty universe.\n    // Other typed entries retain their nonempty binding admission contract.\n    if(count==0)\n    {\n        if(!weaponOnly||actorPoolCount(s)!=1) return false;\n        for(uint i=2328;i<3864;i++) if(commands[extra+i]!=0) return false;\n    }\n    else\n#endif\n",
+          "baseline": ""
+        }
+      ]
+    },
+    "gpu/destructible_weapon_runtime.slang": {
+      "current_sha256": "e66d7817c87466244020cdf539dd8cb9ce29df39455f0dd2de8f3dd5fe60ecb4",
+      "baseline_sha256": "31c889f35aef525bf352a986b33e97c39b3f3b0dc44c7c6040550db888916e0d",
+      "hunks": [
+        {
+          "start": 651,
+          "end": 930,
+          "current": "// An empty target table cannot intercept a shot. Keep the original body path,\n// including pierce/physical context, until a real typed target is declared.\nbool destructibleWeaponHasTargets(inout Runtime s)\n{ return destructibleWeaponEnabled(s)&&commands[DF_EXTRA(s)+2320]!=0; }\n",
+          "baseline": ""
+        },
+        {
+          "start": 1172,
+          "end": 1416,
+          "current": "#ifdef PORTABLE_DESTRUCTIBLE_EMPTY_BODY\n    // With no interceptable target, all post-landing work remains on the\n    // existing body path, including lifesteal and damage accumulation.\n    if(commands[DF_EXTRA(s)+2320]==0) return true;\n#endif\n",
+          "baseline": ""
+        },
+        {
+          "start": 4505,
+          "end": 4560,
+          "current": "    if(!destructibleWeaponHasTargets(s)) return false;\n",
+          "baseline": "    if(!destructibleWeaponEnabled(s)) return false;\n"
+        },
+        {
+          "start": 6930,
+          "end": 7003,
+          "current": "    if(!destructibleWeaponHasTargets(s)||f64Zero(legacy)) return legacy;\n",
+          "baseline": "    if(!destructibleWeaponEnabled(s)||f64Zero(legacy)) return legacy;\n"
+        }
+      ]
+    },
+    "gpu/destructible_weapon_shield_entry.slang": {
+      "current_sha256": "02112c32ee530555f415bddd299b7084904ba150754ac11c3bb0e9116faed76f",
+      "baseline_sha256": "e6ece02d3d50464537d0b7b3c4b82771269b0f3f1181fc30772d2b7db49d97f8",
+      "hunks": [
+        {
+          "start": 199,
+          "end": 354,
+          "current": "#define WEAPON_TYPED_DAMAGE(s,who,w,coefficient,when,legacy) (destructibleWeaponHasTargets(s)?destructibleWeaponSample(s,who,w,coefficient,when):(legacy))\n",
+          "baseline": "#define WEAPON_TYPED_DAMAGE(s,who,w,coefficient,when,legacy) (destructibleWeaponEnabled(s)?destructibleWeaponSample(s,who,w,coefficient,when):(legacy))\n"
+        },
+        {
+          "start": 455,
+          "end": 583,
+          "current": "#define WEAPON_BODY_SUPPRESSED(s,who,hit) (destructibleWeaponHasTargets(s)&&results[destructibleWeaponBank(s,who)+64+(hit)]!=0)\n",
+          "baseline": "#define WEAPON_BODY_SUPPRESSED(s,who,hit) (destructibleWeaponEnabled(s)&&results[destructibleWeaponBank(s,who)+64+(hit)]!=0)\n"
+        }
+      ]
+    },
+    "gpu/event_runtime.slang": {
+      "current_sha256": "c1027adc3d8fd21a9dcdb521c48e2cc2c88ba42427592356409e3f5463eb673d",
+      "baseline_sha256": "34d72a8f7b41d8e00af101640c0020008d679a4ad48800cd00c2a789c9bb67dd",
+      "hunks": [
+        {
+          "start": 11165,
+          "end": 11240,
+          "current": "#ifdef PORTABLE_PRODUCT_FIXED_BURST\n    uint64_t fixedGaugeReadyAt;\n#endif\n",
+          "baseline": ""
+        }
+      ]
+    },
+    "gpu/focus_aim_runtime.slang": {
+      "current_sha256": "52e007c28a4a5360affff03c513d2571bbf149147f13658d215fffdd8d3f3ecd",
+      "baseline_sha256": "ea4c502e8dba870f02723259820780753510af99a2efc50804dd1d88e7681f55",
+      "hunks": [
+        {
+          "start": 1838,
+          "end": 1897,
+          "current": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n[noinline]\n#endif\n",
+          "baseline": ""
+        }
+      ]
+    },
+    "gpu/target_counter_runtime.slang": {
+      "current_sha256": "59755989cbb61ff5f660bcee2dc4babc661ab2c1e7e548e4d257d86de340c558",
+      "baseline_sha256": "a98346a87337134649fed15055f675549598ea29173c927f65ab1fbd2a20fbfb",
+      "hunks": [
+        {
+          "start": 8311,
+          "end": 8370,
+          "current": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n[noinline]\n#endif\n",
+          "baseline": ""
+        }
+      ]
+    },
+    "gpu/world_actor_fields.slang": {
+      "current_sha256": "6b4293db845896418cd21dc4926bcf2dfed330ba51de9ad76c81d690455e8f5e",
+      "baseline_sha256": "493bb7fb6de3412c8ac81ec23735c7575caecff8262c438a79d5044ca4c2bd33",
+      "hunks": [
+        {
+          "start": 3313,
+          "end": 3372,
+          "current": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n[noinline]\n#endif\n",
+          "baseline": ""
+        }
+      ]
+    },
+    "gpu/world_charge_control_runtime.slang": {
+      "current_sha256": "aa8df45901d9d3a7e19d6af41bbd6a0a1721594156ea56c4dd1f47cde900c33d",
+      "baseline_sha256": "c1a4dfe8a17c6de0604e31ea394b8eda8d65f7417f77bfabf3e0fbfd81cd1df6",
+      "hunks": [
+        {
+          "start": 17203,
+          "end": 17574,
+          "current": "#ifdef PORTABLE_PRODUCT_FIXED_BURST\nbool productFixedBurstHeader(uint p)\n{\n    uint64_t first=loadNumber(p+6),regen=loadNumber(p+8),limit=f64FromI64(180);\n    return commands[p+1]==4 && commands[p+5]==0x46424731U\n        && f64Finite(first) && !f64Less(first,0) && !f64Less(limit,first)\n        && f64Finite(regen) && !f64Less(regen,0) && !f64Less(limit,regen);\n}\n#endif\n",
+          "baseline": ""
+        },
+        {
+          "start": 17606,
+          "end": 17909,
+          "current": "bool partialControlHeader(inout Runtime s,uint p) {\n#ifdef PORTABLE_PRODUCT_FIXED_BURST\n    return productFixedBurstHeader(p);\n#else\n    return commands[p+1]==1;\n#endif\n}\nuint partialReservedStart(inout Runtime s,uint p) {\n#ifdef PORTABLE_PRODUCT_FIXED_BURST\n    return 10;\n#else\n    return 5;\n#endif\n}\n",
+          "baseline": "bool partialControlHeader(inout Runtime s,uint p) { return commands[p+1]==1; }\nuint partialReservedStart(inout Runtime s,uint p) { return 5; }\n"
+        },
+        {
+          "start": 18392,
+          "end": 18473,
+          "current": "#ifdef PORTABLE_PRODUCT_FIXED_BURST\n    return productFixedBurstHeader(p);\n#else\n",
+          "baseline": ""
+        },
+        {
+          "start": 18736,
+          "end": 18743,
+          "current": "#endif\n",
+          "baseline": ""
+        },
+        {
+          "start": 18797,
+          "end": 18854,
+          "current": "#ifdef PORTABLE_PRODUCT_FIXED_BURST\n    return 10;\n#else\n",
+          "baseline": ""
+        },
+        {
+          "start": 18970,
+          "end": 18977,
+          "current": "#endif\n",
+          "baseline": ""
+        }
+      ]
+    },
+    "gpu/world_team_runtime.slang": {
+      "current_sha256": "44b952a742446296c1abdb3a1ee03aaf731b43fff53e9979418868bf839700b9",
+      "baseline_sha256": "b1a4d98c5a6469e4f4ea85cf4005f764c2bae11f513110de7ca5ef3fe9464ea1",
+      "hunks": [
+        {
+          "start": 1245,
+          "end": 1513,
+          "current": "{ return kind==C_HP_ABOVE||kind==C_HP_BELOW||kind==C_ALLY_HP_BELOW||kind==C_HP_MAX||kind==C_PROB||kind==C_FULL||kind==C_NOT_FULL||kind==C_STATIC||kind==C_TRIGGER_HIT_CRIT||kind==C_TARGET_CODE||kind==C_CAST||kind==C_NOT_CAST||kind==C_BACK_ROW||kind==C_NOT_SELF_HEAL; }\n",
+          "baseline": "{ return kind==C_HP_ABOVE||kind==C_HP_BELOW||kind==C_ALLY_HP_BELOW||kind==C_HP_MAX||kind==C_PROB||kind==C_FULL||kind==C_NOT_FULL||kind==C_STATIC||kind==C_TRIGGER_HIT_CRIT||kind==C_TARGET_CODE||kind==C_CAST||kind==C_NOT_CAST; }\n"
+        },
+        {
+          "start": 1931,
+          "end": 2154,
+          "current": "    // Both predicates already use the source owner in basicConditions. They\n    // carry no name or numeric argument and are activation-only predicates.\n    if(kind==C_BACK_ROW||kind==C_NOT_SELF_HEAL) return f64Zero(arg);\n",
+          "baseline": ""
+        }
+      ]
+    }
+  },
+  "added_sources": {
+    "gpu/admission_definition_masks.slang": "37ba6ad29f247a43da266d52b28459ff37c10678b9676bd6e21b9f9b34bf75ce",
+    "gpu/admission_definition_routes.slang": "4eed2b15f59c84504460c455b12c60f8492a9dfc9b94b2ab0fcf098074e33653",
+    "gpu/admission_definition_triggers.slang": "0aebdda502119534f729d9813386ae9820e4ce74410bf0f693b27f0de009940f",
+    "gpu/admission_definition_types.slang": "67177f05768d11da1a3009eb87bac23fc7c60ea50a156d2573cec9c3cb4329cf",
+    "gpu/product_battle_entry.slang": "8def82c67a26daa15208be4b41198163f65f4b93e84fbc626ba01144b162e552",
+    "gpu/product_fixed_battle_entry.slang": "2a9836a7f7cd7b632f4514ac92f387df6e9b119158108646c4c31f899cddea18",
+    "gpu/product_fixed_group_battle_entry.slang": "649b5538a97f930d05774054d1d3c26e0effb0e1fab4bf2aad7b9e3862b6552d",
+    "gpu/product_fixed_group_target_battle_entry.slang": "fe0284ad670d1cac4512384f033f2a80b5c098a065ce3d0e038458932c2eb3f0",
+    "gpu/product_fixed_target_battle_entry.slang": "b01a81fe0d500ceedf079b8b987aeb5679fb5a9a0fdea82033b0b1a73ebf30d9",
+    "gpu/product_group_battle_entry.slang": "69a3f874615a27d36fbef69de28682458efd036c87cbda36b0d7fc48338b6a71",
+    "gpu/product_group_target_battle_entry.slang": "979c91067a4ea0110f5f5f1d66a0d8fa40431c931a9bd5d9ac6212a666adef1d",
+    "gpu/product_target_battle_entry.slang": "909d5e41e1719d02aca1f197b3fe5d8cb4ff987dba1cda19f85a13127624a0a8"
+  }
+}
