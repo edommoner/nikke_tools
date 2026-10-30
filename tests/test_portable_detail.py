@@ -81,6 +81,28 @@ class PortableDetail(unittest.TestCase):
         invalid=copy.deepcopy(prepared);invalid['enemy']['patterns']=[dict(kind='summon',spec=dict(self_destruct=True))]
         with self.assertRaisesRegex(ValueError,'declared world consumer'):compile_battle(invalid,routing='native')
 
+    def test_original_character_shooting_controls_reach_existing_shared_wire(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_specs import LIMITS as L
+        for name,key in [('앨리스','tap_fire'),('밀크 : 블루밍 바니','hold'),
+                         ('에이다','hold'),('라푼젤 : 퓨어 그레이스','sequence')]:
+            body=selected_profile_bodies([name],0)[0][2]
+            mode='accumulate' if key=='tap_fire' or name=='밀크 : 블루밍 바니' else 'fixed'
+            body.update(shooting_policy='character',duration=20,burst_gauge_mode=mode)
+            if name=='앨리스':body['profile']['chars'][name]['equip_skills']['charge_speed_pct']=9.26
+            with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU schedule')):
+                prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+                source,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertIn(key,next(c['control'] for c in prepared['chars'] if c['name']==name))
+            self.assertEqual(prepared,before);self.assertEqual(len(words),iw)
+            self.assertEqual(meta['real_prepared_input']['policy']['controls'],prepared['policies']['controls'])
+            self.assertEqual(words[L['WORLD_CONTROL_INPUT_BASE']+1],2 if mode=='accumulate' else 4)
+            self.assertFalse(meta['real_prepared_input']['cpu_battle_executed'])
+            invalid=copy.deepcopy(prepared)
+            invalid['chars'][0]['control']={'cover':{'policy':'own_full_burst'}}
+            invalid['policies']['controls'][invalid['chars'][0]['name']]=invalid['chars'][0]['control']
+            with self.assertRaisesRegex(ValueError,'Cover/reload/aim/burst'):product.compile_product(invalid)
+
     def descriptor(self,folder,**changes):
         document=dict(schema=1,programs={product.SOURCE:dict(battle_package=folder,request=dict(package=folder,capture=folder))})
         document.update(changes)

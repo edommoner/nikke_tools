@@ -258,8 +258,8 @@ def evaluate(body):
         # These need product history/operation projections, not silent omission.
         if body.get('enemy',{}).get('parts'):
             raise UnsupportedPortable('製品用GPUのパーツ結果変換は未接続です。')
-        if any(any(k != 'weapon_mode_swap' or v for k,v in c.get('control',{}).items()) for c in prepared['chars']):
-            raise UnsupportedPortable('製品用GPUの手動操作結果変換は未接続です。')
+        # The shared world compiler normalizes original tap/hold controls.
+        # Its admission still rejects unconnected aim/cover/reload/burst axes.
         source, input_words, output_words, words, metadata = compile_product(prepared)
         wire = array.array('I',[1,*words])
         if sys.byteorder != 'little':wire.byteswap()
