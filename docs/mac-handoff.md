@@ -1,6 +1,6 @@
 # 2026-10-30 最優先ベイの重み付き共通数値処理をM5でseal
 
-entry-planは偏差分配4段階が最優先と再確認。固定689814a1/package59e9a503…でweighted-incoming全1192入力（native1179/拒否13）がM5成功、GPU0.000569958秒、独立GPU禁止監査0.386646秒。別明示重み/全31生存mask/5caster/独立cover/最大量/極小量を検査。元sandboxのdevice不可はclaim前停止で保持、成功GPU1/Windows依頼0。通常CLIとCUBIN/O1 cache-onlyを登録し、分類には限定数値証拠だけ追加。canonical拒否/実CUDA/元4段階戦闘/実機定数は未達。次はdocs/portable-bay-allocation.mdの元carrier・独立cover・既存incoming frameの接続。新probeだけを重ねず、元all_allies/self_coverの寿命・被弾/破壊/復活通知へ進む。
+entry-planは偏差分配4段階が最優先と再確認。固定689814a1/package59e9a503…でweighted-incoming全1192入力（native1179/拒否13）がM5成功、GPU0.000569958秒、独立GPU禁止監査0.386646秒。別明示重み/全31生存mask/5caster/独立cover/最大量/極小量を検査。元sandboxのdevice不可はclaim前停止で保持、成功GPU1/Windows依頼0。通常CLIとCUBIN/O1 cache-onlyを登録し、分類には限定数値証拠だけ追加。canonical拒否/実CUDA/元4段階戦闘/実機定数は未達。最終512578f3/package d1acfcb4…自身の2群8検査/1192入力CPU事前確認とCUBIN/O1・2GiB・60秒compile-plan policy成功（compiler/GPU0）、分類回帰41検査成功。保護4ファイルは5720d178から同一。Windows既存chatのstatus確認はhost unavailableで、run依頼0。最終記録weighted-incoming-final-cli-v1.json。次はdocs/portable-bay-allocation.mdの元carrier・独立cover・既存incoming frameの接続。新probeだけを重ねず、元all_allies/self_coverの寿命・被弾/破壊/復活通知へ進む。
 
 # 2026-10-30 最終CLI接続確認とLock On調査判断
 

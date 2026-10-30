@@ -1,0 +1,51 @@
+{
+  "schema": "weighted-incoming-final-cli-v1",
+  "source_commit": "512578f3",
+  "package_id": "d1acfcb4ef5b4d1e0780d2661f5b574232b727a09a0749d04cf8cf67bbf5be9d",
+  "unit_groups": 2,
+  "unit_tests": 8,
+  "cpu_result": {
+    "cpu_verified": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "status": "cpu-only"
+  },
+  "preflight": {
+    "passed": true,
+    "input_count": 1192,
+    "native_oracles": 1179,
+    "input_sha256": "3a6ffba50847f2495029f6bb27d9578b96cf986174ee233ef85500659d614fdc",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 0.025138833036180586
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "d1acfcb4ef5b4d1e0780d2661f5b574232b727a09a0749d04cf8cf67bbf5be9d",
+    "suite": "weighted-incoming",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "model_check_sha256": "973575fabd23a30564b4c0cc958891133d119ccbe4a1f227348309da9bc46beb",
+  "protected_files_unchanged": true,
+  "windows_status": "host unavailable; no command sent",
+  "windows_run_requests": 0,
+  "actual_cuda_verified": false,
+  "incoming_battle_connected": false,
+  "full_goal_complete": false
+}
