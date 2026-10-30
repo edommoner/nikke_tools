@@ -1,0 +1,30 @@
+{
+  "schema": "product-source-package-v1",
+  "path": "research/product-gpu-packages/product-outline-v1.zip",
+  "package_id": "b3272b83a5ee57350df7104623300f9df612d8688e90debbea39028457f1fd51",
+  "source_commit": "1dc81d53991e521c86418a34287ed292cc960cb0",
+  "bytes": 14079341,
+  "sha256": "fba0229fd76d703913e1695ef235deec39468d42551ae1063cdc035f961dfbc3",
+  "files": 4138,
+  "all_members_and_bytes_verified": true,
+  "payload": "Whitelisted source, public data, fixtures, requirements and pinned43-file upstream with LICENSE/GAMEPLAY.md; no raw buffers, SDK or compiled GPU artifacts",
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "b3272b83a5ee57350df7104623300f9df612d8688e90debbea39028457f1fd51",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  }
+}
