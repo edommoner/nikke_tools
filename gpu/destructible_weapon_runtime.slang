@@ -21,12 +21,18 @@ bool destructibleWeaponHasTargets(inout Runtime s)
 uint destructibleWeaponBank(inout Runtime s,uint who) { return s.resourceOutput+970000+who*256; }
 bool validDestructibleWeapons(inout Runtime s)
 {
-    if(commands[s.inputBase+110084]>1||s.landingPolicy==0||actorPoolCount(s)!=1) return false;
+    if(commands[s.inputBase+110084]>1||s.landingPolicy==0) return false;
 #ifdef PORTABLE_DESTRUCTIBLE_EMPTY_BODY
     // With no interceptable target, all post-landing work remains on the
     // existing body path, including lifesteal and damage accumulation.
-    if(commands[DF_EXTRA(s)+2320]==0) return true;
+    if(commands[DF_EXTRA(s)+2320]==0)
+    {
+        if(actorPoolCount(s)==0||commands[actorBinding(s,0)]!=0) return false;
+        for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]!=1) return false;
+        return true;
+    }
 #endif
+    if(actorPoolCount(s)!=1) return false;
     for(uint row=0;row<s.count;row++)
     {
         Definition d=readDefinition(s.inputBase,row);

@@ -1,4 +1,4 @@
-// Product plain-body specialization: retain typed-axis carriers alongside the
+// Product BODY/PART specialization: retain typed-axis carriers alongside the
 // existing native shot-group executor. No typed target or damage model exists
 // in this world; the GPU verifies that fact before executing any command.
 #define portableEvents unusedProductGroupEntry
@@ -10,7 +10,8 @@ bool validProductGroupTargetAxes(inout Runtime s)
     uint descriptor=s.inputBase+104408;
     if(commands[descriptor]!=0x50474131U||commands[descriptor+1]!=1||commands[descriptor+2]==0||commands[descriptor+2]>256) return false;
     for(uint i=3;i<8;i++) if(commands[descriptor+i]!=0) return false;
-    if(actorPoolCount(s)!=1||commands[actorBinding(s,0)]!=0) return false;
+    if(actorPoolCount(s)==0||commands[actorBinding(s,0)]!=0) return false;
+    for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]!=1) return false;
     uint count=0;
     for(uint row=0;row<256;row++)
     {

@@ -4,6 +4,18 @@ from pathlib import Path
 LEDGER_SHA256='93afb12ae4b67224a4cfe099ccf64bead769c52229d85ddfe0b45bfbc282f2f6'
 PRODUCT_LEDGER_SHA256='9187d38559f8e40c2735afb95892f8cba4174b8a1ccf01b0d9d4bb0873894d38'
 
+def _product_part_preimage(name,text):
+    """Reviewed source history only; never current numerical equivalence."""
+    digest=hashlib.sha256(text.encode()).hexdigest()
+    if name=='gpu/destructible_weapon_runtime.slang' and digest=='34ef4ef4614589da699af251e0ed2d28f8f8de945ccacd2310fbcb0d1cc8fd20':
+        text=text.replace('bool validDestructibleWeapons(inout Runtime s)\n{\n    if(commands[s.inputBase+110084]>1||s.landingPolicy==0) return false;\n#ifdef PORTABLE_DESTRUCTIBLE_EMPTY_BODY\n    // With no interceptable target, all post-landing work remains on the\n    // existing body path, including lifesteal and damage accumulation.\n    if(commands[DF_EXTRA(s)+2320]==0)\n    {\n        if(actorPoolCount(s)==0||commands[actorBinding(s,0)]!=0) return false;\n        for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]!=1) return false;\n        return true;\n    }\n#endif\n    if(actorPoolCount(s)!=1) return false;\n    for(uint row=0;row<s.count;row++)\n    {\n        Definition d=readDefinition(s.inputBase,row);\n#ifdef PORTABLE_DESTRUCTIBLE_BODY_ACCUM\n        bool accum=commands[s.inputBase+110080]==0x48534936U&&commands[s.inputBase+110087]==1;\n        if(d.kind==34&&!accum) return false;\n        if(d.kind==0&&((d.stat==S_lifesteal_pct&&commands[s.inputBase+110080]!=0x48534935U&&!accum)||((d.stat==81||d.stat==82)&&!accum))) return false;\n#elif defined(PORTABLE_DESTRUCTIBLE_BODY_LIFESTEAL)\n        if(d.kind==0&&((d.stat==S_lifesteal_pct&&commands[s.inputBase+110080]!=0x48534935U)||d.stat==81||d.stat==82)) return false;\n#else\n        if(d.kind==0&&(d.stat==S_lifesteal_pct||d.stat==81||d.stat==82)) return false;\n#endif\n    }\n    return true;\n}\n','bool validDestructibleWeapons(inout Runtime s)\n{\n    if(commands[s.inputBase+110084]>1||s.landingPolicy==0||actorPoolCount(s)!=1) return false;\n#ifdef PORTABLE_DESTRUCTIBLE_EMPTY_BODY\n    // With no interceptable target, all post-landing work remains on the\n    // existing body path, including lifesteal and damage accumulation.\n    if(commands[DF_EXTRA(s)+2320]==0) return true;\n#endif\n    for(uint row=0;row<s.count;row++)\n    {\n        Definition d=readDefinition(s.inputBase,row);\n#ifdef PORTABLE_DESTRUCTIBLE_BODY_ACCUM\n        bool accum=commands[s.inputBase+110080]==0x48534936U&&commands[s.inputBase+110087]==1;\n        if(d.kind==34&&!accum) return false;\n        if(d.kind==0&&((d.stat==S_lifesteal_pct&&commands[s.inputBase+110080]!=0x48534935U&&!accum)||((d.stat==81||d.stat==82)&&!accum))) return false;\n#elif defined(PORTABLE_DESTRUCTIBLE_BODY_LIFESTEAL)\n        if(d.kind==0&&((d.stat==S_lifesteal_pct&&commands[s.inputBase+110080]!=0x48534935U)||d.stat==81||d.stat==82)) return false;\n#else\n        if(d.kind==0&&(d.stat==S_lifesteal_pct||d.stat==81||d.stat==82)) return false;\n#endif\n    }\n    return true;\n}\n',1)
+        if hashlib.sha256(text.encode()).hexdigest()!='e66d7817c87466244020cdf539dd8cb9ce29df39455f0dd2de8f3dd5fe60ecb4':raise ValueError('Product modifier part preimage differs')
+    if name=='gpu/product_group_target_battle_entry.slang' and digest=='5a87c08576208567b6256bd99dd373f10eb11dd42a35e804dff911638908c42a':
+        text=text.replace('bool validProductGroupTargetAxes(inout Runtime s)\n{\n    uint descriptor=s.inputBase+104408;\n    if(commands[descriptor]!=0x50474131U||commands[descriptor+1]!=1||commands[descriptor+2]==0||commands[descriptor+2]>256) return false;\n    for(uint i=3;i<8;i++) if(commands[descriptor+i]!=0) return false;\n    if(actorPoolCount(s)==0||commands[actorBinding(s,0)]!=0) return false;\n    for(uint slot=1;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]!=1) return false;\n    uint count=0;\n    for(uint row=0;row<256;row++)\n    {\n        uint axis=commands[descriptor+8+row];\n        if(axis==0) continue;\n        if(row>=s.count||(axis!=2&&axis!=3)) return false;\n        Definition d=readDefinition(s.inputBase,row);\n        if(d.kind!=4||d.stat!=0||d.enemyBuff!=0||d.healthScaling!=0||d.quantityFlags!=0||d.alliedFlags!=0||d.damageFlags!=0||!f64Finite(d.value)) return false;\n        count++;\n    }\n    return count==commands[descriptor+2];\n}\n\n','bool validProductGroupTargetAxes(inout Runtime s)\n{\n    uint descriptor=s.inputBase+104408;\n    if(commands[descriptor]!=0x50474131U||commands[descriptor+1]!=1||commands[descriptor+2]==0||commands[descriptor+2]>256) return false;\n    for(uint i=3;i<8;i++) if(commands[descriptor+i]!=0) return false;\n    if(actorPoolCount(s)!=1||commands[actorBinding(s,0)]!=0) return false;\n    uint count=0;\n    for(uint row=0;row<256;row++)\n    {\n        uint axis=commands[descriptor+8+row];\n        if(axis==0) continue;\n        if(row>=s.count||(axis!=2&&axis!=3)) return false;\n        Definition d=readDefinition(s.inputBase,row);\n        if(d.kind!=4||d.stat!=0||d.enemyBuff!=0||d.healthScaling!=0||d.quantityFlags!=0||d.alliedFlags!=0||d.damageFlags!=0||!f64Finite(d.value)) return false;\n        count++;\n    }\n    return count==commands[descriptor+2];\n}\n\n',1)
+        text=text.replace('// Product BODY/PART specialization:','// Product plain-body specialization:',1)
+        if hashlib.sha256(text.encode()).hexdigest()!='979c91067a4ea0110f5f5f1d66a0d8fa40431c931a9bd5d9ac6212a666adef1d':raise ValueError('Product modifier part preimage differs')
+    return text
+
 def product_sources(root):
     """Exact inverse of the reviewed product family before legacy audit layers.
 
@@ -18,11 +30,13 @@ def product_sources(root):
     if (data['schema']!=1 or data['baseline_commit']!='168f1bbf65957a85ba48a58699e585f74aa5ad91'
             or data['normalizer_changed'] is not False or data['current_product_equivalence_claim'] is not False):
         raise ValueError('Product source history scope changed')
-    for name,digest in data['added_sources'].items():
-        if hashlib.sha256((root/name).read_bytes()).hexdigest()!=digest:raise ValueError('Unreviewed product dependency: '+name)
     projected={}
+    for name,digest in data['added_sources'].items():
+        raw=(root/name).read_bytes();text=_product_part_preimage(name,raw.decode())
+        if hashlib.sha256(text.encode()).hexdigest()!=digest:raise ValueError('Unreviewed product dependency: '+name)
+        if text.encode()!=raw or name=='gpu/product_group_target_battle_entry.slang':projected[name]=text
     for name,row in data['files'].items():
-        text=(root/name).read_text();digest=hashlib.sha256(text.encode()).hexdigest()
+        text=_product_part_preimage(name,(root/name).read_text());digest=hashlib.sha256(text.encode()).hexdigest()
         # Exact reviewed charge corrections and GPU observation hooks only.
         # Recover the prior source before the unchanged historical ledger.
         if name=='gpu/world_charge_control_runtime.slang' and digest=='7ac4a981dcefff85b44293b8ba05a8058778c92972cc64a437f643b04f4bcaf8':

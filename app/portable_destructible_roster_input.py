@@ -26,7 +26,7 @@ def check_group_wire(root):
         raise ValueError('Product group target wire disagrees with the shared shader')
 
 def product_body_world(prepared):
-    """Prove the original world has only BODY, without discarding its script.
+    """Prove the original world has only BODY/PART, without discarding its script.
 
     Incoming attacks and scalar/core changes retain the existing world clock.
     Shields have separate intercept semantics even when absent from actor pools.
@@ -38,16 +38,16 @@ def product_body_world(prepared):
     from portable_actor_specs import compile_registry
     raw=enemy.get('patterns') or [dict(id='portable-empty-world',kind='idle')]
     patterns=validate(copy.deepcopy(raw))
-    if any(p.kind not in ('idle','attack','buff','core') for p in patterns):
+    if any(p.kind not in ('idle','attack','buff','core','parts') for p in patterns):
         raise ValueError('Product target modifiers require a plain body with no typed targets')
     _,bindings=compile_registry(patterns,pools=True)
-    if len(bindings)!=1 or int(bindings[0].kind)!=0:
+    if not bindings or int(bindings[0].kind)!=0 or any(int(b.kind)!=1 for b in bindings[1:]):
         raise ValueError('Product target modifiers require a plain body with no typed targets')
     return raw
 
 
 def compile_body_modifier_group_roster(prepared):
-    """Compose native groups and lossless target carriers in a single BODY world."""
+    """Compose native groups and lossless target carriers in a BODY/PART world."""
     product_body_world(prepared)
     original=prepared['effects'];lowered=copy.deepcopy(prepared)
     for dest,row in zip(lowered['effects'],original,strict=True):
@@ -66,7 +66,7 @@ def compile_body_modifier_group_roster(prepared):
     return words,meta
 
 def compile_body_modifier_roster(prepared):
-    """Retain target-specific carriers in a proven plain-body product world.
+    """Retain target-specific carriers in a proven BODY/PART product world.
 
     The same typed-axis table is consumed by the existing typed executor. This
     path supplies no typed targets: it does not infer projectile/shield models

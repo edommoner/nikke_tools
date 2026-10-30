@@ -731,18 +731,18 @@ class PortableDetail(unittest.TestCase):
         patterns=[{'id': 'armor', 'kind': 'buff', 'enemy': {'def_mult': 1.5}, 'until': {'time': 1.5}}, {'id': 'core', 'kind': 'core', 'delay': 0.3, 'core_px': 80, 'until': {'time': 1}}, {'id': 'volley', 'kind': 'attack', 'delay': 0.4, 'spec': {'coeff': 100, 'atk': 1000000, 'target': 'all', 'hits': 3, 'interval': 0.2, 'pierce': True}}]
         for names,source in [(['아스카','리타','모더니아','레드 후드','나가'],'gpu/product_fixed_target_battle_entry.slang'),
                             (['사쿠라','벨로타','미란다','도라','드레이크'],'gpu/product_fixed_group_target_battle_entry.slang')]:
-            body=body_for(names,5);body.update(burst_gauge_mode='fixed');body['enemy']['patterns']=patterns
+            body=body_for(names,5);body.update(burst_gauge_mode='fixed');body['enemy']['patterns']=patterns;body['enemy']['parts']=[dict(name='modifier-part',hp=100,reach=1)]
             with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU schedule')):
                 prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
                 actual,iw,ow,words,meta=product.compile_product(prepared)
             self.assertEqual(actual,source);self.assertEqual(len(words),iw);self.assertEqual(prepared,before)
-            graph,_=compile_schedule(dict(patterns=patterns,clock='accumulated',duration=5),notice_payload=True)
+            graph,_=compile_schedule(dict(patterns=prepared['enemy']['patterns'],clock='accumulated',duration=5),notice_payload=True)
             base=L['WORLD_FRAME_INPUT_BASE'];self.assertEqual(words[base:base+len(graph)],graph)
             self.assertEqual(meta['real_prepared_input']['target_modifier_carriers']['original_effects'],prepared['effects'])
-            self.assertEqual([p['id'] for p in meta['product_world']['nodes']],[p['id'] for p in patterns])
+            self.assertEqual([p['id'] for p in meta['product_world']['nodes']],[p['id'] for p in prepared['enemy']['patterns']])
             self.assertFalse(meta['product_world']['cpu_schedule_or_state_supplied'])
-            for pattern in [dict(id='shield',kind='shield'),dict(id='wave',kind='summon',spec=dict(count=1,hp=100)),
-                            dict(id='part',kind='parts',targets=[dict(id='p',hp=100)])]:
+            self.assertEqual(meta['product_parts'],[dict(name='modifier-part',slot=1,node=0)])
+            for pattern in [dict(id='shield',kind='shield'),dict(id='wave',kind='summon',spec=dict(count=1,hp=100))]:
                 bad=copy.deepcopy(prepared);bad['enemy']['patterns']=[pattern]
                 with self.assertRaises(ValueError):product_body_world(bad)
 

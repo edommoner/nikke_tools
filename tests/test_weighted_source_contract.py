@@ -20,11 +20,12 @@ class WeightedSourceContract(unittest.TestCase):
             product=json.loads((root/'tests/fixtures/portable-product-source-delta.json').read_text())
             for name,text in product_sources(root).items():
                 path=root/name;path.write_text(text)
-                self.assertEqual(hashlib.sha256(path.read_text().encode()).hexdigest(),product['files'][name]['baseline_sha256'])
+                self.assertEqual(hashlib.sha256(path.read_text().encode()).hexdigest(),product['files'][name]['baseline_sha256'] if name in product['files'] else product['added_sources'][name])
             self.assertEqual(project_sources(root),current)
 
     def test_changed_product_route_guard_and_arithmetic_are_rejected(self):
-        cases=[('gpu/attack_group_runtime.slang','commands[input+1]==2&&commands[actorBinding(s,slot)]==1','commands[actorBinding(s,slot)]==1'),
+        cases=[('gpu/destructible_weapon_runtime.slang','commands[actorBinding(s,slot)]!=1','commands[actorBinding(s,slot)]!=5'),
+               ('gpu/attack_group_runtime.slang','commands[input+1]==2&&commands[actorBinding(s,slot)]==1','commands[actorBinding(s,slot)]==1'),
                ('app/portable_backend.py',"source.replace('gpu/product_fixed_','gpu/product_',1)","source.replace('gpu/product_fixed_','gpu/product_group_',1)"),
                ('gpu/event_runtime.slang','uint64_t fixedGaugeReadyAt;','uint fixedGaugeReadyAt;'),
                ('gpu/world_actor_fields.slang','#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS','#if 1'),
@@ -50,7 +51,8 @@ class WeightedSourceContract(unittest.TestCase):
 
     def test_product_history_and_added_helper_cannot_be_edited(self):
         for name,message in [('tests/fixtures/portable-product-source-delta.json','history ledger changed'),
-                             ('gpu/admission_definition_types.slang','Unreviewed product dependency')]:
+                             ('gpu/admission_definition_types.slang','Unreviewed product dependency'),
+                             ('gpu/product_group_target_battle_entry.slang','Unreviewed product dependency')]:
             with self.subTest(name=name),tempfile.TemporaryDirectory() as folder:
                 root=Path(folder);self.copy_sources(root);target=root/name
                 target.write_bytes(target.read_bytes()+b'\n')
