@@ -780,3 +780,19 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 ### 独立したcover DEF数値部品
 
 `cover-defense-numeric` は元cover倍率と独立base DEFを使う562数値＋10wire拒否のstandalone sealed probe。`cover-defense-numeric-cache-only` は同じ入力/goldenでCUDA CUBIN/O1・必須cache hit。standaloneにgeneration-cache/require-generation-cacheやresidentのfull-source certificateを使わない。M5数値＋独立seal済みだが、元戦闘/cover layer/level curve/default admission/CUDA実機は未対応。[数値規約・公開実測の限界・次の接続](portable-cover-defense-numeric.md)。
+
+### 通常製品リクエストのコンパイル所有者
+
+`product-detail` は通常UI/APIの既存fixtureを、同じ `portable_detail.prepare` /
+`compile_product` / `decode_payload` で既存package/run/sealへ渡す再利用可能なadapter。
+現cohortはMiranda stage0・30秒・plain bodyの通常entry1件で、group/target entryや
+全profileを代表するものではない。元効果・入力・数値を変更しない。
+
+`package --suite product-detail --out NEW.zip` で通常のsealed packetを作り、
+packet自身の `compile-plan --artifact-kind cubin --ptxas-level 1 --memory-limit-mb 2048
+--timeout 60 --out NEW.json` を通してから既存Windows compile stageを使う。
+製品用shaderを旧suite packetに差し替えない。公開固定upstreamも通常packageへ同梱される。
+
+永続native fingerprintだけは、unpack先のGit有無で変わる `evaluator` stampを除く。
+実際のCPU/GPU比較はこのmetadataも含む全製品payloadの完全一致で、nullable fieldの
+欠落も拒否する。数値・警告・履歴を除外しない。実製品APIの確認件数は別に集計する。

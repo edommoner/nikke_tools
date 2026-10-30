@@ -29,6 +29,9 @@ from portable_input_extension import CONTRACTS as INPUT_EXTENSION_CONTRACTS
 from portable_cpu_tests import AUDIT_FILES as CPU_AUDIT_FILES
 # No GPU/backend/native imports at startup: collect/audit must work without them.
 SUITES = {
+    'product-detail':dict(script='research/verify-product-detail.py',source='gpu/product_battle_entry.slang',
+        golden='research/portable-product-detail-v1-expected.json',inputs=1,native=1,input_words=104400,output_words=786432,
+        development_only=False,parent_oracle_reuse=True,tests=['test_portable_detail.py','test_product_detail_packet.py']),
     'original-projectile-weapons':dict(script='research/verify-original-projectile-weapons.py',
         golden='research/portable-original-projectile-weapons-v1-expected.json',source='gpu/world_coordinate_typed_owner_entry.slang',
         inputs=13,native=8,input_words=115680,output_words=2032000,development_only=False,parent_oracle_reuse=True,cpu_test_timeout=120,entry_inventory_input_policy='body-owned-projectile-v1',

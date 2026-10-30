@@ -1,3 +1,11 @@
+# 2026-10-30 製品用コンパイル所有者：既存CLIへ接続、Metal独立監査済み
+
+research/verify-product-detail.pyを既存package/run/sealへ接続したproduct-detailは、元製品fixtureのMiranda stage0・30秒をprepare/compile_product/decode_payloadのまま扱う。通常body entryのみ、group/target ownerは未接続。新しい効果/数値モデルや監査toolは追加しない。元CUBIN/O1を既存compile-planと制限Jobで準備するための所有者。元CPUと全payload（evaluator含む）を比較し、永続native fingerprintのみunpack時に変わるVCS stampを除く。数値/警告/履歴は保持。
+
+不変development packet f653d0c7…でM5実GPU1.747467秒、PSO cache hit、全CPU応答一致。既存sealのfresh GPU禁止child1.643221秒で独立監査成功。新adapterの欠落nullable field拒否修正後も、元packetとapp/GPU/data/upstream計1005fileのSHA一致、同じinput/output/native SHAを確認して保存readbackを全製品比較した（追加GPU0）。小証跡product-detail-owner-v1.json。新3テストとcompile CLI13成功。通常APIの確認済みprofileはMetal255/CUDA0を維持し、この同一profileのpacket実行を加算しない。
+
+Windowsは42固定依存の全SHAがコピー前後/実行後一致し、未実行14件が成功。前回41と合計55成功（CUDA成功unitはmock）。今回BelowNormal/fresh Job/2GiB、peak130932736bytes、outer11.510秒、残存/cleanup/観測error0、サービス維持は未確認。raw原本はWindowsのみ、GitHub報告のauto-review拒否後はpeer要約で取得し、独立raw監査と区別する。compiler/GPU0。以下の初回依存不足は保持。
+
 # 2026-10-30 Windowsホスト回帰：41成功／製品14は依存不足で未実行
 
 b0e04163をWindowsの隔離Git checkoutへ展開した初回CPU回帰では、生成cache13/compile cache12/Node16の41成功。製品14はgitignoreされたresearch/upstream/nikke-calc-masterが無くrunner importで停止し、未実行。GPU/Slang/NVRTC/PTXAS0、失敗capture保持。依頼時に固定依存を同梱する手順が不足していた。成功41を再実行せず、既存CLI make_packageと同じ公開42ファイル（6,827,637bytes）の選択・SHAをproduct-upstream-dependency-files-v1.jsonへ記録。既存Windows固定依存と全byte照合してから不足14のみ別captureで確認する。上流・保護CPU・sys.pathは変更しない。
