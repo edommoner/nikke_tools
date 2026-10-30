@@ -1,0 +1,219 @@
+{
+  "schema": "product-upstream-dependency-files-v1",
+  "purpose": "Exact public dependency file identity for isolated product host tests; not a calculation proof",
+  "selection": "Same calculator/runner/scraper/data .py/.json and LICENSE whitelist as scripts/nikke_gpu.py make_package",
+  "files": [
+    {
+      "path": "calculator/__init__.py",
+      "bytes": 59,
+      "sha256": "10750f4877485bd02b96ea03f13fbc6a12efe8995b491273f77343cba984c36d"
+    },
+    {
+      "path": "calculator/aim.py",
+      "bytes": 16756,
+      "sha256": "fe81c6b3909a2c9db96e5c5c666deca680f4a87285e4ad18b15af2f5ccfcb1ad"
+    },
+    {
+      "path": "calculator/base_stat.py",
+      "bytes": 11865,
+      "sha256": "e4474c65cec4609b011dab895db404501e100caacd8d1f54283cbef3dcd594dc"
+    },
+    {
+      "path": "calculator/boss_pattern.py",
+      "bytes": 181965,
+      "sha256": "ccbfde085e5c809b07215b15177a08d725cd56a2691fd26675a9b19b01296565"
+    },
+    {
+      "path": "calculator/buff_manager.py",
+      "bytes": 321373,
+      "sha256": "803c252e3b07515c12a19feb9006853051ab5d3da365046899162766e40d6ce4"
+    },
+    {
+      "path": "calculator/damage.py",
+      "bytes": 28082,
+      "sha256": "7884a1aeb2d2d03dd192434e11f21bc1af5d61d7cdb7a65bf39185899c968e2b"
+    },
+    {
+      "path": "calculator/sim_result.py",
+      "bytes": 42072,
+      "sha256": "45456292d7deef92ede8ea3ad45c0e671d54cef4f5427105019868dcab374e67"
+    },
+    {
+      "path": "calculator/timeline.py",
+      "bytes": 352914,
+      "sha256": "f0504cb63db62b8453396bd7ebfe2b7a023f3161f65338c696d64db06d39b299"
+    },
+    {
+      "path": "runner/boss.py",
+      "bytes": 13109,
+      "sha256": "8a8d171e2ab8c26ab30b70cd02534ab37d5a1a62e9eff291bb292c3ab4e82bac"
+    },
+    {
+      "path": "runner/doclint.py",
+      "bytes": 55234,
+      "sha256": "441f93d736955d1339239754f84dce75069b1d155d9d968325768b79946c2bd2"
+    },
+    {
+      "path": "runner/parsecheck.py",
+      "bytes": 75977,
+      "sha256": "36aa2b9540e9f81f34c638bc9403a6f81d31d53443e6b2d580507d57bc92c9f4"
+    },
+    {
+      "path": "runner/precedent.py",
+      "bytes": 17217,
+      "sha256": "e561db1a1d2157680a5eda36038e8296df9c8bfe5febbb8092772b38ec8e3569"
+    },
+    {
+      "path": "runner/request.py",
+      "bytes": 22272,
+      "sha256": "53700ca8e9e6fd1a1d5099f846464cd69a383405c76e60b817d4d7db6202a4fd"
+    },
+    {
+      "path": "runner/sim.py",
+      "bytes": 47279,
+      "sha256": "b5f24cad9b7e5079a00303674b1ff3b2803acd4450f502a9a651cdf9baf215c9"
+    },
+    {
+      "path": "runner/snapshot.py",
+      "bytes": 65701,
+      "sha256": "fb86552304db9789ed36b7e5bfb2ab18374f581fc61a32b05cf04e973e555dbd"
+    },
+    {
+      "path": "runner/spec.py",
+      "bytes": 65836,
+      "sha256": "609ec07a8db4a88e0a2912193b4bfb0b1433e8f11d2ec32f43d4c5f014b0e730"
+    },
+    {
+      "path": "runner/squads.py",
+      "bytes": 26022,
+      "sha256": "22247095ff5737c98173b5ac92dbd268bbc74828a2fcaa28018f8eb23db93e7a"
+    },
+    {
+      "path": "scraper/cdn_fetch.py",
+      "bytes": 30250,
+      "sha256": "5f9d20b9413927391562db81f4cb2d046e9285ed27ed76b32fff36f0259d92e4"
+    },
+    {
+      "path": "scraper/cdn_path.py",
+      "bytes": 1698,
+      "sha256": "7110c9cd24a299d80faa37195286bd7384f891299d6172f6dd0a68426c1090dd"
+    },
+    {
+      "path": "scraper/cdn_tables.py",
+      "bytes": 29551,
+      "sha256": "c3d80b66dd5577f40d432ec01f84ca4fcf0b1f3948192be40c3a7ce68700c6ce"
+    },
+    {
+      "path": "scraper/nikke_scraped.json",
+      "bytes": 1013394,
+      "sha256": "7613d63210f0f84bb0358d1fe85835460ae5f9ff1052e189ddbbd159402dc3b7"
+    },
+    {
+      "path": "scraper/parse_nikke.py",
+      "bytes": 16976,
+      "sha256": "1fbb5e1d257ed154902630c2a155dcee8d250a5a65ec4bde05bef6899a03c2de"
+    },
+    {
+      "path": "scraper/preview_diff.py",
+      "bytes": 6102,
+      "sha256": "1bf15e45f9da1fdfe3f02760e66d9ca4252a2c8ec1479ec22a8f486e54bd873e"
+    },
+    {
+      "path": "scraper/preview_skills.json",
+      "bytes": 2146,
+      "sha256": "db549f0e35b7cd6fd29ce7147fc2bb2234e6d805fcee5b4300c3f62e99770a78"
+    },
+    {
+      "path": "scraper/profile_fetch.py",
+      "bytes": 35554,
+      "sha256": "3c3327da4375ea9f3a23d0623a3f29f089d898a34243aedb5f6e1edc216f7484"
+    },
+    {
+      "path": "data/base_stat_tables/affinity.json",
+      "bytes": 9152,
+      "sha256": "4bef67dd026552db5b14019fda8a6303416f6cfa15e82451033804e4259cb74b"
+    },
+    {
+      "path": "data/base_stat_tables/collection.json",
+      "bytes": 5768,
+      "sha256": "673fea54811cb9e0fb59d4fe2c03da79f8192e4328ff22fed70f7e6d225d11dc"
+    },
+    {
+      "path": "data/base_stat_tables/console.json",
+      "bytes": 493,
+      "sha256": "998ab3b86022cf2fc97346e4b5d8b8f24bece3e9b1975fa3e8aa23a3c4232479"
+    },
+    {
+      "path": "data/base_stat_tables/cube.json",
+      "bytes": 16702,
+      "sha256": "6d9fe4e50fe780a0245347ae5d86ba21f950bd56345de09c18cd62e68a95bba8"
+    },
+    {
+      "path": "data/base_stat_tables/equipment_skills.json",
+      "bytes": 2718,
+      "sha256": "43118d7cb1c26cdc85d63a107f630f5628d193209b13c411f1bd3696f2199403"
+    },
+    {
+      "path": "data/base_stat_tables/equipment_stats.json",
+      "bytes": 18423,
+      "sha256": "4c0c47d44153be1e5134e835e0eb2915eff312ec4ae6d7b3d2dcdd85deb0a05d"
+    },
+    {
+      "path": "data/base_stat_tables/level_stats.json",
+      "bytes": 2952972,
+      "sha256": "f0b4b7b5f7f825517ea8e3a30ab8b2619f49a25096c3a09b15eebbe45ebd7f5d"
+    },
+    {
+      "path": "data/boss_presets.json",
+      "bytes": 4695,
+      "sha256": "cd54dbfb0c3ca653549460eccfbd43b8d1c75eed03b978bba69f90bbd2a2205b"
+    },
+    {
+      "path": "data/boss_scripts/솔로 레이드 S40 사치스러운 거미.json",
+      "bytes": 30448,
+      "sha256": "c00d15602b93b4ba73f0a52965952a512e3f655e281428a680dbf3e57c007739"
+    },
+    {
+      "path": "data/burst_gauge.json",
+      "bytes": 1768,
+      "sha256": "094df2e746b1f651128ca1ee2069a69c5b0360043b1de6bc2ba8438f8ba8d6c7"
+    },
+    {
+      "path": "data/char_defaults.json",
+      "bytes": 12226,
+      "sha256": "2a585c4f37dbbbd781eee5ada5566799bb1b73e4ceb9b094f05cdef3d40424e5"
+    },
+    {
+      "path": "data/parsed_nikke.json",
+      "bytes": 162245,
+      "sha256": "88b565abcf55ccc391491803978a83d28fdb499b61d82e32118c6ea72f0369f6"
+    },
+    {
+      "path": "data/parsed_skills.json",
+      "bytes": 1106856,
+      "sha256": "81e2934af7c91b69a49b71721d5f53af25b5ebf006595d3e929db4582ff23137"
+    },
+    {
+      "path": "data/tactics.json",
+      "bytes": 3114,
+      "sha256": "f35e4275c352ca4489175ca672f17b56a2a6dfdc219bc5e809b256f6acf22a3e"
+    },
+    {
+      "path": "data/weapon_delays.json",
+      "bytes": 10549,
+      "sha256": "b6c217a15c159fa3a28a1402dda55211236f8c40da768d4a8ac1d44faffae5b5"
+    },
+    {
+      "path": "data/weapon_mechanics.json",
+      "bytes": 9041,
+      "sha256": "17a010b19f6ada0393fbf48f7a985d06220647859bd0c11989d636fc5d13e68e"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1063,
+      "sha256": "6cc45aa3cf2a9d2757215f9a00dda79c7a92236c5f7d5ff0112631bea0a33180"
+    }
+  ],
+  "total_bytes": 6827637,
+  "gpu_calls": 0
+}

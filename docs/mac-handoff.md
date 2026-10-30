@@ -1,3 +1,9 @@
+# 2026-10-30 Windowsホスト回帰：41成功／製品14は依存不足で未実行
+
+b0e04163をWindowsの隔離Git checkoutへ展開した初回CPU回帰では、生成cache13/compile cache12/Node16の41成功。製品14はgitignoreされたresearch/upstream/nikke-calc-masterが無くrunner importで停止し、未実行。GPU/Slang/NVRTC/PTXAS0、失敗capture保持。依頼時に固定依存を同梱する手順が不足していた。成功41を再実行せず、既存CLI make_packageと同じ公開42ファイル（6,827,637bytes）の選択・SHAをproduct-upstream-dependency-files-v1.jsonへ記録。既存Windows固定依存と全byte照合してから不足14のみ別captureで確認する。上流・保護CPU・sys.pathは変更しない。
+
+追加Claude相談はOAuth expiredで開始前に停止。以前取得したdiffレビューの反映は下記の通り維持。認証失敗をレビュー完了に数えない。
+
 # 2026-10-30 共通CUDA製品経路を接続：実CUDAは未実証
 
 通常UI/APIにcuda_shared_detailを追加し、Metalと同じprepare/compile_product/decode_payloadおよびGPU読戻し後の全CPU応答比較へ接続した。legacy cuda_detailは保持。Windowsの通常要求は絶対ディレクトリのpaired生成cacheとCUBIN/O1 cacheを必須とし、miss時のcold compileは禁止、理由付きCPU fallback。CUDAのhost_dispatch_secondsを純GPU時間へ読み替えない。hardware受付はlegacy probeに依存せずcache設定を確認し、実行可否は要求ごとに検証する。
