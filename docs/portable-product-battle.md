@@ -1,3 +1,9 @@
+# 2026-10-31 元部位指定を製品結果へ接続
+
+元enemy.partsは既存authored-live-parts factory/pool registryを使用。入力部位名とslot/nodeを事前一致検査し、read_product_partsがGPU直接/extra damage・hit counter・破壊logを検査して既存parts_state形式を返す。部分チャージは本体と同じPARTIAL_IS_FULL、native multi-hitのBODY pelletは既存追加部位packetを呼ぶ。部位を別の論理敵には数えない。
+
+通常API4条件（Miranda固定、Alice固定tap、Belorta蓄積multi-hit、Miranda部位＋boss script）が実M5/CPU全製品payload一致。元失敗2件を保持し、数値期待値/CPU正本/normalizerは変更なし。部位なし通常蓄積/固定も独立CLI/sealで旧数値全一致。集約記録product-parts-composition-v1.json参照。全編成/全効果/現CUDAの完了を意味しない。
+
 # 通常製品APIの共通GPU経路
 
 製品入口は共通の4 helperをnoinlineで呼び、CUDAの大きなフレーム処理の展開を抑える。

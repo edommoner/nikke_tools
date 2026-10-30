@@ -37,7 +37,7 @@
         "gpu/counter_context_entry.slang": "7387fc06a72bc9b984f8b29d46655a549ab56e154cd9f0924dc0533b9f787073",
         "gpu/counter_landing_entry.slang": "695560a33534df60e9f31359622f6a197d14d2eb4b072371520955c9eacde7bf",
         "gpu/target_counter_entry.slang": "af78f0f0cc55734578c0a86f48d5cd36750dd3ae4589be405d81d962293a4666",
-        "gpu/event_runtime.slang": "c1027adc3d8fd21a9dcdb521c48e2cc2c88ba42427592356409e3f5463eb673d",
+        "gpu/event_runtime.slang": "8f2b069a23501b3d983279748de0c4dd239f674c9d66f113c95a045ce4a47594",
         "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
         "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
         "gpu/portable_schema.slang": "2ce1648b1b484f3d64806c48520f98dbfaab24e7a299e2afe1a66fb5abbd5334",
@@ -158,7 +158,7 @@
         "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
         "gpu/pellet_shot_runtime.slang": "b84c7a1a969d0b04e14d08347d2495245bca5ebe98899fe10b1c80d65f901dad",
         "gpu/weapon_frame_phases.slang": "f36c0dd171a002747aec3f61bc2c43e45c701c6cd24f7beaed428b5b77910a48",
-        "gpu/attack_group_runtime.slang": "0ea6d9b8bd82f063553762609836bd536c025590455ae7191be3440bb4dcf070",
+        "gpu/attack_group_runtime.slang": "30c0706d85c6144e4d2952bbfa38107abccf56fcef9d95ed36d1831f2baf5bc1",
         "gpu/composed_arena_layout.slang": "fc70c8fb9274d8d87a84de663eaefbbe5c164a97af40f331e7e25e294bef7dcf",
         "gpu/attack_group_open.slang": "342b8f31800fb993d7aa7294479a27381059ebcfce7877b9a6323cfa24eb8f2f",
         "gpu/attack_group_seal.slang": "9d0eb7a5c292b534c3cbd662123c68d8fe23d5285804cb4190519af6db8beade",
@@ -193,8 +193,8 @@
         }
       ],
       "generated_normalized": {
-        "cuda": "0eea348b05a36430659db085119b91f67bb02a1a465ec33f99a55480a5a83d1e",
-        "metal": "ad45d4709eeb8a5a03b0f3124d04fcf9fe4227afbc940d4418c4e33eb88cd47f"
+        "cuda": "81562bafd3b30bfdb85f04b501ae17d4859170a1829877199262aa320627a381",
+        "metal": "1e8dc492f92025b4dde4d3b07249883204f39f9815c524f0aea138f2f4a44bdd"
       }
     },
     "accumulate": {
@@ -232,7 +232,7 @@
         "gpu/counter_context_entry.slang": "7387fc06a72bc9b984f8b29d46655a549ab56e154cd9f0924dc0533b9f787073",
         "gpu/counter_landing_entry.slang": "695560a33534df60e9f31359622f6a197d14d2eb4b072371520955c9eacde7bf",
         "gpu/target_counter_entry.slang": "af78f0f0cc55734578c0a86f48d5cd36750dd3ae4589be405d81d962293a4666",
-        "gpu/event_runtime.slang": "c1027adc3d8fd21a9dcdb521c48e2cc2c88ba42427592356409e3f5463eb673d",
+        "gpu/event_runtime.slang": "8f2b069a23501b3d983279748de0c4dd239f674c9d66f113c95a045ce4a47594",
         "gpu/binary64.slang": "637ba970f9817d63c19f89af670cf9d0e51fd6fcc7b31459011d91c0d83fd73e",
         "gpu/core_probability.slang": "afa22590fd81f11ff88a300929efbc34e3818cbb3f1ebbc5d523a454728b5366",
         "gpu/portable_schema.slang": "2ce1648b1b484f3d64806c48520f98dbfaab24e7a299e2afe1a66fb5abbd5334",
@@ -353,7 +353,7 @@
         "gpu/burst_duration_runtime.slang": "a3f0f1eaa78f8ab0790a9b2f375ec621a0eb7272ea438baa0cb51b0577a6efba",
         "gpu/pellet_shot_runtime.slang": "b84c7a1a969d0b04e14d08347d2495245bca5ebe98899fe10b1c80d65f901dad",
         "gpu/weapon_frame_phases.slang": "f36c0dd171a002747aec3f61bc2c43e45c701c6cd24f7beaed428b5b77910a48",
-        "gpu/attack_group_runtime.slang": "0ea6d9b8bd82f063553762609836bd536c025590455ae7191be3440bb4dcf070",
+        "gpu/attack_group_runtime.slang": "30c0706d85c6144e4d2952bbfa38107abccf56fcef9d95ed36d1831f2baf5bc1",
         "gpu/composed_arena_layout.slang": "fc70c8fb9274d8d87a84de663eaefbbe5c164a97af40f331e7e25e294bef7dcf",
         "gpu/attack_group_open.slang": "342b8f31800fb993d7aa7294479a27381059ebcfce7877b9a6323cfa24eb8f2f",
         "gpu/attack_group_seal.slang": "9d0eb7a5c292b534c3cbd662123c68d8fe23d5285804cb4190519af6db8beade",
@@ -388,8 +388,8 @@
         }
       ],
       "generated_normalized": {
-        "cuda": "9d928ea2153e29c0ab5d63a8e3ec344094104ae4b8b1b3886bcdbd890587a230",
-        "metal": "c7c7e0cebef440b56a5a14d5c26e30eb161940d29e2df3a764f1b125254a035a"
+        "cuda": "fe2a3e9291b7e99dc0c27223cfe2a40a6da0cba2a23667353534e6978f9aec8f",
+        "metal": "ffbb74c5f6a196e2a20e66f6eaeceae7426ac387c8ea922aa8361d5b3a020ae3"
       }
     }
   }
