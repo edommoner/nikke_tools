@@ -16,7 +16,11 @@ class PortableDetail(unittest.TestCase):
     def test_saved_actual_gpu_projection_reconstructs_complete_original_product_payload(self):
         with patch.object(product,'decode',return_value=self.fixture['gpu_projection']):
             payload=product.decode_payload(self.fixture['body'],self.prepared,self.prepared_run,self.metadata,[])
-        self.assertEqual(payload,self.fixture['cpu_payload'])
+        expected=copy.deepcopy(self.fixture['cpu_payload'])
+        # Run provenance is stamped at response time; the saved capture keeps
+        # its historical commit. No calculation/payload fields are excluded.
+        expected['evaluator']=product.engine_worker.sim.evaluator()
+        self.assertEqual(payload,expected)
         self.assertEqual(self.prepared['cpu_battle_executed'],False)
         self.assertEqual(len(self.prepared['effects']),len(self.metadata['effects']))
     def test_invalid_status_truncation_nonfinite_and_bad_owner_cannot_be_published(self):

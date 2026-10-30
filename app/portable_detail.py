@@ -20,7 +20,7 @@ from portable_runtime import UnsupportedPortable, decode
 from portable_projectile_roster_input import compile_projectile_battle, INPUT_WORDS, OUTPUT_WORDS
 from portable_backend import execute
 
-SOURCE = 'gpu/world_projectile_resident_entry.slang'
+SOURCE = 'gpu/product_battle_entry.slang'
 ROOT = Path(__file__).resolve().parents[1]
 
 

@@ -1,3 +1,11 @@
+# 2026-10-30 単一製品入口で10/266 profileの30秒応答がGPU/CPU一致
+
+最初の製品共通入口は10profile中8成功、ラピ：レッドフード/アニス：スターがadmission64でCPU fallback。前者のstat92など既存連鎖ハンドラーが入口で無効だった。新gpu/product_battle_entry.slangはresident＋既存world_projectile_chain_entryのincludeだけで、単一製品入口へfull-burst/named/stack/chain等を統合。計算本体・効果定義・guardは変更せずapp/portable_detail.pyのSOURCEを切替。新しいsuite/certificateは作らない。
+
+新ソースの通常/api/jobsで失敗2件がMetal/全製品レスポンスCPU一致、続けて旧成功8件も保持確認。全8のinput/readback SHAまで旧結果と同一。現在は元default-growth/no-cube・30秒の10profile/266で製品Metal全レスポンス一致（favorite別）。現CUDA0、未検査256。これは全設定/全特殊条件の認定ではない。Rapi初回の冷pipelineを含む53.48秒、その後は約3〜6秒/件、GPU約1.26〜3.15秒。旧2拒否/rawを保持し、同ソースの失敗を再送していない。新ソースの保持再実行は実計算source変更に伴うもの。証拠research/target-count-query-evidence/product-profile-progress-v1.json、元API応答はproof rootのproduct-profile-batch-v1..v4-20261030。
+
+MacでCUDAが使えない旨だけが出る旧hardware文言を、Metal選択可能な説明へ修正。CPU fallbackのunsupportedは既存UIの理由配列を使用。fixtureの製品evaluator.commitは実行時に変わるので、回帰では既存sim.evaluator()の現在値を使い、歴史fixtureを上書きしない。実APIでは全keyをそのまま比較し、計算値/警告等の除外なし。追加GPU suiteなし、Windows依頼なし、保護4ファイル不変。次は同じ製品APIで未検査profileを小batchで進め、固定周期/boss・parts履歴/手動操作等の製品側gapも解消する。ユーザーの4317は変更せず確認用4327のみ稼働。以下は履歴。
+
 # 2026-10-30 通常製品API→共通Metal→製品レスポンスが初めて全一致
 
 app/portable_detail.pyとfresh workerを追加し、既存evaluation-queue/serverの通常/api/jobs（board）と画面のMetal詳細＋CPU照合へ接続。元engine_workerのstatic hookでRunを捕捉、育成/武器/seed/敵/設定と全71効果を保持してcompile_projectile_battle→既存world_projectile_resident_entryを実行。CPU戦闘はGPU readback後の照合だけ。元sim.payloadと既存decodeを利用し、製品レスポンスの全key/値を比較する。保護4ファイル・Slang・数値規約変更0、新suite0。
