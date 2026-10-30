@@ -604,8 +604,9 @@
   },
   "coverage": {
     "previous_four_helper_code_metal_profiles": 255,
-    "current_admission_split_metal_profiles": 1,
-    "cuda_product_profiles": 0
+    "current_admission_split_metal_profiles": 255,
+    "cuda_product_profiles": 0,
+    "additional_combination_verified": 1
   },
   "compiler_memory_reduction_verified": false,
   "claude_review_completed": true,
@@ -669,5 +670,157 @@
       "Clarified cross-program negative comparison using explicit baseline package/input/output/generated identities",
       "Declined suggested longer compiler time bound; retain60s child/180s outer existing policy"
     ]
+  },
+  "api_sweep": {
+    "schema": "admission-split-product-api-sweep-v1",
+    "catalog_profiles": 266,
+    "metal_product_profiles_verified": 255,
+    "additional_combination_verified": 1,
+    "cpu_fallback_profiles": 11,
+    "numeric_mismatches": 0,
+    "api_errors": 0,
+    "api_cache_hits": 0,
+    "unique_gpu_captures": 256,
+    "old_catalog_input_and_output_fingerprints_retained": 255,
+    "all_gpu_payloads_equal_complete_cpu_payloads": true,
+    "request_sources_unchanged": true,
+    "source_variants": {
+      "gpu/product_battle_entry.slang": 245,
+      "gpu/product_group_battle_entry.slang": 2,
+      "gpu/product_target_battle_entry.slang": 8,
+      "gpu/product_group_target_battle_entry.slang": 1
+    },
+    "fallbacks": [
+      {
+        "index": 67,
+        "character": "앤 : 미라클 페어리",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported buff recipient selector"
+          }
+        ]
+      },
+      {
+        "index": 88,
+        "character": "유니",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 111,
+        "character": "얀",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 159,
+        "character": "솔져 O.W.",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 168,
+        "character": "벨벳",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported health recipient selector"
+          }
+        ]
+      },
+      {
+        "index": 210,
+        "character": "스노우 화이트 : 헤비암즈",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 221,
+        "character": "베이",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 222,
+        "character": "베이",
+        "favorite_stage": 1,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 223,
+        "character": "베이",
+        "favorite_stage": 2,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 224,
+        "character": "베이",
+        "favorite_stage": 3,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 251,
+        "character": "레이 (가칭)",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      }
+    ],
+    "cuda_product_profiles_verified": 0,
+    "evaluator_vcs_stamps": [
+      {
+        "commit": "705bfd23e3411a33c81ad69e5c70adb0aa6184c9",
+        "dirty": false,
+        "repo": "Jgaram/nikke-calc"
+      },
+      {
+        "commit": "705bfd23e3411a33c81ad69e5c70adb0aa6184c9",
+        "dirty": true,
+        "repo": "Jgaram/nikke-calc"
+      },
+      {
+        "commit": "c472510a692b4047d586ab69a5e8cfce26b9ebd6",
+        "dirty": false,
+        "repo": "Jgaram/nikke-calc"
+      }
+    ],
+    "vcs_scope": "CLI/tests/docs commits occurred during sweep; app/GPU/data/upstream calculation sources remained hash-identical. Full evaluator metadata matched live CPU per request.",
+    "scope": "Default growth, no cube,30seconds,plain BODY. Additional modifier+multi-hit combination separate. Not all settings/teams/game models."
   }
 }

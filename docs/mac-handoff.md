@@ -1,3 +1,13 @@
+# 2026-10-30 分割後の通常API全profile完了：Metal255一致/CUDA0
+
+proof product-admission-api-full-v1-20261030の全267要求が終了0。catalog266中Metal255＋追加modifier/multi-hit編成1は全CPU製品応答一致。11は前版と同理由のCPU fallback、数値差/APIerror0、API cache hit0/実capture256。保存input/readback全SHAと元255全SHAを監査し、保存GPU/CPU payload全fieldも一致。元CPU戦闘をGPU入力に使ったものは0。shader内訳normal245/group2/target8/group-target1。app/GPU/data/upstreamは全sweep中hash不変。CLI/tests/docsのcommitだけ変わり、evaluator VCS stampは各live CPUと完全一致したまま原記録に保持。既存product-admission-v1.jsonへ追記。driver79680は終端exit0、監査29540もexit0、4338検証server PID83834は停止済み。ソース凍結解除。
+
+Windowsの同source b3b0 ownerはPTX9486097bytes/SHA00350ea2…をNVRTC23.481秒で生成、inner peak225882112bytes。単独ptxas/O1は14.824秒・0xFFFFFFFF・Memory allocation failure。inner peak2105057280/outer2147934208、設定2GiB。info0行で関数原因は不明。CUBIN/driver/context/GPU0、再試行0。新stageの欠落/残存/cleanup/観測error/timeout0、service保全未確認。元setup7件消失の原因不明/保全失敗は別保持。小要約9797bytes/SHA29e47959…をpeer報告として既存product-cuda-cubin-preparation-v1.jsonへ保存。rawのMac独立監査ではない。分割のメモリ改善は未証明で、さらに分割を重ねない。
+
+次は既存module-object→成功時のみnvJitLinkを今回の元PTX全byteへ使う。c472510aのnew product owner a50b80f7…/4165filesはMac packet自身のPTX plan・module10/linked24が成功し、old b3b0との全golden完全一致。Windowsへ固定c472のcode共有済み、module/linkを各必要な1回だけ依頼済み、GPU未依頼。Windows新setupは欠落0、既存app変更/削除0・公開Node/metadata追加5fileだけで元Git bytes同一、GPU/data/golden同一。現在CPU34検査の実行中。Windows chat cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:44、thread01a140bc-5f3b-7661-b720-50c945596eaa、host remote-control:env_e_6ac12920046c8331afb50b0234aeba48。再送せず同じturn状態を確認する。
+
+未完：製品APIのsaved-CUBIN provider接続、CUDA製品実行、残11profile/固定ゲージ/parts/manual/全設定・全編成。既存の監査/リンクartifactをNVRTC cacheとして偽装せず、明示providerと正確なsource/header/artifact/chainで接続する。全目標は未完了。以下は履歴。
+
 # 2026-10-30 製品packetの通常UI/API起動と保存object受付を準備
 
 product-detailの既存support_filesへ公開Node入口・app4mjs・web9資産・package.json・公開fingerprint2件・既存Node4テストを追加。旧packetにはserver.mjs等が無く、Windowsで通常APIを起動できない欠落を解消する。compiled binary/SDK/個人設定は含めない。隔離owner5bdcb68d…/4165filesでNode22検査、UI3資産の全byte一致、通常APIのMiranda30秒M5実GPU・全CPU応答一致を確認。golden全体・app/GPU/dataは旧b3b0と同一、既存payloadで変更したのはCLIだけ。最初のsandbox Node検査はlisten EPERMで1失敗、元ログ保持後に通常権限で全22成功。小証跡product-http-owner-v1.json。

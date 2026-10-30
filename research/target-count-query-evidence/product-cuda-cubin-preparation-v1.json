@@ -59,7 +59,7 @@
   "service_preservation_verified": false,
   "original_failed_claim_preserved": true,
   "summary_sha256": "1ba8c2ac17ea440a63b72fdbf8dde71d9e26083d02a3ac021523cae1fc10a423",
-  "next": "Choose concrete shared helper definition boundaries from saved PTX/CUDA stats. No more Windows compiles before a validated source change; preserve all numerical/admission rules and test CUDA/Metal from the same source.",
+  "next": "Existing module-object and nvJitLink on exact saved split PTX; new controller c472510a/a50b80f7. No further speculative source splitting, same failed assembly retry, cap increase or tolerance change.",
   "full_goal_complete": false,
   "separate_ptx_stage": {
     "compiler_success": true,
@@ -254,5 +254,54 @@
     "summary_sha256": "ef2c7d9d935f024b1dbde2e4f8fab28b092bc61b6780e6d6a3d316487204919d",
     "causality": "Allocation failure near configured cap; function attribution and cap causality not independently established",
     "elapsed_time_scope": "run_bounded.elapsed_seconds includes cleanup and after_wait observation; observed >60s does not prove child wait exceeded deadline"
+  },
+  "admission_split_ptx_and_assembly": {
+    "evidence": "Windows peer saved-result summary, raw retained on Windows; not independently imported telemetry",
+    "source_commit": "705bfd23e3411a33c81ad69e5c70adb0aa6184c9",
+    "package_id": "b3b0f6966e4215725e890b8df2d5db858fe7f16b02206c5980d202261e319067",
+    "paired_generation_seconds": 27.665,
+    "paired_normalized_matches_v3": true,
+    "ptx": {
+      "compiler_verified": true,
+      "containment_verified": true,
+      "nvrtc_seconds": 23.481,
+      "nvrtc_return_code": 0,
+      "bytes": 9486097,
+      "sha256": "00350ea2611630e7da191701a00d2f16d731d92e4371a9495d39defe91c1aa55",
+      "inner_seconds_including_observation": 41.087,
+      "outer_seconds_including_observation": 55.64,
+      "inner_peak_bytes": 225882112,
+      "outer_peak_bytes": 261459968
+    },
+    "assembly": {
+      "verified": false,
+      "ptxas_seconds": 14.824,
+      "return_code": 4294967295,
+      "diagnostic": "Memory allocation failure",
+      "ptxas_info_lines": 0,
+      "failure_function_attribution_verified": false,
+      "inner_seconds_including_observation": 36.916,
+      "outer_seconds_including_observation": 58.516,
+      "inner_peak_bytes": 2105057280,
+      "outer_peak_bytes": 2147934208,
+      "cubin_produced": false
+    },
+    "configured_job_limit_bytes": 2147483648,
+    "new_stage_missing_processes": 0,
+    "new_stage_cleanup_errors": 0,
+    "new_stage_observation_errors": 0,
+    "new_stage_remaining_processes": 0,
+    "new_stage_timeout_flags": false,
+    "service_preservation_verified": false,
+    "prior_setup_missing_processes": 7,
+    "prior_setup_failure_preserved": true,
+    "prior_setup_cause": "unknown",
+    "gpu_calls": 0,
+    "driver_calls": 0,
+    "context_calls": 0,
+    "retries": 0,
+    "summary_bytes": 9797,
+    "summary_sha256": "29e47959fb066d92643b9dd30f756ffa6f24bd51284bc02e9a167a2bf2397b6a",
+    "memory_reduction_proven": false
   }
 }
