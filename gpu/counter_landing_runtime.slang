@@ -171,6 +171,10 @@ void deliverCounterPartGroup(inout Runtime s,uint who,uint target,uint64_t when,
 #endif
     }
 }
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+// Keep the nested part/interrupt packet loops outside each product shot caller.
+[noinline]
+#endif
 void deliverCounterParts(inout Runtime s,uint who,uint target,uint64_t when,uint output)
 {
     uint shot=s.resourceOutput+P_COUNTER_LANDING_SHOT_BASE+who*8;

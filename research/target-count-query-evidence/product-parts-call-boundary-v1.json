@@ -1,0 +1,140 @@
+{
+  "schema": "product-parts-call-boundary-v1",
+  "hypothesis": "Keep the part/interrupt loops outside product shot callers; actual NVRTC improvement unmeasured",
+  "shared_shader_change": "Only product conditional noinline on deliverCounterParts",
+  "generated_cuda_and_metal_exact_except_one_attribute": true,
+  "requests": 8,
+  "fresh_metal_captures": 7,
+  "api_cache_hits": 1,
+  "primary_characters": 5,
+  "all_product_payloads_match_cpu": true,
+  "all_prior_raw_outputs_identical": true,
+  "saved_input_rebuild_and_raw_reprojection_verified": true,
+  "independent_audit_cpu_battles": 0,
+  "independent_audit_gpu_calls": 0,
+  "windows_compile_attempts": 0,
+  "full_goal_complete": false,
+  "rows": [
+    {
+      "index": 0,
+      "character": "미란다 parts 0",
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "input_sha256": "274836241dcb42f6bf185f42bdfd7bd355652a908b920cd4054a7140a1fb1b9c",
+      "output_sha256": "35f2c62b2e7c45f0e3ec4dc5179a623da87317b26100bc2f53b20408aa37366d",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": false,
+      "gpu_seconds": 0.5197553749894723
+    },
+    {
+      "index": 1,
+      "character": "앨리스 parts 1",
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "input_sha256": "8d2f56bae8c36ad871769f808615b4a60df315a03e70f50be66b246b40b0e26c",
+      "output_sha256": "f6e935c45e693c519688e7001c1f9a6020d7582d832d8d2c9278c4a0d067e4f6",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": false,
+      "gpu_seconds": 0.5493455000105314
+    },
+    {
+      "index": 2,
+      "character": "벨로타 parts 2",
+      "source": "gpu/product_group_battle_entry.slang",
+      "input_sha256": "9ebed7e94dca5ca77334c8e9c350e391118004bbb0f841e6747bb1ed56453a76",
+      "output_sha256": "8e9cb750be5c89d588dfe75151f59b95e91d4a9b50548196fbd16b0afa456c36",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": false,
+      "gpu_seconds": 0.5357546249870211
+    },
+    {
+      "index": 3,
+      "character": "미란다 parts 3",
+      "source": "gpu/product_fixed_battle_entry.slang",
+      "input_sha256": "fba18e055cb51e5ede5316dceaf40a3358edcac3e7bdb3bf25cc78d63fae90ab",
+      "output_sha256": "7692ce3cb204ecfbb3ade75218fb91615be6964c449f01d8624d7ad9d0395e90",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": false,
+      "gpu_seconds": 0.38974616664927453
+    },
+    {
+      "index": 4,
+      "character": "아스카 accumulate target parts",
+      "source": "gpu/product_target_battle_entry.slang",
+      "input_sha256": "cb1bcac79763fc361f9042eb1f53e0ebb39985ccb33500db796993aebf48340e",
+      "output_sha256": "42184ccdb517b37eff485e792e3276fd0420e50fcb3ff381d16b2171d25b0c9e",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": false,
+      "gpu_seconds": 0.3829814166529104
+    },
+    {
+      "index": 5,
+      "character": "사쿠라 accumulate target parts",
+      "source": "gpu/product_group_target_battle_entry.slang",
+      "input_sha256": "d73d801f86f8b43bb2379dc3e6da46f8dbd0a267a877d634fe435bd1c3e9ad78",
+      "output_sha256": "dad6170ca33a724bb10e3a7993b399e3b83dd4432ae2264a3ac59839a46f697c",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": false,
+      "gpu_seconds": 0.40405387501232326
+    },
+    {
+      "index": 6,
+      "character": "아스카 fixed target parts",
+      "source": "gpu/product_fixed_target_battle_entry.slang",
+      "input_sha256": "3c0d7b04d7b41583defcdfb486a4e7172dbbd1a73fe1d3fe336fae47b02d0a01",
+      "output_sha256": "27d16b6cd442fa94ca5afd5d5cb0233ae1bf23485f57e7bc8fbaf61a9f364311",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": false,
+      "gpu_seconds": 0.4067779583274387
+    },
+    {
+      "index": 7,
+      "character": "아스카 accumulate target parts",
+      "source": "gpu/product_target_battle_entry.slang",
+      "input_sha256": "cb1bcac79763fc361f9042eb1f53e0ebb39985ccb33500db796993aebf48340e",
+      "output_sha256": "42184ccdb517b37eff485e792e3276fd0420e50fcb3ff381d16b2171d25b0c9e",
+      "prior_raw_output_identical": true,
+      "api_cache_hit": true,
+      "gpu_seconds": 0.3829814166529104
+    }
+  ],
+  "common_cpu": {
+    "passed": true,
+    "groups": 77,
+    "tests": 846,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "registered_programs": {
+    "accumulate": {
+      "input_sha256": "291fd86560a0bb772a03b581d273ddfe098b772f9935a02b89b16a7322466a18",
+      "output_sha256": "bc19e1324c7f293c24367148ec8d050a506d3779ba283983641f2f53d3fb01fc",
+      "entries_retained": true,
+      "generated_normalized": {
+        "cuda": "5d305daa2bffa734dfe8385a932c2909b0973809d62038531e2c2758eb652755",
+        "metal": "e171f4a708b2ec27e03856d7d9ce569901163df2d8d21f8cf7907362c77233a2"
+      }
+    },
+    "fixed": {
+      "input_sha256": "b534ebb2f7abcf613ea7b052f0ad8b9f9bcb48ec5ece9e0c766422871ba06a6f",
+      "output_sha256": "9c72bd03cc18453a9f8c6a9cdfebd6fe126e3e0b8e5889e6668cf158c4698be2",
+      "entries_retained": true,
+      "generated_normalized": {
+        "cuda": "46ac201f8f9d656c996997ae13ef7911ec61030e5302dd69141db79d1c514420",
+        "metal": "29018fc62196b688698047a1d20292da0136cab96829d5d19835507f7b8921e8"
+      }
+    }
+  },
+  "source_before_sha256": "d84aeea5965ffd318c409f38b5a1562293ac445ad11d3ee113f539726ba733e5",
+  "source_after_sha256": "0ce6bbcfc8a63c38c82a990b7d9ba8a4006cf16286c146471e80863ec22a37fd",
+  "codegen": {
+    "cu": {
+      "before": "e7802d5f85c68efd427d3a67948bd0bf013d0fc13cb48fc541016f682d95d458",
+      "after": "e96ed65d6df3d3afdaa1153677e14c7936fbe05678e15f54da4b9bd2f4d79ee3"
+    },
+    "metal": {
+      "before": "ffbb74c5f6a196e2a20e66f6eaeceae7426ac387c8ea922aa8361d5b3a020ae3",
+      "after": "e171f4a708b2ec27e03856d7d9ce569901163df2d8d21f8cf7907362c77233a2"
+    }
+  },
+  "old_failed_nvrtc_claim_preserved": true
+}

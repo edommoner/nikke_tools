@@ -1,3 +1,13 @@
+# 2026-10-31 製品部位packetの共通呼出し境界を固定
+
+共通gpu/counter_landing_runtime.slangのdeliverCounterPartsだけをPORTABLE_PRODUCT_OUTLINED_HELPERS下でnoinlineへ変更。新しい複数命中内呼出しから、部位/割り込みのループを各shot callerへ展開させない仮説。保存normal生成CUDA/MSLとの全byte差は属性1箇所だけ、関数本体/計算順/容量/CPU正本/normalizerは不変。実NVRTC時間改善は未測定であり、静的call graphをcompiler memory原因と読み替えない。
+
+通常HTTP APIへ元の部位/部分charge/複数命中/対象補正条件8要求を投入、7件が実M5・CPU全製品payload一致、1件は同一要求のAPI cache応答。主役5種類の条件拡張であり、新catalogue profile追加ではない。入力全byte静的再生成・readback SHA/元raw全byteと一致・raw再投影の独立照合成功、照合追加GPU/CPU戦闘0。専用4361サーバー終了。固定group条件は今回未実行で、蓄積group/normal/targetと固定normal/targetを含む。
+
+既存CLI product-detail accumulate/fixedをそれぞれ不変開発packet→明示paired generation→run→fresh独立seal。旧input/output/entries（CPU指紋を含む）完全一致をassertしてprogram tableのsource/generated識別情報のみ更新。古いnative baselineは依存差で正しく拒否し、guardを緩めず元1ケースずつ再準備した。旧期待値/失敗は外部proofに保持。77群846 CPU tests成功（既存skip1）。旧cover goldenとの厳密歴史閉包は、候補sourceの全SHAと旧SHAを固定した単一属性inverseで保持。改変source/属性/算術を拒否する負例も成功。これは生成物normalizerの除外ではなく履歴source復元だけ。
+
+proof product-parts-boundary-v1-20261031、小記録research/target-count-query-evidence/product-parts-call-boundary-v1.json。現候補を全266件再実行したとは主張しない。直前4e861325の全266件は255 Metal/11理由付きCPU切替。現在の通常CUDA製品計算は0、歴史1profile1秒とは分離。次は新source sealed packetのown検査/compile-plan後に短いWindows PTXを1回だけ確認する。旧da433e0b…のclaim/compile-claimedは保持し、同一source/keyの再試行をしない。以下は履歴。
+
 # 2026-10-31 現sourceの通常固定API全266profileを再実証
 
 source 4e8613257b766bd934e68dfe25c89749906cc683を凍結し、通常HTTP /api/jobs経路を固定周期・30秒・元catalogueの標準成長/キューブなし編成で全266profile（基本/宝もの段階）実行。255件が実M5 Metal計算とCPU全製品応答一致、既知11件が理由付きCPU切替。API error/数値差分/cache hitはいずれも0、capture266件。normal fixed245/group fixed2/target fixed8で、group-targetはこの標準編成では0。過去255件の再認定であり、新規profile追加ではない。全設定・全発動分岐・ゲーム実機一致の証明とは区別する。

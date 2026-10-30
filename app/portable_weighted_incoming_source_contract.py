@@ -82,6 +82,14 @@ def project_sources(root):
     for name,digest in data['added_sources'].items():
         if hashlib.sha256((root/name).read_bytes()).hexdigest()!=digest:raise ValueError('Unreviewed weighted dependency: '+name)
     projected=product_sources(root)
+    parts=root/'gpu/counter_landing_runtime.slang'
+    if parts.exists():
+        text=parts.read_text();digest=hashlib.sha256(text.encode()).hexdigest()
+        if digest=='0ce6bbcfc8a63c38c82a990b7d9ba8a4006cf16286c146471e80863ec22a37fd':
+            text=text.replace('#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n// Keep the nested part/interrupt packet loops outside each product shot caller.\n[noinline]\n#endif\nvoid deliverCounterParts(', 'void deliverCounterParts(',1)
+            if hashlib.sha256(text.encode()).hexdigest()!='d84aeea5965ffd318c409f38b5a1562293ac445ad11d3ee113f539726ba733e5':raise ValueError('Product part boundary preimage differs')
+        elif digest!='d84aeea5965ffd318c409f38b5a1562293ac445ad11d3ee113f539726ba733e5':raise ValueError('Unreviewed product source: gpu/counter_landing_runtime.slang')
+        projected['gpu/counter_landing_runtime.slang']=text
     group=root/'gpu/attack_group_runtime.slang'
     if group.exists():
         text=group.read_text();digest=hashlib.sha256(text.encode()).hexdigest()

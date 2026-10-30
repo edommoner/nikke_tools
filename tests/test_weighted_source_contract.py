@@ -8,7 +8,7 @@ class WeightedSourceContract(unittest.TestCase):
     def copy_sources(self, root):
         ledger=json.loads((ROOT/'tests/fixtures/portable-weighted-incoming-source-delta.json').read_text())
         product=json.loads((ROOT/'tests/fixtures/portable-product-source-delta.json').read_text())
-        names={'gpu/attack_group_runtime.slang',*ledger['files'],*ledger['added_sources'],*product['files'],*product['added_sources'],'tests/fixtures/portable-weighted-incoming-source-delta.json','tests/fixtures/portable-product-source-delta.json'}
+        names={'gpu/attack_group_runtime.slang','gpu/counter_landing_runtime.slang',*ledger['files'],*ledger['added_sources'],*product['files'],*product['added_sources'],'tests/fixtures/portable-weighted-incoming-source-delta.json','tests/fixtures/portable-product-source-delta.json'}
         for name in names:
             target=root/name;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes((ROOT/name).read_bytes())
         return ledger
@@ -44,6 +44,20 @@ class WeightedSourceContract(unittest.TestCase):
         self.assertEqual(historical_hashes(ROOT,'gpu/world_cover_defense_entry.slang'),golden['source_sha256'])
         self.assertNotEqual(source_hashes(ROOT,'gpu/world_cover_defense_entry.slang'),golden['source_sha256'])
         self.assertNotEqual(before['gpu/dispatch_phases.slang'],(ROOT/'gpu/dispatch_phases.slang').read_text())
+
+    def test_product_part_boundary_inverse_accepts_only_exact_current_and_preimage(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);self.copy_sources(root)
+            current=project_sources(root);name='gpu/counter_landing_runtime.slang'
+            original=current[name].encode('utf-8');path=root/name
+            self.assertEqual(hashlib.sha256(original).hexdigest(),'d84aeea5965ffd318c409f38b5a1562293ac445ad11d3ee113f539726ba733e5')
+            self.assertNotEqual(path.read_bytes(),original)
+            path.write_bytes(original)
+            self.assertEqual(project_sources(root),current)
+            for mutation in (original+b'\n', (ROOT/name).read_bytes().replace(b'[noinline]',b'[ForceInline]',1),
+                             (ROOT/name).read_bytes().replace(b'uint shot=s.resourceOutput+',b'uint shot=1+s.resourceOutput+',1)):
+                path.write_bytes(mutation)
+                with self.assertRaisesRegex(ValueError,'Unreviewed product source'):project_sources(root)
     def test_unreviewed_current_dependency_cannot_be_projected(self):
         with tempfile.TemporaryDirectory() as folder:
             r=Path(folder);self.copy_sources(r);project_sources(r)
