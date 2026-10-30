@@ -1258,6 +1258,33 @@
       "cuda_interval": "host_dispatch_seconds; includes launch/sync/readback",
       "javascript_syntax_checked": true
     },
-    "cli_admission_status": "Existing sealed product-detail source closure is stale after guarded common-source edits; no source/golden guard relaxed. Current fixed program artifact ownership still requires integration with the existing product CLI."
+    "cli_admission_status": "Existing sealed product-detail source closure is stale after guarded common-source edits; no source/golden guard relaxed. Current fixed program artifact ownership still requires integration with the existing product CLI.",
+    "cli_program": {
+      "program": "fixed",
+      "suite": "product-detail",
+      "source_commit": "ff851f899dd656a406eeb5e815054804cce7c6f1",
+      "development_package_id": "2b0e8496fdf172040ec8b3ba1c8d3ab837e06322ecc342564e97432f25c6bc6b",
+      "source_files": 4172,
+      "input_sha256": "b534ebb2f7abcf613ea7b052f0ad8b9f9bcb48ec5ece9e0c766422871ba06a6f",
+      "output_sha256": "9c72bd03cc18453a9f8c6a9cdfebd6fe126e3e0b8e5889e6668cf158c4698be2",
+      "same_raw_as_ordinary_api": true,
+      "cpu_unit_tests": 34,
+      "cpu_unit_failures": 0,
+      "cpu_native_domains": 1,
+      "metal_device": "Apple M5",
+      "gpu_seconds": 1.7495204166625626,
+      "generation_required_cache_hit": true,
+      "metal_required_cache_preflight": true,
+      "independent_seal_gpu_calls": 0,
+      "independent_seal_child_pid": 95226,
+      "independent_seal_seconds": 1.6167624589870684,
+      "independent_receipt_sha256": "3e7b63ba82cd46295991eee89e5d2d5cb0a86271373caa33f654b256271cfb99",
+      "registered_program_baselines": [
+        "fixed"
+      ],
+      "other_programs_unsealed": true,
+      "new_product_profile_count": 0,
+      "scope": "Existing product CLI integration of the already verified fixed normal profile; not an extra profile or CUDA execution"
+    }
   }
 }

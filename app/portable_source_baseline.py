@@ -2,7 +2,7 @@
 import hashlib,json
 from pathlib import Path
 from portable_slang_generation import source_hashes
-from portable_product_programs import configuration,registered_golden
+from portable_product_programs import configuration,registered_golden,FAMILY,GOLDEN,PROGRAMS
 
 
 def check(root,cli,suite,*,product_program=None):
@@ -67,11 +67,33 @@ def inventory(root,cli):
         except (OSError,ValueError,TypeError) as e:
             row.update(status='unavailable',reason=type(e).__name__+': '+str(e))
         counts[row['status']]+=1;rows.append(row)
+    program_rows=[]
+    if FAMILY in cli.SUITES and (root/GOLDEN).exists():
+        table=json.loads((root/GOLDEN).read_text(encoding='utf-8'))
+        # Validate the table even when it has no sealed program yet.
+        registered_golden(root,configuration(cli.SUITES,dict(suite=FAMILY,product_program=next(iter(PROGRAMS)))),allow_unsealed=True)
+        for name in sorted(table['programs']):
+            config=configuration(cli.SUITES,dict(suite=FAMILY,product_program=name))
+            source=config['source'];row=dict(suites=[FAMILY],product_program=name,source=source,golden=GOLDEN)
+            try:
+                if source not in sources:
+                    try:sources[source]=(source_hashes(root,source),None)
+                    except (OSError,ValueError) as error:sources[source]=(None,type(error).__name__+': '+str(error))
+                actual,error=sources[source]
+                if error is not None:raise ValueError(error)
+                expected=registered_golden(root,config)['source_sha256']
+                row['status']='current' if expected==actual else 'stale'
+                row['changed_files']=sorted(path for path in set(expected)|set(actual) if expected.get(path)!=actual.get(path))
+            except (OSError,ValueError,TypeError,KeyError) as error:
+                row.update(status='unavailable',reason=type(error).__name__+': '+str(error))
+            counts[row['status']]+=1;program_rows.append(row)
+    rows.extend(program_rows)
     identities=[(source,golden,sorted(names)) for (source,golden),names in sorted(groups.items())]
+    identities.extend((r['source'],r['golden'],r['product_program'],r['suites']) for r in program_rows)
     return dict(schema='registered-source-closure-inventory-v1',audit_completed=True,
         scope='Distinct registered nondevelopment/noncompiler source+golden pairs; source identities only',
         counts=counts,baseline_pairs=len(rows),unique_source_entries=len(sources),
-        registered_names=sum(len(r['suites']) for r in rows),
+        registered_names=len({name for r in rows for name in r['suites']}),registered_programs=len(program_rows),
         all_registered_source_current=bool(rows) and counts['current']==len(rows),
         registry_selection_sha256=hashlib.sha256(json.dumps(identities,ensure_ascii=False).encode()).hexdigest(),
         auditor_source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),rows=rows,

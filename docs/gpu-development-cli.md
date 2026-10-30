@@ -4,6 +4,8 @@
 
 新programのsealed基準は`research/portable-product-programs-v1-expected.json`のprogram別entryへ登録する。まだ独立Metal sealのないmemberはsealed梱包を拒否し、旧normalの数値へfallbackしない。開発梱包は既存CPU基準生成→run→fresh独立sealを使う。`source-baseline --suite product-detail --product-program fixed --out NEW.json`または固定packet内の同commandは選択programを検査する。新programにも、同program・同CPU/data/input contractが一致する場合だけ既存`--native-baseline-package`の期待hash再利用を適用できる。programを跨ぐ再利用は拒否する。
 
+`fixed` normal入口は現在、4172ファイルの不変開発packetから実M5計算とfresh独立sealを完了し、基準登録済み。通常APIと同じinput b534ebb2…/output9c72bd03…、GPU約1.750秒、独立sealはGPU追加0。他7memberの基準は未登録で、選択可能なprogram宣言と計算認定を区別する。`source-baseline --all-registered`は登録済みmemberをprogram別rowに含め、suite名数とprogram数も分離する。
+
 共有CUBIN設定のprogram keysは同じ共通registryの既知8入口に限る。Nodeのconfiguredはshape/pathのヒント、Pythonの全owner/生成source/header/image/既存phase監査が最終ゲート。Windowsの保存JSONをMacで読む場合、receipt/trace validatorの明示`portable=True`はPOSIX/Windowsの絶対パス表記をデータとして検査する。既定のnative path検査やread_verified、歴史false/missing identitiesの条件は変えない。これは外部artifactをMacで実行する許可ではない。
 
 ## 2026-10-31 製品APIの固定周期モード

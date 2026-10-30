@@ -71,6 +71,21 @@ class SourceBaseline(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'independently sealed'):
             check(self.root,self.cli,'product-detail')
 
+    def test_inventory_includes_sealed_product_members_and_detects_their_stale_source(self):
+        from portable_product_programs import GOLDEN
+        source='gpu/product_fixed_battle_entry.slang';(self.root/source).write_text('// fixed source\n')
+        self.cli.SUITES['product-detail']=dict(self.cli.SUITES['parent'])
+        path=self.root/GOLDEN;path.parent.mkdir()
+        path.write_text(json.dumps(dict(schema=1,programs={'fixed':dict(source_sha256=source_hashes(self.root,source))})))
+        result=inventory(self.root,self.cli)
+        self.assertEqual(result['registered_programs'],1)
+        row=next(r for r in result['rows'] if r.get('product_program')=='fixed')
+        self.assertEqual(row['status'],'current');self.assertTrue(result['all_registered_source_current'])
+        (self.root/source).write_text('// changed fixed source\n')
+        result=inventory(self.root,self.cli);row=next(r for r in result['rows'] if r.get('product_program')=='fixed')
+        self.assertEqual(row['status'],'stale');self.assertFalse(result['all_registered_source_current'])
+        self.assertEqual(result['registered_names'],len(self.cli.SUITES))
+
     def test_unknown_suite_is_rejected(self):
         with self.assertRaisesRegex(ValueError,'Unknown'):check(self.root,self.cli,'invented')
     def test_inventory_groups_aliases_and_excludes_nonregistered_profiles(self):

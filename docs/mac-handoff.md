@@ -1,3 +1,13 @@
+# 2026-10-31 fixedの既存CLI実Metal/独立seal完了、sealed packet作成へ
+
+共通program selector実装をff851f89にcommit。そのcodeのproduct-detail --product-program fixed --developを既存package/unpackで作成した。dev owner2b0e8496fdf172040ec8b3ba1c8d3ab837e06322ecc342564e97432f25c6bc6b、4172files/ZIP14189101bytes、source ff851f899dd656a406eeb5e815054804cce7c6f1。proof product-program-fixed-v1-20261031/packageの**自身CLI/cwd**でrun、actual M5 GPU1.749520秒・full CPU比較成功、input b534ebb2…/output9c72bd03…は通常API保存rawと同一。CPU unit34（product27+packet7）/native1成功、paired generation/Metal PSO必須cache hit、child実行3.180秒exit0。source/coordinator変更0。
+
+同packet自身の既存sealでfresh GPU-forbidden child95226・1.616762秒・native1比較、GPU追加0。independent receipt SHA3e7b63ba82cd46295991eee89e5d2d5cb0a86271373caa33f654b256271cfb99。固定したdev packetとrun-v1は不変保持。実証したgoldenだけをresearch/portable-product-programs-v1-expected.jsonのfixed entryへ登録した。他7memberは未sealでsealed梱包を拒否する。旧v1/v2/v3数値golden/normalizerは変更しない。次はこの登録と小さなinventory補正をcommitし、同じ既存CLIでfixedのsealed packetを作成/CPU検査/compile-planへ進む。
+
+producerのsource-baseline --all-registeredも、seal済みproduct program memberをprogram別rowへ含め、legacy suite名数とprogram数を分離した。current/stale検出の追加CPU検査を含む13件成功。packetのimmutable controllerはこのproducer編集の影響を受けない。全program markerなしのlegacy設定は維持。GPU/入力/CPU正本の計算変更0。
+
+Windows JSON共有・Mac照合は完了、旧functions cell789は取消済み、chat cursor80/idle。新GPU/compiler作業は未依頼。既存source2cの1秒CUDA1profileと今回fixed CLI実証を混ぜない。次の必要CUDAはfresh sealed ownerのPTX→既存module-object/JIT-link経路を使い、単独CUBIN/O1のメモリ失敗を再実行しない。最初は短いsceneで、既存resource observationを有効にできる。全goal未完、Metal各mode255profile/CUDA旧1秒1profile/fixed0。以下は履歴。
+
 # 2026-10-31 製品CLIのprogram選択を実装、固定programのimmutable実証へ
 
 新しいsuiteを作らず`package --suite product-detail --product-program fixed|accumulate[-group|-target|-group-target]`で8入口を選ぶ。共通data/portable-product-programs.jsonをPython/Nodeが読む。manifestのproduct_programをpackage ID、既存static input factory、wire、source、基準entryへ束縛。選択kernelのliteral include closureをpacket自身rootから再計算し、selectorだけ変えてrekeyしたpacketも拒否。legacy marker無しは元設定/基準のまま。未sealのmemberはsealed packageを拒否。新基準table research/portable-product-programs-v1-expected.jsonは現在emptyで、数値を捏造していない。
