@@ -1,3 +1,9 @@
+# 2026-10-30 Windows保存PTX診断の共有を取得
+
+Windowsでユーザーが直接許可した保存2ファイルをGitHubのcodex/moving-visited-ptx-v2-report（a266d342）から取得。11,725/598byteと事前SHAが完全一致。Mac保存のf7337532…packetとpackage ID/primary Slang/paired normalized CUDA・Metal sourceを照合。追加Windows依頼/compile/GPU0。
+
+報告上NVRTC成功38.115789秒、cache照合hit。quantityTotalsの宣言localは5192→4200byte、仮想register2206→2238、271関数。ただしraw PTXは今回の共有対象に含まれず、Macで統計を再計算した証拠ではない。GPU/物理資源/計算の検証0。statistics/cache_checkの2stageは2GiB Job上限が欠け、全体・環境保持はfalseのまま。既に修正済みの共通診断wrapperへ結果を混同せず、元失敗を保持。保存summary/manifestとMac受領receiptは research/target-count-query-evidence/windows-moving-visited-ptx-v2/ 。共有待ちは解消し、再実行は不要。以下は履歴。
+
 # 2026-10-30 ベイ共通戦闘21入力をM5で独立seal
 
 固定9bd06aad/package ef200b58…の全21入力（元8戦闘/拒否13）がMetal成功。GPU5.703300秒、冷pipeline59.370762秒、CPU事前164.984342秒。別fresh GPU禁止child6群の全件独立監査213.119448秒。元4段階/破壊/ビスケット復活/reburst/未発動/破壊cover条件付き元自己回復2回を全状態比較。元carrier行IDと既存incoming mode22/23/20・cover消費helperを共用し、Runtime138992byteで増分0。通常weighted-battleとCUBIN/O1・cache/paired生成必須版へ登録。途中の監査敵lifesteal干渉・空cover membership・条件admission列挙漏れの失敗を保存し、正本/normalizer/許容差変更0。

@@ -1,0 +1,71 @@
+{
+  "schema": "windows-saved-ptx-import-v1",
+  "report_commit": "a266d342367b73fdb1ddd6f33cde8a219ae53a72",
+  "branch": "codex/moving-visited-ptx-v2-report",
+  "source_package_id": "f73375329f28425b68de14fa7cebeb0bb470c50eba36efeeec39f9a45fef7778",
+  "downloaded_files": {
+    "visited-ptx-summary-v2.json": {
+      "bytes": 11725,
+      "sha256": "c5a6cd6d0010e7e71f11922726e59a89edfbe1d67baa2841089118e95ddc240c"
+    },
+    "report-manifest.json": {
+      "bytes": 598,
+      "sha256": "26f9d7beebd6c7d515e5900045c595f92fa480961b521c3db1eb50fb61aae79b"
+    }
+  },
+  "both_files_match_preannounced_size_and_sha256": true,
+  "package_id_verified": true,
+  "primary_source_verified": true,
+  "paired_normalized_sources_match_local_packet": true,
+  "windows_reported": {
+    "compiler_verified": true,
+    "cache_check_passed": true,
+    "nvrtc_seconds": 38.1157894,
+    "function_comparison": [
+      {
+        "function": "quantityTotals",
+        "old_local_bytes": 5192,
+        "new_local_bytes": 4200,
+        "local_bytes_delta": -992,
+        "old_virtual_registers": 2206,
+        "new_virtual_registers": 2238,
+        "virtual_register_delta": 32
+      },
+      {
+        "function": "dispatch",
+        "old_local_bytes": 1848,
+        "new_local_bytes": 1848,
+        "local_bytes_delta": 0,
+        "old_virtual_registers": 13654,
+        "new_virtual_registers": 13654,
+        "virtual_register_delta": 0
+      },
+      {
+        "function": "tick",
+        "old_local_bytes": 2584,
+        "new_local_bytes": 2584,
+        "local_bytes_delta": 0,
+        "old_virtual_registers": 1746,
+        "new_virtual_registers": 1746,
+        "virtual_register_delta": 0
+      }
+    ],
+    "overall_verified": false,
+    "required_all_stage_2gib_limit_verified": false,
+    "execution_control_failure": "cpu-coordinator-parent-job-memory-environment-unset",
+    "unbounded_diagnostic_stages": [
+      "statistics",
+      "cache_check"
+    ]
+  },
+  "raw_ptx_downloaded": false,
+  "independent_ptx_statistics_recomputed": false,
+  "physical_resources_verified": false,
+  "calculation_verified": false,
+  "environment_preservation_verified": false,
+  "additional_gpu_calls": 0,
+  "additional_compiler_calls": 0,
+  "windows_requests": 0,
+  "full_goal_complete": false,
+  "scope": "Authenticates the saved summary and its local source package only. PTX register/local declarations are reported virtual compiler data, not physical GPU usage, timing or battle correctness."
+}
