@@ -1,3 +1,18 @@
+# 2026-10-30 Claude Codeとの2回の相談による進め方の修正
+
+ユーザーから「進まない原因をClaudeと相談」の依頼。Claude Codeをplan/Read/Grep/Glob限定で2回実行し、所見をコードで再検証。主因は、新共通GPUのprivate suiteでの成功が通常製品APIへ接続されないこと、suite/certificate/inventory整備の自己増殖、CPU戦闘の繰り返し。時点9b67799eでregistry693（compiler専用312/cache-only43、動的alias含む）、10/18以降1005commit。693個の独立エンジンという意味ではない。app/evaluation-queue.mjs:4はcpu/cuda_detailだけ。server→gpu_service→detail_gpuのlegacy CUDA実績は存在する。portable-events APIは外部刺激用で自律戦闘の製品接続ではない。
+
+weighted21はGPU5.70秒にCPU事前164.98秒・独立監査213.12秒・登録後CPU162.90秒。以後、登録直後の同じnative再実行を既定作業にしない。既存immutable packetの完全input/native期待と依存code/データ/observerの一致を検査して再利用し、fresh独立監査を偽装・省略しない。oracle cacheを定義SHAだけで作るClaude初案は不採用。
+
+次の優先順位：
+1. 通常評価body1件→既存engine_worker.evaluate(_portable_static_inputs=True)→既存共通wire/Metal実行→製品形式decoder→CPUとの同一レスポンス照合を縦に接続する。CPU正本と同じ規約で既存実証がある編成を選ぶ。ベイの未確定比率を初回製品接続やcanonicalへ昇格しない。入力準備が全くないというClaude所見は訂正し、既存static hookを再利用する。保護4ファイルは維持。
+2. 同じ製品経路へ元profileを小batchで通し、不一致を原因別に修正する。247（owned）/254（typed）は静的packingで、全profileの実行/既定採用を保証しない。受理はprofile名の固定allowlistではなく設定・敵・duration・seed・policyを含む機能契約で判定し、未対応は理由付きCPU fallback。
+3. 同じ入力と計算sourceの必要な差分だけをWindowsで短くCUDA照合する。全profile一括依頼・保存PTX解析を計算証明の代用にしない。
+
+進捗指標は通常APIでGPU実行・CPU一致を確認したprofile数（favorite別266分母、CUDA/Metal別）、fallback理由、wall timeと再計算回数。suite数や検査数をGPU対応の増加と扱わない。新しい監査CLI/証明書/小suiteの追加を先行させない。追加途中のweighted-death専用GPU入口は配布前に登録を取り下げ、CPU契約2例と失敗記録は保持。元weighted-battleの回帰へまとめるのは上記縦断接続を妨げない段階で行う。GPU実行0。全目標は継続中。
+
+直前の入口比較では元定義・入力指紋が同じ247編成中78が拡張kind guardで拒否解消、19はpacking失敗。これはtyped入口254との回帰差ではない。compare-inventoryの追加はここで止め、これ以上分類整備だけを作業の中心にしない。Claude生出力はローカルproof rootのclaude-progress-review-v1/v2-20261030.txtに保持（公開成果物へ未収録）。以下は履歴。
+
 # 2026-10-30 Windows保存PTX診断の共有を取得
 
 Windowsでユーザーが直接許可した保存2ファイルをGitHubのcodex/moving-visited-ptx-v2-report（a266d342）から取得。11,725/598byteと事前SHAが完全一致。Mac保存のf7337532…packetとpackage ID/primary Slang/paired normalized CUDA・Metal sourceを照合。追加Windows依頼/compile/GPU0。

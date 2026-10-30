@@ -20,6 +20,6 @@ class WeightedDeath(unittest.TestCase):
                        lambda n:n['weighted_incoming']['snapshots'][-1].update(active_mask=63),
                        lambda n:n['hits'][0].update(down=True)):
             bad=copy.deepcopy(row['native']);mutate(bad)
-            with self.assertRaises(AssertionError):verify(case,bad)
+            with self.assertRaises((AssertionError,ValueError)):verify(case,bad)
 
 if __name__=='__main__':unittest.main()
