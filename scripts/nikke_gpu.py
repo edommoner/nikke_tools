@@ -466,6 +466,10 @@ SUITES['cover-defense-battle']['support_files'].append('tests/fixtures/portable-
 SUITES['weighted-battle'].update(parent_oracle_reuse=True)
 SUITES['weighted-battle']['tests'].append('test_portable_parent_oracles.py')
 SUITES['weighted-battle-diagnostic']=dict(SUITES['weighted-battle'],script='research/verify-weighted-battle-diagnostic.py',source='gpu/world_weighted_incoming_diagnostic_entry.slang')
+for _weighted_suite in ('weighted-battle','weighted-battle-diagnostic'):
+    SUITES[_weighted_suite].update(inputs=21,native=8)
+    SUITES[_weighted_suite]['support_files']=list(dict.fromkeys([*SUITES[_weighted_suite]['support_files'],'tests/fixtures/weighted-cover-condition-cpu-v1.json']))
+    SUITES[_weighted_suite]['tests']=list(dict.fromkeys([*SUITES[_weighted_suite]['tests'],'test_weighted_cover_condition.py']))
 SUITES['cover-defense-numeric']=dict(script='research/verify-cover-defense-numeric.py',source='gpu/cover_defense_numeric_probe.slang',golden='research/portable-cover-defense-numeric-v1-expected.json',inputs=572,native=562,input_words=16,output_words=12,development_only=False,tests=['test_cover_defense_numeric.py'],support_files=['research/cover-defense-random-inputs-v1.json','tests/fixtures/cover-defense-numeric-metal-v1.json','tests/fixtures/cover-defense-numeric-independent-v1.json'])
 SUITES['cover-defense-numeric-cache-only']=dict(SUITES['cover-defense-numeric'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['cover-defense-numeric']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['ammo-instant-numeric']=dict(script='research/verify-ammo-instant-numeric.py',source='gpu/ammo_instant_numeric_probe.slang',golden='research/portable-ammo-instant-numeric-v1-expected.json',inputs=713,native=705,input_words=16,output_words=8,development_only=False,tests=['test_ammo_instant_numeric.py'])

@@ -289,7 +289,7 @@ def shader_schema():
         mask=sum(1<<(stat%32) for stat in stat_ids if stat//32==word)
         lines.append(f'static const uint P_BUFF_STAT_BITS_{word} = {mask}U;')
     choices=' : '.join(f'stat < {(word+1)*32}U ? P_BUFF_STAT_BITS_{word}' for word in range(words))+' : 0U'
-    lines += ['bool validPortableBuffStat(uint stat)', '{','#ifdef PORTABLE_WEIGHTED_INCOMING','    if(stat==WGT_BODY_STAT||stat==WGT_COVER_STAT)return true;','#endif','#ifdef PORTABLE_COVER_DEFENSE','    if(stat==CDF_STAT)return true;','#endif',f'    if(stat > {largest}U) return false;',f'    uint bits = {choices};','    return (bits & (1U << (stat & 31U))) != 0;', '}']
+    lines += ['bool validPortableBuffStat(uint stat)', '{','#ifdef PORTABLE_COVER_DEFENSE','    if(stat==CDF_STAT)return true;','#endif',f'    if(stat > {largest}U) return false;',f'    uint bits = {choices};','    return (bits & (1U << (stat & 31U))) != 0;', '}']
     events=set(target_inheritance_events())
     # Named hit_count uses compact event 49; shared policy calls it hit_count (8).
     if 8 in events:events.add(49)

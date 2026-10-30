@@ -9,16 +9,16 @@ class WeightedBattleWire(unittest.TestCase):
     @classmethod
     def setUpClass(cls):cls.rows,cls.data=adapter.prepare()
     def test_all_seven_original_battles_and_only_literal_weights_are_packed(self):
-        self.assertEqual(len(self.rows),15);self.assertEqual(len(self.data),4+15*wire.INPUT*4)
-        for _,words,domain in self.rows[:7]:
+        self.assertEqual(len(self.rows),21);self.assertEqual(len(self.data),4+21*wire.INPUT*4)
+        for _,words,domain in self.rows[:8]:
             c,meta=domain[:2];case=c['weighted_case'];spec=case['allocation']
             binding=c['typed_bindings'][0];audit=next(p for p in c['patterns'] if p['id']==binding['node'])
             self.assertGreater(audit['delay'],c['duration'],'Audit target must remain unspawned; distance alone does not exclude automatic aim')
-            self.assertEqual(words[wire.LAYOUT['BASE']:],wire.pack(spec,c['names']))
+            self.assertEqual(words[wire.LAYOUT['BASE']:],wire.pack(spec,c['names'],meta['weighted_incoming']['source_rows']))
             self.assertFalse(meta['weighted_incoming']['CPU_state_or_schedule_as_input'])
             for i in meta['weighted_incoming']['definition_indices']:
                 at=L['DEFINITION_BASE']+i*L['DEFINITION_WORDS'];e=c['effects'][i]
-                self.assertEqual((words[at+F['KIND']],words[at+F['STAT']]),(0,wire.COVER_STAT if e['target']=='self_cover' else wire.BODY_STAT))
+                self.assertEqual((words[at+F['KIND']],words[at+F['STAT']]),(4,0))
                 self.assertEqual(e,c['original_run']['prepared']['effects'][i]['effect'])
     def test_complete_stride_is_registered_without_changing_transport_limits(self):
         from portable_backend import validate_composed_stride

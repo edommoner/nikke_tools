@@ -1,7 +1,7 @@
 """Exact historical source inverse, not generated-code normalization or a seal."""
 import hashlib,json,re
 from pathlib import Path
-LEDGER_SHA256='683e141e2aa8178aa4634dbd27e841fe74a6411954f37e70e6fffabf581822f6'
+LEDGER_SHA256='93afb12ae4b67224a4cfe099ccf64bead769c52229d85ddfe0b45bfbc282f2f6'
 def project_sources(root):
     root=Path(root);raw=(root/'tests/fixtures/portable-weighted-incoming-source-delta.json').read_bytes()
     if hashlib.sha256(raw).hexdigest()!=LEDGER_SHA256:raise ValueError('Weighted source inverse ledger changed')

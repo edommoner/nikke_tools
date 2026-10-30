@@ -1,7 +1,7 @@
 // Generated from portable_weighted_battle_wire; ownership and bounds only.
 static const uint WGT_MAGIC=1463964721U;
-static const uint WGT_BODY_STAT=94U;
-static const uint WGT_COVER_STAT=95U;
+static const uint WGT_BODY_ROW=10U;
+static const uint WGT_COVER_ROW=11U;
 static const uint WGT_BASE=115680U;
 static const uint WGT_WORDS=16U;
 static const uint WGT_INPUT=115696U;

@@ -7,7 +7,11 @@ bool initializeWeightedIncoming(inout Runtime s)
 {
     uint at=s.inputBase+WGT_BASE;
     if(commands[at]!=WGT_MAGIC||commands[at+1]!=1||commands[at+2]!=5||commands[at+3]!=0)return false;
-    for(uint i=10;i<16;i++)if(commands[at+i]!=0)return false;
+    for(uint i=12;i<16;i++)if(commands[at+i]!=0)return false;
+    uint body=commands[at+WGT_BODY_ROW],cover=commands[at+WGT_COVER_ROW];
+    if(body==0||cover==0||body>s.count||cover>s.count||body==cover)return false;
+    Definition b=readDefinition(s.inputBase,body-1),c=readDefinition(s.inputBase,cover-1);
+    if(b.kind!=4||c.kind!=4||b.stat!=0||c.stat!=0||b.owner!=c.owner||b.enemyBuff!=0||c.enemyBuff!=0||b.healthScaling!=0||c.healthScaling!=0||b.quantityFlags!=0||c.quantityFlags!=0||!f64Zero(b.value)||!f64Zero(c.value))return false;
     for(uint i=4;i<10;i+=2){uint64_t w=loadNumber(at+i);if(!f64Finite(w)||!f64Less(0,w))return false;}
     for(uint i=WGT_OUTPUT_BASE;i<WGT_OUTPUT;i++)results[s.resourceOutput+i]=0;
     results[weightedHead(s)]=WGT_MAGIC;return true;
@@ -18,7 +22,7 @@ uint captureWeightedIncoming(inout Runtime s,uint who,uint64_t amount,uint64_t w
     for(uint pass=0;pass<s.orderedCount;pass++)
     {
         uint row=s.orderedRows[pass];Definition d=residentDefinition(s,row);
-        if(d.stat==WGT_BODY_STAT && queryRecipient(s,row,who,when))
+        if(s.carrierDefinition[row]+1==commands[s.inputBase+WGT_BASE+WGT_BODY_ROW] && queryRecipient(s,row,who,when))
         {if(source!=0xffffffff){s.error=64;return 0;}source=row;caster=d.owner;}
     }
     if(source==0xffffffff)return 0;
@@ -27,7 +31,7 @@ uint captureWeightedIncoming(inout Runtime s,uint who,uint64_t amount,uint64_t w
     for(uint pass=0;pass<s.orderedCount;pass++)
     {
         uint row=s.orderedRows[pass];Definition d=residentDefinition(s,row);
-        if(d.stat==WGT_COVER_STAT&&d.owner==caster&&s.alive[row]!=0&&s.stacks[row]>0&&f64Less(when,s.end[row]))
+        if(s.carrierDefinition[row]+1==commands[s.inputBase+WGT_BASE+WGT_COVER_ROW]&&d.owner==caster&&s.alive[row]!=0&&s.stacks[row]>0&&f64Less(when,s.end[row]))
         {if(coverSource!=0xffffffff){s.error=64;return 0;}coverSource=row;}
     }
     bool cover=coverSource!=0xffffffff&&(s.downMask&(1U<<caster))==0&&f64Less(0,s.coverHP[caster]);

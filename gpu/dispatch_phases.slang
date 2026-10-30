@@ -274,7 +274,7 @@ void applyDefinitionFrame(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
 #ifdef PORTABLE_WEIGHTED_INCOMING
             // Cover has its own carrier, but no allied-body recipients. Keep
             // empty named-state membership exactly as the original self_cover.
-            if(d.stat==WGT_COVER_STAT){recipientMask=0;recipientOrder=0;}
+            if(sourceRow+1==commands[s.inputBase+WGT_BASE+WGT_COVER_ROW]){recipientMask=0;recipientOrder=0;}
 #endif
             uint64_t expires=definitionExpiry(s,sourceRow,f.time);
             if(!activationLazy) { recipientMask=filterHarmful(s,d,recipientMask,recipientOrder);if(d.polarity==2 && recipientMask==0) continue; }

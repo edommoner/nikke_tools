@@ -642,9 +642,6 @@ static const uint P_BUFF_STAT_BITS_1 = 4294965247U;
 static const uint P_BUFF_STAT_BITS_2 = 528482303U;
 bool validPortableBuffStat(uint stat)
 {
-#ifdef PORTABLE_WEIGHTED_INCOMING
-    if(stat==WGT_BODY_STAT||stat==WGT_COVER_STAT)return true;
-#endif
 #ifdef PORTABLE_COVER_DEFENSE
     if(stat==CDF_STAT)return true;
 #endif
