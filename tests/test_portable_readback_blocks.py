@@ -53,6 +53,15 @@ class ReadbackBlockTests(unittest.TestCase):
         report=dict(calculation_verified=True,mismatches=[],input_count=len(rows),output_sha256=blocks.digest(raw),entries=entries)
         (folder/'comparison.json').write_text(json.dumps(report));return folder,blocks.digest((folder/'comparison.json').read_bytes())
 
+    def test_current_typed_and_cover_receipt_widths_retain_complete_cases(self):
+        for words in (2032000,2048912):
+            old,old_sha=self.capture('old-'+str(words),[('retained',1)],words=words)
+            new,new_sha=self.capture('new-'+str(words),[('added',2),('retained',1)],words=words)
+            r=blocks.retain(old,old_sha,new,new_sha,case_words=words)
+            self.assertTrue(r['all_reference_cases_retained']);self.assertEqual(r['retained_output_bytes'],words*4)
+            self.assertEqual(r['added'],['added']);self.assertFalse(r['calculation_verified'])
+            self.assertEqual(r['gpu_calls'],0)
+
     def test_retention_rehashes_reordered_cases_and_new_cases(self):
         old,old_sha=self.capture('old',[('first',0),('last',2)])
         new,new_sha=self.capture('new',[('last',2),('additional',3),('first',0)])

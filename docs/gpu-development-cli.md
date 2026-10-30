@@ -1,3 +1,5 @@
+`readback-retain --case-words 2048912` は遮蔽物receipt付きの保存出力を全byte照合する。既存typed幅2032000も対応し、CLIの幅一覧を監査器のCASE_SHAPESへ共通化した。GPU/数値再計算0、異なる/欠けたケースは成功にしない。旧11入力90,152,128byteを追加13入力の保存結果へ完全保持した。保持検査は計算証明と分離する。
+
 `cover-defense-battle`は明示基礎DEFを用いた元戦闘4ケース＋拒否7件をM5 Metal/fresh独立監査でsealした。`package --suite cover-defense-battle --out NEW.zip`から通常経路を使う。`cover-defense-battle-cache-only`は同じ計算へCUBIN/O1・compile cacheとpaired生成の必須hitを要求する。実CUDA・既定受付は未達。[範囲と未検証分岐](portable-cover-defense-battle.md)。
 
 `reference --suite cover-defense-common --out NEW.json` は独立した遮蔽物DEFを元戦闘の保護層へ接続するCPU専用4ケース。倍率の発動/失効、貫通、破壊/死亡、分配/シールドを検査する。GPU実証は別段階。[契約と次の接続](portable-cover-defense-battle.md)。
