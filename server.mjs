@@ -4,7 +4,7 @@ import {portableEventRequest} from './app/portable_http_policy.mjs';
 import {candidatePool,bestDisjoint,rankCombatPool} from './app/optimizer.mjs';
 import http from 'node:http';
 import {spawn} from 'node:child_process';
-import {readFileSync, existsSync} from 'node:fs';
+import {readFileSync, existsSync, statSync} from 'node:fs';
 import {createHash, randomUUID} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -29,7 +29,13 @@ function gpuWorker(body,job){
   return new Promise((resolve,reject)=>{const timer=setTimeout(()=>{const error=Error('GPU処理が制限時間を超えました。');error.gpuUnavailable=true;gpuRequests.delete(id);reject(error);child.kill();},['evaluate_detail','evaluate_detail_batch'].includes(body.action)?300000:120000);gpuRequests.set(id,{timer,resolve,reject});child.stdin.write(JSON.stringify({id,body})+'\n');}).finally(()=>{if(job?.child===child)job.child=null;});
 }
 process.on('exit',()=>gpuProcess?.kill());
+export function sharedCudaConfigured(platform=process.platform,env=process.env) {
+  return platform==='win32'&&['NIKKE_SLANG_GENERATION_CACHE','NIKKE_CUDA_COMPILE_CACHE'].every(k=>{
+    try{return Boolean(env[k]&&path.isAbsolute(env[k])&&statSync(env[k]).isDirectory());}catch{return false;}
+  });
+}
 export function workerTimeoutSeconds(body) {
+  if(body.action==='evaluate_portable_detail_batch'&&body.evaluations?.[0]?.compute_backend==='cuda_shared_detail')return 120;
   // Match portable_runtime.evaluate's default backend.
   return body.action==='evaluate_portable_detail_batch' || body.action==='evaluate_portable_events' && (body.backend ?? 'metal')==='metal' ? 630 : 120;
 }
@@ -174,7 +180,7 @@ const server=http.createServer(async(req,res)=>{
     if(req.method==='GET' && assets[url.pathname]) {
       const file=assets[url.pathname];res.writeHead(200,{'Content-Type':(/\.m?js$/.test(file))?'text/javascript; charset=utf-8':file.endsWith('.css')?'text/css; charset=utf-8':'text/html; charset=utf-8','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data: https://sg-tools-cdn.blablalink.com; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"});res.end(readFileSync(path.join(root,'web',file)));return;
     }
-    if(req.method==='GET' && url.pathname==='/api/hardware')return json(res,{...await worker({action:'gpu_probe'}),metal:{available:process.platform==='darwin',verification:'per-request'}});
+    if(req.method==='GET' && url.pathname==='/api/hardware'){const gpu=await worker({action:'gpu_probe'});return json(res,{...gpu,metal:{available:process.platform==='darwin',verification:'per-request'},shared_cuda:{available:sharedCudaConfigured(),verification:'per-request',cold_compilation:false}});}
     if(req.method==='GET' && url.pathname==='/api/catalog')return json(res,await worker({action:'catalog'}));
     if(req.method==='GET' && url.pathname==='/api/demo')return json(res,await worker({action:'demo',expanded:url.searchParams.get('expanded')==='true',gpu_detail:url.searchParams.get('gpu_detail')==='true'}));
     if(req.method==='POST' && url.pathname==='/api/portable-events')return json(res,await worker(portableEventRequest(await body(req))));

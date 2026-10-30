@@ -1,6 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {searchCases} from '../server.mjs';
+import {mkdtempSync,writeFileSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import path from 'node:path';
 test('search preserves original input and all unrelated scenario fields',()=>{
   const body={evaluation:{squad:['a'],profile:{chars:{a:{skill_levels:{'1':7,'2':6,'3':5}}}},patches:{a:{skill_levels:{'1':8}}},stat_deltas:{a:{hp:300}}},target:100,variable:{character:'a',kind:'burst',min:7,max:10,step:1}};
   const copy=structuredClone(body),cases=searchCases(body);
@@ -53,4 +56,18 @@ test('alternative skill representations preserve unrelated skill levels',()=>{
   const {workerTimeoutSeconds}=await import('../server.mjs');
   assert.equal(workerTimeoutSeconds({action:'evaluate_portable_events',backend:'cuda'}),120);
   assert.equal(workerTimeoutSeconds({action:'evaluate',backend:'metal'}),120);
+  assert.equal(workerTimeoutSeconds({action:'evaluate_portable_detail_batch',evaluations:[{compute_backend:'cuda_shared_detail'}]}),120);
+});
+test('shared CUDA configuration requires real directories and is independent of legacy probe',async()=>{
+ const {sharedCudaConfigured}=await import('../server.mjs');
+ const root=mkdtempSync(path.join(tmpdir(),'nikke-cache-config-'));
+ try{
+  const env={NIKKE_SLANG_GENERATION_CACHE:root,NIKKE_CUDA_COMPILE_CACHE:root};
+  assert.equal(sharedCudaConfigured('win32',env),true);
+  assert.equal(sharedCudaConfigured('darwin',env),false);
+  assert.equal(sharedCudaConfigured('win32',{}),false);
+  assert.equal(sharedCudaConfigured('win32',{...env,NIKKE_CUDA_COMPILE_CACHE:'relative'}),false);
+  const file=path.join(root,'file');writeFileSync(file,'not a directory');
+  assert.equal(sharedCudaConfigured('win32',{...env,NIKKE_CUDA_COMPILE_CACHE:file}),false);
+ }finally{rmSync(root,{recursive:true,force:true});}
 });

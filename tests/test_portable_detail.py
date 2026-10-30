@@ -1,5 +1,7 @@
 """Product payload parity and fail-closed paths, without a GPU or CPU replay."""
-import copy,json,sys,tempfile,unittest
+import array,copy,hashlib,json,os,sys,tempfile,unittest
+from contextlib import nullcontext
+from types import SimpleNamespace
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'app'))
@@ -70,6 +72,86 @@ class PortableDetail(unittest.TestCase):
             result=product.evaluate(body)
             self.assertEqual(result['compute']['backend'],'cpu')
             self.assertIn('未接続',result['compute']['unsupported'][0]['reason'])
+    def test_both_backends_use_identical_inputs_decoder_and_post_readback_cpu_check(self):
+        wires=[]
+        for requested,backend in product.BACKENDS.items():
+            body={**self.fixture['body'],'compute_backend':requested}
+            with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle in input')):
+                prepared,run=product.prepare(body)
+            expected=copy.deepcopy(self.fixture['cpu_payload']);expected['evaluator']=product.engine_worker.sim.evaluator()
+            events=[]
+            def execute(source,entry,packed,iw,ow,actual_backend,*,readback_path):
+                self.assertEqual(actual_backend,backend);wires.append(packed);events.append('gpu')
+                if backend=='cuda':
+                    self.assertEqual({k:os.environ[k] for k in ('NIKKE_CUDA_ARTIFACT','NIKKE_CUDA_CACHE_REQUIRED','NIKKE_CUDA_PTXAS_OPT_LEVEL','NIKKE_SLANG_GENERATION_REQUIRED')},
+                        dict(NIKKE_CUDA_ARTIFACT='cubin',NIKKE_CUDA_CACHE_REQUIRED='1',NIKKE_CUDA_PTXAS_OPT_LEVEL='1',NIKKE_SLANG_GENERATION_REQUIRED='1'))
+                raw=bytes(ow*4);readback_path.write_bytes(raw)
+                return None,dict(backend=backend,gpu_execution_verified=True,input_sha256=hashlib.sha256(packed).hexdigest(),output_sha256=hashlib.sha256(raw).hexdigest(),
+                    transport=dict(device='mock transport; not GPU evidence',cases=1,command_status='completed',**{'gpu_seconds' if backend=='metal' else 'host_dispatch_seconds':.1}))
+            def cpu(request):
+                self.assertEqual(events,['gpu']);events.append('cpu');return copy.deepcopy(expected)
+            with tempfile.TemporaryDirectory() as folder,patch.dict(os.environ,dict(NIKKE_DETAIL_CAPTURE_ROOT=folder,NIKKE_SLANG_GENERATION_CACHE=folder,NIKKE_CUDA_COMPILE_CACHE=folder,
+                NIKKE_CUDA_ARTIFACT='ptx',NIKKE_CUDA_CACHE_REQUIRED='0',NIKKE_CUDA_PTXAS_OPT_LEVEL='3',NIKKE_SLANG_GENERATION_REQUIRED='0')),\
+                patch.object(product.platform,'system',return_value='Windows'),patch.object(product,'prepare',return_value=(prepared,run)),\
+                patch.object(product,'decode',return_value=self.fixture['gpu_projection']),patch.object(product,'execute',side_effect=execute),patch.object(product.engine_worker,'evaluate',side_effect=cpu):
+                result=product.evaluate(body);self.assertEqual(events,['gpu','cpu'])
+                self.assertEqual(result['compute']['backend'],requested);self.assertTrue(result['compute']['cpu_verification']['matched'])
+                self.assertIn('gpu_seconds' if backend=='metal' else 'host_dispatch_seconds',result['compute'])
+                self.assertNotIn('host_dispatch_seconds' if backend=='metal' else 'gpu_seconds',result['compute'])
+                self.assertEqual(os.environ['NIKKE_CUDA_ARTIFACT'],'ptx')
+                record=json.loads(next(Path(folder).glob('*/result.json')).read_text())
+                self.assertEqual(len(record['request_sha256']),64)
+                self.assertEqual(record['capture_id'],result['compute']['capture_id'])
+        self.assertEqual(wires[0],wires[1])
+    def test_cuda_environment_and_required_cache_failures_remain_cpu_results(self):
+        body={**self.fixture['body'],'compute_backend':'cuda_shared_detail'}
+        for platform_name,configured,error in [('Darwin',True,'Windows'),('Windows',False,'キャッシュ'),('Windows',True,'required cache miss')]:
+            with tempfile.TemporaryDirectory() as folder,patch.dict(os.environ,dict(NIKKE_DETAIL_CAPTURE_ROOT=folder,
+                NIKKE_SLANG_GENERATION_CACHE=folder if configured else '',NIKKE_CUDA_COMPILE_CACHE=folder if configured else '')),\
+                patch.object(product.platform,'system',return_value=platform_name),patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
+                patch.object(product,'execute',side_effect=RuntimeError('required cache miss; compiler forbidden')) as dispatch,\
+                patch.object(product.engine_worker,'evaluate',return_value=copy.deepcopy(self.fixture['cpu_payload'])):
+                result=product.evaluate(body);self.assertEqual(result['compute']['requested'],'cuda_shared_detail')
+                self.assertEqual(result['compute']['backend'],'cpu');self.assertFalse(result['compute']['gpu_execution_verified'])
+                self.assertIn(error,result['compute']['unsupported'][0]['reason'])
+                self.assertEqual(dispatch.call_count,int(platform_name=='Windows' and configured))
+    def test_actual_backend_cache_misses_do_not_reach_generators_compilers_or_driver(self):
+        import portable_backend as backend
+        body={**self.fixture['body'],'compute_backend':'cuda_shared_detail'}
+        for stage in ('generation','cubin'):
+            with tempfile.TemporaryDirectory() as folder:
+                root=Path(folder);sdk=root/'sdk';(sdk/'bin').mkdir(parents=True)
+                for name in ('slangc','slangc.exe','nvrtc64_test.dll','nvrtc-builtins64_test.dll'):
+                    (sdk/'bin'/name).write_bytes(b'identity only; must never execute')
+                generation=root/'generation';generation.mkdir();cache=root/'compile';cache.mkdir()
+                cuda=root/'never-compile.cu';cuda.write_bytes(b'// cache miss, no compiler allowed\n')
+                env=dict(NIKKE_DETAIL_CAPTURE_ROOT=str(root/'captures'),NIKKE_SLANG_ROOT=str(sdk),CUDA_PATH=str(sdk),
+                    NIKKE_SLANG_GENERATION_CACHE=str(generation),NIKKE_CUDA_COMPILE_CACHE=str(cache),
+                    NIKKE_CUDA_CACHE_REQUIRED='0',NIKKE_SLANG_GENERATION_REQUIRED='0')
+                windows=SimpleNamespace(name='nt',environ=os.environ,add_dll_directory=lambda _:nullcontext())
+                build=patch.object(backend,'build',return_value=({'cuda':cuda},backend.source_hashes(product.SOURCE))) if stage=='cubin' else nullcontext()
+                clean={k:v for k,v in os.environ.items() if not k.startswith('SLANG_') and k not in ('LD_LIBRARY_PATH','DYLD_LIBRARY_PATH','DYLD_FRAMEWORK_PATH')}
+                clean.update(env)
+                with patch.dict(os.environ,clean,clear=True),patch.object(product.platform,'system',return_value='Windows'),\
+                    patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
+                    patch.object(product.engine_worker,'evaluate',return_value=copy.deepcopy(self.fixture['cpu_payload'])),\
+                    patch.object(backend,'_build_resident',side_effect=AssertionError('No Slang')) as generator,\
+                    patch.object(backend,'_cuda_module',side_effect=AssertionError('No CUDA driver')) as driver,\
+                    patch.object(backend.C,'WinDLL',create=True,side_effect=AssertionError('No NVRTC DLL')) as compiler,\
+                    patch.object(backend,'resident_plan',return_value=None),patch.object(backend,'os',windows),build:
+                    result=product.evaluate(body)
+                    self.assertEqual(result['compute']['backend'],'cpu');self.assertFalse(result['compute']['gpu_execution_verified'])
+                    self.assertIn('cache miss',result['compute']['unsupported'][0]['reason'].lower())
+                    generator.assert_not_called();driver.assert_not_called();compiler.assert_not_called()
+    def test_incomplete_or_wrong_execution_metadata_fails_closed(self):
+        valid=dict(backend='cuda',gpu_execution_verified=True,input_sha256='0'*64,output_sha256='1'*64,
+            transport=dict(device='mock',cases=1,command_status='completed',host_dispatch_seconds=.1))
+        self.assertEqual(product.verified_transport(valid,'cuda')[1],'host_dispatch_seconds')
+        variants=[None,{},dict(valid,backend='metal'),dict(valid,input_sha256='bad')]
+        for key,value in [('device',None),('cases',True),('host_dispatch_seconds',float('nan'))]:
+            item=copy.deepcopy(valid);item['transport'][key]=value;variants.append(item)
+        for item in variants:
+            with self.assertRaises(RuntimeError):product.verified_transport(item,'cuda')
     def test_real_multi_hit_uses_existing_native_group_wire_without_changing_effects(self):
         sys.path.insert(0,str(ROOT/'research'))
         from portable_original_identity_inventory import selected_profile_bodies

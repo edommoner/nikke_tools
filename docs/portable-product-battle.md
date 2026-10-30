@@ -1,6 +1,7 @@
 # 通常製品APIの共通GPU経路
 
-通常の `/api/jobs` に `compute_backend: metal_detail` を渡すと、既存の
+通常の `/api/jobs` に `compute_backend: metal_detail` またはWindows用の
+`compute_backend: cuda_shared_detail` を渡すと、既存の
 `engine_worker.evaluate(..., _portable_static_inputs=True)` で入力を準備し、
 `app/portable_detail.py` が共通Slang実行器へ接続する。静的準備ではCPU戦闘を
 実行しない。元の育成・武器・効果定義を保持し、実際のmulti_hit listenerの有無に
@@ -9,6 +10,20 @@
 GPU読戻しの後にCPU戦闘を実行し、`compute` 以外の全製品レスポンスを完全比較する。
 不一致、入力拒否、未接続設定は理由付きでCPUへフォールバックする。
 この段階ではGPU単独の速度改善を主張しない。
+
+共通CUDAは既存legacy `cuda_detail` とは別の受付名だが、Metalと同じ入力準備・
+計算本体・製品変換・全CPU照合を使う。Windowsで
+`NIKKE_SLANG_GENERATION_CACHE` と `NIKKE_CUDA_COMPILE_CACHE` の絶対ディレクトリが
+必要。通常要求ではpaired生成とCUBIN/O1のcache hitを必須とし、missならcold compileを
+行わずCPUへ切り替える。`/api/hardware` の `shared_cuda.available` は設定の存在であり、
+GPU成功の証拠ではない。CUDA時間はlaunch/syncを含む `host_dispatch_seconds` で返す。
+
+`compute.capture_id` は保存ディレクトリに対応し、記録の `request_sha256` と合わせて
+元要求とreadbackを結ぶ。共有時にrawバッファや個人設定を含めない。
+接続変更後のM5要求は全CPU一致、CUDAのMac要求はOS理由付きCPU fallbackを確認した。
+製品Metal255 profileの既存証拠は計算関数とshader不変で保持、実CUDA製品確認は0。
+`shared-cuda-product-route-v1.json` が現接続の小証跡。CUDA成功unitのmockを
+実GPU確認へ数えない。
 
 ## 最初の全profile確認
 

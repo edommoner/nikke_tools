@@ -5,10 +5,13 @@ product admission is established every successful GPU result is CPU-checked.
 """
 import array
 import copy
+from contextlib import nullcontext
+import hashlib
 import json
 import math
 import os
 from pathlib import Path
+import platform
 import sys
 import time
 from types import SimpleNamespace
@@ -22,6 +25,38 @@ from portable_backend import execute
 
 SOURCE = 'gpu/product_battle_entry.slang'
 ROOT = Path(__file__).resolve().parents[1]
+BACKENDS = {'metal_detail': 'metal', 'cuda_shared_detail': 'cuda'}
+
+
+def execution_environment(backend):
+    """Product CUDA requires paired generation and native CUBIN cache hits."""
+    if backend == 'metal':
+        return {}
+    if platform.system() != 'Windows':
+        raise UnsupportedPortable('共通CUDA詳細はWindowsで利用できます。')
+    for key in ('NIKKE_SLANG_GENERATION_CACHE', 'NIKKE_CUDA_COMPILE_CACHE'):
+        value = os.environ.get(key)
+        if not value or not Path(value).is_absolute() or not Path(value).is_dir():
+            raise UnsupportedPortable('共通CUDAの実行用キャッシュが未準備です: '+key)
+    return dict(NIKKE_SLANG_GENERATION_REQUIRED='1', NIKKE_CUDA_CACHE_REQUIRED='1',
+                NIKKE_CUDA_ARTIFACT='cubin', NIKKE_CUDA_PTXAS_OPT_LEVEL='1')
+
+
+def verified_transport(evidence, backend):
+    timing = 'gpu_seconds' if backend == 'metal' else 'host_dispatch_seconds'
+    try:
+        transport = evidence['transport']
+        valid = (evidence['backend'] == backend and evidence['gpu_execution_verified'] is True
+            and transport['command_status'] == 'completed' and type(transport['cases']) is int and transport['cases'] == 1
+            and isinstance(transport['device'], str) and bool(transport['device'])
+            and type(transport[timing]) in (int,float) and math.isfinite(transport[timing]) and transport[timing] >= 0
+            and all(isinstance(evidence[k],str) and len(evidence[k]) == 64
+                and all(c in '0123456789abcdef' for c in evidence[k]) for k in ('input_sha256','output_sha256')))
+    except (KeyError, TypeError, OverflowError):
+        valid = False
+    if not valid:
+        raise RuntimeError('Shared GPU execution metadata is incomplete or unverified')
+    return transport, timing
 
 
 def compile_product(prepared):
@@ -123,8 +158,10 @@ def decode_payload(body, prepared, run, metadata, block):
 
 def evaluate(body):
     """One isolated product request; reject unsupported conditions before dispatch."""
-    if not isinstance(body,dict) or body.get('compute_backend') != 'metal_detail':
-        raise ValueError('Expected an explicit Metal detail request')
+    if not isinstance(body,dict) or body.get('compute_backend') not in BACKENDS:
+        raise ValueError('Expected an explicit shared GPU detail request')
+    requested = body['compute_backend']
+    backend = BACKENDS[requested]
     body = copy.deepcopy({k:v for k,v in body.items() if not k.startswith('_')})
     if type(body.get('verify_detail',False)) is not bool:
         raise ValueError('CPU照合の指定が不正です。')
@@ -132,13 +169,15 @@ def evaluate(body):
     capture_root = Path(os.environ.get('NIKKE_DETAIL_CAPTURE_ROOT',ROOT/'research/portable-build/product-detail'))
     folder = capture_root / uuid.uuid4().hex
     folder.mkdir(parents=True,exist_ok=False)
-    record = dict(requested='metal_detail', gpu_execution_verified=False, cpu_battle_used_as_gpu_input=False)
+    record = dict(requested=requested, capture_id=folder.name, gpu_execution_verified=False, cpu_battle_used_as_gpu_input=False)
     def save():
         (folder/'result.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     try:
+        record['request_sha256'] = hashlib.sha256(json.dumps(body,ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
+        policy = execution_environment(backend)
         prepared, run = prepare(body)
         if body.get('burst_gauge_mode','fixed') != 'accumulate':
-            raise UnsupportedPortable('Metal詳細は現在「バーストゲージ：実蓄積」で利用できます。固定周期はCPUで計算します。')
+            raise UnsupportedPortable('共通GPU詳細は現在「バーストゲージ：実蓄積」で利用できます。固定周期はCPUで計算します。')
         # These need product history/operation projections, not silent omission.
         if body.get('enemy',{}).get('patterns') or body.get('enemy',{}).get('parts'):
             raise UnsupportedPortable('製品用GPUのボス行動・パーツ結果変換は未接続です。')
@@ -149,17 +188,21 @@ def evaluate(body):
         if sys.byteorder != 'little':wire.byteswap()
         packed = wire.tobytes()
         (folder/'input.bin').write_bytes(packed)
-        raw, evidence = execute(source,'portableEvents',packed,input_words,output_words,'metal',readback_path=folder/'readback.bin')
+        record['source'] = source
+        with patch.dict(os.environ,policy) if policy else nullcontext():
+            raw, evidence = execute(source,'portableEvents',packed,input_words,output_words,backend,readback_path=folder/'readback.bin')
         if raw is not None:raise RuntimeError('Expected bounded file readback')
         (folder/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+        transport, timing = verified_transport(evidence,backend)
         record.update(gpu_execution_verified=evidence['gpu_execution_verified'],input_sha256=evidence['input_sha256'],output_sha256=evidence['output_sha256'])
         block = array.array('I');block.frombytes((folder/'readback.bin').read_bytes())
         if sys.byteorder != 'little':block.byteswap()
         payload = decode_payload(body,prepared,run,metadata,block)
-        payload['compute'] = dict(requested='metal_detail',backend='metal_detail',device=evidence['transport']['device'],
+        payload['compute'] = dict(requested=requested,backend=requested,capture_id=folder.name,device=evidence['transport']['device'],
             elapsed_ms=(time.perf_counter()-started)*1000,gpu_execution_verified=True,
             input_sha256=evidence['input_sha256'],output_sha256=evidence['output_sha256'],source=source,
-            gpu_seconds=evidence['transport']['gpu_seconds'],scope='shared autonomous battle; CPU verified for this request')
+            scope='shared autonomous battle; CPU verified for this request')
+        payload['compute'][timing] = transport[timing]
         # Compare the complete product result, not just the damage total. CPU is
         # run strictly after GPU readback and cannot provide any GPU state.
         cpu = engine_worker.evaluate(body)
@@ -169,13 +212,13 @@ def evaluate(body):
         record.update(cpu_verification=dict(matched=not differences,differing_fields=differences),elapsed_seconds=time.perf_counter()-started)
         (folder/'gpu-payload.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         if differences:
-            cpu['compute'] = dict(requested='metal_detail',backend='cpu',fallback_reason='共通GPUとCPUの照合に差があったため、CPUの結果を表示しています。',
+            cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUとCPUの照合に差があったため、CPUの結果を表示しています。',
                 gpu_result_rejected=True,cpu_verification=record['cpu_verification'])
             record['backend']='cpu';save();return cpu
         payload['compute']['cpu_verification']=record['cpu_verification']
-        record['backend']='metal_detail';save();return payload
+        record['backend']=requested;save();return payload
     except (UnsupportedPortable,ValueError,RuntimeError,OSError) as error:
         record.update(backend='cpu',error=str(error));save()
         cpu = engine_worker.evaluate(body)
-        cpu['compute'] = dict(requested='metal_detail',backend='cpu',fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=[dict(reason=str(error))],gpu_execution_verified=record['gpu_execution_verified'])
+        cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=[dict(reason=str(error))],gpu_execution_verified=record['gpu_execution_verified'])
         return cpu

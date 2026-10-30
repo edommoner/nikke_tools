@@ -66,3 +66,13 @@ test('shared Metal worker unavailability falls back with its own requested label
  const result=await evaluator.one({id:7,compute_backend:'metal_detail'});
  assert.equal(result.compute.backend,'cpu');assert.equal(result.compute.requested,'metal_detail');
 });
+test('shared CUDA uses the common isolated service and stays distinct from legacy CUDA',async()=>{
+ const calls=[];
+ const evaluator=make(async request=>{calls.push(request);return request.evaluations.map(b=>({result:{total_damage:b.id,compute:{backend:b.compute_backend}}}));});
+ const shared={id:1,compute_backend:'cuda_shared_detail'},metal={id:2,compute_backend:'metal_detail'};
+ const rows=await evaluator.many([shared,body(3),metal,shared]);
+ assert.deepEqual(rows.map(r=>r.result.total_damage),[1,3,2,1]);
+ assert.deepEqual(calls.map(r=>r.action),['evaluate_detail_batch','evaluate_portable_detail_batch','evaluate_portable_detail_batch']);
+ assert.ok(calls.filter(r=>r.action==='evaluate_portable_detail_batch').every(r=>r.evaluations.length===1));
+ assert.equal((await evaluator.one(shared)).cache_hit,true);assert.equal(calls.length,3);
+});

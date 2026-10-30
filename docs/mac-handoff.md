@@ -1,3 +1,11 @@
+# 2026-10-30 共通CUDA製品経路を接続：実CUDAは未実証
+
+通常UI/APIにcuda_shared_detailを追加し、Metalと同じprepare/compile_product/decode_payloadおよびGPU読戻し後の全CPU応答比較へ接続した。legacy cuda_detailは保持。Windowsの通常要求は絶対ディレクトリのpaired生成cacheとCUBIN/O1 cacheを必須とし、miss時のcold compileは禁止、理由付きCPU fallback。CUDAのhost_dispatch_secondsを純GPU時間へ読み替えない。hardware受付はlegacy probeに依存せずcache設定を確認し、実行可否は要求ごとに検証する。
+
+最終コードの通常API2要求を保存。Miranda30秒はM5実GPU1.750341秒、全CPU応答一致、旧入力/出力SHAと一致。Macの共通CUDA要求はGPU前にOS理由付きCPUへfallback。計算3関数と全3shader closureは変更なしで、既存Metal255 profileの証拠を保持する。CUDA製品実証0。capture_idとrequest SHAにより返却結果と保存captureを結ぶ。small report shared-cuda-product-route-v1.json、proof shared-cuda-product-v2-20261030。
+
+製品14・queue/server16・生成cache13・compile cache12の55検査成功。CUDA成功unitはmockであり実GPU証拠ではない。実backendの必須cache missではgenerator/compiler DLL/driver呼出0を検査した。Claudeレビューのcache guard・不正metadata・directory/legacy probe指摘を反映。次は固定commitをWindowsでCPU-only回帰し、適切なimmutable ownerと既存compile-plan/Job制限で必要なCUBINを準備して短い製品GPU要求を確認する。旧packetのsource差替えやコンパイラidentityの付替えは禁止。全体目標は未完了。
+
 # 2026-10-30 現行ソースの全266製品API確認：Metal255一致／CPU11
 
 固定c5d9402cの通常/api/jobsで全266 favorite-stage profileを16件単位で確認完了。標準育成・cubeなし・30秒・本体のみの条件でMetal255はCPU全製品応答一致、11はGPU前に理由付きCPU fallback。数値差0/API error0。app/GPU/依存データの全sweep中変更なし。8件は同一入力・同一ソースの既存API cache再利用、新GPUリクエスト247。共通CUDA製品検証は0。小証跡product-profile-progress-v5.json、persistent proof product-profile-sweep-v2-20261030。driver68794はexit0で終了済み。source凍結のための編集禁止は解除済み。
