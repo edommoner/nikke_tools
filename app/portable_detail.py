@@ -45,7 +45,10 @@ def prepare(body):
         if captured:
             raise RuntimeError('Expected one original preparation')
         captured['run'] = run
-        return original(run, stats)
+        def observe(manager):
+            # Constructor metadata only: do not execute a CPU battle to obtain it.
+            run._portable_detail_model_warnings = manager.effect_model_warnings()
+        return original(run, stats, observe_manager=observe)
     with patch.object(portable_roster_input, 'prepare_static_inputs', capture):
         prepared = engine_worker.evaluate({**body, '_portable_static_inputs': True})
     if not captured or prepared['cpu_battle_executed'] is not False:
@@ -91,6 +94,7 @@ def decode_payload(body, prepared, run, metadata, block):
             original = body['profile']['chars'][name].get('equip_skills',{})
             hypothetical |= any(original.get(k) != v for k,v in fields.get('equip_skills',{}).items())
     warnings = ['固定条件の静止ボスを仮定した参考値です。ボス固有パターンと生存は未検証です。']
+    warnings.extend(run._portable_detail_model_warnings)
     if requested == 'mast3' and policy == 'auto':
         warnings.append('マスト：ロマンチックメイドがいないため、3の倍数指定は適用せず全員オートで計算しました。')
     if hypothetical:

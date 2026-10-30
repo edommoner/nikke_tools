@@ -20,7 +20,7 @@ uint64_t teamConditionTarget(inout Runtime s,uint row,int name,out bool present)
     uint previous=actorStatePushQuery(s,actorPhysicalTarget(s,teamBindingOwner(s.inputBase,row)-1,0));uint64_t count=actorNamedTargetStack(s,name,present);actorStatePopQuery(s,previous);return count;
 }
 bool teamAdditionalCondition(uint kind)
-{ return kind==C_HP_ABOVE||kind==C_HP_BELOW||kind==C_ALLY_HP_BELOW||kind==C_HP_MAX||kind==C_PROB||kind==C_FULL||kind==C_NOT_FULL||kind==C_STATIC||kind==C_TRIGGER_HIT_CRIT||kind==C_TARGET_CODE||kind==C_CAST||kind==C_NOT_CAST; }
+{ return kind==C_HP_ABOVE||kind==C_HP_BELOW||kind==C_ALLY_HP_BELOW||kind==C_HP_MAX||kind==C_PROB||kind==C_FULL||kind==C_NOT_FULL||kind==C_STATIC||kind==C_TRIGGER_HIT_CRIT||kind==C_TARGET_CODE||kind==C_CAST||kind==C_NOT_CAST||kind==C_BACK_ROW||kind==C_NOT_SELF_HEAL; }
 bool validTeamAdditionalCondition(uint at,uint kind,uint64_t arg)
 {
     if(kind==C_TARGET_CODE) return commands[at+1]>0 && commands[at+1]<=P_DEFINITIONS && f64Zero(arg);
@@ -28,6 +28,9 @@ bool validTeamAdditionalCondition(uint at,uint kind,uint64_t arg)
     // Static roster predicates are already evaluated by basicConditions.
     if(kind==C_STATIC) return f64Zero(arg)||f64Equal(arg,ONE);
     if(kind==C_TRIGGER_HIT_CRIT) return f64Zero(arg);
+    // Both predicates already use the source owner in basicConditions. They
+    // carry no name or numeric argument and are activation-only predicates.
+    if(kind==C_BACK_ROW||kind==C_NOT_SELF_HEAL) return f64Zero(arg);
     if(kind==C_HP_MAX||kind==C_FULL||kind==C_NOT_FULL||kind==C_CAST||kind==C_NOT_CAST) return f64Zero(arg);
     if(kind==C_PROB) return !f64Less(arg,0)&&!f64Less(ONE,arg);
     return !f64Less(arg,0)&&!f64Less(HUNDRED,arg);

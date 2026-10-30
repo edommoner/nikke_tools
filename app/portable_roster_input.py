@@ -10,10 +10,12 @@ from calculator.timeline import DEFAULT_ENEMY, _NIKKE
 from portable_weapon_input import normalize_static_weapon
 
 
-def prepare_static_inputs(prepared, stats):
+def prepare_static_inputs(prepared, stats, *, observe_manager=None):
     enemy={**DEFAULT_ENEMY,**(prepared.enemy or {})}
     base={c['name']:stats(c) for c in prepared.squad}
     bm=BuffManager(prepared.squad,state=dict(base_stats=base,enemy=enemy,full_burst=False,rng_acc={}))
+    if observe_manager is not None:
+        observe_manager(bm)
     chars=[{**copy.deepcopy(c),'_weapon':copy.deepcopy(_NIKKE[c['name']])} for c in prepared.squad]
     return dict(chars=chars,effects=[dict(effect=copy.deepcopy(e),owner=n) for e,n in bm._effects],
                 base_atk=[base[c['name']]['atk'] for c in chars],

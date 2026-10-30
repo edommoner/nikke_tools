@@ -31,6 +31,21 @@ class PortableDetail(unittest.TestCase):
             with patch.object(product,'decode',return_value=view):
                 with self.assertRaises((ValueError,RuntimeError)):
                     product.decode_payload(self.fixture['body'],self.prepared,self.prepared_run,self.metadata,[])
+    def test_original_model_warnings_are_collected_without_a_cpu_battle(self):
+        sys.path.insert(0,str(ROOT/'research'))
+        from portable_original_identity_inventory import selected_profile_bodies
+        from staged_dot_runtime import MODEL_WARNING
+        from periodic_source_runtime import LEGACY_WARNING
+        from target_counter_runtime import SINGLE_BODY_WARNING
+        for name,warning in [('사쿠라 : 블룸 인 서머',MODEL_WARNING),
+                             ('아인',LEGACY_WARNING),('일레그 : 붐 앤 쇼크',SINGLE_BODY_WARNING)]:
+            body=selected_profile_bodies([name],0)[0][2]
+            with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle')):
+                prepared,run=product.prepare(body)
+            self.assertEqual(run._portable_detail_model_warnings,[warning])
+            with patch.object(product,'decode',return_value=self.fixture['gpu_projection']):
+                payload=product.decode_payload(body,prepared,run,self.metadata,[])
+            self.assertEqual(payload['app_warnings'],[self.fixture['cpu_payload']['app_warnings'][0],warning])
     def test_backend_failure_preserves_cpu_label_and_strips_internal_request_flags(self):
         body={**self.fixture['body'],'_compile_gpu_detail':True}
         calls=[]
@@ -73,5 +88,20 @@ class PortableDetail(unittest.TestCase):
         bad=copy.deepcopy(prepared)
         next(item['effect'] for item in bad['effects'] if any(t.startswith('multi_hit:') for t in item['effect']['trigger']['timing']))['trigger']['timing']=['multi_hit:0']
         with self.assertRaises(ValueError):product.compile_product(bad)
+    def test_ordinary_periodic_stack_scaling_preserves_hit_count_not_dot_coefficient(self):
+        sys.path.insert(0,str(ROOT/'research'))
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_specs import LIMITS as L,FIELDS as F
+        from portable_periodic_specs import periodic_flags
+        body=selected_profile_bodies(['마스트'],0)[0][2]
+        prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+        _,_,_,words,metadata=product.compile_product(prepared)
+        self.assertEqual(prepared,before)
+        row=metadata['effects'].index('폭풍')
+        self.assertEqual(words[L['REFERENCE_DEFINITION_BASE']+row*4]&3,1)
+        self.assertEqual(words[L['PERIODIC_DEFINITION_BASE']+row*2]&2,0)
+        self.assertEqual(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['PRESERVE']],0)
+        dot=dict(type='damage',stat='dot_damage',tick_interval=1,scaling='stack_count',target='target')
+        self.assertEqual(periodic_flags(dot,0)&2,2)
 
 if __name__=='__main__':unittest.main()

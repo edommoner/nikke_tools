@@ -1,3 +1,11 @@
+# 2026-10-30 製品経路の8件を修正、残19件
+
+最初の全266profile API sweepはMetal全製品レスポンス一致239、CPU fallback27。証拠product-profile-progress-v3.json。入力／モデル不足19、GPU拒否5、数値＋警告差1、警告差のみ2だった。今回、元BuffManager構築時の注意書きを静的に捕捉して製品応答へ渡し、既存SOURCE_OPSのbuffer scopeとSHIELD_HEAL条件を両製品wrapperへ接続。共通team条件受付へback_row/not_self_caused_healを予約引数0検査付きで登録。Mastの通常周期damageはstack_countをhit-count参照に保ち、DOT係数stackフラグと区別した。CPU正本4・効果定義・許容差・expected変更0、新suite0。
+
+repair-v1の5成功、v2のRouge/Baekhak成功、v3のMastとRouge前列0／後列1,3がCPU全一致。最終repair-v4は同一現行sourceのまま元失敗8＋Miranda／Belortaの10profileが通常/api/jobs→M5→全CPU応答一致。非group／multi-hitの両sourceを確認し、API既存cacheも利用。関連75 CPU unit成功。小証跡product-profile-repair-v4.jsonに現source/generated/input/outputと応答hashを保存した。raw／旧失敗はpersistent proofsに保持、Windows追加依頼0。
+
+重要：履歴を通じた成功は247/266だが、現行sourceの確認は10profileだけ。239件の旧成功を現sourceへ自動昇格しない。元266の現source全件回帰は未実施。残19件は元入力／モデル不足で、固定ゲージ・boss/parts履歴・手動操作・製品CUDAも未完了。次は既存typed modifier consumerを通常製品へ接続する（projectile_dmg_pct3件／shield_dmg_pct4件）。単にstatを0や無効buffへ書き換えず、対象別axisとcarrier状態を保持し、元の有効対象の数値も検証する。修正をまとめてから266件の現source回帰と必要な短いWindows確認を行う。共有team sourceの変更があるため旧suite/source certificateはhistoricalのまま。詳細docs/portable-product-battle.md。以下は履歴。
+
 # 2026-10-30 通常製品APIで26/266 profileがMetal・CPU全一致
 
 次の16件は15成功、ベロータがmulti_hit:4のlowering未接続でGPU前にCPU fallback。portable_detail.compile_productで実effectのmulti_hit要件を検出し、既存portable_battle_attack_group_input.compile_battle(routing=native)を使用するよう接続。group用resident wrapperは既存world_attack_group_entryのincludeだけ。非groupの25件は元product_battle_entry/入力/数値/出力を変更せず、全26の現在compilerの入力SHAを保存結果と再照合した。キャラ名allowlist/効果書換え/条件無視/新suite/共通計算本体変更0。
