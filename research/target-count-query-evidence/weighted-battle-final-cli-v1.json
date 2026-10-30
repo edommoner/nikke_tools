@@ -1,27 +1,37 @@
 {
   "schema": "weighted-battle-final-cli-v1",
-  "source_commit": "72bb438e5244498e9b1aa46a9ae22efd0071d8d0",
-  "package_id": "87a58874ea323d2def71dbd3643b60c4ffde22dc501c7a614d3bf4914347198f",
-  "suite": "weighted-battle",
+  "source_commit": "b1eb43e8b9aafadee0f9688f9d20abc0d98604f1",
+  "package_id": "c76e94bd6bd816013611f2bc3830ec91578535b202be14a5da5180041c3a5530",
+  "unit_groups": 4,
+  "unit_tests": 17,
   "cpu_preflight": {
     "passed": true,
-    "input_count": 21,
-    "native_oracles": 8,
-    "input_sha256": "cc8e463c0c28b9ed22cd9b12995e973e7dfe19a5521789270dda9ee6c987eb48",
+    "input_count": 1192,
+    "native_oracles": 1179,
+    "input_sha256": "3a6ffba50847f2495029f6bb27d9578b96cf986174ee233ef85500659d614fdc",
     "gpu_calls": {
       "build": 0,
       "execute": 0
     },
-    "elapsed_seconds": 162.89781541598495
+    "elapsed_seconds": 0.026287332992069423
   },
-  "unit_groups": 9,
-  "unit_tests": 47,
-  "unit_exit_code": 0,
+  "reference": {
+    "cases": 7,
+    "elapsed_seconds": 3.0679770419956185,
+    "full_input_native_trace_and_contracts_identical": true,
+    "original_favorite_stages": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "report_sha256": "4dba536bc4d40485a5102cb19bd614f45f20d48cc029ed55e00d7d508d47a0d8"
+  },
   "compile_plan": {
     "schema": "compile-plan-v1",
     "passed": true,
-    "package_id": "87a58874ea323d2def71dbd3643b60c4ffde22dc501c7a614d3bf4914347198f",
-    "suite": "weighted-battle",
+    "package_id": "c76e94bd6bd816013611f2bc3830ec91578535b202be14a5da5180041c3a5530",
+    "suite": "weighted-incoming",
     "purpose": "sealed",
     "artifact_kind": "cubin",
     "ptxas_level": 1,
@@ -36,13 +46,15 @@
     "calculation_verified": false,
     "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
   },
-  "root_model_check_passed": true,
-  "packet_model_check_available": false,
-  "packet_model_check_reason": "Suite packet omits upstream IMPL-STATUS.md required by whole-repository frontier audit; root model-check passed.",
-  "all_frozen_input_and_native_entries_preserved": true,
-  "all_input_and_gpu_source_fingerprints_preserved": true,
-  "additional_gpu_calls": 0,
+  "model_check": {
+    "passed": true,
+    "public_gpu_admitted": false,
+    "report_sha256": "973575fabd23a30564b4c0cc958891133d119ccbe4a1f227348309da9bc46beb"
+  },
+  "protected_files_and_all_gpu_sources_unchanged": true,
+  "gpu_runs_this_change": 0,
   "windows_requests": 0,
-  "compiler_calls": 0,
+  "metal_battle_verified": false,
+  "cuda_battle_verified": false,
   "full_goal_complete": false
 }
