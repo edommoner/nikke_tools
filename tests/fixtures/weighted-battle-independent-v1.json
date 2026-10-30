@@ -1,0 +1,95 @@
+{
+  "package_id": "ef200b58b1a5c8307f08be944b761d2f7cef67ef34a9b2f87e0c0ee90943cb39",
+  "schema": "independent-metal-audit-groups-v1",
+  "child_pids": [
+    60433,
+    60491,
+    60541,
+    60542,
+    60546,
+    60548
+  ],
+  "groups": [
+    {
+      "child_pid": 60433,
+      "case_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "input_count": 4,
+      "native_cases": 4,
+      "elapsed_seconds": 79.79032370896311
+    },
+    {
+      "child_pid": 60491,
+      "case_indices": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "input_count": 4,
+      "native_cases": 4,
+      "elapsed_seconds": 117.47476704203291
+    },
+    {
+      "child_pid": 60541,
+      "case_indices": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "input_count": 4,
+      "native_cases": 0,
+      "elapsed_seconds": 3.7382822920335457
+    },
+    {
+      "child_pid": 60542,
+      "case_indices": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "input_count": 4,
+      "native_cases": 0,
+      "elapsed_seconds": 3.734141416964121
+    },
+    {
+      "child_pid": 60546,
+      "case_indices": [
+        16,
+        17,
+        18,
+        19
+      ],
+      "input_count": 4,
+      "native_cases": 0,
+      "elapsed_seconds": 3.7443718329886906
+    },
+    {
+      "child_pid": 60548,
+      "case_indices": [
+        20
+      ],
+      "input_count": 1,
+      "native_cases": 0,
+      "elapsed_seconds": 3.7282369160093367
+    }
+  ],
+  "input_count": 21,
+  "native_cases": 8,
+  "live_parent_receipt_present": false,
+  "per_group_timeout_seconds": 180,
+  "elapsed_seconds": 213.1194479999831,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "cc8e463c0c28b9ed22cd9b12995e973e7dfe19a5521789270dda9ee6c987eb48",
+  "output_sha256": "fb86e4342ee2451bdea57ca4df48ceef521180a4c8385cf07f077ddd53913f37",
+  "scope": "Fresh GPU-forbidden child groups, each individually bounded, covering every input once; total elapsed includes all groups",
+  "capture_local_name": "weighted-battle-v6-20261030-metal",
+  "source_receipt_sha256": "1d8e6da280920e8b7c256481befc6a063ec2bcbe518abc987c90747e03f11295"
+}

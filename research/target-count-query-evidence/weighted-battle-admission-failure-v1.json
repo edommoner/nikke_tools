@@ -1,0 +1,54 @@
+{
+  "schema": "weighted-battle-admission-failure-v1",
+  "calculation_verified": false,
+  "source_commit": "b767d7cf",
+  "package_id": "3123f54ce887109ec5a917a66c013e020b70739c28a4ac09e0cdb5d0fddfb8f3",
+  "inputs": 15,
+  "matched_entries": 13,
+  "mismatches": [
+    {
+      "index": 2,
+      "name": "weighted-incoming/Bay/favorite-2/30s",
+      "reason": "ValueError: Expected GPU native status0; got status64"
+    },
+    {
+      "index": 3,
+      "name": "weighted-incoming/Bay/favorite-3/30s",
+      "reason": "ValueError: Expected GPU native status0; got status64"
+    }
+  ],
+  "raw_retained": true,
+  "diagnostic": {
+    "source_commit": "43a6387b",
+    "stage": 8000,
+    "source_row_one_based": 8,
+    "kind": 6,
+    "condition": "C_COVER_BROKEN",
+    "cause": "actorFieldsDefinitionValid omitted the existing cover predicate despite basicConditions implementing it",
+    "repair": "Validate zero reserved word/argument and combat context, then reuse existing predicate evaluation; add a positive real broken-cover healing battle and two malformed-condition rejects."
+  },
+  "proof_boundary": {
+    "failure_remains_failed": true,
+    "golden_rewritten": false,
+    "canonical_cpu_modified": false,
+    "new_gpu_claim_required": true
+  },
+  "anchors": {
+    "weighted-battle-v3b-20261030-metal/comparison.json": {
+      "bytes": 5467,
+      "sha256": "fdb790493b5922fb461df51a474f5d33886c44366e31a98f0ff355ec0bb6eb1c"
+    },
+    "weighted-battle-v3b-20261030-metal/result.json": {
+      "bytes": 4149,
+      "sha256": "9bf65e1b66b02b93a3bafe5344cc771d970e1e6c50090c4bc4b5bd552ed01eb9"
+    },
+    "weighted-battle-v3b-20261030-metal/readback.bin": {
+      "bytes": 122934720,
+      "sha256": "5f3e48258f61853c95fa55e0b6beb98972acb95f82c294dd95c19198f1cd908f"
+    },
+    "weighted-battle-admission-v4-20261030-metal/readback.bin": {
+      "bytes": 8195648,
+      "sha256": "e5799dcc92a43455399a1929cfdf551728b30b7d3f74c62aeae7f37ef03e5d5d"
+    }
+  }
+}

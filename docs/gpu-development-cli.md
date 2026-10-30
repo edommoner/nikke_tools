@@ -1,3 +1,5 @@
+`weighted-battle`は元ベイ4段階・独立cover破壊/元ビスケット復活/reburst・破壊条件付き元自己回復をM5/fresh独立監査でsealした21入力（native8/拒否13）。通常package→unpack→run経路を使う。`weighted-battle-cache-only`は同計算のCUBIN/O1・compile cache/paired生成必須。実CUDA/ゲーム比率/公開受付は未達。[範囲と失敗保持](portable-bay-allocation.md)。
+
 `reference --suite weighted-incoming-common --out NEW.json`は元ベイ4段階と破壊/ビスケット復活/再burst/未発動透明対照のCPU7戦闘。既存native着弾・cover更新へ接続し、GPU数値suiteとは証拠を分ける。`weighted-incoming`の通常packetにはこのCPU回帰17検査も同梱する。[範囲と次のGPU接続](portable-bay-allocation.md)。
 
 `weighted-incoming`は明示重み・生存body/独立coverの数値1192入力をM5/fresh独立監査でsealした通常suite。`weighted-incoming-cache-only`は同計算のCUBIN/O1・cache必須版（standalone、paired生成不要）。元ベイcarrier/戦闘接続・実CUDA・実機定数は未達。[規約と次の接続](portable-bay-allocation.md)。

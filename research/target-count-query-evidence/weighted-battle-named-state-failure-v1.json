@@ -1,0 +1,20 @@
+{
+  "schema": "weighted-battle-failure-v1",
+  "package_id": "794d269f1a904b2415423cf4ac165135c44ed86c62eda6fa267943e6996229b1",
+  "source_commit": "fd650a3e1bafef084ab0c490c59bc26a3200cabc",
+  "full_calculation_verified": false,
+  "first_difference": {
+    "index": 0,
+    "name": "weighted-incoming/Bay/favorite-0/30s",
+    "reason": "AssertionError: ('weighted-incoming/Bay/favorite-0/30s', 0, ['named_state'])"
+  },
+  "allocation_banks_match_saved_cpu": true,
+  "readback_sha256": "5bf74acef3f7f78bd6ae99fb847d84added0dd2caf95c2f32d469b3035db4857",
+  "gpu_seconds": 2.643585208337754,
+  "runtime_stride": 138992,
+  "cause": "Independent self_cover carrier was exposed as allied body recipient1 instead of empty original membership",
+  "corrected_source_commit": "b78119b29c7134e150cda03b9fea74fcc2434814",
+  "old_claim_preserved": true,
+  "old_package_gpu_retries": 0,
+  "audit_gpu_calls": 0
+}

@@ -44,3 +44,16 @@
 初版の「ベイのcover_heal_pctで破壊coverも復活する」という検査期待は失敗した。pinnedの元規則は回復と復活を区別するため、正本や実装を変えず、破壊を維持する対照と元ビスケットcover_reviveを実際に発動させる実編成を分けた。元失敗reportと追加診断を保持。証拠は`research/target-count-query-evidence/weighted-incoming-battle-cpu-v1.json`、全native/入力指紋/計算source指紋を`tests/fixtures/weighted-battle-cpu-v1.json`に保存。
 
 今回の新native接続はCPU契約。Metalで成功済みなのは前節の数値配分1192入力のみであり、戦闘GPU・元4段階のCUDA・公開GPU受付は未完了。次はGPUの既存incoming frameに同じsnapshot/キャリア寿命/独立coverを下ろし、この7戦闘を同じ比較器で実証する。元self_coverを通常body recipientへ混同したwireや、knockDownでcover carrierを誤って消す実装を避ける。既存数値GPU source/goldenを変更していないので同じGPUを再実行しない。
+
+
+## 2026-10-30 共通戦闘21入力をM5で独立seal
+
+固定9bd06aad/package ef200b58…で、元ベイ4段階・破壊/再burst・元ビスケット復活・未発動対照の7戦闘と、元75定義の破壊cover条件付き自己回復1戦闘、不正入力13件を全比較した。Metal全21成功、GPU5.703300秒、初回pipeline59.370762秒、CPU事前164.984342秒。別fresh GPU禁止child6群が全21/8nativeを各1回比較し、213.119448秒で独立sealした。通常run内の比較は直前の生きたCPU事前結果8件を再利用、保存結果の代用や独立監査への流用は0。
+
+元body/cover定義の固定行IDを明示weight bankへ格納し、既存presence carrierとmode22/23/20のincoming/protection/HP/通知を共用した。別stat番号、HP配列、clockを増設していない。self_cover carrierのmembershipは元どおり空集合を保ち、caster生存/coverHPから独立recipientの配送可否を読む。通常body-coverと独立coverは同じ消費helperを使う。Runtimeは138992byteで増分0。正例の元not_self_cover_alive自己回復は実HP増加2回をCPU/GPUで検査した。
+
+途中の失敗を保持：監査binding用の生きた敵が元lifestealへ干渉したため、全戦闘中spawnしない監査nodeに修正し元7戦闘の全被弾を保存CPU契約と再照合した。self_coverをbody maskへ含めた旧結果はnamed-state差分で失敗。続く15入力では13件一致・favorite2/3がadmission status64で失敗し、既存診断のstage8000でactor field入力検査にcover条件の列挙漏れを特定した。既存条件評価を再利用しreserved/引数/戦闘contextを厳密検査、条件を無視して通さず正例と不正条件2例を追加した。失敗raw/claimを残し、同claim再試行0、許容差/normalizer/保護CPU4ファイル変更0。
+
+通常CLI `weighted-battle` と `weighted-battle-cache-only` を登録。後者は同じ計算でCUBIN/O1・compile cache・paired generation必須。`weighted-battle-diagnostic`は開発専用のまま。証拠は `tests/fixtures/weighted-battle-metal-v1.json`、`weighted-battle-independent-v1.json`、`research/portable-weighted-battle-v1-expected.json`。compiler certificateはこのMetal battleのsource-only証拠で、実CUDAの成功ではない。
+
+重み8/3/262は宣言モデル、正確なゲーム定数は未確定。canonical拒否/public admissionを維持する。均等分配との併存・複数weighted carrierのpolicy、owner死亡/復活のGPU合成、現CUDA、全キャラは未完了。旧cover-DEFの証拠は厳密source逆変換による履歴証拠として維持し、現source再認定とは分離した。次は対応表の残項目を再評価し、この限定範囲を超える合成ケースへ進む。Windowsの保存診断は共有承認待ちで、追加compile/GPU依頼0。
