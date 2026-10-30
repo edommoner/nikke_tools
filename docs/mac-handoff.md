@@ -1,3 +1,13 @@
+# 2026-10-31 製品対象補正＋ボス処理を合成、固定/蓄積の通常Metal API4ケース一致
+
+source db519d180f54a431b62bd79186d2266025b9b83c。app/portable_destructible_roster_input.pyの一律patterns拒否を、canonical validate＋compile_registryによるBODY-only検査へ置換。idle/attack/buff/coreだけを受理、actor count1/kind BODYを確認する。shieldはactor poolに現れなくても独立遮断。parts/interrupt/summon/coordinate/has_parts/implicit part-breakは拒否維持。通常target補正とnative group-target補正が同じ検査を使い、元スクリプトを既存共通world compilerへそのまま渡す。型別補正の定義・軸・値・効果を保持し、BODYの通常ダメージへ転用しない。GPU shader・保護CPU・normalizer・数値golden変更0。CLI/suite/certificate追加0。
+
+proof product-modifier-boss-api-v2-20261031。8秒、Asuka通常targetとSakura/Belorta/Miranda/Dolla/Drake group-target編成を固定周期/ゲージ蓄積それぞれの通常POST /api/jobsで確認。全4がApple M5実Metal・cache hitなし。GPU0.419194/0.405595/0.414873/0.403514秒、通常API全体約2.32〜2.35秒。各boss履歴6件・incoming15件。source全hash不変、input/readback SHAをevidence/capture/APIへ独立照合、compute/cache_hitだけを除くGPU/CPU/API全payload一致。saved-audit.json原本はpersistent proofs、共有要約はresearch/target-count-query-evidence/product-modifier-boss-api-v2.json。元CPU戦闘結果をGPU入力へ供給していない。
+
+共通CPU77group/836test、failure0/error0、既存Windows-only skip1。製品32testは実API前にも成功。追加正例は両source familyの元graph byte/全定義/metadata保持、負例は召喚/盾/部位を拒否。初回テストfixtureのbuff spec形式誤りはcanonical validatorで検出し、既存実API v2の元スクリプト形式へ訂正。API初回product-modifier-boss-api-v1はNIKKE_PYTHON未指定の起動ミスでシステム旧Pythonを選び、全4がimport時停止・capture/GPU0。原失敗を保持し、venvを明示したv2で初めてGPU実行した。専用port4351のみ終了済み。
+
+通常製品Metal255profile＋追加編成1、CUDA旧蓄積1profile1秒/現在fixed0という範囲は変わらず。今回4は既存profileの敵条件合成で、distinct profile増加0。残11profile・全parts/座標/手動・全設定/編成とCUDA共通製品対応は未完。未対応statの単なる許可/consumer無視はしない。Anneの敵heal_received_pct等は既存宣言モデルとCPU確認済み規約を区別する。Windows追加依頼/compile/GPU0、旧timeout/claimsを不変保持。次は通常製品のliteral coordinate/typed targetと既存canonical original compilerの接続、または現accumulate artifactの厳密再利用適合確認を優先し、歴史証明の反復で止まらない。以下は履歴。
+
 # 2026-10-31 通常製品APIにボス行動・被弾履歴を接続、Metal4ケース一致
 
 source04a6daa7d7df4f2c34409e42ab3ed819c8a4d936。共通world readback projectionをapp/portable_world_result.pyへ抽出し、既存world verifierと製品decoderで共有。製品入力は元boss宣言を既存canonical validatorで正規化し、literal node ID/kindだけをmetadataに保持。CPU予定表・戦闘状態はGPU入力へ渡さない。通常武器とnative group武器が同じboss compilerを使う。敵parts・summon攻撃・手動制御等は引き続き明示fallback。CUDA/Metal shader・保護CPU・strict normalizer・既存数値goldenは変更していない。
