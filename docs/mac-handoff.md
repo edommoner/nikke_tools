@@ -1,3 +1,13 @@
+# 2026-10-30 製品packetの通常UI/API起動と保存object受付を準備
+
+product-detailの既存support_filesへ公開Node入口・app4mjs・web9資産・package.json・公開fingerprint2件・既存Node4テストを追加。旧packetにはserver.mjs等が無く、Windowsで通常APIを起動できない欠落を解消する。compiled binary/SDK/個人設定は含めない。隔離owner5bdcb68d…/4165filesでNode22検査、UI3資産の全byte一致、通常APIのMiranda30秒M5実GPU・全CPU応答一致を確認。golden全体・app/GPU/dataは旧b3b0と同一、既存payloadで変更したのはCLIだけ。最初のsandbox Node検査はlisten EPERMで1失敗、元ログ保持後に通常権限で全22成功。小証跡product-http-owner-v1.json。
+
+Claudeの追加レビューで、既存module-object/JIT-linkが別の大きいmoving-group PTXで低メモリ成功していた証跡を再確認した。現在product源への適合/実CUDAは未確認。次の手段は追加source分割より既存object/link再利用を優先する。ただしassembly_origin/saved_linked_admissionのgpu/world_限定guardがproduct_battle_entryを拒否していたため、登録済み(product-detail,gpu/product_battle_entry.slang)の正確な1組だけを追加許可。world guardと全source/golden/PTX/Job監査は保持。既存module10/linked24検査成功、未登録suite/別productsourceを拒否。製品APIのsaved-CUBIN provider接続は未実装で、通常cache経路へ偽のNVRTC artifactとして登録しない。
+
+705bfd23のWindows packet b3b0…/4144filesは作成・展開・全manifest同一を確認。しかしsetup前後に既存7processが消失し原因不明、setup保全失敗を保持。compiler/GPU前に停止した。全7個体は今回owned childより約33分前から存在し、今回の一時process誤検出とする証拠は無い。owned Jobはpost空、cleanup/inspection error無し。未実行の次generationは新しいfresh Job/直前全process snapshotで監視し、元setup失敗を成功へ書き換えず進めるよう依頼済み。新stageで欠落があれば次へ進めない。再setup/package/既存claim再実行はしない。
+
+Macの全267要求通常API sweepはproof product-admission-api-full-v1-20261030で実行中。driver exec session79680、server exec session10542、port4338。app/GPU/data/upstreamを凍結中で、これらの変更禁止。CLI/tests/docsだけ変更した。完了/実process handleを確認するまで再送しない。4339の隔離HTTPowner確認serverは終了済み。以下は履歴。
+
 # 2026-10-30 定義検査の共通4分割：通常API1件・元数値と拒否結果を保持
 
 前回の4-helper版は通常API全267要求を完了。catalog266中Metal255、既知CPU fallback11、追加group+target編成1が全CPU応答一致。cache hit0/実capture256、旧catalog255のinput/output全SHA保持。小証跡product-outline-v1.jsonに保存済み。これは今回の定義検査分割前のsource認定である。

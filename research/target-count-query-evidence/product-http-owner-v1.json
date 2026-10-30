@@ -1,0 +1,87 @@
+{
+  "schema": "product-http-owner-v1",
+  "package_id": "5bdcb68de0cc47d5a69c43a1f515c5b0fb5ab23c2806f7c45484d3de73ed12eb",
+  "files": 4165,
+  "predecessor_package_id": "b3b0f6966e4215725e890b8df2d5db858fe7f16b02206c5980d202261e319067",
+  "golden_and_numerical_inputs_unchanged": true,
+  "added_public_runtime_files": [
+    "app/detail_effects-build.json",
+    "app/evaluation-queue.mjs",
+    "app/optimizer.mjs",
+    "app/portable_http_policy.mjs",
+    "app/python-runtime.mjs",
+    "package.json",
+    "research/engine-probe-results.json",
+    "server.mjs",
+    "tests/evaluation-queue.test.mjs",
+    "tests/portable-http-policy.test.mjs",
+    "tests/python-runtime.test.mjs",
+    "tests/server.test.mjs",
+    "web/app.js",
+    "web/board-model.mjs",
+    "web/enemy-model.mjs",
+    "web/exporter.js",
+    "web/index.html",
+    "web/parts-model.mjs",
+    "web/phase-model.mjs",
+    "web/roster-model.mjs",
+    "web/style.css"
+  ],
+  "only_existing_file_changed": [
+    "scripts/nikke_gpu.py"
+  ],
+  "ui_static_checks": [
+    {
+      "route": "/",
+      "status": 200,
+      "bytes": 26831,
+      "sha256": "f8fcb92eac412bbde8c7db8ff12cf87b2c10d44a8fe86cbfd782c343f7d30847"
+    },
+    {
+      "route": "/app.js",
+      "status": 200,
+      "bytes": 69001,
+      "sha256": "de84d3612b731b3d383bfd08faeab2d1367da60703791c3cc5d26e13b15cf1ca"
+    },
+    {
+      "route": "/style.css",
+      "status": 200,
+      "bytes": 28508,
+      "sha256": "76602f1219797cf06809bd87ee1eb9fe70e492bb5bd8246cb1af8a42d4fa4cfe"
+    }
+  ],
+  "node_tests": 22,
+  "node_failures": 0,
+  "first_sandbox_test_failure": "listen EPERM; retained separately, authorized localhost rerun passed",
+  "ordinary_api_compute": {
+    "requested": "metal_detail",
+    "backend": "metal_detail",
+    "capture_id": "5bc5b61dcec441e790e65a5bbb00640f",
+    "device": "Apple M5",
+    "elapsed_ms": 2870.04062498454,
+    "gpu_execution_verified": true,
+    "input_sha256": "291fd86560a0bb772a03b581d273ddfe098b772f9935a02b89b16a7322466a18",
+    "output_sha256": "bc19e1324c7f293c24367148ec8d050a506d3779ba283983641f2f53d3fb01fc",
+    "source": "gpu/product_battle_entry.slang",
+    "scope": "shared autonomous battle; CPU verified for this request",
+    "gpu_seconds": 1.782969125022646,
+    "cpu_verification": {
+      "matched": true,
+      "differing_fields": []
+    }
+  },
+  "scope": "Unpacked source-only product package boots UI/API and runs original Miranda30s Metal with complete CPU comparison. Windows and linked-CUBIN execution not yet verified.",
+  "full_goal_complete": false,
+  "linked_product_origin_allowlist": {
+    "status": "implemented and CPU-tested, no Windows execution",
+    "registered_pair": [
+      "product-detail",
+      "gpu/product_battle_entry.slang"
+    ],
+    "existing_world_prefix_guard_retained": true,
+    "module_tests_passed": 10,
+    "linked_artifact_tests_passed": 24,
+    "runtime_saved_cubin_product_provider": "not yet connected"
+  },
+  "claude_next_step": "If current standalone assembly fails, prefer existing unchanged-PTX module-object then nvJitLink over further speculative source splitting; historical memory success is not current product calculation proof."
+}

@@ -33,6 +33,26 @@ class ModuleObjectTests(unittest.TestCase):
         self.assertTrue(result['object_verified'],result)
         self.assertFalse(result['link_verified']);self.assertFalse(result['calculation_verified'])
 
+    def test_registered_product_producer_uses_the_same_module_chain(self):
+        producer=self.sealed_producer();producer['suite']='product-detail'
+        cli.write(self.f.base.source_package/'gpu-package.json',producer)
+        origin,raw=self.proof()
+        self.assertEqual(raw,focus_tests.PTX)
+        self.assertTrue(origin['producer']['historical_sealed_battle_source'])
+        self.assertFalse(origin['producer']['current_battle_equivalence_verified'])
+        with self.f.context():
+            result=cli.audit_partition_object_capture(self.f.base.m,self.f.capture,verify_artifacts=False,module_object=True)
+        self.assertTrue(result['object_verified'],result)
+        self.assertFalse(result['calculation_verified'])
+
+    def test_product_source_allowlist_does_not_accept_unregistered_or_substituted_entries(self):
+        self.assertTrue(cli.registered_battle_source('product-detail'))
+        self.assertFalse(cli.registered_battle_source('unregistered-product'))
+        with patch.dict(cli.SUITES,{'product-detail':dict(cli.SUITES['product-detail'],source='gpu/product_other_entry.slang')}):
+            self.assertFalse(cli.registered_battle_source('product-detail'))
+        with patch.dict(cli.SUITES,{'unregistered-product':dict(source='gpu/product_battle_entry.slang')}):
+            self.assertFalse(cli.registered_battle_source('unregistered-product'))
+
     def test_nonsealed_nonworld_or_incomplete_producer_stops_before_native_tool(self):
         producer=self.sealed_producer()
         cases=[(producer,'purpose','development'),(producer,'suite','damage-factors'),(producer['golden'],'entries',[]),(producer['golden'],'entries',{'not':'a list'}),(producer['golden'],'input_sha256',None),(producer['golden'],'output_sha256',None)]

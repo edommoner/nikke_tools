@@ -31,7 +31,14 @@ from portable_cpu_tests import AUDIT_FILES as CPU_AUDIT_FILES
 SUITES = {
     'product-detail':dict(script='research/verify-product-detail.py',source='gpu/product_battle_entry.slang',
         golden='research/portable-product-detail-v3-expected.json',inputs=1,native=1,input_words=104400,output_words=786432,
-        support_files=['research/portable-product-detail-v1-expected.json','research/portable-product-detail-v2-expected.json','research/target-count-query-evidence/product-outline-v1.json','research/target-count-query-evidence/product-admission-v1.json'],
+        support_files=['research/portable-product-detail-v1-expected.json','research/portable-product-detail-v2-expected.json','research/target-count-query-evidence/product-outline-v1.json','research/target-count-query-evidence/product-admission-v1.json',
+            # Product owners must also boot the real HTTP/UI entry in isolation.
+            # Public build fingerprints only; no legacy compiled GPU binary.
+            'server.mjs','package.json','app/detail_effects-build.json','research/engine-probe-results.json',
+            'app/evaluation-queue.mjs','app/python-runtime.mjs','app/portable_http_policy.mjs','app/optimizer.mjs',
+            'web/index.html','web/app.js','web/style.css','web/exporter.js','web/parts-model.mjs','web/phase-model.mjs',
+            'web/enemy-model.mjs','web/roster-model.mjs','web/board-model.mjs',
+            'tests/server.test.mjs','tests/evaluation-queue.test.mjs','tests/python-runtime.test.mjs','tests/portable-http-policy.test.mjs'],
         development_only=False,parent_oracle_reuse=True,tests=['test_portable_detail.py','test_product_detail_packet.py']),
     'original-projectile-weapons':dict(script='research/verify-original-projectile-weapons.py',
         golden='research/portable-original-projectile-weapons-v1-expected.json',source='gpu/world_coordinate_typed_owner_entry.slang',
@@ -2896,14 +2903,21 @@ def module_capture(capture,timeout,original_workspace,jit_opt_level=None):
     return result
 
 
+def registered_battle_source(suite):
+    """Keep legacy world sources and admit only the registered product owner."""
+    source=SUITES.get(suite,{}).get('source','')
+    return (source.startswith('gpu/world_') and source.endswith('_entry.slang')
+            or (suite,source)==('product-detail','gpu/product_battle_entry.slang'))
+
+
 def assembly_origin(m,source_package,source_capture,*,historical_compiler=False,sealed_battle_source=False):
     """Re-audit the immutable upstream PTX producer, including its original Job."""
     source_package=Path(source_package);source_capture=Path(source_capture)
     if historical_compiler and sealed_battle_source:raise ValueError('PTX producer source modes are exclusive')
     producer=verify_package(source_package,historical_compiler=True) if historical_compiler else verify_package(source_package)
     if sealed_battle_source:
-        config=SUITES[producer['suite']];golden=producer['golden']
-        if producer.get('purpose','sealed')!='sealed' or compiler_only(producer) or not config.get('source','').startswith('gpu/world_') or not config['source'].endswith('_entry.slang') or type(golden.get('entries')) is not list or not golden['entries'] or not golden.get('input_sha256') or not golden.get('output_sha256'):
+        golden=producer['golden']
+        if producer.get('purpose','sealed')!='sealed' or compiler_only(producer) or not registered_battle_source(producer['suite']) or type(golden.get('entries')) is not list or not golden['entries'] or not golden.get('input_sha256') or not golden.get('output_sha256'):
             raise ValueError('Module object requires an independently sealed world battle producer')
     if is_development(m) or is_development(producer) or (not historical_compiler and not sealed_battle_source and producer['golden']!=m['golden']):
         raise ValueError('Assembly requires the same sealed GPU/native baseline')
@@ -2994,8 +3008,7 @@ def saved_linked_admission(m,request):
                 raise ValueError('Current PTX producer claim mismatch')
             anchors['current_producer_claim_sha256']=sha((source_package/'compile-claimed-cuda.json').read_bytes())
         source=verify_package(source_package)
-        config=SUITES[source['suite']]
-        if compiler_only(source) or source.get('purpose','sealed')!='sealed' or not config.get('source','').startswith('gpu/world_') or not config['source'].endswith('_entry.slang'):
+        if compiler_only(source) or source.get('purpose','sealed')!='sealed' or not registered_battle_source(source['suite']):
             raise ValueError('Saved CUBIN requires a sealed world battle source producer')
         anchors['producer_manifest_sha256']=sha((source_package/'gpu-package.json').read_bytes())
         receipt=admission(m,linked,producer,compiler,proof['receipt'],anchors,sealed_producer=source,ptx_reuse=reuse)
