@@ -1,5 +1,7 @@
 # 2026-10-30 製品用コンパイル所有者：既存CLIへ接続、Metal独立監査済み
 
+sealed ownerはsource dd86042e、package ID75dfb57b…、4135files。Windowsの新adapter3検査も成功したが、初回package作成は固定契約docs/GAMEPLAY.md不足で停止（compiler/GPU0）。42依存一覧はhost import用で、既存make_packageがportable-mode-session-contract経由で加える文書1件を含まなかった。実sealed manifestから全43 upstream依存をproduct-detail-compile-preparation-v1.jsonへ抽出し直した。元Windowsの同文書SHA9640ef2a…も一致しているとのpeer報告。固定43件を揃えた同じsourceからpackage ID一致を確認してから、既存generation→compile-cubin-o1へ進める。初回失敗と未消費claimを保持する。
+
 research/verify-product-detail.pyを既存package/run/sealへ接続したproduct-detailは、元製品fixtureのMiranda stage0・30秒をprepare/compile_product/decode_payloadのまま扱う。通常body entryのみ、group/target ownerは未接続。新しい効果/数値モデルや監査toolは追加しない。元CUBIN/O1を既存compile-planと制限Jobで準備するための所有者。元CPUと全payload（evaluator含む）を比較し、永続native fingerprintのみunpack時に変わるVCS stampを除く。数値/警告/履歴は保持。
 
 不変development packet f653d0c7…でM5実GPU1.747467秒、PSO cache hit、全CPU応答一致。既存sealのfresh GPU禁止child1.643221秒で独立監査成功。新adapterの欠落nullable field拒否修正後も、元packetとapp/GPU/data/upstream計1005fileのSHA一致、同じinput/output/native SHAを確認して保存readbackを全製品比較した（追加GPU0）。小証跡product-detail-owner-v1.json。新3テストとcompile CLI13成功。通常APIの確認済みprofileはMetal255/CUDA0を維持し、この同一profileのpacket実行を加算しない。
