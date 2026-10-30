@@ -1,3 +1,21 @@
+# 2026-10-31 timeout保存JSONをMac照合、Windows idle・追加実行なし
+
+WindowsのCPU-only保存診断と共有完了。branch codex/product-fixed-ptx-timeout-v1-report、commit9f422b0e9738c49c18a7ab70f8fc213790fbbb23、11JSON/JSONL計37263bytes、manifest SHAd09e6345e5af7a87079c3a93925a526acba6cbaa2f17a7fb4448dde49d424d37。proof product-fixed-ptx-timeout-import-v1-20261031へgit blob原bytesで取得、全SHA/サイズ・ownerとimmutable sealed goldenを照合成功。新/旧CUDA strict normalizedはMac保存生成物でも独立一致。Windows raw source/binary/全snapshotは輸送していない。sanitized projectionの整合検査であり原本Job/process全体のMac独立認定ではない。mac-audit.jsonと既存product-admission-v1.jsonへ記録。
+
+今回のchild作成→NVRTC enteredは19.439秒（Job gate基準19.379秒）：package verify11.224898秒、cache build3.820473秒、追加pair照合1.386738秒、library load0.036599秒等。entered→postJob確認40.629410秒、正常returnなし。最初はinner60秒timeout、正確なtimeout-trigger時刻markerがないためunknown。旧成功はgate→NVRTC14.391613秒＋実NVRTC23.481338秒return、今回前処理は4.987461秒増。options/SDK/header一致、CUDA sourceは旧2274611→新2275219bytes、数値規約/コードは異なるため旧成功をfixedへ転用しない。複数前処理も遅くなったが、ホスト負荷/コンパイラ特性など原因の特定はできない。peak196788224bytesは2GiB未到達、メモリ不足と断定しない。
+
+Windows chatはcursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:120/idle。実行/保存共有のpendingなし、追加GPU/compiler0。同条件compile再試行やcap拡大をしない。次は共通CLI内の開始前cost（full owner byte検証/paired validation）の重複と観測境界を調べ、検査を維持した具体的なオーケストレーション改善の可否を先に判断する。単に新ownerを作り同じ失敗を繰り返さない。元claim/失敗/生成成功は不変。Metal255profile/fixed255＋編成1、CUDA旧蓄積1profile1秒/fixed0、11profileとboss/parts/manual等の製品接続は未完。以下は履歴。
+
+# 2026-10-31 Windows fixed準備/生成成功、PTXはchild60秒timeout・再実行禁止
+
+同一sealed v2 owner eda7660a/source6c7d0235のWindows準備は成功。4172file/source/golden自身検証、依存確認、CPU unit34/skip0、PTX plan2048MiB/60秒成功。peer準備JSON SHAdea0850f176cf2c4feccb70008c093e3480e78a512f75eea85a7c37a66df9009。転送11.233/bootstrap-v3 gate5.448/unpack33.916/verify16.806/deps17.138/unit43.328/plan16.807秒（観測込み）。bootstrap前2失敗とdeps初回--out不足も保存。取得済みZIPからの訂正でmake_package/計算なし。
+
+既存run-gpu-packet generationを必要1回実行、CUDA/Metal両targetのsealed fixed strict normalized基準一致。33.118秒/peak542425088bytes、Slang2call（各target1）。続くcompile-ptxも同CLI/inner60秒/2GiBで必要1回、generation必須cache hit・追加Slang0。NVRTC entered1/正常return0、内側62.535秒（60秒制限後の観測込み）、外側79.374秒、peak内196788224/外234991616bytes。PTX未生成/compilerfalse/containmenttrue、claim/失敗/partial保持。全stage現missing0/観測・cleanup・inspection0/postJobempty、service未識別、歴史7missing/原因unknown/falseと旧433証跡不変。GPU/driver/ptxas/JIT0。固定CUDA実行は依然0。peakは2GiBに未到達だがtimeout原因を特定した意味ではない。
+
+peer結果JSON SHA6b303cbde81347d8fae9b7175a6a8fec6afbbe0c2db4ddd429446c6f1e8d3771。原本root C:/Users/owner/Documents/Codex/nikke-product-fixed-sealed-v2、generation-v1、compile-ptx-v1、phase compile-ptx-v1/proof/phases.jsonl。Windows chat cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:115完了後、保存logだけのCPU診断＋小JSON branch codex/product-fixed-ptx-timeout-v1-report共有を依頼済み。追加compile/GPU0。再実行・別rootで同条件再試行・cap拡大をしない。まずchild開始→検証/cache→NVRTC enteredまでとentered後timeout区間を分離し、旧正常NVRTC23.481秒とのargv/SDK/生成source差を保存logで比較。全child60秒をNVRTC60秒と混同しない。JSONのMac独立importはまだ未実施。
+
+Macの4秒fixed通常API実証とsource codeは前節どおり。GitHub runtime-residentは7515c5ecまでpush済み（今回のWindows記録は次commit予定）。全goal未完。以下は履歴。
+
 # 2026-10-31 fixed sealed v2のCPU/plan・4秒通常API成功、Windows CPU準備中
 
 sealed v2はsource6c7d023579857f46e1aeedaa1013306eb156973a、owner eda7660a7c04aebe23b220d51110466d46580c668425c4594c5944182cacb68c、4172files、ZIP14199812/SHA c64d5465c749158ab031a94e40ff1aef29951137b0447623cb5021f712a62b69。proof product-program-fixed-sealed-v2-20261031の自身CLI/cwdでCPU-only成功・GPU0、PTX compile-plan2048MiB/60秒成功・claim未消費。旧v1も不変保持。code6c7までorigin/runtime-residentへpush済み。全memberの原bytes/SHAを再検査したZIPと小さなtransport.jsonだけをcodex/product-fixed-sealed-packet-v2 commit808cd5e23db7038f060b3bf17a3b395b17795ffaへ送信。個人設定/raw/SDK/compiled binaryなし。
