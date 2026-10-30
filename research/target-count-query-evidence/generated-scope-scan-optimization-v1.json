@@ -1,0 +1,59 @@
+{
+  "scope": "CPU-only exact saved paired generated code audits; not compiler/GPU execution",
+  "input_sha256": {
+    "cuda": "e7802d5f85c68efd427d3a67948bd0bf013d0fc13cb48fc541016f682d95d458",
+    "metal": "ffbb74c5f6a196e2a20e66f6eaeceae7426ac387c8ea922aa8361d5b3a020ae3"
+  },
+  "before_seconds": [
+    0.16140083299251273,
+    0.1592090000049211,
+    0.15954633400542662
+  ],
+  "after_seconds": [
+    0.01880016701761633,
+    0.018180249957367778,
+    0.018175042001530528
+  ],
+  "before_median": 0.15954633400542662,
+  "after_median": 0.018180249957367778,
+  "speedup": 8.775805304083205,
+  "all_audit_results_exact": true,
+  "all_used_function_extractions_exact": true,
+  "distinct_used_function_extractions": 20,
+  "compiler_calls": 0,
+  "gpu_calls": 0,
+  "windows_timing_verified": false,
+  "checks_removed": false,
+  "numerical_or_source_expectations_changed": false,
+  "common_cpu": {
+    "passed": true,
+    "groups": 77,
+    "tests": 845,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "fresh_independent_saved_receipt_audit": {
+    "verified": true,
+    "cache_hit": false,
+    "compiler_invocations": 2,
+    "gpu_calls": 0,
+    "scope": "Fresh full semantic/ABI audit of old receipt with current validator; not an execution cache rekey or compiler/GPU result"
+  },
+  "validator_before_sha256": "01fc56ab2d0aa01941e402eea4d9c40db3744465de97836d4be8a73b62bb50b0",
+  "validator_after_sha256": "0161c0bdd614e73e241056d7912cd164a6bf1bbe942d24abf830f2f4cea7a154",
+  "gpu_source_changed": false,
+  "compiler_flags_changed": false,
+  "windows_recompile_requested": false,
+  "scope_note": "Literal substring candidates still use the original complete regex; regex-prefix fallback and exact raw brace counting retained. No memoization or skipped audit.",
+  "unsuccessful_first_experiment": {
+    "method": "brace scanning only",
+    "speedup": 1.0253312970919009
+  },
+  "coverage": {
+    "metal_historical_profiles": 255,
+    "cuda_historical_profiles": 1,
+    "new_profiles": 0,
+    "full_goal_complete": false
+  }
+}

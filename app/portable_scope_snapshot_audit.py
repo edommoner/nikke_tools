@@ -1,15 +1,29 @@
 """Reject generated actor query scopes that reload an overwritten buffer value."""
 import hashlib,re
 
+_BRACES=re.compile(r'[{}]')
+
 
 def function(text,prefix):
-    match=re.search(r'\b('+prefix+r'_\d+)\([^;{}]*\)\s*\{',text)
+    pattern=re.compile(r'\b('+prefix+r'_\d+)\([^;{}]*\)\s*\{')
+    if re.fullmatch(r'[A-Za-z_]\w*',prefix):
+        # Locate literal generated names first; retain the exact boundary and
+        # signature pattern at every candidate, including prototypes/calls.
+        candidate=text.find(prefix+'_');match=None
+        while candidate>=0:
+            match=pattern.match(text,candidate)
+            if match:break
+            candidate=text.find(prefix+'_',candidate+1)
+    else:match=pattern.search(text)
     if not match:raise ValueError('Missing generated scope snapshot function: '+prefix)
-    start=match.end();depth=1;end=start
-    while end<len(text) and depth:
-        depth+=(text[end]=='{')-(text[end]=='}');end+=1
-    if depth:raise ValueError('Incomplete generated scope function')
-    return match.group(1),text[start:end-1],text[max(0,match.start()-80):match.start()]
+    start=match.end();depth=1
+    # Count the same raw brace characters as before, scanning intervening
+    # generated statements in the regex engine rather than Python bytecode.
+    for brace in _BRACES.finditer(text,start):
+        depth+=1 if brace[0]=='{' else -1
+        if depth==0:
+            return match.group(1),text[start:brace.start()],text[max(0,match.start()-80):match.start()]
+    raise ValueError('Incomplete generated scope function')
 
 
 def audit(cuda,metal):

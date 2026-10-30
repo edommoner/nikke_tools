@@ -12,6 +12,24 @@ return previous;
 }'''
 
 class ScopeSnapshotAuditTests(unittest.TestCase):
+    def test_generated_function_body_keeps_nested_braces_and_exact_boundary(self):
+        body='\n'+('value += 1;\n'*65536)+'if (a) { while (b) { c(); } }\n'
+        prefix='// annotation\nvoid keep_0();\n'
+        text=prefix+'void keep_1(uint a) {'+body+'}\nvoid keep_2() { later(); }'
+        name,extracted,annotation=function(text,'keep')
+        self.assertEqual(name,'keep_1');self.assertEqual(extracted,body)
+        self.assertEqual(annotation,prefix[-80:]+'void ')
+
+    def test_name_search_preserves_boundaries_prototypes_and_regex_prefixes(self):
+        text='void not_keep_0() { wrong(); }\nvoid keep_1();\nvoid keep_2() { right(); }'
+        self.assertEqual(function(text,'keep')[:2],('keep_2',' right(); '))
+        self.assertEqual(function('void keepBeta_3() { body(); }','keep(?:Alpha|Beta)')[:2],
+                         ('keepBeta_3',' body(); '))
+
+    def test_missing_or_unclosed_generated_function_is_rejected(self):
+        for text in ['void keep_0();','void keep_0() { if (x) { x++; }']:
+            with self.subTest(text=text),self.assertRaises(ValueError):function(text,'keep')
+
     def test_scalar_value_before_store_is_distinct_from_calculation_proof(self):
         r=audit(GOOD,GOOD);self.assertTrue(r['generated_scope_snapshot_verified']);self.assertFalse(r['calculation_verified'])
     def test_old_cuda_retained_pointer_cannot_pass(self):
