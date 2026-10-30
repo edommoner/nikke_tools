@@ -698,6 +698,13 @@ def reference_readiness(issue):
                 cover_layer_connected=False,original_full_battle_verified=False,in_game_level_curve_verified=False,
                 evidence='tests/fixtures/cover-defense-numeric-metal-v1.json',evidence_sha256='75fb68d3b1f892838e847b754001dc1032bec134f5b2d01a9d5cedaef94f89ce',
                 scope='Declared scalar formula and original CPU carrier read only; keep canonical/default rejection')
+            result['declared_cover_defense_battle_cpu']=dict(suite='cover-defense-common',cases=4,
+                actual_cover_receipts=51,actual_incoming_recipient_rows=76,private_cpu_reference_verified=True,
+                explicit_independent_bases=True,original_protection_phase_preserved=True,
+                gpu_wire_connected=False,metal_battle_verified=False,cuda_battle_verified=False,
+                canonical_default_changed=False,in_game_rules_verified=False,
+                evidence='tests/fixtures/cover-defense-battle-cpu-v1.json',evidence_sha256='b87220780a289bc1efd9752c9c2f87f9b6380e623f1278cc2709eb5b18da6d84',
+                scope='Opt-in original executor extension; explicit cover base and received snapshot policy, not canonical or game equivalence')
             result['required_extensions']=['explicit_cover_base_quantity_or_verified_level_curve',
                 'distinct_cover_and_body_damage_with_existing_protection_callback_order',
                 'original_ranked_carrier_and_actual_cover_break_restore_battle_validation',

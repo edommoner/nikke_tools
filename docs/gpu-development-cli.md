@@ -1,3 +1,5 @@
+`reference --suite cover-defense-common --out NEW.json` は独立した遮蔽物DEFを元戦闘の保護層へ接続するCPU専用4ケース。倍率の発動/失効、貫通、破壊/死亡、分配/シールドを検査する。GPU実証は別段階。[契約と次の接続](portable-cover-defense-battle.md)。
+
 `host-memory`は自分/実parentとJobのWindows CPUメモリ読取、`cuda-resource-summary`は外部SHA付き保存phaseの要約。旧未記録値はunknownのまま、いずれもGPU/driver追加0。将来の未消費prepared-runには`--observe-cuda-resources`で時点観測を付けられる。現在の消費済みGPU試行は再実行しない。[引数と観測の限界](portable-cuda-memory-observation.md)。
 
 `prepared-run`とWindows共通stage `gpu-prepared`は、成功済みCPU準備のsnapshotから元の未消費試行を一度だけ実行する。必須paired生成cache/凍結CUDA・CUBIN/容量/所有認証をclaim前に確認し、既存60秒・2GiBのGPU子へ渡す。成功後も計算はpendingで、既存のbounded `audit-native-group`と`aggregate-native-groups`を完了するまで認定しない。v2はcache/認証成功後の実launchでerror2となり、claim/失敗を保持した。[引数・request schema・失敗時の扱い](portable-prepared-admission.md)。

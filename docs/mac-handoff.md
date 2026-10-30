@@ -1,3 +1,11 @@
+# 2026-10-30 遮蔽物DEFを元の保護層へ接続するCPU契約4件
+
+共通CLI `reference --suite cover-defense-common` が4ケース成功（66.454624秒、GPU/packing0）。通常元69定義／混成67定義を保持し、実被弾15/15/13/33行・遮蔽物減算15/15/5/16件。独立した5基礎DEF、元received単一照会snapshot、元分配人数、シールドcallback後のlive倍率読取を既存simulateの厳密なAST接続で実行。元の時計/HP bank/通知器は再実装しない。被弾13は実死亡後の省略、33は元3人分配であり、15固定の初版検査失敗を保持して修正した。専用CPUモデルでありcanonical/default/game認定ではない。
+
+新9検査に数量/分配/破壊/順序/alias復元/故障注入を含む。保存4caseを強化した最終validatorでも再監査。元full referenceのsource hashはその実行時を保持し、後の分類/validator更新へ出所を付け替えない。保存fixtureは必要部分だけ、全native/trace/inputの指紋と元のfull記録はproof rootに保持。GPUソース/旧golden/保護CPU4ファイル変更0、Windows新依頼0。分類は専用CPU接続と先行Metal数値572入力を別欄で表示し、既定未対応を維持する。
+
+次は5基礎DEFの共通wireと、incoming frameのattack/coefficient/received/divisor snapshotを既存protection event3へ接続し、同じ共通binary64でMetal戦闘比較・独立sealを行う。現GPU戦闘接続/現CUDA/基礎DEFレベル曲線/全目標は未達。[契約](portable-cover-defense-battle.md)、保存fixture `tests/fixtures/cover-defense-battle-cpu-v1.json`。以下は履歴。
+
 # 2026-10-30 歴史逆変換を共通化、保存物診断を共通2GiB Jobへ接続
 
 portable_quantity_visited_source_contract.historical_hashesへ旧Frame/mixed証明書の数量逆変換を共通化。固定d04e5689…へ5hunk全byteを復元し、helper/source改変・依存欠落・baseline変更・演算式改変を拒否する。旧証明書を使う現source実行は引き続き拒否。最初の診断packet9f1661…のMac unit失敗は保存し、修正版f7337532…は21群232件とPTX plan成功、a2a87eb4で共有した。GPU計算sourceは前回Metal sealから不変。
