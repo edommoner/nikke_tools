@@ -1,3 +1,7 @@
+# 2026-10-30 最終CLI接続確認とLock On調査判断
+
+固定2f59295f/package6b960aef…の通常CLIは6群39検査と全13入力/6nativeのCPU事前検査に成功（116.819362秒、GPU0）。同packetのcompile-planはCUBIN/O1・2GiB・60秒policy成功、実compiler/claim/GPU0。記録 `research/target-count-query-evidence/cover-defense-modifiers-final-cli-v1.json`。Metal計算成功は下記の別proof、実CUDAは未確認。公開情報再照合でもLock On距離式は未確定。実機提供を待たず他の未対応を優先し、同一スキル文の再検索は終了する。
+
 # 2026-10-30 共通received補償和を旧4＋Noah2の全13でM5独立seal
 
 固定a6b99c55/package2873d961…が全13（6native/拒否7）成功。GPU2.522692秒/冷PSO61.843307秒/CPU事前116.050422秒、別fresh GPU禁止child独立監査139.948001秒、親oracle利用なし。同じ監査からcompiler source-only証明書も作成。既存共通addSumを全incoming receiverの累計に使用し、Runtimeにcorrection5個（＋40byte→138992byte）。Frame/wire/個々HP減算・通知は不変。

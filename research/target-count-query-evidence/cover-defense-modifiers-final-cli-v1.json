@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "source_commit": "2f59295f",
+  "package_id": "6b960aef82f65dc700cf0c13b15adc48cf395828a4ee996b1be48f1b583e6724",
+  "cpu_result": {
+    "cpu_verified": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "status": "cpu-only"
+  },
+  "unit_groups": 6,
+  "unit_tests": 39,
+  "preflight": {
+    "passed": true,
+    "input_count": 13,
+    "native_oracles": 6,
+    "input_sha256": "2ca5bd10cb12f4fc9aac67a581fe75aa7c5792724066b940e3d4c7ced53e6665",
+    "gpu_calls": {
+      "build": 0,
+      "execute": 0
+    },
+    "elapsed_seconds": 116.81936166697415
+  },
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "6b960aef82f65dc700cf0c13b15adc48cf395828a4ee996b1be48f1b583e6724",
+    "suite": "cover-defense-battle",
+    "purpose": "sealed",
+    "artifact_kind": "cubin",
+    "ptxas_level": 1,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "artifact_sha256": {
+    "cover-defense-modifiers-final-v1-20261030-cpu/result.json": "8a01c37062634da7f89eca28c4cc8e4e1315dd342164b8f2426fdf5e6b6dc731",
+    "cover-defense-modifiers-final-v1-20261030-cpu/cpu-tests.json": "0324558910cf9a4c643fbb1e3a9f5c57285a604a75aa4e98a33ed69e27a5cdb5",
+    "cover-defense-modifiers-final-v1-20261030-cpu/cpu.json": "64bc734c09c459118bdbdbc299f6a3ffef16f4a8b3f96915331a0eff0eecc9f7",
+    "cover-defense-modifiers-final-v1-20261030-compile-plan.json": "2f5528a77c1a8c544ab38b0140cf8512dc324c7fe8cfb9ea554646f8749bff4c"
+  },
+  "actual_cuda_verified": false,
+  "full_goal_complete": false
+}
