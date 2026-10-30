@@ -37,6 +37,13 @@ def product_sources(root):
             text=text.replace('{ uint p=controlInput(s);\n#ifdef PORTABLE_PRODUCT_FIXED_BURST\n    if(commands[p+1]==5)return (commands[p+10]&(1U<<who))!=0;\n#endif\n    return (commands[p+1]==2','{ uint p=controlInput(s);return (commands[p+1]==2')
             digest=hashlib.sha256(text.encode()).hexdigest()
             if digest!='aa8df45901d9d3a7e19d6af41bbd6a0a1721594156ea56c4dd1f47cde900c33d':raise ValueError('Product charge history preimage differs')
+        # Partial charge applies to the BODY and its part/interrupt snapshot.
+        # This exact source inverse retains the old full-charge-only history.
+        if name=='gpu/event_runtime.slang' and digest=='8f2b069a23501b3d983279748de0c4dd239f674c9d66f113c95a045ce4a47594':
+            text=text.replace('w.mode==1?(PARTIAL_IS_FULL(w)?H_CHARGE:0U)|','w.mode==1?H_CHARGE|')
+            text=text.replace('w.mode==1 ? (PARTIAL_IS_FULL(w)?H_CHARGE:0U)|','w.mode==1 ? H_CHARGE|')
+            digest=hashlib.sha256(text.encode()).hexdigest()
+            if digest!=row['current_sha256']:raise ValueError('Product part charge history preimage differs')
         if digest==row['baseline_sha256']:
             projected[name]=text;continue
         if digest!=row['current_sha256']:raise ValueError('Unreviewed product source: '+name)
@@ -58,6 +65,15 @@ def project_sources(root):
     for name,digest in data['added_sources'].items():
         if hashlib.sha256((root/name).read_bytes()).hexdigest()!=digest:raise ValueError('Unreviewed weighted dependency: '+name)
     projected=product_sources(root)
+    group=root/'gpu/attack_group_runtime.slang'
+    if group.exists():
+        text=group.read_text();digest=hashlib.sha256(text.encode()).hexdigest()
+        if digest=='30c0706d85c6144e4d2952bbfa38107abccf56fcef9d95ed36d1831f2baf5bc1':
+            text=text.replace('#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n            // Native parts are additional packets of this BODY pellet. They\n            // never become logical enemies in the multi-hit recipient set.\n            if(results[head+9]!=0&&commands[actorBinding(s,slot)]==0&&counterLandingsEnabled(s)&&s.error==0)\n                deliverCounterParts(s,who,ACTOR_REF|slot,when,output);\n#endif\n','',1)
+            text=text.replace('\n#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n       &&!(commands[input+1]==2&&commands[actorBinding(s,slot)]==1)\n#endif\n       ','',1)
+            if hashlib.sha256(text.encode()).hexdigest()!='0ea6d9b8bd82f063553762609836bd536c025590455ae7191be3440bb4dcf070':raise ValueError('Product native part group preimage differs')
+            projected['gpu/attack_group_runtime.slang']=text
+        elif digest!='0ea6d9b8bd82f063553762609836bd536c025590455ae7191be3440bb4dcf070':raise ValueError('Unreviewed product source: gpu/attack_group_runtime.slang')
     for name,row in data['files'].items():
         text=projected.get(name,(root/name).read_text())
         if hashlib.sha256(text.encode()).hexdigest()!=row['after_sha256']:raise ValueError('Unreviewed weighted source: '+name)

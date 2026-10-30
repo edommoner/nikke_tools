@@ -84,7 +84,11 @@ bool initializeAttackGroups(inout Runtime s)
 #endif
        ) return false;
 #else
-    for(uint slot=0;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]!=0&&commands[actorBinding(s,slot)]!=5) return false;
+    for(uint slot=0;slot<actorPoolCount(s);slot++) if(commands[actorBinding(s,slot)]!=0&&commands[actorBinding(s,slot)]!=5
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+       &&!(commands[input+1]==2&&commands[actorBinding(s,slot)]==1)
+#endif
+       ) return false;
 #endif
     uint owners=0;
     for(uint row=0;row<s.count;row++)
@@ -137,6 +141,12 @@ bool deliverAttackGroupShot(inout Runtime s,uint who,uint64_t when,uint output,u
             counterPhysicalPacket(s,who,slot,generation,credit,results[receipt+1]!=0,when,output);
             if((s.healthMask&64)!=0&&s.error==0) dispatch(s,17,0,who,0,when,output,amount);
             if(damageAccumEnabled(s)&&slot==0&&s.error==0) dispatch(s,39,0,who,0,when,output,amount);
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+            // Native parts are additional packets of this BODY pellet. They
+            // never become logical enemies in the multi-hit recipient set.
+            if(results[head+9]!=0&&commands[actorBinding(s,slot)]==0&&counterLandingsEnabled(s)&&s.error==0)
+                deliverCounterParts(s,who,ACTOR_REF|slot,when,output);
+#endif
         }
         results[set+5]=0;results[actorPoolHead(s)+7]--;
     }

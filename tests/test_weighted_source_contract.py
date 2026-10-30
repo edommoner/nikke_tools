@@ -8,7 +8,7 @@ class WeightedSourceContract(unittest.TestCase):
     def copy_sources(self, root):
         ledger=json.loads((ROOT/'tests/fixtures/portable-weighted-incoming-source-delta.json').read_text())
         product=json.loads((ROOT/'tests/fixtures/portable-product-source-delta.json').read_text())
-        names={*ledger['files'],*ledger['added_sources'],*product['files'],*product['added_sources'],'tests/fixtures/portable-weighted-incoming-source-delta.json','tests/fixtures/portable-product-source-delta.json'}
+        names={'gpu/attack_group_runtime.slang',*ledger['files'],*ledger['added_sources'],*product['files'],*product['added_sources'],'tests/fixtures/portable-weighted-incoming-source-delta.json','tests/fixtures/portable-product-source-delta.json'}
         for name in names:
             target=root/name;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes((ROOT/name).read_bytes())
         return ledger
@@ -24,11 +24,13 @@ class WeightedSourceContract(unittest.TestCase):
             self.assertEqual(project_sources(root),current)
 
     def test_changed_product_route_guard_and_arithmetic_are_rejected(self):
-        cases=[('app/portable_backend.py',"source.replace('gpu/product_fixed_','gpu/product_',1)","source.replace('gpu/product_fixed_','gpu/product_group_',1)"),
+        cases=[('gpu/attack_group_runtime.slang','commands[input+1]==2&&commands[actorBinding(s,slot)]==1','commands[actorBinding(s,slot)]==1'),
+               ('app/portable_backend.py',"source.replace('gpu/product_fixed_','gpu/product_',1)","source.replace('gpu/product_fixed_','gpu/product_group_',1)"),
                ('gpu/event_runtime.slang','uint64_t fixedGaugeReadyAt;','uint fixedGaugeReadyAt;'),
                ('gpu/world_actor_fields.slang','#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS','#if 1'),
                ('gpu/combat_runtime.slang','s.fixedGaugeReadyAt = f64Add(when,','s.fixedGaugeReadyAt = f64Sub(when,'),
                ('gpu/world_charge_control_runtime.slang','|| defined(PORTABLE_PRODUCT_OUTLINED_HELPERS)','|| defined(PORTABLE_WORLD_FRAME)'),
+               ('gpu/event_runtime.slang','(PARTIAL_IS_FULL(w)?H_CHARGE:0U)','H_CHARGE'),
                ('gpu/event_runtime.slang','uint count, error, timerClock','uint count, changedError, timerClock')]
         for name,before,after in cases:
             with self.subTest(name=name),tempfile.TemporaryDirectory() as folder:

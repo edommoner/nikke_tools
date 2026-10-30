@@ -70,11 +70,13 @@ class PortableDetail(unittest.TestCase):
         from portable_battle_attack_group_input import compile_battle
         body=selected_profile_bodies(['벨로타'],0)[0][2]
         body.update(duration=4,burst_gauge_mode='fixed')
+        body['enemy']['parts']=[dict(name='group-part',hp=1,reach=1)]
         body['enemy']['patterns']=[dict(id='volley',kind='attack',spec=dict(coeff=100,atk=100,target='all',hits=2,interval=.1))]
         with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU schedule in lowering')):
             prepared,_=product.prepare(body);source,iw,ow,words,meta=product.compile_product(prepared)
         self.assertEqual(source,'gpu/product_fixed_group_battle_entry.slang')
         self.assertEqual(len(words),iw)
+        self.assertEqual(meta['product_parts'],[dict(name='group-part',slot=1,node=0)])
         self.assertEqual(meta['real_prepared_input']['declared_attack_group_policy']['routing'],'native')
         self.assertFalse(meta['product_world']['cpu_schedule_or_state_supplied'])
         with self.assertRaisesRegex(ValueError,'plain idle/summon'):compile_battle(prepared,routing='all-logical-enemies')

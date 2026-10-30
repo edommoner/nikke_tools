@@ -559,11 +559,11 @@ bool worldPendingEnabled(inout Runtime s) { return WORLD_PENDING_ENABLED(s); }
 #define COUNTER_DEFINITION_INVALID(s,row,d,legacy) counterLandingDefinitionInvalid(s,row,d,legacy)
 #define COUNTER_PART_INPUT(s,base,step) if(counterLandingsEnabled(s)) { if(!validCounterLandingInput(s,base,step)) return false;continue; }
 #ifdef PORTABLE_WORLD_PROJECTILE
-#define COUNTER_DAMAGE(s,who,w,coefficient,when,legacy) (physicalInterruptSources(s)?sampleCounterReachShot(s,who,f64Div(coefficient,f64FromI64(w.pellets)),WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode==1?H_CHARGE|((s.attackContext[who]&4)!=0?H_EXPLOSION:0):0)),w.fullChargeMult,w.optimal!=0,when):(legacy))
-#define COUNTER_SHOT(s,who,w,coefficient,when) if(!physicalInterruptSources(s)) sampleCounterPartShot(s,who,f64Div(coefficient,f64FromI64(w.pellets)),WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode==1 ? H_CHARGE|((s.attackContext[who]&4)!=0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal!=0,when);
+#define COUNTER_DAMAGE(s,who,w,coefficient,when,legacy) (physicalInterruptSources(s)?sampleCounterReachShot(s,who,f64Div(coefficient,f64FromI64(w.pellets)),WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode==1?(PARTIAL_IS_FULL(w)?H_CHARGE:0U)|((s.attackContext[who]&4)!=0?H_EXPLOSION:0):0)),w.fullChargeMult,w.optimal!=0,when):(legacy))
+#define COUNTER_SHOT(s,who,w,coefficient,when) if(!physicalInterruptSources(s)) sampleCounterPartShot(s,who,f64Div(coefficient,f64FromI64(w.pellets)),WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode==1 ? (PARTIAL_IS_FULL(w)?H_CHARGE:0U)|((s.attackContext[who]&4)!=0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal!=0,when);
 #else
 #define COUNTER_DAMAGE(s,who,w,coefficient,when,legacy) legacy
-#define COUNTER_SHOT(s,who,w,coefficient,when) sampleCounterPartShot(s,who,f64Div(coefficient,f64FromI64(w.pellets)),WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode==1 ? H_CHARGE|((s.attackContext[who]&4)!=0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal!=0,when);
+#define COUNTER_SHOT(s,who,w,coefficient,when) sampleCounterPartShot(s,who,f64Div(coefficient,f64FromI64(w.pellets)),WORLD_PACKET_NORMAL(s,who),w.coreBonus,WORLD_PACKET_FLAGS(s,who,(w.mode==1 ? (PARTIAL_IS_FULL(w)?H_CHARGE:0U)|((s.attackContext[who]&4)!=0 ? H_EXPLOSION : 0) : 0)),w.fullChargeMult,w.optimal!=0,when);
 #endif
 #define COUNTER_CAPTURE(s,who,target) uint counterLandingTarget=actorPhysicalTarget(s,who,target);
 #define COUNTER_TARGET(s,legacy) (counterLandingsEnabled(s) ? counterLandingTarget : (legacy))
