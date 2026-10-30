@@ -15,6 +15,14 @@ def prepare():
     rows=[];template=selected_rows(['original-catalogue/hp-shield/베이/favorite-0/30s'])[0]
     for raw in fixtures():
         row=copy.deepcopy(template);row.update(name=raw['name'],body=copy.deepcopy(raw['body']),patterns=copy.deepcopy(raw['patterns']),allocation=copy.deepcopy(raw['allocation']))
+        # Original contracts have no intercepting enemy shield. Typed automatic
+        # aim can select a live target at any geometry, so its audit-only node
+        # must remain unspawned for the entire battle, not merely be far away.
+        duration=raw['body']['duration'];node='weighted-audit-unspawned'
+        row['patterns'].append(dict(id=node,kind='idle',delay=duration+1,until=dict(time=duration+2)))
+        row['body']['enemy']['patterns']=copy.deepcopy(row['patterns'])
+        row['typed_bindings'][0]['node']=node
+        row['typed_geometry']['shapes']=[dict(x=1000000.,y=1000000.,r=1.,z=1.)]
         row['catalogue_profile'].update(favorite_stage=raw['contract']['favorite_stage'],duration=raw['body']['duration'])
         if raw.get('declared_burst_sequence'):row['declared_burst_sequence']=copy.deepcopy(raw['declared_burst_sequence'])
         c,p=original_prepare(row);c['weighted_case']=copy.deepcopy(raw)
@@ -32,6 +40,7 @@ _original_native=base.native_reference
 def native_reference(domain):
     c=domain[0];raw=c['weighted_case']
     with weighted_incoming(raw['allocation'],raw['names']) as data:n=_original_native(domain)
+    if n['coordinate_typed_weapon']['attacks']:raise AssertionError('Audit-only typed target intercepted an original body shot')
     # Same incoming contract as the already verified native-only CLI. The typed
     # arena adds full weapon/skill/actor observations, never a new damage oracle.
     saved=json.loads((ROOT/'tests/fixtures/weighted-battle-cpu-v1.json').read_text())

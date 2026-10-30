@@ -12,6 +12,8 @@ class WeightedBattleWire(unittest.TestCase):
         self.assertEqual(len(self.rows),15);self.assertEqual(len(self.data),4+15*wire.INPUT*4)
         for _,words,domain in self.rows[:7]:
             c,meta=domain[:2];case=c['weighted_case'];spec=case['allocation']
+            binding=c['typed_bindings'][0];audit=next(p for p in c['patterns'] if p['id']==binding['node'])
+            self.assertGreater(audit['delay'],c['duration'],'Audit target must remain unspawned; distance alone does not exclude automatic aim')
             self.assertEqual(words[wire.LAYOUT['BASE']:],wire.pack(spec,c['names']))
             self.assertFalse(meta['weighted_incoming']['CPU_state_or_schedule_as_input'])
             for i in meta['weighted_incoming']['definition_indices']:
