@@ -8,6 +8,8 @@
 
 公開/defaultは閉じたまま。分類はcanonical SCOPED_INERT、先行数値Metal572、専用CPU、今回の専用Metal戦闘を分離する。全キャラ/全目標は未達。今回GPUの受ける倍率は全0・係数は全100であり、次は元Noah等の非ゼロ被ダメージ倍率を持つ実編成と変動係数、遮蔽物復活の合成を優先する。追加caseは可能なら同entryのgeneration/PSO必須cacheで進め、旧11結果と元効果を保持。 静的確認ではSOW/Noah/Drake/Jackal/Maryは元69定義で、Noah元row12はreceived_hit_count:1・prob:10で全員received_dmg_pct -8%/10秒。確率を書換えず、実発火と非ゼロsnapshotを必須witnessにする。受動primingを入れる場合も元32 node上限を保持。実CUDAは現接続の保存状態確認とcompile-plan後の必要な短い検証だけ。
 
+最終登録f81f1c96の通常package cf3013a3…自身で5群27検査＋全11/4nativeのCPU事前照合73.945042秒、CUBIN/O1・2GiB・60秒compile-planも成功。追加GPU/Windows/compile/claim0、M5の全golden/sourceを保持。最終bridge記録 `research/target-count-query-evidence/cover-defense-battle-final-cli-bridge-v1.json`。
+
 [契約と実測](portable-cover-defense-battle.md)、証跡 `research/target-count-query-evidence/cover-defense-battle-metal-v1.json`。以下は履歴。
 
 # 2026-10-30 遮蔽物DEFを元の保護層へ接続するCPU契約4件

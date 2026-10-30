@@ -2,7 +2,7 @@
 
 `python scripts/nikke_gpu.py reference --suite cover-defense-common --out NEW.json`
 
-5人分の独立した基礎遮蔽物DEFを明示し、元の完全編成・効果・武器・育成・seedを保つ専用モデル。正本の4ファイルは変更しない。既存simulateの保持ASTを構造検査して、既存の被弾・分配・シールド・遮蔽物破壊の実行順へ量だけを渡す。別の時計・HP bank・carrier実行器は追加しない。入力変換・GPU受付は開かない。
+5人分の独立した基礎遮蔽物DEFを明示し、元の完全編成・効果・武器・育成・seedを保つ専用モデル。正本の4ファイルは変更しない。既存simulateの保持ASTを構造検査して、既存の被弾・分配・シールド・遮蔽物破壊の実行順へ量だけを渡す。別の時計・HP bank・carrier実行器は追加しない。既定の入力変換・公開GPU受付は開かない。
 
 元攻撃対象の受けるダメージ倍率を既存の照会位置で一度だけ取得し、元の有効攻撃力と係数とともに、元分配ループへlocalsで渡す。既存のシールド吸収とそのcallbackが完了した後、実際の遮蔽物フェーズで受け手の`cover_def_pct`を既存`_live_sum`から読む。独立DEFで計算した量を元の分配人数で割り、現在の遮蔽物HPを上限として、元の減算と破壊callbackへ返す。本体・シールド・デコイの数量は元のまま。受ける倍率のsnapshot位置と分配方針は明示モデルの選択であり、ゲーム実機仕様の認定ではない。
 
@@ -31,3 +31,5 @@ CUDA/MSLのpaired生成が成功（4.214565秒、Runtime138952byte）。旧entry
 旧entryを修正版sourceから別生成し、CUDA ea6efec5…／Metal 1a6baa15…の既存strict normalized SHAを保持した。新Metal実行を旧entryのGPU再認定へ拡大しない。先行数値572入力、今回の明示モデル戦闘4入力、既定の未対応分類は別の証明範囲。
 
 残件：今回の実GPU receiptは受ける倍率0・係数100だけであり、非ゼロ倍率、変動係数、遮蔽物復活との合成は未検証。次は元の被ダメージ倍率を持つ実編成を選び、同じentry/キャッシュで追加分岐を検証する。基礎DEFのゲームレベル曲線、canonical/default admission、全キャラ/全特殊効果、実CUDAは未完了。
+
+最終登録f81f1c96の通常package cf3013a3…自身でも5群27検査と全11入力/4nativeのfresh CPU事前照合が成功（73.945042秒）。固定goldenはM5独立seal版と完全一致し、追加GPU0。自身のcompile-planもCUBIN/O1・2048MiB・60秒で成功したがcompiler/driver/GPU/claim0。実CUDAキャッシュの成功とは扱わない。
