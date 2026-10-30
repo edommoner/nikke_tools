@@ -140,7 +140,7 @@
         "gpu/world_spawn_runtime.slang": "6da41aa26d47d47ebb54b6d742f62592f2fbcae50ea2e38a3a7d571771b7a8c3",
         "gpu/world_fraction_runtime.slang": "4c6378db9152c2907d7e7b7a1dcd1f34d4e93bf1f48e90ca7770d19c6e7a4752",
         "gpu/world_team_runtime.slang": "44b952a742446296c1abdb3a1ee03aaf731b43fff53e9979418868bf839700b9",
-        "gpu/world_charge_control_runtime.slang": "aa8df45901d9d3a7e19d6af41bbd6a0a1721594156ea56c4dd1f47cde900c33d",
+        "gpu/world_charge_control_runtime.slang": "7ac4a981dcefff85b44293b8ba05a8058778c92972cc64a437f643b04f4bcaf8",
         "gpu/coordinate_manual_control_runtime.slang": "bfea1cd87e9566b7eafb95edd733ef8e4ee541a634140142f12c229b54f9a82c",
         "gpu/physical_lock_cover_layout.slang": "74830a10dceb283e54dbb3f5fa605bdb26e6f364ea95d9624969eb05af9385ce",
         "gpu/coordinate_cover_policy_runtime.slang": "484a42997cc5bc6b98c11ec9e8656fd4d877312f32a2424f2fd5af603c39251e",
@@ -193,8 +193,8 @@
         }
       ],
       "generated_normalized": {
-        "cuda": "e22717eed515ccbb1df6ec4eb0e5755cdc938b34b40827648f85f6b052b51574",
-        "metal": "99ba0f859080dc44df2b803098a111b0e320497dcc8bc47e811bc1b81a93ea4f"
+        "cuda": "0eea348b05a36430659db085119b91f67bb02a1a465ec33f99a55480a5a83d1e",
+        "metal": "ad45d4709eeb8a5a03b0f3124d04fcf9fe4227afbc940d4418c4e33eb88cd47f"
       }
     },
     "accumulate": {
@@ -335,7 +335,7 @@
         "gpu/world_spawn_runtime.slang": "6da41aa26d47d47ebb54b6d742f62592f2fbcae50ea2e38a3a7d571771b7a8c3",
         "gpu/world_fraction_runtime.slang": "4c6378db9152c2907d7e7b7a1dcd1f34d4e93bf1f48e90ca7770d19c6e7a4752",
         "gpu/world_team_runtime.slang": "44b952a742446296c1abdb3a1ee03aaf731b43fff53e9979418868bf839700b9",
-        "gpu/world_charge_control_runtime.slang": "aa8df45901d9d3a7e19d6af41bbd6a0a1721594156ea56c4dd1f47cde900c33d",
+        "gpu/world_charge_control_runtime.slang": "7ac4a981dcefff85b44293b8ba05a8058778c92972cc64a437f643b04f4bcaf8",
         "gpu/coordinate_manual_control_runtime.slang": "bfea1cd87e9566b7eafb95edd733ef8e4ee541a634140142f12c229b54f9a82c",
         "gpu/physical_lock_cover_layout.slang": "74830a10dceb283e54dbb3f5fa605bdb26e6f364ea95d9624969eb05af9385ce",
         "gpu/coordinate_cover_policy_runtime.slang": "484a42997cc5bc6b98c11ec9e8656fd4d877312f32a2424f2fd5af603c39251e",
@@ -388,8 +388,8 @@
         }
       ],
       "generated_normalized": {
-        "cuda": "40bb4c7a64f22ea95dfa3fcc7357915d90b0b6e832d5ac93c02fbe001c8b4e3f",
-        "metal": "ec485089091be169ac6c17d2dabc9903d08537bf0e95f8040909d89bfb96b032"
+        "cuda": "9d928ea2153e29c0ab5d63a8e3ec344094104ae4b8b1b3886bcdbd890587a230",
+        "metal": "c7c7e0cebef440b56a5a14d5c26e30eb161940d29e2df3a764f1b125254a035a"
       }
     }
   }

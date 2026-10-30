@@ -1,3 +1,23 @@
+# 2026-10-31 Milk数値・操作表示・固定tapを共通製品経路で解消、6実API正例と通常回帰2例一致
+
+現計算source42f2f5c0e97f707a3d2bc2cbb9e6ee4f6fe52984。実製品のキャラ別射撃を接続した後の不一致を原因別に修正した。数値期待値/CPU正本/strict normalizerは変更していない。コードはa750c24c（既存judgement補正をproductへ）→f6716723（GPU operator intervals）→42f2f5c0（固定+tap合成）。新suite/certificate/監査toolは追加せず既存product family/CLI/API/testを使用。
+
+1) shared world_charge_control_runtimeで、既存original-forced-reload入口に限られていた『予定judgement shotのフルチャージ昇格』『実発射時だけlast-full履歴更新』をproductにも適用。元Milk20秒の入力全byte・元CPU計算全payload（VCS stampだけ除外）を旧失敗と一致確認。source a750の実Metalではダメージ/全burst時刻差が解消し、残りcontrol/control_detailだけになった。proof product-tap-judgement-api-v1-20261031/capture d86fd295…、旧数値失敗は不変。
+
+2) GPUの実charge開始/hold-until-close/操作所有者変更でkind2=open/kind3=closeを既存220件control traceへ記録。state+20を現在rowに使い、Runtime stride/入力stride/出力容量増加なし。productだけ有効、クリック宣言がある時だけhead+13=PCL1を立てるため通常autoの旧出力は不変。時刻/所有権/判断をCPUから供給しない。元CharState constructorからmode/producerの文字列ラベルだけmetadataへ保存。decoderはraw GPU区間を検証し、canonical SimLog.control_occupancy/control_summaryで既存製品形式へ変換する。区間容量/marker/owner/row/時刻/順序/閉じ方/preempt countを検証。同一ラベルの隣接切替は元_open_ctrlと同じ連続区間へ戻し、残ったopenは元writer同様に要求durationで閉じる。
+
+source f671の通常APIではAlice蓄積8秒・Milk蓄積20秒・Ada固定8秒・Rapunzel Pure Grace固定8秒の4/4がM5実Metal/CPU全製品payload一致。以前のtap2件fallbackを解消。proof product-character-controls-api-v2-20261031、全raw SHA/API/GPU/CPU/source凍結を独立照合。v5追加後の現source42でもaccumulate生成CUDA/MSLの全byteがf671と同一、元2入力全byteも一致し、保存readbackの全製品payloadを再投影して一致（VCS stampだけ除外）、GPU/native追加0。これは保存結果再利用で新API dispatchではない。
+
+3) fixedのv4はそのまま保持。元control v2のtap maskを固定first/regenと共存させるv5だけ追加。固定literal秒は既存+6..9、tap maskは元+5から新+10へ保持、reservedは+11..15=0。v4は従来+10..15=0。GPUでもmaskと実click owner一致、version/magic/reserved/有限非負秒を検査する。固定Alice8秒/Milk20秒の2/2通常APIがM5実Metal、control/control_detail/ダメージ/全時刻を含むCPU全payload一致。GPU0.539979/1.242489秒。proof product-fixed-tap-api-v1-20261031。元固定tapの事前fallback記録も保持。raw不正10（mask欠落/範囲外/owner違い/version/magic/reserved2/NaN/負秒/v4へtap偽装）は同じshaderを1batchでGPU実行し全status64、GPU0.040470秒。
+
+共通77group/841test失敗0/error0、旧Windows-only skip1。製品35＋program packet7＋source history5。合成前入力/全操作wire/元policyの保持、区間破損拒否を既存testへ追加した。過去product ledger/全数値fixtureを維持し、完全な現file SHA一致時だけ観測hookとv5差分を元charge source aa8df459…へ厳密逆変換して旧auditを通す。これは歴史preimageで、現数値同等の代用ではない。
+
+通常autoの蓄積/固定Miranda30秒も現source42の既存CLI development compact packet自身で実M5・全CPU製品payload一致、fresh独立GPU禁止seal成功。proof product-control-regression-v1-20261031。GPU1.751835/1.757896秒。旧input/output/全entry数値指紋は完全同一：accum291fd865…/bc19e132…、fixedb534ebb2…/9c72bd03…。登録tableのsource_sha256/generated_normalizedだけ独立sealした新sourceへ更新し、数値期待値を変えていない。旧table原bytesはproof/prior-program-goldens.jsonとGit履歴に保持。両source-baseline current=true、packet7test成功。sealed ownerの新規配布はこの更新commit以後に作成する。6group/target membersの新sealは未実施、全profileの現source再sweepではない。
+
+Windows旧99b83f3f…のbinding付きread-only再利用監査は60秒timeout、62.368秒（後観測込）/peak82497536bytes、receipt/proof未作成・stderr空・内部の最後の処理unknown。メモリ不足の根拠はなく、上限延長/同じrun再試行はしない。元794証跡/claims/binding/7missing/unknown/保全falseを維持、新missing0/Jobpost空/観測cleanupinspection0。unit71成功、追加Slang/NVRTC/link/driver/GPU/native0。保存5JSON12987bytes branch codex/product-reuse-history-cli-v1-report commit988453d1e21fd50581d80429a17c8ede04ab428dを取得、manifest SHA91fe1874859a56fd707d80496ec95cee7628c30f186c0b7616c0c6895a77e156/全blob SHA/bytes/見えるowner・binding・失敗scopeをMac照合。最初のcoordinatorはjsonlを除外して停止、実manifestに従って取得を訂正。raw/全chainの独立Mac監査とは主張しない。proof product-reuse-history-cli-v1-import-20261031/mac-audit.json。
+
+Windows chatはcursor144/idle、pendingなし。旧32/189/99 ownerは現source42とは計算codeが変わったため、旧CUBINを現codeと偽装しない。次の必要なCUDAは現sourceの新sealed owner/compile-planから最短PTX生成・compileを1回だけ、2GiB/BelowNormal/child60秒/外180秒で検討する。旧timeout/claimsは保持し、source/生成codeが本当に変更されたことを束縛して新ownerを使う。旧監査の同一run反復を既定手段にしない。通常API履歴の確認数はMetal255profile＋別編成1、CUDA旧蓄積1profile1秒・現fixed0、distinct profile増加0。今回6APIは既存profileの操作条件拡張であり、新sourceで全255を再実行したとの意味ではない。残11profile・全typed/parts/全編成/設定・現CUDAを含むgoalはactive。今回の共有要約research/target-count-query-evidence/product-control-composition-v1.json。以下は履歴。
+
 # 2026-10-31 修正版immutable ownerを共有、Windowsの歴史binding付き再利用監査が開始
 
 監査修正版source032cc081のsealed accumulate packet owner99b83f3f6015c41be839bfb83e572606a823a14657869144fcf214cb2745b33c/2686files/ZIP11806179bytes/SHA8879682c5fd6495952bf90fbc311012844cd6f7e16bf4a207d45274467b306fbを既存CLIで作成・展開。packet自身unit45、linked27＋stage44の計71CPU成功。payload-audit.jsonで旧717 ownerとの全file集合/golden/GPU全bytes一致、差はapp/portable_detail.py・scripts2・tests3の計6テキストだけ。追加Slang/native/GPU0。source-only ZIP＋小transport JSONをcodex/product-reuse-history-cli-v1-packet commit61eeb50359168a7be288c8f09f9dc312fdbd8a80へ共有済み。runtime-residentも032cc081まで共有済み。
