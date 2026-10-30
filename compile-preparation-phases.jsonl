@@ -1,0 +1,6 @@
+{"monotonic_ns": 3214312921000000, "stage": "inner_before_observation", "state": "entered", "wall_time_ns": 1793384908422352100}
+{"elapsed_seconds": 2.3456726, "monotonic_ns": 3214315281000000, "stage": "inner_before_observation", "state": "returned", "wall_time_ns": 1793384910778049400}
+{"monotonic_ns": 3214315312000000, "stage": "gpu_child_verify_package", "state": "entered", "wall_time_ns": 1793384910805026500}
+{"elapsed_seconds": 11.2248976, "monotonic_ns": 3214326531000000, "stage": "gpu_child_verify_package", "state": "returned", "wall_time_ns": 1793384922030794900}
+{"monotonic_ns": 3214372937000000, "stage": "inner_after_observation", "state": "entered", "wall_time_ns": 1793384968430696600}
+{"elapsed_seconds": 2.4453022, "monotonic_ns": 3214375390000000, "stage": "inner_after_observation", "state": "returned", "wall_time_ns": 1793384970878142100}

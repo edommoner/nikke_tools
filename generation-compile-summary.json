@@ -1,0 +1,19 @@
+{
+  "package_id": "eda7660a7c04aebe23b220d51110466d46580c668425c4594c5944182cacb68c",
+  "generation_verified": true,
+  "compiler_verified": false,
+  "ptx_present": false,
+  "retained_claim_key": "cb609fc6625ac478769f11eec18bc99bd141ff85fbbaf66342ccfeecdfae4206",
+  "paired_generation_required_hit": true,
+  "additional_slang_invocations": 0,
+  "nvrtc_attempts": 1,
+  "nvrtc_returned_success": false,
+  "inner_timed_out": true,
+  "outer_timed_out": false,
+  "historical_missing": 7,
+  "historical_preservation_verified": false,
+  "historical_termination_cause": "unknown",
+  "cause": "unknown",
+  "new_compiler_calls_during_report": 0,
+  "gpu_calls": 0
+}

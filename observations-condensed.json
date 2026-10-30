@@ -1,0 +1,83 @@
+{
+  "generation-v1": {
+    "execution": {
+      "passed": true,
+      "timed_out": false,
+      "timeout_seconds": 59.84400000004098,
+      "elapsed_seconds": 33.117843999993056,
+      "child_exit_code": 0,
+      "final_child_exit_code": 0,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true
+    },
+    "process_preserved": true,
+    "missing_count": 0,
+    "service_preservation_verified": false,
+    "service_status_before": "unverified",
+    "service_status_after": "unverified",
+    "snapshot_before_unix_ns": 1793384851014685100,
+    "snapshot_after_unix_ns": 1793384881701339600,
+    "job_pre_gate_unix_ns": 1793384848622861300,
+    "job_post_wait_unix_ns": 1793384879315975100,
+    "fresh_job_verified": true,
+    "post_job_member_count": 0,
+    "inspection_error": null,
+    "peak_bytes": 542425088,
+    "memory_limit_bytes": 2147483648
+  },
+  "compile-ptx-v1": {
+    "execution": {
+      "passed": false,
+      "timed_out": false,
+      "timeout_seconds": 179.84400000004098,
+      "elapsed_seconds": 79.37391339987516,
+      "child_exit_code": 1,
+      "final_child_exit_code": 1,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true
+    },
+    "process_preserved": true,
+    "missing_count": 0,
+    "service_preservation_verified": false,
+    "service_status_before": "unverified",
+    "service_status_after": "unverified",
+    "snapshot_before_unix_ns": 1793384897836395400,
+    "snapshot_after_unix_ns": 1793384974831162600,
+    "job_pre_gate_unix_ns": 1793384895500521800,
+    "job_post_wait_unix_ns": 1793384972475016200,
+    "fresh_job_verified": true,
+    "post_job_member_count": 0,
+    "inspection_error": null,
+    "peak_bytes": 234991616,
+    "memory_limit_bytes": 2147483648
+  },
+  "compile-ptx-v1/proof": {
+    "execution": {
+      "passed": false,
+      "timed_out": true,
+      "timeout_seconds": 60,
+      "elapsed_seconds": 62.535083800088614,
+      "child_exit_code": null,
+      "final_child_exit_code": 1,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true
+    },
+    "process_preserved": true,
+    "missing_count": 0,
+    "service_preservation_verified": false,
+    "service_status_before": "unverified",
+    "service_status_after": "unverified",
+    "snapshot_before_unix_ns": 1793384910778049400,
+    "snapshot_after_unix_ns": 1793384970878142100,
+    "job_pre_gate_unix_ns": 1793384908418656500,
+    "job_post_wait_unix_ns": 1793384968427139600,
+    "fresh_job_verified": true,
+    "post_job_member_count": 0,
+    "inspection_error": null,
+    "peak_bytes": 196788224,
+    "memory_limit_bytes": 2147483648
+  }
+}

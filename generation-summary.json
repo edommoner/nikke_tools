@@ -1,0 +1,33 @@
+{
+  "package_id": "eda7660a7c04aebe23b220d51110466d46580c668425c4594c5944182cacb68c",
+  "generation_verified": true,
+  "sealed_generated_baseline_verified": true,
+  "generated_normalized": {
+    "cuda": "e22717eed515ccbb1df6ec4eb0e5755cdc938b34b40827648f85f6b052b51574",
+    "metal": "99ba0f859080dc44df2b803098a111b0e320497dcc8bc47e811bc1b81a93ea4f"
+  },
+  "cache_hit": false,
+  "compiler_invocations": 2,
+  "cache_key": "becc67dc6612264e38a02c2cce9b03dc3a4fc1bfeaec1b19e337c480da0e7969",
+  "artifacts": {
+    "cuda": {
+      "bytes": 2275219,
+      "sha256": "155bcfb907b471137b97ed044181ea7b2dbf90682823297461eca8b60f2e7f19"
+    },
+    "cuda-reflection": {
+      "bytes": 426759,
+      "sha256": "12f5782302efc884aec84c3b3996decb05904dd51a6150a141b986420682e2e8"
+    },
+    "metal": {
+      "bytes": 2407842,
+      "sha256": "16cc0c29543da3cda08819be0c85e51c95030de8c806d4889bb32c3496955d25"
+    },
+    "metal-reflection": {
+      "bytes": 426294,
+      "sha256": "d9acfd876b99dfbc14cd954504c7d2096263955408333f6863ece4e731926e65"
+    }
+  },
+  "gpu_calls": 0,
+  "driver_load_calls": 0,
+  "nvrtc_compile_calls": 0
+}

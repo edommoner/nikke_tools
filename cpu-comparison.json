@@ -1,0 +1,336 @@
+{
+  "schema": "fixed-ptx-saved-comparison-v1",
+  "scope": "CPU-only saved-record comparison; no compiler, GPU or battle replay",
+  "old_source_commit": "705bfd23e3411a33c81ad69e5c70adb0aa6184c9",
+  "new_source_commit": "6c7d023579857f46e1aeedaa1013306eb156973a",
+  "old_cuda": {
+    "bytes": 2274611,
+    "sha256": "6279783dd04eb7d3951554d5b1b75927bc7abb0b8a6042ededf73ea93ced1c74",
+    "strict_normalized_sha256": "40bb4c7a64f22ea95dfa3fcc7357915d90b0b6e832d5ac93c02fbe001c8b4e3f"
+  },
+  "new_cuda": {
+    "bytes": 2275219,
+    "sha256": "155bcfb907b471137b97ed044181ea7b2dbf90682823297461eca8b60f2e7f19",
+    "strict_normalized_sha256": "e22717eed515ccbb1df6ec4eb0e5755cdc938b34b40827648f85f6b052b51574"
+  },
+  "raw_equal": false,
+  "strict_normalized_equal": false,
+  "diffstat": {
+    "method": "difflib.SequenceMatcher on exact generated CUDA splitlines; autojunk=True",
+    "changed_blocks": 6308,
+    "old_lines": 77178,
+    "new_lines": 77213,
+    "removed_lines": 41430,
+    "added_lines": 41465
+  },
+  "options": [
+    "--std=c++17",
+    "--gpu-architecture=compute_86",
+    "--fmad=false"
+  ],
+  "options_equal": true,
+  "sdk_identity_equal": true,
+  "sdk_files": {
+    "nvrtc-builtins64_124.dll": "79888dba26c51475ea21fc7b47d2b9dd5b1ffaecc8e5ea22a49fa5f5a722eb43",
+    "nvrtc64_120_0.dll": "3aa3cd8aa10437e212760c0e1ed730807811ec3bc330216dbfde4b26211d2243"
+  },
+  "header_identity_equal": true,
+  "header_sha256": [
+    "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
+  ],
+  "current_request_identity_reconstruction_key": "cb609fc6625ac478769f11eec18bc99bd141ff85fbbaf66342ccfeecdfae4206",
+  "request_key_matches_retained_claim": true,
+  "reconstruction_scope": "Read-only existing cache_request over saved CUDA/options/header/SDK bytes; not a compiler success receipt",
+  "old_timing": {
+    "inner_execution_seconds": 41.08684270037338,
+    "inner_timeout": false,
+    "timeout_budget_seconds": 60,
+    "child_creation_to_package_verify_enter_seconds": 2.7650812,
+    "job_pre_gate_to_package_verify_enter_seconds": 2.7215778,
+    "package_verify_seconds": 8.204073,
+    "package_verify_return_to_build_enter_seconds": 0.0237958,
+    "generation_cache_build_seconds": 2.3045262,
+    "generation_build_return_to_cache_verified_seconds": 0.7470825,
+    "cache_verified_to_library_load_enter_seconds": 0.3755657,
+    "library_load_span_seconds": 0.0089427,
+    "library_loaded_to_nvrtc_compile_enter_seconds": 0.004561,
+    "job_pre_gate_to_nvrtc_compile_enter_seconds": 14.3916128,
+    "child_creation_to_nvrtc_compile_enter_seconds": 14.4351162,
+    "nvrtc_returned": true,
+    "nvrtc_returned_seconds": 23.4813377,
+    "nvrtc_entry_to_post_job_observation_seconds": 23.8910636,
+    "nominal_remaining_at_nvrtc_entry_seconds": 45.608387199999996,
+    "exact_timeout_trigger_time": "unknown; no timeout-enter journal marker",
+    "monotonic_intervals": {
+      "package_verify": 8.203,
+      "build": 2.312,
+      "build_return_to_cache_verified": 0.735,
+      "cache_verified_to_library": 0.375,
+      "library_load_span": 0.015
+    },
+    "phase_durations": [
+      {
+        "stage": "slang_generation_identity",
+        "state": "returned",
+        "elapsed_seconds": 0.6820648
+      },
+      {
+        "stage": "slang_generation_read_entry",
+        "state": "returned",
+        "elapsed_seconds": 0.0289363
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "state": "returned",
+        "elapsed_seconds": 0.0247127
+      },
+      {
+        "stage": "slang_layout_assertions",
+        "state": "returned",
+        "elapsed_seconds": 0.0250444
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "state": "returned",
+        "elapsed_seconds": 0.4607991
+      },
+      {
+        "stage": "slang_generation_validate_pair",
+        "state": "returned",
+        "elapsed_seconds": 0.6971707
+      },
+      {
+        "stage": "slang_generation_identity",
+        "state": "returned",
+        "elapsed_seconds": 0.6966318
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "state": "returned",
+        "elapsed_seconds": 0.003905
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "state": "returned",
+        "elapsed_seconds": 0.0024979
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "state": "returned",
+        "elapsed_seconds": 0.0045427
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "state": "returned",
+        "elapsed_seconds": 0.0031759
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "state": "returned",
+        "elapsed_seconds": 0.0021338
+      },
+      {
+        "stage": "slang_build",
+        "state": "returned",
+        "elapsed_seconds": 2.3045262
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "state": "returned",
+        "elapsed_seconds": 0.0045462
+      },
+      {
+        "stage": "slang_layout_assertions",
+        "state": "returned",
+        "elapsed_seconds": 0.0182493
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "state": "returned",
+        "elapsed_seconds": 0.4761106
+      },
+      {
+        "stage": "slang_generation_validate_pair",
+        "state": "returned",
+        "elapsed_seconds": 0.6903344
+      },
+      {
+        "stage": "nvrtcCreateProgram",
+        "state": "returned",
+        "elapsed_seconds": 0.002144
+      },
+      {
+        "stage": "nvrtcCompileProgram",
+        "state": "returned",
+        "elapsed_seconds": 23.4813377
+      },
+      {
+        "stage": "nvrtcGetProgramLogSize",
+        "state": "returned",
+        "elapsed_seconds": 6.9e-06
+      },
+      {
+        "stage": "nvrtcGetProgramLog",
+        "state": "returned",
+        "elapsed_seconds": 5.1e-06
+      },
+      {
+        "stage": "nvrtcGetPTXSize",
+        "state": "returned",
+        "elapsed_seconds": 6.9e-06
+      },
+      {
+        "stage": "nvrtcGetPTX",
+        "state": "returned",
+        "elapsed_seconds": 0.0007379
+      },
+      {
+        "stage": "nvrtcDestroyProgram",
+        "state": "returned",
+        "elapsed_seconds": 0.0008652
+      },
+      {
+        "stage": "cuda_compile_artifact",
+        "state": "returned",
+        "elapsed_seconds": 23.9003788
+      },
+      {
+        "stage": "shared_cuda_compile_only",
+        "state": "returned",
+        "elapsed_seconds": 23.9088527
+      }
+    ],
+    "phase_clock_note": "Journal monotonic stamps are quantized; elapsed_seconds uses perf_counter. Snapshot/job stamps use wall time; mixed boundaries use wall differences."
+  },
+  "new_timing": {
+    "inner_execution_seconds": 62.535083800088614,
+    "inner_timeout": true,
+    "timeout_budget_seconds": 60,
+    "child_creation_to_package_verify_enter_seconds": 2.4463,
+    "job_pre_gate_to_package_verify_enter_seconds": 2.38637,
+    "package_verify_seconds": 11.2248976,
+    "package_verify_return_to_build_enter_seconds": 0.0229488,
+    "generation_cache_build_seconds": 3.820473,
+    "generation_build_return_to_cache_verified_seconds": 1.386738,
+    "cache_verified_to_library_load_enter_seconds": 0.4875212,
+    "library_load_span_seconds": 0.0365992,
+    "library_loaded_to_nvrtc_compile_enter_seconds": 0.0103322,
+    "job_pre_gate_to_nvrtc_compile_enter_seconds": 19.3790733,
+    "child_creation_to_nvrtc_compile_enter_seconds": 19.4390033,
+    "nvrtc_returned": false,
+    "nvrtc_returned_seconds": null,
+    "nvrtc_entry_to_post_job_observation_seconds": 40.6294098,
+    "nominal_remaining_at_nvrtc_entry_seconds": 40.6209267,
+    "exact_timeout_trigger_time": "unknown; no timeout-enter journal marker",
+    "monotonic_intervals": {
+      "package_verify": 11.219,
+      "build": 3.813,
+      "build_return_to_cache_verified": 1.39,
+      "cache_verified_to_library": 0.485,
+      "library_load_span": 0.046
+    },
+    "phase_durations": [
+      {
+        "stage": "slang_generation_identity",
+        "state": "returned",
+        "elapsed_seconds": 0.9738233
+      },
+      {
+        "stage": "slang_generation_read_entry",
+        "state": "returned",
+        "elapsed_seconds": 0.0549446
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "state": "returned",
+        "elapsed_seconds": 0.0188119
+      },
+      {
+        "stage": "slang_layout_assertions",
+        "state": "returned",
+        "elapsed_seconds": 0.0409356
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "state": "returned",
+        "elapsed_seconds": 0.9655509
+      },
+      {
+        "stage": "slang_generation_validate_pair",
+        "state": "returned",
+        "elapsed_seconds": 1.4116185
+      },
+      {
+        "stage": "slang_generation_identity",
+        "state": "returned",
+        "elapsed_seconds": 0.9889168
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "state": "returned",
+        "elapsed_seconds": 0.0070017
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "state": "returned",
+        "elapsed_seconds": 0.0042949
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "state": "returned",
+        "elapsed_seconds": 0.0072473
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "state": "returned",
+        "elapsed_seconds": 0.0049173
+      },
+      {
+        "stage": "slang_generation_atomic",
+        "state": "returned",
+        "elapsed_seconds": 0.0037338
+      },
+      {
+        "stage": "slang_build",
+        "state": "returned",
+        "elapsed_seconds": 3.820473
+      },
+      {
+        "stage": "slang_reflection_plan",
+        "state": "returned",
+        "elapsed_seconds": 0.010194
+      },
+      {
+        "stage": "slang_layout_assertions",
+        "state": "returned",
+        "elapsed_seconds": 0.0300006
+      },
+      {
+        "stage": "slang_scope_snapshot_audit",
+        "state": "returned",
+        "elapsed_seconds": 1.0101172
+      },
+      {
+        "stage": "slang_generation_validate_pair",
+        "state": "returned",
+        "elapsed_seconds": 1.3218287
+      },
+      {
+        "stage": "nvrtcCreateProgram",
+        "state": "returned",
+        "elapsed_seconds": 0.0030851
+      }
+    ],
+    "phase_clock_note": "Journal monotonic stamps are quantized; elapsed_seconds uses perf_counter. Snapshot/job stamps use wall time; mixed boundaries use wall differences."
+  },
+  "precompile_wall_increase_seconds": 4.987460500000001,
+  "first_timeout_wrapper": "compile-ptx inner60s; outer180s did not time out",
+  "new_peak_bytes": 196788224,
+  "memory_limit_bytes": 2147483648,
+  "memory_shortage_evidence": false,
+  "cause": "unknown",
+  "semantic_equivalence_claim": false,
+  "old_success_reused_as_current_proof": false,
+  "compiler_calls": 0,
+  "gpu_calls": 0
+}

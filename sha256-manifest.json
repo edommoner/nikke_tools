@@ -1,0 +1,59 @@
+{
+  "schema": "product-fixed-ptx-timeout-v1-report",
+  "files": [
+    {
+      "path": "compile-failure.json",
+      "bytes": 274,
+      "sha256": "07dc1a22015dc2f1c6c3f7493dc4505784cc80b43a17b4de25a8dca399b11593"
+    },
+    {
+      "path": "compile-phases.jsonl",
+      "bytes": 6511,
+      "sha256": "fe66f7ce23571e296118f5e9c8df0c3136f41fb15a79cba642e1ea1524012b08"
+    },
+    {
+      "path": "compile-preparation-phases.jsonl",
+      "bytes": 872,
+      "sha256": "4e59f25b9201092fbcc432adac560598b67c2819de7303fb630868cc30451e15"
+    },
+    {
+      "path": "compile-run.json",
+      "bytes": 284,
+      "sha256": "2342be26e2edd83c99ad0e865c9b1fc699b7bf7f787ff3be789ea818c27bb13d"
+    },
+    {
+      "path": "cpu-comparison.json",
+      "bytes": 11026,
+      "sha256": "b176f11b1f51123394f80a8e27befa32296ce0f1f19cc2948cbf976855594bcb"
+    },
+    {
+      "path": "cpu-preparation.json",
+      "bytes": 3449,
+      "sha256": "fb3752a602f58c245ed9894306212f3d3ddbcc03eccd31e43c147a0c9a43b5b9"
+    },
+    {
+      "path": "generation-compile-summary.json",
+      "bytes": 673,
+      "sha256": "b316df915b714f3e93c9f4f9b2608968a1709119f44a79c810e087b9972a29ee"
+    },
+    {
+      "path": "generation-phases.jsonl",
+      "bytes": 8332,
+      "sha256": "6db36f4052169868a302ba16238f340a3517bd96a2b81a8b8a5f9f2372bc1f59"
+    },
+    {
+      "path": "generation-summary.json",
+      "bytes": 1151,
+      "sha256": "4a00010b68f740ed2d127ea09b0351a3b0ac2153a403dd2eafa4bc6bee1101b4"
+    },
+    {
+      "path": "observations-condensed.json",
+      "bytes": 2768,
+      "sha256": "9a5e696db46ff0019c500cf66c3bbbf1ca62a6680e91a8cc0fe137e9efa1bc4c"
+    }
+  ],
+  "protected_input_files": 486,
+  "original_inputs_unchanged": true,
+  "phase_projection": "Existing events with timing/state fields only; pid/path/receipt/native args omitted",
+  "no_raw_or_compiled_binary": true
+}

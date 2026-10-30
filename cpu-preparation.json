@@ -1,0 +1,117 @@
+{
+  "schema": "fixed-sealed-v2-cpu-prepared-v3",
+  "passed": true,
+  "package": {
+    "passed": true,
+    "package_id": "eda7660a7c04aebe23b220d51110466d46580c668425c4594c5944182cacb68c",
+    "files": 4172,
+    "source_commit": "6c7d023579857f46e1aeedaa1013306eb156973a",
+    "product_program": "fixed",
+    "purpose": "sealed",
+    "suite": "product-detail",
+    "elapsed_seconds": 11.209313299972564
+  },
+  "units": {
+    "schema": "unit-check-v1",
+    "package_id": "eda7660a7c04aebe23b220d51110466d46580c668425c4594c5944182cacb68c",
+    "suite": "product-detail",
+    "passed": true,
+    "unit_tests_verified": true,
+    "full_native_preflight_executed": false,
+    "cpu_verified": false,
+    "calculation_verified": false,
+    "gpu_execution_verified": false,
+    "gpu_calls": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false,
+    "groups": 2,
+    "tests": 34
+  },
+  "cpu_test_groups": [
+    {
+      "pattern": "test_portable_detail.py",
+      "exit_code": 0,
+      "elapsed_seconds": 14.56633839989081,
+      "tests": 27,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_product_detail_packet.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.8824499999172986,
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "eda7660a7c04aebe23b220d51110466d46580c668425c4594c5944182cacb68c",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "stage_timings": {
+    "transfer-v1": {
+      "passed": true,
+      "elapsed_seconds": 11.232613100204617,
+      "peak_bytes": 43433984
+    },
+    "bootstrap-gate-v3": {
+      "passed": true,
+      "elapsed_seconds": 5.448414899874479,
+      "peak_bytes": 55422976
+    },
+    "unpack-v3": {
+      "passed": true,
+      "elapsed_seconds": 33.916361699812114,
+      "peak_bytes": 76709888
+    },
+    "verify-v1": {
+      "passed": true,
+      "elapsed_seconds": 16.805685500148684,
+      "peak_bytes": 69087232
+    },
+    "deps-v2": {
+      "passed": true,
+      "elapsed_seconds": 17.13799410033971,
+      "peak_bytes": 71393280
+    },
+    "units-v1": {
+      "passed": true,
+      "elapsed_seconds": 43.32829069998115,
+      "peak_bytes": 199245824
+    },
+    "plan-v1": {
+      "passed": true,
+      "elapsed_seconds": 16.807060999795794,
+      "peak_bytes": 71049216
+    }
+  },
+  "old_inputs_unchanged": true,
+  "retained_failures": {
+    "bootstrap-v1": "Missing portable_readback_blocks; import before unpack",
+    "bootstrap-v2": "Missing portable_reference in main/help; unpack not entered",
+    "deps-v1": "argparse exit2 missing required --out; dependency check not entered"
+  },
+  "historical_missing": 7,
+  "historical_preservation_verified": false,
+  "historical_termination_cause": "unknown",
+  "compiler_calls": 0,
+  "gpu_calls": 0
+}

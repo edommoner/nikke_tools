@@ -1,0 +1,58 @@
+{"monotonic_ns": 3214267859000000, "stage": "slang_build", "state": "entered", "wall_time_ns": 1793384863346107300}
+{"monotonic_ns": 3214268156000000, "stage": "slang_generation_identity", "state": "entered", "wall_time_ns": 1793384863646727400}
+{"elapsed_seconds": 1.1457739, "monotonic_ns": 3214269296000000, "stage": "slang_generation_identity", "state": "returned", "wall_time_ns": 1793384864794151000}
+{"monotonic_ns": 3214269296000000, "stage": "slang_generation_request", "state": "observed", "wall_time_ns": 1793384864795698500}
+{"monotonic_ns": 3214269312000000, "stage": "slang_compiler", "state": "entered", "wall_time_ns": 1793384864799297400}
+{"elapsed_seconds": 2.4833218, "monotonic_ns": 3214271796000000, "stage": "slang_compiler", "state": "returned", "wall_time_ns": 1793384867284044100}
+{"monotonic_ns": 3214271796000000, "stage": "slang_compiler", "state": "entered", "wall_time_ns": 1793384867287611900}
+{"elapsed_seconds": 2.8037801, "monotonic_ns": 3214274593000000, "stage": "slang_compiler", "state": "returned", "wall_time_ns": 1793384870092720500}
+{"monotonic_ns": 3214274593000000, "stage": "slang_reflection_plan", "state": "entered", "wall_time_ns": 1793384870093744700}
+{"elapsed_seconds": 0.0056672, "monotonic_ns": 3214274609000000, "stage": "slang_reflection_plan", "state": "returned", "wall_time_ns": 1793384870099881600}
+{"monotonic_ns": 3214274609000000, "stage": "slang_scope_snapshot_audit", "state": "entered", "wall_time_ns": 1793384870103514900}
+{"elapsed_seconds": 0.7500546, "monotonic_ns": 3214275359000000, "stage": "slang_scope_snapshot_audit", "state": "returned", "wall_time_ns": 1793384870853871900}
+{"monotonic_ns": 3214275875000000, "stage": "slang_generation_validate_pair", "state": "entered", "wall_time_ns": 1793384871375557900}
+{"monotonic_ns": 3214275890000000, "stage": "slang_reflection_plan", "state": "entered", "wall_time_ns": 1793384871378676500}
+{"elapsed_seconds": 0.0279773, "monotonic_ns": 3214275906000000, "stage": "slang_reflection_plan", "state": "returned", "wall_time_ns": 1793384871407939700}
+{"monotonic_ns": 3214275921000000, "stage": "slang_layout_assertions", "state": "entered", "wall_time_ns": 1793384871413490800}
+{"elapsed_seconds": 0.0386056, "monotonic_ns": 3214275953000000, "stage": "slang_layout_assertions", "state": "returned", "wall_time_ns": 1793384871454066100}
+{"monotonic_ns": 3214275968000000, "stage": "slang_scope_snapshot_audit", "state": "entered", "wall_time_ns": 1793384871463822900}
+{"elapsed_seconds": 0.9107355, "monotonic_ns": 3214276875000000, "stage": "slang_scope_snapshot_audit", "state": "returned", "wall_time_ns": 1793384872375043400}
+{"elapsed_seconds": 1.268582, "monotonic_ns": 3214277156000000, "stage": "slang_generation_validate_pair", "state": "returned", "wall_time_ns": 1793384872647561100}
+{"monotonic_ns": 3214277171000000, "stage": "slang_generation_identity", "state": "entered", "wall_time_ns": 1793384872659103000}
+{"elapsed_seconds": 1.0530173, "monotonic_ns": 3214278234000000, "stage": "slang_generation_identity", "state": "returned", "wall_time_ns": 1793384873730647800}
+{"monotonic_ns": 3214278234000000, "stage": "slang_generation_request", "state": "observed", "wall_time_ns": 1793384873732736300}
+{"monotonic_ns": 3214278296000000, "stage": "slang_generation_atomic", "state": "entered", "wall_time_ns": 1793384873794464400}
+{"elapsed_seconds": 0.0126223, "monotonic_ns": 3214278312000000, "stage": "slang_generation_atomic", "state": "returned", "wall_time_ns": 1793384873808256200}
+{"monotonic_ns": 3214278328000000, "stage": "slang_generation_read_entry", "state": "entered", "wall_time_ns": 1793384873814904200}
+{"elapsed_seconds": 0.0778357, "monotonic_ns": 3214278406000000, "stage": "slang_generation_read_entry", "state": "returned", "wall_time_ns": 1793384873893456200}
+{"monotonic_ns": 3214278406000000, "stage": "slang_generation_validate_pair", "state": "entered", "wall_time_ns": 1793384873899065700}
+{"monotonic_ns": 3214278406000000, "stage": "slang_reflection_plan", "state": "entered", "wall_time_ns": 1793384873901165900}
+{"elapsed_seconds": 0.0172442, "monotonic_ns": 3214278421000000, "stage": "slang_reflection_plan", "state": "returned", "wall_time_ns": 1793384873919537500}
+{"monotonic_ns": 3214278421000000, "stage": "slang_layout_assertions", "state": "entered", "wall_time_ns": 1793384873920599100}
+{"elapsed_seconds": 0.0181683, "monotonic_ns": 3214278437000000, "stage": "slang_layout_assertions", "state": "returned", "wall_time_ns": 1793384873939205800}
+{"monotonic_ns": 3214278453000000, "stage": "slang_scope_snapshot_audit", "state": "entered", "wall_time_ns": 1793384873947933800}
+{"elapsed_seconds": 0.873764, "monotonic_ns": 3214279328000000, "stage": "slang_scope_snapshot_audit", "state": "returned", "wall_time_ns": 1793384874823235700}
+{"elapsed_seconds": 1.1827616, "monotonic_ns": 3214279593000000, "stage": "slang_generation_validate_pair", "state": "returned", "wall_time_ns": 1793384875084368100}
+{"monotonic_ns": 3214279593000000, "stage": "slang_generation_identity", "state": "entered", "wall_time_ns": 1793384875087450700}
+{"elapsed_seconds": 1.1021946, "monotonic_ns": 3214280703000000, "stage": "slang_generation_identity", "state": "returned", "wall_time_ns": 1793384876189847100}
+{"monotonic_ns": 3214280703000000, "stage": "slang_generation_request", "state": "observed", "wall_time_ns": 1793384876192535300}
+{"monotonic_ns": 3214280703000000, "stage": "slang_generation_atomic", "state": "entered", "wall_time_ns": 1793384876192535300}
+{"elapsed_seconds": 0.0043923, "monotonic_ns": 3214280703000000, "stage": "slang_generation_atomic", "state": "returned", "wall_time_ns": 1793384876198019200}
+{"monotonic_ns": 3214280703000000, "stage": "slang_generation_atomic", "state": "entered", "wall_time_ns": 1793384876199031200}
+{"elapsed_seconds": 0.001605, "monotonic_ns": 3214280703000000, "stage": "slang_generation_atomic", "state": "returned", "wall_time_ns": 1793384876201078600}
+{"monotonic_ns": 3214280703000000, "stage": "slang_generation_atomic", "state": "entered", "wall_time_ns": 1793384876201588200}
+{"elapsed_seconds": 0.029234, "monotonic_ns": 3214280734000000, "stage": "slang_generation_atomic", "state": "returned", "wall_time_ns": 1793384876236049100}
+{"monotonic_ns": 3214280750000000, "stage": "slang_generation_atomic", "state": "entered", "wall_time_ns": 1793384876247988700}
+{"elapsed_seconds": 0.0051932, "monotonic_ns": 3214280765000000, "stage": "slang_generation_atomic", "state": "returned", "wall_time_ns": 1793384876255145100}
+{"monotonic_ns": 3214280765000000, "stage": "slang_generation_atomic", "state": "entered", "wall_time_ns": 1793384876263779800}
+{"elapsed_seconds": 0.0062696, "monotonic_ns": 3214280781000000, "stage": "slang_generation_atomic", "state": "returned", "wall_time_ns": 1793384876271084900}
+{"elapsed_seconds": 12.9275951, "monotonic_ns": 3214280781000000, "stage": "slang_build", "state": "returned", "wall_time_ns": 1793384876276321100}
+{"monotonic_ns": 3214280859000000, "stage": "slang_generation_validate_pair", "state": "entered", "wall_time_ns": 1793384876352785000}
+{"monotonic_ns": 3214280859000000, "stage": "slang_reflection_plan", "state": "entered", "wall_time_ns": 1793384876356911500}
+{"elapsed_seconds": 0.0168994, "monotonic_ns": 3214280875000000, "stage": "slang_reflection_plan", "state": "returned", "wall_time_ns": 1793384876376271800}
+{"monotonic_ns": 3214280890000000, "stage": "slang_layout_assertions", "state": "entered", "wall_time_ns": 1793384876377826000}
+{"elapsed_seconds": 0.0461976, "monotonic_ns": 3214280937000000, "stage": "slang_layout_assertions", "state": "returned", "wall_time_ns": 1793384876425112400}
+{"monotonic_ns": 3214280937000000, "stage": "slang_scope_snapshot_audit", "state": "entered", "wall_time_ns": 1793384876435022500}
+{"elapsed_seconds": 0.9236727, "monotonic_ns": 3214281859000000, "stage": "slang_scope_snapshot_audit", "state": "returned", "wall_time_ns": 1793384877360049900}
+{"elapsed_seconds": 1.3961186, "monotonic_ns": 3214282265000000, "stage": "slang_generation_validate_pair", "state": "returned", "wall_time_ns": 1793384877752615700}
+{"monotonic_ns": 3214282265000000, "stage": "slang_generation_cache", "state": "verified", "wall_time_ns": 1793384877755233700}
