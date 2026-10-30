@@ -1,3 +1,13 @@
+## 2026-10-31 製品残11profileの次の実装判断
+
+現4fa35b70を元catalogueから再prepare/compileした全11の先頭拒否は既存readinessでreference_model_gap。effect_range_pct/effect_target_count_add/移動/lockはcanonical consumerなし、cover_def_pctはSCOPED_INERT、分配はdeferred、敵ammoはchar_states外をskip、敵healは既定world source/recipient経路が未確定。proof product-remaining-profiles-current-20261031.jsonとproduct-current-model-check-20261031.json。GPU/native追加0。これは全効果の網羅的検査ではなく、全11profileの現先頭拒否と既存source監査の照合。
+
+Reiの元定義にはfull_burst_startで同じallies_with_buff:섬멸 태세へ対象数+1・範囲+500%の2効果がある。先頭countだけの受付でprofile完成とはしない。通常cohortはRei/Miranda/Dolla/N102/Maryで対象のAsuka WILLEがいないため、空recipientで数値一致しても実効果を実証できない。必要なのは元Rei＋WILLEの実編成、対象buffが有効になるburst、複数敵/範囲内外の正例、対象なし/期限切れ/世代交代の対照である。
+
+次のprofile実装では、まず既存effect_target_count_policy.query/named_range_battleと共通GPU wireの再利用範囲を決める。CPUの既定consumer追加と製品入力のworld/geometry契約が必要で、別の宣言モデルをcanonical/game verifiedと読み替えない。比較用旧CPU/旧expectations/失敗を保持し、必要な新CPU契約を版分けしてから同じ共通実行器/既存テストへ接続する方針をレビュー対象とする。protected CPU正本を変更するスコープは明示許可が未確認。公開266profile完成を目指す判断であり、残11を目標から除外するものではない。
+
+CUDAは現normal entryのsealed source packetをMacで準備する。前のWindows PTXは旧source4bfd6841で、現normal shader852c1192とは生成codeが違う。旧PTX成功/claims/観測falseを保持し、現sourceの再利用証拠へ付替えない。Windowsへの新compile/runはまだ依頼しない。
+
 # 未対応分類を次の作業へ接続する
 
 共通CLIの`inventory --out <new-file.json>`は、既存の82分類・優先順位を保持したまま、各`priority.reference_readiness`と`work_lanes`を出力する。新しいGPU受付を追加する機能ではない。

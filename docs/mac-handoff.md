@@ -1,3 +1,9 @@
+# 2026-10-31 残11profileを現sourceで再分類、Claude方向性レビューは具体的送信許可待ち
+
+current source4fa35b70。既存CLI model-check --summaryを新規proof product-current-model-check-20261031.jsonへ実行し成功、GPU/native0。これはsource/dependency監査でGPU対応証明ではない。さらに残11profileを現catalogueから静的prepare/compileし、全件の元effect identity/rejectionを確認。既存reference_readinessで全11がreference_model_gap、単なるGPU lowering gapではないことを再確認した。proof product-remaining-profiles-current-20261031.json。無効果whitelistや許容差変更でprofile数を増やさない。既存255profileの条件拡張だけではこの11件は解消しないため、次は既存consumer有無の確認とCPU/製品契約の実装範囲判断が必要。
+
+Claudeへ上記方向性を相談しようとしたが、正常な自動承認レビューが「内部の製品coverage/未対応効果/CUDA状況/実装方針をAnthropicへ送る具体的payloadと送信先への明示許可がない」と実行前に拒否。送信/Claude起動/再試行/迂回なし。正確に同じ2673byteのpromptをproof product-direction-review-20261031/prompt.txtへローカル保存、SHA74cb6f2f8c9fd9d54755546ab066c3faa68d5fbc402154a70dba55575bc490d3。request.json/local-findings.txtも保存。要約だけ・コード/設定/認証/rawなし・ツール無効・plan・session無保存・90秒上限で1回の予定。直接許可待ちで未実施、Claudeの結論とは主張しない。Windows7JSONの直接許可待ちも別件で継続。追加GPU/compile0、profile数はMetal255/CUDA旧1・fixed0のまま。以下は履歴。
+
 # 2026-10-31 対象別補正carrier＋元部位＋boss行動を製品4条件へ接続
 
 source83480d91740d4c96fb948e94407143787b923664。product_body_worldは元pattern/registryでBODYとPARTだけを認め、typed targetのない通常/複数命中両入口が元partsを保持する。projectile/shield補正carrierの元値・順序・triggerは保持し、部位用の係数として加算しない。typed binding tableが空の場合だけGPU初期化もBODY/PART universeを検査する。実typed targetのあるprivate入口は従来のBODY1体制約、召喚/interrupt/shield等の未接続製品合成は拒否を維持。CPU正本/効果/数値期待値/strict normalizerは変更なし。
