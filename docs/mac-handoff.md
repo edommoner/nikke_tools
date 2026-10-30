@@ -1,3 +1,21 @@
+# 2026-10-31 Windows改行fixtureを解消、現sourceのcold PTXは60秒timeoutで停止
+
+current source da7a4c35033865322846a844f432e45f64cb201c、現normal shaderは852c1192と同じ。old ec成功PTXと現shaderはevent_runtime/attack_group_runtimeの2閉包差分があり、生成指紋も異なるため流用しない。Macの新sealed owner1b668b9f…をcodex/product-current-parts-v1-packet ac8d678eで共有した。転送側の旧branch定数でCPU取得失敗→訂正版で取得成功。その後transportの『2件』を全GPUと解釈した追加gateで停止。外部transport JSONをddc614d3で訂正：旧ec基準で全payload12件/GPU5件/選択normal closure2件、追加削除0。ZIPは不変。旧失敗/claimsを保持。
+
+Windows1bの48testは47成功/1error。test_exact_later_product_inverse_keeps_original_ledger_and_old_sourcesが履歴preimageをPath.write_textで戻すとLF→CRLFとなり厳密added-source SHAに拒否されるfixture不具合だった。MacでPath.write_textのnewlineをCRLFにして同じ失敗を再現。da7a4c35でテストだけwrite_bytes(UTF-8)＋生byte assertへ修正。通常5/CRLF模擬5が成功。production SHA validator/ledger/CPU正本/GPU source/normalizer/数値期待値は不変。
+
+sealed修正版66edec5d576025c2c76dc70de61bc73b41f3a0a57e06f1fb3184d9e5f819f0f4（2686files、ZIP11813016bytes/SHA900b1331cb6fbcfdf9b07160fba8a14f5464b1622e2b01ddc9fe76800eaf685c）を同branch commit701ddf50990434953e134b623286366127277c1eへ共有。旧1bとの差は指定テスト1fileのみ、他全bytes/golden全体一致。Mac ownunit48/deps/PTX2GiB60plan成功。Windows root C:/Users/owner/Documents/Codex/nikke-product-current-parts-fixture-v2/packetでも48成功/skip0、deps/plan/paired generation成功。strict CUDAfe2a3e…/MSLffbb74…が現Metal基準一致。SDK/依存の再installなし。
+
+現sourceの初回NVRTC PTXは内側60秒でtimeout。NVRTC enteredだけ、正常return/PTXなし。内62.563秒/外77.532秒（観測含む）、peak内196964352/外230236160bytes、missing0/観測cleanupinspection0/Jobpost空。child作成→NVRTC entered16.7680502秒、pre-gate→entered16.7158141秒、entered→終了後Job観測43.2838683秒。wall clock同士で算出、exact Job終了/NVRTC実行時間は不明。returned child verify_package7.984510、slang_build4.365102、pair validation1.562319/1.085596、scope audit1.163056/.637747秒。入れ子なので合算しない。2GiB不足の根拠はない。既存保存option一覧はC++17/compute_86/fmad=false、当該実呼出しargvの保存はなく-O/dopt/ptxas optionは一覧になし。上限延長/同sourceのowner/cache替え再試行なし。ptxas/link/driver/GPU0、GPU profile追加0、失敗とclaimを保持して停止した。
+
+Windows chat cursor185/idle。最後の依頼は保存timingのread-only確認のみで完了、追加Job/SDKロード/公開なし。小記録research/target-count-query-evidence/product-current-parts-windows-check-v2.jsonはpeer statusで、MacのWindows原本独立監査ではない。生詳細はWindows保持。旧7JSON/e9802daaの直接許可待ちは別件で継続、迂回取得なし。
+
+次は既存compile observerが同一生成pairをvalidate_pairで再検査する約1〜2秒と、child package検証約8秒の切り分け。観測コードresearch/portable_phase_audit.py:observe(build wrapper)がgenerator内検査後にaudit_receiptで同じpairのsemantic auditを実行していることを現codeで確認したが、まだ最適化やWindows再実行はしていない。検査を削除したりcapを増やさず、byte一致時の同一process内再利用とfresh独立監査の境界を設計/故障注入する候補。profile数を増やす実装の代用にしない。
+
+通常API候補5件（Miranda30秒/Alice8秒/Milk20秒/Ada8秒/Rapunzel PureGrace8秒、全accumulate）を元公開factoryから静的prepareしnormal入口とinput SHA確認、GPU/native0。同branch52b342d239af47b5f5fe4767dd8a6d6a3ce5c09bのcurrent-api-requests.json/current-api-plan.jsonへ共有。ユーザーsessionは含まない。未実行であり、実行時はMiranda先行、成功/予算評価後だけ追加を検討。normal/fixed CUDA認定は増えていない。
+
+Claude要約2673byteの送信とCPU契約拡張は人間の返答待ち、実施しない。歴史Metal255＋別編成1、CUDA旧蓄積1profile1秒・fixed0、全目標active。以下は履歴。
+
 # 2026-10-31 残11profileを現sourceで再分類、Claude方向性レビューは具体的送信許可待ち
 
 current source4fa35b70。既存CLI model-check --summaryを新規proof product-current-model-check-20261031.jsonへ実行し成功、GPU/native0。これはsource/dependency監査でGPU対応証明ではない。さらに残11profileを現catalogueから静的prepare/compileし、全件の元effect identity/rejectionを確認。既存reference_readinessで全11がreference_model_gap、単なるGPU lowering gapではないことを再確認した。proof product-remaining-profiles-current-20261031.json。無効果whitelistや許容差変更でprofile数を増やさない。既存255profileの条件拡張だけではこの11件は解消しないため、次は既存consumer有無の確認とCPU/製品契約の実装範囲判断が必要。
