@@ -1,0 +1,12 @@
+{
+  "schema": "nikke-source-zip-transport-v1",
+  "source_commit": "a7cf715d0a6735097a2c6185464e6d11eddeda3d",
+  "package_id": "54ba1da6512c86cbecec02fb4213f3e3e4804a180a5d0a4cb53d4fa99af2c044",
+  "product_program": "fixed",
+  "purpose": "sealed",
+  "files": 2685,
+  "archive": "product-fixed-compact-v4-20261031.zip",
+  "bytes": 11797293,
+  "sha256": "41f53eb946163eb1ed9c14e6732ed012efdb22116f7817ae3f458b1495f81acd",
+  "scope": "Code/data/tests only. Own immutable CLI passed product39/native1 and common smoke74 groups/792 tests (one Windows-only test omitted by existing platform condition). GPU/compiler0; Windows timing and new compilation unverified."
+}
