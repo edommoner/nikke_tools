@@ -1,3 +1,9 @@
+# 2026-10-30 通常製品APIで26/266 profileがMetal・CPU全一致
+
+次の16件は15成功、ベロータがmulti_hit:4のlowering未接続でGPU前にCPU fallback。portable_detail.compile_productで実effectのmulti_hit要件を検出し、既存portable_battle_attack_group_input.compile_battle(routing=native)を使用するよう接続。group用resident wrapperは既存world_attack_group_entryのincludeだけ。非groupの25件は元product_battle_entry/入力/数値/出力を変更せず、全26の現在compilerの入力SHAを保存結果と再照合した。キャラ名allowlist/効果書換え/条件無視/新suite/共通計算本体変更0。
+
+ベロータ30秒も通常/api/jobsでMetal/全製品レスポンスCPU一致。これにより標準育成・cubeなし・30秒の26/266profile（favorite段階別）が製品Metalで一致、現共通CUDA0、未検査240。証拠product-profile-progress-v2.json。初回のmulti_hit拒否は元API応答/rawと区別して保持。新group GPU sourceの初回compileを含め63.32秒、GPU1.781秒。既検査25件はGPU再実行なし。専用CLI/証明書は追加せず、次は残240を同じ製品APIで16件単位に確認する。proof root product-profile-sweep-v1-20261030に未実行planを保存。全設定/全特殊条件の認定ではなく、全目標はactive。以下は履歴。
+
 # 2026-10-30 単一製品入口で10/266 profileの30秒応答がGPU/CPU一致
 
 最初の製品共通入口は10profile中8成功、ラピ：レッドフード/アニス：スターがadmission64でCPU fallback。前者のstat92など既存連鎖ハンドラーが入口で無効だった。新gpu/product_battle_entry.slangはresident＋既存world_projectile_chain_entryのincludeだけで、単一製品入口へfull-burst/named/stack/chain等を統合。計算本体・効果定義・guardは変更せずapp/portable_detail.pyのSOURCEを切替。新しいsuite/certificateは作らない。

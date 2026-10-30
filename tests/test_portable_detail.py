@@ -55,5 +55,23 @@ class PortableDetail(unittest.TestCase):
             result=product.evaluate(body)
             self.assertEqual(result['compute']['backend'],'cpu')
             self.assertIn('未接続',result['compute']['unsupported'][0]['reason'])
+    def test_real_multi_hit_uses_existing_native_group_wire_without_changing_effects(self):
+        sys.path.insert(0,str(ROOT/'research'))
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_specs import LIMITS as L
+        body=selected_profile_bodies(['벨로타'],0)[0][2]
+        with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle')):
+            prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+            source,iw,ow,words,metadata=product.compile_product(prepared)
+        self.assertEqual(prepared,before)
+        self.assertEqual(source,'gpu/product_group_battle_entry.slang')
+        self.assertEqual((iw,ow,len(words)),(104408,1048576,104408))
+        self.assertEqual(len(metadata['effects']),len(prepared['effects']))
+        self.assertEqual(words[-8:-5],[0x41475331,2,1])
+        event_rows=[i for i in range(words[1]) if words[L['EVENT_BASE']+i*L['EVENT_WORDS']]==62]
+        self.assertTrue(event_rows)
+        bad=copy.deepcopy(prepared)
+        next(item['effect'] for item in bad['effects'] if any(t.startswith('multi_hit:') for t in item['effect']['trigger']['timing']))['trigger']['timing']=['multi_hit:0']
+        with self.assertRaises(ValueError):product.compile_product(bad)
 
 if __name__=='__main__':unittest.main()

@@ -24,6 +24,18 @@ SOURCE = 'gpu/product_battle_entry.slang'
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def compile_product(prepared):
+    """Select an existing wire by actual effect requirements, never by character."""
+    grouped = any(t.startswith('multi_hit:') for item in prepared['effects']
+        for t in item['effect'].get('trigger',{}).get('timing',[]))
+    if grouped:
+        from portable_battle_attack_group_input import compile_battle, INPUT_WORDS as iw, OUTPUT_WORDS as ow
+        words, metadata = compile_battle(prepared,routing='native')
+        return 'gpu/product_group_battle_entry.slang', iw, ow, words, metadata
+    words, metadata = compile_projectile_battle(prepared)
+    return SOURCE, INPUT_WORDS, OUTPUT_WORDS, words, metadata
+
+
 def prepare(body):
     """Capture the existing Run while the original static hook prepares all effects."""
     import portable_roster_input
@@ -114,12 +126,12 @@ def evaluate(body):
             raise UnsupportedPortable('製品用GPUのボス行動・パーツ結果変換は未接続です。')
         if any(any(k != 'weapon_mode_swap' or v for k,v in c.get('control',{}).items()) for c in prepared['chars']):
             raise UnsupportedPortable('製品用GPUの手動操作結果変換は未接続です。')
-        words, metadata = compile_projectile_battle(prepared)
+        source, input_words, output_words, words, metadata = compile_product(prepared)
         wire = array.array('I',[1,*words])
         if sys.byteorder != 'little':wire.byteswap()
         packed = wire.tobytes()
         (folder/'input.bin').write_bytes(packed)
-        raw, evidence = execute(SOURCE,'portableEvents',packed,INPUT_WORDS,OUTPUT_WORDS,'metal',readback_path=folder/'readback.bin')
+        raw, evidence = execute(source,'portableEvents',packed,input_words,output_words,'metal',readback_path=folder/'readback.bin')
         if raw is not None:raise RuntimeError('Expected bounded file readback')
         (folder/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         record.update(gpu_execution_verified=evidence['gpu_execution_verified'],input_sha256=evidence['input_sha256'],output_sha256=evidence['output_sha256'])
@@ -128,7 +140,7 @@ def evaluate(body):
         payload = decode_payload(body,prepared,run,metadata,block)
         payload['compute'] = dict(requested='metal_detail',backend='metal_detail',device=evidence['transport']['device'],
             elapsed_ms=(time.perf_counter()-started)*1000,gpu_execution_verified=True,
-            input_sha256=evidence['input_sha256'],output_sha256=evidence['output_sha256'],source=SOURCE,
+            input_sha256=evidence['input_sha256'],output_sha256=evidence['output_sha256'],source=source,
             gpu_seconds=evidence['transport']['gpu_seconds'],scope='shared autonomous battle; CPU verified for this request')
         # Compare the complete product result, not just the damage total. CPU is
         # run strictly after GPU readback and cannot provide any GPU state.
