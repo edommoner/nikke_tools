@@ -72,7 +72,7 @@
   },
   "added_sources": {
     "gpu/cover_defense_layout.slang": "28c27bb566c2e2345ba618c6c2a15f21c1e71bc12859cc956741eb9fa4599a20",
-    "gpu/cover_defense_runtime.slang": "683c55d1f65e010add99c057b798a171f672ddad1b3f464bc1a29bc05ec07473",
+    "gpu/cover_defense_runtime.slang": "aacf4568f9b9d6a26bf19357f3192d3d046420f921397a22a20627c2af69ab7e",
     "gpu/world_cover_defense_entry.slang": "046e95f584d21734046a9edecc89577e60fbe9ca5bf66dce11adeed8f7bf0985"
   }
 }

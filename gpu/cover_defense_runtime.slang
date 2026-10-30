@@ -34,7 +34,7 @@ uint64_t coverDefenseQuantity(inout Runtime s,uint depth,uint who,uint64_t when)
     uint snapshot=coverDefenseSnapshot(s,depth),head=coverDefenseHead(s),count=results[head+1];
     if(depth>=CDF_DEPTH||who>=5||results[snapshot+7]!=CDF_MAGIC||results[snapshot+6]==0||results[snapshot+6]>5){s.error=64;return 0;}
     if(count>=CDF_RECEIPTS){s.error=2;return 0;}
-    uint divisor=results[snapshot+6];uint64_t attack=loadNumber(snapshot),coefficient=loadNumber(snapshot+2),received=loadNumber(snapshot+4);
+    uint divisor=results[snapshot+6];uint64_t attack=protectionNumber(snapshot),coefficient=protectionNumber(snapshot+2),received=protectionNumber(snapshot+4);
     uint64_t base=loadNumber(s.inputBase+CDF_BASE+8+who*2),percent=liveQuantity(s,who,CDF_STAT,when);
     uint64_t defense=incomingDefensePercentage(base,percent),quantity=incomingDefendedQuantity(attack,coefficient,defense,received),shared=f64Div(quantity,f64FromI64(divisor));
     if(!f64Finite(defense)||!f64Finite(quantity)||!f64Finite(shared)){s.error=16;return 0;}

@@ -1,7 +1,7 @@
 """Pinned exact preimage for the opt-in cover extension; never normalization."""
 import hashlib,json
 from pathlib import Path
-LEDGER_SHA256='eab7bd3a98c43911da54a4f2314f6895fd3168fa07cb57f4889ecf58e3034dff'
+LEDGER_SHA256='3b61075912a3728c5fc3c849b67361dca855439603de95b79c06b0058b70b846'
 
 def project_sources(root):
     root=Path(root);raw=(root/'tests/fixtures/portable-cover-defense-source-delta.json').read_bytes()
