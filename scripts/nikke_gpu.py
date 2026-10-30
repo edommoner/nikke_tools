@@ -32,7 +32,7 @@ from portable_product_programs import configuration as product_configuration, re
 SUITES = {
     'product-detail':dict(script='research/verify-product-detail.py',source='gpu/product_battle_entry.slang',
         golden='research/portable-product-detail-v3-expected.json',inputs=1,native=1,input_words=104400,output_words=786432,
-        support_files=['research/portable-product-detail-v1-expected.json','research/portable-product-detail-v2-expected.json','research/target-count-query-evidence/product-outline-v1.json','research/target-count-query-evidence/product-admission-v1.json',
+        support_files=['research/portable-product-detail-v1-expected.json','research/portable-product-detail-v2-expected.json','research/portable-cover-defense-modifiers-v1-expected.json','research/target-count-query-evidence/product-outline-v1.json','research/target-count-query-evidence/product-admission-v1.json',
             # Product owners must also boot the real HTTP/UI entry in isolation.
             # Public build fingerprints only; no legacy compiled GPU binary.
             'server.mjs','package.json','app/detail_effects-build.json','research/engine-probe-results.json',
@@ -40,7 +40,7 @@ SUITES = {
             'web/index.html','web/app.js','web/style.css','web/exporter.js','web/parts-model.mjs','web/phase-model.mjs',
             'web/enemy-model.mjs','web/roster-model.mjs','web/board-model.mjs',
             'tests/server.test.mjs','tests/evaluation-queue.test.mjs','tests/python-runtime.test.mjs','tests/portable-http-policy.test.mjs'],
-        development_only=False,parent_oracle_reuse=True,tests=['test_portable_detail.py','test_product_detail_packet.py']),
+        development_only=False,parent_oracle_reuse=True,tests=['test_portable_detail.py','test_product_detail_packet.py','test_weighted_source_contract.py']),
     'original-projectile-weapons':dict(script='research/verify-original-projectile-weapons.py',
         golden='research/portable-original-projectile-weapons-v1-expected.json',source='gpu/world_coordinate_typed_owner_entry.slang',
         inputs=13,native=8,input_words=115680,output_words=2032000,development_only=False,parent_oracle_reuse=True,cpu_test_timeout=120,entry_inventory_input_policy='body-owned-projectile-v1',

@@ -2,7 +2,8 @@
 import contextlib,os,re,sys,time,unittest
 from pathlib import Path
 
-AUDIT_FILES = {'test_coordinate_power_v1.py': ('requirements-validation.txt',),'test_coordinate_landing_v1.py': ('requirements-validation.txt',),
+AUDIT_FILES = {'test_weighted_source_contract.py': ('research/portable-cover-defense-modifiers-v1-expected.json',),
+    'test_coordinate_power_v1.py': ('requirements-validation.txt',),'test_coordinate_landing_v1.py': ('requirements-validation.txt',),
     'test_coordinate_healing.py': ('research/portable-coordinate-auto-reload-short-expected.json',),'test_coordinate_auto_reload.py': ('research/portable-coordinate-mode-actions-short-expected.json',),
     'test_coordinate_mode_actions.py': ('research/portable-coordinate-burst-control-short-expected.json',),
     'test_original_lock_health_parts.py': ('research/portable-original-lock-composition-v1-expected.json',),
