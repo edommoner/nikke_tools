@@ -1,0 +1,8 @@
+{"elapsed_seconds": 0.11000000033527613, "monotonic_ns": 3221910453000000, "stage": "packet_header_prepare", "state": "returned", "wall_time_ns": 1793392505946172400}
+{"monotonic_ns": 3221910515000000, "stage": "packet_bounded_stage", "state": "entered", "wall_time_ns": 1793392506007878000}
+{"monotonic_ns": 3221910546000000, "stage": "packet_before_observation", "state": "entered", "wall_time_ns": 1793392506043683100}
+{"elapsed_seconds": 2.528987, "monotonic_ns": 3221913078000000, "stage": "packet_before_observation", "state": "returned", "wall_time_ns": 1793392508573282800}
+{"monotonic_ns": 3221913093000000, "stage": "packet_linked_reuse_audit", "state": "entered", "wall_time_ns": 1793392508592562400}
+{"monotonic_ns": 3221970375000000, "stage": "packet_after_observation", "state": "entered", "wall_time_ns": 1793392565868060000}
+{"elapsed_seconds": 2.506023, "monotonic_ns": 3221972875000000, "stage": "packet_after_observation", "state": "returned", "wall_time_ns": 1793392568375079100}
+{"elapsed_seconds": 62.3693247, "monotonic_ns": 3221972890000000, "stage": "packet_bounded_stage", "state": "returned", "wall_time_ns": 1793392568378233100}

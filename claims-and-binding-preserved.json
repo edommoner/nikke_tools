@@ -1,0 +1,16 @@
+{
+  "new_audit_claim_retained": true,
+  "new_audit_claim_sha256": "a216be3a230037bc272d4b2686501d9970f58ce0b244f03d3f7441c0895e81d1",
+  "new_audit_claim_package_id": "99b83f3f6015c41be839bfb83e572606a823a14657869144fcf214cb2745b33c",
+  "source_descriptor_sha256": "ec8b0ae540837b7632eec63630fe2a80581c00a380c9bec3d3f3604c0262a774",
+  "binding_sha256": "523f24922f9cc8146b0d74d378fba01eb6c59224ce2ba4be6573f7e12b5bdc17",
+  "historical_observation_sha256": "05c534e266ee6b31bb481292a28ed52a7bbaedba0e427a5c662fe94a6f928920",
+  "binding_dict_equal": true,
+  "historical_missing_count": 7,
+  "FILETIME_strings": true,
+  "disposition": "retained-failure",
+  "historical_preservation_verified": false,
+  "historical_termination_cause": "unknown",
+  "original_inputs_unchanged": true,
+  "original_protected_files": 794
+}

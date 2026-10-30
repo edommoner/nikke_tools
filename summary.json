@@ -1,0 +1,134 @@
+{
+  "schema": "product-reuse-history-cli-v1-report",
+  "package": {
+    "passed": true,
+    "package_id": "99b83f3f6015c41be839bfb83e572606a823a14657869144fcf214cb2745b33c",
+    "files": 2686,
+    "source_commit": "032cc081d227a81fdaa8ae00a77b0b8e6fb8b49d",
+    "golden_equal_to_717": true,
+    "all_gpu_data_fixture_records_identical": true,
+    "changed_files": [
+      "app/portable_detail.py",
+      "scripts/nikke_gpu.py",
+      "scripts/run-gpu-packet.py",
+      "tests/test_portable_detail.py",
+      "tests/test_portable_linked_artifact.py",
+      "tests/test_portable_packet_stage.py"
+    ]
+  },
+  "transfer": {
+    "passed": true,
+    "commit": "61eeb50359168a7be288c8f09f9dc312fdbd8a80",
+    "files": [
+      {
+        "path": "product-reuse-history-cli-v1.zip",
+        "bytes": 11806179,
+        "sha256": "8879682c5fd6495952bf90fbc311012844cd6f7e16bf4a207d45274467b306fb"
+      },
+      {
+        "path": "transport.json",
+        "bytes": 1153,
+        "sha256": "a87cbf597aca074540fe3b8f693ab319898ac5c38fd5db5ec5204d5686c75f60"
+      }
+    ],
+    "elapsed_seconds": 2.030175100080669
+  },
+  "dependencies": {
+    "schema": 1,
+    "passed": true,
+    "dependencies": [],
+    "requirements_file": null,
+    "installation_performed": false,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "scope": "Selected validation tests only; package metadata and import availability, not GPU or numerical correctness",
+    "suite": "product-detail",
+    "package_id": "99b83f3f6015c41be839bfb83e572606a823a14657869144fcf214cb2745b33c"
+  },
+  "cpu_tests": {
+    "passed": true,
+    "tests": 71,
+    "compiler_calls": 0,
+    "gpu_calls": 0
+  },
+  "cpu_test_groups": [
+    {
+      "pattern": "test_portable_linked_artifact.py",
+      "exit_code": 0,
+      "elapsed_seconds": 3.16100009996444,
+      "tests": 27,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_portable_packet_stage.py",
+      "exit_code": 0,
+      "elapsed_seconds": 5.514822400175035,
+      "tests": 44,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "binding_copy": {
+    "dict_equal": true,
+    "missing_count": 7,
+    "FILETIME_strings": true,
+    "source_descriptor_sha256": "ec8b0ae540837b7632eec63630fe2a80581c00a380c9bec3d3f3604c0262a774",
+    "binding_sha256": "523f24922f9cc8146b0d74d378fba01eb6c59224ce2ba4be6573f7e12b5bdc17",
+    "historical_observation_sha256": "05c534e266ee6b31bb481292a28ed52a7bbaedba0e427a5c662fe94a6f928920",
+    "producer_authoritative_capture_resolved_from_claim": true,
+    "linked_capture_matches_original_claim": true,
+    "disposition": "retained-failure"
+  },
+  "binding_preserved_after_audit": true,
+  "producer_package_id": "717693a3c56becfa5c67ed9414fc1bbae7edb5ec49802264131bce25b97ebcf6",
+  "current_producer_recompiled": false,
+  "reuse_admission_verified": false,
+  "receipt_created": false,
+  "full_chain_audit_completion_verified": false,
+  "stop_reason": "Existing audit-linked-reuse stage reached60s overall limit before producing proof/result.json",
+  "audit_elapsed_seconds": 62.36776460008696,
+  "audit_configured_budget_seconds": 60,
+  "child_wait_budget_seconds": 59.82799999974668,
+  "audit_peak_bytes": 82497536,
+  "proof_directory_file_count": 0,
+  "stderr_bytes": 0,
+  "last_internal_audit_operation": "unknown; no per-function audit journal emitted",
+  "stage_result": {
+    "schema": 1,
+    "package_id": "99b83f3f6015c41be839bfb83e572606a823a14657869144fcf214cb2745b33c",
+    "stage": "audit-linked-reuse",
+    "bounded_execution_verified": false,
+    "proof_result": null,
+    "compiler_verified": false,
+    "generation_verified": false,
+    "calculation_verified": false,
+    "cpu_verified": false,
+    "smoke_verified": false,
+    "whole_stage_process_preservation_verified": true,
+    "whole_stage_environment_preservation_verified": false,
+    "stage_verified": false,
+    "stage_complete": false,
+    "gpu_retries": 0,
+    "full_goal_complete": false,
+    "linked_reuse_admission_verified": false
+  },
+  "old_inputs_unchanged": true,
+  "protected_files": 794,
+  "historical_missing": 7,
+  "historical_preservation_verified": false,
+  "historical_termination_cause": "unknown",
+  "old_compile_timeout_and_claim_retained": true,
+  "prior_observation_unknown_retained": true,
+  "generation_calls": 0,
+  "compiler_calls": 0,
+  "link_calls": 0,
+  "driver_calls": 0,
+  "gpu_calls": 0,
+  "native_battle_calls": 0,
+  "retries": 0,
+  "full_owner_native_verified": false,
+  "scope": "CPU tests and one incomplete read-only provenance audit only; not a CUBIN reuse or calculation proof"
+}
