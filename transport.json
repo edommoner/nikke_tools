@@ -1,34 +1,30 @@
 {
   "schema": 1,
-  "archive": "product-accumulate-current-v1.zip",
-  "bytes": 11804897,
-  "sha256": "d4bec3d2af64e9915184a8cc60e96e5bad80a563500359bde022a605353d2e1a",
-  "package_id": "717693a3c56becfa5c67ed9414fc1bbae7edb5ec49802264131bce25b97ebcf6",
-  "source_commit": "189e692fccfa921a3166645432fcd2aca2d422db",
+  "archive": "product-reuse-history-cli-v1.zip",
+  "bytes": 11806179,
+  "sha256": "8879682c5fd6495952bf90fbc311012844cd6f7e16bf4a207d45274467b306fb",
+  "package_id": "99b83f3f6015c41be839bfb83e572606a823a14657869144fcf214cb2745b33c",
+  "source_commit": "032cc081d227a81fdaa8ae00a77b0b8e6fb8b49d",
   "program": "accumulate",
   "files": 2686,
-  "scope": "Source-only current sealed product owner. No SDK, compiled artifact, raw GPU buffers or personal settings.",
-  "preflight": {
-    "unit_tests": 44,
-    "compile_plan": {
-      "schema": "compile-plan-v1",
-      "passed": true,
-      "package_id": "717693a3c56becfa5c67ed9414fc1bbae7edb5ec49802264131bce25b97ebcf6",
-      "suite": "product-detail",
-      "purpose": "sealed",
-      "artifact_kind": "ptx",
-      "ptxas_level": null,
-      "memory_limit_mb": 2048,
-      "timeout_seconds": 60,
-      "error": null,
-      "policy": "sealed-battle compile-only transport",
-      "gpu_calls": 0,
-      "compiler_calls": 0,
-      "claim_created": false,
-      "execution_claim_available": true,
-      "calculation_verified": false,
-      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
-    },
-    "dependencies_passed": true
+  "scope": "Source-only read-only exact PTX/CUBIN reuse audit; no SDK, binary, raw GPU buffers or personal settings.",
+  "payload_audit": {
+    "old_package_id": "717693a3c56becfa5c67ed9414fc1bbae7edb5ec49802264131bce25b97ebcf6",
+    "new_package_id": "99b83f3f6015c41be839bfb83e572606a823a14657869144fcf214cb2745b33c",
+    "golden_exact": true,
+    "gpu_all_bytes_identical": true,
+    "file_set_identical": true,
+    "changed_members": [
+      "app/portable_detail.py",
+      "scripts/nikke_gpu.py",
+      "scripts/run-gpu-packet.py",
+      "tests/test_portable_detail.py",
+      "tests/test_portable_linked_artifact.py",
+      "tests/test_portable_packet_stage.py"
+    ],
+    "own_unit_tests": 45,
+    "own_linked_stage_tests": 71,
+    "extra_gpu_calls": 0,
+    "extra_native_calls": 0
   }
 }
