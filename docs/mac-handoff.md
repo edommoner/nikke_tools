@@ -2,7 +2,7 @@
 
 固定9bd06aad/package ef200b58…の全21入力（元8戦闘/拒否13）がMetal成功。GPU5.703300秒、冷pipeline59.370762秒、CPU事前164.984342秒。別fresh GPU禁止child6群の全件独立監査213.119448秒。元4段階/破壊/ビスケット復活/reburst/未発動/破壊cover条件付き元自己回復2回を全状態比較。元carrier行IDと既存incoming mode22/23/20・cover消費helperを共用し、Runtime138992byteで増分0。通常weighted-battleとCUBIN/O1・cache/paired生成必須版へ登録。途中の監査敵lifesteal干渉・空cover membership・条件admission列挙漏れの失敗を保存し、正本/normalizer/許容差変更0。
 
-詳細は[偏差分配](portable-bay-allocation.md)、証拠weighted-battle-metal-v1.json。現CUDA/正確なゲーム重み/均等版併存/owner死亡復活GPU合成/全目標は未達、canonical/defaultは閉じたまま。Windows保存診断2ファイルは既存chatで具体的な人間の共有許可が自動審査に確認されず未送信。ユーザーへWindowsチャットでの直接許可を依頼済み、再検証は依頼しない。以下は履歴。
+詳細は[偏差分配](portable-bay-allocation.md)、証拠weighted-battle-metal-v1.json。現CUDA/正確なゲーム重み/均等版併存/owner死亡復活GPU合成/全目標は未達、canonical/defaultは閉じたまま。Windows保存診断2ファイルは既存chatで具体的な人間の共有許可が自動審査に確認されず未送信。ユーザーへWindowsチャットでの直接許可を依頼済み、再検証は依頼しない。最終登録72bb438e/package87a58874…自身の9群47検査と全21入力/8nativeのCPU事前照合162.897815秒も成功。元開発packetの全input/native/Slang指紋を保持、CUBIN/O1・2GiB・60秒compile-plan成功（compiler/GPU0）。全体model-checkはupstream文書を持つrootで成功、suite packet内はその文書を省くため対象外。記録weighted-battle-final-cli-v1.json。以下は履歴。
 
 # 2026-10-30 ベイ元4段階のnative被弾・独立coverへ接続
 
