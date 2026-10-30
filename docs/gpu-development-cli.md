@@ -832,6 +832,10 @@ python scripts/nikke_gpu.py unit-check --capture NEW_UNIT_CAPTURE
 
 ### 通常製品リクエストのコンパイル所有者
 
+固定周期の登録済み基準は `package --suite product-detail --product-program fixed --compact --out NEW.zip` で梱包できる。`--compact` は既存の依存別配布を使い、GPU/アプリ/データ/fixture/pinned upstream、選択programの全テストと共通smokeを保持する。入力・native・出力・生成物・golden・Job上限は変えない。markerなしの旧programと既定のfull配布も維持する。他のfamily memberは基準未登録ならsealed梱包を拒否する。
+
+compactはファイル検査対象を減らす配布上の変更であり、コンパイラやGPUの時間短縮を保証しない。旧fixed PTX timeoutのowner/claimを別packetへ付け替えず、同条件の再試行や上限拡大に使わない。Windowsへ渡す前に自身CLIのCPU-only/共通smokeと、旧full payloadとの保持byte・golden・全選択rootを照合する。
+
 `product-detail` は通常UI/APIの既存fixtureを、同じ `portable_detail.prepare` /
 `compile_product` / `decode_payload` で既存package/run/sealへ渡す再利用可能なadapter。
 現cohortはMiranda stage0・30秒・plain bodyの通常entry1件で、group/target entryや

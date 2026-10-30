@@ -48,5 +48,25 @@ def native_reference(*a):raise AssertionError('Native execution forbidden')
         with patch('subprocess.run',side_effect=changed),self.assertRaisesRegex(ValueError,'ownership changed'):
             validate_historical(self.root,self.m,cli)
 
+    def product_owner(self, *, resolver=True):
+        path=self.root/'scripts/nikke_gpu.py'
+        code=path.read_text()+"\nSUITES['product-detail']={'script':'research/wrong.py','tests':['test_wrong.py']}\n"
+        if resolver:
+            code+="def suite_config(m):\n    if m['product_program']!='fixed':raise ValueError('Unknown product program')\n    return {'script':'research/old.py','tests':['test_old.py']}\n"
+        path.write_text(code)
+        self.m.update(suite='product-detail',product_program='fixed',files=cli.file_records(self.root,[r['path'] for r in self.m['files']]))
+        self.m['package_id']=cli.package_id(self.m);cli.write(self.root/'gpu-package.json',self.m)
+
+    def test_product_program_uses_verified_owning_resolver_in_fresh_process(self):
+        self.product_owner()
+        result=validate_historical(self.root,self.m,cli)
+        self.assertTrue(result['projection_verified'])
+        self.assertEqual(result['package_id'],self.m['package_id'])
+        self.assertEqual(result['native_calls'],0)
+
+    def test_marker_cannot_fall_back_to_legacy_owner_without_resolver(self):
+        self.product_owner(resolver=False)
+        with self.assertRaises(subprocess.CalledProcessError):validate_historical(self.root,self.m,cli)
+
 
 if __name__=='__main__':unittest.main()

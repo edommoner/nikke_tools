@@ -11,6 +11,24 @@ from portable_package_projection import project, validate, roots_for, check_comm
 
 
 class ProjectionTests(unittest.TestCase):
+    def test_product_program_retains_selected_and_smoke_roots(self):
+        self.assertIn('product-detail',SUPPORTED_SUITES)
+        from portable_product_programs import PROGRAMS,configuration
+        base=dict(script='research/adapter.py',tests=['test_selected.py'])
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);sources=self.fixture(root)
+            for name in roots_for(base,['test_owned_smoke.py']):
+                if name not in sources:
+                    p=root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text('pass\n');sources[name]='pass\n'
+            for program in PROGRAMS:
+                config=configuration({'product-detail':base},dict(suite='product-detail',product_program=program))
+                selected,report=project(root,sources,roots_for(config,['test_owned_smoke.py']))
+                validate(report,[dict(path=n) for n in selected],'product-detail',config,['test_owned_smoke.py'])
+                self.assertIn('tests/test_owned_smoke.py',selected)
+                self.assertIn('gpu/unused.slang',selected)
+                self.assertIn('research/upstream/ref.py',selected)
+                self.assertNotIn('tests/test_other.py',selected)
+
     def test_current_shared_group_entries_are_explicitly_supported(self):
         self.assertTrue({'attack-group-battle','attack-group-native-route','attack-group-long','attack-group-mixed','coordinate-math','coordinate-shape','coordinate-area','coordinate-scene','coordinate-world-pool','coordinate-skills','coordinate-dot'} <= set(SUPPORTED_SUITES))
     def test_compiler_only_roots_keep_cpu_smoke_without_inventing_an_adapter(self):

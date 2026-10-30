@@ -5,7 +5,6 @@ All application/controller code, GPU sources, fixtures and public data survive.
 Dynamic imports are followed by module/file literals, keeping every ambiguous
 match. This is a packaging aid, not a general Python dependency resolver.
 """
-from portable_product_programs import configuration as product_configuration
 import ast
 from collections import defaultdict
 import hashlib
@@ -22,6 +21,7 @@ SUPPORTED_SUITES = ('coordinate-typed-live-aim', 'coordinate-typed-geometry', 'c
 RUNTIME_ROOTS = ('research/run-world-bounded.py', 'research/portable_phase_audit.py',
                  'research/summarize-portable-cross-gpu.py')
 SUPPORTED_SUITES += ('resident-append','resident-append-cache-only')
+SUPPORTED_SUITES += ('product-detail',)
 # These registries describe commands outside this profile, not runtime imports.
 LITERAL_REGISTRIES = {'scripts/nikke_gpu.py'}
 UNSUPPORTED_COMMANDS = {'package', 'reference', 'inventory', 'entry-inventory', 'consumer-audit', 'audit-legacy',
@@ -175,7 +175,11 @@ owner=importlib.util.module_from_spec(s);s.loader.exec_module(owner)
 m=json.loads(raw)
 if m['package_id']!=owner.package_id(m):raise ValueError('Historical identity changed')
 from portable_package_projection import validate
-validate(m['payload_projection'],m['files'],m['suite'],product_configuration(owner.SUITES,m),owner.SMOKE_TESTS)
+if 'product_program' in m:
+    if not hasattr(owner,'suite_config'):raise ValueError('Historical owner has no product program resolver')
+    config=owner.suite_config(m)
+else:config=owner.SUITES[m['suite']]
+validate(m['payload_projection'],m['files'],m['suite'],config,owner.SMOKE_TESTS)
 print(json.dumps(dict(package_id=m['package_id'],manifest_sha256=sys.argv[2],projection_verified=True,gpu_calls=0,native_calls=0)))
 """
     env=os.environ.copy();env['PYTHONDONTWRITEBYTECODE']='1'
