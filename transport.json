@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "scope": "Immutable source/data-only packet transport, not GPU evidence",
+  "package_id": "d1206d3f6ca2b3c0c78aa9ca23dce5e65dd66a17ce7105d581cafc01330a9ff7",
+  "source_commit": "2c684f88e03b2943340f20510cd4f59a64115ad3",
+  "files": 4166,
+  "archive_bytes": 14185428,
+  "archive_sha256": "78e1e629af4b48a5a32cf04744b1be0c0ea725858d95945a934809b3501451df",
+  "personal_settings": false,
+  "raw_gpu_buffers": false,
+  "compiled_binaries": false
+}
