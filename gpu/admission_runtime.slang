@@ -36,6 +36,9 @@ void admitDefinitions(inout Runtime s,uint input)
     for (uint j = 0; j < s.count; j++)
     {
         Definition d;loadDefinition(input,j,d); PROJECTILE_ADMIT_ROW(s,j,d)
+#ifdef PORTABLE_WEIGHTED_INCOMING
+        if((d.stat==WGT_BODY_STAT||d.stat==WGT_COVER_STAT) && (d.kind!=0||d.enemyBuff!=0||d.healthScaling!=0||d.alliedFlags!=0||d.quantityFlags!=0||!f64Zero(d.value))) {s.error=64;break;}
+#endif
 #ifdef PORTABLE_COVER_DEFENSE
         if(d.stat==CDF_STAT && (d.kind!=0||d.enemyBuff!=0||d.healthScaling!=0||d.alliedFlags!=0||d.quantityFlags!=0||!f64Finite(d.value))) { s.error=64;break; }
 #endif

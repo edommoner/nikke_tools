@@ -46,6 +46,10 @@ void knockDown(inout Runtime s, uint who, uint64_t when)
     {
         uint row=revivalEnabled(s) ? s.orderedRows[pass] : pass;
         Definition d = residentDefinition(s,row);
+#ifdef PORTABLE_WEIGHTED_INCOMING
+        // Independent cover carrier lifetime survives body-recipient removal.
+        if(d.stat==WGT_COVER_STAT)continue;
+#endif
         if ((d.kind == 0 || d.kind == 4) && s.alive[row] != 0 && s.lazyPending[row] == 0 && (d.flags&1024U)==0 && (!revivalEnabled(s) || (s.activeRecipients[row]&bit)!=0))
         {
             revivalRemember(s,who,row);

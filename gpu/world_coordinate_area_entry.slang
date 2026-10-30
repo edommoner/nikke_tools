@@ -21,7 +21,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
 {
     if(id.x>=commands[0])return;
-#if defined(PORTABLE_COVER_DEFENSE)
+#if defined(PORTABLE_WEIGHTED_INCOMING)
+    uint input=1+id.x*WGT_INPUT,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
+#elif defined(PORTABLE_COVER_DEFENSE)
     uint input=1+id.x*CDF_INPUT_WORDS,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
 #elif defined(PORTABLE_ENEMY_MOVEMENT)
     uint input=1+id.x*EMB_INPUT,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
@@ -86,6 +88,9 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
 #ifdef PORTABLE_COVER_DEFENSE
     if(!initializeCoverDefense(s)){results[output]=64;return;}
+#endif
+#ifdef PORTABLE_WEIGHTED_INCOMING
+    if(!initializeWeightedIncoming(s)){results[output]=64;return;}
 #endif
 #ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS
 #ifdef PORTABLE_MOVING_TYPED

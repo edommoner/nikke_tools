@@ -4,12 +4,12 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
 def read(path):return json.loads((ROOT/path).read_text())
 class ModifiersSealed(unittest.TestCase):
-    def test_current_source_and_all_thirteen_inputs_are_bound_to_fresh_seal(self):
-        from portable_backend import source_hashes
+    def test_historical_source_and_all_thirteen_inputs_remain_bound_to_fresh_seal(self):
+        from portable_weighted_incoming_source_contract import historical_hashes
         s=importlib.util.spec_from_file_location('modifier_sealed_adapter',ROOT/'research/verify-cover-defense-modifiers.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);rows,data=m.prepare()
         golden=read('research/portable-cover-defense-modifiers-v1-expected.json');proof=read('tests/fixtures/cover-defense-modifiers-metal-v1.json');audit=read('tests/fixtures/cover-defense-modifiers-independent-v1.json')
         self.assertEqual((len(rows),sum(d is not None for _,_,d in rows)),(13,6))
-        self.assertEqual(hashlib.sha256(data).hexdigest(),golden['input_sha256']);self.assertEqual(source_hashes(m.SOURCE),golden['source_sha256'])
+        self.assertEqual(hashlib.sha256(data).hexdigest(),golden['input_sha256']);self.assertEqual(historical_hashes(ROOT,m.SOURCE),golden['source_sha256'])
         for key in ('input_sha256','output_sha256'):
             self.assertEqual(proof[key],golden[key]);self.assertEqual(audit[key],golden[key])
         self.assertEqual(proof['source_sha256'],golden['source_sha256']);self.assertEqual(proof['generated_normalized'],golden['generated_normalized'])
@@ -31,7 +31,7 @@ class ModifiersSealed(unittest.TestCase):
         for key in ('script','source','golden','inputs','native','input_words','output_words'):self.assertEqual(a[key],b[key])
         self.assertFalse(a['development_only']);self.assertEqual((a['inputs'],a['native']),(13,6))
         result=reference_readiness(dict(phase='effect',kind='buff',stat='cover_def_pct',target='allies_top_atk:3'));p=result['declared_cover_defense_battle_gpu']
-        self.assertFalse(result['gpu_supported']);self.assertTrue(p['current_received_sum_source_recertified']);self.assertTrue(p['nonzero_received_gpu_verified']);self.assertTrue(p['varied_coefficient_gpu_verified'])
+        self.assertFalse(result['gpu_supported']);self.assertFalse(p['current_received_sum_source_recertified']);self.assertTrue(p['historical_received_sum_source_verified']);self.assertTrue(p['nonzero_received_gpu_verified']);self.assertTrue(p['varied_coefficient_gpu_verified'])
         self.assertEqual(p['evidence_sha256'],hashlib.sha256((ROOT/p['evidence']).read_bytes()).hexdigest())
         self.assertFalse(p['cuda_verified']);self.assertFalse(p['canonical_default_changed'])
 

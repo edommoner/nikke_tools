@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "normalizer_changed": false,
+  "baseline_commit": "e93182fb61ed6fce5cb7d02e13e1aa5ac59ec840",
+  "files": {
+    "app/portable_backend.py": {
+      "before_sha256": "a07a5068f0035bf9795c79baa3ae29265b7a719aad50e1905a2b48112c882ebc",
+      "after_sha256": "28b7ca31b8af934947743e61c807dbb7a27d89581c010385f793303da354af79",
+      "hunks": [
+        {
+          "before": "\n\ndef validate_composed_stride(source,input_words,output_words):\n    if source=='gpu/world_cover_defense_entry.slang' or output_words==2048912:\n        from portable_cover_defense_wire import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n",
+          "after": "\n\ndef validate_composed_stride(source,input_words,output_words):\n    if source=='gpu/world_weighted_incoming_entry.slang':\n        from portable_weighted_battle_wire import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Weighted incoming requires complete literal weights and owned receipt banks')\n        return\n    if source=='gpu/world_cover_defense_entry.slang' or output_words==2048912:\n        from portable_cover_defense_wire import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n"
+        }
+      ]
+    },
+    "app/portable_specs.py": {
+      "before_sha256": "60e966556b4a5f280d1e85ac1c795f56ad60923542b606e769a634ceb5a8f7de",
+      "after_sha256": "a2a69b3cf3a68dd3e65df91b7b6d40005898b8c540d8000e9476c1e63d917f62",
+      "hunks": [
+        {
+          "before": "        for name,value in mapping.items():\n            variant=prefix=='P_' and name in ('INPUT_WORDS','OUTPUT_WORDS')\n            if variant and name=='INPUT_WORDS':lines += ['#ifdef PORTABLE_ATTACK_GROUPS','static const uint P_INPUT_WORDS = 104408U;','#elif defined(PORTABLE_WORLD_RELOAD)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_RELOAD_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_CHARGE_CONTROL)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_CONTROL_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_TEAM)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_TEAM_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_FRACTION)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_FRACTION_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_TARGET_COUNTERS)',f'static const uint P_INPUT_WORDS = {LIMITS[\"TARGET_COUNTER_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_STATE)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_ACTOR_STATE_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_POOLS)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_ACTOR_POOL_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTORS)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_ACTOR_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_OVERLAYS)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_OVERLAY_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_FRAME)']+[f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_FRAME_INPUT_WORDS\"]}U;','#else']\n            elif variant:lines += ['#if defined(PORTABLE_COVER_DEFENSE)','static const uint P_OUTPUT_WORDS = 2048912U;','#elif defined(PORTABLE_MOVING_MANY)','static const uint P_OUTPUT_WORDS = 10422672U;','#elif defined(PORTABLE_MOVING_TYPED)','static const uint P_OUTPUT_WORDS = 2165136U;','#elif defined(PORTABLE_LOCK_TYPED_COMPOSITION)','static const uint P_OUTPUT_WORDS = 1310720U;','#elif defined(PORTABLE_PHYSICAL_LOCK_ARENA)','static const uint P_OUTPUT_WORDS = 806912U;','#elif defined(PORTABLE_COORDINATE_ARC_ARENA) && defined(PORTABLE_COORDINATE_TYPED_TARGETS)','static const uint P_OUTPUT_WORDS = 2064786U;','#elif defined(PORTABLE_COORDINATE_TYPED_TARGETS) || defined(PORTABLE_COORDINATE_LOGICAL_ACTORS)','static const uint P_OUTPUT_WORDS = 2032000U;','#elif defined(PORTABLE_COORDINATE_COVER_POLICIES)','static const uint P_OUTPUT_WORDS = 1769856U;','#elif defined(PORTABLE_COORDINATE_SAMPLED_BURSTS)','static const uint P_OUTPUT_WORDS = 1769472U;','#elif defined(PORTABLE_COORDINATE_GROUPS)','static const uint P_OUTPUT_WORDS = 1507328U;','#elif defined(PORTABLE_COMPOSED_ARENA)','static const uint P_OUTPUT_WORDS = 1310720U;','#elif defined(PORTABLE_DESTRUCTIBLE_BATTLE) || defined(PORTABLE_ATTACK_GROUPS) || defined(PORTABLE_COORDINATE_POOL)','static const uint P_OUTPUT_WORDS = 1048576U;','#elif defined(PORTABLE_WORLD_RELOAD)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_RELOAD_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_PERIODIC)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_PERIODIC_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_RECIPIENTS)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_ACTOR_RECIPIENT_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_FIELDS)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_ACTOR_FIELDS_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_POOLS)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_ACTOR_POOL_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_FRAME)',f'static const uint {prefix}{name} = {LIMITS[\"WORLD_FRAME_\"+name]}U;','#else']\n            if prefix=='P_' and name in ('LANDING_WORDS','OUTPUT_WORDS','REMOVAL_QUEUE_BASE','STACK_NOTICE_VALUE_BASE','PROBABILITY_STATE_BASE'):\n                delta=LIMITS['LANDINGS']*4\n                wide=12 if name=='LANDING_WORDS' else value+delta\n",
+          "after": "        for name,value in mapping.items():\n            variant=prefix=='P_' and name in ('INPUT_WORDS','OUTPUT_WORDS')\n            if variant and name=='INPUT_WORDS':lines += ['#ifdef PORTABLE_ATTACK_GROUPS','static const uint P_INPUT_WORDS = 104408U;','#elif defined(PORTABLE_WORLD_RELOAD)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_RELOAD_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_CHARGE_CONTROL)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_CONTROL_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_TEAM)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_TEAM_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_FRACTION)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_FRACTION_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_TARGET_COUNTERS)',f'static const uint P_INPUT_WORDS = {LIMITS[\"TARGET_COUNTER_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_STATE)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_ACTOR_STATE_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_POOLS)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_ACTOR_POOL_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTORS)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_ACTOR_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_OVERLAYS)',f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_OVERLAY_INPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_FRAME)']+[f'static const uint P_INPUT_WORDS = {LIMITS[\"WORLD_FRAME_INPUT_WORDS\"]}U;','#else']\n            elif variant:lines += ['#if defined(PORTABLE_COVER_DEFENSE) || defined(PORTABLE_WEIGHTED_INCOMING)','static const uint P_OUTPUT_WORDS = 2048912U;','#elif defined(PORTABLE_MOVING_MANY)','static const uint P_OUTPUT_WORDS = 10422672U;','#elif defined(PORTABLE_MOVING_TYPED)','static const uint P_OUTPUT_WORDS = 2165136U;','#elif defined(PORTABLE_LOCK_TYPED_COMPOSITION)','static const uint P_OUTPUT_WORDS = 1310720U;','#elif defined(PORTABLE_PHYSICAL_LOCK_ARENA)','static const uint P_OUTPUT_WORDS = 806912U;','#elif defined(PORTABLE_COORDINATE_ARC_ARENA) && defined(PORTABLE_COORDINATE_TYPED_TARGETS)','static const uint P_OUTPUT_WORDS = 2064786U;','#elif defined(PORTABLE_COORDINATE_TYPED_TARGETS) || defined(PORTABLE_COORDINATE_LOGICAL_ACTORS)','static const uint P_OUTPUT_WORDS = 2032000U;','#elif defined(PORTABLE_COORDINATE_COVER_POLICIES)','static const uint P_OUTPUT_WORDS = 1769856U;','#elif defined(PORTABLE_COORDINATE_SAMPLED_BURSTS)','static const uint P_OUTPUT_WORDS = 1769472U;','#elif defined(PORTABLE_COORDINATE_GROUPS)','static const uint P_OUTPUT_WORDS = 1507328U;','#elif defined(PORTABLE_COMPOSED_ARENA)','static const uint P_OUTPUT_WORDS = 1310720U;','#elif defined(PORTABLE_DESTRUCTIBLE_BATTLE) || defined(PORTABLE_ATTACK_GROUPS) || defined(PORTABLE_COORDINATE_POOL)','static const uint P_OUTPUT_WORDS = 1048576U;','#elif defined(PORTABLE_WORLD_RELOAD)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_RELOAD_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_PERIODIC)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_PERIODIC_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_RECIPIENTS)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_ACTOR_RECIPIENT_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_FIELDS)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_ACTOR_FIELDS_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_ACTOR_POOLS)',f'static const uint P_OUTPUT_WORDS = {LIMITS[\"WORLD_ACTOR_POOL_OUTPUT_WORDS\"]}U;','#elif defined(PORTABLE_WORLD_FRAME)',f'static const uint {prefix}{name} = {LIMITS[\"WORLD_FRAME_\"+name]}U;','#else']\n            if prefix=='P_' and name in ('LANDING_WORDS','OUTPUT_WORDS','REMOVAL_QUEUE_BASE','STACK_NOTICE_VALUE_BASE','PROBABILITY_STATE_BASE'):\n                delta=LIMITS['LANDINGS']*4\n                wide=12 if name=='LANDING_WORDS' else value+delta\n"
+        },
+        {
+          "before": "        mask=sum(1<<(stat%32) for stat in stat_ids if stat//32==word)\n        lines.append(f'static const uint P_BUFF_STAT_BITS_{word} = {mask}U;')\n    choices=' : '.join(f'stat < {(word+1)*32}U ? P_BUFF_STAT_BITS_{word}' for word in range(words))+' : 0U'\n    lines += ['bool validPortableBuffStat(uint stat)', '{','#ifdef PORTABLE_COVER_DEFENSE','    if(stat==CDF_STAT)return true;','#endif',f'    if(stat > {largest}U) return false;',f'    uint bits = {choices};','    return (bits & (1U << (stat & 31U))) != 0;', '}']\n    events=set(target_inheritance_events())\n    # Named hit_count uses compact event 49; shared policy calls it hit_count (8).\n    if 8 in events:events.add(49)\n",
+          "after": "        mask=sum(1<<(stat%32) for stat in stat_ids if stat//32==word)\n        lines.append(f'static const uint P_BUFF_STAT_BITS_{word} = {mask}U;')\n    choices=' : '.join(f'stat < {(word+1)*32}U ? P_BUFF_STAT_BITS_{word}' for word in range(words))+' : 0U'\n    lines += ['bool validPortableBuffStat(uint stat)', '{','#ifdef PORTABLE_WEIGHTED_INCOMING','    if(stat==WGT_BODY_STAT||stat==WGT_COVER_STAT)return true;','#endif','#ifdef PORTABLE_COVER_DEFENSE','    if(stat==CDF_STAT)return true;','#endif',f'    if(stat > {largest}U) return false;',f'    uint bits = {choices};','    return (bits & (1U << (stat & 31U))) != 0;', '}']\n    events=set(target_inheritance_events())\n    # Named hit_count uses compact event 49; shared policy calls it hit_count (8).\n    if 8 in events:events.add(49)\n"
+        }
+      ]
+    },
+    "gpu/admission_runtime.slang": {
+      "before_sha256": "26630bb6860c63cc53440cc8ec6c08149e431c6362cc20b40d71a3dc004bb155",
+      "after_sha256": "20558bb63cbba0b897cafc1e7858e22b6061a747ad3c3d212b813cbf8154acbe",
+      "hunks": [
+        {
+          "before": "    for (uint j = 0; j < s.count; j++)\n    {\n        Definition d;loadDefinition(input,j,d); PROJECTILE_ADMIT_ROW(s,j,d)\n#ifdef PORTABLE_COVER_DEFENSE\n        if(d.stat==CDF_STAT && (d.kind!=0||d.enemyBuff!=0||d.healthScaling!=0||d.alliedFlags!=0||d.quantityFlags!=0||!f64Finite(d.value))) { s.error=64;break; }\n#endif\n",
+          "after": "    for (uint j = 0; j < s.count; j++)\n    {\n        Definition d;loadDefinition(input,j,d); PROJECTILE_ADMIT_ROW(s,j,d)\n#ifdef PORTABLE_WEIGHTED_INCOMING\n        if((d.stat==WGT_BODY_STAT||d.stat==WGT_COVER_STAT) && (d.kind!=0||d.enemyBuff!=0||d.healthScaling!=0||d.alliedFlags!=0||d.quantityFlags!=0||!f64Zero(d.value))) {s.error=64;break;}\n#endif\n#ifdef PORTABLE_COVER_DEFENSE\n        if(d.stat==CDF_STAT && (d.kind!=0||d.enemyBuff!=0||d.healthScaling!=0||d.alliedFlags!=0||d.quantityFlags!=0||!f64Finite(d.value))) { s.error=64;break; }\n#endif\n"
+        }
+      ]
+    },
+    "gpu/dispatch_phases.slang": {
+      "before_sha256": "26f26a889fbb9b116814f256c10319ffd58f23a105139ef0a911baf01385b936",
+      "after_sha256": "dd2c5e5c58587ac298ebe196acbe99e596609da76c0244bfac091c822869d632",
+      "hunks": [
+        {
+          "before": "            if((commands[at]==31 || commands[at]==32))\n            {\n                uint64_t amount=frames[depth].healthValue;\n                uint group=incomingSplitGroup(s,who,f.time);\n                if(group!=0)\n                {\n",
+          "after": "            if((commands[at]==31 || commands[at]==32))\n            {\n                uint64_t amount=frames[depth].healthValue;\n#ifdef PORTABLE_WEIGHTED_INCOMING\n                uint weighted=captureWeightedIncoming(s,who,amount,f.time);\n                if(s.error!=0)break;\n                if(weighted!=0)\n                {\n                    frames[depth].event=6;pushFrame(s,frames,depth,22,0,who,f.argument,f.time);\n                    if(s.error==0)results[weightedScratch(s,uint(depth))]=weighted;\n                    continue;\n                }\n#endif\n                uint group=incomingSplitGroup(s,who,f.time);\n                if(group!=0)\n                {\n"
+        }
+      ]
+    },
+    "gpu/event_runtime.slang": {
+      "before_sha256": "0824907ad541c974f82b86443a3caf0796c54459a6cecffa218b352e5072a6fa",
+      "after_sha256": "34d72a8f7b41d8e00af101640c0020008d679a4ad48800cd00c2a789c9bb67dd",
+      "hunks": [
+        {
+          "before": "            return;\n}\n\n#include \"dispatch_phases.slang\"\n\n// A scalar call boundary keeps CUDA codegen from retaining an HP lvalue\n",
+          "after": "            return;\n}\n\n#ifdef PORTABLE_WEIGHTED_INCOMING\n#include \"weighted_incoming_runtime.slang\"\n#endif\n#include \"dispatch_phases.slang\"\n\n// A scalar call boundary keeps CUDA codegen from retaining an HP lvalue\n"
+        },
+        {
+          "before": "        }\n        if(f.mode==22)\n        {\n            uint encoded=f.cursor<5 ? (f.value>>(3*f.cursor))&7 : 0;\n            if(encoded==0) { depth--;continue; }\n            frames[depth].cursor++;uint member=encoded-1;\n",
+          "after": "        }\n        if(f.mode==22)\n        {\n#ifdef PORTABLE_WEIGHTED_INCOMING\n            if(results[weightedScratch(s,uint(depth))]!=0){advanceWeightedIncoming(s,frames,depth,f);continue;}\n#endif\n            uint encoded=f.cursor<5 ? (f.value>>(3*f.cursor))&7 : 0;\n            if(encoded==0) { depth--;continue; }\n            frames[depth].cursor++;uint member=encoded-1;\n"
+        }
+      ]
+    },
+    "gpu/incoming_runtime.slang": {
+      "before_sha256": "81278c27df4516121c8f87a8ebe3e9c451c6ca12da894db0fc7008bcec9c8c1f",
+      "after_sha256": "9046f0f754fc751bb4b190d2cab78e47eb03ddad8cbab83420222c11a065b8fa",
+      "hunks": [
+        {
+          "before": "    {\n        uint row=revivalEnabled(s) ? s.orderedRows[pass] : pass;\n        Definition d = residentDefinition(s,row);\n        if ((d.kind == 0 || d.kind == 4) && s.alive[row] != 0 && s.lazyPending[row] == 0 && (d.flags&1024U)==0 && (!revivalEnabled(s) || (s.activeRecipients[row]&bit)!=0))\n        {\n            revivalRemember(s,who,row);\n",
+          "after": "    {\n        uint row=revivalEnabled(s) ? s.orderedRows[pass] : pass;\n        Definition d = residentDefinition(s,row);\n#ifdef PORTABLE_WEIGHTED_INCOMING\n        // Independent cover carrier lifetime survives body-recipient removal.\n        if(d.stat==WGT_COVER_STAT)continue;\n#endif\n        if ((d.kind == 0 || d.kind == 4) && s.alive[row] != 0 && s.lazyPending[row] == 0 && (d.flags&1024U)==0 && (!revivalEnabled(s) || (s.activeRecipients[row]&bit)!=0))\n        {\n            revivalRemember(s,who,row);\n"
+        }
+      ]
+    },
+    "gpu/portable_schema.slang": {
+      "before_sha256": "93885b2dd38f7689e17a6753f0aa3c72ee463f5671d7032e94be1b8cd1fc59ad",
+      "after_sha256": "49eca9ba66aa222183c19df7c544368d2cd483d5ad250aec0782ff4aab5f5f4d",
+      "hunks": [
+        {
+          "before": "static const uint P_PROTECTION_SELECTION_BASE = 108736U;\nstatic const uint P_PROTECTION_OBJECT_BASE = 109248U;\nstatic const uint P_PROTECTION_BUILD_BASE = 133824U;\n#if defined(PORTABLE_COVER_DEFENSE)\nstatic const uint P_OUTPUT_WORDS = 2048912U;\n#elif defined(PORTABLE_MOVING_MANY)\nstatic const uint P_OUTPUT_WORDS = 10422672U;\n",
+          "after": "static const uint P_PROTECTION_SELECTION_BASE = 108736U;\nstatic const uint P_PROTECTION_OBJECT_BASE = 109248U;\nstatic const uint P_PROTECTION_BUILD_BASE = 133824U;\n#if defined(PORTABLE_COVER_DEFENSE) || defined(PORTABLE_WEIGHTED_INCOMING)\nstatic const uint P_OUTPUT_WORDS = 2048912U;\n#elif defined(PORTABLE_MOVING_MANY)\nstatic const uint P_OUTPUT_WORDS = 10422672U;\n"
+        },
+        {
+          "before": "static const uint P_BUFF_STAT_BITS_2 = 528482303U;\nbool validPortableBuffStat(uint stat)\n{\n#ifdef PORTABLE_COVER_DEFENSE\n    if(stat==CDF_STAT)return true;\n#endif\n",
+          "after": "static const uint P_BUFF_STAT_BITS_2 = 528482303U;\nbool validPortableBuffStat(uint stat)\n{\n#ifdef PORTABLE_WEIGHTED_INCOMING\n    if(stat==WGT_BODY_STAT||stat==WGT_COVER_STAT)return true;\n#endif\n#ifdef PORTABLE_COVER_DEFENSE\n    if(stat==CDF_STAT)return true;\n#endif\n"
+        }
+      ]
+    },
+    "gpu/protection_runtime.slang": {
+      "before_sha256": "c5508c3445571c71ea53ff1b9f959152d88b1572f3375a50437ce606f3694b05",
+      "after_sha256": "11fd5208b6af38fbe004394b84277f33b6e6f241d744358c7c6e482e645c8f8b",
+      "hunks": [
+        {
+          "before": "    if(!protectionObjectActive(s,object)) return;\n    uint slot=results[protectionAddress(s,object)+21];queueCarrierEnd(s,slot);\n}\n[noinline]\nvoid advanceProtectionHit(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int depth)\n{\n",
+          "after": "    if(!protectionObjectActive(s,object)) return;\n    uint slot=results[protectionAddress(s,object)+21];queueCarrierEnd(s,slot);\n}\n#ifdef PORTABLE_WEIGHTED_INCOMING\nvoid consumeIncomingCover(inout Runtime s,uint who,uint64_t cover,uint argument,uint64_t when)\n{\n    s.coverHP[who]=f64Add(s.coverHP[who],cover^F64_SIGN);\n    s.coverDamage[who]=f64Add(s.coverDamage[who],cover);\n#ifdef PORTABLE_WORLD_FRAME\n    if(f64Less(0,cover)&&f64Zero(s.coverHP[who])&&scheduledArgument(argument))worldCoverBreakLog(s,argument&31U,when);\n#endif\n}\n#endif\n[noinline]\nvoid advanceProtectionHit(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int depth)\n{\n"
+        },
+        {
+          "before": "#else\n            cover=smaller(s.coverHP[f.owner],f.healthValue);\n#endif\n            s.coverHP[f.owner]=f64Add(s.coverHP[f.owner],cover^F64_SIGN);\n            s.coverDamage[f.owner]=f64Add(s.coverDamage[f.owner],cover);\n#ifdef PORTABLE_WORLD_FRAME\n            if(f64Less(0,cover) && f64Zero(s.coverHP[f.owner]) && scheduledArgument(uint(f.argument)))\n                worldCoverBreakLog(s,uint(f.argument)&31U,f.time);\n#endif\n        }\n        frames[depth].healthNext=cover;\n",
+          "after": "#else\n            cover=smaller(s.coverHP[f.owner],f.healthValue);\n#endif\n#ifdef PORTABLE_WEIGHTED_INCOMING\n            consumeIncomingCover(s,f.owner,cover,uint(f.argument),f.time);\n#else\n            s.coverHP[f.owner]=f64Add(s.coverHP[f.owner],cover^F64_SIGN);\n            s.coverDamage[f.owner]=f64Add(s.coverDamage[f.owner],cover);\n#ifdef PORTABLE_WORLD_FRAME\n            if(f64Less(0,cover) && f64Zero(s.coverHP[f.owner]) && scheduledArgument(uint(f.argument)))\n                worldCoverBreakLog(s,uint(f.argument)&31U,f.time);\n#endif\n#endif\n        }\n        frames[depth].healthNext=cover;\n"
+        }
+      ]
+    },
+    "gpu/world_coordinate_area_entry.slang": {
+      "before_sha256": "bba3742eb21912998d19ec5e02316825aad4fa293172e84cf9b803f1347d81a5",
+      "after_sha256": "292d819a97c4fc8f4b8351f14e901cbf87f1b4cab280709e9b502ce81e98fb4c",
+      "hunks": [
+        {
+          "before": "#endif\n{\n    if(id.x>=commands[0])return;\n#if defined(PORTABLE_COVER_DEFENSE)\n    uint input=1+id.x*CDF_INPUT_WORDS,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;\n#elif defined(PORTABLE_ENEMY_MOVEMENT)\n    uint input=1+id.x*EMB_INPUT,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;\n",
+          "after": "#endif\n{\n    if(id.x>=commands[0])return;\n#if defined(PORTABLE_WEIGHTED_INCOMING)\n    uint input=1+id.x*WGT_INPUT,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;\n#elif defined(PORTABLE_COVER_DEFENSE)\n    uint input=1+id.x*CDF_INPUT_WORDS,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;\n#elif defined(PORTABLE_ENEMY_MOVEMENT)\n    uint input=1+id.x*EMB_INPUT,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;\n"
+        },
+        {
+          "before": "#ifdef PORTABLE_COVER_DEFENSE\n    if(!initializeCoverDefense(s)){results[output]=64;return;}\n#endif\n#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS\n#ifdef PORTABLE_MOVING_TYPED\n    // Weapon-only typed receipts leave this common skill/logical scratch free.\n",
+          "after": "#ifdef PORTABLE_COVER_DEFENSE\n    if(!initializeCoverDefense(s)){results[output]=64;return;}\n#endif\n#ifdef PORTABLE_WEIGHTED_INCOMING\n    if(!initializeWeightedIncoming(s)){results[output]=64;return;}\n#endif\n#ifdef PORTABLE_COORDINATE_LOGICAL_ACTORS\n#ifdef PORTABLE_MOVING_TYPED\n    // Weapon-only typed receipts leave this common skill/logical scratch free.\n"
+        }
+      ]
+    }
+  },
+  "added_sources": {
+    "gpu/weighted_incoming_layout.slang": "9dd18c78ef54a3cab7fc45e0ee7593b44bc48648e169c20eb83afc861ef0405f",
+    "gpu/weighted_incoming_runtime.slang": "3646ff2c80f421b2c5d3590c06c04cb8931489d680cd3026d8b6eb694ca2f784",
+    "gpu/world_weighted_incoming_entry.slang": "621ba0a063acce633c028b685f87aa6348fa89c78b56c6cc8795a0d65527f2ab"
+  }
+}

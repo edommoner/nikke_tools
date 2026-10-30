@@ -180,6 +180,16 @@ void advanceIncomingFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inout 
             if((commands[at]==31 || commands[at]==32))
             {
                 uint64_t amount=frames[depth].healthValue;
+#ifdef PORTABLE_WEIGHTED_INCOMING
+                uint weighted=captureWeightedIncoming(s,who,amount,f.time);
+                if(s.error!=0)break;
+                if(weighted!=0)
+                {
+                    frames[depth].event=6;pushFrame(s,frames,depth,22,0,who,f.argument,f.time);
+                    if(s.error==0)results[weightedScratch(s,uint(depth))]=weighted;
+                    continue;
+                }
+#endif
                 uint group=incomingSplitGroup(s,who,f.time);
                 if(group!=0)
                 {

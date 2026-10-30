@@ -1440,6 +1440,9 @@ void advanceBuffActivation(inout Runtime s, inout DISPATCH_FRAMES(frames), inout
             return;
 }
 
+#ifdef PORTABLE_WEIGHTED_INCOMING
+#include "weighted_incoming_runtime.slang"
+#endif
 #include "dispatch_phases.slang"
 
 // A scalar call boundary keeps CUDA codegen from retaining an HP lvalue
@@ -1649,6 +1652,9 @@ void dispatch(inout Runtime s, uint mode, uint event, uint owner, int argument, 
         }
         if(f.mode==22)
         {
+#ifdef PORTABLE_WEIGHTED_INCOMING
+            if(results[weightedScratch(s,uint(depth))]!=0){advanceWeightedIncoming(s,frames,depth,f);continue;}
+#endif
             uint encoded=f.cursor<5 ? (f.value>>(3*f.cursor))&7 : 0;
             if(encoded==0) { depth--;continue; }
             frames[depth].cursor++;uint member=encoded-1;

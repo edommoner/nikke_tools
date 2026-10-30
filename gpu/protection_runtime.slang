@@ -173,6 +173,16 @@ void endProtectionObject(inout Runtime s,uint object)
     if(!protectionObjectActive(s,object)) return;
     uint slot=results[protectionAddress(s,object)+21];queueCarrierEnd(s,slot);
 }
+#ifdef PORTABLE_WEIGHTED_INCOMING
+void consumeIncomingCover(inout Runtime s,uint who,uint64_t cover,uint argument,uint64_t when)
+{
+    s.coverHP[who]=f64Add(s.coverHP[who],cover^F64_SIGN);
+    s.coverDamage[who]=f64Add(s.coverDamage[who],cover);
+#ifdef PORTABLE_WORLD_FRAME
+    if(f64Less(0,cover)&&f64Zero(s.coverHP[who])&&scheduledArgument(argument))worldCoverBreakLog(s,argument&31U,when);
+#endif
+}
+#endif
 [noinline]
 void advanceProtectionHit(inout Runtime s,inout DISPATCH_FRAMES(frames),inout int depth)
 {
@@ -234,11 +244,15 @@ void advanceProtectionHit(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
 #else
             cover=smaller(s.coverHP[f.owner],f.healthValue);
 #endif
+#ifdef PORTABLE_WEIGHTED_INCOMING
+            consumeIncomingCover(s,f.owner,cover,uint(f.argument),f.time);
+#else
             s.coverHP[f.owner]=f64Add(s.coverHP[f.owner],cover^F64_SIGN);
             s.coverDamage[f.owner]=f64Add(s.coverDamage[f.owner],cover);
 #ifdef PORTABLE_WORLD_FRAME
             if(f64Less(0,cover) && f64Zero(s.coverHP[f.owner]) && scheduledArgument(uint(f.argument)))
                 worldCoverBreakLog(s,uint(f.argument)&31U,f.time);
+#endif
 #endif
         }
         frames[depth].healthNext=cover;
