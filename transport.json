@@ -1,12 +1,34 @@
 {
-  "schema": "nikke-source-zip-transport-v1",
-  "source_commit": "a7cf715d0a6735097a2c6185464e6d11eddeda3d",
-  "package_id": "54ba1da6512c86cbecec02fb4213f3e3e4804a180a5d0a4cb53d4fa99af2c044",
-  "product_program": "fixed",
-  "purpose": "sealed",
-  "files": 2685,
-  "archive": "product-fixed-compact-v4-20261031.zip",
-  "bytes": 11797293,
-  "sha256": "41f53eb946163eb1ed9c14e6732ed012efdb22116f7817ae3f458b1495f81acd",
-  "scope": "Code/data/tests only. Own immutable CLI passed product39/native1 and common smoke74 groups/792 tests (one Windows-only test omitted by existing platform condition). GPU/compiler0; Windows timing and new compilation unverified."
+  "schema": 1,
+  "archive": "product-accumulate-current-v1.zip",
+  "bytes": 11804897,
+  "sha256": "d4bec3d2af64e9915184a8cc60e96e5bad80a563500359bde022a605353d2e1a",
+  "package_id": "717693a3c56becfa5c67ed9414fc1bbae7edb5ec49802264131bce25b97ebcf6",
+  "source_commit": "189e692fccfa921a3166645432fcd2aca2d422db",
+  "program": "accumulate",
+  "files": 2686,
+  "scope": "Source-only current sealed product owner. No SDK, compiled artifact, raw GPU buffers or personal settings.",
+  "preflight": {
+    "unit_tests": 44,
+    "compile_plan": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "717693a3c56becfa5c67ed9414fc1bbae7edb5ec49802264131bce25b97ebcf6",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "ptx",
+      "ptxas_level": null,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    },
+    "dependencies_passed": true
+  }
 }
