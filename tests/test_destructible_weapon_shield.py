@@ -68,7 +68,7 @@ class WeaponShieldTests(unittest.TestCase):
   self.assertEqual(receipt['golden_sha256'],hashlib.sha256(golden_path.read_bytes()).hexdigest())
   current=source_hashes(receipt['source'])
   if current!=receipt['source_sha256']:
-   identity=json.loads((ROOT/'research/target-count-query-evidence/product-outline-v1.json').read_text())['legacy_program_identity']
+   identity=json.loads((ROOT/'research/target-count-query-evidence/product-admission-v1.json').read_text())['legacy_program_identity']
    self.assertEqual(identity['source'],receipt['source'])
    self.assertEqual(identity['baseline_source_sha256'],receipt['source_sha256'])
    self.assertEqual(identity['current_source_sha256'],current)

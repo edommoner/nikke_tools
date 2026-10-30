@@ -1,3 +1,15 @@
+# 2026-10-30 定義検査の共通4分割：通常API1件・元数値と拒否結果を保持
+
+前回の4-helper版は通常API全267要求を完了。catalog266中Metal255、既知CPU fallback11、追加group+target編成1が全CPU応答一致。cache hit0/実capture256、旧catalog255のinput/output全SHA保持。小証跡product-outline-v1.jsonに保存済み。これは今回の定義検査分割前のsource認定である。
+
+4-helper版のWindows CUBIN/O1もMemory allocation failure。NVRTC42.920秒、inner peak2111377408/outer2148343808bytes、設定2GiB。PTX前段は約215MiBで成功し、standalone ptxasも失敗するため、GPU実行時VRAMではなくhost assemblerメモリ圧迫が有力。上限との厳密な因果・関数別原因は未確定。既存product-cuda-cubin-preparation-v1.jsonへ追加失敗要約を保持。上限増量や同じ失敗の再実行はしていない。
+
+admitDefinitionsの元連続検査本文をliteral一致の4fragmentへ分割。製品macro有効時は4つのnoinline bool helperを通す。元outer breakはdo(false)+completedで呼出元へ伝え、inner loop breakとerror後の処理順序を保持。s.errorだけで早期終了する方式には変えない。legacyは同じ4fragmentをinline includeし、同一compiler identityでCUDA/MSL/reflection全4artifactが旧版と完全同一。旧141実GPU証拠のsourceは付け替えない。
+
+不変development owner b586d0f7…のMiranda30秒はApple M5/GPU1.784057秒、全CPU製品応答一致、fresh独立seal成功。v3 goldenはsource/generated metadataのみ変更し、v2と全input/output/native entries同一。通常API別ポート4337でも実GPU1.766998秒・全体2.976507秒、全CPU応答一致、同じ全raw SHA。検証serverは停止済み。4種類の不正rawを分割前後各1回M5へ渡し、全status64、全12582912bytes一致、CPU戦闘0。製品15/packet3/weapon7成功。小証跡product-admission-v1.json。
+
+今回の分割sourceの製品確認はMetal1 profile/CUDA0。前版255を今回の全profile再実証と数えない。最大生成関数は130220→74760bytes、全CUDAは0.285%増加し、実compiler memory削減は未測定。新suite/監査tool追加なし、保護CPU/数値/元golden変更なし。Claudeは再認証後にレビュー取得。host ptxas圧迫と関数別原因未確定を支持。timeout61.219秒はafter_wait観測を含み、実compilerの60秒超過は未証明。follow-upでtimeout違反の断定を撤回。4不正入力は分割前後の別package間比較で、両input/output/生成hashとbaseline ownerを明記。assembler verboseは既存。追加時間延長案は採用せず既存制限を維持。次はレビュー確認後、固定sealed sourceのcompile-plan→Windows2GiB/child60s/outer180sのCUBIN1回だけで実メモリを測る。以下は履歴。
+
 # 2026-10-30 製品helper4関数を共通outline：元の数値fingerprint保持
 
 PORTABLE_PRODUCT_OUTLINED_HELPERSを製品3入口へ追加（group-targetはgroup入口から継承）。weaponFrame/captureFocusAims/actorFieldsDefinitionValid/initializeTargetCountersの定義だけ条件付きnoinlineとし、CUDA/Metal共通、計算/検査本文/入出力/CPU正本は変更0。生成CUDA差分は4個の__noinline__だけ、Metalも同じ4属性だけ。通常経路のsquadFrame inline closure内にこの2大helperが残らないことを既存cuda_statisticsで確認した。実ptxasピーク削減はまだ未確認。
