@@ -1,0 +1,218 @@
+{
+  "schema_version": 2,
+  "total_damage": 2504456,
+  "members": [
+    {
+      "name": "미란다",
+      "damage": 707616,
+      "share": 0.28254279572090707
+    },
+    {
+      "name": "도라",
+      "damage": 0,
+      "share": 0.0
+    },
+    {
+      "name": "N102",
+      "damage": 0,
+      "share": 0.0
+    },
+    {
+      "name": "메어리",
+      "damage": 489160,
+      "share": 0.19531586899510311
+    },
+    {
+      "name": "드레이크",
+      "damage": 1307680,
+      "share": 0.5221413352839899
+    }
+  ],
+  "duration": 1,
+  "expected": true,
+  "seed": 0,
+  "boss": {
+    "def": 31784,
+    "code": "풍압",
+    "core_px": 50,
+    "has_parts": false,
+    "part_break_interval": 0.0,
+    "optimal_range_weapons": [],
+    "distance": 25,
+    "coord": null,
+    "atk": 114344,
+    "patterns": []
+  },
+  "boss_label": null,
+  "spec": {
+    "baseline": "profile",
+    "at_baseline": false,
+    "char_defaults": {
+      "applied": [],
+      "skipped": [
+        "미란다",
+        "도라",
+        "N102",
+        "메어리",
+        "드레이크"
+      ]
+    },
+    "deviated": [
+      "미란다",
+      "도라",
+      "N102",
+      "메어리",
+      "드레이크"
+    ],
+    "deviations": {
+      "미란다": [
+        {
+          "key": "control",
+          "baseline": "없음",
+          "value": {},
+          "source": "override"
+        },
+        {
+          "key": "control.burst",
+          "baseline": {
+            "pattern": "전담"
+          },
+          "value": "없음",
+          "source": "override"
+        },
+        {
+          "key": "cube.name",
+          "baseline": "렐릭 어설트 큐브",
+          "value": "__none__",
+          "source": "override"
+        }
+      ],
+      "도라": [
+        {
+          "key": "cube.name",
+          "baseline": "렐릭 어설트 큐브",
+          "value": "__none__",
+          "source": "override"
+        }
+      ],
+      "N102": [
+        {
+          "key": "cube.name",
+          "baseline": "렐릭 어설트 큐브",
+          "value": "__none__",
+          "source": "override"
+        }
+      ],
+      "메어리": [
+        {
+          "key": "cube.name",
+          "baseline": "렐릭 어설트 큐브",
+          "value": "__none__",
+          "source": "override"
+        }
+      ],
+      "드레이크": [
+        {
+          "key": "cube.name",
+          "baseline": "렐릭 어설트 큐브",
+          "value": "__none__",
+          "source": "override"
+        }
+      ]
+    },
+    "tactics": {},
+    "profile": {
+      "name": "인라인",
+      "level_mode": "fixed",
+      "source": "inline",
+      "base": "ungrown",
+      "ungrown": []
+    },
+    "preview": [],
+    "text": "⚠ 인라인 육성 프로필 '인라인' 적용 — 고정 스펙 아님. 다른 보고서와 총딜을 직접 비교하지 않는다. (레벨 400 고정 (솔로레이드 기준), 항목 5종, 적지 않은 니케는 미육성)\n⚠ 애장품 단계가 3 미만인 캐릭터: 미란다 0단계, 도라 0단계, N102 0단계, 메어리 0단계, 드레이크 0단계. 그 단계의 스킬 판본으로 계산했다 — 기본 스펙(3단계)보다 딜이 낮게 나오는 게 정상이다.\n⚠ 프로필(2.5층) 이탈 5명 —\n  [미란다] control: 없음 → 없음  (지정)\n  [미란다] control.burst: {pattern=전담} → 없음  (지정)\n  [미란다] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [도라] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [N102] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [메어리] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [드레이크] cube.name: 렐릭 어설트 큐브 → __none__  (지정)"
+  },
+  "control": null,
+  "control_detail": {
+    "mode": "solo",
+    "camera_mode": "single",
+    "by_char": {},
+    "max_concurrent": 0,
+    "overlap_t": 0.0,
+    "overlaps": [],
+    "preempted": {}
+  },
+  "warnings": [
+    "인라인 육성 프로필 '인라인' 적용 — 고정 스펙 아님. 다른 보고서와 총딜을 직접 비교하지 않는다. (레벨 400 고정 (솔로레이드 기준), 항목 5종, 적지 않은 니케는 미육성)",
+    "애장품 단계가 3 미만인 캐릭터: 미란다 0단계, 도라 0단계, N102 0단계, 메어리 0단계, 드레이크 0단계. 그 단계의 스킬 판본으로 계산했다 — 기본 스펙(3단계)보다 딜이 낮게 나오는 게 정상이다.",
+    "프로필(2.5층) 이탈 5명 — 미란다, 도라, N102, 메어리, 드레이크"
+  ],
+  "evaluator": {
+    "repo": "Jgaram/nikke-calc",
+    "commit": null,
+    "dirty": null
+  },
+  "base_stats": {
+    "미란다": {
+      "atk": 97376,
+      "hp": 3000314,
+      "def": 17799
+    },
+    "도라": {
+      "atk": 97376,
+      "hp": 3000314,
+      "def": 17458
+    },
+    "N102": {
+      "atk": 89399,
+      "hp": 2441844,
+      "def": 18072
+    },
+    "메어리": {
+      "atk": 97376,
+      "hp": 3000314,
+      "def": 19377
+    },
+    "드레이크": {
+      "atk": 116338,
+      "hp": 2715916,
+      "def": 17544
+    }
+  },
+  "burst_policy": "auto",
+  "requested_burst_policy": "auto",
+  "burst_patterns": {},
+  "burst_timeline": [
+    {
+      "time": 0.0,
+      "event": "카메라 초점: N102",
+      "character": ""
+    }
+  ],
+  "shooting_policy": "auto",
+  "weapon_mode_swap": false,
+  "burst_gauge_mode": "accumulate",
+  "hypothetical": false,
+  "engine_revision": "23164e4a88fe46af609cc99b0de38a98313a5f4d",
+  "app_warnings": [
+    "固定条件の静止ボスを仮定した参考値です。ボス固有パターンと生存は未検証です。"
+  ],
+  "compute": {
+    "requested": "cuda_shared_detail",
+    "backend": "cuda_shared_detail",
+    "capture_id": "23f10124fd7841739de6be0fea2dfad2",
+    "device": "NVIDIA GeForce RTX 3070 Ti",
+    "elapsed_ms": 41416.77190037444,
+    "gpu_execution_verified": true,
+    "input_sha256": "e26cf2bbb65dd20fc1b03780b24d38729a3c783b41913f1971284ca45b29c0d8",
+    "output_sha256": "647c30819467bd6e970c8c5a993d4a9b49688890cfe82c161350c33482cb5c3f",
+    "source": "gpu/product_battle_entry.slang",
+    "scope": "shared autonomous battle; CPU verified for this request",
+    "host_dispatch_seconds": 0.29281309992074966,
+    "saved_cubin_admission": "verified",
+    "historical_link_preservation_verified": false,
+    "historical_link_missing_processes_count": 7,
+    "historical_link_termination_cause": "unknown",
+    "artifact_provider": "saved-module-jit-cubin",
+    "artifact_key": "2287019be22f0cbf292b5d5ebe074d89e0a8e068a5947e538ec0e205fd837f69"
+  }
+}

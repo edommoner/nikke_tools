@@ -1,0 +1,44 @@
+{
+  "schema": "product-cuda-short-api-v1-report",
+  "scope": "Saved one-second one-profile HTTP CUDA result; no new execution",
+  "source_summary_sha256": "410e185c5a6322da08bee2e93bbe31e43c2d5d4a5ea3642718a8e0a0b2b63531",
+  "public_fixture_request_verified": true,
+  "credential_key_scan_matches": 0,
+  "files": [
+    {
+      "path": "summary.json",
+      "bytes": 13400,
+      "sha256": "410e185c5a6322da08bee2e93bbe31e43c2d5d4a5ea3642718a8e0a0b2b63531"
+    },
+    {
+      "path": "api-final.json",
+      "bytes": 8575,
+      "sha256": "b77a136e4c328dc935a31ea4205c824c37e7ba139ad3a5fd921ea6e6c64607d0"
+    },
+    {
+      "path": "capture-result.json",
+      "bytes": 52264,
+      "sha256": "95b74d6225b5c98c1a44be6652ce567a211c6b181d87d3dd9a1080e665d17597"
+    },
+    {
+      "path": "evidence.json",
+      "bytes": 109478,
+      "sha256": "563a1c2de9af9fa2dc57f496cbfae6b435d15265432db9f4ce4c45f4971c0f93"
+    },
+    {
+      "path": "cpu-payload.json",
+      "bytes": 5785,
+      "sha256": "7916d2d0f47442cdd72de960755418ea6543c3b9a8ea165076d2b340e40fbecf"
+    },
+    {
+      "path": "gpu-payload.json",
+      "bytes": 6751,
+      "sha256": "67bf01411638cc0004fba338ae42059c697a3dbe0c96156f7c6e4f2861224e91"
+    },
+    {
+      "path": "phases.jsonl",
+      "bytes": 132676,
+      "sha256": "cacda9ad16d97c39864b9ea5990e047f6018508e22bb7b3efaf9a7c7eddd41e4"
+    }
+  ]
+}

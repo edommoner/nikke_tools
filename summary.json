@@ -1,0 +1,435 @@
+{
+  "schema": "normal-http-cuda-one-second-v1",
+  "passed": true,
+  "source_commit": "2c684f88e03b2943340f20510cd4f59a64115ad3",
+  "package_id": "d1206d3f6ca2b3c0c78aa9ca23dce5e65dd66a17ce7105d581cafc01330a9ff7",
+  "duration": 1,
+  "profiles": 1,
+  "http_submissions": 1,
+  "api": {
+    "passed": true,
+    "submitted_once": true,
+    "job_id": "63c21255-c136-4247-a146-71b0b38651f1",
+    "compute": {
+      "requested": "cuda_shared_detail",
+      "backend": "cuda_shared_detail",
+      "capture_id": "23f10124fd7841739de6be0fea2dfad2",
+      "device": "NVIDIA GeForce RTX 3070 Ti",
+      "elapsed_ms": 41416.77190037444,
+      "gpu_execution_verified": true,
+      "input_sha256": "e26cf2bbb65dd20fc1b03780b24d38729a3c783b41913f1971284ca45b29c0d8",
+      "output_sha256": "647c30819467bd6e970c8c5a993d4a9b49688890cfe82c161350c33482cb5c3f",
+      "source": "gpu/product_battle_entry.slang",
+      "scope": "shared autonomous battle; CPU verified for this request",
+      "host_dispatch_seconds": 0.29281309992074966,
+      "saved_cubin_admission": "verified",
+      "historical_link_preservation_verified": false,
+      "historical_link_missing_processes_count": 7,
+      "historical_link_termination_cause": "unknown",
+      "artifact_provider": "saved-module-jit-cubin",
+      "artifact_key": "2287019be22f0cbf292b5d5ebe074d89e0a8e068a5947e538ec0e205fd837f69",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      }
+    },
+    "cache_hit": false,
+    "elapsed_seconds": 44.89967099996284
+  },
+  "product_elapsed_seconds": 41.43502510013059,
+  "artifact": {
+    "provider": "saved-module-jit-cubin",
+    "key": "2287019be22f0cbf292b5d5ebe074d89e0a8e068a5947e538ec0e205fd837f69",
+    "bytes": 5051088,
+    "sha256": "b4d35f760d23d9bd974d4d6e5ed4200889a69002386e293a381b123081f71250"
+  },
+  "historical_environment": {
+    "observation_sha256": "05c534e266ee6b31bb481292a28ed52a7bbaedba0e427a5c662fe94a6f928920",
+    "missing_count": 7,
+    "preservation_verified": false,
+    "service_preservation_verified": false,
+    "termination_cause": "unknown",
+    "disposition": "retained-failure",
+    "all_FILETIME_strings": true
+  },
+  "paired_generation": {
+    "required": true,
+    "hit": true,
+    "key": "29323a484ced53e37dfde496e916ba63318b18c88d5b75a4072201f7754f4584",
+    "compiler_invocations": 0,
+    "artifacts": {
+      "cuda": {
+        "bytes": 2274611,
+        "sha256": "6279783dd04eb7d3951554d5b1b75927bc7abb0b8a6042ededf73ea93ced1c74"
+      },
+      "cuda-reflection": {
+        "bytes": 425585,
+        "sha256": "881b6f7976dca7c5d2c1bd4745105156d4521d1b8d53b4cb20d5e8cc7bea7891"
+      },
+      "metal": {
+        "bytes": 2406939,
+        "sha256": "edac36cf97d00c297915e63fe995dd64a63bee7749358d8824d255298eafb9b7"
+      },
+      "metal-reflection": {
+        "bytes": 425120,
+        "sha256": "37fc0fc7400a2b13710c1cadac93f5638e1de666c7d2f55b3bc7373a8dabadb2"
+      }
+    }
+  },
+  "timings": [
+    {
+      "stage": "product_cubin_owner",
+      "state": "returned",
+      "elapsed_seconds": 7.0327397
+    },
+    {
+      "stage": "product_cubin_admission",
+      "state": "returned",
+      "elapsed_seconds": 30.452056900132447
+    },
+    {
+      "stage": "slang_generation_identity",
+      "state": "returned",
+      "elapsed_seconds": 0.6807737
+    },
+    {
+      "stage": "slang_generation_read_entry",
+      "state": "returned",
+      "elapsed_seconds": 0.0265686
+    },
+    {
+      "stage": "slang_reflection_plan",
+      "state": "returned",
+      "elapsed_seconds": 0.0197037
+    },
+    {
+      "stage": "slang_layout_assertions",
+      "state": "returned",
+      "elapsed_seconds": 0.0216171
+    },
+    {
+      "stage": "slang_scope_snapshot_audit",
+      "state": "returned",
+      "elapsed_seconds": 0.4150869
+    },
+    {
+      "stage": "slang_generation_validate_pair",
+      "state": "returned",
+      "elapsed_seconds": 0.6216998
+    },
+    {
+      "stage": "slang_generation_identity",
+      "state": "returned",
+      "elapsed_seconds": 0.6545141
+    },
+    {
+      "stage": "slang_generation_atomic",
+      "state": "returned",
+      "elapsed_seconds": 0.0028264
+    },
+    {
+      "stage": "slang_generation_atomic",
+      "state": "returned",
+      "elapsed_seconds": 0.0016135
+    },
+    {
+      "stage": "slang_generation_atomic",
+      "state": "returned",
+      "elapsed_seconds": 0.0031026
+    },
+    {
+      "stage": "slang_generation_atomic",
+      "state": "returned",
+      "elapsed_seconds": 0.0019376
+    },
+    {
+      "stage": "slang_generation_atomic",
+      "state": "returned",
+      "elapsed_seconds": 0.0017051
+    },
+    {
+      "stage": "slang_build",
+      "state": "returned",
+      "elapsed_seconds": 2.0993633
+    },
+    {
+      "stage": "slang_reflection_plan",
+      "state": "returned",
+      "elapsed_seconds": 0.0043662
+    },
+    {
+      "stage": "slang_layout_assertions",
+      "state": "returned",
+      "elapsed_seconds": 0.0130225
+    },
+    {
+      "stage": "slang_scope_snapshot_audit",
+      "state": "returned",
+      "elapsed_seconds": 0.4187365
+    },
+    {
+      "stage": "slang_generation_validate_pair",
+      "state": "returned",
+      "elapsed_seconds": 0.5933052
+    },
+    {
+      "stage": "slang_reflection_plan",
+      "state": "returned",
+      "elapsed_seconds": 0.0045415
+    },
+    {
+      "stage": "cuda_linked_artifact",
+      "state": "returned",
+      "elapsed_seconds": 0.0256281
+    },
+    {
+      "stage": "cuInit",
+      "state": "returned",
+      "elapsed_seconds": 0.0535659,
+      "return_code": 0
+    },
+    {
+      "stage": "cuDeviceGet",
+      "state": "returned",
+      "elapsed_seconds": 1.85e-05,
+      "return_code": 0
+    },
+    {
+      "stage": "cuDeviceComputeCapability",
+      "state": "returned",
+      "elapsed_seconds": 1.64e-05,
+      "return_code": 0
+    },
+    {
+      "stage": "cuDeviceGetName",
+      "state": "returned",
+      "elapsed_seconds": 1.05e-05,
+      "return_code": 0
+    },
+    {
+      "stage": "cuCtxCreate_v2",
+      "state": "returned",
+      "elapsed_seconds": 0.1161717,
+      "return_code": 0
+    },
+    {
+      "stage": "cuModuleLoadData",
+      "state": "returned",
+      "elapsed_seconds": 0.0055038,
+      "return_code": 0
+    },
+    {
+      "stage": "cuModuleGetFunction",
+      "state": "returned",
+      "elapsed_seconds": 0.0092686,
+      "return_code": 0
+    },
+    {
+      "stage": "cuModuleGetGlobal_v2",
+      "state": "returned",
+      "elapsed_seconds": 2e-05,
+      "return_code": 0
+    },
+    {
+      "stage": "cuMemAlloc_v2",
+      "state": "returned",
+      "elapsed_seconds": 0.0002263,
+      "return_code": 0
+    },
+    {
+      "stage": "cuMemAlloc_v2",
+      "state": "returned",
+      "elapsed_seconds": 0.0001596,
+      "return_code": 0
+    },
+    {
+      "stage": "cuMemAlloc_v2",
+      "state": "returned",
+      "elapsed_seconds": 2.96e-05,
+      "return_code": 0
+    },
+    {
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "returned",
+      "elapsed_seconds": 0.0001237,
+      "return_code": 0
+    },
+    {
+      "stage": "cuMemsetD8_v2",
+      "state": "returned",
+      "elapsed_seconds": 5.84e-05,
+      "return_code": 0
+    },
+    {
+      "stage": "cuMemcpyHtoD_v2",
+      "state": "returned",
+      "elapsed_seconds": 4.34e-05,
+      "return_code": 0
+    },
+    {
+      "stage": "cuLaunchKernel",
+      "state": "returned",
+      "elapsed_seconds": 0.0023329,
+      "return_code": 0
+    },
+    {
+      "stage": "cuCtxSynchronize",
+      "state": "returned",
+      "elapsed_seconds": 0.2873707,
+      "return_code": 0
+    },
+    {
+      "stage": "cuMemcpyDtoH_v2",
+      "state": "returned",
+      "elapsed_seconds": 0.0005057,
+      "return_code": 0
+    },
+    {
+      "stage": "cuCtxDestroy_v2",
+      "state": "returned",
+      "elapsed_seconds": 0.0341322,
+      "return_code": 0
+    }
+  ],
+  "cpu_verification": {
+    "matched": true,
+    "differing_fields": []
+  },
+  "cpu_only_elapsed_seconds": "unknown; no separate CPU journal boundary",
+  "cpu_and_comparison_interval_seconds": 0.018253199756145477,
+  "cpu_interval_scope": "After compute elapsed stamp through CPU evaluation, CPU payload save and comparison; includes overhead",
+  "native_order_verified": true,
+  "launch_calls": 1,
+  "sync_calls": 1,
+  "readback_calls": 1,
+  "readback": {
+    "output_bytes": 3145728,
+    "output_sha256": "647c30819467bd6e970c8c5a993d4a9b49688890cfe82c161350c33482cb5c3f",
+    "chunk_bytes": 8388608,
+    "chunks": 1
+  },
+  "mac_input_output_sha_match": true,
+  "execution": {
+    "passed": true,
+    "timed_out": false,
+    "timeout_seconds": 60,
+    "elapsed_seconds": 50.500231800135225,
+    "child_exit_code": 0,
+    "final_child_exit_code": 0,
+    "error": null,
+    "cleanup_error": null,
+    "cleanup_wait_seconds": 5,
+    "observation_error": null,
+    "wait_completed_unix_ns": 1793377195444143200,
+    "below_normal_priority": true,
+    "phase": {
+      "events": 0,
+      "last_event": null,
+      "timed_calls": [],
+      "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_linked_artifact_observed": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retry_count": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false
+  },
+  "current_comparison": {
+    "all_monitored_processes_preserved": true,
+    "missing_existing_processes": [],
+    "identified_nikke_service_preservation_verified": false,
+    "nikke_service_status_before": "unverified",
+    "nikke_service_status_after": "unverified",
+    "termination_cause": null,
+    "command_lines_saved": false
+  },
+  "job": {
+    "schema": 1,
+    "records": [
+      {
+        "child_pid": 100712,
+        "wrapper_pid": 89576,
+        "pre_gate": {
+          "child_pid": 100712,
+          "child_ppid": 89576,
+          "parent_observation": "os_process_snapshot",
+          "observed_unix_ns": 1793377147768586400,
+          "wrapper_pid": 89576,
+          "child_creation_filetime_ticks": "134378507477303998",
+          "job_members": [
+            100712
+          ],
+          "job_peak_memory_bytes": 5918720,
+          "job_memory_limit_bytes": 2147483648
+        },
+        "pre_gate_verified": true,
+        "post_wait": {
+          "child_pid": 100712,
+          "child_ppid": 89576,
+          "parent_observation": "pre_gate_snapshot_same_process_handle_after_exit",
+          "observed_unix_ns": 1793377195442532400,
+          "wrapper_pid": 89576,
+          "child_creation_filetime_ticks": "134378507477303998",
+          "job_members": [],
+          "job_peak_memory_bytes": 1989414912,
+          "job_memory_limit_bytes": 2147483648
+        },
+        "inspection_error": null
+      }
+    ],
+    "observer_assigns_processes": false
+  },
+  "old_inputs_unchanged": true,
+  "protected_files": 238,
+  "prior_observation_unknown_retained": true,
+  "new_compiler_calls": 0,
+  "no_standalone_admission_or_read": true,
+  "scope": "One-second one-profile HTTP/API CUDA proof only; no30s/full-profile claim",
+  "evidence": {
+    "observation.json": {
+      "bytes": 57374,
+      "sha256": "94a8aa7301b925356cd367cd22a3266e108b2046bdbd5cc897555174ca5029b2"
+    },
+    "execution.json": {
+      "bytes": 1092,
+      "sha256": "c0c82c269dc11c1697cfe627ad38005a335350c0ab6e514944a06e8bdaba5d9e"
+    },
+    "job.json": {
+      "bytes": 1095,
+      "sha256": "cde62169f1a353910567ba4b996098d39a99ae850491504e80b5e2bc39860fd3"
+    },
+    "api-result.json": {
+      "bytes": 1223,
+      "sha256": "f49e86390b68299bf6274abad198346eafe6b0f67cfc9335637988703a507485"
+    },
+    "job-id.json": {
+      "bytes": 54,
+      "sha256": "762bbd02c19eaf2b104f040fce3c24c191a9f4feec808f85346a109dce47c79b"
+    },
+    "detail-captures\\23f10124fd7841739de6be0fea2dfad2\\phases.jsonl": {
+      "bytes": 132676,
+      "sha256": "cacda9ad16d97c39864b9ea5990e047f6018508e22bb7b3efaf9a7c7eddd41e4"
+    },
+    "detail-captures\\23f10124fd7841739de6be0fea2dfad2\\evidence.json": {
+      "bytes": 109478,
+      "sha256": "563a1c2de9af9fa2dc57f496cbfae6b435d15265432db9f4ce4c45f4971c0f93"
+    },
+    "detail-captures\\23f10124fd7841739de6be0fea2dfad2\\result.json": {
+      "bytes": 52264,
+      "sha256": "95b74d6225b5c98c1a44be6652ce567a211c6b181d87d3dd9a1080e665d17597"
+    },
+    "detail-captures\\23f10124fd7841739de6be0fea2dfad2\\cpu-payload.json": {
+      "bytes": 5785,
+      "sha256": "7916d2d0f47442cdd72de960755418ea6543c3b9a8ea165076d2b340e40fbecf"
+    },
+    "detail-captures\\23f10124fd7841739de6be0fea2dfad2\\gpu-payload.json": {
+      "bytes": 6751,
+      "sha256": "67bf01411638cc0004fba338ae42059c697a3dbe0c96156f7c6e4f2861224e91"
+    }
+  }
+}
