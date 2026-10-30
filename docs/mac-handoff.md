@@ -1,3 +1,15 @@
+# 2026-10-31 通常HTTP/APIでCUDA1秒・1profile成功、保存JSON取得待ち
+
+不変source2c684f88/d1206d3f…の通常POST /api/jobsを1回送信し、Miranda元fixtureのduration1秒だけで実CUDA→全CPU製品payload一致、差分0。cache_hit=false、入出力SHAはMac同sceneのe26cf2bb…/647c3081…と一致。CUBIN5051088bytes/SHAb4d35f76…、provider saved-module-jit-cubin、receipt key2287019be22f0cbf292b5d5ebe074d89e0a8e068a5947e538ec0e205fd837f69。required paired generation hit、compiler追加0、画像read完了後CUDA初期化→launch/sync/全量readback各1回正常。peer保存要約SHA410e185c5a6322da08bee2e93bbe31e43c2d5d4a5ea3642718a8e0a0b2b63531、rawはWindows保持でMac独立監査は未完。
+
+owner7.033秒/admission30.452秒/generation読取検査2.099秒/image read0.026秒、host_dispatch0.292813秒（純GPU秒でない）、全工程50.500秒。Job peak1989414912bytesは2GiB上限まで約151MiBしか余裕がなく、時点/owned processの内訳はunknown。追加実行せず保存時刻/メモリ観測の有無だけ調査依頼。30秒や全profileへ外挿せず、OS/TDR/上限変更なし。新missing/obs/cleanup/inspection/Job残存0、service未識別false。旧238証跡不変。歴史7消失/原因unknown/保全falseと前回coordinator観測unknownを別保持。
+
+展開後自身CLIの意味検証は8.637秒成功。その後の独自coordinatorはsubprocess禁止/全体forbid_gpuとpidなし手作り時刻行が原因でCPU検査/観測保存に失敗し、新missing unknownとして保持。既存CLI unit-checkの正規親子境界＋linked unittestへ訂正してCPU50件成功/skip0、fresh新missing0/Jobpost空/obs/cleanup0。unit全26.093秒（tests6.417+0.095）、linked全6.647秒（tests1.190）。新suite/証明器を作らず既存境界を使う。
+
+現head571ef82bの診断修正はMac product23/linked25/packet3成功、Windows2cはその修正前。GPU/数値/prepare/compile/decoderは不変。製品対応報告はMetal前版255profile、現在host変更後の実API同1profile、CUDA1profileの短い1秒だけ。group/target saved-CUBINと30秒/全CUDAprofile、残11profile、固定ゲージ、parts/manual/全設定・編成は未完。
+
+Windowsへ成功runのAPI response/capture result/evidence/cpu/gpu payload/phases/小summary/manifestだけをcodex/product-cuda-short-api-v1-reportへ共有する依頼を送信中。raw .bin/CUBIN/PTX/object/SDK/個人設定/環境変数/全processsnapshotは送らない。送信APIが応答待ちのfunctions cell789なので再送せず同handleをpollすること。直前完了chat cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:78、host/threadは下履歴どおり。新GPU/コンパイルは依頼しない。以下は履歴。
+
 # 2026-10-31 メモリ再確認、Windows梱包timeoutを保持して既存Mac packet輸送へ
 
 Macは20秒間3観測ともswap使用/I/O0。Claude再reviewも現Mac RAM不足を主因とする証拠なし。Windows単独ptxasの約2GiB失敗は履歴として保持し、同PTXのobject/link成功outer peak393.9/228.8MiBと区別する。保存時刻の読取でobject/linkのouter69.560/93.725秒、主要処理10.411/0.261秒を確認。gateからoriginまで19.701/30.419秒あるがstartup/import/audit混在のため個別原因はunknown、転送時間やsnapshot単体時間へ断定しない。
