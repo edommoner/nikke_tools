@@ -7,10 +7,6 @@
   "source_commit": "493244ab2416cac06013f07ad69c9709596b671a",
   "program": "accumulate",
   "files": 2686,
-  "changed_shader_sources": [
-    "gpu/event_runtime.slang",
-    "gpu/attack_group_runtime.slang"
-  ],
   "scope": "Current shared charge/part arithmetic and native group part routing. Source-only packet; preserve prior source/PTX/claims/failures. No SDK, raw buffers, compiled binary or personal settings.",
   "unit_tests": 48,
   "ptx_plan": {
@@ -31,5 +27,33 @@
     "execution_claim_available": true,
     "calculation_verified": false,
     "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
-  }
+  },
+  "selected_program_shader_closure_changed": [
+    "gpu/event_runtime.slang",
+    "gpu/attack_group_runtime.slang"
+  ],
+  "full_payload_changed_files": [
+    "app/portable_destructible_roster_input.py",
+    "app/portable_detail.py",
+    "app/portable_weighted_incoming_source_contract.py",
+    "app/portable_world_result.py",
+    "gpu/attack_group_runtime.slang",
+    "gpu/destructible_battle_runtime.slang",
+    "gpu/destructible_weapon_runtime.slang",
+    "gpu/event_runtime.slang",
+    "gpu/product_group_target_battle_entry.slang",
+    "research/portable-product-programs-v1-expected.json",
+    "tests/test_portable_detail.py",
+    "tests/test_weighted_source_contract.py"
+  ],
+  "full_payload_added_files": [],
+  "full_payload_removed_files": [],
+  "full_payload_changed_gpu_files": [
+    "gpu/attack_group_runtime.slang",
+    "gpu/destructible_battle_runtime.slang",
+    "gpu/destructible_weapon_runtime.slang",
+    "gpu/event_runtime.slang",
+    "gpu/product_group_target_battle_entry.slang"
+  ],
+  "protected_cpu_files_unchanged": true
 }
