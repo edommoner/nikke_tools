@@ -59,6 +59,168 @@
   "service_preservation_verified": false,
   "original_failed_claim_preserved": true,
   "summary_sha256": "1ba8c2ac17ea440a63b72fdbf8dde71d9e26083d02a3ac021523cae1fc10a423",
-  "next": "Existing compile-ptx in fresh owner with required generation hit; then consider existing standalone assembly in a separate Job. No direct CUBIN retry or raised cap.",
-  "full_goal_complete": false
+  "next": "Choose concrete shared helper definition boundaries from saved PTX/CUDA stats. No more Windows compiles before a validated source change; preserve all numerical/admission rules and test CUDA/Metal from the same source.",
+  "full_goal_complete": false,
+  "separate_ptx_stage": {
+    "compiler_success": true,
+    "source_owner_same_package_id": true,
+    "version": "8.4",
+    "target": "sm_86",
+    "bytes": 9416812,
+    "sha256": "bd33a2a79f686b2124a8c2edf10a66324714558fde69325dd0f81e3dcf6021ee",
+    "nvrtc_seconds": 24.968,
+    "nvrtc_code": 0,
+    "inner_seconds": 40.58,
+    "outer_seconds": 54.18,
+    "inner_peak_bytes": 225636352,
+    "outer_peak_bytes": 261341184,
+    "inner_exit": 0,
+    "outer_exit": 2,
+    "wrapper_exit": 1,
+    "outer_status_reason": "Service preservation unverified; compilation/containment separate",
+    "generation_required_hit": true,
+    "slang_calls": 0,
+    "ptxas_calls": 0,
+    "gpu_calls": 0,
+    "timeout": false,
+    "cleanup_errors": 0,
+    "observation_errors": 0,
+    "remaining_processes": 0,
+    "monitored_process_disappearances": 0,
+    "old_evidence_unchanged_files": 31,
+    "path_sensitive_root": null,
+    "summary_sha256": "11ad7f711a54cbd3173aea57b8adf64bd93092b7089dd8a8434aa39590492a6e"
+  },
+  "standalone_assembly": {
+    "assembly_verified": false,
+    "containment_verified": true,
+    "artifact_produced": false,
+    "ptxas_seconds": 16.082,
+    "exit_code": 4294967295,
+    "stdout_diagnostic": "ptxas fatal: Memory allocation failure; Ptx assembly aborted due to errors",
+    "inner_seconds": 41.88,
+    "outer_seconds": 67.187,
+    "inner_exit": 1,
+    "outer_exit": 1,
+    "inner_limit_bytes": 2147483648,
+    "outer_limit_bytes": 2147483648,
+    "inner_peak_bytes": 2104152064,
+    "outer_peak_bytes": 2147500032,
+    "timeout": false,
+    "cleanup_errors": 0,
+    "observation_errors": 0,
+    "remaining_processes": 0,
+    "monitored_process_disappearances": 0,
+    "service_preservation_verified": false,
+    "upstream_unchanged_files": 21,
+    "nvrtc_calls": 0,
+    "slang_calls": 0,
+    "gpu_calls": 0,
+    "summary_sha256": "f39ef35f695da9d4c8c4fb604bc023ff5730e98876fe1f24baa52c32db4ac5a2"
+  },
+  "cuda_lexical_structure": {
+    "source_sha256": "b8ad48cbe4ee1e1d63a6f9ed8bf9db674c23931006c33939446e92a43f237ae4",
+    "functions": 881,
+    "noinline_functions": 259,
+    "largest": "admitDefinitions_0",
+    "largest_bytes": 130220,
+    "largest_branches": 528,
+    "f64_add_mul_div_already_noinline": true,
+    "scope": "Lexical CUDA source sizes; not attribution of physical compiler memory"
+  },
+  "ptx_statistics": {
+    "cpu_only": true,
+    "seconds": 8.459,
+    "exit_code": 0,
+    "definitions": 260,
+    "entry_reachable_definitions": 260,
+    "unresolved": 0,
+    "external": 0,
+    "indirect": 0,
+    "cycles": 0,
+    "local_top": [
+      {
+        "name": "dispatch",
+        "declared_local_bytes": 9168,
+        "virtual_register_declarations": 4523
+      },
+      {
+        "name": "quantityTotals",
+        "declared_local_bytes": 4200,
+        "virtual_register_declarations": 2238
+      },
+      {
+        "name": "tick",
+        "declared_local_bytes": 2584,
+        "virtual_register_declarations": 1746
+      },
+      {
+        "name": "consumeBulletBuffs",
+        "declared_local_bytes": 2068,
+        "virtual_register_declarations": 213
+      },
+      {
+        "name": "captureWorldPeriodicDefinition",
+        "declared_local_bytes": 1044,
+        "virtual_register_declarations": 506
+      },
+      {
+        "name": "enqueueLanding",
+        "declared_local_bytes": 1040,
+        "virtual_register_declarations": 1121
+      }
+    ],
+    "line_top": [
+      {
+        "name": "squadFrame",
+        "ptx_lines": 17488,
+        "virtual_register_declarations": 12054
+      },
+      {
+        "name": "admitDefinitions",
+        "ptx_lines": 15456,
+        "virtual_register_declarations": 10362
+      },
+      {
+        "name": "initializePortableProgram",
+        "ptx_lines": 12275,
+        "virtual_register_declarations": 8485
+      },
+      {
+        "name": "applyDefinitionFrame",
+        "ptx_lines": 11636,
+        "virtual_register_declarations": 6474
+      },
+      {
+        "name": "collectStats",
+        "ptx_lines": 9631,
+        "virtual_register_declarations": 5872
+      },
+      {
+        "name": "basicConditions",
+        "ptx_lines": 8577,
+        "virtual_register_declarations": 6330
+      }
+    ],
+    "physical_memory_attribution_verified": false,
+    "peak_bytes": 74797056,
+    "protected_inputs_unchanged": 8,
+    "summary_sha256": "cf96330c171db755d57ade8541e36977ab8758122b4ba7239a7c9938c8013ee9"
+  },
+  "local_squad_cuda_calls": {
+    "analysis": "Existing cuda_statistics lexical call graph, depth3; not actual optimizer/memory attribution",
+    "largest_inline_edges": [
+      "squadFrame -> captureFocusAims (4783 CUDA bytes)",
+      "squadFrame -> weaponFrame (4252 CUDA bytes)",
+      "deliverCounterParts -> deliverWorldInterruptGroup (5797 CUDA bytes)"
+    ]
+  },
+  "outline_design_checks": {
+    "proof": "product-compiler-outline-design-v1-20261030",
+    "after_definition_prototype_noinline_effective": false,
+    "before_definition_prototype_noinline_effective": false,
+    "forward_struct_declaration_conflicts": true,
+    "gpu_calls": 0,
+    "repository_source_changed": false
+  }
 }

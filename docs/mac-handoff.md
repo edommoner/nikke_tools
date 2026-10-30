@@ -1,5 +1,9 @@
 # 2026-10-30 対象倍率＋multi-hitの実編成を通常APIでMetal確認
 
+CUDA続報：同じownerのfresh rootでPTX8.4/sm86（9416812bytes、SHA bd33a2a7…）の前段が成功。NVRTC24.968秒、inner peak225636352bytes、Slang再生成0。保存PTXを既存standalone ptxas12.4.131で別Jobに渡したが、16.082秒で同じMemory allocation failure、CUBINなし。旧失敗/producer21file不変、追加GPU/driver/context0。現在Windowsは停止済みで新規compile依頼なし。
+
+既存ptx-statsのCPU解析8.459秒が成功。entryから260定義全到達、未解決/外部/間接/cycle0。最大PTXはsquadFrame17488行/仮想register宣言12054、admitDefinitions15456行/10362。宣言量から物理メモリ原因を断定しない。Mac CUDAは881関数/259 noinline。f64Add/Mul/Divは既にnoinlineで、この3演算のinline説は撤回。squadFrame内のcaptureFocusAims/weaponFrameなど、まだinline可能な共有helper境界が候補。本文計算/検査を省略しない共通定義側の変更を検討する。Slang小probeでは定義前後のprototypeにnoinlineを付けても生成CUDAに反映されず、struct forward宣言は競合した。共通ソースを避けるその方式は採用しない。実装変更はまだしていない。proof product-compiler-outline-design-v1-20261030とproduct-detail-owner-v1-20261030/cuda-squad-calls.json、peer小要約はproduct-cuda-cubin-preparation-v1.json。
+
 元Sakura/Belorta/Miranda/Dora/Drakeの30秒編成を共通group実行器へ接続し、通常/api/jobsで全CPU製品応答一致。target modifierは既存kind4 carrier・元quantity/lifetime/nameを保持し、256axis表をgroup suffixへ別保持。GPU側もBODY1体・axis型/予約領域を検査し、typed対象なしを確認してから命令を実行する。typedゲームモデルや攻撃倍率をbody倍率へ代用しない。modifier自身がmulti_hit listenerの組合せ、追加actor/typed/partsは未対応のまま理由付き拒否。
 
 最終product-group-target-v2-20261030は生成/PSO cache必須hitでGPU1.772668秒・全体2.746664秒、CPU全応答一致。初回cold v1は63.288秒で保存。入力/出力は両回同一。v1の不正raw7件はM5で全status64、CPU戦闘0。既存3shader closure不変、旧255要求の再packing input SHA全一致（CPU戦闘/GPU0）。製品確認済みprofileはMetal255/CUDA0を維持し、追加実編成の確認と区別する。15製品＋3packet検査成功、normal packet入力も既存sealed SHAを保持。小証跡product-group-target-v1.json。保護CPU/効果定義/数値/期待値変更0、新suite/監査toolなし。
