@@ -100,9 +100,13 @@ def compile_product(prepared):
         if fixed:
             from portable_specs import LIMITS as limits
             base=limits['WORLD_CONTROL_INPUT_BASE']
-            if words[base+1]!=1 or any(words[base+5:base+16]):
-                raise UnsupportedPortable('Fixed burst requires the automatic control header')
-            words[base+1]=4
+            version=words[base+1]
+            tap_mask=words[base+5] if version==2 else 0
+            if (version not in (1,2) or version==1 and any(words[base+5:base+16])
+                    or version==2 and (not 0<tap_mask<32 or any(words[base+6:base+16]))):
+                raise UnsupportedPortable('Fixed burst requires a canonical automatic or tap control header')
+            words[base+1]=5 if tap_mask else 4
+            if tap_mask:words[base+10]=tap_mask
             words[base+5:base+10]=[0x46424731,*struct.unpack('<II',struct.pack('<d',first)),*struct.unpack('<II',struct.pack('<d',max(regen)))]
             metadata['real_prepared_input']['policy']=copy.deepcopy(original['policies'])
             metadata['product_fixed_burst']=dict(first_seconds=first,member_regen_seconds=regen,

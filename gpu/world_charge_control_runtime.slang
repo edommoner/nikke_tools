@@ -376,7 +376,7 @@ void finishChargeControl(inout Runtime s,uint who)
 bool productFixedBurstHeader(uint p)
 {
     uint64_t first=loadNumber(p+6),regen=loadNumber(p+8),limit=f64FromI64(180);
-    return commands[p+1]==4 && commands[p+5]==0x46424731U
+    return (commands[p+1]==4 || commands[p+1]==5&&commands[p+10]>0&&commands[p+10]<32) && commands[p+5]==0x46424731U
         && f64Finite(first) && !f64Less(first,0) && !f64Less(limit,first)
         && f64Finite(regen) && !f64Less(regen,0) && !f64Less(limit,regen);
 }
@@ -391,7 +391,7 @@ bool partialControlHeader(inout Runtime s,uint p) {
 }
 uint partialReservedStart(inout Runtime s,uint p) {
 #ifdef PORTABLE_PRODUCT_FIXED_BURST
-    return 10;
+    return commands[p+1]==5?11:10;
 #else
     return 5;
 #endif
@@ -415,7 +415,7 @@ bool partialControlHeader(inout Runtime s,uint p)
 }
 uint partialReservedStart(inout Runtime s,uint p) {
 #ifdef PORTABLE_PRODUCT_FIXED_BURST
-    return 10;
+    return commands[p+1]==5?11:10;
 #else
 #ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
     if(commands[p+1]==3)return 8;
@@ -424,7 +424,11 @@ uint partialReservedStart(inout Runtime s,uint p) {
 #endif
 }
 bool partialOwnerEnabled(inout Runtime s,uint who)
-{ uint p=controlInput(s);return (commands[p+1]==2
+{ uint p=controlInput(s);
+#ifdef PORTABLE_PRODUCT_FIXED_BURST
+    if(commands[p+1]==5)return (commands[p+10]&(1U<<who))!=0;
+#endif
+    return (commands[p+1]==2
 #ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
     ||commands[p+1]==3
 #endif

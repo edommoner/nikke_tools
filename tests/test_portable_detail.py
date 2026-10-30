@@ -127,6 +127,27 @@ class PortableDetail(unittest.TestCase):
         bad=array.array('I',block);bad[base+16+2:base+16+4]=number(.1)
         with self.assertRaises(product.UnsupportedPortable):read_product_control_log(bad,meta,names,8.)
 
+    def test_fixed_tap_preserves_original_masks_controls_and_all_nonheader_words(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_specs import LIMITS as L
+        base=L['WORLD_CONTROL_INPUT_BASE']
+        for name in ('앨리스','밀크 : 블루밍 바니'):
+            body=selected_profile_bodies([name],0)[0][2]
+            body.update(shooting_policy='character',duration=20,burst_gauge_mode='fixed')
+            if name=='앨리스':body['profile']['chars'][name]['equip_skills']['charge_speed_pct']=9.26
+            with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle')):
+                prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+                source,iw,ow,fixed,meta=product.compile_product(prepared)
+                accumulated=copy.deepcopy(prepared);accumulated['policies']['config']['burst_gauge_mode']='accumulate'
+                _,_,_,original,_=product.compile_product(accumulated)
+            self.assertEqual(prepared,before)
+            self.assertEqual(source,'gpu/product_fixed_battle_entry.slang')
+            self.assertEqual(original[base+1],2);self.assertEqual(fixed[base+1],5)
+            self.assertTrue(0<original[base+5]<32);self.assertEqual(fixed[base+10],original[base+5])
+            self.assertEqual(fixed[:base],original[:base]);self.assertEqual(fixed[base+16:],original[base+16:])
+            self.assertEqual(fixed[base+2:base+5],original[base+2:base+5]);self.assertFalse(any(fixed[base+11:base+16]))
+            self.assertEqual(meta['real_prepared_input']['policy']['controls'],prepared['policies']['controls'])
+
     def descriptor(self,folder,**changes):
         document=dict(schema=1,programs={product.SOURCE:dict(battle_package=folder,request=dict(package=folder,capture=folder))})
         document.update(changes)

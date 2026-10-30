@@ -25,13 +25,16 @@ def product_sources(root):
         text=(root/name).read_text();digest=hashlib.sha256(text.encode()).hexdigest()
         # Exact reviewed charge corrections and GPU observation hooks only.
         # Recover the prior source before the unchanged historical ledger.
-        if name=='gpu/world_charge_control_runtime.slang' and digest=='754e22e1fdc6b7bfc0fca4672bbaa03d5f975ed7d07cbf154db728ca64bc2122':
+        if name=='gpu/world_charge_control_runtime.slang' and digest=='7ac4a981dcefff85b44293b8ba05a8058778c92972cc64a437f643b04f4bcaf8':
             text,count=re.subn(r'(?ms)^#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n.*?^#endif\n','',text)
             if count!=6:raise ValueError('Product charge observation spans differ')
             text=text.replace('// Product operator intervals reuse the bounded common control trace.\n// End product operator interval helpers.\n','')
             text=text.replace('    { results[a+14]=0xffffffff;storeNumber(a+6,ONE|F64_SIGN);results[a+22]=0;\n    }','    { results[a+14]=0xffffffff;storeNumber(a+6,ONE|F64_SIGN);results[a+22]=0; }')
             text=text.replace('                { results[a+14]=selected;storeNumber(a+6,uint64_t(0x7ff00000)<<32);results[a+15]=commands[row+2];\n                }','                { results[a+14]=selected;storeNumber(a+6,uint64_t(0x7ff00000)<<32);results[a+15]=commands[row+2]; }')
             text=text.replace('#if defined(PORTABLE_COORDINATE_ORIGINAL_FORCED_RELOAD) || defined(PORTABLE_PRODUCT_OUTLINED_HELPERS)','#ifdef PORTABLE_COORDINATE_ORIGINAL_FORCED_RELOAD')
+            text=text.replace('return (commands[p+1]==4 || commands[p+1]==5&&commands[p+10]>0&&commands[p+10]<32) && commands[p+5]==0x46424731U','return commands[p+1]==4 && commands[p+5]==0x46424731U')
+            text=text.replace('    return commands[p+1]==5?11:10;','    return 10;')
+            text=text.replace('{ uint p=controlInput(s);\n#ifdef PORTABLE_PRODUCT_FIXED_BURST\n    if(commands[p+1]==5)return (commands[p+10]&(1U<<who))!=0;\n#endif\n    return (commands[p+1]==2','{ uint p=controlInput(s);return (commands[p+1]==2')
             digest=hashlib.sha256(text.encode()).hexdigest()
             if digest!='aa8df45901d9d3a7e19d6af41bbd6a0a1721594156ea56c4dd1f47cde900c33d':raise ValueError('Product charge history preimage differs')
         if digest==row['baseline_sha256']:
