@@ -1809,7 +1809,103 @@
         },
         "source_code_changed": false,
         "normalizer_or_numeric_goldens_changed": false,
-        "windows_requests_added": 0
+        "windows_requests_added": 0,
+        "corrected_packet_v4": {
+          "schema": 1,
+          "package_id": "54ba1da6512c86cbecec02fb4213f3e3e4804a180a5d0a4cb53d4fa99af2c044",
+          "files": 2685,
+          "bytes": 11797293,
+          "archive_sha256": "41f53eb946163eb1ed9c14e6732ed012efdb22116f7817ae3f458b1495f81acd",
+          "source_commit": "a7cf715d0a6735097a2c6185464e6d11eddeda3d",
+          "previous_full_package_id": "eda7660a7c04aebe23b220d51110466d46580c668425c4594c5944182cacb68c",
+          "previous_files": 4172,
+          "new_manifest_members": [
+            "research/portable-cover-defense-modifiers-v1-expected.json",
+            "tests/fixtures/portable-product-source-delta.json"
+          ],
+          "changed_members": [
+            "app/portable_cpu_tests.py",
+            "app/portable_enemy_ammo_combined_source_contract.py",
+            "app/portable_package_projection.py",
+            "app/portable_weighted_incoming_source_contract.py",
+            "research/target-count-query-evidence/product-admission-v1.json",
+            "scripts/nikke_gpu.py",
+            "tests/test_portable_historical_projection.py",
+            "tests/test_portable_package_projection.py",
+            "tests/test_portable_scope_snapshot_audit.py",
+            "tests/test_weighted_source_contract.py"
+          ],
+          "omitted_python_files": 1489,
+          "all_retained_member_bytes_verified": true,
+          "all_omissions_are_unselected_research_or_test_python": true,
+          "all_gpu_app_scripts_data_fixtures_upstream_retained": true,
+          "golden_exactly_unchanged": true,
+          "input_sha256": "b534ebb2f7abcf613ea7b052f0ad8b9f9bcb48ec5ece9e0c766422871ba06a6f",
+          "output_sha256": "9c72bd03cc18453a9f8c6a9cdfebd6fe126e3e0b8e5889e6668cf158c4698be2",
+          "fresh_native_comparisons": 1,
+          "product_cpu_tests": 39,
+          "product_skipped": 0,
+          "common_smoke_groups": 74,
+          "common_smoke_tests": 792,
+          "common_smoke_skipped": 1,
+          "all_tests_passed": true,
+          "gpu_calls": 0,
+          "compiler_calls": 0,
+          "old_failures_and_claims_retained": true,
+          "scope": "Immutable compact product CPU and payload audit; no new product GPU profile or Windows timing claim",
+          "transport": {
+            "branch": "codex/product-fixed-compact-v4-packet",
+            "commit": "85309164240319bcdca15f84b48f3be340d4ed74",
+            "windows_task": "CPU-only transfer/unpack/verify/deps/unit39/PTX plan requested; no compiler/GPU request"
+          },
+          "historical_source_repair": {
+            "ledger": "tests/fixtures/portable-product-source-delta.json",
+            "ledger_sha256": "9187d38559f8e40c2735afb95892f8cba4174b8a1ccf01b0d9d4bb0873894d38",
+            "baseline_commit": "168f1bbf65957a85ba48a58699e585f74aa5ad91",
+            "current_preimages_compared_to_git": 13,
+            "added_sources_bound": 12,
+            "all_old_fixtures_and_numeric_goldens_unchanged": true,
+            "source_history_only_not_current_product_equivalence": true,
+            "new_suites_or_audit_tools": 0,
+            "negative_tests_in_shared_product_registry": 5
+          },
+          "old_bootstrap_transfer": {
+            "schema": 1,
+            "bootstrap_source_commit": "6c7d023579857f46e1aeedaa1013306eb156973a",
+            "bootstrap_files_verified": 10,
+            "new_package_id": "54ba1da6512c86cbecec02fb4213f3e3e4804a180a5d0a4cb53d4fa99af2c044",
+            "unpack_actual_passed": true,
+            "seconds": 0.5061792089836672,
+            "scope": "Old verified transfer-only bootstrap accepts new immutable compact packet; destination meaning checked separately by its own CLI",
+            "gpu_calls": 0,
+            "compiler_calls": 0
+          },
+          "ptx_plan": {
+            "schema": "compile-plan-v1",
+            "passed": true,
+            "package_id": "54ba1da6512c86cbecec02fb4213f3e3e4804a180a5d0a4cb53d4fa99af2c044",
+            "suite": "product-detail",
+            "purpose": "sealed",
+            "artifact_kind": "ptx",
+            "ptxas_level": null,
+            "memory_limit_mb": 2048,
+            "timeout_seconds": 60,
+            "error": null,
+            "policy": "sealed-battle compile-only transport",
+            "gpu_calls": 0,
+            "compiler_calls": 0,
+            "claim_created": false,
+            "execution_claim_available": true,
+            "calculation_verified": false,
+            "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+          },
+          "prior_packets": {
+            "v1": "original compact CPU34/native1 success; smoke stopped at group7/weapon source history; retained unchanged",
+            "v2": "source-history-fixed package created/unpacked; never executed",
+            "v3": "CPU39/native1 success; smoke stopped at group49/isolated scalar fixture incorrectly using current source epoch; retained unchanged",
+            "v4": "all selected CPU39/native1 and all common smoke74/792 passed"
+          }
+        }
       }
     }
   }
