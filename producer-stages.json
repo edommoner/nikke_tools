@@ -1,0 +1,71 @@
+{
+  "stages": {
+    "compile-ptx-v1": {
+      "execution": {
+        "passed": false,
+        "timed_out": false,
+        "timeout_seconds": 179.78099999995902,
+        "elapsed_seconds": 30.17536889994517,
+        "child_exit_code": 2,
+        "cleanup_error": null,
+        "observation_error": null,
+        "below_normal_priority": true
+      },
+      "peak_bytes": 219758592,
+      "fresh_job_verified": true,
+      "post_job_empty": true,
+      "inspection_error": null,
+      "process_preserved": true,
+      "missing_count": 0,
+      "service_preservation_verified": false,
+      "service_status_before": "unverified",
+      "service_status_after": "unverified",
+      "snapshot_before_unix_ns": 1793391866947036500,
+      "snapshot_after_unix_ns": 1793391894770645200
+    },
+    "compile-ptx-v1/proof": {
+      "execution": {
+        "passed": true,
+        "timed_out": false,
+        "timeout_seconds": 60,
+        "elapsed_seconds": 16.90703389979899,
+        "child_exit_code": 0,
+        "cleanup_error": null,
+        "observation_error": null,
+        "below_normal_priority": true
+      },
+      "peak_bytes": 103559168,
+      "fresh_job_verified": true,
+      "post_job_empty": true,
+      "inspection_error": null,
+      "process_preserved": true,
+      "missing_count": 0,
+      "service_preservation_verified": false,
+      "service_status_before": "unverified",
+      "service_status_after": "unverified",
+      "snapshot_before_unix_ns": 1793391876326471300,
+      "snapshot_after_unix_ns": 1793391890684556300
+    }
+  },
+  "required_flags": {
+    "cuda_cache_required": "1",
+    "generation_cache_required": true
+  },
+  "generation_cache_hit": true,
+  "generation_compiler_invocations": 0,
+  "new_nvrtc_calls": 0,
+  "new_compiler_dll_loads": 0,
+  "new_slang_calls": 0,
+  "driver_calls": 0,
+  "gpu_calls": 0,
+  "canonical_compiler_key": "65ed1224ec9d6e0d49795d01bf9c29f408bceec00a6962d399521ed9e34e1686",
+  "restored_ptx": {
+    "bytes": 9486097,
+    "sha256": "00350ea2611630e7da191701a00d2f16d731d92e4371a9495d39defe91c1aa55"
+  },
+  "old_inputs_unchanged": true,
+  "protected_files": 745,
+  "historical_missing": 7,
+  "historical_preservation_verified": false,
+  "historical_termination_cause": "unknown"
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "product-accumulate-current-v1-cache-report",
+  "files": [
+    {
+      "path": "current-compile-result.json",
+      "bytes": 332,
+      "sha256": "131e74c65c916d15d315d4b6ae9cf435a714dac9466d63105212f9efb1c2bf5e"
+    },
+    {
+      "path": "current-compiler-identity.json",
+      "bytes": 20722,
+      "sha256": "49bc43737c8b1a7812e050f33c24889a87c21a20c7a386200a3bc43c4e7c9502"
+    },
+    {
+      "path": "linked-reuse-block.json",
+      "bytes": 1505,
+      "sha256": "0bf0889fad53047340e85c1e7c80e81c22c49cec4b2c5442861b7cc56c231f6f"
+    },
+    {
+      "path": "preparation-summary.json",
+      "bytes": 19017,
+      "sha256": "bdcdea21ab42435b3b1d9fac95792b5e23e5ef08efdcc76b56d7cf9f2d4e21b5"
+    },
+    {
+      "path": "producer-phases.jsonl",
+      "bytes": 6025,
+      "sha256": "70309d530466369a31f010818b164871888961301b70742c2ad656ee786678bb"
+    },
+    {
+      "path": "producer-stages.json",
+      "bytes": 2303,
+      "sha256": "1e6e5a68fc078b1c54e89f2c506d83d2601da2ce4ce566760130dca2cf9f4776"
+    }
+  ],
+  "no_raw_or_compiled_binary": true,
+  "original_inputs_unchanged": true,
+  "linked_reuse_receipt_unavailable": true
+}

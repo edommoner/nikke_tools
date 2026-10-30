@@ -1,0 +1,37 @@
+{
+  "schema": "linked-reuse-entry-contract-block",
+  "reuse_admission_verified": false,
+  "full_chain_audit_executed": false,
+  "linked_reuse_receipt": null,
+  "stop_reason": "Existing audit-linked-reuse wrapper and linked_reuse_audit accept only four path fields; historical_link_observation cannot pass this entry. Required binding was not omitted and guards were not changed.",
+  "wrapper_request_fields": [
+    "linked_package",
+    "linked_capture",
+    "producer_package",
+    "producer_capture"
+  ],
+  "audit_request_fields": [
+    "package",
+    "capture",
+    "producer_package",
+    "producer_capture"
+  ],
+  "required_unsupported_field": "historical_link_observation",
+  "binding_source_descriptor_sha256": "ec8b0ae540837b7632eec63630fe2a80581c00a380c9bec3d3f3604c0262a774",
+  "binding_observation_sha256": "05c534e266ee6b31bb481292a28ed52a7bbaedba0e427a5c662fe94a6f928920",
+  "historical_missing": 7,
+  "historical_preservation_verified": false,
+  "historical_termination_cause": "unknown",
+  "binding_disposition": "retained-failure",
+  "current_owner": "717693a3c56becfa5c67ed9414fc1bbae7edb5ec49802264131bce25b97ebcf6",
+  "current_producer_cache_receipt_verified": true,
+  "wrapper_source": {
+    "bytes": 52830,
+    "sha256": "8e5c1201872fe4219471cf773ad22072ec6c1344deba176c926cc2103e1e9697"
+  },
+  "audit_source": {
+    "bytes": 462257,
+    "sha256": "6863311766ea7c22ea1a059a63ab052da3d2f70ffc197c2c7cbef8838408ba00"
+  },
+  "code_modified": false
+}

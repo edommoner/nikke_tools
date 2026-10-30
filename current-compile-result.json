@@ -1,0 +1,14 @@
+{
+  "mode": "compile-only",
+  "compiler_verified": true,
+  "passed": false,
+  "containment_verified": true,
+  "preservation_verified": false,
+  "calculation_verified": false,
+  "gpu_calls": 0,
+  "driver_load_calls": 0,
+  "error": null,
+  "gpu_retry_count": 0,
+  "new_compiler_calls": 0,
+  "cache_restore_only": true
+}
