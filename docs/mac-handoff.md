@@ -1,3 +1,17 @@
+# 2026-10-31 現sourceの通常固定API全266profileを再実証
+
+source 4e8613257b766bd934e68dfe25c89749906cc683を凍結し、通常HTTP /api/jobs経路を固定周期・30秒・元catalogueの標準成長/キューブなし編成で全266profile（基本/宝もの段階）実行。255件が実M5 Metal計算とCPU全製品応答一致、既知11件が理由付きCPU切替。API error/数値差分/cache hitはいずれも0、capture266件。normal fixed245/group fixed2/target fixed8で、group-targetはこの標準編成では0。過去255件の再認定であり、新規profile追加ではない。全設定・全発動分岐・ゲーム実機一致の証明とは区別する。
+
+保存全266件の独立照合を完了。正例はCPU戦闘を禁止して静的入力全byteを再生成し、凍結source/raw入力/readback SHAとGPU実行証拠を検査、既存decoderでrawを再投影して保存GPU/CPU/API全製品payloadを照合した（実行metadata/cache_hitのみ除外）。独立照合の追加CPU戦闘/GPUは0。最終source再hashも一致。既存proof product-fixed-current-api-v1-20261031と小記録research/target-count-query-evidence/product-current-fixed-api-sweep-v1.jsonを保持し、rawは共有しない。専用port4360サーバーを終了、ユーザーの4317/4327には変更なし。
+
+profile処理時間の合計1227.705秒、中央値3.882秒、最大21.670秒。Metal実行区間の合計671.555秒、中央値1.966秒。これらは入れ子であり合算しない。事前storage budgetは2GB＋1GiB reserveで成功。
+
+同sourceの共通scope auditor最適化は検査を省かず、Mac中央値0.159546→0.018180秒（約8.8倍）。WindowsのCPU専用比較はaudit＋resident appends中央値0.898809→0.042336秒（約21倍）、全結果/20関数抽出tuple一致。77群845 CPU tests成功。Windows測定はpeer報告で、Mac側のWindows原本独立監査とは区別する。詳細はgenerated-scope-scan-optimization-v1.json。CPU正本/GPU source/数値期待値/strict normalizerは不変。
+
+最適化後のsealed owner b8bc4cb06c82913bbc56a99987a736a86da7c66d9b3624566358bdf449e9853bはローカル準備のみ。own48/deps/compile-plan成功、明示generation2回のCUDA/MSL/両reflection全byteが既存Metal生成証拠一致。Windowsへ未送信・追加compile/GPUなし。同一生成CUDAの旧NVRTC timeout claim/compile-claimedは保持し、新owner/cacheで同じ失敗keyを迂回再試行しない。
+
+現sourceのCUDA製品計算認定は0。歴史CUDAの実蓄積1profile・1秒、fixed0と区別する。残11profile（Ann/Yuni/Yan/Soldier O.W./Velvet/Snow White Heavy Arms/Bay4段階/Rei）は引き続きreference model gapで、先頭拒否だけのwhitelistは行わない。CPU契約拡張と新Claude要約送信の具体的許可は未確認、既存拒否を維持。Windows旧7JSONの公開は別件の状態確認中で、再計算なし。全キャラ・全特殊効果の目標は未完了。以下は履歴。
+
 # 2026-10-31 Windows改行fixtureを解消、現sourceのcold PTXは60秒timeoutで停止
 
 current source da7a4c35033865322846a844f432e45f64cb201c、現normal shaderは852c1192と同じ。old ec成功PTXと現shaderはevent_runtime/attack_group_runtimeの2閉包差分があり、生成指紋も異なるため流用しない。Macの新sealed owner1b668b9f…をcodex/product-current-parts-v1-packet ac8d678eで共有した。転送側の旧branch定数でCPU取得失敗→訂正版で取得成功。その後transportの『2件』を全GPUと解釈した追加gateで停止。外部transport JSONをddc614d3で訂正：旧ec基準で全payload12件/GPU5件/選択normal closure2件、追加削除0。ZIPは不変。旧失敗/claimsを保持。

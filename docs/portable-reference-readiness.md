@@ -1,3 +1,7 @@
+## 2026-10-31 現通常APIの再検証結果
+
+4e861325の固定周期・30秒・標準編成266profileを再実行し、実Metal255件はCPU全製品応答一致、既知11件は理由付きCPU切替。保存raw再投影/入力全byte再生成も独立照合済み。追加profileは0、全設定・全効果の認定ではない。範囲/時間/未対応一覧は`research/target-count-query-evidence/product-current-fixed-api-sweep-v1.json`。現CUDA製品実行0、歴史CUDA1profile・1秒とは区別する。下記11件の契約判断は継続する。
+
 ## 2026-10-31 製品残11profileの次の実装判断
 
 現4fa35b70を元catalogueから再prepare/compileした全11の先頭拒否は既存readinessでreference_model_gap。effect_range_pct/effect_target_count_add/移動/lockはcanonical consumerなし、cover_def_pctはSCOPED_INERT、分配はdeferred、敵ammoはchar_states外をskip、敵healは既定world source/recipient経路が未確定。proof product-remaining-profiles-current-20261031.jsonとproduct-current-model-check-20261031.json。GPU/native追加0。これは全効果の網羅的検査ではなく、全11profileの現先頭拒否と既存source監査の照合。
