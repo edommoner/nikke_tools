@@ -1,0 +1,94 @@
+{
+  "schema": "product-saved-cubin-route-v1",
+  "mode": "Explicit opt-in; native cache default retained",
+  "source_scope": "CUDA transport/admission only; no arithmetic/effect/GPU source or protected CPU changes",
+  "unchanged_calculation_functions": [
+    "prepare",
+    "compile_product",
+    "decode_payload"
+  ],
+  "shared_existing_audits": [
+    "verify_package",
+    "saved_linked_admission",
+    "saved_linked_provider",
+    "read_verified",
+    "portable_phase_audit.observe",
+    "verify_phases"
+  ],
+  "supported_saved_source": "gpu/product_battle_entry.slang",
+  "configuration_env": "NIKKE_SHARED_CUDA_ARTIFACTS",
+  "source_metadata_image_and_phase_checks": true,
+  "live_nvrtc_forbidden": true,
+  "missing_process_guard_retained": true,
+  "saved_requests_bypass_response_cache": true,
+  "ordinary_cpu_metal_native_cache_preserved": true,
+  "admission_timing_recorded": true,
+  "time_limits_increased": false,
+  "tests": {
+    "product": 21,
+    "linked_artifact": 24,
+    "node": 24,
+    "product_packet": 3,
+    "scope": "CUDA successes use mocked driver output; not GPU evidence"
+  },
+  "metal": {
+    "immutable_package_id": "46a0a44da25ab2e8b56f8766137275ab8b4081e84ca42cf36c23c047ff8270da",
+    "gpu_seconds": 1.7629038749728352,
+    "pipeline_required_hit": true,
+    "input_sha256": "291fd86560a0bb772a03b581d273ddfe098b772f9935a02b89b16a7322466a18",
+    "output_sha256": "bc19e1324c7f293c24367148ec8d050a506d3779ba283983641f2f53d3fb01fc",
+    "cpu_full_product_payload_matched": true,
+    "numerical_golden_unchanged": true,
+    "ordinary_api_initial_integration_compute": {
+      "requested": "metal_detail",
+      "backend": "metal_detail",
+      "capture_id": "0c56466e93224a839775a70258252d3a",
+      "device": "Apple M5",
+      "elapsed_ms": 2899.6374999987893,
+      "gpu_execution_verified": true,
+      "input_sha256": "291fd86560a0bb772a03b581d273ddfe098b772f9935a02b89b16a7322466a18",
+      "output_sha256": "bc19e1324c7f293c24367148ec8d050a506d3779ba283983641f2f53d3fb01fc",
+      "source": "gpu/product_battle_entry.slang",
+      "scope": "shared autonomous battle; CPU verified for this request",
+      "gpu_seconds": 1.7499851666507311,
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      }
+    }
+  },
+  "minor_final_difference": "After immutable Metal proof, added failure-only CUDA admission timing; current product21 tests passed. Metal branch and all calculation/Slang unchanged.",
+  "cuda": {
+    "product_profiles_verified": 0,
+    "artifact_generated": true,
+    "current_artifact_admission": "rejected due historical missing process identities; no attempt to bypass or run GPU",
+    "validation_scope": "Source-preserving object/link artifact production only"
+  },
+  "historical_metal_full_api": {
+    "profiles": 255,
+    "additional_combination": 1,
+    "unsupported_cpu_fallback": 11,
+    "scope": "Completed prior app version; calculation functions/GPU/data retained; current host integration smoke1"
+  },
+  "claude_review": {
+    "initial_completed": true,
+    "followup_completed": true,
+    "implemented": [
+      "Scoped audit imports/cache",
+      "Actual product-chain missing-process/tampered-owner/malformed-metadata/missing-dependency rejection",
+      "Transport receipt and shared phase verification",
+      "Observed native/backend boundaries; attempted live compilation recorded and rejected",
+      "Server/Python matching descriptor schema",
+      "Saved CUDA responses and CPU fallbacks not cached"
+    ],
+    "not_adopted": "No blanket ban on verified immutable runtime owning its own sealed source package",
+    "historical_environment_plan_review": {
+      "completed": true,
+      "recommendation": "Short read-only OS/runtime log investigation, then separately review exact-capture historical-status acknowledgment while keeping original failure and fresh-run observation separate",
+      "implemented": false,
+      "generic_allow_missing_processes": false,
+      "current_missing_guard_unchanged": true
+    }
+  },
+  "full_goal_complete": false
+}

@@ -1,3 +1,17 @@
+# 2026-10-31 通常APIの保存CUBIN接続を実装、実CUDAは未実行
+
+app/portable_product_artifact.pyから現runtimeの既存CLI verify_package/saved_linked_providerを再利用。環境変数NIKKE_SHARED_CUDA_ARTIFACTSの明示JSONでnormal製品source→sealed owner/link requestを選ぶ。現在GPU source closureと全owner payload/golden・元PTX/object/link/header/imageを照合し、live NVRTC禁止、生成cache必須。従来cache方式は既定のまま。保存image要求はNode応答cacheを使わず毎回監査。Node/Python設定schemaをnormal入口1種類へ揃えた。group/targetのsaved imageは未対応CPU切替。共通verify_phasesを既存CLIから抽出してAPIにも使い、既存observeで実境界を記録、禁止compile試行も記録/拒否。owner/admission成功失敗の時間を記録しdeadline延長0。入出力準備/decoder/計算/GPU/保護CPU/数値golden変更0。
+
+Claude2回レビューの構造例外CPUfallback・実provider経由のmissing/改変owner/依存不足・phase不正・receipt不一致・forbidden compile・sys.path復元を反映。製品21、linked24、Node24、packet3検査成功（CUDA正例はmock）。固定packet product-saved-image-owner-v2-20261031自身の登録21+3検査とMiranda30秒M5/GPU1.762904秒、CPU全製品応答/元v3全input/output SHA一致、generation/PSO必須cache hit。後続の差分は失敗時CUDA admission timingとGPU側path復元の追加assertのみ、Metal/計算不変。初期通常API smoke1もM5/GPU1.749985秒・全CPU一致。小証跡product-saved-image-route-v1.json。前版全profile Metal255と区別し、今回host変更の実APIは同1profile。
+
+Windowsの既存object/linkは今回PTX9486097byte全体を改変せず成功。object5427952byte/SHA6192b0f8…、ptxas10.339秒・inner peak363225088、outer412999680。CUBIN5051088byte/SHAb4d35f76…、JIT API0.060171秒/9return0・inner peak116449280、outer239943680。新stageの時間/上限/残存/cleanup/観測APIエラーは正常だが、JIT区間で同じ新7個体が消失しpreservation=false。元setup7とは別。計算/driver/context0、再コンパイル/再リンク/再試行0、source/tool等44証跡不変。小要約11954bytes/SHA0c8f8f53…をpeer証跡として既存product-cuda-cubin-preparation-v1.jsonへ保存。rawのMac独立監査ではない。
+
+2群の消失processはCodex CUA Node/Blender MCP/uv/Pythonの同じ実行ファイル・role構成で、各0.364/0.186秒内起動。直近stage開始と同時刻ではなく、保存Job所属に不在。commandline/親creation/終了event/継続所属は無く原因不明。元分類を変えずmissing guardは維持し、生成CUBINを使ったGPUは依頼していない。WindowsはCPU/compiler/GPU新stage停止・idle。約1.9秒のOS log読取はApplication/System/Security/Sysmon全てUnauthorizedAccessExceptionで内容unknown、既知3log rootでも場所不明。OS/ACL/監査/サービス変更・昇格・再試行0。原因を確定する新記録は無い。chat cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:52。接続切れではないため復旧依頼や再実行を送らない。
+
+追加Claude方針レビューでは歴史的環境失敗とartifact integrityの分離は可能との案。もし進める場合も、特定capture/observation SHA/元missing identitiesへ束縛した明示履歴、falseを含むreceipt identity、fresh新Jobの欠落0・サービス識別状態・計算一致を別に扱う必要がある。これは未実装の設計案で、汎用allow-missingや数値/source/containment監査緩和はしない。まず依頼済み読取結果を確認する。将来の最初のCUDA GPU要求も短い1秒sceneからで30秒/全profileと数えず、TDR等OS設定は変更しない。
+
+実CUDA product0、残11/固定ゲージ/parts/manual/全設定・編成は未完。全goalはactiveのまま。main checkoutのユーザー作業へ触れない。以下は履歴。
+
 # 2026-10-30 分割後の通常API全profile完了：Metal255一致/CUDA0
 
 proof product-admission-api-full-v1-20261030の全267要求が終了0。catalog266中Metal255＋追加modifier/multi-hit編成1は全CPU製品応答一致。11は前版と同理由のCPU fallback、数値差/APIerror0、API cache hit0/実capture256。保存input/readback全SHAと元255全SHAを監査し、保存GPU/CPU payload全fieldも一致。元CPU戦闘をGPU入力に使ったものは0。shader内訳normal245/group2/target8/group-target1。app/GPU/data/upstreamは全sweep中hash不変。CLI/tests/docsのcommitだけ変わり、evaluator VCS stampは各live CPUと完全一致したまま原記録に保持。既存product-admission-v1.jsonへ追記。driver79680は終端exit0、監査29540もexit0、4338検証server PID83834は停止済み。ソース凍結解除。

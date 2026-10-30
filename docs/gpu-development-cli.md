@@ -1,3 +1,21 @@
+## 通常製品APIの明示的な保存CUBIN
+
+`cuda_shared_detail`は既定では従来どおりpaired生成cacheとCUBIN/O1 cacheを必須にする。別の明示設定`NIKKE_SHARED_CUDA_ARTIFACTS`へ絶対JSONファイルパスを渡すと、既存CLIの保存PTX/object/JIT-link監査と同じproviderを使う。NVRTC cacheとして偽装せず、実行時のNVRTCは禁止。現時点の登録対象は通常body入口だけで、group/target入口は理由付きCPU fallbackとなる。
+
+次はパス形状の例であり、現在のWindows保存物を実行許可する設定ではない。
+
+```json
+{"schema":1,"programs":{"gpu/product_battle_entry.slang":{"battle_package":"C:/proof/sealed-battle/packet","request":{"package":"C:/proof/sealed-link-controller/packet","capture":"C:/proof/saved-link-capture"}}}}
+```
+
+必要な場合だけ、既存CLIと同じ対`producer_package`/`producer_capture`をrequestへ加える。全pathは既存の絶対directory。設定JSONは個人パスを含むためGitへ含めない。`NIKKE_SLANG_GENERATION_CACHE`も必須で、missからの生成/コンパイルfallbackはない。NodeとPythonの設定受付条件は同じ。画面のavailableは設定の有無であり、実行可否・GPU計算証明は要求ごとに判定する。
+
+実行側の監査コードでowner全payload/goldenと現GPU source closureを照合し、元のPTX→object→link→CUBIN全chain、Job/観測、exact CUDA/header/image SHAを検査する。選択設定のフォルダーからPythonコードを実行しない。従来のmissing-process拒否は維持し、今回の7件消失がある保存CUBINは使用しない。
+
+保存CUBIN要求は応答cacheを使わず、毎回admissionと実際のimage readを通す。通常CPU/Metal/native CUDA cacheの挙動は保持。成功時のcomputeへ`artifact_provider`/`artifact_key`を追加し、captureへowner/request/phase/receiptを保持する。共有phase検査は元CLIとAPIで同じ関数を使い、NVRTC/cache混入・source admission/read/receipt順序・receipt不一致を拒否する。GPU読戻し後の全CPU製品応答比較は省略しない。
+
+Windowsでの製品GPU計算とadmission時間は未実証。監査のowner/admission時間をjournalへ記録し、既存deadlineを延長しない。登録された短い実機検証と独立確認が通るまでmockテストをCUDA計算成功に数えない。
+
 `weighted-battle`は元ベイ4段階・独立cover破壊/元ビスケット復活/reburst・破壊条件付き元自己回復をM5/fresh独立監査でsealした21入力（native8/拒否13）。通常package→unpack→run経路を使う。`weighted-battle-cache-only`は同計算のCUBIN/O1・compile cache/paired生成必須。実CUDA/ゲーム比率/公開受付は未達。[範囲と失敗保持](portable-bay-allocation.md)。
 
 `reference --suite weighted-incoming-common --out NEW.json`は元ベイ4段階と破壊/ビスケット復活/再burst/未発動透明対照のCPU7戦闘。既存native着弾・cover更新へ接続し、GPU数値suiteとは証拠を分ける。`weighted-incoming`の通常packetにはこのCPU回帰17検査も同梱する。[範囲と次のGPU接続](portable-bay-allocation.md)。

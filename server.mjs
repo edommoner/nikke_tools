@@ -4,7 +4,7 @@ import {portableEventRequest} from './app/portable_http_policy.mjs';
 import {candidatePool,bestDisjoint,rankCombatPool} from './app/optimizer.mjs';
 import http from 'node:http';
 import {spawn} from 'node:child_process';
-import {readFileSync, existsSync, statSync} from 'node:fs';
+import {readFileSync, existsSync, statSync, lstatSync} from 'node:fs';
 import {createHash, randomUUID} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -12,7 +12,7 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const port = Number(process.env.PORT || 4317);
 const python = resolvePython();
 const jobs = new Map(), cache = new Map();
-const fingerprint = createHash('sha256').update(readFileSync(path.join(root, 'app/engine_worker.py'))).update(readFileSync(path.join(root, 'app/engine_compat.py'))).update(readFileSync(path.join(root, 'app/survival_compat.py'))).update(readFileSync(path.join(root, 'app/survival_scaling_compat.py'))).update(readFileSync(path.join(root, 'app/detail_gpu.py'))).update(readFileSync(path.join(root, 'app/detail_world.py'))).update(readFileSync(path.join(root, 'app/detail_boss.py'))).update(readFileSync(path.join(root, 'app/detail_effects-build.json'))).update(existsSync(path.join(root,'app/detail_effects-sm86.json'))?readFileSync(path.join(root,'app/detail_effects-sm86.json')):'').update(readFileSync(path.join(root, 'app/gpu_service.py'))).update(readFileSync(path.join(root,'app/portable_detail.py'))).update(readFileSync(path.join(root,'app/portable_detail_service.py'))).update(readFileSync(path.join(root,'app/portable_backend.py'))).update(readFileSync(path.join(root,'app/portable_runtime.py'))).update(readFileSync(path.join(root, 'data/import-mappings.json'))).update(readFileSync(path.join(root, 'data/engine-effect-overrides.json'))).update(readFileSync(path.join(root, 'research/engine-probe-results.json'))).digest('hex');
+const fingerprint = createHash('sha256').update(readFileSync(path.join(root, 'app/engine_worker.py'))).update(readFileSync(path.join(root, 'app/engine_compat.py'))).update(readFileSync(path.join(root, 'app/survival_compat.py'))).update(readFileSync(path.join(root, 'app/survival_scaling_compat.py'))).update(readFileSync(path.join(root, 'app/detail_gpu.py'))).update(readFileSync(path.join(root, 'app/detail_world.py'))).update(readFileSync(path.join(root, 'app/detail_boss.py'))).update(readFileSync(path.join(root, 'app/detail_effects-build.json'))).update(existsSync(path.join(root,'app/detail_effects-sm86.json'))?readFileSync(path.join(root,'app/detail_effects-sm86.json')):'').update(readFileSync(path.join(root, 'app/gpu_service.py'))).update(readFileSync(path.join(root,'app/portable_detail.py'))).update(readFileSync(path.join(root,'app/portable_product_artifact.py'))).update(readFileSync(path.join(root,'app/portable_detail_service.py'))).update(readFileSync(path.join(root,'app/portable_backend.py'))).update(readFileSync(path.join(root,'app/portable_runtime.py'))).update(readFileSync(path.join(root, 'data/import-mappings.json'))).update(readFileSync(path.join(root, 'data/engine-effect-overrides.json'))).update(readFileSync(path.join(root, 'research/engine-probe-results.json'))).digest('hex');
 const clone = v => structuredClone(v);
 const stable = v => v && typeof v === 'object' ? Array.isArray(v) ? v.map(stable) : Object.fromEntries(Object.keys(v).sort().map(k => [k, stable(v[k])])) : v;
 let gpuProcess=null,gpuOutput='',gpuRequests=new Map();
@@ -30,9 +30,21 @@ function gpuWorker(body,job){
 }
 process.on('exit',()=>gpuProcess?.kill());
 export function sharedCudaConfigured(platform=process.platform,env=process.env) {
-  return platform==='win32'&&['NIKKE_SLANG_GENERATION_CACHE','NIKKE_CUDA_COMPILE_CACHE'].every(k=>{
-    try{return Boolean(env[k]&&path.isAbsolute(env[k])&&statSync(env[k]).isDirectory());}catch{return false;}
-  });
+  if(platform!=='win32')return false;
+  const directory=value=>{try{return Boolean(value&&path.isAbsolute(value)&&statSync(value).isDirectory());}catch{return false;}};
+  if(!directory(env.NIKKE_SLANG_GENERATION_CACHE))return false;
+  if(env.NIKKE_SHARED_CUDA_ARTIFACTS!==undefined){
+    try{
+      const file=env.NIKKE_SHARED_CUDA_ARTIFACTS;
+      if(!file||!path.isAbsolute(file)||lstatSync(file).isSymbolicLink()||!statSync(file).isFile()||statSync(file).size>65536)return false;
+      const d=JSON.parse(readFileSync(file,'utf8')),keys=o=>o&&typeof o==='object'&&!Array.isArray(o)?Object.keys(o).sort().join(','):'';
+      if(d?.schema!==1||keys(d)!=='programs,schema'||keys(d.programs)!=='gpu/product_battle_entry.slang')return false;
+      const program=d.programs['gpu/product_battle_entry.slang'];
+      return keys(program)==='battle_package,request'&&directory(program.battle_package)&&
+        ['capture,package','capture,package,producer_capture,producer_package'].includes(keys(program.request))&&Object.values(program.request).every(directory);
+    }catch{return false;}
+  }
+  return directory(env.NIKKE_CUDA_COMPILE_CACHE);
 }
 export function workerTimeoutSeconds(body) {
   if(body.action==='evaluate_portable_detail_batch'&&body.evaluations?.[0]?.compute_backend==='cuda_shared_detail')return 120;
@@ -59,7 +71,7 @@ function worker(body, job) {
     child.stdin.on('error',()=>{}); child.stdin.end(JSON.stringify(body));
   });
 }
-const evaluator=createEvaluator({worker,cache,keyOf:body=>createHash('sha256').update(fingerprint+JSON.stringify(stable(body))).digest('hex')});
+const evaluator=createEvaluator({worker,cache,cacheable:body=>!(body.compute_backend==='cuda_shared_detail'&&process.env.NIKKE_SHARED_CUDA_ARTIFACTS!==undefined),keyOf:body=>createHash('sha256').update(fingerprint+JSON.stringify(stable(body))).digest('hex')});
 const evaluate=evaluator.one;
 function integer(v,lo,hi,label){if(!Number.isInteger(v)||v<lo||v>hi)throw Error(`${label}: ${lo}〜${hi}の整数を指定してください。`);return v;}
 function skillDict(value){if(value===undefined)return {};if(typeof value==='number')return {'1':value,'2':value,'3':value};if(typeof value==='string')value=value.split('/').map(Number);if(Array.isArray(value))return Object.fromEntries(value.map((v,i)=>[String(i+1),v]));return {...value};}

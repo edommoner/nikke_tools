@@ -217,13 +217,14 @@ class LinkedArtifactTests(unittest.TestCase):
             obj['key']=old
     def test_cli_provider_reuses_image_without_calling_nvrtc_and_restores_backend(self):
         self.request();original=backend.compile_cuda_source;j=Journal(self.capture/'phases.jsonl')
-        with patch.object(cli,'saved_linked_admission',return_value=self.state()),patch.dict(os.environ,NIKKE_CUDA_ARTIFACT='cubin'),cli.saved_linked_provider(self.current,self.capture,'cuda',j):
+        with patch.object(cli,'saved_linked_admission',return_value=self.state()),patch.dict(os.environ,NIKKE_CUDA_ARTIFACT='cubin'),cli.saved_linked_provider(self.current,self.capture,'cuda',j) as admitted:
+            self.assertEqual(admitted,self.receipt())
             self.assertEqual(backend.compile_cuda_source(self.source)[0],linker.cubin())
             with self.assertRaisesRegex(RuntimeError,'forbidden'):backend.compile_cuda_artifact(None,b'',[])
             with self.assertRaisesRegex(ValueError,'One explicit'):backend.compile_cuda_source(self.source)
         self.assertIs(backend.compile_cuda_source,original)
         rows=[json.loads(s) for s in (self.capture/'phases.jsonl').read_text().splitlines()]
-        self.assertEqual([(r['stage'],r['state']) for r in rows],[('cuda_linked_origin','verified'),('cuda_linked_artifact','entered'),('cuda_linked_artifact','returned'),(saved.STAGE,'verified')])
+        self.assertEqual([(r['stage'],r['state']) for r in rows],[('cuda_linked_origin','verified'),('cuda_linked_artifact','entered'),('cuda_linked_artifact','returned'),(saved.STAGE,'verified'),('cuda_live_compile_forbidden','rejected')])
     def test_source_change_under_provider_stops_before_image_receipt(self):
         self.request();state=self.state();self.source.write_bytes(b'wrong current CUDA')
         with patch.object(cli,'saved_linked_admission',return_value=state),patch.dict(os.environ,NIKKE_CUDA_ARTIFACT='cubin'),cli.saved_linked_provider(self.current,self.capture,'cuda',Journal(self.capture/'phases.jsonl')):

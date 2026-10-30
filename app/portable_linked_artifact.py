@@ -84,3 +84,16 @@ def valid_receipt(receipt):
 
 
 def valid_marker(row):return row.get('stage')==STAGE and row.get('state')=='verified' and valid_receipt(row.get('receipt',{}))
+
+
+def verify_phases(rows,receipt):
+    """Shared saved-image phase checks for CLI audits and product responses."""
+    if any(r['stage'].startswith('nvrtc') or r['stage'] in ('cuda_compile_cache','cuda_live_compile_forbidden') for r in rows):raise ValueError('Unexpected live NVRTC in saved CUBIN execution')
+    if [r.get('receipt') for r in rows if r['stage']=='cuda_linked_origin' and r['state']=='verified']!=[receipt]:raise ValueError('Saved CUBIN source admission phase mismatch')
+    if [r['state'] for r in rows if r['stage']=='cuda_linked_artifact']!=['entered','returned']:raise ValueError('Incomplete saved CUBIN read phase')
+    origin_index=next(i for i,r in enumerate(rows) if r['stage']=='cuda_linked_origin')
+    read_indices=[i for i,r in enumerate(rows) if r['stage']=='cuda_linked_artifact']
+    receipt_indices=[i for i,r in enumerate(rows) if r['stage']==STAGE and r['state']=='verified']
+    if len(receipt_indices)!=1 or rows[receipt_indices[0]].get('receipt')!=receipt or not origin_index<read_indices[0]<read_indices[1]<receipt_indices[0]:raise ValueError('Saved CUBIN admission phase order mismatch')
+    if rows[receipt_indices[0]].get('source_loads',1)!=1:raise ValueError('Saved CUBIN source load count mismatch')
+    return True

@@ -71,3 +71,19 @@ test('shared CUDA configuration requires real directories and is independent of 
   assert.equal(sharedCudaConfigured('win32',{...env,NIKKE_CUDA_COMPILE_CACHE:file}),false);
  }finally{rmSync(root,{recursive:true,force:true});}
 });
+
+test('shared CUDA saved images require explicit configuration plus a warm generation directory',async()=>{
+ const {sharedCudaConfigured}=await import('../server.mjs');
+ const root=mkdtempSync(path.join(tmpdir(),'nikke-saved-config-')),file=path.join(root,'programs.json');
+ try{
+  const env={NIKKE_SLANG_GENERATION_CACHE:root,NIKKE_SHARED_CUDA_ARTIFACTS:file};
+  assert.equal(sharedCudaConfigured('win32',env),false);
+  writeFileSync(file,JSON.stringify({schema:1,programs:{'gpu/product_battle_entry.slang':{battle_package:root,request:{package:root,capture:root}}}}));
+  assert.equal(sharedCudaConfigured('win32',env),true);
+  assert.equal(sharedCudaConfigured('win32',{...env,NIKKE_SLANG_GENERATION_CACHE:''}),false);
+  assert.equal(sharedCudaConfigured('darwin',env),false);
+  writeFileSync(file,JSON.stringify({schema:1,programs:[]}));
+  assert.equal(sharedCudaConfigured('win32',env),false);
+  writeFileSync(file,'invalid');assert.equal(sharedCudaConfigured('win32',env),false);
+ }finally{rmSync(root,{recursive:true,force:true});}
+});

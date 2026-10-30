@@ -1,11 +1,12 @@
 // Shared cache and ordered batch boundary for both direct and job evaluations.
-export function createEvaluator({worker,keyOf,cache=new Map(),limit=300}) {
+export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheable=()=>true}) {
   const validate=body=>{
     if(!['cpu','cuda_detail','metal_detail','cuda_shared_detail'].includes(body.compute_backend||'cpu'))throw Error('未対応の詳細計算方法です。');
     if(body.verify_detail!==undefined&&typeof body.verify_detail!=='boolean')throw Error('CPU照合の指定が不正です。');
   };
-  const save=(key,result)=>{
+  const save=(key,result,enabled)=>{
     result.compute ||= {requested:'cpu',backend:'cpu'};
+    if(!enabled)return {...result,cache_hit:false};
     if(cache.size>=limit)cache.delete(cache.keys().next().value);
     cache.set(key,structuredClone(result));return {...result,cache_hit:false};
   };
@@ -19,15 +20,15 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300}) {
     const rows=new Array(bodies.length),pending=new Map();
     for(const [index,body]of bodies.entries()){
       try{
-        validate(body);const key=keyOf(body);
+        validate(body);const enabled=cacheable(body),key=enabled?keyOf(body):Symbol();
         if(cache.has(key)){rows[index]={result:{...structuredClone(cache.get(key)),cache_hit:true}};continue;}
-        if(!pending.has(key))pending.set(key,{key,body,indices:[]});
+        if(!pending.has(key))pending.set(key,{key,body,indices:[],cacheable:enabled});
         pending.get(key).indices.push(index);
       }catch(error){rows[index]={error:error.message};}
     }
     const entries=[...pending.values()];
     const publish=(entry,row)=>{
-      const value=row.error?row:{result:save(entry.key,row.result)};
+      const value=row.error?row:{result:save(entry.key,row.result,entry.cacheable)};
       for(const index of entry.indices)rows[index]=structuredClone(value);
     };
     // Shared GPU runs in a fresh worker because preparation uses temporary

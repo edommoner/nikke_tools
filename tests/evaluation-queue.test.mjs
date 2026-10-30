@@ -76,3 +76,16 @@ test('shared CUDA uses the common isolated service and stays distinct from legac
  assert.ok(calls.filter(r=>r.action==='evaluate_portable_detail_batch').every(r=>r.evaluations.length===1));
  assert.equal((await evaluator.one(shared)).cache_hit,true);assert.equal(calls.length,3);
 });
+
+test('explicit noncached execution never replays results or stale CPU fallbacks',async()=>{
+ const cache=new Map();let calls=0;
+ const evaluator=createEvaluator({cache,keyOf:JSON.stringify,cacheable:b=>b.compute_backend!=='cuda_shared_detail',worker:async request=>{
+  calls++;return request.action==='evaluate_portable_detail_batch'?[{result:{compute:{backend:calls===1?'cpu':'cuda_shared_detail'},value:calls}}]:{value:calls};
+ }});
+ const request={compute_backend:'cuda_shared_detail'};
+ const first=await evaluator.one(request),second=await evaluator.one(request);
+ assert.equal(first.compute.backend,'cpu');assert.equal(second.compute.backend,'cuda_shared_detail');
+ assert.equal(calls,2);assert.equal(cache.size,0);assert.equal(first.cache_hit,false);assert.equal(second.cache_hit,false);
+ const cpu={compute_backend:'cpu'};await evaluator.one(cpu);const cached=await evaluator.one(cpu);
+ assert.equal(calls,3);assert.equal(cached.cache_hit,true);
+});

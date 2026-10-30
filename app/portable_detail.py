@@ -22,6 +22,7 @@ import engine_worker
 from portable_runtime import UnsupportedPortable, decode
 from portable_projectile_roster_input import compile_projectile_battle, INPUT_WORDS, OUTPUT_WORDS
 from portable_backend import execute
+from portable_product_artifact import descriptor_file, saved_program
 
 SOURCE = 'gpu/product_battle_entry.slang'
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,12 +30,13 @@ BACKENDS = {'metal_detail': 'metal', 'cuda_shared_detail': 'cuda'}
 
 
 def execution_environment(backend):
-    """Product CUDA requires paired generation and native CUBIN cache hits."""
+    """Require warm generation plus an explicit saved image or native cache."""
     if backend == 'metal':
         return {}
     if platform.system() != 'Windows':
         raise UnsupportedPortable('共通CUDA詳細はWindowsで利用できます。')
-    for key in ('NIKKE_SLANG_GENERATION_CACHE', 'NIKKE_CUDA_COMPILE_CACHE'):
+    keys=('NIKKE_SLANG_GENERATION_CACHE',) if descriptor_file() is not None else ('NIKKE_SLANG_GENERATION_CACHE','NIKKE_CUDA_COMPILE_CACHE')
+    for key in keys:
         value = os.environ.get(key)
         if not value or not Path(value).is_absolute() or not Path(value).is_dir():
             raise UnsupportedPortable('共通CUDAの実行用キャッシュが未準備です: '+key)
@@ -194,9 +196,15 @@ def evaluate(body):
         (folder/'input.bin').write_bytes(packed)
         record['source'] = source
         with patch.dict(os.environ,policy) if policy else nullcontext():
-            raw, evidence = execute(source,'portableEvents',packed,input_words,output_words,backend,readback_path=folder/'readback.bin')
-        if raw is not None:raise RuntimeError('Expected bounded file readback')
-        (folder/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+            context=saved_program(source,folder) if backend=='cuda' and descriptor_file() is not None else nullcontext()
+            with context as artifact_receipt:
+                raw, evidence = execute(source,'portableEvents',packed,input_words,output_words,backend,readback_path=folder/'readback.bin')
+                if raw is not None:raise RuntimeError('Expected bounded file readback')
+                (folder/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+        if artifact_receipt is not None:
+            if evidence.get('transport',{}).get('compile_artifact')!=artifact_receipt:
+                raise RuntimeError('Saved product CUBIN transport receipt mismatch')
+            record['artifact_receipt']=artifact_receipt
         transport, timing = verified_transport(evidence,backend)
         record.update(gpu_execution_verified=evidence['gpu_execution_verified'],input_sha256=evidence['input_sha256'],output_sha256=evidence['output_sha256'])
         block = array.array('I');block.frombytes((folder/'readback.bin').read_bytes())
@@ -207,6 +215,9 @@ def evaluate(body):
             input_sha256=evidence['input_sha256'],output_sha256=evidence['output_sha256'],source=source,
             scope='shared autonomous battle; CPU verified for this request')
         payload['compute'][timing] = transport[timing]
+        if artifact_receipt is not None:
+            payload['compute']['artifact_provider']=artifact_receipt['identity']['provider']
+            payload['compute']['artifact_key']=artifact_receipt['key']
         # Compare the complete product result, not just the damage total. CPU is
         # run strictly after GPU readback and cannot provide any GPU state.
         cpu = engine_worker.evaluate(body)

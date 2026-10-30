@@ -3057,10 +3057,12 @@ def saved_linked_provider(m,capture,backend,journal):
         calls+=1
         image,receipt=journal.invoke('cuda_linked_artifact',read_verified,state['receipt'],source,state['artifact'])
         Path(source).with_suffix('.cubin').write_bytes(image)
-        journal.emit(STAGE,'verified',receipt=receipt)
+        journal.emit(STAGE,'verified',receipt=receipt,source_loads=calls)
         return image,receipt
-    def forbidden(*args,**kwargs):raise RuntimeError('Live NVRTC compilation forbidden for saved CUBIN')
-    with patch.object(portable_backend,'compile_cuda_source',saved),patch.object(portable_backend,'compile_cuda_artifact',forbidden):yield
+    def forbidden(*args,**kwargs):
+        journal.emit('cuda_live_compile_forbidden','rejected')
+        raise RuntimeError('Live NVRTC compilation forbidden for saved CUBIN')
+    with patch.object(portable_backend,'compile_cuda_source',saved),patch.object(portable_backend,'compile_cuda_artifact',forbidden):yield state['receipt']
 
 
 def audit_saved_linked_artifact(m,capture,receipt):
@@ -3072,14 +3074,8 @@ def audit_saved_linked_artifact(m,capture,receipt):
     facts=load(capture/'execution.json')
     if type(facts['timeout_seconds']) is not int or not 1<=facts['timeout_seconds']<=60:raise ValueError('Saved CUBIN execution exceeds fixed budget')
     rows=[json.loads(line) for line in (capture/'phases.jsonl').read_text().splitlines()]
-    if any(r['stage'].startswith('nvrtc') or r['stage']=='cuda_compile_cache' for r in rows):raise ValueError('Unexpected live NVRTC in saved CUBIN execution')
-    if [r.get('receipt') for r in rows if r['stage']=='cuda_linked_origin' and r['state']=='verified']!=[receipt]:raise ValueError('Saved CUBIN source admission phase mismatch')
-    if [r['state'] for r in rows if r['stage']=='cuda_linked_artifact']!=['entered','returned']:raise ValueError('Incomplete saved CUBIN read phase')
-    origin_index=next(i for i,r in enumerate(rows) if r['stage']=='cuda_linked_origin')
-    read_indices=[i for i,r in enumerate(rows) if r['stage']=='cuda_linked_artifact']
-    receipt_indices=[i for i,r in enumerate(rows) if r['stage']=='cuda_linked_artifact_receipt' and r['state']=='verified']
-    if len(receipt_indices)!=1 or not origin_index<read_indices[0]<read_indices[1]<receipt_indices[0]:raise ValueError('Saved CUBIN admission phase order mismatch')
-    return True
+    from portable_linked_artifact import verify_phases
+    return verify_phases(rows,receipt)
 
 
 def jit_link_origin(request):
