@@ -1,18 +1,18 @@
 {
   "schema": 1,
-  "archive": "product-current-parts-fixture-v2.zip",
-  "bytes": 11813016,
-  "sha256": "900b1331cb6fbcfdf9b07160fba8a14f5464b1622e2b01ddc9fe76800eaf685c",
-  "package_id": "66edec5d576025c2c76dc70de61bc73b41f3a0a57e06f1fb3184d9e5f819f0f4",
-  "source_commit": "da7a4c35033865322846a844f432e45f64cb201c",
+  "archive": "product-parts-boundary-v1.zip",
+  "bytes": 11814211,
+  "sha256": "ce3fd5c8b4dff20ab018ff5b24ca12e7a87fdd914ce68e280ad234eeb0add91a",
+  "package_id": "2a3053da8b227707f5c32af35e03f1555c429af48c2c0d0a04d7d91bbde14a15",
+  "source_commit": "9a6c3aa7a52361b40f44963b21f60afe3a9a9969",
   "program": "accumulate",
   "files": 2686,
-  "scope": "Current shared charge/part arithmetic and native group part routing. Source-only packet; preserve prior source/PTX/claims/failures. No SDK, raw buffers, compiled binary or personal settings.",
-  "unit_tests": 48,
+  "scope": "Shared product part-delivery noinline boundary plus CPU scope-audit optimization. Source-only packet; preserve previous failures/claims. No SDK, raw buffers, compiled artifacts or personal settings.",
+  "unit_tests": 49,
   "ptx_plan": {
     "schema": "compile-plan-v1",
     "passed": true,
-    "package_id": "66edec5d576025c2c76dc70de61bc73b41f3a0a57e06f1fb3184d9e5f819f0f4",
+    "package_id": "2a3053da8b227707f5c32af35e03f1555c429af48c2c0d0a04d7d91bbde14a15",
     "suite": "product-detail",
     "purpose": "sealed",
     "artifact_kind": "ptx",
@@ -29,43 +29,29 @@
     "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
   },
   "selected_program_shader_closure_changed": [
-    "gpu/event_runtime.slang",
-    "gpu/attack_group_runtime.slang"
+    "gpu/counter_landing_runtime.slang"
   ],
   "full_payload_changed_files": [
-    "app/portable_destructible_roster_input.py",
-    "app/portable_detail.py",
+    "app/portable_scope_snapshot_audit.py",
     "app/portable_weighted_incoming_source_contract.py",
-    "app/portable_world_result.py",
-    "gpu/attack_group_runtime.slang",
-    "gpu/destructible_battle_runtime.slang",
-    "gpu/destructible_weapon_runtime.slang",
-    "gpu/event_runtime.slang",
-    "gpu/product_group_target_battle_entry.slang",
+    "gpu/counter_landing_runtime.slang",
     "research/portable-product-programs-v1-expected.json",
-    "tests/test_portable_detail.py",
+    "tests/test_portable_scope_snapshot_audit.py",
     "tests/test_weighted_source_contract.py"
   ],
   "full_payload_added_files": [],
   "full_payload_removed_files": [],
   "full_payload_changed_gpu_files": [
-    "gpu/attack_group_runtime.slang",
-    "gpu/destructible_battle_runtime.slang",
-    "gpu/destructible_weapon_runtime.slang",
-    "gpu/event_runtime.slang",
-    "gpu/product_group_target_battle_entry.slang"
+    "gpu/counter_landing_runtime.slang"
   ],
-  "protected_cpu_files_unchanged": true,
-  "fixture_only_delta_from_previous_owner": {
-    "old_owner": "1b668b9f676397f62efe39548dfe2248422c755d0c015d835ab0347057bb440d",
-    "new_owner": "66edec5d576025c2c76dc70de61bc73b41f3a0a57e06f1fb3184d9e5f819f0f4",
-    "changed": [
-      "tests/test_weighted_source_contract.py"
-    ],
-    "added": [],
-    "removed": [],
-    "complete_golden_identical": true,
-    "all_calculation_bytes_identical": true
+  "prior_owner": "66edec5d576025c2c76dc70de61bc73b41f3a0a57e06f1fb3184d9e5f819f0f4",
+  "generated_normalized": {
+    "cuda": "5d305daa2bffa734dfe8385a932c2909b0973809d62038531e2c2758eb652755",
+    "metal": "e171f4a708b2ec27e03856d7d9ce569901163df2d8d21f8cf7907362c77233a2"
   },
-  "full_payload_diff_base_owner": "ec48586564408635a2d29ee6ceaea29ea7e38c6ec04b3a6d2998127a5e0d26e3"
+  "mac_sealed_generation_verified": true,
+  "mac_metal_numeric_input_output_and_entries_retained": true,
+  "actual_windows_compile_improvement_unmeasured": true,
+  "old_failed_claim_must_be_preserved": true,
+  "protected_cpu_files_unchanged": true
 }
