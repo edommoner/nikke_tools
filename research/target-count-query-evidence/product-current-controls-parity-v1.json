@@ -1,0 +1,189 @@
+{
+  "schema": "product-current-controls-parity-v1",
+  "implementation_source_commit": "9a6c3aa7a52361b40f44963b21f60afe3a9a9969",
+  "worktree_record_commit": "ae2bf682",
+  "scope": "Ordinary HTTP API, accumulate normal entry, original public character-control requests shortened to Alice2s/Rapunzel3s; no 30s, fixed/group/target or all-trigger claim",
+  "rows": [
+    {
+      "profile": "앨리스 accumulate",
+      "favorite_stage": 0,
+      "duration_seconds": 2,
+      "source": "gpu/product_battle_entry.slang",
+      "input_sha256": "4fd919d6ab6aa6c5a6879ea9196385c81d5d16f79454cdd741639d15c5cba119",
+      "metal_readback_sha256": "60679df9b3607dee62c722106f663adef5968ed8a34283c5343f9979edbfcc99",
+      "cuda_readback_sha256": "60679df9b3607dee62c722106f663adef5968ed8a34283c5343f9979edbfcc99",
+      "all_readback_bytes_equal_by_sha256": true,
+      "metal_cpu_full_product_payload_matched": true,
+      "cuda_cpu_full_product_payload_matched": true,
+      "metal_saved_reprojection_verified": true,
+      "cuda_saved_reprojection_peer_verified": true,
+      "metal_gpu_seconds": 0.16021900001214817,
+      "primary_damage": 1887020
+    },
+    {
+      "profile": "라푼젤 : 퓨어 그레이스 accumulate",
+      "favorite_stage": 0,
+      "duration_seconds": 3,
+      "source": "gpu/product_battle_entry.slang",
+      "input_sha256": "41dda5eefe0550a31fe648697d9af008fa493caff8565460459ae9cad6af4891",
+      "metal_readback_sha256": "8ecca5a63ef6d879ce8b543622830291ce3fa53e1fd00f821a758af6074abd15",
+      "cuda_readback_sha256": "8ecca5a63ef6d879ce8b543622830291ce3fa53e1fd00f821a758af6074abd15",
+      "all_readback_bytes_equal_by_sha256": true,
+      "metal_cpu_full_product_payload_matched": true,
+      "cuda_cpu_full_product_payload_matched": true,
+      "metal_saved_reprojection_verified": true,
+      "cuda_saved_reprojection_peer_verified": true,
+      "metal_gpu_seconds": 0.25878629164071754,
+      "primary_damage": 253286
+    }
+  ],
+  "metal_gpu_calls": 2,
+  "cuda_gpu_calls": 2,
+  "metal_api_cache_hits": 0,
+  "new_slang_nvrtc_ptxas_link_calls": 0,
+  "saved_audit_additional_cpu_battles": 0,
+  "saved_audit_additional_gpu_calls": 0,
+  "windows": {
+    "peer_turn": "01a18f2d-b192-7130-ba93-8d64c5265c5d",
+    "cursor_revision": 245,
+    "cubin_owner": "2a3053da8b227707f5c32af35e03f1555c429af48c2c0d0a04d7d91bbde14a15",
+    "cubin_sha256": "ad057e8bb7daa9244875671792b2aacf697a256f6056726ad4c5592f52b77cba",
+    "actual_processing_seconds": 122.04,
+    "observed_interval_including_job_gap_seconds": 143.56,
+    "total_budget_seconds": 180,
+    "missing_existing_processes": 0,
+    "cleanup_errors": 0,
+    "all_jobs_terminal": true,
+    "service_identified": false,
+    "preservation_verified": false,
+    "original_windows_artifacts_read_on_mac": false,
+    "scope": "Windows in-place saved audit is peer reported; Mac independently audited its own originals and compared full readback digests"
+  },
+  "protected_cpu_and_pinned_calculator_data_unchanged": true,
+  "changes_since_last_full_metal_sweep": [
+    "app/portable_weighted_incoming_source_contract.py",
+    "gpu/counter_landing_runtime.slang"
+  ],
+  "model_check": {
+    "passed": true,
+    "scope": "Source/dependency audit only; GPU/native battles0",
+    "report_sha256": "1cac15d0948bf9a94bc96280c0ba5c0138424b932165935abfe8e88b6180e6d2",
+    "missing_canonical_stat_consumers": [
+      "effect_range_pct",
+      "effect_target_count_add",
+      "enemy_movement_disable",
+      "force_move",
+      "lock_on"
+    ],
+    "remaining_public_gpu_lowering": [
+      "physical-packet-expansion: public sampling RNG and uncovered mixed scenes",
+      "physical-rng: public frontend admission"
+    ],
+    "private_proofs_recertified_by_this_check": false,
+    "public_sampling_frontend_note": "Current engine_worker.py:305 fixes sim.expected=True; private sampled modes are not an already exposed normal API feature. Model-check scoped GPU gaps alone do not authorize pretending public sampled CPU admission exists."
+  },
+  "coverage": {
+    "last_full_metal_sweep_profiles": 255,
+    "last_full_metal_sweep_source_commit": "4e8613257b766bd934e68dfe25c89749906cc683",
+    "current_source_cuda_profiles": 3,
+    "current_source_cuda_durations_seconds": {
+      "Miranda": 1,
+      "Alice": 2,
+      "Rapunzel Pure Grace": 3
+    },
+    "current_source_cuda_standard_30s_profiles": 0,
+    "current_source_cuda_fixed_profiles": 0,
+    "remaining_reference_model_gap_profiles": 11,
+    "full_goal_complete": false
+  },
+  "saved_phase_timing_peer_report": {
+    "peer_turn": "01a18f34-c7ec-7053-ac43-22ff04af744f",
+    "cursor_revision": 246,
+    "source": "Saved phases only; no new observation Job, CPU battle, SDK or GPU",
+    "scope": "Host-observed nested stage times; do not sum nested rows or infer pure GPU time",
+    "seconds": {
+      "product_cubin_admission": [
+        24.925461,
+        25.084262
+      ],
+      "product_cubin_owner": [
+        4.741722,
+        5.127276
+      ],
+      "slang_build_cache_hit": [
+        1.472849,
+        1.470071
+      ],
+      "slang_generation_identity_second": [
+        0.615557,
+        0.614943
+      ],
+      "slang_generation_identity_first": [
+        0.614528,
+        0.613848
+      ],
+      "cuCtxSynchronize": [
+        0.235823,
+        0.319218
+      ],
+      "cuCtxCreate_v2": [
+        0.096512,
+        0.094985
+      ],
+      "slang_generation_validate_pair_first": [
+        0.091925,
+        0.092286
+      ],
+      "cuLaunchKernel": [
+        0.002489,
+        0.002407
+      ],
+      "cuMemcpyDtoH": [
+        0.000378,
+        0.000436
+      ],
+      "worker_total_rounded": [
+        32.381,
+        33.182
+      ],
+      "http_job_total_rounded": [
+        39.826,
+        41.223
+      ],
+      "all_phases_job_total_rounded": [
+        60.156,
+        61.882
+      ],
+      "separate_static_prepare": [
+        0.00972,
+        0.010235
+      ],
+      "separate_input_conversion": [
+        0.10128,
+        0.105537
+      ]
+    },
+    "actual_api_prepare_cpu_battle_and_comparison_separate_times": "unknown"
+  },
+  "next_existing_cpu_contract_gpu_gap": {
+    "feature": "Boss attack attached debuffs",
+    "cpu_consumer": "research/upstream/nikke-calc-master/calculator/timeline.py:5372",
+    "cpu_operation": "bm.apply_boss_effect(d.effect, name, t), before received_hit notification",
+    "positive_condition": "spec.debuffs and to_hp and not fell and notify_hit",
+    "negative_controls": [
+      "shield/cover/decoy absorbs the hit",
+      "invincible prevents HP damage",
+      "hit downs the recipient",
+      "secondary equal-share damage has notify_hit=false",
+      "debuff immunity and cleanse ordering"
+    ],
+    "gpu_rejection": "app/portable_world_attack_specs.py:9: Attack debuff payload is not connected",
+    "canonical_cpu_change_required": false,
+    "implemented_by_this_turn": false,
+    "reuse_test_groups": [
+      "test_portable_world_enemy_attack.py",
+      "test_portable_detail.py"
+    ],
+    "scope": "Existing canonical consumer found, distinct from the remaining 11 missing CPU-model profiles"
+  }
+}

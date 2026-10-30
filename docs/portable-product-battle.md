@@ -1,3 +1,9 @@
+# 2026-10-31 通常APIの短い2条件でMetal/CUDA全readback一致
+
+現実装9a6c3aa7のAlice2秒・Rapunzel Pure Grace3秒を通常APIの両backendで実行し、同じ入力・全readback SHAが一致、CPU全製品payloadも各backendで一致。保存raw再投影も成功、追加battle/GPU0。Windowsは同じ保存CUBINを使い、新コンパイル0、2件の実処理合計122.04秒。
+
+CUDA製品確認はMiranda1秒を含め3profile、標準30秒/fixed/group/targetは未確認。範囲・全ハッシュ・保存時間内訳は`research/target-count-query-evidence/product-current-controls-parity-v1.json`。次はCPUに既存consumerがある敵attack.debuffsのGPU入力拒否を、共通incoming/carrierへ接続する。以下は履歴。
+
 # 2026-10-31 現ソースで通常HTTP APIのCUDA実計算を確認
 
 共通の部位packet呼出し境界とCPU監査最適化を含む9a6c3aa7を、M5 Metal/独立seal後に同sourceでPTX→object→CUBIN化した。通常/api/jobsのMiranda・実蓄積1秒がRTX3070Tiで実CUDA実行され、CPU全製品payload一致。保存raw再投影と静的入力全byte再生成もWindows内で照合済み、追加battle/GPU0。コード・効果・入力・結果変換・検査は同じ共通実装を使う。詳細は`research/target-count-query-evidence/product-parts-call-boundary-v1.json`。

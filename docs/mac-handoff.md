@@ -1,3 +1,19 @@
+# 2026-10-31 共通入力2件のMetal/CUDA全readback一致、CUDA製品3profileへ
+
+実装source9a6c3aa7は不変。元current-api-requestsのAlice(index1)を2秒、Rapunzel Pure Grace(index4)を3秒へ短縮し、通常HTTP APIのMetalとCUDAで同じ2条件を確認。元の射撃操作はAlice tap/毎秒3.6・release0.03、Rapunzel sequence hold until2.2のまま。両者の主役damageも正で、空の比較ではない。各backendとも全CPU製品payload一致、静的input全byte再生成・raw再投影一致。保存監査の追加battle/GPU0。
+
+Alice input4fd919d6ab6aa6c5a6879ea9196385c81d5d16f79454cdd741639d15c5cba119→readback60679df9b3607dee62c722106f663adef5968ed8a34283c5343f9979edbfcc99、Rapunzel input41dda5eefe0550a31fe648697d9af008fa493caff8565460459ae9cad6af4891→readback8ecca5a63ef6d879ce8b543622830291ce3fa53e1fd00f821a758af6074abd15。CUDAの全readback SHAがMac原本と両方完全一致。Windows原本はMacへ転送せず、Windows内保存監査はpeer報告として区別する。
+
+新Slang/NVRTC/ptxas/link/SDK installは0。Windowsは保存owner2a3053da…/CUBIN ad057e8b…を再利用、逐次fresh Job/BelowNormal/2GiB、実消費合計122.04秒、Job間を含む観測区間143.56秒で要求180秒以内。新GPU2/照合CPU2、missing/cleanup0、全Job終了。サービス未識別preservation=false、旧失敗claims/旧7JSON公開ブロックは保持。Mac専用port4362も終了。proof product-current-controls-parity-v1-20261031、小記録research/target-count-query-evidence/product-current-controls-parity-v1.json。
+
+現在のCUDA製品確認は3profile：Miranda1秒/Alice2秒/Rapunzel3秒。標準30秒/fixed/group/targetは0。全条件完成とは主張しない。Metalの直前全266 sweepは4e861325で255成功/11理由付きCPU切替、現sourceの追加2条件も成功。実装・保護CPU・pinned dataは変更なし。全目標active。
+
+保存phaseのCPU-only集計ではCUBIN admissionがAlice24.925461/Rapunzel25.084262秒、owner監査4.741722/5.127276秒。GPU同期APIは0.235823/0.319218秒、worker全体32.381/33.182秒。入れ子stageは合算せず、純GPU時間と読み替えない。API内prepare/CPU battle/比較個別時間はunknown。GPU再実行なしで、今後の効率化対象はadmission内部の重複検査と特定できた。検査削除・所有不明cacheの流用はしない。
+
+既存CLI model-checkも現sourceで成功（source/dependency監査のみ、battle/GPU0）。旧全sweepからのsource差はapp/portable_weighted_incoming_source_contract.pyとgpu/counter_landing_runtime.slangだけで、CPU正本/pinned calculator/dataは全て不変。残11の欠けたcanonical consumerをGPU whitelistで無効果受付しない。public samplingのscoped GPU gapは報告されるが、engine_worker.py:305は現在expected=True固定で、既存製品のsampled CPU入口があるという意味ではない。
+
+次の実装対象として、CPU変更不要の実在GPU gapを確認した。app/portable_world_attack_specs.py:9が敵attack.debuffsを拒否する一方、pinned timeline.py:5372はspec.debuffs && to_hp && !fell && notify_hitのときapply_boss_effectをreceived_hitより前に実行する。HP損失正例と、shield/cover/decoy/invincible/down/even-sharingの抑止、免疫/解除順を既存incoming/carrierへ接続し、test_portable_world_enemy_attack.py/test_portable_detail.pyと通常APIで検証する方針。今回はconsumer確認までで未実装。残11の新CPU契約許可待ちと区別し、別の小suiteを増やす既定解にはしない。Windows cursor246/idle、追加GPU依頼なし。以下は履歴。
+
 # 2026-10-31 現ソースの通常APIでCUDA1profile・1秒の全製品応答一致
 
 実装source9a6c3aa7a52361b40f44963b21f60afe3a9a9969、sealed owner2a3053da8b227707f5c32af35e03f1555c429af48c2c0d0a04d7d91bbde14a15。source-only ZIP11814211byte/SHAce3fd5c8b4dff20ab018ff5b24ca12e7a87fdd914ce68e280ad234eeb0add91aを既存codex/product-current-parts-v1-packetのd4b6f789e9cd05b9d97f9ab392f1d35018351b4cへ共有。旧66edecとの差は全6files/GPU closure1file、旧失敗claims/cacheは不変。Windows own49/skip0・deps・PTX2GiB60秒plan・paired sealed生成一致が成功。
