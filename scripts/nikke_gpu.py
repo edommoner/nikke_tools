@@ -474,6 +474,9 @@ SUITES['weighted-battle'].update(golden='research/portable-weighted-battle-v1-ex
 SUITES['weighted-battle']['tests'].append('test_weighted_battle_sealed.py')
 SUITES['weighted-battle']['support_files'] += ['tests/fixtures/weighted-battle-metal-v1.json','tests/fixtures/weighted-battle-independent-v1.json','research/portable-compiler-full--weighted-battle-source-certificate.json']
 SUITES['weighted-battle-cache-only']=dict(SUITES['weighted-battle'],cuda_cache_profile='compile-cache-only-v1',require_paired_generation=True,tests=[*SUITES['weighted-battle']['tests'],'test_portable_cuda_cached_profile.py'])
+SUITES['weighted-death']=dict(SUITES['weighted-battle'],script='research/verify-weighted-death.py',golden=None,inputs=13,native=2,development_only=True,
+    tests=['test_weighted_death.py','test_weighted_battle_wire.py','test_weighted_source_contract.py','test_portable_wire_layout.py','test_portable_parent_oracles.py'],
+    support_files=[*SUITES['weighted-battle']['support_files'],'tests/fixtures/weighted-death-cpu-v1.json'])
 SUITES['cover-defense-numeric']=dict(script='research/verify-cover-defense-numeric.py',source='gpu/cover_defense_numeric_probe.slang',golden='research/portable-cover-defense-numeric-v1-expected.json',inputs=572,native=562,input_words=16,output_words=12,development_only=False,tests=['test_cover_defense_numeric.py'],support_files=['research/cover-defense-random-inputs-v1.json','tests/fixtures/cover-defense-numeric-metal-v1.json','tests/fixtures/cover-defense-numeric-independent-v1.json'])
 SUITES['cover-defense-numeric-cache-only']=dict(SUITES['cover-defense-numeric'],cuda_cache_profile='compile-cache-only-v1',tests=[*SUITES['cover-defense-numeric']['tests'],'test_portable_cuda_cached_profile.py'])
 SUITES['ammo-instant-numeric']=dict(script='research/verify-ammo-instant-numeric.py',source='gpu/ammo_instant_numeric_probe.slang',golden='research/portable-ammo-instant-numeric-v1-expected.json',inputs=713,native=705,input_words=16,output_words=8,development_only=False,tests=['test_ammo_instant_numeric.py'])
@@ -3795,7 +3798,7 @@ def main(argv=None):
     a=sub.add_parser('entry-inventory');a.add_argument('--out',type=Path,required=True);a.add_argument('--suite',choices=('coordinate-original','coordinate-original-burst-revival','coordinate-original-resources','coordinate-original-ammo','coordinate-original-stacks','coordinate-original-cleanse','coordinate-original-source','coordinate-original-reload','coordinate-original-shield','coordinate-original-cover','coordinate-original-shared','coordinate-original-decoy','coordinate-original-init','coordinate-original-enemy-stack','coordinate-original-harmful-stack','coordinate-original-accum','coordinate-original-owned','original-projectile-weapons','original-shield-weapons'),default='coordinate-original')
     a.add_argument('--character',action='append',help='Prepare only these exact original character names; repeat for multiple names')
     a.add_argument('--favorite-stage',type=int,help='Select an existing original favorite stage, 0..3; unavailable combinations fail before preparation')
-    a=sub.add_parser('entry-plan',help='Rank blockers from a saved static entry inventory without preparing profiles again');a.add_argument('--inventory',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
+    a=sub.add_parser('entry-plan',help='Rank blockers from a saved static entry inventory without preparing profiles again');a.add_argument('--inventory',type=Path,required=True);a.add_argument('--out',type=Path,required=True);a.add_argument('--compare-inventory',type=Path,help='Compare entry guards only for identical original profiles and packed input fingerprints')
     a=sub.add_parser('metal-device-probe',help='Bounded device visibility only; no kernel compilation or GPU dispatch');a.add_argument('--out',type=Path,required=True)
     a=sub.add_parser('coordinate-parent-check',help='CPU-only live preflight/context reuse check against saved Metal fixtures; not GPU certification')
     a.add_argument('--source-package',type=Path,required=True);a.add_argument('--source-capture',type=Path,required=True);a.add_argument('--out',type=Path,required=True)
@@ -4012,7 +4015,7 @@ def main(argv=None):
         write(a.out,result)
     elif a.command=='entry-plan':
         from portable_entry_plan import run
-        with forbid_gpu():result=run(a.inventory,a.out,write=write)
+        with forbid_gpu():result=run(a.inventory,a.out,write=write,compare_inventory=a.compare_inventory)
     elif a.command=='entry-inventory':
         from portable_original_entry_inventory import run
         selection={}

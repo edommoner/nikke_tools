@@ -14,6 +14,34 @@ def projected_suites(value):
             for child in v:visit(child)
     visit(value);return sorted(found.values(),key=lambda r:(r['suite'],json.dumps(r,sort_keys=True)))
 
+def compare_entries(before,after):
+    """Compare entry guards only when every original profile and wire is identical."""
+    for report in (before,after):plan(report)
+    if before.get('input_policy')!=after.get('input_policy'):raise ValueError('Entry comparison requires the same input policy')
+    key=lambda row:(row['character'],row['favorite_stage'])
+    left={key(row):row for row in before['profiles']};right={key(row):row for row in after['profiles']}
+    if left.keys()!=right.keys():raise ValueError('Entry comparison requires the same complete profile selection')
+    changes=[];packed=0
+    for identity,row in left.items():
+        other=right[identity]
+        if row['original_definitions_sha256']!=other['original_definitions_sha256'] or row['input_packed']!=other['input_packed']:
+            raise ValueError('Entry comparison changed original definitions or packing')
+        if not row['input_packed']:continue
+        for field in ('input_sha256','input_words'):
+            if field not in row or row[field]!=other.get(field):raise ValueError('Entry comparison changed packed input')
+        if not isinstance(row['input_sha256'],str) or len(row['input_sha256'])!=64 or any(c not in '0123456789abcdef' for c in row['input_sha256']):raise ValueError('Entry comparison requires a packed input fingerprint')
+        packed+=1
+        old=row.get('kind_admission',{});new=other.get('kind_admission',{})
+        if old.get('checked') is not True or new.get('checked') is not True:raise ValueError('Entry comparison requires two checked guards')
+        rejected=lambda value:{(r['row'],r['kind']) for r in value.get('unsupported',[])}
+        removed=rejected(old)-rejected(new);added=rejected(new)-rejected(old)
+        if removed or added:changes.append(dict(character=identity[0],favorite_stage=identity[1],input_sha256=row['input_sha256'],
+            removed_kind_rejections=[dict(row=r,kind=k) for r,k in sorted(removed)],added_kind_rejections=[dict(row=r,kind=k) for r,k in sorted(added)],
+            kind_guard_clear=not rejected(new),gpu_admission_verified=False))
+    return dict(before_source=before.get('source'),after_source=after.get('source'),identical_packed_profiles=packed,
+        changed_kind_guard_profiles=len(changes),profiles=changes,calculation_verified=False,gpu_admission_verified=False,
+        scope='Identical original definitions and packed bytes; selected entry guard differences only, not missing handlers or executable GPU coverage')
+
 def plan(report):
     report=copy.deepcopy(report)
     if report.get('schema')!=1 or report.get('stage')!='static-original-coordinate-inputs' or report.get('passed') is not True:
@@ -60,19 +88,36 @@ def plan(report):
             targets=list(f['targets'].values()),lanes=sorted(f['lanes']),scoped_suites=sorted(f['scoped_suites'].values(),key=lambda r:r['suite']),
             required_extensions=sorted(f['required_extensions']),published_evidence=list(f['published_evidence'].values()),
             default_admission_changed=False,runtime_validation_performed=False))
+    from portable_coordinate_kind_admission import EXTENSIONS
+    for family in result:
+        kind=family['operator'].get('kind')
+        entry_scope=family['operator'].get('category')=='kind'
+        family['work_kind']='selected_entry_kind_guard' if entry_scope else 'input_lowering_or_model'
+        family['known_handler_extensions']=[dict(macro=macro,needs_burst_controls=controls,scope=comment)
+            for macro,kinds,controls,comment in EXTENSIONS if entry_scope and kind in kinds]
     result.sort(key=lambda r:(-r['affected_profiles'],json.dumps(r['operator'],sort_keys=True)))
     return dict(schema='static-entry-plan-v1',profile_count=len(rows),packed_profiles=packed,blocked_profiles=len(failed),operator_families=result,
         ranking='Distinct affected profiles descending, then stable operator identity; overlapping families are not additive',
         input_policy=report.get('input_policy'),source=report.get('source'),profile_selection=report.get('profile_selection'),
+        work_queues=dict(input_lowering_or_model=[f for f in result if f['work_kind']=='input_lowering_or_model'],
+            selected_entry_kind_guard=[f for f in result if f['work_kind']=='selected_entry_kind_guard']),
         current_source_revalidated=False,calculation_verified=False,gpu_admission_verified=False,full_character_verified=False,full_goal_complete=False,
         cpu_battle_calls=0,gpu_calls=0,compiler_calls=0,scope='Saved static diagnostics and explicitly scoped evidence only; no executable admission or new preparation')
 
-def run(inventory,output,*,write):
+def run(inventory,output,*,write,compare_inventory=None):
     inventory=Path(inventory);output=Path(output)
     if output.exists():raise FileExistsError('A fresh entry plan path is required')
     raw=inventory.read_bytes();result=plan(json.loads(raw));result.update(source_inventory_sha256=hashlib.sha256(raw).hexdigest())
+    if compare_inventory is not None:
+        compared=Path(compare_inventory).read_bytes()
+        result['entry_comparison']=compare_entries(json.loads(raw),json.loads(compared))
+        result['entry_comparison']['after_inventory_sha256']=hashlib.sha256(compared).hexdigest()
     write(output,result)
     summary={k:result[k] for k in ('schema','profile_count','packed_profiles','blocked_profiles','ranking','current_source_revalidated','gpu_calls','calculation_verified','full_goal_complete')}
+    summary['work_queues']={name:dict(operator_families=len(rows),distinct_profiles=len({(p['character'],p['favorite_stage']) for f in rows for p in f['profiles']})) for name,rows in result['work_queues'].items()}
+    if 'entry_comparison' in result:
+        summary['entry_comparison']={k:result['entry_comparison'][k] for k in ('before_source','after_source','identical_packed_profiles','changed_kind_guard_profiles','calculation_verified','gpu_admission_verified','scope')}
     summary['ranked_operators']=[dict(operator=f['operator'],affected_profiles=f['affected_profiles'],targets=f['targets'],lanes=f['lanes'],
+        work_kind=f['work_kind'],known_handler_extensions=f['known_handler_extensions'],
         scoped_suites=sorted({s['suite'] for s in f['scoped_suites']}),published_evidence=[e['evidence'] for e in f['published_evidence']]) for f in result['operator_families']]
     summary['detail_file']=str(output.resolve());return summary

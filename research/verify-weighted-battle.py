@@ -13,8 +13,10 @@ from weighted_incoming_battle_model import weighted_incoming
 suite=SimpleNamespace(INPUT=INPUT,OUTPUT=OUTPUT);cross=base.cross
 STRICT_WIRE_DIMENSIONS=True;NATIVE_COMPARISON_CONTEXT=base.NATIVE_COMPARISON_CONTEXT
 def prepare():
+    return prepare_cases(fixtures()+positive_cover_cases())
+def prepare_cases(cases,*,condition_negatives=True):
     rows=[];template=selected_rows(['original-catalogue/hp-shield/베이/favorite-0/30s'])[0]
-    for raw in fixtures()+positive_cover_cases():
+    for raw in cases:
         row=copy.deepcopy(template);row.update(name=raw['name'],body=copy.deepcopy(raw['body']),patterns=copy.deepcopy(raw['patterns']),allocation=copy.deepcopy(raw['allocation']))
         # Original contracts have no intercepting enemy shield. Typed automatic
         # aim can select a live target at any geometry, so its audit-only node
@@ -33,12 +35,15 @@ def prepare():
         w=list(seed);w[LAYOUT['BASE']+at]=value
         if label=='zero-weight':w[LAYOUT['BASE']+4]=0
         rows.append(('reject/weighted-battle/'+label,w,None))
+    if not condition_negatives:return encode_rows(rows)
     from portable_specs import LIMITS as L
     condition_source=rows[7][2][0]
     condition_row=next(i for i,e in enumerate(condition_source['effects']) if condition_source['owners'][i]==0 and e.get('stat')=='heal_hp_pct' and e.get('trigger',{}).get('condition')==['not_self_cover_alive'])
     for label,offset,value in [('cover-condition-reserved',1,1),('cover-condition-nan',3,0x7ff80000)]:
         w=list(rows[7][1]);w[L['CONDITION_BASE']+condition_row*L['CONDITION_WORDS']+offset]=value
         rows.append(('reject/weighted-battle/'+label,w,None))
+    return encode_rows(rows)
+def encode_rows(rows):
     raw=array.array('I',[len(rows)])
     for _,w,_ in rows:raw.extend(w)
     if sys.byteorder!='little':raw.byteswap()
@@ -56,6 +61,7 @@ def native_reference(domain):
     # arena adds full weapon/skill/actor observations, never a new damage oracle.
     saved=json.loads((ROOT/'tests/fixtures/weighted-battle-cpu-v1.json').read_text())
     if positive:saved=json.loads((ROOT/'tests/fixtures/weighted-cover-condition-cpu-v1.json').read_text())
+    if '/owner-down/' in raw['name']:saved=json.loads((ROOT/'tests/fixtures/weighted-death-cpu-v1.json').read_text())
     previous=next(r['native'] for r in saved['cases'] if r['name']==raw['name'])
     if data!=previous['weighted_incoming'] or n['battle']['hits']!=previous['hits']:raise AssertionError('Original seven-battle incoming contract changed in full arena')
     if positive:
