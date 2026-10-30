@@ -31,3 +31,16 @@
 2. 元`_boss_attack`の量確定後・`_land_squad`呼出し前と、共通`dispatch_phases.slang` incoming event0のgroup snapshot境界を対応させる。別のイベントclock・HP配列・通知ループを作らず、既存のmode22/23/20と保護層へ接続する。
 3. cover slot5は「本人bodyの追加量」ではなく独立遮蔽物。cover破壊後の再正規化は次の被弾snapshotからとするか、同一被弾の残余を渡すかは明示model契約を定める。既存cover layerの余剰を渡さない規則と混同せず、実機規則へ昇格しない。
 4. 通知は元の命中者と分配先を区別し、被弾中の死亡/復活/cover回復/reburst・均等版併存を含む元4段階のCPU契約と実Metal全戦闘比較を先に行う。その後だけ必要な短いWindows CUDA検証を依頼する。
+
+
+## 2026-10-30 元carrierと既存native被弾実行器への接続
+
+`reference --suite weighted-incoming-common --out NEW.json`を追加した。元ベイ4段階の全69/74/75/76定義を保持した30秒4戦闘、65秒の破壊/再burst、ベイ→ビスケット→ベイの明示burst候補による実cover復活/再burst、未発動3秒の完全透明対照、計7戦闘がCPU成功（2.932594秒、GPU/packing0）。元定義・owner・順序を実登録時に静的準備と全比較する。元skillや対象名/値/条件を変更せず、独立cover carrierの既存activated_at/expires_at/stackとcasterを読む。pinned resolverの空targetをbody名へ変更しない。
+
+`weighted_incoming_battle_model`は元`_boss_attack`の量確定後・分配直前に生存/元recipientをfreezeする。身体shareはsquad順で元`_land_squad`へ渡し、最後に独立cover shareを適用。元cover減算/break/ログのASTを一つの共通nested helperへ移し、通常body-coverと独立coverの両経路が同じ更新を使う。元HP配列/clock/キャリア実行器を複製しない。被弾通知は元の命中者だけ、実cover消費は既存cover-hit通知。body shareが保護層で防がれる規則も維持する。この順序/最終攻撃量の参照元/余剰discard/重みは宣言モデルで、ゲーム仕様の確定ではない。
+
+破壊直後は次snapshotからcoverを除き、同じ被弾を途中で再正規化しない。body callback中にcoverが失われた場合も元owner生存/coverHPを再検査し、消えた分を他人へ押し戻さない。元carrier再発動で時刻を更新し、owner死亡/cover破壊を独立に扱う。均等版併存・複数の偏差body carrier・未知条件/弾数寿命は明示policy待ちとして拒否。未対応を黙って均等化しない。
+
+初版の「ベイのcover_heal_pctで破壊coverも復活する」という検査期待は失敗した。pinnedの元規則は回復と復活を区別するため、正本や実装を変えず、破壊を維持する対照と元ビスケットcover_reviveを実際に発動させる実編成を分けた。元失敗reportと追加診断を保持。証拠は`research/target-count-query-evidence/weighted-incoming-battle-cpu-v1.json`、全native/入力指紋/計算source指紋を`tests/fixtures/weighted-battle-cpu-v1.json`に保存。
+
+今回の新native接続はCPU契約。Metalで成功済みなのは前節の数値配分1192入力のみであり、戦闘GPU・元4段階のCUDA・公開GPU受付は未完了。次はGPUの既存incoming frameに同じsnapshot/キャリア寿命/独立coverを下ろし、この7戦闘を同じ比較器で実証する。元self_coverを通常body recipientへ混同したwireや、knockDownでcover carrierを誤って消す実装を避ける。既存数値GPU source/goldenを変更していないので同じGPUを再実行しない。

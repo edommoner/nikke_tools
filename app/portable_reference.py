@@ -87,6 +87,7 @@ REFERENCES['coordinate-typed-weapon-common']=('portable_coordinate_typed_weapon_
 REFERENCES['logical-actor-geometry-common']=('portable_logical_geometry_cases','world_logical_geometry_native','portable_logical_geometry_contracts')
 REFERENCES['logical-actor-rosters-common']=('portable_logical_geometry_roster_cases','world_logical_geometry_native','portable_logical_geometry_roster_contracts')
 REFERENCES['cover-defense-common']=('portable_cover_defense_battle_cases','world_cover_defense_battle_native','portable_cover_defense_battle_contracts')
+REFERENCES['weighted-incoming-common']=('portable_weighted_battle_cases','world_weighted_battle_native','portable_weighted_battle_contracts')
 REFERENCES['enemy-healing-common']=('portable_enemy_healing_cases','world_enemy_healing_native','portable_enemy_healing_contracts')
 REFERENCES['enemy-movement-common']=('portable_enemy_movement_cases','world_enemy_movement_native','portable_enemy_movement_contracts')
 REFERENCES['moving-typed-common']=('portable_moving_typed_cases','world_moving_typed_native','portable_moving_typed_contracts')
@@ -185,6 +186,9 @@ def run_reference(suite,output,*,write,forbid_gpu):
             historical_native_equivalence=False,in_game_rules_verified=False,gpu_wire_connected=False)
     if suite=='cover-defense-common':
         report.update(stage='cpu-common-policy-contract',reference_kind='declared-independent-cover-defense-v1',
+            historical_native_equivalence=False,in_game_rules_verified=False,gpu_wire_connected=False)
+    if suite=='weighted-incoming-common':
+        report.update(stage='cpu-common-policy-contract',reference_kind='declared-weighted-incoming-v1',
             historical_native_equivalence=False,in_game_rules_verified=False,gpu_wire_connected=False)
     if suite=='enemy-movement-common':
         report.update(stage='cpu-common-policy-contract',reference_kind='declared-add-motion-v1',

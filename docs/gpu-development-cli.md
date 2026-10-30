@@ -1,3 +1,5 @@
+`reference --suite weighted-incoming-common --out NEW.json`は元ベイ4段階と破壊/ビスケット復活/再burst/未発動透明対照のCPU7戦闘。既存native着弾・cover更新へ接続し、GPU数値suiteとは証拠を分ける。`weighted-incoming`の通常packetにはこのCPU回帰17検査も同梱する。[範囲と次のGPU接続](portable-bay-allocation.md)。
+
 `weighted-incoming`は明示重み・生存body/独立coverの数値1192入力をM5/fresh独立監査でsealした通常suite。`weighted-incoming-cache-only`は同計算のCUBIN/O1・cache必須版（standalone、paired生成不要）。元ベイcarrier/戦闘接続・実CUDA・実機定数は未達。[規約と次の接続](portable-bay-allocation.md)。
 
 `cover-defense-battle`／`cover-defense-modifiers`は同一の全13入力（元4戦闘＋Noah2戦闘＋拒否7）。共通received補償和をM5/fresh独立監査でsealし、旧11全byteを保持した。通常のpackage→unpack→runを使い、各cache-only版は同じ計算のCUBIN/O1・compile cache/paired生成必須。実CUDA/既定受付は未達。[現sourceの範囲と測定](portable-cover-defense-battle.md)。

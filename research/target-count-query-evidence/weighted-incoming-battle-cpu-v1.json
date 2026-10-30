@@ -1,0 +1,43 @@
+{
+  "schema": "weighted-incoming-battle-cpu-v1",
+  "reference_suite": "weighted-incoming-common",
+  "cases": 7,
+  "original_favorite_stages": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "original_definition_counts": [
+    69,
+    74,
+    75,
+    76
+  ],
+  "snapshots": 43,
+  "independent_cover_landings": 33,
+  "actual_breaks": 2,
+  "elapsed_seconds": 2.9325936250388622,
+  "fixture": "tests/fixtures/weighted-battle-cpu-v1.json",
+  "fixture_sha256": "9037c584e7590d1a26e2312c8e709e45346b26c098ed65610ba97ea6b9b0cc2a",
+  "gpu_calls": {
+    "build": 0,
+    "execute": 0
+  },
+  "packing_calls": 0,
+  "original_effects_and_owners_verified": true,
+  "native_model": "declared-weighted-incoming-v1",
+  "in_game_rules_verified": false,
+  "metal_battle_verified": false,
+  "cuda_battle_verified": false,
+  "public_gpu_admission": false,
+  "full_goal_complete": false,
+  "prior_failure": {
+    "report_sha256": "e246e6212a2d7c37c4adc778bdd56c57d4284746349cbc6181831a772cb2e19b",
+    "passed": false,
+    "case": "weighted-incoming/Bay/break-restore-reburst/65s",
+    "error": "AssertionError: Original cover healing must restore later cover participation",
+    "correction": "Wrong test assumption: ordinary cover healing does not revive. Original rules unchanged; add a real Biscuit burst revival case.",
+    "preserved": true
+  }
+}

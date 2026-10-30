@@ -1,3 +1,7 @@
+# 2026-10-30 ベイ元4段階のnative被弾・独立coverへ接続
+
+weighted-incoming-commonをCPU7戦闘で検証。元69/74/75/76定義4段階30秒＋破壊/再burst65秒＋元ビスケット復活/再burst65秒＋未発動3秒透明対照。全定義/owner/順序を実登録と照合。元carrierの寿命と独立self_coverを読み、元被弾loop・保護/HP・同じcover mutation helperへ接続、別clock/HPなし。実破壊2/復活1、均等版併存等はpolicy未確定で拒否。検査期待の誤り（回復で破壊coverが復活する）を正本変更せず訂正し、失敗を保持。7戦闘CPU2.932594秒/packing・GPU0。数値Metal1192と戦闘CPU7を分類で分離。次はこの同じ7戦闘を既存GPU incoming frameへ接続し、Metal全状態比較。self_coverの独立recipient/owner down時のcarrier寿命をbody maskへ潰さない。保護4ファイル変更0、Windows新依頼0、実CUDA/公開GPU/全目標未達。詳細portable-bay-allocation.md、証拠weighted-incoming-battle-cpu-v1.json。
+
 # 2026-10-30 最優先ベイの重み付き共通数値処理をM5でseal
 
 entry-planは偏差分配4段階が最優先と再確認。固定689814a1/package59e9a503…でweighted-incoming全1192入力（native1179/拒否13）がM5成功、GPU0.000569958秒、独立GPU禁止監査0.386646秒。別明示重み/全31生存mask/5caster/独立cover/最大量/極小量を検査。元sandboxのdevice不可はclaim前停止で保持、成功GPU1/Windows依頼0。通常CLIとCUBIN/O1 cache-onlyを登録し、分類には限定数値証拠だけ追加。canonical拒否/実CUDA/元4段階戦闘/実機定数は未達。最終512578f3/package d1acfcb4…自身の2群8検査/1192入力CPU事前確認とCUBIN/O1・2GiB・60秒compile-plan policy成功（compiler/GPU0）、分類回帰41検査成功。保護4ファイルは5720d178から同一。Windows既存chatのstatus確認はhost unavailableで、run依頼0。最終記録weighted-incoming-final-cli-v1.json。次はdocs/portable-bay-allocation.mdの元carrier・独立cover・既存incoming frameの接続。新probeだけを重ねず、元all_allies/self_coverの寿命・被弾/破壊/復活通知へ進む。
