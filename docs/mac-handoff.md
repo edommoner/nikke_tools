@@ -1,3 +1,29 @@
+# 2026-10-31 固定周期の通常API全profile完了：Metal255一致、CUDA固定0
+
+proof product-fixed-api-v1-20261031/catalogueの全267要求がterminal exit0。catalog266中Metal255、既知CPUfallback11、追加Sakura+Belorta編成1も全CPU製品応答一致。cache hit0、unique GPUcapture256、shader内訳fixed normal245/group2/target8/group-target1。保存GPU/CPU/API全field（compute/cache metadata以外）とinput/readback全raw SHAを独立照合し全一致。source snapshotはsweep/保存監査終了まで不変。driver57499・監査99927ともexit0、専用port4348のserver PID91312/session81105は所有cwd確認後SIGTERM、terminal143。ソース凍結解除。詳細既存product-admission-v1.jsonのfixed_product_readinessへ集約。rawはlocal proof保持、GitHubへ送らない。
+
+今回の実装はcommon combatの初回ready時刻・FB終了後regen・ready判定だけをcompile flagで切り替える。入力control header v4/magic0x46424731、first秒6..7/max literal member regen8..9、予約10..15=0。有限0..180秒、ソフトbinary64共通、5人の各regenもmetadataへ保持。元prepared/全効果/元policyを変更せず、既存static compilerへ渡すcopyだけをaccumulate validationへ下げてからfixed headerへlowering。CPU予定表/状態なし。4 fixed wrapperは同じCUDA/Metal計算本体を使用。fixed timelineはCPUどおりcamera/gauge-full記録を作らず、burst本体履歴は全保持。元Miranda30秒の実GPU1.747399秒・全CPU一致も保存。
+
+実Metalのheader負例7件（旧version/magic/reserved/NaN/negative/over-limit/Inf）と旧accumulate入口が新headerを拒否する1件も全status64。既存accumulate4入口は旧全API captureの生成物raw SHAから参照を確定し、現sourceを既存Slangで再生成、CUDA/MSLの既存strict normalized hashが全4対同一。normalizer/数値golden変更0。初回生成確認coordinatorのforbid_gpuがSlang自体を止めた失敗logも保持し、v2はdriver/GPU/NVRTCだけを禁止。単なる生成一致を製品GPU profile成功へ加算しない。
+
+sweep後の変更は失敗診断だけ：portable_runtime.compile_programのvalidate_effectでUnsupportedPortableへowner/effect/stat/targetを付け、portable_detailのCPUfallback APIとresult.jsonへ残す。message/categoryや有効なinput lowering/計算は変えない。元11失敗bodyをstatic preparation/compileだけで再確認し、unsupported-context.jsonへ効果を分類（CPU戦闘/GPU0）。product27/runtime23/packet3検査成功。初版追加テストがcompute_backend指定を欠いた失敗は訂正済み。web表示も準備を含む時間と実Metal GPU区間/CUDA launch-sync-readback区間を分け、node --check成功。web変更は計算source凍結の対象外でAPI入力/計算を変えていない。
+
+この節の実装と検証記録を作業ブランチへまとめて共有する。**次は既存product CLIへfixed/各kernel variantのownerと基準を統合し、featureごとの新suiteを増やさず、source guardを維持して固定パッケージを作る。** 旧product-detail sealed goldenのraw source closureはstale。生成同一だからと旧ownerのsource guardを外したりgolden数値を更新しない。必要な現source Metal実証/既存sealで扱い、保存済みCPU/input/code/dataが一致する部分は再利用する。CUDAは旧2cの実蓄積1profile1秒のみ成功、今回fixed0・各group/target画像も未準備。新CUDAはMetal側を固めた必要な短い検証だけ。既存NIKKE_CUDA_RESOURCE_OBSERVATION=1のoptional observerなら次の必要runでowned process/Job/deviceのメモリsnapshotを取れる（今回旧runはflag0、peak内訳unknown、再実行なし）。
+
+Windows保存JSON共有依頼functions cell789は長時間未応答、直近read-only status cursor78/idleのまま。再送せず同handleをpoll、追加GPU/compile0。ユーザーへ接続/チャットが応答可能か確認するasync質問を出したが未回答。接続喪失と断定しない。全goalは未完：Metal実蓄積255（前版）、fixed255（今回）、CUDA実蓄積1秒1（旧2c）、fixed0。残11profile・parts/manual・全設定/編成も継続。以下は履歴。
+
+# 2026-10-31 固定周期バーストを製品Metalへ接続、全profile通常API確認中（ソース凍結）
+
+現在の作業はsource commit526ece72からの未commit変更。app/portable_detail.pyでfixedの元static入力をコピーし、既存accumulate静的compilerを再利用後、control headerをstrict v4へlowering。初回時刻と5人のliteral burst_regen_time最大値だけをpack（CPU予定表/状態なし）、元prepared/効果/policyを保持。共通combat_runtimeの初期時刻・FB終了後regen・ready判定だけをPORTABLE_PRODUCT_FIXED_BURSTで変更し、4つのproduct_fixed_* wrapperが同じCUDA/Metal本体を使用。gauge加算/射撃/効果は共通のまま。header magic/reserved/f64 finite/0..180秒をshaderでも検査。product結果のfixed timelineはCPUどおりcamera/gauge-full記録を含めず、実burst履歴は残す。保護CPU/normalizer/数値golden変更0。CUDAのfixed画像は未作成でCPUfallback。
+
+元Miranda30秒の通常APIでM5実GPU1.747399秒/CPU全製品payload一致、capture eca654b3b073484b87058642f3a84c65、input b534ebb2…/output9c72bd03…。product CPU26件成功（delay負例、入力非変更、headerだけの変更、timeline変換）。既存accumulate4入口は旧全API captureの生成物raw SHAと照合した元live pairから再生成し、CUDA/MSLの既存strict normalized hashが全4対同一。初版確認coordinatorはforbid_gpuがSlang build自体を止めたためGPU/生成前に停止、v2ではdriver/GPU/NVRTCだけを止めて既存buildを使用。元失敗log保持、normalizer/期待値の変更なし。proof product-fixed-api-v1-20261031/accumulate-generation-retention.json。
+
+現在、同proofのcatalogue/run-api-batches.pyで既存267要求（catalog266profile+追加編成1）をburst_gauge_mode=fixedだけ変更し、通常APIへ16件ずつ順次実行中。driver exec session57499、server session81105・port4348。capture rootはproof直下captures（smokeと共用）、catalogue/progress.jsonと各job/result/16件chunkを確認する。現snapshot 98件中Metal一致96、既知CPUfallback2、cache hit0。最新進捗は必ずlive handle/progressと照合。driverを再起動/再送しない。観測timeout時もcurrent.jsonの同job IDをpollしてから回収する。
+
+**全sweepがterminalになるまでapp/gpu/data/upstreamを編集せず、commitも待つこと。** sources.jsonの全hash凍結中。docs/research小記録は可。全完了後、保存GPU/CPU全payload/raw SHA、fallback理由、cache/capture数を集計して記録し、この専用serverだけを止める。現在codeは未commitなのでgit statusの変更を他作業と誤認して消さない。source closureのraw SHAは変わったため旧sealed product CLI goldenはstale、未再認定。旧accumulate生成同一の証拠を旧ownerのraw-source guardを緩める代わりに使わない。固定/各variantのowner構成を既存product CLIへ統合するのは今後、featureごとの新suiteを既定にしない。
+
+Windowsは旧2cの実蓄積1秒/1profile成功済み、今回fixed CUDA0。保存JSON共有依頼functions cell789は未応答で同handleをpoll中、read-only thread statusはcursor78/idle。再送/GPU/compile依頼はしない。接続喪失と断定しない。全goal未完、残11profile・parts/manual/全設定・編成も継続。以下は履歴。
+
 # 2026-10-31 通常HTTP/APIでCUDA1秒・1profile成功、保存JSON取得待ち
 
 不変source2c684f88/d1206d3f…の通常POST /api/jobsを1回送信し、Miranda元fixtureのduration1秒だけで実CUDA→全CPU製品payload一致、差分0。cache_hit=false、入出力SHAはMac同sceneのe26cf2bb…/647c3081…と一致。CUBIN5051088bytes/SHAb4d35f76…、provider saved-module-jit-cubin、receipt key2287019be22f0cbf292b5d5ebe074d89e0a8e068a5947e538ec0e205fd837f69。required paired generation hit、compiler追加0、画像read完了後CUDA初期化→launch/sync/全量readback各1回正常。peer保存要約SHA410e185c5a6322da08bee2e93bbe31e43c2d5d4a5ea3642718a8e0a0b2b63531、rawはWindows保持でMac独立監査は未完。

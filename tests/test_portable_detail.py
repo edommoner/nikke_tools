@@ -16,6 +16,75 @@ class PortableDetail(unittest.TestCase):
         path=Path(folder)/'programs.json';path.write_text(json.dumps(document))
         return path
 
+    def test_fixed_burst_changes_only_authored_control_header_and_keeps_source_input(self):
+        from portable_specs import LIMITS as limits
+        base=limits['WORLD_CONTROL_INPUT_BASE']
+        fixed=copy.deepcopy(self.prepared)
+        fixed['policies']['config'].update(burst_gauge_mode='fixed',first_burst_time=1.25)
+        delays=[0.,.5,3.,1.,2.]
+        for char,delay in zip(fixed['chars'],delays):char['burst_regen_time']=delay
+        before=copy.deepcopy(fixed)
+        accumulate=copy.deepcopy(fixed);accumulate['policies']['config']['burst_gauge_mode']='accumulate'
+        with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle or schedule in lowering')):
+            source,iw,ow,words,meta=product.compile_product(fixed)
+            _,aiw,aow,original,_=product.compile_product(accumulate)
+        self.assertEqual(fixed,before)
+        self.assertEqual(source,'gpu/product_fixed_battle_entry.slang')
+        self.assertEqual((iw,ow),(aiw,aow))
+        self.assertEqual(words[:base],original[:base])
+        self.assertEqual(words[base+16:],original[base+16:])
+        self.assertEqual(words[base:base+5],[original[base],4,*original[base+2:base+5]])
+        self.assertEqual(words[base+10:base+16],[0]*6)
+        self.assertEqual(words[base+5],0x46424731)
+        self.assertEqual(product.struct.unpack('<dd',product.struct.pack('<4I',*words[base+6:base+10])),(1.25,3.))
+        self.assertEqual(meta['product_fixed_burst']['member_regen_seconds'],delays)
+        self.assertFalse(meta['product_fixed_burst']['CPU_state_or_schedule_as_input'])
+        self.assertEqual(meta['real_prepared_input']['policy'],fixed['policies'])
+        from portable_backend import validate_composed_stride
+        validate_composed_stride(source,iw,ow)
+
+    def test_real_unsupported_effect_reports_owner_and_definition_without_dispatch(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        for name,stat in [('얀','force_move'),('유니','enemy_movement_disable'),('벨벳','ammo_charge_pct')]:
+            body=selected_profile_bodies([name],0)[0][2];body.update(burst_gauge_mode='fixed',compute_backend='metal_detail')
+            prepared,run=product.prepare(body);before=copy.deepcopy(prepared)
+            with self.assertRaises(product.UnsupportedPortable) as raised:product.compile_product(prepared)
+            context=raised.exception.effect_context
+            self.assertEqual(context['character'],name)
+            self.assertEqual(context['stat'],stat)
+            self.assertTrue(context['effect'])
+            original=next(row['effect'] for row in prepared['effects'] if row['owner']==name and row['effect']['stat']==stat)
+            self.assertEqual(context['target'],original['target'])
+            self.assertEqual(prepared,before)
+            with tempfile.TemporaryDirectory() as folder,patch.dict(os.environ,NIKKE_DETAIL_CAPTURE_ROOT=folder),\
+                 patch.object(product,'prepare',return_value=(prepared,run)),\
+                 patch.object(product,'execute',side_effect=AssertionError('No GPU on unsupported definition')) as dispatch,\
+                 patch.object(product.engine_worker,'evaluate',return_value=copy.deepcopy(self.fixture['cpu_payload'])):
+                output=product.evaluate(body)
+                record=json.loads(next(Path(folder).glob('*/result.json')).read_text())
+                self.assertEqual(record['unsupported'],output['compute']['unsupported'])
+            self.assertEqual(output['compute']['backend'],'cpu')
+            self.assertEqual(output['compute']['unsupported'][0],dict(context,reason=str(raised.exception)))
+            dispatch.assert_not_called()
+
+    def test_fixed_delay_invalid_numbers_stop_before_lowering(self):
+        for value in (True,float('nan'),float('inf'),-.1,181,'2'):
+            for field in ('first','regen'):
+                fixed=copy.deepcopy(self.prepared);fixed['policies']['config']['burst_gauge_mode']='fixed'
+                if field=='first':fixed['policies']['config']['first_burst_time']=value
+                else:fixed['chars'][2]['burst_regen_time']=value
+                with self.subTest(field=field,value=value),patch.object(product,'compile_projectile_battle',side_effect=AssertionError('No lowering on invalid delay')):
+                    with self.assertRaisesRegex(ValueError,'Fixed burst delays'):product.compile_product(fixed)
+
+    def test_fixed_product_timeline_retains_bursts_without_accumulate_only_records(self):
+        body={**self.fixture['body'],'burst_gauge_mode':'fixed'}
+        with patch.object(product,'decode',return_value=self.fixture['gpu_projection']):
+            actual=product.decode_payload(body,self.prepared,self.prepared_run,self.metadata,[])
+        expected=[row for row in self.fixture['cpu_payload']['burst_timeline']
+                  if not row['event'].startswith(('카메라 초점:','게이지 만충'))]
+        self.assertEqual(actual['burst_timeline'],expected)
+        self.assertEqual(actual['burst_gauge_mode'],'fixed')
+
     def test_saved_artifact_descriptor_is_explicit_and_strict(self):
         with tempfile.TemporaryDirectory() as folder:
             path=self.descriptor(folder)

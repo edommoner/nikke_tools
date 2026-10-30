@@ -283,7 +283,14 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         raise UnsupportedPortable('Hit-critical context requires native combat world landing')
     if not 1<=len(effects)<=L['DEFINITIONS']:raise UnsupportedPortable('Portable definition capacity exceeded')
     if any(e.get('stat')=='lifesteal_pct' for e,_ in effects) and (not native_landing or combat is None):raise UnsupportedPortable('Lifesteal requires native landing phases')
-    for eff, owner in effects:validate_effect(eff,combat=combat,world_frame=world_frame)
+    for eff, owner in effects:
+        try:validate_effect(eff,combat=combat,world_frame=world_frame)
+        except UnsupportedPortable as error:
+            # Keep the original category/message; expose which authored effect
+            # caused fallback instead of returning an anonymous compiler gap.
+            error.effect_context=dict(character=owner,effect=eff.get('name',''),
+                stat=eff.get('stat',''),target=copy.deepcopy(eff.get('target')))
+            raise
     from portable_source_specs import validate_sources,pack as pack_source
     validate_sources(effects)
     from portable_staged_specs import descriptors as staged_descriptors,pack as pack_staged

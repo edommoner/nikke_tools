@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 import platform
 import sys
+import struct
 import time
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -65,12 +66,36 @@ def compile_product(prepared):
     """Select an existing wire by actual effect requirements, never by character."""
     from portable_enemy_specs import lower_single_body_nearby
     original=prepared
+    gauge_mode=prepared['policies']['config'].get('burst_gauge_mode','fixed')
+    if gauge_mode not in ('fixed','accumulate'):raise UnsupportedPortable('Unported burst gauge mode')
+    fixed=gauge_mode=='fixed'
+    if fixed:
+        cfg=prepared['policies']['config']
+        first=cfg.get('first_burst_time',3.)
+        regen=[c.get('burst_regen_time',2.) for c in prepared['chars']]
+        if any(type(v) not in (int,float) or not math.isfinite(v) or not 0<=v<=180 for v in [first,*regen]):
+            raise UnsupportedPortable('Fixed burst delays require finite binary64 seconds in [0,180]')
+        # Reuse existing static lowering; readiness itself is supplied below.
+        # This copy is validation input only, never a simulated CPU schedule.
+        prepared=copy.deepcopy(prepared)
+        prepared['policies']['config']['burst_gauge_mode']='accumulate'
     prepared,nearby=lower_single_body_nearby(prepared)
     def finish(source,iw,ow,words,metadata):
         if nearby:
             metadata['real_prepared_input']['single_body_nearby']=dict(rows=nearby,
                 original_effects=[copy.deepcopy(original['effects'][i]) for i in nearby],
                 neighbour_geometry_inferred=False)
+        if fixed:
+            from portable_specs import LIMITS as limits
+            base=limits['WORLD_CONTROL_INPUT_BASE']
+            if words[base+1]!=1 or any(words[base+5:base+16]):
+                raise UnsupportedPortable('Fixed burst requires the automatic control header')
+            words[base+1]=4
+            words[base+5:base+10]=[0x46424731,*struct.unpack('<II',struct.pack('<d',first)),*struct.unpack('<II',struct.pack('<d',max(regen)))]
+            metadata['real_prepared_input']['policy']=copy.deepcopy(original['policies'])
+            metadata['product_fixed_burst']=dict(first_seconds=first,member_regen_seconds=regen,
+                readiness_regen_seconds=max(regen),CPU_state_or_schedule_as_input=False)
+            source=source.replace('gpu/product_','gpu/product_fixed_',1)
         return source,iw,ow,words,metadata
     from destructible_damage_policy import modifier_axis
     if any(modifier_axis(row['effect']) for row in prepared['effects']):
@@ -130,11 +155,13 @@ def decode_payload(body, prepared, run, metadata, block):
     note = ' · '.join(camera) if camera else '없음'
     if len(camera) > 1:
         note += '  [camera_mode="shared" — 비현실적 상한]'
-    events = [dict(time=0., event='카메라 초점: '+note, character='')]
+    fixed=body.get('burst_gauge_mode','fixed')=='fixed'
+    events = [] if fixed else [dict(time=0., event='카메라 초점: '+note, character='')]
     for row in view['burst_trace']:
         event, who = row['event'], row['owner']
         if event not in (1,2,3,4,5,6,7,8,9) or not -1 <= who < 5:
             raise RuntimeError('Invalid shared burst event')
+        if fixed and event==6:continue
         label = (f'reenter:{event-6} 사용' if 7 <= event <= 9 else
                  f'stage:{event} 사용' if event < 4 else
                  'full_burst 시작' if event == 4 else
@@ -185,8 +212,6 @@ def evaluate(body):
         record['request_sha256'] = hashlib.sha256(json.dumps(body,ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
         policy = execution_environment(backend)
         prepared, run = prepare(body)
-        if body.get('burst_gauge_mode','fixed') != 'accumulate':
-            raise UnsupportedPortable('共通GPU詳細は現在「バーストゲージ：実蓄積」で利用できます。固定周期はCPUで計算します。')
         # These need product history/operation projections, not silent omission.
         if body.get('enemy',{}).get('patterns') or body.get('enemy',{}).get('parts'):
             raise UnsupportedPortable('製品用GPUのボス行動・パーツ結果変換は未接続です。')
@@ -245,7 +270,8 @@ def evaluate(body):
         payload['compute']['cpu_verification']=record['cpu_verification']
         record['backend']=requested;save();return payload
     except (UnsupportedPortable,ValueError,RuntimeError,OSError,KeyError,TypeError,ImportError) as error:
-        record.update(backend='cpu',error=str(error),error_type=type(error).__name__);save()
+        unsupported=dict(getattr(error,'effect_context',{}),reason=str(error))
+        record.update(backend='cpu',error=str(error),error_type=type(error).__name__,unsupported=[unsupported]);save()
         cpu = engine_worker.evaluate(body)
-        cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=[dict(reason=str(error))],gpu_execution_verified=record['gpu_execution_verified'],**historical_status)
+        cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=[unsupported],gpu_execution_verified=record['gpu_execution_verified'],**historical_status)
         return cpu

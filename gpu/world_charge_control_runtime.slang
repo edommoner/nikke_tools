@@ -327,9 +327,30 @@ void cancelChargeControl(inout Runtime s,uint who,bool release)
 void finishChargeControl(inout Runtime s,uint who)
 { cancelChargeControl(s,who,true);results[controlState(s,who)+24]=2; }
 
+#ifdef PORTABLE_PRODUCT_FIXED_BURST
+bool productFixedBurstHeader(uint p)
+{
+    uint64_t first=loadNumber(p+6),regen=loadNumber(p+8),limit=f64FromI64(180);
+    return commands[p+1]==4 && commands[p+5]==0x46424731U
+        && f64Finite(first) && !f64Less(first,0) && !f64Less(limit,first)
+        && f64Finite(regen) && !f64Less(regen,0) && !f64Less(limit,regen);
+}
+#endif
 #ifndef PORTABLE_PARTIAL_CHARGE
-bool partialControlHeader(inout Runtime s,uint p) { return commands[p+1]==1; }
-uint partialReservedStart(inout Runtime s,uint p) { return 5; }
+bool partialControlHeader(inout Runtime s,uint p) {
+#ifdef PORTABLE_PRODUCT_FIXED_BURST
+    return productFixedBurstHeader(p);
+#else
+    return commands[p+1]==1;
+#endif
+}
+uint partialReservedStart(inout Runtime s,uint p) {
+#ifdef PORTABLE_PRODUCT_FIXED_BURST
+    return 10;
+#else
+    return 5;
+#endif
+}
 bool validPartialClick(inout Runtime s,uint who,uint row,uint kind) { return false; }
 bool partialOwnerMaskValid(inout Runtime s,uint who,bool foundTap) { return !foundTap; }
 void partialStartCharge(inout Runtime s,uint who,uint64_t when) {}
@@ -338,16 +359,24 @@ void partialCancelCharge(inout Runtime s,uint who) {}
 #else
 bool partialControlHeader(inout Runtime s,uint p)
 {
+#ifdef PORTABLE_PRODUCT_FIXED_BURST
+    return productFixedBurstHeader(p);
+#else
 #ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
     if(commands[p+1]==3)return commands[p+5]<32&&(commands[p+6]<256||commands[p+6]==0xffffffffU)&&commands[p+7]==0x4d435631U;
 #endif
     return commands[p+1]==1 || commands[p+1]==2 && commands[p+5]>0 && commands[p+5]<32;
+#endif
 }
 uint partialReservedStart(inout Runtime s,uint p) {
+#ifdef PORTABLE_PRODUCT_FIXED_BURST
+    return 10;
+#else
 #ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
     if(commands[p+1]==3)return 8;
 #endif
     return commands[p+1]==2?6:5;
+#endif
 }
 bool partialOwnerEnabled(inout Runtime s,uint who)
 { uint p=controlInput(s);return (commands[p+1]==2

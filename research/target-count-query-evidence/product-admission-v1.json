@@ -822,5 +822,442 @@
     ],
     "vcs_scope": "CLI/tests/docs commits occurred during sweep; app/GPU/data/upstream calculation sources remained hash-identical. Full evaluator metadata matched live CPU per request.",
     "scope": "Default growth, no cube,30seconds,plain BODY. Additional modifier+multi-hit combination separate. Not all settings/teams/game models."
+  },
+  "fixed_product_readiness": {
+    "status": "completed",
+    "scope": "Original fixed burst readiness product mode; ordinary API, duration30, complete CPU payload comparison per response",
+    "source_commit_before_uncommitted_change": "526ece72",
+    "working_tree_dirty": true,
+    "proof_root": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-fixed-api-v1-20261031",
+    "source_snapshot_sha256": "3a704ac810ab5f29a306ccc22e20951cc391666a36a3f1a9d07b7f345989ce9e",
+    "completed": 267,
+    "planned": 267,
+    "catalogue_profiles_planned": 266,
+    "additional_composition_requests": 1,
+    "metal_matched_requests": 256,
+    "api_cache_hits": 0,
+    "shader_counts": {
+      "gpu/product_fixed_battle_entry.slang": 245,
+      "gpu/product_fixed_group_battle_entry.slang": 2,
+      "gpu/product_fixed_target_battle_entry.slang": 8,
+      "gpu/product_fixed_group_target_battle_entry.slang": 1
+    },
+    "fallbacks": [
+      {
+        "index": 67,
+        "character": "앤 : 미라클 페어리",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported buff recipient selector"
+          }
+        ]
+      },
+      {
+        "index": 88,
+        "character": "유니",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 111,
+        "character": "얀",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 159,
+        "character": "솔져 O.W.",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 168,
+        "character": "벨벳",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported health recipient selector"
+          }
+        ]
+      },
+      {
+        "index": 210,
+        "character": "스노우 화이트 : 헤비암즈",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 221,
+        "character": "베이",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 222,
+        "character": "베이",
+        "favorite_stage": 1,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 223,
+        "character": "베이",
+        "favorite_stage": 2,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 224,
+        "character": "베이",
+        "favorite_stage": 3,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      },
+      {
+        "index": 251,
+        "character": "레이 (가칭)",
+        "favorite_stage": 0,
+        "unsupported": [
+          {
+            "reason": "Unported buff stat"
+          }
+        ]
+      }
+    ],
+    "ordinary_api_smoke": {
+      "capture_id": "eca654b3b073484b87058642f3a84c65",
+      "duration_seconds": 30,
+      "gpu_seconds": 1.7473993750172667,
+      "full_cpu_payload_matched": true,
+      "input_sha256": "b534ebb2f7abcf613ea7b052f0ad8b9f9bcb48ec5ece9e0c766422871ba06a6f",
+      "output_sha256": "9c72bd03cc18453a9f8c6a9cdfebd6fe126e3e0b8e5889e6668cf158c4698be2"
+    },
+    "accumulate_generated_retention": {
+      "rows": [
+        {
+          "source": "gpu/product_battle_entry.slang",
+          "baseline": {
+            "capture_id": "6f115336dffc4676a91a235008513d2f",
+            "generated_sha256": {
+              "cuda": "b15db0ae8649f0977bbdd318b368a71d52ecd5a1f10b07ed2503ae7e6c1a66cd",
+              "metal": "ec485089091be169ac6c17d2dabc9903d08537bf0e95f8040909d89bfb96b032"
+            }
+          },
+          "before_normalized": {
+            "cuda": "40bb4c7a64f22ea95dfa3fcc7357915d90b0b6e832d5ac93c02fbe001c8b4e3f",
+            "metal": "ec485089091be169ac6c17d2dabc9903d08537bf0e95f8040909d89bfb96b032"
+          },
+          "after_normalized": {
+            "cuda": "40bb4c7a64f22ea95dfa3fcc7357915d90b0b6e832d5ac93c02fbe001c8b4e3f",
+            "metal": "ec485089091be169ac6c17d2dabc9903d08537bf0e95f8040909d89bfb96b032"
+          },
+          "matched": true,
+          "seconds": 3.473899625008926,
+          "gpu_calls": 0
+        },
+        {
+          "source": "gpu/product_group_battle_entry.slang",
+          "baseline": {
+            "capture_id": "4c092b416623457f87a92cc4a9431771",
+            "generated_sha256": {
+              "cuda": "05c51a6c8e3840f3385fe9c12669db83ba5b6682ca5eea40a77fae05b6275919",
+              "metal": "613b88e017b8ae2c2d78439cf46ebf116850545f5adb47857971655c76a37095"
+            }
+          },
+          "before_normalized": {
+            "cuda": "44337a16fa1bcc132095edb53d51bf0d514c6e032dd4d4bb41d6c8d7520555b4",
+            "metal": "613b88e017b8ae2c2d78439cf46ebf116850545f5adb47857971655c76a37095"
+          },
+          "after_normalized": {
+            "cuda": "44337a16fa1bcc132095edb53d51bf0d514c6e032dd4d4bb41d6c8d7520555b4",
+            "metal": "613b88e017b8ae2c2d78439cf46ebf116850545f5adb47857971655c76a37095"
+          },
+          "matched": true,
+          "seconds": 3.532755249994807,
+          "gpu_calls": 0
+        },
+        {
+          "source": "gpu/product_target_battle_entry.slang",
+          "baseline": {
+            "capture_id": "bbd5c00de1664b2cb22efb22ee01ac2d",
+            "generated_sha256": {
+              "cuda": "8d53f17656e6fdfa36d04afede8f1a63a99939b30839e4c1b083630cafb09ebe",
+              "metal": "441d6376209443b18f4e27f919ec0b92bf3e713fc397f7df7accbc2f6caca726"
+            }
+          },
+          "before_normalized": {
+            "cuda": "2a9f26b418e7ffc3fe6034196ad51975c925e49bd79a4b74f3b775c000eefed6",
+            "metal": "441d6376209443b18f4e27f919ec0b92bf3e713fc397f7df7accbc2f6caca726"
+          },
+          "after_normalized": {
+            "cuda": "2a9f26b418e7ffc3fe6034196ad51975c925e49bd79a4b74f3b775c000eefed6",
+            "metal": "441d6376209443b18f4e27f919ec0b92bf3e713fc397f7df7accbc2f6caca726"
+          },
+          "matched": true,
+          "seconds": 3.701167958031874,
+          "gpu_calls": 0
+        },
+        {
+          "source": "gpu/product_group_target_battle_entry.slang",
+          "baseline": {
+            "capture_id": "7a61244b077d42c695bed16eb52fe39b",
+            "generated_sha256": {
+              "cuda": "534eec9224dba86f57c6260ff2abcd4c9711c8f629b3a65a619fd23c03340fea",
+              "metal": "1a386168a949c3171d22aeba7c0fec0141b82d02fc24ee622fdfcfa0d300924c"
+            }
+          },
+          "before_normalized": {
+            "cuda": "85d1800d9c38078c1af0d87d076e402ee33cc56ff9ded3c51741b32435b7ed8f",
+            "metal": "1a386168a949c3171d22aeba7c0fec0141b82d02fc24ee622fdfcfa0d300924c"
+          },
+          "after_normalized": {
+            "cuda": "85d1800d9c38078c1af0d87d076e402ee33cc56ff9ded3c51741b32435b7ed8f",
+            "metal": "1a386168a949c3171d22aeba7c0fec0141b82d02fc24ee622fdfcfa0d300924c"
+          },
+          "matched": true,
+          "seconds": 3.6245844999793917,
+          "gpu_calls": 0
+        }
+      ],
+      "all_matched": true,
+      "strict_existing_normalizer": true,
+      "raw_source_closure_changed": true,
+      "gpu_calls": 0,
+      "prior_coordinator_failure": "audit forbid_gpu also prohibits generation; no GPU/compiler calls occurred before that rejection"
+    },
+    "cpu_product_tests": 26,
+    "fixed_cuda_profiles_verified": 0,
+    "numeric_expected_hashes_changed": false,
+    "cpu_schedule_or_state_as_gpu_input": false,
+    "full_goal_complete": false,
+    "metal_catalogue_profiles": 255,
+    "additional_compositions": 1,
+    "cpu_fallback_profiles": 11,
+    "unique_gpu_captures": 256,
+    "saved_audit_sha256": "12857b9ef9ac24f6ad02e121adbbb7f055acc65a6d88c191d333c116a913cc1e",
+    "saved_gpu_cpu_api_payloads_all_equal": true,
+    "raw_input_readback_hashes_all_equal": true,
+    "calculation_sources_frozen_through_sweep_and_saved_audit": true,
+    "driver_exit_code": 0,
+    "server_stopped_pid": 91312,
+    "server_exit_code": 143,
+    "source_freeze_released": true,
+    "hardware_header_rejections": {
+      "fixed": {
+        "scope": "Malformed fixed header rejection in actual shared product Metal kernel; no additional profile certification",
+        "cases": [
+          {
+            "name": "legacy-version",
+            "status": 64
+          },
+          {
+            "name": "missing-magic",
+            "status": 64
+          },
+          {
+            "name": "reserved-word",
+            "status": 64
+          },
+          {
+            "name": "nan-first",
+            "status": 64
+          },
+          {
+            "name": "negative-regen",
+            "status": 64
+          },
+          {
+            "name": "first-over-limit",
+            "status": 64
+          },
+          {
+            "name": "infinite-regen",
+            "status": 64
+          }
+        ],
+        "passed": true,
+        "gpu_execution_verified": true,
+        "input_sha256": "cfb1e39153c2c4115512f113bb3b14c7fb37691a61eb758bcf6b98724091c95f",
+        "output_sha256": "41d0523bb55787823ce9e7aeda4a93aab48710256c5e796f374e40302d200044"
+      },
+      "ordinary_entry": {
+        "status": 64,
+        "passed": true,
+        "gpu_execution_verified": true
+      }
+    },
+    "post_sweep_failure_diagnostics": {
+      "scope": "Only validation exception metadata and fallback provenance; valid lowering, shader math and input words unchanged",
+      "context": {
+        "scope": "Static original input lowering only; no CPU battle, Slang or GPU calls",
+        "rows": [
+          {
+            "index": 67,
+            "profile": "앤 : 미라클 페어리",
+            "favorite_stage": 0,
+            "reason": "Unported buff recipient selector",
+            "category": "recipient",
+            "character": "앤 : 미라클 페어리",
+            "effect": "요정의 장난 2",
+            "stat": "heal_received_pct",
+            "target": "all_enemies"
+          },
+          {
+            "index": 88,
+            "profile": "유니",
+            "favorite_stage": 0,
+            "reason": "Unported buff stat",
+            "category": "effect",
+            "character": "유니",
+            "effect": "BDG 2",
+            "stat": "enemy_movement_disable",
+            "target": "enemies_in_range"
+          },
+          {
+            "index": 111,
+            "profile": "얀",
+            "favorite_stage": 0,
+            "reason": "Unported buff stat",
+            "category": "effect",
+            "character": "얀",
+            "effect": "일확천금 2",
+            "stat": "force_move",
+            "target": "enemies_in_range"
+          },
+          {
+            "index": 159,
+            "profile": "솔져 O.W.",
+            "favorite_stage": 0,
+            "reason": "Unported buff stat",
+            "category": "effect",
+            "character": "솔져 O.W.",
+            "effect": "오울 윈드",
+            "stat": "cover_def_pct",
+            "target": "allies_top_atk:3"
+          },
+          {
+            "index": 168,
+            "profile": "벨벳",
+            "favorite_stage": 0,
+            "reason": "Unported health recipient selector",
+            "category": null,
+            "character": "벨벳",
+            "effect": "탄환 가져오기 2",
+            "stat": "ammo_charge_pct",
+            "target": "all_enemies"
+          },
+          {
+            "index": 210,
+            "profile": "스노우 화이트 : 헤비암즈",
+            "favorite_stage": 0,
+            "reason": "Unported buff stat",
+            "category": "effect",
+            "character": "스노우 화이트 : 헤비암즈",
+            "effect": "록 온",
+            "stat": "lock_on",
+            "target": "enemies_nearest:1"
+          },
+          {
+            "index": 221,
+            "profile": "베이",
+            "favorite_stage": 0,
+            "reason": "Unported buff stat",
+            "category": "effect",
+            "character": "베이",
+            "effect": "유 캔 두잇",
+            "stat": "received_dmg_split",
+            "target": "all_allies"
+          },
+          {
+            "index": 222,
+            "profile": "베이",
+            "favorite_stage": 1,
+            "reason": "Unported buff stat",
+            "category": "effect",
+            "character": "베이",
+            "effect": "치얼업 투게더",
+            "stat": "received_dmg_split",
+            "target": "self_cover"
+          },
+          {
+            "index": 223,
+            "profile": "베이",
+            "favorite_stage": 2,
+            "reason": "Unported buff stat",
+            "category": "effect",
+            "character": "베이",
+            "effect": "유 캔 두잇",
+            "stat": "received_dmg_split",
+            "target": "all_allies"
+          },
+          {
+            "index": 224,
+            "profile": "베이",
+            "favorite_stage": 3,
+            "reason": "Unported buff stat",
+            "category": "effect",
+            "character": "베이",
+            "effect": "유 캔 두잇",
+            "stat": "received_dmg_split",
+            "target": "all_allies"
+          },
+          {
+            "index": 251,
+            "profile": "레이 (가칭)",
+            "favorite_stage": 0,
+            "reason": "Unported buff stat",
+            "category": "effect",
+            "character": "레이 (가칭)",
+            "effect": "섬멸 지원 4",
+            "stat": "effect_target_count_add",
+            "target": "allies_with_buff:섬멸 태세"
+          }
+        ]
+      },
+      "cpu_tests": {
+        "product": 27,
+        "runtime": 23,
+        "packet": 3
+      },
+      "cpu_battles_or_gpu_calls_added": 0,
+      "prior_test_coordinator_failure": "New fallback test initially omitted explicit compute_backend; corrected fixture request, original log retained in tool output"
+    },
+    "ui_timing": {
+      "total_label": "準備・実行",
+      "actual_metal_interval": "gpu_seconds",
+      "cuda_interval": "host_dispatch_seconds; includes launch/sync/readback",
+      "javascript_syntax_checked": true
+    },
+    "cli_admission_status": "Existing sealed product-detail source closure is stale after guarded common-source edits; no source/golden guard relaxed. Current fixed program artifact ownership still requires integration with the existing product CLI."
   }
 }

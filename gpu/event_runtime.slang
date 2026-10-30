@@ -155,6 +155,9 @@ struct Runtime
     uint burstModifierMask, cooldownWaitMask, gaugeCharging, normalLandedMask, physicalGaugeOwner; uint64_t cooldownApplied[5], physicalGaugeGain;
     uint64_t coefficient[5], interval[5], reloadTime[5], chargeTime[5], gain[5], cooldown[5];
     uint64_t nextShot[5], reloadUntil[5], ready[5], chargeUntil[5], gauge, action, fullEnd;
+#ifdef PORTABLE_PRODUCT_FIXED_BURST
+    uint64_t fixedGaugeReadyAt;
+#endif
     uint count, error, timerClock, entryClock, traceCount, maxDepth, generation;
     uint orderedCount, orderedRows[P_CARRIERS];
     uint activations[P_DEFINITIONS], counters[P_DEFINITIONS*P_TRIGGERS], periodInitialized[P_DEFINITIONS], stacks[P_CARRIERS], alive[P_CARRIERS], entryOrder[P_CARRIERS];

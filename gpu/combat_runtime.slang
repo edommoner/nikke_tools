@@ -18,6 +18,9 @@ void initializeCombat(inout Runtime s, uint input)
     s.enemyEpoch = 1; for (uint target = 0; target < 8; target++) s.enemyBirth[target] = 1;
     s.lastB3Caster = 0xffffffff; s.lastB3Time = F64_SIGN | ONE; s.lastFullStart = F64_SIGN | ONE;
     s.gaugeCharging = 1; s.clockMode = commands[input+6];
+#ifdef PORTABLE_PRODUCT_FIXED_BURST
+    s.fixedGaugeReadyAt = loadNumber(input+P_WORLD_CONTROL_INPUT_BASE+6);
+#endif
     if (s.clockMode > 1) { s.error = 64; return; }
     s.targetCount = commands[input+4]; s.gauge = loadNumber(input+28); s.reentryDelay = loadNumber(input+30);
     if (s.combat != 1 || s.targetCount == 0 || s.targetCount > 8) { s.error = 64; return; }
@@ -200,6 +203,10 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
 #endif
     if (s.phase == 5 && reached(when,s.fullEnd))
     { s.phase = 0; invalidateNativeNumeric(s); teamNotify(s,2,when,output); s.castMask = 0; logBurst(s,5,0xffffffff,when,output);
+#ifdef PORTABLE_PRODUCT_FIXED_BURST
+      s.fixedGaugeReadyAt = f64Add(when,loadNumber(s.inputBase+P_WORLD_CONTROL_INPUT_BASE+8));
+      if (!f64Finite(s.fixedGaugeReadyAt)) { s.error=64;return; }
+#endif
 #ifdef PORTABLE_COORDINATE_AUTHORED_AIM
 #ifdef PORTABLE_COORDINATE_BURST_CONTROLS
       finishBurstControlCycle(s);
@@ -207,7 +214,11 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
       coordinateAimBurstEnd(s,when);
 #endif
     }
+#ifdef PORTABLE_PRODUCT_FIXED_BURST
+    if (s.phase == 0 && reached(when,s.fixedGaugeReadyAt))
+#else
     if (s.phase == 0 && reached(s.gauge,HUNDRED))
+#endif
     {
         s.gauge = 0; s.phase = 1; s.action = when; s.reentryDone = 0; s.reentrySlot = 0;
 #ifdef PORTABLE_COORDINATE_BURST_CONTROLS

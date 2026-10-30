@@ -86,6 +86,10 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
+    if source in ('gpu/product_fixed_battle_entry.slang','gpu/product_fixed_group_battle_entry.slang',
+                  'gpu/product_fixed_target_battle_entry.slang','gpu/product_fixed_group_target_battle_entry.slang'):
+        # Identical wire; only the guarded fixed-readiness consumer differs.
+        return validate_composed_stride(source.replace('gpu/product_fixed_','gpu/product_',1),input_words,output_words)
     if source=='gpu/product_group_target_battle_entry.slang':
         from portable_destructible_roster_input import check_group_wire,GROUP_INPUT_WORDS,OUTPUT_WORDS
         check_group_wire(ROOT)

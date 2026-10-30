@@ -1,3 +1,11 @@
+## 2026-10-31 製品APIの固定周期モード
+
+通常のMetal詳細APIは実蓄積に加え、固定周期の静的入力を共通実行器へ渡す。初回待機と5人のliteral再充填待機最大値だけをcontrol header v4へpackし、共通ソフトbinary64でreadyを判定する。CPU戦闘や発動予定表はGPU入力に使わない。全266profileの通常API確認でMetal255/理由付きCPUfallback11、追加編成1も全CPU製品応答一致。保存全payloadとraw SHAの独立監査成功、cache hit0。固定モードのCUDA実機確認は0で、旧実蓄積1秒のCUDA1profileと区別する。
+
+fixed wrapperはnormal/group/target/group-targetの既存product実行器を共有する。headerはversion4・magic0x46424731、first時刻/最大regenは有限0..180秒、予約wordを厳密検査し、旧入口は新headerを拒否する。実蓄積4入口のCUDA/MSL生成物は既存strict normalizerで従来と同一。これは計算プログラム保持の証拠で、raw source identityが変わった旧sealed CLI ownerを通す例外ではない。現fixed/variant成果物の所有関係を既存product CLIへ統合する作業は未完。旧source/golden guardを維持し、未準備のCUDAは理由付きCPUへ切り替える。
+
+未対応効果のCPU切替ではowner/effect/stat/targetをAPIとcapture resultへ残す。画面の準備・実行時間とGPU実行区間も区別する。実証/未対応一覧は既存 `research/target-count-query-evidence/product-admission-v1.json` の `fixed_product_readiness` に集約する。
+
 ## 通常製品APIの明示的な保存CUBIN
 
 ### 特定の過去link保全失敗の引き継ぎ
