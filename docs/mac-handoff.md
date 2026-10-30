@@ -1,3 +1,15 @@
+# 2026-10-31 対象別補正carrier＋元部位＋boss行動を製品4条件へ接続
+
+source83480d91740d4c96fb948e94407143787b923664。product_body_worldは元pattern/registryでBODYとPARTだけを認め、typed targetのない通常/複数命中両入口が元partsを保持する。projectile/shield補正carrierの元値・順序・triggerは保持し、部位用の係数として加算しない。typed binding tableが空の場合だけGPU初期化もBODY/PART universeを検査する。実typed targetのあるprivate入口は従来のBODY1体制約、召喚/interrupt/shield等の未接続製品合成は拒否を維持。CPU正本/効果/数値期待値/strict normalizerは変更なし。
+
+通常API v1 source55cdbdc9でSakura/Belorta/Miranda/Dolla/Drakeの複数命中＋対象別補正＋部位2個＋armor/core/volleyが固定/蓄積2/2実M5・CPU全payload一致。Asuka/Liter/Modernia/RedHood/Nagaの通常射撃2件はさらに残っていたinitializeDestructibleBattleのBODY1体検査でGPUstatus64、元記録を保持。修正版83480d91のv2は元失敗とinput全byte同一で、固定/蓄積2/2実M5・CPU全payload一致。v1成功groupのsource closureは83480d91でも全SHA完全同一で再実行不要。各raw SHA/API/CPU全payload/source凍結を独立照合。proof product-modifier-parts-api-v1-20261031/同v2、saved-audit.json。専用port4358/4359は終了済み。4条件は2既存編成の条件拡張で新distinct profile増加0。
+
+v1全共通77群842test失敗0/error0・既存Windows-only skip1。最終initializer修正後は影響する製品/packet/歴史sourceの3群48test再確認、失敗0。旧product ledgerは不変、完全新file SHA一致時だけ元destructible weapon/battle/group-target sourceへ厳密逆変換し旧preimageを検証。現在の数値同等性を歴史監査で代用しない。
+
+部位なし通常Miranda30秒の蓄積/固定はGPU source closure自体が前回852c1192と全SHA同じ。paired生成cacheも両方hit/コンパイラ0、CUDA/MSLのstrict生成指紋も同一。新development packetを各1つ梱包し、同じinput/native期待指紋を確認。保存readback/input全SHAと現静的入力全byteを一致確認し、既存verify-product-detail.compareで現在のCPU全製品payloadへ再投影して一致。追加GPU0/コンパイラ0、元独立seal保持、golden/table更新0。proof product-modifier-parts-regression-v1-20261031/saved-replay.json。これは新GPU dispatchではなく、同一計算結果の再利用。新development ownersd61225a9…/ac410709…はGPU未実行・未sealで配布しない。6group/target family memberの登録sealは引き続き未完。
+
+Windows保存7JSON44002bytes/commit e9802daa…の共有は既存chat cursor148/idle、直接のWindowsユーザー許可待ちで変化なし。追加compile/GPU/再送0。歴史255Metal profile＋別編成1、CUDA旧蓄積1profile1秒・fixed0、全11未対応と全条件/編成/現CUDAを含むgoal active。集約research/target-count-query-evidence/product-modifier-parts-composition-v1.json。以下は履歴。
+
 # 2026-10-31 部位結果を製品へ接続、部分チャージとmulti-hitを共通GPUで修正
 
 作業source852c1192（df147c91で製品部位projection、852c1192で計算修正）。通常APIのauthored-live-partsを既存pool registryへ接続し、GPUの直接/extra bankと破壊logから既存parts_state形式へ変換する。部位名は元入力とslot/node identityを一致検査、GPUが返したdamage/hits/破壊時刻だけを使用。CPU戦闘の状態や予定は入力しない。通常API v1では4件中2一致、Alice部分チャージ部位の数値差とBelorta group status64を不変保存。v2は元requests/全input byteを保持し4/4実M5 Metal・CPU全製品payload一致。旧CPU保存のある3件もevaluator VCS stampだけ除き元CPU全payloadと同一。APIのcompute/cache_hit以外の製品結果、raw input/readback SHAとsource凍結を独立照合。proof product-parts-api-v1-20261031とproduct-parts-api-v2-20261031、各saved-audit.json。専用port4356/4357は終了済み。

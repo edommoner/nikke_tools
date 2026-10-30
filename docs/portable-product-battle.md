@@ -1,3 +1,9 @@
+# 2026-10-31 対象別補正と部位の製品合成
+
+元projectile/shieldダメージ補正を持つ編成でも、typed対象がないBODY/PART世界を検証して元部位とboss行動を共通実行器へ渡す。対象別補正carrierを部位係数へ転用しない。通常/複数命中×固定/蓄積の4通常API条件がM5実Metal/CPU全payload一致。初回通常2件のGPU拒否は保存し、修正後は同一input全byteで成功。
+
+通常の部位なしGPU source/input/生成物は前回成功と完全同一。保存readbackを既存比較器で現CPUへ再照合して一致、追加GPU/コンパイラ0・期待値更新0。証拠product-modifier-parts-composition-v1.json。これは既存profileの条件拡張で、profile数増加や実typed対象規則の完成を意味しない。
+
 # 2026-10-31 元部位指定を製品結果へ接続
 
 元enemy.partsは既存authored-live-parts factory/pool registryを使用。入力部位名とslot/nodeを事前一致検査し、read_product_partsがGPU直接/extra damage・hit counter・破壊logを検査して既存parts_state形式を返す。部分チャージは本体と同じPARTIAL_IS_FULL、native multi-hitのBODY pelletは既存追加部位packetを呼ぶ。部位を別の論理敵には数えない。
