@@ -1,5 +1,5 @@
 """Guard native weapon context, shot snapshot, pellet order and scope cleanup."""
-import copy,json,sys,unittest
+import copy,hashlib,json,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT/p) for p in ('app','research','scripts')]
@@ -53,11 +53,30 @@ class WeaponShieldTests(unittest.TestCase):
   with patch.object(timeline,'_reach_hit',extra):
    with self.assertRaisesRegex(ValueError,'scalar projection'):observe(fixtures()[0])
 
- def test_reference_registry_and_gpu_sources_preserved(self):
+ def test_reference_registry_and_all_historical_gpu_outputs_retained(self):
   from portable_reference import REFERENCES
   from portable_backend import source_hashes
   self.assertEqual(REFERENCES['destructible-weapon-shield'][0],'destructible_weapon_shield_cases')
-  from portable_destructible_weapon_source_contract import verify_retained_sources
-  verify_retained_sources(ROOT,'gpu/destructible_shield_battle_entry.slang',json.loads((ROOT/'research/portable-destructible-hit-shield-short-expected.json').read_text())['source_sha256'])
+  # The shared runtime now intentionally accepts additional product conditions.
+  # Do not re-label its immutable historical source certificate as current.
+  # Instead require a real current-source capture of ALL unchanged old vectors,
+  # including byte-for-byte outputs and original dispatch positions.
+  receipt=json.loads((ROOT/'research/target-count-query-evidence/product-profile-progress-v5.json').read_text())['legacy_typed_retention']
+  golden_path=ROOT/'research/portable-destructible-weapon-shield-short-expected.json'
+  golden=json.loads(golden_path.read_text())
+  self.assertEqual(receipt['golden_sha256'],hashlib.sha256(golden_path.read_bytes()).hexdigest())
+  self.assertEqual(receipt['source_sha256'],source_hashes(receipt['source']))
+  self.assertTrue(receipt['gpu_execution_verified']);self.assertEqual(receipt['backend'],'metal')
+  self.assertEqual(receipt['transport']['command_status'],'completed')
+  self.assertEqual(receipt['transport']['cases'],141)
+  self.assertEqual(receipt['input_sha256'],golden['input_sha256'])
+  self.assertEqual(receipt['output_sha256'],golden['output_sha256'])
+  self.assertEqual(receipt['output_bytes'],141*1048576*4)
+  self.assertFalse(receipt['expected_values_changed'])
+  self.assertFalse(receipt['historical_source_certificate_rewritten'])
+  self.assertEqual(len(receipt['entries']),len(golden['entries']))
+  for actual,expected in zip(receipt['entries'],golden['entries'],strict=True):
+   self.assertEqual({k:actual[k] for k in ('name','input_sha256','output_sha256')},
+                    {k:expected[k] for k in ('name','input_sha256','output_sha256')})
 
 if __name__=='__main__':unittest.main()

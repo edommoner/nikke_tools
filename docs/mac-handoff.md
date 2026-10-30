@@ -1,3 +1,21 @@
+# 2026-10-30 現行ソースの全266製品API確認：Metal255一致／CPU11
+
+固定c5d9402cの通常/api/jobsで全266 favorite-stage profileを16件単位で確認完了。標準育成・cubeなし・30秒・本体のみの条件でMetal255はCPU全製品応答一致、11はGPU前に理由付きCPU fallback。数値差0/API error0。app/GPU/依存データの全sweep中変更なし。8件は同一入力・同一ソースの既存API cache再利用、新GPUリクエスト247。共通CUDA製品検証は0。小証跡product-profile-progress-v5.json、persistent proof product-profile-sweep-v2-20261030。driver68794はexit0で終了済み。source凍結のための編集禁止は解除済み。
+
+保存255 captureのinput/readbackハッシュを確認し、同じ入力を再packingして全SHA一致。元API応答のCPU payloadと一致するcaptureだけをsource/input/output/CPU payloadで結び、既存decode_payloadで全255を完全再生。元実行のevaluator stampを保持したarchive replayで、数値・期待値の修正はない（GPU0/CPU戦闘0）。旧timestamp/provenanceの8件は元API cacheの8件に対応。出力SHA単独やsource/input/outputだけでは別profile/provenanceの同じrawを選べるため、製品応答を再生するときはCPU payload identityも確認する。
+
+旧source固定テストの代替として、既存destructible-weapon-shield全141入力と順序・各input SHAを一切変えず、現共有kernelでM5を1回実行。全591,396,864byte・各141 output SHAが元sealed goldenと完全一致。GPU0.0757065秒/初回PSO42.895811秒、CPU戦闘0。旧golden/source証明は変更0。test_destructible_weapon_shieldの固定source同一性assertを、現在の実測source closure＋全旧input/output保持receiptの確認へ切替え、関連7＋製品10テスト成功。新suite/監査tool/逆投影ledgerは追加しない。旧全suiteの現在source再認定をした意味ではない。proof product-legacy-retention-v1-20261030、receiptは同じv5 reportのlegacy_typed_retention。
+
+残11の元効果も既存validatorで特定：Anne=敵heal_received_pct、Yuni=enemy_movement_disable、Yan=force_move、Soldier O.W.=cover_def_pct、Velvet=敵ammo_charge_pct、Heavy Arms=lock_on/effect_target_count_add/all_projectiles、Bay4段階=received_dmg_split（body/cover）、Rei仮称=effect_target_count_add/effect_range_pct。推測モデルで元CPUとの一致を装わない。
+
+追加gap：実5人Sakura/Belorta/Miranda/Dora/Drakeでmodifier＋multi_hitの組合せが現wireで拒否されることを静的確認（CPU戦闘/GPU0）。全266の単体profile通過は全編成・全分岐の対応ではない。固定ゲージ、boss/parts履歴、手動操作も未接続。
+
+Windows接続を確認し、既知cache2箇所の小metadata4件＋巨大3 recordの末尾64KiBずつを確認依頼。現3生成CUDA SHAに一致するCUBIN/O1候補0。巨大3はPTXでsourceも不一致。完全なPC走査／artifact integrity確認ではない。最初のpeer読取で巨大1行を読んだ逸脱を記録し、その後metadata/末尾だけに限定。GPU・NVRTC/PTXAS/Slang compile・再build0。接続はidleで有効。GPU実行依頼はまだ送っていない。
+
+次の優先：cuda_shared_detailを同じcompile_product/decode_payload/CPU照合へ接続し、legacy CUDAを保つ。通常リクエストはCUBIN/O1 cacheとpaired生成の必須hitに限定し、missならcold compileせずCPU fallback。CUDA transportのhost_dispatch_secondsをgpu_secondsと誤表示しない。新CUBINが必要なら既存CLI compile-plan/Job/2GiB/child60s/outer180sで必要分だけを一度準備し、暖機済みの短いGPU確認へ進む。無理に旧packetのsourceを差し替えない。
+
+固定モードはCPU正本2編成を調査済み。first=3s、full終了後の各char.burst_regen_time(default2s)、camera/gauge満充logの抑制が差分。proof product-fixed-burst-design-v1-20261030にCPU基準とfindingsのみ（未実装）。weapon mechanics22..27は使用済み。新policyには既存partial/manual版と衝突しない明示wire版が必要。既存accumulateのpaired生成byteが変わらないことを確かめて証拠を再利用し、不要な全CPU再計算を避ける。全目標はactive。以下は履歴。
+
 # 2026-10-30 対象別carrier＋単一本体nearbyを製品接続、残11profile
 
 通常/api/jobsの元8profile（Sakura/Anchor/Clay/Asuka/Rei/Mari/Misato/Elegg）が、同一現sourceでM5実GPU・CPU全製品応答一致。target_modifier_carriersを既存axis表/kind4 carrierへ保ち、数値・名前・条件・寿命を消さない。typed対象0を証明した本体世界だけ既存body経路を使い、吸血/貫通をtyped専用制約で拒否しない。typed世界のゲーム規則は未確定のまま。Eleggのtarget_and_nearbyは既存の単一BODY証明を共通化し、追加actor/座標/partsは拒否。元effectsを変更せず、元selectorをmetadataに保持する。キャラallowlistなし、新suiteなし、保護CPU/数値式/期待値/許容差変更0。

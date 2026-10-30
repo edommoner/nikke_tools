@@ -70,3 +70,21 @@ Claudeレビューから予約領域検査と対象なし分岐の統一を反�
 24成功、歴史的source固定検査1件は共有runtime変更により失敗中。この旧証明は
 現在の数値証明ではない。旧期待hashを変更して成功扱いにしていない。
 前回repair-v4のgroup出所誤関連はsource/input/outputの一致で訂正し、元版もGitに残す。
+
+## 現行ソースの全266件確認と既存出力の保持
+
+`product-profile-progress-v5.json` は、c5d9402cの全266件の通常API確認を記録する。
+Metal255件は全CPU製品応答一致、11件は理由付きCPU fallback。数値差・API errorは0。
+同一コード／入力の8件は既存API cacheを再利用した。保存255件は入力を再packingし、
+元APIと同じCPU payloadに結び付くreadbackから完全再生して確認した。archive replay
+では元実行のprovenance stampを保持し、数値や期待値を変更しない。
+
+従来の固定source証明が新しい共有runtimeを拒否する点は、旧証明の書換えで解決しない。
+既存141ケースの全input/outputを現在の共有kernelで保持検証し、元goldenの全591MBと
+全byte一致した。既存の対象テストはこの現source＋全旧vector保持receiptを検査する。
+旧goldenと旧source証明は不変。新しい小suiteや逆投影certificateは追加していない。
+
+全profileの標準条件の結果であり、全編成・全設定・全特殊効果の完成ではない。
+SakuraとBelortaを同じ実5人編成へ入れると、modifier＋multi_hitのwire合成が未接続で
+CPUへ切り替わる。固定ゲージ・boss/parts履歴・手動操作と共通CUDAの製品接続も残る。
+共通CUDA実機の製品確認は依然0件。Windowsの今回の作業はcache metadata読取のみ。
