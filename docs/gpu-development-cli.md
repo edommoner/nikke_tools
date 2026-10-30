@@ -464,6 +464,8 @@ CUBINはELF形式を確認してからキャッシュへ公開します。不正
 
 v105で、旧CLIが未知のsuiteを展開後に拒否するbootstrap問題を確認しました。現在の`unpack`はschema・member一覧・重複・原byte SHAを検査して転送し、suite登録の照合は展開先CLIの`verify_package`/`run`で行います。展開中にpayloadのPythonは実行しません。未知schemaは宛先作成前に拒否します。旧CLIの場合は、ZIP全体のSHAとmanifestを確認して取り出した現行CLIで、新しい宛先へunpackしてください。途中の展開失敗はGPU実行とは数えず、元の失敗記録を残します。
 
+既存CLIがない環境でZIP内のCLIをbootstrapするときは、起動時の直接importだけでなくmain()とunpack()の遅延importも必要です。転送前に同じ固定ZIPから補助ファイルだけの新規環境を作り、`--help`と全memberの`unpack`を実際に成功させてください。--helpだけではunpackのfile_digest依存を検査できません。source6c7d0235ではCLI本体＋portable_compiler_certificate/cpu_tests/input_extension/product_programs/readback_blocks/reference/arena_specs/capture_storageの8 Python module＋data/portable-product-programs.jsonの計10fileが必要でした。別版へこの一覧を無検証で流用せず、元ZIP/member SHAを保持します。展開後はpacket自身のCLIで意味検証を行い、bootstrap成功を計算認定へ加算しません。
+
 ### Windows制御検査v108
 
 v107はCPU81/native60の後、テスト用の子起動直後に失敗し、smoke未到達でした。原失敗を保持しています。テスト起動をCLIと同じbase Python・launcher環境除去へ合わせ、wrapper診断を残したv108は単独3件とCLIのCPU69件が成功しました。実Windowsの子孫付き2秒timeout検査と外側smokeで、終了後の空Job・peak memory取得を確認しました。smoke4.841秒、missing0、元HEAD/status保持、NVRTC/driver load/GPU0です。サービス識別unverifiedのため環境保持全体は未認定です。新機能のCUDA計算・coldコンパイル・速度は未検証のままで、次は資源と生成/最適化設定の切り分けです。詳細は`research/portable-world-v107-control-sanitized.json`、`research/portable-world-v108-control-sanitized.json`を参照してください。

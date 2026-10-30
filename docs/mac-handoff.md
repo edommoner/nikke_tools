@@ -1,3 +1,13 @@
+# 2026-10-31 fixed sealed v2のCPU/plan・4秒通常API成功、Windows CPU準備中
+
+sealed v2はsource6c7d023579857f46e1aeedaa1013306eb156973a、owner eda7660a7c04aebe23b220d51110466d46580c668425c4594c5944182cacb68c、4172files、ZIP14199812/SHA c64d5465c749158ab031a94e40ff1aef29951137b0447623cb5021f712a62b69。proof product-program-fixed-sealed-v2-20261031の自身CLI/cwdでCPU-only成功・GPU0、PTX compile-plan2048MiB/60秒成功・claim未消費。旧v1も不変保持。code6c7までorigin/runtime-residentへpush済み。全memberの原bytes/SHAを再検査したZIPと小さなtransport.jsonだけをcodex/product-fixed-sealed-packet-v2 commit808cd5e23db7038f060b3bf17a3b395b17795ffaへ送信。個人設定/raw/SDK/compiled binaryなし。
+
+Windows既存chatへ転送→展開→verify/deps/CPU→PTX planだけを依頼し、受信・転送SHA照合まで確認。各fresh BelowNormal/2GiB/child60秒/outer180秒、今taskのGPU/Slang/NVRTC/ptxas/JIT0。source ZIPを使いWindows make_packageを再実行しない。最初のbootstrapはportable_readback_blocks不足、次のトップレベルASTだけの7file案もmain()内portable_reference不足で--help停止。どちらもunpack未到達/packet未作成/GPU・compile0の失敗を保持。Macで10fileの最小構成を固定ZIPから実際に作り、--help→全4172fileのunpack成功（0.763554秒）まで検証した。完全一覧は既存product-admission-v1.jsonのsealed_packet_v2.bootstrap_preparationへ記録。Windowsへ保存ZIP＋別bootstrap-v3で準備続行を依頼済み。chat cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:86、次回は同じtask状態を観測する。新compile/GPUをまだ依頼していない。同じtaskを再送せず結果を観測する。
+
+次のfixed CUDA用の比較シーンを通常APIで実証。proof product-fixed-short-api-v1-20261031、元Miranda fixtureをduration4/fixedへ変更した1要求。M5 GPU0.2747307499521412秒、総API2.346秒、cachefalse、全CPU/GPU/API payload一致（compute/cache_hit metadataのみ除外）、input a1ce5abf5d87e41efb58acb93a384e5f07cab71b53735b77b6c2c19b25e7b6d5 / output b41ac3b6face46f5e396b6547696db67eacda1726a085c6676dbf9c0f256a4ceのraw全量SHA照合。burstは3.0/3.1/3.2秒、FB開始3.583秒まで確認。capture70732803b9da4b21bdda0f8f12fd2647。最初の監査coordinatorはAPIだけのcache_hitを除外せず拒否、field差分を確認後compute/cache_hitの既存metadata規約で再監査成功。計算差分なし。専用port4349の所有PID96236をcwd/port確認後停止、session14054 exit143。GPU/元CPU/normalizer変更0。
+
+製品coverageはMetal固定255profile＋追加編成1のまま（今回同Mirandaの短sceneを別profileへ加算しない）、CUDA旧蓄積1profile1秒/fixed0。次はWindows CPU準備結果を確認し、必要なpaired generation→PTX→既存module-object/JITを別工程の短い1回ずつで行う。単独CUBIN/O1のメモリ失敗を再実行しない。実CUDA初回はこの4秒sceneを使い、30秒へ無測定で外挿しない。全goal未完。以下は履歴。
+
 # 2026-10-31 fixed sealed packet CPU/plan成功、Windows転送前のunpack改善
 
 固定基準を登録した843497d6のsealed packet2723bdd836cb2e72cc2033aae0c68de5719141c51054f7d14155b13185c2be60（4172files/ZIP14199142、SHA20dbaec9…）を通常package/unpackで作成。自身CLIのrun --cpu-onlyが成功、GPU追加0。自身compile-plan PTX/2048MiB/60秒もpassed、compile claim未消費。proof product-program-fixed-sealed-v1-20261031。dev2b0の実Metal/独立sealと、このsealed CPU検査を区別し、保存packetを変更しない。

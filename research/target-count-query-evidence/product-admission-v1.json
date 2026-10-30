@@ -1258,7 +1258,7 @@
       "cuda_interval": "host_dispatch_seconds; includes launch/sync/readback",
       "javascript_syntax_checked": true
     },
-    "cli_admission_status": "Existing sealed product-detail source closure is stale after guarded common-source edits; no source/golden guard relaxed. Current fixed program artifact ownership still requires integration with the existing product CLI.",
+    "cli_admission_status": "Fixed normal product program is independently sealed and registered in the common CLI family; other seven program members remain unsealed. Sealed v2 CPU-only/PTX plan passed; Windows transfer/preflight pending, no fixed CUDA execution yet.",
     "cli_program": {
       "program": "fixed",
       "suite": "product-detail",
@@ -1301,6 +1301,78 @@
         "cpu_cli_tests": 52,
         "windows_elapsed_seconds": "not measured yet",
         "previous_unpack_seconds": 51.807
+      },
+      "sealed_packet_v2": {
+        "package_id": "eda7660a7c04aebe23b220d51110466d46580c668425c4594c5944182cacb68c",
+        "source_commit": "6c7d023579857f46e1aeedaa1013306eb156973a",
+        "files": 4172,
+        "archive_bytes": 14199812,
+        "archive_sha256": "c64d5465c749158ab031a94e40ff1aef29951137b0447623cb5021f712a62b69",
+        "cpu_only_passed": true,
+        "gpu_calls_added": 0,
+        "ptx_plan_passed": true,
+        "claim_available_at_plan": true,
+        "transport_branch": "codex/product-fixed-sealed-packet-v2",
+        "transport_commit": "808cd5e23db7038f060b3bf17a3b395b17795ffa",
+        "windows_preparation": "requested; no compiler or GPU authorized in this preparation task",
+        "bootstrap_preparation": {
+          "first_attempt": "Stopped before unpack: portable_readback_blocks absent",
+          "second_attempt": "Stopped at --help: main() delayed portable_reference import absent; top-level AST closure was insufficient",
+          "mac_verified_files": [
+            "scripts/nikke_gpu.py",
+            "app/portable_compiler_certificate.py",
+            "app/portable_cpu_tests.py",
+            "app/portable_input_extension.py",
+            "app/portable_product_programs.py",
+            "app/portable_readback_blocks.py",
+            "app/portable_reference.py",
+            "app/portable_arena_specs.py",
+            "app/portable_capture_storage.py",
+            "data/portable-product-programs.json"
+          ],
+          "mac_real_help_and_unpack_passed": true,
+          "mac_elapsed_seconds": 0.7635540420305915,
+          "mac_unpack_files": 4172,
+          "gpu_calls": 0,
+          "windows_corrected_task": "requested; retain old failure/bootstrap and use same saved ZIP"
+        }
+      },
+      "fixed_short_api": {
+        "schema": 1,
+        "source_commit": "6c7d023579857f46e1aeedaa1013306eb156973a",
+        "capture_id": "70732803b9da4b21bdda0f8f12fd2647",
+        "duration": 4,
+        "mode": "fixed",
+        "gpu_device": "Apple M5",
+        "gpu_seconds": 0.2747307499521412,
+        "input_sha256": "a1ce5abf5d87e41efb58acb93a384e5f07cab71b53735b77b6c2c19b25e7b6d5",
+        "output_sha256": "b41ac3b6face46f5e396b6547696db67eacda1726a085c6676dbf9c0f256a4ce",
+        "all_gpu_cpu_api_fields_equal": true,
+        "raw_hashes_verified": true,
+        "cache_hit": false,
+        "burst_timeline": [
+          {
+            "time": 3.0,
+            "event": "stage:1 사용",
+            "character": "미란다"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "도라"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "드레이크"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ],
+        "additional_cuda_calls": 0
       }
     }
   }
