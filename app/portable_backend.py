@@ -86,7 +86,7 @@ def resident_plan(source,entry,outputs):
 
 
 def validate_composed_stride(source,input_words,output_words):
-    if source=='gpu/world_weighted_incoming_entry.slang':
+    if source in ('gpu/world_weighted_incoming_entry.slang','gpu/world_weighted_incoming_diagnostic_entry.slang'):
         from portable_weighted_battle_wire import check_schema,INPUT,OUTPUT
         check_schema(ROOT)
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Weighted incoming requires complete literal weights and owned receipt banks')

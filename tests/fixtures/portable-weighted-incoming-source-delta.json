@@ -5,11 +5,11 @@
   "files": {
     "app/portable_backend.py": {
       "before_sha256": "a07a5068f0035bf9795c79baa3ae29265b7a719aad50e1905a2b48112c882ebc",
-      "after_sha256": "28b7ca31b8af934947743e61c807dbb7a27d89581c010385f793303da354af79",
+      "after_sha256": "b8e7efe7d82051476f30a7c52c707c20f085765276899f2e6c428c66586d2af3",
       "hunks": [
         {
           "before": "\n\ndef validate_composed_stride(source,input_words,output_words):\n    if source=='gpu/world_cover_defense_entry.slang' or output_words==2048912:\n        from portable_cover_defense_wire import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n",
-          "after": "\n\ndef validate_composed_stride(source,input_words,output_words):\n    if source=='gpu/world_weighted_incoming_entry.slang':\n        from portable_weighted_battle_wire import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Weighted incoming requires complete literal weights and owned receipt banks')\n        return\n    if source=='gpu/world_cover_defense_entry.slang' or output_words==2048912:\n        from portable_cover_defense_wire import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n"
+          "after": "\n\ndef validate_composed_stride(source,input_words,output_words):\n    if source in ('gpu/world_weighted_incoming_entry.slang','gpu/world_weighted_incoming_diagnostic_entry.slang'):\n        from portable_weighted_battle_wire import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n        if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Weighted incoming requires complete literal weights and owned receipt banks')\n        return\n    if source=='gpu/world_cover_defense_entry.slang' or output_words==2048912:\n        from portable_cover_defense_wire import check_schema,INPUT,OUTPUT\n        check_schema(ROOT)\n"
         }
       ]
     },
@@ -121,6 +121,7 @@
   "added_sources": {
     "gpu/weighted_incoming_layout.slang": "9dd18c78ef54a3cab7fc45e0ee7593b44bc48648e169c20eb83afc861ef0405f",
     "gpu/weighted_incoming_runtime.slang": "3646ff2c80f421b2c5d3590c06c04cb8931489d680cd3026d8b6eb694ca2f784",
-    "gpu/world_weighted_incoming_entry.slang": "621ba0a063acce633c028b685f87aa6348fa89c78b56c6cc8795a0d65527f2ab"
+    "gpu/world_weighted_incoming_entry.slang": "621ba0a063acce633c028b685f87aa6348fa89c78b56c6cc8795a0d65527f2ab",
+    "gpu/world_weighted_incoming_diagnostic_entry.slang": "9b0d4ac0132134d859dbb4d2f15033f5abb65fccc9c67db3a6df79acacac2693"
   }
 }
