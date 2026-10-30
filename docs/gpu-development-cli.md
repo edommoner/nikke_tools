@@ -1,3 +1,5 @@
+`weighted-incoming`は明示重み・生存body/独立coverの数値1192入力をM5/fresh独立監査でsealした通常suite。`weighted-incoming-cache-only`は同計算のCUBIN/O1・cache必須版（standalone、paired生成不要）。元ベイcarrier/戦闘接続・実CUDA・実機定数は未達。[規約と次の接続](portable-bay-allocation.md)。
+
 `cover-defense-battle`／`cover-defense-modifiers`は同一の全13入力（元4戦闘＋Noah2戦闘＋拒否7）。共通received補償和をM5/fresh独立監査でsealし、旧11全byteを保持した。通常のpackage→unpack→runを使い、各cache-only版は同じ計算のCUBIN/O1・compile cache/paired生成必須。実CUDA/既定受付は未達。[現sourceの範囲と測定](portable-cover-defense-battle.md)。
 
 `readback-retain --case-words 2048912` は遮蔽物receipt付きの保存出力を全byte照合する。既存typed幅2032000も対応し、CLIの幅一覧を監査器のCASE_SHAPESへ共通化した。GPU/数値再計算0、異なる/欠けたケースは成功にしない。旧11入力90,152,128byteを追加13入力の保存結果へ完全保持した。保持検査は計算証明と分離する。

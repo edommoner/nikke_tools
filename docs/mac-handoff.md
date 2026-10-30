@@ -1,3 +1,7 @@
+# 2026-10-30 最優先ベイの重み付き共通数値処理をM5でseal
+
+entry-planは偏差分配4段階が最優先と再確認。固定689814a1/package59e9a503…でweighted-incoming全1192入力（native1179/拒否13）がM5成功、GPU0.000569958秒、独立GPU禁止監査0.386646秒。別明示重み/全31生存mask/5caster/独立cover/最大量/極小量を検査。元sandboxのdevice不可はclaim前停止で保持、成功GPU1/Windows依頼0。通常CLIとCUBIN/O1 cache-onlyを登録し、分類には限定数値証拠だけ追加。canonical拒否/実CUDA/元4段階戦闘/実機定数は未達。次はdocs/portable-bay-allocation.mdの元carrier・独立cover・既存incoming frameの接続。新probeだけを重ねず、元all_allies/self_coverの寿命・被弾/破壊/復活通知へ進む。
+
 # 2026-10-30 最終CLI接続確認とLock On調査判断
 
 固定2f59295f/package6b960aef…の通常CLIは6群39検査と全13入力/6nativeのCPU事前検査に成功（116.819362秒、GPU0）。同packetのcompile-planはCUBIN/O1・2GiB・60秒policy成功、実compiler/claim/GPU0。記録 `research/target-count-query-evidence/cover-defense-modifiers-final-cli-v1.json`。Metal計算成功は下記の別proof、実CUDAは未確認。公開情報再照合でもLock On距離式は未確定。実機提供を待たず他の未対応を優先し、同一スキル文の再検索は終了する。

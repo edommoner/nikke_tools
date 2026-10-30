@@ -1,0 +1,16 @@
+{
+  "package_id": "59e9a50395cdf37a7c17a07adfc906f51227c9a8c6e94e3281330ed387412dab",
+  "capture": "weighted-incoming-v2-20261030-metal",
+  "child_pid": 54264,
+  "input_count": 1192,
+  "native_cases": 1179,
+  "live_parent_receipt_present": false,
+  "elapsed_seconds": 0.38664587505627424,
+  "gpu_calls": 0,
+  "calculation_verified": true,
+  "input_sha256": "3a6ffba50847f2495029f6bb27d9578b96cf986174ee233ef85500659d614fdc",
+  "output_sha256": "f3c485926c06e2c858354b9876d45a8a616d47f0ceff557d5b924e3bdb10a351",
+  "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+  "schema": "independent-metal-audit-v1",
+  "original_receipt_sha256": "1c58b15e3cb51babf8f56b82a7c2c4dd1c8e11fe9518ef3654fd866da7a0fe84"
+}

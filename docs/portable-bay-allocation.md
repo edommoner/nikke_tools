@@ -13,3 +13,21 @@
 追加で必要なのは、正確なcover重みと演算順、元carrierとcover receiverの結合、防御参照元と保護layer順、各メンバーの被撃通知、cover破壊/復活/再burst、本人死亡、均等分配との重複、favorite各段階の実証。均等版への別名化やno-opで静的失敗を減らさない。次は既存incoming/cover/group executorへ落とす明示契約を整える。
 
 データは `tests/fixtures/bay-published-allocation-v1.json`。候補式・表の不一致・未対応flagの維持を3テストで検査する。GPU/Slang/NVRTC/native battle追加0。再調査は正確な定数・制御実験・layer/通知の新しい根拠が得られた時とし、同じ転載の再検索を重ねない。
+
+
+## 2026-10-30 共通重み付き数値処理をM5で検証
+
+保存済み全266profileのentry-planでも、偏差分配は4段階に影響する最優先未対応だった。`app/incoming_weighted_allocation.py`と`gpu/incoming_weighted_allocation.slang`を追加した。入力は量・生存body5bit・元caster slot・本人/他人/遮蔽物の正の有限重み・独立coverの有無。body slot0..4の後にcover slot5を加算した分母で、`amount * (weight / denominator)`を計算する明示規約。整数丸め、最低1、残差を特定recipientへ押し付ける補正は入れない。分母overflowはstatus16、死んだownerのcover指定/非有限値等はwire拒否。分配先と重みはfreezeした入力で、HPやキャリアからCPUがGPU結果を先取りするものではない。
+
+重み8/3/262は入力例でありゲーム定数の確定ではない。別の明示重み・全31生存集合・5caster・cover有無・ゼロ/極小/最大量を含むnative1179と拒否13、全1192を同じSlangからCUDA/Metalへ生成した。固定689814a1/package59e9a503…でApple M5実GPU成功（0.000569958秒）、別fresh GPU禁止childで全1179 native/1192出力を0.386646秒で独立seal。元sandboxのdevice未取得はclaim前停止として保持し、通常権限の新captureで成功。raw/失敗を保持し、成功GPU1回、Windows依頼0。
+
+共通CLIの`weighted-incoming`は通常package経路、`weighted-incoming-cache-only`は同計算のCUBIN/O1・compile cache必須経路。standalone数値entryなのでresident paired生成flagは要求しない。キャッシュ未作成をhitとせず、実CUDAは未検証。
+
+証拠は`research/portable-weighted-incoming-v1-expected.json`、`tests/fixtures/weighted-incoming-metal-v1.json`、`tests/fixtures/weighted-incoming-independent-v1.json`、進捗`research/target-count-query-evidence/weighted-incoming-metal-v1.json`。これは数値処理の検証であり、元4段階の戦闘・実機比率・canonical consumer・公開GPU受付は未達。元拒否を維持し、分類へこの限定証拠を添付する。
+
+### 次の実行器接続（数値probeを戦闘対応の代用にしない）
+
+1. 元all_allies carrierとself_cover carrierを別recipientとして、元row/caster/発動時刻/失効/削除へ結ぶ。pinnedの`split_group`は均等版専用であり、偏差版をその別名にしない。`self_cover`には現在通常のbody target resolverがないため、body名への置換や元定義変更をしない。
+2. 元`_boss_attack`の量確定後・`_land_squad`呼出し前と、共通`dispatch_phases.slang` incoming event0のgroup snapshot境界を対応させる。別のイベントclock・HP配列・通知ループを作らず、既存のmode22/23/20と保護層へ接続する。
+3. cover slot5は「本人bodyの追加量」ではなく独立遮蔽物。cover破壊後の再正規化は次の被弾snapshotからとするか、同一被弾の残余を渡すかは明示model契約を定める。既存cover layerの余剰を渡さない規則と混同せず、実機規則へ昇格しない。
+4. 通知は元の命中者と分配先を区別し、被弾中の死亡/復活/cover回復/reburst・均等版併存を含む元4段階のCPU契約と実Metal全戦闘比較を先に行う。その後だけ必要な短いWindows CUDA検証を依頼する。
