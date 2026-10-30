@@ -1,21 +1,22 @@
 {
   "schema": 1,
-  "archive": "product-controls-current-v1.zip",
-  "bytes": 11809314,
-  "sha256": "f547939240e0602e4d98c9357afc4266788b950cc26fced09620c7ce0d2cc866",
-  "package_id": "ec48586564408635a2d29ee6ceaea29ea7e38c6ec04b3a6d2998127a5e0d26e3",
-  "source_commit": "4bfd6841f1588270abab173a100af27dc0f080a6",
+  "archive": "product-current-parts-v1.zip",
+  "bytes": 11813006,
+  "sha256": "7c0d9441a86edb8c1969ed571137551681376532c6c48676a482618636ca1aa4",
+  "package_id": "1b668b9f676397f62efe39548dfe2248422c755d0c015d835ab0347057bb440d",
+  "source_commit": "493244ab2416cac06013f07ad69c9709596b671a",
   "program": "accumulate",
   "files": 2686,
   "changed_shader_sources": [
-    "gpu/world_charge_control_runtime.slang"
+    "gpu/event_runtime.slang",
+    "gpu/attack_group_runtime.slang"
   ],
-  "scope": "Real shared operator and judgement calculation change; bounded new PTX compile only, no GPU or driver. No SDK/raw/compiled binary/personal settings.",
-  "unit_tests": 47,
+  "scope": "Current shared charge/part arithmetic and native group part routing. Source-only packet; preserve prior source/PTX/claims/failures. No SDK, raw buffers, compiled binary or personal settings.",
+  "unit_tests": 48,
   "ptx_plan": {
     "schema": "compile-plan-v1",
     "passed": true,
-    "package_id": "ec48586564408635a2d29ee6ceaea29ea7e38c6ec04b3a6d2998127a5e0d26e3",
+    "package_id": "1b668b9f676397f62efe39548dfe2248422c755d0c015d835ab0347057bb440d",
     "suite": "product-detail",
     "purpose": "sealed",
     "artifact_kind": "ptx",
