@@ -14,6 +14,30 @@ SOURCE='gpu/destructible_weapon_shield_entry.slang'
 INPUT_WORDS=110112
 OUTPUT_WORDS=1048576
 
+def compile_body_modifier_roster(prepared):
+    """Retain target-specific carriers in a proven plain-body product world.
+
+    The same typed-axis table is consumed by the existing typed executor. This
+    path supplies no typed targets: it does not infer projectile/shield models
+    or substitute their bonuses for ordinary outgoing damage.
+    """
+    enemy=prepared['enemy']
+    if enemy.get('patterns') or enemy.get('coord') is not None or enemy.get('has_parts') or enemy.get('part_break_interval',0):
+        raise ValueError('Product target modifiers currently require a plain body with no typed targets')
+    if any(t.startswith('multi_hit:') for row in prepared['effects'] for t in row['effect'].get('trigger',{}).get('timing',[])):
+        raise ValueError('Product target modifier/group wire composition is not connected')
+    original=prepared['effects'];lowered=copy.deepcopy(prepared)
+    for dest,row in zip(lowered['effects'],original,strict=True):
+        dest['effect']=lower_effect(row['effect'])
+    words,meta=compile_projectile_battle(lowered)
+    from portable_original_modifier_probe_input import pack_target_input
+    extra,axes=pack_target_input(words,meta,original,[dict(id='portable-empty-world',kind='idle')],[],None,2,128,weapon_only=True,empty_body=True)
+    words.extend(extra)
+    if len(words)!=INPUT_WORDS:raise ValueError('Complete product target modifier wire required')
+    meta['real_prepared_input']['target_modifier_carriers']=dict(axis_rows=axes,typed_targets=0,
+        original_effects=copy.deepcopy(original),typed_target_game_model_verified=False)
+    return words,meta
+
 def compile_weapon_shield_roster(prepared,bindings,*,hit_shields=True,max_attacks=128,skill_shields=False,body_lifesteal=False,body_accumulation=False):
     if type(skill_shields) is not bool:raise ValueError('Explicit skill shield policy boolean required')
     if type(body_lifesteal) is not bool or body_lifesteal and not skill_shields:raise ValueError('Body lifesteal requires explicit skill shield policy')

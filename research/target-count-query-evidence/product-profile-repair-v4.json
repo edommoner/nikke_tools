@@ -366,7 +366,7 @@
     },
     "gpu/product_group_battle_entry.slang": {
       "source_sha256": {
-        "gpu/product_group_battle_entry.slang": "4896e83d59d4e958cc9092c39f92d60a044d6d620be123ae765d75bffadf065c",
+        "gpu/product_group_battle_entry.slang": "19a48f15e2a307786f1980b435ec8cd5609f8bd023c0977b9bc8b26d8896f8fb",
         "gpu/world_attack_group_entry.slang": "f7b85e5187595e6413b9d9357db15a412106218d6f1663fb74d680010243b286",
         "gpu/world_projectile_chain_entry.slang": "69de5447fd6f2eb8439fda802bae0571fe82d49eb531359f42c4175436c604c9",
         "gpu/world_damage_accum_entry.slang": "7a70befe6d808850887e22cb33771d8bac781f3d6768cdaf62dd4f3fa19fbd23",
@@ -500,7 +500,7 @@
         "gpu/world_periodic_runtime.slang": "25347205a8bcd16b1af61124eea5694513017ecf2baad2303ecba803e7e714aa",
         "gpu/world_spawn_runtime.slang": "6da41aa26d47d47ebb54b6d742f62592f2fbcae50ea2e38a3a7d571771b7a8c3",
         "gpu/world_fraction_runtime.slang": "4c6378db9152c2907d7e7b7a1dcd1f34d4e93bf1f48e90ca7770d19c6e7a4752",
-        "gpu/world_team_runtime.slang": "b1a4d98c5a6469e4f4ea85cf4005f764c2bae11f513110de7ca5ef3fe9464ea1",
+        "gpu/world_team_runtime.slang": "44b952a742446296c1abdb3a1ee03aaf731b43fff53e9979418868bf839700b9",
         "gpu/world_charge_control_runtime.slang": "c1a4dfe8a17c6de0604e31ea394b8eda8d65f7417f77bfabf3e0fbfd81cd1df6",
         "gpu/coordinate_manual_control_runtime.slang": "bfea1cd87e9566b7eafb95edd733ef8e4ee541a634140142f12c229b54f9a82c",
         "gpu/physical_lock_cover_layout.slang": "74830a10dceb283e54dbb3f5fa605bdb26e6f364ea95d9624969eb05af9385ce",
@@ -542,8 +542,8 @@
         "gpu/native_snapshot_runtime.slang": "b11b2570c50b3ffa08e2b061a9e126f5183efbf1ec988ce95f95a80d8427e2f7"
       },
       "generated_sha256": {
-        "cuda": "a00b1ff90b882794bfa91e67211593febff2cb1ef308fac73dbd4785cbb71a60",
-        "metal": "f64a5eabcec7ab7afa5be8059cb9305b7ea156203f95eb75bed686bd80a81ac8"
+        "cuda": "2670c6a52d60ffa687a805599d2a6d81c01aa517f4673a5e912ca49f3f4212a7",
+        "metal": "cc1a16c296a13fd495a3c121c30404d68615bec43044678a1776732896d98544"
       }
     }
   },
@@ -790,5 +790,23 @@
     "total": 75
   },
   "windows_requests": 0,
-  "scope": "Original default-growth/no-cube 30-second requests. Prior 239 successes remain historical source evidence; current source validated for these 10 profiles only. Position controls do not add profile count."
+  "scope": "Original default-growth/no-cube 30-second requests. Prior 239 successes remain historical source evidence; current source validated for these 10 profiles only. Position controls do not add profile count.",
+  "provenance_correction": {
+    "original_report_git_commit": "ea73f4f5",
+    "original_report_sha256": "cec07fb7933c87812874ffc41c7fc26f1e975e405e2e07125dff2aca7dd7395d",
+    "reason": "An output-hash-only lookup selected an older source with identical readback. Bind captures by source closure, input hash and output hash together.",
+    "corrected": [
+      {
+        "source": "gpu/product_group_battle_entry.slang",
+        "capture": "2800e5ed7a1d471a974bbc3e23fb7717",
+        "evidence_sha256": "1272cf4a0af5bd6142ecec853e974c2c67cc45ee0ee7f6c9a51e30e3f224407c",
+        "changed_source_associations": [
+          "gpu/product_group_battle_entry.slang",
+          "gpu/world_team_runtime.slang"
+        ]
+      }
+    ],
+    "calculations_and_expected_values_changed": false,
+    "gpu_reruns": 0
+  }
 }

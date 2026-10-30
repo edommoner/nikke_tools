@@ -4,6 +4,31 @@ from portable_damage_specs import DAMAGE_FAMILIES
 
 ROUTES=dict(INHERITED=0,BODY=1,ALL=2,MAX_HP=3,CURRENT_HP=4,LOW_HP=5,NEAREST=6,TOP_DEF=7,LOW_DEF=8,TOP_ATK=9,RANDOM=10)
 
+def lower_single_body_nearby(prepared):
+    """Exact recipient specialization when the only logical enemy is BODY.
+
+    Never infer neighbour distance or ordering. Additional actors or coordinate
+    geometry keep this selector unsupported instead of silently losing hits.
+    """
+    import copy
+    rows=[i for i,item in enumerate(prepared['effects']) if isinstance(item['effect'].get('target'),str)
+          and item['effect']['target'].startswith('target_and_nearby:')]
+    if not rows:return prepared,rows
+    for i in rows:
+        effect=prepared['effects'][i]['effect']
+        match=re.fullmatch(r'target_and_nearby:([1-9][0-9]*)',effect['target'])
+        if effect.get('type')!='damage' or match is None or int(match[1])>127:
+            raise ValueError('Unsupported nearby recipient count or effect kind')
+    enemy=prepared['enemy']
+    from portable_actor_specs import compile_registry
+    from calculator.boss_pattern import validate
+    _,actors=compile_registry(validate(enemy.get('patterns') or []),pools=True)
+    if len(actors)!=1 or int(actors[0].kind)!=0 or enemy.get('coord') is not None or enemy.get('has_parts') or enemy.get('part_break_interval',0):
+        raise ValueError('Nearby specialization requires one plain boss and no other enemy actors')
+    lowered=copy.deepcopy(prepared)
+    for i in rows:lowered['effects'][i]['effect']['target']='boss'
+    return lowered,rows
+
 
 def damage_plan(effect):
     from portable_parent_fixed_specs import enabled

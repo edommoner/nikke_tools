@@ -26,14 +26,28 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def compile_product(prepared):
     """Select an existing wire by actual effect requirements, never by character."""
+    from portable_enemy_specs import lower_single_body_nearby
+    original=prepared
+    prepared,nearby=lower_single_body_nearby(prepared)
+    def finish(source,iw,ow,words,metadata):
+        if nearby:
+            metadata['real_prepared_input']['single_body_nearby']=dict(rows=nearby,
+                original_effects=[copy.deepcopy(original['effects'][i]) for i in nearby],
+                neighbour_geometry_inferred=False)
+        return source,iw,ow,words,metadata
+    from destructible_damage_policy import modifier_axis
+    if any(modifier_axis(row['effect']) for row in prepared['effects']):
+        from portable_destructible_roster_input import compile_body_modifier_roster, INPUT_WORDS as iw, OUTPUT_WORDS as ow
+        words,metadata=compile_body_modifier_roster(prepared)
+        return finish('gpu/product_target_battle_entry.slang',iw,ow,words,metadata)
     grouped = any(t.startswith('multi_hit:') for item in prepared['effects']
         for t in item['effect'].get('trigger',{}).get('timing',[]))
     if grouped:
         from portable_battle_attack_group_input import compile_battle, INPUT_WORDS as iw, OUTPUT_WORDS as ow
         words, metadata = compile_battle(prepared,routing='native')
-        return 'gpu/product_group_battle_entry.slang', iw, ow, words, metadata
+        return finish('gpu/product_group_battle_entry.slang', iw, ow, words, metadata)
     words, metadata = compile_projectile_battle(prepared)
-    return SOURCE, INPUT_WORDS, OUTPUT_WORDS, words, metadata
+    return finish(SOURCE, INPUT_WORDS, OUTPUT_WORDS, words, metadata)
 
 
 def prepare(body):

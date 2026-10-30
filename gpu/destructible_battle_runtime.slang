@@ -30,6 +30,16 @@ bool initializeDestructibleBattle(inout Runtime s)
     WorldSchedule w=frameSchedule(s);
     for(uint slot=0;slot<count&&slot<128;slot++)
     { uint node=commands[extra+2328+slot*12];if(node>=w.count||(commands[wsNode(w,node)+1]&2)!=0) return false; }
+#ifdef PORTABLE_DESTRUCTIBLE_EMPTY_BODY
+    // Only the product plain-body entry accepts an explicitly empty universe.
+    // Other typed entries retain their nonempty binding admission contract.
+    if(count==0)
+    {
+        if(!weaponOnly||actorPoolCount(s)!=1) return false;
+        for(uint i=2328;i<3864;i++) if(commands[extra+i]!=0) return false;
+    }
+    else
+#endif
     if(!dwValidate(w,extra+2328,count,DF_BASE(s.resourceOutput))) return false;
     results[DT_OUTPUT(s.resourceOutput,0)]=0x44425431U;
     results[DF_HEADER(s.resourceOutput)+4]=1;

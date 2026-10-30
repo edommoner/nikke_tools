@@ -14,10 +14,19 @@ bool destructibleWeaponEnabled(inout Runtime s)
 #endif
     return magic&&commands[s.inputBase+110085]==1;
 }
+// An empty target table cannot intercept a shot. Keep the original body path,
+// including pierce/physical context, until a real typed target is declared.
+bool destructibleWeaponHasTargets(inout Runtime s)
+{ return destructibleWeaponEnabled(s)&&commands[DF_EXTRA(s)+2320]!=0; }
 uint destructibleWeaponBank(inout Runtime s,uint who) { return s.resourceOutput+970000+who*256; }
 bool validDestructibleWeapons(inout Runtime s)
 {
     if(commands[s.inputBase+110084]>1||s.landingPolicy==0||actorPoolCount(s)!=1) return false;
+#ifdef PORTABLE_DESTRUCTIBLE_EMPTY_BODY
+    // With no interceptable target, all post-landing work remains on the
+    // existing body path, including lifesteal and damage accumulation.
+    if(commands[DF_EXTRA(s)+2320]==0) return true;
+#endif
     for(uint row=0;row<s.count;row++)
     {
         Definition d=readDefinition(s.inputBase,row);
@@ -70,7 +79,7 @@ uint64_t destructibleWeaponSample(inout Runtime s,uint who,Weapon w,uint64_t coe
 }
 bool destructibleWeaponPellet(inout Runtime s,uint who,uint64_t when,uint hit)
 {
-    if(!destructibleWeaponEnabled(s)) return false;
+    if(!destructibleWeaponHasTargets(s)) return false;
     uint bank=destructibleWeaponBank(s,who);
     if(hit>=results[bank]||hit>=128) { s.error=64;return true; }
     uint slot=destructibleWeaponSelect(s);
@@ -105,6 +114,6 @@ bool destructibleWeaponPellet(inout Runtime s,uint who,uint64_t when,uint hit)
 }
 uint64_t destructibleWeaponBodyAmount(inout Runtime s,uint who,uint64_t legacy)
 {
-    if(!destructibleWeaponEnabled(s)||f64Zero(legacy)) return legacy;
+    if(!destructibleWeaponHasTargets(s)||f64Zero(legacy)) return legacy;
     uint bank=destructibleWeaponBank(s,who);return results[bank+2]!=0?dtNumber(bank+8):legacy;
 }

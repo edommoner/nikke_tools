@@ -1,3 +1,15 @@
+# 2026-10-30 対象別carrier＋単一本体nearbyを製品接続、残11profile
+
+通常/api/jobsの元8profile（Sakura/Anchor/Clay/Asuka/Rei/Mari/Misato/Elegg）が、同一現sourceでM5実GPU・CPU全製品応答一致。target_modifier_carriersを既存axis表/kind4 carrierへ保ち、数値・名前・条件・寿命を消さない。typed対象0を証明した本体世界だけ既存body経路を使い、吸血/貫通をtyped専用制約で拒否しない。typed世界のゲーム規則は未確定のまま。Eleggのtarget_and_nearbyは既存の単一BODY証明を共通化し、追加actor/座標/partsは拒否。元effectsを変更せず、元selectorをmetadataに保持する。キャラallowlistなし、新suiteなし、保護CPU/数値式/期待値/許容差変更0。
+
+最終product-target-modifiers-v3-20261030でAPI8/8、同一製品shaderの既存宣言モデル正例4＋raw不正6が一致。GPU対照0.053758秒。初版6/7（Asukaのtyped専用lifesteal拒否）と初期compile_bindingsの非空契約拒否は失敗として保持。Claude diff-onlyレビューを取得し、body抑止predicate統一・空slot予約領域検査・axis判定共通化を反映。stale bank説はentryがtail全clearするため未確認、未知enemyキーは既存共通allowlistが拒否、generic定義検査も共通admissionに残る。rawレビューはローカルのみ。
+
+静的255/266（CPU戦闘/GPUなし）。履歴を通じた製品Metal成功255/266、現sourceで新規確認は8件。11残件はAnne、Yuni、Yan、Soldier O.W.、Velvet、Heavy Arms、Bay4段階、Rei仮称。標準30秒/cubeなし以外の分岐、現source全266回帰、固定ゲージ/ボス・parts履歴/手動操作/製品CUDAは未完了。関連CPU単体は24成功、旧source固定テスト1件はworld_team_runtime変更を拒否して失敗（旧証明を現在へ昇格させない）。GPU効果の数値差とは分け、残課題として保持する。
+
+小証跡product-target-modifiers-metal-v1.json。前回product-profile-repair-v4.jsonのgroup source出所も訂正：出力SHAのみの照合が同一readbackの旧sourceを選んでいた。実capture2800e5ed…のsource/input/output三点一致で結び直した。旧版はcommit ea73f4f5に保持、数値・raw・expected変更0/GPU再実行0。以後は出力SHA単独でsource証拠を選ばない。
+
+次は凍結した現sourceで通常API全266を小batch回帰し、Metal/CUDA別の製品件数を更新する。Windowsは現在0依頼。必要な短い差分だけで、巨大compiler診断や旧source固定証明の鎖を個別に増やさない。以下は履歴。
+
 # 2026-10-30 製品経路の8件を修正、残19件
 
 最初の全266profile API sweepはMetal全製品レスポンス一致239、CPU fallback27。証拠product-profile-progress-v3.json。入力／モデル不足19、GPU拒否5、数値＋警告差1、警告差のみ2だった。今回、元BuffManager構築時の注意書きを静的に捕捉して製品応答へ渡し、既存SOURCE_OPSのbuffer scopeとSHIELD_HEAL条件を両製品wrapperへ接続。共通team条件受付へback_row/not_self_caused_healを予約引数0検査付きで登録。Mastの通常周期damageはstack_countをhit-count参照に保ち、DOT係数stackフラグと区別した。CPU正本4・効果定義・許容差・expected変更0、新suite0。

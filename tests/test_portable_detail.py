@@ -103,5 +103,61 @@ class PortableDetail(unittest.TestCase):
         self.assertEqual(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['PRESERVE']],0)
         dot=dict(type='damage',stat='dot_damage',tick_interval=1,scaling='stack_count',target='target')
         self.assertEqual(periodic_flags(dot,0)&2,2)
+    def test_plain_body_keeps_all_original_target_modifier_carriers_and_axes(self):
+        sys.path.insert(0,str(ROOT/'research'))
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_specs import LIMITS as L,FIELDS as F
+        from destructible_damage_policy import modifier_axis
+        for name in ['사쿠라','앵커','클레이','아스카','레이','마리','미사토']:
+            body=selected_profile_bodies([name],0)[0][2]
+            with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle')):
+                prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+                source,iw,ow,words,metadata=product.compile_product(prepared)
+            self.assertEqual(prepared,before)
+            self.assertEqual((source,iw,ow,len(words)),('gpu/product_target_battle_entry.slang',110112,1048576,110112))
+            self.assertEqual(words[104400+2320],0)
+            self.assertEqual(words[104400+5680:104400+5686],[0x48534933,0,0,1,1,1])
+            self.assertEqual(metadata['real_prepared_input']['target_modifier_carriers']['original_effects'],prepared['effects'])
+            seen=[]
+            for row,index in enumerate(metadata['binding_source_indices']):
+                axis=modifier_axis(prepared['effects'][index]['effect'])
+                if axis:
+                    seen.append(axis);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
+                    self.assertEqual(words[at+F['KIND']],4)
+                    self.assertEqual(words[104400+5168+row],axis)
+                    self.assertNotEqual(words[at+F['VALUE']:at+F['VALUE']+2],[0,0])
+            self.assertTrue(seen)
+    def test_plain_body_modifier_input_cannot_discard_a_declared_world(self):
+        sys.path.insert(0,str(ROOT/'research'))
+        from portable_original_identity_inventory import selected_profile_bodies
+        body=selected_profile_bodies(['아스카'],0)[0][2]
+        prepared,_=product.prepare(body)
+        for key,value in [('patterns',[dict(id='wave',kind='summon',spec=dict(count=1,hp=100))]),
+                          ('has_parts',True),('part_break_interval',1),('coord',{})]:
+            case=copy.deepcopy(prepared);case['enemy'][key]=value
+            with self.subTest(key=key),self.assertRaisesRegex(ValueError,'plain body'):product.compile_product(case)
+        unknown=copy.deepcopy(prepared);unknown['enemy']['new_typed_targets']=[]
+        with self.assertRaisesRegex(ValueError,'Unknown real enemy fields'):product.compile_product(unknown)
+        grouped=copy.deepcopy(prepared);grouped['effects'][0]['effect']['trigger']['timing'].append('multi_hit:2')
+        with self.assertRaisesRegex(ValueError,'group wire composition'):product.compile_product(grouped)
+    def test_nearby_selector_is_specialized_only_for_a_proved_single_body(self):
+        sys.path.insert(0,str(ROOT/'research'))
+        from portable_original_identity_inventory import selected_profile_bodies
+        body=selected_profile_bodies(['일레그'],0)[0][2]
+        with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle')):
+            prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+            source,_,_,words,metadata=product.compile_product(prepared)
+        self.assertEqual(prepared,before)
+        # The original Elegg also carries a target-specific modifier.
+        self.assertEqual(source,'gpu/product_target_battle_entry.slang')
+        self.assertEqual(metadata['real_prepared_input']['single_body_nearby']['rows'],[1])
+        self.assertEqual(metadata['real_prepared_input']['single_body_nearby']['original_effects'],[prepared['effects'][1]])
+        for enemy_change in [dict(patterns=[dict(id='wave',kind='summon',spec=dict(count=1,hp=100))]),
+                             dict(coord={}),dict(has_parts=True),dict(part_break_interval=1)]:
+            case=copy.deepcopy(prepared);case['enemy'].update(enemy_change)
+            with self.subTest(change=enemy_change),self.assertRaisesRegex(ValueError,'one plain boss'):product.compile_product(case)
+        for target in ['target_and_nearby:0','target_and_nearby:1.5','target_and_nearby:128']:
+            case=copy.deepcopy(prepared);case['effects'][1]['effect']['target']=target
+            with self.subTest(target=target),self.assertRaisesRegex(ValueError,'recipient count'):product.compile_product(case)
 
 if __name__=='__main__':unittest.main()

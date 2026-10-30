@@ -48,3 +48,25 @@ Miranda／Belortaの計10profileの実Metal・全CPUレスポンス一致を記�
 次はprojectile_dmg_pctとshield_dmg_pctの既存typed modifier接続を優先する。
 通常のbodyだけでは有効対象がなくても、carrier状態や対象別axisを省略しない。
 対象が存在する対照も必要であり、標準profileだけの数値一致で効果完成とはしない。
+
+## 対象別carrierと単一本体の接続
+
+`product-target-modifiers-metal-v1.json` に、対象別補正7profileとEleggの
+計8profileの通常API・実Metal・CPU全項目一致を記録した。履歴を通じた成功は
+255/266、現ソース全266の回帰は別途必要。静的入力成功255と製品検証件数を混同しない。
+
+元補正は数値を持つkind4 carrierと既存typed axis表へ格納する。本体しかいない
+世界ではtypedの係数を本体へ足さず、本体の既存ダメージ・吸血・貫通経路を使う。
+空対象の受付は専用製品entryだけの明示フラグで、slot表の予約領域も検査する。
+対象がある場合は同じshader内の既存typed消費器を使用する。既存宣言モデルの
+飛翔体、HP shield、武器HP shield、散弾hit shieldの4正例と6不正入力を実Metalで
+確認した。これを実ゲームのtyped対象規則や製品での敵履歴対応の完成とは扱わない。
+
+nearby selectorは論理敵がBODY1体のときだけ本体へ静的に解決する。
+追加actor・parts・座標があれば拒否し、距離や近隣順序を推測しない。probe入力と
+製品入力はこの証明を共有する。元effectsは保持し、元selectorもmetadataへ記録する。
+
+Claudeレビューから予約領域検査と対象なし分岐の統一を反映した。既存CPU検査は
+24成功、歴史的source固定検査1件は共有runtime変更により失敗中。この旧証明は
+現在の数値証明ではない。旧期待hashを変更して成功扱いにしていない。
+前回repair-v4のgroup出所誤関連はsource/input/outputの一致で訂正し、元版もGitに残す。
