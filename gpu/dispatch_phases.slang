@@ -218,8 +218,11 @@ void advanceIncomingFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inout 
             if (!f64Zero(amount) && !f64Less(amount,s.hp[f.owner]) && liveMarker(s,f.owner,S_undying,f.time)) amount = larger(0,f64Add(s.hp[f.owner],ONE ^ F64_SIGN));
             bool fell = !f64Zero(amount) && !f64Less(amount,s.hp[f.owner]);
             if((commands[at]==31 || commands[at]==32)) frames[depth].healthValue=amount;
-            s.receivedDamage[f.owner] = f64Add(s.receivedDamage[f.owner],amount);
-            if (!f64Finite(s.receivedDamage[f.owner])) { s.error = 16; break; }
+            // Native aggregate uses compensated floating sum, in hit order.
+            // Reuse the common accumulator; individual HP quantities are unchanged.
+            Sum received={};received.total=s.receivedDamage[f.owner];received.correction=s.receivedDamageCorrection[f.owner];
+            addSum(received,amount);s.receivedDamage[f.owner]=received.total;s.receivedDamageCorrection[f.owner]=received.correction;
+            if (!f64Finite(received.total) || !f64Finite(received.correction) || !f64Finite(f64Add(received.total,received.correction))) { s.error = 16; break; }
             if (s.receivedHits[f.owner] == 0x7fffffff) { s.error = 2; break; }
             s.receivedHits[f.owner]++;
             s.hp[f.owner] = larger(0,f64Add(s.hp[f.owner],amount ^ F64_SIGN));

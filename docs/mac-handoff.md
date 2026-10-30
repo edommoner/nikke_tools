@@ -1,3 +1,13 @@
+# 2026-10-30 Noah倍率の追加検証から共通received sumの差分を修正中
+
+追加Noah/SOW元69定義の2ケースは、原prob:10を変えず実3発動、−8% snapshot各11/16件、係数33.33/137.5/250をCPU確認。受動観測を除く全nativeのcanonical JSON指紋は観測offと同一。直接tuple対JSON list比較の診断失敗は保持し、既存canonical digestで照合した。
+
+固定d7f4e000/package9ca192a3…は必須生成/Metal PSO cache hit（Slang0、PSO0.002931秒、GPU2.505108秒）。貫通ケース成功、非貫通はJackal累計received_damageだけ1ULP不一致。全per-hit HPと32cover receiptsは正確。元native observerの`sum`対GPU逐次加算が原因で、実HP term列・既存共通addSumで再現した。失敗/raw/claimを保持しGPU再実行0。
+
+現在は全incomingの共通累計へaddSumを接続した。Runtimeにcorrection5個（＋40byte）、Frame/wire/個別HP減算は不変。新sourceのM5/CUDAは未認定、旧sourceのproofを昇格しない。開発suite cover-defense-modifiersは旧4＋新2の6nativeと拒否7、全13。旧11 inputはそのまま保持。旧Goldens/証明書の元sourceはportable_received_sum_source_contractで厳密に投影する。次は新sourceを固定packageにし、全13のM5/独立sealを実行する。先行normal suiteのcurrent sourceは再認定待ち。保護CPU/normalizer変更0、Windows依頼0。全目標は未達。
+
+以下は履歴。
+
 # 2026-10-30 遮蔽物DEFの既存GPU保護層接続をM5独立seal
 
 修正版23dec48a/package3ed9914b…で全11（元戦闘4/拒否7）成功、GPU2.477718秒/冷PSO61.963661秒、CPU事前73.244085秒。別fresh GPU禁止childの全11独立sealも88.794047秒、親oracle利用なし。元69/69/69/67定義、実被弾76行/cover減算51件、全戦闘/物理/typed/2,048行skill bankを比較した。Runtime138952byte/元履歴容量を保持し、入力115704/出力2048912word。CUDA/Metalは同じSlangのincoming/分配/シールド/cover phaseを使い、CPUの動的状態を入力しない。

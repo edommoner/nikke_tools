@@ -1855,6 +1855,53 @@
               "max_hp": 2000000.0,
               "effective_max_hp": 2000000.0
             }
+          ],
+          "allies": [
+            {
+              "hp": 2441844.0,
+              "max_hp": 2441844.0,
+              "hp_pct": 100.0,
+              "defense": 16293.5523,
+              "down": false,
+              "received_damage": 166538.45865558335,
+              "received_hits": 9
+            },
+            {
+              "hp": 3284741.0,
+              "max_hp": 3284775.0,
+              "hp_pct": 99.99896492149387,
+              "defense": 21481.0,
+              "down": false,
+              "received_damage": 34.0,
+              "received_hits": 67
+            },
+            {
+              "hp": 2582208.5258333334,
+              "max_hp": 2715916.0,
+              "hp_pct": 95.07689213633019,
+              "defense": 18994.8888,
+              "down": false,
+              "received_damage": 192218.81450136667,
+              "received_hits": 9
+            },
+            {
+              "hp": 3084017.9085725965,
+              "max_hp": 3284775.0,
+              "hp_pct": 93.88825440319646,
+              "defense": 23257.4787,
+              "down": false,
+              "received_damage": 200757.09142740336,
+              "received_hits": 9
+            },
+            {
+              "hp": 3000314.0,
+              "max_hp": 3000314.0,
+              "hp_pct": 100.0,
+              "defense": 19377.0,
+              "down": false,
+              "received_damage": 0.0,
+              "received_hits": 3
+            }
           ]
         }
       },
@@ -3729,6 +3776,53 @@
               "hp": 1684005.1439999999,
               "max_hp": 2000000.0,
               "effective_max_hp": 2000000.0
+            }
+          ],
+          "allies": [
+            {
+              "hp": 2403978.5023140735,
+              "max_hp": 2441844.0,
+              "hp_pct": 98.4493072577148,
+              "defense": 16293.5523,
+              "down": false,
+              "received_damage": 289891.87368592666,
+              "received_hits": 9
+            },
+            {
+              "hp": 3010103.4785962766,
+              "max_hp": 3284775.0,
+              "hp_pct": 91.63804152784519,
+              "defense": 21481.0,
+              "down": false,
+              "received_damage": 274671.5214037232,
+              "received_hits": 67
+            },
+            {
+              "hp": 2426024.1263140733,
+              "max_hp": 2715916.0,
+              "hp_pct": 89.32618410562306,
+              "defense": 18994.8888,
+              "down": false,
+              "received_damage": 289891.87368592666,
+              "received_hits": 9
+            },
+            {
+              "hp": 2994883.1263140733,
+              "max_hp": 3284775.0,
+              "hp_pct": 91.17468095422284,
+              "defense": 23257.4787,
+              "down": false,
+              "received_damage": 289891.87368592666,
+              "received_hits": 9
+            },
+            {
+              "hp": 2798756.5,
+              "max_hp": 3000314.0,
+              "hp_pct": 93.28211980479377,
+              "defense": 19377.0,
+              "down": false,
+              "received_damage": 320336.5470595344,
+              "received_hits": 3
             }
           ]
         }

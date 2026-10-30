@@ -6,6 +6,8 @@ def verify(case,native):
     assert len([h for h in hits if h['pattern']=='noah-prime' and h['owner']==1])==64,'Every actual Noah priming hit must execute'
     assert len({(h['time'],h['pattern'],h['owner']) for h in hits})==len(hits)
     assert not any(h['down'] for h in hits),'This modifier witness must retain every original receiver'
+    for who,ally in enumerate(native['battle']['allies']):
+        assert ally['received_damage']==sum(h['hp'] for h in hits if h['owner']==who),'Canonical compensated received aggregate must retain every actual HP term'
     assert all(h['pattern'] in {p['id'] for p in case['patterns'][1:]} for h in hits)
     for p in case['patterns'][2:]:
         who=int(p['spec']['target'].removeprefix('slot:'))-1

@@ -39,3 +39,9 @@ CUDA/MSLのpaired生成が成功（4.214565秒、Runtime138952byte）。旧entry
 `cover-defense-modifiers`は同じGPU entryの追加2戦闘＋拒否7入力。元SOW/Noah/Drake/Jackal/Mary全69定義を保持し、Noahへの64回の微小被弾を元multi-hit nodeで宣言する。元row12のreceived_hit_count:1／prob:10／全員−8%・10秒は変更しない。固定seed4301では0.6／1.8／5.2秒に3回発動し、各16cover receipt中11件へ非ゼロ倍率が届いた。phaseの係数は33.33／137.5／250で、cover DEF上昇との同時適用もCPUで成立した。
 
 既存の受動source観測器の選択だけをNoahへ向け、元の完全nativeから追加receiptを除いたcanonical JSON指紋が観測off版と同一であることを照合した。初回のPython tuple対JSON listの比較失敗を保持し、CLIと同じcanonical digestへ比較方法を揃えた。数値・入力・確率・許容誤差は変更していない。GPUでは同じ全比較に加えて元Noah rowの実activation数を照合する。現段階はCPU確認のみで、追加2ケースのMetal/CUDA認定はまだない。旧11入力と全GPU sourceは保持する。
+
+## 共通被ダメージ集計の1ULP差と再検証
+
+Noah追加版9ca192a3…は生成/PSOの両必須cache hit、GPU2.505108秒/PSO0.002931秒で終了。貫通は全一致し、非貫通のJackal累計だけ200757.09142740333対200757.09142740336（1ULP）だった。全HP hitと32cover receiptは一致した。元native観測器がhit列の`sum`を返すのに対し、GPUの累計が逐次加算だったことを、実際のHP term列と既存共通`addSum`で確認した。許容誤差や元CPUを変更しない。
+
+全incoming receiverの累計を既存共通補償和へ接続し、correctionを5個のuint64状態に保持する（Runtime＋40byte、Frame/input/output幅は不変）。Noah専用のreadback修正ではなく、通常/分配/全世界共通の集計。元のHP減算/通知/各hit量は変更しない。source逆変換で旧証明を保持するが、旧生成SHAのcurrent-source一致は失われるため新sourceの認定は未完了として扱う。追加cohortは旧4戦闘も含む6戦闘＋拒否7の全13へ拡張し、全件を新sourceで検証する。先行Goldensと失敗claim/rawは変更しない。

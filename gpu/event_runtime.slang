@@ -113,7 +113,7 @@ struct Runtime
     uint64_t cacheNewestTime[P_DEFINITIONS], cacheRootTime, cacheFloor;
     uint queryActive, queryWho, queryAllowed[P_CARRIERS]; uint64_t queryWhen;
     uint incomingMask, downMask, activeRecipients[P_CARRIERS], carrierRecipientOrder[P_CARRIERS], receivedHits[5];
-    uint64_t receivedDamage[5];
+    uint64_t receivedDamage[5], receivedDamageCorrection[5];
     uint hpWatchCount, hpWatchSlots[P_DEFINITIONS*P_TRIGGERS], hpDirtyMask, hpPendingMask, hpEdgeGuard;
     uint64_t hpPrevious[5], hpNext[5];
     uint durationEnabled, lastB3Caster, durationGroupFirst[P_DEFINITIONS]; uint64_t lastB3Time, lastFullStart;

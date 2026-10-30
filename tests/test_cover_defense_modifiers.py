@@ -11,8 +11,8 @@ class CoverModifiers(unittest.TestCase):
         s=importlib.util.spec_from_file_location('modifier_unit_adapter',ROOT/'research/verify-cover-defense-modifiers.py');cls.adapter=importlib.util.module_from_spec(s);s.loader.exec_module(cls.adapter)
         cls.rows,cls.data=cls.adapter.prepare();cls.saved=json.loads((ROOT/'tests/fixtures/cover-defense-modifiers-cpu-v1.json').read_text())
     def test_original_noah_probability_and_all_effects_remain_authored(self):
-        self.assertEqual(len(self.rows),9);self.assertEqual(sum(d is not None for _,_,d in self.rows),2)
-        for _,_,domain in self.rows[:2]:
+        self.assertEqual(len(self.rows),13);self.assertEqual(sum(d is not None for _,_,d in self.rows),6)
+        for _,_,domain in self.rows[4:6]:
             c=domain[0];contract=c['cover_defense_case']['contract'];row=contract['noah_source_row'];effect=c['effects'][row]
             self.assertEqual(len(c['effects']),69);self.assertEqual(c['names'],['솔져 O.W.','노아','드레이크','자칼','메어리'])
             self.assertEqual(c['owners'][row],1);self.assertEqual(effect['trigger'],dict(timing=['received_hit_count:1'],condition=['prob:10']))
@@ -39,10 +39,21 @@ class CoverModifiers(unittest.TestCase):
         with self.assertRaises(AssertionError):verify(row['case'],bad)
         bad=copy.deepcopy(row['native']);at=next(i for i,h in enumerate(bad['battle']['hits']) if h['pattern']=='noah-prime' and h['owner']==1);bad['battle']['hits'].pop(at)
         with self.assertRaises(AssertionError):verify(row['case'],bad)
+    def test_actual_failure_terms_need_compensation_and_aggregate_is_not_tolerant(self):
+        import functools,operator,math
+        row=self.saved['cases'][0];terms=[h['hp'] for h in row['native']['battle']['hits'] if h['owner']==3]
+        naive=functools.reduce(operator.add,terms,0.);correct=sum(terms)
+        self.assertNotEqual(naive,correct);self.assertEqual(math.nextafter(naive,math.inf),correct)
+        bad=copy.deepcopy(row['native']);bad['battle']['allies'][3]['received_damage']=naive
+        with self.assertRaisesRegex(AssertionError,'compensated received'):verify(row['case'],bad)
+        for r in self.saved['cases']:
+            verify(r['case'],r['native'])
+
     def test_same_shader_and_previous_full_cohort_are_retained(self):
         golden=json.loads((ROOT/'research/portable-cover-defense-battle-v1-expected.json').read_text())
         self.assertEqual(self.adapter.SOURCE,'gpu/world_cover_defense_entry.slang')
-        self.assertEqual(source_hashes(self.adapter.SOURCE),golden['source_sha256'])
+        from portable_received_sum_source_contract import historical_hashes
+        self.assertEqual(historical_hashes(ROOT,self.adapter.SOURCE),golden['source_sha256'])
         previous,_=self.adapter.base.prepare()
         import array
         raw=array.array('I',[len(previous)])
@@ -51,6 +62,6 @@ class CoverModifiers(unittest.TestCase):
         self.assertEqual(hashlib.sha256(raw.tobytes()).hexdigest(),golden['input_sha256'])
         import nikke_gpu
         self.assertTrue(nikke_gpu.SUITES['cover-defense-modifiers']['development_only'])
-        self.assertEqual(nikke_gpu.SUITES['cover-defense-modifiers']['inputs'],9)
+        self.assertEqual(nikke_gpu.SUITES['cover-defense-modifiers']['inputs'],13)
 
 if __name__=='__main__':unittest.main()

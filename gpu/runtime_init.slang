@@ -168,6 +168,7 @@ void initializeRuntime(inout Runtime s)
     {
         s.receivedHits[index] = 0;
         s.receivedDamage[index] = 0;
+        s.receivedDamageCorrection[index] = 0;
         s.hpPrevious[index] = 0;
         s.hpNext[index] = 0;
         s.baseCoverHP[index] = 0;

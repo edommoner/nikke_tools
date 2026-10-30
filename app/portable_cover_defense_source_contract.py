@@ -11,8 +11,11 @@ def project_sources(root):
     for name,digest in data['added_sources'].items():
         if hashlib.sha256((root/name).read_bytes()).hexdigest()!=digest:raise ValueError('Unreviewed cover dependency: '+name)
     projected={}
+    if (root/'tests/fixtures/portable-received-sum-source-delta.json').exists():
+        from portable_received_sum_source_contract import project_sources as received
+        projected=received(root)
     for name,row in data['files'].items():
-        current=(root/name).read_bytes()
+        current=projected[name].encode() if name in projected else (root/name).read_bytes()
         if current!=row['after'].encode() or hashlib.sha256(current).hexdigest()!=row['after_sha256']:raise ValueError('Unreviewed cover source: '+name)
         if hashlib.sha256(row['before'].encode()).hexdigest()!=row['before_sha256']:raise ValueError('Cover preimage differs: '+name)
         projected[name]=row['before']

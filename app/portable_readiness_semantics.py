@@ -705,7 +705,7 @@ def reference_readiness(issue):
                 canonical_default_changed=False,in_game_rules_verified=False,
                 evidence='tests/fixtures/cover-defense-battle-cpu-v1.json',evidence_sha256='b87220780a289bc1efd9752c9c2f87f9b6380e623f1278cc2709eb5b18da6d84',
                 scope='Opt-in original executor extension; explicit cover base and received snapshot policy, not canonical or game equivalence')
-            result['declared_cover_defense_battle_gpu']=dict(suite='cover-defense-battle',inputs=11,native_cases=4,rejected_cases=7,
+            result['declared_cover_defense_battle_gpu']=dict(current_received_sum_source_recertified=False,suite='cover-defense-battle',inputs=11,native_cases=4,rejected_cases=7,
                 metal_verified=True,independently_audited=True,gpu_wire_connected=True,cuda_verified=False,
                 actual_cover_receipts=51,original_definitions=[69,69,69,67],explicit_independent_bases=True,
                 current_source_shared_CUDA_Metal=True,canonical_default_changed=False,in_game_rules_verified=False,

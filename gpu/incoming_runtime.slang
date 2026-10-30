@@ -79,7 +79,7 @@ void writeIncoming(inout Runtime s, uint output)
 {
     for (uint who = 0; who < 5; who++)
     {
-        uint at = output+who*4; storeNumber(at,s.receivedDamage[who]);
+        uint at = output+who*4; storeNumber(at,f64Add(s.receivedDamage[who],s.receivedDamageCorrection[who]));
         results[at+2] = s.receivedHits[who]; results[at+3] = uint((s.downMask & (1U << who)) != 0);
     }
 }
