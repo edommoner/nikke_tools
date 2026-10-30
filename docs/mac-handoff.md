@@ -1,3 +1,15 @@
+# 2026-10-31 通常製品APIにボス行動・被弾履歴を接続、Metal4ケース一致
+
+source04a6daa7d7df4f2c34409e42ab3ed819c8a4d936。共通world readback projectionをapp/portable_world_result.pyへ抽出し、既存world verifierと製品decoderで共有。製品入力は元boss宣言を既存canonical validatorで正規化し、literal node ID/kindだけをmetadataに保持。CPU予定表・戦闘状態はGPU入力へ渡さない。通常武器とnative group武器が同じboss compilerを使う。敵parts・summon攻撃・手動制御等は引き続き明示fallback。CUDA/Metal shader・保護CPU・strict normalizer・既存数値goldenは変更していない。
+
+proof product-boss-api-v2-20261031。通常POST /api/jobsで固定周期5秒の4要求：Miranda idle、装甲/core変更＋全員への被弾15件、burst前致死被弾1件、Belorta native group＋被弾15件。全4がApple M5実Metal、cache hitなし、GPU区間0.333/0.266/0.219/0.240秒。保存input/readback SHAをcapture/evidence/APIと独立照合し、compute/cache_hit metadataだけを除くGPU/CPU/API全payload完全一致。sources.json全file不変。saved-audit.jsonにcapture ID/raw SHAを保持。これは4シナリオの製品接続確認で、新規profile数や全boss挙動の完全対応へ外挿しない。CUDA追加実行0、fixed CUDA0のまま。専用port4350 serverのみ終了済み。
+
+初回4秒v1は実GPU3件のapp_warnings差分で正しくCPUfallback、group1件は静的拒否。失敗captureを不変保持。修正後の旧raw再利用はv1-saved-replay.jsonで入力/生成物/全計算結果一致、GPU追加0。その後、5秒への延長とgroup新規admissionを実API v2で検証した。保存集計の初回は省略可能incoming_hitsキー参照で停止、getで訂正し元計算結果は変更なし。
+
+共通CPUは既存SMOKE_TESTS＋product registryの77group/835tests、failures0/errors0、既存Windows-only skip1。proof common-cpu-v2/summary.json。最初の独自coordinatorは外側forbid_gpuが模擬backend APIまで遮断しfile_transportで停止したためcommon-cpuへ失敗を保持。既存CLI _testsと同じrun_groups境界に訂正して全成功。期待値/テストを弱めた変更はない。
+
+Windows接続確認返信を受け、既存chatをread-only snapshotで確認。cursor128/idle、保存compact CPU5JSONの共有完了・Mac照合済みでpendingなし。再送/再計算なし。Metal既存255profile＋追加編成1、CUDA旧蓄積1profile1秒という範囲は変わらない。残11profile・固定CUDA・parts/manual/全編成・設定は未完。次は既存効果consumerと製品wireの接続を優先し、単なるstat許可や診断の反復で対応数を増やさない。以下は履歴。
+
 # 2026-10-31 compact CPU共有をMac照合完了、Windows idle・次は未対応の製品接続へ
 
 Windows branch codex/product-fixed-compact-v4-cpu-report commit85ebe165b890da230b15a96672a402c947bf52d0の5JSON/45679bytesを取得。manifest SHAe24679ff6f75d5f03841c20fb5de1eafe0aa084c3318c6c5bcc49c9f9c88f3e3、profile JSON SHA48649ec006fdb4b59f2676dfcb4c685b3f952033077d2f6c2af6175c1bb8d611/11667bytes。proof product-fixed-compact-v4-cpu-import-v1-20261031。全blob byte/SHA、owner/source2685、公開projection roots/summary、golden compactJSON SHA0ac9a6fc…、入出力期待SHAと元376fixtureをMac immutable v4へ照合成功。unit3group/39/失敗error/skip0、PTX plan、旧claims/歴史falseも整合。元Windows preparation SHA6bd904ab…への参照を保持したが、共有物は個人情報を除いたprojectionで原本JSONの同一byte認定ではない。omitted一覧は共有省略されていたため、coordinatorの初回全metadata比較は停止し、実際に公開されたkeys/rootsだけを完全照合して成功。原本Job/全snapshot/pstatsはWindows保持、Macの完全な独立containment証明ではない。

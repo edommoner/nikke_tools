@@ -1,0 +1,69 @@
+{
+  "source": "04a6daa7d7df4f2c34409e42ab3ed819c8a4d936",
+  "source_files_unchanged": true,
+  "actual_gpu": "Apple M5 Metal normal HTTP/API",
+  "requests": 4,
+  "duration_seconds": 5,
+  "rows": [
+    {
+      "index": 0,
+      "capture": "acfddc3923ef4d4ab28579d1391aa64b",
+      "input_sha256": "c04885d643f2904c0704acfce8b3ffcec50065c448f4ca86073e85f322bb5b6d",
+      "output_sha256": "1b09cf9aff5b641e2121050cbe44ef0a585aed582e6cc5e7c0ccd6516b57e9fd",
+      "gpu_seconds": 0.3326663749758154,
+      "boss_events": 2,
+      "incoming_hits": 0,
+      "complete_payload_matched": true
+    },
+    {
+      "index": 1,
+      "capture": "8c3fffda61f741f49f0ba40c3b6b9ffe",
+      "input_sha256": "c7aaa816e567b43b5c1305b93bc8725a8b3418b1569bd983fb2e330bc04a64b3",
+      "output_sha256": "701b9629271870d1ea507669432536a0851a3b23406c2b8ce4685bff4a584bc6",
+      "gpu_seconds": 0.265826000017114,
+      "boss_events": 6,
+      "incoming_hits": 15,
+      "complete_payload_matched": true
+    },
+    {
+      "index": 2,
+      "capture": "49fe4e6e9f014350b0eb9e839fca546c",
+      "input_sha256": "00e39c8289a55bb136b706c88546c81042174f49f263bd93dda542811d3f8fe0",
+      "output_sha256": "32196cfa0c2d2e72d4fdd76662e7446f379eaf9910df5fbe9d086a42bb4bff39",
+      "gpu_seconds": 0.21918629168067127,
+      "boss_events": 2,
+      "incoming_hits": 1,
+      "complete_payload_matched": true
+    },
+    {
+      "index": 3,
+      "capture": "6aeb58b3eab441c58d8519bccafcce33",
+      "input_sha256": "1b12de1e221b9bb29ec8a5545564df4b8bf4464155bab7647e7ed56fb97b7059",
+      "output_sha256": "e885f606d38b7c4efe32f1dfdf02480d19e031f66d17b7d0645036059c1eb61e",
+      "gpu_seconds": 0.2401593333343044,
+      "boss_events": 2,
+      "incoming_hits": 15,
+      "complete_payload_matched": true
+    }
+  ],
+  "excluded_response_metadata": [
+    "compute",
+    "cache_hit"
+  ],
+  "cuda_calls": 0,
+  "common_cpu": {
+    "passed": true,
+    "groups": 77,
+    "tests": 835,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "previous_failed_proof_retained": "product-boss-api-v1-20261031",
+  "limitations": [
+    "Four five-second scenarios only",
+    "No new CUDA execution",
+    "Parts, summon attacks, manual controls remain fallback",
+    "No increase in distinct catalogue profile count"
+  ]
+}
