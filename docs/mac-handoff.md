@@ -1,3 +1,11 @@
+# 2026-10-31 操作修正版の新CUDA PTX準備を1回だけ依頼（旧監査の再試行ではない）
+
+実Metal/API6正例・GPU拒否10・通常auto2独立seal後、source4bfd6841f1588270abab173a100af27dc0f080a6の新sealed accumulate packetを作成/展開。owner ec48586564408635a2d29ee6ceaea29ea7e38c6ec04b3a6d2998127a5e0d26e3/2686files/ZIP11809314bytes/SHAf547939240e0602e4d98c9357afc4266788b950cc26fced09620c7ce0d2cc866。新packet自身unit47/3group・deps・PTX compile-plan2048MiB/60秒passed、GPU/native追加0。旧99のaccum goldenと全input/output/entry数値指紋は同じ、実shader差分はgpu/world_charge_control_runtime.slangの1ファイル（judgement/実操作履歴/v5）。同じ失敗sourceのowner入替ではない。source-only ZIP＋transport.jsonだけをcodex/product-controls-current-v1-packet commit a02112dd11b9b2a7f1636a8199d51e4773fcc3edへ共有。runtime-residentは4bfd6841まで共有済み。
+
+Windows既存chatへ、新root C:/Users/owner/Documents/Codex/nikke-product-controls-current-v1で転送/旧bootstrap展開→自身identity/deps/新47test/plan→paired generation1回→新cold PTX compile-only1回を依頼した。Slangは既存SDKを使い、新goldenとstrict normalized一致が必須。compileは生成cache必須hit/追加Slang禁止、今回は本当の新計算code/cold keyのためchild内CUDA_CACHE_REQUIRED=0を明示しNVRTC PTXだけを許可する。新dedicated cacheは新source出所を記録するためで、旧claim解除/偽entry/同一source再試行には使わない。全stage BelowNormal/fresh Job2GiB/inner60秒/outer180秒、gate/観測/cleanup維持。旧745/794証跡・timeout/claims・7missing/unknown/保全falseは不変。ptxas/link/driver/GPU/native戦闘はまだ依頼していない。失敗なら保存して停止し、上限延長やowner/cache変更で再試行しない。
+
+現在turn01a18e9c-060f-7110-8dfd-608bfbb8b0f8、cursor145/activeを確認済み。送信済みなので同依頼を再送せずterminalを確認する。小結果共有先codex/product-controls-current-v1-ptx-report、PTX/CUDA/MSL本体/SDK/全snapshot/個人情報はWindows保持。これが成功してもCUDA計算成功ではなく、後続image準備と短い通常API実行が必要。通常APIの確認範囲は過去Metal255profile＋別編成1、CUDA旧蓄積1profile1秒・現fixed0のまま。今回の新条件は4profileで6操作シナリオ、distinct profile増加0で、全255の現source再sweepではない。残11profile・typed/parts・全条件・現CUDA対応を含むgoal active。以下は履歴。
+
 # 2026-10-31 Milk数値・操作表示・固定tapを共通製品経路で解消、6実API正例と通常回帰2例一致
 
 現計算source42f2f5c0e97f707a3d2bc2cbb9e6ee4f6fe52984。実製品のキャラ別射撃を接続した後の不一致を原因別に修正した。数値期待値/CPU正本/strict normalizerは変更していない。コードはa750c24c（既存judgement補正をproductへ）→f6716723（GPU operator intervals）→42f2f5c0（固定+tap合成）。新suite/certificate/監査toolは追加せず既存product family/CLI/API/testを使用。
