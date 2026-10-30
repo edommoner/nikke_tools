@@ -1,3 +1,21 @@
+# 2026-10-31 compact CPU共有をMac照合完了、Windows idle・次は未対応の製品接続へ
+
+Windows branch codex/product-fixed-compact-v4-cpu-report commit85ebe165b890da230b15a96672a402c947bf52d0の5JSON/45679bytesを取得。manifest SHAe24679ff6f75d5f03841c20fb5de1eafe0aa084c3318c6c5bcc49c9f9c88f3e3、profile JSON SHA48649ec006fdb4b59f2676dfcb4c685b3f952033077d2f6c2af6175c1bb8d611/11667bytes。proof product-fixed-compact-v4-cpu-import-v1-20261031。全blob byte/SHA、owner/source2685、公開projection roots/summary、golden compactJSON SHA0ac9a6fc…、入出力期待SHAと元376fixtureをMac immutable v4へ照合成功。unit3group/39/失敗error/skip0、PTX plan、旧claims/歴史falseも整合。元Windows preparation SHA6bd904ab…への参照を保持したが、共有物は個人情報を除いたprojectionで原本JSONの同一byte認定ではない。omitted一覧は共有省略されていたため、coordinatorの初回全metadata比較は停止し、実際に公開されたkeys/rootsだけを完全照合して成功。原本Job/全snapshot/pstatsはWindows保持、Macの完全な独立containment証明ではない。
+
+1回のprofileはverify wall8.469662秒/process CPU18.296875秒。cProfile.Profile() timer/timeunit未指定、worker側設定なし・収録範囲未確定。関数の内部時間>累積時間4行など整合しない値があり、time attribution=falseを保持。top30の割合からI/O/CPU/lock待ち等の原因を断定せず、最適化/次compile判断に使わない。Python3.12.14は同じbase executableから事後取得した情報でprofile時pinではない。profile再実行なし。旧verify10.650秒とprofile8.470秒も速度改善として比較しない。Mac自身同v4の単発profile wall0.352秒/CPU0.204秒も記録したが、Macは逐次、Windowsは4readerで直接比較できない。
+
+実測ではfile削減だけで大幅な時間改善は示せていない。Windows unprofiled verify10.650135秒（旧11.224898との差約0.575秒）、unpack36.576秒（前full33.916秒より短縮せず）。単発/時点差で原因や率を断定しない。コンパイル/driver/GPU/CPU戦闘/全smoke再実行0。全stage missing0/観測cleanupinspection0/postJobempty、service未識別、歴史7missing/原因unknown/false・旧timeout/claim不変。Windows chat cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:128/idle、pendingなし。計測のための同じprofile/compile再実行は行わない。
+
+次は性能監査を増やし続けず、Macで残11profileの効果/敵worldを共通製品実行器へ接続する作業を優先する。読取で確認済み：Anneのall_enemies heal_received_pctは既存world_enemy_healing_entry/consumerに実装済みだが、通常productのstat admission/入力wire/actor worldに未接続。単に許可statへ追加してconsumerを無視しない。Cover/weighted等も既存full-world wireが通常productの104400系と違い、EHL/CDFなど拡張bankのBASEが重なるため、macroを全て有効化するだけで合成しない。元リクエストのliteral状態をloweringし、既存履歴/消費器を保って製品結果へ接続する。新しい小suite/数値証明書/監査toolを既定手段にせず、今回の共通product family/CLI/39test/74smokeを再利用する。Windowsは必要な実装差分ができてから短い検証だけ。Metal255/CUDA旧蓄積1profile1秒・固定0で増加なし、全goal未完。以下は履歴。
+
+# 2026-10-31 Windows compact CPU39成功、verify短縮は小幅・標準CPU profile依頼
+
+Windowsv4 owner54ba…自身CLI/2685files/fixed/sealed/projection検証、元goldenと376fixture完全一致、unit39/skip0、depsとPTX plan成功。compile claim未作成、Slang/NVRTC/ptxas/JIT/driver/GPU0。現missing0/観測cleanupinspection0/postJobempty、service未識別、旧506証跡/旧timeout/claims/歴史7missing・原因unknown・falseは不変。peer結果JSON SHA6bd904ab0ad781fc7c5f349d93345a0ff05f7a119205faaa88896a7d7fafeecc。まだMac独立import前。
+
+verify_package呼出自体10.650秒、観測込み15.900秒。旧compile child保存11.224898秒との差は約-0.575秒、単発/異なる時点のCPU測定で、NVRTC成功や大幅改善の根拠にしない。同条件NVRTCを再依頼していない。Windows chat cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:123完了後、同じv4 packetを使う標準cProfileのverify1回だけを依頼済み。BelowNormal/2GiB/child60・外180を維持、wall/process CPU/top30（packet相対名/stdlibbasename）を取得し、検証の時間が実CPUかfile/source path処理かを診断する。profileは速度比較に使わず、I/Oとホスト競合も証拠なく断定しない。追加native/GPU/compiler/テスト再実行は禁止。
+
+既存preparation JSON＋縮約stage時刻/結果＋CPUprofile summary/top30/manifestだけをcodex/product-fixed-compact-v4-cpu-reportへ共有することも依頼済み。pstats原本/個人path/PID/token/全snapshot/SDK/generated CUDA/compiled binaryはWindows保持。現taskの状態・保存結果だけを確認し、再送しない。code/記録は102802c2までorigin/runtime-residentへpush済み。全goal未完、Metal255/CUDA旧1profile1秒・固定0から増加なし。以下は履歴。
+
 # 2026-10-31 compact修正版v4の全CPU成功、旧bootstrap再利用実証・Windows CPU測定依頼
 
 前節の不整合を修正し、計算本体/CPU正本/既存数値golden/strict normalizerを変えず全共通smokeまで成功した。既存weighted source inverseの前に製品familyの完全な歴史逆変換を接続。新しい数値証明書やsuite/監査toolは作らず、既存source-historyデータ方式を使う。tests/fixtures/portable-product-source-delta.jsonのSHA9187d38559f8e40c2735afb95892f8cba4174b8a1ccf01b0d9d4bb0873894d38、製品導入前168f1bbf65957a85ba48a58699e585f74aa5ad91の13file完全preimageをGit原bytesへ独立照合、追加12sourceもSHA束縛。過去fixture/古いexpectedは全て不変。これは過去ソースを復元する監査だけで、現fixed製品を旧数値と同じと主張しない。route/guard/type/fixed f64Add→f64Sub/ledger/helper改変を拒否する5testを製品共通CPU registryへ追加（旧cover goldenをdata依存として宣言）。Weapon phase8も正しい本体照合まで進んで全成功。

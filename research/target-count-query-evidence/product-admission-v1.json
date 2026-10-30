@@ -1904,6 +1904,143 @@
             "v2": "source-history-fixed package created/unpacked; never executed",
             "v3": "CPU39/native1 success; smoke stopped at group49/isolated scalar fixture incorrectly using current source epoch; retained unchanged",
             "v4": "all selected CPU39/native1 and all common smoke74/792 passed"
+          },
+          "windows_preparation": {
+            "scope": "Peer report; JSON import pending; CPU-only",
+            "owner": "54ba1da6512c86cbecec02fb4213f3e3e4804a180a5d0a4cb53d4fa99af2c044",
+            "files": 2685,
+            "original_fixtures_matched": 376,
+            "golden_exactly_unchanged": true,
+            "unit_tests": 39,
+            "unit_skipped": 0,
+            "deps_passed": true,
+            "ptx_plan_passed": true,
+            "compile_claim_created": false,
+            "verify_package_seconds": 10.65,
+            "verify_stage_including_observation_seconds": 15.9,
+            "prior_compile_child_verify_seconds": 11.2248976,
+            "single_sample_difference_seconds": -0.5748976,
+            "timing_improvement_or_nvrtc_success_claimed": false,
+            "missing_processes": 0,
+            "observation_cleanup_inspection_errors": 0,
+            "post_job_empty": true,
+            "service_identified": false,
+            "historical_missing": 7,
+            "historical_preservation": false,
+            "historical_termination_cause": "unknown",
+            "historical_records_unchanged": 506,
+            "compiler_calls": 0,
+            "gpu_calls": 0,
+            "result_sha256": "6bd904ab0ad781fc7c5f349d93345a0ff05f7a119205faaa88896a7d7fafeecc",
+            "next": "CPU diagnostics closed; no Windows task pending. No further unchanged NVRTC or profiling replay. Continue missing product effect/world integration on Mac; use short Windows verification after a substantive required change.",
+            "mac_saved_audit": {
+              "schema": 1,
+              "commit": "85ebe165b890da230b15a96672a402c947bf52d0",
+              "files": 5,
+              "bytes": 45679,
+              "manifest_sha256": "e24679ff6f75d5f03841c20fb5de1eafe0aa084c3318c6c5bcc49c9f9c88f3e3",
+              "all_transported_hashes_verified": true,
+              "source_original_preparation_sha256": "6bd904ab0ad781fc7c5f349d93345a0ff05f7a119205faaa88896a7d7fafeecc",
+              "public_projection_is_not_raw_original": true,
+              "unpublished_omitted_list_not_independently_imported": true,
+              "package_id": "54ba1da6512c86cbecec02fb4213f3e3e4804a180a5d0a4cb53d4fa99af2c044",
+              "immutable_golden_and_published_roots_verified": true,
+              "old_fixtures_verified": 376,
+              "windows_unit_tests": 39,
+              "unit_skipped": 0,
+              "windows_native_battle_or_full_smoke_repeated": false,
+              "windows_verify_seconds": 10.6501347,
+              "prior_verify_seconds": 11.2248976,
+              "profile_wall_seconds": 8.469661900307983,
+              "profile_process_cpu_seconds": 18.296875,
+              "profile_time_attribution_verified": false,
+              "profile_not_used_for_optimization_or_next_compile": true,
+              "scope": "Sanitized saved JSON consistency and immutable owner/data audit; full original Windows Job/snapshot proof is retained remotely",
+              "compiler_calls": 0,
+              "gpu_calls": 0,
+              "contained_stage_summaries_consistent": true,
+              "service_preservation_verified": false,
+              "historical_missing": 7,
+              "historical_termination_cause": "unknown"
+            },
+            "profile_integrity": {
+              "individual_function_time_attribution_verified": false,
+              "internal_exceeds_cumulative_rows": [
+                {
+                  "file": "~",
+                  "function": "<method 'read' of '_io.BufferedReader' objects>",
+                  "internal_seconds": 5.9493432,
+                  "cumulative_seconds": 0.3310639
+                },
+                {
+                  "file": "~",
+                  "function": "<built-in method _io.open>",
+                  "internal_seconds": 0.37602660000000004,
+                  "cumulative_seconds": 0.31254770000000004
+                },
+                {
+                  "file": "~",
+                  "function": "<built-in method nt.stat>",
+                  "internal_seconds": 0.2652276,
+                  "cumulative_seconds": 0.24953240000000002
+                },
+                {
+                  "file": "~",
+                  "function": "<method 'update' of '_hashlib.HASH' objects>",
+                  "internal_seconds": 0.06189530000000001,
+                  "cumulative_seconds": 0.060627400000000005
+                }
+              ],
+              "cumulative_exceeds_wall_rows": 4,
+              "interpretation": "Preserve the exact top30 values; do not infer per-function percentages, bottleneck, I/O waits or contention. Cause of these profile inconsistencies is unknown.",
+              "retry_performed": false
+            },
+            "profile_settings": {
+              "constructor": "cProfile.Profile()",
+              "timer_argument": "not supplied; default profiler timer",
+              "timeunit_argument": "not supplied; default",
+              "worker_profile_setup_in_driver": false,
+              "threading_setprofile_in_driver": false,
+              "per_worker_profile_objects_in_driver": false,
+              "actual_worker_profile_coverage": "not established; no per-worker profiler configured",
+              "pstats_tuple_mapping": {
+                "function_key": [
+                  "filename",
+                  "line_number",
+                  "function_name"
+                ],
+                "function_value": [
+                  "primitive_calls(cc)",
+                  "total_calls(nc)",
+                  "internal_seconds(tt)",
+                  "cumulative_seconds(ct)",
+                  "callers"
+                ],
+                "report_mapping": {
+                  "primitive_calls": "cc",
+                  "total_calls": "nc",
+                  "internal_seconds": "tt",
+                  "cumulative_seconds": "ct"
+                }
+              },
+              "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+              "python_implementation": "cpython",
+              "python_version_provenance": "Read after profiling from the same configured base interpreter; version was not explicitly frozen by the original profile driver",
+              "driver_sha256": "03945d7481ba02dca14c0156ad20d6e4d16c645812a6b8ffdf95649ea1cb9820",
+              "wall_timer": "time.perf_counter()",
+              "process_cpu_timer": "time.process_time()",
+              "separate_clocks": true
+            },
+            "stage_seconds_including_observation": {
+              "transfer-v1": 8.422673000022769,
+              "unpack-v1": 36.57616289984435,
+              "help-v1": 4.903060399927199,
+              "verify-v1": 15.900132099632174,
+              "deps-stage-v1": 13.616006399970502,
+              "units-stage-v1": 43.0715633998625,
+              "plan-stage-v1": 15.132910700049251,
+              "profile-stage-v1": 13.900625200010836
+            }
           }
         }
       }
