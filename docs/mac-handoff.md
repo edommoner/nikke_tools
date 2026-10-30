@@ -1,3 +1,15 @@
+# 2026-10-30 遮蔽物DEFの既存GPU保護層接続をM5独立seal
+
+修正版23dec48a/package3ed9914b…で全11（元戦闘4/拒否7）成功、GPU2.477718秒/冷PSO61.963661秒、CPU事前73.244085秒。別fresh GPU禁止childの全11独立sealも88.794047秒、親oracle利用なし。元69/69/69/67定義、実被弾76行/cover減算51件、全戦闘/物理/typed/2,048行skill bankを比較した。Runtime138952byte/元履歴容量を保持し、入力115704/出力2048912word。CUDA/Metalは同じSlangのincoming/分配/シールド/cover phaseを使い、CPUの動的状態を入力しない。
+
+初回d7565091…はsnapshotをcommandsから読む誤りで攻撃/係数0・cover量1となり4不一致。全raw/claim/失敗を保持し、既存results readerのprotectionNumberへ修正した別packageだけを実行した。成功GPU1/失敗GPU1/同claim retry0。新しいownership preflightは入力読取を基礎DEFの2箇所に限定し、3つの誤読取の故障注入をCPU準備前に拒否する。
+
+`cover-defense-battle`を通常sealed、`cover-defense-battle-cache-only`を同じ計算のCUBIN/O1/compile cache/paired生成必須で登録。current-source certificateは同じ完了済みfresh監査/全SHAに結び付けたpure直列化のみ、追加native/GPU0。source-onlyであり実CUDA証拠ではない。修正後の旧entry別生成も従来strict CUDA ea6efec5…/Metal 1a6baa15…を保持。旧GPU再実行0、Windows新依頼0。
+
+公開/defaultは閉じたまま。分類はcanonical SCOPED_INERT、先行数値Metal572、専用CPU、今回の専用Metal戦闘を分離する。全キャラ/全目標は未達。今回GPUの受ける倍率は全0・係数は全100であり、次は元Noah等の非ゼロ被ダメージ倍率を持つ実編成と変動係数、遮蔽物復活の合成を優先する。追加caseは可能なら同entryのgeneration/PSO必須cacheで進め、旧11結果と元効果を保持。 静的確認ではSOW/Noah/Drake/Jackal/Maryは元69定義で、Noah元row12はreceived_hit_count:1・prob:10で全員received_dmg_pct -8%/10秒。確率を書換えず、実発火と非ゼロsnapshotを必須witnessにする。受動primingを入れる場合も元32 node上限を保持。実CUDAは現接続の保存状態確認とcompile-plan後の必要な短い検証だけ。
+
+[契約と実測](portable-cover-defense-battle.md)、証跡 `research/target-count-query-evidence/cover-defense-battle-metal-v1.json`。以下は履歴。
+
 # 2026-10-30 遮蔽物DEFを元の保護層へ接続するCPU契約4件
 
 共通CLI `reference --suite cover-defense-common` が4ケース成功（66.454624秒、GPU/packing0）。通常元69定義／混成67定義を保持し、実被弾15/15/13/33行・遮蔽物減算15/15/5/16件。独立した5基礎DEF、元received単一照会snapshot、元分配人数、シールドcallback後のlive倍率読取を既存simulateの厳密なAST接続で実行。元の時計/HP bank/通知器は再実装しない。被弾13は実死亡後の省略、33は元3人分配であり、15固定の初版検査失敗を保持して修正した。専用CPUモデルでありcanonical/default/game認定ではない。

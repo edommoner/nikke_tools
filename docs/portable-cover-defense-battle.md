@@ -21,3 +21,13 @@
 CUDA/MSLのpaired生成が成功（4.214565秒、Runtime138952byte）。旧entryの現sourceを別生成し、既存strict normalized CUDA ea6efec5…／Metal 1a6baa15…が完全一致した（3.827160秒）。新entryの実GPU計算、旧entryの新sourceでのGPU再認定とは区別する。共通wire/既定拒否/全receipt word/未使用領域/旧source逆変換を検査する。新しい固定packageのCPU全件照合・Metal実行・独立sealを終えるまで、戦闘のGPU対応済みへ昇格しない。
 
 初回M5試行d7565091…は実GPU2.479757秒で終了したが4戦闘とも不一致。snapshotを入力用`loadNumber`で読んでいたため、攻撃/係数が0、遮蔽物量が1になっていた。保存raw/claimを保持し、既存の出力用`protectionNumber`へ修正した別packageで検証する。CPU期待/全11入力は同一であり、比較の緩和は行わない。修正後の`check_schema`には、command読み取りを基礎DEFの2箇所に限定し、snapshot深さが共通Frame容量32と一致することを事前確認するguardも加えた。3つのscalarを個別に誤った入力読み取りへ戻す負例を含む7wire検査成功。元M5試行の判定を後から成功へ変更しない。
+
+## M5戦闘比較と独立seal
+
+修正版23dec48a／package3ed9914b…が全11入力（native4／拒否7）に成功した。実GPU2.477718秒、cold PSO61.963661秒、全CPU事前照合73.244085秒。Runtime138952byteを保持し、全90,152,128byteを保存した。別fresh GPU禁止childの全11監査も88.794047秒で成功し、親oracle receiptの利用なし。4ケースの全戦闘・物理・typed・2,048行スキル履歴・51件の独立cover receiptを比較した。元d7565091…の失敗は保持。成功GPU1／比較失敗GPU1／同claim retry0。
+
+通常は `package --suite cover-defense-battle --out NEW.zip` → `unpack` → 固定packet自身の`run`を使う。`cover-defense-battle-cache-only`は同じ計算/入力/goldenへ既存CUBIN/O1とpaired生成必須を要求し、欠落時のfallback compileをしない。Windows新依頼0、実CUDA/CUBIN hitは未確認。full-source certificateは既に完了した同じfresh独立監査と全golden/source/input/output SHAを照合してpure factoryで直列化し、追加native/GPU実行0。これはCUDA compiler/driver/cacheの証明ではない。
+
+旧entryを修正版sourceから別生成し、CUDA ea6efec5…／Metal 1a6baa15…の既存strict normalized SHAを保持した。新Metal実行を旧entryのGPU再認定へ拡大しない。先行数値572入力、今回の明示モデル戦闘4入力、既定の未対応分類は別の証明範囲。
+
+残件：今回の実GPU receiptは受ける倍率0・係数100だけであり、非ゼロ倍率、変動係数、遮蔽物復活との合成は未検証。次は元の被ダメージ倍率を持つ実編成を選び、同じentry/キャッシュで追加分岐を検証する。基礎DEFのゲームレベル曲線、canonical/default admission、全キャラ/全特殊効果、実CUDAは未完了。
