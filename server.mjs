@@ -12,7 +12,7 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const port = Number(process.env.PORT || 4317);
 const python = resolvePython();
 const jobs = new Map(), cache = new Map();
-const fingerprint = createHash('sha256').update(readFileSync(path.join(root, 'app/engine_worker.py'))).update(readFileSync(path.join(root, 'app/engine_compat.py'))).update(readFileSync(path.join(root, 'app/survival_compat.py'))).update(readFileSync(path.join(root, 'app/survival_scaling_compat.py'))).update(readFileSync(path.join(root, 'app/detail_gpu.py'))).update(readFileSync(path.join(root, 'app/detail_world.py'))).update(readFileSync(path.join(root, 'app/detail_boss.py'))).update(readFileSync(path.join(root, 'app/detail_effects-build.json'))).update(existsSync(path.join(root,'app/detail_effects-sm86.json'))?readFileSync(path.join(root,'app/detail_effects-sm86.json')):'').update(readFileSync(path.join(root, 'app/gpu_service.py'))).update(readFileSync(path.join(root, 'data/import-mappings.json'))).update(readFileSync(path.join(root, 'data/engine-effect-overrides.json'))).update(readFileSync(path.join(root, 'research/engine-probe-results.json'))).digest('hex');
+const fingerprint = createHash('sha256').update(readFileSync(path.join(root, 'app/engine_worker.py'))).update(readFileSync(path.join(root, 'app/engine_compat.py'))).update(readFileSync(path.join(root, 'app/survival_compat.py'))).update(readFileSync(path.join(root, 'app/survival_scaling_compat.py'))).update(readFileSync(path.join(root, 'app/detail_gpu.py'))).update(readFileSync(path.join(root, 'app/detail_world.py'))).update(readFileSync(path.join(root, 'app/detail_boss.py'))).update(readFileSync(path.join(root, 'app/detail_effects-build.json'))).update(existsSync(path.join(root,'app/detail_effects-sm86.json'))?readFileSync(path.join(root,'app/detail_effects-sm86.json')):'').update(readFileSync(path.join(root, 'app/gpu_service.py'))).update(readFileSync(path.join(root,'app/portable_detail.py'))).update(readFileSync(path.join(root,'app/portable_detail_service.py'))).update(readFileSync(path.join(root,'app/portable_backend.py'))).update(readFileSync(path.join(root,'app/portable_runtime.py'))).update(readFileSync(path.join(root, 'data/import-mappings.json'))).update(readFileSync(path.join(root, 'data/engine-effect-overrides.json'))).update(readFileSync(path.join(root, 'research/engine-probe-results.json'))).digest('hex');
 const clone = v => structuredClone(v);
 const stable = v => v && typeof v === 'object' ? Array.isArray(v) ? v.map(stable) : Object.fromEntries(Object.keys(v).sort().map(k => [k, stable(v[k])])) : v;
 let gpuProcess=null,gpuOutput='',gpuRequests=new Map();
@@ -31,12 +31,13 @@ function gpuWorker(body,job){
 process.on('exit',()=>gpuProcess?.kill());
 export function workerTimeoutSeconds(body) {
   // Match portable_runtime.evaluate's default backend.
-  return body.action==='evaluate_portable_events' && (body.backend ?? 'metal')==='metal' ? 630 : 120;
+  return body.action==='evaluate_portable_detail_batch' || body.action==='evaluate_portable_events' && (body.backend ?? 'metal')==='metal' ? 630 : 120;
 }
 function worker(body, job) {
   if(body.action==='gpu_probe'||body.action==='evaluate_detail'||body.action==='evaluate_detail_batch'||body.action==='combat_prefilter'||body.action==='select'&&body.backend==='cuda')return gpuWorker(body,job);
   return new Promise((resolve,reject) => {
-    const child = spawn(python, [path.join(root,'app/engine_worker.py')], {cwd:root, windowsHide:true, env:{...process.env,PYTHONIOENCODING:'utf-8',PYTHONUTF8:'1'}});
+    const script=body.action==='evaluate_portable_detail_batch'?'app/portable_detail_service.py':'app/engine_worker.py';
+    const child = spawn(python, [path.join(root,script)], {cwd:root, windowsHide:true, env:{...process.env,PYTHONIOENCODING:'utf-8',PYTHONUTF8:'1'}});
     if (job) job.child=child;
     let out='', err='';
     // Metal may spend 2*90s generating sources, 300s compiling, then 120s on GPU.
@@ -173,7 +174,7 @@ const server=http.createServer(async(req,res)=>{
     if(req.method==='GET' && assets[url.pathname]) {
       const file=assets[url.pathname];res.writeHead(200,{'Content-Type':(/\.m?js$/.test(file))?'text/javascript; charset=utf-8':file.endsWith('.css')?'text/css; charset=utf-8':'text/html; charset=utf-8','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data: https://sg-tools-cdn.blablalink.com; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"});res.end(readFileSync(path.join(root,'web',file)));return;
     }
-    if(req.method==='GET' && url.pathname==='/api/hardware')return json(res,await worker({action:'gpu_probe'}));
+    if(req.method==='GET' && url.pathname==='/api/hardware')return json(res,{...await worker({action:'gpu_probe'}),metal:{available:process.platform==='darwin',verification:'per-request'}});
     if(req.method==='GET' && url.pathname==='/api/catalog')return json(res,await worker({action:'catalog'}));
     if(req.method==='GET' && url.pathname==='/api/demo')return json(res,await worker({action:'demo',expanded:url.searchParams.get('expanded')==='true',gpu_detail:url.searchParams.get('gpu_detail')==='true'}));
     if(req.method==='POST' && url.pathname==='/api/portable-events')return json(res,await worker(portableEventRequest(await body(req))));

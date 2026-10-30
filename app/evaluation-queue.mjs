@@ -1,7 +1,7 @@
 // Shared cache and ordered batch boundary for both direct and job evaluations.
 export function createEvaluator({worker,keyOf,cache=new Map(),limit=300}) {
   const validate=body=>{
-    if(!['cpu','cuda_detail'].includes(body.compute_backend||'cpu'))throw Error('未対応の詳細計算方法です。');
+    if(!['cpu','cuda_detail','metal_detail'].includes(body.compute_backend||'cpu'))throw Error('未対応の詳細計算方法です。');
     if(body.verify_detail!==undefined&&typeof body.verify_detail!=='boolean')throw Error('CPU照合の指定が不正です。');
   };
   const save=(key,result)=>{
@@ -11,7 +11,7 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300}) {
   };
   async function cpuFallback(body,job,error){
     const result=await worker({...body,action:'evaluate'},job);
-    result.compute={requested:'cuda_detail',backend:'cpu',fallback_reason:'GPUを実行できなかったため、CPUで詳細計算しました。',error:error.message};
+    result.compute={requested:body.compute_backend,backend:'cpu',fallback_reason:'GPUを実行できなかったため、CPUで詳細計算しました。',error:error.message};
     return result;
   }
   async function many(bodies,job){
@@ -25,15 +25,20 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300}) {
         pending.get(key).indices.push(index);
       }catch(error){rows[index]={error:error.message};}
     }
-    const entries=[...pending.values()],gpu=entries.filter(e=>e.body.compute_backend==='cuda_detail');
+    const entries=[...pending.values()];
     const publish=(entry,row)=>{
       const value=row.error?row:{result:save(entry.key,row.result)};
       for(const index of entry.indices)rows[index]=structuredClone(value);
     };
-    if(gpu.length){
+    // Metal runs in a fresh worker because original preparation uses temporary
+    // global aliases. Preserve ordering/cache semantics without a second queue.
+    const batches=[entries.filter(e=>e.body.compute_backend==='cuda_detail'),
+      ...entries.filter(e=>e.body.compute_backend==='metal_detail').map(e=>[e])].filter(b=>b.length);
+    for(const gpu of batches){
       let outputs;
       try{
-        outputs=await worker({action:'evaluate_detail_batch',evaluations:gpu.map(e=>e.body)},job);
+        const action=gpu[0].body.compute_backend==='metal_detail'?'evaluate_portable_detail_batch':'evaluate_detail_batch';
+        outputs=await worker({action,evaluations:gpu.map(e=>e.body)},job);
         if(!Array.isArray(outputs)||outputs.length!==gpu.length||outputs.some(r=>!r||!(typeof r.error==='string'||r.result&&typeof r.result==='object')))throw Error('GPUの計算結果の形式が不正です。');
       }catch(error){
         outputs=[];
@@ -46,7 +51,7 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300}) {
       }
       gpu.forEach((entry,i)=>publish(entry,outputs[i]));
     }
-    for(const entry of entries.filter(e=>e.body.compute_backend!=='cuda_detail')){
+    for(const entry of entries.filter(e=>!['cuda_detail','metal_detail'].includes(e.body.compute_backend))){
       try{publish(entry,{result:await worker({...entry.body,action:'evaluate'},job)});}
       catch(error){publish(entry,{error:error.message});}
     }

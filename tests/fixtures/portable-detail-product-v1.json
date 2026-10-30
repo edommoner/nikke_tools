@@ -1,0 +1,595 @@
+{
+  "body": {
+    "profile": {
+      "chars": {
+        "미란다": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 0,
+          "affinity": 30,
+          "skill_levels": {
+            "1": 10,
+            "2": 10,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 5,
+              "skills": []
+            },
+            "몸통": {
+              "level": 5,
+              "skills": []
+            },
+            "팔": {
+              "level": 5,
+              "skills": []
+            },
+            "다리": {
+              "level": 5,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": 22.22,
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": 0,
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "__none__",
+            "level": 0
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "없음",
+          "favorite_stage": 0
+        },
+        "도라": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 0,
+          "affinity": 30,
+          "skill_levels": {
+            "1": 10,
+            "2": 10,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 5,
+              "skills": []
+            },
+            "몸통": {
+              "level": 5,
+              "skills": []
+            },
+            "팔": {
+              "level": 5,
+              "skills": []
+            },
+            "다리": {
+              "level": 5,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": 22.22,
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": 0,
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "__none__",
+            "level": 0
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "없음",
+          "favorite_stage": 0
+        },
+        "N102": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 0,
+          "affinity": 30,
+          "skill_levels": {
+            "1": 10,
+            "2": 10,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 5,
+              "skills": []
+            },
+            "몸통": {
+              "level": 5,
+              "skills": []
+            },
+            "팔": {
+              "level": 5,
+              "skills": []
+            },
+            "다리": {
+              "level": 5,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": 22.22,
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": 0,
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "__none__",
+            "level": 0
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "없음",
+          "favorite_stage": 0
+        },
+        "메어리": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 0,
+          "affinity": 30,
+          "skill_levels": {
+            "1": 10,
+            "2": 10,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 5,
+              "skills": []
+            },
+            "몸통": {
+              "level": 5,
+              "skills": []
+            },
+            "팔": {
+              "level": 5,
+              "skills": []
+            },
+            "다리": {
+              "level": 5,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": 22.22,
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": 0,
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "__none__",
+            "level": 0
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "없음",
+          "favorite_stage": 0
+        },
+        "드레이크": {
+          "level": 400,
+          "breakthrough": 3,
+          "core_enhancement": 0,
+          "affinity": 30,
+          "skill_levels": {
+            "1": 10,
+            "2": 10,
+            "3": 10
+          },
+          "equipment": {
+            "머리": {
+              "level": 5,
+              "skills": []
+            },
+            "몸통": {
+              "level": 5,
+              "skills": []
+            },
+            "팔": {
+              "level": 5,
+              "skills": []
+            },
+            "다리": {
+              "level": 5,
+              "skills": []
+            }
+          },
+          "equip_skills": {
+            "atk_pct": 22.22,
+            "element_bonus": 88.6,
+            "max_ammo_pct": 129.64,
+            "crit_rate": 0,
+            "crit_dmg": 0,
+            "charge_speed_pct": 0,
+            "charge_dmg_pct": 0,
+            "accuracy_pct": 0,
+            "def_pct": 0
+          },
+          "cube": {
+            "name": "__none__",
+            "level": 0
+          },
+          "console": {
+            "common_level": 180,
+            "class_level": 100,
+            "company_level": 100
+          },
+          "collection_stage": "없음",
+          "favorite_stage": 0
+        }
+      },
+      "_account": {
+        "console": {
+          "common_level": 180,
+          "class_level": 100,
+          "company_level": 100
+        }
+      }
+    },
+    "squad": [
+      "미란다",
+      "도라",
+      "N102",
+      "메어리",
+      "드레이크"
+    ],
+    "duration": 30,
+    "level": 400,
+    "enemy": {
+      "def": 31784,
+      "code": "풍압",
+      "core_px": 50,
+      "distance": 25
+    },
+    "burst_policy": "auto",
+    "burst_gauge_mode": "accumulate",
+    "compute_backend": "metal_detail",
+    "verify_detail": true
+  },
+  "gpu_projection": {
+    "status": 0,
+    "queries": [
+      {
+        "damage": [
+          25252871.0,
+          9427527.0,
+          6217339.0,
+          13562770.0,
+          55163867.0
+        ]
+      }
+    ],
+    "burst_trace": [
+      {
+        "time": 2.8999999999999946,
+        "event": 6,
+        "owner": -1
+      },
+      {
+        "time": 2.8999999999999946,
+        "event": 1,
+        "owner": 0
+      },
+      {
+        "time": 2.9999999999999942,
+        "event": 2,
+        "owner": 1
+      },
+      {
+        "time": 3.099999999999994,
+        "event": 3,
+        "owner": 4
+      },
+      {
+        "time": 3.483333333333326,
+        "event": 4,
+        "owner": -1
+      },
+      {
+        "time": 13.483333333333583,
+        "event": 5,
+        "owner": -1
+      },
+      {
+        "time": 17.53333333333362,
+        "event": 6,
+        "owner": -1
+      },
+      {
+        "time": 21.083333333333417,
+        "event": 1,
+        "owner": 0
+      },
+      {
+        "time": 21.18333333333341,
+        "event": 2,
+        "owner": 1
+      }
+    ],
+    "burst_trace_total": 9
+  },
+  "cpu_payload": {
+    "schema_version": 2,
+    "total_damage": 109624374,
+    "members": [
+      {
+        "name": "미란다",
+        "damage": 25252871,
+        "share": 0.23035817746151965
+      },
+      {
+        "name": "도라",
+        "damage": 9427527,
+        "share": 0.08599845687602284
+      },
+      {
+        "name": "N102",
+        "damage": 6217339,
+        "share": 0.05671493275756357
+      },
+      {
+        "name": "메어리",
+        "damage": 13562770,
+        "share": 0.12372038721972542
+      },
+      {
+        "name": "드레이크",
+        "damage": 55163867,
+        "share": 0.5032080456851685
+      }
+    ],
+    "duration": 30,
+    "expected": true,
+    "seed": 0,
+    "boss": {
+      "def": 31784,
+      "code": "풍압",
+      "core_px": 50,
+      "has_parts": false,
+      "part_break_interval": 0.0,
+      "optimal_range_weapons": [],
+      "distance": 25,
+      "coord": null,
+      "atk": 114344,
+      "patterns": []
+    },
+    "boss_label": null,
+    "spec": {
+      "baseline": "profile",
+      "at_baseline": false,
+      "char_defaults": {
+        "applied": [],
+        "skipped": [
+          "미란다",
+          "도라",
+          "N102",
+          "메어리",
+          "드레이크"
+        ]
+      },
+      "deviated": [
+        "미란다",
+        "도라",
+        "N102",
+        "메어리",
+        "드레이크"
+      ],
+      "deviations": {
+        "미란다": [
+          {
+            "key": "control",
+            "baseline": "없음",
+            "value": {},
+            "source": "override"
+          },
+          {
+            "key": "control.burst",
+            "baseline": {
+              "pattern": "전담"
+            },
+            "value": "없음",
+            "source": "override"
+          },
+          {
+            "key": "cube.name",
+            "baseline": "렐릭 어설트 큐브",
+            "value": "__none__",
+            "source": "override"
+          }
+        ],
+        "도라": [
+          {
+            "key": "cube.name",
+            "baseline": "렐릭 어설트 큐브",
+            "value": "__none__",
+            "source": "override"
+          }
+        ],
+        "N102": [
+          {
+            "key": "cube.name",
+            "baseline": "렐릭 어설트 큐브",
+            "value": "__none__",
+            "source": "override"
+          }
+        ],
+        "메어리": [
+          {
+            "key": "cube.name",
+            "baseline": "렐릭 어설트 큐브",
+            "value": "__none__",
+            "source": "override"
+          }
+        ],
+        "드레이크": [
+          {
+            "key": "cube.name",
+            "baseline": "렐릭 어설트 큐브",
+            "value": "__none__",
+            "source": "override"
+          }
+        ]
+      },
+      "tactics": {},
+      "profile": {
+        "name": "인라인",
+        "level_mode": "fixed",
+        "source": "inline",
+        "base": "ungrown",
+        "ungrown": []
+      },
+      "preview": [],
+      "text": "⚠ 인라인 육성 프로필 '인라인' 적용 — 고정 스펙 아님. 다른 보고서와 총딜을 직접 비교하지 않는다. (레벨 400 고정 (솔로레이드 기준), 항목 5종, 적지 않은 니케는 미육성)\n⚠ 애장품 단계가 3 미만인 캐릭터: 미란다 0단계, 도라 0단계, N102 0단계, 메어리 0단계, 드레이크 0단계. 그 단계의 스킬 판본으로 계산했다 — 기본 스펙(3단계)보다 딜이 낮게 나오는 게 정상이다.\n⚠ 프로필(2.5층) 이탈 5명 —\n  [미란다] control: 없음 → 없음  (지정)\n  [미란다] control.burst: {pattern=전담} → 없음  (지정)\n  [미란다] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [도라] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [N102] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [메어리] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [드레이크] cube.name: 렐릭 어설트 큐브 → __none__  (지정)"
+    },
+    "control": null,
+    "control_detail": {
+      "mode": "solo",
+      "camera_mode": "single",
+      "by_char": {},
+      "max_concurrent": 0,
+      "overlap_t": 0.0,
+      "overlaps": [],
+      "preempted": {}
+    },
+    "warnings": [
+      "인라인 육성 프로필 '인라인' 적용 — 고정 스펙 아님. 다른 보고서와 총딜을 직접 비교하지 않는다. (레벨 400 고정 (솔로레이드 기준), 항목 5종, 적지 않은 니케는 미육성)",
+      "애장품 단계가 3 미만인 캐릭터: 미란다 0단계, 도라 0단계, N102 0단계, 메어리 0단계, 드레이크 0단계. 그 단계의 스킬 판본으로 계산했다 — 기본 스펙(3단계)보다 딜이 낮게 나오는 게 정상이다.",
+      "프로필(2.5층) 이탈 5명 — 미란다, 도라, N102, 메어리, 드레이크"
+    ],
+    "evaluator": {
+      "repo": "Jgaram/nikke-calc",
+      "commit": "168f1bbf65957a85ba48a58699e585f74aa5ad91",
+      "dirty": true
+    },
+    "burst_policy": "auto",
+    "shooting_policy": "auto",
+    "weapon_mode_swap": false,
+    "burst_gauge_mode": "accumulate",
+    "requested_burst_policy": "auto",
+    "burst_patterns": {},
+    "burst_timeline": [
+      {
+        "time": 0.0,
+        "event": "카메라 초점: N102",
+        "character": ""
+      },
+      {
+        "time": 2.9,
+        "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+        "character": ""
+      },
+      {
+        "time": 2.9,
+        "event": "stage:1 사용",
+        "character": "미란다"
+      },
+      {
+        "time": 3.0,
+        "event": "stage:2 사용",
+        "character": "도라"
+      },
+      {
+        "time": 3.1,
+        "event": "stage:3 사용",
+        "character": "드레이크"
+      },
+      {
+        "time": 3.483,
+        "event": "full_burst 시작",
+        "character": ""
+      },
+      {
+        "time": 13.483,
+        "event": "full_burst 종료",
+        "character": ""
+      },
+      {
+        "time": 17.533,
+        "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+        "character": ""
+      },
+      {
+        "time": 21.083,
+        "event": "stage:1 사용",
+        "character": "미란다"
+      },
+      {
+        "time": 21.183,
+        "event": "stage:2 사용",
+        "character": "도라"
+      }
+    ],
+    "base_stats": {
+      "미란다": {
+        "atk": 97376,
+        "def": 17799,
+        "hp": 3000314
+      },
+      "도라": {
+        "atk": 97376,
+        "def": 17458,
+        "hp": 3000314
+      },
+      "N102": {
+        "atk": 89399,
+        "def": 18072,
+        "hp": 2441844
+      },
+      "메어리": {
+        "atk": 97376,
+        "def": 19377,
+        "hp": 3000314
+      },
+      "드레이크": {
+        "atk": 116338,
+        "def": 17544,
+        "hp": 2715916
+      }
+    },
+    "hypothetical": false,
+    "engine_revision": "23164e4a88fe46af609cc99b0de38a98313a5f4d",
+    "app_warnings": [
+      "固定条件の静止ボスを仮定した参考値です。ボス固有パターンと生存は未検証です。"
+    ]
+  }
+}

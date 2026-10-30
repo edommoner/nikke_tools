@@ -44,3 +44,25 @@ test('cancel publishes nothing; search fails in order; optimize advances over er
  assert.equal(optimize.index,34);assert.equal(optimize.results[1].error,'bad');
  await assert.rejects(evaluator.many(Array.from({length:33},(_,i)=>body(i))),/32/);
 });
+test('shared Metal uses isolated product workers and the same ordered cache',async()=>{
+ const calls=[];
+ const evaluator=make(async request=>{
+   calls.push(request);
+   if(request.action==='evaluate')return {total_damage:request.id};
+   return request.evaluations.map(b=>({result:{total_damage:b.id,compute:{backend:b.compute_backend}}}));
+ });
+ const metal=id=>({id,compute_backend:'metal_detail'});
+ const rows=await evaluator.many([metal(1),body(2),metal(3),metal(1),{id:4}]);
+ assert.deepEqual(rows.map(r=>r.result.total_damage),[1,2,3,1,4]);
+ assert.deepEqual(calls.map(r=>r.action),['evaluate_detail_batch','evaluate_portable_detail_batch','evaluate_portable_detail_batch','evaluate']);
+ assert.ok(calls.filter(r=>r.action==='evaluate_portable_detail_batch').every(r=>r.evaluations.length===1));
+ assert.equal((await evaluator.one(metal(1))).cache_hit,true);assert.equal(calls.length,4);
+});
+test('shared Metal worker unavailability falls back with its own requested label',async()=>{
+ const evaluator=make(async request=>{
+   if(request.action==='evaluate_portable_detail_batch')throw Object.assign(Error('offline'),{gpuUnavailable:true});
+   return {total_damage:7};
+ });
+ const result=await evaluator.one({id:7,compute_backend:'metal_detail'});
+ assert.equal(result.compute.backend,'cpu');assert.equal(result.compute.requested,'metal_detail');
+});

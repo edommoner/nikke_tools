@@ -1,3 +1,13 @@
+# 2026-10-30 通常製品API→共通Metal→製品レスポンスが初めて全一致
+
+app/portable_detail.pyとfresh workerを追加し、既存evaluation-queue/serverの通常/api/jobs（board）と画面のMetal詳細＋CPU照合へ接続。元engine_workerのstatic hookでRunを捕捉、育成/武器/seed/敵/設定と全71効果を保持してcompile_projectile_battle→既存world_projectile_resident_entryを実行。CPU戦闘はGPU readback後の照合だけ。元sim.payloadと既存decodeを利用し、製品レスポンスの全key/値を比較する。保護4ファイル・Slang・数値規約変更0、新suite0。
+
+M5で元ミランダ/ドラー/N102/メアリー/ドレイクの30秒1リクエストがmetal_detailとして成功、GPU1.756293秒/初回pipeline7.405801秒/全体14.553142秒。部隊・各member・burst・基礎stat・spec/control/warnings等、compute以外の製品レスポンス全体がCPUと完全一致。通常APIの同一要求はcache_hitで戻り追加GPU/CPU戦闘0。固定周期はGPU前にCPUへ戻り、既存UI形式の理由配列を返す。実GPU1回、通常API成功1ケースであり266profile sweep成功数は0。証拠research/target-count-query-evidence/product-metal-api-v1.json、元request/readback/CPU/GPU応答はpersistent proof rootのproduct-metal-api-v1-20261030に保持。
+
+対象は現時点でexpected/ゲージ実蓄積・共通compilerが受理する静止boss/自動操作。profile名の固定allowlistは使わず、各requestの全準備/validatorとCPU照合で確認する。固定周期・製品boss/parts履歴・手動操作の結果変換は明示CPU fallback。GPU差分はCPU結果を返しGPU成功と表示しない。MacのMetal選択肢は有効だが既定CPUは維持。旧CUDA詳細と選択workerは維持、現在の共通CUDA製品経路は未接続。
+
+Python product4/legacy service4/Web42検査成功。Webの初回sandbox待受EPERMは保持し、通常権限の同じテストで全件成功。初回testのunittest.run属性衝突はテストだけ修正。再確認のためのGPU再実行/最終CPU全sweep/新certificateは作らない。4327はworktree確認用（4317ユーザー既存serverへ影響なし）。一時server再起動後に完了済みGPU要求を再送せずCPU fallbackのみ確認した。通常UIのMetal option有効化もブラウザで確認。次は同じ製品APIへ元profileを小batchで通し、失敗原因を直す。全目標はactive。以下は履歴。
+
 # 2026-10-30 Claude Codeとの2回の相談による進め方の修正
 
 ユーザーから「進まない原因をClaudeと相談」の依頼。Claude Codeをplan/Read/Grep/Glob限定で2回実行し、所見をコードで再検証。主因は、新共通GPUのprivate suiteでの成功が通常製品APIへ接続されないこと、suite/certificate/inventory整備の自己増殖、CPU戦闘の繰り返し。時点9b67799eでregistry693（compiler専用312/cache-only43、動的alias含む）、10/18以降1005commit。693個の独立エンジンという意味ではない。app/evaluation-queue.mjs:4はcpu/cuda_detailだけ。server→gpu_service→detail_gpuのlegacy CUDA実績は存在する。portable-events APIは外部刺激用で自律戦闘の製品接続ではない。
