@@ -1,0 +1,28 @@
+{
+  "schema": "product-fixed-compact-v4-cpu-report",
+  "files": [
+    {
+      "path": "compact-preparation.json",
+      "bytes": 21066,
+      "sha256": "b84f779ee29434a4c659cee62a2ce17fc0d9f3fb5e7af4f5a53c75f331598979"
+    },
+    {
+      "path": "golden-preservation.json",
+      "bytes": 5080,
+      "sha256": "2f5f8bd91956115158d89574a8e2a85e9790ad5a33383251a512f56a01f608ea"
+    },
+    {
+      "path": "profile-top30.json",
+      "bytes": 9976,
+      "sha256": "3947453e78749cd8fec7524981832711a89bb269200a8cf3a332ac41e8041269"
+    },
+    {
+      "path": "stages-condensed.json",
+      "bytes": 6957,
+      "sha256": "206722c4f354eda64a3b57619044ac14f80275ed6aa4ead2cdd3e98cc3557c67"
+    }
+  ],
+  "original_preparation_sha256": "6bd904ab0ad781fc7c5f349d93345a0ff05f7a119205faaa88896a7d7fafeecc",
+  "pstats_shared": false,
+  "private_paths_or_process_snapshots_shared": false
+}

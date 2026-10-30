@@ -1,0 +1,324 @@
+{
+  "schema": "compact-v4-verify-cprofile-v1",
+  "passed": true,
+  "package_id": "54ba1da6512c86cbecec02fb4213f3e3e4804a180a5d0a4cb53d4fa99af2c044",
+  "files": 2685,
+  "wall_seconds": 8.469661900307983,
+  "process_cpu_seconds": 18.296875,
+  "top30_cumulative": [
+    {
+      "file": "_base.py",
+      "line": 612,
+      "function": "result_iterator",
+      "primitive_calls": 2686,
+      "total_calls": 2686,
+      "internal_seconds": 0.0049817,
+      "cumulative_seconds": 17.709852
+    },
+    {
+      "file": "_base.py",
+      "line": 314,
+      "function": "_result_or_cancel",
+      "primitive_calls": 2685,
+      "total_calls": 2685,
+      "internal_seconds": 0.0233934,
+      "cumulative_seconds": 17.267830200000002
+    },
+    {
+      "file": "_base.py",
+      "line": 428,
+      "function": "result",
+      "primitive_calls": 2685,
+      "total_calls": 2685,
+      "internal_seconds": 0.0266072,
+      "cumulative_seconds": 16.919218100000002
+    },
+    {
+      "file": "threading.py",
+      "line": 323,
+      "function": "wait",
+      "primitive_calls": 4272,
+      "total_calls": 4272,
+      "internal_seconds": 0.011536600000000001,
+      "cumulative_seconds": 8.5094586
+    },
+    {
+      "file": "scripts/nikke_gpu.py",
+      "line": 992,
+      "function": "verify_package",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "internal_seconds": 0.0009885,
+      "cumulative_seconds": 8.468442600000001
+    },
+    {
+      "file": "app/portable_capture_storage.py",
+      "line": 21,
+      "function": "<lambda>",
+      "primitive_calls": 369,
+      "total_calls": 5370,
+      "internal_seconds": 0.15895730000000002,
+      "cumulative_seconds": 8.4538358
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'acquire' of '_thread.lock' objects>",
+      "primitive_calls": 3191,
+      "total_calls": 13944,
+      "internal_seconds": 0.17630880000000002,
+      "cumulative_seconds": 8.314675900000001
+    },
+    {
+      "file": "scripts/nikke_gpu.py",
+      "line": 931,
+      "function": "check_records",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "internal_seconds": 0.0014589000000000002,
+      "cumulative_seconds": 8.1130636
+    },
+    {
+      "file": "_base.py",
+      "line": 646,
+      "function": "__exit__",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "internal_seconds": 3.9e-06,
+      "cumulative_seconds": 8.0949168
+    },
+    {
+      "file": "thread.py",
+      "line": 220,
+      "function": "shutdown",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "internal_seconds": 1.11e-05,
+      "cumulative_seconds": 8.0949129
+    },
+    {
+      "file": "threading.py",
+      "line": 1117,
+      "function": "join",
+      "primitive_calls": 4,
+      "total_calls": 4,
+      "internal_seconds": 2.8100000000000002e-05,
+      "cumulative_seconds": 8.0948885
+    },
+    {
+      "file": "threading.py",
+      "line": 1155,
+      "function": "_wait_for_tstate_lock",
+      "primitive_calls": 4,
+      "total_calls": 4,
+      "internal_seconds": 1.52e-05,
+      "cumulative_seconds": 8.094812000000001
+    },
+    {
+      "file": "threading.py",
+      "line": 1018,
+      "function": "_bootstrap",
+      "primitive_calls": 1,
+      "total_calls": 4,
+      "internal_seconds": 1.63e-05,
+      "cumulative_seconds": 8.0946551
+    },
+    {
+      "file": "threading.py",
+      "line": 1058,
+      "function": "_bootstrap_inner",
+      "primitive_calls": 1,
+      "total_calls": 4,
+      "internal_seconds": 0.0007308000000000001,
+      "cumulative_seconds": 8.0946497
+    },
+    {
+      "file": "threading.py",
+      "line": 1001,
+      "function": "run",
+      "primitive_calls": 1,
+      "total_calls": 4,
+      "internal_seconds": 3.13e-05,
+      "cumulative_seconds": 8.0939332
+    },
+    {
+      "file": "thread.py",
+      "line": 70,
+      "function": "_worker",
+      "primitive_calls": 1,
+      "total_calls": 4,
+      "internal_seconds": 3.58e-05,
+      "cumulative_seconds": 8.0939256
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'get' of '_queue.SimpleQueue' objects>",
+      "primitive_calls": 1,
+      "total_calls": 4,
+      "internal_seconds": 0.00033120000000000003,
+      "cumulative_seconds": 8.093867900000001
+    },
+    {
+      "file": "app/portable_capture_storage.py",
+      "line": 18,
+      "function": "file_digest",
+      "primitive_calls": 9,
+      "total_calls": 2685,
+      "internal_seconds": 0.027781200000000002,
+      "cumulative_seconds": 8.0924872
+    },
+    {
+      "file": "thread.py",
+      "line": 54,
+      "function": "run",
+      "primitive_calls": 1,
+      "total_calls": 2685,
+      "internal_seconds": 0.0215961,
+      "cumulative_seconds": 8.0907906
+    },
+    {
+      "file": "scripts/nikke_gpu.py",
+      "line": 940,
+      "function": "<lambda>",
+      "primitive_calls": 1,
+      "total_calls": 2685,
+      "internal_seconds": 0.0249237,
+      "cumulative_seconds": 8.090765300000001
+    },
+    {
+      "file": "scripts/nikke_gpu.py",
+      "line": 917,
+      "function": "file_records",
+      "primitive_calls": 1,
+      "total_calls": 2685,
+      "internal_seconds": 0.2725038,
+      "cumulative_seconds": 8.0895613
+    },
+    {
+      "file": "pathlib.py",
+      "line": 842,
+      "function": "lstat",
+      "primitive_calls": 1762,
+      "total_calls": 2685,
+      "internal_seconds": 0.010213600000000001,
+      "cumulative_seconds": 0.7114280000000001
+    },
+    {
+      "file": "pathlib.py",
+      "line": 835,
+      "function": "stat",
+      "primitive_calls": 1947,
+      "total_calls": 2870,
+      "internal_seconds": 0.007174600000000001,
+      "cumulative_seconds": 0.5052271
+    },
+    {
+      "file": "pathlib.py",
+      "line": 1005,
+      "function": "open",
+      "primitive_calls": 1762,
+      "total_calls": 2865,
+      "internal_seconds": 0.0060314,
+      "cumulative_seconds": 0.3866448
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'read' of '_io.BufferedReader' objects>",
+      "primitive_calls": 552,
+      "total_calls": 5553,
+      "internal_seconds": 5.9493432,
+      "cumulative_seconds": 0.3310639
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method _io.open>",
+      "primitive_calls": 1762,
+      "total_calls": 2865,
+      "internal_seconds": 0.37602660000000004,
+      "cumulative_seconds": 0.31254770000000004
+    },
+    {
+      "file": "app/portable_slang_generation.py",
+      "line": 6,
+      "function": "source_hashes",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "internal_seconds": 6.300000000000001e-06,
+      "cumulative_seconds": 0.31080250000000004
+    },
+    {
+      "file": "app/portable_slang_generation.py",
+      "line": 8,
+      "function": "visit",
+      "primitive_calls": 1,
+      "total_calls": 185,
+      "internal_seconds": 0.0049453000000000006,
+      "cumulative_seconds": 0.3107809
+    },
+    {
+      "file": "pathlib.py",
+      "line": 437,
+      "function": "__str__",
+      "primitive_calls": 6845,
+      "total_calls": 6845,
+      "internal_seconds": 0.042995500000000006,
+      "cumulative_seconds": 0.27866810000000003
+    },
+    {
+      "file": "pathlib.py",
+      "line": 447,
+      "function": "__fspath__",
+      "primitive_calls": 5920,
+      "total_calls": 5920,
+      "internal_seconds": 0.009286200000000001,
+      "cumulative_seconds": 0.2778495
+    }
+  ],
+  "total_profile_calls": 707342,
+  "primitive_profile_calls": 666431,
+  "profiled_internal_seconds": 8.468471099999999,
+  "profile_scope": "Standard cProfile.runcall was used once without per-thread hooks. Worker-thread function frames appear in saved stats; thread attribution is not established.",
+  "timing_scope": "One profiled verify call after own CLI import; includes profiler overhead. Not comparable as a speed benchmark to old unprofiled10.650s. wall/CPU difference does not identify I/O waits or contention.",
+  "cumulative_scope": "Nested cumulative function times overlap; do not add them.",
+  "pstats_retained_locally": true,
+  "compiler_calls": 0,
+  "gpu_calls": 0,
+  "cpu_battle_calls": 0,
+  "test_runs": 0,
+  "timing_integrity": {
+    "individual_function_time_attribution_verified": false,
+    "internal_exceeds_cumulative_rows": [
+      {
+        "file": "~",
+        "function": "<method 'read' of '_io.BufferedReader' objects>",
+        "internal_seconds": 5.9493432,
+        "cumulative_seconds": 0.3310639
+      },
+      {
+        "file": "~",
+        "function": "<built-in method _io.open>",
+        "internal_seconds": 0.37602660000000004,
+        "cumulative_seconds": 0.31254770000000004
+      },
+      {
+        "file": "~",
+        "function": "<built-in method nt.stat>",
+        "internal_seconds": 0.2652276,
+        "cumulative_seconds": 0.24953240000000002
+      },
+      {
+        "file": "~",
+        "function": "<method 'update' of '_hashlib.HASH' objects>",
+        "internal_seconds": 0.06189530000000001,
+        "cumulative_seconds": 0.060627400000000005
+      }
+    ],
+    "cumulative_exceeds_wall_rows": 4,
+    "interpretation": "Preserve the exact top30 values; do not infer per-function percentages, bottleneck, I/O waits or contention. Cause of these profile inconsistencies is unknown.",
+    "retry_performed": false
+  },
+  "thread_coverage_limitation": "Ordinary cProfile is a calling/main-thread view. Four-reader worker open/read/hash coverage is not complete or reliably attributed. Saved worker-named frames and inconsistent internal/cumulative values do not establish complete worker profiling. process_time covers process threads. Lock/Future times do not identify I/O or CPU contention. No cross-platform timing comparison."
+}

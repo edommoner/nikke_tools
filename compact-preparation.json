@@ -1,0 +1,560 @@
+{
+  "schema": "product-fixed-compact-v4-cpu-preparation-v1",
+  "passed": true,
+  "packet": "packet",
+  "verification": {
+    "passed": true,
+    "package_id": "54ba1da6512c86cbecec02fb4213f3e3e4804a180a5d0a4cb53d4fa99af2c044",
+    "files": 2685,
+    "source_commit": "a7cf715d0a6735097a2c6185464e6d11eddeda3d",
+    "suite": "product-detail",
+    "product_program": "fixed",
+    "purpose": "sealed",
+    "verify_call_seconds": 10.6501347,
+    "golden_equal_to_old_eda": true,
+    "all_old_fixtures_identical": true,
+    "old_fixture_count": 376,
+    "golden_sha256": "0ac9a6fc5de6d76395871227d303e9f00529a706cbb5d04750c794479b86e937",
+    "payload_projection": {
+      "profile": "selected-suite-python-v1",
+      "roots": [
+        "research/portable_phase_audit.py",
+        "research/run-world-bounded.py",
+        "research/summarize-portable-cross-gpu.py",
+        "research/verify-product-detail.py",
+        "tests/test_counter_field_decoder.py",
+        "tests/test_package_payload_reuse.py",
+        "tests/test_portable_arena_specs.py",
+        "tests/test_portable_authored_case_purity.py",
+        "tests/test_portable_cache_fs_compression.py",
+        "tests/test_portable_comparison_groups.py",
+        "tests/test_portable_compile_cache.py",
+        "tests/test_portable_compiler_certificate.py",
+        "tests/test_portable_compiler_diagnostic.py",
+        "tests/test_portable_cpu_batch.py",
+        "tests/test_portable_cuda_artifact.py",
+        "tests/test_portable_cuda_cached_profile.py",
+        "tests/test_portable_cuda_memory_observation.py",
+        "tests/test_portable_definition_view.py",
+        "tests/test_portable_detail.py",
+        "tests/test_portable_development_expectations.py",
+        "tests/test_portable_device_linker.py",
+        "tests/test_portable_file_transport.py",
+        "tests/test_portable_generation_cache.py",
+        "tests/test_portable_generation_gate.py",
+        "tests/test_portable_generation_separation.py",
+        "tests/test_portable_gpu_cli.py",
+        "tests/test_portable_historical_projection.py",
+        "tests/test_portable_input_extension.py",
+        "tests/test_portable_jit_link.py",
+        "tests/test_portable_jit_link_capture.py",
+        "tests/test_portable_job_limits.py",
+        "tests/test_portable_linked_artifact.py",
+        "tests/test_portable_metal_cache.py",
+        "tests/test_portable_metal_cache_probe.py",
+        "tests/test_portable_metal_device.py",
+        "tests/test_portable_metal_wire_refresh.py",
+        "tests/test_portable_migration_receipt_reuse.py",
+        "tests/test_portable_module_check.py",
+        "tests/test_portable_module_object.py",
+        "tests/test_portable_native_group_stage.py",
+        "tests/test_portable_native_output_probe.py",
+        "tests/test_portable_native_process.py",
+        "tests/test_portable_object_recovery.py",
+        "tests/test_portable_offline_assembly.py",
+        "tests/test_portable_package_projection.py",
+        "tests/test_portable_packet_file_diagnostics.py",
+        "tests/test_portable_packet_stage.py",
+        "tests/test_portable_partition_object.py",
+        "tests/test_portable_prepared_audit.py",
+        "tests/test_portable_prepared_input.py",
+        "tests/test_portable_prepared_runner.py",
+        "tests/test_portable_prepared_stage.py",
+        "tests/test_portable_ptx_callgraph.py",
+        "tests/test_portable_ptx_partition.py",
+        "tests/test_portable_ptx_stats.py",
+        "tests/test_portable_python_dependencies.py",
+        "tests/test_portable_query_boundaries.py",
+        "tests/test_portable_readback_blocks.py",
+        "tests/test_portable_readback_recovery.py",
+        "tests/test_portable_readback_stream.py",
+        "tests/test_portable_regression_compact.py",
+        "tests/test_portable_required_cache_preflight.py",
+        "tests/test_portable_scope_snapshot_audit.py",
+        "tests/test_portable_snapshot_failure.py",
+        "tests/test_portable_sparse_raw.py",
+        "tests/test_portable_staged_continuation.py",
+        "tests/test_portable_staged_preflight.py",
+        "tests/test_portable_staged_tests.py",
+        "tests/test_portable_storage_budget.py",
+        "tests/test_portable_test_golden_supplement.py",
+        "tests/test_portable_test_repackage.py",
+        "tests/test_portable_unit_check.py",
+        "tests/test_portable_weapon_phases.py",
+        "tests/test_portable_windows_cleanup.py",
+        "tests/test_portable_windows_observer.py",
+        "tests/test_portable_wire_layout.py",
+        "tests/test_product_detail_packet.py",
+        "tests/test_required_metal_cache_preflight.py",
+        "tests/test_resident_arc_retention.py",
+        "tests/test_typed_owner_observer_migration.py",
+        "tests/test_weighted_source_contract.py"
+      ],
+      "original_files": 4174,
+      "retained_files": 2685,
+      "omitted_files": 1489,
+      "omitted_bytes": 5352792,
+      "original_names_sha256": "0b2adce11eed8117ad9a6695e57076c34e32301f990bd0ab68cc6be864bf8620",
+      "calculation_verified": false,
+      "gpu_calls": 0
+    },
+    "omitted_records_count": 1489
+  },
+  "unit_result": {
+    "schema": "unit-check-v1",
+    "package_id": "54ba1da6512c86cbecec02fb4213f3e3e4804a180a5d0a4cb53d4fa99af2c044",
+    "suite": "product-detail",
+    "passed": true,
+    "unit_tests_verified": true,
+    "full_native_preflight_executed": false,
+    "cpu_verified": false,
+    "calculation_verified": false,
+    "gpu_execution_verified": false,
+    "gpu_calls": 0,
+    "full_character_verified": 0,
+    "full_goal_complete": false,
+    "groups": 3,
+    "tests": 39
+  },
+  "unit_groups": [
+    {
+      "pattern": "test_portable_detail.py",
+      "exit_code": 0,
+      "elapsed_seconds": 16.115122700110078,
+      "tests": 27,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_product_detail_packet.py",
+      "exit_code": 0,
+      "elapsed_seconds": 2.280364400241524,
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "pattern": "test_weighted_source_contract.py",
+      "exit_code": 0,
+      "elapsed_seconds": 3.9297404000535607,
+      "tests": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "dependency_result": {
+    "schema": 1,
+    "passed": true,
+    "dependencies": [],
+    "requirements_file": null,
+    "installation_performed": false,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "scope": "Selected validation tests only; package metadata and import availability, not GPU or numerical correctness",
+    "suite": "product-detail",
+    "package_id": "54ba1da6512c86cbecec02fb4213f3e3e4804a180a5d0a4cb53d4fa99af2c044"
+  },
+  "ptx_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "54ba1da6512c86cbecec02fb4213f3e3e4804a180a5d0a4cb53d4fa99af2c044",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "transfer_result": {
+    "passed": true,
+    "commit": "85309164240319bcdca15f84b48f3be340d4ed74",
+    "files": [
+      {
+        "path": "product-fixed-compact-v4-20261031.zip",
+        "bytes": 11797293,
+        "sha256": "41f53eb946163eb1ed9c14e6732ed012efdb22116f7817ae3f458b1495f81acd"
+      },
+      {
+        "path": "transport.json",
+        "bytes": 661,
+        "sha256": "3ba50443381c7bbbfadb4d335a0ae5c059b5c324dd3c933a57917d45fbeb8e5a"
+      }
+    ],
+    "elapsed_seconds": 3.102476700209081
+  },
+  "stages": {
+    "transfer-v1": {
+      "passed": true,
+      "elapsed_seconds": 8.422673000022769,
+      "peak_bytes": 39096320,
+      "timeout_seconds": 60,
+      "below_normal": true,
+      "comparison": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      },
+      "inspection_error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "post_job_empty": true,
+      "evidence": {
+        "execution.json": {
+          "bytes": 1091,
+          "sha256": "47701bb8026ef237f95d6c537bf73a9794cf5e4664c33c3ded38ab60799c1b42"
+        },
+        "observation.json": {
+          "bytes": 38331,
+          "sha256": "8735448f474c916fff408bd51e28c77150568e6f942a3a1bf3dc5c2d33450569"
+        },
+        "job.json": {
+          "bytes": 1098,
+          "sha256": "2c2f897f953becb0543741d9eab0d6fb9cb85d433776a43f7f8e281e996ee82e"
+        },
+        "coordinator-phases.jsonl": {
+          "bytes": 911,
+          "sha256": "6ca87cc916df975c8e01b6cd397a895c9e7a5d209a539c85ce1e3ea6d666bc08"
+        },
+        "stderr.log": {
+          "bytes": 230,
+          "sha256": "23239afefc7f459936a4c4cd81358a264e2352d3d542ff79774a9f203ef72287"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    "unpack-v1": {
+      "passed": true,
+      "elapsed_seconds": 36.57616289984435,
+      "peak_bytes": 76058624,
+      "timeout_seconds": 60,
+      "below_normal": true,
+      "comparison": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      },
+      "inspection_error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "post_job_empty": true,
+      "evidence": {
+        "execution.json": {
+          "bytes": 1091,
+          "sha256": "12066da0e822f32bcb5f7be5845e7dbeddb42660c694ca4aca0dd2750e90b3c6"
+        },
+        "observation.json": {
+          "bytes": 38328,
+          "sha256": "bd8eeb4b68bab13f41e85399730c4fed6707c7f196e8417f8e28d89fa0d38c3c"
+        },
+        "job.json": {
+          "bytes": 1093,
+          "sha256": "b64a2a55f7331e5228e260654d13cd29df68c42ffc132f0d9a821c654c490a4d"
+        },
+        "coordinator-phases.jsonl": {
+          "bytes": 904,
+          "sha256": "a2111ed42b7e1937b0857a810824fde5f8623aafc57ab60aa8b7efea280de06d"
+        },
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    "help-v1": {
+      "passed": true,
+      "elapsed_seconds": 4.903060399927199,
+      "peak_bytes": 61288448,
+      "timeout_seconds": 60,
+      "below_normal": true,
+      "comparison": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      },
+      "inspection_error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "post_job_empty": true,
+      "evidence": {
+        "execution.json": {
+          "bytes": 1091,
+          "sha256": "5a5aec1e9b2ef798c21e6570e7626e422062ce9d49333a337d5e7b7b009ac664"
+        },
+        "observation.json": {
+          "bytes": 38331,
+          "sha256": "ab637630f08e5b82bd0b4696c1a8fac9026e2c3ab9b4ae44feb2102df80dc3d8"
+        },
+        "job.json": {
+          "bytes": 1098,
+          "sha256": "a993a6decbde1a76b5834e8776e74666f2bf91626e3e844fb648a2774af6c98b"
+        },
+        "coordinator-phases.jsonl": {
+          "bytes": 909,
+          "sha256": "3272263d9bd2519b0b9ef4ded848f9598015d520ea778b0f8933f31f734f933c"
+        },
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 48143,
+          "sha256": "d1b30e4f498ff27adfb4b48f8e57c04e3f82becde0a63ffb1f6a083be51ac350"
+        }
+      }
+    },
+    "verify-v1": {
+      "passed": true,
+      "elapsed_seconds": 15.900132099632174,
+      "peak_bytes": 67244032,
+      "timeout_seconds": 60,
+      "below_normal": true,
+      "comparison": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      },
+      "inspection_error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "post_job_empty": true,
+      "evidence": {
+        "execution.json": {
+          "bytes": 1092,
+          "sha256": "e98f8535fb7bc32ea810613e87f6a3a3cfbf544abed89fa962107c398ef34588"
+        },
+        "observation.json": {
+          "bytes": 38330,
+          "sha256": "78956f387a209939026d0c8af28e5a21524e8558e1158d183e0758a12b42ee38"
+        },
+        "job.json": {
+          "bytes": 1094,
+          "sha256": "aa4fd8aa649f2d29a1425a6c205cbde2e24b4a86d9f1400baa23380d504ec23b"
+        },
+        "coordinator-phases.jsonl": {
+          "bytes": 911,
+          "sha256": "af82212fad3397a8d6437945ef1678e1e7509117ef9fc4801f6b5d71cc617876"
+        },
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    "deps-stage-v1": {
+      "passed": true,
+      "elapsed_seconds": 13.616006399970502,
+      "peak_bytes": 66777088,
+      "timeout_seconds": 60,
+      "below_normal": true,
+      "comparison": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      },
+      "inspection_error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "post_job_empty": true,
+      "evidence": {
+        "execution.json": {
+          "bytes": 1092,
+          "sha256": "1e3f35c0169c5e902f6c5faddc2db32126a9d456d9bd5dfe5bd6b6ddcdd6dfb6"
+        },
+        "observation.json": {
+          "bytes": 38327,
+          "sha256": "d4aa030d8e859f7240215aaf7e883e419f9d617d61bf13b2ed99b6776e91a11c"
+        },
+        "job.json": {
+          "bytes": 1089,
+          "sha256": "10cd070332267f2f1607f651e532902eba40437d375e0d7d9463e3fb28b8c76d"
+        },
+        "coordinator-phases.jsonl": {
+          "bytes": 905,
+          "sha256": "6c5fe96b199435edf5937c6c521a8131abd6f73f340286e3a5eda96b07276560"
+        },
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 419,
+          "sha256": "765a5f408f88c69c6ee5c81cff16f35a5426ce338a04ebbf3de7c86174369a2e"
+        }
+      }
+    },
+    "units-stage-v1": {
+      "passed": true,
+      "elapsed_seconds": 43.0715633998625,
+      "peak_bytes": 198610944,
+      "timeout_seconds": 60,
+      "below_normal": true,
+      "comparison": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      },
+      "inspection_error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "post_job_empty": true,
+      "evidence": {
+        "execution.json": {
+          "bytes": 1090,
+          "sha256": "6a3912fe65e63324e58cb6279ba0c71e501987271f98de8dabf322d94b407b93"
+        },
+        "observation.json": {
+          "bytes": 38326,
+          "sha256": "0ccfd461130a825e66a3b8fc9780d0303b93fe5f2fe147cbbd811bf5cbbd8f36"
+        },
+        "job.json": {
+          "bytes": 1094,
+          "sha256": "6d8a7970eaad4e08c4b64d04cde6aa67088b6dc921a0920a26f5b69020ca99ee"
+        },
+        "coordinator-phases.jsonl": {
+          "bytes": 905,
+          "sha256": "08d0b114b6110ff9794d412b2b2783701b680c3d8315808a756201c57503cd50"
+        },
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 457,
+          "sha256": "13d8d37af7b1c47aa43d86c638ed886be6b0e61c46f498b032be2cd45429549f"
+        }
+      }
+    },
+    "plan-stage-v1": {
+      "passed": true,
+      "elapsed_seconds": 15.132910700049251,
+      "peak_bytes": 66560000,
+      "timeout_seconds": 60,
+      "below_normal": true,
+      "comparison": {
+        "all_monitored_processes_preserved": true,
+        "missing_existing_processes": [],
+        "identified_nikke_service_preservation_verified": false,
+        "nikke_service_status_before": "unverified",
+        "nikke_service_status_after": "unverified",
+        "termination_cause": null,
+        "command_lines_saved": false
+      },
+      "inspection_error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "post_job_empty": true,
+      "evidence": {
+        "execution.json": {
+          "bytes": 1092,
+          "sha256": "518d4803d37e84b76bc35f7ce23876eb2aaf381abc8b98015a295c63c689eae1"
+        },
+        "observation.json": {
+          "bytes": 38331,
+          "sha256": "447e33788c2bd54fa62e3e6b38dc915f02007c1c777b3ecf2a2ee6a7c64826ad"
+        },
+        "job.json": {
+          "bytes": 1098,
+          "sha256": "ab747382be4cf567c2adc40c3cdd33fed3830996b9f06fe00a54af5f93d1246d"
+        },
+        "coordinator-phases.jsonl": {
+          "bytes": 912,
+          "sha256": "ba4228b20096134acb0fe8b7f64e50a312b2e7d8513ca9366c508897696deb4f"
+        },
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.log": {
+          "bytes": 622,
+          "sha256": "72e82b072bec08adbb266da0c5f412f2a9080f35638a0ee6a8bc0c0d9204e7cd"
+        }
+      }
+    }
+  },
+  "verify_timing_comparison": {
+    "old_compile_child_verify_seconds": 11.2248976,
+    "new_verify_call_seconds": 10.6501347,
+    "new_stage_observation_inclusive_seconds": 15.900132099632174,
+    "difference_seconds": -0.5747628999999996,
+    "reduction_percent": 5.120428893712131,
+    "scope": "Single CPU verify measurement only; no NVRTC performance or compilation success inference"
+  },
+  "golden_input_sha256": "b534ebb2f7abcf613ea7b052f0ad8b9f9bcb48ec5ece9e0c766422871ba06a6f",
+  "golden_output_sha256": "9c72bd03cc18453a9f8c6a9cdfebd6fe126e3e0b8e5889e6668cf158c4698be2",
+  "all_old_376_fixtures_unchanged": true,
+  "protected_files": 506,
+  "old_inputs_unchanged": true,
+  "historical_missing": 7,
+  "historical_preservation_verified": false,
+  "historical_termination_cause": "unknown",
+  "old_compile_timeout_and_claim_retained": true,
+  "prior_observation_unknown_retained": true,
+  "slang_calls": 0,
+  "nvrtc_calls": 0,
+  "ptxas_calls": 0,
+  "jit_calls": 0,
+  "driver_calls": 0,
+  "gpu_calls": 0,
+  "full_smoke_repeated": false,
+  "full_native_preflight": false,
+  "source_or_golden_modifications": 0,
+  "scope": "CPU transfer/unpack/verification/unit-check/compile policy only",
+  "source_original_sha256": "6bd904ab0ad781fc7c5f349d93345a0ff05f7a119205faaa88896a7d7fafeecc",
+  "public_projection_note": "Only absolute packet directory replaced with logical packet name; all original verification results retained."
+}
