@@ -81,6 +81,13 @@ def compile_product(prepared):
         prepared['policies']['config']['burst_gauge_mode']='accumulate'
     prepared,nearby=lower_single_body_nearby(prepared)
     def finish(source,iw,ow,words,metadata):
+        if original['enemy'].get('patterns'):
+            from calculator.boss_pattern import validate,RESERVED_KINDS
+            nodes=validate(copy.deepcopy(original['enemy']['patterns']))
+            if any(p.kind in RESERVED_KINDS for p in nodes):
+                raise UnsupportedPortable('Reserved boss pattern has no product execution model')
+            metadata['product_world']=dict(nodes=[dict(id=p.id,kind=p.kind) for p in nodes],
+                literal_pattern_identity_only=True,cpu_schedule_or_state_supplied=False)
         if nearby:
             metadata['real_prepared_input']['single_body_nearby']=dict(rows=nearby,
                 original_effects=[copy.deepcopy(original['effects'][i]) for i in nearby],
@@ -186,6 +193,40 @@ def decode_payload(body, prepared, run, metadata, block):
         burst_timeline=events, shooting_policy=body.get('shooting_policy','auto'), weapon_mode_swap=body.get('weapon_mode_swap',False),
         burst_gauge_mode=body.get('burst_gauge_mode','fixed'), hypothetical=hypothetical,
         engine_revision=engine_worker.REVISION, app_warnings=warnings)
+    if body.get('enemy',{}).get('patterns'):
+        from portable_world_result import read_histories
+        from portable_specs import LIMITS
+        head=LIMITS['WORLD_FRAME_OUTPUT_BASE']
+        if len(block)<LIMITS['WORLD_FRAME_OUTPUT_WORDS']:
+            raise UnsupportedPortable('Incomplete product world readback')
+        for offset,capacity in ((1,512),(2,2048),(6,2048),(7,1024)):
+            if block[head+offset]>capacity:
+                raise UnsupportedPortable('Product world history capacity exceeded')
+        nodes=metadata['product_world']['nodes']
+        for i in range(block[head+2]):
+            at=head+2832+i*6;kind,node,arg=block[at:at+3]
+            if kind not in (1,2,3,4,5,6,7) or node>=(len(names) if kind==6 else len(nodes)):
+                raise UnsupportedPortable('Unknown product world history identity')
+            if kind==2 and arg not in (1,2,3,4):
+                raise UnsupportedPortable('Unknown product world closing outcome')
+        world=read_histories(block,nodes)
+        if any(not math.isfinite(row['time']) or row['time']<0 for row in world['boss_log']):
+            raise UnsupportedPortable('Invalid product world history time')
+        for hit in world['hits']:
+            if hit['owner']>=len(names) or any(not math.isfinite(hit[k]) or hit[k]<0
+                    for k in ('time','damage','decoy','shield','cover','hp','hp_after')):
+                raise UnsupportedPortable('Invalid product incoming hit record')
+        kinds={node['id']:node['kind'] for node in nodes}
+        payload['boss_patterns']=copy.deepcopy(body['enemy']['patterns'])
+        payload['boss_timeline']=[dict(time=round(row['time'],6),pattern=row['pattern'],kind=kinds[row['pattern']],
+            event=row['event'],outcome=row['outcome'] or None) for row in world['boss_log']
+            if row['pattern']!='authored-live-parts' and row['event'] in ('start','end','dispel')]
+        if any(p.get('kind')=='attack' or p.get('kind')=='summon' and p.get('spec',{}).get('attack')
+               for p in body['enemy']['patterns']):
+            payload['incoming_hits']=[dict(time=round(hit['time'],6),pattern=hit['pattern'],target=names[hit['owner']],
+                damage=round(hit['damage'],6),pierce=hit['pierce'],decoy=round(hit['decoy'],6),shield=round(hit['shield'],6),
+                cover=round(hit['cover'],6),hp=round(hit['hp'],6),hp_after=round(hit['hp_after'],6),down=hit['down'],by='')
+                for hit in world['hits']]
     return payload
 
 
@@ -213,8 +254,8 @@ def evaluate(body):
         policy = execution_environment(backend)
         prepared, run = prepare(body)
         # These need product history/operation projections, not silent omission.
-        if body.get('enemy',{}).get('patterns') or body.get('enemy',{}).get('parts'):
-            raise UnsupportedPortable('製品用GPUのボス行動・パーツ結果変換は未接続です。')
+        if body.get('enemy',{}).get('parts'):
+            raise UnsupportedPortable('製品用GPUのパーツ結果変換は未接続です。')
         if any(any(k != 'weapon_mode_swap' or v for k,v in c.get('control',{}).items()) for c in prepared['chars']):
             raise UnsupportedPortable('製品用GPUの手動操作結果変換は未接続です。')
         source, input_words, output_words, words, metadata = compile_product(prepared)

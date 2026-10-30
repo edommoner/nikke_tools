@@ -62,20 +62,7 @@ def compile_case(case,*,actor_pools=False):
  pack_cleanse_flags(words,case['effects'],L);pack_skill_mode_flags(words,case['effects'],L)
  assert len(words)==L['WORLD_OVERLAY_INPUT_WORDS'];return words,meta
 
-def read_overlay_result(block,meta,case):
- original=[];patched=array.array('I',block);head=L['WORLD_FRAME_OUTPUT_BASE']
- for i in range(block[head+2]):
-  at=head+2832+i*6;kind=block[at]
-  if kind in (3,6):continue
-  original.append(kind)
-  if kind==4:patched[at]=1
- actual=f.read_result(patched,meta,case);index=0
- for item in actual['boss_log']:
-  if item['event'] in ('down','revive'):continue
-  kind=original[index];index+=1
-  if kind==4:item['event']='dispel'
- assert index==len(original)
- return actual
+from portable_world_result import read_overlay_result
 
 def negative_inputs(programs):
  from portable_world_schedule_specs import number

@@ -10,6 +10,60 @@ import portable_product_artifact as artifacts
 from portable_projectile_roster_input import compile_projectile_battle
 
 class PortableDetail(unittest.TestCase):
+    def world_projection_fixture(self):
+        """Synthetic readback for format tests; never GPU execution evidence."""
+        from portable_specs import LIMITS as limits
+        body=copy.deepcopy(self.fixture['body'])
+        body['enemy']['patterns']=[dict(id='armor',kind='buff',enemy=dict(def_mult=2),until=dict(time=1)),
+            dict(id='salvo',kind='attack',delay=.5,spec=dict(coeff=100,atk=100,target='slot:3',hits=1)),
+            dict(id='wave',kind='summon',spec=dict(count=1,hp=100))]
+        with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU schedule in lowering')):
+            prepared,run=product.prepare(body)
+            before=copy.deepcopy(prepared);_,_,_,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,before)
+        block=array.array('I',[0])*limits['WORLD_FRAME_OUTPUT_WORDS'];head=limits['WORLD_FRAME_OUTPUT_BASE']
+        number=lambda value:product.struct.unpack('<II',product.struct.pack('<d',value))
+        events=[(1,0,0,0.),(1,1,0,.5),(1,2,0,.5),(3,1,0,.5),(4,0,0,.75),(5,2,1,.8),
+                (2,0,2,1.),(2,1,4,1.),(2,2,4,1.)]
+        block[head+2]=len(events);block[head+5]=len(events);block[head+6]=1;block[head+7]=1
+        for i,(kind,node,arg,t) in enumerate(events):
+            at=head+2832+i*6;block[at:at+6]=array.array('I',[kind,node,arg,*number(t),1 if kind==3 else 0])
+        at=limits['WORLD_FRAME_HIT_BASE'];block[at:at+4]=array.array('I',[*number(.5),1,2<<3])
+        for offset,value in ((4,30.),(6,0.),(8,20.),(10,0.),(12,10.),(14,1000.)):
+            block[at+offset:at+offset+2]=array.array('I',number(value))
+        return body,prepared,run,meta,block
+
+    def test_boss_lowering_keeps_literal_identity_and_all_original_effects(self):
+        body,prepared,run,meta,_=self.world_projection_fixture()
+        self.assertFalse(prepared['cpu_battle_executed'])
+        self.assertEqual(meta['real_prepared_input']['prepared_effects'],len(prepared['effects']))
+        self.assertEqual(meta['product_world']['nodes'],[dict(id=p['id'],kind=p['kind']) for p in body['enemy']['patterns']])
+        self.assertTrue(meta['product_world']['literal_pattern_identity_only'])
+        self.assertFalse(meta['product_world']['cpu_schedule_or_state_supplied'])
+
+    def test_complete_product_boss_and_incoming_projection_uses_gpu_history(self):
+        body,prepared,run,meta,block=self.world_projection_fixture()
+        with patch.object(product,'decode',return_value=copy.deepcopy(self.fixture['gpu_projection'])):
+            payload=product.decode_payload(body,prepared,run,meta,block)
+        self.assertEqual(payload['boss_patterns'],body['enemy']['patterns'])
+        self.assertEqual([(r['pattern'],r['kind'],r['event'],r['outcome']) for r in payload['boss_timeline']],
+            [('armor','buff','start',None),('salvo','attack','start',None),('wave','summon','start',None),
+             ('armor','buff','dispel',None),('armor','buff','end','expired'),('salvo','attack','end','end'),('wave','summon','end','end')])
+        self.assertEqual(payload['incoming_hits'],[dict(time=.5,pattern='salvo',target=prepared['chars'][2]['name'],damage=30.,
+            pierce=False,decoy=0.,shield=0.,cover=20.,hp=10.,hp_after=1000.,down=False,by='')])
+        from portable_world_result import read_histories
+        self.assertIn('destroy',[r['event'] for r in read_histories(block,meta['product_world']['nodes'])['boss_log']])
+
+    def test_bad_world_capacity_identity_owner_and_nonfinite_hits_are_rejected(self):
+        from portable_specs import LIMITS as limits
+        body,prepared,run,meta,block=self.world_projection_fixture();head=limits['WORLD_FRAME_OUTPUT_BASE'];hit=limits['WORLD_FRAME_HIT_BASE']
+        def nonfinite(words):words[hit+14:hit+16]=array.array('I',product.struct.unpack('<II',product.struct.pack('<d',float('nan'))))
+        for mutate in (lambda words:words.__setitem__(head+2,2049),lambda words:words.__setitem__(head+2833,32),
+                       lambda words:words.__setitem__(hit+3,7<<3),nonfinite):
+            changed=array.array('I',block);mutate(changed)
+            with patch.object(product,'decode',return_value=copy.deepcopy(self.fixture['gpu_projection'])):
+                with self.assertRaises(product.UnsupportedPortable):product.decode_payload(body,prepared,run,meta,changed)
+
     def descriptor(self,folder,**changes):
         document=dict(schema=1,programs={product.SOURCE:dict(battle_package=folder,request=dict(package=folder,capture=folder))})
         document.update(changes)
@@ -365,8 +419,8 @@ class PortableDetail(unittest.TestCase):
                 self.assertEqual(record['error_type'],type(error).__name__)
                 self.assertEqual(record['error'],str(error))
                 self.assertNotIn('audit metadata incomplete',record['error'])
-    def test_product_history_gap_falls_back_before_any_gpu_dispatch(self):
-        body=copy.deepcopy(self.fixture['body']);body['enemy']['patterns']=[dict(id='example',kind='idle')]
+    def test_product_parts_gap_falls_back_before_any_gpu_dispatch(self):
+        body=copy.deepcopy(self.fixture['body']);body['enemy']['parts']=[dict(id='example')]
         with tempfile.TemporaryDirectory() as folder,patch.dict('os.environ',NIKKE_DETAIL_CAPTURE_ROOT=folder),\
              patch.object(product,'prepare',return_value=(self.prepared,self.prepared_run)),\
              patch.object(product,'execute',side_effect=AssertionError('No dispatch')),\
