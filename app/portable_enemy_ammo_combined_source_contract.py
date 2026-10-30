@@ -19,7 +19,8 @@ def project_sources(root,sources=None):
     return out
 
 
-def project_resident_scalars(root,sources=None):
+def resident_scalar_inputs(root,sources=None):
+    """Verified historical input view before applying the scalar snapshot delta."""
     root=Path(root);out=dict(sources or {})
     if (root/'gpu/world_moving_typed_entry.slang').exists():
         from portable_moving_typed_source_contract import project_sources as moving_typed
@@ -27,6 +28,11 @@ def project_resident_scalars(root,sources=None):
     if (root/'gpu/world_enemy_movement_entry.slang').exists():
         from portable_enemy_movement_source_contract import project_sources as movement
         out=movement(root,out)
+    return out
+
+
+def project_resident_scalars(root,sources=None):
+    root=Path(root);out=resident_scalar_inputs(root,sources)
     snapshot=root/'tests/fixtures/portable-healing-hp-snapshot-delta.json'
     if snapshot.exists():
         for name,delta in json.loads(snapshot.read_text())['files'].items():

@@ -52,15 +52,22 @@ class ResidentScalarSnapshotTests(unittest.TestCase):
             with self.assertRaises(ValueError):audit_resident_scalars(changed.encode(),metal)
 
     def test_exact_inverse_does_not_depend_on_omitted_unrelated_gpu_entries(self):
-        from portable_enemy_ammo_combined_source_contract import project_resident_scalars
+        from portable_enemy_ammo_combined_source_contract import project_resident_scalars,resident_scalar_inputs
         data=json.loads((ROOT/'tests/fixtures/portable-healing-hp-snapshot-delta.json').read_text())
+        import hashlib
+        # The isolated reader tests this pinned historical delta, not later
+        # weighted/product fields. Obtain the verified input view before this
+        # inverse, independently bound to its immutable current-source hash.
+        legacy=resident_scalar_inputs(ROOT)
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory)
-            names=['tests/fixtures/portable-healing-hp-snapshot-delta.json',*data['files']]
-            for name in names:
-                p=root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes((ROOT/name).read_bytes())
+            name='tests/fixtures/portable-healing-hp-snapshot-delta.json'
+            p=root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes((ROOT/name).read_bytes())
+            for name,row in data['files'].items():
+                text=legacy.get(name,(ROOT/name).read_text())
+                self.assertEqual(hashlib.sha256(text.encode()).hexdigest(),row['current_sha256'])
+                p=root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(text.encode())
             projected=project_resident_scalars(root)
-            import hashlib
             for name,row in data['files'].items():self.assertEqual(hashlib.sha256(projected[name].encode()).hexdigest(),row['baseline_sha256'])
             self.assertEqual(project_resident_scalars(root,projected),projected)
             for name in data['files']:
