@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "archive": "product-current-parts-v1.zip",
-  "bytes": 11813006,
-  "sha256": "7c0d9441a86edb8c1969ed571137551681376532c6c48676a482618636ca1aa4",
-  "package_id": "1b668b9f676397f62efe39548dfe2248422c755d0c015d835ab0347057bb440d",
-  "source_commit": "493244ab2416cac06013f07ad69c9709596b671a",
+  "archive": "product-current-parts-fixture-v2.zip",
+  "bytes": 11813016,
+  "sha256": "900b1331cb6fbcfdf9b07160fba8a14f5464b1622e2b01ddc9fe76800eaf685c",
+  "package_id": "66edec5d576025c2c76dc70de61bc73b41f3a0a57e06f1fb3184d9e5f819f0f4",
+  "source_commit": "da7a4c35033865322846a844f432e45f64cb201c",
   "program": "accumulate",
   "files": 2686,
   "scope": "Current shared charge/part arithmetic and native group part routing. Source-only packet; preserve prior source/PTX/claims/failures. No SDK, raw buffers, compiled binary or personal settings.",
@@ -12,7 +12,7 @@
   "ptx_plan": {
     "schema": "compile-plan-v1",
     "passed": true,
-    "package_id": "1b668b9f676397f62efe39548dfe2248422c755d0c015d835ab0347057bb440d",
+    "package_id": "66edec5d576025c2c76dc70de61bc73b41f3a0a57e06f1fb3184d9e5f819f0f4",
     "suite": "product-detail",
     "purpose": "sealed",
     "artifact_kind": "ptx",
@@ -55,5 +55,17 @@
     "gpu/event_runtime.slang",
     "gpu/product_group_target_battle_entry.slang"
   ],
-  "protected_cpu_files_unchanged": true
+  "protected_cpu_files_unchanged": true,
+  "fixture_only_delta_from_previous_owner": {
+    "old_owner": "1b668b9f676397f62efe39548dfe2248422c755d0c015d835ab0347057bb440d",
+    "new_owner": "66edec5d576025c2c76dc70de61bc73b41f3a0a57e06f1fb3184d9e5f819f0f4",
+    "changed": [
+      "tests/test_weighted_source_contract.py"
+    ],
+    "added": [],
+    "removed": [],
+    "complete_golden_identical": true,
+    "all_calculation_bytes_identical": true
+  },
+  "full_payload_diff_base_owner": "ec48586564408635a2d29ee6ceaea29ea7e38c6ec04b3a6d2998127a5e0d26e3"
 }
