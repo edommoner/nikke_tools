@@ -1,0 +1,58 @@
+{
+  "scope": "Static request preparation only; run Miranda first, four further requests only after successful current CUBIN/API baseline; not execution authorization for any compile retry",
+  "rows": [
+    {
+      "index": 0,
+      "character": "미란다",
+      "duration": 30,
+      "shooting_policy": "auto",
+      "source": "gpu/product_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "input_sha256": "291fd86560a0bb772a03b581d273ddfe098b772f9935a02b89b16a7322466a18"
+    },
+    {
+      "index": 1,
+      "character": "앨리스 accumulate",
+      "duration": 8,
+      "shooting_policy": "character",
+      "source": "gpu/product_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "input_sha256": "a3c845587227e41848f9babfc50b157b0464e21aeeb8edd5e4225e38bb959261"
+    },
+    {
+      "index": 2,
+      "character": "밀크 : 블루밍 바니 accumulate",
+      "duration": 20,
+      "shooting_policy": "character",
+      "source": "gpu/product_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "input_sha256": "0c988fe6a0098c140a3f65f82be806d528b95e9e0e1eaf9c1d00c52d40af1938"
+    },
+    {
+      "index": 3,
+      "character": "에이다 accumulate",
+      "duration": 8,
+      "shooting_policy": "character",
+      "source": "gpu/product_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "input_sha256": "eeb2e53940336abe2899a76564183007dd909c21c803fdece94cf44dde9e1116"
+    },
+    {
+      "index": 4,
+      "character": "라푼젤 : 퓨어 그레이스 accumulate",
+      "duration": 8,
+      "shooting_policy": "character",
+      "source": "gpu/product_battle_entry.slang",
+      "input_words": 104400,
+      "output_words": 786432,
+      "input_sha256": "e7e01e47d159073c79e1ac398a704f212cf3e6e441db3f33c352b95ab8525a7d"
+    }
+  ],
+  "total_input_readback_bytes": 17816660,
+  "gpu_calls": 0,
+  "native_battle_calls": 0
+}
