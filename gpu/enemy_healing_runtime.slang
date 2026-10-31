@@ -5,7 +5,11 @@ uint ehlOutput(inout Runtime s) { return s.resourceOutput+EHL_OUTPUT_BASE; }
 bool initializeEnemyHealing(inout Runtime s)
 {
     uint input=ehlInput(s),count=commands[input+2],nodes=commands[s.inputBase+P_WORLD_FRAME_INPUT_BASE+1];
-    if(commands[input]!=EHL_MAGIC||commands[input+1]!=EHL_VERSION||count==0||count>EHL_ROWS||commands[input+3]!=nodes||commands[input+4]!=actorPoolCount(s))return false;
+    if(commands[input]!=EHL_MAGIC||commands[input+1]!=EHL_VERSION||
+#ifndef PORTABLE_PRODUCT_ENEMY_HEALING
+        count==0||
+#endif
+        count>EHL_ROWS||commands[input+3]!=nodes||commands[input+4]!=actorPoolCount(s))return false;
     for(uint i=5;i<EHL_HEADER;i++)if(commands[input+i]!=0)return false;
     uint seen=0;
     for(uint index=0;index<EHL_ROWS;index++)

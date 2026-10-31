@@ -64,6 +64,9 @@ def verified_transport(evidence, backend):
 
 def compile_product(prepared):
     """Select an existing wire by actual effect requirements, never by character."""
+    from portable_product_healing import required,compile_product as compile_healing
+    if not prepared.get('_product_healing_compiled') and required(prepared):
+        return compile_healing(prepared,compile_product)
     if prepared.get('reference_models'):
         raise UnsupportedPortable('Declared CPU reference consumer requires its matching shared GPU product wire; no model may be silently omitted')
     from portable_enemy_specs import lower_single_body_nearby
@@ -236,6 +239,12 @@ def decode_payload(body, prepared, run, metadata, block):
         burst_timeline=events, shooting_policy=body.get('shooting_policy','auto'), weapon_mode_swap=body.get('weapon_mode_swap',False),
         burst_gauge_mode=body.get('burst_gauge_mode','fixed'), hypothetical=hypothetical,
         engine_revision=engine_worker.REVISION, app_warnings=warnings)
+    if metadata.get('product_enemy_healing'):
+        from portable_product_healing import read_result
+        model=read_result(block,metadata,names,run.config['duration'])
+        if model is not None:
+            from product_reference_models import WARNING
+            payload['reference_models']=model;payload['app_warnings'].append(WARNING)
     if body.get('enemy',{}).get('parts'):
         from portable_world_result import read_product_parts
         from detail_world import read_parts

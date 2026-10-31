@@ -19,6 +19,21 @@ def normalize(value):
         result['enemy_healing']=healing(value['enemy_healing'])
     return result
 
+def healing_public(data):
+    """Product quantities only; private observers retain their full diagnostics.
+
+    Neither backend reconstructs past carrier lists for the public response.
+    The same formatter preserves all actual healing/HP/score quantities.
+    """
+    keys=('node','source_generation','time','target','base_amount','actor','status',
+          'max_hp','multiplier','requested','dealt_before','dealt_after','applied',
+          'effective_gain','hits_before','hits_after','hp_before','hp_after')
+    summary=copy.deepcopy(data['public_summary'])
+    return dict(receipts=[{k:copy.deepcopy(row[k]) for k in keys if k in row} for row in data['receipts']],
+        sources=copy.deepcopy(data['sources']),final_adds=copy.deepcopy(data['final_adds']),
+        final_scored_damage={n:data['final_scored_damage'].get(n,0.) for n in summary['add_char_total']},
+        final_overkill=data['final_overkill'],public_summary=summary)
+
 @contextmanager
 def execution(declarations):
     """Install for one fresh product request, restoring aliases on all exits."""
@@ -28,5 +43,5 @@ def execution(declarations):
     from enemy_healing_model import enemy_healing
     result=dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(declarations))
     with enemy_healing(declarations['enemy_healing']) as data:
-        result['enemy_healing']=data
         yield result
+    result['enemy_healing']=healing_public(data)

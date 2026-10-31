@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 FAMILY = 'product-detail'
-GOLDEN = 'research/portable-product-programs-v2-expected.json'
+GOLDEN = 'research/portable-product-programs-v3-expected.json'
 _registry=json.loads((Path(__file__).resolve().parents[1]/'data/portable-product-programs.json').read_text(encoding='utf-8'))
 if type(_registry) is not dict or set(_registry)!={'schema','programs'} or type(_registry['schema']) is not int or _registry['schema']!=1 or type(_registry['programs']) is not dict:
     raise ValueError('Invalid product program registry')
@@ -17,11 +17,12 @@ for _name,_program in PROGRAMS.items():
     if type(_program) is not dict or set(_program)!={'source','input_words','output_words','mode','kind'}:
         raise ValueError('Invalid product program declaration')
     _mode,_kind=_program['mode'],_program['kind']
-    _add=_name.startswith('add-')
-    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or _name!=('add-' if _add else '')+_mode+('-'+_kind if _kind else ''):
+    _add=_name.startswith('add-');_healing=_name.startswith('healing-')
+    _prefix='add-' if _add else 'healing-' if _healing else ''
+    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or _healing and _kind!='' or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
         raise ValueError('Invalid product program identity')
     _stem=('fixed_' if _mode=='fixed' else '')+(_kind.replace('-','_')+'_' if _kind else '')
-    if _program['source']!='gpu/product_'+('add_' if _add else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
+    if _program['source']!='gpu/product_'+('add_' if _add else 'healing_' if _healing else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
         raise ValueError('Invalid product source or wire declaration')
 
 
@@ -61,7 +62,10 @@ def body_for_program(root, name=None):
     if name is not None and (not isinstance(name,str) or name not in PROGRAMS):
         raise ValueError('Invalid product program body')
     program = PROGRAMS.get(name, dict(mode='accumulate', kind=''))
-    if program['kind'] in ('group', 'target'):
+    if name is not None and name.startswith('healing-'):
+        from portable_original_identity_inventory import selected_profile_bodies
+        body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]
+    elif program['kind'] in ('group', 'target'):
         from portable_original_identity_inventory import selected_profile_bodies
         character = '벨로타' if program['kind'] == 'group' else '아스카'
         body = selected_profile_bodies([character], 0)[0][2]

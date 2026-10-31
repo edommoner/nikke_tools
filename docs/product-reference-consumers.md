@@ -34,3 +34,18 @@ Windowsの前版はown70成功後にfake SDK検査で停止した。テストの
 前節のprivate-v2の不一致は、同名装備のquantity carrier規約の差と判明した。通常製品のproducerだけをCPU正本の状態更新規約へ接続し、既存共有carrierを使用する。全定義を保持し、数量演算・Slang・CPU正本の変更0。private-v4では通常HTTP→実Metal→製品変換→全CPU payload照合が一致し、保存raw再投影も成功。旧失敗・private traceはMac内に保持し、個人設定・hash・詳細結果は共有しない。
 
 公開のN102／アリス／モダニアの3profile・装備順違い6条件も全一致。既存対応profileの追加条件なので対応総数へ加算しない。CUDAはこの変更版の製品profile成功0を維持し、新しい固定packetの短いコンパイル確認を1回だけ依頼した。詳細は [量補正の製品規約](portable-quantity-runtime.md)、集約は `research/product-equipment-carriers-v1.json`。
+
+
+## 2026-10-31 アンの敵回復を通常製品Metalへ接続
+
+CPUのみだった初版に、既存のenemy healing共通consumerを接続した。通常要求の元effectに敵heal_received_pctがある場合、または明示reference_models.enemy_healingがある場合に、同じproduct-detail familyのhealing入口を使用する。キャラ名の受付表にはしない。全69定義と元の値・対象を保持し、既存scheduler・actor pool・carrier・ソフトbinary64演算を使う。通常の敵回復イベントなしはbankのsource数0で表現し、敵の受回復field自体は有効なまま保持する。回復量や予定表をCPU戦闘から入力しない。
+
+元アンprofile0の通常APIで固定／蓄積30秒がM5 Metalと全CPU応答一致。明示sourceの技能レベル1／10、満HP、死亡済み、再出現、整数HP撃破の6条件も一致した。元の整数HP条件は小数creditを起こしていなかったためその記録を保持し、HPへ0.25を加えた別の1条件で小数credit／overkillを実際に確認した。計9条件の保存raw再投影も一致、監査の追加native／GPUは0。元の未対応11profileを再準備・静的compileしたところ、Ann1が通過し残り10は元の理由で拒否。これは静的結果からGPU成功数を加算した意味ではなく、Annの実GPU9条件は別の証拠である。旧255/266全体の現在sourceでの再実行数とは区別する。
+
+任意のreference_models結果は、CPU／GPUで同じformatterを使い、実回復receipt・前後HP・hit数・世代・最終ADD・累積creditを返す。過去carrierの完全なリストや可視性診断はprivate observerに保持し、GPUの過去状態をCPUから再構成しない。元の通常結果形式は保持する。有限ADDの宣言モデルであり、BODYの有限HP回復や不明なゲーム規則の認定ではない。共有wireの4,368wordを付加し、input120,048／output2,032,000という既存transport上限内を使用する。
+
+独立した固定product packet af33511d…で、回復sourceなしの通常accumulateもM5／fresh GPU禁止sealを完了した。新しいproduct-programs-v3にはhealing-accumulateだけを追加し、旧16member／v1／v2を保存。healing-fixedは通常APIで実証済みだがCLI goldenは未登録なので、他memberを流用しない。新suiteは追加していない。group／target modifier／ADD攻撃との合成は明示拒否し、CPUへ戻す。次はこの合成と残るconsumerの接続が必要。
+
+共有sourceが変わった旧private enemy-healing certificateは歴史的証拠として保持する。source-baselineは古いsourceを現在扱いせず拒否し、unitでもこの拒否を確認する。privateの期待値・14件の過去出力・証明書の書換えや再ラベルはしない。今回の製品経路の証拠は `research/product-enemy-healing-v1.json`。
+
+Windowsのowner68e212dc…はNVRTC34.511秒で戻り値0、PTX9,866,019byteを生成・cache公開したが、外側60秒上限で内側post／最終receiptが未完了。元のstage=false／image未admit／preservation=falseを保持する。標準file-only cache-probeで元PTXとの全byte一致をWindowsで確認、Macではmanifest・owner・生成pair・options／source SHAを照合した。MacがPTX原byteを読んだ意味ではない。object／link／driver／GPU／APIは0。記録は `research/product-equipment-windows-v1.json`。次は現在の通常product sourceと生成CUDAが完全一致する新ownerで必須cache hitを使用し、NVRTC再実行0のまま標準receiptを完成できるか確認する。旧claimを削除・再試行しない。

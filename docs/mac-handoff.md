@@ -4345,3 +4345,16 @@ private-v4の添付設定は通常HTTPから実Metalへ到達し、全CPU payloa
 固定packet68e212dc…自身の77unit＋CPU native1が成功、fake SDK45もenvthreads2で成功。通常accumulate基準のinputと全shader source／生成正規化ペアは独立seal済みv2と同一。余分な基準GPU／golden更新なし。旧component quantity3unit、runtime23unit、visited source5unitとfresh model-checkも成功。小証跡 `research/product-equipment-carriers-v1.json`、仕様差の説明 [quantity runtime](portable-quantity-runtime.md)。専用4384サーバーは終了し、4317／4327は未操作。
 
 Windowsにはtransport commit4dfdfcc2（既存codex/product-current-parts-v1-packet）を共有し、新owner68e212dc…のown77→fake45→deps/plan/generation→PTX/module-object-O1/JIT linkだけを1回依頼。各native stage60秒／2GiB／BelowNormal、native pipeline180秒、driver/GPU/APIは未依頼。前回15339b24…はfixture失敗による停止でSDK claim未消費。旧serial26e timeout／missing7／preservation=falseを不変保持する。新message送信は成功、既存Windows chat 01a140bc-5f3b-7661-b720-50c945596eaa の同handleを待ち、再送しない。API用の公開3要求も輸送したが実行は未承認ではなく未依頼（artifact監査後に必要なら依頼する）。次はこの保存結果確認と、残11profileのCPU consumer／製品GPU wireを接続する。
+
+
+## 2026-10-31 Annの通常製品Metal1profile／9条件を実証
+
+最新の実装・範囲は [product reference consumers](product-reference-consumers.md) の末尾。既存product-detail familyにhealing-accumulate／healing-fixedを追加し、元69定義の敵heal_received_pctを共有consumerへ接続。新suite0・新数値演算0・pinned upstream変更0。通常の回復イベントなしもsource0の有効なbankとして扱い、fieldを無視しない。固定／蓄積30秒、技能レベル差・満HP・死亡・再出現・整数HP撃破、小数HP撃破の計9条件が通常HTTP→実M5 Metal→全CPU応答一致。保存再投影9も成功、監査追加native/GPU0。旧整数HPケースは小数creditを起こさず、HP+0.25の別条件で正しく検証した。過去の失敗・元条件を保持。
+
+新source af33511d…の回復sourceなし通常accumulate1入力もM5＋独立GPU禁止seal。product-programs-v3へhealing-accumulateのみ追加、旧16member／v2は保持。fixedはHTTP実証済みだがCLI golden未登録。finite ADD model、group／target／ADD攻撃との合成は未完了で理由付きCPUへ戻す。新public projectorは実receipt/HP/世代/hit/scoreのみを共通formatterで返し、private observerの過去carrier診断は別のまま。旧private source/certificateは現在扱いにせずsource-baselineで拒否、unitでガードを確認。数値期待値・旧14出力の書換えはない。
+
+元の残11profileを新たに静的準備・compileしAnn1通過／10拒否を確認、staticからGPUへ水増ししない。今回現在sourceの製品確認数はMetal1profile／9条件、CUDA0。歴史的255/266は今回の全件再実行ではない。残りはYuni／Yan、Soldier O.W.、Velvet、Heavy Arms、Bay4段階、Rei。CPU consumer拡張の許可は既にあり再確認不要。
+
+Windows owner68e212dc…の保存2JSONはreport commit efad536955ab37aa14fcb2c8cb5f965f6f6eba3f（codex/product-equipment-v1-report）から取得。manifest bytes/SHA・owner・Mac生成pair・options/source SHAを照合した。NVRTC34.511秒returned0、PTX9,866,019byte／SHA850523c7…、key9e89e737…がcache全byteと一致（Windowsのfile-only検査）。outer journal基準ではNVRTC entered24.925／returned59.436／cache公開観測59.720秒、正確なtimeout timer開始は未記録。outer60秒timeout／inner post未完了を不変保持。stage=false、image未admit、global preservation=false／service unverified、現missing0／旧missing7保持、object/link/driver/GPU/API0。MacはPTX原byteを未読。要約照合 `research/product-equipment-windows-v1.json`、peer原JSONはproofs/product-equipment-carriers-v1-20261031/windows-report-v1。
+
+次のCUDA手は、Ann追加後の現行normal product ownerで生成CUDA／ABI／inputの一致を確認し、元の必須cache hitを標準compile入口から再利用すること。NVRTCロード／再compileは0、旧ownerのclaim／未完了receiptを補完・削除しない。新Ann sourceのcold CUDAやGPUはまだ依頼していない。Windowsは同chat、最新cursor 4b3eff0d-96af-48be-b3ad-b6609ae33ca8:334、idle。Mac専用4384は停止済み、4317／4327未操作。

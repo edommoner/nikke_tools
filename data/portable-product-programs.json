@@ -112,6 +112,20 @@
       "output_words": 2032000,
       "mode": "fixed",
       "kind": "group-target"
+    },
+    "healing-accumulate": {
+      "source": "gpu/product_healing_battle_entry.slang",
+      "input_words": 120048,
+      "output_words": 2032000,
+      "mode": "accumulate",
+      "kind": ""
+    },
+    "healing-fixed": {
+      "source": "gpu/product_healing_fixed_battle_entry.slang",
+      "input_words": 120048,
+      "output_words": 2032000,
+      "mode": "fixed",
+      "kind": ""
     }
   }
 }

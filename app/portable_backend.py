@@ -188,7 +188,7 @@ def validate_composed_stride(source,input_words,output_words):
         check_schema(ROOT)
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Named radial battle requires its complete declared wire')
         return
-    if source=='gpu/world_enemy_healing_entry.slang':
+    if source in ('gpu/world_enemy_healing_entry.slang','gpu/product_healing_battle_entry.slang','gpu/product_healing_fixed_battle_entry.slang'):
         from portable_enemy_healing_wire import check_schema,INPUT_WORDS,OUTPUT
         check_schema(ROOT)
         if (input_words,output_words)!=(INPUT_WORDS,OUTPUT['OUTPUT_WORDS']):raise ValueError('Enemy healing requires its complete declared source wire')
