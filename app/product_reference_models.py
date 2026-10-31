@@ -5,18 +5,27 @@ consumer reuses its checked reference adapter and must gain a matching shared
 GPU producer before GPU admission. No dynamic CPU state is a GPU input.
 """
 import copy
-from contextlib import contextmanager
+from contextlib import contextmanager,ExitStack
 
 WARNING='宣言した敵回復モデルを使用しています。実ゲームの回復量・対象規則を確認した意味ではありません。'
+WEIGHTED_WARNING='宣言したダメージ配分モデルを使用しています。実ゲームの配分比率を確認した意味ではありません。'
+
+def warning(declarations):
+    return ' '.join(text for key,text in [('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING)] if key in declarations)
 
 def normalize(value):
     if value is None:return {}
-    if type(value) is not dict or set(value)-{'enemy_healing'}:
-        raise ValueError('reference_modelsには接続済みのenemy_healingだけを指定してください。')
+    if type(value) is not dict or set(value)-{'enemy_healing','weighted_incoming'}:
+        raise ValueError('reference_modelsには接続済みのenemy_healing／weighted_incomingだけを指定してください。')
     result={}
     if 'enemy_healing' in value:
         from enemy_healing_model import normalize as healing
         result['enemy_healing']=healing(value['enemy_healing'])
+    if 'weighted_incoming' in value:
+        from weighted_incoming_battle_model import WeightedIncoming
+        spec=copy.deepcopy(value['weighted_incoming'])
+        WeightedIncoming(spec,['1','2','3','4','5'])
+        result['weighted_incoming']=spec
     return result
 
 def healing_public(data):
@@ -35,13 +44,19 @@ def healing_public(data):
         final_overkill=data['final_overkill'],public_summary=summary)
 
 @contextmanager
-def execution(declarations):
+def execution(declarations,names=None):
     """Install for one fresh product request, restoring aliases on all exits."""
     if not declarations:
         yield None
         return
     from enemy_healing_model import enemy_healing
     result=dict(schema=1,evidence='declared-model-not-game-verification',declarations=copy.deepcopy(declarations))
-    with enemy_healing(declarations['enemy_healing']) as data:
+    with ExitStack() as stack:
+        healing=stack.enter_context(enemy_healing(declarations['enemy_healing'])) if 'enemy_healing' in declarations else None
+        if 'weighted_incoming' in declarations:
+            from weighted_incoming_battle_model import weighted_incoming
+            weighted=stack.enter_context(weighted_incoming(declarations['weighted_incoming'],names))
+        else:weighted=None
         yield result
-    result['enemy_healing']=healing_public(data)
+    if healing is not None:result['enemy_healing']=healing_public(healing)
+    if weighted is not None:result['weighted_incoming']=copy.deepcopy(weighted)

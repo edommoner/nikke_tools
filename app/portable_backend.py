@@ -105,7 +105,7 @@ def validate_composed_stride(source,input_words,output_words):
         check_group_wire(ROOT)
         if (input_words,output_words)!=(GROUP_INPUT_WORDS,OUTPUT_WORDS):raise ValueError('Product group target requires its complete carrier and group wire')
         return
-    if source in ('gpu/world_weighted_incoming_entry.slang','gpu/world_weighted_incoming_diagnostic_entry.slang'):
+    if source in ('gpu/world_weighted_incoming_entry.slang','gpu/world_weighted_incoming_diagnostic_entry.slang','gpu/product_weighted_battle_entry.slang','gpu/product_weighted_fixed_battle_entry.slang'):
         from portable_weighted_battle_wire import check_schema,INPUT,OUTPUT
         check_schema(ROOT)
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Weighted incoming requires complete literal weights and owned receipt banks')

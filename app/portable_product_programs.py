@@ -17,12 +17,12 @@ for _name,_program in PROGRAMS.items():
     if type(_program) is not dict or set(_program)!={'source','input_words','output_words','mode','kind'}:
         raise ValueError('Invalid product program declaration')
     _mode,_kind=_program['mode'],_program['kind']
-    _add=_name.startswith('add-');_healing=_name.startswith('healing-')
-    _prefix='add-' if _add else 'healing-' if _healing else ''
-    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or _healing and _kind!='' or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
+    _add=_name.startswith('add-');_healing=_name.startswith('healing-');_weighted=_name.startswith('weighted-')
+    _prefix='add-' if _add else 'healing-' if _healing else 'weighted-' if _weighted else ''
+    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or (_healing or _weighted) and _kind!='' or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
         raise ValueError('Invalid product program identity')
     _stem=('fixed_' if _mode=='fixed' else '')+(_kind.replace('-','_')+'_' if _kind else '')
-    if _program['source']!='gpu/product_'+('add_' if _add else 'healing_' if _healing else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
+    if _program['source']!='gpu/product_'+('add_' if _add else 'healing_' if _healing else 'weighted_' if _weighted else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
         raise ValueError('Invalid product source or wire declaration')
 
 
@@ -62,7 +62,11 @@ def body_for_program(root, name=None):
     if name is not None and (not isinstance(name,str) or name not in PROGRAMS):
         raise ValueError('Invalid product program body')
     program = PROGRAMS.get(name, dict(mode='accumulate', kind=''))
-    if name is not None and name.startswith('healing-'):
+    if name is not None and name.startswith('weighted-'):
+        from portable_weighted_battle_cases import fixtures
+        case=fixtures()[0];body=copy.deepcopy(case['body'])
+        body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}
+    elif name is not None and name.startswith('healing-'):
         from portable_original_identity_inventory import selected_profile_bodies
         body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]
     elif program['kind'] in ('group', 'target'):

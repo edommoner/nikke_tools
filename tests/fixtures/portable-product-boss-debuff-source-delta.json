@@ -24,73 +24,91 @@
     },
     "app/portable_detail.py": {
       "before_sha256": "085c7ccdcebfa6641bf124d95e6c320c337405202e4b148ae64dca08cb11db06",
-      "after_sha256": "ce7e77e627f491fb46bb69743a756a0a7810a4d44b5695d6d1753b9a527a0e6b",
+      "after_sha256": "b02e0c9931eb9679c64b9cb3799b910a5d28939b27ffa514f22b32b16d6cded3",
       "hunks": [
         {
-          "start": 2824,
-          "end": 3233,
+          "start": 2842,
+          "end": 3504,
           "before": "",
-          "after": "    from portable_product_healing import required,compile_product as compile_healing\n    if not prepared.get('_product_healing_compiled') and required(prepared):\n        return compile_healing(prepared,compile_product)\n    if prepared.get('reference_models'):\n        raise UnsupportedPortable('Declared CPU reference consumer requires its matching shared GPU product wire; no model may be silently omitted')\n"
+          "after": "product_weighted import required as weighted_required,compile_product as compile_weighted\n    if not prepared.get('_product_weighted_compiled') and weighted_required(prepared):\n        return compile_weighted(prepared,compile_product)\n    from portable_product_healing import required,compile_product as compile_healing\n    if not prepared.get('_product_healing_compiled') and required(prepared):\n        return compile_healing(prepared,compile_product)\n    if prepared.get('reference_models'):\n        raise UnsupportedPortable('Declared CPU reference consumer requires its matching shared GPU product wire; no model may be silently omitted')\n    from portable_"
         },
         {
-          "start": 3317,
-          "end": 3685,
+          "start": 3569,
+          "end": 3937,
           "before": "",
-          "after": "    # The product promises the canonical battle's named-carrier lifecycle.\n    # Keep every equipment definition and let the existing shared GPU carrier\n    # merge/refresh them exactly as native does. Standalone component-quantity\n    # proofs retain their distinct, explicitly documented contract.\n    prepared=dict(prepared,_product_native_equipment_carriers=True)\n"
+          "after": "\n    # The product promises the canonical battle's named-carrier lifecycle.\n    # Keep every equipment definition and let the existing shared GPU carrier\n    # merge/refresh them exactly as native does. Standalone component-quantity\n    # proofs retain their distinct, explicitly documented contract.\n    prepared=dict(prepared,_product_native_equipment_carriers=True)"
         },
         {
-          "start": 4551,
-          "end": 4795,
+          "start": 4808,
+          "end": 5052,
           "before": "",
-          "after": "    from portable_product_add_attack import lower as lower_add_attacks\n    prepared,add_patterns=lower_add_attacks(prepared)\n    if 'burst_pattern' in prepared['policies']['config']:\n        prepared=dict(prepared,_product_burst_patterns=True)\n"
+          "after": "from portable_product_add_attack import lower as lower_add_attacks\n    prepared,add_patterns=lower_add_attacks(prepared)\n    if 'burst_pattern' in prepared['policies']['config']:\n        prepared=dict(prepared,_product_burst_patterns=True)\n    "
         },
         {
-          "start": 4850,
-          "end": 5041,
+          "start": 5101,
+          "end": 5292,
           "before": "",
-          "after": "    if any(p.get('kind') in ('attack','debuff') and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):\n        prepared=dict(prepared,_product_boss_debuffs=True)\n"
+          "after": ")\n    if any(p.get('kind') in ('attack','debuff') and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):\n        prepared=dict(prepared,_product_boss_debuffs=True"
         },
         {
-          "start": 6062,
-          "end": 6250,
-          "before": "            _,bindings=compile_registry(nodes,pools=True)\n",
-          "after": "            registry_nodes=validate(copy.deepcopy(prepared['enemy']['patterns'])) if add_patterns is not None else nodes\n            _,bindings=compile_registry(registry_nodes,pools=True)\n"
-        },
-        {
-          "start": 7771,
-          "end": 8606,
+          "start": 6327,
+          "end": 6448,
           "before": "",
-          "after": "        if prepared.get('_product_burst_patterns'):\n            from portable_burst_control_specs import product_patterns\n            from portable_specs import LIMITS as limits\n            names=[c['name'] for c in prepared['chars']]\n            patterns=prepared['policies']['config']['burst_pattern']\n            packed=product_patterns(names,patterns)\n            for who,value in enumerate(packed):\n                words[limits['WEAPON_BASE']+who*limits['WEAPON_WORDS']+3]|=value\n            if any(packed):metadata['product_burst_patterns']=dict(patterns=copy.deepcopy(patterns),encoded=packed,cpu_schedule_or_state_supplied=False)\n        if add_patterns is not None:\n            from portable_product_add_attack import attach\n            return attach(source,words,metadata,prepared,add_patterns,original['enemy']['patterns'])\n"
+          "after": "registry_nodes=validate(copy.deepcopy(prepared['enemy']['patterns'])) if add_patterns is not None else nodes\n            "
         },
         {
-          "start": 11709,
-          "end": 11827,
-          "before": "    control_log=read_product_control_log(block,metadata,names,run.config['duration'])\n",
-          "after": "    control_log=read_product_control_log(block,metadata,names,run.config['duration'],burst_trace=view['burst_trace'])\n"
-        },
-        {
-          "start": 14609,
-          "end": 14956,
+          "start": 6476,
+          "end": 6485,
           "before": "",
-          "after": "    if metadata.get('product_enemy_healing'):\n        from portable_product_healing import read_result\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            from product_reference_models import WARNING\n            payload['reference_models']=model;payload['app_warnings'].append(WARNING)\n"
+          "after": "registry_"
         },
         {
-          "start": 15895,
-          "end": 15990,
-          "before": "            if kind not in (1,2,3,4,5,6,7) or node>=(len(names) if kind==6 else len(nodes)):\n",
-          "after": "            if kind not in (1,2,3,4,5,6,7,8) or node>=(len(names) if kind==6 else len(nodes)):\n"
+          "start": 8022,
+          "end": 8857,
+          "before": "",
+          "after": ")\n        if prepared.get('_product_burst_patterns'):\n            from portable_burst_control_specs import product_patterns\n            from portable_specs import LIMITS as limits\n            names=[c['name'] for c in prepared['chars']]\n            patterns=prepared['policies']['config']['burst_pattern']\n            packed=product_patterns(names,patterns)\n            for who,value in enumerate(packed):\n                words[limits['WEAPON_BASE']+who*limits['WEAPON_WORDS']+3]|=value\n            if any(packed):metadata['product_burst_patterns']=dict(patterns=copy.deepcopy(patterns),encoded=packed,cpu_schedule_or_state_supplied=False)\n        if add_patterns is not None:\n            from portable_product_add_attack import attach\n            return attach(source,words,metadata,prepared,add_patterns,original['enemy']['patterns']"
         },
         {
-          "start": 16206,
-          "end": 16379,
-          "before": "        world=read_histories(block,nodes)\n",
-          "after": "        from portable_product_add_attack import query_sources\n        sources=query_sources(block,metadata)\n        world=read_histories(block,nodes,attack_sources=sources)\n"
+          "start": 12046,
+          "end": 12078,
+          "before": "",
+          "after": ",burst_trace=view['burst_trace']"
         },
         {
-          "start": 17677,
-          "end": 17815,
-          "before": "                cover=round(hit['cover'],6),hp=round(hit['hp'],6),hp_after=round(hit['hp_after'],6),down=hit['down'],by='')\n",
-          "after": "                cover=round(hit['cover'],6),hp=round(hit['hp'],6),hp_after=round(hit['hp_after'],6),down=hit['down'],by=hit.get('by',''))\n"
+          "start": 14869,
+          "end": 15553,
+          "before": "",
+          "after": "metadata.get('product_enemy_healing'):\n        from portable_product_healing import read_result\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            from product_reference_models import WARNING\n            payload['reference_models']=model;payload['app_warnings'].append(WARNING)\n    if metadata.get('product_weighted_incoming'):\n        from portable_product_weighted import read_result\n        from product_reference_models import warning\n        model=read_result(block,metadata,names,run.config['duration'])\n        payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))\n    if "
+        },
+        {
+          "start": 16526,
+          "end": 16528,
+          "before": "",
+          "after": ",8"
+        },
+        {
+          "start": 16804,
+          "end": 16912,
+          "before": "",
+          "after": "from portable_product_add_attack import query_sources\n        sources=query_sources(block,metadata)\n        "
+        },
+        {
+          "start": 16942,
+          "end": 16965,
+          "before": "",
+          "after": "es,attack_sources=sourc"
+        },
+        {
+          "start": 18387,
+          "end": 18400,
+          "before": "",
+          "after": "hit.get('by',"
+        },
+        {
+          "start": 18402,
+          "end": 18403,
+          "before": "",
+          "after": ")"
         }
       ]
     },
@@ -696,49 +714,73 @@
     },
     "app/portable_backend.py": {
       "before_sha256": "56d708fa4162b19d35cb2ec16498380f762e11dea17162c57ceb37c651c9f8ac",
-      "after_sha256": "2ae5db23e9c290e5a35be0794ef407fccde903565c2833f6bd0ca8e99dc9adfb",
+      "after_sha256": "bcd4f24518dde8e0ea91c8edc6e1b2ce91156ebc3dfab67dbd4731f7474a4113",
       "hunks": [
         {
-          "start": 3841,
-          "end": 4702,
+          "start": 3872,
+          "end": 4733,
           "before": "",
-          "after": "    if source in ('gpu/product_add_battle_entry.slang','gpu/product_add_group_battle_entry.slang',\n                  'gpu/product_add_fixed_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang',\n                  'gpu/product_add_target_battle_entry.slang','gpu/product_add_fixed_target_battle_entry.slang',\n                  'gpu/product_add_group_target_battle_entry.slang','gpu/product_add_fixed_group_target_battle_entry.slang'):\n        from portable_add_attack_battle_wire import check_schema,LAYOUT\n        from portable_add_self_destruct_wire import check_schema as check_retirement\n        check_schema(ROOT);check_retirement(ROOT)\n        if (input_words,output_words)!=(LAYOUT['INPUT_WORDS'],LAYOUT['OUTPUT_WORDS']):\n            raise ValueError('Product ADD attacks require the complete shared source/retirement wire')\n        return\n"
+          "after": "add_battle_entry.slang','gpu/product_add_group_battle_entry.slang',\n                  'gpu/product_add_fixed_battle_entry.slang','gpu/product_add_fixed_group_battle_entry.slang',\n                  'gpu/product_add_target_battle_entry.slang','gpu/product_add_fixed_target_battle_entry.slang',\n                  'gpu/product_add_group_target_battle_entry.slang','gpu/product_add_fixed_group_target_battle_entry.slang'):\n        from portable_add_attack_battle_wire import check_schema,LAYOUT\n        from portable_add_self_destruct_wire import check_schema as check_retirement\n        check_schema(ROOT);check_retirement(ROOT)\n        if (input_words,output_words)!=(LAYOUT['INPUT_WORDS'],LAYOUT['OUTPUT_WORDS']):\n            raise ValueError('Product ADD attacks require the complete shared source/retirement wire')\n        return\n    if source in ('gpu/product_"
         },
         {
-          "start": 11247,
-          "end": 11393,
-          "before": "    if source=='gpu/world_enemy_healing_entry.slang':\n",
-          "after": "    if source in ('gpu/world_enemy_healing_entry.slang','gpu/product_healing_battle_entry.slang','gpu/product_healing_fixed_battle_entry.slang'):\n"
-        },
-        {
-          "start": 34340,
-          "end": 34471,
+          "start": 5588,
+          "end": 5678,
           "before": "",
-          "after": "            if cuda_split_compile_threads()==2:\n                signatures['nvrtcVersion']=[C.POINTER(C.c_int),C.POINTER(C.c_int)]\n"
+          "after": "_entry.slang','gpu/product_weighted_battle_entry.slang','gpu/product_weighted_fixed_battle"
         },
         {
-          "start": 41228,
-          "end": 41558,
-          "before": "def cuda_compile_options(kind, ptxas_level=None):\n",
-          "after": "def cuda_split_compile_threads():\n    value=os.environ.get('NIKKE_CUDA_SPLIT_COMPILE','1')\n    if value not in ('1','2'):\n        raise ValueError('NIKKE_CUDA_SPLIT_COMPILE must be1 or2; automatic/all-core compilation is forbidden')\n    return int(value)\n\n\ndef cuda_compile_options(kind, ptxas_level=None, *, split_compile=None):\n"
+          "start": 11350,
+          "end": 11355,
+          "before": "==",
+          "after": " in ("
         },
         {
-          "start": 41949,
-          "end": 42351,
+          "start": 11392,
+          "end": 11481,
           "before": "",
-          "after": "    threads=cuda_split_compile_threads() if split_compile is None else split_compile\n    if type(threads) is not int or threads not in (1,2):raise ValueError('NVRTC compiler threads must be1 or2')\n    # Opt-in only: default argv/cache identities stay byte-identical. The\n    # parallel optimizer count participates in the ordinary exact cache key.\n    if threads==2:options.append('--split-compile=2')\n"
+          "after": ",'gpu/product_healing_battle_entry.slang','gpu/product_healing_fixed_battle_entry.slang')"
         },
         {
-          "start": 43022,
-          "end": 43178,
-          "before": "    options = cuda_compile_options(artifact_kind,None if level in (None,'') else int(level))\n",
-          "after": "    threads=cuda_split_compile_threads()\n    options = cuda_compile_options(artifact_kind,None if level in (None,'') else int(level),split_compile=threads)\n"
-        },
-        {
-          "start": 43777,
-          "end": 44059,
+          "start": 34442,
+          "end": 34573,
           "before": "",
-          "after": "        if threads==2:\n            major,minor=C.c_int(),C.c_int()\n            check(lib.nvrtcVersion(C.byref(major),C.byref(minor)))\n            if major.value!=12 or minor.value<4:\n                raise ValueError('Two-thread NVRTC compilation requires verified NVRTC12.4..12.x')\n"
+          "after": "if cuda_split_compile_threads()==2:\n                signatures['nvrtcVersion']=[C.POINTER(C.c_int),C.POINTER(C.c_int)]\n            "
+        },
+        {
+          "start": 41327,
+          "end": 41584,
+          "before": "",
+          "after": "split_compile_threads():\n    value=os.environ.get('NIKKE_CUDA_SPLIT_COMPILE','1')\n    if value not in ('1','2'):\n        raise ValueError('NIKKE_CUDA_SPLIT_COMPILE must be1 or2; automatic/all-core compilation is forbidden')\n    return int(value)\n\n\ndef cuda_"
+        },
+        {
+          "start": 41617,
+          "end": 41640,
+          "before": "",
+          "after": "=None, *, split_compile"
+        },
+        {
+          "start": 42038,
+          "end": 42440,
+          "before": "",
+          "after": "\n    threads=cuda_split_compile_threads() if split_compile is None else split_compile\n    if type(threads) is not int or threads not in (1,2):raise ValueError('NVRTC compiler threads must be1 or2')\n    # Opt-in only: default argv/cache identities stay byte-identical. The\n    # parallel optimizer count participates in the ordinary exact cache key.\n    if threads==2:options.append('--split-compile=2')"
+        },
+        {
+          "start": 43116,
+          "end": 43157,
+          "before": "",
+          "after": "threads=cuda_split_compile_threads()\n    "
+        },
+        {
+          "start": 43244,
+          "end": 43266,
+          "before": "",
+          "after": ",split_compile=threads"
+        },
+        {
+          "start": 43864,
+          "end": 44146,
+          "before": "",
+          "after": "')\n        if threads==2:\n            major,minor=C.c_int(),C.c_int()\n            check(lib.nvrtcVersion(C.byref(major),C.byref(minor)))\n            if major.value!=12 or minor.value<4:\n                raise ValueError('Two-thread NVRTC compilation requires verified NVRTC12.4..12.x"
         }
       ]
     },
@@ -894,37 +936,49 @@
     },
     "app/portable_product_programs.py": {
       "before_sha256": "51d18a2191c24ef3b68f2d1cf71d792cdb9e8e01ed209e5c793827ce5b7d056d",
-      "after_sha256": "5f4d0e304a2ae0f503c193bb29ef65ed3f6ca8d0a807f5623fc96af1b3854681",
+      "after_sha256": "79ac960b3c5483577e2ade1058a4cc1ce5814de29663fbbc7dafc4396d81cf57",
       "hunks": [
         {
-          "start": 318,
-          "end": 381,
-          "before": "GOLDEN = 'research/portable-product-programs-v1-expected.json'\n",
-          "after": "GOLDEN = 'research/portable-product-programs-v3-expected.json'\n"
+          "start": 364,
+          "end": 365,
+          "before": "1",
+          "after": "3"
         },
         {
-          "start": 1038,
-          "end": 1349,
-          "before": "    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or _name!=_mode+('-'+_kind if _kind else ''):\n",
-          "after": "    _add=_name.startswith('add-');_healing=_name.startswith('healing-')\n    _prefix='add-' if _add else 'healing-' if _healing else ''\n    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or _healing and _kind!='' or _name!=_prefix+_mode+('-'+_kind if _kind else ''):\n"
-        },
-        {
-          "start": 1503,
-          "end": 1721,
-          "before": "    if _program['source']!='gpu/product_'+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):\n",
-          "after": "    if _program['source']!='gpu/product_'+('add_' if _add else 'healing_' if _healing else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):\n"
-        },
-        {
-          "start": 3559,
-          "end": 3808,
-          "before": "    if program['kind'] in ('group', 'target'):\n",
-          "after": "    if name is not None and name.startswith('healing-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]\n    elif program['kind'] in ('group', 'target'):\n"
-        },
-        {
-          "start": 4386,
-          "end": 4819,
+          "start": 1042,
+          "end": 1247,
           "before": "",
-          "after": "    if name is not None and name.startswith('add-'):\n        body['enemy']['patterns']=[dict(id='product-escort',kind='summon',until=dict(targets_cleared=True),spec=dict(\n            name='Escort',count=2,hp=1e12,attack_at=.25,self_destruct=True,\n            attack=dict(atk=1000,coeff=100,hits=2,interval=.5,target='all',debuffs=[\n                dict(stat='atk_pct',value=-10),dict(stat='dot',coeff=10,interval=.5,duration=1)])))]\n"
+          "after": "_add=_name.startswith('add-');_healing=_name.startswith('healing-');_weighted=_name.startswith('weighted-')\n    _prefix='add-' if _add else 'healing-' if _healing else 'weighted-' if _weighted else ''\n    "
+        },
+        {
+          "start": 1342,
+          "end": 1383,
+          "before": "",
+          "after": "(_healing or _weighted) and _kind!='' or "
+        },
+        {
+          "start": 1390,
+          "end": 1398,
+          "before": "",
+          "after": "_prefix+"
+        },
+        {
+          "start": 1629,
+          "end": 1712,
+          "before": "",
+          "after": "+('add_' if _add else 'healing_' if _healing else 'weighted_' if _weighted else '')"
+        },
+        {
+          "start": 3681,
+          "end": 4152,
+          "before": "",
+          "after": "name is not None and name.startswith('weighted-'):\n        from portable_weighted_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}\n    elif name is not None and name.startswith('healing-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]\n    elif "
+        },
+        {
+          "start": 4774,
+          "end": 5207,
+          "before": "",
+          "after": "if name is not None and name.startswith('add-'):\n        body['enemy']['patterns']=[dict(id='product-escort',kind='summon',until=dict(targets_cleared=True),spec=dict(\n            name='Escort',count=2,hp=1e12,attack_at=.25,self_destruct=True,\n            attack=dict(atk=1000,coeff=100,hits=2,interval=.5,target='all',debuffs=[\n                dict(stat='atk_pct',value=-10),dict(stat='dot',coeff=10,interval=.5,duration=1)])))]\n    "
         }
       ]
     },

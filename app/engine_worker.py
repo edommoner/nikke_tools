@@ -256,7 +256,7 @@ def detail_demo():
 
 
 def evaluate(body):
-    from product_reference_models import normalize as reference_models,execution as reference_execution,WARNING as reference_warning
+    from product_reference_models import normalize as reference_models,execution as reference_execution,warning as reference_warning
     declared_models=reference_models(body.get('reference_models'))
     if declared_models and (body.get('_compile_gpu_detail') or body.get('_compile_gpu')):
         raise ValueError('Declared reference consumer has no legacy GPU producer; CPU execution is required')
@@ -360,7 +360,7 @@ def evaluate(body):
         if body.get('_compile_gpu'):
             from gpu_combat import compile_run
             return compile_run(run, changed, body)
-        with reference_execution(declared_models) as model_result:
+        with reference_execution(declared_models,squad) as model_result:
             executed = sim.execute(run)
         result = sim.payload(run, executed)
         if model_result is not None:result['reference_models']=model_result
@@ -387,7 +387,7 @@ def evaluate(body):
     result['engine_revision'] = REVISION
     result['app_warnings'] = ['固定条件の静止ボスを仮定した参考値です。ボス固有パターンと生存は未検証です。']
     result['app_warnings'].extend(getattr(executed,'effect_model_warnings',[]))
-    if declared_models:result['app_warnings'].append(reference_warning)
+    if declared_models:result['app_warnings'].append(reference_warning(declared_models))
     if body.get('enemy',{}).get('patterns'):result['app_warnings'][0]='設定したボス行動で計算した参考値です。実機のギミックや生存の再現は未検証です。'
     if result['requested_burst_policy']=='mast3' and result['burst_policy']=='auto':
         result['app_warnings'].append('マスト：ロマンチックメイドがいないため、3の倍数指定は適用せず全員オートで計算しました。')

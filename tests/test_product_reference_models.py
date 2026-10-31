@@ -9,6 +9,54 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def test_weighted_original_product_consumes_real_markers_and_preserves_definitions(self):
+        from portable_weighted_battle_cases import fixtures
+        import portable_detail as product
+        case=fixtures()[0];body=copy.deepcopy(case['body']);body['reference_models']={'weighted_incoming':case['allocation']}
+        before=copy.deepcopy(body);aliases=(timeline.simulate,sim.simulate)
+        with patch.object(sim,'execute',side_effect=AssertionError('No native battle in GPU preparation')):
+            prepared,_=product.prepare(body);original=copy.deepcopy(prepared)
+            source,iw,ow,words,meta=product.compile_product(prepared)
+        self.assertEqual((iw,ow),(115696,2048912));self.assertEqual(prepared,original)
+        self.assertEqual(source,'gpu/product_weighted_battle_entry.slang')
+        self.assertFalse(meta['product_weighted_incoming']['cpu_state_or_schedule_supplied'])
+        self.assertFalse(any(words[104400:115680]))
+        result=engine_worker.evaluate(body);self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate))
+        data=result['reference_models']['weighted_incoming']
+        self.assertTrue(data['snapshots']);self.assertTrue(data['cover_receipts'])
+        self.assertTrue(any(s['active_mask']&32 for s in data['snapshots']))
+        self.assertGreater(len(result['incoming_hits']),len(case['patterns'])-1)
+        self.assertFalse(data['in_game_rules_verified'])
+
+    def test_weighted_missing_weights_and_unsupported_composition_fail_before_dispatch(self):
+        from portable_weighted_battle_cases import fixtures
+        from portable_runtime import UnsupportedPortable
+        import portable_detail as product
+        case=fixtures()[0];prepared,_=product.prepare(case['body'])
+        with self.assertRaisesRegex(UnsupportedPortable,'explicit.*weights'):product.compile_product(prepared)
+        prepared['reference_models']={'weighted_incoming':case['allocation'],'enemy_healing':[dict(node='world',targets=['x'],amount=1)]}
+        with self.assertRaisesRegex(UnsupportedPortable,'combined wire'):product.compile_product(prepared)
+        for key,value in [('caster_weight',0),('other_weight',True),('cover_weight',float('nan'))]:
+            bad=copy.deepcopy(case['allocation']);bad[key]=value
+            with self.subTest(key=key),self.assertRaises(ValueError):normalize({'weighted_incoming':bad})
+        with self.assertRaisesRegex(RuntimeError,'injected'):
+            with execution(normalize({'weighted_incoming':case['allocation']}),case['names']):raise RuntimeError('injected')
+        self.assertIs(timeline.simulate,sim.simulate)
+        self.assertNotIn('_nikke_weighted_snapshot',timeline.simulate.__globals__)
+
+    def test_weighted_readback_rejects_overflow_scratch_and_unaccounted_cover_receipts(self):
+        from portable_product_weighted import read_result
+        from portable_weighted_battle_wire import LAYOUT as W,MAGIC,OUTPUT
+        from portable_runtime import UnsupportedPortable
+        spec=dict(policy='declared-weighted-incoming-v1',caster_weight=8.,other_weight=3.,cover_weight=262.)
+        meta=dict(product_weighted_incoming=dict(declarations={'weighted_incoming':spec},source_rows=[0,2],source_name='body',cover_name='cover'))
+        words=array.array('I',[0])*OUTPUT;head=W['OUTPUT_BASE'];words[head]=MAGIC
+        with patch.object(sim,'execute',side_effect=AssertionError('Readback may not replay native')):
+            self.assertEqual(read_result(words,meta,['a','b','c','d','e'],30.)['weighted_incoming']['snapshots'],[])
+            for offset,value in [(head,0),(head+1,129),(head+2,1),(head+3,1),(head+W['SCRATCH'],1),(head+W['SNAPSHOTS'],1),(head+W['RECEIPTS'],1)]:
+                bad=array.array('I',words);bad[offset]=value
+                with self.subTest(offset=offset),self.assertRaises(UnsupportedPortable):read_result(bad,meta,['a','b','c','d','e'],30.)
+
     def test_static_original_anne_connects_the_same_consumer_with_or_without_healing_sources(self):
         from portable_enemy_healing_cases import fixtures
         from portable_original_identity_inventory import selected_profile_bodies

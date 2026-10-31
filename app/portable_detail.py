@@ -64,6 +64,9 @@ def verified_transport(evidence, backend):
 
 def compile_product(prepared):
     """Select an existing wire by actual effect requirements, never by character."""
+    from portable_product_weighted import required as weighted_required,compile_product as compile_weighted
+    if not prepared.get('_product_weighted_compiled') and weighted_required(prepared):
+        return compile_weighted(prepared,compile_product)
     from portable_product_healing import required,compile_product as compile_healing
     if not prepared.get('_product_healing_compiled') and required(prepared):
         return compile_healing(prepared,compile_product)
@@ -245,6 +248,11 @@ def decode_payload(body, prepared, run, metadata, block):
         if model is not None:
             from product_reference_models import WARNING
             payload['reference_models']=model;payload['app_warnings'].append(WARNING)
+    if metadata.get('product_weighted_incoming'):
+        from portable_product_weighted import read_result
+        from product_reference_models import warning
+        model=read_result(block,metadata,names,run.config['duration'])
+        payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
     if body.get('enemy',{}).get('parts'):
         from portable_world_result import read_product_parts
         from detail_world import read_parts
