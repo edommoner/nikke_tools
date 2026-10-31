@@ -1,0 +1,187 @@
+{
+  "schema": "movement-cover-fixed-compile-status-v3",
+  "status": "stopped",
+  "permission_mode": "require_escalated",
+  "approval_denial_encountered": false,
+  "transport_commit": "ad4a4efe400b1862494b7afd0ca2a39ca25c1ac7",
+  "source_commit": "70e68113864923eaa3c5281b0d5f20deef1cbb3d",
+  "package_id": "de7eae326ff99ab4da1c28b0dca653e01da2c5abbc4ad8d1e6a9bf1d6211b988",
+  "archive": {
+    "name": "movement-cover-fixed-v1.zip",
+    "bytes": 12047589,
+    "sha256": "fb1d767a5995ff23854e4a1189b175b15ded31c96cb4c99c67db046a8a027086",
+    "byte_hash_verified": true,
+    "immutable_payload_verified": true,
+    "owner_verified": true
+  },
+  "reached_stage": "cpu_preflight_own_final_test_group_incomplete",
+  "stop": {
+    "first_condition": "CPU child exceeded its 60-second bound",
+    "additional_saved_condition": "After-wait process comparison recorded 14 missing identities",
+    "retry_count": 0,
+    "missing_cause": "unknown",
+    "sdk_or_compiler_failure_inferred": false,
+    "no_continuation": true
+  },
+  "unpack": {
+    "child_exit_code": 0,
+    "timed_out": false,
+    "child_timeout_seconds": 60,
+    "elapsed_seconds": 18.89600950013846,
+    "error": null,
+    "cleanup_error": null,
+    "observation_error": null,
+    "below_normal_priority": true,
+    "pre_gate_verified": true,
+    "post_wait_job_empty": true,
+    "inspection_error_present": false,
+    "job_limits": [
+      {
+        "before_bytes": 2147483648,
+        "after_bytes": 2147483648,
+        "peak_bytes": 73650176
+      }
+    ],
+    "missing_process_count": 0,
+    "missing_roles": {},
+    "service_status_before": "unverified",
+    "service_status_after": "unverified",
+    "identified_service_preservation_verified": false,
+    "termination_cause": null,
+    "all_monitored_processes_preserved": true
+  },
+  "cpu_preflight": {
+    "execution": {
+      "child_exit_code": 1,
+      "timed_out": true,
+      "child_timeout_seconds": 60,
+      "elapsed_seconds": 61.99321580026299,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "below_normal_priority": true,
+      "pre_gate_verified": true,
+      "post_wait_job_empty": true,
+      "inspection_error_present": false,
+      "job_limits": [
+        {
+          "before_bytes": 2147483648,
+          "after_bytes": 2147483648,
+          "peak_bytes": 206557184
+        }
+      ],
+      "missing_process_count": 14,
+      "missing_roles": {
+        "unrelated": 10,
+        "service_candidate": 4
+      },
+      "service_status_before": "unverified",
+      "service_status_after": "unverified",
+      "identified_service_preservation_verified": false,
+      "termination_cause": "unknown",
+      "all_monitored_processes_preserved": false
+    },
+    "forbid_gpu_used": true,
+    "device_linker_expected": 15,
+    "device_linker_completed_receipt": [
+      {
+        "pattern": "test_portable_device_linker.py",
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0
+      }
+    ],
+    "own_expected": 129,
+    "own_completed_group_receipts": [
+      {
+        "pattern": "test_portable_detail.py",
+        "tests": 67,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0
+      },
+      {
+        "pattern": "test_product_detail_packet.py",
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0
+      },
+      {
+        "pattern": "test_weighted_source_contract.py",
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0
+      }
+    ],
+    "own_completed_receipt_tests": 84,
+    "own_full_suite_verified": false,
+    "unfinished_group": "test_product_reference_models.py",
+    "unfinished_group_saved_progress_markers": 35,
+    "progress_markers_are_final_receipt": false,
+    "final_stage_result_saved": false,
+    "timeout_failure_execution_saved": true
+  },
+  "remaining_stages": {
+    "strict_paired_generation": "not_started",
+    "nvrtc_ptx": "not_started",
+    "ptxas_module_object_O1": "not_started"
+  },
+  "actual_sdk_calls": {
+    "slang": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "cubin": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "http": 0
+  },
+  "compiler_artifacts": {
+    "generated_cuda_raw_sha256": null,
+    "generated_cuda_normalized_sha256": null,
+    "generated_metal_raw_sha256": null,
+    "generated_metal_normalized_sha256": null,
+    "ptx": null,
+    "object": null,
+    "availability": "unavailable_no_generation_or_compiler_call"
+  },
+  "ptxas_portableEvents": {
+    "registers": null,
+    "stack_bytes": null,
+    "spill_store_bytes": null,
+    "spill_load_bytes": null,
+    "shared_bytes": null,
+    "local_bytes": null,
+    "availability": "unavailable_no_ptxas_call"
+  },
+  "verification": {
+    "all_cpu_tests_verified": false,
+    "compiler_verified": false,
+    "object_verified": false,
+    "calculation_verified": false,
+    "environment_preservation_verified": false,
+    "containment_job_membership_verified": true,
+    "job_memory_limit_queries_complete": true,
+    "overall_passed": false
+  },
+  "historical_integrity": {
+    "files_checked": 1540,
+    "mismatches": 0,
+    "old_failed_claims_modified": false,
+    "old_removal_snapshot_rerun": false,
+    "v1_v2_and_diagnostics_preserved": true
+  },
+  "saved_capture": {
+    "path_base": "Documents/Codex",
+    "relative_directory": "movement-cover-fixed-compile-v3"
+  },
+  "next_action": "Stopped without retries or additional diagnosis; await new instruction."
+}
