@@ -1,0 +1,13 @@
+{
+  "schema": "normal-origin-gates-manifest-v3",
+  "owner": "20391ee28b13009277b74ce6c51ca444fa3740cec6d05c52623ede90e1221b72",
+  "source_commit": "79455c6dc5be79bfd06df5aaab1789dedf7051f6",
+  "files": [
+    {
+      "path": "normal-origin-gates-summary-v3.json",
+      "bytes": 42731,
+      "sha256": "0aaa45c71f1d55af4a131673deb0275ef8f76d571d54155d90e748313ed8a0ff"
+    }
+  ],
+  "scope": "Small saved JSON only; no user process details, SDK, raw buffers or private paths; v1/v2 unchanged"
+}

@@ -1,0 +1,1008 @@
+{
+  "schema": "normal-origin-gates-summary-v3",
+  "passed": false,
+  "owner": "20391ee28b13009277b74ce6c51ca444fa3740cec6d05c52623ede90e1221b72",
+  "source_commit": "79455c6dc5be79bfd06df5aaab1789dedf7051f6",
+  "transport_commit": "4b34547a4af14284bc6289c909bec8af522fbd14",
+  "archive": {
+    "present": true,
+    "bytes": 11913556,
+    "sha256": "75b9afbed1ec01ad908574578bda4dec0fad941ed2498468e75bad3f677132c7"
+  },
+  "owner_manifest": {
+    "present": true,
+    "bytes": 576880,
+    "sha256": "3a0c8df8341fb3fb3de498647d17d27af55a1c688978a51ab958627b01838a9a"
+  },
+  "source_retention": {
+    "passed": true,
+    "owner": "20391ee28b13009277b74ce6c51ca444fa3740cec6d05c52623ede90e1221b72",
+    "changed_files": [
+      "app/portable_cpu_tests.py",
+      "app/portable_staged_preflight.py",
+      "app/portable_staged_tests.py",
+      "scripts/nikke_gpu.py",
+      "scripts/run-gpu-packet.py",
+      "tests/test_portable_staged_tests.py"
+    ],
+    "gpu_all_recorded_bytes_sha_equal": true,
+    "golden_complete_equal": true
+  },
+  "scope": "Fresh v3 CPU preflight only. All 100 tests and native1 re-executed; no old execution reused. Original Mac raw buffers were not read. No real SDK stages, driver, context, GPU or API executed.",
+  "stop_reason": "PTX plan policy passed, but standard outer observation comparison found 7 missing process identities and rejected the stage. Cause unknown. No generation or native SDK pipeline started.",
+  "unpack": {
+    "seconds": 34.2040911000222,
+    "timeout_seconds": 60,
+    "timed_out": false,
+    "execution_passed": true,
+    "child_exit_code": 0,
+    "peak_bytes": 73490432,
+    "job_empty_after": true,
+    "missing_count": 0,
+    "termination_cause": null,
+    "service_status": "unverified",
+    "preservation_verified": false,
+    "cleanup_error": null,
+    "observation_error": null
+  },
+  "preflight_plan": {
+    "stage_verified": true,
+    "scope": {
+      "seconds": 32.31267059966922,
+      "timeout_seconds": 59.813000000081956,
+      "timed_out": false,
+      "execution_passed": true,
+      "child_exit_code": 0,
+      "peak_bytes": 132440064,
+      "job_empty_after": true,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false,
+      "cleanup_error": null,
+      "observation_error": null
+    },
+    "group_size": 1,
+    "test_group_size": 1,
+    "split_test_pattern": "test_product_reference_models.py",
+    "test_case_group_size": 3,
+    "input": {
+      "input_bytes": 417604,
+      "input_count": 1,
+      "input_sha256": "291fd86560a0bb772a03b581d273ddfe098b772f9935a02b89b16a7322466a18",
+      "input_words": 104400,
+      "package_id": "20391ee28b13009277b74ce6c51ca444fa3740cec6d05c52623ede90e1221b72",
+      "schema": 1
+    }
+  },
+  "cpu_tests": {
+    "passed": true,
+    "planned_total": 100,
+    "completed_verified": 100,
+    "groups_planned": 12,
+    "groups_completed": 12,
+    "groups": [
+      {
+        "index": 0,
+        "patterns": [
+          "test_portable_detail.py"
+        ],
+        "stage_verified": true,
+        "tests": 59,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_body_seconds": 19.7953313998878,
+        "exact_selected_case_ids": [],
+        "scope": {
+          "seconds": 46.065975199919194,
+          "timeout_seconds": 59.82899999991059,
+          "timed_out": false,
+          "execution_passed": true,
+          "child_exit_code": 0,
+          "peak_bytes": 141934592,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        }
+      },
+      {
+        "index": 1,
+        "patterns": [
+          "test_product_detail_packet.py"
+        ],
+        "stage_verified": true,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_body_seconds": 4.939398699905723,
+        "exact_selected_case_ids": [],
+        "scope": {
+          "seconds": 31.852748699951917,
+          "timeout_seconds": 59.82800000021234,
+          "timed_out": false,
+          "execution_passed": true,
+          "child_exit_code": 0,
+          "peak_bytes": 147152896,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        }
+      },
+      {
+        "index": 2,
+        "patterns": [
+          "test_weighted_source_contract.py"
+        ],
+        "stage_verified": true,
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_body_seconds": 6.731913900002837,
+        "exact_selected_case_ids": [],
+        "scope": {
+          "seconds": 33.05368740018457,
+          "timeout_seconds": 59.82800000021234,
+          "timed_out": false,
+          "execution_passed": true,
+          "child_exit_code": 0,
+          "peak_bytes": 129290240,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        }
+      },
+      {
+        "index": 3,
+        "patterns": [
+          "test_product_reference_models.py"
+        ],
+        "stage_verified": true,
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_body_seconds": 2.7338350997306406,
+        "exact_selected_case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_adapter_unwinds_after_execution_error_and_default_installs_nothing",
+          "test_product_reference_models.ProductReferenceModels.test_cover_malformed_or_unknown_roster_and_unconnected_controls_fail_closed",
+          "test_product_reference_models.ProductReferenceModels.test_cover_product_keeps_literal_operations_and_independent_bases"
+        ],
+        "scope": {
+          "seconds": 29.994045099709183,
+          "timeout_seconds": 59.82800000021234,
+          "timed_out": false,
+          "execution_passed": true,
+          "child_exit_code": 0,
+          "peak_bytes": 132800512,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        }
+      },
+      {
+        "index": 4,
+        "patterns": [
+          "test_product_reference_models.py"
+        ],
+        "stage_verified": true,
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_body_seconds": 1.3526467001065612,
+        "exact_selected_case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_cover_readback_rejects_overflow_and_stale_depth_state",
+          "test_product_reference_models.ProductReferenceModels.test_default_world_preserves_all_original_carriers_without_inventing_incoming_quantities",
+          "test_product_reference_models.ProductReferenceModels.test_enemy_magazine_default_has_no_fabricated_capacity_and_attack_requires_declaration"
+        ],
+        "scope": {
+          "seconds": 28.950413199607283,
+          "timeout_seconds": 59.82800000021234,
+          "timed_out": false,
+          "execution_passed": true,
+          "child_exit_code": 0,
+          "peak_bytes": 131940352,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        }
+      },
+      {
+        "index": 5,
+        "patterns": [
+          "test_product_reference_models.py"
+        ],
+        "stage_verified": true,
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_body_seconds": 0.24679300002753735,
+        "exact_selected_case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_extended_resource_history_is_complete_and_cannot_use_a_short_prefix",
+          "test_product_reference_models.ProductReferenceModels.test_gpu_healing_projection_preserves_hp_credit_and_rejects_incomplete_receipts",
+          "test_product_reference_models.ProductReferenceModels.test_invalid_or_unknown_models_fail_before_simulation"
+        ],
+        "scope": {
+          "seconds": 30.648236299864948,
+          "timeout_seconds": 59.813000000081956,
+          "timed_out": false,
+          "execution_passed": true,
+          "child_exit_code": 0,
+          "peak_bytes": 129966080,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        }
+      },
+      {
+        "index": 6,
+        "patterns": [
+          "test_product_reference_models.py"
+        ],
+        "stage_verified": true,
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_body_seconds": 0.6091379001736641,
+        "exact_selected_case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_magazine_blocked_attempt_requires_matching_source_generation_and_no_query",
+          "test_product_reference_models.ProductReferenceModels.test_manual_cover_control_intervals_require_gpu_open_close_and_marker",
+          "test_product_reference_models.ProductReferenceModels.test_missing_sources_reject_before_shared_dispatch_and_legacy_stays_closed"
+        ],
+        "scope": {
+          "seconds": 28.714993100147694,
+          "timeout_seconds": 59.84400000004098,
+          "timed_out": false,
+          "execution_passed": true,
+          "child_exit_code": 0,
+          "peak_bytes": 131477504,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        }
+      },
+      {
+        "index": 7,
+        "patterns": [
+          "test_product_reference_models.py"
+        ],
+        "stage_verified": true,
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_body_seconds": 20.820665000006557,
+        "exact_selected_case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_movement_declarations_reject_unknown_geometry_or_composition_before_battle",
+          "test_product_reference_models.ProductReferenceModels.test_movement_product_uses_checked_native_clock_and_literal_shared_input",
+          "test_product_reference_models.ProductReferenceModels.test_movement_readback_rejects_partial_identity_reserved_and_segment_discontinuity"
+        ],
+        "scope": {
+          "seconds": 47.45345039991662,
+          "timeout_seconds": 59.82799999974668,
+          "timed_out": false,
+          "execution_passed": true,
+          "child_exit_code": 0,
+          "peak_bytes": 144830464,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        }
+      },
+      {
+        "index": 8,
+        "patterns": [
+          "test_product_reference_models.py"
+        ],
+        "stage_verified": true,
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_body_seconds": 16.92741660028696,
+        "exact_selected_case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_movement_standalone_cpu_worker_resolves_provider_before_checked_rewrites",
+          "test_product_reference_models.ProductReferenceModels.test_named_range_decoder_rejects_reserved_partial_and_capacity_corruption",
+          "test_product_reference_models.ProductReferenceModels.test_named_range_product_consumes_original_count_and_range_modifiers"
+        ],
+        "scope": {
+          "seconds": 40.81666019978002,
+          "timeout_seconds": 59.811999999918044,
+          "timed_out": false,
+          "execution_passed": true,
+          "child_exit_code": 0,
+          "peak_bytes": 186101760,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        }
+      },
+      {
+        "index": 9,
+        "patterns": [
+          "test_product_reference_models.py"
+        ],
+        "stage_verified": true,
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_body_seconds": 6.354772599879652,
+        "exact_selected_case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_named_range_standalone_cpu_worker_uses_shared_coordinate_context",
+          "test_product_reference_models.ProductReferenceModels.test_named_range_unknown_binding_and_composition_fail_and_restore_native",
+          "test_product_reference_models.ProductReferenceModels.test_no_incoming_contract_checks_every_attack_node_without_predicting_schedule"
+        ],
+        "scope": {
+          "seconds": 41.09140870021656,
+          "timeout_seconds": 59.82799999974668,
+          "timed_out": false,
+          "execution_passed": true,
+          "child_exit_code": 0,
+          "peak_bytes": 177872896,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        }
+      },
+      {
+        "index": 10,
+        "patterns": [
+          "test_product_reference_models.py"
+        ],
+        "stage_verified": true,
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_body_seconds": 6.1492697997018695,
+        "exact_selected_case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_original_anne_reduction_reaches_actual_product_healing_and_restores_aliases",
+          "test_product_reference_models.ProductReferenceModels.test_original_enemy_magazine_product_uses_literal_state_and_restores_native_operator",
+          "test_product_reference_models.ProductReferenceModels.test_static_original_anne_connects_the_same_consumer_with_or_without_healing_sources"
+        ],
+        "scope": {
+          "seconds": 42.87317349994555,
+          "timeout_seconds": 59.84400000004098,
+          "timed_out": false,
+          "execution_passed": true,
+          "child_exit_code": 0,
+          "peak_bytes": 133611520,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        }
+      },
+      {
+        "index": 11,
+        "patterns": [
+          "test_product_reference_models.py"
+        ],
+        "stage_verified": true,
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "test_body_seconds": 2.4310822999104857,
+        "exact_selected_case_ids": [
+          "test_product_reference_models.ProductReferenceModels.test_weighted_missing_weights_and_unsupported_composition_fail_before_dispatch",
+          "test_product_reference_models.ProductReferenceModels.test_weighted_original_product_consumes_real_markers_and_preserves_definitions",
+          "test_product_reference_models.ProductReferenceModels.test_weighted_readback_rejects_overflow_scratch_and_unaccounted_cover_receipts"
+        ],
+        "scope": {
+          "seconds": 32.61542129982263,
+          "timeout_seconds": 59.82800000021234,
+          "timed_out": false,
+          "execution_passed": true,
+          "child_exit_code": 0,
+          "peak_bytes": 131538944,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        }
+      }
+    ],
+    "coverage": {
+      "passed": true,
+      "owner": "20391ee28b13009277b74ce6c51ca444fa3740cec6d05c52623ede90e1221b72",
+      "expected_tests": 100,
+      "observed_completed_tests": 100,
+      "duplicate_ids": [],
+      "missing_ids": [],
+      "extra_ids": [],
+      "scope": "No import/discovery rerun. Whole-pattern 73 IDs enumerated from immutable source AST and paired with successful original whole-pattern runner counts; 27 exact selected IDs compared with saved plan and per-group receipts. Standard per-group validate_plan gates also passed.",
+      "case_ids": [
+        "test_portable_detail.BossDotNativeContract.test_clock_install_is_idempotent_and_preserves_simulation_aliases",
+        "test_portable_detail.BossDotNativeContract.test_clock_rewrite_rejects_changed_retirement_body",
+        "test_portable_detail.BossDotNativeContract.test_native_clock_exact_expiry_fires_once",
+        "test_portable_detail.BossDotNativeContract.test_native_clock_keeps_exhausted_schedule_while_carrier_is_live",
+        "test_portable_detail.BossDotNativeContract.test_native_clock_longer_than_duration_never_fires",
+        "test_portable_detail.BossDotNativeContract.test_native_clock_refresh_resets_exhausted_schedule",
+        "test_portable_detail.BossDotNativeContract.test_native_dot_hp_snapshot_includes_threshold_max_hp_grant",
+        "test_portable_detail.BossDotNativeContract.test_native_finite_dot_includes_expiry_tick_without_received_hit",
+        "test_portable_detail.BossDotNativeContract.test_native_pattern_close_precedes_dot_on_the_same_frame",
+        "test_portable_detail.BossDotNativeContract.test_native_refresh_ticks_before_reapplication_and_stacks_in_order",
+        "test_portable_detail.BossDotNativeContract.test_native_subframe_dot_drains_every_due_tick_at_current_frame",
+        "test_portable_detail.PortableDetail.test_actual_backend_cache_misses_do_not_reach_generators_compilers_or_driver",
+        "test_portable_detail.PortableDetail.test_add_debuffs_reuse_external_definitions_and_exact_firing_descriptor",
+        "test_portable_detail.PortableDetail.test_add_product_reuses_existing_prefix_and_literal_attack_retirement_wire",
+        "test_portable_detail.PortableDetail.test_add_source_projection_rejects_unknown_slots_and_misbound_nodes",
+        "test_portable_detail.PortableDetail.test_backend_failure_preserves_cpu_label_and_strips_internal_request_flags",
+        "test_portable_detail.PortableDetail.test_bad_saved_image_phase_order_or_completion_rejects_product_output",
+        "test_portable_detail.PortableDetail.test_bad_world_capacity_identity_owner_and_nonfinite_hits_are_rejected",
+        "test_portable_detail.PortableDetail.test_boss_attack_debuffs_preserve_external_identity_and_static_order",
+        "test_portable_detail.PortableDetail.test_boss_debuffs_compose_with_all_product_binding_families",
+        "test_portable_detail.PortableDetail.test_boss_dot_lowers_only_literal_coeff_interval_and_attack",
+        "test_portable_detail.PortableDetail.test_boss_lowering_keeps_literal_identity_and_all_original_effects",
+        "test_portable_detail.PortableDetail.test_both_backends_use_identical_inputs_decoder_and_post_readback_cpu_check",
+        "test_portable_detail.PortableDetail.test_complete_product_boss_and_incoming_projection_uses_gpu_history",
+        "test_portable_detail.PortableDetail.test_cuda_environment_and_required_cache_failures_remain_cpu_results",
+        "test_portable_detail.PortableDetail.test_descriptor_history_reaches_real_admission_loader_and_product_result",
+        "test_portable_detail.PortableDetail.test_dot_down_ordinal_preserves_queued_attack_and_revive_order",
+        "test_portable_detail.PortableDetail.test_fixed_burst_changes_only_authored_control_header_and_keeps_source_input",
+        "test_portable_detail.PortableDetail.test_fixed_delay_invalid_numbers_stop_before_lowering",
+        "test_portable_detail.PortableDetail.test_fixed_product_timeline_retains_bursts_without_accumulate_only_records",
+        "test_portable_detail.PortableDetail.test_fixed_tap_preserves_original_masks_controls_and_all_nonheader_words",
+        "test_portable_detail.PortableDetail.test_incomplete_or_wrong_execution_metadata_fails_closed",
+        "test_portable_detail.PortableDetail.test_invalid_product_parts_fall_back_before_any_gpu_dispatch",
+        "test_portable_detail.PortableDetail.test_invalid_status_truncation_nonfinite_and_bad_owner_cannot_be_published",
+        "test_portable_detail.PortableDetail.test_modifier_world_composition_preserves_original_script_and_axis_wires",
+        "test_portable_detail.PortableDetail.test_native_groups_use_shared_boss_compiler_without_widening_declared_routing",
+        "test_portable_detail.PortableDetail.test_nearby_selector_is_specialized_only_for_a_proved_single_body",
+        "test_portable_detail.PortableDetail.test_ordinary_periodic_stack_scaling_preserves_hit_count_not_dot_coefficient",
+        "test_portable_detail.PortableDetail.test_original_character_shooting_controls_reach_existing_shared_wire",
+        "test_portable_detail.PortableDetail.test_original_model_warnings_are_collected_without_a_cpu_battle",
+        "test_portable_detail.PortableDetail.test_original_modifier_and_multi_hit_composition_preserves_both_wires",
+        "test_portable_detail.PortableDetail.test_original_parts_lowering_and_gpu_result_projection_are_lossless",
+        "test_portable_detail.PortableDetail.test_original_reload_cancel_policy_reaches_existing_ammo_executor",
+        "test_portable_detail.PortableDetail.test_plain_body_keeps_all_original_target_modifier_carriers_and_axes",
+        "test_portable_detail.PortableDetail.test_plain_body_modifier_input_cannot_discard_a_declared_world",
+        "test_portable_detail.PortableDetail.test_product_burst_cycle_readback_is_validated_without_click_controls",
+        "test_portable_detail.PortableDetail.test_product_burst_pattern_literals_share_policy_and_never_pack_cpu_state",
+        "test_portable_detail.PortableDetail.test_product_control_history_uses_gpu_intervals_and_rejects_corruption",
+        "test_portable_detail.PortableDetail.test_product_keeps_all_equipment_rows_and_uses_native_carrier_lifecycle",
+        "test_portable_detail.PortableDetail.test_product_saved_receipt_is_bound_to_transport_and_cpu_still_runs_after_gpu",
+        "test_portable_detail.PortableDetail.test_product_uses_actual_saved_loader_and_forbids_nvrtc_with_mocked_driver_output",
+        "test_portable_detail.PortableDetail.test_real_multi_hit_uses_existing_native_group_wire_without_changing_effects",
+        "test_portable_detail.PortableDetail.test_real_product_admission_rejects_missing_processes_tampered_owner_and_missing_entry",
+        "test_portable_detail.PortableDetail.test_real_unsupported_effect_reports_owner_and_definition_without_dispatch",
+        "test_portable_detail.PortableDetail.test_saved_actual_gpu_projection_reconstructs_complete_original_product_payload",
+        "test_portable_detail.PortableDetail.test_saved_artifact_descriptor_is_explicit_and_strict",
+        "test_portable_detail.PortableDetail.test_saved_program_preserves_execution_errors_and_restores_import_state",
+        "test_portable_detail.PortableDetail.test_saved_program_requires_the_current_sealed_source_before_loading_image",
+        "test_portable_detail.PortableDetail.test_standalone_boss_debuff_uses_the_same_external_definitions_without_damage",
+        "test_product_detail_packet.ProductPacket.test_each_program_uses_the_actual_static_product_input_and_exact_wire",
+        "test_product_detail_packet.ProductPacket.test_full_comparison_includes_provenance_and_all_product_fields",
+        "test_product_detail_packet.ProductPacket.test_manifest_program_cannot_be_changed_by_rekeying_the_packet",
+        "test_product_detail_packet.ProductPacket.test_persistent_hash_ignores_only_environment_vcs_stamp",
+        "test_product_detail_packet.ProductPacket.test_program_baseline_is_explicit_and_unsealed_members_do_not_fall_back",
+        "test_product_detail_packet.ProductPacket.test_program_selection_preserves_legacy_and_rejects_unknown_names",
+        "test_product_detail_packet.ProductPacket.test_same_original_static_input_and_source_without_battle",
+        "test_product_reference_models.ProductReferenceModels.test_adapter_unwinds_after_execution_error_and_default_installs_nothing",
+        "test_product_reference_models.ProductReferenceModels.test_cover_malformed_or_unknown_roster_and_unconnected_controls_fail_closed",
+        "test_product_reference_models.ProductReferenceModels.test_cover_product_keeps_literal_operations_and_independent_bases",
+        "test_product_reference_models.ProductReferenceModels.test_cover_readback_rejects_overflow_and_stale_depth_state",
+        "test_product_reference_models.ProductReferenceModels.test_default_world_preserves_all_original_carriers_without_inventing_incoming_quantities",
+        "test_product_reference_models.ProductReferenceModels.test_enemy_magazine_default_has_no_fabricated_capacity_and_attack_requires_declaration",
+        "test_product_reference_models.ProductReferenceModels.test_extended_resource_history_is_complete_and_cannot_use_a_short_prefix",
+        "test_product_reference_models.ProductReferenceModels.test_gpu_healing_projection_preserves_hp_credit_and_rejects_incomplete_receipts",
+        "test_product_reference_models.ProductReferenceModels.test_invalid_or_unknown_models_fail_before_simulation",
+        "test_product_reference_models.ProductReferenceModels.test_magazine_blocked_attempt_requires_matching_source_generation_and_no_query",
+        "test_product_reference_models.ProductReferenceModels.test_manual_cover_control_intervals_require_gpu_open_close_and_marker",
+        "test_product_reference_models.ProductReferenceModels.test_missing_sources_reject_before_shared_dispatch_and_legacy_stays_closed",
+        "test_product_reference_models.ProductReferenceModels.test_movement_declarations_reject_unknown_geometry_or_composition_before_battle",
+        "test_product_reference_models.ProductReferenceModels.test_movement_product_uses_checked_native_clock_and_literal_shared_input",
+        "test_product_reference_models.ProductReferenceModels.test_movement_readback_rejects_partial_identity_reserved_and_segment_discontinuity",
+        "test_product_reference_models.ProductReferenceModels.test_movement_standalone_cpu_worker_resolves_provider_before_checked_rewrites",
+        "test_product_reference_models.ProductReferenceModels.test_named_range_decoder_rejects_reserved_partial_and_capacity_corruption",
+        "test_product_reference_models.ProductReferenceModels.test_named_range_product_consumes_original_count_and_range_modifiers",
+        "test_product_reference_models.ProductReferenceModels.test_named_range_standalone_cpu_worker_uses_shared_coordinate_context",
+        "test_product_reference_models.ProductReferenceModels.test_named_range_unknown_binding_and_composition_fail_and_restore_native",
+        "test_product_reference_models.ProductReferenceModels.test_no_incoming_contract_checks_every_attack_node_without_predicting_schedule",
+        "test_product_reference_models.ProductReferenceModels.test_original_anne_reduction_reaches_actual_product_healing_and_restores_aliases",
+        "test_product_reference_models.ProductReferenceModels.test_original_enemy_magazine_product_uses_literal_state_and_restores_native_operator",
+        "test_product_reference_models.ProductReferenceModels.test_static_original_anne_connects_the_same_consumer_with_or_without_healing_sources",
+        "test_product_reference_models.ProductReferenceModels.test_weighted_missing_weights_and_unsupported_composition_fail_before_dispatch",
+        "test_product_reference_models.ProductReferenceModels.test_weighted_original_product_consumes_real_markers_and_preserves_definitions",
+        "test_product_reference_models.ProductReferenceModels.test_weighted_readback_rejects_overflow_scratch_and_unaccounted_cover_receipts",
+        "test_weighted_source_contract.WeightedSourceContract.test_boss_history_recovers_exact_preimages_and_rejects_unreviewed_bytes",
+        "test_weighted_source_contract.WeightedSourceContract.test_changed_product_route_guard_and_arithmetic_are_rejected",
+        "test_weighted_source_contract.WeightedSourceContract.test_exact_later_product_inverse_keeps_original_ledger_and_old_sources",
+        "test_weighted_source_contract.WeightedSourceContract.test_exact_preimage_and_closure_match_historical_cover_seal",
+        "test_weighted_source_contract.WeightedSourceContract.test_product_history_and_added_helper_cannot_be_edited",
+        "test_weighted_source_contract.WeightedSourceContract.test_product_part_boundary_inverse_accepts_only_exact_current_and_preimage",
+        "test_weighted_source_contract.WeightedSourceContract.test_unreviewed_current_dependency_cannot_be_projected"
+      ],
+      "case_ids_sha256": "8b26e9a032bf4c39e9500ffc19420126068c2739e6144d2def77cd7251096385",
+      "groups": [
+        {
+          "index": 0,
+          "tests": 59,
+          "elapsed_test_seconds": 19.7953313998878
+        },
+        {
+          "index": 1,
+          "tests": 7,
+          "elapsed_test_seconds": 4.939398699905723
+        },
+        {
+          "index": 2,
+          "tests": 7,
+          "elapsed_test_seconds": 6.731913900002837
+        },
+        {
+          "index": 3,
+          "tests": 3,
+          "elapsed_test_seconds": 2.7338350997306406
+        },
+        {
+          "index": 4,
+          "tests": 3,
+          "elapsed_test_seconds": 1.3526467001065612
+        },
+        {
+          "index": 5,
+          "tests": 3,
+          "elapsed_test_seconds": 0.24679300002753735
+        },
+        {
+          "index": 6,
+          "tests": 3,
+          "elapsed_test_seconds": 0.6091379001736641
+        },
+        {
+          "index": 7,
+          "tests": 3,
+          "elapsed_test_seconds": 20.820665000006557
+        },
+        {
+          "index": 8,
+          "tests": 3,
+          "elapsed_test_seconds": 16.92741660028696
+        },
+        {
+          "index": 9,
+          "tests": 3,
+          "elapsed_test_seconds": 6.354772599879652
+        },
+        {
+          "index": 10,
+          "tests": 3,
+          "elapsed_test_seconds": 6.1492697997018695
+        },
+        {
+          "index": 11,
+          "tests": 3,
+          "elapsed_test_seconds": 2.4310822999104857
+        }
+      ]
+    },
+    "coverage_receipt": {
+      "present": true,
+      "bytes": 13954,
+      "sha256": "cba85b5e18233e3377be305fa0ac45532add1b293c8b411203b3c6cf2cbd9cd7"
+    }
+  },
+  "fresh_native": {
+    "stage_verified": true,
+    "cases": 1,
+    "native_group_verified": true,
+    "original_all_native_preflight_verified": false,
+    "entries": [
+      {
+        "case_index": 0,
+        "input_sha256": "cd5fd4705bb5567fe1b7bd56f51db7713fffe3ebdd6ad9b1c0213071150e78f2",
+        "is_native": true,
+        "name": "product/accumulate-30s",
+        "native_sha256": "92aa9bf36c134885f23fc791e525100134897eb324bd7fd3a74fdcf376a88556"
+      }
+    ],
+    "scope": {
+      "seconds": 38.412066500168294,
+      "timeout_seconds": 59.84400000004098,
+      "timed_out": false,
+      "execution_passed": true,
+      "child_exit_code": 0,
+      "peak_bytes": 136032256,
+      "job_empty_after": true,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false,
+      "cleanup_error": null,
+      "observation_error": null
+    },
+    "scope_note": "One registered fresh CPU/native oracle group; no GPU battle proof claimed"
+  },
+  "sdk_fake_controls": {
+    "passed": true,
+    "tests": 54,
+    "patterns": [
+      "test_portable_module_object.py",
+      "test_portable_partition_object.py",
+      "test_portable_device_linker.py",
+      "test_portable_native_process.py"
+    ],
+    "groups": [
+      {
+        "pattern": "test_portable_module_object.py",
+        "tests": 14,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 9.104825099930167
+      },
+      {
+        "pattern": "test_portable_partition_object.py",
+        "tests": 16,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 11.320780100300908
+      },
+      {
+        "pattern": "test_portable_device_linker.py",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 14.760457799769938
+      },
+      {
+        "pattern": "test_portable_native_process.py",
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "seconds": 0.8339074999094009
+      }
+    ],
+    "real_sdk_load_attempts": 0,
+    "scope": {
+      "seconds": 41.51866130018607,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "execution_passed": true,
+      "child_exit_code": 0,
+      "peak_bytes": 66859008,
+      "job_empty_after": true,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false,
+      "cleanup_error": null,
+      "observation_error": null
+    }
+  },
+  "deps": {
+    "passed": true,
+    "scope": {
+      "seconds": 14.830376100260764,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "execution_passed": true,
+      "child_exit_code": 0,
+      "peak_bytes": 67346432,
+      "job_empty_after": true,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false,
+      "cleanup_error": null,
+      "observation_error": null
+    }
+  },
+  "ptx_compile_plan": {
+    "policy_passed": true,
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "stage_wrapper_passed": false,
+    "scope": {
+      "seconds": 16.072516299784184,
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "execution_passed": true,
+      "child_exit_code": 0,
+      "peak_bytes": 66789376,
+      "job_empty_after": true,
+      "missing_count": 7,
+      "termination_cause": "unknown",
+      "service_status": "unverified",
+      "preservation_verified": false,
+      "cleanup_error": null,
+      "observation_error": null
+    },
+    "observation_gate_passed": false,
+    "missing_count": 7,
+    "termination_cause": "unknown",
+    "compiler_claim_consumed": false
+  },
+  "generation": {
+    "executed": false,
+    "generated_hashes": null,
+    "expected_normalized_only": {
+      "cuda": "2f61bacdc1c79747eeea60a274b6a7309c23292c1d7e52edf498bfc510c5670c",
+      "metal": "5a25a0212fcd790e4c7e7c5fbfbe625ccfdc4d82f81db6cf009c0ad3aecfa22f"
+    }
+  },
+  "ptx": {
+    "executed": false,
+    "compiler_verified": false,
+    "artifact": null,
+    "cache_key": null
+  },
+  "object": {
+    "executed": false,
+    "object_verified": false,
+    "artifact": null,
+    "object_preflight_origin_seconds": null,
+    "object_child_origin_seconds": null,
+    "object_post_audit_seconds": null
+  },
+  "jit_link": {
+    "executed": false,
+    "link_verified": false,
+    "artifact": null
+  },
+  "claims": {
+    "gpu_reserved_by_cpu_preflight": true,
+    "test_group_claims": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    },
+    "native_group_claims": {
+      "group-claim-0.json": true
+    },
+    "compile_claim": false,
+    "module_object_claim": false,
+    "jit_link_claim": false,
+    "deleted": false
+  },
+  "historical_retention": [
+    {
+      "owner": "59160ddb81ae0e13ffd9393f584837220c89c30a5a9814ecc3b9284e834316fd",
+      "all_saved_receipt_fingerprints_match": true,
+      "receipt_count": 13,
+      "failed_claims_and_records_not_modified": true
+    },
+    {
+      "owner": "ebb2bfce6cf965a8fc5b5f525dc1af2daa988cf892f3393483a9bd8554c3f443",
+      "all_saved_receipt_fingerprints_match": true,
+      "receipt_count": 16,
+      "failed_claims_and_records_not_modified": true
+    },
+    {
+      "owner": "2195f8bdd3241f1d3e322a40c6f7ef31095836c1a0ac7f3728e414b954148a85",
+      "all_saved_receipt_fingerprints_match": true,
+      "receipt_count": 25,
+      "failed_claims_and_records_not_modified": true,
+      "historical_missing_count": 14,
+      "preservation_verified": false
+    }
+  ],
+  "historical_older_missing7_retained": true,
+  "current_plan_missing7_distinct_from_historical": true,
+  "preservation_verified": false,
+  "service_status": "unverified",
+  "sdk_loads": 0,
+  "nvrtc_compile_calls": 0,
+  "ptxas_calls": 0,
+  "jit_link_calls": 0,
+  "driver_calls": 0,
+  "context_calls": 0,
+  "gpu_calls": 0,
+  "api_calls": 0,
+  "retries": 0,
+  "cpu_user_seconds": null,
+  "cpu_kernel_seconds": null,
+  "no_admission": true,
+  "time_scope": "Durations copied from saved group, Job and stage execution records. No native SDK timer exists because native stages were not started. CPU user/kernel durations were not persisted.",
+  "receipts": {
+    "source-retention-v1.json": {
+      "present": true,
+      "bytes": 427,
+      "sha256": "7aa81ca972b4f73332686b6cf7cfd96d45de9f3fbecd2d15de86ae4c5f895b98"
+    },
+    "unpack-v1/result.json": {
+      "present": true,
+      "bytes": 188,
+      "sha256": "6ab7e320aea3459b8fc95058a4b6247f8f4746819d5f02c40cc35e82ca7ba830"
+    },
+    "unpack-v1/execution.json": {
+      "present": true,
+      "bytes": 1090,
+      "sha256": "320ad4dc1503c8f2345b9959ca8b4a31eaf9e96be80e317dda64c781b2302cf9"
+    },
+    "preflight-plan-v1/stage-result.json": {
+      "present": true,
+      "bytes": 1079,
+      "sha256": "48d6898045e9c51cfec627c37c5026c59eccbe0bdb9ef326dea17dc173843710"
+    },
+    "preflight-plan-v1/proof/transaction.json": {
+      "present": true,
+      "bytes": 5628,
+      "sha256": "a885aaab3de6b50a835aa2618983e30c5ad211f4e7851f6200ca73e29fd721b5"
+    },
+    "cpu-coverage-v1.json": {
+      "present": true,
+      "bytes": 13954,
+      "sha256": "cba85b5e18233e3377be305fa0ac45532add1b293c8b411203b3c6cf2cbd9cd7"
+    },
+    "preflight-test-0-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 211,
+      "sha256": "cbeb4eae1e6db9c802f3291522a1d296e00ba7890f49bebb4e0d27313df1ee4d"
+    },
+    "preflight-test-1-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 216,
+      "sha256": "0ffd66c02ad7b355f331c933a320981bfba1e567faaf061777db72dab1efb8d8"
+    },
+    "preflight-test-2-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 219,
+      "sha256": "b3e9135c366e2470053e2f026aee4aa2ff0fc6de9a8a2c47b5226e34da8f4639"
+    },
+    "preflight-test-3-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 644,
+      "sha256": "fa17af54d1c2eaf92b8f8e59de64fc99f90014e4f8a7f258ed6fee2740879ff6"
+    },
+    "preflight-test-4-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 666,
+      "sha256": "4fafbd072aac7b2a36b997034d85c57912cfb7066a3a89f39ff6836f5ca8d838"
+    },
+    "preflight-test-5-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 638,
+      "sha256": "19fb4ada945418979810ffe5230dca00b5b624ec1ec9acddf275a61e35ea1ae9"
+    },
+    "preflight-test-6-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 655,
+      "sha256": "6d58de7139b2bb31bd17037b24a1cb5e3d137eafda430a4ae4e3dbb88ecb6df9"
+    },
+    "preflight-test-7-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 667,
+      "sha256": "14583a5c9ad7ddda6135d1bf86c234f1703cad82dd947cac73cbbcaf14a69b05"
+    },
+    "preflight-test-8-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 651,
+      "sha256": "df8e3701d3d2b47c737dcb57ce4f9a8bd118d027ec32c116618fcecb2e556c92"
+    },
+    "preflight-test-9-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 652,
+      "sha256": "04766a4194f5441bfd20c351e6a39297dc3659e9355d0584c8427bceb5faef2e"
+    },
+    "preflight-test-10-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 682,
+      "sha256": "707ede383ea9c518312ba51da2b2e792b2dd4ae0ef223fa681119f0dd9442ab8"
+    },
+    "preflight-test-11-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 668,
+      "sha256": "73e46e34907a59d761a40bbf69c38778c08b60e5c82cb26a3c25dd1db307730d"
+    },
+    "preflight-native-0-v1/stage-result.json": {
+      "present": true,
+      "bytes": 1482,
+      "sha256": "5837a7a432c3f107329f941a77adc682f6f115f54f25cb08a9830c7af6099309"
+    },
+    "preflight-native-0-v1/proof/result.json": {
+      "present": true,
+      "bytes": 751,
+      "sha256": "106a4644b8886bf8a4e496482212c0a80911062c1b34fb910eee4bd139d4f5a0"
+    },
+    "fake-controls-v1/result.json": {
+      "present": true,
+      "bytes": 1325,
+      "sha256": "d98d4597f5af9e1628bf3f72b91f24309ac8dcb79411dcbfc4e81b834d2d0fe3"
+    },
+    "fake-controls-v1/execution.json": {
+      "present": true,
+      "bytes": 1490,
+      "sha256": "c57640e49cc6f28d3373370d9f4722eebe4087a98ca5e07cdc1442bdbfcce929"
+    },
+    "deps-v1.json": {
+      "present": true,
+      "bytes": 419,
+      "sha256": "e438c1518eb0d17022906883ce5b596cb9355edd7b88821f30e1252f087d5bc9"
+    },
+    "ptx-plan-v1.json": {
+      "present": true,
+      "bytes": 757,
+      "sha256": "2e6c52fff475763f3341dfecc38f4a6df17bf246e692b83bab4c04cbabbeef9a"
+    },
+    "plan-stage-v1/execution.json": {
+      "present": true,
+      "bytes": 1092,
+      "sha256": "7b8012b872804d9464573eaeae280e102d1944a1cb50b6c36435761269b554b5"
+    },
+    "plan-stage-v1/job.json": {
+      "present": true,
+      "bytes": 1098,
+      "sha256": "df7c7b5c35e0aef7285aba1a870a061a7532720bbf20901ae739f7024a7e3399"
+    },
+    "plan-stage-v1/observation.json": {
+      "present": true,
+      "bytes": 63327,
+      "sha256": "1638354d7c286ff14fe8924e29f3eb7266ede120a4398e85ec7bf074a02ccfad"
+    }
+  }
+}
