@@ -6,11 +6,19 @@ bool initializeCoverDefense(inout Runtime s)
 {
     uint input=s.inputBase+CDF_BASE;
     if(commands[input]!=CDF_MAGIC||commands[input+1]!=1||commands[input+2]!=5)return false;
-    for(uint i=3;i<8;i++)if(commands[input+i]!=0)return false;
+#ifdef PORTABLE_PRODUCT_UNSPECIFIED_COVER
+    if(commands[input+3]>1)return false;
+#else
+    if(commands[input+3]!=0)return false;
+#endif
+    for(uint i=4;i<8;i++)if(commands[input+i]!=0)return false;
     for(uint i=18;i<CDF_WORDS;i++)if(commands[input+i]!=0)return false;
     for(uint who=0;who<5;who++)
     {
         uint64_t base=loadNumber(input+8+who*2);
+#ifdef PORTABLE_PRODUCT_UNSPECIFIED_COVER
+        if(commands[input+3]==1&&base!=0)return false;
+#endif
         if(!f64Finite(base)||f64Less(base,0)||f64Less((uint64_t(0x46293e59)<<32)|uint64_t(0x39a08cea),base))return false;
     }
     for(uint i=CDF_OUTPUT_BASE;i<CDF_OUTPUT_WORDS;i++)results[s.resourceOutput+i]=0;
@@ -31,6 +39,9 @@ void copyCoverDefense(inout Runtime s,uint parent,uint child)
 }
 uint64_t coverDefenseQuantity(inout Runtime s,uint depth,uint who,uint64_t when)
 {
+#ifdef PORTABLE_PRODUCT_UNSPECIFIED_COVER
+    if(commands[s.inputBase+CDF_BASE+3]!=0){s.error=64;return 0;}
+#endif
     uint snapshot=coverDefenseSnapshot(s,depth),head=coverDefenseHead(s),count=results[head+1];
     if(depth>=CDF_DEPTH||who>=5||results[snapshot+7]!=CDF_MAGIC||results[snapshot+6]==0||results[snapshot+6]>5){s.error=64;return 0;}
     if(count>=CDF_RECEIPTS){s.error=2;return 0;}

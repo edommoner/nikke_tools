@@ -24,7 +24,7 @@
     },
     "app/portable_detail.py": {
       "before_sha256": "085c7ccdcebfa6641bf124d95e6c320c337405202e4b148ae64dca08cb11db06",
-      "after_sha256": "7fe4737165cac86e4bdf14db895eea31b31860085cce392aca05d695f2c6e50f",
+      "after_sha256": "049f1c643f0b80425164126817ca8b5b69d5476bafcbb3e5c8e5ad0c62e2d116",
       "hunks": [
         {
           "start": 2842,
@@ -88,37 +88,37 @@
         },
         {
           "start": 15808,
-          "end": 16951,
+          "end": 17019,
           "before": "",
-          "after": "metadata.get('product_enemy_healing'):\n        from portable_product_healing import read_result\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            from product_reference_models import WARNING\n            payload['reference_models']=model;payload['app_warnings'].append(WARNING)\n    if metadata.get('product_weighted_incoming'):\n        from portable_product_weighted import read_result\n        from product_reference_models import warning\n        model=read_result(block,metadata,names,run.config['duration'])\n        payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))\n    if metadata.get('product_cover_defense'):\n        from portable_product_cover import read_result\n        from product_reference_models import warning\n        model=read_result(block,metadata,names,run.config['duration'])\n        payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))\n    if 'manual_cover_sequences' in body:\n        payload['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])\n    if "
+          "after": "metadata.get('product_enemy_healing'):\n        from portable_product_healing import read_result\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            from product_reference_models import WARNING\n            payload['reference_models']=model;payload['app_warnings'].append(WARNING)\n    if metadata.get('product_weighted_incoming'):\n        from portable_product_weighted import read_result\n        from product_reference_models import warning\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))\n    if metadata.get('product_cover_defense'):\n        from portable_product_cover import read_result\n        from product_reference_models import warning\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))\n    if 'manual_cover_sequences' in body:\n        payload['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])\n    if "
         },
         {
-          "start": 17924,
-          "end": 17926,
+          "start": 17992,
+          "end": 17994,
           "before": "",
           "after": ",8"
         },
         {
-          "start": 18202,
-          "end": 18310,
+          "start": 18270,
+          "end": 18378,
           "before": "",
           "after": "from portable_product_add_attack import query_sources\n        sources=query_sources(block,metadata)\n        "
         },
         {
-          "start": 18340,
-          "end": 18363,
+          "start": 18408,
+          "end": 18431,
           "before": "",
           "after": "es,attack_sources=sourc"
         },
         {
-          "start": 19785,
-          "end": 19798,
+          "start": 19853,
+          "end": 19866,
           "before": "",
           "after": "hit.get('by',"
         },
         {
-          "start": 19800,
-          "end": 19801,
+          "start": 19868,
+          "end": 19869,
           "before": "",
           "after": ")"
         }
@@ -1068,7 +1068,7 @@
     },
     "app/portable_product_programs.py": {
       "before_sha256": "51d18a2191c24ef3b68f2d1cf71d792cdb9e8e01ed209e5c793827ce5b7d056d",
-      "after_sha256": "e54bf2f68b873596dcd98b498898f114c074e62552c1353971a638ac0c28a3c1",
+      "after_sha256": "13edd6eb0faa608d2f64fed85ad91b8f7f4d3136ab7d4535c4a07671b54a1275",
       "hunks": [
         {
           "start": 364,
@@ -1078,37 +1078,37 @@
         },
         {
           "start": 1042,
-          "end": 1305,
+          "end": 1574,
           "before": "",
-          "after": "_add=_name.startswith('add-');_healing=_name.startswith('healing-');_weighted=_name.startswith('weighted-');_cover=_name.startswith('cover-')\n    _prefix='add-' if _add else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else ''\n    "
+          "after": "_default=_name.startswith('default-');_selector=_name[8:] if _default else _name\n    _add=_selector.startswith('add-');_healing=_selector.startswith('healing-');_weighted=_selector.startswith('weighted-');_cover=_selector.startswith('cover-')\n    if _default and (not (_weighted or _cover) or _mode!='fixed' or _kind):raise ValueError('Invalid default-world product program')\n    _prefix=('default-' if _default else '')+('add-' if _add else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else '')\n    "
         },
         {
-          "start": 1400,
-          "end": 1451,
+          "start": 1669,
+          "end": 1720,
           "before": "",
           "after": "(_healing or _weighted or _cover) and _kind!='' or "
         },
         {
-          "start": 1458,
-          "end": 1466,
+          "start": 1727,
+          "end": 1735,
           "before": "",
           "after": "_prefix+"
         },
         {
-          "start": 1697,
-          "end": 1804,
+          "start": 1966,
+          "end": 2073,
           "before": "",
           "after": "+('add_' if _add else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else '')"
         },
         {
-          "start": 3773,
-          "end": 4602,
+          "start": 4042,
+          "end": 5119,
           "before": "",
-          "after": "name is not None and name.startswith('cover-'):\n        from portable_cover_defense_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'cover_defense':copy.deepcopy(case['cover_defense'])}\n        body['manual_cover_sequences']=copy.deepcopy(case['declared_manual_sequences'])\n    elif name is not None and name.startswith('weighted-'):\n        from portable_weighted_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}\n    elif name is not None and name.startswith('healing-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]\n    elif "
+          "after": "name is not None and name.startswith('default-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['베이' if name.startswith('default-weighted-') else '솔져 O.W.'],0)[0][2]\n    elif name is not None and name.startswith('cover-'):\n        from portable_cover_defense_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'cover_defense':copy.deepcopy(case['cover_defense'])}\n        body['manual_cover_sequences']=copy.deepcopy(case['declared_manual_sequences'])\n    elif name is not None and name.startswith('weighted-'):\n        from portable_weighted_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}\n    elif name is not None and name.startswith('healing-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]\n    elif "
         },
         {
-          "start": 5224,
-          "end": 5657,
+          "start": 5741,
+          "end": 6174,
           "before": "",
           "after": "if name is not None and name.startswith('add-'):\n        body['enemy']['patterns']=[dict(id='product-escort',kind='summon',until=dict(targets_cleared=True),spec=dict(\n            name='Escort',count=2,hp=1e12,attack_at=.25,self_destruct=True,\n            attack=dict(atk=1000,coeff=100,hits=2,interval=.5,target='all',debuffs=[\n                dict(stat='atk_pct',value=-10),dict(stat='dot',coeff=10,interval=.5,duration=1)])))]\n    "
         }
@@ -1165,6 +1165,66 @@
           "end": 3793,
           "before": "",
           "after": "#ifdef PORTABLE_PRODUCT_MANUAL_COVER_LOG\n    productCloseManualCover(s,who,when);productCloseControl(s,who,when,1);\n#endif\n"
+        }
+      ]
+    },
+    "gpu/weighted_incoming_runtime.slang": {
+      "before_sha256": "4a6d0b48c0f90a8d3521bde5222fa35ba93fd6f008cd744679ff75488d755bce",
+      "after_sha256": "498d56edd2c574de9ba7711e26291a7f21815f5b6aaa98b92ee5fbd3c17ec568",
+      "hunks": [
+        {
+          "start": 579,
+          "end": 690,
+          "before": "||",
+          "after": ")return false;\n#ifdef PORTABLE_PRODUCT_UNSPECIFIED_WEIGHTED\n    if(commands[at+3]>1)return false;\n#else\n    if("
+        },
+        {
+          "start": 721,
+          "end": 728,
+          "before": "",
+          "after": "\n#endif"
+        },
+        {
+          "start": 1325,
+          "end": 1448,
+          "before": "",
+          "after": "\n#ifdef PORTABLE_PRODUCT_UNSPECIFIED_WEIGHTED\n        if(commands[at+3]==1){if(w!=0)return false;continue;}\n#endif\n        "
+        },
+        {
+          "start": 1714,
+          "end": 1832,
+          "before": "",
+          "after": "\n#ifdef PORTABLE_PRODUCT_UNSPECIFIED_WEIGHTED\n    if(commands[s.inputBase+WGT_BASE+3]!=0){s.error=64;return 0;}\n#endif"
+        }
+      ]
+    },
+    "gpu/cover_defense_runtime.slang": {
+      "before_sha256": "aacf4568f9b9d6a26bf19357f3192d3d046420f921397a22a20627c2af69ab7e",
+      "after_sha256": "8694cc27f736877f41807677040cde82db2db35491c3e67568d3f3881979633c",
+      "hunks": [
+        {
+          "start": 512,
+          "end": 650,
+          "before": "",
+          "after": "#ifdef PORTABLE_PRODUCT_UNSPECIFIED_COVER\n    if(commands[input+3]>1)return false;\n#else\n    if(commands[input+3]!=0)return false;\n#endif\n"
+        },
+        {
+          "start": 665,
+          "end": 666,
+          "before": "3",
+          "after": "4"
+        },
+        {
+          "start": 871,
+          "end": 975,
+          "before": "",
+          "after": "\n#ifdef PORTABLE_PRODUCT_UNSPECIFIED_COVER\n        if(commands[input+3]==1&&base!=0)return false;\n#endif"
+        },
+        {
+          "start": 2037,
+          "end": 2152,
+          "before": "",
+          "after": "\n#ifdef PORTABLE_PRODUCT_UNSPECIFIED_COVER\n    if(commands[s.inputBase+CDF_BASE+3]!=0){s.error=64;return 0;}\n#endif"
         }
       ]
     }

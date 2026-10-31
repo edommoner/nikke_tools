@@ -14,12 +14,14 @@ def required(prepared):
 def compile_product(prepared,producer):
     from portable_specs import LIMITS as L,FIELDS as F
     declarations=copy.deepcopy(prepared.get('reference_models',{}))
-    if 'weighted_incoming' not in declarations:
+    unspecified='weighted_incoming' not in declarations
+    from portable_product_world_contract import has_incoming_attacks
+    if unspecified and has_incoming_attacks(prepared):
         raise UnsupportedPortable('Weighted incoming requires explicit reference_models.weighted_incoming weights; game ratios are unverified')
-    if set(declarations)!={'weighted_incoming'}:
+    if set(declarations)-{'weighted_incoming'}:
         raise UnsupportedPortable('Weighted product consumer composition requires a matching combined wire')
     check_schema();names=[c['name'] for c in prepared['chars']]
-    pack(declarations['weighted_incoming'],names)
+    if not unspecified:pack(declarations['weighted_incoming'],names)
     inner=dict(prepared,_product_weighted_compiled=True);inner.pop('reference_models',None)
     with compiler_policy():source,iw,ow,words,meta=producer(inner)
     if source not in ('gpu/product_battle_entry.slang','gpu/product_fixed_battle_entry.slang') or (iw,ow)!=(104400,786432):
@@ -33,8 +35,8 @@ def compile_product(prepared,producer):
         row=meta['binding_source_indices'].index(index);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
         if words[at+F['KIND']]!=4 or words[at+F['STAT']]!=0:raise ValueError('Weighted product placeholder changed')
         rows.append(row)
-    bank=pack(declarations['weighted_incoming'],names,rows)
-    meta['product_weighted_incoming']=dict(declarations=declarations,source_rows=rows,
+    bank=([MAGIC,1,5,1]+[0]*6+[r+1 for r in rows]+[0]*4 if unspecified else pack(declarations['weighted_incoming'],names,rows))
+    meta['product_weighted_incoming']=dict(declarations=declarations,source_rows=rows,unspecified_quantities=unspecified,
         source_name=next(prepared['effects'][i]['effect']['name'] for i in indices if prepared['effects'][i]['effect']['target']=='all_allies'),
         cover_name=next(prepared['effects'][i]['effect']['name'] for i in indices if prepared['effects'][i]['effect']['target']=='self_cover'),
         cpu_state_or_schedule_supplied=False)
@@ -48,6 +50,9 @@ def read_result(block,metadata,names,duration):
     if len(block)!=OUTPUT or block[head]!=MAGIC:fail()
     ns,nr=block[head+1:head+3]
     if ns>W['CAPACITY'] or nr>W['CAPACITY'] or any(block[head+3:head+W['SNAPSHOTS']]):fail()
+    if info.get('unspecified_quantities'):
+        if info['declarations'] or ns or nr or any(block[head+W['SNAPSHOTS']:]):fail()
+        return None
     def number(at):
         value=struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
         if not math.isfinite(value) or value<0:fail()

@@ -9,6 +9,36 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def test_default_world_preserves_all_original_carriers_without_inventing_incoming_quantities(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        import portable_detail as product
+        from portable_specs import LIMITS as L,FIELDS as F
+        with patch.object(sim,'execute',side_effect=AssertionError('World requirements must be static')):
+            for name,stage,body in selected_profile_bodies(['베이','솔져 O.W.']):
+                prepared,_=product.prepare(dict(body,burst_gauge_mode='fixed'));before=copy.deepcopy(prepared)
+                source,iw,ow,words,meta=product.compile_product(prepared)
+                kind='product_weighted_incoming' if name=='베이' else 'product_cover_defense'
+                self.assertTrue(meta[kind]['unspecified_quantities']);self.assertEqual(meta[kind]['declarations'],{})
+                self.assertEqual(prepared,before);self.assertEqual(meta['real_prepared_input']['prepared_effects'],len(prepared['effects']))
+                self.assertEqual(words[115683],1);self.assertFalse(any(words[115684:115690] if name=='베이' else words[115688:115698]))
+                if name!='베이':
+                    for index in meta[kind]['definition_indices']:
+                        row=meta['binding_source_indices'].index(index);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
+                        self.assertEqual((words[at+F['KIND']],words[at+F['STAT']]),(0,93))
+
+    def test_no_incoming_contract_checks_every_attack_node_without_predicting_schedule(self):
+        from portable_product_world_contract import has_incoming_attacks
+        from portable_weighted_battle_cases import fixtures
+        import portable_detail as product
+        from portable_runtime import UnsupportedPortable
+        case=fixtures()[0];body=copy.deepcopy(case['body']);body['enemy']['patterns'][1]['delay']=181
+        prepared,_=product.prepare(body)
+        self.assertTrue(has_incoming_attacks(prepared))
+        with self.assertRaisesRegex(UnsupportedPortable,'explicit.*weights'):product.compile_product(prepared)
+        body['enemy']['patterns']=[dict(id='owner',kind='summon',spec=dict(name='x',count=1,hp=1000,attack=dict(atk=10,coeff=100,target='all')))]
+        prepared,_=product.prepare(body)
+        with self.assertRaisesRegex(UnsupportedPortable,'explicit.*weights'):product.compile_product(prepared)
+
     def test_cover_product_keeps_literal_operations_and_independent_bases(self):
         from portable_cover_defense_battle_cases import fixtures
         import portable_detail as product

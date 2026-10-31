@@ -10,11 +10,16 @@ def required(prepared):
 def compile_product(prepared,producer):
     from portable_specs import LIMITS as L,FIELDS as F
     declarations=copy.deepcopy(prepared.get('reference_models',{}))
-    if 'cover_defense' not in declarations:
+    unspecified='cover_defense' not in declarations
+    from portable_product_world_contract import has_incoming_attacks
+    if unspecified and has_incoming_attacks(prepared):
         raise UnsupportedPortable('Independent cover DEF requires explicit reference_models.cover_defense bases; no body DEF or level curve is inferred')
-    if set(declarations)!={'cover_defense'}:
+    if set(declarations)-{'cover_defense'}:
         raise UnsupportedPortable('Cover DEF product composition requires a matching combined consumer wire')
-    check_schema();names=[c['name'] for c in prepared['chars']];bank=pack(declarations['cover_defense'],names)
+    check_schema();names=[c['name'] for c in prepared['chars']]
+    # Product-only unavailable flag; zero payload is reserved padding, not a
+    # guessed DEF. The device rejects any attempt to consume an absent base.
+    bank=[MAGIC,1,5,1]+[0]*20 if unspecified else pack(declarations['cover_defense'],names)
     inner=dict(prepared,_product_cover_compiled=True);inner.pop('reference_models',None)
     with compiler_policy():source,iw,ow,words,meta=producer(inner)
     if source not in ('gpu/product_battle_entry.slang','gpu/product_fixed_battle_entry.slang') or (iw,ow)!=(104400,786432):
@@ -24,7 +29,7 @@ def compile_product(prepared,producer):
         row=meta['binding_source_indices'].index(index);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
         if words[at+F['KIND']]!=4 or words[at+F['STAT']]!=0:raise ValueError('Original cover placeholder changed')
         words[at+F['KIND']]=0;words[at+F['STAT']]=STAT
-    meta['product_cover_defense']=dict(declarations=declarations,definition_indices=indices,
+    meta['product_cover_defense']=dict(declarations=declarations,definition_indices=indices,unspecified_quantities=unspecified,
         cpu_state_or_schedule_supplied=False)
     return ('gpu/product_cover_fixed_battle_entry.slang' if 'fixed_' in source else 'gpu/product_cover_battle_entry.slang',INPUT,OUTPUT,
         list(words)+[0]*(C['BASE']-len(words))+bank,meta)
@@ -36,6 +41,9 @@ def read_result(block,metadata,names,duration):
     if len(block)!=OUTPUT or block[head]!=MAGIC:fail()
     count=block[head+1]
     if count>C['RECEIPTS'] or any(block[head+2:head+C['RECEIPT_BASE']]):fail()
+    if info.get('unspecified_quantities'):
+        if info['declarations'] or count or any(block[head+C['RECEIPT_BASE']:]):fail()
+        return None
     from cover_defense_battle_model import normalize
     bases=normalize(info['declarations']['cover_defense'],names)
     def number(at,negative=False):

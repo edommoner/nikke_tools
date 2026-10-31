@@ -3,7 +3,7 @@ import hashlib,json,re
 from pathlib import Path
 LEDGER_SHA256='93afb12ae4b67224a4cfe099ccf64bead769c52229d85ddfe0b45bfbc282f2f6'
 PRODUCT_LEDGER_SHA256='9187d38559f8e40c2735afb95892f8cba4174b8a1ccf01b0d9d4bb0873894d38'
-BOSS_LEDGER_SHA256='1b21c3e4f1ff2d1a0ba7a72d6319e4c3dc1218e54c2d47fb77cdc8aabfd8ebc9'
+BOSS_LEDGER_SHA256='c960855139e553db25f3f6a3ba07948501846082b096cc3d4853b210844c9e3d'
 
 def boss_source_preimages(root):
     """Recover exact old bytes for historical audits, never current admission."""
@@ -113,9 +113,10 @@ def project_sources(root):
     if hashlib.sha256(raw).hexdigest()!=LEDGER_SHA256:raise ValueError('Weighted source inverse ledger changed')
     data=json.loads(raw)
     if data['schema']!=1 or data['normalizer_changed'] is not False or data['baseline_commit']!='e93182fb61ed6fce5cb7d02e13e1aa5ac59ec840':raise ValueError('Weighted source baseline changed')
-    for name,digest in data['added_sources'].items():
-        if hashlib.sha256((root/name).read_bytes()).hexdigest()!=digest:raise ValueError('Unreviewed weighted dependency: '+name)
     projected=boss_source_preimages(root)
+    for name,digest in data['added_sources'].items():
+        raw=projected[name].encode() if name in projected else (root/name).read_bytes()
+        if hashlib.sha256(raw).hexdigest()!=digest:raise ValueError('Unreviewed weighted dependency: '+name)
     projected.update(product_sources(root,_preimages=projected))
     parts=root/'gpu/counter_landing_runtime.slang'
     if parts.exists():

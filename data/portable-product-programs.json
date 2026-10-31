@@ -147,6 +147,20 @@
       "output_words": 2048912,
       "mode": "accumulate",
       "kind": ""
+    },
+    "default-weighted-fixed": {
+      "source": "gpu/product_weighted_fixed_battle_entry.slang",
+      "input_words": 115696,
+      "output_words": 2048912,
+      "mode": "fixed",
+      "kind": ""
+    },
+    "default-cover-fixed": {
+      "source": "gpu/product_cover_fixed_battle_entry.slang",
+      "input_words": 115704,
+      "output_words": 2048912,
+      "mode": "fixed",
+      "kind": ""
     }
   }
 }

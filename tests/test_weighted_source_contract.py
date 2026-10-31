@@ -74,7 +74,7 @@ class WeightedSourceContract(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             r=Path(folder);self.copy_sources(r);project_sources(r)
             target=r/'gpu/weighted_incoming_runtime.slang';target.write_text(target.read_text()+'\n// unreviewed mutation\n')
-            with self.assertRaisesRegex(ValueError,'Unreviewed weighted dependency'):project_sources(r)
+            with self.assertRaisesRegex(ValueError,'Unreviewed product source: gpu/weighted_incoming_runtime.slang'):project_sources(r)
 
     def test_boss_history_recovers_exact_preimages_and_rejects_unreviewed_bytes(self):
         from portable_weighted_incoming_source_contract import boss_source_preimages

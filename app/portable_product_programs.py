@@ -17,8 +17,10 @@ for _name,_program in PROGRAMS.items():
     if type(_program) is not dict or set(_program)!={'source','input_words','output_words','mode','kind'}:
         raise ValueError('Invalid product program declaration')
     _mode,_kind=_program['mode'],_program['kind']
-    _add=_name.startswith('add-');_healing=_name.startswith('healing-');_weighted=_name.startswith('weighted-');_cover=_name.startswith('cover-')
-    _prefix='add-' if _add else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else ''
+    _default=_name.startswith('default-');_selector=_name[8:] if _default else _name
+    _add=_selector.startswith('add-');_healing=_selector.startswith('healing-');_weighted=_selector.startswith('weighted-');_cover=_selector.startswith('cover-')
+    if _default and (not (_weighted or _cover) or _mode!='fixed' or _kind):raise ValueError('Invalid default-world product program')
+    _prefix=('default-' if _default else '')+('add-' if _add else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else '')
     if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or (_healing or _weighted or _cover) and _kind!='' or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
         raise ValueError('Invalid product program identity')
     _stem=('fixed_' if _mode=='fixed' else '')+(_kind.replace('-','_')+'_' if _kind else '')
@@ -62,7 +64,10 @@ def body_for_program(root, name=None):
     if name is not None and (not isinstance(name,str) or name not in PROGRAMS):
         raise ValueError('Invalid product program body')
     program = PROGRAMS.get(name, dict(mode='accumulate', kind=''))
-    if name is not None and name.startswith('cover-'):
+    if name is not None and name.startswith('default-'):
+        from portable_original_identity_inventory import selected_profile_bodies
+        body=selected_profile_bodies(['베이' if name.startswith('default-weighted-') else '솔져 O.W.'],0)[0][2]
+    elif name is not None and name.startswith('cover-'):
         from portable_cover_defense_battle_cases import fixtures
         case=fixtures()[0];body=copy.deepcopy(case['body'])
         body['reference_models']={'cover_defense':copy.deepcopy(case['cover_defense'])}

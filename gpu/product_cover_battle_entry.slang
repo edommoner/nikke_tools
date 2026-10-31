@@ -1,5 +1,6 @@
 // Shared product scheduler, original explicit controls and cover landing.
 #define PORTABLE_COVER_DEFENSE
+#define PORTABLE_PRODUCT_UNSPECIFIED_COVER
 #define PORTABLE_COORDINATE_MANUAL_ACTIONS
 #define PORTABLE_PRODUCT_MANUAL_COVER_LOG
 #include "cover_defense_layout.slang"

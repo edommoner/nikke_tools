@@ -1,0 +1,222 @@
+{
+  "schema": 1,
+  "feature": "product-no-incoming-v1",
+  "metal_default_profiles": 5,
+  "metal_default_conditions": 5,
+  "metal_declared_retention_conditions": 2,
+  "metal_total_distinct_profiles": 5,
+  "metal_total_conditions": 7,
+  "cuda_product_profiles": 0,
+  "scenarios": [
+    {
+      "profile": "베이",
+      "favorite_stage": 0,
+      "scenario": "default-fixed-no-incoming",
+      "default_request": true,
+      "device": "Apple M5",
+      "gpu_seconds": 1.8291207083384506,
+      "all_payload_fields_exact": true,
+      "input_sha256": "05dbcafa4bc8407432557239fa8f3bad02e75ee4be1ca06e6dba2ee7b83d49f9",
+      "output_sha256": "d3c122dcda4471884d5472dac38c3649e6d47d039344646a3e0456570228aab1"
+    },
+    {
+      "profile": "베이",
+      "favorite_stage": 1,
+      "scenario": "default-fixed-no-incoming",
+      "default_request": true,
+      "device": "Apple M5",
+      "gpu_seconds": 1.8998392916400917,
+      "all_payload_fields_exact": true,
+      "input_sha256": "f81e71332d564461d61de54fbec9051657c5c0b9b47f186b1ac90350f4358530",
+      "output_sha256": "5ef51d59e35cfb0ee8dcb84b095067704288c101d163a51593195992ebfd6af5"
+    },
+    {
+      "profile": "베이",
+      "favorite_stage": 2,
+      "scenario": "default-fixed-no-incoming",
+      "default_request": true,
+      "device": "Apple M5",
+      "gpu_seconds": 1.900066833361052,
+      "all_payload_fields_exact": true,
+      "input_sha256": "d05203083a1dea25c3e828e13ecc32d7041b38f92e62e8e7b514cd72c82d843b",
+      "output_sha256": "84c23aadb9ad59d3c583ff1c46314fb1ec29cae16b1f2a58d05706d139aff143"
+    },
+    {
+      "profile": "베이",
+      "favorite_stage": 3,
+      "scenario": "default-fixed-no-incoming",
+      "default_request": true,
+      "device": "Apple M5",
+      "gpu_seconds": 1.9072582499939017,
+      "all_payload_fields_exact": true,
+      "input_sha256": "bc57dc778e96c770137db6fa3736bba6aef987c0f1fc57f27797b1f725d031ca",
+      "output_sha256": "b2662b306ad161d478bc600f0b6609e1e25eb4e8e2dad9fd6853101a8e249544"
+    },
+    {
+      "profile": "솔져 O.W.",
+      "favorite_stage": 0,
+      "scenario": "default-fixed-no-incoming",
+      "default_request": true,
+      "device": "Apple M5",
+      "gpu_seconds": 1.781206291692797,
+      "all_payload_fields_exact": true,
+      "input_sha256": "698d33418d7f0e4b3b3a1a73915dd0cb41881849d8e78fd8cd85bc21b959a87e",
+      "output_sha256": "dccf21fb70db86464b49c83c2069018144fe5ba86a615ff28b4ea5eb06a6c6fa"
+    },
+    {
+      "profile": "베이",
+      "favorite_stage": 0,
+      "scenario": "declared-weighted-retention",
+      "default_request": false,
+      "device": "Apple M5",
+      "gpu_seconds": 2.0125761666567996,
+      "all_payload_fields_exact": true,
+      "input_sha256": "bdf0c35334f422dfdab5bb124ecdd27d578caaed3fb579514288029aa37f99ac",
+      "output_sha256": "140e3efd368cf70bd0dbedfb322968830fa7bc7536b5dfc8f38df9bddbc4e25e"
+    },
+    {
+      "profile": "솔져 O.W.",
+      "favorite_stage": 0,
+      "scenario": "declared-cover-retention",
+      "default_request": false,
+      "device": "Apple M5",
+      "gpu_seconds": 1.877880166633986,
+      "all_payload_fields_exact": true,
+      "input_sha256": "21adfaa7b9ca5253b63a479f9d7998bea669a21c9211ddf224a1a244cbe48491",
+      "output_sha256": "5b0862a1683d94071ef18a38f2c031ce50b018ef4f26b60c97f3afc004fff7df"
+    }
+  ],
+  "saved_audit": {
+    "conditions": 7,
+    "extra_native_battles": 0,
+    "extra_gpu_calls": 0
+  },
+  "device_guards": {
+    "cases": [
+      {
+        "kind": "weighted",
+        "device": "Apple M5",
+        "gpu_seconds": 0.09915941668441519,
+        "gpu_execution_verified": true,
+        "kernel_status": 64,
+        "bank_initialized_before_rejection": true,
+        "receipt_count": 0,
+        "input_sha256": "bfc848030f67741bbded367dd799f77845c5679f1cdb1db624d63c9dc0891f7f",
+        "output_sha256": "50381425cabc9e130507fe297ef9b6351c667d1c114eef842c21db28ddaa4373"
+      },
+      {
+        "kind": "cover",
+        "device": "Apple M5",
+        "gpu_seconds": 0.5486452499753796,
+        "gpu_execution_verified": true,
+        "kernel_status": 64,
+        "bank_initialized_before_rejection": true,
+        "receipt_count": 0,
+        "input_sha256": "8c65be7bd1ccbd96b4e2bb7a2783f6ec4c710910c1e0a46be68600ce432748b4",
+        "output_sha256": "325ba68c1568d4951596ebdd7a69e02065fc032e98d6f15b188e5e091b840020"
+      }
+    ],
+    "native_battle_calls": 0
+  },
+  "former_gap_static_audit": {
+    "rows": [
+      {
+        "profile": "앤 : 미라클 페어리",
+        "favorite_stage": 0,
+        "static_compiled": true,
+        "source": "gpu/product_healing_battle_entry.slang"
+      },
+      {
+        "profile": "유니",
+        "favorite_stage": 0,
+        "static_compiled": false,
+        "reason": "Unported buff stat"
+      },
+      {
+        "profile": "얀",
+        "favorite_stage": 0,
+        "static_compiled": false,
+        "reason": "Unported buff stat"
+      },
+      {
+        "profile": "솔져 O.W.",
+        "favorite_stage": 0,
+        "static_compiled": true,
+        "source": "gpu/product_cover_battle_entry.slang"
+      },
+      {
+        "profile": "벨벳",
+        "favorite_stage": 0,
+        "static_compiled": false,
+        "reason": "Unported health recipient selector"
+      },
+      {
+        "profile": "스노우 화이트 : 헤비암즈",
+        "favorite_stage": 0,
+        "static_compiled": false,
+        "reason": "Unported buff stat"
+      },
+      {
+        "profile": "베이",
+        "favorite_stage": 0,
+        "static_compiled": true,
+        "source": "gpu/product_weighted_battle_entry.slang"
+      },
+      {
+        "profile": "베이",
+        "favorite_stage": 1,
+        "static_compiled": true,
+        "source": "gpu/product_weighted_battle_entry.slang"
+      },
+      {
+        "profile": "베이",
+        "favorite_stage": 2,
+        "static_compiled": true,
+        "source": "gpu/product_weighted_battle_entry.slang"
+      },
+      {
+        "profile": "베이",
+        "favorite_stage": 3,
+        "static_compiled": true,
+        "source": "gpu/product_weighted_battle_entry.slang"
+      },
+      {
+        "profile": "레이 (가칭)",
+        "favorite_stage": 0,
+        "static_compiled": false,
+        "reason": "Unported buff stat"
+      }
+    ],
+    "scope": "Static prepare/compile only",
+    "native_battle_calls": 0,
+    "gpu_calls": 0
+  },
+  "closed_world_contract": {
+    "all_literal_attack_and_attacking_summon_nodes_rejected_without_declarations": true,
+    "delayed_nodes_not_predicted_away": true,
+    "product_only_unspecified_flag": true,
+    "absent_payload_never_interpreted_as_numeric_zero": true,
+    "device_consumption_status": 64,
+    "no_cpu_dynamic_state_supplied": true
+  },
+  "all_original_effects_retained": true,
+  "numeric_math_changed": false,
+  "cpu_reference_changed": false,
+  "normalizer_changed": false,
+  "old_positive_input_and_readback_full_bytes_preserved": [
+    "weighted incoming",
+    "cover defense"
+  ],
+  "old_goldens_retained_as_historical": true,
+  "historical_inverse_order": "Verify exact pinned later-to-earlier preimage before checking original added-source SHA; neither digest nor normalizer relaxed",
+  "unresolved": [
+    "movement",
+    "enemy magazine",
+    "Lock On",
+    "target count and range",
+    "fixed burst plus manual cover",
+    "multiple consumer composition",
+    "all-profile current-source sweep",
+    "current product CUDA"
+  ]
+}

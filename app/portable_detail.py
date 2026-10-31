@@ -264,12 +264,14 @@ def decode_payload(body, prepared, run, metadata, block):
         from portable_product_weighted import read_result
         from product_reference_models import warning
         model=read_result(block,metadata,names,run.config['duration'])
-        payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
+        if model is not None:
+            payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
     if metadata.get('product_cover_defense'):
         from portable_product_cover import read_result
         from product_reference_models import warning
         model=read_result(block,metadata,names,run.config['duration'])
-        payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
+        if model is not None:
+            payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
     if 'manual_cover_sequences' in body:
         payload['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])
     if body.get('enemy',{}).get('parts'):

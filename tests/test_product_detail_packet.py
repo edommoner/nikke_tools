@@ -17,7 +17,8 @@ class ProductPacket(unittest.TestCase):
         cli=self.cli();base=cli.SUITES['product-detail']
         self.assertIs(configuration(cli.SUITES,'product-detail'),base)
         self.assertIs(configuration(cli.SUITES,dict(suite='product-detail')),base)
-        self.assertEqual(len(PROGRAMS),21)
+        self.assertEqual(len(PROGRAMS),23)
+        self.assertEqual({n for n in PROGRAMS if n.startswith('default-')},{'default-weighted-fixed','default-cover-fixed'})
         self.assertEqual({n for n in PROGRAMS if n.startswith('cover-')},{'cover-accumulate'})
         self.assertEqual({n for n in PROGRAMS if n.startswith('weighted-')},{'weighted-fixed','weighted-accumulate'})
         for name in (None,True,[],{},'unknown','fixed/../../anything'):
