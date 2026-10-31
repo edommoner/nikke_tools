@@ -20,8 +20,9 @@ def compile_product(prepared):
             if e.get('stat') in ('effect_range_pct','effect_target_count_add'):
                 error.effect_context=dict(character=row['owner'],effect=e.get('name',''),stat=e['stat'],target=e.get('target',''));break
         raise error
-    if prepared['policies']['config'].get('burst_gauge_mode')!='accumulate':
-        raise UnsupportedPortable('Named range with fixed burst requires the combined coordinate product header')
+    from portable_product_fixed import lower as lower_fixed,attach as attach_fixed
+    original=prepared
+    prepared,fixed_values=lower_fixed(prepared)
     if any(a.get('action')=='cover' for c in prepared['chars'] for a in c.get('control',{}).get('sequence',[])):
         raise UnsupportedPortable('Named range with manual cover requires its combined coordinate consumer')
     spec=declarations['named_range'];check_schema()
@@ -32,7 +33,9 @@ def compile_product(prepared):
         for c,atk in zip(prepared['chars'],prepared['base_atk'])]
     nodes=validate(copy.deepcopy(prepared['enemy'].get('patterns') or []),coord=True)
     meta['product_world']=dict(nodes=[dict(id=p.id,kind=p.kind) for p in nodes],literal_pattern_identity_only=True,cpu_schedule_or_state_supplied=False)
-    return 'gpu/product_named_range_battle_entry.slang',INPUT,OUTPUT,words,meta
+    attach_fixed(words,meta,original,fixed_values)
+    source='gpu/product_named_range_fixed_battle_entry.slang' if fixed_values is not None else 'gpu/product_named_range_battle_entry.slang'
+    return source,INPUT,OUTPUT,words,meta
 
 
 def read_result(block,meta,duration):

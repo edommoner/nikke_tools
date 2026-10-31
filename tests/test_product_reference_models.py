@@ -190,10 +190,33 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
             self.assertTrue(any(c['percent']==500 and c['capacity']==3 for c in casts))
             results[case['contract']['scenario']]=sum(c['add_count'] for c in casts)
-            with self.assertRaisesRegex(UnsupportedPortable,'fixed burst'):
-                product.compile_product(dict(prepared,policies={**prepared['policies'],'config':{**prepared['policies']['config'],'burst_gauge_mode':'fixed'}}))
+            fixed=dict(prepared,policies={**prepared['policies'],'config':{**prepared['policies']['config'],'burst_gauge_mode':'fixed'}})
+            fixed_source,fi,fo,fw,fm=product.compile_product(fixed)
+            from portable_specs import LIMITS
+            base=LIMITS['WORLD_CONTROL_INPUT_BASE']
+            self.assertEqual(fixed_source,source.replace('_battle_entry','_fixed_battle_entry'))
+            self.assertEqual((fi,fo),(iw,ow));validate_composed_stride(fixed_source,fi,fo)
+            self.assertEqual(fw[base+1],6);self.assertEqual(fw[base+5:base+8],words[base+5:base+8])
+            self.assertEqual(fw[base+12],0x46424731)
+            self.assertEqual(fm['real_prepared_input']['policy'],fixed['policies'])
+            self.assertFalse(fm['product_fixed_burst']['CPU_state_or_schedule_as_input'])
         self.assertGreater(results['expanded'],results['small-base-control'])
         self.assertGreater(results['expanded'],results['retirement'])
+
+    def test_fixed_coordinate_header_rejects_noncanonical_and_preserves_literal_fields(self):
+        from portable_product_fixed import attach
+        from portable_specs import LIMITS
+        from portable_runtime import UnsupportedPortable
+        base=LIMITS['WORLD_CONTROL_INPUT_BASE'];original=dict(policies={'config':{'burst_gauge_mode':'fixed'}})
+        words=[0]*(base+16);words[base:base+8]=[0x57434831,3,0,1,0,2,0xffffffff,0x4d435631]
+        for offset,value in [(5,32),(6,256),(7,0),(8,1),(15,1)]:
+            bad=words[:];bad[base+offset]=value
+            with self.subTest(offset=offset),self.assertRaises(UnsupportedPortable):attach(bad,{'real_prepared_input':{}},original,(3.,[2.]*5))
+        meta={'real_prepared_input':{}};attach(words,meta,original,(3.,[1.,2.,3.,2.,1.]))
+        self.assertEqual(words[base+5:base+8],[2,0xffffffff,0x4d435631])
+        self.assertEqual(struct.unpack('<d',struct.pack('<II',*words[base+8:base+10]))[0],3.)
+        self.assertEqual(struct.unpack('<d',struct.pack('<II',*words[base+10:base+12]))[0],3.)
+        self.assertFalse(any(words[base+13:base+16]))
 
     def test_named_range_unknown_binding_and_composition_fail_and_restore_native(self):
         from portable_named_range_battle_cases import fixtures
@@ -254,8 +277,16 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertTrue(data['frames']);self.assertTrue(data['generations'])
             self.assertTrue(any(s['disabled'] or s['forced'] for f in data['frames'] for s in f['segments']))
             self.assertTrue(all('fields' not in s for f in data['frames'] for s in f['segments']))
-            with self.assertRaisesRegex(UnsupportedPortable,'fixed burst'):
-                product.compile_product(dict(prepared,policies={**prepared['policies'],'config':{**prepared['policies']['config'],'burst_gauge_mode':'fixed'}}))
+            fixed=dict(prepared,policies={**prepared['policies'],'config':{**prepared['policies']['config'],'burst_gauge_mode':'fixed'}})
+            fixed_source,fi,fo,fw,fm=product.compile_product(fixed)
+            from portable_specs import LIMITS
+            base=LIMITS['WORLD_CONTROL_INPUT_BASE']
+            self.assertEqual(fixed_source,source.replace('_battle_entry','_fixed_battle_entry'))
+            self.assertEqual((fi,fo),(iw,ow));validate_composed_stride(fixed_source,fi,fo)
+            self.assertEqual(fw[base+1],6);self.assertEqual(fw[base+5:base+8],words[base+5:base+8])
+            self.assertEqual(fw[base+12],0x46424731)
+            self.assertEqual(fm['real_prepared_input']['policy'],fixed['policies'])
+            self.assertFalse(fm['product_fixed_burst']['CPU_state_or_schedule_as_input'])
         with self.assertRaisesRegex(RuntimeError,'injected'):
             with execution(normalize(body['reference_models'])):raise RuntimeError('injected')
         self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))

@@ -203,6 +203,20 @@
       "output_words": 1310720,
       "mode": "fixed",
       "kind": ""
+    },
+    "movement-fixed": {
+      "source": "gpu/product_movement_fixed_battle_entry.slang",
+      "input_words": 117476,
+      "output_words": 2032000,
+      "mode": "fixed",
+      "kind": ""
+    },
+    "named-range-fixed": {
+      "source": "gpu/product_named_range_fixed_battle_entry.slang",
+      "input_words": 116224,
+      "output_words": 2032000,
+      "mode": "fixed",
+      "kind": ""
     }
   }
 }

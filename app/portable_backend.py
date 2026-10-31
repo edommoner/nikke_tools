@@ -130,7 +130,7 @@ def validate_composed_stride(source,input_words,output_words):
         check_schema(ROOT)
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Moving typed execution requires all physical, logical, movement and frozen aim banks')
         return
-    if source in ('gpu/world_enemy_movement_entry.slang','gpu/product_movement_battle_entry.slang'):
+    if source in ('gpu/world_enemy_movement_entry.slang','gpu/product_movement_battle_entry.slang','gpu/product_movement_fixed_battle_entry.slang'):
         from portable_enemy_movement_wire import check_schema,INPUT,OUTPUT
         check_schema(ROOT)
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Movement requires complete collider, marker and motion banks')
@@ -183,7 +183,7 @@ def validate_composed_stride(source,input_words,output_words):
         check(ROOT)
         if source!='gpu/world_physical_locks_entry.slang' or (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Physical locks require their separate arena wire')
         return
-    if source in ('gpu/world_named_range_battle_entry.slang','gpu/product_named_range_battle_entry.slang'):
+    if source in ('gpu/world_named_range_battle_entry.slang','gpu/product_named_range_battle_entry.slang','gpu/product_named_range_fixed_battle_entry.slang'):
         from portable_named_range_battle_wire import check_schema,INPUT,OUTPUT
         check_schema(ROOT)
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Named radial battle requires its complete declared wire')

@@ -23,7 +23,13 @@ void productOpenManualCover(inout Runtime s,uint who,uint64_t when)
     results[at+4]=1;results[m+11]=1;
 }
 #endif
-bool manualControls(inout Runtime s){return commands[controlInput(s)+1]==3;}
+bool manualControls(inout Runtime s){
+#ifdef PORTABLE_PRODUCT_FIXED_COORDINATE
+    return commands[controlInput(s)+1]==6;
+#else
+    return commands[controlInput(s)+1]==3;
+#endif
+}
 void initializeManualControls(inout Runtime s)
 {
     if(!manualControls(s))return;
