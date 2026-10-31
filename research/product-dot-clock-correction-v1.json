@@ -1,0 +1,259 @@
+{
+  "schema": 1,
+  "scope": "User-authorized enemy DoT clock correction only",
+  "cpu_rule": "Keep exhausted schedule while carrier is live; retire only when absent and no pending expiry tick",
+  "pinned_upstream_unchanged_files": 33,
+  "tests": {
+    "portable_detail": 55,
+    "weighted_source_contract": 7,
+    "product_detail_packet": 7,
+    "portable_gpu_cli": 52
+  },
+  "metal_product_cases": 12,
+  "metal_device": "Apple M5",
+  "full_cpu_payload_matches": 12,
+  "saved_audit_additional_gpu_calls": 0,
+  "saved_audit_additional_native_calls": 0,
+  "cuda_device_runs": 0,
+  "old_captures_unchanged": true,
+  "old_goldens_unchanged": true,
+  "current_independent_cli_reseal_pending": true,
+  "coverage": "Two primary profiles; BODY/ADD fixed boundaries and Miranda BODY/ADD fixed/accumulate refresh. Not all characters/effects.",
+  "fixture_limitation": "Original Noah refresh requests declared a second tick, but invincibility blocks reapplication; preserved and separately tested with Miranda.",
+  "records": [
+    {
+      "proof_directory": "product-dot-clock-correction-v1-20261031",
+      "cases": 8,
+      "saved_audit_sha256": "ce2137f96e5fd365b1f94c1773919b6ee395575ec262d5605a1ca076b082405d",
+      "causal_checks_sha256": "a68b315bee877c309c00e7e20ade4d26a29e456d162b73cd7aa3c834d1b16115",
+      "sources_sha256": "7094d3c0981c79bcf9bf901d8d16abb80e7303c28ca30537d4c99fd6185ead64",
+      "captures": [
+        {
+          "index": 0,
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "adfa673ab5184851b391f1a11f0ffd80",
+          "device": "Apple M5",
+          "elapsed_ms": 13443.785167008173,
+          "gpu_execution_verified": true,
+          "input_sha256": "a464eb6f3283927d46012dfed7654fa28c1e3e3d1976c01d4d6dcda30b3dc150",
+          "output_sha256": "9432a051d768c036db78517b55486cc52f40eef7f993a399e1106d537ffd9534",
+          "source": "gpu/product_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 0.4244015417061746,
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        {
+          "index": 1,
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "381961a0a3944d76a31ec3e8fc3c3d58",
+          "device": "Apple M5",
+          "elapsed_ms": 1240.1862909900956,
+          "gpu_execution_verified": true,
+          "input_sha256": "2a13b6296ac26c13a511a5b1933f51bddf7baca7465876b4f9c1569b906963b7",
+          "output_sha256": "087147a6c7adf4484f53e08ce67869e3c0345dfb68efc40faecd79a5ea288152",
+          "source": "gpu/product_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 0.4213247500010766,
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        {
+          "index": 2,
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "94019c5df09b4dc19a9616b57539f219",
+          "device": "Apple M5",
+          "elapsed_ms": 1239.6160410135053,
+          "gpu_execution_verified": true,
+          "input_sha256": "077413147c600753dfb7b0aad7beb4c5c0e92c4f56476acc3dfdc8a6a45bc710",
+          "output_sha256": "2c94868b4ea481b1c4249647bd66509a816f676fcc33c1a1d6986b794a3e7bb9",
+          "source": "gpu/product_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 0.41990645829355344,
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        {
+          "index": 3,
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "da93e0c3c4294c83a45b73ae9c268b29",
+          "device": "Apple M5",
+          "elapsed_ms": 1377.2564170067199,
+          "gpu_execution_verified": true,
+          "input_sha256": "859349b10a5e3d17db0cea8e520b0f089ee80227f1aab55b4c6aafbce0e41eda",
+          "output_sha256": "8368acff501f656133f8ab2fc72e1f760ac0684aa9612255ce56165127d366d0",
+          "source": "gpu/product_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 0.5601920416811481,
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        {
+          "index": 4,
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "2a2fc5a9cb94441283e9d06486e6875e",
+          "device": "Apple M5",
+          "elapsed_ms": 13393.644625029992,
+          "gpu_execution_verified": true,
+          "input_sha256": "15e8f4dd31bf0a516f72a4eef9b9eace22e8942dda062551e76746e659d5cae9",
+          "output_sha256": "e5a25810aa70191d38b8a7ab1d694f26ffcef833cbc1278daa1b4ce979ff520a",
+          "source": "gpu/product_add_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 0.42263924999861047,
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        {
+          "index": 5,
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "dbd60b64b8e24766a506252e7104aad2",
+          "device": "Apple M5",
+          "elapsed_ms": 1259.6489160205238,
+          "gpu_execution_verified": true,
+          "input_sha256": "70357137d171f1d117c9e9d3c9d79fac341ff490fd69768c588544831e838f78",
+          "output_sha256": "d1ef566892c7dbbab765b0e6b44a9efb096aaf1239c6e9f73d28019b9f7c52bf",
+          "source": "gpu/product_add_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 0.42303879163227975,
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        {
+          "index": 6,
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "9d4bf856ad2347fea6f5b359e680e940",
+          "device": "Apple M5",
+          "elapsed_ms": 1264.9324999656528,
+          "gpu_execution_verified": true,
+          "input_sha256": "298e8f57f931ec236468a8230ac1d9aef06d6bac0cd955a054fecc2607d5ee97",
+          "output_sha256": "c8c6bfc7de1b8c01ae0d68bd899419f7b991952163e3b46e28b15387c750f86e",
+          "source": "gpu/product_add_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 0.4221863750135526,
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        {
+          "index": 7,
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "e874d85f6dda4def9b84c53d12d66bd8",
+          "device": "Apple M5",
+          "elapsed_ms": 1393.1720409891568,
+          "gpu_execution_verified": true,
+          "input_sha256": "3c2048311be84f31b82da23c1ae873f009bb27b78a505545900a8c604ec0e5fb",
+          "output_sha256": "948eedd958176d0691f6b974b0eafe244477165c13820d2120fb20aaed95cb9d",
+          "source": "gpu/product_add_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 0.5577613749774173,
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      ]
+    },
+    {
+      "proof_directory": "product-dot-clock-refresh-v1-20261031",
+      "cases": 4,
+      "saved_audit_sha256": "368389f5d0444d9f6a472edb1d5ed375b65ccb87b6ab0c892620abf390b0e67a",
+      "causal_checks_sha256": "26c318e53066aa60b81b173994fecf8cc038c3d7fdf6e06c8e7d8c61b8748553",
+      "sources_sha256": "7094d3c0981c79bcf9bf901d8d16abb80e7303c28ca30537d4c99fd6185ead64",
+      "captures": [
+        {
+          "index": 0,
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "0dce3ba880ac4f94aa0d454f4fd428df",
+          "device": "Apple M5",
+          "elapsed_ms": 1389.4188329577446,
+          "gpu_execution_verified": true,
+          "input_sha256": "8015bf81d6611eb52b8a5e4621c62f135a0d2428534c943118fb42bcb739fd35",
+          "output_sha256": "4c9d4cef59579cc98556926f34b8246983bc7a5153240809bcdb8c9cbd48dcd7",
+          "source": "gpu/product_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 0.537910083308816,
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        {
+          "index": 1,
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "5b6cb230f521415a933c54becfcf9b39",
+          "device": "Apple M5",
+          "elapsed_ms": 13221.139917033724,
+          "gpu_execution_verified": true,
+          "input_sha256": "fc8578eea3a08fdc1cd10220813ca2268f92f96dcdd9e80f6764eba1cd16b4f1",
+          "output_sha256": "36811f50b053e44268e4bc67bdd107bfd81dbfdf0d3e7b7352b85d394f8fbe24",
+          "source": "gpu/product_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 0.5367951249936596,
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        {
+          "index": 2,
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "57ffb791e04646388b843991c6704650",
+          "device": "Apple M5",
+          "elapsed_ms": 1388.1861669942737,
+          "gpu_execution_verified": true,
+          "input_sha256": "c968c4acbe120d8e51f0c1ed4dbd8156c4e6e2dd96837359ce365bdae54f84a3",
+          "output_sha256": "abf3fdd2d22cfb59bd383663e19072a8f7cc66cf6f47b4c36ca4ea51ca674322",
+          "source": "gpu/product_add_fixed_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 0.551277749997098,
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        },
+        {
+          "index": 3,
+          "requested": "metal_detail",
+          "backend": "metal_detail",
+          "capture_id": "bbd7d2d2a97b4577816c94ef6333e4a1",
+          "device": "Apple M5",
+          "elapsed_ms": 13401.82037500199,
+          "gpu_execution_verified": true,
+          "input_sha256": "8e134fe5d727bffce18864993dde5278fbab054ee7d6b2048e715f0fc331c9ee",
+          "output_sha256": "34e799497fe2772b67739ff6c31b23edfcc419627217d7bfeda062ff1a7300d7",
+          "source": "gpu/product_add_battle_entry.slang",
+          "scope": "shared autonomous battle; CPU verified for this request",
+          "gpu_seconds": 0.5404287499841303,
+          "cpu_verification": {
+            "matched": true,
+            "differing_fields": []
+          }
+        }
+      ]
+    }
+  ]
+}

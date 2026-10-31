@@ -182,9 +182,9 @@ void deliverWorldBossDots(inout Runtime s,uint64_t when,uint output)
             uint64_t later=f64Add(next,definition_interval(s.inputBase,s.bossDotRow[i]));
             if(!f64Less(next,later)){s.error=16;break;}next=later;
         }
-        // Deliberately retain the observed canonical legacy re-arming rule.
-        // Its optional CPU correction is separate from GPU admission.
-        if(f64Less(f64Add(s.bossDotExpiry[i],epsilon),next))removeWorldBossDotClock(s,i);
+        // Keep exhausted schedules while their carriers are live. Refresh
+        // restarts from activated time; only retired carriers lose the clock.
+        if(!live&&f64Less(f64Add(s.bossDotExpiry[i],epsilon),next))removeWorldBossDotClock(s,i);
         else {s.bossDotNext[i]=next;i++;}
     }
 }

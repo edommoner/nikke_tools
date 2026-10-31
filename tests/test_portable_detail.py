@@ -935,9 +935,30 @@ class PortableDetail(unittest.TestCase):
 class BossDotNativeContract(unittest.TestCase):
     """Observed CPU product rules for the pending shared boss-DoT consumer.
 
-    These are native comparisons, not GPU coverage. In particular the last
-    case retains a reference-clock defect rather than silently fixing the CPU.
+    These are native comparisons, not GPU coverage. The explicitly authorized
+    clock correction preserves schedules while their carriers remain live.
     """
+    def test_clock_install_is_idempotent_and_preserves_simulation_aliases(self):
+        from boss_dot_clock_compat import install
+        from calculator import timeline
+        from runner import sim
+        original=timeline.simulate
+        install();install()
+        self.assertIs(timeline.simulate,original)
+        self.assertIs(sim.simulate,original)
+
+    def test_clock_rewrite_rejects_changed_retirement_body(self):
+        import ast
+        from boss_dot_clock_compat import BossDotClock
+        source='''def _boss_dots(t):
+    if next_t > expires + 1e-9:
+        del unrelated[uid]
+    else:
+        _dot_sched[uid][1] = next_t
+'''
+        with self.assertRaisesRegex(AssertionError,'retirement changed'):
+            BossDotClock().visit(ast.parse(source))
+
     def native_case(self, *, character='미란다', sim_duration=3, until=None,
                     attack=None, **dot):
         from portable_original_identity_inventory import selected_profile_bodies
@@ -997,14 +1018,26 @@ class BossDotNativeContract(unittest.TestCase):
         self.assertGreater(current.hp_after,previous.hp_after)
         self.assertEqual(notices,[.5])
 
-    def test_native_clock_rearms_each_frame_after_its_last_scheduled_tick(self):
-        # Current _boss_dots deletes the schedule when next_t > expires even
-        # while its carrier is live; the following frame recreates it. Preserve
-        # this observed defect until a canonical CPU correction is authorized.
+    def test_native_clock_keeps_exhausted_schedule_while_carrier_is_live(self):
         result,notices=self.native_case(character='노아',sim_duration=6,interval=3,duration=5)
-        self.assertEqual([round(h.t,6) for h in result.squad_hits[1:]],
-            [round(3.5+i/60,6) for i in range(121)])
+        self.assertEqual([round(h.t,6) for h in result.squad_hits[1:]],[3.5])
         self.assertTrue(all(h.damage>0 and h.hp==0 for h in result.squad_hits[1:]))
         self.assertEqual(notices,[.5])
+
+    def test_native_clock_longer_than_duration_never_fires(self):
+        result,notices=self.native_case(sim_duration=6,interval=6,duration=5)
+        self.assertEqual([round(h.t,6) for h in result.squad_hits],[.5])
+        self.assertEqual(notices,[.5])
+
+    def test_native_clock_exact_expiry_fires_once(self):
+        result,notices=self.native_case(sim_duration=6,interval=5,duration=5)
+        self.assertEqual([round(h.t,6) for h in result.squad_hits],[.5,5.5])
+        self.assertEqual(notices,[.5])
+
+    def test_native_clock_refresh_resets_exhausted_schedule(self):
+        result,notices=self.native_case(sim_duration=8,interval=3,duration=5,
+            attack=dict(hits=2,interval=4))
+        self.assertEqual([round(h.t,6) for h in result.squad_hits],[.5,3.5,4.5,7.5])
+        self.assertEqual(notices,[.5,4.5])
 
 if __name__=='__main__':unittest.main()

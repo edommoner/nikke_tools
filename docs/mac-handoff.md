@@ -1,3 +1,13 @@
+# 2026-10-31 許可済み敵DoT時計修正、CPU/共通SlangとM5の12条件
+
+ユーザーが「DoT時計に限定したCPU修正を許可」と明示。既存reference_rewriteを使うboss_dot_clock_compatを最後のreference layerへ追加し、_boss_dotsの時計削除条件だけを「carrierがliveに存在しない場合」に制限した。生存中の予定を保持するため、持続5秒/間隔3秒が121tickに再登録される欠陥を1tickへ修正。元ASTの条件・削除先・elseを検査し、不一致は起動前に拒否。pinned upstream33ファイル、ダメージ式/数値規約/normalizerは不変。engine_worker/detail_gpu/engine_compatにも変更なし。共通Slangの同じ削除条件へ!liveを追加し、CUDA/Metalで別時計を作らない。旧121tick証跡と旧goldenは保持し、現行成功へ付け替えない。
+
+通常製品Python APIの実Apple M5 Metalで12条件がCPU全payload一致、error/fallback/mismatch0。NoahのBODY/ADD各4条件は固定周期で持続内の予定保持・長い間隔・期限ちょうど・無敵による再付与遮断を確認。最初のNoah refresh要求は第2tickを意図したが、無敵が2回目の付与を防ぐため、その意図の検証としては不十分だった。原要求/結果を保持し、MirandaのBODY/ADD×固定/蓄積4条件で3.5秒/7.5秒の実際の再付与リセットを確認。HTTPジョブ再検証ではない。全12のraw/input/source SHA・静的input再生成・既存decoderのCPU/GPU/API全field再投影を追加native/GPU0で監査。原本product-dot-clock-correction-v1-20261031とproduct-dot-clock-refresh-v1-20261031、小記録research/product-dot-clock-correction-v1.json。unitはportable_detail55、weighted_source_contract7、product_detail_packet7、portable_gpu_cli52が成功。
+
+直前の44c81f24ではADD付随14デバフ/DoTを共通carrierへ接続し、新25 HTTP条件と旧16 ADD rawの実GPU保持、旧255 catalogueの静的保持、新add-accumulate独立sealを実施済み。ただし今回の時計修正でソースが変わったため、これらを現コードの全条件認定へ加算しない。旧数値goldenの書換えなし。現コードCLIの独立再sealと短いCUDA実機確認は未完了。全キャラ/全効果の目標も未完了、11 canonical model gapは範囲外でそのまま。
+
+Windowsの直前sealed owner4b19cd58はPTX/object成功後、link API約0.047秒でCUBINを保存したが外側60秒deadlineで終了し、最終監査ファイル未生成のため全体false/GPU0。全Job終了、missing0、サービス未識別preservation=falseを維持。消費claimの再実行/timeout延長なし。成功inner+外側timeout専用の既存recovery方式をJIT linkにも厳密適用できるかは未実装であり、保存CUBINを現コードの実行に流用しない。今回Windowsへ追加依頼0。通常4317/4327サーバー変更なし。以下は履歴。
+
 # 2026-10-31 召喚敵射撃・最終射撃後の退場を通常API全8経路へ接続
 
 実装36229a5191ed138bf21382db22446dab6804dfcc。元summon.attack/attack_at/self_destructの宣言を、既存ADD wire・実actor generation/alive/born・nextWorldAddAttack・共通incoming・最終射撃退場へ渡す。新しいダメージ式/時計/CPU予定表は追加しない。表示名は元summon.name#ordinal、実際の発射元はGPUのslot/generation mapから復元し、node不一致や不正sourceを拒否。BODY/ADD混在順、退場後もqueue済みの最終射撃、再出現の世代を保持。

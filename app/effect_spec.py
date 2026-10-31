@@ -23,6 +23,7 @@ COMPAT_LAYERS = (
     'staged_dot_runtime',
     'enemy_recipient_runtime',
     'periodic_target_runtime',
+    'boss_dot_clock_compat',
 )
 
 def install_reference_layers():

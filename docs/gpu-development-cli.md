@@ -856,3 +856,7 @@ packet自身の `compile-plan --artifact-kind cubin --ptxas-level 1 --memory-lim
 永続native fingerprintだけは、unpack先のGit有無で変わる `evaluator` stampを除く。
 実際のCPU/GPU比較はこのmetadataも含む全製品payloadの完全一致で、nullable fieldの
 欠落も拒否する。数値・警告・履歴を除外しない。実製品APIの確認件数は別に集計する。
+
+### 2026-10-31 許可済み敵DoT時計の正本改訂
+
+敵DoT時計は、ユーザーの限定許可に基づきlive carrierの予定を保持する規約へCPU/共通Slangを同時改訂した。持続5秒/間隔3秒の旧121tickは1tickとなる。旧golden/失敗captureは保持する。現在のMetal製品12条件一致はCLI独立sealやCUDA実機認定の代用ではなく、次のimmutable packetは改訂したCPU契約に対するfresh preflight/独立sealを必要とする。旧ownerの消費claimや保存CUBINを再利用して新コードの成功を主張しない。検証範囲とfixtureの制約はresearch/product-dot-clock-correction-v1.json、引き継ぎ冒頭を参照。
