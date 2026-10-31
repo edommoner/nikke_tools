@@ -31,10 +31,17 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
       const value=row.error?row:{result:save(entry.key,row.result,entry.cacheable)};
       for(const index of entry.indices)rows[index]=structuredClone(value);
     };
-    // Shared GPU runs in a fresh worker because preparation uses temporary
-    // global aliases. Preserve ordering/cache semantics without a second queue.
-    const batches=[entries.filter(e=>e.body.compute_backend==='cuda_detail'),
-      ...entries.filter(e=>['metal_detail','cuda_shared_detail'].includes(e.body.compute_backend)).map(e=>[e])].filter(b=>b.length);
+    // Each fresh worker owns a bounded batch; Python groups compatible wires
+    // while keeping every original row and its CPU comparison independent.
+    const shared=new Map();
+    for(const entry of entries.filter(e=>['metal_detail','cuda_shared_detail'].includes(e.body.compute_backend))){
+      const backend=entry.body.compute_backend;
+      if(!shared.has(backend))shared.set(backend,[]);
+      shared.get(backend).push(entry);
+    }
+    const batches=[entries.filter(e=>e.body.compute_backend==='cuda_detail')];
+    for(const group of shared.values())for(let i=0;i<group.length;i+=8)batches.push(group.slice(i,i+8));
+    for(let i=batches.length-1;i>=0;i--)if(!batches[i].length)batches.splice(i,1);
     for(const gpu of batches){
       let outputs;
       try{
@@ -64,13 +71,25 @@ export function createEvaluator({worker,keyOf,cache=new Map(),limit=300,cacheabl
 
 export async function advanceCases(job,evaluator){
   while(job.index<job.cases.length&&job.status==='running'){
-    const first=job.cases[job.index];let count=1;
-    if(first.evaluation.compute_backend==='cuda_detail'&&!evaluator.isCached(first.evaluation)){
-      while(count<32&&job.index+count<job.cases.length&&job.cases[job.index+count].evaluation.compute_backend==='cuda_detail')count++;
+    let items,rows;
+    if(job.pendingGpuResults){
+      const pending=job.pendingGpuResults;
+      items=job.cases.slice(job.index,job.index+pending.rows.length);
+      if(pending.index!==job.index||JSON.stringify(items.map(item=>item.evaluation))!==pending.inputs)throw Error('一時停止中に計算候補が変更されました。');
+      rows=pending.rows;delete job.pendingGpuResults;
+    }else{
+      const first=job.cases[job.index],backend=first.evaluation.compute_backend;
+      const cap=backend==='cuda_detail'?32:['metal_detail','cuda_shared_detail'].includes(backend)?8:1;
+      let count=1;
+      if(cap>1&&!evaluator.isCached(first.evaluation)){
+        while(count<cap&&job.index+count<job.cases.length&&job.cases[job.index+count].evaluation.compute_backend===backend)count++;
+      }
+      items=job.cases.slice(job.index,job.index+count);
+      const inputs=JSON.stringify(items.map(item=>item.evaluation));
+      rows=await evaluator.many(items.map(item=>item.evaluation),job);
+      if(JSON.stringify(items.map(item=>item.evaluation))!==inputs)throw Error('計算中に候補が変更されました。');
     }
-    const items=job.cases.slice(job.index,job.index+count);
-    const rows=await evaluator.many(items.map(item=>item.evaluation),job);
-    if(job.status==='cancelled')break;
+    if(job.status==='cancelled'){delete job.pendingGpuResults;break;}
     for(let i=0;i<items.length;i++){
       const item=items[i],row=rows[i];
       if(row.error){
@@ -81,7 +100,10 @@ export async function advanceCases(job,evaluator){
         job.results.push({value:item.value,field:item.field,result,meets:job.target?(job.strict?result.total_damage>job.target:result.total_damage>=job.target):null});
       }
       job.index++;job.updatedAt=Date.now();
-      if(job.pauseRequested){job.status='paused';break;}
+      if(job.pauseRequested){
+        if(i+1<items.length)job.pendingGpuResults={index:job.index,inputs:JSON.stringify(items.slice(i+1).map(item=>item.evaluation)),rows:rows.slice(i+1)};
+        job.status='paused';break;
+      }
     }
   }
 }

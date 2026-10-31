@@ -44,7 +44,7 @@ test('cancel publishes nothing; search fails in order; optimize advances over er
  assert.equal(optimize.index,34);assert.equal(optimize.results[1].error,'bad');
  await assert.rejects(evaluator.many(Array.from({length:33},(_,i)=>body(i))),/32/);
 });
-test('shared Metal uses isolated product workers and the same ordered cache',async()=>{
+test('shared Metal uses bounded product batches and the same ordered cache',async()=>{
  const calls=[];
  const evaluator=make(async request=>{
    calls.push(request);
@@ -54,9 +54,9 @@ test('shared Metal uses isolated product workers and the same ordered cache',asy
  const metal=id=>({id,compute_backend:'metal_detail'});
  const rows=await evaluator.many([metal(1),body(2),metal(3),metal(1),{id:4}]);
  assert.deepEqual(rows.map(r=>r.result.total_damage),[1,2,3,1,4]);
- assert.deepEqual(calls.map(r=>r.action),['evaluate_detail_batch','evaluate_portable_detail_batch','evaluate_portable_detail_batch','evaluate']);
- assert.ok(calls.filter(r=>r.action==='evaluate_portable_detail_batch').every(r=>r.evaluations.length===1));
- assert.equal((await evaluator.one(metal(1))).cache_hit,true);assert.equal(calls.length,4);
+ assert.deepEqual(calls.map(r=>r.action),['evaluate_detail_batch','evaluate_portable_detail_batch','evaluate']);
+ assert.deepEqual(calls.find(r=>r.action==='evaluate_portable_detail_batch').evaluations.map(b=>b.id),[1,3]);
+ assert.equal((await evaluator.one(metal(1))).cache_hit,true);assert.equal(calls.length,3);
 });
 test('shared Metal worker unavailability falls back with its own requested label',async()=>{
  const evaluator=make(async request=>{
@@ -88,4 +88,30 @@ test('explicit noncached execution never replays results or stale CPU fallbacks'
  assert.equal(calls,2);assert.equal(cache.size,0);assert.equal(first.cache_hit,false);assert.equal(second.cache_hit,false);
  const cpu={compute_backend:'cpu'};await evaluator.one(cpu);const cached=await evaluator.one(cpu);
  assert.equal(calls,3);assert.equal(cached.cache_hit,true);
+});
+
+test('shared products batch at eight and preserve every row across chunk boundaries',async()=>{
+ const sizes=[];
+ const evaluator=make(async request=>{sizes.push(request.evaluations.length);return request.evaluations.map(b=>({result:{total_damage:b.id}}));});
+ const rows=await evaluator.many(Array.from({length:19},(_,id)=>({id,compute_backend:'metal_detail'})));
+ assert.deepEqual(sizes,[8,8,3]);assert.deepEqual(rows.map(r=>r.result.total_damage),Array.from({length:19},(_,i)=>i));
+});
+
+test('paused explicit CUDA batch resumes saved job results without another noncached dispatch',async()=>{
+ let calls=0;const j=job('search',5);
+ for(const item of j.cases)item.evaluation.compute_backend='cuda_shared_detail';
+ const evaluator=createEvaluator({cacheable:()=>false,keyOf:JSON.stringify,worker:async request=>{
+  calls++;j.pauseRequested=true;return request.evaluations.map(b=>({result:{total_damage:b.id}}));
+ }});
+ await advanceCases(j,evaluator);assert.equal(j.index,1);assert.equal(j.status,'paused');assert.equal(calls,1);
+ j.pauseRequested=false;j.status='running';await advanceCases(j,evaluator);
+ assert.equal(j.index,5);assert.equal(calls,1);assert.equal(j.pendingGpuResults,undefined);
+ assert.deepEqual(j.results.map(r=>r.result.total_damage),[0,1,2,3,4]);
+});
+
+test('paused GPU results cannot be attached to changed inputs',async()=>{
+ const j=job('search',3);for(const item of j.cases)item.evaluation.compute_backend='metal_detail';
+ const evaluator=make(async request=>{j.pauseRequested=true;return request.evaluations.map(b=>({result:{total_damage:b.id}}));});
+ await advanceCases(j,evaluator);j.cases[1].evaluation.id=999;j.pauseRequested=false;j.status='running';
+ await assert.rejects(advanceCases(j,evaluator),/候補が変更/);assert.equal(j.index,1);
 });

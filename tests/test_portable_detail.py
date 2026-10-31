@@ -1,5 +1,5 @@
 """Product payload parity and fail-closed paths, without a GPU or CPU replay."""
-import array,copy,hashlib,json,os,sys,tempfile,unittest
+import array,copy,hashlib,json,os,struct,sys,tempfile,unittest
 from contextlib import nullcontext,contextmanager
 from types import SimpleNamespace
 from pathlib import Path
@@ -1128,3 +1128,123 @@ class BossDotNativeContract(unittest.TestCase):
         self.assertEqual(notices,[.5,4.5])
 
 if __name__=='__main__':unittest.main()
+
+
+class ProductBatchProtocol(unittest.TestCase):
+    """Protocol/fault injection only; mock transport is never GPU evidence."""
+    @contextmanager
+    def harness(self,folder,*,corrupt=False,fail=False,other_source=False,backend='metal'):
+        events=[];calls=[]
+        def prepare(body):
+            if body.get('invalid'):raise ValueError('declared invalid row')
+            return dict(marker=body['seed']),None
+        def compile_product(prepared):
+            marker=prepared['marker'];source='gpu/second-entry.slang' if other_source and marker==1 else 'gpu/first-entry.slang'
+            return source,2,4,[marker,777],{}
+        def execute(source,entry,packed,iw,ow,actual_backend,*,readback_path):
+            count=struct.unpack_from('<I',packed)[0];events.append('gpu');calls.append((source,count,packed))
+            if fail:raise RuntimeError('transport failed; no retry')
+            words=array.array('I')
+            for index in range(count):
+                marker=struct.unpack_from('<I',packed,4+index*iw*4)[0]
+                words.extend([0,999 if corrupt and index==1 else marker,0,0])
+            raw=words.tobytes();readback_path.write_bytes(raw)
+            return None,dict(backend=backend,gpu_execution_verified=True,input_sha256=hashlib.sha256(packed).hexdigest(),output_sha256=hashlib.sha256(raw).hexdigest(),
+                transport=dict(device='mock protocol transport; no hardware',cases=count,command_status='completed',**{'gpu_seconds' if backend=='metal' else 'host_dispatch_seconds':.1}))
+        def cpu(body):events.append(('cpu',body['seed']));return dict(marker=body['seed'])
+        with patch.dict(os.environ,{'NIKKE_DETAIL_CAPTURE_ROOT':str(folder)}),patch.object(product,'execution_environment',return_value={}),\
+             patch.object(product,'prepare',side_effect=prepare),patch.object(product,'compile_product',side_effect=compile_product),\
+             patch.object(product,'execute',side_effect=execute),patch.object(product,'decode_payload',side_effect=lambda body,pre,run,meta,block:dict(marker=block[1])),\
+             patch.object(product.engine_worker,'evaluate',side_effect=cpu),\
+             patch('portable_capture_storage.space_status',side_effect=lambda path,needed:dict(passed=True,required_bytes=needed,reserve_bytes=0,free_bytes=needed+1)):
+            os.environ.pop(artifacts.ENV,None)
+            yield calls,events
+
+    def bodies(self,n=3,backend='metal_detail'):
+        return [dict(seed=i,compute_backend=backend,verify_detail=True,enemy={}) for i in range(n)]
+
+    def test_compatible_cases_share_one_real_framing_and_preserve_individual_views(self):
+        for backend,requested in [('metal','metal_detail'),('cuda','cuda_shared_detail')]:
+            with self.subTest(backend=backend),tempfile.TemporaryDirectory() as folder,self.harness(folder,backend=backend) as (calls,events):
+                rows=product.evaluate_many(self.bodies(3,requested))
+                self.assertEqual([r['result']['marker'] for r in rows],[0,1,2]);self.assertEqual(len(calls),1)
+                self.assertEqual(calls[0][1],3);self.assertEqual(events,['gpu',('cpu',0),('cpu',1),('cpu',2)])
+                batch_ids={r['result']['compute']['batch']['capture_id'] for r in rows};self.assertEqual(len(batch_ids),1)
+                parent=Path(folder)/batch_ids.pop();physical=(parent/'input.bin').read_bytes()
+                self.assertEqual(struct.unpack_from('<I',physical)[0],3)
+                evidence=json.loads((parent/'evidence.json').read_text());self.assertEqual(evidence['transport']['cases'],3)
+                self.assertEqual(evidence['input_sha256'],hashlib.sha256(physical).hexdigest())
+                for index,row in enumerate(rows):
+                    c=row['result']['compute'];member=c['batch'];case=Path(folder)/c['capture_id']
+                    self.assertEqual((member['index'],member['cases']),(index,3))
+                    self.assertEqual(c['input_sha256'],hashlib.sha256((case/'input.bin').read_bytes()).hexdigest())
+                    self.assertEqual(c['output_sha256'],hashlib.sha256((case/'readback.bin').read_bytes()).hexdigest())
+                    self.assertEqual(member['transport_input_sha256'],evidence['input_sha256'])
+                    self.assertNotEqual(c['input_sha256'],member['transport_input_sha256'])
+                    self.assertEqual(c['cpu_verification'],dict(matched=True,differing_fields=[]))
+
+    def test_mismatching_case_rejects_only_its_own_gpu_payload_without_redispatch(self):
+        with tempfile.TemporaryDirectory() as folder,self.harness(folder,corrupt=True) as (calls,events):
+            rows=product.evaluate_many(self.bodies())
+            self.assertEqual(len(calls),1);self.assertEqual([r['result']['marker'] for r in rows],[0,1,2])
+            self.assertEqual([r['result']['compute']['backend'] for r in rows],['metal_detail','cpu','metal_detail'])
+            self.assertTrue(rows[1]['result']['compute']['gpu_result_rejected'])
+
+    def test_one_saved_image_admission_is_shared_and_bound_to_all_batch_members(self):
+        receipt=dict(identity=dict(provider='mock protocol provider; no hardware'),key='mock')
+        admissions=[]
+        @contextmanager
+        def provider(source,folder):
+            admissions.append((source,folder));yield receipt
+        with tempfile.TemporaryDirectory() as folder,self.harness(folder,backend='cuda') as (calls,_):
+            original=product.execute
+            def with_receipt(*args,**kwargs):
+                raw,evidence=original(*args,**kwargs);evidence['transport']['compile_artifact']=copy.deepcopy(receipt)
+                return raw,evidence
+            with patch.dict(os.environ,{artifacts.ENV:'mock-not-read'}),patch.object(product,'saved_program',side_effect=provider),patch.object(product,'execute',side_effect=with_receipt):
+                rows=product.evaluate_many(self.bodies(3,'cuda_shared_detail'))
+            self.assertEqual(len(admissions),1);self.assertEqual(len(calls),1)
+            for row in rows:
+                self.assertEqual(row['result']['compute']['saved_cubin_admission'],'verified')
+                self.assertEqual(row['result']['compute']['artifact_key'],'mock')
+
+    def test_incompatible_sources_are_not_packed_into_one_dispatch(self):
+        with tempfile.TemporaryDirectory() as folder,self.harness(folder,other_source=True) as (calls,_):
+            rows=product.evaluate_many(self.bodies())
+            self.assertEqual([n for _,n,_ in calls],[2,1]);self.assertEqual([r['result']['marker'] for r in rows],[0,1,2])
+            self.assertTrue(all(r['result']['compute']['backend']=='metal_detail' for r in rows))
+
+    def test_bad_row_and_shared_failure_keep_all_indices_and_never_retry(self):
+        with tempfile.TemporaryDirectory() as folder,self.harness(folder) as (calls,_):
+            bodies=self.bodies();bodies[1]['invalid']=True;rows=product.evaluate_many(bodies)
+            self.assertEqual(len(calls),1);self.assertEqual(calls[0][1],2)
+            self.assertEqual([r['result']['marker'] for r in rows],[0,1,2]);self.assertEqual(rows[1]['result']['compute']['backend'],'cpu')
+        with tempfile.TemporaryDirectory() as folder,self.harness(folder,fail=True) as (calls,_):
+            rows=product.evaluate_many(self.bodies());self.assertEqual(len(calls),1)
+            self.assertTrue(all(r['result']['compute']['backend']=='cpu' for r in rows))
+        for bodies in ([],self.bodies(9),{}):
+            with self.assertRaises(ValueError):product.evaluate_many(bodies)
+
+    def test_storage_shortage_stops_before_gpu_instead_of_shrinking_the_batch(self):
+        with tempfile.TemporaryDirectory() as folder,self.harness(folder) as (calls,_),\
+             patch('portable_capture_storage.space_status',return_value=dict(passed=False)):
+            rows=product.evaluate_many(self.bodies())
+            self.assertEqual(calls,[])
+            self.assertTrue(all(r['result']['compute']['backend']=='cpu' for r in rows))
+            self.assertTrue(all('Insufficient space' in r['result']['compute']['unsupported'][0]['reason'] for r in rows))
+
+    def test_real_static_preparation_restores_aliases_between_different_cases(self):
+        from portable_product_programs import body_for_program
+        from calculator import timeline
+        from runner import spec
+        from calculator.buff_manager import BuffManager
+        a=body_for_program(ROOT,'fixed');b=body_for_program(ROOT,'healing-cover-fixed')
+        b['stat_deltas']={b['squad'][0]:dict(atk=12345)}
+        before=(spec.calc_base_stats,timeline.calc_base_stats,BuffManager._make_cube_effects)
+        def packed(body):
+            pre,_=product.prepare(body);_,_,_,words,_=product.compile_product(pre)
+            return array.array('I',[1,*words]).tobytes()
+        with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle in batch static preparation')):
+            first=packed(a);packed(b);last=packed(a)
+        self.assertEqual(first,last)
+        self.assertEqual(before,(spec.calc_base_stats,timeline.calc_base_stats,BuffManager._make_cube_effects))

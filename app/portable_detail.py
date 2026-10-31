@@ -45,12 +45,12 @@ def execution_environment(backend):
                 NIKKE_CUDA_ARTIFACT='cubin', NIKKE_CUDA_PTXAS_OPT_LEVEL='1')
 
 
-def verified_transport(evidence, backend):
+def verified_transport(evidence, backend, *, cases=1):
     timing = 'gpu_seconds' if backend == 'metal' else 'host_dispatch_seconds'
     try:
         transport = evidence['transport']
         valid = (evidence['backend'] == backend and evidence['gpu_execution_verified'] is True
-            and transport['command_status'] == 'completed' and type(transport['cases']) is int and transport['cases'] == 1
+            and transport['command_status'] == 'completed' and type(transport['cases']) is int and transport['cases'] == cases
             and isinstance(transport['device'], str) and bool(transport['device'])
             and type(transport[timing]) in (int,float) and math.isfinite(transport[timing]) and transport[timing] >= 0
             and all(isinstance(evidence[k],str) and len(evidence[k]) == 64
@@ -330,8 +330,8 @@ def decode_payload(body, prepared, run, metadata, block):
     return payload
 
 
-def evaluate(body):
-    """One isolated product request; reject unsupported conditions before dispatch."""
+def _evaluation(body):
+    """Prepare and finish one request around a single deferred GPU boundary."""
     if not isinstance(body,dict) or body.get('compute_backend') not in BACKENDS:
         raise ValueError('Expected an explicit shared GPU detail request')
     requested = body['compute_backend']
@@ -366,34 +366,31 @@ def evaluate(body):
         packed = wire.tobytes()
         (folder/'input.bin').write_bytes(packed)
         record['source'] = source
-        with patch.dict(os.environ,policy) if policy else nullcontext():
-            context=saved_program(source,folder) if explicit_image else nullcontext()
-            with context as artifact_receipt:
-                history=artifact_receipt['identity'].get('historical_link_environment') if artifact_receipt is not None else None
-                if history is not None:
-                    from portable_linked_artifact import validate_historical_environment
-                    validate_historical_environment(history)
-                    historical_status.update(historical_link_preservation_verified=False,
-                        historical_link_missing_processes_count=len(history['missing_identities']),historical_link_termination_cause=history['termination_cause'])
-                    record.update(historical_status)
-                raw, evidence = execute(source,'portableEvents',packed,input_words,output_words,backend,readback_path=folder/'readback.bin')
-                if raw is not None:raise RuntimeError('Expected bounded file readback')
-                (folder/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+        evidence,artifact_receipt,member = yield dict(source=source,input_words=input_words,output_words=output_words,
+            packed=packed,backend=backend,policy=policy,explicit_image=explicit_image,folder=folder,
+            historical_status=historical_status,record=record)
         if artifact_receipt is not None:
             if evidence.get('transport',{}).get('compile_artifact')!=artifact_receipt:
                 raise RuntimeError('Saved product CUBIN transport receipt mismatch')
             record['artifact_receipt']=artifact_receipt
             historical_status['saved_cubin_admission']='verified';record.update(historical_status)
-        transport, timing = verified_transport(evidence,backend)
-        record.update(gpu_execution_verified=evidence['gpu_execution_verified'],input_sha256=evidence['input_sha256'],output_sha256=evidence['output_sha256'])
+        transport, timing = verified_transport(evidence,backend,cases=member['cases'] if member else 1)
+        input_hash=member['input_sha256'] if member else evidence['input_sha256']
+        output_hash=member['output_sha256'] if member else evidence['output_sha256']
+        record.update(gpu_execution_verified=evidence['gpu_execution_verified'],input_sha256=input_hash,output_sha256=output_hash)
+        if member:record['batch']=member
         block = array.array('I');block.frombytes((folder/'readback.bin').read_bytes())
         if sys.byteorder != 'little':block.byteswap()
         payload = decode_payload(body,prepared,run,metadata,block)
         payload['compute'] = dict(requested=requested,backend=requested,capture_id=folder.name,device=evidence['transport']['device'],
             elapsed_ms=(time.perf_counter()-started)*1000,gpu_execution_verified=True,
-            input_sha256=evidence['input_sha256'],output_sha256=evidence['output_sha256'],source=source,
+            input_sha256=input_hash,output_sha256=output_hash,source=source,
             scope='shared autonomous battle; CPU verified for this request')
         payload['compute'][timing] = transport[timing]
+        if member:
+            payload['compute']['batch']=member
+            payload['compute']['input_sha256_scope']='logical single-case framing; physical transfer is batch.transport_input_sha256'
+            payload['compute']['timing_scope']='shared batch transport; not an individual case duration'
         payload['compute'].update(historical_status)
         if artifact_receipt is not None:
             payload['compute']['artifact_provider']=artifact_receipt['identity']['provider']
@@ -418,3 +415,113 @@ def evaluate(body):
         cpu = engine_worker.evaluate(body)
         cpu['compute'] = dict(requested=requested,backend='cpu',capture_id=folder.name,fallback_reason='共通GPUの未対応条件または実行エラーのため、CPUで計算しました。',unsupported=[unsupported],gpu_execution_verified=record['gpu_execution_verified'],**historical_status)
         return cpu
+
+
+MAX_PRODUCT_BATCH=8
+
+
+def _execute_prepared(plans):
+    """One actual transport for compatible prepared cases, with honest views."""
+    first=plans[0];count=len(plans)
+    if not 1<=count<=MAX_PRODUCT_BATCH:raise ValueError('Shared detail batch exceeds its bounded case count')
+    key=lambda p:(p['source'],p['input_words'],p['output_words'],p['backend'],p['policy'],p['explicit_image'],p['folder'].parent)
+    if any(key(p)!=key(first) for p in plans):raise ValueError('Shared detail transport requires identical source, wire, policy and capture root')
+    folder=first['folder'] if count==1 else first['folder'].parent/('batch-'+uuid.uuid4().hex)
+    if count>1:folder.mkdir(exist_ok=False)
+    packed=first['packed'] if count==1 else struct.pack('<I',count)+b''.join(p['packed'][4:] for p in plans)
+    if any(len(p['packed'])!=4+4*first['input_words'] or p['packed'][:4]!=struct.pack('<I',1) for p in plans):
+        raise ValueError('Complete single-case framing required before batching')
+    if count>1:(folder/'input.bin').write_bytes(packed)
+    write=lambda name,value:(folder/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    try:
+        if count>1:
+            from portable_capture_storage import space_status
+            budget=space_status(folder,len(packed)+2*count*first['output_words']*4)
+            write('storage-budget.json',budget)
+            if not budget['passed']:raise RuntimeError('Insufficient space for shared batch and complete member readbacks')
+        with patch.dict(os.environ,first['policy']) if first['policy'] else nullcontext():
+            context=saved_program(first['source'],folder) if first['explicit_image'] else nullcontext()
+            with context as receipt:
+                history=receipt['identity'].get('historical_link_environment') if receipt is not None else None
+                if history is not None:
+                    from portable_linked_artifact import validate_historical_environment
+                    validate_historical_environment(history)
+                    for p in plans:
+                        p['historical_status'].update(historical_link_preservation_verified=False,
+                            historical_link_missing_processes_count=len(history['missing_identities']),historical_link_termination_cause=history['termination_cause'])
+                        p['record'].update(p['historical_status'])
+                raw,evidence=execute(first['source'],'portableEvents',packed,first['input_words'],first['output_words'],first['backend'],readback_path=folder/'readback.bin')
+                if raw is not None:raise RuntimeError('Expected bounded file readback')
+                write('evidence.json',evidence)
+        if count==1:return [(evidence,receipt,None)]
+        if receipt is not None and evidence.get('transport',{}).get('compile_artifact')!=receipt:
+            raise RuntimeError('Saved product CUBIN transport receipt mismatch')
+        verified_transport(evidence,first['backend'],cases=count)
+        data=(folder/'readback.bin').read_bytes();stride=first['output_words']*4
+        if (len(data)!=count*stride or hashlib.sha256(packed).hexdigest()!=evidence['input_sha256']
+                or hashlib.sha256(data).hexdigest()!=evidence['output_sha256']):
+            raise RuntimeError('Shared batch full input/readback digest mismatch')
+        members=[];returned=[]
+        for index,p in enumerate(plans):
+            block=data[index*stride:(index+1)*stride]
+            member=dict(capture_id=folder.name,index=index,cases=count,input_words=first['input_words'],output_words=first['output_words'],
+                input_sha256=hashlib.sha256(p['packed']).hexdigest(),output_sha256=hashlib.sha256(block).hexdigest(),
+                transport_input_sha256=evidence['input_sha256'],transport_output_sha256=evidence['output_sha256'],
+                input_scope='single-case framing of this exact physical batch member',output_scope='exact readback slice')
+            (p['folder']/'readback.bin').write_bytes(block)
+            (p['folder']/'batch-member.json').write_text(json.dumps(member,indent=2)+'\n')
+            (p['folder']/'evidence.json').write_text(json.dumps(evidence,ensure_ascii=False,indent=2)+'\n')
+            members.append(dict(member,capture_id=p['folder'].name));returned.append((evidence,receipt,member))
+        write('result.json',dict(schema='product-batch-transport-v1',source=first['source'],backend=first['backend'],cases=count,
+            gpu_execution_verified=True,scope='Shared physical transport only; each member has its own complete CPU result check',members=members))
+        return returned
+    except Exception as error:
+        if count>1:write('result.json',dict(schema='product-batch-transport-v1',source=first['source'],backend=first['backend'],cases=count,
+            scope='Failed shared transport; preserve all member failures',error=str(error),error_type=type(error).__name__,gpu_execution_verified=False))
+        raise
+
+
+def _finish_evaluation(generator,*,outcome=None,error=None):
+    try:
+        if error is None:generator.send(outcome)
+        else:generator.throw(error)
+    except StopIteration as finished:return finished.value
+    raise RuntimeError('A product request may have only one GPU execution boundary')
+
+
+def evaluate(body):
+    """Original single-request behavior through the same batch-capable engine."""
+    generator=_evaluation(body)
+    try:
+        try:plan=next(generator)
+        except StopIteration as finished:return finished.value
+        try:outcome=_execute_prepared([plan])[0]
+        except Exception as error:return _finish_evaluation(generator,error=error)
+        return _finish_evaluation(generator,outcome=outcome)
+    finally:generator.close()
+
+
+def evaluate_many(bodies):
+    """Preserve row identity and per-case CPU checks in bounded shared dispatches."""
+    if not isinstance(bodies,list) or not 1<=len(bodies)<=MAX_PRODUCT_BATCH:
+        raise ValueError('Shared detail evaluations must contain one to eight requests')
+    results=[None]*len(bodies);groups={};generators=[]
+    try:
+        for index,body in enumerate(bodies):
+            generator=_evaluation(body);generators.append(generator)
+            try:plan=next(generator)
+            except StopIteration as finished:results[index]=dict(result=finished.value);continue
+            except (Exception,SystemExit) as error:results[index]=dict(error=str(error));continue
+            key=(plan['source'],plan['input_words'],plan['output_words'],plan['backend'],tuple(sorted(plan['policy'].items())),plan['explicit_image'],str(plan['folder'].parent))
+            groups.setdefault(key,[]).append((index,generator,plan))
+        for group in groups.values():
+            try:
+                outcomes=_execute_prepared([p for _,_,p in group]);error=None
+                if len(outcomes)!=len(group):raise RuntimeError('Shared batch result count mismatch')
+            except Exception as failure:outcomes=[None]*len(group);error=failure
+            for (index,generator,_),outcome in zip(group,outcomes):
+                try:results[index]=dict(result=_finish_evaluation(generator,outcome=outcome,error=error))
+                except (Exception,SystemExit) as failure:results[index]=dict(error=str(failure))
+        return results
+    finally:
+        for generator in generators:generator.close()
