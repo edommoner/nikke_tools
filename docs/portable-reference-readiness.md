@@ -1,3 +1,7 @@
+## 2026-10-31 宣言ADD移動の製品Metal実証
+
+ユニ／ヤンの明示座標・移動モデルを通常APIへ接続し、M5の2profile／5条件がCPU全応答と一致。既定の未知形状・優先規則は補わず、残る固定profileを対応済みへ数えない。CUDA0、固定移動／合成／Heavy Arms／Rei／全catalog現sourceは未完了。詳細 `research/product-enemy-movement-v1.json`。
+
 ## 2026-10-31 敵弾倉を製品へ接続
 
 最新の製品確認はベルベットのMetal1profile／9条件（宣言なし既定固定・蓄積30秒＋明示7条件）。CPU全応答と一致し、資源通知は既存output tailへ全件保存する。元11gapの静的compileは7通過／4拒否で、残りはYuni／Yan／Heavy Arms／Rei。静的数・限定Metal・現在CUDA0・歴史的255profileを区別し、全条件完成とはしない。敵弾倉の容量・再装填は宣言モデルでありゲーム確認ではない。詳細 `research/product-enemy-magazine-v1.json`。

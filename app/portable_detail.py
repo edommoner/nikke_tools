@@ -64,6 +64,8 @@ def verified_transport(evidence, backend):
 
 def compile_product(prepared):
     """Select an existing wire by actual effect requirements, never by character."""
+    from portable_product_movement import required as movement_required,compile_product as compile_movement
+    if movement_required(prepared):return compile_movement(prepared)
     from portable_product_ammo import required as ammo_required,compile_product as compile_ammo
     if not prepared.get('_product_ammo_compiled') and ammo_required(prepared):
         return compile_ammo(prepared,compile_product)
@@ -200,6 +202,9 @@ def prepare(body):
         prepared = engine_worker.evaluate({**body, '_portable_static_inputs': True})
     if not captured or prepared['cpu_battle_executed'] is not False:
         raise RuntimeError('Original static preparation did not complete')
+    if 'enemy_movement' in prepared.get('reference_models',{}):
+        captured['run'].expected=False
+        captured['run'].config['rng_mode']='random'
     return prepared, captured['run']
 
 
@@ -285,6 +290,11 @@ def decode_payload(body, prepared, run, metadata, block):
         ammo_attempts=model['enemy_ammo']['attempts'] if model is not None else []
         if model is not None:
             payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
+    if metadata.get('product_enemy_movement'):
+        from portable_product_movement import read_result
+        from product_reference_models import warning
+        model=read_result(block,metadata,run.config['duration'])
+        payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
     if 'manual_cover_sequences' in body:
         payload['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])
     if body.get('enemy',{}).get('parts'):

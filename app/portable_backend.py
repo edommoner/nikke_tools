@@ -130,7 +130,7 @@ def validate_composed_stride(source,input_words,output_words):
         check_schema(ROOT)
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Moving typed execution requires all physical, logical, movement and frozen aim banks')
         return
-    if source=='gpu/world_enemy_movement_entry.slang':
+    if source in ('gpu/world_enemy_movement_entry.slang','gpu/product_movement_battle_entry.slang'):
         from portable_enemy_movement_wire import check_schema,INPUT,OUTPUT
         check_schema(ROOT)
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Movement requires complete collider, marker and motion banks')

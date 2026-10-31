@@ -94,3 +94,11 @@ Bay4段階とソルジャーO.W.の既定30秒・固定周期要求を、モデ�
 資源通知は汎用event traceとは別に既存共通traceを有効化し、未使用の既存出力tailを使って最大15,124件を保持する。input117,632／output2,032,000のstride変更なし。128件を超える通知も全件decodeし、完全件数・identity・未使用領域を検査する。上限超過時は履歴を切らずCPUへ戻す。従って長時間・大量イベントの全条件完成ではない。CPU参照、百分率演算、旧数値期待値、strict normalizer、pinned upstreamを変更しない。
 
 旧3版のtrace記録不足／source receipt変換拒否、4版の4,096件上限を失敗として保持。保存済みv3の修正投影はnative／GPU追加0で全CPU応答一致を確認し、現ソースは別captureで実行した。最終9条件の保存再投影も追加native／GPU0。既存product-detail familyのammo-fixed（既定30秒）／ammo-accumulate（明示6秒）を同CLIで固定・run・独立sealし、旧21memberの期待値を保存したv7へ追加。新suite／新数値演算0。旧source inverseは既存quantity visitedの厳密なinverseも再利用し、旧hashを現ソースの実証へ読み替えない。小証跡 `research/product-enemy-magazine-v1.json`。
+
+## 2026-10-31 通常製品のユニ／ヤン宣言移動を接続
+
+許可済みCPU拡張として既存EnemyMovement・LogicalGeometry・attack-group adapterと共通sample/geometry数値providerを再利用した。pinned upstream／数値式／許容差は変更しない。`reference_models.enemy_movement` は `coord`、`logical_geometry`、`motion` の3宣言が必須。元duration carrierと実ADD世代を共通Slangで消費し、CPUの位置・世代・軌跡・予定表をGPU入力にしない。CPU応答はsampledであることを `expected=false` と警告に明示する。単独CPU workerでもproviderをchecked rewrite前に解決し、終了・例外時にalias／乱数stateを復元する。
+
+通常HTTP→実M5のユニ停止／ヤン強制移動／世代更新／重複2優先規則の計2profile・5条件でCPU全応答一致。各3602frame、3598〜3608segmentを保存rawから全再投影し、追加native／GPU0で一致。readerはactor・世代・連続区間・有限量・予約word・最終state・未使用tailを検査し、既存4096上限を超えれば切り捨てず拒否する。初版wire登録漏れのGPU前拒否、起動前送信失敗、単独CPU import失敗を保持。ユニ先頭の成功と残4件はhost preload修正前後の別source snapshotとして区別する。集約は `research/product-enemy-movement-v1.json`。
+
+共通CLIの既存product-detailへmovement-accumulateを登録（新suite0）。現段階で通常API5条件成功／CLI独立sealは次工程。元25programの登録期待値は変更しない。unit96＋server10成功。専用4384を停止、ユーザー4317／4327未操作、Windows追加依頼0。ゲームの位置・範囲・移動優先は未確定の宣言で、既定固定profileの未対応数を減らさない。fixed移動、複数consumer、Heavy Arms、Rei、全catalog現source／CUDAの確認は未完了。全目標を維持する。

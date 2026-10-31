@@ -9,6 +9,76 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def test_movement_product_uses_checked_native_clock_and_literal_shared_input(self):
+        from portable_enemy_movement_cases import fixtures
+        from portable_runtime import UnsupportedPortable
+        import portable_detail as product
+        aliases=(timeline.simulate,sim.simulate,timeline.random.getstate())
+        for case in fixtures():
+            body=copy.deepcopy(case['body'])
+            body['reference_models']={'enemy_movement':dict(coord=case['coord'],logical_geometry=case['logical_geometry'],motion=case['enemy_movement'])}
+            before=copy.deepcopy(body)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU trajectory may prepare GPU input')):
+                prepared,run=product.prepare(body);original=copy.deepcopy(prepared)
+                source,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,original);self.assertEqual((source,iw,ow),('gpu/product_movement_battle_entry.slang',117476,2032000))
+            from portable_backend import validate_composed_stride
+            validate_composed_stride(source,iw,ow)
+            with self.assertRaises(ValueError):validate_composed_stride(source,iw-1,ow)
+            with self.assertRaises(ValueError):validate_composed_stride(source,iw,ow-1)
+            self.assertFalse(run.expected);self.assertEqual(run.config['rng_mode'],'random')
+            self.assertFalse(meta['product_enemy_movement']['cpu_state_or_schedule_supplied'])
+            actual=engine_worker.evaluate(body);data=actual['reference_models']['enemy_movement']
+            self.assertFalse(actual['expected']);self.assertEqual(body,before)
+            self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
+            self.assertTrue(data['frames']);self.assertTrue(data['generations'])
+            self.assertTrue(any(s['disabled'] or s['forced'] for f in data['frames'] for s in f['segments']))
+            self.assertTrue(all('fields' not in s for f in data['frames'] for s in f['segments']))
+            with self.assertRaisesRegex(UnsupportedPortable,'fixed burst'):
+                product.compile_product(dict(prepared,policies={**prepared['policies'],'config':{**prepared['policies']['config'],'burst_gauge_mode':'fixed'}}))
+        with self.assertRaisesRegex(RuntimeError,'injected'):
+            with execution(normalize(body['reference_models'])):raise RuntimeError('injected')
+        self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
+
+    def test_movement_declarations_reject_unknown_geometry_or_composition_before_battle(self):
+        from portable_enemy_movement_cases import fixtures
+        from product_movement_model import normalize as movement
+        c=fixtures()[0];spec=dict(coord=c['coord'],logical_geometry=c['logical_geometry'],motion=c['enemy_movement'])
+        bad=copy.deepcopy(spec);bad['motion']['actors'].reverse()
+        for value in ({},dict(spec,coord=None),dict(spec,coord={'auto_aim':[True,0]}),bad):
+            with self.subTest(value=value),self.assertRaises(ValueError):movement(value)
+        with self.assertRaisesRegex(ValueError,'combined checked'):
+            normalize({'enemy_movement':spec,'enemy_healing':[]})
+
+    def test_movement_standalone_cpu_worker_resolves_provider_before_checked_rewrites(self):
+        import json,subprocess
+        from portable_enemy_movement_cases import fixtures
+        c=fixtures()[0];body=copy.deepcopy(c['body']);body['action']='evaluate'
+        body['reference_models']={'enemy_movement':dict(coord=c['coord'],logical_geometry=c['logical_geometry'],motion=c['enemy_movement'])}
+        process=subprocess.run([sys.executable,str(ROOT/'app/engine_worker.py')],input=json.dumps(body),text=True,capture_output=True,timeout=30)
+        self.assertEqual(process.returncode,0,process.stdout+process.stderr)
+        result=json.loads(process.stdout);self.assertFalse(result['expected'])
+        self.assertTrue(result['reference_models']['enemy_movement']['frames'])
+
+    def test_movement_readback_rejects_partial_identity_reserved_and_segment_discontinuity(self):
+        from portable_product_movement import read_result
+        from portable_enemy_movement_wire import OUTPUT,OUT,STATE,STATE_WORDS,FRAMES,FRAME_WORDS,SEGMENTS,MAGIC
+        from portable_runtime import UnsupportedPortable
+        b=array.array('I',[0])*OUTPUT;label='__enemy__:wave#1'
+        spec=dict(motion=dict(precedence='disable-before-force',force_policy='snap-to-declared-center',recipient_policy='canonical-all-in-range',actors=[dict(label=label)]))
+        meta=dict(product_enemy_movement=dict(declarations={'enemy_movement':spec},bindings=[dict(kind=0,identity=0,label='__enemy__'),dict(kind=5,identity=0,label=label)]))
+        def number(at,x):b[OUT+at:OUT+at+2]=array.array('I',struct.unpack('<II',struct.pack('<d',x)))
+        b[OUT:OUT+3]=array.array('I',[MAGIC,2,1])
+        for at in (FRAMES,FRAMES+FRAME_WORDS):b[OUT+at:OUT+at+5]=array.array('I',[1,1,1,0,int(at!=FRAMES)])
+        number(FRAMES+FRAME_WORDS+6,1.);number(FRAMES+FRAME_WORDS+8,2.)
+        b[OUT+SEGMENTS:OUT+SEGMENTS+3]=array.array('I',[1,1,0]);number(SEGMENTS+6,1.);number(SEGMENTS+12,2.)
+        at=STATE+STATE_WORDS;b[OUT+at:OUT+at+2]=array.array('I',[1,1]);b[OUT+at+8]=1;number(at+2,1.);number(at+4,2.)
+        data=read_result(b,meta,1.)['enemy_movement'];self.assertEqual(data['frames'][-1]['position'],[2.,0.])
+        for offset,value in ((OUT,0),(OUT+1,4097),(OUT+FRAMES,0),(OUT+FRAMES+5,1),(OUT+SEGMENTS+2,4),(OUT+SEGMENTS+4,1),(OUT+at+9,1)):
+            bad=array.array('I',b);bad[offset]=value
+            with self.subTest(offset=offset),self.assertRaises(UnsupportedPortable):read_result(bad,meta,1.)
+        with self.assertRaises(UnsupportedPortable):read_result(b[:-1],meta,1.)
+
     def test_original_enemy_magazine_product_uses_literal_state_and_restores_native_operator(self):
         from portable_enemy_ammo_cases import fixtures
         import portable_detail as product

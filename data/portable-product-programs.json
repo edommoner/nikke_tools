@@ -175,6 +175,13 @@
       "output_words": 2032000,
       "mode": "fixed",
       "kind": ""
+    },
+    "movement-accumulate": {
+      "source": "gpu/product_movement_battle_entry.slang",
+      "input_words": 117476,
+      "output_words": 2032000,
+      "mode": "accumulate",
+      "kind": ""
     }
   }
 }

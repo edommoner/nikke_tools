@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "scope": "Ordinary API declared ADD movement, not verified game positions or complete character coverage",
+  "metal_profiles": 2,
+  "metal_conditions": 5,
+  "cuda_profiles": 0,
+  "rows": [
+    {
+      "profile": "유니",
+      "scenario": "disable",
+      "capture": "a08d7f01425b40279b6cd7cc4d7941c9",
+      "device": "Apple M5",
+      "backend": "metal_detail",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "input_sha256": "ebf22624217bc06638da458da50029fe242db2a7bead6c8c5198b9ea8e1e6917",
+      "output_sha256": "b9503db5ad1e0033742872e6cc667385b40113f90ff0ec1197ecdc050ea10a9a",
+      "expected": false,
+      "frames": 3602,
+      "segments": 3604,
+      "generations": 2,
+      "disabled_segments": 1202,
+      "forced_segments": 0,
+      "overlap_segments": 0,
+      "saved_raw_audit": true
+    },
+    {
+      "profile": "얀",
+      "scenario": "force",
+      "capture": "7fef12f70abd4536aa4e353796c8127e",
+      "device": "Apple M5",
+      "backend": "metal_detail",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "input_sha256": "30dbcd11b72c89b5b883e4a2a3aad2b85849c80872262fe4e3c3b59732438943",
+      "output_sha256": "908c983ec8d583649e46aedb052f3ac9410617ec7cb854a04f141d188ab7b032",
+      "expected": false,
+      "frames": 3602,
+      "segments": 3604,
+      "generations": 2,
+      "disabled_segments": 0,
+      "forced_segments": 484,
+      "overlap_segments": 0,
+      "saved_raw_audit": true
+    },
+    {
+      "profile": "유니",
+      "scenario": "renewal",
+      "capture": "85d43824c8244d94b03629152d09f7a4",
+      "device": "Apple M5",
+      "backend": "metal_detail",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "input_sha256": "f12427b0fbffb52f240f32df6448a97b2037bc155fd42851b27a987076b917d7",
+      "output_sha256": "1650e5ab5569d71aab455eec66b5092bb34b3c2c5af0e85034e2dd7219abbc67",
+      "expected": false,
+      "frames": 3602,
+      "segments": 3598,
+      "generations": 6,
+      "disabled_segments": 658,
+      "forced_segments": 0,
+      "overlap_segments": 0,
+      "saved_raw_audit": true
+    },
+    {
+      "profile": "유니",
+      "scenario": "overlap-disable",
+      "capture": "9ecbd56ed88a47ba818d1ee35b944c5e",
+      "device": "Apple M5",
+      "backend": "metal_detail",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "input_sha256": "d2ff6476cd6f5e230bd35e2187306ecf30a60cdd0250029a825ce68ac3885744",
+      "output_sha256": "c6937d0203dc087f2df6716bed9e90cb5740cef963053bc01bdf94fdb25782eb",
+      "expected": false,
+      "frames": 3602,
+      "segments": 3608,
+      "generations": 2,
+      "disabled_segments": 1206,
+      "forced_segments": 484,
+      "overlap_segments": 460,
+      "saved_raw_audit": true
+    },
+    {
+      "profile": "유니",
+      "scenario": "overlap-force",
+      "capture": "c55040197d1f47ac9e9709ad3c6964dd",
+      "device": "Apple M5",
+      "backend": "metal_detail",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "input_sha256": "fdaec387803317dcb2c698b18c72766dc5a093a58d082b4dabc96a08a00b1289",
+      "output_sha256": "c6937d0203dc087f2df6716bed9e90cb5740cef963053bc01bdf94fdb25782eb",
+      "expected": false,
+      "frames": 3602,
+      "segments": 3608,
+      "generations": 2,
+      "disabled_segments": 1206,
+      "forced_segments": 484,
+      "overlap_segments": 460,
+      "saved_raw_audit": true
+    }
+  ],
+  "pinned_upstream_changed": false,
+  "cpu_trajectory_input": false,
+  "numeric_tolerance_changed": false,
+  "saved_audit_extra_native_gpu_calls": 0,
+  "failed_captures_retained": [
+    "public-api-v1a: pre-device stride registration",
+    "public-api-v2a: server not yet listening, no submission",
+    "standalone-cpu-v1-failure.json: lazy import during checked rewrite"
+  ],
+  "remaining": [
+    "default geometry and game movement rules",
+    "fixed movement controls",
+    "combined consumers",
+    "Heavy Arms Lock On",
+    "Rei target count",
+    "current source full catalogue and CUDA verification"
+  ]
+}
