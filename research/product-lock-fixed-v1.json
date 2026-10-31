@@ -97,5 +97,20 @@
     "ptx_compile_plan_passed": true,
     "timeout_seconds": 60,
     "memory_limit_mb": 2048
+  },
+  "current_source_dependency_audit": {
+    "passed": true,
+    "gpu_calls": 0,
+    "native_calls": 0,
+    "scope": "Source audit and dependency plan only",
+    "remaining_canonical_stats": [
+      "effect_range_pct",
+      "effect_target_count_add",
+      "enemy_movement_disable",
+      "force_move",
+      "lock_on"
+    ],
+    "public_numeric_admission_remaining": true,
+    "complete_product_coverage": false
   }
 }
