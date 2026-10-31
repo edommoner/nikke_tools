@@ -1,3 +1,9 @@
+# 2026-10-31 現共通runtimeで短い通常APIのCUDA/Metal一致
+
+共通CLIの同一CPU admissionでowner全payloadの重複読取を削減した。初回全byte確認、manifest完全一致、GPU直前の最終全byte確認、別owner/artifact検査、独立監査を維持し、request間cacheは持たない。旧ownerのbaselineはSHA固定sourceのliteralをASTで読む。計算本体/数値/期待値/normalizerは不変。Mac関連145検査とWindows artifact37検査が成功。
+
+新runtime03e166bc…の通常蓄積1秒がRTX3070Ti/Apple M5でCPU全製品payload一致し、入力と全読戻しSHAも両backendで同一。CUDAはこの1profile/元編成/1秒の範囲だけで、標準fixed30秒は0。Windows Job40.930秒・peak1,984,475,136bytes・missing0、service未識別/保全falseと過去link missing7/原因unknownを保持する。別条件fixed4秒はMetal/CPU一致済み。fixed専用PTXは展開前launcher誤りを修正して初回生成を依頼中で、GPUは未依頼。[検証範囲と原記録](../research/product-cubin-admission-gate-v1.json)。以下は履歴。
+
 # 2026-10-31 全266標準profileを現共通GPU sourceで確認
 
 通常HTTP APIの標準30秒・固定周期・既定育成・cubeなしで、262profileが実Apple M5 MetalとCPU全製品payloadに一致した。4profile（Yuni／Yan／Heavy Arms／Rei仮称）は必要な移動・範囲・Lock Onモデル未指定を理由にCPUへ切替。数値差/API error/cache hit0。全266保存captureの入力再packing・source/raw SHA・全CPU/GPU/API再投影も追加battle/GPU0で一致し、実行中source不変と現共有GPU source完全一致を確認した。以前の255からAnn／Soldier O.W.／Velvet／Bay4段階の7profileが改善した。[検証記録](../research/target-count-query-evidence/product-current-catalogue-v2.json)。全条件・全特殊効果の完成ではない。

@@ -1,0 +1,184 @@
+{
+  "schema": 1,
+  "scope": "Product saved-CUBIN admission optimization; same numerical kernel and expected results",
+  "implementation_commit": "d2b0163ed4b7edd5b8c8141d9a68968999a4c60e",
+  "changed_runtime_files": [
+    "app/portable_product_artifact.py",
+    "scripts/nikke_gpu.py"
+  ],
+  "same_gate_payload_only_reuse": true,
+  "initial_full_byte_check_required": true,
+  "final_full_byte_check_before_gpu_required": true,
+  "manifest_byte_identity_checked_on_reuse": true,
+  "other_packages_and_artifacts_not_cached": true,
+  "independent_post_audits_unchanged": true,
+  "expected_values_and_normalizer_unchanged": true,
+  "no_cache_across_requests_or_gpu_dispatch": true,
+  "old_product_baseline_read_from_hash_pinned_ast_literal_without_execution": true,
+  "mac_related_tests": 145,
+  "mac_additional_gate_artifact_tests": 37,
+  "real_saved_old_owner_metadata_admitted": true,
+  "old_owner": "7a396439479f017851183ccbae57129c0bdbc7fe463847bfb3de91b6385281ac",
+  "mac_real_owner_four_verifications": {
+    "initial_full_checks": 1,
+    "reused_payload_checks": 3,
+    "final_full_checks": 1
+  },
+  "packet": {
+    "package_id": "03e166bc79bc8b79d226e3cbaf386a5aaf1a762532aebac853df426fd57448d6",
+    "archive_bytes": 11933809,
+    "archive_sha256": "1f11c1626d26f534329e70fbf2662b96108b715b812480fa593d4980f409ae38",
+    "own_cpu_tests": 108,
+    "fresh_native_cases": 1,
+    "golden_entirely_identical_to_old_owner": true,
+    "transport_branch": "codex/product-cuda-origin-gates-v1-packet",
+    "transport_commit": "e0ab7ac6"
+  },
+  "windows": {
+    "status": "CPU admission and new ordinary 1-second CUDA API smoke passed",
+    "first_harness_failure": {
+      "reason": "2GiB environment was supplied only to child, not the parent creating the Job",
+      "before_unpack": true,
+      "tests_run": 0,
+      "admission_run": false,
+      "elapsed_seconds": 0.096676,
+      "original_failure_retained": true
+    },
+    "corrected_parent_and_child_scoped_memory_mb": 2048,
+    "new_unpack_reported_success": true,
+    "gpu_execution_requested": true,
+    "artifact_tests": {
+      "count": 37,
+      "passed": true,
+      "wall_seconds": 2.625746,
+      "peak_bytes": 59478016,
+      "job_empty": true,
+      "timed_out": false
+    },
+    "admission_verified": true,
+    "static_cubin_read_verified": true,
+    "owner_verification_seconds": 6.603939,
+    "admission_seconds": 10.180768,
+    "static_read_seconds": 0.051052,
+    "whole_wall_seconds": 17.570721,
+    "package_gate": {
+      "initial_full_checks": 1,
+      "reused_payload_checks": 4,
+      "final_full_checks": 1
+    },
+    "peak_bytes": 86994944,
+    "job_empty": true,
+    "timed_out": false,
+    "historical_preservation_verified": false,
+    "historical_missing": 7,
+    "historical_cause": "unknown",
+    "old_records_and_harness_failure_unchanged": true,
+    "cpu_probe_real_sdk_gpu_native_battle_http_calls": 0,
+    "api_smoke": {
+      "evidence_scope": "Windows peer final report; original raw and process observations retained on Windows",
+      "duration_seconds": 1,
+      "burst_mode": "accumulate",
+      "smoke_passed": true,
+      "backend": "cuda_shared_detail",
+      "device": "NVIDIA GeForce RTX 3070 Ti",
+      "gpu_execution_verified": true,
+      "full_cpu_payload_match": true,
+      "total_damage": 2504456,
+      "capture_id": "08676c84fafd4fccb492311cf39d0fb2",
+      "input_sha256": "e26cf2bbb65dd20fc1b03780b24d38729a3c783b41913f1971284ca45b29c0d8",
+      "output_sha256": "647c30819467bd6e970c8c5a993d4a9b49688890cfe82c161350c33482cb5c3f",
+      "actual_driver_init_context_launch_sync_readback_destroy_returned": true,
+      "job_wall_seconds": 40.929585,
+      "job_peak_bytes": 1984475136,
+      "job_empty": true,
+      "timed_out": false,
+      "missing": 0,
+      "service": "unverified",
+      "preservation_verified": false,
+      "owner_verification_seconds": 10.479502,
+      "admission_seconds": 13.998656,
+      "warm_generation_seconds": 3.82216,
+      "cubin_read_seconds": 0.048632,
+      "host_launch_sync_seconds": 0.203371,
+      "package_gate": {
+        "initial_full_checks": 1,
+        "reused_payload_checks": 4,
+        "final_full_checks": 1
+      },
+      "historical_link_preservation": false,
+      "historical_link_missing": 7,
+      "historical_cause": "unknown",
+      "http_submissions": 1,
+      "gpu_launches": 1,
+      "synchronizations": 1,
+      "readbacks": 1,
+      "real_compiler_calls": 0,
+      "owned_server_stopped": true,
+      "old_records_unchanged": true,
+      "retries": 0
+    }
+  },
+  "metal_profile_count_preserved": 262,
+  "new_cuda_product_profiles": 1,
+  "gpu_calls_this_change": 3,
+  "full_goal_complete": false,
+  "cross_backend_api_1s": {
+    "input_sha256": "e26cf2bbb65dd20fc1b03780b24d38729a3c783b41913f1971284ca45b29c0d8",
+    "output_sha256": "647c30819467bd6e970c8c5a993d4a9b49688890cfe82c161350c33482cb5c3f",
+    "total_damage": 2504456,
+    "metal_device": "Apple M5",
+    "cuda_device": "NVIDIA GeForce RTX 3070 Ti",
+    "input_and_complete_readback_sha_identical": true,
+    "per_backend_full_cpu_payload_match": true,
+    "source_owner": "03e166bc79bc8b79d226e3cbaf386a5aaf1a762532aebac853df426fd57448d6",
+    "additional_saved_audit_gpu_native_calls": 0
+  },
+  "metal_fixed_4s_preparation": {
+    "name": "fixed-4s",
+    "capture_id": "b42e00fcb90341849f8506c4add54fe3",
+    "device": "Apple M5",
+    "input_sha256": "a1ce5abf5d87e41efb58acb93a384e5f07cab71b53735b77b6c2c19b25e7b6d5",
+    "output_sha256": "b41ac3b6face46f5e396b6547696db67eacda1726a085c6676dbf9c0f256a4ce",
+    "full_cpu_match": true,
+    "total_damage": 16415516,
+    "burst_timeline": [
+      {
+        "time": 3,
+        "event": "stage:1 사용",
+        "character": "미란다"
+      },
+      {
+        "time": 3.1,
+        "event": "stage:2 사용",
+        "character": "도라"
+      },
+      {
+        "time": 3.2,
+        "event": "stage:3 사용",
+        "character": "드레이크"
+      },
+      {
+        "time": 3.583,
+        "event": "full_burst 시작",
+        "character": ""
+      }
+    ]
+  },
+  "metal_saved_projection_audits": {
+    "passed": true,
+    "rows": 2,
+    "gpu_calls": 0,
+    "native_calls": 0
+  },
+  "cuda_scope": "One profile/roster, accumulate mode, 1 second only; current standard fixed30s remains unverified",
+  "current_cuda_standard_fixed_30s_profiles": 0,
+  "next_action": "Correct bootstrap path in a fresh launcher, then first fixed PTX generation only; no Windows 30-second GPU request.",
+  "fixed_compile_preparation": {
+    "owner": "0f199f4555960ffd2d98d35fb0479a06721d7388551f7cc4825964337238e5ca",
+    "first_attempt": "launcher import failed before Job/unpack/start gate/claims/generation/compiler",
+    "first_failure_retained": true,
+    "corrected_launcher_requested": true,
+    "bootstrap_separate_from_unpacked_target": true,
+    "object_link_gpu_http_requested": false
+  }
+}

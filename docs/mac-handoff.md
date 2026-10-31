@@ -1,3 +1,13 @@
+## 2026-10-31 同一admission検証を共通化し通常APIでCUDA/Metal全readback一致
+
+実装d2b0163e。共通CLIのpackage byte検証を同一CPU admission内だけ再利用し、初回全byte・manifest全byte一致・GPU直前の最終全byte検査を必須にした。別owner/artifactと独立post auditは毎回検査、request間cacheなし。古いsealed ownerのgoldenは、そのSHA固定source内の単一literalをASTで読む（旧コード実行/別baseline探索なし）。数値本体・入力・期待値・normalizer・Job/時間上限は変更なし。Mac関連145検査、実file改変/manifest変更/復旧を含むartifact37検査とWindows同37検査に成功。
+
+新sealed runtime03e166bc…（d2b0163e、全2729file/11,933,809bytes、自身の108unit/fresh native1/GPU0）を通常APIで使用。Windowsの保存CUBIN admissionは初回1/再利用4/最終1となり、CPU計測ではowner6.604秒＋admission10.181秒、全17.571秒。以前45.111秒のadmissionと計測時負荷が異なるため制御された速度比較とはしない。元linkのmissing7/原因unknown/保全falseを維持する。
+
+通常/api/jobsの蓄積1秒が実RTX3070Tiで成功し、CPU全製品payload一致。現CUDA確認は1profile/元編成/蓄積1秒だけ、fixed30秒は0。全input SHA e26cf2bb…と全readback SHA647c3081…は同runtimeの実M5と完全一致。Windows Job40.930秒/peak1,984,475,136bytes/missing0/timeoutなし/empty、実launch+sync0.203秒（純device時間ではない）。service未識別/保全falseと元link履歴は保持。新compile0、GPU1回。Mac保存2条件のsource/input/raw/全CPU/GPU/API再投影も追加native/GPU0で一致した。Windows原rawのMac独立読取ではなく、Windows peer成功報告とMac保存監査の照合である。
+
+次のfixed4秒は実M5/CPU全payload一致、damage16,415,516、burst I3.0/II3.1/III3.2/full3.583秒を準備済み。GPU条件追加であってMetal262profileへ重複加算しない。Windowsのfixed ZIPは照合済みだが、未展開targetをbootstrap importに使うlauncher誤りでJob/claim/展開/生成/compile前に停止した。失敗logを保持し、既存展開済みbootstrapとtargetを分離する新launcherだけを依頼済み。fixed PTX生成成功後に未実施object/linkを検討する。30秒GPU/上限増量/OS変更は依頼なし。小記録research/product-cubin-admission-gate-v1.json。全目標は未完了。以下は履歴。
+
 ## 2026-10-31 現共通GPU sourceで全266製品profileを確認：Metal262一致／CPU4
 
 前turnは実装・実証の進捗、今回も全件の実製品確認とWindows native成果により進捗。goalは未完了でactive。既存通常HTTP API／独立worker／保存監査を再利用し、新suite・数値演算・tolerance変更0。旧と完全同じ266要求（30秒・固定周期・既定育成・cubeなし・元の5人編成）をfrozen owner09555bf0…（source1cbe45cc）から逐次実行、16件区切りでsourceを検査。266すべてのprofile/favorite-stageラベルと実bodyの対応も検査した。

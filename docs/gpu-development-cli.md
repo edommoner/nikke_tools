@@ -50,7 +50,9 @@ Windowsの最初の実GPU確認は通常HTTP APIの1秒sceneだけを予定し�
 
 保存CUBIN要求は応答cacheを使わず、毎回admissionと実際のimage readを通す。通常CPU/Metal/native CUDA cacheの挙動は保持。成功時のcomputeへ`artifact_provider`/`artifact_key`を追加し、captureへowner/request/phase/receiptを保持する。共有phase検査は元CLIとAPIで同じ関数を使い、NVRTC/cache混入・source admission/read/receipt順序・receipt不一致を拒否する。GPU読戻し後の全CPU製品応答比較は省略しない。
 
-Windowsでの製品GPU計算とadmission時間は未実証。監査のowner/admission時間をjournalへ記録し、既存deadlineを延長しない。登録された短い実機検証と独立確認が通るまでmockテストをCUDA計算成功に数えない。
+同一製品admission内のpackage全byte検証は共通CLIの`package_records_gate`で初回1回とGPU直前の最終1回を必須にする。再利用時も同一owner/全manifest records/manifest raw byte一致が必要。別owner/artifact/部分recordsは再利用せず、scope終了/例外で破棄し、独立post auditやrequest間へ渡さない。size/mtimeをbyte検査の代用にしない。旧sealed product ownerのbaselineは、そのSHA固定`portable_product_programs.py`内の単一literal `GOLDEN`をASTで読み、manifest登録された安全な相対pathだけを許可する。旧コード実行や別baseline探索はしない。
+
+新runtime03e166bcの通常蓄積1秒はRTX3070TiでGPU/CPU全製品payload一致し、同条件のM5とinput/readback全SHA一致を確認した。これは標準30秒/fixed/全profileのCUDA確認ではない。計測/保全falseを含む範囲は[admission記録](../research/product-cubin-admission-gate-v1.json)。既存deadlineは延長しない。mock検査はCUDA計算証明に数えない。
 
 `weighted-battle`は元ベイ4段階・独立cover破壊/元ビスケット復活/reburst・破壊条件付き元自己回復をM5/fresh独立監査でsealした21入力（native8/拒否13）。通常package→unpack→run経路を使う。`weighted-battle-cache-only`は同計算のCUBIN/O1・compile cache/paired生成必須。実CUDA/ゲーム比率/公開受付は未達。[範囲と失敗保持](portable-bay-allocation.md)。
 
