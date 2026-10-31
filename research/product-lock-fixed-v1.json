@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "scope": "Ordinary product API, original Heavy Arms 25 effects with explicit candidate/delivery reference model; fixed readiness connected to shared executor",
+  "implementation_commit": "3ddcaa6c3d24462c6ebc17ea17299cc37f6b4525",
+  "metal_product_profiles_with_added_conditions": 1,
+  "metal_added_conditions": 5,
+  "metal_retention_conditions": 1,
+  "cuda_product_profiles_added": 0,
+  "default_profile_admission_added": 0,
+  "declared_model": true,
+  "known_game_distance_model": false,
+  "normal_http_requests": 8,
+  "full_cpu_payload_match": true,
+  "negative_cpu_fallbacks": 2,
+  "development_owner": "5c03cce6bec081b581cb479728484746a1d9186fed87baf1c105a3451e196e4b",
+  "own_unit_tests": 108,
+  "fresh_native_cases": 1,
+  "metal_cli_calculation_verified": true,
+  "independent_gpu_forbidden_seal": true,
+  "independent_seal_gpu_calls": 0,
+  "prior_golden_members_preserved": 13,
+  "golden_members": 14,
+  "source_input_readback_reprojection_verified": true,
+  "reprojection_native_calls": 0,
+  "reprojection_gpu_calls": 0,
+  "prior_accumulate_input_readback_identical": true,
+  "common_fixed_header_reused": true,
+  "new_suite_count": 0,
+  "numeric_or_normalizer_changes": false,
+  "pinned_upstream_changes": false,
+  "shared_cuda_metal_source": true,
+  "capacity_limits_unchanged": true,
+  "full_goal_complete": false,
+  "windows": {
+    "new_sdk_gpu_calls": 0,
+    "saved_candidate_count": 10,
+    "current_candidate_same_identity": 8,
+    "current_candidate_absent": 2,
+    "candidate_scripts_actual_relative_calls": true,
+    "workspace_unresolved": true,
+    "cause_of_disappearance": "unknown",
+    "psutil_in_base_python": false,
+    "service_preservation_verified": false,
+    "old_results_modified": false
+  },
+  "api_summary": {
+    "bytes": 4047,
+    "sha256": "ffd1a4f684739c9e9c66928f8036081827fc607a09a4fdf4d95a57c141337c4c"
+  },
+  "saved_api_audit": {
+    "bytes": 2058,
+    "sha256": "27a7b2ba01ea07c656b4c66035698a5f23c68c85fc5e6e327e7c7da0d16e67f8"
+  },
+  "seal": {
+    "bytes": 19776,
+    "sha256": "3f83fc8abca03a646f1d955f417d70bceb29a08d55e206c32a1848d626aec57f"
+  },
+  "seal_audit": {
+    "bytes": 752,
+    "sha256": "473335f0559c571e349b45d3ded03c488021cf6f0872b908a5ccc66b7203ca03"
+  },
+  "prior_static_product_programs_preserved": 28,
+  "prior_static_wire_source_input_all_identical": true,
+  "static_audit_additional_native_gpu_calls": 0
+}

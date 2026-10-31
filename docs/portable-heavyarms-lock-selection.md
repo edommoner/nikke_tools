@@ -1,3 +1,7 @@
+## 2026-10-31 通常製品の固定バーストを接続
+
+同じ宣言Lock On consumerへ既存の固定readiness headerを接続した。固定30秒のBODY/ADD3/弾体3/破壊弾体/owner3番目の通常API5条件は実M5でCPU全応答一致。蓄積方式のinput/readbackは旧成功と全byte一致。宣言なしと固定＋manual coverは理由付きCPU fallbackを維持する。距離式・死亡時振替の仕様認定や既定profileの認定ではない。製品経路の追加対応は宣言1profileの固定5条件で、CUDA追加0。共通product-detailのlock-fixed memberとして独立sealし、専用suiteは増やしていない。詳細research/product-lock-fixed-v1.json。
+
 # Lock Onの次の実装契約
 
 ## 2026-10-30 ネット調査による回答
