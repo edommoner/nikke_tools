@@ -1,5 +1,13 @@
 /** Immutable helpers for the visible five-squad board. */
 export const emptyTeams=()=>Array.from({length:5},()=>Array(5).fill(''));
+export const SESSION_MAX_BYTES=12*1024*1024;
+/** Same JSON fields, without formatting copies of every calculation row. */
+export function serializeSession(data,includeHistory=true){
+  const saved=includeHistory?data:{...data,reference:null,comparison:null,job:null};
+  const json=JSON.stringify(saved);
+  if(new TextEncoder().encode(json).byteLength>SESSION_MAX_BYTES)throw Error('保存データが取り込み上限の12MBを超えます。所持・育成データ画面の「編成・戦闘条件だけ保存」を使用してください。');
+  return json;
+}
 export function placeCharacter(teams,team,slot,name){
   if(!Number.isInteger(team)||team<0||team>=5||!Number.isInteger(slot)||slot<0||slot>=5)throw Error('Invalid slot');
   const next=teams.map(row=>[...row]);
