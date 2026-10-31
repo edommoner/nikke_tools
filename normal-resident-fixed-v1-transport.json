@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "source_commit": "7de4a2f0961bf7af700a2bc2ac96fbcd2d1889df",
+  "artifact": "normal-resident-fixed-v1.zip",
+  "package_id": "e398f26377f9f2234548b8c55eae9c451dfdb85535d0344487cbd099ec772a58",
+  "bytes": 11948458,
+  "sha256": "4a7c394368bed45d720f72d922271ce7075e3101c1b7f9f9a77301ec68d94e1e",
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "e398f26377f9f2234548b8c55eae9c451dfdb85535d0344487cbd099ec772a58",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "cpu_result": {
+    "cpu_verified": true,
+    "gpu_calls": 0,
+    "calculation_verified": false,
+    "preservation_verified": null,
+    "status": "cpu-only"
+  },
+  "scope": "Normal fixed product executor resident frame storage; CUDA/Metal math, CPU canonical and expected input/output/native entries unchanged; composed or explicitly compatible normal product layout, ADD attack excluded",
+  "personal_settings": false,
+  "raw_buffers": false
+}
