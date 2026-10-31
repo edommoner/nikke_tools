@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "package_id": "a37b8330f6e95a24dd2d2c36e47ae8552c2196ef215f9c2049c71fb5dcec6b8c",
+  "source_commit": "5f0af26cea35fa9b6227c58b29598e0007168ad5",
+  "archive": {
+    "path": "product-reload-clock-compact-v2.zip",
+    "bytes": 11847063,
+    "sha256": "bb6c4f8601f43a105184bbab512f1b3783a5c1f1fcad7566fd68c78ed3998267"
+  },
+  "program": "accumulate",
+  "source": "gpu/product_battle_entry.slang",
+  "original_package": "ac35d8414bf1c57c0855a012021d6e181119699f26ab1673974bbc626a682b1d",
+  "original_unit_timeout_retained": true,
+  "omitted_python_files": 1489,
+  "retained_files": 2698,
+  "changed_retained_files": [
+    "tests/test_weighted_source_contract.py"
+  ],
+  "entire_golden_identical": true,
+  "entire_gpu_payload_identical": true,
+  "native_calculation_code_identical": true,
+  "own_unit_groups": 3,
+  "own_unit_tests": 70,
+  "own_unit_passed": true,
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "a37b8330f6e95a24dd2d2c36e47ae8552c2196ef215f9c2049c71fb5dcec6b8c",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "generation_required_cache_passed": true,
+  "requests": "reload-clock-api-requests.json",
+  "compiler_or_gpu_started_on_old_owner": false,
+  "reason": "Reduce immutable validation IO using existing compact projection; retain all70 tests and all twelve corruption cases with fewer fixture creations",
+  "personal_settings_included": false,
+  "raw_included": false
+}
