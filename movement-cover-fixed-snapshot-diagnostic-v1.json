@@ -1,0 +1,90 @@
+{
+  "schema": "movement-cover-fixed-snapshot-diagnostic-v1",
+  "scope": "One independently authorized CPU snapshot-check; not an unpack, compiler retry, or before/after environment preservation proof.",
+  "status": "diagnostic_completed_snapshot_failed",
+  "original_status_commit": "150049a7442b5b383e9dd66ebb3e72c60dc9de35",
+  "original_diagnosis_commit": "f5bda1f83f53bb795573b34f9088a551cb80258d",
+  "static_preflight": {
+    "finite_diagnostic_version_verified": true,
+    "exclusive_report_before_query_verified": true,
+    "used_sources_sha256": {
+      "app/portable_windows_snapshot.py": "9548b945e77f6c327315c33ea5e805450ab7d4e07c07ddc752f8ce9feb7a364a",
+      "research/windows_validation_observer.py": "97d7405ff8771cf413f5e58c14ebea98037afb8a3691417d12e7b21d2d45fdd3",
+      "scripts/nikke_gpu.py": "d27d467b7c3380cfeb76f7cd8b5827b3e157ea775058fe1b412fc240bff47a33",
+      "research/run-world-bounded.py": "10ef875f8157d85b44ecc28e868c2cc95330eb9b4c59ad22723840533fa8074c"
+    }
+  },
+  "snapshot": {
+    "attempts": 1,
+    "retry_count": 0,
+    "exclusive_report_created": true,
+    "snapshot_verified": false,
+    "error_type": "SnapshotFailure",
+    "finite_failure": {
+      "exit_code": 1,
+      "stage": "processes",
+      "category": 0,
+      "hresult": -2146233088
+    },
+    "diagnostic": {
+      "operation": 1,
+      "type_id": 1,
+      "inner_type_id": 0,
+      "error_id_kind": 0,
+      "native_code": 2,
+      "inner_hresult": null
+    },
+    "type_id_interpretation": "Microsoft.Management.Infrastructure.CimException",
+    "operation_id_interpretation": "Get-CimInstance Win32_Process enumeration",
+    "inner_type_id_interpretation": "no InnerException in this exception record",
+    "native_code_interpretation": "not interpreted; numeric code retained",
+    "elapsed_seconds": 0.6294164997525513
+  },
+  "job_and_exit": {
+    "child_timeout_seconds": 30,
+    "outer_budget_seconds": 180,
+    "memory_limit_mb": 2048,
+    "below_normal_priority": true,
+    "start_gate_released": true,
+    "job_count": 1,
+    "pre_gate_verified": true,
+    "post_wait_job_empty": true,
+    "inspection_error_present": false,
+    "child_exit_code": 1,
+    "wrapper_exit_code": 1,
+    "timed_out": false,
+    "cleanup_error_present": false,
+    "bounded_error_present": false,
+    "elapsed_seconds": 1.2158396001905203
+  },
+  "limits_and_claims": {
+    "sdk_calls": 0,
+    "compile_calls": 0,
+    "unpack_calls": 0,
+    "driver_calls": 0,
+    "gpu_calls": 0,
+    "http_calls": 0,
+    "os_wmi_acl_service_settings_changed": false,
+    "before_after_snapshot_pair_taken": false,
+    "calculation_verified": false,
+    "preservation_verified": false,
+    "original_failed_claim_modified": false,
+    "original_capture_files_checked_unchanged": 12,
+    "missing_process_count": null,
+    "service_status": "unverified",
+    "limit_query": null
+  },
+  "cause_assessment": {
+    "root_cause": "unknown",
+    "old_failure_same_cause": "not_established",
+    "prior_seven_process_disappearance_same_cause": "not_established",
+    "permission_mode": "use_default",
+    "permission_or_os_settings_modified": false
+  },
+  "privacy": {
+    "full_process_list_shared": false,
+    "arbitrary_exception_message_shared": false,
+    "command_lines_shared": false
+  },
+  "next_action": "Stopped after the single diagnostic query; no automatic follow-up or compilation."
+}
