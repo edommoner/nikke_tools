@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "scope": "Existing fixed product program current-source reseal; not a new product profile",
+  "source_commit": "c8bdd4182bb16ea3f4448aaa05466afb3bf1fcc6",
+  "development_owner": "118b0caf183580549a8e5ff8c124327b417a4f65a41cf5eed91bc27c7efdac5c",
+  "own_unit_tests": 108,
+  "fresh_native_cases": 1,
+  "metal_cli_calculation_verified": true,
+  "independent_gpu_forbidden_seal": true,
+  "seal_gpu_calls": 0,
+  "prior_fixed_input_output_native_entries_identical": true,
+  "changed_golden_fields": [
+    "generated_normalized",
+    "source_sha256"
+  ],
+  "other_golden_members_preserved": 13,
+  "golden": "research/portable-product-programs-v14-expected.json",
+  "golden_members": 14,
+  "new_suite_count": 0,
+  "new_metal_product_profiles": 0,
+  "new_cuda_product_profiles": 0,
+  "new_numeric_or_gpu_runtime_code": false,
+  "normalizer_or_tolerance_changes": false,
+  "full_goal_complete": false
+}
