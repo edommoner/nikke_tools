@@ -1,5 +1,7 @@
 ## 2026-10-31 CUDA module-objectの同一gate内検証重複を解消
 
+最終追補：f029d109のcompact normal owner 59160ddb81ae…（2724file／11910901bytes）は、packet自身のown100＋fresh native1／CPU-only、PTX60秒2GiB compile-planが成功。packet内SDK模擬202も成功。開発ownerの実M5／独立sealとは別の最終登録確認。Windows SDK／GPU／通常APIの追加profileは0。次はこのsealed ownerを既存Windows chatへ共有する段階で、新PTXのcold compileが必要になる（旧Mac計算コードと異なるため、旧PTXcache必須hitは依頼しない）。旧2195のclaimを再使用しない。
+
 CLIのmodule-objectが同じsealed producer自身を処理する場合、親でverify_package済みの直後と子でverify_package済みの直後に、assembly_originが同じ全file検証を再実行していた。fresh mと同一root・同一manifestに限りその2重複だけを省き、全file検証は親1／子1／独立post1の計3回を維持する（外側wrapperは別）。foreign/historical producerは既存全検証のまま。引数は内部呼出し専用でrequest/CLIで再利用tokenを受け付けず、metadata/stat cacheや過去receiptの代用ではない。PTX producerの全artifact／Job／生成数値baseline監査は不変。post auditorはfast pathを使わず全package再検査する。実行後改変も拒否する。
 
 既存compiler18群202テスト成功。親/子dispatchの実flag、同rootで1回のfresh検証、別root/manifest変化/実行後変化の拒否、post audit維持を回帰検査。PTXAS O1/fmad、60秒/2GiB、Job/pre/post観測、排他claim、旧失敗の扱いは不変。preparation journalにoriginとpost auditの実測区間を追加し、既存厳密phases列は変えない。GPU/数値code変更0、実SDK/GPU/新Metal/CUDA製品profile0。Windowsでの短縮は未測定。

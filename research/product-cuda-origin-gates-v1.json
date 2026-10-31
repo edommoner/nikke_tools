@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "scope": "Same-root sealed module-object package verification reuse within each fresh gate only; no new compiler or GPU execution",
+  "scope": "Same-gate object verification optimization and current normal Metal preparation; Windows SDK stages not executed",
   "baseline_owner": "2195f8bdd3241f1d3e322a40c6f7ef31095836c1a0ac7f3728e414b954148a85",
   "baseline_native_seconds": 15.02133490005508,
   "baseline_outer_seconds": 62.40596920019016,
@@ -19,7 +19,7 @@
   "shader_or_numeric_code_changed": false,
   "unit_tests": 202,
   "real_sdk_calls": 0,
-  "gpu_calls": 0,
+  "gpu_calls": 1,
   "new_metal_product_profiles": 0,
   "new_cuda_product_profiles": 0,
   "windows_shortening_measured": false,
@@ -75,5 +75,25 @@
     },
     "old_ptx_cache_reuse_admitted": false,
     "scope": "CLI normal corpus only, not a new ordinary API profile or current CUDA proof"
+  },
+  "metal_cli_cases": 1,
+  "slang_generation_compiler_invocations": 2,
+  "real_sdk_calls_scope": "NVIDIA CUDA SDK; Slang code generation and Metal execution counted separately",
+  "full_goal_complete": false,
+  "final_normal_packet": {
+    "source_commit": "f029d109",
+    "package_id": "59160ddb81ae0e13ffd9393f584837220c89c30a5a9814ecc3b9284e834316fd",
+    "compact": true,
+    "files": 2724,
+    "bytes": 11910901,
+    "archive_sha256": "7e8f604cdec777dd017b95a8268c51b17797dd326d382e941b8421ad2107085f",
+    "own_tests": 100,
+    "fresh_native_cases": 1,
+    "cpu_verified": true,
+    "gpu_calls": 0,
+    "ptx_compile_plan_passed": true,
+    "timeout_seconds": 60,
+    "memory_limit_mb": 2048,
+    "sdk_calls": 0
   }
 }
