@@ -2013,6 +2013,18 @@
           "after": "\n    return dict(generations=generations,final=final,charges=charges,reloads=reloads,attempts=attempts)\n\n\ndef compare_ammo(block,domain,native,*,allow_retired_queue=False):\n    observed=read_ammo(block,domain,allow_retired_queue=allow_retired_queue)\n    data=native['enemy_ammo']\n    for key,value in observed.items():assert value==data[key],key\n    head=E['OUTPUT_BASE']"
         }
       ]
+    },
+    "gpu/product_fixed_battle_entry.slang": {
+      "before_sha256": "2a9836a7f7cd7b632f4514ac92f387df6e9b119158108646c4c31f899cddea18",
+      "after_sha256": "9d64018e1a2af00c22a31ce245c54caa6566c718fd064fa87587bb039d9e1f33",
+      "hunks": [
+        {
+          "start": 105,
+          "end": 143,
+          "before": "",
+          "after": "RESIDENT_FRAME_STACK\n#define PORTABLE_"
+        }
+      ]
     }
   }
 }
