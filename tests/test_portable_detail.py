@@ -10,6 +10,28 @@ import portable_product_artifact as artifacts
 from portable_projectile_roster_input import compile_projectile_battle
 
 class PortableDetail(unittest.TestCase):
+    def test_product_keeps_all_equipment_rows_and_uses_native_carrier_lifecycle(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_specs import LIMITS as L
+        body=selected_profile_bodies(['N102'],0)[0][2]
+        body.update(duration=15,burst_gauge_mode='accumulate')
+        body['profile']['chars']['N102']['equip_skills']['charge_speed_pct']=[4.3,6.2]
+        with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU state as input')):
+            prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+            _,_,_,actual,metadata=product.compile_product(prepared)
+            standalone,oldmeta=compile_projectile_battle(prepared)
+        self.assertEqual(prepared,before)
+        self.assertEqual(metadata['effects'],oldmeta['effects'])
+        self.assertEqual(metadata['real_prepared_input']['equipment_quantity_carriers'],'native-named-state-v1')
+        rows=[i for i,r in enumerate(prepared['effects']) if r['owner']=='N102' and r['effect'].get('stat')=='charge_speed_pct' and r['effect'].get('_source_tag')=='equipment']
+        self.assertEqual(len(rows),2)
+        changed={i for i,(a,b) in enumerate(zip(actual,standalone)) if a!=b}
+        self.assertEqual(changed,{L['RECIPIENT_BASE']+i*8+7 for i in rows})
+        for i in rows:
+            at=L['RECIPIENT_BASE']+i*8+7
+            self.assertEqual(standalone[at]&3,0);self.assertEqual(actual[at]&3,3)
+        self.assertEqual(len(actual),len(standalone))
+
     def test_product_burst_pattern_literals_share_policy_and_never_pack_cpu_state(self):
         from portable_burst_control_specs import product_patterns
         from portable_specs import LIMITS as L

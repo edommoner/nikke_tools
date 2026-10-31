@@ -269,7 +269,8 @@ def validate_effect(eff, *, combat=None, world_frame=False):
             raise UnsupportedPortable('Invalid '+key,reason='bounds')
 
 
-def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None, enemy_targeting=None, world_frame=False, world_notice_names=(), allied_seed=19, focus_aim_layer2=False, native_snapshot_logging=False):
+def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None, enemy_targeting=None, world_frame=False, world_notice_names=(), allied_seed=19, focus_aim_layer2=False, native_snapshot_logging=False, native_equipment_carriers=False):
+    if type(native_equipment_carriers) is not bool:raise ValueError('Explicit native equipment carrier policy must be boolean')
     import detail_gpu as legacy
     from portable_stack_specs import plan as stack_plan,operation as stack_operation,value as stack_value,pack_metadata as pack_stack_metadata
     check_schema()
@@ -407,7 +408,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
     merge_groups={}
     def merge_key(index,row):
         eff,owner=effects[index]
-        if not row[205] or not eff.get('name') or eff.get('_source_tag')=='equipment' and int(row[2]) in (18,20,37):return None
+        if not row[205] or not eff.get('name') or not native_equipment_carriers and eff.get('_source_tag')=='equipment' and int(row[2]) in (18,20,37):return None
         return owner,eff['name'],stat_identity(eff)[1],int(row[9])
     for index,row in enumerate(program['effects']):
         key=merge_key(index,row)
@@ -437,7 +438,7 @@ def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0
         if removal is not None and removal[0]==1:pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],False,0)
         if removal is not None and removal[0]==2:
             packet=L['DAMAGE_DEFINITION_BASE']+index*L['DAMAGE_DEFINITION_WORDS'];words[packet:packet+8]=[*removal[1],0,0,0,0,0,0]
-        if row[1] in (0,4,5,6,7,8,12,13,14,22,23,24,27,29,30,31,32):pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],target_key(effects[index][0].get('target'))),0) if effects[index][0].get('type')=='buff' else 0)
+        if row[1] in (0,4,5,6,7,8,12,13,14,22,23,24,27,29,30,31,32):pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],target_key(effects[index][0].get('target'))),0) if effects[index][0].get('type')=='buff' else 0,native_equipment_carriers=native_equipment_carriers)
         if effects[index][0].get('type')=='damage':
             route,count,hits=damage_plan(effects[index][0])
             from portable_reference_specs import hit_reference

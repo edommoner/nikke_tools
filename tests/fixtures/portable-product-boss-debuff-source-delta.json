@@ -24,7 +24,7 @@
     },
     "app/portable_detail.py": {
       "before_sha256": "085c7ccdcebfa6641bf124d95e6c320c337405202e4b148ae64dca08cb11db06",
-      "after_sha256": "0abf03fa00cdd5d69d21d4a9019952849f95350cc1ab977da6836c5d98f30e36",
+      "after_sha256": "e87af8dfc05e28142f95ad072c2ad412e952ebbf2946a4600d1b0d26b13871ae",
       "hunks": [
         {
           "start": 2824,
@@ -33,50 +33,56 @@
           "after": "    if prepared.get('reference_models'):\n        raise UnsupportedPortable('Declared CPU reference consumer requires its matching shared GPU product wire; no model may be silently omitted')\n"
         },
         {
-          "start": 3964,
-          "end": 4208,
+          "start": 3098,
+          "end": 3466,
+          "before": "",
+          "after": "    # The product promises the canonical battle's named-carrier lifecycle.\n    # Keep every equipment definition and let the existing shared GPU carrier\n    # merge/refresh them exactly as native does. Standalone component-quantity\n    # proofs retain their distinct, explicitly documented contract.\n    prepared=dict(prepared,_product_native_equipment_carriers=True)\n"
+        },
+        {
+          "start": 4332,
+          "end": 4576,
           "before": "",
           "after": "    from portable_product_add_attack import lower as lower_add_attacks\n    prepared,add_patterns=lower_add_attacks(prepared)\n    if 'burst_pattern' in prepared['policies']['config']:\n        prepared=dict(prepared,_product_burst_patterns=True)\n"
         },
         {
-          "start": 4263,
-          "end": 4454,
+          "start": 4631,
+          "end": 4822,
           "before": "",
           "after": "    if any(p.get('kind') in ('attack','debuff') and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):\n        prepared=dict(prepared,_product_boss_debuffs=True)\n"
         },
         {
-          "start": 5475,
-          "end": 5663,
+          "start": 5843,
+          "end": 6031,
           "before": "            _,bindings=compile_registry(nodes,pools=True)\n",
           "after": "            registry_nodes=validate(copy.deepcopy(prepared['enemy']['patterns'])) if add_patterns is not None else nodes\n            _,bindings=compile_registry(registry_nodes,pools=True)\n"
         },
         {
-          "start": 7184,
-          "end": 8019,
+          "start": 7552,
+          "end": 8387,
           "before": "",
           "after": "        if prepared.get('_product_burst_patterns'):\n            from portable_burst_control_specs import product_patterns\n            from portable_specs import LIMITS as limits\n            names=[c['name'] for c in prepared['chars']]\n            patterns=prepared['policies']['config']['burst_pattern']\n            packed=product_patterns(names,patterns)\n            for who,value in enumerate(packed):\n                words[limits['WEAPON_BASE']+who*limits['WEAPON_WORDS']+3]|=value\n            if any(packed):metadata['product_burst_patterns']=dict(patterns=copy.deepcopy(patterns),encoded=packed,cpu_schedule_or_state_supplied=False)\n        if add_patterns is not None:\n            from portable_product_add_attack import attach\n            return attach(source,words,metadata,prepared,add_patterns,original['enemy']['patterns'])\n"
         },
         {
-          "start": 11122,
-          "end": 11240,
+          "start": 11490,
+          "end": 11608,
           "before": "    control_log=read_product_control_log(block,metadata,names,run.config['duration'])\n",
           "after": "    control_log=read_product_control_log(block,metadata,names,run.config['duration'],burst_trace=view['burst_trace'])\n"
         },
         {
-          "start": 14961,
-          "end": 15056,
+          "start": 15329,
+          "end": 15424,
           "before": "            if kind not in (1,2,3,4,5,6,7) or node>=(len(names) if kind==6 else len(nodes)):\n",
           "after": "            if kind not in (1,2,3,4,5,6,7,8) or node>=(len(names) if kind==6 else len(nodes)):\n"
         },
         {
-          "start": 15272,
-          "end": 15445,
+          "start": 15640,
+          "end": 15813,
           "before": "        world=read_histories(block,nodes)\n",
           "after": "        from portable_product_add_attack import query_sources\n        sources=query_sources(block,metadata)\n        world=read_histories(block,nodes,attack_sources=sources)\n"
         },
         {
-          "start": 16743,
-          "end": 16881,
+          "start": 17111,
+          "end": 17249,
           "before": "                cover=round(hit['cover'],6),hp=round(hit['hp'],6),hp_after=round(hit['hp_after'],6),down=hit['down'],by='')\n",
           "after": "                cover=round(hit['cover'],6),hp=round(hit['hp'],6),hp_after=round(hit['hp_after'],6),down=hit['down'],by=hit.get('by',''))\n"
         }
@@ -108,7 +114,7 @@
     },
     "app/portable_world_roster_input.py": {
       "before_sha256": "7d1f753d975c887fa0e206873f9aeeb629ba6486108c226d4654ac4d96d86b35",
-      "after_sha256": "48a3889f8d48e7d3da6115c8881ee825e25049fd07005f0bf5b67966026a1be0",
+      "after_sha256": "e9ea7333acb08adebd320d4def22b5b063fa28545b6367f940e7310728881dab",
       "hunks": [
         {
           "start": 2882,
@@ -129,16 +135,28 @@
           "after": "    character_effects=len(original)\n    boss_nodes={}\n    if prepared.get('_product_boss_debuffs'):\n        from portable_world_attack_specs import boss_debuff_effects\n        effect_patterns=patterns\n        if '_product_add_debuff_patterns' in prepared:\n            from calculator.boss_pattern import validate\n            effect_patterns=validate(copy.deepcopy(prepared['_product_add_debuff_patterns']),squad_size=5)\n        boss_effects,boss_nodes=boss_debuff_effects(effect_patterns,names[0],enemy.get('atk',DEFAULT_BOSS_ATK))\n        original.extend(boss_effects)\n"
         },
         {
-          "start": 9033,
-          "end": 9187,
+          "start": 7722,
+          "end": 7814,
+          "before": "",
+          "after": "        native_equipment_carriers=prepared.get('_product_native_equipment_carriers',False),\n"
+        },
+        {
+          "start": 9125,
+          "end": 9279,
           "before": "",
           "after": "    if boss_nodes:\n        from portable_world_attack_specs import pack_boss_debuffs\n        pack_boss_debuffs(words,meta,character_effects,boss_nodes,L)\n"
         },
         {
-          "start": 12174,
-          "end": 12268,
+          "start": 12266,
+          "end": 12360,
           "before": "        prepared_effects=len(original), bound_effects=len(bound), camera=sorted(cameras),\n",
           "after": "        prepared_effects=character_effects, bound_effects=len(bound), camera=sorted(cameras),\n"
+        },
+        {
+          "start": 12671,
+          "end": 12812,
+          "before": "",
+          "after": "    if prepared.get('_product_native_equipment_carriers'):meta['real_prepared_input']['equipment_quantity_carriers']='native-named-state-v1'\n"
         }
       ]
     },
@@ -817,6 +835,48 @@
           "end": 5317,
           "before": "",
           "after": "#endif // PORTABLE_BURST_CONTROL_POLICY_INCLUDED\n"
+        }
+      ]
+    },
+    "app/portable_runtime.py": {
+      "before_sha256": "d68e2f585e108f434a7a40e42c5a2933e6006eac9a61335d0b77a0edfe8a3d07",
+      "after_sha256": "6773e143301efb9d908d0900d5f4c61b66fd19abfd31ff262fcda9e83a71829b",
+      "hunks": [
+        {
+          "start": 23308,
+          "end": 23821,
+          "before": "def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None, enemy_targeting=None, world_frame=False, world_notice_names=(), allied_seed=19, focus_aim_layer2=False, native_snapshot_logging=False):\n",
+          "after": "def compile_program(chars, effects, script, base_atk, *, defense=0, core_ratio=0, core_bonus=1, combat=None, allies=None, cover_sync=True, native_landing=False, enemy_code=None, geometry=None, burst_references=None, enemy_targeting=None, world_frame=False, world_notice_names=(), allied_seed=19, focus_aim_layer2=False, native_snapshot_logging=False, native_equipment_carriers=False):\n    if type(native_equipment_carriers) is not bool:raise ValueError('Explicit native equipment carrier policy must be boolean')\n"
+        },
+        {
+          "start": 35599,
+          "end": 35761,
+          "before": "        if not row[205] or not eff.get('name') or eff.get('_source_tag')=='equipment' and int(row[2]) in (18,20,37):return None\n",
+          "after": "        if not row[205] or not eff.get('name') or not native_equipment_carriers and eff.get('_source_tag')=='equipment' and int(row[2]) in (18,20,37):return None\n"
+        },
+        {
+          "start": 38276,
+          "end": 38682,
+          "before": "        if row[1] in (0,4,5,6,7,8,12,13,14,22,23,24,27,29,30,31,32):pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],target_key(effects[index][0].get('target'))),0) if effects[index][0].get('type')=='buff' else 0)\n",
+          "after": "        if row[1] in (0,4,5,6,7,8,12,13,14,22,23,24,27,29,30,31,32):pack_recipients(words,index,row,recipient_limits,effects[index][0],stat_keys[stat_identity(effects[index][0])],merge_groups.get(merge_key(index,row),0)>1,lazy_groups.get((effects[index][1],target_key(effects[index][0].get('target'))),0) if effects[index][0].get('type')=='buff' else 0,native_equipment_carriers=native_equipment_carriers)\n"
+        }
+      ]
+    },
+    "app/portable_recipient_specs.py": {
+      "before_sha256": "6382dc4d05d4b8a7759d0a9a43be54634883bbe0ccef9f9a1cf4c5e12db23bcf",
+      "after_sha256": "57e234ac355a08a184b3a233f68e663a82666e64cf17e5babba0658b43c74f2d",
+      "hunks": [
+        {
+          "start": 2207,
+          "end": 2322,
+          "before": "def pack(words, index, row, limits, effect, stat_key, merge_search, lazy_group):\n",
+          "after": "def pack(words, index, row, limits, effect, stat_key, merge_search, lazy_group,*,native_equipment_carriers=False):\n"
+        },
+        {
+          "start": 2794,
+          "end": 2941,
+          "before": "    independent_quantity=effect.get('_source_tag')=='equipment' and int(row[2]) in (18,20,37)\n",
+          "after": "    independent_quantity=not (native_equipment_carriers and merge_search) and effect.get('_source_tag')=='equipment' and int(row[2]) in (18,20,37)\n"
         }
       ]
     }

@@ -4334,3 +4334,14 @@ standalone probeなのでgeneration-cache/require-generation-cacheは指定し�
 添付設定はprivate-v2としてMac内だけに保存。実GPU到達／burst履歴一致だが1人damageが約12.5%相違し、members／total_damage不一致でGPU結果拒否・CPU fallback。元fallbackと新失敗を保存し、許容差変更0。個人設定・詳細結果・hash・rawはGitHubへ出さない。専用4384serverは終了済み、4317／4327は操作なし。
 
 Windows owner15339b24…はown70成功41.234s後、fake-only15件のうち1件で停止。fixture環境コピーにNIKKE_CUDA_SPLIT_COMPILEがなく、threads2→1でcache keyが変わったのが原因。fixture修正後のMac fake45成功（artifact15＋compileCLI14＋diagnostic16）。Windows deps／plan／generation／実SDK／driver／GPU／API未実行、新native claim未消費、再送0。missing／観測／cleanup error0だが未識別serviceのpreservation=falseは維持。旧serial timeoutとmissing7の記録も保持。最新Windows cursor 4b3eff0d-96af-48be-b3ad-b6609ae33ca8:329、turn完了。新sourceの短い検証は新固定packetで行い、古い失敗を再試行しない。
+
+
+## 2026-10-31 添付実編成の製品Metal差分を解消
+
+private-v3の保存raw＋既存CPU observerで、該当1人の発射がCPU10／GPU11、GPU初回が4frame早いと判明。CPUの同名装備状態mergeと、共有低水準quantityの独立成分規約を区別していなかった。通常製品producerにnative_equipment_carriersを明示し、既存共有carrierのmerge/search flagへ接続。全effect／value／groupを保持し、入力stride・出力stride・Slang・数量演算・CPU正本・normalizer変更0。独立成分経路の既知CPU差と旧goldenは保存した。
+
+private-v4の添付設定は通常HTTPから実Metalへ到達し、全CPU payload一致・GPU結果受付・保存raw再投影成功。旧private-v1 fallback／v2不一致／v3観測は保持。個人設定・詳細結果・hash・rawは外部共有しない。公開3profile（N102／アリス／モダニア）×装備順2条件の6件も同じ製品経路で全一致、保存監査native/GPU追加0。既存対応profileの追加条件であり、歴史的255/266へ3を加算しない。今回の製品確認数はMetal公開3profile／6条件とprivate5人編成1条件、現CUDA0profile。
+
+固定packet68e212dc…自身の77unit＋CPU native1が成功、fake SDK45もenvthreads2で成功。通常accumulate基準のinputと全shader source／生成正規化ペアは独立seal済みv2と同一。余分な基準GPU／golden更新なし。旧component quantity3unit、runtime23unit、visited source5unitとfresh model-checkも成功。小証跡 `research/product-equipment-carriers-v1.json`、仕様差の説明 [quantity runtime](portable-quantity-runtime.md)。専用4384サーバーは終了し、4317／4327は未操作。
+
+Windowsにはtransport commit4dfdfcc2（既存codex/product-current-parts-v1-packet）を共有し、新owner68e212dc…のown77→fake45→deps/plan/generation→PTX/module-object-O1/JIT linkだけを1回依頼。各native stage60秒／2GiB／BelowNormal、native pipeline180秒、driver/GPU/APIは未依頼。前回15339b24…はfixture失敗による停止でSDK claim未消費。旧serial26e timeout／missing7／preservation=falseを不変保持する。新message送信は成功、既存Windows chat 01a140bc-5f3b-7661-b720-50c945596eaa の同handleを待ち、再送しない。API用の公開3要求も輸送したが実行は未承認ではなく未依頼（artifact監査後に必要なら依頼する）。次はこの保存結果確認と、残11profileのCPU consumer／製品GPU wireを接続する。

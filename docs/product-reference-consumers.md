@@ -27,3 +27,10 @@ M5の通常HTTP6条件は、固定／蓄積、オート対照、B2の配置変�
 添付設定はMac内だけで検証し、周期指定の接続後は実GPUまで到達した。burst履歴はCPU一致だが、1人のdamageとtotalに差があり、GPU結果を拒否してCPUへ戻している。許容差は緩めていない。詳細な個人設定、結果、hash、rawは共有しない。公開の集約証跡は `research/product-burst-pattern-v1.json`。
 
 Windowsの前版はown70成功後にfake SDK検査で停止した。テストの環境コピーに並列化設定が抜け、cache identityが変わったことが原因。fixtureを修正し、Macでthreads=2の模擬45テストを確認した。Windowsの実SDK／driver／GPUへは到達しておらず、今回のCUDA成功とは数えない。以前のtimeoutとclaimも保持する。次の固定sourceで必要な短い検証だけを依頼する。
+
+
+## 2026-10-31 添付設定の差分解消
+
+前節のprivate-v2の不一致は、同名装備のquantity carrier規約の差と判明した。通常製品のproducerだけをCPU正本の状態更新規約へ接続し、既存共有carrierを使用する。全定義を保持し、数量演算・Slang・CPU正本の変更0。private-v4では通常HTTP→実Metal→製品変換→全CPU payload照合が一致し、保存raw再投影も成功。旧失敗・private traceはMac内に保持し、個人設定・hash・詳細結果は共有しない。
+
+公開のN102／アリス／モダニアの3profile・装備順違い6条件も全一致。既存対応profileの追加条件なので対応総数へ加算しない。CUDAはこの変更版の製品profile成功0を維持し、新しい固定packetの短いコンパイル確認を1回だけ依頼した。詳細は [量補正の製品規約](portable-quantity-runtime.md)、集約は `research/product-equipment-carriers-v1.json`。

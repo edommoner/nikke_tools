@@ -117,6 +117,7 @@ def compile_world_battle(prepared, *, trace='burst', allow_physical_interrupt=Fa
               [duration,2,0,0,-1,0,0,0]]
     # Ordinary public query rows are compiled first; private finalizer40 follows.
     words, meta = compile_program(chars, compiled, script, attacks,
+        native_equipment_carriers=prepared.get('_product_native_equipment_carriers',False),
         allies=prepared['allies'], cover_sync=bool(enemy.get('patterns')), native_landing=True,
         enemy_code=enemy.get('code'), geometry=from_roster(chars, enemy), world_frame=True,
         world_notice_names=('target_spawn',) if target_spawn else (),allied_seed=policies.get('seed'),native_snapshot_logging=True,focus_aim_layer2=cfg.get('aim_interrupt',False),
@@ -184,4 +185,5 @@ def compile_world_battle(prepared, *, trace='burst', allow_physical_interrupt=Fa
         policy=copy.deepcopy(policies), actor_bindings=len(bindings))
     if allow_physical_interrupt:meta['real_prepared_input']['physical_interrupt_opt_in']=True
     if coordinate:meta['real_prepared_input']['coordinate_sidecar_required']=True
+    if prepared.get('_product_native_equipment_carriers'):meta['real_prepared_input']['equipment_quantity_carriers']='native-named-state-v1'
     return words, meta

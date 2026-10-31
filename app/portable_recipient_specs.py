@@ -41,7 +41,7 @@ def admitted(target, *, instant=False):
     return target in _NIKKE
 
 
-def pack(words, index, row, limits, effect, stat_key, merge_search, lazy_group):
+def pack(words, index, row, limits, effect, stat_key, merge_search, lazy_group,*,native_equipment_carriers=False):
     kind = int(row[4])
     # The native broken-cover selector is eager; retain other group IDs.
     if kind==25:lazy_group=0
@@ -51,7 +51,7 @@ def pack(words, index, row, limits, effect, stat_key, merge_search, lazy_group):
     if kind not in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25):
         raise ValueError('Unported compiled recipient selector')
     at = limits['RECIPIENT_BASE'] + index * 8
-    independent_quantity=effect.get('_source_tag')=='equipment' and int(row[2]) in (18,20,37)
+    independent_quantity=not (native_equipment_carriers and merge_search) and effect.get('_source_tag')=='equipment' and int(row[2]) in (18,20,37)
     from calculator.buff_manager import _STAT_TO_BUFF
     query_resolve=effect.get('type')=='buff' and bool(_STAT_TO_BUFF.get(effect.get('stat')))
     flags=int(bool(row[205]) and bool(effect.get('name')) and not independent_quantity) | (int(merge_search)<<1) | (int(query_resolve)<<2)

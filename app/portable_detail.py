@@ -68,6 +68,11 @@ def compile_product(prepared):
         raise UnsupportedPortable('Declared CPU reference consumer requires its matching shared GPU product wire; no model may be silently omitted')
     from portable_enemy_specs import lower_single_body_nearby
     original=prepared
+    # The product promises the canonical battle's named-carrier lifecycle.
+    # Keep every equipment definition and let the existing shared GPU carrier
+    # merge/refresh them exactly as native does. Standalone component-quantity
+    # proofs retain their distinct, explicitly documented contract.
+    prepared=dict(prepared,_product_native_equipment_carriers=True)
     gauge_mode=prepared['policies']['config'].get('burst_gauge_mode','fixed')
     if gauge_mode not in ('fixed','accumulate'):raise UnsupportedPortable('Unported burst gauge mode')
     fixed=gauge_mode=='fixed'
