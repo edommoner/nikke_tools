@@ -1,0 +1,548 @@
+{
+  "schema": 1,
+  "source_commit": "13634eb55a0bb0fbf648f4a156c49453d4f66f9c",
+  "package_id": "34731001ae882db6c104f373ce0fc94f6693ed86482bd5f904c77173fe5ed05e",
+  "scope": "Normal API manual cover without cover_def_pct effects; same five-person original roster, four 30-second control/mode conditions",
+  "implementation": "Existing shared CUDA/Metal cover consumer; only host admission predicate changed. No new shader, suite, numeric tolerance or CPU model.",
+  "cpu_units": {
+    "total": 113,
+    "patterns": [
+      "test_portable_detail.py",
+      "test_product_detail_packet.py",
+      "test_weighted_source_contract.py",
+      "test_product_reference_models.py"
+    ],
+    "passed": true
+  },
+  "cli_capture_result": {
+    "sealed": false,
+    "purpose": "development",
+    "calculation_verified": true,
+    "preservation_verified": null,
+    "passed": true,
+    "containment_verified": true,
+    "transport_verified": true,
+    "comparison_error": null,
+    "first_difference": null,
+    "phase": {
+      "events": 62,
+      "last_event": {
+        "elapsed_seconds": 22.535174458,
+        "monotonic_ns": 443765282069583,
+        "pid": 76983,
+        "stage": "shared_gpu_execute",
+        "state": "returned",
+        "wall_time_ns": 1793475209479970000
+      },
+      "timed_calls": [
+        {
+          "stage": "slang_generation_identity",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.145440125
+        },
+        {
+          "stage": "slang_compiler",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 1.278374083
+        },
+        {
+          "stage": "slang_compiler",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 1.530161166
+        },
+        {
+          "stage": "slang_reflection_plan",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.002390042
+        },
+        {
+          "stage": "slang_scope_snapshot_audit",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.013797375
+        },
+        {
+          "stage": "slang_reflection_plan",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.002106875
+        },
+        {
+          "stage": "slang_layout_assertions",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.00677575
+        },
+        {
+          "stage": "slang_scope_snapshot_audit",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.01247925
+        },
+        {
+          "stage": "slang_generation_validate_pair",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.028609041
+        },
+        {
+          "stage": "slang_generation_identity",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.12952625
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.001581875
+        },
+        {
+          "stage": "slang_generation_read_entry",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.012963709
+        },
+        {
+          "stage": "slang_reflection_plan",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.002056458
+        },
+        {
+          "stage": "slang_layout_assertions",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.007222333
+        },
+        {
+          "stage": "slang_scope_snapshot_audit",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.011954542
+        },
+        {
+          "stage": "slang_generation_validate_pair",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.027702333
+        },
+        {
+          "stage": "slang_generation_identity",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.12915975
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.00066575
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.000263334
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.000571458
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.0002535
+        },
+        {
+          "stage": "slang_generation_atomic",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.000179459
+        },
+        {
+          "stage": "slang_build",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 3.367705792
+        },
+        {
+          "stage": "slang_reflection_plan",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.002092208
+        },
+        {
+          "stage": "slang_layout_assertions",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.006931542
+        },
+        {
+          "stage": "slang_scope_snapshot_audit",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.011640875
+        },
+        {
+          "stage": "slang_generation_validate_pair",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.02697575
+        },
+        {
+          "stage": "slang_reflection_plan",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 0.002077
+        },
+        {
+          "stage": "shared_gpu_execute",
+          "pid": 76983,
+          "state": "returned",
+          "elapsed_seconds": 22.535174458
+        }
+      ],
+      "timing_scope": "Observed function time excludes its own entry/exit journal writes; nested calls overlap; incomplete calls have no duration; legacy journals may have none",
+      "nvrtc_compile_returned_success": false,
+      "cuda_compile_cache_hit_verified": false,
+      "cuda_linked_artifact_observed": false,
+      "cuda_launch_returned_success": false,
+      "cuda_synchronize_returned_success": false,
+      "cuda_readback_returned_success": false,
+      "scope": "Observed API returns only; full output verification requires the shared suite report"
+    },
+    "gpu_retries": 0,
+    "audit_gpu_calls": 0
+  },
+  "independent_seal": {
+    "path": "seal-v1.json",
+    "sha256": "4f847e5949a54b0e34a604dc801a1ff53c3392b381ef3e589dc0e1d74ebaa4d5",
+    "receipt": {
+      "package_id": "34731001ae882db6c104f373ce0fc94f6693ed86482bd5f904c77173fe5ed05e",
+      "capture": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-manual-cover-routing-v1-20261101/cli-run-v1",
+      "child_pid": 77028,
+      "input_count": 1,
+      "native_cases": 1,
+      "live_parent_receipt_present": false,
+      "elapsed_seconds": 1.4931226249900647,
+      "gpu_calls": 0,
+      "calculation_verified": true,
+      "input_sha256": "d60bf71a008bd1601d8af5bc083f6ffcc61c3f8e537954dbcb04d5ea3282e85d",
+      "output_sha256": "ad5208a7613d552c13172bc1be00f7c02c981732afb7c24a0d93b6e2e1728fa4",
+      "scope": "One fresh GPU-forbidden child audit; native_cases counts compared domains, not instrumented function calls",
+      "schema": "independent-metal-audit-v1"
+    },
+    "old_input_output_and_entries_unchanged": true,
+    "registered_baseline_updated": false
+  },
+  "initial_sealed_package_stop": {
+    "reason": "Golden GPU source closure is stale",
+    "gpu_calls": 0,
+    "archive_created": false,
+    "action": "Used existing development package/run/fresh seal; did not rewrite old baseline"
+  },
+  "api_rows": [
+    {
+      "index": 0,
+      "variant": "single",
+      "mode": "fixed",
+      "duration": 30,
+      "squad": [
+        "미란다",
+        "도라",
+        "N102",
+        "메어리",
+        "드레이크"
+      ],
+      "manual_cover_sequences": {
+        "미란다": [
+          {
+            "action": "cover",
+            "t": 0.5,
+            "duration": 0.25
+          }
+        ]
+      },
+      "total_damage": 109735735,
+      "compute": {
+        "requested": "metal_detail",
+        "backend": "metal_detail",
+        "capture_id": "92ec0d8772e1424b890f728e62c148d4",
+        "device": "Apple M5",
+        "elapsed_ms": 2916.8608749751,
+        "gpu_execution_verified": true,
+        "input_sha256": "5c7a2c60149d851d319e27d151397f6c5462fac68b3c5b123a657bac3c2c149e",
+        "output_sha256": "6ff4c320519ef3b0159c45784daef52d31c0387a52d2fe7f04388e7e9062df54",
+        "source": "gpu/product_cover_fixed_battle_entry.slang",
+        "scope": "shared autonomous battle; CPU verified for this request",
+        "gpu_seconds": 1.831951750034932,
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        }
+      },
+      "api_result_sha256": "469aa3759bb8748505f862b425f3e08e66894b9ab2f54dbd334e7fd38b998397",
+      "saved_independent_audit": {
+        "index": 0,
+        "profile": "미란다",
+        "favorite_stage": 0,
+        "capture": "92ec0d8772e1424b890f728e62c148d4",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      }
+    },
+    {
+      "index": 1,
+      "variant": "single",
+      "mode": "accumulate",
+      "duration": 30,
+      "squad": [
+        "미란다",
+        "도라",
+        "N102",
+        "메어리",
+        "드레이크"
+      ],
+      "manual_cover_sequences": {
+        "미란다": [
+          {
+            "action": "cover",
+            "t": 0.5,
+            "duration": 0.25
+          }
+        ]
+      },
+      "total_damage": 109744139,
+      "compute": {
+        "requested": "metal_detail",
+        "backend": "metal_detail",
+        "capture_id": "9b1d0fae7dbf4df3a66b5f70fdfd255e",
+        "device": "Apple M5",
+        "elapsed_ms": 15830.048874951899,
+        "gpu_execution_verified": true,
+        "input_sha256": "4fb7d54ad812681197dea39c8237f3e62a9ccf72a3a33610d90b295bbd49a015",
+        "output_sha256": "f2d8315c886a1c7f646f6f2d10800688c117c32d9d99c0026ea5e7ee1627d740",
+        "source": "gpu/product_cover_battle_entry.slang",
+        "scope": "shared autonomous battle; CPU verified for this request",
+        "gpu_seconds": 1.8353976666694507,
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        }
+      },
+      "api_result_sha256": "35be462e77457442c309270ea8e72c741090a75c79cb96332a5bd0e22b234d60",
+      "saved_independent_audit": {
+        "index": 1,
+        "profile": "미란다",
+        "favorite_stage": 0,
+        "capture": "9b1d0fae7dbf4df3a66b5f70fdfd255e",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      }
+    },
+    {
+      "index": 2,
+      "variant": "all-at-zero",
+      "mode": "fixed",
+      "duration": 30,
+      "squad": [
+        "미란다",
+        "도라",
+        "N102",
+        "메어리",
+        "드레이크"
+      ],
+      "manual_cover_sequences": {
+        "미란다": [
+          {
+            "action": "cover",
+            "t": 0,
+            "duration": 1
+          },
+          {
+            "action": "cover",
+            "t": 4,
+            "duration": 0.5
+          }
+        ],
+        "도라": [
+          {
+            "action": "cover",
+            "t": 0,
+            "duration": 1
+          },
+          {
+            "action": "cover",
+            "t": 4,
+            "duration": 0.5
+          }
+        ],
+        "N102": [
+          {
+            "action": "cover",
+            "t": 0,
+            "duration": 1
+          },
+          {
+            "action": "cover",
+            "t": 4,
+            "duration": 0.5
+          }
+        ],
+        "메어리": [
+          {
+            "action": "cover",
+            "t": 0,
+            "duration": 1
+          },
+          {
+            "action": "cover",
+            "t": 4,
+            "duration": 0.5
+          }
+        ],
+        "드레이크": [
+          {
+            "action": "cover",
+            "t": 0,
+            "duration": 1
+          },
+          {
+            "action": "cover",
+            "t": 4,
+            "duration": 0.5
+          }
+        ]
+      },
+      "total_damage": 108160426,
+      "compute": {
+        "requested": "metal_detail",
+        "backend": "metal_detail",
+        "capture_id": "645d65bc470e48e18b228aeb8131bf9e",
+        "device": "Apple M5",
+        "elapsed_ms": 2717.260749952402,
+        "gpu_execution_verified": true,
+        "input_sha256": "2fcd6e26b4ecc49e97249e544645c18535718b76406dfb74d0d8d83888b88e49",
+        "output_sha256": "2674e8854b9e19040349ab3a743541ee6c87a008391a46d7d195867ee141538f",
+        "source": "gpu/product_cover_fixed_battle_entry.slang",
+        "scope": "shared autonomous battle; CPU verified for this request",
+        "gpu_seconds": 1.808056125009898,
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        }
+      },
+      "api_result_sha256": "4e54483fa29cded30eaef564b9b08870bf23ef6e8b1f93244359a43d2adaad60",
+      "saved_independent_audit": {
+        "index": 2,
+        "profile": "미란다",
+        "favorite_stage": 0,
+        "capture": "645d65bc470e48e18b228aeb8131bf9e",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      }
+    },
+    {
+      "index": 3,
+      "variant": "drake",
+      "mode": "fixed",
+      "duration": 30,
+      "squad": [
+        "미란다",
+        "도라",
+        "N102",
+        "메어리",
+        "드레이크"
+      ],
+      "manual_cover_sequences": {
+        "드레이크": [
+          {
+            "action": "cover",
+            "t": 1,
+            "duration": 2
+          }
+        ]
+      },
+      "total_damage": 108529484,
+      "compute": {
+        "requested": "metal_detail",
+        "backend": "metal_detail",
+        "capture_id": "6fdf5658f7f5495f9da81ad9b150745e",
+        "device": "Apple M5",
+        "elapsed_ms": 2753.2617910183035,
+        "gpu_execution_verified": true,
+        "input_sha256": "989382c6349f35c5e452085b79785defc41ec92e7c631e7eb6f59511637d4211",
+        "output_sha256": "ac03aaa448c6070e13fe1ba5ad6e7725882d9ca28241661aabae4e1c6be563b7",
+        "source": "gpu/product_cover_fixed_battle_entry.slang",
+        "scope": "shared autonomous battle; CPU verified for this request",
+        "gpu_seconds": 1.8376490416703746,
+        "cpu_verification": {
+          "matched": true,
+          "differing_fields": []
+        }
+      },
+      "api_result_sha256": "7e918da0a5c591c67a3a9a3ad0fc7bd7553fe41b06dd8479f15b67a09ebed1c9",
+      "saved_independent_audit": {
+        "index": 3,
+        "profile": "미란다",
+        "favorite_stage": 0,
+        "capture": "6fdf5658f7f5495f9da81ad9b150745e",
+        "backend": "metal_detail",
+        "api_cache_hit": false,
+        "raw_hashes_verified": true,
+        "static_input_exact": true,
+        "current_source_exact": true,
+        "reprojected_raw_matches_cpu_gpu_api": true
+      }
+    }
+  ],
+  "coverage": {
+    "last_full_standard_metal_profiles": 262,
+    "standard_total": 266,
+    "last_verified_standard_cuda_profiles": 1,
+    "new_standard_profiles": 0,
+    "additional_manual_control_api_conditions": 4,
+    "goal_complete": false
+  },
+  "negative_contract": "Authored incoming attack without declared independent cover bases rejected before dispatch; unsupported combined wires retain reasoned fallback",
+  "windows": {
+    "new_gpu_calls": 0,
+    "new_compile_calls": 0,
+    "reason": "No shader change; matching cover artifact not currently verified for these requests; no CUDA claim"
+  },
+  "storage": {
+    "raw_buffers": "Retained only in persistent proof directory, excluded from GitHub payload",
+    "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-manual-cover-routing-v1-20261101"
+  },
+  "cleanup": {
+    "coordinator_terminal": true,
+    "owned_server_session": 58143,
+    "owned_server_exit_code": 130,
+    "user_servers_modified": false
+  },
+  "remaining": [
+    "Four standard profiles still require explicit geometry/policy models",
+    "Manual cover combined with group/target/healing/ammo/weighted/coordinate sources needs matching consumer composition",
+    "CUDA product profile coverage is still 1/266"
+  ]
+}

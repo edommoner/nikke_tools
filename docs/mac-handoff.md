@@ -1,3 +1,13 @@
+## 2026-11-01 通常キャラの手動遮蔽を既存共通GPU入口へ接続
+
+前turnは保存CUDA標準Mirandaの全CPU/M5一致を取得・共有した進捗。今回はsource13634eb5で、cover_def_pct効果のない通常キャラの明示manual_cover_sequencesも既存cover consumerへ振り分ける。新shader/数値演算/CPU正本/suite追加0。敵攻撃があるのに独立DEF指定がない場合、また既存group/target等の未接続合成は理由付きCPU切替を維持する。共通CPU回帰113検査成功。
+
+既存default-cover-fixedのsealed梱包は歴史goldenのsource closureが古く事前拒否（GPU0、archiveなし）。不変development packet34731001…でown CPU/native/実M5 run/fresh GPU禁止seal成功。旧default-cover-fixedのinput/output/全entries不変。歴史goldenを書き換えず、新sealをresearch/product-manual-cover-routing-v1-seal.jsonへ保持。現registry member更新は未実施。
+
+同packetの通常HTTP/port4405で元Miranda/Dora/N102/Mary/Drake編成の30秒を、固定単独/実蓄積単独/固定全員t0/固定Drakeの4条件で実M5実行。CPU全製品payload一致、入力/raw/source/再投影/保存CPU/APIの独立監査も一致（追加GPU/native0）。coordinator45689、CLI6581、seal62758はterminal、専用server58143停止exit130。常用4317/4327不操作。Windows追加コンパイル/GPU0、当条件のCUDA実証とはしない。
+
+標準全件Metal262/266、標準CUDA1/266を保持し、新profile加算0。追加は通常操作4条件。全goal未完了、未対応4profile・効果合成・CUDA製品対象拡大が残る。小記録research/product-manual-cover-routing-v1.json、raw/proofはproofs/product-manual-cover-routing-v1-20261101。以下は履歴。
+
 ## 2026-11-01 標準Miranda30秒が実CUDA/Metal/CPU全一致
 
 進捗あり。sourcea4663e47/owner1ea8f311…の保存CUBINで、元catalogueのMiranda/favorite0/既定育成/cubeなし/元5人順/30秒の通常HTTPを1回実行し、実RTX3070Ti/CPU全製品payload一致。input87da1e27…（417,604bytes）、全readbackb1dee8d9…（3,145,728bytes）が同じ新通常sourceの実M5標準sweep15と同一。damage109,909,882。これはCLI demoの別順編成や4秒への短縮ではない。標準CUDA30秒の製品profileは新たに1/266（Miranda）を確認、他profileへ加算しない。Metal標準の最新全件確認262/266、今回影響245/245を再確認済み、新Metal profile0。全goal未完了。
