@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "package_id": "993ad38cde858c913291c4a3cb892c5ad241f643ad761b1821181ced9fa3aba3",
+  "source_commit": "31082f06381c41eaa5b8a11962beacc6b2a2024b",
+  "archive": "removal-snapshot-fixed-v1.zip",
+  "archive_bytes": 12021454,
+  "archive_sha256": "97c2dcbc71bcb8ad358db84acadff738e4c4f92e47751dd8800af7f1c07f1c48",
+  "request_file": "removal-snapshot-fixed-api-v1.json",
+  "request_sha256": "b4ea67d11bb72a068b43ce37836e9d6c0d98e9d513bb9f9501751581ae766971",
+  "ptx_compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "993ad38cde858c913291c4a3cb892c5ad241f643ad761b1821181ced9fa3aba3",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false"
+    ],
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "old_failure_retained": true,
+  "source_cause": "Old generated CUDA had removalCount > removalCount; current emitted CUDA and Metal both compare against an outlined scalar pre-mutation snapshot. Guard rejects bad comparisons even on cache hit.",
+  "expected_values_changed": false
+}
