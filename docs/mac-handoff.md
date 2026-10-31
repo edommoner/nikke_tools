@@ -1,3 +1,15 @@
+## 2026-11-01 CUDA前CPU一括予算の停止を特定、Claude再レビューと既存分割計画
+
+前turnはWindows観測modeの実証と事前alias拒否で進捗。今回wait/readが復旧し、9a0e77eeのv3最終statusと保存CPU内訳を取得。archive/immutable/owner＋展開成功、missing0/Job2GiB実測。ただしCPU1childへdevice-linker15＋own129を一括した60秒予算が61.993秒で停止。完了receiptはlinker15(9.445秒)、detail67(9.106秒)、packet10(2.848秒)、歴史7(3.491秒)の99件。reference45は35dotのみ/最終receiptなし。35件を合格部分集合へ昇格しない。Job peak206,557,184bytes≒197MiBで2GiB未達、全OSメモリ不足を否定する証拠ではない。Slang/NVRTC/PTXAS/link/driver/GPU/HTTP0、原claim/1540旧records保持。
+
+CPU前後では14identity(10unrelated/4service_candidate)消失を検出、原因unknown/serviceunverified/preservationfalse。SDKへ継続せず同run再送なし。af5a4797の独立読み取りCPU診断は該当UTC窓±30秒の既存System ResourceExhaustion2004/ApplicationError1000/WER1001を各1query/20秒/最大64件で取得し、取得失敗ではなく全no_events。メモリ不足無し・外部kill無し・validationがkillした、いずれも断定しない。保存parent集計は11parent/最大同parent4/parentもmissing4、parent作成時刻なしで因果証拠にはしない。新processsnapshot/設定変更/SDK/GPU0。
+
+Claude Code Reviewerへ関連抜粋と匿名化事実25,836bytesだけを隔離repoからsafe-mode/plan/tools無効/max-turn1で渡した。raw出力はprivate proof。出力の疑似Write/ExitPlanMode/停止指示文字列は実行・権限判断に使用0。指摘は正本で検証。一括CPU予算枯渇は確認、最終group所要時間や36番目がハングという推定は未確認。既存case_planで旧ownerde7のreference45件を5件ずつ9group＋他3groupへ分割し、全IDの順序/欠落0/重複0をMacでdiscoveryだけ確認。テスト/fixture/SDK/GPU/claim消費0。旧非staged receiptを新transactionのclaim/resultへ偽装せず、全元検査を要求する。新suite/分割ツール追加0、時間制限延長0。
+
+レビュー中に実行器の実不具合2件を修正：(1) after_wait観測失敗時もexit0ならpassedになる条件へobservation_errorなしを追加。(2) Windows Job空判定を返却PID数だけで判定せず、query成功＋割当数0＋返却数0を要求。Microsoft JOBOBJECT_BASIC_PROCESS_ID_LIST仕様で確認、ERROR_MORE_DATA/assigned65/returned0のCPU故障注入で早期空判定を拒否。既存cleanup7成功/実WindowsJob1skip、observer11＋packetstage44成功。実Windows再試行なし、数値/shader/CPU正本変更0。子の割当前escape/pipe-holding孫のリスクは一般論で、今回の14消失や180秒hangの実証ではないため追加大改造はしない。
+
+小記録research/product-windows-cpu-stage-review-v1.json、原本proofs/windows-cpu-stage-review-v1-20261101。標準Metal262/266、CUDA旧厳格3/266・現source0、新profile0、全goal未完了。次は既存分割経路を正しく使う新controllerと、別に14消失の切り分け。元v3の再試行やclaim書換えで継続しない。以下は履歴。
+
 ## 2026-11-01 Windows観測のアクセス拒否を特定、正規実行modeで観測成功
 
 前turnはnamed-range＋coverの実M5通常5件一致で進捗。今回85fe12d6の独立CPU診断を取得し、operation1/type1/native_code2=Win32_Process列挙のCimException ACCESS_DENIED、permissionmodeuse_defaultと判明。Microsoft MI_Result文書でdomainとcodeを確認。これはメモリ不足・compiler failure・過去7消失を示す証拠ではない。

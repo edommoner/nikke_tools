@@ -78,14 +78,15 @@ class WindowsJob:
             raise C.WinError(C.get_last_error())
         if getattr(self, 'assigned', True):
             self.process.wait(timeout=max(.001, deadline-time.monotonic()))
-        # Query the process-list header; ERROR_MORE_DATA still returns a count.
+        # A truncated list is not an empty Job. Require a successful query
+        # with zero assigned processes and zero returned IDs.
         while True:
             buffer = C.create_string_buffer(8+64*C.sizeof(C.c_size_t))
             returned = C.c_ulong()
             success = self.dll.QueryInformationJobObject(self.handle, 3, buffer, len(buffer), C.byref(returned))
             if not success and C.get_last_error()!=234:
                 raise C.WinError(C.get_last_error())
-            if int.from_bytes(buffer.raw[4:8], 'little')==0:
+            if success and int.from_bytes(buffer.raw[:4], 'little')==0 and int.from_bytes(buffer.raw[4:8], 'little')==0:
                 self.termination_waited = True
                 return
             if time.monotonic()>=deadline:
@@ -170,7 +171,7 @@ def run_bounded(command, folder, timeout, *, cwd=None, env=None, before_gate=Non
                     except BaseException as error:
                         observation_error = type(error).__name__+': '+str(error)
                         observation_error_diagnostic = snapshot_error_diagnostic(error)
-    facts = dict(passed=not timed_out and failure is None and cleanup_error is None and child_code == 0,
+    facts = dict(passed=not timed_out and failure is None and cleanup_error is None and observation_error is None and child_code == 0,
                  timed_out=timed_out, timeout_seconds=timeout, elapsed_seconds=time.perf_counter()-started,
                  child_exit_code=child_code, final_child_exit_code=process.poll() if process is not None else None,
                  error=failure, cleanup_error=cleanup_error, cleanup_wait_seconds=5,

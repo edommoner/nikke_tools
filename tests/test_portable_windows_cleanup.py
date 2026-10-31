@@ -37,6 +37,17 @@ class WindowsCleanupTests(unittest.TestCase):
         self.assertEqual(facts['error_diagnostic']['native_code'],7)
         self.assertNotIn('SECRET',json.dumps(facts));self.assertIsNone(facts['cleanup_error'])
 
+    def test_zero_child_exit_with_failed_after_snapshot_never_passes(self):
+        from windows_validation_observer import SnapshotFailure
+        def after():raise SnapshotFailure('Windows process snapshot unavailable; no command lines retained',dict(operation=1,type_id=1,native_code=2))
+        process=types.SimpleNamespace(pid=123,poll=lambda:0,wait=lambda **kw:0)
+        with tempfile.TemporaryDirectory() as folder, patch.object(bounded.subprocess,'Popen',return_value=process), patch.object(bounded,'os',types.SimpleNamespace(name='posix',killpg=lambda *args:None)):
+            facts=bounded.run_bounded(['unused'],Path(folder),60,after_wait=after)
+        self.assertEqual(facts['child_exit_code'],0)
+        self.assertFalse(facts['passed']);self.assertIsNotNone(facts['observation_error'])
+        self.assertEqual(facts['observation_error_diagnostic']['native_code'],2)
+        self.assertIsNone(facts['error']);self.assertIsNone(facts['cleanup_error'])
+
     def test_ordinary_errors_do_not_acquire_snapshot_diagnostics(self):
         self.assertIsNone(bounded.snapshot_error_diagnostic(RuntimeError('SECRET')))
 
@@ -49,7 +60,7 @@ class WindowsCleanupTests(unittest.TestCase):
         events=[];remaining=iter(counts)
         def terminate(handle,code):events.append('terminate');return True
         def query(handle,kind,buffer,size,out):
-            events.append('query');struct.pack_into('<II',buffer,0,1,next(remaining));return True
+            events.append('query');count=next(remaining);struct.pack_into('<II',buffer,0,count,count);return True
         def wait(timeout):
             self.assertEqual(events[0],'terminate');self.assertGreater(timeout,0);self.assertLessEqual(timeout,5)
             events.append('wait')
@@ -65,6 +76,16 @@ class WindowsCleanupTests(unittest.TestCase):
         job,events=self.job((2,0));job.terminate_and_wait();self.assertTrue(job.termination_waited)
         self.assertEqual(events,['terminate','wait','query','query'])
         job.close();job.close();self.assertEqual(events[-1],'close');self.assertEqual(events.count('terminate'),1)
+
+    def test_truncated_zero_returned_pid_list_is_not_an_empty_job(self):
+        job,events=self.job();rows=iter([(65,0,False),(0,0,True)])
+        def query(handle,kind,buffer,size,out):
+            events.append('query');assigned,listed,success=next(rows)
+            struct.pack_into('<II',buffer,0,assigned,listed);return success
+        job.dll.QueryInformationJobObject=query
+        with patch.object(bounded.C,'get_last_error',return_value=234,create=True):job.close()
+        self.assertTrue(job.termination_waited)
+        self.assertEqual(events,['terminate','wait','query','query','close'])
 
     def test_child_wait_timeout_closes_job_without_starting_a_second_cleanup_budget(self):
         job,events=self.job(wait_error=subprocess.TimeoutExpired('child',5))
