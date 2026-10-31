@@ -1,0 +1,84 @@
+{
+  "schema": "movement-cover-fixed-snapshot-permission-v2",
+  "scope": "One independently authorized CPU snapshot-check through the normal require_escalated approval path; no automatic compiler continuation.",
+  "permission": {
+    "mode": "require_escalated",
+    "approval_denied": false,
+    "uac_or_windows_administrator_elevation_performed": false,
+    "acl_wmi_service_settings_changed": false
+  },
+  "prior_default_permission_diagnostic_commit": "85fe12d60221324cfe04914745e0079369e01817",
+  "original_compile_stop_commit": "150049a7442b5b383e9dd66ebb3e72c60dc9de35",
+  "static_preflight": {
+    "finite_diagnostic_version_verified": true,
+    "exclusive_report_before_query_verified": true,
+    "used_sources_sha256": {
+      "app/portable_windows_snapshot.py": "9548b945e77f6c327315c33ea5e805450ab7d4e07c07ddc752f8ce9feb7a364a",
+      "research/windows_validation_observer.py": "97d7405ff8771cf413f5e58c14ebea98037afb8a3691417d12e7b21d2d45fdd3",
+      "scripts/nikke_gpu.py": "d27d467b7c3380cfeb76f7cd8b5827b3e157ea775058fe1b412fc240bff47a33",
+      "research/run-world-bounded.py": "10ef875f8157d85b44ecc28e868c2cc95330eb9b4c59ad22723840533fa8074c"
+    }
+  },
+  "snapshot": {
+    "query_attempts": 1,
+    "retries": 0,
+    "exclusive_report_created": true,
+    "snapshot_verified": true,
+    "error_type": null,
+    "finite_failure_codes": null,
+    "elapsed_seconds": 2.47781870001927,
+    "service_status": "unverified",
+    "uncertain_process_count": 8
+  },
+  "job_and_exit": {
+    "below_normal_priority": true,
+    "child_timeout_seconds": 30,
+    "outer_budget_seconds": 180,
+    "configured_memory_limit_mb": 2048,
+    "start_gate_released": true,
+    "job_count": 1,
+    "pre_gate_verified": true,
+    "post_wait_job_empty": true,
+    "inspection_error_present": false,
+    "child_exit_code": 0,
+    "wrapper_exit_code": 0,
+    "timed_out": false,
+    "cleanup_error": null,
+    "observation_error": null,
+    "elapsed_seconds": 2.800036400090903,
+    "saved_job_limit_observations": [
+      {
+        "pre_gate_limit_bytes": 2147483648,
+        "post_wait_limit_bytes": 2147483648,
+        "post_wait_peak_memory_bytes": 168448000
+      }
+    ],
+    "limit_query_complete": true
+  },
+  "claims": {
+    "before_after_environment_preservation_verified": false,
+    "calculation_verified": false,
+    "cuda_verified": false,
+    "missing_process_count": null,
+    "original_failed_claims_modified": false,
+    "original_files_checked_unchanged": 28,
+    "same_cause_as_prior_seven_missing_processes": "not_established"
+  },
+  "actual_calls": {
+    "snapshot_check": 1,
+    "unpack": 0,
+    "sdk": 0,
+    "slang": 0,
+    "compile": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "http": 0
+  },
+  "privacy": {
+    "full_process_list_shared": false,
+    "arbitrary_exception_messages_shared": false,
+    "commands_shared": false
+  },
+  "next_action": "Stopped after this single CPU diagnostic; no automatic follow-up or compilation."
+}
