@@ -46,3 +46,33 @@ test('session round trip keeps per-team models isolated and supports older sessi
  roundTrip[0].reference_models.lock_on.owner='new';assert.equal(imported[0].reference_models.lock_on.owner,'a');assert.equal(roundTrip[3].reference_models.named_range.rules[0].base_count,2);
  for(const invalid of [[],null,{'5':{}},{'-1':{}},{'01':{}},{'0':{profile:{}}}])assert.throws(()=>normalizeDeclaredTeams(invalid));
 });
+
+test('manual cover declarations survive request and session projection without changing another team',()=>{
+ const original={squad:['a','b','c','d','e'],profile:{chars:{a:{level:400}}},enemy:{def:1000},duration:30};
+ const declaration={reference_models:{cover_defense:[{name:'a',base_defense:1000}]},manual_cover_sequences:{a:[{action:'cover',t:7.4,duration:.25}]}};
+ const authored=structuredClone(declaration),result=applyDeclaredScenario(original,declaration);
+ assert.deepEqual(result.manual_cover_sequences,authored.manual_cover_sequences);
+ assert.deepEqual(result.profile,original.profile);assert.equal(result.duration,30);
+ assert.equal(declaredScenarioLabel(declaration),'遮蔽DEF・手動遮蔽');
+ const restored=normalizeDeclaredTeams(JSON.parse(JSON.stringify({'0':declaration,'2':{reference_models:{lock_on:{owner:'c'}}}})));
+ assert.deepEqual(restored[0],authored);assert.equal(restored[2].manual_cover_sequences,undefined);
+ result.manual_cover_sequences.a[0].t=8;restored[0].manual_cover_sequences.a[0].duration=1;
+ assert.deepEqual(declaration,authored);assert.equal(original.manual_cover_sequences,undefined);
+ assert.throws(()=>applyDeclaredScenario({...original,squad:['b','c','d','e','f']},declaration),/現在の部隊/);
+});
+test('manual cover import rejects invalid literals instead of discarding them',()=>{
+ const models={cover_defense:[]},op={action:'cover',t:1,duration:.5};
+ const invalid=[{},[],{a:[]},{a:Array(9).fill(op)},{a:[{...op,action:'shoot'}]},{a:[{...op,t:true}]},{a:[{...op,t:-1}]},{a:[{...op,duration:181}]},{a:[{...op,duration:Infinity}]},{a:[{...op,profile:{}}]},{a:[{...op,t:2},op]},{'':[op]}];
+ for(const manual_cover_sequences of invalid)assert.throws(()=>normalizeDeclaredScenario({reference_models:models,manual_cover_sequences}));
+ assert.throws(()=>normalizeDeclaredScenario({manual_cover_sequences:{a:[op]}}));
+ assert.deepEqual(normalizeDeclaredScenario({reference_models:models,manual_cover_sequences:{a:[op]}}).manual_cover_sequences,{a:[op]});
+});
+test('actual score and frozen baseline keys change when only manual cover timing changes',async()=>{
+ const {runInNewContext}=await import('node:vm');
+ const source=readFileSync(new URL('../web/app.js',import.meta.url),'utf8');
+ const code=source.split('\n').filter(line=>line.startsWith('function key(request)')||line.startsWith('const battleKey=')).join('\n');
+ const evaluation={squad:['a'],profile:{chars:{a:{level:400}},_account:{}},patches:{},stat_deltas:{},duration:30,level:400,enemy:{def:1000},reference_models:{cover_defense:[]},manual_cover_sequences:{a:[{action:'cover',t:1,duration:.5}]}};
+ const changed=structuredClone(evaluation);changed.manual_cover_sequences.a[0].t=2;
+ const keys=runInNewContext(code+'\nrequests.map(r=>[key(r),battleKey(r)])',{requests:[evaluation,changed],merge:(a,b)=>({...a,...b})});
+ assert.notEqual(keys[0][0],keys[1][0]);assert.notEqual(keys[0][1],keys[1][1]);
+});
