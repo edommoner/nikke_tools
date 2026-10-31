@@ -204,5 +204,42 @@
     ],
     "native_battle_calls": 0,
     "gpu_calls": 0
+  },
+  "compact_v2": {
+    "package_id": "a37b8330f6e95a24dd2d2c36e47ae8552c2196ef215f9c2049c71fb5dcec6b8c",
+    "source_commit": "5f0af26cea35fa9b6227c58b29598e0007168ad5",
+    "archive_bytes": 11847063,
+    "archive_sha256": "bb6c4f8601f43a105184bbab512f1b3783a5c1f1fcad7566fd68c78ed3998267",
+    "transport_commit": "14089feb",
+    "files": 2698,
+    "omitted_python_files": 1489,
+    "added_payload_files": 0,
+    "changed_payload_files": [
+      "tests/test_weighted_source_contract.py"
+    ],
+    "entire_golden_identical": true,
+    "all_calculation_payload_identical": true,
+    "mac_own_unit_tests": 70,
+    "mac_deps_plan_sealed_generation_passed": true,
+    "mac_additional_gpu_calls": 0,
+    "mac_additional_native_calls": 0,
+    "windows_observed_state": "active CPU preparation; terminal result pending",
+    "windows_gpu_api_requested": false,
+    "peer_state_file": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-current-reload-cuda-v1-20261031/windows-compact-v2-pending.json"
+  },
+  "cuda_api_mac_references": {
+    "proof_directory": "product-current-reload-cuda-api-v1-20261031",
+    "primary_profiles": [
+      "노아",
+      "홍련 : 흑영"
+    ],
+    "conditions": 2,
+    "metal_cpu_full_payload_match": true,
+    "saved_audit_additional_gpu_native_calls": 0,
+    "noah_dot_times": [
+      3.5
+    ],
+    "scarlet_native_cancel_time": 42.79999999999885,
+    "not_cuda_proof": true
   }
 }

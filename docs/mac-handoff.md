@@ -1,3 +1,9 @@
+# 2026-10-31 compact v2はMac全70成功、Windowsの既存turnを観測する
+
+現source5f0af26cから既存CLI --compactでsealed owner a37b8330f6e95a24dd2d2c36e47ae8552c2196ef215f9c2049c71fb5dcec6b8cを作成。全2698file/11,847,063bytes/ZIP SHAbb6c4f86…。ac35の全4187fileとの検査で、新規payload0、保持内容の変更はtests/test_weighted_source_contract.pyだけ、未選択Python1489file省略。GPU全payload/CPU計算コード/golden全体は完全一致。旧unit失敗は保持。Mac packet自身のunit3群70件、deps、PTX60秒2GiB compile-plan、sealed generation必須cache hitが全成功、追加native戦闘/GPU0。原本product-current-reload-cuda-v1-20261031/compact-packet-v2とcompact-retention-v2.json。
+
+既存輸送branch codex/product-current-parts-v1-packetの14089febにZIPとmetadata2fileを共有。Mac検証済み2要求は同branch既存reload-clock-api-requests.jsonを使う。Windows既存chatへ新compactのfresh展開→own70/deps/plan/generation→成功時のみPTX/O1 object/JIT link各1回を依頼済み。各stage60秒/2GiB/BelowNormal/fresh Job、native pipeline180秒、失敗停止、旧claim再実行/上限延長0。GPU/module-load/APIは依頼していない。turn01a19034-0493-74e2-b084-3356fdace839、cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:311でactiveを確認。次はこの既存turnをwait_threadsで観測し、再送しない。host/thread/afterCursorはproof windows-compact-v2-pending.jsonに保存。成功結果やCUDA計算を先取りしない。全目標未完了。以下は履歴。
+
 # 2026-10-31 WindowsのCPU事前検査timeout、計算前の梱包/fixture IOを改善
 
 sealed owner ac35d841…（43069e74、全4187file/14,279,975bytes）を既存transport e33a67c7で共有。Mac packet own70/deps/PTX60秒2GiB plan/sealed paired cache hit成功。MacでWindows用のNoah accumulate6秒（修正DoT1tick）と紅蓮：ブラックシャドウ accumulate50秒（実取消42.8秒）を追加実Metal/CPU全payload一致、保存監査もnative/GPU追加0。原本product-current-reload-cuda-api-v1-20261031。
