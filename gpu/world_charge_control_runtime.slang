@@ -436,18 +436,10 @@ void finishChargeControl(inout Runtime s,uint who)
 #ifdef PORTABLE_PRODUCT_FIXED_BURST
 bool productFixedBurstHeader(uint p)
 {
-#ifdef PORTABLE_PRODUCT_FIXED_COORDINATE
-    uint64_t first=loadNumber(p+8),regen=loadNumber(p+10),limit=f64FromI64(180);
-    return commands[p+1]==6 && commands[p+5]<32 && (commands[p+6]<256||commands[p+6]==0xffffffffU)
-        && commands[p+7]==0x4d435631U && commands[p+12]==0x46424731U
-        && f64Finite(first) && !f64Less(first,0) && !f64Less(limit,first)
-        && f64Finite(regen) && !f64Less(regen,0) && !f64Less(limit,regen);
-#else
     uint64_t first=loadNumber(p+6),regen=loadNumber(p+8),limit=f64FromI64(180);
     return (commands[p+1]==4 || commands[p+1]==5&&commands[p+10]>0&&commands[p+10]<32) && commands[p+5]==0x46424731U
         && f64Finite(first) && !f64Less(first,0) && !f64Less(limit,first)
         && f64Finite(regen) && !f64Less(regen,0) && !f64Less(limit,regen);
-#endif
 }
 #endif
 #ifndef PORTABLE_PARTIAL_CHARGE
@@ -460,11 +452,7 @@ bool partialControlHeader(inout Runtime s,uint p) {
 }
 uint partialReservedStart(inout Runtime s,uint p) {
 #ifdef PORTABLE_PRODUCT_FIXED_BURST
-#ifdef PORTABLE_PRODUCT_FIXED_COORDINATE
-    return 13;
-#else
     return commands[p+1]==5?11:10;
-#endif
 #else
     return 5;
 #endif
@@ -488,11 +476,7 @@ bool partialControlHeader(inout Runtime s,uint p)
 }
 uint partialReservedStart(inout Runtime s,uint p) {
 #ifdef PORTABLE_PRODUCT_FIXED_BURST
-#ifdef PORTABLE_PRODUCT_FIXED_COORDINATE
-    return 13;
-#else
     return commands[p+1]==5?11:10;
-#endif
 #else
 #ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
     if(commands[p+1]==3)return 8;
@@ -503,11 +487,7 @@ uint partialReservedStart(inout Runtime s,uint p) {
 bool partialOwnerEnabled(inout Runtime s,uint who)
 { uint p=controlInput(s);
 #ifdef PORTABLE_PRODUCT_FIXED_BURST
-#ifdef PORTABLE_PRODUCT_FIXED_COORDINATE
-    return commands[p+1]==6 && (commands[p+5]&(1U<<who))!=0;
-#else
     if(commands[p+1]==5)return (commands[p+10]&(1U<<who))!=0;
-#endif
 #endif
     return (commands[p+1]==2
 #ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS

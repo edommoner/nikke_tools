@@ -19,11 +19,7 @@ void initializeCombat(inout Runtime s, uint input)
     s.lastB3Caster = 0xffffffff; s.lastB3Time = F64_SIGN | ONE; s.lastFullStart = F64_SIGN | ONE;
     s.gaugeCharging = 1; s.clockMode = commands[input+6];
 #ifdef PORTABLE_PRODUCT_FIXED_BURST
-#ifdef PORTABLE_PRODUCT_FIXED_COORDINATE
-    s.fixedGaugeReadyAt = loadNumber(input+P_WORLD_CONTROL_INPUT_BASE+8);
-#else
     s.fixedGaugeReadyAt = loadNumber(input+P_WORLD_CONTROL_INPUT_BASE+6);
-#endif
 #endif
     if (s.clockMode > 1) { s.error = 64; return; }
     s.targetCount = commands[input+4]; s.gauge = loadNumber(input+28); s.reentryDelay = loadNumber(input+30);
@@ -217,11 +213,7 @@ void burstFrame(inout Runtime s, uint64_t when, uint output)
       finishProductBurstPatternCycle(s);
 #endif
 #ifdef PORTABLE_PRODUCT_FIXED_BURST
-#ifdef PORTABLE_PRODUCT_FIXED_COORDINATE
-      s.fixedGaugeReadyAt = f64Add(when,loadNumber(s.inputBase+P_WORLD_CONTROL_INPUT_BASE+10));
-#else
       s.fixedGaugeReadyAt = f64Add(when,loadNumber(s.inputBase+P_WORLD_CONTROL_INPUT_BASE+8));
-#endif
       if (!f64Finite(s.fixedGaugeReadyAt)) { s.error=64;return; }
 #endif
 #ifdef PORTABLE_COORDINATE_AUTHORED_AIM
