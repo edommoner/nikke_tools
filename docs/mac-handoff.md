@@ -1,3 +1,17 @@
+## 2026-11-01 通常固定入口のresident frameを実M5で接続・標準再確認中
+
+進捗あり。通常fixed入口へ既存resident frameを適用。最初のv1は歴史source登録不足をCPU監査で拒否（GPU claim/実GPU0）、v2はcomposed専用のpreprocessor guardでSlang生成時拒否（claim保持/Swift・実GPU0）。原packet/全失敗/claim保持。修正版cb4f4c1dはresidentかつcomposed、または明示normal fixed/product/reloadのbuffer所有条件を要求する同じcodecを使う。異なるoutput strideのADD攻撃は既存配列方式を維持。guard/schema generator一致、既存bit/境界/全32slot/initializer5検査とsource history/packet14検査成功。CPU正本・数値演算・normalizer/tolerance変更0。
+
+v3 owner8d0ecabc…（cb4f4c1d）で自身111unit/fresh native1/M5/fresh GPU禁止seal成功。旧fixedのinput/output/全entriesを保持、v18でfixedだけ更新し他16memberは歴史のまま保持（現source再認定とはしない）。異なる30秒/4秒を単一dispatch2caseとして実M5で実行し、それぞれの全raw byteが元の照合済み保存値と一致。second caseの現CPU全payloadも独立で1回照合、追加GPU0。two-case本実行中のnative0と後段native1を区別する。Runtime stride167680byte（frame4096byte）。過去のCPU expectation引継ぎ自体はCLIで成功したが、history/codecを修正した最終版はnative契約を0.218秒で再固定し、input/native SHA保持を確認。元期待値の数値追従なし。
+
+sealed source7de4a2f0/ownere398f263…、自身111unit/fresh native1/GPU0、PTX60秒/2GiB/split2 plan成功。輸送192fe653 normal-resident-fixed-v1.zip約12MBを共有、a8c750cbで標準Miranda30秒の元編成/育成/要求JSONだけ追加。標準245profileが当入口へ影響するため、同じ元30秒要求を16件ずつ通常HTTPで逐次実行中。現在115/245が実M5/CPU全応答・旧input/全readback SHA一致、保存監査93件もsource/input/raw/全CPU/GPU/API再投影一致（追加native/GPU0）。標準Miranda（sweep15、元catalogue profile0）も通過、input87da1e27…/readbackb1dee8d9…、後続CUDAはCLI demo順ではなくこの元要求を使う。
+
+Mac coordinator session68588、server64797/port4404はliveとして開始済み、完了を見て同じhandleを確認し、再送しない。proof root product-normal-resident-v1-20261101、progress.json/current.json/各resultに回収情報。完了時のsaved auditは同じaudit-completed.pyを再実行すれば既存監査行の次からCPU-onlyで継続する。sourceはrelease-packetで不変、API処理中はpacketを編集しない。ユーザー4317/4327不操作。
+
+WindowsはZIP/allfile/owner検査とunpack自体が成功したが、元外側観測missing7/unknownで停止（85a88fe2）。CPU19/paired generation/NVRTC/PTXAS/link/driver/GPU/HTTPすべて0、jobempty/timeoutなし、preservation=false、元785record不変。展開を再送せず、保存before/after/Job graph/creation identityとsourceだけのCPU診断を依頼済み。raw process名/PID/私用パスはWindows保持、分類数と根拠の小要約 normal-resident-unpack-observation-diagnosis-v1.jsonを同じ輸送branchへ共有する依頼で、後続SDKは禁止中。元range missing7も不変。この停止を全goalのblockedとはしない。CUDA標準30秒profile新認定0、既存ユニ宣言4秒の最適化実証と区別。
+
+最後の全標準Metal sweepは262/266。今回は影響入口の再認定中で新profile加算0、全goal未完了。他入口も共通frame guardのraw sourceは変わるため、古いgolden/CUBIN ownerを現sourceへ黙って付替えない。次は245完了と保存監査、Windows診断結果を確認し、適切な未実施工程だけへ進む。小記録research/product-normal-resident-v1.json、保存Windows要約research/product-normal-resident-fixed-compile-status-v1.json。以下は履歴。
+
 ## 2026-11-01 resident frameでCUDA実メモリ低下・手動遮蔽UIを接続
 
 前turnはAPI固定遮蔽の実装・5条件Metal/CPU一致で進捗。今回はWindowsの保存結果をGitHub経由で取得、movementだけ同じ4秒通常APIを1回実行して実RTX3070Ti/CPU全payload一致、全readback SHA b1c1e77e…はM5保存8,128,000bytesと同一。新source ownerbc57f0d3…、capture26d72a73…、CUBIN c5216731…（6,816,912bytes）。damage15,425,927、burstI3/II3.1/III3.2/full3.583。新生成/NVRTC/PTXAS/link0、POST/kernel/sync/readback各1、retry0。初回/再利用/最終全file gate1/4/1保持、Job23.699秒/HTTP17.990秒、missing0/timeoutなし/Job空/ownedserver停止。元713record不変。Windows原rawはMac未取得、peer summaryとMac実rawの独立照合である。

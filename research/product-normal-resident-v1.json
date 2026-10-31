@@ -48,20 +48,70 @@
   },
   "ordinary_api": {
     "planned_impacted_profiles": 245,
-    "completed": 0,
+    "completed": 115,
     "batch_size": 16,
     "runner": "run-api-batches.py",
     "saved_auditor": "audit-completed.py",
-    "same_old_requests": true
+    "same_old_requests": true,
+    "saved_audited": 93,
+    "all_completed_full_cpu_payload_match": true,
+    "all_completed_input_output_hashes_unchanged": true,
+    "process_session": 68588,
+    "owned_server_session": 64797,
+    "owned_server_port": 4404,
+    "terminal": false
   },
   "cuda": {
-    "verification_requested": false,
-    "standard_30s_profiles": 0
+    "verification_requested": true,
+    "standard_30s_profiles": 0,
+    "compile_status": "stopped after verified unpack with missing7, before CPU/SDK/driver/GPU; diagnostic only requested",
+    "saved_report": "research/product-normal-resident-fixed-compile-status-v1.json",
+    "saved_report_sha256": "886a1c2647be6ee5afc658124997b9dc9f725d7141451cdfa278593dc3bf6482",
+    "saved_report_commit": "85a88fe23afa224100a7326e8a2d2a85e0abb329",
+    "preservation_verified": false,
+    "termination_cause": "unknown",
+    "SDK_calls": 0,
+    "driver_gpu_calls": 0,
+    "unpack_not_repeated": true
   },
   "coverage": {
     "last_standard_full_metal_sweep": 262,
     "total_standard_profiles": 266,
     "new_standard_profiles": 0,
     "goal_complete": false
+  },
+  "sealed_release": {
+    "source_commit": "7de4a2f0961bf7af700a2bc2ac96fbcd2d1889df",
+    "package_id": "e398f26377f9f2234548b8c55eae9c451dfdb85535d0344487cbd099ec772a58",
+    "unit_tests": 111,
+    "fresh_native_cases": 1,
+    "gpu_calls": 0,
+    "ptx_plan": {
+      "schema": "compile-plan-v1",
+      "passed": true,
+      "package_id": "e398f26377f9f2234548b8c55eae9c451dfdb85535d0344487cbd099ec772a58",
+      "suite": "product-detail",
+      "purpose": "sealed",
+      "artifact_kind": "ptx",
+      "ptxas_level": null,
+      "memory_limit_mb": 2048,
+      "timeout_seconds": 60,
+      "error": null,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false",
+        "--split-compile=2"
+      ],
+      "policy": "sealed-battle compile-only transport",
+      "gpu_calls": 0,
+      "compiler_calls": 0,
+      "claim_created": false,
+      "execution_claim_available": true,
+      "calculation_verified": false,
+      "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+    },
+    "transport_commit": "192fe653f9ca5c071b62d63ff1a4160ffb031807",
+    "subsequent_exact_standard_request_commit": "a8c750cb"
   }
 }
