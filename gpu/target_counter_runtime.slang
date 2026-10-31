@@ -112,7 +112,7 @@ void advanceTargetCounter(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
         results[at+3]=0;
         if(s.alive[slot]!=0&&s.entryOrder[slot]==results[src+1])
         {
-            uint begin=s.removalCount;queueCarrierEnd(s,slot,1);
+            uint begin = removalCountBeforeMutation(s);queueCarrierEnd(s,slot,1);
             if(s.error==0&&s.removalCount>begin) pushFrame(s,frames,depth,9,0,0,int(begin),f.time);
         }
     }

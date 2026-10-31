@@ -660,7 +660,7 @@
     },
     "gpu/dispatch_phases.slang": {
       "before_sha256": "7eb76874e084585b7bcda36a884acecfc4ef78cbeb034020248dc44a3baabc00",
-      "after_sha256": "f7dddc214a61bc9bb5d599b0fdc58863b60676b62202e398bfaa64dc1114972c",
+      "after_sha256": "7636a3b84dfd79bc8b1b64bcacdb4edc60883c0892b2273897544b93d149f682",
       "hunks": [
         {
           "start": 8080,
@@ -717,14 +717,44 @@
           "after": ")"
         },
         {
-          "start": 36214,
-          "end": 36277,
+          "start": 26935,
+          "end": 26936,
+          "before": "",
+          "after": " "
+        },
+        {
+          "start": 26937,
+          "end": 26938,
+          "before": "s.",
+          "after": " "
+        },
+        {
+          "start": 26950,
+          "end": 26967,
+          "before": "",
+          "after": "BeforeMutation(s)"
+        },
+        {
+          "start": 27353,
+          "end": 27353,
+          "before": "s.",
+          "after": ""
+        },
+        {
+          "start": 27365,
+          "end": 27382,
+          "before": "",
+          "after": "BeforeMutation(s)"
+        },
+        {
+          "start": 36246,
+          "end": 36309,
           "before": "",
           "after": "f.mode==19&&d.owner==5) recipientOrder=f.value>>32;\n        if("
         },
         {
-          "start": 39067,
-          "end": 39089,
+          "start": 39099,
+          "end": 39121,
           "before": "",
           "after": " && d.stat!=S_boss_dot"
         }
@@ -1098,11 +1128,17 @@
     },
     "gpu/carrier_runtime.slang": {
       "before_sha256": "ef7289c11034c0b25a1574d8bf4de40c5fca467500f8cf3027f0ff77208865e5",
-      "after_sha256": "adfab37e9a391403e5e3adcdef3fcef36302ff9f04146eea42a14ad4fbc18b39",
+      "after_sha256": "65ed82255e76a4d8d90ee781b7225f599368d5fc2dc6b7c0ee353dd2f54967be",
       "hunks": [
         {
-          "start": 4832,
-          "end": 4874,
+          "start": 154,
+          "end": 468,
+          "before": "",
+          "after": "Count;\n}\n\n// Capture before an outlined helper mutates the shared Runtime. Slang's CUDA\n// lowering can otherwise substitute the post-call load for a local snapshot,\n// turning removalCount > begin into removalCount > removalCount.\n[noinline]\nuint removalCountBeforeMutation(inout Runtime s)\n{\n    return s.removal"
+        },
+        {
+          "start": 5146,
+          "end": 5188,
           "before": "",
           "after": "captureWorldBossDotReference(s,slot);\n    "
         }
@@ -1110,13 +1146,43 @@
     },
     "gpu/event_runtime.slang": {
       "before_sha256": "8f2b069a23501b3d983279748de0c4dd239f674c9d66f113c95a045ce4a47594",
-      "after_sha256": "c3ac3a0dc054c2d4ee2db814cd37108a8d7e5e640561f7991ef2dd0a6d87d78f",
+      "after_sha256": "00e18446293e302f766fa584452d96c784744e09fd999b63c7d41302f1c61dc9",
       "hunks": [
         {
           "start": 6334,
           "end": 6674,
           "before": "",
           "after": "\n#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n    uint bossDotCount,bossDotEnabled;\n    uint bossDotSlot[P_CARRIERS],bossDotEntry[P_CARRIERS],bossDotRow[P_CARRIERS],bossDotRecipients[P_CARRIERS],bossDotStack[P_CARRIERS],bossDotLive[P_CARRIERS];\n    uint64_t bossDotActivated[P_CARRIERS],bossDotNext[P_CARRIERS],bossDotExpiry[P_CARRIERS];\n#endif"
+        },
+        {
+          "start": 116406,
+          "end": 116406,
+          "before": "s.",
+          "after": ""
+        },
+        {
+          "start": 116418,
+          "end": 116435,
+          "before": "",
+          "after": "BeforeMutation(s)"
+        },
+        {
+          "start": 116919,
+          "end": 116920,
+          "before": "",
+          "after": " "
+        },
+        {
+          "start": 116921,
+          "end": 116922,
+          "before": "s.",
+          "after": " "
+        },
+        {
+          "start": 116934,
+          "end": 116951,
+          "before": "",
+          "after": "BeforeMutation(s)"
         }
       ]
     },
@@ -2137,6 +2203,90 @@
           "end": 466,
           "before": "",
           "after": " or fixed product"
+        }
+      ]
+    },
+    "gpu/target_counter_runtime.slang": {
+      "before_sha256": "59755989cbb61ff5f660bcee2dc4babc661ab2c1e7e548e4d257d86de340c558",
+      "after_sha256": "a68e2f3208eac9f9b58a8680fe2b021df94159750cfd58edf6433b465e41205c",
+      "hunks": [
+        {
+          "start": 7131,
+          "end": 7132,
+          "before": "",
+          "after": " "
+        },
+        {
+          "start": 7133,
+          "end": 7134,
+          "before": "s.",
+          "after": " "
+        },
+        {
+          "start": 7146,
+          "end": 7163,
+          "before": "",
+          "after": "BeforeMutation(s)"
+        }
+      ]
+    },
+    "gpu/bullet_consume.slang": {
+      "before_sha256": "09f5de1698225bc8b7f7945c5c9dc9645925b941da4ab9c053cd0fd01df278dd",
+      "after_sha256": "cc2ff4b43af9018244ae39c99365b30e2f3ebb6e61f2b06152554d2fad4569c9",
+      "hunks": [
+        {
+          "start": 2037,
+          "end": 2037,
+          "before": "s.",
+          "after": ""
+        },
+        {
+          "start": 2049,
+          "end": 2066,
+          "before": "",
+          "after": "BeforeMutation(s)"
+        }
+      ]
+    },
+    "gpu/protection_runtime.slang": {
+      "before_sha256": "11fd5208b6af38fbe004394b84277f33b6e6f241d744358c7c6e482e645c8f8b",
+      "after_sha256": "1783d496e663ddac52fb355c9dae779ca83aaa200dd72ef9c3a43ef9ff28cc1e",
+      "hunks": [
+        {
+          "start": 11869,
+          "end": 11870,
+          "before": "",
+          "after": " "
+        },
+        {
+          "start": 11871,
+          "end": 11872,
+          "before": "s.",
+          "after": " "
+        },
+        {
+          "start": 11884,
+          "end": 11901,
+          "before": "",
+          "after": "BeforeMutation(s)"
+        },
+        {
+          "start": 14542,
+          "end": 14543,
+          "before": "",
+          "after": " "
+        },
+        {
+          "start": 14544,
+          "end": 14545,
+          "before": "s.",
+          "after": " "
+        },
+        {
+          "start": 14557,
+          "end": 14574,
+          "before": "",
+          "after": "BeforeMutation(s)"
         }
       ]
     }

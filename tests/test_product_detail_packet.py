@@ -8,6 +8,27 @@ spec=importlib.util.spec_from_file_location('product_packet',ROOT/'research/veri
 adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
 
 class ProductPacket(unittest.TestCase):
+    def test_generated_mutation_snapshot_guard_rejects_the_saved_cuda_failure(self):
+        from portable_slang_generation import validate_counter_snapshots
+        for field in ('removalCount','carrierCount'):
+            for op in ('>','<','>=','<='):
+                with self.subTest(field=field,op=op),self.assertRaisesRegex(ValueError,'reflexive'):
+                    validate_counter_snapshots('if((_S9502->'+field+'_0) '+op+' (_S9502->'+field+'_0)) {}')
+        validate_counter_snapshots('if((_S9502->removalCount_0) > begin_4) {}')
+        validate_counter_snapshots('if((_S9502->removalCount_0) > (_S9000->removalCount_0)) {}')
+
+    def test_generated_snapshot_guard_also_checks_preexisting_cached_outputs(self):
+        import portable_slang_generation as generation
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);outputs={t:root/t for t in ('cuda','metal')}
+            for path in outputs.values():path.write_text('if((_S9502->removalCount_0) > before) {}')
+            result=(outputs,{'immutable-source':'test'})
+            with patch.object(generation,'_build_unchecked',return_value=result):
+                self.assertEqual(generation.build(root,'test','entry'),result)
+                outputs['cuda'].write_text('if((_S9502->removalCount_0) > (_S9502->removalCount_0)) {}')
+                with self.assertRaisesRegex(ValueError,'reflexive'):
+                    generation.build(root,'test','entry')
+
     def test_optional_frame_checks_keep_complete_declared_dependencies_in_product_payload(self):
         from portable_cpu_tests import AUDIT_FILES,validate_dependency_files
         included=set(self.cli().SUITES['product-detail']['support_files'])

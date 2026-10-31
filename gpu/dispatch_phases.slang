@@ -486,7 +486,7 @@ void applyDefinitionFrame(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
         }
         else if(stackOperation(d.kind))
         {
-            uint begin=s.removalCount;
+            uint begin = removalCountBeforeMutation(s);
             if(d.kind==18) initializeStack(s,row,f.target,f.time);
             else mutateStacks(s,row,recipientMask,f.time);
             if(s.error==0 && s.removalCount>begin) pushFrame(s,frames,depth,9,0,0,int(begin),f.time);
@@ -494,7 +494,7 @@ void applyDefinitionFrame(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
         else if (d.kind == 15) extendNamedResidents(s,row,recipientMask,f.time);
         else if (d.kind == 1)
         {
-            uint begin = s.removalCount;
+            uint begin = removalCountBeforeMutation(s);
             removeNamedResidents(s,row,f.target,f.time);
             if (s.removalCount > begin) pushFrame(s,frames,depth,9,0,0,int(begin),f.time);
         }

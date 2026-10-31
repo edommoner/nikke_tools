@@ -224,7 +224,7 @@ void advanceProtectionHit(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
             uint object=results[s.resourceOutput+P_PROTECTION_SELECTION_BASE+f.repeatRow];frames[depth].repeatRow++;
             if((results[protectionAddress(s,object)+22]&PROTECTION_ENDED)!=0)
             {
-                uint begin=s.removalCount;endProtectionObject(s,object);syncHealth(s,f.time);
+                uint begin = removalCountBeforeMutation(s);endProtectionObject(s,object);syncHealth(s,f.time);
                 if(s.removalCount>begin) pushFrame(s,frames,depth,9,0,0,int(begin),f.time);
             }
             return;
@@ -270,7 +270,7 @@ void advanceProtectionHit(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
             {
                 uint at=protectionAddress(s,selected)+f.owner*4;uint64_t current=protectionNumber(at),taken=smaller(current,amount);
                 storeNumber(at,larger(0,f64Add(current,taken^F64_SIGN)));storeNumber(s.resourceOutput+f.repeatPassive+10,taken);amount=0;frames[depth].healthValue=0;frames[depth].event=4;
-                if(protectionEmpty(s,selected)) { uint begin=s.removalCount;endProtectionObject(s,selected);syncHealth(s,f.time);if(s.removalCount>begin) pushFrame(s,frames,depth,9,0,0,int(begin),f.time); }
+                if(protectionEmpty(s,selected)) { uint begin = removalCountBeforeMutation(s);endProtectionObject(s,selected);syncHealth(s,f.time);if(s.removalCount>begin) pushFrame(s,frames,depth,9,0,0,int(begin),f.time); }
                 return;
             }
         }

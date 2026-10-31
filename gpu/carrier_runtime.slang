@@ -5,6 +5,15 @@ uint carrierCountBeforeAllocate(inout Runtime s)
     return s.carrierCount;
 }
 
+// Capture before an outlined helper mutates the shared Runtime. Slang's CUDA
+// lowering can otherwise substitute the post-call load for a local snapshot,
+// turning removalCount > begin into removalCount > removalCount.
+[noinline]
+uint removalCountBeforeMutation(inout Runtime s)
+{
+    return s.removalCount;
+}
+
 // Definition counters/timers keep their immutable row. Resident slots own only
 // target membership, stack, activation time, expiry and captured HP quantities.
 [noinline]

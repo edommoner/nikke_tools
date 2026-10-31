@@ -1867,7 +1867,7 @@ void tick(inout Runtime s, uint64_t when, uint output)
     stagedPass(s,when,output);
     timerPass(s,when,true,output);
     sourcePass(s,when,output);
-    uint begin = s.removalCount;
+    uint begin = removalCountBeforeMutation(s);
     for (uint pass = 0; pass < s.orderedCount && s.error == 0; pass++)
     {
         uint slot = s.orderedRows[pass];
@@ -1876,7 +1876,7 @@ void tick(inout Runtime s, uint64_t when, uint output)
             Definition expired=residentDefinition(s,slot);uint mask=s.activeRecipients[slot];
             bool snapshot=nativeNumericEnabled(s) && commands[s.inputBase+P_RECIPIENT_META_BASE+6]!=0 &&
                 s.lazyPending[slot]!=0 && expired.name<P_DEFINITIONS;
-            uint notice=s.removalCount;
+            uint notice = removalCountBeforeMutation(s);
             queueCarrierEnd(s,slot,0,snapshot);
             if(snapshot && s.error==0 && s.removalCount>notice)
                 results[s.resourceOutput+P_STACK_NOTICE_VALUE_BASE+notice]=0x80000000U|slot;

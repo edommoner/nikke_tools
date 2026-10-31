@@ -44,7 +44,7 @@ void consumeBulletBuffs(inout Runtime s, uint who, uint64_t when, uint output)
     }
     // All removals precede callbacks. A later row's lazy rank still sees the
     // same active collection as the CPU loop until its removal phase starts.
-    uint begin = s.removalCount;
+    uint begin = removalCountBeforeMutation(s);
     for (uint i = 0; i < count && s.error == 0; i++) queueCarrierEnd(s,retired[i]);
     if (s.error != 0) return;
     if (s.removalCount > begin) dispatch(s,9,0,0,int(begin),when,output);
