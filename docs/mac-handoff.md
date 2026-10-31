@@ -1,3 +1,11 @@
+## 2026-10-31 v3全100検査完了、PTX計画後の観測で停止
+
+Windows owner20391ee2…の全12群100件が終了後観測まで成功し、元IDの欠落・重複・余剰0。 テスト本文計89.092秒／段階全体計434.130秒、最大peak186,101,760bytes（177.48MiB）で2GiB上限未達。fresh native1／SDK模擬54／validation依存も成功した。前回27件群のtimeoutは、元のfixture・assertion・60秒上限を保ったID分割で通過した。重い群のテスト本文は20.821秒／16.927秒だった。
+
+PTX policy計画自体は60秒／2GiB／threads2で成功したが、その終了後観測がmissing7を記録し、標準wrapperが停止した（計画16.073秒、timeoutなし、peak66,789,376bytes、Job empty、snapshot/cleanup errorなし）。消失原因はunknown／サービス未確認／preservation=false。generation・実SDK・driver・GPU・APIは0、compiler/object/link claim未消費、CPU/GPU予約claimは保持。旧missing7/14とは別の今回の観測であり、因果を推測しない。
+
+小summary42,731bytes＋manifestをreport commit79783eedから取得し、元サイズ・SHAをMacで照合した。raw／個人process詳細は未取得。保存記録だけの追加分析（report9a5f9d28）も取得しサイズ/SHA照合済み。7個体はbeforeに存在しafterに同PIDなし、検証Job/member/child/wrapperおよび直接親との重なり0、全CPU群missing0、最後のmissing0は依存検査。snapshot例外記録はないが、filtered観測で全祖先や終了イベント・元CIM stdout/exit情報を保持していないため、原因はunknownのまま。新しいsnapshot・CPUテスト・compile等の再実行は依頼0。Windows既存chatはcursor417でidle、未実行の新依頼なし。現在のCUDA製品認定は増えていない。次の製品consumerはHeavy Armsの宣言Lock On／元全効果接続で、全profile現source認定・fixed・複数consumer合成も未完了。
+
 ## 2026-10-31 Windows事前検査を元テストID単位で段階化
 
 v2 owner ebb2bfce…は先頭3群73検査を完了したが、最後の27検査の群が60秒枠を超えて停止した。62.625秒（cleanup含む）／peak185,352,192bytes、missing0／Job empty、service未確認／preservation=false。15進捗dotは完了receiptがないため認定件数へ加えない。fresh native／generation／SDK／driver／GPU／APIは0。小結果をreport commit2dfd8eb4から取得しbyte/SHA照合済み。失敗・全claimは保持。
