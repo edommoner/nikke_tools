@@ -1,12 +1,16 @@
 ## 2026-10-31 宣言Lock Onの固定バーストを通常製品へ接続
 
+最終sealed releaseは1cbe45ccのowner09555bf0…で、packet自身の全108検査＋fresh native1／GPU0成功。PTX60秒/2GiB/threads2のcompile-planも成功し、SDK/claim追加0。
+
 実装3ddcaa6c。既存固定バーストのliteral headerをapp/portable_product_fixed.pyへ抽出し、通常製品とLock On製品が同じlower/attachを使用する。GPUは既存PORTABLE_PRODUCT_FIXED_BURST macroで同じlock/typed実行器を呼ぶ。新数値演算・suite・pinned変更0。25元効果と全91bindingを保持、CPU状態・時刻表をGPU入力へ渡さない。固定＋手動遮蔽は理由付きCPU fallbackのまま。
 
 通常HTTPで宣言モデルHeavy Arms 1profileの固定30秒5条件（BODY、ADD3、弾体3、弾体破壊、owner3番目）が実M5・CPU全応答一致。蓄積30秒1条件も全一致し、前の保存input/readback SHAと完全一致。宣言なし／固定＋手動遮蔽の2負例はGPU前にfallback。これは既定profile追加ではなく、既に実証した宣言1profileへ固定方式5条件を追加したもの。CUDA製品profile追加0、全キャラ完成ではない。
 
 owner5c03cce6…自身の108unit＋fresh native1＋実M5／全payload比較が成功。別fresh GPU禁止sealも成功。v12の13memberを全保持したv13へlock-fixedだけ追加（計14member、program登録29）。旧13の現source全件実GPU再認定ではない。API6保存rawもsource/input/readback hashと全CPU/GPU/API payloadを追加native/GPU0で検査。最初の独立API-envelope診断はserverが追加するcache_hit/照合metadataを見落とし停止したが、raw decoded/CPU/GPU値は同一。元失敗を保持し、既存serverの正確なenvelopeを含めたv2監査が成功、GPU再実行0。専用4388は停止、4317/4327未操作。詳細research/product-lock-fixed-v1.json。
 
-Windows追加SDK/GPU0。保存候補10のうち一回のCIMで同identity8を確認、2不在（原因unknown）。8は実scriptの相対起動で、保存workspace/rootは一致するが所属未確定。base Pythonにpsutilは未導入だったため導入せず一旦停止。次に公式PyPIのbyte/SHA固定wheelを新private targetのみへ用意し、cwd所属をread-onlyで1回確認する依頼を同Windows chatへ送信済み。global環境・OS設定・サービスに変更なし、旧preservation=falseを変えずnative工程は再開しない。最新既読cursor429、次は同chatをpollして診断結果を得る。未確定仕様の調査とCUDA観測問題を、他の製品対応を止める理由にしない。
+Windows追加SDK/GPU0。保存候補10のうち一回のCIMで同identity8を確認、2不在（原因unknown）。8は実scriptの相対起動で、保存workspace/rootは一致するが所属未確定。base Pythonのpsutil未導入を確認後、公式PyPI byte/SHA固定psutil7.0.0を新private targetのみへ導入（2.66秒）し、cwd診断1.30秒で8読取成功／拒否0。ただし元workspace0/検証root0/その他8、現在のscript解決4件は既知SHA不一致、4件はfileなし。現在cwdが起動時cwdとは確定できず、所属・サービス維持の未確認を保持する。global Python／OS／サービス変更0、旧proof変更0。
+
+既存assembly_originはpassedと別にcompiler_verified/containment/厳密artifact出所を検査する。次は旧owner7a396439…の保存済み検証PTXから**未実施module-object O1だけ**を標準wrapperで1回依頼済み。旧stage/passed/preservation=falseを変えず、同source/bytes/key・内外missing0・観測エラーなし・object claim未消費をまず厳密検査し、旧gateが許可する場合だけ実行。child60秒/2GiB、outer180秒、BelowNormal/Job/start gate/全観測を維持。compile/generation再実行・JITlink/driver/GPU/API0。今回の目的は個別object/containment証拠の取得で、サービス維持や全pipeline合格への昇格ではない。既存chat最新既読cursor435、turn01a191ee-8413-7771-9872-c993dc61aad4の診断はterminal。新module-object依頼の同chatをpollし再送しない。未確定仕様の調査とCUDA観測問題を、他の製品対応を止める理由にしない。
 
 ## 2026-10-31 compile-onlyの重複preflightを除き実NVRTCへ到達
 
