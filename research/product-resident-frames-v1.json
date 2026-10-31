@@ -1,0 +1,45 @@
+{
+  "scope": "Existing resident dispatch frame storage enabled only for fixed movement and named-range product entries",
+  "implementation_commit": "fc92b5fd6237a8e1c3771a3c8cac8a28a39716ea",
+  "proof_root": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-resident-frames-v1-20261101",
+  "golden": "research/portable-product-programs-v16-expected.json",
+  "golden_changes": {
+    "independently_sealed_members": [
+      "movement-fixed",
+      "named-range-fixed"
+    ],
+    "unchanged_historical_members": 14,
+    "input_output_native_entries_unchanged": true
+  },
+  "metal": {
+    "ordinary_api_conditions": 11,
+    "full_cpu_payload_match": true,
+    "all_input_and_readback_bytes_equal_previous": true,
+    "saved_audits": [
+      "saved-api-audit-v1.json",
+      "saved-short-audit-v1.json",
+      "old-new-byte-audit-v1.json"
+    ],
+    "extra_gpu_native_calls_for_saved_audits": 0,
+    "runtime_stride_before_bytes": 163584,
+    "runtime_stride_after_bytes": 167680
+  },
+  "cuda": {
+    "new_source_compiled": false,
+    "new_source_product_gpu_verified": false,
+    "memory_reduction_proven": false
+  },
+  "coverage": {
+    "last_standard_metal_profile_sweep_matched": 262,
+    "last_standard_profile_sweep_total": 266,
+    "new_standard_profiles": 0,
+    "new_standard_cuda_profiles": 0,
+    "all_characters_effects_complete": false
+  },
+  "boundaries": [
+    "No CPU canonical, numerical arithmetic, tolerance or normalizer changes",
+    "No new suite or execution engine",
+    "Historical failures and claims preserved",
+    "Dedicated port4401 stopped after saved captures; user servers untouched"
+  ]
+}
