@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "package_id": "ac35d8414bf1c57c0855a012021d6e181119699f26ab1673974bbc626a682b1d",
+  "source_commit": "43069e7498afb345ea994f32d6df5c7062684512",
+  "archive": {
+    "path": "product-reload-clock-v1.zip",
+    "bytes": 14279975,
+    "sha256": "01ee207d47e2e23bd38c1154de6334a09fc4ab277542b6c420ba785021f006da"
+  },
+  "program": "accumulate",
+  "source": "gpu/product_battle_entry.slang",
+  "independent_seal_audit_sha256": "1d3971d8331cbf0cb37c1abdea9b70e1796cf4ef915442321dfa933c0469c91e",
+  "compile_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "ac35d8414bf1c57c0855a012021d6e181119699f26ab1673974bbc626a682b1d",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "new_shader_reason": "Authorized live enemy DoT clock correction (38cde469); Python also connects original reload_cancel_on_full. Not a retry of old ADD image or consumed link claims.",
+  "windows_budget": {
+    "per_stage_seconds": 60,
+    "memory_mb": 2048,
+    "priority": "BelowNormal",
+    "pipeline_seconds": 180,
+    "stage_claims_once": true
+  },
+  "requests": "reload-clock-api-requests.json",
+  "personal_settings_included": false,
+  "raw_included": false
+}
