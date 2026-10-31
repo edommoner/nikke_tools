@@ -148,5 +148,22 @@
     "program": "cover-accumulate",
     "golden": "research/portable-product-programs-v5-expected.json",
     "old_registered_goldens_retained": 18
+  },
+  "final_packet": {
+    "owner": "efa7d56cc8acdfbddd01fe679412791d6d936df9ca1c77c8aff9417b3a497683",
+    "source_commit": "275c3f3bb34d695d0535cfdc35d2f1f733350160",
+    "own_tests": 86,
+    "fresh_native_inputs": 1,
+    "cpu_verified": true,
+    "extra_gpu_calls": 0,
+    "compile_plan": {
+      "passed": true,
+      "artifact": "cubin",
+      "ptxas_level": 1,
+      "timeout_seconds": 60,
+      "memory_limit_mb": 2048,
+      "compiler_calls": 0,
+      "gpu_calls": 0
+    }
   }
 }

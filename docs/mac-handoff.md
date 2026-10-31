@@ -4391,3 +4391,5 @@ public-api-v1（7件snapshot未cleanup）、v2（6件control/control_detail不�
 owner3397d554…（676b0e94）のproduct-detail/cover-accumulateはown86／fresh native1／M5実GPU1が成功。別fresh GPU禁止sealも成功し、旧18memberの期待値を保持したv5へcover-accumulateだけ追加。共通manual/incomingの2sourceに観測hookが増えたため、旧通常／Ann／Bay等のgoldenは歴史的証拠で現sourceのsealには未更新。source historyは88cdaの完全preimageへ復元するexact ledgerを追加し、strict normalizer／数値期待値変更0。新cover以外のregistered program再sealは未完了。
 
 今回の通常製品確認は宣言独立coverモデルのMetal1profile／7条件・CUDA0。未知のlevel curveを補わないため、既定残10を9へ減らさない。fixed burst＋manualは結合header未実装、複数consumer／group-target／ADD attack合成も未対応で理由付きCPUへ戻す。次は残consumerまたはこの合成を接続し、最終的には既定profileとUI入力、全special-effect条件の完成を確認する。Windowsは追加依頼なし。旧owner2195 object未完了／missing14原因不明／preservation=falseを維持し、SDKを再実行しない。
+
+最終追補：275c3f3bからsealed packet efa7d56c…を作成し、packet自身のown86＋fresh native1／GPU0が成功。CUBIN O1／2GiB／60秒のcompile-planもpolicy成功（SDK／GPU0）。現在のmodel-checkはsource/dependency監査として成功し、canonical stat5とpublic numeric／合成未完了を保持。完成判定ではない。今回のcode／小証跡は既存codex/runtime-residentへ共有、個人設定／rawは含まない。新Windows実行依頼0。
