@@ -81,3 +81,16 @@ Bay4段階とソルジャーO.W.の既定30秒・固定周期要求を、モデ�
 元の未対応11profileのfresh静的準備・compileはAnn／Bay4／Soldierの6通過、残5拒否となった。残りはユニ・ヤン・ベルベット・Heavy Arms・レイ。静的6通過を実GPU6件と読み替えず、今回の実製品確認は**既定Metal5profile／5条件＋宣言モデル保持2条件、CUDA0**とする。歴史的255件全体の現在sourceでの再実行数ではない。攻撃を含むworldの未知量、複数consumer合成、fixed＋manual cover、他の未実装効果は未完了。小証跡は `research/product-no-incoming-v1.json`。
 
 歴史的source監査は、後続の完全一致preimageを先に復元してから、旧added-sourceの元SHAを確認する順序へ接続した。元SHA／ledger／算術goldenを変更せず、未レビューの追加byteは引き続き拒否する。共通ソースの変化を旧成功の現在認定へ付け替えない。
+
+
+## 2026-10-31 ベルベットの敵弾倉を通常製品へ接続
+
+`reference_models.enemy_ammo` は既存fixed-declaredモデルの `[{"label":"__enemy__","capacity":16,"initial":16,"reload_seconds":1,"cancel_on_full":true}, ...]`。実際のBODY／ADD世代へ結び、元のammo_charge_pct演算のcode objectを再利用するchecked CPU adapterと、同じ共有Slang百分率／再装填／攻撃試行consumerを使用する。容量・初期弾数・再装填時間はliteralで、CPUの発射可否や残弾はGPU入力へ渡さない。武器／容量変更、自爆の最終予約攻撃、他consumerとの合成は未接続で明示拒否する。
+
+モデル未指定の攻撃しない既定worldは「設定された敵弾倉なし」としてcount0。容量0や無限弾数の仮定ではない。元の割合操作と空recipientでも1回の名前付き完了イベントは実行する。攻撃BODY／ADDがある場合は明示弾倉を要求し、ホスト検査を迂回するBODY負例も実GPUでstatus64へ拒否した。default固定／蓄積30秒はどちらも資源通知4,200件を完全保存、モデル宣言なしで通常API→実M5→CPU全応答一致。
+
+明示モデルはlevel10／1、遅い出現、世代交代、死亡、BODY攻撃とfixed制御の7条件も全一致。割合減算、弾切れ／再装填による予約試行の停止、実際の被弾、世代別残弾、完了通知まで照合する。試行したが発射しなかったrecordを、検証済み弾倉receiptのstatus／source／generation／node／indexと結びつけ、実発射queryだけをincoming hitへ投影する。通常ADDの旧検査はそのまま維持。今回の製品確認は**Metal1profile／9条件（既定2＋宣言7）、CUDA0**。
+
+資源通知は汎用event traceとは別に既存共通traceを有効化し、未使用の既存出力tailを使って最大15,124件を保持する。input117,632／output2,032,000のstride変更なし。128件を超える通知も全件decodeし、完全件数・identity・未使用領域を検査する。上限超過時は履歴を切らずCPUへ戻す。従って長時間・大量イベントの全条件完成ではない。CPU参照、百分率演算、旧数値期待値、strict normalizer、pinned upstreamを変更しない。
+
+旧3版のtrace記録不足／source receipt変換拒否、4版の4,096件上限を失敗として保持。保存済みv3の修正投影はnative／GPU追加0で全CPU応答一致を確認し、現ソースは別captureで実行した。最終9条件の保存再投影も追加native／GPU0。既存product-detail familyのammo-fixed（既定30秒）／ammo-accumulate（明示6秒）を同CLIで固定・run・独立sealし、旧21memberの期待値を保存したv7へ追加。新suite／新数値演算0。旧source inverseは既存quantity visitedの厳密なinverseも再利用し、旧hashを現ソースの実証へ読み替えない。小証跡 `research/product-enemy-magazine-v1.json`。

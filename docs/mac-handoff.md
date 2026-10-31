@@ -4405,3 +4405,18 @@ public-api-v1aのBay0が先に全一致した後、v1bでBay1〜3／Soldier0の�
 既存product-detailの4固定owner（default-weighted-fixed e6327af3…／default-cover-fixed 8dfc6d16…／weighted-accumulate 9c497642…／cover-accumulate 8be7ab4c…）はすべてown88／fresh native1／M5実GPU1と、別fresh GPU禁止sealが成功して終了。coordinator session51875もterminalで再実行しない。v6へ既定2memberを追加し、明示2memberは旧input/output/native entriesの全一致を確認して現sourceへ再seal。旧v5と未変更17memberを保持。新suite0、Windows依頼0。source-historyはpinされた後続preimageを復元してから元added-source SHAを検査する順序に修正し、算術期待値やstrict normalizerは緩めない。共有はcodeと小JSONのみ、個人設定／rawを含めない。
 
 最終追補：cdcf5356からsealed既定2packet（weighted f023d5d6…／cover 7ec2f98b…）を作り、それぞれpacket自身のown88＋fresh native1／GPU0を確認。各CUBIN O1／2GiB／60秒のcompile-planもpolicy成功（compiler／GPU0）。model-checkはsource/dependency監査成功だがcanonical stat5／public numeric／全合成未完了を保持し、完成判定ではない。exec92360もterminal。Mac専用4384は終了済み、ユーザー4317／4327は操作なし。Windows追加依頼0、旧object未完了・環境観測falseを変更していない。
+
+
+## 2026-10-31 敵弾倉の製品Metal1profile／9条件
+
+実装d9de47b3。既存EnemyAmmo checked CPU adapterを許可済みconsumerへ接続し、同じSlang割合演算／世代／再装填／攻撃試行gateをBODYとADDの製品prefixへ接続。割合演算のoriginal code objectを再利用、CPUの残弾／時刻／発射可否をGPU入力にしない。型付きread_ammoを既存private auditorから抽出し、private compareは同じdecoded5配列を元nativeと全比較する。publicは同じ5配列を返す。
+
+public-api-v1a/v2aはburst traceの資源記録省略（0/800）で拒否、v3aは完全800記録後にADD投影／不要なretirement header共有を検出して拒否。v3aの保存rawを修正readerで再投影し、追加native／GPU0で全CPU応答一致を確認したが現sourceの実証へは付け替えない。自爆はproduct ammoでは明示拒否し、そのruntimeを組み込まずarenaを分離。v4a/bの明示6件は成功、既定fixed30が4096件上限で拒否。全旧capture／failureを保持する。
+
+最終v5aで既定fixed30の全一致後にv5b残8件をfail-fast実行、計9が通常HTTP→実M5／CPU全応答一致。既定固定／蓄積30秒の2件は宣言なしで、設定敵弾倉count0／割合の空target完了イベントを保持、資源通知各4200件を完全保存。明示7条件はlevel10/1／late-empty／renewal／dead／BODY／fixed。敵攻撃は宣言必須、迂回したBODY負例も実GPU status64。v5b/capturesはv5aへの同じraw参照。保存監査9もnative/GPU追加0。専用4384終了、ユーザー4317/4327未操作。
+
+input117632/output2032000の既存wire内で資源traceを最大15124件へ拡張。privateの元4096仕様／strideは変更せず、product専用flagで全tailを使う。上限超過時は履歴を切らずCPUへ戻す。shared dispatchの省略fastpathとresource loggerを同じtrace有効flagへ接続し、既存modeでは従来と同じ判定。旧数値期待値・normalizer・pinned／百分率演算は不変。source inverseを更新し、古いquantity helper追加も既存厳密inverseへつなぎ、旧golden/sourceを保持。112unit＋server10成功。
+
+既存CLI2owner ammo-fixed84e37e2e…／ammo-accumulate1e77a71e…（d9de47b3）はown92／fresh native1／実Metal1と別fresh GPU禁止sealがそれぞれ成功、coordinator session67655はterminal。ammo-fixedは既定30秒、accumulateは元明示6秒で、verifierのcase名は実durationから作る。旧21goldenを保持したv7へ2member追加。新suite0。その他旧programの現source再sealは未完了で、現認定へ読み替えない。
+
+今回Metal1profile／9条件、CUDA0。元11 gapのfresh静的compileは7通過／4拒否（Yuni／Yan／Heavy Arms／Rei）。静的数を実GPU数へ加算せず、歴史的255profileの現source全件再実行も未完了。未知の容量／武器変更・自爆最終queue・複数consumer・group/target specialization・長時間大量履歴を続ける。Windowsは追加依頼0、旧owner2195 object未完了／missing14原因不明／preservation=falseを保持。

@@ -283,5 +283,23 @@
     "group/target specialized product prefix",
     "overflow beyond bounded complete histories",
     "current product CUDA"
-  ]
+  ],
+  "cli_seals": [
+    {
+      "program": "ammo-fixed",
+      "owner": "84e37e2ed825f3d4d8a4701cf2cc7855f0eb6824436115b62cd96bfe06ebfec2",
+      "own_tests": 92,
+      "fresh_native_inputs": 1,
+      "independent_seal_gpu_calls": 0
+    },
+    {
+      "program": "ammo-accumulate",
+      "owner": "1e77a71e235409efbe12994cc17ad9f9c6553b62919833d02c548eb7ae8244fd",
+      "own_tests": 92,
+      "fresh_native_inputs": 1,
+      "independent_seal_gpu_calls": 0
+    }
+  ],
+  "registered_golden": "research/portable-product-programs-v7-expected.json",
+  "old_registered_goldens_retained": 21
 }

@@ -1,3 +1,7 @@
+## 2026-10-31 敵弾倉を製品へ接続
+
+最新の製品確認はベルベットのMetal1profile／9条件（宣言なし既定固定・蓄積30秒＋明示7条件）。CPU全応答と一致し、資源通知は既存output tailへ全件保存する。元11gapの静的compileは7通過／4拒否で、残りはYuni／Yan／Heavy Arms／Rei。静的数・限定Metal・現在CUDA0・歴史的255profileを区別し、全条件完成とはしない。敵弾倉の容量・再装填は宣言モデルでありゲーム確認ではない。詳細 `research/product-enemy-magazine-v1.json`。
+
 ## 2026-10-31 未指定量を使わない既定worldを追加
 
 最新の製品確認はモデル宣言なしのBay4段階／Soldier O.W.のMetal5profile・固定30秒5条件。unknown量はproduct-only unavailable flagとして保持し、攻撃nodeがあればホストで拒否し、迂回して量を消費する負例も実GPUでstatus64へ停止した。明示2正例の全input/readbackも保持。元11gapの静的compileは6通過／5拒否で、残りはYuni／Yan／Velvet／Heavy Arms／Rei。静的数とMetal／CUDA製品数を混ぜない。CUDA今回0、歴史的255profileの全件現source再実行や全効果完成も未完了。詳細 `research/product-no-incoming-v1.json`。
