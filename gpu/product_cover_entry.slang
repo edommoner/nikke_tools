@@ -3,10 +3,16 @@
 void portableEvents(uint3 id:SV_DispatchThreadID)
 {
     if(id.x>=commands[0])return;
+#ifdef PORTABLE_PRODUCT_COVER_HEALING
+    uint input=1+id.x*(EHL_INPUT_WORDS+CDF_WORDS),output=id.x*CDF_OUTPUT_WORDS;
+#else
     uint input=1+id.x*CDF_INPUT_WORDS,output=id.x*CDF_OUTPUT_WORDS;
+#endif
     WORLD_TEAM_INPUT(input,output)
     for(uint i=786432U;i<CDF_OUTPUT_WORDS;i++)results[output+i]=0;
-#if defined(PORTABLE_PRODUCT_COVER_GROUP_TARGET)
+#if defined(PORTABLE_PRODUCT_COVER_HEALING)
+    for(uint i=104400U;i<EHL_BASE;i++)if(commands[input+i]!=0){results[output]=64;return;}
+#elif defined(PORTABLE_PRODUCT_COVER_GROUP_TARGET)
     for(uint i=104672U;i<CDF_BASE;i++)if(commands[input+i]!=0){results[output]=64;return;}
 #elif defined(PORTABLE_PRODUCT_COVER_TARGET)
     for(uint i=110112U;i<CDF_BASE;i++)if(commands[input+i]!=0){results[output]=64;return;}
@@ -24,6 +30,11 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
 #endif
     initializeManualControls(runtimeStates[id.x]);if(runtimeStates[id.x].error!=0){results[output]=64;return;}
     if(!initializeCoverDefense(runtimeStates[id.x])){results[output]=64;return;}
+#ifdef PORTABLE_PRODUCT_COVER_HEALING
+    if(!initializeEnemyHealing(runtimeStates[id.x])){results[output]=64;return;}
+    enemyHealingFrame(runtimeStates[id.x],0);
+    if(runtimeStates[id.x].error!=0){results[output]=runtimeStates[id.x].error;return;}
+#endif
     uint queries;executePortableCommands(runtimeStates[id.x],input,output,queries);
     writePortableProgram(runtimeStates[id.x],input,output,queries);
     // Same completed-frame cleanup as the existing cover battle entry.

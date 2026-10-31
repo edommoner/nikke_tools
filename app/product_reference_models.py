@@ -18,6 +18,21 @@ MOVEMENT_WARNING='宣言したADD移動・座標モデルと共通サンプリ�
 def warning(declarations):
     return ' '.join(text for key,text in [('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING),('cover_defense',COVER_WARNING),('enemy_ammo',AMMO_WARNING),('enemy_movement',MOVEMENT_WARNING),('named_range',RANGE_WARNING),('lock_on',LOCK_WARNING)] if key in declarations)
 
+def combine_public(models):
+    """Join independent checked readbacks without overwriting any consumer."""
+    result=dict(schema=1,evidence='declared-model-not-game-verification',declarations={})
+    envelope={'schema','evidence','declarations'}
+    for model in models:
+        if (type(model) is not dict or type(model.get('schema')) is not int or model['schema']!=1
+                or model.get('evidence')!=result['evidence'] or type(model.get('declarations')) is not dict
+                or not model['declarations'] or set(model)-envelope!=set(model['declarations'])):
+            raise ValueError('Complete independent declared-model readback required')
+        if set(result['declarations'])&set(model['declarations']):
+            raise ValueError('Declared-model consumers cannot overwrite one another')
+        result['declarations'].update(copy.deepcopy(model['declarations']))
+        result.update({k:copy.deepcopy(v) for k,v in model.items() if k not in envelope})
+    return result
+
 def normalize(value):
     if value is None:return {}
     if type(value) is not dict or set(value)-{'enemy_healing','weighted_incoming','cover_defense','enemy_ammo','enemy_movement','named_range','lock_on'}:

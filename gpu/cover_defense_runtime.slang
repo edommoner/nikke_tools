@@ -1,10 +1,13 @@
 // Receipts and per-depth immutable attack snapshots; never a second HP or clock.
 #include "incoming_damage_numeric.slang"
+#ifndef PORTABLE_COVER_DEFENSE_INPUT_BASE
+#define PORTABLE_COVER_DEFENSE_INPUT_BASE CDF_BASE
+#endif
 uint coverDefenseHead(inout Runtime s) { return s.resourceOutput+CDF_OUTPUT_BASE; }
 uint coverDefenseSnapshot(inout Runtime s,uint depth) { return coverDefenseHead(s)+CDF_SNAPSHOT_BASE+depth*CDF_SNAPSHOT_WORDS; }
 bool initializeCoverDefense(inout Runtime s)
 {
-    uint input=s.inputBase+CDF_BASE;
+    uint input=s.inputBase+PORTABLE_COVER_DEFENSE_INPUT_BASE;
     if(commands[input]!=CDF_MAGIC||commands[input+1]!=1||commands[input+2]!=5)return false;
 #ifdef PORTABLE_PRODUCT_UNSPECIFIED_COVER
     if(commands[input+3]>1)return false;
@@ -40,13 +43,13 @@ void copyCoverDefense(inout Runtime s,uint parent,uint child)
 uint64_t coverDefenseQuantity(inout Runtime s,uint depth,uint who,uint64_t when)
 {
 #ifdef PORTABLE_PRODUCT_UNSPECIFIED_COVER
-    if(commands[s.inputBase+CDF_BASE+3]!=0){s.error=64;return 0;}
+    if(commands[s.inputBase+PORTABLE_COVER_DEFENSE_INPUT_BASE+3]!=0){s.error=64;return 0;}
 #endif
     uint snapshot=coverDefenseSnapshot(s,depth),head=coverDefenseHead(s),count=results[head+1];
     if(depth>=CDF_DEPTH||who>=5||results[snapshot+7]!=CDF_MAGIC||results[snapshot+6]==0||results[snapshot+6]>5){s.error=64;return 0;}
     if(count>=CDF_RECEIPTS){s.error=2;return 0;}
     uint divisor=results[snapshot+6];uint64_t attack=protectionNumber(snapshot),coefficient=protectionNumber(snapshot+2),received=protectionNumber(snapshot+4);
-    uint64_t base=loadNumber(s.inputBase+CDF_BASE+8+who*2),percent=liveQuantity(s,who,CDF_STAT,when);
+    uint64_t base=loadNumber(s.inputBase+PORTABLE_COVER_DEFENSE_INPUT_BASE+8+who*2),percent=liveQuantity(s,who,CDF_STAT,when);
     uint64_t defense=incomingDefensePercentage(base,percent),quantity=incomingDefendedQuantity(attack,coefficient,defense,received),shared=f64Div(quantity,f64FromI64(divisor));
     if(!f64Finite(defense)||!f64Finite(quantity)||!f64Finite(shared)){s.error=16;return 0;}
     uint64_t hp=s.coverHP[who],applied=smaller(hp,shared);uint out=head+CDF_RECEIPT_BASE+count*CDF_RECEIPT_WORDS;

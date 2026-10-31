@@ -21,7 +21,7 @@ def check_schema(root=None):
     # scalars live in results and must never be interpreted as command offsets.
     source=(root/'gpu/cover_defense_runtime.slang').read_text()
     loads=re.findall(r'\bloadNumber\(([^()]*)\)',source)
-    if loads!=['input+8+who*2','s.inputBase+CDF_BASE+8+who*2']:raise ValueError('Cover command reads escape the authored base bank; GPU snapshots require output-resource reads')
+    if loads!=['input+8+who*2','s.inputBase+PORTABLE_COVER_DEFENSE_INPUT_BASE+8+who*2']:raise ValueError('Cover command reads escape the authored base bank; GPU snapshots require output-resource reads')
 
 def pack(spec,names):
     values=normalize(spec,names);words=[MAGIC,1,5,0,0,0,0,0]

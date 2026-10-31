@@ -266,6 +266,20 @@
       "output_words": 2048912,
       "mode": "accumulate",
       "kind": "group-target"
+    },
+    "healing-cover-fixed": {
+      "source": "gpu/product_healing_cover_fixed_battle_entry.slang",
+      "input_words": 120072,
+      "output_words": 2048912,
+      "mode": "fixed",
+      "kind": ""
+    },
+    "healing-cover-accumulate": {
+      "source": "gpu/product_healing_cover_battle_entry.slang",
+      "input_words": 120072,
+      "output_words": 2048912,
+      "mode": "accumulate",
+      "kind": ""
     }
   }
 }

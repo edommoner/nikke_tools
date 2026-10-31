@@ -111,6 +111,14 @@ def validate_composed_stride(source,input_words,output_words):
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Weighted incoming requires complete literal weights and owned receipt banks')
         return
     from portable_product_programs import PROGRAMS
+    healing_cover_sources={p['source'] for n,p in PROGRAMS.items() if n.startswith('healing-cover-')}
+    if source in healing_cover_sources:
+        from portable_cover_defense_wire import check_schema,LAYOUT as C,OUTPUT
+        from portable_enemy_healing_wire import check_schema as healing_schema,INPUT_WORDS as H,OUTPUT as HO
+        check_schema(ROOT);healing_schema(ROOT)
+        if HO['OUTPUT_WORDS']!=C['OUTPUT_BASE']:raise ValueError('Healing and cover receipt banks must remain disjoint and contiguous')
+        if (input_words,output_words)!=(H+C['WORDS'],OUTPUT):raise ValueError('Healing/cover requires both disjoint complete declaration and receipt banks')
+        return
     cover_sources={'gpu/world_cover_defense_entry.slang'}|{
         p['source'] for n,p in PROGRAMS.items() if n.startswith(('cover-','default-cover-'))}
     if source in cover_sources or output_words==2048912:

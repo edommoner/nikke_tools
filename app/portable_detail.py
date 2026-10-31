@@ -245,46 +245,46 @@ def decode_payload(body, prepared, run, metadata, block):
         burst_timeline=events, shooting_policy=body.get('shooting_policy','auto'), weapon_mode_swap=body.get('weapon_mode_swap',False),
         burst_gauge_mode=body.get('burst_gauge_mode','fixed'), hypothetical=hypothetical,
         engine_revision=engine_worker.REVISION, app_warnings=warnings)
+    models=[]
     if metadata.get('product_enemy_healing'):
         from portable_product_healing import read_result
-        model=read_result(block,metadata,names,run.config['duration'])
+        from portable_enemy_healing_wire import OUTPUT as healing_output
+        healing_block=block[:healing_output['OUTPUT_WORDS']] if metadata.get('product_healing_cover') else block
+        model=read_result(healing_block,metadata,names,run.config['duration'])
         if model is not None:
-            from product_reference_models import WARNING
-            payload['reference_models']=model;payload['app_warnings'].append(WARNING)
+            models.append(model)
     if metadata.get('product_weighted_incoming'):
         from portable_product_weighted import read_result
-        from product_reference_models import warning
         model=read_result(block,metadata,names,run.config['duration'])
         if model is not None:
-            payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
+            models.append(model)
     if metadata.get('product_cover_defense'):
         from portable_product_cover import read_result
-        from product_reference_models import warning
         model=read_result(block,metadata,names,run.config['duration'])
         if model is not None:
-            payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
+            models.append(model)
     if metadata.get('product_enemy_ammo'):
         from portable_product_ammo import read_result
-        from product_reference_models import warning
         model=read_result(block,metadata)
         ammo_attempts=model['enemy_ammo']['attempts'] if model is not None else []
         if model is not None:
-            payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
+            models.append(model)
     if metadata.get('product_lock_on'):
         from portable_product_locks import read_result
-        from product_reference_models import warning
         model=read_result(block,metadata,run.config['duration'])
-        payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
+        models.append(model)
     if metadata.get('product_enemy_movement'):
         from portable_product_movement import read_result
-        from product_reference_models import warning
         model=read_result(block,metadata,run.config['duration'])
-        payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
+        models.append(model)
     if metadata.get('product_named_range'):
         from portable_product_named_range import read_result
-        from product_reference_models import warning
         model=read_result(block,metadata,run.config['duration'])
-        payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
+        models.append(model)
+    if models:
+        from product_reference_models import combine_public,warning
+        payload['reference_models']=combine_public(models)
+        payload['app_warnings'].append(warning(payload['reference_models']['declarations']))
     if 'manual_cover_sequences' in body:
         payload['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])
     if body.get('enemy',{}).get('parts'):

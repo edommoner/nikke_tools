@@ -25,7 +25,7 @@ class ProductPacket(unittest.TestCase):
         cli=self.cli();base=cli.SUITES['product-detail']
         self.assertIs(configuration(cli.SUITES,'product-detail'),base)
         self.assertIs(configuration(cli.SUITES,dict(suite='product-detail')),base)
-        self.assertEqual(len(PROGRAMS),38)
+        self.assertEqual(len(PROGRAMS),40)
         self.assertEqual({n for n in PROGRAMS if n.startswith('ammo-')},{'ammo-fixed','ammo-accumulate'})
         self.assertEqual({n for n in PROGRAMS if n.startswith('default-')},{'default-weighted-fixed','default-cover-fixed'})
         self.assertEqual({n for n in PROGRAMS if n.startswith('cover-')},{'cover-'+mode+suffix for mode in ('accumulate','fixed') for suffix in ('','-group','-target','-group-target')})
@@ -48,7 +48,7 @@ class ProductPacket(unittest.TestCase):
                 self.assertEqual(len(raw),4*(1+config['input_words']))
                 self.assertEqual(rows[0][2][0]['burst_gauge_mode'],config['mode'])
                 self.assertFalse(rows[0][2][1]['cpu_battle_executed'])
-                self.assertEqual(rows[0][1][LIMITS['WORLD_CONTROL_INPUT_BASE']+1],6 if config['mode']=='fixed' and name.startswith(('movement-','named-range-','cover-','default-cover-')) else 3 if name.startswith(('cover-','movement-','named-range-')) else 4 if config['mode']=='fixed' else 1)
+                self.assertEqual(rows[0][1][LIMITS['WORLD_CONTROL_INPUT_BASE']+1],6 if config['mode']=='fixed' and name.startswith(('movement-','named-range-','cover-','default-cover-','healing-cover-')) else 3 if name.startswith(('cover-','movement-','named-range-','healing-cover-')) else 4 if config['mode']=='fixed' else 1)
                 self.assertTrue(cli.registered_battle_source(dict(suite='product-detail',product_program=name)))
     def test_program_baseline_is_explicit_and_unsealed_members_do_not_fall_back(self):
         from portable_product_programs import registered_golden,configuration,GOLDEN

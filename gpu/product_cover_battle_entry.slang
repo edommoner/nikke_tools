@@ -5,7 +5,10 @@
 #define PORTABLE_PRODUCT_MANUAL_COVER_LOG
 #include "cover_defense_layout.slang"
 #define portableEvents unusedProductCoverBaseEntry
-#if defined(PORTABLE_PRODUCT_COVER_GROUP_TARGET)
+#if defined(PORTABLE_PRODUCT_COVER_HEALING)
+#define PORTABLE_PRODUCT_EXTERNAL_EXECUTOR
+#include "product_healing_battle_entry.slang"
+#elif defined(PORTABLE_PRODUCT_COVER_GROUP_TARGET)
 #define PORTABLE_PRODUCT_EXTERNAL_EXECUTOR
 #include "product_group_target_battle_entry.slang"
 #elif defined(PORTABLE_PRODUCT_COVER_TARGET)

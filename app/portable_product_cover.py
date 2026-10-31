@@ -16,13 +16,15 @@ def compile_product(prepared,producer):
     from portable_product_world_contract import has_incoming_attacks
     if unspecified and has_incoming_attacks(prepared):
         raise UnsupportedPortable('Independent cover DEF requires explicit reference_models.cover_defense bases; no body DEF or level curve is inferred')
-    if set(declarations)-{'cover_defense'}:
+    if set(declarations)-{'cover_defense','enemy_healing'}:
         raise UnsupportedPortable('Cover DEF product composition requires a matching combined consumer wire')
     check_schema();names=[c['name'] for c in prepared['chars']]
     # Product-only unavailable flag; zero payload is reserved padding, not a
     # guessed DEF. The device rejects any attempt to consume an absent base.
     bank=[MAGIC,1,5,1]+[0]*20 if unspecified else pack(declarations['cover_defense'],names)
     inner=dict(prepared,_product_cover_compiled=True);inner.pop('reference_models',None)
+    if 'enemy_healing' in declarations:inner['reference_models']={'enemy_healing':declarations['enemy_healing']}
+    cover_declarations={k:v for k,v in declarations.items() if k=='cover_defense'}
     from portable_product_fixed import lower as lower_fixed,attach as attach_fixed
     inner,fixed_values=lower_fixed(inner)
     with compiler_policy():source,iw,ow,words,meta=producer(inner)
@@ -30,7 +32,9 @@ def compile_product(prepared,producer):
         '':(104400,786432), 'group':(104408,1048576),
         'target':(110112,1048576), 'group-target':(104672,1048576),
     }
-    kind=None
+    from portable_enemy_healing_wire import INPUT_WORDS as HEAL_INPUT,OUTPUT as HEAL_OUTPUT
+    healing=source in ('gpu/product_healing_battle_entry.slang','gpu/product_healing_fixed_battle_entry.slang') and (iw,ow)==(HEAL_INPUT,HEAL_OUTPUT['OUTPUT_WORDS'])
+    kind='healing' if healing else None
     for candidate,wire in prefixes.items():
         stem=(candidate.replace('-','_')+'_') if candidate else ''
         if source in ('gpu/product_'+stem+'battle_entry.slang','gpu/product_fixed_'+stem+'battle_entry.slang') and (iw,ow)==wire:
@@ -42,7 +46,7 @@ def compile_product(prepared,producer):
         row=meta['binding_source_indices'].index(index);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
         if words[at+F['KIND']]!=4 or words[at+F['STAT']]!=0:raise ValueError('Original cover placeholder changed')
         words[at+F['KIND']]=0;words[at+F['STAT']]=STAT
-    meta['product_cover_defense']=dict(declarations=declarations,definition_indices=indices,unspecified_quantities=unspecified,
+    meta['product_cover_defense']=dict(declarations=cover_declarations,definition_indices=indices,unspecified_quantities=unspecified,
         cpu_state_or_schedule_supplied=False)
     if fixed_values is not None:
         # Use the already checked combined header for both explicit cover and
@@ -56,6 +60,10 @@ def compile_product(prepared,producer):
             words[base+1]=3
             words[base+5:base+8]=[tap_mask,0xffffffff,0x4d435631]
         attach_fixed(words,meta,prepared,fixed_values)
+    if healing:
+        meta['product_healing_cover']=True
+        if len(words)!=HEAL_INPUT:raise ValueError('Complete healing prefix required before cover bank')
+        return ('gpu/product_healing_cover_'+('fixed_' if fixed_values is not None else '')+'battle_entry.slang',HEAL_INPUT+C['WORDS'],OUTPUT,list(words)+bank,meta)
     stem=('fixed_' if fixed_values is not None else '')+(kind.replace('-','_')+'_' if kind else '')
     return ('gpu/product_cover_'+stem+'battle_entry.slang',INPUT,OUTPUT,
         list(words)+[0]*(C['BASE']-len(words))+bank,meta)

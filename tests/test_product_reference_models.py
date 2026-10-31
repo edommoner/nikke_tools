@@ -9,6 +9,44 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def test_independent_public_models_merge_losslessly_and_reject_overwrite(self):
+        from product_reference_models import combine_public,warning,WARNING,COVER_WARNING
+        a=dict(schema=1,evidence='declared-model-not-game-verification',declarations={'enemy_healing':[{'node':'heal'}]},enemy_healing={'receipts':[{'applied':2}]})
+        b=dict(schema=1,evidence=a['evidence'],declarations={'cover_defense':[{'name':'a'}]},cover_defense={'receipts':[{'applied':3}]})
+        before=copy.deepcopy([a,b]);joined=combine_public([a,b])
+        self.assertEqual(set(joined['declarations']),{'enemy_healing','cover_defense'})
+        self.assertEqual(joined['enemy_healing'],a['enemy_healing']);self.assertEqual(joined['cover_defense'],b['cover_defense'])
+        self.assertEqual(warning(joined['declarations']),WARNING+' '+COVER_WARNING)
+        joined['enemy_healing']['receipts'][0]['applied']=99
+        self.assertEqual([a,b],before)
+        with self.assertRaisesRegex(ValueError,'overwrite'):combine_public([a,a])
+        for bad in [dict(a,schema=True),dict(a,evidence='verified'),{k:v for k,v in a.items() if k!='enemy_healing'}]:
+            with self.subTest(bad=bad),self.assertRaisesRegex(ValueError,'Complete independent'):combine_public([bad])
+
+    def test_enemy_healing_and_cover_keep_both_banks_and_original_effects(self):
+        import portable_detail as product
+        from portable_product_programs import body_for_program
+        from portable_enemy_healing_wire import INPUT_WORDS as H,OUTPUT as HO
+        from portable_cover_defense_wire import LAYOUT as C,MAGIC
+        from portable_backend import validate_composed_stride
+        from portable_specs import LIMITS as L
+        self.assertEqual(HO['OUTPUT_WORDS'],C['OUTPUT_BASE'])
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,'healing-cover-'+mode)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU state supplied to GPU')):
+                prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+                source,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,before)
+            self.assertEqual(source,'gpu/product_healing_cover_'+('fixed_' if mode=='fixed' else '')+'battle_entry.slang')
+            validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow),(H+C['WORDS'],2048912));self.assertEqual(len(words),iw)
+            self.assertEqual(words[H:H+4],[MAGIC,1,5,1])
+            self.assertEqual(words[115680:115682],[0x45484c31,1])
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+            self.assertTrue(meta['product_healing_cover'])
+            self.assertIn('product_enemy_healing',meta);self.assertIn('product_cover_defense',meta)
+            self.assertEqual(words[L['WORLD_CONTROL_INPUT_BASE']+1],6 if mode=='fixed' else 3)
+
     def lock_body(self,duration=3,typed=False):
         from portable_heavyarms_lock_cases import fixtures,NAME,source_definitions
         from product_lock_model import ORDER,MARKER,DELIVERY_MODEL
@@ -544,7 +582,7 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertTrue(meta['real_prepared_input']['declared_attack_group_policy']['listener_owners'])
             # Other dedicated banks remain explicit unsupported combinations.
             prepared['reference_models']['enemy_healing']=[dict(node='world',targets=['x'],amount=1)]
-            with self.assertRaisesRegex(UnsupportedPortable,'combined consumer wire'):
+            with self.assertRaisesRegex(UnsupportedPortable,'plain shared battle entry'):
                 product.compile_product(prepared)
 
     def test_cover_composes_original_target_modifiers_and_optional_groups(self):
