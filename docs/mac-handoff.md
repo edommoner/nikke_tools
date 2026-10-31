@@ -1,3 +1,13 @@
+## 2026-10-31 Heavy Armsの宣言Lock Onを通常製品へ接続
+
+通常HTTP→実Apple M5→既存形式の結果変換→CPU全field照合で、Heavy Armsの宣言モデル1profile・蓄積30秒6条件が成功した。BODYのみ、ADD3、弾体3、弾体破壊、手動遮蔽、owner3番目を同じGPUソース80695dd3／固定owner6408bcb6…で検査。元25効果＋装備を含む91定義を全bindingし、架空の弾体・武器metadata・CPU状態・計算済み対象をGPUへ渡さない。宣言なし／fixedはGPU前に理由付きCPU fallbackを確認。未確定のBODY優先・ADD出現順／生存凍結配送モデルであり、ゲーム距離順位や再対象化の認定ではない。
+
+既存NamedGenerationLocks／typed_battle／original-lock-compositionを再利用。CPUはcheckedな実queue境界へ接続し、global profilerを使わない。弾体0件はproduct専用macroのみ受付、旧typed entryは非空制約を維持。共通CUDA/Metal入口・入力・readback decoder・テストを共有する。新suiteなし、product-detailのlock-accumulate member。全107unit／fresh native1／M5 CLI／独立GPU禁止seal成功。API6保存rawもsource/input/SHA/全payloadを追加native/GPU0で監査済み。
+
+worker import2境界、-1期限sentinel誤拒否、遮蔽control履歴未接続の旧失敗は保持。最後は共通GPUログを移設CMC bankへ接続し、control/control_detailも全一致した。v12期待基準はv11のLock On input/output/nativeを保ちsource/generatedだけ実証済み現行へ更新。v10実数12memberすべてを保持しLock On追加で13記録。他12memberの現source認定ではない。過去記録の「他24基準」はprogram登録数との混同を訂正した。
+
+現CUDAの追加profileは0、Windows追加依頼も0。missing7／保全未確認は前段のまま。defaultの宣言なしHeavy Arms、fixed、他consumerとの合成、全profileの現source確認が残る。次は単一BODYに限って未確定距離規則が結果を変えないdefault接続を検討し、既存guardを保った短いCUDA compile-only工程も整理する。詳細docs/portable-heavyarms-lock-selection.md、research/product-lock-v1.json。全目標は未完了で継続する。
+
 ## 2026-10-31 v3全100検査完了、PTX計画後の観測で停止
 
 Windows owner20391ee2…の全12群100件が終了後観測まで成功し、元IDの欠落・重複・余剰0。 テスト本文計89.092秒／段階全体計434.130秒、最大peak186,101,760bytes（177.48MiB）で2GiB上限未達。fresh native1／SDK模擬54／validation依存も成功した。前回27件群のtimeoutは、元のfixture・assertion・60秒上限を保ったID分割で通過した。重い群のテスト本文は20.821秒／16.927秒だった。

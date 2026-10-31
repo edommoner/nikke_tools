@@ -331,7 +331,7 @@ CUDA/Metalは同じSlang・入力・比較器を使用する。`enemy-lock-carri
 
 ユーザーの指定に従い実機の提供待ちをせず、公開スキル全文と著者の実使用分析を再照合した。照準線基準の未ロック敵選択は支持されるが、中心/外形・投影/3D距離・同距離順を区別する追加実験は見つからなかった。既存の数値距離式を未確定とする判断を維持し、推測で共通実行器やgoldenを変更しない。同一記述の再探索を継続条件にせず、他の未対応項目を進める。出所と取得制約は `research/target-count-query-evidence/heavyarms-online-decision-20261030.json`。今回の計算変更・GPU実行・Windows依頼は0。
 
-## 2026-10-31 製品用の宣言Lock On接続（実装中）
+## 2026-10-31 製品用の宣言Lock On接続（通常APIで実証）
 
 通常requestの`reference_models.lock_on`に`owner`、`marker: "록 온"`、元定義8の`packet_skill`、
 `candidate_order: "body-then-add-spawn-v1"`、`delivery: "require-live-frozen-slot-v1"`、`typed_bindings`を明示する。
@@ -347,4 +347,15 @@ GPUは既存original-lock-compositionをproduct wrapperから利用する。弾�
 旧typed entryの非空制限は維持する。共通product-detailのlock-accumulate memberを追加し、新suiteは作らない。
 CPU計算済みのロック・対象・発動時刻・ダメージ・軌跡を入力に含めない。
 公開出力は全取得・全shot snapshot・clear件数・弾数quota・typed攻撃をGPUの件数から読み、旧/拡張bankの欠落・overflow・予約wordを拒否する。
-現在はCPU/staticの104検査が成功した段階。Metal実計算/独立seal/通常API、現CUDA、fixedと複数consumer合成は未認定。
+通常HTTPの30秒戦闘6条件（BODYのみ／ADD3／弾体3／弾体破壊／手動遮蔽／owner3番目）が、操作履歴を含むCPU全payloadと実Apple M5 Metalで一致。
+新GPUソースのCLI全107検査・fresh native1・実M5・GPU禁止の独立sealも成功した。保存raw6件を同じ固定source/input/decoderで再投影し、追加native/GPU0で全field一致。
+通常製品での追加はHeavy Armsの宣言モデル1profile・6条件。現CUDA／宣言なしdefault／fixed／複数consumer合成は未認定で、設定不足とfixedは理由付きCPU fallbackをAPIで確認した。
+
+初回workerのresearch/script import失敗、期限なしsentinel -1の誤拒否、手動遮蔽の操作履歴未接続は元job/captureを保持した。
+期限の修正は-1だけを認め、他の負値・NaN・無限大・binding違い・容量不一致を拒否する。同一旧GPUの再実行でrawを作り直さず、保存結果の再投影を先に使った。
+操作履歴の欠落は既存PORTABLE_PRODUCT_MANUAL_COVER_LOGと移設されたCMC bankへ接続して解消した。ダメージ式・許容差・normalizer・pinned upstreamは変更0。
+v11は最初のLock On seal、v12は操作ログ接続後のseal。Lock On通常corpusのinput/output/native期待値は同一、source/generated指紋のみ現実測で更新した。
+v10に実在する12基準memberはすべて保持（v12にはLock Onを加え13記録）。他memberを現sourceで再認定した意味ではない。過去文書の「他24基準」は設定program数との混同だったため小記録で訂正した。
+
+既存private source監査の否定テストにあった例外型の差は、変更前の固定ownerでも再現した。下位のUnreviewed ValueErrorを元APIのAssertionErrorへ揃え、元テストとsource hash/受付条件を保持。関連4検査が成功した。
+証跡はresearch/product-lock-v1.json、ローカルのproduct-lock-v1-20261031。Windows追加依頼は0。古いmissing7の原因不明・preservation=falseは未解決のまま保持する。

@@ -38,7 +38,6 @@
     "prior_registered_input_output_native_entries_identical": true,
     "registered_gpu_source_and_generated_code_changed": true,
     "golden": "research/portable-product-programs-v10-expected.json",
-    "other_24_golden_entries_unchanged": true,
     "mac_generated_retention": {
       "rows": [
         {
@@ -74,7 +73,8 @@
       "gpu_calls": 0
     },
     "old_ptx_cache_reuse_admitted": false,
-    "scope": "CLI normal corpus only, not a new ordinary API profile or current CUDA proof"
+    "scope": "CLI normal corpus only, not a new ordinary API profile or current CUDA proof",
+    "other_11_golden_members_unchanged": true
   },
   "metal_cli_cases": 1,
   "slang_generation_compiler_invocations": 2,
@@ -276,5 +276,11 @@
       "new_snapshot_or_cim_calls": 0,
       "new_test_sdk_gpu_calls": 0
     }
+  },
+  "golden_count_correction": {
+    "reason": "Earlier text confused configured program count with actual sealed golden members",
+    "v10_actual_golden_members": 12,
+    "other_than_accumulate": 11,
+    "calculation_or_source_hash_records_changed": false
   }
 }

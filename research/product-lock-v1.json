@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "scope": "One original Heavy Arms profile under explicit declared Lock On policies through ordinary HTTP jobs; accumulated30s, not default model or game distance certification",
+  "metal_product_profiles_added": 1,
+  "metal_product_conditions": 6,
+  "cuda_product_profiles_added": 0,
+  "rows": [
+    {
+      "name": "body-only-30s",
+      "backend": "metal_detail",
+      "capture_id": "39bd0cf62fef49adb3e77ad3ce313e2f",
+      "device": "Apple M5",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "input_sha256": "998451eae857ca9db9c981493f8b51feafec5809c1b29a873b8f9905033eccc9",
+      "output_sha256": "6891e0e9c0cefc40b2b77eae8e2204edc6c3339cff6a213d50df30dce0df0236",
+      "pulses": 110,
+      "shots": 15,
+      "clears": 15,
+      "typed_attacks": 0,
+      "typed_bindings": 0,
+      "gpu_seconds": 2.1634954166947864,
+      "same_registered_gpu_source": true
+    },
+    {
+      "name": "three-adds-30s",
+      "backend": "metal_detail",
+      "capture_id": "67b5c41beac64aa7b968ceaac4e3416b",
+      "device": "Apple M5",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "input_sha256": "745e79f2c3ae5e82600e80027989cf665044ad1d0705c6c4ba6f909da8c8c609",
+      "output_sha256": "4c3060c39705513d699a63013e0c68d5f665cae81690543edd2faee2bd977296",
+      "pulses": 110,
+      "shots": 15,
+      "clears": 15,
+      "typed_attacks": 0,
+      "typed_bindings": 0,
+      "gpu_seconds": 2.2883152500144206,
+      "same_registered_gpu_source": true
+    },
+    {
+      "name": "three-projectiles-30s",
+      "backend": "metal_detail",
+      "capture_id": "950c5b17dd6e4a069aa3623fec98dfea",
+      "device": "Apple M5",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "input_sha256": "3cd17ec323aaaa7a9a8f9134c4d7f07ed9ceafb0a19138592ad34ba5fe037999",
+      "output_sha256": "50a508e048907ae4345375eb6dec48b292b05072ac48b9a10ac97fb5cd5b1a62",
+      "pulses": 110,
+      "shots": 15,
+      "clears": 15,
+      "typed_attacks": 1,
+      "typed_bindings": 3,
+      "gpu_seconds": 2.296262249990832,
+      "same_registered_gpu_source": true
+    },
+    {
+      "name": "broken-projectiles-30s",
+      "backend": "metal_detail",
+      "capture_id": "d1cbe7d3ce0a4b6596743a448162d2d4",
+      "device": "Apple M5",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "input_sha256": "3dc98fba5f5beab653791c0886179e4f129928571bc8eff9b8583b500c4f8a16",
+      "output_sha256": "9754296e0e2d0efafa9801f1e268167075cf5a9e2a6a2504309ee8d19f2b199d",
+      "pulses": 110,
+      "shots": 15,
+      "clears": 15,
+      "typed_attacks": 1,
+      "typed_bindings": 3,
+      "gpu_seconds": 2.2947758749942295,
+      "same_registered_gpu_source": true
+    },
+    {
+      "name": "manual-cover-30s",
+      "backend": "metal_detail",
+      "capture_id": "8fa8ccc0b6804e95971d3f0c21a4ebcb",
+      "device": "Apple M5",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "input_sha256": "19b080b372067294a3378a9955df82598310a52af9436c327f858d6c60189f6a",
+      "output_sha256": "aabcfe1f286756dff083d5bfb679581d7e3a0f6fed74dd3aaeb99236f87c3aad",
+      "pulses": 110,
+      "shots": 14,
+      "clears": 15,
+      "typed_attacks": 0,
+      "typed_bindings": 0,
+      "gpu_seconds": 2.16623700002674,
+      "same_registered_gpu_source": true
+    },
+    {
+      "name": "owner-slot3-30s",
+      "backend": "metal_detail",
+      "capture_id": "9261b7f76eac489d9e36bc98fdaeb15d",
+      "device": "Apple M5",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "input_sha256": "e44e99e9aaff6bd6a3b3b5b59cc0b286bb0bac0959f915b02ab9beec45f5eaf1",
+      "output_sha256": "30e53657412733ac545ae8858018851a3ac3e8ba0b97145f62ade3bf7a2f1f8c",
+      "pulses": 110,
+      "shots": 15,
+      "clears": 15,
+      "typed_attacks": 0,
+      "typed_bindings": 0,
+      "gpu_seconds": 2.161670208326541,
+      "same_registered_gpu_source": true
+    },
+    {
+      "name": "missing-declaration-fallback",
+      "backend": "cpu",
+      "gpu_execution_verified": false,
+      "unsupported": [
+        {
+          "character": "스노우 화이트 : 헤비암즈",
+          "effect": "록 온",
+          "stat": "lock_on",
+          "target": "enemies_nearest:1",
+          "reason": "Lock On requires explicit reference_models.lock_on candidate/delivery policies and typed bindings; composition is not connected"
+        }
+      ],
+      "fallback_reason": "共通GPUの未対応条件または実行エラーのため、CPUで計算しました。"
+    },
+    {
+      "name": "fixed-not-connected-fallback",
+      "backend": "cpu",
+      "gpu_execution_verified": false,
+      "unsupported": [
+        {
+          "reason": "Lock On with fixed burst requires the combined fixed product header"
+        }
+      ],
+      "fallback_reason": "共通GPUの未対応条件または実行エラーのため、CPUで計算しました。"
+    }
+  ],
+  "source_commit": "80695dd36eda6af47109370e149601b5da493303",
+  "source_owner": "6408bcb6313b086163bcd7cbb938dbff8d0c7fd28b0c74a283a6d699579835c5",
+  "cpu_unit_tests": 107,
+  "cli_fresh_native_cases": 1,
+  "cli_actual_M5_verified": true,
+  "cli_independent_seal_verified": true,
+  "independent_seal_gpu_calls": 0,
+  "saved_projection_rows": 6,
+  "saved_projection_native_gpu_calls": 0,
+  "original_character_definitions": 25,
+  "prepared_total_definitions": 91,
+  "equipment_definitions_retained": true,
+  "all_source_indices_retained": true,
+  "canonical_pinned_source_unchanged": true,
+  "software_binary64_or_normalizer_changes": false,
+  "shader_body_reused": "gpu/world_original_lock_composition_entry.slang",
+  "shared_cuda_metal_inputs_and_decoder": true,
+  "new_suite_count": 0,
+  "program_member": "lock-accumulate",
+  "golden": "research/portable-product-programs-v12-expected.json",
+  "old_v10_actual_member_count": 12,
+  "old_v10_all_12_contents_retained": true,
+  "lock_input_output_native_unchanged_after_manual_log_source_fix": true,
+  "old_failed_jobs_and_claims_retained": true,
+  "errors_fixed": [
+    "standalone CPU and static GPU worker provider imports",
+    "exact no-expiry sentinel -1 with identity/capacity checks",
+    "relocated GPU manual-cover log binding"
+  ],
+  "initial_three_projectile_reprojection_native_gpu_calls": 0,
+  "old_rejected_API_status_unchanged": true,
+  "default_model_supported": false,
+  "fixed_gpu_supported": false,
+  "reference_model_composition_supported": false,
+  "game_distance_priority_verified": false,
+  "dead_or_stale_frozen_delivery": "fail-closed; unresolved retargeting",
+  "history_capacities": {
+    "lock_pulses": 256,
+    "lock_snapshots": 31,
+    "packet_records": 512,
+    "shot_quota": 2048,
+    "typed_attacks": 128
+  },
+  "legacy_auditor_rejection_type": {
+    "preexisting_failure_reproduced_in_owner": "20391ee28b13009277b74ce6c51ca444fa3740cec6d05c52623ede90e1221b72",
+    "downstream_unreviewed_ValueError_mapped_to_original_AssertionError": true,
+    "acceptance_or_hash_rules_changed": false,
+    "original_tests_unchanged": true,
+    "related_tests_passed": 4
+  },
+  "server_tests_passed": 10,
+  "cli_tests_passed": 53,
+  "windows_requests_this_turn": 0,
+  "windows_missing7_preserved_unknown": true,
+  "full_goal_complete": false,
+  "golden_member_records": 13,
+  "current_source_reverified_member": "lock-accumulate",
+  "other_golden_members_retained_as_historical_not_recertified": true,
+  "cli_list_actual_suites": 692,
+  "cli_list_unsealed_explicitly_reported": 281,
+  "cli_list_gpu_calls": 0
+}
