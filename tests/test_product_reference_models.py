@@ -78,11 +78,30 @@ class ProductReferenceModels(unittest.TestCase):
         with self.assertRaisesRegex(UnsupportedPortable,'explicit reference_models.lock_on'):product.compile_product(dict(prepared,reference_models={}))
         changed=copy.deepcopy(prepared);next(r['effect'] for r in changed['effects'] if r['effect'].get('stat')=='lock_on')['duration']=1
         with self.assertRaisesRegex(ValueError,'Unchanged original'):product.compile_product(changed)
-        with self.assertRaisesRegex(UnsupportedPortable,'fixed burst'):
-            product.compile_product(dict(prepared,policies={**prepared['policies'],'config':{**prepared['policies']['config'],'burst_gauge_mode':'fixed'}}))
         import ast
         transform=QueueHooks();transform.visit(ast.parse('def simulate():\n def _land(ev,t):\n  if boss is not None and boss.has_adds:pass\n'))
         self.assertNotEqual(transform.counts,dict(emission=1,landing=1,route=1,clock=1))
+
+    def test_fixed_lock_uses_shared_literal_header_and_preserves_all_effects(self):
+        import portable_detail as product
+        from portable_backend import validate_composed_stride
+        from portable_specs import LIMITS as L
+        from portable_runtime import UnsupportedPortable
+        body=self.lock_body(30,True);body['burst_gauge_mode']='fixed'
+        with patch.object(sim,'execute',side_effect=AssertionError('No native battle in fixed input')):
+            prepared,_=product.prepare(body);prepared['policies']['config']['first_burst_time']=.75;before=copy.deepcopy(prepared)
+            source,iw,ow,words,meta=product.compile_product(prepared)
+        self.assertEqual(source,'gpu/product_lock_fixed_battle_entry.slang');validate_composed_stride(source,iw,ow)
+        self.assertEqual(prepared,before);self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+        self.assertEqual(words[L['WORLD_CONTROL_INPUT_BASE']+1],4)
+        self.assertEqual(meta['real_prepared_input']['policy'],prepared['policies'])
+        self.assertEqual(meta['product_fixed_burst']['first_seconds'],.75)
+        self.assertFalse(meta['product_fixed_burst']['CPU_state_or_schedule_as_input'])
+        bad=copy.deepcopy(prepared);bad['chars'][0]['control']={'sequence':[{'action':'cover'}]}
+        with self.assertRaisesRegex(UnsupportedPortable,'manual cover'):product.compile_product(bad)
+        for value in (True,float('nan'),-1,181):
+            bad=copy.deepcopy(prepared);bad['policies']['config']['first_burst_time']=value
+            with self.subTest(value=value),self.assertRaisesRegex(UnsupportedPortable,'finite binary64'):product.compile_product(bad)
 
     def test_lock_on_decoder_checks_complete_arenas_and_reserved_words(self):
         import portable_detail as product

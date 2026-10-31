@@ -32,7 +32,9 @@ def compile_product(prepared):
             e=r['effect']
             if e.get('stat')=='lock_on':error.effect_context=dict(character=r['owner'],effect=e.get('name',''),stat='lock_on',target=e.get('target',''));break
         raise error
-    if prepared['policies']['config'].get('burst_gauge_mode')!='accumulate':raise UnsupportedPortable('Lock On with fixed burst requires the combined fixed product header')
+    from portable_product_fixed import lower as lower_fixed,attach as attach_fixed
+    original=prepared
+    prepared,fixed_values=lower_fixed(prepared)
     if prepared['enemy'].get('coord') is not None:raise UnsupportedPortable('Coordinate Lock On needs a combined declared coordinate consumer')
     spec=normalize(declarations['lock_on']);effects=[r['effect'] for r in prepared['effects']];owners=[r['owner'] for r in prepared['effects']]
     pulse,packet,typed=validate_effects(effects,owners,spec)
@@ -71,7 +73,9 @@ def compile_product(prepared):
     meta['product_manual_cover_owners']=[i for i,c in enumerate(prepared['chars']) if any(a.get('action')=='cover' for a in c.get('control',{}).get('sequence',[]))]
     meta['product_control_labels']=[[dict(mode=e['mode'],producer=_when_label(e)) for e in CharState(c,atk,prepared['enemy'].get('code'))._click_sched] for c,atk in zip(prepared['chars'],prepared['base_atk'])]
     meta['product_world']=dict(nodes=[dict(id=p.id,kind=p.kind) for p in parsed],literal_pattern_identity_only=True,cpu_schedule_or_state_supplied=False)
-    return SOURCE,INPUT,OUTPUT,words,meta
+    attach_fixed(words,meta,original,fixed_values)
+    source='gpu/product_lock_fixed_battle_entry.slang' if fixed_values is not None else SOURCE
+    return source,INPUT,OUTPUT,words,meta
 
 
 def read_result(block,meta,duration):

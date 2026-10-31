@@ -196,6 +196,13 @@
       "output_words": 1310720,
       "mode": "accumulate",
       "kind": ""
+    },
+    "lock-fixed": {
+      "source": "gpu/product_lock_fixed_battle_entry.slang",
+      "input_words": 109536,
+      "output_words": 1310720,
+      "mode": "fixed",
+      "kind": ""
     }
   }
 }

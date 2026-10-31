@@ -96,21 +96,9 @@ def compile_product(prepared):
         if not prepared.get('_product_cover_compiled'):
             raise UnsupportedPortable('Manual cover requires the connected product cover consumer entry')
         prepared=dict(prepared,_product_manual_cover=True)
-    gauge_mode=prepared['policies']['config'].get('burst_gauge_mode','fixed')
-    if gauge_mode not in ('fixed','accumulate'):raise UnsupportedPortable('Unported burst gauge mode')
-    fixed=gauge_mode=='fixed'
-    if fixed and manual_cover:
-        raise UnsupportedPortable('Fixed burst with manual cover needs a combined literal control header')
-    if fixed:
-        cfg=prepared['policies']['config']
-        first=cfg.get('first_burst_time',3.)
-        regen=[c.get('burst_regen_time',2.) for c in prepared['chars']]
-        if any(type(v) not in (int,float) or not math.isfinite(v) or not 0<=v<=180 for v in [first,*regen]):
-            raise UnsupportedPortable('Fixed burst delays require finite binary64 seconds in [0,180]')
-        # Reuse existing static lowering; readiness itself is supplied below.
-        # This copy is validation input only, never a simulated CPU schedule.
-        prepared=copy.deepcopy(prepared)
-        prepared['policies']['config']['burst_gauge_mode']='accumulate'
+    from portable_product_fixed import lower as lower_fixed,attach as attach_fixed
+    prepared,fixed_values=lower_fixed(prepared)
+    fixed=fixed_values is not None
     from portable_product_add_attack import lower as lower_add_attacks
     prepared,add_patterns=lower_add_attacks(prepared)
     if 'burst_pattern' in prepared['policies']['config']:
@@ -143,19 +131,7 @@ def compile_product(prepared):
                 original_effects=[copy.deepcopy(original['effects'][i]) for i in nearby],
                 neighbour_geometry_inferred=False)
         if fixed:
-            from portable_specs import LIMITS as limits
-            base=limits['WORLD_CONTROL_INPUT_BASE']
-            version=words[base+1]
-            tap_mask=words[base+5] if version==2 else 0
-            if (version not in (1,2) or version==1 and any(words[base+5:base+16])
-                    or version==2 and (not 0<tap_mask<32 or any(words[base+6:base+16]))):
-                raise UnsupportedPortable('Fixed burst requires a canonical automatic or tap control header')
-            words[base+1]=5 if tap_mask else 4
-            if tap_mask:words[base+10]=tap_mask
-            words[base+5:base+10]=[0x46424731,*struct.unpack('<II',struct.pack('<d',first)),*struct.unpack('<II',struct.pack('<d',max(regen)))]
-            metadata['real_prepared_input']['policy']=copy.deepcopy(original['policies'])
-            metadata['product_fixed_burst']=dict(first_seconds=first,member_regen_seconds=regen,
-                readiness_regen_seconds=max(regen),CPU_state_or_schedule_as_input=False)
+            attach_fixed(words,metadata,original,fixed_values)
             source=source.replace('gpu/product_','gpu/product_fixed_',1)
         if prepared.get('_product_burst_patterns'):
             from portable_burst_control_specs import product_patterns
