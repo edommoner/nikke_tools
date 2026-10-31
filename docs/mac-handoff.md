@@ -1,3 +1,27 @@
+## 2026-11-01 標準Miranda30秒が実CUDA/Metal/CPU全一致
+
+進捗あり。sourcea4663e47/owner1ea8f311…の保存CUBINで、元catalogueのMiranda/favorite0/既定育成/cubeなし/元5人順/30秒の通常HTTPを1回実行し、実RTX3070Ti/CPU全製品payload一致。input87da1e27…（417,604bytes）、全readbackb1dee8d9…（3,145,728bytes）が同じ新通常sourceの実M5標準sweep15と同一。damage109,909,882。これはCLI demoの別順編成や4秒への短縮ではない。標準CUDA30秒の製品profileは新たに1/266（Miranda）を確認、他profileへ加算しない。Metal標準の最新全件確認262/266、今回影響245/245を再確認済み、新Metal profile0。全goal未完了。
+
+保存結果2e6d956a、Windows capture58dfd2a7…、CUBIN8ad4f6c0…は元1ea8に正しく束縛。POST/kernel/sync/readback各1、Slang/NVRTC/PTXAS/link追加0、retry0、初回/同一admission再利用/最終gate1/4/1を保持。HTTP18.151秒/Job24.126秒/host launch+sync+read2.069秒、peak1,449,857,024bytes/2GiB、missing0/timeoutなし/Job空/ownedserver停止。launch前後private384,753,664→1,393,356,800bytes、GPUfree7,441,743,872→6,535,774,208bytes。子Job上限query null/reasonunknownでmemory complete=false、service unverified/whole preservation=false、元sourceartifact保全falseをそのまま保持。旧7missingとCPU依存停止の失敗を成功化せず元979record不変。
+
+Macの実input/fullraw/source sealとWindows小要約のrequest document全SHA/byte/callcount/全CPU一致をCPU-onlyで独立照合、追加GPU/native0。Windows原raw自体はMac未取得。保存小要約research/product-normal-resident-miranda-standard-api-v1-status.json、集約research/product-normal-resident-v1.json、原本proofs/product-normal-resident-v1-20261101/saved-standard-cuda-m5-audit-v1.json。Mac245coordinator/audit/serverはterminal、Windows依頼も全てterminal/pending0。同じGPU/APIを再送しない。
+
+次は未対応4profile/合成/公開samplingを優先し、CUDAの全profile確認は必要な小バッチへ広げる。現在の1profile成功を他245件のCUDA成功へ読み替えない。Mac245件のwall1170秒/GPU644秒と、Windows単発のowner/admission約10.7秒は別scope。数値本体を複製したり専用suiteを増やしたりせず、既存共通transport/CLI/監査を使う。以下は履歴。
+
+## 2026-11-01 通常固定入口245profileのMetal再確認完了・CUDAコンパイル成功
+
+前turnは通常入口実装・独立M5 sealと129profile通過で進捗。今回同じcoordinator68588がterminal、245/245の元標準30秒要求すべて通常APIで実M5/CPU全payload一致、旧input/全readback SHA同一、実行中source不変。保存245件も同じ既存audit-completed.pyでsource/input/raw/全CPU/GPU/APIを再投影し一致、追加native/GPU0。ケースwall合計1170.199秒、内包GPU合計644.218秒、制御した速度比較ではない。新profileの加算0、最後の全標準sweepはMetal262/266のまま。frame guard変更以外の5種類の入口は、生成CUDA/MSL原byte SHAが元の実API保存値と同一（追加CUDA SDK/GPU/native0）。元source/capture ownerの保持であり現sourceの新しいGPU/profile認定へ読み替えない。専用4404/server64797停止、ユーザー4317/4327不操作。
+
+Windowsunpackのmissing7を保存資料だけで診断（5b322a76）。7件ともcoordinatorより前から存在、savedJob memberとの一致0、同じfull identity/PIDのafter一致0、原因とlauncher関係unknown。元coordinatorは生存、childはrole validationでmissing対象外だがCIM/handleのcreationに6tick差がありlosslessjoin未証明。丸め/除外の追加や元失敗成功化なし。次の未実施CPU段階へ進めたところmissing0だったが、optional frame moduleの宣言依存JSONがpacket外で本文実行前に拒否された（f4fbe627、CPU0/SDK0）。元unpack/range/依存失敗の記録を保持。
+
+既存supplement-test-goldenはdevelopment専用・単一expected JSON用なのでsealed/source-certificate不足には不適用。通常product support_filesへ既存CPU_AUDIT_FILESの3fileを含めるだけで修正（a4663e47）。依存欠落拒否回帰を追加、関連15検査成功。新packet1ea8f311…（sourcea4663e47）は旧e398のCLI metadata/test2fileだけ変更＋歴史JSON3追加、他全payload/全golden/GPU計算byte完全保持、選択moduleの全依存gateも実packetで成功。自身112unit/fresh native1/GPU0、追加frame codec5、PTX60秒/2GiB/split2 plan成功。古いfull106証明書を現sourceへ付替えず、そのfull106ケースは選択しない。輸送c737f936。
+
+Windows新owner1ea8は選択CPU20/paired strict生成/PTX/object/linkまで正式origin/containment監査が成功（5acaaef1）、各内外missing0/Job空/timeoutなし。service未識別のpassed/preservation=falseと元全失敗を保持。元831record不変。初回NVRTC16.750秒/PTX10,031,597bytes、PTXAS9.160秒、jit native0.208秒、各1回、後段生成cache必須hit。linked CUBIN5,348,880bytes/SHA8ad4f6c0…、entry254regs/stack13,288bytes/lmem0、dispatch stack1,920bytes/spill180/180。静的compiler指標でGPU/実memory認定ではない。元801record等から段階的増加を保持し再実行0。
+
+次の標準Miranda profile0・30秒は元catalogue要求JSON normal-resident-miranda-standard-api-v1.json（CLI demoと編成順が異なる）を通常HTTPで1回だけ依頼済み。M5同要求はsweep15でinput87da1e27…/readbackb1dee8d9…のCPU全payload一致。新owner1ea8の上記保存CUBINだけをadmit、freshCPU全応答・同rawSHAを比較、生成/NVRTC/PTXAS/link0、helper53秒/2GiB/outer180/低優先度/ownedserver停止/既存resource samplingを維持。結果normal-resident-miranda-standard-api-v1-status.jsonを既存輸送branchへ共有依頼。現時点標準CUDA30秒の新認定0、まだ結果待ち。新GPU依頼を再送せず保存結果を取得する。コンパイルstageだけで計算成功へ数えない。
+
+Macのbatch/audit/serverはterminal。Windowsは上のAPI1回だけpending。全goal未完了。残4profileの未指定モデル・未対応合成/公開sampling等を維持。source/code/test/保存小要約はresearch/product-normal-resident-v1.jsonと同prefix記録、原本proofs/product-normal-resident-v1-20261101。以下は履歴。
+
 ## 2026-11-01 通常固定入口のresident frameを実M5で接続・標準再確認中
 
 進捗あり。通常fixed入口へ既存resident frameを適用。最初のv1は歴史source登録不足をCPU監査で拒否（GPU claim/実GPU0）、v2はcomposed専用のpreprocessor guardでSlang生成時拒否（claim保持/Swift・実GPU0）。原packet/全失敗/claim保持。修正版cb4f4c1dはresidentかつcomposed、または明示normal fixed/product/reloadのbuffer所有条件を要求する同じcodecを使う。異なるoutput strideのADD攻撃は既存配列方式を維持。guard/schema generator一致、既存bit/境界/全32slot/initializer5検査とsource history/packet14検査成功。CPU正本・数値演算・normalizer/tolerance変更0。

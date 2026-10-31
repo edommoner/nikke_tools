@@ -1,0 +1,365 @@
+{
+  "schema": "normal-resident-miranda-standard-api-v1-status",
+  "owner": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
+  "source_commit": "a4663e4716f46ba88460531ebfbc017375f242ae",
+  "path_base": "Documents/Codex",
+  "source_capture": "normal-resident-fixed-v2/jit-link-v2/proof",
+  "artifact": {
+    "bytes": 5348880,
+    "sha256": "8ad4f6c07f40ee9b1218f08c7c1e95d646824c236d2c6c33573d1d6dcd5356b6"
+  },
+  "api_capture": "normal-resident-fixed-v2/http-cuda-miranda-standard-thirty-seconds-v1/detail-captures/58dfd2a76e444b0286b27f24b0e62bac",
+  "capture_id": "58dfd2a76e444b0286b27f24b0e62bac",
+  "case": "Exact supplied standard Miranda favorite0 request, duration30",
+  "request_original_unchanged": true,
+  "original_request_document": {
+    "bytes": 9191,
+    "sha256": "0ab0466b24e43fa89547125a98d2adb9cbd761e1f0503e6c1d0493cdc9c1f3d8"
+  },
+  "request_body": {
+    "bytes": 8143,
+    "sha256": "49cf97e0a7c740167818ad52f56e8f3ae5b59ee5c89a43f88c0cc663f85cde91"
+  },
+  "duration_seconds": 30,
+  "device": "NVIDIA GeForce RTX 3070 Ti",
+  "backend": "cuda_shared_detail",
+  "gpu_verified": true,
+  "saved_cubin_admission": "verified",
+  "artifact_key": "754479347004e2a49030ff9c93da68bb8b25adc64999c3492daf9cf52ebf76d0",
+  "input": {
+    "bytes": 417604,
+    "sha256": "87da1e277a3ad117e346777d0577f82dadf5ba64b03dbcc14233411c441b94d1"
+  },
+  "readback": {
+    "bytes": 3145728,
+    "sha256": "b1dee8d99261cd4164f8998134b89d423883275a77c9d2d935c40588930879f1"
+  },
+  "fresh_cpu_full_payload_matched": true,
+  "differing_fields": [],
+  "m5_full_input_readback_matched": true,
+  "damage": 109909882,
+  "passed": true,
+  "cache_hit": false,
+  "http_seconds": 18.150743799749762,
+  "job_seconds": 24.1259170002304,
+  "job_peak_bytes": 1449857024,
+  "job_limit_bytes": 2147483648,
+  "timeout": false,
+  "missing": 0,
+  "job_empty": true,
+  "owned_server_stopped": true,
+  "observation_error": null,
+  "cleanup_error": null,
+  "service": "unverified",
+  "service_preservation_verified": false,
+  "source_artifact_passed": false,
+  "source_artifact_preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "phases": {
+    "product_cubin_owner": {
+      "elapsed_seconds": 5.0609649
+    },
+    "product_cubin_admission": {
+      "elapsed_seconds": 5.652920700144023,
+      "package_gate": {
+        "final_full_checks": 1,
+        "initial_full_checks": 1,
+        "reused_payload_checks": 4,
+        "scope": "Same CPU admission only; final full read precedes GPU"
+      }
+    },
+    "slang_build": {
+      "elapsed_seconds": 1.3689076
+    },
+    "cuda_linked_artifact": {
+      "elapsed_seconds": 0.0289135
+    }
+  },
+  "native": {
+    "cuCtxCreate_v2": {
+      "calls": 1,
+      "return_codes": [
+        0
+      ],
+      "seconds": 0.0795742
+    },
+    "cuCtxDestroy_v2": {
+      "calls": 1,
+      "return_codes": [
+        0
+      ],
+      "seconds": 0.027699
+    },
+    "cuCtxSynchronize": {
+      "calls": 1,
+      "return_codes": [
+        0
+      ],
+      "seconds": 2.0614655
+    },
+    "cuDeviceComputeCapability": {
+      "calls": 1,
+      "return_codes": [
+        0
+      ],
+      "seconds": 1.5e-05
+    },
+    "cuDeviceGet": {
+      "calls": 1,
+      "return_codes": [
+        0
+      ],
+      "seconds": 2.91e-05
+    },
+    "cuDeviceGetName": {
+      "calls": 1,
+      "return_codes": [
+        0
+      ],
+      "seconds": 2.3e-05
+    },
+    "cuInit": {
+      "calls": 1,
+      "return_codes": [
+        0
+      ],
+      "seconds": 0.0468286
+    },
+    "cuLaunchKernel": {
+      "calls": 1,
+      "return_codes": [
+        0
+      ],
+      "seconds": 0.0015739
+    },
+    "cuMemAlloc_v2": {
+      "calls": 3,
+      "return_codes": [
+        0,
+        0,
+        0
+      ],
+      "seconds": 0.0005096
+    },
+    "cuMemcpyDtoH_v2": {
+      "calls": 1,
+      "return_codes": [
+        0
+      ],
+      "seconds": 0.0004758
+    },
+    "cuMemcpyHtoD_v2": {
+      "calls": 2,
+      "return_codes": [
+        0,
+        0
+      ],
+      "seconds": 0.00020659999999999998
+    },
+    "cuMemsetD8_v2": {
+      "calls": 1,
+      "return_codes": [
+        0
+      ],
+      "seconds": 8.46e-05
+    },
+    "cuModuleGetFunction": {
+      "calls": 1,
+      "return_codes": [
+        0
+      ],
+      "seconds": 0.0114671
+    },
+    "cuModuleGetGlobal_v2": {
+      "calls": 1,
+      "return_codes": [
+        0
+      ],
+      "seconds": 2.38e-05
+    },
+    "cuModuleLoadData": {
+      "calls": 1,
+      "return_codes": [
+        0
+      ],
+      "seconds": 0.0054183
+    }
+  },
+  "host_launch_sync_readback_seconds": 2.0693212002515793,
+  "memory_observation_complete": false,
+  "memory_observation_unknown": "Child Job limit query null; reason not recorded. Original values retained; no completion upgrade.",
+  "memory_boundary_values": [
+    {
+      "boundary": "cuMemAlloc_v2",
+      "position": "before",
+      "own_private_bytes": 378449920,
+      "parent_private_bytes": 32223232,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 410677248,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 7448035328,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    },
+    {
+      "boundary": "cuMemAlloc_v2",
+      "position": "after",
+      "own_private_bytes": 380551168,
+      "parent_private_bytes": 32223232,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 412778496,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 7445938176,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    },
+    {
+      "boundary": "cuMemAlloc_v2",
+      "position": "before",
+      "own_private_bytes": 380551168,
+      "parent_private_bytes": 32223232,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 412778496,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 7445938176,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    },
+    {
+      "boundary": "cuMemAlloc_v2",
+      "position": "after",
+      "own_private_bytes": 384753664,
+      "parent_private_bytes": 32223232,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 416980992,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 7441743872,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    },
+    {
+      "boundary": "cuMemAlloc_v2",
+      "position": "before",
+      "own_private_bytes": 384753664,
+      "parent_private_bytes": 32223232,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 416980992,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 7441743872,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    },
+    {
+      "boundary": "cuMemAlloc_v2",
+      "position": "after",
+      "own_private_bytes": 384753664,
+      "parent_private_bytes": 32223232,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 416980992,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 7441743872,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    },
+    {
+      "boundary": "cuLaunchKernel",
+      "position": "before",
+      "own_private_bytes": 384753664,
+      "parent_private_bytes": 32223232,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 416980992,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 7441743872,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    },
+    {
+      "boundary": "cuLaunchKernel",
+      "position": "after",
+      "own_private_bytes": 1393356800,
+      "parent_private_bytes": 32223232,
+      "job_available": true,
+      "job_reason": "unknown",
+      "job_peak_bytes": 1425584128,
+      "job_limit_bytes": null,
+      "device_available": true,
+      "device_free_bytes": 6535774208,
+      "device_total_bytes": 8589410304,
+      "query_return_code": 0
+    }
+  ],
+  "allocations": [
+    {
+      "requested_bytes": 417604,
+      "return_code": 0
+    },
+    {
+      "requested_bytes": 3145728,
+      "return_code": 0
+    },
+    {
+      "requested_bytes": 167680,
+      "return_code": 0
+    }
+  ],
+  "launches": [
+    {
+      "block": [
+        1,
+        1,
+        1
+      ],
+      "dynamic_shared_bytes": 0,
+      "grid": [
+        1,
+        1,
+        1
+      ],
+      "return_code": 0
+    }
+  ],
+  "journal_sha256": "b11486ef8a788b75864ba3da590eb6488ed5b84bd1192fd3733ddf089cb2b745",
+  "resource_summary": {
+    "bytes": 9455,
+    "sha256": "4e8bd36397db65dc65e623222d068e4ef9e43768a7b9b9f703a7680d23edb4b0"
+  },
+  "actual_calls": {
+    "http_post": 1,
+    "kernel": 1,
+    "sync": 1,
+    "readback": 1,
+    "memory_queries": 8,
+    "additional_kernel": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "slang_generation": 0,
+    "retry": 0
+  },
+  "original_records_unchanged": true,
+  "original_records_checked": 979,
+  "original_failures_retained": {
+    "old_unpack_missing": 7,
+    "old_unpack_cause": "unknown",
+    "old_cpu_dependency_stop_executed": 0,
+    "range_inner_missing": 7,
+    "range_outer_missing": 7,
+    "range_cause": "unknown"
+  },
+  "range_executed": false,
+  "other_profiles_executed": 0
+}

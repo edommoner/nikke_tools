@@ -48,37 +48,105 @@
   },
   "ordinary_api": {
     "planned_impacted_profiles": 245,
-    "completed": 115,
+    "completed": 245,
     "batch_size": 16,
     "runner": "run-api-batches.py",
     "saved_auditor": "audit-completed.py",
     "same_old_requests": true,
-    "saved_audited": 93,
+    "saved_audited": 245,
     "all_completed_full_cpu_payload_match": true,
     "all_completed_input_output_hashes_unchanged": true,
     "process_session": 68588,
     "owned_server_session": 64797,
     "owned_server_port": 4404,
-    "terminal": false
+    "terminal": true,
+    "source_files_unchanged": true,
+    "owned_server_stopped": true,
+    "wall_case_seconds_sum": 1170.198583,
+    "gpu_case_seconds_sum": 644.218386,
+    "timing_scope": "Sequential case wall and nested GPU times; not controlled before/after benchmark",
+    "new_profiles": 0
   },
   "cuda": {
-    "verification_requested": true,
-    "standard_30s_profiles": 0,
-    "compile_status": "stopped after verified unpack with missing7, before CPU/SDK/driver/GPU; diagnostic only requested",
-    "saved_report": "research/product-normal-resident-fixed-compile-status-v1.json",
-    "saved_report_sha256": "886a1c2647be6ee5afc658124997b9dc9f725d7141451cdfa278593dc3bf6482",
-    "saved_report_commit": "85a88fe23afa224100a7326e8a2d2a85e0abb329",
-    "preservation_verified": false,
-    "termination_cause": "unknown",
-    "SDK_calls": 0,
-    "driver_gpu_calls": 0,
-    "unpack_not_repeated": true
+    "new_owner": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
+    "compile_verified": true,
+    "compiled_stages_report": "research/product-normal-resident-fixed-compile-v2-status.json",
+    "compiled_stages_commit": "5acaaef125b249d939eccdbcbeb14e0f06360e5e",
+    "stage_resource_scope": "Saved compiler metrics only; actual GPU metrics below",
+    "linked_entry_stack_bytes": 13288,
+    "standard_30s_profiles_verified": 1,
+    "verified_profiles": [
+      {
+        "character": "Miranda",
+        "favorite_stage": 0,
+        "duration_seconds": 30,
+        "conditions": "Exact original standard catalogue request/default growth/no cube/original roster",
+        "damage": 109909882
+      }
+    ],
+    "ordinary_api_verified": true,
+    "current_api_report": "research/product-normal-resident-miranda-standard-api-v1-status.json",
+    "current_api_report_sha256": "15e1eb927a1c65437727ceb0ce651f90ebeafa963f54dc723d5dc6246ac3d122",
+    "current_api_commit": "2e6d956a128466270bbe6863ec2751a394228260",
+    "cpu_full_payload_matched": true,
+    "m5_full_input_readback_sha256_matched": true,
+    "job_peak_bytes": 1449857024,
+    "job_limit_bytes": 2147483648,
+    "http_seconds": 18.150743799749762,
+    "job_seconds": 24.1259170002304,
+    "host_launch_sync_readback_seconds": 2.0693212002515793,
+    "actual_api_calls": {
+      "http_post": 1,
+      "kernel": 1,
+      "sync": 1,
+      "readback": 1,
+      "memory_queries": 8,
+      "additional_kernel": 0,
+      "nvrtc": 0,
+      "ptxas": 0,
+      "link": 0,
+      "slang_generation": 0,
+      "retry": 0
+    },
+    "missing": 0,
+    "timeout": false,
+    "job_empty": true,
+    "owned_server_stopped": true,
+    "memory_observation_complete": false,
+    "whole_environment_preservation_verified": false,
+    "source_artifact_preservation_verified": false,
+    "original_failures_retained": {
+      "old_unpack_missing": 7,
+      "old_unpack_cause": "unknown",
+      "old_cpu_dependency_stop_executed": 0,
+      "range_inner_missing": 7,
+      "range_outer_missing": 7,
+      "range_cause": "unknown"
+    },
+    "original_windows_raw_read_on_mac": false,
+    "saved_cross_backend_audit": {
+      "passed": true,
+      "scope": "Mac actual full input/readback/source bytes plus exact Windows peer summary; original Windows raw not imported",
+      "mac_capture": "7fe130b4baa64458845ab52db4591664",
+      "windows_capture": "58dfd2a76e444b0286b27f24b0e62bac",
+      "source_owner": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
+      "request_file_sha256": "0ab0466b24e43fa89547125a98d2adb9cbd761e1f0503e6c1d0493cdc9c1f3d8",
+      "input_sha256": "87da1e277a3ad117e346777d0577f82dadf5ba64b03dbcc14233411c441b94d1",
+      "readback_sha256": "b1dee8d99261cd4164f8998134b89d423883275a77c9d2d935c40588930879f1",
+      "damage": 109909882,
+      "extra_gpu_calls": 0,
+      "extra_native_calls": 0
+    },
+    "pending_requests": 0
   },
   "coverage": {
     "last_standard_full_metal_sweep": 262,
     "total_standard_profiles": 266,
     "new_standard_profiles": 0,
-    "goal_complete": false
+    "goal_complete": false,
+    "new_standard_metal_profiles": 0,
+    "new_standard_cuda_profiles": 1,
+    "verified_standard_cuda_profiles": 1
   },
   "sealed_release": {
     "source_commit": "7de4a2f0961bf7af700a2bc2ac96fbcd2d1889df",
@@ -113,5 +181,128 @@
     },
     "transport_commit": "192fe653f9ca5c071b62d63ff1a4160ffb031807",
     "subsequent_exact_standard_request_commit": "a8c750cb"
+  },
+  "unaffected_generation_preservation": {
+    "passed": true,
+    "rows": [
+      {
+        "source": "gpu/product_fixed_group_battle_entry.slang",
+        "old_capture": "a7b2ce8e6ef8420e919b78334e4d9f0e",
+        "old_generated_sha256": {
+          "cuda": "b28cb3097c27597d1360539297ff46bd4307ca2dc808eafa747df2ec2a53247d",
+          "metal": "ec9a40aad42b0bff3f26e95af4360e123fb9a3201cb29e36086b9847e0da21fd"
+        },
+        "current_generated_sha256": {
+          "cuda": "b28cb3097c27597d1360539297ff46bd4307ca2dc808eafa747df2ec2a53247d",
+          "metal": "ec9a40aad42b0bff3f26e95af4360e123fb9a3201cb29e36086b9847e0da21fd"
+        },
+        "all_generated_cuda_msl_bytes_sha256_unchanged": true,
+        "source_raw_sha_changed": true
+      },
+      {
+        "source": "gpu/product_healing_fixed_battle_entry.slang",
+        "old_capture": "bf3819ca96884f958e04333d44b79760",
+        "old_generated_sha256": {
+          "cuda": "d84f1becfdd5671b693bfb4fd9e87797edb767dc9c81800414c8c6d519eef443",
+          "metal": "baf9b5434a77b7af30689231843332fd90be19f6fedaf5bfc2dc3c6263caa566"
+        },
+        "current_generated_sha256": {
+          "cuda": "d84f1becfdd5671b693bfb4fd9e87797edb767dc9c81800414c8c6d519eef443",
+          "metal": "baf9b5434a77b7af30689231843332fd90be19f6fedaf5bfc2dc3c6263caa566"
+        },
+        "all_generated_cuda_msl_bytes_sha256_unchanged": true,
+        "source_raw_sha_changed": true
+      },
+      {
+        "source": "gpu/product_fixed_target_battle_entry.slang",
+        "old_capture": "15902a6becd544a0b48c80b32b1b5ce2",
+        "old_generated_sha256": {
+          "cuda": "a8f7881f3cc2104ea5246126757a611c69f886da1e2ae13465ebf242df0ae97a",
+          "metal": "99b852ee95f02a965197b0ab50bc24d57185885373c1ecc923eff88f8443768c"
+        },
+        "current_generated_sha256": {
+          "cuda": "a8f7881f3cc2104ea5246126757a611c69f886da1e2ae13465ebf242df0ae97a",
+          "metal": "99b852ee95f02a965197b0ab50bc24d57185885373c1ecc923eff88f8443768c"
+        },
+        "all_generated_cuda_msl_bytes_sha256_unchanged": true,
+        "source_raw_sha_changed": true
+      },
+      {
+        "source": "gpu/product_ammo_fixed_battle_entry.slang",
+        "old_capture": "6fc0538b9f524dc58bbcd2c260675101",
+        "old_generated_sha256": {
+          "cuda": "9f27275ba6f15de4945610cb4e6b1e93fcc8e2ee7b1c2fc20f07dcf30ce9aa60",
+          "metal": "d07376699dee779feb1530275ba21b7f97e9d31ff41ee3153f9e1a1b60bfda69"
+        },
+        "current_generated_sha256": {
+          "cuda": "9f27275ba6f15de4945610cb4e6b1e93fcc8e2ee7b1c2fc20f07dcf30ce9aa60",
+          "metal": "d07376699dee779feb1530275ba21b7f97e9d31ff41ee3153f9e1a1b60bfda69"
+        },
+        "all_generated_cuda_msl_bytes_sha256_unchanged": true,
+        "source_raw_sha_changed": true
+      },
+      {
+        "source": "gpu/product_weighted_fixed_battle_entry.slang",
+        "old_capture": "4a942acb40f24796888e87476801fb2c",
+        "old_generated_sha256": {
+          "cuda": "f425bca1c472dab856f32361479e500adaf963148186ce681f5c3f4de024e56f",
+          "metal": "239cb688578d94c2a5788136547ed8fafc38cb72d8c6e8fdae022b21a5e424ac"
+        },
+        "current_generated_sha256": {
+          "cuda": "f425bca1c472dab856f32361479e500adaf963148186ce681f5c3f4de024e56f",
+          "metal": "239cb688578d94c2a5788136547ed8fafc38cb72d8c6e8fdae022b21a5e424ac"
+        },
+        "all_generated_cuda_msl_bytes_sha256_unchanged": true,
+        "source_raw_sha_changed": true
+      }
+    ],
+    "gpu_calls": 0,
+    "cuda_sdk_calls": 0,
+    "native_battle_calls": 0,
+    "normalizer_changed": false,
+    "scope": "Saved actual generated CUDA/MSL byte identity only; original capture/source owners remain separate, not a new GPU/profile certification"
+  },
+  "windows_saved_diagnosis_and_dependency_stop": {
+    "normal-resident-unpack-observation-diagnosis-v1.json": {
+      "path": "research/product-normal-resident-unpack-observation-diagnosis-v1.json",
+      "commit": "5b322a76286db90aeecb15e81cd846afc615e77c",
+      "sha256": "66fc2b0a91521a6b99ac83a4d1c60b5b608c0db6e73f6bd5982d3762815793d4"
+    },
+    "normal-resident-fixed-compile-continuation-v1.json": {
+      "path": "research/product-normal-resident-fixed-compile-continuation-v1.json",
+      "commit": "f4fbe627214088e217939acfa36e16ea8f4cfb7f",
+      "sha256": "e9ca519f5712e2aedf21f0f2699e4608abc11eaea8424a307fe8618da4c01281"
+    }
+  },
+  "packaging_fix": {
+    "source_commit": "a4663e4716f46ba88460531ebfbc017375f242ae",
+    "package_id": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
+    "transport_commit": "c737f936",
+    "preservation": {
+      "passed": true,
+      "source_package_id": "e398f26377f9f2234548b8c55eae9c451dfdb85535d0344487cbd099ec772a58",
+      "package_id": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
+      "changed_metadata_and_test_files": [
+        "scripts/nikke_gpu.py",
+        "tests/test_product_detail_packet.py"
+      ],
+      "added_historical_test_dependencies": [
+        "research/portable-compiler-full--coordinate-resident-frames-v2-source-certificate.json",
+        "research/portable-coordinate-resident-frames-short-expected.json",
+        "research/portable-coordinate-resident-frames-short-v2-expected.json"
+      ],
+      "all_other_payload_bytes_unchanged": true,
+      "full_golden_unchanged": true,
+      "selected_module_dependency_gate_passed": true,
+      "gpu_calls": 0,
+      "native_battle_calls": 0
+    },
+    "own_cpu_tests": 112,
+    "fresh_native_cases": 1,
+    "additional_frame_codec_tests": 5,
+    "selected_delta_windows_tests": 20,
+    "gpu_calls": 0,
+    "ptx_plan_passed": true,
+    "history_certificates_are_not_current_source_certification": true
   }
 }
