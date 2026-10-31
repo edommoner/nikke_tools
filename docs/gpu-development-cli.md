@@ -2,6 +2,8 @@
 
 `movement-fixed` / `named-range-fixed` は、明示した移動/範囲モデルへ同じ固定バーストreadyを適用する。`package --suite product-detail --product-program movement-fixed --out NEW.zip`（範囲は`named-range-fixed`）で通常の不変package/run経路を使う。version6はtap mask/cover tagを保持し、first/regenリテラルを別slotへ置く。CPU時刻表は渡さない。両programはM5/fresh seal済みv15、旧14member保持。標準profile数や現CUDAの確認とは分ける。[範囲と失敗保持](../research/product-coordinate-fixed-v1.json)。
 
+通常画面の「詳細条件 → 部隊の宣言モデル」も同じAPIを使う。JSONは`{"reference_models":{...},"enemy":{"patterns":[...]}}`で、enemyは必要時だけ指定する。部隊/敵画面ごとに保存し、育成・編成は上書きしない。モデル固有の妥当性は同じPython consumerが検査する。実ゲーム確認済みとの区別を表示する。履歴込み保存は同じv1形式のcompact JSON、設定のみ保存は利用者が選択する。[画面と短い両GPU確認](../research/product-declared-ui-v1.json)。
+
 ## 通常製品の召喚敵射撃
 
 `product-detail` の `--product-program add-accumulate` / `add-fixed` と、それぞれの `-group` / `-target` / `-group-target` は、通常APIと同じ召喚敵射撃・最終射撃退場を扱う。計算は既存のADD cursor/incoming/actor poolを共有する。旧8programは不変。新8programは現在development packet段階で、独立sealがないregistered実行を明示拒否する。

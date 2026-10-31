@@ -1,3 +1,21 @@
+## 2026-11-01 通常画面の宣言モデル入力とCUDA短条件2編成が一致
+
+部隊別のreference_modelsと任意のenemy.patternsを通常「詳細条件」からJSONで適用できる。7つの接続済みモデル名/有限JSON/1MBと敵行動の基本形だけを画面で検査し、mechanicsは既存Python consumerが最終検査する。育成/編成/時間/敵DEFはJSONで上書き不可。部隊/敵画面scopeで分離し、preset変更で解除、モデルを変えたらscore/reference条件キーも変わる。owner固定モデルのおすすめ探索は理由付きで止め、黙ってモデルを捨てない。実ゲーム未確認の宣言であることを結果欄にも常時表示する。
+
+不変UI owner32b59686…（361488eb）の実IAB画面から旧v3合成セッションを取り込み、ユニ30秒のモデルを入力して計算。実Apple M5/CPU全応答一致、damage100,837,867、input3ff51c00…/readback0cd3194c…が前API実証と同一。比較2応答は同入力のためcacheを再利用し実GPU captureは91429935…の1回。元69定義を保持、保存全source/input/raw/CPU/GPU/画面応答再投影も追加native/GPU0で一致。部隊2へのモデル漏れなし、育成上書きJSON拒否、宣言解除で古いスコア無効化を画面で確認した。標準profileの件数は増やさず既存ユニ条件へのUI経路追加とする。
+
+画面検証でpretty保存12,660,935byteが既存12MiB取り込み上限を超える不具合を発見。e7b8dc93では全field/履歴を保持するcompact JSON4,148,606byteへ変更、解析後全JSON一致。明示的な「編成・戦闘条件だけ保存」も追加（履歴省略は利用者の選択のみ、宣言/育成/編成を保持）。合成ユニ設定のみ8,491byte、別の5人demoの実ボタン出力8,242byteを確認。上限引上げ/自動データ削除0。full source Node51件成功、packet選択Node24件成功とUI依存7fileの全byte一致を区別する。final full UI owner47afa2da…（e7b8dc93）、計算本体はf6cab742と同一。
+
+Windowsは新移動/範囲sourceのPTX・object・link各1回と正式origin/containment監査が成功。各stage missing0/Job空/timeout0、service unverifiedなのでpassed/preservation=falseを保持。補助イベント名の誤りと修正前range開始の手順誤りは記録保持、正式監査成功と区別。元claim/PTX/CUBIN不変、追加SDKの再実行0。
+
+その保存CUBINを使い通常HTTPでmovement-fixed4秒（ユニ編成）とnamed-range-fixed4秒（アスカWILLE＋レイ仮称編成）を各1回、実RTX3070Ti/CPU全製品payload一致。両input/全readback SHAも同条件のM5保存結果と完全同一。damage15,425,927/10,291,281、burst I3.0/II3.1/III3.2/full3.583秒。runtime f6cab742 owner d4cbc49d…、artifact ownerは各元d4/7ba。GPU/API各2、追加生成/compile/PTXAS/link0、各POST/kernel/sync/readback/destroy1、retries0。Windows rawはMac未取得、peer terminalとMac実raw独立監査の照合である。
+
+CUDA jobは34.2148秒/peak2,139,754,496byteと26.0937秒/peak2,110,984,192byte、共にmissing0/Job空/server停止/timeout0。前者は2GiB制限まで7,729,152byte（約7.4MiB）しかなく、大きなGPU実行は依頼しない。launch前後にprivate約399MB→2,080MB/399MB→2,050MB、GPU空き約7.44GB→5.83GB/5.82GB。8点query成功でも子Job上限fieldがnull/reason unknownなのでcomplete=false、外側2GiB確認と区別し、原因は未認定。既存PTXASログのstack/register/spill保存値だけをCPUで読む依頼を送信済み（新driver/GPU/SDK0）。
+
+read_threadがhost unavailableでもlist_threadsは同host idle、wait_threads(timeoutMs0)は正しい完了を取得できた。本文取得失敗をPC切断や実行停止と断定しない。今後はcompact waitを第一選択にし、同依頼を再送しない。最新既読cursor4b3eff0d-96af-48be-b3ad-b6609ae33ca8:439、API terminal turn01a192f2-1ae8-7240-848e-67127e917547。保存resourceログ読取もterminal（turn01a192fd-9165-7ed0-807e-c314fe827115、最新既読cursor末尾:440）、Windows pending0。PTXASのrelocatable entryでは24regs/stack0だが、最終link entryは両方254regs、stack22,848/22,920bytes、lmem0。元PTXAS関数stack上位はdispatch9,912、quantityTotals4,344、burstFrame2,792、tick2,712、consumeBulletBuffs2,152bytes。JIT保存optionsはarch/verboseだけ、stack制御記録なし。新SDK/driver/GPU/HTTP/snapshot0。これで物理メモリ増大の原因を確定せず、次は既存dispatch/quantityTotalsの一時配列・呼出しframeを調べる。IABのfile chooser/setFilesが約5,329秒、download path取得が約191/547秒の操作待ちを生じたが、実Metalは準備実行4.54秒/GPU2.987秒。今後のファイル内容検査は元ファイル/共通serializerのCPU読取を優先し、ブラウザーのファイル操作を反復しない。
+
+専用4399/4400とテストタブは停止、4317/4327は操作なし。標準全件の最後のMetal確認は262/266、今回標準30秒profile追加0/CUDA標準30秒認定0。CUDAの宣言短条件2編成を全profileや全効果対応へ加算しない。既存normal/fixed画像を新しいraw source ownerへ再束縛しておらず、旧runtime03の短条件1profileの証拠も別scopeのまま。全goal未完了。次は実launchの近傍メモリを保存情報から絞り、通常未指定4profileとモデル合成の対応を進める。小記録research/product-declared-ui-v1.json/既存product-coordinate-fixed-v1.json、画像research/product-declared-ui-result-v1.jpg。以下は履歴。
+
 ## 2026-11-01 宣言移動・範囲の固定バーストを通常APIへ接続
 
 元ユニ/ヤンの30秒5条件と元アスカWILLE＋レイ仮称の15秒4条件を、通常HTTP APIの固定周期で実M5/CPU全製品payload一致。蓄積回帰2条件も一致、計11。移動禁止/強制/再出現/重複優先、元範囲500%・対象数・遅延出現/退場を保持。宣言モデルの3編成への方式追加であり、標準profileを262→265とは数えない。標準266の最新全件確認はsource1cbe45ccのMetal262/理由付きCPU4のままで、今回の全件再実行ではない。未指定モデルを補完せず、手動遮蔽/モデル合成の未対応も維持する。

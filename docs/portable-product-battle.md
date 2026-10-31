@@ -1,3 +1,9 @@
+# 2026-11-01 通常画面で宣言モデルを適用しMetal/CPU一致
+
+「詳細条件 → 部隊の宣言モデル」でreference_modelsと任意のenemy.patternsをJSON指定し、選択した部隊だけで計算できる。画面/結果に実ゲーム未確認の仮定であることを表示する。育成・編成の上書きや他部隊への流用を防ぎ、宣言変更/解除は計算済み表示も無効にする。保存JSONは両scopeを保持する。全データを維持するcompact保存と、利用者が明示する設定のみ保存を追加し、12MiB取り込み上限は変更しない。
+
+実画面のユニ30秒がM5/CPU全応答一致（100,837,867）、前APIとinput/全raw SHA一致。保存raw再投影も追加native/GPU0。別の短い通常API4秒は移動/範囲の2編成がRTX3070TiとCPU全応答、同条件M5のinput/全readback SHAに一致した。標準30秒profileのCUDA認定とは分ける。Windows memory peakは最大2,139,754,496byteで2GiB上限に近いため、大きなrunは追加せず保存compiler情報を読む。サービス未識別/保全falseと観測のunknownを保持する。[検証記録](../research/product-declared-ui-v1.json)。以下は履歴。
+
 # 2026-11-01 宣言モデルの固定移動・範囲を通常製品へ接続
 
 通常HTTP APIで元ユニ/ヤン30秒の固定5条件、アスカWILLE＋レイ仮称15秒の固定4条件、蓄積回帰2条件がM5/CPU全製品応答一致。保存全11のsource/input/rawと全応答再投影も追加native/GPU0。宣言モデルでありゲーム位置/距離/基礎半径の認定ではない。標準profileのGPU数には重複加算しない。

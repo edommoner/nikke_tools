@@ -1,0 +1,474 @@
+{
+  "schema": 1,
+  "scope": "Ordinary UI declared-model authoring and saved-image shared CUDA/Metal product validation",
+  "ui_implementation_commit": "361488eb91d47069351941e9b64c30aad66c2668",
+  "export_fix_commit": "e7b8dc9337ba596e374de30cbf6a11841701de75",
+  "ui_execution_owner": "32b59686937d0e1c4485308214dc0f584499d6ce50004d2cdaea7c57d369583c",
+  "final_ui_packet_owner": "47afa2daa5990301dbd1bbe0656678e1a47ff1f77a5c7bced8f76ac075c82da9",
+  "game_rules_confirmed": false,
+  "calculation_core_changed": false,
+  "normalizer_or_tolerance_changed": false,
+  "canonical_cpu_changed": false,
+  "node_tests": {
+    "worktree_passed": 51,
+    "packet_selected_passed": 24,
+    "ui_dependency_byte_identity_files": 7,
+    "sandbox_http_listen_failure_retained": true,
+    "authorized_http_rerun_passed": true
+  },
+  "ui_checks": {
+    "old_v3_session_imported": true,
+    "model_applied_from_visible_textarea": true,
+    "applies_to_team0_only": true,
+    "team1_empty_model_verified": true,
+    "profile_override_rejected": true,
+    "model_clear_invalidates_old_score": true,
+    "actual_metal_device": "Apple M5",
+    "duration_seconds": 30,
+    "total_damage": 100837867,
+    "displayed_cpu_match": true,
+    "displayed_declared_model_warning": true,
+    "saved_audit": {
+      "passed": true,
+      "capture_id": "91429935c9ba42849295754fb50e7d50",
+      "input_sha256": "3ff51c006f6ca444761ba64c00eb54a945b7f4fb536667fd1d0fd5c86fd2b15f",
+      "output_sha256": "0cd3194c40b7114f6e4eb694c1f90c7e1725a51611e9aee7aa47690755238a0a",
+      "all_source_input_raw_and_payload_fields_verified": true,
+      "definitions": 69,
+      "bindings_complete": true,
+      "comparison_response_cache_hit": true,
+      "gpu_calls": 0,
+      "native_calls": 0
+    },
+    "new_profile_count": 0,
+    "profile_scope": "Existing Yuni declared-model profile; ordinary UI route added, not a new catalogue profile"
+  },
+  "session_export": {
+    "format": "nikke-tools-session-v1",
+    "ui_version": 4,
+    "import_limit_bytes": 12582912,
+    "failed_pretty_export_bytes": 12660935,
+    "lossless_compact_bytes": 4148606,
+    "lossless_semantic_roundtrip_verified": true,
+    "full_history_automatically_discarded": false,
+    "explicit_settings_only_bytes": 8491,
+    "actual_settings_button_download_bytes": 8242,
+    "actual_settings_button_preserved_profile_and_teams": true,
+    "per_team_and_enemy_scope_models_roundtrip_verified": true
+  },
+  "metal_short": {
+    "rows": [
+      {
+        "name": "movement-fixed",
+        "capture_id": "e2090b10e635461791290309c65dce45",
+        "input_sha256": "5f0ac969a35509b188039b12cf90a6901e94d37749de2ee826d38e36909b95f9",
+        "output_sha256": "b1c1e77e1a34e87f92ae6e0b058cb6e1dfbf1b03f7e8640680fbf9b55c966087",
+        "device": "Apple M5",
+        "full_cpu_match": true,
+        "total_damage": 15425927,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "미란다"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "유니"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "드레이크"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ]
+      },
+      {
+        "name": "named-range-fixed",
+        "capture_id": "2555707986ef4c1f962ddf52ece96602",
+        "input_sha256": "e079fc42b5f77064c63e665f106c882c525cd2d6d71d8a19301f52576c05fb4a",
+        "output_sha256": "56ad08fe3f78384a5bc46f2f321b8ba31ac4a5733a1884e74f96206429282a4b",
+        "device": "Apple M5",
+        "full_cpu_match": true,
+        "total_damage": 10291281,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "미란다"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "도라"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "아스카 : WILLE"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          }
+        ]
+      }
+    ],
+    "saved_audit": {
+      "passed": true,
+      "rows": [
+        {
+          "name": "movement-fixed",
+          "capture_id": "e2090b10e635461791290309c65dce45",
+          "source_input_raw_sha256_verified": true,
+          "all_cpu_gpu_api_fields_match": true,
+          "definitions": 69,
+          "source_indices_complete": true,
+          "gpu_calls": 0,
+          "native_calls": 0
+        },
+        {
+          "name": "named-range-fixed",
+          "capture_id": "2555707986ef4c1f962ddf52ece96602",
+          "source_input_raw_sha256_verified": true,
+          "all_cpu_gpu_api_fields_match": true,
+          "definitions": 87,
+          "source_indices_complete": true,
+          "gpu_calls": 0,
+          "native_calls": 0
+        }
+      ],
+      "gpu_calls": 0,
+      "native_calls": 0,
+      "source_owner": "47afa2daa5990301dbd1bbe0656678e1a47ff1f77a5c7bced8f76ac075c82da9"
+    }
+  },
+  "cuda": {
+    "evidence_scope": "Source-host compact terminal report; original raw/observations remain on Windows",
+    "rows": {
+      "movement-fixed": {
+        "capture_id": "b6ddedecbe6842fab3cd973405e71ab6",
+        "input_sha256": "5f0ac969a35509b188039b12cf90a6901e94d37749de2ee826d38e36909b95f9",
+        "output_sha256": "b1c1e77e1a34e87f92ae6e0b058cb6e1dfbf1b03f7e8640680fbf9b55c966087",
+        "total_damage": 15425927,
+        "http_seconds": 27.669,
+        "job_seconds": 34.2148,
+        "job_peak_bytes": 2139754496,
+        "owner_seconds": 10.1047,
+        "admission_seconds": 7.0187,
+        "generation_cache_read_seconds": 3.4544,
+        "cubin_read_seconds": 0.0303,
+        "launch_sync_readback_seconds": 0.8239,
+        "parent_private_bytes": 27725824,
+        "backend": "cuda_shared_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "full_cpu_payload_match": true,
+        "full_readback_sha_matches_metal": true,
+        "gpu_execution_verified": true,
+        "burst_seconds": [
+          3.0,
+          3.1,
+          3.2,
+          3.583
+        ],
+        "package_gate": {
+          "initial": 1,
+          "reused": 4,
+          "final": 1
+        },
+        "sdk_compile_calls": 0,
+        "retries": 0,
+        "http_posts": 1,
+        "kernel_calls": 1,
+        "sync_calls": 1,
+        "readback_calls": 1,
+        "driver_context_destroy_success": true,
+        "job_empty": true,
+        "owned_server_stopped": true,
+        "missing": 0,
+        "timeouts": 0,
+        "service": "unverified",
+        "environment_preservation_verified": false,
+        "memory_observation_complete": false,
+        "child_job_query_available": true,
+        "child_job_limit_bytes": null,
+        "saved_job_reason": "unknown",
+        "memory_query_calls": 8,
+        "job_limit_bytes": 2147483648,
+        "job_peak_margin_bytes": 7729152,
+        "memory_snapshots": [
+          {
+            "boundary": "cuMemAlloc#1",
+            "position": "before",
+            "process_private_bytes": 386936832,
+            "device_free_bytes": 7445938176,
+            "parent_private_bytes": 27725824
+          },
+          {
+            "boundary": "cuMemAlloc#1",
+            "position": "after",
+            "process_private_bytes": 389038080,
+            "device_free_bytes": 7443841024,
+            "parent_private_bytes": 27725824
+          },
+          {
+            "boundary": "cuMemAlloc#2",
+            "position": "before",
+            "process_private_bytes": 389038080,
+            "device_free_bytes": 7443841024,
+            "parent_private_bytes": 27725824
+          },
+          {
+            "boundary": "cuMemAlloc#2",
+            "position": "after",
+            "process_private_bytes": 399474688,
+            "device_free_bytes": 7435452416,
+            "parent_private_bytes": 27725824
+          },
+          {
+            "boundary": "cuMemAlloc#3",
+            "position": "before",
+            "process_private_bytes": 399474688,
+            "device_free_bytes": 7435452416,
+            "parent_private_bytes": 27725824
+          },
+          {
+            "boundary": "cuMemAlloc#3",
+            "position": "after",
+            "process_private_bytes": 399474688,
+            "device_free_bytes": 7435452416,
+            "parent_private_bytes": 27725824
+          },
+          {
+            "boundary": "cuLaunchKernel",
+            "position": "before",
+            "process_private_bytes": 399474688,
+            "device_free_bytes": 7435452416,
+            "parent_private_bytes": 27725824
+          },
+          {
+            "boundary": "cuLaunchKernel",
+            "position": "after",
+            "process_private_bytes": 2080485376,
+            "device_free_bytes": 5826936832,
+            "parent_private_bytes": 27725824
+          }
+        ]
+      },
+      "named-range-fixed": {
+        "capture_id": "585aac98fcfe47d59e9b4170c9963fcf",
+        "input_sha256": "e079fc42b5f77064c63e665f106c882c525cd2d6d71d8a19301f52576c05fb4a",
+        "output_sha256": "56ad08fe3f78384a5bc46f2f321b8ba31ac4a5733a1884e74f96206429282a4b",
+        "total_damage": 10291281,
+        "http_seconds": 20.1842,
+        "job_seconds": 26.0937,
+        "job_peak_bytes": 2110984192,
+        "owner_seconds": 5.9138,
+        "admission_seconds": 6.9488,
+        "generation_cache_read_seconds": 1.9025,
+        "cubin_read_seconds": 0.0303,
+        "launch_sync_readback_seconds": 0.9001,
+        "parent_private_bytes": 28721152,
+        "backend": "cuda_shared_detail",
+        "device": "NVIDIA GeForce RTX 3070 Ti",
+        "full_cpu_payload_match": true,
+        "full_readback_sha_matches_metal": true,
+        "gpu_execution_verified": true,
+        "burst_seconds": [
+          3.0,
+          3.1,
+          3.2,
+          3.583
+        ],
+        "package_gate": {
+          "initial": 1,
+          "reused": 4,
+          "final": 1
+        },
+        "sdk_compile_calls": 0,
+        "retries": 0,
+        "http_posts": 1,
+        "kernel_calls": 1,
+        "sync_calls": 1,
+        "readback_calls": 1,
+        "driver_context_destroy_success": true,
+        "job_empty": true,
+        "owned_server_stopped": true,
+        "missing": 0,
+        "timeouts": 0,
+        "service": "unverified",
+        "environment_preservation_verified": false,
+        "memory_observation_complete": false,
+        "child_job_query_available": true,
+        "child_job_limit_bytes": null,
+        "saved_job_reason": "unknown",
+        "memory_query_calls": 8,
+        "job_limit_bytes": 2147483648,
+        "job_peak_margin_bytes": 36499456,
+        "memory_snapshots": [
+          {
+            "boundary": "cuMemAlloc#1",
+            "position": "before",
+            "process_private_bytes": 386994176,
+            "device_free_bytes": 7445938176,
+            "parent_private_bytes": 28721152
+          },
+          {
+            "boundary": "cuMemAlloc#1",
+            "position": "after",
+            "process_private_bytes": 389095424,
+            "device_free_bytes": 7443841024,
+            "parent_private_bytes": 28721152
+          },
+          {
+            "boundary": "cuMemAlloc#2",
+            "position": "before",
+            "process_private_bytes": 389095424,
+            "device_free_bytes": 7443841024,
+            "parent_private_bytes": 28721152
+          },
+          {
+            "boundary": "cuMemAlloc#2",
+            "position": "after",
+            "process_private_bytes": 398876672,
+            "device_free_bytes": 7435452416,
+            "parent_private_bytes": 28721152
+          },
+          {
+            "boundary": "cuMemAlloc#3",
+            "position": "before",
+            "process_private_bytes": 398876672,
+            "device_free_bytes": 7435452416,
+            "parent_private_bytes": 28721152
+          },
+          {
+            "boundary": "cuMemAlloc#3",
+            "position": "after",
+            "process_private_bytes": 398876672,
+            "device_free_bytes": 7435452416,
+            "parent_private_bytes": 28721152
+          },
+          {
+            "boundary": "cuLaunchKernel",
+            "position": "before",
+            "process_private_bytes": 398876672,
+            "device_free_bytes": 7435452416,
+            "parent_private_bytes": 28721152
+          },
+          {
+            "boundary": "cuLaunchKernel",
+            "position": "after",
+            "process_private_bytes": 2050469888,
+            "device_free_bytes": 5820645376,
+            "parent_private_bytes": 28721152
+          }
+        ]
+      }
+    },
+    "original_records_365_and_ptx_cubin_unchanged": true,
+    "raw_read_on_mac": false
+  },
+  "memory_scope": "Point-in-time values are not atomic, exact peak attribution or proof of a specific allocation cause; do not increase batch sizes from these near-limit runs",
+  "servers_stopped": [
+    4399,
+    4400
+  ],
+  "user_ports_4317_4327_untouched": true,
+  "full_goal_complete": false,
+  "profile_coverage": {
+    "standard_metal_last_full_sweep": 262,
+    "standard_total": 266,
+    "new_standard_profiles_this_change": 0,
+    "ordinary_ui_existing_yuni_profile_verified": 1,
+    "cuda_declared_4s_rosters_verified": 2,
+    "cuda_standard_30s_profiles_verified": 0
+  },
+  "saved_cuda_resources": {
+    "evidence_scope": "Windows compact terminal; source text truncated after 2000 characters, unread tail not inferred",
+    "terminal_turn": "01a192fd-9165-7ed0-807e-c314fe827115",
+    "ptxas_entry_registers": 24,
+    "ptxas_entry_stack_bytes": 0,
+    "ptxas_entry_spill_store_bytes": 0,
+    "ptxas_entry_spill_load_bytes": 0,
+    "ptxas_entry_lmem_bytes": null,
+    "linked_entry": {
+      "movement": {
+        "registers": 254,
+        "stack_bytes": 22848,
+        "lmem_bytes": 0
+      },
+      "range": {
+        "registers": 254,
+        "stack_bytes": 22920,
+        "lmem_bytes": 0
+      }
+    },
+    "linked_entry_spill_bytes": null,
+    "largest_recorded_function_stacks": [
+      {
+        "function": "dispatch",
+        "stack_bytes": 9912,
+        "spill_store_bytes": 172,
+        "spill_load_bytes": 172
+      },
+      {
+        "function": "quantityTotals",
+        "stack_bytes": 4344,
+        "spill_store_bytes": 140,
+        "spill_load_bytes": 140
+      },
+      {
+        "function": "burstFrame",
+        "stack_bytes": 2792,
+        "spill_store_bytes": 444,
+        "spill_load_bytes": 444
+      },
+      {
+        "function": "tick",
+        "stack_bytes": 2712,
+        "spill_store_bytes": 128,
+        "spill_load_bytes": 128
+      },
+      {
+        "function": "consumeBulletBuffs",
+        "stack_bytes": 2152,
+        "spill_store_bytes": 84,
+        "spill_load_bytes": 84
+      }
+    ],
+    "saved_jit_options": [
+      "-arch=sm_86",
+      "-verbose"
+    ],
+    "saved_stack_control_option": null,
+    "new_sdk_driver_gpu_http_snapshot_calls": 0,
+    "failure_cause_verified": false,
+    "anchors_read": [
+      {
+        "source": "movement",
+        "kind": "ptxas_stdout",
+        "bytes": 55770,
+        "sha256": "823f3edecb6150782ebb650455030715f7b3adcf083b77f284d874aa7784a1e1"
+      },
+      {
+        "source": "range",
+        "kind": "ptxas_stdout",
+        "bytes": 54538,
+        "sha256": "4d33858cc40b05f3f090df01ffdcc4db214241a040f43d6e993bcf2c5c2da524"
+      },
+      {
+        "source": "movement",
+        "kind": "link_stderr",
+        "bytes": 205,
+        "sha256": "69fd82708cb5ab3922be133ed1e7690765e1ddafe6b8b3fb62c6e0406e1e8784"
+      }
+    ]
+  }
+}
