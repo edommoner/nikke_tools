@@ -41,6 +41,14 @@ def compile_product(prepared,producer):
     movement=source in ('gpu/product_movement_battle_entry.slang','gpu/product_movement_fixed_battle_entry.slang') and (iw,ow)==(MOVE_INPUT,MOVE_OUTPUT)
     from portable_named_range_battle_wire import INPUT as RANGE_INPUT,OUTPUT as RANGE_OUTPUT
     named_range=source in ('gpu/product_named_range_battle_entry.slang','gpu/product_named_range_fixed_battle_entry.slang') and (iw,ow)==(RANGE_INPUT,RANGE_OUTPUT)
+    from portable_cover_defense_wire import NAMED_RANGE_STAT
+    cover_stat=NAMED_RANGE_STAT if named_range else STAT
+    if named_range:
+        from portable_named_range_battle_wire import COUNT_STAT,RANGE_STAT
+        # Reject semantic aliasing before a claim or device call, including
+        # requests with no incoming hit that would otherwise mask the error.
+        if len({cover_stat,COUNT_STAT,RANGE_STAT})!=3:
+            raise ValueError('Cover DEF, target count and named range require disjoint stat identifiers')
     kind='healing' if healing else 'ammo' if ammo else 'movement' if movement else 'named_range' if named_range else None
     for candidate,wire in prefixes.items():
         stem=(candidate.replace('-','_')+'_') if candidate else ''
@@ -52,8 +60,7 @@ def compile_product(prepared,producer):
     for index in indices:
         row=meta['binding_source_indices'].index(index);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
         if words[at+F['KIND']]!=4 or words[at+F['STAT']]!=0:raise ValueError('Original cover placeholder changed')
-        from portable_cover_defense_wire import NAMED_RANGE_STAT
-        words[at+F['KIND']]=0;words[at+F['STAT']]=NAMED_RANGE_STAT if named_range else STAT
+        words[at+F['KIND']]=0;words[at+F['STAT']]=cover_stat
         # Revival's automatic lazy-marker bit belongs only to kind4. The
         # numeric cover carrier now uses kind0's existing revival lifecycle;
         # retain every other flag, including explicit persist_on_revive.

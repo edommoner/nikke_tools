@@ -48,6 +48,18 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertEqual(actual['manual_cover_sequences'],body['manual_cover_sequences'])
             self.assertEqual(aliases,(timeline.simulate,sim.simulate));self.assertEqual(timeline.random.getstate(),state)
 
+    def test_composed_stat_alias_is_rejected_before_gpu_even_without_incoming(self):
+        import portable_detail as product
+        import portable_cover_defense_wire as cover
+        from portable_product_programs import body_for_program
+        for incoming in (False,True):
+            body=body_for_program(ROOT,'named-range-cover-fixed')
+            if not incoming:body['enemy']['patterns']=[p for p in body['enemy']['patterns'] if p['kind']!='attack']
+            pre,_=product.prepare(body)
+            for collision in (93,94):
+                with patch.object(cover,'NAMED_RANGE_STAT',collision),patch.object(product,'execute',side_effect=AssertionError('GPU forbidden')):
+                    with self.assertRaisesRegex(ValueError,'disjoint stat identifiers'):product.compile_product(pre)
+
     def test_named_range_and_manual_cover_share_literal_banks_and_restore_native_contexts(self):
         import portable_detail as product
         from portable_product_programs import body_for_program

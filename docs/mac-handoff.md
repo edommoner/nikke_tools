@@ -1,3 +1,13 @@
+## 2026-11-01 Windows観測のアクセス拒否を特定、正規実行modeで観測成功
+
+前turnはnamed-range＋coverの実M5通常5件一致で進捗。今回85fe12d6の独立CPU診断を取得し、operation1/type1/native_code2=Win32_Process列挙のCimException ACCESS_DENIED、permissionmodeuse_defaultと判明。Microsoft MI_Result文書でdomainとcodeを確認。これはメモリ不足・compiler failure・過去7消失を示す証拠ではない。
+
+スキルの既存規約に沿い、正規require_escalated承認経路で独立snapshot-checkを1回だけ依頼。e412a000で同一observerのsnapshot成功、child0/2.800秒、Jobの2GiBを前後実測・peak168,448,000bytes・終了後空・cleanup/timeoutなし。管理者/UAC/ACL/WMI/service設定変更0、SDK/unpack/driver/GPU/HTTP0。serviceunverified/uncertain8、before/after保全false/計算falseを保持。permission mode変更で取得可能になったがOSの具体的権限原因や旧7消失は未確定。snapshot-checkへ同じCIMdomain＋code2だけreason_code=cim_access_deniedとする分類を追加、17故障検査成功・再query0。
+
+新SDK依頼は既許可movement-cover ownerde7eae32/source70e68113/transportad4a4efのcompile-v3。元v2はunpack前gate閉鎖/SDK全0/SDKclaimなしなので、新permissionmodeと新隔離記録でarchive/payload→CPU129+device15→paired生成→NVRTC1→gate成功ならPTXAS objectO1一度だけ。各SDK60秒/2GiB/BelowNormal/fresh Job/gate/outer180秒、missing/観測不明/limitquery不明/cleanup/origin失敗で停止。旧claim/全capture保持、link/driver/context/GPU/HTTP未依頼、元SDKの再試行ではない。現在保存結果未取得、実コンパイルやCUDA成功へ昇格しない。同run再送しない。
+
+独立Mac作業として、前turnのstat93衝突を通常GPU開始前に防ぐ検査を既存cover loweringへ追加。named-rangeのcover/count/rangeコードは必ず別値を要求し、incomingなしでもaliasを拒否。故障注入含むreference47＋歴史7検査成功。正常5要求の入力全bytesは保存済みと同じ、shader/数値/効果/CPU正本/許容差変更0、追加M5/CPU戦闘0。小記録research/product-windows-observation-permission-v1.json。標準Metal262/266、CUDA旧厳格3/266・現source0、新profile0、全goal未完了。以下は履歴。
+
 ## 2026-11-01 範囲・対象数＋遮蔽の実製品接続と識別番号衝突の修正
 
 79a84972で既存named-rangeとmanual coverを共通座標ActorPool/state/event実行器へ接続。元prefix116224語の後ろへcover24語、input116248/output2048912、範囲output終端/cover始端2032000で重複0。CPU正本/数値/normalizer/新suite変更0。宣言named_range＋cover_defenseの文脈・元効果・制御を保持し、未指定4profileの幾何を捏造しない。

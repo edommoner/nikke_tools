@@ -84,6 +84,12 @@ class SnapshotDetailTests(unittest.TestCase):
   def read(*args):raise observer.SnapshotFailure('Windows process snapshot unavailable (exit=1, stage=processes, category=0, hresult=-1); no command lines retained',dict(operation=1,type_id=4,error_id_kind=1,raw='SECRET'))
   result=SnapshotDiagnosticTests().invoke(read)
   self.assertEqual(result['error']['diagnostic']['error_id_kind'],1);self.assertNotIn('SECRET',json.dumps(result))
+ def test_access_denied_reason_requires_cim_exception_domain_and_code(self):
+  for type_id,code,expected in [(1,2,'cim_access_denied'),(4,2,'unknown'),(1,7,'unknown'),(None,None,'unknown')]:
+   def read(*args):raise observer.SnapshotFailure('Windows process snapshot unavailable; no command lines retained',dict(type_id=type_id,native_code=code))
+   result=SnapshotDiagnosticTests().invoke(read)
+   self.assertFalse(result['snapshot_verified']);self.assertFalse(result['calculation_verified'])
+   self.assertEqual(result['error']['reason_code'],expected);self.assertEqual(result['gpu_calls'],0)
  def test_native_query_is_not_repeated_to_collect_details(self):
   result=subprocess.CompletedProcess([],1,stdout='{}',stderr='SECRET')
   with patch.object(observer,'os',types.SimpleNamespace(name='nt')),patch.object(observer.subprocess,'run',return_value=result) as run:

@@ -31,7 +31,12 @@ def check(workspace,validation_root,output,*,reader=None):
                 safe=message
             result['error']=dict(type=type(error).__name__,message=safe)
             from windows_validation_observer import SnapshotFailure
-            if isinstance(error,SnapshotFailure):result['error']['diagnostic']=error.diagnostic
+            if isinstance(error,SnapshotFailure):
+                result['error']['diagnostic']=error.diagnostic
+                # MI_Result2 is access denied only in the CIM exception domain.
+                # This is classification of the saved failure, never a retry.
+                result['error']['reason_code']=('cim_access_denied' if
+                    error.diagnostic.get('type_id')==1 and error.diagnostic.get('native_code')==2 else 'unknown')
             if isinstance(error,subprocess.TimeoutExpired):result['error']['timeout_seconds']=error.timeout
         result['elapsed_seconds']=time.perf_counter()-started
         json.dump(result,stream,indent=2);stream.write('\n')
