@@ -161,5 +161,23 @@
     "object_stage_verified": false,
     "gpu_calls": 0,
     "additional_sdk_calls": 0
+  },
+  "final_packet": {
+    "owner": "b4d40911f47c343f903f9a4aaf0e0e926615dad9723056e108d76abd8ca3ee08",
+    "source_commit": "74309d9eec845a85c533f80dc71b677d6b172f01",
+    "own_tests": 82,
+    "fresh_native_inputs": 1,
+    "cpu_verified": true,
+    "extra_gpu_calls": 0,
+    "compile_plan": {
+      "passed": true,
+      "artifact": "cubin",
+      "ptxas_level": 1,
+      "timeout_seconds": 60,
+      "memory_limit_mb": 2048,
+      "compiler_calls": 0,
+      "gpu_calls": 0
+    },
+    "old_registered_goldens_retained": 17
   }
 }
