@@ -1,3 +1,17 @@
+# 2026-10-31 新共通デバフの通常CUDA製品2条件がMetal全raw一致、現ソースMetal6/CUDA1profile
+
+実装source bb1f338b93e51b176b8197f52f5320005bef5c2d不変。元Mirandaの実蓄積1.5秒で、攻撃付随と独立詠唱のatk_pctデバフ各1条件を通常HTTP APIからM5 Metal/RTX3070Ti CUDAで実行。いずれもCPU全製品payload一致、fallback/cache hit/差分0。attack input ce298eab…→readback8384a7e7…、cast input24c119ee…→readbackf32e585a…で、Windows報告の全raw SHAがMac原本に両方一致。Windows内でもCPU戦闘禁止の静的input全byte再生成・元decoder再投影が保存GPU/CPU/API全一致。Windows原本は未転送で、peer報告とMac原本のhash照合を区別する。小記録product-boss-current-cuda-v1.json。
+
+sealed owner c772f39a1befb756662f3c249a8930789b9aea695592f6f3cee09f13396482e1、source-only ZIP11825560bytes/SHAe65d8c20…を既存codex/product-current-parts-v1-packetの1910000aへ共有。CPU正本/pinned不変、旧9a6との差はGPU閉包6files。Mac/Windows own59、deps/PTX計画/paired sealed生成成功。新key45559923…でPTX1回成功：NVRTC20.044984秒、内30.651/外39.785秒、peak224243712/258715648bytes。PTX9550885bytes/SHA50abd238…。
+
+旧controllerの消費済みmodule/link stageを再実行せずCPU-onlyで停止。その後、実際に変わったPTXを固定した今回owner自身がpolicy適合・両claim未消費と確認し、それぞれ1回だけ生成。object/O1 ptxas8.477522秒、内23.014/外43.032秒、peak348205056/394510336bytes、object5468784bytes/SHA4827e290…。jit-link API0.043257秒、内19.380/外47.783秒、peak112103424/232644608bytes、CUBIN SHA2da7e174…。両外時間合計90.815秒、段階間込み115.110秒で180秒以内。旧claimを新ownerで迂回再試行したものではない。
+
+この保存CUBINだけを既存providerで専用通常serverへ接続。2件の全工程58.493/60.720秒、合計119.213秒、段階間込み132.291秒で180秒以内。最大peak2012217344/2013388800bytesで2GiB上限内。新GPU2/CPU照合2、静的準備・保存監査の追加battle/GPU0、API時Slang/NVRTC/ptxas/link0。全Job/専用server終了、missing/cleanup/観測error0。全段階のサービス未識別preservation=false/外側falseを保持し、計算成功と環境全保全を混同しない。内外時間や入れ子stageは合算してGPU時間にしない。旧保存7JSONの共有拒否は別件のまま。
+
+Macではさらに元Rapunzel Pure Grace/Kilo/ライ/Mirandaの共有shield/個人shield/decoy/自然reload-coverの4通常API条件が実Metal/CPU全一致。各ケースに保護層吸収かつHP0が2件ずつあり、空の保護条件比較ではない。保存4件再投影も一致、追加battle/GPU0。小記録product-boss-protection-v1.json。現sourceの主役profile集合はMiranda/Belorta/Asuka/Rapunzel Pure Grace/Kilo/ライのMetal6、CUDAはMiranda1（2条件）。旧4e86の全266 sweep中255や旧9a6のCUDA3を現source件数へ足さない。標準30秒/fixed/group/targetのCUDAは未認定。
+
+今回runtime/CPU/数値期待値/normalizerは変更0、既存856 CPU全群の無用な再実行はしない。保護CPUのDoT時計修正許可は未回答なので不変。次は現行CPUの観測規約（既知の時計欠陥を含む）を明示したDoT接続を進められる。修正許可があればCPU/GPUの規約を同時に改訂する。11 canonical model gapも残り、全目標未完了。専用Mac4368/4369も終了、通常4317/4327に変更なし。以下は履歴。
+
 # 2026-10-31 敵の独立デバフ詠唱を8製品経路へ接続、DoT正本の時計欠陥を再現
 
 実装161a8229。kind=debuffの元cast descriptorを、攻撃付随と同じowner5外部敵・型付き定義・対象選択・免疫/解除へ渡す。共通incoming executorのopcode33は、対象ごとに順次付与して次へ進む。HP/保護層計算・被弾通知・受けたダメージ/回数は発生させない。入力のCPU戦闘/予定表は0、保護CPU/pinned/strict normalizer/数値規約は不変。
