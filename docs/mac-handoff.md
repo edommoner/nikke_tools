@@ -1,3 +1,15 @@
+## 2026-11-01 敵弾倉＋独立遮蔽を同じ共通製品Runtimeへ接続
+
+前turnは共通8候補バッチ・実Metal8+2条件・Windows保存診断回収で進捗。今回は未接続合成を優先し、23c48044でVelvetの敵弾倉割合consumerとSoldier O.W.の遮蔽DEF／手動遮蔽consumerを同じ既存実行器へ接続。coverを外側admissionにし、元ammo/ADD prefix117632語の後へ24語cover literal bankを追加、input117656/output2048912。ammo出力終端2032000とcover出力始端は隣接して重複0。共通state/event/数値演算・元効果定義を保持、CPU正本/normalizer/許容差/新suite変更0。全元定義のbinding、単独宣言欠落時の拒否、短いwire拒否、各context復元を既存productテストへ追加。
+
+不変development ownerb58087fc…自身の128CPU検査（67detail/10packet/7歴史逆変換/44モデル）・fresh native・実M5計算が成功。別fresh GPU禁止独立sealも成功（追加GPU0）。初回梱包は保存先parent不在でarchive作成前に停止、CPU native0.302秒/GPU0、保存先作成後development-v2で梱包。この元失敗も記録。
+
+通常HTTP APIでVelvet+SOW+Miranda+Dora+Drakeの元30秒を固定/実蓄積各3条件（計6）実M5で全CPU製品payload一致。通常の空敵弾倉world、容量4＋攻撃24試行/遮蔽、容量100の非ゼロ減弾＋攻撃/遮蔽。容量4は割合−5%が整数0の境界を保持し、incoming90/cover18/reload8。容量100では100→95、91→86等を実GPU/CPU双方で確認、incoming120/cover27。明示モデルの基礎DEF・容量はゲーム仕様の確定ではない。保存input/raw/source/再投影/CPU/GPU/API全結果の独立監査6件成功、監査追加GPU/native0。元4入口ammo-fixed/accumulate・cover-fixed・healing-cover-fixedの生成CUDA/MSL全bytes保持（歴史scope、現source全profile再認定ではない）。
+
+95e04e51で固定の独立sealだけv21へ登録、旧18member不変、実蓄積は通常API実証あり／登録baseline未追加。sealed release owner2b99db5d…、12,035,880bytes/SHAa78a5b98…を準備し、不変packet自身のCUBIN O1/2GiB/60秒compile-planが成功（SDK/GPU/claim0、実コンパイルの証明ではない）。Windows新依頼0、先のPoli object観測拒否・元preservationfalseを保持して再試行しない。
+
+最後の全標準Metal262/266、厳格CUDA3/266、新標準profile加算0、今回は通常製品の追加合成6条件。全goal未完了。未対応4profileの幾何/配送、残合成、現source全件確認、CUDA製品拡大・実batchが残る。小記録research/product-ammo-cover-v1.json、原本proofs/product-ammo-cover-v1-20261101。CLI90168/seal26981/API95858/59886/generation50259はterminal、専用server77740/31398停止exit130、常用サーバー不操作。以下は履歴。
+
 ## 2026-11-01 通常APIの共通8候補バッチをM5実証・Windows保存診断回収
 
 ce38f2f5で単発と複数要求の準備・GPU・変換・全CPU照合を共通化した。互換source/wire/backend/policy/artifactのみ最大8件を既存executeへまとめる。Nodeは8件ずつ（legacy CUDA32は従来通り）、停止後の未表示結果はjob内に保持し再開時に再実行しない。入力変更は拒否。親は物理全転送証拠、子は同じevidenceと正確なslice/member関係を保持し、単発証拠へ偽装しない。入力＋親子readback＋reserveを実行前に容量検査。新suite0、CPU正本/数値演算/normalizer/期待値変更0。
