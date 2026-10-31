@@ -1,0 +1,237 @@
+{
+  "schema": "removal-snapshot-fixed-status-v2",
+  "owner": "cadeb8d8aa600cc59685aec5eaa8d975d0a81fcc48681fcd57b7716b7ffd6c29",
+  "source_commit": "93bbfb56b8bba5598c9d839db0453c2d86033948",
+  "transport_commit": "0da32c0861625e7ae05d2636b0a9cf010e8e73ad",
+  "path_base": "Documents/Codex",
+  "archive": {
+    "bytes": 12021587,
+    "sha256": "21cd7ee487a1204b24ba1cf4b246f5ea54ec5ce3c44b8b3cb4e9885196c3f22b"
+  },
+  "api_document": {
+    "bytes": 17777,
+    "sha256": "2d3ded5b09690143bab0ecc1902a62d058fbf985c99baa8e26267058bef1fc04"
+  },
+  "stopped": true,
+  "stop_stage": "module-object inner observation",
+  "stop_reason": "7 missing existing processes in module-object inner before/after observation",
+  "termination_cause": "unknown",
+  "passed": false,
+  "preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "unpack": {
+    "payload_verified": true,
+    "observation": {
+      "seconds": 18.02324829995632,
+      "peak_bytes": 73383936,
+      "missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "service": "unverified",
+      "preservation_verified": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "inspection_error": false,
+      "exit_code": 0
+    }
+  },
+  "cpu_delta": {
+    "passed": true,
+    "tests": 17,
+    "selected_groups": [
+      10,
+      7
+    ],
+    "same_forbid_gpu": true,
+    "seconds": 14.413869500160217,
+    "all_files_owner_verified": true,
+    "observation": {
+      "seconds": 19.21638540038839,
+      "peak_bytes": 138698752,
+      "missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "service": "unverified",
+      "preservation_verified": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "inspection_error": false,
+      "exit_code": 0
+    }
+  },
+  "generation": {
+    "verified": true,
+    "strict_sealed_pair_baseline": true,
+    "cache_hit": false,
+    "compiler_invocations": 2,
+    "observation": {
+      "seconds": 22.199739600066096,
+      "peak_bytes": 576077824,
+      "missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "service": "unverified",
+      "preservation_verified": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "inspection_error": false,
+      "exit_code": 0
+    }
+  },
+  "ptx": {
+    "capture": "removal-snapshot-fixed-v2/compile-ptx-v2/proof",
+    "compiler_verified": true,
+    "containment_verified": true,
+    "passed": false,
+    "preservation_verified": false,
+    "formal_error": null,
+    "artifact": {
+      "bytes": 10043329,
+      "sha256": "9889731bcdcd8908602ea5ca979f1f4d7b5bd4545507c8079181f11b9078c407"
+    },
+    "cache_key": "a3fe00fe715c88d56993f8f7d43c0b741ae0b5c36990c1e138d36fb01345d106",
+    "options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "warm_pair_cache_hit": true,
+    "nvrtc_calls": 1,
+    "nvrtc_return_code": 0,
+    "nvrtc_seconds": 16.5558429,
+    "child": {
+      "seconds": 28.017334999982268,
+      "peak_bytes": 312524800,
+      "missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "service": "unverified",
+      "preservation_verified": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "inspection_error": false,
+      "exit_code": 0
+    },
+    "outer": {
+      "seconds": 38.119287699926645,
+      "peak_bytes": 347418624,
+      "missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "service": "unverified",
+      "preservation_verified": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "inspection_error": false,
+      "exit_code": 2
+    }
+  },
+  "object": {
+    "capture": "removal-snapshot-fixed-v2/module-object-v2/proof",
+    "object_verified": true,
+    "containment_verified": true,
+    "origin_post_audit_completed": true,
+    "passed": false,
+    "preservation_verified": false,
+    "formal_error": null,
+    "artifact": {
+      "bytes": 5757232,
+      "sha256": "d4112ce0b89bf04cfc27c36fcf30eedb4ab37ce618275229fd6640e96aba1cbb"
+    },
+    "options": [
+      "--gpu-name=sm_86",
+      "--opt-level=1",
+      "--fmad=false",
+      "--verbose",
+      "--compile-only"
+    ],
+    "ptxas_calls": 1,
+    "ptxas_seconds": 8.911937000229955,
+    "child": {
+      "seconds": 19.733066100161523,
+      "peak_bytes": 361574400,
+      "missing": 7,
+      "timeout": false,
+      "job_empty": true,
+      "service": "unverified",
+      "preservation_verified": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "inspection_error": false,
+      "exit_code": 0
+    },
+    "outer": {
+      "seconds": 35.9707816997543,
+      "peak_bytes": 407605248,
+      "missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "service": "unverified",
+      "preservation_verified": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "inspection_error": false,
+      "exit_code": 2
+    }
+  },
+  "cubin": null,
+  "resources": {
+    "dispatch": {
+      "stack_frame_bytes": 1920,
+      "spill_store_bytes": 180,
+      "spill_load_bytes": 180
+    },
+    "object_entry": {
+      "stack_frame_bytes": 0,
+      "spill_store_bytes": 0,
+      "spill_load_bytes": 0
+    },
+    "object_entry_registers": 24,
+    "linked_entry": null,
+    "scope": "Static object compiler output only; no CUBIN or GPU execution"
+  },
+  "api": {
+    "poli3_executed": false,
+    "d0_executed": false,
+    "device": null,
+    "poli_timer_state_actual": null,
+    "poli_state_contract_expected": {
+      "timer_clock": 1,
+      "definition_row": 4,
+      "activations": 1,
+      "timer_generation": 1
+    }
+  },
+  "actual_calls": {
+    "paired_generation_stages": 1,
+    "slang_compiler_invocations": 2,
+    "nvrtc": 1,
+    "ptxas": 1,
+    "link": 0,
+    "driver": 0,
+    "context": 0,
+    "kernel": 0,
+    "cpu_battle": 0,
+    "http": 0,
+    "retry": 0
+  },
+  "unexecuted": [
+    "JIT-link",
+    "Poli3 API",
+    "D0 API"
+  ],
+  "original_v1_cpu_stop_preserved": true,
+  "old_bad_cubin_reexecuted": false,
+  "original_poli_failure_hash_diagnoses_claims_retained": true,
+  "original_records_unchanged": true,
+  "original_records_checked": 1350,
+  "code_expected_values_normalizer_tolerance_changed": false
+}
