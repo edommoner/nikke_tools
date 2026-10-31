@@ -11,19 +11,21 @@ WARNING='宣言した敵回復モデルを使用しています。実ゲーム�
 WEIGHTED_WARNING='宣言したダメージ配分モデルを使用しています。実ゲームの配分比率を確認した意味ではありません。'
 COVER_WARNING='宣言した独立遮蔽DEFモデルを使用しています。実ゲームの遮蔽基礎DEF・レベル曲線を確認した意味ではありません。'
 AMMO_WARNING='宣言した敵弾倉モデルを使用しています。実ゲームの弾数・再装填規則を確認した意味ではありません。'
+LOCK_WARNING='宣言したLock OnのBODY優先・ADD出現順と生存凍結対象モデルを使用しています。実ゲームの距離順位・失効時の再対象化を確認した意味ではありません。'
 RANGE_WARNING='宣言した名前付き範囲・対象数モデルを使用しています。実ゲームの基礎半径・形状・距離順位を確認した意味ではありません。'
 MOVEMENT_WARNING='宣言したADD移動・座標モデルと共通サンプリング規約を使用しています。実ゲームの位置・範囲・移動優先規則を確認した意味ではありません。'
 
 def warning(declarations):
-    return ' '.join(text for key,text in [('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING),('cover_defense',COVER_WARNING),('enemy_ammo',AMMO_WARNING),('enemy_movement',MOVEMENT_WARNING),('named_range',RANGE_WARNING)] if key in declarations)
+    return ' '.join(text for key,text in [('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING),('cover_defense',COVER_WARNING),('enemy_ammo',AMMO_WARNING),('enemy_movement',MOVEMENT_WARNING),('named_range',RANGE_WARNING),('lock_on',LOCK_WARNING)] if key in declarations)
 
 def normalize(value):
     if value is None:return {}
-    if type(value) is not dict or set(value)-{'enemy_healing','weighted_incoming','cover_defense','enemy_ammo','enemy_movement','named_range'}:
-        raise ValueError('reference_modelsには接続済みのenemy_healing／weighted_incoming／cover_defense／enemy_ammo／enemy_movement／named_rangeだけを指定してください。')
+    if type(value) is not dict or set(value)-{'enemy_healing','weighted_incoming','cover_defense','enemy_ammo','enemy_movement','named_range','lock_on'}:
+        raise ValueError('reference_modelsには接続済みのenemy_healing／weighted_incoming／cover_defense／enemy_ammo／enemy_movement／named_range／lock_onだけを指定してください。')
     if 'enemy_ammo' in value and len(value)!=1:raise ValueError('Enemy magazine composition requires a combined checked native consumer')
     if 'enemy_movement' in value and len(value)!=1:raise ValueError('Movement composition requires a combined checked native consumer')
     if 'named_range' in value and len(value)!=1:raise ValueError('Named range composition requires a combined checked native consumer')
+    if 'lock_on' in value and len(value)!=1:raise ValueError('Lock composition requires a combined checked native consumer')
     result={}
     if 'enemy_healing' in value:
         from enemy_healing_model import normalize as healing
@@ -48,6 +50,9 @@ def normalize(value):
     if 'named_range' in value:
         from product_named_range_model import normalize as named_range
         result['named_range']=named_range(value['named_range'])
+    if 'lock_on' in value:
+        from product_lock_model import normalize as locks
+        result['lock_on']=locks(value['lock_on'])
     return result
 
 def healing_public(data):
@@ -99,6 +104,10 @@ def execution(declarations,names=None):
             from product_named_range_model import execution as range_execution
             named=stack.enter_context(range_execution(declarations['named_range']))
         else:named=None
+        if 'lock_on' in declarations:
+            from product_lock_model import execution as lock_execution
+            locks=stack.enter_context(lock_execution(declarations['lock_on'],names))
+        else:locks=None
         yield result
     if healing is not None:result['enemy_healing']=healing_public(healing)
     if weighted is not None:result['weighted_incoming']=copy.deepcopy(weighted)
@@ -110,3 +119,5 @@ def execution(declarations,names=None):
     if named is not None:
         from product_named_range_model import public
         result['named_range']=public(named)
+
+    if locks is not None:result['lock_on']=copy.deepcopy(locks)

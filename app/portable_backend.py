@@ -155,10 +155,10 @@ def validate_composed_stride(source,input_words,output_words):
         check_schema(ROOT)
         if (input_words,output_words)!=(LAYOUT['INPUT_WORDS'],LAYOUT['OUTPUT_WORDS']):raise ValueError('ADD attack battle requires its complete logical and firing wire')
         return
-    if source in ('gpu/world_lock_projectile_entry.slang','gpu/world_original_lock_composition_entry.slang','gpu/world_original_lock_health_parts_entry.slang'):
+    if source in ('gpu/world_lock_projectile_entry.slang','gpu/world_original_lock_composition_entry.slang','gpu/world_original_lock_health_parts_entry.slang','gpu/product_lock_battle_entry.slang'):
         from portable_lock_typed_layout import check,INPUT,OUTPUT
         check(ROOT)
-        if source in ('gpu/world_original_lock_composition_entry.slang','gpu/world_original_lock_health_parts_entry.slang'):
+        if source in ('gpu/world_original_lock_composition_entry.slang','gpu/world_original_lock_health_parts_entry.slang','gpu/product_lock_battle_entry.slang'):
             from portable_original_lock_layout import check as check_original
             check_original(ROOT)
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Lock/projectile composition requires its complete disjoint arenas')

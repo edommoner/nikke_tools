@@ -26,6 +26,13 @@ def smoke_data_files(root=None):
 
 
 class PacketTests(unittest.TestCase):
+    def test_list_reports_diagnostic_without_sealed_golden(self):
+        import contextlib,io
+        stdout=io.StringIO()
+        with patch.object(cli,'SUITES',{'diagnostic':dict(golden=None,source='fixture')}),contextlib.redirect_stdout(stdout):cli.main(['list'])
+        row=json.loads(stdout.getvalue())['diagnostic']
+        self.assertFalse(row['golden_source_ready']);self.assertEqual(row['reason'],'No sealed golden')
+
     def test_windows_unpack_reads_all_bytes_with_existing_parallel_verifier(self):
         import types,zipfile
         from unittest.mock import patch

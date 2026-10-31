@@ -64,6 +64,8 @@ def verified_transport(evidence, backend):
 
 def compile_product(prepared):
     """Select an existing wire by actual effect requirements, never by character."""
+    from portable_product_locks import required as locks_required,compile_product as compile_locks
+    if locks_required(prepared):return compile_locks(prepared)
     from portable_product_named_range import required as range_required,compile_product as compile_range
     if range_required(prepared):return compile_range(prepared)
     from portable_product_movement import required as movement_required,compile_product as compile_movement
@@ -292,6 +294,11 @@ def decode_payload(body, prepared, run, metadata, block):
         ammo_attempts=model['enemy_ammo']['attempts'] if model is not None else []
         if model is not None:
             payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
+    if metadata.get('product_lock_on'):
+        from portable_product_locks import read_result
+        from product_reference_models import warning
+        model=read_result(block,metadata,run.config['duration'])
+        payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
     if metadata.get('product_enemy_movement'):
         from portable_product_movement import read_result
         from product_reference_models import warning

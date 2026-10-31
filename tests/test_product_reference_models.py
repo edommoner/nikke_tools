@@ -9,6 +9,87 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def lock_body(self,duration=3,typed=False):
+        from portable_heavyarms_lock_cases import fixtures,NAME,source_definitions
+        from product_lock_model import ORDER,MARKER,DELIVERY_MODEL
+        body=copy.deepcopy(fixtures()[0]['body']);body['duration']=duration
+        bindings=[]
+        if typed:
+            body['enemy']['patterns']=[dict(id='declared-projectiles',kind='idle',until=dict(time=duration))]
+            bindings=[dict(node='declared-projectiles',kind=2,identity=11,capacity=1e8)]
+        body['reference_models']={'lock_on':dict(owner=NAME,marker=MARKER,packet_skill=source_definitions()[8]['name'],candidate_order=ORDER,delivery=DELIVERY_MODEL,typed_bindings=bindings)}
+        return body
+
+    def test_lock_on_original_product_keeps_all_definitions_and_empty_typed_world(self):
+        import portable_detail as product
+        from portable_backend import validate_composed_stride
+        aliases=(timeline.simulate,sim.simulate,timeline.random.getstate());body=self.lock_body();original=copy.deepcopy(body)
+        with patch.object(sim,'execute',side_effect=AssertionError('No CPU lock selection before GPU')):
+            prepared,run=product.prepare(body);before=copy.deepcopy(prepared);source,iw,ow,words,meta=product.compile_product(prepared)
+        self.assertEqual((source,iw,ow,len(words)),('gpu/product_lock_battle_entry.slang',109536,1310720,109536))
+        validate_composed_stride(source,iw,ow)
+        with self.assertRaises(ValueError):validate_composed_stride(source,iw,ow-1)
+        self.assertEqual(prepared,before);self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+        from portable_heavyarms_lock_cases import source_definitions
+        own=[r['effect'] for r in prepared['effects'] if r['owner']==body['reference_models']['lock_on']['owner']]
+        self.assertTrue(all(effect in own for effect in source_definitions()));self.assertEqual(len(source_definitions()),25)
+        self.assertEqual(words[104400+2320],0);self.assertFalse(meta['product_lock_on']['cpu_state_or_schedule_supplied'])
+        with patch.object(sys,'setprofile',side_effect=AssertionError('Product must not install a profiler')):
+            result=engine_worker.evaluate(body)
+        locks=result['reference_models']['lock_on'];self.assertEqual(len(locks['pulses']),12);self.assertEqual(len(locks['shots']),2)
+        self.assertEqual(locks['typed'],dict(time=3,finished=True,state=[],attacks=[]));self.assertTrue(all(r['handles']==[[0,0,1]] for r in locks['shots']))
+        self.assertEqual(body,original);self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
+
+    def test_lock_on_actual_projectile_consumer_uses_literal_binding_and_restores_aliases(self):
+        import portable_detail as product
+        aliases=(timeline.simulate,sim.simulate,timeline.random.getstate());body=self.lock_body(30,True)
+        prepared,_=product.prepare(body);_,_,_,words,meta=product.compile_product(prepared)
+        self.assertEqual(words[104400+2320],1);self.assertEqual(words[104400+2328:104400+2331],[0,2,11])
+        result=engine_worker.evaluate(body)['reference_models']['lock_on'];self.assertTrue(result['typed']['attacks'])
+        self.assertEqual(len(result['typed']['state']),1);self.assertTrue(all(r['completed'] for r in result['typed']['attacks']))
+        self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
+
+    def test_lock_on_invalid_policies_bindings_composition_and_source_fail_closed(self):
+        import portable_detail as product
+        from portable_runtime import UnsupportedPortable
+        from product_lock_model import QueueHooks
+        body=self.lock_body();spec=body['reference_models']['lock_on'];aliases=(timeline.simulate,sim.simulate,timeline.random.getstate())
+        for change in (dict(candidate_order='nearest'),dict(delivery='retarget'),dict(typed_bindings=[dict(node='x',kind=2,identity=0,capacity=0)]),dict(owner='absent')):
+            bad=copy.deepcopy(body);bad['reference_models']['lock_on'].update(change)
+            with self.subTest(change=change),self.assertRaises(ValueError):engine_worker.evaluate(bad)
+            self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
+        with self.assertRaisesRegex(ValueError,'combined checked'):normalize({'lock_on':spec,'enemy_healing':[]})
+        prepared,_=product.prepare(body)
+        with self.assertRaisesRegex(UnsupportedPortable,'explicit reference_models.lock_on'):product.compile_product(dict(prepared,reference_models={}))
+        changed=copy.deepcopy(prepared);next(r['effect'] for r in changed['effects'] if r['effect'].get('stat')=='lock_on')['duration']=1
+        with self.assertRaisesRegex(ValueError,'Unchanged original'):product.compile_product(changed)
+        with self.assertRaisesRegex(UnsupportedPortable,'fixed burst'):
+            product.compile_product(dict(prepared,policies={**prepared['policies'],'config':{**prepared['policies']['config'],'burst_gauge_mode':'fixed'}}))
+        import ast
+        transform=QueueHooks();transform.visit(ast.parse('def simulate():\n def _land(ev,t):\n  if boss is not None and boss.has_adds:pass\n'))
+        self.assertNotEqual(transform.counts,dict(emission=1,landing=1,route=1,clock=1))
+
+    def test_lock_on_decoder_checks_complete_arenas_and_reserved_words(self):
+        import portable_detail as product
+        from portable_product_locks import read_result,OUTPUT
+        from portable_lock_typed_layout import OFFSET
+        from portable_physical_lock_layout import HEAD
+        from portable_lock_packet_layout import HEAD as PACKET_HEAD,MAGIC
+        from portable_effect_target_count_shot_specs import HEAD as QUOTA_HEAD,MAGIC as QUOTA_MAGIC
+        from portable_packet_fates import HEAD as FATE_HEAD,MAGIC as FATE_MAGIC
+        from portable_runtime import UnsupportedPortable
+        prepared,_=product.prepare(self.lock_body());_,_,_,_,meta=product.compile_product(prepared)
+        b=array.array('I',[0])*OUTPUT;owner=meta['product_lock_on']['names'].index(meta['product_lock_on']['declarations']['lock_on']['owner'])
+        b[HEAD+OFFSET]=0x504c3031;b[HEAD+OFFSET+4]=owner;b[HEAD+OFFSET+5]=meta['physical_lock_pulse_row']
+        marker=meta['named_count_physical']['marker'];b[QUOTA_HEAD:QUOTA_HEAD+6]=array.array('I',[QUOTA_MAGIC,1,0,meta['states'][marker],5,128])
+        b[PACKET_HEAD+OFFSET]=MAGIC;b[FATE_HEAD]=FATE_MAGIC;b[786432]=0x44425431
+        b[789250:789253]=array.array('I',[1,1,1])
+        self.assertEqual(read_result(b,meta,3)['lock_on']['typed'],dict(time=0.,finished=True,state=[],attacks=[]))
+        for at,value in ((HEAD+OFFSET+1,257),(HEAD+OFFSET+6,1),(PACKET_HEAD+OFFSET+1,1),(QUOTA_HEAD+2,2049),(FATE_HEAD+1,1),(OUTPUT-1,1),(787456,1),(789252,0)):
+            bad=array.array('I',b);bad[at]=value
+            with self.subTest(at=at),self.assertRaises(UnsupportedPortable):read_result(bad,meta,3)
+        with self.assertRaises(UnsupportedPortable):read_result(b[:-1],meta,3)
+
     def test_named_range_product_consumes_original_count_and_range_modifiers(self):
         from portable_named_range_battle_cases import fixtures
         from portable_runtime import UnsupportedPortable

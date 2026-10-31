@@ -330,3 +330,21 @@ CUDA/Metalは同じSlang・入力・比較器を使用する。`enemy-lock-carri
 # 2026-10-30 公開情報による再判断
 
 ユーザーの指定に従い実機の提供待ちをせず、公開スキル全文と著者の実使用分析を再照合した。照準線基準の未ロック敵選択は支持されるが、中心/外形・投影/3D距離・同距離順を区別する追加実験は見つからなかった。既存の数値距離式を未確定とする判断を維持し、推測で共通実行器やgoldenを変更しない。同一記述の再探索を継続条件にせず、他の未対応項目を進める。出所と取得制約は `research/target-count-query-evidence/heavyarms-online-decision-20261030.json`。今回の計算変更・GPU実行・Windows依頼は0。
+
+## 2026-10-31 製品用の宣言Lock On接続（実装中）
+
+通常requestの`reference_models.lock_on`に`owner`、`marker: "록 온"`、元定義8の`packet_skill`、
+`candidate_order: "body-then-add-spawn-v1"`、`delivery: "require-live-frozen-slot-v1"`、`typed_bindings`を明示する。
+弾体がなければ空listを渡す。弾体がある場合は既存graphのnodeとkind/identity/capacity等のliteralを渡す。
+fixtureの架空の弾体、攻撃力、属性、武器metadataは補わない。ゲームの距離順位・失効時の再対象化を認定するモデルではない。
+
+CPUは元25効果と装備効果を保持し、既存のNamedGenerationLocksとselect_live、typed_battleを使う。
+実際のキュー追加・着弾境界にchecked rewriteを置き、damage/HP/weapon計算を複製しない。
+単一BODYでも凍結配送を通し、graphがない場合はGPUと同じ無操作nodeをadapter内で作る。
+元入力とpinned upstreamは変更せず、実行関数・乱数state・aliasを終了/例外時に復元する。
+
+GPUは既存original-lock-compositionをproduct wrapperから利用する。弾体0件の受付はproduct専用macroに限り、
+旧typed entryの非空制限は維持する。共通product-detailのlock-accumulate memberを追加し、新suiteは作らない。
+CPU計算済みのロック・対象・発動時刻・ダメージ・軌跡を入力に含めない。
+公開出力は全取得・全shot snapshot・clear件数・弾数quota・typed攻撃をGPUの件数から読み、旧/拡張bankの欠落・overflow・予約wordを拒否する。
+現在はCPU/staticの104検査が成功した段階。Metal実計算/独立seal/通常API、現CUDA、fixedと複数consumer合成は未認定。

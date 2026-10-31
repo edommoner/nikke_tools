@@ -189,6 +189,13 @@
       "output_words": 2032000,
       "mode": "accumulate",
       "kind": ""
+    },
+    "lock-accumulate": {
+      "source": "gpu/product_lock_battle_entry.slang",
+      "input_words": 109536,
+      "output_words": 1310720,
+      "mode": "accumulate",
+      "kind": ""
     }
   }
 }

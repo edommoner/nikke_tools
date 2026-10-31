@@ -3932,7 +3932,7 @@ def main(argv=None):
     elif a.command=='list':
         result={}
         for name,config in SUITES.items():
-            if not (ROOT/config['golden']).is_file():
+            if not config.get('golden') or not (ROOT/config['golden']).is_file():
                 result[name]=dict(config,golden_source_ready=False,reason='No sealed golden');continue
             golden=load(ROOT/config['golden'])
             stale=[f for f,h in golden['source_sha256'].items() if not (ROOT/f).is_file() or sha((ROOT/f).read_bytes())!=h]
