@@ -1,3 +1,13 @@
+## 2026-11-01 宣言移動・範囲の固定バーストを通常APIへ接続
+
+元ユニ/ヤンの30秒5条件と元アスカWILLE＋レイ仮称の15秒4条件を、通常HTTP APIの固定周期で実M5/CPU全製品payload一致。蓄積回帰2条件も一致、計11。移動禁止/強制/再出現/重複優先、元範囲500%・対象数・遅延出現/退場を保持。宣言モデルの3編成への方式追加であり、標準profileを262→265とは数えない。標準266の最新全件確認はsource1cbe45ccのMetal262/理由付きCPU4のままで、今回の全件再実行ではない。未指定モデルを補完せず、手動遮蔽/モデル合成の未対応も維持する。
+
+既存portable_product_fixed.lower/attachを再利用し、座標controlのtap mask/cover tagとmagicを保持するversion6にfirst/regenの有限binary64だけを追加。CPU時刻表・位置履歴を入力しない。同じ固定ready Runtime/元移動・範囲実行器を呼ぶentry2個を同一PROGRAMSへ追加し、suiteは追加0。GPU数値演算/CPU正本/pinned/normalizer/tolerance変更0。packet自身109検査、移動/範囲それぞれ共通CLI実Metal＋fresh GPU禁止seal成功。v15へ独立sealの2memberだけ追加し、旧v14の14member全内容を保持（現source全14再認定とはしない）。
+
+保存11件も全source/input/readback SHA・静的再packing・全CPU/GPU/API応答を追加戦闘/GPU0で再投影し一致。途中のheader4/5単純変換案（1f52b510、packet910ad7c0…）はrequired coordinate control初期化を欠きGPU status64で拒否、全claim/raw/失敗を保持して不採用。最終は最初に11条件一致したversion6（実装bef1b205と復元0023cab3）と同じ計算bytes。専用4397/4398は停止、4317/4327は操作なし。
+
+既存normal accumulate/fixedの生成CUDA/MSLは、旧runtime03の生成物とraw byte/既存strict正規化とも完全一致を別CPU生成確認した。ただし共有Slang source rawは変わるため、旧CUBIN ownerを最新sourceへ付替えず、現在の厳密guardを維持する。今回Windows SDK/GPU/API追加0。CUDA製品実証1profile（蓄積1秒/固定4秒）は前の凍結runtime03の範囲、今回の座標固定モデルのCUDAは未確認。次は新entryの短い差分CUDA確認と、通常画面での明示モデル受付/未確認の合成条件。全goal未完了。小記録research/product-coordinate-fixed-v1.json、原本proofs/product-coordinate-fixed-v1-20261031。以下は履歴。
+
 ## 2026-10-31 現ソースの固定バースト4秒が実CUDA/Metal/CPU一致
 
 最適化runtime03e166bc…＋fixed owner0f199f45…の保存CUBINで通常/api/jobsを1回。capture0db9676e96ba4ca0bf9cbb0766b37188、全readback SHA b41ac3b6…、damage16,415,516、burst I3.0/II3.1/III3.2/full3.583秒が保存M5と一致し、全CPU製品payloadも一致。通常HTTP14.2125秒、launch+sync+readback0.3737秒（純device時間ではない）。owner3.9604/admission4.8290/warm generation1.4510/CUBIN read0.0254秒、gate初回1/再利用4/最終1。compile/JIT0、GPU/同期/読戻し各1、再送0。profileは同じ1件の方式追加であって2profileとしない。標準fixed30秒/全編成のCUDA完了ではない。

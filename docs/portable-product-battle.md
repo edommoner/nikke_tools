@@ -1,3 +1,9 @@
+# 2026-11-01 宣言モデルの固定移動・範囲を通常製品へ接続
+
+通常HTTP APIで元ユニ/ヤン30秒の固定5条件、アスカWILLE＋レイ仮称15秒の固定4条件、蓄積回帰2条件がM5/CPU全製品応答一致。保存全11のsource/input/rawと全応答再投影も追加native/GPU0。宣言モデルでありゲーム位置/距離/基礎半径の認定ではない。標準profileのGPU数には重複加算しない。
+
+共通の固定readyと座標初期化をversion6で共存させ、同じPROGRAMS/CLIへmovement-fixed/named-range-fixedを追加。両programは自身の109 CPU検査、実M5、fresh GPU禁止sealを通したv15登録済み。旧14memberは全内容保持。手動遮蔽や複数宣言モデルの合成は理由付き拒否。単純な旧header4/5への変換はGPU拒否を保存して撤回した。CUDA/MSLの既存normal/fixed生成物raw一致は確認したが、旧CUBINのsource ownerは書換えず、新座標固定のCUDA実機は未実施。[検証記録](../research/product-coordinate-fixed-v1.json)。以下は履歴。
+
 # 2026-10-31 固定バースト4秒も通常APIでCUDA/Metal一致
 
 現runtime03e166bcのfixed4秒が実CUDAでCPU全製品payload一致し、全読戻しSHAも実M5保存結果と同一。damage16,415,516、burst I3.0/II3.1/III3.2/full3.583秒。通常HTTP14.2125秒、launch/sync/readback0.3737秒、compiler/JIT0、kernel1回。現CUDA確認は同じprofileの蓄積1秒/固定4秒で、標準固定30秒や全編成の確認ではない。Job peak1,989,357,568bytes/missing0/post空、service未確認/保全false。8点のメモリ観測はJob query取得自体は成功したが上限field不足により完全性false。明示buffer要求合計3.73MBに対し、launch前後でprocess private約1.55GB増/GPU free約1.45GB減を観測した。増加の具体的内訳や原因は未認定、Windows処理は終了。[範囲と測定](../research/product-cubin-admission-gate-v1.json)。以下は経過。

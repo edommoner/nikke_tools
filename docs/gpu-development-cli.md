@@ -1,5 +1,7 @@
 ## 製品プログラムを同じCLIで選択する
 
+`movement-fixed` / `named-range-fixed` は、明示した移動/範囲モデルへ同じ固定バーストreadyを適用する。`package --suite product-detail --product-program movement-fixed --out NEW.zip`（範囲は`named-range-fixed`）で通常の不変package/run経路を使う。version6はtap mask/cover tagを保持し、first/regenリテラルを別slotへ置く。CPU時刻表は渡さない。両programはM5/fresh seal済みv15、旧14member保持。標準profile数や現CUDAの確認とは分ける。[範囲と失敗保持](../research/product-coordinate-fixed-v1.json)。
+
 ## 通常製品の召喚敵射撃
 
 `product-detail` の `--product-program add-accumulate` / `add-fixed` と、それぞれの `-group` / `-target` / `-group-target` は、通常APIと同じ召喚敵射撃・最終射撃退場を扱う。計算は既存のADD cursor/incoming/actor poolを共有する。旧8programは不変。新8programは現在development packet段階で、独立sealがないregistered実行を明示拒否する。

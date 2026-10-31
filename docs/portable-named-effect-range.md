@@ -1,3 +1,7 @@
+## 2026-11-01 通常製品の固定バースト接続
+
+宣言した名前付き範囲・対象数を通常HTTP APIの固定周期にも接続し、実M5とCPU全製品payload、保存全byte再投影が一致。既存ready/座標状態をversion6で共存し、新しい時計や別実行器は作らない。既存product-detail CLIのprogramとして独立seal済みv15へ登録。未指定モデルの標準fallback、手動遮蔽/複数モデル合成の拒否を維持する。ゲーム仕様/全条件/今回のCUDA認定とは区別。[共通記録](../research/product-coordinate-fixed-v1.json)。以下は履歴。
+
 ## 現sourceでの旧selection21再認定
 
 共通stack admission修正後の固定5369e834/package f052572f…で、M5全21入力とfresh独立sealが成功。input/出力13,418,496byteと全native/entry hashを旧版から保持。旧v1 goldenとv2 receiptは履歴として残し、新v2 golden/v4 receiptを通常・cache-onlyへ登録した。GPU0.003406秒、独立監査1.23757秒。前版v3の再認定はunit testが古い登録goldenを読むためGPU前停止。明示development packetの検証済みmanifest sourceへテストを接続し、通常source一致検査は維持した。新battle認定とのscope混同はしない。

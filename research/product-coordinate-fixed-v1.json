@@ -1,0 +1,722 @@
+{
+  "schema": 1,
+  "scope": "Declared movement/range models with fixed burst through the ordinary product API",
+  "implementation_commit": "0023cab3",
+  "execution_source_commit": "bef1b205",
+  "shared_fixed_state_machine": true,
+  "existing_gpu_numeric_algorithms_unchanged": true,
+  "normalizer_or_tolerance_changes": false,
+  "canonical_cpu_changes": false,
+  "pinned_upstream_changes": false,
+  "header_version": 6,
+  "literal_input_only": true,
+  "new_suites": 0,
+  "new_program_selectors": [
+    "movement-fixed",
+    "named-range-fixed"
+  ],
+  "golden": "research/portable-product-programs-v15-expected.json",
+  "golden_members": 16,
+  "prior_14_members_entirely_preserved": true,
+  "metal_api": {
+    "passed": true,
+    "cases": 11,
+    "fixed_cases": 9,
+    "accumulate_regressions": 2,
+    "rows": [
+      {
+        "name": "movement-0-fixed",
+        "contract": {
+          "owner": "유니",
+          "scenario": "disable"
+        },
+        "capture_id": "e9f3eae4415444cd88bf0846ccd95b03",
+        "device": "Apple M5",
+        "input_sha256": "3ff51c006f6ca444761ba64c00eb54a945b7f4fb536667fd1d0fd5c86fd2b15f",
+        "output_sha256": "0cd3194c40b7114f6e4eb694c1f90c7e1725a51611e9aee7aa47690755238a0a",
+        "full_cpu_match": true,
+        "total_damage": 100837867,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "미란다"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "유니"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "드레이크"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 23,
+            "event": "stage:1 사용",
+            "character": "미란다"
+          },
+          {
+            "time": 23.1,
+            "event": "stage:2 사용",
+            "character": "유니"
+          }
+        ],
+        "wall_seconds": 22.568816583021544,
+        "declared_model": "declared-model-not-game-verification",
+        "frames": 3602,
+        "active_segments": 1204,
+        "duration_seconds": 30
+      },
+      {
+        "name": "movement-0-accumulate",
+        "contract": {
+          "owner": "유니",
+          "scenario": "disable"
+        },
+        "capture_id": "82f5725b4e9a486783b3ef059550e8e3",
+        "device": "Apple M5",
+        "input_sha256": "ebf22624217bc06638da458da50029fe242db2a7bead6c8c5198b9ea8e1e6917",
+        "output_sha256": "b9503db5ad1e0033742872e6cc667385b40113f90ff0ec1197ecdc050ea10a9a",
+        "full_cpu_match": true,
+        "total_damage": 104503662,
+        "burst_timeline": [
+          {
+            "time": 0,
+            "event": "카메라 초점: 드레이크",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 3.4,
+            "event": "stage:1 사용",
+            "character": "미란다"
+          },
+          {
+            "time": 3.5,
+            "event": "stage:2 사용",
+            "character": "유니"
+          },
+          {
+            "time": 3.6,
+            "event": "stage:3 사용",
+            "character": "드레이크"
+          },
+          {
+            "time": 3.983,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.983,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 18.7,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 23.4,
+            "event": "stage:1 사용",
+            "character": "미란다"
+          },
+          {
+            "time": 23.5,
+            "event": "stage:2 사용",
+            "character": "유니"
+          }
+        ],
+        "wall_seconds": 9.418466917006299,
+        "declared_model": "declared-model-not-game-verification",
+        "frames": 3602,
+        "active_segments": 1202,
+        "duration_seconds": 30
+      },
+      {
+        "name": "movement-1-fixed",
+        "contract": {
+          "owner": "얀",
+          "scenario": "force"
+        },
+        "capture_id": "f6fedceca1b14e969d721877bf69d52d",
+        "device": "Apple M5",
+        "input_sha256": "68178cc2f291c0299a43a44c61229629295d9f79298224bcb6e3ac4f0a0dd054",
+        "output_sha256": "3bf77dab7dfdc4b07c7301364fdb26d3dd2f83fc6970310b4a0f7bc2d1aedf63",
+        "full_cpu_match": true,
+        "total_damage": 85489598,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "얀"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "도라"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "드레이크"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 21.183,
+            "event": "stage:1 사용",
+            "character": "얀"
+          },
+          {
+            "time": 21.283,
+            "event": "stage:2 사용",
+            "character": "도라"
+          }
+        ],
+        "wall_seconds": 4.45717162505025,
+        "declared_model": "declared-model-not-game-verification",
+        "frames": 3602,
+        "active_segments": 484,
+        "duration_seconds": 30
+      },
+      {
+        "name": "movement-2-fixed",
+        "contract": {
+          "owner": "유니",
+          "scenario": "renewal"
+        },
+        "capture_id": "1248ae32ee344d9294ebb9f955642015",
+        "device": "Apple M5",
+        "input_sha256": "c2f8e5f0a70da957531a75c897e326fcc595d106f931b6706a016bd096a446f0",
+        "output_sha256": "f18f8ad3942dfe633cf346a4d31ad0e792f2b1fec10acc36545918b2b1ec4c7a",
+        "full_cpu_match": true,
+        "total_damage": 100702856,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "미란다"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "유니"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "드레이크"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 23,
+            "event": "stage:1 사용",
+            "character": "미란다"
+          },
+          {
+            "time": 23.1,
+            "event": "stage:2 사용",
+            "character": "유니"
+          }
+        ],
+        "wall_seconds": 5.48652375000529,
+        "declared_model": "declared-model-not-game-verification",
+        "frames": 3602,
+        "active_segments": 708,
+        "duration_seconds": 30
+      },
+      {
+        "name": "movement-3-fixed",
+        "contract": {
+          "owner": "유니",
+          "scenario": "overlap-disable"
+        },
+        "capture_id": "3df82f0a0a1146d69e299e5d090c3988",
+        "device": "Apple M5",
+        "input_sha256": "66d189aa88c1490c060d5f3221b50985576723e98f68942e0d956acf4b65712a",
+        "output_sha256": "9d7d1aa1759e685ae696f792b11c81a8df15256b202d70330b7cd15fe0d8d577",
+        "full_cpu_match": true,
+        "total_damage": 82170683,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "얀"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "유니"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "드레이크"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 23,
+            "event": "stage:1 사용",
+            "character": "얀"
+          },
+          {
+            "time": 23.1,
+            "event": "stage:2 사용",
+            "character": "유니"
+          }
+        ],
+        "wall_seconds": 4.744904500024859,
+        "declared_model": "declared-model-not-game-verification",
+        "frames": 3602,
+        "active_segments": 1232,
+        "duration_seconds": 30
+      },
+      {
+        "name": "movement-4-fixed",
+        "contract": {
+          "owner": "유니",
+          "scenario": "overlap-force"
+        },
+        "capture_id": "523a15d70482477789d77a1f8eed8f65",
+        "device": "Apple M5",
+        "input_sha256": "d0df6aadb0f1103ee5ffba6858331ea2366509ff86ba42955766e563f74d51e1",
+        "output_sha256": "9d7d1aa1759e685ae696f792b11c81a8df15256b202d70330b7cd15fe0d8d577",
+        "full_cpu_match": true,
+        "total_damage": 82170683,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "얀"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "유니"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "드레이크"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          },
+          {
+            "time": 23,
+            "event": "stage:1 사용",
+            "character": "얀"
+          },
+          {
+            "time": 23.1,
+            "event": "stage:2 사용",
+            "character": "유니"
+          }
+        ],
+        "wall_seconds": 4.731413166970015,
+        "declared_model": "declared-model-not-game-verification",
+        "frames": 3602,
+        "active_segments": 1232,
+        "duration_seconds": 30
+      },
+      {
+        "name": "range-0-fixed",
+        "contract": {
+          "scenario": "expanded",
+          "original_support_name": "레이 (가칭)"
+        },
+        "capture_id": "b65d2da64f8d4353af37e76a919e0030",
+        "device": "Apple M5",
+        "input_sha256": "eff3eaa13b3e6d6bf2b1851b14bbb7d9e375d61dec57cdc4fc7f06f4abc17f12",
+        "output_sha256": "6f7466678120955b4d13c5d6c943b819235f23672b7092c84f8094712968e12c",
+        "full_cpu_match": true,
+        "total_damage": 61310774,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "미란다"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "도라"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "아스카 : WILLE"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          }
+        ],
+        "wall_seconds": 20.918074666988105,
+        "declared_model": "declared-model-not-game-verification",
+        "casts": 54,
+        "add_recipients": 106,
+        "capacities": [
+          2,
+          3
+        ],
+        "duration_seconds": 15
+      },
+      {
+        "name": "range-0-accumulate",
+        "contract": {
+          "scenario": "expanded",
+          "original_support_name": "레이 (가칭)"
+        },
+        "capture_id": "306d84b6e0f044e789a485d68c861cb9",
+        "device": "Apple M5",
+        "input_sha256": "1f2b3089f535bb351b6899eb3db16269b907ee1e3e2c16e4c2c15add41a12dab",
+        "output_sha256": "a59641edf593e882eff235c6fdfc33a5d2da94d534e1819039d055fe44c81de4",
+        "full_cpu_match": true,
+        "total_damage": 61957910,
+        "burst_timeline": [
+          {
+            "time": 0,
+            "event": "카메라 초점: 미란다",
+            "character": ""
+          },
+          {
+            "time": 4.15,
+            "event": "게이지 만충 100.0% → 1단계 진입 (소모)",
+            "character": ""
+          },
+          {
+            "time": 4.15,
+            "event": "stage:1 사용",
+            "character": "미란다"
+          },
+          {
+            "time": 4.25,
+            "event": "stage:2 사용",
+            "character": "도라"
+          },
+          {
+            "time": 4.35,
+            "event": "stage:3 사용",
+            "character": "아스카 : WILLE"
+          },
+          {
+            "time": 4.733,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 14.733,
+            "event": "full_burst 종료",
+            "character": ""
+          }
+        ],
+        "wall_seconds": 8.545072708046064,
+        "declared_model": "declared-model-not-game-verification",
+        "casts": 54,
+        "add_recipients": 106,
+        "capacities": [
+          2,
+          3
+        ],
+        "duration_seconds": 15
+      },
+      {
+        "name": "range-1-fixed",
+        "contract": {
+          "scenario": "small-base-control",
+          "original_support_name": "레이 (가칭)"
+        },
+        "capture_id": "28efaf193eba4cbf90b0f6a39c1ca378",
+        "device": "Apple M5",
+        "input_sha256": "e35ca553d0b30eae22983feb990f9b944085823413ac355f95bdececa9d2c6de",
+        "output_sha256": "93f9d6c44137106b7fa98bcd3c68aa623a03fe2f39171330448dfcacb37c4c28",
+        "full_cpu_match": true,
+        "total_damage": 61310774,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "미란다"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "도라"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "아스카 : WILLE"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          }
+        ],
+        "wall_seconds": 4.629990625020582,
+        "declared_model": "declared-model-not-game-verification",
+        "casts": 54,
+        "add_recipients": 54,
+        "capacities": [
+          2,
+          3
+        ],
+        "duration_seconds": 15
+      },
+      {
+        "name": "range-2-fixed",
+        "contract": {
+          "scenario": "late-spawn",
+          "original_support_name": "레이 (가칭)"
+        },
+        "capture_id": "d50a3f7b78cb48e9be2c84e9f3e5e159",
+        "device": "Apple M5",
+        "input_sha256": "f2996a5a399a677e024963e22fc63d0a99d66f357be73e59b6379bdd268072e7",
+        "output_sha256": "162e98a3bf62590228ab810cae6353389074f12cf01d436910228aa520fdcb62",
+        "full_cpu_match": true,
+        "total_damage": 90567908,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "미란다"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "도라"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "아스카 : WILLE"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          }
+        ],
+        "wall_seconds": 4.395460165978875,
+        "declared_model": "declared-model-not-game-verification",
+        "casts": 54,
+        "add_recipients": 62,
+        "capacities": [
+          2,
+          3
+        ],
+        "duration_seconds": 15
+      },
+      {
+        "name": "range-3-fixed",
+        "contract": {
+          "scenario": "retirement",
+          "original_support_name": "레이 (가칭)"
+        },
+        "capture_id": "b8275120b166415d92ac6fd532fe7673",
+        "device": "Apple M5",
+        "input_sha256": "7bb74fc1bb0e11c3b2f6dce0950a3fe7c030e1598e4a5791b3e5eb3c34f739fd",
+        "output_sha256": "39754c068c083f36b61fa94b7bb113527822a7424db00a0e78aa43593a1dcd50",
+        "full_cpu_match": true,
+        "total_damage": 111180199,
+        "burst_timeline": [
+          {
+            "time": 3,
+            "event": "stage:1 사용",
+            "character": "미란다"
+          },
+          {
+            "time": 3.1,
+            "event": "stage:2 사용",
+            "character": "도라"
+          },
+          {
+            "time": 3.2,
+            "event": "stage:3 사용",
+            "character": "아스카 : WILLE"
+          },
+          {
+            "time": 3.583,
+            "event": "full_burst 시작",
+            "character": ""
+          },
+          {
+            "time": 13.583,
+            "event": "full_burst 종료",
+            "character": ""
+          }
+        ],
+        "wall_seconds": 4.389706957968883,
+        "declared_model": "declared-model-not-game-verification",
+        "casts": 54,
+        "add_recipients": 1,
+        "capacities": [
+          2,
+          3
+        ],
+        "duration_seconds": 15
+      }
+    ],
+    "full_cpu_payload_match": true,
+    "saved_all_source_input_readback_and_payload_audits_passed": true,
+    "additional_audit_gpu_native_calls": 0
+  },
+  "model_scope": {
+    "evidence": "declared-model-not-game-verification",
+    "covered_original_profiles": [
+      "유니",
+      "얀",
+      "레이 (가칭)"
+    ],
+    "range_roster_primary": "아스카 : WILLE",
+    "new_standard_catalogue_profiles": 0,
+    "standard_last_full_sweep": {
+      "gpu_profiles": 262,
+      "total": 266,
+      "source_commit": "1cbe45cc",
+      "not_current_source_full_resweep": true
+    },
+    "standard_undeclared_model_fallback_profiles": 4
+  },
+  "development_packets": {
+    "movement": "5763fd7e0dd22b09aba6ed71a35884223f2515c8d4890c328178827a59982079",
+    "named_range": "51623ef4248d9f719b3407af866d708fb83ea2abc6f6fd01fbab8c70e7dec390"
+  },
+  "independent_seals": {
+    "movement": true,
+    "named_range": true,
+    "fresh_gpu_forbidden": true,
+    "additional_gpu_calls": 0
+  },
+  "packet_own_cpu_tests": 109,
+  "source_generation_preservation": {
+    "passed": true,
+    "rows": [
+      {
+        "program": "accumulate",
+        "source": "gpu/product_battle_entry.slang",
+        "generated_normalized": {
+          "cuda": "2f61bacdc1c79747eeea60a274b6a7309c23292c1d7e52edf498bfc510c5670c",
+          "metal": "5a25a0212fcd790e4c7e7c5fbfbe625ccfdc4d82f81db6cf009c0ad3aecfa22f"
+        },
+        "old_generated_preserved": true,
+        "source_raw_changed": true,
+        "current_cuda_execution_verified": false,
+        "generated_raw_byte_identity_to_prior_api_packet": {
+          "cuda": "499069b60f69e994e2cc6056b8b1f3737be3fe6ee432a4ed99647555ccd86ec1",
+          "metal": "5a25a0212fcd790e4c7e7c5fbfbe625ccfdc4d82f81db6cf009c0ad3aecfa22f"
+        }
+      },
+      {
+        "program": "fixed",
+        "source": "gpu/product_fixed_battle_entry.slang",
+        "generated_normalized": {
+          "cuda": "e88c582982b5273183e7e499188b0f240846c400a9ec3831e2f4fea2374bd211",
+          "metal": "3733a26a6f09b968847c83aed1c3b9fe8730f81d6603a47eb5b643cdb116f999"
+        },
+        "old_generated_preserved": true,
+        "source_raw_changed": true,
+        "current_cuda_execution_verified": false,
+        "generated_raw_byte_identity_to_prior_api_packet": {
+          "cuda": "2cd6af00c02ed71538a36b64ce3f9830cfa62621656aa5a666b0225e2fddbeca",
+          "metal": "3733a26a6f09b968847c83aed1c3b9fe8730f81d6603a47eb5b643cdb116f999"
+        }
+      }
+    ],
+    "normalizer_changed": false,
+    "gpu_calls": 0,
+    "cuda_sdk_calls": 0
+  },
+  "failed_simplification": {
+    "source_commit": "1f52b510",
+    "owner": "910ad7c017e8d37336dae217d3429d58a44eacf94b20d4603f53a42e2541d735",
+    "capture": "movement-run-v2",
+    "gpu_status": 64,
+    "reason": "Fixed readiness header alone did not initialize required coordinate control state",
+    "failure_and_claim_retained": true,
+    "adopted": false,
+    "version6_restored": true
+  },
+  "windows": {
+    "new_calls": 0,
+    "new_profile_confirmations": 0,
+    "new_coordinate_fixed_calculation_verified": false,
+    "prior_frozen_product_profiles": 1,
+    "prior_scope": "Runtime03e166bc only: accumulate1s and fixed4s",
+    "source_raw_changed": true,
+    "old_cubin_rebound_to_new_source": false
+  },
+  "owned_servers_stopped": [
+    4397,
+    4398
+  ],
+  "full_goal_complete": false
+}

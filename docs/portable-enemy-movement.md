@@ -1,3 +1,7 @@
+## 2026-11-01 通常製品の固定バースト接続
+
+宣言した移動を通常HTTP APIの固定周期にも接続し、実M5とCPU全製品payload、保存全byte再投影が一致。既存ready/座標状態をversion6で共存し、新しい時計や別実行器は作らない。既存product-detail CLIのprogramとして独立seal済みv15へ登録。未指定モデルの標準fallback、手動遮蔽/複数モデル合成の拒否を維持する。ゲーム仕様/全条件/今回のCUDA認定とは区別。[共通記録](../research/product-coordinate-fixed-v1.json)。以下は履歴。
+
 # 敵移動の宣言モデルと共通GPU接続
 
 移動停止・強制移動にはcanonical consumerが無い。元のduration carrierを既存ADDコライダーの位置へ接続するCPU契約・共通Slang核・元5戦闘のMetal接続を検証した。明示した移動モデルでの戦闘等価性と、ゲーム規則の認定は区別する。
