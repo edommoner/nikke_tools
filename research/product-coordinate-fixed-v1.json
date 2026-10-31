@@ -693,7 +693,8 @@
     ],
     "normalizer_changed": false,
     "gpu_calls": 0,
-    "cuda_sdk_calls": 0
+    "cuda_sdk_calls": 0,
+    "scope": "Exact CUDA and Metal byte identity for prior plain accumulate/fixed only; raw Slang identities changed and old artifact admissions remain unchanged."
   },
   "failed_simplification": {
     "source_commit": "1f52b510",
@@ -706,7 +707,6 @@
     "version6_restored": true
   },
   "windows": {
-    "new_calls": 0,
     "new_profile_confirmations": 0,
     "new_coordinate_fixed_calculation_verified": false,
     "prior_frozen_product_profiles": 1,
@@ -715,7 +715,14 @@
     "old_cubin_rebound_to_new_source": false,
     "ptx_generation_requested": true,
     "requested_scope": "Delta CPU4, paired generation and first PTX only, one per new entry; object/link/driver/GPU/API not requested",
-    "pending_chat_turn": "awaiting authoritative live snapshot"
+    "delivery_tool_acknowledged": true,
+    "execution_started_verified": false,
+    "execution_state": "unknown: read_thread host temporarily unavailable",
+    "compiler_calls": "unknown until same-request status is recovered",
+    "object_link_gpu_http_authorized": false,
+    "request_resent": false,
+    "host": "remote-control:env_e_6ac12920046c8331afb50b0234aeba48",
+    "thread_id": "01a140bc-5f3b-7661-b720-50c945596eaa"
   },
   "owned_servers_stopped": [
     4397,
@@ -761,5 +768,12 @@
     "commit": "a637dd9d",
     "personal_settings": false,
     "raw_buffers": false
-  }
+  },
+  "prior_gpu_source_files_changed": [
+    "gpu/combat_runtime.slang",
+    "gpu/coordinate_manual_control_runtime.slang",
+    "gpu/product_movement_fixed_battle_entry.slang",
+    "gpu/product_named_range_fixed_battle_entry.slang",
+    "gpu/world_charge_control_runtime.slang"
+  ]
 }
