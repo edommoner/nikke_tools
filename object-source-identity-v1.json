@@ -1,0 +1,219 @@
+{
+  "schema": "object-source-identity-v1",
+  "owner": "cadeb8d8aa600cc59685aec5eaa8d975d0a81fcc48681fcd57b7716b7ffd6c29",
+  "source_commit": "93bbfb56b8bba5598c9d839db0453c2d86033948",
+  "scope": "Saved byte identities and existing strict normalization only; no admission invoked",
+  "requested_reference": {
+    "m5_cuda_raw": "959747bb61444c8f6d87fe8c5101e4a154821f42ab1b28fd59f3156f24198dce",
+    "normalized_cuda": "84ca925f66f2a60e882e46c4d9bf2b4d199adefff91369365d3824a15cf695e8",
+    "ptx": "9889731bcdcd8908602ea5ca979f1f4d7b5bd4545507c8079181f11b9078c407",
+    "object": "d4112ce0b89bf04cfc27c36fcf30eedb4ab37ce618275229fd6640e96aba1cbb"
+  },
+  "files_present": {
+    "compiler_receipt": true,
+    "object_receipt": true,
+    "generated_cuda": true,
+    "ptx": true,
+    "object": true,
+    "normalizer": true
+  },
+  "missing_files": [],
+  "evidence": {
+    "compiler_receipt": {
+      "bytes": 20526,
+      "sha256": "96fe99f2f7f7fe5b62c350483fa709b7743eb9b4315deee2eecb569937e2708d"
+    },
+    "object_receipt": {
+      "bytes": 44316,
+      "sha256": "8ba42fdd2c27d675bd7a57eef10ba82c29b43dd41240092a103ffba78df70bf7"
+    },
+    "generated_cuda": {
+      "bytes": 2835467,
+      "sha256": "5b827f0f11e830e0ef621438de5a42b9914902c68e525ccf49225cba6a1060f3"
+    },
+    "ptx": {
+      "bytes": 10043329,
+      "sha256": "9889731bcdcd8908602ea5ca979f1f4d7b5bd4545507c8079181f11b9078c407"
+    },
+    "object": {
+      "bytes": 5757232,
+      "sha256": "d4112ce0b89bf04cfc27c36fcf30eedb4ab37ce618275229fd6640e96aba1cbb"
+    },
+    "normalizer": {
+      "bytes": 6132,
+      "sha256": "01e8595eb20c4a3c1f94f524e81e812d2921fd240b17a33e6dbfb050320fb21a"
+    }
+  },
+  "additional_calls": {
+    "snapshot": 0,
+    "slang": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "http": 0,
+    "cpu_battle": 0
+  },
+  "source_admission_executed": false,
+  "admission_guards_unchanged": true,
+  "regeneration_attempted": false,
+  "actual_cuda": {
+    "bytes": 2835467,
+    "sha256": "5b827f0f11e830e0ef621438de5a42b9914902c68e525ccf49225cba6a1060f3",
+    "strict_normalized_sha256": "84ca925f66f2a60e882e46c4d9bf2b4d199adefff91369365d3824a15cf695e8",
+    "recorded_compiler_raw_sha256": "5b827f0f11e830e0ef621438de5a42b9914902c68e525ccf49225cba6a1060f3",
+    "recorded_producer_raw_sha256": "5b827f0f11e830e0ef621438de5a42b9914902c68e525ccf49225cba6a1060f3"
+  },
+  "ptx": {
+    "bytes": 10043329,
+    "sha256": "9889731bcdcd8908602ea5ca979f1f4d7b5bd4545507c8079181f11b9078c407"
+  },
+  "object": {
+    "bytes": 5757232,
+    "sha256": "d4112ce0b89bf04cfc27c36fcf30eedb4ab37ce618275229fd6640e96aba1cbb"
+  },
+  "checks": {
+    "cuda_actual_matches_compiler_record": true,
+    "cuda_actual_matches_object_producer": true,
+    "cuda_normalized_matches_compiler_record": true,
+    "cuda_normalized_matches_object_producer": true,
+    "cuda_normalized_matches_sealed_golden": true,
+    "cuda_normalized_matches_m5_reference": true,
+    "raw_cuda_matches_m5_reference": false,
+    "ptx_matches_compiler_artifact": true,
+    "ptx_matches_object_producer": true,
+    "ptx_matches_object_input": true,
+    "ptx_matches_requested": true,
+    "object_matches_receipt": true,
+    "object_matches_requested": true,
+    "receipt_origin_matches_saved_origin": true
+  },
+  "raw_cuda_reference_difference_retained": true,
+  "strict_normalizer_policy": [
+    "CRLF/CR to LF",
+    "Remove #line directives",
+    "Canonicalize only slang-cuda-prelude.h include path"
+  ],
+  "normalizer_not_changed": true,
+  "limitation": "M5 raw source is not supplied; no direct textual diff or explanation of its byte difference is asserted. Normalized equality does not change the original preservation/admission status.",
+  "additional_saved_copies": {
+    "generation_copy": {
+      "present": true,
+      "bytes": 2835467,
+      "sha256": "5b827f0f11e830e0ef621438de5a42b9914902c68e525ccf49225cba6a1060f3",
+      "matches_compiler_original": true
+    },
+    "object_copy": {
+      "present": false
+    },
+    "module_ptx_copy": {
+      "present": true,
+      "bytes": 10043329,
+      "sha256": "9889731bcdcd8908602ea5ca979f1f4d7b5bd4545507c8079181f11b9078c407",
+      "matches_compiler_original": true
+    }
+  },
+  "original_state": {
+    "object_inner_missing": 7,
+    "object_outer_missing": 0,
+    "cause": "unknown",
+    "preservation_verified": false,
+    "claim_retained": true,
+    "link_unexecuted": true
+  },
+  "original_status": {
+    "bytes": 6632,
+    "sha256": "2ac4a4d4a804cfce1e7367e212f795ca931d608c29e43afe454a385b8ddac636"
+  },
+  "original_records_unchanged": true,
+  "original_records_checked": 1350,
+  "original_evidence_unchanged": true,
+  "saved_missing_image_assessment": {
+    "scope": "Positive full-path/full-identity matches only; not an exclusion or safety certification",
+    "missing_identities": 7,
+    "confirmed_sdk_driver_image_matches": 0,
+    "confirmed_nikke_service_full_identity_matches": 0,
+    "confirmed_other_image_types": {},
+    "unresolved": 7,
+    "reference_path_counts": {
+      "slang": 11,
+      "ptxas": 1,
+      "nvjitlink": 1,
+      "known_validation_python": 1,
+      "known_node_launcher": 1
+    },
+    "confirmed_matches_by_reference": {
+      "slang": 0,
+      "ptxas": 0,
+      "nvjitlink": 0,
+      "known_validation_python": 0,
+      "known_node_launcher": 0
+    },
+    "known_service_reference_full_identities": 0,
+    "image_path_method": "Case-insensitive complete absolute Windows path with lexical separator normalization; no basename, prefix, symlink or module-load inference",
+    "service_identity_method": [
+      "pid",
+      "path.lower()",
+      "creation_filetime_ticks"
+    ],
+    "raw_commands_saved": false,
+    "command_evidence_limit": "Only observer classification flags were retained; full missing-process commands are unavailable",
+    "saved_role_counts": {
+      "unrelated": 5,
+      "service_candidate": 2
+    },
+    "basename_only_server_script_flags": 2,
+    "basename_flags_not_promoted_to_service_matches": true,
+    "unresolved_reference_coverage": {
+      "nvrtc": "Compiler receipt records library basenames; selected saved evidence does not establish a resolved loader full path",
+      "nvlink": "No absolute nvlink path in the selected saved references",
+      "driver": "No resolved driver DLL full path or loaded-module inventory in selected saved evidence"
+    },
+    "limitations": [
+      "Zero confirmed image matches does not prove absence of SDK/driver use or NIKKE/service association.",
+      "Executable image path alone cannot establish which DLLs a process loaded.",
+      "All seven remain unresolved rather than classified by basename.",
+      "No raw path, PID, command or per-process identity digest is shared."
+    ],
+    "evidence": {
+      "generation_cache_reference": {
+        "bytes": 31013,
+        "sha256": "f818f5ed16172936c2f01b8cee6b85cb84fbc873ca6aca4f3dd34980d769cb3d"
+      },
+      "object_request_reference": {
+        "bytes": 21851,
+        "sha256": "64079369657a23c1f8c1b9544768b65db7d2f0d0da8e13d35034499a98b6e907"
+      },
+      "earlier_fixed_jit_request_reference": {
+        "bytes": 466,
+        "sha256": "40d3cf80147688fcc1d66f821e77c643de4c37411d88f31a111d101ee15d78f4"
+      },
+      "outer_command_reference": {
+        "bytes": 740,
+        "sha256": "335d055cbe7b9be3ef3663ce9505216e912a6ff3dfc6542718ea610b0d237b4e"
+      },
+      "known_node_launcher_source": {
+        "bytes": 4936,
+        "sha256": "edd72fcd67a6c8326b911201245cee9278fa5a8a76ae425dd5ba0904d1a80acb"
+      },
+      "compiler_receipt": {
+        "bytes": 20526,
+        "sha256": "96fe99f2f7f7fe5b62c350483fa709b7743eb9b4315deee2eecb569937e2708d"
+      },
+      "outer_observation": {
+        "bytes": 62161,
+        "sha256": "10bc31b3374fc55e4dacf57cd2e7c7f779609ee05b55870373b6671f4ca6c937"
+      },
+      "inner_observation": {
+        "bytes": 75451,
+        "sha256": "886a6f4f4d4c0ca6d05e78628cce30fffbd02b914602b6e47d0895dfd0ef0df6"
+      }
+    },
+    "original_role_termination_preservation_unchanged": true,
+    "service_status": "unverified",
+    "link_or_B_route_authorized": false,
+    "new_snapshot_sdk_driver_gpu_http_calls": 0
+  }
+}
