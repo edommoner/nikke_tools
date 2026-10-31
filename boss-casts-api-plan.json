@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "conditions": [
+    {
+      "index": 0,
+      "condition": "Miranda attack",
+      "input_sha256": "ce298eaba6011c069264a61602186a7511622557f96bd6617c29b9cc043124dc",
+      "readback_sha256": "8384a7e771cc82a1406db932d0b1e94ea750caf1f14258d980d9ba52f1aefd3a",
+      "mac_cpu_payload_matched": true,
+      "mac_saved_static_reprojection_verified": true
+    },
+    {
+      "index": 1,
+      "condition": "Miranda debuff",
+      "input_sha256": "24c119ee63df50390e993e6308e2ffd500de657eda6e06689d2353fe53ff9136",
+      "readback_sha256": "f32e585a243c8f4b60a49251bbb8d098fba5c71cdd3b6562f3ef7643c4693f58",
+      "mac_cpu_payload_matched": true,
+      "mac_saved_static_reprojection_verified": true
+    }
+  ],
+  "scope": "Two ordinary product API scenes, same original inputs; change only compute_backend to cuda_shared_detail on Windows",
+  "maximum_total_gpu_validation_seconds": 180,
+  "scene_duration_seconds": 1.5,
+  "new_compile_during_api": false
+}

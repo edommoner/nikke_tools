@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "archive": "product-boss-casts-v1.zip",
+  "bytes": 11825560,
+  "sha256": "e65d8c20645aaeb54f1d07eb5f0194e5b5f685ca735535fff2339b0853e38a5f",
+  "package_id": "c772f39a1befb756662f3c249a8930789b9aea695592f6f3cee09f13396482e1",
+  "source_commit": "bb1f338b93e51b176b8197f52f5320005bef5c2d",
+  "program": "accumulate",
+  "files": 2687,
+  "scope": "Current shared product attack-attached and standalone native boss debuffs. Source-only; no raw/SDK/compiler binary/personal settings.",
+  "unit_tests": 59,
+  "ptx_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "c772f39a1befb756662f3c249a8930789b9aea695592f6f3cee09f13396482e1",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "full_payload_changed_files": [
+    "app/portable_cpu_tests.py",
+    "app/portable_damage_specs.py",
+    "app/portable_destructible_roster_input.py",
+    "app/portable_detail.py",
+    "app/portable_group_binding.py",
+    "app/portable_target_modifier_input.py",
+    "app/portable_weighted_incoming_source_contract.py",
+    "app/portable_world_attack_specs.py",
+    "app/portable_world_overlay_specs.py",
+    "app/portable_world_roster_input.py",
+    "gpu/admission_definition_triggers.slang",
+    "gpu/dispatch_phases.slang",
+    "gpu/incoming_descriptor_runtime.slang",
+    "gpu/portable_schema.slang",
+    "gpu/world_frame_addresses.slang",
+    "gpu/world_frame_runtime.slang",
+    "research/portable-product-programs-v1-expected.json",
+    "tests/test_portable_detail.py",
+    "tests/test_weighted_source_contract.py"
+  ],
+  "full_payload_added_files": [
+    "tests/fixtures/portable-product-boss-debuff-source-delta.json"
+  ],
+  "full_payload_removed_files": [],
+  "selected_program_shader_closure_changed": [
+    "gpu/portable_schema.slang",
+    "gpu/incoming_descriptor_runtime.slang",
+    "gpu/world_frame_addresses.slang",
+    "gpu/dispatch_phases.slang",
+    "gpu/world_frame_runtime.slang",
+    "gpu/admission_definition_triggers.slang"
+  ],
+  "prior_owner": "2a3053da8b227707f5c32af35e03f1555c429af48c2c0d0a04d7d91bbde14a15",
+  "generated_normalized": {
+    "cuda": "26ca956dfd8376c29c38d5368836686069cb9e9626d0b28b1dbd4d679054ca89",
+    "metal": "bf2c2c8b96e59a54f539e5b3b60b523b58b7b15fc5bc34787a6c79c43e9cb44e"
+  },
+  "mac_sealed_generation_verified": true,
+  "mac_metal_numeric_input_output_and_entries_retained": true,
+  "protected_cpu_files_unchanged": true,
+  "old_claims_must_be_preserved": true,
+  "windows_compile_limit": {
+    "timeout_seconds": 60,
+    "memory_limit_mb": 2048,
+    "priority": "BelowNormal"
+  },
+  "windows_later_gpu_scene_budget": {
+    "conditions": 2,
+    "scene_duration_seconds": 1.5,
+    "maximum_total_seconds": 180,
+    "compile_during_api": false
+  }
+}
