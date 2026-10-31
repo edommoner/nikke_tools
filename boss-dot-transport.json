@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "archive": "product-boss-dot-v1.zip",
+  "bytes": 11832602,
+  "sha256": "a087d7149ff8a863fd74fbc09060cf1ad37397da5748bd58d18cdca7a7e538aa",
+  "package_id": "e4307f8f674b2f01b92b612b8117f5c1e82bd9adfaea57b236f83793b8aa121a",
+  "source_commit": "463d70761a61ca14904e5bb5b55308d7f855f661",
+  "program": "accumulate",
+  "files": 2687,
+  "scope": "Shared product boss DoT clocks and HP threshold continuation; source-only packet, no SDK/binaries/raw/personal settings",
+  "unit_tests": 61,
+  "ptx_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "e4307f8f674b2f01b92b612b8117f5c1e82bd9adfaea57b236f83793b8aa121a",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "selected_program_shader_closure_changed": [
+    "gpu/event_runtime.slang",
+    "gpu/portable_schema.slang",
+    "gpu/carrier_runtime.slang",
+    "gpu/incoming_descriptor_runtime.slang",
+    "gpu/world_frame_addresses.slang",
+    "gpu/dispatch_phases.slang",
+    "gpu/world_frame_runtime.slang",
+    "gpu/admission_definition_types.slang"
+  ],
+  "full_payload_changed_files": [
+    "app/portable_damage_specs.py",
+    "app/portable_detail.py",
+    "app/portable_runtime_layout.py",
+    "app/portable_weighted_incoming_source_contract.py",
+    "app/portable_world_attack_specs.py",
+    "app/portable_world_result.py",
+    "app/portable_world_roster_input.py",
+    "gpu/admission_definition_types.slang",
+    "gpu/carrier_runtime.slang",
+    "gpu/dispatch_phases.slang",
+    "gpu/event_runtime.slang",
+    "gpu/incoming_descriptor_runtime.slang",
+    "gpu/portable_schema.slang",
+    "gpu/world_frame_addresses.slang",
+    "gpu/world_frame_runtime.slang",
+    "research/portable-product-programs-v1-expected.json",
+    "tests/fixtures/portable-product-boss-debuff-source-delta.json",
+    "tests/test_portable_detail.py",
+    "tests/test_weighted_source_contract.py"
+  ],
+  "full_payload_added_files": [],
+  "full_payload_removed_files": [],
+  "prior_owner": "c772f39a1befb756662f3c249a8930789b9aea695592f6f3cee09f13396482e1",
+  "generated_normalized": {
+    "cuda": "46b11afe4f5685b05a31bb5215904c7327a96307811fc29ea43a9fe245059e67",
+    "metal": "0fa9d3f8a874a8c61f77f1e1b37ca6385187ef0d2033254cf0ac1f91ee68a31e"
+  },
+  "mac_sealed_pair_generation_verified": true,
+  "numeric_input_output_entries_native_retained": true,
+  "protected_cpu_files_unchanged": true,
+  "old_claims_must_be_preserved": true,
+  "windows_compile_budget": {
+    "per_stage_seconds": 60,
+    "memory_limit_mb": 2048,
+    "priority": "BelowNormal"
+  },
+  "later_api_budget": {
+    "conditions": 2,
+    "total_seconds": 180,
+    "durations": [
+      6,
+      2.5
+    ]
+  }
+}

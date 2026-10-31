@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "conditions": [
+    {
+      "index": 0,
+      "condition": "DoT accumulate normal",
+      "proof": "product-boss-dot-final-v1-20261031",
+      "proof_index": 0,
+      "input_sha256": "8eca036635c0fc6ec10211015d8cd1924a6db079f9172bb7f8375f26be91066b",
+      "readback_sha256": "e3bc3506fe62d38a21c643b2987698b479cf82a7233b45a25fae53239dcc32b4",
+      "current_static_and_gpu_source_and_all_calculation_fields_verified": true,
+      "saved_cpu_gpu_api_full_payload_equal": true,
+      "evaluator_provenance": {
+        "saved": {
+          "repo": "Jgaram/nikke-calc",
+          "commit": "841a30d2b90930c46b6c22318c552e8a4eb31acb",
+          "dirty": true
+        },
+        "current": {
+          "repo": "Jgaram/nikke-calc",
+          "commit": "463d70761a61ca14904e5bb5b55308d7f855f661",
+          "dirty": false
+        },
+        "current_matches_read_only_git": true
+      }
+    },
+    {
+      "index": 1,
+      "condition": "Moran DoT HP grant accumulate",
+      "proof": "product-boss-dot-current-cuda-v1-20261031",
+      "proof_index": 0,
+      "input_sha256": "d7a2495c50f53e4d228fbdb257562dc66f535440b16090567b3be782703d6cfa",
+      "readback_sha256": "85d3847a35ce77065a1644d403fbc8f9ff1ad58e7b9bdec69048d92ed94057b2",
+      "current_static_and_gpu_source_and_all_calculation_fields_verified": true,
+      "saved_cpu_gpu_api_full_payload_equal": true,
+      "evaluator_provenance": {
+        "saved": {
+          "repo": "Jgaram/nikke-calc",
+          "commit": "463d70761a61ca14904e5bb5b55308d7f855f661",
+          "dirty": false
+        },
+        "current": {
+          "repo": "Jgaram/nikke-calc",
+          "commit": "463d70761a61ca14904e5bb5b55308d7f855f661",
+          "dirty": false
+        },
+        "current_matches_read_only_git": true
+      }
+    }
+  ],
+  "scope": "Change only compute_backend to cuda_shared_detail; same accumulated program, no recompilation during API; evaluator provenance is checked separately from arithmetic",
+  "maximum_total_seconds": 180
+}
