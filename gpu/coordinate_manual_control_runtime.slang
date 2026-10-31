@@ -7,6 +7,22 @@ static const uint CMC_BASE=919744U;
 #endif
 static const uint CMC_WORDS=80U;
 uint manualState(inout Runtime s,uint who){return s.resourceOutput+CMC_BASE+who*16;}
+#ifdef PORTABLE_PRODUCT_MANUAL_COVER_LOG
+// Observe the original posture boundaries only. No new control decision/clock.
+void productCloseManualCover(inout Runtime s,uint who,uint64_t when)
+{
+    uint m=manualState(s,who);if(results[m+11]==0)return;
+    uint at=controlTrace(s,5,who,when);if(s.error!=0)return;
+    results[at+4]=1;results[m+11]=0;
+}
+void productOpenManualCover(inout Runtime s,uint who,uint64_t when)
+{
+    uint m=manualState(s,who);if(results[m+11]!=0)return;
+    productCloseControl(s,who,when,1);if(s.error!=0)return;
+    uint at=controlTrace(s,4,who,when);if(s.error!=0)return;
+    results[at+4]=1;results[m+11]=1;
+}
+#endif
 bool manualControls(inout Runtime s){return commands[controlInput(s)+1]==3;}
 void initializeManualControls(inout Runtime s)
 {
@@ -15,7 +31,11 @@ void initializeManualControls(inout Runtime s)
     for(uint row=0;row<s.count;row++)for(uint i=0;i<definition_triggerCount(s.inputBase,row);i++)
     {uint e=s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS+i*8;if(commands[e]==31&&commands[e+4]==tag)associated=true;}
     if(!associated){s.error=64;return;}
-    for(uint who=0;who<5;who++){uint a=manualState(s,who);for(uint j=0;j<16;j++)results[a+j]=0;storeNumber(a+2,ONE|F64_SIGN);results[a+15]=0x4d435631U;}
+    for(uint who=0;who<5;who++){uint a=manualState(s,who);for(uint j=0;j<16;j++)results[a+j]=0;storeNumber(a+2,ONE|F64_SIGN);results[a+15]=0x4d435631U;
+#ifdef PORTABLE_PRODUCT_MANUAL_COVER_LOG
+        results[a+14]=0x504d4331U;results[controlHead(s)+13]=0x50434c31U;
+#endif
+    }
 }
 bool manualCharging(inout Runtime s,uint who)
 {return s.charging[who]!=0&&(!manualControls(s)||results[manualState(s,who)+9]==0);}
@@ -28,6 +48,9 @@ bool manualCovering(inout Runtime s,uint who,uint64_t when)
 void exitManualCover(inout Runtime s,uint who,uint64_t when)
 {
     uint a=manualState(s,who);if(!manualOpen(s,who))return;
+#ifdef PORTABLE_PRODUCT_MANUAL_COVER_LOG
+    productCloseManualCover(s,who,when);
+#endif
     results[a]=0;storeNumber(a+2,ONE|F64_SIGN);results[a+8]++;s.nextShot[who]=larger(s.nextShot[who],when);
     if(s.weaponMode[who]==1)results[controlState(s,who)+24]=0; // Exit changes posture, preserving a later authored hold.
 }
@@ -37,6 +60,9 @@ void resetManualCover(inout Runtime s,uint who)
 }
 void enterManualCover(inout Runtime s,uint who,uint64_t when,uint64_t duration,uint priority,bool fresh)
 {
+#ifdef PORTABLE_PRODUCT_MANUAL_COVER_LOG
+    productOpenManualCover(s,who,when);
+#endif
 #ifdef PORTABLE_COORDINATE_SQUAD_ACTIONS
     clearSquadCoverFlag(s,who);
 #endif

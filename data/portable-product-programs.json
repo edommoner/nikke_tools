@@ -140,6 +140,13 @@
       "output_words": 2048912,
       "mode": "fixed",
       "kind": ""
+    },
+    "cover-accumulate": {
+      "source": "gpu/product_cover_battle_entry.slang",
+      "input_words": 115704,
+      "output_words": 2048912,
+      "mode": "accumulate",
+      "kind": ""
     }
   }
 }

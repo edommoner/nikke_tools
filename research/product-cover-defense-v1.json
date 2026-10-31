@@ -1,0 +1,141 @@
+{
+  "schema": 1,
+  "feature": "product-cover-defense-v1",
+  "metal_product_profiles_with_declared_model": 1,
+  "metal_product_conditions": 7,
+  "cuda_product_profiles": 0,
+  "default_profile_coverage_increment": 0,
+  "scenarios": [
+    {
+      "scenario": "cover-defense/Soldier-OW/phases",
+      "device": "Apple M5",
+      "gpu_seconds": 1.877940500038676,
+      "input_sha256": "21adfaa7b9ca5253b63a479f9d7998bea669a21c9211ddf224a1a244cbe48491",
+      "output_sha256": "5b0862a1683d94071ef18a38f2c031ce50b018ef4f26b60c97f3afc004fff7df",
+      "all_payload_fields_exact": true,
+      "receipts": 15,
+      "boosted_receipts": 3,
+      "shared_receipts": 0,
+      "cover_breaks": 0,
+      "shield_landings": 0,
+      "negative_received_receipts": 0,
+      "manual_control_owners": 5
+    },
+    {
+      "scenario": "cover-defense/Soldier-OW/pierce",
+      "device": "Apple M5",
+      "gpu_seconds": 1.880356749985367,
+      "input_sha256": "927b3b39ac10d6a524c05e2f4d50d649feb7cca851184fb77cc615e19b6650d6",
+      "output_sha256": "c9396b35070fd5d490cb801dfb620ee28d65b9ad1df417e038b04551d8154c49",
+      "all_payload_fields_exact": true,
+      "receipts": 15,
+      "boosted_receipts": 3,
+      "shared_receipts": 0,
+      "cover_breaks": 0,
+      "shield_landings": 0,
+      "negative_received_receipts": 0,
+      "manual_control_owners": 5
+    },
+    {
+      "scenario": "cover-defense/Soldier-OW/broken",
+      "device": "Apple M5",
+      "gpu_seconds": 1.1141803750069812,
+      "input_sha256": "ff2fcf0177e886a4e6a827ec2d3b26d2d002b0581effc2007068b8e6aea53e88",
+      "output_sha256": "ed6e75606aa32f9a6abf9671f0da566265ffd6c8962c3ccd6a8fad61b5f96f83",
+      "all_payload_fields_exact": true,
+      "receipts": 5,
+      "boosted_receipts": 0,
+      "shared_receipts": 0,
+      "cover_breaks": 5,
+      "shield_landings": 0,
+      "negative_received_receipts": 0,
+      "manual_control_owners": 5
+    },
+    {
+      "scenario": "cover-defense/Soldier-OW/shared-shield",
+      "device": "Apple M5",
+      "gpu_seconds": 1.8393612499930896,
+      "input_sha256": "6000bcfd2c4e4bea3a81304d430a0a6aaaf466b3e753d3624d69039c4e562793",
+      "output_sha256": "a1112419f14313e2ddfa2c52233b8a7131ba5f1249207850988f2ed32142c1e6",
+      "all_payload_fields_exact": true,
+      "receipts": 16,
+      "boosted_receipts": 4,
+      "shared_receipts": 10,
+      "cover_breaks": 0,
+      "shield_landings": 2,
+      "negative_received_receipts": 0,
+      "manual_control_owners": 5
+    },
+    {
+      "scenario": "cover-defense/Noah-modifiers/covered",
+      "device": "Apple M5",
+      "gpu_seconds": 1.9326751250191592,
+      "input_sha256": "8d10d1a0b2128283310f74139054f7326950ce354e45fb153cdeafae7489848f",
+      "output_sha256": "4060325aaed3b9121c699535a748d8d8ec05175b473de136371f80a44c8ea25d",
+      "all_payload_fields_exact": true,
+      "receipts": 16,
+      "boosted_receipts": 4,
+      "shared_receipts": 10,
+      "cover_breaks": 0,
+      "shield_landings": 0,
+      "negative_received_receipts": 11,
+      "manual_control_owners": 5
+    },
+    {
+      "scenario": "cover-defense/Noah-modifiers/pierce",
+      "device": "Apple M5",
+      "gpu_seconds": 1.936657833342906,
+      "input_sha256": "5d92e5e9339153eef37952c73499a06abbb595ffc521892bfc74040be714f02f",
+      "output_sha256": "94961b50dcc07e7f1e3a9c3f84d6ba1de0c95a34c1c202d1fef7923a01191f19",
+      "all_payload_fields_exact": true,
+      "receipts": 16,
+      "boosted_receipts": 4,
+      "shared_receipts": 10,
+      "cover_breaks": 0,
+      "shield_landings": 0,
+      "negative_received_receipts": 11,
+      "manual_control_owners": 5
+    },
+    {
+      "scenario": "no-manual-cover",
+      "device": "Apple M5",
+      "gpu_seconds": 1.877563291694969,
+      "input_sha256": "beff6634d26304ba5367c24145eee70cfb5e80e538e5d5a4e989f7089c34c5b9",
+      "output_sha256": "61555de9fecbf87f716d6c40753314d277e3a39fd0ae3472f8091a421359f83b",
+      "all_payload_fields_exact": true,
+      "receipts": 0,
+      "boosted_receipts": 0,
+      "shared_receipts": 0,
+      "cover_breaks": 0,
+      "shield_landings": 0,
+      "negative_received_receipts": 0,
+      "manual_control_owners": 0
+    }
+  ],
+  "saved_audit": {
+    "conditions": 7,
+    "extra_native_battles": 0,
+    "extra_gpu_calls": 0
+  },
+  "original_effects_and_values_preserved": true,
+  "base_defense_is_independent_literal": true,
+  "in_game_level_curve_verified": false,
+  "original_fixed_and_manual_cover_combination_unported": true,
+  "unsupported_composition": [
+    "multiple reference consumers",
+    "group/target/ADD-attack product specialization",
+    "fixed burst plus manual cover"
+  ],
+  "new_suites": 0,
+  "new_numeric_math": 0,
+  "pinned_upstream_changes": 0,
+  "prior_failed_captures_retained": {
+    "v1": "7 rejected: missing final snapshot cleanup",
+    "v2": "6 control/control_detail mismatches; no-manual case matched",
+    "v3": "6 rejected: missing manual initialization marker; no-manual case matched"
+  },
+  "previous_product_goldens_historical_after_common_source_observer_change": [
+    "gpu/coordinate_manual_control_runtime.slang",
+    "gpu/incoming_runtime.slang"
+  ]
+}

@@ -74,6 +74,9 @@ void knockDown(inout Runtime s, uint who, uint64_t when)
     s.modeIndex[who] = -1; s.modeEpoch[who]++; s.appliedEpoch[who] = s.modeEpoch[who]; s.modeEntryUntil[who] = F64_SIGN | ONE; s.modeEntryPhase[who]=0;
     s.charging[who] = 0; s.reloadUntil[who] = F64_SIGN | ONE; s.postReloadUntil[who] = F64_SIGN | ONE; s.pendingAutoReload[who] = 0; WORLD_CONTROL_RELOAD(s,who)
 #ifdef PORTABLE_COORDINATE_MANUAL_ACTIONS
+#ifdef PORTABLE_PRODUCT_MANUAL_COVER_LOG
+    productCloseManualCover(s,who,when);productCloseControl(s,who,when,1);
+#endif
     resetManualCover(s,who);
 #endif
     syncHealth(s,when);

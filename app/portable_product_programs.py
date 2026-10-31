@@ -17,12 +17,12 @@ for _name,_program in PROGRAMS.items():
     if type(_program) is not dict or set(_program)!={'source','input_words','output_words','mode','kind'}:
         raise ValueError('Invalid product program declaration')
     _mode,_kind=_program['mode'],_program['kind']
-    _add=_name.startswith('add-');_healing=_name.startswith('healing-');_weighted=_name.startswith('weighted-')
-    _prefix='add-' if _add else 'healing-' if _healing else 'weighted-' if _weighted else ''
-    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or (_healing or _weighted) and _kind!='' or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
+    _add=_name.startswith('add-');_healing=_name.startswith('healing-');_weighted=_name.startswith('weighted-');_cover=_name.startswith('cover-')
+    _prefix='add-' if _add else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else ''
+    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or (_healing or _weighted or _cover) and _kind!='' or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
         raise ValueError('Invalid product program identity')
     _stem=('fixed_' if _mode=='fixed' else '')+(_kind.replace('-','_')+'_' if _kind else '')
-    if _program['source']!='gpu/product_'+('add_' if _add else 'healing_' if _healing else 'weighted_' if _weighted else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
+    if _program['source']!='gpu/product_'+('add_' if _add else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
         raise ValueError('Invalid product source or wire declaration')
 
 
@@ -62,7 +62,12 @@ def body_for_program(root, name=None):
     if name is not None and (not isinstance(name,str) or name not in PROGRAMS):
         raise ValueError('Invalid product program body')
     program = PROGRAMS.get(name, dict(mode='accumulate', kind=''))
-    if name is not None and name.startswith('weighted-'):
+    if name is not None and name.startswith('cover-'):
+        from portable_cover_defense_battle_cases import fixtures
+        case=fixtures()[0];body=copy.deepcopy(case['body'])
+        body['reference_models']={'cover_defense':copy.deepcopy(case['cover_defense'])}
+        body['manual_cover_sequences']=copy.deepcopy(case['declared_manual_sequences'])
+    elif name is not None and name.startswith('weighted-'):
         from portable_weighted_battle_cases import fixtures
         case=fixtures()[0];body=copy.deepcopy(case['body'])
         body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}

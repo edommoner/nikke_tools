@@ -67,6 +67,9 @@ def compile_product(prepared):
     from portable_product_weighted import required as weighted_required,compile_product as compile_weighted
     if not prepared.get('_product_weighted_compiled') and weighted_required(prepared):
         return compile_weighted(prepared,compile_product)
+    from portable_product_cover import required as cover_required,compile_product as compile_cover
+    if not prepared.get('_product_cover_compiled') and cover_required(prepared):
+        return compile_cover(prepared,compile_product)
     from portable_product_healing import required,compile_product as compile_healing
     if not prepared.get('_product_healing_compiled') and required(prepared):
         return compile_healing(prepared,compile_product)
@@ -79,9 +82,16 @@ def compile_product(prepared):
     # merge/refresh them exactly as native does. Standalone component-quantity
     # proofs retain their distinct, explicitly documented contract.
     prepared=dict(prepared,_product_native_equipment_carriers=True)
+    manual_cover=any(a.get('action')=='cover' for c in prepared['chars'] for a in c.get('control',{}).get('sequence',[]))
+    if manual_cover:
+        if not prepared.get('_product_cover_compiled'):
+            raise UnsupportedPortable('Manual cover requires the connected product cover consumer entry')
+        prepared=dict(prepared,_product_manual_cover=True)
     gauge_mode=prepared['policies']['config'].get('burst_gauge_mode','fixed')
     if gauge_mode not in ('fixed','accumulate'):raise UnsupportedPortable('Unported burst gauge mode')
     fixed=gauge_mode=='fixed'
+    if fixed and manual_cover:
+        raise UnsupportedPortable('Fixed burst with manual cover needs a combined literal control header')
     if fixed:
         cfg=prepared['policies']['config']
         first=cfg.get('first_burst_time',3.)
@@ -105,6 +115,8 @@ def compile_product(prepared):
             metadata['product_control_labels']=[
                 [dict(mode=e['mode'],producer=_when_label(e)) for e in CharState(c,atk,original['enemy'].get('code'))._click_sched]
                 for c,atk in zip(original['chars'],original['base_atk'])]
+        if manual_cover:
+            metadata['product_manual_cover_owners']=[i for i,c in enumerate(original['chars']) if any(a.get('action')=='cover' for a in c.get('control',{}).get('sequence',[]))]
         if original['enemy'].get('patterns'):
             from calculator.boss_pattern import validate,RESERVED_KINDS
             nodes=validate(copy.deepcopy(original['enemy']['patterns']))
@@ -253,6 +265,13 @@ def decode_payload(body, prepared, run, metadata, block):
         from product_reference_models import warning
         model=read_result(block,metadata,names,run.config['duration'])
         payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
+    if metadata.get('product_cover_defense'):
+        from portable_product_cover import read_result
+        from product_reference_models import warning
+        model=read_result(block,metadata,names,run.config['duration'])
+        payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
+    if 'manual_cover_sequences' in body:
+        payload['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])
     if body.get('enemy',{}).get('parts'):
         from portable_world_result import read_product_parts
         from detail_world import read_parts

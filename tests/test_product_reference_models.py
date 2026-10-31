@@ -9,6 +9,73 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def test_cover_product_keeps_literal_operations_and_independent_bases(self):
+        from portable_cover_defense_battle_cases import fixtures
+        import portable_detail as product
+        case=fixtures()[0];body=copy.deepcopy(case['body'])
+        body['reference_models']={'cover_defense':case['cover_defense']};body['manual_cover_sequences']=case['declared_manual_sequences']
+        before=copy.deepcopy(body);aliases=(timeline.simulate,sim.simulate)
+        with patch.object(sim,'execute',side_effect=AssertionError('Static input may not simulate')):
+            prepared,_=product.prepare(body);original=copy.deepcopy(prepared)
+            source,iw,ow,words,meta=product.compile_product(prepared)
+        self.assertEqual(prepared,original);self.assertEqual((source,iw,ow),('gpu/product_cover_battle_entry.slang',115704,2048912))
+        self.assertFalse(meta['product_cover_defense']['cpu_state_or_schedule_supplied']);self.assertFalse(any(words[104400:115680]))
+        actual=engine_worker.evaluate(body);data=actual['reference_models']['cover_defense']
+        self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate))
+        self.assertEqual(actual['manual_cover_sequences'],body['manual_cover_sequences'])
+        self.assertEqual(len(data['receipts']),15)
+        self.assertTrue(any(r['effective_defense']>r['base_defense'] for r in data['receipts']))
+        self.assertEqual(data['base_defenses'],[r['base_defense'] for r in case['cover_defense']])
+
+    def test_cover_malformed_or_unknown_roster_and_unconnected_controls_fail_closed(self):
+        from portable_cover_defense_battle_cases import fixtures
+        import portable_detail as product
+        from portable_runtime import UnsupportedPortable
+        case=fixtures()[0];body=copy.deepcopy(case['body'])
+        prepared,_=product.prepare(body)
+        with self.assertRaisesRegex(UnsupportedPortable,'explicit.*bases'):product.compile_product(prepared)
+        body['reference_models']={'cover_defense':case['cover_defense']}
+        body['manual_cover_sequences']=case['declared_manual_sequences'];body['burst_gauge_mode']='fixed'
+        prepared,_=product.prepare(body)
+        with self.assertRaisesRegex(UnsupportedPortable,'combined literal control header'):product.compile_product(prepared)
+        bad=copy.deepcopy(case['cover_defense']);bad[0]['name']='wrong original owner'
+        with self.assertRaisesRegex(ValueError,'original cover owner'):
+            engine_worker.evaluate(dict(body,reference_models={'cover_defense':bad}))
+        for rows in ([],[dict(name='a',base_defense=True)]*5,[dict(name=str(i),base_defense=float('inf')) for i in range(5)]):
+            with self.subTest(rows=rows),self.assertRaises(ValueError):normalize({'cover_defense':rows})
+        for overrides in ({}, {'not-in-squad':[dict(action='cover',t=1,duration=1)]}, {body['squad'][0]:[dict(action='cover',t=True,duration=1)]}):
+            with self.subTest(overrides=overrides),patch.object(sim,'execute',side_effect=AssertionError('Invalid cover control may not simulate')),self.assertRaises(ValueError):
+                engine_worker.evaluate(dict(body,manual_cover_sequences=overrides))
+
+    def test_cover_readback_rejects_overflow_and_stale_depth_state(self):
+        from portable_product_cover import read_result
+        from portable_cover_defense_wire import LAYOUT as C,MAGIC,OUTPUT
+        from portable_runtime import UnsupportedPortable
+        names=['a','b','c','d','e'];meta=dict(product_cover_defense=dict(declarations={'cover_defense':[dict(name=n,base_defense=100) for n in names]}))
+        words=array.array('I',[0])*OUTPUT;head=C['OUTPUT_BASE'];words[head]=MAGIC
+        self.assertEqual(read_result(words,meta,names,30.)['cover_defense']['receipts'],[])
+        for offset,value in [(head,0),(head+1,513),(head+2,1),(head+C['SNAPSHOT_BASE'],1),(head+C['RECEIPT_BASE'],1)]:
+            bad=array.array('I',words);bad[offset]=value
+            with self.subTest(offset=offset),self.assertRaises(UnsupportedPortable):read_result(bad,meta,names,30.)
+
+    def test_manual_cover_control_intervals_require_gpu_open_close_and_marker(self):
+        from portable_world_result import read_product_control_log
+        from portable_specs import LIMITS as L
+        from portable_manual_control_specs import BASE
+        from portable_runtime import UnsupportedPortable
+        words=array.array('I',[0])*2048912;head=L['WORLD_CONTROL_HEAD_BASE'];trace=L['WORLD_CONTROL_TRACE_BASE']
+        words[head]=0x57434831;words[head+1]=2;words[head+13]=0x50434c31
+        for who in range(5):words[BASE+who*16+14]=0x504d4331
+        for index,(kind,when) in enumerate([(4,.5),(5,.75)]):
+            at=trace+index*8;words[at]=kind;words[at+4]=1
+            words[at+2:at+4]=array.array('I',struct.unpack('<II',struct.pack('<d',when)))
+        meta=dict(product_control_labels=[[] for _ in range(5)],product_manual_cover_owners=[0],states={})
+        actual=read_product_control_log(words,meta,['a','b','c','d','e'],1.)
+        row=actual.control_log[0];self.assertEqual((row.t0,row.t1,row.caster,row.input,row.mode,row.producer),(.5,.75,'a','cover','cover','엄폐(시퀀스)'))
+        for offset,value in [(BASE+14,0),(head+13,0),(trace,5),(trace+1,1),(trace+8,4),(trace+8+4,0)]:
+            bad=array.array('I',words);bad[offset]=value
+            with self.subTest(offset=offset),self.assertRaises(UnsupportedPortable):read_product_control_log(bad,meta,['a','b','c','d','e'],1.)
+
     def test_weighted_original_product_consumes_real_markers_and_preserves_definitions(self):
         from portable_weighted_battle_cases import fixtures
         import portable_detail as product

@@ -342,6 +342,9 @@ def evaluate(body):
         if controls:
             req['chars'] = controls
         run = sim.prepare(req)
+        if 'manual_cover_sequences' in body:
+            from portable_declared_manual_sequences import apply as manual_cover
+            run.squad=manual_cover(run.squad,body['manual_cover_sequences'])
         if part_patterns:run.enemy['patterns']=copy.deepcopy(part_patterns)
         for char in run.squad:
             if char['name'] in no_cube:
@@ -370,6 +373,7 @@ def evaluate(body):
             result['boss_timeline']=[dict(time=round(e.t,6),pattern=e.pattern,kind=e.kind,event=e.event,outcome=e.outcome or None) for e in executed.boss_log if e.pattern!='authored-live-parts' and e.event in ('start','end','dispel')]
             if any(p.get('kind')=='attack' or p.get('kind')=='summon' and p.get('spec',{}).get('attack') for p in body['enemy']['patterns']):
                 result['incoming_hits']=[dict(time=round(h.t,6),pattern=h.pattern,target=h.target,damage=round(h.damage,6),pierce=bool(h.pierce),decoy=round(h.decoy,6),shield=round(h.shield,6),cover=round(h.cover,6),hp=round(h.hp,6),hp_after=round(h.hp_after,6),down=bool(h.down),by=h.by or '') for h in executed.squad_hits]
+        if 'manual_cover_sequences' in body:result['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])
         result['burst_policy'] = policy
         result['shooting_policy'] = shooting_policy
         result['weapon_mode_swap'] = mode_swap

@@ -90,6 +90,14 @@ def compile_world_battle(prepared, *, trace='burst', allow_physical_interrupt=Fa
         for c in control_chars:
             for axis in ('aim','cover','reload','burst'):c.get('control',{}).pop(axis,None)
         controls=normalize_controls(control_chars,attacks,literal_enemy,cfg.get('control_mode','solo'))
+    elif prepared.get('_product_manual_cover'):
+        from portable_manual_control_specs import normalize as normalize_controls
+        control_chars=copy.deepcopy(chars)
+        for c in control_chars:
+            burst=c.get('control',{}).get('burst')
+            if burst and (not prepared.get('_product_burst_patterns') or set(burst)-{'pattern'}):raise UnsupportedPortable('Manual product burst control requires its literal policy producer')
+            c.get('control',{}).pop('burst',None)
+        controls=normalize_controls(control_chars,attacks,enemy,cfg.get('control_mode','solo'))
     elif prepared.get('_product_burst_patterns'):
         control_chars=copy.deepcopy(chars)
         for c in control_chars:
@@ -167,7 +175,7 @@ def compile_world_battle(prepared, *, trace='burst', allow_physical_interrupt=Fa
     words.extend(pack_battle([(e,names.index(owner)) for e,owner in bound], words[2], names, meta['states'], bindings, patterns, allow_no_counter=True))
     words.extend(compile_clock(weapons, delays))
     words.extend(team_policy(meta, enemy.get('has_parts', False)))
-    if coordinate:
+    if coordinate or prepared.get('_product_manual_cover'):
         from portable_manual_control_specs import pack as pack_controls
         policy=pack_controls(controls,bound,names,meta['states'],camera_mask)
         words.extend(policy);meta['_control_policy']=policy

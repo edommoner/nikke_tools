@@ -9,14 +9,15 @@ from contextlib import contextmanager,ExitStack
 
 WARNING='宣言した敵回復モデルを使用しています。実ゲームの回復量・対象規則を確認した意味ではありません。'
 WEIGHTED_WARNING='宣言したダメージ配分モデルを使用しています。実ゲームの配分比率を確認した意味ではありません。'
+COVER_WARNING='宣言した独立遮蔽DEFモデルを使用しています。実ゲームの遮蔽基礎DEF・レベル曲線を確認した意味ではありません。'
 
 def warning(declarations):
-    return ' '.join(text for key,text in [('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING)] if key in declarations)
+    return ' '.join(text for key,text in [('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING),('cover_defense',COVER_WARNING)] if key in declarations)
 
 def normalize(value):
     if value is None:return {}
-    if type(value) is not dict or set(value)-{'enemy_healing','weighted_incoming'}:
-        raise ValueError('reference_modelsには接続済みのenemy_healing／weighted_incomingだけを指定してください。')
+    if type(value) is not dict or set(value)-{'enemy_healing','weighted_incoming','cover_defense'}:
+        raise ValueError('reference_modelsには接続済みのenemy_healing／weighted_incoming／cover_defenseだけを指定してください。')
     result={}
     if 'enemy_healing' in value:
         from enemy_healing_model import normalize as healing
@@ -26,6 +27,12 @@ def normalize(value):
         spec=copy.deepcopy(value['weighted_incoming'])
         WeightedIncoming(spec,['1','2','3','4','5'])
         result['weighted_incoming']=spec
+    if 'cover_defense' in value:
+        from cover_defense_battle_model import normalize as cover
+        spec=value['cover_defense']
+        if type(spec) is not list or any(type(r) is not dict for r in spec):raise ValueError('Explicit five-owner cover bases required')
+        cover(spec,[r.get('name') for r in spec])
+        result['cover_defense']=copy.deepcopy(spec)
     return result
 
 def healing_public(data):
@@ -57,6 +64,12 @@ def execution(declarations,names=None):
             from weighted_incoming_battle_model import weighted_incoming
             weighted=stack.enter_context(weighted_incoming(declarations['weighted_incoming'],names))
         else:weighted=None
+        if 'cover_defense' in declarations:
+            if weighted is not None:raise ValueError('Weighted allocation and independent cover DEF composition requires a combined checked landing contract')
+            from cover_defense_battle_model import cover_defense
+            cover=stack.enter_context(cover_defense(declarations['cover_defense'],names))
+        else:cover=None
         yield result
     if healing is not None:result['enemy_healing']=healing_public(healing)
     if weighted is not None:result['weighted_incoming']=copy.deepcopy(weighted)
+    if cover is not None:result['cover_defense']=copy.deepcopy(cover)

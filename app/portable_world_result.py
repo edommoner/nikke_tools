@@ -93,16 +93,21 @@ def read_product_control_log(block,metadata,names,duration,*,burst_trace=None):
     from portable_runtime import UnsupportedPortable
     from calculator.sim_result import SimLog,ControlLogEntry
     labels=metadata.get('product_control_labels')
+    manual=metadata.get('product_manual_cover_owners',[])
     patterns=metadata.get('product_burst_patterns')
-    if not patterns and (not labels or not any(labels)):return None
+    if not manual and not patterns and (not labels or not any(labels)):return None
     h=L['WORLD_CONTROL_HEAD_BASE'];base=L['WORLD_CONTROL_TRACE_BASE'];capacity=L['WORLD_CONTROL_TRACE_COUNT']
     def fail():raise UnsupportedPortable('Invalid or missing GPU operator control history')
     if patterns:
         if len(block)<=h+15 or block[h]!=0x57434831 or block[h+15]!=0x50425031 or block[h+14]>block[8]:fail()
         if burst_trace is not None and block[h+14]!=sum(e['event']==5 for e in burst_trace):fail()
-    if not labels or not any(labels):return None
+    if not manual and (not labels or not any(labels)):return None
     if len(labels)!=5 or len(names)!=5 or len(block)<base+capacity*8:fail()
     if block[h]!=0x57434831 or block[h+13]!=0x50434c31 or block[h+1]>capacity or block[h+2]>5 or block[h+3]>31:fail()
+    if manual:
+        from portable_manual_control_specs import BASE
+        if len(set(manual))!=len(manual) or any(type(i) is not int or not 0<=i<5 for i in manual):fail()
+        if len(block)<BASE+80 or any(block[BASE+i*16+14]!=0x504d4331 for i in range(5)):fail()
     if any(block[h+k] for k in ((7,9) if patterns else (7,9,14,15))):fail()
     def number(at):return struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
     log=SimLog();active={};preempts={};arbs=0;last_close=None;previous=0.
@@ -112,7 +117,7 @@ def read_product_control_log(block,metadata,names,duration,*,burst_trace=None):
         start,label=opened
         if when<start:fail()
         if when==start:return None
-        entry=ControlLogEntry(start,when,names[who],'click',label['mode'],label['producer'])
+        entry=ControlLogEntry(start,when,names[who],label.get('input','click'),label['mode'],label['producer'])
         log.control_log.append(entry);return entry
     for index in range(block[h+1]):
         at=base+index*8;kind,who=block[at:at+2];when=number(at+2)
@@ -142,6 +147,16 @@ def read_product_control_log(block,metadata,names,duration,*,burst_trace=None):
                 if block[at+5]>1 or who not in active or active[who][1]!=label:fail()
                 entry=close(who,when)
                 last_close=(who,when,label,entry) if block[at+5]==0 else None
+        elif kind in (4,5):
+            if who not in manual or list(block[at+4:at+8])!=[1,0,0,0]:fail()
+            label=dict(input='cover',mode='cover',producer='엄폐(시퀀스)')
+            if kind==4:
+                if who in active:fail()
+                active[who]=(when,label)
+            else:
+                if who not in active or active[who][1]!=label:fail()
+                close(who,when)
+            last_close=None
         else:fail()
     if arbs!=block[h+8] or sum(preempts.values())!=block[h+6]:fail()
     for who in range(5):
