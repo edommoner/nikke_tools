@@ -40,7 +40,7 @@ def compile_product(prepared,producer):
         base=L['WORLD_CONTROL_INPUT_BASE'];version=words[base+1]
         if version in (1,2):
             tap_mask=words[base+5] if version==2 else 0
-            if any(words[base+(6 if version==2 else 5):base+16]):
+            if version==2 and not 0<tap_mask<32 or any(words[base+(6 if version==2 else 5):base+16]):
                 raise UnsupportedPortable('Cover fixed burst requires a canonical control header')
             words[base+1]=3
             words[base+5:base+8]=[tap_mask,0xffffffff,0x4d435631]

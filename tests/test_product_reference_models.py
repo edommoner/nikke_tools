@@ -487,6 +487,25 @@ class ProductReferenceModels(unittest.TestCase):
             self.assertFalse(meta['product_fixed_burst']['CPU_state_or_schedule_as_input'])
             self.assertEqual(set(meta['binding_source_indices']),set(range(len(before['effects']))))
 
+    def test_fixed_cover_header_conversion_rejects_invalid_tap_masks_and_reserved_words(self):
+        import portable_detail as product
+        from portable_product_cover import compile_product
+        from portable_product_programs import body_for_program
+        from portable_specs import LIMITS as L
+        from portable_runtime import UnsupportedPortable
+        body=body_for_program(ROOT,'default-cover-fixed')
+        prepared,_=product.prepare(body)
+        for version,mask,reserved in [(2,0,False),(2,32,False),(1,0,True),(2,1,True)]:
+            def producer(inner):
+                source,iw,ow,words,meta=product.compile_product(inner)
+                at=L['WORLD_CONTROL_INPUT_BASE'];words[at+1]=version
+                words[at+5:at+16]=[0]*11
+                if version==2:words[at+5]=mask
+                if reserved:words[at+15]=1
+                return source,iw,ow,words,meta
+            with self.subTest(version=version,mask=mask,reserved=reserved),self.assertRaisesRegex(UnsupportedPortable,'canonical control header'):
+                compile_product(prepared,producer)
+
     def test_cover_readback_rejects_overflow_and_stale_depth_state(self):
         from portable_product_cover import read_result
         from portable_cover_defense_wire import LAYOUT as C,MAGIC,OUTPUT
