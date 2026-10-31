@@ -127,5 +127,19 @@
     "Heavy Arms Lock On",
     "Rei target count",
     "current source full catalogue and CUDA verification"
-  ]
+  ],
+  "cli": {
+    "program": "movement-accumulate",
+    "source_commit": "a20cde3af7b5d02066dd4df2893601f9b61f1d02",
+    "package_id": "715db434ef3a33d395da8b0f4af65ba8ebcc0d12bec10c7b08e95a97a571e0a6",
+    "own_tests": 96,
+    "fresh_native_cases": 1,
+    "metal_run_passed": true,
+    "independent_seal_calculation_verified": true,
+    "independent_seal_gpu_calls": 0,
+    "golden": "research/portable-product-programs-v8-expected.json",
+    "previous_registered_programs": 25,
+    "previous_sealed_golden_entries": 10,
+    "previous_golden_entries_preserved": true
+  }
 }

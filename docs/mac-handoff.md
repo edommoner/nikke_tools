@@ -4,7 +4,7 @@
 
 通常HTTP→実M5のユニ停止／ヤン強制移動／世代更新／重複2優先規則の計2profile・5条件でCPU全応答一致。各3602frame、3598〜3608segmentを保存rawから全再投影し、追加native／GPU0で一致。readerはactor・世代・連続区間・有限量・予約word・最終state・未使用tailを検査し、既存4096上限を超えれば切り捨てず拒否する。初版wire登録漏れのGPU前拒否、起動前送信失敗、単独CPU import失敗を保持。ユニ先頭の成功と残4件はhost preload修正前後の別source snapshotとして区別する。集約は `research/product-enemy-movement-v1.json`。
 
-共通CLIの既存product-detailへmovement-accumulateを登録（新suite0）。現段階で通常API5条件成功／CLI独立sealは次工程。元25programの登録期待値は変更しない。unit96＋server10成功。専用4384を停止、ユーザー4317／4327未操作、Windows追加依頼0。ゲームの位置・範囲・移動優先は未確定の宣言で、既定固定profileの未対応数を減らさない。fixed移動、複数consumer、Heavy Arms、Rei、全catalog現source／CUDAの確認は未完了。全目標を維持する。
+共通CLIの既存product-detailへmovement-accumulateを登録（新suite0）。通常API5条件に加え、a20cde3aの固定owner715db434…自身の96unit／fresh native1／実M5計算と別fresh GPU禁止sealが成功。旧v7を保持したv8へmovement-accumulateだけ追加。元25programの登録期待値は変更しない。unit96＋server10成功。専用4384を停止、ユーザー4317／4327未操作、Windows追加依頼0。ゲームの位置・範囲・移動優先は未確定の宣言で、既定固定profileの未対応数を減らさない。fixed移動、複数consumer、Heavy Arms、Rei、全catalog現source／CUDAの確認は未完了。全目標を維持する。
 
 # 2026-10-31 serial NVRTCはtimeoutのまま保持、bounded2-thread候補を追加
 
