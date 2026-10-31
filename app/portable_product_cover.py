@@ -16,7 +16,7 @@ def compile_product(prepared,producer):
     from portable_product_world_contract import has_incoming_attacks
     if unspecified and has_incoming_attacks(prepared):
         raise UnsupportedPortable('Independent cover DEF requires explicit reference_models.cover_defense bases; no body DEF or level curve is inferred')
-    if set(declarations)-{'cover_defense','enemy_healing','enemy_ammo','enemy_movement'} or len(set(declarations)-{'cover_defense'})>1:
+    if set(declarations)-{'cover_defense','enemy_healing','enemy_ammo','enemy_movement','named_range'} or len(set(declarations)-{'cover_defense'})>1:
         raise UnsupportedPortable('Cover DEF product composition requires a matching combined consumer wire')
     check_schema();names=[c['name'] for c in prepared['chars']]
     # Product-only unavailable flag; zero payload is reserved padding, not a
@@ -39,7 +39,9 @@ def compile_product(prepared,producer):
     ammo=source in ('gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang') and (iw,ow)==(AMMO['INPUT_WORDS'],AMMO['OUTPUT_WORDS'])
     from portable_enemy_movement_wire import INPUT as MOVE_INPUT,OUTPUT as MOVE_OUTPUT
     movement=source in ('gpu/product_movement_battle_entry.slang','gpu/product_movement_fixed_battle_entry.slang') and (iw,ow)==(MOVE_INPUT,MOVE_OUTPUT)
-    kind='healing' if healing else 'ammo' if ammo else 'movement' if movement else None
+    from portable_named_range_battle_wire import INPUT as RANGE_INPUT,OUTPUT as RANGE_OUTPUT
+    named_range=source in ('gpu/product_named_range_battle_entry.slang','gpu/product_named_range_fixed_battle_entry.slang') and (iw,ow)==(RANGE_INPUT,RANGE_OUTPUT)
+    kind='healing' if healing else 'ammo' if ammo else 'movement' if movement else 'named_range' if named_range else None
     for candidate,wire in prefixes.items():
         stem=(candidate.replace('-','_')+'_') if candidate else ''
         if source in ('gpu/product_'+stem+'battle_entry.slang','gpu/product_fixed_'+stem+'battle_entry.slang') and (iw,ow)==wire:
@@ -81,6 +83,10 @@ def compile_product(prepared,producer):
         meta['product_movement_cover']=True
         if len(words)!=MOVE_INPUT:raise ValueError('Complete movement prefix required before cover bank')
         return ('gpu/product_movement_cover_'+('fixed_' if fixed_values is not None else '')+'battle_entry.slang',MOVE_INPUT+C['WORDS'],OUTPUT,list(words)+bank,meta)
+    if named_range:
+        meta['product_named_range_cover']=True
+        if len(words)!=RANGE_INPUT:raise ValueError('Complete named range prefix required before cover bank')
+        return ('gpu/product_named_range_cover_'+('fixed_' if fixed_values is not None else '')+'battle_entry.slang',RANGE_INPUT+C['WORDS'],OUTPUT,list(words)+bank,meta)
     stem=('fixed_' if fixed_values is not None else '')+(kind.replace('-','_')+'_' if kind else '')
     return ('gpu/product_cover_'+stem+'battle_entry.slang',INPUT,OUTPUT,
         list(words)+[0]*(C['BASE']-len(words))+bank,meta)

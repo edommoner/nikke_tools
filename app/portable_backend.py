@@ -111,6 +111,14 @@ def validate_composed_stride(source,input_words,output_words):
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Weighted incoming requires complete literal weights and owned receipt banks')
         return
     from portable_product_programs import PROGRAMS
+    range_cover_sources={p['source'] for n,p in PROGRAMS.items() if n.startswith('named-range-cover-')}
+    if source in range_cover_sources:
+        from portable_cover_defense_wire import check_schema,LAYOUT as C,OUTPUT
+        from portable_named_range_battle_wire import check_schema as range_schema,INPUT as R,OUTPUT as RO
+        check_schema(ROOT);range_schema(ROOT)
+        if RO!=C['OUTPUT_BASE']:raise ValueError('Named range and cover banks must remain disjoint and contiguous')
+        if (input_words,output_words)!=(R+C['WORDS'],OUTPUT):raise ValueError('Named range/cover requires both complete declaration and receipt banks')
+        return
     movement_cover_sources={p['source'] for n,p in PROGRAMS.items() if n.startswith('movement-cover-')}
     if source in movement_cover_sources:
         from portable_cover_defense_wire import check_schema,LAYOUT as C,OUTPUT

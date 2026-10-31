@@ -66,11 +66,11 @@ def compile_product(prepared):
     """Select an existing wire by actual effect requirements, never by character."""
     from portable_product_cover import required as cover_required,compile_product as compile_cover
     from portable_product_movement import required as movement_required,compile_product as compile_movement
-    if not prepared.get('_product_cover_compiled') and movement_required(prepared) and cover_required(prepared):
-        return compile_cover(prepared,compile_product)
     from portable_product_locks import required as locks_required,compile_product as compile_locks
     if locks_required(prepared):return compile_locks(prepared)
     from portable_product_named_range import required as range_required,compile_product as compile_range
+    if not prepared.get('_product_cover_compiled') and cover_required(prepared) and (range_required(prepared) or movement_required(prepared)):
+        return compile_cover(prepared,compile_product)
     if range_required(prepared):return compile_range(prepared)
     if movement_required(prepared):return compile_movement(prepared)
     if not prepared.get('_product_cover_compiled') and cover_required(prepared):
@@ -285,7 +285,9 @@ def decode_payload(body, prepared, run, metadata, block):
         models.append(model)
     if metadata.get('product_named_range'):
         from portable_product_named_range import read_result
-        model=read_result(block,metadata,run.config['duration'])
+        from portable_named_range_battle_wire import OUTPUT as RANGE_OUTPUT
+        range_block=block[:RANGE_OUTPUT] if metadata.get('product_named_range_cover') else block
+        model=read_result(range_block,metadata,run.config['duration'])
         models.append(model)
     if models:
         from product_reference_models import combine_public,warning

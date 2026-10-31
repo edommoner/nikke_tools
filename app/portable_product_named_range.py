@@ -23,10 +23,13 @@ def compile_product(prepared):
     from portable_product_fixed import lower as lower_fixed,attach as attach_fixed
     original=prepared
     prepared,fixed_values=lower_fixed(prepared)
-    if any(a.get('action')=='cover' for c in prepared['chars'] for a in c.get('control',{}).get('sequence',[])):
+    manual=[i for i,c in enumerate(prepared['chars']) if any(a.get('action')=='cover' for a in c.get('control',{}).get('sequence',[]))]
+    if manual and not prepared.get('_product_cover_compiled'):
         raise UnsupportedPortable('Named range with manual cover requires its combined coordinate consumer')
+    if manual:prepared=dict(prepared,_product_manual_cover=True)
     spec=declarations['named_range'];check_schema()
     words,meta,bindings,scene=compile_battle(dict(prepared,_product_native_equipment_carriers=True),spec['logical_geometry'],spec['rules'])
+    if manual:meta['product_manual_cover_owners']=manual
     meta['product_named_range']=dict(declarations=declarations,names=[c['name'] for c in prepared['chars']],cpu_state_or_schedule_supplied=False)
     meta['product_control_labels']=[
         [dict(mode=e['mode'],producer=_when_label(e)) for e in CharState(c,atk,prepared['enemy'].get('code'))._click_sched]

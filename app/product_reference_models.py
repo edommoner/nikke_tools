@@ -39,7 +39,7 @@ def normalize(value):
         raise ValueError('reference_modelsには接続済みのenemy_healing／weighted_incoming／cover_defense／enemy_ammo／enemy_movement／named_range／lock_onだけを指定してください。')
     if 'enemy_ammo' in value and set(value)-{'enemy_ammo','cover_defense'}:raise ValueError('Enemy magazine composition requires a combined checked native consumer')
     if 'enemy_movement' in value and set(value)-{'enemy_movement','cover_defense'}:raise ValueError('Movement composition requires a combined checked native consumer')
-    if 'named_range' in value and len(value)!=1:raise ValueError('Named range composition requires a combined checked native consumer')
+    if 'named_range' in value and set(value)-{'named_range','cover_defense'}:raise ValueError('Named range composition requires a combined checked native consumer')
     if 'lock_on' in value and len(value)!=1:raise ValueError('Lock composition requires a combined checked native consumer')
     result={}
     if 'enemy_healing' in value:

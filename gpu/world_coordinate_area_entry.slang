@@ -23,6 +23,8 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     if(id.x>=commands[0])return;
 #if defined(PORTABLE_PRODUCT_COVER_MOVEMENT)
     uint input=1+id.x*(EMB_INPUT+CDF_WORDS),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
+#elif defined(PORTABLE_PRODUCT_COVER_NAMED_RANGE)
+    uint input=1+id.x*(NRB_INPUT+CDF_WORDS),output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
 #elif defined(PORTABLE_WEIGHTED_INCOMING)
     uint input=1+id.x*WGT_INPUT,output=id.x*P_OUTPUT_WORDS,dst=output+CP_BASE;
 #elif defined(PORTABLE_COVER_DEFENSE)
@@ -124,7 +126,7 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     uint queries;executePortableCommands(s,input,output,queries);
     for(uint i=5;i<16;i++)results[output+CP_BASE+i]=0;
     writePortableProgram(s,input,output,queries);
-#ifdef PORTABLE_PRODUCT_COVER_MOVEMENT
+#if defined(PORTABLE_PRODUCT_COVER_MOVEMENT) || defined(PORTABLE_PRODUCT_COVER_NAMED_RANGE)
     for(uint i=0;i<CDF_DEPTH*CDF_SNAPSHOT_WORDS;i++)results[output+CDF_OUTPUT_BASE+CDF_SNAPSHOT_BASE+i]=0;
 #endif
 }

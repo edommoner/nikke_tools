@@ -308,6 +308,20 @@
       "output_words": 2048912,
       "mode": "accumulate",
       "kind": ""
+    },
+    "named-range-cover-fixed": {
+      "source": "gpu/product_named_range_cover_fixed_battle_entry.slang",
+      "input_words": 116248,
+      "output_words": 2048912,
+      "mode": "fixed",
+      "kind": ""
+    },
+    "named-range-cover-accumulate": {
+      "source": "gpu/product_named_range_cover_battle_entry.slang",
+      "input_words": 116248,
+      "output_words": 2048912,
+      "mode": "accumulate",
+      "kind": ""
     }
   }
 }
