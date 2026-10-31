@@ -3,6 +3,8 @@
 #ifdef PORTABLE_WORLD_FRAME
 #include "world_frame_addresses.slang"
 #else
+bool worldBossDebuffDefinition(inout Runtime s,uint row) { return false; }
+bool validWorldBossDebuff(inout Runtime s,uint row,Definition d) { return false; }
 [ForceInline]
 uint incomingCommandAddress(inout Runtime s,uint arg) { return s.inputBase+P_COMMAND_BASE+arg*8; }
 [ForceInline]

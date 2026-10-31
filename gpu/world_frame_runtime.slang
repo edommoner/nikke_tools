@@ -1,8 +1,26 @@
+void releaseWorldBossDebuffs(inout Runtime s,uint firstLog,uint lastLog)
+{
+    uint head=s.resourceOutput+WF_OUTPUT;
+    for(uint i=firstLog;i<lastLog;i++)
+    {
+        uint record=head+WS_LOG+i*6;
+        // Native final 'end' closes reporting only, not bound effects.
+        if(results[record]!=2||results[record+2]==4) continue;
+        uint p=s.inputBase+WF_PAYLOAD+results[record+1]*16,first=commands[p+4],count=commands[p+5],bound=commands[p+7];
+        if(first==0||bound==0) continue;
+        for(uint slot=0;slot<s.carrierCount;slot++)
+        {
+            uint row=s.carrierDefinition[slot];
+            if(row>=first-1&&row<first-1+count&&(bound&(1U<<(row-(first-1))))!=0&&s.alive[slot]!=0) queueCarrierEnd(s,slot);
+        }
+    }
+}
 [noinline]
 void worldFrameBegin(inout Runtime s,uint64_t when)
 {
     if(!worldFrameEnabled(s)) return;
     WorldSchedule w=frameSchedule(s);
+    uint bossFirstLog=results[w.output+2];
     // Initialization owns clock0. The first combat frame delivers its queued
     // attacks without applying another transition at the same timestamp.
     // Native app/world_frame_runtime.py enforces the same frame-once policy.
@@ -18,6 +36,7 @@ void worldFrameBegin(inout Runtime s,uint64_t when)
     uint addAttackFirst=results[w.output+2];
 #endif
     wsBegin(w,when,actorPoolsCleared(s));s.error=w.error;
+    if(s.error==0)releaseWorldBossDebuffs(s,bossFirstLog,results[w.output+2]);
     if(s.error==0) actorPoolsSync(s,when);
 #ifdef PORTABLE_ADD_ATTACK_BATTLE
     if(s.error==0)addAttackBattleFrame(s,when,addAttackFirst);
@@ -27,6 +46,7 @@ void worldFrameBegin(inout Runtime s,uint64_t when)
 #endif
 #else
     wsBegin(w,when,0);s.error=w.error;
+    if(s.error==0)releaseWorldBossDebuffs(s,bossFirstLog,results[w.output+2]);
 #endif
 #ifdef PORTABLE_ENEMY_HEALING
     if(s.error==0) enemyHealingFrame(s,when);

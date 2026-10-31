@@ -1,0 +1,188 @@
+{
+  "schema": "product-boss-debuff-source-history-v1",
+  "baseline_commit": "88cda975122d394f6409c7cec68b21efbdde12ab",
+  "normalizer_changed": false,
+  "current_product_equivalence_claim": false,
+  "files": {
+    "app/portable_damage_specs.py": {
+      "before_sha256": "ce6a5b11a932bcb8ee78e09b58ba61fb7f4eb9c6668d3fe3e231e2600b7fadc4",
+      "after_sha256": "4246b0d446afec0b5c883228e882c1b392cd3f9f689df7a32c9be3b83adf951a",
+      "hunks": [
+        {
+          "start": 4740,
+          "end": 4945,
+          "before": "",
+          "after": "\n# Existing protection marker; the native compiler already emits identity71.\n# It is read through protectionPolicy, outside the64-value numeric vector.\nSTATS['cover_disabled']=EXTRA_STAT['cover_disabled']\n"
+        }
+      ]
+    },
+    "app/portable_detail.py": {
+      "before_sha256": "085c7ccdcebfa6641bf124d95e6c320c337405202e4b148ae64dca08cb11db06",
+      "after_sha256": "d3579f46fa3007c59e82d99bab72abe5f448603972d575ba821f00abfbee4e1b",
+      "hunks": [
+        {
+          "start": 3829,
+          "end": 4007,
+          "before": "",
+          "after": "    if any(p.get('kind')=='attack' and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):\n        prepared=dict(prepared,_product_boss_debuffs=True)\n"
+        }
+      ]
+    },
+    "app/portable_world_attack_specs.py": {
+      "before_sha256": "8944e5278002603fd3fba2a7bc9a7623d0eda1a48bc2883b9257e45e6c1603fd",
+      "after_sha256": "15dc1027885ba6c7d9654d13b3cf95a037bf51f1d77ab69871b0152aed44f4ce",
+      "hunks": [
+        {
+          "start": 184,
+          "end": 2167,
+          "before": "",
+          "after": "import copy\n\nDEBUFF_MAGIC=0x42444631\n\ndef boss_debuff_effects(patterns, owner):\n \"\"\"Literal native descriptors; the GPU chooses hit recipients and lifetime.\"\"\"\n effects=[];nodes={}\n for p in patterns:\n  if p.attack is None or not p.attack.debuffs:continue\n  start=len(effects);bound=0\n  for i,d in enumerate(p.attack.debuffs):\n   if d.stat=='dot':raise ValueError('Boss damage-over-time carrier is not connected')\n   e=copy.deepcopy(d.effect)\n   for key in ('_boss_pattern','_boss_bound'):e.pop(key,None)\n   # The legacy compiler needs a squad bucket. The packed definition below\n   # replaces it with the native external caster5 before GPU admission.\n   e['trigger']={'timing':['battle_start'],'condition':[]}\n   effects.append((e,owner))\n   if d.duration is None:bound|=1<<i\n  if len(effects)-start>32:raise ValueError('Boss attack debuff list exceeds32 definitions')\n  nodes[p.idx]=(start,len(effects)-start,bound)\n return effects,nodes\n\ndef pack_boss_debuffs(words,metadata,source_start,nodes,L):\n from portable_specs import FIELDS as F\n mapping=metadata['binding_source_indices'];rows=[]\n for node,(start,count,bound) in nodes.items():\n  indices=[i for i,source in enumerate(mapping) if source_start+start<=source<source_start+start+count]\n  if len(indices)!=count or indices!=list(range(indices[0],indices[0]+count)):\n   raise ValueError('Boss debuff compiler bindings must remain one contiguous definition each')\n  at=L['WORLD_FRAME_PAYLOAD_BASE']+node*16\n  words[at+4:at+8]=[indices[0]+1,count,DEBUFF_MAGIC,bound]\n  for row in indices:\n   definition=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']\n   words[definition+F['OWNER']]=5\n   words[definition+F['RECIPIENTS']]=0\n   extra=L['DEFINITION_EXTRA_BASE']+row*L['DEFINITION_EXTRA_WORDS']\n   words[extra]=row;words[extra+2]=0xffffffff\n   words[L['RECIPIENT_BASE']+row*8+7]=0\n   rows.append(row)\n metadata['boss_debuffs']=dict(definitions=rows,nodes=nodes,external_caster='__enemy__',cpu_recipients_or_schedule_supplied=False)\n"
+        },
+        {
+          "start": 2336,
+          "end": 2479,
+          "before": "  if raw.get('debuffs'):raise ValueError('Attack debuff payload is not connected')\n",
+          "after": "  if raw.get('debuffs') and not any(words[at+4:at+8]):raise ValueError('Attack debuff payload is not connected')\n  descriptor=words[at+4:at+8]\n"
+        },
+        {
+          "start": 2663,
+          "end": 2693,
+          "before": "",
+          "after": "  words[at+4:at+8]=descriptor\n"
+        }
+      ]
+    },
+    "app/portable_world_roster_input.py": {
+      "before_sha256": "7d1f753d975c887fa0e206873f9aeeb629ba6486108c226d4654ac4d96d86b35",
+      "after_sha256": "e86a8b11a0e2bba255033a568b33b51e9fc9177b42278aba78fe0735baa482aa",
+      "hunks": [
+        {
+          "start": 6040,
+          "end": 6317,
+          "before": "",
+          "after": "    character_effects=len(original)\n    boss_nodes={}\n    if prepared.get('_product_boss_debuffs'):\n        from portable_world_attack_specs import boss_debuff_effects\n        boss_effects,boss_nodes=boss_debuff_effects(patterns,names[0])\n        original.extend(boss_effects)\n"
+        },
+        {
+          "start": 8191,
+          "end": 8345,
+          "before": "",
+          "after": "    if boss_nodes:\n        from portable_world_attack_specs import pack_boss_debuffs\n        pack_boss_debuffs(words,meta,character_effects,boss_nodes,L)\n"
+        },
+        {
+          "start": 11332,
+          "end": 11426,
+          "before": "        prepared_effects=len(original), bound_effects=len(bound), camera=sorted(cameras),\n",
+          "after": "        prepared_effects=character_effects, bound_effects=len(bound), camera=sorted(cameras),\n"
+        }
+      ]
+    },
+    "gpu/admission_definition_triggers.slang": {
+      "before_sha256": "0aebdda502119534f729d9813386ae9820e4ce74410bf0f693b27f0de009940f",
+      "after_sha256": "a72f2df0c6fe8a5e1501920e0ab74a213ba8710c03094b97c69f9d97b7ab209f",
+      "hunks": [
+        {
+          "start": 640,
+          "end": 814,
+          "before": "        if (d.owner >= 5 || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; }\n",
+          "after": "        if ((d.owner >= 5 && !validWorldBossDebuff(s,j,d)) || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; }\n"
+        }
+      ]
+    },
+    "gpu/dispatch_phases.slang": {
+      "before_sha256": "7eb76874e084585b7bcda36a884acecfc4ef78cbeb034020248dc44a3baabc00",
+      "after_sha256": "2d9ee4e5d9cc11c4a81fb77e4bf8dfba3c70e61c38c9496a30b23f9f8f3909ec",
+      "hunks": [
+        {
+          "start": 13371,
+          "end": 13748,
+          "before": "",
+          "after": "            if(!fell&&!f64Zero(amount)&&(f.mode==8||f.repeatPassive!=0)&&scheduledArgument(uint(f.argument)))\n            {\n                uint first=commands[at+4],count=commands[at+5];\n                if(first!=0&&count!=0)\n                {\n                    frames[depth].event=7;frames[depth].repeatLeft=0;\n                    continue;\n                }\n            }\n"
+        },
+        {
+          "start": 13855,
+          "end": 14490,
+          "before": "",
+          "after": "        }\n        if(f.event==7)\n        {\n            uint first=commands[at+4],count=commands[at+5];\n            // One child at a time: synchronous notices/cleanse complete before\n            // the next authored debuff; list width does not consume stack depth.\n            if(f.repeatLeft<count&&(s.downMask&(1U<<f.owner))==0)\n            {\n                frames[depth].repeatLeft++;\n                pushFrame(s,frames,depth,19,0,5,int(first+f.repeatLeft-1),f.time,uint64_t(1U<<f.owner)|(uint64_t(f.owner+1)<<32));continue;\n            }\n            frames[depth].event=3;pushFrame(s,frames,depth,0,32,f.owner,0,f.time);continue;\n"
+        },
+        {
+          "start": 35743,
+          "end": 35806,
+          "before": "",
+          "after": "        if(f.mode==19&&d.owner==5) recipientOrder=f.value>>32;\n"
+        }
+      ]
+    },
+    "gpu/incoming_descriptor_runtime.slang": {
+      "before_sha256": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
+      "after_sha256": "2c9c1e4e367f439c130209246717f529f6cb10a96e056e7581e0e11fa7396c24",
+      "hunks": [
+        {
+          "start": 221,
+          "end": 379,
+          "before": "",
+          "after": "bool worldBossDebuffDefinition(inout Runtime s,uint row) { return false; }\nbool validWorldBossDebuff(inout Runtime s,uint row,Definition d) { return false; }\n"
+        }
+      ]
+    },
+    "gpu/portable_schema.slang": {
+      "before_sha256": "2ce1648b1b484f3d64806c48520f98dbfaab24e7a299e2afe1a66fb5abbd5334",
+      "after_sha256": "9a1b1e505befd01d28d620e7e86cec5c4b44ed46c76dfd3a4420342d4deaad5f",
+      "hunks": [
+        {
+          "start": 28502,
+          "end": 28544,
+          "before": "",
+          "after": "static const uint S_cover_disabled = 71U;\n"
+        }
+      ]
+    },
+    "gpu/world_frame_addresses.slang": {
+      "before_sha256": "6f473a80b1351b005148447bf157a0bad732724809163fe02484a21d1ce8db77",
+      "after_sha256": "7d73c0c00f4b6bfe7b3dea434d207c8f97f982f6d4cd5df58b92f0e7bc8a6b35",
+      "hunks": [
+        {
+          "start": 480,
+          "end": 2285,
+          "before": "",
+          "after": "// Only product entries admit native external-caster definitions. All recipients\n// are selected by an actual incoming landing, never by a CPU hit schedule.\nbool worldBossDebuffDefinition(inout Runtime s,uint row)\n{\n#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n    uint head=s.inputBase+WF_INPUT,count=commands[head+1];\n    if(commands[head]!=0x57533031U||count==0||count>32) return false;\n    for(uint node=0;node<count;node++)\n    {\n        uint p=s.inputBase+WF_PAYLOAD+node*16,first=commands[p+4],n=commands[p+5];\n        if(commands[p]==32&&commands[p+6]==0x42444631U&&first>0&&n>0&&n<=32&&first-1+n<=s.count&&row>=first-1&&row<first-1+n) return true;\n    }\n#endif\n    return false;\n}\nbool validWorldBossDebuff(inout Runtime s,uint row,Definition d)\n{\n    bool scalar=d.stat==S_atk_pct||d.stat==S_enemy_def_down_pct&&d.alliedFlags==1||d.stat==S_crit_rate||d.stat==S_crit_dmg||d.stat==S_accuracy_pct||d.stat==S_attack_speed_pct||d.stat==S_reload_speed_pct||d.stat==S_charge_speed_pct||d.stat==S_max_ammo_pct||d.stat==S_atk_dmg_pct||d.stat==S_heal_received_pct;\n    bool marker=d.stat==S_stun&&f64Equal(d.value,ONE)||d.stat==S_cover_disabled&&f64Zero(d.value);\n    return worldBossDebuffDefinition(s,row)&&d.owner==5&&d.kind==0&&d.enemyBuff==0&&d.recipients==0&&d.flags==0&&d.conditionCount==0&&d.triggerCount==1\n        &&commands[s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS]==0&&d.healthScaling==0&&(d.alliedFlags==0||d.alliedFlags==1&&d.stat==S_enemy_def_down_pct||d.alliedFlags==2&&d.stat==S_received_dmg_pct)&&d.quantityFlags==0&&d.damageFlags==0&&d.lazyGroup==0&&d.mergeEligible==0\n        &&d.alias==-1&&d.group==row&&d.budget==-1&&f64Zero(d.interval)&&d.polarity>=2&&d.polarity<=3&&f64Finite(d.value)\n        &&(scalar&&f64Less(d.value,0)||d.stat==S_received_dmg_pct&&f64Less(0,d.value)||marker);\n}\n"
+        },
+        {
+          "start": 5713,
+          "end": 6142,
+          "before": "        for(uint j=4;j<8;j++) if(commands[p+j]!=0) return false;\n",
+          "after": "        if(commands[p+4]!=0||commands[p+5]!=0||commands[p+6]!=0||commands[p+7]!=0)\n        {\n            uint first=commands[p+4],n=commands[p+5],bound=commands[p+7];\n            if(first==0||n==0||n>32||first-1+n>s.count||commands[p+6]!=0x42444631U||n<32&&(bound>>n)!=0) return false;\n            for(uint row=first-1;row<first-1+n;row++) if(!validWorldBossDebuff(s,row,readDefinition(s.inputBase,row))) return false;\n        }\n"
+        }
+      ]
+    },
+    "gpu/world_frame_runtime.slang": {
+      "before_sha256": "abb6732680997f0bf25533144dddf937dca27a81d19fb6d1efd159893567e2e1",
+      "after_sha256": "31aa43a3aed03a4b78588e92ae51f4a5f04f854a665f483aa9d44c309aac94d0",
+      "hunks": [
+        {
+          "start": 0,
+          "end": 748,
+          "before": "",
+          "after": "void releaseWorldBossDebuffs(inout Runtime s,uint firstLog,uint lastLog)\n{\n    uint head=s.resourceOutput+WF_OUTPUT;\n    for(uint i=firstLog;i<lastLog;i++)\n    {\n        uint record=head+WS_LOG+i*6;\n        // Native final 'end' closes reporting only, not bound effects.\n        if(results[record]!=2||results[record+2]==4) continue;\n        uint p=s.inputBase+WF_PAYLOAD+results[record+1]*16,first=commands[p+4],count=commands[p+5],bound=commands[p+7];\n        if(first==0||bound==0) continue;\n        for(uint slot=0;slot<s.carrierCount;slot++)\n        {\n            uint row=s.carrierDefinition[slot];\n            if(row>=first-1&&row<first-1+count&&(bound&(1U<<(row-(first-1))))!=0&&s.alive[slot]!=0) queueCarrierEnd(s,slot);\n        }\n    }\n}\n"
+        },
+        {
+          "start": 889,
+          "end": 932,
+          "before": "",
+          "after": "    uint bossFirstLog=results[w.output+2];\n"
+        },
+        {
+          "start": 1527,
+          "end": 1606,
+          "before": "",
+          "after": "    if(s.error==0)releaseWorldBossDebuffs(s,bossFirstLog,results[w.output+2]);\n"
+        },
+        {
+          "start": 1876,
+          "end": 1955,
+          "before": "",
+          "after": "    if(s.error==0)releaseWorldBossDebuffs(s,bossFirstLog,results[w.output+2]);\n"
+        }
+      ]
+    }
+  }
+}

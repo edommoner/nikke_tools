@@ -92,6 +92,12 @@ def compile_world_battle(prepared, *, trace='burst', allow_physical_interrupt=Fa
     else:controls = normalize_static_controls(chars, attacks, enemy, cfg.get('control_mode', 'solo'))
     delays = normalize_static_clock(chars, attacks, enemy)
     original = [(copy.deepcopy(x['effect']), x['owner']) for x in prepared['effects']]
+    character_effects=len(original)
+    boss_nodes={}
+    if prepared.get('_product_boss_debuffs'):
+        from portable_world_attack_specs import boss_debuff_effects
+        boss_effects,boss_nodes=boss_debuff_effects(patterns,names[0])
+        original.extend(boss_effects)
     lowered = [(compiler_effect(e), owner) for e, owner in original]
     compiled = list(zip(compiler_effects([e for e, _ in lowered]), [owner for _, owner in original]))
     target_spawn = any('event:target_spawn' in (*p.emit, *p.emit_end, *(e for x in p.targets for e in x.emits)) for p in patterns)
@@ -116,6 +122,9 @@ def compile_world_battle(prepared, *, trace='burst', allow_physical_interrupt=Fa
     meta['enemy_targeting'] = dict(enabled=True, steps=[], seed=0)
     if target_spawn:
         words[L['WORLD_FRAME_INPUT_BASE']+8] = meta['states']['target_spawn']+1
+    if boss_nodes:
+        from portable_world_attack_specs import pack_boss_debuffs
+        pack_boss_debuffs(words,meta,character_effects,boss_nodes,L)
     pack_attacks(words, patterns, raw_patterns, L)
     tags = {p.code: meta['states'][p.code]+1 for p in patterns
             if p.kind == 'shield' and p.code in meta['states'] and words[L['WORLD_META_BASE']+1] != 0}
@@ -158,7 +167,7 @@ def compile_world_battle(prepared, *, trace='burst', allow_physical_interrupt=Fa
     if len(words) != INPUT_WORDS:
         raise ValueError('Real world input dimensions changed')
     meta['real_prepared_input'] = dict(all_character_effects_included=True,
-        prepared_effects=len(original), bound_effects=len(bound), camera=sorted(cameras),
+        prepared_effects=character_effects, bound_effects=len(bound), camera=sorted(cameras),
         cpu_battle_executed=False, full_catalog_certified=False,
         policy=copy.deepcopy(policies), actor_bindings=len(bindings))
     if allow_physical_interrupt:meta['real_prepared_input']['physical_interrupt_opt_in']=True

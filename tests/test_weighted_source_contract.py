@@ -8,7 +8,9 @@ class WeightedSourceContract(unittest.TestCase):
     def copy_sources(self, root):
         ledger=json.loads((ROOT/'tests/fixtures/portable-weighted-incoming-source-delta.json').read_text())
         product=json.loads((ROOT/'tests/fixtures/portable-product-source-delta.json').read_text())
-        names={'gpu/attack_group_runtime.slang','gpu/counter_landing_runtime.slang',*ledger['files'],*ledger['added_sources'],*product['files'],*product['added_sources'],'tests/fixtures/portable-weighted-incoming-source-delta.json','tests/fixtures/portable-product-source-delta.json'}
+        boss_name='tests/fixtures/portable-product-boss-debuff-source-delta.json'
+        boss=json.loads((ROOT/boss_name).read_bytes())
+        names={'gpu/attack_group_runtime.slang','gpu/counter_landing_runtime.slang',*ledger['files'],*ledger['added_sources'],*product['files'],*product['added_sources'],*boss['files'],boss_name,'tests/fixtures/portable-weighted-incoming-source-delta.json','tests/fixtures/portable-product-source-delta.json'}
         for name in names:
             target=root/name;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes((ROOT/name).read_bytes())
         return ledger
@@ -63,6 +65,19 @@ class WeightedSourceContract(unittest.TestCase):
             r=Path(folder);self.copy_sources(r);project_sources(r)
             target=r/'gpu/weighted_incoming_runtime.slang';target.write_text(target.read_text()+'\n// unreviewed mutation\n')
             with self.assertRaisesRegex(ValueError,'Unreviewed weighted dependency'):project_sources(r)
+
+    def test_boss_history_recovers_exact_preimages_and_rejects_unreviewed_bytes(self):
+        from portable_weighted_incoming_source_contract import boss_source_preimages
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);self.copy_sources(root)
+            before=project_sources(root);old=boss_source_preimages(root)
+            for name,text in old.items():(root/name).write_bytes(text.encode('utf-8'))
+            self.assertEqual(project_sources(root),before)
+            path=root/'gpu/world_frame_addresses.slang';path.write_bytes(path.read_bytes()+b'\n')
+            with self.assertRaisesRegex(ValueError,'Unreviewed product source'):project_sources(root)
+            path.write_bytes(old['gpu/world_frame_addresses.slang'].encode('utf-8'))
+            ledger=root/'tests/fixtures/portable-product-boss-debuff-source-delta.json';ledger.write_bytes(ledger.read_bytes()+b'\n')
+            with self.assertRaisesRegex(ValueError,'history ledger changed'):project_sources(root)
 
     def test_product_history_and_added_helper_cannot_be_edited(self):
         for name,message in [('tests/fixtures/portable-product-source-delta.json','history ledger changed'),

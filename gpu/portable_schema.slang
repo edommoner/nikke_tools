@@ -622,6 +622,7 @@ static const uint S_atk_buff_mag_pct = 79U;
 static const uint S_received_dmg_buff_mag_pct = 80U;
 static const uint S_heal_split = 75U;
 static const uint S_focus_fire = 91U;
+static const uint S_cover_disabled = 71U;
 static const uint H_NAMED_SKILL = 131072U;
 static const uint H_BURST = 1U;
 static const uint H_SEQUENTIAL = 2U;

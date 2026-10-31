@@ -4,6 +4,30 @@ static const uint WF_INPUT=P_WORLD_FRAME_INPUT_BASE, WF_PAYLOAD=P_WORLD_FRAME_PA
 static const uint WF_TARGETS=P_WORLD_FRAME_TARGET_BASE, WF_HITS=P_WORLD_FRAME_HIT_BASE;
 bool worldFrameEnabled(inout Runtime s) { return commands[s.inputBase+WF_INPUT]!=0; }
 bool scheduledArgument(uint arg) { return (arg&0x80000000U)!=0; }
+// Only product entries admit native external-caster definitions. All recipients
+// are selected by an actual incoming landing, never by a CPU hit schedule.
+bool worldBossDebuffDefinition(inout Runtime s,uint row)
+{
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+    uint head=s.inputBase+WF_INPUT,count=commands[head+1];
+    if(commands[head]!=0x57533031U||count==0||count>32) return false;
+    for(uint node=0;node<count;node++)
+    {
+        uint p=s.inputBase+WF_PAYLOAD+node*16,first=commands[p+4],n=commands[p+5];
+        if(commands[p]==32&&commands[p+6]==0x42444631U&&first>0&&n>0&&n<=32&&first-1+n<=s.count&&row>=first-1&&row<first-1+n) return true;
+    }
+#endif
+    return false;
+}
+bool validWorldBossDebuff(inout Runtime s,uint row,Definition d)
+{
+    bool scalar=d.stat==S_atk_pct||d.stat==S_enemy_def_down_pct&&d.alliedFlags==1||d.stat==S_crit_rate||d.stat==S_crit_dmg||d.stat==S_accuracy_pct||d.stat==S_attack_speed_pct||d.stat==S_reload_speed_pct||d.stat==S_charge_speed_pct||d.stat==S_max_ammo_pct||d.stat==S_atk_dmg_pct||d.stat==S_heal_received_pct;
+    bool marker=d.stat==S_stun&&f64Equal(d.value,ONE)||d.stat==S_cover_disabled&&f64Zero(d.value);
+    return worldBossDebuffDefinition(s,row)&&d.owner==5&&d.kind==0&&d.enemyBuff==0&&d.recipients==0&&d.flags==0&&d.conditionCount==0&&d.triggerCount==1
+        &&commands[s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS]==0&&d.healthScaling==0&&(d.alliedFlags==0||d.alliedFlags==1&&d.stat==S_enemy_def_down_pct||d.alliedFlags==2&&d.stat==S_received_dmg_pct)&&d.quantityFlags==0&&d.damageFlags==0&&d.lazyGroup==0&&d.mergeEligible==0
+        &&d.alias==-1&&d.group==row&&d.budget==-1&&f64Zero(d.interval)&&d.polarity>=2&&d.polarity<=3&&f64Finite(d.value)
+        &&(scalar&&f64Less(d.value,0)||d.stat==S_received_dmg_pct&&f64Less(0,d.value)||marker);
+}
 uint incomingCommandAddress(inout Runtime s,uint arg)
 {
 #ifdef PORTABLE_ADD_ATTACK_BATTLE
@@ -65,7 +89,12 @@ bool initializeWorldFrame(inout Runtime s)
         uint p=s.inputBase+WF_PAYLOAD+n*16,d=start+16+n*64;
         if(n>=w.count || commands[d+6]==0) { for(uint j=0;j<16;j++) if(commands[p+j]!=0) return false;continue; }
         if((commands[d+1]&2)!=0 || commands[p]!=32 || commands[p+1]!=0 || commands[p+2]!=0 || commands[p+3]>1) return false;
-        for(uint j=4;j<8;j++) if(commands[p+j]!=0) return false;
+        if(commands[p+4]!=0||commands[p+5]!=0||commands[p+6]!=0||commands[p+7]!=0)
+        {
+            uint first=commands[p+4],n=commands[p+5],bound=commands[p+7];
+            if(first==0||n==0||n>32||first-1+n>s.count||commands[p+6]!=0x42444631U||n<32&&(bound>>n)!=0) return false;
+            for(uint row=first-1;row<first-1+n;row++) if(!validWorldBossDebuff(s,row,readDefinition(s.inputBase,row))) return false;
+        }
         uint64_t attack=loadNumber(p+8),coeff=loadNumber(p+10);
         if(!f64Finite(attack)||f64Less(attack,0)||f64Less(FOREVER,attack)||!f64Finite(coeff)||f64Less(coeff,0)||f64Less(f64FromI64(1000000),coeff)) return false;
         uint rule=commands[p+12],count=commands[p+13],slots=commands[p+14],ignore=commands[p+15];

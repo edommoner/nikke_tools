@@ -2,7 +2,7 @@
 import contextlib,os,re,sys,time,unittest
 from pathlib import Path
 
-AUDIT_FILES = {'test_weighted_source_contract.py': ('research/portable-cover-defense-modifiers-v1-expected.json',),
+AUDIT_FILES = {'test_weighted_source_contract.py': ('research/portable-cover-defense-modifiers-v1-expected.json','tests/fixtures/portable-product-boss-debuff-source-delta.json'),
     'test_coordinate_power_v1.py': ('requirements-validation.txt',),'test_coordinate_landing_v1.py': ('requirements-validation.txt',),
     'test_coordinate_healing.py': ('research/portable-coordinate-auto-reload-short-expected.json',),'test_coordinate_auto_reload.py': ('research/portable-coordinate-mode-actions-short-expected.json',),
     'test_coordinate_mode_actions.py': ('research/portable-coordinate-burst-control-short-expected.json',),

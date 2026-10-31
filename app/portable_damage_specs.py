@@ -80,3 +80,7 @@ STATS['heal_split']=EXTRA_STAT['heal_split']
 from portable_focus_specs import STAT as FOCUS_FIRE_STAT
 BUFFS=BUFFS | {'focus_fire'}
 STATS['focus_fire']=FOCUS_FIRE_STAT
+
+# Existing protection marker; the native compiler already emits identity71.
+# It is read through protectionPolicy, outside the64-value numeric vector.
+STATS['cover_disabled']=EXTRA_STAT['cover_disabled']

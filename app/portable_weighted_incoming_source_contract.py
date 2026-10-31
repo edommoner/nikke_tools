@@ -3,6 +3,30 @@ import hashlib,json,re
 from pathlib import Path
 LEDGER_SHA256='93afb12ae4b67224a4cfe099ccf64bead769c52229d85ddfe0b45bfbc282f2f6'
 PRODUCT_LEDGER_SHA256='9187d38559f8e40c2735afb95892f8cba4174b8a1ccf01b0d9d4bb0873894d38'
+BOSS_LEDGER_SHA256='4020b284adf6fc27c9e36a965679be2e1f89a772f2742aa99f0655f9c783d210'
+
+def boss_source_preimages(root):
+    """Recover exact old bytes for historical audits, never current admission."""
+    root=Path(root);path=root/'tests/fixtures/portable-product-boss-debuff-source-delta.json'
+    if not path.exists():return {}
+    raw=path.read_bytes()
+    if hashlib.sha256(raw).hexdigest()!=BOSS_LEDGER_SHA256:raise ValueError('Boss product source history ledger changed')
+    data=json.loads(raw)
+    if data.get('schema')!='product-boss-debuff-source-history-v1' or data.get('baseline_commit')!='88cda975122d394f6409c7cec68b21efbdde12ab' or data.get('normalizer_changed') is not False or data.get('current_product_equivalence_claim') is not False:
+        raise ValueError('Boss product source history scope changed')
+    projected={}
+    for name,row in data['files'].items():
+        text=(root/name).read_bytes().decode('utf-8');digest=hashlib.sha256(text.encode()).hexdigest()
+        if digest==row['before_sha256']:projected[name]=text;continue
+        if digest!=row['after_sha256']:raise ValueError('Unreviewed product source: '+name)
+        boundary=len(text)
+        for hunk in reversed(row['hunks']):
+            start,end=hunk['start'],hunk['end']
+            if not 0<=start<=end<=boundary or text[start:end]!=hunk['after']:raise ValueError('Boss product source inverse spans differ')
+            text=text[:start]+hunk['before']+text[end:];boundary=start
+        if hashlib.sha256(text.encode()).hexdigest()!=row['before_sha256']:raise ValueError('Boss product source preimage differs')
+        projected[name]=text
+    return projected
 
 def _product_part_preimage(name,text):
     """Reviewed source history only; never current numerical equivalence."""
@@ -19,7 +43,7 @@ def _product_part_preimage(name,text):
         if hashlib.sha256(text.encode()).hexdigest()!='00df3307cf0d29c50321c35e53e31a449ec3577c065ca1ebbcc01984c568f459':raise ValueError('Product modifier part preimage differs')
     return text
 
-def product_sources(root):
+def product_sources(root,*,_preimages=None):
     """Exact inverse of the reviewed product family before legacy audit layers.
 
     Preserve every old fixture. This proves an explicit historical preimage,
@@ -33,13 +57,13 @@ def product_sources(root):
     if (data['schema']!=1 or data['baseline_commit']!='168f1bbf65957a85ba48a58699e585f74aa5ad91'
             or data['normalizer_changed'] is not False or data['current_product_equivalence_claim'] is not False):
         raise ValueError('Product source history scope changed')
-    projected={}
+    projected={};preimages=boss_source_preimages(root) if _preimages is None else _preimages
     for name,digest in data['added_sources'].items():
-        raw=(root/name).read_bytes();text=_product_part_preimage(name,raw.decode())
+        raw=(root/name).read_bytes();text=_product_part_preimage(name,preimages.get(name,raw.decode()))
         if hashlib.sha256(text.encode()).hexdigest()!=digest:raise ValueError('Unreviewed product dependency: '+name)
         if text.encode()!=raw or name=='gpu/product_group_target_battle_entry.slang':projected[name]=text
     for name,row in data['files'].items():
-        text=_product_part_preimage(name,(root/name).read_text());digest=hashlib.sha256(text.encode()).hexdigest()
+        text=_product_part_preimage(name,preimages.get(name,(root/name).read_text()));digest=hashlib.sha256(text.encode()).hexdigest()
         # Exact reviewed charge corrections and GPU observation hooks only.
         # Recover the prior source before the unchanged historical ledger.
         if name=='gpu/world_charge_control_runtime.slang' and digest=='7ac4a981dcefff85b44293b8ba05a8058778c92972cc64a437f643b04f4bcaf8':
@@ -81,7 +105,8 @@ def project_sources(root):
     if data['schema']!=1 or data['normalizer_changed'] is not False or data['baseline_commit']!='e93182fb61ed6fce5cb7d02e13e1aa5ac59ec840':raise ValueError('Weighted source baseline changed')
     for name,digest in data['added_sources'].items():
         if hashlib.sha256((root/name).read_bytes()).hexdigest()!=digest:raise ValueError('Unreviewed weighted dependency: '+name)
-    projected=product_sources(root)
+    projected=boss_source_preimages(root)
+    projected.update(product_sources(root,_preimages=projected))
     parts=root/'gpu/counter_landing_runtime.slang'
     if parts.exists():
         text=parts.read_text();digest=hashlib.sha256(text.encode()).hexdigest()

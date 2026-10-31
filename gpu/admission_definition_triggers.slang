@@ -7,7 +7,7 @@
             if(commands[entry+2]!=0) s.quantityMask|=512;
         }
         else if(commands[entry]!=0 || commands[entry+1]!=0 || commands[entry+2]!=0 || commands[entry+3]!=0) { s.error=64;break; }
-        if (d.owner >= 5 || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; }
+        if ((d.owner >= 5 && !validWorldBossDebuff(s,j,d)) || d.triggerCount == 0 || d.triggerCount > P_TRIGGERS || d.conditionCount > P_CONDITIONS) { s.error = 64; break; }
         PROJECTILE_ADMIT_STAGE(s,402)
         for(uint slot=0;slot<d.conditionCount;slot++)
         {

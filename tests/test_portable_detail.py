@@ -10,6 +10,42 @@ import portable_product_artifact as artifacts
 from portable_projectile_roster_input import compile_projectile_battle
 
 class PortableDetail(unittest.TestCase):
+    def test_boss_attack_debuffs_preserve_external_identity_and_static_order(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_specs import LIMITS as L,FIELDS as F
+        from calculator.boss_pattern import DEBUFF_STATS
+        body=selected_profile_bodies(['미란다'],0)[0][2]
+        body.update(duration=4,burst_gauge_mode='accumulate')
+        entries=[dict(stat=k,**({'value':v*10} if v else {}),**({} if k=='atk_pct' else {'duration':2})) for k,v in DEBUFF_STATS.items() if k!='dot']
+        body['enemy']['patterns']=[dict(id='native-hit',kind='attack',delay=.5,spec=dict(coeff=100,target='all',debuffs=entries))]
+        with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle in lowering')):
+            prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+            source,_,_,words,meta=product.compile_product(prepared)
+        self.assertEqual(prepared,before)
+        self.assertEqual(source,'gpu/product_battle_entry.slang')
+        rows=meta['boss_debuffs']['definitions'];self.assertEqual(len(rows),14)
+        payload=L['WORLD_FRAME_PAYLOAD_BASE']
+        self.assertEqual(words[payload+4:payload+8],[rows[0]+1,14,0x42444631,1])
+        self.assertEqual(meta['real_prepared_input']['prepared_effects'],len(prepared['effects']))
+        self.assertFalse(meta['boss_debuffs']['cpu_recipients_or_schedule_supplied'])
+        for row,entry in zip(rows,entries):
+            at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
+            self.assertEqual(words[at+F['OWNER']],5)
+            self.assertEqual(words[at+F['RECIPIENTS']],0)
+            self.assertEqual(words[at+F['FLAGS']],0)
+            self.assertEqual(meta['effects'][row],'native-hit·'+entry['stat'])
+            self.assertEqual(words[L['RECIPIENT_BASE']+row*8+7],0)
+        from portable_world_roster_input import compile_world_battle
+        with self.assertRaisesRegex(ValueError,'Attack debuff payload is not connected'):compile_world_battle(prepared)
+
+    def test_boss_dot_is_explicitly_rejected_until_its_timer_is_connected(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        body=selected_profile_bodies(['미란다'],0)[0][2]
+        body['enemy']['patterns']=[dict(kind='attack',spec=dict(coeff=100,target='all',debuffs=[dict(stat='dot',coeff=10,duration=2)]))]
+        with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle in lowering')):
+            prepared,_=product.prepare(body)
+            with self.assertRaisesRegex(ValueError,'Boss damage-over-time carrier is not connected'):product.compile_product(prepared)
+
     def world_projection_fixture(self):
         """Synthetic readback for format tests; never GPU execution evidence."""
         from portable_specs import LIMITS as limits

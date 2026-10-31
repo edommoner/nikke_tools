@@ -238,7 +238,28 @@ void advanceIncomingFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inout 
             s.hp[f.owner] = larger(0,f64Add(s.hp[f.owner],amount ^ F64_SIGN));
             if (!fell) syncHealthActor(s,f.owner,f.time);
             frames[depth].value = uint(fell); frames[depth].event = 3;
+            if(!fell&&!f64Zero(amount)&&(f.mode==8||f.repeatPassive!=0)&&scheduledArgument(uint(f.argument)))
+            {
+                uint first=commands[at+4],count=commands[at+5];
+                if(first!=0&&count!=0)
+                {
+                    frames[depth].event=7;frames[depth].repeatLeft=0;
+                    continue;
+                }
+            }
             if(f.mode==8 || f.repeatPassive!=0) pushFrame(s,frames,depth,0,32,f.owner,0,f.time); continue;
+        }
+        if(f.event==7)
+        {
+            uint first=commands[at+4],count=commands[at+5];
+            // One child at a time: synchronous notices/cleanse complete before
+            // the next authored debuff; list width does not consume stack depth.
+            if(f.repeatLeft<count&&(s.downMask&(1U<<f.owner))==0)
+            {
+                frames[depth].repeatLeft++;
+                pushFrame(s,frames,depth,19,0,5,int(first+f.repeatLeft-1),f.time,uint64_t(1U<<f.owner)|(uint64_t(f.owner+1)<<32));continue;
+            }
+            frames[depth].event=3;pushFrame(s,frames,depth,0,32,f.owner,0,f.time);continue;
         }
         if(f.event==3 && f64Less(0,f.healthPrevious))
         { frames[depth].event=4;pushFrame(s,frames,depth,0,36,f.owner,0,f.time);continue; }
@@ -631,6 +652,7 @@ void advanceDefinitionFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inou
         }
         if(d.kind==15 && f.event!=28 && d.budget>=0 && s.activations[WORLD_TEAM_BUDGET(s,row)]>=uint(d.budget)) continue;
         uint64_t recipientOrder=0;uint recipientMask=f.mode==19 ? uint(f.value) : d.recipients,enemyOrder=0;
+        if(f.mode==19&&d.owner==5) recipientOrder=f.value>>32;
         if(stackOperation(d.kind))
         {
             uint64_t order;
