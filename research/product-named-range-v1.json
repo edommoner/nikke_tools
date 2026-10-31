@@ -134,5 +134,19 @@
     "combined consumers",
     "Heavy Arms Lock On",
     "current-source full catalogue and CUDA verification"
-  ]
+  ],
+  "cli": {
+    "program": "named-range-accumulate",
+    "source_commit": "ff01f9e93f3e12aa4faf9e9f0985ec2899e4242b",
+    "package_id": "fa0f3c0144fa8fabb12a564d55067f9f2059024174ffc4e8d915c91d3b80e165",
+    "own_tests": 100,
+    "fresh_native_cases": 1,
+    "metal_run_passed": true,
+    "independent_seal_calculation_verified": true,
+    "independent_seal_gpu_calls": 0,
+    "golden": "research/portable-product-programs-v9-expected.json",
+    "previous_registered_programs": 26,
+    "previous_sealed_golden_entries": 11,
+    "previous_golden_entries_preserved": true
+  }
 }
