@@ -8,6 +8,14 @@ spec=importlib.util.spec_from_file_location('product_packet',ROOT/'research/veri
 adapter=importlib.util.module_from_spec(spec);spec.loader.exec_module(adapter)
 
 class ProductPacket(unittest.TestCase):
+    def test_optional_frame_checks_keep_complete_declared_dependencies_in_product_payload(self):
+        from portable_cpu_tests import AUDIT_FILES,validate_dependency_files
+        included=set(self.cli().SUITES['product-detail']['support_files'])
+        validate_dependency_files(ROOT,['test_dispatch_frame_storage.py'],included=included)
+        for name in AUDIT_FILES['test_dispatch_frame_storage.py']:
+            with self.subTest(missing=name),self.assertRaisesRegex(ValueError,'dependency'):
+                validate_dependency_files(ROOT,['test_dispatch_frame_storage.py'],included=included-{name})
+
     def cli(self):
         spec=importlib.util.spec_from_file_location('product_program_cli',ROOT/'scripts/nikke_gpu.py')
         cli=importlib.util.module_from_spec(spec);spec.loader.exec_module(cli)

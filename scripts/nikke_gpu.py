@@ -35,6 +35,9 @@ SUITES = {
     'product-detail':dict(script='research/verify-product-detail.py',source='gpu/product_battle_entry.slang',
         golden='research/portable-product-detail-v3-expected.json',inputs=1,native=1,input_words=104400,output_words=786432,
         support_files=['research/portable-product-detail-v1-expected.json','research/portable-product-detail-v2-expected.json','research/portable-cover-defense-modifiers-v1-expected.json','research/target-count-query-evidence/product-outline-v1.json','research/target-count-query-evidence/product-admission-v1.json',
+            # Optional frame-codec delta checks retain their declared historical
+            # audit inputs even when full106 tests are outside the selected run.
+            *CPU_AUDIT_FILES['test_dispatch_frame_storage.py'],
             # Product owners must also boot the real HTTP/UI entry in isolation.
             # Public build fingerprints only; no legacy compiled GPU binary.
             'server.mjs','package.json','app/detail_effects-build.json','research/engine-probe-results.json',
