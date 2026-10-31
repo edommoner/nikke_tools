@@ -619,5 +619,34 @@
     "resolved": 1,
     "native_battle_calls": 0,
     "gpu_calls": 0
+  },
+  "final_cli_packets": {
+    "healing": {
+      "owner": "c73241c23ab61643844a6b35ce3e81a7dfc8b71e0500f556e6a757b8fbb28aa4",
+      "own_tests": 79,
+      "fresh_cpu_preflight": 1,
+      "extra_gpu_calls": 0
+    },
+    "normal_warm": {
+      "owner": "2195f8bdd3241f1d3e322a40c6f7ef31095836c1a0ac7f3728e414b954148a85",
+      "own_tests": 79,
+      "fresh_cpu_preflight": 1,
+      "extra_gpu_calls": 0,
+      "mac_old_new_generated_pair_and_reflections_exact": true,
+      "windows_raw_identity_not_assumed": true
+    }
+  },
+  "windows_warm_status": {
+    "owner": "2195f8bdd3241f1d3e322a40c6f7ef31095836c1a0ac7f3728e414b954148a85",
+    "transport_commit": "67b4f61b",
+    "last_cursor": "4b3eff0d-96af-48be-b3ad-b6609ae33ca8:335",
+    "pre_unpack_stopped": true,
+    "error": "Windows process snapshot unavailable",
+    "hresult": -2146233088,
+    "archive_hash_verified": true,
+    "unpack_tests_cache_sdk_gpu_not_executed": true,
+    "old_claims_unchanged": true,
+    "followup": "Saved log/permission-mode diagnosis only; do not resend original run",
+    "scope": "Windows peer terminal report; original observation logs have not been audited on Mac"
   }
 }
