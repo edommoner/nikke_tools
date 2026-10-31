@@ -1,3 +1,15 @@
+# 2026-10-31 敵の独立デバフ詠唱を8製品経路へ接続、DoT正本の時計欠陥を再現
+
+実装161a8229。kind=debuffの元cast descriptorを、攻撃付随と同じowner5外部敵・型付き定義・対象選択・免疫/解除へ渡す。共通incoming executorのopcode33は、対象ごとに順次付与して次へ進む。HP/保護層計算・被弾通知・受けたダメージ/回数は発生させない。入力のCPU戦闘/予定表は0、保護CPU/pinned/strict normalizer/数値規約は不変。
+
+通常APIの実蓄積/固定周期×normal/group/target/group-targetの8条件（atk_pct、6秒）が実M5 MetalとCPU全製品応答一致。主役はMiranda/Belorta/Asukaの3profile。初回の対象別4条件はホストのplain-body kind制約でCPU切替となり保存、debuffが対象poolを変えないことを既存registryで確認する受付へ修正後、その4条件だけを再実行した。成功済みnormal/group4件は再実行せず、現GPU閉包/静的input全byte/保存raw再投影が現コードでもCPU/GPU/API全一致することを監査。全8件の被ダメージ/被弾回数0もrawから確認、追加battle/GPU0。
+
+通常normal30秒も2モードを不変packetで実Metal実行・fresh独立seal。旧入力/全出力/全entry/native指紋完全保持をassertし、登録はsource/generatedのみ更新。共通CPU77群856検査成功/既存skip1。proof product-boss-cast-v1-20261031とproduct-boss-cast-target-v2-20261031、小記録product-boss-cast-v1.json。専用4367終了、通常4317/4327変更なし。現在sourceのCUDA実機0、旧9a6の3profileは履歴。全catalogue旧255/266を今回の現source認定へ読み替えない。
+
+次のDoT移植の正本境界5件を、既存test_portable_detail内でnative比較：期限tick包含・再付与前tick/stack・同frameのpattern解放優先・subframe複数tick・無敵中HP0/被弾通知0。重要：現CPU _boss_dotsはnext_t>expiresでliveなscheduleも削除し、次frameで再作成する。元Noah/attack0.5/DoT持続5秒・間隔3秒で、3.5..5.5の121tickを再現。本来の説明文の1tickとは異なる。canonical変更なしでこの欠陥を明示再現し、live中は最終next_tを保持する1条件の未適用patchをproofへ保存。CPU時計に限る変更許可をユーザーへ確認中（未回答）。許可なくpinned/CPUを変更しない。DoTは未接続CPU切替のまま。独立した未対応実装は継続できる。
+
+11 canonical model gapも不変、全目標未完了。以下は履歴。
+
 # 2026-10-31 敵攻撃付随デバフ14種を共通製品実行器へ接続
 
 実装117ba4e2（初版d69fd0a7）。元CPUの実在consumerを保ち、敵攻撃でHP損失があり生存した通知対象へ、received_hitより前に14種の非DoTデバフを順に適用する。owner5の外部敵を型付きdescriptorで限定し、既存carrierの免疫・解除・stack・期限とpattern-bound解放へ接続。同名別定義は併合しない。GPUへCPU戦闘結果・受け手予定表は渡さず、CPU正本/pinned/数値規約/strict normalizerは不変。
