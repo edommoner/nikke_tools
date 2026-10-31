@@ -17,6 +17,29 @@ bounded=importlib.util.module_from_spec(spec);spec.loader.exec_module(bounded)
 
 
 class WindowsCleanupTests(unittest.TestCase):
+    def test_snapshot_codes_survive_both_gate_failure_and_cleanup_observation(self):
+        from windows_validation_observer import SnapshotFailure
+        def fail(operation):
+            def callback():
+                raise SnapshotFailure('Windows process snapshot unavailable; no command lines retained',
+                    dict(operation=operation,type_id=4,inner_type_id=1,error_id_kind=1,
+                         native_code=7,inner_hresult=-1,raw='SECRET'))
+            return callback
+        process=types.SimpleNamespace(pid=123,poll=lambda:1,wait=lambda **kw:1)
+        # Exercise the real coordinator with a fake owned process; no OS query or child.
+        with tempfile.TemporaryDirectory() as folder, patch.object(bounded.subprocess,'Popen',return_value=process), patch.object(bounded,'os',types.SimpleNamespace(name='posix',killpg=lambda *args:None)):
+            facts=bounded.run_bounded(['unused'],Path(folder),60,before_gate=fail(1),after_wait=fail(2))
+            self.assertFalse((Path(folder)/'start.json').exists())
+            self.assertEqual(json.loads((Path(folder)/'execution.json').read_text()),facts)
+        self.assertFalse(facts['passed']);self.assertIsNone(facts['child_exit_code'])
+        self.assertEqual(facts['error_diagnostic']['operation'],1)
+        self.assertEqual(facts['observation_error_diagnostic']['operation'],2)
+        self.assertEqual(facts['error_diagnostic']['native_code'],7)
+        self.assertNotIn('SECRET',json.dumps(facts));self.assertIsNone(facts['cleanup_error'])
+
+    def test_ordinary_errors_do_not_acquire_snapshot_diagnostics(self):
+        self.assertIsNone(bounded.snapshot_error_diagnostic(RuntimeError('SECRET')))
+
     def test_memory_budget_is_bounded_and_explicit(self):
         with patch.dict(os.environ,{},clear=True):self.assertIsNone(bounded.job_memory_limit_bytes())
         for value in ('63','4097','-1','1.5','unlimited'):

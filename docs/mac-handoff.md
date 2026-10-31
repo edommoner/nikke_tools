@@ -1,3 +1,19 @@
+## 2026-11-01 移動＋手動遮蔽を共通実行器へ接続、Windowsは観測開始前に停止
+
+c3ed64afでmovementとcoverを既存共通座標実行器へ接続。movement prefix117476語＋cover literal24語、input117500/output2048912、movement出力終端とcover始端2032000で重複0。元効果定義/state/event/二進64演算を共用、CPU正本/normalizer/許容差/新suite変更0。明示enemy_movement＋cover_defenseだけを合成し、未指定幾何を推定しない。
+
+不変development owner94524c83…自身の129CPU検査/fresh native/実M5/別fresh GPU禁止seal成功。通常API元30秒の固定/実蓄積14条件は全CPU製品payload一致、保存input/raw/source/親子slice/再投影の独立監査14件も成功（監査追加GPU/native0）。主8件を2物理dispatch/wall32.864秒、追加6件は6dispatch。Yuni移動禁止/Yan強制移動と遮蔽が共存。最終Drake制御2件はincoming25/cover7/非ゼロDEF5receipt、DEF120→274.284を実証。
+
+主8件の監査後に「優先順が違えば位置も違う」とした後検査は不適切だった。Yan B1が3秒でcenter移動後Yuni B2が3.1秒で停止する当入力は両順序同じ位置で、優先順の位置差は未実証。全員cover指定の探索4件もCPU一致だがsoloではYuniだけ制御されSOW top3ATK対象外で非ゼロDEF未発動。途中のcover破壊という推測は誤りとして原本と訂正を保持。Drakeだけを制御する11秒CPU事前確認後、新しい元30秒2条件で実効果を確認。検査仮説の失敗を計算不一致へ読み替えない。
+
+70e68113でfixed独立sealをv22へ登録、旧19member保持、accumulate未登録。release ownerde7eae32…/12,047,589bytes/SHAfb1d767a…、own compile-planとGPU禁止device-linker15成功。旧standard262入力＋7成功入口source closureは全bytes保持、fallback4も同じ。旧movement固定/実蓄積・named-range固定の生成CUDA/MSLも全bytes保持。保存証拠の保持であり全件GPU再実行/owner付替えではない。
+
+Windows transport ad4a4efの新packetについてb8e69597/v1はstatus専用依頼による未開始SDK0/claimなし。その確認後の一度の明示開始で150049a7/v2はunpack前process snapshotがexit1/stageprocesses/category0/HRESULT -2146233088で失敗、gate未解放で1.082秒停止。archive SHAだけ確認、payload/CPU/Slang/NVRTC/PTXAS/link/driver/context/GPU/HTTP全未実行。Job空/cleanup正常でもsnapshot unavailable、missing不明、serviceunverified、memory観測不完全、preservationfalseを保持。原command claimあり/SDK claimなし、旧1486records保持。コンパイラ故障・メモリ不足・過去7消失と同じ原因とは未確認。接続復旧で結果は取得できた。再試行せず保存済み例外診断だけを依頼中。
+
+保存診断f5bda1f8も取得。実行器がSnapshotFailureの概要だけを保存し、観測器内の有限operation/type/nativeコードを捨てていたため、今回の真因はunknownのまま。run-world-boundedへbefore-gate/after-wait両方の数値診断保存を追加、既存サニタイザで再検査しraw例外context/コマンドは保存しない。CPU故障注入ほか21検査成功、Windows限定実Job検査1skip、実Windows観測/SDK/GPU0。過去capture改変・拒否gate緩和0。小記録product-movement-cover-windows-diagnosis-v1.json。
+
+最後の全標準実行は5e1f Metal262/266・理由付きCPU4、CUDA旧source厳格3/266・現source0、新標準加算0、全goal未完了。未指定4profile/残合成/修正版CUDA実計算が残る。小記録research/product-movement-cover-v1.jsonとproduct-movement-cover-windows-v2.json、原本proofs/product-movement-cover-v1-20261101。全専用server停止、ユーザー4317/4327不操作。以下は履歴。
+
 ## 2026-11-01 ClaudeとのCUDA停止箇所レビュー・保存source照合・監査中変更の検出
 
 前turnは現sourceの通常API全266確認（実M5/CPU一致262・理由付きCPU4、37dispatch）で進捗。今回はCUDA停止原因へ戻り、Claude Code Reviewerをsafe-mode/plan/tools無効/max-turn1の読み取り専用で使用。関連コード抜粋＋匿名化保存要約27,475bytesだけを隔離repoから渡し、raw出力はprivate proofに保持した。出力に疑似Write/ExitPlanMode文字列があったが実行しない。Claudeを承認器にはせず、所見を現コードで再検証。

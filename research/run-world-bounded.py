@@ -103,6 +103,14 @@ class WindowsJob:
                     raise C.WinError(C.get_last_error())
 
 
+def snapshot_error_diagnostic(error):
+    """Retain the observer's finite numeric codes, never raw exception context."""
+    from windows_validation_observer import SnapshotFailure, snapshot_failure_details
+    if isinstance(error, SnapshotFailure):
+        return snapshot_failure_details(error.diagnostic)
+    return None
+
+
 def run_bounded(command, folder, timeout, *, cwd=None, env=None, before_gate=None, after_wait=None):
     started = time.perf_counter()
     job = None
@@ -115,6 +123,8 @@ def run_bounded(command, folder, timeout, *, cwd=None, env=None, before_gate=Non
     if gate.exists():
         raise ValueError('Fresh capture directory required')
     observation_error = None
+    error_diagnostic = None
+    observation_error_diagnostic = None
     wait_completed_ns = None
     with (folder/'stdout.log').open('wb') as stdout, (folder/'stderr.log').open('wb') as stderr:
         try:
@@ -135,6 +145,7 @@ def run_bounded(command, folder, timeout, *, cwd=None, env=None, before_gate=Non
             timed_out = True
         except BaseException as error:
             failure = type(error).__name__+': '+str(error)
+            error_diagnostic = snapshot_error_diagnostic(error)
         finally:
             try:
                 if job is not None:
@@ -158,11 +169,13 @@ def run_bounded(command, folder, timeout, *, cwd=None, env=None, before_gate=Non
                         after_wait()
                     except BaseException as error:
                         observation_error = type(error).__name__+': '+str(error)
+                        observation_error_diagnostic = snapshot_error_diagnostic(error)
     facts = dict(passed=not timed_out and failure is None and cleanup_error is None and child_code == 0,
                  timed_out=timed_out, timeout_seconds=timeout, elapsed_seconds=time.perf_counter()-started,
                  child_exit_code=child_code, final_child_exit_code=process.poll() if process is not None else None,
                  error=failure, cleanup_error=cleanup_error, cleanup_wait_seconds=5,
-                 observation_error=observation_error, wait_completed_unix_ns=wait_completed_ns,
+                 observation_error=observation_error, error_diagnostic=error_diagnostic,
+                 observation_error_diagnostic=observation_error_diagnostic, wait_completed_unix_ns=wait_completed_ns,
                  below_normal_priority=os.name == 'nt', phase=summarize(folder/'phases.jsonl'),
                  gpu_retry_count=0, full_character_verified=0, full_goal_complete=False)
     (folder/'execution.json').write_text(json.dumps(facts, indent=2)+'\n')
