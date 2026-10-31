@@ -10,12 +10,12 @@
   "slang_version": "2026.20",
   "mac": {
     "own_tests": 100,
-    "sdk_fake_tests": 202,
     "fresh_native": 1,
     "actual_metal_and_independent_seal": false,
     "registered_golden": "research/portable-product-programs-v10-expected.json",
     "historical_same_calculation_metal_and_independent_seal": true,
-    "additional_runner_tests": 109
+    "historical_sdk_fake_tests": 202,
+    "current_runner_job_sdk_source_regression_tests": 109
   },
   "plan": {
     "schema": "compile-plan-v1",
