@@ -1,0 +1,150 @@
+{
+  "schema": "movement-cover-fixed-cpu-preflight-summary-v3",
+  "scope": "Saved CPU results only; no query, test or SDK re-execution.",
+  "package_id": "de7eae326ff99ab4da1c28b0dca653e01da2c5abbc4ad8d1e6a9bf1d6211b988",
+  "permission_mode": "require_escalated",
+  "gpu_forbidden_during_tests": true,
+  "device_linker_completed": 15,
+  "own_expected": 129,
+  "own_completed_receipt_tests": 84,
+  "own_complete": false,
+  "completed_receipt_tests_total": 99,
+  "groups_in_execution_order": [
+    {
+      "pattern": "test_portable_device_linker.py",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0,
+      "elapsed_seconds": 9.445391799788922,
+      "status": "completed",
+      "start_wall_time_ns": null,
+      "end_wall_time_ns": null,
+      "start_end_timestamp_reason": "Per-group wall timestamps were not saved; completed receipt and duration retained."
+    },
+    {
+      "pattern": "test_portable_detail.py",
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0,
+      "elapsed_seconds": 9.106132799759507,
+      "status": "completed",
+      "start_wall_time_ns": null,
+      "end_wall_time_ns": null,
+      "start_end_timestamp_reason": "Per-group wall timestamps were not saved; completed receipt and duration retained."
+    },
+    {
+      "pattern": "test_product_detail_packet.py",
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0,
+      "elapsed_seconds": 2.8480555000714958,
+      "status": "completed",
+      "start_wall_time_ns": null,
+      "end_wall_time_ns": null,
+      "start_end_timestamp_reason": "Per-group wall timestamps were not saved; completed receipt and duration retained."
+    },
+    {
+      "pattern": "test_weighted_source_contract.py",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0,
+      "elapsed_seconds": 3.490756900049746,
+      "status": "completed",
+      "start_wall_time_ns": null,
+      "end_wall_time_ns": null,
+      "start_end_timestamp_reason": "Per-group wall timestamps were not saved; completed receipt and duration retained."
+    },
+    {
+      "pattern": "test_product_reference_models.py",
+      "status": "interrupted_without_final_receipt",
+      "tests": null,
+      "failures": null,
+      "errors": null,
+      "skipped": null,
+      "exit_code": null,
+      "elapsed_seconds": null,
+      "start_wall_time_ns": null,
+      "end_wall_time_ns": null,
+      "last_saved_progress": {
+        "stderr_bytes": 35,
+        "progress_dot_count": 35,
+        "only_progress_dots": true,
+        "final_unittest_summary_saved": false
+      },
+      "note": "Progress dots are not promoted to a final verified group result."
+    }
+  ],
+  "stage_journal": [
+    {
+      "stage": "bounded_cpu_stage",
+      "state": "entered",
+      "wall_time_ns": 1793487373307323200
+    },
+    {
+      "stage": "before_snapshot",
+      "state": "entered",
+      "wall_time_ns": 1793487373341419800
+    },
+    {
+      "stage": "before_snapshot",
+      "state": "returned",
+      "wall_time_ns": 1793487375864818900,
+      "elapsed_seconds": 2.5225941
+    },
+    {
+      "stage": "after_snapshot",
+      "state": "entered",
+      "wall_time_ns": 1793487433337593500
+    },
+    {
+      "stage": "after_snapshot",
+      "state": "returned",
+      "wall_time_ns": 1793487435300486100,
+      "elapsed_seconds": 1.9620449
+    },
+    {
+      "stage": "bounded_cpu_stage",
+      "state": "returned",
+      "wall_time_ns": 1793487435301014100,
+      "elapsed_seconds": 61.9938687
+    }
+  ],
+  "stop": {
+    "timed_out": true,
+    "child_bound_seconds": 60,
+    "sdk_started": false,
+    "stage_result_saved": false,
+    "recorded_execution_summary_saved": true
+  },
+  "missing_observation": {
+    "count": 14,
+    "original_roles": {
+      "unrelated": 10,
+      "service_candidate": 4
+    },
+    "all_missing_records_have_name_path_creation_identity": true,
+    "cause": "unknown",
+    "validation_caused_external_process_termination": "not_established",
+    "same_cause_as_prior_missing_events": "not_established",
+    "raw_identity_records_preserved_locally": true,
+    "raw_identity_records_shared": false,
+    "preservation_verified": false
+  },
+  "additional_execution": {
+    "queries": 0,
+    "tests": 0,
+    "sdk": 0,
+    "timeout_changes": 0,
+    "compiler_continuation": 0
+  },
+  "original_capture_or_claim_modified": false,
+  "next_action": "Stopped; no automatic retries or SDK continuation."
+}
