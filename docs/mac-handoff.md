@@ -4369,3 +4369,12 @@ Windows owner68e212dc…の保存2JSONはreport commit efad536955ab37aa14fcb2c8c
 
 
 Windows continuation終了（cursor351）：承認経路で新preflightが通り、owner2195自身の79unit／fake44成功＋既定skip1、deps/plan/generationが成功。Windows生成4ファイル旧新全byte一致、指定PTX9,866,019byteは必須cache hitで標準compiler検証・post観測・containmentを通過。NVRTC load/version/compileは0。初回objectは5,676,528byteを生成したがouter62.406秒timeout、最終result/artifact未完了で未admit。JITlink／driver／GPU／API0、再実行しない。pipeline96.946秒・peak433,971,200byte。監督観測のmissing14は原因不明として保持、service未確認／preservation=false。これはpeer terminal reportでMac独立raw監査前。保存ログだけの小summary＋manifestを既存codex/product-equipment-v1-reportへ追記共有する後続を送信済み、旧reportは上書きせず、PTX/object本体・SDK再実行・新観測は依頼していない。次はその保存結果を同handleで取得し、object native return後の処理が上限へ達する内訳を確認する。新compile/linkの再依頼へ進まない。
+
+
+## 2026-10-31 通常製品Bay宣言配分4profile／7条件
+
+実装はc06a160b、登録数テスト修正9292e3fd。既存weighted CPU adapterを許可済みCPU範囲でreference_modelsへ接続し、共有Slangの同じlanding consumerをproduct wrapperから使用。GPUへliteral weightsと元marker rowだけを渡す。Bay4段階30秒＋65秒break/reburst＋inactive3秒＋fixedの通常HTTP7条件は実M5／全CPU payload一致。保存audit7追加native/GPU0。API後にCLI登録2ファイルとhistory hash定数が変わったため、その3ファイルだけを明示した再静的監査でinput全byte／GPU closure／計算応答一致を再確認。evaluator stampのcommit差は保存し、元の全応答監査とは区別。
+
+固定packet087904c1…（9292e3fd）のown82／native1／実Metal1が成功。独立GPU禁止seal成功、旧17個の登録goldenを保持したv4へweighted-accumulateだけ追加。weighted-fixedはHTTPのみ実証、CLI未seal。初版cbc110…は古いregistry count assertionでGPU前停止として保持し、旧claimを再利用しない。新suite／数値演算／pinned変更0。比率8:3:262は宣言fixtureでありゲーム確認済みではないため、既定Bayは理由付きfallbackを維持。今回Metal4profile／7条件は宣言モデルの製品条件で、既定残10を6へ減らさない。次は既定consumerと複数model合成、または移動／cover等の残consumerを同じ実行器へ接続する。
+
+Windows保存report c065f5ef（既存codex/product-equipment-v1-report）のwarm-current-summary-v1.json＋manifestを取得し、bytes/SHA／owner2195／raw CUDA sourceとPTXの既存anchorを照合。raw SDK/Job全ログやobject本体はMac未読。ptxas15.021秒、inner36.348秒／outer62.406秒で未完了。外側journal開始からnative開始まで約35.7秒、native後も観測・receipt処理が続き上限へ達した（正確なtimer開始未保存、重複時刻を加算しない）。PTX compiler_verified=trueとoriginal passed=false、object image未admit、missing14原因不明、service未確認／preservation=falseを不変保持。新SDK／GPU依頼0、peer現在idle cursor354。再実行ではなく、準備・検証・観測の重複を既存gateを維持して減らす設計が次のCUDA課題。Mac専用4384は停止、ユーザー4317／4327は未操作。

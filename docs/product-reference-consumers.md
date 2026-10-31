@@ -49,3 +49,14 @@ CPUのみだった初版に、既存のenemy healing共通consumerを接続し�
 共有sourceが変わった旧private enemy-healing certificateは歴史的証拠として保持する。source-baselineは古いsourceを現在扱いせず拒否し、unitでもこの拒否を確認する。privateの期待値・14件の過去出力・証明書の書換えや再ラベルはしない。今回の製品経路の証拠は `research/product-enemy-healing-v1.json`。
 
 Windowsのowner68e212dc…はNVRTC34.511秒で戻り値0、PTX9,866,019byteを生成・cache公開したが、外側60秒上限で内側post／最終receiptが未完了。元のstage=false／image未admit／preservation=falseを保持する。標準file-only cache-probeで元PTXとの全byte一致をWindowsで確認、Macではmanifest・owner・生成pair・options／source SHAを照合した。MacがPTX原byteを読んだ意味ではない。object／link／driver／GPU／APIは0。記録は `research/product-equipment-windows-v1.json`。次は現在の通常product sourceと生成CUDAが完全一致する新ownerで必須cache hitを使用し、NVRTC再実行0のまま標準receiptを完成できるか確認する。旧claimを削除・再試行しない。
+
+
+## 2026-10-31 Bayの宣言配分を通常製品へ接続
+
+`reference_models.weighted_incoming` に `{"policy":"declared-weighted-incoming-v1","caster_weight":8,"other_weight":3,"cover_weight":262}` を指定すると、既存checked CPU adapterと共有Slang weighted landingを通常製品から使う。これらの値は既存検証fixtureの宣言値であり、ゲームの比率を確認した意味ではない。指定なしでは比率を推測せず理由付きCPU fallbackを維持する。既定266profileの未対応数からBay4件を減算しない。
+
+元のbody／self_cover markerを保持し、既存carrier lifetime・深さ優先event frame・生存者mask・shield／cover／HP処理を再利用する。入力に追加するのは16wordのliteral比率と元定義rowだけで、CPU配分・recipient mask・HP・時刻は入れない。新suite0・新数値演算0・pinned upstream変更0。複数consumer、group／target／ADD攻撃のspecializationとの合成は明示拒否し、黙って効果を省略しない。CPUではExitStackでadapterを復元し、失敗時にもsimulate両alias／namespaceを戻す。
+
+Bay favorite0〜3の30秒、65秒の遮蔽破壊後と2回目burst、3秒の効果発動前、固定周期の計7条件が通常HTTP→実Apple M5 Metal→全CPU製品応答一致。65秒では実際に遮蔽が破壊され、以後のsnapshotはcoverを含まず、元carrierの2回目burst更新も確認。保存input／readback再投影7件が成功し、追加native／GPU0。CLI登録後の再監査も全input byte・GPU source closure・計算応答が一致、VCS evaluator stampだけはcommitの変化として分離した。元の即時監査はevaluatorを含む全応答を照合済み。
+
+既存product-detail familyへweighted-accumulate／weighted-fixedを追加。固定owner087904c1…はown82＋fresh native1＋M5実GPU1を通り、別fresh GPU禁止sealも成功。旧programの期待値を保持したv4へweighted-accumulateのみ追加した。fixedはHTTP実証済みだがCLI golden未登録。最初のpacketは登録数18固定のunitでGPU前停止し、その失敗を保持、登録20への修正後の別ownerで検証した。小証跡は `research/product-weighted-incoming-v1.json`。今回の製品確認は**宣言配分を使うMetal4profile／7条件、CUDA0**。ゲーム比率の認定、既定profileの完成、全効果の合成完成とは区別する。
