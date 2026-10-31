@@ -1,3 +1,15 @@
+## 2026-11-01 同時命中グループ＋遮蔽を通常APIで接続
+
+前turnは通常manual cover受付の修正と4条件Metal全CPU一致で進捗。今回はsource4866587eで既存shot-groupとcover consumerを同一Runtimeへ接続。group header104400..104408、padding104408..115680、cover literal bank115680..115704を保持し、新しい数値本体/CPUモデル/許容差/suite追加0。共通program registryへcover-fixed-group/cover-accumulate-groupを追加。target/healing/ammo/weighted/coordinate合成の未接続は理由付き切替のまま。
+
+development owner535ffa18…でown114 CPU検査/fresh native/実M5、GPU禁止fresh seal成功。通常APIの30秒4条件（Belorta手動遮蔽固定/実蓄積、Soldier O.W.+Belorta+Miranda+Dora+Drakeの元全効果と明示DEF/敵攻撃の固定/実蓄積）すべてM5全CPU製品payload一致。後2条件はincoming15/cover receipt15、元効果/同時命中listener保持。保存input/raw/source/CPU/GPU/APIの既存独立再投影監査も一致（追加GPU/native0）。初回要求factoryのCPU指定残りはindex0で止まった元結果を保持（GPU0）、api-v2が明示Metalの実証。初回CPU結果をGPU認定へ含めない。
+
+旧plain cover両modeの生成CUDA/MSLは全byte SHA不変、旧ownerの履歴として保持。fixed-groupだけfresh sealをv19へ登録、旧17member不変。accumulate-groupは通常API実証あり、registered sealed CLI基準は未登録。release source975dc67b/owner008be53b…、GPU bytes/input/fresh seal期待を保持しown CPU-only成功。package12,014,408bytes/SHAaac2252b…、PTX60秒/2GiB plan成功。通常標準全件Metal262/266、標準CUDA1/266、新標準profile加算0、今回通常合成4条件。全goal未完了。
+
+Windows既存chatへ輸送branch codex/product-cuda-origin-gates-v1-packet/commit b04d5e57を共有、cover-group-fixed-v1.zipとtransport/API要求JSONの差分1入口検証を1回だけ依頼済み。送信ackあり、list_threadsでactiveを確認。各SDK60秒/2GiB/BelowNormal/fresh Job/outer180秒、CPU出所/paired生成→PTX→object O1→JIT linkの各厳格gate後だけ元Belorta30秒API1回（helper53秒）。再試行禁止、missing/timeout/unknownは停止、過去失敗を成功化しない。小要約cover-group-fixed-status-v1.jsonを同輸送branchへ共有する依頼。結果未取得、同じrunを再送しない。Mac coordinator74632/CLI19621/seal40273はterminal、server6860/port4405停止exit130、release CPU12510もterminal。常用サーバー不操作。
+
+小記録research/product-cover-group-v1.json、原本proofs/product-cover-group-v1-20261101。次はWindows保存結果だけ取得し、未対応4profile/合成/公開sampling/必要なCUDA小バッチへ継続。以下は履歴。
+
 ## 2026-11-01 通常キャラの手動遮蔽を既存共通GPU入口へ接続
 
 前turnは保存CUDA標準Mirandaの全CPU/M5一致を取得・共有した進捗。今回はsource13634eb5で、cover_def_pct効果のない通常キャラの明示manual_cover_sequencesも既存cover consumerへ振り分ける。新shader/数値演算/CPU正本/suite追加0。敵攻撃があるのに独立DEF指定がない場合、また既存group/target等の未接続合成は理由付きCPU切替を維持する。共通CPU回帰113検査成功。

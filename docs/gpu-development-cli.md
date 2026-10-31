@@ -1,3 +1,5 @@
+`product-detail` の `cover-fixed-group` は既存の同時命中グループと遮蔽consumerを同じ戦闘Runtimeへ接続する。`package --suite product-detail --product-program cover-fixed-group --compact --out NEW.zip`を使い、固定packet自身のrun/sealで検査する。元Belortaの30秒・明示手動遮蔽を基準にし、通常APIではSoldier O.W.との編成・明示DEF・敵攻撃も全CPU一致を確認した。`cover-accumulate-group`は同じconsumerの実蓄積版で通常API実証済みだが、登録済みsealed CLI基準は未追加のため`--develop`が必要。既存coverと同じ115704/2048912語のwireで、敵攻撃に必要なDEFを推定しない。現CUDA結果は取得待ち。[範囲と保存記録](../research/product-cover-group-v1.json)。
+
 `cover-fixed` は宣言した独立遮蔽DEFと元の手動遮蔽操作を、既存version6ヘッダーと固定バースト実行器へ接続する。`package --suite product-detail --product-program cover-fixed --out NEW.zip`を使う。元の敵攻撃なし条件は`default-cover-fixed`。通常APIの宣言4条件とdefault1条件が実M5/CPU全payload一致、GPU禁止独立seal済みv17。他15memberの履歴を保持し、標準profile数の増加やCUDA成功とは数えない。[製品経路と範囲](../research/product-fixed-cover-v1.json)。
 
 ## 製品プログラムを同じCLIで選択する
