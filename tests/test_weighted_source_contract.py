@@ -81,7 +81,7 @@ class WeightedSourceContract(unittest.TestCase):
 
     def test_product_history_and_added_helper_cannot_be_edited(self):
         for name,message in [('tests/fixtures/portable-product-source-delta.json','history ledger changed'),
-                             ('gpu/admission_definition_types.slang','Unreviewed product dependency'),
+                             ('gpu/admission_definition_types.slang','Unreviewed product source'),
                              ('gpu/product_group_target_battle_entry.slang','Unreviewed product dependency')]:
             with self.subTest(name=name),tempfile.TemporaryDirectory() as folder:
                 root=Path(folder);self.copy_sources(root);target=root/name

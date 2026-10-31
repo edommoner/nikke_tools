@@ -10,6 +10,14 @@ import portable_product_artifact as artifacts
 from portable_projectile_roster_input import compile_projectile_battle
 
 class PortableDetail(unittest.TestCase):
+    def test_dot_down_ordinal_preserves_queued_attack_and_revive_order(self):
+        from portable_world_result import order_squad_logs
+        dot=dict(time=1.,pattern='dot',event='down',outcome='')
+        attack=dict(time=1.,pattern='shot',event='down',outcome='')
+        plan=[0,{**dot,'direct_downs_before':0},dict(time=1.,revive_after_downs=1)]
+        self.assertEqual(order_squad_logs(plan,{0:[attack]}),
+            [dot,dict(time=1.,pattern='',event='revive',outcome=''),attack])
+
     def test_boss_attack_debuffs_preserve_external_identity_and_static_order(self):
         from portable_original_identity_inventory import selected_profile_bodies
         from portable_specs import LIMITS as L,FIELDS as F
@@ -38,13 +46,23 @@ class PortableDetail(unittest.TestCase):
         from portable_world_roster_input import compile_world_battle
         with self.assertRaisesRegex(ValueError,'Attack debuff payload is not connected'):compile_world_battle(prepared)
 
-    def test_boss_dot_is_explicitly_rejected_until_its_timer_is_connected(self):
+    def test_boss_dot_lowers_only_literal_coeff_interval_and_attack(self):
         from portable_original_identity_inventory import selected_profile_bodies
+        from portable_specs import LIMITS as L,FIELDS as F
+        from portable_runtime_layout import runtime_initializer
+        import struct
         body=selected_profile_bodies(['미란다'],0)[0][2]
-        body['enemy']['patterns']=[dict(kind='attack',spec=dict(coeff=100,target='all',debuffs=[dict(stat='dot',coeff=10,duration=2)]))]
+        body['enemy']['patterns']=[dict(kind='attack',spec=dict(atk=123456,coeff=100,target='all',debuffs=[dict(stat='dot',coeff=10,interval=.5,duration=2)]))]
         with patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle in lowering')):
             prepared,_=product.prepare(body)
-            with self.assertRaisesRegex(ValueError,'Boss damage-over-time carrier is not connected'):product.compile_product(prepared)
+            before=copy.deepcopy(prepared);_,_,_,words,meta=product.compile_product(prepared)
+        self.assertEqual(prepared,before)
+        row=meta['boss_debuffs']['definitions'][0];at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
+        self.assertEqual((words[at+F['STAT']],words[at+F['OWNER']],words[at+F['RECIPIENTS']]),(95,5,0))
+        number=lambda pos:struct.unpack('<d',struct.pack('<II',*words[pos:pos+2]))[0]
+        self.assertEqual((number(at+F['VALUE']),number(at+F['INTERVAL'])),(10,.5))
+        self.assertEqual(number(L['DEFINITION_EXTRA_BASE']+row*L['DEFINITION_EXTRA_WORDS']+4),123456)
+        self.assertEqual(runtime_initializer(),(ROOT/'gpu/runtime_init.slang').read_text())
 
     def test_standalone_boss_debuff_uses_the_same_external_definitions_without_damage(self):
         from portable_original_identity_inventory import selected_profile_bodies
@@ -851,7 +869,7 @@ class BossDotNativeContract(unittest.TestCase):
         body.update(duration=sim_duration,burst_gauge_mode='fixed')
         pattern=dict(id='boss-dot',kind='attack',delay=.5,
             spec=dict(atk=150000,coeff=10,target='slot:1',
-                debuffs=[dict(stat='dot',name='native-dot',coeff=10,**dot)],**(attack or {})))
+                debuffs=[dict(stat='dot',name='native-dot',**{'coeff':10,**dot})],**(attack or {})))
         if until is not None:pattern['until']=dict(time=until)
         body['enemy']['patterns']=[pattern]
         _,run=product.prepare(body)
@@ -892,6 +910,14 @@ class BossDotNativeContract(unittest.TestCase):
         self.assertEqual([round(h.t,6) for h in result.squad_hits],
             [.5,.516667,.533333,.533333,.55,.55])
         self.assertEqual([h.damage for h in result.squad_hits],[13212.3]*6)
+        self.assertEqual(notices,[.5])
+
+    def test_native_dot_hp_snapshot_includes_threshold_max_hp_grant(self):
+        result,notices=self.native_case(character='목단',interval=.5,duration=2,coeff=1000)
+        previous,current=result.squad_hits[2:4]
+        self.assertEqual(round(current.t,6),2.)
+        self.assertGreater(current.hp,0)
+        self.assertGreater(current.hp_after,previous.hp_after)
         self.assertEqual(notices,[.5])
 
     def test_native_clock_rearms_each_frame_after_its_last_scheduled_tick(self):

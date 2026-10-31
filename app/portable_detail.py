@@ -228,7 +228,7 @@ def decode_payload(body, prepared, run, metadata, block):
         nodes=metadata['product_world']['nodes']
         for i in range(block[head+2]):
             at=head+2832+i*6;kind,node,arg=block[at:at+3]
-            if kind not in (1,2,3,4,5,6,7) or node>=(len(names) if kind==6 else len(nodes)):
+            if kind not in (1,2,3,4,5,6,7,8) or node>=(len(names) if kind==6 else len(nodes)):
                 raise UnsupportedPortable('Unknown product world history identity')
             if kind==2 and arg not in (1,2,3,4):
                 raise UnsupportedPortable('Unknown product world closing outcome')

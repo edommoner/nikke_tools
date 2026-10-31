@@ -19,6 +19,12 @@ def runtime_initializer():
     if body.count(private) != 1:
         raise ValueError('Unknown private Runtime declaration')
     body=body.replace(private,'')
+    private_dots='#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n    uint bossDotCount,bossDotEnabled;\n    uint bossDotSlot[P_CARRIERS],bossDotEntry[P_CARRIERS],bossDotRow[P_CARRIERS],bossDotRecipients[P_CARRIERS],bossDotStack[P_CARRIERS],bossDotLive[P_CARRIERS];\n    uint64_t bossDotActivated[P_CARRIERS],bossDotNext[P_CARRIERS],bossDotExpiry[P_CARRIERS];\n#endif'
+    if body.count(private_dots)!=1:raise ValueError('Unknown product boss-DoT clock storage')
+    body=body.replace(private_dots,'')
+    private_fixed='#ifdef PORTABLE_PRODUCT_FIXED_BURST\n    uint64_t fixedGaugeReadyAt;\n#endif'
+    if body.count(private_fixed)!=1:raise ValueError('Unknown product fixed-burst storage')
+    body=body.replace(private_fixed,'')
     # Every pushed frame is fully initialized by its shared setter. Keep this
     # optional scratch separate from the historical common state initializer.
     private_frames='#ifdef PORTABLE_RESIDENT_FRAME_STACK\n    uint dispatchFrameWords[1024];\n#endif'

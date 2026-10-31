@@ -3,7 +3,7 @@ import hashlib,json,re
 from pathlib import Path
 LEDGER_SHA256='93afb12ae4b67224a4cfe099ccf64bead769c52229d85ddfe0b45bfbc282f2f6'
 PRODUCT_LEDGER_SHA256='9187d38559f8e40c2735afb95892f8cba4174b8a1ccf01b0d9d4bb0873894d38'
-BOSS_LEDGER_SHA256='59b6636cda12fc2342ceeeacc7b405721602c3e7495b003b977f4c75d02b37d4'
+BOSS_LEDGER_SHA256='a7cfb0545c9efe2e3939886121f6ede8c2dbd49a2f4607a7b507e839e21335ab'
 
 def boss_source_preimages(root):
     """Recover exact old bytes for historical audits, never current admission."""
@@ -14,11 +14,21 @@ def boss_source_preimages(root):
     data=json.loads(raw)
     if data.get('schema')!='product-boss-debuff-source-history-v1' or data.get('baseline_commit')!='88cda975122d394f6409c7cec68b21efbdde12ab' or data.get('normalizer_changed') is not False or data.get('current_product_equivalence_claim') is not False:
         raise ValueError('Boss product source history scope changed')
-    projected={}
+    projected={};older=None
     for name,row in data['files'].items():
         text=(root/name).read_bytes().decode('utf-8');digest=hashlib.sha256(text.encode()).hexdigest()
         if digest==row['before_sha256']:projected[name]=text;continue
-        if digest!=row['after_sha256']:raise ValueError('Unreviewed product source: '+name)
+        if digest!=row['after_sha256']:
+            # The existing inverse can already have restored an exact older
+            # product baseline. Accept only that separately pinned ledger's
+            # full-file digest, never a partially matched source or new value.
+            if older is None:
+                old_raw=(root/'tests/fixtures/portable-product-source-delta.json').read_bytes()
+                if hashlib.sha256(old_raw).hexdigest()!=PRODUCT_LEDGER_SHA256:raise ValueError('Product source history ledger changed')
+                older=json.loads(old_raw)
+            old_digest=older.get('files',{}).get(name,{}).get('baseline_sha256',older.get('added_sources',{}).get(name))
+            if digest==old_digest:projected[name]=text;continue
+            raise ValueError('Unreviewed product source: '+name)
         boundary=len(text)
         for hunk in reversed(row['hunks']):
             start,end=hunk['start'],hunk['end']

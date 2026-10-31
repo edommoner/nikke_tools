@@ -90,6 +90,11 @@ bool projectileCarrierStat(uint stat)
 
 struct Runtime
 {
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+    uint bossDotCount,bossDotEnabled;
+    uint bossDotSlot[P_CARRIERS],bossDotEntry[P_CARRIERS],bossDotRow[P_CARRIERS],bossDotRecipients[P_CARRIERS],bossDotStack[P_CARRIERS],bossDotLive[P_CARRIERS];
+    uint64_t bossDotActivated[P_CARRIERS],bossDotNext[P_CARRIERS],bossDotExpiry[P_CARRIERS];
+#endif
     uint triggerHitCrit;
     uint64_t lastDamageCritRate;
 #ifdef PORTABLE_WORLD_TEAM

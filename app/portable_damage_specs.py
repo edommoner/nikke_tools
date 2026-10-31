@@ -16,6 +16,7 @@ BUFFS=frozenset(('pierce_enabled','armor_break_enabled','optimal_range_min','opt
 BUFFS=BUFFS | {'burst_charge_speed_pct','buff_stack_add'}
 STATS={k:v for k,v in {**DETAIL_STAT,**EXTRA_STAT}.items() if k in BUFFS or k in ('lifesteal_pct','atk_flat','element_bonus','crit_rate_skill','crit_dmg_skill','enemy_def_down_pct','enemy_def_down_flat','received_dmg_pct')}
 STATS['buff_stack_add']=92
+STATS['boss_dot']=95
 
 DAMAGE_FAMILIES=frozenset(('damage','bonus_damage','burst_damage','split_damage','dot_damage',
     'auto_damage','armor_break_damage','armor_break_burst_damage','sequential_damage',

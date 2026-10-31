@@ -601,6 +601,7 @@ static const uint S_cover_hp_pct = 70U;
 static const uint S_outgoing_heal_pct = 73U;
 static const uint S_max_hp_from_max_hp_pct = 84U;
 static const uint S_buff_stack_add = 92U;
+static const uint S_boss_dot = 95U;
 static const uint S_element_code_override = 88U;
 static const uint S_atk_from_hp_pct = 89U;
 static const uint S_stealth = 65U;
@@ -640,13 +641,13 @@ static const uint H_SINGLE_BURST = 8192U;
 static const uint H_CORE = 16384U;
 static const uint P_BUFF_STAT_BITS_0 = 4294967295U;
 static const uint P_BUFF_STAT_BITS_1 = 4294965247U;
-static const uint P_BUFF_STAT_BITS_2 = 528482303U;
+static const uint P_BUFF_STAT_BITS_2 = 2675965951U;
 bool validPortableBuffStat(uint stat)
 {
 #ifdef PORTABLE_COVER_DEFENSE
     if(stat==CDF_STAT)return true;
 #endif
-    if(stat > 92U) return false;
+    if(stat > 95U) return false;
     uint bits = stat < 32U ? P_BUFF_STAT_BITS_0 : stat < 64U ? P_BUFF_STAT_BITS_1 : stat < 96U ? P_BUFF_STAT_BITS_2 : 0U;
     return (bits & (1U << (stat & 31U))) != 0;
 }

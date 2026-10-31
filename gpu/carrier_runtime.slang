@@ -80,6 +80,7 @@ void queueRemovalNotice(inout Runtime s,uint owner,uint name,uint repeats=1)
 [noinline]
 void queueCarrierEnd(inout Runtime s,uint slot,uint repeats=0,bool preserveLazy=false)
 {
+    captureWorldBossDotReference(s,slot);
     uint definition=s.carrierDefinition[slot];
     if(repeats==0) repeats=WORLD_STATE_END_REPEATS(s,slot,definition_enemyBuff(s.inputBase,definition)!=0 && s.bulletInitialized[slot]!=2 ? countbits(s.activeRecipients[slot]>>5) : 1);
     invalidateFocusNumeric(s);

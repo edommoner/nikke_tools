@@ -5,6 +5,7 @@
 #else
 bool worldBossDebuffDefinition(inout Runtime s,uint row) { return false; }
 bool validWorldBossDebuff(inout Runtime s,uint row,Definition d) { return false; }
+void captureWorldBossDotReference(inout Runtime s,uint slot) { }
 [ForceInline]
 uint incomingCommandAddress(inout Runtime s,uint arg) { return s.inputBase+P_COMMAND_BASE+arg*8; }
 [ForceInline]

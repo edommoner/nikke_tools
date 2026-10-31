@@ -79,6 +79,116 @@ void worldFrameNotice(inout Runtime s,uint notice,uint64_t when,uint output)
     for(uint who=0;who<5 && s.error==0;who++) dispatch(s,0,event,who,argument,when,output);
     s.target=target;
 }
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+[noinline]
+uint worldBossDotCountBeforeAllocate(inout Runtime s) { return s.bossDotCount; }
+uint worldBossDotNode(inout Runtime s,uint row)
+{
+    for(uint node=0;node<commands[s.inputBase+WF_INPUT+1];node++)
+    {
+        uint at=s.inputBase+WF_PAYLOAD+node*16,first=commands[at+4],count=commands[at+5];
+        if(first!=0&&row>=first-1&&row<first-1+count)return node;
+    }
+    s.error=64;return 0;
+}
+void removeWorldBossDotClock(inout Runtime s,uint index)
+{
+    for(uint i=index;i+1<s.bossDotCount;i++)
+    {
+        s.bossDotSlot[i]=s.bossDotSlot[i+1];s.bossDotEntry[i]=s.bossDotEntry[i+1];s.bossDotRow[i]=s.bossDotRow[i+1];
+        s.bossDotRecipients[i]=s.bossDotRecipients[i+1];s.bossDotStack[i]=s.bossDotStack[i+1];s.bossDotLive[i]=s.bossDotLive[i+1];
+        s.bossDotActivated[i]=s.bossDotActivated[i+1];s.bossDotNext[i]=s.bossDotNext[i+1];s.bossDotExpiry[i]=s.bossDotExpiry[i+1];
+    }
+    s.bossDotCount--;
+}
+[noinline]
+void worldBossDotTick(inout Runtime s,uint clock,uint who,uint64_t when,uint output)
+{
+    if((s.downMask&(1U<<who))!=0)return;
+    Definition d=readDefinition(s.inputBase,s.bossDotRow[clock]);
+    // Native ordered binary64: defense floor, coefficient, stack, incoming
+    // modifier, then the minimum1. No shield/cover/decoy or received_hit path.
+    uint64_t amount=larger(0,f64Add(d.fixedValue,effectiveDefense(s,who,when)^F64_SIGN));
+    amount=f64Div(f64Mul(amount,d.value),HUNDRED);
+    amount=f64Mul(amount,f64FromI64(s.bossDotStack[clock]));
+    uint64_t received=(s.incomingMask&4)!=0?plainQuantity(s,who,S_received_dmg_pct,when):0;
+    amount=larger(ONE,f64Mul(amount,larger(0,f64Add(ONE,f64Div(received,HUNDRED)))));
+    if(!f64Finite(amount)){s.error=16;return;}
+    uint64_t hpDamage=liveMarker(s,who,S_invincible,when)?0:amount;
+    if(!f64Zero(hpDamage)&&!f64Less(hpDamage,s.hp[who])&&liveMarker(s,who,S_undying,when))hpDamage=larger(0,f64Add(s.hp[who],ONE^F64_SIGN));
+    bool fell=!f64Zero(hpDamage)&&!f64Less(hpDamage,s.hp[who]);
+    uint head=s.resourceOutput+WF_OUTPUT,count=results[head+6],node=worldBossDotNode(s,s.bossDotRow[clock]);
+    if(s.error!=0)return;
+    if(count>=2048){s.error=2;return;}
+    uint hit=s.resourceOutput+WF_HITS+count*16;results[head+6]=count+1;
+    for(uint i=0;i<16;i++)results[hit+i]=0;
+    storeNumber(hit,when);results[hit+2]=0x80000001U|(node<<5);results[hit+3]=(who<<3)|(fell?4U:0U);
+    storeNumber(hit+4,amount);storeNumber(hit+12,hpDamage);
+    if(!f64Zero(hpDamage))
+    {
+        s.hp[who]=larger(0,f64Add(s.hp[who],hpDamage^F64_SIGN));
+        if(!fell)syncHealthActor(s,who,when);
+    }
+    // Native sync_hp runs threshold children before SquadHitEntry snapshots
+    // hp_after. A heal/max-HP grant must already be visible in this record.
+    if(!fell&&!f64Zero(hpDamage)&&s.hpWatchCount!=0)dispatch(s,7,0,0,0,when,output);
+    storeNumber(hit+14,s.hp[who]);
+    if(fell)
+    {
+        // A direct down ordinal keeps queued attack logs from moving this
+        // tick's down after later same-frame incoming attacks.
+        uint downs=0;for(uint i=0;i<count;i++)if((results[s.resourceOutput+WF_HITS+i*16+3]&4U)!=0)downs++;
+        WorldSchedule w=frameSchedule(s);wsLog(w,8,node,downs,when);s.error=w.error;
+        knockDown(s,who,when);
+        if(s.error==0)dispatch(s,0,38,who,0,when,output);
+        if(s.error==0&&revivalEnabled(s))dispatch(s,30,0,who,0,when,output);
+        else for(uint observer=0;observer<5&&s.error==0;observer++)if((s.downMask&(1U<<observer))==0)dispatch(s,0,46,observer,0,when,output);
+    }
+}
+[noinline]
+void deliverWorldBossDots(inout Runtime s,uint64_t when,uint output)
+{
+    if(s.bossDotEnabled==0)return;
+    // Match native _dot_sched insertion order and UID identity. A recycled
+    // carrier slot cannot replace a pending terminal tick of its old UID.
+    for(uint i=0;i<s.bossDotCount;i++)s.bossDotLive[i]=0;
+    for(uint pass=0;pass<s.orderedCount&&s.error==0;pass++)
+    {
+        uint slot=s.orderedRows[pass];Definition d=residentDefinition(s,slot);
+        if(s.alive[slot]==0||d.owner!=5||d.stat!=S_boss_dot)continue;
+        uint count=worldBossDotCountBeforeAllocate(s),i=0;while(i<count&&s.bossDotEntry[i]!=s.entryOrder[slot])i++;
+        bool fresh=i==count;
+        if(fresh)
+        {
+            if(i==P_CARRIERS){s.error=64;return;}
+            s.bossDotCount=count+1;s.bossDotSlot[i]=slot;s.bossDotEntry[i]=s.entryOrder[slot];s.bossDotRow[i]=s.carrierDefinition[slot];
+        }
+        if(fresh||!f64Equal(s.bossDotActivated[i],s.activated[slot]))
+        {s.bossDotActivated[i]=s.activated[slot];s.bossDotNext[i]=f64Add(s.activated[slot],d.interval);}
+        s.bossDotExpiry[i]=s.end[slot];s.bossDotStack[i]=s.stacks[slot];s.bossDotRecipients[i]=s.activeRecipients[slot];s.bossDotLive[i]=1;
+    }
+    uint64_t epsilon=uint64_t(0x3e112e0bU)<<32|0xe826d695U; // exact binary64 1e-9
+    for(uint i=0;i<s.bossDotCount&&s.error==0;)
+    {
+        bool live=s.bossDotLive[i]!=0;
+        if(!live&&f64Less(when,f64Add(s.bossDotExpiry[i],epsilon^F64_SIGN)))
+        {removeWorldBossDotClock(s,i);continue;}
+        uint64_t next=s.bossDotNext[i],limit=f64Add(smaller(when,s.bossDotExpiry[i]),epsilon);
+        uint work=0;
+        while(!f64Less(limit,next)&&s.error==0)
+        {
+            if(work++>=2048){s.error=2;break;}
+            for(uint who=0;who<5&&s.error==0;who++)if((s.bossDotRecipients[i]&(1U<<who))!=0)worldBossDotTick(s,i,who,when,output);
+            uint64_t later=f64Add(next,definition_interval(s.inputBase,s.bossDotRow[i]));
+            if(!f64Less(next,later)){s.error=16;break;}next=later;
+        }
+        // Deliberately retain the observed canonical legacy re-arming rule.
+        // Its optional CPU correction is separate from GPU admission.
+        if(f64Less(f64Add(s.bossDotExpiry[i],epsilon),next))removeWorldBossDotClock(s,i);
+        else {s.bossDotNext[i]=next;i++;}
+    }
+}
+#endif
 [noinline]
 void worldFrameDeliver(inout Runtime s,uint64_t when,uint output)
 {
@@ -104,7 +214,11 @@ void worldFrameDeliver(inout Runtime s,uint64_t when,uint output)
 #ifdef PORTABLE_ADD_SELF_DESTRUCT
     if(s.error==0)deliverAddSelfDestructNotices(s,when,output);
 #endif
-    WORLD_STATE_DROP_GONE(s) while(cursor<end && s.error==0)
+    WORLD_STATE_DROP_GONE(s)
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+    if(s.error==0)deliverWorldBossDots(s,when,output);
+#endif
+    while(cursor<end && s.error==0)
     {
         uint record=head+WS_LOG+cursor*6;cursor++;results[head+5]=cursor;
         if(results[record]!=3) continue;

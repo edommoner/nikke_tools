@@ -325,6 +325,7 @@ void applyDefinitionFrame(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
             if (s.error!=0) break;
             WORLD_FIELDS_BIND(s,row,d,f) s.alive[row] = 1; s.activated[row] = f.time;
             s.end[row] = expires;
+            captureWorldBossDotReference(s,row);
             if(activationLazy && d.stat==S_heal_overcharge_store)
             {
                 uint object=protectionObject(s,row);
@@ -705,7 +706,7 @@ void advanceDefinitionFrame(inout Runtime s, inout DISPATCH_FRAMES(frames), inou
         }
         bool staged=s.stagedEnabled!=0 && isStaged(s,row);
         bool registering=f.event!=28 || staged && (d.flags&1)!=0 && s.alive[row]==0;
-        if (!f64Zero(d.interval) && registering)
+        if (!f64Zero(d.interval) && registering && d.stat!=S_boss_dot)
         {
             uint count=staged ? stagedTotal : 1;
             if (s.error!=0) break;

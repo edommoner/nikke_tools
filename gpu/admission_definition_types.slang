@@ -1,3 +1,4 @@
+        if(d.stat==S_boss_dot && !validWorldBossDebuff(s,j,d)) { s.error=64;break; }
 #ifdef PORTABLE_COVER_DEFENSE
         if(d.stat==CDF_STAT && (d.kind!=0||d.enemyBuff!=0||d.healthScaling!=0||d.alliedFlags!=0||d.quantityFlags!=0||!f64Finite(d.value))) { s.error=64;break; }
 #endif

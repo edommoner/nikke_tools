@@ -21,12 +21,22 @@ bool worldBossDebuffDefinition(inout Runtime s,uint row)
 }
 bool validWorldBossDebuff(inout Runtime s,uint row,Definition d)
 {
+    bool dot=d.stat==S_boss_dot&&f64Finite(d.interval)&&f64Less(0,d.interval)&&f64Finite(d.fixedValue)&&!f64Less(d.fixedValue,0);
     bool scalar=d.stat==S_atk_pct||d.stat==S_enemy_def_down_pct&&d.alliedFlags==1||d.stat==S_crit_rate||d.stat==S_crit_dmg||d.stat==S_accuracy_pct||d.stat==S_attack_speed_pct||d.stat==S_reload_speed_pct||d.stat==S_charge_speed_pct||d.stat==S_max_ammo_pct||d.stat==S_atk_dmg_pct||d.stat==S_heal_received_pct;
     bool marker=d.stat==S_stun&&f64Equal(d.value,ONE)||d.stat==S_cover_disabled&&f64Zero(d.value);
     return worldBossDebuffDefinition(s,row)&&d.owner==5&&d.kind==0&&d.enemyBuff==0&&d.recipients==0&&d.flags==0&&d.conditionCount==0&&d.triggerCount==1
         &&commands[s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS]==0&&d.healthScaling==0&&(d.alliedFlags==0||d.alliedFlags==1&&d.stat==S_enemy_def_down_pct||d.alliedFlags==2&&d.stat==S_received_dmg_pct)&&d.quantityFlags==0&&d.damageFlags==0&&d.lazyGroup==0&&d.mergeEligible==0
-        &&d.alias==-1&&d.group==row&&d.budget==-1&&f64Zero(d.interval)&&d.polarity>=2&&d.polarity<=3&&f64Finite(d.value)
-        &&(scalar&&f64Less(d.value,0)||d.stat==S_received_dmg_pct&&f64Less(0,d.value)||marker);
+        &&d.alias==-1&&d.group==row&&d.budget==-1&&(dot||f64Zero(d.interval))&&d.polarity>=2&&d.polarity<=3&&f64Finite(d.value)
+        &&(scalar&&f64Less(d.value,0)||d.stat==S_received_dmg_pct&&f64Less(0,d.value)||marker||dot&&f64Less(0,d.value));
+}
+void captureWorldBossDotReference(inout Runtime s,uint slot)
+{
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+    if(s.bossDotEnabled==0)return;
+    if(s.alive[slot]==0||residentDefinition(s,slot).stat!=S_boss_dot)return;
+    for(uint i=0;i<s.bossDotCount;i++)if(s.bossDotEntry[i]==s.entryOrder[slot])
+    {s.bossDotStack[i]=s.stacks[slot];s.bossDotRecipients[i]=s.activeRecipients[slot];return;}
+#endif
 }
 uint incomingCommandAddress(inout Runtime s,uint arg)
 {
@@ -55,6 +65,9 @@ WorldSchedule frameSchedule(inout Runtime s)
 [noinline]
 bool initializeWorldFrame(inout Runtime s)
 {
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+    s.bossDotCount=0;s.bossDotEnabled=0;
+#endif
     for(uint j=0;j<65536;j++) results[s.resourceOutput+WF_OUTPUT+j]=0;
     uint start=s.inputBase+WF_INPUT;
     if(commands[start]==0)
@@ -94,7 +107,14 @@ bool initializeWorldFrame(inout Runtime s)
         {
             uint first=commands[p+4],n=commands[p+5],bound=commands[p+7];
             if(first==0||n==0||n>32||first-1+n>s.count||commands[p+6]!=0x42444631U||n<32&&(bound>>n)!=0) return false;
-            for(uint row=first-1;row<first-1+n;row++) if(!validWorldBossDebuff(s,row,readDefinition(s.inputBase,row))) return false;
+            for(uint row=first-1;row<first-1+n;row++)
+            {
+                Definition definition=readDefinition(s.inputBase,row);
+                if(!validWorldBossDebuff(s,row,definition))return false;
+#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS
+                if(definition.stat==S_boss_dot)s.bossDotEnabled=1;
+#endif
+            }
         }
         uint64_t attack=loadNumber(p+8),coeff=loadNumber(p+10);
         if(!f64Finite(attack)||f64Less(attack,0)||f64Less(FOREVER,attack)||!f64Finite(coeff)||f64Less(coeff,0)||f64Less(f64FromI64(1000000),coeff)) return false;

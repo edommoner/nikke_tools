@@ -6,11 +6,17 @@
   "files": {
     "app/portable_damage_specs.py": {
       "before_sha256": "ce6a5b11a932bcb8ee78e09b58ba61fb7f4eb9c6668d3fe3e231e2600b7fadc4",
-      "after_sha256": "4246b0d446afec0b5c883228e882c1b392cd3f9f689df7a32c9be3b83adf951a",
+      "after_sha256": "0517c422e52819a191c3b0955bf00034fa29605d6f6d386af3c7ae0886259e74",
       "hunks": [
         {
-          "start": 4740,
-          "end": 4945,
+          "start": 1752,
+          "end": 1773,
+          "before": "",
+          "after": "\nSTATS['boss_dot']=95"
+        },
+        {
+          "start": 4761,
+          "end": 4966,
           "before": "",
           "after": "\n# Existing protection marker; the native compiler already emits identity71.\n# It is read through protectionPolicy, outside the64-value numeric vector.\nSTATS['cover_disabled']=EXTRA_STAT['cover_disabled']\n"
         }
@@ -18,131 +24,137 @@
     },
     "app/portable_detail.py": {
       "before_sha256": "085c7ccdcebfa6641bf124d95e6c320c337405202e4b148ae64dca08cb11db06",
-      "after_sha256": "e9484cbe4a9877161cb3b1daa4c2080f16208779b478f6ce9298eb941e85727e",
+      "after_sha256": "c928b8ae1db4cfe0abf2b271bc196b4190cae0b4a295b746f928a646c0b36a9d",
       "hunks": [
         {
           "start": 3827,
           "end": 4018,
           "before": "",
           "after": ")\n    if any(p.get('kind') in ('attack','debuff') and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):\n        prepared=dict(prepared,_product_boss_debuffs=True"
+        },
+        {
+          "start": 13571,
+          "end": 13573,
+          "before": "",
+          "after": ",8"
         }
       ]
     },
     "app/portable_world_attack_specs.py": {
       "before_sha256": "8944e5278002603fd3fba2a7bc9a7623d0eda1a48bc2883b9257e45e6c1603fd",
-      "after_sha256": "12d15506c188dd22d94b121e8132260bbd720b6e0d78b8ee41db63ff1b27bd16",
+      "after_sha256": "04c543d830524b1cec5ce216aec0fd4894914c5faa8afb24e5c4b31d77cefb9d",
       "hunks": [
         {
           "start": 184,
-          "end": 2174,
+          "end": 2782,
           "before": "",
-          "after": "import copy\n\nDEBUFF_MAGIC=0x42444631\n\ndef boss_debuff_effects(patterns, owner):\n \"\"\"Literal native descriptors; the GPU chooses hit recipients and lifetime.\"\"\"\n effects=[];nodes={}\n for p in patterns:\n  shots=p.shots\n  if shots is None or not shots.debuffs:continue\n  start=len(effects);bound=0\n  for i,d in enumerate(shots.debuffs):\n   if d.stat=='dot':raise ValueError('Boss damage-over-time carrier is not connected')\n   e=copy.deepcopy(d.effect)\n   for key in ('_boss_pattern','_boss_bound'):e.pop(key,None)\n   # The legacy compiler needs a squad bucket. The packed definition below\n   # replaces it with the native external caster5 before GPU admission.\n   e['trigger']={'timing':['battle_start'],'condition':[]}\n   effects.append((e,owner))\n   if d.duration is None:bound|=1<<i\n  if len(effects)-start>32:raise ValueError('Boss attack debuff list exceeds32 definitions')\n  nodes[p.idx]=(start,len(effects)-start,bound)\n return effects,nodes\n\ndef pack_boss_debuffs(words,metadata,source_start,nodes,L):\n from portable_specs import FIELDS as F\n mapping=metadata['binding_source_indices'];rows=[]\n for node,(start,count,bound) in nodes.items():\n  indices=[i for i,source in enumerate(mapping) if source_start+start<=source<source_start+start+count]\n  if len(indices)!=count or indices!=list(range(indices[0],indices[0]+count)):\n   raise ValueError('Boss debuff compiler bindings must remain one contiguous definition each')\n  at=L['WORLD_FRAME_PAYLOAD_BASE']+node*16\n  words[at+4:at+8]=[indices[0]+1,count,DEBUFF_MAGIC,bound]\n  for row in indices:\n   definition=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']\n   words[definition+F['OWNER']]=5\n   words[definition+F['RECIPIENTS']]=0\n   extra=L['DEFINITION_EXTRA_BASE']+row*L['DEFINITION_EXTRA_WORDS']\n   words[extra]=row;words[extra+2]=0xffffffff\n   words[L['RECIPIENT_BASE']+row*8+7]=0\n   rows.append(row)\n metadata['boss_debuffs']=dict(definitions=rows,nodes=nodes,external_caster='__enemy__',cpu_recipients_or_schedule_supplied=False)\n"
+          "after": "import copy\n\nDEBUFF_MAGIC=0x42444631\nDOT_STAT=95\n\ndef boss_debuff_effects(patterns, owner, boss_atk=114344):\n \"\"\"Literal native descriptors; the GPU chooses hit recipients and lifetime.\"\"\"\n effects=[];nodes={}\n for p in patterns:\n  shots=p.shots\n  if shots is None or not shots.debuffs:continue\n  start=len(effects);bound=0;dots={}\n  for i,d in enumerate(shots.debuffs):\n   e=copy.deepcopy(d.effect)\n   if d.stat=='dot':\n    dots[i]=(e['_boss_coeff'],e['_boss_interval'],e.get('_boss_atk') or boss_atk)\n    # Only the static compiler bucket uses this existing marker. The typed\n    # external descriptor below replaces it; it never runs as allied stun.\n    e['stat']='stun'\n   for key in list(e):\n    if key.startswith('_boss_'):e.pop(key)\n   # The legacy compiler needs a squad bucket. The packed definition below\n   # replaces it with the native external caster5 before GPU admission.\n   e['trigger']={'timing':['battle_start'],'condition':[]}\n   effects.append((e,owner))\n   if d.duration is None:bound|=1<<i\n  if len(effects)-start>32:raise ValueError('Boss attack debuff list exceeds32 definitions')\n  nodes[p.idx]=(start,len(effects)-start,bound,dots)\n return effects,nodes\n\ndef pack_boss_debuffs(words,metadata,source_start,nodes,L):\n from portable_specs import FIELDS as F\n mapping=metadata['binding_source_indices'];rows=[]\n for node,(start,count,bound,dots) in nodes.items():\n  indices=[i for i,source in enumerate(mapping) if source_start+start<=source<source_start+start+count]\n  if len(indices)!=count or indices!=list(range(indices[0],indices[0]+count)):\n   raise ValueError('Boss debuff compiler bindings must remain one contiguous definition each')\n  at=L['WORLD_FRAME_PAYLOAD_BASE']+node*16\n  words[at+4:at+8]=[indices[0]+1,count,DEBUFF_MAGIC,bound]\n  for index,row in enumerate(indices):\n   definition=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']\n   words[definition+F['OWNER']]=5\n   words[definition+F['RECIPIENTS']]=0\n   extra=L['DEFINITION_EXTRA_BASE']+row*L['DEFINITION_EXTRA_WORDS']\n   words[extra]=row;words[extra+2]=0xffffffff\n   if index in dots:\n    coefficient,interval,attack=dots[index]\n    words[definition+F['STAT']]=DOT_STAT\n    words[definition+F['VALUE']:definition+F['VALUE']+2]=number(coefficient)\n    words[definition+F['INTERVAL']:definition+F['INTERVAL']+2]=number(interval)\n    words[extra+4:extra+6]=number(attack)\n    words[L['RECIPIENT_BASE']+row*8+6]=DOT_STAT\n   words[L['RECIPIENT_BASE']+row*8+7]=0\n   rows.append(row)\n metadata['boss_debuffs']=dict(definitions=rows,nodes=nodes,external_caster='__enemy__',cpu_recipients_or_schedule_supplied=False)\n"
         },
         {
-          "start": 2242,
-          "end": 2258,
+          "start": 2850,
+          "end": 2866,
           "before": "",
           "after": "shots=p.shots\n  "
         },
         {
-          "start": 2261,
-          "end": 2264,
+          "start": 2869,
+          "end": 2872,
           "before": "p.a",
           "after": "sho"
         },
         {
-          "start": 2265,
-          "end": 2266,
+          "start": 2873,
+          "end": 2874,
           "before": "tack",
           "after": "s"
         },
         {
-          "start": 2379,
-          "end": 2409,
+          "start": 2987,
+          "end": 3017,
           "before": "",
           "after": " and not any(words[at+4:at+8])"
         },
         {
-          "start": 2471,
-          "end": 2525,
+          "start": 3079,
+          "end": 3133,
           "before": "",
           "after": "descriptor=words[at+4:at+8]\n  cast=p.kind=='debuff'\n  "
         },
         {
-          "start": 2543,
-          "end": 2559,
+          "start": 3151,
+          "end": 3167,
           "before": "",
           "after": "3 if cast else 3"
         },
         {
-          "start": 2565,
-          "end": 2580,
+          "start": 3173,
+          "end": 3188,
           "before": "",
           "after": "0 if cast else "
         },
         {
-          "start": 2584,
-          "end": 2587,
+          "start": 3192,
+          "end": 3195,
           "before": "p.a",
           "after": "sho"
         },
         {
-          "start": 2588,
-          "end": 2589,
+          "start": 3196,
+          "end": 3197,
           "before": "tack",
           "after": "s"
         },
         {
-          "start": 2614,
-          "end": 2620,
+          "start": 3222,
+          "end": 3228,
           "before": "p.",
           "after": "0 if c"
         },
         {
-          "start": 2621,
-          "end": 2622,
+          "start": 3229,
+          "end": 3230,
           "before": "",
           "after": "s"
         },
         {
-          "start": 2623,
-          "end": 2632,
+          "start": 3231,
+          "end": 3240,
           "before": "",
           "after": " else sho"
         },
         {
-          "start": 2633,
-          "end": 2634,
+          "start": 3241,
+          "end": 3242,
           "before": "ack",
           "after": "s"
         },
         {
-          "start": 2658,
-          "end": 2664,
+          "start": 3266,
+          "end": 3272,
           "before": "p.",
           "after": "0 if c"
         },
         {
-          "start": 2665,
-          "end": 2666,
+          "start": 3273,
+          "end": 3274,
           "before": "",
           "after": "s"
         },
         {
-          "start": 2667,
-          "end": 2676,
+          "start": 3275,
+          "end": 3284,
           "before": "",
           "after": " else sho"
         },
         {
-          "start": 2677,
-          "end": 2678,
+          "start": 3285,
+          "end": 3286,
           "before": "ack",
           "after": "s"
         },
         {
-          "start": 2759,
-          "end": 2789,
+          "start": 3367,
+          "end": 3397,
           "before": "",
           "after": "  words[at+4:at+8]=descriptor\n"
         }
@@ -150,35 +162,35 @@
     },
     "app/portable_world_roster_input.py": {
       "before_sha256": "7d1f753d975c887fa0e206873f9aeeb629ba6486108c226d4654ac4d96d86b35",
-      "after_sha256": "e86a8b11a0e2bba255033a568b33b51e9fc9177b42278aba78fe0735baa482aa",
+      "after_sha256": "bae64a3d566a792d39ce91a3b7e92e2177f41f22d8ebffd8944598119c7ceb2e",
       "hunks": [
         {
           "start": 6044,
-          "end": 6321,
+          "end": 6355,
           "before": "",
-          "after": "character_effects=len(original)\n    boss_nodes={}\n    if prepared.get('_product_boss_debuffs'):\n        from portable_world_attack_specs import boss_debuff_effects\n        boss_effects,boss_nodes=boss_debuff_effects(patterns,names[0])\n        original.extend(boss_effects)\n    "
+          "after": "character_effects=len(original)\n    boss_nodes={}\n    if prepared.get('_product_boss_debuffs'):\n        from portable_world_attack_specs import boss_debuff_effects\n        boss_effects,boss_nodes=boss_debuff_effects(patterns,names[0],enemy.get('atk',DEFAULT_BOSS_ATK))\n        original.extend(boss_effects)\n    "
         },
         {
-          "start": 8190,
-          "end": 8344,
+          "start": 8224,
+          "end": 8378,
           "before": "",
           "after": "\n    if boss_nodes:\n        from portable_world_attack_specs import pack_boss_debuffs\n        pack_boss_debuffs(words,meta,character_effects,boss_nodes,L)"
         },
         {
-          "start": 11357,
-          "end": 11364,
+          "start": 11391,
+          "end": 11398,
           "before": "l",
           "after": "charact"
         },
         {
-          "start": 11365,
-          "end": 11365,
+          "start": 11399,
+          "end": 11399,
           "before": "n(o",
           "after": ""
         },
         {
-          "start": 11366,
-          "end": 11374,
+          "start": 11400,
+          "end": 11408,
           "before": "iginal)",
           "after": "_effects"
         }
@@ -204,7 +216,7 @@
     },
     "gpu/dispatch_phases.slang": {
       "before_sha256": "7eb76874e084585b7bcda36a884acecfc4ef78cbeb034020248dc44a3baabc00",
-      "after_sha256": "da04744066571470a07ac54c221a640ec3b216bd2890406841c9470b2f8e7b67",
+      "after_sha256": "29ad01f8dffbeaa3d63ec33fc3e21bf0e1b97f50a933233b24adac8b003f0adc",
       "hunks": [
         {
           "start": 8080,
@@ -243,130 +255,172 @@
           "after": "continue;\n        }\n        if(f.event==7)\n        {\n            uint first=commands[at+4],count=commands[at+5];\n            // One child at a time: synchronous notices/cleanse complete before\n            // the next authored debuff; list width does not consume stack depth.\n            if(f.repeatLeft<count&&(s.downMask&(1U<<f.owner))==0)\n            {\n                frames[depth].repeatLeft++;\n                pushFrame(s,frames,depth,19,0,5,int(first+f.repeatLeft-1),f.time,uint64_t(1U<<f.owner)|(uint64_t(f.owner+1)<<32));continue;\n            }\n            if(commands[at]==33) { frames[depth].event=0;continue; }\n            frames[depth].event=3;pushFrame(s,frames,depth,0,32,f.owner,0,f.time);"
         },
         {
-          "start": 36155,
-          "end": 36218,
+          "start": 18270,
+          "end": 18319,
+          "before": "",
+          "after": ";\n            captureWorldBossDotReference(s,row)"
+        },
+        {
+          "start": 36204,
+          "end": 36267,
           "before": "",
           "after": "f.mode==19&&d.owner==5) recipientOrder=f.value>>32;\n        if("
+        },
+        {
+          "start": 39057,
+          "end": 39079,
+          "before": "",
+          "after": " && d.stat!=S_boss_dot"
         }
       ]
     },
     "gpu/incoming_descriptor_runtime.slang": {
       "before_sha256": "abd0d96f850a9e918ec07b5fd6f5c89f542dbe3e71bf5d9d8cc686c64330cd18",
-      "after_sha256": "2c9c1e4e367f439c130209246717f529f6cb10a96e056e7581e0e11fa7396c24",
+      "after_sha256": "902e0a5cefe7a884e8da44f673a55b8889fc9da854eaceeae4bc92c305ac1289",
       "hunks": [
         {
           "start": 220,
-          "end": 378,
+          "end": 443,
           "before": "",
-          "after": "\nbool worldBossDebuffDefinition(inout Runtime s,uint row) { return false; }\nbool validWorldBossDebuff(inout Runtime s,uint row,Definition d) { return false; }"
+          "after": "\nbool worldBossDebuffDefinition(inout Runtime s,uint row) { return false; }\nbool validWorldBossDebuff(inout Runtime s,uint row,Definition d) { return false; }\nvoid captureWorldBossDotReference(inout Runtime s,uint slot) { }"
         }
       ]
     },
     "gpu/portable_schema.slang": {
       "before_sha256": "2ce1648b1b484f3d64806c48520f98dbfaab24e7a299e2afe1a66fb5abbd5334",
-      "after_sha256": "9a1b1e505befd01d28d620e7e86cec5c4b44ed46c76dfd3a4420342d4deaad5f",
+      "after_sha256": "3d7ae08f1784215a477efacdf36ded0511d2dd7b275cca85d4a588ffc986395b",
       "hunks": [
         {
-          "start": 28520,
-          "end": 28562,
+          "start": 27623,
+          "end": 27659,
+          "before": "",
+          "after": "boss_dot = 95U;\nstatic const uint S_"
+        },
+        {
+          "start": 28556,
+          "end": 28598,
           "before": "",
           "after": "S_cover_disabled = 71U;\nstatic const uint "
+        },
+        {
+          "start": 29264,
+          "end": 29267,
+          "before": "",
+          "after": "267"
+        },
+        {
+          "start": 29268,
+          "end": 29274,
+          "before": "28482303",
+          "after": "965951"
+        },
+        {
+          "start": 29404,
+          "end": 29405,
+          "before": "2",
+          "after": "5"
         }
       ]
     },
     "gpu/world_frame_addresses.slang": {
       "before_sha256": "6f473a80b1351b005148447bf157a0bad732724809163fe02484a21d1ce8db77",
-      "after_sha256": "2afa3aa91f8222d800ebd12f0c2dd348c1022b5d12c802873ba2876fbc56ef6f",
+      "after_sha256": "0a99a400fd4bfa41f96ebbbd31daed77537cf913505b73f55977eb7da636e3b1",
       "hunks": [
         {
           "start": 478,
-          "end": 2302,
+          "end": 2864,
           "before": "",
-          "after": "}\n// Only product entries admit native external-caster definitions. All recipients\n// are selected by an actual incoming landing, never by a CPU hit schedule.\nbool worldBossDebuffDefinition(inout Runtime s,uint row)\n{\n#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n    uint head=s.inputBase+WF_INPUT,count=commands[head+1];\n    if(commands[head]!=0x57533031U||count==0||count>32) return false;\n    for(uint node=0;node<count;node++)\n    {\n        uint p=s.inputBase+WF_PAYLOAD+node*16,first=commands[p+4],n=commands[p+5];\n        if((commands[p]==32||commands[p]==33)&&commands[p+6]==0x42444631U&&first>0&&n>0&&n<=32&&first-1+n<=s.count&&row>=first-1&&row<first-1+n) return true;\n    }\n#endif\n    return false;\n}\nbool validWorldBossDebuff(inout Runtime s,uint row,Definition d)\n{\n    bool scalar=d.stat==S_atk_pct||d.stat==S_enemy_def_down_pct&&d.alliedFlags==1||d.stat==S_crit_rate||d.stat==S_crit_dmg||d.stat==S_accuracy_pct||d.stat==S_attack_speed_pct||d.stat==S_reload_speed_pct||d.stat==S_charge_speed_pct||d.stat==S_max_ammo_pct||d.stat==S_atk_dmg_pct||d.stat==S_heal_received_pct;\n    bool marker=d.stat==S_stun&&f64Equal(d.value,ONE)||d.stat==S_cover_disabled&&f64Zero(d.value);\n    return worldBossDebuffDefinition(s,row)&&d.owner==5&&d.kind==0&&d.enemyBuff==0&&d.recipients==0&&d.flags==0&&d.conditionCount==0&&d.triggerCount==1\n        &&commands[s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS]==0&&d.healthScaling==0&&(d.alliedFlags==0||d.alliedFlags==1&&d.stat==S_enemy_def_down_pct||d.alliedFlags==2&&d.stat==S_received_dmg_pct)&&d.quantityFlags==0&&d.damageFlags==0&&d.lazyGroup==0&&d.mergeEligible==0\n        &&d.alias==-1&&d.group==row&&d.budget==-1&&f64Zero(d.interval)&&d.polarity>=2&&d.polarity<=3&&f64Finite(d.value)\n        &&(scalar&&f64Less(d.value,0)||d.stat==S_received_dmg_pct&&f64Less(0,d.value)||marker);\n"
+          "after": "}\n// Only product entries admit native external-caster definitions. All recipients\n// are selected by an actual incoming landing, never by a CPU hit schedule.\nbool worldBossDebuffDefinition(inout Runtime s,uint row)\n{\n#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n    uint head=s.inputBase+WF_INPUT,count=commands[head+1];\n    if(commands[head]!=0x57533031U||count==0||count>32) return false;\n    for(uint node=0;node<count;node++)\n    {\n        uint p=s.inputBase+WF_PAYLOAD+node*16,first=commands[p+4],n=commands[p+5];\n        if((commands[p]==32||commands[p]==33)&&commands[p+6]==0x42444631U&&first>0&&n>0&&n<=32&&first-1+n<=s.count&&row>=first-1&&row<first-1+n) return true;\n    }\n#endif\n    return false;\n}\nbool validWorldBossDebuff(inout Runtime s,uint row,Definition d)\n{\n    bool dot=d.stat==S_boss_dot&&f64Finite(d.interval)&&f64Less(0,d.interval)&&f64Finite(d.fixedValue)&&!f64Less(d.fixedValue,0);\n    bool scalar=d.stat==S_atk_pct||d.stat==S_enemy_def_down_pct&&d.alliedFlags==1||d.stat==S_crit_rate||d.stat==S_crit_dmg||d.stat==S_accuracy_pct||d.stat==S_attack_speed_pct||d.stat==S_reload_speed_pct||d.stat==S_charge_speed_pct||d.stat==S_max_ammo_pct||d.stat==S_atk_dmg_pct||d.stat==S_heal_received_pct;\n    bool marker=d.stat==S_stun&&f64Equal(d.value,ONE)||d.stat==S_cover_disabled&&f64Zero(d.value);\n    return worldBossDebuffDefinition(s,row)&&d.owner==5&&d.kind==0&&d.enemyBuff==0&&d.recipients==0&&d.flags==0&&d.conditionCount==0&&d.triggerCount==1\n        &&commands[s.inputBase+P_EVENT_BASE+row*P_EVENT_WORDS]==0&&d.healthScaling==0&&(d.alliedFlags==0||d.alliedFlags==1&&d.stat==S_enemy_def_down_pct||d.alliedFlags==2&&d.stat==S_received_dmg_pct)&&d.quantityFlags==0&&d.damageFlags==0&&d.lazyGroup==0&&d.mergeEligible==0\n        &&d.alias==-1&&d.group==row&&d.budget==-1&&(dot||f64Zero(d.interval))&&d.polarity>=2&&d.polarity<=3&&f64Finite(d.value)\n        &&(scalar&&f64Less(d.value,0)||d.stat==S_received_dmg_pct&&f64Less(0,d.value)||marker||dot&&f64Less(0,d.value));\n}\nvoid captureWorldBossDotReference(inout Runtime s,uint slot)\n{\n#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n    if(s.bossDotEnabled==0)return;\n    if(s.alive[slot]==0||residentDefinition(s,slot).stat!=S_boss_dot)return;\n    for(uint i=0;i<s.bossDotCount;i++)if(s.bossDotEntry[i]==s.entryOrder[slot])\n    {s.bossDotStack[i]=s.stacks[slot];s.bossDotRecipients[i]=s.activeRecipients[slot];return;}\n#endif\n"
         },
         {
-          "start": 5642,
-          "end": 5643,
+          "start": 4357,
+          "end": 4446,
+          "before": "",
+          "after": "\n#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n    s.bossDotCount=0;s.bossDotEnabled=0;\n#endif"
+        },
+        {
+          "start": 6293,
+          "end": 6294,
           "before": "",
           "after": "("
         },
         {
-          "start": 5658,
-          "end": 5676,
+          "start": 6309,
+          "end": 6327,
           "before": "",
           "after": "&&commands[p]!=33)"
         },
         {
-          "start": 5759,
-          "end": 5760,
+          "start": 6410,
+          "end": 6411,
           "before": "",
           "after": "i"
         },
         {
-          "start": 5761,
-          "end": 5763,
+          "start": 6412,
+          "end": 6414,
           "before": "",
           "after": "(c"
         },
         {
-          "start": 5764,
-          "end": 5891,
+          "start": 6415,
+          "end": 6542,
           "before": "",
           "after": "mmands[p]==33&&(commands[p+3]!=0||commands[p+4]==0||commands[p+8]!=0||commands[p+9]!=0||commands[p+10]!=0||commands[p+11]!=0)) "
         },
         {
-          "start": 5892,
-          "end": 5894,
+          "start": 6543,
+          "end": 6545,
           "before": "(",
           "after": "et"
         },
         {
-          "start": 5895,
-          "end": 5896,
+          "start": 6546,
+          "end": 6547,
           "before": "i",
           "after": "r"
         },
         {
-          "start": 5897,
-          "end": 5897,
+          "start": 6548,
+          "end": 6548,
           "before": "t",
           "after": ""
         },
         {
-          "start": 5898,
-          "end": 5903,
+          "start": 6549,
+          "end": 6554,
           "before": "j=4",
           "after": "false"
         },
         {
-          "start": 5904,
-          "end": 5912,
+          "start": 6555,
+          "end": 6563,
           "before": "j<8;j++)",
           "after": "\n       "
         },
         {
-          "start": 5927,
-          "end": 5928,
+          "start": 6578,
+          "end": 6579,
           "before": "j",
           "after": "4"
         },
         {
-          "start": 5929,
-          "end": 6172,
+          "start": 6580,
+          "end": 6823,
           "before": "",
           "after": "!=0||commands[p+5]!=0||commands[p+6]!=0||commands[p+7]!=0)\n        {\n            uint first=commands[p+4],n=commands[p+5],bound=commands[p+7];\n            if(first==0||n==0||n>32||first-1+n>s.count||commands[p+6]!=0x42444631U||n<32&&(bound>>n)"
         },
         {
-          "start": 6190,
-          "end": 6333,
+          "start": 6841,
+          "end": 7192,
           "before": "",
-          "after": "\n            for(uint row=first-1;row<first-1+n;row++) if(!validWorldBossDebuff(s,row,readDefinition(s.inputBase,row))) return false;\n        }"
+          "after": "\n            for(uint row=first-1;row<first-1+n;row++)\n            {\n                Definition definition=readDefinition(s.inputBase,row);\n                if(!validWorldBossDebuff(s,row,definition))return false;\n#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n                if(definition.stat==S_boss_dot)s.bossDotEnabled=1;\n#endif\n            }\n        }"
         }
       ]
     },
     "gpu/world_frame_runtime.slang": {
       "before_sha256": "abb6732680997f0bf25533144dddf937dca27a81d19fb6d1efd159893567e2e1",
-      "after_sha256": "31aa43a3aed03a4b78588e92ae51f4a5f04f854a665f483aa9d44c309aac94d0",
+      "after_sha256": "834c895faac71999da0432022823b48e415fb4597d6b1d4e6156fd7187dcdd51",
       "hunks": [
         {
           "start": 0,
@@ -391,6 +445,18 @@
           "end": 1953,
           "before": "",
           "after": ";\n    if(s.error==0)releaseWorldBossDebuffs(s,bossFirstLog,results[w.output+2])"
+        },
+        {
+          "start": 2953,
+          "end": 8866,
+          "before": "",
+          "after": "\n#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n[noinline]\nuint worldBossDotCountBeforeAllocate(inout Runtime s) { return s.bossDotCount; }\nuint worldBossDotNode(inout Runtime s,uint row)\n{\n    for(uint node=0;node<commands[s.inputBase+WF_INPUT+1];node++)\n    {\n        uint at=s.inputBase+WF_PAYLOAD+node*16,first=commands[at+4],count=commands[at+5];\n        if(first!=0&&row>=first-1&&row<first-1+count)return node;\n    }\n    s.error=64;return 0;\n}\nvoid removeWorldBossDotClock(inout Runtime s,uint index)\n{\n    for(uint i=index;i+1<s.bossDotCount;i++)\n    {\n        s.bossDotSlot[i]=s.bossDotSlot[i+1];s.bossDotEntry[i]=s.bossDotEntry[i+1];s.bossDotRow[i]=s.bossDotRow[i+1];\n        s.bossDotRecipients[i]=s.bossDotRecipients[i+1];s.bossDotStack[i]=s.bossDotStack[i+1];s.bossDotLive[i]=s.bossDotLive[i+1];\n        s.bossDotActivated[i]=s.bossDotActivated[i+1];s.bossDotNext[i]=s.bossDotNext[i+1];s.bossDotExpiry[i]=s.bossDotExpiry[i+1];\n    }\n    s.bossDotCount--;\n}\n[noinline]\nvoid worldBossDotTick(inout Runtime s,uint clock,uint who,uint64_t when,uint output)\n{\n    if((s.downMask&(1U<<who))!=0)return;\n    Definition d=readDefinition(s.inputBase,s.bossDotRow[clock]);\n    // Native ordered binary64: defense floor, coefficient, stack, incoming\n    // modifier, then the minimum1. No shield/cover/decoy or received_hit path.\n    uint64_t amount=larger(0,f64Add(d.fixedValue,effectiveDefense(s,who,when)^F64_SIGN));\n    amount=f64Div(f64Mul(amount,d.value),HUNDRED);\n    amount=f64Mul(amount,f64FromI64(s.bossDotStack[clock]));\n    uint64_t received=(s.incomingMask&4)!=0?plainQuantity(s,who,S_received_dmg_pct,when):0;\n    amount=larger(ONE,f64Mul(amount,larger(0,f64Add(ONE,f64Div(received,HUNDRED)))));\n    if(!f64Finite(amount)){s.error=16;return;}\n    uint64_t hpDamage=liveMarker(s,who,S_invincible,when)?0:amount;\n    if(!f64Zero(hpDamage)&&!f64Less(hpDamage,s.hp[who])&&liveMarker(s,who,S_undying,when))hpDamage=larger(0,f64Add(s.hp[who],ONE^F64_SIGN));\n    bool fell=!f64Zero(hpDamage)&&!f64Less(hpDamage,s.hp[who]);\n    uint head=s.resourceOutput+WF_OUTPUT,count=results[head+6],node=worldBossDotNode(s,s.bossDotRow[clock]);\n    if(s.error!=0)return;\n    if(count>=2048){s.error=2;return;}\n    uint hit=s.resourceOutput+WF_HITS+count*16;results[head+6]=count+1;\n    for(uint i=0;i<16;i++)results[hit+i]=0;\n    storeNumber(hit,when);results[hit+2]=0x80000001U|(node<<5);results[hit+3]=(who<<3)|(fell?4U:0U);\n    storeNumber(hit+4,amount);storeNumber(hit+12,hpDamage);\n    if(!f64Zero(hpDamage))\n    {\n        s.hp[who]=larger(0,f64Add(s.hp[who],hpDamage^F64_SIGN));\n        if(!fell)syncHealthActor(s,who,when);\n    }\n    // Native sync_hp runs threshold children before SquadHitEntry snapshots\n    // hp_after. A heal/max-HP grant must already be visible in this record.\n    if(!fell&&!f64Zero(hpDamage)&&s.hpWatchCount!=0)dispatch(s,7,0,0,0,when,output);\n    storeNumber(hit+14,s.hp[who]);\n    if(fell)\n    {\n        // A direct down ordinal keeps queued attack logs from moving this\n        // tick's down after later same-frame incoming attacks.\n        uint downs=0;for(uint i=0;i<count;i++)if((results[s.resourceOutput+WF_HITS+i*16+3]&4U)!=0)downs++;\n        WorldSchedule w=frameSchedule(s);wsLog(w,8,node,downs,when);s.error=w.error;\n        knockDown(s,who,when);\n        if(s.error==0)dispatch(s,0,38,who,0,when,output);\n        if(s.error==0&&revivalEnabled(s))dispatch(s,30,0,who,0,when,output);\n        else for(uint observer=0;observer<5&&s.error==0;observer++)if((s.downMask&(1U<<observer))==0)dispatch(s,0,46,observer,0,when,output);\n    }\n}\n[noinline]\nvoid deliverWorldBossDots(inout Runtime s,uint64_t when,uint output)\n{\n    if(s.bossDotEnabled==0)return;\n    // Match native _dot_sched insertion order and UID identity. A recycled\n    // carrier slot cannot replace a pending terminal tick of its old UID.\n    for(uint i=0;i<s.bossDotCount;i++)s.bossDotLive[i]=0;\n    for(uint pass=0;pass<s.orderedCount&&s.error==0;pass++)\n    {\n        uint slot=s.orderedRows[pass];Definition d=residentDefinition(s,slot);\n        if(s.alive[slot]==0||d.owner!=5||d.stat!=S_boss_dot)continue;\n        uint count=worldBossDotCountBeforeAllocate(s),i=0;while(i<count&&s.bossDotEntry[i]!=s.entryOrder[slot])i++;\n        bool fresh=i==count;\n        if(fresh)\n        {\n            if(i==P_CARRIERS){s.error=64;return;}\n            s.bossDotCount=count+1;s.bossDotSlot[i]=slot;s.bossDotEntry[i]=s.entryOrder[slot];s.bossDotRow[i]=s.carrierDefinition[slot];\n        }\n        if(fresh||!f64Equal(s.bossDotActivated[i],s.activated[slot]))\n        {s.bossDotActivated[i]=s.activated[slot];s.bossDotNext[i]=f64Add(s.activated[slot],d.interval);}\n        s.bossDotExpiry[i]=s.end[slot];s.bossDotStack[i]=s.stacks[slot];s.bossDotRecipients[i]=s.activeRecipients[slot];s.bossDotLive[i]=1;\n    }\n    uint64_t epsilon=uint64_t(0x3e112e0bU)<<32|0xe826d695U; // exact binary64 1e-9\n    for(uint i=0;i<s.bossDotCount&&s.error==0;)\n    {\n        bool live=s.bossDotLive[i]!=0;\n        if(!live&&f64Less(when,f64Add(s.bossDotExpiry[i],epsilon^F64_SIGN)))\n        {removeWorldBossDotClock(s,i);continue;}\n        uint64_t next=s.bossDotNext[i],limit=f64Add(smaller(when,s.bossDotExpiry[i]),epsilon);\n        uint work=0;\n        while(!f64Less(limit,next)&&s.error==0)\n        {\n            if(work++>=2048){s.error=2;break;}\n            for(uint who=0;who<5&&s.error==0;who++)if((s.bossDotRecipients[i]&(1U<<who))!=0)worldBossDotTick(s,i,who,when,output);\n            uint64_t later=f64Add(next,definition_interval(s.inputBase,s.bossDotRow[i]));\n            if(!f64Less(next,later)){s.error=16;break;}next=later;\n        }\n        // Deliberately retain the observed canonical legacy re-arming rule.\n        // Its optional CPU correction is separate from GPU admission.\n        if(f64Less(f64Add(s.bossDotExpiry[i],epsilon),next))removeWorldBossDotClock(s,i);\n        else {s.bossDotNext[i]=next;i++;}\n    }\n}\n#endif"
+        },
+        {
+          "start": 10069,
+          "end": 10176,
+          "before": "",
+          "after": "\n#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n    if(s.error==0)deliverWorldBossDots(s,when,output);\n#endif\n   "
         }
       ]
     },
@@ -439,6 +505,114 @@
           "end": 2076,
           "before": "",
           "after": "','debuff"
+        }
+      ]
+    },
+    "app/portable_runtime_layout.py": {
+      "before_sha256": "0822af02846bf6ea1e3cb00db6db9fa2b2f08129dc58ab9aace04332725bcd4c",
+      "after_sha256": "ef7ee5017f9d57ec28db1dd9c8e2139591e167ab3a83c7fcf81ddb79b17a24f0",
+      "hunks": [
+        {
+          "start": 917,
+          "end": 1642,
+          "before": "",
+          "after": ",'')\n    private_dots='#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\\n    uint bossDotCount,bossDotEnabled;\\n    uint bossDotSlot[P_CARRIERS],bossDotEntry[P_CARRIERS],bossDotRow[P_CARRIERS],bossDotRecipients[P_CARRIERS],bossDotStack[P_CARRIERS],bossDotLive[P_CARRIERS];\\n    uint64_t bossDotActivated[P_CARRIERS],bossDotNext[P_CARRIERS],bossDotExpiry[P_CARRIERS];\\n#endif'\n    if body.count(private_dots)!=1:raise ValueError('Unknown product boss-DoT clock storage')\n    body=body.replace(private_dots,'')\n    private_fixed='#ifdef PORTABLE_PRODUCT_FIXED_BURST\\n    uint64_t fixedGaugeReadyAt;\\n#endif'\n    if body.count(private_fixed)!=1:raise ValueError('Unknown product fixed-burst storage')\n    body=body.replace(private_fixed"
+        }
+      ]
+    },
+    "app/portable_world_result.py": {
+      "before_sha256": "14b75458d6d90058523c1bd63bdfc5ba23b4842b690bd2d64cc64ba0f4101fec",
+      "after_sha256": "41acf1f0f0932fa5cbd2f829a9f85259df8181ec2568a7c05de37487512dff98",
+      "hunks": [
+        {
+          "start": 713,
+          "end": 845,
+          "before": "",
+          "after": "\n  if kind==8:\n   plan.append(dict(time=time,pattern=patterns[node]['id'],event='down',outcome='',direct_downs_before=arg));continue"
+        },
+        {
+          "start": 1631,
+          "end": 1730,
+          "before": "",
+          "after": "dot=bool(tag&0x80000000)\n  pattern=patterns[(tag>>5)&31]['id'] if dot else query_pattern[tag>>5]\n  "
+        },
+        {
+          "start": 1768,
+          "end": 1768,
+          "before": "query_",
+          "after": ""
+        },
+        {
+          "start": 1775,
+          "end": 1775,
+          "before": "[tag>>5]",
+          "after": ""
+        },
+        {
+          "start": 1950,
+          "end": 1962,
+          "before": "",
+          "after": " and not dot"
+        },
+        {
+          "start": 2032,
+          "end": 2032,
+          "before": "query_",
+          "after": ""
+        },
+        {
+          "start": 2039,
+          "end": 2039,
+          "before": "[tag>>5]",
+          "after": ""
+        },
+        {
+          "start": 3492,
+          "end": 3750,
+          "before": "",
+          "after": "direct_downs_before' in item:\n   drain(item['direct_downs_before']);assert delivered_downs==item['direct_downs_before'],'Invalid direct down ordinal'\n   logs.append({k:v for k,v in item.items() if k!='direct_downs_before'});delivered_downs+=1;continue\n  if '"
+        },
+        {
+          "start": 4382,
+          "end": 4384,
+          "before": "",
+          "after": ",8"
+        }
+      ]
+    },
+    "gpu/admission_definition_types.slang": {
+      "before_sha256": "67177f05768d11da1a3009eb87bac23fc7c60ea50a156d2573cec9c3cb4329cf",
+      "after_sha256": "7edfcfea8a0cd03b3c67ea7b86b98871964b1932a67025612b8e1992818e16b7",
+      "hunks": [
+        {
+          "start": 0,
+          "end": 85,
+          "before": "",
+          "after": "        if(d.stat==S_boss_dot && !validWorldBossDebuff(s,j,d)) { s.error=64;break; }\n"
+        }
+      ]
+    },
+    "gpu/carrier_runtime.slang": {
+      "before_sha256": "ef7289c11034c0b25a1574d8bf4de40c5fca467500f8cf3027f0ff77208865e5",
+      "after_sha256": "adfab37e9a391403e5e3adcdef3fcef36302ff9f04146eea42a14ad4fbc18b39",
+      "hunks": [
+        {
+          "start": 4832,
+          "end": 4874,
+          "before": "",
+          "after": "captureWorldBossDotReference(s,slot);\n    "
+        }
+      ]
+    },
+    "gpu/event_runtime.slang": {
+      "before_sha256": "8f2b069a23501b3d983279748de0c4dd239f674c9d66f113c95a045ce4a47594",
+      "after_sha256": "c3ac3a0dc054c2d4ee2db814cd37108a8d7e5e640561f7991ef2dd0a6d87d78f",
+      "hunks": [
+        {
+          "start": 6334,
+          "end": 6674,
+          "before": "",
+          "after": "\n#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n    uint bossDotCount,bossDotEnabled;\n    uint bossDotSlot[P_CARRIERS],bossDotEntry[P_CARRIERS],bossDotRow[P_CARRIERS],bossDotRecipients[P_CARRIERS],bossDotStack[P_CARRIERS],bossDotLive[P_CARRIERS];\n    uint64_t bossDotActivated[P_CARRIERS],bossDotNext[P_CARRIERS],bossDotExpiry[P_CARRIERS];\n#endif"
         }
       ]
     }
