@@ -1,3 +1,19 @@
+## 2026-11-01 範囲・対象数＋遮蔽の実製品接続と識別番号衝突の修正
+
+79a84972で既存named-rangeとmanual coverを共通座標ActorPool/state/event実行器へ接続。元prefix116224語の後ろへcover24語、input116248/output2048912、範囲output終端/cover始端2032000で重複0。CPU正本/数値/normalizer/新suite変更0。宣言named_range＋cover_defenseの文脈・元効果・制御を保持し、未指定4profileの幾何を捏造しない。
+
+初回owner18cdb4a6…は130CPU/fresh native/実M5/fresh GPU禁止seal成功。しかし元15秒通常API4件のうち、元Asuka/Rei固定/実蓄積2件だけ一致、MaryをSOWへ替えて敵攻撃/遮蔽を加えた2件はstatus64でCPU切替。元baselineはcover DEF定義とincomingを含まず合成consumerの識別衝突を捕捉できなかった。対象数TC_STAT93とcoverCDF_STAT93の衝突を静的に特定。全初回raw/claim/2成功/2拒否と独立保存監査4件保持、初回拒否を成功扱いしない。
+
+a6d80508でcomposed cover専用96を既存wire/schema generatorへ接続。旧cover93/対象数93/範囲94は保持、両backendは同じ定義を使用。shaderの選択値とPython loweringの一致・元定義保持・短いwire拒否・missing coverbase拒否を既存検査へ追加。factoryもSOW＋cover DEF＋実incomingへ変え、両consumerを動かす。初回CPUテストでは4秒だとcastなし、cover0.25秒だとincomingなしという検査条件の不足も修正し、元15秒内でcast/cover両方を確認した。
+
+修正owner06738855…/sourcea6d80508のown130CPU/fresh native/実M5/fresh GPU禁止seal成功。元要求を変えず通常API4条件を再確認し、全M5/CPU製品payload一致。複合固定はcast41/拡大39/対象追加39/incoming25/cover11/非ゼロDEF9、実蓄積はcast32/拡大30/対象追加30/incoming25/cover10/非ゼロDEF8。AsukaのDEF100→228.57が着弾量へ反映。元2ケースの全input/readbackは初回成功と同一。全結果は宣言モデル条件でありゲーム実測仕様とはしない。
+
+schema変更が全既定262入力を変えていないことを静的再packで確認、4fallbackも同じ。標準261profileの6GPU closureは5e1fと完全一致。cover固定のSOW1件だけschema sourceが変わるため、同じ通常APIへ元30秒1件を追加実行して全CPU製品payload＋旧全readbackSHA一致。最終通常API5件は3物理dispatch、保存input/raw/source/親子slice/再投影/CPU/GPU/APIの独立監査5件成功（追加GPU/native0）。全266の再戦闘は重ねない。9317fa76で修正版fixedの独立sealだけv23へ登録、旧20member不変、accumulateは未登録。登録/歴史保持17検査も成功。
+
+WindowsはSDK/GPUの新依頼0。先のunpack前観測失敗は原因unknown/claim保持。既存snapshot-checkへ、有限operation/type/native codeを一度保存する独立CPU診断だけを依頼した。BelowNormal/fresh Job/2GiB/子30秒/outer180秒、元compileの再試行やGPU gate緩和ではない。結果は未取得、未確認を成功扱いしない。
+
+通常標準Metal262/266、理由付きCPU4、CUDA旧source厳格3/266・現source0、新標準profile加算0。今回の新製品合成は宣言モデル4条件＋既定SOW保持1条件。全goal未完了、残4既定/残合成/現CUDA製品の実証が残る。小記録research/product-named-range-cover-v1.json、原本proofs/product-named-range-cover-v1-20261101。全専用server停止（56714/47849）、ユーザー4317/4327不操作。以下は履歴。
+
 ## 2026-11-01 移動＋手動遮蔽を共通実行器へ接続、Windowsは観測開始前に停止
 
 c3ed64afでmovementとcoverを既存共通座標実行器へ接続。movement prefix117476語＋cover literal24語、input117500/output2048912、movement出力終端とcover始端2032000で重複0。元効果定義/state/event/二進64演算を共用、CPU正本/normalizer/許容差/新suite変更0。明示enemy_movement＋cover_defenseだけを合成し、未指定幾何を推定しない。
