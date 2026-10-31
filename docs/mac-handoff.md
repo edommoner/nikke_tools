@@ -1,3 +1,19 @@
+## 2026-11-01 CUDA標準3profile・Poli終了通知の生成不具合を特定して共通修正
+
+前turnはtarget/group/cover合成の通常4条件Metal一致とWindows依頼で進捗。今回Windows d0d833f2を取得し、Rapi0/AnisStar0は旧owner1ea8/sourcea466の実RTX3070Ti/CPU全製品payload/M5全input/readback一致、missing0/ownedserver停止/SDK追加0。Mirandaと合わせ厳格CUDA標準3/266。Poli3はCPU製品payload/damage127,814,213一致だが全readback不一致で停止、未認定、D0未実行。単に全CPU一致と呼んで4件目へ加算しない。
+
+CPU-only診断18507079/d8f92a97で768block中5block、計13wordへ絞った。M5実rawへWindows小要約の13scalarだけを反映するとWindows全SHA f0bd1d49…が完全再構成できる（derived local、元Windows rawのimport/追加GPU/CPU戦闘/SDK0）。row4「도그 테라피 3」のtimer_clock/activation/expiry/target_generationがCUDA0、M5起動1で、state_end継続回復を欠落。全員HP満タンで公開結果だけでは差が出なかった。終了通知queue/workカウンタ差も保持。期待値/許容差変更なし、元失敗/claims保持。
+
+生成CUDAでremove_named_buff処理が `begin=removalCount; mutate(); if(removalCount>removalCount)` に誤変換されていた一方、生成Metalは `>begin` を保持。source0c282166で既存carrierCount対策と同じnoinline removalCountBeforeMutationを共通8箇所へ適用し、両backendの実生成コードが正しいsnapshot比較となった。共通portable_slang_generation.buildへknown reflexive counter比較の拒否を追加し、fresh/cache hit両方を検査（生成bytes/hash/normalizerは不変）。元bad CUDAを実ファイルから拒否、元Metalは受付、cache故障回帰2件成功。core任意コードの完全証明とはしない。
+
+ownerdd98afc4…の不変packetで119CPU/fresh native/実M5/fresh GPU禁止seal成功。通常Poli3/Miranda0/Rapi0/AnisStar0の元30秒4要求が全CPU製品結果と旧M5全input/readback SHAを維持し、保存独立再投影も一致（追加GPU/native0）。fixed旧input/output/native全entries保持でv20はfixedだけ更新、他17歴史member不変。release source31082f06/owner993ad38c…、12,021,454bytes/SHA97c2dcbc…、own CPU-only/60秒2GiB PTX plan成功。
+
+修正版だけを輸送branch codex/product-cuda-origin-gates-v1-packet/commit330e7e9bでWindowsへ依頼済み。removal-snapshot-fixed-v1.zip、transport/API JSON。厳格byte/owner/CPU/pair gate後にPTX→object O1→JIT link各1、各SDK60秒/2GiB/BelowNormal/fresh Job/outer180秒。全gate成功後だけ新source/CUBINでPoli3元30秒API1回（helper53秒・旧M5全SHA657ef8fb…とrow4起動1必須）、成功した場合だけD0元30秒1回。retry禁止、旧bad CUBIN/cover/rangeを再実行しない。保存小結果removal-snapshot-fixed-status-v1.jsonを同branchで取得する。現時点結果未取得、同じrunを再送しない。read/wait host unavailable継続、send/list/GitHub取得は利用可。
+
+別の製品進捗：sourcea495d642/07621945で敵回復＋遮蔽を同一Runtimeへ接続。healing input115680..120048の後へcover120048..120072を置き、既存output両bank2032000で隣接することをwireで検査。CPU正本/数値効果本体変更0、新suite0。複数モデル結果を上書きせず、重複consumer/不正envelopeを拒否し、共通順序で注意書きを1つへ統合。初回owner33963f0a…は元Ann reviveが自動付加したkind4専用lazy flag2048をcoverのkind0変換後も残してstage26/status64で拒否。原capture/claim保持。入力word597の2048→0だけ修正し、shader/native期待SHA不変。owner3586b40c…の117CPU/実M5/fresh seal成功。元Ann+SOW+Miranda+Dora+Drakeの30秒通常4条件、うち明示敵回復4receipt（実appliedあり）＋遮蔽15receipt/敵攻撃15が全CPU製品payload一致。保存独立監査成功。076source時点の旧8入口生成CUDA/MSL全bytes保持。healing-cover-fixed/accumulateは実製品Metal証拠あり、registered sealed基準/CUDA実証は未追加。後のsnapshot共通修正について当2programを現source再認定したとはしない。
+
+最後の全標準Metal262/266、今回normal4再確認、新Metal profile0、厳格CUDA3/266（CPU公開payload一致はPoli含む4、Poli保留）。全goal未完了。未対応4profileの幾何/配送モデル、残合成/公開sampling/CUDA拡大が残る。小記録research/product-removal-snapshot-v1.json、product-healing-cover-v1.json、product-cuda-standard-batch-v2-audit.json、product-poli3-cross-backend-diagnosis-v3.json。原本proofs/product-removal-snapshot-v1-20261101、product-healing-cover-v1-20261101、product-cuda-standard-batch-v2-20261101。全Mac CLI/API/seal/audit terminal、専用server86820/41867/69913は停止exit130、常用サーバー不操作。以下は履歴。
+
 ## 2026-11-01 対象別補正＋同時命中＋遮蔽の通常APIを接続
 
 前turnはgroup/coverの通常4条件Metal一致とWindows依頼で進捗。今回source41211349、owner66c26290…で、既存BODY/PART target modifier consumerもcoverへ接続。target prefix110112/group-target prefix104672を保持し、115680までのgapのみzero検査、独立cover bankと全outputを共有。PORTABLE_PRODUCT_EXTERNAL_EXECUTORは埋込base entryだけを抑制、元target/groupのadmission関数は実行する。CPU正本/数値本体/normalizer/許容差変更0。cover sourceのwire許可は共通PROGRAMS registry由来にして重複列挙を解消。新suiteなし、既存product-detailに4program追加。

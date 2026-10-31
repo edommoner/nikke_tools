@@ -1,0 +1,467 @@
+{
+  "schema": "poli3-saved-word-diagnosis-v2",
+  "scope": "CPU saved-file SHA comparison and semantic scalar decoding only",
+  "owner": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
+  "source_commit": "a4663e4716f46ba88460531ebfbc017375f242ae",
+  "profile": "Poli3",
+  "windows_capture": "ddb247de48024e31b24f465ab4c1da85",
+  "windows_readback": {
+    "bytes": 3145728,
+    "sha256": "f0bd1d498d02416f91a44d8baf3cf907f4fa62380754b6ce4250011a5d13f231"
+  },
+  "input_sha256": "774447605c6480cb355fed607bc94b01290e993c9139f621c0235154b3b21a0e",
+  "m5_output_sha256": "657ef8fb9ec63494bd16648f45f43a287cf0b04819448744f72e7675ae278050",
+  "m5_word_document": {
+    "transport_commit": "7f26be1944e16eba810bd74d8eacd005dd0660fd",
+    "bytes": 389937,
+    "sha256": "78f459173c9aace09b9b872c1a4f7a5957e2082d9f3f25bf06bf3aec484640f8"
+  },
+  "word_bytes": 4,
+  "byte_order": "little",
+  "index_base": 0,
+  "words_compared": 5120,
+  "words_equal": 5107,
+  "words_different": 13,
+  "different_word_indices": [
+    31,
+    3128,
+    3129,
+    3130,
+    3131,
+    3132,
+    3133,
+    3136,
+    5657,
+    86024,
+    86025,
+    512176,
+    512178
+  ],
+  "difference_hashes": [
+    {
+      "word_index": 31,
+      "byte_offset": 124,
+      "m5_sha256": "67abdd721024f0ff4e0b3f4c2fc13bc5bad42d0b7851d456d88d203d15aaa450",
+      "windows_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+    },
+    {
+      "word_index": 3128,
+      "byte_offset": 12512,
+      "m5_sha256": "e73a36f8264731f64049b86564604e671d4bb1cfc0f6ab26803a5ad18040fee2",
+      "windows_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+    },
+    {
+      "word_index": 3129,
+      "byte_offset": 12516,
+      "m5_sha256": "f9f513064bbbc79b9369877d6e31cbd1907fc1b6dfe22aea8a0eb7cb94e46a7d",
+      "windows_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+    },
+    {
+      "word_index": 3130,
+      "byte_offset": 12520,
+      "m5_sha256": "e73a36f8264731f64049b86564604e671d4bb1cfc0f6ab26803a5ad18040fee2",
+      "windows_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+    },
+    {
+      "word_index": 3131,
+      "byte_offset": 12524,
+      "m5_sha256": "f9f513064bbbc79b9369877d6e31cbd1907fc1b6dfe22aea8a0eb7cb94e46a7d",
+      "windows_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+    },
+    {
+      "word_index": 3132,
+      "byte_offset": 12528,
+      "m5_sha256": "67abdd721024f0ff4e0b3f4c2fc13bc5bad42d0b7851d456d88d203d15aaa450",
+      "windows_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+    },
+    {
+      "word_index": 3133,
+      "byte_offset": 12532,
+      "m5_sha256": "67abdd721024f0ff4e0b3f4c2fc13bc5bad42d0b7851d456d88d203d15aaa450",
+      "windows_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+    },
+    {
+      "word_index": 3136,
+      "byte_offset": 12544,
+      "m5_sha256": "67abdd721024f0ff4e0b3f4c2fc13bc5bad42d0b7851d456d88d203d15aaa450",
+      "windows_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+    },
+    {
+      "word_index": 5657,
+      "byte_offset": 22628,
+      "m5_sha256": "67abdd721024f0ff4e0b3f4c2fc13bc5bad42d0b7851d456d88d203d15aaa450",
+      "windows_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+    },
+    {
+      "word_index": 86024,
+      "byte_offset": 344096,
+      "m5_sha256": "3ab30b6c9b51e7102ff7ff6c25798a612ccd64086e4bf55ffc1ef39e05a7c521",
+      "windows_sha256": "adfc59b83953dea065f6a1cdf543e6e182e0bb82da16aa37bdbfdf6a62b9ca53"
+    },
+    {
+      "word_index": 86025,
+      "byte_offset": 344100,
+      "m5_sha256": "817582fca69e4a353868466d3a02114f3f7b945fad73b96be37523d1c0e18b70",
+      "windows_sha256": "4ca57cb77719fe8524335e6c6450b6cd9fa58113d4431400a447231b5e7f1932"
+    },
+    {
+      "word_index": 512176,
+      "byte_offset": 2048704,
+      "m5_sha256": "0bd086acaa9b2a93e08a89344d86eeee1672a0bb24447457de721acaac1904b1",
+      "windows_sha256": "fbcb8fe512b4826aa254e1f326d9f936cfda44006205c634ebf4cd95d021438d"
+    },
+    {
+      "word_index": 512178,
+      "byte_offset": 2048712,
+      "m5_sha256": "c680b51452cc380a938554beae4c98a95ce59eb607f3ad52fec2fc638c8d6446",
+      "windows_sha256": "5a66342a3d97be03aa3c1554b747f1f1a0f67a0517cea320bb4eec08c7a9edd0"
+    }
+  ],
+  "semantic_scalar_record_count": 11,
+  "semantic_scalar_records": [
+    {
+      "changed_word_indices": [
+        31
+      ],
+      "region": "QUERY_BASE",
+      "field": "timer_clock",
+      "type": "uint32",
+      "windows_value": 0,
+      "windows_bits_hex": "0x00000000",
+      "query_row": 0,
+      "owner_slot": null,
+      "source_expression": "QUERY_BASE + query_row*QUERY_WORDS + 15"
+    },
+    {
+      "changed_word_indices": [
+        3128,
+        3129
+      ],
+      "region": "STATE_BASE",
+      "field": "due",
+      "type": "binary64_le",
+      "windows_value": 0.0,
+      "windows_bits64_hex": "0x0000000000000000",
+      "windows_low_word_hex": "0x00000000",
+      "windows_high_word_hex": "0x00000000",
+      "definition_row": 4,
+      "owner_slot": 0,
+      "owner_character": "폴리",
+      "definition_name_id": 4,
+      "definition_display_name": null
+    },
+    {
+      "changed_word_indices": [
+        3130,
+        3131
+      ],
+      "region": "STATE_BASE",
+      "field": "expiry",
+      "type": "binary64_le",
+      "windows_value": 0.0,
+      "windows_bits64_hex": "0x0000000000000000",
+      "windows_low_word_hex": "0x00000000",
+      "windows_high_word_hex": "0x00000000",
+      "definition_row": 4,
+      "owner_slot": 0,
+      "owner_character": "폴리",
+      "definition_name_id": 4,
+      "definition_display_name": null
+    },
+    {
+      "changed_word_indices": [
+        3132
+      ],
+      "region": "STATE_BASE",
+      "field": "epoch",
+      "type": "uint32",
+      "windows_value": 0,
+      "windows_bits_hex": "0x00000000",
+      "definition_row": 4,
+      "owner_slot": 0,
+      "owner_character": "폴리",
+      "definition_name_id": 4,
+      "definition_display_name": null
+    },
+    {
+      "changed_word_indices": [
+        3133
+      ],
+      "region": "STATE_BASE",
+      "field": "order",
+      "type": "uint32",
+      "windows_value": 0,
+      "windows_bits_hex": "0x00000000",
+      "definition_row": 4,
+      "owner_slot": 0,
+      "owner_character": "폴리",
+      "definition_name_id": 4,
+      "definition_display_name": null
+    },
+    {
+      "changed_word_indices": [
+        3136
+      ],
+      "region": "STATE_BASE",
+      "field": "activations",
+      "type": "uint32",
+      "windows_value": 0,
+      "windows_bits_hex": "0x00000000",
+      "definition_row": 4,
+      "owner_slot": 0,
+      "owner_character": "폴리",
+      "definition_name_id": 4,
+      "definition_display_name": null
+    },
+    {
+      "changed_word_indices": [
+        5657
+      ],
+      "region": "TIMER_TARGET_BASE",
+      "field": "target_generation",
+      "type": "uint32",
+      "windows_value": 0,
+      "windows_bits_hex": "0x00000000",
+      "definition_row": 4,
+      "owner_slot": 0,
+      "owner_character": "폴리",
+      "definition_name_id": 4,
+      "source_expression": "TIMER_TARGET_BASE + 2*definition_row + 1"
+    },
+    {
+      "changed_word_indices": [
+        86024
+      ],
+      "region": "REMOVAL_QUEUE_BASE",
+      "field": "two_packed_notice_slots",
+      "type": "uint32",
+      "windows_value": 12779528,
+      "windows_bits_hex": "0x00c30008",
+      "notice_entries": [
+        {
+          "notice_slot": 0,
+          "owner_slot": 0,
+          "owner_character": "폴리",
+          "name_id": 1,
+          "stack_notice": false,
+          "matching_saved_definition_rows": [
+            1
+          ],
+          "definition_display_name": null
+        },
+        {
+          "notice_slot": 1,
+          "owner_slot": 3,
+          "owner_character": "N102",
+          "name_id": 24,
+          "stack_notice": false,
+          "matching_saved_definition_rows": [
+            52
+          ],
+          "definition_display_name": null
+        }
+      ],
+      "pending_status": "unknown: retained queue storage alone does not establish a currently pending notice"
+    },
+    {
+      "changed_word_indices": [
+        86025
+      ],
+      "region": "REMOVAL_QUEUE_BASE",
+      "field": "two_packed_notice_slots",
+      "type": "uint32",
+      "windows_value": 9568394,
+      "windows_bits_hex": "0x0092008a",
+      "notice_entries": [
+        {
+          "notice_slot": 2,
+          "owner_slot": 2,
+          "owner_character": "드레이크",
+          "name_id": 17,
+          "stack_notice": false,
+          "matching_saved_definition_rows": [
+            36
+          ],
+          "definition_display_name": null
+        },
+        {
+          "notice_slot": 3,
+          "owner_slot": 2,
+          "owner_character": "드레이크",
+          "name_id": 18,
+          "stack_notice": false,
+          "matching_saved_definition_rows": [
+            37
+          ],
+          "definition_display_name": null
+        }
+      ],
+      "pending_status": "unknown: retained queue storage alone does not establish a currently pending notice"
+    },
+    {
+      "changed_word_indices": [
+        512176
+      ],
+      "region": "COUNTER_FIELD_WORK_BASE",
+      "field": "recordCounterFieldWork call count",
+      "type": "uint32",
+      "windows_value": 6640,
+      "windows_bits_hex": "0x000019f0",
+      "owner_slot": null,
+      "source_expression": "results[at]++"
+    },
+    {
+      "changed_word_indices": [
+        512178
+      ],
+      "region": "COUNTER_FIELD_WORK_BASE",
+      "field": "total recorded work",
+      "type": "uint32",
+      "windows_value": 6844,
+      "windows_bits_hex": "0x00001abc",
+      "owner_slot": null,
+      "source_expression": "results[at+2] += work"
+    }
+  ],
+  "definition_context": {
+    "row": 4,
+    "owner_slot": 0,
+    "kind_id": 6,
+    "stat_id": 0,
+    "name_id": 4,
+    "owner_character": "폴리",
+    "definition_display_name": null,
+    "name_resolution": "Symbolic metadata.effects/states name mapping was not persisted; no preparation/compiler/battle was rerun."
+  },
+  "compiled_definition_count": 76,
+  "symbolic_definition_names": "unknown when not persisted; numeric row/name IDs retained",
+  "source_evidence": {
+    "app/portable_specs.py": {
+      "bytes": 26944,
+      "sha256": "56f4bce83a64a6ae51ceba90d9bc7bae0196f1e8a3435d7df2e3fe6a81fcf322",
+      "lines": [
+        [
+          60,
+          69
+        ],
+        [
+          180,
+          188
+        ],
+        [
+          242,
+          247
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "app/portable_runtime.py": {
+      "bytes": 84504,
+      "sha256": "6773e143301efb9d908d0900d5f4c61b66fd19abfd31ff262fcda9e83a71829b",
+      "lines": [
+        [
+          716,
+          731
+        ],
+        [
+          769,
+          777
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "gpu/portable_schema.slang": {
+      "bytes": 29689,
+      "sha256": "3d7ae08f1784215a477efacdf36ded0511d2dd7b275cca85d4a588ffc986395b",
+      "lines": [
+        [
+          108,
+          108
+        ],
+        [
+          470,
+          474
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "gpu/definition_runtime.slang": {
+      "bytes": 8926,
+      "sha256": "b51aa866698ffae2aec5e209689a6d98ccda3dd5e1f047ce5a420fb69125abf6",
+      "lines": [
+        [
+          15,
+          24
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "gpu/carrier_runtime.slang": {
+      "bytes": 5886,
+      "sha256": "adfab37e9a391403e5e3adcdef3fcef36302ff9f04146eea42a14ad4fbc18b39",
+      "lines": [
+        [
+          50,
+          79
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "gpu/counter_field_runtime.slang": {
+      "bytes": 1455,
+      "sha256": "d972af3f7f9fd596a4c3732c79e344ce547532471374066c72dfeba3012153aa",
+      "lines": [
+        [
+          15,
+          27
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "app/portable_detail.py": {
+      "bytes": 28203,
+      "sha256": "c879c6d80d27f983d59276ae459328e3c1de334b829d02457efc73cf0bdc6ada",
+      "lines": [
+        [
+          191,
+          209
+        ]
+      ],
+      "immutable_manifest_match": true
+    }
+  },
+  "diagnosis_limitations": [
+    "M5 values/raw are not supplied; only word SHA differences are established.",
+    "Decoded values belong to Windows saved output only.",
+    "Different state/work fields do not by themselves establish why execution diverged or whether any retained queue slot was active."
+  ],
+  "cause": "unknown",
+  "original_poli_failure_preserved": true,
+  "original_batch_status": {
+    "bytes": 14841,
+    "sha256": "76a8530bcc44f2b463b9c6813803e74d1d32029e80b65dc788b8dff2d8bb457a"
+  },
+  "prior_block_diagnosis": {
+    "bytes": 9788,
+    "sha256": "26d1af8228e84b0c5de84618158cdba0134e8207a7bbca2112ef2194c5c535e5"
+  },
+  "whole_readback_mismatch_not_promoted": true,
+  "fresh_cpu_product_payload_match_retained": true,
+  "original_claims_preserved": true,
+  "original_records_unchanged": true,
+  "original_records_checked": 1152,
+  "d_executed": false,
+  "code_expected_values_tolerance_changed": false,
+  "additional_calls": {
+    "compilation": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "driver": 0,
+    "context": 0,
+    "kernel": 0,
+    "cpu_battle": 0,
+    "http": 0,
+    "process_snapshot": 0
+  }
+}

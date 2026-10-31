@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "scope": "CPU-only audit of actual M5 raw bytes against saved Windows peer summary; original Windows raw not imported",
+  "peer_report_commit": "d0d833f2",
+  "peer_report_sha256": "76a8530bcc44f2b463b9c6813803e74d1d32029e80b65dc788b8dff2d8bb457a",
+  "source_owner": "1ea8f3112a4eaa54e4ded1882b6a1723318a01ed79a593390c64ad795a19507e",
+  "request_document_sha256": "11ee5f0efe9ce29e472a2d202416f984d84c567a7f8b7e9848643b5bef98c828",
+  "rows": [
+    {
+      "character": "라피",
+      "favorite_stage": 0,
+      "executed": true,
+      "full_cpu_payload_matched": true,
+      "full_cuda_metal_readback_matched": true,
+      "input_sha256": "e72e4a091a27240aca6c632c9f972a0482a18a9859443a08324e6eef5fe81a80",
+      "mac_output_sha256": "a4241d79966de29c66145d782d7deeeeffbda26a5c8ab5e8eb4c6c10667db63c",
+      "cuda_output_sha256": "a4241d79966de29c66145d782d7deeeeffbda26a5c8ab5e8eb4c6c10667db63c",
+      "mac_capture": "89989c992e2f41b086177a85bb082401",
+      "windows_capture": "2eba25a34ef146c5bd583033a93ed93e",
+      "total_damage": 84503500
+    },
+    {
+      "character": "아니스 : 스타",
+      "favorite_stage": 0,
+      "executed": true,
+      "full_cpu_payload_matched": true,
+      "full_cuda_metal_readback_matched": true,
+      "input_sha256": "e754bdc5822a64035d0e7aeee3cfcd8fcf5f2a16730a28e8b3ebef0aa7a8d949",
+      "mac_output_sha256": "f9f11696d64656f275de08f2baf81b7d4787745e6202327e552d66db8007b825",
+      "cuda_output_sha256": "f9f11696d64656f275de08f2baf81b7d4787745e6202327e552d66db8007b825",
+      "mac_capture": "3e972f322b4743528e4d1953cfd3bcf5",
+      "windows_capture": "baeebc824d904903b803b81828549690",
+      "total_damage": 125865566
+    },
+    {
+      "character": "폴리",
+      "favorite_stage": 3,
+      "executed": true,
+      "full_cpu_payload_matched": true,
+      "full_cuda_metal_readback_matched": false,
+      "input_sha256": "774447605c6480cb355fed607bc94b01290e993c9139f621c0235154b3b21a0e",
+      "mac_output_sha256": "657ef8fb9ec63494bd16648f45f43a287cf0b04819448744f72e7675ae278050",
+      "cuda_output_sha256": "f0bd1d498d02416f91a44d8baf3cf907f4fa62380754b6ce4250011a5d13f231",
+      "mac_capture": "a535c51a8a35457487f52fe2a4c2463d",
+      "windows_capture": "ddb247de48024e31b24f465ab4c1da85",
+      "total_damage": 127814213
+    },
+    {
+      "character": "D",
+      "favorite_stage": 0,
+      "executed": false
+    }
+  ],
+  "additional_strictly_verified_standard_cuda_profiles": 2,
+  "total_strictly_verified_standard_cuda_profiles": 3,
+  "total_cpu_payload_matched_standard_cuda_profiles": 4,
+  "poli3_held_for_internal_readback_mismatch": true,
+  "additional_gpu_calls": 0,
+  "additional_cpu_battle_calls": 0,
+  "preservation_verified": false
+}
