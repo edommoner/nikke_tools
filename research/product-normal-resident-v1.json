@@ -1,0 +1,67 @@
+{
+  "scope": "Normal fixed product entry uses the same resident dispatch frame bank",
+  "implementation_commit": "cb4f4c1d4a75136d3e7f36d552e3a1e89279c2e2",
+  "proof_root": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-normal-resident-v1-20261101",
+  "golden": "research/portable-product-programs-v18-expected.json",
+  "historical_other_members_preserved": 16,
+  "input_output_native_entries_unchanged": true,
+  "math_or_canonical_cpu_changed": false,
+  "normalizer_or_tolerance_changed": false,
+  "new_suites": 0,
+  "admission": "Resident runtime plus composed arena or explicit normal product fixed/reload layout; ADD attack layout excluded because output stride differs",
+  "pre_device_failures_preserved": [
+    {
+      "path": "development-run-v1",
+      "reason": "Missing exact historical fixed-entry source inverse",
+      "gpu_claim": false,
+      "gpu_calls": 0
+    },
+    {
+      "path": "development-run-v2",
+      "reason": "Previous frame storage guard admitted composed arena only; normal product requires explicit buffer ownership scope",
+      "gpu_claim": true,
+      "gpu_calls": 0
+    }
+  ],
+  "metal": {
+    "development_run": "development-run-v3",
+    "package_id": "8d0ecabcc2ac06b44089e6bc7b79ab990c63f60099bdf6e1cc02d8219386c334",
+    "fresh_unit_tests": 111,
+    "one_native_case": 1,
+    "independent_seal": true,
+    "full_readback_unchanged": true,
+    "two_distinct_cases_single_dispatch": true,
+    "two_case_result": "two-case-v1/result.json",
+    "two_case_current_cpu_audit": {
+      "passed": true,
+      "scope": "Current complete CPU payload comparison for distinct second case; first case already independently sealed",
+      "native_calls": 1,
+      "gpu_calls": 0,
+      "damage": 16415516
+    }
+  },
+  "native_expectation_reuse": {
+    "initial_gpu_only_package_reuse_verified": true,
+    "final_history_and_codec_guard_changed": true,
+    "final_native_refrozen_seconds": 0.21803816704778,
+    "final_input_native_sha256_unchanged": true
+  },
+  "ordinary_api": {
+    "planned_impacted_profiles": 245,
+    "completed": 0,
+    "batch_size": 16,
+    "runner": "run-api-batches.py",
+    "saved_auditor": "audit-completed.py",
+    "same_old_requests": true
+  },
+  "cuda": {
+    "verification_requested": false,
+    "standard_30s_profiles": 0
+  },
+  "coverage": {
+    "last_standard_full_metal_sweep": 262,
+    "total_standard_profiles": 266,
+    "new_standard_profiles": 0,
+    "goal_complete": false
+  }
+}
