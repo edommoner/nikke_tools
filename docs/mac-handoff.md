@@ -1,3 +1,17 @@
+# 2026-10-31 現DoTソースの通常API全266profile再検証、Metal255一致・CPU11
+
+固定source463d70761a61ca14904e5bb5b55308d7f855f661・cleanのまま、従来とbyte同一の全266要求を通常HTTP APIへ逐次投入。標準30秒・固定周期で255profileが実Apple M5 MetalとCPU全製品payload一致、11profileは理由付きCPU切替。エラー/不一致/API cache hit0。全266保存captureの静的input全byte再生成、source/raw SHA、既存decoderの全CPU/GPU/API再投影も一致。保存監査の追加CPU戦闘/GPU0、全実行中source不変を確認。専用4376停止、通常4317/4327変更なし。小記録product-dot-current-catalogue-v1.json、原本product-dot-current-catalogue-v1-20261031。
+
+これは現sourceでの固定30秒catalogue条件の確認であり、全特殊効果/全条件の認定ではない。DoT限定9主役/23条件とは別範囲。残11はAnn/Yuni/Yan/Soldier O.W./Velvet/Snow White Heavy Arms/Bay4段階/Rei。CPU consumerが欠けた条件をGPUで無効果受付しない。全工程合計1197.371秒、Metal case中央値3.882427秒、GPU区間中央値1.982267秒。入れ子区間を合算せず、CPU個別時間は未測定。
+
+同sourceのDoT CUDA sealed owner e4307f8f…を既存transport fd0dacbbで共有。MacはMiranda複数時計の保存実行を静的再準備・再投影で再利用し、Moran accumulate2.5秒だけ新API実行、全CPU応答一致。Mirandaの旧evaluator commit/dirtyを現在のGit値へ偽装せず、原CPU/GPU/API完全一致と、実Git値に対応する現再投影の計算全field一致を分けて記録した。新Moranは現source全field一致。専用4375終了。
+
+Windowsはown61/skip0、deps/compile-plan/sealed paired生成成功。PTX NVRTC20.427736秒、object/O1 ptxas8.715133秒、link API0.040114秒でartifact生成。ただしlink外側の観測でmissing1、内側0/supervisor0、原因unknown。総監視140.534秒・timeout0・cleanup/観測操作error0・全Job終了。サービス未識別preservation=falseと全体falseを維持。保存記録だけの調査ではpath空のpython.exeでpipeline所有を立証できず、既存historical bindingも空path/外側capture不適合で拒否。内側成功で外側失敗を隠さず、再link/compile/GPUを行わない。現DoT sourceのCUDA製品実行0。原本はWindowsに残るpeer報告で、Macが原Windows captureを独立監査したとはしない。小記録product-boss-dot-current-cuda-v1.json。
+
+旧7JSONの共有はMac側の具体的許可を伝達したが、Windows自動承認レビューがWindows側chatの直接許可を要求して未共有。再push/代替経路/再計算なし。現boss-dotの観測失敗とは別件。
+
+次のCPU変更不要な実製品gapとして、元ニヒリスター6秒/実蓄積/召喚敵射撃の全原定義を静的準備（CPU戦闘/GPU0）し、通常compilerの「Summon attack/self-destruct requires its declared world consumer」を再現した。既存world_add_attack_battle_runtimeの実actor generation/alive/bornと射撃cursor・共通incoming処理を製品入力へ接続する。独立した計算器や新suiteを既定解にせず、元source identity・BODY/ADD順・有限履歴・CPU比較を保つ。canonical CPU/pinned/数値規約/strict normalizerは本turn変更0、全目標未完了。以下は履歴。
+
 # 2026-10-31 敵DoTを通常製品へ接続、Metal9profile/23条件がCPU全一致
 
 実装a76c0f31。元attack/debuffのdotをtyped stat95・外部enemy owner5として共通Slangへ接続。CPUの受け手/戦闘/発動予定表を入力にせず、既存の対象選択と個別carrier、免疫/解除/stack/期限を再利用する。別UID時計512件で再付与の位相・期限ちょうどの最終tick・早期解除・carrier slot再利用を扱い、HPのみへ適用する。shield/cover/decoy・received_hit・被弾集計を通さず、無敵/既存不屈と死亡処理を接続。HP低下の子イベント（回復/最大HP増加）が完了してからhp_afterを記録する。
