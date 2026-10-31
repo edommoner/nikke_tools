@@ -1,3 +1,15 @@
+## 2026-11-01 ClaudeとのCUDA停止箇所レビュー・保存source照合・監査中変更の検出
+
+前turnは現sourceの通常API全266確認（実M5/CPU一致262・理由付きCPU4、37dispatch）で進捗。今回はCUDA停止原因へ戻り、Claude Code Reviewerをsafe-mode/plan/tools無効/max-turn1の読み取り専用で使用。関連コード抜粋＋匿名化保存要約27,475bytesだけを隔離repoから渡し、raw出力はprivate proofに保持した。出力に疑似Write/ExitPlanMode文字列があったが実行しない。Claudeを承認器にはせず、所見を現コードで再検証。
+
+確認できた途中差替えの検出不足を既存linked_object_originで修正。manifest/artifacts/claimは読み取った同じbytesをparse/hashし、元capture inventory＋raw module.ptx/module.oのファイル記録を監査前後で照合、所有manifestも再検証結果と同一性を確認する。rawがmetadata inventory外に置かれる既存storage契約は維持し、過去inventoryを作り直さない。欠落プロセス拒否は従来どおり、歴史object例外・新suite/command・GPU/CPU正本/数値/normalizer/Windows制限変更0。途中のmanifest/claim/observation/inventory差替え、inventory欠落、comparison改変、missing、cleanup/observation errorをCPU故障注入で拒否。関連6群126検査成功、実ローカル旧cade ownerと最新7d4a ownerも現CLIでpayload再検証成功。実SDK/GPU0。
+
+Windows既存chatへfile-only依頼し、9aa76d24/object-source-identity-v1.jsonを取得。元PTX9889731b…、objectd4112ce0…、receipt/origin全一致。旧cadeと現5e1f固定入口のGPU依存179ファイル全bytes一致。Mac raw CUDA959747bb…とWindows raw5b827f0f…は異なる（当turn途中のraw一致という説明を訂正）。既存strict normalizer後84ca925f…は一致し、normalizer変更なし。正規化同一性は旧観測拒否を無効化せず、current CUDA実計算の証拠でもない。
+
+保存missing7のimage照合はSDK/driver確定0・NIKKE/service確定0だが全7未解決。元raw commandsは保存されておらず、basenameやroleラベルを所有根拠へ昇格しない。inner7/outer0、causeunknown、preservationfalse/serviceunverified、原1350records/claims保持。新snapshot/Slang/NVRTC/PTXAS/link/driver/context/GPU/HTTP/CPU戦闘0。再生成もlink継続も依頼していない。Claudeの「限定再利用なら祖先失敗を最終receiptまで保持・新失敗を積み重ねない」設計上の指摘は記録したが、object例外は未実装。exact capture+SHAの既存再現防止を全否定する指摘等は未確認として不採用。
+
+最後の全件実績は現source5e1f Metal262/266、CUDA旧source厳格3/266・現source0。新GPU profile0、全goal未完了。保存objectの消失問題は未解決で、原拒否を通すためのrole再分類/guard緩和はしない。未指定4profileと残モデル合成は独立して継続可能。小記録research/product-cuda-object-admission-review-v1.json、product-cuda-object-source-identity-v1.json。private review原本proofs/cuda-object-admission-review-v1-20261101、Claude91806はterminal。ユーザーサーバー不操作。以下は履歴。
+
 ## 2026-11-01 現sourceの全266profileを通常batch APIで再確認
 
 前turnはammo+coverの通常6条件接続で進捗。今回は5e1f9c2aで既存 `POST /api/jobs` へ `kind=batch` / `evaluations` 1〜32件を接続。重複キャラを含む独立候補を既存queueで扱い、GPUは互換wire最大8件、行ごとのresult/errorを入力順に保持する。編成ボードの重複禁止は変更0。停止再開・cache・CPU切替・入力準備・実行器は共用、新suite0。Node23検査成功。

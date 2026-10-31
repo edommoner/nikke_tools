@@ -1,3 +1,5 @@
+保存module objectの `linked_object_origin` は、元manifest/artifacts/claimを読み取った同じbytesでparse/hashし、監査前後でcapture inventoryとraw PTX/objectの記録を照合する。rawがmetadata inventory外にある履歴は直接hashして保持し、過去inventoryを書き換えない。欠落プロセスがある元objectは引き続き拒否する。既存のhistorical link bindingはobject失敗の解除には使えない。Mac/Windowsのraw生成CUDA差を、既存strict normalizer後の一致と混同しない。[外部レビューと確認した修正範囲](../research/product-cuda-object-admission-review-v1.json)。
+
 現source5e1f9c2aの通常batch API全件確認は203キャラ／266profile中、Metal262・理由付きCPU4。物理GPU37dispatchで各候補のCPU全結果を確認し、保存独立監査266件も成功した。これは30秒・既定育成/cubeなし・固定burst・標準編成の範囲で、自由条件・未指定モデル・全CUDA対応の証明ではない。CUDAは既存sourceで3profile、今回sourceの実CUDA確認は0。[全件確認と未対応理由](../research/product-catalogue-batch-v1.json)。
 
 `product-detail` の `ammo-cover-fixed` / `ammo-cover-accumulate` は、元の敵弾倉割合処理・ADD敵攻撃と独立遮蔽DEF／手動遮蔽を同じRuntimeへ接続する。固定は `package --suite product-detail --product-program ammo-cover-fixed --compact --out NEW.zip`、実蓄積は現在 `--develop` が必要。両方の完全input bankと独立output bankを持ち、敵攻撃がある場合は弾倉と遮蔽DEFをそれぞれ明示する。容量4の整数切捨て・再装填、容量100での非ゼロ減弾を含む通常30秒API6条件がM5/CPU全製品payload一致、保存独立監査済み。新しいゲーム既定値を決めた意味ではない。固定だけv21へ独立seal登録、旧18member不変、現CUDA計算は未確認。[検証範囲](../research/product-ammo-cover-v1.json)。

@@ -70,6 +70,47 @@ class DeviceLinkerTests(unittest.TestCase):
         self.assertFalse(origin['current_battle_equivalence_verified'])
         self.assertFalse(self.processes)
 
+    def test_object_evidence_changed_during_origin_audit_never_reaches_linker(self):
+        audit=cli.audit_partition_object_capture
+        for name,base in [('observation.json',self.f.capture),('artifacts.json',self.f.capture),
+                          ('module-object-claimed-cuda.json',self.f.base.package),('gpu-package.json',self.f.base.package)]:
+            path=base/name;before=path.read_bytes()
+            def changed(*args,**kwargs):
+                result=audit(*args,**kwargs);path.write_bytes(before+b'\n');return result
+            try:
+                with self.subTest(name=name),self.context(),patch.object(cli,'audit_partition_object_capture',side_effect=changed):
+                    with self.assertRaisesRegex(ValueError,'changed during admission'):cli.linked_object_origin(self.request)
+            finally:path.write_bytes(before)
+        self.assertFalse(self.processes)
+
+    def test_object_origin_rejects_missing_inventory_and_default_observation_failures(self):
+        path=self.f.capture/'artifacts.json';before=path.read_bytes();data=json.loads(before)
+        data['files']=[r for r in data['files'] if r['path']!='observation.json'];path.write_text(json.dumps(data))
+        try:
+            with self.context(),self.assertRaisesRegex(ValueError,'absent from inventory'):cli.linked_object_origin(self.request)
+        finally:path.write_bytes(before)
+        # Isolate the additional default guard from the preceding full object
+        # auditor: no historical-failure exception is introduced here.
+        observation=cli.load(self.f.capture/'observation.json');facts=cli.load(self.f.capture/'execution.json')
+        changed=copy.deepcopy(observation);changed['comparison']['termination_cause']='tampered'
+        from windows_validation_observer import compare_snapshots
+        missing=copy.deepcopy(observation)
+        source=dict(pid=999999,path='C:/synthetic/unrelated.exe',creation_filetime_ticks='1234',role='unrelated')
+        missing['before']['processes'].append(source)
+        missing['comparison']=compare_snapshots(missing['before'],missing['after'])
+        for name,value in [('observation.json',changed),('observation.json',missing),
+                           ('execution.json',dict(facts,cleanup_error='injected')),
+                           ('execution.json',dict(facts,observation_error='injected'))]:
+            path=self.f.capture/name;before=path.read_bytes();path.write_text(json.dumps(value))
+            cli.collect(self.f.capture,self.f.capture/'artifacts.json')
+            try:
+                with self.subTest(name=name,value=value),self.context(),\
+                     patch.object(cli,'audit_partition_object_capture',return_value=dict(object_verified=True,containment_verified=True)):
+                    with self.assertRaisesRegex(ValueError,'not verified|observation mismatch or lost process'):cli.linked_object_origin(self.request)
+            finally:
+                path.write_bytes(before);cli.collect(self.f.capture,self.f.capture/'artifacts.json')
+        self.assertFalse(self.processes)
+
     def test_compiler_object_owner_keeps_historical_validation_and_development_is_rejected(self):
         owner=self.f.base.m
         owner.update(suite='compiler-commands',purpose='compiler-diagnostic')

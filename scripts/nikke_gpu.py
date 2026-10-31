@@ -3077,22 +3077,46 @@ def linked_object_origin(request):
     package=Path(request['object_package']).resolve();capture=Path(request['object_capture']).resolve()
     expected=request['object_sha256']
     if len(expected)!=64 or any(c not in '0123456789abcdef' for c in expected):raise ValueError('Expected original object SHA256 required')
-    header=load(package/'gpu-package.json')
+    manifest_raw=(package/'gpu-package.json').read_bytes()
+    artifacts_raw=(capture/'artifacts.json').read_bytes()
+    claim_raw=(package/'module-object-claimed-cuda.json').read_bytes()
+    package_names=['gpu-package.json','module-object-claimed-cuda.json']
+    # Raw PTX/object files can deliberately live outside the metadata inventory.
+    # Anchor them directly, retaining their original receipt checks below;
+    # never rewrite a historical inventory to fit the current reader.
+    capture_names=sorted(set([r['path'] for r in json.loads(artifacts_raw)['files']]+
+        ['artifacts.json','module.ptx','module.o']))
+    before=(file_records(package,package_names),file_records(capture,capture_names))
+    def anchored(raw,name,records):
+        expected_record=next((r for r in records if r['path']==name),None)
+        if expected_record is None:raise ValueError('Required saved object evidence absent from inventory: '+name)
+        if (len(raw),sha(raw))!=(expected_record['bytes'],expected_record['sha256']):
+            raise ValueError('Saved object evidence changed during admission')
+        return raw
+    anchored(manifest_raw,'gpu-package.json',before[0])
+    anchored(claim_raw,'module-object-claimed-cuda.json',before[0])
+    anchored(artifacts_raw,'artifacts.json',before[1])
+    saved={name:anchored((capture/name).read_bytes(),name,before[1])
+        for name in ('execution.json','observation.json','object.json','module.o')}
+    header=json.loads(manifest_raw)
     producer=verify_package(package,historical_compiler=compiler_only(header))
+    if producer!=header:raise ValueError('Saved object owner changed during admission')
     if is_development(producer):raise ValueError('Saved module object requires a sealed or compiler-diagnostic owner')
     result=audit_partition_object_capture(producer,capture,module_object=True)
-    facts=load(capture/'execution.json')
+    facts=json.loads(saved['execution.json'])
     if not result['object_verified'] or not result['containment_verified'] or facts['cleanup_error'] or facts['observation_error']:raise ValueError('Saved module object is not verified')
     from windows_validation_observer import compare_snapshots
-    observation=load(capture/'observation.json');comparison=compare_snapshots(observation['before'],observation['after'])
+    observation=json.loads(saved['observation.json']);comparison=compare_snapshots(observation['before'],observation['after'])
     if observation['comparison']!=comparison or comparison['missing_existing_processes']:raise ValueError('Saved object observation mismatch or lost process')
-    proof=load(capture/'object.json');receipt=proof['receipt'];raw=(capture/'module.o').read_bytes();artifact=obj.validate_object(raw)
+    proof=json.loads(saved['object.json']);receipt=proof['receipt'];raw=saved['module.o'];artifact=obj.validate_object(raw)
     if artifact!=receipt['artifact'] or artifact['sha256']!=expected:raise ValueError('Object differs from original recorded SHA256')
-    claim=load(package/'module-object-claimed-cuda.json')
+    claim=json.loads(claim_raw)
     if claim.get('package_id')!=producer['package_id'] or Path(claim.get('capture','')).resolve()!=capture or claim.get('origin')!=proof['origin']:raise ValueError('Saved module object claim mismatch')
+    if before!=(file_records(package,package_names),file_records(capture,capture_names)):
+        raise ValueError('Saved object evidence changed during admission')
     return dict(schema=1,purpose='diagnostic-module-link',input=artifact,object_package_id=producer['package_id'],
-        object_manifest_sha256=sha((package/'gpu-package.json').read_bytes()),object_artifacts_sha256=sha((capture/'artifacts.json').read_bytes()),
-        object_claim_sha256=sha((package/'module-object-claimed-cuda.json').read_bytes()),object_receipt=receipt,
+        object_manifest_sha256=sha(manifest_raw),object_artifacts_sha256=sha(artifacts_raw),
+        object_claim_sha256=sha(claim_raw),object_receipt=receipt,
         expected_object_sha256=expected,object_compiler_verified=True,object_containment_verified=True,
         current_battle_equivalence_verified=False),raw
 
