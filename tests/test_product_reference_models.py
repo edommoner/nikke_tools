@@ -105,6 +105,31 @@ class ProductReferenceModels(unittest.TestCase):
             with self.subTest(at=at),self.assertRaises(UnsupportedPortable):read_result(bad,meta,3)
         with self.assertRaises(UnsupportedPortable):read_result(b[:-1],meta,3)
 
+    def test_lock_on_typed_no_expiry_sentinel_is_exact_and_bound_to_declared_target(self):
+        import portable_detail as product
+        from portable_product_locks import read_result,OUTPUT
+        from portable_lock_typed_layout import OFFSET
+        from portable_physical_lock_layout import HEAD
+        from portable_lock_packet_layout import HEAD as PACKET_HEAD,MAGIC
+        from portable_effect_target_count_shot_specs import HEAD as QUOTA_HEAD,MAGIC as QUOTA_MAGIC
+        from portable_packet_fates import HEAD as FATE_HEAD,MAGIC as FATE_MAGIC
+        from portable_runtime import UnsupportedPortable
+        prepared,_=product.prepare(self.lock_body(3,True));_,_,_,_,meta=product.compile_product(prepared)
+        b=array.array('I',[0])*OUTPUT;owner=meta['product_lock_on']['names'].index(meta['product_lock_on']['declarations']['lock_on']['owner'])
+        b[HEAD+OFFSET]=0x504c3031;b[HEAD+OFFSET+4]=owner;b[HEAD+OFFSET+5]=meta['physical_lock_pulse_row']
+        marker=meta['named_count_physical']['marker'];b[QUOTA_HEAD:QUOTA_HEAD+6]=array.array('I',[QUOTA_MAGIC,1,0,meta['states'][marker],5,128])
+        b[PACKET_HEAD+OFFSET]=MAGIC;b[FATE_HEAD]=FATE_MAGIC;b[786432]=0x44425431;b[789250:789253]=array.array('I',[1,1,1])
+        at=787456;b[at:at+4]=array.array('I',[2,11,1,0]);b[at+10]=0xffffffff
+        def number(offset,value):b[at+offset:at+offset+2]=array.array('I',struct.unpack('<II',struct.pack('<d',value)))
+        number(4,1e8);number(6,1e8);number(8,-1.)
+        self.assertEqual(read_result(b,meta,3)['lock_on']['typed']['state'][0]['expires'],-1.)
+        for offset,value in ((8,-2.),(8,0.),(8,float('nan')),(8,float('inf')),(4,1e8+1),(4,-1.),(6,1e8+1)):
+            saved=b[:];number(offset,value)
+            with self.subTest(offset=offset,value=value),self.assertRaises(UnsupportedPortable):read_result(b,meta,3)
+            b=saved
+        b[at+1]=12
+        with self.assertRaises(UnsupportedPortable):read_result(b,meta,3)
+
     def test_named_range_product_consumes_original_count_and_range_modifiers(self):
         from portable_named_range_battle_cases import fixtures
         from portable_runtime import UnsupportedPortable

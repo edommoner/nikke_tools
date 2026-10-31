@@ -169,8 +169,13 @@ def read_result(block,meta,duration):
     try:typed=reader.decode(block,(info['typed_case'],meta,bindings))
     except (AssertionError,ValueError,IndexError,struct.error):fail()
     if not 0<=typed['time']<=duration or typed['finished'] is not True:fail()
-    for row in typed['state']:
-        if row is not None and any(not math.isfinite(row[k]) or row[k]<0 for k in ('remaining','capacity','expires')):fail()
+    if len(typed['state'])!=len(spec['typed_bindings']):fail()
+    for row,binding in zip(typed['state'],spec['typed_bindings'],strict=True):
+        if row is None:continue
+        if (row['handle'][:2]!=[binding['kind'],binding['identity']] or not 0<row['handle'][2]<=0x7fffffff
+            or row['owner']!=binding.get('owner') or row['expires']!=-1.
+            or any(not math.isfinite(row[k]) or row[k]<0 for k in ('remaining','capacity'))
+            or row['capacity']!=binding['capacity'] or row['remaining']>row['capacity']):fail()
     for row in typed['attacks']:
         if row['owner']>=len(info['names']) or row['completed'] is not True or any(not math.isfinite(row[k]) or row[k]<0 for k in ('time','damage')):fail()
         for receipt in row['receipts']:
