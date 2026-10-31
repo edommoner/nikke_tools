@@ -1,0 +1,132 @@
+{
+  "schema": "movement-cover-fixed-stop-events-v1",
+  "scope": "Single independently authorized CPU read of existing narrowly filtered event logs; saved missing-process aggregation only.",
+  "permission_mode": "require_escalated",
+  "approval_denied": false,
+  "window_utc": {
+    "start_utc": "2026-10-31T22:55:43.341420Z",
+    "end_utc": "2026-10-31T22:57:45.300486Z",
+    "before_snapshot_start_utc": "2026-10-31T22:56:13.341420Z",
+    "after_snapshot_end_utc": "2026-10-31T22:57:15.300486Z"
+  },
+  "query_policy": {
+    "queries": 3,
+    "attempts_each": 1,
+    "retries": 0,
+    "timeout_each_seconds": 20,
+    "maximum_events_each": 64,
+    "raw_event_bodies_or_messages_saved": false
+  },
+  "queries": [
+    {
+      "provider": "Microsoft-Windows-Resource-Exhaustion-Detector",
+      "event_id": 2004,
+      "status": "no_events",
+      "count": 0,
+      "limit": 64,
+      "limit_reached": false,
+      "events": [],
+      "finite_error": null,
+      "query": "resource",
+      "exit_code": 0,
+      "elapsed_seconds": 0.8970848000608385
+    },
+    {
+      "provider": "Application Error",
+      "event_id": 1000,
+      "status": "no_events",
+      "count": 0,
+      "limit": 64,
+      "limit_reached": false,
+      "events": [],
+      "finite_error": null,
+      "query": "application",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9213795997202396
+    },
+    {
+      "provider": "Windows Error Reporting",
+      "event_id": 1001,
+      "status": "no_events",
+      "count": 0,
+      "limit": 64,
+      "limit_reached": false,
+      "events": [],
+      "finite_error": null,
+      "query": "wer",
+      "exit_code": 0,
+      "elapsed_seconds": 0.9212297000922263
+    }
+  ],
+  "saved_missing_identity_aggregation": {
+    "missing_count": 14,
+    "roles": {
+      "unrelated": 10,
+      "service_candidate": 4
+    },
+    "distinct_saved_parent_ids": 11,
+    "parent_groups_with_multiple_missing_children": 1,
+    "largest_same_parent_group": 4,
+    "children_per_parent_group_sorted": [
+      4,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "missing_records_with_parent_also_in_missing_set": 4,
+    "parent_birth_identity_saved": false,
+    "scope": "Saved parent IDs only; parent creation times unavailable; no new process query. No causal inference."
+  },
+  "job_and_exit": {
+    "child_timeout_seconds": 30,
+    "outer_budget_seconds": 180,
+    "below_normal_priority": true,
+    "child_exit_code": 0,
+    "wrapper_exit_code": 0,
+    "timed_out": false,
+    "cleanup_error": null,
+    "observation_error": null,
+    "elapsed_seconds": 1.0412798002362251,
+    "pre_gate_verified": true,
+    "post_wait_job_empty": true,
+    "inspection_error_present": false,
+    "job_limit_values": [
+      {
+        "pre_bytes": 2147483648,
+        "post_bytes": 2147483648,
+        "peak_bytes": 226000896
+      }
+    ]
+  },
+  "conclusion": {
+    "matching_logged_events_found": false,
+    "retrieval_failure": false,
+    "process_disappearance_cause": "unknown",
+    "memory_exhaustion_ruled_out": false,
+    "external_termination_ruled_out": false,
+    "validation_killed_missing_processes": "not_established",
+    "environment_preservation_verified": false,
+    "calculation_verified": false
+  },
+  "execution_and_integrity": {
+    "new_process_snapshot_queries": 0,
+    "current_os_memory_queries": 0,
+    "battle": 0,
+    "slang": 0,
+    "sdk": 0,
+    "driver": 0,
+    "gpu": 0,
+    "settings_changes": 0,
+    "dump_generation": 0,
+    "old_capture_or_claim_modified": false,
+    "original_files_checked_unchanged": 65
+  },
+  "next_action": "Stopped after the one authorized event-log diagnostic; no retries or compilation."
+}
