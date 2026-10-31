@@ -6,7 +6,7 @@
 
 保存11件も全source/input/readback SHA・静的再packing・全CPU/GPU/API応答を追加戦闘/GPU0で再投影し一致。途中のheader4/5単純変換案（1f52b510、packet910ad7c0…）はrequired coordinate control初期化を欠きGPU status64で拒否、全claim/raw/失敗を保持して不採用。最終は最初に11条件一致したversion6（実装bef1b205と復元0023cab3）と同じ計算bytes。専用4397/4398は停止、4317/4327は操作なし。
 
-既存normal accumulate/fixedの生成CUDA/MSLは、旧runtime03の生成物とraw byte/既存strict正規化とも完全一致を別CPU生成確認した。ただし共有Slang source rawは変わるため、旧CUBIN ownerを最新sourceへ付替えず、現在の厳密guardを維持する。今回Windows SDK/GPU/API追加0。CUDA製品実証1profile（蓄積1秒/固定4秒）は前の凍結runtime03の範囲、今回の座標固定モデルのCUDAは未確認。次は新entryの短い差分CUDA確認と、通常画面での明示モデル受付/未確認の合成条件。全goal未完了。小記録research/product-coordinate-fixed-v1.json、原本proofs/product-coordinate-fixed-v1-20261031。以下は履歴。
+既存normal accumulate/fixedの生成CUDA/MSLは、旧runtime03の生成物とraw byte/既存strict正規化とも完全一致を別CPU生成確認した。ただし共有Slang source rawは変わるため、旧CUBIN ownerを最新sourceへ付替えず、現在の厳密guardを維持する。今回Windows SDK/GPU/API追加0。CUDA製品実証1profile（蓄積1秒/固定4秒）は前の凍結runtime03の範囲、今回の座標固定モデルのCUDAは未確認。次は新entryの短い差分CUDA確認と、通常画面での明示モデル受付/未確認の合成条件。全goal未完了。登録後source f6cab742のsealed releaseはmovement d4cbc49d…/range7ba7ee42…、各packet自身109unit/fresh native1/GPU0、PTX60秒/2GiB/split2 plan成功。輸送a637dd9dで2ZIP（各約12MB）を既存codex/product-cuda-origin-gates-v1-packetへ共有。Windowsへ差分unit4→paired生成/初回PTX各1回だけ依頼済み。object/link/driver/GPU/APIは依頼なし、既存chatをpollし再送しない。小記録research/product-coordinate-fixed-v1.json、原本proofs/product-coordinate-fixed-v1-20261031。以下は履歴。
 
 ## 2026-10-31 現ソースの固定バースト4秒が実CUDA/Metal/CPU一致
 

@@ -712,11 +712,54 @@
     "prior_frozen_product_profiles": 1,
     "prior_scope": "Runtime03e166bc only: accumulate1s and fixed4s",
     "source_raw_changed": true,
-    "old_cubin_rebound_to_new_source": false
+    "old_cubin_rebound_to_new_source": false,
+    "ptx_generation_requested": true,
+    "requested_scope": "Delta CPU4, paired generation and first PTX only, one per new entry; object/link/driver/GPU/API not requested",
+    "pending_chat_turn": "awaiting authoritative live snapshot"
   },
   "owned_servers_stopped": [
     4397,
     4398
   ],
-  "full_goal_complete": false
+  "full_goal_complete": false,
+  "released_packets": {
+    "movement": {
+      "package_id": "d4cbc49d1cd6d53a7355ef81aa327487e2cee113dbe06175faf4c5b0e380fa28",
+      "source_commit": "f6cab7422bc356a8fb3a0807aaa0300f84b7bb70",
+      "own_unit_tests": 109,
+      "fresh_native_cases": 1,
+      "additional_gpu_calls": 0,
+      "ptx_compile_plan_passed": true,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false",
+        "--split-compile=2"
+      ],
+      "memory_limit_mib": 2048,
+      "sdk_timeout_seconds": 60
+    },
+    "range": {
+      "package_id": "7ba7ee4274766031446b093726a7e62736e17be933797415d4fb7b91f0c9877e",
+      "source_commit": "f6cab7422bc356a8fb3a0807aaa0300f84b7bb70",
+      "own_unit_tests": 109,
+      "fresh_native_cases": 1,
+      "additional_gpu_calls": 0,
+      "ptx_compile_plan_passed": true,
+      "compiler_options": [
+        "--std=c++17",
+        "--gpu-architecture=compute_86",
+        "--fmad=false",
+        "--split-compile=2"
+      ],
+      "memory_limit_mib": 2048,
+      "sdk_timeout_seconds": 60
+    }
+  },
+  "transport": {
+    "branch": "codex/product-cuda-origin-gates-v1-packet",
+    "commit": "a637dd9d",
+    "personal_settings": false,
+    "raw_buffers": false
+  }
 }
