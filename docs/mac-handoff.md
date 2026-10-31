@@ -1,5 +1,7 @@
 ## 2026-10-31 Heavy Armsの宣言Lock Onを通常製品へ接続
 
+最終追補：c0530f71のsealed owner a96b8d80…自身で全107unit／fresh native1／CPU-onlyが成功。独立sealとgolden全内容が同一で、追加GPU0。旧監査の否定テストもpacket自身で成功。専用4386を停止し、ユーザー4317／4327は未操作。
+
 通常HTTP→実Apple M5→既存形式の結果変換→CPU全field照合で、Heavy Armsの宣言モデル1profile・蓄積30秒6条件が成功した。BODYのみ、ADD3、弾体3、弾体破壊、手動遮蔽、owner3番目を同じGPUソース80695dd3／固定owner6408bcb6…で検査。元25効果＋装備を含む91定義を全bindingし、架空の弾体・武器metadata・CPU状態・計算済み対象をGPUへ渡さない。宣言なし／fixedはGPU前に理由付きCPU fallbackを確認。未確定のBODY優先・ADD出現順／生存凍結配送モデルであり、ゲーム距離順位や再対象化の認定ではない。
 
 既存NamedGenerationLocks／typed_battle／original-lock-compositionを再利用。CPUはcheckedな実queue境界へ接続し、global profilerを使わない。弾体0件はproduct専用macroのみ受付、旧typed entryは非空制約を維持。共通CUDA/Metal入口・入力・readback decoder・テストを共有する。新suiteなし、product-detailのlock-accumulate member。全107unit／fresh native1／M5 CLI／独立GPU禁止seal成功。API6保存rawもsource/input/SHA/全payloadを追加native/GPU0で監査済み。

@@ -206,5 +206,17 @@
   "other_golden_members_retained_as_historical_not_recertified": true,
   "cli_list_actual_suites": 692,
   "cli_list_unsealed_explicitly_reported": 281,
-  "cli_list_gpu_calls": 0
+  "cli_list_gpu_calls": 0,
+  "final_sealed_packet": {
+    "source_commit": "c0530f71b25d934a6391e88f14f612c9e51c4697",
+    "owner": "a96b8d80167aa8e46cfdf17f4b58fa65af9df266b3bb3940adcd6883b33370ac",
+    "own_tests": 107,
+    "fresh_native_cases": 1,
+    "cpu_verified": true,
+    "extra_gpu_calls": 0,
+    "golden_complete_equal_to_independent_seal": true,
+    "archive_bytes": 11926995,
+    "archive_sha256": "b1da96099cd08cc129b3f99f61a4123d4f64b0d5c65d1fce00f55c2d9bcefb2b",
+    "legacy_source_negative_test_passed_in_packet": true
+  }
 }
