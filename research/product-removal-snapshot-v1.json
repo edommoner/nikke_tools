@@ -591,7 +591,6 @@
     "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
   },
   "windows": {
-    "state": "Corrected source request sent; result pending",
     "transport_commit": "330e7e9b",
     "archive_bytes": 12021454,
     "archive_sha256": "97c2dcbc71bcb8ad358db84acadff738e4c4f92e47751dd8800af7f1c07f1c48",
@@ -607,7 +606,32 @@
     "outer_seconds": 180,
     "priority": "BelowNormal",
     "retry_allowed": false,
-    "old_bad_cubin_reexecuted": false
+    "old_bad_cubin_reexecuted": false,
+    "previous_request_state": "Corrected source request sent; result pending",
+    "state": "Saved v2 object observation stop diagnosed; link and GPU not executed",
+    "cpu_stop_record": "research/product-removal-snapshot-cpu-stop-v1.json",
+    "object_stop_record": "research/product-removal-snapshot-object-stop-v2.json",
+    "observation_diagnosis": "research/product-removal-snapshot-object-observation-diagnosis-v1.json",
+    "corrected_release_source": "93bbfb56b8bba5598c9d839db0453c2d86033948",
+    "corrected_owner": "cadeb8d8aa600cc59685aec5eaa8d975d0a81fcc48681fcd57b7716b7ffd6c29",
+    "corrected_transport_commit": "0da32c08",
+    "saved_result_commit": "8194d5a8",
+    "saved_diagnosis_commit": "e2332647",
+    "corrected_cpu_tests": 17,
+    "ptx_seconds": 16.5558429,
+    "object_seconds": 8.911937,
+    "object_verified": true,
+    "object_containment_verified": true,
+    "inner_missing_processes": 7,
+    "outer_missing_processes": 0,
+    "termination_cause": "unknown",
+    "preservation_verified": false,
+    "link_calls": 0,
+    "gpu_calls": 0,
+    "diagnosis_additional_gpu_sdk_snapshot_calls": 0,
+    "existing_link_admission_rejects_lost_process": true,
+    "original_claims_failure_preserved": true,
+    "retry_requested": false
   },
   "coverage": {
     "last_full_standard_metal_profiles": 262,
@@ -633,7 +657,7 @@
   },
   "proof_directory": "/Users/edo/Documents/ChatGPT/nikke_tools/.portable-recovery/proofs/product-removal-snapshot-v1-20261101",
   "remaining": [
-    "Actual corrected CUDA compile/Poli3 parity/D0 result pending",
+    "Corrected actual CUDA Poli3 parity/D0 remains unexecuted: saved object fails existing observation admission; no retry or guard bypass",
     "Four geometry/delivery-dependent standard profiles remain conditional",
     "Other consumer compositions and source-specific CUDA coverage remain incomplete"
   ]

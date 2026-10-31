@@ -738,6 +738,23 @@ class PortableDetail(unittest.TestCase):
             with patch.object(product,'decode',return_value=view):
                 with self.assertRaises((ValueError,RuntimeError)):
                     product.decode_payload(self.fixture['body'],self.prepared,self.prepared_run,self.metadata,[0])
+    def test_declared_warning_precedes_policy_and_hypothetical_notices(self):
+        from product_reference_models import WARNING
+        model=dict(schema=1,evidence='declared-model-not-game-verification',
+            declarations={'enemy_healing':[{'node':'heal'}]},enemy_healing={'receipts':[]})
+        body=copy.deepcopy(self.fixture['body'])
+        body.update(burst_policy='mast3',stat_deltas={body['squad'][0]:{'atk':100}})
+        run=copy.copy(self.prepared_run);run._portable_detail_model_warnings=['effect model']
+        metadata=dict(self.metadata,product_enemy_healing=True)
+        with patch.object(product,'decode',return_value=self.fixture['gpu_projection']),\
+             patch('portable_product_healing.read_result',return_value=model),\
+             patch.object(product.engine_worker.sim,'execute',side_effect=AssertionError('No CPU battle')):
+            payload=product.decode_payload(body,self.prepared,run,metadata,[0])
+        self.assertEqual(payload['app_warnings'],[
+            self.fixture['cpu_payload']['app_warnings'][0],'effect model',WARNING,
+            'マスト：ロマンチックメイドがいないため、3の倍数指定は適用せず全員オートで計算しました。',
+            '仮ステータスを含みます。ゲーム内で可能な育成を示すものではありません。'])
+
     def test_original_model_warnings_are_collected_without_a_cpu_battle(self):
         sys.path.insert(0,str(ROOT/'research'))
         from portable_original_identity_inventory import selected_profile_bodies

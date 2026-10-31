@@ -284,7 +284,11 @@ def decode_payload(body, prepared, run, metadata, block):
     if models:
         from product_reference_models import combine_public,warning
         payload['reference_models']=combine_public(models)
-        payload['app_warnings'].append(warning(payload['reference_models']['declarations']))
+        # Match the product CPU order: base, effect models, declarations,
+        # optional policy and hypothetical-growth notices. Keep list equality
+        # strict; a later declaration must not reorder the other notices.
+        payload['app_warnings'].insert(1+len(run._portable_detail_model_warnings),
+            warning(payload['reference_models']['declarations']))
     if 'manual_cover_sequences' in body:
         payload['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])
     if body.get('enemy',{}).get('parts'):

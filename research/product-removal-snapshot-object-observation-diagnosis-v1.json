@@ -1,0 +1,433 @@
+{
+  "schema": "removal-snapshot-object-observation-diagnosis-v1",
+  "owner": "cadeb8d8aa600cc59685aec5eaa8d975d0a81fcc48681fcd57b7716b7ffd6c29",
+  "scope": "Saved inventories, Job records, phase timestamps and immutable code only",
+  "original_inner_missing": 7,
+  "original_outer_missing": 0,
+  "original_preservation_verified": false,
+  "original_stop_not_promoted": true,
+  "identity_method": {
+    "fields": [
+      "pid",
+      "path.lower()",
+      "creation_filetime_ticks"
+    ],
+    "creation_strings_preserved": true,
+    "no_rounding_or_pid_reuse_equivalence": true,
+    "saved_comparisons_reproduced": true
+  },
+  "inventory_comparison": {
+    "outer_before": {
+      "exact_full_identity_matches": 0,
+      "same_pid_records": 0,
+      "same_pid_empty_path": 0,
+      "same_pid_missing_creation": 0,
+      "same_pid_same_path_different_creation": 0,
+      "same_pid_different_path": 0
+    },
+    "inner_before": {
+      "exact_full_identity_matches": 7,
+      "same_pid_records": 7,
+      "same_pid_empty_path": 0,
+      "same_pid_missing_creation": 0,
+      "same_pid_same_path_different_creation": 0,
+      "same_pid_different_path": 0
+    },
+    "inner_after": {
+      "exact_full_identity_matches": 0,
+      "same_pid_records": 0,
+      "same_pid_empty_path": 0,
+      "same_pid_missing_creation": 0,
+      "same_pid_same_path_different_creation": 0,
+      "same_pid_different_path": 0
+    },
+    "outer_after": {
+      "exact_full_identity_matches": 0,
+      "same_pid_records": 0,
+      "same_pid_empty_path": 0,
+      "same_pid_missing_creation": 0,
+      "same_pid_same_path_different_creation": 0,
+      "same_pid_different_path": 0
+    }
+  },
+  "timeline": [
+    {
+      "inventory": "outer_before",
+      "observed_unix_ns": "1793479298161797200",
+      "completion_utc": "2026-10-31T20:41:38.161797200Z",
+      "completion_jst": "2026-11-01T05:41:38.161797200+09:00"
+    },
+    {
+      "inventory": "inner_before",
+      "observed_unix_ns": "1793479307437897000",
+      "completion_utc": "2026-10-31T20:41:47.437897000Z",
+      "completion_jst": "2026-11-01T05:41:47.437897000+09:00"
+    },
+    {
+      "inventory": "inner_after",
+      "observed_unix_ns": "1793479324253965100",
+      "completion_utc": "2026-10-31T20:42:04.253965100Z",
+      "completion_jst": "2026-11-01T05:42:04.253965100+09:00"
+    },
+    {
+      "inventory": "outer_after",
+      "observed_unix_ns": "1793479331600456200",
+      "completion_utc": "2026-10-31T20:42:11.600456200Z",
+      "completion_jst": "2026-11-01T05:42:11.600456200+09:00"
+    }
+  ],
+  "timing_limit": "observed_unix_ns is normalization completion after CIM/listener queries; per-process capture/exit timestamps are not saved",
+  "known_control_exact_inventory_presence": {
+    "outer_coordinator": {
+      "outer_before": 1,
+      "inner_before": 1,
+      "inner_after": 1,
+      "outer_after": 1
+    },
+    "inner_coordinator_outer_child": {
+      "outer_before": 1,
+      "inner_before": 1,
+      "inner_after": 1,
+      "outer_after": 0
+    },
+    "inner_worker": {
+      "outer_before": 0,
+      "inner_before": 1,
+      "inner_after": 0,
+      "outer_after": 0
+    }
+  },
+  "missing_creation_relative_to_controls": {
+    "outer_coordinator": {
+      "missing_created_before": 0,
+      "missing_created_after": 7,
+      "missing_equal_creation": 0
+    },
+    "inner_coordinator_outer_child": {
+      "missing_created_before": 0,
+      "missing_created_after": 7,
+      "missing_equal_creation": 0
+    },
+    "inner_worker": {
+      "missing_created_before": 7,
+      "missing_created_after": 0,
+      "missing_equal_creation": 0
+    }
+  },
+  "outer_child_pid_equals_inner_wrapper_pid": true,
+  "saved_role_counts": {
+    "unrelated": 5,
+    "service_candidate": 2
+  },
+  "role_limit": "Saved role labels and command flags are not proven ownership",
+  "classification_flags": {
+    "observer_script_reference": 0,
+    "original_workspace_reference": 0,
+    "validation_reference": 0,
+    "server_script": 2,
+    "gpu_service_script": 0,
+    "command_available": 7
+  },
+  "job_pid_hints": {
+    "outer": {
+      "pre_gate_verified": true,
+      "pre_gate_single_child": true,
+      "post_wait_empty": true,
+      "missing_pid_matches_saved_job_members": 0,
+      "missing_pid_matches_wrapper": 0,
+      "missing_parent_pid_matches_wrapper": 0,
+      "missing_parent_pid_matches_child": 0,
+      "lossless_membership_for_missing_not_established": true
+    },
+    "inner": {
+      "pre_gate_verified": true,
+      "pre_gate_single_child": true,
+      "post_wait_empty": true,
+      "missing_pid_matches_saved_job_members": 0,
+      "missing_pid_matches_wrapper": 0,
+      "missing_parent_pid_matches_wrapper": 0,
+      "missing_parent_pid_matches_child": 0,
+      "lossless_membership_for_missing_not_established": true
+    }
+  },
+  "native_job_inspection": [
+    {
+      "stage": "partition_object_child",
+      "saved_job_member_count": 2,
+      "missing_pid_membership_hints": 0,
+      "observed_unix_ns": "1793479313043353700"
+    }
+  ],
+  "parent_graph": {
+    "distinct_parent_pid_count": 6,
+    "parent_pid_before_inventory_records": 2,
+    "parent_pid_after_inventory_records": 0,
+    "parent_creation_identity_saved": false,
+    "ancestry_not_inferred_from_parent_pid": true
+  },
+  "creation_overlaps_saved_calls": [
+    {
+      "journal": "outer_preparation",
+      "stage": "packet_verify_package",
+      "creation_count": 5,
+      "temporal_overlap_only_not_causal": true
+    },
+    {
+      "journal": "outer_preparation",
+      "stage": "packet_bounded_stage",
+      "creation_count": 7,
+      "temporal_overlap_only_not_causal": true
+    },
+    {
+      "journal": "inner_preparation",
+      "stage": "object_preflight_origin",
+      "creation_count": 2,
+      "temporal_overlap_only_not_causal": true
+    }
+  ],
+  "process_origin_classification": {
+    "confirmed_validation_job_full_identity_matches": 0,
+    "confirmed_coordinator_matches": 0,
+    "confirmed_snapshot_helper_matches": 0,
+    "ownership_unknown": 7,
+    "cause_unknown": 7,
+    "direct_snapshot_helper_excluded_by_source_name_filter": true,
+    "temporal_cpu_origin_overlap_does_not_prove_spawn_origin": true
+  },
+  "conclusion": {
+    "outer_after_exact_survivors": 0,
+    "inner_after_same_pid_partial_identity_candidates": 0,
+    "both_after_absent": 7,
+    "real_exit_not_established_by_inventory_absence": true,
+    "termination_cause": "unknown",
+    "observation_gap_or_pid_reuse_not_proven": true
+  },
+  "jit_source_object_admission": {
+    "executed": false,
+    "code_read_only": true,
+    "object_verified": true,
+    "containment_verified": true,
+    "formal_error": null,
+    "original_compiler_exit_code": 0,
+    "artifact": {
+      "bytes": 5757232,
+      "sha256": "d4112ce0b89bf04cfc27c36fcf30eedb4ab37ce618275229fd6640e96aba1cbb"
+    },
+    "artifact_matches_saved_receipt": true,
+    "preservation_false_alone_is_not_a_direct_rejection": true,
+    "recomputed_saved_missing_is_explicitly_rejected": true,
+    "predicted_rejection_for_original_capture": "ValueError: Saved object observation mismatch or lost process",
+    "rejection_precedes_object_sha_claim_checks_and_sdk_launch": true,
+    "original_observation_not_rewritten": true,
+    "guard_not_modified_or_bypassed": true
+  },
+  "evidence": {
+    "outer_observation": {
+      "bytes": 62161,
+      "sha256": "10bc31b3374fc55e4dacf57cd2e7c7f779609ee05b55870373b6671f4ca6c937",
+      "fields": [
+        "before/after.processes and comparison"
+      ]
+    },
+    "inner_observation": {
+      "bytes": 75451,
+      "sha256": "886a6f4f4d4c0ca6d05e78628cce30fffbd02b914602b6e47d0895dfd0ef0df6",
+      "fields": [
+        "before/after.processes and comparison"
+      ]
+    },
+    "outer_job": {
+      "bytes": 1094,
+      "sha256": "8cceb7840a7af725d71d3c5a34e2d9661f0856b794bd1a7851790fb0429bdd52",
+      "fields": [
+        "saved Job/phase/execution/origin/command fields"
+      ]
+    },
+    "inner_job": {
+      "bytes": 1095,
+      "sha256": "e471de514b06573d65e3b0a838f8d468f1f4f84988bc22feaa031a4b9f7d5c5f",
+      "fields": [
+        "saved Job/phase/execution/origin/command fields"
+      ]
+    },
+    "outer_execution": {
+      "bytes": 1107,
+      "sha256": "2801add8737a6155ddf7682f67507ec7916123ee9d9a7c2d3c9bd2b3ff764eb5",
+      "fields": [
+        "saved Job/phase/execution/origin/command fields"
+      ]
+    },
+    "inner_execution": {
+      "bytes": 1631,
+      "sha256": "7ee458c7a18cf8f146c0b56ce3331c93c78ce9677649883f07c152f519a8bf21",
+      "fields": [
+        "saved Job/phase/execution/origin/command fields"
+      ]
+    },
+    "outer_preparation": {
+      "bytes": 2397,
+      "sha256": "eb8d10e3b6947664294f84b226e00dda881920d095c1f948ef8b83a0686fbe9e",
+      "fields": [
+        "saved Job/phase/execution/origin/command fields"
+      ]
+    },
+    "inner_preparation": {
+      "bytes": 1894,
+      "sha256": "496ccfd9d2ab640d2699e72ddc63e4c8d36e51f03bae41a2480ffeb988d8409a",
+      "fields": [
+        "saved Job/phase/execution/origin/command fields"
+      ]
+    },
+    "native_phases": {
+      "bytes": 42453,
+      "sha256": "e332752fede2bf8fb40592348f21a2cb2a05474c39e3496cf14e341eea7ba41f",
+      "fields": [
+        "saved Job/phase/execution/origin/command fields"
+      ]
+    },
+    "source_object_result": {
+      "bytes": 305,
+      "sha256": "21667cf2befe48a2ff4086ffc2c8e967a8e85b30827d4ae2adcd08bb600f1057",
+      "fields": [
+        "saved Job/phase/execution/origin/command fields"
+      ]
+    },
+    "source_object_receipt": {
+      "bytes": 44316,
+      "sha256": "8ba42fdd2c27d675bd7a57eef10ba82c29b43dd41240092a103ffba78df70bf7",
+      "fields": [
+        "saved Job/phase/execution/origin/command fields"
+      ]
+    },
+    "source_object_claim": {
+      "bytes": 19735,
+      "sha256": "52f71602550b2f4aa4b079f075646a6bee2fd107371d999734a7bf2ffd64b46f",
+      "fields": [
+        "saved Job/phase/execution/origin/command fields"
+      ]
+    },
+    "outer_command": {
+      "bytes": 740,
+      "sha256": "335d055cbe7b9be3ef3663ce9505216e912a6ff3dfc6542718ea610b0d237b4e",
+      "fields": [
+        "saved Job/phase/execution/origin/command fields"
+      ]
+    },
+    "prior_status": {
+      "bytes": 6632,
+      "sha256": "2ac4a4d4a804cfce1e7367e212f795ca931d608c29e43afe454a385b8ddac636",
+      "fields": [
+        "saved Job/phase/execution/origin/command fields"
+      ]
+    }
+  },
+  "source_evidence": {
+    "scripts/nikke_gpu.py": {
+      "bytes": 469326,
+      "sha256": "6dddbeab01892d44db7dcb1241b75c8e9eb730926132398f000a30d52ab3f044",
+      "lines": [
+        [
+          2486,
+          2543
+        ],
+        [
+          3074,
+          3100
+        ],
+        [
+          3213,
+          3217
+        ],
+        [
+          3308,
+          3355
+        ],
+        [
+          3410,
+          3435
+        ],
+        [
+          3640,
+          3654
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "scripts/run-gpu-packet.py": {
+      "bytes": 53899,
+      "sha256": "c7c763e1b7609bbcb8a92d86c78cd2f7d46b1ec775c81a2b53a20e508ccd528b",
+      "lines": [
+        [
+          478,
+          503
+        ],
+        [
+          561,
+          574
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "research/windows_validation_observer.py": {
+      "bytes": 14082,
+      "sha256": "97d7405ff8771cf413f5e58c14ebea98037afb8a3691417d12e7b21d2d45fdd3",
+      "lines": [
+        [
+          18,
+          43
+        ],
+        [
+          99,
+          108
+        ],
+        [
+          132,
+          143
+        ],
+        [
+          146,
+          183
+        ],
+        [
+          187,
+          215
+        ]
+      ],
+      "immutable_manifest_match": true
+    },
+    "research/run-world-bounded.py": {
+      "bytes": 10282,
+      "sha256": "10ef875f8157d85b44ecc28e868c2cc95330eb9b4c59ad22723840533fa8074c",
+      "lines": [
+        [
+          106,
+          157
+        ]
+      ],
+      "immutable_manifest_match": true
+    }
+  },
+  "limitations": [
+    "No saved exact parent creation/executable identities for the seven processes",
+    "No exit events or exit codes for the seven missing identities",
+    "Only classification flags, not full command lines, were retained",
+    "No continuous full-identity Job membership timeline",
+    "No new snapshots were taken to fill gaps"
+  ],
+  "original_claims_failure_preserved": true,
+  "original_records_unchanged": true,
+  "original_records_checked": 1350,
+  "additional_calls": {
+    "snapshot": 0,
+    "slang": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "cpu_battle": 0,
+    "http": 0
+  },
+  "original_evidence_unchanged_during_diagnosis": true
+}
