@@ -70,15 +70,15 @@ def compile_product(prepared):
     if range_required(prepared):return compile_range(prepared)
     from portable_product_movement import required as movement_required,compile_product as compile_movement
     if movement_required(prepared):return compile_movement(prepared)
+    from portable_product_cover import required as cover_required,compile_product as compile_cover
+    if not prepared.get('_product_cover_compiled') and cover_required(prepared):
+        return compile_cover(prepared,compile_product)
     from portable_product_ammo import required as ammo_required,compile_product as compile_ammo
     if not prepared.get('_product_ammo_compiled') and ammo_required(prepared):
         return compile_ammo(prepared,compile_product)
     from portable_product_weighted import required as weighted_required,compile_product as compile_weighted
     if not prepared.get('_product_weighted_compiled') and weighted_required(prepared):
         return compile_weighted(prepared,compile_product)
-    from portable_product_cover import required as cover_required,compile_product as compile_cover
-    if not prepared.get('_product_cover_compiled') and cover_required(prepared):
-        return compile_cover(prepared,compile_product)
     from portable_product_healing import required,compile_product as compile_healing
     if not prepared.get('_product_healing_compiled') and required(prepared):
         return compile_healing(prepared,compile_product)
@@ -265,7 +265,9 @@ def decode_payload(body, prepared, run, metadata, block):
             models.append(model)
     if metadata.get('product_enemy_ammo'):
         from portable_product_ammo import read_result
-        model=read_result(block,metadata)
+        from portable_enemy_ammo_wire import LAYOUT as AMMO
+        ammo_block=block[:AMMO['OUTPUT_WORDS']] if metadata.get('product_ammo_cover') else block
+        model=read_result(ammo_block,metadata)
         ammo_attempts=model['enemy_ammo']['attempts'] if model is not None else []
         if model is not None:
             models.append(model)

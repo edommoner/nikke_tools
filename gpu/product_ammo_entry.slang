@@ -1,3 +1,4 @@
+#ifndef PORTABLE_PRODUCT_EXTERNAL_EXECUTOR
 [shader("compute")]
 [numthreads(1,1,1)]
 void portableEvents(uint3 id:SV_DispatchThreadID)
@@ -13,3 +14,4 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     uint queries;executePortableCommands(runtimeStates[id.x],input,output,queries);
     writePortableProgram(runtimeStates[id.x],input,output,queries);
 }
+#endif

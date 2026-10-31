@@ -16,7 +16,10 @@ def resource_readback(words,metadata,L,number):
     if extended:
         from portable_enemy_ammo_wire import LAYOUT as E
         capacity=128+(E['OUTPUT_WORDS']-E['OUTPUT_BASE']-E['RESOURCE_BASE'])//8
-        if len(words)!=E['OUTPUT_WORDS'] or count!=words[header+1] or count>capacity or any(words[header+2:header+8]):raise RuntimeError('Invalid complete product resource history')
+        expected=E['OUTPUT_WORDS']
+        if metadata.get('product_ammo_cover'):
+            from portable_cover_defense_wire import OUTPUT as expected
+        if len(words)!=expected or count!=words[header+1] or count>capacity or any(words[header+2:header+8]):raise RuntimeError('Invalid complete product resource history')
     elif count>L['TRACE']:raise RuntimeError('Invalid resource notification count')
     trace=[]
     for i in range(count):

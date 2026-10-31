@@ -9,6 +9,49 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def test_enemy_ammo_cover_preserves_complete_banks_and_requires_each_literal_model(self):
+        import portable_detail as product
+        from portable_product_programs import body_for_program
+        from portable_enemy_ammo_wire import LAYOUT as A,MAGIC as AM
+        from portable_cover_defense_wire import LAYOUT as C,MAGIC as CM
+        from portable_backend import validate_composed_stride
+        from portable_runtime import UnsupportedPortable
+        self.assertEqual(A['OUTPUT_WORDS'],C['OUTPUT_BASE'])
+        for mode in ('fixed','accumulate'):
+            body=body_for_program(ROOT,'ammo-cover-'+mode)
+            before=copy.deepcopy(body)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle input')):
+                prepared,_=product.prepare(body);old=copy.deepcopy(prepared)
+                source,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertEqual((body,prepared),(before,old))
+            validate_composed_stride(source,iw,ow)
+            self.assertEqual((iw,ow,len(words)),(117656,2048912,117656))
+            self.assertEqual(words[A['BASE']:A['BASE']+4],[AM,1,0,1])
+            self.assertEqual(words[A['INPUT_WORDS']:A['INPUT_WORDS']+4],[CM,1,5,1])
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+            self.assertTrue(meta['product_ammo_cover'])
+            self.assertFalse(meta['product_enemy_ammo']['cpu_state_or_schedule_supplied'])
+            self.assertFalse(meta['product_cover_defense']['cpu_state_or_schedule_supplied'])
+            for bad in [(iw-24,ow),(iw,ow-1)]:
+                with self.assertRaises(ValueError):validate_composed_stride(source,*bad)
+            body['enemy']['patterns']=[dict(id='attempt',kind='attack',spec=dict(atk=1000,coeff=100,target='all',hits=3,interval=1.))]
+            magazine=[dict(label='__enemy__',capacity=4,initial=4,reload_seconds=1.,cancel_on_full=True)]
+            covers=[dict(name=n,base_defense=100.) for n in body['squad']]
+            # Each consumer must independently refuse missing quantities.
+            for declarations,reason in [({'enemy_ammo':magazine},'explicit.*cover_defense'),({'cover_defense':covers},'explicit.*magazines')]:
+                with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle input')):
+                    pre,_=product.prepare(dict(body,reference_models=declarations))
+                    with self.assertRaisesRegex(UnsupportedPortable,reason):product.compile_product(pre)
+            combined={'enemy_ammo':magazine,'cover_defense':covers}
+            self.assertEqual(normalize(combined),combined)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU battle input')):
+                pre,_=product.prepare(dict(body,reference_models=combined));s,wi,wo,w,m=product.compile_product(pre)
+            self.assertEqual((s,wi,wo),(source,iw,ow))
+            self.assertEqual(w[A['BASE']:A['BASE']+4],[AM,1,1,1])
+            self.assertEqual(w[A['INPUT_WORDS']:A['INPUT_WORDS']+4],[CM,1,5,0])
+            self.assertEqual(m['product_enemy_ammo']['declarations'],{'enemy_ammo':magazine})
+            self.assertEqual(m['product_cover_defense']['declarations'],{'cover_defense':covers})
+
     def test_independent_public_models_merge_losslessly_and_reject_overwrite(self):
         from product_reference_models import combine_public,warning,WARNING,COVER_WARNING
         a=dict(schema=1,evidence='declared-model-not-game-verification',declarations={'enemy_healing':[{'node':'heal'}]},enemy_healing={'receipts':[{'applied':2}]})

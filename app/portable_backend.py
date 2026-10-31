@@ -111,6 +111,14 @@ def validate_composed_stride(source,input_words,output_words):
         if (input_words,output_words)!=(INPUT,OUTPUT):raise ValueError('Weighted incoming requires complete literal weights and owned receipt banks')
         return
     from portable_product_programs import PROGRAMS
+    ammo_cover_sources={p['source'] for n,p in PROGRAMS.items() if n.startswith('ammo-cover-')}
+    if source in ammo_cover_sources:
+        from portable_cover_defense_wire import check_schema,LAYOUT as C,OUTPUT
+        from portable_enemy_ammo_wire import check_schema as ammo_schema,LAYOUT as A
+        check_schema(ROOT);ammo_schema(ROOT)
+        if A['OUTPUT_WORDS']!=C['OUTPUT_BASE']:raise ValueError('Ammo and cover receipt banks must remain disjoint and contiguous')
+        if (input_words,output_words)!=(A['INPUT_WORDS']+C['WORDS'],OUTPUT):raise ValueError('Ammo/cover requires both complete declaration and receipt banks')
+        return
     healing_cover_sources={p['source'] for n,p in PROGRAMS.items() if n.startswith('healing-cover-')}
     if source in healing_cover_sources:
         from portable_cover_defense_wire import check_schema,LAYOUT as C,OUTPUT

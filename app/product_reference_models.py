@@ -37,7 +37,7 @@ def normalize(value):
     if value is None:return {}
     if type(value) is not dict or set(value)-{'enemy_healing','weighted_incoming','cover_defense','enemy_ammo','enemy_movement','named_range','lock_on'}:
         raise ValueError('reference_modelsには接続済みのenemy_healing／weighted_incoming／cover_defense／enemy_ammo／enemy_movement／named_range／lock_onだけを指定してください。')
-    if 'enemy_ammo' in value and len(value)!=1:raise ValueError('Enemy magazine composition requires a combined checked native consumer')
+    if 'enemy_ammo' in value and set(value)-{'enemy_ammo','cover_defense'}:raise ValueError('Enemy magazine composition requires a combined checked native consumer')
     if 'enemy_movement' in value and len(value)!=1:raise ValueError('Movement composition requires a combined checked native consumer')
     if 'named_range' in value and len(value)!=1:raise ValueError('Named range composition requires a combined checked native consumer')
     if 'lock_on' in value and len(value)!=1:raise ValueError('Lock composition requires a combined checked native consumer')
