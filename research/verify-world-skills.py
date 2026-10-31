@@ -11,18 +11,7 @@ SOURCE='gpu/world_skill_entry.slang'
 def fixtures():return cases.fixtures(physical)
 def compile_case(case):
  return cases.compile_case(physical,case)
-def skill_trace(block):
- number=lambda at:struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
- h=L['WORLD_SKILL_HEAD_BASE'];assert block[h]==0x57534b31 and block[h+1]<=128
- rows=[]
- for i in range(block[h+1]):
-  at=L['WORLD_SKILL_TRACE_BASE']+i*48;n=block[at+3];assert n<=128;packed=block[at+16:at+48];recipients=[((packed[k//4]>>((k%4)*8))&255)-1 for k in range(n)]
-  assert all(0<=v<128 for v in recipients) and not any((packed[k//4]>>((k%4)*8))&255 for k in range(n,128))
-  bits=[0]*4
-  for target in recipients:bits[target//32]|=1<<(target%32)
-  assert list(block[at+12:at+16])==bits
-  rows.append(dict(row=block[at],hit=block[at+1],hits=block[at+2],created=number(at+4),landed=number(at+6),amount=number(at+8),share=number(at+10),recipients=recipients))
- return rows
+from portable_skill_history import decode_prefix as skill_trace
 def prepare():
  rows=fixtures();programs=[compile_case(c) for c in rows];bad=[];seed=programs[0][0];skill=next(i for i,e in enumerate(rows[0]['effects']) if e.get('type')=='damage');definition=L['DEFINITION_BASE']+skill*L['DEFINITION_WORDS'];packet=L['DAMAGE_DEFINITION_BASE']+skill*8
  for name,at,value in [('unknown-skill-mode',L['TARGET_COUNTER_INPUT_BASE']+6,8),('skill-without-native-landings',L['LANDING_META_BASE'],0),('skill-route-overflow',packet,10),('skill-recipient-zero',packet+1,0),('skill-recipient-overflow',packet+1,129),('skill-hit-overflow',packet+2,257),('skill-explicit-parts-unported',definition+F['DAMAGE_FLAGS'],65536),('skill-dot-unported',definition+F['DAMAGE_FLAGS'],128),('skill-flags-overflow',definition+F['DAMAGE_FLAGS'],0x80000000)]:

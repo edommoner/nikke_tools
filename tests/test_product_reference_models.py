@@ -282,7 +282,8 @@ class ProductReferenceModels(unittest.TestCase):
                 block[at:at+4]=array.array('I',[7,1,1,1])
                 for off in (4,6,8,10):block[at+off:at+off+2]=array.array('I',struct.unpack('<II',struct.pack('<d',i/1000.)))
                 block[at+12]=1;block[at+16]=1
-            rows=decode_pages(block,count,COVER_SKILL_BASE)
+            with patch('importlib.util.spec_from_file_location',side_effect=AssertionError('Product history must not import verification entries')):
+                rows=decode_pages(block,count,COVER_SKILL_BASE)
             self.assertEqual(len(rows),count);self.assertEqual(rows[-1]['landed'],(count-1)/1000.)
             # Corruption after the original128-row prefix must be observed.
             block[COVER_SKILL_BASE+17]=1

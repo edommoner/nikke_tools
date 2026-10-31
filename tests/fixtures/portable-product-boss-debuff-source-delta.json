@@ -1338,7 +1338,7 @@
     },
     "app/portable_world_result.py": {
       "before_sha256": "14b75458d6d90058523c1bd63bdfc5ba23b4842b690bd2d64cc64ba0f4101fec",
-      "after_sha256": "fd382b84ef999f958be24ce421fbeb9186caf11ee52e107c70e64fdb03e05f5c",
+      "after_sha256": "c93140b8531fe08762ace07147f625eca8d90980001f1536725044d08e526c43",
       "hunks": [
         {
           "start": 471,
@@ -1471,6 +1471,12 @@
           "end": 9216,
           "before": "",
           "after": "None\n        elif kind in (4,5):\n            if who not in manual or list(block[at+4:at+8])!=[1,0,0,0]:fail()\n            label=dict(input='cover',mode='cover',producer='엄폐(시퀀스)')\n            if kind==4:\n                if who in active:fail()\n                active[who]=(when,label)\n            else:\n                if who not in active or active[who][1]!=label:fail()\n                close(who,when)\n            last_close="
+        },
+        {
+          "start": 11785,
+          "end": 15491,
+          "before": "",
+          "after": "\n\ndef number(block,at):\n    return struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]\n\n\ndef read_typed_battle(block,domain,*,sampled_coefficients=None,sampled_rows=None,sampled_packets=None,sampled_skill_metadata=None):\n    from world_frame_native import roster_names\n    from world_authored_roster import skill_levels\n    from destructible_skill_specs import coefficient\n    c,m,b=domain;assert block[0]==0,('battle status',block[0]);assert block[786432]==0x44425431 and not any(block[786434:786448])\n    header=789248;assert block[header+2]==1 and block[header+3] in (0,1) and block[header+4]==1 and not any(block[header+5:header+16])\n    assert not any(block[787456+len(c['typed_bindings'])*14:787456+128*14]),'Unbound typed state'\n    state=[]\n    for i in range(len(c['typed_bindings'])):\n        at=787456+i*14\n        if block[at+2]==0:assert not any(block[at:at+14]);state.append(None);continue\n        assert block[at+3] in (0,1)\n        state.append(dict(handle=list(block[at:at+3]),alive=bool(block[at+3]),remaining=number(block,at+4),capacity=number(block,at+6),expires=number(block,at+8),owner=None if block[at+10]==0xffffffff else list(block[at+10:at+13])))\n        assert block[at+13]==0\n    attacks=[];count=block[786433];assert count<=c['max_attacks']\n    if sampled_coefficients is not None:assert len(sampled_coefficients)==count,'Native coefficient sample count'\n    if sampled_rows is not None:assert len(sampled_rows)==count,'Native source sample count'\n    if sampled_packets is not None:assert len(sampled_packets)==count,'Native packet sample count'\n    if sampled_skill_metadata is not None:assert len(sampled_skill_metadata)==count,'Native skill metadata count'\n    for i in range(count):\n        at=790000+i*1040;selected=block[at+3];assert 1<=selected<=128 and block[at+10] in (0,1)\n        source=sampled_rows[i] if sampled_rows is not None else next(j for j,e in enumerate(c['effects']) if e.get('target')=='all_projectiles')\n        if source is None:\n            assert sampled_packets is not None and sampled_coefficients is not None,'Explicit native weapon samples required'\n            assert list(block[at+11:at+16])==[0,1,int(sampled_packets[i]),0,0],'Weapon packet family/mode'\n            source_row=0xffffffff;sampled_coefficient=sampled_coefficients[i]\n        else:\n            if sampled_skill_metadata is None:assert not any(block[at+11:at+16]),'Unused skill packet metadata'\n            else:assert list(block[at+11:at+16])==sampled_skill_metadata[i],'Original skill family/selector metadata'\n            owner=c['owners'][source];source_row=m['binding_source_indices'].index(source)\n            sampled_coefficient=(sampled_coefficients[i] if sampled_coefficients is not None else coefficient(c['effects'][source],dict(name=roster_names(c)[owner],skill_levels=skill_levels(c)[owner])))\n        assert block[at+1]==source_row and struct.pack('<II',*block[at+6:at+8])==struct.pack('<d',sampled_coefficient),'Sampled typed coefficient/source'\n        receipts=[]\n        for j in range(selected):\n            p=at+16+j*8;assert block[p+4] in (0,1) and block[p+5] in (0,1)\n            receipts.append(dict(slot=block[p],handle=list(block[p+1:p+4]),delivered=bool(block[p+4]),broken=bool(block[p+5]),took=number(block,p+6)))\n        assert not any(block[at+16+selected*8:at+1040]),'Unused typed receipts'\n        attacks.append(dict(attack_id=block[at],owner=block[at+2],time=number(block,at+4),damage=number(block,at+8),completed=bool(block[at+10]),receipts=receipts))\n    assert not any(block[790000+count*1040:790000+128*1040]),'Unused typed attacks'\n    return dict(time=number(block,header),finished=bool(block[header+3]),state=state,attacks=attacks)\n\n"
         }
       ]
     },
@@ -2851,6 +2857,126 @@
           "end": 2185,
           "before": "",
           "after": ")"
+        }
+      ]
+    },
+    "app/portable_skill_history.py": {
+      "before_sha256": "c722c762883855ed35abcab228be318fd9d51955a4f37f2c9be7426b9f17ef59",
+      "after_sha256": "adef4026115092aa031150b385444a283bfceca2ef3635a7a8f866a29bb7398d",
+      "hunks": [
+        {
+          "start": 234,
+          "end": 236,
+          "before": "impo",
+          "after": "st"
+        },
+        {
+          "start": 237,
+          "end": 239,
+          "before": "",
+          "after": "uc"
+        },
+        {
+          "start": 240,
+          "end": 240,
+          "before": "lib.util",
+          "after": ""
+        },
+        {
+          "start": 1468,
+          "end": 2250,
+          "before": "",
+          "after": "decode_prefix(block):\n number=lambda at:struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]\n h=L['WORLD_SKILL_HEAD_BASE'];assert block[h]==0x57534b31 and block[h+1]<=128\n rows=[]\n for i in range(block[h+1]):\n  at=L['WORLD_SKILL_TRACE_BASE']+i*48;n=block[at+3];assert n<=128;packed=block[at+16:at+48];recipients=[((packed[k//4]>>((k%4)*8))&255)-1 for k in range(n)]\n  assert all(0<=v<128 for v in recipients) and not any((packed[k//4]>>((k%4)*8))&255 for k in range(n,128))\n  bits=[0]*4\n  for target in recipients:bits[target//32]|=1<<(target%32)\n  assert list(block[at+12:at+16])==bits\n  rows.append(dict(row=block[at],hit=block[at+1],hits=block[at+2],created=number(at+4),landed=number(at+6),amount=number(at+8),share=number(at+10),recipients=recipients))\n return rows\n\n\ndef "
+        },
+        {
+          "start": 3410,
+          "end": 3410,
+          "before": "spec=importlib.util.spec_from_file_location('complete_skill_history_decoder',Path(__file__).resolve().parents[1]/'research/verify-world-skills.py')\n    decoder=importlib.util.module_from_spec(spec);spec.loader.exec_module(decoder)\n    ",
+          "after": ""
+        },
+        {
+          "start": 3790,
+          "end": 3792,
+          "before": "",
+          "after": "_p"
+        },
+        {
+          "start": 3793,
+          "end": 3795,
+          "before": ".sk",
+          "after": "ef"
+        },
+        {
+          "start": 3796,
+          "end": 3797,
+          "before": "ll_trace",
+          "after": "x"
+        },
+        {
+          "start": 4424,
+          "end": 5865,
+          "before": "",
+          "after": "\n\ndef decode_pages(block,count,base,*,capacity=CAPACITY):\n    \"\"\"Read every ordered row via the existing strict128-row decoder.\"\"\"\n    if type(count) is not int or type(capacity) is not int or capacity!=CAPACITY or not 0<=count<=capacity:\n        raise ValueError('Complete bounded skill history required')\n    end=base+(capacity-PREFIX)*WIDTH\n    if type(base) is not int or base<L['WORLD_SKILL_TRACE_BASE']+PREFIX*WIDTH or end>len(block):\n        raise ValueError('Skill history continuation must be disjoint and complete')\n    trace=L['WORLD_SKILL_TRACE_BASE'];head=L['WORLD_SKILL_HEAD_BASE']\n    if block[head]!=0x57534b31 or block[head+1]!=count or any(block[head+4:head+8]):raise ValueError('Skill history header differs')\n    page=[0]*(trace+PREFIX*WIDTH);page[head]=0x57534b31;rows=[]\n    for first in range(0,count,PREFIX):\n        length=min(PREFIX,count-first);page[head+1]=length\n        for j in range(length):\n            i=first+j;at=trace+i*WIDTH if i<PREFIX else base+(i-PREFIX)*WIDTH\n            page[trace+j*WIDTH:trace+(j+1)*WIDTH]=block[at:at+WIDTH]\n        rows.extend(decode_prefix(page))\n    if any(block[trace+min(count,PREFIX)*WIDTH:trace+PREFIX*WIDTH]) or any(block[base+max(0,count-PREFIX)*WIDTH:end]):\n        raise ValueError('Unused skill history contains data')\n    if block[head+2]!=max((len(r['recipients']) for r in rows),default=0):raise ValueError('Skill history target maximum differs')\n    return rows\n"
+        }
+      ]
+    },
+    "research/verify-world-skills.py": {
+      "before_sha256": "f73d66d9cf1ed0988661e7f49aa71f7eca3f6fda2fabb68591a250d8ef15ab30",
+      "after_sha256": "dc423e6f37bd1edb027c57e4592e86714f3e3ce77e162696e7a17133f92186a3",
+      "hunks": [
+        {
+          "start": 821,
+          "end": 856,
+          "before": "",
+          "after": "from portable_skill_history import "
+        },
+        {
+          "start": 858,
+          "end": 866,
+          "before": "",
+          "after": "code_pre"
+        },
+        {
+          "start": 867,
+          "end": 872,
+          "before": "",
+          "after": "ix as"
+        },
+        {
+          "start": 884,
+          "end": 884,
+          "before": "(block):\n number=lambda at:struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]\n h=L['WORLD_SKILL_HEAD_BASE'];assert block[h]==0x57534b31 and block[h+1]<=128\n rows=[]\n for i in range(block[h+1]):\n  at=L['WORLD_SKILL_TRACE_BASE']+i*48;n=block[at+3];assert n<=128;packed=block[at+16:at+48];recipients=[((packed[k//4]>>((k%4)*8))&255)-1 for k in range(n)]\n  assert all(0<=v<128 for v in recipients) and not any((packed[k//4]>>((k%4)*8))&255 for k in range(n,128))\n  bits=[0]*4\n  for target in recipients:bits[target//32]|=1<<(target%32)\n  assert list(block[at+12:at+16])==bits\n  rows.append(dict(row=block[at],hit=block[at+1],hits=block[at+2],created=number(at+4),landed=number(at+6),amount=number(at+8),share=number(at+10),recipients=recipients))\n return rows",
+          "after": ""
+        }
+      ]
+    },
+    "research/verify-destructible-battle-short.py": {
+      "before_sha256": "b32cd890089f7b6ededc8355b5dde6199c02c719638223eef17ed05e797bfa3f",
+      "after_sha256": "c7ea095e08c75cc8c3d7d9a2a56686ec43bf0986f52434e3620a33c15324f566",
+      "hunks": [
+        {
+          "start": 5536,
+          "end": 5554,
+          "before": "",
+          "after": "from portable_worl"
+        },
+        {
+          "start": 5555,
+          "end": 5557,
+          "before": "",
+          "after": "_r"
+        },
+        {
+          "start": 5558,
+          "end": 5590,
+          "before": "f",
+          "after": "sult import read_typed_battle as"
+        },
+        {
+          "start": 5597,
+          "end": 5597,
+          "before": "(block,domain,*,sampled_coefficients=None,sampled_rows=None,sampled_packets=None,sampled_skill_metadata=None):\n    c,m,b=domain;assert block[0]==0,('battle status',block[0]);assert block[786432]==0x44425431 and not any(block[786434:786448])\n    header=789248;assert block[header+2]==1 and block[header+3] in (0,1) and block[header+4]==1 and not any(block[header+5:header+16])\n    assert not any(block[787456+len(c['typed_bindings'])*14:787456+128*14]),'Unbound typed state'\n    state=[]\n    for i in range(len(c['typed_bindings'])):\n        at=787456+i*14\n        if block[at+2]==0:assert not any(block[at:at+14]);state.append(None);continue\n        assert block[at+3] in (0,1)\n        state.append(dict(handle=list(block[at:at+3]),alive=bool(block[at+3]),remaining=number(block,at+4),capacity=number(block,at+6),expires=number(block,at+8),owner=None if block[at+10]==0xffffffff else list(block[at+10:at+13])))\n        assert block[at+13]==0\n    attacks=[];count=block[786433];assert count<=c['max_attacks']\n    if sampled_coefficients is not None:assert len(sampled_coefficients)==count,'Native coefficient sample count'\n    if sampled_rows is not None:assert len(sampled_rows)==count,'Native source sample count'\n    if sampled_packets is not None:assert len(sampled_packets)==count,'Native packet sample count'\n    if sampled_skill_metadata is not None:assert len(sampled_skill_metadata)==count,'Native skill metadata count'\n    for i in range(count):\n        at=790000+i*1040;selected=block[at+3];assert 1<=selected<=128 and block[at+10] in (0,1)\n        source=sampled_rows[i] if sampled_rows is not None else next(j for j,e in enumerate(c['effects']) if e.get('target')=='all_projectiles')\n        if source is None:\n            assert sampled_packets is not None and sampled_coefficients is not None,'Explicit native weapon samples required'\n            assert list(block[at+11:at+16])==[0,1,int(sampled_packets[i]),0,0],'Weapon packet family/mode'\n            source_row=0xffffffff;sampled_coefficient=sampled_coefficients[i]\n        else:\n            if sampled_skill_metadata is None:assert not any(block[at+11:at+16]),'Unused skill packet metadata'\n            else:assert list(block[at+11:at+16])==sampled_skill_metadata[i],'Original skill family/selector metadata'\n            owner=c['owners'][source];source_row=m['binding_source_indices'].index(source)\n            sampled_coefficient=(sampled_coefficients[i] if sampled_coefficients is not None else coefficient(c['effects'][source],dict(name=roster_names(c)[owner],skill_levels=skill_levels(c)[owner])))\n        assert block[at+1]==source_row and struct.pack('<II',*block[at+6:at+8])==struct.pack('<d',sampled_coefficient),'Sampled typed coefficient/source'\n        receipts=[]\n        for j in range(selected):\n            p=at+16+j*8;assert block[p+4] in (0,1) and block[p+5] in (0,1)\n            receipts.append(dict(slot=block[p],handle=list(block[p+1:p+4]),delivered=bool(block[p+4]),broken=bool(block[p+5]),took=number(block,p+6)))\n        assert not any(block[at+16+selected*8:at+1040]),'Unused typed receipts'\n        attacks.append(dict(attack_id=block[at],owner=block[at+2],time=number(block,at+4),damage=number(block,at+8),completed=bool(block[at+10]),receipts=receipts))\n    assert not any(block[790000+count*1040:790000+128*1040]),'Unused typed attacks'\n    return dict(time=number(block,header),finished=bool(block[header+3]),state=state,attacks=attacks)",
+          "after": ""
         }
       ]
     }

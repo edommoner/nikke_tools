@@ -3,7 +3,7 @@
 No row is omitted: decode all pages with the existing strict skill decoder,
 then provide a checked legacy prefix to comparators of all other state.
 """
-import copy,importlib.util
+import copy,struct
 from pathlib import Path
 from portable_specs import LIMITS as L
 from portable_coordinate_typed_specs import INPUT_WORDS,OUTPUT_WORDS,COORDINATE_OUTPUT_WORDS
@@ -27,6 +27,20 @@ def check_layout(root):
     typed(root)
     if (Path(root)/'gpu/skill_history_layout.slang').read_text()!=shader_layout():raise ValueError('Shared skill history layout differs')
 
+def decode_prefix(block):
+ number=lambda at:struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
+ h=L['WORLD_SKILL_HEAD_BASE'];assert block[h]==0x57534b31 and block[h+1]<=128
+ rows=[]
+ for i in range(block[h+1]):
+  at=L['WORLD_SKILL_TRACE_BASE']+i*48;n=block[at+3];assert n<=128;packed=block[at+16:at+48];recipients=[((packed[k//4]>>((k%4)*8))&255)-1 for k in range(n)]
+  assert all(0<=v<128 for v in recipients) and not any((packed[k//4]>>((k%4)*8))&255 for k in range(n,128))
+  bits=[0]*4
+  for target in recipients:bits[target//32]|=1<<(target%32)
+  assert list(block[at+12:at+16])==bits
+  rows.append(dict(row=block[at],hit=block[at+1],hits=block[at+2],created=number(at+4),landed=number(at+6),amount=number(at+8),share=number(at+10),recipients=recipients))
+ return rows
+
+
 def require_capacity(native,capacity=CAPACITY):
     count=len(native['skill_trace'])
     if type(capacity) is not int or capacity not in (PREFIX,CAPACITY):raise ValueError('Unregistered shared skill history capacity')
@@ -41,8 +55,6 @@ def compare_and_project(block,domain,native,indices):
     assert block[head]==0x57534b31 and block[head+1]==count,'Complete skill history count'
     assert block[head+2]==max((len(row['recipients']) for row in expected),default=0),'Complete skill history target maximum'
     assert not any(block[head+4:head+8]),'Skill history header reserved words'
-    spec=importlib.util.spec_from_file_location('complete_skill_history_decoder',Path(__file__).resolve().parents[1]/'research/verify-world-skills.py')
-    decoder=importlib.util.module_from_spec(spec);spec.loader.exec_module(decoder)
     page=[0]*(trace+PREFIX*WIDTH);page[head]=0x57534b31
     decoded=[]
     for first in range(0,count,PREFIX):
@@ -50,7 +62,7 @@ def compare_and_project(block,domain,native,indices):
         for j in range(length):
             index=first+j;at=trace+index*WIDTH if index<PREFIX else BASE+(index-PREFIX)*WIDTH
             page[trace+j*WIDTH:trace+(j+1)*WIDTH]=block[at:at+WIDTH]
-        rows=decoder.skill_trace(page)
+        rows=decode_prefix(page)
         for row in rows:row['row']=domain[1]['binding_source_indices'][row['row']]
         decoded.extend(rows)
     assert decoded==expected,'Every ordered skill landing row must match the native creation receipt'
@@ -70,15 +82,13 @@ def decode_pages(block,count,base,*,capacity=CAPACITY):
         raise ValueError('Skill history continuation must be disjoint and complete')
     trace=L['WORLD_SKILL_TRACE_BASE'];head=L['WORLD_SKILL_HEAD_BASE']
     if block[head]!=0x57534b31 or block[head+1]!=count or any(block[head+4:head+8]):raise ValueError('Skill history header differs')
-    spec=importlib.util.spec_from_file_location('complete_product_skill_decoder',Path(__file__).resolve().parents[1]/'research/verify-world-skills.py')
-    decoder=importlib.util.module_from_spec(spec);spec.loader.exec_module(decoder)
     page=[0]*(trace+PREFIX*WIDTH);page[head]=0x57534b31;rows=[]
     for first in range(0,count,PREFIX):
         length=min(PREFIX,count-first);page[head+1]=length
         for j in range(length):
             i=first+j;at=trace+i*WIDTH if i<PREFIX else base+(i-PREFIX)*WIDTH
             page[trace+j*WIDTH:trace+(j+1)*WIDTH]=block[at:at+WIDTH]
-        rows.extend(decoder.skill_trace(page))
+        rows.extend(decode_prefix(page))
     if any(block[trace+min(count,PREFIX)*WIDTH:trace+PREFIX*WIDTH]) or any(block[base+max(0,count-PREFIX)*WIDTH:end]):
         raise ValueError('Unused skill history contains data')
     if block[head+2]!=max((len(r['recipients']) for r in rows),default=0):raise ValueError('Skill history target maximum differs')

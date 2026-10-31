@@ -206,11 +206,14 @@ def read_result(block,meta,duration):
         extra=max(0,skill_count-fates.CAPACITY)
         flags.extend(block[COVER_FATE_BASE:COVER_FATE_BASE+extra])
         if any(block[COVER_FATE_BASE+extra:COVER_HISTORY_END]) or any(block[COVER_HISTORY_END:C['OUTPUT_BASE']]):fail()
+    if composed:
+        for flag,row in zip(flags,history):
+            if flag and (meta['binding_source_indices'][row['row']]!=info['typed_source'] or row['recipients']!=[0]
+                         or row['hit']!=1 or row['hits']!=1 or row['amount']!=row['share']):fail()
     suppressed=sum(flags)
     if any(v not in (0,1) for v in flags) or list(block[fates.HEAD:fates.FLAGS])!=[fates.MAGIC,suppressed,suppressed,suppressed]+[0]*12 or any(block[fates.FLAGS+first:fates.END]):fail()
-    from product_lock_model import typed_reader
-    reader=typed_reader()
-    try:typed=reader.decode(block[:OUTPUT],(info['typed_case'],meta,bindings))
+    from portable_world_result import read_typed_battle
+    try:typed=read_typed_battle(block[:OUTPUT],(info['typed_case'],meta,bindings))
     except (AssertionError,ValueError,IndexError,struct.error):fail()
     if not 0<=typed['time']<=duration or typed['finished'] is not True:fail()
     if len(typed['state'])!=len(spec['typed_bindings']):fail()

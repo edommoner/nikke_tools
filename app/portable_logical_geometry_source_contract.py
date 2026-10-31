@@ -48,4 +48,8 @@ def project_backend_source(root,source=None):
             after=after.replace(change['before'],change['after'],1)
         if hashlib.sha256(after.encode()).hexdigest()!=row['after_sha256']:raise ValueError('Historical logical backend anchor differs')
         return source
-    return project_sources(root,{name:(root/name).read_text() if source is None else source})[name]
+    # Let the complete newer inverse chain validate and project the actual
+    # current file. Seeding it as a caller override would mask that projection.
+    if source is None or source==(root/name).read_text():
+        return project_sources(root)[name]
+    return project_sources(root,{name:source})[name]

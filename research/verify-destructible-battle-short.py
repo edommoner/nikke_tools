@@ -74,43 +74,7 @@ def typed_observation(c,data):
         receipts=[dict(slot=slot,handle=[int(h.kind),h.identity,h.generation],delivered=receipt['delivered'],broken=receipt['broken'],took=receipt['took']) for slot,h,receipt in r['receipts']]
         attacks.append(dict(attack_id=r['attack_id'],owner=names.index(r['caster']),time=r['time'],damage=r['damage'],completed=r['completed'],receipts=receipts))
     return dict(time=world.last,finished=world.finished,state=state,attacks=attacks)
-def decode(block,domain,*,sampled_coefficients=None,sampled_rows=None,sampled_packets=None,sampled_skill_metadata=None):
-    c,m,b=domain;assert block[0]==0,('battle status',block[0]);assert block[786432]==0x44425431 and not any(block[786434:786448])
-    header=789248;assert block[header+2]==1 and block[header+3] in (0,1) and block[header+4]==1 and not any(block[header+5:header+16])
-    assert not any(block[787456+len(c['typed_bindings'])*14:787456+128*14]),'Unbound typed state'
-    state=[]
-    for i in range(len(c['typed_bindings'])):
-        at=787456+i*14
-        if block[at+2]==0:assert not any(block[at:at+14]);state.append(None);continue
-        assert block[at+3] in (0,1)
-        state.append(dict(handle=list(block[at:at+3]),alive=bool(block[at+3]),remaining=number(block,at+4),capacity=number(block,at+6),expires=number(block,at+8),owner=None if block[at+10]==0xffffffff else list(block[at+10:at+13])))
-        assert block[at+13]==0
-    attacks=[];count=block[786433];assert count<=c['max_attacks']
-    if sampled_coefficients is not None:assert len(sampled_coefficients)==count,'Native coefficient sample count'
-    if sampled_rows is not None:assert len(sampled_rows)==count,'Native source sample count'
-    if sampled_packets is not None:assert len(sampled_packets)==count,'Native packet sample count'
-    if sampled_skill_metadata is not None:assert len(sampled_skill_metadata)==count,'Native skill metadata count'
-    for i in range(count):
-        at=790000+i*1040;selected=block[at+3];assert 1<=selected<=128 and block[at+10] in (0,1)
-        source=sampled_rows[i] if sampled_rows is not None else next(j for j,e in enumerate(c['effects']) if e.get('target')=='all_projectiles')
-        if source is None:
-            assert sampled_packets is not None and sampled_coefficients is not None,'Explicit native weapon samples required'
-            assert list(block[at+11:at+16])==[0,1,int(sampled_packets[i]),0,0],'Weapon packet family/mode'
-            source_row=0xffffffff;sampled_coefficient=sampled_coefficients[i]
-        else:
-            if sampled_skill_metadata is None:assert not any(block[at+11:at+16]),'Unused skill packet metadata'
-            else:assert list(block[at+11:at+16])==sampled_skill_metadata[i],'Original skill family/selector metadata'
-            owner=c['owners'][source];source_row=m['binding_source_indices'].index(source)
-            sampled_coefficient=(sampled_coefficients[i] if sampled_coefficients is not None else coefficient(c['effects'][source],dict(name=roster_names(c)[owner],skill_levels=skill_levels(c)[owner])))
-        assert block[at+1]==source_row and struct.pack('<II',*block[at+6:at+8])==struct.pack('<d',sampled_coefficient),'Sampled typed coefficient/source'
-        receipts=[]
-        for j in range(selected):
-            p=at+16+j*8;assert block[p+4] in (0,1) and block[p+5] in (0,1)
-            receipts.append(dict(slot=block[p],handle=list(block[p+1:p+4]),delivered=bool(block[p+4]),broken=bool(block[p+5]),took=number(block,p+6)))
-        assert not any(block[at+16+selected*8:at+1040]),'Unused typed receipts'
-        attacks.append(dict(attack_id=block[at],owner=block[at+2],time=number(block,at+4),damage=number(block,at+8),completed=bool(block[at+10]),receipts=receipts))
-    assert not any(block[790000+count*1040:790000+128*1040]),'Unused typed attacks'
-    return dict(time=number(block,header),finished=bool(block[header+3]),state=state,attacks=attacks)
+from portable_world_result import read_typed_battle as decode
 def compare(block,domain,*,coefficient_samples=None,source_samples=None,packet_samples=None):
     expected=native_reference(domain);actual=base.decoded(block,domain[1],domain[0],domain[2]);n=expected['battle']
     differences={k:(actual.get(k),v) for k,v in n.items() if k!='scope' and actual.get(k)!=v}
