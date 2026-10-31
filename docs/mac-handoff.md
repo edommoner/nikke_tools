@@ -4420,3 +4420,5 @@ input117632/output2032000の既存wire内で資源traceを最大15124件へ拡�
 既存CLI2owner ammo-fixed84e37e2e…／ammo-accumulate1e77a71e…（d9de47b3）はown92／fresh native1／実Metal1と別fresh GPU禁止sealがそれぞれ成功、coordinator session67655はterminal。ammo-fixedは既定30秒、accumulateは元明示6秒で、verifierのcase名は実durationから作る。旧21goldenを保持したv7へ2member追加。新suite0。その他旧programの現source再sealは未完了で、現認定へ読み替えない。
 
 今回Metal1profile／9条件、CUDA0。元11 gapのfresh静的compileは7通過／4拒否（Yuni／Yan／Heavy Arms／Rei）。静的数を実GPU数へ加算せず、歴史的255profileの現source全件再実行も未完了。未知の容量／武器変更・自爆最終queue・複数consumer・group/target specialization・長時間大量履歴を続ける。Windowsは追加依頼0、旧owner2195 object未完了／missing14原因不明／preservation=falseを保持。
+
+最終追補：b6ec340aからsealed ammo-fixed7c2aa379…／ammo-accumulate68d109ee…を作り、各packet自身のown92＋fresh native1／GPU0が成功。各CUBIN O1／2GiB／60秒のcompile-planもpolicy成功（compiler／GPU0）。exec14446はterminal。model-checkはd9de47b3段階のsource/dependency監査成功で、canonical stat5／public numeric／全合成未完了を保持する。V7の変更は登録基準／履歴inverseのみ。Windows追加依頼はなく、旧sourceのPTX/object／失敗／preservation=falseを再ラベルしない。全キャラ・全特殊効果の目標は継続。

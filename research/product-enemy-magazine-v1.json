@@ -301,5 +301,43 @@
     }
   ],
   "registered_golden": "research/portable-product-programs-v7-expected.json",
-  "old_registered_goldens_retained": 21
+  "old_registered_goldens_retained": 21,
+  "final_packets": [
+    {
+      "program": "ammo-fixed",
+      "owner": "7c2aa379f141c065a7dc4505359a6ec29619ec52588001b7ba9f27e21fdafcb0",
+      "source_commit": "b6ec340a727956fe601b83c53edb5bd0a30b129d",
+      "own_tests": 92,
+      "fresh_native_inputs": 1,
+      "cpu_verified": true,
+      "extra_gpu_calls": 0,
+      "compile_plan": {
+        "passed": true,
+        "artifact": "cubin",
+        "level": 1,
+        "timeout_seconds": 60,
+        "memory_limit_mb": 2048,
+        "compiler_calls": 0,
+        "gpu_calls": 0
+      }
+    },
+    {
+      "program": "ammo-accumulate",
+      "owner": "68d109ee08ee3a63b8f05d13e412f2c7fb05bcb9b899b794ff0647c17585d08c",
+      "source_commit": "b6ec340a727956fe601b83c53edb5bd0a30b129d",
+      "own_tests": 92,
+      "fresh_native_inputs": 1,
+      "cpu_verified": true,
+      "extra_gpu_calls": 0,
+      "compile_plan": {
+        "passed": true,
+        "artifact": "cubin",
+        "level": 1,
+        "timeout_seconds": 60,
+        "memory_limit_mb": 2048,
+        "compiler_calls": 0,
+        "gpu_calls": 0
+      }
+    }
+  ]
 }
