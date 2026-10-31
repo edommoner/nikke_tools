@@ -1,0 +1,5 @@
+{"monotonic_ns": 3206555000000000, "pid": 100712, "stage": "server_start", "state": "entered", "wall_time_ns": 1793377150490512000}
+{"elapsed_seconds": 1.0112828, "monotonic_ns": 3206556015000000, "pid": 100712, "stage": "server_start", "state": "returned", "wall_time_ns": 1793377151502552800}
+{"monotonic_ns": 3206556265000000, "pid": 100712, "stage": "http_submit", "state": "entered", "wall_time_ns": 1793377151762301400}
+{"job_id": "63c21255-c136-4247-a146-71b0b38651f1", "monotonic_ns": 3206556328000000, "pid": 100712, "stage": "http_submit", "state": "returned", "wall_time_ns": 1793377151820359200}
+{"monotonic_ns": 3206599890000000, "pid": 100712, "stage": "http_job", "state": "returned", "status": "complete", "wall_time_ns": 1793377195388148900}

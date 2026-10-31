@@ -1,44 +1,96 @@
 {
-  "schema": "product-cuda-short-api-v1-report",
-  "scope": "Saved one-second one-profile HTTP CUDA result; no new execution",
-  "source_summary_sha256": "410e185c5a6322da08bee2e93bbe31e43c2d5d4a5ea3642718a8e0a0b2b63531",
+  "schema": "product-cuda-short-api-v2-export",
+  "source_commit": "2c684f88e03b2943340f20510cd4f59a64115ad3",
+  "package_id": "d1206d3f6ca2b3c0c78aa9ca23dce5e65dd66a17ce7105d581cafc01330a9ff7",
   "public_fixture_request_verified": true,
-  "credential_key_scan_matches": 0,
+  "scope": "Sanitized export of saved one-second one-profile API proof; original files unchanged",
+  "excluded": "Raw binaries, SDK, personal settings, environment variables and full process snapshots",
   "files": [
     {
-      "path": "summary.json",
-      "bytes": 13400,
-      "sha256": "410e185c5a6322da08bee2e93bbe31e43c2d5d4a5ea3642718a8e0a0b2b63531"
-    },
-    {
       "path": "api-final.json",
-      "bytes": 8575,
-      "sha256": "b77a136e4c328dc935a31ea4205c824c37e7ba139ad3a5fd921ea6e6c64607d0"
+      "source_bytes": 8575,
+      "source_sha256": "b77a136e4c328dc935a31ea4205c824c37e7ba139ad3a5fd921ea6e6c64607d0",
+      "bytes": 9904,
+      "sha256": "5762829cf54eaa08af02e2ea38cefa9df166d0ce914b60732512ea2cd810a1dc",
+      "transformation": "Absolute local paths replaced with basename markers; all other values retained"
     },
     {
       "path": "capture-result.json",
-      "bytes": 52264,
-      "sha256": "95b74d6225b5c98c1a44be6652ce567a211c6b181d87d3dd9a1080e665d17597"
+      "source_bytes": 52264,
+      "source_sha256": "95b74d6225b5c98c1a44be6652ce567a211c6b181d87d3dd9a1080e665d17597",
+      "bytes": 50952,
+      "sha256": "3c4b125b85a6a480453eb0b3c7f8d96726d347994528f2595527394eccece6e0",
+      "transformation": "Absolute local paths replaced with basename markers; all other values retained"
     },
     {
       "path": "evidence.json",
-      "bytes": 109478,
-      "sha256": "563a1c2de9af9fa2dc57f496cbfae6b435d15265432db9f4ce4c45f4971c0f93"
+      "source_bytes": 109478,
+      "source_sha256": "563a1c2de9af9fa2dc57f496cbfae6b435d15265432db9f4ce4c45f4971c0f93",
+      "bytes": 106230,
+      "sha256": "ab59611d0df642c460726d2c93dc1bcf38dd1e1571f02316492dab0e53f5148d",
+      "transformation": "Absolute local paths replaced with basename markers; all other values retained"
     },
     {
       "path": "cpu-payload.json",
-      "bytes": 5785,
-      "sha256": "7916d2d0f47442cdd72de960755418ea6543c3b9a8ea165076d2b340e40fbecf"
+      "source_bytes": 5785,
+      "source_sha256": "7916d2d0f47442cdd72de960755418ea6543c3b9a8ea165076d2b340e40fbecf",
+      "bytes": 7158,
+      "sha256": "5cf46e83dc7965a343d303791bda8cefe900509e202a4b5c59bc3ac8c39c1e6a",
+      "transformation": "Absolute local paths replaced with basename markers; all other values retained"
     },
     {
       "path": "gpu-payload.json",
-      "bytes": 6751,
-      "sha256": "67bf01411638cc0004fba338ae42059c697a3dbe0c96156f7c6e4f2861224e91"
+      "source_bytes": 6751,
+      "source_sha256": "67bf01411638cc0004fba338ae42059c697a3dbe0c96156f7c6e4f2861224e91",
+      "bytes": 8105,
+      "sha256": "158f0d00523054290c7768fcd278a4f3c1a7be328c888fbfedf4f32a75d4318f",
+      "transformation": "Absolute local paths replaced with basename markers; all other values retained"
     },
     {
       "path": "phases.jsonl",
-      "bytes": 132676,
-      "sha256": "cacda9ad16d97c39864b9ea5990e047f6018508e22bb7b3efaf9a7c7eddd41e4"
+      "source_bytes": 132676,
+      "source_sha256": "cacda9ad16d97c39864b9ea5990e047f6018508e22bb7b3efaf9a7c7eddd41e4",
+      "bytes": 130797,
+      "sha256": "d4410ff18c8aa47825e4f3e8c4f1d59217a17a903450bc249165fa002d2007ca",
+      "transformation": "Absolute local paths replaced with basename markers; all other values retained"
+    },
+    {
+      "path": "summary.json",
+      "source_bytes": 13400,
+      "source_sha256": "410e185c5a6322da08bee2e93bbe31e43c2d5d4a5ea3642718a8e0a0b2b63531",
+      "bytes": 12965,
+      "sha256": "19b02ecf9797140b075824f3200c64a98aa71a2edaa5761760b35c55dff38ae9",
+      "transformation": "Absolute local paths replaced with basename markers; all other values retained"
+    },
+    {
+      "path": "execution.json",
+      "bytes": 1092,
+      "sha256": "c0c82c269dc11c1697cfe627ad38005a335350c0ab6e514944a06e8bdaba5d9e",
+      "source_bytes": 1092,
+      "source_sha256": "c0c82c269dc11c1697cfe627ad38005a335350c0ab6e514944a06e8bdaba5d9e",
+      "transformation": "none"
+    },
+    {
+      "path": "coordinator-phases.jsonl",
+      "bytes": 906,
+      "sha256": "2bd50c8537b3f40f134dfacb39d9128cc80c9bea358668aa95ee518b16fb38b5",
+      "source_bytes": 906,
+      "source_sha256": "2bd50c8537b3f40f134dfacb39d9128cc80c9bea358668aa95ee518b16fb38b5",
+      "transformation": "none"
+    },
+    {
+      "path": "api-phases.jsonl",
+      "bytes": 764,
+      "sha256": "d5eac62b1ad3a18e3eda676e94f4010b4adb9153ce5efa6421d8b04c4eba4cdc",
+      "source_bytes": 764,
+      "source_sha256": "d5eac62b1ad3a18e3eda676e94f4010b4adb9153ce5efa6421d8b04c4eba4cdc",
+      "transformation": "none"
+    },
+    {
+      "path": "saved-timing-memory-analysis.json",
+      "bytes": 4546,
+      "sha256": "cc660143216272b9d5bfbb2cecd074cf1921af622e2fa67dc93f44d79ce8bbe2",
+      "transformation": "Derived exclusively from saved records"
     }
   ]
 }

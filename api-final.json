@@ -12,12 +12,12 @@
         "total_damage": 2504456,
         "members": [
           {
-            "name": "미란다",
+            "name": "\ubbf8\ub780\ub2e4",
             "damage": 707616,
             "share": 0.28254279572090707
           },
           {
-            "name": "도라",
+            "name": "\ub3c4\ub77c",
             "damage": 0,
             "share": 0
           },
@@ -27,12 +27,12 @@
             "share": 0
           },
           {
-            "name": "메어리",
+            "name": "\uba54\uc5b4\ub9ac",
             "damage": 489160,
             "share": 0.19531586899510311
           },
           {
-            "name": "드레이크",
+            "name": "\ub4dc\ub808\uc774\ud06c",
             "damage": 1307680,
             "share": 0.5221413352839899
           }
@@ -42,7 +42,7 @@
         "seed": 0,
         "boss": {
           "def": 31784,
-          "code": "풍압",
+          "code": "\ud48d\uc555",
           "core_px": 50,
           "has_parts": false,
           "part_break_interval": 0,
@@ -59,47 +59,47 @@
           "char_defaults": {
             "applied": [],
             "skipped": [
-              "미란다",
-              "도라",
+              "\ubbf8\ub780\ub2e4",
+              "\ub3c4\ub77c",
               "N102",
-              "메어리",
-              "드레이크"
+              "\uba54\uc5b4\ub9ac",
+              "\ub4dc\ub808\uc774\ud06c"
             ]
           },
           "deviated": [
-            "미란다",
-            "도라",
+            "\ubbf8\ub780\ub2e4",
+            "\ub3c4\ub77c",
             "N102",
-            "메어리",
-            "드레이크"
+            "\uba54\uc5b4\ub9ac",
+            "\ub4dc\ub808\uc774\ud06c"
           ],
           "deviations": {
-            "미란다": [
+            "\ubbf8\ub780\ub2e4": [
               {
                 "key": "control",
-                "baseline": "없음",
+                "baseline": "\uc5c6\uc74c",
                 "value": {},
                 "source": "override"
               },
               {
                 "key": "control.burst",
                 "baseline": {
-                  "pattern": "전담"
+                  "pattern": "\uc804\ub2f4"
                 },
-                "value": "없음",
+                "value": "\uc5c6\uc74c",
                 "source": "override"
               },
               {
                 "key": "cube.name",
-                "baseline": "렐릭 어설트 큐브",
+                "baseline": "\ub810\ub9ad \uc5b4\uc124\ud2b8 \ud050\ube0c",
                 "value": "__none__",
                 "source": "override"
               }
             ],
-            "도라": [
+            "\ub3c4\ub77c": [
               {
                 "key": "cube.name",
-                "baseline": "렐릭 어설트 큐브",
+                "baseline": "\ub810\ub9ad \uc5b4\uc124\ud2b8 \ud050\ube0c",
                 "value": "__none__",
                 "source": "override"
               }
@@ -107,23 +107,23 @@
             "N102": [
               {
                 "key": "cube.name",
-                "baseline": "렐릭 어설트 큐브",
+                "baseline": "\ub810\ub9ad \uc5b4\uc124\ud2b8 \ud050\ube0c",
                 "value": "__none__",
                 "source": "override"
               }
             ],
-            "메어리": [
+            "\uba54\uc5b4\ub9ac": [
               {
                 "key": "cube.name",
-                "baseline": "렐릭 어설트 큐브",
+                "baseline": "\ub810\ub9ad \uc5b4\uc124\ud2b8 \ud050\ube0c",
                 "value": "__none__",
                 "source": "override"
               }
             ],
-            "드레이크": [
+            "\ub4dc\ub808\uc774\ud06c": [
               {
                 "key": "cube.name",
-                "baseline": "렐릭 어설트 큐브",
+                "baseline": "\ub810\ub9ad \uc5b4\uc124\ud2b8 \ud050\ube0c",
                 "value": "__none__",
                 "source": "override"
               }
@@ -131,14 +131,14 @@
           },
           "tactics": {},
           "profile": {
-            "name": "인라인",
+            "name": "\uc778\ub77c\uc778",
             "level_mode": "fixed",
             "source": "inline",
             "base": "ungrown",
             "ungrown": []
           },
           "preview": [],
-          "text": "⚠ 인라인 육성 프로필 '인라인' 적용 — 고정 스펙 아님. 다른 보고서와 총딜을 직접 비교하지 않는다. (레벨 400 고정 (솔로레이드 기준), 항목 5종, 적지 않은 니케는 미육성)\n⚠ 애장품 단계가 3 미만인 캐릭터: 미란다 0단계, 도라 0단계, N102 0단계, 메어리 0단계, 드레이크 0단계. 그 단계의 스킬 판본으로 계산했다 — 기본 스펙(3단계)보다 딜이 낮게 나오는 게 정상이다.\n⚠ 프로필(2.5층) 이탈 5명 —\n  [미란다] control: 없음 → 없음  (지정)\n  [미란다] control.burst: {pattern=전담} → 없음  (지정)\n  [미란다] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [도라] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [N102] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [메어리] cube.name: 렐릭 어설트 큐브 → __none__  (지정)\n  [드레이크] cube.name: 렐릭 어설트 큐브 → __none__  (지정)"
+          "text": "\u26a0 \uc778\ub77c\uc778 \uc721\uc131 \ud504\ub85c\ud544 '\uc778\ub77c\uc778' \uc801\uc6a9 \u2014 \uace0\uc815 \uc2a4\ud399 \uc544\ub2d8. \ub2e4\ub978 \ubcf4\uace0\uc11c\uc640 \ucd1d\ub51c\uc744 \uc9c1\uc811 \ube44\uad50\ud558\uc9c0 \uc54a\ub294\ub2e4. (\ub808\ubca8 400 \uace0\uc815 (\uc194\ub85c\ub808\uc774\ub4dc \uae30\uc900), \ud56d\ubaa9 5\uc885, \uc801\uc9c0 \uc54a\uc740 \ub2c8\ucf00\ub294 \ubbf8\uc721\uc131)\n\u26a0 \uc560\uc7a5\ud488 \ub2e8\uacc4\uac00 3 \ubbf8\ub9cc\uc778 \uce90\ub9ad\ud130: \ubbf8\ub780\ub2e4 0\ub2e8\uacc4, \ub3c4\ub77c 0\ub2e8\uacc4, N102 0\ub2e8\uacc4, \uba54\uc5b4\ub9ac 0\ub2e8\uacc4, \ub4dc\ub808\uc774\ud06c 0\ub2e8\uacc4. \uadf8 \ub2e8\uacc4\uc758 \uc2a4\ud0ac \ud310\ubcf8\uc73c\ub85c \uacc4\uc0b0\ud588\ub2e4 \u2014 \uae30\ubcf8 \uc2a4\ud399(3\ub2e8\uacc4)\ubcf4\ub2e4 \ub51c\uc774 \ub0ae\uac8c \ub098\uc624\ub294 \uac8c \uc815\uc0c1\uc774\ub2e4.\n\u26a0 \ud504\ub85c\ud544(2.5\uce35) \uc774\ud0c8 5\uba85 \u2014\n  [\ubbf8\ub780\ub2e4] control: \uc5c6\uc74c \u2192 \uc5c6\uc74c  (\uc9c0\uc815)\n  [\ubbf8\ub780\ub2e4] control.burst: {pattern=\uc804\ub2f4} \u2192 \uc5c6\uc74c  (\uc9c0\uc815)\n  [\ubbf8\ub780\ub2e4] cube.name: \ub810\ub9ad \uc5b4\uc124\ud2b8 \ud050\ube0c \u2192 __none__  (\uc9c0\uc815)\n  [\ub3c4\ub77c] cube.name: \ub810\ub9ad \uc5b4\uc124\ud2b8 \ud050\ube0c \u2192 __none__  (\uc9c0\uc815)\n  [N102] cube.name: \ub810\ub9ad \uc5b4\uc124\ud2b8 \ud050\ube0c \u2192 __none__  (\uc9c0\uc815)\n  [\uba54\uc5b4\ub9ac] cube.name: \ub810\ub9ad \uc5b4\uc124\ud2b8 \ud050\ube0c \u2192 __none__  (\uc9c0\uc815)\n  [\ub4dc\ub808\uc774\ud06c] cube.name: \ub810\ub9ad \uc5b4\uc124\ud2b8 \ud050\ube0c \u2192 __none__  (\uc9c0\uc815)"
         },
         "control": null,
         "control_detail": {
@@ -151,9 +151,9 @@
           "preempted": {}
         },
         "warnings": [
-          "인라인 육성 프로필 '인라인' 적용 — 고정 스펙 아님. 다른 보고서와 총딜을 직접 비교하지 않는다. (레벨 400 고정 (솔로레이드 기준), 항목 5종, 적지 않은 니케는 미육성)",
-          "애장품 단계가 3 미만인 캐릭터: 미란다 0단계, 도라 0단계, N102 0단계, 메어리 0단계, 드레이크 0단계. 그 단계의 스킬 판본으로 계산했다 — 기본 스펙(3단계)보다 딜이 낮게 나오는 게 정상이다.",
-          "프로필(2.5층) 이탈 5명 — 미란다, 도라, N102, 메어리, 드레이크"
+          "\uc778\ub77c\uc778 \uc721\uc131 \ud504\ub85c\ud544 '\uc778\ub77c\uc778' \uc801\uc6a9 \u2014 \uace0\uc815 \uc2a4\ud399 \uc544\ub2d8. \ub2e4\ub978 \ubcf4\uace0\uc11c\uc640 \ucd1d\ub51c\uc744 \uc9c1\uc811 \ube44\uad50\ud558\uc9c0 \uc54a\ub294\ub2e4. (\ub808\ubca8 400 \uace0\uc815 (\uc194\ub85c\ub808\uc774\ub4dc \uae30\uc900), \ud56d\ubaa9 5\uc885, \uc801\uc9c0 \uc54a\uc740 \ub2c8\ucf00\ub294 \ubbf8\uc721\uc131)",
+          "\uc560\uc7a5\ud488 \ub2e8\uacc4\uac00 3 \ubbf8\ub9cc\uc778 \uce90\ub9ad\ud130: \ubbf8\ub780\ub2e4 0\ub2e8\uacc4, \ub3c4\ub77c 0\ub2e8\uacc4, N102 0\ub2e8\uacc4, \uba54\uc5b4\ub9ac 0\ub2e8\uacc4, \ub4dc\ub808\uc774\ud06c 0\ub2e8\uacc4. \uadf8 \ub2e8\uacc4\uc758 \uc2a4\ud0ac \ud310\ubcf8\uc73c\ub85c \uacc4\uc0b0\ud588\ub2e4 \u2014 \uae30\ubcf8 \uc2a4\ud399(3\ub2e8\uacc4)\ubcf4\ub2e4 \ub51c\uc774 \ub0ae\uac8c \ub098\uc624\ub294 \uac8c \uc815\uc0c1\uc774\ub2e4.",
+          "\ud504\ub85c\ud544(2.5\uce35) \uc774\ud0c8 5\uba85 \u2014 \ubbf8\ub780\ub2e4, \ub3c4\ub77c, N102, \uba54\uc5b4\ub9ac, \ub4dc\ub808\uc774\ud06c"
         ],
         "evaluator": {
           "repo": "Jgaram/nikke-calc",
@@ -161,12 +161,12 @@
           "dirty": null
         },
         "base_stats": {
-          "미란다": {
+          "\ubbf8\ub780\ub2e4": {
             "atk": 97376,
             "hp": 3000314,
             "def": 17799
           },
-          "도라": {
+          "\ub3c4\ub77c": {
             "atk": 97376,
             "hp": 3000314,
             "def": 17458
@@ -176,12 +176,12 @@
             "hp": 2441844,
             "def": 18072
           },
-          "메어리": {
+          "\uba54\uc5b4\ub9ac": {
             "atk": 97376,
             "hp": 3000314,
             "def": 19377
           },
-          "드레이크": {
+          "\ub4dc\ub808\uc774\ud06c": {
             "atk": 116338,
             "hp": 2715916,
             "def": 17544
@@ -193,7 +193,7 @@
         "burst_timeline": [
           {
             "time": 0,
-            "event": "카메라 초점: N102",
+            "event": "\uce74\uba54\ub77c \ucd08\uc810: N102",
             "character": ""
           }
         ],
@@ -203,7 +203,7 @@
         "hypothetical": false,
         "engine_revision": "23164e4a88fe46af609cc99b0de38a98313a5f4d",
         "app_warnings": [
-          "固定条件の静止ボスを仮定した参考値です。ボス固有パターンと生存は未検証です。"
+          "\u56fa\u5b9a\u6761\u4ef6\u306e\u9759\u6b62\u30dc\u30b9\u3092\u4eee\u5b9a\u3057\u305f\u53c2\u8003\u5024\u3067\u3059\u3002\u30dc\u30b9\u56fa\u6709\u30d1\u30bf\u30fc\u30f3\u3068\u751f\u5b58\u306f\u672a\u691c\u8a3c\u3067\u3059\u3002"
         ],
         "compute": {
           "requested": "cuda_shared_detail",

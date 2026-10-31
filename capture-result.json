@@ -199,7 +199,7 @@
         "metal": "ec485089091be169ac6c17d2dabc9903d08537bf0e95f8040909d89bfb96b032"
       },
       "headers": {
-        "C:\\Users\\owner\\Documents\\ChatGPT\\nikke tools\\.tools\\slang-2026.20-Windows-AMD64\\include\\slang-cuda-prelude.h": "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
+        "<local-path>/slang-cuda-prelude.h": "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
       },
       "upstream_compile": {
         "schema": 1,
@@ -211,7 +211,7 @@
           "--fmad=false"
         ],
         "headers": {
-          "C:\\Users\\owner\\Documents\\ChatGPT\\nikke tools\\.tools\\slang-2026.20-Windows-AMD64\\include\\slang-cuda-prelude.h": "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
+          "<local-path>/slang-cuda-prelude.h": "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
         },
         "compiler_files": {
           "nvrtc-builtins64_124.dll": "79888dba26c51475ea21fc7b47d2b9dd5b1ffaecc8e5ea22a49fa5f5a722eb43",
@@ -516,42 +516,42 @@
         "output_sha256": "bc19e1324c7f293c24367148ec8d050a506d3779ba283983641f2f53d3fb01fc"
       },
       "historical_link_environment": {
-        "capture": "C:\\Users\\owner\\Documents\\Codex\\nikke-product-module-controller-v1\\jit-link-v1\\proof",
+        "capture": "<local-path>/proof",
         "observation_sha256": "05c534e266ee6b31bb481292a28ed52a7bbaedba0e427a5c662fe94a6f928920",
         "missing_identities": [
           {
             "pid": 55556,
-            "path": "c:\\users\\owner\\appdata\\local\\uv\\cache\\archive-v0\\2zkushu2tbk3sn_6\\scripts\\python.exe",
+            "path": "<local-path>/python.exe",
             "creation_filetime_ticks": "134378424253008000"
           },
           {
             "pid": 88364,
-            "path": "c:\\users\\owner\\appdata\\local\\openai\\codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe",
+            "path": "<local-path>/node.exe",
             "creation_filetime_ticks": "134378424251513010"
           },
           {
             "pid": 90000,
-            "path": "c:\\users\\owner\\appdata\\local\\openai\\codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe",
+            "path": "<local-path>/node.exe",
             "creation_filetime_ticks": "134378424252116660"
           },
           {
             "pid": 131824,
-            "path": "c:\\users\\owner\\documents\\blender\\blender_mcp\\mcp\\.venv-py310\\scripts\\python.exe",
+            "path": "<local-path>/python.exe",
             "creation_filetime_ticks": "134378424251301610"
           },
           {
             "pid": 135928,
-            "path": "c:\\users\\owner\\appdata\\roaming\\uv\\python\\cpython-3.12-windows-x86_64-none\\python.exe",
+            "path": "<local-path>/python.exe",
             "creation_filetime_ticks": "134378424253160630"
           },
           {
             "pid": 136792,
-            "path": "c:\\users\\owner\\appdata\\local\\openai\\codex\\runtimes\\cua_node\\78fb63cda1a9e2b2\\bin\\node.exe",
+            "path": "<local-path>/node.exe",
             "creation_filetime_ticks": "134378424252055980"
           },
           {
             "pid": 147072,
-            "path": "c:\\users\\owner\\appdata\\local\\programs\\python\\python310\\python.exe",
+            "path": "<local-path>/python.exe",
             "creation_filetime_ticks": "134378424251721950"
           }
         ],

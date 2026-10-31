@@ -1,0 +1,173 @@
+{
+  "scope": "Saved records only; no compiler, GPU, CPU battle rerun or additional measurement",
+  "job_memory": {
+    "pre_gate_peak_bytes": 5918720,
+    "post_wait_peak_bytes": 1989414912,
+    "measurement": "Cumulative Job peak observed after child exit; not per-process attribution",
+    "peak_time": null,
+    "peak_process": null,
+    "before_after_cuda_memory_samples_recorded": false,
+    "reason": "Only pre-gate and post-wait Job peaks saved; no memory sample adjacent to CUDA initialization"
+  },
+  "timeline_scope": "Seconds relative to outer journal entry; nested timings overlap and must not be summed",
+  "timeline": [
+    {
+      "stage": "bounded_cpu_stage",
+      "state": "entered",
+      "relative_seconds": 0.0
+    },
+    {
+      "stage": "before_snapshot",
+      "state": "entered",
+      "relative_seconds": 0.0449983
+    },
+    {
+      "stage": "before_snapshot",
+      "state": "returned",
+      "relative_seconds": 2.5773352,
+      "elapsed_seconds": 2.5308054
+    },
+    {
+      "stage": "after_snapshot",
+      "state": "entered",
+      "relative_seconds": 47.7184602
+    },
+    {
+      "stage": "after_snapshot",
+      "state": "returned",
+      "relative_seconds": 50.5001099,
+      "elapsed_seconds": 2.7806025
+    },
+    {
+      "stage": "bounded_cpu_stage",
+      "state": "returned",
+      "relative_seconds": 50.5021227,
+      "elapsed_seconds": 50.5012593
+    },
+    {
+      "stage": "server_start",
+      "state": "entered",
+      "relative_seconds": 2.764829
+    },
+    {
+      "stage": "server_start",
+      "state": "returned",
+      "relative_seconds": 3.7768698,
+      "elapsed_seconds": 1.0112828
+    },
+    {
+      "stage": "http_submit",
+      "state": "entered",
+      "relative_seconds": 4.0366184
+    },
+    {
+      "stage": "http_submit",
+      "state": "returned",
+      "relative_seconds": 4.0946762
+    },
+    {
+      "stage": "http_job",
+      "state": "returned",
+      "relative_seconds": 47.6624659
+    },
+    {
+      "stage": "product_cubin_owner",
+      "state": "entered",
+      "relative_seconds": 6.2864188
+    },
+    {
+      "stage": "product_cubin_owner",
+      "state": "returned",
+      "relative_seconds": 13.3222768,
+      "elapsed_seconds": 7.0327397
+    },
+    {
+      "stage": "product_cubin_admission",
+      "state": "entered",
+      "relative_seconds": 13.4047091
+    },
+    {
+      "stage": "product_cubin_admission",
+      "state": "returned",
+      "relative_seconds": 43.8563237,
+      "elapsed_seconds": 30.452056900132447
+    },
+    {
+      "stage": "cuInit",
+      "state": "entered",
+      "relative_seconds": 46.732412
+    },
+    {
+      "stage": "cuInit",
+      "state": "returned",
+      "relative_seconds": 46.7866442,
+      "elapsed_seconds": 0.0535659
+    },
+    {
+      "stage": "cuCtxCreate_v2",
+      "state": "entered",
+      "relative_seconds": 46.7917703
+    },
+    {
+      "stage": "cuCtxCreate_v2",
+      "state": "returned",
+      "relative_seconds": 46.908233,
+      "elapsed_seconds": 0.1161717
+    },
+    {
+      "stage": "cuLaunchKernel",
+      "state": "entered",
+      "relative_seconds": 46.9379532
+    },
+    {
+      "stage": "cuLaunchKernel",
+      "state": "returned",
+      "relative_seconds": 46.940757,
+      "elapsed_seconds": 0.0023329
+    },
+    {
+      "stage": "cuCtxSynchronize",
+      "state": "entered",
+      "relative_seconds": 46.9412704
+    },
+    {
+      "stage": "cuCtxSynchronize",
+      "state": "returned",
+      "relative_seconds": 47.2293578,
+      "elapsed_seconds": 0.2873707
+    },
+    {
+      "stage": "cuMemcpyDtoH_v2",
+      "state": "entered",
+      "relative_seconds": 47.2324634
+    },
+    {
+      "stage": "cuMemcpyDtoH_v2",
+      "state": "returned",
+      "relative_seconds": 47.2340436,
+      "elapsed_seconds": 0.0005057
+    },
+    {
+      "stage": "cuCtxDestroy_v2",
+      "state": "entered",
+      "relative_seconds": 47.2396475
+    },
+    {
+      "stage": "cuCtxDestroy_v2",
+      "state": "returned",
+      "relative_seconds": 47.2745368,
+      "elapsed_seconds": 0.0341322
+    }
+  ],
+  "host_dispatch_seconds": 0.29281309992074966,
+  "host_dispatch_scope": "Host launch/synchronize/readback interval; not pure GPU kernel time",
+  "cpu_only_seconds": null,
+  "cpu_user_seconds": null,
+  "cpu_kernel_seconds": null,
+  "historical_preservation_verified": false,
+  "historical_missing_count": 7,
+  "historical_termination_cause": "unknown",
+  "current_missing_count": 0,
+  "current_service_status": "unverified",
+  "extrapolation": "No claim for 30-second scenes, TDR behavior or all-profile success"
+}
