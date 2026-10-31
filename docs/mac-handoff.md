@@ -1,3 +1,13 @@
+# 2026-10-31 敵攻撃付随デバフ14種を共通製品実行器へ接続
+
+実装117ba4e2（初版d69fd0a7）。元CPUの実在consumerを保ち、敵攻撃でHP損失があり生存した通知対象へ、received_hitより前に14種の非DoTデバフを順に適用する。owner5の外部敵を型付きdescriptorで限定し、既存carrierの免疫・解除・stack・期限とpattern-bound解放へ接続。同名別定義は併合しない。GPUへCPU戦闘結果・受け手予定表は渡さず、CPU正本/pinned/数値規約/strict normalizerは不変。
+
+通常HTTP APIの固定周期21条件と、実蓄積/固定周期×normal/group/target/group-targetの8条件が実M5 Metal計算・CPU全製品payload一致。主役5profile（Miranda/Noah/Mika Snow Buddy/Belorta/Asuka）における条件追加であり、全catalogueの対応数追加ではない。保存全29件の静的入力再生成・source/raw SHA・既存decoder再投影も一致、保存監査の追加battle/GPU0。旧v2のstun admission status64は保存し、native値ONEへの限定修正後、同一21request全件成功。GPU型付き拒否8件＋正例1件も1dispatchで確認。CPU77群850検査成功/既存skip1。
+
+既存normal30秒の実蓄積・固定周期もそれぞれ不変packetで実Metal実行→fresh独立seal成功。旧入力/全出力/各entry/native指紋を完全保持したことをassertして、program登録はsource/generatedのみ更新。proof product-boss-debuff-v3-20261031とproduct-boss-debuff-composition-v1-20261031、小記録product-boss-debuff-v1.json。専用4366サーバー終了、通常4317/4327は変更なし。
+
+現在の新sourceでCUDA実機確認0。旧9a6c3aa7のCUDA3profileは履歴として分離。Windowsへ今回追加compile/GPU依頼はなし。旧保存7JSONの共有はMacユーザー具体的許可を伝えてもWindows自動承認レビューが別chat経由を拒否し未共有、再計算なし。boss DoTは明示CPU切替のまま、canonical model gap11profileも不変。shield/cover/decoy/免疫回数の全分岐実証とは主張しない。次はboss DoTのnative時計/上書き/解除順の接続と不足分岐確認。全目標未完了。以下は履歴。
+
 # 2026-10-31 共通入力2件のMetal/CUDA全readback一致、CUDA製品3profileへ
 
 実装source9a6c3aa7は不変。元current-api-requestsのAlice(index1)を2秒、Rapunzel Pure Grace(index4)を3秒へ短縮し、通常HTTP APIのMetalとCUDAで同じ2条件を確認。元の射撃操作はAlice tap/毎秒3.6・release0.03、Rapunzel sequence hold until2.2のまま。両者の主役damageも正で、空の比較ではない。各backendとも全CPU製品payload一致、静的input全byte再生成・raw再投影一致。保存監査の追加battle/GPU0。

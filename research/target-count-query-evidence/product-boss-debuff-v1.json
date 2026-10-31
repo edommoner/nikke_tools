@@ -1,0 +1,483 @@
+{
+  "schema": "product-boss-debuff-evidence-v1",
+  "implementation_commit": "117ba4e2ff3da468b873399e69db842f7d34053e",
+  "scope": "Native boss attack-attached 14 non-DoT scalar/status effects; shared Slang product runtime, ordinary HTTP API",
+  "literal_external_enemy_owner": 5,
+  "cpu_battle_used_to_prepare_gpu_input": false,
+  "api_evidence": {
+    "product-boss-debuff-v3-20261031": {
+      "conditions": 21,
+      "saved_audit_sha256": "fd7426acfd846d193b86378cdcc7a04e235a1323ccf8afa0c655cd3a87e663c4",
+      "sources_sha256": "5154e002fc85db35fcc5a7db8ab350fde0fc43663a7d22ac8f664e27a47668e0",
+      "saved_audit": {
+        "rows": [
+          {
+            "index": 0,
+            "profile": "atk_pct",
+            "favorite_stage": 0,
+            "capture": "48ad7261a31745fa9e9d7953dc88b244",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 1,
+            "profile": "def_pct",
+            "favorite_stage": 0,
+            "capture": "955ccc232d384413adf6592fe39fe657",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 2,
+            "profile": "crit_rate",
+            "favorite_stage": 0,
+            "capture": "072b19a6e8e243e482d7129144c062cc",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 3,
+            "profile": "crit_dmg",
+            "favorite_stage": 0,
+            "capture": "6ee85e9765c6412e9572629a306dd386",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 4,
+            "profile": "accuracy_pct",
+            "favorite_stage": 0,
+            "capture": "c2b9c61abfdc4a348b8dda5861057f90",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 5,
+            "profile": "attack_speed_pct",
+            "favorite_stage": 0,
+            "capture": "ec60b507084243eba165a6a6bc99d532",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 6,
+            "profile": "reload_speed_pct",
+            "favorite_stage": 0,
+            "capture": "6b897cf2373d49e28874c0af7a657dac",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 7,
+            "profile": "charge_speed_pct",
+            "favorite_stage": 0,
+            "capture": "663d23313a7d45b7898122b4942fca5a",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 8,
+            "profile": "max_ammo_pct",
+            "favorite_stage": 0,
+            "capture": "d0b8a318bea14d40a517243778208704",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 9,
+            "profile": "atk_dmg_pct",
+            "favorite_stage": 0,
+            "capture": "944773275869424d8eb29d6f2b807983",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 10,
+            "profile": "heal_received_pct",
+            "favorite_stage": 0,
+            "capture": "b22941dc93e7409cbd39733b1a2623e7",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 11,
+            "profile": "received_dmg_pct",
+            "favorite_stage": 0,
+            "capture": "8b360cf8e09347f9a923eee60b96a629",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 12,
+            "profile": "stun",
+            "favorite_stage": 0,
+            "capture": "57899c7849c24b8bbd14837904c7334c",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 13,
+            "profile": "cover_disabled",
+            "favorite_stage": 0,
+            "capture": "194fcc9e67a742d69e46c3a301771950",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 14,
+            "profile": "stacking",
+            "favorite_stage": 0,
+            "capture": "b2b2842a1230414fa295c781c4b010b3",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 15,
+            "profile": "pattern-bound",
+            "favorite_stage": 0,
+            "capture": "49c9dcf79ee844c3b5d2471794ba7640",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 16,
+            "profile": "same-name-list",
+            "favorite_stage": 0,
+            "capture": "74f7affde27a496b8e984a72866e8f89",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 17,
+            "profile": "fatal-suppression",
+            "favorite_stage": 0,
+            "capture": "cdedd1a2a1b044eaa90353df0a46c4b8",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 18,
+            "profile": "invincible-suppression",
+            "favorite_stage": 0,
+            "capture": "d8ac9a098847450bb4f323281bace8ee",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 19,
+            "profile": "cleanse-before-reapply",
+            "favorite_stage": 0,
+            "capture": "e103299b51cd461d80cefb155974a34e",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 20,
+            "profile": "irremovable",
+            "favorite_stage": 0,
+            "capture": "5b629f31fb9048159141989be6f997b4",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          }
+        ],
+        "audited": 21,
+        "native_battle_calls": 0,
+        "gpu_calls": 0
+      }
+    },
+    "product-boss-debuff-composition-v1-20261031": {
+      "conditions": 8,
+      "saved_audit_sha256": "16d014b30283b59e0f32896f5663b89b47bbb19bd1b055e8e5a0176071a8750e",
+      "sources_sha256": "60030dbb3483583211c40e4173e71935894e1efb7a759053703315e4680e0191",
+      "saved_audit": {
+        "rows": [
+          {
+            "index": 0,
+            "profile": "accumulate normal",
+            "favorite_stage": 0,
+            "capture": "586043874d8344f5932a0ce715d02aed",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 1,
+            "profile": "accumulate group",
+            "favorite_stage": 0,
+            "capture": "6a75d26f3f0a48609e3ae179eef5ce9b",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 2,
+            "profile": "accumulate target",
+            "favorite_stage": 0,
+            "capture": "d2cead27744f44669652bfb92715f0ff",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 3,
+            "profile": "accumulate group-target",
+            "favorite_stage": 0,
+            "capture": "359df4e00605406f9bcf6013b051c1c7",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 4,
+            "profile": "fixed normal",
+            "favorite_stage": 0,
+            "capture": "e20d2164e7974a0b8de69c5dc4c0d324",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 5,
+            "profile": "fixed group",
+            "favorite_stage": 0,
+            "capture": "705f4b2aaf5f48848b54e566ed49df6b",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 6,
+            "profile": "fixed target",
+            "favorite_stage": 0,
+            "capture": "3de31ed1bb4f45cda7bbb9ba441ffe1c",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          },
+          {
+            "index": 7,
+            "profile": "fixed group-target",
+            "favorite_stage": 0,
+            "capture": "dd02d74c3b4e45e292a5c24fd3d934c6",
+            "backend": "metal_detail",
+            "api_cache_hit": false,
+            "raw_hashes_verified": true,
+            "static_input_exact": true,
+            "current_source_exact": true,
+            "reprojected_raw_matches_cpu_gpu_api": true
+          }
+        ],
+        "audited": 8,
+        "native_battle_calls": 0,
+        "gpu_calls": 0
+      }
+    }
+  },
+  "primary_profiles": [
+    "Miranda",
+    "Noah",
+    "Mika Snow Buddy",
+    "Belorta",
+    "Asuka"
+  ],
+  "current_feature_cuda_device_cases": 0,
+  "historical_cuda_profiles": 3,
+  "historical_cuda_source": "9a6c3aa7a52361b40f44963b21f60afe3a9a9969",
+  "gpu_admission": {
+    "cases": [
+      {
+        "name": "positive",
+        "status": 0
+      },
+      {
+        "name": "external-owner6",
+        "status": 64
+      },
+      {
+        "name": "wrong-magic",
+        "status": 64
+      },
+      {
+        "name": "out-of-range",
+        "status": 64
+      },
+      {
+        "name": "positive-harmful-value",
+        "status": 64
+      },
+      {
+        "name": "passive-external-source",
+        "status": 64
+      },
+      {
+        "name": "unlinked-source",
+        "status": 64
+      },
+      {
+        "name": "preselected-recipient",
+        "status": 64
+      },
+      {
+        "name": "external-damage-kind",
+        "status": 64
+      }
+    ],
+    "gpu_dispatches": 1,
+    "cpu_battles": 0
+  },
+  "common_cpu": {
+    "passed": true,
+    "groups": 77,
+    "tests": 850,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "normal_30s_retention": {
+    "accumulate": {
+      "package_id": "de1c5b25a0d971798be437c63aa31dfec7c8faf70be284412a87d87705936fc1",
+      "input_sha256": "291fd86560a0bb772a03b581d273ddfe098b772f9935a02b89b16a7322466a18",
+      "output_sha256": "bc19e1324c7f293c24367148ec8d050a506d3779ba283983641f2f53d3fb01fc",
+      "old_entries_exact": true,
+      "old_input_exact": true,
+      "old_output_exact": true,
+      "fresh_independent_seal": true,
+      "seal_gpu_calls": 0
+    },
+    "fixed": {
+      "package_id": "7b4bb38fcbd02fff6aa66ef4c7e5d3eaf838204665a67f8f428de4a383241bf1",
+      "input_sha256": "b534ebb2f7abcf613ea7b052f0ad8b9f9bcb48ec5ece9e0c766422871ba06a6f",
+      "output_sha256": "9c72bd03cc18453a9f8c6a9cdfebd6fe126e3e0b8e5889e6668cf158c4698be2",
+      "old_entries_exact": true,
+      "old_input_exact": true,
+      "old_output_exact": true,
+      "fresh_independent_seal": true,
+      "seal_gpu_calls": 0
+    }
+  },
+  "failures_retained": {
+    "previous_v2_stun_status": 64,
+    "cause": "Native stun marker is ONE, not ZERO; exact marker validator corrected",
+    "previous_v2_gpu_success": 20,
+    "v3_same_request_bytes": true
+  },
+  "limits": [
+    "Boss DoT carrier is still explicitly rejected",
+    "11 original canonical-model-gap profiles remain",
+    "No full catalogue recertification at current source",
+    "Shield/cover/decoy and immunity count paths not claimed independently covered by these cases",
+    "No game-device equivalence claim"
+  ],
+  "windows_report_share": {
+    "commit": "e9802daa67bb30e4ae017d4afa5a7088592d0195",
+    "files": 7,
+    "bytes": 44002,
+    "branch": "codex/product-controls-current-v1-ptx-report",
+    "status": "automatic approval review rejected cross-chat permission; no push; no rerun"
+  }
+}
