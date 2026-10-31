@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "package_id": "0f199f4555960ffd2d98d35fb0479a06721d7388551f7cc4825964337238e5ca",
+  "source_commit": "7eb7ed8303f14d0dd2591947c5696b20163857c1",
+  "archive": "normal-fixed-current-v1.zip",
+  "bytes": 11930103,
+  "sha256": "739850b6d8336a6dfc08f18d4b3de80eeb7d2e99913c5ae3d7e7dbfcc16c3713",
+  "program": "fixed",
+  "own_cpu_tests": 108,
+  "fresh_native_cases": 1,
+  "metal_and_independent_seal_verified": true,
+  "numeric_baseline_input_output_native_unchanged": true,
+  "compiler_plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "0f199f4555960ffd2d98d35fb0479a06721d7388551f7cc4825964337238e5ca",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "contains_personal_settings": false,
+  "contains_authentication": false,
+  "contains_raw_gpu_buffers": false,
+  "gpu_execution_requested": false
+}
