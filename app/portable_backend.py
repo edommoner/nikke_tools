@@ -140,7 +140,7 @@ def validate_composed_stride(source,input_words,output_words):
         check_schema(ROOT)
         if (input_words,output_words)!=(LAYOUT['INPUT_WORDS'],LAYOUT['OUTPUT_WORDS']):raise ValueError('Final-queue magazines require both complete banks and disjoint receipts')
         return
-    if source=='gpu/world_enemy_ammo_entry.slang':
+    if source in ('gpu/world_enemy_ammo_entry.slang','gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang'):
         from portable_enemy_ammo_wire import check_schema,LAYOUT
         check_schema(ROOT)
         if (input_words,output_words)!=(LAYOUT['INPUT_WORDS'],LAYOUT['OUTPUT_WORDS']):raise ValueError('Enemy ammo requires complete actor and resource banks')

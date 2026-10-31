@@ -57,7 +57,10 @@ void enemyAmmoRefresh(inout Runtime s,uint64_t when)
 bool initializeEnemyAmmo(inout Runtime s)
 {
     uint input=s.inputBase+EAM_BASE,count=commands[input+2];
-    if(commands[input]!=EAM_MAGIC||commands[input+1]!=1||count==0||count>128||commands[input+3]!=actorPoolCount(s))return false;
+    if(commands[input]!=EAM_MAGIC||commands[input+1]!=1||count>128||commands[input+3]!=actorPoolCount(s))return false;
+#ifndef PORTABLE_PRODUCT_ENEMY_AMMO
+    if(count==0)return false;
+#endif
     for(uint i=4;i<16;i++)if(commands[input+i]!=0)return false;
     ActorBits declared=actorBitsEmpty();
     for(uint i=0;i<128;i++)

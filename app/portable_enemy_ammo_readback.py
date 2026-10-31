@@ -1,12 +1,15 @@
 """Decode only owned enemy-ammunition state; full battle remains existing code."""
-import struct
+import struct,math
 from portable_enemy_ammo_wire import LAYOUT as E
 from portable_specs import LIMITS as L
 
 
-def compare_ammo(block,domain,native,*,allow_retired_queue=False):
-    case,meta,bindings,_=domain;data=native['enemy_ammo'];head=E['OUTPUT_BASE']
-    number=lambda at:struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
+def read_ammo(block,domain,*,allow_retired_queue=False):
+    case,meta,bindings,_=domain;head=E['OUTPUT_BASE']
+    def number(at):
+        value=struct.unpack('<d',struct.pack('<II',*block[at:at+2]))[0]
+        assert math.isfinite(value)
+        return value
     actor=lambda slot,gen:[int(bindings[slot].kind),bindings[slot].identity,gen]
     label=lambda slot:bindings[slot].label
     names={v:k for k,v in meta['states'].items()}
@@ -20,7 +23,6 @@ def compare_ammo(block,domain,native,*,allow_retired_queue=False):
         generations.append(dict(time=number(at+8),label=label(slot),actor=actor(slot,gen),initial=initial,capacity=cap))
         final.append(dict(label=label(slot),actor=actor(slot,gen),alive=bool(alive),capacity=cap,remaining=remaining,reloading_until=number(at+6)))
         last[slot]=(i,at)
-    assert generations==data['generations'] and final==data['final'],'Every original and superseded magazine generation'
     for slot in range(128):
         at=head+E['STATE_BASE']+slot*8
         if slot not in last:assert not any(block[at:at+8]);continue
@@ -71,9 +73,15 @@ def compare_ammo(block,domain,native,*,allow_retired_queue=False):
             else:assert block[at+11]==0
             attempts.append(row);assert not any(block[at+12:at+16])
         else:raise AssertionError('Unknown enemy ammo receipt kind')
-    assert charges==data['charges'],'Original percentage quantities, recipient order and completion snapshots'
-    assert reloads==data['reloads'] and attempts==data['attempts'],'Real resource gates and native frame deadlines'
     assert not any(block[head+E['EVENT_BASE']+events*16:head+E['EVENT_BASE']+E['EVENTS']*16])
+    return dict(generations=generations,final=final,charges=charges,reloads=reloads,attempts=attempts)
+
+
+def compare_ammo(block,domain,native,*,allow_retired_queue=False):
+    observed=read_ammo(block,domain,allow_retired_queue=allow_retired_queue)
+    data=native['enemy_ammo']
+    for key,value in observed.items():assert value==data[key],key
+    head=E['OUTPUT_BASE']
     clean=list(block);end=head+E['EVENT_BASE']+E['EVENTS']*16;clean[head:end]=[0]*(end-head)
     return compare_resources(clean,domain,native)
 

@@ -89,7 +89,7 @@ def attach(source, words, metadata, prepared, patterns, authored):
     return source.replace('gpu/product_', 'gpu/product_add_', 1), A['INPUT_WORDS'], A['OUTPUT_WORDS'], words, metadata
 
 
-def query_sources(block, metadata):
+def query_sources(block, metadata,*,ammo_attempts=None):
     """Read actual slot/generation receipts; labels are literal declarations."""
     from portable_specs import LIMITS as L
     from portable_add_self_destruct_wire import MAGIC as retirement_magic, LAYOUT as R
@@ -100,8 +100,10 @@ def query_sources(block, metadata):
         return None
     def fail():
         raise UnsupportedPortable('Invalid product ADD source receipt')
-    if len(block) != A['OUTPUT_WORDS'] or block[A['OUTPUT_BASE']] != MAGIC or block[R['OUTPUT_BASE']] != retirement_magic:
+    if ammo_attempts is not None and not metadata.get('product_enemy_ammo'):fail()
+    if len(block) != A['OUTPUT_WORDS'] or block[A['OUTPUT_BASE']] != MAGIC:
         fail()
+    if ammo_attempts is None and block[R['OUTPUT_BASE']] != retirement_magic:fail()
     head = L['WORLD_FRAME_OUTPUT_BASE']; result = {}; shots = 0
     if block[head + 2] > A['MAP_ROWS']:
         fail()
@@ -116,8 +118,18 @@ def query_sources(block, metadata):
                 (not info['labels'][slot] or info['source_nodes'][slot] != block[at + 1])):
             fail()
         query = block[at + 5]
+        if ammo_attempts is not None:
+            if shots>len(ammo_attempts):fail()
+            attempt=ammo_attempts[shots-1]
+            patterns=metadata['product_enemy_ammo']['case']['patterns']
+            if (attempt['label']!=metadata['product_enemy_ammo']['bindings'][slot]['label'] or attempt['actor'][2]!=generation
+                or attempt['pattern']!=patterns[block[at+1]]['id'] or attempt['index']!=block[at+2]
+                or (attempt['status']=='fired')!=(query!=0)):fail()
+            if query==0:continue
         if query == 0 or query - 1 in result: fail()
         result[query - 1] = info['labels'][slot]
-    if shots != block[A['OUTPUT_BASE'] + 1] or block[R['OUTPUT_BASE'] + 1] > R['ROWS'] or block[R['OUTPUT_BASE'] + 2] != block[R['OUTPUT_BASE'] + 1]:
+    if shots != block[A['OUTPUT_BASE'] + 1]:
         fail()
+    if ammo_attempts is None and (block[R['OUTPUT_BASE']+1]>R['ROWS'] or block[R['OUTPUT_BASE']+2]!=block[R['OUTPUT_BASE']+1]):fail()
+    if ammo_attempts is not None and shots!=len(ammo_attempts):fail()
     return result

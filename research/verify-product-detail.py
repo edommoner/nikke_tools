@@ -41,7 +41,7 @@ def prepare():
     source,iw,ow,words,metadata=product.compile_product(prepared)
     if (source,iw,ow)!=(SOURCE,suite.INPUT,suite.OUTPUT):
         raise ValueError('Product request requires a different entry owner')
-    rows=[('product/'+PROGRAM+'-30s' if PROGRAM else 'product/miranda-stage0-30s',words,(body,prepared,run,metadata))]
+    rows=[(f'product/{PROGRAM}-{body["duration"]:g}s' if PROGRAM else 'product/miranda-stage0-30s',words,(body,prepared,run,metadata))]
     packed=array.array('I',[len(rows),*words])
     if sys.byteorder!='little':packed.byteswap()
     return rows,packed.tobytes()

@@ -456,7 +456,7 @@ void applyDefinitionFrame(inout Runtime s,inout DISPATCH_FRAMES(frames),inout in
             {
                 uint status; uint64_t count = f64ToI64(spent,1,status);
                 if (status != 0 || count > 0x7fffffff) { s.error = 2; break; }
-                if (s.resourceAmmoObserved == 0 && s.traceMode != 1)
+                if (s.resourceAmmoObserved == 0 && !RESOURCE_TRACE_ENABLED(s))
                 {
                     if (count > 0x7fffffff-s.resourceTraceTotal) { s.error = 2; break; }
                     s.resourceTraceTotal += uint(count);

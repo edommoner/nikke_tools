@@ -99,7 +99,10 @@ class EnemyAmmoWireTests(unittest.TestCase):
         from portable_add_self_destruct_source_contract import project_sources as before_self
         previous=before_self(ROOT)
         actual=source_hashes(r['source'])
-        projected={name:hashlib.sha256(previous[name].encode()).hexdigest() if name in previous else digest for name,digest in actual.items()}
+        from portable_weighted_incoming_source_contract import projected_hashes
+        from portable_quantity_visited_source_contract import historical_hashes
+        projected=historical_hashes(ROOT,projected_hashes(ROOT,r['source'],previous))
+        self.assertNotEqual(actual,golden['source_sha256'])
         self.assertEqual(projected,golden['source_sha256'])
         self.assertEqual(proof['output_sha256'],golden['output_sha256']);self.assertTrue(proof['calculation_verified'])
         self.assertEqual((proof['input_count'],proof['native_cases'],proof['gpu_calls']),(20,6,0))

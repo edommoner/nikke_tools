@@ -9,6 +9,67 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def test_original_enemy_magazine_product_uses_literal_state_and_restores_native_operator(self):
+        from portable_enemy_ammo_cases import fixtures
+        import portable_detail as product
+        case=fixtures()[0];body=copy.deepcopy(case['body']);body['reference_models']={'enemy_ammo':case['enemy_ammo']}
+        before=copy.deepcopy(body);aliases=(timeline.simulate,sim.simulate);register=timeline._register_instant_handlers
+        with patch.object(sim,'execute',side_effect=AssertionError('No native battle during input preparation')):
+            prepared,_=product.prepare(body);original=copy.deepcopy(prepared)
+            source,iw,ow,words,meta=product.compile_product(prepared)
+        self.assertEqual(prepared,original);self.assertEqual((source,iw,ow),('gpu/product_ammo_battle_entry.slang',117632,2032000))
+        self.assertFalse(meta['product_enemy_ammo']['cpu_state_or_schedule_supplied'])
+        actual=engine_worker.evaluate(body);data=actual['reference_models']['enemy_ammo']
+        self.assertEqual(body,before);self.assertEqual(aliases,(timeline.simulate,sim.simulate));self.assertIs(register,timeline._register_instant_handlers)
+        self.assertTrue(data['charges']);self.assertTrue(data['attempts']);self.assertTrue(data['reloads'])
+        self.assertTrue(any(t['after']<t['before'] for r in data['charges'] for t in r['targets']))
+        self.assertTrue(all(len(r['completion'])==1 for r in data['charges']))
+
+    def test_enemy_magazine_default_has_no_fabricated_capacity_and_attack_requires_declaration(self):
+        from portable_original_identity_inventory import selected_profile_bodies
+        from portable_enemy_ammo_cases import fixtures
+        from portable_runtime import UnsupportedPortable
+        import portable_detail as product
+        body=selected_profile_bodies(['벨벳'],0)[0][2];prepared,_=product.prepare(body);source,iw,ow,words,meta=product.compile_product(prepared)
+        self.assertEqual(words[116464:116468],[0x45414d31,1,0,1]);self.assertFalse(any(words[116468:]))
+        self.assertEqual(meta['real_prepared_input']['prepared_effects'],len(prepared['effects']))
+        prepared,_=product.prepare(fixtures()[0]['body'])
+        with self.assertRaisesRegex(UnsupportedPortable,'explicit.*magazines'):product.compile_product(prepared)
+        with self.assertRaisesRegex(ValueError,'combined checked native'):
+            normalize({'enemy_ammo':fixtures()[0]['enemy_ammo'],'weighted_incoming':{}})
+
+    def test_extended_resource_history_is_complete_and_cannot_use_a_short_prefix(self):
+        from portable_resource_decode import resource_readback
+        from portable_specs import LIMITS as L
+        from portable_enemy_ammo_wire import LAYOUT as E
+        words=array.array('I',[0])*E['OUTPUT_WORDS'];h=L['RESOURCE_HEADER_BASE'];words[h]=words[h+1]=129
+        for i in range(129):
+            at=L['RESOURCE_TRACE_BASE']+i*8 if i<128 else E['OUTPUT_BASE']+E['RESOURCE_BASE']+(i-128)*8
+            words[at]=26;words[at+4:at+6]=array.array('I',struct.unpack('<II',struct.pack('<d',i/60)))
+        def number(at):return struct.unpack('<d',struct.pack('<II',*words[at:at+2]))[0]
+        meta=dict(resource_names=['original'],product_enemy_ammo={})
+        data=resource_readback(words,meta,L,number);self.assertEqual(len(data['resource_trace']),129)
+        self.assertEqual(data['resource_trace'][-1]['time'],128/60)
+        with self.assertRaises(RuntimeError):resource_readback(words[:159744],meta,L,number)
+        with self.assertRaises(RuntimeError):resource_readback(words,dict(resource_names=['original']),L,number)
+
+    def test_magazine_blocked_attempt_requires_matching_source_generation_and_no_query(self):
+        from portable_product_add_attack import query_sources
+        from portable_add_attack_battle_wire import LAYOUT as A,MAGIC
+        from portable_specs import LIMITS as L
+        from portable_runtime import UnsupportedPortable
+        words=array.array('I',[0])*A['OUTPUT_WORDS'];words[A['OUTPUT_BASE']]=MAGIC;words[A['OUTPUT_BASE']+1]=1
+        h=L['WORLD_FRAME_OUTPUT_BASE'];words[h+2]=1;at=h+2832;words[at]=3;words[at+2]=1
+        words[A['OUTPUT_BASE']+A['MAP_BASE']]=1;words[A['OUTPUT_BASE']+A['MAP_BASE']+1]=1
+        meta=dict(product_add_attacks=dict(labels=['','wave#1'],source_nodes=[-1,0]),product_enemy_ammo=dict(bindings=[dict(label='__enemy__'),dict(label='__enemy__:wave#1')],case=dict(patterns=[dict(id='wave')])))
+        attempt=dict(label='__enemy__:wave#1',actor=[5,0,1],pattern='wave',index=1,status='empty')
+        self.assertEqual(query_sources(words,meta,ammo_attempts=[attempt]),{})
+        with self.assertRaises(UnsupportedPortable):query_sources(words,meta)
+        for key,value in [('status','fired'),('actor',[5,0,2]),('pattern','other'),('index',2)]:
+            bad=dict(attempt,**{key:value})
+            with self.subTest(key=key),self.assertRaises(UnsupportedPortable):query_sources(words,meta,ammo_attempts=[bad])
+        words[at+5]=1;self.assertEqual(query_sources(words,meta,ammo_attempts=[dict(attempt,status='fired')]),{0:'wave#1'})
+
     def test_default_world_preserves_all_original_carriers_without_inventing_incoming_quantities(self):
         from portable_original_identity_inventory import selected_profile_bodies
         import portable_detail as product

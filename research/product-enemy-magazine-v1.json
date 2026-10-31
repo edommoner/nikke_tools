@@ -1,0 +1,287 @@
+{
+  "schema": 1,
+  "feature": "product-enemy-magazine-v1",
+  "metal_default_profiles": 1,
+  "metal_default_conditions": 2,
+  "metal_declared_conditions": 7,
+  "metal_total_distinct_profiles": 1,
+  "metal_total_conditions": 9,
+  "cuda_product_profiles": 0,
+  "scenarios": [
+    {
+      "scenario": "default-fixed",
+      "duration": 30,
+      "device": "Apple M5",
+      "gpu_seconds": 2.7538026249967515,
+      "all_payload_fields_exact": true,
+      "input_sha256": "1bcd913dd2f6dfb61a7db6bf241dcc2d58e00d75883692d8535c832bcf743d13",
+      "output_sha256": "c79d2a07675205c25060416600f34b70760a0a258e1060e110e7670206da0c70",
+      "resource_notifications": 4200,
+      "resource_notification_total": 4200,
+      "magazine_generations": 0,
+      "charges": 0,
+      "attempt_statuses": {},
+      "reloads": 0
+    },
+    {
+      "scenario": "default-accumulate",
+      "duration": 30,
+      "device": "Apple M5",
+      "gpu_seconds": 2.726415666693356,
+      "all_payload_fields_exact": true,
+      "input_sha256": "f5178c4e74cb2d705de2a2f470a754dc7c57b1590b777facc185465e2b7a389d",
+      "output_sha256": "f832e2898d3a99a1c2ab0bdf3c13afb8a30a61415d7b72156d0d8c0b30816e32",
+      "resource_notifications": 4200,
+      "resource_notification_total": 4200,
+      "magazine_generations": 0,
+      "charges": 0,
+      "attempt_statuses": {},
+      "reloads": 0
+    },
+    {
+      "scenario": "level10",
+      "duration": 6,
+      "device": "Apple M5",
+      "gpu_seconds": 0.6033355833496898,
+      "all_payload_fields_exact": true,
+      "input_sha256": "fd12140cadddb447d49a322ea8f082d586b78124e519452616689f2ef7242fb0",
+      "output_sha256": "3aa2f707bc3baa197b74b15636735662d168088b85d3e0dce8f577b404adaa35",
+      "resource_notifications": 800,
+      "resource_notification_total": 800,
+      "magazine_generations": 3,
+      "charges": 2,
+      "attempt_statuses": {
+        "fired": 40,
+        "empty": 2,
+        "reloading": 8
+      },
+      "reloads": 4
+    },
+    {
+      "scenario": "level1",
+      "duration": 6,
+      "device": "Apple M5",
+      "gpu_seconds": 0.5914950833539478,
+      "all_payload_fields_exact": true,
+      "input_sha256": "29a6c87d6e37adaf463497cfa30ffbb89713fbd7ae6bcdc7d8c19a42c35f869e",
+      "output_sha256": "2ad0cc532ee6d0d61b042fc14f06592267d1f78ff4ba32ba1644d3a5d9cbe1c8",
+      "resource_notifications": 800,
+      "resource_notification_total": 800,
+      "magazine_generations": 3,
+      "charges": 2,
+      "attempt_statuses": {
+        "fired": 40,
+        "empty": 2,
+        "reloading": 8
+      },
+      "reloads": 4
+    },
+    {
+      "scenario": "late-empty",
+      "duration": 6,
+      "device": "Apple M5",
+      "gpu_seconds": 0.5931427499745041,
+      "all_payload_fields_exact": true,
+      "input_sha256": "1051a6f741efaa9bd9782abcd502bc64043bf0b991c5dac4a61b7c8e0b975801",
+      "output_sha256": "9d80ef2d72610df2fbc5f2397d635a9384be108eac98f9cb89b4ab7ef60a0659",
+      "resource_notifications": 800,
+      "resource_notification_total": 800,
+      "magazine_generations": 2,
+      "charges": 2,
+      "attempt_statuses": {
+        "fired": 30,
+        "empty": 2,
+        "reloading": 2
+      },
+      "reloads": 2
+    },
+    {
+      "scenario": "renewal",
+      "duration": 6,
+      "device": "Apple M5",
+      "gpu_seconds": 0.5765908749890514,
+      "all_payload_fields_exact": true,
+      "input_sha256": "62adcb72369dda48a1d2d65598ca36aa8885425b301f234d0fd87895c2c415f9",
+      "output_sha256": "265619a255534a3820b2700e8dce124b28d0f2040654257c492267b1ea6c6d0a",
+      "resource_notifications": 800,
+      "resource_notification_total": 800,
+      "magazine_generations": 4,
+      "charges": 2,
+      "attempt_statuses": {
+        "fired": 12,
+        "empty": 4,
+        "reloading": 16
+      },
+      "reloads": 8
+    },
+    {
+      "scenario": "dead",
+      "duration": 6,
+      "device": "Apple M5",
+      "gpu_seconds": 0.5684434583527036,
+      "all_payload_fields_exact": true,
+      "input_sha256": "d4248364f30ade24022b7aa4d9ba6ead4c8bc180730b6b3063fc477e8c6ff4b1",
+      "output_sha256": "dcc8362f7a66f419b557b9ff9ec5be34461a941c424a8a8dea2cdfcd61f71d6c",
+      "resource_notifications": 800,
+      "resource_notification_total": 800,
+      "magazine_generations": 2,
+      "charges": 2,
+      "attempt_statuses": {
+        "fired": 2
+      },
+      "reloads": 0
+    },
+    {
+      "scenario": "body",
+      "duration": 6,
+      "device": "Apple M5",
+      "gpu_seconds": 0.58696887496626,
+      "all_payload_fields_exact": true,
+      "input_sha256": "688a37922a0104c5ed0b1499b553bd281c71d9cff69b2a614a2c3891bd9ef57e",
+      "output_sha256": "e044f7640b43c0b83f4e0762a85b8ac329822f28bb02d4959e0783766038a40e",
+      "resource_notifications": 800,
+      "resource_notification_total": 800,
+      "magazine_generations": 3,
+      "charges": 2,
+      "attempt_statuses": {
+        "fired": 20,
+        "empty": 1,
+        "reloading": 4
+      },
+      "reloads": 2
+    },
+    {
+      "scenario": "declared-fixed",
+      "duration": 6,
+      "device": "Apple M5",
+      "gpu_seconds": 0.633941458305344,
+      "all_payload_fields_exact": true,
+      "input_sha256": "1d5728b58e75a82ad6823086879afa7f906e47e7bbe09994b3eabf1a0fda735d",
+      "output_sha256": "cf16c3eb550bb7b1c52566959c83d6c2ae55b059f62c9de9c47de9b11d5690e8",
+      "resource_notifications": 1100,
+      "resource_notification_total": 1100,
+      "magazine_generations": 3,
+      "charges": 2,
+      "attempt_statuses": {
+        "fired": 40,
+        "empty": 2,
+        "reloading": 8
+      },
+      "reloads": 4
+    }
+  ],
+  "saved_audit": {
+    "conditions": 9,
+    "extra_native_battles": 0,
+    "extra_gpu_calls": 0
+  },
+  "resource_capacity": 15124,
+  "output_stride_unchanged": true,
+  "no_history_truncation": true,
+  "default_has_no_configured_enemy_magazines": true,
+  "declared_fixed_capacity_not_verified_game_rule": true,
+  "original_definitions": 76,
+  "all_original_effects_and_values_retained": true,
+  "original_percentage_operator_code_reused": true,
+  "cpu_extension": "Dedicated existing checked EnemyAmmo adapter, pinned upstream unchanged",
+  "new_numeric_math": false,
+  "new_suites": 0,
+  "normalizer_changed": false,
+  "device_rejection": {
+    "device": "Apple M5",
+    "gpu_execution_verified": true,
+    "status": 64,
+    "native_battle_calls": 0,
+    "input_sha256": "2c68ba9a7b5bce95730037fe5e081f550f27a837de1ed8acf40c073545d2345e",
+    "output_sha256": "8f850d26198d86a64538c2438af0f2edddf4f5a412468c65004fe102c546f1d4",
+    "scope": "Device rejects a real BODY attack with no declared magazine; no guessed capacities"
+  },
+  "former_gap_static_audit": {
+    "rows": [
+      {
+        "profile": "앤 : 미라클 페어리",
+        "favorite_stage": 0,
+        "static_compiled": true,
+        "source": "gpu/product_healing_battle_entry.slang"
+      },
+      {
+        "profile": "유니",
+        "favorite_stage": 0,
+        "static_compiled": false,
+        "reason": "Unported buff stat"
+      },
+      {
+        "profile": "얀",
+        "favorite_stage": 0,
+        "static_compiled": false,
+        "reason": "Unported buff stat"
+      },
+      {
+        "profile": "솔져 O.W.",
+        "favorite_stage": 0,
+        "static_compiled": true,
+        "source": "gpu/product_cover_battle_entry.slang"
+      },
+      {
+        "profile": "벨벳",
+        "favorite_stage": 0,
+        "static_compiled": true,
+        "source": "gpu/product_ammo_battle_entry.slang"
+      },
+      {
+        "profile": "스노우 화이트 : 헤비암즈",
+        "favorite_stage": 0,
+        "static_compiled": false,
+        "reason": "Unported buff stat"
+      },
+      {
+        "profile": "베이",
+        "favorite_stage": 0,
+        "static_compiled": true,
+        "source": "gpu/product_weighted_battle_entry.slang"
+      },
+      {
+        "profile": "베이",
+        "favorite_stage": 1,
+        "static_compiled": true,
+        "source": "gpu/product_weighted_battle_entry.slang"
+      },
+      {
+        "profile": "베이",
+        "favorite_stage": 2,
+        "static_compiled": true,
+        "source": "gpu/product_weighted_battle_entry.slang"
+      },
+      {
+        "profile": "베이",
+        "favorite_stage": 3,
+        "static_compiled": true,
+        "source": "gpu/product_weighted_battle_entry.slang"
+      },
+      {
+        "profile": "레이 (가칭)",
+        "favorite_stage": 0,
+        "static_compiled": false,
+        "reason": "Unported buff stat"
+      }
+    ],
+    "static_compiled": 7,
+    "remaining": 4,
+    "gpu_calls": 0,
+    "native_battle_calls": 0
+  },
+  "retained_failures": {
+    "v1": "Trace mode omitted resource records; 0/800 rejected",
+    "v2": "Resource fast-path also omitted records; 0/800 rejected",
+    "v3": "ADD projection required firing for blocked attempts and collided with unused retirement header; saved corrected projection matches CPU",
+    "v4": "Declared6 passed, fixed30 reached4096 resource-history limit; rejected without truncation"
+  },
+  "unsupported": [
+    "enemy weapon/capacity changes",
+    "self-destruct magazines",
+    "multiple reference consumers",
+    "group/target specialized product prefix",
+    "overflow beyond bounded complete histories",
+    "current product CUDA"
+  ]
+}

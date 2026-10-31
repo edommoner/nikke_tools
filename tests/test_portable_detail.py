@@ -453,7 +453,7 @@ class PortableDetail(unittest.TestCase):
 
     def test_real_unsupported_effect_reports_owner_and_definition_without_dispatch(self):
         from portable_original_identity_inventory import selected_profile_bodies
-        for name,stat in [('얀','force_move'),('유니','enemy_movement_disable'),('벨벳','ammo_charge_pct')]:
+        for name,stat in [('얀','force_move'),('유니','enemy_movement_disable'),('스노우 화이트 : 헤비암즈','lock_on')]:
             body=selected_profile_bodies([name],0)[0][2];body.update(burst_gauge_mode='fixed',compute_backend='metal_detail')
             prepared,run=product.prepare(body);before=copy.deepcopy(prepared)
             with self.assertRaises(product.UnsupportedPortable) as raised:product.compile_product(prepared)
@@ -487,7 +487,7 @@ class PortableDetail(unittest.TestCase):
     def test_fixed_product_timeline_retains_bursts_without_accumulate_only_records(self):
         body={**self.fixture['body'],'burst_gauge_mode':'fixed'}
         with patch.object(product,'decode',return_value=self.fixture['gpu_projection']):
-            actual=product.decode_payload(body,self.prepared,self.prepared_run,self.metadata,[])
+            actual=product.decode_payload(body,self.prepared,self.prepared_run,self.metadata,[0])
         expected=[row for row in self.fixture['cpu_payload']['burst_timeline']
                   if not row['event'].startswith(('카메라 초점:','게이지 만충'))]
         self.assertEqual(actual['burst_timeline'],expected)
@@ -722,7 +722,7 @@ class PortableDetail(unittest.TestCase):
             cls.words,cls.metadata=compile_projectile_battle(cls.prepared)
     def test_saved_actual_gpu_projection_reconstructs_complete_original_product_payload(self):
         with patch.object(product,'decode',return_value=self.fixture['gpu_projection']):
-            payload=product.decode_payload(self.fixture['body'],self.prepared,self.prepared_run,self.metadata,[])
+            payload=product.decode_payload(self.fixture['body'],self.prepared,self.prepared_run,self.metadata,[0])
         expected=copy.deepcopy(self.fixture['cpu_payload'])
         # Run provenance is stamped at response time; the saved capture keeps
         # its historical commit. No calculation/payload fields are excluded.
@@ -737,7 +737,7 @@ class PortableDetail(unittest.TestCase):
             view=copy.deepcopy(self.fixture['gpu_projection']);mutate(view)
             with patch.object(product,'decode',return_value=view):
                 with self.assertRaises((ValueError,RuntimeError)):
-                    product.decode_payload(self.fixture['body'],self.prepared,self.prepared_run,self.metadata,[])
+                    product.decode_payload(self.fixture['body'],self.prepared,self.prepared_run,self.metadata,[0])
     def test_original_model_warnings_are_collected_without_a_cpu_battle(self):
         sys.path.insert(0,str(ROOT/'research'))
         from portable_original_identity_inventory import selected_profile_bodies
@@ -751,7 +751,7 @@ class PortableDetail(unittest.TestCase):
                 prepared,run=product.prepare(body)
             self.assertEqual(run._portable_detail_model_warnings,[warning])
             with patch.object(product,'decode',return_value=self.fixture['gpu_projection']):
-                payload=product.decode_payload(body,prepared,run,self.metadata,[])
+                payload=product.decode_payload(body,prepared,run,self.metadata,[0])
             self.assertEqual(payload['app_warnings'],[self.fixture['cpu_payload']['app_warnings'][0],warning])
     def test_backend_failure_preserves_cpu_label_and_strips_internal_request_flags(self):
         body={**self.fixture['body'],'_compile_gpu_detail':True}

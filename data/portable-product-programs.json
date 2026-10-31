@@ -161,6 +161,20 @@
       "output_words": 2048912,
       "mode": "fixed",
       "kind": ""
+    },
+    "ammo-accumulate": {
+      "source": "gpu/product_ammo_battle_entry.slang",
+      "input_words": 117632,
+      "output_words": 2032000,
+      "mode": "accumulate",
+      "kind": ""
+    },
+    "ammo-fixed": {
+      "source": "gpu/product_ammo_fixed_battle_entry.slang",
+      "input_words": 117632,
+      "output_words": 2032000,
+      "mode": "fixed",
+      "kind": ""
     }
   }
 }

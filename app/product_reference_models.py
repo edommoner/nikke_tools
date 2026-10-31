@@ -10,14 +10,16 @@ from contextlib import contextmanager,ExitStack
 WARNING='宣言した敵回復モデルを使用しています。実ゲームの回復量・対象規則を確認した意味ではありません。'
 WEIGHTED_WARNING='宣言したダメージ配分モデルを使用しています。実ゲームの配分比率を確認した意味ではありません。'
 COVER_WARNING='宣言した独立遮蔽DEFモデルを使用しています。実ゲームの遮蔽基礎DEF・レベル曲線を確認した意味ではありません。'
+AMMO_WARNING='宣言した敵弾倉モデルを使用しています。実ゲームの弾数・再装填規則を確認した意味ではありません。'
 
 def warning(declarations):
-    return ' '.join(text for key,text in [('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING),('cover_defense',COVER_WARNING)] if key in declarations)
+    return ' '.join(text for key,text in [('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING),('cover_defense',COVER_WARNING),('enemy_ammo',AMMO_WARNING)] if key in declarations)
 
 def normalize(value):
     if value is None:return {}
-    if type(value) is not dict or set(value)-{'enemy_healing','weighted_incoming','cover_defense'}:
-        raise ValueError('reference_modelsには接続済みのenemy_healing／weighted_incoming／cover_defenseだけを指定してください。')
+    if type(value) is not dict or set(value)-{'enemy_healing','weighted_incoming','cover_defense','enemy_ammo'}:
+        raise ValueError('reference_modelsには接続済みのenemy_healing／weighted_incoming／cover_defense／enemy_ammoだけを指定してください。')
+    if 'enemy_ammo' in value and len(value)!=1:raise ValueError('Enemy magazine composition requires a combined checked native consumer')
     result={}
     if 'enemy_healing' in value:
         from enemy_healing_model import normalize as healing
@@ -33,6 +35,9 @@ def normalize(value):
         if type(spec) is not list or any(type(r) is not dict for r in spec):raise ValueError('Explicit five-owner cover bases required')
         cover(spec,[r.get('name') for r in spec])
         result['cover_defense']=copy.deepcopy(spec)
+    if 'enemy_ammo' in value:
+        from enemy_ammo_model import normalize as ammo
+        result['enemy_ammo']=ammo(value['enemy_ammo'])
     return result
 
 def healing_public(data):
@@ -49,6 +54,9 @@ def healing_public(data):
         sources=copy.deepcopy(data['sources']),final_adds=copy.deepcopy(data['final_adds']),
         final_scored_damage={n:data['final_scored_damage'].get(n,0.) for n in summary['add_char_total']},
         final_overkill=data['final_overkill'],public_summary=summary)
+
+def ammo_public(data):
+    return {k:copy.deepcopy(data[k]) for k in ('generations','final','charges','reloads','attempts')}
 
 @contextmanager
 def execution(declarations,names=None):
@@ -69,7 +77,12 @@ def execution(declarations,names=None):
             from cover_defense_battle_model import cover_defense
             cover=stack.enter_context(cover_defense(declarations['cover_defense'],names))
         else:cover=None
+        if 'enemy_ammo' in declarations:
+            from enemy_ammo_model import enemy_ammo
+            ammo=stack.enter_context(enemy_ammo(declarations['enemy_ammo']))
+        else:ammo=None
         yield result
     if healing is not None:result['enemy_healing']=healing_public(healing)
     if weighted is not None:result['weighted_incoming']=copy.deepcopy(weighted)
     if cover is not None:result['cover_defense']=copy.deepcopy(cover)
+    if ammo is not None:result['enemy_ammo']=ammo_public(ammo)

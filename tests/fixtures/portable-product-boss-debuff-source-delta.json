@@ -24,101 +24,113 @@
     },
     "app/portable_detail.py": {
       "before_sha256": "085c7ccdcebfa6641bf124d95e6c320c337405202e4b148ae64dca08cb11db06",
-      "after_sha256": "049f1c643f0b80425164126817ca8b5b69d5476bafcbb3e5c8e5ad0c62e2d116",
+      "after_sha256": "948d2a38f4f427c337271cf967cf5fdd18d57150677d11d6cbd27c1e78527f4d",
       "hunks": [
         {
           "start": 2842,
-          "end": 3739,
+          "end": 3968,
           "before": "",
-          "after": "product_weighted import required as weighted_required,compile_product as compile_weighted\n    if not prepared.get('_product_weighted_compiled') and weighted_required(prepared):\n        return compile_weighted(prepared,compile_product)\n    from portable_product_cover import required as cover_required,compile_product as compile_cover\n    if not prepared.get('_product_cover_compiled') and cover_required(prepared):\n        return compile_cover(prepared,compile_product)\n    from portable_product_healing import required,compile_product as compile_healing\n    if not prepared.get('_product_healing_compiled') and required(prepared):\n        return compile_healing(prepared,compile_product)\n    if prepared.get('reference_models'):\n        raise UnsupportedPortable('Declared CPU reference consumer requires its matching shared GPU product wire; no model may be silently omitted')\n    from portable_"
+          "after": "product_ammo import required as ammo_required,compile_product as compile_ammo\n    if not prepared.get('_product_ammo_compiled') and ammo_required(prepared):\n        return compile_ammo(prepared,compile_product)\n    from portable_product_weighted import required as weighted_required,compile_product as compile_weighted\n    if not prepared.get('_product_weighted_compiled') and weighted_required(prepared):\n        return compile_weighted(prepared,compile_product)\n    from portable_product_cover import required as cover_required,compile_product as compile_cover\n    if not prepared.get('_product_cover_compiled') and cover_required(prepared):\n        return compile_cover(prepared,compile_product)\n    from portable_product_healing import required,compile_product as compile_healing\n    if not prepared.get('_product_healing_compiled') and required(prepared):\n        return compile_healing(prepared,compile_product)\n    if prepared.get('reference_models'):\n        raise UnsupportedPortable('Declared CPU reference consumer requires its matching shared GPU product wire; no model may be silently omitted')\n    from portable_"
         },
         {
-          "start": 3804,
-          "end": 4536,
+          "start": 4033,
+          "end": 4765,
           "before": "",
           "after": "\n    # The product promises the canonical battle's named-carrier lifecycle.\n    # Keep every equipment definition and let the existing shared GPU carrier\n    # merge/refresh them exactly as native does. Standalone component-quantity\n    # proofs retain their distinct, explicitly documented contract.\n    prepared=dict(prepared,_product_native_equipment_carriers=True)\n    manual_cover=any(a.get('action')=='cover' for c in prepared['chars'] for a in c.get('control',{}).get('sequence',[]))\n    if manual_cover:\n        if not prepared.get('_product_cover_compiled'):\n            raise UnsupportedPortable('Manual cover requires the connected product cover consumer entry')\n        prepared=dict(prepared,_product_manual_cover=True)"
         },
         {
-          "start": 4747,
-          "end": 4885,
+          "start": 4976,
+          "end": 5114,
           "before": "",
           "after": "\n    if fixed and manual_cover:\n        raise UnsupportedPortable('Fixed burst with manual cover needs a combined literal control header')"
         },
         {
-          "start": 5545,
-          "end": 5789,
+          "start": 5774,
+          "end": 6018,
           "before": "",
           "after": "from portable_product_add_attack import lower as lower_add_attacks\n    prepared,add_patterns=lower_add_attacks(prepared)\n    if 'burst_pattern' in prepared['policies']['config']:\n        prepared=dict(prepared,_product_burst_patterns=True)\n    "
         },
         {
-          "start": 5838,
-          "end": 6029,
+          "start": 6067,
+          "end": 6258,
           "before": "",
           "after": ")\n    if any(p.get('kind') in ('attack','debuff') and p.get('spec',{}).get('debuffs') for p in original['enemy'].get('patterns',[])):\n        prepared=dict(prepared,_product_boss_debuffs=True"
         },
         {
-          "start": 6455,
-          "end": 6657,
+          "start": 6684,
+          "end": 6886,
           "before": "",
           "after": ")]\n        if manual_cover:\n            metadata['product_manual_cover_owners']=[i for i,c in enumerate(original['chars']) if any(a.get('action')=='cover' for a in c.get('control',{}).get('sequence',[])"
         },
         {
-          "start": 7266,
-          "end": 7387,
+          "start": 7495,
+          "end": 7616,
           "before": "",
           "after": "registry_nodes=validate(copy.deepcopy(prepared['enemy']['patterns'])) if add_patterns is not None else nodes\n            "
         },
         {
-          "start": 7415,
-          "end": 7424,
+          "start": 7644,
+          "end": 7653,
           "before": "",
           "after": "registry_"
         },
         {
-          "start": 8961,
-          "end": 9796,
+          "start": 9190,
+          "end": 10025,
           "before": "",
           "after": ")\n        if prepared.get('_product_burst_patterns'):\n            from portable_burst_control_specs import product_patterns\n            from portable_specs import LIMITS as limits\n            names=[c['name'] for c in prepared['chars']]\n            patterns=prepared['policies']['config']['burst_pattern']\n            packed=product_patterns(names,patterns)\n            for who,value in enumerate(packed):\n                words[limits['WEAPON_BASE']+who*limits['WEAPON_WORDS']+3]|=value\n            if any(packed):metadata['product_burst_patterns']=dict(patterns=copy.deepcopy(patterns),encoded=packed,cpu_schedule_or_state_supplied=False)\n        if add_patterns is not None:\n            from portable_product_add_attack import attach\n            return attach(source,words,metadata,prepared,add_patterns,original['enemy']['patterns']"
         },
         {
-          "start": 12985,
-          "end": 13017,
+          "start": 12495,
+          "end": 12721,
           "before": "",
-          "after": ",burst_trace=view['burst_trace']"
+          "after": "ammo_attempts=None\n    if not block or block[0]!=0:\n        raise UnsupportedPortable('Shared battle status: '+str(block[0] if block else 'missing')+(' (history capacity exceeded)' if block and block[0] in (2,8) else ''))\n    "
         },
         {
-          "start": 15808,
-          "end": 17019,
+          "start": 12735,
+          "end": 12784,
           "before": "",
-          "after": "metadata.get('product_enemy_healing'):\n        from portable_product_healing import read_result\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            from product_reference_models import WARNING\n            payload['reference_models']=model;payload['app_warnings'].append(WARNING)\n    if metadata.get('product_weighted_incoming'):\n        from portable_product_weighted import read_result\n        from product_reference_models import warning\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))\n    if metadata.get('product_cover_defense'):\n        from portable_product_cover import read_result\n        from product_reference_models import warning\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))\n    if 'manual_cover_sequences' in body:\n        payload['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])\n    if "
+          "after": "block if metadata.get('product_enemy_ammo') else "
         },
         {
-          "start": 17992,
-          "end": 17994,
+          "start": 13487,
+          "end": 13519,
+          "before": "",
+          "after": "'],burst_trace=view['burst_trace"
+        },
+        {
+          "start": 16312,
+          "end": 17937,
+          "before": "",
+          "after": "metadata.get('product_enemy_healing'):\n        from portable_product_healing import read_result\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            from product_reference_models import WARNING\n            payload['reference_models']=model;payload['app_warnings'].append(WARNING)\n    if metadata.get('product_weighted_incoming'):\n        from portable_product_weighted import read_result\n        from product_reference_models import warning\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))\n    if metadata.get('product_cover_defense'):\n        from portable_product_cover import read_result\n        from product_reference_models import warning\n        model=read_result(block,metadata,names,run.config['duration'])\n        if model is not None:\n            payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))\n    if metadata.get('product_enemy_ammo'):\n        from portable_product_ammo import read_result\n        from product_reference_models import warning\n        model=read_result(block,metadata)\n        ammo_attempts=model['enemy_ammo']['attempts'] if model is not None else []\n        if model is not None:\n            payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))\n    if 'manual_cover_sequences' in body:\n        payload['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])\n    if "
+        },
+        {
+          "start": 18910,
+          "end": 18912,
           "before": "",
           "after": ",8"
         },
         {
-          "start": 18270,
-          "end": 18378,
+          "start": 19188,
+          "end": 19324,
           "before": "",
-          "after": "from portable_product_add_attack import query_sources\n        sources=query_sources(block,metadata)\n        "
+          "after": "from portable_product_add_attack import query_sources\n        sources=query_sources(block,metadata,ammo_attempts=ammo_attempts)\n        "
         },
         {
-          "start": 18408,
-          "end": 18431,
+          "start": 19354,
+          "end": 19377,
           "before": "",
           "after": "es,attack_sources=sourc"
         },
         {
-          "start": 19853,
-          "end": 19866,
+          "start": 20799,
+          "end": 20812,
           "before": "",
           "after": "hit.get('by',"
         },
         {
-          "start": 19868,
-          "end": 19869,
+          "start": 20814,
+          "end": 20815,
           "before": "",
           "after": ")"
         }
@@ -234,7 +246,7 @@
     },
     "gpu/dispatch_phases.slang": {
       "before_sha256": "7eb76874e084585b7bcda36a884acecfc4ef78cbeb034020248dc44a3baabc00",
-      "after_sha256": "29ad01f8dffbeaa3d63ec33fc3e21bf0e1b97f50a933233b24adac8b003f0adc",
+      "after_sha256": "f7dddc214a61bc9bb5d599b0fdc58863b60676b62202e398bfaa64dc1114972c",
       "hunks": [
         {
           "start": 8080,
@@ -279,14 +291,26 @@
           "after": ";\n            captureWorldBossDotReference(s,row)"
         },
         {
-          "start": 36204,
-          "end": 36267,
+          "start": 25528,
+          "end": 25552,
+          "before": "",
+          "after": "!RESOURCE_TRACE_ENABLED("
+        },
+        {
+          "start": 25553,
+          "end": 25554,
+          "before": ".traceMode != 1",
+          "after": ")"
+        },
+        {
+          "start": 36214,
+          "end": 36277,
           "before": "",
           "after": "f.mode==19&&d.owner==5) recipientOrder=f.value>>32;\n        if("
         },
         {
-          "start": 39057,
-          "end": 39079,
+          "start": 39067,
+          "end": 39089,
           "before": "",
           "after": " && d.stat!=S_boss_dot"
         }
@@ -822,7 +846,7 @@
     },
     "app/portable_backend.py": {
       "before_sha256": "56d708fa4162b19d35cb2ec16498380f762e11dea17162c57ceb37c651c9f8ac",
-      "after_sha256": "c9fb1c6830c22f305531fedbb65196e665adeeb45cba95c3b03db795a5586898",
+      "after_sha256": "4c1f19a309cbf73cca026e516f18db7e093a98356639d55eb32504f103a6f2c1",
       "hunks": [
         {
           "start": 3872,
@@ -861,56 +885,68 @@
           "after": ",'gpu/product_cover_battle_entry.slang','gpu/product_cover_fixed_battle_entry.slang')"
         },
         {
-          "start": 11530,
-          "end": 11535,
+          "start": 8245,
+          "end": 8250,
           "before": "==",
           "after": " in ("
         },
         {
-          "start": 11572,
-          "end": 11661,
+          "start": 8284,
+          "end": 8367,
+          "before": "",
+          "after": ",'gpu/product_ammo_battle_entry.slang','gpu/product_ammo_fixed_battle_entry.slang')"
+        },
+        {
+          "start": 11616,
+          "end": 11621,
+          "before": "==",
+          "after": " in ("
+        },
+        {
+          "start": 11658,
+          "end": 11747,
           "before": "",
           "after": ",'gpu/product_healing_battle_entry.slang','gpu/product_healing_fixed_battle_entry.slang')"
         },
         {
-          "start": 34622,
-          "end": 34753,
+          "start": 34708,
+          "end": 34839,
           "before": "",
           "after": "if cuda_split_compile_threads()==2:\n                signatures['nvrtcVersion']=[C.POINTER(C.c_int),C.POINTER(C.c_int)]\n            "
         },
         {
-          "start": 41507,
-          "end": 41764,
+          "start": 41593,
+          "end": 41850,
           "before": "",
           "after": "split_compile_threads():\n    value=os.environ.get('NIKKE_CUDA_SPLIT_COMPILE','1')\n    if value not in ('1','2'):\n        raise ValueError('NIKKE_CUDA_SPLIT_COMPILE must be1 or2; automatic/all-core compilation is forbidden')\n    return int(value)\n\n\ndef cuda_"
         },
         {
-          "start": 41797,
-          "end": 41820,
+          "start": 41883,
+          "end": 41906,
           "before": "",
           "after": "=None, *, split_compile"
         },
         {
-          "start": 42218,
-          "end": 42620,
+          "start": 42304,
+          "end": 42706,
           "before": "",
           "after": "\n    threads=cuda_split_compile_threads() if split_compile is None else split_compile\n    if type(threads) is not int or threads not in (1,2):raise ValueError('NVRTC compiler threads must be1 or2')\n    # Opt-in only: default argv/cache identities stay byte-identical. The\n    # parallel optimizer count participates in the ordinary exact cache key.\n    if threads==2:options.append('--split-compile=2')"
         },
         {
-          "start": 43296,
-          "end": 43337,
+          "start": 43382,
+          "end": 43423,
           "before": "",
           "after": "threads=cuda_split_compile_threads()\n    "
         },
         {
-          "start": 43424,
-          "end": 43446,
+          "start": 43510,
+          "end": 43532,
           "before": "",
           "after": ",split_compile=threads"
         },
         {
-          "start": 44044,
-          "end": 44326,
+          "start": 44130,
+          "end": 44412,
           "before": "",
           "after": "')\n        if threads==2:\n            major,minor=C.c_int(),C.c_int()\n            check(lib.nvrtcVersion(C.byref(major),C.byref(minor)))\n            if major.value!=12 or minor.value<4:\n                raise ValueError('Two-thread NVRTC compilation requires verified NVRTC12.4..12.x"
         }
@@ -1068,7 +1104,7 @@
     },
     "app/portable_product_programs.py": {
       "before_sha256": "51d18a2191c24ef3b68f2d1cf71d792cdb9e8e01ed209e5c793827ce5b7d056d",
-      "after_sha256": "bd4e9ebc8ea5adda9a5758403e9713251c047e922e86c910b872fd5325ed0e9a",
+      "after_sha256": "12235be032275da094ffbd5ad7c570ed8f3c245d1d790b271bccfe9370557013",
       "hunks": [
         {
           "start": 364,
@@ -1078,37 +1114,37 @@
         },
         {
           "start": 1042,
-          "end": 1574,
+          "end": 1632,
           "before": "",
-          "after": "_default=_name.startswith('default-');_selector=_name[8:] if _default else _name\n    _add=_selector.startswith('add-');_healing=_selector.startswith('healing-');_weighted=_selector.startswith('weighted-');_cover=_selector.startswith('cover-')\n    if _default and (not (_weighted or _cover) or _mode!='fixed' or _kind):raise ValueError('Invalid default-world product program')\n    _prefix=('default-' if _default else '')+('add-' if _add else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else '')\n    "
-        },
-        {
-          "start": 1669,
-          "end": 1720,
-          "before": "",
-          "after": "(_healing or _weighted or _cover) and _kind!='' or "
+          "after": "_default=_name.startswith('default-');_selector=_name[8:] if _default else _name\n    _add=_selector.startswith('add-');_healing=_selector.startswith('healing-');_weighted=_selector.startswith('weighted-');_cover=_selector.startswith('cover-');_ammo=_selector.startswith('ammo-')\n    if _default and (not (_weighted or _cover) or _mode!='fixed' or _kind):raise ValueError('Invalid default-world product program')\n    _prefix=('default-' if _default else '')+('add-' if _add else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else 'ammo-' if _ammo else '')\n    "
         },
         {
           "start": 1727,
-          "end": 1735,
+          "end": 1787,
+          "before": "",
+          "after": "(_healing or _weighted or _cover or _ammo) and _kind!='' or "
+        },
+        {
+          "start": 1794,
+          "end": 1802,
           "before": "",
           "after": "_prefix+"
         },
         {
-          "start": 1966,
-          "end": 2073,
+          "start": 2033,
+          "end": 2162,
           "before": "",
-          "after": "+('add_' if _add else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else '')"
+          "after": "+('add_' if _add else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else 'ammo_' if _ammo else '')"
         },
         {
-          "start": 4042,
-          "end": 5119,
+          "start": 4131,
+          "end": 5699,
           "before": "",
-          "after": "name is not None and name.startswith('default-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['베이' if name.startswith('default-weighted-') else '솔져 O.W.'],0)[0][2]\n    elif name is not None and name.startswith('cover-'):\n        from portable_cover_defense_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'cover_defense':copy.deepcopy(case['cover_defense'])}\n        body['manual_cover_sequences']=copy.deepcopy(case['declared_manual_sequences'])\n    elif name is not None and name.startswith('weighted-'):\n        from portable_weighted_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}\n    elif name is not None and name.startswith('healing-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]\n    elif "
+          "after": "name is not None and name.startswith('ammo-'):\n        if program['mode']=='fixed':\n            from portable_original_identity_inventory import selected_profile_bodies\n            body=selected_profile_bodies(['벨벳'],0)[0][2]\n        else:\n            import engine_worker\n            from portable_enemy_ammo_cases import fixtures\n            case=fixtures()[0];body=copy.deepcopy(case['body'])\n            body['reference_models']={'enemy_ammo':copy.deepcopy(case['enemy_ammo'])}\n    elif name is not None and name.startswith('default-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['베이' if name.startswith('default-weighted-') else '솔져 O.W.'],0)[0][2]\n    elif name is not None and name.startswith('cover-'):\n        from portable_cover_defense_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'cover_defense':copy.deepcopy(case['cover_defense'])}\n        body['manual_cover_sequences']=copy.deepcopy(case['declared_manual_sequences'])\n    elif name is not None and name.startswith('weighted-'):\n        from portable_weighted_battle_cases import fixtures\n        case=fixtures()[0];body=copy.deepcopy(case['body'])\n        body['reference_models']={'weighted_incoming':copy.deepcopy(case['allocation'])}\n    elif name is not None and name.startswith('healing-'):\n        from portable_original_identity_inventory import selected_profile_bodies\n        body=selected_profile_bodies(['앤 : 미라클 페어리'],0)[0][2]\n    elif "
         },
         {
-          "start": 5741,
-          "end": 6174,
+          "start": 6321,
+          "end": 6754,
           "before": "",
           "after": "if name is not None and name.startswith('add-'):\n        body['enemy']['patterns']=[dict(id='product-escort',kind='summon',until=dict(targets_cleared=True),spec=dict(\n            name='Escort',count=2,hp=1e12,attack_at=.25,self_destruct=True,\n            attack=dict(atk=1000,coeff=100,hits=2,interval=.5,target='all',debuffs=[\n                dict(stat='atk_pct',value=-10),dict(stat='dot',coeff=10,interval=.5,duration=1)])))]\n    "
         }
@@ -1225,6 +1261,162 @@
           "end": 2152,
           "before": "",
           "after": "\n#ifdef PORTABLE_PRODUCT_UNSPECIFIED_COVER\n    if(commands[s.inputBase+CDF_BASE+3]!=0){s.error=64;return 0;}\n#endif"
+        }
+      ]
+    },
+    "app/portable_resource_decode.py": {
+      "before_sha256": "90dfc040707f13a215f134252933fdd0c6177f7039204c918ed3d6d4261ac909",
+      "after_sha256": "821f9c7033e50c3651d4703dd259f5d1827d25abe080365abd757aab99663d86",
+      "hunks": [
+        {
+          "start": 1071,
+          "end": 1469,
+          "before": "",
+          "after": "extended=metadata.get('product_enemy_ammo') is not None\n    if extended:\n        from portable_enemy_ammo_wire import LAYOUT as E\n        capacity=128+(E['OUTPUT_WORDS']-E['OUTPUT_BASE']-E['RESOURCE_BASE'])//8\n        if len(words)!=E['OUTPUT_WORDS'] or count!=words[header+1] or count>capacity or any(words[header+2:header+8]):raise RuntimeError('Invalid complete product resource history')\n    el"
+        },
+        {
+          "start": 1598,
+          "end": 1673,
+          "before": "",
+          "after": "(E['OUTPUT_BASE']+E['RESOURCE_BASE']+(i-128)*8 if extended and i>=128 else "
+        },
+        {
+          "start": 1701,
+          "end": 1702,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 1804,
+          "end": 1952,
+          "before": "",
+          "after": "')\n        if extended and (words[at] not in (26,30) or words[at+1]>=5 or words[at+3]!=0):raise RuntimeError('Invalid complete resource notification"
+        }
+      ]
+    },
+    "gpu/enemy_ammo_runtime.slang": {
+      "before_sha256": "ed99c8dc9feaaf0dba90584280efb5782fee84f51c799aa76031fe94be7bebb7",
+      "after_sha256": "97e7f6b7f83d1c8f14fd954b328993c208a222d8c6122b6f09c2c5346959a116",
+      "hunks": [
+        {
+          "start": 3045,
+          "end": 3045,
+          "before": "==0||count",
+          "after": ""
+        },
+        {
+          "start": 3101,
+          "end": 3174,
+          "before": "",
+          "after": "\n#ifndef PORTABLE_PRODUCT_ENEMY_AMMO\n    if(count==0)return false;\n#endif"
+        }
+      ]
+    },
+    "gpu/resource_runtime.slang": {
+      "before_sha256": "57b63244b5c6a8925774c04852b1081ace04cd176c9e369869d9a53c0a55d1c6",
+      "after_sha256": "a825771936961cb4646cf346e1e8da41a9b55f28e96b3a7fead910a49686dfd0",
+      "hunks": [
+        {
+          "start": 5856,
+          "end": 5947,
+          "before": "",
+          "after": "#ifndef RESOURCE_TRACE_ENABLED\n#define RESOURCE_TRACE_ENABLED(s) ((s).traceMode==1)\n#endif\n"
+        },
+        {
+          "start": 6179,
+          "end": 6203,
+          "before": "",
+          "after": "!RESOURCE_TRACE_ENABLED("
+        },
+        {
+          "start": 6204,
+          "end": 6205,
+          "before": ".traceMode != 1",
+          "after": ")"
+        }
+      ]
+    },
+    "app/portable_enemy_ammo_readback.py": {
+      "before_sha256": "e16ab3978885e52c4c76f54fac103f1a26f7bca607d4dfd931f2e3dab41a6b45",
+      "after_sha256": "cfa6db848e6a0c01eec2eb3a29cf540e4ad7d3e4828cfe059b2fe756258d15b7",
+      "hunks": [
+        {
+          "start": 96,
+          "end": 101,
+          "before": "",
+          "after": ",math"
+        },
+        {
+          "start": 196,
+          "end": 196,
+          "before": "compa",
+          "after": ""
+        },
+        {
+          "start": 198,
+          "end": 200,
+          "before": "",
+          "after": "ad"
+        },
+        {
+          "start": 218,
+          "end": 218,
+          "before": ",native",
+          "after": ""
+        },
+        {
+          "start": 281,
+          "end": 281,
+          "before": "data=native['enemy_ammo'];",
+          "after": ""
+        },
+        {
+          "start": 307,
+          "end": 311,
+          "before": "",
+          "after": "def "
+        },
+        {
+          "start": 317,
+          "end": 318,
+          "before": "=lambda ",
+          "after": "("
+        },
+        {
+          "start": 320,
+          "end": 321,
+          "before": "",
+          "after": ")"
+        },
+        {
+          "start": 322,
+          "end": 337,
+          "before": "",
+          "after": "\n        value="
+        },
+        {
+          "start": 394,
+          "end": 451,
+          "before": "",
+          "after": "\n        assert math.isfinite(value)\n        return value"
+        },
+        {
+          "start": 1375,
+          "end": 1375,
+          "before": "\n    assert generations==data['generations'] and final==data['final'],'Every original and superseded magazine generation'",
+          "after": ""
+        },
+        {
+          "start": 4829,
+          "end": 4829,
+          "before": "charges==data['charges'],'Original percentage quantities, recipient order and completion snapshots'\n    assert reloads==data['reloads'] and attempts==data['attempts'],'Real resource gates and native frame deadlines'\n    assert ",
+          "after": ""
+        },
+        {
+          "start": 4911,
+          "end": 5282,
+          "before": "",
+          "after": "\n    return dict(generations=generations,final=final,charges=charges,reloads=reloads,attempts=attempts)\n\n\ndef compare_ammo(block,domain,native,*,allow_retired_queue=False):\n    observed=read_ammo(block,domain,allow_retired_queue=allow_retired_queue)\n    data=native['enemy_ammo']\n    for key,value in observed.items():assert value==data[key],key\n    head=E['OUTPUT_BASE']"
         }
       ]
     }

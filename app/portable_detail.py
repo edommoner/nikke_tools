@@ -64,6 +64,9 @@ def verified_transport(evidence, backend):
 
 def compile_product(prepared):
     """Select an existing wire by actual effect requirements, never by character."""
+    from portable_product_ammo import required as ammo_required,compile_product as compile_ammo
+    if not prepared.get('_product_ammo_compiled') and ammo_required(prepared):
+        return compile_ammo(prepared,compile_product)
     from portable_product_weighted import required as weighted_required,compile_product as compile_weighted
     if not prepared.get('_product_weighted_compiled') and weighted_required(prepared):
         return compile_weighted(prepared,compile_product)
@@ -201,7 +204,10 @@ def prepare(body):
 
 
 def decode_payload(body, prepared, run, metadata, block):
-    view = decode(block[:159744], metadata)
+    ammo_attempts=None
+    if not block or block[0]!=0:
+        raise UnsupportedPortable('Shared battle status: '+str(block[0] if block else 'missing')+(' (history capacity exceeded)' if block and block[0] in (2,8) else ''))
+    view = decode(block if metadata.get('product_enemy_ammo') else block[:159744], metadata)
     if view['status'] != 0:
         raise UnsupportedPortable('Shared battle status: '+str(view['status']))
     if view['burst_trace_total'] != len(view['burst_trace']):
@@ -272,6 +278,13 @@ def decode_payload(body, prepared, run, metadata, block):
         model=read_result(block,metadata,names,run.config['duration'])
         if model is not None:
             payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
+    if metadata.get('product_enemy_ammo'):
+        from portable_product_ammo import read_result
+        from product_reference_models import warning
+        model=read_result(block,metadata)
+        ammo_attempts=model['enemy_ammo']['attempts'] if model is not None else []
+        if model is not None:
+            payload['reference_models']=model;payload['app_warnings'].append(warning(model['declarations']))
     if 'manual_cover_sequences' in body:
         payload['manual_cover_sequences']=copy.deepcopy(body['manual_cover_sequences'])
     if body.get('enemy',{}).get('parts'):
@@ -295,7 +308,7 @@ def decode_payload(body, prepared, run, metadata, block):
             if kind==2 and arg not in (1,2,3,4):
                 raise UnsupportedPortable('Unknown product world closing outcome')
         from portable_product_add_attack import query_sources
-        sources=query_sources(block,metadata)
+        sources=query_sources(block,metadata,ammo_attempts=ammo_attempts)
         world=read_histories(block,nodes,attack_sources=sources)
         if any(not math.isfinite(row['time']) or row['time']<0 for row in world['boss_log']):
             raise UnsupportedPortable('Invalid product world history time')
