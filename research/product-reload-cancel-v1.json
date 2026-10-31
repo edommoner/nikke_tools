@@ -140,5 +140,69 @@
     ],
     "other_program_baselines_unchanged": true,
     "product_profile_increment": 0
+  },
+  "windows_unit_attempt": {
+    "package_id": "ac35d8414bf1c57c0855a012021d6e181119699f26ab1673974bbc626a682b1d",
+    "terminal": "outer-timeout",
+    "completed_groups": 2,
+    "completed_tests": 63,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "weighted_group_complete": false,
+    "outer_seconds": 62.713,
+    "timeout_seconds": 60,
+    "peak_bytes": 201781248,
+    "worker_verification_finished_since_outer_start_seconds": 31.18,
+    "worker_package_verification_seconds": 14.504,
+    "completed_group_elapsed_seconds": [
+      23.205,
+      2.808
+    ],
+    "unittest_inner_seconds": [
+      18.72,
+      2.68
+    ],
+    "before_snapshot_seconds": 2.366,
+    "after_snapshot_seconds": 2.665,
+    "unknown_startup_breakdown": true,
+    "missing_processes": 0,
+    "observation_errors": 0,
+    "cleanup_errors": 0,
+    "jobs_closed": true,
+    "compiler_calls": 0,
+    "gpu_calls": 0,
+    "source": "Windows peer saved-only summary; not independent Mac audit of original Windows files"
+  },
+  "source_fixture_io_optimization": {
+    "scope": "Real temporary file writes, same twelve negative mutations; not Windows wall-time measurement",
+    "results": [
+      {
+        "version": "original",
+        "source_sha256": "f919082c78709b0ded24fbd3fc044752b8072808b3e866d1cdb1c2d341fcd4ec",
+        "tests_run": 2,
+        "failures": 0,
+        "errors": 0,
+        "fixture_trees": 12,
+        "write_bytes_calls": 699,
+        "write_bytes_total": 9154185,
+        "write_text_calls": 9,
+        "write_text_utf8_bytes": 493124
+      },
+      {
+        "version": "reused_fixture",
+        "source_sha256": "be37b6c3184c593dbf3380bb5b9df04d6d06064e07f7fa03de71c2c6327e9ac3",
+        "tests_run": 2,
+        "failures": 0,
+        "errors": 0,
+        "fixture_trees": 2,
+        "write_bytes_calls": 140,
+        "write_bytes_total": 2591583,
+        "write_text_calls": 0,
+        "write_text_utf8_bytes": 0
+      }
+    ],
+    "native_battle_calls": 0,
+    "gpu_calls": 0
   }
 }

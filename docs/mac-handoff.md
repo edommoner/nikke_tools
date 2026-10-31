@@ -1,3 +1,11 @@
+# 2026-10-31 WindowsのCPU事前検査timeout、計算前の梱包/fixture IOを改善
+
+sealed owner ac35d841…（43069e74、全4187file/14,279,975bytes）を既存transport e33a67c7で共有。Mac packet own70/deps/PTX60秒2GiB plan/sealed paired cache hit成功。MacでWindows用のNoah accumulate6秒（修正DoT1tick）と紅蓮：ブラックシャドウ accumulate50秒（実取消42.8秒）を追加実Metal/CPU全payload一致、保存監査もnative/GPU追加0。原本product-current-reload-cuda-api-v1-20261031。
+
+WindowsはZIP/fresh展開成功後、ownunit外側60秒timeoutで停止。完了2群63件/失敗error skip0、weighted群は開始してstderrに1dotだが未完了。記録62.713秒/peak201,781,248byte、missing/観測/cleanup error0、全Job閉鎖。worker package検証完了は外側開始後31.18秒（worker verify14.504秒、before観測2.366秒、その後起動等14.269秒の内訳unknown）。完了群elapsed23.205/2.808秒で、内側unittest18.720/2.680秒は重複するため合算しない。deps/plan/generation/compile/object/link/driver/GPU/HTTPはいずれも0、新owner native claims未消費。保存JSON/log読取のみで診断、元失敗/claimsを保持。Macによる原Windowsファイル独立監査ではない。
+
+次は既存compact梱包で無関係なPython payloadを省き、同じ全70検査/fixture/GPU source/数値goldenを残す。WeightedSourceContractの2負例testも、各改変の前後で実full source監査を行い、fixture treeを再利用して毎回元bytesへfinally復旧するよう改善した。12種の同じ改変拒否を維持し、実一時FS測定で2testのtree作成12→2、write呼出708→140、書込UTF8/bytes合計9,647,309→2,591,583bytes。7test全成功。これはMacでのIO量測定で、Windows実時間改善は未測定。古いpacket/failed unit-v1は編集しない。新unitが通るまでWindowsへcompileを依頼しない。既存native/GPU claimの再実行/timeout延長は行わない。全goal未完了。以下は履歴。
+
 # 2026-10-31 現CPU時計/リロード接続のnormal共通CLIを独立seal
 
 source f7cb388b63d01c8238f29d8bef3a1076bb9e7149のproduct-detail/accumulateを既存CLIのdevelopment packet838deec2…で固定。exact payload再利用で展開し、packet自身のgeneration必須cache hit/追加Slang0、通常runのCPU前検査3群70件と実M5 Metal30秒1入力が成功。packet自身のfresh GPU-forbidden子processによる独立sealも成功（追加GPU0、receipt SHA1d3971d8…）。旧accumulate goldenのentries/input_sha256/output_sha256は完全同一で、真に変わったsource_sha256/generated_normalizedだけを新独立sealから登録。旧全tableをproofへ保存、fixed/add-accumulateの登録は変更せず、各current認定とはしない。通常HTTP1profile/7条件とは別のCLI1入力でありprofile数へ加算しない。現normal CUDA検証に進む正当な新基準で、旧compile/link失敗claimの再実行ではない。proof product-current-reload-cuda-v1-20261031、小記録product-reload-cancel-v1.jsonのcli_seal。以下は履歴。

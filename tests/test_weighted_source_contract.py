@@ -36,10 +36,20 @@ class WeightedSourceContract(unittest.TestCase):
                ('gpu/world_charge_control_runtime.slang','|| defined(PORTABLE_PRODUCT_OUTLINED_HELPERS)','|| defined(PORTABLE_WORLD_FRAME)'),
                ('gpu/event_runtime.slang','(PARTIAL_IS_FULL(w)?H_CHARGE:0U)','H_CHARGE'),
                ('gpu/event_runtime.slang','uint count, error, timerClock','uint count, changedError, timerClock')]
-        for name,before,after in cases:
-            with self.subTest(name=name),tempfile.TemporaryDirectory() as folder:
-                root=Path(folder);self.copy_sources(root);path=root/name;text=path.read_text();self.assertIn(before,text);path.write_text(text.replace(before,after,1))
-                with self.assertRaisesRegex(ValueError,'Unreviewed product source'):project_sources(root)
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);self.copy_sources(root);pristine=project_sources(root)
+            # Each mutation starts and ends with a full successful source audit.
+            # Reuse the fixture tree, never the audit result for mutated bytes.
+            for name,before,after in cases:
+                with self.subTest(name=name):
+                    path=root/name;original=path.read_bytes();text=original.decode('utf-8')
+                    self.assertIn(before,text)
+                    try:
+                        path.write_bytes(text.replace(before,after,1).encode('utf-8'))
+                        with self.assertRaisesRegex(ValueError,'Unreviewed product source'):project_sources(root)
+                    finally:path.write_bytes(original)
+                    self.assertEqual(path.read_bytes(),original)
+                    self.assertEqual(project_sources(root),pristine)
 
     def test_exact_preimage_and_closure_match_historical_cover_seal(self):
         before=project_sources(ROOT);golden=json.loads((ROOT/'research/portable-cover-defense-modifiers-v1-expected.json').read_text())
@@ -80,12 +90,18 @@ class WeightedSourceContract(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'history ledger changed'):project_sources(root)
 
     def test_product_history_and_added_helper_cannot_be_edited(self):
-        for name,message in [('tests/fixtures/portable-product-source-delta.json','history ledger changed'),
-                             ('gpu/admission_definition_types.slang','Unreviewed product source'),
-                             ('gpu/product_group_target_battle_entry.slang','Unreviewed product source')]:
-            with self.subTest(name=name),tempfile.TemporaryDirectory() as folder:
-                root=Path(folder);self.copy_sources(root);target=root/name
-                target.write_bytes(target.read_bytes()+b'\n')
-                with self.assertRaisesRegex(ValueError,message):project_sources(root)
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);self.copy_sources(root);pristine=project_sources(root)
+            for name,message in [('tests/fixtures/portable-product-source-delta.json','history ledger changed'),
+                                 ('gpu/admission_definition_types.slang','Unreviewed product source'),
+                                 ('gpu/product_group_target_battle_entry.slang','Unreviewed product source')]:
+                with self.subTest(name=name):
+                    target=root/name;original=target.read_bytes()
+                    try:
+                        target.write_bytes(original+b'\n')
+                        with self.assertRaisesRegex(ValueError,message):project_sources(root)
+                    finally:target.write_bytes(original)
+                    self.assertEqual(target.read_bytes(),original)
+                    self.assertEqual(project_sources(root),pristine)
 
 if __name__=='__main__':unittest.main()
