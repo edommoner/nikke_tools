@@ -517,6 +517,36 @@ class ProductReferenceModels(unittest.TestCase):
             with self.assertRaisesRegex(UnsupportedPortable,'explicit.*cover_defense'):
                 product.compile_product(incoming)
 
+    def test_cover_and_original_group_listeners_share_one_product_input(self):
+        import portable_detail as product
+        from detail_coverage import body_for
+        from portable_specs import LIMITS as L,FIELDS as F
+        from portable_cover_defense_wire import STAT
+        from portable_runtime import UnsupportedPortable
+        for mode in ('fixed','accumulate'):
+            body=body_for(['솔져 O.W.','벨로타','미란다','도라','드레이크'],30)
+            body.update(burst_gauge_mode=mode,
+                reference_models={'cover_defense':[dict(name=n,base_defense=100) for n in body['squad']]},
+                manual_cover_sequences={body['squad'][0]:[dict(action='cover',t=.5,duration=1)]})
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU events as GPU input')):
+                prepared,_=product.prepare(body);before=copy.deepcopy(prepared)
+                source,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,before)
+            self.assertEqual(source,'gpu/product_cover_'+('fixed_' if mode=='fixed' else '')+'group_battle_entry.slang')
+            self.assertEqual((iw,ow),(115704,2048912))
+            self.assertEqual(words[104400],0x41475331)
+            self.assertTrue(words[104402]);self.assertFalse(any(words[104408:115680]))
+            self.assertEqual(set(meta['binding_source_indices']),set(range(len(prepared['effects']))))
+            indices=meta['product_cover_defense']['definition_indices'];self.assertTrue(indices)
+            for index in indices:
+                row=meta['binding_source_indices'].index(index)
+                self.assertEqual(words[L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']+F['STAT']],STAT)
+            self.assertTrue(meta['real_prepared_input']['declared_attack_group_policy']['listener_owners'])
+            # Other dedicated banks remain explicit unsupported combinations.
+            prepared['reference_models']['enemy_healing']=[dict(node='world',targets=['x'],amount=1)]
+            with self.assertRaisesRegex(UnsupportedPortable,'combined consumer wire'):
+                product.compile_product(prepared)
+
     def test_fixed_cover_header_conversion_rejects_invalid_tap_masks_and_reserved_words(self):
         import portable_detail as product
         from portable_product_cover import compile_product

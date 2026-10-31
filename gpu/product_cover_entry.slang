@@ -6,7 +6,11 @@ void portableEvents(uint3 id:SV_DispatchThreadID)
     uint input=1+id.x*CDF_INPUT_WORDS,output=id.x*CDF_OUTPUT_WORDS;
     WORLD_TEAM_INPUT(input,output)
     for(uint i=786432U;i<CDF_OUTPUT_WORDS;i++)results[output+i]=0;
+#ifdef PORTABLE_PRODUCT_COVER_GROUP
+    for(uint i=104408U;i<CDF_BASE;i++)if(commands[input+i]!=0){results[output]=64;return;}
+#else
     for(uint i=104400U;i<CDF_BASE;i++)if(commands[input+i]!=0){results[output]=64;return;}
+#endif
     initializeRuntime(runtimeStates[id.x]);bool ready;
     initializePortableProgram(runtimeStates[id.x],input,output,ready);if(!ready)return;
     initializeManualControls(runtimeStates[id.x]);if(runtimeStates[id.x].error!=0){results[output]=64;return;}

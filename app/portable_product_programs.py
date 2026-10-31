@@ -21,7 +21,7 @@ for _name,_program in PROGRAMS.items():
     _add=_selector.startswith('add-');_healing=_selector.startswith('healing-');_weighted=_selector.startswith('weighted-');_cover=_selector.startswith('cover-');_ammo=_selector.startswith('ammo-');_movement=_selector.startswith('movement-');_range=_selector.startswith('named-range-');_lock=_selector.startswith('lock-')
     if _default and (not (_weighted or _cover) or _mode!='fixed' or _kind):raise ValueError('Invalid default-world product program')
     _prefix=('default-' if _default else '')+('add-' if _add else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else 'ammo-' if _ammo else 'movement-' if _movement else 'named-range-' if _range else 'lock-' if _lock else '')
-    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or (_healing or _weighted or _cover or _ammo or _movement or _range or _lock) and _kind!='' or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
+    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or (_healing or _weighted or _ammo or _movement or _range or _lock) and _kind!='' or _cover and _kind not in ('','group') or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
         raise ValueError('Invalid product program identity')
     _stem=('fixed_' if _mode=='fixed' else '')+(_kind.replace('-','_')+'_' if _kind else '')
     if _program['source']!='gpu/product_'+('add_' if _add else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else 'ammo_' if _ammo else 'movement_' if _movement else 'named_range_' if _range else 'lock_' if _lock else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
@@ -91,6 +91,10 @@ def body_for_program(root, name=None):
     elif name is not None and name.startswith('default-'):
         from portable_original_identity_inventory import selected_profile_bodies
         body=selected_profile_bodies(['베이' if name.startswith('default-weighted-') else '솔져 O.W.'],0)[0][2]
+    elif name is not None and name.startswith('cover-') and program['kind']=='group':
+        from portable_original_identity_inventory import selected_profile_bodies
+        body=selected_profile_bodies(['벨로타'],0)[0][2]
+        body['manual_cover_sequences']={body['squad'][0]:[dict(action='cover',t=.5,duration=.25)]}
     elif name is not None and name.startswith('cover-'):
         from portable_cover_defense_battle_cases import fixtures
         case=fixtures()[0];body=copy.deepcopy(case['body'])

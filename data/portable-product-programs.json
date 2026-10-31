@@ -224,6 +224,20 @@
       "output_words": 2048912,
       "mode": "fixed",
       "kind": ""
+    },
+    "cover-fixed-group": {
+      "source": "gpu/product_cover_fixed_group_battle_entry.slang",
+      "input_words": 115704,
+      "output_words": 2048912,
+      "mode": "fixed",
+      "kind": "group"
+    },
+    "cover-accumulate-group": {
+      "source": "gpu/product_cover_group_battle_entry.slang",
+      "input_words": 115704,
+      "output_words": 2048912,
+      "mode": "accumulate",
+      "kind": "group"
     }
   }
 }

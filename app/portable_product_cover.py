@@ -26,8 +26,9 @@ def compile_product(prepared,producer):
     from portable_product_fixed import lower as lower_fixed,attach as attach_fixed
     inner,fixed_values=lower_fixed(inner)
     with compiler_policy():source,iw,ow,words,meta=producer(inner)
-    if source not in ('gpu/product_battle_entry.slang','gpu/product_fixed_battle_entry.slang') or (iw,ow)!=(104400,786432):
-        raise UnsupportedPortable('Cover DEF composition requires the plain shared product battle')
+    group=source in ('gpu/product_group_battle_entry.slang','gpu/product_fixed_group_battle_entry.slang')
+    if (source not in ('gpu/product_battle_entry.slang','gpu/product_fixed_battle_entry.slang') or (iw,ow)!=(104400,786432)) and not (group and (iw,ow)==(104408,1048576)):
+        raise UnsupportedPortable('Cover DEF composition requires the shared BODY or shot-group product battle')
     indices=[i for i,r in enumerate(prepared['effects']) if r['effect'].get('stat')=='cover_def_pct']
     for index in indices:
         row=meta['binding_source_indices'].index(index);at=L['DEFINITION_BASE']+row*L['DEFINITION_WORDS']
@@ -47,7 +48,8 @@ def compile_product(prepared,producer):
             words[base+1]=3
             words[base+5:base+8]=[tap_mask,0xffffffff,0x4d435631]
         attach_fixed(words,meta,prepared,fixed_values)
-    return ('gpu/product_cover_fixed_battle_entry.slang' if fixed_values is not None else 'gpu/product_cover_battle_entry.slang',INPUT,OUTPUT,
+    stem=('fixed_' if fixed_values is not None else '')+('group_' if group else '')
+    return ('gpu/product_cover_'+stem+'battle_entry.slang',INPUT,OUTPUT,
         list(words)+[0]*(C['BASE']-len(words))+bank,meta)
 
 def read_result(block,metadata,names,duration):
