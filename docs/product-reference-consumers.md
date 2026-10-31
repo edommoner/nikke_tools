@@ -71,3 +71,13 @@ Bay favorite0〜3の30秒、65秒の遮蔽破壊後と2回目burst、3秒の効�
 初期3版は順に一時snapshotの終了処理不足、操作表示未接続、manual初期化不足を検出してCPUへ戻した。元captureと失敗を保持し、検査・許容差・CPU期待値を緩めていない。同じ不具合を全条件へ展開した重複を受け、最終版は先頭1件の全応答一致後に残6件を検証した。新suite／数値演算／pinned upstream変更0。固定owner3397d554…のown86＋fresh native1＋実Metal1、別fresh GPU禁止sealも成功。v5へcover-accumulateだけを追加し、旧18goldenは保存した。
 
 共通source2ファイルへ観測hookを追加したため、旧通常／Ann／Bay等のgoldenは現在ソースの証拠に読み替えない。完全な旧source inverseとstrict normalizerを保持する。各旧programの現ソース再sealは未完了。今回の製品確認数は**宣言モデルのMetal1profile／7条件、CUDA0**。既定profile残10／全キャラ・全効果の未完了を維持。小証跡は `research/product-cover-defense-v1.json`。
+
+## 2026-10-31 未指定量を使わない既定worldの実行
+
+Bay4段階とソルジャーO.W.の既定30秒・固定周期要求を、モデル宣言なしで通常Metalへ接続した。元effect・値・carrierをすべて保持し、量が存在しないことをproduct専用bankのword3=1で明示する。payloadの0wordは未指定領域の予約paddingで、基礎DEF=0や等分配の仮定ではない。GPU consumerは未指定量を使おうとした時点でstatus64へ停止する。通常producerは全literalのattack／攻撃するsummon nodeを検査し、1個でもあれば明示量を要求する。発動条件やdelayをCPUで実行して「到達しない」と予測することもない。CPU正本／数値演算／strict normalizerを変更していない。
+
+この範囲の既定5profileは、通常HTTP→実M5 Metal→CPU全応答一致。これに加え、元の明示weighted／cover各1条件も一致し、以前の成功captureとinput/readback全byteを保持した。保存監査は7件・追加native/GPU0。ホストの静的判定を迂回して既存の正例wireの量だけを未指定へ変えた2負例も実GPUで確認し、bank初期化後のconsumer実行でstatus64／receipt0へ停止した。未指定値を数値0として消費しないことを確認した。
+
+元の未対応11profileのfresh静的準備・compileはAnn／Bay4／Soldierの6通過、残5拒否となった。残りはユニ・ヤン・ベルベット・Heavy Arms・レイ。静的6通過を実GPU6件と読み替えず、今回の実製品確認は**既定Metal5profile／5条件＋宣言モデル保持2条件、CUDA0**とする。歴史的255件全体の現在sourceでの再実行数ではない。攻撃を含むworldの未知量、複数consumer合成、fixed＋manual cover、他の未実装効果は未完了。小証跡は `research/product-no-incoming-v1.json`。
+
+歴史的source監査は、後続の完全一致preimageを先に復元してから、旧added-sourceの元SHAを確認する順序へ接続した。元SHA／ledger／算術goldenを変更せず、未レビューの追加byteは引き続き拒否する。共通ソースの変化を旧成功の現在認定へ付け替えない。

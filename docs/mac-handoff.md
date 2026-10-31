@@ -4393,3 +4393,13 @@ owner3397d554…（676b0e94）のproduct-detail/cover-accumulateはown86／fresh
 今回の通常製品確認は宣言独立coverモデルのMetal1profile／7条件・CUDA0。未知のlevel curveを補わないため、既定残10を9へ減らさない。fixed burst＋manualは結合header未実装、複数consumer／group-target／ADD attack合成も未対応で理由付きCPUへ戻す。次は残consumerまたはこの合成を接続し、最終的には既定profileとUI入力、全special-effect条件の完成を確認する。Windowsは追加依頼なし。旧owner2195 object未完了／missing14原因不明／preservation=falseを維持し、SDKを再実行しない。
 
 最終追補：275c3f3bからsealed packet efa7d56c…を作成し、packet自身のown86＋fresh native1／GPU0が成功。CUBIN O1／2GiB／60秒のcompile-planもpolicy成功（SDK／GPU0）。現在のmodel-checkはsource/dependency監査として成功し、canonical stat5とpublic numeric／合成未完了を保持。完成判定ではない。今回のcode／小証跡は既存codex/runtime-residentへ共有、個人設定／rawは含まない。新Windows実行依頼0。
+
+## 2026-10-31 既定Bay4段階＋Soldier O.W.の製品Metalを実証
+
+fcd0391aの実装。元effect／value／carrierを保持し、unknown weights/baseをproduct-only unavailable flagで表す。数値0の代替ではなく、使用するconsumerへ到達したらdevice status64。ホストは全attack／攻撃summon nodeを静的検査し、未指定ならdispatch前拒否。遅延／発動条件をCPU戦闘で予測して除外しない。CPU正本／数値演算／normalizer変更0。
+
+public-api-v1aのBay0が先に全一致した後、v1bでBay1〜3／Soldier0の固定30秒と、元のdeclared weighted／cover各1を検証。全7が実M5／全CPU payload一致、保存raw再投影7件もnative/GPU追加0。v1b/capturesはv1a/capturesへの同じraw参照。declared2件は旧成功とのinput/readback全byte一致も確認。device-guard2件はホスト判定を迂回した正例wireで未指定量を使用させ、初期化を通過後にstatus64／receipt0を確認。正例／負例／全失敗を別々に保持する。
+
+今回の製品確認は既定Metal5profile／5条件＋宣言保持2条件、CUDA0。元の11 gapのfresh静的compileは6通過（Ann＋Bay4＋Soldier）／5拒否（Yuni／Yan／Velvet／Heavy Arms／Rei）。静的結果をGPU数へ加算しない。歴史的255/266の現source再検証も未完了で、全キャラ／全特殊効果の完了ではない。現実worldの未知量・複数consumer・fixed＋manual・残consumerを続ける。
+
+既存product-detailの4固定owner（default-weighted-fixed e6327af3…／default-cover-fixed 8dfc6d16…／weighted-accumulate 9c497642…／cover-accumulate 8be7ab4c…）はすべてown88／fresh native1／M5実GPU1と、別fresh GPU禁止sealが成功して終了。coordinator session51875もterminalで再実行しない。v6へ既定2memberを追加し、明示2memberは旧input/output/native entriesの全一致を確認して現sourceへ再seal。旧v5と未変更17memberを保持。新suite0、Windows依頼0。source-historyはpinされた後続preimageを復元してから元added-source SHAを検査する順序に修正し、算術期待値やstrict normalizerは緩めない。共有はcodeと小JSONのみ、個人設定／rawを含めない。

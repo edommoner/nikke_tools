@@ -218,5 +218,46 @@
     "multiple consumer composition",
     "all-profile current-source sweep",
     "current product CUDA"
-  ]
+  ],
+  "cli_seals": [
+    {
+      "program": "default-weighted-fixed",
+      "owner": "e6327af3780f42541a2711ceb7ac7b025faafd6a8dbe761592f201a8c098ee5c",
+      "own_tests": 88,
+      "fresh_native_inputs": 1,
+      "independent_seal_gpu_calls": 0,
+      "input_sha256": "05dbcafa4bc8407432557239fa8f3bad02e75ee4be1ca06e6dba2ee7b83d49f9",
+      "output_sha256": "d3c122dcda4471884d5472dac38c3649e6d47d039344646a3e0456570228aab1"
+    },
+    {
+      "program": "default-cover-fixed",
+      "owner": "8dfc6d165176758c01b67238ad14ae8285bb0d9dd9bed8240fd0fa5c9c8e9b2a",
+      "own_tests": 88,
+      "fresh_native_inputs": 1,
+      "independent_seal_gpu_calls": 0,
+      "input_sha256": "698d33418d7f0e4b3b3a1a73915dd0cb41881849d8e78fd8cd85bc21b959a87e",
+      "output_sha256": "dccf21fb70db86464b49c83c2069018144fe5ba86a615ff28b4ea5eb06a6c6fa"
+    },
+    {
+      "program": "weighted-accumulate",
+      "owner": "9c497642b74254d63c817e33fbe4e7b620cbb45552252a6693ef013f36e843c0",
+      "own_tests": 88,
+      "fresh_native_inputs": 1,
+      "independent_seal_gpu_calls": 0,
+      "input_sha256": "bdf0c35334f422dfdab5bb124ecdd27d578caaed3fb579514288029aa37f99ac",
+      "output_sha256": "140e3efd368cf70bd0dbedfb322968830fa7bc7536b5dfc8f38df9bddbc4e25e"
+    },
+    {
+      "program": "cover-accumulate",
+      "owner": "8be7ab4cce43eebd26183088825f05398aee75320ee5b3e83f178ece8c26e65f",
+      "own_tests": 88,
+      "fresh_native_inputs": 1,
+      "independent_seal_gpu_calls": 0,
+      "input_sha256": "21adfaa7b9ca5253b63a479f9d7998bea669a21c9211ddf224a1a244cbe48491",
+      "output_sha256": "5b0862a1683d94071ef18a38f2c031ce50b018ef4f26b60c97f3afc004fff7df"
+    }
+  ],
+  "registered_golden": "research/portable-product-programs-v6-expected.json",
+  "old_positive_cpu_input_output_expectations_unchanged": true,
+  "untouched_old_programs_retained": 17
 }

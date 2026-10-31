@@ -1,3 +1,7 @@
+## 2026-10-31 未指定量を使わない既定worldを追加
+
+最新の製品確認はモデル宣言なしのBay4段階／Soldier O.W.のMetal5profile・固定30秒5条件。unknown量はproduct-only unavailable flagとして保持し、攻撃nodeがあればホストで拒否し、迂回して量を消費する負例も実GPUでstatus64へ停止した。明示2正例の全input/readbackも保持。元11gapの静的compileは6通過／5拒否で、残りはYuni／Yan／Velvet／Heavy Arms／Rei。静的数とMetal／CUDA製品数を混ぜない。CUDA今回0、歴史的255profileの全件現source再実行や全効果完成も未完了。詳細 `research/product-no-incoming-v1.json`。
+
 ## 2026-10-31 consumer拡張許可後の現在位置
 
 ユーザーは残11profileの専用CPUモデル拡張を明示許可済み。対象と境界は [product reference consumers](product-reference-consumers.md) を参照し、許可待ちへ戻さない。pinned upstreamは変更しない。Annは通常製品Metal1profile／9条件を実証し、元11件のfresh静的compileはAnn1通過／10拒否となった。歴史的255件の全件再実行や、CUDA製品成功を加算した意味ではない。以下のsource指定付き記録は、拡張前の判断履歴として保持する。
