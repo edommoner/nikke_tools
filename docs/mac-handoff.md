@@ -1,3 +1,17 @@
+## 2026-11-01 現sourceの全266profileを通常batch APIで再確認
+
+前turnはammo+coverの通常6条件接続で進捗。今回は5e1f9c2aで既存 `POST /api/jobs` へ `kind=batch` / `evaluations` 1〜32件を接続。重複キャラを含む独立候補を既存queueで扱い、GPUは互換wire最大8件、行ごとのresult/errorを入力順に保持する。編成ボードの重複禁止は変更0。停止再開・cache・CPU切替・入力準備・実行器は共用、新suite0。Node23検査成功。
+
+不変owner7d4ab1a3…／source5e1f9c2aで、現在の203キャラ・266profileの全入力集合との完全一致を確認した。元の30秒・既定育成/cubeなし・標準5人編成・固定burst要求を通常API15jobで実行し、実M5/全CPU製品payload一致262profile（199キャラ）、理由付きCPU fallback4profile（4キャラ）、数値差/error/cache hit0。今回の新標準profile加算0だが、旧sourceの実績だけでなく現sourceの全件確認が完了した。262caseを物理37dispatchへまとめ、親全SHA・候補slice・静的再pack・source・raw再投影・CPU/GPU/APIの独立保存監査266件も成功（監査追加GPU/native0）。API照合以外のprivate full battle事前検査を重ねていない。
+
+261profileは旧入力・全readback SHAそのまま。SOWだけ既存制御header4→6でinput7語差、first3秒/regen2秒と他入力全語を保持。旧出力との差16語はcontrol marker1語と5人のmanual初期sentinel(-1.0)/タグ各3語のみで、gpu/coordinate_manual_control_runtime.slangの初期化と完全一致。他2,048,896語不変。旧capture/期待値を書き換えず保存。全266の製品公開payloadも旧保存結果と完全一致（除外はcompute/cache_hitのみ、計算フィールド除外0）。最後に不変packet全manifest payloadのhashを既存verify_packageで再検証成功。
+
+API15jobのwall合計402.716秒、ユニークな実GPU区間合計172.988秒。normal245だけのjob wall300.259秒、以前の単発245要求1170.199秒。制御されたbenchmarkではなくsource/cache/温度等の条件差あり。候補ごとの共通GPU時間を重複加算しない。保存入力＋親子全readback/metadata予算2,026,743,280bytes＋reserve1GiBで実行、parity raw保持。
+
+現source Metal262/266。CUDAは旧sourceの厳格標準実績3/266、今回sourceでの実CUDA確認0／新Windows依頼・SDK・GPU0。原因不明7process欠落の旧objectと拒否gateを保持し、再送しない。残4はYuni(enemy_movement_disable)、Yan(force_move)、Snow White Heavy Arms(lock_on)、Rei仮称(effect_target_count_add)で、必要な幾何/配送モデル未指定の理由をAPI/captureへ元owner/effect/stat/target付きで表示。宣言条件の別実証を既定profileへ加算しない。
+
+全goal未完了。4既定profile・残合成/自由条件・CUDA修正版/実batch/範囲拡大が残る。小記録research/product-catalogue-batch-v1.json、原本proofs/product-catalogue-batch-v1-20261101。coordinator13258/audits46913/92242/11838はterminal、専用server13135は停止exit130、常用サーバー不操作。以下は履歴。
+
 ## 2026-11-01 敵弾倉＋独立遮蔽を同じ共通製品Runtimeへ接続
 
 前turnは共通8候補バッチ・実Metal8+2条件・Windows保存診断回収で進捗。今回は未接続合成を優先し、23c48044でVelvetの敵弾倉割合consumerとSoldier O.W.の遮蔽DEF／手動遮蔽consumerを同じ既存実行器へ接続。coverを外側admissionにし、元ammo/ADD prefix117632語の後へ24語cover literal bankを追加、input117656/output2048912。ammo出力終端2032000とcover出力始端は隣接して重複0。共通state/event/数値演算・元効果定義を保持、CPU正本/normalizer/許容差/新suite変更0。全元定義のbinding、単独宣言欠落時の拒否、短いwire拒否、各context復元を既存productテストへ追加。

@@ -1,3 +1,5 @@
+現source5e1f9c2aの通常batch API全件確認は203キャラ／266profile中、Metal262・理由付きCPU4。物理GPU37dispatchで各候補のCPU全結果を確認し、保存独立監査266件も成功した。これは30秒・既定育成/cubeなし・固定burst・標準編成の範囲で、自由条件・未指定モデル・全CUDA対応の証明ではない。CUDAは既存sourceで3profile、今回sourceの実CUDA確認は0。[全件確認と未対応理由](../research/product-catalogue-batch-v1.json)。
+
 `product-detail` の `ammo-cover-fixed` / `ammo-cover-accumulate` は、元の敵弾倉割合処理・ADD敵攻撃と独立遮蔽DEF／手動遮蔽を同じRuntimeへ接続する。固定は `package --suite product-detail --product-program ammo-cover-fixed --compact --out NEW.zip`、実蓄積は現在 `--develop` が必要。両方の完全input bankと独立output bankを持ち、敵攻撃がある場合は弾倉と遮蔽DEFをそれぞれ明示する。容量4の整数切捨て・再装填、容量100での非ゼロ減弾を含む通常30秒API6条件がM5/CPU全製品payload一致、保存独立監査済み。新しいゲーム既定値を決めた意味ではない。固定だけv21へ独立seal登録、旧18member不変、現CUDA計算は未確認。[検証範囲](../research/product-ammo-cover-v1.json)。
 
 生成処理`portable_slang_generation.build`は、fresh生成とcache hitの両方で、既知の誤変換（処理前に保存したremovalCount/carrierCountとの順序比較が同一現在値の比較になる）を実行前に拒否する。検査は生成bytesやnormalizerを変更しない。共通の通知件数snapshotはnoinline helperから取得する。元Poli3の公開CPU結果が一致しても内部タイマー13wordが異なった事例を保持し、修正版の通常APIでも旧M5全出力SHAを要求する。[原因と検証範囲](../research/product-removal-snapshot-v1.json)。
@@ -9,6 +11,12 @@
 `product-detail` の `cover-fixed-group` は既存の同時命中グループと遮蔽consumerを同じ戦闘Runtimeへ接続する。`package --suite product-detail --product-program cover-fixed-group --compact --out NEW.zip`を使い、固定packet自身のrun/sealで検査する。元Belortaの30秒・明示手動遮蔽を基準にし、通常APIではSoldier O.W.との編成・明示DEF・敵攻撃も全CPU一致を確認した。`cover-accumulate-group`は同じconsumerの実蓄積版で通常API実証済みだが、登録済みsealed CLI基準は未追加のため`--develop`が必要。既存coverと同じ115704/2048912語のwireで、敵攻撃に必要なDEFを推定しない。現CUDA結果は取得待ち。[範囲と保存記録](../research/product-cover-group-v1.json)。
 
 `cover-fixed` は宣言した独立遮蔽DEFと元の手動遮蔽操作を、既存version6ヘッダーと固定バースト実行器へ接続する。`package --suite product-detail --product-program cover-fixed --out NEW.zip`を使う。元の敵攻撃なし条件は`default-cover-fixed`。通常APIの宣言4条件とdefault1条件が実M5/CPU全payload一致、GPU禁止独立seal済みv17。他15memberの履歴を保持し、標準profile数の増加やCUDA成功とは数えない。[製品経路と範囲](../research/product-fixed-cover-v1.json)。
+
+## 独立した複数計算の通常API
+
+`POST /api/jobs` に `{"kind":"batch","evaluations":[評価要求1,評価要求2,...]}` を送ると、1〜32件の独立計算を既存ジョブとして実行する。各評価要求は通常の部隊・育成・敵・操作・`compute_backend`を保持し、部隊間で同じキャラを使える。編成ボードの重複禁止規則は従来どおりで、代替編成や異なる育成の比較にはbatchを使う。
+
+結果は `GET /api/jobs/{id}` の `results` に入力順で返る。`value` は1始まりの入力番号、各行は `result` または `error`。ある要求のエラーで別候補の結果を捨てず、`complete` は処理完了を表す。GPU成功は各行の `compute.backend`・`gpu_execution_verified`・`cpu_verification`で確認し、CPU切替理由や行エラーを個別に確認する。最大8件の共通GPU転送・入力別CPU照合・既存cache規則・pause/resume/cancelは同じqueueを使う。計算結果はサーバー再起動を跨いで保持しない。
 
 ## 通常製品の共通バッチ実行
 
