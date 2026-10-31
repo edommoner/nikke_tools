@@ -4,6 +4,18 @@ import {searchCases} from '../server.mjs';
 import {readFileSync,mkdtempSync,writeFileSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
+test('independent batch jobs preserve overlapping rosters and all per-request conditions',async()=>{
+ const {batchCases,boardCases}=await import('../server.mjs');
+ const first={squad:['a','b','c','d','e'],profile:{chars:{a:{skill_levels:3}}},compute_backend:'metal_detail'};
+ const second={...structuredClone(first),compute_backend:'cuda_shared_detail',stat_deltas:{a:{atk:5}}};
+ const saved=structuredClone([first,second]),cases=batchCases([first,second]);
+ assert.deepEqual(cases.map(c=>c.value),[1,2]);assert.deepEqual(cases.map(c=>c.evaluation),saved);
+ cases[0].evaluation.profile.chars.a.skill_levels=10;
+ assert.deepEqual([first,second],saved);assert.equal(cases[1].evaluation.profile.chars.a.skill_levels,3);
+ assert.throws(()=>boardCases([{index:0,evaluation:first},{index:1,evaluation:second}]),/同じキャラ/);
+ for(const bad of [null,{},[],Array(33).fill(first),[null],[[]],[1]])assert.throws(()=>batchCases(bad));
+ assert.equal(batchCases(Array(32).fill(first)).length,32);
+});
 test('search preserves original input and all unrelated scenario fields',()=>{
   const body={evaluation:{squad:['a'],profile:{chars:{a:{skill_levels:{'1':7,'2':6,'3':5}}}},patches:{a:{skill_levels:{'1':8}}},stat_deltas:{a:{hp:300}}},target:100,variable:{character:'a',kind:'burst',min:7,max:10,step:1}};
   const copy=structuredClone(body),cases=searchCases(body);

@@ -93,7 +93,7 @@ export async function advanceCases(job,evaluator){
     for(let i=0;i<items.length;i++){
       const item=items[i],row=rows[i];
       if(row.error){
-        if(job.kind!=='optimize')throw Error(row.error);
+        if(!['optimize','batch'].includes(job.kind))throw Error(row.error);
         job.results.push({value:item.value,error:row.error});
       }else{
         const result=row.result;

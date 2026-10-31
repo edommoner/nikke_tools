@@ -125,6 +125,13 @@ export function searchCases(body) {
     return {value,evaluation};
   });
 }
+export function batchCases(evaluations){
+  if(!Array.isArray(evaluations)||evaluations.length<1||evaluations.length>32)throw Error('独立した計算要求を1〜32件指定してください。');
+  return evaluations.map((evaluation,index)=>{
+    if(!evaluation||typeof evaluation!=='object'||Array.isArray(evaluation))throw Error('各計算要求はオブジェクトで指定してください。');
+    return {value:index+1,evaluation:structuredClone(evaluation)};
+  });
+}
 export function boardCases(teams){
   if(!Array.isArray(teams)||teams.length<1||teams.length>5)throw Error('計算する部隊を1〜5部隊指定してください。');
   const used=new Set(),indices=new Set();
@@ -222,6 +229,7 @@ const server=http.createServer(async(req,res)=>{
       }
       else if(b.kind==='search')cases=searchCases(b);
       else if(b.kind==='board')cases=boardCases(b.teams);
+      else if(b.kind==='batch')cases=batchCases(b.evaluations);
       else if(b.kind==='compare')cases=[{value:'原本',evaluation:{...clone(b.evaluation),patches:{},stat_deltas:{}}},{value:'検討案',evaluation:clone(b.evaluation)}];
       else throw Error('Unknown job kind');
       const job={id:randomUUID(),kind:b.kind,cases,index:0,results:[],target:b.target,strict:!!b.strict,status:'queued',updatedAt:Date.now(),pool,groups,skipped,teamCount,selectionBackend:b.selectionBackend||'cpu',mode:b.mode,searchKind:b.variable?.kind,evaluation:clone(b.evaluation)};jobs.set(job.id,job);void run(job);return json(res,view(job),202);

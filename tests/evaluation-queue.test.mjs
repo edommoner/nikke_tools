@@ -97,6 +97,16 @@ test('shared products batch at eight and preserve every row across chunk boundar
  assert.deepEqual(sizes,[8,8,3]);assert.deepEqual(rows.map(r=>r.result.total_damage),Array.from({length:19},(_,i)=>i));
 });
 
+test('independent batch publishes each valid result and each row error without losing later candidates',async()=>{
+ const j=job('batch',5);for(const item of j.cases)item.evaluation.compute_backend='metal_detail';
+ let calls=0;
+ const evaluator=make(async request=>{calls++;return request.evaluations.map(b=>b.id===2?{error:'invalid requested condition'}:{result:{total_damage:b.id}});});
+ await advanceCases(j,evaluator);
+ assert.equal(calls,1);assert.equal(j.index,5);assert.equal(j.results.length,5);
+ assert.equal(j.results[2].error,'invalid requested condition');
+ assert.deepEqual(j.results.filter(r=>r.result).map(r=>r.result.total_damage),[0,1,3,4]);
+});
+
 test('paused explicit CUDA batch resumes saved job results without another noncached dispatch',async()=>{
  let calls=0;const j=job('search',5);
  for(const item of j.cases)item.evaluation.compute_backend='cuda_shared_detail';
