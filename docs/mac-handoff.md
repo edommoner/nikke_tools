@@ -1,3 +1,11 @@
+## 2026-11-01 Lock On＋遮蔽の共通CUDA準備を既存分割CLIへ移行
+
+前turnは保存結果再確認のみで実装進展なし。現在root765628df/sourceの不変owner08735412…、archive14,490,867bytes/SHA7760c5cc…を輸送3e0895c3で共有。packet自身のPTX/O1 CUBIN compile-planが各60秒/2GiBで成功、SDK/GPU/claim0。依存検査成功、既存case_planの13群/own133（reference49を5件ずつ）でID欠落/重複0。テスト発見は実行証明ではない。新suite/常設launcher追加0、制限延長0。
+
+Windows既存chatへ新Lock On計算sourceの実行を1回依頼。先のmovement v3再試行ではない。packet自身の分割preflight-plan/test/nativeを使い、実WindowsJob8＋fake device-linker15は独立CPU段階、元全検査/期待値/原本監査を保持。全gate後だけPTX1回→同PTXのobject O1を1回、今回はlink/driver/context/GPU/HTTP0。各child60秒/outer180秒/BelowNormal/fresh Job/gate/2GiB、観測missing/unknown/cleanup/query不完全なら停止。serviceunverifiedを成功へ昇格しない。旧missing14/原因unknown/全claim保持。
+
+送信応答とchat activeは確認したが実子handle/結果はまだ未確認。実コンパイル/CUDA一致/新profileへ加算しない。小記録research/product-lock-cover-cuda-staged-v1.json、原本proofs/product-lock-cover-cuda-v1-20261101。標準Metal最終262/266（source5e1）、CUDA歴史厳格3/266・現source0、全goal未完了。次は同turn保存結果を取得し、成功条件が揃った場合だけ既存linkと通常APIへ接続する。以下は履歴。
+
 ## 2026-11-01 Lock On・typed対象・遮蔽の製品合成と全履歴の保持
 
 前turnはWindows停止の切り分け/実行器修正で進捗。今回はce18f302でHeavyarmsの元Lock On/shot quota/typed landingとSOWの独立cover DEF/手動遮蔽を同じ既存実行器へ接続。元lock prefix109536語＋cover24語、input109560/output2048912。count93とcover96を分離、固定は既存version6 literal control。未指定距離/配送を推定せず、明示lock_on＋cover_defenseだけを合成。全元効果保持、CPU正本/数値/normalizer/新suite変更0。

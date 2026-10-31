@@ -1,0 +1,145 @@
+{
+  "schema": "product-lock-cover-cuda-staged-v1",
+  "source_commit": "765628df87c29cdf7836f3ec8b305181539bd7cf",
+  "transport_commit": "3e0895c3",
+  "package_id": "0873541259c310e6d305f114233166e2208c3d611378cb8b47e7efafa77dc99c",
+  "request": {
+    "schema": "product-lock-cover-cuda-request-v1",
+    "source_commit": "765628df87c29cdf7836f3ec8b305181539bd7cf",
+    "package_id": "0873541259c310e6d305f114233166e2208c3d611378cb8b47e7efafa77dc99c",
+    "archive": "lock-cover-fixed-sealed-v1.zip",
+    "archive_bytes": 14490867,
+    "archive_sha256": "7760c5ccbc0dfb33b47c76a701db808c169614bac8c1e8c78c1f3ca4ad141868",
+    "scope": "New genuine lock-cover calculation source, not a retry of stopped movement-cover v3. No link, driver, context, GPU or HTTP authorized by this request.",
+    "cpu": {
+      "own_tests": 133,
+      "test_groups": 13,
+      "extra_cleanup_tests": 8,
+      "extra_mock_device_linker_tests": 15,
+      "pattern": "test_product_reference_models.py",
+      "test_case_group_size": 5,
+      "all_receipts_required": true
+    },
+    "limits": {
+      "child_seconds": 60,
+      "outer_seconds": 180,
+      "memory_mib": 2048,
+      "priority": "BelowNormal",
+      "fresh_job_gate": true,
+      "permission_mode": "require_escalated"
+    },
+    "conditional_sdk": [
+      "compile-ptx once",
+      "module-object O1 once from this PTX only"
+    ],
+    "stops": [
+      "timeout",
+      "missing identities",
+      "observation error",
+      "cleanup error",
+      "incomplete Job membership or limit query",
+      "source or artifact origin mismatch",
+      "incomplete CPU receipt"
+    ],
+    "preservation": "Keep old claims/failures. service unverified remains unverified, preservation false; no missing/cause exception.",
+    "report": "lock-cover-fixed-cuda-status-v1.json"
+  },
+  "local_admission": {
+    "archive_sha_verified": true,
+    "compile_plans": {
+      "compile-plan-v1.json": {
+        "schema": "compile-plan-v1",
+        "passed": true,
+        "package_id": "0873541259c310e6d305f114233166e2208c3d611378cb8b47e7efafa77dc99c",
+        "suite": "product-detail",
+        "purpose": "sealed",
+        "artifact_kind": "ptx",
+        "ptxas_level": null,
+        "memory_limit_mb": 2048,
+        "timeout_seconds": 60,
+        "error": null,
+        "compiler_options": [
+          "--std=c++17",
+          "--gpu-architecture=compute_86",
+          "--fmad=false"
+        ],
+        "policy": "sealed-battle compile-only transport",
+        "gpu_calls": 0,
+        "compiler_calls": 0,
+        "claim_created": false,
+        "execution_claim_available": true,
+        "calculation_verified": false,
+        "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+      },
+      "compile-plan-cubin-o1-v1.json": {
+        "schema": "compile-plan-v1",
+        "passed": true,
+        "package_id": "0873541259c310e6d305f114233166e2208c3d611378cb8b47e7efafa77dc99c",
+        "suite": "product-detail",
+        "purpose": "sealed",
+        "artifact_kind": "cubin",
+        "ptxas_level": 1,
+        "memory_limit_mb": 2048,
+        "timeout_seconds": 60,
+        "error": null,
+        "compiler_options": [
+          "--std=c++17",
+          "--gpu-architecture=sm_86",
+          "--fmad=false",
+          "--ptxas-options",
+          "-O1"
+        ],
+        "policy": "sealed-battle compile-only transport",
+        "gpu_calls": 0,
+        "compiler_calls": 0,
+        "claim_created": false,
+        "execution_claim_available": true,
+        "calculation_verified": false,
+        "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+      }
+    },
+    "validation_dependencies": {
+      "schema": 1,
+      "passed": true,
+      "dependencies": [],
+      "requirements_file": null,
+      "installation_performed": false,
+      "gpu_calls": 0,
+      "calculation_verified": false,
+      "scope": "Selected validation tests only; package metadata and import availability, not GPU or numerical correctness",
+      "suite": "product-detail",
+      "package_id": "0873541259c310e6d305f114233166e2208c3d611378cb8b47e7efafa77dc99c"
+    },
+    "case_discovery": {
+      "groups": 13,
+      "own_tests": 133,
+      "reference_ids": 49,
+      "missing_ids": 0,
+      "duplicate_ids": 0,
+      "tests_executed_by_discovery": 0
+    }
+  },
+  "windows": {
+    "request_sent": true,
+    "turn_id": "01a1945f-5ee8-7d63-90a0-332f5484e6c4",
+    "execution_result": "pending; active chat alone is not a live process proof",
+    "compiler_verified": false,
+    "calculation_verified": false,
+    "environment_preservation_verified": false
+  },
+  "coverage": {
+    "standard_profiles": 266,
+    "metal_last_full_execution": 262,
+    "metal_execution_source": "5e1f9c2a",
+    "cuda_historical_strict": 3,
+    "cuda_current_source": 0,
+    "new_profiles_this_record": 0
+  },
+  "old_failure": {
+    "movement_cover_v3": "preserved; no retry",
+    "missing_identities": 14,
+    "cause": "unknown",
+    "preservation_verified": false
+  },
+  "scope": "Preparation/transport evidence only, not CUDA calculation or GPU support."
+}
