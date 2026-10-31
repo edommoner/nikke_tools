@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "source_commit": "f6cab7422bc356a8fb3a0807aaa0300f84b7bb70",
+  "artifacts": [
+    {
+      "artifact": "coordinate-fixed-movement-v1.zip",
+      "package_id": "d4cbc49d1cd6d53a7355ef81aa327487e2cee113dbe06175faf4c5b0e380fa28",
+      "bytes": 11946986,
+      "sha256": "759d50efa46fc95344a56644e24c395578069e8c00d1466c7f5392f405bf4efe"
+    },
+    {
+      "artifact": "coordinate-fixed-range-v1.zip",
+      "package_id": "7ba7ee4274766031446b093726a7e62736e17be933797415d4fb7b91f0c9877e",
+      "bytes": 11946932,
+      "sha256": "9cc34dec5be788ba343cad95ec7743461b3efbc3aee8bc4a80ad735b1fc16118"
+    }
+  ],
+  "personal_settings": false,
+  "raw_buffers": false
+}
