@@ -300,7 +300,7 @@
         "gpu/pending_burst_runtime.slang": "7890ab99e5a0f1be342a877e304ca946c2d49b445afc407adb336f691e582a29",
         "gpu/full_burst_landing_runtime.slang": "40d45810cc279a8f395d0877c98b94055b3026fcf8eae97007ef3004fa856c9f",
         "gpu/incoming_descriptor_runtime.slang": "902e0a5cefe7a884e8da44f673a55b8889fc9da854eaceeae4bc92c305ac1289",
-        "gpu/world_frame_addresses.slang": "0a99a400fd4bfa41f96ebbbd31daed77537cf913505b73f55977eb7da636e3b1",
+        "gpu/world_frame_addresses.slang": "6001abc0814cbc8aa7c2fd649dcf65b014855759fcc9c80d0d4c8f383bebee8d",
         "gpu/world_schedule.slang": "aded1efc12c00595d31a942601c8f9a6817654cf3c1f7730d195bc515fbc3a13",
         "gpu/protection_runtime.slang": "11fd5208b6af38fbe004394b84277f33b6e6f241d744358c7c6e482e645c8f8b",
         "gpu/healing_storage_runtime.slang": "3402e1c12d9957568a3040955e9b6cf03b922dd67358b89b0c1bdd657bc84e4b",
@@ -342,7 +342,7 @@
         "gpu/coordinate_squad_control_runtime.slang": "86e37f74ec40d959fa30bbc08913e045731eb6763419921cb4e083f1e8c85c1d",
         "gpu/parent_fixed_runtime.slang": "9bdf48437b8c49a494c8ad5c892f5d94ef7e5ce5ee210042c6d6685d3adcc613",
         "gpu/world_actor_registry.slang": "dafa4422554269f9b3529aa21ae9542dacedc6c5af32c36842fc3e0d0b7d3d03",
-        "gpu/world_frame_runtime.slang": "834c895faac71999da0432022823b48e415fb4597d6b1d4e6156fd7187dcdd51",
+        "gpu/world_frame_runtime.slang": "80d90537c5c1bc5df6aa1bb6d1bbbf8cf7bcb3a35c1cec00c81b6aa3ddff86ba",
         "gpu/combat_runtime.slang": "714650a033ce289f520464b1df59cbe2c5d2488e5a5c54af9a3b612d769981ac",
         "gpu/ammo_instant_runtime.slang": "da93c751dee699e667eab2822adc610e53956871441b123bba0b1ae620d1ac10",
         "gpu/ammo_instant_numeric.slang": "585ebe68334c0668c65527226d6d94783b0279f2946d26786deac4be79736b2d",
@@ -388,8 +388,8 @@
         }
       ],
       "generated_normalized": {
-        "cuda": "46b11afe4f5685b05a31bb5215904c7327a96307811fc29ea43a9fe245059e67",
-        "metal": "0fa9d3f8a874a8c61f77f1e1b37ca6385187ef0d2033254cf0ac1f91ee68a31e"
+        "cuda": "842b677614d3a7ffd24aae5864a6ff99d3e0c39391439e1f448d4d41aeaeb0fb",
+        "metal": "b0e4f5297b444145a3f7fa19789d7410bc889a1b9f8e1132da579f49a8e911a1"
       }
     },
     "add-accumulate": {

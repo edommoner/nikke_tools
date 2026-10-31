@@ -123,5 +123,22 @@
       ],
       "source_inventory_sha256": "1657ffba2ba2ec39100f679914ba126646ebb3dd350f080c416faa79e4a995ee"
     }
-  ]
+  ],
+  "cli_seal": {
+    "program": "accumulate",
+    "package_id": "838deec2780c4fa351d74c36e2af558bf14e31a395806c5d2448d655034184e4",
+    "source_commit": "f7cb388b63d01c8238f29d8bef3a1076bb9e7149",
+    "proof_directory": "product-current-reload-cuda-v1-20261031",
+    "independent_seal": true,
+    "independent_audit_gpu_calls": 0,
+    "seal_audit_sha256": "1d3971d8331cbf0cb37c1abdea9b70e1796cf4ef915442321dfa933c0469c91e",
+    "golden_sha256": "0e90b007486e8eff722156e103a6f8632ce199f411129134e83634c576105e78",
+    "old_input_output_and_entries_exact": true,
+    "changed_baseline_fields": [
+      "source_sha256",
+      "generated_normalized"
+    ],
+    "other_program_baselines_unchanged": true,
+    "product_profile_increment": 0
+  }
 }
