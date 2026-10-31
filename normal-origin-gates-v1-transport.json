@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "owner": "59160ddb81ae0e13ffd9393f584837220c89c30a5a9814ecc3b9284e834316fd",
+  "source_commit": "f029d109a4a2f69e6deded7e68cc51999d770141",
+  "archive": "normal-origin-gates-v1.zip",
+  "archive_bytes": 11910901,
+  "archive_sha256": "7e8f604cdec777dd017b95a8268c51b17797dd326d382e941b8421ad2107085f",
+  "files": 2724,
+  "program": "accumulate",
+  "slang_version": "2026.20",
+  "mac": {
+    "own_tests": 100,
+    "sdk_fake_tests": 202,
+    "fresh_native": 1,
+    "actual_metal_and_independent_seal": true,
+    "registered_golden": "research/portable-product-programs-v10-expected.json"
+  },
+  "plan": {
+    "schema": "compile-plan-v1",
+    "passed": true,
+    "package_id": "59160ddb81ae0e13ffd9393f584837220c89c30a5a9814ecc3b9284e834316fd",
+    "suite": "product-detail",
+    "purpose": "sealed",
+    "artifact_kind": "ptx",
+    "ptxas_level": null,
+    "memory_limit_mb": 2048,
+    "timeout_seconds": 60,
+    "error": null,
+    "compiler_options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false"
+    ],
+    "policy": "sealed-battle compile-only transport",
+    "gpu_calls": 0,
+    "compiler_calls": 0,
+    "claim_created": false,
+    "execution_claim_available": true,
+    "calculation_verified": false,
+    "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+  },
+  "scope": "New current-code PTX -> module object -> JIT link only; no driver load, GPU or API yet",
+  "old_2195_retry": false,
+  "old_ptx_cache_reuse": false,
+  "priority": "BelowNormal",
+  "memory_limit_mb": 2048,
+  "stage_timeout_seconds": 60,
+  "native_pipeline_budget_seconds": 180,
+  "stop_on_first_failure": true,
+  "preflight": "CPU-only registered staged tests if needed; preserve all four groups/100 tests, then fresh native1; SDK fake controls; deps; own PTX plan; paired generation. Each command maximum180s and native SDK stages maximum60s. No observation or guard relaxation.",
+  "report_branch": "codex/product-cuda-origin-gates-v1-report",
+  "share": "Small saved JSON summary/manifest only; no personal settings, process details, PTX/object/image/raw buffers"
+}
