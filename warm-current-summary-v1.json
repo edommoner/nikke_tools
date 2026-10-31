@@ -1,0 +1,1038 @@
+{
+  "passed": false,
+  "stop_reason": "module-object outer 60-second timeout; final object result/artifact inventory missing; JIT link not started",
+  "owner": "2195f8bdd3241f1d3e322a40c6f7ef31095836c1a0ac7f3728e414b954148a85",
+  "source_commit": "febf2648633d73c0176b1533339c6b863dd823ac",
+  "unpack": {
+    "seconds": 38.24138029990718,
+    "timed_out": false,
+    "execution_passed": true,
+    "peak_bytes": 73641984,
+    "job_empty_after": true,
+    "cleanup_error": null,
+    "observation_error": null,
+    "missing_count": 0,
+    "termination_cause": null,
+    "service_status": "unverified",
+    "preservation_verified": false
+  },
+  "unit": {
+    "tests": 79,
+    "unit_tests_verified": true,
+    "scope": {
+      "seconds": 54.10155199980363,
+      "timed_out": false,
+      "execution_passed": true,
+      "peak_bytes": 195690496,
+      "job_empty_after": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false
+    }
+  },
+  "fake_controls": {
+    "tests": 45,
+    "succeeded": 44,
+    "skipped": 1,
+    "passed": true,
+    "real_sdk_load_attempts": 0,
+    "scope": {
+      "seconds": 10.49493069993332,
+      "timed_out": false,
+      "execution_passed": true,
+      "peak_bytes": 58568704,
+      "job_empty_after": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false
+    }
+  },
+  "deps": {
+    "passed": true,
+    "scope": {
+      "seconds": 12.566546499729156,
+      "timed_out": false,
+      "execution_passed": true,
+      "peak_bytes": 66736128,
+      "job_empty_after": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false
+    }
+  },
+  "plan": {
+    "passed": true,
+    "options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "scope": {
+      "seconds": 12.792447899933904,
+      "timed_out": false,
+      "execution_passed": true,
+      "peak_bytes": 65789952,
+      "job_empty_after": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false
+    }
+  },
+  "generation": {
+    "stage_verified": true,
+    "cache_hit": true,
+    "compiler_invocations": 0,
+    "scope": {
+      "seconds": 16.280037300195545,
+      "timed_out": false,
+      "execution_passed": true,
+      "peak_bytes": 72065024,
+      "job_empty_after": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false
+    },
+    "windows_raw_all_four_equal_prior": true
+  },
+  "ptx": {
+    "compiler_verified": true,
+    "containment_verified": true,
+    "original_result_passed": false,
+    "required_cache_hit": true,
+    "key": "9e89e737dac41a55d09b648f27ad7e5e6f73c1635f45b853ef84f4e0e761b1e2",
+    "artifact": {
+      "bytes": 9866019,
+      "sha256": "850523c731971156bc8111fb9dbb1575cad68dececd099fb826b8ca0f341a0e4"
+    },
+    "compile_cache_required": "1",
+    "generation_cache_required": true,
+    "inner": {
+      "seconds": 14.618504599668086,
+      "timed_out": false,
+      "execution_passed": true,
+      "peak_bytes": 104681472,
+      "job_empty_after": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false
+    },
+    "outer": {
+      "seconds": 28.92547499993816,
+      "timed_out": false,
+      "execution_passed": false,
+      "peak_bytes": 213553152,
+      "job_empty_after": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false
+    },
+    "final_result_present": true,
+    "artifacts_inventory_present": true,
+    "nvrtc_phases": 0,
+    "nvrtc_library_loads": 0,
+    "nvrtc_version_calls": 0,
+    "nvrtc_compile_calls": 0,
+    "shared_compile_seconds": 0.2184424
+  },
+  "object": {
+    "executed_once": true,
+    "artifact": {
+      "bytes": 5676528,
+      "sha256": "ea6d7f1fc2b3fc15c304d3b962421fdf7fab4587ef9177ba66346bbabb7d007b"
+    },
+    "receipt_artifact": {
+      "format": "elf64-little",
+      "type": "relocatable",
+      "machine": "cuda",
+      "cuda_format_version": 124,
+      "sections": 1085,
+      "bytes": 5676528,
+      "sha256": "ea6d7f1fc2b3fc15c304d3b962421fdf7fab4587ef9177ba66346bbabb7d007b"
+    },
+    "inner": {
+      "seconds": 36.34796279994771,
+      "timed_out": false,
+      "execution_passed": true,
+      "peak_bytes": 362352640,
+      "job_empty_after": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false
+    },
+    "outer": {
+      "seconds": 62.40596920019016,
+      "timed_out": true,
+      "execution_passed": false,
+      "peak_bytes": 403697664,
+      "job_empty_after": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false
+    },
+    "native_returned": true,
+    "ptxas_seconds": 15.02133490005508,
+    "final_result_present": false,
+    "artifacts_inventory_present": false,
+    "object_verified": false,
+    "image_admitted": false
+  },
+  "jit_link": {
+    "executed": false
+  },
+  "supervisor": {
+    "seconds": 96.94618770014495,
+    "timed_out": false,
+    "execution_passed": false,
+    "peak_bytes": 433971200,
+    "job_empty_after": true,
+    "cleanup_error": null,
+    "observation_error": null,
+    "missing_count": 14,
+    "termination_cause": "unknown",
+    "service_status": "unverified",
+    "preservation_verified": false
+  },
+  "pipeline_seconds": 92.18800000008196,
+  "old_inputs_unchanged": true,
+  "claims": {
+    "compile-claimed-cuda.json": true,
+    "module-object-claimed-cuda.json": true,
+    "jit-link-object-claimed-cuda.json": false
+  },
+  "preservation_verified": false,
+  "service_status": "unverified",
+  "historical_missing7_retained": true,
+  "new_missing_cause": "unknown; preserved as recorded; no attribution to validation cleanup inferred",
+  "driver_calls": 0,
+  "gpu_calls": 0,
+  "api_calls": 0,
+  "retries": 0,
+  "external_sharing": true,
+  "schema": "warm-current-summary-v1",
+  "scope": "Saved owner2195 observations only; this export performs no tests, SDK loading, compilation, GPU execution or process observation",
+  "transport_commit": "67b4f61ba767acf271f73b531b1d28da7d8d6682",
+  "archive": {
+    "present": true,
+    "bytes": 11866804,
+    "sha256": "fa9bcee0a098c9f8a49598656623ac80a4afbe06c466c33c954e6fed98e1d4b9"
+  },
+  "owner_manifest": {
+    "present": true,
+    "bytes": 573494,
+    "sha256": "ab755e7dd628719c6b7a41f30c354b23494f9d89aee93a95d2fe5e085b41c6a8"
+  },
+  "registered_input": {
+    "aggregate_sha256": "291fd86560a0bb772a03b581d273ddfe098b772f9935a02b89b16a7322466a18",
+    "entries": [
+      {
+        "name": "product/accumulate-30s",
+        "input_sha256": "cd5fd4705bb5567fe1b7bd56f51db7713fffe3ebdd6ad9b1c0213071150e78f2"
+      }
+    ],
+    "packed_bytes": null,
+    "packed_bytes_status": "No registered battle input binary saved by these compile-only stages; not regenerated during export"
+  },
+  "source_closure_sha256": "b6ccfab419550df19dfdf91096419b79d2506dec0c504928ad428913e9968869",
+  "source_closure_hash_encoding": "SHA256 of UTF-8 sorted compact JSON mapping from saved compiler.json",
+  "generated_four_files": {
+    "generated.cu": {
+      "present": true,
+      "bytes": 2343603,
+      "sha256": "6d939dde9f2250dcacdd9f5cc27c14e132df8f61ca442ff1e3aa0634ad33c0ea"
+    },
+    "generated.metal": {
+      "present": true,
+      "bytes": 2478112,
+      "sha256": "7a2fc8f6122798dcff73433ecc8cce4fbc8fe11cf45931b7745aa14587e04117"
+    },
+    "generated.cu.reflection.json": {
+      "present": true,
+      "bytes": 446749,
+      "sha256": "808cf435eab44ba675c091165489644c0b33b6782517aa519fffba75330d36e5"
+    },
+    "generated.metal.reflection.json": {
+      "present": true,
+      "bytes": 446284,
+      "sha256": "f865cd45e7aa16c7f9f213b8201cec2e735107be3a163ca151a8d83ee01cc4f5"
+    }
+  },
+  "cache_identity": {
+    "schema": 1,
+    "artifact": "ptx",
+    "source_sha256": "6d939dde9f2250dcacdd9f5cc27c14e132df8f61ca442ff1e3aa0634ad33c0ea",
+    "options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "headers": {
+      "${SLANG_ROOT}/include/slang-cuda-prelude.h": "e52fca3fad5adb1bb487b2f2a107de49f91f47b223575573d8ff9ff83963b45a"
+    },
+    "compiler_files": {
+      "nvrtc-builtins64_124.dll": "79888dba26c51475ea21fc7b47d2b9dd5b1ffaecc8e5ea22a49fa5f5a722eb43",
+      "nvrtc64_120_0.dll": "3aa3cd8aa10437e212760c0e1ed730807811ec3bc330216dbfde4b26211d2243"
+    }
+  },
+  "cache_json": {
+    "present": true,
+    "bytes": 13155465,
+    "sha256": "c5bfbeeb1bab9714f2f0c4098d7a3d0b2ae9326c4b35bfc8a4b994e7effeac29"
+  },
+  "cache_probe": {
+    "passed": true,
+    "hit": true,
+    "key": "9e89e737dac41a55d09b648f27ad7e5e6f73c1635f45b853ef84f4e0e761b1e2",
+    "elapsed_seconds": 0.1654644003137946,
+    "artifact_bytes": 9866019,
+    "artifact_sha256": "850523c731971156bc8111fb9dbb1575cad68dececd099fb826b8ca0f341a0e4"
+  },
+  "commands": {
+    "unit-stage-v1": {
+      "invocation": [
+        "${PYTHON}",
+        "-B",
+        "${PACKET}/scripts/nikke_gpu.py",
+        "unit-check",
+        "--capture",
+        "${RUN}/unit-v1"
+      ],
+      "cwd": "${PACKET}",
+      "saved_request": {
+        "present": true,
+        "bytes": 293,
+        "sha256": "6fe2c716324d451682efe69f7adde6b80eb8eb5e9e6cafe9c3c4b034b9068efc"
+      }
+    },
+    "fake-controls-v1": {
+      "invocation": [
+        "${PYTHON}",
+        "-B",
+        "${RUN}/fake-controls-v1.py"
+      ],
+      "cwd": "${PACKET}",
+      "saved_request": {
+        "present": true,
+        "bytes": 180,
+        "sha256": "8c1b3345ecd3c22bc4ce534a37a2c0ee567917a9535e4d110b6e1ce4418062ef"
+      }
+    },
+    "deps-stage-v1": {
+      "invocation": [
+        "${PYTHON}",
+        "-B",
+        "${PACKET}/scripts/nikke_gpu.py",
+        "validation-deps",
+        "--out",
+        "${RUN}/deps-v1.json"
+      ],
+      "cwd": "${PACKET}",
+      "saved_request": {
+        "present": true,
+        "bytes": 299,
+        "sha256": "ba7aaf4a0cc76d90f47fc54f476d05b829f4d8a8b26a81dcf2996c1378f27807"
+      }
+    },
+    "plan-stage-v1": {
+      "invocation": [
+        "${PYTHON}",
+        "-B",
+        "${PACKET}/scripts/nikke_gpu.py",
+        "compile-plan",
+        "--artifact-kind",
+        "ptx",
+        "--memory-limit-mb",
+        "2048",
+        "--timeout",
+        "60",
+        "--out",
+        "${RUN}/ptx-plan-v1.json"
+      ],
+      "cwd": "${PACKET}",
+      "saved_request": {
+        "present": true,
+        "bytes": 374,
+        "sha256": "a3a8f6c05cd1409c9e310bae892d9fc03f7b966558259dc42a4a1318619da8fc"
+      }
+    },
+    "compile-ptx-v1": {
+      "invocation": [
+        "${PYTHON}",
+        "-B",
+        "${PACKET}/scripts/nikke_gpu.py",
+        "compile",
+        "--artifact-kind",
+        "ptx",
+        "--memory-limit-mb",
+        "2048",
+        "--slang-root",
+        "${SLANG_ROOT}",
+        "--compile-cache",
+        "${COMPILE_CACHE}",
+        "--generation-cache",
+        "${GENERATION_CACHE}",
+        "--require-generation-cache",
+        "--capture",
+        "${RUN}/compile-ptx-v1/proof",
+        "--timeout",
+        "60",
+        "--original-workspace",
+        "${ORIGINAL_WORKSPACE}"
+      ],
+      "cwd": "${PACKET}",
+      "saved_request": {
+        "present": true,
+        "bytes": 912,
+        "sha256": "92239c22bece5752bb4b84b318653567e9646c77550c5e502e025436ca0a0cff"
+      }
+    },
+    "module-object-v1": {
+      "invocation": [
+        "${PYTHON}",
+        "-B",
+        "${PACKET}/scripts/nikke_gpu.py",
+        "module-object",
+        "--source-package",
+        "${PACKET}",
+        "--source-capture",
+        "${RUN}/compile-ptx-v1/proof",
+        "--cache-entry",
+        "${COMPILE_CACHE}/9e89e737dac41a55d09b648f27ad7e5e6f73c1635f45b853ef84f4e0e761b1e2.json",
+        "--phases",
+        "${RUN}/compile-ptx-v1/proof/phases.jsonl",
+        "--ptxas",
+        "${PTXAS}",
+        "--capture",
+        "${RUN}/module-object-v1/proof",
+        "--timeout",
+        "60",
+        "--original-workspace",
+        "${ORIGINAL_WORKSPACE}"
+      ],
+      "cwd": "${PACKET}",
+      "saved_request": {
+        "present": true,
+        "bytes": 1136,
+        "sha256": "07f0f579843bf160acd7763f651f0d3538942303d9e4272b1936ab2534c27659"
+      }
+    },
+    "generation": {
+      "invocation": [
+        "${PYTHON}",
+        "-B",
+        "scripts/run-gpu-packet.py",
+        "--stage",
+        "generation",
+        "--backend",
+        "cuda",
+        "--capture",
+        "${RUN}/generation-v1",
+        "--timeout",
+        "60",
+        "--original-workspace",
+        "${ORIGINAL_WORKSPACE}"
+      ],
+      "cwd": "${PACKET}",
+      "launcher": {
+        "present": true,
+        "bytes": 1515,
+        "sha256": "d30de623ec535a4cf8c53cede7ce63e660e4e2bc621e56315b5b267660f22f7a"
+      }
+    },
+    "ptxas_native": {
+      "argv": [
+        "${PTXAS}",
+        "--gpu-name=sm_86",
+        "--opt-level=1",
+        "--fmad=false",
+        "--verbose",
+        "--compile-only",
+        "${RUN}/module-object-v1/proof/module.ptx",
+        "-o",
+        "${RUN}/module-object-v1/proof/module.o.partial"
+      ],
+      "tool_sha256": "0183c5b1fdecc69234597efac421eca4670a3f6ed6ed028ff6afb85d06f3efb8"
+    }
+  },
+  "command_notes": "Arguments and option ordering retained. Local path prefixes replaced by explicit role aliases. Saved request hashes identify original command records. compile has no --require-cache CLI option; its existing mandatory mechanism is NIKKE_CUDA_CACHE_REQUIRED=1.",
+  "explicit_run_configuration": {
+    "NIKKE_CUDA_SPLIT_COMPILE": "2",
+    "NIKKE_CUDA_CACHE_REQUIRED": "1",
+    "NIKKE_SLANG_GENERATION_REQUIRED": "1",
+    "NIKKE_VALIDATION_JOB_MEMORY_MB": "2048",
+    "CUDA_PATH": "${CUDA_ROOT}",
+    "NIKKE_SLANG_ROOT": "${SLANG_ROOT}",
+    "NIKKE_SLANG_GENERATION_CACHE": "${GENERATION_CACHE}",
+    "NIKKE_CUDA_COMPILE_CACHE": "${COMPILE_CACHE}",
+    "ptxas_level_at_ptx_compile": null,
+    "scope": "Task-specific explicit settings only; not an environment dump"
+  },
+  "object_native_receipt": {
+    "key": "00e1233ca6c28511d4e706ea1167eaa03bcb72789160245c088cee92d1b2ecac",
+    "tool": {
+      "version": "12.4.131",
+      "sha256": "0183c5b1fdecc69234597efac421eca4670a3f6ed6ed028ff6afb85d06f3efb8",
+      "wheel_sha256": "aadd9fb307352bbcd5bc89b5f98c10cd78000915094882d97321f5fe36441742",
+      "bytes": 19582976
+    },
+    "options": [
+      "--gpu-name=sm_86",
+      "--opt-level=1",
+      "--fmad=false",
+      "--verbose",
+      "--compile-only"
+    ],
+    "artifact": {
+      "format": "elf64-little",
+      "type": "relocatable",
+      "machine": "cuda",
+      "cuda_format_version": 124,
+      "sections": 1085,
+      "bytes": 5676528,
+      "sha256": "ea6d7f1fc2b3fc15c304d3b962421fdf7fab4587ef9177ba66346bbabb7d007b"
+    },
+    "elapsed_seconds": 15.02133490005508,
+    "source_bytes_unchanged": true,
+    "producer_owner": "2195f8bdd3241f1d3e322a40c6f7ef31095836c1a0ac7f3728e414b954148a85"
+  },
+  "clocks": {
+    "wall_time_ns": "Unix UTC nanoseconds, stored as decimal strings; journal observation times, not guaranteed exact operation start/end",
+    "monotonic_ns": "Saved host monotonic nanoseconds as decimal strings; compare only within this execution host",
+    "relative_origin_wall_time_ns": "1793431543944306100",
+    "relative_origin": "Supervisor bounded_cpu_stage entered journal event; not exact timeout timer start",
+    "nested_times": "Overlapping timings must not be summed"
+  },
+  "timelines": {
+    "compile-ptx-v1": {
+      "outer": [
+        {
+          "stage": "bounded_cpu_stage",
+          "state": "entered",
+          "wall_time_ns": "1793431546529671900",
+          "monotonic_ns": "3260951031000000",
+          "wall_utc": "2026-10-31T07:25:46.529671900Z",
+          "relative_to_supervisor_journal_seconds": 2.5853658
+        },
+        {
+          "stage": "before_snapshot",
+          "state": "entered",
+          "wall_time_ns": "1793431546565509500",
+          "monotonic_ns": "3260951078000000",
+          "wall_utc": "2026-10-31T07:25:46.565509500Z",
+          "relative_to_supervisor_journal_seconds": 2.6212034
+        },
+        {
+          "stage": "before_snapshot",
+          "state": "returned",
+          "elapsed_seconds": 2.1559505,
+          "wall_time_ns": "1793431548722721200",
+          "monotonic_ns": "3260953234000000",
+          "wall_utc": "2026-10-31T07:25:48.722721200Z",
+          "relative_to_supervisor_journal_seconds": 4.7784151
+        },
+        {
+          "stage": "after_snapshot",
+          "state": "entered",
+          "wall_time_ns": "1793431573105025100",
+          "monotonic_ns": "3260977609000000",
+          "wall_utc": "2026-10-31T07:26:13.105025100Z",
+          "relative_to_supervisor_journal_seconds": 29.160719
+        },
+        {
+          "stage": "after_snapshot",
+          "state": "returned",
+          "elapsed_seconds": 2.3471975,
+          "wall_time_ns": "1793431575453366200",
+          "monotonic_ns": "3260979953000000",
+          "wall_utc": "2026-10-31T07:26:15.453366200Z",
+          "relative_to_supervisor_journal_seconds": 31.5090601
+        },
+        {
+          "stage": "bounded_cpu_stage",
+          "state": "returned",
+          "elapsed_seconds": 28.9272763,
+          "wall_time_ns": "1793431575457626600",
+          "monotonic_ns": "3260979968000000",
+          "wall_utc": "2026-10-31T07:26:15.457626600Z",
+          "relative_to_supervisor_journal_seconds": 31.5133205
+        }
+      ],
+      "inner_preparation": [
+        {
+          "stage": "inner_before_observation",
+          "state": "entered",
+          "wall_time_ns": "1793431557688458400",
+          "monotonic_ns": "3260962187000000",
+          "wall_utc": "2026-10-31T07:25:57.688458400Z",
+          "relative_to_supervisor_journal_seconds": 13.7441523
+        },
+        {
+          "stage": "inner_before_observation",
+          "state": "returned",
+          "elapsed_seconds": 2.1404854,
+          "wall_time_ns": "1793431559830601800",
+          "monotonic_ns": "3260964343000000",
+          "wall_utc": "2026-10-31T07:25:59.830601800Z",
+          "relative_to_supervisor_journal_seconds": 15.8862957
+        },
+        {
+          "stage": "gpu_child_verify_package",
+          "state": "entered",
+          "wall_time_ns": "1793431559855944700",
+          "monotonic_ns": "3260964359000000",
+          "wall_utc": "2026-10-31T07:25:59.855944700Z",
+          "relative_to_supervisor_journal_seconds": 15.9116386
+        },
+        {
+          "stage": "gpu_child_verify_package",
+          "state": "returned",
+          "elapsed_seconds": 6.5189435,
+          "wall_time_ns": "1793431566376530400",
+          "monotonic_ns": "3260970875000000",
+          "wall_utc": "2026-10-31T07:26:06.376530400Z",
+          "relative_to_supervisor_journal_seconds": 22.4322243
+        },
+        {
+          "stage": "inner_after_observation",
+          "state": "entered",
+          "wall_time_ns": "1793431570175133900",
+          "monotonic_ns": "3260974687000000",
+          "wall_utc": "2026-10-31T07:26:10.175133900Z",
+          "relative_to_supervisor_journal_seconds": 26.2308278
+        },
+        {
+          "stage": "inner_after_observation",
+          "state": "returned",
+          "elapsed_seconds": 2.0482056,
+          "wall_time_ns": "1793431572225263300",
+          "monotonic_ns": "3260976734000000",
+          "wall_utc": "2026-10-31T07:26:12.225263300Z",
+          "relative_to_supervisor_journal_seconds": 28.2809572
+        }
+      ],
+      "native": [
+        {
+          "stage": "shared_cuda_compile_only",
+          "state": "entered",
+          "wall_time_ns": "1793431569686271700",
+          "monotonic_ns": "3260974187000000",
+          "wall_utc": "2026-10-31T07:26:09.686271700Z",
+          "relative_to_supervisor_journal_seconds": 25.7419656
+        },
+        {
+          "stage": "cuda_compile_artifact",
+          "state": "entered",
+          "wall_time_ns": "1793431569689328100",
+          "monotonic_ns": "3260974187000000",
+          "wall_utc": "2026-10-31T07:26:09.689328100Z",
+          "relative_to_supervisor_journal_seconds": 25.745022
+        },
+        {
+          "stage": "cuda_compile_artifact",
+          "state": "returned",
+          "elapsed_seconds": 0.2051042,
+          "wall_time_ns": "1793431569896750800",
+          "monotonic_ns": "3260974406000000",
+          "wall_utc": "2026-10-31T07:26:09.896750800Z",
+          "relative_to_supervisor_journal_seconds": 25.9524447
+        },
+        {
+          "stage": "cuda_compile_cache",
+          "state": "verified",
+          "wall_time_ns": "1793431569898278500",
+          "monotonic_ns": "3260974406000000",
+          "wall_utc": "2026-10-31T07:26:09.898278500Z",
+          "relative_to_supervisor_journal_seconds": 25.9539724
+        },
+        {
+          "stage": "shared_cuda_compile_only",
+          "state": "returned",
+          "elapsed_seconds": 0.2184424,
+          "wall_time_ns": "1793431569905894700",
+          "monotonic_ns": "3260974406000000",
+          "wall_utc": "2026-10-31T07:26:09.905894700Z",
+          "relative_to_supervisor_journal_seconds": 25.9615886
+        }
+      ],
+      "timeout_timer_start_ns": null,
+      "timeout_note": "See saved timed_out field. Exact timeout firing instant not journaled; outer after_snapshot entered is after bounded wait/cleanup.",
+      "wait_completed_wall_time_ns": "1793431573105025100"
+    },
+    "module-object-v1": {
+      "outer": [
+        {
+          "stage": "bounded_cpu_stage",
+          "state": "entered",
+          "wall_time_ns": "1793431575789370500",
+          "monotonic_ns": "3260980296000000",
+          "wall_utc": "2026-10-31T07:26:15.789370500Z",
+          "relative_to_supervisor_journal_seconds": 31.8450644
+        },
+        {
+          "stage": "before_snapshot",
+          "state": "entered",
+          "wall_time_ns": "1793431575826644300",
+          "monotonic_ns": "3260980328000000",
+          "wall_utc": "2026-10-31T07:26:15.826644300Z",
+          "relative_to_supervisor_journal_seconds": 31.8823382
+        },
+        {
+          "stage": "before_snapshot",
+          "state": "returned",
+          "elapsed_seconds": 1.865529,
+          "wall_time_ns": "1793431577692815100",
+          "monotonic_ns": "3260982203000000",
+          "wall_utc": "2026-10-31T07:26:17.692815100Z",
+          "relative_to_supervisor_journal_seconds": 33.748509
+        },
+        {
+          "stage": "after_snapshot",
+          "state": "entered",
+          "wall_time_ns": "1793431635830057300",
+          "monotonic_ns": "3261040343000000",
+          "wall_utc": "2026-10-31T07:27:15.830057300Z",
+          "relative_to_supervisor_journal_seconds": 91.8857512
+        },
+        {
+          "stage": "after_snapshot",
+          "state": "returned",
+          "elapsed_seconds": 2.3601369,
+          "wall_time_ns": "1793431638191891800",
+          "monotonic_ns": "3261042703000000",
+          "wall_utc": "2026-10-31T07:27:18.191891800Z",
+          "relative_to_supervisor_journal_seconds": 94.2475857
+        },
+        {
+          "stage": "bounded_cpu_stage",
+          "state": "returned",
+          "elapsed_seconds": 62.4094791,
+          "wall_time_ns": "1793431638200242800",
+          "monotonic_ns": "3261042703000000",
+          "wall_utc": "2026-10-31T07:27:18.200242800Z",
+          "relative_to_supervisor_journal_seconds": 94.2559367
+        }
+      ],
+      "inner_preparation": [
+        {
+          "stage": "inner_before_observation",
+          "state": "entered",
+          "wall_time_ns": "1793431592878264100",
+          "monotonic_ns": "3260997390000000",
+          "wall_utc": "2026-10-31T07:26:32.878264100Z",
+          "relative_to_supervisor_journal_seconds": 48.933958
+        },
+        {
+          "stage": "inner_before_observation",
+          "state": "returned",
+          "elapsed_seconds": 1.8802829,
+          "wall_time_ns": "1793431594761333000",
+          "monotonic_ns": "3260999265000000",
+          "wall_utc": "2026-10-31T07:26:34.761333000Z",
+          "relative_to_supervisor_journal_seconds": 50.8170269
+        },
+        {
+          "stage": "gpu_child_verify_package",
+          "state": "entered",
+          "wall_time_ns": "1793431594790480300",
+          "monotonic_ns": "3260999296000000",
+          "wall_utc": "2026-10-31T07:26:34.790480300Z",
+          "relative_to_supervisor_journal_seconds": 50.8461742
+        },
+        {
+          "stage": "gpu_child_verify_package",
+          "state": "returned",
+          "elapsed_seconds": 7.1621082,
+          "wall_time_ns": "1793431601953763600",
+          "monotonic_ns": "3261006453000000",
+          "wall_utc": "2026-10-31T07:26:41.953763600Z",
+          "relative_to_supervisor_journal_seconds": 58.0094575
+        },
+        {
+          "stage": "inner_after_observation",
+          "state": "entered",
+          "wall_time_ns": "1793431626650412400",
+          "monotonic_ns": "3261031156000000",
+          "wall_utc": "2026-10-31T07:27:06.650412400Z",
+          "relative_to_supervisor_journal_seconds": 82.7061063
+        },
+        {
+          "stage": "inner_after_observation",
+          "state": "returned",
+          "elapsed_seconds": 2.5077725,
+          "wall_time_ns": "1793431629158862000",
+          "monotonic_ns": "3261033671000000",
+          "wall_utc": "2026-10-31T07:27:09.158862000Z",
+          "relative_to_supervisor_journal_seconds": 85.2145559
+        }
+      ],
+      "native": [
+        {
+          "stage": "shared_partition_object",
+          "state": "entered",
+          "wall_time_ns": "1793431611461699700",
+          "monotonic_ns": "3261015968000000",
+          "wall_utc": "2026-10-31T07:26:51.461699700Z",
+          "relative_to_supervisor_journal_seconds": 67.5173936
+        },
+        {
+          "stage": "partition_object_ptxas",
+          "state": "entered",
+          "wall_time_ns": "1793431611505467800",
+          "monotonic_ns": "3261016015000000",
+          "wall_utc": "2026-10-31T07:26:51.505467800Z",
+          "relative_to_supervisor_journal_seconds": 67.5611617
+        },
+        {
+          "stage": "partition_object_ptxas",
+          "state": "returned",
+          "elapsed_seconds": 15.02133490005508,
+          "return_code": 0,
+          "wall_time_ns": "1793431626526402800",
+          "monotonic_ns": "3261031031000000",
+          "wall_utc": "2026-10-31T07:27:06.526402800Z",
+          "relative_to_supervisor_journal_seconds": 82.5820967
+        },
+        {
+          "stage": "shared_partition_object",
+          "state": "returned",
+          "elapsed_seconds": 15.1232875,
+          "wall_time_ns": "1793431626586657100",
+          "monotonic_ns": "3261031093000000",
+          "wall_utc": "2026-10-31T07:27:06.586657100Z",
+          "relative_to_supervisor_journal_seconds": 82.642351
+        }
+      ],
+      "timeout_timer_start_ns": null,
+      "timeout_note": "See saved timed_out field. Exact timeout firing instant not journaled; outer after_snapshot entered is after bounded wait/cleanup.",
+      "wait_completed_wall_time_ns": "1793431635830057300"
+    },
+    "supervisor": [
+      {
+        "stage": "bounded_cpu_stage",
+        "state": "entered",
+        "wall_time_ns": "1793431543944306100",
+        "monotonic_ns": "3260948453000000",
+        "wall_utc": "2026-10-31T07:25:43.944306100Z",
+        "relative_to_supervisor_journal_seconds": 0.0
+      },
+      {
+        "stage": "before_snapshot",
+        "state": "entered",
+        "wall_time_ns": "1793431543986593200",
+        "monotonic_ns": "3260948500000000",
+        "wall_utc": "2026-10-31T07:25:43.986593200Z",
+        "relative_to_supervisor_journal_seconds": 0.0422871
+      },
+      {
+        "stage": "before_snapshot",
+        "state": "returned",
+        "elapsed_seconds": 2.2079416,
+        "wall_time_ns": "1793431546194973600",
+        "monotonic_ns": "3260950703000000",
+        "wall_utc": "2026-10-31T07:25:46.194973600Z",
+        "relative_to_supervisor_journal_seconds": 2.2506675
+      },
+      {
+        "stage": "after_snapshot",
+        "state": "entered",
+        "wall_time_ns": "1793431638513919900",
+        "monotonic_ns": "3261043015000000",
+        "wall_utc": "2026-10-31T07:27:18.513919900Z",
+        "relative_to_supervisor_journal_seconds": 94.5696138
+      },
+      {
+        "stage": "after_snapshot",
+        "state": "returned",
+        "elapsed_seconds": 2.3745796,
+        "wall_time_ns": "1793431640889964600",
+        "monotonic_ns": "3261045390000000",
+        "wall_utc": "2026-10-31T07:27:20.889964600Z",
+        "relative_to_supervisor_journal_seconds": 96.9456585
+      },
+      {
+        "stage": "bounded_cpu_stage",
+        "state": "returned",
+        "elapsed_seconds": 96.947759,
+        "wall_time_ns": "1793431640894548300",
+        "monotonic_ns": "3261045406000000",
+        "wall_utc": "2026-10-31T07:27:20.894548300Z",
+        "relative_to_supervisor_journal_seconds": 96.9502422
+      }
+    ]
+  },
+  "artifact_save_times": {
+    "compile-ptx-v1/proof/compiled.ptx": {
+      "filesystem_mtime_ns": "1793431572285256900",
+      "scope": "Saved filesystem metadata only; not a journaled save/publication boundary"
+    },
+    "compile-ptx-v1/proof/compiler.json": {
+      "filesystem_mtime_ns": "1793431570119888400",
+      "scope": "Saved filesystem metadata only; not a journaled save/publication boundary"
+    },
+    "module-object-v1/proof/module.o": {
+      "filesystem_mtime_ns": "1793431626439426000",
+      "scope": "Saved filesystem metadata only; not a journaled save/publication boundary"
+    },
+    "module-object-v1/proof/object.json": {
+      "filesystem_mtime_ns": "1793431626589269900",
+      "scope": "Saved filesystem metadata only; not a journaled save/publication boundary"
+    }
+  },
+  "native_cpu_times": {
+    "user_seconds": null,
+    "kernel_seconds": null,
+    "status": "Not persisted in saved receipts/Job records; no new measurement"
+  },
+  "final_state": "PTX compiler_verified true with standard receipts; original passed=false retained. Object native returned but final outer receipt incomplete; no admission or JIT link.",
+  "saved_receipt_fingerprints": {
+    "warm-ptx-terminal-v1.json": {
+      "present": true,
+      "bytes": 7069,
+      "sha256": "b76652c27fabdd054fe11e4e8c796e5678da946870c4251ffb37d67664d030e4"
+    },
+    "prior-inputs-before.json": {
+      "present": true,
+      "bytes": 1981,
+      "sha256": "1c0959c6aa775339d81d723e69b84a6aef765a3c8290949f8d530c31fbcd3eb4"
+    },
+    "prior-inputs-after.json": {
+      "present": true,
+      "bytes": 1983,
+      "sha256": "8c9a53a731f22e1a404365d9d7c1a28c9872fcdb050b661c61b4e7535a05b42d"
+    },
+    "cache-probe-v1.json": {
+      "present": true,
+      "bytes": 1421,
+      "sha256": "5466e2133e776194dfe40ae2b1e00012decb03f8a86ee8959a83b6bf84d09288"
+    },
+    "compile-ptx-v1/request.json": {
+      "present": true,
+      "bytes": 912,
+      "sha256": "92239c22bece5752bb4b84b318653567e9646c77550c5e502e025436ca0a0cff"
+    },
+    "compile-ptx-v1/execution.json": {
+      "present": true,
+      "bytes": 1092,
+      "sha256": "1e21bebb6d0356d30de1c7e31ff1db821e9e5980c3f2f85d0a9d86511852c32c"
+    },
+    "compile-ptx-v1/observation.json": {
+      "present": true,
+      "bytes": 40715,
+      "sha256": "16442fdbc97d5f854bebd82632b2bed58a361863a301b448a06e7710c1986f89"
+    },
+    "compile-ptx-v1/proof/compiler.json": {
+      "present": true,
+      "bytes": 20412,
+      "sha256": "7a01161f9f360c4f9db0a1904e8abf84eee44fa7cc1ba326a127d5155ad407e2"
+    },
+    "compile-ptx-v1/proof/result.json": {
+      "present": true,
+      "bytes": 3968,
+      "sha256": "b927cc3f04600bb8ec8c8922d1eb05318b65076c76257b920b648389dae5f408"
+    },
+    "compile-ptx-v1/proof/artifacts.json": {
+      "present": true,
+      "bytes": 2321,
+      "sha256": "1887c44452a4f3c107febef15e5cb73bb1bf11bf9f73330b9e093e31addd8f4c"
+    },
+    "compile-ptx-v1/proof/execution.json": {
+      "present": true,
+      "bytes": 4291,
+      "sha256": "d97018feca8d147f4d2acbeabc573ed24bacc1d502f9eb429209014db06261ee"
+    },
+    "compile-ptx-v1/proof/job.json": {
+      "present": true,
+      "bytes": 1100,
+      "sha256": "a581d25b51420ca3c0a003875dfa8639e9c5312b50b8e3a062cb1dc65cf28b68"
+    },
+    "compile-ptx-v1/proof/observation.json": {
+      "present": true,
+      "bytes": 40753,
+      "sha256": "6932b630d66f1532db68118acb57a9699a66f49e6c4cd409c44490a3e5f1c143"
+    },
+    "module-object-v1/request.json": {
+      "present": true,
+      "bytes": 1136,
+      "sha256": "07f0f579843bf160acd7763f651f0d3538942303d9e4272b1936ab2534c27659"
+    },
+    "module-object-v1/execution.json": {
+      "present": true,
+      "bytes": 1094,
+      "sha256": "7fa38cd6c701b7805391c83c01391544e64a6f71e4f64cb005bad87849af0f6e"
+    },
+    "module-object-v1/observation.json": {
+      "present": true,
+      "bytes": 40714,
+      "sha256": "a83d23d0ea6b7f8bf99f4e2ab27d6d753952f5fe975638acf17c11763cfc4671"
+    },
+    "module-object-v1/proof/object.json": {
+      "present": true,
+      "bytes": 44076,
+      "sha256": "477978613ba8f24ffbbd250fc5351cd356691df15f6f9ef8cc0196ff40a40911"
+    },
+    "module-object-v1/proof/result.json": {
+      "present": false
+    },
+    "module-object-v1/proof/artifacts.json": {
+      "present": false
+    },
+    "module-object-v1/proof/execution.json": {
+      "present": true,
+      "bytes": 1632,
+      "sha256": "69585f1d459b6a5c8612ca829311332379efdc3701da40623eb753e1899aa3af"
+    },
+    "module-object-v1/proof/job.json": {
+      "present": true,
+      "bytes": 1091,
+      "sha256": "d936c7145a1b7301597e46e910e9e9bb08d73aa31a4d6723dbc8ea5579424ce8"
+    },
+    "module-object-v1/proof/observation.json": {
+      "present": true,
+      "bytes": 40749,
+      "sha256": "46530643fd13b53692d014f6f63561532999b7d32fe212abf6f7a7a34e77dd17"
+    },
+    "native-supervisor-v1/execution.json": {
+      "present": true,
+      "bytes": 1093,
+      "sha256": "4e1c7ee61a4efa72ec2dc65c631fc52ef8cf69b53535e382a8ade0a273353f57"
+    },
+    "native-supervisor-v1/job.json": {
+      "present": true,
+      "bytes": 1095,
+      "sha256": "8034954077caa83be7b2789a450b2a84ad47c4e4db2950c8b542212888b0bb55"
+    },
+    "native-supervisor-v1/observation.json": {
+      "present": true,
+      "bytes": 54958,
+      "sha256": "88148572c5ed4691bbc4ed8fd6dc6e30b7433d0b1a9a7d14dff4082cabecdea6"
+    }
+  }
+}

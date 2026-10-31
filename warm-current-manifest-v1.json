@@ -1,0 +1,14 @@
+{
+  "schema": "warm-current-manifest-v1",
+  "owner": "2195f8bdd3241f1d3e322a40c6f7ef31095836c1a0ac7f3728e414b954148a85",
+  "source_commit": "febf2648633d73c0176b1533339c6b863dd823ac",
+  "files": [
+    {
+      "path": "warm-current-summary-v1.json",
+      "bytes": 35220,
+      "sha256": "b99ee6db839440410d7289b2d4a3567fadf30999576f2757e339c0fe32806c4b"
+    }
+  ],
+  "scope": "Small saved-record summary only; no raw binaries, SDK, credentials, personal paths or process snapshots",
+  "existing_equipment_reports_overwritten": false
+}
