@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "source_commit": "24a36a118d053c5301dca414cf448ed088699748",
+  "artifacts": [
+    {
+      "artifact": "resident-frames-movement-v1.zip",
+      "package_id": "bc57f0d3b8875cef6d2f8e6f673f3e7990e60453e0d18ae22750157517da9a70",
+      "bytes": 11950058,
+      "sha256": "40e474f04be58e445bbf38032b66fb3c397439f7110abee9d9d4133025aa3b51",
+      "compile_plan": {
+        "schema": "compile-plan-v1",
+        "passed": true,
+        "package_id": "bc57f0d3b8875cef6d2f8e6f673f3e7990e60453e0d18ae22750157517da9a70",
+        "suite": "product-detail",
+        "purpose": "sealed",
+        "artifact_kind": "ptx",
+        "ptxas_level": null,
+        "memory_limit_mb": 2048,
+        "timeout_seconds": 60,
+        "error": null,
+        "compiler_options": [
+          "--std=c++17",
+          "--gpu-architecture=compute_86",
+          "--fmad=false",
+          "--split-compile=2"
+        ],
+        "policy": "sealed-battle compile-only transport",
+        "gpu_calls": 0,
+        "compiler_calls": 0,
+        "claim_created": false,
+        "execution_claim_available": true,
+        "calculation_verified": false,
+        "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+      },
+      "cpu_result": {
+        "cpu_verified": true,
+        "gpu_calls": 0,
+        "calculation_verified": false,
+        "preservation_verified": null,
+        "status": "cpu-only"
+      }
+    },
+    {
+      "artifact": "resident-frames-range-v1.zip",
+      "package_id": "954a9cd1e315b8bf7f40f214683d47747beb6c7bb1bcba484112b52423f71775",
+      "bytes": 11950006,
+      "sha256": "6cdf6595e668e936095608af7f3fcaf1bb6ea308c94a836bb248dc9cb9fbfccd",
+      "compile_plan": {
+        "schema": "compile-plan-v1",
+        "passed": true,
+        "package_id": "954a9cd1e315b8bf7f40f214683d47747beb6c7bb1bcba484112b52423f71775",
+        "suite": "product-detail",
+        "purpose": "sealed",
+        "artifact_kind": "ptx",
+        "ptxas_level": null,
+        "memory_limit_mb": 2048,
+        "timeout_seconds": 60,
+        "error": null,
+        "compiler_options": [
+          "--std=c++17",
+          "--gpu-architecture=compute_86",
+          "--fmad=false",
+          "--split-compile=2"
+        ],
+        "policy": "sealed-battle compile-only transport",
+        "gpu_calls": 0,
+        "compiler_calls": 0,
+        "claim_created": false,
+        "execution_claim_available": true,
+        "calculation_verified": false,
+        "scope": "Packet policy compatibility only; dependencies, Job, compiler and preservation are unverified"
+      },
+      "cpu_result": {
+        "cpu_verified": true,
+        "gpu_calls": 0,
+        "calculation_verified": false,
+        "preservation_verified": null,
+        "status": "cpu-only"
+      }
+    }
+  ],
+  "personal_settings": false,
+  "raw_buffers": false,
+  "scope": "Existing Runtime dispatch frame bank opt-in for fixed movement/range; no numerical changes",
+  "request": "Paired generation and one PTX compilation per package first; stop on any failed gate, missing process or timeout. No object/link/driver/GPU until separately requested.",
+  "budgets": {
+    "sdk_child_seconds": 60,
+    "memory_mb": 2048,
+    "outer_seconds": 180,
+    "nvrtc_split_compile_threads": 2
+  }
+}
