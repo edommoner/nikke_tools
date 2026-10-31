@@ -2,7 +2,7 @@
 
 2026-10-31、ユーザーは残11profileのCPUモデル拡張を許可した。対象はアンの敵回復、ユニ／ヤンの移動、ソルジャーO.W.の遮蔽DEF、ベルベットの敵弾倉、スノーホワイトHeavy ArmsのLock On、ベイ4段階の配分、レイの対象数。pinned upstreamを変更せず、専用adapterと回帰テストで進める。未確定仕様は宣言モデルとする。この範囲について再確認を待つ必要はない。
 
-最初の接続は `product_reference_models` の敵回復。通常評価要求に次の任意項目を渡す。
+最初の接続は `product_reference_models` の敵回復。現在は通常製品Metalまで接続済み（末尾の2026-10-31実証を参照）。以下は最初のCPU接続時点の契約と、その後も維持する境界。通常評価要求に次の任意項目を渡す。
 
 ```json
 {"reference_models":{"enemy_healing":[{"node":"heal-source","targets":["__enemy__:wave#1"],"amount":1000}]}}
@@ -12,9 +12,9 @@ sourceは既存idle node、対象は実際の有限HPを持つADDに限る。回
 
 通常CPU結果の `reference_models` に宣言、実回復receipt、最終ADD状態を返し、未確認の実ゲーム規則と区別する警告も返す。未指定要求は元の計算のまま。失敗時もsimulateの両aliasを復元する。元アンの全69定義を保持した通常評価で、回復倍率の低下と実HP回復を回帰テストした。既存の敵回復12テストも通過した。
 
-**この変更は製品Metal対応の完了ではない。** 共通GPU製品wireをまだ接続していないため、宣言がある場合はGPU前に明示拒否する。static準備には宣言値だけを保持し、CPU receipt・HP・時刻をGPU入力へ渡さない。legacy GPUにも黙ってモデルを省略させない。過去の専用enemy-healing Metal実証を、今回の通常API GPU実証へ付け替えない。
+**初版のCPU接続だけでは製品Metal対応の完了としなかった。** 当時は宣言がある場合にGPU前で明示拒否した。現在の通常製品Metal接続でもstatic準備には宣言値だけを保持し、CPU receipt・HP・時刻をGPU入力へ渡さない。legacy GPUにも黙ってモデルを省略させない。過去の専用enemy-healing Metal実証を、今回の通常API GPU実証へ付け替えない。
 
-次は既存enemy_healing wire／共有consumerの製品入口とreadback変換を接続する。残るモデルも同じ境界を守る。移動優先規則、独立したcover基礎DEF、敵弾倉、Lock Onの不明な距離式を暗黙値で補わない。
+その後、既存enemy_healing wire／共有consumerの製品入口とreadback変換を接続した。残るモデルも同じ境界を守る。移動優先規則、独立したcover基礎DEF、敵弾倉、Lock Onの不明な距離式を暗黙値で補わない。
 
 # バースト周期指定
 

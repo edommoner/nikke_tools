@@ -1,4 +1,8 @@
-## 2026-10-31 現通常APIの再検証結果
+## 2026-10-31 consumer拡張許可後の現在位置
+
+ユーザーは残11profileの専用CPUモデル拡張を明示許可済み。対象と境界は [product reference consumers](product-reference-consumers.md) を参照し、許可待ちへ戻さない。pinned upstreamは変更しない。Annは通常製品Metal1profile／9条件を実証し、元11件のfresh静的compileはAnn1通過／10拒否となった。歴史的255件の全件再実行や、CUDA製品成功を加算した意味ではない。以下のsource指定付き記録は、拡張前の判断履歴として保持する。
+
+## 2026-10-31 拡張前の通常API再検証結果
 
 4e861325の固定周期・30秒・標準編成266profileを再実行し、実Metal255件はCPU全製品応答一致、既知11件は理由付きCPU切替。保存raw再投影/入力全byte再生成も独立照合済み。追加profileは0、全設定・全効果の認定ではない。範囲/時間/未対応一覧は`research/target-count-query-evidence/product-current-fixed-api-sweep-v1.json`。現CUDA製品実行0、歴史CUDA1profile・1秒とは区別する。下記11件の契約判断は継続する。
 
@@ -8,7 +12,7 @@
 
 Reiの元定義にはfull_burst_startで同じallies_with_buff:섬멸 태세へ対象数+1・範囲+500%の2効果がある。先頭countだけの受付でprofile完成とはしない。通常cohortはRei/Miranda/Dolla/N102/Maryで対象のAsuka WILLEがいないため、空recipientで数値一致しても実効果を実証できない。必要なのは元Rei＋WILLEの実編成、対象buffが有効になるburst、複数敵/範囲内外の正例、対象なし/期限切れ/世代交代の対照である。
 
-次のprofile実装では、まず既存effect_target_count_policy.query/named_range_battleと共通GPU wireの再利用範囲を決める。CPUの既定consumer追加と製品入力のworld/geometry契約が必要で、別の宣言モデルをcanonical/game verifiedと読み替えない。比較用旧CPU/旧expectations/失敗を保持し、必要な新CPU契約を版分けしてから同じ共通実行器/既存テストへ接続する方針をレビュー対象とする。protected CPU正本を変更するスコープは明示許可が未確認。公開266profile完成を目指す判断であり、残11を目標から除外するものではない。
+次のprofile実装では、まず既存effect_target_count_policy.query/named_range_battleと共通GPU wireの再利用範囲を決める。CPUの既定consumer追加と製品入力のworld/geometry契約が必要で、別の宣言モデルをcanonical/game verifiedと読み替えない。比較用旧CPU/旧expectations/失敗を保持し、必要な新CPU契約を版分けしてから同じ共通実行器/既存テストへ接続する方針をレビュー対象とする。この記録時点ではCPU変更の許可が未確認だったが、その後、上記consumer拡張の明示許可を受領済み。公開266profile完成を目指す判断であり、残項目を目標から除外するものではない。
 
 CUDAは現normal entryのsealed source packetをMacで準備する。前のWindows PTXは旧source4bfd6841で、現normal shader852c1192とは生成codeが違う。旧PTX成功/claims/観測falseを保持し、現sourceの再利用証拠へ付替えない。Windowsへの新compile/runはまだ依頼しない。
 

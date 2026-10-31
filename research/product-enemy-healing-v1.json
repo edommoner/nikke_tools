@@ -648,5 +648,32 @@
     "old_claims_unchanged": true,
     "followup": "Saved log/permission-mode diagnosis only; do not resend original run",
     "scope": "Windows peer terminal report; original observation logs have not been audited on Mac"
+  },
+  "windows_warm_continuation_status": {
+    "owner": "2195f8bdd3241f1d3e322a40c6f7ef31095836c1a0ac7f3728e414b954148a85",
+    "last_cursor": "4b3eff0d-96af-48be-b3ad-b6609ae33ca8:351",
+    "scope": "Windows peer terminal report only; new saved report/manifest requested, not yet independently audited on Mac",
+    "own_tests_passed": 79,
+    "fake_tests_passed": 44,
+    "fake_default_skips": 1,
+    "windows_old_new_generated_files_exact": 4,
+    "required_ptx_cache_hit": true,
+    "ptx_bytes": 9866019,
+    "ptx_standard_compiler_validation_post_observation_containment_passed": true,
+    "nvrtc_load_version_compile_calls": 0,
+    "object_bytes": 5676528,
+    "object_outer_timeout": true,
+    "object_outer_seconds": 62.406,
+    "object_final_result_and_artifacts_complete": false,
+    "jit_link_calls": 0,
+    "driver_gpu_api_calls": 0,
+    "pipeline_seconds": 96.946,
+    "peak_bytes": 433971200,
+    "supervisor_missing_processes": 14,
+    "missing_cause": "unknown",
+    "environment_preservation": false,
+    "service_verified": false,
+    "old_claims_and_failures_retained": true,
+    "followup": "Saved diagnostic summary and manifest sharing only; no native/GPU rerun requested"
   }
 }

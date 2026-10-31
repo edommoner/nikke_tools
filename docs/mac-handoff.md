@@ -4366,3 +4366,6 @@ Windows owner68e212dc…の保存2JSONはreport commit efad536955ab37aa14fcb2c8c
 
 
 診断追補（cursor336）：承認経路のread-only CIM queryが0.68秒で成功した。元内部例外は未保存のためAccessDeniedとは断定しない。old2195 preflightの停止・未開放gate・unpack/SDK claim未消費を確認し、成功した標準承認経路で**別の新preflight/captureから未実行段階のみ**再開する後続を送った。旧capture/post/gateの再試行・補完はしない。標準観測が通る場合だけ新宛先unpackから、元の必須cache hit／各60秒・2GiB／NVRTC0／driver-GPU-API未依頼の条件を維持して進む。実際の新turnの状態は同Windows chatをpollし、再送しない。
+
+
+Windows continuation終了（cursor351）：承認経路で新preflightが通り、owner2195自身の79unit／fake44成功＋既定skip1、deps/plan/generationが成功。Windows生成4ファイル旧新全byte一致、指定PTX9,866,019byteは必須cache hitで標準compiler検証・post観測・containmentを通過。NVRTC load/version/compileは0。初回objectは5,676,528byteを生成したがouter62.406秒timeout、最終result/artifact未完了で未admit。JITlink／driver／GPU／API0、再実行しない。pipeline96.946秒・peak433,971,200byte。監督観測のmissing14は原因不明として保持、service未確認／preservation=false。これはpeer terminal reportでMac独立raw監査前。保存ログだけの小summary＋manifestを既存codex/product-equipment-v1-reportへ追記共有する後続を送信済み、旧reportは上書きせず、PTX/object本体・SDK再実行・新観測は依頼していない。次はその保存結果を同handleで取得し、object native return後の処理が上限へ達する内訳を確認する。新compile/linkの再依頼へ進まない。
