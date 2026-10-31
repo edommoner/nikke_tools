@@ -1506,43 +1506,121 @@
     },
     "gpu/world_charge_control_runtime.slang": {
       "before_sha256": "7ac4a981dcefff85b44293b8ba05a8058778c92972cc64a437f643b04f4bcaf8",
-      "after_sha256": "9df5a7ceaab324134aaea77d2b9218afcad486b6b0c3dc67dc7853de236245e6",
+      "after_sha256": "63a231d23930a849018fefbfaa347b885edf17f53bc249118ed7d03f5b93b407",
       "hunks": [
         {
-          "start": 1232,
-          "end": 3732,
+          "start": 1231,
+          "end": 3731,
           "before": "",
-          "after": "#define PORTABLE_BURST_CONTROL_SHARED_BINARY64\n#include \"burst_control_policy.slang\"\n// Only literal priorities occupy the spare upper weapon-stage bits. The\n// completed-cycle counter is produced by this GPU battle, never by a CPU run.\nbool validProductBurstPatternWord(uint word)\n{\n    uint kind=(word>>11)&3U,value=word>>13;\n    return (word&0xf8U)==0 && (kind==1?value!=0:kind==2||value==0);\n}\nBurstControlPolicy loadProductBurstPatternPolicy(inout Runtime s)\n{\n    BurstControlPolicy p;for(uint i=0;i<176;i++)p.words[i]=0;\n    p.words[0]=0x42435631U;p.words[1]=1;p.words[2]=1;p.words[4]=5;p.words[5]=24;p.words[6]=16;\n    for(uint who=0;who<5;who++)\n    {\n        uint word=commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3],kind=(word>>11)&3U,at=8+who*24;\n        p.words[at+4]=kind==3?0:kind;p.words[at+22]=kind!=0?1:0;\n        if(kind==1)p.words[at+5]=word>>13;\n        if(kind==2)p.words[at+6]=word>>13;\n    }\n    return p;\n}\nbool productBurstPatterns(inout Runtime s){return results[controlHead(s)+15]==0x50425031U;}\nvoid initializeProductBurstPatterns(inout Runtime s)\n{\n    bool active=false;\n    for(uint who=0;who<5;who++)\n    {\n        uint word=commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3];\n        if(!validProductBurstPatternWord(word)){s.error=64;return;}\n        if(((word>>11)&3U)!=0)active=true;\n    }\n    if(active)\n    {\n        BurstControlPolicy p=loadProductBurstPatternPolicy(s);\n        if(!burstControlValid(p)){s.error=64;return;}\n        results[controlHead(s)+15]=0x50425031U;\n    }\n}\nvoid finishProductBurstPatternCycle(inout Runtime s)\n{\n    if(!productBurstPatterns(s))return;\n    uint at=controlHead(s)+14;if(results[at]==0xffffffffU){s.error=2;return;}results[at]++;\n}\nvoid chooseProductBurstPattern(inout Runtime s,uint64_t when,uint stages[5],out uint picked)\n{\n    BurstControlPolicy p=loadProductBurstPatternPolicy(s);BurstControlState b;\n    b.stage=s.phase;b.cycle=results[controlHead(s)+14];b.reentry=s.reentrySlot;\n    b.unavailable=s.downMask;b.explicitStage=0;b.when=when;b.opened=when;b.action=s.action;\n    for(uint who=0;who<5;who++)\n    {\n        b.stages[who]=stages[who];b.ready[who]=s.ready[who];\n        if(statusStunned(s,who))b.unavailable|=1U<<who;\n        if((commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3]&1024U)!=0)b.explicitStage|=1U<<who;\n    }\n    BurstControlDecision d=burstControlChoose(p,b,burstControlCandidates(p,b,s.phase,true));\n    picked=d.owner;s.action=d.action;s.cooldownWaitMask=d.waitMask;\n}\n"
+          "after": "\n#define PORTABLE_BURST_CONTROL_SHARED_BINARY64\n#include \"burst_control_policy.slang\"\n// Only literal priorities occupy the spare upper weapon-stage bits. The\n// completed-cycle counter is produced by this GPU battle, never by a CPU run.\nbool validProductBurstPatternWord(uint word)\n{\n    uint kind=(word>>11)&3U,value=word>>13;\n    return (word&0xf8U)==0 && (kind==1?value!=0:kind==2||value==0);\n}\nBurstControlPolicy loadProductBurstPatternPolicy(inout Runtime s)\n{\n    BurstControlPolicy p;for(uint i=0;i<176;i++)p.words[i]=0;\n    p.words[0]=0x42435631U;p.words[1]=1;p.words[2]=1;p.words[4]=5;p.words[5]=24;p.words[6]=16;\n    for(uint who=0;who<5;who++)\n    {\n        uint word=commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3],kind=(word>>11)&3U,at=8+who*24;\n        p.words[at+4]=kind==3?0:kind;p.words[at+22]=kind!=0?1:0;\n        if(kind==1)p.words[at+5]=word>>13;\n        if(kind==2)p.words[at+6]=word>>13;\n    }\n    return p;\n}\nbool productBurstPatterns(inout Runtime s){return results[controlHead(s)+15]==0x50425031U;}\nvoid initializeProductBurstPatterns(inout Runtime s)\n{\n    bool active=false;\n    for(uint who=0;who<5;who++)\n    {\n        uint word=commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3];\n        if(!validProductBurstPatternWord(word)){s.error=64;return;}\n        if(((word>>11)&3U)!=0)active=true;\n    }\n    if(active)\n    {\n        BurstControlPolicy p=loadProductBurstPatternPolicy(s);\n        if(!burstControlValid(p)){s.error=64;return;}\n        results[controlHead(s)+15]=0x50425031U;\n    }\n}\nvoid finishProductBurstPatternCycle(inout Runtime s)\n{\n    if(!productBurstPatterns(s))return;\n    uint at=controlHead(s)+14;if(results[at]==0xffffffffU){s.error=2;return;}results[at]++;\n}\nvoid chooseProductBurstPattern(inout Runtime s,uint64_t when,uint stages[5],out uint picked)\n{\n    BurstControlPolicy p=loadProductBurstPatternPolicy(s);BurstControlState b;\n    b.stage=s.phase;b.cycle=results[controlHead(s)+14];b.reentry=s.reentrySlot;\n    b.unavailable=s.downMask;b.explicitStage=0;b.when=when;b.opened=when;b.action=s.action;\n    for(uint who=0;who<5;who++)\n    {\n        b.stages[who]=stages[who];b.ready[who]=s.ready[who];\n        if(statusStunned(s,who))b.unavailable|=1U<<who;\n        if((commands[s.inputBase+P_WEAPON_BASE+who*P_WEAPON_WORDS+3]&1024U)!=0)b.explicitStage|=1U<<who;\n    }\n    BurstControlDecision d=burstControlChoose(p,b,burstControlCandidates(p,b,s.phase,true));\n    picked=d.owner;s.action=d.action;s.cooldownWaitMask=d.waitMask;\n}"
         },
         {
-          "start": 10177,
-          "end": 10264,
+          "start": 10176,
+          "end": 10263,
           "before": "",
-          "after": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n    initializeProductBurstPatterns(s);\n#endif\n"
+          "after": "\n#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n    initializeProductBurstPatterns(s);\n#endif"
+        },
+        {
+          "start": 21653,
+          "end": 22098,
+          "before": "",
+          "after": "#ifdef PORTABLE_PRODUCT_FIXED_COORDINATE\n    uint64_t first=loadNumber(p+8),regen=loadNumber(p+10),limit=f64FromI64(180);\n    return commands[p+1]==6 && commands[p+5]<32 && (commands[p+6]<256||commands[p+6]==0xffffffffU)\n        && commands[p+7]==0x4d435631U && commands[p+12]==0x46424731U\n        && f64Finite(first) && !f64Less(first,0) && !f64Less(limit,first)\n        && f64Finite(regen) && !f64Less(regen,0) && !f64Less(limit,regen);\n#else\n"
+        },
+        {
+          "start": 22444,
+          "end": 22451,
+          "before": "",
+          "after": "#endif\n"
+        },
+        {
+          "start": 22751,
+          "end": 22813,
+          "before": "",
+          "after": "#ifdef PORTABLE_PRODUCT_FIXED_COORDINATE\n    return 13;\n#else\n"
+        },
+        {
+          "start": 22847,
+          "end": 22854,
+          "before": "",
+          "after": "\n#endif"
+        },
+        {
+          "start": 23808,
+          "end": 23870,
+          "before": "",
+          "after": "#ifdef PORTABLE_PRODUCT_FIXED_COORDINATE\n    return 13;\n#else\n"
+        },
+        {
+          "start": 23904,
+          "end": 23911,
+          "before": "",
+          "after": "\n#endif"
+        },
+        {
+          "start": 24156,
+          "end": 24264,
+          "before": "",
+          "after": "#ifdef PORTABLE_PRODUCT_FIXED_COORDINATE\n    return commands[p+1]==6 && (commands[p+5]&(1U<<who))!=0;\n#else\n"
+        },
+        {
+          "start": 24325,
+          "end": 24332,
+          "before": "",
+          "after": "\n#endif"
         }
       ]
     },
     "gpu/combat_runtime.slang": {
       "before_sha256": "714650a033ce289f520464b1df59cbe2c5d2488e5a5c54af9a3b612d769981ac",
-      "after_sha256": "959378bad447361dd93bcfd07271f26ecd41fad016bbff3ea747995a1829262e",
+      "after_sha256": "5b697f5687aa858f1bc6b86d8181cb10e9d80f2eb44c6b6130b52b7c4c0ad857",
       "hunks": [
         {
-          "start": 2212,
-          "end": 2556,
-          "before": "        if((stageWord&~0x707U)!=0 || s.stage[who]>4 || ((stageWord>>8)&3U)!=0 && (s.stage[who]!=4 || (stageWord&1024U)!=0)) { s.error=64;return; }\n",
-          "after": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n        uint stageMask=0xffffff07U;\n        if(!validProductBurstPatternWord(stageWord)){s.error=64;return;}\n#else\n        uint stageMask=0x707U;\n#endif\n        if((stageWord&~stageMask)!=0 || s.stage[who]>4 || ((stageWord>>8)&3U)!=0 && (s.stage[who]!=4 || (stageWord&1024U)!=0)) { s.error=64;return; }\n"
+          "start": 1095,
+          "end": 1216,
+          "before": "",
+          "after": "#ifdef PORTABLE_PRODUCT_FIXED_COORDINATE\n    s.fixedGaugeReadyAt = loadNumber(input+P_WORLD_CONTROL_INPUT_BASE+8);\n#else\n"
         },
         {
-          "start": 11770,
-          "end": 11859,
+          "start": 1289,
+          "end": 1296,
           "before": "",
-          "after": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n      finishProductBurstPatternCycle(s);\n#endif\n"
+          "after": "\n#endif"
         },
         {
-          "start": 13185,
-          "end": 13330,
+          "start": 2340,
+          "end": 2534,
           "before": "",
-          "after": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n        if(productBurstPatterns(s))chooseProductBurstPattern(s,when,stages,picked);\n        else\n#endif\n"
+          "after": "#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n        uint stageMask=0xffffff07U;\n        if(!validProductBurstPatternWord(stageWord)){s.error=64;return;}\n#else\n        uint stageMask=0x707U;\n#endif\n"
+        },
+        {
+          "start": 2557,
+          "end": 2566,
+          "before": "0x707U",
+          "after": "stageMask"
+        },
+        {
+          "start": 11922,
+          "end": 12011,
+          "before": "",
+          "after": "OUTLINED_HELPERS\n      finishProductBurstPatternCycle(s);\n#endif\n#ifdef PORTABLE_PRODUCT_"
+        },
+        {
+          "start": 12022,
+          "end": 12165,
+          "before": "",
+          "after": "\n#ifdef PORTABLE_PRODUCT_FIXED_COORDINATE\n      s.fixedGaugeReadyAt = f64Add(when,loadNumber(s.inputBase+P_WORLD_CONTROL_INPUT_BASE+10));\n#else"
+        },
+        {
+          "start": 12260,
+          "end": 12267,
+          "before": "",
+          "after": "\n#endif"
+        },
+        {
+          "start": 13462,
+          "end": 13607,
+          "before": "",
+          "after": "\n#ifdef PORTABLE_PRODUCT_OUTLINED_HELPERS\n        if(productBurstPatterns(s))chooseProductBurstPattern(s,when,stages,picked);\n        else\n#endif"
         }
       ]
     },
@@ -1668,29 +1746,41 @@
     },
     "gpu/coordinate_manual_control_runtime.slang": {
       "before_sha256": "bfea1cd87e9566b7eafb95edd733ef8e4ee541a634140142f12c229b54f9a82c",
-      "after_sha256": "d74d4339aa6ffd9f4546058196f30ec098ece27734ee1185597e46ba1cd5a32a",
+      "after_sha256": "547eeb4244d0111b899ab5f36709863e88e36267d8eb437e67e6c2bf5f020165",
       "hunks": [
         {
-          "start": 358,
-          "end": 1003,
+          "start": 359,
+          "end": 1004,
           "before": "",
-          "after": "\n#ifdef PORTABLE_PRODUCT_MANUAL_COVER_LOG\n// Observe the original posture boundaries only. No new control decision/clock.\nvoid productCloseManualCover(inout Runtime s,uint who,uint64_t when)\n{\n    uint m=manualState(s,who);if(results[m+11]==0)return;\n    uint at=controlTrace(s,5,who,when);if(s.error!=0)return;\n    results[at+4]=1;results[m+11]=0;\n}\nvoid productOpenManualCover(inout Runtime s,uint who,uint64_t when)\n{\n    uint m=manualState(s,who);if(results[m+11]!=0)return;\n    productCloseControl(s,who,when,1);if(s.error!=0)return;\n    uint at=controlTrace(s,4,who,when);if(s.error!=0)return;\n    results[at+4]=1;results[m+11]=1;\n}\n#endif"
+          "after": "#ifdef PORTABLE_PRODUCT_MANUAL_COVER_LOG\n// Observe the original posture boundaries only. No new control decision/clock.\nvoid productCloseManualCover(inout Runtime s,uint who,uint64_t when)\n{\n    uint m=manualState(s,who);if(results[m+11]==0)return;\n    uint at=controlTrace(s,5,who,when);if(s.error!=0)return;\n    results[at+4]=1;results[m+11]=0;\n}\nvoid productOpenManualCover(inout Runtime s,uint who,uint64_t when)\n{\n    uint m=manualState(s,who);if(results[m+11]!=0)return;\n    productCloseControl(s,who,when,1);if(s.error!=0)return;\n    uint at=controlTrace(s,4,who,when);if(s.error!=0)return;\n    results[at+4]=1;results[m+11]=1;\n}\n#endif\n"
         },
         {
-          "start": 1644,
-          "end": 1771,
+          "start": 1041,
+          "end": 1136,
+          "before": "",
+          "after": "\n#ifdef PORTABLE_PRODUCT_FIXED_COORDINATE\n    return commands[controlInput(s)+1]==6;\n#else\n    "
+        },
+        {
+          "start": 1174,
+          "end": 1182,
+          "before": "",
+          "after": "\n#endif\n"
+        },
+        {
+          "start": 1747,
+          "end": 1874,
           "before": "",
           "after": "\n#ifdef PORTABLE_PRODUCT_MANUAL_COVER_LOG\n        results[a+14]=0x504d4331U;results[controlHead(s)+13]=0x50434c31U;\n#endif\n    "
         },
         {
-          "start": 2524,
-          "end": 2613,
+          "start": 2627,
+          "end": 2716,
           "before": "",
           "after": "#ifdef PORTABLE_PRODUCT_MANUAL_COVER_LOG\n    productCloseManualCover(s,who,when);\n#endif\n"
         },
         {
-          "start": 3167,
-          "end": 3255,
+          "start": 3270,
+          "end": 3358,
           "before": "",
           "after": "\n#ifdef PORTABLE_PRODUCT_MANUAL_COVER_LOG\n    productOpenManualCover(s,who,when);\n#endif"
         }

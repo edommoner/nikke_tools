@@ -26,13 +26,15 @@ def attach(words,metadata,original,values):
     first,regen=values;base=LIMITS['WORLD_CONTROL_INPUT_BASE']
     version=words[base+1];tap_mask=words[base+5] if version==2 else 0
     if version==3:
-        # Coordinate automatic/tap controls without a cover event use the same
-        # fixed readiness and tap consumer. No manual state can be discarded.
-        if (not 0<=words[base+5]<32 or words[base+6]!=0xffffffff
+        if (not 0<=words[base+5]<32 or not (words[base+6]<256 or words[base+6]==0xffffffff)
                 or words[base+7]!=0x4d435631 or any(words[base+8:base+16])):
-            raise UnsupportedPortable('Fixed coordinate burst requires automatic/tap controls without a cover event')
-        tap_mask=words[base+5];version=2 if tap_mask else 1
-        words[base+1]=version;words[base+5:base+16]=[tap_mask]+[0]*10
+            raise UnsupportedPortable('Fixed coordinate burst requires a canonical coordinate control header')
+        words[base+1]=6
+        words[base+8:base+13]=[*struct.unpack('<II',struct.pack('<d',first)),*struct.unpack('<II',struct.pack('<d',max(regen))),0x46424731]
+        metadata['real_prepared_input']['policy']=copy.deepcopy(original['policies'])
+        metadata['product_fixed_burst']=dict(first_seconds=first,member_regen_seconds=regen,
+            readiness_regen_seconds=max(regen),CPU_state_or_schedule_as_input=False)
+        return
     if (version not in (1,2) or version==1 and any(words[base+5:base+16])
             or version==2 and (not 0<tap_mask<32 or any(words[base+6:base+16]))):
         raise UnsupportedPortable('Fixed burst requires a canonical automatic or tap control header')

@@ -196,8 +196,8 @@ class ProductReferenceModels(unittest.TestCase):
             base=LIMITS['WORLD_CONTROL_INPUT_BASE']
             self.assertEqual(fixed_source,source.replace('_battle_entry','_fixed_battle_entry'))
             self.assertEqual((fi,fo),(iw,ow));validate_composed_stride(fixed_source,fi,fo)
-            self.assertEqual(fw[base+1],5 if words[base+5] else 4)
-            self.assertEqual(fw[base+5],0x46424731)
+            self.assertEqual(fw[base+1],6);self.assertEqual(fw[base+5:base+8],words[base+5:base+8])
+            self.assertEqual(fw[base+12],0x46424731)
             self.assertEqual(fm['real_prepared_input']['policy'],fixed['policies'])
             self.assertFalse(fm['product_fixed_burst']['CPU_state_or_schedule_as_input'])
         self.assertGreater(results['expanded'],results['small-base-control'])
@@ -209,15 +209,14 @@ class ProductReferenceModels(unittest.TestCase):
         from portable_runtime import UnsupportedPortable
         base=LIMITS['WORLD_CONTROL_INPUT_BASE'];original=dict(policies={'config':{'burst_gauge_mode':'fixed'}})
         words=[0]*(base+16);words[base:base+8]=[0x57434831,3,0,1,0,2,0xffffffff,0x4d435631]
-        for offset,value in [(5,32),(6,256),(6,0),(7,0),(8,1),(15,1)]:
+        for offset,value in [(5,32),(6,256),(7,0),(8,1),(15,1)]:
             bad=words[:];bad[base+offset]=value
             with self.subTest(offset=offset),self.assertRaises(UnsupportedPortable):attach(bad,{'real_prepared_input':{}},original,(3.,[2.]*5))
         meta={'real_prepared_input':{}};attach(words,meta,original,(3.,[1.,2.,3.,2.,1.]))
-        self.assertEqual(words[base+1],5);self.assertEqual(words[base+10],2)
-        self.assertEqual(words[base+5],0x46424731)
-        self.assertEqual(struct.unpack('<d',struct.pack('<II',*words[base+6:base+8]))[0],3.)
+        self.assertEqual(words[base+5:base+8],[2,0xffffffff,0x4d435631])
         self.assertEqual(struct.unpack('<d',struct.pack('<II',*words[base+8:base+10]))[0],3.)
-        self.assertFalse(any(words[base+11:base+16]))
+        self.assertEqual(struct.unpack('<d',struct.pack('<II',*words[base+10:base+12]))[0],3.)
+        self.assertFalse(any(words[base+13:base+16]))
 
     def test_named_range_unknown_binding_and_composition_fail_and_restore_native(self):
         from portable_named_range_battle_cases import fixtures
@@ -284,8 +283,8 @@ class ProductReferenceModels(unittest.TestCase):
             base=LIMITS['WORLD_CONTROL_INPUT_BASE']
             self.assertEqual(fixed_source,source.replace('_battle_entry','_fixed_battle_entry'))
             self.assertEqual((fi,fo),(iw,ow));validate_composed_stride(fixed_source,fi,fo)
-            self.assertEqual(fw[base+1],5 if words[base+5] else 4)
-            self.assertEqual(fw[base+5],0x46424731)
+            self.assertEqual(fw[base+1],6);self.assertEqual(fw[base+5:base+8],words[base+5:base+8])
+            self.assertEqual(fw[base+12],0x46424731)
             self.assertEqual(fm['real_prepared_input']['policy'],fixed['policies'])
             self.assertFalse(fm['product_fixed_burst']['CPU_state_or_schedule_as_input'])
         with self.assertRaisesRegex(RuntimeError,'injected'):
