@@ -4403,3 +4403,5 @@ public-api-v1aのBay0が先に全一致した後、v1bでBay1〜3／Soldier0の�
 今回の製品確認は既定Metal5profile／5条件＋宣言保持2条件、CUDA0。元の11 gapのfresh静的compileは6通過（Ann＋Bay4＋Soldier）／5拒否（Yuni／Yan／Velvet／Heavy Arms／Rei）。静的結果をGPU数へ加算しない。歴史的255/266の現source再検証も未完了で、全キャラ／全特殊効果の完了ではない。現実worldの未知量・複数consumer・fixed＋manual・残consumerを続ける。
 
 既存product-detailの4固定owner（default-weighted-fixed e6327af3…／default-cover-fixed 8dfc6d16…／weighted-accumulate 9c497642…／cover-accumulate 8be7ab4c…）はすべてown88／fresh native1／M5実GPU1と、別fresh GPU禁止sealが成功して終了。coordinator session51875もterminalで再実行しない。v6へ既定2memberを追加し、明示2memberは旧input/output/native entriesの全一致を確認して現sourceへ再seal。旧v5と未変更17memberを保持。新suite0、Windows依頼0。source-historyはpinされた後続preimageを復元してから元added-source SHAを検査する順序に修正し、算術期待値やstrict normalizerは緩めない。共有はcodeと小JSONのみ、個人設定／rawを含めない。
+
+最終追補：cdcf5356からsealed既定2packet（weighted f023d5d6…／cover 7ec2f98b…）を作り、それぞれpacket自身のown88＋fresh native1／GPU0を確認。各CUBIN O1／2GiB／60秒のcompile-planもpolicy成功（compiler／GPU0）。model-checkはsource/dependency監査成功だがcanonical stat5／public numeric／全合成未完了を保持し、完成判定ではない。exec92360もterminal。Mac専用4384は終了済み、ユーザー4317／4327は操作なし。Windows追加依頼0、旧object未完了・環境観測falseを変更していない。

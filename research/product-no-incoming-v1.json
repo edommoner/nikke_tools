@@ -259,5 +259,43 @@
   ],
   "registered_golden": "research/portable-product-programs-v6-expected.json",
   "old_positive_cpu_input_output_expectations_unchanged": true,
-  "untouched_old_programs_retained": 17
+  "untouched_old_programs_retained": 17,
+  "final_packets": [
+    {
+      "program": "default-weighted-fixed",
+      "owner": "f023d5d6b558a8941db6fe572c6c74d6c3640d65a781ee17ac31f1ffd5d5e059",
+      "source_commit": "cdcf5356499327162ae37099ceb939f7334c089f",
+      "own_tests": 88,
+      "fresh_native_inputs": 1,
+      "cpu_verified": true,
+      "extra_gpu_calls": 0,
+      "compile_plan": {
+        "passed": true,
+        "artifact": "cubin",
+        "level": 1,
+        "memory_limit_mb": 2048,
+        "timeout_seconds": 60,
+        "compiler_calls": 0,
+        "gpu_calls": 0
+      }
+    },
+    {
+      "program": "default-cover-fixed",
+      "owner": "7ec2f98bcc6bb7a277b377bde47e28b6f8ec839b4d627f83dd52a07a3c77a97d",
+      "source_commit": "cdcf5356499327162ae37099ceb939f7334c089f",
+      "own_tests": 88,
+      "fresh_native_inputs": 1,
+      "cpu_verified": true,
+      "extra_gpu_calls": 0,
+      "compile_plan": {
+        "passed": true,
+        "artifact": "cubin",
+        "level": 1,
+        "memory_limit_mb": 2048,
+        "timeout_seconds": 60,
+        "compiler_calls": 0,
+        "gpu_calls": 0
+      }
+    }
+  ]
 }
