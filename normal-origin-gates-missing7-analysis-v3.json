@@ -1,0 +1,402 @@
+{
+  "schema": "normal-origin-gates-missing7-analysis-v3",
+  "owner": "20391ee28b13009277b74ce6c51ca444fa3740cec6d05c52623ede90e1221b72",
+  "source_commit": "79455c6dc5be79bfd06df5aaab1789dedf7051f6",
+  "scope": "Read-only saved-record analysis; no new snapshot/CIM, imports/discovery, tests, compiler, generation, GPU or API. No source receipt or claim changed.",
+  "finding": {
+    "missing_count": 7,
+    "strict_identity_recalculation_matches_saved_comparison": true,
+    "identity_rule": [
+      "pid",
+      "executable path lowercased",
+      "creation FILETIME decimal string"
+    ],
+    "before_filtered_process_count": 53,
+    "after_filtered_process_count": 45,
+    "missing_roles": {
+      "unrelated": 5,
+      "service_candidate": 2
+    },
+    "missing_all_present_in_before": true,
+    "missing_path_available_count": 7,
+    "missing_creation_available_count": 7,
+    "creation_values_all_strings": true,
+    "same_missing_pid_present_after_count": 0,
+    "same_missing_exact_identity_present_after_count": 0,
+    "same_pid_changed_creation_or_path_count": 0,
+    "pid_reuse_observed_for_missing": false,
+    "pid_reuse_scope": "No missing PID appears in the after snapshot. Saved before/after samples cannot exclude unobserved intermediate reuse or establish an exit cause.",
+    "duplicate_before_pids": 0,
+    "duplicate_after_pids": 0
+  },
+  "job_relationship": {
+    "job_records": 1,
+    "unique_observed_job_members": 1,
+    "missing_overlaps_job_members": 0,
+    "missing_overlaps_child_pids": 0,
+    "missing_overlaps_wrapper_pids": 0,
+    "missing_direct_parent_overlaps_job_child_or_wrapper": 0,
+    "pre_gate_verified": true,
+    "post_wait_recorded": true,
+    "job_empty_after": true,
+    "inspection_errors": [],
+    "cleanup_error": null,
+    "causal_conclusion": "No overlap observed with the validation Job members, child or wrapper. Direct parent IDs also do not overlap. Full ancestry is not captured by this filtered observer; no exit event or external action attribution is saved."
+  },
+  "observation_quality": {
+    "both_snapshots_recorded": true,
+    "comparison_error": null,
+    "execution_error": null,
+    "observation_error": null,
+    "snapshot_error_recorded": false,
+    "partial_snapshot_flag_recorded": false,
+    "scope": "Observer intentionally retains only selected runtime process types and listeners, not every OS process. Normalized snapshots were saved without an exception; original CIM stdout/stderr/exit metadata are not retained, so completeness beyond the existing observer contract cannot be independently established.",
+    "service_before": "unverified",
+    "service_after": "unverified",
+    "command_lines_saved": false
+  },
+  "chronological_stage_counts": [
+    {
+      "stage": "unpack-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443038767165800",
+      "after_observed_unix_ns": "1793443070546160700",
+      "elapsed_seconds": 34.2040911000222,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "preflight-plan-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443083838682300",
+      "after_observed_unix_ns": "1793443113738305200",
+      "elapsed_seconds": 32.31267059966922,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "preflight-test-0-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443139892476400",
+      "after_observed_unix_ns": "1793443183578933100",
+      "elapsed_seconds": 46.065975199919194,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "preflight-test-1-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443186465699100",
+      "after_observed_unix_ns": "1793443215998187300",
+      "elapsed_seconds": 31.852748699951917,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "preflight-test-2-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443227428285900",
+      "after_observed_unix_ns": "1793443258133940300",
+      "elapsed_seconds": 33.05368740018457,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "preflight-test-3-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443261206553000",
+      "after_observed_unix_ns": "1793443288704158200",
+      "elapsed_seconds": 29.994045099709183,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "preflight-test-4-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443299410951400",
+      "after_observed_unix_ns": "1793443325942813100",
+      "elapsed_seconds": 28.950413199607283,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "preflight-test-5-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443329070240700",
+      "after_observed_unix_ns": "1793443357108653100",
+      "elapsed_seconds": 30.648236299864948,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "preflight-test-6-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443368416757900",
+      "after_observed_unix_ns": "1793443394646020900",
+      "elapsed_seconds": 28.714993100147694,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "preflight-test-7-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443397767473200",
+      "after_observed_unix_ns": "1793443442646013800",
+      "elapsed_seconds": 47.45345039991662,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "preflight-test-8-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443454225354300",
+      "after_observed_unix_ns": "1793443492678258400",
+      "elapsed_seconds": 40.81666019978002,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "preflight-test-9-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443495967534600",
+      "after_observed_unix_ns": "1793443534322177100",
+      "elapsed_seconds": 41.09140870021656,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "preflight-test-10-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443554538437600",
+      "after_observed_unix_ns": "1793443594835114100",
+      "elapsed_seconds": 42.87317349994555,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "preflight-test-11-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443598049344200",
+      "after_observed_unix_ns": "1793443628042219100",
+      "elapsed_seconds": 32.61542129982263,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "preflight-native-0-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443655326140100",
+      "after_observed_unix_ns": "1793443691184261600",
+      "elapsed_seconds": 38.412066500168294,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "fake-controls-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443705255334700",
+      "after_observed_unix_ns": "1793443744209310200",
+      "elapsed_seconds": 41.51866130018607,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "deps-stage-v1",
+      "missing_count": 0,
+      "before_observed_unix_ns": "1793443747078358800",
+      "after_observed_unix_ns": "1793443759389311200",
+      "elapsed_seconds": 14.830376100260764,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    },
+    {
+      "stage": "plan-stage-v1",
+      "missing_count": 7,
+      "before_observed_unix_ns": "1793443762753557600",
+      "after_observed_unix_ns": "1793443775818946800",
+      "elapsed_seconds": 16.072516299784184,
+      "timed_out": false,
+      "execution_passed": true,
+      "cleanup_error": null,
+      "observation_error": null,
+      "job_empty_after": true,
+      "service_status": "unverified"
+    }
+  ],
+  "last_missing0_stage": "deps-stage-v1",
+  "last_missing0_after_observed_unix_ns": "1793443759389311200",
+  "all_12_cpu_test_group_missing_counts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "ptx_plan_policy_passed": true,
+  "ptx_plan_execution_passed": true,
+  "ptx_plan_wrapper_observation_gate_passed": false,
+  "ptx_plan_timed_out": false,
+  "ptx_plan_events": [
+    {
+      "stage": "bounded_cpu_stage",
+      "state": "entered",
+      "wall_time_ns": "1793443759747422100",
+      "monotonic_ns": "3273164250000000"
+    },
+    {
+      "stage": "before_snapshot",
+      "state": "entered",
+      "wall_time_ns": "1793443759790598400",
+      "monotonic_ns": "3273164296000000"
+    },
+    {
+      "stage": "before_snapshot",
+      "state": "returned",
+      "elapsed_seconds": 2.9618578,
+      "wall_time_ns": "1793443762753557600",
+      "monotonic_ns": "3273167265000000"
+    },
+    {
+      "stage": "after_snapshot",
+      "state": "entered",
+      "wall_time_ns": "1793443773424967700",
+      "monotonic_ns": "3273177937000000"
+    },
+    {
+      "stage": "after_snapshot",
+      "state": "returned",
+      "elapsed_seconds": 2.3928039,
+      "wall_time_ns": "1793443775818946800",
+      "monotonic_ns": "3273180328000000"
+    },
+    {
+      "stage": "bounded_cpu_stage",
+      "state": "returned",
+      "elapsed_seconds": 16.0738738,
+      "wall_time_ns": "1793443775822069500",
+      "monotonic_ns": "3273180328000000"
+    }
+  ],
+  "clock_scope": "Wall time and observed Unix values are UTC ns decimal strings; monotonic values are host-specific. Journal events describe observed boundaries and are not process-exit traces.",
+  "causality": {
+    "natural_exit": "unknown",
+    "external_operation": "unknown",
+    "job_cleanup_caused_missing": "unknown; no saved evidence establishes a causal link",
+    "termination_cause": "unknown",
+    "historical_missing14_and_7_reclassified": false
+  },
+  "preservation_verified": false,
+  "service_status": "unverified",
+  "generation_executed": false,
+  "sdk_executed": false,
+  "new_snapshot_calls": 0,
+  "new_cim_calls": 0,
+  "new_tests": 0,
+  "new_sdk_calls": 0,
+  "new_gpu_calls": 0,
+  "source_receipts": {
+    "plan-stage-v1/observation.json": {
+      "bytes": 63327,
+      "sha256": "1638354d7c286ff14fe8924e29f3eb7266ede120a4398e85ec7bf074a02ccfad"
+    },
+    "plan-stage-v1/job.json": {
+      "bytes": 1098,
+      "sha256": "df7c7b5c35e0aef7285aba1a870a061a7532720bbf20901ae739f7024a7e3399"
+    },
+    "plan-stage-v1/execution.json": {
+      "bytes": 1092,
+      "sha256": "7b8012b872804d9464573eaeae280e102d1944a1cb50b6c36435761269b554b5"
+    },
+    "plan-stage-v1/coordinator-phases.jsonl": {
+      "bytes": 912,
+      "sha256": "aa3cce9f51fb4e984f43321b273ad07d8744f7943d0cbde2f57f0d0c9777d946"
+    },
+    "plan-stage-v1/request.json": {
+      "bytes": 425,
+      "sha256": "d88462349d01157e853eee48a51916eb631a82aadc835819e515d353e98d3e58"
+    },
+    "deps-stage-v1/observation.json": {
+      "bytes": 46670,
+      "sha256": "657d446134d071101cce249175e5f79410d0eb046efe85b97215559e171556e1"
+    },
+    "cpu-coverage-v1.json": {
+      "bytes": 13954,
+      "sha256": "cba85b5e18233e3377be305fa0ac45532add1b293c8b411203b3c6cf2cbd9cd7"
+    }
+  }
+}

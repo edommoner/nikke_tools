@@ -1,0 +1,12 @@
+{
+  "schema": "normal-origin-gates-missing7-manifest-v3",
+  "owner": "20391ee28b13009277b74ce6c51ca444fa3740cec6d05c52623ede90e1221b72",
+  "files": [
+    {
+      "path": "normal-origin-gates-missing7-analysis-v3.json",
+      "bytes": 13536,
+      "sha256": "de01a22d40cd41442aba57d651fb5ff19b7cfdad6584f74cd185b6c94cb33d99"
+    }
+  ],
+  "scope": "Saved-record count/relationship analysis only; no individual names, arguments, paths, PID values or raw snapshots. Original v1/v2/v3 reports unchanged."
+}
