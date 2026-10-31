@@ -1,0 +1,449 @@
+{
+  "schema": "normal-origin-gates-summary-v2",
+  "passed": false,
+  "owner": "ebb2bfce6cf965a8fc5b5f525dc1af2daa988cf892f3393483a9bd8554c3f443",
+  "source_commit": "304e20b64b09ee5419fd6b310cd769971e010f2c",
+  "transport_commit": "4543209279bb10b00914fdef33dc60a0ee6727d8",
+  "archive": {
+    "present": true,
+    "bytes": 11911258,
+    "sha256": "e127100dfaab13c6e60ab8704932c505bf026449000cfbcf5c76a0340ef765da"
+  },
+  "owner_manifest": {
+    "present": true,
+    "bytes": 576879,
+    "sha256": "f48fd34cd27c2a7bde07331d586ea955de1d1165c06d13c89bccb11bba9b5338"
+  },
+  "source_retention": {
+    "passed": true,
+    "owner": "ebb2bfce6cf965a8fc5b5f525dc1af2daa988cf892f3393483a9bd8554c3f443",
+    "changed_files": [
+      "tests/test_portable_detail.py"
+    ],
+    "all_non_test_recorded_bytes_sha_equal": true,
+    "golden_complete_equal": true
+  },
+  "scope": "Saved Windows CPU preflight only; original raw GPU buffers not read; no native SDK stages attempted",
+  "stop_reason": "Fourth registered test group exceeded its standard bounded stage budget; no retry; all later stages stopped",
+  "unpack": {
+    "seconds": 32.105463700369,
+    "timeout_seconds": 60,
+    "timed_out": false,
+    "execution_passed": true,
+    "peak_bytes": 73670656,
+    "job_empty_after": true,
+    "missing_count": 0,
+    "termination_cause": null,
+    "service_status": "unverified",
+    "preservation_verified": false,
+    "cleanup_error": null,
+    "observation_error": null
+  },
+  "preflight_plan": {
+    "stage_verified": true,
+    "scope": {
+      "seconds": 30.06193730002269,
+      "timeout_seconds": 59.782000000122935,
+      "timed_out": false,
+      "execution_passed": true,
+      "peak_bytes": 134004736,
+      "job_empty_after": true,
+      "missing_count": 0,
+      "termination_cause": null,
+      "service_status": "unverified",
+      "preservation_verified": false,
+      "cleanup_error": null,
+      "observation_error": null
+    },
+    "test_group_size": 1,
+    "group_size": 1,
+    "input": {
+      "input_bytes": 417604,
+      "input_count": 1,
+      "input_sha256": "291fd86560a0bb772a03b581d273ddfe098b772f9935a02b89b16a7322466a18",
+      "input_words": 104400,
+      "package_id": "ebb2bfce6cf965a8fc5b5f525dc1af2daa988cf892f3393483a9bd8554c3f443",
+      "schema": 1
+    }
+  },
+  "tests": {
+    "planned_total": 100,
+    "completed_verified": 73,
+    "all_tests_verified": false,
+    "groups": [
+      {
+        "index": 0,
+        "patterns": [
+          "test_portable_detail.py"
+        ],
+        "stage_verified": true,
+        "scope": {
+          "seconds": 48.04474039981142,
+          "timeout_seconds": 59.84400000004098,
+          "timed_out": false,
+          "execution_passed": true,
+          "peak_bytes": 143429632,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        },
+        "completed_tests": 59,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "group_elapsed_seconds": [
+          25.049858700018376
+        ],
+        "result_present": true,
+        "cpu_tests_summary_present": true,
+        "artifacts_inventory_present": true
+      },
+      {
+        "index": 1,
+        "patterns": [
+          "test_product_detail_packet.py"
+        ],
+        "stage_verified": true,
+        "scope": {
+          "seconds": 33.37714170012623,
+          "timeout_seconds": 59.79600000008941,
+          "timed_out": false,
+          "execution_passed": true,
+          "peak_bytes": 147218432,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        },
+        "completed_tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "group_elapsed_seconds": [
+          9.488433400169015
+        ],
+        "result_present": true,
+        "cpu_tests_summary_present": true,
+        "artifacts_inventory_present": true
+      },
+      {
+        "index": 2,
+        "patterns": [
+          "test_weighted_source_contract.py"
+        ],
+        "stage_verified": true,
+        "scope": {
+          "seconds": 34.07902899989858,
+          "timeout_seconds": 59.84400000004098,
+          "timed_out": false,
+          "execution_passed": true,
+          "peak_bytes": 76189696,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        },
+        "completed_tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "group_elapsed_seconds": [
+          7.465599900111556
+        ],
+        "result_present": true,
+        "cpu_tests_summary_present": true,
+        "artifacts_inventory_present": true
+      },
+      {
+        "index": 3,
+        "patterns": [
+          "test_product_reference_models.py"
+        ],
+        "stage_verified": false,
+        "scope": {
+          "seconds": 62.624719500076026,
+          "timeout_seconds": 59.82800000021234,
+          "timed_out": true,
+          "execution_passed": false,
+          "peak_bytes": 185352192,
+          "job_empty_after": true,
+          "missing_count": 0,
+          "termination_cause": null,
+          "service_status": "unverified",
+          "preservation_verified": false,
+          "cleanup_error": null,
+          "observation_error": null
+        },
+        "completed_tests": null,
+        "failures": null,
+        "errors": null,
+        "skipped": null,
+        "group_elapsed_seconds": null,
+        "result_present": false,
+        "cpu_tests_summary_present": false,
+        "artifacts_inventory_present": false
+      }
+    ],
+    "incomplete_group": {
+      "index": 3,
+      "expected_remaining_tests": 27,
+      "test_file": "test_product_reference_models.py",
+      "stderr_progress_dot_count": 15,
+      "progress_scope": "Progress dots only; no completed group receipt and no individual success claims inferred",
+      "assertion_failure_recorded": false,
+      "group_result_missing": true
+    }
+  },
+  "fresh_native": {
+    "planned": 1,
+    "executed": 0
+  },
+  "additional_sdk_fake_controls": {
+    "executed": false
+  },
+  "deps": {
+    "executed": false
+  },
+  "compile_plan": {
+    "executed": false
+  },
+  "generation": {
+    "executed": false,
+    "generated_hash": null
+  },
+  "ptx": {
+    "executed": false,
+    "compiler_verified": false,
+    "artifact": null,
+    "cache_key": null
+  },
+  "object": {
+    "executed": false,
+    "object_verified": false,
+    "artifact": null
+  },
+  "jit_link": {
+    "executed": false,
+    "link_verified": false,
+    "artifact": null
+  },
+  "requested_native_settings_not_executed": {
+    "split_compile": 2,
+    "cache_required": false,
+    "generation_required_after_generation": true,
+    "stage_timeout_seconds": 60,
+    "memory_mb": 2048,
+    "native_pipeline_max_seconds": 180
+  },
+  "claims": {
+    "gpu_reserved_by_preflight": true,
+    "test_group_claims": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true
+    },
+    "compile_claim": false,
+    "module_object_claim": false,
+    "jit_link_claim": false,
+    "deleted": false
+  },
+  "historical": {
+    "owner59160_failed_receipts_all_fingerprints_unchanged": true,
+    "owner2195_timeout_and_unadmitted_object_retained": true,
+    "owner2195_missing_count": 14,
+    "older_missing_count": 7,
+    "preservation_verified": false,
+    "termination_cause": "unknown",
+    "old_claims_modified": false
+  },
+  "preservation_verified": false,
+  "service_status": "unverified",
+  "sdk_loads": 0,
+  "nvrtc_compile_calls": 0,
+  "ptxas_calls": 0,
+  "jit_link_calls": 0,
+  "driver_calls": 0,
+  "gpu_calls": 0,
+  "api_calls": 0,
+  "retries": 0,
+  "cpu_user_seconds": null,
+  "cpu_kernel_seconds": null,
+  "incomplete_group_saved_timing": {
+    "preparation.jsonl": [
+      {
+        "stage": "packet_header_prepare",
+        "state": "returned",
+        "elapsed_seconds": 0.10899999970570207,
+        "wall_time_ns": "1793441366468620700",
+        "monotonic_ns": "3270770968000000"
+      },
+      {
+        "stage": "packet_bounded_stage",
+        "state": "entered",
+        "wall_time_ns": "1793441366526671900",
+        "monotonic_ns": "3270771031000000"
+      },
+      {
+        "stage": "packet_before_observation",
+        "state": "entered",
+        "wall_time_ns": "1793441366567456500",
+        "monotonic_ns": "3270771078000000"
+      },
+      {
+        "stage": "packet_before_observation",
+        "state": "returned",
+        "elapsed_seconds": 2.7892125,
+        "wall_time_ns": "1793441369357867000",
+        "monotonic_ns": "3270773859000000"
+      },
+      {
+        "stage": "packet_shared_cli",
+        "state": "entered",
+        "wall_time_ns": "1793441369371894700",
+        "monotonic_ns": "3270773875000000"
+      },
+      {
+        "stage": "packet_verify_package",
+        "state": "entered",
+        "wall_time_ns": "1793441369478510400",
+        "monotonic_ns": "3270773984000000"
+      },
+      {
+        "stage": "packet_verify_package",
+        "state": "returned",
+        "elapsed_seconds": 15.9697482,
+        "wall_time_ns": "1793441385448312800",
+        "monotonic_ns": "3270789953000000"
+      },
+      {
+        "stage": "packet_after_observation",
+        "state": "entered",
+        "wall_time_ns": "1793441426399915200",
+        "monotonic_ns": "3270830906000000"
+      },
+      {
+        "stage": "packet_after_observation",
+        "state": "returned",
+        "elapsed_seconds": 2.749599,
+        "wall_time_ns": "1793441429150176200",
+        "monotonic_ns": "3270833656000000"
+      },
+      {
+        "stage": "packet_bounded_stage",
+        "state": "returned",
+        "elapsed_seconds": 62.6260043,
+        "wall_time_ns": "1793441429153278300",
+        "monotonic_ns": "3270833656000000"
+      }
+    ],
+    "proof/phases.jsonl": [
+      {
+        "stage": "staged_test_dependencies",
+        "state": "entered",
+        "wall_time_ns": "1793441385804464200",
+        "monotonic_ns": "3270790312000000"
+      },
+      {
+        "stage": "staged_test_dependencies",
+        "state": "returned",
+        "elapsed_seconds": 2.24e-05,
+        "wall_time_ns": "1793441385807876800",
+        "monotonic_ns": "3270790312000000"
+      },
+      {
+        "stage": "staged_test_group",
+        "state": "entered",
+        "wall_time_ns": "1793441385811482900",
+        "monotonic_ns": "3270790312000000"
+      }
+    ]
+  },
+  "timing_scope": "Wall times are Unix UTC ns and monotonic times are saved host ns as strings. Journal boundaries are observed timestamps; exact timeout timer start/firing not persisted. Nested intervals overlap; no retrospective boundaries added.",
+  "receipts": {
+    "source-retention-v1.json": {
+      "present": true,
+      "bytes": 251,
+      "sha256": "933ed2e90531ec8245b0fa7c478e2c9b48e91b9cca18bb88a938f2871c72db09"
+    },
+    "unpack-v1/result.json": {
+      "present": true,
+      "bytes": 188,
+      "sha256": "d99d97e2b8c18d2b131d46711322fc17508cd77e44c804a2f642a200b3f9663d"
+    },
+    "unpack-v1/execution.json": {
+      "present": true,
+      "bytes": 1089,
+      "sha256": "4e98d351f091e47f7dba431aca46467d24eb289da6b25a9334018a10100fdd2c"
+    },
+    "preflight-plan-v1/stage-result.json": {
+      "present": true,
+      "bytes": 1079,
+      "sha256": "6b661c5800a4bf7925cf3ce0f3b4e572b813279bee854d7e3301f292acc4025a"
+    },
+    "preflight-plan-v1/proof/transaction.json": {
+      "present": true,
+      "bytes": 1280,
+      "sha256": "d1680fa271916e422de8f3a44bfec04e544b18e8800c3e5fd3c6b55f909857a6"
+    },
+    "preflight-test-0-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 213,
+      "sha256": "647321bdda1489eace396fdf7f8052540b3d624e182a90742e1c9029ead8792c"
+    },
+    "preflight-test-1-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 217,
+      "sha256": "9c06ab5d4b8adc672ceee61805fe9f5ad7d7876a44d626c4db55f4eeaa295a7f"
+    },
+    "preflight-test-2-v1/proof/cpu-tests.json": {
+      "present": true,
+      "bytes": 219,
+      "sha256": "78751bdc22f90234455d74f4395cf787dc431bccf0d723b3cf7df7c8f56cda06"
+    },
+    "preflight-test-3-v1/proof/cpu-tests.json": {
+      "present": false
+    },
+    "preflight-test-3-v1/execution.json": {
+      "present": true,
+      "bytes": 1110,
+      "sha256": "9f7a4b1c7a0053ef25ea6c2521dc14b53d80c7d34d7b14d0df0d4a386edc1d8a"
+    },
+    "preflight-test-3-v1/job.json": {
+      "present": true,
+      "bytes": 1095,
+      "sha256": "e2f5fac2c6d80500e6464232387103921cf6837a0ff613568acb18f096236544"
+    },
+    "preflight-test-3-v1/observation.json": {
+      "present": true,
+      "bytes": 45386,
+      "sha256": "149886495365a87caf054cc8e473fa1e5ebdde87c4c0a46294c9a7c2761a002d"
+    },
+    "preflight-test-3-v1/stage-result.json": {
+      "present": true,
+      "bytes": 581,
+      "sha256": "fa61c5632e3bb40f9c16725fe686f14226000e9edd47bcac53328e1b6e3c07cb"
+    },
+    "preflight-test-3-v1/proof/test_product_reference_models.py.stderr.log": {
+      "present": true,
+      "bytes": 15,
+      "sha256": "03a77fc8fe616a35134e8c35e252aace6bea37480f6891a20d745ace74e35464"
+    },
+    "preflight-test-3-v1/proof/result.json": {
+      "present": false
+    },
+    "preflight-test-3-v1/proof/artifacts.json": {
+      "present": false
+    }
+  }
+}
