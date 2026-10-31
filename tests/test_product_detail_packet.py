@@ -22,11 +22,14 @@ class ProductPacket(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);outputs={t:root/t for t in ('cuda','metal')}
             for path in outputs.values():path.write_text('if((_S9502->removalCount_0) > before) {}')
-            result=(outputs,{'immutable-source':'test'})
-            with patch.object(generation,'_build_unchecked',return_value=result):
-                self.assertEqual(generation.build(root,'test','entry'),result)
+            # Exercise real file validation within the same strict prohibition
+            # used by CPU-only workers. Never enter a mocked GPU build API.
+            with self.cli().forbid_gpu():
+                generation.validate_generated_outputs(outputs)
                 outputs['cuda'].write_text('if((_S9502->removalCount_0) > (_S9502->removalCount_0)) {}')
                 with self.assertRaisesRegex(ValueError,'reflexive'):
+                    generation.validate_generated_outputs(outputs)
+                with self.assertRaisesRegex(RuntimeError,'forbidden'):
                     generation.build(root,'test','entry')
 
     def test_optional_frame_checks_keep_complete_declared_dependencies_in_product_payload(self):

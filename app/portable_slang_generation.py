@@ -27,11 +27,16 @@ def validate_counter_snapshots(generated):
         raise ValueError('Generated counter snapshot became a reflexive comparison')
 
 
+def validate_generated_outputs(outputs):
+    """File-only guard, also usable under the CPU/audit GPU prohibition."""
+    for target in ('cuda','metal'):
+        validate_counter_snapshots(outputs[target].read_text(encoding='utf-8'))
+
+
 def build(root,source,entry):
     outputs,hashes=_build_unchecked(root,source,entry)
     # Cache hits need the same guard as fresh compiler output.
-    for target in ('cuda','metal'):
-        validate_counter_snapshots(outputs[target].read_text(encoding='utf-8'))
+    validate_generated_outputs(outputs)
     return outputs,hashes
 
 
