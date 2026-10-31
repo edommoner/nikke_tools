@@ -1,0 +1,78 @@
+{
+  "schema": "movement-cover-fixed-compile-status-v1",
+  "status": "not_started",
+  "status_scope": "Saved-state export only; no build or execution performed for this export.",
+  "transport_commit": "ad4a4efe400b1862494b7afd0ca2a39ca25c1ac7",
+  "source_commit": "70e68113864923eaa3c5281b0d5f20deef1cbb3d",
+  "package_id": "de7eae326ff99ab4da1c28b0dca653e01da2c5abbc4ad8d1e6a9bf1d6211b988",
+  "archive": {
+    "name": "movement-cover-fixed-v1.zip",
+    "expected_bytes": 12047589,
+    "expected_sha256": "fb1d767a5995ff23854e4a1189b175b15ded31c96cb4c99c67db046a8a027086",
+    "local_extraction_performed": false,
+    "archive_bytes_verified": false
+  },
+  "reached_stage": "transport_commit_available_in_local_git_object_database",
+  "stages": {
+    "unpack": "not_started",
+    "device_linker_cpu_15": "not_started",
+    "own_cpu_129": "not_started",
+    "strict_generation_pair": "not_started",
+    "nvrtc_ptx": "not_started",
+    "ptxas_module_object_O1": "not_started",
+    "link": "not_started",
+    "driver": "not_started",
+    "context": "not_started",
+    "gpu": "not_started",
+    "http": "not_started"
+  },
+  "actual_sdk_calls": {
+    "slang": 0,
+    "nvrtc": 0,
+    "ptxas": 0,
+    "link": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "http": 0
+  },
+  "saved_records": {
+    "dedicated_packet_directory_found": false,
+    "result": false,
+    "failure": false,
+    "summary_before_this_export": false,
+    "execution_claim": false
+  },
+  "existing_execution": {
+    "known_live_handle": null,
+    "handle_record_found": false,
+    "fresh_process_snapshot_taken": false,
+    "machine_wide_process_state": "not_inspected"
+  },
+  "verification": {
+    "compiler_verified": false,
+    "object_verified": false,
+    "calculation_verified": false,
+    "preservation_verified": false,
+    "service_status": "unverified",
+    "limit_query": null,
+    "missing_process_count": null,
+    "observation_status": "not_run"
+  },
+  "approval_denial": {
+    "encountered_for_this_compile_request": false,
+    "action": null,
+    "reason": null
+  },
+  "interpretation": "Idle or unavailable host APIs are not compiler failures and do not authorize a retry. This report records an unstarted compilation, not a failed compilation.",
+  "export_actions": {
+    "saved_state_reads_only": true,
+    "new_snapshots": 0,
+    "sdk_calls": 0,
+    "gpu_calls": 0,
+    "driver_calls": 0,
+    "http_calls": 0
+  },
+  "historical_results_and_claims_modified": false,
+  "next_action": "Await primary thread instruction; no automatic compilation or retry."
+}
