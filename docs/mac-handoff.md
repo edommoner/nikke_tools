@@ -1,3 +1,21 @@
+## 2026-10-31 現共通GPU sourceで全266製品profileを確認：Metal262一致／CPU4
+
+前turnは実装・実証の進捗、今回も全件の実製品確認とWindows native成果により進捗。goalは未完了でactive。既存通常HTTP API／独立worker／保存監査を再利用し、新suite・数値演算・tolerance変更0。旧と完全同じ266要求（30秒・固定周期・既定育成・cubeなし・元の5人編成）をfrozen owner09555bf0…（source1cbe45cc）から逐次実行、16件区切りでsourceを検査。266すべてのprofile/favorite-stageラベルと実bodyの対応も検査した。
+
+262profileが実Apple M5／CPU全製品payload一致、4profileはGPU前の理由付きCPU fallback。数値差・API error・API cache hit0。残4はYuni、Yan、Snow White Heavy Arms、Rei（가칭）。必要な移動/範囲/Lock Onモデル未指定を明示し、効果を捨てて通していない。過去255から解消した7profileはAnn1、Soldier O.W.1、Velvet1、Bay favorite0〜3。宣言モデルの別条件を標準profileへ重複加算しない。全特殊効果/編成/設定の完成ではない。
+
+保存266件を同じ既存prepare/decodeから再投影し、全input byte、source/raw SHA、全CPU/GPU/API計算fieldを照合。追加native/GPU0、実行中source不変、全共有GPU sourceは現worktreeとも完全一致。case wall合計1306.1秒（入れ子区間を加算した性能比較ではない）。専用4390停止、4317/4327は操作なし。小記録research/target-count-query-evidence/product-current-catalogue-v2.json。原本proofs/product-current-catalogue-v2-20261031、全266保存audit完了、実行session66732／server10618はterminal。
+
+標準fixed programもc8bdd418のowner118b0caf…で全108unit/fresh native1/M5/独立GPU禁止seal成功。旧fixedのinput/output/native entriesを完全保持し、source/generatedだけ現行へ更新したv14（全14member、他13完全保持）。新製品profileには数えない。sealed release0f199f45…（7eb7ed83）は自身の108unit/fresh native1／GPU0、PTX60秒/2GiB/threads2 plan成功。ZIP11,930,103bytes/SHA739850b6…を既存transport branch commit0e742ddaへnormal-fixed-current-v1.zipとして共有済み。Windowsでこのfixed ownerの実行は未依頼。詳細research/product-fixed-current-v1.json。
+
+Windows source owner7a396439…の保存PTXから未実施objectとlinkを各1回完了。object_verified/containment=true、child30.022秒・outer54.653秒・missing0。link_verified/containment=true、child31.876秒・outer81.097秒だが内外missing7／原因unknown。両stage/passed/preservation=falseは不変。CUBIN5,289,488bytes／SHA0ae79be4…は既存historical_link_observationへ元観測SHAとlossless7個体を束縛し、CPU admission45.111秒で成功。個人process情報・rawはWindows保持。これ自体はCUDA計算成功ではない。
+
+通常HTTP APIのaccumulate1秒を1回だけ依頼・実送信したが、helper53秒（server起動直前起点）で停止。Job自体は58.690秒／timeout=false／empty／missing0、元link保全false/missing7/unknownを保持。capture96428a0b78984e05a0f274ba0f64e7feはinput SHA e26cf2…一致、fresh admission/cache hit完了、result/evidence/readbackなし。保存phaseではproduct_cubin_owner8.420秒＋admission36.666秒、その後Slang warm build3.413秒、最後cuda_linked_artifact entered未returned。driver init/context/launch/sync/readbackは未記録で、未記録だけから実行0と断定せず、新CUDA製品profileは0。旧9a6系の短い3profile成功を現sourceの実証へ付け替えない。
+
+**次の安全な作業は製品CUBIN admission内の同一package再検証の重複削減。** 元file/source/artifact/Job/観測・独立post audit・変更拒否を残し、既存module-objectの同一gate再利用設計を参考にCPU故障注入で検査する。初回owner検証とsaved_linked_admission→audit_jit_link→linked_object_origin→audit_partition_object→assembly_originで同じownerを反復hashしている。単なるhelper53→延長、上限増量、古いclaimの再利用で回避しない。現在の一般API deadline120は変更なし、Windows native child60／2GiB維持。最適化をMacで検査し、必要な短いWindows CPU計測後にだけ新しい製品GPU実証を検討する。fixed ZIPは用意済みだが、この未実施コードを先にWindowsで追加compileしない。
+
+Windowsの今回API/保存phase診断はterminal。最後はturn01a19210-7984-7e73-b581-db87b14322f1／idle、未実行依頼なし。wait_threadsがhost unavailableでもlist/read_threadから保存terminalを取得できたので、接続失敗だけで再依頼しない。原object/link/APIの失敗・全claim・各summaryを保持。新集約research/product-cuda-offline-chain-v1.json。CUDA標準fixed30秒の製品確認は現時点0、全目標未完了。
+
 ## 2026-10-31 宣言Lock Onの固定バーストを通常製品へ接続
 
 最終sealed releaseは1cbe45ccのowner09555bf0…で、packet自身の全108検査＋fresh native1／GPU0成功。PTX60秒/2GiB/threads2のcompile-planも成功し、SDK/claim追加0。

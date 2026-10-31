@@ -21,5 +21,21 @@
   "new_cuda_product_profiles": 0,
   "new_numeric_or_gpu_runtime_code": false,
   "normalizer_or_tolerance_changes": false,
-  "full_goal_complete": false
+  "full_goal_complete": false,
+  "release": {
+    "package_id": "0f199f4555960ffd2d98d35fb0479a06721d7388551f7cc4825964337238e5ca",
+    "source_commit": "7eb7ed8303f14d0dd2591947c5696b20163857c1",
+    "archive_bytes": 11930103,
+    "archive_sha256": "739850b6d8336a6dfc08f18d4b3de80eeb7d2e99913c5ae3d7e7dbfcc16c3713",
+    "own_cpu_tests": 108,
+    "fresh_native_cases": 1,
+    "compiler_gpu_calls": 0,
+    "ptx_compile_plan_passed": true,
+    "timeout_seconds": 60,
+    "memory_limit_mib": 2048,
+    "transport_branch": "codex/product-cuda-origin-gates-v1-packet",
+    "transport_commit": "0e742dda",
+    "archive": "normal-fixed-current-v1.zip",
+    "windows_execution_requested": false
+  }
 }

@@ -1,3 +1,9 @@
+# 2026-10-31 全266標準profileを現共通GPU sourceで確認
+
+通常HTTP APIの標準30秒・固定周期・既定育成・cubeなしで、262profileが実Apple M5 MetalとCPU全製品payloadに一致した。4profile（Yuni／Yan／Heavy Arms／Rei仮称）は必要な移動・範囲・Lock Onモデル未指定を理由にCPUへ切替。数値差/API error/cache hit0。全266保存captureの入力再packing・source/raw SHA・全CPU/GPU/API再投影も追加battle/GPU0で一致し、実行中source不変と現共有GPU source完全一致を確認した。以前の255からAnn／Soldier O.W.／Velvet／Bay4段階の7profileが改善した。[検証記録](../research/target-count-query-evidence/product-current-catalogue-v2.json)。全条件・全特殊効果の完成ではない。
+
+現ソースのWindows PTX→object→CUBINと厳密artifact監査は成立した。通常API1秒の試行は出所監査に約45秒を使い、待機helper53秒でCUBIN読込み中に停止、結果/readbackは未完成。今回CUDA製品profile追加0、標準fixed30秒は0。元linkのmissing7/原因unknown/保全falseを履歴付きで保持し、再実行なし。次は同一admission内の重複package検証を既存gateを維持して整理する。[Windows記録](../research/product-cuda-offline-chain-v1.json)。以下は過去sourceの履歴。
+
 # 2026-10-31 通常APIの短い2条件でMetal/CUDA全readback一致
 
 現実装9a6c3aa7のAlice2秒・Rapunzel Pure Grace3秒を通常APIの両backendで実行し、同じ入力・全readback SHAが一致、CPU全製品payloadも各backendで一致。保存raw再投影も成功、追加battle/GPU0。Windowsは同じ保存CUBINを使い、新コンパイル0、2件の実処理合計122.04秒。
