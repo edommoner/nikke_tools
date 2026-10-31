@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "archive": "product-admission-gate-v1.zip",
+  "bytes": 11933809,
+  "sha256": "1f11c1626d26f534329e70fbf2662b96108b715b812480fa593d4980f409ae38",
+  "source_commit": "d2b0163ed4b7edd5b8c8141d9a68968999a4c60e",
+  "package_id": "03e166bc79bc8b79d226e3cbaf386a5aaf1a762532aebac853df426fd57448d6",
+  "product_program": "accumulate",
+  "own_cpu_tests": 108,
+  "fresh_native_cases": 1,
+  "additional_gate_artifact_tests": 37,
+  "golden_entirely_identical_to_windows_owner": "7a396439479f017851183ccbae57129c0bdbc7fe463847bfb3de91b6385281ac",
+  "windows_request_scope": "CPU tests and saved CUBIN admission/read only; no build, SDK, driver or GPU",
+  "contains_personal_settings": false,
+  "contains_authentication": false,
+  "contains_raw_gpu_buffers": false
+}
