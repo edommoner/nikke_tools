@@ -1,3 +1,21 @@
+# 2026-10-31 召喚敵射撃・最終射撃後の退場を通常API全8経路へ接続
+
+実装36229a5191ed138bf21382db22446dab6804dfcc。元summon.attack/attack_at/self_destructの宣言を、既存ADD wire・実actor generation/alive/born・nextWorldAddAttack・共通incoming・最終射撃退場へ渡す。新しいダメージ式/時計/CPU予定表は追加しない。表示名は元summon.name#ordinal、実際の発射元はGPUのslot/generation mapから復元し、node不一致や不正sourceを拒否。BODY/ADD混在順、退場後もqueue済みの最終射撃、再出現の世代を保持。
+
+実M5の通常HTTP APIで5主役（Miranda/Belorta/Asuka/Sakura/Nihilister）・16条件がCPU全製品応答一致。通常30秒の実蓄積/固定×normal/group/target/group-target8条件、Nihilister6条件（生存/HP撃破/再出現/BODY混在/random2/slot2,4貫通）、BODY DoTとの併用2条件。全16で実ADD被弾があり、合計1,400被弾、error/fallback/mismatch/cache hit0。全保存raw/source SHA・静的input全byte・既存decoder再投影も一致。実装commit後の再照合では元evaluator stampを保持し、現在stampだけを実Gitへ照合、他全計算field一致。追加battle/GPU0。最初の3秒8条件の原本も保持、現ソース証明は最終16を使う。proof product-add-final-api-v1-20261031、小記録product-add-v1.json。
+
+正例＋不正8入力を1Metal batchで検査。正例の全readbackが通常API原本と完全一致。不正magic/actor数/召喚数/退場flag/負delay/NaN interval/target slots/非zero paddingは全status64。CPU戦闘0。共通Runtime field追加0、resident stride163576/固定163584byte不変。入力116464word/出力2032000word（8,128,000byte/case）は既存ADD/退場wireを再利用し、通常prefixと未使用paddingをGPUで検査。履歴2048/対象query1024/32node/128actorの有限上限は残す。
+
+既存255profile/30秒fixedの保持もCPU/GPU追加0で監査。247件はGPU source closure同一、target8件は生成CUDA/MSLの全byteとRuntime reflectionが同一。全255の現静的input全byte・保存raw SHA・現decoder全計算fieldが元CPU/GPU/APIへ一致、fallback11理由も不変。元のGit metadataを現stampへ偽装せず別管理。全266のGPU再実行ではなく保存証拠の保持検査であり、新5主役を255へ重複加算しない。
+
+共通CLI product-detailへadd-accumulate/add-fixedと各-group/-target/-group-targetの8programを追加。旧8programの入力/登録は保持。36229a51の開発packet79cd3913…/ZIP14,275,662byteを既存CLIで作成・exact payload再利用で展開し、packet自身のCLIで3群63検査成功、GPU0。新8programは独立seal未完了で、通常のregistered-golden経路は明示拒否を維持。API実証をCLI sealと読み替えず、再実行して形式だけの証拠を増やさない。
+
+製品49/packet7/履歴7/数量4/CLI52/HTTP14検査は成功。広い旧typed検査151/154成功、private ADD5/6・退場7/8。残5件は古いsourceをcurrentと比較する証明/リテラル検査で、変更前2a48138fを別ディレクトリへ展開した静的source照合でも未一致を確認。旧監査で未接続だった厳密なquantity-visited/full-burst inverseを既存retained-source経路へ接続し、過去input/raw/hash/許容差/normalizerは変更なし。旧legacy weaponの現生成CU/MSLは古いidentity記録とは異なるため、旧証明のcurrent_source_shaを書換えて成功にしない。初期33失敗・24失敗・22失敗・最終3失敗のlogと旧原本を保持。旧監査を全greenとは主張しない。
+
+Windowsへの新依頼0、現実装CUDA実機0。前のDoT link外側missing1/原因unknown/全体falseは維持、再compile/link/GPUなし。専用4377/4378/4379は終了し、通常4317/4327変更なし。canonical CPU/pinned/数値規約不変、全目標未完了。
+
+次はADD攻撃付随デバフを、既存外部owner5の型付き定義・共通carrier/DoT時計へ接続する。現在はProduct ADD attack debuffs are not connectedで明示CPU切替。宣言を無視して受付しない。11 canonical model gap、敵弾薬/追加typed・座標製品経路、新CLI独立seal、CUDA/旧current証明の更新も残る。以下は履歴。
+
 # 2026-10-31 現DoTソースの通常API全266profile再検証、Metal255一致・CPU11
 
 固定source463d70761a61ca14904e5bb5b55308d7f855f661・cleanのまま、従来とbyte同一の全266要求を通常HTTP APIへ逐次投入。標準30秒・固定周期で255profileが実Apple M5 MetalとCPU全製品payload一致、11profileは理由付きCPU切替。エラー/不一致/API cache hit0。全266保存captureの静的input全byte再生成、source/raw SHA、既存decoderの全CPU/GPU/API再投影も一致。保存監査の追加CPU戦闘/GPU0、全実行中source不変を確認。専用4376停止、通常4317/4327変更なし。小記録product-dot-current-catalogue-v1.json、原本product-dot-current-catalogue-v1-20261031。

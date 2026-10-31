@@ -1,0 +1,339 @@
+{
+  "schema": "product-add-attacks-v1",
+  "implementation_commit": "36229a5191ed138bf21382db22446dab6804dfcc",
+  "primary_profiles": [
+    "미란다",
+    "벨로타",
+    "아스카",
+    "사쿠라",
+    "니힐리스타"
+  ],
+  "metal_primary_profiles_limited_conditions": 5,
+  "metal_conditions": 16,
+  "program_variants": 8,
+  "standard_30_second_program_conditions": 8,
+  "incoming_hits": 1400,
+  "errors": 0,
+  "mismatches": 0,
+  "api_cache_hits": 0,
+  "cuda_current_implementation_profiles": 0,
+  "cuda_additional_requests": 0,
+  "scope": "Original product API; literal ADD shooting and final-shot retirement using existing actor-pool cursor, shared incoming executor and GPU source map. No CPU battle/state/schedule in GPU input.",
+  "conditions": [
+    {
+      "condition": "add-accumulate",
+      "source": "gpu/product_add_battle_entry.slang",
+      "input_sha256": "fc5db4e1a215f9e1c913cad2b2a5f233b34cf349261901edefcedeb6b7a19ddb",
+      "output_sha256": "2cb1b603e3940a790a008575174d699b56148843f99b66ad6e8b7e0b48a03e67",
+      "incoming_hits": 20,
+      "add_sources": [
+        "Escort#1",
+        "Escort#2"
+      ]
+    },
+    {
+      "condition": "add-accumulate-group",
+      "source": "gpu/product_add_group_battle_entry.slang",
+      "input_sha256": "e7ed034bed03e29723a544afc215d64da6dc2faa0f5428efac9ff76cc8b818d3",
+      "output_sha256": "c04029386bf714a3ddac7f65a545189d3aebe1df78214dde8f321999529f4950",
+      "incoming_hits": 20,
+      "add_sources": [
+        "Escort#1",
+        "Escort#2"
+      ]
+    },
+    {
+      "condition": "add-accumulate-target",
+      "source": "gpu/product_add_target_battle_entry.slang",
+      "input_sha256": "17aa57e273d23f1f7d2a6a86412e2aff498d4abf4501f9089589994ae4da214a",
+      "output_sha256": "3aee124d2d8c1daa3ee327b77629466bf55cc6bbf25f98cbba6881b2562579cf",
+      "incoming_hits": 20,
+      "add_sources": [
+        "Escort#1",
+        "Escort#2"
+      ]
+    },
+    {
+      "condition": "add-accumulate-group-target",
+      "source": "gpu/product_add_group_target_battle_entry.slang",
+      "input_sha256": "c822de303378c6d9b16efb35445a7137b04f35957bba71c927dfc6c363ccc2b7",
+      "output_sha256": "0831ea84936895f9a06973a5e44384ec0f22ebc3ee20ade12d8daf62d5b918a6",
+      "incoming_hits": 20,
+      "add_sources": [
+        "Escort#1",
+        "Escort#2"
+      ]
+    },
+    {
+      "condition": "add-fixed",
+      "source": "gpu/product_add_fixed_battle_entry.slang",
+      "input_sha256": "e4364e71245a9c3ba404ca11682b606a56d0de0fd77e816fbd0952f5c365f188",
+      "output_sha256": "f17bf0e3b93ee0250934957acab392e8a121bcf061cf519bba9280add5a690d9",
+      "incoming_hits": 20,
+      "add_sources": [
+        "Escort#1",
+        "Escort#2"
+      ]
+    },
+    {
+      "condition": "add-fixed-group",
+      "source": "gpu/product_add_fixed_group_battle_entry.slang",
+      "input_sha256": "585c383d319d8c2aebeb1a1715f61b9d33a7856c16fe7655118d93633adb7a17",
+      "output_sha256": "77ba2c4458b0c3d44f5e2c4a4f56b709530e785d0fc63b7c59750866a3bfae9d",
+      "incoming_hits": 20,
+      "add_sources": [
+        "Escort#1",
+        "Escort#2"
+      ]
+    },
+    {
+      "condition": "add-fixed-target",
+      "source": "gpu/product_add_fixed_target_battle_entry.slang",
+      "input_sha256": "5931e144c92e4c7493c07ff53854d48df5f2dbaab2997237a3fa6b0d09a1a4ee",
+      "output_sha256": "f7bb039bd7c2b53491a1f662fb7e81200427939be0dcc8daebf55180d440b2fb",
+      "incoming_hits": 20,
+      "add_sources": [
+        "Escort#1",
+        "Escort#2"
+      ]
+    },
+    {
+      "condition": "add-fixed-group-target",
+      "source": "gpu/product_add_fixed_group_target_battle_entry.slang",
+      "input_sha256": "640f6334e491881d1d6c192e97a16186178f5287d3b6321281f5d38960886bca",
+      "output_sha256": "344d27fd3678ff3de20ac7e89800023da9b0b8a71ddc2a6d702f5f8959188403",
+      "incoming_hits": 20,
+      "add_sources": [
+        "Escort#1",
+        "Escort#2"
+      ]
+    },
+    {
+      "condition": "add-attack-battle/Nihilister/alive",
+      "source": "gpu/product_add_group_battle_entry.slang",
+      "input_sha256": "173ca8d2a4810a5c63de4d777698ec696f77f89160847b31fc06a060f9b0e59c",
+      "output_sha256": "5a2172f68e3377174d045d31911fa839f51519e62e190b432eec3c195c4c0c58",
+      "incoming_hits": 250,
+      "add_sources": [
+        "incoming-wave#1",
+        "incoming-wave#2"
+      ]
+    },
+    {
+      "condition": "add-attack-battle/Nihilister/dead",
+      "source": "gpu/product_add_group_battle_entry.slang",
+      "input_sha256": "cf9736cd7c50387c3a79b76166a89d32ff40783942be2e4a38fcfb9eb8d6e473",
+      "output_sha256": "a1303c7bdf1e7b19880e43b4a8f10b4a8d95f65df19462c15ebcb0ba24988528",
+      "incoming_hits": 10,
+      "add_sources": [
+        "incoming-wave#1",
+        "incoming-wave#2"
+      ]
+    },
+    {
+      "condition": "add-attack-battle/Nihilister/renewal",
+      "source": "gpu/product_add_group_battle_entry.slang",
+      "input_sha256": "b3c4272cac28f4cb7f5a053a5b63abf9cebadcf25f9a24b056a9b1245705219f",
+      "output_sha256": "abee5025319db226cb169e9ce14b1acc5b0b5614c8114fb58b07e55b7798fb63",
+      "incoming_hits": 160,
+      "add_sources": [
+        "incoming-wave#1",
+        "incoming-wave#2"
+      ]
+    },
+    {
+      "condition": "add-attack-battle/Nihilister/interleaved",
+      "source": "gpu/product_add_group_battle_entry.slang",
+      "input_sha256": "91082d28e94c46a090a9d66b82eeedcea7645c48b83f8ca7d300c4d9aeff31c2",
+      "output_sha256": "94729e581fad992b49da66af7f868bdc74a24b15d3673bf0eb3021c774477ac6",
+      "incoming_hits": 500,
+      "add_sources": [
+        "incoming-wave#1",
+        "incoming-wave#2",
+        "last-wave#1"
+      ]
+    },
+    {
+      "condition": "add-attack-battle/Nihilister/random",
+      "source": "gpu/product_add_group_battle_entry.slang",
+      "input_sha256": "8e8f75ad988da0707f14cff3eabc0fde27aa22da4778a1abe116f9f47df9d348",
+      "output_sha256": "6fc358fbec50cdb4d05ce77a494c869317109e0737fcf8c31dbb7bbd6fe97d67",
+      "incoming_hits": 100,
+      "add_sources": [
+        "incoming-wave#1",
+        "incoming-wave#2"
+      ]
+    },
+    {
+      "condition": "add-attack-battle/Nihilister/slots-pierce",
+      "source": "gpu/product_add_group_battle_entry.slang",
+      "input_sha256": "33a5011438fbdc77c34b839e2829cf5a87f378abdafdffcd4bd2e47ee00d691a",
+      "output_sha256": "fbf3a21caa2b8d7b672eda4d662bfa42cc993420f1cb996fb70143bcfbf165e1",
+      "incoming_hits": 100,
+      "add_sources": [
+        "incoming-wave#1",
+        "incoming-wave#2"
+      ]
+    },
+    {
+      "condition": "Miranda ADD BODY DoT accumulate",
+      "source": "gpu/product_add_battle_entry.slang",
+      "input_sha256": "6e0df7e7cf0cf58fccf8c3f8f7baaa4b692937816ab7142be1df98ee33b7d4ab",
+      "output_sha256": "f33bdf2666180ba37ff252b2eaf37564c71db5b13b20a41880450c494d4fa7a7",
+      "incoming_hits": 60,
+      "add_sources": [
+        "Escort#1",
+        "Escort#2"
+      ]
+    },
+    {
+      "condition": "Miranda ADD BODY DoT fixed",
+      "source": "gpu/product_add_fixed_battle_entry.slang",
+      "input_sha256": "c27c2ca71939cbb44b9c29b4f0488a6271412acbb020494c2bf4cfc37dd65e07",
+      "output_sha256": "0813398fad678009af7bb615a41b057119ea070f62875f6c49ebc18812cf7b6b",
+      "incoming_hits": 60,
+      "add_sources": [
+        "Escort#1",
+        "Escort#2"
+      ]
+    }
+  ],
+  "saved_audit": {
+    "conditions": 16,
+    "static_input_raw_source_and_all_calculation_fields_exact": true,
+    "native_battle_calls": 0,
+    "gpu_calls": 0,
+    "evaluator_provenance": "Original CPU/GPU/API metadata retained; committed-host projection VCS stamp checked separately against actual Git."
+  },
+  "retained_catalogue": {
+    "original_source_commit": "463d70761a61ca14904e5bb5b55308d7f855f661",
+    "source_proofs": {
+      "gpu/product_fixed_battle_entry.slang": {
+        "source_closure_exact": true
+      },
+      "gpu/product_fixed_group_battle_entry.slang": {
+        "source_closure_exact": true
+      },
+      "gpu/product_fixed_target_battle_entry.slang": {
+        "source_closure_exact": false,
+        "paired_code_and_runtime_reflection_exact": true
+      }
+    },
+    "metal_saved_profiles": 255,
+    "fallbacks": 11,
+    "native_battle_calls": 0,
+    "gpu_calls": 0
+  },
+  "raw_negatives": {
+    "rows": [
+      {
+        "case": "positive",
+        "status": 0
+      },
+      {
+        "case": "magic",
+        "status": 64
+      },
+      {
+        "case": "binding-count",
+        "status": 64
+      },
+      {
+        "case": "summon-count",
+        "status": 64
+      },
+      {
+        "case": "retire-flag",
+        "status": 64
+      },
+      {
+        "case": "negative-delay",
+        "status": 64
+      },
+      {
+        "case": "nan-interval",
+        "status": 64
+      },
+      {
+        "case": "target-slots",
+        "status": 64
+      },
+      {
+        "case": "padding",
+        "status": 64
+      }
+    ],
+    "gpu_dispatches": 1,
+    "cpu_battle_calls": 0,
+    "positive_all_readback_bytes_exact": true,
+    "input_sha256": "332cbab8f75d08ad423b721443b66e359d3b074e849c019d17e5bf1b581eb4ed",
+    "output_sha256": "da332affc4e5f1963aa1ccc6da12a98b0b4156af22a9cac92ce754a089e46175"
+  },
+  "memory": {
+    "input_words": 116464,
+    "output_words": 2032000,
+    "output_bytes_per_case": 8128000,
+    "resident_strides_bytes": [
+      163576,
+      163584
+    ],
+    "runtime_fields_added": 0
+  },
+  "cli": {
+    "family": "product-detail",
+    "added_programs": 8,
+    "existing_programs_preserved": 8,
+    "packet_id": "79cd3913b16f0d3ebb9eb1d5e736b770cc35e502b996a5173c7a2eaf37c4612d",
+    "archive_bytes": 14275662,
+    "archive_sha256": "40160a17f107792a0e52804c61e6992231926ff9d4d3a8ff8bba0e4b21cec7d8",
+    "own_cpu_groups": 3,
+    "own_cpu_tests": 63,
+    "gpu_calls": 0,
+    "purpose": "development",
+    "independently_sealed": false,
+    "unsealed_registered_programs_fail_closed": true
+  },
+  "checks": {
+    "product_tests": 49,
+    "packet_tests": 7,
+    "source_history_tests": 7,
+    "quantity_tests": 4,
+    "cli_tests": 52,
+    "http_tests": 14,
+    "destructible_tests": {
+      "total": 154,
+      "passed": 151,
+      "failed": 3
+    },
+    "private_add_tests": {
+      "total": 6,
+      "passed": 5,
+      "failed": 1
+    },
+    "private_retirement_tests": {
+      "total": 8,
+      "passed": 7,
+      "failed": 1
+    },
+    "stale_checks": "Five existing historical/current-source assertions remain failed; baseline source 2a48138f reproduces their stale identity/literal assumptions. No expected hashes, raw results or numerical tolerance were changed."
+  },
+  "remaining": [
+    "ADD attached debuffs including DoT: explicit CPU fallback",
+    "11 canonical model gaps",
+    "Enemy magazines and additional typed/coordinate product routes",
+    "Independent sealing of new CLI programs",
+    "Current CUDA device validation stopped by prior outer missing-process observation; no retry",
+    "Historical private-program current certificates need separate recertification"
+  ],
+  "evidence_sha256": {
+    "requests.json": "15662828caf916a0752b002b0c71ac72ff6eb58b33537b4e47e0176d6ac83b20",
+    "sources.json": "b53c006e17386fdc054f03bde722cb5cd7180bfa4e216049322138fdcb738df1",
+    "progress.json": "fe99637e7e3b4beea64ea92c41426474bdb53bd2e888654bdf973a4927e24b1f",
+    "saved-audit-progress.json": "b8b44b6987afed8986cb3a1eda6dbdf01802b0a89e5c9626780789b82ae87621",
+    "committed-host-saved-audit.json": "06f1aa7569baea1635acfc953a6e0f221b4fc723ad13b35999af1b690af8066b",
+    "catalogue-retained.json": "fbb485b54d79eab6b5aefbe2850bb01be93fc1acd1a78bda992530743e3e3b03",
+    "baseline-stale-assertions.json": "4333192bdb387b592af955219cc43e177fddfd64826543ff58fe880cac129ccc",
+    "legacy-current-generation-check.json": "01b9cc147587ee841086b223062f95f60f76e1e66c0982ea2762364ba383f7d1",
+    "destructible-cpu-full-wired.log": "25d8ddd5e8827f062839b68a1b2b64de0fd71cfcdd61270ceb5b1d568312547d"
+  }
+}

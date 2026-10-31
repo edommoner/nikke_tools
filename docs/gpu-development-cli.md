@@ -1,5 +1,12 @@
 ## 製品プログラムを同じCLIで選択する
 
+## 通常製品の召喚敵射撃
+
+`product-detail` の `--product-program add-accumulate` / `add-fixed` と、それぞれの `-group` / `-target` / `-group-target` は、通常APIと同じ召喚敵射撃・最終射撃退場を扱う。計算は既存のADD cursor/incoming/actor poolを共有する。旧8programは不変。新8programは現在development packet段階で、独立sealがないregistered実行を明示拒否する。
+
+`package --suite product-detail --product-program add-accumulate --develop --out NEW.zip` で既存CLIへ渡せる。通常30秒/8経路と追加境界の実Metal証拠は [product-add-v1](../research/target-count-query-evidence/product-add-v1.json)。API証拠、CLI単体検査、独立seal、CUDA実機を区別する。ADD付随debuffはCPU切替。旧typed/current-source監査の未更新5件も同記録に残す。
+
+
 `package --suite product-detail --product-program fixed --develop --out NEW.zip` は、固定周期normal入口を既存の製品suiteで固定する。`accumulate`/`fixed`と`-group`/`-target`/`-group-target`の8種類を、共通の`data/portable-product-programs.json`で宣言する。suite追加や効果別の新検証器ではない。`product_program`はmanifest/package IDへ入り、元入力factory・wire・source closure・基準選択と結び付く。未指定の旧packetは従来の設定を維持する。
 
 新programのsealed基準は`research/portable-product-programs-v1-expected.json`のprogram別entryへ登録する。まだ独立Metal sealのないmemberはsealed梱包を拒否し、旧normalの数値へfallbackしない。開発梱包は既存CPU基準生成→run→fresh独立sealを使う。`source-baseline --suite product-detail --product-program fixed --out NEW.json`または固定packet内の同commandは選択programを検査する。新programにも、同program・同CPU/data/input contractが一致する場合だけ既存`--native-baseline-package`の期待hash再利用を適用できる。programを跨ぐ再利用は拒否する。
