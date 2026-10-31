@@ -123,7 +123,8 @@ def validate_composed_stride(source,input_words,output_words):
     if source in lock_cover_sources:
         from portable_lock_typed_layout import check,INPUT as LI,OUTPUT as LO
         from portable_cover_defense_wire import check_schema,LAYOUT as C,OUTPUT
-        check(ROOT);check_schema(ROOT)
+        from portable_product_locks import check_cover_history
+        check(ROOT);check_schema(ROOT);check_cover_history(ROOT)
         if LO>C['OUTPUT_BASE'] or (input_words,output_words)!=(LI+C['WORDS'],OUTPUT):raise ValueError('Lock On/cover requires complete disjoint arenas')
         return
     movement_cover_sources={p['source'] for n,p in PROGRAMS.items() if n.startswith('movement-cover-')}

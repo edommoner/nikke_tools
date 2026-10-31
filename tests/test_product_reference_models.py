@@ -269,6 +269,31 @@ class ProductReferenceModels(unittest.TestCase):
         transform=QueueHooks();transform.visit(ast.parse('def simulate():\n def _land(ev,t):\n  if boss is not None and boss.has_adds:pass\n'))
         self.assertNotEqual(transform.counts,dict(emission=1,landing=1,route=1,clock=1))
 
+    def test_complete_skill_pages_keep_129_and_2048_rows_and_reject_extra_words(self):
+        from portable_skill_history import decode_pages
+        from portable_product_locks import COVER_SKILL_BASE,COVER_SKILL_END,COVER_HISTORY_CAPACITY,check_cover_history
+        from portable_specs import LIMITS as L
+        check_cover_history(ROOT)
+        for count in (129,COVER_HISTORY_CAPACITY):
+            block=array.array('I',[0])*COVER_SKILL_END
+            h=L['WORLD_SKILL_HEAD_BASE'];block[h:h+3]=array.array('I',[0x57534b31,count,1])
+            for i in range(count):
+                at=L['WORLD_SKILL_TRACE_BASE']+i*48 if i<128 else COVER_SKILL_BASE+(i-128)*48
+                block[at:at+4]=array.array('I',[7,1,1,1])
+                for off in (4,6,8,10):block[at+off:at+off+2]=array.array('I',struct.unpack('<II',struct.pack('<d',i/1000.)))
+                block[at+12]=1;block[at+16]=1
+            rows=decode_pages(block,count,COVER_SKILL_BASE)
+            self.assertEqual(len(rows),count);self.assertEqual(rows[-1]['landed'],(count-1)/1000.)
+            # Corruption after the original128-row prefix must be observed.
+            block[COVER_SKILL_BASE+17]=1
+            with self.assertRaises(AssertionError):decode_pages(block,count,COVER_SKILL_BASE)
+            block[COVER_SKILL_BASE+17]=0
+            if count<COVER_HISTORY_CAPACITY:
+                block[COVER_SKILL_BASE+(count-128)*48]=1
+                with self.assertRaisesRegex(ValueError,'Unused'):decode_pages(block,count,COVER_SKILL_BASE)
+        with self.assertRaises(ValueError):decode_pages(block,COVER_HISTORY_CAPACITY+1,COVER_SKILL_BASE)
+        with self.assertRaises(ValueError):decode_pages(block[:-1],COVER_HISTORY_CAPACITY,COVER_SKILL_BASE)
+
     def test_lock_and_cover_keep_all_original_effects_and_independent_arenas(self):
         import portable_detail as product
         from portable_product_programs import body_for_program

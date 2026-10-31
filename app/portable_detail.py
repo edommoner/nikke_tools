@@ -275,12 +275,7 @@ def decode_payload(body, prepared, run, metadata, block):
             models.append(model)
     if metadata.get('product_lock_on'):
         from portable_product_locks import read_result
-        from portable_lock_typed_layout import OUTPUT as LOCK_OUTPUT
-        from portable_cover_defense_wire import LAYOUT as C
-        if metadata.get('product_lock_cover') and any(block[LOCK_OUTPUT:C['OUTPUT_BASE']]):
-            raise UnsupportedPortable('Unowned Lock On/cover output gap contains data')
-        lock_block=block[:LOCK_OUTPUT] if metadata.get('product_lock_cover') else block
-        model=read_result(lock_block,metadata,run.config['duration'])
+        model=read_result(block,metadata,run.config['duration'])
         models.append(model)
     if metadata.get('product_enemy_movement'):
         from portable_product_movement import read_result

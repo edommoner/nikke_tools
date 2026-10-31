@@ -1,4 +1,7 @@
 #include "packet_fates_layout.slang"
+#ifndef PF_FLAG_AT
+#define PF_FLAG_AT(output,index) ((output)+PF_FLAGS+(index))
+#endif
 // These are native's queued BODY proposals after their typed delivery. They
 // retain the common queue's order/time/quantity, but never enter Actor land.
 bool initializePacketFates(inout Runtime s)
@@ -33,6 +36,6 @@ bool compositionSuppressedReceipt(inout Runtime s,LandingReceipt r,uint index,ui
     logWorldSkill(s,r,set,r.amount,when);
     results[set+5]=0;results[actorPoolHead(s)+7]--;
     if(s.error!=0)return true;
-    results[s.resourceOutput+PF_FLAGS+trace]=1;results[h+1]++;results[h+3]++;
+    results[PF_FLAG_AT(s.resourceOutput,trace)]=1;results[h+1]++;results[h+3]++;
     return true; // No land(), counter(), heal(), or BODY damage.
 }

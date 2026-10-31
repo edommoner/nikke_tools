@@ -41,7 +41,7 @@ def compare_and_project(block,native):
     return lock_view(projection)
 
 def shader_layout():
-    return '// Generated from portable_packet_fates.py.\n'+''.join('static const uint PF_'+k+' = '+str(v)+'U;\n' for k,v in dict(HEAD=HEAD,FLAGS=FLAGS,CAPACITY=CAPACITY,END=END,MAGIC=MAGIC).items())
+    return '// Generated from portable_packet_fates.py.\n'+''.join(('#ifdef PORTABLE_PACKET_FATE_CAPACITY\nstatic const uint PF_CAPACITY = PORTABLE_PACKET_FATE_CAPACITY;\n#else\nstatic const uint PF_CAPACITY = '+str(v)+'U;\n#endif\n' if k=='CAPACITY' else 'static const uint PF_'+k+' = '+str(v)+'U;\n') for k,v in dict(HEAD=HEAD,FLAGS=FLAGS,CAPACITY=CAPACITY,END=END,MAGIC=MAGIC).items())
 
 def check(root):
     from pathlib import Path

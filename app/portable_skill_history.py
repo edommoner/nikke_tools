@@ -59,3 +59,27 @@ def compare_and_project(block,domain,native,indices):
     view=list(block);view[head+1]=min(count,PREFIX);view[BASE:END]=[0]*(END-BASE)
     original=copy.copy(native);original['skill_trace']=native['skill_trace'][:PREFIX]
     return view,original,indices[:PREFIX]
+
+
+def decode_pages(block,count,base,*,capacity=CAPACITY):
+    """Read every ordered row via the existing strict128-row decoder."""
+    if type(count) is not int or type(capacity) is not int or capacity!=CAPACITY or not 0<=count<=capacity:
+        raise ValueError('Complete bounded skill history required')
+    end=base+(capacity-PREFIX)*WIDTH
+    if type(base) is not int or base<L['WORLD_SKILL_TRACE_BASE']+PREFIX*WIDTH or end>len(block):
+        raise ValueError('Skill history continuation must be disjoint and complete')
+    trace=L['WORLD_SKILL_TRACE_BASE'];head=L['WORLD_SKILL_HEAD_BASE']
+    if block[head]!=0x57534b31 or block[head+1]!=count or any(block[head+4:head+8]):raise ValueError('Skill history header differs')
+    spec=importlib.util.spec_from_file_location('complete_product_skill_decoder',Path(__file__).resolve().parents[1]/'research/verify-world-skills.py')
+    decoder=importlib.util.module_from_spec(spec);spec.loader.exec_module(decoder)
+    page=[0]*(trace+PREFIX*WIDTH);page[head]=0x57534b31;rows=[]
+    for first in range(0,count,PREFIX):
+        length=min(PREFIX,count-first);page[head+1]=length
+        for j in range(length):
+            i=first+j;at=trace+i*WIDTH if i<PREFIX else base+(i-PREFIX)*WIDTH
+            page[trace+j*WIDTH:trace+(j+1)*WIDTH]=block[at:at+WIDTH]
+        rows.extend(decoder.skill_trace(page))
+    if any(block[trace+min(count,PREFIX)*WIDTH:trace+PREFIX*WIDTH]) or any(block[base+max(0,count-PREFIX)*WIDTH:end]):
+        raise ValueError('Unused skill history contains data')
+    if block[head+2]!=max((len(r['recipients']) for r in rows),default=0):raise ValueError('Skill history target maximum differs')
+    return rows

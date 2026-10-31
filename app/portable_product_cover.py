@@ -53,6 +53,9 @@ def compile_product(prepared,producer):
             raise ValueError('Cover DEF, target count and named range require disjoint stat identifiers')
     kind='healing' if healing else 'ammo' if ammo else 'movement' if movement else 'named_range' if named_range else 'lock' if locks else None
     if locks:
+        from portable_product_locks import check_cover_history
+        from pathlib import Path
+        check_cover_history(Path(__file__).resolve().parents[1])
         from portable_named_range_battle_wire import COUNT_STAT
         if cover_stat==COUNT_STAT:raise ValueError('Lock target count and cover DEF require disjoint stat identifiers')
     for candidate,wire in prefixes.items():
