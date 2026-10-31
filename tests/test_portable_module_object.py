@@ -9,6 +9,54 @@ cli=focus_tests.cli
 
 
 class ModuleObjectTests(unittest.TestCase):
+    def test_fresh_same_root_module_origin_reuses_only_the_current_gate(self):
+        producer=self.sealed_producer();f=self.f
+        with f.context(),patch.object(cli,'ROOT',f.base.source_package):
+            verify=cli.verify_package;verify.reset_mock()
+            current=verify(cli.ROOT)
+            actual,raw=cli.partition_object_origin(current,self.request,module_object=True,verified_current_package=True)
+            self.assertEqual(verify.call_count,1,'The fresh gate must read all package bytes once')
+            independent,independent_raw=cli.partition_object_origin(current,self.request,module_object=True)
+            self.assertEqual(verify.call_count,2,'Independent/default origin must re-read the package')
+            self.assertEqual((actual,raw),(independent,independent_raw))
+            self.assertTrue(actual['producer']['producer_compiler_verified'])
+            self.assertFalse(actual['producer']['current_battle_equivalence_verified'])
+
+    def test_verified_scope_cannot_reuse_a_foreign_or_changed_manifest(self):
+        producer=self.sealed_producer();f=self.f
+        with f.context():
+            verify=cli.verify_package;verify.reset_mock()
+            cli.partition_object_origin(producer,self.request,module_object=True,verified_current_package=True)
+            verify.assert_called_once_with(f.base.source_package)
+        with f.context(),patch.object(cli,'ROOT',f.base.source_package):
+            changed=copy.deepcopy(producer);changed['new-unreviewed-field']=True
+            cli.write(f.base.source_package/'gpu-package.json',changed)
+            with self.assertRaisesRegex(ValueError,'manifest changed'):
+                cli.partition_object_origin(producer,self.request,module_object=True,verified_current_package=True)
+        self.assertFalse(f.base.processes)
+
+    def test_post_execution_audit_still_rejects_changed_package(self):
+        self.sealed_producer();self.proof();f=self.f
+        with f.context(),patch.object(cli,'verify_package',side_effect=ValueError('changed bytes after tool')) as verify:
+            result=cli.audit_partition_object_capture(f.base.m,f.capture,verify_artifacts=False,module_object=True)
+        verify.assert_called_once_with(f.base.source_package)
+        self.assertFalse(result['object_verified']);self.assertFalse(result['calculation_verified'])
+        self.assertIn('changed bytes after tool',result['error'])
+
+    def test_parent_gate_uses_fresh_verification_and_still_runs_post_audit(self):
+        self.sealed_producer();f=self.f
+        env={'UNRELATED':'kept'}
+        with f.context(),patch.object(cli,'ROOT',f.base.source_package),patch.object(cli,'os',types.SimpleNamespace(**dict(vars(os),name='nt',environ=env))),patch.object(cli,'run_job') as job,patch.object(cli,'audit_partition_object_capture',return_value=dict(object_verified=True,calculation_verified=False)) as audit:
+            verify=cli.verify_package;verify.reset_mock()
+            out=f.root/'same-owner-parent'
+            cli.object_capture(out,60,f.root/'original',dict(self.request))
+            verify.assert_called_once_with(f.base.source_package)
+            job.assert_called_once();self.assertEqual(job.call_args.kwargs,dict(module_object_only=True))
+            audit.assert_called_once();self.assertNotIn('verified_current_package',audit.call_args.kwargs)
+            self.assertEqual(job.call_args.args[2],60)
+            self.assertTrue((f.base.source_package/'module-object-claimed-cuda.json').exists())
+        self.assertEqual(env,{'UNRELATED':'kept'})
+
     def setUp(self):
         self.f=focus_tests.PartitionObjectTests();self.f.setUp();self.addCleanup(self.f.doCleanups)
         self.request=dict(self.f.request,source_kind='module');self.request.pop('candidate')
@@ -117,7 +165,7 @@ class ModuleObjectTests(unittest.TestCase):
     def test_cli_child_mode_is_explicit_and_mutually_exclusive(self):
         f=self.f;cli.write(f.capture/'start.json',{})
         with f.context(),patch.object(cli,'partition_object_child') as dispatch:
-            cli.child(f.capture,'cuda',module_object_only=True);self.assertTrue(dispatch.call_args.kwargs['module_object'])
+            cli.child(f.capture,'cuda',module_object_only=True);self.assertTrue(dispatch.call_args.kwargs['module_object']);self.assertTrue(dispatch.call_args.kwargs['verified_current_package'])
             with self.assertRaises(ValueError):cli.child(f.capture,'cuda',partition_object_only=True,module_object_only=True)
         with patch.object(cli,'child') as dispatch:cli.main(['_child','--capture',str(f.capture),'--backend','cuda','--module-object-only'])
         self.assertTrue(dispatch.call_args.args[7]);self.assertFalse(dispatch.call_args.args[6])

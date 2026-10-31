@@ -1613,7 +1613,7 @@ def child(capture, backend, smoke=False, compile_only=False, module_only=False, 
     if link_object_only:
         partition_object_child(m,capture,backend,link_object=True);return
     if module_object_only:
-        partition_object_child(m,capture,backend,module_object=True);return
+        partition_object_child(m,capture,backend,module_object=True,verified_current_package=True);return
     if partition_object_only:
         partition_object_child(m,capture,backend);return
     if assemble_only:
@@ -2934,11 +2934,19 @@ def registered_battle_source(selection):
             or suite=='product-detail' and source in {p['source'] for p in PRODUCT_PROGRAMS.values()})
 
 
-def assembly_origin(m,source_package,source_capture,*,historical_compiler=False,sealed_battle_source=False):
+def assembly_origin(m,source_package,source_capture,*,historical_compiler=False,sealed_battle_source=False,verified_current_package=False):
     """Re-audit the immutable upstream PTX producer, including its original Job."""
     source_package=Path(source_package);source_capture=Path(source_capture)
     if historical_compiler and sealed_battle_source:raise ValueError('PTX producer source modes are exclusive')
-    producer=verify_package(source_package,historical_compiler=True) if historical_compiler else verify_package(source_package)
+    if type(verified_current_package) is not bool:raise ValueError('Explicit current package verification scope required')
+    if verified_current_package and sealed_battle_source and source_package.resolve()==ROOT.resolve():
+        # The immediate caller already verified every byte at this same gate.
+        # This is not a cross-process/cache receipt: the child verifies again,
+        # and the post-execution auditor always takes the full default path.
+        if load(source_package/'gpu-package.json')!=m:raise ValueError('Current producer manifest changed after package verification')
+        producer=m
+    else:
+        producer=verify_package(source_package,historical_compiler=True) if historical_compiler else verify_package(source_package)
     if sealed_battle_source:
         golden=producer['golden']
         if producer.get('purpose','sealed')!='sealed' or compiler_only(producer) or not registered_battle_source(producer) or type(golden.get('entries')) is not list or not golden['entries'] or not golden.get('input_sha256') or not golden.get('output_sha256'):
@@ -3172,19 +3180,19 @@ def object_spec(kind):
         prefix='module_jit_link' if kind=='jit-link' else 'module_link' if kind=='link' else 'partition_object',tool_key='nvjitlink' if kind=='jit-link' else 'nvlink' if kind=='link' else 'ptxas')
 
 
-def partition_object_origin(m,request,*,module_object=False,link_object=False):
+def partition_object_origin(m,request,*,module_object=False,link_object=False,verified_current_package=False):
     import portable_partition_object as obj
     if module_object and link_object:raise ValueError('Diagnostic object modes are exclusive')
     kind='link' if link_object else 'module' if module_object else 'focus'
     if request.get('source_kind','focus')!=kind:raise ValueError('Diagnostic object source kind mismatch')
     if link_object:return linked_object_origin(request)
     sealed_source=module_object and not compiler_only(load(Path(request['source_package'])/'gpu-package.json'))
-    producer,raw=assembly_origin(m,request['source_package'],request['source_capture'],historical_compiler=not sealed_source,sealed_battle_source=sealed_source)
+    producer,raw=assembly_origin(m,request['source_package'],request['source_capture'],historical_compiler=not sealed_source,sealed_battle_source=sealed_source,verified_current_package=verified_current_package)
     if module_object:return obj.module_origin(request['cache_entry'],request['phases'],producer,raw)
     return obj.origin(request['cache_entry'],request['phases'],request['candidate'],producer)
 
 
-def partition_object_child(m,capture,backend,*,module_object=False,link_object=False):
+def partition_object_child(m,capture,backend,*,module_object=False,link_object=False,verified_current_package=False):
     if backend!='cuda':raise ValueError('Focus object requires CUDA package')
     import ctypes as C
     import portable_partition_object as obj
@@ -3197,7 +3205,7 @@ def partition_object_child(m,capture,backend,*,module_object=False,link_object=F
             journal.emit(prefix+'_forbidden_library','rejected');raise RuntimeError('Driver/NVRTC DLL forbidden in focus object experiment')
         return loader(name,*a,**k)
     with forbid_gpu(),patch.object(C,'WinDLL',library,create=True):
-        origin,raw=partition_object_origin(m,request,module_object=module_object,link_object=link_object)
+        origin,raw=Journal(capture/'preparation.jsonl').invoke('object_child_origin',partition_object_origin,m,request,module_object=module_object,link_object=link_object,verified_current_package=verified_current_package)
         if origin!=request['origin']:raise ValueError('Focus object source changed after request')
         journal.emit(prefix+'_origin','verified',origin=origin)
         receipt=journal.invoke('shared_'+prefix,obj.run,capture,request[spec['tool_key']],raw,origin,journal=journal)
@@ -3314,17 +3322,22 @@ def object_capture(capture,timeout,original_workspace,request):
     import portable_partition_object as obj
     kind=request['source_kind'];spec=object_spec(kind);m=verify_package(ROOT)
     capture.mkdir(parents=True,exist_ok=False)
+    from portable_phase_audit import Journal
+    preparation=Journal(capture/'preparation.jsonl')
     write(capture/'run.json',dict(schema=SCHEMA,package_id=m['package_id'],backend='cuda',mode=spec['mode'],status='preflight',memory_limit_mb=2048,gpu_retry_count=0))
     write(capture/'object-request.json',request)
     try:
-        origin,_=jit_link_origin(request) if kind=='jit-link' else partition_object_origin(m,request,module_object=kind=='module',link_object=kind=='link');request['origin']=origin
+        if kind=='jit-link':origin,_=preparation.invoke('object_preflight_origin',jit_link_origin,request)
+        else:origin,_=preparation.invoke('object_preflight_origin',partition_object_origin,m,request,module_object=kind=='module',link_object=kind=='link',verified_current_package=True)
+        request['origin']=origin
         obj.validate_tool_path(origin,request[spec['tool_key']]);write(capture/'object-request.json',request)
         run=load(capture/'run.json');run['status']='processing';write(capture/'run.json',run)
         with (ROOT/spec['claim']).open('x',encoding='utf-8') as stream:json.dump(dict(package_id=m['package_id'],capture=str(capture),origin=origin),stream)
         with patch.dict(os.environ,NIKKE_VALIDATION_JOB_MEMORY_MB='2048'):
             run_job(capture,'cuda',timeout,original_workspace,**{spec['flag']:True})
         flags={'module_object':True} if kind=='module' else {'link_object':True} if kind=='link' else {}
-        result=audit_jit_link_capture(m,capture,verify_artifacts=False) if kind=='jit-link' else audit_partition_object_capture(m,capture,verify_artifacts=False,**flags);write(capture/'result.json',result)
+        result=preparation.invoke('object_post_audit',audit_jit_link_capture,m,capture,verify_artifacts=False) if kind=='jit-link' else preparation.invoke('object_post_audit',audit_partition_object_capture,m,capture,verify_artifacts=False,**flags)
+        write(capture/'result.json',result)
         run=load(capture/'run.json');run['status']='finished';write(capture/'run.json',run)
     except BaseException as exc:
         write(capture/'failure.json',dict(error=type(exc).__name__+': '+str(exc),kernel_calls=0));run=load(capture/'run.json');run['status']='failed';write(capture/'run.json',run);raise

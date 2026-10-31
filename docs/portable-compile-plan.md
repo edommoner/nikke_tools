@@ -27,3 +27,11 @@ Windows v3ではdevice検査は成功しましたが、共通smokeのSwift修復
 v4の保存報告（Windows report commit `a0844950`）では、個別driverの外側60秒が先に切れました。開始から最初のpackage検査等11.573秒、inner observation2.119秒、child package検査11.283秒、Slang9.754秒を経て、35.007秒時点でNVRTC entered。約24.995秒の未完了区間後に親timeoutであり、NVRTC所要時間や内部の失敗原因は断定できません。親peak645,595,136byte／cleanup後メンバー0、内側終了観測とpreservationは未確認、CUBIN／完成cacheなし。compile／cache claimを保持しています。
 
 今回のclaimは再使用しません。次の候補は、保存生成物・cacheのidentityを確認して生成を省けるかと、既存PTX-only→object/link経路による工程の分離です。共有計算を削る、上限を拡大する、同条件のNVRTCを単純に再試行する判断には使いません。
+
+## 2026-10-31 CUDA module-objectの同一gate内検証重複を解消
+
+CLIのmodule-objectが同じsealed producer自身を処理する場合、親でverify_package済みの直後と子でverify_package済みの直後に、assembly_originが同じ全file検証を再実行していた。fresh mと同一root・同一manifestに限りその2重複だけを省き、全file検証は親1／子1／独立post1の計3回を維持する（外側wrapperは別）。foreign/historical producerは既存全検証のまま。引数は内部呼出し専用でrequest/CLIで再利用tokenを受け付けず、metadata/stat cacheや過去receiptの代用ではない。PTX producerの全artifact／Job／生成数値baseline監査は不変。post auditorはfast pathを使わず全package再検査する。実行後改変も拒否する。
+
+既存compiler18群202テスト成功。親/子dispatchの実flag、同rootで1回のfresh検証、別root/manifest変化/実行後変化の拒否、post audit維持を回帰検査。PTXAS O1/fmad、60秒/2GiB、Job/pre/post観測、排他claim、旧失敗の扱いは不変。preparation journalにoriginとpost auditの実測区間を追加し、既存厳密phases列は変えない。GPU/数値code変更0、実SDK/GPU/新Metal/CUDA製品profile0。Windowsでの短縮は未測定。
+
+旧owner2195のptxas15.021秒／outer62.406秒、object未admit、missing14原因不明／preservation=falseを保持する。修正は旧claimの再実行許可ではない。次は現行normal製品ownerの固定・生成4file保持・必須PTXcache同一性の確認を行い、条件が通った場合だけ新ownerの短い差分工程をWindowsへ依頼する。証跡research/product-cuda-origin-gates-v1.json。

@@ -1,3 +1,11 @@
+## 2026-10-31 CUDA module-objectの同一gate内検証重複を解消
+
+CLIのmodule-objectが同じsealed producer自身を処理する場合、親でverify_package済みの直後と子でverify_package済みの直後に、assembly_originが同じ全file検証を再実行していた。fresh mと同一root・同一manifestに限りその2重複だけを省き、全file検証は親1／子1／独立post1の計3回を維持する（外側wrapperは別）。foreign/historical producerは既存全検証のまま。引数は内部呼出し専用でrequest/CLIで再利用tokenを受け付けず、metadata/stat cacheや過去receiptの代用ではない。PTX producerの全artifact／Job／生成数値baseline監査は不変。post auditorはfast pathを使わず全package再検査する。実行後改変も拒否する。
+
+既存compiler18群202テスト成功。親/子dispatchの実flag、同rootで1回のfresh検証、別root/manifest変化/実行後変化の拒否、post audit維持を回帰検査。PTXAS O1/fmad、60秒/2GiB、Job/pre/post観測、排他claim、旧失敗の扱いは不変。preparation journalにoriginとpost auditの実測区間を追加し、既存厳密phases列は変えない。GPU/数値code変更0、実SDK/GPU/新Metal/CUDA製品profile0。Windowsでの短縮は未測定。
+
+旧owner2195のptxas15.021秒／outer62.406秒、object未admit、missing14原因不明／preservation=falseを保持する。修正は旧claimの再実行許可ではない。次は現行normal製品ownerの固定・生成4file保持・必須PTXcache同一性の確認を行い、条件が通った場合だけ新ownerの短い差分工程をWindowsへ依頼する。証跡research/product-cuda-origin-gates-v1.json。
+
 ## 2026-10-31 製品の名前付き範囲・対象数を接続
 
 最終追補：3b02411aからsealed最終packet becf355f4ef9…を作り、packet自身の100unit／fresh native1／CPU-onlyが成功（追加GPU0）。Windows既存chatはcursor354のidleを確認し、追加SDK／GPUは依頼していない。次はClaudeレビューで優先されたCUDA製品compileの未admit／外側timeoutについて、既存gateを保ち準備・観測重複を減らす実装を検討する。旧object・失敗receipt・missing14原因不明／preservation=falseは保持し、同条件再試行はしない。Heavy Arms／fixed／全合成も引き続き未完了。
