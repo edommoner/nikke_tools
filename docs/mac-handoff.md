@@ -1,3 +1,17 @@
+## 2026-11-01 対象別補正＋同時命中＋遮蔽の通常APIを接続
+
+前turnはgroup/coverの通常4条件Metal一致とWindows依頼で進捗。今回source41211349、owner66c26290…で、既存BODY/PART target modifier consumerもcoverへ接続。target prefix110112/group-target prefix104672を保持し、115680までのgapのみzero検査、独立cover bankと全outputを共有。PORTABLE_PRODUCT_EXTERNAL_EXECUTORは埋込base entryだけを抑制、元target/groupのadmission関数は実行する。CPU正本/数値本体/normalizer/許容差変更0。cover sourceのwire許可は共通PROGRAMS registry由来にして重複列挙を解消。新suiteなし、既存product-detailに4program追加。
+
+不変development packet自身の115 CPU検査/fresh native/実M5/fresh GPU禁止seal成功。通常30秒APIでAsukaのtarget+manual cover固定/実蓄積、SOW+Sakura+Belorta+Dora+Drakeのtarget+group+cover+敵攻撃固定/実蓄積の4条件が全CPU製品payload一致。後2条件incoming15/cover receipt15、damage90,232,743/89,588,679。保存input/raw/source/CPU/GPU/API再投影の独立監査も一致（追加GPU/native0）。新4programのregistered sealed基準は未登録、packageには--developが必要。歴史v19基準やold capture ownerを現在sourceへ付替えない。
+
+旧plain cover両mode/group cover両mode/normal fixed/group fixed/target fixedの7入口は生成CUDA/MSL全byte SHA不変（追加GPU/CUDA SDK/native0）。これは歴史source/captureの保持、現source全profile再認定ではない。最後の全標準Metal262/266、標準CUDA1/266、新標準profile加算0、追加通常合成4条件。未対応4profileの幾何/配送条件を推定せず、未接続healing/ammo/weighted/coordinate合成は理由付き切替を維持。全goal未完了。
+
+Windows新cover-groupはd5199c3dの保存結果を取得。unpack/CPU16/paired生成/missing0成功、NVRTC1回16.386秒/PTX10,357,195bytes生成・inner missing0/containment成功だが、outer38.489秒で既存7process消失/unknownを検出して停止。object/link/API/GPU0、再生成/再試行なし、preservationfalseと元1048records/claims保持。research/product-cover-group-cuda-status-v1.jsonと旧集約へ反映済み。計算成功やCUDAprofileへ加算しない。
+
+別の独立した通常sourcea4663e47/owner1ea8f311…/既存CUBIN8ad4f6c0…だけで、Rapi0/AnisStar0/Poli3/D0の元標準30秒4要求を確認する依頼を送信済み。transport branch codex/product-cuda-origin-gates-v1-packet/commit2791df4f、normal-standard-batch-v2-requests.json/SHA11ee5f0e…。各helper53秒/2GiB/BelowNormal/fresh Job/outer180秒、逐次各POST/kernel/sync/read1、SDK/生成追加0、最初の失敗で停止、retry0。各要求の旧M5 raw全SHAをMacで事前確認済み。小結果normal-standard-batch-v2-status.jsonを同branchで取得する。Mac read/waitはhost unavailable継続、send/listとGitHub保存結果取得は利用可。同じrunを再送しない。今回の新target sourceへのWindows依頼は0。
+
+Mac CLI19572/seal46865/API23926/audit/generation24600はterminal。専用server16167/4405停止exit130、常用サーバー不操作。原本proofs/product-cover-target-v1-20261101、小記録research/product-cover-target-v1.json。標準Windows要求の原本proofs/product-cuda-standard-batch-v2-20261101。次は保存結果の取得と未接続合成/標準GPU範囲の拡大を継続。以下は履歴。
+
 ## 2026-11-01 同時命中グループ＋遮蔽を通常APIで接続
 
 前turnは通常manual cover受付の修正と4条件Metal全CPU一致で進捗。今回はsource4866587eで既存shot-groupとcover consumerを同一Runtimeへ接続。group header104400..104408、padding104408..115680、cover literal bank115680..115704を保持し、新しい数値本体/CPUモデル/許容差/suite追加0。共通program registryへcover-fixed-group/cover-accumulate-groupを追加。target/healing/ammo/weighted/coordinate合成の未接続は理由付き切替のまま。

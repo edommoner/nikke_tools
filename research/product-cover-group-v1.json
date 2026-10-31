@@ -2474,7 +2474,7 @@
   },
   "release_gpu_and_sealed_expected_bytes_unchanged": true,
   "cuda": {
-    "state": "Request sent; execution result pending",
+    "state": "Stopped after successful PTX generation because outer observation lost seven existing processes",
     "transport_commit": "b04d5e57",
     "transport_branch": "codex/product-cuda-origin-gates-v1-packet",
     "compile_plan": {
@@ -2506,7 +2506,24 @@
     "max_sdk_child_seconds": 60,
     "max_outer_seconds": 180,
     "job_memory_mb": 2048,
-    "no_retry": true
+    "no_retry": true,
+    "report": "research/product-cover-group-cuda-status-v1.json",
+    "report_commit": "d5199c3d",
+    "ptx_compiler_verified": true,
+    "nvrtc_seconds": 16.386251,
+    "inner_missing": 0,
+    "outer_missing": 7,
+    "cause": "unknown",
+    "preservation_verified": false,
+    "new_gpu_calls": 0,
+    "unexecuted": [
+      "module-object",
+      "jit-link-object",
+      "ordinary API",
+      "fresh CPU battle comparison",
+      "GPU kernel/sync/readback"
+    ],
+    "pending_requests": 0
   },
   "coverage": {
     "last_full_standard_metal_profiles": 262,

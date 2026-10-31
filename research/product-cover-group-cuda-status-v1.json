@@ -1,0 +1,172 @@
+{
+  "schema": "cover-group-fixed-status-v1",
+  "source_commit": "975dc67b1d0f9e3a5b7c6642341f2d952277f836",
+  "transport_commit": "b04d5e5711b6b3d78237b8cf5ec5c8397e39f442",
+  "owner": "008be53bb770a08ac5fed45962aba111add2be2e9c045e5aa2326d8c93fa69e1",
+  "program": "cover-fixed-group",
+  "path_base": "Documents/Codex",
+  "archive": {
+    "bytes": 12014408,
+    "sha256": "aac2252b8fc0e4de07df91d27503369d02f5481457d81e65488f4e59f64813b4"
+  },
+  "api_document": {
+    "bytes": 7594,
+    "sha256": "11f41279ca30248e93f813ab00917af95bfcf1ff7dc07708d95bcc9cc761900c"
+  },
+  "stopped": true,
+  "stop_stage": "PTX outer observation",
+  "stop_reason": "7 missing existing processes in outer before/after comparison",
+  "termination_cause": "unknown",
+  "passed": false,
+  "preservation_verified": false,
+  "whole_environment_preservation_verified": false,
+  "unpack": {
+    "payload_verified": true,
+    "observation": {
+      "seconds": 18.490066000260413,
+      "peak_bytes": 74153984,
+      "missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "service": "unverified",
+      "preservation_verified": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "inspection_error": false,
+      "exit_code": 0
+    }
+  },
+  "cpu_delta": {
+    "passed": true,
+    "tests": 16,
+    "selected_groups": [
+      8,
+      8
+    ],
+    "fresh_zip_all_files_owner_verified": true,
+    "files_checked": 2736,
+    "seconds": 11.956999899819493,
+    "observation": {
+      "seconds": 17.140734599903226,
+      "peak_bytes": 154423296,
+      "missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "service": "unverified",
+      "preservation_verified": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "inspection_error": false,
+      "exit_code": 0
+    }
+  },
+  "generation": {
+    "verified": true,
+    "strict_sealed_pair_baseline": true,
+    "observation": {
+      "seconds": 18.51630589971319,
+      "peak_bytes": 576962560,
+      "missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "service": "unverified",
+      "preservation_verified": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "inspection_error": false,
+      "exit_code": 0
+    }
+  },
+  "ptx": {
+    "capture": "cover-group-fixed-v1/compile-ptx-v2/proof",
+    "compiler_verified": true,
+    "containment_verified": true,
+    "passed": false,
+    "preservation_verified": false,
+    "formal_error": null,
+    "artifact": {
+      "bytes": 10357195,
+      "sha256": "2cabef47c44a0fe7d8cc8fe670067e6b404ac0793f0575df3229054232f2a078"
+    },
+    "cache_key": "898d98d5dfb042a54d37d8a66cb2e8acbe02271ef39dcc202984050769c45cc9",
+    "options": [
+      "--std=c++17",
+      "--gpu-architecture=compute_86",
+      "--fmad=false",
+      "--split-compile=2"
+    ],
+    "warm_pair_cache_hit": true,
+    "nvrtc_calls": 1,
+    "nvrtc_return_code": 0,
+    "nvrtc_seconds": 16.386251,
+    "child": {
+      "seconds": 28.860570199787617,
+      "peak_bytes": 305618944,
+      "missing": 0,
+      "timeout": false,
+      "job_empty": true,
+      "service": "unverified",
+      "preservation_verified": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "inspection_error": false,
+      "exit_code": 0
+    },
+    "outer": {
+      "seconds": 38.489303700160235,
+      "peak_bytes": 339329024,
+      "missing": 7,
+      "timeout": false,
+      "job_empty": true,
+      "service": "unverified",
+      "preservation_verified": false,
+      "error": null,
+      "cleanup_error": null,
+      "observation_error": null,
+      "inspection_error": false,
+      "exit_code": 2
+    }
+  },
+  "object": null,
+  "cubin": null,
+  "stack_register_metrics": null,
+  "api": {
+    "executed": false,
+    "reason": "Stopped at PTX outer missing7; no post or GPU dispatch",
+    "expected_metal": {
+      "input_sha256": "c323a87dc6adf50edcc0657c15b0ab10aa785cc77d356e1fad085a577a0dd455",
+      "output_sha256": "a5304e6cbab635d28cf3182a0842e642e721c632b3cac12fb68918c4c1d4e84f",
+      "total_damage": 100011263
+    },
+    "catalogue_profile_certification_added": false
+  },
+  "additional_calls": {
+    "paired_generation_stages": 1,
+    "nvrtc": 1,
+    "ptxas": 0,
+    "link": 0,
+    "native_battle": 0,
+    "driver": 0,
+    "context": 0,
+    "gpu": 0,
+    "http": 0,
+    "retry": 0
+  },
+  "unexecuted": [
+    "module-object",
+    "jit-link-object",
+    "ordinary API",
+    "fresh CPU battle comparison",
+    "GPU kernel/sync/readback"
+  ],
+  "original_records_unchanged": true,
+  "original_records_checked": 1048,
+  "original_claims_and_failures_retained": true,
+  "previous_normal_resident_reexecuted": false,
+  "range_reexecuted": false,
+  "old_preservation_failures_unchanged": true
+}
