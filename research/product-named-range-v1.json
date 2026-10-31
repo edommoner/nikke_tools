@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "scope": "One ordinary API declared Asuka-WILLE/Rei-variant composition in accumulated mode, not game geometry verification or default Rei coverage",
+  "metal_product_compositions": 1,
+  "metal_conditions": 4,
+  "cuda_product_profiles": 0,
+  "rows": [
+    {
+      "scenario": "expanded",
+      "capture_id": "5e923732a94548318b53c4396d89f163",
+      "device": "Apple M5",
+      "backend": "metal_detail",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "input_sha256": "1f2b3089f535bb351b6899eb3db16269b907ee1e3e2c16e4c2c15add41a12dab",
+      "output_sha256": "a59641edf593e882eff235c6fdfc33a5d2da94d534e1819039d055fe44c81de4",
+      "gpu_seconds": 2.307506416691467,
+      "casts": 54,
+      "expanded_casts": 52,
+      "selected_add_total": 106,
+      "sampled_expected_flag": false,
+      "saved_raw_audit": true
+    },
+    {
+      "scenario": "small-base-control",
+      "capture_id": "c7962d5a981940d1bbde0679e8371178",
+      "device": "Apple M5",
+      "backend": "metal_detail",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "input_sha256": "231cbff3fabf3f5717937e2219c89432f11b52f940e778c2fafe63f2f239e98e",
+      "output_sha256": "c31289f10c0547eed4ffeee8e4926f624d90164af43d350c0e2df15c586a9680",
+      "gpu_seconds": 2.307226791686844,
+      "casts": 54,
+      "expanded_casts": 52,
+      "selected_add_total": 54,
+      "sampled_expected_flag": false,
+      "saved_raw_audit": true
+    },
+    {
+      "scenario": "late-spawn",
+      "capture_id": "77ee794a40284f7995a11b4dd934557d",
+      "device": "Apple M5",
+      "backend": "metal_detail",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "input_sha256": "2c8f05cb44ef3dbd5ca53104033ea403083370831ea1a13ff35c611ec6adecc4",
+      "output_sha256": "21f40303870112097f8fa2c094e5a36b3a4a92a05a2bc5fb34ed988d04e57dff",
+      "gpu_seconds": 2.2756092500058003,
+      "casts": 54,
+      "expanded_casts": 52,
+      "selected_add_total": 76,
+      "sampled_expected_flag": false,
+      "saved_raw_audit": true
+    },
+    {
+      "scenario": "retirement",
+      "capture_id": "25cfcd1d7a174ea9aafcfd3b22da1ac1",
+      "device": "Apple M5",
+      "backend": "metal_detail",
+      "cpu_verification": {
+        "matched": true,
+        "differing_fields": []
+      },
+      "input_sha256": "72bae16e70d5ddc2b443d9fd68b72513263504f55e657b923b8697c00ad1defb",
+      "output_sha256": "aeaf564e8b017f2a558d4ebacf781c11dbac12493fa06bd9541575ab98d5fe6e",
+      "gpu_seconds": 2.2389163749758154,
+      "casts": 54,
+      "expanded_casts": 52,
+      "selected_add_total": 0,
+      "sampled_expected_flag": false,
+      "saved_raw_audit": true
+    }
+  ],
+  "shared_coordinate_context": true,
+  "numeric_provider_reused": true,
+  "pinned_upstream_changed": false,
+  "cpu_selection_input": false,
+  "normalizer_or_tolerance_changed": false,
+  "raw_audit_extra_native_gpu_calls": 0,
+  "movement_saved_retention": {
+    "rows": [
+      {
+        "scenario": "disable",
+        "source_and_input_exact": true,
+        "raw_sha_exact": true,
+        "projection_except_evaluator_stamp_equal": true,
+        "evaluator_stamp_equal": false
+      },
+      {
+        "scenario": "force",
+        "source_and_input_exact": true,
+        "raw_sha_exact": true,
+        "projection_except_evaluator_stamp_equal": true,
+        "evaluator_stamp_equal": false
+      },
+      {
+        "scenario": "renewal",
+        "source_and_input_exact": true,
+        "raw_sha_exact": true,
+        "projection_except_evaluator_stamp_equal": true,
+        "evaluator_stamp_equal": false
+      },
+      {
+        "scenario": "overlap-disable",
+        "source_and_input_exact": true,
+        "raw_sha_exact": true,
+        "projection_except_evaluator_stamp_equal": true,
+        "evaluator_stamp_equal": false
+      },
+      {
+        "scenario": "overlap-force",
+        "source_and_input_exact": true,
+        "raw_sha_exact": true,
+        "projection_except_evaluator_stamp_equal": true,
+        "evaluator_stamp_equal": false
+      }
+    ],
+    "gpu_calls": 0,
+    "native_battle_calls": 0,
+    "scope": "Saved movement input/source/raw projection retention after shared-coordinate refactor; evaluator VCS stamp compared separately, not a new GPU or native proof"
+  },
+  "public_projection": "Every cast quantity, actual BODY position and ADD count; private candidate probes and landing observations stay in the dedicated reference observer",
+  "remaining": [
+    "game radius/shape/distance rules",
+    "default no-declaration admission",
+    "fixed named range",
+    "combined consumers",
+    "Heavy Arms Lock On",
+    "current-source full catalogue and CUDA verification"
+  ]
+}

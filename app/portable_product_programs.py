@@ -18,13 +18,13 @@ for _name,_program in PROGRAMS.items():
         raise ValueError('Invalid product program declaration')
     _mode,_kind=_program['mode'],_program['kind']
     _default=_name.startswith('default-');_selector=_name[8:] if _default else _name
-    _add=_selector.startswith('add-');_healing=_selector.startswith('healing-');_weighted=_selector.startswith('weighted-');_cover=_selector.startswith('cover-');_ammo=_selector.startswith('ammo-');_movement=_selector.startswith('movement-')
+    _add=_selector.startswith('add-');_healing=_selector.startswith('healing-');_weighted=_selector.startswith('weighted-');_cover=_selector.startswith('cover-');_ammo=_selector.startswith('ammo-');_movement=_selector.startswith('movement-');_range=_selector.startswith('named-range-')
     if _default and (not (_weighted or _cover) or _mode!='fixed' or _kind):raise ValueError('Invalid default-world product program')
-    _prefix=('default-' if _default else '')+('add-' if _add else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else 'ammo-' if _ammo else 'movement-' if _movement else '')
-    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or (_healing or _weighted or _cover or _ammo or _movement) and _kind!='' or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
+    _prefix=('default-' if _default else '')+('add-' if _add else 'healing-' if _healing else 'weighted-' if _weighted else 'cover-' if _cover else 'ammo-' if _ammo else 'movement-' if _movement else 'named-range-' if _range else '')
+    if _mode not in ('fixed','accumulate') or _kind not in ('','group','target','group-target') or (_healing or _weighted or _cover or _ammo or _movement or _range) and _kind!='' or _name!=_prefix+_mode+('-'+_kind if _kind else ''):
         raise ValueError('Invalid product program identity')
     _stem=('fixed_' if _mode=='fixed' else '')+(_kind.replace('-','_')+'_' if _kind else '')
-    if _program['source']!='gpu/product_'+('add_' if _add else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else 'ammo_' if _ammo else 'movement_' if _movement else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
+    if _program['source']!='gpu/product_'+('add_' if _add else 'healing_' if _healing else 'weighted_' if _weighted else 'cover_' if _cover else 'ammo_' if _ammo else 'movement_' if _movement else 'named_range_' if _range else '')+_stem+'battle_entry.slang' or any(type(_program[k]) is not int or _program[k]<=0 for k in ('input_words','output_words')):
         raise ValueError('Invalid product source or wire declaration')
 
 
@@ -64,7 +64,11 @@ def body_for_program(root, name=None):
     if name is not None and (not isinstance(name,str) or name not in PROGRAMS):
         raise ValueError('Invalid product program body')
     program = PROGRAMS.get(name, dict(mode='accumulate', kind=''))
-    if name is not None and name.startswith('movement-'):
+    if name is not None and name.startswith('named-range-'):
+        from portable_named_range_battle_cases import fixtures
+        case=fixtures()[0];body=copy.deepcopy(case['body'])
+        body['reference_models']={'named_range':dict(coord=copy.deepcopy(case['coord']),logical_geometry=copy.deepcopy(case['logical_geometry']),rules=copy.deepcopy(case['named_range_rules']))}
+    elif name is not None and name.startswith('movement-'):
         import engine_worker
         from portable_enemy_movement_cases import fixtures
         case=fixtures()[0];body=copy.deepcopy(case['body'])

@@ -11,17 +11,19 @@ WARNING='宣言した敵回復モデルを使用しています。実ゲーム�
 WEIGHTED_WARNING='宣言したダメージ配分モデルを使用しています。実ゲームの配分比率を確認した意味ではありません。'
 COVER_WARNING='宣言した独立遮蔽DEFモデルを使用しています。実ゲームの遮蔽基礎DEF・レベル曲線を確認した意味ではありません。'
 AMMO_WARNING='宣言した敵弾倉モデルを使用しています。実ゲームの弾数・再装填規則を確認した意味ではありません。'
+RANGE_WARNING='宣言した名前付き範囲・対象数モデルを使用しています。実ゲームの基礎半径・形状・距離順位を確認した意味ではありません。'
 MOVEMENT_WARNING='宣言したADD移動・座標モデルと共通サンプリング規約を使用しています。実ゲームの位置・範囲・移動優先規則を確認した意味ではありません。'
 
 def warning(declarations):
-    return ' '.join(text for key,text in [('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING),('cover_defense',COVER_WARNING),('enemy_ammo',AMMO_WARNING),('enemy_movement',MOVEMENT_WARNING)] if key in declarations)
+    return ' '.join(text for key,text in [('enemy_healing',WARNING),('weighted_incoming',WEIGHTED_WARNING),('cover_defense',COVER_WARNING),('enemy_ammo',AMMO_WARNING),('enemy_movement',MOVEMENT_WARNING),('named_range',RANGE_WARNING)] if key in declarations)
 
 def normalize(value):
     if value is None:return {}
-    if type(value) is not dict or set(value)-{'enemy_healing','weighted_incoming','cover_defense','enemy_ammo','enemy_movement'}:
-        raise ValueError('reference_modelsには接続済みのenemy_healing／weighted_incoming／cover_defense／enemy_ammo／enemy_movementだけを指定してください。')
+    if type(value) is not dict or set(value)-{'enemy_healing','weighted_incoming','cover_defense','enemy_ammo','enemy_movement','named_range'}:
+        raise ValueError('reference_modelsには接続済みのenemy_healing／weighted_incoming／cover_defense／enemy_ammo／enemy_movement／named_rangeだけを指定してください。')
     if 'enemy_ammo' in value and len(value)!=1:raise ValueError('Enemy magazine composition requires a combined checked native consumer')
     if 'enemy_movement' in value and len(value)!=1:raise ValueError('Movement composition requires a combined checked native consumer')
+    if 'named_range' in value and len(value)!=1:raise ValueError('Named range composition requires a combined checked native consumer')
     result={}
     if 'enemy_healing' in value:
         from enemy_healing_model import normalize as healing
@@ -43,6 +45,9 @@ def normalize(value):
     if 'enemy_movement' in value:
         from product_movement_model import normalize as movement
         result['enemy_movement']=movement(value['enemy_movement'])
+    if 'named_range' in value:
+        from product_named_range_model import normalize as named_range
+        result['named_range']=named_range(value['named_range'])
     return result
 
 def healing_public(data):
@@ -90,6 +95,10 @@ def execution(declarations,names=None):
             from product_movement_model import execution as movement_execution
             movement=stack.enter_context(movement_execution(declarations['enemy_movement']))
         else:movement=None
+        if 'named_range' in declarations:
+            from product_named_range_model import execution as range_execution
+            named=stack.enter_context(range_execution(declarations['named_range']))
+        else:named=None
         yield result
     if healing is not None:result['enemy_healing']=healing_public(healing)
     if weighted is not None:result['weighted_incoming']=copy.deepcopy(weighted)
@@ -98,3 +107,6 @@ def execution(declarations,names=None):
     if movement is not None:
         from product_movement_model import public
         result['enemy_movement']=public(movement)
+    if named is not None:
+        from product_named_range_model import public
+        result['named_range']=public(named)

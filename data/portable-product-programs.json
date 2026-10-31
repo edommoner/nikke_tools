@@ -182,6 +182,13 @@
       "output_words": 2032000,
       "mode": "accumulate",
       "kind": ""
+    },
+    "named-range-accumulate": {
+      "source": "gpu/product_named_range_battle_entry.slang",
+      "input_words": 116224,
+      "output_words": 2032000,
+      "mode": "accumulate",
+      "kind": ""
     }
   }
 }

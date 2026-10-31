@@ -346,8 +346,9 @@ def evaluate(body):
             from portable_declared_manual_sequences import apply as manual_cover
             run.squad=manual_cover(run.squad,body['manual_cover_sequences'])
         if part_patterns:run.enemy['patterns']=copy.deepcopy(part_patterns)
-        if 'enemy_movement' in declared_models:
-            run.enemy['coord']=copy.deepcopy(declared_models['enemy_movement']['coord'])
+        coordinate_model=next((declared_models[k] for k in ('enemy_movement','named_range') if k in declared_models),None)
+        if coordinate_model is not None:
+            run.enemy['coord']=copy.deepcopy(coordinate_model['coord'])
         for char in run.squad:
             if char['name'] in no_cube:
                 char['cube'] = {'name': '__none__', 'level': 1}
@@ -365,7 +366,7 @@ def evaluate(body):
         if body.get('_compile_gpu'):
             from gpu_combat import compile_run
             return compile_run(run, changed, body)
-        if 'enemy_movement' in declared_models:
+        if coordinate_model is not None:
             run.expected=False
             run.config['rng_mode']='random'
         with reference_execution(declared_models,squad) as model_result:

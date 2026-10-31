@@ -9,6 +9,67 @@ from runner import sim
 from product_reference_models import normalize,execution,WARNING
 
 class ProductReferenceModels(unittest.TestCase):
+    def test_named_range_product_consumes_original_count_and_range_modifiers(self):
+        from portable_named_range_battle_cases import fixtures
+        from portable_runtime import UnsupportedPortable
+        from portable_backend import validate_composed_stride
+        import portable_detail as product
+        aliases=(timeline.simulate,sim.simulate,timeline.random.getstate())
+        results={}
+        for case in fixtures():
+            body=copy.deepcopy(case['body']);body['reference_models']={'named_range':dict(coord=case['coord'],logical_geometry=case['logical_geometry'],rules=case['named_range_rules'])}
+            original=copy.deepcopy(body)
+            with patch.object(sim,'execute',side_effect=AssertionError('No CPU target selection before GPU')):
+                prepared,run=product.prepare(body);before=copy.deepcopy(prepared)
+                source,iw,ow,words,meta=product.compile_product(prepared)
+            self.assertEqual(prepared,before);self.assertEqual((source,iw,ow),('gpu/product_named_range_battle_entry.slang',116224,2032000))
+            validate_composed_stride(source,iw,ow)
+            with self.assertRaises(ValueError):validate_composed_stride(source,iw-1,ow)
+            self.assertFalse(meta['product_named_range']['cpu_state_or_schedule_supplied']);self.assertFalse(run.expected)
+            response=engine_worker.evaluate(body);casts=response['reference_models']['named_range']['casts']
+            self.assertFalse(response['expected']);self.assertEqual(body,original)
+            self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
+            self.assertTrue(any(c['percent']==500 and c['capacity']==3 for c in casts))
+            results[case['contract']['scenario']]=sum(c['add_count'] for c in casts)
+            with self.assertRaisesRegex(UnsupportedPortable,'fixed burst'):
+                product.compile_product(dict(prepared,policies={**prepared['policies'],'config':{**prepared['policies']['config'],'burst_gauge_mode':'fixed'}}))
+        self.assertGreater(results['expanded'],results['small-base-control'])
+        self.assertGreater(results['expanded'],results['retirement'])
+
+    def test_named_range_unknown_binding_and_composition_fail_and_restore_native(self):
+        from portable_named_range_battle_cases import fixtures
+        c=fixtures()[0];spec=dict(coord=c['coord'],logical_geometry=c['logical_geometry'],rules=c['named_range_rules'])
+        with self.assertRaisesRegex(ValueError,'combined checked'):
+            normalize({'named_range':spec,'enemy_healing':[]})
+        aliases=(timeline.simulate,sim.simulate,timeline.random.getstate())
+        body=copy.deepcopy(c['body']);bad=copy.deepcopy(spec);bad['rules'][0]['effect']='not-an-original-effect';body['reference_models']={'named_range':bad}
+        with self.assertRaisesRegex(ValueError,'owner/effect binding'):engine_worker.evaluate(body)
+        self.assertEqual(aliases,(timeline.simulate,sim.simulate,timeline.random.getstate()))
+
+    def test_named_range_decoder_rejects_reserved_partial_and_capacity_corruption(self):
+        from portable_product_named_range import read_result
+        from portable_named_range_battle_wire import OUTPUT,OUT,OUT_HEADER,MAGIC
+        from portable_runtime import UnsupportedPortable
+        b=array.array('I',[0])*OUTPUT;b[OUT:OUT+3]=array.array('I',[MAGIC,1,1]);at=OUT+OUT_HEADER
+        def number(offset,value):b[at+offset:at+offset+2]=array.array('I',struct.unpack('<II',struct.pack('<d',value)))
+        number(4,1.);number(8,1.);number(10,1.);b[at+12]=b[at+13]=2;b[at+16]=1;b[at+17]=1
+        rule=dict(owner='owner',effect='damage',base_radius=1.,base_count=2)
+        meta=dict(product_named_range=dict(names=['owner'],declarations={'named_range':dict(rules=[rule])}),named_range_battle=dict(bindings=[dict(row=0,owner='owner',effect='damage')]))
+        result=read_result(b,meta,1.);self.assertEqual(result['named_range']['casts'][0]['add_count'],1)
+        for offset,value in [(OUT,0),(OUT+2,513),(at+1,5),(at+13,3),(at+16,3),(at+22,1),(at+32,1),(at+7,0x7ff80000)]:
+            bad=array.array('I',b);bad[offset]=value
+            with self.subTest(offset=offset),self.assertRaises(UnsupportedPortable):read_result(bad,meta,1.)
+        with self.assertRaises(UnsupportedPortable):read_result(b[:-1],meta,1.)
+
+    def test_named_range_standalone_cpu_worker_uses_shared_coordinate_context(self):
+        import json,subprocess
+        from portable_product_programs import body_for_program
+        body=body_for_program(ROOT,'named-range-accumulate');body['action']='evaluate'
+        process=subprocess.run([sys.executable,str(ROOT/'app/engine_worker.py')],input=json.dumps(body),text=True,capture_output=True,timeout=30)
+        self.assertEqual(process.returncode,0,process.stdout+process.stderr)
+        response=json.loads(process.stdout);self.assertFalse(response['expected'])
+        self.assertEqual(len(response['reference_models']['named_range']['casts']),54)
+
     def test_movement_product_uses_checked_native_clock_and_literal_shared_input(self):
         from portable_enemy_movement_cases import fixtures
         from portable_runtime import UnsupportedPortable

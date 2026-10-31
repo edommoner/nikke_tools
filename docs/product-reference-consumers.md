@@ -102,3 +102,11 @@ Bay4段階とソルジャーO.W.の既定30秒・固定周期要求を、モデ�
 通常HTTP→実M5のユニ停止／ヤン強制移動／世代更新／重複2優先規則の計2profile・5条件でCPU全応答一致。各3602frame、3598〜3608segmentを保存rawから全再投影し、追加native／GPU0で一致。readerはactor・世代・連続区間・有限量・予約word・最終state・未使用tailを検査し、既存4096上限を超えれば切り捨てず拒否する。初版wire登録漏れのGPU前拒否、起動前送信失敗、単独CPU import失敗を保持。ユニ先頭の成功と残4件はhost preload修正前後の別source snapshotとして区別する。集約は `research/product-enemy-movement-v1.json`。
 
 共通CLIの既存product-detailへmovement-accumulateを登録（新suite0）。通常API5条件に加え、a20cde3aの固定owner715db434…自身の96unit／fresh native1／実M5計算と別fresh GPU禁止sealが成功。旧v7を保持したv8へmovement-accumulateだけ追加。元25programの登録期待値は変更しない。unit96＋server10成功。専用4384を停止、ユーザー4317／4327未操作、Windows追加依頼0。ゲームの位置・範囲・移動優先は未確定の宣言で、既定固定profileの未対応数を減らさない。fixed移動、複数consumer、Heavy Arms、Rei、全catalog現source／CUDAの確認は未完了。全目標を維持する。
+
+## 2026-10-31 製品の名前付き範囲・対象数を接続
+
+Rei variant（레이 (가칭)）とAsuka WILLEを含む1編成の宣言モデルを通常APIへ接続した。既存NamedRangeBattle・range/count reader・凍結queue・ActorPoolを共通CUDA/Metal入口から再利用し、元の＋500%／＋1を実cast生成時に読む。基礎半径・BODY/ADD形状はliteral宣言で、CPUの選択結果・capacity・damage・予定時刻をGPU入力にしない。ユニ／ヤンとproduct_coordinate_modelの座標・group・sampling contextを共有し、数値provider／pinned upstreamは変更0。単独CPU workerと例外復元も検査する。
+
+通常HTTP→実M5のexpanded／small-base-control／late-spawn／retirementの4条件が全CPU payload一致。各54cast中52で500%／capacity3を読み、半径対照と退場で実選択数が変わった。保存raw再投影4もnative／GPU追加0。publicはcast全数量・BODY位置・ADD数を返し、private observerの候補距離／landing観測全体を返したとは主張しない。元private比較器・期待値は保持する。共有helper化後の旧移動5条件もinput全byte／GPU source／raw SHA／計算応答を保存結果から照合し、VCS evaluator stampだけを別記した。これは新GPU証明への読み替えではない。
+
+共通CLI既存product-detailにnamed-range-accumulateを登録し、新suite0。通常APIの成功をCLI独立seal／CUDA成功に数えない。root99unit＋単独worker追加テスト／server10成功、固定packetによるfresh100unit/nativeとMetal/独立sealは次工程。専用4384停止、ユーザー4317／4327未操作、Windows追加依頼0。default形状・fixed・複数consumer・Heavy Arms・全catalog現source／CUDAは未完了。静的モデル監査の不足5statは広い未完了scopeとして保持する。証跡はresearch/product-named-range-v1.json。全目標を継続する。

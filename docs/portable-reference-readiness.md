@@ -1,3 +1,7 @@
+## 2026-10-31 名前付き範囲・対象数の製品Metal
+
+Rei variant／Asuka WILLEを含む1編成の明示形状モデルで通常API4条件がM5／CPU全応答一致。＋500%と対象数＋1を共有cast consumerへ接続した。default Reiの全条件対応やCUDA成功は示さない。数値・座標contextは移動と共有。詳細research/product-named-range-v1.json。
+
 ## 2026-10-31 宣言ADD移動の製品Metal実証
 
 ユニ／ヤンの明示座標・移動モデルを通常APIへ接続し、M5の2profile／5条件がCPU全応答と一致。既定の未知形状・優先規則は補わず、残る固定profileを対応済みへ数えない。CUDA0、固定移動／合成／Heavy Arms／Rei／全catalog現sourceは未完了。詳細 `research/product-enemy-movement-v1.json`。
